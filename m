@@ -4,114 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8489C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:32:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46FE6C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:34:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:CC:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xS/c2OWjF/odcrpnrmcuWM+KrdapIB6JqW1w7ffcSTM=; b=3RBf9rm3cBlXqyYTXAUZxbQAlX
-	bFAMuSIJXlcsGpc2y8T3Vgnx4se3UvwryVLkC6W82UNQ6HhpCUgOh6dmXSYsGejtsmkXZEtaXCgjV
-	3vKW6Lycy1pABbkalL13NlZiGYJo1nlXHD3Nr+OVMCBR+BXkE2Vj3YQaC1vmgivQ311q/Yx+MdqFA
-	2dioMhtXv8ssx2ML/UCh58pp8AbAGJ+++0Sx82e+yrvnTZbew/e6QwjDOUNBAITFHhYTj+tvvJ+Uc
-	gt/oFRtLdrMUQScYvykzK/7Dbhchkp7qmy0H1AUFr3pphmssqoOUNiQeBWn27l5MO0oG6KzNnPMUz
-	/ZRw5EyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m2fYm5cJk3mUwObfRwx9NEss8EiojDmyTGH8I1ncS7w=; b=DNNy2zbBLtLSRxCsV2V7ACPmnY
+	SzDmcpiVpllKWKCbUBT/F4sE6R3jnaxxUgUyukSadUNOqfns5jnyHLfEMTu8tzo0PRtFx94BOCAEx
+	7uxd/1Vp/aWlqOIMEzYa0Is+PsQ7JX5euPNwm5NxXehgJdc7HkO8lNJ/Rm//Wuw6WvlE49ldSF01Z
+	w1Dx5qCXiUACSb/nWVH9apRdUlAq44kR7AOuK4Ai0UWY9HU+TGwJ4RX1mhIE8Tak3O7X7xYKW9sLv
+	LoIWB9TczxD4Ka0KoKGFVLIXTpNYdb2cICAXlYp64UGUIs2YuWMYTIs07Mf4LpUp6Q4GLPgGuc8Lj
+	7wD1y+Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7zUf-0000000Ekwl-1GN9;
-	Thu, 24 Apr 2025 16:32:09 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1u7zWM-0000000ElM8-2wW9;
+	Thu, 24 Apr 2025 16:33:54 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7z9P-0000000Eh47-2viJ;
-	Thu, 24 Apr 2025 16:10:13 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53OCIEXH002237;
-	Thu, 24 Apr 2025 18:09:41 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	id 1u7zCJ-0000000EhX7-1VSq
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Apr 2025 16:13:13 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53OC3FRs016629;
+	Thu, 24 Apr 2025 16:12:52 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	xS/c2OWjF/odcrpnrmcuWM+KrdapIB6JqW1w7ffcSTM=; b=lkcNnvNvH3Y4ByzV
-	2xdkf8jvnuqm2xAX5NncjVhbS9sPbbWDkWN+8PNPuw1Jb2yDcLBl5/X1OBw+Gbi+
-	yL6UK0ojK5xWIg9O67qKpFOrIBH+lL7wj73r0lpR+2nzoedKVwqlTOV3+4AAqM1t
-	XH2yszQ9E985pznh7VRPbuKcl4HTWPceHELiyEs8oLieQdwI1TwLKR8/PlI4B24a
-	bKkm8tK7+aTLc7lVPrgkW6PdrBrW/C7kZwntzuRuy2CWDHXgDtXoa2D5b2ukbpG6
-	BheCKxuJtGgK+iY9E9wtURIBQXlCSfy5jlpxKF6/oxTsti3RrWTOMazcJUHQTCuf
-	k45zIQ==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 466jjygjeu-1
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	m2fYm5cJk3mUwObfRwx9NEss8EiojDmyTGH8I1ncS7w=; b=G8d5amNzs21FxE6y
+	KWrAAsMNFAZbDf1kD/BAVZQd58v6X9k5w0VnaewapXrwQwlU5YGvK0WYnnTWQHKU
+	1Ez2LwtU3XWJfpPD8Utex/RBvmdJnwyCZYLRfKtP+3sXybiBBPMfLpiMc4gwAdNN
+	HZjI/G4/U85auTHg1WQU46gXDR3rVYIXLDZg2o0FD2JDpIfCzH5HBglaK4omJMbh
+	co5blnxRbVHVKIqxBlgUj1zyrB8rzBCeijVc58jGgdbVs6xOeo67Rinh8pIidWvg
+	cjmPuonkguSsQLMHORRbeVP1Jlk5blsS/9+3AMCXPaPmFBQUcyRP6YsZKse/zV+g
+	AK5MeQ==
+Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 466jh269h4-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 24 Apr 2025 18:09:41 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 5168940082;
-	Thu, 24 Apr 2025 18:07:05 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 345169D0185;
-	Thu, 24 Apr 2025 18:04:50 +0200 (CEST)
-Received: from [192.168.8.15] (10.48.86.132) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 24 Apr
- 2025 18:04:48 +0200
-Message-ID: <b768bd1b6bfe3bef28278b85ace87230a67b904e.camel@foss.st.com>
-Subject: Re: [Linux-stm32] [PATCH 05/12] pinctrl: stm32: use new GPIO line
- value setter callbacks
-From: Antonio Borneo <antonio.borneo@foss.st.com>
-To: Bartosz Golaszewski <brgl@bgdev.pl>,
-        Basavaraj Natikar
-	<Basavaraj.Natikar@amd.com>,
-        Shyam Sundar S K <Shyam-sundar.S-k@amd.com>,
-        Linus Walleij <linus.walleij@linaro.org>, Chen-Yu Tsai <wens@csie.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Andreas =?ISO-8859-1?Q?F=E4rber?=
-	<afaerber@suse.de>,
-        Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-        Paul Cercueil <paul@crapouillou.net>,
-        Steen Hegelund
-	<Steen.Hegelund@microchip.com>,
-        Daniel Machon <daniel.machon@microchip.com>,
-        <UNGLinuxDriver@microchip.com>,
-        "Ludovic Desroches"
-	<ludovic.desroches@microchip.com>,
-        Nicolas Ferre
-	<nicolas.ferre@microchip.com>,
-        Alexandre Belloni
-	<alexandre.belloni@bootlin.com>,
-        Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-        Andrew Lunn <andrew@lunn.ch>,
-        Gregory Clement <gregory.clement@bootlin.com>,
-        Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-        Krzysztof Kozlowski
-	<krzk@kernel.org>,
-        Sylwester Nawrocki <s.nawrocki@samsung.com>,
-        Alim Akhtar
-	<alim.akhtar@samsung.com>
-CC: <linux-samsung-soc@vger.kernel.org>,
-        Bartosz Golaszewski
-	<bartosz.golaszewski@linaro.org>,
-        <linux-actions@lists.infradead.org>, <linux-mips@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-Date: Thu, 24 Apr 2025 18:04:47 +0200
-In-Reply-To: <20250424-gpiochip-set-rv-pinctrl-part2-v1-5-504f91120b99@linaro.org>
-References: <20250424-gpiochip-set-rv-pinctrl-part2-v1-0-504f91120b99@linaro.org>
-	 <20250424-gpiochip-set-rv-pinctrl-part2-v1-5-504f91120b99@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: base64
-User-Agent: Evolution 3.48.4 
+	Thu, 24 Apr 2025 16:12:52 +0000 (GMT)
+Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
+	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53OGCpa7014068
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 24 Apr 2025 16:12:51 GMT
+Received: from [10.110.125.18] (10.80.80.8) by nasanex01a.na.qualcomm.com
+ (10.52.223.231) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 24 Apr
+ 2025 09:12:50 -0700
+Message-ID: <75478fa1-77b9-4e1a-94e1-6907da7b03b8@quicinc.com>
+Date: Thu, 24 Apr 2025 09:12:49 -0700
 MIME-Version: 1.0
-X-Originating-IP: [10.48.86.132]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE1.st.com
- (10.75.129.69)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 00/34] Running Qualcomm's Gunyah Guests via KVM in EL1
+To: Oliver Upton <oliver.upton@linux.dev>,
+        Karim Manaouil
+	<karim.manaouil@linaro.org>
+CC: <linux-kernel@vger.kernel.org>, <kvm@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+        Alexander Graf <graf@amazon.com>, Alex Elder
+	<elder@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Fuad Tabba
+	<tabba@google.com>, Joey Gouly <joey.gouly@arm.com>,
+        Jonathan Corbet
+	<corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+        Mark Brown
+	<broonie@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+        Paolo Bonzini
+	<pbonzini@redhat.com>,
+        Prakruthi Deepak Heragu <quic_pheragu@quicinc.com>,
+        Quentin Perret <qperret@google.com>, Rob Herring <robh@kernel.org>,
+        "Srinivas
+ Kandagatla" <srini@kernel.org>,
+        Srivatsa Vaddagiri
+	<quic_svaddagi@quicinc.com>,
+        Will Deacon <will@kernel.org>,
+        Haripranesh S
+	<haripran@qti.qualcomm.com>,
+        Carl van Schaik <cvanscha@qti.qualcomm.com>,
+        Murali Nalajala <mnalajal@quicinc.com>,
+        Sreenivasulu Chalamcharla
+	<sreeniva@qti.qualcomm.com>,
+        Trilok Soni <tsoni@quicinc.com>,
+        Stefan Schmidt
+	<stefan.schmidt@linaro.org>
+References: <20250424141341.841734-1-karim.manaouil@linaro.org>
+ <aApaGnFPhsWBZoQ2@linux.dev>
+Content-Language: en-US
+From: Trilok Soni <quic_tsoni@quicinc.com>
+In-Reply-To: <aApaGnFPhsWBZoQ2@linux.dev>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01a.na.qualcomm.com (10.52.223.231)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Authority-Analysis: v=2.4 cv=EtLSrTcA c=1 sm=1 tr=0 ts=680a6304 cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=Is-ihHZF1yIjBAXmSsYA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: 55dCfyNhftS-2YWHt7GAvMiwMYPx2D9y
+X-Proofpoint-ORIG-GUID: 55dCfyNhftS-2YWHt7GAvMiwMYPx2D9y
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI0MDExMSBTYWx0ZWRfX61Lzpnir4GvW a7cJmVamFUabluoXWJ6BK2jcPXgg8kFSeQB7lNLcwVqiipHU5Zf0tYtXokJQrxkGd6vdibMRhB3 +yjk7k61b5guLM61T85iaBo6G8cV2sUcJJOx7fUBr3SCwMlvuhr3GtFB9p4BavDvZ8/YNxl7Pv4
+ kfSNAiRreWxvN172yqBYFAfnV1754cBD99jrHuegQ0jkI4Ll84JPhMmfPNDb7VVHApmwosGglCl xBBSC5iniMlR9SNTAbpJ3ohBJMtK/0GXLGUIGr2vorM8E1q++3zIhhvn11yTx7nRa7KbRc8hX+c lWN1fbyqbymnzA/mBEFdz2TS9Ip+QCaA1Cg7nRj5clGzbIcoft9O7IRhVQE9n+xBr8XxAtoNhXj
+ Z7AsCEHlqKWVM+yCKYEEBCT9nrP330P7C1RUDo2Wrp9PNiQSdx4OQpMhXJR5Yj35/lSyy5S6
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
  definitions=2025-04-24_07,2025-04-24_01,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 phishscore=0
+ suspectscore=0 mlxscore=0 clxscore=1011 spamscore=0 mlxlogscore=862
+ lowpriorityscore=0 malwarescore=0 priorityscore=1501 impostorscore=0
+ adultscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
+ definitions=main-2504240111
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_091012_038773_DD9D6FFC 
-X-CRM114-Status: GOOD (  16.52  )
+X-CRM114-CacheID: sfid-20250424_091311_408667_37B795DF 
+X-CRM114-Status: GOOD (  19.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,43 +134,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCAyMDI1LTA0LTI0IGF0IDEwOjM1ICswMjAwLCBCYXJ0b3N6IEdvbGFzemV3c2tpIHdy
-b3RlOgo+IEZyb206IEJhcnRvc3ogR29sYXN6ZXdza2kgPGJhcnRvc3ouZ29sYXN6ZXdza2lAbGlu
-YXJvLm9yZz4KPiAKPiBzdHJ1Y3QgZ3Bpb19jaGlwIG5vdyBoYXMgY2FsbGJhY2tzIGZvciBzZXR0
-aW5nIGxpbmUgdmFsdWVzIHRoYXQgcmV0dXJuCj4gYW4gaW50ZWdlciwgYWxsb3dpbmcgdG8gaW5k
-aWNhdGUgZmFpbHVyZXMuIENvbnZlcnQgdGhlIGRyaXZlciB0byB1c2luZwo+IHRoZW0uCj4gCj4g
-U2lnbmVkLW9mZi1ieTogQmFydG9zeiBHb2xhc3pld3NraSA8YmFydG9zei5nb2xhc3pld3NraUBs
-aW5hcm8ub3JnPgoKUmV2aWV3ZWQtYnk6IEFudG9uaW8gQm9ybmVvIDxhbnRvbmlvLmJvcm5lb0Bm
-b3NzLnN0LmNvbT4KCj4gLS0tCj4gwqBkcml2ZXJzL3BpbmN0cmwvc3RtMzIvcGluY3RybC1zdG0z
-Mi5jIHwgNyArKysrKy0tCj4gwqAxIGZpbGUgY2hhbmdlZCwgNSBpbnNlcnRpb25zKCspLCAyIGRl
-bGV0aW9ucygtKQo+IAo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL3BpbmN0cmwvc3RtMzIvcGluY3Ry
-bC1zdG0zMi5jIGIvZHJpdmVycy9waW5jdHJsL3N0bTMyL3BpbmN0cmwtc3RtMzIuYwo+IGluZGV4
-IGNjMGI0ZDFkN2NmZi4uYmE0OWQ0OGMzYTFkIDEwMDY0NAo+IC0tLSBhL2RyaXZlcnMvcGluY3Ry
-bC9zdG0zMi9waW5jdHJsLXN0bTMyLmMKPiArKysgYi9kcml2ZXJzL3BpbmN0cmwvc3RtMzIvcGlu
-Y3RybC1zdG0zMi5jCj4gQEAgLTIyOCwxMSArMjI4LDE0IEBAIHN0YXRpYyBpbnQgc3RtMzJfZ3Bp
-b19nZXQoc3RydWN0IGdwaW9fY2hpcCAqY2hpcCwgdW5zaWduZWQgb2Zmc2V0KQo+IMKgwqDCoMKg
-wqDCoMKgwqByZXR1cm4gISEocmVhZGxfcmVsYXhlZChiYW5rLT5iYXNlICsgU1RNMzJfR1BJT19J
-RFIpICYgQklUKG9mZnNldCkpOwo+IMKgfQo+IMKgCj4gLXN0YXRpYyB2b2lkIHN0bTMyX2dwaW9f
-c2V0KHN0cnVjdCBncGlvX2NoaXAgKmNoaXAsIHVuc2lnbmVkIG9mZnNldCwgaW50IHZhbHVlKQo+
-ICtzdGF0aWMgaW50IHN0bTMyX2dwaW9fc2V0KHN0cnVjdCBncGlvX2NoaXAgKmNoaXAsIHVuc2ln
-bmVkIGludCBvZmZzZXQsCj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoCBpbnQgdmFsdWUpCj4gwqB7Cj4gwqDCoMKgwqDCoMKgwqDCoHN0cnVjdCBzdG0z
-Ml9ncGlvX2JhbmsgKmJhbmsgPSBncGlvY2hpcF9nZXRfZGF0YShjaGlwKTsKPiDCoAo+IMKgwqDC
-oMKgwqDCoMKgwqBfX3N0bTMyX2dwaW9fc2V0KGJhbmssIG9mZnNldCwgdmFsdWUpOwo+ICsKPiAr
-wqDCoMKgwqDCoMKgwqByZXR1cm4gMDsKPiDCoH0KPiDCoAo+IMKgc3RhdGljIGludCBzdG0zMl9n
-cGlvX2RpcmVjdGlvbl9vdXRwdXQoc3RydWN0IGdwaW9fY2hpcCAqY2hpcCwKPiBAQCAtMzA4LDcg
-KzMxMSw3IEBAIHN0YXRpYyBjb25zdCBzdHJ1Y3QgZ3Bpb19jaGlwIHN0bTMyX2dwaW9fdGVtcGxh
-dGUgPSB7Cj4gwqDCoMKgwqDCoMKgwqDCoC5yZXF1ZXN0wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqA9IHN0bTMyX2dwaW9fcmVxdWVzdCwKPiDCoMKgwqDCoMKgwqDCoMKgLmZyZWXCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoD0gcGluY3RybF9ncGlvX2ZyZWUsCj4g
-wqDCoMKgwqDCoMKgwqDCoC5nZXTCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgPSBzdG0zMl9ncGlvX2dldCwKPiAtwqDCoMKgwqDCoMKgwqAuc2V0wqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoD0gc3RtMzJfZ3Bpb19zZXQsCj4gK8KgwqDCoMKgwqDC
-oMKgLnNldF9ydsKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqA9IHN0bTMyX2dwaW9f
-c2V0LAo+IMKgwqDCoMKgwqDCoMKgwqAuZGlyZWN0aW9uX2lucHV0wqDCoMKgwqDCoMKgwqDCoD0g
-cGluY3RybF9ncGlvX2RpcmVjdGlvbl9pbnB1dCwKPiDCoMKgwqDCoMKgwqDCoMKgLmRpcmVjdGlv
-bl9vdXRwdXTCoMKgwqDCoMKgwqDCoD0gc3RtMzJfZ3Bpb19kaXJlY3Rpb25fb3V0cHV0LAo+IMKg
-wqDCoMKgwqDCoMKgwqAudG9faXJxwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoD0g
-c3RtMzJfZ3Bpb190b19pcnEsCj4gCgo=
+On 4/24/2025 8:34 AM, Oliver Upton wrote:
+> On Thu, Apr 24, 2025 at 03:13:07PM +0100, Karim Manaouil wrote:
+>> This series introduces the capability of running Gunyah guests via KVM on
+>> Qualcomm SoCs shipped with Gunyah hypervisor [1] (e.g. RB3 Gen2).
+>>
+>> The goal of this work is to port the existing Gunyah hypervisor support from a
+>> standalone driver interface [2] to KVM, with the aim of leveraging as much of the
+>> existing KVM infrastructure as possible to reduce duplication of effort around
+>> memory management (e.g. guest_memfd), irqfd, and other core components.
+>>
+>> In short, Gunyah is a Type-1 hypervisor, meaning that it runs independently of any
+>> high-level OS kernel such as Linux and runs in a higher CPU privilege level than VMs.
+>> Gunyah is shipped as firmware and guests typically talk with Gunyah via hypercalls.
+>> KVM is designed to run as Type-2 hypervisor. This port allows KVM to run in EL1 and
+>> serve as the interface for VM lifecycle management,while offloading virtualization
+>> to Gunyah.
+> 
+> If you're keen on running your own hypervisor then I'm sorry, you get to
+> deal with it soup to nuts. Other hypervisors (e.g. mshv) have their own
+> kernel drivers for managing the host / UAPI parts of driving VMs.
+> 
+> The KVM arch interface is *internal* to KVM, not something to be
+> (ab)used for cramming in a non-KVM hypervisor. KVM and other hypervisors
+> can still share other bits of truly common infrastructure, like
+> guest_memfd.
+> 
+> I understand the value in what you're trying to do, but if you want it
+> to smell like KVM you may as well just let the user run it at EL2.
 
+I agree, this is not the approach Qualcomm would like to use. Our approach
+will be similar to Elliot Berman's patches (v17). We will revive
+that series once Faud's patches are accepted on guest_memfd. 
+
+-- 
+---Trilok Soni
 
