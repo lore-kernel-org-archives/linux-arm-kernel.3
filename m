@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E711C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 01:12:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76ABEC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 01:20:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NI1xg8TTW0MYxgOBzL/qUeG6pSTUpjBCRWuwkclL5UE=; b=m36/iIjh5F9lrSo2FLw++6ZArh
-	N04WHmOXzzONV6ybpWk+I+4ShJSk2HlJpQzaKaPW7BzxTrocu5j8rEX9hyinNLFEckFD3lxGc1AYo
-	byEH3wURDrC9LbTfKW4Xn3GqiN3X7w9AAtRGLQSbk28eZj10eXJOsoPgENMcUvaxUmCHeftwY7otn
-	EoXMsqvPvgYBonE5l4xmfviiRI1gQwfwqdlcvk2yPHa2qm1BYYp/wYA8yHB6la3OQYtlLTp5mmBDd
-	WHNRi8lK40xHmDGz8xqetkWHZF4rHRW4K9CLEvFHSUN2+bWX4JGu/MV0M2HyUERBkRQqdGodaCWSN
-	qrE1T0sQ==;
+	bh=tNSph/T31C8FG5rfikI+xhrxkhP6o3JYh8Bi++UbG6s=; b=z+B+osEIFqJoWOVU6hULIrTnOx
+	AFLBNlYx5RHvU0Xe4SlazTJey6F4XTpN8Jx/D/v1Yx+iJqPLyUtAy0hERmEUL7KUnFbBsGqFwI4hg
+	AdsWYOQjf2hDzLx5eo28GTBn6IJ5bR8cUdY5VNMVX4jYt+0Y+BpM4cRT1x4CYxXq9vPu7KT2r8xLN
+	gta08lCv7yvn/DzE1lzkhzKDfuS5qGFFCpVXNQmAl3f9gk4fSye9MYuV6rD1ME0t6H45HTtcmI0bL
+	xM15R53dkIoxxnLA3B6UzauC9WJw9KSSXiuUlbwuAmvAuiQqMpUP6mmLIB1VGeWuCzumOQDZbBRhy
+	xPd9/MsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7l8x-0000000CUYa-38Sp;
-	Thu, 24 Apr 2025 01:12:47 +0000
+	id 1u7lGb-0000000CVTp-05pW;
+	Thu, 24 Apr 2025 01:20:41 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7kmD-0000000CRLm-1w8h
+	id 1u7lEb-0000000CVGa-2zuC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 00:49:18 +0000
+	Thu, 24 Apr 2025 01:18:39 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E3D641063;
-	Wed, 23 Apr 2025 17:49:11 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C9F141063;
+	Wed, 23 Apr 2025 18:18:31 -0700 (PDT)
 Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7B7DD3F59E;
-	Wed, 23 Apr 2025 17:49:14 -0700 (PDT)
-Date: Thu, 24 Apr 2025 01:48:14 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 57A833F5A1;
+	Wed, 23 Apr 2025 18:18:34 -0700 (PDT)
+Date: Thu, 24 Apr 2025 02:17:26 +0100
 From: Andre Przywara <andre.przywara@arm.com>
 To: Yixun Lan <dlan@gentoo.org>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -45,19 +45,20 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  <pabeni@redhat.com>, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
  linux-kernel@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH 2/5] dt-bindings: arm: sunxi: Add A523 EMAC0 compatible
-Message-ID: <20250424014814.4f1d51f0@minigeek.lan>
-In-Reply-To: <20250423-01-sun55i-emac0-v1-2-46ee4c855e0a@gentoo.org>
+Subject: Re: [PATCH 5/5] arm64: dts: allwinner: t527: add EMAC0 to Avaoto-A1
+ board
+Message-ID: <20250424021706.22eaab66@minigeek.lan>
+In-Reply-To: <20250423-01-sun55i-emac0-v1-5-46ee4c855e0a@gentoo.org>
 References: <20250423-01-sun55i-emac0-v1-0-46ee4c855e0a@gentoo.org>
-	<20250423-01-sun55i-emac0-v1-2-46ee4c855e0a@gentoo.org>
+	<20250423-01-sun55i-emac0-v1-5-46ee4c855e0a@gentoo.org>
 Organization: Arm Ltd.
 X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_174917_550083_AF743340 
-X-CRM114-Status: GOOD (  13.97  )
+X-CRM114-CacheID: sfid-20250423_181837_800910_6B02DE95 
+X-CRM114-Status: GOOD (  17.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,38 +73,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Apr 2025 22:03:23 +0800
+On Wed, 23 Apr 2025 22:03:26 +0800
 Yixun Lan <dlan@gentoo.org> wrote:
 
-> Allwinner A523 SoC variant (A527/T527) contains an "EMAC0" Ethernet
-> MAC compatible to the A64 version.
+Hi,
+
+> On Avaoto A1 board, the EMAC0 connect to an external RTL8211F-CG PHY,
+
+The name would be "Avaota" A1 board.
+
+> which features a 25MHz crystal, and using PH8 pin as PHY reset.
 > 
 > Signed-off-by: Yixun Lan <dlan@gentoo.org>
+> ---
+> I don't own this board, only compose this patch according to the
+> schematics. Let me know if it works.
+> ---
+>  arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts | 17 +++++++++++++++++
+>  1 file changed, 17 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
+> index 85a546aecdbe149d6bad10327fca1fb7dafff6ad..23ab89c742c679fb274babbb0205f119eb2c9baa 100644
+> --- a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
+> +++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
+> @@ -64,6 +64,23 @@ &ehci1 {
+>  	status = "okay";
+>  };
 
-I can confirm that the register and DMA descriptor layout in the
-manual looks the same as for the A64, and the driver also works, so:
+As for the Radxa board, we need an alias for ethernet0.
 
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+>  
+> +&emac0 {
+> +	phy-mode = "rgmii";
+
+As Andrew mentioned, this should probably be "rgmii-id".
+
+> +	phy-handle = <&ext_rgmii_phy>;
+
+Can you please add the phy-supply here, it's reg_dcdc4.
 
 Cheers,
 Andre
 
-> ---
->  Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml b/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
-> index 7fe0352dff0f8d74a08f3f6aac5450ad685e6a08..7b6a2fde8175353621367c8d8f7a956e4aac7177 100644
-> --- a/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
-> +++ b/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
-> @@ -23,6 +23,7 @@ properties:
->                - allwinner,sun20i-d1-emac
->                - allwinner,sun50i-h6-emac
->                - allwinner,sun50i-h616-emac0
-> +              - allwinner,sun55i-a523-emac0
->            - const: allwinner,sun50i-a64-emac
->  
->    reg:
+> +
+> +	allwinner,tx-delay-ps = <100>;
+> +	allwinner,rx-delay-ps = <300>;
+> +
+> +	status = "okay";
+> +};
+> +
+> +&mdio0 {
+> +	ext_rgmii_phy: ethernet-phy@1 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <1>;
+> +	};
+> +};
+> +
+>  &mmc0 {
+>  	vmmc-supply = <&reg_cldo3>;
+>  	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_DOWN)>; /* PF6 */
 > 
 
 
