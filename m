@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59E71C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 19:12:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D7EBC369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 19:12:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J3nsr2WcThpiN8HjFFto6IPGsd85QeLC6r00440m0M4=; b=cwc7L3wR83V+9Wzym8meEv/9EW
-	Y8e45clzX6OM5LTXoI8/3bTtXuG5H32rTjSDnTmFRePDxtOVnXKG2eo/9YBOtFOM99pOYQGbYkeqa
-	hPiQ1hbuX4jHC/21VnOWslpk6HSLKUyXgfsWER6aBm+FwQsBZdlQRO9ZYiW+wRESGGAQFapeQtfUf
-	T89tjqMl3AnDSgZdIwglxFuz0LOHSc9IK79Vt4Kia/KqExSSacyJ6O4xjCAJ3mRNqw5apLnJtyqTB
-	+MWjp4BAdZdCIgt50rQxiupOVjayt6jsqDZP098du0MGvxv6LGZTs0nUmaRe0cylRfU/GHuRsYFLh
-	8YpEKc0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=5xbRlmm2bg6X6lzMBn4zN/H76kLu4hf67UQ/35KC2So=; b=mRHLiTLPXKZD+N
+	ODxuoFaqLN8kgQ5eWamKbHytVPNBIIwe213dBVXnc7dKvO9ghsum7iWxQn+RuoEBIIUQBPe2FG+df
+	WwVEYqYwIKRP2B4dw1dJA6rm85Yw5GVPSRoAs2NWYsTqkW95mUnxAbnDLu3LIhi9jKrPhFGSnfEmo
+	heBjs5FVKuAE6RMqOMsWRRHqpSWfNR5DfxMIS8ikm8zgOEzQMKYpYYJskpIMtMijTSjC8KqaowC08
+	EgcQGq1BNwBRUjnko1y57BxUGucprvhpZO5WnzI0j5wAfJFf2IbWd8cCeFvUTOsSaQMzBEvnXeWhZ
+	XG0mwatFuRflDjdrvbNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u81zf-0000000F8Mz-1fO1;
-	Thu, 24 Apr 2025 19:12:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u81zi-0000000F8PA-346D;
+	Thu, 24 Apr 2025 19:12:22 +0000
+Received: from sender3-pp-f112.zoho.com ([136.143.184.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u80k8-0000000Ex4W-1Qk2
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 24 Apr 2025 17:52:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=J3nsr2WcThpiN8HjFFto6IPGsd85QeLC6r00440m0M4=; b=a3o3KIAjTCPnQs2/mupQkQcQhg
-	Nk0Xy3T1L44PpyhHq6OtSk0Ie4GW5aU7jOn5JELggjDGBY591btwKmp+C0Bya3d4NJwMvku0Y7ukF
-	lcoTnrb7wi/tKR5IYoN99UNWnoLUbx3ltRDGh59h07zT5fDqh+BnPriB0s6wH/wtsVFmwIsEC+Eeu
-	7iIgsjk/hvIKvdDpAixIQ/ngdCJq+Cj9eCo1t2QX5MZ1g/3oqRPRvKrsTxWmmac9baelbShVDZRhm
-	cIP9mbLZhEqxVkm0Vf5E9CTkqY18QcKzk//XvJJKSJYrojGCWfIiTsvBG7OfgTf3xD7+eDOK4D/2n
-	mFYGjJvQ==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u80k5-0000000BtDR-0S0H
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 17:52:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 28155A4D053;
-	Thu, 24 Apr 2025 17:46:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF7E8C4CEEC;
-	Thu, 24 Apr 2025 17:52:05 +0000 (UTC)
-Received: from wens.tw (localhost [127.0.0.1])
-	by wens.tw (Postfix) with ESMTP id 39AB95FE68;
-	Fri, 25 Apr 2025 01:52:03 +0800 (CST)
-From: Chen-Yu Tsai <wens@csie.org>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
- Samuel Holland <samuel@sholland.org>, 
- Andre Przywara <andre.przywara@arm.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org
-In-Reply-To: <20250416100006.82920-1-amadeus@jmu.edu.cn>
-References: <20250416100006.82920-1-amadeus@jmu.edu.cn>
-Subject: Re: [PATCH 1/1] arm64: dts: allwinner: correct the model name for
- Radxa Cubie A5E
-Message-Id: <174551712323.4050580.15085872783453662439.b4-ty@csie.org>
-Date: Fri, 25 Apr 2025 01:52:03 +0800
+	id 1u81gi-0000000F5FV-3cPn;
+	Thu, 24 Apr 2025 18:52:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1745520751; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=nj0gHv9l+M8l+v+HmXeshUTdo1OdA7CMnRQy54oxYs8WP/6cFvf2K5sDgdqnDKHn3+LvQHZRS5SxAmR5ho1QTNP6I+POHrXSxlBSTfKRGZVsC7pGQZ8Of1YZUY1pbWgRFAfDF/osjlw+R9hHqmGRL5Nh40KVL+KdGgB264fxqAI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1745520751; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=5xbRlmm2bg6X6lzMBn4zN/H76kLu4hf67UQ/35KC2So=; 
+	b=MLsWHL9WC67oOHJu5wW/CMK6rOFCACQsG40HRV5cQoWYkB2u72jKyfPZF1iYz44hRf3lzrufiNHBBtZmbMRzjQOm0GRLWKbs+GTx2Vr2DeLga8rWNVYGnq0qJo1toosEjA12mLMrkfcguPMjVwOygom5kMMjOuC1Df3hkKCC7po=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1745520751;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
+	bh=5xbRlmm2bg6X6lzMBn4zN/H76kLu4hf67UQ/35KC2So=;
+	b=AvPhEc7kVOXGVuSOHUoz4AK4k4vbRTiT6gmVRMq+MbhWMdLT80f2wr5DrS3RSATa
+	JdetpN8KgmYtg2LHGpALTEHvgYQTvj4u3OgwUCLGoRICJziKAIYAnJur/bKRdN2DGO2
+	AL2iEUsSqL+sYfmyvhp4OYr4mExw72TZwECPZpwc=
+Received: by mx.zohomail.com with SMTPS id 1745520750292268.9096442049322;
+	Thu, 24 Apr 2025 11:52:30 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Subject: [PATCH 0/2] RK3576 SATA Enablement
+Date: Thu, 24 Apr 2025 20:52:21 +0200
+Message-Id: <20250424-rk3576-sata-v1-0-23ee89c939fe@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGWICmgC/yXMQQ7CIBCF4auQWTsGKGDsVUwXgKNOTFsdsDFpe
+ neJXX4vef8KhYSpQK9WEFq48Dw1mIOC/IjTnZCvzWC19dpZh/Ls/ClgiTViMtoma8idY4D2eAn
+ d+PuvXYbdQu9Pi9Z9hBQLYZ7HkWuvlnA0HiV3MGzbD5zvrIGKAAAA
+X-Change-ID: 20250424-rk3576-sata-b102b21e49a6
+To: Damien Le Moal <dlemoal@kernel.org>, Niklas Cassel <cassel@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Serge Semin <fancer.lancer@gmail.com>
+Cc: kernel@collabora.com, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ linux-ide@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_185209_305069_CEE6082B 
-X-CRM114-Status: UNSURE (   6.48  )
+X-CRM114-CacheID: sfid-20250424_115244_998305_D5A71D6B 
+X-CRM114-Status: UNSURE (   8.13  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,20 +86,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 16 Apr 2025 18:00:06 +0800, Chukun Pan wrote:
-> According to https://radxa.com/products/cubie/a5e,
-> the name of this board should be "Radxa Cubie A5E".
-> This is also consistent with the dt-bindings.
-> 
-> 
+This is a tiny series to enable SATA on RK3576. It consists of a patch
+to add the compatible to the bindings, and a second patch to add the
+nodes to the SoC .dtsi.
 
-Applied to dt-for-6.16 in git@github.com:linux-sunxi/linux-sunxi.git, thanks!
+I've only been able to test sata0 on my board (Sige5), but the
+successful test gave me confidence that downstream's "dma-coherent"
+property here is appropriate and true.
 
-[1/1] arm64: dts: allwinner: correct the model name for Radxa Cubie A5E
-      commit: 1e5a69d67d1b3c55c9b0cd3933af1436b5d52aa1
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+Nicolas Frattaroli (2):
+      dt-bindings: ata: rockchip-dwc-ahci: add RK3576 compatible
+      arm64: dts: rockchip: add SATA nodes to RK3576
+
+ .../devicetree/bindings/ata/rockchip,dwc-ahci.yaml |  3 +++
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi           | 30 ++++++++++++++++++++++
+ 2 files changed, 33 insertions(+)
+---
+base-commit: f34da179a4517854b2ffbe4bce8c3405bd9be04e
+change-id: 20250424-rk3576-sata-b102b21e49a6
 
 Best regards,
 -- 
-Chen-Yu Tsai <wens@csie.org>
+Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
 
