@@ -4,98 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F8A0C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 20:09:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A50DC369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 20:11:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fg/5CSYGx8pustO7TFATB5SoThu17c6gLk2jPxapenA=; b=tg30Lz9yzYwBX2Akhzdyi1FLHu
-	F3HCvXM8Qp3O/CIjKx2uSh7FBCaOgYkUMxlCAANunYLJYCJCNJDl9XxL7odvquIOUZ2M2g/m2nwQU
-	4iRZU8WkFQzmcFV3COYAVJAXjcq7+wcNxr8ae07vwt0WwkLbCnug7uzXO+dBEX3bxNc80TR0brfz/
-	DhsA/zel3uXTJaU2LFGei2A7JnHdqeJBo/UEOBSJYDLEif1MHNSwPqKNxu/YGg3BLFzlp4DerNhN4
-	Aw8MTiEVz9Pc8jZMVl5+sf/mgG69Zm70VKYP4a+Bh6iSkV7wTHQ+cLOjlr+TyqQcy1K1F/bMGtXh6
-	Iylu+wzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=niStr1UyYcsPEVwEau4DeLWfBUyNV/FG3uJnGBzz1SY=; b=MYXUE3vFLpvIob9sWGd/bVUTt/
+	ZCVqYF0T6ftBfZBCXilb/fUt5NK+SPAuqtSBTrO0qMxck3R04cAVJUPBZK+Yy3PFNH6wpQM+L4eST
+	BW8MKVSDr+W47ACKXHjBy5kqS8QfA50mgKJAae5oSHAD1vkXA2gjoRjKfqV5fgv7WYzmgMwbRPxNH
+	XPnp01VnPIFTDqn6y0cjMCA4/DFIBFmf/TEDip53PChFRA7aOa8xQr1XC+ckdpzJaoxlGQIZ0dZS9
+	YzidsrVmD6nqFFFdgiW61h4JLsaCURBcSRdK3ULnyiNEY/FAamgA3TffEGdFcK+H3Fj1mRLF6RzDC
+	Xxb6NIgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u82st-0000000FI37-2zJW;
-	Thu, 24 Apr 2025 20:09:23 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1u82uh-0000000FIDx-40TV;
+	Thu, 24 Apr 2025 20:11:15 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8238-0000000F9r9-1bTl
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 19:15:55 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-39bf44be22fso1044987f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 12:15:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745522152; x=1746126952; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=fg/5CSYGx8pustO7TFATB5SoThu17c6gLk2jPxapenA=;
-        b=hxr+Np7W6Dq1+eVb9J6Soe6zQ0hG5KWcYVNLrDYo1QI4oENWGaJkgAMDShzmIGx76c
-         MfJU9BQq/2qC81eFgtVBflVb8s+IN1xVHmxhbS5Fi08zRNQBedaqaN40QM8xjq3x3H+0
-         LmkZbqH2zr9Got4su6XnT7ZjmKwlrds2PMqm21twLA9B5i+LFgNktsm/RnjTwf7DPM1G
-         oVnmcX2zw95ntfW8k/cWCJSxGn6RkBmHbwgvFqyp02fgkdfeQBQ8NshF0PytiuOpdmhY
-         A/o9Xze3kubmfxLMtMeKnkNX40ZJzeynTQjvRSMn5XSq17lvVq/OV7UrtCvcY655ctqM
-         q7Uw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745522152; x=1746126952;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=fg/5CSYGx8pustO7TFATB5SoThu17c6gLk2jPxapenA=;
-        b=sjA02ZaBzuH59TcOIbALlDlB+LS/0JMDnP6bS5wRd+bqDm94FM8f+Ba/SmWKrUW8x1
-         vTVsmNeY3J1q+WZi7TYv/NIrXJ6b90pjf2uIae8oC0r81oMFll2YyjvbCBHSs0NiVicD
-         9iDS3yBd96YhmaRK5znbXvhGijakCAg/9n+iN6b01HHJdAdWEljATK9SJG8Emc3mIGTV
-         wYkfDdhQl/KH7YE5G52DkPslzbjZpKa2g/GpkTDmP6KW3JzeHObgpm5ExEF1gPdNxa2o
-         18cBATzVOjwOhr3J77eMckNPcdWYnjo8QdKlEFeLKYIxbsqltTmJ6uTm7/GF3ruun6ga
-         bPcw==
-X-Forwarded-Encrypted: i=1; AJvYcCUpCHcfhvbBZHN4ZR2xpE/cZ+PKQ00mFimYgahYWj+6cs/MsFhJzZ1Lhn0hZstLg0BNN6RHnEwDiPrpA4AwzTV4@lists.infradead.org
-X-Gm-Message-State: AOJu0YxcePXwof8PuXDK22D17hkYIMC60MCzXhGtBPSBJXFNa38Q5iuI
-	2lBydxDia2ZUwwH965+qlD2pnU0Ij5BqgBcW6d3XFQKtJz7ZGWgK
-X-Gm-Gg: ASbGncvt14tkt8yKLzxNQdclTIvXO5O4Qsq59nqP3JSYn7w6BGJ6TQalg5MQ2E1tdhv
-	YXB25Wt6ScRKMuzHD2eJZYK62ePxUW8LKn4WxZkkqmdfdVQNMk2Yg6sg0F1Zl/1GzP57ooghy1j
-	uftyiAkNP3ZvykppLEmUNmI9qFOZQN+nNknmec7a8lDFJgcnJtDsqFJxA7Z3k6QgcdmDSNkDeUs
-	+QYcBq2bVJZ7w7ep/N5WD16pEI1osw6IcyuHoeJHQ2GEF3eVdC4y9idYPNqnOj0Ps2E6GUEr8Xf
-	hzExW8tvgeQ5SmdKP2V9TDCJMIURwQLthAsTyAyfO/EPSdphxOkw
-X-Google-Smtp-Source: AGHT+IGDtJkWxzHCs3qBzGx1s0jq+yB7NCM4c9k0cZ/pHOBdBV+p+7aYjAospsSGtI/LXj666TeSig==
-X-Received: by 2002:a05:6000:1ac6:b0:390:f6aa:4e80 with SMTP id ffacd0b85a97d-3a06cfb24abmr3545024f8f.53.1745522152219;
-        Thu, 24 Apr 2025 12:15:52 -0700 (PDT)
-Received: from Red ([2a01:cb1d:898:ab00:4a02:2aff:fe07:1efc])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3a073c8ca99sm161810f8f.20.2025.04.24.12.15.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Apr 2025 12:15:51 -0700 (PDT)
-Date: Thu, 24 Apr 2025 21:15:49 +0200
-From: Corentin Labbe <clabbe.montjoie@gmail.com>
-To: Yixun Lan <dlan@gentoo.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Andre Przywara <andre.przywara@arm.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH v2 4/5] arm64: dts: allwinner: a527: add EMAC0 to Radxa
- A5E board
-Message-ID: <aAqN5cKdDr_D10LX@Red>
-References: <20250424-01-sun55i-emac0-v2-0-833f04d23e1d@gentoo.org>
- <20250424-01-sun55i-emac0-v2-4-833f04d23e1d@gentoo.org>
+	id 1u823v-0000000F9vm-2fx2;
+	Thu, 24 Apr 2025 19:16:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1745522201;
+	bh=BeGRHNVg6BvIeAlm3dPnlkLRvWWekhEyXNNMSQVYXzQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=WsBvaANTHgbnS3+9c5su2ftn0YjtROxchfOZzyFaP0OViUemYI5shQEMQmVffBzVt
+	 PmZ1MDn9UmcJ/gFKtl2U8lfYMtj01Gt9COqI5kqweExVTk3aMT1FwVND/4YfW6Hmba
+	 y2t6w4FPZOUbhTdXwGAAe9gbe5AVCNKJQMf8jZqJBo5Oj1YEOqtWoFpDevbw1eFUdo
+	 sY0IjJmv+TO0YtHLQYbptz8R5Ek6CyGZYRJEk9cyJci7Uj/10jM8vZaMY20SFaguo9
+	 PIkIVhmRyfnbns6cTEHyX6nNZOkHygBUCY42F9sn/DC4Re3KRdIjGG5cBIITsgLPOv
+	 Rp1VkPawFdPjg==
+Received: from [192.168.1.90] (unknown [82.76.59.226])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 708F717E0402;
+	Thu, 24 Apr 2025 21:16:39 +0200 (CEST)
+Message-ID: <25de7fc3-2628-42c9-8d66-b1cab2896c3d@collabora.com>
+Date: Thu, 24 Apr 2025 22:16:38 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250424-01-sun55i-emac0-v2-4-833f04d23e1d@gentoo.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 11/34] drm/bridge: dw-hdmi: convert to
+ devm_drm_bridge_alloc() API
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Jagan Teki <jagan@amarulasolutions.com>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Douglas Anderson
+ <dianders@chromium.org>, Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Anusha Srivatsa <asrivats@redhat.com>,
+ Paul Kocialkowski <paulk@sys-base.io>, Dmitry Baryshkov <lumag@kernel.org>,
+ Hui Pu <Hui.Pu@gehealthcare.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ dri-devel@lists.freedesktop.org, asahi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, chrome-platform@lists.linux.dev,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ linux-renesas-soc@vger.kernel.org, platform-driver-x86@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ freedreno@lists.freedesktop.org, linux-stm32@st-md-mailman.stormreply.com
+References: <20250424-drm-bridge-convert-to-alloc-api-v2-0-8f91a404d86b@bootlin.com>
+ <20250424-drm-bridge-convert-to-alloc-api-v2-11-8f91a404d86b@bootlin.com>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <20250424-drm-bridge-convert-to-alloc-api-v2-11-8f91a404d86b@bootlin.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_121554_418904_1AAD8E11 
-X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-CacheID: sfid-20250424_121643_858254_C46ABFA5 
+X-CRM114-Status: UNSURE (   8.24  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,14 +99,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Thu, Apr 24, 2025 at 06:08:42PM +0800, Yixun Lan a écrit :
-> On Radxa A5E board, the EMAC0 connect to an external YT8531C PHY,
-> which features a 25MHz crystal, and using PH8 pin as PHY reset.
+On 4/24/25 9:59 PM, Luca Ceresoli wrote:
+> This is the new API for allocating DRM bridges.
 > 
-> Tested on A5E board with schematic V1.20.
+> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 > 
+> ---
+> 
+> Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> ---
+>  drivers/gpu/drm/bridge/synopsys/dw-hdmi.c | 7 +++----
+>  1 file changed, 3 insertions(+), 4 deletions(-)
 
-Tested-by: Corentin LABBE <clabbe.montjoie@gmail.com>
-
-Thanks
+Reviewed-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 
