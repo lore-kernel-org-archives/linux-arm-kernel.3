@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC167C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 07:14:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 715B7C369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 07:16:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ycgJR5zEjmvD8nS6gQ3Tfwq4cma6r3cAZuNgLAzZkLY=; b=p8prbjpH6WawA5OXU0aCL8L3lf
-	Qpm90Qoz9gEJYiDw9giCepo2Yf3otfp8QFg1jqdUWFGOHNasOmEL99HHgzlBU/b+gJ+Ph7+yMB5yE
-	iUFlklj5MJY+5HZcSEccsmyO+FCWfJrr18ghay41VMHGffVaid0UNHFbISkixr1t4neKrmYZ5EiAL
-	Jisn+fDkKYYM/tV+CX26gdYQ/MFuaSrHKubcE8FkmjKjQg7lyDYGAa/Z1giH9PSjF+Kr3YzLxj6LV
-	QFoW7HLhB9ZG8ZjbrrCH2Q8pw7jS82UJwVNckGmy6UFHh1RynDHvERgp6NEcgQjkWqdpav1XCPMSg
-	sViJ4Oxw==;
+	bh=Yf9IdbuXbTrGB+Jor2tK9mk/PmZX/yXtOromeytnBF8=; b=qrw0mgORYSKQGHEgcUE1udFcL+
+	xmcGCPGVoRbU8r3y3U3obUxLv7DzLCi3l9EzwJSrb1O7XY+ODxMJgTQLvMPoKYaYAIsVf/wyxsI1c
+	qDToydfWcWTU7kNXGIzuOVMFirEn5hbxFS+QxAvYezB2o0Y6m0syjuR4JCh1yp/2615fUdhpWx/kd
+	mf/V2Nv6Kr+jFqYHvvgxTDR0BL5P4zlyaP3naCYmy8dft1zbqdWawB3ZcCIFbrmV8TPY8Y8pRMQYI
+	ZIpDaFC6ou4lNu+piHhkKpv8Ozobip06Z3IBVjlhdVtiVNaohYLTfsvT9iAF9PCcsVHejLNSw+PA7
+	znKko5yQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7qnB-0000000D6fY-2DFv;
-	Thu, 24 Apr 2025 07:14:41 +0000
+	id 1u7qpB-0000000D76f-0rTW;
+	Thu, 24 Apr 2025 07:16:45 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7qlD-0000000D6OP-2ICH
+	id 1u7qlD-0000000D6OQ-2IAO
 	for linux-arm-kernel@bombadil.infradead.org;
 	Thu, 24 Apr 2025 07:12:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=ycgJR5zEjmvD8nS6gQ3Tfwq4cma6r3cAZuNgLAzZkLY=; b=Ei/0APZheQfd3lTV0Qd2xzCidY
-	z7kllpw8eGcTpSpv78ySpiVNY9wvmEigUFJaSJRP+6pWUrMXCJEKSe7PmAC0USbwuOTfD3q07y/C5
-	Ds76/2FFXkpr0H3zuEVs8ene4r3HFLVDeaWDphm73IBrHyDY6fgyaAqXdlWcaSGV+HSTYbC46yjQt
-	5IL7l810cailzs8I8w7pyxKhZ30wkhT8MNUbuEKHSz2FUrSJob6AP4hyeafSXPra0O6CzjTjWLGTY
-	3O4RfKyDGx6qIkqicWh3qV87vZqFAp/uaCR1ND1nsY1nz4gHAMpgkJK64TnO5CKAa5XrS85wXloMn
-	VCBBqKSA==;
+	bh=Yf9IdbuXbTrGB+Jor2tK9mk/PmZX/yXtOromeytnBF8=; b=dcsE7A/Up39isSnRBTR6R42c+R
+	BMeAQXRiILZMkiaVUNTnJOPy7PyZNRGhOAftDPBdEMADjrHzZrYsoZ0hDJ2MMF5IvPbYUABJqbTYl
+	QQt0RvplUAB+aItsUPyDEPpXX5BgvcBq/wiiGSk7e3+L5RkSKnPUqjszXFe3VzJfS9W3oLF+OuW1B
+	yIxg4CHVyhuDme1Ya9mPXxgA7/v/E2sd/HhW016lumz6QFNJPizDBoCoXqr4sIqObORReH7/4rQdt
+	NiSCEnv83SZuMj6H4VSurmF2+IIIxw/CQhrwCfbyBx3k+rOmQ0Viy5C3vOCHINs4ScVcvzm/SoGjc
+	02pEQHiA==;
 Received: from relay5-d.mail.gandi.net ([217.70.183.197])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u7ql9-0000000BXQg-0Mys
+	id 1u7ql9-0000000BXQe-1IF0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 07:12:36 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 950CD43A3B;
-	Thu, 24 Apr 2025 07:12:32 +0000 (UTC)
+	Thu, 24 Apr 2025 07:12:37 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id E87E043A53;
+	Thu, 24 Apr 2025 07:12:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1745478753;
+	t=1745478751;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ycgJR5zEjmvD8nS6gQ3Tfwq4cma6r3cAZuNgLAzZkLY=;
-	b=QVxFnV4nnmjm0W6PgA89ziic6glf/WhsXppf1wp5l1jwnTD/c5TE9YqEwMubYbqUSQsGSk
-	zpfgnzEklh2h+PVnY22d6I2CGvXRkzNBtlKRkfnyLCkBCklpc0rksJndomBtmWzi8q0TBi
-	Xk2xQbWFN+j5W74mLv+rkcnnM7/pvW0rHiEaQWwgnTYudMfVtqJRjPXRaKTYXgNCAhh/xG
-	TtSBHudzUsIImDHnZmUBMpVItw643TnfefToCCZEXW/NYO48mohjF2OQoS20SN+RbSzUAC
-	bqia88SdKtqM1kFLNOm31LIdpZhB6+Mi0AXAnu2Kd0bOxK7AD4AhYmX9eDXLGA==
+	bh=Yf9IdbuXbTrGB+Jor2tK9mk/PmZX/yXtOromeytnBF8=;
+	b=eBft+tOCa2YXhCv05v4dwM3bKfKD6lWPPPnA2h7zJ0Gj8ZrCNoc4Av1+xvB2Qyan5X7fu2
+	JygaDBWuYgEdUg9Bky5hrTVPpi40dK0SjRxqpQuw72HTmhV9OEGKQd0ayMM8/02LhiwL7a
+	sH2/ECIq4RIZKe/W26EKxpx3QvA+N3WkjeNA1ZHkqJ+S2JKUj4DBpfTS0hKBeP8GIOyuYg
+	L/8hkxvlb4L07/n0hEe/yDTDcwFu8o1RZ8OJzMVVZ50I6gOeUNluHk6jz2+JrBF6nqO2/z
+	0qikMOCHd8c0nkmJapxw4MgulPupvmK+/pS40jKrNvp1s8o+pE0VG2hnrzxboQ==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: davem@davemloft.net,
 	Andrew Lunn <andrew@lunn.ch>,
@@ -72,9 +72,9 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Subject: [PATCH net-next v3 3/3] net: stmmac: socfpga: Remove unused pcs-mdiodev field
-Date: Thu, 24 Apr 2025 09:12:22 +0200
-Message-ID: <20250424071223.221239-4-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v3 1/3] net: stmmac: socfpga: Enable internal GMII when using 1000BaseX
+Date: Thu, 24 Apr 2025 09:12:20 +0200
+Message-ID: <20250424071223.221239-2-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250424071223.221239-1-maxime.chevallier@bootlin.com>
 References: <20250424071223.221239-1-maxime.chevallier@bootlin.com>
@@ -86,8 +86,9 @@ X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvgeekkeegucetufdoteggode
  hepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrkhgvrhhnvghlrdhorhhg
 X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_081235_340934_13DA4434 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20250424_081235_585277_DB354CBC 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,32 +103,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When dwmac-socfpga was converted to using the Lynx PCS (previously
-referred to in the driver as the Altera TSE PCS), the
-lynx_pcs_create_mdiodev() was used to create the pcs instance.
+Dwmac Socfpga may be used with an instance of a Lynx / Altera TSE PCS,
+in which case it gains support for 1000BaseX.
 
-As this function didn't exist in the early versions of the series, a
-local mdiodev object was stored for PCS creation. It was never used, but
-still made it into the driver, so remove it.
+It appears that the PCS is wired to the MAC through an internal GMII
+bus. Make sure that we enable the GMII_MII mode for the internal MAC when
+using 1000BaseX.
 
 Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c | 1 -
- 1 file changed, 1 deletion(-)
+ drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-index c832a41c1747..72b50f6d72f4 100644
+index 59f90b123c5b..027356033e5e 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-@@ -59,7 +59,6 @@ struct socfpga_dwmac {
- 	void __iomem *sgmii_adapter_base;
- 	bool f2h_ptp_ref_clk;
- 	const struct socfpga_dwmac_ops *ops;
--	struct mdio_device *pcs_mdiodev;
- };
- 
- static void socfpga_dwmac_fix_mac_speed(void *bsp_priv, int speed,
+@@ -256,6 +256,7 @@ static int socfpga_set_phy_mode_common(int phymode, u32 *val)
+ 	case PHY_INTERFACE_MODE_MII:
+ 	case PHY_INTERFACE_MODE_GMII:
+ 	case PHY_INTERFACE_MODE_SGMII:
++	case PHY_INTERFACE_MODE_1000BASEX:
+ 		*val = SYSMGR_EMACGRP_CTRL_PHYSEL_ENUM_GMII_MII;
+ 		break;
+ 	case PHY_INTERFACE_MODE_RMII:
 -- 
 2.49.0
 
