@@ -4,64 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77601C369D7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 00:39:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0F0BC369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 00:44:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y9RE0LT6wLYyzcsFPhNQIEquRQ4Y1gcU4IML1N68Lt8=; b=ExKDPJ8UrLmHkxu8Zk5E9vt5/q
-	lOn4iQy6cCNRKf5JNvdrNLiIn54jhvYOhaERi7irdasC55Njqx6Cy5eafWqxapGQsa5XoWiuxJwuF
-	EH7COKmjbv3dnkjzpQ3Hz2ovkkN8KN93opcy0S+5gnh1bcrcbErDYz/VJYptSH6TH8aumiBJXKyNM
-	F+y8wMU5oDhjIWi0UhdCfn1x4zzbJhg4HEFdxWuHSZFal6I8b4XDsdTcKrlNdJaZccXAB5PcVgMiZ
-	yyIxgNNGw+9Weju0l0h624G4Va4U3ZOZotwdHiISpirUecEqeUMGSuwKxD5voR0ObxAs7YW3ljggL
-	d1t4pQNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XvuX6v1u3yujOTq13vrrjfg5lYCccysRWtNqddFsT2I=; b=wSrbImkcU8cGbaCUM3AmpPbx/x
+	NVMOyYPKG6zsfb+qNU+hk9soiSouHjfrnibZSIiSubUUziFNlriku5kX1xmE6b6hvTa1WsR5xYCW6
+	roxdfGCmh50ap1Req7nbf97/uXxj948KwA5HlRAJjD9RTWg7aOHBKgMYSMtZwBnX/qai/ElXVpwUW
+	jw2MPMiQu5hhWSopncoVkNWUubPfyYDvC/EIIcbVnemnh8WCjSmeSK1TGvdgLSZwpdv6XNTcJ7l4e
+	CGvk80I9UmSONmhrEyTCGzQJC6/ghnF0N+0aJLb8pudZM8rDkkM6RGWjqdnSHCwZt8WRpyFJoXxDz
+	OpybsYaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7kcM-0000000CPqq-3GPG;
-	Thu, 24 Apr 2025 00:39:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u7kh3-0000000CQWu-1CZZ;
+	Thu, 24 Apr 2025 00:43:57 +0000
+Received: from mail-am6eur05on20611.outbound.protection.outlook.com ([2a01:111:f403:2612::611] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7kMm-0000000CNWK-1Af1
+	id 1u7kf2-0000000CQ6a-4Aec
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 00:23:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4A1484A7AC;
-	Thu, 24 Apr 2025 00:22:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8228FC4CEEA;
-	Thu, 24 Apr 2025 00:22:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745454179;
-	bh=fLNBgB98VHmWsYsqCxuP82EHevhaDk2EjXMCqMw0UcU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=aWvr/EPcncCLXclOTaLe63YVgnOiy+N9wim0CGWVLG5JPWdao8sIiUrgqjP211Og9
-	 jPYSkEqI/LubFLgHvX/Bs8rYkIWlBfokdgGAg1NEnskSiGSHt3Nm6+IstDdT6KUUvq
-	 fdgzd3OQesUexCmrJKlCoN1f3jVyfzH1CNy4mmnAHvwpQ8eDpRo/vD+7tBTlGf9Gc4
-	 RK+zxG9iJwmrLDceJAjix6paW6sEefqykYt7k4iVglMQp+Eo40VZan/De8XZf8qqM3
-	 LewXnECsVB/HbYP2Cod7GN060YdqJlgseAaFPHHRZF7MctsFoP+9elJbTKHFnqXqzI
-	 quzBIIJ3wXqLQ==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-kernel@vger.kernel.org
-Cc: Ard Biesheuvel <ardb@kernel.org>,
-	linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org
-Subject: [PATCH 7/7] x86/crc: drop "glue" from filenames
-Date: Wed, 23 Apr 2025 17:20:38 -0700
-Message-ID: <20250424002038.179114-8-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250424002038.179114-1-ebiggers@kernel.org>
-References: <20250424002038.179114-1-ebiggers@kernel.org>
+	Thu, 24 Apr 2025 00:41:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wOpn0E682qUW1klNlYhsGT6MGFnVR7H2GBs+T3rKIDDsUk8oi+10h+OoeDkXvYP4QSmN94qGmBWZ6MNypTtJyyP1yfOol1jgS7Mz7QWKc9B2H1xgB3HcGM/VMCouD97eKp2FiyGrhsFYaAh8CZUAYTCRa9FcfKGHEZYF/tP6pblwbIxznVLaNhVYzG295cH/CdYvQqWJyCDBZhlVPK4OB0Ju6On6A1cQCBMzT1w9/jgDjHtO5qDA+hxQfz1JUIWIg4oa+F5QUFbtM8aAhYti1Tn0LMXUnX2nlBam5qAUBJB+WsRlTnuyW8wQKYtYXVa261Pq4bd8ukUJO0tviJrf4w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XvuX6v1u3yujOTq13vrrjfg5lYCccysRWtNqddFsT2I=;
+ b=aG1mBZsj7O7H9zHx0CU3QKf+kqXPOAHnxkCJt5xmkC338EbvUVJ+TkKsQBhfh/2dg7JB/zfY6/psORhQ9qvnzMCX6NdkELvNyvxM9fZTocOpQgurjMfTAEsSbywgcurnFRv1SsqL3lVY0Yu4a0A7bTWYv11897pubqqnIFKaj053ot+ArP+mJK+pL4SNtt//Q0GkV84u27N1bboXv7ye4v5gNGDyfwXW4iJDdy9fU7QDh+EQ7HrtsbvnXBHe57f+KfF4ViO2ilK4l2615pEwLG6xkxy9PAcBd/IIoDDILLpgZj45st3duWGWo1sRSQkVwPBPG6dNks3/PW/9cibipw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XvuX6v1u3yujOTq13vrrjfg5lYCccysRWtNqddFsT2I=;
+ b=QjB5jvMtFm6bz+w9fIraceMgoXUja6SpsGXk4gDvC+r8iXv3oKKfql7mhFf9AqzyO1Ue531baE9cJJs3rXaXQHRtDEVsBqbli/toC/zjZxpFQz/uJxbOHHGmQ97VfwfQwp3oewJ04HZbUONYkQPbpmFVXL785iP/YdN+fSuqNnGBEcklvWAIBs7H/YAn9QQ4J0aKVJf50lQfPZIij929IRJiVdhaScaVaEPFn1yVB36SjiOQ4mcozDT0U0VozpFY7eKZwemoVM++v1fTbigruPaS6ACcsU98EOzkHfgGD4sSo0/T6mU4AbwCD/Bg2ZRLi8CEFnmLmBv4bnYDWJFvRw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by PAXPR04MB8605.eurprd04.prod.outlook.com (2603:10a6:102:218::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.23; Thu, 24 Apr
+ 2025 00:41:44 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8678.021; Thu, 24 Apr 2025
+ 00:41:44 +0000
+From: Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH v2 0/8] arm64: dts: imx8: create common imx-pcie[0,1]-ep
+ overlay file
+Date: Wed, 23 Apr 2025 20:41:22 -0400
+Message-Id: <20250423-imx8_pcie_ep_dts-v2-0-43c982d83a8f@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIALKICWgC/32NQQqDMBBFryKzbsoYtUZXvUcRCXGss1BDIiFFc
+ vemHqDL9+C/f4Inx+ShL05wFNjzvmWQtwLMorc3CZ4yg0TZYFWVgteoRmuYRrLjdHiBNbadVnW
+ jO4I8s45mjlfyNWRe2B+7+1wPofzZP7FQChSyRZpRPZQ23XOL9m72FYaU0hcjzTu2rgAAAA==
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ hongxing.zhu@nxp.com, Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.13-dev-e586c
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1745455301; l=2422;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=q/2yUnGRL4nKhz54XomzxpNEFX71blr+fvMSTTzHBkM=;
+ b=NIcNszYt18MI0NrWU8ic1sUStHz0ZNo5MNW6JUzZdCguZ6k2YbkmS2xwH3AfMQaHWtOCvjfkG
+ zJEtqjQf0/JBqMCiWKV4Bg9bXSvwfzthIpzJ+1bNx+owV7BiKUnWbqA
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: PH7P222CA0001.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:510:33a::14) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PAXPR04MB8605:EE_
+X-MS-Office365-Filtering-Correlation-Id: c88e32e4-f865-4b61-6a1e-08dd82c8c948
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Vzc5K3RIM0hiWDVVbTZwbFExS1ByMDV0UWFrOUdKZU9UNWNMYTVCaEVyUHIw?=
+ =?utf-8?B?UnpBeGp0cm5VY1ArN1F1WUVEMjNzQlVrWUJJLzV3RjlJaGh6djBjTEwzTExW?=
+ =?utf-8?B?OUJ0c1Q3YXNsUFBCQnFtK2tkSC9MQllwOThsa2JqVElKb0RLSkVUVEZablJi?=
+ =?utf-8?B?Rm9VTVlnWmRlYW8xYlYwQTB0YUZwSkpISzZEM1I2MXVvTENYR0F4eWR1akJZ?=
+ =?utf-8?B?UHQ2RDVTREQ2QW8vOVIrKzVHR3lqeXJuMGJqQytUOTkrcTlOTGMvanoydDF2?=
+ =?utf-8?B?dHMyM2M3anMxT3dLc0ZRendsc25YYzRrc0I1NTlJaUMxRnNPQTZGZm1pUklV?=
+ =?utf-8?B?OTVDM2JCMyt2dzJManV5UXYrOVoxZ3BNTENyV3lCcUdXRkNIQzN1VEFOQWwx?=
+ =?utf-8?B?c2ZDbGswVkpMZVBnZURGRkhPV1pKelFCNDhVOEZGOGZLZ0hOdU5nMXAyUktl?=
+ =?utf-8?B?SGhEMHF2RFo2OXZGU1MrL2c1WnplQ2luR2xjQmdTekN1YnZUTEhWQWtZS1lZ?=
+ =?utf-8?B?NlpRT0hPTFZuNDQ4eXd4MUtVV3dTa2FXT09nekVBREVmWWhrd2wzSXE4c1VN?=
+ =?utf-8?B?dmJQc2RPbmhQK2Z4YyszcC9Xd1VVUFgwR1NPRzhOcWh2eWt3SEdDaU0xU1pB?=
+ =?utf-8?B?OXFIa3ZIM2hJYTA4ZWErL0xUU0QvZTVId0dJS0hwVVJiTFhxK09lbGc0RzJJ?=
+ =?utf-8?B?aUphVnc3cnFET0NiK0VvY3ZMVTNYV0lDZjhyRytBeTRkU1N3QlhwV0Qya1Iw?=
+ =?utf-8?B?TCt2OUt2L1JuR2N3ZVVGMEl6WXVVdjB4SjZDS1dwRGZBV1I3emFPZXJRa1ox?=
+ =?utf-8?B?cUd4alU5S2J4MzFyb21TVUtFN0tTbjYzeXJxME1VR2pRNmQvSXg5cStLbXF1?=
+ =?utf-8?B?eEtnOUFHa2UzMDl6V054eS9FSmRQWDZrSkpRUjBjaDVwRWF6MlArNjZGaDBG?=
+ =?utf-8?B?Lzlvc2l3b2NFcjlyZXM3azVnNlBEczhoOUJmUG02djRRNU04WHR1YjYwME9V?=
+ =?utf-8?B?R1UxY0RwRnVGdnNQdmV3UEx2azJ4Ukg1a0EveXNVZFpvWDY1RXhyYW1vazNI?=
+ =?utf-8?B?elFEck1SamdGYjZxVThLeG9GZ2NIYStkKzNJUE5qS2xrU0ZYZXVBeVpHNlJD?=
+ =?utf-8?B?MEJIVk8vRmVnWng4U0hHQ00yYXVEeDZOQVpFSW9INDk5ZDhCV1oyTGZPVllh?=
+ =?utf-8?B?N1JkS0pYUkF0M011ai9qbGdoM3FhY3BlSjAvOExuSnZkd01qQTFFbGtjMlIx?=
+ =?utf-8?B?SFZUNUtPd0NqWFZLN1dPMEJ0eUhESWhNeGRBUlRXUWZjNVk1c0hLUkdscnBL?=
+ =?utf-8?B?VEtBbWNxQlJ2UWFFWEtqU1JkU0NCNUxYOUFYUXh5L085QzJ4bEV1Z1Z3RVdX?=
+ =?utf-8?B?VkhLbThEZzRmWW1qazM3WVM4bXcrYkVTZkRmdU4xa3YrZHc4ZnhTek9ZeUc5?=
+ =?utf-8?B?RStXZXhDemU1bzZ5MHlPS2pDVzJMZllDUVBPbGUwMzRib2tEQjZZRjRJVmtP?=
+ =?utf-8?B?Uk5jTFpkL1VpaUlHSDFlaC9ub29OQ3RvKzNDamxTMVZyblZxcGo4V3gvMnJr?=
+ =?utf-8?B?QW5TSHBaM09zbnJUcllIVExLV2VkZWErQ1Qwd3lMU3N2V2FkOXRjYVVDWmxO?=
+ =?utf-8?B?dE0xa1NNT1FKaWthZ0FuSTNWemdnRkI0WVozQVhmcis1U1dwaUovTzNCUmtP?=
+ =?utf-8?B?RkNzTDErRjBVcHcwM3Jyekd0QzVkS2xJRFlGRWhscGRqb3pvTGkvR1JJRjls?=
+ =?utf-8?B?OGpJVXdoelBlZmpVclpHQ1Q1MDZUSk8zVko5MjRhcXhTaTBsbkczWE1jT1Jm?=
+ =?utf-8?B?Ry85bXdmY1NPNjJXM0U5NjdCaDg4Zm9sTHJmQzVVK2RWWDdFRFN1b2VNSHR2?=
+ =?utf-8?B?RDc1U0RSUTIxU08xcjhTaWlQZmdic1FYRkF5RURITk5XbGQyK1JtSVJzTmJi?=
+ =?utf-8?B?VDRjUHVoWkVwWXVDb05JNTYzbDlIMmtsY3l1dEVWY2NKMlltRXBmK0FjK3ZH?=
+ =?utf-8?Q?euDcMOk+UNg/HAR4oM6lGQWTZUpj/s=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ckVHVnFoczJPNW8xajNBem50R0lqc2wvR3pwaXdwSDVCWGFhNCsrNXIxUnR0?=
+ =?utf-8?B?azBCVkI5cTRUeHM4NmFyZ29tTjJyZE9EdEc3NDBaajZDRTA2VlM1OGhGNXhT?=
+ =?utf-8?B?N2lVUGd3OG83UnJIWTRpTEhEVHRqaU9OSUVzSUJHZ1ZJelgwaFRSTEovKzNS?=
+ =?utf-8?B?REh1L21DaWwvU3Voayt5YitrOW9qZS9uUURDbTRjbXpzWEkvSG5VMGEzUzV2?=
+ =?utf-8?B?MHd4K0xCeVU1d25rSXpUeDE1L1RkbHpob1YyL21KWUxUZG1zY2RDRW5XRGZr?=
+ =?utf-8?B?L3VFUWRKMDNWeTRBMytjcGFydTBRTFpIWmZPYk5DTVlBdXh6Rk9hUXJkNWFv?=
+ =?utf-8?B?VHZ6Q09HRHk0TFE0Z1pKK1hucWlrU3RuUnhmMUxLZFBscUhWY0pkOS9NdTd3?=
+ =?utf-8?B?ZmhmRllRaDdlZTVXUEdFYm9tVGNvNzhIbk0xVWVCWUlZVy80WlVBUU42MzFk?=
+ =?utf-8?B?bUpZTU8vWXFCQXpsRk1FU3JTVlZvVzdCR3VjQ3FkUHgvcVJVeHdSNldVZitG?=
+ =?utf-8?B?NFhqWTUwZUFCUVhJNVZ6QTJQbGNtMWgyZTN6bFVmUm40Z1dhZmRvK3lZYXFC?=
+ =?utf-8?B?ckxSTkZKQWt1WFpoMDQwaEtmTUlNckthWjlPcHR0UllicVhtd2N0a1FvemVP?=
+ =?utf-8?B?Zlg2Y0wrMU4xdDAzdVNSZEtRanVBRGpUUDFLcWgzTSs2aGtEQ1ZxeVoyMllv?=
+ =?utf-8?B?cXc2dS9JUTh5RUVKZkxjSGQyaXJ6QzdMNk45cEkyaXhJUXVGMjNKcnZlMnZ2?=
+ =?utf-8?B?ZnlyY3BSY2gweG40QlBWSUoxQisvS1lCMi82Q01VbVdNdjdHWGptdGlFT0FJ?=
+ =?utf-8?B?YkNPYUMrRStiMXdHZEVPUEdNUy9Ia1FLVlArWDd0alI0NkRHRE05bnZkaEY1?=
+ =?utf-8?B?ZGlLZitlaDhwQmlnYThLaVRlL0FzVFlTQlFUZHpMcVk2L3hIWk5Vbjc3SG9p?=
+ =?utf-8?B?eW1ORjJEOTIrUXovcFFwTFdkbHR5NlJmY05wTFd5cnFRZEdoSzdUaVllOEoz?=
+ =?utf-8?B?d1paeGlUSHp5dXNRamJLNjdMMnNOdjc4L3YvMzVWOUk0ampFUWcrb25LK0lW?=
+ =?utf-8?B?SWFsOGdtSzZQR1hWeXQxbytrWlhwa01IbXdoRjJMNjFvNGZHck1GWnlKaDN4?=
+ =?utf-8?B?bWNtb0JMZnpYakNQS0VVaXhwNGRZMStITVFST2NDUHYrbHNHb1phQ29kUk1R?=
+ =?utf-8?B?YXZGUzk1Rm1vWGhXT2g3ODZlZmZRRE14VFVYdml0RkJIUS9QQnh1YllESmU1?=
+ =?utf-8?B?TXRlOVdiMGxXTXhNdDBvZVEwcFlHa2tuZjd0SmkrMk9xSlFadUtDRUdBWmFP?=
+ =?utf-8?B?bHMvR3FRdWxFN2FvLzBNOE1RVU1uMWlDK3ZFa1NjYUxNQWRIeFI5dGg3Rjlz?=
+ =?utf-8?B?TkMyS3BGOGNuUGdHbzlFRDdSNzdab1VqSlQzZmN2RUhUNHpIYnZLSFZnOVdG?=
+ =?utf-8?B?bVdDdVdrajRWWGRmV0V1RFZ5enM2c1BGbkhDYm1WS25UWVJJM2dqM2VmTVZl?=
+ =?utf-8?B?S3BhL0swTWgyU2FKY3pON0FjQmlaZUVxZnZuZ0hkYnJULytoT2N1aXVVcFFV?=
+ =?utf-8?B?NUxtRklYejZEb2ZPTEFHUStKdFQ1UW5ieEc3dWt4K2hPdFJ4QTJZU3VBd2RO?=
+ =?utf-8?B?RHJpNHY3SEJPQXVzTXdaMDYzZ01Fb1RDNGRsaEtDazNrZFhtR2pTaStib21i?=
+ =?utf-8?B?L3JGcjhwbkNGUTBWMmczRkZCSXdBZWVKSHBhN3RCaHAwSTlDcXVpNE1mSkto?=
+ =?utf-8?B?OWVLclNhbjFuZENJZmV6RDNCRmp0a3VXNjAwTlp6Z0EvSEVxT2JGaVhYcnFR?=
+ =?utf-8?B?cDRxc2RzVExLMHNkKzVBbUREakg5MXBhQWxrUk1FRHhCZ0FDT29pamZvNkhv?=
+ =?utf-8?B?RHNVL0hVL1M0dlA5QWNsdnlpNTVJbkJiVEdRQVpyR0dSOUpiVFBXTWFFQzlk?=
+ =?utf-8?B?Tlo2THdhU09nQktvZUZlUTdNWEZUbzN1STRnTjRKR2Z4dUdzRXpzbGpIQXV2?=
+ =?utf-8?B?VEI2ZFJacm1XcUtZbU1GWml1Q0NQbGhSa2xvNmRTZ0krVlJXdHlrOXJmbEpM?=
+ =?utf-8?B?VmNFWmJ6UVE1bTQ4WjBwR1RiMWNTaXA2d2JubVJjNmQzQzRpczYwbURLWkdm?=
+ =?utf-8?Q?ztFg=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c88e32e4-f865-4b61-6a1e-08dd82c8c948
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Apr 2025 00:41:44.1501
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: BdUNNX0F/2rEsCurRDvvE7OLoD/6/gRRwsxWjJGpJG09L6fdeN6GLUKZHlHWRqob0dJnERnC/BKZqQw1oTEibg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8605
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_172300_361869_5642193E 
-X-CRM114-Status: GOOD (  10.78  )
+X-CRM114-CacheID: sfid-20250423_174153_089614_C375CF07 
+X-CRM114-Status: UNSURE (   8.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,70 +189,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Eric Biggers <ebiggers@google.com>
+Use common imx-pcie[0,1]-ep overlay file to enable PCIe EP function for
+all imx8 boards.
 
-The use of the term "glue" in filenames is a Crypto API-ism that rarely
-shows up elsewhere in lib/ or arch/*/lib/.  I think adopting it there
-was a mistake.  The library just uses standard functions, so the amount
-of code that could be considered "glue" is quite small.  And while often
-the C functions just wrap the assembly functions, there are also cases
-like crc32c_arch() in arch/x86/lib/crc32-glue.c that blur the line by
-in-lining the actual implementation into the C function.  That's not
-"glue code", but rather the actual code.
+unified pcie label name as below
 
-Therefore, let's drop "glue" from the filenames and instead use e.g.
-crc32.c instead of crc32-glue.c.
+imx8qm
+pciea -> pcie0
+pcieb -> pcie1
 
-Signed-off-by: Eric Biggers <ebiggers@google.com>
+imx8qxp/imx8dxl
+pcieb -> pcie0
+
+imx8mp
+pcie -> pcie0
+
+other boards already use pcie0 and pcie1 naming. Orignal label still exist
+to keep back compatiblity.
+
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
- arch/x86/lib/Makefile                            | 6 +++---
- arch/x86/lib/{crc-t10dif-glue.c => crc-t10dif.c} | 0
- arch/x86/lib/{crc32-glue.c => crc32.c}           | 0
- arch/x86/lib/{crc64-glue.c => crc64.c}           | 0
- 4 files changed, 3 insertions(+), 3 deletions(-)
- rename arch/x86/lib/{crc-t10dif-glue.c => crc-t10dif.c} (100%)
- rename arch/x86/lib/{crc32-glue.c => crc32.c} (100%)
- rename arch/x86/lib/{crc64-glue.c => crc64.c} (100%)
+Changes in v2:
+- Rebase to guoshawn/imx/dt64
+- Link to v1: https://lore.kernel.org/r/20250331-imx8_pcie_ep_dts-v1-0-270ef0868ac9@nxp.com
 
-diff --git a/arch/x86/lib/Makefile b/arch/x86/lib/Makefile
-index 1c50352eb49f9..7cf8681cba0f2 100644
---- a/arch/x86/lib/Makefile
-+++ b/arch/x86/lib/Makefile
-@@ -37,18 +37,18 @@ lib-$(CONFIG_INSTRUCTION_DECODER) += insn.o inat.o insn-eval.o
- lib-$(CONFIG_RANDOMIZE_BASE) += kaslr.o
- lib-$(CONFIG_FUNCTION_ERROR_INJECTION)	+= error-inject.o
- lib-$(CONFIG_MITIGATION_RETPOLINE) += retpoline.o
- 
- obj-$(CONFIG_CRC32_ARCH) += crc32-x86.o
--crc32-x86-y := crc32-glue.o crc32-pclmul.o
-+crc32-x86-y := crc32.o crc32-pclmul.o
- crc32-x86-$(CONFIG_64BIT) += crc32c-3way.o
- 
- obj-$(CONFIG_CRC64_ARCH) += crc64-x86.o
--crc64-x86-y := crc64-glue.o crc64-pclmul.o
-+crc64-x86-y := crc64.o crc64-pclmul.o
- 
- obj-$(CONFIG_CRC_T10DIF_ARCH) += crc-t10dif-x86.o
--crc-t10dif-x86-y := crc-t10dif-glue.o crc16-msb-pclmul.o
-+crc-t10dif-x86-y := crc-t10dif.o crc16-msb-pclmul.o
- 
- obj-y += msr.o msr-reg.o msr-reg-export.o hweight.o
- obj-y += iomem.o
- 
- ifeq ($(CONFIG_X86_32),y)
-diff --git a/arch/x86/lib/crc-t10dif-glue.c b/arch/x86/lib/crc-t10dif.c
-similarity index 100%
-rename from arch/x86/lib/crc-t10dif-glue.c
-rename to arch/x86/lib/crc-t10dif.c
-diff --git a/arch/x86/lib/crc32-glue.c b/arch/x86/lib/crc32.c
-similarity index 100%
-rename from arch/x86/lib/crc32-glue.c
-rename to arch/x86/lib/crc32.c
-diff --git a/arch/x86/lib/crc64-glue.c b/arch/x86/lib/crc64.c
-similarity index 100%
-rename from arch/x86/lib/crc64-glue.c
-rename to arch/x86/lib/crc64.c
--- 
-2.49.0
+---
+Frank Li (8):
+      arm64: dts: imx8: create unified pcie0 and pcie0_ep label for all chips
+      arm64: dts: imx8dxl-ss-hsio: correct irq number for imx8dxl
+      arm64: dts: imx8dxl-evk: Add pcie0-ep node and use unified pcie0 label
+      arm64: dts: imx8: use common imx-pcie0-ep.dtso to enable PCI ep function
+      arm64: dts: imx95: add pcie1 ep overlay file and create pcie-ep dtb files
+      arm64: dts: imx8mm-evk: add pcie0-ep node and apply pcie0-ep overlay file
+      arm64: dts: imx8mq: add pcie0-ep node
+      arm64: dts: imx8mq-evk: add pcie[0,1]-ep nodes
+
+ arch/arm64/boot/dts/freescale/Makefile             | 22 ++++++++++++--
+ .../{imx8mp-evk-pcie-ep.dtso => imx-pcie0-ep.dtso} |  6 ++--
+ arch/arm64/boot/dts/freescale/imx-pcie1-ep.dtso    | 15 ++++++++++
+ arch/arm64/boot/dts/freescale/imx8dxl-evk.dts      | 12 +++++++-
+ arch/arm64/boot/dts/freescale/imx8dxl-ss-hsio.dtsi | 25 +++++++++-------
+ arch/arm64/boot/dts/freescale/imx8mm-evk.dtsi      | 13 ++++++++
+ arch/arm64/boot/dts/freescale/imx8mp-evk.dts       |  8 ++++-
+ arch/arm64/boot/dts/freescale/imx8mp.dtsi          |  4 +--
+ arch/arm64/boot/dts/freescale/imx8mq-evk.dts       | 20 +++++++++++++
+ arch/arm64/boot/dts/freescale/imx8mq.dtsi          | 35 ++++++++++++++++++++++
+ arch/arm64/boot/dts/freescale/imx8qm-ss-hsio.dtsi  |  6 ++--
+ .../boot/dts/freescale/imx8qxp-mek-pcie-ep.dtso    | 22 --------------
+ arch/arm64/boot/dts/freescale/imx8qxp-mek.dts      | 11 ++++++-
+ arch/arm64/boot/dts/freescale/imx8qxp-ss-hsio.dtsi |  6 ++++
+ arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts  |  7 +++++
+ arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts  | 14 +++++++++
+ 16 files changed, 180 insertions(+), 46 deletions(-)
+---
+base-commit: ac1c1d2e2124387752b4cc955dd359753783c147
+change-id: 20250331-imx8_pcie_ep_dts-04079a845a9e
+
+Best regards,
+---
+Frank Li <Frank.Li@nxp.com>
 
 
