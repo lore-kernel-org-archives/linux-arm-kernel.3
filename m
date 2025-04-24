@@ -4,62 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1878C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 00:58:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CAC3C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 01:00:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
+	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Z01g9mp1eyyFtluc5GyteUbLs/S90EnYtjJKxUTeL4=; b=qXOUJ2J5pRvQxopcI3fMqDThqD
-	kEDc4wetd4c171tdiYYFFyQsnOzkpNI4uvBe6Ha9u9wkfX6TxIabicWzAIEHOb5Z9yQl9+a48dYBe
-	r5FKh7ryc9LItl/IaFTuwahjfY3IfP0XJKUBiiFr9Gc5uAjSR9fPC1e2GS9G+cadd+PCve+DEkXFw
-	ZFV41C9hVoSVechw1D/t9t/eFg1YnhYqUZym7pYIzE8/j4TqNngGTAAsc23ysbg1kBMJLLtcce6cn
-	hwuMTvGmI/RTD09nEaiLcd1bUlxPZuRL7jHZ8ZYogoUecAmAAybadzU2JOY0KsfLQ0JLGpHSllXo9
-	bUEWxVQg==;
+	bh=83mcjUifPIfk/6ORujgQWzGN58qZCqIJuR06Usw8ypw=; b=V0/zMBYmwf22p4r5pJBcILvSAs
+	9sadiPmf8CUJmhFtsqMgUoO1FXOnBVGqdrRe+udWlZfCzo97DMTuouOyMvrisACEk8PRvsQ5No7X/
+	wPUwwt9Gqv03BRDNXN520do3q9Jk3P0TlOFImf7DeE8lKZrJhMthEJfu6wpdEi3n9Vc2jrvjJ+4wA
+	GdrnbrzLsZHwypK2kkF/YXfjCcri//IJlP8XbbF81fBE++HsDl3v8hLJFG+HifpuDqmxINWxtUIYm
+	2EKESFsi5zQJuy65/5xtuq+eAzuGE6n5FjI4ooWYIP5OCM9Nf4LpisJbt/rmKwSYyyY/si7425Yhw
+	HQyVRw6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7kvB-0000000CSQb-36Rs;
-	Thu, 24 Apr 2025 00:58:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
+	id 1u7kx9-0000000CSnh-207z;
+	Thu, 24 Apr 2025 01:00:35 +0000
+Received: from m16.mail.163.com ([220.197.31.2])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7kgx-0000000CQVm-2NpK
-	for linux-arm-kernel@lists.infradead.org;
+	id 1u7kgx-0000000CQVF-31N4;
 	Thu, 24 Apr 2025 00:43:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 073311063;
-	Wed, 23 Apr 2025 17:43:43 -0700 (PDT)
-Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 812703F59E;
-	Wed, 23 Apr 2025 17:43:45 -0700 (PDT)
-Date: Thu, 24 Apr 2025 01:42:41 +0100
-From: Andre Przywara <andre.przywara@arm.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Yixun Lan <dlan@gentoo.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu
- Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
- Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, Andrew
- Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
- Abeni <pabeni@redhat.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH 4/5] arm64: dts: allwinner: a527: add EMAC0 to Radxa A5E
- board
-Message-ID: <20250424014120.0d66bd85@minigeek.lan>
-In-Reply-To: <aa38baed-f528-4650-9e06-e7a76c25ec89@lunn.ch>
-References: <20250423-01-sun55i-emac0-v1-0-46ee4c855e0a@gentoo.org>
-	<20250423-01-sun55i-emac0-v1-4-46ee4c855e0a@gentoo.org>
-	<aa38baed-f528-4650-9e06-e7a76c25ec89@lunn.ch>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=QTVmIoV8bT7TS1J/bHn0cF9ZcR5e5MVRDdBrhghGq8c=; b=m
+	YxNlMXlspOe81pr+rfZ922TXq7NPZVFz2l/cr9hGOHCmECkeuqrNXH+or4V2+NQk
+	hZuLwwMjC6S1sQdRE8ZdnCPit5RfJutnbss/kSCvxmZLU0NUs5WRDtXFXdZwpI9g
+	ZJdiSQ9ZaHzk9kWFAXg7ytfzoXuzf3+hr3OFCu4ZyI=
+Received: from andyshrk$163.com ( [58.22.7.114] ) by
+ ajax-webmail-wmsvr-40-102 (Coremail) ; Thu, 24 Apr 2025 08:42:47 +0800
+ (CST)
+X-Originating-IP: [58.22.7.114]
+Date: Thu, 24 Apr 2025 08:42:47 +0800 (CST)
+From: "Andy Yan" <andyshrk@163.com>
+To: "Dmitry Baryshkov" <dmitry.baryshkov@oss.qualcomm.com>
+Cc: "Arnd Bergmann" <arnd@kernel.org>, "Sandy Huang" <hjc@rock-chips.com>,
+	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+	"Andy Yan" <andy.yan@rock-chips.com>,
+	"Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
+	"Maxime Ripard" <mripard@kernel.org>,
+	"Thomas Zimmermann" <tzimmermann@suse.de>,
+	"David Airlie" <airlied@gmail.com>,
+	"Simona Vetter" <simona@ffwll.ch>,
+	"Dmitry Baryshkov" <lumag@kernel.org>,
+	"Douglas Anderson" <dianders@chromium.org>,
+	"Damon Ding" <damon.ding@rock-chips.com>,
+	"Arnd Bergmann" <arnd@arndb.de>,
+	"Heiko Stuebner" <heiko.stuebner@cherry.de>,
+	"Geert Uytterhoeven" <geert+renesas@glider.be>,
+	"Cristian Ciocaltea" <cristian.ciocaltea@collabora.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re:Re: [PATCH] drm/rockchip: add CONFIG_OF dependency
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
+ Copyright (c) 2002-2025 www.mailtech.cn 163com
+In-Reply-To: <a4tcrxepuvvxixpab3txz6tdbh6janiedjqddl2ybfo6plhjcl@r5bxdabuhjep>
+References: <20250423164422.2793634-1-arnd@kernel.org>
+ <a4tcrxepuvvxixpab3txz6tdbh6janiedjqddl2ybfo6plhjcl@r5bxdabuhjep>
+X-NTES-SC: AL_Qu2fB/ieukst4SadbekfmkcVgOw9UcO5v/Qk3oZXOJF8jCzp8D4yf1JTEnDy1fCDKg+MkAiHYjpJ8Pt0f7d2fYwuVF/Ep8+wUnGXRqnQ58Y+5g==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Message-ID: <13627027.772.196653f45f1.Coremail.andyshrk@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID: ZigvCgAXfIYHiQlo2ESdAA--.63259W
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqBU5XmgJh6IglgABsp
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_174351_651889_1EA3EAD8 
-X-CRM114-Status: GOOD (  12.89  )
+X-CRM114-CacheID: sfid-20250423_174352_054449_810A4398 
+X-CRM114-Status: UNSURE (   6.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,36 +91,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Apr 2025 18:58:37 +0200
-Andrew Lunn <andrew@lunn.ch> wrote:
-
-Hi,
-
-> > +&emac0 {
-> > +	phy-mode = "rgmii";  
-> 
-> Does the PCB have extra long clock lines in order to provide the
-> needed 2ns delay? I guess not, so this should be rgmii-id.
-
-That's a good point, and it probably true.
-
-> 
-> > +	phy-handle = <&ext_rgmii_phy>;
-> > +
-> > +	allwinner,tx-delay-ps = <300>;
-> > +	allwinner,rx-delay-ps = <400>;  
-> 
-> These are rather low delays, since the standard requires 2ns. Anyway,
-> once you change phy-mode, you probably don't need these.
-
-Those go on top of the main 2ns delay, I guess to accommodate some skew
-between the RX and TX lines, or to account for extra some PCB delay
-between clock and data? The vendor BSP kernels/DTs program those board
-specific values, so we have been following suit for a while, for the
-previous SoCs as well.
-I just tried, it also works with some variations of those values, but
-setting tx-delay to 0 stops communication.
-
-Cheers,
-Andre
+SGksIAoKQXQgMjAyNS0wNC0yNCAwMToxODo0NSwgIkRtaXRyeSBCYXJ5c2hrb3YiIDxkbWl0cnku
+YmFyeXNoa292QG9zcy5xdWFsY29tbS5jb20+IHdyb3RlOgo+T24gV2VkLCBBcHIgMjMsIDIwMjUg
+YXQgMDY6NDQ6MTZQTSArMDIwMCwgQXJuZCBCZXJnbWFubiB3cm90ZToKPj4gRnJvbTogQXJuZCBC
+ZXJnbWFubiA8YXJuZEBhcm5kYi5kZT4KPj4gCj4+IERSTV9ESVNQTEFZX0RQX0FVWF9CVVMgY2Fu
+bm90IGJlIHNlbGVjdGVkIHdoZW4gQ09ORklHX09GIGlzIGRpc2FibGVkOgo+PiAKPj4gV0FSTklO
+RzogdW5tZXQgZGlyZWN0IGRlcGVuZGVuY2llcyBkZXRlY3RlZCBmb3IgRFJNX0RJU1BMQVlfRFBf
+QVVYX0JVUwo+PiAgIERlcGVuZHMgb24gW25dOiBIQVNfSU9NRU0gWz15XSAmJiBEUk0gWz15XSAm
+JiBPRiBbPW5dCj4+ICAgU2VsZWN0ZWQgYnkgW3ldOgo+PiAgIC0gRFJNX1JPQ0tDSElQIFs9eV0g
+JiYgSEFTX0lPTUVNIFs9eV0gJiYgRFJNIFs9eV0gJiYgUk9DS0NISVBfSU9NTVUgWz15XSAmJiBS
+T0NLQ0hJUF9BTkFMT0dJWF9EUCBbPXldCj4+IAo+PiBSb2NrY2hpcCBwbGF0Zm9ybXMgYWxsIGRl
+cGVuZCBvbiBPRiBhbnl3YXksIHNvIGFkZCB0aGUgZGVwZW5kZW5jeSBoZXJlCj4+IGZvciBjb21w
+aWxlIHRlc3RpbmcuCj4+IAo+PiBGaXhlczogZDdiNDkzNmIyYmMwICgiZHJtL3JvY2tjaGlwOiBh
+bmFsb2dpeF9kcDogQWRkIHN1cHBvcnQgdG8gZ2V0IHBhbmVsIGZyb20gdGhlIERQIEFVWCBidXMi
+KQo+PiBTaWduZWQtb2ZmLWJ5OiBBcm5kIEJlcmdtYW5uIDxhcm5kQGFybmRiLmRlPgoKICAgIEFj
+a2VkLWJ5OiBBbmR5IFlhbiA8YW5keS55YW5Acm9jay1jaGlwcy5jb20+Cgo+PiAtLS0KPj4gIGRy
+aXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9LY29uZmlnIHwgMSArCj4+ICAxIGZpbGUgY2hhbmdlZCwg
+MSBpbnNlcnRpb24oKykKPj4gCj4KPlJldmlld2VkLWJ5OiBEbWl0cnkgQmFyeXNoa292IDxkbWl0
+cnkuYmFyeXNoa292QG9zcy5xdWFsY29tbS5jb20+Cj4KPi0tIAo+V2l0aCBiZXN0IHdpc2hlcwo+
+RG1pdHJ5Cg==
 
