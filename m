@@ -4,123 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D5EFC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 10:21:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3186C369D7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 10:22:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SggPKLYNteTJFBULHKonomljYP1GYK2s5pgGfrL6Qg4=; b=QKdsNWKUL2Q+U9XwUhKM0a3bXa
-	4Kg0pLtILI1RMREW5hhWePotlN6o8C6kB0sGio3LDkdtex10rY0sT9u5CC0x1cm401/jmo89VLM6x
-	JESEgzXA/1McOJK4k8fDju00DawHUydG9NmmWEb7XW4QJ8ywGCDJzPW+Xhp0CAl5zTZqM3MhGRctB
-	uboWQRnAMHezK5Rsd+0aFq392ep2SlWPYTfMTFRga8a/hlR7gi+y0kC2tiJ6XgwA5vb8NPPk7JhYd
-	6iQuCqszCzOlgsUuLGVnTUledjCkzVYllfBTqQyuzr8WLnL36UBBBK3FcvZm7fAl1nUtyBG5bwRQT
-	8A32EGCw==;
+	bh=QwsccYOs8XpweMfP9XrYjw7+Hr76yPGkvSua0F/kNyA=; b=NEFWQJO1mfq91RFYxO5BKebUE/
+	XQJgQ2BSeE5bwb6ZcXWaJD/EZ/HM1vCGV7UUgQrEage5/Kf/FFZHcMctJWpXgXj5SigutZdelQkaK
+	vcBuf89KSene7o8Mk+9Xj+aS+0wMHekavK1IUMm29xfuVvyT5LmLnAKivdMzG/ERjBdU0GDUkJp+P
+	oKdwg045QG5C2JPO0m+1mCs2ikL3aAOYjvJ7/tqWfgZj+89IBz3Y3v7/1GcxTPxvfnJ7DuVG6lDbP
+	TRKk3D2qYwuu7dQfsZ/AHl5+i26ShyO5+Cqsf2AP+SFM/iLQEfQS23gCqZpZ58/jnbpTlfCVlRsBV
+	OyK3wBLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7thN-0000000Deb9-4BQ3;
-	Thu, 24 Apr 2025 10:20:54 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u7tik-0000000DepE-2cbF;
+	Thu, 24 Apr 2025 10:22:18 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7syI-0000000DW7c-2LgA
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 24 Apr 2025 09:34:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
-	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=SggPKLYNteTJFBULHKonomljYP1GYK2s5pgGfrL6Qg4=; b=KEt4237Cbsw4Ai7hbRGazVecuu
-	t6h/FG0+nBdDg30HA9s6WArtYQZmFo+LJkBVZpOU2ptjdEEoMDOQ80J+mHo6SCqlCrIvpDMZ111bO
-	8BV0vvZr/NzRRz0iEqOJxESBV3rX2jXUz3psByvrfQc0bLpgMfevX9m41rhSp/SM9IJronofnu6Pv
-	JBR70kYIUueVGikYPRhfiG3S+zRd1dwKJBVCHfA48ITirgAUHywCnMEXTffkoBkDn8HuJL90F76Up
-	PW/G2sfsvuZjU1N5ySV+A79PqlSLevuTMGMdHgnfPd56Cbm2we1vifuwEJFBS2aOncQFoIEQYZ6Sz
-	I2xeeBQg==;
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u7syF-0000000BgZo-1RtU
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 09:34:17 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53O0FDNR000771;
-	Thu, 24 Apr 2025 09:34:09 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	SggPKLYNteTJFBULHKonomljYP1GYK2s5pgGfrL6Qg4=; b=Tre7mnaBOs65N0rh
-	UCUDLpIFgvem5g+Qkk9oClEr6PgVowL30d/IK5NVtwy9NDhtq9IsQiiOtWQHDb/M
-	dUkdvjDIVv/kvaq9+4gJwbLyhQRy+D+8JnrsYVqk3RROLrW/+hWwO+RidpZ7KRut
-	VluVUJgfgcKlt2Y7hTolkQO6jLWs2KFcw8evCxAYrr6huMUmjAaqQQTG+HD/qtQK
-	3cLiJ77P+CNlzLhPeLNrHa8UAHqS5Whbsy9gMS5ORUOZ8sC7wIAVolqPYNu/ow1M
-	Nc423zvDNiIK72Assr5QH/2ITHecQ14bVdl2CnPRRL7SCsY3fcbPekwEIvSOFAnX
-	DhruyA==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 466jh3cytr-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 24 Apr 2025 09:34:08 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53O9Y8Oq028892
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 24 Apr 2025 09:34:08 GMT
-Received: from hu-tdas-hyd.qualcomm.com (10.80.80.8) by
- nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Thu, 24 Apr 2025 02:34:03 -0700
-From: Taniya Das <quic_tdas@quicinc.com>
-Date: Thu, 24 Apr 2025 15:03:03 +0530
-Subject: [PATCH v8 08/10] dt-bindings: clock: Add Qualcomm QCS615 Video
- clock controller
+	id 1u7s8N-0000000DNNN-09Ki;
+	Thu, 24 Apr 2025 08:40:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1745484037;
+	bh=ugQ0tZbuUVl+tPGqAtdti5tfLPe5fA3E0Vgs3DqrikU=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=fZYjIxnS47q+VH6NYF04apROnIEhJhkS9k0VgkbabkklKQ4ufvlZ45j1AEZf+gnlt
+	 NYnN3Nhli3jPUuo50W41Nb+drlKFFC4phPEGvcmfDCwgq0k88a0Rt0V7OQaR90ENP4
+	 HjsRJAPOuy1cgmFjd9qkZ26UieC8Q0y+O7E8N1dwx5NOPwEjQkkC4TfoKy3sWwTCLq
+	 Ny17PXQT7Pd9tnuZnpe0os+RTiDi0IOlDFYWuuriPV1zIJD2hIr17eutNPy3f1JD1q
+	 SoPAWY+j/Uh912f2twKS79PcW2vDA3ivUEFxnOVpzMiNrOWdiHdgkX6L2KxvAQ3suK
+	 PH6Thld8ONPlg==
+Received: from yukiji.home (amontpellier-657-1-116-247.w83-113.abo.wanadoo.fr [83.113.51.247])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1BE3317E3610;
+	Thu, 24 Apr 2025 10:40:36 +0200 (CEST)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Thu, 24 Apr 2025 10:38:49 +0200
+Subject: [PATCH net v2 2/2] net: ethernet: mtk-star-emac: rearm interrupts
+ in rx_poll only when advised
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250424-qcs615-mm-v7-clock-controllers-v8-8-bacad5b3659a@quicinc.com>
-References: <20250424-qcs615-mm-v7-clock-controllers-v8-0-bacad5b3659a@quicinc.com>
-In-Reply-To: <20250424-qcs615-mm-v7-clock-controllers-v8-0-bacad5b3659a@quicinc.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette
-	<mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon
-	<will@kernel.org>
-CC: Ajit Pandey <quic_ajipan@quicinc.com>,
-        Imran Shaik
-	<quic_imrashai@quicinc.com>,
-        Jagadeesh Kona <quic_jkona@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Taniya Das <quic_tdas@quicinc.com>
-X-Mailer: b4 0.15-dev-aa3f6
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI0MDA2MyBTYWx0ZWRfXxxQqYnXdn1Ve hNf+xz08w86xRgkntU4XdDhMS6m60xcTvyAQN2CLM/b87eK1KFwgrS7qNio6xmU675J6NbC+lsk URC+9LGgqBOdffUDohEVRuOxxJZJ6PqJbXw6hhurGmXCx9K4QUIW5qweZh8Mjzs+mBvCquprwq3
- E/hX8NnvPZOr71hymdadB/woVx96a2kzU2/7KQwnpquNTlnsLsJjLXt9odrq29J8PHQ65Hc+aBx lqQKZhKu+GDo6AN1Nke8W5I8f3SIek3bSYnesYmEYAHFuQzY2Z7lqq7c/xkvlld9Urh8KAG3amF 82TwUpZs5BA4u62OEX81x8nNv4XONg7g/RsKmOfOeI2Ni606W1jzCS08mepBLa+2gHyBPRoJKkQ
- mzTZhS6qXO1oU22VX8i0Nz4/aMFl6KTCeArjrBfXrdWmaAzXWmxANUmuuFJK046c01of0gkM
-X-Authority-Analysis: v=2.4 cv=bs1MBFai c=1 sm=1 tr=0 ts=680a0590 cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=gEfo2CItAAAA:8 a=COk6AnOGAAAA:8 a=Fd_aqQ4HFp4EpFgKmb0A:9
- a=QEXdDO2ut3YA:10 a=sptkURWiP4Gy88Gu7hUp:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: iVOnAA6Qp28ITAbEq2GXZqVtiRTbHYY0
-X-Proofpoint-GUID: iVOnAA6Qp28ITAbEq2GXZqVtiRTbHYY0
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.680,FMLib:17.12.80.40
- definitions=2025-04-24_04,2025-04-22_01,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0
- priorityscore=1501 suspectscore=0 mlxlogscore=999 mlxscore=0 phishscore=0
- lowpriorityscore=0 bulkscore=0 spamscore=0 impostorscore=0 malwarescore=0
- clxscore=1015 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
- definitions=main-2504240063
+Message-Id: <20250424-mtk_star_emac-fix-spinlock-recursion-issue-v2-2-f3fde2e529d8@collabora.com>
+References: <20250424-mtk_star_emac-fix-spinlock-recursion-issue-v2-0-f3fde2e529d8@collabora.com>
+In-Reply-To: <20250424-mtk_star_emac-fix-spinlock-recursion-issue-v2-0-f3fde2e529d8@collabora.com>
+To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Biao Huang <biao.huang@mediatek.com>, 
+ Yinghua Pan <ot_yinghua.pan@mediatek.com>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: kernel@collabora.com, netdev@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1745484033; l=1378;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=ugQ0tZbuUVl+tPGqAtdti5tfLPe5fA3E0Vgs3DqrikU=;
+ b=2+hlGTGLX4IvBZ7LMo2FNCbo3oFL2H2kxu7qLhPFrDccvEuTJxAjMod/qdQ3c3A5HlMBD2F4u
+ GHsPaXAAj0vCNg+4VSDcGo0Mk6xifVU44tFqSzxp3vXitubG5ipHv6p
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_103415_772656_A7BC9826 
-X-CRM114-Status: GOOD (  13.50  )
+X-CRM114-CacheID: sfid-20250424_014039_224438_50F55FC4 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,106 +91,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add DT bindings for the Video clock on QCS615 platforms. Add the
-relevant DT include definitions as well.
+In mtk_star_rx_poll function, on event processing completion, the
+mtk_star_emac driver calls napi_complete_done but ignores its return
+code and enable RX DMA interrupts inconditionally. This return code
+gives the info if a device should avoid rearming its interrupts or not,
+so fix this behaviour by taking it into account.
 
-Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
+Fixes: 8c7bd5a454ff ("net: ethernet: mtk-star-emac: new driver")
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- .../bindings/clock/qcom,qcs615-videocc.yaml        | 47 ++++++++++++++++++++++
- include/dt-bindings/clock/qcom,qcs615-videocc.h    | 30 ++++++++++++++
- 2 files changed, 77 insertions(+)
+ drivers/net/ethernet/mediatek/mtk_star_emac.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/clock/qcom,qcs615-videocc.yaml b/Documentation/devicetree/bindings/clock/qcom,qcs615-videocc.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..f51b69de10478d1fcc246e4324dc74bc87b435eb
---- /dev/null
-+++ b/Documentation/devicetree/bindings/clock/qcom,qcs615-videocc.yaml
-@@ -0,0 +1,47 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/clock/qcom,qcs615-videocc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Qualcomm Video Clock & Reset Controller on QCS615
-+
-+maintainers:
-+  - Taniya Das <quic_tdas@quicinc.com>
-+
-+description: |
-+  Qualcomm video clock control module provides clocks, resets and power
-+  domains on QCS615 Qualcomm SoCs.
-+
-+  See also: include/dt-bindings/clock/qcom,qcs615-videocc.h
-+
-+properties:
-+  compatible:
-+    const: qcom,qcs615-videocc
-+
-+  clocks:
-+    items:
-+      - description: Board XO source
-+      - description: Sleep clock source
-+
-+allOf:
-+  - $ref: qcom,gcc.yaml#
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/qcom,rpmh.h>
-+    #include <dt-bindings/clock/qcom,qcs615-gcc.h>
-+
-+    clock-controller@ab00000 {
-+      compatible = "qcom,qcs615-videocc";
-+      reg = <0xab00000 0x10000>;
-+      clocks = <&rpmhcc RPMH_CXO_CLK>,
-+               <&sleep_clk>;
-+
-+      #clock-cells = <1>;
-+      #reset-cells = <1>;
-+      #power-domain-cells = <1>;
-+    };
-+...
-diff --git a/include/dt-bindings/clock/qcom,qcs615-videocc.h b/include/dt-bindings/clock/qcom,qcs615-videocc.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..0ca3efb21103d7e0b09ab9c042be761bcbc5960d
---- /dev/null
-+++ b/include/dt-bindings/clock/qcom,qcs615-videocc.h
-@@ -0,0 +1,30 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+/*
-+ * Copyright (c) 2024, Qualcomm Innovation Center, Inc. All rights reserved.
-+ */
-+
-+#ifndef _DT_BINDINGS_CLK_QCOM_VIDEO_CC_QCS615_H
-+#define _DT_BINDINGS_CLK_QCOM_VIDEO_CC_QCS615_H
-+
-+/* VIDEO_CC clocks */
-+#define VIDEO_CC_SLEEP_CLK					0
-+#define VIDEO_CC_SLEEP_CLK_SRC					1
-+#define VIDEO_CC_VCODEC0_AXI_CLK				2
-+#define VIDEO_CC_VCODEC0_CORE_CLK				3
-+#define VIDEO_CC_VENUS_AHB_CLK					4
-+#define VIDEO_CC_VENUS_CLK_SRC					5
-+#define VIDEO_CC_VENUS_CTL_AXI_CLK				6
-+#define VIDEO_CC_VENUS_CTL_CORE_CLK				7
-+#define VIDEO_CC_XO_CLK						8
-+#define VIDEO_PLL0						9
-+
-+/* VIDEO_CC power domains */
-+#define VCODEC0_GDSC						0
-+#define VENUS_GDSC						1
-+
-+/* VIDEO_CC resets */
-+#define VIDEO_CC_INTERFACE_BCR					0
-+#define VIDEO_CC_VCODEC0_BCR					1
-+#define VIDEO_CC_VENUS_BCR					2
-+
-+#endif
+diff --git a/drivers/net/ethernet/mediatek/mtk_star_emac.c b/drivers/net/ethernet/mediatek/mtk_star_emac.c
+index 23115881d8e892a622b34b593cf38e2c8bed4082..b175119a6a7da517f20267fde7b2005d6c0bbadd 100644
+--- a/drivers/net/ethernet/mediatek/mtk_star_emac.c
++++ b/drivers/net/ethernet/mediatek/mtk_star_emac.c
+@@ -1348,8 +1348,7 @@ static int mtk_star_rx_poll(struct napi_struct *napi, int budget)
+ 	priv = container_of(napi, struct mtk_star_priv, rx_napi);
+ 
+ 	work_done = mtk_star_rx(priv, budget);
+-	if (work_done < budget) {
+-		napi_complete_done(napi, work_done);
++	if (work_done < budget && napi_complete_done(napi, work_done)) {
+ 		spin_lock_irqsave(&priv->lock, flags);
+ 		mtk_star_enable_dma_irq(priv, true, false);
+ 		spin_unlock_irqrestore(&priv->lock, flags);
 
 -- 
-2.34.1
+2.49.0
 
 
