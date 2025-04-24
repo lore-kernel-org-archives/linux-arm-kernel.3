@@ -4,84 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9DDBC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:04:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3DAFC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:04:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R7E0igRN0goWZT53emNsgMknLEdpCU0Z3PHf0cpn4M4=; b=K+Vne0PTnv+KhMDuSTwdXNArPn
-	lE2Qmb9mFJdAa7KWdSIOdQWemQst57r+DxBw6HUTTwmxN8ghjQZWAi0MSaF2xgiu87ppANblQuvOf
-	51CLXwahIO+m/uHX94oht7lv+7v/9Kiu6NrqxOAgMjNRXkm+kGK8pw1T4VS0gRTPNBwRtUXcaok1L
-	lPW3FGT0fOPowrrP8Qwlkt7y285q33CYpzTDlBJ1cQkln4qNcf8WNdTwKdmtG1UUVbopOdgIgEfiY
-	gIymg+aIa5Dzy1n3S8TAGRCGkAQ1Cnk+jS4QxUe+EqytGLC8n8o2U2Mc3H3ucYQyEJMsfNycnDvk+
-	dF1/c3SA==;
+	bh=Ei9FNw6IjtxDnJGtZ0ljQWti041QWdVAFekLHXRFiv8=; b=FPRTD8AfhtOEvXPlfGJVBJC5G4
+	6bckkMObdFm+JskYkGcz/BNC0qN06B0GCTnvIk4giJaPVzMjdVY72/WscV/3yE0tD5tSEUvDKZj0O
+	efBHHG5IKLUXYsOcIc7mU/kqWZtNGwuKnHNxPOfXo8b9L/b8hQvZc+Y6eYsgHNfUWLOeAEUBOSedU
+	MMAOrwanSKExfWq2Gq9EgS/c/FksXCfUKt3LNnh2p/W69QSI4Ai4amLyaEaByL9p9cZJKm+8J9r8c
+	orTiXL3ngNek9CrNoFR628I2pRYfa6sPBej1abJ/wPVL+WFpOC8cDXOcoSyiY3Tw99hFEMhYDM/GU
+	P7TfbVrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7z3Z-0000000EacP-2NKf;
-	Thu, 24 Apr 2025 16:04:09 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1u7z3r-0000000Eb34-0agH;
+	Thu, 24 Apr 2025 16:04:27 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7vkg-0000000E2yA-35xo
+	id 1u7w95-0000000E72c-2sAH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 12:32:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=R7E0igRN0goWZT53emNsgMknLEdpCU0Z3PHf0cpn4M4=; b=M34qZugqYq7x6S26YtmcPCqPio
-	KuZCRgcANW1O/zmu9txnWc/YLvQN/nqtoLgXeJd4f+LegtaBStGFX/csqPrJVBh12ei7nywbk6UXg
-	fbRBYUKIqedh4axwO40A94m7GYV3fU2H/6tBF+D80hFG4I9Q8n8zHX2y/jEdmztulzaEfyWhugqsL
-	AX6GZ23Abwl1o+To2QruXtMYavNx3xHhZZ1beN/SoG+ZMHy3u/s1BPzmihD+53DIi4zdAdYmdAhbZ
-	2M6mCZFbF6TRkS0KhJBMX+7RS+V1AwRdvz8SyRqRjfsUjw4Hy3DUFc9f0zabaLP5+gHC3aRRGiKIQ
-	n+OGfgyg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:39516)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1u7vkY-0007Mr-0A;
-	Thu, 24 Apr 2025 13:32:18 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1u7vkU-00015d-0J;
-	Thu, 24 Apr 2025 13:32:14 +0100
-Date: Thu, 24 Apr 2025 13:32:13 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Paolo Abeni <pabeni@redhat.com>
-Cc: Boon Khai Ng <boon.khai.ng@altera.com>, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
+	Thu, 24 Apr 2025 12:57:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=Ei9FNw6IjtxDnJGtZ0ljQWti041QWdVAFekLHXRFiv8=; b=pquxH5TcA9L1wdWXApkcJYJYcv
+	UuJ3wPBl6Qmnm2H3WE6PKIU8sdYhYUPw9ic8jzEr/CfC4/gHksuQ73zK1kAnNeZiQSY6Ul2QErFw2
+	D9Fq3/+6GVrOYvNUnytuZRe1jtUZXE60Apy3/Yd/3HF3SongBjPChdvdNGR9KEAHSfBM=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1u7w8t-00ASoP-Lw; Thu, 24 Apr 2025 14:57:27 +0200
+Date: Thu, 24 Apr 2025 14:57:27 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Yixun Lan <dlan@gentoo.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Furong Xu <0x1207@gmail.com>,
-	Matthew Gerlach <matthew.gerlach@altera.com>,
-	Tien Sung Ang <tien.sung.ang@altera.com>,
-	Mun Yew Tham <mun.yew.tham@altera.com>,
-	G Thomas Rohan <rohan.g.thomas@altera.com>
-Subject: Re: [PATCH net-next v4 1/2] net: stmmac: Refactor VLAN implementation
-Message-ID: <aAovTY6Q-4S__0Mh@shell.armlinux.org.uk>
-References: <20250421162930.10237-1-boon.khai.ng@altera.com>
- <20250421162930.10237-2-boon.khai.ng@altera.com>
- <43ef6713-9ae1-468c-bc43-2c7e463e04f4@redhat.com>
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH 4/5] arm64: dts: allwinner: a527: add EMAC0 to Radxa A5E
+ board
+Message-ID: <4ba3e7b8-e680-40fa-b159-5146a16a9415@lunn.ch>
+References: <20250423-01-sun55i-emac0-v1-0-46ee4c855e0a@gentoo.org>
+ <20250423-01-sun55i-emac0-v1-4-46ee4c855e0a@gentoo.org>
+ <aa38baed-f528-4650-9e06-e7a76c25ec89@lunn.ch>
+ <20250424014120.0d66bd85@minigeek.lan>
+ <835b58a3-82a0-489e-a80f-dcbdb70f6f8d@lunn.ch>
+ <20250424134104.18031a70@donnerap.manchester.arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <43ef6713-9ae1-468c-bc43-2c7e463e04f4@redhat.com>
+In-Reply-To: <20250424134104.18031a70@donnerap.manchester.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_053226_774560_E6BAFB45 
-X-CRM114-Status: GOOD (  24.21  )
+X-CRM114-CacheID: sfid-20250424_055739_720261_62E5EF38 
+X-CRM114-Status: GOOD (  14.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,80 +84,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 24, 2025 at 02:04:04PM +0200, Paolo Abeni wrote:
-> On 4/21/25 6:29 PM, Boon Khai Ng wrote:
-> > Refactor VLAN implementation by moving common code for DWMAC4 and
-> > DWXGMAC IPs into a separate VLAN module. VLAN implementation for
-> > DWMAC4 and DWXGMAC differs only for CSR base address, the descriptor
-> > for the VLAN ID and VLAN VALID bit field.
-> > 
-> > The descriptor format for VLAN is not moved to the common code due
-> > to hardware-specific differences between DWMAC4 and DWXGMAC.
-> > 
-> > For the DWMAC4 IP, the Receive Normal Descriptor 0 (RDES0) is
-> > formatted as follows:
-> >     31                                                0
-> >       ------------------------ -----------------------
-> > RDES0| Inner VLAN TAG [31:16] | Outer VLAN TAG [15:0] |
-> >       ------------------------ -----------------------
-> > 
-> > For the DWXGMAC IP, the RDES0 format varies based on the
-> > Tunneled Frame bit (TNP):
-> > 
-> > a) For Non-Tunneled Frame (TNP=0)
-> > 
-> >     31                                                0
-> >       ------------------------ -----------------------
-> > RDES0| Inner VLAN TAG [31:16] | Outer VLAN TAG [15:0] |
-> >       ------------------------ -----------------------
-> > 
-> > b) For Tunneled Frame (TNP=1)
-> > 
-> >      31                   8 7                3 2      0
-> >       --------------------- ------------------ -------
-> > RDES0| VNID/VSID           | Reserved         | OL2L3 |
-> >       --------------------- ------------------ ------
-> > 
-> > The logic for handling tunneled frames is not yet implemented
-> > in the dwxgmac2_wrback_get_rx_vlan_tci() function. Therefore,
-> > it is prudent to maintain separate functions within their
-> > respective descriptor driver files
-> > (dwxgmac2_descs.c and dwmac4_descs.c).
-> > 
-> > Signed-off-by: Boon Khai Ng <boon.khai.ng@altera.com>
-> > Reviewed-by: Matthew Gerlach <matthew.gerlach@altera.com>
+> > Just to be clear, you tried it with "rgmii-id" and the same <300> and
+> > <400> values?
 > 
-> This patch does IMHO too many things together, and should be split in
-> several ones, i.e.:
-> - just moving the code in a separate file
-> - rename functions and simbols.
-> - other random changes...
-> 
-> > -	ret = readl_poll_timeout(ioaddr + GMAC_VLAN_TAG, val,
-> > -				 !(val & GMAC_VLAN_TAG_CTRL_OB),
-> > -				 1000, 500000);
-> > -	if (ret) {
-> > -		netdev_err(dev, "Timeout accessing MAC_VLAN_Tag_Filter\n");
-> > -		return -EBUSY;
-> > -	}
-> 
-> > +	for (i = 0; i < timeout; i++) {
-> > +		val = readl(ioaddr + VLAN_TAG);
-> > +		if (!(val & VLAN_TAG_CTRL_OB))
-> > +			return 0;
-> > +		udelay(1);
-> > +	}
-> > +
-> > +	netdev_err(dev, "Timeout accessing MAC_VLAN_Tag_Filter\n");
-> > +
-> > +	return -EBUSY;
-> 
-> ... like the above on (which looks unnecessary?!?)
+> Yes, sorry, I wasn't clear: I used rgmii-id, then experimented with those
+> values.
 
-Also looks like a backward step, because we ask people to use the helper
-macros where possible.
+O.K, great.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+I do suspect the delays are not actually in pico seconds. But without
+a data sheet, it is hard to know.
+
+       if (!of_property_read_u32(node, "allwinner,rx-delay-ps", &val)) {
+                if (val % 100) {
+                        dev_err(dev, "rx-delay must be a multiple of 100\n");
+                        return -EINVAL;
+                }
+                val /= 100;
+                dev_dbg(dev, "set rx-delay to %x\n", val);
+                if (val <= gmac->variant->rx_delay_max) {
+                        reg &= ~(gmac->variant->rx_delay_max <<
+                                 SYSCON_ERXDC_SHIFT);
+                        reg |= (val << SYSCON_ERXDC_SHIFT);
+
+So the code divides by 100 and writes it to a register. But:
+
+static const struct emac_variant emac_variant_h3 = {
+        .rx_delay_max = 31,
+
+
+static const struct emac_variant emac_variant_r40 = {
+        .rx_delay_max = 7,
+};
+
+With the change from 7 to 31, did the range get extended by a factor
+of 4, or did the step go down by a factor of 4, and the / 100 should
+be / 25? I suppose the git history might have the answer in the commit
+message, but i'm too lazy to go look.
+
+	Andrew
+
+
+
+I briefly tried "rgmii", and I couldn't get a lease, so I quite
+> confident it's rgmii-id, as you said. The vendor DTs just use "rgmii", but
+> they might hack the delay up another way (and I cannot be asked to look at
+> that awful code).
+> 
+> Cheers,
+> Andre
 
