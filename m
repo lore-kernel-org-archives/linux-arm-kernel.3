@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64F13C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:23:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48096C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:25:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hqBYSym6/IKZ4dR5+LcPnCqmsnNZ3gZxP5On2ohLJHg=; b=WCb08bcSXcNByRsjCBn9FpdrQb
-	jhDmXSdG/Si+dA28h7e98CufS0Sknr/zrS99F1xJslXSsGkHNFr/cQbbjsMU5U4GLhoWiCMjSERxO
-	C5GjOFO7BB2RC7Lhrjzxbt8Fz2/KKi3DCJzcjuYp81UMHFFB2BXO47kmv44ioXzO/1NRWdLh6BuBA
-	wEWJwfUbHMGqWLH7mBBGu7iYtBgvCcxdn649gpVHrCOT3OWUqcndtppejjIwjDnVxfc6DCj9tVsFZ
-	WvQb7VQAw+2cXXnQRT8vij1KFKjYreThO1R2Jk5ff0pd9jlj2U0O+CfuEWQkagOLoXmF4GtEwAyDY
-	4PMv9glQ==;
+	bh=UzMM2iBH6+Gc7Z6813BECvWupwCQGAgpCN+DSbkp+QE=; b=gmtpDspQg1o5FsgdFm/i37UCuY
+	7+UOsfMquXvsdwk0nr8zO6k4HY8O/NyqboLDk6VqF/79EiBw6tvv+07ESAe4L2ST1sqocGOwvM5Iq
+	KrTGPnKnLihWVlCWoCZl2y7eh+rvzt9B5x+bAuJNU9O/3ROKIGVClsdL/fSn2aDbnyyHyeKpzcz/2
+	23hBdQbx4Y0wQOeK+mIHO07tALXfa8j50/DXB7JBglb7NrjDtj++whjaIplnHqo5RGUmRiI8gutrq
+	SC7Z90sbHErJ5rvSTokbRmcNMUAa9geGN7/9i+JcaUtraINptgsgJMedd9ANjEdvWJHTSuetyqthg
+	uBusCrbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7zLp-0000000Eiwx-170X;
-	Thu, 24 Apr 2025 16:23:01 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u7zNd-0000000EjFH-3kzy;
+	Thu, 24 Apr 2025 16:24:53 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7yXv-0000000EV8Q-1WEb
+	id 1u7yYB-0000000EVAW-2tly
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 15:31:28 +0000
+	Thu, 24 Apr 2025 15:31:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 257CB5C3F85;
-	Thu, 24 Apr 2025 15:29:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 278D1C4CEE3;
-	Thu, 24 Apr 2025 15:31:19 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id E21E2A4CEA1;
+	Thu, 24 Apr 2025 15:26:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CC2DC4CEE3;
+	Thu, 24 Apr 2025 15:31:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745508683;
-	bh=ggnqC+sRhooCK5oEVXjCBnDM2VOyq0O6DNpXNKZNRF8=;
+	s=k20201202; t=1745508702;
+	bh=sEbS0E7VU7Vg8M20K9CiU0mxPDrl00NG1g/pKKcpJjI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=X4CBKwly6dh6eQb/Hq2ar0IvUVwlmhzEkl43VEf2jmIptexk12GVwoq+HWxHPsNGH
-	 5cAUNxTb/Q7gfF2oChV35sdQpHx7aLpYs3XmO6989GRDlHe2+A1e7Y2Q0vUVUmMInu
-	 Vl4ogRz8gjnCkT+MRPAzIBYQcZP+5uDtU6a38u6cmti+0PfNOLMod5bYQZn2xB3Qyw
-	 zlTmTtRbdqXiQTm0u4kGgYICzkoypjWeMfnTnDfyJ1X6UCRgUgE9ZKsev4C/7iLcoD
-	 Tn2jUze8MVlhS0Q90qAiMp8Ll3d0d9BkUKtGgT/kqj52gZoK0UcdQxx3M3rkmwfhuf
-	 Ux/AC95mz54ug==
-Message-ID: <1355515c-477e-455c-a910-a69dc1b77f07@kernel.org>
-Date: Thu, 24 Apr 2025 17:31:18 +0200
+	b=bJckp0J863hQjh6KFpzQDOeTXxS+wGvSwGujDHeBAh94IgxNusq9+5zHQSyJhpj6L
+	 0s65Na+z+Dri2mmavkirbMqQrIefT/XALSRjwCwzd2Mcy59DhvEkfe+blabIEaUi/I
+	 EPwilZ2McB4pF7AWNEwGxL9x7TCLeVzQMHWud/r6yiuCAbapcWUUs9je9MZrlUNEoN
+	 u+ZrmtqIKsa/Wf5MYSTB1+szapUUvbypLaNmlY3jxouS3MCHEdEb2X0BxDUofnF5W1
+	 Sctzis+ivvVES/ujMTviBn3XBglJao7VI15aoh4ikFnwg3EU5LHsd5ALgei6kCNtkQ
+	 EnliE69gGhEJw==
+Message-ID: <1a3c2366-f893-4799-a4bc-0c9c53d8c155@kernel.org>
+Date: Thu, 24 Apr 2025 17:31:36 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 06/10] dt-bindings: clock: Add Qualcomm QCS615 Graphics
+Subject: Re: [PATCH v8 08/10] dt-bindings: clock: Add Qualcomm QCS615 Video
  clock controller
 To: Taniya Das <quic_tdas@quicinc.com>, Bjorn Andersson
  <andersson@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
@@ -60,7 +60,7 @@ Cc: Ajit Pandey <quic_ajipan@quicinc.com>,
  linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 References: <20250424-qcs615-mm-v7-clock-controllers-v8-0-bacad5b3659a@quicinc.com>
- <20250424-qcs615-mm-v7-clock-controllers-v8-6-bacad5b3659a@quicinc.com>
+ <20250424-qcs615-mm-v7-clock-controllers-v8-8-bacad5b3659a@quicinc.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,12 +106,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250424-qcs615-mm-v7-clock-controllers-v8-6-bacad5b3659a@quicinc.com>
+In-Reply-To: <20250424-qcs615-mm-v7-clock-controllers-v8-8-bacad5b3659a@quicinc.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_083127_479751_2361C1F3 
-X-CRM114-Status: UNSURE (   6.68  )
+X-CRM114-CacheID: sfid-20250424_083143_859043_90DE2149 
+X-CRM114-Status: UNSURE (   5.15  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -128,15 +128,11 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 24/04/2025 11:33, Taniya Das wrote:
-> Add DT bindings for the Graphics clock on QCS615 platforms. Add the
+> Add DT bindings for the Video clock on QCS615 platforms. Add the
 > relevant DT include definitions as well.
 > 
 > Signed-off-by: Taniya Das <quic_tdas@quicinc.com>
 > ---
->  .../bindings/clock/qcom,qcs615-gpucc.yaml          | 49 ++++++++++++++++++++++
->  include/dt-bindings/clock/qcom,qcs615-gpucc.h      | 39 +++++++++++++++++
->  2 files changed, 88 insertions(+)
-> 
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
