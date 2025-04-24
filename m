@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16AB1C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 14:18:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC884C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 14:20:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RWQ7tow6/QObV1dZlu7iQyh8ZGlTXJ546APi65ecku8=; b=TM/k3n8OK4F0mGDDvnf4fKiqDX
-	DBwJg24VurAPAPU+qHfZ88jh5RJ4oMJqsdlhcTQoKAJhdoMeHh/hrlqp+Z4q5IgFnX71ekDkRRu98
-	3u3Hvp+ORbuRp+DvhUX88BAwEdYK+VZWMqtP7PIAf569kIoX0/11AGJYrAJ7/SHEN8DBVMpYFhgtw
-	eed7Oiez8diWAnNEtVMJtpukPcZFY7LmP2A3Q+kFTzcKlt/M2QxssAuUhQqKeMf3hcKWNDOB+G9cY
-	Jb96qQL9Xxwsa1AfFPu+6qIe6PTESRud3A+SCE/QOTmmhztxgRVJqzydkVZCSB/xMneyCqTFn3qj2
-	chzCdPQA==;
+	bh=wR1OEna0aeFtN+kiLpzFMk56+zMmwNh350acMHwPa0s=; b=yz7j52dSHqt+Vn8ZuC6m/30ogi
+	OElDz/7f8CZtTbnlTiLpG5uOixLUZMsAv6JPKs0yEO3FSM/f9XmxvR87wKi4iF03UmqE8PPihnVOG
+	W8TRYf7M+y/qhNlqsoOsCetHY4aygBKhx8hJ7Y1ojAg9FuUVKWcifqHEDnT1UzVFH/bCvBu+r0VV4
+	iHW9Ipu8X1riQrlGXaatWqbjMA8rGvFlpRZxe4IAudHCuBuJ5Uimg+eYeZFoNd5XeAuzJEz5lr7yp
+	57Zwn3paB5BUqQhHWIAcB165nH9NmOe/S3oKIVL8GvvTlkSsLrpdlGTsiDRaBTFdIXUi5qR+kWQix
+	enJ35J8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7xP5-0000000ELYg-1NVM;
-	Thu, 24 Apr 2025 14:18:15 +0000
+	id 1u7xQu-0000000ELvt-0BwL;
+	Thu, 24 Apr 2025 14:20:08 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7wNs-0000000E9eY-2yN7;
-	Thu, 24 Apr 2025 13:12:58 +0000
+	id 1u7wO0-0000000E9gI-3iOg;
+	Thu, 24 Apr 2025 13:13:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 39C69A4CD61;
-	Thu, 24 Apr 2025 13:07:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F69DC4CEE3;
-	Thu, 24 Apr 2025 13:12:50 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 31575A4CD61;
+	Thu, 24 Apr 2025 13:07:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42F43C4CEE3;
+	Thu, 24 Apr 2025 13:12:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745500374;
-	bh=74kMUmmh63Pt08J6ShCVCMsVK4mDwK70M+Gmhu/tpYk=;
+	s=k20201202; t=1745500383;
+	bh=osHU/xToyXcY3JPznSD0DVvUR+I+8au+m2pc56DP0oQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CNC5a0xZDt9z8ukrvoEWLLOgvBOU5pMnQRJNyRwZ2ekba6Mp9+DhAPcqavk+aVlzP
-	 XHVNLcPZ6Lg2wGESCX4tiYJKFwciA91vPpdAlJg3WbCY9NTqY1ejC0g3ldBNwKMJws
-	 +NvEbFF8qnQGgYxjYSVBOVmyijOhNWP6R7RmOxHeteNsFUMI2DpabH6lU3az/UUhIY
-	 4z63GztLl7dAtpiZ1XQfks0pIvtEPFdGe015j7JrZL2uX4kZFn/1j2rNXbQnom1JYt
-	 AUhctaIP7gJqjnkL9JOh0UyUIXT5KKdP28zbaGJi/5+mrm2BvyTnLLaNW5f+xp3O+H
-	 fn/mz8i2eJGVw==
-Message-ID: <05ad5e49-9c03-4750-a1c3-775579b2479d@kernel.org>
-Date: Thu, 24 Apr 2025 15:12:48 +0200
+	b=HK3RrC2Xilb+OYhJDD2n3Zun+fvxFqRpeYRB58Go6EgAS8TlKgfbuG4b+Q4zGQJkH
+	 Iqn2czvortBOxExWiIYBj3urhngJxQPWADfzWNzXo5Ql+a+EK+mt9Plx0hmCCsUb8V
+	 dgYZqS10Jn+L0njDTNDGw2BejOemdvU6/55i6V10BvbfkDI81FL33J+dSymE4vLHsF
+	 EqtInslHutYjcFQVZ4MM4ZhGcnKfClFERdnXzcBJBhhiVlJuo15IdNueGsj3yFRh61
+	 UuWEd2TU2FA0yPhMy6EuDoZxQtkXA4/X1J0ddAd7GjYcBGYpWmljR/Pr6ZwBg/quj8
+	 GUZp5zyPd80zg==
+Message-ID: <11a7e42e-c9bd-44a3-8838-17469809aa4e@kernel.org>
+Date: Thu, 24 Apr 2025 15:12:58 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 09/10] arm64: dts: qcom: sm8750: Add USB support for
- SM8750 QRD platform
+Subject: Re: [PATCH v5 08/10] arm64: dts: qcom: sm8750: Add USB support for
+ SM8750 MTP platform
 To: Melody Olvera <melody.olvera@oss.qualcomm.com>,
  Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -62,7 +62,7 @@ Cc: linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org,
  Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
  Dmitry Baryshkov <lumag@kernel.org>
 References: <20250421-sm8750_usb_master-v5-0-25c79ed01d02@oss.qualcomm.com>
- <20250421-sm8750_usb_master-v5-9-25c79ed01d02@oss.qualcomm.com>
+ <20250421-sm8750_usb_master-v5-8-25c79ed01d02@oss.qualcomm.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,12 +108,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250421-sm8750_usb_master-v5-9-25c79ed01d02@oss.qualcomm.com>
+In-Reply-To: <20250421-sm8750_usb_master-v5-8-25c79ed01d02@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_061256_885477_947B901E 
-X-CRM114-Status: UNSURE (   7.04  )
+X-CRM114-CacheID: sfid-20250424_061305_067789_DCEC1F57 
+X-CRM114-Status: UNSURE (   6.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -132,13 +132,12 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 22/04/2025 00:00, Melody Olvera wrote:
 > From: Wesley Cheng <quic_wcheng@quicinc.com>
 > 
-> Enable USB support on SM8750 QRD variant.  The current definition
-> will start the USB controller in peripheral mode by default until
+> Enable USB support on SM8750 MTP variants.  The current definition will
+> start the USB controller in peripheral mode by default until
 > dependencies are added, such as USB role detection.
 > 
-> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 > Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-> Tested-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 > Signed-off-by: Wesley Cheng <quic_wcheng@quicinc.com>
 > Signed-off-by: Melody Olvera <melody.olvera@oss.qualcomm.com>
 > ---
