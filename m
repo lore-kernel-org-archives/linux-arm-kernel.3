@@ -4,102 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C8B9C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 20:39:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A221C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 20:41:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=idgVGL6g4QaZWwBvT7pD7vd7IkM4X5ShmrP8Se1lMVw=; b=MIoEEL5i5z1QXb8t1VAK1P51pg
-	vzLvIDXGmzkE9Boh96D+EZpdekhUH9SCQe1lB94CbNFije3sH3gp+QwDjYjvdyg0hB0pY2F/0s1nf
-	5/OPNGW8ATLiDQhrYG6znWpPirm621Ik5itQYorOSepQ0bFlRI0A8uXaBPJ1LYpkWXbOLeRSsIwWo
-	fWKTsroCpy+sjILBz98HSc7LK7NH8E6XCUv9qwR2qZTT503THl3u975iD5G++N8z1g5QbmYChU6xk
-	bU4hbYVOUw/jmFbK4pGeklMa8XgRVq5rcQlmlcLc3W/yQa/TKfLxX6ye4uJg5rVng4J7XPlLGNAK/
-	Z+CQ8NCA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xnfOuiokG8UriFtp6o5bPUjeosoHbQjbxkbjx1qQm9M=; b=KjdJSBqta+63dMJfPZld2Ol3c8
+	znHLv6/SBNhlzC2lxZ/jEqsLDgjRp0elHWtCjiCimQdZIbbPLuJD7j4pkcwKoXRhSOfONa2C80X81
+	1xryqT9OSlbXa9GES+1CPm30VI55TOR5YLmB67GVr0p136Fb7aInE29bptrEpbMndALlvpW9fTMyX
+	tzwb1uh6xtVIjaKI+OUNks3/mnfrslxVCn8DA2EnEQVT4XEIezoO6XPCp0KX6M42OME8goKabNhgo
+	zk39x46CfZeJA68Fz0lMLep8wZQluwWeQGVRGwK9wSXR9KNPCBxVO+0ZDbRWVgSPIo5WFZjWISf7T
+	aQoNCrfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u83LW-0000000FM4s-0OQt;
-	Thu, 24 Apr 2025 20:38:58 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1u83NL-0000000FMJ4-0xcl;
+	Thu, 24 Apr 2025 20:40:51 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u83G2-0000000FLej-3cEZ
+	id 1u83Hp-0000000FLnr-1e6R
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 24 Apr 2025 20:35:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=xnfOuiokG8UriFtp6o5bPUjeosoHbQjbxkbjx1qQm9M=; b=LLccnPQFS+rfDXab8O/BuxnJbi
+	g7hQpZuzl6fSj/R0kO7/Kysaz7EG1Pi40dwbQhHYwIoKkzfZQaY31ga2igRLXW3odmAQSR/gaXYDX
+	+eExhCcAjKyc6rlFh/C2yY+XUuC9lUmQf+nzvPYpYBQQRkhhQCouf+Bm3xpbpnXTE0kujYXigNtH9
+	wLxn4tdSoCmuV8avZtv++ivsPBdxC7szuAHHfn5Tq8hk8/S80Dit4UTa0BifP/BSIdtTXPq5R2Rsc
+	KmG6td3ExrMhTd90DeGBuoAP6N0AQk2U6aBuCaAyhZl/ITGCrvksxsUmVhZ/GFiIzUCf0h5WBvxhd
+	Huu7HnsQ==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u83Hk-0000000Bw71-263X
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 20:33:20 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3913290f754so173236f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 13:33:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745526797; x=1746131597; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=idgVGL6g4QaZWwBvT7pD7vd7IkM4X5ShmrP8Se1lMVw=;
-        b=iW5sqfiSmYJ9qVi/SRUrQfh+Rrg7Zxs4EQqBftgUzygYdylaeu1pS028DuOpuUBeSW
-         NG1Z2zPpkQqXsizCeOZw8L9LLETRbW7uWq/b3ZoZT3SyclWvIfdS2oXCpvwZqMAc1u9h
-         8NW7bD+ycPNtTvsUEJE93pCUCZv5pwCu7FMCP+XebyFL+/OjXmW0Hy14oB392/AjOV7r
-         lJBfIGpua8zptASw5VlwXSo2IrWfBdhyb5R06rZkYAGkO3GvcrD5bJDf7JVUR16I6OsP
-         T87gO0JnqjkaqBLP0Z/0WmrSqa26yUVCTM+/QjpGfT0tWWDTGz1DY4ESx5YjLkNGKqWf
-         S7Mw==
+	Thu, 24 Apr 2025 20:35:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1745526902;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=xnfOuiokG8UriFtp6o5bPUjeosoHbQjbxkbjx1qQm9M=;
+	b=NTnf67x9bomAx/p785KXW5l6Hvkhtk9FRXZR7l1zHgoj2xwi9ob/iO5ZKuxSQEuzeFXj7r
+	vgTJBN6OYFWXpv8NnL/s8s/6rpEdyBWCcEhNdyhftBD6H6wMojAy7jnpeUD/rvRIpQLDGF
+	Q6RGhnWjwKGstjrk9w7rIwU9LNoJTLE=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1745526902;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=xnfOuiokG8UriFtp6o5bPUjeosoHbQjbxkbjx1qQm9M=;
+	b=NTnf67x9bomAx/p785KXW5l6Hvkhtk9FRXZR7l1zHgoj2xwi9ob/iO5ZKuxSQEuzeFXj7r
+	vgTJBN6OYFWXpv8NnL/s8s/6rpEdyBWCcEhNdyhftBD6H6wMojAy7jnpeUD/rvRIpQLDGF
+	Q6RGhnWjwKGstjrk9w7rIwU9LNoJTLE=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-235-cY9l09SQOai3lcmUQiYJMA-1; Thu, 24 Apr 2025 16:35:00 -0400
+X-MC-Unique: cY9l09SQOai3lcmUQiYJMA-1
+X-Mimecast-MFC-AGG-ID: cY9l09SQOai3lcmUQiYJMA_1745526900
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-43eea5a5d80so6673115e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 13:35:00 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745526797; x=1746131597;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=idgVGL6g4QaZWwBvT7pD7vd7IkM4X5ShmrP8Se1lMVw=;
-        b=Ne61LAbM+K/oW2IYiRxgCROxjpIeWavM5L9Tnvol3skEVxq59ooMuZ7ysJl2MzVzDa
-         iVJugVszh/zz/xbPFZRFp+HZ3jptVRV1Ixd3wd9Dk9CApbWjoGnjPdTcVCvAH9eOwCiQ
-         rEawXih697ZiHnyjJRnEx1DiGq0KqdVY8W/tU2UQOU1P57HE9xcmGj863rPNrVZK7ZsB
-         vyRfcBy5UxgLth38XbmDg7PI8hd1Zb0MTsSJDBqeXW2cAAkZcbRu3scyLnkSe0LhICDU
-         lRLAcjj4FQa270cIDJdk/gz5+hb+Ute6KDUDv4GIHZNGBM+ODxiXEg05JsOFuYrPsTNV
-         5oHQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXgj4nehkJRmuUKtbJhhHJ3SiM8Q3E09PP0r3WM8jNict8s67cRAixF6svEgopmr14y2XWVZmZ1X6m813r6MVcT@lists.infradead.org
-X-Gm-Message-State: AOJu0YwOn9QSFf18zmkFfSP6MrnYMr2PGQTvTEVh13KeebiYx0YZ6VGS
-	teQgm0Z2fYbTi5qXYs0u4e5G/pcZG79JVlfdnoCqJypXQRiHeavZCrKSopHR9II=
-X-Gm-Gg: ASbGncu8+a4DEpGc9shPx2lfovCxEcekVDwPZWDvE/o54fO36eIlIfoQY3ObVOUjBzl
-	RxSGLjuux6rNo47KUUgi0844d9CCG3Po2KOljS5iQvwJeFlLuZf5gvse6Yr6IZ2h4uwpqsBkSNM
-	RbsPTqB4vVt8qOOjMqjFSTQCUjxxLpDLQUsSG2clVK7JZKGTWsJzX4srkd/xTqDAkYLbWd7aD0D
-	bS/T4Q+QOnw3vfQCf9W44yR9gTrneld3WZqjiWiG8F2TsTcP0igj+CkuDKf5r18pxtnJeYzT8ZS
-	lwNGdl9AltSkhwZvCAhfpX+2qiBs1WjlIJghDerRFKjiBqL7OA==
-X-Google-Smtp-Source: AGHT+IE5Mc9hxBHCR2InV+3GYjWm+yX48MSznxSGfJQ+nJnypxIRQDaL1uLviaLHAXTFGuG4bu8Mbw==
-X-Received: by 2002:a05:600c:198f:b0:43d:745a:5a49 with SMTP id 5b1f17b1804b1-4409bd77f64mr15358405e9.4.1745526797180;
-        Thu, 24 Apr 2025 13:33:17 -0700 (PDT)
-Received: from kuoka.. ([178.197.207.88])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-440a53870f9sm797625e9.33.2025.04.24.13.33.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Apr 2025 13:33:16 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>,
-	linux-kernel@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	kernel test robot <lkp@intel.com>
-Subject: [PATCH] firmware: exynos-acpm: Correct kerneldoc and use typical np argument name
-Date: Thu, 24 Apr 2025 22:33:09 +0200
-Message-ID: <20250424203308.402168-2-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.45.2
+        d=1e100.net; s=20230601; t=1745526899; x=1746131699;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=xnfOuiokG8UriFtp6o5bPUjeosoHbQjbxkbjx1qQm9M=;
+        b=H3UDvYX42EmcLiZ9n+7w0TPNsYR6fCEoZITRgudr4S7EfFeXIOdpcmllFLnVcnDkSn
+         U+LOYZlKW8rWbLxn7dvOAoMvk65tQ/oLjV66nPM3T1qUgKccFzYVqqEYQ0CBZuVVMEmy
+         W+htQ7uRhkNdxklUZFYwQM95e8KjoT1rIGvMZqWlssfSCNI15nBsn3pwfXnnLR+lwZvJ
+         Ef7z2esx3s9ilGwuNW0DKTOf0vy+TDWXovLGIDPQobozkbsp3BD86mh5Ff3lZ/4hZOXk
+         YXZcNLeFbC+GGZlc5FRvm96Tll11NQDbQu8nEmy+ygP4vPuAOM5NEEbtUOvhKqmi4iqy
+         YVeg==
+X-Gm-Message-State: AOJu0YzO5FTsSqFfI1SkmKBLvDcE9ePXDVhlZk/Nr1gsLOZpOlN8nmuU
+	gvjMmYZfPdQq/sP9WsDyPfFCd/+7g2fkr6oRynLOhcMInNqidPjnmbmIfPadljddM34484lnS0s
+	TfBfmF65357NjEoyb6HPlhLpf/+6t63JkD07iqz613SRJX2L7cXtkdEE7Tz46SHhfrvCM7HXL
+X-Gm-Gg: ASbGncuvkwqeEQY3cDP6RglEbs3qaHAalQeIZYy7MZdO0boe3AdWFUl/r0Xdaslle/6
+	I/kooYTGVkSjpQytcORgiyBo9MlW3mOjBbaRObll7hs3HWl/Ll+5Lxyx4E9M4nxTbygkkILQpK7
+	T8bKFKoulNyDqNuUA53Cf2geQV6IiPrST657A1F5Tjga09zNM9HxHf08l/MZ1klySfLw4xi8KnE
+	ZMstaTfqT2Phca9qmD0TANixSF0j6Rhvrc4nuICcd1Xrz15lP9k/w/9KVM2y4ZKgiA0yKwV7W40
+	T+DOj7C9b3G/5W/3QQSfM5X+zdENQd0Nwv96ZbrHUQgsrGNr0xNRCu/8YSC5P6UOPH4v9OIaKnO
+	nMnNJuBPn0DMTbQOPWAIMuQZ9XcnabRRNgzRl
+X-Received: by 2002:a05:6000:2905:b0:391:3028:c779 with SMTP id ffacd0b85a97d-3a072bb3d29mr578499f8f.45.1745526899659;
+        Thu, 24 Apr 2025 13:34:59 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IF+GQahLpkXHKCgEIIQXZDPLJngQYHw2SgAkytx5e2BTqGshAsthJzlU+O5eV4uktqgky5e2g==
+X-Received: by 2002:a05:6000:2905:b0:391:3028:c779 with SMTP id ffacd0b85a97d-3a072bb3d29mr578489f8f.45.1745526899275;
+        Thu, 24 Apr 2025 13:34:59 -0700 (PDT)
+Received: from ?IPV6:2003:cb:c74e:ff00:f734:227:6936:cdab? (p200300cbc74eff00f73402276936cdab.dip0.t-ipconnect.de. [2003:cb:c74e:ff00:f734:227:6936:cdab])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a073e5da0dsm252905f8f.88.2025.04.24.13.34.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 24 Apr 2025 13:34:58 -0700 (PDT)
+Message-ID: <390f3d5e-8da6-4286-b8a9-72eabcc3abd5@redhat.com>
+Date: Thu, 24 Apr 2025 22:34:57 +0200
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2015; i=krzysztof.kozlowski@linaro.org;
- h=from:subject; bh=4QeWTXypptQJXSP2hw72WicyVT12KyhEiOJC2dhD6mA=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoCqAE1H7molI2SrPDwvMlO3UDSVTRVDm+gevDd
- knoDzWIWGyJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaAqgBAAKCRDBN2bmhouD
- 11FzEACRaBawm3jRXDBKOuAGgA7XIz7w2537aCM6EOBi6nKWKvWSPJeGtPKK+sAXHBvWzom7pxw
- pdsqKgUW9MVmcs6W/nIUTPKdyy78eyx4luOQLpXbNjQOTY1qoxUWJvF4Niwaj4oqlobww//yOo1
- 0sQs0QbiLddmFdBjNdaLj1pPG2ojQwnsfKZcfS2G8IXqnc6EYKw75xkwoazdQvrdizqmJ0C32Pu
- Kcb8qYpr22iEqmc+rpKZhGoz7Pe0MSJlYwNuMsd0JhtEm0geN2l8b/bmqXrNGNKZ+CUbjPKcldJ
- ad9h6C2syO0/kA8akIOy9kM0VPb6nDup8gqmxVHugYGvVP3gc4R16BNMklOV3GU0f2+BKtmAHOh
- f0EdX5gz14N4wiE0Q2gWaNYRxdORLjPrx1MiJrnL8E/8pE1wB0K12jIKIrsaqEN5B6hOpkDIbno
- jE7+odrH+wztsqozQoDuzPhA+Wn/eRpfwSRNeb691pM2N86mbE6UDaGEpzFG5OJZzEs1URFPMUe
- Lr5k+RH6GmaB3TpoQMjoyACrwkIqglxwZAoFb4znIBOH7jtBVKJ6fhxD51HXH4TVS2IuqcwCuXb
- B7+L3G37ogeJzckbACLv6cRtBxByNsMZxrxhv3NekNF6FuCpsmhQqae5r3GM3YDSxbdIa9NyUUi gXCBG3mKlOq5AYg==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/4] prtcl: introduce PR_MTE_STORE_ONLY
+To: Yeoreum Yun <yeoreum.yun@arm.com>, catalin.marinas@arm.com,
+ will@kernel.org, broonie@kernel.org, anshuman.khandual@arm.com,
+ joey.gouly@arm.com, maz@kernel.org, oliver.upton@linux.dev,
+ frederic@kernel.org, james.morse@arm.com,
+ hardevsinh.palaniya@siliconsignals.io, shameerali.kolothum.thodi@huawei.com,
+ huangxiaojia2@huawei.com, mark.rutland@arm.com, samuel.holland@sifive.com,
+ palmer@rivosinc.com, charlie@rivosinc.com, thiago.bauermann@linaro.org,
+ bgray@linux.ibm.com, tglx@linutronix.de, puranjay@kernel.org,
+ yang@os.amperecomputing.com, mbenes@suse.cz, joel.granados@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ nd@arm.com
+References: <20250410080723.953525-1-yeoreum.yun@arm.com>
+ <20250410080723.953525-3-yeoreum.yun@arm.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <20250410080723.953525-3-yeoreum.yun@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: AQfkentm44AJ-SUkUcB67RE9PqF6S6EPdRPcjUAv7Sc_1745526900
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_133318_909151_B96B0266 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20250424_213506_418614_BEED6B0B 
+X-CRM114-Status: GOOD (  13.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,55 +189,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Correct kerneldoc warnings after commit a8dc26a0ec43 ("firmware:
-exynos-acpm: introduce devm_acpm_get_by_node()") changed the function
-prototype:
+On 10.04.25 10:07, Yeoreum Yun wrote:
+> PR_MTE_STORE_ONLY is used to restrict the MTE tag check for store
+> opeartion only.
+> 
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+>   include/uapi/linux/prctl.h | 2 ++
+>   1 file changed, 2 insertions(+)
+> 
+> diff --git a/include/uapi/linux/prctl.h b/include/uapi/linux/prctl.h
+> index 15c18ef4eb11..83ac566251d8 100644
+> --- a/include/uapi/linux/prctl.h
+> +++ b/include/uapi/linux/prctl.h
+> @@ -244,6 +244,8 @@ struct prctl_mm_map {
+>   # define PR_MTE_TAG_MASK		(0xffffUL << PR_MTE_TAG_SHIFT)
+>   /* Unused; kept only for source compatibility */
+>   # define PR_MTE_TCF_SHIFT		1
+> +/* MTE tag check store only */
+> +# define PR_MTE_STORE_ONLY		(1UL << 19)
 
-  exynos-acpm.c:672: warning: Function parameter or struct member 'acpm_np' not described in 'acpm_get_by_node'
-  exynos-acpm.c:672: warning: expecting prototype for acpm_get_by_phandle(). Prototype was for acpm_get_by_node() instead
+That is the next available bit after PR_MTE_TAG_MASK, correct?
 
-While touching the lines, change the name of device_node pointer to
-'np' to match convention.
+Would we want to leave some space to grow PR_MTE_TAG_MASK in the future 
+(could that happen?)?
 
-Fixes: a8dc26a0ec43 ("firmware: exynos-acpm: introduce devm_acpm_get_by_node()")
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202504222051.7TqaSQ48-lkp@intel.com/
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- drivers/firmware/samsung/exynos-acpm.c | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/samsung/exynos-acpm.c
-index b3afb2069fd1..e02f14f4bd7c 100644
---- a/drivers/firmware/samsung/exynos-acpm.c
-+++ b/drivers/firmware/samsung/exynos-acpm.c
-@@ -677,20 +677,20 @@ static void devm_acpm_release(struct device *dev, void *res)
- }
- 
- /**
-- * acpm_get_by_phandle() - get the ACPM handle using DT phandle.
-- * @dev:        device pointer requesting ACPM handle.
-- * @property:   property name containing phandle on ACPM node.
-+ * acpm_get_by_node() - get the ACPM handle using node pointer.
-+ * @dev:	device pointer requesting ACPM handle.
-+ * @np:		ACPM device tree node.
-  *
-  * Return: pointer to handle on success, ERR_PTR(-errno) otherwise.
-  */
- static const struct acpm_handle *acpm_get_by_node(struct device *dev,
--						  struct device_node *acpm_np)
-+						  struct device_node *np)
- {
- 	struct platform_device *pdev;
- 	struct device_link *link;
- 	struct acpm_info *acpm;
- 
--	pdev = of_find_device_by_node(acpm_np);
-+	pdev = of_find_device_by_node(np);
- 	if (!pdev)
- 		return ERR_PTR(-EPROBE_DEFER);
- 
 -- 
-2.45.2
+Cheers,
+
+David / dhildenb
 
 
