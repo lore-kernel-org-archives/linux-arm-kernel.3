@@ -4,96 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 823C1C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:59:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EE36C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 17:12:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TAMTcooysKAMCNlR+wnRNcsM7GIIKK1qU564x0RGtOA=; b=gX2Sr5vLGp6s57VfbmAx+YHGqY
-	z0fbvYu1UOcCsUaj50I2Ws+WHOwjHMF3QftBP3IHHhwZ+KtspBu91j7qMC4nBQOZdpwJ6RXeYlBQc
-	2wzvgZhF85Ow0SmggNJvgpA4Rl5xHKz7HAXivJy2kh6hkxWnSB9mbfQcvCyf8xC7FA86Cb7MPGNf4
-	wsTkEFkGR9nAAQcCYz2OgfnlOk/YwdiZZdnq8jWcwSzRDCjEozaFKsD2KjLjmUHek/7JZ/+XdoBOs
-	8fBfBxZKNsKC9MvjoXPm7CcU0o0JGMrNWEBj2cmU1SMwQI8MEpY4AZ0wGCa8u2VxWUXsEE9epx3Fn
-	39jsf6ag==;
+	bh=DbkXLLMiBk0YrHxa0nSuY06ZZogYG6FMv64IFAM7UnQ=; b=r5KzJHXGaAEcomT496kgbywuL9
+	BVuqVCuZGWv1taKRE6JFxd11r0X2vEX/CNWRXXwaGAK9qbOyLr4tS6C/Epx9TwGja6LvLJHGKrwZt
+	CLcryTsaOtUhr/G8p+G5q8cJ2EpOCaIyLL7p+0s7XjocCwwm1bHTmHxUIR1FTrqe3STPD1671NC3r
+	LmH4EDi2EfTAVG9pioVTiFHYsg3dLBvBu0WrBnr8QeteaDg2eAd6RCO5hFKH5PFRIZ3fPkkn1YCb7
+	QSfmCng36Xde3FUzN1PwGUmIro5NgEhUCBvE2SwjOL7HbKwfD/b3UzjM6nNmaUyEM6cYSsgGPWPdp
+	spPCmNGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7zur-0000000Epf1-1eAI;
-	Thu, 24 Apr 2025 16:59:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u807b-0000000Er57-0s4x;
+	Thu, 24 Apr 2025 17:12:23 +0000
+Received: from szxga06-in.huawei.com ([45.249.212.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7zt0-0000000EpPN-34oR
+	id 1u7xBD-0000000EJNf-0Sim
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 16:57:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0BA7A49D37;
-	Thu, 24 Apr 2025 16:57:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 794E1C4CEE8;
-	Thu, 24 Apr 2025 16:57:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745513837;
-	bh=MZYbKW86/HMaRiBQ4n+IZSKyzM9Ux5Yala+dzSbAgCY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=LlhhasIsoavw/7NHjZZLeXJJpSHC8/xpWdCwOEHhmAyNdXrFUKgxTLFX21nEp8IGe
-	 En+atfR3S91hqgFj3lbmdLhHCnN+v3SVODgISBHm/L2mtrKvORnTd55itoeOL/pxXf
-	 36EhX0LcqYeGFbeJsklgwrQrNrBJwNPDQ58oY0ip7ZLzfmAONrLA5zBAHXn8gWSg/j
-	 hA9Zy0eaCf1VJfJn2MctM6QSLbCEoLghCQStI7XxROWvS85G/x5GfnC4k0b9ZI3+vB
-	 Gm68DJs7pGOZOH7k/TXFWCBRaO1D0JNZH/qjheQ+MUhIexcUSjph2WNq2S9GGX3hVe
-	 2FK9MXd7ju1oA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1u7zsw-008TLp-Rz;
-	Thu, 24 Apr 2025 17:57:15 +0100
-Date: Thu, 24 Apr 2025 17:57:14 +0100
-Message-ID: <86ikmtjy51.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Karim Manaouil <karim.manaouil@linaro.org>, Oliver Upton <oliver.upton@linux.dev>
-Cc: linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	Alexander Graf <graf@amazon.com>,
-	Alex Elder <elder@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Mark Brown <broonie@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Prakruthi Deepak Heragu <quic_pheragu@quicinc.com>,
-	Quentin Perret <qperret@google.com>,
-	Rob Herring <robh@kernel.org>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Srivatsa Vaddagiri <quic_svaddagi@quicinc.com>,
-	Will Deacon <will@kernel.org>,
-	Haripranesh S <haripran@qti.qualcomm.com>,
-	Carl van Schaik <cvanscha@qti.qualcomm.com>,
-	Murali Nalajala <mnalajal@quicinc.com>,
-	Sreenivasulu Chalamcharla <sreeniva@qti.qualcomm.com>,
-	Trilok Soni <tsoni@quicinc.com>,
-	Stefan Schmidt <stefan.schmidt@linaro.org>
-Subject: Re: [RFC PATCH 00/34] Running Qualcomm's Gunyah Guests via KVM in EL1
-In-Reply-To: <aApaGnFPhsWBZoQ2@linux.dev>
-References: <20250424141341.841734-1-karim.manaouil@linaro.org>
-	<aApaGnFPhsWBZoQ2@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: karim.manaouil@linaro.org, oliver.upton@linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, graf@amazon.com, elder@kernel.org, catalin.marinas@arm.com, tabba@google.com, joey.gouly@arm.com, corbet@lwn.net, broonie@kernel.org, mark.rutland@arm.com, pbonzini@redhat.com, quic_pheragu@quicinc.com, qperret@google.com, robh@kernel.org, srini@kernel.org, quic_svaddagi@quicinc.com, will@kernel.org, haripran@qti.qualcomm.com, cvanscha@qti.qualcomm.com, mnalajal@quicinc.com, sreeniva@qti.qualcomm.com, tsoni@quicinc.com, stefan.schmidt@linaro.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Thu, 24 Apr 2025 14:03:57 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.44])
+	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4ZjyQP6592z27hWM;
+	Thu, 24 Apr 2025 22:04:29 +0800 (CST)
+Received: from kwepemg200012.china.huawei.com (unknown [7.202.181.63])
+	by mail.maildlp.com (Postfix) with ESMTPS id 638BB1402CD;
+	Thu, 24 Apr 2025 22:03:46 +0800 (CST)
+Received: from DESKTOP-A37P9LK.huawei.com (10.67.108.232) by
+ kwepemg200012.china.huawei.com (7.202.181.63) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 24 Apr 2025 22:03:45 +0800
+From: xieyuanbin1 <xieyuanbin1@huawei.com>
+To: <linux@armlinux.org.uk>
+CC: <liaohua4@huawei.com>, <lincheng8@huawei.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<nixiaoming@huawei.com>, <sfr@canb.auug.org.au>, <wangbing6@huawei.com>,
+	<wangfangpeng1@huawei.com>, <will@kernel.org>, <xieyuanbin1@huawei.com>
+Subject: RE: [PATCH] ARM: spectre-v2: fix unstable cpu get
+Date: Thu, 24 Apr 2025 22:03:30 +0800
+Message-ID: <20250424140330.42007-1-xieyuanbin1@huawei.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <aApBpnDcq2KNkfAs@shell.armlinux.org.uk>
+References: <aApBpnDcq2KNkfAs@shell.armlinux.org.uk>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.67.108.232]
+X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
+ kwepemg200012.china.huawei.com (7.202.181.63)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_095718_814380_E6B44867 
-X-CRM114-Status: GOOD (  27.62  )
+X-CRM114-CacheID: sfid-20250424_070355_376385_0B54C2B7 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,47 +72,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 24 Apr 2025 16:34:50 +0100,
-Oliver Upton <oliver.upton@linux.dev> wrote:
-> 
-> On Thu, Apr 24, 2025 at 03:13:07PM +0100, Karim Manaouil wrote:
-> > This series introduces the capability of running Gunyah guests via KVM on
-> > Qualcomm SoCs shipped with Gunyah hypervisor [1] (e.g. RB3 Gen2).
-> > 
-> > The goal of this work is to port the existing Gunyah hypervisor support from a
-> > standalone driver interface [2] to KVM, with the aim of leveraging as much of the
-> > existing KVM infrastructure as possible to reduce duplication of effort around
-> > memory management (e.g. guest_memfd), irqfd, and other core components.
-> > 
-> > In short, Gunyah is a Type-1 hypervisor, meaning that it runs independently of any
-> > high-level OS kernel such as Linux and runs in a higher CPU privilege level than VMs.
-> > Gunyah is shipped as firmware and guests typically talk with Gunyah via hypercalls.
-> > KVM is designed to run as Type-2 hypervisor. This port allows KVM to run in EL1 and
-> > serve as the interface for VM lifecycle management,while offloading virtualization
-> > to Gunyah.
-> 
-> If you're keen on running your own hypervisor then I'm sorry, you get to
-> deal with it soup to nuts. Other hypervisors (e.g. mshv) have their own
-> kernel drivers for managing the host / UAPI parts of driving VMs.
-> 
-> The KVM arch interface is *internal* to KVM, not something to be
-> (ab)used for cramming in a non-KVM hypervisor. KVM and other hypervisors
-> can still share other bits of truly common infrastructure, like
-> guest_memfd.
-> 
-> I understand the value in what you're trying to do, but if you want it
-> to smell like KVM you may as well just let the user run it at EL2.
+From: Xie Yuanbin <xieyuanbin1@huawei.com>
 
-+1. KVM is not a generic interface for random third party hypervisors.
+>Consider your test program running on CPU 1 which requires fixup. It
+>takes a fault, and before we enter harden_branch_predictor(), we end
+>up being migrated to CPU 0, but doesn't require a switch of the MM.
+>Let's say we then disable preemption and then call
+>harden_branch_predictor(), and then restore the preemption state.
+>The thread then gets migrated back to CPU 1. Again, no switch of
+>the MM.
 
-If you want to run KVM on your Qualcomm HW, boot at EL2, and enjoy the
-real thing -- it is worth it. If Gunyah is what you want, then there
-is enough code out there to use it with crosvm.
+Your assumption is correct, and I agree with it.
 
-But mixing the two is not happening, sorry.
+>I don't care if this disrupts test tooling. The trade off between
+>test tooling having a problem and a silent data leak through this
+>channel... the answer is pretty obvious that the test tooling
+>failing is less important than having a silent data leak.
 
-	M.
+I have never mentioned a test tool, and I agree with you.
+The problem I mentioned before is possible illegal instruction and panic.
 
--- 
-Without deviation from the norm, progress is not possible.
+
+
+If we want to fix this problem without affecting performance,
+can we add a new hook functions (in fsr-3level.c)?
+
+I don't know much about the details of the ARM manual,
+Are all user-mode access to kernel-mode addresses are `permission fault`
+and common page faults (hot code) are `access flag fault`?
+If so, we can add a new hook function to deal with `permission fault`
+and set it in fsr-3level.c.
+This means we fix the problem without adding a branch,
+that there is no performance loss.
+
+Otherwise, we can only add condition judgment before enabling irq,
+which means that performance loss occurs. This is so sad. :(
 
