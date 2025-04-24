@@ -4,154 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87341C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:08:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C70BC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:08:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K8p4Q93VuGjMMJlzt6Z+FMJBOH/YNHCIj/0ylEP8gwQ=; b=W5PPgEL+M02JCefpSKKownZmo1
-	rgsYLcNgsoWU1cmavG4md7gDNuU6Z9zv2oGL6iMPPzDh5dGLqtu34ztWuRQ6weuQfWCdHfUwvrIbF
-	7BiPsUpie7tETA2jDFyKM8kPxFXgOBIDoklAetx+X6dRFoupwbuNx1O9IauvVbsmstjCDqT02p+RD
-	Fh8hnTSlZ1ao1HAc3G834wSoHpyyIVTvDJm/YvbpubrDhZ7yZnXzcazR93nUJqwJQbszEqbjQKQZh
-	oAg/Ouah++Ilx/Ry8FoRcPvV/OZ1qWzaYeFvAyvJKwiFb0mmckV1kD7mzA6xcxxXX2vrd2gEw4szH
-	FXitPl8A==;
+	bh=unMncNq2brLx3SFqedtBHI7Svfe3aKAUdpwvabhKt5s=; b=G8N1TRrZeimBUFZzAt2B86wA2j
+	OV63v1fkBBb1ozAxM3bXjb63lKke1GIG7oaQmTsJTN0bGF7wLnTgdzM9lu92sxV8d0mhU4R0BighH
+	V+VE/mPReJFYl08lWW9tF7c5epNh/KEcb0yE3ivdMHbuKlIyZ9exy3m6XcOagrxNKBLcKhKscO1yu
+	XczFE1CDthLzcaiROT50tETn35CaEOfVxYI4/RX6s5RmA41v6/GcYxMlSuQ2Th6TTvsPLYDHSy57T
+	aQmhaFrWEHasCyCreWLTqNwa2xXtHRZ0/UUYVAKDnUSAVFh59/z0daKUg7bPqWKfhZpyHKoXieDYQ
+	aan54Z0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7z7E-0000000EgF5-0jDV;
-	Thu, 24 Apr 2025 16:07:56 +0000
-Received: from mail-mw2nam10on20622.outbound.protection.outlook.com ([2a01:111:f403:2412::622] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1u7z7I-0000000EgJp-0eHl;
+	Thu, 24 Apr 2025 16:08:00 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7yuS-0000000EYUZ-3gWM
+	id 1u7y8q-0000000ERxD-06Tq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 15:54:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ti+XylLkXDIzdbeP6RWe1qygFw5RHwsDLiKP2EdJ9geOMJjvbv6udksNy1tKbZeXljP5sD9Xg5Y0muRUKl1H1+4DhXcGyULk2uGonBxa1yEoBA8U6cX40soZC0AfnvtFuCJR+xtGRr6mz9BNS2B0MN5wwWE2JOuMY0q4k6hd4MF/hFSPg351pQJhLDtJgDMj/gXi33jZnQBLEENsPDqmdo5ZoJqeaJ+Qz3i3Js0hH2kWvxAuoJueP0QkxBjxcDOFs5J6PhBf3lRPe31DvGjOtsxssqgpcLgFa3m32YaCUszh+6kIT9fEJuPVDuH7hb7lr0KIj8pML/2IgN8UMeabfA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=K8p4Q93VuGjMMJlzt6Z+FMJBOH/YNHCIj/0ylEP8gwQ=;
- b=VeZ07c0YrL8Lde65swEDBNUteM4SnP4CSgnaXSbgZnRe1r6lNR4s4suFmXkZqAiI2LY7ReS93TzWOVwzqo7+T7Reeftk5Hlt8Fb5k4+2JOcC9m+d9tb8nzWUNBC5kcpBClVEa6b7VY/l6jazcE4YmfcBdPKus2V5DmCf3tKsmZXHPHeNkGb+QN3UAunjUdWJSYfyLcZuNljjS/LS843ohDNfCBIwOftG0CpYII8UG4Hf3TkXT1EK4KMUPJE1g9HIbDrLBJE1UoZ5u4gzQwaoYmzCc2z6WMbjiFyNVfDaa11huVIKSu2r73jTNL7uNtsCwPyLcqBedcltw9TlByQIqw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=K8p4Q93VuGjMMJlzt6Z+FMJBOH/YNHCIj/0ylEP8gwQ=;
- b=IkJgtpaPJATT9HVcGuz8XI+BajbyRyohnP3g/L0Ho13bz7bP5avXwyPy7epDWj5NGNunqK0fKEXp8/ofxb7e4w4FSpDPhLwSTPsbemjFOpK7kYmCdPFhGRHGGUIxKWtEmwVpPdG216H+JJPklwXX++2RgtyvAfQxim7rms5vEAPZF8VC6ryKsrmenNvlI1sVz2dICxg6buaiZxgHpnMVo1CmNy3F0D8Mak2UKjTWhqXAu3euEKdd2KWLoGfAYKlUdDVfxF1mo+YzAOnlIK7unBjQOiKYrtUZhyRWf+mGMqIO9sCE7dRjZ37Q9FhW6c57kd7te1BJzBSqgdIg+bdK8g==
-Received: from BN9PR03CA0044.namprd03.prod.outlook.com (2603:10b6:408:fb::19)
- by DS0PR12MB7996.namprd12.prod.outlook.com (2603:10b6:8:14f::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.27; Thu, 24 Apr
- 2025 15:54:30 +0000
-Received: from BL6PEPF0001AB4A.namprd04.prod.outlook.com
- (2603:10b6:408:fb:cafe::83) by BN9PR03CA0044.outlook.office365.com
- (2603:10b6:408:fb::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.36 via Frontend Transport; Thu,
- 24 Apr 2025 15:54:30 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- BL6PEPF0001AB4A.mail.protection.outlook.com (10.167.242.68) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8655.12 via Frontend Transport; Thu, 24 Apr 2025 15:54:30 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 24 Apr
- 2025 08:54:17 -0700
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Thu, 24 Apr 2025 08:54:17 -0700
-Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com
- (10.126.190.182) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Thu, 24 Apr 2025 08:54:15 -0700
-Date: Thu, 24 Apr 2025 08:54:13 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: "Tian, Kevin" <kevin.tian@intel.com>
-CC: "jgg@nvidia.com" <jgg@nvidia.com>, "corbet@lwn.net" <corbet@lwn.net>,
-	"will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
-	<robin.murphy@arm.com>, "joro@8bytes.org" <joro@8bytes.org>,
-	"thierry.reding@gmail.com" <thierry.reding@gmail.com>, "vdumpa@nvidia.com"
-	<vdumpa@nvidia.com>, "jonathanh@nvidia.com" <jonathanh@nvidia.com>,
-	"shuah@kernel.org" <shuah@kernel.org>, "praan@google.com" <praan@google.com>,
-	"nathan@kernel.org" <nathan@kernel.org>, "peterz@infradead.org"
-	<peterz@infradead.org>, "Liu, Yi L" <yi.l.liu@intel.com>,
-	"jsnitsel@redhat.com" <jsnitsel@redhat.com>, "mshavit@google.com"
-	<mshavit@google.com>, "zhangzekun11@huawei.com" <zhangzekun11@huawei.com>,
-	"iommu@lists.linux.dev" <iommu@lists.linux.dev>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-tegra@vger.kernel.org"
-	<linux-tegra@vger.kernel.org>, "linux-kselftest@vger.kernel.org"
-	<linux-kselftest@vger.kernel.org>, "patches@lists.linux.dev"
-	<patches@lists.linux.dev>
-Subject: Re: [PATCH v1 00/16] iommufd: Add vIOMMU infrastructure (Part-4
- vCMDQ)
-Message-ID: <aApepRZrZhywKqo6@Asurada-Nvidia>
-References: <cover.1744353300.git.nicolinc@nvidia.com>
- <BN9PR11MB52761DAB62D3A4D3F6B53F698C852@BN9PR11MB5276.namprd11.prod.outlook.com>
+	Thu, 24 Apr 2025 15:05:34 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4394a823036so11259545e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 08:05:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1745507130; x=1746111930; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=unMncNq2brLx3SFqedtBHI7Svfe3aKAUdpwvabhKt5s=;
+        b=JDkp/JkEfkKqLXpjWlqs/qjjC8LXkyhLtaY2XovIfo/ZKAB3ceJtvFEA0N3nU8sLxg
+         AJBqMjijhgpFr2fpbpKKuxQLzpTvEWJqu8VfWLkCKTHs1M2DXZEOq0WubML45UhKmn7+
+         JKOvfFMYU3x4wawExK8gJ110TToRsTDwYJJVddqllFO0od4dKtyppsd3gigtVjH8ughB
+         1q7Qb/IWUFUK/Ib5MMH47UINGbDRAjbAbvxZ1GiSkDWNfq8Mo5rQi/UIesD9l6PWidJX
+         mD3m7tUtOo9yGIucF2B8lGPSlRW0pEo4o7ixD3WEJ90G8AcfyawvkWUhv+617irCX6kG
+         FbdA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745507130; x=1746111930;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=unMncNq2brLx3SFqedtBHI7Svfe3aKAUdpwvabhKt5s=;
+        b=II8dAQNryTw6D0iL3UJeqZjp0UOZN098a0JBNbGLzKLU2lp0HqMmQDRI2zTVZwPwWU
+         vaN5rMXOSRqpveBp1Temznz7fMeP7xS1auc6rfCUW1WE98n/hNSL1XKCDksclw1AljCm
+         uJJhqGMT13/qpndbJroDS2NqmCmndNQB9lb+Z+CVWgzCQVM9iMmJ8c48Jl+ZUqHRmTIU
+         YPU+bd5cvb9T6HtmI9nnHInZF6egyJ1Zt+3eBb/0zsmNFjBoAm1FJBYq2paJLt/qOBpJ
+         QB/4lw8a1l//mOD88Rxbq92UaosH3FwhPniDcwHiQw9eYhIkHqMs/c27322QPntHvUjP
+         3j5w==
+X-Forwarded-Encrypted: i=1; AJvYcCVHDVsBAiJerso1beWbtXf5lpjVtcNpCrl3CVoFkKbaDhCdffoVBn0Mr05/5tgcT2+S6y7LWrb5NQhkldQdwZT5@lists.infradead.org
+X-Gm-Message-State: AOJu0YyR0Zflar8zAL6zA47Rm97oF3BMDyJIJlMe/6D/S+WoguPVLPgX
+	oXlh1rtCzfJ60gjL8BKx7iL1VNyfB7jquC6zbKmagneVKtWPN91ByzxUs1IthWo=
+X-Gm-Gg: ASbGncslgbkHemY1yWMjcabwJ7JYTfDjTf4awmbdhCKB8tBXBCwOXINrQ6scObTE6Gg
+	7hLb5J7KD61oKbjqiBaUELDWwRpAUu6AkZPkPLgj/NrrgqmmEqK49o8UNd95GvZttMy2qbAAiNU
+	ZOoRXlQl4I1WthfRLEGOa3WbkEo5479IGoHJBuTT4svTjlx73VzfAM/PCMQLCY6x8awYYFvRvjf
+	UUN8qPLgk4XD0aOMG1UGLs52WqDTeKIdbF9X74HWgncIYM1pxKQUWMiIb/199BgepD8xBtMXYaG
+	6YfaSaJRojRCscUDlQ6JYNaYxLsrAGlzDnuPKYg0EPc3ELJLcD4Woy/Ii2Gt9Zuq8b3b6oaOvez
+	+AVs48Jk=
+X-Google-Smtp-Source: AGHT+IGZerVnzzo+3licesW6Rjehtmkd5CAagkG0LYgOKDQGkVRLoR8KgscNzd0tm4Vv9ry8z/vBqw==
+X-Received: by 2002:a05:600c:698d:b0:43c:f332:7038 with SMTP id 5b1f17b1804b1-4409bd76f40mr21710945e9.21.1745507126313;
+        Thu, 24 Apr 2025 08:05:26 -0700 (PDT)
+Received: from localhost (p200300f65f00780800000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f00:7808::1b9])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4408d8d191bsm63019605e9.1.2025.04.24.08.05.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Apr 2025 08:05:25 -0700 (PDT)
+Date: Thu, 24 Apr 2025 17:05:23 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Vladimir Zapolskiy <vz@mleia.com>, 
+	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>
+Cc: Purva Yeshi <purvayeshi550@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ARM: dts: lpc32xx: Add #pwm-cells property to the two
+ SoC PWMs
+Message-ID: <hbz3gikjqwuqmexzrxis43gmxcviiryihi7pdp3btdb3sopqi4@mssyr62bunxk>
+References: <20250403104915.251303-2-u.kleine-koenig@baylibre.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="kubdbvpqoinlop4p"
 Content-Disposition: inline
-In-Reply-To: <BN9PR11MB52761DAB62D3A4D3F6B53F698C852@BN9PR11MB5276.namprd11.prod.outlook.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB4A:EE_|DS0PR12MB7996:EE_
-X-MS-Office365-Filtering-Correlation-Id: d22c8039-7c04-41d9-e96f-08dd83484ca0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?pIGQMmoaeTTbl/FHtrxVb1LL3AKztrOXLGq5KKzpX7iP8RID67Jp0xTfUBIJ?=
- =?us-ascii?Q?MfeYr+Ha58XtUmRZo2OIe0n7lLoPS48drwCpYabsDp+3Fuw2YYIfL8QUw6kF?=
- =?us-ascii?Q?nXHfX+oSXt1qu3hXsDdgrj7xT4yjGmGwza/D9AEwCbsa7p5kbxZJEGde+DlD?=
- =?us-ascii?Q?aiXHeLaxiDWuGs05HtuwodSV5AlKOxFA4gJEq1O2kDIQJAtlo+GT2Pd9RIGV?=
- =?us-ascii?Q?XLmIi8ah+kfdkIqBmkgYQ+1pr+X5Th7gCflgI8yfU6XfJzsXDahvSPCiRUI0?=
- =?us-ascii?Q?Z6uXMoOC0HggvQKbTufTy+GB0QsrFVSRK3cgNQMCRziaeiJDsVffoIslyxt9?=
- =?us-ascii?Q?IqeMlGZe2CxedhM/wMuQshRLk0hn2ECEj5Ib9kdC1SQnrgWnUI41A0SZZY3t?=
- =?us-ascii?Q?yL9jxAvJ710tRgD0layaeiHH+bT1sLz76oefHA0nj0/Nq5xlObm3Aq9lvjT5?=
- =?us-ascii?Q?/aHUrlhkNCyDu+HVgiGoWNl8+aH0HXeeoLM9xBB4dsM8VKV4OkU92NV6Dahe?=
- =?us-ascii?Q?T4EubHb6hxmCPMI9kYtLw7XVxFXucAzXV899dQ8xWvlr+sZ8iT6ffYl6kaJH?=
- =?us-ascii?Q?6qjO4b1WLtCqDVTolY7MwRUoHNWbl63o4IvsQx4dEFE1jHnvc3NszCodnqLo?=
- =?us-ascii?Q?7p5kntsp6eVuFk9UQ27WfUEhikJCpWnG59gadUtY6zgjb0mS9KLCyTsC89Je?=
- =?us-ascii?Q?rRu25PoizNtU3DvKpBLrC6mBJE4y1f1VnKyFZ0Oe4J5laswCyw48UosM5Do8?=
- =?us-ascii?Q?+GMk1dQBHrULIUEDOgdEnwjShGl1ugjBAgO4O5LToY3whXutW6u3h0etoUTs?=
- =?us-ascii?Q?gxUH8zGpzJJj05alumIZKDg8rMuCiTL0ile8+7aCidLB2jAEnBe8QBXgGlMF?=
- =?us-ascii?Q?JpE+VqX5qFuzX5rCo9YDGFOGCuE7vFQiTR635I8MAOHPFt3ikz1DxDGzrSDX?=
- =?us-ascii?Q?b02lFJJuJsfPESUyfnCE7+kwNXb4hbtri6Nz2VWCuP44mKFfnAnqMI4yLkxy?=
- =?us-ascii?Q?OydmbP7Q81LviCXxo6ao0Eh56NA3Em7tP2RbZ3SipEdanduPg0sHI1rw2Zks?=
- =?us-ascii?Q?WAlmGg4mbPwUgGTIcM1PdMVECTWlT0Ac16p4ybYfzD/i/unc/EpyHNR95qId?=
- =?us-ascii?Q?nHOULcHcORAiMe9KGFWHclikVzPkbmneQxLIhJLpmKH2/1XyA2v9YCTPnaiF?=
- =?us-ascii?Q?9lEJ29eUqncVHrpZ0051vwTeM1X5RUKNTTZGtBaGR2AaHxDHPkHYMGRqLpfa?=
- =?us-ascii?Q?qTWHbeVQEgiE/n3vJkfYx5H97uWHfafNUwk9QD6FVbsPOgCz2nRTO7Br0hXh?=
- =?us-ascii?Q?f1yWu3xFsrTu44uSyiOEDMD7nmzY+HOfvr34pBZyEX39wOUvouD/GYVSH5DE?=
- =?us-ascii?Q?beJ+lj6P1YS0WIDXnynYRBEXJ56Wa7o5HUUUv36Sy+jUl24/5tDQZyNgjYFZ?=
- =?us-ascii?Q?QfULIeMNd6sb0WP+bYH5ePxvU7kyDUu7fp0suJzi4tDP6Wi02lynqi4AJREs?=
- =?us-ascii?Q?yuBFtdTP2Bd4Rz9ndFyoxdLzWidwt6jynyPU?=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(376014)(7416014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Apr 2025 15:54:30.0944
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d22c8039-7c04-41d9-e96f-08dd83484ca0
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB4A.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7996
+In-Reply-To: <20250403104915.251303-2-u.kleine-koenig@baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_085444_908910_FCB2DE1B 
-X-CRM114-Status: GOOD (  13.27  )
+X-CRM114-CacheID: sfid-20250424_080532_261450_06CB988D 
+X-CRM114-Status: GOOD (  16.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,24 +101,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 24, 2025 at 08:21:08AM +0000, Tian, Kevin wrote:
-> > From: Nicolin Chen <nicolinc@nvidia.com>
-> > Sent: Friday, April 11, 2025 2:38 PM
-> > 
-> [...]
-> > This is a big
-> > improvement since there is no VM Exit during an invalidation, compared to
-> > the traditional invalidation pathway by trapping a guest-own invalidation
-> > queue and forwarding those commands/requests to the host kernel that will
-> > eventually fill a HW-owned queue to execute those commands.
-> > 
-> 
-> any data to show how big the improvements could be in major
-> IOMMU usages (kernel dma, user dma and sva)?
 
-I thought I mentioned about the percentage of the gain somewhere
-but seemingly not in this series.. Will add.
+--kubdbvpqoinlop4p
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] ARM: dts: lpc32xx: Add #pwm-cells property to the two
+ SoC PWMs
+MIME-Version: 1.0
 
-Thanks!
-Nicolin
+Hello,
+
+On Thu, Apr 03, 2025 at 12:49:14PM +0200, Uwe Kleine-K=F6nig wrote:
+> If these PWMs are to be used, a #pwm-cells property is necessary. The
+> right location for that is in the SoC's dtsi file to not make
+> machine.dts files repeat the value for each usage. Currently the
+> machines based on nxp/lpc/lpc32xx.dtsi don't make use of the PWMs, so
+> there are no properties to drop there.
+>=20
+> Signed-off-by: Uwe Kleine-K=F6nig <u.kleine-koenig@baylibre.com>
+
+I wonder if this patch is still on someone's radar. I didn't hear
+anything back and it's not in next.
+
+Best regards
+Uwe
+
+--kubdbvpqoinlop4p
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmgKUzAACgkQj4D7WH0S
+/k773QgAt0YvjENQdbx0qGBqEFrZ7A2MKIrQOmIzi5tHb4ZU5atUQjFVrspi85w7
+8E9dp57nMgLABhMSLsq9jFfOCEConixxOGhnnQ3uw8wi04mFHmicB0DJTIMAbT9S
+4VqYdC6GDtQXZfTjoSIYhas3c5n140j9rNEDYKvbmKfQye2cp6YifjKxeeWEF92M
+vB/e9r4X//tv3o3ZqrgRYuAan8T6xF7XjxyqHieZ3JcP+ZD/MwRksBMMgQBMLXyE
+uI1vrPLOKMiakQICU4pTT+JRR2+Kj0XufdXfAI+oz5GEiR8JwDDAl8XCdna6Vfjd
+KRhgqVp9RXsYnuWiOjkkCa80mr/xqQ==
+=nKWo
+-----END PGP SIGNATURE-----
+
+--kubdbvpqoinlop4p--
 
