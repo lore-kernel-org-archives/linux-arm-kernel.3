@@ -4,81 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0834BC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:41:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4228AC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:43:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nDo39tt+n8ATYguGedpesmJZxZJLtDSDAKicoCO2cI8=; b=SLT6RYMYt0fTxRaNWHo+pd1byz
-	aazZNTbBWe+9wEOnWZhKEqtT1Rx2TElETdXiM2/myQEnfnNypZaNeWkvUmcKrSootw9zoRLkTIFSN
-	+QBlA1r0E+XHGu4hd2xMyLKqZ08NFr5sv3X3OyUlXfTb2GxmERJSp1N+xpcIGxVTBjTsNXCWfBzf5
-	s77dE3vOehXI0EK1Nnup3qWFCIW8hOxYtwH3DT1mhw19JqINXAb2DBHm2X0UjyZUIlz07t4srK6u3
-	8A9gYzPoQQelUSD7e0TXSI5CqdktVOAuDjZVQAgXLXbA8YwDO/v446QgHfMXw7zll/Y+qPpy117+w
-	v93vzYeQ==;
+	bh=7xv/g1KmQeX9x0hlDZkYdKSr+yBW+z23WQaq6Q8BIKw=; b=n7BhtbhPllgVBMj1NGzpZjkZAY
+	vbwsmea4wavmztFFUYz1ZlaIKEvAS7CYrOD2JhvdIWYrNOX6C494uG3Lbf6Q3EMtr8drXOmaaKTEl
+	PnRNRSovkVSIITps922gcBr2avrH/CJWarcmRa1sjy0clJ2V3D6U34xDUnrgGPgFIJMTLTGR5fZNT
+	q0/qLp/Mgd4nB9FlwUiWyNcNnNP3XVA7eiyfbS3We9VJGIbtli38Tf2PZUNAMhNSwLTQdyXfAvSA/
+	JATU9Mg0x5ffFVRIXnX+mXURR41PhuX1/BkNjKdeb8Iprh8RkS6fDtCYwTfyECRG8R8Ivhyo4z8xM
+	eeNLJcvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7zde-0000000EmuA-3TO9;
-	Thu, 24 Apr 2025 16:41:26 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1u7zfU-0000000EnAV-2bcF;
+	Thu, 24 Apr 2025 16:43:20 +0000
+Received: from mail-dm6nam10on20612.outbound.protection.outlook.com ([2a01:111:f403:2413::612] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7yjU-0000000EWqU-2HAj
+	id 1u7ymV-0000000EX98-29TL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 15:43:26 +0000
-Date: Thu, 24 Apr 2025 17:43:19 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1745509401;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nDo39tt+n8ATYguGedpesmJZxZJLtDSDAKicoCO2cI8=;
-	b=lK/QryIiV998Da/Rm919TzKOYxMOJx62tzbf+B+2e6sDZ6HfuEIr7nmMyICIJlvXLJGrSx
-	EJFEso6phLHBprXv1tluC3gRUAmPLUBwoEiSt1hYoXjVg38TTfXv9TANLhUfnZv/ISg6a1
-	Bn44d2bh/6y3Yn7pqBmkB+Ru9qpmiTtzE5h1UE8cjtRNtg63LPCOYNypxU2jIdTUxbAEG9
-	WUan0+TuDsYhyZ69GSqI3Wj4ekINOeGLpIcIiUeYKRuEO5VFVHS+iP4aediB64wTBHliqD
-	KG55Vr+C+5idEzISLVT8PzdA9d3RNjZnN3ZfcI5PWVLp9t/iVkc9RHRvMxuEtQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1745509401;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=nDo39tt+n8ATYguGedpesmJZxZJLtDSDAKicoCO2cI8=;
-	b=2M6vSdvpglYLR21147amU66kDvqCzLdGxNK0wSXT0/szoFczg5Yrh111Vgpo7OOJT/82rR
-	K7u6DAGFSh65nTBw==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: Jan Stancek <jstancek@redhat.com>
-Cc: Andy Lutomirski <luto@kernel.org>, 
-	Thomas Gleixner <tglx@linutronix.de>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Anna-Maria Behnsen <anna-maria@linutronix.de>, Frederic Weisbecker <frederic@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
-	Naveen N Rao <naveen@kernel.org>, Heiko Carstens <hca@linux.ibm.com>, 
-	Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
-	Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
-	linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>
-Subject: Re: [PATCH 08/19] vdso/gettimeofday: Prepare do_hres_timens() for
- introduction of struct vdso_clock
-Message-ID: <20250424173908-ffca1ea2-e292-4df3-9391-24bfdaab33e7@linutronix.de>
-References: <20250303-vdso-clock-v1-0-c1b5c69a166f@linutronix.de>
- <20250303-vdso-clock-v1-8-c1b5c69a166f@linutronix.de>
- <aApGPAoctq_eoE2g@t14ultra>
+	Thu, 24 Apr 2025 15:46:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=zRAoTWZsX2gXzvIRG1sL8cXqhbQdXPNWSOR49en7SVHKcch6RfOzYX5AAaCk9kXXVAObNXZ0VBunJ9OnAhFZ5me2/pWRJ4eS/v/7ZZxveo94T07axWhqte8PtFQUeyTaNq5z97QzhBa9jcIIkFK1M42L5jsF+npi4Yc0xlcHCBm/TSqoKNSrHc0130MsF6HF3XzytbqX4kCS9hSoxeuwW3ZVdrvuz02oKDb+l7egUtY6oqwOvAeMsv9XEqomQiwInU1W8g0d7qPoUqFl6/tsQAzmcgM0UmjjMHzd6TcukMA+AZxDbeWhKp+5jFs5GnK2Xkmfc1JJq9iDPnwb5PFH/w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7xv/g1KmQeX9x0hlDZkYdKSr+yBW+z23WQaq6Q8BIKw=;
+ b=iZbT5S1Ysf9JXxZAIVVVWDL373iS7wgFKDVmoL/Wk4cs0wC/egIn9dCQA01t3EQrJtZJu+bAu6EIa5IOIaSxfOMRYP7VAHkCECIf1jCbzoop5jhpoGAuhyClHbzns21/Jbs2tjkwGzO5zuvIK2BzWMf3KCnqijajCKI44HBeSznE+u1/TLJuzNT89tMLK7WQjtDijbHoOMzm17FfgmOq9ikldeYttSzyO8F7KM9rZuPvQoIDJZytfLDt6Cl0lBcgF6w/w9Cougg5Fmzzl/t5EW/AxC2iBouhaBQjaAk9vstr2anNqVC3hwbA2PaxHitSPUL8qwNc1o502ZPYMvHwNQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7xv/g1KmQeX9x0hlDZkYdKSr+yBW+z23WQaq6Q8BIKw=;
+ b=UpTaLqU0sOi8yYR9frMAWGD4PdQpOnpp4EiaAiWUsCMrrQeQn3x9d49eNoGyB5ThFP1atJG2V9OnvPE5Sr7cCm1PqAffhleBSOaC1uVtrK7u0LhYI3MjvVFlb+UAvWeCFGkSKQRxhUJ0YdHt4BsyziIL4wIhMnwzYnFRNP051BFfn4dBgP6wCeFNHdp3ljmJ5/xNzeHtdwABVTPXTVaXX9OgjeCliv2aNvj91Y0mnbw0yPHHoSzaL0JWlc2Dv8Y6cUfAAXG3HI8/+OG4SQj0RPkKhqH3sFc2C7A9g5xf7VlpXNyhsylUSWI8CFJ3yy4Usb1w0YuTf1z7qZe1AntV9A==
+Received: from BY3PR10CA0020.namprd10.prod.outlook.com (2603:10b6:a03:255::25)
+ by DS7PR12MB5790.namprd12.prod.outlook.com (2603:10b6:8:75::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.27; Thu, 24 Apr
+ 2025 15:46:21 +0000
+Received: from SJ1PEPF00001CEB.namprd03.prod.outlook.com
+ (2603:10b6:a03:255:cafe::a2) by BY3PR10CA0020.outlook.office365.com
+ (2603:10b6:a03:255::25) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.35 via Frontend Transport; Thu,
+ 24 Apr 2025 15:46:21 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ SJ1PEPF00001CEB.mail.protection.outlook.com (10.167.242.27) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8655.12 via Frontend Transport; Thu, 24 Apr 2025 15:46:21 +0000
+Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 24 Apr
+ 2025 08:46:12 -0700
+Received: from drhqmail201.nvidia.com (10.126.190.180) by
+ drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Thu, 24 Apr 2025 08:46:12 -0700
+Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com
+ (10.126.190.180) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Thu, 24 Apr 2025 08:46:10 -0700
+Date: Thu, 24 Apr 2025 08:46:08 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: "Tian, Kevin" <kevin.tian@intel.com>, "corbet@lwn.net" <corbet@lwn.net>,
+	"will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
+	<robin.murphy@arm.com>, "joro@8bytes.org" <joro@8bytes.org>,
+	"thierry.reding@gmail.com" <thierry.reding@gmail.com>, "vdumpa@nvidia.com"
+	<vdumpa@nvidia.com>, "jonathanh@nvidia.com" <jonathanh@nvidia.com>,
+	"shuah@kernel.org" <shuah@kernel.org>, "praan@google.com" <praan@google.com>,
+	"nathan@kernel.org" <nathan@kernel.org>, "peterz@infradead.org"
+	<peterz@infradead.org>, "Liu, Yi L" <yi.l.liu@intel.com>,
+	"jsnitsel@redhat.com" <jsnitsel@redhat.com>, "mshavit@google.com"
+	<mshavit@google.com>, "zhangzekun11@huawei.com" <zhangzekun11@huawei.com>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-tegra@vger.kernel.org"
+	<linux-tegra@vger.kernel.org>, "linux-kselftest@vger.kernel.org"
+	<linux-kselftest@vger.kernel.org>, "patches@lists.linux.dev"
+	<patches@lists.linux.dev>
+Subject: Re: [PATCH v1 15/16] iommu/tegra241-cmdqv: Add user-space use support
+Message-ID: <aApcwKmb2PPPR8hf@Asurada-Nvidia>
+References: <cover.1744353300.git.nicolinc@nvidia.com>
+ <30c7aff68c35040ee637629cb9fc2b6e7f83f76c.1744353300.git.nicolinc@nvidia.com>
+ <BN9PR11MB52768197516FB895146A12078CB82@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <aAaY+f2/jw9NaIWF@Asurada-Nvidia>
+ <BN9PR11MB5276220C7B2C5743DC8364CB8CBA2@BN9PR11MB5276.namprd11.prod.outlook.com>
+ <20250423115551.GC1648741@nvidia.com>
+ <aAkyAbO5UQRySizN@Asurada-Nvidia>
+ <20250423231333.GN1648741@nvidia.com>
+ <aAnfiUk1TTlkpkRE@Asurada-Nvidia>
+ <20250424134049.GP1648741@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aApGPAoctq_eoE2g@t14ultra>
+In-Reply-To: <20250424134049.GP1648741@nvidia.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CEB:EE_|DS7PR12MB5790:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9ff0f3e0-fe5b-4217-d1ad-08dd83472946
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|7416014|82310400026|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?/vpvrd5V7wtSmwtCWrgzjqkX4mrDgBUNXanoWvDotpOytF7C9qmMRDAUEuxv?=
+ =?us-ascii?Q?YO2IQmlNX6t5WZjSdz9SDg8hvDx3cXQsTrSFCcVk7xLyScjW8HKw9RwnHj13?=
+ =?us-ascii?Q?3eXcZGaEthpzeowZje/SaPfwSM8D7JjwxqxMPEo2Z5Jlmr9+ojT2qfZXObRW?=
+ =?us-ascii?Q?iAi0hLPPYgOpW+rzKelsWFXWw1DZ0vCvpiXGX2ZXaoW3s9P+psssIx55S/wO?=
+ =?us-ascii?Q?w6RBAMvod5YDN4W/+OispwlAnMZfx5nhC17Ne8iulgS+InYzMe6MTDuNSQ8n?=
+ =?us-ascii?Q?KLh/J4OiTjlVzwXGjNy1xuuWTPjHFkCIdezJNvyM8TMtVfvZ32jQsHxiUb7C?=
+ =?us-ascii?Q?hzDdfLqqVPhe2jMQZUUUH+qWT5qJV0Duja6rZck9cRUTkdcJxmNzNQuEckrT?=
+ =?us-ascii?Q?bYHAmvmgFjCuwHOioen8MwIH9HIn7HRAUOA2QFoB2Pb0yuHbDzszjKOSH/uX?=
+ =?us-ascii?Q?02/jxYtMbl0VVSbiQK5Hv5i0Imxkx8FGizSpK0SRefxz4zhNXsZg0hn7P5Py?=
+ =?us-ascii?Q?HIyJkrb6tPxYMAgEbdb5OnfLo9+pP7MqYXjdPCdbm/5qL0LA8uMd/u6QlECA?=
+ =?us-ascii?Q?TJei1nfiGOcckMMXri9qhmhrTHUBPcofo9ZUgXPo8ckPckFYCApajfRsRBoJ?=
+ =?us-ascii?Q?6nOu48cpHD1ZWyODPb3rQ78ioKw5vq7xMZa1ZW5jGVVNL7uSHLZHvxTyWNpL?=
+ =?us-ascii?Q?opjIwA3b7BwYuz2taluem1LmTDCv1vz3DETK9TMP7SHm2dFAP+RZ9qEeIm7j?=
+ =?us-ascii?Q?JNDKThKVCq0bLJ8eEYOQ+2rSIqWCXQdAUEWPVVjVHzPuK45HMmRrAgQKs5o+?=
+ =?us-ascii?Q?zi//qDgJu0AThbTkaOpcS3/Py4E3YMcvKEzstdvQgI9ObZCZkChtbX3yAByk?=
+ =?us-ascii?Q?iuRIYvfVPmWPlfyL/UBC4YZBE093VQQNIH5s9hZj/zrH7DPLFomx9KhpMgrQ?=
+ =?us-ascii?Q?i5gmf9YjbOn7Wl8lah8hqOvDkbdDRLcfAnlP5KWNR9yNOwZ+As+LeyNJ/c7o?=
+ =?us-ascii?Q?gqNxAyBzztdhACH3URVkh9R0YrwFm9JKsK9e334DY+fBbFPm+S7PaLe1eVE9?=
+ =?us-ascii?Q?/1tqR3IImixQqO23N9QsodtLIzCyF8xGYIywYLDEn9JOvX9dyQvUhvRlG9wz?=
+ =?us-ascii?Q?M7r6ACiP1axKcPdD32cpZEzSvuuaXH0jEsWh3jGZqaeGy/tiqogHcscuC6Qy?=
+ =?us-ascii?Q?NoLjZOAg5pZ0pnj4hFtzYU1ko0dHcOiG4u4TTA3iKx8YVbW5OY2aHycScqqY?=
+ =?us-ascii?Q?xwqUYaXPWPL84rIZtL6dC6XoWaAdQQl1FxxKtByXlXKgvVRy6S0YNQhPFJwV?=
+ =?us-ascii?Q?OUKhTHhPCaRPSnmlBnU7n0ft4wPNaYbcLwbVyv81RUqYcjzubdA/13GwdY6h?=
+ =?us-ascii?Q?MufF0Z6uYjuIGnoYtSaJ4jx2llxYmbMzGWqYRhdp97+4+UXYVc+XJoXF8f7a?=
+ =?us-ascii?Q?H5zJiWZOwUYGZWK56SywvbuY858nE6yiRrP1uCR9dZbyuQOJjhmhmr557o/G?=
+ =?us-ascii?Q?OQRtYV6xHJJNXbaXSbMeP2HpANII8eJcCwW2?=
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(376014)(7416014)(82310400026)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Apr 2025 15:46:21.4589
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9ff0f3e0-fe5b-4217-d1ad-08dd83472946
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CEB.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB5790
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_084324_863292_B35B4A17 
-X-CRM114-Status: GOOD (  23.76  )
+X-CRM114-CacheID: sfid-20250424_084631_556985_BFBC1E64 
+X-CRM114-Status: GOOD (  28.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,119 +173,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 24, 2025 at 04:10:04PM +0200, Jan Stancek wrote:
-> On Mon, Mar 03, 2025 at 12:11:10PM +0100, Thomas Weiﬂschuh wrote:
-> > From: Anna-Maria Behnsen <anna-maria@linutronix.de>
+On Thu, Apr 24, 2025 at 10:40:49AM -0300, Jason Gunthorpe wrote:
+> On Wed, Apr 23, 2025 at 11:51:53PM -0700, Nicolin Chen wrote:
+> > On Wed, Apr 23, 2025 at 08:13:33PM -0300, Jason Gunthorpe wrote:
+> > > On Wed, Apr 23, 2025 at 11:31:29AM -0700, Nicolin Chen wrote:
+> > > 
+> > > > > It also needs to act like a mdev and lock down the part of the IOAS
+> > > > > that provides that memory so the pin can't be released and UAF things.
+> > > > 
+> > > > If I capture this correctly, the GPA->PA mapping is already done
+> > > > at the IOAS level for the S2 HWPT/domain, i.e. pages are already
+> > > > pinned. So we just need to a pair of for-driver APIs to validate
+> > > > the contiguity and refcount pages calling iopt_area_add_access().
+> > > 
+> > > Yes, adding an access is the key thing, the access will give you a
+> > > page list which you can validate, but it also provides a way to
+> > > synchronize if a hostile userspace does an unmap.
 > > 
-> > To support multiple PTP clocks, the VDSO data structure needs to be
-> > reworked. All clock specific data will end up in struct vdso_clock and in
-> > struct vdso_time_data there will be array of it. By now, vdso_clock is
-> > simply a define which maps vdso_clock to vdso_time_data.
-> > 
-> > Prepare for the rework of these structures by adding struct vdso_clock
-> > pointer argument to do_hres_timens(), and replace the struct vdso_time_data
-> > pointer with the new pointer arugment whenever applicable.
-> > 
-> > No functional change.
-> > 
-> > Signed-off-by: Anna-Maria Behnsen <anna-maria@linutronix.de>
-> > Signed-off-by: Nam Cao <namcao@linutronix.de>
-> > Signed-off-by: Thomas Weiﬂschuh <thomas.weissschuh@linutronix.de>
-> > ---
-> > lib/vdso/gettimeofday.c | 35 ++++++++++++++++++-----------------
-> > 1 file changed, 18 insertions(+), 17 deletions(-)
-> > 
+> > The new APIs are very like iommufd_access_pin/unpin_pages(). But
+> > to reduce the amount of code that we have to share with driver.o,
+> > I added a smaller iopt_area_get/put_access() that gets an access
+> > and increases/decreases the refcounts only.
 > 
-> starting with this patch, I'm seeing user-space crashes when using clock_gettime():
->   BAD  -> 83a2a6b8cfc5 vdso/gettimeofday: Prepare do_hres_timens() for introduction of struct vdso_clock
->   GOOD -> 64c3613ce31a vdso/gettimeofday: Prepare do_hres() for introduction of struct vdso_clock
+> Maybe the access should be obtained by the core code to avoid the
+> driver.o bloating? All the cmdq types need a memory buffer, right?
+> Perhaps that should just be generalized
+
+Yes. AMD just confirmed that they needed a similar setup. I think
+we can do that!
+
+> > Meanwhile, I am thinking if we could use the known S2 domain to
+> > translate the GPAs to PAs for the contiguity test, which feels a
+> > little cleaner to do in an IOMMU driver v.s. with a page list?
 > 
-> It appears to be unique to aarch64 with 64k pages, and can be reproduced with
-> LTP clock_gettime03 [1]:
->   command: clock_gettime03   tst_kconfig.c:88: TINFO: Parsing kernel config '/lib/modules/6.15.0-0.rc3.20250423gitbc3372351d0c.30.eln147.aarch64+64k/build/.config'
->   tst_test.c:1903: TINFO: LTP version: 20250130-231-gd02c2aea3
->   tst_test.c:1907: TINFO: Tested kernel: 6.15.0-0.rc3.20250423gitbc3372351d0c.30.eln147.aarch64+64k #1 SMP PREEMPT_DYNAMIC Wed Apr 23 23:23:54 UTC 2025 aarch64
->   tst_kconfig.c:88: TINFO: Parsing kernel config '/lib/modules/6.15.0-0.rc3.20250423gitbc3372351d0c.30.eln147.aarch64+64k/build/.config'
->   tst_test.c:1720: TINFO: Overall timeout per run is 0h 05m 24s
->   clock_gettime03.c:121: TINFO: Testing variant: vDSO or syscall with libc spec
->   clock_gettime03.c:76: TPASS: Offset (CLOCK_MONOTONIC) is correct 10000ms
->   clock_gettime03.c:86: TPASS: Offset (CLOCK_MONOTONIC) is correct 0ms
->   clock_gettime03.c:76: TPASS: Offset (CLOCK_BOOTTIME) is correct 10000ms
->   clock_gettime03.c:86: TPASS: Offset (CLOCK_BOOTTIME) is correct 0ms
->   clock_gettime03.c:76: TPASS: Offset (CLOCK_MONOTONIC) is correct -10000ms
->   clock_gettime03.c:86: TPASS: Offset (CLOCK_MONOTONIC) is correct 0ms
->   clock_gettime03.c:76: TPASS: Offset (CLOCK_BOOTTIME) is correct -10000ms
->   clock_gettime03.c:86: TPASS: Offset (CLOCK_BOOTTIME) is correct 0ms
->   tst_test.c:438: TBROK: Child (233649) killed by signal SIGSEGV
-> 
-> or with:
-> --------------------- 8< ----------------------
-> #define _GNU_SOURCE
-> #include <sched.h>
-> #include <time.h>
-> #include <unistd.h>                                                                                                                                                                                                                          #include <sys/wait.h>
-> 
-> int main(void)
-> {
->         struct timespec tp;
->         pid_t child;
->         int status;
-> 
->         unshare(CLONE_NEWTIME);
-> 
->         child = fork();
->         if (child == 0) {
->                 clock_gettime(CLOCK_MONOTONIC_RAW, &tp);
->         }
-> 
->         wait(&status);
->         return status;
-> }
-> 
-> # ./a.out ; echo $?
-> 139
-> --------------------- >8 ----------------------
-> 
-> RPMs and configs can be found at Fedora koji, latest build is at [2] (look for kernel-64k).
+> You still need the access, and the access already generates a page
+> list..
 
-Hi Jan,
+Right. I was thinking it could save a few lines that fetches the
+page list, but then that would need another around of translation,
+which is unnecessary.
 
-Thanks for the great error report.
-
-Can you try the following change (on top of v6.15-rc1, should also work with current master)?
-
-diff --git a/lib/vdso/gettimeofday.c b/lib/vdso/gettimeofday.c
-index 93ef801a97ef..867ce53cca94 100644
---- a/lib/vdso/gettimeofday.c
-+++ b/lib/vdso/gettimeofday.c
-@@ -85,14 +85,18 @@ static __always_inline
- int do_hres_timens(const struct vdso_time_data *vdns, const struct vdso_clock *vcns,
- 		   clockid_t clk, struct __kernel_timespec *ts)
- {
--	const struct vdso_time_data *vd = __arch_get_vdso_u_timens_data(vdns);
- 	const struct timens_offset *offs = &vcns->offset[clk];
--	const struct vdso_clock *vc = vd->clock_data;
-+	const struct vdso_time_data *vd;
-+	const struct vdso_clock *vc;
- 	const struct vdso_timestamp *vdso_ts;
- 	u64 cycles, ns;
- 	u32 seq;
- 	s64 sec;
- 
-+	vd = vdns - (clk == CLOCK_MONOTONIC_RAW ? CS_RAW : CS_HRES_COARSE);
-+	vd = __arch_get_vdso_u_timens_data(vd);
-+	vc = vd->clock_data;
-+
- 	if (clk != CLOCK_MONOTONIC_RAW)
- 		vc = &vc[CS_HRES_COARSE];
- 	else
-
-
-I'll do some proper testing tomorrow.
-
-
-Thomas
-
-> [1] https://github.com/linux-test-project/ltp/blob/master/testcases/kernel/syscalls/clock_gettime/clock_gettime03.c
-> [2] https://koji.fedoraproject.org/koji/buildinfo?buildID=2704401
+Thanks
+Nicolin
 
