@@ -4,121 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A221C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 20:41:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB9A2C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 21:13:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xnfOuiokG8UriFtp6o5bPUjeosoHbQjbxkbjx1qQm9M=; b=KjdJSBqta+63dMJfPZld2Ol3c8
-	znHLv6/SBNhlzC2lxZ/jEqsLDgjRp0elHWtCjiCimQdZIbbPLuJD7j4pkcwKoXRhSOfONa2C80X81
-	1xryqT9OSlbXa9GES+1CPm30VI55TOR5YLmB67GVr0p136Fb7aInE29bptrEpbMndALlvpW9fTMyX
-	tzwb1uh6xtVIjaKI+OUNks3/mnfrslxVCn8DA2EnEQVT4XEIezoO6XPCp0KX6M42OME8goKabNhgo
-	zk39x46CfZeJA68Fz0lMLep8wZQluwWeQGVRGwK9wSXR9KNPCBxVO+0ZDbRWVgSPIo5WFZjWISf7T
-	aQoNCrfA==;
+	bh=XSJt09CWKPOf+EGnLW8nyqe/QhTx1Ajx0DdE2d0+ieI=; b=K3InoSZqKijPzYPAVjxTOo4oYa
+	zTqnh3rlAk/Ks6nVMkkIeLI0fDDhILOD4hg5hik26bRCQW0r+v2fg3+vqCtgBQjiE9w2m/857wBSd
+	ts4LHpt4WyLjW/jvklFlcpOLBTPqJuONVNFG7WcCycsBcCGyfNANAUE2vHsLL3V+bKumZOP9zRIKp
+	wbjQoGORyL3W3ohMZ4QtmgZ95fXmW4KxhSSrVrs8rlrNckzuu1TZSO57eD6aidKTXCmsOLaPvYIz8
+	+YIwzPNeVznW1TehRFkSKC9pauv7VbKMEFK5oTrElOjthtyDFQ1MAN6UcgZvY5GH5xoep/MoXQWxo
+	3qdWnCkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u83NL-0000000FMJ4-0xcl;
-	Thu, 24 Apr 2025 20:40:51 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u83Hp-0000000FLnr-1e6R
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 24 Apr 2025 20:35:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=xnfOuiokG8UriFtp6o5bPUjeosoHbQjbxkbjx1qQm9M=; b=LLccnPQFS+rfDXab8O/BuxnJbi
-	g7hQpZuzl6fSj/R0kO7/Kysaz7EG1Pi40dwbQhHYwIoKkzfZQaY31ga2igRLXW3odmAQSR/gaXYDX
-	+eExhCcAjKyc6rlFh/C2yY+XUuC9lUmQf+nzvPYpYBQQRkhhQCouf+Bm3xpbpnXTE0kujYXigNtH9
-	wLxn4tdSoCmuV8avZtv++ivsPBdxC7szuAHHfn5Tq8hk8/S80Dit4UTa0BifP/BSIdtTXPq5R2Rsc
-	KmG6td3ExrMhTd90DeGBuoAP6N0AQk2U6aBuCaAyhZl/ITGCrvksxsUmVhZ/GFiIzUCf0h5WBvxhd
-	Huu7HnsQ==;
+	id 1u83tB-0000000FOC4-3oB4;
+	Thu, 24 Apr 2025 21:13:45 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u83Hk-0000000Bw71-263X
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u83rJ-0000000FO0j-3pYJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 20:35:08 +0000
+	Thu, 24 Apr 2025 21:11:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1745526902;
+	s=mimecast20190719; t=1745529108;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=xnfOuiokG8UriFtp6o5bPUjeosoHbQjbxkbjx1qQm9M=;
-	b=NTnf67x9bomAx/p785KXW5l6Hvkhtk9FRXZR7l1zHgoj2xwi9ob/iO5ZKuxSQEuzeFXj7r
-	vgTJBN6OYFWXpv8NnL/s8s/6rpEdyBWCcEhNdyhftBD6H6wMojAy7jnpeUD/rvRIpQLDGF
-	Q6RGhnWjwKGstjrk9w7rIwU9LNoJTLE=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1745526902;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=xnfOuiokG8UriFtp6o5bPUjeosoHbQjbxkbjx1qQm9M=;
-	b=NTnf67x9bomAx/p785KXW5l6Hvkhtk9FRXZR7l1zHgoj2xwi9ob/iO5ZKuxSQEuzeFXj7r
-	vgTJBN6OYFWXpv8NnL/s8s/6rpEdyBWCcEhNdyhftBD6H6wMojAy7jnpeUD/rvRIpQLDGF
-	Q6RGhnWjwKGstjrk9w7rIwU9LNoJTLE=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=XSJt09CWKPOf+EGnLW8nyqe/QhTx1Ajx0DdE2d0+ieI=;
+	b=T6DVecWsTeDIsFWQuUwJPgil5Ob0EK12uvjVpsaYz6uaSp/GKABqwZVkGaF8RHPP1EM+M3
+	iswsI8Bw8w2w/9U+dmywvEesz5Bg7yocefqJhx8CZwjg73PWLxl48FvsfJIGLHu3h99sN2
+	pwQW/VLN5nVbxrrsoOVUcGqZaMBmOUc=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-235-cY9l09SQOai3lcmUQiYJMA-1; Thu, 24 Apr 2025 16:35:00 -0400
-X-MC-Unique: cY9l09SQOai3lcmUQiYJMA-1
-X-Mimecast-MFC-AGG-ID: cY9l09SQOai3lcmUQiYJMA_1745526900
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-43eea5a5d80so6673115e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 13:35:00 -0700 (PDT)
+ us-mta-241-ck3CseLYPoKMa6qHFuoCJA-1; Thu, 24 Apr 2025 17:11:47 -0400
+X-MC-Unique: ck3CseLYPoKMa6qHFuoCJA-1
+X-Mimecast-MFC-AGG-ID: ck3CseLYPoKMa6qHFuoCJA_1745529106
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-43d00017e9dso9176775e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 14:11:47 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745526899; x=1746131699;
+        d=1e100.net; s=20230601; t=1745529106; x=1746133906;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:from:references:cc:to:subject:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=xnfOuiokG8UriFtp6o5bPUjeosoHbQjbxkbjx1qQm9M=;
-        b=H3UDvYX42EmcLiZ9n+7w0TPNsYR6fCEoZITRgudr4S7EfFeXIOdpcmllFLnVcnDkSn
-         U+LOYZlKW8rWbLxn7dvOAoMvk65tQ/oLjV66nPM3T1qUgKccFzYVqqEYQ0CBZuVVMEmy
-         W+htQ7uRhkNdxklUZFYwQM95e8KjoT1rIGvMZqWlssfSCNI15nBsn3pwfXnnLR+lwZvJ
-         Ef7z2esx3s9ilGwuNW0DKTOf0vy+TDWXovLGIDPQobozkbsp3BD86mh5Ff3lZ/4hZOXk
-         YXZcNLeFbC+GGZlc5FRvm96Tll11NQDbQu8nEmy+ygP4vPuAOM5NEEbtUOvhKqmi4iqy
-         YVeg==
-X-Gm-Message-State: AOJu0YzO5FTsSqFfI1SkmKBLvDcE9ePXDVhlZk/Nr1gsLOZpOlN8nmuU
-	gvjMmYZfPdQq/sP9WsDyPfFCd/+7g2fkr6oRynLOhcMInNqidPjnmbmIfPadljddM34484lnS0s
-	TfBfmF65357NjEoyb6HPlhLpf/+6t63JkD07iqz613SRJX2L7cXtkdEE7Tz46SHhfrvCM7HXL
-X-Gm-Gg: ASbGncuvkwqeEQY3cDP6RglEbs3qaHAalQeIZYy7MZdO0boe3AdWFUl/r0Xdaslle/6
-	I/kooYTGVkSjpQytcORgiyBo9MlW3mOjBbaRObll7hs3HWl/Ll+5Lxyx4E9M4nxTbygkkILQpK7
-	T8bKFKoulNyDqNuUA53Cf2geQV6IiPrST657A1F5Tjga09zNM9HxHf08l/MZ1klySfLw4xi8KnE
-	ZMstaTfqT2Phca9qmD0TANixSF0j6Rhvrc4nuICcd1Xrz15lP9k/w/9KVM2y4ZKgiA0yKwV7W40
-	T+DOj7C9b3G/5W/3QQSfM5X+zdENQd0Nwv96ZbrHUQgsrGNr0xNRCu/8YSC5P6UOPH4v9OIaKnO
-	nMnNJuBPn0DMTbQOPWAIMuQZ9XcnabRRNgzRl
-X-Received: by 2002:a05:6000:2905:b0:391:3028:c779 with SMTP id ffacd0b85a97d-3a072bb3d29mr578499f8f.45.1745526899659;
-        Thu, 24 Apr 2025 13:34:59 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IF+GQahLpkXHKCgEIIQXZDPLJngQYHw2SgAkytx5e2BTqGshAsthJzlU+O5eV4uktqgky5e2g==
-X-Received: by 2002:a05:6000:2905:b0:391:3028:c779 with SMTP id ffacd0b85a97d-3a072bb3d29mr578489f8f.45.1745526899275;
-        Thu, 24 Apr 2025 13:34:59 -0700 (PDT)
+        bh=XSJt09CWKPOf+EGnLW8nyqe/QhTx1Ajx0DdE2d0+ieI=;
+        b=ew4l6CfjIJeFdfSYHKSt1WMdvG75Ovg6yFLI8/GEEa10+xKSk450pQH0lax1vZZGVv
+         iMKwTZRk2m2ZPeOCYU2AAd2TUrBvm84YyNZz1x4R9xNWIEPqKIpo5Q7xw10YJh4xyyMi
+         R0NmZHVWqcC7U0kDNpeP7zM/kuaYYC4ut0d6aP/ShLWh8KPxzkx/FqTB2GhYSM4euS9R
+         CkQnZfRjpzVjdl9Ct4sBKno0xWvGTwkHUkTnH/mUTNEJTWoesedeMkCqr/nOVlU3lRxI
+         d7XXEaODXJawgbXG9etjFdAMZZvOSWlGYak3owXespGyAwQ6ub4U0bHIqKRSSqKnrax5
+         xHFQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU1ZafQ0P5M0A7EyvecWaOk+tKYV7BzfcGtJ6BS6TPiFP6ksu622cZ9h25nl/N5FTTY/Du+7Ruaovt06ZD99R30@lists.infradead.org
+X-Gm-Message-State: AOJu0YypMLVUlWLMk3O6zb91mi+tOmCWkoTTtNDt3FIS4jnu6WG2V59m
+	3oD9VQZO4nfAXYSUv13z4tlr98SZyiq+p4xcbKwBOQXulRJ3og7RoG29IyElP0h03sIwVEpm52N
+	a16zlnnVXsKqv+buq6k3M6p6UCs68Xq6etGT5TnVbZBwx5qJoUX8kQp//hhHgigE9nEU0YbAT
+X-Gm-Gg: ASbGnctVGrnhv9IXx82ElauSLvBdDhg/dc9in/AZGhrkArN6pwm530WgiHRU0ZqcIZn
+	ixP1N/LNRA4Dkp6oTIoamFjiROWMs6V+3vxGkC88o26G3rj1rpZ7itL68QK9j6dJcpQwk3yvKEz
+	oc5Iq8Jdju7JXdKz1oX+SXkQ1Z5022/ZX/34W5RRe2+o5s5dJ/Sn98fwaWHL2NT6hjiQEaLE/oB
+	dScekfts++3YMuGedmIeVTiiTPPg3bDUuqn0yCgKUWz9yKYvq5/waIGx3aCiXI5QVy64HYi6tGu
+	NRBBG0LxiO7TckNZabKcsfZGdwuP+H//VxNJrEv+Mwu+Y+M+e6j70yTW9QD84Pnj+tvDqYdTjv9
+	6drrCyJmddKq0Pgsxlil+JdS8sYDd680gvW+b
+X-Received: by 2002:a05:600c:8012:b0:43c:e7ae:4bcf with SMTP id 5b1f17b1804b1-4409bc06f4cmr44141635e9.0.1745529106308;
+        Thu, 24 Apr 2025 14:11:46 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFcF4PqwYVcKyDhNajp+9yGkVLlqSoBI+pDcioIx4vbWO4AH3K4GqMgkz2s+HBMzGQ0VesaZA==
+X-Received: by 2002:a05:600c:8012:b0:43c:e7ae:4bcf with SMTP id 5b1f17b1804b1-4409bc06f4cmr44141435e9.0.1745529105905;
+        Thu, 24 Apr 2025 14:11:45 -0700 (PDT)
 Received: from ?IPV6:2003:cb:c74e:ff00:f734:227:6936:cdab? (p200300cbc74eff00f73402276936cdab.dip0.t-ipconnect.de. [2003:cb:c74e:ff00:f734:227:6936:cdab])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a073e5da0dsm252905f8f.88.2025.04.24.13.34.57
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4409d2ac5a9sm34371385e9.23.2025.04.24.14.11.44
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 24 Apr 2025 13:34:58 -0700 (PDT)
-Message-ID: <390f3d5e-8da6-4286-b8a9-72eabcc3abd5@redhat.com>
-Date: Thu, 24 Apr 2025 22:34:57 +0200
+        Thu, 24 Apr 2025 14:11:45 -0700 (PDT)
+Message-ID: <0eae5cc8-5714-44dc-97b4-e1b991c0e918@redhat.com>
+Date: Thu, 24 Apr 2025 23:11:43 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/4] prtcl: introduce PR_MTE_STORE_ONLY
-To: Yeoreum Yun <yeoreum.yun@arm.com>, catalin.marinas@arm.com,
- will@kernel.org, broonie@kernel.org, anshuman.khandual@arm.com,
- joey.gouly@arm.com, maz@kernel.org, oliver.upton@linux.dev,
- frederic@kernel.org, james.morse@arm.com,
- hardevsinh.palaniya@siliconsignals.io, shameerali.kolothum.thodi@huawei.com,
- huangxiaojia2@huawei.com, mark.rutland@arm.com, samuel.holland@sifive.com,
- palmer@rivosinc.com, charlie@rivosinc.com, thiago.bauermann@linaro.org,
- bgray@linux.ibm.com, tglx@linutronix.de, puranjay@kernel.org,
- yang@os.amperecomputing.com, mbenes@suse.cz, joel.granados@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- nd@arm.com
-References: <20250410080723.953525-1-yeoreum.yun@arm.com>
- <20250410080723.953525-3-yeoreum.yun@arm.com>
+Subject: Re: [PATCH v4 1/7] mm: Introduce for_each_valid_pfn() and use it from
+ reserve_bootmem_region()
+To: David Woodhouse <dwmw2@infradead.org>, Mike Rapoport <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ "Sauerwein, David" <dssauerw@amazon.de>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Ard Biesheuvel <ardb@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Mike Rapoport <rppt@linux.ibm.com>, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, Ruihan Li <lrh2000@pku.edu.cn>
+References: <20250423133821.789413-1-dwmw2@infradead.org>
+ <20250423133821.789413-2-dwmw2@infradead.org>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -165,16 +140,16 @@ Autocrypt: addr=david@redhat.com; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat
-In-Reply-To: <20250410080723.953525-3-yeoreum.yun@arm.com>
+In-Reply-To: <20250423133821.789413-2-dwmw2@infradead.org>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: AQfkentm44AJ-SUkUcB67RE9PqF6S6EPdRPcjUAv7Sc_1745526900
+X-Mimecast-MFC-PROC-ID: FISGxyNwSauCXRS-YF5EYyZdHynMMjAzQ34aAfiCqtM_1745529106
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_213506_418614_BEED6B0B 
-X-CRM114-Status: GOOD (  13.14  )
+X-CRM114-CacheID: sfid-20250424_141150_141745_BBB61CE1 
+X-CRM114-Status: GOOD (  25.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,30 +164,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10.04.25 10:07, Yeoreum Yun wrote:
-> PR_MTE_STORE_ONLY is used to restrict the MTE tag check for store
-> opeartion only.
+On 23.04.25 15:33, David Woodhouse wrote:
+> From: David Woodhouse <dwmw@amazon.co.uk>
 > 
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> Especially since commit 9092d4f7a1f8 ("memblock: update initialization
+> of reserved pages"), the reserve_bootmem_region() function can spend a
+> significant amount of time iterating over every 4KiB PFN in a range,
+> calling pfn_valid() on each one, and ultimately doing absolutely nothing.
+> 
+> On a platform used for virtualization, with large NOMAP regions that
+> eventually get used for guest RAM, this leads to a significant increase
+> in steal time experienced during kexec for a live update.
+> 
+> Introduce for_each_valid_pfn() and use it from reserve_bootmem_region().
+> This implementation is precisely the same naïve loop that the function
+> used to have, but subsequent commits will provide optimised versions
+> for FLATMEM and SPARSEMEM, and this version will remain for those
+> architectures which provide their own pfn_valid() implementation,
+> until/unless they also provide a matching for_each_valid_pfn().
+> 
+> Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
+> Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 > ---
->   include/uapi/linux/prctl.h | 2 ++
->   1 file changed, 2 insertions(+)
+>   include/linux/mmzone.h | 10 ++++++++++
+>   mm/mm_init.c           | 23 ++++++++++-------------
+>   2 files changed, 20 insertions(+), 13 deletions(-)
 > 
-> diff --git a/include/uapi/linux/prctl.h b/include/uapi/linux/prctl.h
-> index 15c18ef4eb11..83ac566251d8 100644
-> --- a/include/uapi/linux/prctl.h
-> +++ b/include/uapi/linux/prctl.h
-> @@ -244,6 +244,8 @@ struct prctl_mm_map {
->   # define PR_MTE_TAG_MASK		(0xffffUL << PR_MTE_TAG_SHIFT)
->   /* Unused; kept only for source compatibility */
->   # define PR_MTE_TCF_SHIFT		1
-> +/* MTE tag check store only */
-> +# define PR_MTE_STORE_ONLY		(1UL << 19)
+> diff --git a/include/linux/mmzone.h b/include/linux/mmzone.h
+> index 6ccec1bf2896..230a29c2ed1a 100644
+> --- a/include/linux/mmzone.h
+> +++ b/include/linux/mmzone.h
+> @@ -2177,6 +2177,16 @@ void sparse_init(void);
+>   #define subsection_map_init(_pfn, _nr_pages) do {} while (0)
+>   #endif /* CONFIG_SPARSEMEM */
+>   
+> +/*
+> + * Fallback case for when the architecture provides its own pfn_valid() but
+> + * not a corresponding for_each_valid_pfn().
+> + */
+> +#ifndef for_each_valid_pfn
+> +#define for_each_valid_pfn(_pfn, _start_pfn, _end_pfn)			\
+> +	for ((_pfn) = (_start_pfn); (_pfn) < (_end_pfn); (_pfn)++)	\
+> +		if (pfn_valid(_pfn))
+> +#endif
+> +
+>   #endif /* !__GENERATING_BOUNDS.H */
+>   #endif /* !__ASSEMBLY__ */
+>   #endif /* _LINUX_MMZONE_H */
+> diff --git a/mm/mm_init.c b/mm/mm_init.c
+> index 9659689b8ace..41884f2155c4 100644
+> --- a/mm/mm_init.c
+> +++ b/mm/mm_init.c
+> @@ -777,22 +777,19 @@ static inline void init_deferred_page(unsigned long pfn, int nid)
+>   void __meminit reserve_bootmem_region(phys_addr_t start,
+>   				      phys_addr_t end, int nid)
+>   {
+> -	unsigned long start_pfn = PFN_DOWN(start);
+> -	unsigned long end_pfn = PFN_UP(end);
+> +	unsigned long pfn;
+>   
+> -	for (; start_pfn < end_pfn; start_pfn++) {
+> -		if (pfn_valid(start_pfn)) {
+> -			struct page *page = pfn_to_page(start_pfn);
+> +	for_each_valid_pfn (pfn, PFN_DOWN(start), PFN_UP(end)) {
 
-That is the next available bit after PR_MTE_TAG_MASK, correct?
+                           ^ space should be removed
 
-Would we want to leave some space to grow PR_MTE_TAG_MASK in the future 
-(could that happen?)?
+Acked-by: David Hildenbrand <david@redhat.com>
 
 -- 
 Cheers,
