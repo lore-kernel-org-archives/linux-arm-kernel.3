@@ -4,112 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 208A7C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:07:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 826E6C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:07:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z+7xBf3XhJMHfpZe6B0obtpZq77mLhIssmTOLfcblvc=; b=z2kBifPKfpjxgssqFkdwYGFdP6
-	EejHQx53Suwv0Dgl9D6FcIZ+s4lXvQUsHkxn39PZuAYyuVU7Ime9+sEcy8GpqvgwCU9ZVmJyCNpZH
-	EVRjbeBAncPQ6wCik/CRZrbRt4FzUubNTGemzNNuPxxKxY+dh+sTQALm4341AgsUjd3c1o6LkkB/L
-	4UWrhD0qEyb2WL+uCiWjDvllS8mDOh3g4bKqfDCAEVdFeUjcJguvsJ6rGcnnP9XC6v8lPS9DYmLsM
-	9QLt2g/jROxvcoLI4mkVQEZJi87nBWyb3LVZKuRSLmoGBY5Er2IKrGu8WNkebRA7nSHE/B2Pnmw9e
-	q3A9ELZg==;
+	bh=MbqWnfszZO2tpVYAjg9JWbWMTQTT2mkVql/ztM6vVPw=; b=a42EiLn7ayVspgRBwnjxvoS+lI
+	snlDPiAyKUxEest1kvsFuzwuMuwaGSiNa88noVxStEUOp736/GsiRbOPcGLG10giw1XOiOdpLSzyF
+	sGrnYd5NdZNvhzYEWv5nsWd7r99PN4FFoYTS/wYnAeyS0YIH2WBpc87GY7HjPGcal+OZ2wWY2kSE/
+	0O7CklVS1+HmAGeCRSmFMparLFF1PonHEZVRteHC1Uew8GxcB2qnHlI2oRaDzPy9vp9y5Ea4sUVcU
+	Qeg3oagKUYoqpV6hvGgiSPErezFofZtAFB1/ppK2LZiifal9pu2/Nxcu2a/x+nZlmR3usRFzNpkbv
+	xx2ZTC2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7z68-0000000EeRk-3fSC;
-	Thu, 24 Apr 2025 16:06:48 +0000
-Received: from mail-wr1-f54.google.com ([209.85.221.54])
+	id 1u7z6P-0000000EevQ-2wjb;
+	Thu, 24 Apr 2025 16:07:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7xLQ-0000000EKrp-2Kve
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 14:14:30 +0000
-Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-39ee57c0b8cso1149226f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 07:14:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745504066; x=1746108866; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Z+7xBf3XhJMHfpZe6B0obtpZq77mLhIssmTOLfcblvc=;
-        b=gkVAvhMIGmiTKTbaSx3WqGC+h2wfYg24iEGkR2TvnnXzPaO38vMlRB/0IkF1R+fN8Z
-         YDd6q3DmZP8nVY1NjWOAgvxIa3amauKchkQ5FXNPWwH3M8fkHGLjg4S6XKA6++8Q6lpK
-         ytA/+vb3qcOTfXPbaRWNE+Jz50ryZx1TpsFXGRADKiazjYwaPdbY7fAULFP6JRvLEy5Q
-         /Xl551WScxw3gG8JchlSc/ETEM8zh4Gat3VxUpchsJVXqrPK6V32BKnxMtYQW40wCKfu
-         RVk9rNQpyxvQTa5xtiAKgmrK4wxyOvBODgI332T5Jgh3f4/vbGgzDnE+lK7foKEdB60t
-         qdKw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745504066; x=1746108866;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Z+7xBf3XhJMHfpZe6B0obtpZq77mLhIssmTOLfcblvc=;
-        b=Y5LMrWOig7QNBm6J/AEAeQ3JvkJjk3xX2AUAwTNpL5e3LVQ1ryYz8Yb+oZbc0NNZwC
-         bBEKfySlatBj+VyMJHCMS/4+9zx7pL/wv+p2oPabbgC36g9HlA+/U37leaac28/nYzVA
-         NcOEHKQgvUTETtrcY4ln4N9FG7bn3Ifq4f7ssJZV3FOGu//dec5IHZA8iVyP3EgDcuuG
-         FhQraCWjHUQRrGv16F3A0+agtqpxC0y7SIRAHVWRGSwtTLkb+NzrX8Ty5jXbptmePyK8
-         O26DZejZfjlnfrpGZTl9Y6l5Y1Qsk6XUXcRYJ+ad4FvziwV684D6favnBG+Y4loTgJs+
-         Onlg==
-X-Forwarded-Encrypted: i=1; AJvYcCXs4tjiMVP08NTh4NFdeTcOmg0vPEEIQB5o5VUqt8wLEqKtxt9Md2dBPcfkK2H2lpdwLuIXNFqTo7IIktQVvmzD@lists.infradead.org
-X-Gm-Message-State: AOJu0YxV+mr+ABpEulYs+J8zgEfI9QHy8cSOtWSYG2NJmDXqGSCPeSbE
-	yyuHLRmBjTMPl60gBS9KHYnBcJ5FPnVs2Ymqd9y9hkGuxpP4eMU6YJSZpbZqM3M=
-X-Gm-Gg: ASbGnctHDJdlcsXamnZIG/Gy8SC6KhS8+Ar2OYKSlwSiBTapRpJWWVN8ECazo65UZSa
-	Iu/ouJPe+Cb7lvHUnbOc6AD/zK3jfaw00dD60DJ/xWJq01Nuaqcj5YIs1XHZHnxwVu5BN5ZMZBG
-	Wf8XUAsQDzGpd18iB+7TCPIHe+lHKWWMg/vpW9/u9Ttctq8fBCvpQn3KKAwMRUtguTTp4eD11js
-	PQKCJgEjE58KMXDqwvEtEVrVOeU4SaB0ZQyr4cp/+2u40DDQOT7mz9ukMxHl6qckyfaqKf79ng2
-	R1HDJ7gSbZiSBdn0JqSreu/CJ5izcuRbAzulUaGkVxGkc2Vmr6SAph3RQdWJ6oIDLowHIFyHGdv
-	tTRxYLOzrH3t3Jgws
-X-Google-Smtp-Source: AGHT+IHRjNQ9hktsGOI0gDbs88pFfwmyof1gAXg0Su1amTrqhLAxn7c+kspUyHkoAKmkYrrR9nwrhw==
-X-Received: by 2002:a5d:48ca:0:b0:39c:1257:cd41 with SMTP id ffacd0b85a97d-3a06cfd462dmr1866395f8f.59.1745504066490;
-        Thu, 24 Apr 2025 07:14:26 -0700 (PDT)
-Received: from seksu.systems-nuts.com (stevens.inf.ed.ac.uk. [129.215.164.122])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a06d4a8150sm2199951f8f.7.2025.04.24.07.14.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Apr 2025 07:14:26 -0700 (PDT)
-From: Karim Manaouil <karim.manaouil@linaro.org>
-To: linux-kernel@vger.kernel.org,
-	kvm@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Cc: Karim Manaouil <karim.manaouil@linaro.org>,
-	Alexander Graf <graf@amazon.com>,
-	Alex Elder <elder@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Marc Zyngier <maz@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Prakruthi Deepak Heragu <quic_pheragu@quicinc.com>,
-	Quentin Perret <qperret@google.com>,
-	Rob Herring <robh@kernel.org>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Srivatsa Vaddagiri <quic_svaddagi@quicinc.com>,
-	Will Deacon <will@kernel.org>,
-	Haripranesh S <haripran@qti.qualcomm.com>,
-	Carl van Schaik <cvanscha@qti.qualcomm.com>,
-	Murali Nalajala <mnalajal@quicinc.com>,
-	Sreenivasulu Chalamcharla <sreeniva@qti.qualcomm.com>,
-	Trilok Soni <tsoni@quicinc.com>,
-	Stefan Schmidt <stefan.schmidt@linaro.org>
-Subject: [RFC PATCH 31/34] gunyah: allow userspace to set boot cpu context
-Date: Thu, 24 Apr 2025 15:13:38 +0100
-Message-Id: <20250424141341.841734-32-karim.manaouil@linaro.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250424141341.841734-1-karim.manaouil@linaro.org>
-References: <20250424141341.841734-1-karim.manaouil@linaro.org>
+	id 1u7xmg-0000000EQ77-1mdI;
+	Thu, 24 Apr 2025 14:42:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=MbqWnfszZO2tpVYAjg9JWbWMTQTT2mkVql/ztM6vVPw=; b=A+ThlWdmwHZbEDLHhYQvPGCfJd
+	nw/wKVgjzeMk5a+ihgx24OEKgz7HN48DOjwDUx8LIsPe/sbN98mSEQa6hbof+D9nfGu9eRDEzCbz2
+	Z32Mn8nzBFC3iMCcqqnj64+lpgzGQbWIthvTv+69fUNw2nXxa0/5LIYA49oxDh2+0hq0rHEPh/5Kn
+	gRA/jM5DT7pShJuGWMvgFwUq9rNMsoGr19ELG1uGYxSA6cMDlx6lADnSXI9XEN772J4CwmF1Yomgr
+	34kZKD3P47ek0p80dpBnCWEAUxLS1AZpqsXWCz4XpNxl0b/YD/apipVAaxxSHzD/K1tb+AAlH+rVO
+	33k7jvmQ==;
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u7xmd-0000000BqD1-1R8Q;
+	Thu, 24 Apr 2025 14:42:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 500B1A4CE95;
+	Thu, 24 Apr 2025 14:37:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02F3EC4CEEC;
+	Thu, 24 Apr 2025 14:42:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745505750;
+	bh=MbqWnfszZO2tpVYAjg9JWbWMTQTT2mkVql/ztM6vVPw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=S1uCbVrUh4gmgegvzwAZPPVyp6WogO8Mt/f7cUv01bi7CqeCaeYlAtzZeDEO4C51y
+	 LPjnnu7+oxVkI/mfyZU3WX8f+sQD6pGVuhn2uJjNXpS/Qh/h08dtLpUx+hdtFX6Z64
+	 LM6zb8VMTXnFmIyl+LnC6kitOtKLSKHU8eTEwLDNUZUdvMRwVkBJvdT0c3EI7pxYuo
+	 RRZZlLDpl6Eowie3D0tbeHXG8K0alH44FT70ce6sBbHpzVNbzdoHES7Vo614/GfkuM
+	 xD4SbYD44OCpLhAWO1JWfPy9QR1Pirl+wvqLl0oQn7CP9rsK3c1RhOaR0vUPFZA4QT
+	 rizAIYDie10qA==
+Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-ac2a81e41e3so203391066b.1;
+        Thu, 24 Apr 2025 07:42:29 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUC+0W6kVR+x5QIwyJm7QMAYNgnue/2KJmj/1rf0t1g/JiaphNg2tD6N5kD8maGNQv3n+xYmfuJIWHTy5m1@lists.infradead.org, AJvYcCXjzFuvkqNEm8tajv32stTRLxSnkmirHq29qRt/wiWudXxCtSR+21sfs/tkKWqvFq39+7iCkSCVjAtQbYLQY8UxXw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0F6i2FVJ22aaaeOr+xUONg0xljwGVdg1rknO7arAQ5Et1E31m
+	Plt9ffxlfa3TbzZUiX9+JOSN1SQOYhpS/6+z234TPaNMGxhslibuOvWDl4JofPrbAouS3ZkoW/G
+	DcpBqVSPD8mWjYGmcq2rg/11c5w==
+X-Google-Smtp-Source: AGHT+IGGFqu0L47CHz2DJ5cIaB7S3hoAageJyJhrGdRr9cOUHUygoaN/XZusHvgN0Jkxp1vNsCp8qBoorCHtV0sHXWs=
+X-Received: by 2002:a17:906:7305:b0:acb:b1be:4873 with SMTP id
+ a640c23a62f3a-ace570cd13amr312500966b.2.1745505748560; Thu, 24 Apr 2025
+ 07:42:28 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250424-uart-binding-v1-1-eb0f6d97a654@amlogic.com>
+In-Reply-To: <20250424-uart-binding-v1-1-eb0f6d97a654@amlogic.com>
+From: Rob Herring <robh@kernel.org>
+Date: Thu, 24 Apr 2025 09:42:17 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqKD=yespd0WM90VBr_XWdppimzDzecmwNfGMV+hNSHuRA@mail.gmail.com>
+X-Gm-Features: ATxdqUHKHPJdWFXmqoM4Bm1TD1_GnaXoZ-XsaWeX2h598TzyyhAIydJNjtK4jps
+Message-ID: <CAL_JsqKD=yespd0WM90VBr_XWdppimzDzecmwNfGMV+hNSHuRA@mail.gmail.com>
+Subject: Re: [PATCH] dt-bindings: serial: amlogic,meson-uart: Add compatible
+ string for S6/S7/S7D
+To: xianwei.zhao@amlogic.com
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby <jirislaby@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-kernel@vger.kernel.org, 
+	linux-serial@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_071428_593815_C22B3314 
-X-CRM114-Status: GOOD (  14.58  )
+X-CRM114-CacheID: sfid-20250424_154235_586306_343FA365 
+X-CRM114-Status: GOOD (  12.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,57 +102,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow userspace hypervisor (e.g. Qemu) to set the context of the boot
-cpu. At the moment, only the program counter (PC) is needed.
+On Thu, Apr 24, 2025 at 3:43=E2=80=AFAM Xianwei Zhao via B4 Relay
+<devnull+xianwei.zhao.amlogic.com@kernel.org> wrote:
+>
+> From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+>
+> Amlogic S6/S7/7D SoCs uses the same UART controller as S4 SoCs and G12A.
+> There is no need for an extra compatible line in the driver, but
+> add S6/S7/S7D compatible line for documentation.
+>
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+> ---
+> This patch has been reviewed in the submission below(patch 4/7).
+> https://lore.kernel.org/all/20250317-s6-s7-basic-v1-0-d653384e41f3@amlogi=
+c.com/
+>
+> It is just sent again separately since it goes via the tty tree
 
-Signed-off-by: Karim Manaouil <karim.manaouil@linaro.org>
----
- arch/arm64/kvm/gunyah.c | 24 ++++++++++++++++++++++++
- 1 file changed, 24 insertions(+)
+The default assumption is a series is applied by 1 maintainer. If you
+want maintainers to pick up a patch out of a series, it is best to ask
+them in that patch. Or you have to resend like this.
 
-diff --git a/arch/arm64/kvm/gunyah.c b/arch/arm64/kvm/gunyah.c
-index e8037d636e8f..df922be2429e 100644
---- a/arch/arm64/kvm/gunyah.c
-+++ b/arch/arm64/kvm/gunyah.c
-@@ -1703,6 +1703,24 @@ static int gunyah_vm_rm_notification(struct notifier_block *nb,
- 	}
- }
- 
-+/*
-+ * We only need to set PC to start of kernel
-+ */
-+static int gunyah_vm_set_boot_ctx(struct gunyah_vm *ghvm)
-+{
-+	struct kvm_vcpu *vcpu = kvm_get_vcpu(&ghvm->kvm, 0);
-+	u64 core_reg = KVM_REG_ARM64 | KVM_REG_SIZE_U64 | KVM_REG_ARM_CORE;
-+	struct kvm_one_reg reg;
-+	u64 *regaddr;
-+
-+	reg.id = core_reg | KVM_REG_ARM_CORE_REG(regs.pc);
-+	regaddr = core_reg_addr(vcpu, &reg);
-+
-+	/* We only need to set PC atm. regset is 1 */
-+	return gunyah_rm_vm_set_boot_context(
-+			ghvm->rm, ghvm->vmid, 1, 0, *regaddr);
-+}
-+
- static void gunyah_vm_stop(struct gunyah_vm *ghvm)
- {
- 	int ret;
-@@ -1790,6 +1808,12 @@ static int gunyah_vm_start(struct gunyah_vm *ghvm)
- 	}
- 	ghvm->vm_status = GUNYAH_RM_VM_STATUS_READY;
- 
-+	ret = gunyah_vm_set_boot_ctx(ghvm);
-+	if (ret) {
-+		pr_warn("Failed to setup boot context: %d\n", ret);
-+		goto err;
-+	}
-+
- 	ret = gunyah_rm_get_hyp_resources(ghvm->rm, ghvm->vmid, &resources);
- 	if (ret) {
- 		pr_warn("Failed to get hyp resources for VM: %d\n", ret);
--- 
-2.39.5
+Also, for bindings only adding new compatibles and no driver change,
+it is fine for the sub-arch maintainer (Neil) to pick them all up.
 
+Rob
 
