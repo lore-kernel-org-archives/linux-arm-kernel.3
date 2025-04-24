@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E16FC369AB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9789DC369D9
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:07:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,63 +12,78 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3i+gLyWtr6XPiioNUTryX7U5TAHJs0bj5+QGltLz/R0=; b=E995lRdKbK0jlUb30g7mbmNPA5
-	aYJ5meeTzXuDUwSXV1AgFJEjvipvoL3bxDIRHhK1WSTvVA6mQm8qvn10GIVt426Pp47BeUr7z0O2Y
-	7cGR5NP2j60omKBbJDfG4NY38iOXKFgl+lHcexc8A4IbXgeJmOPAhPY0COOknWKRKIxZORdzngIZ2
-	TBb9ubWj1uzo5Ujh2vwCKI7pSIgBtzVOJIFti1FKcpuEg1cFcYqo2IlaGKjUOr/rxemvgWwlqtvyu
-	nyhPF/fb9/ECueIpUA8njuLHcduwOv649vq9KQP78X2899UK1ji7TSmNjjlzKzicY2BDBxn4qo6UL
-	OD+qAGlw==;
+	bh=Oa6gfxRAjkR7wfTiIJFT8jbfGXVVwGTh4OuP6vCgukQ=; b=aAYuVq3Xc/xYJdf7IJvLFAU/mv
+	qVItf6FkQsPgP8/DUem9rHY8D1b20yuWdVjEiEV0bVUlgRjzpUjWBQbLjXHhZ4sbchcG795SNY1i8
+	9b+S9y2IBi/j1gC8+hHWnY1Bz/K3NgtLDL6Zm4icDsuEWAAs1PYwqHgFugLRqUeUh/WH9mmr5a0vo
+	yNQDxVDv786KgbtpB8kK/CSe5Q+dlop2tW3umjtDVCU+dObh0HJjWkOkEz96APmTvbuwstXz3F+Fx
+	Oq1FPBJv6pCQAGI9GAbFLB9w3cAnNw1zhrT+5kpIeHLKeFcbJTM+bb9yiCGYhkfQ0zTULcKKbaPQn
+	qoE5aozA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7z6C-0000000EeXD-0AUP;
+	id 1u7z6C-0000000EeYr-3kF4;
 	Thu, 24 Apr 2025 16:06:52 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7xLT-0000000EKtQ-2irs
+	id 1u7xLV-0000000EKu8-2uUp
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 24 Apr 2025 14:14:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=Oa6gfxRAjkR7wfTiIJFT8jbfGXVVwGTh4OuP6vCgukQ=; b=Aoa8iDXiMmhcCDMEXzEiAbR8XZ
+	mGzPSm6Fo89B4KxKOl3fPzy+9M3Af6LcUn8mNEWfzIo8SBml1NruNFNcYqrUWwbwvnFbN/c6gy+bT
+	9b7pvhWoLIdhkR5LFWAeLRdEruEAlwsLVEAzh+QoAoCyyHIgQ/nzM0PxrsM/21rSl3bh6I7gpd7LX
+	447tlBZhzaEdP2n6thC/1sckoTMD9iT4tpF/7v5IZLYDndT8oudZWfERpFNus4efbT6dCpOkZOaRO
+	qUU8F7T96edoXKaJ8boMANI2GoJLqM9byAHJxFR4CR0AHFdKfeVGHEe6Glgg15n4k2lqe8LaIohuX
+	jtAHkwUA==;
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u7xLS-0000000Bplt-0xmn
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 24 Apr 2025 14:14:32 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-39c0dfad22aso841012f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 07:14:31 -0700 (PDT)
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43d0618746bso8282125e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 07:14:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745504070; x=1746108870; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1745504068; x=1746108868; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=3i+gLyWtr6XPiioNUTryX7U5TAHJs0bj5+QGltLz/R0=;
-        b=g+r/Wf66mfKdpDOfgANZcEX1sSMYWhHBCO2OMaLbwXrGZ5Oai263W3487UBSlfDK82
-         VpVyvsdVs8ZbKULUZSRsKsH3fLWfC20VVD7lxD5ZXl8fRGmOvmlX8DqWjdzWNTiBtZq9
-         28ljmx+GVspYVMPmaWNIDxv+4tM2zkg0i7a3fpGf7KT4671WHLauQKlLECvxZbpJt3wN
-         wqop/zzrCwQSyRQHtw7G2JzW6dVQZLUI6G/ZaTe81Kf1rdqZeukrjCUTFFkaJA+eEHwn
-         GqL/cOyhfyzLk2bDsN89bFzlt6S/GsM+ZTNTPHcvFVXyBw7wzgjhRO4RLYLqO1DKOJYh
-         xF7w==
+        bh=Oa6gfxRAjkR7wfTiIJFT8jbfGXVVwGTh4OuP6vCgukQ=;
+        b=bK4CG4QqW5anFkd4b4S4NpiPEJwY4m9umwTUuqaFIJGxWnfHzaPigDZRi+XrlUFWDI
+         F6ADNStPdtvo0lZJFvb7r21FE2DGl54S3FBKEzHYu5oamb3N2HNNWSzC3RMHLVyxL5PL
+         8xA13gm7xT140PU4CO9QM/RwhCIvs6WwZY/nTD5LlA0bFHWdsWURC4Ga8eicZ8/6qQTM
+         iGfvSbQVefPt7+9XN3yCZ7WCKzYA1XAkDKgQm/P885iE836VN+/r7C4oO3VOhQR7Ca05
+         XVdVZ0jLR1nHukpcvM0E4ud2kZhDVYVg5y65LJs6jbIxrDBchuiL+75zeid3FaG8ffaa
+         WbFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745504070; x=1746108870;
+        d=1e100.net; s=20230601; t=1745504068; x=1746108868;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=3i+gLyWtr6XPiioNUTryX7U5TAHJs0bj5+QGltLz/R0=;
-        b=nX5DUXUelFnPCEoXThryHdxTMU5oy29DV771B+Kz/m22cuuPJyddMfNVLPtjZyzjJ1
-         SPVGvTvK1AzwZ+5svXa7ihnH5ebFj5sKneyKJl4IoPM+Ns4yp8OjP8Y7bR7sauUsoGtI
-         23JncI6CQjOr9IefsU1RQfieng6asvK3cDfCQUnWTfVQZZcwOGkisD/YEEsTuLt1GWmW
-         hQZSu5lStHPe6Ay4hIa5VL4gbmqFod88wwq0x0gkTSfa51gu17Wp9tDH1C2+JcWHWOTx
-         ic4W2FydaajskfWme0ZzviWvIJPkLw26m4Eil7fvWnaAqTFNkKz43Rn8rhrbQEH5mTBz
-         SeWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU8oIW57pfu3a9qVbT4jwSiMvIWdJeojfiVHtHHPtd/HyHWCfcSEXl0gUjEF7WtLI0nCVqnPI4cGmQZAhZCSTD1@lists.infradead.org
-X-Gm-Message-State: AOJu0YxAqOMzxixBbhmw/21k4Gco2SNJdtuJd93k0prdoTDEbbkly6os
-	/EcLDuXsiYigPQrAeaYhYquXb6b90BZxN27i7aMEvR08IzycI8RfPGbs2YRE4qk=
-X-Gm-Gg: ASbGnctBnmKzb6B+IGEgAc6HVG7SMJJbAam3MDuxWKdWIF8jI0+XZXE1yq40mZcWhTh
-	0aOBfZlEsukM29fS0QvJcczIxnULsuVQiakau/HPzuHxXmlVEaiHj1K05KGb2POl1CS+xMUe1e9
-	RF/vEvxneYfHP/E26IyAJ3Y+PC1wn92gkx/MF8/Tw4Eq2W8fZfUfGy3qYv35eVA0yfraCnBqDdh
-	ymltfvtUmhQty3Y6O+sJT+mY2JjYaw2+3GLg6kQcXMFh8KccOsQfQ2obWg7SeEX171lF2OTF9gE
-	iTaW4JAC8iKOulaS1viJKsHCLZZHOX0roNejSJG2VrD8NUlstEvf5J7U3KBxBwUXy0DY3Z6ZTmd
-	OXsg1Te8gAXrTVCKW
-X-Google-Smtp-Source: AGHT+IFOk65S5hPF/j31g7Of/aiN0lBptA3ImD/zObUzEDJUJE+zLunCG1fROxNheO7aYYEMJ9HW0A==
-X-Received: by 2002:a5d:5f87:0:b0:38d:b325:471f with SMTP id ffacd0b85a97d-3a06cf5ac50mr2557177f8f.15.1745504070317;
-        Thu, 24 Apr 2025 07:14:30 -0700 (PDT)
+        bh=Oa6gfxRAjkR7wfTiIJFT8jbfGXVVwGTh4OuP6vCgukQ=;
+        b=eZy9gZcE6hbv6tbdUkGWnGItCLkI4MltHxf0Fcuusc82xssAKqvuF6/AnlD0MJ1GHM
+         0iqpzUpBUEdwr75cxi0LNxlq4SiqAPCkmNCYBSxsgsk4M70p0lHKAgmjEN5+cX9i6WFL
+         4zFGMdHDEGuYocljZVZDnIAUW/ZGqdLAIhbbZZtZTKNcCth5VI6Jh9JXLFiv8ZMVxrnC
+         XHjYckq2T5xP524I+vXx2jcL1aXQoD3x/ywy41TovhoE+6mDMKIfGtCG0ZbUJcW8CoV+
+         vXWP4+qXDVxd9zR4cxt5JmgQlM1ONHormj3my2f6DMfLQnS19/bRb/nWfjbb2E3tjzi6
+         oqQA==
+X-Forwarded-Encrypted: i=1; AJvYcCXsIT8FkfyH4iE4lGVETBEnwTqGoQqjm6T7Sq2KyvAx4AT4Zmd5bAvgMgZFW7TMECNlNrILfwh4HLhJOR2PqeFf@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9CResLYovMQZH8XyUyBFyiTJuyN4/ZFPO/xOQSTJ/BWqWxeqv
+	0eqQovbXqP+SaPgI6WaqA0bTwxJgz+3bjcAYr5g/Bli4Eh0+O106GRSWcLRofhE=
+X-Gm-Gg: ASbGncunw6tEvxxGBkgnkJ56Rzo+M2dODS6vOKqbJgmpn1eegNNHvZzBsnA2XcWpaDa
+	zyjXRbD+wFPkW4VULqXC2zP1Lv56UJNVEvXBg1LCsz2MNTNnfjxbJWoQdFMgiPOzEGk7vih1YMV
+	FMdQjMP9Dz1Ie40uWGLEOakaTCqxJwjBnrJbkRpmVhC+vPUMhJObXGu6Re4T3lZH8JnZmCcuoEG
+	zbtN7gFlhKMYNSiUs7A9IIcbpLWMhZKFOkibreCBGOYRtqKaayl7osNeBDtD7kJrO8IQvOJJYIP
+	RAhejiY4kSTEREhOmrXDQZRpK6OMVyKuVJ3i1KODmwjnRe/deLRPR1t+kgwI9B8HguK2+K5qxjr
+	S0o+db4QmJa72GLSm
+X-Google-Smtp-Source: AGHT+IERVpNU2DILo0bvt8R4DAynThAP/fjqterv2/ng44U7A/g/KpyVK5SJtSkw42xdSMDhah0Vrw==
+X-Received: by 2002:a05:6000:1acb:b0:391:2f15:c1f4 with SMTP id ffacd0b85a97d-3a06cfad64amr2138772f8f.55.1745504067786;
+        Thu, 24 Apr 2025 07:14:27 -0700 (PDT)
 Received: from seksu.systems-nuts.com (stevens.inf.ed.ac.uk. [129.215.164.122])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a06d4a8150sm2199951f8f.7.2025.04.24.07.14.29
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a06d4a8150sm2199951f8f.7.2025.04.24.07.14.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Apr 2025 07:14:29 -0700 (PDT)
+        Thu, 24 Apr 2025 07:14:27 -0700 (PDT)
 From: Karim Manaouil <karim.manaouil@linaro.org>
 To: linux-kernel@vger.kernel.org,
 	kvm@vger.kernel.org,
@@ -98,18 +113,20 @@ Cc: Karim Manaouil <karim.manaouil@linaro.org>,
 	Murali Nalajala <mnalajal@quicinc.com>,
 	Sreenivasulu Chalamcharla <sreeniva@qti.qualcomm.com>,
 	Trilok Soni <tsoni@quicinc.com>,
-	Stefan Schmidt <stefan.schmidt@linaro.org>
-Subject: [RFC PATCH 34/34] KVM: gunyah: enable KVM for Gunyah
-Date: Thu, 24 Apr 2025 15:13:41 +0100
-Message-Id: <20250424141341.841734-35-karim.manaouil@linaro.org>
+	Stefan Schmidt <stefan.schmidt@linaro.org>,
+	Elliot Berman <quic_eberman@quicinc.com>,
+	Alex Elder <elder@linaro.org>
+Subject: [RFC PATCH 32/34] gunyah: Add hypercalls for sending doorbell
+Date: Thu, 24 Apr 2025 15:13:39 +0100
+Message-Id: <20250424141341.841734-33-karim.manaouil@linaro.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250424141341.841734-1-karim.manaouil@linaro.org>
 References: <20250424141341.841734-1-karim.manaouil@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_071431_690311_14239B78 
-X-CRM114-Status: GOOD (  12.43  )
+X-CRM114-CacheID: sfid-20250424_151430_522264_1BD06A70 
+X-CRM114-Status: GOOD (  16.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,62 +141,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable KVM to act as the interface to create and manage Qualcomm's
-Gunyah-based virtual machines [1].
+From: Elliot Berman <quic_eberman@quicinc.com>
 
-[1] https://www.qualcomm.com/developer/blog/2024/08/learn-about-gunyah--qualcomm-s-open-source--lightweight-hypervis
+Gunyah doorbells allow a virtual machine to signal another using
+interrupts. Add the hypercalls needed to assert the interrupt.
 
+Reviewed-by: Alex Elder <elder@linaro.org>
+Signed-off-by: Elliot Berman <quic_eberman@quicinc.com>
 Signed-off-by: Karim Manaouil <karim.manaouil@linaro.org>
 ---
- arch/arm64/kvm/gunyah.c      | 12 ++++++++++++
- drivers/virt/gunyah/gunyah.c |  3 +++
- include/linux/gunyah.h       |  1 +
- 3 files changed, 16 insertions(+)
+ arch/arm64/gunyah/gunyah_hypercall.c | 38 ++++++++++++++++++++++++++++
+ include/linux/gunyah.h               |  5 ++++
+ 2 files changed, 43 insertions(+)
 
-diff --git a/arch/arm64/kvm/gunyah.c b/arch/arm64/kvm/gunyah.c
-index 23b9128bf5b1..91f0260ef3f5 100644
---- a/arch/arm64/kvm/gunyah.c
-+++ b/arch/arm64/kvm/gunyah.c
-@@ -2071,3 +2071,15 @@ void kvm_arch_free_vm(struct kvm *kvm)
+diff --git a/arch/arm64/gunyah/gunyah_hypercall.c b/arch/arm64/gunyah/gunyah_hypercall.c
+index 38403dc28c66..3c2672d683ae 100644
+--- a/arch/arm64/gunyah/gunyah_hypercall.c
++++ b/arch/arm64/gunyah/gunyah_hypercall.c
+@@ -37,6 +37,8 @@ EXPORT_SYMBOL_GPL(arch_is_gunyah_guest);
  
- 	kfree(ghvm);
+ /* clang-format off */
+ #define GUNYAH_HYPERCALL_HYP_IDENTIFY		GUNYAH_HYPERCALL(0x8000)
++#define GUNYAH_HYPERCALL_BELL_SEND		GUNYAH_HYPERCALL(0x8012)
++#define GUNYAH_HYPERCALL_BELL_SET_MASK		GUNYAH_HYPERCALL(0x8015)
+ #define GUNYAH_HYPERCALL_MSGQ_SEND		GUNYAH_HYPERCALL(0x801B)
+ #define GUNYAH_HYPERCALL_MSGQ_RECV		GUNYAH_HYPERCALL(0x801C)
+ #define GUNYAH_HYPERCALL_ADDRSPACE_MAP		GUNYAH_HYPERCALL(0x802B)
+@@ -64,6 +66,42 @@ void gunyah_hypercall_hyp_identify(
  }
-+
-+int kvm_gunyah_init(void)
+ EXPORT_SYMBOL_GPL(gunyah_hypercall_hyp_identify);
+ 
++/**
++ * gunyah_hypercall_bell_send() - Assert a gunyah doorbell
++ * @capid: capability ID of the doorbell
++ * @new_flags: bits to set on the doorbell
++ * @old_flags: Filled with the bits set before the send call if return value is GUNYAH_ERROR_OK
++ */
++enum gunyah_error gunyah_hypercall_bell_send(u64 capid, u64 new_flags, u64 *old_flags)
 +{
-+	int err;
++	struct arm_smccc_res res;
 +
-+	err = kvm_init(sizeof(struct kvm_vcpu), 0, THIS_MODULE);
-+	if (err)
-+		return err;
++	arm_smccc_1_1_hvc(GUNYAH_HYPERCALL_BELL_SEND, capid, new_flags, 0, &res);
 +
-+	return 0;
++	if (res.a0 == GUNYAH_ERROR_OK && old_flags)
++		*old_flags = res.a1;
++
++	return res.a0;
 +}
-+EXPORT_SYMBOL_GPL(kvm_gunyah_init);
-diff --git a/drivers/virt/gunyah/gunyah.c b/drivers/virt/gunyah/gunyah.c
-index 3e795e3ba881..629c812fbac0 100644
---- a/drivers/virt/gunyah/gunyah.c
-+++ b/drivers/virt/gunyah/gunyah.c
-@@ -28,6 +28,9 @@ static int gunyah_probe(struct platform_device *pdev)
- 		return -ENODEV;
- 	}
- 
-+	if (!kvm_gunyah_init())
-+		pr_info("KVM for Gunyah is available!\n");
++EXPORT_SYMBOL_GPL(gunyah_hypercall_bell_send);
 +
- 	return devm_of_platform_populate(&pdev->dev);
- }
- 
++/**
++ * gunyah_hypercall_bell_set_mask() - Set masks on a Gunyah doorbell
++ * @capid: capability ID of the doorbell
++ * @enable_mask: which bits trigger the receiver interrupt
++ * @ack_mask: which bits are automatically acknowledged when the receiver
++ *            interrupt is ack'd
++ */
++enum gunyah_error gunyah_hypercall_bell_set_mask(u64 capid, u64 enable_mask, u64 ack_mask)
++{
++	struct arm_smccc_res res;
++
++	arm_smccc_1_1_hvc(GUNYAH_HYPERCALL_BELL_SET_MASK, capid, enable_mask, ack_mask, 0, &res);
++
++	return res.a0;
++}
++EXPORT_SYMBOL_GPL(gunyah_hypercall_bell_set_mask);
++
+ /**
+  * gunyah_hypercall_msgq_send() - Send a buffer on a message queue
+  * @capid: capability ID of the message queue to add message
 diff --git a/include/linux/gunyah.h b/include/linux/gunyah.h
-index 26fdfa3174da..7d43449c4547 100644
+index 72aafc813664..26fdfa3174da 100644
 --- a/include/linux/gunyah.h
 +++ b/include/linux/gunyah.h
-@@ -421,4 +421,5 @@ enum gunyah_error
- gunyah_hypercall_vcpu_run(u64 capid, unsigned long *resume_data,
- 			  struct gunyah_hypercall_vcpu_run_resp *resp);
+@@ -329,6 +329,11 @@ gunyah_api_version(const struct gunyah_hypercall_hyp_identify_resp *gunyah_api)
+ void gunyah_hypercall_hyp_identify(
+ 	struct gunyah_hypercall_hyp_identify_resp *hyp_identity);
  
-+int kvm_gunyah_init(void);
- #endif
++enum gunyah_error gunyah_hypercall_bell_send(u64 capid, u64 new_flags,
++					     u64 *old_flags);
++enum gunyah_error gunyah_hypercall_bell_set_mask(u64 capid, u64 enable_mask,
++						 u64 ack_mask);
++
+ /* Immediately raise RX vIRQ on receiver VM */
+ #define GUNYAH_HYPERCALL_MSGQ_TX_FLAGS_PUSH BIT(0)
+ 
 -- 
 2.39.5
 
