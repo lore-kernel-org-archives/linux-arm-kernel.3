@@ -4,67 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 162DFC369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 11:38:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 268BEC369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 11:40:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HOVuiI+8mSRH7O/02K1BDgrIMTx/XasOhwMXr41vKIE=; b=hFlhZ6Hf2kCFWYP7O2gP1MOioF
-	kXgNEF3ySpYLczlvSSsZbgDzgM2rgVnXtC0Tv7RZKOS5Nep/3ysloTqhGO9FSm5NZd8U/Ay7MtguK
-	pLoSV7TWR475Op+2o450j3QmIdnyxPHZWqoSBuSQoKn+0IHnAyLS3GYmKeCI6WthJw7OM6OVr6kZC
-	5Dg6/yPIjOd4U9KFMAF0c0+jkweffiRKKdqbhrh4rh/DMzsbSUr/1A9EOmiEDRWiGzlXfmPDSPNya
-	GO6hVA7xZRBSRmGaojV3wgeg6SoGFKN0WXRt39vEGUziFKEhNrPFsp0kl5Nf2RNavcd8aqtqt+AEA
-	9uNGpd6w==;
+	bh=kPI27XPPYRRK0xWqV54WIVswQxSYJsBtgx975xO40PU=; b=pMymSI5LuNSxck+VdFwwBUAwF/
+	f18ri8w4AjR3mI/Rm3O+yiQfkI7T9AHbL7SmsisThZ4C4Tevv/rpZTl5APAkqPbU54goWnzwwVe8B
+	PpYfLe064sKLaYGwdCWNRxjVspbzp7LZoR/rhJJIhYQcnumIoAZpsZcJCDI5eA5FdAtXAQxdICnbK
+	gj2MYQFiNlQ990tx5aB7Ij4vek1h3ObANQdWj5m//OtmWX8bylEU2hGzDZjyi8u6/9zF91P+P4Ufp
+	2w3fcI6Zrlo6cHsm+zq3+bCnlrJKrtZWT9GvHPZpsSHH0/pOn19wvCYr1aamod4oqe2aqo7Cf0sMX
+	EMaC7EpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7uu9-0000000DtCA-3phY;
-	Thu, 24 Apr 2025 11:38:09 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1u7uvz-0000000DtjK-12Yn;
+	Thu, 24 Apr 2025 11:40:03 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7tlu-0000000DfSE-333o
+	id 1u7tm1-0000000DfVA-3Y6w
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 24 Apr 2025 10:25:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=kPI27XPPYRRK0xWqV54WIVswQxSYJsBtgx975xO40PU=; b=n0L4Mb7GplxEQWMdzbHdujy2Ts
+	eRt9w5PrCOo89TOuJArKAPiNNeRI+klcDrVhDL6zu7PJ9if+84LLfjtTxGhmvCXYmUJGWTZP5m6fE
+	GhNH1cVKasiy+eXPsQ9uMIvr3MzcFGJbAk1bRtD6V9qsZ+vHEmL4pMssgjj5TSb6JGqhmPSkYq+Vt
+	4aYXgxo8b1pWUGyYouAA+ycK+QWXWGQ9aaedKoV1VWO1qhNWU4iRbuviD6fsy38xV7O1nAPSsVP8I
+	EGXC8buN5WCsXJWu09xcZ7gaUbRx079FQ6DOxfQW7RyzYEdMSWUo4DEQHZSgsLm8a1Rm5B1SfWF5/
+	CAjX2mwQ==;
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u7tlx-0000000BjWN-2Nbz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 10:25:36 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-22c3407a87aso13018795ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 03:25:33 -0700 (PDT)
+	Thu, 24 Apr 2025 10:25:40 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-227d6b530d8so8435005ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 03:25:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1745490333; x=1746095133; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1745490336; x=1746095136; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=HOVuiI+8mSRH7O/02K1BDgrIMTx/XasOhwMXr41vKIE=;
-        b=F0HscKVhiGRqfC1tSTuOPUCaJpMmgrxC94WKsNOhi1jlwGaSd0U54Pa6srlPLLn0gM
-         IJsW6zXTkKLkmHL/nghZdB9J1nvI/bz5HtWfgek6cg99TOmaNdnJ4H35pk44kFh35+in
-         sT0y23uUyri6feNmzhH6Wd9hmBiGWjOscbb3g=
+        bh=kPI27XPPYRRK0xWqV54WIVswQxSYJsBtgx975xO40PU=;
+        b=m9lzWOrWXlGdV9nf0IzreDTFqD/MHM85zYEqVqZ+gYsEo5SvJpI/eIASsXc+Db/55g
+         VtsQJ5ft7W1YpucXIL6rXXBJ9mJH9NClD9fSicV0wHmMMLL3RdFLO0NbzF8y5y5bn/uH
+         JQKv0N1BWAX811sJ+l7PKo3MSxchVggPbxSIQ=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745490333; x=1746095133;
+        d=1e100.net; s=20230601; t=1745490336; x=1746095136;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=HOVuiI+8mSRH7O/02K1BDgrIMTx/XasOhwMXr41vKIE=;
-        b=wxoXsO5zDt8CaOxYzftXvvO7XLUiwWhM9ZbHY8CtOPrLQa3XSz9S9qmM18hSsUP3HF
-         r+lJ4e3TjQD3LBnJpMsx/7feDx8wGK2+i8eKVW3pRVn29pdSh/Tf2c6ku9Go9+vkyAap
-         y9fPXz1palVOy82jTVqn9JWYYJ6UDyEI/UDdwfTOGuUOSk9IwuSlDHpPJI7kivV3Y/G3
-         AwXfeDcSBYMsq5O+sDJYFMp6/19C/gucYoOot6moF1PcszaNiWU/Xhiz6RpSjDZmzIZf
-         Wz6S2sLCVc+Ivc3ZmAHtW0f9Juui0DuKLAHqY2DcuJ5v4STYZpbR2DIw2HgbUe8TnxJ7
-         CBOA==
-X-Forwarded-Encrypted: i=1; AJvYcCVZEKmyLTBMKYjjF+B5JugU9guVjqKh9PkBqCJLVHt1DnCItQCMKFvynAyfX/9mTH3aNRoh2FMiY1bhNTRQdXM5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwS75JVXbRIdQ4HRkEFOTHtxHs8v49N538CPsUdaRZ7whY8rhjD
-	ZXaWmikwaBANfwBE6rf0nd4/YpwC13kwhnJ94hkSTM2xs0jcY4cgBrNOVWfDWw==
-X-Gm-Gg: ASbGncu+AuCq9j13jFBQucyqg9W7t29Z/oVsfSRUv5Yb8i4XeIDf08k8mpWiSkaBPqZ
-	/WlXleRzqF3hzi0ZLK8Z/9R9pN6tFOds0fJIsuIjSwCBQzWKCuaJ3oZ/B3Ns0JWXmDeQ6vgsbGr
-	QVzBU6ZU+0mGineJ3JUTZqH0XAidKETop4pNcVEp2mCeKM7v4DV8wx7gRRFlI/waD+jppdeNvoY
-	FK3DwvX7ly3fNnQiOKu3hlwBhcVCSYXUespAe6gIMwyKw04XsiI4wPPmIw2ZRzgmGPgeRfge5SU
-	F9nX4hUqdQfwnP/LM8re0iGTkLEBTo9kSxNsil8ggdTrb8IN52zewffqFw==
-X-Google-Smtp-Source: AGHT+IGD0vIug8Nt9qcP/TU1PZMvFZmtESOf6amtEN+pO0sojtfEbRYqEQc7zpWOQxTNCIuHa8wc2g==
-X-Received: by 2002:a17:903:24f:b0:220:e655:d77 with SMTP id d9443c01a7336-22db3db14ecmr31506645ad.36.1745490332983;
-        Thu, 24 Apr 2025 03:25:32 -0700 (PDT)
+        bh=kPI27XPPYRRK0xWqV54WIVswQxSYJsBtgx975xO40PU=;
+        b=LDZtJU2zcXaoKTtvM3xxmFlgm67K++TSPWhbTi/0G6jzWizqslRfzW8NtBSPvITlFh
+         xcJatifi8RMVpgEEpEAQw1lDL1qPQONjtgFIPqI1W5hhQRQ2+g49PWAko9RBaiRhzPBp
+         wXboPS+df2uTDG9MKxvtV+opLg7IR3L9WibTO91mpprNFpZzXRN7WPQc5zhwMFg/GN/N
+         NAtIqM3k/LxQFOQpcHVpjjomkVf95NEyRzCmvofJxpYbXQV4DRWlbnXrtL34DxwHDNZr
+         hhRpgA51o3QNqZ0IbMwI7fwHaR0/PqnLuee1FZflNQRO2xJldkDeGUFfdqnxw3WAwMBL
+         pY6w==
+X-Forwarded-Encrypted: i=1; AJvYcCVqHJRpxPmkkwWQ4XE4Y1xVAnBdSBY/yo1ibIxjRA1US2kekrRmyIwcm2njeyazB6OBA2Nlc2EHM4hq39MYXQRf@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmhANrqAgyYMsu5F1YtM9KlRd3CdA/0cKZMuCPyn9+e+SJjxkC
+	aOzrXz1ecsoI1W/AW/pe05my1WETogdwSJL7E7EhEPWOsYDztwJQjT4cyqC4Jcw1E4/NJX5OMAQ
+	=
+X-Gm-Gg: ASbGncuzjPE7rRzoBTVIE0ZVTuIAxwfx4U4K6LXM8lzsV9q5gUZm3VYGWG47aBdNZjw
+	eq57mGg7Ouyn5Mziqu2vTdFtYMdYIz+acDwIhMsWvIqfBrOk6WPZYkObG33rMh+kXbRcl4rEwKO
+	vwnLv7qAd6zM/3Z1FnzjYVRvhtx90XSdhN0mUdEowiB0pYFW7aZvLLfxRWWnOWdSzKNV2vFu5pL
+	CfZhkmqUyEMzZGhGhp8QeCmdLeQ5X8r0ifum+czC5vMC0QvYIcnZy9wJ+fW9tcPO+TOf/wReKih
+	KOgsPVjHs8PvGwWn7a45EZR3vJgC7qS1p5dv52oTlF41E89nRgGZinmFUQ==
+X-Google-Smtp-Source: AGHT+IFl3f1jhKy5TreVsC3n6Tp6f11IsZEiWWY1AzKzoKnuU1FfQGTVtrsgZqmOG5uoeu4Ajq1oKw==
+X-Received: by 2002:a17:903:28c:b0:224:76f:9e4a with SMTP id d9443c01a7336-22db3c0c147mr26537035ad.14.1745490335985;
+        Thu, 24 Apr 2025 03:25:35 -0700 (PDT)
 Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:fa13:e633:684b:257])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22db4dda40fsm9680305ad.104.2025.04.24.03.25.30
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22db4dda40fsm9680305ad.104.2025.04.24.03.25.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Apr 2025 03:25:32 -0700 (PDT)
+        Thu, 24 Apr 2025 03:25:35 -0700 (PDT)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Liam Girdwood <lgirdwood@gmail.com>,
 	Mark Brown <broonie@kernel.org>,
@@ -82,17 +98,17 @@ Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 04/13] ASoC: dt-bindings: mt8186-afe-pcm: Allow specifying reserved memory region
-Date: Thu, 24 Apr 2025 18:24:58 +0800
-Message-ID: <20250424102509.1083185-5-wenst@chromium.org>
+Subject: [PATCH v2 05/13] ASoC: dt-bindings: mt8192-afe-pcm: Allow specifying reserved memory region
+Date: Thu, 24 Apr 2025 18:24:59 +0800
+Message-ID: <20250424102509.1083185-6-wenst@chromium.org>
 X-Mailer: git-send-email 2.49.0.805.g082f7c87e0-goog
 In-Reply-To: <20250424102509.1083185-1-wenst@chromium.org>
 References: <20250424102509.1083185-1-wenst@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_032534_770875_79CE7617 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20250424_112537_768319_456E252B 
+X-CRM114-Status: GOOD (  12.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,14 +130,14 @@ memory region.
 
 Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
- Documentation/devicetree/bindings/sound/mt8186-afe-pcm.yaml | 5 +++++
+ Documentation/devicetree/bindings/sound/mt8192-afe-pcm.yaml | 5 +++++
  1 file changed, 5 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/sound/mt8186-afe-pcm.yaml b/Documentation/devicetree/bindings/sound/mt8186-afe-pcm.yaml
-index 7fe85b08f9df..f5af2cf18158 100644
---- a/Documentation/devicetree/bindings/sound/mt8186-afe-pcm.yaml
-+++ b/Documentation/devicetree/bindings/sound/mt8186-afe-pcm.yaml
-@@ -25,6 +25,10 @@ properties:
+diff --git a/Documentation/devicetree/bindings/sound/mt8192-afe-pcm.yaml b/Documentation/devicetree/bindings/sound/mt8192-afe-pcm.yaml
+index 064ef172bef4..8ddf49b0040d 100644
+--- a/Documentation/devicetree/bindings/sound/mt8192-afe-pcm.yaml
++++ b/Documentation/devicetree/bindings/sound/mt8192-afe-pcm.yaml
+@@ -23,6 +23,10 @@ properties:
    reset-names:
      const: audiosys
  
@@ -132,10 +148,10 @@ index 7fe85b08f9df..f5af2cf18158 100644
    mediatek,apmixedsys:
      $ref: /schemas/types.yaml#/definitions/phandle
      description: The phandle of the mediatek apmixedsys controller
-@@ -170,6 +174,7 @@ examples:
-                       "top_apll12_div_tdm",
-                       "top_mux_audio_h",
-                       "top_clk26m_clk";
+@@ -95,6 +99,7 @@ examples:
+                       "aud_dac_predis_clk",
+                       "aud_infra_clk",
+                       "aud_infra_26m_clk";
 +        memory-region = <&afe_dma_mem>;
      };
  
