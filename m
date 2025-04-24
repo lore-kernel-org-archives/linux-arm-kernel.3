@@ -4,55 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7343C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 11:02:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E479C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 11:04:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fSOdXtZie0Ln5Udf8Es34lYhiKAo6B/bX9lQKn9I0Xo=; b=BeJ9vcEszwY9Zu6XpS2j4nRyKq
-	LdHkm3XleBE/JYvgLoBKQEKFU+Fm177Jan8plhMXn2gcBmVyPUACWdn03NY7nQoqz6t6BbkYpzCYe
-	eXy1J0N2spFbAhv2qxR1P40dMeXEl7ocBA0kznv1Wzhqwahjpx1y2mmvoKBPp5HWotw3JtEgEnLm4
-	AKgWAMX5ZKRY54AqoLGH90d8LqborhyLqmjmN69PtXUfV4wF9lCiei2NA7+FZ0rrl7+d8/yK9T5mJ
-	ah5+QPQvoz+ZdciR1Znt6oCIEn/1xTntNuVhFzBFn1+qK00s0S3DEkKO0Lp8gHPu9G96CRWjmQrIZ
-	yvm5LOvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=8F6drkyY0eyTxeDSyy+HwaKqjKnQVzFkSR1ms3XaHyE=; b=dEbyLlMBP6M40/
+	8N56/Aj7fqvM7AZ0iFMoLt5h3YOJVKaig0hoK4xm5Us4dFa3PVi40PuA9vDBxXwuLBGINfWJxexW1
+	9iNwRcqxtorkTHATBV9F0cd8NkKoHst5o92zdpARPl/uSImIJeEeWP6FR4xExvkQcKfmuunVTYkax
+	Voq/LDraPlJiO7eqlsyRQnLyWPwfjODoh5j6+FbWN1QLgaxUjRDhYdZi6XDRQ5dzFxrlTCYw40LMW
+	106bOqn7jSZuz4p/DhENa5qkXmjQsRMPMXz5ChiHSpkvgBpxYKAev1aQm5uOUS9aFs0WxUh6xFEYb
+	N5OFYgy8rcT67Owyl//g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7uLV-0000000Dml5-2PE6;
-	Thu, 24 Apr 2025 11:02:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7tUI-0000000DcB3-0K24
+	id 1u7uNL-0000000DnBj-29c4;
+	Thu, 24 Apr 2025 11:04:15 +0000
+Received: from smtp.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7tWC-0000000DcUl-3lsq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 10:07:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6D4481063;
-	Thu, 24 Apr 2025 03:07:14 -0700 (PDT)
-Received: from [10.57.83.110] (unknown [10.57.83.110])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4790A3F66E;
-	Thu, 24 Apr 2025 03:07:18 -0700 (PDT)
-Message-ID: <fbba5d43-d740-401a-b5c5-9dfc222db5c4@arm.com>
-Date: Thu, 24 Apr 2025 11:07:16 +0100
+	Thu, 24 Apr 2025 10:09:22 +0000
+Received: from [127.0.0.1] (unknown [116.232.18.95])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 144B9343016;
+	Thu, 24 Apr 2025 10:09:13 +0000 (UTC)
+From: Yixun Lan <dlan@gentoo.org>
+Subject: [PATCH v2 0/5] allwinner: Add EMAC0 support to A523 variant SoC
+Date: Thu, 24 Apr 2025 18:08:38 +0800
+Message-Id: <20250424-01-sun55i-emac0-v2-0-833f04d23e1d@gentoo.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V2] arm64/mm: Re-organise setting up FEAT_S1PIE registers
- PIRE0_EL1 and PIR_EL1
-Content-Language: en-GB
-To: Anshuman Khandual <anshuman.khandual@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- linux-kernel@vger.kernel.org
-References: <20250416035604.2717188-1-anshuman.khandual@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250416035604.2717188-1-anshuman.khandual@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAKYNCmgC/3WNQQ6CMBBFr0Jm7ZihMARdeQ/DotYpzMLWtEg0h
+ Ltb2bt8L/nvr5AlqWQ4VyskWTRrDAXMoQI32TAK6r0wGDJMrWmQasyvwKwoD+sIWZoT2558d/N
+ QVs8kXt978ToUnjTPMX32g6X+2f+tpUbCthNpXc8sZC+jhDnGY0wjDNu2fQFSbWT/rwAAAA==
+X-Change-ID: 20250423-01-sun55i-emac0-5e395a80f6bf
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Andre Przywara <andre.przywara@arm.com>, 
+ Corentin Labbe <clabbe.montjoie@gmail.com>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
+ Yixun Lan <dlan@gentoo.org>
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1638; i=dlan@gentoo.org;
+ h=from:subject:message-id; bh=aTRP5MOUdrYudfIXeH7X1qFPiPt5o8uB0GSNLVO1Y3Y=;
+ b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBoCg21wuR03eG7PJ5BcbAbEvSBCD2s6I1UGgiC0
+ 4QRFOwWOemJApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCaAoNtV8UgAAAAAAuAChp
+ c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QjVCQUI4QzlDMzF
+ CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277UcED/41P2u7nuUUGzH+Nl
+ RH0IcFgw4kRxzmS64sXWYjeWMg3ZTJsmZdlrMePlTHFpT5dyt5lwILhAahFQxmswPOyiEJz5QDZ
+ enEhZOQNb2wn316NeTE0oQzcsZzxYerhMMQcSsT8pO6zNCq0dEixRV/yik60P9ZCmUqdqUI51NN
+ NlOegqa70BDG04ab2t1Q5FlNqDp+TfSFL6Dp5IF+VcKLzMcQgWoyOXSH8Y8yEyUdQkCHl6qrgyI
+ cQaypj/GjCf1zrQOx27Hr4mdprc5fm/6nL7AuadhA4Qmy+Ln5K5Cj9A+ydj8+RSMMKEwQI+3r0v
+ M73RO/nDJmKdNTG7e4Y/CGHo7+fsKYseFNB1C+39ruUa7rmudnAX+TzpRM2mp2kuepALq1nWtG8
+ R3SyqHSM46UQNnt8ueMREiOmynLNvPujhGfE5cPA0RrfjTAffqx2tOIGtSRgLNl731NtW0R138O
+ f+591g8Da+aSCnTDvaehhifgMbWiZ4DeAWsB0VB6DoqwHVfH/idMFbTcKZQ7gSPd0E8Ot+VIItr
+ toWl+nYX/lr0XFfA7xxCpZASIotWVbXTsdqcxg3waYs5DasLWJX0OC0bNxoUOFapabMa/4XiJW+
+ qMQGkDHKz1eJGgHSs0dvSOIE8Sy+MN8aI7bkETD8k7ZY1VJn9+qPX58+iwQpq8PPoZlA==
+X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_030722_218764_987C4237 
-X-CRM114-Status: GOOD (  24.32  )
+X-CRM114-CacheID: sfid-20250424_030921_039109_70AD0061 
+X-CRM114-Status: UNSURE (   8.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,116 +93,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/04/2025 04:56, Anshuman Khandual wrote:
-> mov_q cannot really move PIE_E[0|1] macros into a general purpose register
-> as expected if those macro constants contain some 128 bit layout elements,
-> that are required for D128 page tables. The primary issue is that for D128,
-> PIE_E[0|1] are defined in terms of 128-bit types with shifting and masking,
-> which the assembler can't accommodate.
-> 
-> Instead pre-calculate these PIRE0_EL1/PIR_EL1 constants into asm-offsets.h
-> based PIE_E0_ASM/PIE_E1_ASM which can then be used in arch/arm64/mm/proc.S.
-> 
-> While here also move PTE_MAYBE_NG/PTE_MAYBE_SHARED assembly overrides into
-> arch/arm64/kernel/asm-offsets.c to ensure PIRE0_EL1/PIR_EL1 are calculated
-> in assembly without arm64_use_ng_mappings and lpa2_is_enabled() symbols
-> being accessible. Also move the corresponding comment as well.
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Ard Biesheuvel <ardb@kernel.org>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
-> This patch applies on v6.15-rc2
-> 
-> Changes in V2:
-> 
-> - Added asm-offsets.c based PIE_E0_ASM and PIE_E1_ASM symbols as per Ard
-> - Moved PTE_MAYBE_NG and PTE_MAYBE_SHARED overrides inside asm-offsets.c
->   along with the corresponding comment as per Ard
-> 
-> Changes in V1:
-> 
-> https://lore.kernel.org/linux-arm-kernel/20250410074024.1545768-1-anshuman.khandual@arm.com/
-> 
->  arch/arm64/kernel/asm-offsets.c | 16 ++++++++++++++++
->  arch/arm64/mm/proc.S            | 19 ++-----------------
->  2 files changed, 18 insertions(+), 17 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/asm-offsets.c b/arch/arm64/kernel/asm-offsets.c
-> index eb1a840e4110..5b99a78f6882 100644
-> --- a/arch/arm64/kernel/asm-offsets.c
-> +++ b/arch/arm64/kernel/asm-offsets.c
-> @@ -182,5 +182,21 @@ int main(void)
->  #ifdef CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
->    DEFINE(FTRACE_OPS_DIRECT_CALL,	offsetof(struct ftrace_ops, direct_call));
->  #endif
-> +	/*
-> +	 * The PROT_* macros describing the various memory types may resolve to
-> +	 * C expressions if they include the PTE_MAYBE_* macros, and so they
-> +	 * can only be used from C code. The PIE_E* constants below are also
-> +	 * defined in terms of those macros, but will mask out those
-> +	 * PTE_MAYBE_* constants, whether they are set or not. So #define them
-> +	 * as 0x0 here so we can evaluate the PIE_E* constants in asm context.
-> +	 */
-> +#undef PTE_MAYBE_NG
-> +#define PTE_MAYBE_NG		0
-> +
-> +#undef PTE_MAYBE_SHARED
-> +#define PTE_MAYBE_SHARED	0
+This patch series is trying to add EMAC0 ethernet MAC support
+to the A523 variant SoCs, including A523, A527/T527 chips.
 
-My toolchain at least is smart enough to figure out that the bits of interest in
-PIE_E1 are all contstant so it works without this hack.
+This MAC0 is compatible to previous A64 SoC, so introduce a new DT
+compatible but make it as a fallback to A64's compatible.
 
-I'd prefer to drop this hack on that basis. Or if there are issues with other
-toolchains that mean we need to keep it, I think the wording of the comment
-should be changed since we are now in C code so the "can only be used from C
-code" bit doesn't really make sense.
+In this version, the PHYRSTB pin which routed to external phy
+has not been populated in DT. It's kind of optional for now,
+but we probably should handle it well later.
 
-Thanks,
-Ryan
+I've tested only on Radxa A5E board.
 
-> +
-> +  DEFINE(PIE_E0_ASM, PIE_E0);
-> +  DEFINE(PIE_E1_ASM, PIE_E1);
->    return 0;
->  }
-> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
-> index fb30c8804f87..80d470aa469d 100644
-> --- a/arch/arm64/mm/proc.S
-> +++ b/arch/arm64/mm/proc.S
-> @@ -512,26 +512,11 @@ alternative_else_nop_endif
->  	ubfx	x1, x1, #ID_AA64MMFR3_EL1_S1PIE_SHIFT, #4
->  	cbz	x1, .Lskip_indirection
->  
-> -	/*
-> -	 * The PROT_* macros describing the various memory types may resolve to
-> -	 * C expressions if they include the PTE_MAYBE_* macros, and so they
-> -	 * can only be used from C code. The PIE_E* constants below are also
-> -	 * defined in terms of those macros, but will mask out those
-> -	 * PTE_MAYBE_* constants, whether they are set or not. So #define them
-> -	 * as 0x0 here so we can evaluate the PIE_E* constants in asm context.
-> -	 */
-> -
-> -#define PTE_MAYBE_NG		0
-> -#define PTE_MAYBE_SHARED	0
-> -
-> -	mov_q	x0, PIE_E0
-> +	mov_q	x0, PIE_E0_ASM
->  	msr	REG_PIRE0_EL1, x0
-> -	mov_q	x0, PIE_E1
-> +	mov_q	x0, PIE_E1_ASM
->  	msr	REG_PIR_EL1, x0
->  
-> -#undef PTE_MAYBE_NG
-> -#undef PTE_MAYBE_SHARED
-> -
->  	orr	tcr2, tcr2, TCR2_EL1_PIE
->  	msr	REG_TCR2_EL1, x0
->  
+Signed-off-by: Yixun Lan <dlan@gentoo.org>
+---
+Changes in v2:
+- add ethernet alias node
+- add phy-supply
+- change to rgmii-id
+- drop PH13, rename pin name
+- drop bias-pull-up
+- collect Review tags
+- improve commit log
+- Link to v1: https://lore.kernel.org/r/20250423-01-sun55i-emac0-v1-0-46ee4c855e0a@gentoo.org
+
+---
+Yixun Lan (5):
+      dt-bindings: sram: sunxi-sram: Add A523 compatible
+      dt-bindings: arm: sunxi: Add A523 EMAC0 compatible
+      arm64: dts: allwinner: a523: Add EMAC0 ethernet MAC
+      arm64: dts: allwinner: a527: add EMAC0 to Radxa A5E board
+      arm64: dts: allwinner: t527: add EMAC0 to Avaota-A1 board
+
+ .../bindings/net/allwinner,sun8i-a83t-emac.yaml    |  1 +
+ .../sram/allwinner,sun4i-a10-system-control.yaml   |  1 +
+ arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi     | 40 ++++++++++++++++++++++
+ .../boot/dts/allwinner/sun55i-a527-radxa-a5e.dts   | 19 ++++++++++
+ .../boot/dts/allwinner/sun55i-t527-avaota-a1.dts   | 19 ++++++++++
+ 5 files changed, 80 insertions(+)
+---
+base-commit: 69714722df19a7d9e81b7e8f208ca8f325af4502
+change-id: 20250423-01-sun55i-emac0-5e395a80f6bf
+
+Best regards,
+-- 
+Yixun Lan
 
 
