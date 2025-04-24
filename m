@@ -4,115 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32AA2C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:07:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87341C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:08:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EbzdNbMuPcQgyg/32v679V2kcITSnqgFdSJKF+onCu4=; b=Z/5qID9xbKRvILsOftqgCbizYb
-	5vw+a+9gHzDfckDZCsgfcfp0DfyYyOqKxd1krf1omyhu3MAknn+98D/GhJjSPS4PtBpYus0Xew8CY
-	vLYHbYsj05aZHLhO5saRb0iBtWbVZh08FylUKOqsvxOKKpnPkUEUx5gBn8wcsToAk8J4MY5W7+hsW
-	0MlPOAu2biNlvyHm3dUlOw8pBf5shYfZ4sw++l3TClmHnh2/ldfMERR9Hg87cSomo/nUBabGZK6Ti
-	eRnifetJa0yf2niLc1Sp6fOxmMcuMX4okhuSykJTPJUAJ7KUDQgwPHj3vYEDhwJQhTbIZju3v/g4M
-	e+kd1D5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K8p4Q93VuGjMMJlzt6Z+FMJBOH/YNHCIj/0ylEP8gwQ=; b=W5PPgEL+M02JCefpSKKownZmo1
+	rgsYLcNgsoWU1cmavG4md7gDNuU6Z9zv2oGL6iMPPzDh5dGLqtu34ztWuRQ6weuQfWCdHfUwvrIbF
+	7BiPsUpie7tETA2jDFyKM8kPxFXgOBIDoklAetx+X6dRFoupwbuNx1O9IauvVbsmstjCDqT02p+RD
+	Fh8hnTSlZ1ao1HAc3G834wSoHpyyIVTvDJm/YvbpubrDhZ7yZnXzcazR93nUJqwJQbszEqbjQKQZh
+	oAg/Ouah++Ilx/Ry8FoRcPvV/OZ1qWzaYeFvAyvJKwiFb0mmckV1kD7mzA6xcxxXX2vrd2gEw4szH
+	FXitPl8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7z6Y-0000000EfBv-3gPQ;
-	Thu, 24 Apr 2025 16:07:15 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	id 1u7z7E-0000000EgF5-0jDV;
+	Thu, 24 Apr 2025 16:07:56 +0000
+Received: from mail-mw2nam10on20622.outbound.protection.outlook.com ([2a01:111:f403:2412::622] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7y8D-0000000ERvc-2KDJ;
-	Thu, 24 Apr 2025 15:04:55 +0000
-Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53OBPMk1019163;
-	Thu, 24 Apr 2025 17:04:24 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	EbzdNbMuPcQgyg/32v679V2kcITSnqgFdSJKF+onCu4=; b=bGNZrkbgM7hP0A4d
-	0huWCtfENxlTtZ2hD9QWgmb98DIFXK5fBmBupMzY6axYs0FrA/0LWmfz0WhsStka
-	AUXFj0pYsKuCM2wNw3Noz8aYCKXGStw8mUCIHn1PU8SS3MuLYegugGWwOdnCglQS
-	so57zD+/Q1kPH+lUcNiN2fR6/+s7xU5O1AjiWYlDUID34TOZerwOJJCOsxm/73wD
-	AKWfN54uWLHEgaWECt+7UHmgOfzc5a9lH3nXnAz3hT37RZh9W27f0QUDHzBg/F3h
-	2H+eskpgY2tz9SOoLS7XLLDm437GAqrqDrmqZ4wiJvlEm8NsT0+VsUGPYke1l5R3
-	kW1R0Q==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 466jjvg1q7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 24 Apr 2025 17:04:21 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 7BB1040046;
-	Thu, 24 Apr 2025 17:01:47 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node3.st.com [10.75.129.71])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id A4E6D9C40B5;
-	Thu, 24 Apr 2025 16:59:49 +0200 (CEST)
-Received: from [10.48.86.196] (10.48.86.196) by SHFDAG1NODE3.st.com
- (10.75.129.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 24 Apr
- 2025 16:59:48 +0200
-Message-ID: <fe3323d0-161c-498d-92e8-7a723f8d9780@foss.st.com>
-Date: Thu, 24 Apr 2025 16:59:47 +0200
+	id 1u7yuS-0000000EYUZ-3gWM
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Apr 2025 15:54:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Ti+XylLkXDIzdbeP6RWe1qygFw5RHwsDLiKP2EdJ9geOMJjvbv6udksNy1tKbZeXljP5sD9Xg5Y0muRUKl1H1+4DhXcGyULk2uGonBxa1yEoBA8U6cX40soZC0AfnvtFuCJR+xtGRr6mz9BNS2B0MN5wwWE2JOuMY0q4k6hd4MF/hFSPg351pQJhLDtJgDMj/gXi33jZnQBLEENsPDqmdo5ZoJqeaJ+Qz3i3Js0hH2kWvxAuoJueP0QkxBjxcDOFs5J6PhBf3lRPe31DvGjOtsxssqgpcLgFa3m32YaCUszh+6kIT9fEJuPVDuH7hb7lr0KIj8pML/2IgN8UMeabfA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=K8p4Q93VuGjMMJlzt6Z+FMJBOH/YNHCIj/0ylEP8gwQ=;
+ b=VeZ07c0YrL8Lde65swEDBNUteM4SnP4CSgnaXSbgZnRe1r6lNR4s4suFmXkZqAiI2LY7ReS93TzWOVwzqo7+T7Reeftk5Hlt8Fb5k4+2JOcC9m+d9tb8nzWUNBC5kcpBClVEa6b7VY/l6jazcE4YmfcBdPKus2V5DmCf3tKsmZXHPHeNkGb+QN3UAunjUdWJSYfyLcZuNljjS/LS843ohDNfCBIwOftG0CpYII8UG4Hf3TkXT1EK4KMUPJE1g9HIbDrLBJE1UoZ5u4gzQwaoYmzCc2z6WMbjiFyNVfDaa11huVIKSu2r73jTNL7uNtsCwPyLcqBedcltw9TlByQIqw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=K8p4Q93VuGjMMJlzt6Z+FMJBOH/YNHCIj/0ylEP8gwQ=;
+ b=IkJgtpaPJATT9HVcGuz8XI+BajbyRyohnP3g/L0Ho13bz7bP5avXwyPy7epDWj5NGNunqK0fKEXp8/ofxb7e4w4FSpDPhLwSTPsbemjFOpK7kYmCdPFhGRHGGUIxKWtEmwVpPdG216H+JJPklwXX++2RgtyvAfQxim7rms5vEAPZF8VC6ryKsrmenNvlI1sVz2dICxg6buaiZxgHpnMVo1CmNy3F0D8Mak2UKjTWhqXAu3euEKdd2KWLoGfAYKlUdDVfxF1mo+YzAOnlIK7unBjQOiKYrtUZhyRWf+mGMqIO9sCE7dRjZ37Q9FhW6c57kd7te1BJzBSqgdIg+bdK8g==
+Received: from BN9PR03CA0044.namprd03.prod.outlook.com (2603:10b6:408:fb::19)
+ by DS0PR12MB7996.namprd12.prod.outlook.com (2603:10b6:8:14f::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.27; Thu, 24 Apr
+ 2025 15:54:30 +0000
+Received: from BL6PEPF0001AB4A.namprd04.prod.outlook.com
+ (2603:10b6:408:fb:cafe::83) by BN9PR03CA0044.outlook.office365.com
+ (2603:10b6:408:fb::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.36 via Frontend Transport; Thu,
+ 24 Apr 2025 15:54:30 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ BL6PEPF0001AB4A.mail.protection.outlook.com (10.167.242.68) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8655.12 via Frontend Transport; Thu, 24 Apr 2025 15:54:30 +0000
+Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Thu, 24 Apr
+ 2025 08:54:17 -0700
+Received: from drhqmail203.nvidia.com (10.126.190.182) by
+ drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Thu, 24 Apr 2025 08:54:17 -0700
+Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com
+ (10.126.190.182) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Thu, 24 Apr 2025 08:54:15 -0700
+Date: Thu, 24 Apr 2025 08:54:13 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: "Tian, Kevin" <kevin.tian@intel.com>
+CC: "jgg@nvidia.com" <jgg@nvidia.com>, "corbet@lwn.net" <corbet@lwn.net>,
+	"will@kernel.org" <will@kernel.org>, "robin.murphy@arm.com"
+	<robin.murphy@arm.com>, "joro@8bytes.org" <joro@8bytes.org>,
+	"thierry.reding@gmail.com" <thierry.reding@gmail.com>, "vdumpa@nvidia.com"
+	<vdumpa@nvidia.com>, "jonathanh@nvidia.com" <jonathanh@nvidia.com>,
+	"shuah@kernel.org" <shuah@kernel.org>, "praan@google.com" <praan@google.com>,
+	"nathan@kernel.org" <nathan@kernel.org>, "peterz@infradead.org"
+	<peterz@infradead.org>, "Liu, Yi L" <yi.l.liu@intel.com>,
+	"jsnitsel@redhat.com" <jsnitsel@redhat.com>, "mshavit@google.com"
+	<mshavit@google.com>, "zhangzekun11@huawei.com" <zhangzekun11@huawei.com>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-tegra@vger.kernel.org"
+	<linux-tegra@vger.kernel.org>, "linux-kselftest@vger.kernel.org"
+	<linux-kselftest@vger.kernel.org>, "patches@lists.linux.dev"
+	<patches@lists.linux.dev>
+Subject: Re: [PATCH v1 00/16] iommufd: Add vIOMMU infrastructure (Part-4
+ vCMDQ)
+Message-ID: <aApepRZrZhywKqo6@Asurada-Nvidia>
+References: <cover.1744353300.git.nicolinc@nvidia.com>
+ <BN9PR11MB52761DAB62D3A4D3F6B53F698C852@BN9PR11MB5276.namprd11.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [Linux-stm32] [PATCH 03/12] pinctrl: stmfx: use new GPIO line
- value setter callbacks
-To: Bartosz Golaszewski <brgl@bgdev.pl>,
-        Basavaraj Natikar
-	<Basavaraj.Natikar@amd.com>,
-        Shyam Sundar S K <Shyam-sundar.S-k@amd.com>,
-        Linus Walleij <linus.walleij@linaro.org>, Chen-Yu Tsai <wens@csie.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        =?UTF-8?Q?Andreas_F=C3=A4rber?=
-	<afaerber@suse.de>,
-        Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-        Paul Cercueil <paul@crapouillou.net>,
-        Steen Hegelund
-	<Steen.Hegelund@microchip.com>,
-        Daniel Machon <daniel.machon@microchip.com>,
-        <UNGLinuxDriver@microchip.com>,
-        Ludovic Desroches
-	<ludovic.desroches@microchip.com>,
-        Nicolas Ferre
-	<nicolas.ferre@microchip.com>,
-        Alexandre Belloni
-	<alexandre.belloni@bootlin.com>,
-        Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-        Andrew Lunn <andrew@lunn.ch>,
-        Gregory Clement <gregory.clement@bootlin.com>,
-        Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-        Krzysztof Kozlowski
-	<krzk@kernel.org>,
-        Sylwester Nawrocki <s.nawrocki@samsung.com>,
-        Alim Akhtar
-	<alim.akhtar@samsung.com>
-CC: <linux-samsung-soc@vger.kernel.org>,
-        Bartosz Golaszewski
-	<bartosz.golaszewski@linaro.org>,
-        <linux-actions@lists.infradead.org>, <linux-mips@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250424-gpiochip-set-rv-pinctrl-part2-v1-0-504f91120b99@linaro.org>
- <20250424-gpiochip-set-rv-pinctrl-part2-v1-3-504f91120b99@linaro.org>
-Content-Language: en-US
-From: Amelie Delaunay <amelie.delaunay@foss.st.com>
-In-Reply-To: <20250424-gpiochip-set-rv-pinctrl-part2-v1-3-504f91120b99@linaro.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.196]
-X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SHFDAG1NODE3.st.com
- (10.75.129.71)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-04-24_06,2025-04-24_01,2025-02-21_01
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <BN9PR11MB52761DAB62D3A4D3F6B53F698C852@BN9PR11MB5276.namprd11.prod.outlook.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB4A:EE_|DS0PR12MB7996:EE_
+X-MS-Office365-Filtering-Correlation-Id: d22c8039-7c04-41d9-e96f-08dd83484ca0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?pIGQMmoaeTTbl/FHtrxVb1LL3AKztrOXLGq5KKzpX7iP8RID67Jp0xTfUBIJ?=
+ =?us-ascii?Q?MfeYr+Ha58XtUmRZo2OIe0n7lLoPS48drwCpYabsDp+3Fuw2YYIfL8QUw6kF?=
+ =?us-ascii?Q?nXHfX+oSXt1qu3hXsDdgrj7xT4yjGmGwza/D9AEwCbsa7p5kbxZJEGde+DlD?=
+ =?us-ascii?Q?aiXHeLaxiDWuGs05HtuwodSV5AlKOxFA4gJEq1O2kDIQJAtlo+GT2Pd9RIGV?=
+ =?us-ascii?Q?XLmIi8ah+kfdkIqBmkgYQ+1pr+X5Th7gCflgI8yfU6XfJzsXDahvSPCiRUI0?=
+ =?us-ascii?Q?Z6uXMoOC0HggvQKbTufTy+GB0QsrFVSRK3cgNQMCRziaeiJDsVffoIslyxt9?=
+ =?us-ascii?Q?IqeMlGZe2CxedhM/wMuQshRLk0hn2ECEj5Ib9kdC1SQnrgWnUI41A0SZZY3t?=
+ =?us-ascii?Q?yL9jxAvJ710tRgD0layaeiHH+bT1sLz76oefHA0nj0/Nq5xlObm3Aq9lvjT5?=
+ =?us-ascii?Q?/aHUrlhkNCyDu+HVgiGoWNl8+aH0HXeeoLM9xBB4dsM8VKV4OkU92NV6Dahe?=
+ =?us-ascii?Q?T4EubHb6hxmCPMI9kYtLw7XVxFXucAzXV899dQ8xWvlr+sZ8iT6ffYl6kaJH?=
+ =?us-ascii?Q?6qjO4b1WLtCqDVTolY7MwRUoHNWbl63o4IvsQx4dEFE1jHnvc3NszCodnqLo?=
+ =?us-ascii?Q?7p5kntsp6eVuFk9UQ27WfUEhikJCpWnG59gadUtY6zgjb0mS9KLCyTsC89Je?=
+ =?us-ascii?Q?rRu25PoizNtU3DvKpBLrC6mBJE4y1f1VnKyFZ0Oe4J5laswCyw48UosM5Do8?=
+ =?us-ascii?Q?+GMk1dQBHrULIUEDOgdEnwjShGl1ugjBAgO4O5LToY3whXutW6u3h0etoUTs?=
+ =?us-ascii?Q?gxUH8zGpzJJj05alumIZKDg8rMuCiTL0ile8+7aCidLB2jAEnBe8QBXgGlMF?=
+ =?us-ascii?Q?JpE+VqX5qFuzX5rCo9YDGFOGCuE7vFQiTR635I8MAOHPFt3ikz1DxDGzrSDX?=
+ =?us-ascii?Q?b02lFJJuJsfPESUyfnCE7+kwNXb4hbtri6Nz2VWCuP44mKFfnAnqMI4yLkxy?=
+ =?us-ascii?Q?OydmbP7Q81LviCXxo6ao0Eh56NA3Em7tP2RbZ3SipEdanduPg0sHI1rw2Zks?=
+ =?us-ascii?Q?WAlmGg4mbPwUgGTIcM1PdMVECTWlT0Ac16p4ybYfzD/i/unc/EpyHNR95qId?=
+ =?us-ascii?Q?nHOULcHcORAiMe9KGFWHclikVzPkbmneQxLIhJLpmKH2/1XyA2v9YCTPnaiF?=
+ =?us-ascii?Q?9lEJ29eUqncVHrpZ0051vwTeM1X5RUKNTTZGtBaGR2AaHxDHPkHYMGRqLpfa?=
+ =?us-ascii?Q?qTWHbeVQEgiE/n3vJkfYx5H97uWHfafNUwk9QD6FVbsPOgCz2nRTO7Br0hXh?=
+ =?us-ascii?Q?f1yWu3xFsrTu44uSyiOEDMD7nmzY+HOfvr34pBZyEX39wOUvouD/GYVSH5DE?=
+ =?us-ascii?Q?beJ+lj6P1YS0WIDXnynYRBEXJ56Wa7o5HUUUv36Sy+jUl24/5tDQZyNgjYFZ?=
+ =?us-ascii?Q?QfULIeMNd6sb0WP+bYH5ePxvU7kyDUu7fp0suJzi4tDP6Wi02lynqi4AJREs?=
+ =?us-ascii?Q?yuBFtdTP2Bd4Rz9ndFyoxdLzWidwt6jynyPU?=
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(376014)(7416014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Apr 2025 15:54:30.0944
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d22c8039-7c04-41d9-e96f-08dd83484ca0
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB4A.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7996
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_080454_248105_A0094201 
-X-CRM114-Status: GOOD (  15.38  )
+X-CRM114-CacheID: sfid-20250424_085444_908910_FCB2DE1B 
+X-CRM114-Status: GOOD (  13.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,66 +166,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 4/24/25 10:35, Bartosz Golaszewski wrote:
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+On Thu, Apr 24, 2025 at 08:21:08AM +0000, Tian, Kevin wrote:
+> > From: Nicolin Chen <nicolinc@nvidia.com>
+> > Sent: Friday, April 11, 2025 2:38 PM
+> > 
+> [...]
+> > This is a big
+> > improvement since there is no VM Exit during an invalidation, compared to
+> > the traditional invalidation pathway by trapping a guest-own invalidation
+> > queue and forwarding those commands/requests to the host kernel that will
+> > eventually fill a HW-owned queue to execute those commands.
+> > 
 > 
-> struct gpio_chip now has callbacks for setting line values that return
-> an integer, allowing to indicate failures. Convert the driver to using
-> them.
-> 
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> any data to show how big the improvements could be in major
+> IOMMU usages (kernel dma, user dma and sva)?
 
-Reviewed-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
+I thought I mentioned about the percentage of the gain somewhere
+but seemingly not in this series.. Will add.
 
-> ---
->   drivers/pinctrl/pinctrl-stmfx.c | 13 ++++++++-----
->   1 file changed, 8 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/pinctrl/pinctrl-stmfx.c b/drivers/pinctrl/pinctrl-stmfx.c
-> index aae01120dc52..f4fdcaa043e6 100644
-> --- a/drivers/pinctrl/pinctrl-stmfx.c
-> +++ b/drivers/pinctrl/pinctrl-stmfx.c
-> @@ -115,14 +115,14 @@ static int stmfx_gpio_get(struct gpio_chip *gc, unsigned int offset)
->   	return ret ? ret : !!(value & mask);
->   }
->   
-> -static void stmfx_gpio_set(struct gpio_chip *gc, unsigned int offset, int value)
-> +static int stmfx_gpio_set(struct gpio_chip *gc, unsigned int offset, int value)
->   {
->   	struct stmfx_pinctrl *pctl = gpiochip_get_data(gc);
->   	u32 reg = value ? STMFX_REG_GPO_SET : STMFX_REG_GPO_CLR;
->   	u32 mask = get_mask(offset);
->   
-> -	regmap_write_bits(pctl->stmfx->map, reg + get_reg(offset),
-> -			  mask, mask);
-> +	return regmap_write_bits(pctl->stmfx->map, reg + get_reg(offset),
-> +				 mask, mask);
->   }
->   
->   static int stmfx_gpio_get_direction(struct gpio_chip *gc, unsigned int offset)
-> @@ -161,8 +161,11 @@ static int stmfx_gpio_direction_output(struct gpio_chip *gc,
->   	struct stmfx_pinctrl *pctl = gpiochip_get_data(gc);
->   	u32 reg = STMFX_REG_GPIO_DIR + get_reg(offset);
->   	u32 mask = get_mask(offset);
-> +	int ret;
->   
-> -	stmfx_gpio_set(gc, offset, value);
-> +	ret = stmfx_gpio_set(gc, offset, value);
-> +	if (ret)
-> +		return ret;
->   
->   	return regmap_write_bits(pctl->stmfx->map, reg, mask, mask);
->   }
-> @@ -694,7 +697,7 @@ static int stmfx_pinctrl_probe(struct platform_device *pdev)
->   	pctl->gpio_chip.direction_input = stmfx_gpio_direction_input;
->   	pctl->gpio_chip.direction_output = stmfx_gpio_direction_output;
->   	pctl->gpio_chip.get = stmfx_gpio_get;
-> -	pctl->gpio_chip.set = stmfx_gpio_set;
-> +	pctl->gpio_chip.set_rv = stmfx_gpio_set;
->   	pctl->gpio_chip.set_config = gpiochip_generic_config;
->   	pctl->gpio_chip.base = -1;
->   	pctl->gpio_chip.ngpio = pctl->pctl_desc.npins;
-> 
+Thanks!
+Nicolin
 
