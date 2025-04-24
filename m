@@ -4,71 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7140C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 09:26:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 359AAC369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 09:28:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GAcvsnbVEpuCumycuLw5M5DdOttf98hAwPjobWVS9tw=; b=y7WoucXOvJjrsqbMjqUev3LRC6
-	ibCUAXh6c40SQ2RQr73/ZpDfuQ9fvIM0QWz2GizPjgpd6VDdNj058jkKfoJNNRxtcIg8rLjDbIyb0
-	TSVlmMRSmG8uTUV/7CmSffeW81mr5nNujaY1twbjHQqeqoGFsjLTi2+uvzs6Wbm4B12b+6LIDfaFS
-	5+APXXhjn4dSCXzJgTKSXaw87Uy8TA1xsIMWJ62rfRfIctVQ0FOqpUfHrmuKyu0fkvoqa2Cz8FdTr
-	w2bV94asLblgPfFtB0VGMDVtwAf5UBWg2fQ5NRczdKCQUiLN2YY+B79E6CIuMZ1sqC1YeCY1zbcO8
-	GAQfFd/w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=InmVeShwvVjzvGgHpHUKVWXO3tEYZy+95XoB/RnU86Y=; b=CkotEnFUju347Iwbp1ah6OJKUi
+	n2aHqzqrEAVIm0XVAkiKXF6bP26cMg6DsEDIv/63EC/WQX02XOptrf+9pkDPLNDRObb1r+GSLQEeS
+	4JYB1M3YQ1Z1qaZXAzxaG946lBFcgashsqGPuF57+kv6CDdzKVVs1prXgK+pb9BP1wlaLAMsi6WaS
+	OI92PO5B1bAXbQQ+9icv5uMPOkrx53PgaUspZ2pVUWtZBSKzCo7ezdsWiSu32Q9BKvZMnFhGa19oA
+	kvMF467AoNkcioDD+z9iseNcv8gIRFv7VlQzZg0t/qMaPoaLTr6iRtszVilzkpW5J7z6i7OLT/6JS
+	iZDxzdjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7sqX-0000000DUo9-19VO;
-	Thu, 24 Apr 2025 09:26:17 +0000
+	id 1u7ssX-0000000DV86-0FK6;
+	Thu, 24 Apr 2025 09:28:21 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7sEM-0000000DOdW-0cPi
+	id 1u7sEb-0000000DOg1-0Wfw
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 24 Apr 2025 08:46:50 +0000
+	Thu, 24 Apr 2025 08:47:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=GAcvsnbVEpuCumycuLw5M5DdOttf98hAwPjobWVS9tw=; b=oy/x5MlbaxTcy2UGbcESZMOeV9
-	fbfvkL0yrgGfGAlpx/dManM3V+0WwnAw0izRxqb6a/V9W1W6asIlr94Yf2wMa9zgSHLa/BV29evYr
-	bm2/Ood5Xr7p31cuO8Ile+KCm6D5NTZOC5zvhPGFIjQQ0xR1fVG8QXA337OnS/SxcrrBM0SlwuW6l
-	Zd9q6fpNFXPCuElUwEC7zZNOPDMeM/8Mefk7rGsYI1L20W+hjXnyfvaWvAMn+2qoqvarOQgpf/RF/
-	52hv51vGDeHbyTnmA2SddFhLHt/jhUz/NfR9SybaIy1KsZ0/U9QL8exZG8Q2AB0Rt9V2URzfvUutb
-	9k7T0WJw==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u7sEI-0000000Bdm7-2GMs
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=InmVeShwvVjzvGgHpHUKVWXO3tEYZy+95XoB/RnU86Y=; b=a4NPLpp2KbtpqJ7koJiAGvMm3+
+	7gPDwpi/PKEGhJ5Uvga/vu0brCM9Hxb38VCOMOiG+OniATyzxt/ydZw/AG9iYGOqD9vo4cstd7Sms
+	xoOOiS2Jy58+KP9Jh435/d1VQ+JpWnxiy20DoNfyCBI2tAjXW8KLhogeBwCSu+pMcuV/FODvGmbsI
+	3kSixgcjCiOxkIvD7scEN3aEPHOoOa2KAESvlwkiz/QODUHz3Ie0NmE5a/bP0QJCzYPCu+0NjUlSz
+	DowqMWiIvCOBuaQBn7BsFZ+pcpE6Ipnf+zTmFkdm2ITF2Kw6ZrKUoCm2X2yVU5wUDCg1CR/flxH/J
+	foB/Vjfg==;
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u7sEY-0000000BdnV-0evv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 08:46:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4F6131063;
-	Thu, 24 Apr 2025 01:46:38 -0700 (PDT)
-Received: from [10.163.49.106] (unknown [10.163.49.106])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1B5463F59E;
-	Thu, 24 Apr 2025 01:46:38 -0700 (PDT)
-Message-ID: <038a4c10-14c6-4671-8db1-fd38dc73bccf@arm.com>
-Date: Thu, 24 Apr 2025 14:16:34 +0530
+	Thu, 24 Apr 2025 08:47:03 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-ace358c4d35so8443266b.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 01:47:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1745484419; x=1746089219; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=InmVeShwvVjzvGgHpHUKVWXO3tEYZy+95XoB/RnU86Y=;
+        b=TNdMHQtLBJIfv4r1TJyWdS3yP1sE22Ea0cfEbbPNPdf5FIGBE/nnKm9SrDIecOkwEM
+         gtpwyfWDfrYx6e6cpydtRBwLHfYUjtaYCCcqmxsRMx2xmGSt2HCk2CyGlqn3i7YqyZYj
+         hYM+riTcOXZUh59hM+ThadqsYSYbAdhAojcKwyeQYzW41qR+LaOWCf0JUXlRMkvS1+b5
+         XxNOth3AGFYyWH96lE4Xa7sqmnNtnn1VDsYTdXDDO1nI/8dU75iEs5TnXcdKKQKxpNSq
+         0oct20MwiJZ7g5eJwf1rQtRDXsFxKbkvL90OG5Eb2k+wbfPeJg6xRT/wkrTcNtPQurvc
+         7I0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745484419; x=1746089219;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=InmVeShwvVjzvGgHpHUKVWXO3tEYZy+95XoB/RnU86Y=;
+        b=vtFruh7biAz4aUb2Zy+VcM90djIqe4SLI1V9QQ9MiEFBAiytLcVRZXUZYY3Owd0LLw
+         1kXeAHE3Q+iFVbWsh6rtwPSNWDNutKDtPYnyWDqhAplgpsbZNW5LfVoHIGD3NXc/hKDT
+         JJ/XbBKuAWBXnfAmMlJgQ/bRyiTapcG+Nesx6Hs9X3HVzyeaMuLx/2smxYx72oV/owmC
+         Of45RjHELoxr5wlljyoBJum2AR+YD5eoee9sXDDxtDEOyLelcT96tDMfst3Q8ubpnrbv
+         kpGYePaNps9nU9yNjgWsTzj0QBOvJrGYNdBY9NBnctbEsF0bCmVFe9jtfC8pZNVVQ2UZ
+         oZ3w==
+X-Forwarded-Encrypted: i=1; AJvYcCW4caGSs+BuzE6fCyYWuzv/KLIzv4GeXDBSYkYO87s0KSUfBMizhKD8c29Y3xToOoupLMqT9HDM3eXYIGQfiBy7@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxr8hrBNyNkpTktNXvp3aD2N1UqMDcpzsy1ViV2xE4Z5kR2mMXX
+	F6WnlBxLHcI69kjRYyTuqGVz0pQjUQvvUPNaoG8uxuTY7l+p2zerE9jw7Xa1viQ=
+X-Gm-Gg: ASbGncu1QsQKFMKRPvcsqTtLV/ml1LTdoF7IZlVn3XAsdVcG5v44al9/sVawP/oG/ox
+	2OSf0Ixn3OTCPqG1jjqBkNW1+dxmkba4cYo9JmQ++RWMRlFtFBtcPeOyNOngRjbBs3quG+hdScH
+	+aktuOjqz3eY4WfMUCS3WumrkYcZ/pWdq9cjCkLdIruIrkzS63yXZqha1bv/MqfixN7cY8yD2Vz
+	eGWu7+wTxi8doRwkNX3PeAnjGvujDv/NJjm5fwloOnKb6U3nNIRzSidXt9WmjQ7I85MGNI6bES1
+	vuCJtnPSev4pqh/TjuvHhtWv98BBOKRebVSw81mNoJJNRUd1FQ==
+X-Google-Smtp-Source: AGHT+IE9+DPre4j2x6keFqgEO7PT+Wn5fGJGtZZ61C/F7fDAucCVLJyYO32bRzby6KLv1OyEu9lE/w==
+X-Received: by 2002:a17:907:3f87:b0:ac2:6d40:1307 with SMTP id a640c23a62f3a-ace57429fe2mr61424966b.13.1745484419430;
+        Thu, 24 Apr 2025 01:46:59 -0700 (PDT)
+Received: from kuoka.. ([178.197.207.88])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ace594b63ecsm73139266b.0.2025.04.24.01.46.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Apr 2025 01:46:58 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH] ARM: dts: samsung: sp5v210-aries: Align wifi node name with bindings
+Date: Thu, 24 Apr 2025 10:46:55 +0200
+Message-ID: <20250424084655.105011-1-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: trbe: Save/restore state across CPU low power
- state
-To: Yabin Cui <yabinc@google.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
- Leo Yan <leo.yan@arm.com>, Jie Gan <quic_jiegan@quicinc.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250423230046.1134389-1-yabinc@google.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250423230046.1134389-1-yabinc@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_094646_995757_B1BFCC6C 
-X-CRM114-Status: GOOD (  29.12  )
+X-CRM114-CacheID: sfid-20250424_094702_301388_415A3947 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,188 +115,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/24/25 04:30, Yabin Cui wrote:
-> Similar to ETE, TRBE may lose its context when a CPU enters low
-> power state. To make things worse, if ETE state is restored without
-> restoring TRBE state, it can lead to a stuck CPU due to an enabled
-> source device with no enabled sink devices.
-> 
-> This patch introduces support for "arm,coresight-loses-context-with-cpu"
+Since commit 3c3606793f7e ("dt-bindings: wireless: bcm4329-fmac: Use
+wireless-controller.yaml schema"), bindings expect 'wifi' as node name:
 
-But could "arm,coresight-loses-context-with-cpu" device tree property
-be associated wit TRBE devices ? OR this state save and restore needs
-to be handled in the firmware.
+  s5pv210-fascinate4g.dtb: wlan@1: $nodename:0: 'wlan@1' does not match '^wifi(@.*)?$'
 
-> in the TRBE driver. When present, TRBE registers are saved before
-> and restored after CPU low power state. To prevent CPU hangs, TRBE
-> state is always saved after ETE state and restored after ETE state.
-> 
-> Signed-off-by: Yabin Cui <yabinc@google.com>
-> ---
->  .../coresight/coresight-etm4x-core.c          | 13 ++++-
->  drivers/hwtracing/coresight/coresight-trbe.c  | 53 +++++++++++++++++++
->  include/linux/coresight.h                     |  6 +++
->  3 files changed, 71 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index e5972f16abff..1bbaa1249206 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -1863,6 +1863,7 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
->  static int etm4_cpu_save(struct etmv4_drvdata *drvdata)
->  {
->  	int ret = 0;
-> +	struct coresight_device *sink;
->  
->  	/* Save the TRFCR irrespective of whether the ETM is ON */
->  	if (drvdata->trfcr)
-> @@ -1871,8 +1872,14 @@ static int etm4_cpu_save(struct etmv4_drvdata *drvdata)
->  	 * Save and restore the ETM Trace registers only if
->  	 * the ETM is active.
->  	 */
-> -	if (coresight_get_mode(drvdata->csdev) && drvdata->save_state)
-> +	if (coresight_get_mode(drvdata->csdev) && drvdata->save_state) {
->  		ret = __etm4_cpu_save(drvdata);
-> +		if (ret == 0) {
-> +			sink = coresight_get_percpu_sink(drvdata->cpu);
-> +			if (sink && sink_ops(sink)->percpu_save)
-> +				sink_ops(sink)->percpu_save(sink);
-> +		}
-> +	}
->  	return ret;
->  }
->  
-> @@ -1977,6 +1984,10 @@ static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
->  
->  static void etm4_cpu_restore(struct etmv4_drvdata *drvdata)
->  {
-> +	struct coresight_device *sink = coresight_get_percpu_sink(drvdata->cpu);
-> +
-> +	if (sink && sink_ops(sink)->percpu_restore)
-> +		sink_ops(sink)->percpu_restore(sink);
->  	if (drvdata->trfcr)
->  		write_trfcr(drvdata->save_trfcr);
->  	if (drvdata->state_needs_restore)
-> diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
-> index fff67aac8418..38bf46951a82 100644
-> --- a/drivers/hwtracing/coresight/coresight-trbe.c
-> +++ b/drivers/hwtracing/coresight/coresight-trbe.c
-> @@ -115,6 +115,13 @@ static int trbe_errata_cpucaps[] = {
->   */
->  #define TRBE_WORKAROUND_OVERWRITE_FILL_MODE_SKIP_BYTES	256
->  
-> +struct trbe_save_state {
-> +	u64 trblimitr;
-> +	u64 trbbaser;
-> +	u64 trbptr;
-> +	u64 trbsr;
-> +};
-> +
->  /*
->   * struct trbe_cpudata: TRBE instance specific data
->   * @trbe_flag		- TRBE dirty/access flag support
-> @@ -123,6 +130,9 @@ static int trbe_errata_cpucaps[] = {
->   * @cpu			- CPU this TRBE belongs to.
->   * @mode		- Mode of current operation. (perf/disabled)
->   * @drvdata		- TRBE specific drvdata
-> + * @state_needs_save	- Need to save trace registers when entering cpu idle
-> + * @state_needs_restore	- Need to restore trace registers when exiting cpu idle
-> + * @save_state		- Saved trace registers
->   * @errata		- Bit map for the errata on this TRBE.
->   */
->  struct trbe_cpudata {
-> @@ -133,6 +143,9 @@ struct trbe_cpudata {
->  	enum cs_mode mode;
->  	struct trbe_buf *buf;
->  	struct trbe_drvdata *drvdata;
-> +	bool state_needs_save;
-> +	bool state_needs_restore;
-> +	struct trbe_save_state save_state;
->  	DECLARE_BITMAP(errata, TRBE_ERRATA_MAX);
->  };
->  
-> @@ -1187,12 +1200,49 @@ static irqreturn_t arm_trbe_irq_handler(int irq, void *dev)
->  	return IRQ_HANDLED;
->  }
->  
-> +static void arm_trbe_cpu_save(struct coresight_device *csdev)
-> +{
-> +	struct trbe_cpudata *cpudata = dev_get_drvdata(&csdev->dev);
-> +	struct trbe_save_state *state = &cpudata->save_state;
-> +
-> +	if (cpudata->mode == CS_MODE_DISABLED || !cpudata->state_needs_save)
-> +		return;
-> +
-> +	state->trbbaser = read_sysreg_s(SYS_TRBBASER_EL1);
-> +	state->trbptr = read_sysreg_s(SYS_TRBPTR_EL1);
-> +	state->trblimitr = read_sysreg_s(SYS_TRBLIMITR_EL1);
-> +	state->trbsr = read_sysreg_s(SYS_TRBSR_EL1);
-> +	cpudata->state_needs_restore = true;
-> +}
-> +
-> +static void arm_trbe_cpu_restore(struct coresight_device *csdev)
-> +{
-> +	struct trbe_cpudata *cpudata = dev_get_drvdata(&csdev->dev);
-> +	struct trbe_save_state *state = &cpudata->save_state;
-> +
-> +	if (cpudata->state_needs_restore) {
-> +		/*
-> +		 * To avoid disruption of normal tracing, restore trace
-> +		 * registers only when TRBE lost power (TRBLIMITR == 0).
-> +		 */
-> +		if (read_sysreg_s(SYS_TRBLIMITR_EL1) == 0) {
-> +			write_sysreg_s(state->trbbaser, SYS_TRBBASER_EL1);
-> +			write_sysreg_s(state->trbptr, SYS_TRBPTR_EL1);
-> +			write_sysreg_s(state->trbsr, SYS_TRBSR_EL1);
-> +			set_trbe_enabled(cpudata, state->trblimitr);
-> +		}
-> +		cpudata->state_needs_restore = false;
-> +	}
-> +}
-> +
->  static const struct coresight_ops_sink arm_trbe_sink_ops = {
->  	.enable		= arm_trbe_enable,
->  	.disable	= arm_trbe_disable,
->  	.alloc_buffer	= arm_trbe_alloc_buffer,
->  	.free_buffer	= arm_trbe_free_buffer,
->  	.update_buffer	= arm_trbe_update_buffer,
-> +	.percpu_save	= arm_trbe_cpu_save,
-> +	.percpu_restore	= arm_trbe_cpu_restore,
->  };
->  
->  static const struct coresight_ops arm_trbe_cs_ops = {
-> @@ -1358,6 +1408,9 @@ static void arm_trbe_probe_cpu(void *info)
->  	cpudata->trbe_flag = get_trbe_flag_update(trbidr);
->  	cpudata->cpu = cpu;
->  	cpudata->drvdata = drvdata;
-> +	cpudata->state_needs_save = coresight_loses_context_with_cpu(
-> +		&drvdata->pdev->dev);
-> +	cpudata->state_needs_restore = false;
->  	return;
->  cpu_clear:
->  	cpumask_clear_cpu(cpu, &drvdata->supported_cpus);
-> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-> index d79a242b271d..fec375d02535 100644
-> --- a/include/linux/coresight.h
-> +++ b/include/linux/coresight.h
-> @@ -362,6 +362,10 @@ enum cs_mode {
->   * @alloc_buffer:	initialises perf's ring buffer for trace collection.
->   * @free_buffer:	release memory allocated in @get_config.
->   * @update_buffer:	update buffer pointers after a trace session.
-> + * @percpu_save:	saves state when CPU enters idle state.
-> + *			Only set for percpu sink.
-> + * @percpu_restore:	restores state when CPU exits idle state.
-> + *			only set for percpu sink.
->   */
->  struct coresight_ops_sink {
->  	int (*enable)(struct coresight_device *csdev, enum cs_mode mode,
-> @@ -374,6 +378,8 @@ struct coresight_ops_sink {
->  	unsigned long (*update_buffer)(struct coresight_device *csdev,
->  			      struct perf_output_handle *handle,
->  			      void *sink_config);
-> +	void (*percpu_save)(struct coresight_device *csdev);
-> +	void (*percpu_restore)(struct coresight_device *csdev);
->  };
->  
->  /**
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
+ arch/arm/boot/dts/samsung/s5pv210-aries.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm/boot/dts/samsung/s5pv210-aries.dtsi b/arch/arm/boot/dts/samsung/s5pv210-aries.dtsi
+index f628d3660493..153514e80c9a 100644
+--- a/arch/arm/boot/dts/samsung/s5pv210-aries.dtsi
++++ b/arch/arm/boot/dts/samsung/s5pv210-aries.dtsi
+@@ -855,7 +855,7 @@ &sdhci1 {
+ 	assigned-clock-rates = <0>, <50000000>;
+ 	assigned-clock-parents = <&clocks MOUT_MPLL>;
+ 
+-	wlan@1 {
++	wifi@1 {
+ 		reg = <1>;
+ 		compatible = "brcm,bcm4329-fmac";
+ 		interrupt-parent = <&gph2>;
+-- 
+2.45.2
+
 
