@@ -4,73 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 177D7C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 03:14:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6588C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 03:26:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=A09Mlt/Mb26VyS9VXRXqUFoJt2UqYjVyFJddK4O2fxQ=; b=ZTSIKjO7yd8+7Hpgbj56Ule1pe
-	6h7OkgUIQpM0h4esL7Bo6L4dqpa/deLH8aUBFhVM5PiCSBw9PLCgjZpUFoNBgs0cv40jhu+DCQIvB
-	3rJ+py55Zk8Qrz4sptrdMUJlBCCLmHLLSq/IiBTivG5NGzePUGXAiWv1/t3ODJW0thtmSr8j5bE6I
-	iGuEr0hrnwNhdDQ4yIEyPDit/z1uMTQOMJKGkHK3kHoAU2q9SIQ5FH0z4hdpzOQeaW+r2fPzAwcq7
-	BPVQY3cV+EPoDluw/RMXxwn77FcdM1kM3sno+7DAdhcjM5VwIiKCXynLo4u2BHE3hbE8NSisgplVX
-	lBGOCTPg==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lm6fgchcfVrIoTbYF8HjVQc55WI83UqWvrYwf6Qmcoo=; b=xzApZyxjo4pNAoxh6qUZ/7cjo8
+	2v5qh5AhGrentITJxqRY/M1HW8HPSHwc6QWtwIZG0L7uQIevScumdo96a+QpafSYISB5lTxqG/4na
+	GY64pK7PyD9suY4KpcGU1UartAlbynlki5MW1KvJU2+Ghd5V1TvAvbgTPFR/s0JOUOpL6I/UHaBYM
+	ZRMhV1GmJedbqvSDjgl4VlvuacgVCBimpJ7roti8O1p55xKgLLQackvnA2pTy21y5Mdpo/YErYfop
+	BUUbSPzZqeoTUCNifjYNUU3VfsPt+ZCBvaxh9PczeXhR29HPHD3IK0wH9idA35+SGibv365cUa7m5
+	FUdfWnWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7n2L-0000000CiNb-3ZKZ;
-	Thu, 24 Apr 2025 03:14:05 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7n0K-0000000Ci4O-2VYN
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 03:12:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-Id:MIME-Version; bh=A09Ml
-	t/Mb26VyS9VXRXqUFoJt2UqYjVyFJddK4O2fxQ=; b=ctgxr0x1JThALzXsRdeaN
-	7pkAerYCeHPIosPVi8PI4o1TwF42xWo2lXhxOLesmiq7GY365TGJYlLDWy5ZIA68
-	8KDOXv5lQ/4LT7TrFlYuDlFV17VV4CglWrpitQSy4HPeQ/YsC2mvTINGJFffXdaA
-	J3OQV8R32qvzPBUGwoYJ7M=
-Received: from icess-ProLiant-DL380-Gen10.. (unknown [])
-	by gzga-smtp-mtada-g1-0 (Coremail) with SMTP id _____wDnTxrBqwloZo4dCA--.57924S4;
-	Thu, 24 Apr 2025 11:10:58 +0800 (CST)
-From: Haoxiang Li <haoxiang_li2024@163.com>
-To: slongerbeam@gmail.com,
-	p.zabel@pengutronix.de,
-	mchehab@kernel.org,
-	gregkh@linuxfoundation.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	hverkuil@xs4all.nl
-Cc: linux-media@vger.kernel.org,
-	linux-staging@lists.linux.dev,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Haoxiang Li <haoxiang_li2024@163.com>,
-	stable@vger.kernel.org,
-	Dan Carpenter <dan.carpenter@linaro.org>
-Subject: [PATCH v2 RESEND] media: imx: fix a potential memory leak in imx_media_csc_scaler_device_init()
-Date: Thu, 24 Apr 2025 11:10:53 +0800
-Message-Id: <20250424031053.3508137-1-haoxiang_li2024@163.com>
-X-Mailer: git-send-email 2.25.1
+	id 1u7nDn-0000000CjQC-0WhV;
+	Thu, 24 Apr 2025 03:25:55 +0000
+Received: from mail-lj1-x243.google.com ([2a00:1450:4864:20::243])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7nBn-0000000Cj6v-1Jvp;
+	Thu, 24 Apr 2025 03:23:53 +0000
+Received: by mail-lj1-x243.google.com with SMTP id 38308e7fff4ca-317f68d0dffso973351fa.2;
+        Wed, 23 Apr 2025 20:23:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1745465029; x=1746069829; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lm6fgchcfVrIoTbYF8HjVQc55WI83UqWvrYwf6Qmcoo=;
+        b=OD19lP+DvCWdBrr6zGMwpE0ObL7+z73i/Ibtqmc1FUGI6QW8smvjveJ5hZXIClZTMu
+         pwyN3nFF+4bE2Atx5EQP+1u7Eya29Lm5UOzDHkcfWr4p7BkQhqLgoePHDmflKEzNko5U
+         c3DAlBmSlxDhs8jXBfS09Yxaaqiv88mIRUQGF63Ne8cY5hYqAkUYjVOomu/xO6dYC2LK
+         5446x2H3vDZ6Vmogg+h7aaaXEhqOWeyKvtORGB8Vg/ADWPkwedkq5F3rvI/egFq8GPls
+         mbO6CURRVCbX4c1aLV19tGaSrJKFCat5CapPBdlaiv9CO09/QWXUa/ILE/Bliekf5ArJ
+         DMkg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745465029; x=1746069829;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=lm6fgchcfVrIoTbYF8HjVQc55WI83UqWvrYwf6Qmcoo=;
+        b=c9JHxTlD8AY5U+7FiccLoAp3V4PXIyppMfvNEZmI7Up7N7aSKrabdo5OazgEcXI3hK
+         Uqb0RjQE/2dHSDYsdoQ7h+L0/YdIJSX0moPihGVFGmFQAub6QW2dTBTy4kWla6gF23dB
+         X5hZ+fSkzLu4QQxVmKkDc5f4+uLSrB5ByS0gBLGmpeA/kX227UmCkf5o7tR5Adt378kH
+         DNHNzby4/JSvW/uPaMu7T9hw6nHaT/sHThd9cYa+L0kHPHJfSpH/nGvoo0KPIKX5dsqI
+         jtxHYT8CsbBBF9JJJUk/lPGSsi52P3pr8sksVxH+pV2visrxW9nbnST5JgahoZXpc5aV
+         73mw==
+X-Forwarded-Encrypted: i=1; AJvYcCWPkkhzqMwK/u9/j6kDy0jcBzNjs9apOUxLamk4gAdVHKNeRcmvodIQTp5/XdSXKeCvRJIKmJ0o5R2SIpWDZ78=@lists.infradead.org, AJvYcCXuOd1Bkdj8W5/CqKlk0Xg9Ew5VekOFL/f+dA8llpLjIRkR7HhIbSDDpP1sxxXeZLkmxpG8upjF42s3tJyXj05e@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx4w5N7HDqM2cVvy372SDM+1t7G8jKSsD0adQE77dhEJt1firdR
+	VR23NU2tMyI+qpMEBimtKyWKQ/Galvw2e140zihmyneYt8018dqhss20mo8ByVJIUPDHBouKyjN
+	k6yAfYGZBJ4yK5BgmJuztjDYFXA0=
+X-Gm-Gg: ASbGncvq/qB560VdEDJu+64g7zXWFuAwpiwQOnIB+gtA3FRKFsQKJfELjiilgCr9Ur+
+	yt8sL0mRsL3I5qs2fjx39wXjHNfxKgrSLR8jzRhH/f2zzyHT4obQDCZ9WOlfVepROk0CKwvo5og
+	StY0gbfH/PBO7kQYQ6UWqJtiYYf7GeiJm4
+X-Google-Smtp-Source: AGHT+IHpA2IlBQgHwPHIfvZ0vrqa0XeHqBHX/F/8jy+/sFcXwLmevs5nk9hDPwg0SpLGxpuTEIuCYu/XuIPdjNdHMlE=
+X-Received: by 2002:a05:651c:1603:b0:30b:c96a:775 with SMTP id
+ 38308e7fff4ca-3179e5e3f4amr2733571fa.14.1745465029230; Wed, 23 Apr 2025
+ 20:23:49 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wDnTxrBqwloZo4dCA--.57924S4
-X-Coremail-Antispam: 1Uf129KBjvdXoW7XFyxtFWfKr15GFy5JFyxKrg_yoWkWwc_CF
-	4FqryxXrWUC3ySy3W5tF1I934Sqrs29rWFq3Z0vFZ5XFWjy3WYvr4qvws3X34jgryS9F9I
-	yr18Jr1akr12kjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7xRtCJPDUUUUU==
-X-Originating-IP: [183.174.60.14]
-X-CM-SenderInfo: xkdr5xpdqjszblsqjki6rwjhhfrp/xtbB0gA5bmgJqTxwAgAAsD
+References: <20250407032349.83360-1-bsdhenrymartin@gmail.com>
+In-Reply-To: <20250407032349.83360-1-bsdhenrymartin@gmail.com>
+From: henry martin <bsdhenrymartin@gmail.com>
+Date: Thu, 24 Apr 2025 11:23:39 +0800
+X-Gm-Features: ATxdqUEHu3299Lh20GzTqgUT9Pu1Hxw92kjaOjVxuPDzebfVP7Ppk-ZRHXIQRRQ
+Message-ID: <CAEnQdOrroDzrz+Y4ch8EGTP6T798-zwLpMJi5eNaW_S+Ew+BtQ@mail.gmail.com>
+Subject: Re: [PATCH v2] wifi: mt76: mt7996: Fix null-ptr-deref in mt7996_mmio_wed_init()
+To: nbd@nbd.name, lorenzo@kernel.org, ryder.lee@mediatek.com, 
+	shayne.chen@mediatek.com, sean.wang@mediatek.com, matthias.bgg@gmail.com, 
+	angelogioacchino.delregno@collabora.com, chui-hao.chiu@mediatek.com, 
+	bsdhenrymartin@gmail.com, rex.lu@mediatek.com
+Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_201200_968873_6E591110 
-X-CRM114-Status: UNSURE (   9.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250423_202351_357976_4D9EF46D 
+X-CRM114-Status: GOOD (  16.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,35 +96,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add video_device_release() in label 'err_m2m' to release the memory
-allocated by video_device_alloc() and prevent potential memory leaks.
-Remove the reduntant code in label 'err_m2m'.
+Hi all,
 
-Fixes: a8ef0488cc59 ("media: imx: add csc/scaler mem2mem device")
-Cc: stable@vger.kernel.org
-Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
-Reviewed-by: Dan Carpenter <dan.carpenter@linaro.org>
----
-Changes in v2:
-- Remove the reduntant code. Thanks, Dan!
----
- drivers/staging/media/imx/imx-media-csc-scaler.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+I=E2=80=99d like to kindly follow up on my previous patch submission to che=
+ck if there
+are any additional feedback or suggestions for improvement. If there are
+further changes needed, I=E2=80=99ll be happy to address them and send a v3=
+.
 
-diff --git a/drivers/staging/media/imx/imx-media-csc-scaler.c b/drivers/staging/media/imx/imx-media-csc-scaler.c
-index e5e08c6f79f2..19fd31cb9bb0 100644
---- a/drivers/staging/media/imx/imx-media-csc-scaler.c
-+++ b/drivers/staging/media/imx/imx-media-csc-scaler.c
-@@ -912,7 +912,7 @@ imx_media_csc_scaler_device_init(struct imx_media_dev *md)
- 	return &priv->vdev;
- 
- err_m2m:
--	video_set_drvdata(vfd, NULL);
-+	video_device_release(vfd);
- err_vfd:
- 	kfree(priv);
- 	return ERR_PTR(ret);
--- 
-2.25.1
+Please let me know if you have any comments. Thanks for your time and revie=
+w!
 
+Best regards,
+
+Henry Martin <bsdhenrymartin@gmail.com> =E4=BA=8E2025=E5=B9=B44=E6=9C=887=
+=E6=97=A5=E5=91=A8=E4=B8=80 11:24=E5=86=99=E9=81=93=EF=BC=9A
+>
+> devm_ioremap() returns NULL on error. Currently, mt7996_mmio_wed_init()
+> does not check for this case, which results in a NULL pointer
+> dereference.
+>
+> Prevent null pointer dereference in mt7996_mmio_wed_init()
+>
+> Fixes: 83eafc9251d6 ("wifi: mt76: mt7996: add wed tx support")
+> Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
+> ---
+> V1 -> V2: Add a blank after the check and correct the summary.
+>
+>  drivers/net/wireless/mediatek/mt76/mt7996/mmio.c | 3 +++
+>  1 file changed, 3 insertions(+)
+>
+> diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c b/drivers/n=
+et/wireless/mediatek/mt76/mt7996/mmio.c
+> index 13b188e281bd..af9169030bad 100644
+> --- a/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
+> +++ b/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
+> @@ -323,6 +323,9 @@ int mt7996_mmio_wed_init(struct mt7996_dev *dev, void=
+ *pdev_ptr,
+>         wed->wlan.base =3D devm_ioremap(dev->mt76.dev,
+>                                       pci_resource_start(pci_dev, 0),
+>                                       pci_resource_len(pci_dev, 0));
+> +       if (!wed->wlan.base)
+> +               return -ENOMEM;
+> +
+>         wed->wlan.phy_base =3D pci_resource_start(pci_dev, 0);
+>
+>         if (hif2) {
+> --
+> 2.34.1
+>
 
