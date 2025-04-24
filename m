@@ -4,69 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5B33C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 13:52:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B78EC369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 13:52:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m2H8dMlHh2+wVbsUUu4lSOiJjv87gmwxE9PRNcKVErM=; b=y+MHWeIh8cHmqJ1oUYy+tFbcr2
-	kQUYF9I/atHhuXBgcf8ZJ8XKrTij9vaX0yLd/01JO8UrZ12QJzr5tECaNxSs1sf/kCycLwGu7w4OB
-	yICRMHt4fJ+1VpHxHtjeUUfMKlXMbuXerfbi88MyqjrU9PBVhTYcv3ipSP1/mRYUhNVBRJdzYj5fA
-	Lbh+1KsU20Wg7WZ2IhImSEHcS7ZJLUHJg/ExiaRu3N/KAYlv4C+YqzhfUV/pOkrwRmnyhiTi9kdQa
-	WeNtXqQsA8uEYp0gRxdAK5BUaawBI1ziU6gbSAX5zSQmZQhBjl+aI5FY9Zo8l6LIevHAd/PZLp53k
-	ueB/L2uA==;
+	bh=s6fx4MUr4te9jDkTy05iUwkmlLiv1scjMrYy23qe190=; b=ekm3mjKgKMiosnp9RSJk/S1wlx
+	HFs649cSUIDRUWiGC/PxPHCJvxmkjmDGBC1r0bVv5Hz8JRxBzX0vfW4LcVXK0EQH8c7L3VnudoXuo
+	j3+NscLyfAQnJq86vU4EzELi3eF9AFeYcuwmvyntboEgy1xu4bgeYc7evfiiX8yPr7sly135t+B33
+	w7yvPfeOXg/qcEVN18pZlOR9O8pf94Wa1puHMljD585Iw6MimZJlXAgM6cIor2DNwdHeJ0Roqtdy6
+	XfvgMlLxuvTD0Ptchzkh6BU+v4nmfOElFNST7XaGNcrj71pF11egRiyau2SqwV/mzQ3M8HdmB50Xt
+	SVQOkcTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7x04-0000000EGn0-1aRQ;
-	Thu, 24 Apr 2025 13:52:24 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u7x03-0000000EGlv-1b9Y;
+	Thu, 24 Apr 2025 13:52:23 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7tmb-0000000Dfij-06jf
+	id 1u7tlu-0000000DfSK-1xIk
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 24 Apr 2025 10:25:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=s6fx4MUr4te9jDkTy05iUwkmlLiv1scjMrYy23qe190=; b=Jj0jAm+WULslT3FNJQ3n8K7RhG
+	FKVucKVVnITdurpZN3crJNoofs/hWV95e0fKzlgoP3RF3j5YnEr/ZcKkrOjGVRs98L0c9vvTQJnF+
+	0VYhuRZdMaaAcwFPYE1MtJHjOpHRQuNDwXSAwPUicip2zV2M73tIuv0fvFcII/gxZy0Pe+bmyEGqo
+	HyeLa0DIFNW0Ml6ku4PO2ZcpGtHmSN7tnTKiopR4Af706qyVJJBaTQVlUeF3TdBt2v//yY/6jr4VY
+	3Wc5pCAAPE7NtyR1bTTrnWLQ1YSEkV3qBKFYSv3iAUidB3cZnZ+UfN8v7ldW2OrbC4Z3qhmo8w1ih
+	wHTWtNrA==;
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u7tlq-0000000BjUl-02hx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 10:26:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6DB435C06B1;
-	Thu, 24 Apr 2025 10:23:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62609C4CEE3;
-	Thu, 24 Apr 2025 10:26:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745490376;
-	bh=eUBcCIH4szhTdWT4b2dVdh8O8kcTuP+XkEb7/cO8FcI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=d4pjQcpNRKd4CxS/9SC6WbdkMqN+6q0sfs9fWJroK6jX6S7xeHlG/ufkvOEnJprlb
-	 fQZKCdGYWdxTL19dxzrGosCYPh3ZIsTuJxYhrPS3lnAQXbsOU0eBUId9qWY7Hkp+PV
-	 tj5wLRnDx0I2xQPEOlAYZ2i5E06W1fLsyRArulFFQUyhTB/nipE5YpGDQHb6hrOdJz
-	 R27i1l29S0G2FUJMq8o/UoZPQAUvqpJC+vPgq3kczNxNqDAUxp4kw+ER3PPTE5RMjA
-	 aha/lVd2ZGc4GwbSRTBQ8N0Th8/QF3NjPFGrUxpEIbT+hiZIW1S/wzc1D0mwiNwV72
-	 /tfAkriS9cr/Q==
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Date: Thu, 24 Apr 2025 12:25:17 +0200
-Subject: [PATCH v2 06/22] arm64/sysreg: Add ICC_PPI_ENABLER<n>_EL1
+	Thu, 24 Apr 2025 10:25:33 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-225df540edcso20474075ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 03:25:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1745490326; x=1746095126; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=s6fx4MUr4te9jDkTy05iUwkmlLiv1scjMrYy23qe190=;
+        b=EcTdTVvIGuBBfQBX02UU1JkMbdxpOZPWABIaoUcGs5Ars85ySJ89UL/+/csYot8C6+
+         e7MlN7uJxVpNlWoEJ2vFa7tB2hy0SNh0JOxWRxipf4b0Qj2vAuCDde6s5ANJ2209f8Hb
+         9nhXeydHtp4WF4crhqghyTiXctBknrBs3LUvE=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745490326; x=1746095126;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=s6fx4MUr4te9jDkTy05iUwkmlLiv1scjMrYy23qe190=;
+        b=Li6KbUkEUUT3kzqw+7PaThg8xJT6wxfRmpFOC3Mj3t7SIw0VBZ4c0I2+MJ0cw5MDNb
+         y9lq3au5Ng+Ft/kwwKLahlqz3irsaV8Zw+yeUf3aB7Q1/Svw4qRdXPe9+iEGaDBPIBoD
+         GirHSteKxTYi/3HnnV6dzQ9FazvD9oeZeSMfogRcG/12V/N0fRKLA6zuahZz1CaDycQT
+         JrzA6vtAOyEUTv4SyMBBccDViE2p8gcmKgiVUHaXCQXBm22LWTCwEINqUuAZzbm0gaqR
+         /H0xitGP4HaLeFJF9jzTmV5ZmSE4MJ8wMaeDRSwxdu+9J1w+xgI4ycZG7jwh+MMCTAMk
+         qEng==
+X-Forwarded-Encrypted: i=1; AJvYcCXU523s7Ju8qsKKoq1+pSMv/EXsUa6CNE/QJIPXNz6prUKVjmsDiLXGVj7MuS5+u4GERY+WuqSVWEXThR28635E@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz8XUBikZTLgfAWqD3wgQleq03n8LOcV0YygAKLTYbhHPS/xXGF
+	hfDhxM4FgsA5kcgfKiElYQhqx9fdYSl6/rlz9gkUSw367m+wehAEC/0kdU/O8g==
+X-Gm-Gg: ASbGncsgtoqDfxT7TmhwGRn3dB2GPe9Rkzu5/u+CEH+9AE14wByx60l30xK00L7XGsr
+	mjLP81CYdRR7zlAWX76UME0aILh6rkUee0C1wQDTMaVXm40IJsSHNl5od64cfMhgigA+YAiwIre
+	7e+NRbLccpRRYVRvdcuGMHn90TzFaRqbFg3fNPn22n9VY7oCFDoB4SUOnlA0ip5fayYf9Ihp8D0
+	4Pmf4ZyHkrk6DfUWJSl6rFUXX1m8FdjtLX3ixjHMHG6DFaJMkz8Y86HBlfs5DbqoyNur5bIGMAi
+	EBqO55cmbSXkAGY9k7G3gLOapm+uFmSTeHYRZuBYFWFiL4f5SJdN36zl5A==
+X-Google-Smtp-Source: AGHT+IFNflA0jQPNmROa9h8mKkta9N2LCXUl+MkxIZxkk1EuSqHoA4OT4/Txgj+BWOug6XhvWUVquw==
+X-Received: by 2002:a17:902:ec84:b0:220:e91f:4408 with SMTP id d9443c01a7336-22db499755emr24690085ad.22.1745490326648;
+        Thu, 24 Apr 2025 03:25:26 -0700 (PDT)
+Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:fa13:e633:684b:257])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22db4dda40fsm9680305ad.104.2025.04.24.03.25.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Apr 2025 03:25:25 -0700 (PDT)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	Jiaxin Yu <jiaxin.yu@mediatek.com>,
+	linux-sound@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 02/13] ASoC: dt-bindings: mt8173-afe-pcm: Add power domain
+Date: Thu, 24 Apr 2025 18:24:56 +0800
+Message-ID: <20250424102509.1083185-3-wenst@chromium.org>
+X-Mailer: git-send-email 2.49.0.805.g082f7c87e0-goog
+In-Reply-To: <20250424102509.1083185-1-wenst@chromium.org>
+References: <20250424102509.1083185-1-wenst@chromium.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250424-gicv5-host-v2-6-545edcaf012b@kernel.org>
-References: <20250424-gicv5-host-v2-0-545edcaf012b@kernel.org>
-In-Reply-To: <20250424-gicv5-host-v2-0-545edcaf012b@kernel.org>
-To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, 
- Sascha Bischoff <sascha.bischoff@arm.com>, 
- Timothy Hayes <timothy.hayes@arm.com>, 
- "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
- Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_032617_115219_2505D7AB 
-X-CRM114-Status: UNSURE (   7.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250424_112530_103385_CACCA8CC 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,104 +122,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add ICC_PPI_ENABLER<n>_EL1 registers sysreg description.
+The audio subsystem sits under a controllable power domain.
 
-Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>
+Add it to the binding.
+
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
- arch/arm64/tools/sysreg | 75 +++++++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 75 insertions(+)
+ .../devicetree/bindings/sound/mediatek,mt8173-afe-pcm.yaml  | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index d046d719d4f69801aeef51b5b9437a0eaa04134e..6c5552707ad88c145adc8b7ceb3f63da401191ea 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -2399,6 +2399,81 @@ Sysreg	ICC_PPI_HMR1_EL1	3	0	12	10	1
- Fields ICC_PPI_HMRx_EL1
- EndSysreg
+diff --git a/Documentation/devicetree/bindings/sound/mediatek,mt8173-afe-pcm.yaml b/Documentation/devicetree/bindings/sound/mediatek,mt8173-afe-pcm.yaml
+index a95215ba6361..666408d32f5c 100644
+--- a/Documentation/devicetree/bindings/sound/mediatek,mt8173-afe-pcm.yaml
++++ b/Documentation/devicetree/bindings/sound/mediatek,mt8173-afe-pcm.yaml
+@@ -45,12 +45,16 @@ properties:
+       - const: i2s3_m
+       - const: i2s3_b
  
-+SysregFields	ICC_PPI_ENABLERx_EL1
-+Field	63	EN63
-+Field	62	EN62
-+Field	61	EN61
-+Field	60	EN60
-+Field	59	EN59
-+Field	58	EN58
-+Field	57	EN57
-+Field	56	EN56
-+Field	55	EN55
-+Field	54	EN54
-+Field	53	EN53
-+Field	52	EN52
-+Field	51	EN51
-+Field	50	EN50
-+Field	49	EN49
-+Field	48	EN48
-+Field	47	EN47
-+Field	46	EN46
-+Field	45	EN45
-+Field	44	EN44
-+Field	43	EN43
-+Field	42	EN42
-+Field	41	EN41
-+Field	40	EN40
-+Field	39	EN39
-+Field	38	EN38
-+Field	37	EN37
-+Field	36	EN36
-+Field	35	EN35
-+Field	34	EN34
-+Field	33	EN33
-+Field	32	EN32
-+Field	31	EN31
-+Field	30	EN30
-+Field	29	EN29
-+Field	28	EN28
-+Field	27	EN27
-+Field	26	EN26
-+Field	25	EN25
-+Field	24	EN24
-+Field	23	EN23
-+Field	22	EN22
-+Field	21	EN21
-+Field	20	EN20
-+Field	19	EN19
-+Field	18	EN18
-+Field	17	EN17
-+Field	16	EN16
-+Field	15	EN15
-+Field	14	EN14
-+Field	13	EN13
-+Field	12	EN12
-+Field	11	EN11
-+Field	10	EN10
-+Field	9	EN9
-+Field	8	EN8
-+Field	7	EN7
-+Field	6	EN6
-+Field	5	EN5
-+Field	4	EN4
-+Field	3	EN3
-+Field	2	EN2
-+Field	1	EN1
-+Field	0	EN0
-+EndSysregFields
++  power-domains:
++    maxItems: 1
 +
-+Sysreg	ICC_PPI_ENABLER0_EL1	3	0	12	10	6
-+Fields ICC_PPI_ENABLERx_EL1
-+EndSysreg
-+
-+Sysreg	ICC_PPI_ENABLER1_EL1	3	0	12	10	7
-+Fields ICC_PPI_ENABLERx_EL1
-+EndSysreg
-+
- SysregFields	ICC_PPI_PRIORITYRx_EL1
- Res0	63:61
- Field	60:56	Priority7
-
+ required:
+   - compatible
+   - reg
+   - interrupts
+   - clocks
+   - clock-names
++  - power-domains
+ 
+ additionalProperties: false
+ 
+@@ -59,11 +63,13 @@ examples:
+     #include <dt-bindings/clock/mt8173-clk.h>
+     #include <dt-bindings/interrupt-controller/arm-gic.h>
+     #include <dt-bindings/interrupt-controller/irq.h>
++    #include <dt-bindings/power/mt8173-power.h>
+ 
+     mt8173-afe-pcm@11220000 {
+         compatible = "mediatek,mt8173-afe-pcm";
+         reg = <0x11220000 0x1000>;
+         interrupts = <GIC_SPI 134 IRQ_TYPE_EDGE_FALLING>;
++        power-domains = <&spm MT8173_POWER_DOMAIN_AUDIO>;
+         clocks = <&infracfg CLK_INFRA_AUDIO>,
+                  <&topckgen CLK_TOP_AUDIO_SEL>,
+                  <&topckgen CLK_TOP_AUD_INTBUS_SEL>,
 -- 
-2.48.0
+2.49.0.805.g082f7c87e0-goog
 
 
