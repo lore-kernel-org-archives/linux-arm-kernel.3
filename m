@@ -4,88 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B5ACC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 20:22:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9C4CC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 20:33:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ndJmiIIe2hI00mygvECVjAtcQNdAFZ6SHsSkCv9bjLc=; b=MPwEbtmIy1uocwdiUNq9fvvdip
-	xHUzz32Za2KCJW0d8Nh37Q/TsI9aWruXKy7/O1FTkeyAwmqvOBt01C9ZcB+0KWEiIFB8mWDBQpleD
-	SRrSkI+rlndZLnMTGm1ev2Z4B8CyvDGjCHSKaM3LbMUXzm0hk2SqlYEJDTqYsCqEd4HOAyt9JGZJt
-	4yv138BlVXAM4cFhhv8iLrpdYIybPVHd3TKtuPAPS+UIq+g6ykQdbOY632ZZofMjptkVj8lfkUwyz
-	rCwRJp+2wlAeQfho8emRzUm9msDun7ohr36gY4+U/wvsW4LtiEhkal4d2C+nkJWOOclBvgB2xV6H2
-	nZ2u7lvQ==;
+	bh=MM3pxXrvUDxQ9/OW5AIhgm66dwJITRXGhAdjOmWdan8=; b=AR5KtKZJJkzUBVktxMUmTrKAW4
+	5OGtcrNgYskj2px1mDkoFrNqKANRRP4Ee2AOUD4tXPehKoLrSIE8yRxbmA3nwYan8ql+89CXbegZb
+	wBdTGSrIvNfqcgNNu7t8XYGX8b36dDEUKRA9BRG4DOr8eKT0ghEPGE5YoXcCENZcUpYOKvrnoh7Om
+	JphmhAmETY0NzYn/CwyklGTt9nHbedb7ZQSGYnB6qzBEv/52zcHm+GqqNNbthGUJbbYdoM7D3PGtM
+	hXj4vz7EEda/j3N5toj4mhR8nWPzho9FgedqxwGvpYd8MEWoXWcJRuQvOa01ifGbfyYmmSG+Z1Hja
+	sS8dN66g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u835Y-0000000FKHc-45Dx;
-	Thu, 24 Apr 2025 20:22:28 +0000
-Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
+	id 1u83G4-0000000FLf4-1ooR;
+	Thu, 24 Apr 2025 20:33:20 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u81ns-0000000F6DL-0CUB;
-	Thu, 24 Apr 2025 19:00:09 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id DFAE343B79;
-	Thu, 24 Apr 2025 19:00:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1745521205;
+	id 1u83CQ-0000000FLLJ-30AX
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 24 Apr 2025 20:29:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=MM3pxXrvUDxQ9/OW5AIhgm66dwJITRXGhAdjOmWdan8=; b=VnECGRBV2d8CwJpDSVGQ+g2lMF
+	DB8NvU1rwTivVXL6c8Nn8TOS3ajLhMa3L2vhU3ZSRQmsGsWFFsGZ+bzBr425YDWeUsZwK5N/hjFrH
+	st4DJlUP32zlyrwvAF8t/MhP61sjtInZ6z3LqQuOOQRK0tOHTnuKF+vos2RFLWL4pOjssctoFw7XE
+	JSWlP15yJuzEzxkuktVPgkQ6gTu3x1Pp4N474T0go5MT10R6niYq56EjqtPR8WoLP1Y+cudGccqpO
+	MuRInKys9w5SA3t/22XHYlvqY0r5tjbLdiQc87UGnqcYL1fiNZ3tlVf/RU42wMPvUQIFqCH9IeZhG
+	zz2BUgbA==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u83CN-0000000Bvym-1AmN
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 24 Apr 2025 20:29:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1745526568;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ndJmiIIe2hI00mygvECVjAtcQNdAFZ6SHsSkCv9bjLc=;
-	b=ndaFA80ZJn5M1Gv09LOA1Tm53sqOcb0t0Ri7HScPdK8/amblHN6hKz1IaTgffvpfXSV9xN
-	6yl68P0XIfCAxw3chablpIkWeg1Wqi4OMsKVOVjDBZoDVAkLQS0vyABO6Oo7jMFITbqBta
-	GBzVVj4Lo7YLWURemH1DothVTI11GI0MVmsA5VqMwfEIej6Km77x8PwspZFcmiH2tkV64f
-	srugXiweTJAyiMm6HQgZ7cDziOhiDT8jDs+7xhZupEQCjiTavC1agBvobIvPwa6OSsZg9g
-	FaFbDuITzlDZpBUQCjCK02soTwdNFM8EbpzYMyX6bPh65IvoGH6zpGa3hFDdhw==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Thu, 24 Apr 2025 20:59:18 +0200
-Subject: [PATCH v2 11/34] drm/bridge: dw-hdmi: convert to
- devm_drm_bridge_alloc() API
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=MM3pxXrvUDxQ9/OW5AIhgm66dwJITRXGhAdjOmWdan8=;
+	b=b2TevgsPwHaeq73UIuotCytroIYKYej5y3i6wz16B1TOymE2dgVOR9RNzmQXW/1+/V33bW
+	Ou/WImsg470tu6Vibz3MY7D7YWUL33vWA+v9qewV5juIh2vqoCXY/eNukcATDONkjzzV7e
+	Tz9rVR159AB1AqPrGKGW5WafPb+l65E=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1745526569;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=MM3pxXrvUDxQ9/OW5AIhgm66dwJITRXGhAdjOmWdan8=;
+	b=E/faiyWbFRNC49KfRT5msHaWnTU/8btDIM1YBjrsXz+/HPyMhIBglZoS7BiNA+/zdWSBwn
+	mo2dC/PHyIHTg8QlRxUS0RUn8USeRhrhcsAVkpYpZRtv86ztkNh7a/GmhxPlycydcJun3K
+	oXfbVEjbbESxLs/Nu9vle3hNfjdROso=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-621-SkAVDT7APt2eKCfRou7rkw-1; Thu, 24 Apr 2025 16:29:25 -0400
+X-MC-Unique: SkAVDT7APt2eKCfRou7rkw-1
+X-Mimecast-MFC-AGG-ID: SkAVDT7APt2eKCfRou7rkw_1745526564
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-43d0830c3f7so10917325e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 13:29:25 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745526564; x=1746131364;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=MM3pxXrvUDxQ9/OW5AIhgm66dwJITRXGhAdjOmWdan8=;
+        b=pEGtCNSa4Eet2tuVCp6d+s6WCxHZxvWNKtHcK+j5sgHBrZ5WJtD2nZnXgRfoVWS6Mn
+         qoZCbrBNr2yrxmRX1nAQv0Rsyab6WhvFw98xsg0SuRyiGRB9/2GHYhCaBjnHbQkw2pdU
+         W2blQAwNXH1pG5ElBk0EFWS/yS/wVY6Q+lxvXEUfCH/lxXcI7HmvyEOMJxKhg2MgsukG
+         BccbeM2Y2xgR2pO+NS+5V1flMKw92bWTADruYXvUWo7jWsw3CpK9LzuPIjrGCsL8Br6s
+         t5eI1qbY4zS5xUZN0y1m2LhkqV1hXF23S+6b1FYxN1mbAfK6eqw3qYRMDCWVif1V/fJt
+         1Tbw==
+X-Gm-Message-State: AOJu0YxmconnDtOzJNhoP24CT4/dyqo7TmS/gSZSSdWVdVrx4oI2LSiO
+	fSWyQ4mXZXeefB6fZrTZttyABTDohQSjBPBfHYxhB1md8JYPcwmoDkST0VSLwfVx9qV+MJy74bt
+	upc5EbVhhud3rKw87m/6iipkY+N1qwhaagJWk2a+04Q8OujmVOte/bUOOgRD90eYQR3mvcQEb
+X-Gm-Gg: ASbGncvUOfG+k+RroBodHMo+Rci2ThmAkEegeRIJdBp2WawsKAeY+U2iH5FN0MbigNl
+	fi9HCSjUSwiNT+/TSrOu8PGbFFBomcoGUZA+ryybNEDl+Gho8zPjQf6qRMlQ9Bpe/WqrYiOHn9W
+	0m7yDBGUbo7Evyl3vy5/46Hm5uJAonTo5/v67ZTIXZ14XPLwDCMjFf9GmHCKYG4Oes6D1Ndm2Kf
+	t7jgL8FdX61Yx0/JtSp70ACJ8gag1g0e8ERVmFL9aQKf4TI1InZxVhr9lB5owHsvDc95xt1QzYT
+	erdqZcIgCpTwmd/2JzwijLBy2/EdGCRWHQGJC9dStvtrnAEpJONp2tV2UpCh8ptVcSODa+CdiBg
+	X0HUOUshBACscFsDSpguLbcLJFS3S5JI0qpwG
+X-Received: by 2002:a05:600c:34ce:b0:43d:fa59:a685 with SMTP id 5b1f17b1804b1-440a31ad9camr7412695e9.33.1745526564140;
+        Thu, 24 Apr 2025 13:29:24 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGAhpxcwcVUHa8LSqX+EOpjrtvrt7DLS1MMFCxrUzzfeKg3O+/5EPUU7za2QWXIN4EgZi775w==
+X-Received: by 2002:a05:600c:34ce:b0:43d:fa59:a685 with SMTP id 5b1f17b1804b1-440a31ad9camr7412375e9.33.1745526563740;
+        Thu, 24 Apr 2025 13:29:23 -0700 (PDT)
+Received: from ?IPV6:2003:cb:c74e:ff00:f734:227:6936:cdab? (p200300cbc74eff00f73402276936cdab.dip0.t-ipconnect.de. [2003:cb:c74e:ff00:f734:227:6936:cdab])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a073e5e1c6sm254100f8f.98.2025.04.24.13.29.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 24 Apr 2025 13:29:23 -0700 (PDT)
+Message-ID: <b470031b-f314-4081-b1d6-87768e5d8e73@redhat.com>
+Date: Thu, 24 Apr 2025 22:29:21 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/4] support FEAT_MTE_STORE_ONLY feature
+To: Yeoreum Yun <yeoreum.yun@arm.com>, catalin.marinas@arm.com,
+ will@kernel.org, broonie@kernel.org, anshuman.khandual@arm.com,
+ joey.gouly@arm.com, maz@kernel.org, oliver.upton@linux.dev,
+ frederic@kernel.org, james.morse@arm.com,
+ hardevsinh.palaniya@siliconsignals.io, shameerali.kolothum.thodi@huawei.com,
+ huangxiaojia2@huawei.com, mark.rutland@arm.com, samuel.holland@sifive.com,
+ palmer@rivosinc.com, charlie@rivosinc.com, thiago.bauermann@linaro.org,
+ bgray@linux.ibm.com, tglx@linutronix.de, puranjay@kernel.org,
+ yang@os.amperecomputing.com, mbenes@suse.cz, joel.granados@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ nd@arm.com
+References: <20250410080723.953525-1-yeoreum.yun@arm.com>
+ <aApBk8eGA2Eo57fq@e129823.arm.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <aApBk8eGA2Eo57fq@e129823.arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: ePSGJBpoHGOJL4zhkwvVaRVQSPcdasJzAX8H-xTJ6gw_1745526564
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250424-drm-bridge-convert-to-alloc-api-v2-11-8f91a404d86b@bootlin.com>
-References: <20250424-drm-bridge-convert-to-alloc-api-v2-0-8f91a404d86b@bootlin.com>
-In-Reply-To: <20250424-drm-bridge-convert-to-alloc-api-v2-0-8f91a404d86b@bootlin.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Jagan Teki <jagan@amarulasolutions.com>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- Douglas Anderson <dianders@chromium.org>, 
- Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Anusha Srivatsa <asrivats@redhat.com>, 
- Paul Kocialkowski <paulk@sys-base.io>, Dmitry Baryshkov <lumag@kernel.org>, 
- Hui Pu <Hui.Pu@gehealthcare.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, asahi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, chrome-platform@lists.linux.dev, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- linux-renesas-soc@vger.kernel.org, platform-driver-x86@vger.kernel.org, 
- linux-samsung-soc@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
- freedreno@lists.freedesktop.org, linux-stm32@st-md-mailman.stormreply.com, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-X-Mailer: b4 0.14.2
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvhedtvdehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeiieeuvdfftefgueduleehueetgffgjeeitedtteetkeeuueeuueekveevvdeuveenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegrgeeivdemudgsuggumeeluddtudemvdelgehfnecuvehluhhsthgvrhfuihiivgepjeenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegrgeeivdemudgsuggumeeluddtudemvdelgehfpdhhvghloheplgduledvrdduieekrddujeekrdduudekngdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeegtddprhgtphhtthhopehkrhiikheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghnughriigvjhdrhhgrjhgurgesihhnthgvlhdrtghomhdprhgtphhtthhopehjrghgrghnsegrmhgrrhhulhgrshholhhuthhiohhnshdrtghomhdprhgtp
- hhtthhopegtrhhishhtihgrnhdrtghiohgtrghlthgvrgestgholhhlrggsohhrrgdrtghomhdprhgtphhtthhopehimhigsehlihhsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtohepmhgrrghrthgvnhdrlhgrnhhkhhhorhhstheslhhinhhugidrihhnthgvlhdrtghomhdprhgtphhtthhopefnrghurhgvnhhtrdhpihhntghhrghrthesihguvggrshhonhgsohgrrhgurdgtohhmpdhrtghpthhtoheplhhinhhugidqmhgvughirghtvghksehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
-X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_120008_281206_475A04B8 
-X-CRM114-Status: UNSURE (   9.83  )
+X-CRM114-CacheID: sfid-20250424_212931_757686_B8FC5814 
+X-CRM114-Status: UNSURE (   6.24  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,44 +190,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is the new API for allocating DRM bridges.
+On 24.04.25 15:50, Yeoreum Yun wrote:
+> Gentle ping in case of forgotten.
+> 
 
-Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-
----
-
-Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
- drivers/gpu/drm/bridge/synopsys/dw-hdmi.c | 7 +++----
- 1 file changed, 3 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-index deaba3b6f99789067d14b76d228b58816a09b395..8791408dd1ff2d3c3b223b4f7f6f00edb275abf0 100644
---- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi.c
-@@ -3333,9 +3333,9 @@ struct dw_hdmi *dw_hdmi_probe(struct platform_device *pdev,
- 	u8 config0;
- 	u8 config3;
- 
--	hdmi = devm_kzalloc(dev, sizeof(*hdmi), GFP_KERNEL);
--	if (!hdmi)
--		return ERR_PTR(-ENOMEM);
-+	hdmi = devm_drm_bridge_alloc(dev, struct dw_hdmi, bridge, &dw_hdmi_bridge_funcs);
-+	if (IS_ERR(hdmi))
-+		return hdmi;
- 
- 	hdmi->plat_data = plat_data;
- 	hdmi->dev = dev;
-@@ -3495,7 +3495,6 @@ struct dw_hdmi *dw_hdmi_probe(struct platform_device *pdev,
- 	}
- 
- 	hdmi->bridge.driver_private = hdmi;
--	hdmi->bridge.funcs = &dw_hdmi_bridge_funcs;
- 	hdmi->bridge.ops = DRM_BRIDGE_OP_DETECT | DRM_BRIDGE_OP_EDID
- 			 | DRM_BRIDGE_OP_HPD;
- 	hdmi->bridge.interlace_allowed = true;
+I think we need some input from arm experts. Anyone?
 
 -- 
-2.49.0
+Cheers,
+
+David / dhildenb
 
 
