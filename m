@@ -4,74 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66452C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:39:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0834BC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:41:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=56D9mlZ7M1G0UnSJJ2M8dPTg3+XAXsTfHIm3FcS4+KU=; b=PeLuWN4mORpyHjt2429xP+HUl9
-	nxJK/hvSgaAUMVNXducEbnl8Z1yiU8zI940ZnpqnpC7ZjvqlI9gOCAtU1LWNg19t4OrBLty5WUUJs
-	anBmxM2zZta2Qp2yY6w/jFVI67MR6T81Px7/u69WYIt10opRwL+u+xjh4XJa5FLZbbHzJVN+Ax+Mm
-	BALAxXvJb8C6JUEzS9iMU15iWZeZBVntEutIrQr3iR4SolOJmDwPUJSvvgCJ08r/yBZB+dUYy63IA
-	3S8r6N0WIYe1WMbHug6bHYHhQt90C/vrv+zSu5zm0r6Hm4P3H2oKfzWjeTy99P8Lcdj8a6pGeVpMA
-	rgQQgQDQ==;
+	bh=nDo39tt+n8ATYguGedpesmJZxZJLtDSDAKicoCO2cI8=; b=SLT6RYMYt0fTxRaNWHo+pd1byz
+	aazZNTbBWe+9wEOnWZhKEqtT1Rx2TElETdXiM2/myQEnfnNypZaNeWkvUmcKrSootw9zoRLkTIFSN
+	+QBlA1r0E+XHGu4hd2xMyLKqZ08NFr5sv3X3OyUlXfTb2GxmERJSp1N+xpcIGxVTBjTsNXCWfBzf5
+	s77dE3vOehXI0EK1Nnup3qWFCIW8hOxYtwH3DT1mhw19JqINXAb2DBHm2X0UjyZUIlz07t4srK6u3
+	8A9gYzPoQQelUSD7e0TXSI5CqdktVOAuDjZVQAgXLXbA8YwDO/v446QgHfMXw7zll/Y+qPpy117+w
+	v93vzYeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7zbq-0000000Emcl-2IPW;
-	Thu, 24 Apr 2025 16:39:35 +0000
-Received: from out-181.mta0.migadu.com ([91.218.175.181])
+	id 1u7zde-0000000EmuA-3TO9;
+	Thu, 24 Apr 2025 16:41:26 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7ybj-0000000EVsE-3U5Y
+	id 1u7yjU-0000000EWqU-2HAj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 15:35:25 +0000
-Date: Thu, 24 Apr 2025 08:34:50 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1745508918;
+	Thu, 24 Apr 2025 15:43:26 +0000
+Date: Thu, 24 Apr 2025 17:43:19 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1745509401;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=56D9mlZ7M1G0UnSJJ2M8dPTg3+XAXsTfHIm3FcS4+KU=;
-	b=uPlvWy8mqcGR38PBfc5+PqGpUgQvemUopmsCBqLVIoh839eUhODfU/26KLKzoSaLttPLvb
-	gz7zKbif6GXHNzHYVSixNwTvM02m6fCFHtG9RXkVn/9kR5KcNgxYlVK2zrbq78l4qXykvi
-	NmVcZf0rqKXbNPdrMCYklhj0ccawDR4=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Karim Manaouil <karim.manaouil@linaro.org>
-Cc: linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, Alexander Graf <graf@amazon.com>,
-	Alex Elder <elder@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>,
-	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Prakruthi Deepak Heragu <quic_pheragu@quicinc.com>,
-	Quentin Perret <qperret@google.com>, Rob Herring <robh@kernel.org>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Srivatsa Vaddagiri <quic_svaddagi@quicinc.com>,
-	Will Deacon <will@kernel.org>,
-	Haripranesh S <haripran@qti.qualcomm.com>,
-	Carl van Schaik <cvanscha@qti.qualcomm.com>,
-	Murali Nalajala <mnalajal@quicinc.com>,
-	Sreenivasulu Chalamcharla <sreeniva@qti.qualcomm.com>,
-	Trilok Soni <tsoni@quicinc.com>,
-	Stefan Schmidt <stefan.schmidt@linaro.org>
-Subject: Re: [RFC PATCH 00/34] Running Qualcomm's Gunyah Guests via KVM in EL1
-Message-ID: <aApaGnFPhsWBZoQ2@linux.dev>
-References: <20250424141341.841734-1-karim.manaouil@linaro.org>
+	bh=nDo39tt+n8ATYguGedpesmJZxZJLtDSDAKicoCO2cI8=;
+	b=lK/QryIiV998Da/Rm919TzKOYxMOJx62tzbf+B+2e6sDZ6HfuEIr7nmMyICIJlvXLJGrSx
+	EJFEso6phLHBprXv1tluC3gRUAmPLUBwoEiSt1hYoXjVg38TTfXv9TANLhUfnZv/ISg6a1
+	Bn44d2bh/6y3Yn7pqBmkB+Ru9qpmiTtzE5h1UE8cjtRNtg63LPCOYNypxU2jIdTUxbAEG9
+	WUan0+TuDsYhyZ69GSqI3Wj4ekINOeGLpIcIiUeYKRuEO5VFVHS+iP4aediB64wTBHliqD
+	KG55Vr+C+5idEzISLVT8PzdA9d3RNjZnN3ZfcI5PWVLp9t/iVkc9RHRvMxuEtQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1745509401;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nDo39tt+n8ATYguGedpesmJZxZJLtDSDAKicoCO2cI8=;
+	b=2M6vSdvpglYLR21147amU66kDvqCzLdGxNK0wSXT0/szoFczg5Yrh111Vgpo7OOJT/82rR
+	K7u6DAGFSh65nTBw==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Jan Stancek <jstancek@redhat.com>
+Cc: Andy Lutomirski <luto@kernel.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Anna-Maria Behnsen <anna-maria@linutronix.de>, Frederic Weisbecker <frederic@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	Naveen N Rao <naveen@kernel.org>, Heiko Carstens <hca@linux.ibm.com>, 
+	Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
+	Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
+	linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>
+Subject: Re: [PATCH 08/19] vdso/gettimeofday: Prepare do_hres_timens() for
+ introduction of struct vdso_clock
+Message-ID: <20250424173908-ffca1ea2-e292-4df3-9391-24bfdaab33e7@linutronix.de>
+References: <20250303-vdso-clock-v1-0-c1b5c69a166f@linutronix.de>
+ <20250303-vdso-clock-v1-8-c1b5c69a166f@linutronix.de>
+ <aApGPAoctq_eoE2g@t14ultra>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20250424141341.841734-1-karim.manaouil@linaro.org>
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aApGPAoctq_eoE2g@t14ultra>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_083524_078439_7358AFE9 
-X-CRM114-Status: GOOD (  15.95  )
+X-CRM114-CacheID: sfid-20250424_084324_863292_B35B4A17 
+X-CRM114-Status: GOOD (  23.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,34 +93,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 24, 2025 at 03:13:07PM +0100, Karim Manaouil wrote:
-> This series introduces the capability of running Gunyah guests via KVM on
-> Qualcomm SoCs shipped with Gunyah hypervisor [1] (e.g. RB3 Gen2).
+On Thu, Apr 24, 2025 at 04:10:04PM +0200, Jan Stancek wrote:
+> On Mon, Mar 03, 2025 at 12:11:10PM +0100, Thomas Weiﬂschuh wrote:
+> > From: Anna-Maria Behnsen <anna-maria@linutronix.de>
+> > 
+> > To support multiple PTP clocks, the VDSO data structure needs to be
+> > reworked. All clock specific data will end up in struct vdso_clock and in
+> > struct vdso_time_data there will be array of it. By now, vdso_clock is
+> > simply a define which maps vdso_clock to vdso_time_data.
+> > 
+> > Prepare for the rework of these structures by adding struct vdso_clock
+> > pointer argument to do_hres_timens(), and replace the struct vdso_time_data
+> > pointer with the new pointer arugment whenever applicable.
+> > 
+> > No functional change.
+> > 
+> > Signed-off-by: Anna-Maria Behnsen <anna-maria@linutronix.de>
+> > Signed-off-by: Nam Cao <namcao@linutronix.de>
+> > Signed-off-by: Thomas Weiﬂschuh <thomas.weissschuh@linutronix.de>
+> > ---
+> > lib/vdso/gettimeofday.c | 35 ++++++++++++++++++-----------------
+> > 1 file changed, 18 insertions(+), 17 deletions(-)
+> > 
 > 
-> The goal of this work is to port the existing Gunyah hypervisor support from a
-> standalone driver interface [2] to KVM, with the aim of leveraging as much of the
-> existing KVM infrastructure as possible to reduce duplication of effort around
-> memory management (e.g. guest_memfd), irqfd, and other core components.
+> starting with this patch, I'm seeing user-space crashes when using clock_gettime():
+>   BAD  -> 83a2a6b8cfc5 vdso/gettimeofday: Prepare do_hres_timens() for introduction of struct vdso_clock
+>   GOOD -> 64c3613ce31a vdso/gettimeofday: Prepare do_hres() for introduction of struct vdso_clock
 > 
-> In short, Gunyah is a Type-1 hypervisor, meaning that it runs independently of any
-> high-level OS kernel such as Linux and runs in a higher CPU privilege level than VMs.
-> Gunyah is shipped as firmware and guests typically talk with Gunyah via hypercalls.
-> KVM is designed to run as Type-2 hypervisor. This port allows KVM to run in EL1 and
-> serve as the interface for VM lifecycle management,while offloading virtualization
-> to Gunyah.
+> It appears to be unique to aarch64 with 64k pages, and can be reproduced with
+> LTP clock_gettime03 [1]:
+>   command: clock_gettime03   tst_kconfig.c:88: TINFO: Parsing kernel config '/lib/modules/6.15.0-0.rc3.20250423gitbc3372351d0c.30.eln147.aarch64+64k/build/.config'
+>   tst_test.c:1903: TINFO: LTP version: 20250130-231-gd02c2aea3
+>   tst_test.c:1907: TINFO: Tested kernel: 6.15.0-0.rc3.20250423gitbc3372351d0c.30.eln147.aarch64+64k #1 SMP PREEMPT_DYNAMIC Wed Apr 23 23:23:54 UTC 2025 aarch64
+>   tst_kconfig.c:88: TINFO: Parsing kernel config '/lib/modules/6.15.0-0.rc3.20250423gitbc3372351d0c.30.eln147.aarch64+64k/build/.config'
+>   tst_test.c:1720: TINFO: Overall timeout per run is 0h 05m 24s
+>   clock_gettime03.c:121: TINFO: Testing variant: vDSO or syscall with libc spec
+>   clock_gettime03.c:76: TPASS: Offset (CLOCK_MONOTONIC) is correct 10000ms
+>   clock_gettime03.c:86: TPASS: Offset (CLOCK_MONOTONIC) is correct 0ms
+>   clock_gettime03.c:76: TPASS: Offset (CLOCK_BOOTTIME) is correct 10000ms
+>   clock_gettime03.c:86: TPASS: Offset (CLOCK_BOOTTIME) is correct 0ms
+>   clock_gettime03.c:76: TPASS: Offset (CLOCK_MONOTONIC) is correct -10000ms
+>   clock_gettime03.c:86: TPASS: Offset (CLOCK_MONOTONIC) is correct 0ms
+>   clock_gettime03.c:76: TPASS: Offset (CLOCK_BOOTTIME) is correct -10000ms
+>   clock_gettime03.c:86: TPASS: Offset (CLOCK_BOOTTIME) is correct 0ms
+>   tst_test.c:438: TBROK: Child (233649) killed by signal SIGSEGV
+> 
+> or with:
+> --------------------- 8< ----------------------
+> #define _GNU_SOURCE
+> #include <sched.h>
+> #include <time.h>
+> #include <unistd.h>                                                                                                                                                                                                                          #include <sys/wait.h>
+> 
+> int main(void)
+> {
+>         struct timespec tp;
+>         pid_t child;
+>         int status;
+> 
+>         unshare(CLONE_NEWTIME);
+> 
+>         child = fork();
+>         if (child == 0) {
+>                 clock_gettime(CLOCK_MONOTONIC_RAW, &tp);
+>         }
+> 
+>         wait(&status);
+>         return status;
+> }
+> 
+> # ./a.out ; echo $?
+> 139
+> --------------------- >8 ----------------------
+> 
+> RPMs and configs can be found at Fedora koji, latest build is at [2] (look for kernel-64k).
 
-If you're keen on running your own hypervisor then I'm sorry, you get to
-deal with it soup to nuts. Other hypervisors (e.g. mshv) have their own
-kernel drivers for managing the host / UAPI parts of driving VMs.
+Hi Jan,
 
-The KVM arch interface is *internal* to KVM, not something to be
-(ab)used for cramming in a non-KVM hypervisor. KVM and other hypervisors
-can still share other bits of truly common infrastructure, like
-guest_memfd.
+Thanks for the great error report.
 
-I understand the value in what you're trying to do, but if you want it
-to smell like KVM you may as well just let the user run it at EL2.
+Can you try the following change (on top of v6.15-rc1, should also work with current master)?
 
-Thanks,
-Oliver
+diff --git a/lib/vdso/gettimeofday.c b/lib/vdso/gettimeofday.c
+index 93ef801a97ef..867ce53cca94 100644
+--- a/lib/vdso/gettimeofday.c
++++ b/lib/vdso/gettimeofday.c
+@@ -85,14 +85,18 @@ static __always_inline
+ int do_hres_timens(const struct vdso_time_data *vdns, const struct vdso_clock *vcns,
+ 		   clockid_t clk, struct __kernel_timespec *ts)
+ {
+-	const struct vdso_time_data *vd = __arch_get_vdso_u_timens_data(vdns);
+ 	const struct timens_offset *offs = &vcns->offset[clk];
+-	const struct vdso_clock *vc = vd->clock_data;
++	const struct vdso_time_data *vd;
++	const struct vdso_clock *vc;
+ 	const struct vdso_timestamp *vdso_ts;
+ 	u64 cycles, ns;
+ 	u32 seq;
+ 	s64 sec;
+ 
++	vd = vdns - (clk == CLOCK_MONOTONIC_RAW ? CS_RAW : CS_HRES_COARSE);
++	vd = __arch_get_vdso_u_timens_data(vd);
++	vc = vd->clock_data;
++
+ 	if (clk != CLOCK_MONOTONIC_RAW)
+ 		vc = &vc[CS_HRES_COARSE];
+ 	else
+
+
+I'll do some proper testing tomorrow.
+
+
+Thomas
+
+> [1] https://github.com/linux-test-project/ltp/blob/master/testcases/kernel/syscalls/clock_gettime/clock_gettime03.c
+> [2] https://koji.fedoraproject.org/koji/buildinfo?buildID=2704401
 
