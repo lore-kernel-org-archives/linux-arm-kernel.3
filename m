@@ -4,85 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB9A2C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 21:13:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 665D1C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 21:15:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XSJt09CWKPOf+EGnLW8nyqe/QhTx1Ajx0DdE2d0+ieI=; b=K3InoSZqKijPzYPAVjxTOo4oYa
-	zTqnh3rlAk/Ks6nVMkkIeLI0fDDhILOD4hg5hik26bRCQW0r+v2fg3+vqCtgBQjiE9w2m/857wBSd
-	ts4LHpt4WyLjW/jvklFlcpOLBTPqJuONVNFG7WcCycsBcCGyfNANAUE2vHsLL3V+bKumZOP9zRIKp
-	wbjQoGORyL3W3ohMZ4QtmgZ95fXmW4KxhSSrVrs8rlrNckzuu1TZSO57eD6aidKTXCmsOLaPvYIz8
-	+YIwzPNeVznW1TehRFkSKC9pauv7VbKMEFK5oTrElOjthtyDFQ1MAN6UcgZvY5GH5xoep/MoXQWxo
-	3qdWnCkg==;
+	bh=TOXhqaJnJp2+DQnqUGdABkzPsXEKdnuTwS+DW6VMcYU=; b=ptEF3mdfT9F1qv3XnSkk+3YTlA
+	rLC6y17TXQLu7F9888X40u4HqVkpraZyYmy0fOup/pKrWpRf4dqGxsw1hkvpF3jBjcF7qAoi0cX+t
+	h0R5PvbeAmUNLbj9Ob7pbDStgqKl91AO3a7cFdjAwYYyQhWcwENJ7B24PVFJNBjVJb9ZCw4GnazVf
+	OJ66ccv8TWM+5XmA1UkkcWbCZfXrUqlPDexJXPt0sH5WMKv2B1go3uyES/+zeJIxj16tdRA5DHLRz
+	gBYNjrpZmiLGP0pkDUrD+x31AvuWaYCH5aOhVNRw6phVGGkTWIP8NQPRK4jQoWDS80cpgG7wmIPxF
+	GqzYyovA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u83tB-0000000FOC4-3oB4;
-	Thu, 24 Apr 2025 21:13:45 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1u83uz-0000000FOMW-2FCc;
+	Thu, 24 Apr 2025 21:15:37 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u83rJ-0000000FO0j-3pYJ
+	id 1u83sp-0000000FO8k-1K80
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 21:11:51 +0000
+	Thu, 24 Apr 2025 21:13:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1745529108;
+	s=mimecast20190719; t=1745529202;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=XSJt09CWKPOf+EGnLW8nyqe/QhTx1Ajx0DdE2d0+ieI=;
-	b=T6DVecWsTeDIsFWQuUwJPgil5Ob0EK12uvjVpsaYz6uaSp/GKABqwZVkGaF8RHPP1EM+M3
-	iswsI8Bw8w2w/9U+dmywvEesz5Bg7yocefqJhx8CZwjg73PWLxl48FvsfJIGLHu3h99sN2
-	pwQW/VLN5nVbxrrsoOVUcGqZaMBmOUc=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=TOXhqaJnJp2+DQnqUGdABkzPsXEKdnuTwS+DW6VMcYU=;
+	b=dwGBnVQWsD8hza+FzCA18t+ZEyFZsbdkKr2E9oOXVqxepMBJjW1fDU7cbrb5JA8SD9BHXN
+	JOL2CtcvgKGUpPffuvJlfrTnPbnMmjau/ILK7UIpZRXSt6hYohV3qF1/7RmhyE9hhZE/OQ
+	Y8w2IADU3coCYD/We/OXp265v7Bq5sw=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-241-ck3CseLYPoKMa6qHFuoCJA-1; Thu, 24 Apr 2025 17:11:47 -0400
-X-MC-Unique: ck3CseLYPoKMa6qHFuoCJA-1
-X-Mimecast-MFC-AGG-ID: ck3CseLYPoKMa6qHFuoCJA_1745529106
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-43d00017e9dso9176775e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 14:11:47 -0700 (PDT)
+ us-mta-240-4qluKZs9N8Cl7GMNumknWA-1; Thu, 24 Apr 2025 17:13:21 -0400
+X-MC-Unique: 4qluKZs9N8Cl7GMNumknWA-1
+X-Mimecast-MFC-AGG-ID: 4qluKZs9N8Cl7GMNumknWA_1745529200
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-440667e7f92so7623785e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 14:13:21 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745529106; x=1746133906;
+        d=1e100.net; s=20230601; t=1745529200; x=1746134000;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:from:references:cc:to:subject:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=XSJt09CWKPOf+EGnLW8nyqe/QhTx1Ajx0DdE2d0+ieI=;
-        b=ew4l6CfjIJeFdfSYHKSt1WMdvG75Ovg6yFLI8/GEEa10+xKSk450pQH0lax1vZZGVv
-         iMKwTZRk2m2ZPeOCYU2AAd2TUrBvm84YyNZz1x4R9xNWIEPqKIpo5Q7xw10YJh4xyyMi
-         R0NmZHVWqcC7U0kDNpeP7zM/kuaYYC4ut0d6aP/ShLWh8KPxzkx/FqTB2GhYSM4euS9R
-         CkQnZfRjpzVjdl9Ct4sBKno0xWvGTwkHUkTnH/mUTNEJTWoesedeMkCqr/nOVlU3lRxI
-         d7XXEaODXJawgbXG9etjFdAMZZvOSWlGYak3owXespGyAwQ6ub4U0bHIqKRSSqKnrax5
-         xHFQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU1ZafQ0P5M0A7EyvecWaOk+tKYV7BzfcGtJ6BS6TPiFP6ksu622cZ9h25nl/N5FTTY/Du+7Ruaovt06ZD99R30@lists.infradead.org
-X-Gm-Message-State: AOJu0YypMLVUlWLMk3O6zb91mi+tOmCWkoTTtNDt3FIS4jnu6WG2V59m
-	3oD9VQZO4nfAXYSUv13z4tlr98SZyiq+p4xcbKwBOQXulRJ3og7RoG29IyElP0h03sIwVEpm52N
-	a16zlnnVXsKqv+buq6k3M6p6UCs68Xq6etGT5TnVbZBwx5qJoUX8kQp//hhHgigE9nEU0YbAT
-X-Gm-Gg: ASbGnctVGrnhv9IXx82ElauSLvBdDhg/dc9in/AZGhrkArN6pwm530WgiHRU0ZqcIZn
-	ixP1N/LNRA4Dkp6oTIoamFjiROWMs6V+3vxGkC88o26G3rj1rpZ7itL68QK9j6dJcpQwk3yvKEz
-	oc5Iq8Jdju7JXdKz1oX+SXkQ1Z5022/ZX/34W5RRe2+o5s5dJ/Sn98fwaWHL2NT6hjiQEaLE/oB
-	dScekfts++3YMuGedmIeVTiiTPPg3bDUuqn0yCgKUWz9yKYvq5/waIGx3aCiXI5QVy64HYi6tGu
-	NRBBG0LxiO7TckNZabKcsfZGdwuP+H//VxNJrEv+Mwu+Y+M+e6j70yTW9QD84Pnj+tvDqYdTjv9
-	6drrCyJmddKq0Pgsxlil+JdS8sYDd680gvW+b
-X-Received: by 2002:a05:600c:8012:b0:43c:e7ae:4bcf with SMTP id 5b1f17b1804b1-4409bc06f4cmr44141635e9.0.1745529106308;
-        Thu, 24 Apr 2025 14:11:46 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFcF4PqwYVcKyDhNajp+9yGkVLlqSoBI+pDcioIx4vbWO4AH3K4GqMgkz2s+HBMzGQ0VesaZA==
-X-Received: by 2002:a05:600c:8012:b0:43c:e7ae:4bcf with SMTP id 5b1f17b1804b1-4409bc06f4cmr44141435e9.0.1745529105905;
-        Thu, 24 Apr 2025 14:11:45 -0700 (PDT)
+        bh=TOXhqaJnJp2+DQnqUGdABkzPsXEKdnuTwS+DW6VMcYU=;
+        b=DwvFKRvA9c7rqmp3z7t6gm1lgUr9mHOlT7w0O7rTTpLMso7lXw8ZWk866pMTYq1x2g
+         rySPc3eNcsaY5yoy+yWYZaXdZGnVtgp77bxdZNndY65NxZ/tiaAFJr2Bb++XBR1d5R4U
+         jt7aRaLKYe0NDu59US+AZKX2v/oRpYv8zG2tM3NtB3afrBxkh6CcQgDqB2gRJbM89jE5
+         xSz4esRUB3ls40IeTUPcjBqRlHKIBR6MniXRxPiI7QtOJwqbQbtmCjgx7Q46lRzSXVKz
+         mu2PAMB/eBlFYwsoIOoCVwwg/9t8cparFSElrOsf4fFAKOJjobBCGhR48H37GOu9RiIy
+         tIRA==
+X-Forwarded-Encrypted: i=1; AJvYcCWra5oHKNbELOHTM57KunUn2ceGlmGCE0vBCpIfWllA4t2MdtOeOtsqpYDtp9FG86Z046BKIPF3gFO52k6poMF7@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJFEKPXSfhzR6bi3S0xt+ZMw/EwNX9aQz5RS7khgRtfcf6vQ1+
+	wDEvwRVpSkqkCsOJN/7oiPMR1SKTrzyk+qrEZ/HpzGVs9axiOMBrnyh7o5qo+5094uTNXZnTdbw
+	4vTBMjcyM0XqvNlqxLpcrtV1IFhXZW6dUW6By+DeJ0Eg/eKMgbvvPS2CmbU7xd4q0wWRtk2aR
+X-Gm-Gg: ASbGncsiYUjDnBKH+Dtub7LLO691iukbquJy5ttmZxDyddfhHZBDq7ritTMZa1XT66F
+	y8RB3eceoxjvQORVhhYLWscLKoZNWuSTSTck2CIg93XxJfF3KmP/yTeuY31w6eR+cIk6N8gDIzG
+	riLqhVIHLEHpsBPHgL5FFZQIHacWvuCd0hig7HKfY68UzFzDiDMIo6T/MtJvajxJaL3b0hxuJAI
+	Pd9cBWiVObwuXiHFl0kIkEY9QLCFZ1ubXqy7KuNXthsQYqCOMGZzGgANRi1l9jS9UUsW5gtmeKC
+	m60xLBi3jY9YPhurbARl/m9dIwQ7ZQ6q7NRFSgCDYYwK+pLsxjsF8G44rhMpC9O9OaaasbZUcJQ
+	3Dr5l1w4WWLOzw4cA6PCX057TKWaTD1TMFqGi
+X-Received: by 2002:a05:600c:524c:b0:43c:fe15:41c9 with SMTP id 5b1f17b1804b1-440a310818dmr7773215e9.9.1745529199951;
+        Thu, 24 Apr 2025 14:13:19 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHXu7rx60czPGcmWU0+8461KGJT0DcvIUYSs2uaUCrKVXSoMHpwGwItsZlEECqxxyTiY6BuTg==
+X-Received: by 2002:a05:600c:524c:b0:43c:fe15:41c9 with SMTP id 5b1f17b1804b1-440a310818dmr7773115e9.9.1745529199621;
+        Thu, 24 Apr 2025 14:13:19 -0700 (PDT)
 Received: from ?IPV6:2003:cb:c74e:ff00:f734:227:6936:cdab? (p200300cbc74eff00f73402276936cdab.dip0.t-ipconnect.de. [2003:cb:c74e:ff00:f734:227:6936:cdab])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4409d2ac5a9sm34371385e9.23.2025.04.24.14.11.44
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-440a530f6e6sm1830695e9.17.2025.04.24.14.13.18
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 24 Apr 2025 14:11:45 -0700 (PDT)
-Message-ID: <0eae5cc8-5714-44dc-97b4-e1b991c0e918@redhat.com>
-Date: Thu, 24 Apr 2025 23:11:43 +0200
+        Thu, 24 Apr 2025 14:13:19 -0700 (PDT)
+Message-ID: <5569da56-4bd7-4ebf-88bf-a9edf7310f51@redhat.com>
+Date: Thu, 24 Apr 2025 23:13:17 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/7] mm: Introduce for_each_valid_pfn() and use it from
- reserve_bootmem_region()
+Subject: Re: [PATCH v4 2/7] mm: Implement for_each_valid_pfn() for
+ CONFIG_FLATMEM
 To: David Woodhouse <dwmw2@infradead.org>, Mike Rapoport <rppt@kernel.org>
 Cc: Andrew Morton <akpm@linux-foundation.org>,
  "Sauerwein, David" <dssauerw@amazon.de>,
@@ -93,7 +93,7 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-mm@kvack.org, Ruihan Li <lrh2000@pku.edu.cn>
 References: <20250423133821.789413-1-dwmw2@infradead.org>
- <20250423133821.789413-2-dwmw2@infradead.org>
+ <20250423133821.789413-3-dwmw2@infradead.org>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -140,16 +140,16 @@ Autocrypt: addr=david@redhat.com; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat
-In-Reply-To: <20250423133821.789413-2-dwmw2@infradead.org>
+In-Reply-To: <20250423133821.789413-3-dwmw2@infradead.org>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: FISGxyNwSauCXRS-YF5EYyZdHynMMjAzQ34aAfiCqtM_1745529106
+X-Mimecast-MFC-PROC-ID: octaWdiIqdzsdz2gic046ufcOO7dYT6s74dVtJnvC2E_1745529200
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_141150_141745_BBB61CE1 
-X-CRM114-Status: GOOD (  25.34  )
+X-CRM114-CacheID: sfid-20250424_141323_427879_57E330B3 
+X-CRM114-Status: GOOD (  17.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,68 +167,42 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 23.04.25 15:33, David Woodhouse wrote:
 > From: David Woodhouse <dwmw@amazon.co.uk>
 > 
-> Especially since commit 9092d4f7a1f8 ("memblock: update initialization
-> of reserved pages"), the reserve_bootmem_region() function can spend a
-> significant amount of time iterating over every 4KiB PFN in a range,
-> calling pfn_valid() on each one, and ultimately doing absolutely nothing.
+> In the FLATMEM case, the default pfn_valid() just checks that the PFN is
+> within the range [ ARCH_PFN_OFFSET .. ARCH_PFN_OFFSET + max_mapnr ).
 > 
-> On a platform used for virtualization, with large NOMAP regions that
-> eventually get used for guest RAM, this leads to a significant increase
-> in steal time experienced during kexec for a live update.
-> 
-> Introduce for_each_valid_pfn() and use it from reserve_bootmem_region().
-> This implementation is precisely the same naïve loop that the function
-> used to have, but subsequent commits will provide optimised versions
-> for FLATMEM and SPARSEMEM, and this version will remain for those
-> architectures which provide their own pfn_valid() implementation,
-> until/unless they also provide a matching for_each_valid_pfn().
+> The for_each_valid_pfn() function can therefore be a simple for() loop
+> using those as min/max respectively.
 > 
 > Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
 > Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 > ---
->   include/linux/mmzone.h | 10 ++++++++++
->   mm/mm_init.c           | 23 ++++++++++-------------
->   2 files changed, 20 insertions(+), 13 deletions(-)
+>   include/asm-generic/memory_model.h | 10 +++++++++-
+>   1 file changed, 9 insertions(+), 1 deletion(-)
 > 
-> diff --git a/include/linux/mmzone.h b/include/linux/mmzone.h
-> index 6ccec1bf2896..230a29c2ed1a 100644
-> --- a/include/linux/mmzone.h
-> +++ b/include/linux/mmzone.h
-> @@ -2177,6 +2177,16 @@ void sparse_init(void);
->   #define subsection_map_init(_pfn, _nr_pages) do {} while (0)
->   #endif /* CONFIG_SPARSEMEM */
->   
-> +/*
-> + * Fallback case for when the architecture provides its own pfn_valid() but
-> + * not a corresponding for_each_valid_pfn().
-> + */
-> +#ifndef for_each_valid_pfn
-> +#define for_each_valid_pfn(_pfn, _start_pfn, _end_pfn)			\
-> +	for ((_pfn) = (_start_pfn); (_pfn) < (_end_pfn); (_pfn)++)	\
-> +		if (pfn_valid(_pfn))
-> +#endif
+> diff --git a/include/asm-generic/memory_model.h b/include/asm-generic/memory_model.h
+> index a3b5029aebbd..74d0077cc5fa 100644
+> --- a/include/asm-generic/memory_model.h
+> +++ b/include/asm-generic/memory_model.h
+> @@ -30,7 +30,15 @@ static inline int pfn_valid(unsigned long pfn)
+>   	return pfn >= pfn_offset && (pfn - pfn_offset) < max_mapnr;
+>   }
+>   #define pfn_valid pfn_valid
+> -#endif
 > +
->   #endif /* !__GENERATING_BOUNDS.H */
->   #endif /* !__ASSEMBLY__ */
->   #endif /* _LINUX_MMZONE_H */
-> diff --git a/mm/mm_init.c b/mm/mm_init.c
-> index 9659689b8ace..41884f2155c4 100644
-> --- a/mm/mm_init.c
-> +++ b/mm/mm_init.c
-> @@ -777,22 +777,19 @@ static inline void init_deferred_page(unsigned long pfn, int nid)
->   void __meminit reserve_bootmem_region(phys_addr_t start,
->   				      phys_addr_t end, int nid)
->   {
-> -	unsigned long start_pfn = PFN_DOWN(start);
-> -	unsigned long end_pfn = PFN_UP(end);
-> +	unsigned long pfn;
->   
-> -	for (; start_pfn < end_pfn; start_pfn++) {
-> -		if (pfn_valid(start_pfn)) {
-> -			struct page *page = pfn_to_page(start_pfn);
-> +	for_each_valid_pfn (pfn, PFN_DOWN(start), PFN_UP(end)) {
+> +#ifndef for_each_valid_pfn
+> +#define for_each_valid_pfn(pfn, start_pfn, end_pfn)			 \
+> +	for ((pfn) = max_t(unsigned long, (start_pfn), ARCH_PFN_OFFSET); \
+> +	     (pfn) < min_t(unsigned long, (end_pfn),			 \
+> +			   ARCH_PFN_OFFSET + max_mapnr);		 \
+> +	     (pfn)++)
+> +#endif /* for_each_valid_pfn */
+> +#endif /* valid_pfn */
 
-                           ^ space should be removed
+"pfn_valid"
+
+>   
+>   #elif defined(CONFIG_SPARSEMEM_VMEMMAP)
+>   
 
 Acked-by: David Hildenbrand <david@redhat.com>
 
