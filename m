@@ -4,106 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50A47C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 21:59:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3728BC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 22:27:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xpoZPfro0SHj9mPJ6mKU/fbkIbH6rl7Ujv7LCLlYPNY=; b=l87UHjkCrSOtjg/0TTaCFUqZAY
-	c1lOLQnKftqY5vGl1yOUlw1vQLKActlsHk+De6mAOA5BY5BL6D1D8FbE5VgWPOgYXSM7J5RwTHDHM
-	texhAJVO8eaQS7AV6OX6JyIHkcDndXwfij91qfU/XQKoWUCQyF4H8picAm0MMgBUN9EnQj/xbgd2C
-	nsyxiQbTJTnSmU9By1RuJSSsu11CywVxed9qdFc4AxXQDhe+PLSOFwC+PHXjATy/1gZ4BBhVjdXy+
-	7YincxTrm/eCuFLDggZhKPvdG0D0h9jrk0Bc3sSAAoTmsx5KwGk5huWmoJjAj5eU46iu7JkUHI9fl
-	1d7a8IYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+wSvMCUCxNhNC4gXsB5hDouWU948oYzzEBMH0SyGSuY=; b=dKhFvK/0QQFGofOkjpqsAow96s
+	5F+dMkwcbDZasQLLA4tPOCzIVWBfTvF2NNYn7Jfp5TPa6Ep8L4Nn99smtw0ccXsqZJcJ35hQuPGsg
+	vpbIFwKT03stNBE691hT8XyUmctXIhdxVXHqBKViGGdGRUDV96sellEGE5+EC5YCKM9QPfQSRAhIQ
+	2bGrFcrpRMw/kWnWveLvon0XPSRc0LgRuWppaJdWwr101yCnZYJjeGSpFjuvNlOAF/Eqm4xJDNUuf
+	FBRdZignS9m+rhQUIkGGoqiJLNy+B2Gg43KwEiISVYM5+o2qzUEw7vUhCum92pDI7Bu5u/sy+LCdi
+	Mfbc6N6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u84bI-0000000FSYB-38LD;
-	Thu, 24 Apr 2025 21:59:20 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1u852B-0000000FUSV-0HoG;
+	Thu, 24 Apr 2025 22:27:07 +0000
+Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u84ZR-0000000FSBn-05bq
+	id 1u850K-0000000FUFI-3XqN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 21:57:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1745531843;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xpoZPfro0SHj9mPJ6mKU/fbkIbH6rl7Ujv7LCLlYPNY=;
-	b=Uen+WLSxRqBmCBACU6UgZoXbPsvjR3FdjdJsT/baxVHYhj7vXpR20psFyg5EwTGAz9Plt3
-	GdnozljDcmrlTAZLLXmBEPUMkeYkA0swareNLGOz+Fcxgtz445GHwsIhwsXT2PXaXvlBDy
-	c+t84BYoLsmfYEWD7z9Pqrp6UBz/O7M=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-690-TAKnqcDNOUu0HMzV7TWn5w-1; Thu, 24 Apr 2025 17:57:21 -0400
-X-MC-Unique: TAKnqcDNOUu0HMzV7TWn5w-1
-X-Mimecast-MFC-AGG-ID: TAKnqcDNOUu0HMzV7TWn5w_1745531840
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-39ac9b0cb6aso675858f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 14:57:21 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745531840; x=1746136640;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xpoZPfro0SHj9mPJ6mKU/fbkIbH6rl7Ujv7LCLlYPNY=;
-        b=QN9bAGbpgIuW6fugL/Xizya5S1WFkzvOCr1+ViC/tscBlNr+8Idd5Dqfkp7kPf+FxI
-         l+qmS3XbnoXSX+D5594C+u5fiSGmf4gRNQm3Y5wN2/0EmpBC96Qlmu8I40lV0dZy4RxA
-         b845zDN8c4/3ebQ3nZKHaNlxR0ng5HCrmK9ATZO8M83FbIyDZ9Kak7KvimLC7suO5Yp3
-         pc+j++/FHRbv69+JQOjG+5XkReAdZ4pYRx+5HuiODp9q/IWpnxTJzpvwLm7h2ixSf9vo
-         NV1wakMyyw6IQHQGSmKhBz8r7eUi+h/pcRGG26CSAknKkhaCKpJCCKu7gbkJ6KRiW3aB
-         Fl8A==
-X-Forwarded-Encrypted: i=1; AJvYcCU2zDlkQN1a7yGCjXCdw7m9YCXn3p8+SMQayQavNHeZPpcI6nhao1cDsSeRlD4TdaXaww853FIvgMvM5f7oUJ4o@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy7k0u46xpjG2JTbSYkj3hFqbOnrD8dCQebSQuwRKBXD+W4WILf
-	WkfarBtcF2PsLfD47c8IcLFg7u+fd+awnGwVNNXT23tYhzKRWZt2XeA29iAt/zfPtip11VOKGPe
-	bhzqPVEe7wjqwEZNSBlGuQB+UEILtbQfhc+XN2JI3b6/NVJJjCNPKugU15HsV0kQwHm8mx7wmSs
-	QfvGS0av2UQQ+1xoYGbOumEROvFj8l9xhO0XlQIvyStnp1RR4=
-X-Gm-Gg: ASbGncuPl54eg4bdGL6UZKNlYaLPe9tyiLlUeEiSyWTQ2gcfwZCWeFP1Zq6f56hv9n2
-	RJ4lAaYWxox1oflvmm5eEDAywzfexS6MuAEYp5KIZYBLF8LaufBv+ZO0jG8yU/mIZkQ8=
-X-Received: by 2002:a05:6000:420f:b0:39f:b604:4691 with SMTP id ffacd0b85a97d-3a06cfad4demr3613299f8f.58.1745531840413;
-        Thu, 24 Apr 2025 14:57:20 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEeKzKsojxPFQjf2qyPC/jLCrBU0TIGuJgSXSwemHUuTZespuYvxujkus4uQUh01e60jmTuxs45QJiRsX3qQ8A=
-X-Received: by 2002:a05:6000:420f:b0:39f:b604:4691 with SMTP id
- ffacd0b85a97d-3a06cfad4demr3613274f8f.58.1745531839898; Thu, 24 Apr 2025
- 14:57:19 -0700 (PDT)
+	Thu, 24 Apr 2025 22:25:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CLp/eD3ol/OZnnMY4+3Xpz1QLSSAoIvMxsCmvgYWbFsicij3ANiVaiRVUNEpcgIFkeP91qcks7rAQl2tRkOSW+ZxgGmtawbt8rqMWwGO4xsuLsRacRaQ8oUHbGAtkbi5LU9BSlsTK2ZA7IKWuvGR5yByXPY/XfXwNuLLdTCfOSlqxepSLAsg2di0dcH+5jOXYyAxWsW2WDOO+++lx18om9j5tV6oGKtho+YVUkenjbEIMoITzXhc4cidHSTLEXaZFtmUJWsynrsbJEN6DZRwm1G5IJqjwGB3nyoGBgxuhKR0MCJS7ewzR2OjMe9dNPWqnK98P7bgISxXa2oFjHZUjQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+wSvMCUCxNhNC4gXsB5hDouWU948oYzzEBMH0SyGSuY=;
+ b=WQW+ON2wBW4cKsPcVC7Ei/ok2AFhnjOKwjqtkNJu0VMDEe4xYT7hyhafD4If9r0z/vXxemYPkjI4HYcT607ZKYC7w9JcvLcCwD7f2FiSuZ+WfeKlpiVzh6YFoGsgp4CS0AJeMf4rb3yVDLPt4Jxbj7hyzHOS7XaogJ4g6lwi8S8v6r76S4FqMRSw2PCcitnoW36oaCYGjsu54NVxIioK7IwgJkTT7BuF0x7/hXJ5duco7SDjb/C/ufOju+mqZPQSNc0NkGjEhgBvdVaQFjpXxPt29fKry3NNlVf9LDJPCGOGphDwjRk4JzbidjCsRd+Ud6nrHAMOVw+ZfTAtPhl/nw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+wSvMCUCxNhNC4gXsB5hDouWU948oYzzEBMH0SyGSuY=;
+ b=UF7CR5QinNYrrWQ/DbasttoEkMEe+1KCirL20OD7PLdmARkxhQOQzL1hZDxcyFgR89Ik7Lie3XyHHxZStjyuztfl+/RyDLG7rbNRx04/tggGDo1X4TUg7Au+s+1mHGhWWRkdcjVQxuJSklM5Fo8spRXVmPQ3BLOORBqoUGNnzOE=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from LV2PR01MB7792.prod.exchangelabs.com (2603:10b6:408:14f::10) by
+ CO1PR01MB8987.prod.exchangelabs.com (2603:10b6:303:272::7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8678.26; Thu, 24 Apr 2025 22:25:04 +0000
+Received: from LV2PR01MB7792.prod.exchangelabs.com
+ ([fe80::2349:ebe6:2948:adb9]) by LV2PR01MB7792.prod.exchangelabs.com
+ ([fe80::2349:ebe6:2948:adb9%5]) with mapi id 15.20.8678.025; Thu, 24 Apr 2025
+ 22:25:03 +0000
+From: D Scott Phillips <scott@os.amperecomputing.com>
+To: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev
+Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
+ <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>, Zenghui
+ Yu <yuzenghui@huawei.com>, Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH] KVM: arm64: Force HCR_EL2.xMO to 1 at all times in VHE
+ mode
+In-Reply-To: <20250422123901.2675976-1-maz@kernel.org>
+References: <20250422123901.2675976-1-maz@kernel.org>
+Date: Thu, 24 Apr 2025 15:24:59 -0700
+Message-ID: <86jz799ozo.fsf@scott-ph-mail.amperecomputing.com>
+Content-Type: text/plain
+X-ClientProxiedBy: MW4PR03CA0046.namprd03.prod.outlook.com
+ (2603:10b6:303:8e::21) To LV2PR01MB7792.prod.exchangelabs.com
+ (2603:10b6:408:14f::10)
 MIME-Version: 1.0
-References: <20250303-vdso-clock-v1-0-c1b5c69a166f@linutronix.de>
- <20250303-vdso-clock-v1-8-c1b5c69a166f@linutronix.de> <aApGPAoctq_eoE2g@t14ultra>
- <20250424173908-ffca1ea2-e292-4df3-9391-24bfdaab33e7@linutronix.de>
-In-Reply-To: <20250424173908-ffca1ea2-e292-4df3-9391-24bfdaab33e7@linutronix.de>
-From: Jan Stancek <jstancek@redhat.com>
-Date: Thu, 24 Apr 2025 23:57:02 +0200
-X-Gm-Features: ATxdqUEI0uDThPwtIXkgDnYksB6HJCT6szRwp_ZXnbL9vPXmguxH9v8pzuTDM2Y
-Message-ID: <CAASaF6xsMOWkhPrzKQWNz5SXaROSpxzFVBz+MOA-MNiEBty7gQ@mail.gmail.com>
-Subject: Re: [PATCH 08/19] vdso/gettimeofday: Prepare do_hres_timens() for
- introduction of struct vdso_clock
-To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-Cc: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Vincenzo Frascino <vincenzo.frascino@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Anna-Maria Behnsen <anna-maria@linutronix.de>, 
-	Frederic Weisbecker <frederic@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
-	Christophe Leroy <christophe.leroy@csgroup.eu>, Naveen N Rao <naveen@kernel.org>, 
-	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Sven Schnelle <svens@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-s390@vger.kernel.org, linux-arch@vger.kernel.org, 
-	Nam Cao <namcao@linutronix.de>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: -RMr2r9yR-RXy5GGhZkQdgFkIJJPme_52RAIbWU0iB4_1745531840
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV2PR01MB7792:EE_|CO1PR01MB8987:EE_
+X-MS-Office365-Filtering-Correlation-Id: cbdf4c24-86f3-495b-4cfb-08dd837edbe1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8ET/HW+VpiDTlvju5enuyLizIHh1lIgMReg7C0EFVng9Jzv4W0OtsuPjXyyo?=
+ =?us-ascii?Q?ktUMmC1HNBB5teyJPlZHp4DKiV06GsLoSWdb9iExNCYYE0KyKZqOlO0lCBrW?=
+ =?us-ascii?Q?Q+rbh54aq87fnAsDFAzLKVnARoaY05/MGRhcfbQRTajCqmibkJLONTlFftia?=
+ =?us-ascii?Q?1tmKRk9bwQikvVkjIyOyftY/RCTnpvYNxItFT746SUYOFRaRLzroYb56BGBR?=
+ =?us-ascii?Q?C8iSuhBVrQeg6533UA9+FylfFAi7aL4POqGoBdoS3dG1yiO5jFa+Pq55O+PA?=
+ =?us-ascii?Q?hJwAzfjb7NmyVIAN2OcuoKis2qbFr/FyRV/pLSr74NNRZQRIpxcwxdL/CDUM?=
+ =?us-ascii?Q?mgdgs7aov2GghIzaMZlJuKp3hWlEJ25ZtrUxMyuhv5iC12n922MEOyrMldWE?=
+ =?us-ascii?Q?SbRJXCRuoeXo9u2HRlQ30VVdFehB0bK0C2z3JYY0+PJGMkRjn3IKf5qjiqit?=
+ =?us-ascii?Q?Y1TRwTN15X9hWk3WruPoQWpv1ru5TcQKCr3HYLQ4uiVJPy9DgV1vPb85FjA8?=
+ =?us-ascii?Q?lYFX0jMj9bXiThSCpN5oMHM1+92Py7rZJ6/I8RMapHE7rE7NhcAXmyU+Mfx5?=
+ =?us-ascii?Q?SRXSLdHSgT8RZ5Tb1Mua0NBHlw1atSUCbejkB6ifrucwgaifODgMUbW3+vtK?=
+ =?us-ascii?Q?/JLopaB5dWAz/bJy+i+cUzSiaRtR2/FGZSPzXqR/8jSatgiM5Nv36xHR74RK?=
+ =?us-ascii?Q?vSQOzjhUo37uWaeHTMN/glOvHMk9mepvnOwtJYR18Qxg+0Ha8z5KLOuKNM72?=
+ =?us-ascii?Q?zpeHBi4hEFoyKPqhIf3LN2Hl7DIOFxuWPCGjbRJHEmyV1jJjj2ClGi4WiF2a?=
+ =?us-ascii?Q?GWzxDoxPq034wE/8Mlgvf5Uk+AosnnUA4FFr/ssEKto8HtpnKTuy3JRmwL4y?=
+ =?us-ascii?Q?0oWVypk/CFmff6nmZeZ3lCRwA71M0fRbwWMoRsmxk4Zd65LCbANwVMjp73nE?=
+ =?us-ascii?Q?rxO+sSIeeEXX2jEQJ5Vcz/744uE5rLBWU/vOBResPRWdSU7yzD+11sZyymut?=
+ =?us-ascii?Q?6YrpvX0GK6FPFHP4b47a96ciw9nAuqQrmWgVYD461Btd+VSGyAP+e0fRTCqG?=
+ =?us-ascii?Q?Euw5txlKH2F/Lm4OOAyQkDAnJYW51sImBL+RRYmci/jBEc6gN7P5yhfXjgPV?=
+ =?us-ascii?Q?zBGx8+u/HRrN4Q0Pn7l5l3njOYJjXtDjMskkDvYJcrAAoUUP7PWWwAEX4yOr?=
+ =?us-ascii?Q?YwEQ/7YAYdtPf/qdx432YWcksjitAqfiq3HCqFtrfAgjIgHbO3K+3sy+i244?=
+ =?us-ascii?Q?CrdGrwwaec9tkhP/HdTF36kn+pehcE45eIbpRs2vO2o0UB+ZICNia80k7g+D?=
+ =?us-ascii?Q?rpy9eS7Wtg+i9eczldk3ru7KsckNwwewQNx3GTUItkcZGV6JZ/u+KTJgCKSq?=
+ =?us-ascii?Q?sRwkS/a+XJqz6ZTzdFav52F2p5nrSdckrZhBGufUfVs4yalrBwQBc2k8s0wq?=
+ =?us-ascii?Q?M9QU/JzkUsNMYr24H1t37U4Y8A/BLpoGI3fLGfrnpjaaHPIXTdggVQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV2PR01MB7792.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(38350700014)(7053199007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?S+d8ktJDTR0aTgjxwWkUotW6z5cGUk/e8H8myOx0U5X26/xosqgWKJ0B4l8h?=
+ =?us-ascii?Q?CXkmUONsH0SqmzQqtkIC8cpAW54wZaDdBr5ZVireRxtblT6M32RlRDclZ8J6?=
+ =?us-ascii?Q?MHe5BtYAzrmTG37ey76KN4yJlQt3opoYwnk7p6fvrnGKzjdfm+IC0w5wRY9n?=
+ =?us-ascii?Q?ledve59SM9jE+BKcYTmox/wIzT9qTadqT1FfAAe/4YTDhc2EJngP3Ook9xfy?=
+ =?us-ascii?Q?SnBP7lStkghtNAi9AH617Tt1o3mASBn50qDrdydQEvIT8cNV13CgwcWablJk?=
+ =?us-ascii?Q?fbUWs+hNLhIEN+zdG9hSl2uTP+apAbbX7W9Qe9nrHL0A/AQt1uLAef7wIa0W?=
+ =?us-ascii?Q?uJOikPf3AKKkqe8u5uRVHKft2Gk08umYK3B1dTmnU9XQC1ZxwZwGXqJVeQZx?=
+ =?us-ascii?Q?s2ts+tUD5ri109m6DVDPcmcW6gnCeWbsL8WgFnb/af0T9Ij1eAwTY287I6g3?=
+ =?us-ascii?Q?RyRnLP+8N5RcA8o4UpmkOxsqBQjC+4vKofgVUDCkpMLkVb4bTkpJ8rzt8FgD?=
+ =?us-ascii?Q?1xwUOl1xGQjVyu2sFxz/y+a6vKJRAQ/wP9ZKs7hKo1b5bpD5IPa8wTY+DjdB?=
+ =?us-ascii?Q?Z3gnbZrH5OXAFiuR13mLHVK9eBgTiXUFMwQXQUHtNcq2lbTDNSoBMGDSqIdW?=
+ =?us-ascii?Q?v4biG428n9TKoMKR+Ig/Oo7oE03GnD0j/kFiqbf6Tubwl3/bSxu6itIS2ol2?=
+ =?us-ascii?Q?pSGjWwEl1gdtENUNm73kXZjy5uKZVx6qZcGyEKBTCtpw/l8OR3xRiCzValZ+?=
+ =?us-ascii?Q?gjy9bior5CxZ+QBcuuzv0LEJ5Ie8b9AAC0DbhyA67l+WKSo7uxywOnZd60Mt?=
+ =?us-ascii?Q?o81LLOEdCu//kSc2eW4Bfv/9SODTxkjwiZKGnsU9WPRLTKKUN/kayv7UVsd9?=
+ =?us-ascii?Q?yJNQ6Z0j0U1IhkZtB8AUlFCaM0dhCuTy7P6FJ0sJS7PR29NZJ0Ls+reXCF04?=
+ =?us-ascii?Q?mPQDOzur4N6qR4lVmDx5P9Beh1NaCSq7RPA4DKp2PQSKwUwN2mG33XGaGjk+?=
+ =?us-ascii?Q?MvPVNjrJO+VVLTOBzC/+lTY6JCQNOy4j8rz2JeeVbAfy8/IXFi0p95jwCwLg?=
+ =?us-ascii?Q?PLsMvwQwAG0jwb4fg4PRfdikoN5Nbh3U97fwNSi47izCIv9dj0FRRkv/Fvuw?=
+ =?us-ascii?Q?miwBgp/dZsVzJjh//CB6bkb1IXS9lFeaUvzlEGSNgN0LUbv32by52rl2ciqV?=
+ =?us-ascii?Q?jAB8hArBgkfA2veKiNm1d16WDm4RM9xsE48JqHgDc63uFlFiFjmpFgmL4Pmb?=
+ =?us-ascii?Q?eimDfI8i0gxZ+gYsM3nQfgibnyszE/63KOhC/ali5mL+Jq6G8Bp/oPoOCJbU?=
+ =?us-ascii?Q?+yks9XIT1dygrHFJe23it6sqnKdjEnRY9OHrUXm0omBeFwDzhnP0kvKcDVOV?=
+ =?us-ascii?Q?TXxeTb4dAENvscQjjdF9bYHa20zmMFle5CHaAq7EuThqgu+G7fW5reVuzufD?=
+ =?us-ascii?Q?nMQSfxVla+587UMjMkzMEBy3wJ2V3jitTiS8YNUqjQ321eJ6plGNjgCc7Qwt?=
+ =?us-ascii?Q?V7MLg542piI+8f562095mNeY1NiF4VDj6l/ipeldbgTtWfnB0pjBRioSMGp0?=
+ =?us-ascii?Q?popTPcZjcCV3V3obFLYxkYHxBu3TDwTHLGOFkhgbrk8ZRSkCGXQ1LiecReYA?=
+ =?us-ascii?Q?TiM8sJFx0be8Hj6VeXt8Yrk=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cbdf4c24-86f3-495b-4cfb-08dd837edbe1
+X-MS-Exchange-CrossTenant-AuthSource: LV2PR01MB7792.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Apr 2025 22:25:03.8089
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: VQQh2+JW+F5hZ1vULRQYMWU18TIiFnrqp/EuiL9cQdhMUTt6DmKf4/4rtAgG7+OojnTcuo2DudJV/O45jyMXGbGDGHgr83AIR61neYjUaCPR4PfAv7X+L9P4O7YiwrM8
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR01MB8987
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_145725_134329_EFCF9BB2 
-X-CRM114-Status: GOOD (  30.75  )
+X-CRM114-CacheID: sfid-20250424_152512_895392_D4675B13 
+X-CRM114-Status: GOOD (  17.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,157 +159,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 24, 2025 at 5:49=E2=80=AFPM Thomas Wei=C3=9Fschuh
-<thomas.weissschuh@linutronix.de> wrote:
->
-> On Thu, Apr 24, 2025 at 04:10:04PM +0200, Jan Stancek wrote:
-> > On Mon, Mar 03, 2025 at 12:11:10PM +0100, Thomas Wei=C3=9Fschuh wrote:
-> > > From: Anna-Maria Behnsen <anna-maria@linutronix.de>
-> > >
-> > > To support multiple PTP clocks, the VDSO data structure needs to be
-> > > reworked. All clock specific data will end up in struct vdso_clock an=
-d in
-> > > struct vdso_time_data there will be array of it. By now, vdso_clock i=
-s
-> > > simply a define which maps vdso_clock to vdso_time_data.
-> > >
-> > > Prepare for the rework of these structures by adding struct vdso_cloc=
-k
-> > > pointer argument to do_hres_timens(), and replace the struct vdso_tim=
-e_data
-> > > pointer with the new pointer arugment whenever applicable.
-> > >
-> > > No functional change.
-> > >
-> > > Signed-off-by: Anna-Maria Behnsen <anna-maria@linutronix.de>
-> > > Signed-off-by: Nam Cao <namcao@linutronix.de>
-> > > Signed-off-by: Thomas Wei=C3=9Fschuh <thomas.weissschuh@linutronix.de=
->
-> > > ---
-> > > lib/vdso/gettimeofday.c | 35 ++++++++++++++++++-----------------
-> > > 1 file changed, 18 insertions(+), 17 deletions(-)
-> > >
-> >
-> > starting with this patch, I'm seeing user-space crashes when using cloc=
-k_gettime():
-> >   BAD  -> 83a2a6b8cfc5 vdso/gettimeofday: Prepare do_hres_timens() for =
-introduction of struct vdso_clock
-> >   GOOD -> 64c3613ce31a vdso/gettimeofday: Prepare do_hres() for introdu=
-ction of struct vdso_clock
-> >
-> > It appears to be unique to aarch64 with 64k pages, and can be reproduce=
-d with
-> > LTP clock_gettime03 [1]:
-> >   command: clock_gettime03   tst_kconfig.c:88: TINFO: Parsing kernel co=
-nfig '/lib/modules/6.15.0-0.rc3.20250423gitbc3372351d0c.30.eln147.aarch64+6=
-4k/build/.config'
-> >   tst_test.c:1903: TINFO: LTP version: 20250130-231-gd02c2aea3
-> >   tst_test.c:1907: TINFO: Tested kernel: 6.15.0-0.rc3.20250423gitbc3372=
-351d0c.30.eln147.aarch64+64k #1 SMP PREEMPT_DYNAMIC Wed Apr 23 23:23:54 UTC=
- 2025 aarch64
-> >   tst_kconfig.c:88: TINFO: Parsing kernel config '/lib/modules/6.15.0-0=
-.rc3.20250423gitbc3372351d0c.30.eln147.aarch64+64k/build/.config'
-> >   tst_test.c:1720: TINFO: Overall timeout per run is 0h 05m 24s
-> >   clock_gettime03.c:121: TINFO: Testing variant: vDSO or syscall with l=
-ibc spec
-> >   clock_gettime03.c:76: TPASS: Offset (CLOCK_MONOTONIC) is correct 1000=
-0ms
-> >   clock_gettime03.c:86: TPASS: Offset (CLOCK_MONOTONIC) is correct 0ms
-> >   clock_gettime03.c:76: TPASS: Offset (CLOCK_BOOTTIME) is correct 10000=
-ms
-> >   clock_gettime03.c:86: TPASS: Offset (CLOCK_BOOTTIME) is correct 0ms
-> >   clock_gettime03.c:76: TPASS: Offset (CLOCK_MONOTONIC) is correct -100=
-00ms
-> >   clock_gettime03.c:86: TPASS: Offset (CLOCK_MONOTONIC) is correct 0ms
-> >   clock_gettime03.c:76: TPASS: Offset (CLOCK_BOOTTIME) is correct -1000=
-0ms
-> >   clock_gettime03.c:86: TPASS: Offset (CLOCK_BOOTTIME) is correct 0ms
-> >   tst_test.c:438: TBROK: Child (233649) killed by signal SIGSEGV
-> >
-> > or with:
-> > --------------------- 8< ----------------------
-> > #define _GNU_SOURCE
-> > #include <sched.h>
-> > #include <time.h>
-> > #include <unistd.h>                                                    =
-                                                                           =
-                                                                           =
-                #include <sys/wait.h>
-> >
-> > int main(void)
-> > {
-> >         struct timespec tp;
-> >         pid_t child;
-> >         int status;
-> >
-> >         unshare(CLONE_NEWTIME);
-> >
-> >         child =3D fork();
-> >         if (child =3D=3D 0) {
-> >                 clock_gettime(CLOCK_MONOTONIC_RAW, &tp);
-> >         }
-> >
-> >         wait(&status);
-> >         return status;
-> > }
-> >
-> > # ./a.out ; echo $?
-> > 139
-> > --------------------- >8 ----------------------
-> >
-> > RPMs and configs can be found at Fedora koji, latest build is at [2] (l=
-ook for kernel-64k).
->
-> Hi Jan,
->
-> Thanks for the great error report.
->
-> Can you try the following change (on top of v6.15-rc1, should also work w=
-ith current master)?
->
-> diff --git a/lib/vdso/gettimeofday.c b/lib/vdso/gettimeofday.c
-> index 93ef801a97ef..867ce53cca94 100644
-> --- a/lib/vdso/gettimeofday.c
-> +++ b/lib/vdso/gettimeofday.c
-> @@ -85,14 +85,18 @@ static __always_inline
->  int do_hres_timens(const struct vdso_time_data *vdns, const struct vdso_=
-clock *vcns,
->                    clockid_t clk, struct __kernel_timespec *ts)
->  {
-> -       const struct vdso_time_data *vd =3D __arch_get_vdso_u_timens_data=
-(vdns);
->         const struct timens_offset *offs =3D &vcns->offset[clk];
-> -       const struct vdso_clock *vc =3D vd->clock_data;
-> +       const struct vdso_time_data *vd;
-> +       const struct vdso_clock *vc;
->         const struct vdso_timestamp *vdso_ts;
->         u64 cycles, ns;
->         u32 seq;
->         s64 sec;
->
-> +       vd =3D vdns - (clk =3D=3D CLOCK_MONOTONIC_RAW ? CS_RAW : CS_HRES_=
-COARSE);
-> +       vd =3D __arch_get_vdso_u_timens_data(vd);
-> +       vc =3D vd->clock_data;
-> +
->         if (clk !=3D CLOCK_MONOTONIC_RAW)
->                 vc =3D &vc[CS_HRES_COARSE];
->         else
->
->
-> I'll do some proper testing tomorrow.
+Marc Zyngier <maz@kernel.org> writes:
 
-That does seem to work for the 2 reproducers I have.
-But why is this change needed? Isn't 'vdns' here equal to 'vdso_u_time_data=
-'?
+> We keep setting and clearing these bits depending on the role of
+> the host kernel, mimicking what we do for nVHE. But that's actually
+> pretty pointless, as we always want physical interrupts to make it
+> to the host, at EL2.
+>
+> This has also two problems:
+>
+> - it prevents IRQs from being taken when these bits are cleared
+>   if the implementation has chosen to implement these bits as
+>   masks when HCR_EL2.{TGE,xMO}=={0,0}
+>
+> - it triggers a bad erratum on the AmpereOne HW, which catches
+>   fire on clearing these bits while an interrupt is being taken
+>   (AC03_CPU_36).
+>
+> Let's kill these two birds with a single stone.
+>
+> Reported-by: D Scott Phillips <scott@os.amperecomputing.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/include/asm/kvm_arm.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+> index 974d72b5905b8..bba4b0e930915 100644
+> --- a/arch/arm64/include/asm/kvm_arm.h
+> +++ b/arch/arm64/include/asm/kvm_arm.h
+> @@ -100,7 +100,7 @@
+>  			 HCR_FMO | HCR_IMO | HCR_PTW | HCR_TID3 | HCR_TID1)
+>  #define HCR_HOST_NVHE_FLAGS (HCR_RW | HCR_API | HCR_APK | HCR_ATA)
+>  #define HCR_HOST_NVHE_PROTECTED_FLAGS (HCR_HOST_NVHE_FLAGS | HCR_TSC)
+> -#define HCR_HOST_VHE_FLAGS (HCR_RW | HCR_TGE | HCR_E2H)
+> +#define HCR_HOST_VHE_FLAGS (HCR_RW | HCR_TGE | HCR_E2H | HCR_AMO | HCR_IMO | HCR_FMO)
+>  
+>  #define HCRX_HOST_FLAGS (HCRX_EL2_MSCEn | HCRX_EL2_TCR2En | HCRX_EL2_EnFPM)
+>  #define MPAMHCR_HOST_FLAGS	0
 
->
->
-> Thomas
->
-> > [1] https://github.com/linux-test-project/ltp/blob/master/testcases/ker=
-nel/syscalls/clock_gettime/clock_gettime03.c
-> > [2] https://koji.fedoraproject.org/koji/buildinfo?buildID=3D2704401
->
-
+Should the xMO twiddling in __vgic_v3_get_gic_config() also get dropped
+here?
 
