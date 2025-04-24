@@ -4,93 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4A30C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:35:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45C03C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:37:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DMDSe2gyY7VT/4LTz9u2YpY5KEIDQEp0d0WnKerW0I8=; b=WlCylxfGR4/k4wJtWJF0w2oVM1
-	BpgZDtU0Tz+uoHFUMpX82FLDcD/Y3PgrBC6+rqIGAja9TW+1dgS0pnyzbpp2U/QQr1DL2mYBaXAFe
-	+ZAYfh5bUyjC1oibHvRYKdZXc9XtcLUNKV8kmy+tbX0R4ViAhtaeywUW1804mED5mdCalw2igNYuo
-	wx02Pnq+33rmxogJD+rbsKOCwbyrAV81/oVqK/nw5vqC3z5OyR/i0WFeN+8nDqFrpfKGQTxP44r0S
-	5IVg/GoJ1YZesdEg4ui728+MVDPLDVNvhftEvuiw+FLLza4UEl+hs+lFckOROs2PqouLsz+qLbwXe
-	WzaobV0Q==;
+	bh=BlorimMULb+8kz3lWeMKC2xv+9sTTpBrY2NOBLIkBZw=; b=wnKIHypGPFotbu+xYogyvbZNMP
+	TJIPvwv/xDmBD+b02HsCrZLGlZJckjHcQHeB0A4oWSpX09yDGM4PperYBse6eMOrLf34dz5/Dh6ld
+	lVN6R3ov4OquUHSrTUdrUGXoIWZdXBJuvZWQIyeedeBvT47nxrgJV/cVx9AvrroKsCBTQNHhL+9KT
+	5uyBrdDHRLAWaZ8xTcxqbOTvOpRpJ2R6HQEx0X+lWn4CmdsU0mbsoFcTENB8LMLXSFjvGleFbB4qr
+	0Exy+Z3yDzBVKl6d+zLGh8rMJ6XGIMGyjbRvCcsB+5yszkINx7hGeiJipdPaMg8ghZlmeACjQ0D4Y
+	KCgWG/Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7zYC-0000000Elpt-002L;
-	Thu, 24 Apr 2025 16:35:48 +0000
-Received: from mail-ot1-x333.google.com ([2607:f8b0:4864:20::333])
+	id 1u7za0-0000000EmII-3NiR;
+	Thu, 24 Apr 2025 16:37:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7zGE-0000000Ei7D-2CbB
+	id 1u7zRE-0000000Ek8L-2XIC
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 24 Apr 2025 16:28:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=BlorimMULb+8kz3lWeMKC2xv+9sTTpBrY2NOBLIkBZw=; b=F55Jr6+gXbj4JGDcW4g1/yIqeM
+	OsKD4Lg3PDBgvKrD2I1Bq/TqAkEKMuxgaVY5Enr4yR2/T8SS9i+bWjYz6f19c8TzLsxfudjgnc7Hv
+	e5USq7NbrhaT6Pck/H2m3dBBu7WzmqJM8dfri+GEHsUoSZqEybJDKa90TzbqDGtFcqHaMI7HKiRfR
+	RqUD/nN8kuFIEQNdTnCJ9kyvRAF+6QTQWM3ScvQhO7HcMxbFpvaY7H8CVQZ3NaIntGZYblqo4o//r
+	m/nmNUhCNVvCTqfxl0AwtXWw9oHLUpMgeDSYm0WVMmY1swGxD52snyvv+HRkco7eL8wXm0Fy6zS55
+	9l1EAEFQ==;
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u7zRB-0000000BrKq-0RmK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 16:17:16 +0000
-Received: by mail-ot1-x333.google.com with SMTP id 46e09a7af769-72b0626c785so1056947a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 09:17:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1745511433; x=1746116233; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=DMDSe2gyY7VT/4LTz9u2YpY5KEIDQEp0d0WnKerW0I8=;
-        b=krotWDFTh5/uwh8wBUZZrOkG11hT1OrLnockQeegl8z7j1LcJ21Dx9okNk9F6EO+l8
-         LWD+oxSO8pBxmPFOBZ9EipeoFzW6ZtXfVYJkRGTri93NIhuytU6ANQID4tSvFwFkyCWl
-         SuJX6/veSLghaUhDWL3gvUhVALrE0ASuc3ZUZSrWZgpIhoeFTlcb6B7zRDrractRuMzZ
-         mz14QOu15ZVO3xxg1SWCrPqY6TQMWvU9m2Dr1oAhVf+VAw9y9AUTdmqHSZvUNCjpVDYu
-         noMTDBqy1wbmrtchurSCYGTsMPkqd834LVkTobdw7/U3SkIsIiHUi190GhjFBocD+5ha
-         d5Ew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745511433; x=1746116233;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=DMDSe2gyY7VT/4LTz9u2YpY5KEIDQEp0d0WnKerW0I8=;
-        b=gc4s2J96VxYfS2IKu1ZfX/QFw7WTfC958kRSMexAisa8HT3cn/0GaXvA1+cSnl2y93
-         ySrna25wu0NQJq7ybSqQE3SpSeTdnKgIr3MXPF7uAO9OL6XC3zVta4Wxt4FKWLk2m0yT
-         W3xBNly8+vD5iw99NmSiaKGwMSY7x0PNCG6DQClGmPD44i7ZQ73/O/EgmX2AdTzHRUCZ
-         wmc+3QvBHbkSfoJT7JgQXwoRFKmiaS7jUQdlnWfO8XEvmqdVBlkVQSxHoVbQNWlevR/y
-         egRDQ1x6MuMFCyt7M9o8By4ms7faeKdznrHUW+tb1E++DkrdOuIvIbuk6R2dWfFh++UH
-         KTDg==
-X-Forwarded-Encrypted: i=1; AJvYcCXiH9QsqkhXXhwvI20lEvX9a573MJlDMDbnE8r+UFQxtItuO66OpthI3GVwlBooqcXU9ZgwgzPV5YjU4bZ5mVCK@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+/iWi6MDVa/o82DJyzZf5EYvfg5uARgl0srQnM66s30oW5Hfy
-	jyJ77y4L4JAcVDM9izwsDpG3KwHSg9+BsBpwtmQd2U1sztN3uFGtLuqm8vR1TN8=
-X-Gm-Gg: ASbGncuSfkT22SEInxAkk/aQxphCtG3oOxHOujozsV1sfyhBSCvw9b16U5oxPx8CenM
-	x2FBO64dgFw+G7kA9euwQPfJxfUOljNooDdG/ROQP1KkrzX1duYlZDxPc68KQ9jMHoi8lnz9jHd
-	DdJ7rZrN1FPeX4j3TndT15kv4AOnUba3H5s6tfNNYZXc9s/tY8NUCOb/LvBsmJ2OgZ66+UZSnx5
-	lsNyeceARcCasRyWLb50iYA2MWl8KMbxDWzsdWFUuBWJh+lVzJdsUxEbZrulSyw6eawE8UBKbY1
-	9aLSA2q9oQvcJnsQ5L+u3ICH3iUzeu7RdNdlvkGSAH41eiASHfnKbg34fiPX/ac2tp4ux2y9ry7
-	ZQoBuL9p9b7Gabfe+Vg==
-X-Google-Smtp-Source: AGHT+IGYpdBfV2Zzsk0/8jMa28e3BnEWDecgbttEk0HlgDIzoWmi2sopZs6+yVh5h5dJX7VRxbT0tQ==
-X-Received: by 2002:a05:6830:2586:b0:72b:872f:efc8 with SMTP id 46e09a7af769-73059dc7e88mr305240a34.24.1745511433030;
-        Thu, 24 Apr 2025 09:17:13 -0700 (PDT)
-Received: from ?IPV6:2600:8803:e7e4:1d00:68de:6c1f:6d0d:b32d? ([2600:8803:e7e4:1d00:68de:6c1f:6d0d:b32d])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7304f188882sm291036a34.5.2025.04.24.09.17.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 24 Apr 2025 09:17:12 -0700 (PDT)
-Message-ID: <ab3dcc4e-bb85-4a5c-82f3-36bedec3e79d@baylibre.com>
-Date: Thu, 24 Apr 2025 11:17:11 -0500
+	Thu, 24 Apr 2025 16:28:35 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53OC3DpR016250;
+	Thu, 24 Apr 2025 16:28:21 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	BlorimMULb+8kz3lWeMKC2xv+9sTTpBrY2NOBLIkBZw=; b=bwicXPBHEQ0YKLiV
+	zY0gBg18cRxxnH0uQIswnf9iJW3gww0sD4eR9dI8sETecnhX9J2RA2nowgAtPA/v
+	QKNgR2Apzq09y5bVIboBxH2T+X+k/p7z5cY49dc9TD3Ok4wil6CzP1SAEM/QvTck
+	dh+NG12OnV9oi3udzdP8gUvPAG351WUts+93GfUl7Fuj3uEv/KdD1qcmO+WRKXkz
+	ZZM44b60VO+D3ZYsDIyULiTBheTJ3tLlMdXQBchpn4S6x8z9SHWxTXEb3wVe7hbQ
+	1koyXYAW66Nuh2Anze+mJNEYvK49kRCppqDJcI/PKGJrwmT05PuV2UAXBizatoKK
+	YoCMQg==
+Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 466jh0ec79-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 24 Apr 2025 16:28:21 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53OGSKTp015600
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 24 Apr 2025 16:28:20 GMT
+Received: from [10.216.17.18] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 24 Apr
+ 2025 09:28:14 -0700
+Message-ID: <dfa2ed59-ba7c-4cb4-ac78-97f3de716b9b@quicinc.com>
+Date: Thu, 24 Apr 2025 21:58:11 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5] iio: adc: stm32: add oversampling support
-To: Olivier Moysan <olivier.moysan@foss.st.com>,
- Jonathan Cameron <jic23@kernel.org>, =?UTF-8?Q?Nuno_S=C3=A1?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>, linux-iio@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250424151604.626758-1-olivier.moysan@foss.st.com>
-From: David Lechner <dlechner@baylibre.com>
+Subject: Re: [PATCH v8 00/10] Add support for videocc, camcc, dispcc and gpucc
+ on Qualcomm QCS615 platform
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+        Bjorn Andersson
+	<andersson@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        "Stephen
+ Boyd" <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Catalin Marinas
+	<catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>
+CC: Ajit Pandey <quic_ajipan@quicinc.com>,
+        Imran Shaik
+	<quic_imrashai@quicinc.com>,
+        Jagadeesh Kona <quic_jkona@quicinc.com>,
+        <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Bryan O'Donoghue
+	<bryan.odonoghue@linaro.org>,
+        Dmitry Baryshkov <lumag@kernel.org>
+References: <20250424-qcs615-mm-v7-clock-controllers-v8-0-bacad5b3659a@quicinc.com>
+ <94a5f0d7-b152-4fe3-b312-a0f7792cc076@kernel.org>
+ <8552c048-df45-49ba-83b3-5c39d4b770fe@quicinc.com>
+ <3bbef5c3-1859-4a4a-b25a-83428dc15e98@kernel.org>
 Content-Language: en-US
-In-Reply-To: <20250424151604.626758-1-olivier.moysan@foss.st.com>
-Content-Type: text/plain; charset=UTF-8
+From: Taniya Das <quic_tdas@quicinc.com>
+In-Reply-To: <3bbef5c3-1859-4a4a-b25a-83428dc15e98@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: HBUMWYhRGfGqFB9-xVhwgCMrFGT5TG-r
+X-Proofpoint-ORIG-GUID: HBUMWYhRGfGqFB9-xVhwgCMrFGT5TG-r
+X-Authority-Analysis: v=2.4 cv=Fv0F/3rq c=1 sm=1 tr=0 ts=680a66a5 cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8 a=P-IC7800AAAA:8
+ a=qte3l9YSZrOXRyZcDLIA:9 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22 a=d3PnA9EDa4IxuAV0gXij:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI0MDExMyBTYWx0ZWRfX7N+c4nog+brz U0ur3pelvHTIqty9CEytj/4bj743UeFsyNecVVGRNVbu1/qDM/lV3ykKCxohRKoa7blWzR/kNut K+joOk7cddiTQM849C4JcA7SqQG4AMfBN/NvO74QZlzu7BJHYjHDXD1vliEScrPo9b1TQXjnVBV
+ B6+yw9a8UUjA8TIk/rk9ShhiLWOVSoBxPITAMIWpRiLUfpWnd+sXElp5IfqA6LtOtdsMEQwjWXU e2LZ0YKNC/ClCWOL7Yju37Ig28JNWCvPsCP5PHEa5jZg2uSF6thaY2Lj61bHw1qKBbsPc6lmwAU cKmf5UkHRXB20p6qq5FRYBfH9T83OS1rsCIrlk1ZfL01/sj01i3l67P1CuIh9Idjpbo9aWSExn/
+ RicMEsNk5BrMz0ZYw+FlcKqspvhf4qg31F92x41JLTlSDdH2NBAoKWuPEAaFOsUYbP0X4+7G
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-04-24_07,2025-04-24_01,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 mlxscore=0
+ malwarescore=0 mlxlogscore=999 priorityscore=1501 suspectscore=0
+ adultscore=0 bulkscore=0 clxscore=1015 spamscore=0 lowpriorityscore=0
+ phishscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
+ definitions=main-2504240113
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_091714_565407_4A9B0724 
-X-CRM114-Status: GOOD (  12.39  )
+X-CRM114-CacheID: sfid-20250424_172833_579824_5CBB054C 
+X-CRM114-Status: GOOD (  16.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,33 +142,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/24/25 10:16 AM, Olivier Moysan wrote:
-> Add oversampling support for STM32H7, STM32MP15 & STM32MP13.
-> STM32F4 ADC has no oversampling feature.
-> 
-> The current support of the oversampling feature aims at increasing the
-> data SNR, without changing the data resolution.
-> As the oversampling by itself increases data resolution, a right shift
-> is applied to keep the initial resolution.
-> Only the oversampling ratio corresponding to a power of two are
-> supported here, to get a direct link between right shift and
-> oversampling ratio. (2^n ratio <=> n right shift)
-> 
-> The oversampling ratio is shared by all channels, whatever channel type.
-> (e.g. single ended or differential).
-> 
-> Oversampling can be configured using IIO ABI:
-> - oversampling_ratio_available
-> - oversampling_ratio
-> 
-> Co-developed-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
-> 
-> ---
-Don't forget to pick up other tags. In v4, I already gave
 
-Reviewed-by: David Lechner <dlechner@baylibre.com>
 
+On 4/24/2025 8:59 PM, Krzysztof Kozlowski wrote:
+> On 24/04/2025 13:13, Taniya Das wrote:
+>>
+>>
+>> On 4/24/2025 4:40 PM, Krzysztof Kozlowski wrote:
+>>> On 24/04/2025 11:32, Taniya Das wrote:
+>>>> Add support for multimedia clock controllers on Qualcomm QCS615 platform.
+>>>> Update the defconfig to enable these clock controllers.
+>>>>
+>>>> Global clock controller support
+>>>> https://lore.kernel.org/all/20241022-qcs615-clock-driver-v4-0-3d716ad0d987@quicinc.com/
+>>>>
+>>>> Changes in v8:
+>>>> - Drop the properties which are already covered as part of gcc.yaml [Krzysztof]
+>>>> - Drop the RB tag for dt-bindings for Camera clock controller.
+>>>
+>>> Why?
+>>
+>> It had comments, so wanted to share the latest RB-by.
+> So there were some comments and that's the basis to ask to do review
+> twice? So anyone can comment on anything and you will remove people's
+> review? I am not going through this again.
+> 
+
+It was your comments, so I thought it would not be good to keep the RB
+tag if it has so many comments. That was the reason to drop it.
+
+> Read carefully:
+> https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
+> 
+> Best regards,
+> Krzysztof
 
 
