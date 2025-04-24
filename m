@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77078C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:06:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 245D2C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:07:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fkw6jo/oeFh6qnWXDp6jlBdNEq901uF/wqE5/ZMg0xQ=; b=akOidYJECvlC3sAAl/ep9gOrPb
-	QtUxLQv4yW9/iSse5MEli7MVxMw97gMnksHafwzPnrf5EQObbkh7u3w4Bem35DMcpDBlbWPiN6lbD
-	hOMAuRJMWIcwIlNMzBFS4aM+ph86ueDrcTrCcZkJlWEIUVFMITmdqpV5Y0g+TFrHu8ZWP3+ZjWrTt
-	GKQ9gtCkJt96kRWP0uU4vRnLX5IIxbepHH8UJ17DvsAfYzhPOPvjrAUzpw+WXIZt4MEYRvzJ9c5Mt
-	EXnt5Jnnw1rLXt/I9Lb0RAHjWkacDZPmv5evWaeic4w6EzbAUVfTc9hcMxiC0mlASC3wIRUGmpWRZ
-	Y1bVxW7w==;
+	bh=IXvNlcutyMXVdoUVJkL/Ta8/a2mdxRJrpPZQuCyEfUg=; b=RnUf5k0XlVViTGH87AYjjmr/gc
+	1wr+vhtOgGvvXgRli5PdmDBokz4CnV/twPkUWk0O66rgwQC9HQVO9eJajeKB+79Pi8NVpQWW1NWHB
+	4/9lZwsyvgRBiEkaL6Q+OxLNi6hWNu0ybys9wwqGGXF27sdt8NnutpWMcJ8McY72QCC1p4dTW7Yj0
+	Q/EbDXEJ4+KE7693QDYK0bMKg9WC5BuZ/uJCA8r03xtddIXy2/H/kpc8Xn5LK8MnXfMASp98mPjLE
+	H62MV4WuCope6mV+2cKlKbUbF1sNDWkVOgYcYQRFxyo+YH79PVAXwR+3ULUBSE4DmWlR4poGuta9n
+	DeWUovZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7z66-0000000EeOS-3aQh;
-	Thu, 24 Apr 2025 16:06:46 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1u7z6B-0000000EeUy-0VF3;
+	Thu, 24 Apr 2025 16:06:51 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7xLO-0000000EKrS-2uua
+	id 1u7xLS-0000000EKsk-1wK1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 14:14:27 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-39c1ef4acf2so878189f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 07:14:26 -0700 (PDT)
+	Thu, 24 Apr 2025 14:14:31 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3913958ebf2so866934f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 07:14:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745504065; x=1746108865; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1745504069; x=1746108869; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Fkw6jo/oeFh6qnWXDp6jlBdNEq901uF/wqE5/ZMg0xQ=;
-        b=lfZ/E5uKgadFQj6K/WPQL0fQDUC1JalhkxJGIBlDo+3nW9xMRCzKyxGnKoPhKy6QIa
-         lXBWx2xY2YwdtqNXxWmufm1KMXjxQtpKWAjsM595T9gXJfdZhDfnCaTKhQlLeVOLMUoW
-         WygrsI+XSU6pY1IGzU38LrLmmjEHhBZ8sxd8NjekymHhALfDmhawz7IGVm7G/J5Gk8Ww
-         0E5ffALuXkJxoDJVb2HxqZeWhbRVzwMVcOPt6qRsFTbrSN5F5oPb/UW4izEmynqFvNhm
-         qJGAOKgdctikzVR7vW/z/M7AfzGJQ6ARqUJrx/LZm4ts9l0ybCVqqkq9WV1zQZuPhbmw
-         ZEBg==
+        bh=IXvNlcutyMXVdoUVJkL/Ta8/a2mdxRJrpPZQuCyEfUg=;
+        b=QqUZH9exN+zoMJZ+82llDUoUNXT3ceIezkKLV2Ou7zoNw8AiPgB51nhcniKthR6MFp
+         VBsSpL2P+4YL/at93+nbVK2yE70NXOOXAjoD+kbc4qkHmS+bWE0BLuSt09LMjlduHQN4
+         3FCQu257n6dbLPxZ0rvBSLcxyFz/EQUgZDQ2ruBlalhl+w+HXtf7ZzgBx1/uVSk+ThXF
+         WQAK2Ua7zjnyUFXExBQkGS3ZNmsmihVedNy0KC/FXviK5VdbJ2NbleDA9Ypi5hYxt7f1
+         lcZa0gawmCWG/LGSkvt+e9dpgx1O/HH8yHlx/U5vHPGGcf/Mx9vKlzwabY/Cd/mm4Nan
+         7ZEw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745504065; x=1746108865;
+        d=1e100.net; s=20230601; t=1745504069; x=1746108869;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Fkw6jo/oeFh6qnWXDp6jlBdNEq901uF/wqE5/ZMg0xQ=;
-        b=s/2ugRB14qjdwP/Hyy6mnRPAHEcvJQfU/O2M2EYQltSr5yCswxY0+acVch5j1ZCsno
-         t+YiNm6ipX2fCTSOMaoKqFNnrtuoAqC4UtUxgPoh1JxD2NvBhBDUq3b/uk3h7p0r/mO/
-         mRKZaYJd8tAV/MoJeL5m+8UaI37TdK8WVZEMrnc1+zyy81A1iN/fAjw48mCDdGIHWjvL
-         QbKgTNtUVIFhtlMbdmcJp4o3l3FqEfrwAwVfRpBe+LFQ+GxVjwdnBH7l7E4SOI6A7jer
-         OmSYEcPwl5q8DxtmyUFvxfv1o6XuF100d+CJBLf8nZS4eRaYxHS/ojsE/m38FYXv6qB4
-         /Tsw==
-X-Forwarded-Encrypted: i=1; AJvYcCVjrv+x8alNoJ+kC2vjo6+2dgli4K5rnw5IR3rNRgVYagMaIJ2TurymFEZXYDzX/DRaKQXHbfXDbq8zcwOZEWb8@lists.infradead.org
-X-Gm-Message-State: AOJu0YzeSM1ifG3+ILPrje7zUVbuNpu4+evZTHSxs2PTYkI4L2fKmyR8
-	Yyic/E1VNO1DT20M+JhQBvF/4lTavzgUmgoc77ZDH0UB8qMtLLcgA4L3J2Z2vYk=
-X-Gm-Gg: ASbGncsP1gQo5kF2Bbr8wy0uTycBdznX8NPUElUm6vYmusxZDR/pLxrd31BtA6j2RY5
-	ilSC3erj8mTeNbV9MkaJR86xPx5chTnfjIAIj/Ig/998qt753cVLDFXqUyK4lncC+DicSjZcMJd
-	fz7mGccI3yhsPBcd/onOypnQyufB6CjtCR8k5Yj4qMn/KVZShkDbDGVPy4CvjQlXJGo0KOmcqCA
-	h6n55sr3V4yZwSHH8PogxCQjXtjZSNG48PnaKLtZzqNGWDtOHX4MxiZYkL7ZicWxRfi2wX/I4Wu
-	efhRgYPKuRHUpfuteEavyTIImIuAvS98qvl8KURYcVYu3WVlHAjX+2ga9VP0IDRBBc1lFR5YqEK
-	+4BRL/lay6Bxp2if3
-X-Google-Smtp-Source: AGHT+IELqmSvaP6OfocDnjzMS7mUki3w51itbTq+w393mXtO1Vl290MnI9dSMs1K0cj071gNYf3OVQ==
-X-Received: by 2002:a5d:6da2:0:b0:39e:cc0c:9789 with SMTP id ffacd0b85a97d-3a06cf4f2f6mr2251923f8f.11.1745504065280;
-        Thu, 24 Apr 2025 07:14:25 -0700 (PDT)
+        bh=IXvNlcutyMXVdoUVJkL/Ta8/a2mdxRJrpPZQuCyEfUg=;
+        b=sAf7NO2gHxCnp6wCYxjPv4Ep+zp9PIZ7yE01wWnE+9pmjT1fTWIU6ORYInnJk+hAS3
+         x1hLT85MSyPqdwTYmAPS0s6iRtcvqQ4wwy4zgSIpseyjRB//W/uZaaiw+7sCmgG8xodW
+         R8RP24hssZVBNvoVv3y8EJACxNRjdbLjhStCU5g5xwYlDbXzkeUrRdqW9SQH5Nww4jfR
+         gchj0FiXY2WR8p9/DEhThLSfwQwu9QdOwwEQLTVOLx0f7UpfeKsQUjxR/qwyUEAF9aHD
+         7UWXUDtZx2TyB1Y/Y2mzaJuJK4WXXiT4sElntpKeqp49ayYKSH4O3l4MazBV3Kq6l1AF
+         AOug==
+X-Forwarded-Encrypted: i=1; AJvYcCXTjtezcCLpeixHRZlsdn2drcBpNhOQAaJlHwU7ZIvnVkBpaQk11mesK/WjpQFw8x30cg8eTghMZlscDDVXtvcF@lists.infradead.org
+X-Gm-Message-State: AOJu0YzALnNZfVdNSDXcVGzRwmcl9nJ/wJRIgbTdYDrmXwq5f5qmdqUw
+	ZaQIkdhEWhWBrWV5uQXMd/Xgq52IKbaCqjkSvl+BRKP4fNlAFzpS/2inPbzVsMQ=
+X-Gm-Gg: ASbGncvmkDLQ8Uk7c6HWJGR+4yX1CwMAY86OGq8n0kP5hqY7Iwx+Pa79yIjwi+YWwq7
+	j4pMPUw0t2NmgbyrSfu3XxznvrNxScfy/ELwJYNbQBoM8Qi2Rpoo2Df1Wu2bYK9hDRRA4pusNQU
+	DMjVM3KDaK0ZIaQMnQ8syE3XISOVaLeDef1QQ7xXkMt1T1Eq0TjS86PUhvaiZ+8kuuwCUmTQUfC
+	osts9gr2BvAfO5Gv9TcJHgPgKj2ZwTr43PRP5BqhGp33+mOgT6Zz0hbCT4LmXpl7h5oNYu2IR9t
+	Z4XASvKpxPRnROWVpYVl9sba89oJOqSErNOaKdE9oJJf9R2BovE0ATFmxwQ0xNI0tCuti7vsEIe
+	6iPiY19nldrvRNFzI
+X-Google-Smtp-Source: AGHT+IH0tCAHy+56/cv4ZEG1Nkj43NDfif06A0s6QNH24+K7YCAgJ/1BfT2MGE/c41oOF+y78aq+Lw==
+X-Received: by 2002:a5d:4092:0:b0:39a:c80b:8288 with SMTP id ffacd0b85a97d-3a06cf635f7mr2018268f8f.33.1745504069033;
+        Thu, 24 Apr 2025 07:14:29 -0700 (PDT)
 Received: from seksu.systems-nuts.com (stevens.inf.ed.ac.uk. [129.215.164.122])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a06d4a8150sm2199951f8f.7.2025.04.24.07.14.24
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a06d4a8150sm2199951f8f.7.2025.04.24.07.14.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Apr 2025 07:14:24 -0700 (PDT)
+        Thu, 24 Apr 2025 07:14:28 -0700 (PDT)
 From: Karim Manaouil <karim.manaouil@linaro.org>
 To: linux-kernel@vger.kernel.org,
 	kvm@vger.kernel.org,
@@ -98,19 +98,18 @@ Cc: Karim Manaouil <karim.manaouil@linaro.org>,
 	Murali Nalajala <mnalajal@quicinc.com>,
 	Sreenivasulu Chalamcharla <sreeniva@qti.qualcomm.com>,
 	Trilok Soni <tsoni@quicinc.com>,
-	Stefan Schmidt <stefan.schmidt@linaro.org>,
-	Elliot Berman <quic_eberman@quicinc.com>
-Subject: [RFC PATCH 30/34] gunyah: Add RPC to set VM boot context
-Date: Thu, 24 Apr 2025 15:13:37 +0100
-Message-Id: <20250424141341.841734-31-karim.manaouil@linaro.org>
+	Stefan Schmidt <stefan.schmidt@linaro.org>
+Subject: [RFC PATCH 33/34] KVM: gunyah: Implement irqfd interface
+Date: Thu, 24 Apr 2025 15:13:40 +0100
+Message-Id: <20250424141341.841734-34-karim.manaouil@linaro.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250424141341.841734-1-karim.manaouil@linaro.org>
 References: <20250424141341.841734-1-karim.manaouil@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_071426_732191_72DDFB7A 
-X-CRM114-Status: GOOD (  13.66  )
+X-CRM114-CacheID: sfid-20250424_071430_510673_D4681F67 
+X-CRM114-Status: GOOD (  18.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,82 +124,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Elliot Berman <quic_eberman@quicinc.com>
+Enables support for injecting interrupts into guest vCPUs via KVM's
+irqfd interface. Irqfds are requested from userspace via KVM_IRQFD
+ioctl. kvm_arch_irqfd_init() implementation, in Gunyah, then creates
+a resource ticket for the irqfd. The userspace must also create a
+devicetree node to create a doorbell with the corresponding label.
+Later after VM configuration (in gunyah_vm_start()), the resource ticket
+will be populated and the irqfd instance will be bound to its
+corresponding doorbell (identified with a capability id). When userspace
+asserts the irq line, irqfd->set_irq() callback is called to inject an
+interrupt into the guest via a hypercall.
 
-The initial context of a the primary vCPU can be initialized by
-performing RM RPC calls.
-
-Signed-off-by: Elliot Berman <quic_eberman@quicinc.com>
-Reviewed-by: Srivatsa Vaddagiri <quic_svaddagi@quicinc.com>
 Signed-off-by: Karim Manaouil <karim.manaouil@linaro.org>
 ---
- drivers/virt/gunyah/rsc_mgr_rpc.c | 32 +++++++++++++++++++++++++++++++
- include/linux/gunyah_rsc_mgr.h    |  2 ++
- 2 files changed, 34 insertions(+)
+ arch/arm64/kvm/gunyah.c | 100 ++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 100 insertions(+)
 
-diff --git a/drivers/virt/gunyah/rsc_mgr_rpc.c b/drivers/virt/gunyah/rsc_mgr_rpc.c
-index 7fccd871cc0b..78c4d1d5d42a 100644
---- a/drivers/virt/gunyah/rsc_mgr_rpc.c
-+++ b/drivers/virt/gunyah/rsc_mgr_rpc.c
-@@ -106,6 +106,15 @@ struct gunyah_rm_vm_config_image_req {
- 	__le64 dtb_size;
- } __packed;
+diff --git a/arch/arm64/kvm/gunyah.c b/arch/arm64/kvm/gunyah.c
+index df922be2429e..23b9128bf5b1 100644
+--- a/arch/arm64/kvm/gunyah.c
++++ b/arch/arm64/kvm/gunyah.c
+@@ -29,6 +29,14 @@
+ #define WRITE_TAG (1 << 0)
+ #define SHARE_TAG (1 << 1)
  
-+/* Call: VM_SET_BOOT_CONTEXT */
-+struct gunyah_rm_vm_set_boot_context_req {
-+	__le16 vmid;
-+	u8 reg_set;
-+	u8 reg_index;
-+	__le32 _padding;
-+	__le64 value;
-+} __packed;
++struct gunyah_irqfd {
++	struct gunyah_vm *ghvm;
++	struct gunyah_resource *ghrsc;
++	struct gunyah_vm_resource_ticket ticket;
++	struct kvm_kernel_irqfd irqfd;
++	bool level;
++};
 +
- /* Call: VM_SET_DEMAND_PAGING */
- struct gunyah_rm_vm_set_demand_paging_req {
- 	__le16 vmid;
-@@ -447,6 +456,29 @@ int gunyah_rm_vm_init(struct gunyah_rm *rm, u16 vmid)
+ static int gunyah_vm_start(struct gunyah_vm *ghvm);
+ 
+ static enum kvm_mode kvm_mode = KVM_MODE_DEFAULT;
+@@ -852,6 +860,98 @@ static int gunyah_start_paging(struct gunyah_vm *ghvm)
+ 	return ret;
  }
- ALLOW_ERROR_INJECTION(gunyah_rm_vm_init, ERRNO);
  
-+/**
-+ * gunyah_rm_vm_set_boot_context() - set the initial boot context of the primary vCPU
-+ * @rm: Handle to a Gunyah resource manager
-+ * @vmid: VM identifier
-+ * @reg_set: See &enum gunyah_vm_boot_context_reg
-+ * @reg_index: Which register to set; must be 0 for REG_SET_PC
-+ * @value: Value to set in the register
-+ */
-+int gunyah_rm_vm_set_boot_context(struct gunyah_rm *rm, u16 vmid, u8 reg_set,
-+				  u8 reg_index, u64 value)
++static bool gunyah_irqfd_populate(struct gunyah_vm_resource_ticket *ticket,
++				  struct gunyah_resource *ghrsc)
 +{
-+	struct gunyah_rm_vm_set_boot_context_req req_payload = {
-+		.vmid = cpu_to_le16(vmid),
-+		.reg_set = reg_set,
-+		.reg_index = reg_index,
-+		.value = cpu_to_le64(value),
-+	};
++	struct gunyah_irqfd *irqfd =
++		container_of(ticket, struct gunyah_irqfd, ticket);
++	int ret;
 +
-+	return gunyah_rm_call(rm, GUNYAH_RM_RPC_VM_SET_BOOT_CONTEXT,
-+			      &req_payload, sizeof(req_payload), NULL, NULL);
++	if (irqfd->ghrsc) {
++		pr_warn("irqfd%d already got a Gunyah resource", irqfd->ticket.label);
++		return false;
++	}
++
++	irqfd->ghrsc = ghrsc;
++	if (irqfd->level) {
++		/* Configure the bell to trigger when bit 0 is asserted (see
++		 * irq_wakeup) and for bell to automatically clear bit 0 once
++		 * received by the VM (ack_mask).  need to make sure bit 0 is cleared right away,
++		 * otherwise the line will never be deasserted. Emulating edge
++		 * trigger interrupt does not need to set either mask
++		 * because irq is listed only once per gunyah_hypercall_bell_send
++		 */
++		ret = gunyah_hypercall_bell_set_mask(irqfd->ghrsc->capid, 1, 1);
++		if (ret)
++			pr_warn("irq %d couldn't be set as level triggered."
++				"Might cause IRQ storm if asserted\n",
++				irqfd->ticket.label);
++	}
++
++	return true;
 +}
-+ALLOW_ERROR_INJECTION(gunyah_rm_vm_set_boot_context, ERRNO);
 +
- /**
-  * gunyah_rm_get_hyp_resources() - Retrieve hypervisor resources (capabilities) associated with a VM
-  * @rm: Handle to a Gunyah resource manager
-diff --git a/include/linux/gunyah_rsc_mgr.h b/include/linux/gunyah_rsc_mgr.h
-index f16e64af9273..6a07fe25b0ba 100644
---- a/include/linux/gunyah_rsc_mgr.h
-+++ b/include/linux/gunyah_rsc_mgr.h
-@@ -126,6 +126,8 @@ int gunyah_rm_vm_configure(struct gunyah_rm *rm, u16 vmid,
- 			   u32 mem_handle, u64 image_offset, u64 image_size,
- 			   u64 dtb_offset, u64 dtb_size);
- int gunyah_rm_vm_init(struct gunyah_rm *rm, u16 vmid);
-+int gunyah_rm_vm_set_boot_context(struct gunyah_rm *rm, u16 vmid, u8 reg_set,
-+				  u8 reg_index, u64 value);
- 
- struct gunyah_rm_hyp_resource {
- 	u8 type;
++static void gunyah_irqfd_unpopulate(struct gunyah_vm_resource_ticket *ticket,
++				    struct gunyah_resource *ghrsc)
++{
++}
++
++static int gunyah_set_irq(struct kvm_kernel_irqfd *kvm_irqfd)
++{
++	int ret;
++	struct gunyah_irqfd *irqfd =
++		container_of(kvm_irqfd, struct gunyah_irqfd, irqfd);
++
++	if (irqfd->ghrsc) {
++		if (gunyah_hypercall_bell_send(irqfd->ghrsc->capid, 1, NULL)) {
++			pr_err_ratelimited("Failed to inject interrupt %d: %d\n",
++					irqfd->ticket.label, ret);
++			return -1;
++		}
++	} else {
++		pr_err_ratelimited("Premature injection of interrupt\n");
++		return -1;
++	}
++
++	return 1;
++}
++
++struct kvm_kernel_irqfd *kvm_arch_irqfd_alloc(void)
++{
++	struct gunyah_irqfd *irqfd;
++
++	irqfd = kzalloc(sizeof(struct gunyah_irqfd), GFP_KERNEL);
++	if (!irqfd)
++		return NULL;
++
++	return &irqfd->irqfd;
++}
++
++void kvm_arch_irqfd_free(struct kvm_kernel_irqfd *kvm_irqfd)
++{
++	struct gunyah_irqfd *irqfd = container_of(kvm_irqfd, struct gunyah_irqfd, irqfd);
++
++	gunyah_vm_remove_resource_ticket(irqfd->ghvm, &irqfd->ticket);
++	kfree(irqfd);
++}
++
++int kvm_arch_irqfd_init(struct kvm_kernel_irqfd *kvm_irqfd)
++{
++	struct gunyah_vm *ghvm = container_of(kvm_irqfd->kvm, struct gunyah_vm, kvm);
++	struct gunyah_irqfd *irqfd = container_of(kvm_irqfd, struct gunyah_irqfd, irqfd);
++
++	kvm_irqfd->set_irq = gunyah_set_irq;
++
++	irqfd->ghvm = ghvm;
++
++	irqfd->ticket.resource_type = GUNYAH_RESOURCE_TYPE_BELL_TX;
++	irqfd->ticket.label = kvm_irqfd->gsi;
++	irqfd->ticket.populate = gunyah_irqfd_populate;
++	irqfd->ticket.unpopulate = gunyah_irqfd_unpopulate;
++
++	return gunyah_vm_add_resource_ticket(ghvm, &irqfd->ticket);
++}
++
+ int kvm_arch_vcpu_should_kick(struct kvm_vcpu *vcpu)
+ {
+ 	return kvm_vcpu_exiting_guest_mode(vcpu) == IN_GUEST_MODE;
 -- 
 2.39.5
 
