@@ -4,68 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16D36C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 14:14:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16AB1C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 14:18:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7otg9CBtCT7QAKWzhQ51y40SaaQ+r/ZEtal4jjG9ZsI=; b=Wy+cf5vjYKu/o6N9M/hVFKwO+F
-	6vRbEhkjBAdP1/9TrSYLysbujBmvkiYOgCbJPmQU+0RYWr4VupOpg9NbPmVKqLejxC/KRLlPPl5aY
-	7YGP5SUp0bRN+6vqkhWNOB+PQqpGYrsU99P3KCgjq04tYIBHQF+oMp4NFgV/W5TWBNAA/Q4LuavgC
-	wFWf117B0x9MU2n3roj3x7bMGdnv9GGoOdO8Ph8MceD1aHXlwtwo27D6gug1Esq0DtT1v6Wqwqv4M
-	NNd7RK19V4bfW6laCVX+q2LuKKLzpPRx1fHge5AOoXuaErK1sbgKWtGlVCZ0Qq/Pzu/YCFrmhyOKh
-	g8fzgyUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RWQ7tow6/QObV1dZlu7iQyh8ZGlTXJ546APi65ecku8=; b=TM/k3n8OK4F0mGDDvnf4fKiqDX
+	DBwJg24VurAPAPU+qHfZ88jh5RJ4oMJqsdlhcTQoKAJhdoMeHh/hrlqp+Z4q5IgFnX71ekDkRRu98
+	3u3Hvp+ORbuRp+DvhUX88BAwEdYK+VZWMqtP7PIAf569kIoX0/11AGJYrAJ7/SHEN8DBVMpYFhgtw
+	eed7Oiez8diWAnNEtVMJtpukPcZFY7LmP2A3Q+kFTzcKlt/M2QxssAuUhQqKeMf3hcKWNDOB+G9cY
+	Jb96qQL9Xxwsa1AfFPu+6qIe6PTESRud3A+SCE/QOTmmhztxgRVJqzydkVZCSB/xMneyCqTFn3qj2
+	chzCdPQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7xLS-0000000EKsz-1WD3;
-	Thu, 24 Apr 2025 14:14:30 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u7xP5-0000000ELYg-1NVM;
+	Thu, 24 Apr 2025 14:18:15 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7wCf-0000000E7qh-3ZCw
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 13:01:23 +0000
+	id 1u7wNs-0000000E9eY-2yN7;
+	Thu, 24 Apr 2025 13:12:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C42905C63C0;
-	Thu, 24 Apr 2025 12:59:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE734C4CEE8;
-	Thu, 24 Apr 2025 13:01:15 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 39C69A4CD61;
+	Thu, 24 Apr 2025 13:07:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F69DC4CEE3;
+	Thu, 24 Apr 2025 13:12:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745499679;
-	bh=w4ERmlgT37R8fqbbx4uVzFLB0bFMUP+qmxc5xgde/7k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pxm6+iDHVTleShgiF8bFeJvckCUPbkg57ANzPMtBwns7jfQzzmQz0EFJ05T112lwB
-	 WMYmpudJjzcHgAOUsrdINVZwv2/j3JmqCXznxVSHQq2h8faiVnOKb2RPegnUC/8c7p
-	 CHaM/QMNsb9S3xfYYv2Uod/Thx792cyS2aY6xTHFYMs9lM9RC3snvzyGXMCbGnsq0q
-	 S9nGIj8WSYURRlSOIHYy78OF6pj5n9fb8Tqqt9Sn/E9qC4HqxLGOVqzFxJrudWvFAS
-	 cqzpZUf5gYP+kfQp7RKfjlVq62KmV3pjTBFhnjHgok0FqDpTUNUI3do98G9jOCTAvJ
-	 KbiBb+ril+iaQ==
-Date: Thu, 24 Apr 2025 14:01:12 +0100
-From: Lee Jones <lee@kernel.org>
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Cc: ukleinek@kernel.org, alexandre.torgue@foss.st.com, krzk+dt@kernel.org,
-	conor+dt@kernel.org, jic23@kernel.org, daniel.lezcano@linaro.org,
-	tglx@linutronix.de, robh@kernel.org, catalin.marinas@arm.com,
-	will@kernel.org, devicetree@vger.kernel.org, wbg@kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-iio@vger.kernel.org, linux-pwm@vger.kernel.org,
-	olivier.moysan@foss.st.com
-Subject: Re: [PATCH v4 2/8] mfd: stm32-lptimer: add support for stm32mp25
-Message-ID: <20250424130112.GD8734@google.com>
-References: <20250314171451.3497789-1-fabrice.gasnier@foss.st.com>
- <20250314171451.3497789-3-fabrice.gasnier@foss.st.com>
- <20250404144006.GB372032@google.com>
+	s=k20201202; t=1745500374;
+	bh=74kMUmmh63Pt08J6ShCVCMsVK4mDwK70M+Gmhu/tpYk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=CNC5a0xZDt9z8ukrvoEWLLOgvBOU5pMnQRJNyRwZ2ekba6Mp9+DhAPcqavk+aVlzP
+	 XHVNLcPZ6Lg2wGESCX4tiYJKFwciA91vPpdAlJg3WbCY9NTqY1ejC0g3ldBNwKMJws
+	 +NvEbFF8qnQGgYxjYSVBOVmyijOhNWP6R7RmOxHeteNsFUMI2DpabH6lU3az/UUhIY
+	 4z63GztLl7dAtpiZ1XQfks0pIvtEPFdGe015j7JrZL2uX4kZFn/1j2rNXbQnom1JYt
+	 AUhctaIP7gJqjnkL9JOh0UyUIXT5KKdP28zbaGJi/5+mrm2BvyTnLLaNW5f+xp3O+H
+	 fn/mz8i2eJGVw==
+Message-ID: <05ad5e49-9c03-4750-a1c3-775579b2479d@kernel.org>
+Date: Thu, 24 Apr 2025 15:12:48 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250404144006.GB372032@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 09/10] arm64: dts: qcom: sm8750: Add USB support for
+ SM8750 QRD platform
+To: Melody Olvera <melody.olvera@oss.qualcomm.com>,
+ Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Wesley Cheng <quic_wcheng@quicinc.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+ Dmitry Baryshkov <lumag@kernel.org>
+References: <20250421-sm8750_usb_master-v5-0-25c79ed01d02@oss.qualcomm.com>
+ <20250421-sm8750_usb_master-v5-9-25c79ed01d02@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250421-sm8750_usb_master-v5-9-25c79ed01d02@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_060121_926514_DA6C8A62 
-X-CRM114-Status: GOOD (  19.30  )
+X-CRM114-CacheID: sfid-20250424_061256_885477_947B901E 
+X-CRM114-Status: UNSURE (   7.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,42 +129,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 04 Apr 2025, Lee Jones wrote:
-
-> On Fri, 14 Mar 2025, Fabrice Gasnier wrote:
+On 22/04/2025 00:00, Melody Olvera wrote:
+> From: Wesley Cheng <quic_wcheng@quicinc.com>
 > 
-> > Add support for STM32MP25 SoC.
-> > A new hardware configuration register (HWCFGR2) has been added, to gather
-> > number of capture/compare channels, autonomous mode and input capture
-> > capability. The full feature set is implemented in LPTIM1/2/3/4. LPTIM5
-> > supports a smaller set of features. This can now be read from HWCFGR
-> > registers.
-> > 
-> > Add new registers to the stm32-lptimer.h: CCMR1, CCR2, HWCFGR1/2 and VERR.
-> > Update the stm32_lptimer data struct so signal the number of
-> > capture/compare channels to the child devices.
-> > Also Remove some unused bit masks (CMPOK_ARROK / CMPOKCF_ARROKCF).
-> > 
-> > Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> > ---
-> > Changes in V4:
-> > - Add DIEROK, ARROK status flags, and their clear flags.
-> > Changes in V2:
-> > - rely on fallback compatible as no specific .data is associated to the
-> >   driver. Compatibility is added by reading hardware configuration
-> >   registers.
-> > - read version register, to be used by clockevent child driver
-> > - rename register/bits definitions
-> > ---
-> >  drivers/mfd/stm32-lptimer.c       | 33 ++++++++++++++++++++++++++-
-> >  include/linux/mfd/stm32-lptimer.h | 37 ++++++++++++++++++++++++++++---
+> Enable USB support on SM8750 QRD variant.  The current definition
+> will start the USB controller in peripheral mode by default until
+> dependencies are added, such as USB role detection.
 > 
-> At least the Clocksource driver depends on this.
-> 
-> I need Acks from the other Maintainers before I can merge this.
+> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+> Tested-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+> Signed-off-by: Wesley Cheng <quic_wcheng@quicinc.com>
+> Signed-off-by: Melody Olvera <melody.olvera@oss.qualcomm.com>
+> ---
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Suggest you resubmit the set as a [RESEND] to re-gain traction.
-
--- 
-Lee Jones [李琼斯]
+Best regards,
+Krzysztof
 
