@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13982C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 19:54:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD370C369D7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 19:56:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3+Yzp90os1B1+K7TxmcOkUZ2pL98oF+RE1fH12ahofw=; b=FSAjCN8fUpBCmUA5YKkJjCxeei
-	UYTVEv0hepJH7nNRby8hXYRquDjnLkayls8e9V9rhXvmvj2MH7ZkzEKdhLJOwv83itg1YUniBI8O2
-	6RNCK7QF2HzbZrEPv1DjzjVi+HP2bAU9PCD7FYWr17AL9FU8jZtdD7xDQUqFl6l+VcaYktrwpjTPe
-	v8YHRsTPlmn8zZOHpdCbWhE6T2v3o82ltZGmIwJ2CTDa+VHSb94bPe8yDSqQxQRw+hDQJ1A6UXJBj
-	8WRGOnypIUJ/7thANBuVG93barre3eKX6w5TUKQw+CpdjzcJ11U2Vez0WWolAGW7TguN+d2tX+2fH
-	z63xjMtA==;
+	bh=wfk1kaPUb8jTQgYvcZdTdUyZhZFAInoALAL+cRhzIsQ=; b=YersMtie05TQwptWYLPh7BNevH
+	Bf1DUkby9RtmfPj+urxFwvXG0gjLr0HUN/R3TgwNW6xER6/WDNBYF41RJMA5nBBgULBOxSDFtLTQa
+	xeaYC26aAEcRcnox4gkXql/UXUn7CfHLdykopnWvy56lIu0tungPKBCoveFjdkjS8jQoH26kpnp9N
+	lwZoLBcR0t0XDKwsxEFERrtteb4mZsvtAhAsfXwnmawYHPe8alyHRQGXpefrNeAJZ08yN0DHkyR6h
+	v9+gYiUh1H6bwSu6hkfnn8ebnhLRuc8F6la9/QIdWAC5Xc9UrrAq8k2JkMpdymwrQNaT8hzzEUk+1
+	T8RM6XJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u82eI-0000000FFu1-2R1x;
-	Thu, 24 Apr 2025 19:54:18 +0000
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+	id 1u82g7-0000000FG7Z-0afV;
+	Thu, 24 Apr 2025 19:56:11 +0000
+Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u81p6-0000000F6go-1QlB;
-	Thu, 24 Apr 2025 19:01:25 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 92AAF43B6C;
-	Thu, 24 Apr 2025 19:01:19 +0000 (UTC)
+	id 1u81pA-0000000F6hb-1VGB;
+	Thu, 24 Apr 2025 19:01:29 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id D6726443A8;
+	Thu, 24 Apr 2025 19:01:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1745521282;
+	t=1745521286;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=3+Yzp90os1B1+K7TxmcOkUZ2pL98oF+RE1fH12ahofw=;
-	b=IFXC3lNWyXZGNzdP409CinsAQprI06XEoz6Cvmh8rCSxhJ5/ak1dFIr6r+FHWhnLNmfvP6
-	DOdskDihbRAyNyEWBdZXbdakoWSVm3DhKCXoPY/o9XW+zNCSq7ASnD8rLZZZ8PKKOWYW03
-	W5i6YpoFcmC9mzRuwFmgYyjuRsnUCi/yWvvtzp+uJBhwRjrtYrA7bbfvVwYeInfmRsQ0Is
-	KdOxSgVMxkIuWk5ewfCnNgz5ahF3hVCnJhWNcyR1GT6GjiWqEezk40lzWa7B/Yh2NNnPoN
-	Vj/PZEz5sps6brrDrvVxLXuQYbRAqxlM39+rziK+9Zi5DiUIHm8aP7U/ebvj+Q==
+	bh=wfk1kaPUb8jTQgYvcZdTdUyZhZFAInoALAL+cRhzIsQ=;
+	b=FFzFS01GlQrZfB6BQDbzmZPOeavhG0G7hdda1dZnT4d4jRflZ0ewpQz5QD2UKjYOns2kqM
+	bVcf5tDVqCifr+gZfX040V6ikCiR+7MgGDXzKsIeJsyKrRavDgvo987htFgEGqydjrOe4R
+	uXqNaiDLqZeptN9doc9ytWeQeaf7u9mf7J6zpEqd+/KePQ9MVH/suwyp/urS0SkZ7GmT95
+	Gt/dJFkhMhj85N0HObD5Uekhcw1ZlA+berplmz5fYBIqfOV6Sqqf6COs44K7NDKEiVRQe6
+	CYAnFtj+yTg3l9rtmWCNyJRpjmguJntf8JIs+7rX0EUEAeek5PhP7puY6Gu6Vw==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Thu, 24 Apr 2025 20:59:35 +0200
-Subject: [PATCH v2 28/34] drm/sti: dvo: convert to devm_drm_bridge_alloc()
- API
+Date: Thu, 24 Apr 2025 20:59:36 +0200
+Subject: [PATCH v2 29/34] drm: zynqmp_dp: convert to
+ devm_drm_bridge_alloc() API
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250424-drm-bridge-convert-to-alloc-api-v2-28-8f91a404d86b@bootlin.com>
+Message-Id: <20250424-drm-bridge-convert-to-alloc-api-v2-29-8f91a404d86b@bootlin.com>
 References: <20250424-drm-bridge-convert-to-alloc-api-v2-0-8f91a404d86b@bootlin.com>
 In-Reply-To: <20250424-drm-bridge-convert-to-alloc-api-v2-0-8f91a404d86b@bootlin.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -76,17 +76,18 @@ Cc: Anusha Srivatsa <asrivats@redhat.com>,
  linux-samsung-soc@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
  freedreno@lists.freedesktop.org, linux-stm32@st-md-mailman.stormreply.com, 
  Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Alain Volmat <alain.volmat@foss.st.com>, 
- Raphael Gallais-Pou <rgallaispou@gmail.com>
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Michal Simek <michal.simek@amd.com>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 X-Mailer: b4 0.14.2
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvhedtvdehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeiieeuvdfftefgueduleehueetgffgjeeitedtteetkeeuueeuueekveevvdeuveenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegrgeeivdemudgsuggumeeluddtudemvdelgehfnecuvehluhhsthgvrhfuihiivgepvdegnecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemrgegiedvmedusgguugemledutddumedvleegfhdphhgvlhhopegludelvddrudeikedrudejkedruddukegnpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepgedupdhrtghpthhtohepkhhriihksehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrnhgurhiivghjrdhhrghjuggrsehinhhtvghlrdgtohhmpdhrtghpthhtohepjhgrghgrnhesrghmrghruhhlrghsohhluhhtihhonhhsrdgtohhmpdhrt
- ghpthhtoheprhhgrghllhgrihhsphhouhesghhmrghilhdrtghomhdprhgtphhtthhopehimhigsehlihhsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtohepmhgrrghrthgvnhdrlhgrnhhkhhhorhhstheslhhinhhugidrihhnthgvlhdrtghomhdprhgtphhtthhopefnrghurhgvnhhtrdhpihhntghhrghrthesihguvggrshhonhgsohgrrhgurdgtohhmpdhrtghpthhtoheplhhinhhugidqmhgvughirghtvghksehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvhedtvdehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeiieeuvdfftefgueduleehueetgffgjeeitedtteetkeeuueeuueekveevvdeuveenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegrgeeivdemudgsuggumeeluddtudemvdelgehfnecuvehluhhsthgvrhfuihiivgepvdehnecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemrgegiedvmedusgguugemledutddumedvleegfhdphhgvlhhopegludelvddrudeikedrudejkedruddukegnpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepgedvpdhrtghpthhtohepkhhriihksehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrnhgurhiivghjrdhhrghjuggrsehinhhtvghlrdgtohhmpdhrtghpthhtohepjhgrghgrnhesrghmrghruhhlrghsohhluhhtihhonhhsrdgtohhmpdhrt
+ ghpthhtohepihhmgieslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehmrggrrhhtvghnrdhlrghnkhhhohhrshhtsehlihhnuhigrdhinhhtvghlrdgtohhmpdhrtghpthhtohepnfgruhhrvghnthdrphhinhgthhgrrhhtsehiuggvrghsohhnsghorghrugdrtghomhdprhgtphhtthhopehlihhnuhigqdhmvgguihgrthgvkheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehfrhgvvggurhgvnhhosehlihhsthhsrdhfrhgvvgguvghskhhtohhprdhorhhg
 X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_120124_512749_49B2F383 
-X-CRM114-Status: GOOD (  16.37  )
+X-CRM114-CacheID: sfid-20250424_120128_587897_7FA9EBB0 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,104 +104,116 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 This is the new API for allocating DRM bridges.
 
-This driver allocates the DRM bridge separately from the main driver
-private struct, which prevents using the new devm_drm_bridge_alloc()
-API. Simplify the code by replacing the struct drm_bridge pointer with an
-embedded struct drm_bridge inside the private struct, to make use of the
-new API with the same code flow.
+This driver has a peculiar structure. zynqmp_dpsub.c is the actual driver,
+which delegates to a submodule (zynqmp_dp.c) the allocation of a
+sub-structure embedding the drm_bridge and its initialization, however it
+does not delegate the drm_bridge_add(). Hence, following carefully the code
+flow, it is correct to change the allocation function and .funcs assignment
+in the submodule, while the drm_bridge_add() is not in that submodule.
 
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 ---
 
-Cc: Alain Volmat <alain.volmat@foss.st.com>
-Cc: Raphael Gallais-Pou <rgallaispou@gmail.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Michal Simek <michal.simek@amd.com>
+Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 
-Changed in v2:
-- fix typos in commit message
+Changes in v2:
+- rebased on current drm-misc-next
+- remove the kfree() calls too, as we are converting from kzalloc+kfree,
+  not from devm_kzalloc
 ---
- drivers/gpu/drm/sti/sti_dvo.c | 29 +++++++++++------------------
- 1 file changed, 11 insertions(+), 18 deletions(-)
+ drivers/gpu/drm/xlnx/zynqmp_dp.c    | 31 +++++++++++--------------------
+ drivers/gpu/drm/xlnx/zynqmp_dpsub.c |  1 -
+ 2 files changed, 11 insertions(+), 21 deletions(-)
 
-diff --git a/drivers/gpu/drm/sti/sti_dvo.c b/drivers/gpu/drm/sti/sti_dvo.c
-index 74a1eef4674eeabc445b53b380e325f785242024..7484d3c3f4ed5fac7eab408e30cbe2f6b87f27e5 100644
---- a/drivers/gpu/drm/sti/sti_dvo.c
-+++ b/drivers/gpu/drm/sti/sti_dvo.c
-@@ -97,7 +97,7 @@ struct sti_dvo {
- 	struct dvo_config *config;
- 	bool enabled;
- 	struct drm_encoder *encoder;
--	struct drm_bridge *bridge;
-+	struct drm_bridge bridge;
- };
+diff --git a/drivers/gpu/drm/xlnx/zynqmp_dp.c b/drivers/gpu/drm/xlnx/zynqmp_dp.c
+index 238cbb49963efa6e8cc737d8a6e76250f6531276..02e1feaa611596a24217136ee8ce7f5d2f1900a2 100644
+--- a/drivers/gpu/drm/xlnx/zynqmp_dp.c
++++ b/drivers/gpu/drm/xlnx/zynqmp_dp.c
+@@ -2439,9 +2439,9 @@ int zynqmp_dp_probe(struct zynqmp_dpsub *dpsub)
+ 	struct zynqmp_dp *dp;
+ 	int ret;
  
- struct sti_dvo_connector {
-@@ -439,7 +439,6 @@ static int sti_dvo_bind(struct device *dev, struct device *master, void *data)
- 	struct drm_encoder *encoder;
- 	struct sti_dvo_connector *connector;
- 	struct drm_connector *drm_connector;
--	struct drm_bridge *bridge;
- 	int err;
- 
- 	/* Set the drm device handle */
-@@ -455,20 +454,14 @@ static int sti_dvo_bind(struct device *dev, struct device *master, void *data)
- 
- 	connector->dvo = dvo;
- 
--	bridge = devm_kzalloc(dev, sizeof(*bridge), GFP_KERNEL);
--	if (!bridge)
+-	dp = kzalloc(sizeof(*dp), GFP_KERNEL);
+-	if (!dp)
 -		return -ENOMEM;
--
--	bridge->driver_private = dvo;
--	bridge->funcs = &sti_dvo_bridge_funcs;
--	bridge->of_node = dvo->dev.of_node;
--	drm_bridge_add(bridge);
-+	dvo->bridge.driver_private = dvo;
-+	dvo->bridge.of_node = dvo->dev.of_node;
-+	drm_bridge_add(&dvo->bridge);
++	dp = devm_drm_bridge_alloc(&pdev->dev, struct zynqmp_dp, bridge, &zynqmp_dp_bridge_funcs);
++	if (IS_ERR(dp))
++		return PTR_ERR(dp);
  
--	err = drm_bridge_attach(encoder, bridge, NULL, 0);
-+	err = drm_bridge_attach(encoder, &dvo->bridge, NULL, 0);
- 	if (err)
- 		return err;
+ 	dp->dev = &pdev->dev;
+ 	dp->dpsub = dpsub;
+@@ -2454,31 +2454,25 @@ int zynqmp_dp_probe(struct zynqmp_dpsub *dpsub)
  
--	dvo->bridge = bridge;
- 	connector->encoder = encoder;
- 	dvo->encoder = encoder;
+ 	/* Acquire all resources (IOMEM, IRQ and PHYs). */
+ 	dp->iomem = devm_platform_ioremap_resource_byname(pdev, "dp");
+-	if (IS_ERR(dp->iomem)) {
+-		ret = PTR_ERR(dp->iomem);
+-		goto err_free;
+-	}
++	if (IS_ERR(dp->iomem))
++		return PTR_ERR(dp->iomem);
  
-@@ -490,7 +483,7 @@ static int sti_dvo_bind(struct device *dev, struct device *master, void *data)
- 	return 0;
+ 	dp->irq = platform_get_irq(pdev, 0);
+-	if (dp->irq < 0) {
+-		ret = dp->irq;
+-		goto err_free;
+-	}
++	if (dp->irq < 0)
++		return dp->irq;
  
- err_sysfs:
--	drm_bridge_remove(bridge);
-+	drm_bridge_remove(&dvo->bridge);
- 	return -EINVAL;
+ 	dp->reset = devm_reset_control_get(dp->dev, NULL);
+-	if (IS_ERR(dp->reset)) {
+-		ret = dev_err_probe(dp->dev, PTR_ERR(dp->reset),
++	if (IS_ERR(dp->reset))
++		return dev_err_probe(dp->dev, PTR_ERR(dp->reset),
+ 				    "failed to get reset\n");
+-		goto err_free;
+-	}
+ 
+ 	ret = zynqmp_dp_reset(dp, true);
+ 	if (ret < 0)
+-		goto err_free;
++		return ret;
+ 
+ 	ret = zynqmp_dp_reset(dp, false);
+ 	if (ret < 0)
+-		goto err_free;
++		return ret;
+ 
+ 	ret = zynqmp_dp_phy_probe(dp);
+ 	if (ret)
+@@ -2486,7 +2480,6 @@ int zynqmp_dp_probe(struct zynqmp_dpsub *dpsub)
+ 
+ 	/* Initialize the bridge. */
+ 	bridge = &dp->bridge;
+-	bridge->funcs = &zynqmp_dp_bridge_funcs;
+ 	bridge->ops = DRM_BRIDGE_OP_DETECT | DRM_BRIDGE_OP_EDID
+ 		    | DRM_BRIDGE_OP_HPD;
+ 	bridge->type = DRM_MODE_CONNECTOR_DisplayPort;
+@@ -2539,8 +2532,6 @@ int zynqmp_dp_probe(struct zynqmp_dpsub *dpsub)
+ 	zynqmp_dp_phy_exit(dp);
+ err_reset:
+ 	zynqmp_dp_reset(dp, true);
+-err_free:
+-	kfree(dp);
+ 	return ret;
  }
  
-@@ -499,7 +492,7 @@ static void sti_dvo_unbind(struct device *dev,
+diff --git a/drivers/gpu/drm/xlnx/zynqmp_dpsub.c b/drivers/gpu/drm/xlnx/zynqmp_dpsub.c
+index 3a9544b97bc5311f9adeb57c08c837a04b6922fa..2764c4b17c5e49611db8adf41dd09e3134c2d524 100644
+--- a/drivers/gpu/drm/xlnx/zynqmp_dpsub.c
++++ b/drivers/gpu/drm/xlnx/zynqmp_dpsub.c
+@@ -180,7 +180,6 @@ static int zynqmp_dpsub_parse_dt(struct zynqmp_dpsub *dpsub)
+ void zynqmp_dpsub_release(struct zynqmp_dpsub *dpsub)
  {
- 	struct sti_dvo *dvo = dev_get_drvdata(dev);
- 
--	drm_bridge_remove(dvo->bridge);
-+	drm_bridge_remove(&dvo->bridge);
+ 	kfree(dpsub->disp);
+-	kfree(dpsub->dp);
+ 	kfree(dpsub);
  }
  
- static const struct component_ops sti_dvo_ops = {
-@@ -515,10 +508,10 @@ static int sti_dvo_probe(struct platform_device *pdev)
- 
- 	DRM_INFO("%s\n", __func__);
- 
--	dvo = devm_kzalloc(dev, sizeof(*dvo), GFP_KERNEL);
--	if (!dvo) {
--		DRM_ERROR("Failed to allocate memory for DVO\n");
--		return -ENOMEM;
-+	dvo = devm_drm_bridge_alloc(dev, struct sti_dvo, bridge, &sti_dvo_bridge_funcs);
-+	if (IS_ERR(dvo)) {
-+		DRM_ERROR("Failed to allocate DVO\n");
-+		return PTR_ERR(dvo);
- 	}
- 
- 	dvo->dev = pdev->dev;
 
 -- 
 2.49.0
