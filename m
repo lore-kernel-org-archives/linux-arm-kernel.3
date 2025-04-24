@@ -4,64 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8F8AC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 14:07:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DC6AC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 14:09:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mcZHDoThaYxly+4j90kjqZOMipH5MZr1Fpg6uBi+DCg=; b=owYGM7DSudX7OE6OKWcw79fLEV
-	YnHVkS5fprC5ihir9H933nF/hunEWWFAcSbXKvtNRxD47510/5rdIBfpSlQSWjPhREMvdnV/ZNSNX
-	rguIMrdFtQqNl7XAqrVml6zIMYjDtFzp8hvEcuqgQ4eX22UosLK54c5wutgSZ5ES4jaged1fI98IF
-	0AxK2N08C1ddY43AqGksd5hW4SgIL/i5If24Cba3bHpR1N69e3m/7uBqg6LtnupSfR8v7sbJe3NeB
-	cO4BiC8553bTQaFgMOH8eDQUCehd8s7Zx/VmLUfCKu/gfa6drrHSTSxLLmVKk3XJnjprEGKGjuLAa
-	Qt1kssgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=254mBnsGWoNXTiyYTm/e969GchDFmZEUzrmy8wdFP4I=; b=XudCuEqMghwhr28fkmMwSUrNR2
+	tOlrD9xojXJltEVVyL6MbNfS3LO/8R9IvEA1xwynGZ9zAc+6NwkFZigUyU/dT2dtrz5mpn1d2KMsn
+	ZrUMFTvqkJ5GUqyXhgGyE0gmyktT1O+uTgqel4/P94gcoX9Lf+wUEACrkrTUeU4aX/9EWPL7QAtID
+	924Z1cUJiDiJwEYRd896ODfr43MloYeig980uO5YWAs9jGCSRy47UTp/llkPJuK2d+hHwIqXHWk80
+	C6xKcFcLSHttfCK9bQ0yx8LC9ak8SiluhPpftBcGYcJHksjkoEu3HpVnC8pOiIL/HJSzCvhVCWkSU
+	jRPdQfkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7xEC-0000000EJih-0B0s;
-	Thu, 24 Apr 2025 14:07:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7vt8-0000000E3z2-2JAd
+	id 1u7xG0-0000000EJz9-3H96;
+	Thu, 24 Apr 2025 14:08:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7w05-0000000E4zb-0NtS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 12:41:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 569A51063;
-	Thu, 24 Apr 2025 05:41:04 -0700 (PDT)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F21163F59E;
-	Thu, 24 Apr 2025 05:41:06 -0700 (PDT)
-Date: Thu, 24 Apr 2025 13:41:04 +0100
-From: Andre Przywara <andre.przywara@arm.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Yixun Lan <dlan@gentoo.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu
- Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel
- Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, Andrew
- Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo
- Abeni <pabeni@redhat.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH 4/5] arm64: dts: allwinner: a527: add EMAC0 to Radxa A5E
- board
-Message-ID: <20250424134104.18031a70@donnerap.manchester.arm.com>
-In-Reply-To: <835b58a3-82a0-489e-a80f-dcbdb70f6f8d@lunn.ch>
-References: <20250423-01-sun55i-emac0-v1-0-46ee4c855e0a@gentoo.org>
-	<20250423-01-sun55i-emac0-v1-4-46ee4c855e0a@gentoo.org>
-	<aa38baed-f528-4650-9e06-e7a76c25ec89@lunn.ch>
-	<20250424014120.0d66bd85@minigeek.lan>
-	<835b58a3-82a0-489e-a80f-dcbdb70f6f8d@lunn.ch>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	Thu, 24 Apr 2025 12:48:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6343568455;
+	Thu, 24 Apr 2025 12:47:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88F40C4CEE3;
+	Thu, 24 Apr 2025 12:48:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745498899;
+	bh=ZyGzDPVkf3UyTDfF9skRIcbVvkbOFEY5W64LlARR1qY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ub27Ape0NQbpr7gqj98cAhVIIiVvy4ptD4xnBSv5Gls8QHA3t0TQfFW9I+1MB4QL+
+	 c3NdQePo2dTPp7S9BjOte4spLp/8JkqBfKUKBjXd51OT9x2TZz00cx0R3uuqb5ryp5
+	 e4z2+kSOpWC0Fr/CbL/S7KUXKZZ7YgrzitBplayrYcZcKmKVfsMU2DeVZo7bUAl4b0
+	 nHunG+zTc1k4VDONEORWLx8hj6RdqKlDVD0PZZ1sbgc+qxM+aBDypbX79xBO50rh2I
+	 imt3nXAOJcM7HiDXvstdgp9VCoT23QmltmebO4I03okRzK4i1Wz4ZZxMrOp0wDDx+v
+	 B9WbhOLVrPqqg==
+Date: Thu, 24 Apr 2025 14:48:17 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Alexey Charkov <alchark@gmail.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, linux-pwm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] dt-bindings: pwm: vt8500-pwm: Convert to YAML
+Message-ID: <aokv26x67eu3fhkcrtdo4suoz2lryb5x5u4m4xeycwlpgt4njs@7idth75voi4y>
+References: <20250418-via_pwm_binding-v2-1-17545f4d719e@gmail.com>
+ <yscledgclp2v4p7djwrszbc3dnqifkcofky7rugkcip7o2rmof@xljfd2kfyzzs>
+ <CABjd4YxK+4kEeS_tKBi9zhj85y6U1Dgi3nJNuQ8hfkeoY+iK1w@mail.gmail.com>
+ <eydewrcn4tviu6fbqmmvhoc2zao3uzrxwwlc55tuxuhfrexk5k@7xg5fdeu7wun>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_054110_638377_36F82D16 
-X-CRM114-Status: GOOD (  22.76  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="eqirucv27yhzqwfa"
+Content-Disposition: inline
+In-Reply-To: <eydewrcn4tviu6fbqmmvhoc2zao3uzrxwwlc55tuxuhfrexk5k@7xg5fdeu7wun>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,50 +73,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 24 Apr 2025 14:16:16 +0200
-Andrew Lunn <andrew@lunn.ch> wrote:
 
-> On Thu, Apr 24, 2025 at 01:42:41AM +0100, Andre Przywara wrote:
-> > On Wed, 23 Apr 2025 18:58:37 +0200
-> > Andrew Lunn <andrew@lunn.ch> wrote:
-> > 
-> > Hi,
-> >   
-> > > > +&emac0 {
-> > > > +	phy-mode = "rgmii";    
-> > > 
-> > > Does the PCB have extra long clock lines in order to provide the
-> > > needed 2ns delay? I guess not, so this should be rgmii-id.  
-> > 
-> > That's a good point, and it probably true.
-> >   
-> > >   
-> > > > +	phy-handle = <&ext_rgmii_phy>;
-> > > > +
-> > > > +	allwinner,tx-delay-ps = <300>;
-> > > > +	allwinner,rx-delay-ps = <400>;    
-> > > 
-> > > These are rather low delays, since the standard requires 2ns. Anyway,
-> > > once you change phy-mode, you probably don't need these.  
-> > 
-> > Those go on top of the main 2ns delay  
-> 
-> Which 2ns delay? "rgmii" means don't add 2ns delay, the PCB is doing
-> it. So if there is a 2ns delay, something is broken by not respecting
-> "rgmii".
-> 
-> > I just tried, it also works with some variations of those values, but
-> > setting tx-delay to 0 stops communication.  
-> 
-> Just to be clear, you tried it with "rgmii-id" and the same <300> and
-> <400> values?
+--eqirucv27yhzqwfa
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2] dt-bindings: pwm: vt8500-pwm: Convert to YAML
+MIME-Version: 1.0
 
-Yes, sorry, I wasn't clear: I used rgmii-id, then experimented with those
-values. I briefly tried "rgmii", and I couldn't get a lease, so I quite
-confident it's rgmii-id, as you said. The vendor DTs just use "rgmii", but
-they might hack the delay up another way (and I cannot be asked to look at
-that awful code).
+On Thu, Apr 24, 2025 at 02:32:33PM +0200, Uwe Kleine-K=C3=B6nig wrote:
+> Nevertheless I'll play a bit with patatt and your key.
 
-Cheers,
-Andre
+FTR, it wasn't complicated:
+
+	$ keyringdir=3D~/.local/share/patatt/public
+	$ mkdir "$keyringdir"
+	$ git config --global set --append patatt.keyringsrc "$keyringsrc"
+	$ mkdir -p "$keyringdir/ed25519/gmail.com/alchark
+	$ echo "ltKbQzKLTJPiDgPtcHxdo+dzFthCCMtC3V9qf7+0rkc=3D" > "$keyringdir/ed2=
+5519/gmail.com/alchark/20250416"
+
+After that `b4 am` told me:
+
+	=E2=9C=93 Signed: ed25519/alchark@gmail.com
+
+for your patch \o/
+
+Best regards
+Uwe
+
+--eqirucv27yhzqwfa
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmgKMw4ACgkQj4D7WH0S
+/k5qzQgAseTbJVJaProlfqJPevpOIh4z5WhUUKLHvnLH8q7VWBPtuUsN/r+EYbrf
+4qLaUawPwuqqlgGGvN9GS7AzeYm0UBJK3aJsIHmjhGEwalDo+eHmW6bOjW3XmgKy
+3fncC/xX8zYsX9jrv0jXmwWftkT4314XGLIccB+ZBogMidpCjxmNYsbfd3XXax4C
+BqU6klCntKrHHYpPiQ9/qPEROEj12eceuSuu2dlyTkTkMAX2JZYpVYSJMINa5kGx
+3kvLt0h3A0x8RqC8itS4rd3DW8/z5zpyaQpRWu4dfx/i1M5nVP2qLV+on4KgcDg9
+faofmGB4Qiub7gjlRKoo0B1WvX0EHg==
+=CnFZ
+-----END PGP SIGNATURE-----
+
+--eqirucv27yhzqwfa--
 
