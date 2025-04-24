@@ -4,124 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38CD4C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 12:49:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ACC4C369D7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 12:51:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XPxC5gR4RA6GtliDWzNm8WFvT9nOrcyxkhsvtHvBT8I=; b=d/w0ygMTLIym6oydR8XPXcIkEQ
-	RkVWkoPsZQsRpu3w1gvQgU7VyNAltAVqeUZDhuggNevw0/AQbAUFIqXB3xxcl1b2NcsCPcGWbmRdZ
-	JuAMNkVS/EwfgcBHmDzFgWkkSmtEsBUYzQ+7pAD5Q9MlZtIDk+2sbpPvSWFBPd0SXdgvk8BWHQHCF
-	B12VnryTi8L0Y2aAtPxNmx17MGC0CEZ2dBzyNW5MKHVuvvGyAt4goVv5hLwN3aQozbXxb5zipB43a
-	ksoRqlnB5qrtR26fxvjP+tEQnwaIqzLjmstQsk4hREWx/U8acZPqRxzH0sNjg8RD/gjVg4d8foSSd
-	lDdCsOrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cQzUX+hYnrue3zIubJt4B/gT9PsR0xPpj8iKs/N9meI=; b=u/6JsISwZ1GOoAMf603jYft4Uq
+	IIcXIwmErAs+ZwzcFA7CdAtUSNfE7JssxUHcHkUKDEx7DJd0wEFckzbN4xCVJJEuLNq9P1ttFkSdA
+	d5cw05/ny2wk4RbntYK1aCeEbrdaWFaevSQoEbOeKYDQ5ir3DvxBzB2l+DIQmA/cMWUPyfenplsx5
+	mzKo5wHCe27WucrXjjllUvkqdVi7RWuOOlmcE5EBKnHRAUmI1CDEY8sQsJb3umCPkM4PNI2j9921p
+	HLMMeRCRj4RR9Kn99ZkzlBfui+hblYeS+2h/coBbg7nx/0Im6NvKfBcbBipkecLB4ElrYSPoyXOml
+	qKXyTqKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7w0c-0000000E55P-3sHe;
-	Thu, 24 Apr 2025 12:48:54 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1u7w2S-0000000E5WU-0Vho;
+	Thu, 24 Apr 2025 12:50:48 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7uAs-0000000Dkog-0UPQ
+	id 1u7uJ4-0000000DmKe-3bxh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 10:51:23 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53OABWls005875
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 10:51:21 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	XPxC5gR4RA6GtliDWzNm8WFvT9nOrcyxkhsvtHvBT8I=; b=MWbdLNMJbmPjvCjX
-	Ln11rG8o0Jsba7zYTQ03ZCXaD6XpYPvq8lB2oCEA6lx7VA0/ZOS1zN7J1qrG5bvC
-	ybSQZ2FPdurZBK5H1IB9HU95pzpjj6w042MOzD8Xnf6iP7+27agis8r4E7ZrV1cr
-	XMOMspnD3K9btpbxEC4qHnqMMPAfB1Yjm3BrvxcNhksgi2a4p7V6HtEHgRmHaft7
-	Vok7UMrhkj3s/x8FVegA7JQHcWdKxg+7N9qMZqh+mWaORB4CMjG1cCIYxJXcZUTm
-	3pyJKgkkC3uHbUq1hHaYJ4sCkBOlPmZQODJeMG4yvhTRcgCdC/rWDMlX3an/azx4
-	nC+yIA==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 466jh0591q-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 10:51:20 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-7c790dc38b4so163784385a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 03:51:20 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745491880; x=1746096680;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=XPxC5gR4RA6GtliDWzNm8WFvT9nOrcyxkhsvtHvBT8I=;
-        b=B0BKf64VPFySZqY/aL0pOfYpKawlTu7bzltydKU6AEywWiDCa8GHyOMZZw9srM3PBr
-         vdXCa+s0J+xNRMwDIVnV5FTZt/3WcSjTtkVlZMPCLKcET4zbUqC5zSTG0yk89NDnPb9A
-         ALGCcBqNm9wce8DxwGOV1S/i9179DdM3Kip8EneIR9njkFonBbyMbskp4ZBOmUAj2mdp
-         fPtQGMxHsP6/SIz77mSdNWZJu3jZzQTdEucrmzddt9+y0i8zbMDVULG/eQ7JMx7GajaE
-         nErTu19uqASdHkP8SbOHOlFh3KZNtge+it3OmQZCLQh0OmmU2eEM45vruodCD1g7zwSi
-         2P4A==
-X-Forwarded-Encrypted: i=1; AJvYcCXiavhF6tmOyOhmfVONmrQts9mxREMuBtsZFsNtO5Pzm7EauGMgk5dMQhp+LTTGV+5znK2fWGTbPTZFXPRm/O5E@lists.infradead.org
-X-Gm-Message-State: AOJu0YzgokBRCHRWP95vgNELdVY3HmZL2DrjzsythHIaEsMHPdxVmEh+
-	7rmkuMQoCNxxTLzLBwDxB7rStosiUI3AFtjteorO27t9EY21IDL7MdsGFoVI7uwPlhNF6zCdFxT
-	3IrPwjTHKAreRPaV7r75+n3mQLhpl2qAA0gNgu/7DXmLQqhe7SFgJPaTcxBeNJBdoPKy7DE7J7w
-	==
-X-Gm-Gg: ASbGncstX2nzgvKCYRN92Mtb9fCbi0OcAISiccnaYqldft2dZSYlZHNKLOQEzxxDqg7
-	8N0dR8aZpY/3cg+6jXvL2ESCbh3LhOcSWmH/7EgZZP6gGgGIaDsQfqGr7xqUb69nPLSu4PNy0Zm
-	Cpw8pDugHUqFLV56iIVyEqVBWdxhBOvHel2JhxQAQRqKJ3DPSmDdTC3bAEpQIZ1zUv/x/pQ0nNb
-	GqIw8AFYeGTEeACfppyOfc2IoBQ9L7+Wiq8m5VEIJwARTTm50zOyHpK4AJjV4RYAbgssWdR9cWT
-	WNSskQVlQX+nCAMm0xOxgQMQE3mIOpq6Yuie4xxkkPH9taJ2S7wKKS+Gqwj/12s2ziB3dhbGJt0
-	=
-X-Received: by 2002:a05:620a:414c:b0:7c9:574d:a344 with SMTP id af79cd13be357-7c958659e5amr227774885a.25.1745491880212;
-        Thu, 24 Apr 2025 03:51:20 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFh5n407lbxSXdQd+Or+bg7Zig/W2pF+NxXoVNS7+WNM269eoSPy0vOUVmV16jrZ6SmVs9Qug==
-X-Received: by 2002:a05:620a:414c:b0:7c9:574d:a344 with SMTP id af79cd13be357-7c958659e5amr227772185a.25.1745491879846;
-        Thu, 24 Apr 2025 03:51:19 -0700 (PDT)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54e7ccb7dc7sm188726e87.221.2025.04.24.03.51.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Apr 2025 03:51:19 -0700 (PDT)
-Date: Thu, 24 Apr 2025 13:51:17 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Stephen Boyd <swboyd@chromium.org>
-Cc: Tzung-Bi Shih <tzungbi@kernel.org>, linux-kernel@vger.kernel.org,
-        patches@lists.linux.dev, Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, devicetree@vger.kernel.org,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Rob Herring <robh@kernel.org>, linux-arm-msm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        Conor Dooley <conor+dt@kernel.org>, Benson Leung <bleung@chromium.org>,
-        chrome-platform@lists.linux.dev, Pin-yen Lin <treapking@chromium.org>,
-        Abhishek Pandit-Subedi <abhishekpandit@chromium.org>,
-        =?utf-8?Q?=C5=81ukasz?= Bartosik <ukaszb@chromium.org>,
-        Jameson Thies <jthies@google.com>,
-        Andrei Kuchynski <akuchynski@chromium.org>
-Subject: Re: [PATCH 6/7] platform/chrome: cros_ec_typec: Add support for DP
- altmode via drm_bridge
-Message-ID: <npnpujjfonvzhf5c4upgajhx6hu5uqmerewmbqprvl7a3xrqgm@datubwgyucby>
-References: <20250416000208.3568635-1-swboyd@chromium.org>
- <20250416000208.3568635-7-swboyd@chromium.org>
+	Thu, 24 Apr 2025 10:59:52 +0000
+Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id AEDFC9CE;
+	Thu, 24 Apr 2025 12:59:41 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1745492382;
+	bh=Dm84OU/lxH2ISyHLfv2gSZjyyFNCmUX9PChR5lXrYp8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=AfYG2e2Ixs4uncpPO1bBz9tvAAqYO1ecUFuNsK2/9RNQskV1r0LMxMKbX1TNYQPGv
+	 /PHg1skHL5GjaiX2u+XVeTPaU6YRoJ/KX1Vuzdel0Vdq591imWjDHekxaY9PqOoPLp
+	 BqkKb+nLOOcgSd6e7UgcGNgDCCQoRv5J0t7xvpnw=
+Message-ID: <8e748129-3348-4bf1-9fc8-fadc569fa48e@ideasonboard.com>
+Date: Thu, 24 Apr 2025 13:59:40 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250416000208.3568635-7-swboyd@chromium.org>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI0MDA3MiBTYWx0ZWRfXy5X6JiSfhYQ9 FWeKEstOwbJdfhqAC/X2sZTb9J7J/CahznAiToF72NUQHKU7t2NfTCyv1ZATH+89n9WhXecVAwa OUmVuJ05TyCSy/Eq4eNFRwJUJPdYpYLZv/Mi9LZ0KBvvykHosAhN/Orf4runyFc+6jRMk4zhzDz
- PSixvhdyTk7d6bR9tharycuS9HlMOS4jvYO42FvW92o9ASK4NltPNcMB7zsM3h+CnGz/SFYb7gX CLbwnI+IJi2FpogrvNBu95GNJkkhMAo+vPYCgv3LGK7NPVzW0xbXhzrmBjOobBe9Rz/hjM5+Btl Qw1NOhYa1NJhiq8l7KIQRsBX4IXkXdWL2i4M00DXughlEu2ZaDq27Hu7Pr/4qdggjtDBQwSRqGS
- cyRf1SPbcjKUmCFN7Ve/XDRXbkXGL5XnzGkTJmv1hNd4QzxSxAxwcgQDaCzyWksRUy+xxT7S
-X-Proofpoint-GUID: 07kcX9KWM0RP45_G1PoT00k_N1BY04st
-X-Authority-Analysis: v=2.4 cv=ZuTtK87G c=1 sm=1 tr=0 ts=680a17a9 cx=c_pps a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=cm27Pg_UAAAA:8 a=VwQbUJbxAAAA:8 a=1XWaLZrsAAAA:8 a=37Y-6JeU6fprrkKw-18A:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10 a=bTQJ7kPSJx9SKPbeHEYW:22
-X-Proofpoint-ORIG-GUID: 07kcX9KWM0RP45_G1PoT00k_N1BY04st
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.680,FMLib:17.12.80.40
- definitions=2025-04-24_05,2025-04-22_01,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 clxscore=1015
- impostorscore=0 bulkscore=0 mlxscore=0 adultscore=0 lowpriorityscore=0
- mlxlogscore=999 priorityscore=1501 malwarescore=0 suspectscore=0
- spamscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
- definitions=main-2504240072
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 00/11] pmdomain: Add generic ->sync_state() support to
+ genpd
+To: Ulf Hansson <ulf.hansson@linaro.org>,
+ Saravana Kannan <saravanak@google.com>, Stephen Boyd <sboyd@kernel.org>,
+ linux-pm@vger.kernel.org
+Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Michael Grzeschik <m.grzeschik@pengutronix.de>,
+ Bjorn Andersson <andersson@kernel.org>, Abel Vesa <abel.vesa@linaro.org>,
+ Devarsh Thakkar <devarsht@lewv0571a.ent.ti.com>,
+ Peng Fan <peng.fan@oss.nxp.com>, Johan Hovold <johan@kernel.org>,
+ Maulik Shah <maulik.shah@oss.qualcomm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Kevin Hilman <khilman@baylibre.com>, Devarsh Thakkar <devarsht@ti.com>
+References: <20250417142513.312939-1-ulf.hansson@linaro.org>
+Content-Language: en-US
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
+ 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
+In-Reply-To: <20250417142513.312939-1-ulf.hansson@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_035122_284229_40A95970 
-X-CRM114-Status: GOOD (  38.35  )
+X-CRM114-CacheID: sfid-20250424_035951_065864_938CD320 
+X-CRM114-Status: GOOD (  26.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,157 +121,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 15, 2025 at 05:02:06PM -0700, Stephen Boyd wrote:
-> On Trogdor platforms, the USB DP altmode is entered and exited by the EC
-> depending on if DP altmode is possible and if HPD is asserted for a
-> port. Trogdor has two USB-C connectors but the AP only supports one DP
-> controller, so the first USB-C connector to assert HPD "wins". The DP
-> controller on the AP is fixed to output two lanes DP that goes to an
-> analog mux that steers the DP lanes to one of the two USB-C connectors.
-> The HPD state in the DP altmode is "captured" by the EC and redriven
-> from a GPIO on the EC to the AP's GPIO that is muxed to the DisplayPort
-> controller inside the AP SoC. This allows both HPD high/low and HPD IRQ
-> to be signaled from the EC as well as making DP altmode possible on
-> either USB-C connector except at the same time.
+Hi,
+
+On 17/04/2025 17:24, Ulf Hansson wrote:
+> If a PM domain (genpd) is powered-on during boot, there is probably a good
+> reason for it. Therefore it's known to be a bad idea to allow such genpd to be
+> powered-off before all of its consumer devices have been probed. This series
+> intends to fix this problem.
 > 
-> Add a drm_bridge to the ChromeOS EC driver to represent this analog mux
-> on Trogdor and teach the kernel that DP altmode is using this DP
-> controller on the AP. When the DT node has a graph binding, we assume
-> that we're muxing DP to one of many USB-C connectors and we terminate
-> the bridge chain here. In almost all cases we want this bridge to be the
-> one that signals HPD because the EC is the one managing HPD and
-> redriving the GPIO, except for in the case that the DP altmode driver is
-> enabled in which case HPD will be signaled with
-> drm_bridge_connector_oob_hotplug_event(). Unfortunately Trogdor EC
-> firmwares have a bug where HPD state isn't discoverable properly, so we
-> skip signaling HPD in that case if the "no-hpd" property exists in the
-> node.
+> We have been discussing these issues at LKML and at various Linux-conferences
+> in the past. I have therefore tried to include the people I can recall being
+> involved, but I may have forgotten some (my apologies), feel free to loop them
+> in.
 > 
-> Cc: Benson Leung <bleung@chromium.org>
-> Cc: Tzung-Bi Shih <tzungbi@kernel.org>
-> Cc: <chrome-platform@lists.linux.dev>
-> Cc: Pin-yen Lin <treapking@chromium.org>
-> Cc: Abhishek Pandit-Subedi <abhishekpandit@chromium.org>
-> Cc: Łukasz Bartosik <ukaszb@chromium.org>
-> Cc: Jameson Thies <jthies@google.com>
-> Cc: Andrei Kuchynski <akuchynski@chromium.org>
-> Signed-off-by: Stephen Boyd <swboyd@chromium.org>
-> ---
->  drivers/platform/chrome/Kconfig         |  1 +
->  drivers/platform/chrome/cros_ec_typec.c | 50 +++++++++++++++++++++++++
->  drivers/platform/chrome/cros_ec_typec.h |  7 ++++
->  3 files changed, 58 insertions(+)
+> A few notes:
+> *)
+> Even if this looks good, the last patch can't go in without some additional
+> changes to a couple of existing genpd provider drivers. Typically genpd provider
+> drivers that implements ->sync_state() need to call of_genpd_sync_state(), but I
+> will fix this asap, if we think the series makes sense.
 > 
-> diff --git a/drivers/platform/chrome/Kconfig b/drivers/platform/chrome/Kconfig
-> index 1b2f2bd09662..0ed8637b8853 100644
-> --- a/drivers/platform/chrome/Kconfig
-> +++ b/drivers/platform/chrome/Kconfig
-> @@ -247,6 +247,7 @@ config CROS_EC_TYPEC
->  	depends on MFD_CROS_EC_DEV && TYPEC
->  	depends on CROS_USBPD_NOTIFY
->  	depends on USB_ROLE_SWITCH
-> +	depends on DRM_BRIDGE
->  	default MFD_CROS_EC_DEV
->  	select CROS_EC_TYPEC_ALTMODES if TYPEC_DP_ALTMODE
->  	select CROS_EC_TYPEC_ALTMODES if TYPEC_TBT_ALTMODE
-> diff --git a/drivers/platform/chrome/cros_ec_typec.c b/drivers/platform/chrome/cros_ec_typec.c
-> index 2cbe29f08064..27324cf0c0c6 100644
-> --- a/drivers/platform/chrome/cros_ec_typec.c
-> +++ b/drivers/platform/chrome/cros_ec_typec.c
-> @@ -9,6 +9,7 @@
->  #include <linux/acpi.h>
->  #include <linux/module.h>
->  #include <linux/of.h>
-> +#include <linux/of_graph.h>
->  #include <linux/platform_data/cros_ec_commands.h>
->  #include <linux/platform_data/cros_usbpd_notify.h>
->  #include <linux/platform_device.h>
-> @@ -16,6 +17,8 @@
->  #include <linux/usb/typec_dp.h>
->  #include <linux/usb/typec_tbt.h>
->  
-> +#include <drm/drm_bridge.h>
-> +
->  #include "cros_ec_typec.h"
->  #include "cros_typec_vdm.h"
->  #include "cros_typec_altmode.h"
-> @@ -337,6 +340,9 @@ static int cros_typec_init_ports(struct cros_typec_data *typec)
->  	u32 port_num = 0;
->  
->  	nports = device_get_child_node_count(dev);
-> +	/* Don't count any 'ports' child node */
-> +	if (of_graph_is_present(dev->of_node))
-> +		nports--;
+> *)
+> Patch 1 -> 3 are just preparatory cleanups.
+> 
+> *)
+> I have tested this with QEMU with a bunch of local test-drivers and DT nodes.
+> Let me know if you want me to share this code too.
+> 
+> 
+> Please help review and test!
+> Finally, a big thanks to Saravana for all the support!
 
-Should this be a separate commit?
+I had a quick test with this on TI's AM62 board. A few observations.
 
->  	if (nports == 0) {
->  		dev_err(dev, "No port entries found.\n");
->  		return -ENODEV;
-> @@ -350,6 +356,10 @@ static int cros_typec_init_ports(struct cros_typec_data *typec)
->  	/* DT uses "reg" to specify port number. */
->  	port_prop = dev->of_node ? "reg" : "port-number";
->  	device_for_each_child_node(dev, fwnode) {
-> +		/* An OF graph isn't a connector */
-> +		if (fwnode_name_eq(fwnode, "ports"))
-> +			continue;
-> +
+With this series, all the individual PDs seem to get a state_synced file:
 
-... together with this chunk.
+...
+/sys/devices/genpd_provider/pd:143/state_synced
+/sys/devices/genpd_provider/pd:54/state_synced
+/sys/devices/genpd_provider/pd:105/state_synced
+/sys/devices/genpd_provider/pd:62/state_synced
+/sys/devices/genpd_provider/pd:141/state_synced
+...
 
->  		if (fwnode_property_read_u32(fwnode, port_prop, &port_num)) {
->  			ret = -EINVAL;
->  			dev_err(dev, "No port-number for port, aborting.\n");
-> @@ -417,6 +427,42 @@ static int cros_typec_init_ports(struct cros_typec_data *typec)
->  	return ret;
->  }
->  
-> +static int cros_typec_dp_bridge_attach(struct drm_bridge *bridge,
-> +				       enum drm_bridge_attach_flags flags)
-> +{
-> +	return flags & DRM_BRIDGE_ATTACH_NO_CONNECTOR ? 0 : -EINVAL;
-> +}
-> +
-> +static const struct drm_bridge_funcs cros_typec_dp_bridge_funcs = {
-> +	.attach	= cros_typec_dp_bridge_attach,
-> +};
-> +
-> +static int cros_typec_init_dp_bridge(struct cros_typec_data *typec)
-> +{
-> +	struct device *dev = typec->dev;
-> +	struct cros_typec_dp_bridge *dp_bridge;
-> +	struct drm_bridge *bridge;
-> +	struct device_node *np = dev->of_node;
-> +
-> +	/* Not capable of DP altmode switching. Ignore. */
-> +	if (!of_graph_is_present(np))
-> +		return 0;
-> +
-> +	dp_bridge = devm_kzalloc(dev, sizeof(*dp_bridge), GFP_KERNEL);
-> +	if (!dp_bridge)
-> +		return -ENOMEM;
-> +	typec->dp_bridge = dp_bridge;
-> +
-> +	bridge = &dp_bridge->bridge;
-> +	bridge->funcs = &cros_typec_dp_bridge_funcs;
-> +	bridge->of_node = np;
-> +	bridge->type = DRM_MODE_CONNECTOR_DisplayPort;
-> +	if (!device_property_read_bool(dev, "no-hpd"))
-> +		bridge->ops |= DRM_BRIDGE_OP_HPD;
-> +
-> +	return devm_drm_bridge_add(dev, bridge);
+Is that on purpose? What do these files represent? They all seem to be "1".
 
-Could you please use aux-hpd-bridge instead?
+When I boot up, I see the sync_state pending:
 
-BTW: what is the usecase for the no-hpd handling here?
+[   22.541292] ti_sci_pm_domains 
+44043000.system-controller:power-controller: sync_state() pending due to 
+2b10000.audio-contro
+ller
+[   22.554839] ti_sci_pm_domains 
+44043000.system-controller:power-controller: sync_state() pending due to 
+e0f0000.watchdog
+[   22.566550] ti_sci_pm_domains 
+44043000.system-controller:power-controller: sync_state() pending due to 
+e030000.watchdog
+[   22.577854] ti_sci_pm_domains 
+44043000.system-controller:power-controller: sync_state() pending due to 
+e020000.watchdog
+[   22.589239] ti_sci_pm_domains 
+44043000.system-controller:power-controller: sync_state() pending due to 
+e010000.watchdog
+[   22.600674] ti_sci_pm_domains 
+44043000.system-controller:power-controller: sync_state() pending due to 
+e000000.watchdog
+[   22.611875] ti_sci_pm_domains 
+44043000.system-controller:power-controller: sync_state() pending due to 
+30200000.dss
+[   22.622813] ti_sci_pm_domains 
+44043000.system-controller:power-controller: sync_state() pending due to 
+fd00000.gpu
+[   22.633565] ti_sci_pm_domains 
+44043000.system-controller:power-controller: sync_state() pending due to 
+b00000.temperature-s
+ensor
+[   22.645540] ti_sci_pm_domains 
+44043000.system-controller:power-controller: sync_state() pending due to 
+2b300050.target-modu
+le
+[   22.657067] ti_sci_pm_domains 
+44043000.system-controller:power-controller: sync_state() pending due to 
+chosen:framebuffer@0
 
-> +}
-> +
->  static int cros_typec_usb_safe_state(struct cros_typec_port *port)
->  {
->  	int ret;
+The "real" state_synced file on this platform is:
 
--- 
-With best wishes
-Dmitry
+/sys/devices/platform/bus@f0000/44043000.system-controller/44043000.system-controller:power-controller/state_synced
+
+In strict mode, this shows 0, and if I echo 1 (interestingly "echo 1 > 
+/sys/..." doesn't work, I need "echo -n 1 > /sys/...), I see PDs getting 
+powered off (added a debug print there):
+
+[   87.335487] ti_sci_pd_power_off 88
+[   87.342896] ti_sci_pd_power_off 87
+[   87.347404] ti_sci_pd_power_off 86
+[   87.356464] ti_sci_pd_power_off 128
+[   87.361296] ti_sci_pd_power_off 127
+[   87.368714] ti_sci_pd_power_off 126
+[   87.373349] ti_sci_pd_power_off 125
+[   87.378077] ti_sci_pd_power_off 62
+[   87.382587] ti_sci_pd_power_off 60
+[   87.387194] ti_sci_pd_power_off 59
+[   87.391759] ti_sci_pd_power_off 53
+[   87.396648] ti_sci_pd_power_off 52
+[   87.400801] ti_sci_pd_power_off 51
+[   87.405131] ti_sci_pd_power_off 75
+[   87.409238] ti_sci_pd_power_off 143
+[   87.413328] ti_sci_pd_power_off 142
+[   87.417403] ti_sci_pd_power_off 141
+[   87.421494] ti_sci_pd_power_off 105
+[   87.425632] ti_sci_pd_power_off 104
+[   87.429815] ti_sci_pd_power_off 103
+[   87.433941] ti_sci_pd_power_off 102
+[   87.438054] ti_sci_pd_power_off 158
+[   87.442151] ti_sci_pd_power_off 156
+[   87.446324] ti_sci_pd_power_off 155
+[   87.450463] ti_sci_pd_power_off 154
+[   87.454549] ti_sci_pd_power_off 153
+[   87.458671] ti_sci_pd_power_off 152
+[   87.462571] ti_sci_pd_power_off 43
+[   87.466425] ti_sci_pd_power_off 42
+[   87.470254] ti_sci_pd_power_off 41
+[   87.474032] ti_sci_pd_power_off 40
+[   87.477825] ti_sci_pd_power_off 39
+[   87.481609] ti_sci_pd_power_off 38
+[   87.485432] ti_sci_pd_power_off 37
+[   87.489256] ti_sci_pd_power_off 36
+[   87.493077] ti_sci_pd_power_off 95
+[   87.496845] ti_sci_pd_power_off 132
+[   87.500780] ti_sci_pd_power_off 107
+[   87.504583] ti_sci_pd_power_off 114
+[   87.508429] ti_sci_pd_power_off 79
+[   87.512050] ti_sci_pd_power_off 148
+[   87.515859] ti_sci_pd_power_off 147
+[   87.519644] ti_sci_pd_power_off 106
+[   87.523414] ti_sci_pd_power_off 149
+[   87.527203] ti_sci_pd_power_off 50
+[   87.530971] ti_sci_pd_power_off 49
+[   87.534708] ti_sci_pd_power_off 48
+[   87.538401] ti_sci_pd_power_off 35
+[   87.542040] ti_sci_pd_power_off 186
+
+We do have a lot of "extra" PDs enabled by the bootloader...
+
+With the timeout mode, I see the sync_state() getting called some 
+seconds after the boot has finished.
+
+So... I think it all works as expected. You can take this as some kind 
+of Tested-by, but it'd be good if someone from TI who knows more about 
+PDs would test this too =).
+
+Interestingly, I see a difference in behavior to the old patches from 
+Abel: with the old patches, if I boot up with the DSS (display 
+subsystem) enabled by the bootloader, it looks the same as with these 
+patches. However, with the old patches, when I load the DSS driver, and 
+it probes successfully, the DSS PD will get managed correctly, i.e. if I 
+blank the screen, the DSS PD will go to off, even if the sync_state has 
+not been called.
+
+With these patches the DSS PD will stay on, no matter if I load the DSS 
+driver or not, and will only go off after sync_state has been called.
+
+I'm not quite sure here, but I think the behavior with the old patches 
+makes sense: when the driver for a particular PD loads, the PD no longer 
+needs to be kept on. Or... Is this about the case where a PD has 
+multiple consumers? The PD provider cannot know how many consumers there 
+are for a single PD, so it must keep all boot-time-enabled PDs on until 
+sync_state() (i.e. all the consumer drivers have probed)?
+
+  Tomi
+
 
