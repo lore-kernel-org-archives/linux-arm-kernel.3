@@ -4,112 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AAB6C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 06:07:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C730C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 06:14:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yBh4ID6MkKCq/M6hhKiaGHyKoqoAherEyA+UpyvaMSg=; b=RKoxPhH45osy3FfJAlLFkTIlF2
-	paPo7RW+RcZYd0lJIxUNoP8pydsnvDkWknGdLjbYxrWOpBLYki03yXU3oj/Xx0Zhc0jIxBmdGfKLd
-	m7/jX0Qilkp8GBI6pJWFjEZr2CfKUiLV628txRGw4tHwL/03PEItTsDcZ5NxB7K6NQiH8XDC2Ogcc
-	6dtpBizFOkRsv6nGgh26euxB4qC5G+YYlCSoCbFuRcZV/HATjsSKdf8QKIa+eW/rOejVlelCsQ7ok
-	MBXmbcDducGR+XJe4kvbdLHVo9RSUUBckl6YLioJvec/KPytYV+RFEfemS+06TyH0WnyPgGZMtw8T
-	Dueq1vUQ==;
+	bh=B8UeD7v1vXILLjfH1z55eWZ1C2nwwAVb05LzkSMjifM=; b=hStYIte+dqZ508v7k2Y0bLhh8D
+	givAuo7SUomyzBerTd2tY7QGdI4P6C9aYeMaaBCFfxcCpQ6d60xYrTMYGyfOmDBwxBUvWPNwfy769
+	6CbY0cKr37epaaRvZXrLjygGRbyX/a7MGjF3/aE7gSHmyE+PbYkDLARVDAjQq8RpPjjyAQuR7i8pK
+	L6zgL7xyKr+X1c0u/TiYIrd6ntKcYl23F7oXARLC3koN9L+snTjbXWNP0IBgsU8BK39zrn4rVPVUY
+	HLH4i/ZAPfYnLDwmSRQiOYqsYmzGobRfUUahR7IVr5dLeGeinPyPuJXxDb7QQ60SpHoqeTA2tvb5q
+	909fRBjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7pjV-0000000Cw1I-2ded;
-	Thu, 24 Apr 2025 06:06:49 +0000
-Received: from fout-a6-smtp.messagingengine.com ([103.168.172.149])
+	id 1u7pqO-0000000CwuG-3fbh;
+	Thu, 24 Apr 2025 06:13:56 +0000
+Received: from out199-11.us.a.mail.aliyun.com ([47.90.199.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7phY-0000000CvsB-0OCF
+	id 1u7poR-0000000Cwik-2Yy0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 06:04:50 +0000
-Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
-	by mailfout.phl.internal (Postfix) with ESMTP id 45BBD1380516;
-	Thu, 24 Apr 2025 02:04:46 -0400 (EDT)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-05.internal (MEProxy); Thu, 24 Apr 2025 02:04:46 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1745474686;
-	 x=1745561086; bh=yBh4ID6MkKCq/M6hhKiaGHyKoqoAherEyA+UpyvaMSg=; b=
-	gwxlHovpSTKyDeFIppa5bCcrVGSsJB/+f2mcAFPhs1/pQgcIhTfuzOKsTjrrp1T9
-	VSOojdY8cs7dDI8GLbIMH+SoJ7K+fMq+axomhVQ6F6Ds0FzwAPhQlg0rF18xK4Vp
-	Z3Gs1s5vyjE2Mo0rcM+mdcPE9vy62Cvhl0XsWyYot89vOrJTACl1veVhmwCEBvnn
-	8jTeUehIJo1GD1e5upX2Uq8u7Zbus2WhIPK068ZSfuNSWhQ0vbd9Bh6daNucWuY/
-	OVd7OY7KZa4Qja1rhU1R9pDL+58o5kFO4zmMtTCVm3nffaFkp6md4Nu/ImBcsM+E
-	Y5jtq/2xCldlsuV1Sj0bDg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1745474686; x=
-	1745561086; bh=yBh4ID6MkKCq/M6hhKiaGHyKoqoAherEyA+UpyvaMSg=; b=U
-	ao+/955wa/Bozix8BLdU9hQC7uYDp3vGE8STUU78n9rqIXPiL2gEIy7bT0Pz/VPX
-	K/vIu3jMSPDu9lwgMxDaVFkubO8w1RGGoIJDbuqkasHUPiP9al4shvyU8edq0R7T
-	T1f+lF/9B7H5JMcJ9AqKcQw5lpZLMTKV4CA1IX9ac8rAxzQ8THtcCIUzmt7VpVpm
-	7Wute6P92tusFJqlfczwwXV3PYPg7E1+dd0OzkhE3frvznx21zAb4mE+GUaf+XiQ
-	kGlaFWHKj94KW1d1oX/+IbOr1opR2RAk9abZpEwQso1SK5uNC/mN5GcnbulTzqMb
-	biOccq4oBbe3yjV2yEv6A==
-X-ME-Sender: <xms:fdQJaIn7xa72vY7lUr7PCGvUwauTir5mXw6AlnO8G3jZN2abRqaCrA>
-    <xme:fdQJaH1Li0L8QDzDQ17VjNj2rSpipZ-p7eVigQQrc-CofargJSJjIJliZq68JNxq6
-    U64JuQ8XneIwJVvGbA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvgeekjedtucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
-    tddtnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnug
-    gsrdguvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeet
-    fefggfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrg
-    hmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohep
-    udefpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegtrghtrghlihhnrdhmrghrih
-    hnrghssegrrhhmrdgtohhmpdhrtghpthhtohepsghijhhurdgurghsrdhjiiessghprdhr
-    vghnvghsrghsrdgtohhmpdhrtghpthhtohepphhrrggshhgrkhgrrhdrmhgrhhgruggvvh
-    dqlhgrugdrrhhjsegsphdrrhgvnhgvshgrshdrtghomhdprhgtphhtthhopehnfhhrrghp
-    rhgrughosegtohhllhgrsghorhgrrdgtohhmpdhrtghpthhtohepghgvvghrthdorhgvnh
-    gvshgrshesghhlihguvghrrdgsvgdprhgtphhtthhopegsihhjuhdruggrshdrrghusehg
-    mhgrihhlrdgtohhmpdhrtghpthhtoheplhhumhgrgheskhgvrhhnvghlrdhorhhgpdhrtg
-    hpthhtohepfihilhhlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiihihsiiht
-    ohhfrdhkohiilhhofihskhhisehlihhnrghrohdrohhrgh
-X-ME-Proxy: <xmx:fdQJaGrKvW9RFZhk7RudXGzsxEG1Q9E-Aq-awWO7knlTOGHY4v7NSA>
-    <xmx:fdQJaEnXReKKywGOEAMBqbrkLrWpnUfpqmwxyqJEaDu0w8ZjwEFc0A>
-    <xmx:fdQJaG0EuBhMbuY6PCvY5E_PVj_z8Q1SiYttWtHz0vv_uOUUc4oipg>
-    <xmx:fdQJaLtstvXdjPwaAHuyJbLGjWruj7XMs4NVj808VxW5H0f4NgivGw>
-    <xmx:ftQJaM7VYztCNU_C38sF2Ld24pyAaT1mbvWPpSqIiSRIaQMOIAwRqjyZ>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 1E06C2220073; Thu, 24 Apr 2025 02:04:45 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Thu, 24 Apr 2025 06:11:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1745475108; h=Message-ID:Date:MIME-Version:Subject:From:To:Content-Type;
+	bh=B8UeD7v1vXILLjfH1z55eWZ1C2nwwAVb05LzkSMjifM=;
+	b=ZPZQzt4YJcN43dKLsMmAOfQosTrSKXom+A9NXlKfUmUtptv/iamo7lNGhSoHvDiDlsCiyScEU1ajkmOMOL0rZsNN0pjI5nPnQq0FObGVZ1DShkVj1mXMlPg3fxGdX98MKALk/7nf78XUfIgiaMH6s2xsDwQyk5tJ2ffo0+HeDsI=
+Received: from 30.246.162.65(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WXxbIj._1745475104 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Thu, 24 Apr 2025 14:11:46 +0800
+Message-ID: <53559fb5-669b-4fbb-b323-2c9f792d8ead@linux.alibaba.com>
+Date: Thu, 24 Apr 2025 14:11:44 +0800
 MIME-Version: 1.0
-X-ThreadId: T706ac2956bd1c4f2
-Date: Thu, 24 Apr 2025 08:04:11 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Biju Das" <biju.das.jz@bp.renesas.com>,
- "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>
-Cc: "Bjorn Andersson" <bjorn.andersson@oss.qualcomm.com>,
- "Krzysztof Kozlowski" <krzysztof.kozlowski@linaro.org>,
- "Geert Uytterhoeven" <geert+renesas@glider.be>,
- "Dmitry Baryshkov" <lumag@kernel.org>, "Taniya Das" <quic_tdas@quicinc.com>,
- =?UTF-8?Q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>,
- "Lad, Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- linux-arm-kernel@lists.infradead.org, "Biju Das" <biju.das.au@gmail.com>,
- Linux-Renesas <linux-renesas-soc@vger.kernel.org>
-Message-Id: <6d3fe783-05c5-4742-a8f9-37a41e1caedc@app.fastmail.com>
-In-Reply-To: <20250424054050.28310-5-biju.das.jz@bp.renesas.com>
-References: <20250424054050.28310-1-biju.das.jz@bp.renesas.com>
- <20250424054050.28310-5-biju.das.jz@bp.renesas.com>
-Subject: Re: [PATCH 4/4] arm64: defconfig: Enable Renesas RZ/G2L GPT config
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] selftests/pidfd: align stack to fix SP alignment
+ exception
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+To: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>, baolin.wang@linux.alibaba.com,
+ tianruidong@linux.alibaba.com, brauner@kernel.org, shuah@kernel.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+References: <20250312061557.28532-1-xueshuai@linux.alibaba.com>
+ <0a70f4ab-cd83-434d-8dd2-486d58e5599a@linux.alibaba.com>
+ <20250404121759.GA28692@willie-the-truck>
+ <3af36c30-48e9-4182-ad09-bd28d3e4acb4@linux.alibaba.com>
+In-Reply-To: <3af36c30-48e9-4182-ad09-bd28d3e4acb4@linux.alibaba.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_230448_886634_046480B8 
-X-CRM114-Status: UNSURE (   6.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250423_231156_437372_78F07E62 
+X-CRM114-Status: GOOD (  33.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,15 +72,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 24, 2025, at 07:40, Biju Das wrote:
-> Enable PWM config for Renesas RZ/G2L GPT as it is populated on
-> the RZ/G2L and RZ/V2L SMARC EVKs.
->
-> Signed-off-by: Biju Das <biju.das.jz@bp.renesas.com>
 
-Acked-by: Arnd Bergmann <arnd@arndb.de>
 
-I assume Geert will pick this up through the Renesas tree
-and forward it to soc@lists.linux.dev.
+在 2025/4/6 19:57, Shuai Xue 写道:
+> 
+> 
+> 在 2025/4/4 20:18, Will Deacon 写道:
+>> On Wed, Mar 19, 2025 at 10:59:57AM +0800, Shuai Xue wrote:
+>>> + ARM maintainers for review.
+>>>
+>>> 在 2025/3/12 14:15, Shuai Xue 写道:
+>>>> The pidfd_test fails on the ARM64 platform with the following error:
+>>>>
+>>>>       Bail out! pidfd_poll check for premature notification on child thread exec test: Failed
+>>>>
+>>>> When exception-trace is enabled, the kernel logs the details:
+>>>>
+>>>>       #echo 1 > /proc/sys/debug/exception-trace
+>>>>       #dmesg | tail -n 20
+>>>>       [48628.713023] pidfd_test[1082142]: unhandled exception: SP Alignment, ESR 0x000000009a000000, SP/PC alignment exception in pidfd_test[400000+4000]
+>>>>       [48628.713049] CPU: 21 PID: 1082142 Comm: pidfd_test Kdump: loaded Tainted: G        W   E      6.6.71-3_rc1.al8.aarch64 #1
+>>>>       [48628.713051] Hardware name: AlibabaCloud AliServer-Xuanwu2.0AM-1UC1P-5B/AS1111MG1, BIOS 1.2.M1.AL.P.157.00 07/29/2023
+>>>>       [48628.713053] pstate: 60001800 (nZCv daif -PAN -UAO -TCO -DIT +SSBS BTYPE=-c)
+>>>>       [48628.713055] pc : 0000000000402100
+>>>>       [48628.713056] lr : 0000ffff98288f9c
+>>>>       [48628.713056] sp : 0000ffffde49daa8
+>>>>       [48628.713057] x29: 0000000000000000 x28: 0000000000000000 x27: 0000000000000000
+>>>>       [48628.713060] x26: 0000000000000000 x25: 0000000000000000 x24: 0000000000000000
+>>>>       [48628.713062] x23: 0000000000000000 x22: 0000000000000000 x21: 0000000000400e80
+>>>>       [48628.713065] x20: 0000000000000000 x19: 0000000000402650 x18: 0000000000000000
+>>>>       [48628.713067] x17: 00000000004200d8 x16: 0000ffff98288f40 x15: 0000ffffde49b92c
+>>>>       [48628.713070] x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
+>>>>       [48628.713072] x11: 0000000000001011 x10: 0000000000402100 x9 : 0000000000000010
+>>>>       [48628.713074] x8 : 00000000000000dc x7 : 3861616239346564 x6 : 000000000000000a
+>>>>       [48628.713077] x5 : 0000ffffde49daa8 x4 : 000000000000000a x3 : 0000ffffde49daa8
+>>>>       [48628.713079] x2 : 0000ffffde49dadc x1 : 0000ffffde49daa8 x0 : 0000000000000000
+>>>>
+>>>> According to ARM ARM D1.3.10.2 SP alignment checking:
+>>>>
+>>>>> When the SP is used as the base address of a calculation, regardless of
+>>>>> any offset applied by the instruction, if bits [3:0] of the SP are not
+>>>>> 0b0000, there is a misaligned SP.
+>>>>
+>>>> To fix it, align the stack with 16 bytes.
+>>>>
+>>>> Signed-off-by: Shuai Xue <xueshuai@linux.alibaba.com>
+>>>> ---
+>>>>    tools/testing/selftests/pidfd/pidfd_test.c | 2 +-
+>>>>    1 file changed, 1 insertion(+), 1 deletion(-)
+>>>>
+>>>> diff --git a/tools/testing/selftests/pidfd/pidfd_test.c b/tools/testing/selftests/pidfd/pidfd_test.c
+>>>> index c081ae91313a..ec161a7c3ff9 100644
+>>>> --- a/tools/testing/selftests/pidfd/pidfd_test.c
+>>>> +++ b/tools/testing/selftests/pidfd/pidfd_test.c
+>>>> @@ -33,7 +33,7 @@ static bool have_pidfd_send_signal;
+>>>>    static pid_t pidfd_clone(int flags, int *pidfd, int (*fn)(void *))
+>>>>    {
+>>>>        size_t stack_size = 1024;
+>>>> -    char *stack[1024] = { 0 };
+>>>> +    char *stack[1024] __attribute__((aligned(16))) = {0};
+>>>>    #ifdef __ia64__
+>>>>        return __clone2(fn, stack, stack_size, flags | SIGCHLD, NULL, pidfd);
+>>
+>> The arm64 alignment requirement is correct, but I don't really grok what
+>> this code is trying to do. If it's not using CLONE_VM, why bother passing
+>> a separate stack? If it _is_ using CLONE_VM, then surely the stack needs
+>> to be allocated somewhere other than the caller stack?
+>>
+> 
+> Hi, Will,
+> 
+> Thank for you reply.
+> 
+>> https://man7.org/linux/man-pages/man2/clone3.2.html
+> clone3()
+>         The stack for the child process is specified via cl_args.stack,
+>         which points to the lowest byte of the stack area, and
+>         cl_args.stack_size, which specifies the size of the stack in
+>         bytes.  In the case where the CLONE_VM flag (see below) is
+>         specified, a stack must be explicitly allocated and specified.
+>         * Otherwise, these two fields can be specified as NULL and 0 *, which
+>         causes the child to use the same stack area as the parent (in the
+>         child's own virtual address space).
+> 
+>  From man-pages for clone3, I think you are right.
+> As you pointed out, without CLONE_VM, the stack can indeed be set to NULL.
+> However, when running the pidfd_test, issues arise:
+> 
+> #./pidfd_test
+> TAP version 13
+> 1..8
+> # Parent: pid: 125004
+> Bail out! pidfd_poll check for premature notification on child thread exec test: pidfd_clone failed (ret -1, errno 22)
+> # Planned tests != run tests (8 != 0)
+> # Totals: pass:0 fail:0 xfail:0 xpass:0 skip:0 error:0
+> 
+> 
+> Upon examining the git diff:
+> 
+> #git diff
+> diff --git a/tools/testing/selftests/pidfd/pidfd_test.c b/tools/testing/selftests/pidfd/pidfd_test.c
+> index 9a2d64901d59..c5991c0712c8 100644
+> --- a/tools/testing/selftests/pidfd/pidfd_test.c
+> +++ b/tools/testing/selftests/pidfd/pidfd_test.c
+> @@ -32,13 +32,10 @@ static bool have_pidfd_send_signal;
+> 
+>   static pid_t pidfd_clone(int flags, int *pidfd, int (*fn)(void *))
+>   {
+> -       size_t stack_size = 1024;
+> -       char *stack[1024] = { 0 };
+> -
+>   #ifdef __ia64__
+>          return __clone2(fn, stack, stack_size, flags | SIGCHLD, NULL, pidfd);
+>   #else
+> -       return clone(fn, stack + stack_size, flags | SIGCHLD, NULL, pidfd);
+> +       return clone(fn, NULL, flags | SIGCHLD, NULL, pidfd);
+>   #endif
+>   }
+> 
+> 
+> Also from man-pages of clone3, https://man7.org/linux/man-pages/man2/clone3.2.html
+> 
+>     The clone() wrapper function
+> 
+>         The stack argument specifies the location of the stack used by the
+>         child process.  Since the child and calling process may share
+>         memory, it is not possible for the child process to execute in the
+>         same stack as the calling process.  *The calling process must
+>         therefore set up memory space for the child stack and pass a
+>         pointer to this space to clone()*.  Stacks grow downward on all
+>         processors that run Linux (except the HP PA processors), so stack
+>         usually points to the topmost address of the memory space set up
+>         for the child stack.  Note that clone() does not provide a means
+>         whereby the caller can inform the kernel of the size of the stack
+>         area.
+> 
+> Now, I am confused about the rules :(
+> 
+> Upon reviewing the glibc code for handling this:
+> https://elixir.bootlin.com/glibc/glibc-2.41.9000/source/sysdeps/unix/sysv/linux/aarch64/clone.S#L52
+> 
+> It's evident that when the stack pointer is set to NULL, the aligned stack
+> pointer remains zero, leading __clone to perform a syscall error,
+> returning -EINVAL due to an invalid argument.
+> 
+> In summary, memory space for the child's stack must be explicitly allocated,
+> and a valid pointer must be passed to clone() regardless of the use of
+> CLONE_VM.
+> 
+>> Will
+> 
+> Thanks.
+> Shuai
+> 
 
+Hi, Will,
+
+Gentle ping. Any feedback?
+
+Thanks.
+Shuai
 
