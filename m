@@ -4,89 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 701E7C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:07:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 208A7C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:07:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DIIOezRQ1iEeyh6wP7pxRulzkeF5lSrui5rZPEB2VUc=; b=SQY3l50idrFxH2XtBWEc3u3OC8
-	ku5MC8Dbgghq2WWdxkVfcYmuKjG4YJjTFsP1SggnMOLRovfzQxugyoBVBfTI/29nvQzVADsYgiqmH
-	wPcRlvZ0LfmCBofoXzBDvXjCUd6Fyy4W2ELlQP65hAwwzkFLq76YxAQfZeJnXopOfSTNoiyd6wP7S
-	VoaPg3xPz0UxvzNF1+1nVBrIivtRO8PQ0B2Ptdb332Zk3RY7UYbF5XH5uajjoPXfjTNEIxjmCm1TX
-	ro5BUxGO8Y7fu90eJ7kOdAqdqN0tHDLgXFQG7ALgYlT+ZWcXo+CImz7TQAAhNs3LnWM1iHxe0hCea
-	Vpm/Y+VA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z+7xBf3XhJMHfpZe6B0obtpZq77mLhIssmTOLfcblvc=; b=z2kBifPKfpjxgssqFkdwYGFdP6
+	EejHQx53Suwv0Dgl9D6FcIZ+s4lXvQUsHkxn39PZuAYyuVU7Ime9+sEcy8GpqvgwCU9ZVmJyCNpZH
+	EVRjbeBAncPQ6wCik/CRZrbRt4FzUubNTGemzNNuPxxKxY+dh+sTQALm4341AgsUjd3c1o6LkkB/L
+	4UWrhD0qEyb2WL+uCiWjDvllS8mDOh3g4bKqfDCAEVdFeUjcJguvsJ6rGcnnP9XC6v8lPS9DYmLsM
+	9QLt2g/jROxvcoLI4mkVQEZJi87nBWyb3LVZKuRSLmoGBY5Er2IKrGu8WNkebRA7nSHE/B2Pnmw9e
+	q3A9ELZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7z6D-0000000Eeau-45ho;
-	Thu, 24 Apr 2025 16:06:53 +0000
-Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
+	id 1u7z68-0000000EeRk-3fSC;
+	Thu, 24 Apr 2025 16:06:48 +0000
+Received: from mail-wr1-f54.google.com ([209.85.221.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7xLW-0000000EKuQ-2Cvf
+	id 1u7xLQ-0000000EKrp-2Kve
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 14:14:36 +0000
-Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-30bf5d7d107so9276131fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 07:14:33 -0700 (PDT)
+	Thu, 24 Apr 2025 14:14:30 +0000
+Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-39ee57c0b8cso1149226f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 07:14:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745504072; x=1746108872; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=DIIOezRQ1iEeyh6wP7pxRulzkeF5lSrui5rZPEB2VUc=;
-        b=uWi2i+kfyscfSmWB49HM3OL47/1BR4EOicqkOaqGl5BDXuYGYPmBFryOlVtThTOTn5
-         xsG7rm8qi8RODQHgL9woM2a9MLQ+m0s40JX61zphfdOjOerZWri1cmOpfa1yUzv9rhTl
-         EpXAAf88Uwcw5DzpqeZcU9LzRxUvj2gyHSqZgz55DB88Av70M4PwGtP8XmwlSGrWulPD
-         jil9Xyv09RbiRKbydnOIGdikD0Ui+wBElhagKmgZhyyLUrd4r8a0qIxQUADorbsAwtFA
-         vHIbqmlLLiVjNcmrBs6bCDre0Cv5cTqSYcgmBY+cNBsAZ2dTKE81uz8JdjtvMM7AAbKF
-         OaIw==
+        d=linaro.org; s=google; t=1745504066; x=1746108866; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Z+7xBf3XhJMHfpZe6B0obtpZq77mLhIssmTOLfcblvc=;
+        b=gkVAvhMIGmiTKTbaSx3WqGC+h2wfYg24iEGkR2TvnnXzPaO38vMlRB/0IkF1R+fN8Z
+         YDd6q3DmZP8nVY1NjWOAgvxIa3amauKchkQ5FXNPWwH3M8fkHGLjg4S6XKA6++8Q6lpK
+         ytA/+vb3qcOTfXPbaRWNE+Jz50ryZx1TpsFXGRADKiazjYwaPdbY7fAULFP6JRvLEy5Q
+         /Xl551WScxw3gG8JchlSc/ETEM8zh4Gat3VxUpchsJVXqrPK6V32BKnxMtYQW40wCKfu
+         RVk9rNQpyxvQTa5xtiAKgmrK4wxyOvBODgI332T5Jgh3f4/vbGgzDnE+lK7foKEdB60t
+         qdKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745504072; x=1746108872;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=DIIOezRQ1iEeyh6wP7pxRulzkeF5lSrui5rZPEB2VUc=;
-        b=hEk06vuuSf2zTN/YdluS5lrnNWQg5N+QMdS4nmUXI4qrsAfUc9LYNqkoI/gQsctVON
-         AlfBfL2L6fH3W3ZUHA22rY7rWzn22DDtIZ/RnZ6nmo4ofYzeLJANoNaXYAkcCPE5I282
-         SLke0k5k7HIdDKgQ6ZEubXaLgtQaX+gXEuA6VycpzrMWdHGaK+JQQPy8kmFyDXvHwZ+1
-         2a/o6Y/DF4D3OMAWTACFv7WeObMs69aaNiciw5FLUhcvliwJdcLt3SKA5/cBOECTwBSO
-         KXm6PY53rw+msGGwcLttkeNVZxcx2UNme4jJ8GOK5hGcWsJxRamzI/r86uVaWHvnE8H5
-         cWLw==
-X-Forwarded-Encrypted: i=1; AJvYcCU2J5xZV1cVDguN1HrdCGRnfRoYfqLuM0ifK7dhR52XL6svbDp7xTIxY4Lau78/T1A0THjd9T+CevsQL4wJ5tkL@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5qVeLXf7l1WWgyEN/OSSBqMXLZUJ3M6ov40fX8xdGcL6EEpdT
-	taIQXsPG3n8BSfNsrs6E9EKZebj3VegN+4IpaDjg0fWINBVMjqEh62fIm9cTDX04+mLy766oUxL
-	y95FxhvnRPVI1jqopUg6XfX6zwFwZA9IDh9CT+A==
-X-Gm-Gg: ASbGnctI0HVDQJYYb0LKFlbKdOzhH6aH9Pn0sQrwb7qb84OaMWqdVQVeP5kFtUFs2Qj
-	i2l0dRCIqkqiiVGoenTDVZiR3m8SUxI1+oz8cWliAEuyMDgfKj+Upa22wuwYIBauW1zkrfVfsbe
-	rqScTWVcJjHL+BmeXJO2KerolIfhHprfmdFncpQFSpvvoch+kft+SoI4CS
-X-Google-Smtp-Source: AGHT+IGTSgfmE4C9KUY01cBQCa6U+zujjBr3JQn5JFHu87otSRTtbM+9TibC6Ub/YfaplbG5HQdBpJHJtYPG69/HM40=
-X-Received: by 2002:a05:651c:885:b0:30d:e104:cd56 with SMTP id
- 38308e7fff4ca-3179ffc1202mr10727731fa.39.1745504072212; Thu, 24 Apr 2025
- 07:14:32 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1745504066; x=1746108866;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Z+7xBf3XhJMHfpZe6B0obtpZq77mLhIssmTOLfcblvc=;
+        b=Y5LMrWOig7QNBm6J/AEAeQ3JvkJjk3xX2AUAwTNpL5e3LVQ1ryYz8Yb+oZbc0NNZwC
+         bBEKfySlatBj+VyMJHCMS/4+9zx7pL/wv+p2oPabbgC36g9HlA+/U37leaac28/nYzVA
+         NcOEHKQgvUTETtrcY4ln4N9FG7bn3Ifq4f7ssJZV3FOGu//dec5IHZA8iVyP3EgDcuuG
+         FhQraCWjHUQRrGv16F3A0+agtqpxC0y7SIRAHVWRGSwtTLkb+NzrX8Ty5jXbptmePyK8
+         O26DZejZfjlnfrpGZTl9Y6l5Y1Qsk6XUXcRYJ+ad4FvziwV684D6favnBG+Y4loTgJs+
+         Onlg==
+X-Forwarded-Encrypted: i=1; AJvYcCXs4tjiMVP08NTh4NFdeTcOmg0vPEEIQB5o5VUqt8wLEqKtxt9Md2dBPcfkK2H2lpdwLuIXNFqTo7IIktQVvmzD@lists.infradead.org
+X-Gm-Message-State: AOJu0YxV+mr+ABpEulYs+J8zgEfI9QHy8cSOtWSYG2NJmDXqGSCPeSbE
+	yyuHLRmBjTMPl60gBS9KHYnBcJ5FPnVs2Ymqd9y9hkGuxpP4eMU6YJSZpbZqM3M=
+X-Gm-Gg: ASbGnctHDJdlcsXamnZIG/Gy8SC6KhS8+Ar2OYKSlwSiBTapRpJWWVN8ECazo65UZSa
+	Iu/ouJPe+Cb7lvHUnbOc6AD/zK3jfaw00dD60DJ/xWJq01Nuaqcj5YIs1XHZHnxwVu5BN5ZMZBG
+	Wf8XUAsQDzGpd18iB+7TCPIHe+lHKWWMg/vpW9/u9Ttctq8fBCvpQn3KKAwMRUtguTTp4eD11js
+	PQKCJgEjE58KMXDqwvEtEVrVOeU4SaB0ZQyr4cp/+2u40DDQOT7mz9ukMxHl6qckyfaqKf79ng2
+	R1HDJ7gSbZiSBdn0JqSreu/CJ5izcuRbAzulUaGkVxGkc2Vmr6SAph3RQdWJ6oIDLowHIFyHGdv
+	tTRxYLOzrH3t3Jgws
+X-Google-Smtp-Source: AGHT+IHRjNQ9hktsGOI0gDbs88pFfwmyof1gAXg0Su1amTrqhLAxn7c+kspUyHkoAKmkYrrR9nwrhw==
+X-Received: by 2002:a5d:48ca:0:b0:39c:1257:cd41 with SMTP id ffacd0b85a97d-3a06cfd462dmr1866395f8f.59.1745504066490;
+        Thu, 24 Apr 2025 07:14:26 -0700 (PDT)
+Received: from seksu.systems-nuts.com (stevens.inf.ed.ac.uk. [129.215.164.122])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a06d4a8150sm2199951f8f.7.2025.04.24.07.14.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Apr 2025 07:14:26 -0700 (PDT)
+From: Karim Manaouil <karim.manaouil@linaro.org>
+To: linux-kernel@vger.kernel.org,
+	kvm@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Cc: Karim Manaouil <karim.manaouil@linaro.org>,
+	Alexander Graf <graf@amazon.com>,
+	Alex Elder <elder@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Marc Zyngier <maz@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Prakruthi Deepak Heragu <quic_pheragu@quicinc.com>,
+	Quentin Perret <qperret@google.com>,
+	Rob Herring <robh@kernel.org>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Srivatsa Vaddagiri <quic_svaddagi@quicinc.com>,
+	Will Deacon <will@kernel.org>,
+	Haripranesh S <haripran@qti.qualcomm.com>,
+	Carl van Schaik <cvanscha@qti.qualcomm.com>,
+	Murali Nalajala <mnalajal@quicinc.com>,
+	Sreenivasulu Chalamcharla <sreeniva@qti.qualcomm.com>,
+	Trilok Soni <tsoni@quicinc.com>,
+	Stefan Schmidt <stefan.schmidt@linaro.org>
+Subject: [RFC PATCH 31/34] gunyah: allow userspace to set boot cpu context
+Date: Thu, 24 Apr 2025 15:13:38 +0100
+Message-Id: <20250424141341.841734-32-karim.manaouil@linaro.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250424141341.841734-1-karim.manaouil@linaro.org>
+References: <20250424141341.841734-1-karim.manaouil@linaro.org>
 MIME-Version: 1.0
-References: <20250423-dt-memory-region-v2-v2-0-2fbd6ebd3c88@kernel.org>
-In-Reply-To: <20250423-dt-memory-region-v2-v2-0-2fbd6ebd3c88@kernel.org>
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-Date: Thu, 24 Apr 2025 08:14:20 -0600
-X-Gm-Features: ATxdqUEG7UgU0b-fYJDsj-X6YeibPATP71Sc8xsrfndaXkHmANCAN6IFo1WtuOI
-Message-ID: <CANLsYkxKHhCHYrbAGzQ48QGpL_DbuLnX3=ppmpyu0vjuuvvODg@mail.gmail.com>
-Subject: Re: [PATCH v2 0/4] of: Common "memory-region" parsing
-To: "Rob Herring (Arm)" <robh@kernel.org>, Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>, 
-	Daniel Baluta <daniel.baluta@nxp.com>, Iuliana Prodan <iuliana.prodan@nxp.com>, 
-	"Andrew F. Davis" <afd@ti.com>, "Shah, Tanmay" <tanmay.shah@amd.com>
-Cc: Saravana Kannan <saravanak@google.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Patrice Chotard <patrice.chotard@foss.st.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Chen-Yu Tsai <wens@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_071434_563297_37D416C5 
-X-CRM114-Status: GOOD (  17.88  )
+X-CRM114-CacheID: sfid-20250424_071428_593815_C22B3314 
+X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,70 +124,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Arnaud, Daniel, Iuliana, Andrew and Tanmay - please test this patchset
-on the platforms you are working on.
+Allow userspace hypervisor (e.g. Qemu) to set the context of the boot
+cpu. At the moment, only the program counter (PC) is needed.
 
-Thanks,
-Mathieu
+Signed-off-by: Karim Manaouil <karim.manaouil@linaro.org>
+---
+ arch/arm64/kvm/gunyah.c | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
-On Wed, 23 Apr 2025 at 13:42, Rob Herring (Arm) <robh@kernel.org> wrote:
->
-> While there's a common function to parse "memory-region" properties for
-> DMA pool regions, there's not anything for driver private regions. As a
-> result, drivers have resorted to parsing "memory-region" properties
-> themselves repeating the same pattern over and over. To fix this, this
-> series adds 2 functions to handle those cases:
-> of_reserved_mem_region_to_resource() and of_reserved_mem_region_count().
->
-> I've converted the whole tree, but just including remoteproc here as
-> it has the most cases. I intend to apply the first 3 patches for 6.16
-> so the driver conversions can be applied for 6.17.
->
-> A git tree with all the drivers converted is here[1].
->
-> v2:
-> - Fix of_dma_set_restricted_buffer() to maintain behavior on warning msg
-> - Export devm_ioremap_resource_wc()
-> - Rework handling of resource name to drop unit-address from name as it
->   was before.
-> - Link to v1:
->   https://lore.kernel.org/all/20250317232426.952188-1-robh@kernel.org
->
-> [1] git://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git dt/memory-region
->
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
-> Rob Herring (Arm) (4):
->       of: reserved_mem: Add functions to parse "memory-region"
->       of: Simplify of_dma_set_restricted_buffer() to use of_for_each_phandle()
->       devres: Export devm_ioremap_resource_wc()
->       remoteproc: Use of_reserved_mem_region_* functions for "memory-region"
->
->  drivers/of/device.c                       | 31 +++++-------
->  drivers/of/of_reserved_mem.c              | 80 +++++++++++++++++++++++++++++++
->  drivers/remoteproc/imx_dsp_rproc.c        | 45 +++++++----------
->  drivers/remoteproc/imx_rproc.c            | 68 +++++++++++---------------
->  drivers/remoteproc/qcom_q6v5_adsp.c       | 24 ++++------
->  drivers/remoteproc/qcom_q6v5_mss.c        | 60 ++++++++---------------
->  drivers/remoteproc/qcom_q6v5_pas.c        | 69 ++++++++++----------------
->  drivers/remoteproc/qcom_q6v5_wcss.c       | 25 ++++------
->  drivers/remoteproc/qcom_wcnss.c           | 23 ++++-----
->  drivers/remoteproc/rcar_rproc.c           | 36 ++++++--------
->  drivers/remoteproc/st_remoteproc.c        | 41 ++++++++--------
->  drivers/remoteproc/stm32_rproc.c          | 44 ++++++++---------
->  drivers/remoteproc/ti_k3_dsp_remoteproc.c | 28 +++++------
->  drivers/remoteproc/ti_k3_m4_remoteproc.c  | 28 +++++------
->  drivers/remoteproc/ti_k3_r5_remoteproc.c  | 28 +++++------
->  drivers/remoteproc/xlnx_r5_remoteproc.c   | 51 ++++++++------------
->  include/linux/of_reserved_mem.h           | 26 ++++++++++
->  lib/devres.c                              |  1 +
->  18 files changed, 339 insertions(+), 369 deletions(-)
-> ---
-> base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
-> change-id: 20250423-dt-memory-region-v2-a2b15caacc63
->
-> Best regards,
-> --
-> Rob Herring (Arm) <robh@kernel.org>
->
+diff --git a/arch/arm64/kvm/gunyah.c b/arch/arm64/kvm/gunyah.c
+index e8037d636e8f..df922be2429e 100644
+--- a/arch/arm64/kvm/gunyah.c
++++ b/arch/arm64/kvm/gunyah.c
+@@ -1703,6 +1703,24 @@ static int gunyah_vm_rm_notification(struct notifier_block *nb,
+ 	}
+ }
+ 
++/*
++ * We only need to set PC to start of kernel
++ */
++static int gunyah_vm_set_boot_ctx(struct gunyah_vm *ghvm)
++{
++	struct kvm_vcpu *vcpu = kvm_get_vcpu(&ghvm->kvm, 0);
++	u64 core_reg = KVM_REG_ARM64 | KVM_REG_SIZE_U64 | KVM_REG_ARM_CORE;
++	struct kvm_one_reg reg;
++	u64 *regaddr;
++
++	reg.id = core_reg | KVM_REG_ARM_CORE_REG(regs.pc);
++	regaddr = core_reg_addr(vcpu, &reg);
++
++	/* We only need to set PC atm. regset is 1 */
++	return gunyah_rm_vm_set_boot_context(
++			ghvm->rm, ghvm->vmid, 1, 0, *regaddr);
++}
++
+ static void gunyah_vm_stop(struct gunyah_vm *ghvm)
+ {
+ 	int ret;
+@@ -1790,6 +1808,12 @@ static int gunyah_vm_start(struct gunyah_vm *ghvm)
+ 	}
+ 	ghvm->vm_status = GUNYAH_RM_VM_STATUS_READY;
+ 
++	ret = gunyah_vm_set_boot_ctx(ghvm);
++	if (ret) {
++		pr_warn("Failed to setup boot context: %d\n", ret);
++		goto err;
++	}
++
+ 	ret = gunyah_rm_get_hyp_resources(ghvm->rm, ghvm->vmid, &resources);
+ 	if (ret) {
+ 		pr_warn("Failed to get hyp resources for VM: %d\n", ret);
+-- 
+2.39.5
+
 
