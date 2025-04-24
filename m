@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C19DCC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 05:39:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83E73C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 05:41:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q3WsYS5uiN/e8RKbVFWQ/WRtpqEQ4L/s6FfMfN0Pauc=; b=Rod0OULhqMWdxZSM8oh72n00ln
-	pcqX4Rc2R9Wxyj7a54eOJpPyjwPHCZnoQ0cVh/GtjsPfS9ZamjbLNDq3RLqGD0yulqmdb/thqh3/u
-	Bs0kom04emyczYi2W9J+8TudzMR9dQaV/3YGO0fdFd0dq4HcjYnJk/igZXi3NvvNBllDewcsv1j3b
-	k/LBmV3JblSjmmdpZkLPEWARgY+NtyaVoc4XZdDgf2zTyNHaq/VGmc4aKTee4GgV+HmteWxE1UhEn
-	t0BiqXU34MlGgLHA6Q1zEtOEy5Qr6jyPf43qhK+2AH9N3j1sR4VC6y0rBLblkjmqN5HjoV/aT8GKV
-	PgK513hA==;
+	bh=thhph3q9S0yoEPj7u/nZktZDBQ9U5YP9uHYuhph+DVI=; b=A2e0uYOmPWGLAJTGSxwnLIDRF7
+	5R3OtONrqKIJVKl/y9x6GeCWEp9ntdIgGIZynFRhQYc9aBE4Vts3zb+ihwcZNwJUOlayN9BwhV7j6
+	3J77Ah5cXM/PSP+5r0dVx3/M0AITJxdDmEaJiH+Sk9T+7S4846Xs7DGw5Zc4k5inyTNBiXQsXzxiU
+	f0Q2yvPlxQam0pEnLI+4ryT9Q9PMFlsFr5zQpef9DlkHTu3Hg4die2s2zEXjs7QBBeFm78Qqsd8ME
+	2zPX7mZbUT0aZVH6xLpx+Vgec7hB0x94BiwpggOFuLwPqeDuwhvwci0BX2Fc4AHF84ntCOZp7qqbs
+	Us/Bt5fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7pIe-0000000Cu7Q-0X2R;
-	Thu, 24 Apr 2025 05:39:04 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u7pKY-0000000CuGD-3t9Y;
+	Thu, 24 Apr 2025 05:41:02 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7pGe-0000000Ctm2-1EM1
+	id 1u7pGi-0000000Ctnf-2LgM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 05:37:01 +0000
+	Thu, 24 Apr 2025 05:37:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7A1E5A41449;
-	Thu, 24 Apr 2025 05:31:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF7A5C4CEEA;
-	Thu, 24 Apr 2025 05:36:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4CAB468455;
+	Thu, 24 Apr 2025 05:36:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2EC4C4CEE3;
+	Thu, 24 Apr 2025 05:36:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745473019;
-	bh=16Tv7vNTdXwidd0uz+YZ0SsmgwWLIo9ELsC6Ft/58yE=;
+	s=k20201202; t=1745473023;
+	bh=Zhj03Wn3IByVJPKb+sDHS8tWFv0G8C9m6nuaATcy4Dc=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=lVplbl5vuIGMKKE0B/NwmZpSwfZ8WJB6kVcHXsCeHiRN6rfm/4g0DAdIeaieu8MGA
-	 mfdA2W/0ZK8E/rnmbOhBWS8vg7rlMWLDN8F6EfcBBrremkw1mP5UfJFgg8Ib5foF7n
-	 8MqhggV0Y6L+QJunuO9LTbyh5yHQWRdQIFhTK2WH2Drq/bR7y7Mq24q2LXNnKguBdW
-	 91LSU+KOi/D5z95P/zfTN/aF5pWY9SpAqn/XXqT1Voe0syR8/wecy5Rh0uOxfikBBg
-	 m76FP4RIDY23BtcmjNKGYbfUeZFOgNPhsnCiGEKA1UjB5wnDdYu6suZBqA8ed4zKUw
-	 3J1wZRtnNiFxg==
+	b=HL2/vmrBvRRHlyZtjtWum1nvAq0wmELn/TrhD7WRkGVkh62nm+N2MHWzJjlsfdszB
+	 UT/IHnD5UjmoRpxrpcGPMDooAQ7MY7bUEjBFucJHe2DNJUhHgu4oAzCzGwCeA7ziUI
+	 DnFRJqBh1/pAOEf9Hg3s5DcVgZ2EQ1Y0V+4bLNbbEd9pA+C4zs7ARewKW8ApSsNrMB
+	 mcg9hvJd1z2XzZP81iEriS+KOb00ne7yXXEpAQ5M3pba46D6kp3+azdONiWT0avJqJ
+	 5bZYJ+zjEVoQ2GbTC5VMkrmf4b/A+ZTkQxi7uIqdHqMji8+GnjFOmwAupJ8v4D3NeN
+	 dO6dLVYmX9dWQ==
 From: Vinod Koul <vkoul@kernel.org>
-To: Robin Murphy <robin.murphy@arm.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <50dbaf4ce962fa7ed0208150ca987e3083da39ec.1745345400.git.geert+renesas@glider.be>
-References: <50dbaf4ce962fa7ed0208150ca987e3083da39ec.1745345400.git.geert+renesas@glider.be>
-Subject: Re: [PATCH] dmaengine: ARM_DMA350 should depend on ARM/ARM64
-Message-Id: <174547301700.316124.6778478265087224914.b4-ty@kernel.org>
-Date: Thu, 24 Apr 2025 11:06:57 +0530
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>
+Cc: imx@lists.linux.dev, dmaengine@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Joy Zou <joy.zou@nxp.com>
+In-Reply-To: <20250407-edma_err-v2-0-9d7e5b77fcc4@nxp.com>
+References: <20250407-edma_err-v2-0-9d7e5b77fcc4@nxp.com>
+Subject: Re: (subset) [PATCH v2 0/3] dmaengine: fsl-edma: add error irq to
+ help debug problem
+Message-Id: <174547301902.316124.419798258552986948.b4-ty@kernel.org>
+Date: Thu, 24 Apr 2025 11:06:59 +0530
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_223700_403123_D8C7FDF8 
-X-CRM114-Status: UNSURE (   6.61  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,17 +76,19 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 22 Apr 2025 20:11:19 +0200, Geert Uytterhoeven wrote:
-> The Arm DMA-350 controller is only present on Arm-based SoCs.  Hence add
-> dependencies on ARM and ARM64, to prevent asking the user about this
-> driver when configuring a kernel for a non-Arm architecture.
+On Mon, 07 Apr 2025 12:46:34 -0400, Frank Li wrote:
+> Change binding to support optional error irq.
+> Add error irq handle for fsl-edma drivers.
+> imx93 dts add dma error irq interupt.
 > 
 > 
 
 Applied, thanks!
 
-[1/1] dmaengine: ARM_DMA350 should depend on ARM/ARM64
-      commit: 86071b369dbdf0a8f7e4424c4e0b613ba7b8ab5e
+[1/3] dt-bindings: dma: fsl-edma: increase maxItems of interrupts and interrupt-names
+      commit: a9ea01f28408169431dd3e6464ed2e48539f4280
+[2/3] dmaegnine: fsl-edma: add edma error interrupt handler
+      commit: d175222f5e90b7e1f23713378823c338fabb3258
 
 Best regards,
 -- 
