@@ -4,124 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32AEBC369D7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 21:37:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50A47C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 21:59:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OrVdlXQhwAviji/junUKUi6SBanWhUpShBjAwIaBg80=; b=fPYpk8jxZu6VPj71QjHyZUuyvx
-	aw8PoFC6+W0z4U5mTAR2sEHVpCsdYyYQ/TSyJdxIoZyT8Ify3OKdOv1ZlKyH7yB2MonQjtABnvm/i
-	pWrm1FpHOMcVL92MH5Apwlgq3kxiq8kyMYEx8KLqk4+GMjtNhwffvW1Hrpw0frAWlScBhTToQzkw0
-	NDdxHBN52emNzDx0Jgez7ZrCgdrbtfUn1jISf9EqzkZTFchA4HLq51ctETqDY6q9GCq5H3+6Fhmhb
-	pFh6C5zdcuERAS90tJ5Lbl/xjyGTq3jlL/SQ3VdzdETHDVClrp/HaqLbNYl92od86p2w/VrDjDjUN
-	TSX9a9CQ==;
+	bh=xpoZPfro0SHj9mPJ6mKU/fbkIbH6rl7Ujv7LCLlYPNY=; b=l87UHjkCrSOtjg/0TTaCFUqZAY
+	c1lOLQnKftqY5vGl1yOUlw1vQLKActlsHk+De6mAOA5BY5BL6D1D8FbE5VgWPOgYXSM7J5RwTHDHM
+	texhAJVO8eaQS7AV6OX6JyIHkcDndXwfij91qfU/XQKoWUCQyF4H8picAm0MMgBUN9EnQj/xbgd2C
+	nsyxiQbTJTnSmU9By1RuJSSsu11CywVxed9qdFc4AxXQDhe+PLSOFwC+PHXjATy/1gZ4BBhVjdXy+
+	7YincxTrm/eCuFLDggZhKPvdG0D0h9jrk0Bc3sSAAoTmsx5KwGk5huWmoJjAj5eU46iu7JkUHI9fl
+	1d7a8IYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u84G6-0000000FQOU-3QvN;
-	Thu, 24 Apr 2025 21:37:26 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1u84bI-0000000FSYB-38LD;
+	Thu, 24 Apr 2025 21:59:20 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u83Dk-0000000FLQq-2PJp
+	id 1u84ZR-0000000FSBn-05bq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 20:30:57 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53OJmfXa011525
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 20:30:54 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	OrVdlXQhwAviji/junUKUi6SBanWhUpShBjAwIaBg80=; b=Z7+mfPAGnR09NHFV
-	KLkeeJm3ChXIVqJ8GC/yJbRe990eCzUB1qJpd9v8c+nWi/1FsHZ4wOfPfqhy26Op
-	uCOj/giDN/qRtDNuO4KZt0RMAu+JwCuHxGRpOAfMXi5vSYZEtyO4Pjrtg9y05FaG
-	FjvX6OAc9Irx9xhguvLbAuxcIFPNo5XS1DVtmklYE1xg29kgwLa54Nhrfv9wJ6ly
-	QZpOMSL1m5P4/Ad1eQ4hCLTPeone40T3t4hiVCnSwccx2oHZPfC+/VfCH4+x/Ss6
-	ZkYswBq+ntvtLu3Sw/kMFBAzUc0F6LwmxCN32qto3ZWyGDJlISQpYyUYbULX6MAu
-	zRPxyQ==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 466jh0eyfu-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 20:30:54 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-7c545ac340aso19958285a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 13:30:54 -0700 (PDT)
+	Thu, 24 Apr 2025 21:57:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1745531843;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xpoZPfro0SHj9mPJ6mKU/fbkIbH6rl7Ujv7LCLlYPNY=;
+	b=Uen+WLSxRqBmCBACU6UgZoXbPsvjR3FdjdJsT/baxVHYhj7vXpR20psFyg5EwTGAz9Plt3
+	GdnozljDcmrlTAZLLXmBEPUMkeYkA0swareNLGOz+Fcxgtz445GHwsIhwsXT2PXaXvlBDy
+	c+t84BYoLsmfYEWD7z9Pqrp6UBz/O7M=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-690-TAKnqcDNOUu0HMzV7TWn5w-1; Thu, 24 Apr 2025 17:57:21 -0400
+X-MC-Unique: TAKnqcDNOUu0HMzV7TWn5w-1
+X-Mimecast-MFC-AGG-ID: TAKnqcDNOUu0HMzV7TWn5w_1745531840
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-39ac9b0cb6aso675858f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 14:57:21 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745526653; x=1746131453;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=OrVdlXQhwAviji/junUKUi6SBanWhUpShBjAwIaBg80=;
-        b=pDnbM4Jx/wjYxZkaayZgiPzRYGRjXHqVxyCkaUrPa6s8aiVwUm8m2OLRQrbHap7Snk
-         Cou45RC2oP1hyVD0GSaClEwHKA5iYEBoP9HZ5+H1tRzJ37U/Rv2nqamSZ3H+Fd8l+udv
-         IZRaBwM1Y9gVM36QN14YMAyAHd6pROTAugbmcAiUrov42Q8C1XQLLGF0TDSCySVxaf24
-         TPtqUVXYETWjPK+xUlhLXKVcNr1THzBVVuuPqFx2xZUOp9J+vspHzqepJr40dObUKW5w
-         OGm1iL07RJKk/Wdg+tW63b467/ZIc7S18jC6KFUo4Jse1xTIyBIgwceRMTCN7YXKL/aa
-         0s8g==
-X-Forwarded-Encrypted: i=1; AJvYcCXRm/8CdePh697JZapUmQg5eZ/jETV4xJuEpplfTMAcqec1dM9QJKf19UP7rzgjWaJyZcBuV6e0wthycWVfw6t4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxwkk7ytHg70zAPTWBoHoQbIygQv+4X+bg6j/D8KtDjk3cK8ZFM
-	1H1rgL116Pjjl29G4eA2yyXwsSC+zetABDdUwX5EuSMshNRo8hfrDShFRoG21jETwj08Xf2Af8W
-	kwCEis1bjdRpWnQMhuzg060ImcP5GNo8Nzbmf55NzHdcauCaJY/IkcZJudTEuBAsTQyjn9aFnUg
-	==
-X-Gm-Gg: ASbGnctYT568f6mYNsaDoX8Mr/koyYIbiuTkimejqLng3uqW0s4gF+dpn8/odhSVdi5
-	b1nX0LKh42FZ+F6dYBwquiqKW2BxafFFZQwD9Q3Je3PoD2dCzWSVKsNYx547WbaGD9kU/smJjGK
-	H38fxIy/iU/lnAC6zeFPNn95fRGd2O9VnSTTgvDasopiwsCr5aEw4vRTcznjZCfKvUfGm735ZJj
-	nmAX0WA0PWVaEVKvrhIH9tyUD8Cog0JzsQSBArMGLSZj4da9Q+hbG2ZkPNcL8jF1CQJCSb87xRc
-	Tkzh3GSHzt8oAuqj1oD+ZbwEllGCG2V/ijAoTp2ohjlJVkWKgZaZylqHuaLu2AhWtl4=
-X-Received: by 2002:a05:620a:258d:b0:7c0:cc94:46c4 with SMTP id af79cd13be357-7c956e829b0mr246689585a.2.1745526653222;
-        Thu, 24 Apr 2025 13:30:53 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGRa8MtoW+3I01aUlFs+8CuH59Beo6wFJpbOz4qs/fVt4IP/6FFeT/Y8XMq6k6m3P0kyt9hcQ==
-X-Received: by 2002:a05:620a:258d:b0:7c0:cc94:46c4 with SMTP id af79cd13be357-7c956e829b0mr246688085a.2.1745526652896;
-        Thu, 24 Apr 2025 13:30:52 -0700 (PDT)
-Received: from [192.168.65.221] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ace6ecf9a47sm14437366b.104.2025.04.24.13.30.50
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 24 Apr 2025 13:30:52 -0700 (PDT)
-Message-ID: <6b286132-1c56-43c1-a61e-0e067a73b615@oss.qualcomm.com>
-Date: Thu, 24 Apr 2025 22:30:49 +0200
+        d=1e100.net; s=20230601; t=1745531840; x=1746136640;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=xpoZPfro0SHj9mPJ6mKU/fbkIbH6rl7Ujv7LCLlYPNY=;
+        b=QN9bAGbpgIuW6fugL/Xizya5S1WFkzvOCr1+ViC/tscBlNr+8Idd5Dqfkp7kPf+FxI
+         l+qmS3XbnoXSX+D5594C+u5fiSGmf4gRNQm3Y5wN2/0EmpBC96Qlmu8I40lV0dZy4RxA
+         b845zDN8c4/3ebQ3nZKHaNlxR0ng5HCrmK9ATZO8M83FbIyDZ9Kak7KvimLC7suO5Yp3
+         pc+j++/FHRbv69+JQOjG+5XkReAdZ4pYRx+5HuiODp9q/IWpnxTJzpvwLm7h2ixSf9vo
+         NV1wakMyyw6IQHQGSmKhBz8r7eUi+h/pcRGG26CSAknKkhaCKpJCCKu7gbkJ6KRiW3aB
+         Fl8A==
+X-Forwarded-Encrypted: i=1; AJvYcCU2zDlkQN1a7yGCjXCdw7m9YCXn3p8+SMQayQavNHeZPpcI6nhao1cDsSeRlD4TdaXaww853FIvgMvM5f7oUJ4o@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy7k0u46xpjG2JTbSYkj3hFqbOnrD8dCQebSQuwRKBXD+W4WILf
+	WkfarBtcF2PsLfD47c8IcLFg7u+fd+awnGwVNNXT23tYhzKRWZt2XeA29iAt/zfPtip11VOKGPe
+	bhzqPVEe7wjqwEZNSBlGuQB+UEILtbQfhc+XN2JI3b6/NVJJjCNPKugU15HsV0kQwHm8mx7wmSs
+	QfvGS0av2UQQ+1xoYGbOumEROvFj8l9xhO0XlQIvyStnp1RR4=
+X-Gm-Gg: ASbGncuPl54eg4bdGL6UZKNlYaLPe9tyiLlUeEiSyWTQ2gcfwZCWeFP1Zq6f56hv9n2
+	RJ4lAaYWxox1oflvmm5eEDAywzfexS6MuAEYp5KIZYBLF8LaufBv+ZO0jG8yU/mIZkQ8=
+X-Received: by 2002:a05:6000:420f:b0:39f:b604:4691 with SMTP id ffacd0b85a97d-3a06cfad4demr3613299f8f.58.1745531840413;
+        Thu, 24 Apr 2025 14:57:20 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEeKzKsojxPFQjf2qyPC/jLCrBU0TIGuJgSXSwemHUuTZespuYvxujkus4uQUh01e60jmTuxs45QJiRsX3qQ8A=
+X-Received: by 2002:a05:6000:420f:b0:39f:b604:4691 with SMTP id
+ ffacd0b85a97d-3a06cfad4demr3613274f8f.58.1745531839898; Thu, 24 Apr 2025
+ 14:57:19 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/5] dt-bindings: arm: Add CoreSight QMI component
- description
-To: Mao Jinlong <quic_jinlmao@quicinc.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
- <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org
-References: <20250424115854.2328190-1-quic_jinlmao@quicinc.com>
- <20250424115854.2328190-2-quic_jinlmao@quicinc.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20250424115854.2328190-2-quic_jinlmao@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: 8WtbxyhxICx4PodGrXkJtvqWfNLYsv2i
-X-Proofpoint-ORIG-GUID: 8WtbxyhxICx4PodGrXkJtvqWfNLYsv2i
-X-Authority-Analysis: v=2.4 cv=Fv0F/3rq c=1 sm=1 tr=0 ts=680a9f7e cx=c_pps a=50t2pK5VMbmlHzFWWp8p/g==:117 a=FpWmc02/iXfjRdCD7H54yg==:17 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=7qhtKZ1Szi6igWG7shAA:9 a=QEXdDO2ut3YA:10
- a=IoWCM6iH3mJn3m4BftBB:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI0MDE0NCBTYWx0ZWRfXwDYSsu2ZUJYN OX+qwGfNGO59pmD5wthpdBkdiY+Bb+uyqMRVVlFzRbzEYq4i74QpeHU7D5nNLWqpSRjQn6+MIaa QEwv663W2j9fy+5IN3B2SdXWFg1JhK5+GCoYZqlMt0SqCPpFFeIK6Ly2M+kdg+C3pCT1mXouPAM
- 0NY3gdhxUWcCNua5TfP2tCGETaKrf11OVTIhvuolaZJtwYV/CRBET0XGCykJGWmR3wYREjHxNKh Yi/gcY5UZo2NcT606fcfbhnP8R2gjFdOEh16iKZUV4GfrC0t9WONIiMob1NFbF+iQksQEte2g4t u6vAeV2oDiJUiAIOEmUJT2MFZyxgJrvQO17KAS3APHWo5Cp8UV+nnj9UQlIHc76iqZ9RbikE92a
- mAduN/r19otCKzEVY+oie6IlWoKhqLHB78bGylCe1tyZ1toxH0uli6SOMo5e39mQuMjf9a9q
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-04-24_09,2025-04-24_02,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 mlxscore=0
- malwarescore=0 mlxlogscore=858 priorityscore=1501 suspectscore=0
- adultscore=0 bulkscore=0 clxscore=1015 spamscore=0 lowpriorityscore=0
- phishscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
- definitions=main-2504240144
+References: <20250303-vdso-clock-v1-0-c1b5c69a166f@linutronix.de>
+ <20250303-vdso-clock-v1-8-c1b5c69a166f@linutronix.de> <aApGPAoctq_eoE2g@t14ultra>
+ <20250424173908-ffca1ea2-e292-4df3-9391-24bfdaab33e7@linutronix.de>
+In-Reply-To: <20250424173908-ffca1ea2-e292-4df3-9391-24bfdaab33e7@linutronix.de>
+From: Jan Stancek <jstancek@redhat.com>
+Date: Thu, 24 Apr 2025 23:57:02 +0200
+X-Gm-Features: ATxdqUEI0uDThPwtIXkgDnYksB6HJCT6szRwp_ZXnbL9vPXmguxH9v8pzuTDM2Y
+Message-ID: <CAASaF6xsMOWkhPrzKQWNz5SXaROSpxzFVBz+MOA-MNiEBty7gQ@mail.gmail.com>
+Subject: Re: [PATCH 08/19] vdso/gettimeofday: Prepare do_hres_timens() for
+ introduction of struct vdso_clock
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Anna-Maria Behnsen <anna-maria@linutronix.de>, 
+	Frederic Weisbecker <frederic@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+	Christophe Leroy <christophe.leroy@csgroup.eu>, Naveen N Rao <naveen@kernel.org>, 
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-s390@vger.kernel.org, linux-arch@vger.kernel.org, 
+	Nam Cao <namcao@linutronix.de>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: -RMr2r9yR-RXy5GGhZkQdgFkIJJPme_52RAIbWU0iB4_1745531840
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_133056_619114_8BFB4C65 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20250424_145725_134329_EFCF9BB2 
+X-CRM114-Status: GOOD (  30.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,18 +118,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/24/25 1:58 PM, Mao Jinlong wrote:
-> Add new coresight-qmi.yaml file describing the bindings required
-> to define qmi node in the device trees.
-> 
-> Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
-> ---
+On Thu, Apr 24, 2025 at 5:49=E2=80=AFPM Thomas Wei=C3=9Fschuh
+<thomas.weissschuh@linutronix.de> wrote:
+>
+> On Thu, Apr 24, 2025 at 04:10:04PM +0200, Jan Stancek wrote:
+> > On Mon, Mar 03, 2025 at 12:11:10PM +0100, Thomas Wei=C3=9Fschuh wrote:
+> > > From: Anna-Maria Behnsen <anna-maria@linutronix.de>
+> > >
+> > > To support multiple PTP clocks, the VDSO data structure needs to be
+> > > reworked. All clock specific data will end up in struct vdso_clock an=
+d in
+> > > struct vdso_time_data there will be array of it. By now, vdso_clock i=
+s
+> > > simply a define which maps vdso_clock to vdso_time_data.
+> > >
+> > > Prepare for the rework of these structures by adding struct vdso_cloc=
+k
+> > > pointer argument to do_hres_timens(), and replace the struct vdso_tim=
+e_data
+> > > pointer with the new pointer arugment whenever applicable.
+> > >
+> > > No functional change.
+> > >
+> > > Signed-off-by: Anna-Maria Behnsen <anna-maria@linutronix.de>
+> > > Signed-off-by: Nam Cao <namcao@linutronix.de>
+> > > Signed-off-by: Thomas Wei=C3=9Fschuh <thomas.weissschuh@linutronix.de=
+>
+> > > ---
+> > > lib/vdso/gettimeofday.c | 35 ++++++++++++++++++-----------------
+> > > 1 file changed, 18 insertions(+), 17 deletions(-)
+> > >
+> >
+> > starting with this patch, I'm seeing user-space crashes when using cloc=
+k_gettime():
+> >   BAD  -> 83a2a6b8cfc5 vdso/gettimeofday: Prepare do_hres_timens() for =
+introduction of struct vdso_clock
+> >   GOOD -> 64c3613ce31a vdso/gettimeofday: Prepare do_hres() for introdu=
+ction of struct vdso_clock
+> >
+> > It appears to be unique to aarch64 with 64k pages, and can be reproduce=
+d with
+> > LTP clock_gettime03 [1]:
+> >   command: clock_gettime03   tst_kconfig.c:88: TINFO: Parsing kernel co=
+nfig '/lib/modules/6.15.0-0.rc3.20250423gitbc3372351d0c.30.eln147.aarch64+6=
+4k/build/.config'
+> >   tst_test.c:1903: TINFO: LTP version: 20250130-231-gd02c2aea3
+> >   tst_test.c:1907: TINFO: Tested kernel: 6.15.0-0.rc3.20250423gitbc3372=
+351d0c.30.eln147.aarch64+64k #1 SMP PREEMPT_DYNAMIC Wed Apr 23 23:23:54 UTC=
+ 2025 aarch64
+> >   tst_kconfig.c:88: TINFO: Parsing kernel config '/lib/modules/6.15.0-0=
+.rc3.20250423gitbc3372351d0c.30.eln147.aarch64+64k/build/.config'
+> >   tst_test.c:1720: TINFO: Overall timeout per run is 0h 05m 24s
+> >   clock_gettime03.c:121: TINFO: Testing variant: vDSO or syscall with l=
+ibc spec
+> >   clock_gettime03.c:76: TPASS: Offset (CLOCK_MONOTONIC) is correct 1000=
+0ms
+> >   clock_gettime03.c:86: TPASS: Offset (CLOCK_MONOTONIC) is correct 0ms
+> >   clock_gettime03.c:76: TPASS: Offset (CLOCK_BOOTTIME) is correct 10000=
+ms
+> >   clock_gettime03.c:86: TPASS: Offset (CLOCK_BOOTTIME) is correct 0ms
+> >   clock_gettime03.c:76: TPASS: Offset (CLOCK_MONOTONIC) is correct -100=
+00ms
+> >   clock_gettime03.c:86: TPASS: Offset (CLOCK_MONOTONIC) is correct 0ms
+> >   clock_gettime03.c:76: TPASS: Offset (CLOCK_BOOTTIME) is correct -1000=
+0ms
+> >   clock_gettime03.c:86: TPASS: Offset (CLOCK_BOOTTIME) is correct 0ms
+> >   tst_test.c:438: TBROK: Child (233649) killed by signal SIGSEGV
+> >
+> > or with:
+> > --------------------- 8< ----------------------
+> > #define _GNU_SOURCE
+> > #include <sched.h>
+> > #include <time.h>
+> > #include <unistd.h>                                                    =
+                                                                           =
+                                                                           =
+                #include <sys/wait.h>
+> >
+> > int main(void)
+> > {
+> >         struct timespec tp;
+> >         pid_t child;
+> >         int status;
+> >
+> >         unshare(CLONE_NEWTIME);
+> >
+> >         child =3D fork();
+> >         if (child =3D=3D 0) {
+> >                 clock_gettime(CLOCK_MONOTONIC_RAW, &tp);
+> >         }
+> >
+> >         wait(&status);
+> >         return status;
+> > }
+> >
+> > # ./a.out ; echo $?
+> > 139
+> > --------------------- >8 ----------------------
+> >
+> > RPMs and configs can be found at Fedora koji, latest build is at [2] (l=
+ook for kernel-64k).
+>
+> Hi Jan,
+>
+> Thanks for the great error report.
+>
+> Can you try the following change (on top of v6.15-rc1, should also work w=
+ith current master)?
+>
+> diff --git a/lib/vdso/gettimeofday.c b/lib/vdso/gettimeofday.c
+> index 93ef801a97ef..867ce53cca94 100644
+> --- a/lib/vdso/gettimeofday.c
+> +++ b/lib/vdso/gettimeofday.c
+> @@ -85,14 +85,18 @@ static __always_inline
+>  int do_hres_timens(const struct vdso_time_data *vdns, const struct vdso_=
+clock *vcns,
+>                    clockid_t clk, struct __kernel_timespec *ts)
+>  {
+> -       const struct vdso_time_data *vd =3D __arch_get_vdso_u_timens_data=
+(vdns);
+>         const struct timens_offset *offs =3D &vcns->offset[clk];
+> -       const struct vdso_clock *vc =3D vd->clock_data;
+> +       const struct vdso_time_data *vd;
+> +       const struct vdso_clock *vc;
+>         const struct vdso_timestamp *vdso_ts;
+>         u64 cycles, ns;
+>         u32 seq;
+>         s64 sec;
+>
+> +       vd =3D vdns - (clk =3D=3D CLOCK_MONOTONIC_RAW ? CS_RAW : CS_HRES_=
+COARSE);
+> +       vd =3D __arch_get_vdso_u_timens_data(vd);
+> +       vc =3D vd->clock_data;
+> +
+>         if (clk !=3D CLOCK_MONOTONIC_RAW)
+>                 vc =3D &vc[CS_HRES_COARSE];
+>         else
+>
+>
+> I'll do some proper testing tomorrow.
 
-Is the service-id hardcoded/well-known? If so, we can drop
-this devicetree node and create a new platform device (& probe the
-related driver) based on the presence of qcom,qmi-id that you add
-in patch 3
+That does seem to work for the 2 reproducers I have.
+But why is this change needed? Isn't 'vdns' here equal to 'vdso_u_time_data=
+'?
 
-Konrad
+>
+>
+> Thomas
+>
+> > [1] https://github.com/linux-test-project/ltp/blob/master/testcases/ker=
+nel/syscalls/clock_gettime/clock_gettime03.c
+> > [2] https://koji.fedoraproject.org/koji/buildinfo?buildID=3D2704401
+>
 
 
