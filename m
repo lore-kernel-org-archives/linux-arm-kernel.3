@@ -4,171 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B23E3C369DE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BA20C369D8
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:03:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5N9qvmKlKUcH4UNe3dZodxTZAnAONhKL0ClOo5n+q2o=; b=R+qKjWj5cuCVUvP2rL9OeDsgA0
-	0CrMVaSYpPxwYPQNNomi2S1puY+nTcpxG3eRwxwKbc6uAutDaKciXaVM1Jqt6nfe14saFvwvzKLva
-	9GVsqR6qlO19qTTw7REIXRjcM65pYfzAyH3dxCgQsA7lt1xHs9xKAkByxikTdNi5aR8pHNhyb0TX6
-	0HPq9e8Zob8DvYT1TlqzYpQTEnzO+wMZXxM4Y+mVk+Sl/I61betYyVWpWrUeLgfI5Dfe6DrIT5o55
-	714oXsFMDHjbIo4SkuE4v7nMbdWZq1JmQQDUEXIp+S5a/CBOeTagr73q1Prsd8GRT25IXlTlfRPZ6
-	tgfPmE4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=klYtEhovmTlwcYguIPBeU+Xf5MWQCBo4CKfTOLBIQKA=; b=29r1OVGL3w1WEbv17VosKRrUbS
+	rpFS8kRdC2H3ZQCPDD+JwGgjZkpoxgA+ooa2OTbovveZJLv4pxR9lSG0ecnuIhtQSrzeM4XPJBFfV
+	bVjdayIAVdzUi3wHklZqKP7KQ5P0ToXvOR+uNqxkcwuLHPOolSnxc8e/f2++f0hAar/ngFgthme+i
+	aoCalI2wWdNabBI9sr2sXUBFq40UpEB7qgz5qRDmmhdQtjIoYDvLOmKvr4t5iySgX8ObBZoo2YDAZ
+	8TW3R1ZZx7fj+XM1jUNpqXkzjVzG9vB4scy4yswe1oHYcoMpEqAcZFoHDcPjEC/KbIXGqtrfDMVMO
+	S2r57f2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7z2y-0000000EZdn-2AJi;
-	Thu, 24 Apr 2025 16:03:32 +0000
-Received: from mail-mw2nam10on20627.outbound.protection.outlook.com ([2a01:111:f403:2412::627] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7uee-0000000Dpyq-1UA1
+	id 1u7z31-0000000EZgB-11ff;
+	Thu, 24 Apr 2025 16:03:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7ulm-0000000DrLb-45DM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 11:22:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IfnGVheLFSEsjnALUBSfQ4CWS0Bl/ZDtSm6QSaYzKDToExuyzNtzALChHnr5o+SS2pcWa0SKwgWSLXWXg7wajHksJoCdWG6ynTi+WsZWVBpzGczTbE8+/wsNrZ8184pfpXQu+rr+NoNzEeDZ4eneRNuqD92P7ciqxynA9bMz5ckwVkXIxCQ6tIymnPCqTBf5spZYm88M80OObRjt4HEALQrfGYa5Kwq5770yl7E/eTQ8BZvv6TvWWOnFS/NLP4ffrralrnJwYjWBmNC2II+ehh4m5QDzF/WhHXxMSw2VPCd5RbRpFB1saW7rAYfcnzL9gr/+j/zwxzymLVie50TNRQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5N9qvmKlKUcH4UNe3dZodxTZAnAONhKL0ClOo5n+q2o=;
- b=gPKffut1lLu95BDzhvdDety57Ob60xzDrlhGjGU/76U8N53JW2JqWWoQ2q/XLrbdRuLAZasUrsBpKYePydssNOkjdNqIUbTIyCQt7vtOuPCwxQN01pO6LtMKVqzj3+U5FIUwcgOHrjFdWbTmD3aYcj0zifaEP0P6xOFfWTaQWcplACRgn9AIwUU9j9t0ezelNJOa3m8e/rtWoRXwcWUww8RfRZ54t35SFlhybXdnVf0BheUihtHEt6kdN8Q956Dzd4axOPgZheMnyBXD9GGtRLl/Y+Ed6UcqH9xQqPGIQKk3UUdC2DF3Y2wPPEk0614cXlcIlDTr11Qcvhrlm7072Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5N9qvmKlKUcH4UNe3dZodxTZAnAONhKL0ClOo5n+q2o=;
- b=D7W5BIEoefuc/JnbwzYK0S90lBLfdkfHmWRD93KVTpoUClp4ibBgYn0oYjzzkNHCBduYWIl4+nIGUDylkb59EUYg7x5TacbWAcIX8X/g4DZBR5E1czUGRtgJlfYQC8/5DMYZk17hXry2YvQZJatIYaM1rB6N/NR3oC2Hovat5t8=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from DS7PR12MB6048.namprd12.prod.outlook.com (2603:10b6:8:9f::5) by
- DS0PR12MB9040.namprd12.prod.outlook.com (2603:10b6:8:f5::18) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8678.23; Thu, 24 Apr 2025 11:22:02 +0000
-Received: from DS7PR12MB6048.namprd12.prod.outlook.com
- ([fe80::6318:26e5:357a:74a5]) by DS7PR12MB6048.namprd12.prod.outlook.com
- ([fe80::6318:26e5:357a:74a5%5]) with mapi id 15.20.8678.021; Thu, 24 Apr 2025
- 11:22:02 +0000
-Message-ID: <8dfb4ad6-5e98-4050-9cb1-888c01340ee8@amd.com>
-Date: Thu, 24 Apr 2025 16:51:48 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 00/16] iommufd: Add vIOMMU infrastructure (Part-4
- vCMDQ)
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
- robin.murphy@arm.com, joro@8bytes.org, thierry.reding@gmail.com,
- vdumpa@nvidia.com, jonathanh@nvidia.com, shuah@kernel.org, praan@google.com,
- nathan@kernel.org, peterz@infradead.org, yi.l.liu@intel.com,
- jsnitsel@redhat.com, mshavit@google.com, zhangzekun11@huawei.com,
- iommu@lists.linux.dev, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-tegra@vger.kernel.org, linux-kselftest@vger.kernel.org,
- patches@lists.linux.dev
-References: <cover.1744353300.git.nicolinc@nvidia.com>
- <a0c248f0-71ff-4477-98ec-1bbd52eda566@amd.com>
- <aAiaiomYczA22xik@Asurada-Nvidia>
-Content-Language: en-US
-From: Vasant Hegde <vasant.hegde@amd.com>
-In-Reply-To: <aAiaiomYczA22xik@Asurada-Nvidia>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PN4P287CA0036.INDP287.PROD.OUTLOOK.COM
- (2603:1096:c01:26f::6) To DS7PR12MB6048.namprd12.prod.outlook.com
- (2603:10b6:8:9f::5)
+	Thu, 24 Apr 2025 11:29:32 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D84C11063;
+	Thu, 24 Apr 2025 04:29:24 -0700 (PDT)
+Received: from [10.163.49.106] (unknown [10.163.49.106])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B9C223F59E;
+	Thu, 24 Apr 2025 04:29:23 -0700 (PDT)
+Message-ID: <b002574d-e993-4b06-87f7-54bd01dfa500@arm.com>
+Date: Thu, 24 Apr 2025 16:59:20 +0530
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS7PR12MB6048:EE_|DS0PR12MB9040:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1d68c84f-9733-4d96-d138-08dd83223c46
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?aDltcVIvQlF3b2NEVFBsbUFLa1M3WjJnYVdkcmFBb2FrWVlmaVE4OEhJb3lu?=
- =?utf-8?B?ak1aSE1xRnA2WHVHcFpSVEY1a2RKYkV1cjNiQU9WaWtENEVaUjAzSUZsQzc2?=
- =?utf-8?B?MjFpK0duQXZWSzJ5U1pjUWVucVZWdlVuVjJDb2tqbzBLRXoveDU3ZGFadzZm?=
- =?utf-8?B?cG9PcklNUGswU24xdmVrMG9hT2ltOTliU25sck5BZW9mWDR1S2UwTUtCaE12?=
- =?utf-8?B?ODRPblZ1RDg5djRRSWU4a1V4OGFiaGFhaWovQmpsVDlOdkhzRTNLVFkvSkpi?=
- =?utf-8?B?eGl5YU5MT05VRjFhMjdPMXA4ZmVKQllIbzdLdUpsSXRxVGdWR3hxM1JmRVNJ?=
- =?utf-8?B?bDJvcW41MG53c2t1aXJuZ0pudTNidmloMW9pTUdocXZsWHE2RWdzUlJxV00z?=
- =?utf-8?B?ekw2UFhCY09od1dGWXlLaGkySkNTWnF3U0U5N2NtY0FpSitOcjJ4cWY0d0Rt?=
- =?utf-8?B?ZFc3MkoxTlJnVXZSdXpMZkxoMWNYZjgxUFpCNXBBNHVWa3ZNMFRCWnpkSllJ?=
- =?utf-8?B?Uy9VYmNhUHlwVmpGMjB0ZFA3L3FRM0E0ajU5ZWR3WkY2QjNtS0lzK2NMdGpp?=
- =?utf-8?B?WXRFZnJ0UkoyT1FoNVVqUWZsN1JyQVdJMDA2dExuWEZVUjJMcDZaVzByZHI0?=
- =?utf-8?B?ZEtZdGg3U0htTlRiQXJFT0h0K1IyUUplSWYzT2FiVVNHa2lRdGQ2ZHNhSkRF?=
- =?utf-8?B?SThWNTd3V2V1TWtnYVlyUEpXeXdsWjllTElaRmt1TDNHaXJrZE40QTFqdEp4?=
- =?utf-8?B?Si9xS2dza1hKYklrSDFKQ0R6dk80N05jZnlHaEljdGoyZDFCTlI0R0hxNkpl?=
- =?utf-8?B?QXljenR1V2NybFp3aS9SeHZ1WVVpd1dPOWdKVEMrR0RUVmpuYWptYWtmV0FG?=
- =?utf-8?B?QmEwcmw1YUFtZWRhelNzeDB1WE80cG1reXlucitqajh3RWthY3ZFVzJTZVFR?=
- =?utf-8?B?am83cjAyRENKT1JXbElxYlJSZ2R1dWZMZjR1SFZtcWd1M0U0dlR6QTRaa1Vl?=
- =?utf-8?B?bDIyUytrYXF1QVpmWHBWSkNtaEZkaFNvbjdCckFDcTV0WVJUcVhLWVBuUXJ2?=
- =?utf-8?B?OVVJQjIzNFpLcDJpL2VzcXNOZVhmNEJjeEZwQit2TkZ2cXJ6cHpFWFJjRjBN?=
- =?utf-8?B?aExLOTd0OW5HWXhNdTFWbVNiTm9zRFYzYThRSVlFZEFQZ2haeTcxQ3hXM3dY?=
- =?utf-8?B?aHk0TkpGaDdGbVZSTzlCRUFaWE44YjR6TVd0YmN1QnloSWZIN1I0ZmdZNG00?=
- =?utf-8?B?a2p0S3ZnSkJhd2ozaG1nTmVqNTVkcUVmNzRzUzBFU0hLV01xV0N3bFNtU0Jl?=
- =?utf-8?B?NWt3N3d6LytqMElUOS8zalh4MU5wNFF5NUNOOVZQZndKN2RxcmhKV0k2bnFZ?=
- =?utf-8?B?UjNQWnA5RGgyRTJXZnFtZithVVFka2NpOU9wNEhWb0hpWkRuaHp6a3JiSUZW?=
- =?utf-8?B?NDQzdmlZZVFPb2JhTzE2K0huSU0wTVk1V3pTNDJhS1hLSHBLMkhqdU9ndkdL?=
- =?utf-8?B?QndYaDlPUXZJdEV0ZUh6dUZDU2w4MnNSUEtJRUVmSEp4UTRBSUpBY2tEQnBr?=
- =?utf-8?B?RG9jVUNMeks3SFVDem82SG9mYk5tMitjaHYwOVk3QmNDTGRVM2V4SkZ1Slkz?=
- =?utf-8?B?SVlsNCtPTjk5Mm53RHVmRitkSnBrVkd4V2cxdUdPQ2NEazFlTDB2ZTh3YThM?=
- =?utf-8?B?WVVWTUszV1FUci9VT0VudlFnM3UyQ0loR2M0THhTbEpXV0ljL1BYRFcwc2x4?=
- =?utf-8?B?WXZNVXkzYTd1M3daVU9udGpBM3NOYnJJb1Z6ZXI3dWpYdlE2YjVTNG5vb0ti?=
- =?utf-8?B?VFZ3QzQ1eTVYWHlWbmZCeTBrdGlHTlZkb0NYdWg0aEdTWDdHL1dkWFZ6MVNE?=
- =?utf-8?B?NUp6M3VDQWNPd0NsREhSZ0RKS1JpRnRaVWVIZUVVTm1XcVpQM2hnTlg0L3BD?=
- =?utf-8?Q?aHWLdu2sMrM=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB6048.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UlJIYWU3aXc2Q1FKK0pJNnRkamV3RjZJWVNSb2k1dWdaWEM0akVmU0YzTDlw?=
- =?utf-8?B?VGQ1cjFqRk13bWlFQ21aZVFUcm9zZFZ6YmFFTkdrNjJHUVV2SlY2UktHeXB3?=
- =?utf-8?B?MFRpQkIyRk5oQ3Jna2pwVjJLaFpnWDZxUVRlaCttSG84RklhbGtabXpPRS9Q?=
- =?utf-8?B?YkEvbW96dXIvYVBvM3FoQU5SM0pFd1JvZ3I0QjVmY25GaG1RY3J5dEIydW80?=
- =?utf-8?B?YytTVHRLOEtsWjY3SU5PZGljU3ppV2NHbGtrVnh4NHBaNWxzKy9qSUdNYVdC?=
- =?utf-8?B?THk4YjlTZ01BSElibEFDcXptUGZZekxqKzd0S3BJSFRDbkhuYTc3d1VFYXFU?=
- =?utf-8?B?eHhLMXlBRUlEaUZMVFIrREpqNFhncjBtOHkxaDEvb09icGYydFNENHcwdVpy?=
- =?utf-8?B?N0YrbUxGMmJQSXJIVTZRYXJpanVDYk1MM1pVSWE0VWt6c05wQThqYWpHcVBH?=
- =?utf-8?B?c2pqVjFVN05MM1JNNWpLaHduR1RXakdpcE1vVEQ1UGFaT1o5UEdqUzNIQ1FJ?=
- =?utf-8?B?TUdPQmVqa2Z2UVBPbm9rUndoZTQ1d2dadllkeTFCKzQ5cTNNZXJUYmlSdnMr?=
- =?utf-8?B?bjkveDArSTB5RDBmZ2h3MGsxZnFrZGJvdi9SS0NqNVg1cGptZW9iS3luNXVH?=
- =?utf-8?B?c0F2S1JDYkpaeHdESUx5KytZWVhvaHFPc0F2bDYxRFUrRTk0ZXdBMllyNlJL?=
- =?utf-8?B?RUNOMFN5Z2xiMG0wZE9ZLzRsVjdOMEtQZk5VSmg0Y0Y0aSt5dU4vTzBHRk9R?=
- =?utf-8?B?RjlWc3A3OVMwd3BXZmU1VXBocHNXVDZYRUFRR0NLWXViTGpkSmgzMFN1QzF0?=
- =?utf-8?B?UjUzQ2NUL1IrdkIrVEZLT1VvSW4rNWxDNTVXK1dwMzZpNTlMMXY0b2FuaElR?=
- =?utf-8?B?SkJTOHhNOGR0TUpWbFU4bmU1czZwUEp2ajVleG9rZnMxRnZqYnE0bldxVExm?=
- =?utf-8?B?b1JSL2toY1MvTG9tTm41bEFEV2ZkdjVEOGlPTk9QdUVyQ0VtNmpmNzNReVRs?=
- =?utf-8?B?Q2M0RHpaS1puSnFHNGtJaEVFREtrbG5OTjhJNUszQ1J3dlVQb1p4YW0yNTJZ?=
- =?utf-8?B?MkJ3YURXNXlrdWwrY0piMGxaNm1oVFIyN0NIbUZhTFVXL2hIUmFTNE5nQ0hE?=
- =?utf-8?B?Y201N2t1SG5ScXdIT2pTMHZEek1IaE56L0pDRElScFRSQk9TOUJ1OFNmWHZi?=
- =?utf-8?B?OHExSlBkSGlzalYyQWtBcXRuK1NPQjd3dGxpSEs3U0N3QzNPcXpHcVdXVktP?=
- =?utf-8?B?S25yaFhzTVZscWVIbE9mVVorTlBmV0N3T0hBMVA1dDZUaTRJazdZOHFvSWRP?=
- =?utf-8?B?QkpBcmNKSGhxR0h5Tk1ySGZwaktFUi9vSWc0YXllZ2RGM29JQ0gyS2dKR0Rs?=
- =?utf-8?B?NEZjWUF0OExTSnRReTFIOVF6WjloMk1SaFMydjJSL05OMHRJS0VNUlpZdG1I?=
- =?utf-8?B?RGZxK0dHK2tYL1h3VG5FOWxibXNuNnlZbHR6V2pEVlpDWit1OFNJakZzTkxw?=
- =?utf-8?B?OFJmbFZRZzR1RzVRMElwbk5mS2o0M0FhdE9VV3E2YWZDeHdCK0xzZGMyNlpB?=
- =?utf-8?B?TkFtZEhZODFjWTdLUUwzWTVnQ3pzR0NsaEhINnM2elAxRTF2L0dPUkVHR3I3?=
- =?utf-8?B?ZTJ0R2E4bFlYSERKZ2llZ1VVMHlNUVh2dHdUNG8zcnlmV0hwVldpeUpJeEVH?=
- =?utf-8?B?cDh0dy9rME1DVjFvQXBnZ21rNE5IVEphZ0Z4bGNOaFVOUmt2S3VGeHFBMlhN?=
- =?utf-8?B?RlJ3bEs3RnlTT296V3ZmS2dkY1dYc0o5N0hTWlU2UlYyWkh1V1EzL0UzQ2JE?=
- =?utf-8?B?dnB6UWh1bGY4T0JzOEJ0VGRURGUvSWZBRWo3QTE5Mmc2SG1CWFdtREJwZXRo?=
- =?utf-8?B?OVIxdmVSWTFYZ2lhMkRGclJEaG51cVV2S1VDdzFOSGVTcUNVbnJnanpSK0pO?=
- =?utf-8?B?M2hQNG9HSzVMMTI2eDA3cTRWdUdGV29EbHVNVm1xd1dQekYwaThKMmFLcm5O?=
- =?utf-8?B?aStvcmpmSzNXNXJTaGgwT1MzTkNLRTByOGpZaEJoYnE5NWNYOUdIWThodXg2?=
- =?utf-8?B?aGRkbWJRZVk0Tm1LSFozZHdEckdlcEZxa0wxUmRNaGdpMFJtT0tSRDFnSTM5?=
- =?utf-8?Q?Y/kJVmNJPAIDSzoZ3pHL+CrDl?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1d68c84f-9733-4d96-d138-08dd83223c46
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB6048.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Apr 2025 11:22:02.3417
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pMMU+WCQy+fAi3avr1eiZaDXlXY/KVw2RQvfLJf/etYmLPZeZhLdXAraHV2isDA4BH6wt2GkFCyeXXUX50biBg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB9040
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] coresight: etm-perf: Add AUX_NON_CONTIGUOUS_PAGES to
+ cs_etm PMU
+To: Yabin Cui <yabinc@google.com>, Leo Yan <leo.yan@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>,
+ Liang Kan <kan.liang@linux.intel.com>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-perf-users@vger.kernel.org
+References: <20250421215818.3800081-1-yabinc@google.com>
+ <20250421215818.3800081-3-yabinc@google.com>
+ <20250422142102.GI28953@e132581.arm.com>
+ <CALJ9ZPNKZU7nVLyodN5i7GeRxWL6KzkXnqEJMv2sJkk2SwYi9Q@mail.gmail.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <CALJ9ZPNKZU7nVLyodN5i7GeRxWL6KzkXnqEJMv2sJkk2SwYi9Q@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_042208_455704_7391F1EF 
-X-CRM114-Status: GOOD (  10.09  )
+X-CRM114-CacheID: sfid-20250424_042931_098227_FDBA7B4E 
+X-CRM114-Status: GOOD (  18.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,33 +77,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/23/2025 1:15 PM, Nicolin Chen wrote:
-> On Wed, Apr 23, 2025 at 12:58:19PM +0530, Vasant Hegde wrote:
->> On 4/11/2025 12:07 PM, Nicolin Chen wrote:
->>> The vIOMMU object is designed to represent a slice of an IOMMU HW for its
->>> virtualization features shared with or passed to user space (a VM mostly)
->>> in a way of HW acceleration. This extended the HWPT-based design for more
->>> advanced virtualization feature.
->>>
->>> A vCMDQ introduced by this series as a part of the vIOMMU infrastructure
->>> represents a HW supported queue/buffer for VM to use exclusively, e.g.
->>>   - NVIDIA's virtual command queue
->>>   - AMD vIOMMU's command buffer
+
+
+On 4/24/25 01:31, Yabin Cui wrote:
+> On Tue, Apr 22, 2025 at 7:21 AM Leo Yan <leo.yan@arm.com> wrote:
 >>
->> I assume we can pass multiple buffer details (like GPA, size) from guest to
->> hypervisor. Is that correct understanding?
+>> On Mon, Apr 21, 2025 at 02:58:18PM -0700, Yabin Cui wrote:
+>>> The cs_etm PMU, regardless of the underlying trace sink (ETF, ETR or
+>>> TRBE), doesn't require contiguous pages for its AUX buffer.
+>>
+>> Though contiguous pages are not mandatory for TRBE, I would set the
+>> PERF_PMU_CAP_AUX_NO_SG flag for it.  This can potentially benefit
+>> performance.
 > 
-> Yes. The NVIDIA model passes through a Virtual-Interface to a VM,
-> and the VM can allocate and map multiple command queues (buffers)
-> to the V-Interface, by providing each command queue info in:
+> As explained in the patch 1/2, my use case periodically collects ETM data
+> from the field (using both TRBE and ETR), and needs to reduce memory
+> fragmentation. If the performance impact is big, we can make it user
+> configurable. Otherwise, shall we default it to non-contiguous pages?
+
+But is not that already happening ? cs_etm does not set the PMU cap
+PERF_PMU_CAP_AUX_NO_SG that means it can allocate non-contig memory
+chunk. Where am I missing ?
+
 > 
-> +struct iommu_vcmdq_tegra241_cmdqv {
-> +	__u32 vcmdq_id;
-> +	__u32 vcmdq_log2size;		// size
-> +	__aligned_u64 vcmdq_base;	// GPA
->  };
-
-Nice. Thanks for the details.
-
--Vasant
+>>
+>> For non per CPU sinks, it is fine to allocate non-contiguous pages.
+>>
+>> Thanks,
+>> Leo
+>>
+>>> This patch adds the PERF_PMU_CAP_AUX_NON_CONTIGUOUS_PAGES capability
+>>> to the cs_etm PMU. This allows the kernel to allocate non-contiguous
+>>> pages for the AUX buffer, reducing memory fragmentation when using
+>>> cs_etm.
+>>>
+>>> Signed-off-by: Yabin Cui <yabinc@google.com>
+>>> ---
+>>>  drivers/hwtracing/coresight/coresight-etm-perf.c | 3 ++-
+>>>  1 file changed, 2 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+>>> index f4cccd68e625..c98646eca7f8 100644
+>>> --- a/drivers/hwtracing/coresight/coresight-etm-perf.c
+>>> +++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+>>> @@ -899,7 +899,8 @@ int __init etm_perf_init(void)
+>>>       int ret;
+>>>
+>>>       etm_pmu.capabilities            = (PERF_PMU_CAP_EXCLUSIVE |
+>>> -                                        PERF_PMU_CAP_ITRACE);
+>>> +                                        PERF_PMU_CAP_ITRACE |
+>>> +                                        PERF_PMU_CAP_AUX_NON_CONTIGUOUS_PAGES);
+>>>
+>>>       etm_pmu.attr_groups             = etm_pmu_attr_groups;
+>>>       etm_pmu.task_ctx_nr             = perf_sw_context;
+>>> --
+>>> 2.49.0.805.g082f7c87e0-goog
+>>>
+>>>
+> 
 
