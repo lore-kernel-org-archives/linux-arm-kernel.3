@@ -4,61 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76ABEC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 01:20:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E39DBC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 01:38:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tNSph/T31C8FG5rfikI+xhrxkhP6o3JYh8Bi++UbG6s=; b=z+B+osEIFqJoWOVU6hULIrTnOx
-	AFLBNlYx5RHvU0Xe4SlazTJey6F4XTpN8Jx/D/v1Yx+iJqPLyUtAy0hERmEUL7KUnFbBsGqFwI4hg
-	AdsWYOQjf2hDzLx5eo28GTBn6IJ5bR8cUdY5VNMVX4jYt+0Y+BpM4cRT1x4CYxXq9vPu7KT2r8xLN
-	gta08lCv7yvn/DzE1lzkhzKDfuS5qGFFCpVXNQmAl3f9gk4fSye9MYuV6rD1ME0t6H45HTtcmI0bL
-	xM15R53dkIoxxnLA3B6UzauC9WJw9KSSXiuUlbwuAmvAuiQqMpUP6mmLIB1VGeWuCzumOQDZbBRhy
-	xPd9/MsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jTuuCpBbCKlfv4XuI4H/Clo2iT9msY0YoeaAABY+yvM=; b=gr/xIuPfY7Q5pJpsywj7M02dM0
+	XmEyNI1cu0//328jT6BI7d3VzZmynbAYuVz+BqKrJgjsaULiHc9h2kb7GBwG3gEE0O/D1LC7bp9y9
+	A+oC4xDYJvBzifwsRn65zxOhVVq0UgpsYK3PJl04fwdZjdgjzluP3yc0hyM5kDs7e8xbdldDHt7Zw
+	T60Hexye6URqnGhOtfwqQ+Zht+Ze2dQTbAUZpOPZ9qOy2XwvMV+tVsh9uF04lFdf5UxtiPNtnUm6X
+	7vpGgGTN7L/xLgc4GfbqO5huZ3Se8ScT0rJ++IhU7FtKvTHs0uBReBiN3Ak6HLJWmoqIoDObzzFfo
+	ATf+en1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7lGb-0000000CVTp-05pW;
-	Thu, 24 Apr 2025 01:20:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7lEb-0000000CVGa-2zuC
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 01:18:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C9F141063;
-	Wed, 23 Apr 2025 18:18:31 -0700 (PDT)
-Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 57A833F5A1;
-	Wed, 23 Apr 2025 18:18:34 -0700 (PDT)
-Date: Thu, 24 Apr 2025 02:17:26 +0100
-From: Andre Przywara <andre.przywara@arm.com>
-To: Yixun Lan <dlan@gentoo.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej
- Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
- Maxime Ripard <mripard@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH 5/5] arm64: dts: allwinner: t527: add EMAC0 to Avaoto-A1
- board
-Message-ID: <20250424021706.22eaab66@minigeek.lan>
-In-Reply-To: <20250423-01-sun55i-emac0-v1-5-46ee4c855e0a@gentoo.org>
-References: <20250423-01-sun55i-emac0-v1-0-46ee4c855e0a@gentoo.org>
-	<20250423-01-sun55i-emac0-v1-5-46ee4c855e0a@gentoo.org>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
+	id 1u7lXi-0000000CXpk-0MWM;
+	Thu, 24 Apr 2025 01:38:22 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7lVj-0000000CXgT-2cGM;
+	Thu, 24 Apr 2025 01:36:20 +0000
+X-UUID: 7fa5279a20ac11f0b1a74d0c5e11a509-20250423
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=jTuuCpBbCKlfv4XuI4H/Clo2iT9msY0YoeaAABY+yvM=;
+	b=a4ikG8du3HfHEVSFPOHe24Ov8XR1wgDsXBNYOVJkHvkjgMCy6xMfhKcDehWg+F6wOj/CZgjif2kvC86zdBhOjvGykAGyEVOnt1yke/V3uEyJgkdRB0uFIC3URPisLb76cNsok5wzxG+DMZkg6r/gDEsuhaNJHAIKKu4nJc8gzjc=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.1,REQID:a3307fb9-edfa-45d0-8b0f-61398770b93c,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:0ef645f,CLOUDID:93ab796b-2b07-410f-9c30-89db65cbd451,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
+	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 7fa5279a20ac11f0b1a74d0c5e11a509-20250423
+Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw01.mediatek.com
+	(envelope-from <axe.yang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1448093004; Wed, 23 Apr 2025 18:36:09 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Thu, 24 Apr 2025 09:36:06 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Thu, 24 Apr 2025 09:36:06 +0800
+From: Axe Yang <axe.yang@mediatek.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, <yong.mao@mediatek.com>,
+	<qingliang.li@mediatek.com>, <andy-ld.lu@mediatek.com>, Wenbin Mei
+	<wenbin.mei@mediatek.com>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Axe Yang
+	<axe.yang@mediatek.com>
+Subject: [RESEND] arm64: dts: mediatek: mt8186-corsola: make SDIO card removable
+Date: Thu, 24 Apr 2025 09:34:35 +0800
+Message-ID: <20250424013603.32351-1-axe.yang@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_181837_800910_6B02DE95 
-X-CRM114-Status: GOOD (  17.50  )
+X-CRM114-CacheID: sfid-20250423_183619_670586_685A1AEF 
+X-CRM114-Status: UNSURE (   8.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,65 +90,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Apr 2025 22:03:26 +0800
-Yixun Lan <dlan@gentoo.org> wrote:
+Under specific conditions, the SDIO function driver needs to
+remove/add SDIO card to perform a reset. Remove the non-removable
+property to support this scenario.
 
-Hi,
+Signed-off-by: Axe Yang <axe.yang@mediatek.com>
+Reviewed-by: Matthias Brugger <matthias.bgg@gmail.com>
+---
+ arch/arm64/boot/dts/mediatek/mt8186-corsola.dtsi | 1 -
+ 1 file changed, 1 deletion(-)
 
-> On Avaoto A1 board, the EMAC0 connect to an external RTL8211F-CG PHY,
-
-The name would be "Avaota" A1 board.
-
-> which features a 25MHz crystal, and using PH8 pin as PHY reset.
-> 
-> Signed-off-by: Yixun Lan <dlan@gentoo.org>
-> ---
-> I don't own this board, only compose this patch according to the
-> schematics. Let me know if it works.
-> ---
->  arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts | 17 +++++++++++++++++
->  1 file changed, 17 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
-> index 85a546aecdbe149d6bad10327fca1fb7dafff6ad..23ab89c742c679fb274babbb0205f119eb2c9baa 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
-> +++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
-> @@ -64,6 +64,23 @@ &ehci1 {
->  	status = "okay";
->  };
-
-As for the Radxa board, we need an alias for ethernet0.
-
->  
-> +&emac0 {
-> +	phy-mode = "rgmii";
-
-As Andrew mentioned, this should probably be "rgmii-id".
-
-> +	phy-handle = <&ext_rgmii_phy>;
-
-Can you please add the phy-supply here, it's reg_dcdc4.
-
-Cheers,
-Andre
-
-> +
-> +	allwinner,tx-delay-ps = <100>;
-> +	allwinner,rx-delay-ps = <300>;
-> +
-> +	status = "okay";
-> +};
-> +
-> +&mdio0 {
-> +	ext_rgmii_phy: ethernet-phy@1 {
-> +		compatible = "ethernet-phy-ieee802.3-c22";
-> +		reg = <1>;
-> +	};
-> +};
-> +
->  &mmc0 {
->  	vmmc-supply = <&reg_cldo3>;
->  	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_DOWN)>; /* PF6 */
-> 
+diff --git a/arch/arm64/boot/dts/mediatek/mt8186-corsola.dtsi b/arch/arm64/boot/dts/mediatek/mt8186-corsola.dtsi
+index cebb134331fb..fc78a79d96e9 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8186-corsola.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8186-corsola.dtsi
+@@ -518,7 +518,6 @@ &mmc1 {
+ 	cap-sdio-irq;
+ 	no-mmc;
+ 	no-sd;
+-	non-removable;
+ 	vmmc-supply = <&pp3300_s3>;
+ 	vqmmc-supply = <&mt6366_vio18_reg>;
+ 	mmc-pwrseq = <&wifi_pwrseq>;
+-- 
+2.46.0
 
 
