@@ -4,113 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D6C3C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:03:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6A22C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 16:03:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7O71wS6omUP4Za+qu8KkJ9Z+HYsi5jrXQRVuEjbLS/Y=; b=u8Q5/celVGyqXNbMeHm63bIhS7
-	eJChguX6DGMfnSZgcVqKLoDYtkMebhX/PGYcce4NztBewFbECvUabBj44ZO64rn+Vv9hvMo/UQ3Zk
-	D/5q9dud4n/yjpZ7FydQWvYXYHFnLV7rWg5lZxN3VWBraMGRxXbO6OklA9JWWBVMiRsj7P4N7SIgm
-	ScRqTNpf+fDPUzxnvbYqrvbZes2eNjYmafz1UH0prR//8WZhbhCyFKcPlPjr3UDWqe5lHFMDfXPod
-	vfUs3hjuoapyoTdRBC7RVcRjwHYKmvDLDQJt26EQ6HzKNBBiJfpc2EUHz8rKJbFwWIJXjDsinxF4F
-	1a6gch/A==;
+	bh=cOeIljM0dsLpiUp3sMIwGCn1MBf/0oPhJSiBM5sc4As=; b=qOJx7EUOr5ce+ps3kg0jL77tQd
+	iDzWxG2KRBLIxJM04znhVsKM1c5Luxx6u7vXkgjtybUDgPdTFzdmqH8fA7cUjY9jN/h1RFH2PbL7y
+	BCX7p8lQyX1ipcp12ZDQsQtlbOPStEgRh474vDKKOQ9j30LOjI1rQWz5ZPdnkJ375s8xfJd4GHRe7
+	gksS8I0vZw1lyrh+OvJJGftjj29zVlabH8dp2lBOj5Ru1zmLPZz5BJiiAgzgqw8TViMEfEMB1tjc3
+	0RIHJbvMwFrUdCOwmnjYMQio3qw/0sQddlTp2H3SOTvKkUPNjFBsKOvaed2aqF2hnOQuxoeurRu11
+	5b5k2fmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7z3B-0000000EZuG-1iXW;
-	Thu, 24 Apr 2025 16:03:45 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1u7z3C-0000000EZvu-0vbK;
+	Thu, 24 Apr 2025 16:03:46 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7v9I-0000000DvdL-25tB
+	id 1u7vA7-0000000DvmX-1LYe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 11:53:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1745495626;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7O71wS6omUP4Za+qu8KkJ9Z+HYsi5jrXQRVuEjbLS/Y=;
-	b=QwY0ocFNVJu7/KLkQ06wMFiXcD9pukahVPPMrDbY94qeiPTuLg6EaSe8XVWcWUKfphHudG
-	3CTCvkVJn5WPOM/pbJy+SvZdyQ88iPSVpDY9XF+qudBfnmtfvCCHoiQc/9W4e6YiHR3uDS
-	36w2rmMUtjv6f2KGJrJ549s3x6Gc5PA=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-570-nWDz_9RGPA2iu-QDbHPqVQ-1; Thu, 24 Apr 2025 07:53:43 -0400
-X-MC-Unique: nWDz_9RGPA2iu-QDbHPqVQ-1
-X-Mimecast-MFC-AGG-ID: nWDz_9RGPA2iu-QDbHPqVQ_1745495622
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-43ced8c2eb7so5921185e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 04:53:42 -0700 (PDT)
+	Thu, 24 Apr 2025 11:54:40 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-22423adf751so9316525ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 04:54:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1745495678; x=1746100478; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=cOeIljM0dsLpiUp3sMIwGCn1MBf/0oPhJSiBM5sc4As=;
+        b=bl/FZ0hVLmuXltrv2TZKhCkM07aUw1P1Bmh+5hNUh2jF5APVnAisvjs7C8zCJDiWtK
+         lIyBYa/zbwoHhPQwYD9lYT3NqByBDl4XbsBZ7jDBWR+IS5xIFw4A7XW2sjxKRqXGbUGk
+         GY9sysFs/GN9nQfpFaz22d8Mjd6czEt8rRJ/XVJj8e2CLFKUDMIMOWnuHAQa3R2jYNce
+         N8GM43baC1fWZzFJWuN/oS/KqBQQNnsaLyyjaDehh7/evOrdEqozFyKb49E7cFNkFGvw
+         65/IMrYhleXbPQkDZ/kMf7Yg/GAqKH8nuBGr6LnO4H4W8qWEAH1LhdXuYwrWXc84NK4p
+         lOmw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745495622; x=1746100422;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=7O71wS6omUP4Za+qu8KkJ9Z+HYsi5jrXQRVuEjbLS/Y=;
-        b=B6swp7ia9MJMi/0e37a/ROI0cSRgxYFsNFqkNasdxqLhSZbk2Bhz5tksAub/UMByoI
-         i25yBaiQWS+9gix5w0zXVuZ2wCNz2Iz3T8EFbehZQ9cXPmy1i8KQ+qdRJoLK41c2Ndpp
-         dh+eSQd6NBodVDx47TDvYnfHA6mzYSAbUdW6W+2BxYdAzY5X2fBqMS0pQ5osO9L1CYzh
-         xZfwbH++3ti/0+KV9kwz/zc1E16zE3ATCLf2O79eH+6xUSBkJPYpnv91Jg+wqQn7OXKj
-         9snC+utBvk8ExSVH6ZJFR9z8QQAh3L/klB9JUMj5J8ZsuIS4KwsY3Vzs3hrsFHkKcAFQ
-         1oAg==
-X-Forwarded-Encrypted: i=1; AJvYcCUpEHIQIa6zDgbiNdLGtxtr7wCNzjwgS7XO4RXWkGwuk2dwML1rzMeLz9U4XsO0r8JfS62NGtbym5VSwX4zgW/o@lists.infradead.org
-X-Gm-Message-State: AOJu0YxDBTg50OV4Gy+yjk9NzklXPPnsy9w7DDTauiUsOgC8+ouNH4br
-	SjrvynAiO+slilqKfslaugx06GypaH3XNAdsnwR9diIVrmZ6tq/A5C9rYrTvtqUQt3IimqIdAfy
-	IGBDPLubrO8vVqx6mhGiemy4/LbF+vyg1NMZxP2QFXvEyT6KQUBNxt4ppQzmKW+zsQG52fOFs
-X-Gm-Gg: ASbGncsnoy4h+ekrcvg+AfoczgdkCXpsczJNl7xCzT95TcpKVZi1xBjlsWU/nheC/7Y
-	4oKNewbzBeVqrF+yNkjLWxOefLloJDwv1JyEmsiVabX2hEeGh2PnBcWsdiGcyjhB5F4nNgasv8p
-	rtOUGzG5rPDRATLNfN+48pxlZHzRfxxjrp5a1qVf7FrIfKAXc4jCgTXFo8mq0z3SFLANxCZiV+3
-	P6WUM8Qh243Rg7OAUylr3DztWo4vmvhXWakPrqJtqq9PWUWyn8eeiBkHf2hNgPH5+scDMmFm9P2
-	L2lHCf8ZG25NdcQQG5eyAMN5G5jup0fOyF398E4=
-X-Received: by 2002:a05:600c:4e0a:b0:43c:f513:9585 with SMTP id 5b1f17b1804b1-4409bd210eemr25352685e9.13.1745495621868;
-        Thu, 24 Apr 2025 04:53:41 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEUAI2NQUKhz4qnOoSRg3Qvi8tq8xdza5SLA8RiijZXZRu9gfA8tceguZucQbwMmFsJdyoLyg==
-X-Received: by 2002:a05:600c:4e0a:b0:43c:f513:9585 with SMTP id 5b1f17b1804b1-4409bd210eemr25352255e9.13.1745495621516;
-        Thu, 24 Apr 2025 04:53:41 -0700 (PDT)
-Received: from [192.168.88.253] (146-241-7-183.dyn.eolo.it. [146.241.7.183])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a06d54c246sm1831740f8f.86.2025.04.24.04.53.39
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 24 Apr 2025 04:53:40 -0700 (PDT)
-Message-ID: <edfa1585-c10c-4211-a985-ebfcb8e671d5@redhat.com>
-Date: Thu, 24 Apr 2025 13:53:39 +0200
+        d=1e100.net; s=20230601; t=1745495678; x=1746100478;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=cOeIljM0dsLpiUp3sMIwGCn1MBf/0oPhJSiBM5sc4As=;
+        b=DXUHBhsUv94hb1RLy+by9yz7W4A26NiGHEt4NCq8cZwY6M/EEDe5QOj5gtadQCGSCX
+         PfZziCllQt+G53jKXatQwM4PHvoV+hSHV75vVZYE3soRhHSEaR5tQrdOE32gqErqLekL
+         Q9SOW5LQaZXYcaoN6R0uHbC8J70bU6u5zWf5xrsQ+FzTSBoIpigAqFz62Zwh1lKxLnkr
+         VsY7K5pX9QLxvfgLdGCjMOJEFeeHNADQKkdNP2awPFgcKOlIG87TzUYMTbnYfsyp2YGj
+         rNgT9mvedn2Bol3mL2iY2rbcKmoKOkgQbFfRr/ojfmC+rZ1mXcL9UI2atAHHg1KI8tGe
+         dBGA==
+X-Forwarded-Encrypted: i=1; AJvYcCVbGmBzROjBzTzmXjukyFZaT+R+eYeL0KFFaVJN4VzIuX+ghNc/aFOBgZKfY9U2uAM2ihevILyLmtCf9X1IJHoM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy5T5RxY9dSbQIugsefzqtiuGWF+F6T1wYB2VXzZfkpUuAuWRkm
+	efhCCelQAHxMbUGA66YRnlszSfY1pEAqwYkHSyaBZfvlW3zLSzeiMu6ZZFbUZo4xPID4MmryXH+
+	kdHak9BTndWD5eCZ/bnOzjeIaFCwhZbE/
+X-Gm-Gg: ASbGncvfw6Z7cXkwhinSuV+q6bxjir3jDdBklJPrwreGwAIAQAH8eZI5EuCUYjbWtFQ
+	oOE/m+mKnbQKQTyfAjoPv+vHQNjEFdEtrs3EYJe+gFLqdWgL5FTy6LQlO9lNE2Oy1f775CcU++w
+	QMVSOFPd+QjYR4UTBoaw==
+X-Google-Smtp-Source: AGHT+IEwa/y2fOKiJtPJOHNNBAcDhjfvq/eByFcVBE+2/Yf64GYFD5P4bbwNs4WymJaSgMNAyONJWmAiuB1qSHp44q0=
+X-Received: by 2002:a17:903:2a83:b0:227:e980:9190 with SMTP id
+ d9443c01a7336-22db3dc0b8bmr41057205ad.44.1745495677805; Thu, 24 Apr 2025
+ 04:54:37 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v4 2/2] net: stmmac: dwxgmac2: Add support for
- HW-accelerated VLAN stripping
-To: Boon Khai Ng <boon.khai.ng@altera.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- bpf@vger.kernel.org
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Russell King <linux@armlinux.org.uk>, Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>,
- Jesper Dangaard Brouer <hawk@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>, Furong Xu <0x1207@gmail.com>,
- Matthew Gerlach <matthew.gerlach@altera.com>,
- Tien Sung Ang <tien.sung.ang@altera.com>,
- Mun Yew Tham <mun.yew.tham@altera.com>,
- G Thomas Rohan <rohan.g.thomas@altera.com>
-References: <20250421162930.10237-1-boon.khai.ng@altera.com>
- <20250421162930.10237-3-boon.khai.ng@altera.com>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20250421162930.10237-3-boon.khai.ng@altera.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: ghc-Hff94s7OjGh94yHDyLN_lVXAH3y2BYMk0vwKrl8_1745495622
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250424084800.105300-1-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20250424084800.105300-1-krzysztof.kozlowski@linaro.org>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Thu, 24 Apr 2025 14:56:28 +0300
+X-Gm-Features: ATxdqUHiE5YmwRp_Og4qSAkF2P9kcgp5oyollWnIMyXy-GIrHjsW43cM8hbn2Gw
+Message-ID: <CAEnQRZDjKpUDgj5FwxGT-vK8WNGqdtf0JXoebsYqCYbWkOnUww@mail.gmail.com>
+Subject: Re: [PATCH 1/2] arm64: dts: imx: Align wifi node name with bindings
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, 
+	Christoph Niedermaier <cniedermaier@dh-electronics.com>, Marek Vasut <marex@denx.de>, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kernel@dh-electronics.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_045348_612539_07B4D348 
-X-CRM114-Status: GOOD (  10.84  )
+X-CRM114-CacheID: sfid-20250424_045439_358903_82048EBF 
+X-CRM114-Status: UNSURE (   7.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,35 +101,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/21/25 6:29 PM, Boon Khai Ng wrote:
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
-> index 389aad7b5c1e..55921c88efd0 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
-> @@ -4,6 +4,7 @@
->   * stmmac XGMAC support.
->   */
->  
-> +#include <linux/bitfield.h>
->  #include <linux/stmmac.h>
->  #include "common.h"
->  #include "dwxgmac2.h"
-> @@ -69,6 +70,21 @@ static int dwxgmac2_get_tx_ls(struct dma_desc *p)
->  	return (le32_to_cpu(p->des3) & XGMAC_RDES3_LD) > 0;
->  }
->  
-> +static u16 dwxgmac2_wrback_get_rx_vlan_tci(struct dma_desc *p)
-> +{
-> +	return (le32_to_cpu(p->des0) & XGMAC_RDES0_VLAN_TAG_MASK);
-> +}
-> +
-> +static inline bool dwxgmac2_wrback_get_rx_vlan_valid(struct dma_desc *p)
+On Thu, Apr 24, 2025 at 11:52=E2=80=AFAM Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
+>
+> Since commit 3c3606793f7e ("dt-bindings: wireless: bcm4329-fmac: Use
+> wireless-controller.yaml schema"), bindings expect 'wifi' as node name:
+>
+>   imx8mm-var-som-symphony.dtb: bcrmf@1: $nodename:0: 'bcrmf@1' does not m=
+atch '^wifi(@.*)?$'
+>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Please, avoid 'inline' function in .c files, especially for functions
-that will land into function pointer like this one.
-
-Thanks,
-
-Paolo
-
+Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
 
