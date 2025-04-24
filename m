@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56100C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 14:24:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94C78C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 14:25:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NPrAWSJQS0QykJhpZm2lww6XXP2Evw7uTQqyfY1hKcE=; b=qBmtMUfG0yoy+qmPd7uA6ZBknl
-	uPhBbt/9Li5vxEJ7u0d+0P9HMZMHvwk+xBY/2VXKZxs/Py4UVtsmW9c+PMVyHrRo25Jo2q7mHg6Db
-	u2epDKBW3tvRcjLlOBOb7QhX0Zw4WFT45jZ0upsIDDcHAk7nzci5vdm8SceFnxj2ns3NhBUS8ZXWu
-	D/toXNp0Ha+OdEcKuGdghQSGhw+3LqIILUFR70Wdr/AHUXNbpw7r9/kObXCBGj2wt7Wgt1eEPB1XO
-	mgQ8Cek00lhnT7bUXaGUgTKALFydEqEqSdIv6I1VEpk7MIK502D2RxvYKPchKsFD1WuGeZTxAQRTx
-	dEf5AL9w==;
+	bh=FoS91EweKjkPkrPYIt/JPpjGNtuk+G6YDWUkr6+gAtI=; b=f9rAREU3aOj2TDWo5+8twhCX8I
+	+l+n/5QQ7geMnkcNKY44vZMpwDui9KkcEcBBIX7AnK7aLQw3jZdv4MO9AeCDue4G9JHRAp9T07LLI
+	fvr8fxBq/YRd0Y+I9d91I84DlI8hdguWHGU3XGfvRnqsCdYw7yqFNU1AXSfJrJ16pPmN9CGVmFuhY
+	BTU5pnVvDk4IQHri1uAs5bqXgseY9LrhzUVuJBNsOWj7Yhz06Z5csN1wkFdaHhT5zekac5T0pcMhw
+	6W/UP375ftxCNasXnQ9fJ7hhyfHzUatZtx1FyjhxknNDKT05A1LUfAN0cvMKW+FVG1OBOcXYvQC6l
+	Mf5sstnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7xUY-0000000EMht-1fTo;
-	Thu, 24 Apr 2025 14:23:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u7xWN-0000000EN69-0mlq;
+	Thu, 24 Apr 2025 14:25:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7wQM-0000000EA8d-0xRG;
-	Thu, 24 Apr 2025 13:15:31 +0000
+	id 1u7wRY-0000000EAIx-1zM5;
+	Thu, 24 Apr 2025 13:16:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3AA6A4A553;
-	Thu, 24 Apr 2025 13:15:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E0E0C4CEE3;
-	Thu, 24 Apr 2025 13:15:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 081AD6845A;
+	Thu, 24 Apr 2025 13:16:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC8FEC4CEE3;
+	Thu, 24 Apr 2025 13:16:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745500529;
-	bh=6revvVVhRd4vMEsIX5cXh8CkmckdE8eSYHBQbAtAcdY=;
+	s=k20201202; t=1745500603;
+	bh=FoS91EweKjkPkrPYIt/JPpjGNtuk+G6YDWUkr6+gAtI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=agzdKqoQBB2FMs7cqK1RmXVZqD1grWy2E+ukkzybd9k0mTq1QiDMOt5Z6C+vg+fXw
-	 VHe8+pEzSjLVEWKEAPVHvinv9/JH5mfNsfNVGiDjNlIsLRyuA0Qq6izqVaCGhZ32CM
-	 piFlIC+U62ttvHviPz+iwTA1U/2IyNfzvwAed9n7IXzrK+83ynrT1Fm9EprOzgj4Ow
-	 lYC1Kv8xJsfs8ms8PHgu1ugZHCU5y2dNwQin51yX3MpNKa684p9hzfzIhd5N0FJFSW
-	 S8Bvlm/KyO0mZupC3yoIxxan+Sr9Ww1K17574t7YAPsFrzO+Pt2KV+dqOI8ad7rMyt
-	 H47Z/P3HZrTpA==
-Message-ID: <cf741154-5772-4328-bfd0-fe5d83c75f72@kernel.org>
-Date: Thu, 24 Apr 2025 15:15:23 +0200
+	b=QK1Rt7Pi8fP/SxHbOhnp1Cn5bLQgbVXpW7bkFYM9cPuoYW7EhjbPh8PP15X31wEyH
+	 QqE4G1IBzKFCF2wn6fy/lvbYRT+GfnzYjyQ5bIFBeSrs7+kuup4A8k6TnTjuvXEcrv
+	 xZwHy8w7Am5vxR27JRjQ0fhTjPfd/71Pv5qBtRWtfop+Lf7DPldjvQmvUbhNzMguE5
+	 l/ZPiDYwit9I894ycUVpeZqebMzu6IvY5kk2N1qoaXkw7KokYNE7ygknKrz/iAjsa6
+	 ImMYzBYtlJ4wQPqfqOQ6iTBz+bTGCGM/sqiVsYjpN8KkHFFI0YEB3U0OWUdBRGItZP
+	 PDctgGJPM8D0w==
+Message-ID: <2d01bcd6-80e1-4c15-ab23-b5ea5b90f2b1@kernel.org>
+Date: Thu, 24 Apr 2025 15:16:37 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 07/10] arm64: dts: qcom: sm8750: Add USB support to
- SM8750 SoCs
+Subject: Re: [PATCH v5 10/10] arm64: defconfig: Add M31 eUSB2 PHY config
 To: Melody Olvera <melody.olvera@oss.qualcomm.com>,
  Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -58,10 +57,9 @@ To: Melody Olvera <melody.olvera@oss.qualcomm.com>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
 Cc: linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+ linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 References: <20250421-sm8750_usb_master-v5-0-25c79ed01d02@oss.qualcomm.com>
- <20250421-sm8750_usb_master-v5-7-25c79ed01d02@oss.qualcomm.com>
+ <20250421-sm8750_usb_master-v5-10-25c79ed01d02@oss.qualcomm.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,13 +105,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250421-sm8750_usb_master-v5-7-25c79ed01d02@oss.qualcomm.com>
+In-Reply-To: <20250421-sm8750_usb_master-v5-10-25c79ed01d02@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_061530_341586_A20B57C7 
-X-CRM114-Status: UNSURE (   8.36  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,23 +123,17 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 22/04/2025 00:00, Melody Olvera wrote:
-> From: Wesley Cheng <quic_wcheng@quicinc.com>
-> 
-> Add the base USB devicetree definitions for SM8750 platforms.  The overall
-> chipset contains a single DWC3 USB3 controller (rev. 200a), SS QMP PHY
-> (rev. v8) and M31 eUSB2 PHY.  The major difference for SM8750 is the
-> transition to using the M31 eUSB2 PHY compared to previous SoCs.
-> 
-> Enable USB support on SM8750 MTP and QRD variants. SM8750 has a QMP combo
-> PHY for the SSUSB path, and a M31 eUSB2 PHY for the HSUSB path.
-> 
-> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-> Signed-off-by: Wesley Cheng <quic_wcheng@quicinc.com>
-> Signed-off-by: Melody Olvera <melody.olvera@oss.qualcomm.com>
-> ---
+> The SM8750 SoCs use an eUSB2 PHY driver different from the
 
+Qualcomm SM8750
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+That's a defconfig for all vendors.
+
+> already existing M31 USB driver because it requires a connection
+> to an eUSB2 repeater. Thus, for USB to probe and work properly on
+> SM8750, enable the additional driver.
+
+Commit msg should mention which board uses it.
 
 Best regards,
 Krzysztof
