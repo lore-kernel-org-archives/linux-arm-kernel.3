@@ -4,157 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 754C3C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 12:11:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A341C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 12:15:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=t+8RZessY00uHuMXnQRi5/HSBIDqXKuE/luIgB1jbjM=; b=3sABrms4Qz69k44GgdSVOR+hQZ
-	Nq+YoKYCqCGDtCo4bNLgz4FZbj+8ZuS/DrphagbtRY+uqTlXkMidikreFcjmCYnyJnWE9br9RzwAK
-	ncJbrZF8z3LYNLF6O3Ngxe/nZ6O8j3h9OqPhcPe20ytSYHW4eDerXDzPzbpmDzBtCsVXu7H8jbVAM
-	ke7x1a2NSqjufLkD7LUyQ2QwUIowlLtx7Dzkt3lsYel9b+5bfA74R5G/x3CsPLvFJrfcd2eX1heP+
-	mteJ0HYydbVa6ZGgFb1k1/B+act6PvGwrM8H7Svi1DzXJIw4iDoe6Zw2BeLpvjE1fGZZ03Orw3iUt
-	V/liYtwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=KnFCnqPxN17gsGGlXFCjBhx6osZmNlemAAxjj8n8c60=; b=HgBYWpjv2N2l3A
+	+q+eeGWtt2a1HUNfBDocXwt57lwOyiI3Wc8+n7TD/2yky6cQVQll1t1geRVtbULN0nn/xs3IQPrIn
+	ess2PQvU6wsq3DqpGyCrfqipULAePqQ5UXkYT8ZR+erPWUagdbsKUbpkJ/QMu4uFAwPKahKxtdQxV
+	51dCmQTECgSqDnj7lwNsDiqLzs3lOYklG60D113AWEg4irC+lXErnNss1lnKFcabyDv35oI/SHTk/
+	VpdQrpkBu0mT4lGyziuaKmdDuhT1xjgQpXGEip1XYqdBfiI9Rk35xMFbiUuFF7V6SDbR0MsQQ2x9q
+	FrRoA30afCEup0hpn4Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7vQL-0000000DyjI-0cgb;
-	Thu, 24 Apr 2025 12:11:25 +0000
-Received: from mail-vi1eur02on2060b.outbound.protection.outlook.com ([2a01:111:f403:2607::60b] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
+	id 1u7vTz-0000000DzxH-0GqQ;
+	Thu, 24 Apr 2025 12:15:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7tud-0000000DhNL-1pjV
+	id 1u7tm4-0000000DfWi-3GW9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 10:34:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FXeVgKd5tn7dtuFi1fq7laxONfcHx1wZHpBZ1StPAazNfdAXl84vZEud2+7S7PGO7WyM4MWrb9/ir2DP61iryZKXCsdJ7Y0xTxd1RgyS8UiDJxvcP2ce4H0yRhBgzpjcfCIoMT7E6icGG6hREIitxEkSiZCEDSJNAF3zXVdKpzFEIjtpjfvayhGrIFftG6BJ3FArWF8tujEHFEOXizHxaHE3wenE1Ojkkl7V6zKKorbv0XillGU6dqibT0i2T0gZL90t6UNG7MDI4MaJShwq18ZuBY7W1kRHqdaX7hc9jUw+sF6AiQCUIBP6B2kChrNTTrOXeoZ02lqd1YJGHACEqQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=t+8RZessY00uHuMXnQRi5/HSBIDqXKuE/luIgB1jbjM=;
- b=RAaJwQgcNW90Eyl1Nzdp7CS8svferMR8t5ujQvcY2j6iAns3P2ygoelffqAAFzqwTw1x5stnhET6+3WZ+/VOPsijuVGF8Pvu48h3oEusEek4+14c2oXOfFsjxICR932xmfrYaqrNjko02rgJWNzfBSGJdZxrXZVIyvJrwnezGmG+ih5Ltf4HDG1H582LKE9bEq47vHobDGZVWhoS+gVLnkC/VF5PQJch6FbJUzzkfh8HqdYfCe777RfCJkdgjAGhdNOqhsdoD7GsRBqDSIcTHSAnrqAETTSmpEaR/VjdmjffY6XFjXsBXNO4hx26pO/B/NQ70VH0fGv+1lY188Flog==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=t+8RZessY00uHuMXnQRi5/HSBIDqXKuE/luIgB1jbjM=;
- b=E2DeYSzgpdIndWwm7GAn4+dVhqHvW3qsYvKJ6sdom3Fl+ZdhGsjM5WxKy8pk1UOZ1j7BWHnAKapspbK1KgjfxihmO7THCi4OWG+bo/5oJSluQftGtC0iWAwuzQmCOhSYUfZOMAQ8Px/qI/oRIuBmBSfyKjL2HmqoBUANFry3fOnLEKOd16mGUE3rA1HA7Qf74ow9oQt1fruxuAF0sBVjdo55dsmQqb05U9Rt4SNpGqSwSLMwWLxeaTFAc7XsxV3PmzmzvxZCP95wu9I0DK+yZpcvd/kH7JINBHz138MO1R7rfeKcDXsNgYx6qkYH036I3AcWmf8rwBSWUI6+2sq+eg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
- by VI1PR04MB6879.eurprd04.prod.outlook.com (2603:10a6:803:132::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.23; Thu, 24 Apr
- 2025 10:34:24 +0000
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87%4]) with mapi id 15.20.8678.021; Thu, 24 Apr 2025
- 10:34:24 +0000
-From: ming.qian@oss.nxp.com
-To: mchehab@kernel.org,
-	hverkuil-cisco@xs4all.nl
-Cc: nicolas@ndufresne.ca,
-	sebastian.fricke@collabora.com,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	linux-imx@nxp.com,
-	xiahong.bao@nxp.com,
-	eagle.zhou@nxp.com,
-	imx@lists.linux.dev,
-	linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v6] media: amphion: Support dmabuf and v4l2 buffer without binding
-Date: Thu, 24 Apr 2025 18:33:24 +0800
-Message-ID: <20250424103326.1728-1-ming.qian@oss.nxp.com>
-X-Mailer: git-send-email 2.48.1.windows.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0048.apcprd02.prod.outlook.com
- (2603:1096:4:1f5::11) To PAXPR04MB8254.eurprd04.prod.outlook.com
- (2603:10a6:102:1cd::24)
+	Thu, 24 Apr 2025 10:25:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 158AB43812;
+	Thu, 24 Apr 2025 10:25:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DDC8C4CEE4;
+	Thu, 24 Apr 2025 10:25:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745490343;
+	bh=UwZN9vFIXuaCFnOnc0JW9XEymTalTODJy+XEW2zbroI=;
+	h=From:Subject:Date:To:Cc:From;
+	b=oRHjEqXrxsXnC3jrASy8/Rb266KDlxPjhvTk74aLvVNpspSJlANIqEjde+th+ZZfW
+	 R2CmRzl2DI5oCdikOoL3H0iQqBHjF+dt6w8hwNvTsnrvE7r5zyV9N4vBsHMDTvcrcw
+	 E3cABLNJ0NEO1zvt8dGsyzJv1gCg5kiGZe9ofI3aieWz2CHR94A78XfdJiRMOkDYwg
+	 owMF6viN+g2PvQXAvkAhmwKe0kSec3+F9owVY6D7Kp421ylYoJxdXoZc1I6pA1Drwq
+	 Hv9+DTMmBVMzq5yqTgfiDuwhi0Bv2pX1YPPeah7hB1DlTO1u6giNlN3LTq/jQqQn3C
+	 obAFDcMCbFDsw==
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Subject: [PATCH v2 00/22] Arm GICv5: Host driver implementation
+Date: Thu, 24 Apr 2025 12:25:11 +0200
+Message-Id: <20250424-gicv5-host-v2-0-545edcaf012b@kernel.org>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|VI1PR04MB6879:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2c94c0d5-db71-4197-54ee-08dd831b94c8
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|52116014|366016|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?MSH87lWj6G4H4SH84Nt8x9zJxbGb4gVUujVi5ajYUQDqHb/HwaQGEOwgFvrW?=
- =?us-ascii?Q?bssA/2CAiMb9LrKOUIXQgbuOj5nik4M1fOW/ULh6vgfkPIkMdHTI+/fKa9p8?=
- =?us-ascii?Q?N18sPkvYKunckrxflenk2jGIKokgY3PCH0K04o//V9rwKBVB94JllcFnebLO?=
- =?us-ascii?Q?gUfP+gMOMBO58kSXFktKeDor+azXY8TYYW+fsROUBANQDeSgWVb+KTyKKPFZ?=
- =?us-ascii?Q?oupibGe+RfCDsruO2QDscvkzC+sufqWSss/jahL9NF+gx9atbxxnPCBwRUIW?=
- =?us-ascii?Q?23E8W28W0+J5GzEB0fqdHETQttkzQmEv1aCACucSXjX1PWNE+WZGCBgV2hLq?=
- =?us-ascii?Q?rT8t0CwePDlZxamIH7yS9wkix9iMukkIlkY2ifk1XgKutPnGXvJl2i4aTu0e?=
- =?us-ascii?Q?Fz+gdkPIvP6ZVfUhcCoekTWpac+Wl/5+a48/8iWSa4VFDhWUJh++qzlqP8Dq?=
- =?us-ascii?Q?homZqDSqM+xkWF344OKOtpS4MCqfdWbofVDBnG40oAzXGuu5hoYdbq5QECgl?=
- =?us-ascii?Q?U8/hR23CcqzEo+vfYnir757qtt52QyDtou+yl0Oe2Ig5JRd93Eb2A18IVlH3?=
- =?us-ascii?Q?ZGcyy8ESHUQ3uHOgB8KH3YJOyeV4Zmqs2bPFf1PbtuJ1czB66ttV39wFzDz+?=
- =?us-ascii?Q?nktE6g3W1gQaC8mWAL+luT5styUIusZFEZbAZ+mlkXTUxAhJftjZIe3N35dv?=
- =?us-ascii?Q?khL9so+ZT0n3SAxsDpwaxQUbhx2BM2td5BcBhSQtrcGc3i+pYWshC8uj+zvi?=
- =?us-ascii?Q?Z6slV8mIrK9JYJcRnpfczqkQxHBbY8raHHBx3Gv89TtrT8Q0ylAtS4nsupGa?=
- =?us-ascii?Q?L0tXnYgsJbALWVZzFrNiE0SPLzDoP80ABQRaT8FhkkTkApYCpxRTfHObn6AO?=
- =?us-ascii?Q?XXmj0RKawX6+uVpwcM5Yn7vpmAuA5sZcV7OMOY4jjF7Gp3YW8gb6WR8YbDUa?=
- =?us-ascii?Q?V2tFVRWfhYku7I/q2TEkztE8O+GzO/KL2pEfLtFH1DjxD8LPTs0+H9ZEf0nP?=
- =?us-ascii?Q?ZxAc+vRRPUU/Urt9TWJw8vfxWjlAoHPSCyj6oiVCEprJfo4pKuEORbz91Vcj?=
- =?us-ascii?Q?bXg0bVcEQI87kzQR1QkhKHgKbkiRCeS+LXB1SswnlDVpHF6HA8kTZaFQr844?=
- =?us-ascii?Q?jTtj6bs3/bBA5Uzwh9PpUSt0k6dPW0ItE5P5RNCkV4DM41/FuMK3Q4JwYWGT?=
- =?us-ascii?Q?lqXw0PIC3B0mjTVCtgPW+/mnrkVL5PwVJFCxbU1OnHBfRfW/RKY8WI0V+43Q?=
- =?us-ascii?Q?kig0Rz6bo2Z2/mHTkKKlDLggVoRV5pEnruSddaqLqmG07puHQ0ZiGmgDBZLQ?=
- =?us-ascii?Q?mbTZ24m5YJ+eV3EHB8XjfdYcZHWH656npy0/VEseEqc7Ngv/KHV9pW9FGcc3?=
- =?us-ascii?Q?dwF6B4+useg5xm4ohEEwjYgEztVkYPBh/CXnbC0Viw9sq7gHCoYzdeZaSQu8?=
- =?us-ascii?Q?oGpEwgPbWxxZpVRLa/1G03Bk7PvIn64uWXaBx7bP8OsELqlL7ycMoQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(52116014)(366016)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?W1BK9hPmvQi3YHq4R0kXgMDkCxflr0stQ6zTicO7L0znAq6j10x+cVjG3DoB?=
- =?us-ascii?Q?D7/XqA3B8k8rGjPxsyq2sWgMtanBqQw7DSPEzWOzw9joN8PhkGowDWePr9ev?=
- =?us-ascii?Q?jIcGlJOZL9kJIhj/1pjJIeAbvL1c5Coo854ppZqsZbsQd87U+fqXCjXP/RcH?=
- =?us-ascii?Q?mxMJp38M6K6zRxOW+cwRUlNH7k7JXaMfkkjYA5jZ5/ah7pb1FwKJrPL0Z2Dj?=
- =?us-ascii?Q?xwYfOctTrr596jxH8v8LsOHTGJ6TE7HBC9fy5Uu1H61cdYSR8lVLN++ArQ0F?=
- =?us-ascii?Q?t5/jXXXEsJBLbzJls7cLjCMxcRRvXhAF0o8+pc25pGtZBCFDmC0/ZZpBPNpz?=
- =?us-ascii?Q?cDUFZTLuroCYDEBrs8K+9UBdzooVZtee/LSDjlwkMQw80GMkKirStovV9f9D?=
- =?us-ascii?Q?thRusFPFvvNNXPTa+TY8UbKzY8ew1uP+GuJV9b0gDBnuB2StYk8oInA5Sle7?=
- =?us-ascii?Q?KMF0Qk1guM0SSPjsoL1DFFdQQDEQxouszsk/RAuqylbQqlwMuVWABCNO6D0V?=
- =?us-ascii?Q?jUCQ/9N5ORthiNvszzvOWWihVvE3RxGFDZqieffGfeoXqutkP0rS1aAByBK+?=
- =?us-ascii?Q?yOIiuoek4waAf3gljhuYiZq/2rHgMk5010oQfwXImDeVwrBbV6OKidNMHaWn?=
- =?us-ascii?Q?JrMmjpHjjV+QymRG7I/Rj8SKNZi7zbVjbC5PGhdgWl5Iak7S20cgQSTWprNe?=
- =?us-ascii?Q?HluK2a8ucltEVfLo90QmAOnP7w4GQq9UL3dUJgO+9CkydNHxB84BhYv9JtLz?=
- =?us-ascii?Q?WnxcU72JXlFD6sc6wcHrZ/r+AhhPLxSjsEO+ZF7o/uZX4JXTlOBVPHnT0jeH?=
- =?us-ascii?Q?kkYnt3vuN1c+EyPQtY/uqflqQ2DdxIpqfNXOztMnI5wBsNKYTIXeUY5tQdC5?=
- =?us-ascii?Q?BfkrGpfjUSrwy2+yyTrWkE+KeQhElmVU1EDu2Uf+VuRcEeLoLoQNYQnlpG4v?=
- =?us-ascii?Q?G1Tovx6tWOlLbA7sU7avVh8OVlmPN3niZAyDp8zGX8mnyMRzBomHDCT5Wo9F?=
- =?us-ascii?Q?0GT9ZgUd+7C5HWjAtko62KvXeC0JlMaf/4Oece6/mGGa+er0GQT2mVm/KDoI?=
- =?us-ascii?Q?o2KEKIhoJPs1fg8C+O4fWdMT29yI2Eu82cEaLlJm8H04yA3sqi0GFDIFjhOL?=
- =?us-ascii?Q?P7BQBu03y9eQtlejx1qUyAiNCwX4irK1wUF5YkAO+f83gKfoSsBc5mJxO9Cv?=
- =?us-ascii?Q?dnD2EyW4911ZfVFbfISRlGT0PDnYBh3XsThvaH/TYqaiyWNvGri4RjYe6/UN?=
- =?us-ascii?Q?ogby2ogwcg1Y2TJV8P+cyBLZEBABcaZclRlX+hxBEvTJZeoCDzKt0YrbN35a?=
- =?us-ascii?Q?obkS4SsKoKrSAnQ+rVhCSj8y4fuaMro404wB2c6DwtE0UWrhn5kzHi9BS6tw?=
- =?us-ascii?Q?By0TOEcA0UUSbWrgbtZJ3hBfBh2mz2q7Qdqgg128Jyowg2/c/8lc75A2Q37i?=
- =?us-ascii?Q?LXmqFzC5wNuRZeAUAO+HGE8+OPu/aA+syfo/iGlwZRZBEmbVg93VKYoSC7e9?=
- =?us-ascii?Q?hRxL2D5NGtzSKBvkPE1UGzbITtl09NuBvzO1o3Jw7WihMCRM31Dr3RpAyNsd?=
- =?us-ascii?Q?VWJKLvAM+fFSAGopwY6l5ZyCEsoXj41+hQmR6SaA?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2c94c0d5-db71-4197-54ee-08dd831b94c8
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Apr 2025 10:34:24.4340
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 17jg/m1cd67TrzYNBb4lMwW/QyRMWZhTCmXI5eoRXFOk2M2twSjQXXZem0+RZ7/6QaH3tgxwGpgPvmgtgpj+FA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6879
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAIcRCmgC/23MQQ7CIBCF4as0sxYDCBVdeQ/TRS1DmWiggYZoG
+ u4udu3yf8n7NsiYCDNcuw0SFsoUQwt56GDyY5iRkW0NkkvNFTdspqlo5mNe2Vld3En0o0OjoB2
+ WhI7eO3YfWnvKa0yf3S7it/5limCcCSd7+1C9dsbenpgCvo4xzTDUWr8KsH2tpQAAAA==
+X-Change-ID: 20250408-gicv5-host-749f316afe84
+To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, 
+ Sascha Bischoff <sascha.bischoff@arm.com>, 
+ Timothy Hayes <timothy.hayes@arm.com>, 
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+ Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_033435_666426_96AD81B1 
-X-CRM114-Status: GOOD (  21.03  )
+X-CRM114-CacheID: sfid-20250424_032544_874311_E757540D 
+X-CRM114-Status: GOOD (  34.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,576 +82,298 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ming Qian <ming.qian@oss.nxp.com>
+Implement the irqchip kernel driver for the Arm GICv5 architecture,
+as described in the GICv5 beta0 specification, available at:
 
-When using VB2_DMABUF, the relationship between dma-buf and v4l2 buffer
-may not one-to-one, a single dma-buf may be queued via different
-v4l2 buffers, and different dma-bufs may be queued via the same
-v4l2 buffer, so it's not appropriate to use the v4l2 buffer index
-as the frame store id.
+https://developer.arm.com/documentation/aes0070
 
-We can generate a frame store id according to the dma address.
-Then for a given dma-buf, the id is fixed.
+The GICv5 architecture is composed of multiple components:
 
-Driver now manages the frame store and vb2-buffer states independently.
+- one or more IRS (Interrupt Routing Service)
+- zero or more ITS (Interrupt Translation Service)
+- zero or more IWB (Interrupt Wire Bridge)
 
-When a dmabuf is queued via another v4l2 buffer before the buffer is
-released by firmware, need to pend it until firmware release it.
+The GICv5 host kernel driver is split into units corresponding
+to GICv5 components.
 
-Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+The GICv5 architecture defines the following interrupt types:
+
+- PPI (PE-Private Peripheral Interrupt)
+- SPI (Shared Peripheral Interrupt)
+- LPI (Logical Peripheral Interrupt)
+
+This series adds sysreg entries required to automatically generate
+GICv5 registers handling code, one patch per-register.
+
+The GICv5 driver is split into patches matching *logical* entities,
+that make the respective drivers functional.
+
+Logical entities:
+
+- PPI, IRS/SPI, LPI/IPI
+- ITS
+- IWB
+
+The salient points of the driver are summarized below.
+
+=============
+1. Testing
+=============
+
+Patchset tested with an architecturally compliant FVP model with
+the following setup:
+
+- 1 IRS
+- 1 and 2 ITSes
+- 1 and 2 IWBs
+
+configured with different parameters that vary the IRS(IST) and
+ITS(DT/ITT) table levels and INTID/DEVICEID/EVENTID bits.
+
+A Trusted-Firmware (TF-A) prototype was used for device tree
+bindings and component initializations.
+
+================
+2. Driver design
+================
+
+=====================
+2.1 GICv5 DT bindings
+=====================
+
+The DT bindings attempt to map directly to the GICv5 component
+hierarchy, with a top level node corresponding to the GICv5 "system",
+having IRS child nodes, that have in turn ITS child nodes.
+
+The IWB is defined in a separate schema; its relationship with the ITS
+is explicit through the msi-parent property required to define the IWB
+deviceID.
+
+===================
+2.2 GICv5 top level
+===================
+
+The top-level GICv5 irqchip driver implements separate IRQ
+domains - one for each interrupt type, PPI (PE-Private Peripheral
+Interrupt), SPI (Shared Peripheral Interrupt) and LPI (Logical
+Peripheral Interrupt).
+
+The top-level exception handler routes the IRQ to the relevant IRQ
+domain for handling according to the interrupt type detected when the
+IRQ is acknowledged.
+
+All IRQs are set to the same priority value.
+
+The driver assumes that the GICv5 components implement enough
+physical address bits to address the full system RAM, as required
+by the architecture; it does not check whether the physical address
+ranges of memory allocated for IRS/ITS tables are within the GICv5
+physical address range.
+
+Components are probed by relying on the early DT irqchip probing
+scheme. The probing is carried out hierarchically, starting from
+the top level.
+
+The IWB driver is not implemented using the wired-to-MSI interface
+(i.e. with bus_token == DOMAIN_BUS_WIRED_TO_MSI mechanism), for two
+specific reasons:
+
+- An IWB is tightly coupled with a GICv5 ITS and its eventIDs
+  are fixed and cannot be allocated by the GICv5 ITS as it does
+  for other devices. An IWB is plugged directly into the ITS
+  driver for this specific reason.
+- The DOMAIN_BUS_WIRED_TO_MSI interface requires the IWBs to be
+  platform devices - fiddling with platform device creation and
+  DT nodes is doable but a bit hacky.
+
+Having said that, an alternative IWB driver with DOMAIN_BUS_WIRED_TO_MSI
+bus token was implemented and can be shared for subsequent patchsets
+versions depending on feedback, ref: 2.5 GICv5 IWB section below.
+
+=============
+2.3 GICv5 IRS
+=============
+
+The GICv5 IRS driver probes and manages SPI interrupts by detecting their
+presence and by providing the top-level driver the information required
+to set up the SPI interrupt domain.
+
+The GICv5 IRS driver also parses from firmware Interrupt AFFinity ID
+(IAFFID) IDs identifying cores and sets up IRS IRQ routing.
+
+The GICv5 IRS driver allocates memory to handle the IRS tables.
+
+The IRS LPI interrupts state is kept in an Interrupt State Table (IST)
+and it is managed through CPU instructions.
+
+The IRS driver allocates the IST table that, depending on available HW
+features can be either 1- or 2-level.
+
+If the IST is 2-level, memory for the level-2 table entries
+is allocated on demand (ie when LPIs are requested), using an IRS
+mechanism to make level-1 entry valid on demand after the IST
+has already been enabled.
+
+Chunks of memory allocated for IST entries can be smaller or larger than
+PAGE_SIZE and are required to be physically contiguous within an IST level
+(i.e. a linear IST is a single memory block, a 2-level IST is made up of a
+block of memory for the L1 table, whose entries point at different L2 tables
+that are in turn allocated as memory chunks).
+
+LPI INTIDs are allocated in software using an IDA. IDA does not support
+allocating ranges, which is a bit cumbersome because this forces us
+to allocate IDs one by one where the LPIs could actually be allocated
+in chunks.
+
+An IDA was chosen because basically it is a dynamic bitmap, which
+carries out memory allocation automatically.
+
+Other drivers/subsystems made different choices to allocate ranges,
+an IDA was chosen since it is part of the core kernel and an IDA
+range API is in the making.
+
+IPIs are implemented using LPIs and a hierarchical domain is created
+specifically for IPIs using the LPI domain as a parent.
+
+arm64 IPI management core code is augmented with a new API to handle
+IPIs that are not per-cpu interrupts and force the affinity of the LPI
+backing an IPI to a specific and immutable value.
+
+=============
+2.4 GICv5 ITS
+=============
+
+The ITS driver reuses the existing GICv3/v4 MSI-parent infrastructure
+and on top builds an IRQ domain needed to enable message based IRQs.
+
+ITS tables - DT (device table) and ITT (Interrupt Translation Table) are
+allocated according to the number of required deviceIDs and eventIDs on
+a per device basis. The ITS driver relies on the kmalloc() interface
+because memory pages must be physically contiguous within a table level
+and can be < or > than PAGE_SIZE.
+
+=============
+2.5 GICv5 IWB
+=============
+
+The IWB is a wire to message translator; its driver implements the
+IRQ domain needed to carry out this translation and passes the
+interrupt to its parent ITS domain.
+
+An IWB is connected to an ITS and it has its own deviceID for all
+interrupt wires that it manages; the IWB input wire number is
+exposed to the ITS as an eventID. This eventID is not programmable
+and therefore requires special handling in the ITS driver.
+
+The current driver is tied to the ITS code and basically creates
+a wired domain that allocates eventIDs into the ITS driver directly.
+The ITS device allocation for the IWB is implemented directly in
+the IWB driver at probe time (after all the IWB is a wired interrupt
+controller with fixed events). An IWB IRQ domain is assigned to
+the IWB wired IRQs, with the corresponding ITS domain as its
+parent. Upon IRQ allocation (triggered by firmware parsing
+the devices IRQ entries) the domain hierarchy maps the requested IWB
+wire to an ITS {device/event}ID fixed pair.
+
+An alternative IWB driver, based on the DOMAIN_BUS_WIRED_TO_MSI bus
+token, was already developed and tested but the authors preferred
+to post the current version to get feedback on it even though it
+makes the IWB driver tied to the ITS driver requiring boilerplate
+code that is not really needed (e.g. platform device deviceID parsing).
+
+In particular, the fixed eventID nature of the IWB requires ITS
+{device/event}ID allocation code to be IWB aware. To make this
+work for the DOMAIN_BUS_WIRED_TO_MSI bus token approach,
+the IWB should be made to work as a platform device and
+most importantly, ITS code should add special handling for the
+IWB (probably using an OF compatible string match or a new MSI
+alloc flag). In a way, that's what the current IWB driver does.
+Feedback is welcome on the matter.
+
+===================
+3. Acknowledgements
+===================
+
+The patchset was co-developed with T.Hayes and S.Bischoff from
+Arm - thank you so much for your help.
+
+A big thank you to M.Zyngier for his fundamental help/advice.
+
+If you have some time to help us review this series and get it into
+shape, thank you very much.
+
+Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+---
+Changes in v2:
+- Squashed patches [18-21] into a single logical entity
+- Replaced maple tree with IDA for LPI IDs allocation
+- Changed coding style to tip-maintainer guidelines
+- Tried to consolidate poll wait mechanism into fewer functions
+- Added comments related to _relaxed accessors, barriers and kmalloc
+  limitations
+- Removed IPI affinity check hotplug callback
+- Applied DT schema changes requested, moved IWB into a separate schema
+- Fixed DT examples
+- Fixed guard() usage
+- Link to v1: https://lore.kernel.org/r/20250408-gicv5-host-v1-0-1f26db465f8d@kernel.org
 
 ---
-v6
-- Remake patch based on commit 0af2f6be1b42 ("Linux 6.15-rc1")
-- Fix dismatch to mismatch
-v5
-- Avoid dynamic size calculation in memory allocation, use kmalloc_array instead
-v4
-- remove unnecessary 'out of memory' message
-v3
--- fix a typo in NULL pointer check
-v2
--- fix an uninitialized issue reported by media-ci
+Lorenzo Pieralisi (21):
+      dt-bindings: interrupt-controller: Add Arm GICv5
+      arm64/sysreg: Add GCIE field to ID_AA64PFR2_EL1
+      arm64/sysreg: Add ICC_PPI_PRIORITY<n>_EL1
+      arm64/sysreg: Add ICC_ICSR_EL1
+      arm64/sysreg: Add ICC_PPI_HMR<n>_EL1
+      arm64/sysreg: Add ICC_PPI_ENABLER<n>_EL1
+      arm64/sysreg: Add ICC_PPI_{C/S}ACTIVER<n>_EL1
+      arm64/sysreg: Add ICC_PPI_{C/S}PENDR<n>_EL1
+      arm64/sysreg: Add ICC_CR0_EL1
+      arm64/sysreg: Add ICC_PCR_EL1
+      arm64/sysreg: Add ICC_IDR0_EL1
+      arm64/sysreg: Add ICH_HFGRTR_EL2
+      arm64/sysreg: Add ICH_HFGWTR_EL2
+      arm64/sysreg: Add ICH_HFGITR_EL2
+      arm64: Disable GICv5 read/write/instruction traps
+      arm64: cpucaps: Rename GICv3 CPU interface capability
+      arm64: cpucaps: Add GICv5 CPU interface (GCIE) capability
+      irqchip/gic-v5: Add GICv5 CPU interface/IRS support
+      irqchip/gic-v5: Add GICv5 ITS support
+      irqchip/gic-v5: Add GICv5 IWB support
+      arm64: Kconfig: Enable GICv5
+
+Marc Zyngier (1):
+      arm64: smp: Support non-SGIs for IPIs
+
+ .../interrupt-controller/arm,gic-v5-iwb.yaml       |   76 ++
+ .../bindings/interrupt-controller/arm,gic-v5.yaml  |  196 +++
+ MAINTAINERS                                        |   10 +
+ arch/arm64/Kconfig                                 |    1 +
+ arch/arm64/include/asm/arch_gicv5.h                |   91 ++
+ arch/arm64/include/asm/el2_setup.h                 |   45 +
+ arch/arm64/include/asm/smp.h                       |   24 +-
+ arch/arm64/kernel/cpufeature.c                     |   17 +-
+ arch/arm64/kernel/smp.c                            |  156 ++-
+ arch/arm64/tools/cpucaps                           |    3 +-
+ arch/arm64/tools/sysreg                            |  495 +++++++-
+ drivers/irqchip/Kconfig                            |   16 +
+ drivers/irqchip/Makefile                           |    5 +-
+ drivers/irqchip/irq-gic-common.h                   |    2 -
+ ...3-its-msi-parent.c => irq-gic-its-msi-parent.c} |    3 +-
+ drivers/irqchip/irq-gic-its-msi-parent.h           |   13 +
+ drivers/irqchip/irq-gic-v3-its.c                   |    3 +-
+ drivers/irqchip/irq-gic-v5-irs.c                   |  851 +++++++++++++
+ drivers/irqchip/irq-gic-v5-its.c                   | 1325 ++++++++++++++++++++
+ drivers/irqchip/irq-gic-v5-iwb.c                   |  356 ++++++
+ drivers/irqchip/irq-gic-v5.c                       | 1062 ++++++++++++++++
+ drivers/irqchip/irq-gic-v5.h                       |  388 ++++++
+ drivers/irqchip/irq-gic.c                          |    2 +-
+ 23 files changed, 5074 insertions(+), 66 deletions(-)
 ---
- drivers/media/platform/amphion/vdec.c     | 235 +++++++++++++++++-----
- drivers/media/platform/amphion/vpu.h      |   7 +-
- drivers/media/platform/amphion/vpu_dbg.c  |  15 +-
- drivers/media/platform/amphion/vpu_v4l2.c |  11 +
- 4 files changed, 220 insertions(+), 48 deletions(-)
-
-diff --git a/drivers/media/platform/amphion/vdec.c b/drivers/media/platform/amphion/vdec.c
-index 6a38a0fa0e2d..3a7ee787f0cd 100644
---- a/drivers/media/platform/amphion/vdec.c
-+++ b/drivers/media/platform/amphion/vdec.c
-@@ -26,6 +26,7 @@
- #include "vpu_cmds.h"
- #include "vpu_rpc.h"
- 
-+#define VDEC_SLOT_CNT_DFT		32
- #define VDEC_MIN_BUFFER_CAP		8
- #define VDEC_MIN_BUFFER_OUT		8
- 
-@@ -41,6 +42,14 @@ struct vdec_fs_info {
- 	u32 tag;
- };
- 
-+struct vdec_frame_store_t {
-+	struct vpu_vb2_buffer *curr;
-+	struct vpu_vb2_buffer *pend;
-+	dma_addr_t addr;
-+	unsigned int state;
-+	u32 tag;
-+};
-+
- struct vdec_t {
- 	u32 seq_hdr_found;
- 	struct vpu_buffer udata;
-@@ -48,7 +57,8 @@ struct vdec_t {
- 	struct vpu_dec_codec_info codec_info;
- 	enum vpu_codec_state state;
- 
--	struct vpu_vb2_buffer *slots[VB2_MAX_FRAME];
-+	struct vdec_frame_store_t *slots;
-+	u32 slot_count;
- 	u32 req_frame_count;
- 	struct vdec_fs_info mbi;
- 	struct vdec_fs_info dcp;
-@@ -258,6 +268,63 @@ static int vdec_ctrl_init(struct vpu_inst *inst)
- 	return 0;
- }
- 
-+static void vdec_attach_frame_store(struct vpu_inst *inst, struct vb2_buffer *vb)
-+{
-+	struct vb2_v4l2_buffer *vbuf = to_vb2_v4l2_buffer(vb);
-+	struct vpu_vb2_buffer *vpu_buf = to_vpu_vb2_buffer(vbuf);
-+	struct vdec_t *vdec = inst->priv;
-+	struct vdec_frame_store_t *new_slots = NULL;
-+	dma_addr_t addr;
-+	int i;
-+
-+	addr = vpu_get_vb_phy_addr(vb, 0);
-+	for (i = 0; i < vdec->slot_count; i++) {
-+		if (addr == vdec->slots[i].addr) {
-+			if (vdec->slots[i].curr && vdec->slots[i].curr != vpu_buf) {
-+				vpu_set_buffer_state(vbuf, VPU_BUF_STATE_CHANGED);
-+				vdec->slots[i].pend = vpu_buf;
-+			} else {
-+				vpu_set_buffer_state(vbuf, vdec->slots[i].state);
-+			}
-+			vpu_buf->fs_id = i;
-+			return;
-+		}
-+	}
-+
-+	for (i = 0; i < vdec->slot_count; i++) {
-+		if (!vdec->slots[i].addr) {
-+			vdec->slots[i].addr = addr;
-+			vpu_buf->fs_id = i;
-+			return;
-+		}
-+	}
-+
-+	new_slots = krealloc_array(vdec->slots, vdec->slot_count * 2,
-+				   sizeof(*vdec->slots),
-+				   GFP_KERNEL | __GFP_ZERO);
-+	if (!new_slots) {
-+		vpu_set_buffer_state(vbuf, VPU_BUF_STATE_ERROR);
-+		return;
-+	}
-+
-+	vdec->slots = new_slots;
-+	vdec->slot_count *= 2;
-+
-+	vdec->slots[i].addr = addr;
-+	vpu_buf->fs_id = i;
-+}
-+
-+static void vdec_reset_frame_store(struct vpu_inst *inst)
-+{
-+	struct vdec_t *vdec = inst->priv;
-+
-+	if (!vdec->slots || !vdec->slot_count)
-+		return;
-+
-+	vpu_trace(inst->dev, "inst[%d] reset slots\n", inst->id);
-+	memset(vdec->slots, 0, sizeof(*vdec->slots) * vdec->slot_count);
-+}
-+
- static void vdec_handle_resolution_change(struct vpu_inst *inst)
- {
- 	struct vdec_t *vdec = inst->priv;
-@@ -714,11 +781,11 @@ static int vdec_frame_decoded(struct vpu_inst *inst, void *arg)
- 	struct vb2_v4l2_buffer *src_buf;
- 	int ret = 0;
- 
--	if (!info || info->id >= ARRAY_SIZE(vdec->slots))
-+	if (!info || info->id >= vdec->slot_count)
- 		return -EINVAL;
- 
- 	vpu_inst_lock(inst);
--	vpu_buf = vdec->slots[info->id];
-+	vpu_buf = vdec->slots[info->id].curr;
- 	if (!vpu_buf) {
- 		dev_err(inst->dev, "[%d] decoded invalid frame[%d]\n", inst->id, info->id);
- 		ret = -EINVAL;
-@@ -739,11 +806,13 @@ static int vdec_frame_decoded(struct vpu_inst *inst, void *arg)
- 	if (vpu_get_buffer_state(vbuf) == VPU_BUF_STATE_DECODED)
- 		dev_info(inst->dev, "[%d] buf[%d] has been decoded\n", inst->id, info->id);
- 	vpu_set_buffer_state(vbuf, VPU_BUF_STATE_DECODED);
-+	vdec->slots[info->id].state = VPU_BUF_STATE_DECODED;
- 	vdec->decoded_frame_count++;
- 	if (vdec->params.display_delay_enable) {
- 		struct vpu_format *cur_fmt;
- 
- 		cur_fmt = vpu_get_format(inst, inst->cap_format.type);
-+		vdec->slots[info->id].state = VPU_BUF_STATE_READY;
- 		vpu_set_buffer_state(vbuf, VPU_BUF_STATE_READY);
- 		for (int i = 0; i < vbuf->vb2_buf.num_planes; i++)
- 			vb2_set_plane_payload(&vbuf->vb2_buf,
-@@ -766,11 +835,11 @@ static struct vpu_vb2_buffer *vdec_find_buffer(struct vpu_inst *inst, u32 luma)
- 	struct vdec_t *vdec = inst->priv;
- 	int i;
- 
--	for (i = 0; i < ARRAY_SIZE(vdec->slots); i++) {
--		if (!vdec->slots[i])
-+	for (i = 0; i < vdec->slot_count; i++) {
-+		if (!vdec->slots[i].curr)
- 			continue;
--		if (luma == vdec->slots[i]->luma)
--			return vdec->slots[i];
-+		if (luma == vdec->slots[i].addr)
-+			return vdec->slots[i].curr;
- 	}
- 
- 	return NULL;
-@@ -804,11 +873,11 @@ static void vdec_buf_done(struct vpu_inst *inst, struct vpu_frame_info *frame)
- 
- 	cur_fmt = vpu_get_format(inst, inst->cap_format.type);
- 	vbuf = &vpu_buf->m2m_buf.vb;
--	if (vbuf->vb2_buf.index != frame->id)
--		dev_err(inst->dev, "[%d] buffer id(%d, %d) dismatch\n",
--			inst->id, vbuf->vb2_buf.index, frame->id);
-+	if (vpu_buf->fs_id != frame->id)
-+		dev_err(inst->dev, "[%d] buffer id(%d(%d), %d) mismatch\n",
-+			inst->id, vpu_buf->fs_id, vbuf->vb2_buf.index, frame->id);
- 
--	if (vpu_get_buffer_state(vbuf) == VPU_BUF_STATE_READY && vdec->params.display_delay_enable)
-+	if (vdec->params.display_delay_enable)
- 		return;
- 
- 	if (vpu_get_buffer_state(vbuf) != VPU_BUF_STATE_DECODED)
-@@ -821,10 +890,11 @@ static void vdec_buf_done(struct vpu_inst *inst, struct vpu_frame_info *frame)
- 	vbuf->sequence = vdec->sequence;
- 	dev_dbg(inst->dev, "[%d][OUTPUT TS]%32lld\n", inst->id, vbuf->vb2_buf.timestamp);
- 
--	v4l2_m2m_buf_done(vbuf, VB2_BUF_STATE_DONE);
- 	vpu_inst_lock(inst);
-+	vdec->slots[vpu_buf->fs_id].state = VPU_BUF_STATE_READY;
- 	vdec->display_frame_count++;
- 	vpu_inst_unlock(inst);
-+	v4l2_m2m_buf_done(vbuf, VB2_BUF_STATE_DONE);
- 	dev_dbg(inst->dev, "[%d] decoded : %d, display : %d, sequence : %d\n",
- 		inst->id, vdec->decoded_frame_count, vdec->display_frame_count, vdec->sequence);
- }
-@@ -1052,18 +1122,30 @@ static int vdec_response_frame(struct vpu_inst *inst, struct vb2_v4l2_buffer *vb
- 	if (!vbuf)
- 		return -EINVAL;
- 
--	if (vdec->slots[vbuf->vb2_buf.index]) {
--		dev_err(inst->dev, "[%d] repeat alloc fs %d\n",
--			inst->id, vbuf->vb2_buf.index);
-+	vpu_buf = to_vpu_vb2_buffer(vbuf);
-+	if (vpu_buf->fs_id < 0 || vpu_buf->fs_id >= vdec->slot_count) {
-+		dev_err(inst->dev, "invalid fs %d for v4l2 buffer %d\n",
-+			vpu_buf->fs_id, vbuf->vb2_buf.index);
- 		return -EINVAL;
- 	}
- 
-+	if (vdec->slots[vpu_buf->fs_id].curr) {
-+		if (vdec->slots[vpu_buf->fs_id].curr != vpu_buf) {
-+			vpu_set_buffer_state(vbuf, VPU_BUF_STATE_CHANGED);
-+			vdec->slots[vpu_buf->fs_id].pend = vpu_buf;
-+		} else {
-+			vpu_set_buffer_state(vbuf, vdec->slots[vpu_buf->fs_id].state);
-+		}
-+		dev_err(inst->dev, "[%d] repeat alloc fs %d (v4l2 index %d)\n",
-+			inst->id, vpu_buf->fs_id, vbuf->vb2_buf.index);
-+		return -EAGAIN;
-+	}
-+
- 	dev_dbg(inst->dev, "[%d] state = %s, alloc fs %d, tag = 0x%x\n",
- 		inst->id, vpu_codec_state_name(inst->state), vbuf->vb2_buf.index, vdec->seq_tag);
--	vpu_buf = to_vpu_vb2_buffer(vbuf);
- 
- 	memset(&info, 0, sizeof(info));
--	info.id = vbuf->vb2_buf.index;
-+	info.id = vpu_buf->fs_id;
- 	info.type = MEM_RES_FRAME;
- 	info.tag = vdec->seq_tag;
- 	info.luma_addr = vpu_get_vb_phy_addr(&vbuf->vb2_buf, 0);
-@@ -1078,12 +1160,13 @@ static int vdec_response_frame(struct vpu_inst *inst, struct vb2_v4l2_buffer *vb
- 	if (ret)
- 		return ret;
- 
--	vpu_buf->tag = info.tag;
- 	vpu_buf->luma = info.luma_addr;
- 	vpu_buf->chroma_u = info.chroma_addr;
- 	vpu_buf->chroma_v = 0;
- 	vpu_set_buffer_state(vbuf, VPU_BUF_STATE_INUSE);
--	vdec->slots[info.id] = vpu_buf;
-+	vdec->slots[info.id].tag = info.tag;
-+	vdec->slots[info.id].curr = vpu_buf;
-+	vdec->slots[info.id].state = VPU_BUF_STATE_INUSE;
- 	vdec->req_frame_count--;
- 
- 	return 0;
-@@ -1144,25 +1227,47 @@ static void vdec_recycle_buffer(struct vpu_inst *inst, struct vb2_v4l2_buffer *v
- 	v4l2_m2m_buf_queue(inst->fh.m2m_ctx, vbuf);
- }
- 
--static void vdec_clear_slots(struct vpu_inst *inst)
-+static void vdec_release_curr_frame_store(struct vpu_inst *inst, u32 id)
- {
- 	struct vdec_t *vdec = inst->priv;
- 	struct vpu_vb2_buffer *vpu_buf;
- 	struct vb2_v4l2_buffer *vbuf;
-+
-+	if (id >= vdec->slot_count)
-+		return;
-+	if (!vdec->slots[id].curr)
-+		return;
-+
-+	vpu_buf = vdec->slots[id].curr;
-+	vbuf = &vpu_buf->m2m_buf.vb;
-+
-+	vdec_response_fs_release(inst, id, vdec->slots[id].tag);
-+	if (vpu_buf->fs_id == id) {
-+		if (vpu_buf->state != VPU_BUF_STATE_READY)
-+			vdec_recycle_buffer(inst, vbuf);
-+		vpu_set_buffer_state(vbuf, VPU_BUF_STATE_IDLE);
-+	}
-+
-+	vdec->slots[id].curr = NULL;
-+	vdec->slots[id].state = VPU_BUF_STATE_IDLE;
-+
-+	if (vdec->slots[id].pend) {
-+		vpu_set_buffer_state(&vdec->slots[id].pend->m2m_buf.vb, VPU_BUF_STATE_IDLE);
-+		vdec->slots[id].pend = NULL;
-+	}
-+}
-+
-+static void vdec_clear_slots(struct vpu_inst *inst)
-+{
-+	struct vdec_t *vdec = inst->priv;
- 	int i;
- 
--	for (i = 0; i < ARRAY_SIZE(vdec->slots); i++) {
--		if (!vdec->slots[i])
-+	for (i = 0; i < vdec->slot_count; i++) {
-+		if (!vdec->slots[i].curr)
- 			continue;
- 
--		vpu_buf = vdec->slots[i];
--		vbuf = &vpu_buf->m2m_buf.vb;
--
- 		vpu_trace(inst->dev, "clear slot %d\n", i);
--		vdec_response_fs_release(inst, i, vpu_buf->tag);
--		vdec_recycle_buffer(inst, vbuf);
--		vdec->slots[i]->state = VPU_BUF_STATE_IDLE;
--		vdec->slots[i] = NULL;
-+		vdec_release_curr_frame_store(inst, i);
- 	}
- }
- 
-@@ -1263,39 +1368,29 @@ static void vdec_event_req_fs(struct vpu_inst *inst, struct vpu_fs_info *fs)
- static void vdec_evnet_rel_fs(struct vpu_inst *inst, struct vpu_fs_info *fs)
- {
- 	struct vdec_t *vdec = inst->priv;
--	struct vpu_vb2_buffer *vpu_buf;
--	struct vb2_v4l2_buffer *vbuf;
- 
--	if (!fs || fs->id >= ARRAY_SIZE(vdec->slots))
-+	if (!fs || fs->id >= vdec->slot_count)
- 		return;
- 	if (fs->type != MEM_RES_FRAME)
- 		return;
- 
--	if (fs->id >= vpu_get_num_buffers(inst, inst->cap_format.type)) {
-+	if (fs->id >= vdec->slot_count) {
- 		dev_err(inst->dev, "[%d] invalid fs(%d) to release\n", inst->id, fs->id);
- 		return;
- 	}
- 
- 	vpu_inst_lock(inst);
--	vpu_buf = vdec->slots[fs->id];
--	vdec->slots[fs->id] = NULL;
--
--	if (!vpu_buf) {
-+	if (!vdec->slots[fs->id].curr) {
- 		dev_dbg(inst->dev, "[%d] fs[%d] has bee released\n", inst->id, fs->id);
- 		goto exit;
- 	}
- 
--	vbuf = &vpu_buf->m2m_buf.vb;
--	if (vpu_get_buffer_state(vbuf) == VPU_BUF_STATE_DECODED) {
-+	if (vdec->slots[fs->id].state == VPU_BUF_STATE_DECODED) {
- 		dev_dbg(inst->dev, "[%d] frame skip\n", inst->id);
- 		vdec->sequence++;
- 	}
- 
--	vdec_response_fs_release(inst, fs->id, vpu_buf->tag);
--	if (vpu_get_buffer_state(vbuf) != VPU_BUF_STATE_READY)
--		vdec_recycle_buffer(inst, vbuf);
--
--	vpu_set_buffer_state(vbuf, VPU_BUF_STATE_IDLE);
-+	vdec_release_curr_frame_store(inst, fs->id);
- 	vpu_process_capture_buffer(inst);
- 
- exit:
-@@ -1485,6 +1580,11 @@ static void vdec_cleanup(struct vpu_inst *inst)
- 		return;
- 
- 	vdec = inst->priv;
-+	if (vdec) {
-+		kfree(vdec->slots);
-+		vdec->slots = NULL;
-+		vdec->slot_count = 0;
-+	}
- 	vfree(vdec);
- 	inst->priv = NULL;
- 	vfree(inst);
-@@ -1606,11 +1706,43 @@ static int vdec_stop_session(struct vpu_inst *inst, u32 type)
- 	return 0;
- }
- 
--static int vdec_get_debug_info(struct vpu_inst *inst, char *str, u32 size, u32 i)
-+static int vdec_get_slot_debug_info(struct vpu_inst *inst, char *str, u32 size, u32 i)
- {
- 	struct vdec_t *vdec = inst->priv;
-+	struct vpu_vb2_buffer *vpu_buf;
- 	int num = -1;
- 
-+	vpu_inst_lock(inst);
-+	if (i >= vdec->slot_count || !vdec->slots[i].addr)
-+		goto exit;
-+
-+	vpu_buf = vdec->slots[i].curr;
-+
-+	num = scnprintf(str, size, "slot[%2d] :", i);
-+	if (vpu_buf) {
-+		num += scnprintf(str + num, size - num, " %2d",
-+				 vpu_buf->m2m_buf.vb.vb2_buf.index);
-+		num += scnprintf(str + num, size - num, "; state = %d", vdec->slots[i].state);
-+	} else {
-+		num += scnprintf(str + num, size - num, " -1");
-+	}
-+
-+	if (vdec->slots[i].pend)
-+		num += scnprintf(str + num, size - num, "; %d",
-+				 vdec->slots[i].pend->m2m_buf.vb.vb2_buf.index);
-+
-+	num += scnprintf(str + num, size - num, "\n");
-+exit:
-+	vpu_inst_unlock(inst);
-+
-+	return num;
-+}
-+
-+static int vdec_get_debug_info(struct vpu_inst *inst, char *str, u32 size, u32 i)
-+{
-+	struct vdec_t *vdec = inst->priv;
-+	int num;
-+
- 	switch (i) {
- 	case 0:
- 		num = scnprintf(str, size,
-@@ -1664,6 +1796,7 @@ static int vdec_get_debug_info(struct vpu_inst *inst, char *str, u32 size, u32 i
- 				vdec->codec_info.vui_present);
- 		break;
- 	default:
-+		num = vdec_get_slot_debug_info(inst, str, size, i - 10);
- 		break;
- 	}
- 
-@@ -1687,6 +1820,8 @@ static struct vpu_inst_ops vdec_inst_ops = {
- 	.get_debug_info = vdec_get_debug_info,
- 	.wait_prepare = vpu_inst_unlock,
- 	.wait_finish = vpu_inst_lock,
-+	.attach_frame_store = vdec_attach_frame_store,
-+	.reset_frame_store = vdec_reset_frame_store,
- };
- 
- static void vdec_init(struct file *file)
-@@ -1727,6 +1862,16 @@ static int vdec_open(struct file *file)
- 		return -ENOMEM;
- 	}
- 
-+	vdec->slots = kmalloc_array(VDEC_SLOT_CNT_DFT,
-+				    sizeof(*vdec->slots),
-+				    GFP_KERNEL | __GFP_ZERO);
-+	if (!vdec->slots) {
-+		vfree(vdec);
-+		vfree(inst);
-+		return -ENOMEM;
-+	}
-+	vdec->slot_count = VDEC_SLOT_CNT_DFT;
-+
- 	inst->ops = &vdec_inst_ops;
- 	inst->formats = vdec_formats;
- 	inst->type = VPU_CORE_TYPE_DEC;
-diff --git a/drivers/media/platform/amphion/vpu.h b/drivers/media/platform/amphion/vpu.h
-index 22f0da26ccec..76bfd6b26170 100644
---- a/drivers/media/platform/amphion/vpu.h
-+++ b/drivers/media/platform/amphion/vpu.h
-@@ -223,6 +223,8 @@ struct vpu_inst_ops {
- 	int (*get_debug_info)(struct vpu_inst *inst, char *str, u32 size, u32 i);
- 	void (*wait_prepare)(struct vpu_inst *inst);
- 	void (*wait_finish)(struct vpu_inst *inst);
-+	void (*attach_frame_store)(struct vpu_inst *inst, struct vb2_buffer *vb);
-+	void (*reset_frame_store)(struct vpu_inst *inst);
- };
- 
- struct vpu_inst {
-@@ -296,7 +298,8 @@ enum {
- 	VPU_BUF_STATE_DECODED,
- 	VPU_BUF_STATE_READY,
- 	VPU_BUF_STATE_SKIP,
--	VPU_BUF_STATE_ERROR
-+	VPU_BUF_STATE_ERROR,
-+	VPU_BUF_STATE_CHANGED
- };
- 
- struct vpu_vb2_buffer {
-@@ -305,8 +308,8 @@ struct vpu_vb2_buffer {
- 	dma_addr_t chroma_u;
- 	dma_addr_t chroma_v;
- 	unsigned int state;
--	u32 tag;
- 	u32 average_qp;
-+	s32 fs_id;
- };
- 
- void vpu_writel(struct vpu_dev *vpu, u32 reg, u32 val);
-diff --git a/drivers/media/platform/amphion/vpu_dbg.c b/drivers/media/platform/amphion/vpu_dbg.c
-index 940e5bda5fa3..497ae4e8a229 100644
---- a/drivers/media/platform/amphion/vpu_dbg.c
-+++ b/drivers/media/platform/amphion/vpu_dbg.c
-@@ -48,6 +48,7 @@ static char *vpu_stat_name[] = {
- 	[VPU_BUF_STATE_READY] = "ready",
- 	[VPU_BUF_STATE_SKIP] = "skip",
- 	[VPU_BUF_STATE_ERROR] = "error",
-+	[VPU_BUF_STATE_CHANGED] = "changed",
- };
- 
- static inline const char *to_vpu_stat_name(int state)
-@@ -164,6 +165,7 @@ static int vpu_dbg_instance(struct seq_file *s, void *data)
- 	for (i = 0; i < vb2_get_num_buffers(vq); i++) {
- 		struct vb2_buffer *vb;
- 		struct vb2_v4l2_buffer *vbuf;
-+		struct vpu_vb2_buffer *vpu_buf;
- 
- 		vb = vb2_get_buffer(vq, i);
- 		if (!vb)
-@@ -173,13 +175,24 @@ static int vpu_dbg_instance(struct seq_file *s, void *data)
- 			continue;
- 
- 		vbuf = to_vb2_v4l2_buffer(vb);
-+		vpu_buf = to_vpu_vb2_buffer(vbuf);
- 
- 		num = scnprintf(str, sizeof(str),
--				"capture[%2d] state = %10s, %8s\n",
-+				"capture[%2d] state = %10s, %8s",
- 				i, vb2_stat_name[vb->state],
- 				to_vpu_stat_name(vpu_get_buffer_state(vbuf)));
- 		if (seq_write(s, str, num))
- 			return 0;
-+
-+		if (vpu_buf->fs_id >= 0) {
-+			num = scnprintf(str, sizeof(str), "; fs %d", vpu_buf->fs_id);
-+			if (seq_write(s, str, num))
-+				return 0;
-+		}
-+
-+		num = scnprintf(str, sizeof(str), "\n");
-+		if (seq_write(s, str, num))
-+			return 0;
- 	}
- 
- 	num = scnprintf(str, sizeof(str), "sequence = %d\n", inst->sequence);
-diff --git a/drivers/media/platform/amphion/vpu_v4l2.c b/drivers/media/platform/amphion/vpu_v4l2.c
-index 45707931bc4f..74668fa362e2 100644
---- a/drivers/media/platform/amphion/vpu_v4l2.c
-+++ b/drivers/media/platform/amphion/vpu_v4l2.c
-@@ -501,14 +501,25 @@ static int vpu_vb2_queue_setup(struct vb2_queue *vq,
- 		call_void_vop(inst, release);
- 	}
- 
-+	if (V4L2_TYPE_IS_CAPTURE(vq->type))
-+		call_void_vop(inst, reset_frame_store);
-+
- 	return 0;
- }
- 
- static int vpu_vb2_buf_init(struct vb2_buffer *vb)
- {
- 	struct vb2_v4l2_buffer *vbuf = to_vb2_v4l2_buffer(vb);
-+	struct vpu_vb2_buffer *vpu_buf = to_vpu_vb2_buffer(vbuf);
-+	struct vpu_inst *inst = vb2_get_drv_priv(vb->vb2_queue);
- 
-+	vpu_buf->fs_id = -1;
- 	vpu_set_buffer_state(vbuf, VPU_BUF_STATE_IDLE);
-+
-+	if (!inst->ops->attach_frame_store || V4L2_TYPE_IS_OUTPUT(vb->type))
-+		return 0;
-+
-+	call_void_vop(inst, attach_frame_store, vb);
- 	return 0;
- }
- 
-
 base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
+change-id: 20250408-gicv5-host-749f316afe84
+
+Best regards,
 -- 
-2.43.0-rc1
+Lorenzo Pieralisi <lpieralisi@kernel.org>
 
 
