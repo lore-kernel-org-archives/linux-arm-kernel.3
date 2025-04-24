@@ -4,66 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84164C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 23 Apr 2025 23:17:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE391C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 00:25:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VGtdN9ZHoP72bHyMg2qtgLNKQaSCvOy2qU1A/TehErE=; b=P2M7ts02WxJ8hy/u+SbkOunEmK
-	fXz8kiIY8F9UNFvIFTqqtoKg8CzjgQKI0qO1TNYp4Q2NgSpF7c+p8V9D6/jyKGEZiWdGReoz1bhs0
-	wvcaqL7w/iHthtrSYZ8k+L2KqCK5jGqaDLs5X8nol3U81ydP+4uOq9MrmdEwSR+2Az2eIuGCNZkkf
-	aGRholI3HowXOei2MO0sLJJgq5r5Om0kAx+YA1mO6XWz+MyBot0rrPjxMeYzSP8Co3hgFKyRUpKdV
-	k89Wcqp49yeznbSj1eCxoCLDieV34eev30PHntt+xLyWKLlDJC+GnEOWE/pJ+N/+4wSDJMEp3kr0i
-	XqBs3SlA==;
+	bh=r5HA6vTPIAExrshpJRpmOnHG9iQpeFKL/ljG+c8yMR8=; b=VyLuC5uPJTgJIjtHJRAw/YIHGt
+	rwPKpgZvfw3WofJClAE07Mwh7OEiOEdoTbE6ZaCZYwEkpqzUJJf9Zil3CFq5dVq9LLDQKu8+B+SCT
+	PWz7Cx7C1nuTMoigA0cCCSL01nJl4rk6vawCvRxnIUPjVeotG4dDZRUJbhJmwbBdLTZDb1tqRWKYQ
+	OFvXXA4KQXlfMvN3TroMgmOkKjTcK4ZaDTOD4/2nHDizQqZjwqUhxbd9fhWsobFhEQlPuIQuyB9vk
+	gh8FBaNUMpO6TNiF7aM77PAxzqfvmRrUeWUXLBZ4J49w5aYrmxlwIpmCU2M4HtJsW4Qa/r29NxuwA
+	yyqO81RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7jLf-0000000CFpV-0pZx;
-	Wed, 23 Apr 2025 23:17:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u7kOj-0000000CODA-330B;
+	Thu, 24 Apr 2025 00:25:01 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7jIh-0000000CFUH-3vdF
+	id 1u7kMk-0000000CNUz-2Ipn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 23 Apr 2025 23:14:45 +0000
+	Thu, 24 Apr 2025 00:22:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8C13D448EC;
-	Wed, 23 Apr 2025 23:14:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EECF0C4CEE2;
-	Wed, 23 Apr 2025 23:14:42 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7620368454;
+	Thu, 24 Apr 2025 00:22:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DA2FC4CEEA;
+	Thu, 24 Apr 2025 00:22:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745450083;
-	bh=NwPdaUZJAZ+ANYSzIVj7rk7f0HACGHmAdYi8K/KSyN4=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=qv/8ndts6AWpsTgPCu6Jakxn7NPuQaBNcVpasq4/qTXXHgOztPsHznio1aG6RTyu8
-	 RMvihSJ6Fq7WoxvWIBVKu0WpJhChmGHvBFBAYP4VfvQQmicQrB9PHiDSdhknXcrt2g
-	 UrYbiS48yUDw6HqP0KKOQSP+WjFwZpTe5yjZ6YYk9RvAiv3nh/HaCO6f1pydRKvtRb
-	 MrnWYM4NqWimy7zxCACmzj02FJXdtTsCO7qPwb+/rsKC5ZIqGPXb1LxEIVAAogKRim
-	 kSywYzYlmcViwf38b11U2+DmxJTF/ecq3c63JXjUb2YzAg/WhkpQB8tJT8Rgvzoq5d
-	 hwsz4st979i6w==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADD63380CED9;
-	Wed, 23 Apr 2025 23:15:22 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20201202; t=1745454177;
+	bh=f6qY7h7/z9HFPXtJ7uW93vPk+oRSFTdF1XATrLujF94=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=FGtI6i60jfi/bxvrBjyZrkl3TkhvNSEysxPTGOz6UaGM8gmkSGMzhgzvxG6cSkx4I
+	 IER76oYErtjvm57HPR+kvW4xbDJY3gBBtmDAx3GbteOA3X5bCfJxtdP4oWnIZg35eb
+	 ovQ/1UKOZtrxFP2oaMWLLDIslp1XyosmGQAIniINOznzhAYu0wZVXys0xwjT8MpXdy
+	 Xdx5pA713zOdUR53LMD0F1zwNlgTgL3FxLkHZftpvofB3xxaT0ftBfE4rME11I7H5n
+	 6Kw8/d9POrLBi/0pSDx7/rhvpLc1AerJedNLcZgzxHya15q4HPa0TOx+9SfRxzrYO/
+	 58NCLhKBn8IdQ==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: Ard Biesheuvel <ardb@kernel.org>,
+	linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org
+Subject: [PATCH 1/7] arm/crc: drop "glue" from filenames
+Date: Wed, 23 Apr 2025 17:20:32 -0700
+Message-ID: <20250424002038.179114-2-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250424002038.179114-1-ebiggers@kernel.org>
+References: <20250424002038.179114-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next] net: stmmac: dwc-qos: calibrate tegra with mdio bus
- idle
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <174545012150.2793299.8349789230420012979.git-patchwork-notify@kernel.org>
-Date: Wed, 23 Apr 2025 23:15:21 +0000
-References: <E1u7EYR-001ZAS-Cr@rmk-PC.armlinux.org.uk>
-In-Reply-To: <E1u7EYR-001ZAS-Cr@rmk-PC.armlinux.org.uk>
-To: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, jonathanh@nvidia.com, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, mcoquelin.stm32@gmail.com,
- netdev@vger.kernel.org, pabeni@redhat.com, treding@nvidia.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_161443_998143_16A22BDB 
-X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,29 +73,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+From: Eric Biggers <ebiggers@google.com>
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+The use of the term "glue" in filenames is a Crypto API-ism that rarely
+shows up elsewhere in lib/ or arch/*/lib/.  I think adopting it there
+was a mistake.  The library just uses standard functions, so the amount
+of code that could be considered "glue" is quite small.  And while often
+the C functions just wrap the assembly functions, there are also cases
+like crc32c_arch() in arch/x86/lib/crc32-glue.c that blur the line by
+in-lining the actual implementation into the C function.  That's not
+"glue code", but rather the actual code.
 
-On Tue, 22 Apr 2025 15:24:55 +0100 you wrote:
-> Thierry states that there are prerequists for Tegra's calibration
-> that should be met before starting calibration - both the RGMII and
-> MDIO interfaces should be idle.
-> 
-> This commit adds the necessary MII bus locking to ensure that the MDIO
-> interface is idle during calibration.
-> 
-> [...]
+Therefore, let's drop "glue" from the filenames and instead use e.g.
+crc32.c instead of crc32-glue.c.
 
-Here is the summary with links:
-  - [net-next] net: stmmac: dwc-qos: calibrate tegra with mdio bus idle
-    https://git.kernel.org/netdev/net-next/c/87f43e6f06a2
+Signed-off-by: Eric Biggers <ebiggers@google.com>
+---
+ arch/arm/lib/Makefile                            | 4 ++--
+ arch/arm/lib/{crc-t10dif-glue.c => crc-t10dif.c} | 0
+ arch/arm/lib/{crc32-glue.c => crc32.c}           | 0
+ 3 files changed, 2 insertions(+), 2 deletions(-)
+ rename arch/arm/lib/{crc-t10dif-glue.c => crc-t10dif.c} (100%)
+ rename arch/arm/lib/{crc32-glue.c => crc32.c} (100%)
 
-You are awesome, thank you!
+diff --git a/arch/arm/lib/Makefile b/arch/arm/lib/Makefile
+index 007874320937d..d05dd672bcd9c 100644
+--- a/arch/arm/lib/Makefile
++++ b/arch/arm/lib/Makefile
+@@ -45,9 +45,9 @@ ifeq ($(CONFIG_KERNEL_MODE_NEON),y)
+ endif
+ 
+ obj-$(CONFIG_FUNCTION_ERROR_INJECTION) += error-inject.o
+ 
+ obj-$(CONFIG_CRC32_ARCH) += crc32-arm.o
+-crc32-arm-y := crc32-glue.o crc32-core.o
++crc32-arm-y := crc32.o crc32-core.o
+ 
+ obj-$(CONFIG_CRC_T10DIF_ARCH) += crc-t10dif-arm.o
+-crc-t10dif-arm-y := crc-t10dif-glue.o crc-t10dif-core.o
++crc-t10dif-arm-y := crc-t10dif.o crc-t10dif-core.o
+diff --git a/arch/arm/lib/crc-t10dif-glue.c b/arch/arm/lib/crc-t10dif.c
+similarity index 100%
+rename from arch/arm/lib/crc-t10dif-glue.c
+rename to arch/arm/lib/crc-t10dif.c
+diff --git a/arch/arm/lib/crc32-glue.c b/arch/arm/lib/crc32.c
+similarity index 100%
+rename from arch/arm/lib/crc32-glue.c
+rename to arch/arm/lib/crc32.c
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.49.0
 
 
