@@ -4,68 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD2A8C369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 07:04:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E677C369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 07:06:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0af7qNQm3bacrBw+3pGC/CiybC+NXWc29Et+/4lyIIU=; b=RuCu06Gex5tX2JuFAq/c+dQIGb
-	wUjh6uit7PKytBfkczpZq+T0tlQiD6n36KSeT+e+FOGLl4HK6b+UKSksW/fBf98uoh9rAVzzqAEzj
-	F6+O/xYygK2voF8yNT4yd+6gNl6aNP3pcychaOd4aomF4aMcKweJN/27DTNDAX7ZP/ui2XjtGwTuL
-	0GJvyqKk+cYaRgpItDnkIPlr9DjjDLS9+PeB5m6XWaAvUwogn0Q9hZW/xUfqr9ULMbHjl/egudbyh
-	OuqPbf76vg+uTISVelWkJAUIs8+Tu+T6gC1hGV7eS67kcGnBuPnWU4VxAELXcrtEFmoZVv6xZH7qy
-	kIvPf3wg==;
+	bh=pNh4O5caSx6jmO3mxlqusQXtE5knpPq+iiQ+Jzf4Ivw=; b=JWTM1hv42luEZOBvDWKWJRW0Tk
+	JjKxBPN62+pJEr0sd76Sw1xAxMb5cgrek7su4rzc/nff1Smh8GbTq3k9orLSvIkBSdaynf16qj8HD
+	v3rcJkmjPmBQE6SL2Huvk6ja062NXQyr2GEkr1/eICvmMtXtxyrRwrNvTuh+ZOqubzE2jrZWb9ra+
+	14Ml55QKnV8llqJSMstA4rFzTM05qr9XpUcqqBdFtzc3XsZ0N+F4U56HJAk3XlYZ5cRggIourvk11
+	tmyhQ+TOBQZTR77fbGeMdsWklq48XqCMzii75yoDb4mn0Ze3wllRPMm+WvLbmrb4gyuowuZGZoCe7
+	oVR+Ru9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7qdQ-0000000D4wi-0wim;
-	Thu, 24 Apr 2025 07:04:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u7qfM-0000000D5HC-2Moi;
+	Thu, 24 Apr 2025 07:06:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7pyr-0000000Cygc-46as
+	id 1u7qAq-0000000D1BY-0rcv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 06:22:42 +0000
+	Thu, 24 Apr 2025 06:35:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9151968455
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 06:22:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E498EC4CEEA
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 06:22:40 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5CB9F43AC6;
+	Thu, 24 Apr 2025 06:35:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58D49C4CEE3;
+	Thu, 24 Apr 2025 06:35:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745475760;
-	bh=MnbDTkDjx7fGLQrr6aq33qeElS5aQV1V02HztW2z4QI=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=WtboPodAb4If3nkaa2PXy6oXsf0a3bXZctQ2wvPcXSI0l79MWAm4Z2gSZuz96IF9H
-	 0qLlIMYtp2SHP6GDqfM8ztwqvVgTZY6FXR9F5f0adrLGLlrBdyf5RWCE1I7N7CrTTj
-	 DAPkO1+pZGzixh+Urbuscma6hbYr7IX/6giX9wVWMj2r92tTCqm0d1+78+g71USLbJ
-	 THF5D9zsliGl+VvssarcSIxgX6vlpU47E9eZMJKjYTEQ8nflTSxlLh63IVcKVnlFdc
-	 SWV4SxmWIXzI3lSv6htjlMKoZppQdBmQJNjRQ4JTvSh2Z3t/BH9C3LOESeyqGxlX14
-	 DIG6sr68pN51A==
-Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-30db3f3c907so6900601fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 23:22:40 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXIZFLh9dKMuZJMwJBXoo6APM6+EKGOHoxO0YFZWbM+VK8dJzGs6AOChXbrgeB8MgCTpubx7w0hSGGbaTHju5j6@lists.infradead.org
-X-Gm-Message-State: AOJu0YxNj7el/GclKxHZ48oudJByQz8S9OOscbM4k/gIgdKShXyOkyF6
-	CwQuE5ftkdyE7rSAboxyGs423RtTZjll+8bFe5VzkKMYRr8/AB2b8EHcKdDj3+xGgqxN7iZE8OG
-	qP5+lGUSmx599bJ+heUqpd9J37Hw=
-X-Google-Smtp-Source: AGHT+IEBg0GksqRUxYbq10WiBQxT674qV08e5XaXakQ/0Ux/wZi1/Em/Ff29tbRd93xidxYNQXuF7ob7W4sz3W9cDJE=
-X-Received: by 2002:a2e:b8c9:0:b0:30c:3099:13db with SMTP id
- 38308e7fff4ca-3179e5ea6f5mr4171351fa.14.1745475759305; Wed, 23 Apr 2025
- 23:22:39 -0700 (PDT)
+	s=k20201202; t=1745476501;
+	bh=4gClZZchBPS5nWHetbxzyLcECQQe429cDxgXba/S5p0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aIJ4L+QrkTELRIRh4kjqs0BHkuu80qMpSFBaEm1F0cenLZJb0F7MyPPfUTFUP6yRM
+	 bYzv+IwctnllFt/Ka5OA6W80dGA9tERFTU9XDKvtmOX/DPwj9Li+821K7qHCl3CuQa
+	 cYjm70RTgYtq/V8oUsZS/Y+CibOu5KK4kBZ9sD4AkZrANZaFvQNmvctdx3n/lcsRje
+	 VBYHnJWBcsRNFllxDffEerx4EwjrFYdOXOHsJP6hroDwE/4x9S5A7+qXmKNQC5FGGZ
+	 z8cVTIiB62kmBd6M6Nz7o6ysDMcNYhp671krnng45ePVcNpmknv+TDP17E9axLgHe/
+	 cBq6efIzoyVfQ==
+Date: Thu, 24 Apr 2025 08:34:58 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Alexey Charkov <alchark@gmail.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, linux-pwm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] dt-bindings: pwm: vt8500-pwm: Convert to YAML
+Message-ID: <yscledgclp2v4p7djwrszbc3dnqifkcofky7rugkcip7o2rmof@xljfd2kfyzzs>
+References: <20250418-via_pwm_binding-v2-1-17545f4d719e@gmail.com>
 MIME-Version: 1.0
-References: <20250424002038.179114-1-ebiggers@kernel.org>
-In-Reply-To: <20250424002038.179114-1-ebiggers@kernel.org>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 24 Apr 2025 08:22:28 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXFZ-Wy9Z5Rqe-o6fnKtgm+=JQeFnVMvG=jmKz36=02w6A@mail.gmail.com>
-X-Gm-Features: ATxdqUEf-FfEO6d9z_202RUFsmqfhy6LhKcEQhVv3O5CQR6i6602IFM1v6-7V-w
-Message-ID: <CAMj1kXFZ-Wy9Z5Rqe-o6fnKtgm+=JQeFnVMvG=jmKz36=02w6A@mail.gmail.com>
-Subject: Re: [PATCH 0/7] lib/crc: drop "glue" from filenames
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-s390@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="qhetb3dose7tjp32"
+Content-Disposition: inline
+In-Reply-To: <20250418-via_pwm_binding-v2-1-17545f4d719e@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250423_233504_271901_797A0F3B 
+X-CRM114-Status: GOOD (  13.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,63 +73,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 24 Apr 2025 at 02:22, Eric Biggers <ebiggers@kernel.org> wrote:
->
-> This series fixes an odd naming convention that was unnecessarily
-> carried over from the original Crypto API code.
->
-> I'm planning to take this via the crc tree.
->
-> Eric Biggers (7):
->   arm/crc: drop "glue" from filenames
->   arm64/crc: drop "glue" from filenames
->   powerpc/crc: drop "glue" from filenames
->   powerpc/crc: rename crc32-vpmsum_core.S to crc-vpmsum-template.S
->   s390/crc: drop "glue" from filenames
->   sparc/crc: drop "glue" from filenames
->   x86/crc: drop "glue" from filenames
->
 
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
+--qhetb3dose7tjp32
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2] dt-bindings: pwm: vt8500-pwm: Convert to YAML
+MIME-Version: 1.0
 
->  arch/arm/lib/Makefile                                       | 4 ++--
->  arch/arm/lib/{crc-t10dif-glue.c => crc-t10dif.c}            | 0
->  arch/arm/lib/{crc32-glue.c => crc32.c}                      | 0
->  arch/arm64/lib/Makefile                                     | 4 ++--
->  arch/arm64/lib/{crc-t10dif-glue.c => crc-t10dif.c}          | 0
->  arch/arm64/lib/{crc32.S => crc32-core.S}                    | 0
->  arch/arm64/lib/{crc32-glue.c => crc32.c}                    | 0
->  arch/powerpc/lib/Makefile                                   | 4 ++--
->  arch/powerpc/lib/{crc-t10dif-glue.c => crc-t10dif.c}        | 0
->  .../lib/{crc32-vpmsum_core.S => crc-vpmsum-template.S}      | 0
->  arch/powerpc/lib/{crc32-glue.c => crc32.c}                  | 0
->  arch/powerpc/lib/crc32c-vpmsum_asm.S                        | 2 +-
->  arch/powerpc/lib/crct10dif-vpmsum_asm.S                     | 2 +-
->  arch/s390/lib/Makefile                                      | 2 +-
->  arch/s390/lib/{crc32-glue.c => crc32.c}                     | 0
->  arch/sparc/lib/Makefile                                     | 2 +-
->  arch/sparc/lib/{crc32_glue.c => crc32.c}                    | 2 +-
->  arch/x86/lib/Makefile                                       | 6 +++---
->  arch/x86/lib/{crc-t10dif-glue.c => crc-t10dif.c}            | 0
->  arch/x86/lib/{crc32-glue.c => crc32.c}                      | 0
->  arch/x86/lib/{crc64-glue.c => crc64.c}                      | 0
->  21 files changed, 14 insertions(+), 14 deletions(-)
->  rename arch/arm/lib/{crc-t10dif-glue.c => crc-t10dif.c} (100%)
->  rename arch/arm/lib/{crc32-glue.c => crc32.c} (100%)
->  rename arch/arm64/lib/{crc-t10dif-glue.c => crc-t10dif.c} (100%)
->  rename arch/arm64/lib/{crc32.S => crc32-core.S} (100%)
->  rename arch/arm64/lib/{crc32-glue.c => crc32.c} (100%)
->  rename arch/powerpc/lib/{crc-t10dif-glue.c => crc-t10dif.c} (100%)
->  rename arch/powerpc/lib/{crc32-vpmsum_core.S => crc-vpmsum-template.S} (100%)
->  rename arch/powerpc/lib/{crc32-glue.c => crc32.c} (100%)
->  rename arch/s390/lib/{crc32-glue.c => crc32.c} (100%)
->  rename arch/sparc/lib/{crc32_glue.c => crc32.c} (97%)
->  rename arch/x86/lib/{crc-t10dif-glue.c => crc-t10dif.c} (100%)
->  rename arch/x86/lib/{crc32-glue.c => crc32.c} (100%)
->  rename arch/x86/lib/{crc64-glue.c => crc64.c} (100%)
->
-> base-commit: 1ec3d4ff5c77422927896c1f7d0ed01267ec1213
-> --
-> 2.49.0
->
+On Fri, Apr 18, 2025 at 06:55:07PM +0400, Alexey Charkov wrote:
+> Rewrite the textual description for the WonderMedia PWM controller
+> as YAML schema, and switch the filename to follow the compatible
+> string.
+>=20
+> Signed-off-by: Alexey Charkov <alchark@gmail.com>
+> ---
+> Split the series from v1 into separate bindings patches so as not to
+> spam all the subsystems with unrelated changes, per Rob's suggestion
+
+That's a good suggestion.
+
+Applied with Rob's R-b tag to
+https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
+next
+=2E
+
+I saw you signed your patch using PGP, which is great. However I didn't
+find your key. I recommend to make it available on keys.openpgp.org like
+this:
+
+	gpg --export alchark@gmail.com | curl -T - https://keys.openpgp.org
+
+and then verify your identities using the link in the output of this
+command. Still better, (additionally) add your key to the kernel keyring
+(which however requires you to be in Linus Torvalds WoT, see
+https://korg.docs.kernel.org/pgpkeys.html for the details).
+
+Thanks for your contribution,
+Uwe
+
+--qhetb3dose7tjp32
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmgJ248ACgkQj4D7WH0S
+/k71GAf/cV7upSehxuOa5yALPuIkS68mnMURiVpePuIYzsRORKndFKnxWyqUXbFW
+RpbACn/GJCb21cf9SV5Kf1UtDUszG5rzJvy3se0FUoq/z5YFc9E+xaXKjpn8Ihet
+XX7sv7UPi+gGHKzztpiDpUXCmOHbWPf8kp4IvvjMyZdh8tr4Nv3P2WuhMdGak28+
+DINKNuRrqnZL/A1VblAwbwhAPCVpGSj5xpfQa97Gg6i9Xc1tzVdujhlt9d5vl9zT
+THzXD7o1if4I4KS/P99qpUmJZO3sFwXfiVA8u/xNfcgEY48qhUGHQt+QuF20qCJC
+KU9yOZDFmT+Sclw4+G8KTxI+uaSp3Q==
+=edGU
+-----END PGP SIGNATURE-----
+
+--qhetb3dose7tjp32--
 
