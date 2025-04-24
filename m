@@ -4,93 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7226C369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 11:07:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4F69C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 11:07:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n7xB0NSx1H7vCCe+l6ESBPVP9pl7qaey136eLZ31dwo=; b=OKldLphql6wsaz36NLw5esH8At
-	x1bL87WGwhTO75gvZfbO4Q//n8InqM/x+Xm8LrSGLar6wyDjM9QgNyaV+iWKCImVT3xaRnki/E8jF
-	NOgUXk0ft7hpDQu9A+c0cYyB+mgGxp/lRJn+fG7uZSJE/zqM2lI49ApurIN0q7DyBvfvoU5hQayiK
-	Vm9QFuWele4YXLia1QvYer5wQSrS5O2j0ztuDBlLuv749kbipxqAE6aiydgZ+9XwE2fpRos0/8/uW
-	nqSXirsf0rcStkmu169XWDQhmClodaOQXeKX7Kixh0feb+CXvSXlSH42UV72NMaiGqa8R+Zn223fg
-	322TzJRQ==;
+	bh=IcE3wUuPhjxXCt0ZMpAZ5x8qSYr01DaOTal5Jl8GTWc=; b=1imBwnIjKhtYy9+722LuVyAfo4
+	eZilYsLT+rNTUoSi37F+ot2oTbF8qtnICBM6cBotcQX7WDJGOU6n0a1lZLn3r2QPjIaAKy3vLRuX/
+	gYLc53ApuaP1H1UVfbeHT6dkq+/jBaL9lX1egZuSpDZnYxdRhmm4q7k+Idtrz88KzSrwTOSyAA/Kp
+	gBGYc0brUa0iNlOTSdCbGWwixgJ4wmtjfEl5hz1irm5n4YXBimKLe53OqV9wecudsj8sFT9/hNvZX
+	PWx1Rle+jP3+kXCib3nlKIY6JJC2EaeRNQ/LDfrn0pcoScf86AJKkeydMecbuaEjHAOWgxHX/iuqr
+	w79j4tVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7uQI-0000000DnaR-3m04;
-	Thu, 24 Apr 2025 11:07:19 +0000
+	id 1u7uQK-0000000DnbX-0icr;
+	Thu, 24 Apr 2025 11:07:20 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7s3j-0000000DL99-0nYM
+	id 1u7s3n-0000000DLAg-0YSY
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 24 Apr 2025 08:35:51 +0000
+	Thu, 24 Apr 2025 08:35:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=n7xB0NSx1H7vCCe+l6ESBPVP9pl7qaey136eLZ31dwo=; b=QsixSCC8PVMWHTrSRsY1fACE+P
-	EpJTKLfyQbfTW+r15/vEmFX1An0kynDc+VZPuHR9enPL040QeYfUbJ3O06a+kzw7mSnQVBydh2BI8
-	YkZKJmXpi2+hQUzX0n8jR9EoNXbIx0WmdJ5K5pj79dfCompffAYeh924rguE/QvUpR4GQuj3xcBr+
-	uc5r19u5cpSZaAhqumY3mx55Ahdq62LiCbtW+clw+RWxeMH48tXgxdWFyhsuYnfkdLKYu4N82K1+G
-	K1uUA23WV/xPzNQOb7Y5ChyG6A6S0lNIJyEdXfslS0tX79yhPn6LdS84L78Nc4rdqYh+cM+Gy9412
-	puztaIFA==;
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	bh=IcE3wUuPhjxXCt0ZMpAZ5x8qSYr01DaOTal5Jl8GTWc=; b=mSTZJNOqxVJW7L1vCN2dpjMyEC
+	tzhZTnYj/mKoVMjq++ZzzTMZlj0pzv4vKJY2oGmAy4sh8kIbuvBPzYHt5EQcDZ4qIDLFoAVuTse/P
+	JZqmbH/1EfSy3JmdgH50NcGSpwM9I7ygp/w65/cHpiLBiesnqsue8QSlGRlRdBb/N25Xt+s+DfUDL
+	rtramurHCytrqYABkBuE5BuvdwL19XO6SMHQ83oRHAgsf81iEiwuTcgw7n8GZ+Qn50DRtcIF3y698
+	5nPLERveTypUtf7kg+OuGx9ytFpJtCKIOJe3vWMONWEKgC5lWnjQSsECCi5HYZIwnx2IJLGIYaB5z
+	aqyD9q6A==;
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u7s3g-0000000BchN-1mgw
+	id 1u7s3k-0000000Bciw-1B2s
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 08:35:50 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-3914aba1ce4so504197f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 01:35:47 -0700 (PDT)
+	Thu, 24 Apr 2025 08:35:54 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-39bf44be22fso507489f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 01:35:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1745483746; x=1746088546; darn=lists.infradead.org;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1745483750; x=1746088550; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=n7xB0NSx1H7vCCe+l6ESBPVP9pl7qaey136eLZ31dwo=;
-        b=ej9dMgdQBRnzpH58Zz4wymYaIesDKo6xS2i9AghWBJPczFG6dPgRqCxr6JtsBqf8VH
-         gIoU3MULrJDCVHPgpFj0CJVTiGEpEudgU/a+HZQwRL83fKXGpi3wK8mjLVKY/m4uFX2m
-         S1pLCt68H5JwK+If2BD4pLj4ksLtSyopDKUT5gCt2FLxd4bI1z97nyJ2nDDmDsonta2c
-         inTTWroSIit6tu8eziFXkzP8oddr3fTiXtdBLUER83LVBvxrwgS0MabhAHEVKXWBwoqT
-         DN3G2Z0R4PdYIGRl3aLFKLfG+r/Sbyg9Sz6vvG3UoCQ3Tv0XAKse+YW4BQWgRbv4MIO8
-         puIQ==
+        bh=IcE3wUuPhjxXCt0ZMpAZ5x8qSYr01DaOTal5Jl8GTWc=;
+        b=JoxgCgsn2jZ9MLMX0mmEMvzr/gyzzboLG4F58c3hJShEg0tyEJiFtGOtWlbeVuDipv
+         d0o1yuTul+k1Xx8tY3gbrVxjYG3ZUibAe+hhqCPgIUDUHIaDlK/tStrVubuXrynODAwj
+         SCyIpANgoGUmqBU+9+2hcUcOnYCKyAjCwNsIZwEA01LCw8tqSmIjgPpQexAZ0Z/fzJuS
+         gnDK4H11bAKfzYsJG/pYgXOV3JzHOuuQryjd2MJtRECUJnQMVZdujQ1kwtrFOlQ2I7JN
+         p2yu4H2x7ixQUbz8PMMDMx5gW5jVE+A9TMGRghQuEbhe6GV7TmZgjfbS+1PQrDff4m3+
+         NS+g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745483746; x=1746088546;
+        d=1e100.net; s=20230601; t=1745483750; x=1746088550;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=n7xB0NSx1H7vCCe+l6ESBPVP9pl7qaey136eLZ31dwo=;
-        b=nsEos4VpkF3qCr4oIsajTWEkqrGMy2+a19MC4xUQ7RH1GbX/1D092zv+gLFwoM2P0d
-         7QmeI9z/bYT2vhOTQfD2rWesACgtyPZTMrYlEL1MUhmZOwQEtTG0nNM9DpG4dJkwjcij
-         XS5+afUbauGxc8Ply4dn37RwTKP/1d1INS/AN9xg4mW/eqXWTiW1W43+ZGdW3KS9Op5R
-         qE+q+kxlCUDfUZYqheHVOLgxww5I7Ix397wTwsC2R3FNmYL/1zlK6RSsK+Fl9M8YHMcD
-         PjRNLKyO4pr9nPWiZd8nKTJdpLZjCqZ6ZFf0MCSIlhi+ltZEEtZT2IcuIsHeJqlvceWI
-         xGng==
-X-Forwarded-Encrypted: i=1; AJvYcCVSQYpomqzs853JbHTSG9Y0lDWTd4aT3XQOdje2WIy0j8rEALTh9IvO129CGDVTwXh50uZKE85PJkydeJGDseV7@lists.infradead.org
-X-Gm-Message-State: AOJu0YxBfQNE0X5/S0TqgJAmjhz6lFA8vrmvfcZkNs/iWWDk/8NnbhMF
-	bwAxFV3lJqlIzBn2wZrLOFe0KLUuS5JVKOCe6g/x/pzMh2SqHHhBo62u6a8X7pY=
-X-Gm-Gg: ASbGncsKEkcgIdayQoU2REWtfpebcMixxUU5/0LCUbkw6bdauu57+Jq/ioS+Z7tmt7J
-	Rpbv/b18myJjwmSFUxEKEFwgkh+IHi4wA8c7xY7zy/SLhgaQ7ydZaVPJ1ONo6hH+xHq3uZilzBk
-	weBl1xBenezdjpLCf3P2DeOsAS2NGTwPi2NiXBJU71XL/VT4HFfLg1Vv00mzi5mW8o9/DkvCcxX
-	ev+03FpuumNFxwj36Az7bf4PjP2DpP6oDe+SOcj1CpQACjRHrX+pHUYRU6IoHeITB15I057wwEA
-	q3FfSuGttEt8sWdKu1DJrdYtkpbW+HBupSGVH7/qZnhf
-X-Google-Smtp-Source: AGHT+IFSD6M5XIauG5i+d/G86hFhT7OFRGq6PzYxSsoMAu4S54uAZ/T5Wwmoogoet09ubvq4IMvYRA==
-X-Received: by 2002:a05:6000:40d9:b0:39c:1257:ccb0 with SMTP id ffacd0b85a97d-3a06cfc5660mr1453719f8f.59.1745483746115;
-        Thu, 24 Apr 2025 01:35:46 -0700 (PDT)
+        bh=IcE3wUuPhjxXCt0ZMpAZ5x8qSYr01DaOTal5Jl8GTWc=;
+        b=i4JO0Z7lWJvYxLOD63kUz38F+0lGqFGwX+pDTCglIcf6fgD2W991jvDfOa3MMWwf9z
+         Ztqt8rpeOnKQUmXVMvlEkbhHUEG0yWYKe3bdEp/3rsjD6TYLk9HFq6V563xWQbzaItXg
+         U+YuheWGRYDA874XUR7I0YaSlCQ6y2l/Ez9lYbol0d0cojMBk6oPdSEHN9rdnxT6nSjs
+         ZhVHndexBaYCGNsSAUtwDjtzBw85gGupVBFYBx1LhQciVLIg+QA6TGB7s/dKx1rvyjvU
+         S1I4cDxD86imyS5vmQaQkNJnzTODU4GXQ0y2GoRAh/CcWZu0MncQUjyM6BLFYfjzfvVS
+         Vq5Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWvApMVBBBSDD5WuFemDZ2uOnY25STWmt5G2l12GmUiWRH4xGdfM1x09HcA+mTn1CMS0Aw8NAKVl50ijNf40MLN@lists.infradead.org
+X-Gm-Message-State: AOJu0YzA6hCx3ZIwLWY/l+aRuaW2piOE8JiGjtU7zG7wBofMCLHrZKn0
+	OJo39zdr1aHz7c8yl/udbHiPLQRMuW8qCHFJVQt6QFUzchD9dME88f1GEFVCbHI=
+X-Gm-Gg: ASbGnct1yZSoQfVNUHkjA7FwkiyC6hatylfKyvj0qyeVAFh4VpttnaiCs0Psu4m5iFg
+	Z4MMlT2nytVFzuolCVpUCU+HX76QGi4Phn4lqplTm5uJSVny/vbRBp+wXs6nVFXJJOVgJHR7FKE
+	mOy/0AgJZhiJOuR8AsWAS2dU5X9lWAgWKBIYYkk5O/TCcWIKQ8sjxXscplaSw2Q6TZ9WxljwMUX
+	OMjTLhPrv6awQAL6Mv+dRmmImrcKyIGQk9ONejHMjVX4HInFhVDZI7BeXP+bjV1IYHfctzGyW9Q
+	yoNHmAw4MgCdtsRkF354RTiV5LoUj6zOog==
+X-Google-Smtp-Source: AGHT+IEsWzX9QhjOfL10bahhvABCZZd6/bNw9ibC716v4NWqAwsMmmJhcU6LjMO+0JhmAyeRMjtJnw==
+X-Received: by 2002:a5d:64c7:0:b0:391:4389:f36a with SMTP id ffacd0b85a97d-3a06cfaf773mr1144784f8f.48.1745483749924;
+        Thu, 24 Apr 2025 01:35:49 -0700 (PDT)
 Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:6266:7750:57ce:7cb4])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a06d54ee11sm1295376f8f.97.2025.04.24.01.35.44
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a06d54ee11sm1295376f8f.97.2025.04.24.01.35.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Apr 2025 01:35:45 -0700 (PDT)
+        Thu, 24 Apr 2025 01:35:49 -0700 (PDT)
 From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Thu, 24 Apr 2025 10:35:25 +0200
-Subject: [PATCH 02/12] pinctrl: axp209: use new GPIO line value setter
+Date: Thu, 24 Apr 2025 10:35:28 +0200
+Subject: [PATCH 05/12] pinctrl: stm32: use new GPIO line value setter
  callbacks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250424-gpiochip-set-rv-pinctrl-part2-v1-2-504f91120b99@linaro.org>
+Message-Id: <20250424-gpiochip-set-rv-pinctrl-part2-v1-5-504f91120b99@linaro.org>
 References: <20250424-gpiochip-set-rv-pinctrl-part2-v1-0-504f91120b99@linaro.org>
 In-Reply-To: <20250424-gpiochip-set-rv-pinctrl-part2-v1-0-504f91120b99@linaro.org>
 To: Basavaraj Natikar <Basavaraj.Natikar@amd.com>, 
@@ -119,26 +119,26 @@ Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-mips@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
  Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2498;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1473;
  i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=MgZVjd8Gr19iJhQk6NvM15O47jgqGqaBw/RcQkb1G5I=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoCffbYYgK3T3LpUSxYaTlg1RQUUtOaeq8+GZ/u
- B4TY1aYiK6JAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaAn32wAKCRARpy6gFHHX
- cvwwD/40PM8MvPIIjKYdoBuWnigqXm5J9mOEAwo0IpSBLk+1NrZtxCDfCUtfG8qnkKxEdr1VqG4
- 6mrNRSEHCZifkUpZsd9j1/qqvkSUckanWm+w39DVs4zsSka65n9Bs7dnA1+SGrLrp+/n9+P9MtA
- lM34+iNO1T+9KusL6PqVvKAu6DGfaqw0bjecp2sfpta2zPtHwxq5lXFxGkHaVkPW3j242bQVJMo
- OxU8NDepqb+WL0fZbMQ5rqRKhws/pmHzh0pc5fdiELlPOWlqNBOETuyxmgi82zYE16/chG6xgPg
- 216JJsncREoy4zCWFVBbrBbv9L02v3bDLnPh1zhIKESQaoINtG8bkwtev6qRPVd+uStU/2JCH1h
- f/3D4RxLWdmhByFfRbHoUjmxn3VBuJUSKbeUzyaGHvZVssXog9TpvfZNQRiD8Nkuywe92KjurAL
- x4uNTJbbQg2fqiGNI/E4uyxLmL6I36TMhM4sdLblDwJOg+3+tre10Bw+4Q4tLTdpFA8bKBEGGIy
- Dt7XbALdrhuOWIk+0uCG26vCYBKMQ1+0mx1U0lFdEYq41NBloLCpS8vfdFqZJHUAvS1fmmQxdhM
- YEp5REgnyY8mU7MnN+hxKUIp8gS/se+notLxKNO4OGMY/MQYx0CS6yrgP/3P85WACR2SXZyoMLs
- 4yNJiAOsNG12c6A==
+ bh=AUxJDyiCjGLivQstc+QVCLPEZx1XbvG4rMuoF9PwOpA=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoCffbJ94gWt6uen8xm8HSBtLyBXeG+3LKxm5Ag
+ 6RCSTsSwR6JAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaAn32wAKCRARpy6gFHHX
+ csj9D/0UiFkS9Foeto0KsdJ24lw9fG4urXmVGhvgv6seCM1EF6eDkw6PCKi4GBqQSeq1yabajRg
+ DJXMHRA2AfiRzQqGNnP+t0bEm8pKAY8qKJDpI9ThBQQldJkCol2eNZiexSOlIp+HB5u70AcZKJG
+ qzk+58HlR9pOEUN4kaRpkfYa6HeEQH9adnDnZuTt0IzDBPPWb3fefH6xfO79VUAhbX17E3ibf8w
+ Zh+ugo2z+8aopq+4jxhsFaY/KgyoW4cURWjpX1D4fFt9WO2EJvHFAZ94pCGsBCDNkKFZDq2PKfl
+ VeM1bBsgYFnn4dOFhLSMUbzeN/aEnRIePjyQpJXjmW3l383Ii6unpjfYe5r8UGQ2agPamvsXk79
+ XL+90Ned6wgRaRoItB6reFmzOlTkFWVuhDpYtFw76WlTHXdRyuRcHIeWW5GTCbR6T2rwtazHM86
+ hTAJY0qL5kAqiwBym23NK2AyHgfDiQo6fLLXkD0L0lDFqeViTNAC6a6ijPeWzs+O6wwM7z9CZCq
+ jjCiefFTzSCKU9C2IN3eaizpunc2bYNq4i3MgnxktLJTsxHsi/WGrNlEZxasOkPIOphKYHzXYsx
+ n6S2A6WN7t2UBoUeNEArpG8J57u8CB6stqeMrr95xzc0vVgiX+Jxvez4AOXCcBDYLfmDSXTsOwB
+ ehvgs5t3m2Tkw1w==
 X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_093548_610245_DC541F7E 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20250424_093552_566622_4D48281A 
+X-CRM114-Status: GOOD (  12.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,69 +161,38 @@ them.
 
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 ---
- drivers/pinctrl/pinctrl-axp209.c | 29 +++++++++++++----------------
- 1 file changed, 13 insertions(+), 16 deletions(-)
+ drivers/pinctrl/stm32/pinctrl-stm32.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/pinctrl/pinctrl-axp209.c b/drivers/pinctrl/pinctrl-axp209.c
-index 2b4805e74eed..28ff846d263a 100644
---- a/drivers/pinctrl/pinctrl-axp209.c
-+++ b/drivers/pinctrl/pinctrl-axp209.c
-@@ -192,34 +192,31 @@ static int axp20x_gpio_get_direction(struct gpio_chip *chip,
- static int axp20x_gpio_output(struct gpio_chip *chip, unsigned int offset,
- 			      int value)
- {
--	chip->set(chip, offset, value);
--
--	return 0;
-+	return chip->set_rv(chip, offset, value);
+diff --git a/drivers/pinctrl/stm32/pinctrl-stm32.c b/drivers/pinctrl/stm32/pinctrl-stm32.c
+index cc0b4d1d7cff..ba49d48c3a1d 100644
+--- a/drivers/pinctrl/stm32/pinctrl-stm32.c
++++ b/drivers/pinctrl/stm32/pinctrl-stm32.c
+@@ -228,11 +228,14 @@ static int stm32_gpio_get(struct gpio_chip *chip, unsigned offset)
+ 	return !!(readl_relaxed(bank->base + STM32_GPIO_IDR) & BIT(offset));
  }
  
--static void axp20x_gpio_set(struct gpio_chip *chip, unsigned int offset,
--			    int value)
-+static int axp20x_gpio_set(struct gpio_chip *chip, unsigned int offset,
-+			   int value)
+-static void stm32_gpio_set(struct gpio_chip *chip, unsigned offset, int value)
++static int stm32_gpio_set(struct gpio_chip *chip, unsigned int offset,
++			  int value)
  {
- 	struct axp20x_pctl *pctl = gpiochip_get_data(chip);
- 	int reg;
+ 	struct stm32_gpio_bank *bank = gpiochip_get_data(chip);
  
- 	/* AXP209 has GPIO3 status sharing the settings register */
- 	if (offset == 3) {
--		regmap_update_bits(pctl->regmap, AXP20X_GPIO3_CTRL,
--				   AXP20X_GPIO3_FUNCTIONS,
--				   value ? AXP20X_GPIO3_FUNCTION_OUT_HIGH :
--				   AXP20X_GPIO3_FUNCTION_OUT_LOW);
--		return;
-+		return regmap_update_bits(pctl->regmap, AXP20X_GPIO3_CTRL,
-+					  AXP20X_GPIO3_FUNCTIONS,
-+					  value ?
-+						AXP20X_GPIO3_FUNCTION_OUT_HIGH :
-+						AXP20X_GPIO3_FUNCTION_OUT_LOW);
- 	}
- 
- 	reg = axp20x_gpio_get_reg(offset);
- 	if (reg < 0)
--		return;
-+		return reg;
- 
--	regmap_update_bits(pctl->regmap, reg,
--			   AXP20X_GPIO_FUNCTIONS,
--			   value ? AXP20X_GPIO_FUNCTION_OUT_HIGH :
--			   AXP20X_GPIO_FUNCTION_OUT_LOW);
-+	return regmap_update_bits(pctl->regmap, reg, AXP20X_GPIO_FUNCTIONS,
-+				  value ? AXP20X_GPIO_FUNCTION_OUT_HIGH :
-+					  AXP20X_GPIO_FUNCTION_OUT_LOW);
+ 	__stm32_gpio_set(bank, offset, value);
++
++	return 0;
  }
  
- static int axp20x_pmx_set(struct pinctrl_dev *pctldev, unsigned int offset,
-@@ -468,7 +465,7 @@ static int axp20x_pctl_probe(struct platform_device *pdev)
- 	pctl->chip.owner		= THIS_MODULE;
- 	pctl->chip.get			= axp20x_gpio_get;
- 	pctl->chip.get_direction	= axp20x_gpio_get_direction;
--	pctl->chip.set			= axp20x_gpio_set;
-+	pctl->chip.set_rv		= axp20x_gpio_set;
- 	pctl->chip.direction_input	= pinctrl_gpio_direction_input;
- 	pctl->chip.direction_output	= axp20x_gpio_output;
- 
+ static int stm32_gpio_direction_output(struct gpio_chip *chip,
+@@ -308,7 +311,7 @@ static const struct gpio_chip stm32_gpio_template = {
+ 	.request		= stm32_gpio_request,
+ 	.free			= pinctrl_gpio_free,
+ 	.get			= stm32_gpio_get,
+-	.set			= stm32_gpio_set,
++	.set_rv			= stm32_gpio_set,
+ 	.direction_input	= pinctrl_gpio_direction_input,
+ 	.direction_output	= stm32_gpio_direction_output,
+ 	.to_irq			= stm32_gpio_to_irq,
 
 -- 
 2.45.2
