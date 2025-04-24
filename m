@@ -4,85 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 665D1C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 21:15:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA3A5C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 21:17:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TOXhqaJnJp2+DQnqUGdABkzPsXEKdnuTwS+DW6VMcYU=; b=ptEF3mdfT9F1qv3XnSkk+3YTlA
-	rLC6y17TXQLu7F9888X40u4HqVkpraZyYmy0fOup/pKrWpRf4dqGxsw1hkvpF3jBjcF7qAoi0cX+t
-	h0R5PvbeAmUNLbj9Ob7pbDStgqKl91AO3a7cFdjAwYYyQhWcwENJ7B24PVFJNBjVJb9ZCw4GnazVf
-	OJ66ccv8TWM+5XmA1UkkcWbCZfXrUqlPDexJXPt0sH5WMKv2B1go3uyES/+zeJIxj16tdRA5DHLRz
-	gBYNjrpZmiLGP0pkDUrD+x31AvuWaYCH5aOhVNRw6phVGGkTWIP8NQPRK4jQoWDS80cpgG7wmIPxF
-	GqzYyovA==;
+	bh=0atQVDH0XvpcRUPqJkcf4AWQNWnOP+JsltT1upRf5sI=; b=js2hch0Rx2u7Yd49KXetUPlHxv
+	im2C1p9pH1EBNVBV6Wl3oLF56B7T4pup7ob9F+06PL+Ah993ZTt6nZ92WPSyhrqnO07y1mlg+TF6u
+	Idsv5EZHKX5ONmzrae/KwBxjVvWq/t1VQGEXpoGyXEm7olwNq/0bNDKfbRZJf3HKP6IZ1EPYjJ1jw
+	tBRKhYl41SR5Fd3n4sn27xttREJ7rdb3i7YTF2IsdbZot4wIO5XnMusS9IAQBtMpWZU/uZXyD7xSf
+	vHuZXS2Z8sqT3Iqg8TVsU7XgJ5xFwPPXs599lAv0fiAqu6+FnmKMs/o3mfAptGjj1DJ0xjjYGY75D
+	FWOkim/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u83uz-0000000FOMW-2FCc;
-	Thu, 24 Apr 2025 21:15:37 +0000
+	id 1u83wp-0000000FOik-0nSF;
+	Thu, 24 Apr 2025 21:17:31 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u83sp-0000000FO8k-1K80
+	id 1u83ua-0000000FOJ0-3XV2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 21:13:24 +0000
+	Thu, 24 Apr 2025 21:15:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1745529202;
+	s=mimecast20190719; t=1745529311;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=TOXhqaJnJp2+DQnqUGdABkzPsXEKdnuTwS+DW6VMcYU=;
-	b=dwGBnVQWsD8hza+FzCA18t+ZEyFZsbdkKr2E9oOXVqxepMBJjW1fDU7cbrb5JA8SD9BHXN
-	JOL2CtcvgKGUpPffuvJlfrTnPbnMmjau/ILK7UIpZRXSt6hYohV3qF1/7RmhyE9hhZE/OQ
-	Y8w2IADU3coCYD/We/OXp265v7Bq5sw=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=0atQVDH0XvpcRUPqJkcf4AWQNWnOP+JsltT1upRf5sI=;
+	b=cS4HLolTJOguJw2FBoLenMbr7l+Tw+pRbrvB/xr9AG+0py+X9yYmxE0MlQWy/g9o0yWIE7
+	US287EEA4geCJ8I8GAHJULSuWkEC7kdzK9y75na0R8UMuARM+rVRbuj6waEyRvTIVcJzCE
+	7zQTZzCRvw6U3kuMCDQcD/LknHidGJE=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-240-4qluKZs9N8Cl7GMNumknWA-1; Thu, 24 Apr 2025 17:13:21 -0400
-X-MC-Unique: 4qluKZs9N8Cl7GMNumknWA-1
-X-Mimecast-MFC-AGG-ID: 4qluKZs9N8Cl7GMNumknWA_1745529200
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-440667e7f92so7623785e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 14:13:21 -0700 (PDT)
+ us-mta-610-VzmMyPVxOP-y092Yl5he2g-1; Thu, 24 Apr 2025 17:15:10 -0400
+X-MC-Unique: VzmMyPVxOP-y092Yl5he2g-1
+X-Mimecast-MFC-AGG-ID: VzmMyPVxOP-y092Yl5he2g_1745529310
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-440a4e2bad7so371495e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 14:15:10 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745529200; x=1746134000;
+        d=1e100.net; s=20230601; t=1745529309; x=1746134109;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:from:references:cc:to:subject:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=TOXhqaJnJp2+DQnqUGdABkzPsXEKdnuTwS+DW6VMcYU=;
-        b=DwvFKRvA9c7rqmp3z7t6gm1lgUr9mHOlT7w0O7rTTpLMso7lXw8ZWk866pMTYq1x2g
-         rySPc3eNcsaY5yoy+yWYZaXdZGnVtgp77bxdZNndY65NxZ/tiaAFJr2Bb++XBR1d5R4U
-         jt7aRaLKYe0NDu59US+AZKX2v/oRpYv8zG2tM3NtB3afrBxkh6CcQgDqB2gRJbM89jE5
-         xSz4esRUB3ls40IeTUPcjBqRlHKIBR6MniXRxPiI7QtOJwqbQbtmCjgx7Q46lRzSXVKz
-         mu2PAMB/eBlFYwsoIOoCVwwg/9t8cparFSElrOsf4fFAKOJjobBCGhR48H37GOu9RiIy
-         tIRA==
-X-Forwarded-Encrypted: i=1; AJvYcCWra5oHKNbELOHTM57KunUn2ceGlmGCE0vBCpIfWllA4t2MdtOeOtsqpYDtp9FG86Z046BKIPF3gFO52k6poMF7@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJFEKPXSfhzR6bi3S0xt+ZMw/EwNX9aQz5RS7khgRtfcf6vQ1+
-	wDEvwRVpSkqkCsOJN/7oiPMR1SKTrzyk+qrEZ/HpzGVs9axiOMBrnyh7o5qo+5094uTNXZnTdbw
-	4vTBMjcyM0XqvNlqxLpcrtV1IFhXZW6dUW6By+DeJ0Eg/eKMgbvvPS2CmbU7xd4q0wWRtk2aR
-X-Gm-Gg: ASbGncsiYUjDnBKH+Dtub7LLO691iukbquJy5ttmZxDyddfhHZBDq7ritTMZa1XT66F
-	y8RB3eceoxjvQORVhhYLWscLKoZNWuSTSTck2CIg93XxJfF3KmP/yTeuY31w6eR+cIk6N8gDIzG
-	riLqhVIHLEHpsBPHgL5FFZQIHacWvuCd0hig7HKfY68UzFzDiDMIo6T/MtJvajxJaL3b0hxuJAI
-	Pd9cBWiVObwuXiHFl0kIkEY9QLCFZ1ubXqy7KuNXthsQYqCOMGZzGgANRi1l9jS9UUsW5gtmeKC
-	m60xLBi3jY9YPhurbARl/m9dIwQ7ZQ6q7NRFSgCDYYwK+pLsxjsF8G44rhMpC9O9OaaasbZUcJQ
-	3Dr5l1w4WWLOzw4cA6PCX057TKWaTD1TMFqGi
-X-Received: by 2002:a05:600c:524c:b0:43c:fe15:41c9 with SMTP id 5b1f17b1804b1-440a310818dmr7773215e9.9.1745529199951;
-        Thu, 24 Apr 2025 14:13:19 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHXu7rx60czPGcmWU0+8461KGJT0DcvIUYSs2uaUCrKVXSoMHpwGwItsZlEECqxxyTiY6BuTg==
-X-Received: by 2002:a05:600c:524c:b0:43c:fe15:41c9 with SMTP id 5b1f17b1804b1-440a310818dmr7773115e9.9.1745529199621;
-        Thu, 24 Apr 2025 14:13:19 -0700 (PDT)
+        bh=0atQVDH0XvpcRUPqJkcf4AWQNWnOP+JsltT1upRf5sI=;
+        b=hx+W1Z8LxXYtoDO5z8XWwfCyOf9dTSdOpdZgQWjrdUYzJQHFFcPmA52jmHr/7NpdSx
+         q4JyeYIozGKgR7zmuzJxnRTDAfy7eaQj+oEB0A8dqv0citO2+WHKdWGqeA3LTOxAhO1r
+         nXqdWpg5suLFYrx1RLmIlr7kybGaCUnda0zNLlZ92wVC1dRMc4VYw2AC2qGXdeH/02Vh
+         jYgbxd7weMSXONoczQnbmz8dDKXeIcOvpR6OUEf6UQLmNy1JjiSNVt2I/cMm6yDNTwau
+         BNiM++heH0Ou0bsOjlIKAeRK+8jtMEM8JlBM3xoxex8/oF+0BmGk8JVYk82Drlb8o6LV
+         +Rjg==
+X-Forwarded-Encrypted: i=1; AJvYcCX4FQx9ndPOVeU2ZDsMOMQKDyhZGrU8S5IyuYgD/JMTbkc3B/LeJVxJVrJuCypDhQifrK0noQA/3Wllw9RzXyQE@lists.infradead.org
+X-Gm-Message-State: AOJu0YyIQsQCRKehNQFemiu1KQA3+Dw7ktztrx5TyTt4Fy7wTAyd61Xn
+	17agesEIaxbNgz6y/fFggLY+NDAVKrt9P0ruoCkJsZNVYqiIKJscUxCq0NhZgIgLe9Mu2LZGOo5
+	AlJJRpWqQ8+R/SVwyvk2owTBrmMNQcfnz6T5i4bmdiau9qg7ZxOEUIgj/ZAkL/3dhkCptkGxO
+X-Gm-Gg: ASbGncshifwzrIMQuShY4fb40SqP60lUqqChkD1E5IDoRFrWOMiPkGbvFh3Egd1R398
+	LAAak5cVCCHPKczCG7RL9dYNF7nCimOmBdciDwnl0JBMO4pnCiKdiVy466Wqbv4Y0VY7RV7yy1p
+	jlOR2J5GPAkv+UPjvXrA5q6vWgvtznhk7B431lcG0WY9Fn4CRCwsTGPLGh5M7neJlHJvImdfPhF
+	Dv3tMy/HaabdRURtL5A5Z+wDqBzqR5D6bFL4GeWkr92iJE21lYoMuPqkfrgiqD+JTIA2517+/qv
+	5glnmgKERYL0cpe4C8e1LdiDgRKQCUlPTIO0iU7it0zeV1Ltz7NCD8e0jHNx13A9XLKWBn/3wti
+	4DkeM7NgNz9PL+7851ZK7E1GJJ5PNGZ5H4g2x
+X-Received: by 2002:a05:600c:450a:b0:43d:16a0:d98d with SMTP id 5b1f17b1804b1-4409c4ddbbamr31013635e9.15.1745529309471;
+        Thu, 24 Apr 2025 14:15:09 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGT7y3gX6fJnA7SugEtZIcpQd8krrY3RV3TcuqMt0VhvZW5tlI9puDVvH0e/UJAxRgT/uTzZg==
+X-Received: by 2002:a05:600c:450a:b0:43d:16a0:d98d with SMTP id 5b1f17b1804b1-4409c4ddbbamr31013415e9.15.1745529309144;
+        Thu, 24 Apr 2025 14:15:09 -0700 (PDT)
 Received: from ?IPV6:2003:cb:c74e:ff00:f734:227:6936:cdab? (p200300cbc74eff00f73402276936cdab.dip0.t-ipconnect.de. [2003:cb:c74e:ff00:f734:227:6936:cdab])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-440a530f6e6sm1830695e9.17.2025.04.24.14.13.18
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-440a536a021sm1708575e9.29.2025.04.24.14.15.07
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 24 Apr 2025 14:13:19 -0700 (PDT)
-Message-ID: <5569da56-4bd7-4ebf-88bf-a9edf7310f51@redhat.com>
-Date: Thu, 24 Apr 2025 23:13:17 +0200
+        Thu, 24 Apr 2025 14:15:08 -0700 (PDT)
+Message-ID: <1838f050-b4d0-4bbe-b76e-86c718f24162@redhat.com>
+Date: Thu, 24 Apr 2025 23:15:07 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/7] mm: Implement for_each_valid_pfn() for
- CONFIG_FLATMEM
+Subject: Re: [PATCH v4 6/7] mm: Use for_each_valid_pfn() in memory_hotplug
 To: David Woodhouse <dwmw2@infradead.org>, Mike Rapoport <rppt@kernel.org>
 Cc: Andrew Morton <akpm@linux-foundation.org>,
  "Sauerwein, David" <dssauerw@amazon.de>,
@@ -93,7 +92,7 @@ Cc: Andrew Morton <akpm@linux-foundation.org>,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-mm@kvack.org, Ruihan Li <lrh2000@pku.edu.cn>
 References: <20250423133821.789413-1-dwmw2@infradead.org>
- <20250423133821.789413-3-dwmw2@infradead.org>
+ <20250423133821.789413-7-dwmw2@infradead.org>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -140,16 +139,16 @@ Autocrypt: addr=david@redhat.com; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat
-In-Reply-To: <20250423133821.789413-3-dwmw2@infradead.org>
+In-Reply-To: <20250423133821.789413-7-dwmw2@infradead.org>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: octaWdiIqdzsdz2gic046ufcOO7dYT6s74dVtJnvC2E_1745529200
+X-Mimecast-MFC-PROC-ID: ERLnM7GuMmfX-XOO59J7Ag8v4hx2lZw-6soYHsl4Cec_1745529310
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_141323_427879_57E330B3 
-X-CRM114-Status: GOOD (  17.50  )
+X-CRM114-CacheID: sfid-20250424_141512_956029_975AEF29 
+X-CRM114-Status: GOOD (  17.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,42 +166,43 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 23.04.25 15:33, David Woodhouse wrote:
 > From: David Woodhouse <dwmw@amazon.co.uk>
 > 
-> In the FLATMEM case, the default pfn_valid() just checks that the PFN is
-> within the range [ ARCH_PFN_OFFSET .. ARCH_PFN_OFFSET + max_mapnr ).
-> 
-> The for_each_valid_pfn() function can therefore be a simple for() loop
-> using those as min/max respectively.
-> 
 > Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
-> Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 > ---
->   include/asm-generic/memory_model.h | 10 +++++++++-
->   1 file changed, 9 insertions(+), 1 deletion(-)
+>   mm/memory_hotplug.c | 8 ++------
+>   1 file changed, 2 insertions(+), 6 deletions(-)
 > 
-> diff --git a/include/asm-generic/memory_model.h b/include/asm-generic/memory_model.h
-> index a3b5029aebbd..74d0077cc5fa 100644
-> --- a/include/asm-generic/memory_model.h
-> +++ b/include/asm-generic/memory_model.h
-> @@ -30,7 +30,15 @@ static inline int pfn_valid(unsigned long pfn)
->   	return pfn >= pfn_offset && (pfn - pfn_offset) < max_mapnr;
->   }
->   #define pfn_valid pfn_valid
-> -#endif
-> +
-> +#ifndef for_each_valid_pfn
-> +#define for_each_valid_pfn(pfn, start_pfn, end_pfn)			 \
-> +	for ((pfn) = max_t(unsigned long, (start_pfn), ARCH_PFN_OFFSET); \
-> +	     (pfn) < min_t(unsigned long, (end_pfn),			 \
-> +			   ARCH_PFN_OFFSET + max_mapnr);		 \
-> +	     (pfn)++)
-> +#endif /* for_each_valid_pfn */
-> +#endif /* valid_pfn */
-
-"pfn_valid"
-
+> diff --git a/mm/memory_hotplug.c b/mm/memory_hotplug.c
+> index 8305483de38b..8f74c55137bf 100644
+> --- a/mm/memory_hotplug.c
+> +++ b/mm/memory_hotplug.c
+> @@ -1756,12 +1756,10 @@ static int scan_movable_pages(unsigned long start, unsigned long end,
+>   {
+>   	unsigned long pfn;
 >   
->   #elif defined(CONFIG_SPARSEMEM_VMEMMAP)
+> -	for (pfn = start; pfn < end; pfn++) {
+> +	for_each_valid_pfn (pfn, start, end) {
+
+                           ^
+
+>   		struct page *page;
+>   		struct folio *folio;
 >   
+> -		if (!pfn_valid(pfn))
+> -			continue;
+>   		page = pfn_to_page(pfn);
+>   		if (PageLRU(page))
+>   			goto found;
+> @@ -1805,11 +1803,9 @@ static void do_migrate_range(unsigned long start_pfn, unsigned long end_pfn)
+>   	static DEFINE_RATELIMIT_STATE(migrate_rs, DEFAULT_RATELIMIT_INTERVAL,
+>   				      DEFAULT_RATELIMIT_BURST);
+>   
+> -	for (pfn = start_pfn; pfn < end_pfn; pfn++) {
+> +	for_each_valid_pfn (pfn, start_pfn, end_pfn) {
+
+			  ^
+
+Is there a reason for this space that I am unaware of? :)
 
 Acked-by: David Hildenbrand <david@redhat.com>
 
