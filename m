@@ -4,176 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BE57C369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 08:29:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB5DEC369D7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 08:37:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VjLe20Qj3DD34gckz1R8d4+L8DKOULZGfHkYY3P/8ns=; b=TEEubdHRLM+DIPmdkJaqrhFAWR
-	TyKbB7k4iLUW6nHYWrmAxL3nvBZprJurS7yJxBUyyWxmErGqJ9T+WOanSURzYAynDAS5T7LOWFfTQ
-	kUKV1FxN+RwcRjaU1/n7I3TDhs6uhAe9P84VsfOtOs46MbykS2RCPuCfjyola0MKnM7K0uv2q+jLq
-	HTFYYzF24wr8FW1J5V1sVuC8ufSle3lS3BZsXHOaj7n59asOhnOs2iGar8PL+kqpbaV5Q/QQL3yA4
-	9b+vA5bav8dB4K5q1KQqBpNsHMoKUwPB6XpGpNaMNf0NaHWLWsiIrsOP/LVRg1JqVS97sPVsZlIRm
-	s5626oiA==;
+	bh=l7VEVoe4uPheIEiVrtKTo6u/lqrEMNwyEPBA44TaHZQ=; b=wNa81EPNOJsWgwyz4EubF4gs8E
+	wXF2OXcnNC3Ai1agI8K5Ju6ad+aYUdfPnFGJJb1BX+d2f/6MAqS3N4hSU915sTErwjvzuyCBn30CB
+	pc3kMt0uTEohXEiUsvul3zhYTLxzzzuG74iVbu+g8N202ELwg8cUUJBIPk0bb1zvtlXwjs9C0y8il
+	B0jhBQGESFtFiUDW1m43iTIzVO9J79eipDTNnhjbNWjMObnu0fujHGwjGNUWLq3bd0yur3TqE7wU3
+	YVWTN8Mpxjl7IwYpKcigKBXlojudKROj/csrU2RGPcNMd/132vaeuGofd4zozs8YsHKsEZjG20Dwt
+	3KAGQTsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7rx2-0000000DKHy-1l7F;
-	Thu, 24 Apr 2025 08:28:56 +0000
-Received: from mail-switzerlandwestazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c214::1] helo=GVAP278CU002.outbound.protection.outlook.com)
+	id 1u7s53-0000000DLRW-39xd;
+	Thu, 24 Apr 2025 08:37:13 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7rv1-0000000DK1B-0uGT
+	id 1u7s1a-0000000DKoa-12fd
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 24 Apr 2025 08:33:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=l7VEVoe4uPheIEiVrtKTo6u/lqrEMNwyEPBA44TaHZQ=; b=QiD5BlmqCNwbz60IRSMKYz+BYT
+	H4Sw4Hi93TYQ1ClI2P9r05uxZl832VAmtMFILa4WA1hVzhRh73o4PhCTtay0D4QuPt8uBsTn7Pt88
+	+KZpxxs/18W0VJbV45qoNvsx+7OjkyT/ftKrp4AxXdQ0cFvX6emJW7WJzfhbdZTv9A/y9m0Y27f5h
+	txDR7daUtUhI8qELVq3BPRxBWJL8/ZYoQ7bO8keyILsqHyChbsV9bo3T+Smi8+P5z0MfqZ3zvzh2d
+	WW9VpOOAMFZXcTF6YGCAfkgxmEaMkK2LpbD3aVYpSAQgxB0boDZdlFS9YNB/plfqdA3nX4oOyWPuC
+	rLo8JnUg==;
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u7s1W-0000000BcV0-2JZP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 08:26:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nGDPwGCqln2XtG3bLWx9G1thQxX1rppRjHMrN3VN/M766eNL8RZb1ncwoSI7sSfm3U/2YhW4EMPISuOile1++43b1BhsmCaTUlYNOALU1T4kaZQd9X8k9OtmN6tX5rHzF6PHCfnM1R0n+zU9OcXarHaB9ICnZ0RR+Qj8jEaMbdWqI/EEKjkgJPK9tUVmwb5kREUVQBVGEA/L+0VKa0QpiB0bmFC3V32Fh2KVgSnOZVvZ1k6J5ijztMXXDlFgFCx3ikgWGvLVEzTg001UGCvTx0P/GiyoluUXfxZU3z2S+pZIdNMXmVOuGh4zW3+gFmGZZcFMBJjQjCZsVs2rxOAScA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VjLe20Qj3DD34gckz1R8d4+L8DKOULZGfHkYY3P/8ns=;
- b=LVdc+uuIZZQKrWJTa6qfgKod/Tu8ebZpn/Ka6hRyJkxQ1jVBdZuoRptiDrKtiwWWGYZK4gFbyb5yT5ngmShk9PU+UmQnH4aJ4/CLGraaloUdqE0NFrjdpo3i4RZg5mRpwKQ1P/bxrOgwNjBJYjtMFhc+I4kQ/SBsaroEA+H5JqnrYdgCzbwvfn86wNxzn3Q2m5kJU7cViCZT8WjySYQsp2PEDVd/WJOpS4hONsy0z25CfNqSU5+v2QK8Qu6tDZd5zwlIEHsjOOmB1XGuH9jvIEX70y5w6OES6nwbqP/Ouh5K5FTUoMeXuGDPrFh38COoYWL2WoERlXpSjk5PZJ7CBQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=impulsing.ch; dmarc=pass action=none header.from=impulsing.ch;
- dkim=pass header.d=impulsing.ch; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=impulsing.ch;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VjLe20Qj3DD34gckz1R8d4+L8DKOULZGfHkYY3P/8ns=;
- b=LyPY06uSLh3svB2e9eq4I2L8w2007oTdJhnK3rvTGrLBOkw/hcJ6W+SwWdqNh5juEr/J2V4hxh4n+bxjm0PC+LYKmx52PRl1/7kuLcKEe8R4/yeFeS1DzmrOy2PpgIUtf5SwGVrb7qoVvfFCtGVgdqKXbIqiE4X2wK7J5E6wL/6vejY2wUPtgqToDmZb0pHpsEc/g8MeSz0Spy4gS3V01c8NYON5ilFEBvE72Diwt8NgPfnU5dtGUe7TxYfBBOi2Yw85llKjttPk2c0oUDDfxM7gGWtcoz/mvYXK7mP+ZA9QIhWEdIClwdJNiiV2SphdkjsgCghYxGCOCfK/D0RaWA==
-Received: from ZR3P278MB1353.CHEP278.PROD.OUTLOOK.COM (2603:10a6:910:72::6) by
- ZR0P278MB1352.CHEP278.PROD.OUTLOOK.COM (2603:10a6:910:82::9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8699.10; Thu, 24 Apr 2025 08:26:41 +0000
-Received: from ZR3P278MB1353.CHEP278.PROD.OUTLOOK.COM
- ([fe80::fb85:95c7:b27c:a819]) by ZR3P278MB1353.CHEP278.PROD.OUTLOOK.COM
- ([fe80::fb85:95c7:b27c:a819%5]) with mapi id 15.20.8678.021; Thu, 24 Apr 2025
- 08:26:41 +0000
-From: Philippe Schenker <philippe.schenker@impulsing.ch>
-To: Wojciech Dubowik <Wojciech.Dubowik@mt.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
- Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, Francesco Dolcini
-	<francesco@dolcini.it>, "stable@vger.kernel.org" <stable@vger.kernel.org>
-Subject: Re: [PATCH v3] arm64: dts: imx8mm-verdin: Link reg_usdhc2_vqmmc to
- usdhc2
-Thread-Topic: [PATCH v3] arm64: dts: imx8mm-verdin: Link reg_usdhc2_vqmmc to
- usdhc2
-Thread-Index: AQHbs48w0QwgOvbFxkuKoITcJDMRw7OyfhEA
-Date: Thu, 24 Apr 2025 08:26:40 +0000
-Message-ID: <ad6b0ea2d9111625557aa884639b7707f71056b7.camel@impulsing.ch>
-References: <20250422140200.819405-1-Wojciech.Dubowik@mt.com>
-In-Reply-To: <20250422140200.819405-1-Wojciech.Dubowik@mt.com>
-Accept-Language: de-CH, de-DE, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=impulsing.ch;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: ZR3P278MB1353:EE_|ZR0P278MB1352:EE_
-x-ms-office365-filtering-correlation-id: e73396f7-1d13-4b30-c5cc-08dd8309bd42
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|38070700018|7053199007;
-x-microsoft-antispam-message-info: =?utf-8?B?Y2ZhekxEMG16Q24xVjFrMzlYUlNsVW9uSVBEWXlyN1pQZ01VWURQWmhndC9Q?=
- =?utf-8?B?UTV5Ym1QTGFiZ3lUblAzR2RSTGEvT01OVGJHWjB5R2tjc09aaXpXK0RFak1X?=
- =?utf-8?B?dno5YW1sYlV0S3ZJdU9XTy81dSttT1NkS29WNjVLOC91OWMrcnMzUlFOTG9z?=
- =?utf-8?B?VGs5SjJuUDQvT1M2UVl5V3RiU3h1bTFvWWVHNWhKMkY0WE80UzgyNm5EWGlG?=
- =?utf-8?B?SlkrdTdqYkJOREVxWnlDUG5DUm9vcDdzUTNuUTU5STQyTm5FU1VaWDRDT1Aw?=
- =?utf-8?B?RDNzZm1nWUFkS3RIRVFxamRUZGdWUHBoK1BIN2d6aDJlZHd2TjBSVENDaEp0?=
- =?utf-8?B?MklXYU5iUU1naGtiRzFqMmFaT0JEc3RoTTNEa1pNbmMyeDhqVEhjbWpYK2Y1?=
- =?utf-8?B?MHpYMlZpNjlDYlptdm4xU09KQlVQYXpNb0gwc0VaWVhnRFowNjB3b1g0Q21M?=
- =?utf-8?B?NjNwcVFNS2hZdlRzdjZtQ0pqOVJLMlFHNm96anJVVy9GcTlYR1JqYlFOWEV6?=
- =?utf-8?B?RkxDMnZVbXF6UDdSN3BCNW81Z3pXZnV5UW85RjRrL2NPQ2RKOUNRZGVFQlZu?=
- =?utf-8?B?T3hKTXV3SUNKelNtZGlrYTV5bHBSbXNyUUhNczBNUjdZT1dneEcrRGZ1TTJV?=
- =?utf-8?B?R29EZXFWU0tnMVFMZXpjMWpFNkNKcmF4TjdZUWdBVHdJV2RaMElJYS9ZKzg2?=
- =?utf-8?B?NGp4SHQxVk9QQkFqVEpPNWZXOE9MTGNEZlNaeUppMEdiZVF2NS8za3lJclUz?=
- =?utf-8?B?eVplQU5XWlpYVGs0MGdOV0EvWmlvTXc2dXJWZTZvUFVNZHV2b2dGODljdThq?=
- =?utf-8?B?SFVlR0xxL1I4dllFQ2ovSlIrWVVsNGp6OCtrRmRISUNvWmJXT2pDSVZpMWxV?=
- =?utf-8?B?a3h3ME9xUlZyWVFFdzQ4SVM2NGo0UTNOby9FZnVDaTJjbmRvejJnejdHZmxi?=
- =?utf-8?B?WVpzeUcyTkEwdDcyaElhQzRtN0RZdlpNVjB3TXZQRFFUTWo2Mmd6OGw5Sm1F?=
- =?utf-8?B?K0M3L1krUDluWGpRQWJsam54ZGZIaWhUMnA4QzFjYWtPTGg2TzNxMnVzUXgx?=
- =?utf-8?B?dzRVQmtIM2h0UVlKOVF6TlBnOWVzWFE4d1p3SDdiMW5MdDgwWTJKdi8zOGoy?=
- =?utf-8?B?eFFhSXpSbkkvUlhZaUhUYWdjakhDVExuZFpvdnpzbnFFWlFCWU5iZHhKWnpO?=
- =?utf-8?B?NHF6bkhkTTBOZDdwb09hbE1SV09XRW4rdEhORldRMkNySXNlS2ZQSlE1OXpn?=
- =?utf-8?B?dzNmU2hsRDFiSXVkTzVyWGh0a1h6RSsraytLYlBsTkR2Q0FMME8vTmNXRVp6?=
- =?utf-8?B?YlpMV0VFQ2ppRWdST0VTYlN3bnV0aS9WZG1uNUlZK3R5UStLSjNDbTcySi9k?=
- =?utf-8?B?NzByL3B2OVlmODRSdWxwaG9EYzVEREVJZ2pFOUhvd2xpcHhBTHVaMFVBeXox?=
- =?utf-8?B?V0lDV0Z6WFJhb2FZMkRMdU55MnBQQWk5V1JjNUIyRlh6TkFjUHNYNktxT2hF?=
- =?utf-8?B?T2FoamdLOXIrTWhyVHZQRkFsQVNhbUtyazJhWnlTQU94QVd5ZUQ5Qi8wWnRU?=
- =?utf-8?B?VHloYytsQmNtQTMvL2JZVmgyOU1YTUNMVUZuMG5pMzBVZHFNMzJtdVpVbHAx?=
- =?utf-8?B?bDhNL2xNTmtIdkxDZ0hON3pHRnBIN1Jrb0NFanVLTEQvWkZVeCt0aCsrb2VJ?=
- =?utf-8?B?cHRSVkZKTTd3bXR0VExTRllqU1RHcFJYc1FseEkwaXZVK3habVM4aW1BVFUy?=
- =?utf-8?B?eWFPRFNxUmVvSHNoeHNHYzJrYmxUZEFGdWh1OUorcXdaRjZsSW1PRFMvZkNE?=
- =?utf-8?B?cCsvbnduWE11ZHM5cXd0UWIxVWlRU3h1ei9TNU9qQ2dERGdzUXc2MEdNUHZJ?=
- =?utf-8?B?amF5bEd3alZHakFUdTQ1RG14RTRkTitydXJTckxQUVFTZnVqTTRIV3FpWVF1?=
- =?utf-8?B?OUZiQ2ZIOVpEeEdIYUZrTndJdE43aVduOXNWNnhERTFNWHNhTE5rTC8xRlpR?=
- =?utf-8?Q?chnz1n/+vOa8J5bldt6J+uj5HF3pVU=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZR3P278MB1353.CHEP278.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(38070700018)(7053199007);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?UmI4cFdZL3VnY1BBY25zV0NaVHJXamc5dVUySEYyS21HL0JrZWhsRUo5VVFF?=
- =?utf-8?B?ZWJ3c3BCM0JZYmRNSnNhK21Xd3ZscTBSdXU5VTJ2aGY5aDJUYnY4aVk0RVFE?=
- =?utf-8?B?b3JaL3g2VnZhNHYxZmRZS0hiMlg3WmxkZmloajVQR3J6KzNrbkdGc0RzeDBn?=
- =?utf-8?B?SlhDWmRGQ2JTWUFmajN6NEo2eXFobktRbE5UMXdUR3Z2SFhoa1M2dGd2ZjQx?=
- =?utf-8?B?QW9JV25MOEt0ZGtQWHd0YVRoeW5TWkJHTnlBZGNlVGdvbWp5VU4yQW9Xb3U3?=
- =?utf-8?B?RDZmVXRHTDRTbXI5K1kvazZsVjdVQ2lsZlhROFViQ3VRem8zclh5UWdTM2Ux?=
- =?utf-8?B?aituQVFBMXJVMVpCbitWNmQ2MENiRHFHS01aQVpSY3o3R1N1MkJXK2c5UC80?=
- =?utf-8?B?WjlqY3ZTYjhzaTRTSUFVK3VMeVRaK0QzNXdlQ2ZIaG5VV0dRT3dweGF6Q0F6?=
- =?utf-8?B?VGhrd0ZYQlkrcS9LSEFNbDFidVdxemdrTHVGNDBrQXpjUlB5b2JOOTIzeWx5?=
- =?utf-8?B?NUMrbms3MzdiMm1vbWdFdk1UWXZDQVpMcTFrd2VIdjkxa3hUOWVERHpaNy9B?=
- =?utf-8?B?WElrS2Z2ajJiMFBhNVg3WVpORzZVRXJEbGZqTExIUVRSMy85ME1LT0tmdjNt?=
- =?utf-8?B?MnE5RTdmcm0vZ3ExQmFDQVVDZVY4eE56K1RUSVhNc29IeEMvbDlKSzE3N3U2?=
- =?utf-8?B?MzJSUGZ4KzM2TGgxOE5Bajl3TkxIRkF1L3ZMVWxWa3BoWWZDRHM5bXpQNDNT?=
- =?utf-8?B?b0JTbkN4SDFTTUdzSnl0RU5LUUlJanNDWkxtZXhMcXlBRlplYUd6d3lOQ3F1?=
- =?utf-8?B?NUVYaVcrSEpLQ1FCRC96cGgxSzdRK0xHakJtZlRIcGRBeHhFeWh3YllPV0RI?=
- =?utf-8?B?b0o2NjR5WkJhZmlDdVF5SjdEU0R5K1hxK0Q1QUlySklHY0hQVUs4Zk11T0tE?=
- =?utf-8?B?T0RkU280MVZQallUeHpOdlk4ZGFJUkZtVDJWUWpvNEhzQ09OSHpEVmgyT3JS?=
- =?utf-8?B?cHZrQk5hd1U5b3FEWWU4c2dPRmROQnNxT29PWFVSM2w5V3NPUWFKSGRxSldE?=
- =?utf-8?B?UXBMckh5MTZyOWdaNGdZdnZlaXcrWU5sQUwvVnZveG5oMzBpWGN6dG9sbjh5?=
- =?utf-8?B?TWxKY1ppcm43Tk80MjVuMGFZNXFZUURLS0ZCdW44cUFPZ00wYWhzNWZaeVZ2?=
- =?utf-8?B?cFdsWUM3dUxUYWRkR1NZUUljSTQwOE1KSlBJUnJPYlFmSkVncGZrKy9xYUhs?=
- =?utf-8?B?ZEE5SFZEZmVFUnJkcUxPK1gybS8rWXJKeHFYNUxUYlQvazlhUFFCV29yQitj?=
- =?utf-8?B?RFoxc3pERjhVSUc3UDJUaStBL1Y2TEVJcWxFWUJXV2ZPZ0lDaGJ0Tk80TTkx?=
- =?utf-8?B?dkh6K1dQRXRFcllnNHQwSklsdVpsSjdxNCtjNlJMbURMODkvZUVlTzg4TzNT?=
- =?utf-8?B?V3RFcnlWMGZ0cGNXS2R4ZTlJK3p1ZzJ3V2YwbVFCZmcwelR1VFVaKzBOUzRo?=
- =?utf-8?B?enZSR01ZSXB2RTdjM3M4NEZsZG81em4xV1ZvMU90eVFPN1FsdkFTak9XcGNn?=
- =?utf-8?B?dXhiSTN2SzB2WkZQbEpwQjlON3Z0OGhyclY3TFhJYzA4eWdDQmtoU1Y4WWtB?=
- =?utf-8?B?ZENwYkhTTjRZM2ppMkd5bVRDdVZJVWNlcjY0elRDa1Y0amcwYkwzRjJ1ejRi?=
- =?utf-8?B?ZzZkRHhBS0VwcW11U1EzbXpYK2pqdTJiMnZodUFIVlQ3S0pRNXlJKzVxTDl1?=
- =?utf-8?B?SzlKN1ozM3NQaEc0VWsrS3BRdjZqTERxZW5GT2lEdXkzcEVtTjR2TFNiQ1FV?=
- =?utf-8?B?WjREOTFjRVhnejJJT3FQRnZyKzVYZXdPSGwxVlFEYm1nSyt2UUtqb0p1WUZa?=
- =?utf-8?B?enBPdXdvMFZaVlBzNkRwQkNiM3VSMEY4bUs0NlhwWllxLzJ3RGNWWXFvdEZx?=
- =?utf-8?B?UFczZmtKaFFsaDYwd3Z4MVg1Uk4rLzZBWkJhZ2JoaG1yVDFsV0dqaHNybnQy?=
- =?utf-8?B?bkhsTWZOT2Z5Slg5R042d1l0VGhPbkh2Y3luaEc1dVdOUkNxZlp4dHI4eGNa?=
- =?utf-8?B?a3p1VjhyWmF1WUc5MUxaOWc0Wm9rVXBBSk1SbXZpSVpZYkZnb1JpNXREYlJ1?=
- =?utf-8?B?WURraG1DOW5QT0hkUHJBaFNGMnZTck9Hbnk4bDZiTzJtVDhMYXhYWVViNmVR?=
- =?utf-8?B?aEE9PQ==?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <BC5B113C6468544CA37D2CEED3E00FBE@CHEP278.PROD.OUTLOOK.COM>
-Content-Transfer-Encoding: base64
-MIME-Version: 1.0
-X-OriginatorOrg: impulsing.ch
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: ZR3P278MB1353.CHEP278.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: e73396f7-1d13-4b30-c5cc-08dd8309bd42
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Apr 2025 08:26:40.9459
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 86709429-7470-4d0c-bd3c-b912eebdee40
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: GRmwqJMVFsthJiQW7H3iu/aWtrMQPG/0nvIXuWIJtrJwRcOYAqbtamoIakxeCPfN8m3jQcjGABIX38hnEVSc0Q2HSlrU1Du93UOYM+BJ/ZY=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZR0P278MB1352
+	Thu, 24 Apr 2025 08:33:36 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2ff8119b436so664398a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 01:33:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1745483611; x=1746088411; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=l7VEVoe4uPheIEiVrtKTo6u/lqrEMNwyEPBA44TaHZQ=;
+        b=AeEpJmSi+Ari1yw8YSyaSquiQe+/FbckWOy9cEyPdylwDcwKfsiPLnVdobm3jXSB0g
+         d65ECpKziSjs3VfIVuKxj5sm7g2sfUQG0/ds9KwHKocMgD/MfVs0jSUKxsKTcsZA4D5C
+         C3B3IQIC6Zt8AN1CpeMKVh4+mhxj7E6ADxMlJ2R/9+OW9n4y4gk+JmO/Ol7d527PSzMx
+         dCJWUVtABfFCH44ZHQFRqE4tnts97+3tGZHcJfV3nbA7oew/BRZhklKlxCWqGvtG7y+4
+         44XQMoCoTJlcA42siOTtmPy6XAifqA1HzTfZTS0XS2sgxODZs1wufsQSC7AtbP6+emoS
+         vYDw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745483611; x=1746088411;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=l7VEVoe4uPheIEiVrtKTo6u/lqrEMNwyEPBA44TaHZQ=;
+        b=jhmpFz7Dm82LK9EA03kEHswYZJaLZaEoubf5hcHiTdMahyoQGvY3dYaIqHs4OC6W/R
+         P9JF9DQagUhkd4LMo+1N0JlR2KBLNYSBC088o8Pc7/jNIIoaOnQbhfE7ufYQGMy7A+LM
+         /IIWOObAFuWbyKkGRumJgcmGi4XulERARhyf5stlCdiAPixNZR0s/PD8mj275KS9f5dq
+         aqlr0cxIi9TBCtNYVH6yyAm5XQODHtpJ58fuXTirDfadq/N4CL3fGObGQAIUHI32gymB
+         myZyH/DZLEKiltqsW/c7xI5KB5myw3nNJtFwx/yZkaoTo4RyC4jUb74ukPvoZ+d/fCSF
+         Q09A==
+X-Forwarded-Encrypted: i=1; AJvYcCWHcGBnNFCvc5XG0/Sl1tfjLU1fe9FFX3c92B2aI4vBCvEeWrQxKVhjdL0P3sEn+GrzB9aYUL3M/Ev0vKXl0vrN@lists.infradead.org
+X-Gm-Message-State: AOJu0YwCVVhlAB9+ddKPcVB3y5Yn96xSEM4+8dfd19a1tEIKkURURCfe
+	IdAxBPbwIyygPcmNy7nRnLVtcUwcan7rWVXjGFEgiJcJFArkSeI29W+4fKeVKbdij3rFFpLkC2k
+	i8+tAk6xyGWg7sUYbCQ==
+X-Google-Smtp-Source: AGHT+IGq6BVgM0IDW8HPijQuQX/f2OnqSI5HlIuEOLmb+TLuZj1I3Q9W3Aia7/3MIxDmrcexsVPCuLlX+IzwZqzj
+X-Received: from pjuw16.prod.google.com ([2002:a17:90a:d610:b0:2ff:6e58:8a03])
+ (user=changyuanl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:90b:584c:b0:305:5f28:2d5c with SMTP id 98e67ed59e1d1-309ed27d7b1mr3055392a91.15.1745483611167;
+ Thu, 24 Apr 2025 01:33:31 -0700 (PDT)
+Date: Thu, 24 Apr 2025 01:32:58 -0700
+In-Reply-To: <aAeaJ2iqkrv_ffhT@kernel.org>
+Mime-Version: 1.0
+References: <aAeaJ2iqkrv_ffhT@kernel.org>
+X-Mailer: git-send-email 2.49.0.805.g082f7c87e0-goog
+Message-ID: <20250424083258.2228122-1-changyuanl@google.com>
+Subject: Re: [PATCH v6 12/14] memblock: add KHO support for reserve_mem
+From: Changyuan Lyu <changyuanl@google.com>
+To: rppt@kernel.org, akpm@linux-foundation.org
+Cc: anthony.yznaga@oracle.com, arnd@arndb.de, ashish.kalra@amd.com, 
+	benh@kernel.crashing.org, bp@alien8.de, catalin.marinas@arm.com, 
+	changyuanl@google.com, corbet@lwn.net, dave.hansen@linux.intel.com, 
+	devicetree@vger.kernel.org, dwmw2@infradead.org, ebiederm@xmission.com, 
+	graf@amazon.com, hpa@zytor.com, jgowans@amazon.com, kexec@lists.infradead.org, 
+	krzk@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
+	luto@kernel.org, mark.rutland@arm.com, mingo@redhat.com, 
+	pasha.tatashin@soleen.com, pbonzini@redhat.com, peterz@infradead.org, 
+	ptyadav@amazon.de, robh@kernel.org, rostedt@goodmis.org, saravanak@google.com, 
+	skinsburskii@linux.microsoft.com, tglx@linutronix.de, thomas.lendacky@amd.com, 
+	will@kernel.org, x86@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_012651_422688_8BE30EF0 
-X-CRM114-Status: GOOD (  19.21  )
+X-CRM114-CacheID: sfid-20250424_093334_774420_3180864F 
+X-CRM114-Status: GOOD (  36.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,75 +114,356 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCAyMDI1LTA0LTIyIGF0IDE2OjAxICswMjAwLCBXb2pjaWVjaCBEdWJvd2lrIHdyb3Rl
-Ogo+IERlZmluZSB2cW1tYyByZWd1bGF0b3ItZ3BpbyBmb3IgdXNkaGMyIHdpdGggdmluLXN1cHBs
-eQo+IGNvbWluZyBmcm9tIExETzUuCj4gCj4gV2l0aG91dCB0aGlzIGRlZmluaXRpb24gTERPNSB3
-aWxsIGJlIHBvd2VyZWQgZG93biwgZGlzYWJsaW5nCj4gU0QgY2FyZCBhZnRlciBib290dXAuIFRo
-aXMgaGFzIGJlZW4gaW50cm9kdWNlZCBpbiBjb21taXQKPiBmNWFhYjA0MzhlZjEgKCJyZWd1bGF0
-b3I6IHBjYTk0NTA6IEZpeCBlbmFibGUgcmVnaXN0ZXIgZm9yIExETzUiKS4KPiAKPiBGaXhlczog
-ZjVhYWIwNDM4ZWYxICgicmVndWxhdG9yOiBwY2E5NDUwOiBGaXggZW5hYmxlIHJlZ2lzdGVyIGZv
-cgo+IExETzUiKQo+IAo+IENjOiBzdGFibGVAdmdlci5rZXJuZWwub3JnCj4gU2lnbmVkLW9mZi1i
-eTogV29qY2llY2ggRHVib3dpayA8V29qY2llY2guRHVib3dpa0BtdC5jb20+CgpSZXZpZXdlZC1i
-eTogUGhpbGlwcGUgU2NoZW5rZXIgPHBoaWxpcHBlLnNjaGVua2VyQGltcHVsc2luZy5jaD4KCj4g
-LS0tCj4gdjEgLT4gdjI6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC8yMDI1MDQxNzExMjAx
-Mi43ODU0MjAtMS0KPiBXb2pjaWVjaC5EdWJvd2lrQG10LmNvbS8KPiDCoC0gZGVmaW5lIGdwaW8g
-cmVndWxhdG9yIGZvciBMRE81IHZpbiBjb250cm9sbGVkIGJ5IHZzZWxlY3Qgc2lnbmFsCj4gdjIg
-LT4gdjM6Cj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIwMjUwNDIyMTMwMTI3LkdBMjM4
-NDk0QGZyYW5jZXNjby1uYi8KPiDCoC0gc3BlY2lmeSB2c2VsZWN0IGFzIGdwaW8KPiAtLS0KPiDC
-oC4uLi9ib290L2R0cy9mcmVlc2NhbGUvaW14OG1tLXZlcmRpbi5kdHNpwqDCoMKgwqAgfCAyNSAr
-KysrKysrKysrKysrKystLQo+IC0tCj4gwqAxIGZpbGUgY2hhbmdlZCwgMjAgaW5zZXJ0aW9ucygr
-KSwgNSBkZWxldGlvbnMoLSkKPiAKPiBkaWZmIC0tZ2l0IGEvYXJjaC9hcm02NC9ib290L2R0cy9m
-cmVlc2NhbGUvaW14OG1tLXZlcmRpbi5kdHNpCj4gYi9hcmNoL2FybTY0L2Jvb3QvZHRzL2ZyZWVz
-Y2FsZS9pbXg4bW0tdmVyZGluLmR0c2kKPiBpbmRleCA3MjUxYWQzYTAwMTcuLmI0NjU2NmYzY2Uy
-MCAxMDA2NDQKPiAtLS0gYS9hcmNoL2FybTY0L2Jvb3QvZHRzL2ZyZWVzY2FsZS9pbXg4bW0tdmVy
-ZGluLmR0c2kKPiArKysgYi9hcmNoL2FybTY0L2Jvb3QvZHRzL2ZyZWVzY2FsZS9pbXg4bW0tdmVy
-ZGluLmR0c2kKPiBAQCAtMTQ0LDYgKzE0NCwxOSBAQCByZWdfdXNkaGMyX3ZtbWM6IHJlZ3VsYXRv
-ci11c2RoYzIgewo+IMKgIHN0YXJ0dXAtZGVsYXktdXMgPSA8MjAwMDA+Owo+IMKgIH07Cj4gwqAK
-PiArIHJlZ191c2RoYzJfdnFtbWM6IHJlZ3VsYXRvci11c2RoYzItdnFtbWMgewo+ICsgY29tcGF0
-aWJsZSA9ICJyZWd1bGF0b3ItZ3BpbyI7Cj4gKyBwaW5jdHJsLW5hbWVzID0gImRlZmF1bHQiOwo+
-ICsgcGluY3RybC0wID0gPCZwaW5jdHJsX3VzZGhjMl92c2VsPjsKPiArIGdwaW9zID0gPCZncGlv
-MSA0IEdQSU9fQUNUSVZFX0hJR0g+Owo+ICsgcmVndWxhdG9yLW1heC1taWNyb3ZvbHQgPSA8MzMw
-MDAwMD47Cj4gKyByZWd1bGF0b3ItbWluLW1pY3Jvdm9sdCA9IDwxODAwMDAwPjsKPiArIHN0YXRl
-cyA9IDwxODAwMDAwIDB4MT4sCj4gKyA8MzMwMDAwMCAweDA+Owo+ICsgcmVndWxhdG9yLW5hbWUg
-PSAiUE1JQ19VU0RIQ19WU0VMRUNUIjsKPiArIHZpbi1zdXBwbHkgPSA8JnJlZ19udmNjX3NkPjsK
-PiArIH07Cj4gKwo+IMKgIHJlc2VydmVkLW1lbW9yeSB7Cj4gwqAgI2FkZHJlc3MtY2VsbHMgPSA8
-Mj47Cj4gwqAgI3NpemUtY2VsbHMgPSA8Mj47Cj4gQEAgLTI2OSw3ICsyODIsNyBAQCAmZ3BpbzEg
-ewo+IMKgIMKgICJTT0RJTU1fMTkiLAo+IMKgIMKgICIiLAo+IMKgIMKgICIiLAo+IC0gwqAgIiIs
-Cj4gKyDCoCAiUE1JQ19VU0RIQ19WU0VMRUNUIiwKPiDCoCDCoCAiIiwKPiDCoCDCoCAiIiwKPiDC
-oCDCoCAiIiwKPiBAQCAtNzg1LDYgKzc5OCw3IEBAICZ1c2RoYzIgewo+IMKgIHBpbmN0cmwtMiA9
-IDwmcGluY3RybF91c2RoYzJfMjAwbWh6PiwgPCZwaW5jdHJsX3VzZGhjMl9jZD47Cj4gwqAgcGlu
-Y3RybC0zID0gPCZwaW5jdHJsX3VzZGhjMl9zbGVlcD4sIDwmcGluY3RybF91c2RoYzJfY2Rfc2xl
-ZXA+Owo+IMKgIHZtbWMtc3VwcGx5ID0gPCZyZWdfdXNkaGMyX3ZtbWM+Owo+ICsgdnFtbWMtc3Vw
-cGx5ID0gPCZyZWdfdXNkaGMyX3ZxbW1jPjsKPiDCoH07Cj4gwqAKPiDCoCZ3ZG9nMSB7Cj4gQEAg
-LTEyMDYsMTMgKzEyMjAsMTcgQEAgcGluY3RybF91c2RoYzJfcHdyX2VuOiB1c2RoYzJwd3Jlbmdy
-cCB7Cj4gwqAgPE1YOE1NX0lPTVVYQ19OQU5EX0NMRV9HUElPM19JTzUgMHg2PjsgLyogU09ESU1N
-IDc2ICovCj4gwqAgfTsKPiDCoAo+ICsgcGluY3RybF91c2RoYzJfdnNlbDogdXNkaGMydnNlbGdy
-cCB7Cj4gKyBmc2wscGlucyA9Cj4gKyA8TVg4TU1fSU9NVVhDX0dQSU8xX0lPMDRfR1BJTzFfSU80
-IDB4MTA+OyAvKiBQTUlDX1VTREhDX1ZTRUxFQ1QgKi8KPiArIH07Cj4gKwo+IMKgIC8qCj4gwqAg
-KiBOb3RlOiBEdWUgdG8gRVJSMDUwMDgwIHdlIHVzZSBkaXNjcmV0ZSBleHRlcm5hbCBvbi1tb2R1
-bGUKPiByZXNpc3RvcnMgcHVsbGluZy11cCB0byB0aGUKPiDCoCAqIG9uLW1vZHVsZSArVjMuM18x
-LjhfU0QgKExETzUpIHJhaWwgYW5kIGV4cGxpY2l0bHkgZGlzYWJsZSB0aGUKPiBpbnRlcm5hbCBw
-dWxsLXVwcyBoZXJlLgo+IMKgICovCj4gwqAgcGluY3RybF91c2RoYzI6IHVzZGhjMmdycCB7Cj4g
-wqAgZnNsLHBpbnMgPQo+IC0gPE1YOE1NX0lPTVVYQ19HUElPMV9JTzA0X1VTREhDMl9WU0VMRUNU
-IDB4MTA+LAo+IMKgIDxNWDhNTV9JT01VWENfU0QyX0NMS19VU0RIQzJfQ0xLIDB4OTA+LCAvKiBT
-T0RJTU0gNzggKi8KPiDCoCA8TVg4TU1fSU9NVVhDX1NEMl9DTURfVVNESEMyX0NNRCAweDkwPiwg
-LyogU09ESU1NIDc0ICovCj4gwqAgPE1YOE1NX0lPTVVYQ19TRDJfREFUQTBfVVNESEMyX0RBVEEw
-IDB4OTA+LCAvKiBTT0RJTU0gODAgKi8KPiBAQCAtMTIyMyw3ICsxMjQxLDYgQEAgcGluY3RybF91
-c2RoYzI6IHVzZGhjMmdycCB7Cj4gwqAKPiDCoCBwaW5jdHJsX3VzZGhjMl8xMDBtaHo6IHVzZGhj
-Mi0xMDBtaHpncnAgewo+IMKgIGZzbCxwaW5zID0KPiAtIDxNWDhNTV9JT01VWENfR1BJTzFfSU8w
-NF9VU0RIQzJfVlNFTEVDVCAweDEwPiwKPiDCoCA8TVg4TU1fSU9NVVhDX1NEMl9DTEtfVVNESEMy
-X0NMSyAweDk0PiwKPiDCoCA8TVg4TU1fSU9NVVhDX1NEMl9DTURfVVNESEMyX0NNRCAweDk0PiwK
-PiDCoCA8TVg4TU1fSU9NVVhDX1NEMl9EQVRBMF9VU0RIQzJfREFUQTAgMHg5ND4sCj4gQEAgLTEy
-MzQsNyArMTI1MSw2IEBAIHBpbmN0cmxfdXNkaGMyXzEwMG1oejogdXNkaGMyLTEwMG1oemdycCB7
-Cj4gwqAKPiDCoCBwaW5jdHJsX3VzZGhjMl8yMDBtaHo6IHVzZGhjMi0yMDBtaHpncnAgewo+IMKg
-IGZzbCxwaW5zID0KPiAtIDxNWDhNTV9JT01VWENfR1BJTzFfSU8wNF9VU0RIQzJfVlNFTEVDVCAw
-eDEwPiwKPiDCoCA8TVg4TU1fSU9NVVhDX1NEMl9DTEtfVVNESEMyX0NMSyAweDk2PiwKPiDCoCA8
-TVg4TU1fSU9NVVhDX1NEMl9DTURfVVNESEMyX0NNRCAweDk2PiwKPiDCoCA8TVg4TU1fSU9NVVhD
-X1NEMl9EQVRBMF9VU0RIQzJfREFUQTAgMHg5Nj4sCj4gQEAgLTEyNDYsNyArMTI2Miw2IEBAIHBp
-bmN0cmxfdXNkaGMyXzIwMG1oejogdXNkaGMyLTIwMG1oemdycCB7Cj4gwqAgLyogQXZvaWQgYmFj
-a2ZlZWRpbmcgd2l0aCByZW1vdmVkIGNhcmQgcG93ZXIgKi8KPiDCoCBwaW5jdHJsX3VzZGhjMl9z
-bGVlcDogdXNkaGMyc2xwZ3JwIHsKPiDCoCBmc2wscGlucyA9Cj4gLSA8TVg4TU1fSU9NVVhDX0dQ
-SU8xX0lPMDRfVVNESEMyX1ZTRUxFQ1QgMHgwPiwKPiDCoCA8TVg4TU1fSU9NVVhDX1NEMl9DTEtf
-VVNESEMyX0NMSyAweDA+LAo+IMKgIDxNWDhNTV9JT01VWENfU0QyX0NNRF9VU0RIQzJfQ01EIDB4
-MD4sCj4gwqAgPE1YOE1NX0lPTVVYQ19TRDJfREFUQTBfVVNESEMyX0RBVEEwIDB4MD4sCg==
+On Tue, Apr 22, 2025 at 16:31:19 +0300, Mike Rapoport <rppt@kernel.org> wrote:
+> On Thu, Apr 10, 2025 at 10:37:43PM -0700, Changyuan Lyu wrote:
+> > [...]
+> > +static struct notifier_block reserve_mem_kho_nb = {
+> > +	.notifier_call = reserve_mem_kho_notifier,
+> > +};
+> > +
+> > +static void __init prepare_kho_fdt(void)
+> > +{
+> > +	int err = 0, i;
+> > +	void *fdt;
+> > +
+> > +	if (!reserved_mem_count)
+> > +		return;
+>
+> It's better to have this check in reserve_mem_init() before registering kho
+> notifier.
+
+Sounds good!
+
+> > +
+> > +	kho_fdt = alloc_page(GFP_KERNEL);
+> > +	if (!kho_fdt) {
+> > +		kho_fdt = ERR_PTR(-ENOMEM);
+>
+> Do we really care about having errno in kho_fdt? I think NULL would work
+> just fine.
+
+I was originally using ERR_PTR(-ENOMEM) and NULL to differentiate the following
+2 cases:
+
+1. prepare_kho_fdt() failed,
+2. reserved_mem_count == 0, so no memblock FDT was created.
+
+Based on the suggestion above, since now we only register the notifier when
+reserved_mem_count == 0, case 2 shall never happen. So NULL is enough.
+
+> > +		return;
+>
+> And actually, it makes sense to me to return -ENOMEM here and let
+> reserve_mem_init() bail out before registering notifier if fdt preparation
+> failed.
+>
+> That will save the checks in reserve_mem_kho_finalize() because it would be
+> called only if we have reserve_mem areas and fdt is ready.
+>
+
+Sounds good!
+
+> > +	}
+> > +
+> > +	fdt = page_to_virt(kho_fdt);
+> > +
+> > +	err |= fdt_create(fdt, PAGE_SIZE);
+> > +	err |= fdt_finish_reservemap(fdt);
+> > +
+> > +	err |= fdt_begin_node(fdt, "");
+> > +	err |= fdt_property_string(fdt, "compatible", MEMBLOCK_KHO_NODE_COMPATIBLE);
+> > +	for (i = 0; i < reserved_mem_count; i++) {
+> > +		struct reserve_mem_table *map = &reserved_mem_table[i];
+> > +
+> > +		err |= fdt_begin_node(fdt, map->name);
+> > +		err |= fdt_property_string(fdt, "compatible", RESERVE_MEM_KHO_NODE_COMPATIBLE);
+> > +		err |= fdt_property(fdt, "start", &map->start, sizeof(map->start));
+> > +		err |= fdt_property(fdt, "size", &map->size, sizeof(map->size));
+> > +		err |= fdt_end_node(fdt);
+> > +	}
+> > +	err |= fdt_end_node(fdt);
+> > +
+> > +	err |= fdt_finish(fdt);
+> > +
+> > +	if (err) {
+> > +		pr_err("failed to prepare memblock FDT for KHO: %d\n", err);
+> > +		put_page(kho_fdt);
+> > +		kho_fdt = ERR_PTR(-EINVAL);
+> > +	}
+> > +}
+> > +
+> > +static int __init reserve_mem_init(void)
+> > +{
+> > +	if (!kho_is_enabled())
+> > +		return 0;
+> > +
+> > +	prepare_kho_fdt();
+> > +
+> > +	return register_kho_notifier(&reserve_mem_kho_nb);
+> > +}
+> > +late_initcall(reserve_mem_init);
+> > +
+> > +static void *kho_fdt_in __initdata;
+> > +
+> > +static void *__init reserve_mem_kho_retrieve_fdt(void)
+> > +{
+> > +	phys_addr_t fdt_phys;
+> > +	struct folio *fdt_folio;
+> > +	void *fdt;
+> > +	int err;
+> > +
+> > +	err = kho_retrieve_subtree(MEMBLOCK_KHO_FDT, &fdt_phys);
+> > +	if (err) {
+> > +		if (err != -ENOENT)
+> > +			pr_warn("failed to retrieve FDT '%s' from KHO: %d\n",
+> > +				MEMBLOCK_KHO_FDT, err);
+> > +		return ERR_PTR(err);
+>
+> Wouldn't just 'return NULL' work here?
+
+If we have multiple `reserve_mem` in the kernel command line,
+reserve_mem_kho_revive() will also be called multiple times. However
+reserve_mem_kho_retrieve_fdt() should only be called once.
+
+Here I am returning the ERR_PTR(err) such that if the first
+reserve_mem_kho_retrieve_fdt() failed, subsequent reserve_mem_kho_revive()
+can tell that reserve_mem_kho_retrieve_fdt() has failed so no need to try it
+again. If we return NULL here, subsequent reserve_mem_kho_revive() would find
+kho_fdt_in == NULL, and it could not tell whether it was due to previously
+failed reserve_mem_kho_retrieve_fdt(), or it is the first
+reserve_mem_kho_revive().
+
+> > +	}
+> > +
+> > +	fdt_folio = kho_restore_folio(fdt_phys);
+> > +	if (!fdt_folio) {
+> > +		pr_warn("failed to restore memblock KHO FDT (0x%llx)\n", fdt_phys);
+> > +		return ERR_PTR(-EFAULT);
+> > +	}
+> > +
+> > +	fdt = page_to_virt(folio_page(fdt_folio, 0));
+>
+> 	fdt = folio_address(folio);
+
+Fixed.
+
+> > +
+> > +	err = fdt_node_check_compatible(fdt, 0, MEMBLOCK_KHO_NODE_COMPATIBLE);
+> > +	if (err) {
+> > +		pr_warn("FDT '%s' is incompatible with '%s': %d\n",
+> > +			MEMBLOCK_KHO_FDT, MEMBLOCK_KHO_NODE_COMPATIBLE, err);
+> > +		return ERR_PTR(-EINVAL);
+> > +	}
+> > +
+> > +	return fdt;
+> > +}
+> > +
+> > +static bool __init reserve_mem_kho_revive(const char *name, phys_addr_t size,
+> > +					  phys_addr_t align)
+> > +{
+> > +	int err, len_start, len_size, offset;
+> > +	const phys_addr_t *p_start, *p_size;
+> > +	const void *fdt;
+> > +
+> > +	if (!kho_fdt_in)
+> > +		kho_fdt_in = reserve_mem_kho_retrieve_fdt();
+>
+> I'd invert this and move to reserve_mem_kho_retrieve_fdt(), so there it
+> would be
+>
+> 	if (kho_fdt_in)
+> 		return kho_fdt_in;
+>
+> 	/* actually retrieve the fdt */
+> 	kho_fdt_in = fdt;
+>
+> 	return fdt;
+>
+> and here
+>
+> 	fdt = reserve_mem_kho_retrieve_fdt();
+> 	if (!fdt)
+> 		return false;
+
+Ah Ok, this is more elegant!
+
+> > +
+> > +	if (IS_ERR(kho_fdt_in))
+> > +		return false;
+> > +
+> > +	fdt = kho_fdt_in;
+> > +
+> >[...]
+> > --
+> > 2.49.0.604.gff1f9ca942-goog
+> >
+>
+> --
+> Sincerely yours,
+> Mike.
+
+Best,
+Changyuan
+
+---- 8< ----
+From 7ad4379062aa9709d3702bfc53d237d0c1a4e326 Mon Sep 17 00:00:00 2001
+From: Changyuan Lyu <changyuanl@google.com>
+Date: Thu, 24 Apr 2025 01:10:24 -0700
+Subject: [PATCH] fixup! memblock: add KHO support for reserve_mem
+
+This patch includes the suggested changes from
+https://lore.kernel.org/lkml/aAeaJ2iqkrv_ffhT@kernel.org/ and can be
+squashed with "memblock: add KHO support for reserve_mem".
+
+Fixes: 2e257a656639 ("memblock: add KHO support for reserve_mem")
+Suggested-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Signed-off-by: Changyuan Lyu <changyuanl@google.com>
+---
+ mm/memblock.c | 69 +++++++++++++++++++++++++--------------------------
+ 1 file changed, 34 insertions(+), 35 deletions(-)
+
+diff --git a/mm/memblock.c b/mm/memblock.c
+index 3571a859f2fe1..d38a72f07ea0c 100644
+--- a/mm/memblock.c
++++ b/mm/memblock.c
+@@ -2490,15 +2490,6 @@ static int reserve_mem_kho_finalize(struct kho_serialization *ser)
+ {
+ 	int err = 0, i;
+
+-	if (!reserved_mem_count)
+-		return NOTIFY_DONE;
+-
+-	if (IS_ERR(kho_fdt)) {
+-		err = PTR_ERR(kho_fdt);
+-		pr_err("memblock FDT was not prepared successfully: %d\n", err);
+-		return notifier_from_errno(err);
+-	}
+-
+ 	for (i = 0; i < reserved_mem_count; i++) {
+ 		struct reserve_mem_table *map = &reserved_mem_table[i];
+
+@@ -2528,19 +2519,14 @@ static struct notifier_block reserve_mem_kho_nb = {
+ 	.notifier_call = reserve_mem_kho_notifier,
+ };
+
+-static void __init prepare_kho_fdt(void)
++static int __init prepare_kho_fdt(void)
+ {
+ 	int err = 0, i;
+ 	void *fdt;
+
+-	if (!reserved_mem_count)
+-		return;
+-
+ 	kho_fdt = alloc_page(GFP_KERNEL);
+-	if (!kho_fdt) {
+-		kho_fdt = ERR_PTR(-ENOMEM);
+-		return;
+-	}
++	if (!kho_fdt)
++		return -ENOMEM;
+
+ 	fdt = page_to_virt(kho_fdt);
+
+@@ -2565,18 +2551,30 @@ static void __init prepare_kho_fdt(void)
+ 	if (err) {
+ 		pr_err("failed to prepare memblock FDT for KHO: %d\n", err);
+ 		put_page(kho_fdt);
+-		kho_fdt = ERR_PTR(-EINVAL);
++		kho_fdt = NULL;
+ 	}
++
++	return err;
+ }
+
+ static int __init reserve_mem_init(void)
+ {
+-	if (!kho_is_enabled())
++	int err;
++
++	if (!kho_is_enabled() || !reserved_mem_count)
+ 		return 0;
+
+-	prepare_kho_fdt();
++	err = prepare_kho_fdt();
++	if (err)
++		return err;
++
++	err = register_kho_notifier(&reserve_mem_kho_nb);
++	if (err) {
++		put_page(kho_fdt);
++		kho_fdt = NULL;
++	}
+
+-	return register_kho_notifier(&reserve_mem_kho_nb);
++	return err;
+ }
+ late_initcall(reserve_mem_init);
+
+@@ -2586,33 +2584,38 @@ static void *__init reserve_mem_kho_retrieve_fdt(void)
+ {
+ 	phys_addr_t fdt_phys;
+ 	struct folio *fdt_folio;
+-	void *fdt;
+ 	int err;
+
++	if (kho_fdt_in)
++		return kho_fdt_in;
++
+ 	err = kho_retrieve_subtree(MEMBLOCK_KHO_FDT, &fdt_phys);
+ 	if (err) {
+ 		if (err != -ENOENT)
+ 			pr_warn("failed to retrieve FDT '%s' from KHO: %d\n",
+ 				MEMBLOCK_KHO_FDT, err);
+-		return ERR_PTR(err);
++		goto out;
+ 	}
+
+ 	fdt_folio = kho_restore_folio(fdt_phys);
+ 	if (!fdt_folio) {
+ 		pr_warn("failed to restore memblock KHO FDT (0x%llx)\n", fdt_phys);
+-		return ERR_PTR(-EFAULT);
++		err = -EFAULT;
++		goto out;
+ 	}
+
+-	fdt = page_to_virt(folio_page(fdt_folio, 0));
++	kho_fdt_in = folio_address(fdt_folio);
+
+-	err = fdt_node_check_compatible(fdt, 0, MEMBLOCK_KHO_NODE_COMPATIBLE);
++	err = fdt_node_check_compatible(kho_fdt_in, 0, MEMBLOCK_KHO_NODE_COMPATIBLE);
+ 	if (err) {
+ 		pr_warn("FDT '%s' is incompatible with '%s': %d\n",
+ 			MEMBLOCK_KHO_FDT, MEMBLOCK_KHO_NODE_COMPATIBLE, err);
+-		return ERR_PTR(-EINVAL);
++		err = -EFAULT;
+ 	}
+-
+-	return fdt;
++out:
++	if (err)
++		kho_fdt_in = ERR_PTR(err);
++	return kho_fdt_in;
+ }
+
+ static bool __init reserve_mem_kho_revive(const char *name, phys_addr_t size,
+@@ -2622,14 +2625,10 @@ static bool __init reserve_mem_kho_revive(const char *name, phys_addr_t size,
+ 	const phys_addr_t *p_start, *p_size;
+ 	const void *fdt;
+
+-	if (!kho_fdt_in)
+-		kho_fdt_in = reserve_mem_kho_retrieve_fdt();
+-
+-	if (IS_ERR(kho_fdt_in))
++	fdt = reserve_mem_kho_retrieve_fdt();
++	if (IS_ERR(fdt))
+ 		return false;
+
+-	fdt = kho_fdt_in;
+-
+ 	offset = fdt_subnode_offset(fdt, 0, name);
+ 	if (offset < 0) {
+ 		pr_warn("FDT '%s' has no child '%s': %d\n",
+--
+2.49.0.805.g082f7c87e0-goog
 
