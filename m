@@ -4,174 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C611C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 01:04:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3454DC369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 01:06:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+oHaXDCyZka5H6c/t7G9END9g+8KgR0cLMhI0gmzwes=; b=hmH5SMcLvvy7fmSUIVSslfDA28
-	MeAAQF80sGCtaQdPE/uwWmR+TP+aZlRQ1p1hJnadmrXJ5NGW6gAG+6UfgQIJ1ZkCRET/vxXOKb3oy
-	J5mHu06tWOB4BkzfArXJkyUJPIXKVKxbAW4dmb+/pKJWQPSG5ehx3xSqnicAQykTHBiX7I6zXcCsC
-	ZaNYLB2CKXzqhZXiXYw+66DdzB3+6kYM4rohBBBmmHI2+F7wHT/NLhd46djnLVcMtfH4fphuPZkuE
-	KccL8dvQVpGun93A1p081MVx1afX7TPI5FfoQNj4WHJLded7QdilgD8jKef4mAIlgr/RgN/nMIi6t
-	QV8e3Ecg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bucGeGzue6hZV/iDgVGfGlRPhPd6Yu16i4byedFs2po=; b=SOznL5BGCbZrVcgS4C2Kp3tdQw
+	XHgtoPF7PK0bvEDKm9Vh5++P0bjQ1o0pTSKZGVA1ZOqJGb2+3nKf40DlCbsHjLW1pMgphhxz+IK1A
+	uaA259vThcjHyLp13MMHWOUcbX/2i9do5A4bO6+BXSkvtTGE8GAVRTGAEWlkyY9dzGX9Z6kamG8xB
+	pA1wt96YaQ7QpBavakT8SwrLbQhn8Qv7uYyT7Wt7Wzm5phdpgSt21IoTylzsfCYCbK0tLbNuOGv4z
+	4IS8gqF9I4adc05xsgiEyimIxis1fee0ZQNReE+LpkB+6+h8xtVkZIWrGhdh8VUN3td57LtDybTK1
+	kdek9AXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7l14-0000000CTCG-19Pw;
-	Thu, 24 Apr 2025 01:04:38 +0000
-Received: from mail-vi1eur05on20600.outbound.protection.outlook.com ([2a01:111:f403:2613::600] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7kfO-0000000CQCH-23yc
+	id 1u7l31-0000000CTfy-45QJ;
+	Thu, 24 Apr 2025 01:06:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u7khN-0000000CQcr-3jfP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 00:42:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KFSEPOKmSi+iff0+FAd0vq3R9MyuKjwwXOBsm6RlzLpMx7kSlXIJe0sNmrtOw3PRmkDPZSooSS113I/JZsHl3+4ZJBc+yDewQNm8vDKAlHLnC+u1gs0Eab2T9zQaS+FMJwKH2+DmesQePr//LzGk4sE9PudPsh54MMgYg+IFXSfe+DaYh7zVsnAnJ3o1dCIrbQf79sHEm/PTNCiuQk+e4Sb4IbU9JNFyxB9cFWIPhNKxg0W/wowhb+U+BzGYmToZS6V/QdMsOiBTN5Y0W8Kf6QQL7KhG/XABL2zKOy1ZOY0WBBXGZHr5w6qeHK6LlzRz/5A+eTBToj2xZW0MnFzNmw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+oHaXDCyZka5H6c/t7G9END9g+8KgR0cLMhI0gmzwes=;
- b=wVJ3CeMHmoud9AOpKhsiiHe02+wuHOkebpCEY4CRHaflA4pk0hS0x7YSZ0098Tq+K9ha6qwP6xLbDAY9h0Kr6O4+PEvjO89x99GRjynh2jgz4TULB9yjXOTF9Kc2tf1Zh1vlGPbaf6NcqMv+KH7McUJXyvtQIZ7bRi/sE1YWr6p3y32meZJMA0xuPBsiD1sHLCdLLQSfuz0u16xSicdgU3Usriu9IN4Fv+SILqA42nExPeCfgRehRO52X5NFTeKuzW2IWqfYb5JPs38C0n0kgKUkmKEu/uMYH7GNV/3ofQWZwSHnFl9f2gmDttEhfS88WLvWIc5kyQoib/AlHX/+ZQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+oHaXDCyZka5H6c/t7G9END9g+8KgR0cLMhI0gmzwes=;
- b=VPKDV81N5avcCM+uFnzfwCDnWQGiZ32+piesfQb99yPgfix3VJ09rUSVFs8P5ehonSx9zaaLQV1MtQikT7k7SmRhYBJbU0xudlFoK7UZ5i4TbajTt7vWQO+ZwBHxrZGT5EIpyUH0daMgJpGj/bglVry42gmfVTDUlVoCW5BXbQ410ytIbGueYWNyA8RFMfEbC6ww8Ec8bABhf7fxL7S52NanMexN4BzSgpO6Rl5/ZaPN6cnWJA4KFVPAOZv3lKUJ7RmB1hRxA516K3N2gb6FVuF76N2l5d58OwGGOwpHTkdypK/1TfjtHNS5OpDT+n6Eg6CIprA789GodtNtDdlVow==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by PAXPR04MB8605.eurprd04.prod.outlook.com (2603:10a6:102:218::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.23; Thu, 24 Apr
- 2025 00:42:10 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8678.021; Thu, 24 Apr 2025
- 00:42:10 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Wed, 23 Apr 2025 20:41:30 -0400
-Subject: [PATCH v2 8/8] arm64: dts: imx8mq-evk: add pcie[0,1]-ep nodes
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250423-imx8_pcie_ep_dts-v2-8-43c982d83a8f@nxp.com>
-References: <20250423-imx8_pcie_ep_dts-v2-0-43c982d83a8f@nxp.com>
-In-Reply-To: <20250423-imx8_pcie_ep_dts-v2-0-43c982d83a8f@nxp.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- hongxing.zhu@nxp.com, Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.13-dev-e586c
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1745455301; l=1988;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=ghJvfcreZ0UOSdT3ZqVEfbpN1SmbGgV715KuOtaxTpk=;
- b=ZmXDui/m+a9RXEvmpfIAhbhq24q4FYFHlWl+TKma3sFnL6wH4fpukcKx+fQrAlPu161CSBMZM
- 3e+2ClGF5x2AZcG0hY6ArDbuCDiq0opbuKyiquvU3J38tWKoo1U38jG
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: PH7P222CA0001.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:510:33a::14) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Thu, 24 Apr 2025 00:44:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3ED171063;
+	Wed, 23 Apr 2025 17:44:12 -0700 (PDT)
+Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B84733F59E;
+	Wed, 23 Apr 2025 17:44:14 -0700 (PDT)
+Date: Thu, 24 Apr 2025 01:43:14 +0100
+From: Andre Przywara <andre.przywara@arm.com>
+To: Yixun Lan <dlan@gentoo.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej
+ Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
+ Maxime Ripard <mripard@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH 3/5] arm64: dts: allwinner: a523: Add EMAC0 ethernet MAC
+Message-ID: <20250424014314.146e088f@minigeek.lan>
+In-Reply-To: <20250423-01-sun55i-emac0-v1-3-46ee4c855e0a@gentoo.org>
+References: <20250423-01-sun55i-emac0-v1-0-46ee4c855e0a@gentoo.org>
+	<20250423-01-sun55i-emac0-v1-3-46ee4c855e0a@gentoo.org>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PAXPR04MB8605:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7911be33-74a3-43e3-e39a-08dd82c8d8c0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?S2h2YWtNNVNoT1hJNzF1QThMZDRQQkl0Z2FUWkFNTmdkUmtpei9sQ2dvazBs?=
- =?utf-8?B?WDViSmxhOTFXWStqYytaYnBKSm5TUHhnZEJkdnFwSWpLSDVNeXpnSmhpL3g2?=
- =?utf-8?B?UE5NcWtILzNOWW5RdFk2WEpJSHZoaUNJMWFKaXdNQ3lxejZNVitXN1g0clEw?=
- =?utf-8?B?ZDVYOXRBVVI3YnFIMVdBRVRXRFRBS241SXRsdkdOcExQcmlOcEg2MFc5MEhD?=
- =?utf-8?B?U01QTzhGbXJtS0RwTGVNT0tHVTNxd0h0UXczZis0b3MzZ2hpdWhDK1p1ZmJH?=
- =?utf-8?B?bGlaaWVqdUIrR3VLWFdIbnB4V2xaeTBVWUlCZUFGam1XcEVRQUFmMHNBYVRq?=
- =?utf-8?B?VHlMSUdFbXMyYTZTM096WFdLS3d1QzdWaWg5eGM4Um1OL3lrd1NJK1dxV2JY?=
- =?utf-8?B?T3VKUllybVJhampJdnY1dndiQUVFS3Ziam9OMjE2QzR1bDNGWkNqdzYrVU9I?=
- =?utf-8?B?YnROK0dDK3lTYmpMRkc4eDBmMytINFg4Sk5VSW9SaWxVMGw1VC9XWUxzdExJ?=
- =?utf-8?B?Vzd5cm5rQVpuTExmMElnbDJLaHlLZjU2aGdwUXJhZUhqUktRdmZEQ3RGU3dx?=
- =?utf-8?B?dDdVWUkxaXJwVW0rSzdDbXI2ZDU5dnNNZUZ5TGRneldkOEd5NkZ2NFdpRnNN?=
- =?utf-8?B?T1ZvbVlad1FmSFJ3cDNsSWcxTHhGL2FjUXAreWhjUkllNUJCY1JSbEQzbjhG?=
- =?utf-8?B?cTQ4eEJGSXF5YTIyQWRLRFZOVzUwYmoyNy91OENsZ3RkVGcwVlUzc1ZvMlM3?=
- =?utf-8?B?UzRrZFRIV1VSeWFHZUdRQjFGZmZmS0VUNDlyNVZMS09lMTdOaGx4NkVaRk4v?=
- =?utf-8?B?ZWJ3SVUxeVAyK01XZFBVN1g0U2cxcWx6enBvTENxdDdMY1JOdlNsSnBkWnZH?=
- =?utf-8?B?K1FpSWhyandGTXlGY040U3d0MEltQ3ZFT3BCMExzWCtRNGd5Q3VqdGdCWjhi?=
- =?utf-8?B?TEhFK3JSdjNFQ21tRUs2VG96RWZLQ3VSVFAwK1FJb2V4emJiWldQTUJRQUdK?=
- =?utf-8?B?OEpxWHc5dVVwc3BaQ2gwOCtsZjQxdEJOM3J1UW1xejZIVXIrZXRZRU9FRXVl?=
- =?utf-8?B?NGxFUFZGd3UzRW9uY0pSOVVnMHdzeTZ3L2F5YWRUVGxQREx4RG1pMmtMeE5E?=
- =?utf-8?B?amhYOWFycXZGU1pMRmY1QmFPR3RSK2szSSszRGJHQ3NkYjZkdkk0SHZRazUr?=
- =?utf-8?B?WC9MUWEzek5Ca2Mrejl3T294QXpKUkVLRHRvY1VKdEpIQlJlQW5VNTczK3ps?=
- =?utf-8?B?WFRQWWxQTTZOcTByckxMSS9WZWZYNDhkTGptdVVKUDNSeVNEQmtnbHJOTjcr?=
- =?utf-8?B?SFlxNzlxa1BjaWxEN1hrakZJTkJ1ak1Jcy9qSExVckFhYnBoTXYxUlgzL0tl?=
- =?utf-8?B?aTlXWjR2U0RqTXcrUHZIZTczdlplanhZNHJBa3dra0xFQ2tCQU52blhheFhq?=
- =?utf-8?B?UUQ2eU10UWRCWGFFVUVYLzJVZlRTZkp3blJWb09YeHoxNSt1SEZ4MG9jaW10?=
- =?utf-8?B?Q2NIdDMzbjQ1RzV6WnQ3ZkpKTFNaUHg3b2ZrUW9KdWNqYTM1YXBWbkt4WENO?=
- =?utf-8?B?MDJmNjlWeGVqQ3ZhcFQ1eW1LQWxRS2d2eTNlYzllTnF3b0p1bVBrU05zK0F1?=
- =?utf-8?B?RkVuL2JBTTRiWVFLcU1TNFk3bWNkdmkzWmI1eUtnSWkrRVBNN2d5c21lV2ZC?=
- =?utf-8?B?MExDS0M0dlJGY1dPdFNGbEVFU1Z4aXVpWVFCK3BReHVMckJ5dWZXSDFtUTVP?=
- =?utf-8?B?UE1OUy8rKy81OERCL0xDdi9CbHVRRFdGRy9taWhYMlg0OThUL0tLeDJNQ1BN?=
- =?utf-8?B?eXZZRmxJU2hqYjQwWFVRbEI5dzRDZ25JRkxzenh0VGRZTlZLUy9ORk1CaVpy?=
- =?utf-8?B?T2U4VVJtOHhIb2lSY2ZUUWlteUdEOE9oRWZzMkQzMTNOaDBJbjY2cS9oS1B2?=
- =?utf-8?B?bmdNaVg2cDA2dGVlMXNqb1NwempMZXo4aUdOZUd1S0RzZkRzR2dxRkV0anh4?=
- =?utf-8?B?Q290b2dEVWZBPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YndSWHI3S1N5V3pVVE5VbnhpYVBOdVFXekQxemZ2UXhQam5kRDN6RE9wSFla?=
- =?utf-8?B?Z3lUMit3MFVDMkpsUm1YQ2VmZHlUTDJRenZzRG93eExiNHk3S2xFcmdWdS9m?=
- =?utf-8?B?aTRiSkN4QUMrWnp2aGRFRnA3bGcrNGQxbnBvL0JrU2ZrTlVGb1prYmYrbkUx?=
- =?utf-8?B?b1UzU0hjZWxEWXBRbEJIR2NlYy9TOWs3Y2pZYmlWS2h2RHBqWUl2Z0ZIWmlX?=
- =?utf-8?B?cWhFOU5hb1RNeG9uYjdhaG9Bc2Q3eGI4VnNKSTJhY0ZYNEJTRlBsdXBDbFk5?=
- =?utf-8?B?QnV3OEdYWGl2VHhHdXRWNmd3NmJNbk5DeHBwZHpYSnRlZ1FUKzlCMGh5RWdk?=
- =?utf-8?B?YjFZSFFrR2dEbDZEdkxSMXk3aCtKZllYKzd1eGlmK3laWmJOY0U3elJGTU1h?=
- =?utf-8?B?ZG1HN0xCMEl1c0MvMS9SdjhzUDY5UDRkYzlTVHRjazVaUHlyRjl3MEhhc1g1?=
- =?utf-8?B?SEVUcHlObWI3NkgvNmJENnFZZlhFOEg3QlFEUUprb0RnREtPTlJadk9FZGRq?=
- =?utf-8?B?VDVPWTVJYjNBRFdaWXIvaEhzSEpjL1YySE84T3VqdU9nOUVXcEszWmk4ZmVq?=
- =?utf-8?B?R1FRTm8xYkQ2cUJSbEhab3ZvcTh2ZGNPSWNIeDlXNFk5c3hjVHIrMWREamho?=
- =?utf-8?B?QVNpWXVEQ09DNkk4WUEyUTl4L3U0ZFlscWdTYWN4dVl2ajVtVU56YWFyVmNs?=
- =?utf-8?B?djJ0RnVMWUZXSTdDYUxIb1ZkMkhjYWRMaEZ1Y0JiZGRtWGRSelE1MVRxaWZP?=
- =?utf-8?B?MlNKV2FGdEZqOEtGVXA3SkFOQVBaQXczZkZmakp3YnJ3TDVvYy84RGZ6Y09q?=
- =?utf-8?B?ZUVuWjlJQnNKQUR1NTk0c1AxWFl4ZUdIZnVXdFgzQmEzNlNmWTVubG9vaDJJ?=
- =?utf-8?B?MUxOZ2puZ0FGbDhDQzg2UDI4bzUvc2x3d252cEhNSWZ1Wms2eWxyMnNRZUEx?=
- =?utf-8?B?cVV0bHE3RWxOTFVaMWtBN01xTjZYdUNKVlFBMng5Rk9GRmx2Z3lKLzRNb0pP?=
- =?utf-8?B?WjU2MUZCMlU0cmQ1ZmtldXJoa3lzTXY4MjczT2JseVd4QXo2cmRvZE5sd3V0?=
- =?utf-8?B?WHF4R3RwQVZjRlpKM3luNmdSeWZCQWoxTVlMQWtVbHhNd1hJbGliOG0ybjBl?=
- =?utf-8?B?aWdHQmVqUUdKbkJhLzY1WFE1SnFzTit1Q0cxcHFNMWRqOWVpcE9sdFN1YXR6?=
- =?utf-8?B?am1iTGV4bVRMbVdSV0ZrQUZDcHZMNE9WUmxJaldOb2hYS0hBNTVlQUZaTUhr?=
- =?utf-8?B?MVVmV3hrZ1N1VTNMMVdNSmxLRC8vKzNiU2tHUXIrSU1pNVFJSEFXV215dGZV?=
- =?utf-8?B?YnZodHZsZGtBZUlOWERWTnUrWG1QYnljNnowS0pyaGIvRy9ZdThPdWdFM0dL?=
- =?utf-8?B?R1hMaWM4TnNuaFVwRldNVjA0MVZkcGhVR0Rkc0NYZGJ3cEExUUZ4cW5NWkFF?=
- =?utf-8?B?TkZHQVMrQmh3NkthZFd6MXV4VEhQanVXNkl5RXMvMFlhdDJRSnRhKzJBL1hH?=
- =?utf-8?B?TW9pZE5iTC9JRkl6NlFWZFNUMUpsWXF0Z1NHZ2R0T1IyVElOZnlHd0VEdGRs?=
- =?utf-8?B?RzdUa05GVmpqckdrVnViRHdmanloS2trd0MyOVYwcmNNZHBLZSs5UVpXaUl4?=
- =?utf-8?B?dnVJdk5KcUlxbFo3MkdxWkUwOWJ5d0YwWVVKeXJVRjdvQjY0TjNudmp2Y25G?=
- =?utf-8?B?R1cyS3ZRYlllR0lyZE9rS0M5QlFNY3BLRkF3WXJKbU13UXRiVmJ3VjNseDlq?=
- =?utf-8?B?ekNRN2k1aVBGS0FwSHNVa1E0VHZIK3JOZWJOZU83VzBiYUthanFRQktHRXhS?=
- =?utf-8?B?V083MTZUVnRPc3RWbEtOTld5ZmdSQjBpNWYyU1Y1MzlQRHRqR0VUU0Ira1FU?=
- =?utf-8?B?bFk1NHZHTHNjWklpR1dLcmV5TjNPVFdCYUJOaUtFZWpBTnZYNFZIS1VoNnk1?=
- =?utf-8?B?UlRqNy9aZjhIOG44eUJ1SFViQ09VWUhzd3NLcWpnejdidktEV0pycTloTTBs?=
- =?utf-8?B?Y0gzdC9TU3BJM3hIZmpRS042Snprei9XakFCSkJwNU1xOGdjek1TRUlzenY4?=
- =?utf-8?B?QXh0a3VUY2t4bHBYZTA1amZmZmRjRUVDNjVGN3VzOEEzUXQydFlybXNWdkRC?=
- =?utf-8?Q?R77w=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7911be33-74a3-43e3-e39a-08dd82c8d8c0
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Apr 2025 00:42:09.9710
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: K0DeW7XGKobwdlfaIGo4xVToZ2UAPFiWSYOft/MXEhQgHMNboXeyEB2g9XTIrfOe+DyQqchWHiYFQUIcZlOPdQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8605
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_174214_545697_6F152675 
-X-CRM114-Status: GOOD (  10.29  )
+X-CRM114-CacheID: sfid-20250423_174418_025660_7DAF17A6 
+X-CRM114-Status: GOOD (  18.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,68 +72,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add pcie[0,1]-ep nodes and apply imx-pcie1-ep overlay file.
+On Wed, 23 Apr 2025 22:03:24 +0800
+Yixun Lan <dlan@gentoo.org> wrote:
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
- arch/arm64/boot/dts/freescale/Makefile       |  3 +++
- arch/arm64/boot/dts/freescale/imx8mq-evk.dts | 20 ++++++++++++++++++++
- 2 files changed, 23 insertions(+)
+Hi Yixun,
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 44f3f56c1a3b2..862315bdb0f38 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -260,6 +260,9 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mpxl-lvds.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mpxl-lvds-g133han01.dtb
- 
- dtb-$(CONFIG_ARCH_MXC) += imx8mq-evk.dtb
-+imx8mq-evk-pcie1-ep-dtbs += imx8mq-evk.dtb imx-pcie1-ep.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx8mq-evk-pcie1-ep.dtb
-+
- dtb-$(CONFIG_ARCH_MXC) += imx8mq-hummingboard-pulse.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mq-kontron-pitx-imx8m.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mq-librem5-devkit.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx8mq-evk.dts b/arch/arm64/boot/dts/freescale/imx8mq-evk.dts
-index a87d0692c3bb3..43e45b0bd0d17 100644
---- a/arch/arm64/boot/dts/freescale/imx8mq-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mq-evk.dts
-@@ -377,6 +377,16 @@ &pcie0 {
- 	status = "okay";
- };
- 
-+&pcie0_ep {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_pcie0>;
-+	clocks = <&clk IMX8MQ_CLK_PCIE1_ROOT>,
-+		 <&pcie0_refclk>,
-+		 <&clk IMX8MQ_CLK_PCIE1_PHY>,
-+		 <&clk IMX8MQ_CLK_PCIE1_AUX>;
-+	status = "disabled";
-+};
-+
- &pcie1 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_pcie1>;
-@@ -390,6 +400,16 @@ &pcie1 {
- 	status = "okay";
- };
- 
-+&pcie1_ep {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_pcie1>;
-+	clocks = <&clk IMX8MQ_CLK_PCIE2_ROOT>,
-+		 <&pcie0_refclk>,
-+		 <&clk IMX8MQ_CLK_PCIE2_PHY>,
-+		 <&clk IMX8MQ_CLK_PCIE2_AUX>;
-+	status = "disabled";
-+};
-+
- &pgc_gpu {
- 	power-supply = <&sw1a_reg>;
- };
+thanks for sending those patches!
 
--- 
-2.34.1
+> Add EMAC0 ethernet MAC support which found on A523 variant SoCs,
+> including the A527/T527 chips.
+
+maybe add here that MAC0 is compatible to the A64, and requires an
+external PHY. And that we only add the RGMII pins for now.
+
+> Signed-off-by: Yixun Lan <dlan@gentoo.org>
+> ---
+>  arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi | 42 ++++++++++++++++++++++++++
+>  1 file changed, 42 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+> index ee485899ba0af69f32727a53de20051a2e31be1d..c3ba2146c4b45f72c2a5633ec434740d681a21fb 100644
+> --- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+> +++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+> @@ -126,6 +126,17 @@ pio: pinctrl@2000000 {
+>  			interrupt-controller;
+>  			#interrupt-cells = <3>;
+>  
+> +			emac0_pins: emac0-pins {
+
+Both the alias and the node name should contain rgmii instead of emac0,
+as the other SoCs do, I think:
+			rgmii0_pins: rgmii0-pins {
+
+> +				pins = "PH0", "PH1", "PH2", "PH3",
+> +					"PH4", "PH5", "PH6", "PH7",
+> +					"PH9", "PH10","PH13","PH14",
+> +					"PH15","PH16","PH17","PH18";
+
+I think there should be a space behind each comma, and the
+first quotation marks in each line should align.
+
+PH13 is EPHY-25M, that's the (optional) 25 MHz output clock pin, for
+PHYs without a crystal. That's not controlled by the MAC, so I would
+leave it out of this list, as also both the Avaota and the Radxa don't
+need it. If there will be a user, they can add this separately.
+
+> +				allwinner,pinmux = <5>;
+> +				function = "emac0";
+> +				drive-strength = <40>;
+> +				bias-pull-up;
+
+Shouldn't this be push-pull, so no pull-up?
+
+The rest looks correct, when compared to the A523 manual.
+
+Cheers,
+Andre
+
+> +			};
+> +
+>  			mmc0_pins: mmc0-pins {
+>  				pins = "PF0" ,"PF1", "PF2", "PF3", "PF4", "PF5";
+>  				allwinner,pinmux = <2>;
+> @@ -409,6 +420,15 @@ i2c5: i2c@2503400 {
+>  			#size-cells = <0>;
+>  		};
+>  
+> +		syscon: syscon@3000000 {
+> +			compatible = "allwinner,sun55i-a523-system-control",
+> +				     "allwinner,sun50i-a64-system-control";
+> +			reg = <0x03000000 0x1000>;
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +			ranges;
+> +		};
+> +
+>  		gic: interrupt-controller@3400000 {
+>  			compatible = "arm,gic-v3";
+>  			#address-cells = <1>;
+> @@ -521,6 +541,28 @@ ohci1: usb@4200400 {
+>  			status = "disabled";
+>  		};
+>  
+> +		emac0: ethernet@4500000 {
+> +			compatible = "allwinner,sun55i-a523-emac0",
+> +				     "allwinner,sun50i-a64-emac";
+> +			reg = <0x04500000 0x10000>;
+> +			clocks = <&ccu CLK_BUS_EMAC0>;
+> +			clock-names = "stmmaceth";
+> +			resets = <&ccu RST_BUS_EMAC0>;
+> +			reset-names = "stmmaceth";
+> +			interrupts = <GIC_SPI 46 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "macirq";
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&emac0_pins>;
+> +			syscon = <&syscon>;
+> +			status = "disabled";
+> +
+> +			mdio0: mdio {
+> +				compatible = "snps,dwmac-mdio";
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +			};
+> +		};
+> +
+>  		r_ccu: clock-controller@7010000 {
+>  			compatible = "allwinner,sun55i-a523-r-ccu";
+>  			reg = <0x7010000 0x250>;
+> 
 
 
