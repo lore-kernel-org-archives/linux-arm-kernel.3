@@ -4,109 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC66BC369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 10:52:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F93CC369D7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 10:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OYyQh2WrGx5C4Z4w/0Sz/FjCGm+vwC4M1ks09hw0k+w=; b=c9Oml1+FI7TcrVBvbkUH9nNNre
-	Mu9XdHvM1CSRNik+E9sozarJp2yGSHzAaFlAdCpwr6nFBkJ8GtDsDuyh8HxJl/zgYKdrCR5PnFP5w
-	gUrfgiHcq+6lkIMnKJOi678okMmuxM5wiIJWBaLae8FGXDBOgFPU3asaI37NNN2GteSvi0o66d327
-	H59DBRK15N7iIEFi13iAvMTBk4iIS5/24j/GjEgS7w35jeNm7eWneZEZLMbOFjX+HjvfuvmAYJs9g
-	6gbUCgTLvDlLvEl42Qqp2auLtIKOQevl1Hpissz3jIOolgMlvqb6JLbQYmVL09PBiCIA9AWr2at1K
-	MRADZPbg==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S9HOt8K1x3ctE3BWSKA9qeH3oq86sKFq23Km/AG9m9c=; b=ABDYpFcjmwtMBAuHRi4p1V/Qop
+	Ply/ZmcGUsmQnbbIc3luq35FPUA84fXisahlRqj0aAeGWF/qpyWORnH1yn2DpqQq2uPOryIn4RPlK
+	2YnSCYCJpPirbDDMg7xzeYxcHM1CvCj1rtWUE5G16Cudduo89F3rFjc4qCn+RQxV7zsIFnJ1S5/AU
+	Ftb84K0oDY9FGkndK6tZKF3V76kvUaGSYeA436TIe+KX5wwkg9O1TLzdsJ+FZ/g6toMBI+djpRCQO
+	zJofW0RehdX7k1F/9bYt+M0Cz41fyHgGpaZg3UVxTn/UnMQqT4SWk2HWvpQAAs6yMuqZyDloHGUoX
+	p2UPmr2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7uBn-0000000Dl14-07Jh;
-	Thu, 24 Apr 2025 10:52:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u7uBo-0000000Dl1t-1L7f;
+	Thu, 24 Apr 2025 10:52:20 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7sFe-0000000DOsw-3T1x
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 24 Apr 2025 08:48:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=OYyQh2WrGx5C4Z4w/0Sz/FjCGm+vwC4M1ks09hw0k+w=; b=hSPhDX/dLcSJQmqst7XMySy4Dp
-	0MlZSJPULUashyaJiFSEX+XOC1KbagVzZNCEXYnDUnl6p+dOT2ZREfV70x7ycIBU4rC17J86jl5OQ
-	6ZajJeBI8Zj46bssGIj3zRHx+oSRewmdXLo7BZ+fPfH0OtraJagTDCwcJhunI5D4N8ZwL4aIqndj9
-	ZZb+V1UUTe2cRxeyuM7pfnIle5Bjbkkkp7EJeYlgfnF6FTevFUzyjT2SRaGkImiJZzgop4EE9eRGa
-	MaWfcW9MetHTQqOAeyAPdGdRHwimxh/Apbj1adWhsig6ptwzCJX0Ren4UU4rIK10rIr0pzaii6AeF
-	Im25gMDw==;
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u7sFb-0000000Bdte-44xD
+	id 1u7scD-0000000DShJ-38HS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 08:48:09 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-5ded500589aso123598a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 01:48:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745484486; x=1746089286; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=OYyQh2WrGx5C4Z4w/0Sz/FjCGm+vwC4M1ks09hw0k+w=;
-        b=F5omEZHpMn1pGue/b2jLXtz2p/X+kfrgGivfHp/X+GzxHd+StRCnQKNrpa7h3tkXAd
-         TC+kTAETC8YyGtswaaY1o4X9GUxUVe7nZCdbusoUDAAc1Yy8b+YHqCxUrnb20ncYBniw
-         cl5p/ADNUOp7y2iFfiBCLXOBAIs6E3pW2/7VMXyCwjfN+bhti+ivOekaDAE1SCaFo2V8
-         txNR3ntg7kOu8fj7dzGvgmtb11h0+gu9qE2up+78rLPgsWIwo04eSahGk95PYbrYgW19
-         cHuoT/v+sbtnqGFDVMu8CpDTZlJ3KxApz1StciryhZETo56g82U5gY9EzTAs8+p7+bur
-         rzoA==
+	Thu, 24 Apr 2025 09:11:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1745485887;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=S9HOt8K1x3ctE3BWSKA9qeH3oq86sKFq23Km/AG9m9c=;
+	b=TZdjTGGcGrUHiUkxUuhIunpVridkjD7XXrkiVfz4ivEQmnEP8DbVYCxT031DzigF5W8P0k
+	Hmg1t7ngSt7Zh8/kCfit5DEvBhw6ovqHdOvT92WtA3yK8cIFwQu2iJ/9Gv6DaDkcaFjfDI
+	TICTOlGceAsOPo9qBxKKhmdr7BxnD98=
+Received: from mail-ot1-f69.google.com (mail-ot1-f69.google.com
+ [209.85.210.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-78-B5Ez2r2uMR-_ZDFBgYctVQ-1; Thu, 24 Apr 2025 05:11:26 -0400
+X-MC-Unique: B5Ez2r2uMR-_ZDFBgYctVQ-1
+X-Mimecast-MFC-AGG-ID: B5Ez2r2uMR-_ZDFBgYctVQ_1745485885
+Received: by mail-ot1-f69.google.com with SMTP id 46e09a7af769-72b7c2161ceso196916a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 02:11:26 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745484486; x=1746089286;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=OYyQh2WrGx5C4Z4w/0Sz/FjCGm+vwC4M1ks09hw0k+w=;
-        b=QtZhgQ7jGhyDY6AYVPWQmeT+KF8oKFdwGwZ4UNl6UIRJqjFVPPfSfQPflWG1SaNeqV
-         ZCKWmSTM+W2UqJK8Puq/kS6ZGOZpReg2V5JNrh4HCZJl0VoFlcZRPcDXnv0N1B1hOZcI
-         I+v6gd4qifk4E01hFpp3M2u8pfw1ugExUFW+EEGzgHTEajrN4JTRICbRD3vrNenJUh/z
-         P1k77PUr73T9L9z+WRplIJdh5P/zjomVwtk+a+/zk0aTNmMWaRXEvx7Z7ldySPVKGNo5
-         NqoejliFxdexZ6jwBS7T4KLtMq5h9aK/NmMXJMATC89c0LSHjFZN4+onK1M95yq3i+Mu
-         OaOw==
-X-Forwarded-Encrypted: i=1; AJvYcCXCUoaWUE5vXgwYi74+cikHm+jSFCvsiDJ2oGBykWTt2woCRvLiHX/qnWXHfJQxYstAlx+qhGVjT2xQnKXumIK3@lists.infradead.org
-X-Gm-Message-State: AOJu0YyvY/+4D2qwrIJFpBCIPi4m6FFosiXdoyvROMUmyEdkpPZi4hZA
-	PP3g22nXdfwcstnHIUOfd1hy9rh0qYKLONdu5B94Xczd4a7tWI7vm9f03Ofju5I=
-X-Gm-Gg: ASbGncuC/1s979nX20bu4wGIszteuEXv42SUkJlP/tq3X1DLdQ+bCHb7KvVE/TBJFCx
-	HZUwB6hDCyjZTmyWY8qAKB29TnXeGB3BA2X2wme5Uks1wwXSwc+WOiplvPhutvn9wYrb4n/RVYo
-	u4zuf1uJsp7KDsQ/sKpOiIF/YfSMBTWMZ0IQpmcikmu6Y4AAzu7yHXmhKWuJp1F933Fez1FPAOr
-	W5Ix2dFuZ3A+DlI7Qh0npVb4fuM0Ma4gN8gfwmhDXXFzOQpdkMw3o9TsJpDIPs+Qh1IA3isX0mD
-	3dx0L9UrO19ptoBQFbfxZiRCdnWE3KWREpI1XqhmRulitTJVTQ==
-X-Google-Smtp-Source: AGHT+IHf70Oe4hiSF1tedfQvdAAS0RVFcgU5DnHiUpIFgTF7Q4luw0vTUVOjeQvCbbh328Kf2cO9bA==
-X-Received: by 2002:a05:6402:2793:b0:5f4:35c7:ff65 with SMTP id 4fb4d7f45d1cf-5f6de3b0cdfmr705505a12.4.1745484485612;
-        Thu, 24 Apr 2025 01:48:05 -0700 (PDT)
-Received: from kuoka.. ([178.197.207.88])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f6f45fd3c1sm118998a12.3.2025.04.24.01.48.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Apr 2025 01:48:05 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Christoph Niedermaier <cniedermaier@dh-electronics.com>,
-	Marek Vasut <marex@denx.de>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kernel@dh-electronics.com
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH 1/2] arm64: dts: imx: Align wifi node name with bindings
-Date: Thu, 24 Apr 2025 10:47:59 +0200
-Message-ID: <20250424084800.105300-1-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.45.2
+        d=1e100.net; s=20230601; t=1745485885; x=1746090685;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=S9HOt8K1x3ctE3BWSKA9qeH3oq86sKFq23Km/AG9m9c=;
+        b=MSOYCnulbB8exFNV6BWQDkSGYK7o92JY7hqnILqNavkE0cQ7kfc7f5dGpP7rzCMyxg
+         2aeUBvlOGAvMypxEzdwuoMq7IRhSP+9cvql2uy6lW4YFQqknUbnSdRuzbINIE+bYjdPE
+         3mJ7PpKzbBGz5IdXvqfhz6TNqlTuxa+/edeBbp+Bnmc9CqiAefz60sufcSjea1cA9cez
+         EnBZ6I2cGLUn2sgvvGwrWMgHUh+NfVau4kTgFjPjJcyXrsQxggjq/paOp9ofP/kEzVc1
+         uw21hM6U3M9cRKJM8IpRTX3c+FedMW6EgzYKbu+ABv6KXZQGov+3TxsK6iZIa5CSqTTK
+         17NA==
+X-Forwarded-Encrypted: i=1; AJvYcCX+0ikMrLeNtQj0LH9lwVbobZSihxbR10WUpTLAWbm/6Z0r0D3or/sAliopW021g2/FmSa12pLnPjpUuCr2uk+A@lists.infradead.org
+X-Gm-Message-State: AOJu0YyiwcPQGu9aj1YIKMMUfVBrOOaDJrqeDO197GuB0hBYtiJ57rgu
+	eJ66cx63S22d0m7gEvge3L6dX6v8mlzj+0RjE8viPbc8tCE/qePN1Rr6zC43a007vjnTJURopqN
+	0qNKfmrGeh6cpGnJWprlZrzP5HnMd7Orj/aG3MbtZPGsB9kuHiqktGWjeEI3JymVPa+YxfUd1Jk
+	SRvmNBtlRPc6uuwLjqi3Q45iH1tMoV6XutSAui6nRww8FXR9A=
+X-Gm-Gg: ASbGncshIGS1Mfpx2TqS6Bwd6vpdrkCUq6k2DdnTe4i3cin4dQGUvHBZpQAGwVpQxbX
+	+HcEaP8Boun/BFO1Fzx+AQ8ApJleL5A5uxlFF4qfT+zAFT5xmdFM5FqUQdBuH68jdQp0=
+X-Received: by 2002:a05:6871:7406:b0:2c8:234d:971b with SMTP id 586e51a60fabf-2d96e6aa4ebmr380765fac.9.1745485885543;
+        Thu, 24 Apr 2025 02:11:25 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFK7qUeJJwQjklraK2nHiUwpH65h8T9xweuQl27N0LwRhvIakqeaQOVUhg1tEDsLwCPFdAeBvDc3b678FCalLc=
+X-Received: by 2002:a05:6871:7406:b0:2c8:234d:971b with SMTP id
+ 586e51a60fabf-2d96e6aa4ebmr380751fac.9.1745485885149; Thu, 24 Apr 2025
+ 02:11:25 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250415072724.3565533-1-peter.chen@cixtech.com>
+In-Reply-To: <20250415072724.3565533-1-peter.chen@cixtech.com>
+From: Enric Balletbo i Serra <eballetb@redhat.com>
+Date: Thu, 24 Apr 2025 11:11:00 +0200
+X-Gm-Features: ATxdqUE5d3FPvXzpICK8B6GZkItGWuDz2HbxbB6ClXETUq4KFHFcvwKgyIo7a18
+Message-ID: <CALE0LRsnuAfaXWPvZAktRk-RKkbhv9DAvdfAfg-AwbMbPynsig@mail.gmail.com>
+Subject: Re: [PATCH v6 00/10] arm64: Introduce CIX P1 (SKY1) SoC
+To: Peter Chen <peter.chen@cixtech.com>
+Cc: soc@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, 
+	jassisinghbrar@gmail.com, linux-arm-kernel@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	cix-kernel-upstream@cixtech.com, maz@kernel.org, kajetan.puchalski@arm.com
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: -pck7QSKujRjX-pshsDziWGoIuYYFWFgEdaHkp0XkuQ_1745485885
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_094808_249329_9772B930 
-X-CRM114-Status: GOOD (  11.25  )
+X-CRM114-CacheID: sfid-20250424_021129_867889_98C92464 
+X-CRM114-Status: GOOD (  25.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,100 +106,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since commit 3c3606793f7e ("dt-bindings: wireless: bcm4329-fmac: Use
-wireless-controller.yaml schema"), bindings expect 'wifi' as node name:
+Hi Peter,
 
-  imx8mm-var-som-symphony.dtb: bcrmf@1: $nodename:0: 'bcrmf@1' does not match '^wifi(@.*)?$'
+On Tue, Apr 15, 2025 at 9:30=E2=80=AFAM Peter Chen <peter.chen@cixtech.com>=
+ wrote:
+>
+> Cixtech P1 (internal name sky1) is high performance generic Armv9 SoC.
+> Orion O6 is the Arm V9 Motherboard built by Radxa. You could find brief
+> introduction for SoC and related boards at:
+> https://radxa.com/products/orion/o6#overview
+>
+> In this series, we add initial SoC and board support for Kernel building.
+> Patch 1-2: add dt-binding doc for CIX and its sky1 SoC
+> Patch 3-4: add Arm64 build support
+> Patch 5-7: add CIX mailbox driver which needs to support SCMI clock proto=
+col.
+> Patch 8-9: add initial dts support for SoC and Orion O6 board
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- arch/arm64/boot/dts/freescale/imx8mm-beacon-som.dtsi        | 2 +-
- arch/arm64/boot/dts/freescale/imx8mm-var-som.dtsi           | 2 +-
- arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi        | 2 +-
- arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-common.dtsi | 2 +-
- arch/arm64/boot/dts/freescale/imx8mn-var-som.dtsi           | 2 +-
- arch/arm64/boot/dts/freescale/imx8mp-dhcom-som.dtsi         | 2 +-
- 6 files changed, 6 insertions(+), 6 deletions(-)
+Many thanks for these patches, with these I was able to run the latest
+mainline kernel on boot to the console on my Orion O6 board. I think
+others already tested just wanted to point out if you can keep me in
+the loop, thanks.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-beacon-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-beacon-som.dtsi
-index 62ed64663f49..6fe0602b5b9a 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-beacon-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-beacon-som.dtsi
-@@ -269,7 +269,7 @@ &usdhc1 {
- 	mmc-pwrseq = <&usdhc1_pwrseq>;
- 	status = "okay";
- 
--	brcmf: bcrmf@1 {
-+	brcmf: wifi@1 {
- 		reg = <1>;
- 		compatible = "brcm,bcm4329-fmac";
- 		pinctrl-names = "default";
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-var-som.dtsi
-index cdfacbc35db5..190bde4edcd7 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm-var-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mm-var-som.dtsi
-@@ -306,7 +306,7 @@ &usdhc1 {
- 	keep-power-in-suspend;
- 	status = "okay";
- 
--	brcmf: bcrmf@1 {
-+	brcmf: wifi@1 {
- 		reg = <1>;
- 		compatible = "brcm,bcm4329-fmac";
- 	};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi
-index 2a64115eebf1..0ee7420f964b 100644
---- a/arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mn-beacon-som.dtsi
-@@ -280,7 +280,7 @@ &usdhc1 {
- 	mmc-pwrseq = <&usdhc1_pwrseq>;
- 	status = "okay";
- 
--	brcmf: bcrmf@1 {
-+	brcmf: wifi@1 {
- 		reg = <1>;
- 		compatible = "brcm,bcm4329-fmac";
- 		pinctrl-names = "default";
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-common.dtsi b/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-common.dtsi
-index bbb07c650da9..d20393c2d901 100644
---- a/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-common.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mn-bsh-smm-s2-common.dtsi
-@@ -265,7 +265,7 @@ &usdhc2 {
- 	non-removable;
- 	status = "okay";
- 
--	brcmf: bcrmf@1 {
-+	brcmf: wifi@1 {
- 		compatible = "brcm,bcm4329-fmac";
- 		reg = <1>;
- 		pinctrl-names = "default";
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mn-var-som.dtsi
-index b364307868f2..38ef9e4fdf07 100644
---- a/arch/arm64/boot/dts/freescale/imx8mn-var-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mn-var-som.dtsi
-@@ -300,7 +300,7 @@ &usdhc1 {
- 	keep-power-in-suspend;
- 	status = "okay";
- 
--	brcmf: bcrmf@1 {
-+	brcmf: wifi@1 {
- 		reg = <1>;
- 		compatible = "brcm,bcm4329-fmac";
- 	};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-dhcom-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-dhcom-som.dtsi
-index a90e28c07e3f..7f754e0a5d69 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-dhcom-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-dhcom-som.dtsi
-@@ -590,7 +590,7 @@ &usdhc1 {
- 	#address-cells = <1>;
- 	#size-cells = <0>;
- 
--	brcmf: bcrmf@1 {	/* muRata 2AE */
-+	brcmf: wifi@1 {	/* muRata 2AE */
- 		reg = <1>;
- 		compatible = "cypress,cyw4373-fmac", "brcm,bcm4329-fmac";
- 		/*
--- 
-2.45.2
+If you feel is useful you can add:
+
+Tested-by: Enric Balletbo i Serra <eballetb@redhat.com>
+
+Thanks,
+  Enric
+
+> Patch 10: add MAINTAINERS entry
+>
+> Currently, to run upstream kernel at Orion O6 board, you need to
+> use BIOS released by Radxa, and add "clk_ignore_unused=3D1" at bootargs.
+> https://docs.radxa.com/en/orion/o6/bios/install-bios
+>
+> Changes for v6:
+> - Rebase to v6.15-rc2
+> - Add mailbox driver
+> - Add device tree description for uart, mailbox and scmi firmware (for cl=
+ock).
+>
+> Changes for v5:
+> - Patch 5: Delete pmu-spe node which need to refine, and add it in future
+> - Patch 6: Refine MAINTAINERS for all CIX SoC and adding code tree locati=
+on
+>
+> Changes for v4:
+> - Move add MAINTAINERS entry patch to the last, and add two dts files ent=
+ry in it.
+> - Add three Krzysztof Kozlowski's Reviewed-by Tags
+> - For sky1.dtsi, makes below changes:
+>         - Add ppi-partition entry for gic-v3 node, and let pmu-a520 and p=
+mu-a720's interrupt entry
+>         get its handle
+>         - Remove gic-v3's #redistributor-regions and redistributor-stride=
+ properties
+>         - Change gic-v3's #interrupt-cells as 4, and change all interrupt=
+ specifiers accordingly
+>         - Remove "arm,no-tick-in-suspend" for timer due to global counter=
+ is at always-on power domain
+>         - Remove timer's clock frequency due to firmware has already set =
+it
+>
+> Changes for v3:
+> - Patch 1: Add Krzysztof Kozlowski's Acked-by Tag
+> - Patch 2: Add Krzysztof Kozlowski's Reviewed-by Tag
+> - Patch 6: Fix two dts coding sytle issues
+>
+> Changes for v2:
+> - Pass dts build check with below commands:
+> make O=3D$OUTKNL dt_binding_check DT_SCHEMA_FILES=3Dvendor-prefixes.yaml
+> make O=3D$OUTKNL dt_binding_check DT_SCHEMA_FILES=3Darm/cix.yaml
+> make O=3D$OUTKNL CHECK_DTBS=3Dy W=3D1 cix/sky1-orion-o6.dtb
+> - Re-order the patch set, and move vendor-perfixes to the 1st patch.
+> - Patch 4: Ordered Kconfig config entry by alpha-numerically
+> - Patch 5: Corrects the Ack tag's name
+> - Patch 6: see below.
+> 1) Corrects the SoF tag's name
+> 2) Fix several coding sytle issues
+> 3) move linux,cma node to dts file
+> 4) delete memory node, memory size is passed by firmware
+> 5) delete uart2 node which will be added in future patches
+> 6) Improve for pmu and cpu node to stands for more specific cpu model
+> 7) Improve the timer node and add hypervisor virtual timer irq
+>
+> Fugang Duan (1):
+>   arm64: Kconfig: add ARCH_CIX for cix silicons
+>
+> Gary Yang (1):
+>   dt-bindings: clock: cix: Add CIX sky1 scmi clock id
+>
+> Guomin Chen (2):
+>   dt-bindings: mailbox: add cix,sky1-mbox
+>   mailbox: add CIX mailbox driver
+>
+> Peter Chen (6):
+>   dt-bindings: vendor-prefixes: Add CIX Technology Group Co., Ltd.
+>   dt-bindings: arm: add CIX P1 (SKY1) SoC
+>   arm64: defconfig: Enable CIX SoC
+>   arm64: defconfig: enable CIX mailbox
+>   arm64: dts: cix: add initial CIX P1(SKY1) dts support
+>   MAINTAINERS: Add CIX SoC maintainer entry
+>
+>  .../devicetree/bindings/arm/cix.yaml          |  26 +
+>  .../bindings/mailbox/cix,sky1-mbox.yaml       |  71 ++
+>  .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+>  MAINTAINERS                                   |  11 +
+>  arch/arm64/Kconfig.platforms                  |   6 +
+>  arch/arm64/boot/dts/Makefile                  |   1 +
+>  arch/arm64/boot/dts/cix/Makefile              |   2 +
+>  arch/arm64/boot/dts/cix/sky1-orion-o6.dts     |  39 ++
+>  arch/arm64/boot/dts/cix/sky1.dtsi             | 335 ++++++++++
+>  arch/arm64/configs/defconfig                  |   2 +
+>  drivers/mailbox/Kconfig                       |  10 +
+>  drivers/mailbox/Makefile                      |   2 +
+>  drivers/mailbox/cix-mailbox.c                 | 632 ++++++++++++++++++
+>  include/dt-bindings/clock/sky1-clk.h          | 279 ++++++++
+>  14 files changed, 1418 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/arm/cix.yaml
+>  create mode 100644 Documentation/devicetree/bindings/mailbox/cix,sky1-mb=
+ox.yaml
+>  create mode 100644 arch/arm64/boot/dts/cix/Makefile
+>  create mode 100644 arch/arm64/boot/dts/cix/sky1-orion-o6.dts
+>  create mode 100644 arch/arm64/boot/dts/cix/sky1.dtsi
+>  create mode 100644 drivers/mailbox/cix-mailbox.c
+>  create mode 100644 include/dt-bindings/clock/sky1-clk.h
+>
+> --
+> 2.25.1
+>
+>
 
 
