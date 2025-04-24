@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4507C369D8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCC38C369D5
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 19:12:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YivpedSafauUfpYUWexJNcrrWSQuD9Rpne1pSpZnXzE=; b=Nc2BuKcn/1pjMvcIJwdG1ajvlM
-	wH7wAWRt9ZkOCStcyuQ6hor3PYNWXgiyNMsQgJUXg3E40tqBeIOACxUIt2i7DJiVC2PhO/VlDjyqV
-	4CAps25p9Q1ZlLxdT+qZ+QESdo56Wf16nGYON7Wm8TMGqhGNOYekSKv6E0kmvaCRp1n6xH0lxTEnU
-	Z16wGZtVwsyW3iBBtBFANIr4kUfoaQ/sIja7hOfAe9eK2s0OhSx5ZDxDeBXdcSwo3roGvKUlby1dU
-	Jc6Ab6itAujRvK8Sc7DcebW7Toueta4ewEJBfpLchtDEYf4+6y74PEyIu7j15ySlN4ne/Mc3WPG+p
-	NDNbDOgg==;
+	bh=J0OEw/GSKx77XGtUbAB23+UicNIp5U85owX/oRbM6dg=; b=xqFRpnCWAxWI9dpk8Vt8vCrXqw
+	h//8YLPOQiQ50dYLwtuDl4hocmTWWjsYCUIRsd/wqZUQ3UuCyH8Jm+2W5NfzyvIoW3QUwoHMn3kYT
+	G9Zm4p3w0ZW9iNv6H4T1fg5kfn8KD7oBqRkzChKCpFqROuZEddy4EpPT+GRQgyRS7iRvwtQSB4nq9
+	wdFqLlmbZeO7+4ukpOZp4a/BGp9Zv9lR5wp/DOHaIyonUrP5OrgH8sgmdVdXxBaCJZFxSm25+zt05
+	PSYKzLK2tCv81mQyMM1GWB2mA9qD80bwQueaTvh6bx/45h+ZV9DTlbgFB5RlPA+BEmooXUlA2pJCH
+	7kyv3+wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u81zu-0000000F8j4-1mNX;
-	Thu, 24 Apr 2025 19:12:34 +0000
+	id 1u81zs-0000000F8ef-15qw;
+	Thu, 24 Apr 2025 19:12:32 +0000
 Received: from relay4-d.mail.gandi.net ([217.70.183.196])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u81ne-0000000F67V-3F2N;
-	Thu, 24 Apr 2025 18:59:56 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 0E98A4439D;
-	Thu, 24 Apr 2025 18:59:49 +0000 (UTC)
+	id 1u81nb-0000000F66T-2Gzn;
+	Thu, 24 Apr 2025 18:59:52 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id C8095443AC;
+	Thu, 24 Apr 2025 18:59:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1745521193;
+	t=1745521189;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=YivpedSafauUfpYUWexJNcrrWSQuD9Rpne1pSpZnXzE=;
-	b=Pd6K2ge4qYJ9BqnO000YfBYz/hbMdx+N3sCIeKUOxbZP+uxIYDskFU3zbee+xFK1V0tYsu
-	1wYUmgjcwiylOu6Gw9fpyV6yshjwe01XtOIVIWcU0Iv02LbxTIxDDzHJ2k06tWHAVXR0eJ
-	ATXmEaH+q91uparV06q87m2v9n0Ni+wnCgWL1T0YIGdQo3XeSP7Al4JmJPDqHaMFVFvWkT
-	9qgjHNopxNXY23E3R4iq53Vcx2O8QcBUQZHXehtAR0DUKejGrBEh93Le6w//B/7YDAPPa+
-	9We7ajLLbRlaUza5dD5y07gseADfOFC0BGaKsDXnypPlajRqrwTmZ8dk7nJkDw==
+	bh=J0OEw/GSKx77XGtUbAB23+UicNIp5U85owX/oRbM6dg=;
+	b=dCvZwGeqsXjE06tFpc4tpP+6Lp+mqVhQyOznwM3IH+aKQ9YPQyJXZYTCYreWJWP86GplVl
+	7TgMRVkpohMpuXAxC3/z6fxjxlW1tjPM5rxVEXrnfEl0N0yHcmfQTvxU+1hDX+qwVpeyub
+	oyzjde376L7S72UDMajZaH4o7DbxiSGooN8uz3G5VgLb21WXWZBk4O3X63RSjGlvyJaO91
+	4yZ9MTG2fmfjGZ8+KQrfBr7+nYYfAHet8rYLjRGWCDzUiCNEpV1DXEydIZOZt0VLBNnLsC
+	2xewepCu8IGXafRO3f7dcDeYdwIn2nW4PQc5QuaZYF59JqbzeNcCz4UYJJ3LoQ==
 From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Thu, 24 Apr 2025 20:59:14 +0200
-Subject: [PATCH v2 07/34] drm/bridge: lt9611uxc: convert to
+Date: Thu, 24 Apr 2025 20:59:13 +0200
+Subject: [PATCH v2 06/34] drm/bridge: display-connector: convert to
  devm_drm_bridge_alloc() API
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250424-drm-bridge-convert-to-alloc-api-v2-7-8f91a404d86b@bootlin.com>
+Message-Id: <20250424-drm-bridge-convert-to-alloc-api-v2-6-8f91a404d86b@bootlin.com>
 References: <20250424-drm-bridge-convert-to-alloc-api-v2-0-8f91a404d86b@bootlin.com>
 In-Reply-To: <20250424-drm-bridge-convert-to-alloc-api-v2-0-8f91a404d86b@bootlin.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -80,13 +80,12 @@ Cc: Anusha Srivatsa <asrivats@redhat.com>,
 X-Mailer: b4 0.14.2
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvhedtvdehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeiieeuvdfftefgueduleehueetgffgjeeitedtteetkeeuueeuueekveevvdeuveenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegrgeeivdemudgsuggumeeluddtudemvdelgehfnecuvehluhhsthgvrhfuihiivgepgeenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegrgeeivdemudgsuggumeeluddtudemvdelgehfpdhhvghloheplgduledvrdduieekrddujeekrdduudekngdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeegtddprhgtphhtthhopehkrhiikheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghnughriigvjhdrhhgrjhgurgesihhnthgvlhdrtghomhdprhgtphhtthhopehjrghgrghnsegrmhgrrhhulhgrshholhhuthhiohhnshdrtghomhdprhgtp
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvhedtvdehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeiieeuvdfftefgueduleehueetgffgjeeitedtteetkeeuueeuueekveevvdeuveenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegrgeeivdemudgsuggumeeluddtudemvdelgehfnecuvehluhhsthgvrhfuihiivgepvdenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegrgeeivdemudgsuggumeeluddtudemvdelgehfpdhhvghloheplgduledvrdduieekrddujeekrdduudekngdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeegtddprhgtphhtthhopehkrhiikheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghnughriigvjhdrhhgrjhgurgesihhnthgvlhdrtghomhdprhgtphhtthhopehjrghgrghnsegrmhgrrhhulhgrshholhhuthhiohhnshdrtghomhdprhgtp
  hhtthhopehimhigsehlihhsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtohepmhgrrghrthgvnhdrlhgrnhhkhhhorhhstheslhhinhhugidrihhnthgvlhdrtghomhdprhgtphhtthhopefnrghurhgvnhhtrdhpihhntghhrghrthesihguvggrshhonhgsohgrrhgurdgtohhmpdhrtghpthhtoheplhhinhhugidqmhgvughirghtvghksehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepfhhrvggvughrvghnoheslhhishhtshdrfhhrvggvuggvshhkthhophdrohhrgh
 X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_115954_941939_7484149E 
-X-CRM114-Status: UNSURE (   9.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250424_115951_716254_986662BC 
+X-CRM114-Status: GOOD (  10.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,34 +105,35 @@ This is the new API for allocating DRM bridges.
 Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
- drivers/gpu/drm/bridge/lontium-lt9611uxc.c | 7 +++----
- 1 file changed, 3 insertions(+), 4 deletions(-)
+ drivers/gpu/drm/bridge/display-connector.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/gpu/drm/bridge/lontium-lt9611uxc.c b/drivers/gpu/drm/bridge/lontium-lt9611uxc.c
-index bb33c30d3f88878736815b270813a035222aead1..766da2cb45a7e2a79256185b8e2d3bd1eff3648f 100644
---- a/drivers/gpu/drm/bridge/lontium-lt9611uxc.c
-+++ b/drivers/gpu/drm/bridge/lontium-lt9611uxc.c
-@@ -775,9 +775,9 @@ static int lt9611uxc_probe(struct i2c_client *client)
- 		return -ENODEV;
+diff --git a/drivers/gpu/drm/bridge/display-connector.c b/drivers/gpu/drm/bridge/display-connector.c
+index 09c08a53d5bdc5c48f5d520472f5a311289d4862..badd2c7f91a186e9a47c5a4ddc870d269f3798ab 100644
+--- a/drivers/gpu/drm/bridge/display-connector.c
++++ b/drivers/gpu/drm/bridge/display-connector.c
+@@ -210,9 +210,10 @@ static int display_connector_probe(struct platform_device *pdev)
+ 	const char *label = NULL;
+ 	int ret;
+ 
+-	conn = devm_kzalloc(&pdev->dev, sizeof(*conn), GFP_KERNEL);
+-	if (!conn)
+-		return -ENOMEM;
++	conn = devm_drm_bridge_alloc(&pdev->dev, struct display_connector, bridge,
++				     &display_connector_bridge_funcs);
++	if (IS_ERR(conn))
++		return PTR_ERR(conn);
+ 
+ 	platform_set_drvdata(pdev, conn);
+ 
+@@ -362,7 +363,6 @@ static int display_connector_probe(struct platform_device *pdev)
+ 		}
  	}
  
--	lt9611uxc = devm_kzalloc(dev, sizeof(*lt9611uxc), GFP_KERNEL);
--	if (!lt9611uxc)
--		return -ENOMEM;
-+	lt9611uxc = devm_drm_bridge_alloc(dev, struct lt9611uxc, bridge, &lt9611uxc_bridge_funcs);
-+	if (IS_ERR(lt9611uxc))
-+		return PTR_ERR(lt9611uxc);
+-	conn->bridge.funcs = &display_connector_bridge_funcs;
+ 	conn->bridge.of_node = pdev->dev.of_node;
  
- 	lt9611uxc->dev = dev;
- 	lt9611uxc->client = client;
-@@ -856,7 +856,6 @@ static int lt9611uxc_probe(struct i2c_client *client)
- 
- 	i2c_set_clientdata(client, lt9611uxc);
- 
--	lt9611uxc->bridge.funcs = &lt9611uxc_bridge_funcs;
- 	lt9611uxc->bridge.of_node = client->dev.of_node;
- 	lt9611uxc->bridge.ops = DRM_BRIDGE_OP_DETECT | DRM_BRIDGE_OP_EDID;
- 	if (lt9611uxc->hpd_supported)
+ 	if (conn->bridge.ddc)
 
 -- 
 2.49.0
