@@ -4,95 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFE2DC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 18:51:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CD5AC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 18:52:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AUW1+wM6wE9E5sI+N8I+dqVg9GKImy6JdTSSO/EwCtg=; b=hoOYQaAPMkJg3QpDTEVoYx8we8
-	kzSFkChHIrEhgvWiXxRfpne0VfoSl9ChCv9IQrsnNxPrV8+FtYocCHNe7LpnKtD+w5npMXFDzudH9
-	KzO+mXHI+rbvL+HVtsHIe3x06bwBxEt3P2T6aT3n310LaI/PQHxJzdrV0TY/Eu0FfnQNZ+RNoGap2
-	JwyRG61mwu1oQz6Pu0Z2HSf7O/p1OtkZe4OIQEsim/v8UwvibXLb8g5Fl8OyMLdgNeJX9N+ye1oA7
-	r0R2A3yzxeV4umH6nnmGviAvxCbZ/ypa75AXnLIjuLZBS9376uSwhzxktxUU7cHsw4lZO8jLWuoIS
-	hOcs722w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=PmRnlbEicfo57AAZvezn0z0uuZ1cfiLTFbR9RI0t2I8=; b=gfjuYfhZaqBcZ3
+	DVZuuhb53zmPSdMPNIQn8BwU8Kq1Q5iHGmcqXXkb8/q5bBUx+M4/bISFN9fka26Z2HH63x/eftE9F
+	Y/g+NGwC3ZnPVCZJoY4CJCAq/chI+2j6RNgtX4vVBxJXOytqG2A/r2t9lpS5NKnn1XyTPnd+mxyCb
+	Z6BGewfDO1/jKgCTFP2j7H4kmYRMslklyNrYrkwwya4Q4ewyPwUMTkvg1CnMbqnY/WwHOpBySVreq
+	aDpps99oWNhkGYHkZKpPZkJqs5WIgqV1XH/gXAyPq5mIvti7VTdDTmlJaJXp5vN68BPZoYLKLbOcs
+	MaA5PJgowmNoelUKq0zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u81f0-0000000F51b-48oU;
-	Thu, 24 Apr 2025 18:50:58 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1u81gO-0000000F5D0-34Ro;
+	Thu, 24 Apr 2025 18:52:24 +0000
+Received: from mail-lj1-f170.google.com ([209.85.208.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u81T5-0000000F39L-1Htp
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 18:38:40 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43cf0d787eeso15689575e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 11:38:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745519917; x=1746124717; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AUW1+wM6wE9E5sI+N8I+dqVg9GKImy6JdTSSO/EwCtg=;
-        b=kKiTtbZ0z1yQYH59Gw4dGNajItHhnxfsZXE5/OJMX+8GmaUFH9/DIRPzpj8V5z2Oc2
-         k+K2hNDhjHR/4iJY3Priu/KkA7uTu5lWzM33jUBhtNr85qJVagR05U68sQ4tcA07vg0h
-         L6+70ORXW5dCiwsUWsd7ogbYhO8YlMctDFyM/sSTIqw3YcLBIMQExTsBHET2oMhNsVBk
-         PYGEYITKw8IVNw4I7977ZzVBQshA4mIM+QcoJUYM0qZT8VGRT8DgEl625Y9ChO0NMhX0
-         XE1GRig9Eoe6dEx4NBiQir310YMAOFoM9Ebjp0c/HwIv86g0eLRzk076B+ZF/zSejkYF
-         Yu5w==
+	id 1u80be-0000000EwHp-0Nj9;
+	Thu, 24 Apr 2025 17:43:27 +0000
+Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-30f30200b51so15978221fa.3;
+        Thu, 24 Apr 2025 10:43:25 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745519917; x=1746124717;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=AUW1+wM6wE9E5sI+N8I+dqVg9GKImy6JdTSSO/EwCtg=;
-        b=YK3aMAmFRn+9d0zxejhldfwN+rpAFRMJvAZPagJqyBylfG3msvaQXtGqj+aUVMCumF
-         L3l3dGDd7XFLE94THTOm8qnUnrOgZ5laX4Vmm2myIfmgg4rDigIigKvgjbLwIb9GxKmf
-         4vWdyNXA9IxCDuo0mHwLWfmOc0ixqaQgljtIzsxP8ru/YkY0I/mKoLDkzu9N8KET8/XT
-         /SpMbE/NCidi7zAoghgO+RDTet5AoaJjQHkqvlVKKQviMvT6diL400grBrFsas72Vxtz
-         lYVa5BiOtdqidzQsnSZgGjqbFXJ9yZnSBGyPEyBG3K1XWm+jKwty+KPpwPHgReRyqDnp
-         8sQg==
-X-Forwarded-Encrypted: i=1; AJvYcCWoPV4Na+l9DLJX+toMKPFgSouvGO+A1ml13zVk3NSbk6h8FHnPp/taI7G3Uh4kXsjfjU1NozGuRpTD63aSBw0d@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVdc4IuMmq398uNwddaHU2HPPvWNGODhNZXsJniaU0+kCix1lB
-	voANCn5vPIEOfOk3C7uJnjz20s9NS6h/Z/ZRC90BdZ3i2o49pXRu
-X-Gm-Gg: ASbGncsLfZDc/5gANz7JBU4a5cW1kPkuWrU9tKVXLOvSLgrNeFHeWWlvH79ale64CUR
-	vNMIIb3E14cn5aZiPo2nfm3joXwvS2aUC02ubSqtGqMV0ZPMph57MZToiaKw7gaPSHc/VPxvSbt
-	yI4D80BiQjBbYzOuE3Ibwt8PfyHeJJUPcYExkXtzokM18F8d14dzOMHtKCTe2vagC6SLlpd9NwM
-	ao+SX2am72pPA61GIwuUN7peCwFQxGi7+75vZMNklp7CHuE95T9mPFyIly0OJOz8iXrX3GVrMeH
-	qg49EGJQZJkbST55ZoW+DsbsP+cbFIyqr7wb0UbKoJX0++dfqUthAceNQJSAdqJIl23FaqXsDxb
-	KtSyH0pNdQgpmWTlH
-X-Google-Smtp-Source: AGHT+IEpAoErom85lXT+Ms+IZ5Pa5nv4OGyWLcc9eT62MXW2E/nESWqqbOj69cX0qNLPlyMUh70Wzw==
-X-Received: by 2002:a05:600c:1e0a:b0:43c:fe85:e4ba with SMTP id 5b1f17b1804b1-440a3112c9cmr7440655e9.15.1745519916942;
-        Thu, 24 Apr 2025 11:38:36 -0700 (PDT)
-Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a073e464eesm35491f8f.68.2025.04.24.11.38.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Apr 2025 11:38:36 -0700 (PDT)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>, Andre Przywara <andre.przywara@arm.com>
-Cc: Yixun Lan <dlan@gentoo.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>,
- Maxime Ripard <mripard@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- netdev@vger.kernel.org, clabbe.montjoie@gmail.com
-Subject: Re: [PATCH 4/5] arm64: dts: allwinner: a527: add EMAC0 to Radxa A5E board
-Date: Thu, 24 Apr 2025 20:38:34 +0200
-Message-ID: <4643958.LvFx2qVVIh@jernej-laptop>
-In-Reply-To: <20250424150037.0f09a867@donnerap.manchester.arm.com>
-References: <20250423-01-sun55i-emac0-v1-0-46ee4c855e0a@gentoo.org>
- <4ba3e7b8-e680-40fa-b159-5146a16a9415@lunn.ch>
- <20250424150037.0f09a867@donnerap.manchester.arm.com>
+        d=1e100.net; s=20230601; t=1745516601; x=1746121401;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=PmRnlbEicfo57AAZvezn0z0uuZ1cfiLTFbR9RI0t2I8=;
+        b=UNHedOhPxv/QXoZZLib/ypV/scVzNj3el057Vt8XUmPQ0tjiD8MS7G28Jg7CycZ9ET
+         nr6fMhqnsP8xmNbcVkzfDoPE4APeX7biD21KKGsqtUT4zRbv6/NwcztOq4cee/x5qfTU
+         oGRsl+kP5e3EV45yIJv29wl8lIzZ4/DZ7+4G96i9vK0IhaJh/DJrFySiQnlgrwN4mlsc
+         pAFiL35pu4jZiVIy0aWOdjYIMOqn2Eq1JOH849a6cPsqGKWkvKJ6EaCCANvcxxKBzxRD
+         R+8yiuphvIaBQAli8qAtGAy2gNw9yKAaHdsM189Dzk7kB70caaidxspDyh8mMZ8Wydlg
+         Rg6Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWyicKYapHsuCOm5tPgmV9FxKsSnueMiY9ck6I5EGEZBHQAQu4FAW1ZSTBXQuVVGKuuXeAU+/2+s/rVLJvZpOcPvg==@lists.infradead.org, AJvYcCXRFIqdgb9NXGiZ1rOXXh60mSQsKNSeCB/PNLimRR94rNe6CdQs+ZpfvIbNzG/22475Wc5M3Hd/5NkH7dpQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzCS+eZJUPORxtYrQZbwf3V1Pmu89GGKDmfGhBqQD+lNrOgZ3+u
+	qq8D87xH6dSyK2ONUdcDWTprvGoLi7MIw+ESu74q+DD8g6Vx5W3rTPv7nkgR
+X-Gm-Gg: ASbGncsprl4Fg1BI7/bLctcbymcc9SCFAWWDBoRQH8T7e9lhNePUtWgzLxfUB/hsLSm
+	dvA2KJdbBRU/9N0KVBpBre0H62nOmPjhKGLUpXwqRVeSYhIAhdh4YWRJLFEB0GOoB8UN1UM53oe
+	4zqTaF486e+7Em3TNsa114XhX0LiszJ1suBf5bVUE8F2znorrIQsRzXIqtnTfsenS56Sh1DLDS/
+	Clp4+Tgp8uuxI9SnIRrPBnpIuqJd6Zeawep1vtrwU/w/FSNd7/gZ3T3dhCL5PogE9C3eBjMktPU
+	DgTNPO3tHtgH6E1870LRPCu4a/xJTE402aznnh+dxWmjC5Qlm4jZgIL8iIM0SSKhRBYjpA==
+X-Google-Smtp-Source: AGHT+IE2POU3GAEGj3/zM4dVQxU2TcerHK1l+2EH1zon9hJrjTdXElXvuU1u+7Bu0Vr88tcRf5YfWA==
+X-Received: by 2002:a05:651c:30c1:b0:30a:4428:dead with SMTP id 38308e7fff4ca-318a928b000mr2102851fa.27.1745516601267;
+        Thu, 24 Apr 2025 10:43:21 -0700 (PDT)
+Received: from mail-lf1-f41.google.com (mail-lf1-f41.google.com. [209.85.167.41])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-317cfa53c84sm3449101fa.25.2025.04.24.10.43.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 24 Apr 2025 10:43:20 -0700 (PDT)
+Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5499614d3d2so1349516e87.3;
+        Thu, 24 Apr 2025 10:43:20 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCV2G3skYlbKruE4vX9UhXeCcqRCDR3JSgey4T09KmHWdjxRv501TQiCTZ2i5TW+Q1SPQdP2KPRwYOOnzDp69F+eLQ==@lists.infradead.org, AJvYcCWujEmmF79OsCSZs/izXJ+/vcIInM2cledyChPxt5WWkW4Su7ZeuVrK+HPd3UZpjZzbwf/bwt09KV/i15Wu@lists.infradead.org
+X-Received: by 2002:a05:6512:2310:b0:540:2fd2:6c87 with SMTP id
+ 2adb3069b0e04-54e8977aeb9mr70103e87.16.1745516600353; Thu, 24 Apr 2025
+ 10:43:20 -0700 (PDT)
 MIME-Version: 1.0
+References: <20250424-gpiochip-set-rv-pinctrl-part2-v1-0-504f91120b99@linaro.org>
+ <20250424-gpiochip-set-rv-pinctrl-part2-v1-2-504f91120b99@linaro.org>
+In-Reply-To: <20250424-gpiochip-set-rv-pinctrl-part2-v1-2-504f91120b99@linaro.org>
+From: Chen-Yu Tsai <wens@csie.org>
+Date: Fri, 25 Apr 2025 01:43:07 +0800
+X-Gmail-Original-Message-ID: <CAGb2v67jH2G_i51fg3T7qu2dDtj7FqUO7q9pBJJw_uKhdGV6uQ@mail.gmail.com>
+X-Gm-Features: ATxdqUHeMGKXwILdemaV4iIduxoy9n-SC7kRH607ob8j4Z0cm-iXg78WkqCwkx4
+Message-ID: <CAGb2v67jH2G_i51fg3T7qu2dDtj7FqUO7q9pBJJw_uKhdGV6uQ@mail.gmail.com>
+Subject: Re: [PATCH 02/12] pinctrl: axp209: use new GPIO line value setter callbacks
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Basavaraj Natikar <Basavaraj.Natikar@amd.com>, Shyam Sundar S K <Shyam-sundar.S-k@amd.com>, 
+	Linus Walleij <linus.walleij@linaro.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, =?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, 
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Paul Cercueil <paul@crapouillou.net>, 
+	Steen Hegelund <Steen.Hegelund@microchip.com>, Daniel Machon <daniel.machon@microchip.com>, 
+	UNGLinuxDriver@microchip.com, 
+	Ludovic Desroches <ludovic.desroches@microchip.com>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Sylwester Nawrocki <s.nawrocki@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-actions@lists.infradead.org, 
+	linux-mips@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_113839_349595_D9C26173 
-X-CRM114-Status: GOOD (  30.91  )
+X-CRM114-CacheID: sfid-20250424_104326_128799_95A24524 
+X-CRM114-Status: GOOD (  18.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,111 +105,101 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-cc: Corentin LABBE
+On Thu, Apr 24, 2025 at 4:35=E2=80=AFPM Bartosz Golaszewski <brgl@bgdev.pl>=
+ wrote:
+>
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+>
+> struct gpio_chip now has callbacks for setting line values that return
+> an integer, allowing to indicate failures. Convert the driver to using
+> them.
+>
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> ---
+>  drivers/pinctrl/pinctrl-axp209.c | 29 +++++++++++++----------------
+>  1 file changed, 13 insertions(+), 16 deletions(-)
+>
+> diff --git a/drivers/pinctrl/pinctrl-axp209.c b/drivers/pinctrl/pinctrl-a=
+xp209.c
+> index 2b4805e74eed..28ff846d263a 100644
+> --- a/drivers/pinctrl/pinctrl-axp209.c
+> +++ b/drivers/pinctrl/pinctrl-axp209.c
+> @@ -192,34 +192,31 @@ static int axp20x_gpio_get_direction(struct gpio_ch=
+ip *chip,
+>  static int axp20x_gpio_output(struct gpio_chip *chip, unsigned int offse=
+t,
+>                               int value)
+>  {
+> -       chip->set(chip, offset, value);
+> -
+> -       return 0;
+> +       return chip->set_rv(chip, offset, value);
+>  }
+>
+> -static void axp20x_gpio_set(struct gpio_chip *chip, unsigned int offset,
+> -                           int value)
+> +static int axp20x_gpio_set(struct gpio_chip *chip, unsigned int offset,
+> +                          int value)
+>  {
+>         struct axp20x_pctl *pctl =3D gpiochip_get_data(chip);
+>         int reg;
+>
+>         /* AXP209 has GPIO3 status sharing the settings register */
+>         if (offset =3D=3D 3) {
+> -               regmap_update_bits(pctl->regmap, AXP20X_GPIO3_CTRL,
+> -                                  AXP20X_GPIO3_FUNCTIONS,
+> -                                  value ? AXP20X_GPIO3_FUNCTION_OUT_HIGH=
+ :
+> -                                  AXP20X_GPIO3_FUNCTION_OUT_LOW);
+> -               return;
+> +               return regmap_update_bits(pctl->regmap, AXP20X_GPIO3_CTRL=
+,
+> +                                         AXP20X_GPIO3_FUNCTIONS,
+> +                                         value ?
+> +                                               AXP20X_GPIO3_FUNCTION_OUT=
+_HIGH :
+> +                                               AXP20X_GPIO3_FUNCTION_OUT=
+_LOW);
+>         }
 
-Dne =C4=8Detrtek, 24. april 2025 ob 16:00:37 Srednjeevropski poletni =C4=8D=
-as je Andre Przywara napisal(a):
-> On Thu, 24 Apr 2025 14:57:27 +0200
-> Andrew Lunn <andrew@lunn.ch> wrote:
->=20
-> Hi Andrew,
->=20
-> > > > Just to be clear, you tried it with "rgmii-id" and the same <300> a=
-nd
-> > > > <400> values? =20
-> > >=20
-> > > Yes, sorry, I wasn't clear: I used rgmii-id, then experimented with t=
-hose
-> > > values. =20
-> >=20
-> > O.K, great.
-> >=20
-> > I do suspect the delays are not actually in pico seconds. But without
-> > a data sheet, it is hard to know.
-> >=20
-> >        if (!of_property_read_u32(node, "allwinner,rx-delay-ps", &val)) {
-> >                 if (val % 100) {
-> >                         dev_err(dev, "rx-delay must be a multiple of 10=
-0\n");
-> >                         return -EINVAL;
-> >                 }
-> >                 val /=3D 100;
-> >                 dev_dbg(dev, "set rx-delay to %x\n", val);
-> >                 if (val <=3D gmac->variant->rx_delay_max) {
-> >                         reg &=3D ~(gmac->variant->rx_delay_max <<
-> >                                  SYSCON_ERXDC_SHIFT);
-> >                         reg |=3D (val << SYSCON_ERXDC_SHIFT);
-> >=20
-> > So the code divides by 100 and writes it to a register. But:
-> >=20
-> > static const struct emac_variant emac_variant_h3 =3D {
-> >         .rx_delay_max =3D 31,
-> >=20
-> >=20
-> > static const struct emac_variant emac_variant_r40 =3D {
-> >         .rx_delay_max =3D 7,
-> > };
-> >=20
-> > With the change from 7 to 31, did the range get extended by a factor
-> > of 4, or did the step go down by a factor of 4, and the / 100 should
-> > be / 25? I suppose the git history might have the answer in the commit
-> > message, but i'm too lazy to go look.
->=20
-> IIRC this picosecond mapping was somewhat made up, to match common DT
-> properties. The manual just says:
-> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-> 12:10  R/W  default: 0x0 ETXDC: Configure EMAC Transmit Clock Delay Chain.
-> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
->=20
-> So the unit is really unknown, but is probably some kind of internal cycl=
-e count.
-> The change from 7 to 31 is purely because the bitfield grew from 3 to 5
-> bits. We don't know if the underlying unit changed on the way.
-> Those values are just copied from whatever the board vendor came up with,
-> we then multiply them by 100 and put them in the mainline DT. Welcome to
-> the world of Allwinner ;-)
+I guess you could also drop the curly braces, but otherwise
 
-IIRC Corentin asked Allwinner about units and their response was in 100 ps.
+Reviewed-by: Chen-Yu Tsai <wens@csie.org>
 
-In my experience, vendor DT has proper delays specified, just 7 instead of
-700, for example. What they get wrong, or better said, don't care, is phy
-mode. It's always set to rgmii because phy driver most of the time ignores
-this value and phy IC just uses mode set using resistors. Proper way here
-would be to check schematic and set phy mode according to that. This method
-always works, except for one board, which had resistors set wrong and
-phy mode configured over phy driver was actually fix for it.
-
-Best regards,
-Jernej
-
->=20
-> And git history doesn't help, it's all already in the first commit for th=
-is
-> driver. I remember some discussions on the mailing list, almost 10 years
-> ago, but this requires even more digging ...
->=20
-> Cheers,
-> Andre
->=20
->=20
->=20
-> >=20
-> > I briefly tried "rgmii", and I couldn't get a lease, so I quite
-> > > confident it's rgmii-id, as you said. The vendor DTs just use "rgmii"=
-, but
-> > > they might hack the delay up another way (and I cannot be asked to lo=
-ok at
-> > > that awful code).
-> > >=20
-> > > Cheers,
-> > > Andre =20
->=20
->=20
-
-
-
-
+>
+>         reg =3D axp20x_gpio_get_reg(offset);
+>         if (reg < 0)
+> -               return;
+> +               return reg;
+>
+> -       regmap_update_bits(pctl->regmap, reg,
+> -                          AXP20X_GPIO_FUNCTIONS,
+> -                          value ? AXP20X_GPIO_FUNCTION_OUT_HIGH :
+> -                          AXP20X_GPIO_FUNCTION_OUT_LOW);
+> +       return regmap_update_bits(pctl->regmap, reg, AXP20X_GPIO_FUNCTION=
+S,
+> +                                 value ? AXP20X_GPIO_FUNCTION_OUT_HIGH :
+> +                                         AXP20X_GPIO_FUNCTION_OUT_LOW);
+>  }
+>
+>  static int axp20x_pmx_set(struct pinctrl_dev *pctldev, unsigned int offs=
+et,
+> @@ -468,7 +465,7 @@ static int axp20x_pctl_probe(struct platform_device *=
+pdev)
+>         pctl->chip.owner                =3D THIS_MODULE;
+>         pctl->chip.get                  =3D axp20x_gpio_get;
+>         pctl->chip.get_direction        =3D axp20x_gpio_get_direction;
+> -       pctl->chip.set                  =3D axp20x_gpio_set;
+> +       pctl->chip.set_rv               =3D axp20x_gpio_set;
+>         pctl->chip.direction_input      =3D pinctrl_gpio_direction_input;
+>         pctl->chip.direction_output     =3D axp20x_gpio_output;
+>
+>
+> --
+> 2.45.2
+>
 
