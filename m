@@ -4,141 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D87BBC369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 09:05:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3B51C369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 09:07:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wyD1ibYwZZNQjABTauO+kWeZmIcgNLsOAbjC6l1tSrA=; b=dNJIeEUZnqSX3N3DcTK1wcYZJ+
-	l/UvmVgCmWsWvqxVnOHSSN1YlRvtwyb/bOPxwxlAn4CfyvJBzluIrJy5CLwzpauA0fKvk2huEZpif
-	Thh4BbJqWg2U2QPEJh/PCem3JOU4lSV4nxKSubFBhxhStAEA0KDDJMnsY8U0ZpDeXTZRTnjU2W7Sx
-	GhBk6rsii4aMUCyCuFpLhmvZEIU777PtU3ekywA5pxW+4RgjoDMn9O+gXLEfE7enkb6Sd1Crwi01P
-	mKh/MH6BxOAU+RxzGteIqdI/ZF8UviKYTJQaVdV4E7fXX86rPhniVRqtyqXyflz6LUj89qaQOn7fJ
-	560LrFiw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ziXtyaZN5bmoBDmr/R61NXBEs5KsMcbVvQqVoZIm3Nk=; b=ucWzX6+bywgKP0Iltm5nFzl1Di
+	GhSJE4KT7tjpbwOv+GOOfL1e42m3wk7ffPucJeOMb6TTUUN5McWRtgbiLlBr0syQWbDCWylCK5CRp
+	g4/LYk0W5fFpahTiLLLnWneJZkAzhAWr01Tqv+OyuElJxJcFTYozXi03JuzFWZ+1MletKyJzKpSfj
+	6RuY7EjUw4uW1TqsXE9dg+R6M44GhWRLzRC/8zmLomR0NfPgSzsqtxoxD9JwdLx55G6oZBeOD/LHw
+	LLveKDApoPBH0dCK859Jds3NAvcSAkD5BmlfYDt54LuwFxSB6ymPXYEctW68Vtcnbsjd1GwZ4z1pJ
+	8dYHpYhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7sWk-0000000DRmT-2Lmp;
-	Thu, 24 Apr 2025 09:05:50 +0000
+	id 1u7sY9-0000000DS4Y-0Kun;
+	Thu, 24 Apr 2025 09:07:17 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7s3w-0000000DLDz-0rmZ
+	id 1u7rQw-0000000DGDP-0FwZ
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 24 Apr 2025 08:36:04 +0000
+	Thu, 24 Apr 2025 07:55:46 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=wyD1ibYwZZNQjABTauO+kWeZmIcgNLsOAbjC6l1tSrA=; b=rfqWMl0zJjWra8vrhczPl6Ct89
-	GjurpJw1Bl9guWLkJmGIYFs3ZEBqh+WLdInJUJPXYtb7zpGs/N897T4ZlIhtQCghbPWSVKAnoilCB
-	XQw7YftpXlhl/dMc9gF839WtKwlBEOUwrpuKOCCRqWrEQyOcMdyPZgw1RiU/Ck0ptA4S66CPZVbv7
-	mmXqwbYCrplkfHojb1ocDH2uO5SY8ycqf4NK6p3CpW9Oiko3PRclXwtPmWa29tJm5rNulXKJvS9WE
-	kRob8yWdax3yGJmir/6dhmK7Zcw8YVyYi7hiR1KvbxnVHXBjm18G1wsDV2/jyL3iYeuupk68NBrIV
-	+VPXZWrA==;
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=ziXtyaZN5bmoBDmr/R61NXBEs5KsMcbVvQqVoZIm3Nk=; b=Y74FxvuGsTh8easITSTiMQVIwd
+	94Hx1lLSgiPoN+jHZLi3EHwYoUaxL28Q+VRsUyRNxlvFEOZpvUT2h0l29a0nhZVKI+Ab4VVuGwiGl
+	A9/tcuqrlE5PYXFk9zH3uqFIgU3+m2Bs5trBqwK5wQxjgEqY1P+LHR0kiHUukgRXOP1aycKMuio9b
+	jtIp1ncrya/zZL0uCvVgIewgyhtY2yGCScBL7b2nQA+aISvJBn+gkbOFVwUjarN7FTNxLviygG8Mf
+	UBdjBqBHr1B8l3x1DUxLer7ciL7o/HUJlN2b4iCBuS4c5FFCPsJur4brOepq9J/+z9lwYwH8gMTT7
+	kphQCTAw==;
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u7s3t-0000000BcmM-2H2J
+	id 1u7rQs-0000000BaeQ-46CU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 08:36:03 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43edecbfb94so6378975e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 01:36:01 -0700 (PDT)
+	Thu, 24 Apr 2025 07:55:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1745483760; x=1746088560; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=wyD1ibYwZZNQjABTauO+kWeZmIcgNLsOAbjC6l1tSrA=;
-        b=T8KRrWY5SlzR/zup5EUGvfKMI2CFcnICLXxPx3XKjgv6+qLKGtUBg7HNLEftZGZjCT
-         6AIFWjyfwKAld/rMtYUHguoOnkTwNXda5Ew1lTOd0Wwai3xPA506Dai34rXEEbwSp+CY
-         KTIXW0Ez4ccS1jZBKjGHG/s41pTx6HZZN34aPY7wNy2KFtd2THUa5LGyT66/h8JkMRt0
-         dug/fG+lIFo2/D+7RiMkkObEi7dN97bcGLexoL0wVJTSmB5esb26XayhIAlnJ68AQRpm
-         D5XD+ZeT3gLIGc42DFiocODxb3KJ8cAYLUYEQaNkLPectpuWNfiMnp77F7x/mZ41VUOK
-         DGeg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745483760; x=1746088560;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=wyD1ibYwZZNQjABTauO+kWeZmIcgNLsOAbjC6l1tSrA=;
-        b=DoUjTMvnAQcedMLVdAQV3pH2pi9MxBik7fRvp7xt2AalXCpfnVJK8lOyhKneisXSd+
-         fIU6gU1PAiobtjsH6wrc517xme1UoR4i7slVxCVsNgPuCTjcRqCZH7S+DrVearOnl3VX
-         8CTffqS1KrcFfhz21Wk+nHgEI0N1Z2x5pqi+Tlu/Baxm5+xNebODkjv13zaANk9t/11h
-         c5InwDGduCp6rJHfotqgyBOtfNnCU9wcyLrL7xHn8FSJR+tBprnwc4GMbUFjd4WZ1HoT
-         yXJ4mv//YGWlWXZ5OAvPPjuPQwYvUxTJkP66W2kuyA4i9ZyHO61KLJEbNSzmYEmFyrt9
-         6dqQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVhtMj8dYy+SFUejXGq7HhQ2dvW0mJHuoSOgGdp17xct0OVNpJlQ+M//LyHEp/y1Xx+4CGXQQHEy0XgiMjg04vO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+wEX73iunYhoS4C+74bzfhZjPrf3nUE5WlwocFBIF0UmRs/Rx
-	q3gw+tDq11UZHFdP69LsrZ9natECibOQ5YX7GIbrZlr4Ycxa1leCIZz/RL7FxV8=
-X-Gm-Gg: ASbGncvJmjzkr8egvH0VD1FIFhCRWI3cHEKszRN+l7YrFE9n/6cnnZ8bpoM3tN+Wv/5
-	kalJ3F/6X2WphyW1QIACbFxeBJwWmH1D9r1efKRfLyiQ8UtZmcz4CMhwV+GsA+sFljd2iOzhgp2
-	WNSshC/mMpdoP5kUUnHett9k4EqLiKGe5BKZOPK3xf++pr7Mvwh+4Ls5bf6a3eCHcQYmqmHgY82
-	FLAZObA6XS0I5DXkiYnfaVOcsCX7Tn3BLa5xm3EyHjn0EDV3hP+3wlEnXxCGjCQZSKt2Fu8Q3kV
-	BMhFxWw60f0XBugy6zD0Lyo+1Wn8/7NqOkW4UncXYGrM
-X-Google-Smtp-Source: AGHT+IH6QOMYk+VJrhRN0zGGVgIfy1D2k+1MN8UGZUw2MzoHJ3Lm78KvUsSoh9H7JaBXZAa1kpHpxw==
-X-Received: by 2002:a05:600c:1d02:b0:43c:fbbf:7bf1 with SMTP id 5b1f17b1804b1-4409bdb032cmr18240795e9.30.1745483760212;
-        Thu, 24 Apr 2025 01:36:00 -0700 (PDT)
-Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:6266:7750:57ce:7cb4])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a06d54ee11sm1295376f8f.97.2025.04.24.01.35.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Apr 2025 01:35:59 -0700 (PDT)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Thu, 24 Apr 2025 10:35:35 +0200
-Subject: [PATCH 12/12] pinctrl: samsung: use new GPIO line value setter
- callbacks
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1745481342; x=1777017342;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=ziXtyaZN5bmoBDmr/R61NXBEs5KsMcbVvQqVoZIm3Nk=;
+  b=pPLKInOLrf4RmfWmllKB4Q1w1WbwE8SnroWnhpvOC8eK68KSyHDK3Yu0
+   m0+/31SiOcXc3fM3x73c1sEvS6HKjxEbETZr6ysEDc8fyHk/WFj+jePXL
+   nEixDznhBAbmwa1NLFEtiCiW/aH4SjEeOTraaBjdwFBsEwJHN0mo+cOJa
+   7WTpKZ8ByrR3N20WqE558dsb5QgBmBPtxJCZR5eUEc6q3YhhByfQ80W56
+   f6XBhrkx3o+RZzmNE3bauTxwUmISneOKvJUUtek7PZebTkSzSG1wGOJtF
+   RIBPvmOXp4fJE9kt7lpPNd0vbJ4FITmPoGD9d7DWrMZnq5TGwWGjrNxc0
+   w==;
+X-CSE-ConnectionGUID: 8Fe9Dkv8QgOz+fFRgcfRoA==
+X-CSE-MsgGUID: U06klpP9SjavAFBgeWvsbg==
+X-IronPort-AV: E=Sophos;i="6.15,235,1739833200"; 
+   d="scan'208";a="43691655"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 24 Apr 2025 09:55:41 +0200
+X-CheckPoint: {6809EE7D-6-2417938-F0170C2B}
+X-MAIL-CPID: 70C2A69BD9BA4968A346425B2DD05DE9_2
+X-Control-Analysis: str=0001.0A006371.6809EE7E.0070,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 11AAC16117A;
+	Thu, 24 Apr 2025 09:55:36 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1745481336;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=ziXtyaZN5bmoBDmr/R61NXBEs5KsMcbVvQqVoZIm3Nk=;
+	b=pERHcMbugIBYZirMjTG3JOmUw/cYZ9K7rko1CiSmwZZn6eaJQ3RDNXmAvs3gpj7YiR74ws
+	SPxXvUkuO7Dg/fcow7b8q1FrnlUzpWvQcsLFVNU3iFoT0eKoAKxX6B7F1+2ZCEQTNm5Jtu
+	ECGS0S+MMOZUxdVLmmFxSO29VZWPLlN3iNx6yREJyrqOSAR5ecBO8oWUKOx38wnMa0vNQX
+	SFRVpZwtOJA8OTyubF/LugRhcirZpkxPRCz2Xxrq3eOKEN4z7C4OuumsBROvBVs1mH4j1M
+	gvUavv4eXCMTrMoyf0wkA9DLeBj5+H/bB6XFdiH37rdl2yQQT1O2exn5klgQYQ==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>
+Cc: Markus Niebel <Markus.Niebel@tq-group.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux@ew.tq-group.com,
+	linux-renesas-soc@vger.kernel.org,
+	Alexander Stein <alexander.stein@ew.tq-group.com>
+Subject: [PATCH v2 1/2] dt-bindings: arm: add TQMa8XxS boards
+Date: Thu, 24 Apr 2025 09:55:29 +0200
+Message-ID: <20250424075533.1266435-1-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250424-gpiochip-set-rv-pinctrl-part2-v1-12-504f91120b99@linaro.org>
-References: <20250424-gpiochip-set-rv-pinctrl-part2-v1-0-504f91120b99@linaro.org>
-In-Reply-To: <20250424-gpiochip-set-rv-pinctrl-part2-v1-0-504f91120b99@linaro.org>
-To: Basavaraj Natikar <Basavaraj.Natikar@amd.com>, 
- Shyam Sundar S K <Shyam-sundar.S-k@amd.com>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, Chen-Yu Tsai <wens@csie.org>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- =?utf-8?q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, 
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
- Paul Cercueil <paul@crapouillou.net>, 
- Steen Hegelund <Steen.Hegelund@microchip.com>, 
- Daniel Machon <daniel.machon@microchip.com>, UNGLinuxDriver@microchip.com, 
- Ludovic Desroches <ludovic.desroches@microchip.com>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, Andrew Lunn <andrew@lunn.ch>, 
- Gregory Clement <gregory.clement@bootlin.com>, 
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-actions@lists.infradead.org, 
- linux-mips@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1963;
- i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=eG2KW5x0cqyXDN96Y9D3KPo3rE0JJ5CGRPpl+iXxy5M=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoCffdVG5Ygxdkgp3G4S/J2z4z5Tlan+vD7V30h
- TZ7h0V/5sqJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaAn33QAKCRARpy6gFHHX
- cjrUD/4wlY3EyRbxHX7pcMIAP/3DRyfsZNReCKH3ZrZK01gpg0foFUc8R9H0I7tpjEjSAcAY76v
- HT6Cav5kSBB36HXaJHFnbS5jDeLX1My/AARxYsg4hUeZMPsEdhdyug5NLPV4v9U5qGYyscWQJyQ
- IwWtL5S1/tZAIxzE73GS7fBnvaLvxdKHbO+ihsBKDN+CICZsABKHeqmX8HC/mpf/Pn3VZDLdxw/
- v370ttF11vBuDqxQFqucfxlUgG44NsRTH7slXcpLFqsmYFiyQ+60Kr8qtR4uG0wjgcD84YTAWTA
- jnMOBMJyWoX60aJoqOu+7ntHGuUA7AfUId1TflJw4qGZZhayvH7YZWSFpZChBh+R4GzP2lrJnH1
- /l3WSICXjyuCbO00KEg0M/ETEdHzDfqcXsC++m0uUp+XVVbx+NvevmZ076l6BhVpake9w8udGP+
- Y6lwhiWZ8sd+/nec1W16T+R/feEwjS3Uv+zzSP+uImKmEA6Rt/EFeZ0kppvf1XgXTXagAHYRfnq
- AX4Z1SXHpFfCHXYrPNMxv8w2uM1/eIljOwRAW3Xye5WYWe5bWWR/tmOB8O64R331D1+UTdeTv/x
- ZuaGKlVB7ySPckXnPWzWBP1UHZQiR7DAHXC2juTTX1w+v4NAGx137CcqLE/rrfEgbdhjBoA9iFy
- +HWM7daAr7IScLg==
-X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
- fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_093601_698000_2B85B77A 
-X-CRM114-Status: GOOD (  13.71  )
+X-CRM114-CacheID: sfid-20250424_085543_212729_D2403737 
+X-CRM114-Status: UNSURE (   7.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,63 +120,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+From: Markus Niebel <Markus.Niebel@tq-group.com>
 
-struct gpio_chip now has callbacks for setting line values that return
-an integer, allowing to indicate failures. Convert the driver to using
-them.
+TQMa8XxS is a SOM series featuring NXP i.MX8X SoC.
+They are called TQMa8XQPS and TQMa8XDPS respectively.
+MB-SMARC-2 is a carrier reference design.
 
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Signed-off-by: Markus Niebel <Markus.Niebel@tq-group.com>
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- drivers/pinctrl/samsung/pinctrl-samsung.c | 13 +++++++++----
- 1 file changed, 9 insertions(+), 4 deletions(-)
+Changes in v2:
+* Collected Rob's A-b
 
-diff --git a/drivers/pinctrl/samsung/pinctrl-samsung.c b/drivers/pinctrl/samsung/pinctrl-samsung.c
-index ef557217e173..fe1ac82b9d79 100644
---- a/drivers/pinctrl/samsung/pinctrl-samsung.c
-+++ b/drivers/pinctrl/samsung/pinctrl-samsung.c
-@@ -570,15 +570,18 @@ static void samsung_gpio_set_value(struct gpio_chip *gc,
- }
+ Documentation/devicetree/bindings/arm/fsl.yaml | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index a6fd347de03fe..1c5fcd69e93e6 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1333,6 +1333,22 @@ properties:
+               - const: tq,imx8qxp-tqma8xqp     # TQ-Systems GmbH TQMa8XQP SOM (with i.MX8QXP)
+               - const: fsl,imx8qxp
  
- /* gpiolib gpio_set callback function */
--static void samsung_gpio_set(struct gpio_chip *gc, unsigned offset, int value)
-+static int samsung_gpio_set(struct gpio_chip *gc, unsigned int offset,
-+			    int value)
- {
- 	struct samsung_pin_bank *bank = gpiochip_get_data(gc);
- 	struct samsung_pinctrl_drv_data *drvdata = bank->drvdata;
- 	unsigned long flags;
-+	int ret;
- 
--	if (clk_enable(drvdata->pclk)) {
-+	ret = clk_enable(drvdata->pclk);
-+	if (ret) {
- 		dev_err(drvdata->dev, "failed to enable clock\n");
--		return;
-+		return ret;
- 	}
- 
- 	raw_spin_lock_irqsave(&bank->slock, flags);
-@@ -586,6 +589,8 @@ static void samsung_gpio_set(struct gpio_chip *gc, unsigned offset, int value)
- 	raw_spin_unlock_irqrestore(&bank->slock, flags);
- 
- 	clk_disable(drvdata->pclk);
++      - description:
++          TQMa8XxS is a series of SOM featuring NXP i.MX8X system-on-chip
++          variants. It has the SMARC-2.0 form factor and is designed to be placed on
++          different carrier boards. MB-SMARC-2 is a carrier reference design.
++        oneOf:
++          - items:
++              - enum:
++                  - tq,imx8qxp-tqma8xqps-mb-smarc-2 # TQ-Systems GmbH TQMa8QXPS SOM on MB-SMARC-2
++              - const: tq,imx8qxp-tqma8xqps         # TQ-Systems GmbH TQMa8QXPS SOM
++              - const: fsl,imx8qxp
++          - items:
++              - enum:
++                  - tq,imx8dxp-tqma8xdps-mb-smarc-2 # TQ-Systems GmbH TQMa8XDPS SOM on MB-SMARC-2
++              - const: tq,imx8dxp-tqma8xdps         # TQ-Systems GmbH TQMa8XDPS SOM
++              - const: fsl,imx8dxp
 +
-+	return 0;
- }
- 
- /* gpiolib gpio_get callback function */
-@@ -1062,7 +1067,7 @@ static int samsung_gpio_set_config(struct gpio_chip *gc, unsigned int offset,
- static const struct gpio_chip samsung_gpiolib_chip = {
- 	.request = gpiochip_generic_request,
- 	.free = gpiochip_generic_free,
--	.set = samsung_gpio_set,
-+	.set_rv = samsung_gpio_set,
- 	.get = samsung_gpio_get,
- 	.direction_input = samsung_gpio_direction_input,
- 	.direction_output = samsung_gpio_direction_output,
-
+       - description: i.MX8ULP based Boards
+         items:
+           - enum:
 -- 
-2.45.2
+2.43.0
 
 
