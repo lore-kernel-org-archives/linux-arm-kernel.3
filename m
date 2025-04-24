@@ -4,101 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6211CC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 13:37:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6F3AC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 13:39:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mEQHn9Lzi2oBulHTACKkSDfVZs9ArGx5jJBjivJoH5I=; b=c+WNWQGcWUe0CVNVCD4lgwAaE0
-	262+ClHz6nQUAlc+jUsaChArqLsEjvzdLqdfq0zFJuRZ0cpU7eMRLKsy4O79iZgloWPwkx4yzwO3d
-	uW7MByHHbNfYj13jha9Z3hNIOr93PIkKnn8xRMujtekmX4MpGNr+3GZtwbjNCeAjIHNYe77975VCQ
-	m6ypIouso4Ngt6h12kKgVO4utgisiVy+XN06oVrP6uKiwlVEP2I5gsrgGVa35WuJwTeN0jJy5V3LF
-	XigYb4E+vzLpkQIkPT6q6qajEYw2Na4QuXEJ4sL1bDQYC1wURUEXHGmqG2INukaY1ARPxHingOqEX
-	qCxVM3aA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lMYDdYk6v2fk/NRGrYSuLQvSnrBN2QQzR4iMcZlSWwc=; b=TZ+ZsGbpzqzy2RXgdHudI6d0NR
+	77yAW0EkLbg+BD6BWk4JBpcRD4i0UArDz9dIB9chKa9kOTZMo/L/2aTN03sujVfsOdvRT29Cpc1Bq
+	0fGLxOuWV39wLV1YAoIhuN0oMs/p06WpU8Kv/boKXbRku1V4d+spnKYCtpRxa6N2NwyzUjlP4FzYD
+	uGi7xLY8d+KUQXVRbWGVYvautSnDrYtgkGahJHv6mpOh4yp7GYg562xVlMjXJQNRaZk/9DqgcK5BH
+	mLAEOXoUplMAU/N+IcA0J84CSW8+U42W52aTCsU6oFkVaQGE/gES9/gxvOtWe9h74rnnBOCnXNb2S
+	qQH+BtGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7wlr-0000000ECV3-2RjQ;
-	Thu, 24 Apr 2025 13:37:43 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1u7wne-0000000EDbb-2BNo;
+	Thu, 24 Apr 2025 13:39:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7vEc-0000000DwSo-20Gy
+	id 1u7vV4-0000000E05J-1NNJ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 24 Apr 2025 12:16:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=lMYDdYk6v2fk/NRGrYSuLQvSnrBN2QQzR4iMcZlSWwc=; b=K6qmy7GYkIiIp5mWokoIz9PLg1
+	Ybna4KGpVs8D9gvtcI4/PYWxygn3UhKDwKk7vCxaOrZrPwQ3dyXDpQnymGfHn/FGZMlofyFuCdpL7
+	PjLoDLiV0hqQvunYFIVAtR8GPwC1b2bc3PGNyvd3otrseOWgLFQGLhGp1Te1tazX1EyWkAhmZvzVB
+	RRYXBXbgJ8h36Rluh4pXyNJ2oKcwEmmTJyoxh4OBAeJrCYqLi9DmL4hZyeXGjaIXEeX7FL0yj1Jra
+	6T9LmC/rlto1OhQXrOhUZ6/m6pPhP1i9ZARkcHMtlKMn4B2TiSXhCmRmoBAkaAdjKI3OuXnYp48o4
+	dymqkAJw==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u7vV1-0000000Bmd8-1LnG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 11:59:19 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53OBobnb016314;
-	Thu, 24 Apr 2025 11:59:10 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=mEQHn9Lzi2oBulHTACKkSD
-	fVZs9ArGx5jJBjivJoH5I=; b=M7C5lWsbpIlpOklc1/gJfG2jrOnHhKAXeNW3S4
-	DZEK3yukUVkNnC5J9wphQB4vEX/ZEfZJkbH+IcZbh8H5TdKAbRS192wxU0r7y1Qm
-	tJaDayBWYR6hhXldlc0Rk6UZ5tHWdHjRgk3Z32F6BxOzypckWbTS/pZ8GrvfW1sw
-	arOFcT7VOKxle4rA/qq70cw6jwUkksDrNvhY+WRBNQeY4wOy3PgqfeifO2czRUZ5
-	KnVklvzEFvu/G/iEb7tsQ5IIbcE4F7mbIKN79a2TaohX7vEwCezFYLP/lQaQwLyD
-	RCl7rr2OsmtwPSx8fjRmXbOB6nP5Z9a2wcxzJBDLa19LE+mA==
-Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 466jh0dhgd-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 24 Apr 2025 11:59:09 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53OBx8Ab031191
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 24 Apr 2025 11:59:08 GMT
-Received: from hu-jinlmao-lv.qualcomm.com (10.49.16.6) by
- nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Thu, 24 Apr 2025 04:59:08 -0700
-From: Mao Jinlong <quic_jinlmao@quicinc.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Mao Jinlong <quic_jinlmao@quicinc.com>,
-        "Alexander
- Shishkin" <alexander.shishkin@linux.intel.com>,
-        Bjorn Andersson
-	<andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-CC: <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: [PATCH v5 0/5] coresight: Add remote etm support
-Date: Thu, 24 Apr 2025 04:58:49 -0700
-Message-ID: <20250424115854.2328190-1-quic_jinlmao@quicinc.com>
-X-Mailer: git-send-email 2.25.1
+	Thu, 24 Apr 2025 12:16:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9C3E85C6394;
+	Thu, 24 Apr 2025 12:13:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AC87C4CEE3;
+	Thu, 24 Apr 2025 12:16:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745496971;
+	bh=Sf0ybRK9DYsCxZ5Je/2MG9IakhbW6jd2lRTZlZQzniw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Oe51ROCqK35W//I58nfZjw9T19a9u3WVnBJB0SkIp3x39DQ7ql8iB0byUcTix9qCE
+	 kZcy0a7XB+8uEXdqyJEA5ZXVFElPivKUlHovhEnK6Xrq4cXaAY0AQg5s4mQoaYJlDK
+	 Pz8JmgYFrFGRSuf04xqzh3mZr2pcmqaNxzxK/Thnrcf3UQ4v8XT/0JUcy+C3UBTUzS
+	 sfZTv9+jSh9WJTAKEVMPUsKU8AvLRMaAdxVo3n8DxEduUqvdHw6Z3G2zHhUK0UHqCh
+	 OBrRynyn5GyXNZbV/uEfFTIvdekG9eVkwHEIW7xSRx0WchZ089/QSS/LQuqiDYN23P
+	 zjAwyzQoD4VYA==
+Date: Thu, 24 Apr 2025 13:16:04 +0100
+From: Simon Horman <horms@kernel.org>
+To: Boon Khai Ng <boon.khai.ng@altera.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	bpf@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Furong Xu <0x1207@gmail.com>,
+	Matthew Gerlach <matthew.gerlach@altera.com>,
+	Tien Sung Ang <tien.sung.ang@altera.com>,
+	Mun Yew Tham <mun.yew.tham@altera.com>,
+	G Thomas Rohan <rohan.g.thomas@altera.com>
+Subject: Re: [PATCH net-next v4 1/2] net: stmmac: Refactor VLAN implementation
+Message-ID: <20250424121604.GE3042781@horms.kernel.org>
+References: <20250421162930.10237-1-boon.khai.ng@altera.com>
+ <20250421162930.10237-2-boon.khai.ng@altera.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.49.16.6]
-X-ClientProxiedBy: nalasex01a.na.qualcomm.com (10.47.209.196) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: z9PfDY0Sucy_CnnLSDvmeUUYf3qyivAk
-X-Proofpoint-ORIG-GUID: z9PfDY0Sucy_CnnLSDvmeUUYf3qyivAk
-X-Authority-Analysis: v=2.4 cv=Fv0F/3rq c=1 sm=1 tr=0 ts=680a278d cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=3H110R4YSZwA:10 a=XR8D0OoHHMoA:10 a=Kq4fDhYDckEUxlu27kcA:9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI0MDA4MCBTYWx0ZWRfX9YHt8R0ddnxh WjUMJkio8n8emcVyeFUny77nr2AbxRKi1+vcfqJO4OdOtgmQIQz6uDDtkKoNrurZk+CnmAU/LL5 Xil4b2P4+IqTuOvnOlaST1nFzp3dhWMJr/DFEQWQYgFcVwjKUoJzWWmDMJ/vFbMdUu8vWHRX1iN
- 130HtWDrG1B6Z15SNtJcdFiozXCFzEhaYnt/aQ8FaB1X5ENVfBYfTiqECAljOhbLiFcKhQ1wDdV TItOzPq/At5ytgeIZXVUnZ1IRDeWY7tol6pFNHvGWq3psAgMW9OydQetl2mT4GLInuClAyMjt/Y +ZBLtOg4N6SpKkogZ6VAq2cnOZNX+nQTMqt5kNFRwB/TeplZDWU56q/RqSgTpa1i7M6aX/QULOX
- 3nCtwipAhBSibpAIny5FkRmzkhSn9nMCSwidFqqHpdbDIakY5vRs8lfHxZbennKE/gt/0xAq
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.680,FMLib:17.12.80.40
- definitions=2025-04-24_05,2025-04-22_01,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 mlxscore=0
- malwarescore=0 mlxlogscore=999 priorityscore=1501 suspectscore=0
- adultscore=0 bulkscore=0 clxscore=1011 spamscore=0 lowpriorityscore=0
- phishscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
- definitions=main-2504240080
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250421162930.10237-2-boon.khai.ng@altera.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_045918_520428_ECA904F3 
-X-CRM114-Status: GOOD (  14.47  )
+X-CRM114-CacheID: sfid-20250424_131615_658582_E8598E6C 
+X-CRM114-Status: GOOD (  26.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,67 +103,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The system on chip (SoC) consists of main APSS(Applications processor
-subsytem) and additional processors like modem, lpass. There is
-coresight-etm driver for etm trace of APSS. Coresight remote etm driver
-is for enabling and disabling the etm trace of remote processors.
-It uses QMI interface to communicate with remote processors' software
-and uses coresight framework to configure the connection from remote
-etm source to TMC sinks.
+On Tue, Apr 22, 2025 at 12:29:29AM +0800, Boon Khai Ng wrote:
+> Refactor VLAN implementation by moving common code for DWMAC4 and
+> DWXGMAC IPs into a separate VLAN module. VLAN implementation for
+> DWMAC4 and DWXGMAC differs only for CSR base address, the descriptor
+> for the VLAN ID and VLAN VALID bit field.
+> 
+> The descriptor format for VLAN is not moved to the common code due
+> to hardware-specific differences between DWMAC4 and DWXGMAC.
+> 
+> For the DWMAC4 IP, the Receive Normal Descriptor 0 (RDES0) is
+> formatted as follows:
+>     31                                                0
+>       ------------------------ -----------------------
+> RDES0| Inner VLAN TAG [31:16] | Outer VLAN TAG [15:0] |
+>       ------------------------ -----------------------
+> 
+> For the DWXGMAC IP, the RDES0 format varies based on the
+> Tunneled Frame bit (TNP):
+> 
+> a) For Non-Tunneled Frame (TNP=0)
+> 
+>     31                                                0
+>       ------------------------ -----------------------
+> RDES0| Inner VLAN TAG [31:16] | Outer VLAN TAG [15:0] |
+>       ------------------------ -----------------------
+> 
+> b) For Tunneled Frame (TNP=1)
+> 
+>      31                   8 7                3 2      0
+>       --------------------- ------------------ -------
+> RDES0| VNID/VSID           | Reserved         | OL2L3 |
+>       --------------------- ------------------ ------
+> 
+> The logic for handling tunneled frames is not yet implemented
+> in the dwxgmac2_wrback_get_rx_vlan_tci() function. Therefore,
+> it is prudent to maintain separate functions within their
+> respective descriptor driver files
+> (dwxgmac2_descs.c and dwmac4_descs.c).
+> 
+> Signed-off-by: Boon Khai Ng <boon.khai.ng@altera.com>
+> Reviewed-by: Matthew Gerlach <matthew.gerlach@altera.com>
 
-Example to capture the remote etm trace:
+...
 
-Enable source:
-echo 1 > /sys/bus/coresight/devices/tmc_etf0/enable_sink
-echo 1 > /sys/bus/coresight/devices/remote_etm0/enable_source
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+> index a6d395c6bacd..d9f41c047e5e 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+> @@ -614,76 +614,6 @@ static int dwxgmac2_rss_configure(struct mac_device_info *hw,
+>  	return 0;
+>  }
+>  
+> -static void dwxgmac2_update_vlan_hash(struct mac_device_info *hw, u32 hash,
+> -				      u16 perfect_match, bool is_double)
+> -{
+> -	void __iomem *ioaddr = hw->pcsr;
+> -
+> -	writel(hash, ioaddr + XGMAC_VLAN_HASH_TABLE);
+> -
+> -	if (hash) {
+> -		u32 value = readl(ioaddr + XGMAC_PACKET_FILTER);
+> -
+> -		value |= XGMAC_FILTER_VTFE;
+> -
+> -		writel(value, ioaddr + XGMAC_PACKET_FILTER);
 
-Capture the trace:
-cat /dev/tmc_etf0 > /data/remote_etm.bin
+Here the XGMAC_FILTER_VTFE bit of XGMAC_PACKET_FILTER is set.
+However, this logic does not appear in vlan_update_hash()
 
-Disable source:
-echo 0 > /sys/bus/coresight/devices/remote_etm0/enable_source
+> -
+> -		value = readl(ioaddr + XGMAC_VLAN_TAG);
+> -
+> -		value |= XGMAC_VLAN_VTHM | XGMAC_VLAN_ETV;
+> -		if (is_double) {
+> -			value |= XGMAC_VLAN_EDVLP;
+> -			value |= XGMAC_VLAN_ESVL;
+> -			value |= XGMAC_VLAN_DOVLTC;
+> -		} else {
+> -			value &= ~XGMAC_VLAN_EDVLP;
+> -			value &= ~XGMAC_VLAN_ESVL;
+> -			value &= ~XGMAC_VLAN_DOVLTC;
+> -		}
 
-Changes since V4:
-1. Add coresight QMI driver
-2. Add coresight qmi node and qcom,qmi-id of modem-etm in msm8996 dtsi
+And likewise, here value is based on reading from XGMAC_VLAN_TAG.
+Whereas in vlan_update_hash is constructed without reading from
+XGMAC_VLAN_TAG.
 
-Changes since V3:
-1. Use different compatible for different remote etms in dt.
-2. Get qmi instance id from the match table data in driver.
+Can I clarify that this is intentional and that vlan_update_hash(),
+which is based on the DWMAC4 implementation, will also work for DWXGMAC IP?
 
-Change since V2:
-1. Change qcom,inst-id to qcom,qmi-id
-2. Fix the error in code for type of remote_etm_remove
-3. Depend on QMI helper in Kconfig
+> -
+> -		value &= ~XGMAC_VLAN_VID;
+> -		writel(value, ioaddr + XGMAC_VLAN_TAG);
+> -	} else if (perfect_match) {
+> -		u32 value = readl(ioaddr + XGMAC_PACKET_FILTER);
+> -
+> -		value |= XGMAC_FILTER_VTFE;
+> -
+> -		writel(value, ioaddr + XGMAC_PACKET_FILTER);
+> -
+> -		value = readl(ioaddr + XGMAC_VLAN_TAG);
+> -
+> -		value &= ~XGMAC_VLAN_VTHM;
+> -		value |= XGMAC_VLAN_ETV;
+> -		if (is_double) {
+> -			value |= XGMAC_VLAN_EDVLP;
+> -			value |= XGMAC_VLAN_ESVL;
+> -			value |= XGMAC_VLAN_DOVLTC;
+> -		} else {
+> -			value &= ~XGMAC_VLAN_EDVLP;
+> -			value &= ~XGMAC_VLAN_ESVL;
+> -			value &= ~XGMAC_VLAN_DOVLTC;
+> -		}
+> -
+> -		value &= ~XGMAC_VLAN_VID;
+> -		writel(value | perfect_match, ioaddr + XGMAC_VLAN_TAG);
+> -	} else {
+> -		u32 value = readl(ioaddr + XGMAC_PACKET_FILTER);
+> -
+> -		value &= ~XGMAC_FILTER_VTFE;
+> -
+> -		writel(value, ioaddr + XGMAC_PACKET_FILTER);
+> -
+> -		value = readl(ioaddr + XGMAC_VLAN_TAG);
+> -
+> -		value &= ~(XGMAC_VLAN_VTHM | XGMAC_VLAN_ETV);
+> -		value &= ~(XGMAC_VLAN_EDVLP | XGMAC_VLAN_ESVL);
+> -		value &= ~XGMAC_VLAN_DOVLTC;
+> -		value &= ~XGMAC_VLAN_VID;
+> -
+> -		writel(value, ioaddr + XGMAC_VLAN_TAG);
+> -	}
+> -}
 
-Changes since V1:
-1. Remove unused content
-2. Use CORESIGHT_DEV_SUBTYPE_SOURCE_OTHERS as remote etm source type.
-3. Use enabled instead of enable in driver data.
-4. Validate instance id value where it's read from the DT.
+...
 
-Mao Jinlong (5):
-  dt-bindings: arm: Add CoreSight QMI component description
-  coresight: Add coresight QMI driver
-  dt-bindings: arm: Add qcom,qmi-id for remote etm
-  coresight: Add remote etm support
-  arm64: dts: qcom: msm8996: Add coresight qmi node
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
 
- .../bindings/arm/qcom,coresight-qmi.yaml      |  65 +++++
- .../arm/qcom,coresight-remote-etm.yaml        |  10 +
- arch/arm64/boot/dts/qcom/msm8996.dtsi         |  11 +
- drivers/hwtracing/coresight/Kconfig           |  24 ++
- drivers/hwtracing/coresight/Makefile          |   2 +
- drivers/hwtracing/coresight/coresight-qmi.c   | 209 +++++++++++++++
- drivers/hwtracing/coresight/coresight-qmi.h   | 107 ++++++++
- .../coresight/coresight-remote-etm.c          | 252 ++++++++++++++++++
- 8 files changed, 680 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/arm/qcom,coresight-qmi.yaml
- create mode 100644 drivers/hwtracing/coresight/coresight-qmi.c
- create mode 100644 drivers/hwtracing/coresight/coresight-qmi.h
- create mode 100644 drivers/hwtracing/coresight/coresight-remote-etm.c
+...
 
--- 
-2.25.1
+> +static int vlan_write_filter(struct net_device *dev,
+> +			     struct mac_device_info *hw,
+> +			     u8 index, u32 data)
+> +{
+> +	void __iomem *ioaddr = (void __iomem *)dev->base_addr;
+> +	int i, timeout = 10;
+> +	u32 val;
+> +
+> +	if (index >= hw->num_vlan)
+> +		return -EINVAL;
+> +
+> +	writel(data, ioaddr + VLAN_TAG_DATA);
+> +
+> +	val = readl(ioaddr + VLAN_TAG);
+> +	val &= ~(VLAN_TAG_CTRL_OFS_MASK |
+> +		VLAN_TAG_CTRL_CT |
+> +		VLAN_TAG_CTRL_OB);
+> +	val |= (index << VLAN_TAG_CTRL_OFS_SHIFT) | VLAN_TAG_CTRL_OB;
+> +
+> +	writel(val, ioaddr + VLAN_TAG);
+> +
+> +	for (i = 0; i < timeout; i++) {
+> +		val = readl(ioaddr + VLAN_TAG);
+> +		if (!(val & VLAN_TAG_CTRL_OB))
+> +			return 0;
+> +		udelay(1);
+> +	}
 
+I am curious to know why readl_poll_timeout() isn't used here
+as was the case in dwmac4_write_vlan_filter().
+
+> +
+> +	netdev_err(dev, "Timeout accessing MAC_VLAN_Tag_Filter\n");
+> +
+> +	return -EBUSY;
+> +}
+
+...
 
