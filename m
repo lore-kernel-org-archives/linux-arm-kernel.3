@@ -4,58 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0EDBC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 11:52:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B29E1C369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 11:52:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gWraH2wNxIauMuBTpKL9UZi590zJdjFgPgWQCnH8nYo=; b=drOw1mmW/26EBNRn2NrE3THMMu
-	yv+1XRVW5i6YC/TQ/lMrM2oqFthPLUxqxSdYSQh0IT5D915mX1jiYmk3xdu6m4SGHuigzeXEbNvNd
-	e0IE92OCbhUM6Gtx2yaIJMzTFp+pS6BXTT//z4bOgx5q1Z0GON0NHsiwO4g4skQMennPnIUFqsbto
-	fJxUMSVzca9N+174hd03xXapwh58UEbyE0Er0cJh/h0uMWjozxvshle8NGx54LYCHykyqkdXZyLwz
-	BKQJnkvMZpLWEH1LuizBFvyxoVXh+q+opDwL4K8mSZHcQw6qRlQujAhdyPToSHtZ8k01Bc/z7lwIp
-	wcjTdxqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9zxld5MK5nl7RVPnOXXCg5A1OmUF2muw/uPgyMfoYRo=; b=dDGkIOtGvJrECdnnKmDiqKbfE1
+	IusL+eH31ACklQcWtLMCCDeekmf+YiwBhVdUiGxILB+bkKcLV2y4zdrvUVAxSNM0Gg5FZt1bHCZEY
+	xmB5ATnfc7JRP66uxbhaaAqFxnpp12QvW52RuDCGD3124siQhhRvKY9bBtYpBI/XtY4qh2y7XYkMX
+	y5Gulnud0Kx/3ElPtI5uuOFGSMwdbuvKoMXMbJ4zGv6lQ8AMOtAD4gi0T1pUfuYzDhxijud/4njJD
+	SAEI+tkQX/egrp0Q1b76Bs3GnHgd+UdOatDq0U7ne9OtBcUQajjvU5wsnqoZtc7uzq30d88FwChPH
+	7bTpqkIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7v7t-0000000DvBV-1cfc;
-	Thu, 24 Apr 2025 11:52:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u7v89-0000000DvIy-1pnu;
+	Thu, 24 Apr 2025 11:52:37 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7tC8-0000000DZIZ-1Lfh
+	id 1u7tnM-0000000Dft2-3kAc
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 24 Apr 2025 10:27:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=9zxld5MK5nl7RVPnOXXCg5A1OmUF2muw/uPgyMfoYRo=; b=oV/a6iSmOYi22AO1OcrFpgvDOm
+	+A/JOCEwZTPthBpq08NPF2Bah037Bh3Av36MBAEwKi8SPXt7TQS1OVyXTujfN6CRAwzq0hqaTLu/s
+	dlXyFOwDNsNCZCj6EuffCuEYYEYoqP0Z5GKkNu1+ua6HU0B+v3fnqrHeG0VCHGVPtSYDqNRaZX0Ev
+	GwSUuvdrE+WPFddTVUy6tjK79IExDGSUPBcpsaWowLRNZTRd9SKhwdtbXCaPx8ZMDhf1cC5/bfq/1
+	jnagqkCUd0IIMrWxeEdeavxxblf3/z3s7KQjyd79oSUHFfHSz1rYXv3f8xSnnj9EED1AdpGZUojJp
+	INPJldaA==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u7tnK-0000000BjbW-0ep7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 09:48:36 +0000
+	Thu, 24 Apr 2025 10:27:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F182368458;
-	Thu, 24 Apr 2025 09:48:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E7D7C4CEE3;
-	Thu, 24 Apr 2025 09:48:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 153984437E;
+	Thu, 24 Apr 2025 10:26:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5BA1C4CEE3;
+	Thu, 24 Apr 2025 10:26:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745488115;
-	bh=n/inaBTjufm8fqFMcv+jCVKf3BgJPnY/qqhNvk76Af4=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=im3GCitUwHN4zIlUyrDEdtPOa55IhqKlViektf9CVVeGrfS0gIZ1YWTbFqIJZESk5
-	 aTJIJ8V8E4qWBI6XCtKZU40ket+NFzXwm55UXwJzzkFfL0RBlwTN00+ZKY30rBOvFi
-	 ZqvJA/q3zLdtqAmvyHPu/wYHQwVKvBs2rLFzNNXGmtUkqPtF3mSRke07BSmeH3QgmR
-	 7EqRprp2dIfLIMGvpe8pjdK3e+6fgWUQsKYQagQpZouSt4yxJydzh4wH1L3wngT3nE
-	 1Mu6Dc0IBFlwRpG1AAO2Ebg7G8+ramLXzW90/s26lRpzH3fLO1Ud9WyNuyjwW5HUZ1
-	 pc/xt07Otu98Q==
-Date: Thu, 24 Apr 2025 11:48:32 +0200 (CEST)
-From: Jiri Kosina <jikos@kernel.org>
-To: Qasim Ijaz <qasdev00@gmail.com>
-cc: bentiss@kernel.org, mcoquelin.stm32@gmail.com, 
-    alexandre.torgue@foss.st.com, linux-input@vger.kernel.org, 
-    linux-stm32@st-md-mailman.stormreply.com, 
-    linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] HID: thrustmaster: fix memory leak in
- thrustmaster_interrupts()
-In-Reply-To: <20250327231146.6388-1-qasdev00@gmail.com>
-Message-ID: <371o6n9s-sq4q-s071-24r5-8p22o933197r@xreary.bet>
-References: <20250327231146.6388-1-qasdev00@gmail.com>
+	s=k20201202; t=1745490420;
+	bh=9zWp7WGj091+ZG2FSlP0T7J3sn+1tw+UEtNEfbmUjxQ=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=qu6UUhQJCxqYrr81iVHhuMy20mqGqJVGW8zuJFIytlavKi7iQx+8yg7t1RAJtkjNu
+	 epa1dTe1TlH89+QxPE4kyA5f6+Cd1JwbDbZgAH69e5BfgGi9OcvNamQ/0zxihvopph
+	 i8Pdp6H4U6q/b9oDTWJN0PGh5BWMUU4ZlYvmH60jH2z9/96R8inXgyXFfVviEksIiK
+	 ZqPUuLPL0GkKiiGHJU+bNKNJUkW4bN90Bgg8vxa1c1YMF2aSqCoEg4U11xu2tR5FF7
+	 GB8q7rJ9JP2R7srQvfsynukmj6W5Zge5asiMBp984NlJuW7HmlS7MMyHBZwJYfBwpk
+	 bcSLUsbM7+z+A==
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Date: Thu, 24 Apr 2025 12:25:25 +0200
+Subject: [PATCH v2 14/22] arm64/sysreg: Add ICH_HFGITR_EL2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250424-gicv5-host-v2-14-545edcaf012b@kernel.org>
+References: <20250424-gicv5-host-v2-0-545edcaf012b@kernel.org>
+In-Reply-To: <20250424-gicv5-host-v2-0-545edcaf012b@kernel.org>
+To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, 
+ Sascha Bischoff <sascha.bischoff@arm.com>, 
+ Timothy Hayes <timothy.hayes@arm.com>, 
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+ Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>
+X-Mailer: b4 0.14.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250424_112702_408852_878BD5CE 
+X-CRM114-Status: UNSURE (   8.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,22 +96,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 27 Mar 2025, Qasim Ijaz wrote:
+Add ICH_HFGITR_EL2 register description to sysreg.
 
-> In thrustmaster_interrupts(), the allocated send_buf is not 
-> freed if the usb_check_int_endpoints() check fails, leading 
-> to a memory leak. 
-> 
-> Fix this by ensuring send_buf is freed before returning in 
-> the error path.
-> 
-> Fixes: 50420d7c79c3 ("HID: hid-thrustmaster: Fix warning in thrustmaster_probe by adding endpoint check")
-> Signed-off-by: Qasim Ijaz <qasdev00@gmail.com>
+Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/tools/sysreg | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-Applied, thanks.
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index 1b519e35000be328acfe26d51e098059f9cf9ef2..5af0dea6e775ea680686dbe4bc836b5f5b69fbc7 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -3616,6 +3616,21 @@ Res0	1
+ Field	0	ICC_APR_EL1
+ EndSysreg
+ 
++Sysreg	ICH_HFGITR_EL2	3	4	12	9	7
++Res0	63:11
++Field	10	GICRCDNMIA
++Field	9	GICRCDIA
++Field	8	GICCDDI
++Field	7	GICCDEOI
++Field	6	GICCDHM
++Field	5	GICCRDRCFG
++Field	4	GICCDPEND
++Field	3	GICCDAFF
++Field	2	GICCDPRI
++Field	1	GICCDDIS
++Field	0	GICCDEN
++EndSysreg
++
+ Sysreg	ICH_HCR_EL2	3	4	12	11	0
+ Res0	63:32
+ Field	31:27	EOIcount
 
 -- 
-Jiri Kosina
-SUSE Labs
+2.48.0
 
 
