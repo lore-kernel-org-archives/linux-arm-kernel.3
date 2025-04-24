@@ -4,90 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 519E8C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 14:29:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A1D9C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 14:31:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gmFv+tXEHYX7Ma3ew81kmxN4G8P+6CzJSOvVgnKOh54=; b=XavgLZRuTxuX+jy/05UZIYYiJz
-	w0PId6XkenB3c7XLn+vtJclBqGz8Ypqi5rnJutUz5zjqYQF7b3D+q37E+YCBPEYCzIY0nPzGhfMeF
-	N/0M2lPlwiN3sRjxIe+5th2sY7r5wmEIFZZRtjq9h1GuSDy1Tu8YgLxKXwSKa/y8AqvR8qUtcAJnU
-	FwtED1KyZC1mzgOsof/qt1mo4kaP+BjaI31CK468jKQzXZGMEd4FTommF6BmD6695s8y/r8Rk7FWi
-	KwJzjhO1qt4ZFIiHDzTd91OYA1oxVfNqzfg0GbPe6GYVhtge/2Jw4B+pSwOgWvMX4+uVCyHdrPKXZ
-	vpXKi34A==;
+	bh=cQ9GCrtAretZKfXj7tthAfLvZfypJ301Y2Vd4rdlpH8=; b=Esah6afQENpIZKz8Hi8KRiLpCw
+	DV2ozpfqDM0aQvQRf6mLzvl3r/NiMAb+mlANSym1caaO3bPlzTNB/u2q9qktPcHjGogerRpP7HmOm
+	1KNnuIKrTPRcOOm5jqhhg7YR2T9P+LR3UBmKfARiiEm9zoKvMyQ/Uu5RmVR3s7zHthvyQJAXur0VE
+	2pXGpgu7u3Ig4Tk41FNCiQhvHeg1iZqGZIwZMsfbvuCU073SisBNNnYkglqY4Jtk7x9LUQuK/dJ8p
+	5T8cZLyUU16f6JE/qNLYaZlSl7/V7wDj0CMIXJwAhafI4XLCyfXFFS4dfMwz9SMIcmhzNFcVtbxcm
+	vBWwgUiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7xZz-0000000ENn3-21Ir;
-	Thu, 24 Apr 2025 14:29:31 +0000
+	id 1u7xbn-0000000EOEe-0vCR;
+	Thu, 24 Apr 2025 14:31:23 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7wh5-0000000EBjA-2zxe
+	id 1u7whN-0000000EBly-1jeO
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 24 Apr 2025 13:32:47 +0000
+	Thu, 24 Apr 2025 13:33:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=gmFv+tXEHYX7Ma3ew81kmxN4G8P+6CzJSOvVgnKOh54=; b=QYaKA6/WO/M5T+QFivNHKAqHj5
-	UZaQEVAup9jwyqtdSqrbJ3mHoUSJEq/rJmXIkNQ/liMg5MfvmYGtpDogW4vevCM0Rnm4S2tgLH4ZZ
-	WSD0xzxVOEMVmQfk+H7whhsLMatAqjvIFqw2+GIab8TdMgiwy7yojTvm64Pw6luT7n9uwHzA0J3bA
-	vdU9ts98MYSbXqo+mx+ogiW4/TVYdYmk3m0aJAUxLKAXQ21YYPJEsLeQFqc/fDQWwBaHuEowwroXq
-	npHwiyeNAU1S54iISJUBBLW0hhpO/mH2/iCesPhdKviwXWlYVQ5WaEcCzWkqj940/U02OD+GMeSrG
-	z2o77XyA==;
-Received: from vps0.lunn.ch ([156.67.10.101])
+	bh=cQ9GCrtAretZKfXj7tthAfLvZfypJ301Y2Vd4rdlpH8=; b=dvoIfmkwjKuwRR28oa/JQubVh0
+	K9w4SyeD1bFVDcMfWTSo6YWUnl/LGfDHQ+nqtZ8yi0wjSTp4//X0vmhiEuA6PqbMKBfCDR2crmeK5
+	a7lq46HIq4LR/z5zZyo/tLL+UNjrYLihPyeD3DTXNE8h/kXfKCEVgEqJp1/1w/I0CgoxgWpN0Cpj0
+	GIII8+MpmKW3O+uI5PGVlc/+X5CkNKw7vkyFYZ7unqc6YWIAWezTssovgOIN56NF8lqVqFv8UP7Fa
+	/BQeDhJBIPkb6NwbpiG5b1q76vuFsOJqz2Gi0MKSPy5Dk4AljYUzdXK2i/aoLw5aBI/Nsrn1B4HUR
+	oh8Xo5gA==;
+Received: from szxga05-in.huawei.com ([45.249.212.191])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u7wh2-0000000BneR-3Bld
+	id 1u7whI-0000000BneS-1SXV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 13:32:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=gmFv+tXEHYX7Ma3ew81kmxN4G8P+6CzJSOvVgnKOh54=; b=E9
-	4egB8CqtTOjDUEqJRsWVzhfzq39pm38uoijSaR8zqYVzxqKVf3UdUGAnvKpxqy+exD/orSQbqAic4
-	XHev/HvOzLuJ5auj96yizY8WaPxhBqlSuh1DqYZ1nMQQFZt5C+GyPZv+hNRU8aoHnHuwMf5liMiNK
-	tyhhMeyNlLvJy6c=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1u7wgW-00AT1W-9j; Thu, 24 Apr 2025 15:32:12 +0200
-Date: Thu, 24 Apr 2025 15:32:12 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Yixun Lan <dlan@gentoo.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH 4/5] arm64: dts: allwinner: a527: add EMAC0 to Radxa A5E
- board
-Message-ID: <caad87f2-8243-4571-8236-6aa3d4fb9fab@lunn.ch>
-References: <20250423-01-sun55i-emac0-v1-0-46ee4c855e0a@gentoo.org>
- <20250423-01-sun55i-emac0-v1-4-46ee4c855e0a@gentoo.org>
- <aa38baed-f528-4650-9e06-e7a76c25ec89@lunn.ch>
- <20250424014120.0d66bd85@minigeek.lan>
- <20250424100514-GYA48784@gentoo>
- <6e9c003e-2a38-43a7-8474-286bdb6306a0@lunn.ch>
- <20250424142006.021d6ab4@donnerap.manchester.arm.com>
+	Thu, 24 Apr 2025 13:33:02 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.44])
+	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4ZjxgD2r52z1R7Xh;
+	Thu, 24 Apr 2025 21:30:32 +0800 (CST)
+Received: from kwepemg200012.china.huawei.com (unknown [7.202.181.63])
+	by mail.maildlp.com (Postfix) with ESMTPS id 9AE3B1402CD;
+	Thu, 24 Apr 2025 21:32:32 +0800 (CST)
+Received: from DESKTOP-A37P9LK.huawei.com (10.67.108.232) by
+ kwepemg200012.china.huawei.com (7.202.181.63) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 24 Apr 2025 21:32:31 +0800
+From: xieyuanbin1 <xieyuanbin1@huawei.com>
+To: <linux@armlinux.org.uk>
+CC: <liaohua4@huawei.com>, <lincheng8@huawei.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<nixiaoming@huawei.com>, <sfr@canb.auug.org.au>, <wangbing6@huawei.com>,
+	<wangfangpeng1@huawei.com>, <will@kernel.org>, <xieyuanbin1@huawei.com>
+Subject: RE: [PATCH] ARM: spectre-v2: fix unstable cpu get
+Date: Thu, 24 Apr 2025 21:31:33 +0800
+Message-ID: <20250424133133.40122-1-xieyuanbin1@huawei.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <aAoQwsldwmxAKA0A@shell.armlinux.org.uk>
+References: <aAoQwsldwmxAKA0A@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250424142006.021d6ab4@donnerap.manchester.arm.com>
+Content-Type: text/plain
+X-Originating-IP: [10.67.108.232]
+X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
+ kwepemg200012.china.huawei.com (7.202.181.63)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_143244_949603_89B28D73 
-X-CRM114-Status: GOOD (  11.03  )
+X-CRM114-CacheID: sfid-20250424_143300_855660_C69C060D 
+X-CRM114-Status: GOOD (  10.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,18 +87,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Speaking of which: do you know of a good method to verify the delay
-> timing? Is there *something* which is sensitive to those timings and which
-> can be easily checked and qualified?
+From: Xie Yuanbin <xieyuanbin1@huawei.com>
 
-Not really. If you are on the edge, you might get more ethernet FCS
-errors. For iperf3 in UDP mode, that would translate to packet loss.
-Or ethtool -S might report checksum errors, depending on the driver.
+>> From: Xie Yuanbin <xieyuanbin1@huawei.com>
+>> 
+>> When a user program accesses the kernel address,
+>
+>Please see
+>https://lore.kernel.org/all/795c9463-452e-bf64-1cc0-c318ccecb1da@I-love.SAKURA.ne.jp/T/
+>
+>As I see it, this can't be fixed - certainly not in this way due to the
+>reasons I set out in the above thread.
 
-From what i've heard from others there is a pretty sharp cut off from
-broken to working. Just stay away from the cliff and it should be
-O.K. for −40°C to 85°C, or whatever the temperate range is supposed to
-be.
+Oh, I'm sorry that I haven't noticed that someone has submitted similar patch before.
 
-	Andrew
+I've actually thought about a similar problem. In areas other than put_cpu/get_cpu, tasks may be scheduled to other CPUs, this cpu actually does not execute the spectre code. 
+However, in this case, a context_switch must be happended. Inside switch_mm, the spectre code is still executed, so I didn't think of it as a problem.
+But there is a situation, if we switch to another thread of **this** process, we will not execute switch_mm, which is so sad.
+
+As mentioned in the previous patch discussion, this is only an alarm. However, I do not think so. On heterogeneous CPUs, the spectre code of different cores may have different implementations.
+If another cpu's fn is executed, there may be illegal instruction and panic.
+User processes can attack this point, which is very dangerous.
 
