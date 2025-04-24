@@ -4,87 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DB6BC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 02:15:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35D8CC369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 24 Apr 2025 03:01:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CaiYIHovh3hj7JhREmKYSulniFNMpmE5/FQxCD5M2gA=; b=G+qt7cDaz5p+CzeUyOkc/5A2jr
-	l79oQgG30yLIBZR0NxMhjmIAOeXn62ffEHGrwEvb2nELDz/wG2/seosEiDzx9rONAPfUokELptC4D
-	mHBqw9kI9o22SW55S2t6tPMCjpY1okyovpDZD7kRkQ0SPAY87vYM3BvjTa/JdyGsob3XAMQbDXva2
-	JknXbNR6BXnuUs0pxdZDg25nWvy4HDAUMb5N2CSO3uhVPTjyFmfOF1EB73nLRr+bHtMjCWLJ7sdNY
-	LdofEaZQsCygiYHAHzM3RHeo9yzfM78lE7JVJokotQZEg+O8vzV+KoFCO1MiQFx9Tc5nb2s0ldkwO
-	3qJTIgeQ==;
+	bh=AY8TuvINZq3xaLhDJPXgJlOQHqLQNDKDcNKgYWGRTk4=; b=r4qIuaq+T/lJnVACHwYna0BKCQ
+	m259Uom9I/xAt/VUsmEsaaxf+kO4LB/c+IoxRhEZZhMkezd0pwnb5TjFirlSYYNJq+gzuTo0768Hv
+	49tVJ7m4la9QFsQIVetEhR71R8vSOxZcMnOH9XU4RUfA553uS8Hdo34YqWu5UcJeIBlxSqxAWGpp6
+	DDat8XSgIKkrHYGfOqtVvgmoJ8vqnu4ahuSciP6842QgYus0kE1US7ErR7gVU373jeexc28lZ0HQY
+	Bg7g6A56URMikIiMjdCiDgTdokP9u2rx6JHCQgvnhNfR6pxnKDpsPdD67HZyWrWLwhBnh8dCW1iWv
+	PYdiO1zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7m7n-0000000CbD3-4A5X;
-	Thu, 24 Apr 2025 02:15:40 +0000
-Received: from mail-ed1-f54.google.com ([209.85.208.54])
+	id 1u7mpx-0000000CfyA-0MTR;
+	Thu, 24 Apr 2025 03:01:17 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7m5p-0000000Caz0-27gN
+	id 1u7mnt-0000000CfUD-0PYC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 24 Apr 2025 02:13:39 +0000
-Received: by mail-ed1-f54.google.com with SMTP id 4fb4d7f45d1cf-5f63ac6ef0fso1086341a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 19:13:36 -0700 (PDT)
+	Thu, 24 Apr 2025 02:59:12 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53O0F7g0028374
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 02:59:07 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	AY8TuvINZq3xaLhDJPXgJlOQHqLQNDKDcNKgYWGRTk4=; b=l6crTg6+kMI1540S
+	ky4VuzKWaBxcvgVVLXxBnyvhFjH7vCr00jRgLrveGff9wpRhZKW26yx957FDEL4T
+	TkbekYOptWOpA4q7cwjNRT9uSA6KTg/+nnXVMnQhRRxpTGpRgDVU4tElbuFhRjT5
+	kNzzNe3eHSCOLB43mpthliHh8Rly98Bv0W59WAFlol2njVhN5E5Hz+1MCiswE6Qb
+	3qq8eabENHCQKHJz92zn05zjlNNDKuHLm0bhKRx6jDNj6NySwhWfqdvbBk4s7QL3
+	4RZSXmXLybbd8N/0eYp+gHpivlKct+noQWsvCMPWXYw0qLC/tHOgf18445kfEPPZ
+	HgOyrg==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 466jgy4112-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 02:59:06 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2255ae39f8fso16276515ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 19:59:06 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745460814; x=1746065614;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=CaiYIHovh3hj7JhREmKYSulniFNMpmE5/FQxCD5M2gA=;
-        b=VcY98Fovdr1ZVz8KAnbMzn5V7lGHLD9DsCnyevtSadyx4Gtv57rVSHPNaLpjOzmXEg
-         ZMlOC+7VyonU+i0KNS2NjfqLhBMuQVt6fA+lF5MXiQTZCcIzeziRvsZeW1fmeXbA9J0E
-         dh+Nsm/+FWfpfCFsNyZadOg5abCqTSkz5GvQSWNnOwZGJ4zeOM3tH2Se/GvCAPhqeusJ
-         DHX9RL8e3WF12PiYqQf2kzC4ES4tgZ2hOwoQ+osOkFVqqQyKz4Q9bjsMsW7tFiLwphqI
-         JbJjNaMz/6GkvApftS53FCtv418yH+NePDNU985308Q3u56X4HZ34Cp/Ph0OT8ffq9DI
-         KV0w==
-X-Forwarded-Encrypted: i=1; AJvYcCXhNVp6VHkrB3wKzK/iThaE7PbWGVRf1ByxtmRkkGkihy6CBlxuxQhN756GTN0w+CG+abJPVcG/6uNNWQTRboPw@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLwguwiWS6w+WN4TkbUTGz+BEuDkLwLdTt12r8+iz3z3gyn4ai
-	wL/BMqqcDc8dcXeLCcXsremAT0CgmzaL94t9MM9qREO+yx+hD8v4BfZxU5hl/tU=
-X-Gm-Gg: ASbGncsRHA9QN8n73FALLc6wpR2LytXcq5qQeB9aHC0pc1zA7K7aIWDRbKEpQUdPFny
-	u5S8zfPYjTrWbFy9NnvIJhhrkpxxVg9MPCu9mwLOVhG7pPeaAVDZOSID90pN8sHKpZNFdnqRRZa
-	TdWcNEZ0lYD7/aH83+NikRWovbskpJIGtw4rnwy4Ei3wyByZrzn8YpqZAuBs/HCFn+OvjHrYEFp
-	dfuQl6rGsCFUZqYHACaeE8a703EyTH3uvt5JWNDhkWqifz/HJ3Ontstvkut6cG2k/X6QYA4WLif
-	P9dJ3mJlHP/AYE+Y1TMrwgPMJEqNIPdGORcpXfXZcq1LqK7JcHUCyZ+sV7JMP2+DSJZWMew=
-X-Google-Smtp-Source: AGHT+IECNpkK/NMbnV+1c9b4C/1/4cljQaHtxYUbBB68zmQOfIHRblkdjfCoa8yatqGlTUhNvyU5Og==
-X-Received: by 2002:a05:6402:524c:b0:5f6:3beb:48ca with SMTP id 4fb4d7f45d1cf-5f6ef1a35c9mr510815a12.3.1745460813158;
-        Wed, 23 Apr 2025 19:13:33 -0700 (PDT)
-Received: from mail-ed1-f50.google.com (mail-ed1-f50.google.com. [209.85.208.50])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f6eb43eda5sm429919a12.24.2025.04.23.19.13.31
-        for <linux-arm-kernel@lists.infradead.org>
+        d=1e100.net; s=20230601; t=1745463545; x=1746068345;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=AY8TuvINZq3xaLhDJPXgJlOQHqLQNDKDcNKgYWGRTk4=;
+        b=em8NIO9SEDjgKwkb4k4cMTAnonSm650MYeWDtxwoIB4PEF9ep/iXDRYLap7LPUHDrI
+         ekkk+c8cWnPQ13KoPcmJpiA2MMXpkXRxL5iXM866eIcmIm6jMbm7XRJQIPm9T+y7mh7P
+         oroPKP8UfZL78Q6kV4Aw0g5TASBEAgYJUzm7y00AuGOXitrcAqZX14/sp1gyoxuyv09a
+         eGCaZarqB63RXGsAcad46lHYnmzz0OpROjgoLO1MBnWG7KIKbiYHNWkmv1IPpW57IR3+
+         z+f0uWl0R4mGudCsV6CQayxZefgWuBgFn+0ffRb3e24SX808dV+Uz2KshsRo0IWrMmLm
+         +BcA==
+X-Forwarded-Encrypted: i=1; AJvYcCV8b4xrKxVilBeoTcCYbEMk8r+HYgD/GaH9Dz66lfWBgqLb5PorOMZGDftWzCrrGnVCbNbQU8ac0L2M46JnRAa/@lists.infradead.org
+X-Gm-Message-State: AOJu0YwKvxzKYgX/628dTOSCz4ZiXdAMwMlxi4hg/z1cOw7Au8Sm6WhM
+	xutcyAMlH1oosZ/q4yyA/eb7O8aEOjFn0VKxFamDCXQ9nvrEPZpH8vVNCbzSJBOVAX+Oki/+71m
+	v2ku6jTMgYn9qpMLO/9NSIZc3fCKtVMGVnuOK5fTJP0wEhqH7MNjNP0pAuvSBvTuqB+xyVm7cxw
+	==
+X-Gm-Gg: ASbGncs4Zngu5pfTUK9ZIT5lL0Ed5tE9rmdbKxFO+gthvHZqBbL2zs1NLS9Zvlb42Jf
+	of040WFeaPtqnT/qmZ+vYqmQFxgctGX7NgyyX/7z3ljymj+uz+s6QbDuN1p4QpNNEI5UseRWU+Z
+	femQc4oE/V9AFe2vPgarh4pT9LFQxUwZ9WE8cFyu5ID+f8AisUrx8xC4P4Ndn5osFWyn6DDPjvF
+	B1mbZc9UtyYMKeuiAeey3DTGZld0jy6D8XqAmxxeCJISat5TW92DRrAYp2fEXJ2t0HUglgwZIDs
+	7dmiosmA7hr64iQMlG9OOLNgCLoOTrnOtsI7ghmAcoY70x6nv+wreTLuUcG8Y1IXxOFXstBx
+X-Received: by 2002:a17:90b:5104:b0:2ff:53d6:2b82 with SMTP id 98e67ed59e1d1-309ee3f9ac3mr1009146a91.11.1745463545402;
+        Wed, 23 Apr 2025 19:59:05 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IE1uoQJIfPOjYS5c0t8qEcdJBa/XSSVaDhhDbxUVf2wYW3p+2ufJ1iKpn+iSg1y1zlPpsMSVQ==
+X-Received: by 2002:a17:90b:5104:b0:2ff:53d6:2b82 with SMTP id 98e67ed59e1d1-309ee3f9ac3mr1009128a91.11.1745463544995;
+        Wed, 23 Apr 2025 19:59:04 -0700 (PDT)
+Received: from [10.133.33.184] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-309ef1246d2sm120027a91.36.2025.04.23.19.59.01
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 23 Apr 2025 19:13:32 -0700 (PDT)
-Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-5ec9d24acfbso2967463a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 23 Apr 2025 19:13:31 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWkqTKEe48SNMVMW2Z5TeUFYw4y1YxDuXNPZJjWcNXOSC60yjcZnA7umcrbtINZiz4+gaWXcL8yz5EDpFA6IUk+@lists.infradead.org
-X-Received: by 2002:a17:907:2d8d:b0:ac7:3441:79aa with SMTP id
- a640c23a62f3a-ace5a2a9b58mr54104966b.13.1745460811360; Wed, 23 Apr 2025
- 19:13:31 -0700 (PDT)
+        Wed, 23 Apr 2025 19:59:04 -0700 (PDT)
+Message-ID: <87314d4c-e98e-4fc2-950c-52593a7a9ffb@oss.qualcomm.com>
+Date: Thu, 24 Apr 2025 10:59:00 +0800
 MIME-Version: 1.0
-References: <20250423-spmi-nvmem-v3-0-2985aa722ddc@gmail.com>
-In-Reply-To: <20250423-spmi-nvmem-v3-0-2985aa722ddc@gmail.com>
-From: Neal Gompa <neal@gompa.dev>
-Date: Wed, 23 Apr 2025 22:12:54 -0400
-X-Gmail-Original-Message-ID: <CAEg-Je-n+=dHzt3b5oDCk3uYm6vBpsFzy-47sDeJB_=rs7OR3A@mail.gmail.com>
-X-Gm-Features: ATxdqUHYt94bW4xL2oNxmmXaCgYQX3z4Kme1wD4CvmsQsfVBIo41Uk4tiX7FjQM
-Message-ID: <CAEg-Je-n+=dHzt3b5oDCk3uYm6vBpsFzy-47sDeJB_=rs7OR3A@mail.gmail.com>
-Subject: Re: [PATCH v3 0/3] Apple PMIC NVMEM cell driver (Formerly: Generic
- SPMI NVMEM cell driver)
-To: fnkl.kernel@gmail.com
-Cc: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Srinivas Kandagatla <srinivas.kandagatla@linaro.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Hector Martin <marcan@marcan.st>, Nick Chan <towinchenmi@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] coresight: tmc: fix failure to disable/enable ETF after
+ reading
+To: Mike Leach <mike.leach@linaro.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        James Clark <james.clark@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Yabin Cui <yabinc@google.com>,
+        Tingwei Zhang <quic_tingweiz@quicinc.com>, coresight@lists.linaro.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        Yuanfang Zhang <quic_yuanfang@quicinc.com>
+References: <20250423103744.475-1-jie.gan@oss.qualcomm.com>
+ <CAJ9a7Vi9sZBMfkwp445im8fbjeEZOB5_8saTsXhYj3aoRRPdFw@mail.gmail.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <CAJ9a7Vi9sZBMfkwp445im8fbjeEZOB5_8saTsXhYj3aoRRPdFw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI0MDAxNSBTYWx0ZWRfX/J6kqS4wKrM+ mWnmcb9/AelIktMsqZ8XHF23EF8Pl+2LTSgO5zpRysbeM+4VaIcrRi9+XCH/mxCJpQmCTbnSaX9 Mj8/JZW8sm7yjGYBD1kkyhqUm+hveQL/F3nfjyNvlsP00aypcSEhvNTQIA0dAfckD+Ho3GUfqye
+ g9sedo64HvZdrKiG/RIV3PQm6UJ12WVAT7tcFsJJYTMBguup18W6I19Yd1qL0mn8IUQrEJRyQaX oAkn7MvclGa0VuyajA2W344hUYbwMaKpCBfrygm/yZUWx+AzgwhEOIybI6GToShbH9DNl3qCGgo pSWWAfvXWh09GXG4Hd7/7FZF9KHuAnD/GOopuyEr+4iYeJolIbDFXlM6yArftITUmuzr018Jb4e
+ UPnWuHfTuRDcLy+jA6F92widAUDeV1/ZpnJ5q1vDwUJKY2XHfJ0zxmVciUZJ8UGfeYqbV7ub
+X-Proofpoint-GUID: 5vxQPvfr0WT8dyfSqQVqbGdcQOUtpIrU
+X-Proofpoint-ORIG-GUID: 5vxQPvfr0WT8dyfSqQVqbGdcQOUtpIrU
+X-Authority-Analysis: v=2.4 cv=M5VNKzws c=1 sm=1 tr=0 ts=6809a8fa cx=c_pps a=IZJwPbhc+fLeJZngyXXI0A==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=1XWaLZrsAAAA:8 a=EUspDBNiAAAA:8 a=COk6AnOGAAAA:8 a=7CQSdrXTAAAA:8
+ a=6sRczlYm9dJ-c3QEjcgA:9 a=QEXdDO2ut3YA:10 a=uG9DUKGECoFWVXl0Dc02:22 a=TjNXssC_j7lpFel5tvFf:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.680,FMLib:17.12.80.40
+ definitions=2025-04-24_01,2025-04-22_01,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0
+ lowpriorityscore=0 adultscore=0 spamscore=0 priorityscore=1501 mlxscore=0
+ mlxlogscore=999 malwarescore=0 impostorscore=0 clxscore=1015
+ suspectscore=0 phishscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
+ definitions=main-2504240015
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_191337_546651_8A76A29A 
-X-CRM114-Status: GOOD (  18.39  )
+X-CRM114-CacheID: sfid-20250423_195909_358003_8E3600E9 
+X-CRM114-Status: GOOD (  33.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,66 +131,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 23, 2025 at 1:55=E2=80=AFPM Sasha Finkelstein via B4 Relay
-<devnull+fnkl.kernel.gmail.com@kernel.org> wrote:
->
-> Hi.
->
-> This patch series adds a driver for exposing a set of registers
-> as NVMEM cells on a SPMI-attached PMIC on Apple ARM platforms.
-> Those are used to store the RTC offset and to communicate platform
-> power state between the OS and boot firmware.
->
-> The NVMEM cell consumer drivers will be sent in a further series.
->
-> Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
-> ---
-> Changes in v3:
-> - No longer try to make it generic, use for the 3 relevant PMICs only
-> - Link to v2: https://lore.kernel.org/r/20250417-spmi-nvmem-v2-0-b88851e3=
-4afb@gmail.com
->
-> Changes in v2:
-> - s/pmu/pmic/
-> - Sort dts in unit-order, instead of t600x-unit-order
-> - Link to v1: https://lore.kernel.org/r/20250415-spmi-nvmem-v1-0-22067be2=
-53cf@gmail.com
->
-> ---
-> Hector Martin (2):
->       nvmem: Add apple-spmi-nvmem driver
->       arm64: dts: apple: Add PMIC NVMEM
->
-> Sasha Finkelstein (1):
->       dt-bindings: spmi: Add Apple SPMI NVMEM
->
->  .../bindings/nvmem/apple,spmi-nvmem.yaml           | 54 ++++++++++++++++=
-+++
->  MAINTAINERS                                        |  2 +
->  arch/arm64/boot/dts/apple/t6001.dtsi               |  1 +
->  arch/arm64/boot/dts/apple/t6002.dtsi               |  1 +
->  arch/arm64/boot/dts/apple/t600x-die0.dtsi          | 50 ++++++++++++++++=
-+
->  arch/arm64/boot/dts/apple/t8103.dtsi               | 50 ++++++++++++++++=
-+
->  arch/arm64/boot/dts/apple/t8112.dtsi               | 50 ++++++++++++++++=
-+
->  drivers/nvmem/Kconfig                              | 13 +++++
->  drivers/nvmem/Makefile                             |  2 +
->  drivers/nvmem/apple-spmi-nvmem.c                   | 62 ++++++++++++++++=
-++++++
->  10 files changed, 285 insertions(+)
-> ---
-> base-commit: 2e0e70c95077172b29a5b13716c4b159d578e82c
-> change-id: 20250415-spmi-nvmem-e08635316175
->
-
-Series LGTM.
-
-Reviewed-by: Neal Gompa <neal@gompa.dev>
 
 
---=20
-=E7=9C=9F=E5=AE=9F=E3=81=AF=E3=81=84=E3=81=A4=E3=82=82=E4=B8=80=E3=81=A4=EF=
-=BC=81/ Always, there's only one truth!
+On 4/23/2025 9:56 PM, Mike Leach wrote:
+> Hi,
+> 
+> On Wed, 23 Apr 2025 at 11:37, Jie Gan <jie.gan@oss.qualcomm.com> wrote:
+>>
+>> From: Mao Jinlong <quic_jinlmao@quicinc.com>
+>>
+>> From: Mao Jinlong <quic_jinlmao@quicinc.com>
+>>
+> 
+> What are these extra email addresses for?
+
+Sorry for the mistake. I did not aware the commit author is changed from 
+me to the original author.
+
+> 
+>> ETF may fail to re-enable after reading, and driver->reading will
+>> not be set to false, this will cause failure to enable/disable to ETF.
+>> This change set driver->reading to false even if re-enabling fail.
+>>
+>> Fixes: 669c4614236a7 ("coresight: tmc: Don't enable TMC when it's not ready.")
+> 
+> This SHA and message appear not be present in any upstream / coresight branch.
+> 
+
+detail for the commit from linux-next git:
+
+commit 669c4614236a7f78a2b693d0024cbdfa8536eb5a
+Author: Yabin Cui <yabinc@google.com>
+Date:   Fri Jan 27 23:10:01 2023 +0000
+
+     coresight: tmc: Don't enable TMC when it's not ready.
+
+     If TMC ETR is enabled without being ready, in later use we may
+     see AXI bus errors caused by accessing invalid addresses.
+
+     Signed-off-by: Yabin Cui <yabinc@google.com>
+     [ Tweak error message ]
+     Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+     Link: 
+https://lore.kernel.org/r/20230127231001.1920947-1-yabinc@google.com
+
+
+>> Co-developed-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+>> Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
+>> Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
+>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+>> ---
+>>   drivers/hwtracing/coresight/coresight-tmc-etf.c | 13 +++++++------
+>>   1 file changed, 7 insertions(+), 6 deletions(-)
+>>
+>> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etf.c b/drivers/hwtracing/coresight/coresight-tmc-etf.c
+>> index d858740001c2..8c9f14e36bc2 100644
+>> --- a/drivers/hwtracing/coresight/coresight-tmc-etf.c
+>> +++ b/drivers/hwtracing/coresight/coresight-tmc-etf.c
+>> @@ -87,6 +87,12 @@ static void __tmc_etb_disable_hw(struct tmc_drvdata *drvdata)
+>>   {
+>>          CS_UNLOCK(drvdata->base);
+>>
+>> +       /* Check if the etf already disabled*/
+>> +       if (!(readl_relaxed(drvdata->base + TMC_CTL) & TMC_CTL_CAPT_EN)) {
+>> +               CS_LOCK(drvdata->base);
+>> +               return;
+>> +       }
+>> +
+> 
+> What does this have to do with the stated function of the patch - this
+> is unnecessary.
+
+I agree with you. I think it's ok to disable a disabled device again.
+
+> Under what scenario can this function be called with the ETB
+> previously disabled?
+
+Combined with the fix code below. It may appear a scenario that the ETB 
+is disabled but the mode is CS_MODE_SYSFS.
+
+> 
+>>          tmc_flush_and_stop(drvdata);
+>>          /*
+>>           * When operating in sysFS mode the content of the buffer needs to be
+>> @@ -747,7 +753,6 @@ int tmc_read_unprepare_etb(struct tmc_drvdata *drvdata)
+>>          char *buf = NULL;
+>>          enum tmc_mode mode;
+>>          unsigned long flags;
+>> -       int rc = 0;
+>>
+>>          /* config types are set a boot time and never change */
+>>          if (WARN_ON_ONCE(drvdata->config_type != TMC_CONFIG_TYPE_ETB &&
+>> @@ -773,11 +778,7 @@ int tmc_read_unprepare_etb(struct tmc_drvdata *drvdata)
+>>                   * can't be NULL.
+>>                   */
+>>                  memset(drvdata->buf, 0, drvdata->size);
+>> -               rc = __tmc_etb_enable_hw(drvdata);
+>> -               if (rc) {
+>> -                       raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+>> -                       return rc;
+>> -               }
+>> +               __tmc_etb_enable_hw(drvdata);
+> 
+> Dropping a valid error check is not acceptable. If a TMC cannot be
+> re-enabled, then that is a hardware error that needs noting and
+> dealing with.
+> 
+
+That's the issue about the error check. __tmc_etb_enable_hw may fail due 
+to hardware issue or just a timeout for tmcready(may restore). The error 
+check captures the error and returns directly without setting 
+drvdata->reading = false.
+
+So the current mode for ETB is CS_MODE_SYSFS, which implies the device 
+is enabled but actually not. This prevents us from processing another 
+enable/disable session for the ETF if drvdata->reading remains true.
+
+Thanks,
+Jie
+
+> Regards
+> 
+> Mike
+> 
+>>          } else {
+>>                  /*
+>>                   * The ETB/ETF is not tracing and the buffer was just read.
+>> --
+>> 2.34.1
+>>
+> 
+> 
+
 
