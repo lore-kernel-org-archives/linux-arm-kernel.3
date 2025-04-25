@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90BCDC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 09:27:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0604C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 09:29:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+7UqeHAmQebhCw1CJDAMsSAvJheJ+iUgJ4so9dAOcCQ=; b=eIJhdTt6PXpFdhIh8uknK9zfKw
-	eQ2nK9X3vRnAmvTPmiWdkXepzEXT2M/CcIC7oF8VxnDqS1AwCagkiD536VtJH/EfuTxFcA/IySAaQ
-	ngXKHmmIwxKZoCdGFEyWm7EKZgzIR4xHuMtE9Kv9f5R951EDQvdZvqN1mGpV9PMp6SGFcPXzj2cUx
-	WsqEgvkiKNJBCgkboU/TS3Lr6kuRrDFNrLUOLoqrwywjFzLrFFrp7wuy2zuiWZU/GKazXlnN+lyHK
-	RankyfEDHgQdI2HAtW3vu1Wp/vXGITQ5ZNGXx+siOkQSQ7Ss3SBlSpKc6rwmVtGl+1ke9C5sOpYvz
-	ETIGKFgg==;
+	bh=W1esYsMdClOiYJnMStMZq7p5g6vLoQHmFarNnAAvQKk=; b=lqjQFdDQd8Bfdg/kkOs1zyHqAs
+	sFSy5G8XD7qnBxVQ37AQ1vfdb4xSuAioS2i1GyWuVMKd4P8NrCLiBpXmPIXxcnUFu5uOyTxGd0Ezi
+	QOpbxFFiUczSkIAnk9v7u8X3shDMJ7yzgMJTyAicfEO+WWyv1bpw9NrAFvpzT4WAjHlx8UW/yYLAW
+	GJ0xa2UenmwUzXXQ39M1DWBYer7Xc8+shOcFz4Tk9IRZtqTLiJ480GwFgEOAGCq36IfPjJ2kgHkhw
+	kzzAJ2goXNjLyK9ZdgmwMVdSAXfTtCfoNKYw6W86Fk7Y7h4huQ7JVV6mNuejro9oS3ptO3KQwVyGv
+	40lDGY4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8FLT-0000000GXVp-2HBg;
-	Fri, 25 Apr 2025 09:27:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u8FNI-0000000GXoU-1Kge;
+	Fri, 25 Apr 2025 09:29:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Esv-0000000GRoy-2Eqi
+	id 1u8Et2-0000000GRqX-2nPQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 08:58:14 +0000
+	Fri, 25 Apr 2025 08:58:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 75B7743FA2;
-	Fri, 25 Apr 2025 08:58:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4E40C4CEEB;
-	Fri, 25 Apr 2025 08:58:06 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C238768464;
+	Fri, 25 Apr 2025 08:57:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91555C4CEE4;
+	Fri, 25 Apr 2025 08:58:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745571493;
-	bh=m+Vi1J2g9X6f8XLQfZWFFa2VyVsNzxMlpbDST6gpme8=;
+	s=k20201202; t=1745571499;
+	bh=SNLiMhOsszlezKYixhj6I8LuSgz6s/EcE4gCa2JfaPI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rZrO9gEeE+tVfuQHltwGYKi6PyXbaHgIHTGo3zYBdKuknJVc4pYQyrvxYaW/quK/p
-	 XVpoCi7xYLfak/z98WjxUqsqr4J7KcOeflv5dPAgiGnQ3q5vGz5iG1xqrrNPUVBnHk
-	 NiHbBIPqNflJ6S4v0F/1dM4yDmZaXV/zjdzd9JX0MK1n8a1+DpaPUZOLZUgSxPfj/x
-	 iKxaqgfLLdwq+Kw4I2uAhMUG3FhEupoGxt05KXz+ZP5nRa8K/CITUBEA4fvnUchgp5
-	 0sj7IxsrtduNvon79eUafdIC7hSX4L8AlzXeR7SX7cIILhBRj3bF2T37RRc3FRuLS+
-	 QExag8BAQtuZw==
+	b=AXIUSdEaBTP+wb5An5Kz724b5QqR+D1UiEHOKdeoLvVgJ5WB7Ukiadkby+TIGRQoj
+	 YIgfc8OWqfSB6+eo3/1SYXbZENETrVmHPFIowyIW+yZjXC+eN1acFx/Npw8LPfFA1n
+	 J0bzN/Se98urxB7Fv8EoLYTbpFMu9+/K5myOkjjBQtZwjJ2fYp/azg3I2LTc9pcv5o
+	 rPwDpPCuRbnLio5id4DD4I2NNE5m5jcVlh9P6AQEqgE3fJLON9Xoga8JLJ1npP9m1S
+	 BLaLhhmnztpzdyL1djs2LAIxk4DDuvGn+bfaVWM5dLh4nPCDMIc8CR1Qe5SxGcItaN
+	 Wjw28w7OZXEkg==
 From: Philipp Stanner <phasta@kernel.org>
 To: Sunil Goutham <sgoutham@marvell.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -70,17 +70,14 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-parisc@vger.kernel.org
-Subject: [PATCH v2 3/8] net: tulip: Use pure PCI devres API
-Date: Fri, 25 Apr 2025 10:57:36 +0200
-Message-ID: <20250425085740.65304-5-phasta@kernel.org>
+Subject: [PATCH v2 4/8] net: ethernet: natsemi: Use pure PCI devres API
+Date: Fri, 25 Apr 2025 10:57:37 +0200
+Message-ID: <20250425085740.65304-6-phasta@kernel.org>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250425085740.65304-2-phasta@kernel.org>
 References: <20250425085740.65304-2-phasta@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_015813_613740_B837116B 
-X-CRM114-Status: GOOD (  15.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,36 +105,22 @@ Replace pci_request_regions() with pcim_request_all_regions().
 Signed-off-by: Philipp Stanner <phasta@kernel.org>
 Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
 ---
- drivers/net/ethernet/dec/tulip/tulip_core.c  | 2 +-
- drivers/net/ethernet/dec/tulip/winbond-840.c | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ drivers/net/ethernet/natsemi/natsemi.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/dec/tulip/tulip_core.c b/drivers/net/ethernet/dec/tulip/tulip_core.c
-index c8c53121557f..bec76e7bf5dd 100644
---- a/drivers/net/ethernet/dec/tulip/tulip_core.c
-+++ b/drivers/net/ethernet/dec/tulip/tulip_core.c
-@@ -1411,7 +1411,7 @@ static int tulip_init_one(struct pci_dev *pdev, const struct pci_device_id *ent)
- 
- 	/* grab all resources from both PIO and MMIO regions, as we
- 	 * don't want anyone else messing around with our hardware */
--	if (pci_request_regions(pdev, DRV_NAME))
-+	if (pcim_request_all_regions(pdev, DRV_NAME))
- 		return -ENODEV;
- 
- 	ioaddr = pcim_iomap(pdev, TULIP_BAR, tulip_tbl[chip_idx].io_size);
-diff --git a/drivers/net/ethernet/dec/tulip/winbond-840.c b/drivers/net/ethernet/dec/tulip/winbond-840.c
-index 5930cdec6f2f..e593273b2867 100644
---- a/drivers/net/ethernet/dec/tulip/winbond-840.c
-+++ b/drivers/net/ethernet/dec/tulip/winbond-840.c
-@@ -375,7 +375,7 @@ static int w840_probe1(struct pci_dev *pdev, const struct pci_device_id *ent)
+diff --git a/drivers/net/ethernet/natsemi/natsemi.c b/drivers/net/ethernet/natsemi/natsemi.c
+index 05606692e631..dd279788cf9e 100644
+--- a/drivers/net/ethernet/natsemi/natsemi.c
++++ b/drivers/net/ethernet/natsemi/natsemi.c
+@@ -846,7 +846,7 @@ static int natsemi_probe1(struct pci_dev *pdev, const struct pci_device_id *ent)
  		return -ENOMEM;
  	SET_NETDEV_DEV(dev, &pdev->dev);
  
--	if (pci_request_regions(pdev, DRV_NAME))
-+	if (pcim_request_all_regions(pdev, DRV_NAME))
- 		goto err_out_netdev;
+-	i = pci_request_regions(pdev, DRV_NAME);
++	i = pcim_request_all_regions(pdev, DRV_NAME);
+ 	if (i)
+ 		goto err_pci_request_regions;
  
- 	ioaddr = pci_iomap(pdev, TULIP_BAR, netdev_res_size);
 -- 
 2.48.1
 
