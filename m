@@ -4,78 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 230B2C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 20:06:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEB65C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 20:07:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=etxEC12lMB+ejp9f/Y42bos7wLJ3Y7W974k3fpFSzHk=; b=fkCHEsu7kZAyWzluDwcFi6EE6X
-	yoBIWFAppAYXwoEpe31HR69QyXMKJkicS8JEbbsnN2qzaW2gyDsEC+Ck/txNur5Sain2WxGLkfDaS
-	BcZidO25QpLxXqWJp+iQBC5bZZPv9VzGYcNVdjwvJH7t7aZWdHgFV8U4IUqxLqiwSIxJJgJysb0Ms
-	J9Ij+85m6U8KOVLTgR4M7DRvKWKlFRM4LqwM4JqRwALfUQ2oNOKQyvKxjP9XmFkxs8JqtYx5lTLQm
-	jpRTvVYK3YNzukRxPUSvKqdbVbTHV4N/qtyOTubgwT0AilxRHn9Ovb/3KF/XgHL8XjfS5ql1ZEp2n
-	Y2b0U+Zw==;
+	bh=hhhHYs4KoUp1Dmqe4WieRh0AOyBX59ZVEuUqlgb/Xa8=; b=J1lBDf0pfmlW66w0FXX7aZokvU
+	yZBLCcn/LV+AjGVrPde6zQB5GH6EXAeYmHCwUPqZm+Sj1jfeTjRv4m9DKiWZnxYIc57t+iTtdCfIn
+	YUkDStikGN6cnpONt9pnaIiBlvgPx02jDTP1dtoYY7M1GCJdxI3bXeR++AhBFqMOqMs6W6svCq7oF
+	JYTx5BkUmqIccBg4rgHpebJKj8E9MWOpsaGhPz5ZFpiKmPtEYPzTk3hCodCvAiN9ttFY0t3VL+HSr
+	NpV7ZyGR9zYyxTsatIB3vhEfP35VthWDBxT0U+6QTJKosEV6darvWgBSfz1y7PcBKEGX/TJi/a44L
+	+svLzNug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8PJ0-00000000kwc-1fyf;
-	Fri, 25 Apr 2025 20:05:50 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1u8PKr-00000000lHG-0HaP;
+	Fri, 25 Apr 2025 20:07:45 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8P2U-00000000iBD-3OFg
+	id 1u8P2W-00000000iCK-1n3K
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 19:48:47 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43cf7c2c351so2399885e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 12:48:46 -0700 (PDT)
+	Fri, 25 Apr 2025 19:48:49 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43cf89f81c5so2492995e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 12:48:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745610525; x=1746215325; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1745610527; x=1746215327; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=etxEC12lMB+ejp9f/Y42bos7wLJ3Y7W974k3fpFSzHk=;
-        b=OdkXkZ1tzeTtIpEKnNpQEuWEWAISm7ik3XbSLsaxz6kw+HFLa6WWxpZds7Vd463CYP
-         e3hcOSsJPQj+Tf4L5MiLmEy1oqAiDM2HppHWMJ13t6PDgZhpDVqI3vOTz/sNz0l2AZdE
-         hbaN2sSnrKEBVsQFtaxkExw4GAsIoxWsGHLo8K3Ea6d6d8TSgB88ECJYsF7adzoTjWA1
-         p0+2xRSz9euRc5iKwXWcyYFHV8EwnqO55sJ7YmoTKtBs0S3g/af6d+wsupYp6Zf8AFrA
-         gN1B978iSlEkcxyg+VOaK7x1lZrY2ix1bYKOciuLRGMdpoaV+qqZ/Jjgg7hHD6yXeX+5
-         Nqvg==
+        bh=hhhHYs4KoUp1Dmqe4WieRh0AOyBX59ZVEuUqlgb/Xa8=;
+        b=g1cMDrbo5iVqxlL9r5D3+kjKEmH6c93hnt1+tPf7sL0MVgDHZjhpP8PrE2/B+jeouu
+         hA84su0x4A92yf1Z0oOQCZyYQ2OAFnM7jhojZ/QVACVMcGxObN3I2SUVyv1BTQgjDIpR
+         qQ6QaarHdvEvLQDG6wfWzR3KXMOyLw6yGAHWnnpqBXbfy13gv6l/8a1WYewW9GvUSBBO
+         ILDYDGYLxGRzTwLPSEPe1NFYs8X5XNLAz7nFV6pcuuXE5Gt3w8E8WbB/1zUgeDPmi4T5
+         0Z8xLSh5hxtkaHPiigkM0gEdEwdgZq50Xj+RZn6g8P6gpDt2m8EzXkxsOHrtTELyP1IB
+         pDzg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745610525; x=1746215325;
+        d=1e100.net; s=20230601; t=1745610527; x=1746215327;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=etxEC12lMB+ejp9f/Y42bos7wLJ3Y7W974k3fpFSzHk=;
-        b=Rf6AGk74Lq7uwA8ZI/76H3B+zJaUruRiJZ87zvTul+ryBBwCN7lIh7j100TEcIpD0g
-         XnUi1Te76t6fzuh3aHoVToL0fT7tU/1lGjnFwnAP24euOvXVBuQXgAZKNqe8pleAiq7C
-         Rdt5WGcfMbUv3H+g4+heg4tPN42f3Bj1NvcYKKCwTNMJzzQaHaCo83vibyD2MdsXPlB6
-         bcZTni2bn0yjEeQQhkBCx+ZCReSIIkA0C9EeAqdtF4dij5yUQ9H8dE/iP6sNGKWpxR5a
-         YcHe5If1TdFcYS62bkLEWzEPL/zx8/mS5AAdPrKipqUkcvAhP/jptDY7izHm2LYvTyem
-         Q9sw==
-X-Forwarded-Encrypted: i=1; AJvYcCVnf4oxP8C5DASR8GkCf8hZIu46nyAms8wTRWE6bPlDFfjZk7bMg6AQR3XvpRau2YUJY+ZRKwHm27LqPZSpeBjj@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3A6MpCxnm9tqDxmhTN2l+BASkpMEtz2Jta0j9w0o5jlcKYBIu
-	bIyFyWAG4YYwgb8x3Ri4kLKnIm9uGTjaM9l7JtYDizGFCeLymSVjuDZdOr3SBe4=
-X-Gm-Gg: ASbGncucJJKCURfxzAjdB1RttnMdrEtgoYQyxU3ideF+yq2kHOEaYNbeI1j6UTlFp8p
-	zk6IEw5wqUPkqT/emwyF3OIc5npqhh3zAJib3ACu4TTyV7Uy1Ov2xjxjJkVuzSjR4+UexL6cllY
-	QRwHFIfnOESFLV1QjJuJjTlFIvgpoIyKTlwAqai70ZyrvkkmzPoDXhHOOqOw20bW7kMwAq85d31
-	gWGt2bwaa9YCWvjwlsr0lAhxEImcldBfFIWyt/m+K611DiKfd5vrG+zJkaIjrTHnHN37P/6dBYl
-	fVDX4fknNIuUlkRnU0jyJ7mzWY5nJCrLfTcUKSaFT8L5oxiKMSh6l2oOtyCMI5OpXcIc3g==
-X-Google-Smtp-Source: AGHT+IGZVtZLkR9nxPkUbvzOCdFjLRhSjWHRmpkwHUAsb2AXquVCMi3+Gvn4z8qa544N9iD+XiVgsw==
-X-Received: by 2002:a05:600c:ccc:b0:43d:301b:5508 with SMTP id 5b1f17b1804b1-440a65ceab8mr12011905e9.2.1745610525364;
-        Fri, 25 Apr 2025 12:48:45 -0700 (PDT)
+        bh=hhhHYs4KoUp1Dmqe4WieRh0AOyBX59ZVEuUqlgb/Xa8=;
+        b=asijH9Iws9wKDzCnpk3t9K51f811YmH4yaerrTAs+haN599QOa08tXl2zzJOBAUncI
+         8nfQcFbosl4Q/68y4xEdCXb1J+mt9UTl2uQX8ectoMBKkGy2RzwVsQPifFTx27P/DpuE
+         GB/TQX7a4xuoPvlqWuOljmU5dUz+2d8hM6wKli5+qUV0urMg30vwrTobO7Mj69lamzAa
+         4WZu4bJsitBFA5pEUYksjLnD6IOocpwCF2du+cq9bQ+mumkp+Z+5PSZCKOsRRkbMFR99
+         AKlXYA1LY1VJTYSTEJb6MhqiNqXMDuehIIXPVrBoclsQ8LopLrtNg1gVy6Z/TXx7iHmA
+         Szmg==
+X-Forwarded-Encrypted: i=1; AJvYcCX0sgbwB/VQ491s3/7YnbipZlWkbNf/3HmAyk3z2wABy4H0rUXUxqjqsLqEjEDWC/5qxX2zFOod8Y9ROREenpta@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxru+Taum0SMuXWTtShRLuYNTxeHwtzNGSHWzPnLdg23SPe7AE7
+	WVuU+A73cO3+djNrE4rX+0hgCmlQG1RB95BRyew7eEaZMuqHaGW6aPWLIxdhs0Y=
+X-Gm-Gg: ASbGncuC9zXnuZdWFwZNVePcLql7oYVDtMaqKFFR7EFPiA9KGfujwvH54jo/dNPlcqV
+	7dbfGutD8q12U25fIJe1l27zi8M26FvrhKwN2M5DZIX9vL9aPzmtdRxpAOJb2Py93Hqz767DqO9
+	3rfOY8BSAQ3UmJnymJyBXYPVulexOHOrn/IyUCcPqrd7U3Kbl08MkYCIvS58gQcuLBDRMD3KQal
+	QITFREXqCdJ9QSwQknuxQ1njySQfN5bORQR/1wTtFuMJiUHEjxY47OTavKm+VgmL3U1fRSJGUQm
+	RE5Ie74RcsbqFeEjSqYtOQ1bSZAq9bgcdpoUYRcALLjsGvvi37883AxmaLs=
+X-Google-Smtp-Source: AGHT+IFLaTSeRSUUGpyQQF47LNee1uEGXqbvZf8eFCoZYl+D6T7aT4sNdv5ZKx6ouKFqA9TQ2uy0OA==
+X-Received: by 2002:a05:600c:4e16:b0:439:9a5a:d3bb with SMTP id 5b1f17b1804b1-440a65bb214mr12389145e9.2.1745610526742;
+        Fri, 25 Apr 2025 12:48:46 -0700 (PDT)
 Received: from [192.168.1.29] ([178.197.207.88])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4409d2a2e59sm65922335e9.16.2025.04.25.12.48.44
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4409d2a2e59sm65922335e9.16.2025.04.25.12.48.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Apr 2025 12:48:44 -0700 (PDT)
+        Fri, 25 Apr 2025 12:48:46 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Date: Fri, 25 Apr 2025 21:48:28 +0200
-Subject: [PATCH 5/6] arm64: dts: imx8mq: Move Ethernet aliases out of SoC
- DTSI
+Date: Fri, 25 Apr 2025 21:48:29 +0200
+Subject: [PATCH 6/6] arm64: dts: imx8qm: Add Ethernet aliases
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250425-dts-imx-aliases-ethernet-v1-5-15b9d5cca611@linaro.org>
+Message-Id: <20250425-dts-imx-aliases-ethernet-v1-6-15b9d5cca611@linaro.org>
 References: <20250425-dts-imx-aliases-ethernet-v1-0-15b9d5cca611@linaro.org>
 In-Reply-To: <20250425-dts-imx-aliases-ethernet-v1-0-15b9d5cca611@linaro.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -88,26 +87,26 @@ Cc: Francesco Dolcini <francesco@dolcini.it>, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux@ew.tq-group.com, 
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6930;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2479;
  i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=42Bpm3LHEmtVmQsrqnD99bk04O4x432C9JaHWtmjDWU=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoC+cSrpxTKzVN9MQW5WEKhUCnxySOLJmHDaUV3
- 1rTpgOcecKJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaAvnEgAKCRDBN2bmhouD
- 13A9D/9AxkwwLjRniz+C+Uyac2kCQOPoMKIv3737edtkN6sEd6hYzK2WxGqFoiNRGYAUCo2r4F7
- ZeBJbKngrwsS2oc6FTeOTKoQE48MGvZ4zns1l23uXgH0PTozqTWOwABIG9FmROWoyoNRjM5fFDB
- 8njGYm9AOJc3KJvBgmKILVUQOeblAytOyRn8R2mv5Gl1+2f9zEZMCCEw1qwqEVkiLMO2cAAG/j2
- olEVbusgWYM+T7GOrW51JvwL+Vdz0R7iU/4h+u76LGltprGq9uJlLjtvnSYe3dwFtJRmf3zwNqY
- GAWzY/Je82zkk5iYgmi9/GlHfRNBu/R+t7FLlDrQt1+41eSIhWzJ7dDQ+7v/qxbwsVq6ziIg4m4
- FyRWcpCKHJp2uQ32PnSVCCQCyQMMSg99E2YCv50DkpaNlrS0SjxIiTZ0RZdkhbIUaPYAL99uK82
- pRnuZTntNYQGsnWTPYEEsixouLVdXzeH+PAsofKvNQUbkT+aeP//pMtNmUHCSBkgQsEuJFCqmBi
- MvUBHpBLtr99DCLyJubZzAfeRtNLMRdKc9spMtnV3A7k7a7G7xkyUcqwzoC8h3wqwJCiuCwe/Zb
- E8aTzYw3uB4SCexXFymPkMV9+Um5NOrCH2AxpAoS/aPtFTmRMclVfGIBN1vfKVJC4uvOJF3w9tG
- zwvwnDyvujCMvGg==
+ bh=+HtaD1MMcC10nD909Zao9y6H0hANNmhyPMSU9hKMrJ8=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoC+cT4fIlFtHdioeWVc2xOwVr9yZQOrIxjezPT
+ BqQvIyvneCJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaAvnEwAKCRDBN2bmhouD
+ 10o+D/9wX+DtmPtvlcmDr/mCEaqmlp0wvwGsyDcSTM9w60nfSI5reGe0MqXrtxsvZrs8lKFxznN
+ 3PjNwe+ZxecVp/9kOaAe6EVlhj3Q3aFouo02F6cM/kLI6W2mVqMj38LgcYgZWbl6ZvP1LxCRXhL
+ ezNXFaxF2/0Xhn04nJK22kvW3YgWWwJRyuobDQCd+ihOmaIf2NoOv5xWD58TnjCcsCjNlrbnaPH
+ 7xRfa4/5zH9LS3YMHTJ8ha9Q0Zh0nDZhoox4fFnFKIr2B2l02aBp2udtZAbaHG0hdjv5LhLp3p+
+ ffbw/A5KcrbbJpA/VibMR4w4g9gJtTtRltZ4RJ/bOEGfFM+rzRc9uN+SLTodvJyyE2PJIjRUDB7
+ Q3bj0You2XJ7zg/URj/sAbVZzEzAVm8A+4nvAY1E8w4Ib93yWrdWK6C8ns2JSFtu/tAt0D4rUyS
+ 4Q0Yn2eUr5XEru36ARlvLY5/bMIZIv3t5YBmK7zO/I6i82ILF8eJU1LTqUg0GXl+tddS+8iVn55
+ 2l74XGR2x7nM+kIr6Lie5OxOZu7h+ncENhB3hj/ZgSmMFSKEQiBTotGYgThX/0q3YrLwLAim3QK
+ iHgqpgfu1my2QweV+ZXDV6RpemOo2CZi1XjMpkiDxi1xC8UjjnI/lMI8Mms7NK9J+1ewKm/AHxO
+ 56TGfJW6cEQJtHg==
 X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_124846_882081_5F818187 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20250425_124848_481752_B3D1CCC4 
+X-CRM114-Status: GOOD (  10.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,181 +121,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ethernet interface, like other exposed interfaces, aliases depend on
-actual board configuration, e.g. its labeling, thus aliases should be
-defined per each board or each SoM.
+Add Ethernet aliases for predictable names and for firmware or
+bootloader to fill up MAC address.
 
+Suggested-by: Francesco Dolcini <francesco@dolcini.it>
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- arch/arm64/boot/dts/freescale/imx8mq-evk.dts                | 4 ++++
- arch/arm64/boot/dts/freescale/imx8mq-kontron-pitx-imx8m.dts | 1 +
- arch/arm64/boot/dts/freescale/imx8mq-librem5-devkit.dts     | 4 ++++
- arch/arm64/boot/dts/freescale/imx8mq-mnt-reform2.dts        | 4 ++++
- arch/arm64/boot/dts/freescale/imx8mq-nitrogen.dts           | 4 ++++
- arch/arm64/boot/dts/freescale/imx8mq-phanbell.dts           | 4 ++++
- arch/arm64/boot/dts/freescale/imx8mq-pico-pi.dts            | 4 ++++
- arch/arm64/boot/dts/freescale/imx8mq-sr-som.dtsi            | 4 ++++
- arch/arm64/boot/dts/freescale/imx8mq-thor96.dts             | 4 ++++
- arch/arm64/boot/dts/freescale/imx8mq-zii-ultra.dtsi         | 1 +
- arch/arm64/boot/dts/freescale/imx8mq.dtsi                   | 1 -
- 11 files changed, 34 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/freescale/imx8-apalis-eval.dtsi       | 2 ++
+ arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.1.dtsi | 1 +
+ arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.2.dtsi | 1 +
+ arch/arm64/boot/dts/freescale/imx8qm-mek.dts              | 5 +++++
+ 4 files changed, 9 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mq-evk.dts b/arch/arm64/boot/dts/freescale/imx8mq-evk.dts
-index a87d0692c3bb372f77c04d5190e3741f93a142ec..1d11ebf1c8449541331aea51a6b2841f6e6c790a 100644
---- a/arch/arm64/boot/dts/freescale/imx8mq-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mq-evk.dts
-@@ -12,6 +12,10 @@ / {
- 	model = "NXP i.MX8MQ EVK";
- 	compatible = "fsl,imx8mq-evk", "fsl,imx8mq";
- 
-+	aliases {
-+		ethernet0 = &fec1;
-+	};
-+
- 	chosen {
- 		stdout-path = &uart1;
- 	};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mq-kontron-pitx-imx8m.dts b/arch/arm64/boot/dts/freescale/imx8mq-kontron-pitx-imx8m.dts
-index d8cf1f27c3ec8a33b7ad527c1fc2b489747a2d84..6ab8e2e07b8d403f1fa00ebe2e381e8e7ac5699a 100644
---- a/arch/arm64/boot/dts/freescale/imx8mq-kontron-pitx-imx8m.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mq-kontron-pitx-imx8m.dts
-@@ -15,6 +15,7 @@ / {
- 	compatible = "kontron,pitx-imx8m", "fsl,imx8mq";
- 
- 	aliases {
-+		ethernet0 = &fec1;
- 		i2c0 = &i2c1;
- 		i2c1 = &i2c2;
- 		i2c2 = &i2c3;
-diff --git a/arch/arm64/boot/dts/freescale/imx8mq-librem5-devkit.dts b/arch/arm64/boot/dts/freescale/imx8mq-librem5-devkit.dts
-index d9f203c795197a8d02e6bfa831df6eacdefdc4b3..b1726e0a46bc591f617f25f9fa3ea39509657aba 100644
---- a/arch/arm64/boot/dts/freescale/imx8mq-librem5-devkit.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mq-librem5-devkit.dts
-@@ -16,6 +16,10 @@ / {
- 	model = "Purism Librem 5 devkit";
- 	compatible = "purism,librem5-devkit", "fsl,imx8mq";
- 
-+	aliases {
-+		ethernet0 = &fec1;
-+	};
-+
- 	backlight_dsi: backlight-dsi {
- 		compatible = "pwm-backlight";
- 		/* 200 Hz for the PAM2841 */
-diff --git a/arch/arm64/boot/dts/freescale/imx8mq-mnt-reform2.dts b/arch/arm64/boot/dts/freescale/imx8mq-mnt-reform2.dts
-index 3ae3824be0271f8c5804faf63eaf51aafde9875f..0794abfcb8ac78d7487bde8b2d7008f1b602bd31 100644
---- a/arch/arm64/boot/dts/freescale/imx8mq-mnt-reform2.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mq-mnt-reform2.dts
-@@ -14,6 +14,10 @@ / {
- 	compatible = "mntre,reform2", "boundary,imx8mq-nitrogen8m-som", "fsl,imx8mq";
- 	chassis-type = "laptop";
- 
-+	aliases {
-+		ethernet0 = &fec1;
-+	};
-+
- 	backlight: backlight {
- 		compatible = "pwm-backlight";
- 		pinctrl-names = "default";
-diff --git a/arch/arm64/boot/dts/freescale/imx8mq-nitrogen.dts b/arch/arm64/boot/dts/freescale/imx8mq-nitrogen.dts
-index 767819cce886cea8828fff68150f64fd21ad8f89..d84f566b85fd6918052040a71b9915b44c7cb846 100644
---- a/arch/arm64/boot/dts/freescale/imx8mq-nitrogen.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mq-nitrogen.dts
-@@ -12,6 +12,10 @@ / {
- 	model = "Boundary Devices i.MX8MQ Nitrogen8M";
- 	compatible = "boundary,imx8mq-nitrogen8m", "fsl,imx8mq";
- 
-+	aliases {
-+		ethernet0 = &fec1;
-+	};
-+
- 	chosen {
- 		stdout-path = "serial0:115200n8";
- 	};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mq-phanbell.dts b/arch/arm64/boot/dts/freescale/imx8mq-phanbell.dts
-index e34045d10a12fd8060b0bb5e512ca7d4eae95695..bd9e41e09a03cc692a2228dbee8cc6c51a7cc0c0 100644
---- a/arch/arm64/boot/dts/freescale/imx8mq-phanbell.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mq-phanbell.dts
-@@ -12,6 +12,10 @@ / {
- 	model = "Google i.MX8MQ Phanbell";
- 	compatible = "google,imx8mq-phanbell", "fsl,imx8mq";
- 
-+	aliases {
-+		ethernet0 = &fec1;
-+	};
-+
- 	chosen {
- 		stdout-path = &uart1;
- 	};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mq-pico-pi.dts b/arch/arm64/boot/dts/freescale/imx8mq-pico-pi.dts
-index ec89b5adeb93d4a0ae4f8338117c196039961241..e9e54558d77e86744954fa55c9b3f562bfa3c7fc 100644
---- a/arch/arm64/boot/dts/freescale/imx8mq-pico-pi.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mq-pico-pi.dts
-@@ -15,6 +15,10 @@ / {
- 	model = "TechNexion PICO-PI-8M";
- 	compatible = "technexion,pico-pi-imx8m", "fsl,imx8mq";
- 
-+	aliases {
-+		ethernet0 = &fec1;
-+	};
-+
- 	chosen {
- 		stdout-path = &uart1;
- 	};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mq-sr-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mq-sr-som.dtsi
-index efc00f4abeb12ce41325ecc04b50349106a56337..915d14e9961830f181298c9cc394b42ec2f71a62 100644
---- a/arch/arm64/boot/dts/freescale/imx8mq-sr-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mq-sr-som.dtsi
-@@ -6,6 +6,10 @@
- #include "imx8mq.dtsi"
+diff --git a/arch/arm64/boot/dts/freescale/imx8-apalis-eval.dtsi b/arch/arm64/boot/dts/freescale/imx8-apalis-eval.dtsi
+index dc127298715b3cf73ad93d25aff7b7b56e4049ab..8f976124053e196a556cb9ddf8ff8768ca332099 100644
+--- a/arch/arm64/boot/dts/freescale/imx8-apalis-eval.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8-apalis-eval.dtsi
+@@ -5,6 +5,8 @@
  
  / {
-+	aliases {
+ 	aliases {
 +		ethernet0 = &fec1;
-+	};
-+
- 	reg_vdd_3v3: regulator-vdd-3v3 {
- 		compatible = "regulator-fixed";
- 		regulator-always-on;
-diff --git a/arch/arm64/boot/dts/freescale/imx8mq-thor96.dts b/arch/arm64/boot/dts/freescale/imx8mq-thor96.dts
-index eaa9d0c0fcc180b42301be5641f33b1ecb6649b5..9b3d9d235ee114b147322e6f7d9cc55fb4e90ba4 100644
---- a/arch/arm64/boot/dts/freescale/imx8mq-thor96.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mq-thor96.dts
-@@ -12,6 +12,10 @@ / {
- 	model = "Einfochips i.MX8MQ Thor96";
- 	compatible = "einfochips,imx8mq-thor96", "fsl,imx8mq";
- 
-+	aliases {
-+		ethernet0 = &fec1;
-+	};
-+
- 	chosen {
- 		stdout-path = &uart1;
++		ethernet1 = &fec2;
+ 		rtc0 = &rtc_i2c;
+ 		rtc1 = &rtc;
  	};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mq-zii-ultra.dtsi b/arch/arm64/boot/dts/freescale/imx8mq-zii-ultra.dtsi
-index c7bbba45f368525e0afa3e22e10bd76b5cf372ac..04dee72be03757abc997a4856c13e778ba5ec056 100644
---- a/arch/arm64/boot/dts/freescale/imx8mq-zii-ultra.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mq-zii-ultra.dtsi
+diff --git a/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.1.dtsi b/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.1.dtsi
+index d4a1ad528f650d16e9de22e2e21d2e2cc684163e..28e64cc63e644f249b16c37d4a555667bea2f5c2 100644
+--- a/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.1.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.1.dtsi
 @@ -7,6 +7,7 @@
  
  / {
  	aliases {
 +		ethernet0 = &fec1;
- 		mdio-gpio0 = &mdio0;
- 		rtc0 = &ds1341;
+ 		rtc0 = &rtc_i2c;
+ 		rtc1 = &rtc;
  	};
-diff --git a/arch/arm64/boot/dts/freescale/imx8mq.dtsi b/arch/arm64/boot/dts/freescale/imx8mq.dtsi
-index 07925b387677b35766fd0e7ee4b8aff99b587c55..c3cecbf60d8276bb41c58d7f2bc71a3b5d2d97d6 100644
---- a/arch/arm64/boot/dts/freescale/imx8mq.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mq.dtsi
-@@ -21,7 +21,6 @@ / {
- 	#size-cells = <2>;
+diff --git a/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.2.dtsi b/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.2.dtsi
+index 5e132c83e1b26b19840aac12d2c1014811c75c78..1f10f31e1e4d40d489e41cc8e65e8673330af07e 100644
+--- a/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.2.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8-apalis-ixora-v1.2.dtsi
+@@ -7,6 +7,7 @@
  
+ / {
  	aliases {
--		ethernet0 = &fec1;
- 		gpio0 = &gpio1;
- 		gpio1 = &gpio2;
- 		gpio2 = &gpio3;
++		ethernet0 = &fec1;
+ 		rtc0 = &rtc_i2c;
+ 		rtc1 = &rtc;
+ 	};
+diff --git a/arch/arm64/boot/dts/freescale/imx8qm-mek.dts b/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
+index 353f825a8ac5db1ac70d1560318c134d188ae7ef..f0bc77cf07b7da73cbb7b438a045fd56ca921d9b 100644
+--- a/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
++++ b/arch/arm64/boot/dts/freescale/imx8qm-mek.dts
+@@ -13,6 +13,11 @@ / {
+ 	model = "Freescale i.MX8QM MEK";
+ 	compatible = "fsl,imx8qm-mek", "fsl,imx8qm";
+ 
++	aliases {
++		ethernet0 = &fec1;
++		ethernet1 = &fec2;
++	};
++
+ 	chosen {
+ 		stdout-path = &lpuart0;
+ 	};
 
 -- 
 2.45.2
