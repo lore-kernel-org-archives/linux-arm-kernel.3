@@ -4,80 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7052C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 21:39:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54B0DC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 21:53:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7ZFpKX74QzSf8VwJzMeMYNzZlpQCIYkfWvyMSBUV5s8=; b=H9gX2AMznbJxt4Z/V00uq08Eyu
-	v8wfAVhplKxotJWkJxUfLtfGnetgvr8cZkYwwCaaOzY3hzIxfDbjn+UI++1H1Qac8jJdIS9VmfYzg
-	C+UgE4GpRHEEO3DpNDFksvSeYtOq5l6LkOBxdB2bFjME5Y3my+129mvIxfiaPGdmcdHvhuJ4fa+VY
-	dNgpYRYZFS2JNaaALE+/7z+Z/+2jccO1xlYefdCJ+TRYZaJGoQINb0WiO6VAndsc4EP/ACQXZx12i
-	H6+5TStJ8iB67fomodjPxvsJ/elKNchO1k0xBAY8ljj5qpsoRn91XzfVzhAW6t/gI3FwPewL1dAjh
-	orqgizMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=z3WJoJ/XZd2LTTg4eGyvx/dP2axh7yRquLjDILm85kQ=; b=jNctIubvJZE60TbUcnlVFuicG+
+	ElcKgCyPss3B42bko1zi1tqBKAmwwhk/yejQC2BbgJHv9+gY8G9MRxL6yj+b2bHA5f5jE814EPe7z
+	T7u18qZpN388VPK7m0sUMNiacbMFlFKjHSb6XNU76EoWXdXs4VxOQD4ozXbW3QdELw8NGgImElXyl
+	suu49ihoaUni9xFfQrCUfGYS6AYoT8JQLAYYQu0+3Fce9+vQn3Kwlvr8pzpu89izcwdTCsu9Sc2MD
+	SXWEbz/yP51pErNI01rxoMTEis8K+34l1b+3Tx9eNWRgZNwAJST4+pNyEBCUGjNSJwB+EcSik3qqb
+	z8QXokYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Ql1-00000000wS6-2a9U;
-	Fri, 25 Apr 2025 21:38:51 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1u8QzM-00000000yat-2w8T;
+	Fri, 25 Apr 2025 21:53:40 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8QX9-00000000v54-3lFK
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 21:24:33 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53PLOS9F2260395
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 25 Apr 2025 16:24:28 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745616268;
-	bh=7ZFpKX74QzSf8VwJzMeMYNzZlpQCIYkfWvyMSBUV5s8=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=yULMhK4dtdTYcFwHCKm9wCcRfaT3nzN1SuxrCShWIdL6Hd07clLQngbTqYCI/fOCN
-	 JmqYybR3DT5vrlxnLLuzeR6gMuh0NB07+BcwXTwAajkaBTSi5s+UOTPvdLfPqpSFof
-	 JCb6Ufr9eWPDfT1ndOzhgq6e0DYf4AOFiUOrKPmE=
-Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53PLOSRd130571
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 25 Apr 2025 16:24:28 -0500
-Received: from DLEE104.ent.ti.com (157.170.170.34) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 25
- Apr 2025 16:24:27 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE104.ent.ti.com
- (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 25 Apr 2025 16:24:27 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53PLOR9v118465;
-	Fri, 25 Apr 2025 16:24:27 -0500
-Date: Fri, 25 Apr 2025 16:24:27 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Chintan Vankar <c-vankar@ti.com>
-CC: Conor Dooley <conor+dt@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Rob Herring <robh@kernel.org>, Tero Kristo
-	<kristo@kernel.org>,
-        Vignesh Raghavendra <vigneshr@ti.com>, <srk@ti.com>,
-        <s-vadapalli@ti.com>, <danishanwar@ti.com>,
-        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v3 1/2] arm64: dts: ti: k3-am68-sk/k3-j721s2-mcu: Add
- bootph-all property to enable Ethernet boot
-Message-ID: <20250425212427.vvyocc4mmne5g3vq@vividly>
-References: <20250425051055.2393301-1-c-vankar@ti.com>
- <20250425051055.2393301-2-c-vankar@ti.com>
+	id 1u8QxT-00000000yHE-0Uzl;
+	Fri, 25 Apr 2025 21:51:44 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.98.2)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1u8QrR-0000000062h-39Vc;
+	Fri, 25 Apr 2025 21:51:25 +0000
+Date: Fri, 25 Apr 2025 22:51:18 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: Felix Fietkau <nbd@nbd.name>, John Crispin <john@phrozen.org>,
+	Eric Woudstra <ericwouds@gmail.com>, Elad Yifee <eladwf@gmail.com>,
+	Bo-Cun Chen <bc-bocun.chen@mediatek.com>,
+	Sky Huang <skylake.huang@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Russell King <linux@armlinux.org.uk>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH net-next] net: ethernet: mtk_eth_soc: add support for MT7988
+ internal 2.5G PHY
+Message-ID: <ab77dc679ed7d9669e82d8efeab41df23b524b1f.1745617638.git.daniel@makrotopia.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250425051055.2393301-2-c-vankar@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_142432_021658_DDEA1D91 
-X-CRM114-Status: GOOD (  18.09  )
+X-CRM114-CacheID: sfid-20250425_145143_449075_F664DEDA 
+X-CRM114-Status: GOOD (  24.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,93 +72,458 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10:40-20250425, Chintan Vankar wrote:
-> Ethernet boot requires CPSW nodes to be present starting from R5 SPL
-> stage. Add bootph-all property to required nodes to enable Ethernet boot
-> on AM68-SK and J721S2-EVM.
-> 
-> Reviewed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> Signed-off-by: Chintan Vankar <c-vankar@ti.com>
-> ---
-> 
-> Link to v2:
-> https://lore.kernel.org/r/20250302153502.181832-2-c-vankar@ti.com/
-> 
-> Changes from v2 to v3:
-> - Removed "bootph-all" property from "mcu_cpsw" node as suggested by
->   Vignesh since child node already has that.
-> 
->  arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts | 3 +++
->  arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi | 3 +++
+The MediaTek MT7988 SoC comes with an single built-in Ethernet PHY
+supporting 2500Base-T/1000Base-T/100Base-TX/10Base-T link partners in
+addition to the built-in MT7531-like 1GE switch. The built-in PHY only
+supports full duplex.
 
-Why does every board that uses j721s2 need to have bootph-all for
-cpsw? Is network boot mandatory boot mode for all boards? That does
-not sound right. Just do them in the board file please.
+Add muxes allowing to select GMAC2->2.5G PHY path and add basic support
+for XGMAC as the built-in 2.5G PHY is internally connected via XGMII.
+The XGMAC features will also be used by 5GBase-R, 10GBase-R and USXGMII
+SerDes modes which are going to be added once support for standalone PCS
+drivers is in place.
 
->  2 files changed, 6 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts b/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
-> index 5fa70a874d7b..c402d5e288b0 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
-> +++ b/arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts
-> @@ -344,6 +344,7 @@ J721S2_WKUP_IOPAD(0x008, PIN_OUTPUT, 0) /* (E22) MCU_RGMII1_TD3 */
->  			J721S2_WKUP_IOPAD(0x018, PIN_OUTPUT, 0) /* (F21) MCU_RGMII1_TXC */
->  			J721S2_WKUP_IOPAD(0x000, PIN_OUTPUT, 0) /* (F22) MCU_RGMII1_TX_CTL */
->  		>;
-> +		bootph-all;
->  	};
->  
->  	mcu_mdio_pins_default: mcu-mdio-default-pins {
-> @@ -351,6 +352,7 @@ mcu_mdio_pins_default: mcu-mdio-default-pins {
->  			J721S2_WKUP_IOPAD(0x034, PIN_OUTPUT, 0) /* (A21) MCU_MDIO0_MDC */
->  			J721S2_WKUP_IOPAD(0x030, PIN_INPUT, 0) /* (A22) MCU_MDIO0_MDIO */
->  		>;
-> +		bootph-all;
->  	};
->  
->  	mcu_mcan0_pins_default: mcu-mcan0-default-pins {
-> @@ -626,6 +628,7 @@ &mcu_cpsw {
->  &davinci_mdio {
->  	phy0: ethernet-phy@0 {
->  		reg = <0>;
-> +		bootph-all;
->  		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
->  		ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
->  		ti,min-output-impedance;
-> diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi
-> index bc31266126d0..218290b1840a 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j721s2-mcu-wakeup.dtsi
-> @@ -154,12 +154,14 @@ mcu_conf: bus@40f00000 {
->  		cpsw_mac_syscon: ethernet-mac-syscon@200 {
->  			compatible = "ti,am62p-cpsw-mac-efuse", "syscon";
->  			reg = <0x200 0x8>;
-> +			bootph-all;
->  		};
->  
->  		phy_gmii_sel: phy@4040 {
->  			compatible = "ti,am654-phy-gmii-sel";
->  			reg = <0x4040 0x4>;
->  			#phy-cells = <1>;
-> +			bootph-all;
->  		};
->  
->  	};
-> @@ -562,6 +564,7 @@ cpsw_port1: port@1 {
->  				label = "port1";
->  				ti,syscon-efuse = <&cpsw_mac_syscon 0x0>;
->  				phys = <&phy_gmii_sel 1>;
-> +				bootph-all;
->  			};
->  		};
->  
-> -- 
-> 2.34.1
-> 
-> 
+In order to make use of the built-in 2.5G PHY the appropriate PHY driver
+as well as (proprietary) PHY firmware has to be present as well.
 
+Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+---
+PHY driver: https://patchwork.kernel.org/project/netdevbpf/list/?series=935473&state=*
+PHY firmware: https://gitlab.com/kernel-firmware/linux-firmware/-/commit/dcc4a0690ce0e3bcccd3625f79949e7b12c9db01
+
+ drivers/net/ethernet/mediatek/mtk_eth_path.c |  41 +++++++
+ drivers/net/ethernet/mediatek/mtk_eth_soc.c  | 114 ++++++++++++++++---
+ drivers/net/ethernet/mediatek/mtk_eth_soc.h  |  57 +++++++++-
+ 3 files changed, 196 insertions(+), 16 deletions(-)
+
+diff --git a/drivers/net/ethernet/mediatek/mtk_eth_path.c b/drivers/net/ethernet/mediatek/mtk_eth_path.c
+index 6fbfb16438a5..e4636a0051e8 100644
+--- a/drivers/net/ethernet/mediatek/mtk_eth_path.c
++++ b/drivers/net/ethernet/mediatek/mtk_eth_path.c
+@@ -31,6 +31,8 @@ static const char *mtk_eth_path_name(u64 path)
+ 		return "gmac2_rgmii";
+ 	case MTK_ETH_PATH_GMAC2_SGMII:
+ 		return "gmac2_sgmii";
++	case MTK_ETH_PATH_GMAC2_2P5GPHY:
++		return "gmac2_2p5gphy";
+ 	case MTK_ETH_PATH_GMAC2_GEPHY:
+ 		return "gmac2_gephy";
+ 	case MTK_ETH_PATH_GDM1_ESW:
+@@ -127,6 +129,27 @@ static int set_mux_u3_gmac2_to_qphy(struct mtk_eth *eth, u64 path)
+ 	return 0;
+ }
+ 
++static int set_mux_gmac2_to_2p5gphy(struct mtk_eth *eth, u64 path)
++{
++	int ret;
++
++	if (path == MTK_ETH_PATH_GMAC2_2P5GPHY) {
++		ret = regmap_clear_bits(eth->ethsys, ETHSYS_SYSCFG0, SYSCFG0_SGMII_GMAC2_V2);
++		if (ret)
++			return ret;
++
++		/* Setup mux to 2p5g PHY */
++		ret = regmap_clear_bits(eth->infra, TOP_MISC_NETSYS_PCS_MUX, MUX_G2_USXGMII_SEL);
++		if (ret)
++			return ret;
++
++		dev_dbg(eth->dev, "path %s in %s updated\n",
++			mtk_eth_path_name(path), __func__);
++	}
++
++	return 0;
++}
++
+ static int set_mux_gmac1_gmac2_to_sgmii_rgmii(struct mtk_eth *eth, u64 path)
+ {
+ 	unsigned int val = 0;
+@@ -209,6 +232,10 @@ static const struct mtk_eth_muxc mtk_eth_muxc[] = {
+ 		.name = "mux_u3_gmac2_to_qphy",
+ 		.cap_bit = MTK_ETH_MUX_U3_GMAC2_TO_QPHY,
+ 		.set_path = set_mux_u3_gmac2_to_qphy,
++	}, {
++		.name = "mux_gmac2_to_2p5gphy",
++		.cap_bit = MTK_ETH_MUX_GMAC2_TO_2P5GPHY,
++		.set_path = set_mux_gmac2_to_2p5gphy,
+ 	}, {
+ 		.name = "mux_gmac1_gmac2_to_sgmii_rgmii",
+ 		.cap_bit = MTK_ETH_MUX_GMAC1_GMAC2_TO_SGMII_RGMII,
+@@ -260,6 +287,20 @@ int mtk_gmac_sgmii_path_setup(struct mtk_eth *eth, int mac_id)
+ 	return mtk_eth_mux_setup(eth, path);
+ }
+ 
++int mtk_gmac_2p5gphy_path_setup(struct mtk_eth *eth, int mac_id)
++{
++	u64 path = 0;
++
++	if (mac_id == MTK_GMAC2_ID)
++		path = MTK_ETH_PATH_GMAC2_2P5GPHY;
++
++	if (!path)
++		return -EINVAL;
++
++	/* Setup proper MUXes along the path */
++	return mtk_eth_mux_setup(eth, path);
++}
++
+ int mtk_gmac_gephy_path_setup(struct mtk_eth *eth, int mac_id)
+ {
+ 	u64 path = 0;
+diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+index 83068925c589..2c47c09a4fb3 100644
+--- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
++++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+@@ -503,7 +503,7 @@ static void mtk_gmac0_rgmii_adjust(struct mtk_eth *eth,
+ static void mtk_setup_bridge_switch(struct mtk_eth *eth)
+ {
+ 	/* Force Port1 XGMAC Link Up */
+-	mtk_m32(eth, 0, MTK_XGMAC_FORCE_LINK(MTK_GMAC1_ID),
++	mtk_m32(eth, 0, MTK_XGMAC_FORCE_MODE(MTK_GMAC1_ID),
+ 		MTK_XGMAC_STS(MTK_GMAC1_ID));
+ 
+ 	/* Adjust GSW bridge IPG to 11 */
+@@ -532,6 +532,25 @@ static struct phylink_pcs *mtk_mac_select_pcs(struct phylink_config *config,
+ 	return NULL;
+ }
+ 
++static int mtk_mac_prepare(struct phylink_config *config, unsigned int mode,
++			   phy_interface_t iface)
++{
++	struct mtk_mac *mac = container_of(config, struct mtk_mac,
++					   phylink_config);
++	struct mtk_eth *eth = mac->hw;
++
++	if (mtk_interface_mode_is_xgmii(eth, iface) && mac->id != MTK_GMAC1_ID) {
++		mtk_m32(mac->hw, XMAC_MCR_TRX_DISABLE,
++			XMAC_MCR_TRX_DISABLE, MTK_XMAC_MCR(mac->id));
++
++		mtk_m32(mac->hw, MTK_XGMAC_FORCE_MODE(mac->id) |
++				 MTK_XGMAC_FORCE_LINK(mac->id),
++			MTK_XGMAC_FORCE_MODE(mac->id), MTK_XGMAC_STS(mac->id));
++	}
++
++	return 0;
++}
++
+ static void mtk_mac_config(struct phylink_config *config, unsigned int mode,
+ 			   const struct phylink_link_state *state)
+ {
+@@ -573,6 +592,12 @@ static void mtk_mac_config(struct phylink_config *config, unsigned int mode,
+ 			}
+ 			break;
+ 		case PHY_INTERFACE_MODE_INTERNAL:
++			if (mac->id == MTK_GMAC2_ID &&
++			    MTK_HAS_CAPS(eth->soc->caps, MTK_2P5GPHY)) {
++				err = mtk_gmac_2p5gphy_path_setup(eth, mac->id);
++				if (err)
++					goto init_err;
++			}
+ 			break;
+ 		default:
+ 			goto err_phy;
+@@ -644,12 +669,12 @@ static void mtk_mac_config(struct phylink_config *config, unsigned int mode,
+ 	}
+ 
+ 	/* Setup gmac */
+-	if (mtk_is_netsys_v3_or_greater(eth) &&
+-	    mac->interface == PHY_INTERFACE_MODE_INTERNAL) {
++	if (mtk_interface_mode_is_xgmii(eth, state->interface)) {
+ 		mtk_w32(mac->hw, MTK_GDMA_XGDM_SEL, MTK_GDMA_EG_CTRL(mac->id));
+ 		mtk_w32(mac->hw, MAC_MCR_FORCE_LINK_DOWN, MTK_MAC_MCR(mac->id));
+ 
+-		mtk_setup_bridge_switch(eth);
++		if (mac->id == MTK_GMAC1_ID)
++			mtk_setup_bridge_switch(eth);
+ 	}
+ 
+ 	return;
+@@ -696,10 +721,19 @@ static void mtk_mac_link_down(struct phylink_config *config, unsigned int mode,
+ {
+ 	struct mtk_mac *mac = container_of(config, struct mtk_mac,
+ 					   phylink_config);
+-	u32 mcr = mtk_r32(mac->hw, MTK_MAC_MCR(mac->id));
+ 
+-	mcr &= ~(MAC_MCR_TX_EN | MAC_MCR_RX_EN | MAC_MCR_FORCE_LINK);
+-	mtk_w32(mac->hw, mcr, MTK_MAC_MCR(mac->id));
++	if (!mtk_interface_mode_is_xgmii(mac->hw, interface)) {
++		/* GMAC modes */
++		mtk_m32(mac->hw,
++			MAC_MCR_TX_EN | MAC_MCR_RX_EN | MAC_MCR_FORCE_LINK, 0,
++			MTK_MAC_MCR(mac->id));
++	} else if (mac->id != MTK_GMAC1_ID) {
++		/* XGMAC except for built-in switch */
++		mtk_m32(mac->hw, XMAC_MCR_TRX_DISABLE, XMAC_MCR_TRX_DISABLE,
++			MTK_XMAC_MCR(mac->id));
++		mtk_m32(mac->hw, MTK_XGMAC_FORCE_LINK(mac->id), 0,
++			MTK_XGMAC_STS(mac->id));
++	}
+ }
+ 
+ static void mtk_set_queue_speed(struct mtk_eth *eth, unsigned int idx,
+@@ -771,13 +805,11 @@ static void mtk_set_queue_speed(struct mtk_eth *eth, unsigned int idx,
+ 	mtk_w32(eth, val, soc->reg_map->qdma.qtx_sch + ofs);
+ }
+ 
+-static void mtk_mac_link_up(struct phylink_config *config,
+-			    struct phy_device *phy,
+-			    unsigned int mode, phy_interface_t interface,
+-			    int speed, int duplex, bool tx_pause, bool rx_pause)
++static void mtk_gdm_mac_link_up(struct mtk_mac *mac,
++				struct phy_device *phy,
++				unsigned int mode, phy_interface_t interface,
++				int speed, int duplex, bool tx_pause, bool rx_pause)
+ {
+-	struct mtk_mac *mac = container_of(config, struct mtk_mac,
+-					   phylink_config);
+ 	u32 mcr;
+ 
+ 	mcr = mtk_r32(mac->hw, MTK_MAC_MCR(mac->id));
+@@ -811,6 +843,53 @@ static void mtk_mac_link_up(struct phylink_config *config,
+ 	mtk_w32(mac->hw, mcr, MTK_MAC_MCR(mac->id));
+ }
+ 
++static void mtk_xgdm_mac_link_up(struct mtk_mac *mac,
++				 struct phy_device *phy,
++				 unsigned int mode, phy_interface_t interface,
++				 int speed, int duplex, bool tx_pause, bool rx_pause)
++{
++	u32 mcr;
++
++	if (mac->id == MTK_GMAC1_ID)
++		return;
++
++	/* Eliminate the interference(before link-up) caused by PHY noise */
++	mtk_m32(mac->hw, XMAC_LOGIC_RST, 0, MTK_XMAC_LOGIC_RST(mac->id));
++	mdelay(20);
++	mtk_m32(mac->hw, XMAC_GLB_CNTCLR, XMAC_GLB_CNTCLR, MTK_XMAC_CNT_CTRL(mac->id));
++
++	mtk_m32(mac->hw, MTK_XGMAC_FORCE_LINK(mac->id), MTK_XGMAC_FORCE_LINK(mac->id),
++		MTK_XGMAC_STS(mac->id));
++
++	mcr = mtk_r32(mac->hw, MTK_XMAC_MCR(mac->id));
++	mcr &= ~(XMAC_MCR_FORCE_TX_FC | XMAC_MCR_FORCE_RX_FC | XMAC_MCR_TRX_DISABLE);
++	/* Configure pause modes -
++	 * phylink will avoid these for half duplex
++	 */
++	if (tx_pause)
++		mcr |= XMAC_MCR_FORCE_TX_FC;
++	if (rx_pause)
++		mcr |= XMAC_MCR_FORCE_RX_FC;
++
++	mtk_w32(mac->hw, mcr, MTK_XMAC_MCR(mac->id));
++}
++
++static void mtk_mac_link_up(struct phylink_config *config,
++			    struct phy_device *phy,
++			    unsigned int mode, phy_interface_t interface,
++			    int speed, int duplex, bool tx_pause, bool rx_pause)
++{
++	struct mtk_mac *mac = container_of(config, struct mtk_mac,
++					   phylink_config);
++
++	if (mtk_interface_mode_is_xgmii(mac->hw, interface))
++		mtk_xgdm_mac_link_up(mac, phy, mode, interface, speed, duplex,
++				     tx_pause, rx_pause);
++	else
++		mtk_gdm_mac_link_up(mac, phy, mode, interface, speed, duplex,
++				    tx_pause, rx_pause);
++}
++
+ static void mtk_mac_disable_tx_lpi(struct phylink_config *config)
+ {
+ 	struct mtk_mac *mac = container_of(config, struct mtk_mac,
+@@ -828,6 +907,9 @@ static int mtk_mac_enable_tx_lpi(struct phylink_config *config, u32 timer,
+ 	struct mtk_eth *eth = mac->hw;
+ 	u32 val;
+ 
++	if (mtk_interface_mode_is_xgmii(eth, mac->interface))
++		return -EOPNOTSUPP;
++
+ 	/* Tx idle timer in ms */
+ 	timer = DIV_ROUND_UP(timer, 1000);
+ 
+@@ -858,6 +940,7 @@ static int mtk_mac_enable_tx_lpi(struct phylink_config *config, u32 timer,
+ }
+ 
+ static const struct phylink_mac_ops mtk_phylink_ops = {
++	.mac_prepare = mtk_mac_prepare,
+ 	.mac_select_pcs = mtk_mac_select_pcs,
+ 	.mac_config = mtk_mac_config,
+ 	.mac_finish = mtk_mac_finish,
+@@ -4759,6 +4842,11 @@ static int mtk_add_mac(struct mtk_eth *eth, struct device_node *np)
+ 
+ 	mac->phylink = phylink;
+ 
++	if (MTK_HAS_CAPS(mac->hw->soc->caps, MTK_2P5GPHY) &&
++	    id == MTK_GMAC2_ID)
++		__set_bit(PHY_INTERFACE_MODE_INTERNAL,
++			  mac->phylink_config.supported_interfaces);
++
+ 	SET_NETDEV_DEV(eth->netdev[id], eth->dev);
+ 	eth->netdev[id]->watchdog_timeo = 5 * HZ;
+ 	eth->netdev[id]->netdev_ops = &mtk_netdev_ops;
+diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.h b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
+index 88ef2e9c50fc..e3a8b24dd3d3 100644
+--- a/drivers/net/ethernet/mediatek/mtk_eth_soc.h
++++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
+@@ -431,7 +431,8 @@
+ 
+ /* XMAC status registers */
+ #define MTK_XGMAC_STS(x)	(((x) == MTK_GMAC3_ID) ? 0x1001C : 0x1000C)
+-#define MTK_XGMAC_FORCE_LINK(x)	(((x) == MTK_GMAC2_ID) ? BIT(31) : BIT(15))
++#define MTK_XGMAC_FORCE_MODE(x)	(((x) == MTK_GMAC2_ID) ? BIT(31) : BIT(15))
++#define MTK_XGMAC_FORCE_LINK(x)	(((x) == MTK_GMAC2_ID) ? BIT(27) : BIT(11))
+ #define MTK_USXGMII_PCS_LINK	BIT(8)
+ #define MTK_XGMAC_RX_FC		BIT(5)
+ #define MTK_XGMAC_TX_FC		BIT(4)
+@@ -524,6 +525,21 @@
+ #define INTF_MODE_RGMII_1000    (TRGMII_MODE | TRGMII_CENTRAL_ALIGNED)
+ #define INTF_MODE_RGMII_10_100  0
+ 
++/* XFI Mac control registers */
++#define MTK_XMAC_BASE(x)	(0x12000 + (((x) - 1) * 0x1000))
++#define MTK_XMAC_MCR(x)		(MTK_XMAC_BASE(x))
++#define XMAC_MCR_TRX_DISABLE	0xf
++#define XMAC_MCR_FORCE_TX_FC	BIT(5)
++#define XMAC_MCR_FORCE_RX_FC	BIT(4)
++
++/* XFI Mac logic reset registers */
++#define MTK_XMAC_LOGIC_RST(x)	(MTK_XMAC_BASE(x) + 0x10)
++#define XMAC_LOGIC_RST		BIT(0)
++
++/* XFI Mac count global control */
++#define MTK_XMAC_CNT_CTRL(x)	(MTK_XMAC_BASE(x) + 0x100)
++#define XMAC_GLB_CNTCLR		BIT(0)
++
+ /* GPIO port control registers for GMAC 2*/
+ #define GPIO_OD33_CTRL8		0x4c0
+ #define GPIO_BIAS_CTRL		0xed0
+@@ -587,6 +603,10 @@
+ #define GEPHY_MAC_SEL          BIT(1)
+ 
+ /* Top misc registers */
++#define TOP_MISC_NETSYS_PCS_MUX	0x84
++#define NETSYS_PCS_MUX_MASK	GENMASK(1, 0)
++#define MUX_G2_USXGMII_SEL	BIT(1)
++
+ #define USB_PHY_SWITCH_REG	0x218
+ #define QPHY_SEL_MASK		GENMASK(1, 0)
+ #define SGMII_QPHY_SEL		0x2
+@@ -951,6 +971,7 @@ enum mkt_eth_capabilities {
+ 	MTK_RGMII_BIT = 0,
+ 	MTK_TRGMII_BIT,
+ 	MTK_SGMII_BIT,
++	MTK_2P5GPHY_BIT,
+ 	MTK_ESW_BIT,
+ 	MTK_GEPHY_BIT,
+ 	MTK_MUX_BIT,
+@@ -971,8 +992,10 @@ enum mkt_eth_capabilities {
+ 	MTK_ETH_MUX_GDM1_TO_GMAC1_ESW_BIT,
+ 	MTK_ETH_MUX_GMAC2_GMAC0_TO_GEPHY_BIT,
+ 	MTK_ETH_MUX_U3_GMAC2_TO_QPHY_BIT,
++	MTK_ETH_MUX_GMAC2_TO_2P5GPHY_BIT,
+ 	MTK_ETH_MUX_GMAC1_GMAC2_TO_SGMII_RGMII_BIT,
+ 	MTK_ETH_MUX_GMAC12_TO_GEPHY_SGMII_BIT,
++	MTK_ETH_MUX_GMAC123_TO_GEPHY_SGMII_BIT,
+ 
+ 	/* PATH BITS */
+ 	MTK_ETH_PATH_GMAC1_RGMII_BIT,
+@@ -980,6 +1003,7 @@ enum mkt_eth_capabilities {
+ 	MTK_ETH_PATH_GMAC1_SGMII_BIT,
+ 	MTK_ETH_PATH_GMAC2_RGMII_BIT,
+ 	MTK_ETH_PATH_GMAC2_SGMII_BIT,
++	MTK_ETH_PATH_GMAC2_2P5GPHY_BIT,
+ 	MTK_ETH_PATH_GMAC2_GEPHY_BIT,
+ 	MTK_ETH_PATH_GDM1_ESW_BIT,
+ };
+@@ -988,6 +1012,7 @@ enum mkt_eth_capabilities {
+ #define MTK_RGMII		BIT_ULL(MTK_RGMII_BIT)
+ #define MTK_TRGMII		BIT_ULL(MTK_TRGMII_BIT)
+ #define MTK_SGMII		BIT_ULL(MTK_SGMII_BIT)
++#define MTK_2P5GPHY		BIT_ULL(MTK_2P5GPHY_BIT)
+ #define MTK_ESW			BIT_ULL(MTK_ESW_BIT)
+ #define MTK_GEPHY		BIT_ULL(MTK_GEPHY_BIT)
+ #define MTK_MUX			BIT_ULL(MTK_MUX_BIT)
+@@ -1010,6 +1035,8 @@ enum mkt_eth_capabilities {
+ 	BIT_ULL(MTK_ETH_MUX_GMAC2_GMAC0_TO_GEPHY_BIT)
+ #define MTK_ETH_MUX_U3_GMAC2_TO_QPHY		\
+ 	BIT_ULL(MTK_ETH_MUX_U3_GMAC2_TO_QPHY_BIT)
++#define MTK_ETH_MUX_GMAC2_TO_2P5GPHY		\
++	BIT_ULL(MTK_ETH_MUX_GMAC2_TO_2P5GPHY_BIT)
+ #define MTK_ETH_MUX_GMAC1_GMAC2_TO_SGMII_RGMII	\
+ 	BIT_ULL(MTK_ETH_MUX_GMAC1_GMAC2_TO_SGMII_RGMII_BIT)
+ #define MTK_ETH_MUX_GMAC12_TO_GEPHY_SGMII	\
+@@ -1021,6 +1048,7 @@ enum mkt_eth_capabilities {
+ #define MTK_ETH_PATH_GMAC1_SGMII	BIT_ULL(MTK_ETH_PATH_GMAC1_SGMII_BIT)
+ #define MTK_ETH_PATH_GMAC2_RGMII	BIT_ULL(MTK_ETH_PATH_GMAC2_RGMII_BIT)
+ #define MTK_ETH_PATH_GMAC2_SGMII	BIT_ULL(MTK_ETH_PATH_GMAC2_SGMII_BIT)
++#define MTK_ETH_PATH_GMAC2_2P5GPHY	BIT_ULL(MTK_ETH_PATH_GMAC2_2P5GPHY_BIT)
+ #define MTK_ETH_PATH_GMAC2_GEPHY	BIT_ULL(MTK_ETH_PATH_GMAC2_GEPHY_BIT)
+ #define MTK_ETH_PATH_GDM1_ESW		BIT_ULL(MTK_ETH_PATH_GDM1_ESW_BIT)
+ 
+@@ -1030,6 +1058,7 @@ enum mkt_eth_capabilities {
+ #define MTK_GMAC2_RGMII		(MTK_ETH_PATH_GMAC2_RGMII | MTK_RGMII)
+ #define MTK_GMAC2_SGMII		(MTK_ETH_PATH_GMAC2_SGMII | MTK_SGMII)
+ #define MTK_GMAC2_GEPHY		(MTK_ETH_PATH_GMAC2_GEPHY | MTK_GEPHY)
++#define MTK_GMAC2_2P5GPHY	(MTK_ETH_PATH_GMAC2_2P5GPHY | MTK_2P5GPHY)
+ #define MTK_GDM1_ESW		(MTK_ETH_PATH_GDM1_ESW | MTK_ESW)
+ 
+ /* MUXes present on SoCs */
+@@ -1049,6 +1078,10 @@ enum mkt_eth_capabilities {
+ 	(MTK_ETH_MUX_GMAC1_GMAC2_TO_SGMII_RGMII | MTK_MUX | \
+ 	MTK_SHARED_SGMII)
+ 
++/* 2: GMAC2 -> 2P5GPHY */
++#define MTK_MUX_GMAC2_TO_2P5GPHY      \
++	(MTK_ETH_MUX_GMAC2_TO_2P5GPHY | MTK_MUX | MTK_INFRA)
++
+ /* 0: GMACx -> GEPHY, 1: GMACx -> SGMII where x is 1 or 2 */
+ #define MTK_MUX_GMAC12_TO_GEPHY_SGMII   \
+ 	(MTK_ETH_MUX_GMAC12_TO_GEPHY_SGMII | MTK_MUX)
+@@ -1084,8 +1117,9 @@ enum mkt_eth_capabilities {
+ 		      MTK_MUX_GMAC12_TO_GEPHY_SGMII | MTK_QDMA | \
+ 		      MTK_RSTCTRL_PPE1 | MTK_SRAM)
+ 
+-#define MT7988_CAPS  (MTK_36BIT_DMA | MTK_GDM1_ESW | MTK_QDMA | \
+-		      MTK_RSTCTRL_PPE1 | MTK_RSTCTRL_PPE2 | MTK_SRAM)
++#define MT7988_CAPS  (MTK_36BIT_DMA | MTK_GDM1_ESW | MTK_GMAC2_2P5GPHY | \
++		      MTK_MUX_GMAC2_TO_2P5GPHY | MTK_QDMA | MTK_RSTCTRL_PPE1 | \
++		      MTK_RSTCTRL_PPE2 | MTK_SRAM)
+ 
+ struct mtk_tx_dma_desc_info {
+ 	dma_addr_t	addr;
+@@ -1437,6 +1471,22 @@ static inline u32 mtk_get_ib2_multicast_mask(struct mtk_eth *eth)
+ 	return MTK_FOE_IB2_MULTICAST;
+ }
+ 
++static inline bool mtk_interface_mode_is_xgmii(struct mtk_eth *eth, phy_interface_t interface)
++{
++	if (!mtk_is_netsys_v3_or_greater(eth))
++		return false;
++
++	switch (interface) {
++	case PHY_INTERFACE_MODE_INTERNAL:
++	case PHY_INTERFACE_MODE_USXGMII:
++	case PHY_INTERFACE_MODE_10GBASER:
++	case PHY_INTERFACE_MODE_5GBASER:
++		return true;
++	default:
++		return false;
++	}
++}
++
+ /* read the hardware status register */
+ void mtk_stats_update_mac(struct mtk_mac *mac);
+ 
+@@ -1445,6 +1495,7 @@ u32 mtk_r32(struct mtk_eth *eth, unsigned reg);
+ u32 mtk_m32(struct mtk_eth *eth, u32 mask, u32 set, unsigned int reg);
+ 
+ int mtk_gmac_sgmii_path_setup(struct mtk_eth *eth, int mac_id);
++int mtk_gmac_2p5gphy_path_setup(struct mtk_eth *eth, int mac_id);
+ int mtk_gmac_gephy_path_setup(struct mtk_eth *eth, int mac_id);
+ int mtk_gmac_rgmii_path_setup(struct mtk_eth *eth, int mac_id);
+ 
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+2.49.0
+
 
