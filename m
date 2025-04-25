@@ -4,92 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17415C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 11:40:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66AA1C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 11:42:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bCu4gnKGLji0Lj1TJspCZ0JNdQdRUdGQa5Ujm73xOi4=; b=X2LGiPQCh+Ms8mTcV+OjZsXbWk
-	ypaeemxMvD5sDJXuYy0e7IiiM1l3zpZ0QZcxzaZsy4FK8ftdUP2PQDc0mGE4fdshEbriN7IBTl9kU
-	xWa8CxjVpny1HR1bYRiT0e1aFLKLFUjsmMDqGXqXkknTUFnQQn3Qh0LFNbKFfmOXU+b6qPXz/F98V
-	opKLjTasD1O96GTZbM11A9YLQasqAA/pGKmb8wABw99NNgMkjt13To0wFWi0nMrQ/iWp5Z+qJOZvU
-	qff6kDej3xxt0GacZjGpfciMPLLDAN/piLWguoyilUzDgvvKfapbwNREG568sMPlz11EXCKJCwukD
-	0/c5z1lg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ex7ttFFeolAsCiQiimZfezkN5TbzPUbUsFH3429aqKY=; b=e3TfgxpjU2jq5iRPNmrGInE9cY
+	M9EQ+RHc9c4eQOSRXxT8bM+Y5Fl4UzyQ7rgvs7BczuIpL2zKGRoUu/LlVfuu/6XBYP2z361mNwivr
+	RrCf9r1YvFJEkoayRQLCPt7fmu1tBTUnREvgAQl6FkiH7G3ZOOVfHN6UY0S8I3dJB+MFe5IHSqRl8
+	Jy047VjP+MKOUB+RSY+5H6LOs22jWrG/ecRPVM8IhFZek6U6ipONU4tlkK7hHllB738SuVQo/2q7H
+	jGVi3TiwGZvH5GlIRrEckeQuMlE8j028+4idAK+QWq+rChXh9nK3anu7QFnZSErLgO7AcQ0Pr9h+o
+	ol6EpjqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8HQG-0000000Gzza-1DaC;
-	Fri, 25 Apr 2025 11:40:48 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1u8HS4-0000000H0GI-44De;
+	Fri, 25 Apr 2025 11:42:40 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8FDe-0000000GW1g-2Pip
+	id 1u8FFm-0000000GWNc-2q9b
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 09:19:39 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5499c5d9691so2216107e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 02:19:37 -0700 (PDT)
+	Fri, 25 Apr 2025 09:21:52 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5e61d91a087so3238133a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 02:21:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745572776; x=1746177576; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=bCu4gnKGLji0Lj1TJspCZ0JNdQdRUdGQa5Ujm73xOi4=;
-        b=P8PoGyuyX1cOllsGafJAd7jiW+nNdTGXNXFlDmsSp+mGLTOId9uFrQH7AJBwIn0waU
-         hOCzC2AM3efDQmlBPUh4QXkmH+pSk8VXBzruYUGJSMUGV4+jzHsaZUHqeVhCSIQDX0Dd
-         4ioTJX7PtYnIeRbEDUjkLybKR4v6gbU/rMI9KAaP7672j6lcB/SlW4o0NVn5BTAtGXUo
-         4s8rW/CLmqSIMUG3rdJufDCs500inDiNH4T44XOKi7TrxsUTDnhiH5RU7AYpiN1GwfUt
-         i1zmzOqyJZ06NgkBz3o/k1k6lp6GnWR2O8hiB8a9oaATc6MG5lhn0ImHn1O3Utmo9x5l
-         Wbnw==
+        d=linaro.org; s=google; t=1745572909; x=1746177709; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ex7ttFFeolAsCiQiimZfezkN5TbzPUbUsFH3429aqKY=;
+        b=rL5n5fEEaMgd1HKUYUAptnfET44ZcXAwR5DbavkxPb7cOkuxEQBmcPyWaOilGToQ7J
+         H07aiTueO5+QpDd8/h6//eUSGwXTWertBFFhLDRDqcMXTP+U/siNJwG2pa5Fgig0EixO
+         vLeYiR5sH/PasQq25Rs6kEbEToCj1pr/1cYVmzFOBGHwYkh85mXEqYgSxs8y8TMFiIJB
+         hs3qNSBapQ5c5k406xFymUw0ZgHPJcMoer5ilpPLU9gNUBlezvnyoYUGkp4ItsEXPkql
+         Ifsj5Bs71FpzM7UElvg6JRDi8Chc5OdiXh3OIWpZcULRXskJ5U3hVn4smGc1BnP/eJgb
+         +/wg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745572776; x=1746177576;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=bCu4gnKGLji0Lj1TJspCZ0JNdQdRUdGQa5Ujm73xOi4=;
-        b=aLymddpGURxmYaKBd4KBYWQqXyvVbUx66yvSO2CYdB2pFTxF55ADHp2q1dK/h52Opg
-         2OXjGLlYTLiB31qBLUi2Q4JSZSeo9HcSsmmDdKHugkz9fGPzDnGTXNqjlLQHLe+sKLWV
-         mO1qErbGAEeMVB5uiN0dFpNKdPXM3Kol2j0N7JDuZTwNfLC7p2A/zNawetvKskDskmz6
-         dXmRUMGeHfvPQCOP33J5kBiXLl6/uCxsRFIaAus5mFrU8FzsH6DENU9VdAW6RkVhqMSo
-         NvsLhSn+y95dVCi0kTi+Cf3NBN5hPNj/9kiQrUkVheAlkATbn3F9SSx3M5AkXljeRX3u
-         fmPw==
-X-Forwarded-Encrypted: i=1; AJvYcCUJFzkQsH6GY7zlaNPC8WwbBKiEA+cCAIUx483JiF0ZLhiZUcSw19K4K8dWnzUPROMAvAR3PsOfxkjKE5KymwNd@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy7kFSLvHWVMxqhpkOvl9H+yBzM8Yj9Ok41mfH8pYj/+wSogTyg
-	VBwrtRgKrq0EcTygLQqpnHWz7tQycTCWPUoqrMxrxSUuuctWTLUDIdIooNZj
-X-Gm-Gg: ASbGncsFITELFemmDr8GgOZU+zLgv94AZnM8sWL4KcRSYsg6JFXAdwPIDa6T1YFZRkP
-	Cv1/1e4y9p7KbLV825w0opb9F7qcAEMGCYqqxzt30h+0hRFHgYl6XUiBFfgQbisqjGppOzRxzA3
-	cAAuyyNIUuFmjfk2VxdCHrFdIa7/HmvX2eAKrEZ83jgTlE4XnZlToAj3Sw1Gx6kebsumhSDom+U
-	DkETNQx4MJfNplyJprkFn6JZloQzxuDOWDDR1muCCFfxcV4gycL1bhShVJG8/DtXOgZtQhuk8Pr
-	wmaghim+VpkNe5YFYH+AOQdEHPMXrG/dewaRtRUUzsLAkwpv1dDCGCg504RsIPkQ3YLs6F4UYPQ
-	dXJxhILR4xVdhq4FJxlwbKpdlVoDnzbIe+KoavEg=
-X-Google-Smtp-Source: AGHT+IFQdGmsvgDmR6TVPSbh/xxX9pxHi/YRxyBrg1Y1rk5Z58OPuXPUin/wfhblrZ2GuZjz8ygL5w==
-X-Received: by 2002:a05:6512:b05:b0:545:381:71e with SMTP id 2adb3069b0e04-54e8cc07e43mr451893e87.40.1745572775998;
-        Fri, 25 Apr 2025 02:19:35 -0700 (PDT)
-Received: from IRS-520670-Linux.atlascopco.group (84-217-94-150.customers.ownit.se. [84.217.94.150])
-        by smtp.googlemail.com with ESMTPSA id 2adb3069b0e04-54e8c7f02d9sm214299e87.78.2025.04.25.02.19.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Apr 2025 02:19:35 -0700 (PDT)
-From: =?UTF-8?q?Efe=20Can=20=C4=B0=C3=A7=C3=B6z?= <efecanicoz@gmail.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de
-Cc: kernel@pengutronix.de,
-	festevam@gmail.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	=?UTF-8?q?Efe=20Can=20=C4=B0=C3=A7=C3=B6z?= <efecanicoz@gmail.com>
-Subject: [PATCH] ARM: dts: imx7d: update opp-table voltages
-Date: Fri, 25 Apr 2025 11:18:40 +0200
-Message-ID: <20250425091853.54437-1-efecanicoz@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        d=1e100.net; s=20230601; t=1745572909; x=1746177709;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ex7ttFFeolAsCiQiimZfezkN5TbzPUbUsFH3429aqKY=;
+        b=S5YJpetdepFqaMr/3ee43fhe7xlUAvb9NwXddIZlqc5E6BIYhdTV0IshYy4b3AFxMU
+         0jtIZYqGUSitB/Ek1/KtNp2a4QIMhPgvAPLCvFZjeZX80+xLR+yCtUi7ZYOM0K/CoZK7
+         8VSj5k5YRu42ttxRYx+JIfNPaQARtnQkOAImDpOJ4k9C6oXdCAh+jdWOwr8UCTXwedav
+         AkhLEXDBdAHv+yQjV98Igfm4tlKJAFEuQKBBgDpgybnkAIV0T4/iW+MbQU8YU/KnAMw+
+         VXtixQZMYwIs1WYIqbADakCDHn1JCekYWdR0bbPwKXolG8HxvpyEFSEstyGke8DJaFXW
+         cWVQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXys7Owoo34UGbClziwYFn1cZqghtbDFRz9XftkySOYVwTLHCA4DkbAX6jl9sYl72lNwlGYZ8jfjWAty/4vnyGl@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXOb1ja+ziM2tj91YwikLMBVbfg7+n9YaZ9sYjxHXiNdHX+j2U
+	AYCTHh4OTEWe1tI/LQaClSdCH1HHQFFqvaz84zFSea7Bdw5aL/3IEivGvq81Jnc=
+X-Gm-Gg: ASbGncuOyqzkocV6wU96hKNvQYn8hcVVdyQTbRBfxmoFy7zOBsWHWJziqqVLXqB0XKL
+	vwDh+w6ldlCEFhA0Zxkcq8qv94BN6qLwiJkaQjFD6I8NQAhyrd2mTea5M2CLMRids7NYEeMmecr
+	tPMlv8Px0fWo6tdZ1dJds+eZDyEPlKy1K59jTeCyht0h2zmT86ylW84qHXx2epx475H5qtBgmXz
+	sn3XQ7ez8dVFurh4wJaJFBubc76HRwEMyM3GC77OwM5VW7NIQFRfn7V2tcEwZI6pkTyTF9M+1Bp
+	ob3pLfZIGHREtwwkorKWyZ2K65u8XPsIyOH1vzsUjYcHT0Kt8w==
+X-Google-Smtp-Source: AGHT+IHN1tq8lZGPw+yObmv5OBFBiAlAdlprz4LzswEniu88fbB371A57pfYn5r7p7hN7qREYYhCSA==
+X-Received: by 2002:a17:907:9721:b0:aca:d5e9:9ce with SMTP id a640c23a62f3a-ace71047947mr108851466b.9.1745572908825;
+        Fri, 25 Apr 2025 02:21:48 -0700 (PDT)
+Received: from [192.168.0.14] ([82.76.212.167])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ace6e4e726dsm105543966b.40.2025.04.25.02.21.47
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 25 Apr 2025 02:21:48 -0700 (PDT)
+Message-ID: <8b222d93-927a-4685-a44c-bdd5d7b34c74@linaro.org>
+Date: Fri, 25 Apr 2025 10:21:46 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] firmware: exynos-acpm: Correct kerneldoc and use typical
+ np argument name
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar
+ <alim.akhtar@samsung.com>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
+ <andre.draszik@linaro.org>, linux-kernel@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: kernel test robot <lkp@intel.com>
+References: <20250424203308.402168-2-krzysztof.kozlowski@linaro.org>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20250424203308.402168-2-krzysztof.kozlowski@linaro.org>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_021938_611354_60144A4A 
-X-CRM114-Status: GOOD (  10.69  )
+X-CRM114-CacheID: sfid-20250425_022150_737551_F0EE30BC 
+X-CRM114-Status: UNSURE (   8.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,45 +104,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update accepted voltage levels according to IMX7DCEC Table 9 Operating ranges
 
-Signed-off-by: Efe Can İçöz <efecanicoz@gmail.com>
----
- arch/arm/boot/dts/nxp/imx/imx7d.dtsi | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx7d.dtsi b/arch/arm/boot/dts/nxp/imx/imx7d.dtsi
-index 0484e349e064..d961c61a93af 100644
---- a/arch/arm/boot/dts/nxp/imx/imx7d.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx7d.dtsi
-@@ -48,7 +48,7 @@ cpu0_opp_table: opp-table {
- 
- 		opp-792000000 {
- 			opp-hz = /bits/ 64 <792000000>;
--			opp-microvolt = <1000000>;
-+			opp-microvolt = <1000000 950000 1250000>;
- 			clock-latency-ns = <150000>;
- 			opp-supported-hw = <0xd>, <0x7>;
- 			opp-suspend;
-@@ -56,7 +56,7 @@ opp-792000000 {
- 
- 		opp-996000000 {
- 			opp-hz = /bits/ 64 <996000000>;
--			opp-microvolt = <1100000>;
-+			opp-microvolt = <1100000 1045000 1250000>;
- 			clock-latency-ns = <150000>;
- 			opp-supported-hw = <0xc>, <0x7>;
- 			opp-suspend;
-@@ -64,7 +64,7 @@ opp-996000000 {
- 
- 		opp-1200000000 {
- 			opp-hz = /bits/ 64 <1200000000>;
--			opp-microvolt = <1225000>;
-+			opp-microvolt = <1225000 1200000 1250000>;
- 			clock-latency-ns = <150000>;
- 			opp-supported-hw = <0x8>, <0x3>;
- 			opp-suspend;
--- 
-2.43.0
+On 4/24/25 9:33 PM, Krzysztof Kozlowski wrote:
+> Correct kerneldoc warnings after commit a8dc26a0ec43 ("firmware:
+> exynos-acpm: introduce devm_acpm_get_by_node()") changed the function
+> prototype:
+> 
+>   exynos-acpm.c:672: warning: Function parameter or struct member 'acpm_np' not described in 'acpm_get_by_node'
+>   exynos-acpm.c:672: warning: expecting prototype for acpm_get_by_phandle(). Prototype was for acpm_get_by_node() instead
+> 
+> While touching the lines, change the name of device_node pointer to
+> 'np' to match convention.
+> 
+> Fixes: a8dc26a0ec43 ("firmware: exynos-acpm: introduce devm_acpm_get_by_node()")
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202504222051.7TqaSQ48-lkp@intel.com/
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
+Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+
+thanks!
 
