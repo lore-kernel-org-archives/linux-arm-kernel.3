@@ -4,123 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD9FAC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 20:17:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48540C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 20:19:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yNtoPTL9iStSRPUJKcZJpTJAZ89LqGPt1UmcSw0fFnA=; b=CP5474EYJafnioYYtzyZopQZlR
-	jFmIJebPe2ek07JAHO6M6IpGGr8cGpwOTvAP92WLExvw9G2M5E4z2iH4kM7OnISvK5x7ldnbFpHZD
-	4eOeM4Vnwp/6gtscGdNsNPFu6A3XaSnUBO6lFwza0IRc5r2VGfnXd5P/I9Xp74/V+30+j4MPOdG5k
-	rQx1LDmmW3YhJtA4rHbW6OVn2FrqWP2ZHHBQEUTNEloc3bcpQtZYQucqMrAbfb7obazwrL0cgYrjm
-	Aw7SAE9m6GQ3XDjbeeVpUWUoq6r9xvsa60ymC5t3KxU1eXzDlFBQLrxEc5/gzhx7QnWYYcXY3arTk
-	8ji3TfOQ==;
+	bh=DP2vwiic8e2s/R5GDgOi0xr/8SGBP9j4xTLdbOHVads=; b=IN8s38i9bobsJcn//SUrIGt29o
+	ecqxGUpHV+eLgMqMs2OeOQVb3S/GDjxSlwbCp1XUaqp1ia9XV63XdizVJaawoO0mUvzgADxX8/RLt
+	1SIZwH5Gfekt1ssWCwZ27h2f2NT6ysx1KbseYQjOiHKKREnEafZ/RrHpt7l8RU5G/d6/6x+XEyt4I
+	XjVYTpN5oYCY6Kqo2hk8xAkxk0Ciba+AlwZ17QdGzphHorMN6MNE+pXkj4RUTQsh78sND9iNij3Kb
+	vsSIsMLFZOxHIODcSmMCkeSlTe0AbwwSzYcGDHcBgqYDlUGWRoPPJpx/otdFPUdfjrIc7sX+oyhf3
+	9oWh3dPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8PU2-00000000mVS-3Hz2;
-	Fri, 25 Apr 2025 20:17:14 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1u8PVs-00000000mlU-1vf8;
+	Fri, 25 Apr 2025 20:19:08 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8PC7-00000000k2I-3A29
+	id 1u8PPr-00000000ltY-1wdJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 19:58:45 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53PGK2UT021918
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 19:58:42 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	yNtoPTL9iStSRPUJKcZJpTJAZ89LqGPt1UmcSw0fFnA=; b=VarSxdeA3/EhEQIw
-	jeR246EZaDYV1+SI5QQprcRxUOoPJbc3Hc3/2oZ4xL+ZC8QPDuHTNgW9NE+304W5
-	2HGA3F0RGdBa7iHP/2X0i7wz/usUxxr2MQ9rwx7PFl4pamFHqpdX6Zq82seQy2q2
-	ie5nxyukvs/v0N0hubJ2+l4p1lmiY3zfvIUeA+UntZ8RISrNOmaXRNXt1oEAMLQ4
-	vzHH+S3/LCszpRDz0FC75Ql0zNY69KY3QFBlz4UvIEQ0nDj6KB/4MTpRhSLn8dhW
-	ofqjwAPrW1t/aLR4PBsWhv0ykGQn6eGxSq6QGq+GfU0RquOOFq8NwQra41zhns2L
-	rGrM0A==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 466jh5j7bc-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 19:58:42 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-7c5530c2e01so11007585a.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 12:58:42 -0700 (PDT)
+	Fri, 25 Apr 2025 20:12:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1745611974;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=DP2vwiic8e2s/R5GDgOi0xr/8SGBP9j4xTLdbOHVads=;
+	b=KbRwRHSl+oc63pBW4sO46vB35W/oSVvvD1/2U4EkGItUhdZlBnJiK3kXVYascbMANFBpUD
+	8mZOndI9RRUH7fdgG0rdZD4BvY+BkzgUOJCKEWM4/QifX3YD3zxPN3PO2QlRoNUTmRvrfN
+	09kNFwrIS097RZL4qnXZg4vljSIwzYc=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-398-kHoBsXT5MESoNFl7aao9Fg-1; Fri, 25 Apr 2025 16:12:53 -0400
+X-MC-Unique: kHoBsXT5MESoNFl7aao9Fg-1
+X-Mimecast-MFC-AGG-ID: kHoBsXT5MESoNFl7aao9Fg_1745611972
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-3a07a867a4dso83438f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 13:12:52 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745611122; x=1746215922;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=yNtoPTL9iStSRPUJKcZJpTJAZ89LqGPt1UmcSw0fFnA=;
-        b=NbJ6DdZMsDf3naB32LKf4slK/gbRtN6PoL9mWy6QG+8xaTehs2Lt+vxA1irFjrfSbo
-         4OdicV8/QPU7aM1PystvL6Gl2ehcSAuUN3dwrzPzNG/um7tEyp/nCsMe5VJZ6iXSVFoP
-         t0Bn0EDc/ZorbVAUt+UnCofz8jNwi8GozXj7whX2mZcdM4qosgKjIJGc7Mo5I6XH+eAV
-         X80PpKoNay6OQMxfkM6iFXuJ4/NaMzIB2q+CMaFlkuhFsLll04LA4VPUh3MxdNCv09p4
-         hPP0UvVdpDg+so4N3fD13mRgdoM9cH/HsKMywRgWvZu8uwpyrAPbLF00DyU7szCPPjff
-         PX6A==
-X-Forwarded-Encrypted: i=1; AJvYcCUt1bGtNq/hhoLsCIgZhYMAsbr4jkVDEjNDs/yRfUmZKdYejChu16ftnYA9JGX/8At7MIwuyAujHHE9CaypyWTI@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw653b0ixy2zPzCR6m7AnWpucJrtSCrFmZw5wwuYXRGzsoL2Roc
-	UXXzeSNP3kcjna8LwBMLggfRXgjkRm+gh/D4cnO6UNmgglIqfLMbXt6jDBJSFdQUpv3vcfCcifb
-	JmqrpQYOyEHrVwyWDznXH315d2drJudBidygZD1T5jHN1G6PiWuuR81uMLQA1Bb4+4NyzI/Ec6A
-	==
-X-Gm-Gg: ASbGnct0PVkgQL9HIuSChTmkBNWMzOHGJj0eOelpxzInYhAJguzv0CjZAxQG7HoA+gf
-	5T58Yj+Wnd92+9kPDZpyNwT90x2jcVIcbjrKpQFZdutILvpAlAl1Q3YF+wemOhwpE/dOPK57Fc5
-	gHnlzF/9vsJ3QwCKtO3bjfMABF+TBblXP+7YPvhPyPnlj2xNQy4BDexXVlEQi88zO88zGvn2Y2i
-	9V53gYO4PEMk/GXV8iB7N0z9mccI4AtM/5EK+KPepE1WDHr0IXmhsnoh8H/yI7JPfQm/oKGIZ8O
-	hxpHZBJV+Lz1tA+itQTCOpaNIdc9sOv8vuX7yguyL/L1dKaGpWXMM8ff4i2//DQzASI=
-X-Received: by 2002:a05:620a:25d4:b0:7c7:a574:94e8 with SMTP id af79cd13be357-7c960723dfamr190180485a.9.1745611121657;
-        Fri, 25 Apr 2025 12:58:41 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEs6uTHSx+y7Mx579TQd+STHV6sBZGedNrCyPkLHZ+PRRQmhhsgzyIO4lYzckySewL4JVEITQ==
-X-Received: by 2002:a05:620a:25d4:b0:7c7:a574:94e8 with SMTP id af79cd13be357-7c960723dfamr190178485a.9.1745611121304;
-        Fri, 25 Apr 2025 12:58:41 -0700 (PDT)
-Received: from [192.168.65.156] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ace6e4e6efcsm183552366b.44.2025.04.25.12.58.39
+        d=1e100.net; s=20230601; t=1745611972; x=1746216772;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=DP2vwiic8e2s/R5GDgOi0xr/8SGBP9j4xTLdbOHVads=;
+        b=Br7tgRgjnidXtmcKA4RSdgviICNpBtkJdwXPAnDZu1v5JT1RDLLa3HTLgIziX8Dpsy
+         NJspdMU5zlH3Iqk7bp7KRqrQnlqfqNJzdpDl9I2joc5r0QWia/9HL78Xe6PmJGZvgzvv
+         +4o/ie6n3Ncg3tGCvjqeXXYMjcq6DkSCE/MzbxNOVLXOa5BplI5djQO2CF8FiNYs+/QC
+         41Ue2+peDor78SnuRYzwdnIUAY4qQkp8sttbT/zM3yauiN9kHLWMmSPByQGFhvkTm8kU
+         y00qxFE94zirxnRfge0HtPMKhGqmCygth2F3fkXvVM9y1m0LZxpxYIgx0f1rEzAGssVE
+         Arog==
+X-Forwarded-Encrypted: i=1; AJvYcCUNQRwDPH1+1Sl+qBaae9PrIV7kzy2ORJQ3wKQCPh+sm/xY/pThdRMkAC3D10dEFsHAk7qdq2nJj2kYqDzHWBTJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwcnL1neN4E2FgCnp2tWAilJ1af9O7zZyg6nqp4vpB8b7vXV2JH
+	cDTZQgQLjkIKopLvF3GhrGwfJJn7Ca/pSFtHYRGTiQ1AJomSufT4t+OXNftbAmVy+mlxoEJqygT
+	/SsiQPIyo8Z0NRZGvsHw144vKUHKjfjWYgOxD/p2kxXMguPfsYgeXEsSjtHC97CVAFqxoIImn
+X-Gm-Gg: ASbGncvjBAPAypw4SxObHBOSQ2uxVMYThJE+ZM+FKtAi1QPONNvUZo08eRonQFqH8I+
+	KrqtDqQ5/5QlieBp/bcogbK33a18zZ6ODNbei077q2PT2f/4WpFMEZjO3FftlcSrIyM2s75ZFhW
+	rYnqSc+d7d2dSpNamyINhgkiz0fYWaPsTznHiuTYCCGNCN+K7Ci9BkNuDwVM1f1QEbZYpE6q9tV
+	y2QFOZcjwNSq4kZ9ALoBMlDvMCAgCKHmezB7sWCZecVwa3P3kMM51H0jRWT26h5/U9qHHf9bNs7
+	3T8v2dzSKbrfJ+QEPavY1cH6/rXbXON1LmLHhrVNhbT7E6fJmxtgl4jzh1TXV7LGFnXYyIHANWB
+	QQEivN6L6PKMuH3VgAiVylKpPETILPrnO1VLU
+X-Received: by 2002:a05:6000:1786:b0:391:2d61:4561 with SMTP id ffacd0b85a97d-3a074e14820mr2921272f8f.6.1745611971836;
+        Fri, 25 Apr 2025 13:12:51 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEFVn9H//z0k1CtrVOQbHYlOLGF8iqTCK5yC0ChSELN1MCMaffah5JZTgjMkK35gLUoNPkjKw==
+X-Received: by 2002:a05:6000:1786:b0:391:2d61:4561 with SMTP id ffacd0b85a97d-3a074e14820mr2921248f8f.6.1745611971452;
+        Fri, 25 Apr 2025 13:12:51 -0700 (PDT)
+Received: from ?IPV6:2003:cb:c70f:6900:6c56:80f8:c14:6d2a? (p200300cbc70f69006c5680f80c146d2a.dip0.t-ipconnect.de. [2003:cb:c70f:6900:6c56:80f8:c14:6d2a])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a073c8cc74sm3339530f8f.11.2025.04.25.13.12.50
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 25 Apr 2025 12:58:40 -0700 (PDT)
-Message-ID: <86bc707d-72d7-44f2-b77f-3fa89e25789a@oss.qualcomm.com>
-Date: Fri, 25 Apr 2025 21:58:38 +0200
+        Fri, 25 Apr 2025 13:12:51 -0700 (PDT)
+Message-ID: <8fd728cf-bc54-433d-8701-234a67933a97@redhat.com>
+Date: Fri, 25 Apr 2025 22:12:49 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/5] coresight: Add coresight QMI driver
-To: Mao Jinlong <quic_jinlmao@quicinc.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
- <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org
-References: <20250424115854.2328190-1-quic_jinlmao@quicinc.com>
- <20250424115854.2328190-3-quic_jinlmao@quicinc.com>
+Subject: Re: [PATCH v4 7/7] mm/mm_init: Use for_each_valid_pfn() in
+ init_unavailable_range()
+To: David Woodhouse <dwmw2@infradead.org>, Mike Rapoport <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ "Sauerwein, David" <dssauerw@amazon.de>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Ard Biesheuvel <ardb@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Mike Rapoport <rppt@linux.ibm.com>, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, Ruihan Li <lrh2000@pku.edu.cn>
+References: <20250423133821.789413-1-dwmw2@infradead.org>
+ <20250423133821.789413-8-dwmw2@infradead.org>
+ <cabc322e-d5ab-4371-a506-c7809717b38b@redhat.com>
+ <91CA8854-2E86-4AF3-BAD0-8C47833F59D4@infradead.org>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <91CA8854-2E86-4AF3-BAD0-8C47833F59D4@infradead.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: XcsAESbcqOCZDlEuj9DmA9xYdIFzNtbIAmVRy58OCFc_1745611972
+X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20250424115854.2328190-3-quic_jinlmao@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI1MDE0MiBTYWx0ZWRfXzEaIvV/lxe+5 f3HS1Nok2OxJ76NEQcTOHBw2OfWhs0D1YpKkCp9hU1o2TsNs2vvBjH4UGT2/Ts5M0x309/tvj0S RaBRjl+lgWOiTSF9+E28qtfvBnhXAAD7x0qO6Hm0YkBpR1ke+AJDvYlcCFzwB8LriaRrsl5dAa2
- EsAmvpZ/gf6DoxhkRpTjRZB3lC1yHd4x/6o2xCNilfadizXOcxoIo8aC6ph3b6SCqX7EF81CxV8 AXIDoeebBgUrpFvoo6XBFFWaHLR0g/lS5UX9zsGJeBxI6Yu8VctYB6DZPe/kzBVEoDOyxBwt/gN m1ZfbTfuOSCMdMWCsJjpp8zTIXieMXc5J4M26nWHg4nhDZyTcUfz+HbS9BjrIbds5B3jtDyYGQx
- Y+7oFW40DQpGEJdQJdhkv3d6C/h1VDfTqNo/chwEYwCVMll55l9GjzvIzx7MAqCCH+bONhQ9
-X-Proofpoint-GUID: wWz9cFrqp7PwiwFOHR6pfiZDDyGRnBGa
-X-Authority-Analysis: v=2.4 cv=B/S50PtM c=1 sm=1 tr=0 ts=680be972 cx=c_pps a=HLyN3IcIa5EE8TELMZ618Q==:117 a=FpWmc02/iXfjRdCD7H54yg==:17 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=iMEcykrR2jlrdE440VwA:9 a=QEXdDO2ut3YA:10
- a=bTQJ7kPSJx9SKPbeHEYW:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: wWz9cFrqp7PwiwFOHR6pfiZDDyGRnBGa
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-04-25_06,2025-04-24_02,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 mlxlogscore=999
- lowpriorityscore=0 bulkscore=0 impostorscore=0 suspectscore=0 mlxscore=0
- priorityscore=1501 phishscore=0 malwarescore=0 spamscore=0 clxscore=1015
- classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2504070000
- definitions=main-2504250142
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_125843_922584_ADC442AE 
-X-CRM114-Status: GOOD (  24.40  )
+X-CRM114-CacheID: sfid-20250425_131255_578070_75A94B96 
+X-CRM114-Status: GOOD (  25.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,114 +166,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/24/25 1:58 PM, Mao Jinlong wrote:
-> Coresight QMI driver uses QMI(Qualcomm Messaging Interface) interfaces
-> to communicate with remote subsystems. Driver gets the instance id and
-> service id from device tree node and init the QMI connections to remote
-> subsystems. Send request function is for other coresight drivers to
-> communicate with remote subsystems.
+On 25.04.25 21:08, David Woodhouse wrote:
+> On 25 April 2025 17:17:25 BST, David Hildenbrand <david@redhat.com> wrote:
+>> On 23.04.25 15:33, David Woodhouse wrote:
+>>> From: David Woodhouse <dwmw@amazon.co.uk>
+>>>
+>>> Currently, memmap_init initializes pfn_hole with 0 instead of
+>>> ARCH_PFN_OFFSET. Then init_unavailable_range will start iterating each
+>>> page from the page at address zero to the first available page, but it
+>>> won't do anything for pages below ARCH_PFN_OFFSET because pfn_valid
+>>> won't pass.
+>>>
+>>> If ARCH_PFN_OFFSET is very large (e.g., something like 2^64-2GiB if the
+>>> kernel is used as a library and loaded at a very high address), the
+>>> pointless iteration for pages below ARCH_PFN_OFFSET will take a very
+>>> long time, and the kernel will look stuck at boot time.
+>>>
+>>> Use for_each_valid_pfn() to skip the pointless iterations.
+>>>
+>>> Reported-by: Ruihan Li <lrh2000@pku.edu.cn>
+>>> Suggested-by: Mike Rapoport <rppt@kernel.org>
+>>> Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
+>>> Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+>>> Tested-by: Ruihan Li <lrh2000@pku.edu.cn>
+>>> ---
+>>>    mm/mm_init.c | 6 +-----
+>>>    1 file changed, 1 insertion(+), 5 deletions(-)
+>>>
+>>> diff --git a/mm/mm_init.c b/mm/mm_init.c
+>>> index 41884f2155c4..0d1a4546825c 100644
+>>> --- a/mm/mm_init.c
+>>> +++ b/mm/mm_init.c
+>>> @@ -845,11 +845,7 @@ static void __init init_unavailable_range(unsigned long spfn,
+>>>    	unsigned long pfn;
+>>>    	u64 pgcnt = 0;
+>>>    -	for (pfn = spfn; pfn < epfn; pfn++) {
+>>> -		if (!pfn_valid(pageblock_start_pfn(pfn))) {
+>>> -			pfn = pageblock_end_pfn(pfn) - 1;
+>>> -			continue;
+>>> -		}
+>>
+>> So, if the first pfn in a pageblock is not valid, we skip the whole pageblock ...
+>>
+>>> +	for_each_valid_pfn(pfn, spfn, epfn) {
+>>>    		__init_single_page(pfn_to_page(pfn), pfn, zone, node);
+>>>    		__SetPageReserved(pfn_to_page(pfn));
+>>>    		pgcnt++;
+>>
+>> but here, we would process further pfns inside such a pageblock?
+>>
 > 
-> Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
-> ---
+> Is it not the case that either *all*, or *none*, of the PFNs within a given pageblock will be valid?
 
-[...]
+Hmm, good point. I was thinking about sub-sections, but all early 
+sections are fully valid.
 
-> +static int coresight_qmi_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct device_node *node = pdev->dev.of_node;
-> +	struct device_node *child_node;
-> +	int ret;
-> +
-> +	/**
+(Also, at least on x86, the subsection size should match the pageblock 
+size; might not be the case on other architectures, like arm64 with 64K 
+base pages ...)
 
-Two starts means kerneldoc, please use one for a normal multiline comment
+> 
+> I assumed that was *why* it had that skip, as an attempt at the kind of optimisation that for_each_valid_pfn() now gives us?
 
-> +	 * Get the instance id and service id of the QMI service connection
-> +	 * from DT node. Creates QMI handle and register new lookup for each
+But it's interesting in this code that we didn't optimize for "if the 
+first pfn is valid, all the remaining ones are valid". We would still 
+check each PFN.
 
-The first sentence is a bit redundant.
+In any case, trying to figure out why Lorenzo ran into an issue ... if 
+it's nit because of the pageblock, maybe something in for_each_valid_pfn 
+with sparsemem is still shaky.
 
-In the second, Creates -> Create for imperative mood
+-- 
+Cheers,
 
-[...]
+David / dhildenb
 
-> +static const struct of_device_id coresight_qmi_match[] = {
-> +	{.compatible = "qcom,coresight-qmi"},
-
-Nit: please add a space after { and before }
-
-> +	{}
-> +};
-> +
-> +static struct platform_driver coresight_qmi_driver = {
-> +	.probe          = coresight_qmi_probe,
-> +	.remove         = coresight_qmi_remove,
-> +	.driver         = {
-> +		.name   = "coresight-qmi",
-> +		.of_match_table = coresight_qmi_match,
-> +	},
-> +};
-> +
-> +static int __init coresight_qmi_init(void)
-> +{
-> +	return platform_driver_register(&coresight_qmi_driver);
-> +}
-> +module_init(coresight_qmi_init);
-> +
-> +static void __exit coresight_qmi_exit(void)
-> +{
-> +	platform_driver_unregister(&coresight_qmi_driver);
-> +}
-> +module_exit(coresight_qmi_exit);
-
-You can drop the __init and __exit funcs and substitute them
-with module_platform_driver()
-
-> +
-> +MODULE_LICENSE("GPL");
-> +MODULE_DESCRIPTION("CoreSight QMI driver");
-> diff --git a/drivers/hwtracing/coresight/coresight-qmi.h b/drivers/hwtracing/coresight/coresight-qmi.h
-> new file mode 100644
-> index 000000000000..1d57e46177b8
-> --- /dev/null
-> +++ b/drivers/hwtracing/coresight/coresight-qmi.h
-> @@ -0,0 +1,107 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Copyright (c) 2025 Qualcomm Innovation Center, Inc. All rights reserved.
-> + */
-> +#ifndef _CORESIGHT_QMI_H
-> +#define _CORESIGHT_QMI_H
-> +
-> +#include <linux/soc/qcom/qmi.h>
-> +
-> +#define CORESIGHT_QMI_VERSION			(1)
-> +
-> +#define CORESIGHT_QMI_SET_ETM_REQ_V01		(0x002C)
-> +#define CORESIGHT_QMI_SET_ETM_RESP_V01		(0x002C)
-> +
-> +#define CORESIGHT_QMI_MAX_MSG_LEN (50)
-> +
-> +#define TIMEOUT_MS				(10000)
-
-Parentheses around constants are unnecesary
-
-> +
-> +/* Qmi data for the QMI connection */
-> +struct qmi_data {
-> +	u32			qmi_id;
-> +	u32			service_id;
-> +	struct list_head	node;
-> +	struct qmi_handle	handle;
-> +	bool			service_connected;
-> +	struct sockaddr_qrtr	s_addr;
-> +};
-> +
-> +/**
-> + * QMI service IDs
-
-This is not valid kerneldoc, try make W=1
-
-Konrad
 
