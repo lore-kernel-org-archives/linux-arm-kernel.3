@@ -4,64 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23FD3C369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 12:20:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D03CC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 12:22:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eQHrstufnXZRKPvtDgdg+W4sMQq7zym3/zBZDDdQKwo=; b=qizUyg3P8TT0onxGHDSdhOtAqq
-	bTEzFXDBUxuPWCnuR4Gf47L+16iSsF2k6bYIxl+v44QHUntOfyheARU7WusjwgAvQFSCEIVY8aczL
-	iAWIgnKwAHeYcGurtUWAzxIue/nJFRZ6/ulHojV9d7/WyRfblKBnQ+9S+VaarugOxA9ykvVVGj09J
-	zggv4im4F3uXs5mNeRyIezj4k1HsLjqevLFoffQ7l2Tuv5vxgcyvplOthGQAZqPJTUMnBZkuRqCq7
-	ttjQjsQDVXeJynC3Q3oxTuOyux7uhWvLTg2e3vhtolk8vlhrVA/c9MHerAAWjk+UFgOW+ReIPOG+M
-	yt0f4qNQ==;
+	bh=nli07KgLUrDYMWH1Lc6yMKqrWlicadkP3LHn0B363Ng=; b=zBrCkSTq7sXohoTZpED/omSXxC
+	KdDAyBHYlePtyyVqkK5iJZMU+LUfHnTiESXPpJBV8Yt7DTIBQHa7zh4h2mEfdOzU9jNaOFHxHXHa2
+	6/dTqVqEN4ucf1999Wm8Qtcot+YD1PdHUo/cBClAu8+txACaPFZkP4zt3v7PKLSbnkEM1OB5i0hJl
+	Vg4xWs+Lg5Sw8HqymcvwmHMdrWZ0C9P7IJxInus6MVhROdK9qsF0AVh8fRxOcvyZ/Szi3hGK6A+vd
+	eh6eB+ESP5y5Kt/iYHr61igl3XCWRkYhQQRWtCHMvZjRww2IZsgu2gafdb1+mWQ0kAh8SkkemfmHl
+	WvpdBhDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8I2l-0000000H6kb-3TDS;
-	Fri, 25 Apr 2025 12:20:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
+	id 1u8I4a-0000000H728-21pQ;
+	Fri, 25 Apr 2025 12:22:28 +0000
+Received: from m16.mail.163.com ([117.135.210.2])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Ggs-0000000GpTf-0A0r
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 10:53:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EC1D3106F;
-	Fri, 25 Apr 2025 03:53:47 -0700 (PDT)
-Received: from [10.57.45.160] (unknown [10.57.45.160])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id DAD963F59E;
-	Fri, 25 Apr 2025 03:53:49 -0700 (PDT)
-Message-ID: <202ff57d-f88c-4cd8-995a-c9bdec7f8b18@arm.com>
-Date: Fri, 25 Apr 2025 11:53:48 +0100
+	id 1u8GkL-0000000GqGa-413o;
+	Fri, 25 Apr 2025 10:57:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:From:
+	Content-Type; bh=nli07KgLUrDYMWH1Lc6yMKqrWlicadkP3LHn0B363Ng=;
+	b=QK67PW4FjfSzrmfyXNv5GmvlkVPoZEf2davAV77hrwJvc+qVVB1LzVsDPWl8vz
+	p6/EwY+XU+RSGhim+vaB3ppkMRytTNQrWT/BipxTXBhDRmekRXwrvClHv5dDlPaU
+	SI21SaaGPJ2Ule5IuvpoUNSfCKl4KLveY51UECCuqwoL0=
+Received: from [192.168.142.52] (unknown [])
+	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wCH5yx1agto6+qPCQ--.28259S2;
+	Fri, 25 Apr 2025 18:56:55 +0800 (CST)
+Message-ID: <a4963173-dd9a-4341-b7f9-5fdb9485233a@163.com>
+Date: Fri, 25 Apr 2025 18:56:53 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 04/43] arm64: RME: Add wrappers for RMI calls
-Content-Language: en-GB
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>
-References: <20250416134208.383984-1-steven.price@arm.com>
- <20250416134208.383984-5-steven.price@arm.com>
- <d43d1813-5402-488c-aadc-6336dedeccbe@arm.com>
-In-Reply-To: <d43d1813-5402-488c-aadc-6336dedeccbe@arm.com>
+Subject: Re: [PATCH v2 1/2] PCI: Configure root port MPS to hardware maximum
+ during host probing
+To: Niklas Cassel <cassel@kernel.org>
+Cc: lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com,
+ heiko@sntech.de, thomas.petazzoni@bootlin.com,
+ manivannan.sadhasivam@linaro.org, yue.wang@amlogic.com, pali@kernel.org,
+ neil.armstrong@linaro.org, robh@kernel.org, jingoohan1@gmail.com,
+ khilman@baylibre.com, jbrunet@baylibre.com,
+ martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-rockchip@lists.infradead.org
+References: <20250425095708.32662-1-18255117159@163.com>
+ <20250425095708.32662-2-18255117159@163.com> <aAtikPOYlGeJCsiA@ryzen>
+Content-Language: en-US
+From: Hans Zhang <18255117159@163.com>
+In-Reply-To: <aAtikPOYlGeJCsiA@ryzen>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: _____wCH5yx1agto6+qPCQ--.28259S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW3WFy8Jw4fXr47ury3ZFyrZwb_yoW3Xw17pF
+	W2qF42yF4kJF43Ka97tF18uFWjq3ZY9FW3JFsxJr1qv3Z3u3Z5C3sFkFyFq3y7Jr9Yvr1U
+	taykJ340vFs8JaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jzmhwUUUUU=
+X-Originating-IP: [222.71.101.198]
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbBDws6o2gLX6dyxAABsx
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_035354_118856_6DDF76A5 
-X-CRM114-Status: GOOD (  15.86  )
+X-CRM114-CacheID: sfid-20250425_035730_362218_D86AC883 
+X-CRM114-Status: GOOD (  20.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,68 +81,205 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/04/2025 11:48, Suzuki K Poulose wrote:
-> Hi Steven
-> 
-> On 16/04/2025 14:41, Steven Price wrote:
->> The wrappers make the call sites easier to read and deal with the
->> boiler plate of handling the error codes from the RMM.
+
+
+On 2025/4/25 18:23, Niklas Cassel wrote:
+> On Fri, Apr 25, 2025 at 05:57:07PM +0800, Hans Zhang wrote:
+>> Current PCIe initialization logic may leave root ports operating with
+>> non-optimal Maximum Payload Size (MPS) settings. While downstream device
+>> configuration is handled during bus enumeration, root port MPS values
+>> inherited from firmware or hardware defaults might not utilize the full
+>> capabilities supported by the controller hardware. This can result in
+>> suboptimal data transfer efficiency across the PCIe hierarchy.
 >>
->> Reviewed-by: Gavin Shan <gshan@redhat.com>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->> Changes from v7:
->>   * Minor renaming of parameters and updated comments
->> Changes from v5:
->>   * Further improve comments
->> Changes from v4:
->>   * Improve comments
->> Changes from v2:
->>   * Make output arguments optional.
->>   * Mask RIPAS value rmi_rtt_read_entry()
->>   * Drop unused rmi_rtt_get_phys()
->> ---
->>   arch/arm64/include/asm/rmi_cmds.h | 508 ++++++++++++++++++++++++++++++
->>   1 file changed, 508 insertions(+)
->>   create mode 100644 arch/arm64/include/asm/rmi_cmds.h
+>> During host controller probing phase, when PCIe bus tuning is enabled,
+>> the implementation now configures root port MPS settings to their
+>> hardware-supported maximum values. By iterating through bridge devices
+>> under the root bus and identifying PCIe root ports, each port's MPS is set
+>> to 128 << pcie_mpss to match the device's maximum supported payload size.
+>> The Max Read Request Size (MRRS) is subsequently adjusted through existing
+>> companion logic to maintain compatibility with PCIe specifications.
 >>
->> diff --git a/arch/arm64/include/asm/rmi_cmds.h b/arch/arm64/include/ 
->> asm/rmi_cmds.h
->> new file mode 100644
->> index 000000000000..27cd2751f3bf
->> --- /dev/null
->> +++ b/arch/arm64/include/asm/rmi_cmds.h
->> @@ -0,0 +1,508 @@
+>> Explicit initialization at host probing stage ensures consistent PCIe
+>> topology configuration before downstream devices perform their own MPS
+>> negotiations. This proactive approach addresses platform-specific
+>> requirements where controller drivers depend on properly initialized root
+>> port settings, while maintaining backward compatibility through
+>> PCIE_BUS_TUNE_OFF conditional checks. Hardware capabilities are fully
+>> utilized without altering existing device negotiation behaviors.
+>>
+>> Signed-off-by: Hans Zhang <18255117159@163.com>
 > 
-> ...
+> Perhaps Mani deserves a Suggested-by tag?
 > 
+
+Dear Niklas,
+
+Thank you very much for your reply. Ok. Sorry, I missed it. I 'm going 
+to add Suggested-by tag.
+
+> 
+>> ---
+>>   drivers/pci/probe.c | 12 ++++++++++++
+>>   1 file changed, 12 insertions(+)
+>>
+>> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+>> index 364fa2a514f8..3973c593fdcf 100644
+>> --- a/drivers/pci/probe.c
+>> +++ b/drivers/pci/probe.c
+>> @@ -3206,6 +3206,7 @@ EXPORT_SYMBOL_GPL(pci_create_root_bus);
+>>   int pci_host_probe(struct pci_host_bridge *bridge)
+>>   {
+>>   	struct pci_bus *bus, *child;
+>> +	struct pci_dev *dev;
+>>   	int ret;
+>>   
+>>   	pci_lock_rescan_remove();
+>> @@ -3228,6 +3229,17 @@ int pci_host_probe(struct pci_host_bridge *bridge)
+>>   	 */
+>>   	pci_assign_unassigned_root_bus_resources(bus);
+>>   
+>> +	if (pcie_bus_config != PCIE_BUS_TUNE_OFF) {
+>> +		/* Configure root ports MPS to be MPSS by default */
+>> +		for_each_pci_bridge(dev, bus) {
+>> +			if (pci_pcie_type(dev) != PCI_EXP_TYPE_ROOT_PORT)
+>> +				continue;
 >> +
->> +/**
->> + * rmi_rtt_destroy() - Destroy an RTT
->> + * @rd: PA of the RD
->> + * @ipa: Base of the IPA range described by the RTT
->> + * @level: Depth of the RTT within the tree
->> + * @out_rtt: Pointer to write the PA of the RTT which was destroyed
->> + * @out_top: Pointer to write the top IPA of non-live RTT entries
->> + *
->> + * Destroys an RTT. The RTT must be non-live, i.e. none of the 
->> entries in the
->> + * table are in ASSIGNED or TABLE state.
+>> +			pcie_write_mps(dev, 128 << dev->pcie_mpss);
+>> +			pcie_write_mrrs(dev);
 > 
-> minor nit: It may be worth emphasising that you mean HIPAS here and not
-> RMI_ASSIGNED (as returned by RTT_READ_ENTRY). The key is, an unprotected
-> live leaf mapping  (i.e., HIPAS=ASSIGNED_NS) is considered non-live.
-
-Ah, I went back to the spec and TABLE is not a HIPAS ( :facepalm ).
-They are indeed RmmRttEntryState type. So, the comment is fine as it is.
-Please ignore ^
-
+> The comment says configure MPS, but the code also calls pcie_write_mrrs().
 > 
-> Either ways:
+> Should we update the comment or should we remove the call to pcie_write_mrrs()?
 > 
 
+I have tested and found that the result is the same whether 
+pcie_write_mrrs() is called or not.
 
-> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Note that even when calling pcie_write_mrrs(), it will not update MRRS for the
+> common case (pcie_bus_config == PCIE_BUS_DEFAULT).
 
-Suzuki
+But I discovered a problem:
+
+0001:90:00.0 PCI bridge: Device 1f6c:0001 (prog-if 00 [Normal decode])
+          ......
+          Capabilities: [c0] Express (v2) Root Port (Slot-), MSI 00
+                  DevCap: MaxPayload 512 bytes, PhantFunc 0
+                          ExtTag- RBE+
+                  DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
+                          RlxdOrd+ ExtTag- PhantFunc- AuxPwr- NoSnoop+
+                          MaxPayload 512 bytes, MaxReadReq 1024 bytes
+
+
+
+			Should the DevCtl MaxPayload be 256B?
+
+But I tested that the file reading and writing were normal. Is the 
+display of 512B here what we expected?
+
+Root Port 0003:30:00.0 has the same problem. May I ask what your opinion is?
+
+
+		......
+0001:91:00.0 Non-Volatile memory controller: Samsung Electronics Co Ltd
+NVMe SSD Controller PM9A1/PM9A3/980PRO (prog-if 02 [NVM Express])
+          ......
+          Capabilities: [70] Express (v2) Endpoint, MSI 00
+                  DevCap: MaxPayload 256 bytes, PhantFunc 0, Latency L0s
+unlimited, L1 unlimited
+                          ExtTag+ AttnBtn- AttnInd- PwrInd- RBE+ FLReset+
+SlotPowerLimit 0W
+                  DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
+                          RlxdOrd+ ExtTag+ PhantFunc- AuxPwr- NoSnoop+
+FLReset-
+                          MaxPayload 256 bytes, MaxReadReq 512 bytes
+		......
+
+
+
+
+
+Several PCIe ports that I enabled.
+
+root@cix-localhost:~# cat /proc/version
+Linux version 6.15.0-rc2-00015-gced1536aaf04-dirty (hans@hans) ......
+root@cix-localhost:~# lspci
+0000:c0:00.0 PCI bridge: Device 1f6c:0001
+0000:c1:00.0 Non-Volatile memory controller: Samsung Electronics Co Ltd
+NVMe SSD Controller S4LV008[Pascal]
+0001:90:00.0 PCI bridge: Device 1f6c:0001
+0001:91:00.0 Non-Volatile memory controller: Samsung Electronics Co Ltd
+NVMe SSD Controller PM9A1/PM9A3/980PRO
+0003:30:00.0 PCI bridge: Device 1f6c:0001
+0003:31:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd.
+RTL8125 2.5GbE Controller (rev 05)root@cix-localhost:~# lspci -vvv
+0000:c0:00.0 PCI bridge: Device 1f6c:0001 (prog-if 00 [Normal decode])
+          ......
+          Capabilities: [c0] Express (v2) Root Port (Slot-), MSI 00
+                  DevCap: MaxPayload 512 bytes, PhantFunc 0
+                          ExtTag+ RBE+
+                  DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
+                          RlxdOrd+ ExtTag+ PhantFunc- AuxPwr- NoSnoop+
+                          MaxPayload 512 bytes, MaxReadReq 1024 bytes
+		......
+0000:c1:00.0 Non-Volatile memory controller: Samsung Electronics Co Ltd
+NVMe SSD Controller S4LV008[Pascal] (prog-if 02 [NVM Express])
+          ......
+          Capabilities: [70] Express (v2) Endpoint, MSI 00
+                  DevCap: MaxPayload 512 bytes, PhantFunc 0, Latency L0s
+unlimited, L1 unlimited
+                          ExtTag+ AttnBtn- AttnInd- PwrInd- RBE+ FLReset+
+SlotPowerLimit 0W
+                  DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
+                          RlxdOrd+ ExtTag+ PhantFunc- AuxPwr- NoSnoop+
+FLReset-
+                          MaxPayload 512 bytes, MaxReadReq 512 bytes
+		......
+0001:90:00.0 PCI bridge: Device 1f6c:0001 (prog-if 00 [Normal decode])
+          ......
+          Capabilities: [c0] Express (v2) Root Port (Slot-), MSI 00
+                  DevCap: MaxPayload 512 bytes, PhantFunc 0
+                          ExtTag- RBE+
+                  DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
+                          RlxdOrd+ ExtTag- PhantFunc- AuxPwr- NoSnoop+
+                          MaxPayload 512 bytes, MaxReadReq 1024 bytes
+		......
+0001:91:00.0 Non-Volatile memory controller: Samsung Electronics Co Ltd
+NVMe SSD Controller PM9A1/PM9A3/980PRO (prog-if 02 [NVM Express])
+          ......
+          Capabilities: [70] Express (v2) Endpoint, MSI 00
+                  DevCap: MaxPayload 256 bytes, PhantFunc 0, Latency L0s
+unlimited, L1 unlimited
+                          ExtTag+ AttnBtn- AttnInd- PwrInd- RBE+ FLReset+
+SlotPowerLimit 0W
+                  DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
+                          RlxdOrd+ ExtTag+ PhantFunc- AuxPwr- NoSnoop+
+FLReset-
+                          MaxPayload 256 bytes, MaxReadReq 512 bytes
+		......
+0003:30:00.0 PCI bridge: Device 1f6c:0001 (prog-if 00 [Normal decode])
+          ......
+          Capabilities: [c0] Express (v2) Root Port (Slot-), MSI 00
+                  DevCap: MaxPayload 512 bytes, PhantFunc 0
+                          ExtTag- RBE+
+                  DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
+                          RlxdOrd+ ExtTag- PhantFunc- AuxPwr- NoSnoop+
+                          MaxPayload 512 bytes, MaxReadReq 1024 bytes
+		......
+0003:31:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd.
+RTL8125 2.5GbE Controller (rev 05)
+          ......
+          Capabilities: [70] Express (v2) Endpoint, MSI 01
+                  DevCap: MaxPayload 256 bytes, PhantFunc 0, Latency L0s
+<512ns, L1 <64us
+                          ExtTag- AttnBtn- AttnInd- PwrInd- RBE+ FLReset-
+SlotPowerLimit 0W
+                  DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
+                          RlxdOrd+ ExtTag- PhantFunc- AuxPwr- NoSnoop-
+                          MaxPayload 256 bytes, MaxReadReq 4096 bytes
+          ......
+
+Best regards,
+Hans
+
 
