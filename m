@@ -4,48 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0636AC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 16:52:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01525C369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 16:52:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Us1Lzpmv0n3maU+glqpQLFVWV4FXmbzWnwIpmcdLxJ0=; b=clqQXjffRu6MO3
-	Pt9uc+IL+mapTj6L6y3MMuyYRZAHBKSES/cTr+Xng0bwfx+NXWnjbQceWMinSMjb23POo2WiBQMx0
-	wO6FmfrZVRsf/skFzQfqmcmFb6gHAvtUBiNBE8xcVSTXryRCMTtd31pbI+yxMOmwxwyUKBgDmsh9i
-	heimt7EDpgUcYCLszV7Z9sVB9flSzttBMIwtTEL3SauZ6kQAbHyxouXpU4/MDVs3WYTgFgHIahoHj
-	HzER6eyD9becoR8v3CSKfBR7As41pjV72bZ06fkyGXi0ippsRnXpLTH1Gf5siSVpCNRMG8FCMrfgb
-	mwzrNMh531zMFP3xWRAg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XBTC9Phxpleeo3vUJODBK/ObxnGehZI3KydsId8TYeI=; b=YLWuvWCBBvJPXwnqLyt8aVqAFU
+	oajzzL8eUAcd+MfKhm/iQ1+2iXPOtlOLCxtqbNNLaAJJY6mEIFcBR+O1oS1oD4oKA3wgkO9QOk0Q+
+	j3gaStYkIT/gFKj1ZDrY22FhrNvUql4ta6yYbLtPqP4qKxsIdoWqiJkYigkL3Ew62NP6fGULGkL8P
+	O5UKYA2rTHEnBdfJ/ZmOANnCW79pu0MBie6K0VL9Z/xOVlV8bs+QlKzhx8BbrzzRAG9jI+XtbNMBJ
+	vqigibMMHGhqIAaIBHjuJUyLrks1rfBnsDk0XAi+6/00KoHOiCn5v6RonhfJnIs4eQ4KxTYuikKL5
+	odnXyf9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8MHT-00000000IJV-0brt;
-	Fri, 25 Apr 2025 16:52:03 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8L70-000000004OP-0Yu3
+	id 1u8MHv-00000000ISk-2rR4;
+	Fri, 25 Apr 2025 16:52:31 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u8Jpw-0000000HOur-1yWD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 15:37:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CF045106F;
-	Fri, 25 Apr 2025 08:37:03 -0700 (PDT)
-Received: from e137867.arm.com (unknown [10.57.45.221])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id EC7DF3F59E;
-	Fri, 25 Apr 2025 08:37:07 -0700 (PDT)
-From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 06/11] arm64: debug: split hardware breakpoint exeception entry
-Date: Fri, 25 Apr 2025 16:36:42 +0100
-Message-ID: <20250425153647.438508-7-ada.coupriediaz@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250425153647.438508-1-ada.coupriediaz@arm.com>
-References: <20250425153647.438508-1-ada.coupriediaz@arm.com>
+	Fri, 25 Apr 2025 14:15:29 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B92EE43A23;
+	Fri, 25 Apr 2025 14:15:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1745590527;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=XBTC9Phxpleeo3vUJODBK/ObxnGehZI3KydsId8TYeI=;
+	b=dQW/yZXQ1iMmMB+8Y7Xneew8S5b9bbVZVHKBQmoKwq4himJ/f8Evm07WPZq0v/ZB2xhXZb
+	tsRTW7TpVwHkJeeqJ8BSBhJI+Kv/VTYh+O8UlYYTulhqi+xQmqcktYLVBY7Kf2Dr8NEvBK
+	Qei73/IyKgtN5frToH/k1ZOuf/gLVmePo6sUFERadpgNReG+CU0X2HNTHZE0aoQNtDHJ0L
+	fASIGeRoj+l2P/tCjPn4oTvdneC/WHmbpTv6s7GcVPTxLDKBmhlfyMguY3K9M8Mt6tEf6s
+	AULfijcU+NkW5NyHYIYGO/wwqqbrIYZJ6Yki5JMgV0IwlZMcZfKJoJPTurqdFQ==
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: davem@davemloft.net
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	thomas.petazzoni@bootlin.com,
+	Andrew Lunn <andrew@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
+	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	=?UTF-8?q?Nicol=C3=B2=20Veronese?= <nicveronese@gmail.com>,
+	Simon Horman <horms@kernel.org>,
+	mwojtas@chromium.org,
+	Antoine Tenart <atenart@kernel.org>,
+	devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
+Subject: [PATCH net-next v5 07/14] net: phy: marvell-88x2222: Support SFP through phy_port interface
+Date: Fri, 25 Apr 2025 16:15:00 +0200
+Message-ID: <20250425141511.182537-8-maxime.chevallier@bootlin.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250425141511.182537-1-maxime.chevallier@bootlin.com>
+References: <20250425141511.182537-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvhedvheehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepveegtdffleffleevueellefgjeefvedvjefhheegfefgffdvfeetgeevudetffdtnecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgepvdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedupdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrk
+ hgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqmhhsmhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhg
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_083710_257371_28D77521 
-X-CRM114-Status: GOOD (  16.84  )
+X-CRM114-CacheID: sfid-20250425_071528_640137_F34271B5 
+X-CRM114-Status: GOOD (  16.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -57,170 +100,176 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently all debug exceptions share common entry code and are routed
-to `do_debug_exception()`, which calls dynamically-registered
-handlers for each specific debug exception. This is unfortunate as
-different debug exceptions have different entry handling requirements,
-and it would be better to handle these distinct requirements earlier.
+The 88x2222 PHY from Marvell only supports serialised modes as its
+line-facing interfaces. Convert that driver to the generic phylib SFP
+handling.
 
-Hardware breakpoints exceptions are generated by the hardware after user
-configuration. As such, they can be exploited when training branch
-predictors outisde of the userspace VA range: they still need to call
-`arm64_apply_bp_hardening()` if needed to mitigate against this attack.
-
-However, they do not need to handle the Cortex-A76 erratum #1463225 as
-it only applies to single stepping exceptions.
-It does not set an address in FAR_EL1 either, only the hardware
-watchpoint does.
-
-Split the hardware breakpoint exception entry, adjust
-the function signature, and handling of the Cortex-A76 erratum to fit
-the behaviour of the exception.
-
-Duplicate the debug_exception_ entry and exit functions from mm/fault.c,
-as they are needed in the split paths for exceptions other than BKPT32.
-The original will be removed in a cleanup patch.
-
-Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- arch/arm64/include/asm/exception.h |  1 +
- arch/arm64/kernel/entry-common.c   | 25 +++++++++++++++++++++++++
- arch/arm64/kernel/hw_breakpoint.c  | 20 ++++++++++++++++----
- 3 files changed, 42 insertions(+), 4 deletions(-)
+ drivers/net/phy/marvell-88x2222.c | 96 +++++++++++++------------------
+ 1 file changed, 39 insertions(+), 57 deletions(-)
 
-diff --git a/arch/arm64/include/asm/exception.h b/arch/arm64/include/asm/exception.h
-index d48fc16584cd..c593fe639697 100644
---- a/arch/arm64/include/asm/exception.h
-+++ b/arch/arm64/include/asm/exception.h
-@@ -61,6 +61,7 @@ void do_el0_gcs(struct pt_regs *regs, unsigned long esr);
- void do_el1_gcs(struct pt_regs *regs, unsigned long esr);
- void do_debug_exception(unsigned long addr_if_watchpoint, unsigned long esr,
- 			struct pt_regs *regs);
-+void do_breakpoint(unsigned long esr, struct pt_regs *regs);
- void do_fpsimd_acc(unsigned long esr, struct pt_regs *regs);
- void do_sve_acc(unsigned long esr, struct pt_regs *regs);
- void do_sme_acc(unsigned long esr, struct pt_regs *regs);
-diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-index 92d78b329e67..c8139c87caa6 100644
---- a/arch/arm64/kernel/entry-common.c
-+++ b/arch/arm64/kernel/entry-common.c
-@@ -503,6 +503,15 @@ static void noinstr el1_mops(struct pt_regs *regs, unsigned long esr)
- 	exit_to_kernel_mode(regs);
+diff --git a/drivers/net/phy/marvell-88x2222.c b/drivers/net/phy/marvell-88x2222.c
+index fad2f54c1eac..3dba7b33a873 100644
+--- a/drivers/net/phy/marvell-88x2222.c
++++ b/drivers/net/phy/marvell-88x2222.c
+@@ -13,7 +13,7 @@
+ #include <linux/mdio.h>
+ #include <linux/marvell_phy.h>
+ #include <linux/of.h>
+-#include <linux/sfp.h>
++#include <linux/phy_port.h>
+ #include <linux/netdevice.h>
+ 
+ /* Port PCS Configuration */
+@@ -473,90 +473,71 @@ static int mv2222_config_init(struct phy_device *phydev)
+ 	return 0;
  }
  
-+static void noinstr el1_breakpt(struct pt_regs *regs, unsigned long esr)
-+{
-+	arm64_enter_el1_dbg(regs);
-+	debug_exception_enter(regs);
-+	do_breakpoint(esr, regs);
-+	debug_exception_exit(regs);
-+	arm64_exit_el1_dbg(regs);
-+}
-+
- static void noinstr el1_dbg(struct pt_regs *regs, unsigned long esr)
+-static int mv2222_sfp_insert(void *upstream, const struct sfp_eeprom_id *id)
++static int mv2222_configure_serdes(struct phy_port *port, bool enable,
++				   phy_interface_t interface)
  {
- 	unsigned long far = read_sysreg(far_el1);
-@@ -552,6 +561,8 @@ asmlinkage void noinstr el1h_64_sync_handler(struct pt_regs *regs)
- 		el1_mops(regs, esr);
- 		break;
- 	case ESR_ELx_EC_BREAKPT_CUR:
-+		el1_breakpt(regs, esr);
-+		break;
- 	case ESR_ELx_EC_SOFTSTP_CUR:
- 	case ESR_ELx_EC_WATCHPT_CUR:
- 	case ESR_ELx_EC_BRK64:
-@@ -746,6 +757,16 @@ static void noinstr el0_inv(struct pt_regs *regs, unsigned long esr)
- 	exit_to_user_mode(regs);
+-	DECLARE_PHY_INTERFACE_MASK(interfaces);
+-	struct phy_device *phydev = upstream;
+-	phy_interface_t sfp_interface;
++	struct phy_device *phydev = port_phydev(port);
+ 	struct mv2222_data *priv;
+-	struct device *dev;
+-	int ret;
+-
+-	__ETHTOOL_DECLARE_LINK_MODE_MASK(sfp_supported) = { 0, };
++	int ret = 0;
+ 
+ 	priv = phydev->priv;
+-	dev = &phydev->mdio.dev;
+-
+-	sfp_parse_support(phydev->sfp_bus, id, sfp_supported, interfaces);
+-	phydev->port = sfp_parse_port(phydev->sfp_bus, id, sfp_supported);
+-	sfp_interface = sfp_select_interface(phydev->sfp_bus, sfp_supported);
+-
+-	dev_info(dev, "%s SFP module inserted\n", phy_modes(sfp_interface));
++	priv->line_interface = interface;
+ 
+-	if (sfp_interface != PHY_INTERFACE_MODE_10GBASER &&
+-	    sfp_interface != PHY_INTERFACE_MODE_1000BASEX &&
+-	    sfp_interface != PHY_INTERFACE_MODE_SGMII) {
+-		dev_err(dev, "Incompatible SFP module inserted\n");
++	if (enable) {
++		linkmode_and(priv->supported, phydev->supported, port->supported);
+ 
+-		return -EINVAL;
+-	}
+-
+-	priv->line_interface = sfp_interface;
+-	linkmode_and(priv->supported, phydev->supported, sfp_supported);
++		ret = mv2222_config_line(phydev);
++		if (ret < 0)
++			return ret;
+ 
+-	ret = mv2222_config_line(phydev);
+-	if (ret < 0)
+-		return ret;
++		if (mutex_trylock(&phydev->lock)) {
++			ret = mv2222_config_aneg(phydev);
++			mutex_unlock(&phydev->lock);
++		}
+ 
+-	if (mutex_trylock(&phydev->lock)) {
+-		ret = mv2222_config_aneg(phydev);
+-		mutex_unlock(&phydev->lock);
++	} else {
++		linkmode_zero(priv->supported);
+ 	}
+ 
+ 	return ret;
  }
  
-+static void noinstr el0_breakpt(struct pt_regs *regs, unsigned long esr)
-+{
-+	enter_from_user_mode(regs);
-+	debug_exception_enter(regs);
-+	do_breakpoint(esr, regs);
-+	debug_exception_exit(regs);
-+	local_daif_restore(DAIF_PROCCTX);
-+	exit_to_user_mode(regs);
-+}
-+
- static void noinstr el0_dbg(struct pt_regs *regs, unsigned long esr)
+-static void mv2222_sfp_remove(void *upstream)
+-{
+-	struct phy_device *phydev = upstream;
+-	struct mv2222_data *priv;
+-
+-	priv = phydev->priv;
+-
+-	priv->line_interface = PHY_INTERFACE_MODE_NA;
+-	linkmode_zero(priv->supported);
+-	phydev->port = PORT_NONE;
+-}
+-
+-static void mv2222_sfp_link_up(void *upstream)
++static void mv2222_port_link_up(struct phy_port *port)
  {
- 	/* Only watchpoints write FAR_EL1, otherwise its UNKNOWN */
-@@ -824,6 +845,8 @@ asmlinkage void noinstr el0t_64_sync_handler(struct pt_regs *regs)
- 		el0_gcs(regs, esr);
- 		break;
- 	case ESR_ELx_EC_BREAKPT_LOW:
-+		el0_breakpt(regs, esr);
-+		break;
- 	case ESR_ELx_EC_SOFTSTP_LOW:
- 	case ESR_ELx_EC_WATCHPT_LOW:
- 	case ESR_ELx_EC_BRK64:
-@@ -944,6 +967,8 @@ asmlinkage void noinstr el0t_32_sync_handler(struct pt_regs *regs)
- 		el0_cp15(regs, esr);
- 		break;
- 	case ESR_ELx_EC_BREAKPT_LOW:
-+		el0_breakpt(regs, esr);
-+		break;
- 	case ESR_ELx_EC_SOFTSTP_LOW:
- 	case ESR_ELx_EC_WATCHPT_LOW:
- 	case ESR_ELx_EC_BKPT32:
-diff --git a/arch/arm64/kernel/hw_breakpoint.c b/arch/arm64/kernel/hw_breakpoint.c
-index 722ac45f9f7b..8a5b6277bca8 100644
---- a/arch/arm64/kernel/hw_breakpoint.c
-+++ b/arch/arm64/kernel/hw_breakpoint.c
-@@ -22,6 +22,7 @@
- #include <asm/current.h>
- #include <asm/debug-monitors.h>
- #include <asm/esr.h>
-+#include <asm/exception.h>
- #include <asm/hw_breakpoint.h>
- #include <asm/traps.h>
- #include <asm/cputype.h>
-@@ -618,8 +619,7 @@ NOKPROBE_SYMBOL(toggle_bp_registers);
- /*
-  * Debug exception handlers.
-  */
--static int breakpoint_handler(unsigned long unused, unsigned long esr,
--			      struct pt_regs *regs)
-+static int breakpoint_handler(unsigned long esr, struct pt_regs *regs)
- {
- 	int i, step = 0, *kernel_step;
- 	u32 ctrl_reg;
-@@ -695,6 +695,20 @@ static int breakpoint_handler(unsigned long unused, unsigned long esr,
+-	struct phy_device *phydev = upstream;
++	struct phy_device *phydev = port_phydev(port);
+ 	struct mv2222_data *priv;
+ 
+ 	priv = phydev->priv;
+ 	priv->sfp_link = true;
  }
- NOKPROBE_SYMBOL(breakpoint_handler);
  
-+void do_breakpoint(unsigned long esr, struct pt_regs *regs)
+-static void mv2222_sfp_link_down(void *upstream)
++static void mv2222_port_link_down(struct phy_port *port)
+ {
+-	struct phy_device *phydev = upstream;
++	struct phy_device *phydev = port_phydev(port);
+ 	struct mv2222_data *priv;
+ 
+ 	priv = phydev->priv;
+ 	priv->sfp_link = false;
+ }
+ 
+-static const struct sfp_upstream_ops sfp_phy_ops = {
+-	.module_insert = mv2222_sfp_insert,
+-	.module_remove = mv2222_sfp_remove,
+-	.link_up = mv2222_sfp_link_up,
+-	.link_down = mv2222_sfp_link_down,
+-	.attach = phy_sfp_attach,
+-	.detach = phy_sfp_detach,
+-	.connect_phy = phy_sfp_connect_phy,
+-	.disconnect_phy = phy_sfp_disconnect_phy,
++static const struct phy_port_ops mv2222_port_ops = {
++	.link_up = mv2222_port_link_up,
++	.link_down = mv2222_port_link_down,
++	.configure_mii = mv2222_configure_serdes,
+ };
+ 
++static int mv2222_attach_port(struct phy_device *phydev, struct phy_port *port)
 +{
-+	unsigned long pc = regs->pc;
++	if (!port->is_serdes)
++		return 0;
 +
-+	if (user_mode(regs) && !is_ttbr0_addr(pc))
-+		arm64_apply_bp_hardening();
++	__set_bit(PHY_INTERFACE_MODE_10GBASER, port->interfaces);
++	__set_bit(PHY_INTERFACE_MODE_1000BASEX, port->interfaces);
++	__set_bit(PHY_INTERFACE_MODE_SGMII, port->interfaces);
 +
-+	if (breakpoint_handler(esr, regs)) {
-+		arm64_notify_die("hw-breakpoint handler", regs, SIGTRAP, TRAP_HWBKPT,
-+					pc, esr);
-+	}
++	return 0;
 +}
-+NOKPROBE_SYMBOL(do_breakpoint);
 +
- /*
-  * Arm64 hardware does not always report a watchpoint hit address that matches
-  * one of the watchpoints set. It can also report an address "near" the
-@@ -988,8 +1002,6 @@ static int __init arch_hw_breakpoint_init(void)
- 		core_num_brps, core_num_wrps);
+ static int mv2222_probe(struct phy_device *phydev)
+ {
+ 	struct device *dev = &phydev->mdio.dev;
+@@ -592,7 +573,7 @@ static int mv2222_probe(struct phy_device *phydev)
+ 	priv->line_interface = PHY_INTERFACE_MODE_NA;
+ 	phydev->priv = priv;
  
- 	/* Register debug fault handlers. */
--	hook_debug_fault_code(DBG_ESR_EVT_HWBP, breakpoint_handler, SIGTRAP,
--			      TRAP_HWBKPT, "hw-breakpoint handler");
- 	hook_debug_fault_code(DBG_ESR_EVT_HWWP, watchpoint_handler, SIGTRAP,
- 			      TRAP_HWBKPT, "hw-watchpoint handler");
+-	return phy_sfp_probe(phydev, &sfp_phy_ops);
++	return 0;
+ }
  
+ static struct phy_driver mv2222_drivers[] = {
+@@ -609,6 +590,7 @@ static struct phy_driver mv2222_drivers[] = {
+ 		.suspend = mv2222_suspend,
+ 		.resume = mv2222_resume,
+ 		.read_status = mv2222_read_status,
++		.attach_port = mv2222_attach_port,
+ 	},
+ };
+ module_phy_driver(mv2222_drivers);
 -- 
-2.43.0
+2.49.0
 
 
