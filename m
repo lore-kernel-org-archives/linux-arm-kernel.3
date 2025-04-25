@@ -4,116 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B3BCC369D7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 17:24:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E689C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 17:26:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q/hl7k8hgOSG2Z0EHQg4wS1ssTv4KeS42fF+bMc/b78=; b=TuemDV0riTebmvMckxVZNBFnFv
-	WMNG1aTIggRGawknUGqrWef5JGyKNmwW2ltKrsZo3/f6tXSTn9XuOnqbqJl3B6rkhhmXie3h+xe6n
-	Yj+vRfsqG5qz+lLd4pRxh3cnYUL+//0cFJ8cS1OgnxIV2rVedUNKdEk7EZSpzyIfpSjl9TB/T2k/h
-	JRgEWSPOVjIvsHRZuY9YiDfJc68ka+KFUWmvBd6I6Z+bnF8VudPCTAIfZkWgqegDvW6mL7OVKDAhQ
-	rcn8PLUY5zrvaNPrM0cDTOAl9YxO/kqEAwwbjpC69d0qAFydB6jvmu1sBoH0JTu5y3Nlp4BIkyKXZ
-	3YlO6zoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VKdFi7CCHu+4UWi9RgbhpKfpR9EUrIGjueKx0qMyfIE=; b=LLLJC1iEyg61ybsOBPET6XFllx
+	QLVGGXgxBwq/JND7vPlONJan2ai1C1sJKJBouoSDUwu5TSeB/FZomg5NTkRH4hckuWh+cv2n2A4+J
+	LDUZ1OhNJnjhca1VYfR8WxsnhpXdHa2Vsu9ZM61yI+IEBoTp8Fh6w7/mGKP/TNUPNxfF1d54m7+WU
+	to+DpDDCj0OoaUj1/umFpd0029h7MZgbRMgclP4YRsUnqWfMY85Lb89D1ZXt4R8nF6iKcsKCnCvMF
+	kt+lE6dW2ZYh6vt+sv5JPLkS3n07ipuIBPt2ushrJwaXBtNtGMHbbIy2f/8tmg4eN4o3bqgF/SesC
+	1HnKsj+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Mmf-00000000NaE-33gr;
-	Fri, 25 Apr 2025 17:24:17 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u8MoV-00000000Nnf-1Z90;
+	Fri, 25 Apr 2025 17:26:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8KLY-0000000HUDu-2ri5
+	id 1u8KOr-0000000HUVq-1o0l
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 14:48:09 +0000
+	Fri, 25 Apr 2025 14:51:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AD6244531C;
-	Fri, 25 Apr 2025 14:48:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7840EC4CEE4;
-	Fri, 25 Apr 2025 14:48:05 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 412086847C;
+	Fri, 25 Apr 2025 14:51:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1461C4CEE4;
+	Fri, 25 Apr 2025 14:51:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745592488;
-	bh=cTn3gTkFSXujq0nxsFZya3joPkMK0fBUAanT6MYYcY8=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=bTdFEbStM/ldlHxkNKYpIVly2hILH0HPSpiqal1l5+PcGenMgOjwU/TjQ7K/Jgq0R
-	 xWVpXA1NbP2+8/VBDrDfFjgcQaDPB7XLUhT63wlXAwF3ez+rPjjAe4wXd/QjNmvheh
-	 ek1+vmW0mQLD3UsyhMhUWxJ0guiAPyGWySgo7vfKWXZ5gEtLRHT7/4DfG7Wjb8EuDz
-	 JVL7yBEiqlXODCV2l2WewaTqInxAdOlcP0Mfg+3lEbknws45wvPr5hy7pZxQ/UWSGK
-	 OIlKDbwsTfNih+nwXSA6YLaF358sP8UTpGihtxrEGWn3ouqxF7JSK7xuwNjOYEp9yv
-	 itinzPCUe6muQ==
-Message-ID: <7a1e2432-46e2-40f6-84af-bff45ab79899@kernel.org>
-Date: Fri, 25 Apr 2025 16:48:03 +0200
+	s=k20201202; t=1745592692;
+	bh=ORYV3pufFLavCcfuKAouL0/gfIikxzXt+cww9KaOuvA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aQopFPBfz4eaeHmTPdrBo20CUmVLaXX17oeKkMx5wNWr07sYNxRl95/penpfh4I0D
+	 S20g7mvMty4Rz1xhCU7Ou0NEfGuMKntJ4asSGf6jRm9v+lvo6mzIO3AtyZv9taNdgb
+	 c55scPrq8fogOVJ0Vmg7hF7OPoq4qNMqNaGFEh+F2sZaRNvABI29FAb3kAFimI0Uzh
+	 65E0LXc17gk1J39kjClZZqgYv/Xe3XusbWY9Ei883mHuM//cB3wN7Clp67qAurYBUk
+	 Hrq52ZmAGCoQP1oA3p4FKmyd7IMXLEg00L2NOPmp+fw3VpdZm2lPl2eB3Ztozl0VWs
+	 K5VYfGaqfl5Ww==
+Date: Fri, 25 Apr 2025 15:51:28 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Alexey Charkov <alchark@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 1/2] dt-bindings: arm: vt8500: Add VIA APC Rock/Paper
+ boards
+Message-ID: <20250425-prewar-ranging-161ccd2b2468@spud>
+References: <20250425-apc_paper_binding-v4-0-0ec2d0febe21@gmail.com>
+ <20250425-apc_paper_binding-v4-1-0ec2d0febe21@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 08/10] ARM: dts: exynos: Add proper regulator states
- for suspend-to-mem for Exyno5250 smdk5250
-To: Anand Moon <linux.amoon@gmail.com>, Chanwoo Choi <cw00.choi@samsung.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- "open list:MAXIM PMIC AND MUIC DRIVERS FOR EXYNOS BASED BO..."
- <linux-kernel@vger.kernel.org>,
- "open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>,
- "moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES"
- <linux-arm-kernel@lists.infradead.org>,
- "open list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES"
- <linux-samsung-soc@vger.kernel.org>
-References: <20250425132727.5160-1-linux.amoon@gmail.com>
- <20250425132727.5160-9-linux.amoon@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250425132727.5160-9-linux.amoon@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_074808_771319_0404D92A 
-X-CRM114-Status: GOOD (  11.79  )
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="GjP52dV+jImYt1qm"
+Content-Disposition: inline
+In-Reply-To: <20250425-apc_paper_binding-v4-1-0ec2d0febe21@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,30 +73,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/04/2025 15:26, Anand Moon wrote:
-> The MAX77686 PMCI is able to power down and up key core supplies and other
-> voltage rails via PWRREQ signal to enter / exit (deep) sleep mode.
-> PWRREQ status is ignored during initial power up and down processes.
-> All programming must be done before the AP enterns the sleep mode by
-> pulling PWRREQ low since the AP does not have programming capability
-> in (deep) sleep mode.
-> 
-> Add suspend-to-mem node to regulator core to be enabled or disabled
-> during system suspend and also support changing the regulator operating
-> mode during runtime and when the system enter sleep mode (stand by mode).
-> 
-> Regulators which can be turned off during system suspend:
-> 	-LDOn   :       2, 6-8, 10-12, 14-16,
->         -BUCKn  :       1-4.
-> Use standard regulator bindings for it ('regulator-off-in-suspend').
 
-I do not believe you tested this but instead send whatever you found
-somewhere without actually understanding the code. In the past you were
-sending such patches - without knowing what they do and without actually
-testing.
+--GjP52dV+jImYt1qm
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-NAK
+On Fri, Apr 25, 2025 at 06:34:13PM +0400, Alexey Charkov wrote:
+> APC Rock is a development board based on WonderMedia WM8950 SoC
+> released around 2013. Paper is the same as Rock but lacking a
+> VGA port and shipped with a recycled cardboard case.
+>=20
+> While at that, put myself as the maintainer, given that Tony is
+> unavailable as of lately.
+>=20
+> Signed-off-by: Alexey Charkov <alchark@gmail.com>
+> ---
+>  Documentation/devicetree/bindings/arm/vt8500.yaml | 23 ++++++++++++++---=
+------
+>  1 file changed, 14 insertions(+), 9 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/arm/vt8500.yaml b/Document=
+ation/devicetree/bindings/arm/vt8500.yaml
+> index 5d5ad5a60451f569e6ef30c924a1964d02e1aa82..f2164144a7af29ca77761bc58=
+fe7f4558e7d101c 100644
+> --- a/Documentation/devicetree/bindings/arm/vt8500.yaml
+> +++ b/Documentation/devicetree/bindings/arm/vt8500.yaml
+> @@ -7,19 +7,24 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
+>  title: VIA/Wondermedia VT8500 Platforms
+> =20
+>  maintainers:
+> -  - Tony Prisk <linux@prisktech.co.nz>
+> -description: test
+> +  - Alexey Charkov <alchark@gmail.com>
+> =20
+>  properties:
+>    $nodename:
+>      const: '/'
+>    compatible:
+> -    items:
+> -      - enum:
+> -          - via,vt8500
+> -          - wm,wm8505
+> -          - wm,wm8650
+> -          - wm,wm8750
+> -          - wm,wm8850
+> +    oneOf:
+> +      - items:
+> +          - enum:
 
-Best regards,
-Krzysztof
+This should just simplify from "items: - enum:" to "enum:".
+With that,
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+
+> +              - via,vt8500
+> +              - wm,wm8505
+> +              - wm,wm8650
+> +              - wm,wm8750
+> +              - wm,wm8850
+> +
+> +      - description: VIA APC Rock and Paper boards
+> +        items:
+> +          - const: via,apc-rock
+> +          - const: wm,wm8950
+> =20
+>  additionalProperties: true
+>=20
+> --=20
+> 2.49.0
+>=20
+
+--GjP52dV+jImYt1qm
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaAuhcAAKCRB4tDGHoIJi
+0r+sAP9JVeKQ/4V3BSOMKHnQtJFsApmrTtpl1BBIw/1jAgjY8QEAymv8fvG7Ih53
+kJEnD+pUrAVAeGtEOj3WVga4MaXX/QY=
+=0wOS
+-----END PGP SIGNATURE-----
+
+--GjP52dV+jImYt1qm--
 
