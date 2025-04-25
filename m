@@ -4,91 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C44F3C369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 16:05:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BB4EC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 16:07:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=puQGlCteO+0GFnat6rHWd7r7OMccCL/gwNOR4Sh2duc=; b=PxvD5/byAoyLDOS+WBJus6tuHv
-	5jxb0zg0yhyhfqutKX8d6U1eIdGyR+2tIgt9sQ0VD5hNWmmvwX5urtKkU7gX79DschGy2ZlxXPq8O
-	QE2dne8qCCjQb9iIiGkkm4jFuYXGNM4TfXWRJ7FnmqTqiyn7/S6c/fxEsEXUpbK3SBkb4bs9gMU2b
-	fKszg1iDnEIjcAKrMHyw0UA36zndy6w16BZ5oMJfzXP+SUbSzeIngmkf5QpOEuMr0vjpNjlOHWeJ5
-	3DUZceTgUl0acgbmEbeveQNTJwD5R7oP3KXa8c/yinYbyRXTDJ7GSS1kNGz5GdWKw3GbnEWHWZmeE
-	WYNgEwAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JSsdkFg45Ll2VJgZTBAf+TnuU5fz9vAYn+9hEOgOa/I=; b=pszHUcrpaZegPr7IJvgPZQmGJi
+	1NXSPcpSTYaxG/MyTZ939ID1eiV0CbMsz9PBMYNzHeGZ5wIFyyaHCmxoFx2jPGjPahSh4r35jXm+G
+	UssC/Phu0WdfseA31SLai+hM3/0WZmiCl59TBi5rMc/8ClhCBoH+MEit4k4NMNRystxBx/6Jhu81p
+	6yEoQ+Zc8s/pT6veEh29L+PNR43iZ4jJPNcXDSMXLMhH5+Z6dhyPjCQ/A5MEO2oHLBUIAoNCOOl8h
+	eXm7RqrVhqzrsqTLwcWesVUX/WzXR+F8QEeKBbOEwTJywUhOZcfD9/bG4ZuE+TRP/scrpekd+rhMh
+	RYJMpH4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8LYd-000000009EH-3dVK;
-	Fri, 25 Apr 2025 16:05:43 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1u8LaN-000000009SS-2JoZ;
+	Fri, 25 Apr 2025 16:07:31 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Jq7-0000000HOzW-12EQ
+	id 1u8IVK-0000000HAgH-0nay
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 14:15:40 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 763A9441FF;
-	Fri, 25 Apr 2025 14:15:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1745590537;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=puQGlCteO+0GFnat6rHWd7r7OMccCL/gwNOR4Sh2duc=;
-	b=GP5mtgAnbWm/4roNfbAJY2UUpTl3Dlcul901ASRraFr7jk8SCSuDUl9zckcroSh7EkL40m
-	gmQH7D/zR34nNfSHJ6pXFSWc20cu3YdSMPkPdNFW09i0UgVRzBbPFyZqfmUGCASREiRwQM
-	Eb476xdBNBTtRpyxCOl+WoOULMMX1RmJlbEsS9Qd8OUyjickyhxUxjvf4nng116FY49Ymv
-	6+twc4l97OmgjHtZxk521Tn+gP6umdOhOCoIOho/6MtXkd+k7jDD8E9I2VQ5gt1wBGN+SO
-	BvAPcb8972VyPj4zQcJXENUBKWtOlN9qGpxrZCCyUz9d9FkQXpp4ZocC8qDIDA==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: davem@davemloft.net
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	thomas.petazzoni@bootlin.com,
-	Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
-	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	=?UTF-8?q?Nicol=C3=B2=20Veronese?= <nicveronese@gmail.com>,
-	Simon Horman <horms@kernel.org>,
-	mwojtas@chromium.org,
-	Antoine Tenart <atenart@kernel.org>,
-	devicetree@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: [PATCH net-next v5 14/14] Documentation: networking: Document the phy_port infrastructure
-Date: Fri, 25 Apr 2025 16:15:07 +0200
-Message-ID: <20250425141511.182537-15-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250425141511.182537-1-maxime.chevallier@bootlin.com>
-References: <20250425141511.182537-1-maxime.chevallier@bootlin.com>
+	Fri, 25 Apr 2025 12:50:08 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53P86wNj019049;
+	Fri, 25 Apr 2025 14:49:47 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=JSsdkFg45Ll2VJgZTBAf+T
+	nuU5fz9vAYn+9hEOgOa/I=; b=DsFgEjvjWBi4nX+dONp8msrJbrtUXS0NJVrB0k
+	Zs1HIVJ6dWVsElHxXTKh8rHaGmcK6zO+dHJaxxbi90Q0PESwJ7ZiSVt9KuNxBjji
+	LFhMxnwoOlpx183ZDf7X2dBof6+pfdt4KAQzAEmA1zE5VkmpnxeS+c4nXHNtR4m4
+	sPiam2vjAeqfq/RXqz2ix00HmZLG+xS10aAxcwlZx2l7L1GyXeE7+N/KoOICBmid
+	ZGtTmdgnopxUjDflDw7GHI1k6/p2rZ07VLdEM6SiEIzR1xt/kBFIx3XJlj6pPQ8r
+	zC2YGik/IxUk5pNyBaBmcACmnJzbAA+/fqOAoPqXv/JvF2Hw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 466jjvm6st-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 25 Apr 2025 14:49:46 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id AA8D64004B;
+	Fri, 25 Apr 2025 14:48:45 +0200 (CEST)
+Received: from Webmail-eu.st.com (eqndag1node6.st.com [10.75.129.135])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id E20CFA09560;
+	Fri, 25 Apr 2025 14:48:04 +0200 (CEST)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE6.st.com
+ (10.75.129.135) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 25 Apr
+ 2025 14:48:04 +0200
+Received: from localhost (10.252.15.6) by SAFDAG1NODE1.st.com (10.75.90.17)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 25 Apr
+ 2025 14:48:04 +0200
+From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+To: <lee@kernel.org>, <alexandre.torgue@foss.st.com>,
+        <daniel.lezcano@linaro.org>, <tglx@linutronix.de>
+CC: <ukleinek@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <jic23@kernel.org>, <robh@kernel.org>, <catalin.marinas@arm.com>,
+        <will@kernel.org>, <devicetree@vger.kernel.org>, <wbg@kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-iio@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
+        <olivier.moysan@foss.st.com>, <fabrice.gasnier@foss.st.com>
+Subject: [PATCH v5 0/7] Add STM32MP25 LPTIM support: MFD, PWM, IIO, counter, clocksource
+Date: Fri, 25 Apr 2025 14:47:48 +0200
+Message-ID: <20250425124755.166193-1-fabrice.gasnier@foss.st.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvhedvheehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepveegtdffleffleevueellefgjeefvedvjefhheegfefgffdvfeetgeevudetffdtnecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgepuddtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefuddprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrr
- dhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrgh
-X-GND-Sasl: maxime.chevallier@bootlin.com
+Content-Type: text/plain
+X-Originating-IP: [10.252.15.6]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SAFDAG1NODE1.st.com
+ (10.75.90.17)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-04-25_03,2025-04-24_02,2025-02-21_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_071539_416795_F27E0BFB 
-X-CRM114-Status: GOOD (  20.70  )
+X-CRM114-CacheID: sfid-20250425_055006_727298_0A685EBE 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,159 +97,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This documentation aims at describing the main goal of the phy_port
-infrastructure.
+This series adds support for STM32MP25 to MFD PWM, IIO, counter and
+clocksource low-power timer (LPTIM) drivers.
+This new variant is managed by using a new DT compatible string, hardware
+configuration and version registers.
+It comes with a slightly updated register set, some new features and new
+interconnect signals inside the SoC.
+Same feature list as on STM32MP1x is supported currently.
+The device tree files add all instances in stm32mp251 dtsi file.
 
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Changes in V5
 ---
- Documentation/networking/index.rst    |   1 +
- Documentation/networking/phy-port.rst | 111 ++++++++++++++++++++++++++
- MAINTAINERS                           |   1 +
- 3 files changed, 113 insertions(+)
- create mode 100644 Documentation/networking/phy-port.rst
+- Add a necessary delay in clocksource driver, when enabling the timer.
+- Add collected Acks
+- Dropped IIO trigger patch as applied by Jonathan [1] (no dependency)
+  [1] https://lore.kernel.org/all/20250331110435.26157ebe@jic23-huawei/
 
-diff --git a/Documentation/networking/index.rst b/Documentation/networking/index.rst
-index ac90b82f3ce9..f60acc06e3f7 100644
---- a/Documentation/networking/index.rst
-+++ b/Documentation/networking/index.rst
-@@ -96,6 +96,7 @@ Contents:
-    packet_mmap
-    phonet
-    phy-link-topology
-+   phy-port
-    pktgen
-    plip
-    ppp_generic
-diff --git a/Documentation/networking/phy-port.rst b/Documentation/networking/phy-port.rst
-new file mode 100644
-index 000000000000..6d9d46ebe438
---- /dev/null
-+++ b/Documentation/networking/phy-port.rst
-@@ -0,0 +1,111 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+.. _phy_port:
-+
-+=================
-+Ethernet ports
-+=================
-+
-+This document is a basic description of the phy_port infrastructure,
-+introduced to represent physical interfaces of Ethernet devices.
-+
-+Without phy_port, we already have quite a lot of information about what the
-+media-facing interface of a NIC can do and looks like, through the
-+:c:type:`struct ethtool_link_ksettings <ethtool_link_ksettings>` attributes,
-+which includes :
-+
-+ - What the NIC can do through the :c:member:`supported` field
-+ - What the Link Partner advertises through :c:member:`lp_advertising`
-+ - Which features we're advertising through :c:member:`advertising`
-+
-+We also have info about the number of lanes and the PORT type. These settings
-+are built by aggregating together information reported by various devices that
-+are sitting on the link :
-+
-+  - The NIC itself, through the :c:member:`get_link_ksettings` callback
-+  - Precise information from the MAC and PCS by using phylink in the MAC driver
-+  - Information reported by the PHY device
-+  - Information reported by an SFP module (which can itself include a PHY)
-+
-+This model however starts showing its limitations when we consider devices that
-+have more than one media interface. In such a case, only information about the
-+actively used interface is reported, and it's not possible to know what the
-+other interfaces can do. In fact, we have very few information about whether or
-+not there are any other media interfaces.
-+
-+The goal of the phy_port representation is to provide a way of representing a
-+physical interface of a NIC, regardless of what is driving the port (NIC through
-+a firmware, SFP module, Ethernet PHY).
-+
-+Multi-port interfaces examples
-+==============================
-+
-+Several cases of multi-interface NICs have been observed so far :
-+
-+Internal MII Mux::
-+
-+  +------------------+
-+  | SoC              |
-+  |          +-----+ |           +-----+
-+  | +-----+  |     |-------------| PHY |
-+  | | MAC |--| Mux | |   +-----+ +-----+
-+  | +-----+  |     |-----| SFP |
-+  |          +-----+ |   +-----+
-+  +------------------+
-+
-+Internal Mux with internal PHY::
-+
-+  +------------------------+
-+  | SoC                    |
-+  |          +-----+ +-----+
-+  | +-----+  |     |-| PHY |
-+  | | MAC |--| Mux | +-----+   +-----+
-+  | +-----+  |     |-----------| SFP |
-+  |          +-----+       |   +-----+
-+  +------------------------+
-+
-+External Mux::
-+
-+  +---------+
-+  | SoC     |  +-----+  +-----+
-+  |         |  |     |--| PHY |
-+  | +-----+ |  |     |  +-----+
-+  | | MAC |----| Mux |  +-----+
-+  | +-----+ |  |     |--| PHY |
-+  |         |  +-----+  +-----+
-+  |         |     |
-+  |    GPIO-------+
-+  +---------+
-+
-+Double-port PHY::
-+
-+  +---------+
-+  | SoC     | +-----+
-+  |         | |     |--- RJ45
-+  | +-----+ | |     |
-+  | | MAC |---| PHY |   +-----+
-+  | +-----+ | |     |---| SFP |
-+  +---------+ +-----+   +-----+
-+
-+phy_port aims at providing a path to support all the above topologies, by
-+representing the media interfaces in a way that's agnostic to what's driving
-+the interface. the struct phy_port object has its own set of callback ops, and
-+will eventually be able to report its own ksettings::
-+
-+             _____      +------+
-+            (     )-----| Port |
-+ +-----+   (       )    +------+
-+ | MAC |--(   ???   )
-+ +-----+   (       )    +------+
-+            (_____)-----| Port |
-+                        +------+
-+
-+Next steps
-+==========
-+
-+As of writing this documentation, only ports controlled by PHY devices are
-+supported. The next steps will be to add the Netlink API to expose these
-+to userspace and add support for raw ports (controlled by some firmware, and directly
-+managed by the NIC driver).
-+
-+Another parallel task is the introduction of a MII muxing framework to allow the
-+control of non-PHY driver multi-port setups.
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 5a6f554905eb..ed4e3726d0cf 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -8773,6 +8773,7 @@ F:	Documentation/devicetree/bindings/net/ethernet-connector.yaml
- F:	Documentation/devicetree/bindings/net/ethernet-phy.yaml
- F:	Documentation/devicetree/bindings/net/mdio*
- F:	Documentation/devicetree/bindings/net/qca,ar803x.yaml
-+F:	Documentation/networking/phy-port.rst
- F:	Documentation/networking/phy.rst
- F:	drivers/net/mdio/
- F:	drivers/net/mdio/acpi_mdio.c
+Changes in V4
+---
+- Simplify IIO trigger driver as per Jonathan's comments.
+- Rework clocksource driver: encapsulate mp25 changes in separate function
+  after Daniel's suggestion.
+- Add some definitions to MFD header.
+
+Changes in V3
+---
+- Yaml indentation issue fixed, reported by Rob's bot
+
+Changes in V2
+---
+- Review comments from Krzysztof
+  - Adopt compatible fallback in dt-bindings and driver
+  - drivers: drop "st,stm32mp25-..." compatibles when unused (e.g. no .data)
+  - counter driver: no update (patch dropped)
+  - defconfig: only enable the necessary config for upstream board
+  - add lptimer DT node in stm32mp257f-ev1 board
+- Add missing management of IER access for stm32mp25
+
+Fabrice Gasnier (7):
+  dt-bindings: mfd: stm32-lptimer: add support for stm32mp25
+  mfd: stm32-lptimer: add support for stm32mp25
+  clocksource: stm32-lptimer: add support for stm32mp25
+  pwm: stm32-lp: add support for stm32mp25
+  arm64: defconfig: enable STM32 LP timer clockevent driver
+  arm64: dts: st: add low-power timer nodes on stm32mp251
+  arm64: dts: st: use lptimer3 as tick broadcast source on
+    stm32mp257f-ev1
+
+ .../bindings/mfd/st,stm32-lptimer.yaml        |  40 +++-
+ arch/arm64/boot/dts/st/stm32mp251.dtsi        | 177 ++++++++++++++
+ arch/arm64/boot/dts/st/stm32mp257f-ev1.dts    |   8 +
+ arch/arm64/configs/defconfig                  |   2 +
+ drivers/clocksource/timer-stm32-lp.c          |  60 ++++-
+ drivers/mfd/stm32-lptimer.c                   |  33 ++-
+ drivers/pwm/pwm-stm32-lp.c                    | 219 +++++++++++++++---
+ include/linux/mfd/stm32-lptimer.h             |  37 ++-
+ 8 files changed, 536 insertions(+), 40 deletions(-)
+
 -- 
-2.49.0
+2.25.1
 
 
