@@ -4,78 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F8C0C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 21:29:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1A04C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 21:31:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+wFWw+HTux9+C80z7DbPt+Y55zU1bWr9sqxdd1W7QKA=; b=bTsf86963GcwW49cg2mLYPJBnW
-	vt4VClJgyGEJD0yO9xe3kikAE4kk9z8jw6RKNpXzHIE1ew59XEJJHynKoC+n9hgKIaA7crI6IPHKC
-	A+ykI8EgUbXtgipPu6V8l/cL+y3wVQxptFn1vX1rY+yzvhTAmHWLWyV6uUAL9U1m36QMu9Vt9ckfw
-	sGM1f4x+9UJ+G0/kjfnmBQXdy7NEgQ59snV94wNSILHE+xD8YpYn39UfY1kZz2RXvpfxN3hwpvPMh
-	zeMb8SMAZQj2qKb46rPPROrClqN5ZhgAKJX4LgrDCngW7cTAAP+c1XzsMsxDrkA0NJ3Lk+sg/kjqy
-	yqx0y8yQ==;
+	bh=53XdUqfFsxdrkTPF8ii63mrk/KIlvgnwsDsFFeftRxU=; b=b3oczqdieGeKgCfAmfESrgFC2x
+	zHfxD+n42+Q891OHbgAdKnU7iiawfIIGVBIEIU+sIMrwBltTJKvLHm+H8HenNMnGz/+pMnJO2dkp8
+	OkB7j2nW5eGwE2mQuW7Qt4JK/BB5yHMQLokmK/kxdP0y+sJrh48RRAyl8D2/pQS7rMJWDgwA5PmYN
+	MJB0IE+LVoqTIvkLGZw5b0HWmVzTqMZ7Im4UcVU0WrSM19CDF642hSrrBQC+WiOrhKtRWxrnHo9ez
+	FH/j/5oVicjIgiP5IR+y4HAiet3y7lD4/Wej08h5X3dFrNPh8xKCfxwokGNd8NAuNj6wf93tzAR0x
+	9WilusTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Qbs-00000000vSH-3WEo;
-	Fri, 25 Apr 2025 21:29:24 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1u8Qdh-00000000vaw-21tG;
+	Fri, 25 Apr 2025 21:31:17 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8QKC-00000000tbA-0IB2
+	id 1u8QLJ-00000000tkN-3pfs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 21:11:09 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53PLB4dk2258212
+	Fri, 25 Apr 2025 21:12:19 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53PLC68G3027242
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 25 Apr 2025 16:11:04 -0500
+	Fri, 25 Apr 2025 16:12:06 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745615464;
-	bh=+wFWw+HTux9+C80z7DbPt+Y55zU1bWr9sqxdd1W7QKA=;
+	s=ti-com-17Q1; t=1745615526;
+	bh=53XdUqfFsxdrkTPF8ii63mrk/KIlvgnwsDsFFeftRxU=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=ppIXjbIdExPfF0+Pq4GRofkMRiVkvlTWX5mQJ880nWYEy/AkGh5GH0WfWwrB56Qod
-	 bxDrfwhsq50MqUkiYxSN1e8gE96uEF3/U/5v6b1qmYrrq+cSpOFcjI1X+KZONS4Vht
-	 qxjgtM2lSuKL2X8TVRWPY7e5JrVOxXHr4zvH2h8s=
-Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53PLB4TE123718
+	b=ZvDBk8FINxfAVVdEMHDMIFpyEu68m8UfqsIg3+hLvhudhsuqvAQ+X6HC5ycYRa12b
+	 Hksw7Q0NfmfvAALvmLXoC3l98l5QcrxMKOcDzK1V8/61RLj9ICIGSsy/VslGXeYQhz
+	 DPvcPbOfU96V5EjGTDTCZX4ONZGGqzNPfuSMp7lU=
+Received: from DFLE107.ent.ti.com (dfle107.ent.ti.com [10.64.6.28])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53PLC62b017024
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 25 Apr 2025 16:11:04 -0500
-Received: from DFLE112.ent.ti.com (10.64.6.33) by DFLE114.ent.ti.com
- (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+	Fri, 25 Apr 2025 16:12:06 -0500
+Received: from DFLE114.ent.ti.com (10.64.6.35) by DFLE107.ent.ti.com
+ (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 25
- Apr 2025 16:11:04 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+ Apr 2025 16:12:05 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 25 Apr 2025 16:11:04 -0500
+ Frontend Transport; Fri, 25 Apr 2025 16:12:05 -0500
 Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53PLB40A095369;
-	Fri, 25 Apr 2025 16:11:04 -0500
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53PLC5gr096254;
+	Fri, 25 Apr 2025 16:12:05 -0500
 From: Nishanth Menon <nm@ti.com>
-To: Vignesh Raghavendra <vigneshr@ti.com>, Judith Mendez <jm@ti.com>
-CC: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 0/3] Enable PWMs
-Date: Fri, 25 Apr 2025 16:11:02 -0500
-Message-ID: <174561544737.210439.8040371358617840114.b4-ty@ti.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>,
+        <linux-kernel@vger.kernel.org>, Jayesh Choudhary <j-choudhary@ti.com>
+CC: Nishanth Menon <nm@ti.com>, <bjorn.andersson@oss.qualcomm.com>,
+        <krzysztof.kozlowski@linaro.org>, <geert+renesas@glider.be>,
+        <lumag@kernel.org>, <nfraprado@collabora.com>, <quic_tdas@quicinc.com>,
+        <elinor.montmasson@savoirfairelinux.com>, <ebiggers@google.com>,
+        <ross.burton@arm.com>, <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v2] arm64: defconfig: Add CDNS_DSI and CDNS_PHY config
+Date: Fri, 25 Apr 2025 16:12:02 -0500
+Message-ID: <174561548590.210587.7393005807062359269.b4-ty@ti.com>
 X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250422000851.4118545-1-jm@ti.com>
-References: <20250422000851.4118545-1-jm@ti.com>
+In-Reply-To: <20250416182930.32132-1-j-choudhary@ti.com>
+References: <20250416182930.32132-1-j-choudhary@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_141108_193331_15408CFC 
-X-CRM114-Status: GOOD (  14.11  )
+X-CRM114-CacheID: sfid-20250425_141218_040337_48A21C45 
+X-CRM114-Status: GOOD (  14.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,27 +88,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Judith Mendez,
+Hi Jayesh Choudhary,
 
-On Mon, 21 Apr 2025 19:08:48 -0500, Judith Mendez wrote:
-> This patch series enables PWM signal outputs on am625 SK,
-> am62 lp SK, am62a7 SK, and am62p5 SK boards.
+On Wed, 16 Apr 2025 23:59:30 +0530, Jayesh Choudhary wrote:
+> Enable configs for cdns-dsi and cdns-dphy drivers required for DSI
+> display on the following TI platforms:
+> J721E-EVM, J721E-BeagleBone-AI64, J721S2-EVM, AM68-SK, J722S-EVM,
+> BeagleY-AI, AM62P5-SK, J784S4-EVM and J742S2-EVM
 > 
-> For am625 SK and am62 lp SK, add pinmux, eCAP, and eHRPWM
-> nodes in the k3-am62x-sk-common.dtsi so as to not duplicate
-> nodes in the board files.
+> The dsi wrapper driver used by all the above mentioned platforms,
+> cdns-dsi-j721e is enabled by default if cdns-dsi config is enabled.
 > 
 > [...]
 
-I have applied the following to branch ti-k3-dts-next on [1].
+I have applied the following to branch ti-k3-config-next on [1] with minor
+commit message update (Beagle is not a TI platform :) ).
 Thank you!
 
-[1/3] arm64: dts: ti: k3-am62p5-sk: Enable PWM
-      commit: b2fd55f906ff70a39e67d5ad770774622164bef1
-[2/3] arm64: dts: ti: k3-am62a7-sk: Enable PWM
-      commit: 5aec1169b53969d07cc288814f7eebd2ef01f9a0
-[3/3] arm64: dts: ti: k3-am625-sk: Enable PWM
-      commit: d864bb528a6725e775d564fd4430762acbb9dd0d
+[1/1] arm64: defconfig: Add CDNS_DSI and CDNS_PHY config
+      commit: 882c214572e43b56f781883d4ae48689381a68f1
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent up the chain during
