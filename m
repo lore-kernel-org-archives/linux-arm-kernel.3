@@ -4,94 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 271FDC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 17:32:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DC24C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 17:33:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+tWJq6XlOyiQDY9fEz34q6TpB8T/RU7UR54sdkDEpSg=; b=src4NF7RrLD2Wu/IgjUjnuKHh5
-	/BQ1+rS7fXbVnx0awmeFTMnCvbHsP7iyStbCIxkg60qPyv1ckZzDqLafMchJ10j5JbwQ/l4cvgtI5
-	enxDLJ7uK7wNLQRRNfibNXhKYLvmSoE6+aW2LtKlvrecBlML8htTeI9HmbJ8gUqgVIFyGyvjnlj5y
-	5XdRWhvdD/06NFBkcT+KXN3kfS0TdZ3E93gqiUsbFFgVg/TCZycSqgn0A1GXg+KQf8NA1DUPjgENo
-	llni0j6oNwyXau7NrJThuX8srmC3L9Qp1Mh1jhZAMhwE6OKm57vXamh3svpvZrkeHtCS+7C7JP9IF
-	WjQuonfg==;
+	bh=C4pfyAQIOAg1ZR9eaHE8W8n+mwoN6/LuLVOaQtXOgLo=; b=X0+Xj2uOBcpUeJn00q9UEQob02
+	cnM9/Wf5sWCjFrg6o32JRLHOcQS8YhNysgkieUUhuXgteil+5KCsedB+UUUn+qd5vJhwMtrYEOH1B
+	rSQghvRtVhuZZ2Bqv24gHLvygF9yleNLW7uHdGM36/TYcKcwZq/uRsqdws+P0/szjgrG66zy1SS+i
+	pdUxk2DOAYd5o481ejefmGn8DsVAyVfyX91U1NebG1c7PJX9PmUTpwsA76gpfxXACFUXWCmK4zkTN
+	FAZYxSGROIbgu7d8pwzrD2VQ4bK6Z5ILyCN+0tHAHq90xAZtl28WkSCZVYu7X92yc4I9SoOTQc7I5
+	XxBrvW8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Mu0-00000000OkT-23LV;
-	Fri, 25 Apr 2025 17:31:52 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8KZb-0000000HXjB-1PzB
+	id 1u8Mvq-00000000P01-0Xvp;
+	Fri, 25 Apr 2025 17:33:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u8KcZ-0000000HYxW-056f
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 15:02:40 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-7396f13b750so2647927b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 08:02:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745593358; x=1746198158; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+tWJq6XlOyiQDY9fEz34q6TpB8T/RU7UR54sdkDEpSg=;
-        b=WTp/7nhsil2VZlLsp9I4W0Yb5F3RqgMXTduGK7XLbWjPzEGjx7e6vl97C8WnAAocoe
-         VknMBIfF9qwr+PYmpNF4zSdCXvZOF3Uw+7X7S0euL280ii9oyWPMA6FUFzFx1VmwObCf
-         5d2dYJUc16dkzuOnaY/LnIFC9hrThH9QqB3CufDpnsWQaU83lC3KiF8rnxKLJft7k6zv
-         p6g6stQWuVdROvSfunLHHea/NaK5sPtIcwiB2UF1eOL7ggwM8R5q428yJZ7g2Sll5yu4
-         z2SpTTJRF2Reo7PZTcFz2oAYPGKjZg83dqWZNpFt8oI6yuX5d6FaD8gsp+vHd65GKoY2
-         u1rw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745593358; x=1746198158;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+tWJq6XlOyiQDY9fEz34q6TpB8T/RU7UR54sdkDEpSg=;
-        b=DxfVrqGTL3CoBAe6tGe339/G7HTZBXTkV1HVIe7kaPLSF+YVaAfjM+R/cQDrD39cm0
-         HLwX5ITnY74eXiGHUoiffRFjVsr24zi4Rd0pPN1BjS4IzmBooXgx31dhTneyUGpkWMrg
-         WCVr5NDlp48Y7pH98m/S296fLEvrd9+7yuoLVBvVQ4eC5hFQR5oYFBymYR4EIPsa936r
-         4joYdYr42/cuMPHaxdoLe5zzl+y/Dyqq3kfwahxX4qkxvsR2qNjoEAV1Jy3BQCh3ohUU
-         E6k4yS8BhxvYD2Gzg+Zf5yYPsysRgKyxrBSehlhkWGEm4gFBPoFtvAbObOZJN86DlONt
-         LSDQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVzyscux8myPb7H8lJlXTSWicr9Z6dCo3f7nuYOjMZGHDHzih0GJLjurfyOfAA3c4PG6HtB6IwGfa5q/a6wuEyo@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw8RbJk1PA1f4A3Bwx/mVf/csUpz360ee5nhyz+bFpsXyLQPU7c
-	qEpcYlfUN3lprSFTBX05sjIWIvowfDb4Exo3qao5dejVW7fwOmyjmX0HYcbIjvk=
-X-Gm-Gg: ASbGnctlZz/GvGNu6724ZDYQSOHs1KmT4ikHF8QRQSLRaETlRDqry15MK8acmpQS8Gt
-	1bJIAUHf2xral3yNQEXWC8bJWQNVSzsaag+ahvM8Hvykh5UyCcdtrVk5IerBJPNPphB4vuh11kg
-	slp5Pt7SVwHxI2PSIwyYVorbcz7oRJRcXadK3g0vDAaT/NchniDSD4DoS70TpVAFyoPY8fPhZio
-	+WiRfKyasHTLtNrSQvk2/fLCBJn8lIUiOxQ/xDsvxyhjChpGJL7LskYEf2xDvLOUo52xJaUWjEB
-	rQVRJPesMiAXfXYrQszFLVhikRkytrvj9FAnPs4JuDCQsQKUJpwv
-X-Google-Smtp-Source: AGHT+IHTtYhjS2JIBkQcm0mKs0zc9Y3HQI5vNbYB2tTsjnKaosMTzLOoX8dqIc5SryHq4WGWl8GeJg==
-X-Received: by 2002:a05:6a20:394f:b0:1f5:7007:9ea5 with SMTP id adf61e73a8af0-2045b6981dfmr3922340637.2.1745593358409;
-        Fri, 25 Apr 2025 08:02:38 -0700 (PDT)
-Received: from NB-GIGA003.letovo.school ([5.194.95.139])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b15f76f45bcsm2996984a12.13.2025.04.25.08.02.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Apr 2025 08:02:38 -0700 (PDT)
-From: Alexey Charkov <alchark@gmail.com>
-Date: Fri, 25 Apr 2025 19:02:23 +0400
-Subject: [PATCH v5 2/2] ARM: dts: vt8500: Add VIA APC Rock/Paper board
+	Fri, 25 Apr 2025 15:05:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9847D106F;
+	Fri, 25 Apr 2025 08:05:36 -0700 (PDT)
+Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1867B3F59E;
+	Fri, 25 Apr 2025 08:05:38 -0700 (PDT)
+Date: Fri, 25 Apr 2025 16:05:35 +0100
+From: Andre Przywara <andre.przywara@arm.com>
+To: Chen-Yu Tsai <wens@csie.org>, Linus Walleij <linus.walleij@linaro.org>
+Cc: Yixun Lan <dlan@gentoo.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Jernej
+ Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>,
+ Maxime Ripard <mripard@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Corentin Labbe <clabbe.montjoie@gmail.com>,
+ <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+ <netdev@vger.kernel.org>
+Subject: Re: [PATCH v2 3/5] arm64: dts: allwinner: a523: Add EMAC0 ethernet
+ MAC
+Message-ID: <20250425160535.5a18adbb@donnerap.manchester.arm.com>
+In-Reply-To: <CAGb2v65QUrCjgHXWAb72Sdppqg1AUxXyD_ZcXShtkRSHCQBbOg@mail.gmail.com>
+References: <20250424-01-sun55i-emac0-v2-0-833f04d23e1d@gentoo.org>
+	<20250424-01-sun55i-emac0-v2-3-833f04d23e1d@gentoo.org>
+	<CAGb2v66a4ERAf_YhPkMWJjm26SsfjO3ze_Zp=QqkXNDLaLnBRg@mail.gmail.com>
+	<20250425104128.14f953f3@donnerap.manchester.arm.com>
+	<CAGb2v65QUrCjgHXWAb72Sdppqg1AUxXyD_ZcXShtkRSHCQBbOg@mail.gmail.com>
+Organization: ARM
+X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250425-apc_paper_binding-v5-2-3aef49e97332@gmail.com>
-References: <20250425-apc_paper_binding-v5-0-3aef49e97332@gmail.com>
-In-Reply-To: <20250425-apc_paper_binding-v5-0-3aef49e97332@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Alexey Charkov <alchark@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1745593359; l=2603;
- i=alchark@gmail.com; s=20250416; h=from:subject:message-id;
- bh=dxmjWywiK0Xyl1oGWV/pydlU53vhd1+AcfgyENDB0jE=;
- b=PxBRFd+DlojZ4UuFSxtTkoHa3ihmZ8vGszUhdjVd8fvssBYzBTNSzR87aR80bopVOFFfEd9Me
- g5o2t+bOzVOBu8dOaCXjoXuj0ASUJKLmYVJYYyCBF7GaH7t5CJ6KtX7
-X-Developer-Key: i=alchark@gmail.com; a=ed25519;
- pk=ltKbQzKLTJPiDgPtcHxdo+dzFthCCMtC3V9qf7+0rkc=
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_080239_368655_3A6862B2 
-X-CRM114-Status: GOOD (  15.11  )
+X-CRM114-CacheID: sfid-20250425_080543_151108_6164C4AB 
+X-CRM114-Status: GOOD (  27.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,89 +77,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-APC Rock is a development board based on WonderMedia WM8590 released
-around 2013. Paper is the same board, but with the VGA port left
-unpopulated, and shipped with a recycled cardboard case
+On Fri, 25 Apr 2025 22:35:59 +0800
+Chen-Yu Tsai <wens@csie.org> wrote:
 
-Its hardware includes:
-* Single-core Cortex-A9 CPU at 800 MHz
-* 512MB DDR3 RAM
-* 4GB NAND flash
-* 8MB SPI NOR flash
-* ARM Mali-400 GPU
-* HDMI output (type A) capable of 1080p
-* VGA output (on Rock, but not on Paper)
-* 2x USB 2.0 type A
-* 1x USB 2.0 OTG (microUSB connector)
-* microSD slot
-* 10/100M Ethernet
-* 3.5mm minijack connector with combined headphones/mic
-* Half-height miniPCIe slot (with only USB 2.0 signals)
+adding LinusW for a more generic pinctrl question ...
 
-Signed-off-by: Alexey Charkov <alchark@gmail.com>
----
- arch/arm/boot/dts/vt8500/Makefile            |  3 ++-
- arch/arm/boot/dts/vt8500/wm8950-apc-rock.dts | 21 +++++++++++++++++++++
- arch/arm/boot/dts/vt8500/wm8950.dtsi         | 11 +++++++++++
- 3 files changed, 34 insertions(+), 1 deletion(-)
+> On Fri, Apr 25, 2025 at 5:41=E2=80=AFPM Andre Przywara <andre.przywara@ar=
+m.com> wrote:
+> >
+> > On Fri, 25 Apr 2025 13:26:25 +0800
+> > Chen-Yu Tsai <wens@csie.org> wrote:
+> >
+> > Hi Chen-Yu,
+> > =20
+> > > On Thu, Apr 24, 2025 at 6:09=E2=80=AFPM Yixun Lan <dlan@gentoo.org> w=
+rote: =20
+> > > >
+> > > > Add EMAC0 ethernet MAC support which found on A523 variant SoCs,
+> > > > including the A527/T527 chips. MAC0 is compatible to the A64 chip w=
+hich
+> > > > requires an external PHY. This patch only add RGMII pins for now.
+> > > >
+> > > > Signed-off-by: Yixun Lan <dlan@gentoo.org>
+> > > > ---
+> > > >  arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi | 40 ++++++++++++++=
+++++++++++++
+> > > >  1 file changed, 40 insertions(+)
+> > > >
+> > > > diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/=
+arm64/boot/dts/allwinner/sun55i-a523.dtsi
+> > > > index ee485899ba0af69f32727a53de20051a2e31be1d..c9a9b9dd479af05ba22=
+fe9d783e32f6d61a74ef7 100644
+> > > > --- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+> > > > +++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+> > > > @@ -126,6 +126,15 @@ pio: pinctrl@2000000 {
+> > > >                         interrupt-controller;
+> > > >                         #interrupt-cells =3D <3>;
+> > > >
+> > > > +                       rgmii0_pins: rgmii0-pins {
+> > > > +                               pins =3D "PH0", "PH1", "PH2", "PH3"=
+, "PH4",
+> > > > +                                      "PH5", "PH6", "PH7", "PH9", =
+"PH10",
+> > > > +                                      "PH14", "PH15", "PH16", "PH1=
+7", "PH18";
+> > > > +                               allwinner,pinmux =3D <5>;
+> > > > +                               function =3D "emac0";
+> > > > +                               drive-strength =3D <40>; =20
+> > >
+> > > We should probably add
+> > >
+> > >                                   bias-disable;
+> > >
+> > > to explicitly turn off pull-up and pull-down. =20
+> >
+> > Should we? I don't see this anywhere else for sunxi, probably because i=
+t is
+> > the (reset) default (0b00).
+> > I wonder if we have a hidden assumption about this? As in: if no bias is
+> > specified, we assume bias-disable? Then we should maybe enforce this is=
+ in
+> > the driver? =20
+>=20
+> There isn't any assumption, as in we were fine with either the reset
+> default or whatever the bootloader left it in. However in projects at
+> work I learned that it's better to have explicit settings despite
+> working defaults.
 
-diff --git a/arch/arm/boot/dts/vt8500/Makefile b/arch/arm/boot/dts/vt8500/Makefile
-index 255f4403af91c1d6a22416ab694b8eab44bf98a2..6fd29c41f3660d29d0368e4f8772d46b0a3c414c 100644
---- a/arch/arm/boot/dts/vt8500/Makefile
-+++ b/arch/arm/boot/dts/vt8500/Makefile
-@@ -4,4 +4,5 @@ dtb-$(CONFIG_ARCH_VT8500) += \
- 	wm8505-ref.dtb \
- 	wm8650-mid.dtb \
- 	wm8750-apc8750.dtb \
--	wm8850-w70v2.dtb
-+	wm8850-w70v2.dtb \
-+	wm8950-apc-rock.dtb
-diff --git a/arch/arm/boot/dts/vt8500/wm8950-apc-rock.dts b/arch/arm/boot/dts/vt8500/wm8950-apc-rock.dts
-new file mode 100644
-index 0000000000000000000000000000000000000000..58b3c8deb4f20ae072bf1381f1dfa5e5adeb414a
---- /dev/null
-+++ b/arch/arm/boot/dts/vt8500/wm8950-apc-rock.dts
-@@ -0,0 +1,21 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Copyright (C) 2025 Alexey Charkov <alchark@gmail.com>
-+ */
-+
-+/dts-v1/;
-+/include/ "wm8950.dtsi"
-+
-+/ {
-+	model = "VIA APC Rock";
-+	compatible = "via,apc-rock", "wm,wm8950";
-+
-+	memory@0 {
-+		device_type = "memory";
-+		reg = <0x0 0x20000000>;
-+	};
-+};
-+
-+&uart0 {
-+	status = "okay";
-+};
-diff --git a/arch/arm/boot/dts/vt8500/wm8950.dtsi b/arch/arm/boot/dts/vt8500/wm8950.dtsi
-new file mode 100644
-index 0000000000000000000000000000000000000000..31fba05d3c3e70b21a64d08b5cdf645102a1faf3
---- /dev/null
-+++ b/arch/arm/boot/dts/vt8500/wm8950.dtsi
-@@ -0,0 +1,11 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Copyright (C) 2025 Alexey Charkov <alchark@gmail.com>
-+ */
-+
-+/* No differences have been discovered vs. WM8850, but chip markings differ */
-+/include/ "wm8850.dtsi"
-+
-+/ {
-+	compatible = "wm,wm8950";
-+};
+I totally agree, but my point was that this applies basically to every
+pinctrl user. I usually think of the bias settings as "do we need
+pull-ups or pull-downs", and if nothing is specified, I somewhat assume
+bias-disable.
 
--- 
-2.49.0
+So I am fine with this being added here, but was wondering if we should
+look at a more generic solution.
 
+Linus: is bias-disable assumed to be the default, that pinctrl drivers
+should set in absence of explicit properties? Or is this "whatever is in
+the registers at boot" the default we have to live with?
+
+Cheers,
+Andre
 
