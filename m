@@ -4,184 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2BF1C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 00:55:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FFBAC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 01:01:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Date:References:Message-ID:In-Reply-To:From:Subject:Cc:To:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UbPCJZ7EqbgbzOETHHXtELMyvOc4fgLtqQceM3cU6Uo=; b=nUKG3dN7gYIjU6IU92UoJiIQ7x
-	2OW841ttKJu5ODbdsa3Fka7Ycv6tyxQ4MMl945uoREMxWZBVpeeNzFFcE8/tHEBIDGzL6C4n0OUXn
-	0EI0F6Q1+Za5fcuwK9lnUYZ/iVs0vblFGi6I3m5lSQCu/+5nKPPZRP3yi7vUqJbTamaX7OC4E0/+K
-	7bbiJkxS3E1r7i1w0a9fvVKKsCGtgUlOLC+StLhDW4Xi03e9wG8f5krVB4KExMsOH2R4qlWE6xlhz
-	itfmHXutFbohD+c6Dq755/jXgmc7XtYEitF5R2xnDmfRNUQ9635mcxZyJ7TV/oa6Pl+ieWsclpttE
-	xvIEk+FQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cmwb7GGpqp7++nF7Cbq81B2YoyFL9Y6IEsyNWLyuHsU=; b=EsKmHSZTpdV9u2IERsCAZ30c0o
+	QcMdneNng8HPkZPSIxd1cJN+CdV7pg8tgPxg03xrmAQ837GTUnoDU2MK03tUWHbMK3h05wb8x2X4W
+	ia19DUMMQ5214K0Ph3Q2Wu7q1yo4mUPV5Df4cpdBr/U5qVIrB/ey7tP7TIwEdkORFOsRAtw3uFbaC
+	uk5p72HwWkwX+9hOihsHpTI0QnXYmK8Wnf5LSjv7OqVAsd5dVxsgCOSe4u5qzGg9PODzFSdrf6KND
+	6E993iwaXC5+Fo/qNeG8i3rYfRroQRdEbAJpQgZcD8BcG5XPf9fp+cviJwadL7b2qN+KuBYEAC19w
+	/iVZAr2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u87LK-0000000FeQW-32mH;
-	Fri, 25 Apr 2025 00:55:02 +0000
-Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u87Ip-0000000FeCr-0J5a
+	id 1u87R7-0000000Ff72-1JUs;
+	Fri, 25 Apr 2025 01:01:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u87PG-0000000FetL-1MCc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 00:52:28 +0000
-Received: from pps.filterd (m0246632.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53ONwnBB019355;
-	Fri, 25 Apr 2025 00:52:24 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=corp-2023-11-20; bh=UbPCJZ7EqbgbzOETHH
-	XtELMyvOc4fgLtqQceM3cU6Uo=; b=gpj0nAjXGmAaaly2QhOxc8AX8ebtCfdosF
-	Bcwv4r2ocRkG4Zt4lJM74t8XvTnaek4fMHVyx/s+K7P162XVZp70DRD17wdTnJvF
-	4SKoqWSDVQwwgm6w+ogPtsk4ezsFBBKXrwNODjEDoqP2d0moLdI0kr3BoK5wgEdG
-	0Sgy2CuOy1oaB63w/3wO8jYcXTnTboD0E2Vu8HElUeuO+LjnUNXbOxCioBtc+lr2
-	ITMFIttsmyuZhxA608rB+vpnGN4/dacHlntTUZLUaTbU0ES/H/tqGAJxb+XRqiUE
-	oCh/pClwXcYT8ngasQY1i8lnyVUhTa0B+vJYTF0vNfXeBAGf1KuQ==
-Received: from phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta03.appoci.oracle.com [138.1.37.129])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 467y2583wt-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 25 Apr 2025 00:52:23 +0000 (GMT)
-Received: from pps.filterd (phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 53ONAlgp024806;
-	Fri, 25 Apr 2025 00:52:12 GMT
-Received: from dm1pr04cu001.outbound.protection.outlook.com (mail-centralusazlp17010002.outbound.protection.outlook.com [40.93.13.2])
-	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 467puc60rw-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 25 Apr 2025 00:52:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RjGi39T1CwUGpWz59u4cfTIAn7V3EUQjm7gsDkoxyxS6bb4i+hGfnyqb0OyeKgy8kl7/RttVs4TmUda9Z6G3ZVwsHeHn8/cPgJKYMEelG+AeNaxLN2NFYfR4mdtoNcgpTFw80DRWTHI3xK6MxGBvnb5Ez97cMLo1AdAgyZn7CMN0ZdXmidc0/815hJ73OfgKQOusOu7CIBL98sckZV/daXKdsTK6psJxWZOmgBltiDce1B/n05wWgU0Obpr3Ivn58LH65+SglVpbjaCILZJ441Nj9bV/k1ZxkVukhmXDtUdjNusL+kZgXnlXY6+/nsmTBHnHOVn/NqU46PonIYlfcA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UbPCJZ7EqbgbzOETHHXtELMyvOc4fgLtqQceM3cU6Uo=;
- b=ENu+yGD2847xCe02JN8aURWgNkh/BpMtsBQ/xM1ZmOzSRcr+9f86xpfuY62UGeoJbffsT5EJPcGsA2OsoAyvdIE+VaD3MlnVHdZwUY6BQ17GD+r3SZeTxM+0ZNiI866o57RNEU8BIa4JHygs8HEyAcdcMNLcYbU5S751P86oYDoHFF7kCvK10nIyKv/fDW4Vua4phgGBXUVVmGi43gM/mPfaxDPqSdEYTozg69vFgpSjbd7zbRs24t0AHoPbUcAx63eFxaiwiWniKxks/OXEwAOplRibSNbm8Aye1NSkW3xbv97UDVR3e+52vdsB8zrAJ0L69z/6sM7TlQv2hXnqIA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UbPCJZ7EqbgbzOETHHXtELMyvOc4fgLtqQceM3cU6Uo=;
- b=j4N7AIasRhv0wND/XC3swYtSlWv8Zri9y/+ihdp8LfDZIKnHzo+P4jl4RiY0XoHFX7TTQOs5xOY9xPxASysfoJ+TzJ1NaJlHS2Fl9GyJOpCmdPmrRyKyK9pk0n3/DBkVPzUG3LxraP7DZvMPjguE2pud0193CLcmQTeXx0fus0E=
-Received: from DS7PR10MB5344.namprd10.prod.outlook.com (2603:10b6:5:3ab::6) by
- IA1PR10MB7167.namprd10.prod.outlook.com (2603:10b6:208:3f1::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.36; Fri, 25 Apr
- 2025 00:52:10 +0000
-Received: from DS7PR10MB5344.namprd10.prod.outlook.com
- ([fe80::b527:ca1f:1129:a680]) by DS7PR10MB5344.namprd10.prod.outlook.com
- ([fe80::b527:ca1f:1129:a680%5]) with mapi id 15.20.8678.025; Fri, 25 Apr 2025
- 00:52:10 +0000
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: <linux-kernel@vger.kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-        <linux-crypto@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linuxppc-dev@lists.ozlabs.org>, <linux-s390@vger.kernel.org>,
-        <sparclinux@vger.kernel.org>, <x86@kernel.org>
-Subject: Re: [PATCH 0/7] lib/crc: drop "glue" from filenames
-From: "Martin K. Petersen" <martin.petersen@oracle.com>
-In-Reply-To: <yq134dx6p3o.fsf@ca-mkp.ca.oracle.com> (Martin K. Petersen's
-	message of "Thu, 24 Apr 2025 20:51:03 -0400")
-Organization: Oracle Corporation
-Message-ID: <yq1wmb95ahy.fsf@ca-mkp.ca.oracle.com>
-References: <20250424002038.179114-1-ebiggers@kernel.org>
-	<yq134dx6p3o.fsf@ca-mkp.ca.oracle.com>
-Date: Thu, 24 Apr 2025 20:52:08 -0400
-Content-Type: text/plain
-X-ClientProxiedBy: BLAPR03CA0112.namprd03.prod.outlook.com
- (2603:10b6:208:32a::27) To DS7PR10MB5344.namprd10.prod.outlook.com
- (2603:10b6:5:3ab::6)
+	Fri, 25 Apr 2025 00:59:07 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AA98E1007;
+	Thu, 24 Apr 2025 17:58:56 -0700 (PDT)
+Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 708973F59E;
+	Thu, 24 Apr 2025 17:59:00 -0700 (PDT)
+Date: Fri, 25 Apr 2025 01:57:58 +0100
+From: Andre Przywara <andre.przywara@arm.com>
+To: Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@csie.org,
+ samuel@sholland.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] arm64: dts: allwinner: h6: Add OrangePi 3 LTS DTS
+Message-ID: <20250425015758.60f83f2b@minigeek.lan>
+In-Reply-To: <20250413134318.66681-3-jernej.skrabec@gmail.com>
+References: <20250413134318.66681-1-jernej.skrabec@gmail.com>
+	<20250413134318.66681-3-jernej.skrabec@gmail.com>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS7PR10MB5344:EE_|IA1PR10MB7167:EE_
-X-MS-Office365-Filtering-Correlation-Id: a56f406b-80e2-4272-c645-08dd8393690e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?+KOT/s9hTQ64PKt71w8qMJTK6csvUoSogEXtIsPN9vtbE6eRZoRfSHpeB4HW?=
- =?us-ascii?Q?5yN1pU9n2vIrfI3XEJezzHYilxhezL6G1AkyFr47aBk4ajzF1TnvClvJkBDa?=
- =?us-ascii?Q?t/yqaCRv6dYSBo2OaAFllhTjFMNFueaYADvEW7OHrx7KyyxAw/JzyT31SaBF?=
- =?us-ascii?Q?S4Rt/zonWCN7A6gVbvkGfC545MRtuX0e3gp+yU/BhmsI6IdOe56WU25qNbGK?=
- =?us-ascii?Q?JDt2NvlMjmoVo1oHlYkyUU0yZocZweRN3/JKxUxEVjqIrblxgiivsTGOI8Qt?=
- =?us-ascii?Q?CgbnEOwyxufeN7LH0dQ+p1RMUqG8GZSqdVZqRfLTvCDb8Mq7+tty3E6FXRtR?=
- =?us-ascii?Q?SseF9FHQnVf/iJ+AdPJCTsnfPNcVK5hFpONx8bc9HBf0FmE7EA5OaCo20CSx?=
- =?us-ascii?Q?FdcDDFxBoOM7BMXESCYgVR+yiXptrUY2iA3rwOnbxDtmG3YbRAW0X5fDis2H?=
- =?us-ascii?Q?3o4lm02lTgNzKhTy6+RNkfciNm4vyre3WNp2OGcENS61vkeg8k6tqGC9HOne?=
- =?us-ascii?Q?3Hq9W//LeF3b0ECPKEg/1ZthcWMt0e9zkeCNg1cFe1RxrlL0hgRJjHnL/Ya+?=
- =?us-ascii?Q?oEA32atks1wMPjX83gMslf7Itcn3nmyTnr+hYjw9hgSt9Q/qAhR8Cc+LXfSq?=
- =?us-ascii?Q?h8XEj7kDZUYHdaxM3yAbxqRaeBAZxDv/truHEn8flcNjBgsQ72rHjpwqgaa+?=
- =?us-ascii?Q?IZ6J3N7qhdv3wKyR3e60RZAvdR0a34E/LvPWEirJYOXVwGjXSiUeZyYX8yd2?=
- =?us-ascii?Q?pUZePjMAE8KV1GdngTgRUGhLaKPRLC8Z4j6av8rk9Occ91Q++NOS+5iI3ShT?=
- =?us-ascii?Q?+aW4kD2yumjSCYWwcBrnp61woOOolfsEVfVyVrSVUNRpcyeI03879jDFsrwN?=
- =?us-ascii?Q?mx8oAdUFxQxIxdyD7jnrTNRh+lMvIe8MLqHjDMEdgMgEohcwynB61LcQ9TTs?=
- =?us-ascii?Q?gir3vsn5Hw+co5Q+RvdXyWAf33ks8/CgbZNHiZKoeBKpMIKqxhfTntsmSqv6?=
- =?us-ascii?Q?LE4d9fduCwMxB00BNV5ttksghd5JmoLfWJ1F82FYxIL+Nd+pxwdkm5q0yoGq?=
- =?us-ascii?Q?4WGXtzPSQYkfIq5Zd7OTMxMvvKqR5Nb/pSDLy/IALGskCQXUBW+h4kiftyBc?=
- =?us-ascii?Q?LAFKhtCJVImP4XjULKeW2Cpaufr42/bjhDqEz9VlaidpiqgYr7xOpSwKfYu8?=
- =?us-ascii?Q?QDqgAhZlREmhBJ5cpDTuHr/UOUPABIKEEfUdh86ChmuFCXbeY+KdJ12w0HFp?=
- =?us-ascii?Q?+JzRCvFYSLQ6rN7r02BbWNYGY6exCTZ8TzNjMATYzIPnlRiEE3HqvVhUkswG?=
- =?us-ascii?Q?kBlkz2NaA28LqPPNsEO28lS2U/I6z1brmj6yObVUEW2DyqM5BYKowvhsccms?=
- =?us-ascii?Q?yQvUUFc3yc972CdTfvL541D0C5t5n5Wa0y/YMWjO+0+hgKdW3rcJyxWxoTvZ?=
- =?us-ascii?Q?Qx1Dec00oEY=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR10MB5344.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GmIA8xRvO4MHIwNnnfFGuUE1XDp0gVGN99YYcszAm0ZaLWpTx6JK7TAo4mQd?=
- =?us-ascii?Q?LKc4O+/5BxIFh2axjwvbRWXKkWTpuMsw6fDbNXT4V+wBdPnZu8zCRA6bKiSW?=
- =?us-ascii?Q?vnnOlTYn8z0cyiauxd0OylB3EbQxf29irPtR9UA3EKAx1bWQZSFaM2+XO7Oa?=
- =?us-ascii?Q?9h3EaJAKbcdF8KFusIj4PB/Uz0nkKwpGDAnYwFk6QGUpnwkVnyGYt1nndkNf?=
- =?us-ascii?Q?5eP1fiYQAmxeXNY7NKaSeJPIuEZztYu1Zad2Hkmsg6YQTiwkHBMoW2S8JV3r?=
- =?us-ascii?Q?FS6jeZSkKqy29jjvm2TR6MM43AGKVJDijbEru1H/yTvn0uaAqSfmdxcIDAZ+?=
- =?us-ascii?Q?ZbBa8bqkHbv+1wW8NJp+ymNRL5kPQTB4A2QS9gC1UI17InDhd/h7+sOOvoPV?=
- =?us-ascii?Q?eJcF6gl91/oZ4dfPMrYCOrDrZ5fjDXUC12uUJtzroIRXdm+0ndeiuObl6aJa?=
- =?us-ascii?Q?MleGJmHEDIpIqJIQKQ4xBnqDMBhETd7fnQdh7+lk7hbgaGAkzE9K3TRZ6P5E?=
- =?us-ascii?Q?B2BxCOA6ZOD6OjQPSkZggmXculEYTnHFl8XOl4ynMZo8TEIJMsLZJaGcPRVq?=
- =?us-ascii?Q?cR487eMa/6Qg/mK0Sj99+T+JAp4D03DzQEO8/FPoZ26cm7TysD9/ZQqbzQdo?=
- =?us-ascii?Q?TBk8yGWdVZUuQdqUL2lAnUZG0SDDsYqM2MBR4pbwMCkc9mXrDuBDg7PUOC21?=
- =?us-ascii?Q?BzOtG9/LQlY89hKqdlqGO68iR0Cg8/5axxwKZMzKo7VO7vsFeVvs4seobaYX?=
- =?us-ascii?Q?vDKnkmHVXbfqlk/Vq927sLwOQ3YS7ph/+6cz8Xg9pthX6juoZXX9b7IIuuiE?=
- =?us-ascii?Q?n9/ml6fY44XX2jqPrrMMmatA90OMsfXrCphjGfb3hAPrYM6G3Agth+Pa60r1?=
- =?us-ascii?Q?oqPSj9XnBg2kreUI0Ac5udJNcSUgpf1rVd0ejNfMdqY4RU2wn2i7pt+i/i9Q?=
- =?us-ascii?Q?k4nWJu6PHG20FL7yYD1AecS+Bd9GxHOn6p0gP2VKvTRzFJilk/EFE8qSadvH?=
- =?us-ascii?Q?X9A0ujrsgQ63MlkiowtumwaM9Co38SKZzR06GT8w7iAWM4Rg8JlT5rpFk/Nz?=
- =?us-ascii?Q?Hcbqxgfur+HEAdN34Lm6HcJRY+d5ae1Lz7gf+4826+CwZukE2tcyJinAZrUX?=
- =?us-ascii?Q?qaaD1uIcnQAajPmrymOTM94m3776wD2AjjNYZA4Q9LH9f8u2rbWRTBExGQgh?=
- =?us-ascii?Q?OhEOEpnk5/VKB9gAbQool9ua24jqrtxTD42HugJgYVNGlFNLE+tJei1+xBTx?=
- =?us-ascii?Q?fSZvUYEt1BCJMp9z1PaARTWqKaHLyBevFVyWK9IKwkTL9Jbh8Zmms60yx9Ni?=
- =?us-ascii?Q?h82iAoxmA9zKu9CnAyzc+Y43fHB/ZbYTtI9srKzqsT2S0tpd8GH6/iEx5VcW?=
- =?us-ascii?Q?N5A/XDb0y2/dED6G+cDIfuNz7wonOqijVcRKzYS/TlmR7SgAQo5L/3GOySCF?=
- =?us-ascii?Q?tpichU9SKEyhmsVik6DxvPpTO7rOBQRgjMf6cDFb4D8ev5Cp5c+CEp0nosM0?=
- =?us-ascii?Q?y3Ej34qszarP3m9jcEe4dcNjQwFCzo9nAKSt+gaYrUwehW7OyyaX0fr+Os+M?=
- =?us-ascii?Q?kHN4+CmOG/hC36m3lSg3qia1rxONTu88OdSOlz7w2OdshD8RmPA/ou/ehxGN?=
- =?us-ascii?Q?Xg=3D=3D?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: D/N3V37NURQ3X+nKbLYr73La0iR4EUzNZJCW5fZa1h9sVKZTGWEYNBayeOvooAMQNSrOlzNolSWzA1XPM8NtNi8lal90RjFtqL9frpLztgShgouGuv1TMjYE/P9EeIDY6SiwrUl30adk6RJ4BcUS3OuEseFiUITQ2p3GpiOoWvC57o+qoB50M89DmD66ejgnjiwdmLy2CBGg0D/iY4oRELFZMwN9CiiDQHYq1HAae+ei9PppNTfC2+DypevRd0F7zPstTo8ACWYMm+puq1r0ell5jJReIRgaMFjoz1gfjtjtQCCJdXuij7u++KDzQq3M2SjcZhDsvAlsP6i6ei7uER/9z6QipdBsw5vvhw7ZNkHXLcGXcohxAy3bUetxKEQH6oxloNXJsxaveKaD51saoLeMsRcfy2gMQBkved5z7Dxd2E8AfdroMsDu9vwqxDPbvlIvHejq/VahdtXUfh9ElwsCXc6ROz7nGSLCfdTfUTluiEdmcedNcmrMJ3Wjq9mjLv2Zr7QiRcozTx50sjsFgRWP3+ox5c+BhGL4Vqg1z8X3v+UMXUXi/wzjCYBOeAEHHlcprf6YxUfAsKDE2lPvO8SNFpPfhU+VWvDlBqXDQUU=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a56f406b-80e2-4272-c645-08dd8393690e
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR10MB5344.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Apr 2025 00:52:10.3472
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: WqR/xlcG5szjI1KtnOVo4o62hGlWjK5lHpqKqMdYvzo0a5on4xYdYQgcb8FE1qhV09NsiRHYemBgOAs2DOemAC1iW/tJZU8o7ymXwuNaH+M=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR10MB7167
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-04-24_09,2025-04-24_02,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 malwarescore=0 mlxlogscore=970
- mlxscore=0 spamscore=0 phishscore=0 bulkscore=0 adultscore=0
- suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2504070000 definitions=main-2504250004
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI1MDAwNCBTYWx0ZWRfX/s4UfopzV2tF j/TDL1mPPMX86otSxQ6LeW0GAkKCJSygO1iIyckL/HwugizkSJnU3C0BbyK5qNtcYOPMTGjezcc hPMQqqK1xBgCC0CB9a68LzOXcB1t2KLyYLBZknDNSdQB1kj220xFo/wV6Xqldrud6axKwqBuOQ1
- RNUrZHTQHAc6Yn1TjJmrShMEojKTkPfThs1YaQ/+WdQtgRuS/2udy7Bko+EFINUWIWXIX+0spFh Lq/+5A1b0uEMQ+6BG99lRE05wWM5BDVCa9yZcPidmG7Ilk4yCtnrV3KIQe/INeljJQC3U0hizmI ijkQjYY2XszJKezBvKUKo1MxBzeaiCaKD0bhNzwq+uv4DMkzsOUdwiv2SpQ9xjTZrB8RUNTcdbR gwKmCRlz
-X-Proofpoint-ORIG-GUID: Xi52DCq_NOynydHUWHElTeJBZSY1FYNz
-X-Proofpoint-GUID: Xi52DCq_NOynydHUWHElTeJBZSY1FYNz
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_175227_238272_CE4E9F4F 
-X-CRM114-Status: UNSURE (   6.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250424_175906_454451_29C39066 
+X-CRM114-Status: GOOD (  18.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -196,14 +67,419 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sun, 13 Apr 2025 15:42:57 +0200
+Jernej Skrabec <jernej.skrabec@gmail.com> wrote:
 
->> This series fixes an odd naming convention that was unnecessarily
->> carried over from the original Crypto API code.
->
-> LGTM.
+> OrangePi 3 LTS is quite similar to original OrangePi 3, but it has a lot
+> small changes that makes DT sharing unpractical with it.
+>=20
+> OrangePi 3 LTS has following features:
+> - Allwinner H6 quad-core 64-bit ARM Cortex-A53
+> - GPU Mali-T720
+> - 2 GB LPDDR3 RAM
+> - AXP805 PMIC
+> - AW859A Wifi/BT 5.0
+> - 2x USB 2.0 host port (A)
+> - USB 3.0 Host
+> - Gigabit Ethernet (Motorcomm YT8531C phy)
+> - HDMI 2.0 port
+> - soldered 8 GB eMMC
+> - 2x LED
+> - microphone
+> - audio jack
+>=20
+> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-Reviewed-by: Martin K. Petersen <martin.petersen@oracle.com>
+I guess you tried to use a common orangepi-3.dtsi, but that didn't
+work out well?
 
--- 
-Martin K. Petersen
+> ---
+>  arch/arm64/boot/dts/allwinner/Makefile        |   1 +
+>  .../allwinner/sun50i-h6-orangepi-3-lts.dts    | 351 ++++++++++++++++++
+>  2 files changed, 352 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/allwinner/sun50i-h6-orangepi-3-lt=
+s.dts
+>=20
+> diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/dts=
+/allwinner/Makefile
+> index 00bed412ee31..72c43bd0e2ab 100644
+> --- a/arch/arm64/boot/dts/allwinner/Makefile
+> +++ b/arch/arm64/boot/dts/allwinner/Makefile
+> @@ -33,6 +33,7 @@ dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h5-orangepi-zero-p=
+lus.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h5-orangepi-zero-plus2.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-beelink-gs1.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-orangepi-3.dtb
+> +dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-orangepi-3-lts.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-orangepi-lite2.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-orangepi-one-plus.dtb
+>  dtb-$(CONFIG_ARCH_SUNXI) +=3D sun50i-h6-pine-h64.dtb
+> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h6-orangepi-3-lts.dts b=
+/arch/arm64/boot/dts/allwinner/sun50i-h6-orangepi-3-lts.dts
+> new file mode 100644
+> index 000000000000..c8830d5c2f09
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/allwinner/sun50i-h6-orangepi-3-lts.dts
+> @@ -0,0 +1,351 @@
+> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> +// Copyright (C) 2025 Jernej Skrabec <jernej.skrabec@gmail.com>
+> +// Based on sun50i-h6-orangepi-3.dts, which is:
+> +// Copyright (C) 2019 Ond=C5=99ej Jirman <megous@megous.com>
+> +
+> +/dts-v1/;
+> +
+> +#include "sun50i-h6.dtsi"
+> +#include "sun50i-h6-cpu-opp.dtsi"
+> +#include "sun50i-h6-gpu-opp.dtsi"
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/leds/common.h>
+> +
+> +/ {
+> +	model =3D "OrangePi 3 LTS";
+> +	compatible =3D "xunlong,orangepi-3-lts", "allwinner,sun50i-h6";
+> +
+> +	aliases {
+> +		ethernet0 =3D &emac;
+> +		ethernet1 =3D &aw859a;
+> +		serial0 =3D &uart0;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path =3D "serial0:115200n8";
+> +	};
+> +
+> +	connector {
+> +		compatible =3D "hdmi-connector";
+> +		ddc-en-gpios =3D <&pio 7 2 GPIO_ACTIVE_HIGH>; /* PH2 */
+> +		type =3D "a";
+> +
+> +		port {
+> +			hdmi_con_in: endpoint {
+> +				remote-endpoint =3D <&hdmi_out_con>;
+> +			};
+> +		};
+> +	};
+> +
+> +	ext_osc32k: ext_osc32k_clk {
+
+Shouldn't the node name contain dashes instead of underscores?
+
+> +		#clock-cells =3D <0>;
+> +		compatible =3D "fixed-clock";
+> +		clock-frequency =3D <32768>;
+> +		clock-output-names =3D "ext_osc32k";
+> +	};
+> +
+> +	leds {
+> +		compatible =3D "gpio-leds";
+> +
+> +		led-0 {
+> +			function =3D LED_FUNCTION_POWER;
+> +			color =3D <LED_COLOR_ID_RED>;
+> +			gpios =3D <&r_pio 0 4 GPIO_ACTIVE_HIGH>; /* PL4 */
+> +			default-state =3D "on";
+> +		};
+> +
+> +		led-1 {
+> +			function =3D LED_FUNCTION_STATUS;
+> +			color =3D <LED_COLOR_ID_GREEN>;
+> +			gpios =3D <&r_pio 0 7 GPIO_ACTIVE_HIGH>; /* PL7 */
+> +		};
+> +	};
+> +
+> +	reg_gmac_3v3: gmac-3v3 {
+> +		compatible =3D "regulator-fixed";
+> +		regulator-name =3D "gmac-3v3";
+> +		regulator-min-microvolt =3D <3300000>;
+> +		regulator-max-microvolt =3D <3300000>;
+> +		startup-delay-us =3D <150000>;
+> +		enable-active-high;
+> +		gpio =3D <&pio 3 6 GPIO_ACTIVE_HIGH>; /* PD6 */
+> +	};
+> +
+> +	reg_vcc5v: vcc5v {
+> +		/* board wide 5V supply directly from the DC jack */
+> +		compatible =3D "regulator-fixed";
+> +		regulator-name =3D "vcc-5v";
+> +		regulator-min-microvolt =3D <5000000>;
+> +		regulator-max-microvolt =3D <5000000>;
+> +		regulator-always-on;
+> +	};
+> +
+> +	reg_wifi_3v3: wifi-3v3 {
+> +		/* 3.3V regulator for WiFi and BT */
+> +		compatible =3D "regulator-fixed";
+> +		regulator-name =3D "wifi-3v3";
+> +		regulator-min-microvolt =3D <3300000>;
+> +		regulator-max-microvolt =3D <3300000>;
+> +		enable-active-high;
+> +		gpio =3D <&pio 7 7 GPIO_ACTIVE_HIGH>; /* PH7 */
+> +	};
+> +
+> +	wifi_pwrseq: wifi-pwrseq {
+> +		compatible =3D "mmc-pwrseq-simple";
+> +		clocks =3D <&rtc 1>;
+
+Shouldn't that be <&rtc CLK_OSC32K_FANOUT>?
+
+Cheers,
+Andre
+
+> +		clock-names =3D "ext_clock";
+> +		reset-gpios =3D <&r_pio 1 3 GPIO_ACTIVE_LOW>; /* PM3 */
+> +		post-power-on-delay-ms =3D <200>;
+> +	};
+> +};
+> +
+> +&cpu0 {
+> +	cpu-supply =3D <&reg_dcdca>;
+> +};
+> +
+> +&de {
+> +	status =3D "okay";
+> +};
+> +
+> +&dwc3 {
+> +	status =3D "okay";
+> +};
+> +
+> +&ehci0 {
+> +	status =3D "okay";
+> +};
+> +
+> +&ehci3 {
+> +	status =3D "okay";
+> +};
+> +
+> +&emac {
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&ext_rgmii_pins>;
+> +	phy-mode =3D "rgmii-rxid";
+> +	phy-handle =3D <&ext_rgmii_phy>;
+> +	phy-supply =3D <&reg_gmac_3v3>;
+> +	allwinner,rx-delay-ps =3D <0>;
+> +	allwinner,tx-delay-ps =3D <700>;
+> +	status =3D "okay";
+> +};
+> +
+> +&gpu {
+> +	mali-supply =3D <&reg_dcdcc>;
+> +	status =3D "okay";
+> +};
+> +
+> +&hdmi {
+> +	hvcc-supply =3D <&reg_bldo2>;
+> +	status =3D "okay";
+> +};
+> +
+> +&hdmi_out {
+> +	hdmi_out_con: endpoint {
+> +		remote-endpoint =3D <&hdmi_con_in>;
+> +	};
+> +};
+> +
+> +&mdio {
+> +	ext_rgmii_phy: ethernet-phy@1 {
+> +		compatible =3D "ethernet-phy-ieee802.3-c22";
+> +		reg =3D <1>;
+> +
+> +		motorcomm,clk-out-frequency-hz =3D <125000000>;
+> +
+> +		reset-gpios =3D <&pio 3 14 GPIO_ACTIVE_LOW>; /* PD14 */
+> +		reset-assert-us =3D <15000>;
+> +		reset-deassert-us =3D <100000>;
+> +	};
+> +};
+> +
+> +&mmc0 {
+> +	vmmc-supply =3D <&reg_cldo1>;
+> +	cd-gpios =3D <&pio 5 6 GPIO_ACTIVE_LOW>; /* PF6 */
+> +	disable-wp;
+> +	bus-width =3D <4>;
+> +	status =3D "okay";
+> +};
+> +
+> +&mmc1 {
+> +	vmmc-supply =3D <&reg_wifi_3v3>;
+> +	vqmmc-supply =3D <&reg_bldo3>;
+> +	mmc-pwrseq =3D <&wifi_pwrseq>;
+> +	bus-width =3D <4>;
+> +	non-removable;
+> +	status =3D "okay";
+> +
+> +	aw859a: wifi@1 {
+> +		reg =3D <1>;
+> +	};
+> +};
+> +
+> +&mmc2 {
+> +	vmmc-supply =3D <&reg_cldo1>;
+> +	vqmmc-supply =3D <&reg_bldo2>;
+> +	cap-mmc-hw-reset;
+> +	non-removable;
+> +	bus-width =3D <8>;
+> +	status =3D "okay";
+> +};
+> +
+> +&ohci0 {
+> +	status =3D "okay";
+> +};
+> +
+> +&ohci3 {
+> +	status =3D "okay";
+> +};
+> +
+> +&pio {
+> +	vcc-pc-supply =3D <&reg_bldo2>;
+> +	vcc-pd-supply =3D <&reg_cldo1>;
+> +	vcc-pg-supply =3D <&reg_bldo3>;
+> +};
+> +
+> +&r_ir {
+> +	status =3D "okay";
+> +};
+> +
+> +&r_i2c {
+> +	status =3D "okay";
+> +
+> +	axp805: pmic@36 {
+> +		compatible =3D "x-powers,axp805", "x-powers,axp806";
+> +		reg =3D <0x36>;
+> +		interrupt-parent =3D <&r_intc>;
+> +		interrupts =3D <GIC_SPI 96 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-controller;
+> +		#interrupt-cells =3D <1>;
+> +		x-powers,self-working-mode;
+> +		vina-supply =3D <&reg_vcc5v>;
+> +		vinb-supply =3D <&reg_vcc5v>;
+> +		vinc-supply =3D <&reg_vcc5v>;
+> +		vind-supply =3D <&reg_vcc5v>;
+> +		vine-supply =3D <&reg_vcc5v>;
+> +		aldoin-supply =3D <&reg_vcc5v>;
+> +		bldoin-supply =3D <&reg_vcc5v>;
+> +		cldoin-supply =3D <&reg_vcc5v>;
+> +
+> +		regulators {
+> +			reg_aldo1: aldo1 {
+> +				regulator-always-on;
+> +				regulator-min-microvolt =3D <3300000>;
+> +				regulator-max-microvolt =3D <3300000>;
+> +				regulator-name =3D "vcc-pl-led-ir";
+> +			};
+> +
+> +			reg_aldo2: aldo2 {
+> +				regulator-min-microvolt =3D <3300000>;
+> +				regulator-max-microvolt =3D <3300000>;
+> +				regulator-name =3D "vcc33-audio-tv-ephy-mac";
+> +			};
+> +
+> +			/* ALDO3 is shorted to CLDO1 */
+> +			reg_aldo3: aldo3 {
+> +				regulator-always-on;
+> +				regulator-min-microvolt =3D <3300000>;
+> +				regulator-max-microvolt =3D <3300000>;
+> +				regulator-name =3D "vcc33-io-pd-emmc-sd-usb-uart-1";
+> +			};
+> +
+> +			reg_bldo1: bldo1 {
+> +				regulator-always-on;
+> +				regulator-min-microvolt =3D <1800000>;
+> +				regulator-max-microvolt =3D <1800000>;
+> +				regulator-name =3D "vcc18-dram-bias-pll";
+> +			};
+> +
+> +			reg_bldo2: bldo2 {
+> +				regulator-min-microvolt =3D <1800000>;
+> +				regulator-max-microvolt =3D <1800000>;
+> +				regulator-name =3D "vcc-efuse-pcie-hdmi-pc";
+> +			};
+> +
+> +			reg_bldo3: bldo3 {
+> +				regulator-min-microvolt =3D <1800000>;
+> +				regulator-max-microvolt =3D <1800000>;
+> +				regulator-name =3D "vcc-pm-pg-dcxoio-wifi";
+> +			};
+> +
+> +			bldo4 {
+> +				/* unused */
+> +			};
+> +
+> +			reg_cldo1: cldo1 {
+> +				regulator-always-on;
+> +				regulator-min-microvolt =3D <3300000>;
+> +				regulator-max-microvolt =3D <3300000>;
+> +				regulator-name =3D "vcc33-io-pd-emmc-sd-usb-uart-2";
+> +			};
+> +
+> +			cldo2 {
+> +				/* unused */
+> +			};
+> +
+> +			cldo3 {
+> +				/* unused */
+> +			};
+> +
+> +			reg_dcdca: dcdca {
+> +				regulator-always-on;
+> +				regulator-min-microvolt =3D <800000>;
+> +				regulator-max-microvolt =3D <1160000>;
+> +				regulator-ramp-delay =3D <2500>;
+> +				regulator-name =3D "vdd-cpu";
+> +			};
+> +
+> +			reg_dcdcc: dcdcc {
+> +				regulator-enable-ramp-delay =3D <32000>;
+> +				regulator-min-microvolt =3D <810000>;
+> +				regulator-max-microvolt =3D <1080000>;
+> +				regulator-ramp-delay =3D <2500>;
+> +				regulator-name =3D "vdd-gpu";
+> +			};
+> +
+> +			reg_dcdcd: dcdcd {
+> +				regulator-always-on;
+> +				regulator-min-microvolt =3D <960000>;
+> +				regulator-max-microvolt =3D <960000>;
+> +				regulator-name =3D "vdd-sys";
+> +			};
+> +
+> +			reg_dcdce: dcdce {
+> +				regulator-always-on;
+> +				regulator-min-microvolt =3D <1200000>;
+> +				regulator-max-microvolt =3D <1200000>;
+> +				regulator-name =3D "vcc-dram";
+> +			};
+> +
+> +			sw {
+> +				/* unused */
+> +			};
+> +		};
+> +	};
+> +};
+> +
+> +&rtc {
+> +	clocks =3D <&ext_osc32k>;
+> +};
+> +
+> +&uart0 {
+> +	pinctrl-names =3D "default";
+> +	pinctrl-0 =3D <&uart0_ph_pins>;
+> +	status =3D "okay";
+> +};
+> +
+> +&usb2otg {
+> +	dr_mode =3D "host";
+> +	status =3D "okay";
+> +};
+> +
+> +&usb2phy {
+> +	usb0_id_det-gpios =3D <&pio 2 15 GPIO_ACTIVE_HIGH>; /* PC15 */
+> +	usb0_vbus-supply =3D <&reg_vcc5v>;
+> +	usb3_vbus-supply =3D <&reg_vcc5v>;
+> +	status =3D "okay";
+> +};
+> +
+> +&usb3phy {
+> +	status =3D "okay";
+> +};
+
 
