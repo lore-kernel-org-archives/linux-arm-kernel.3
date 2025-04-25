@@ -4,120 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53B1DC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 08:11:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42392C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 08:40:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9pPAhnCraf/nSmAMv1OSKQ00BLUU/5SH1peJ94YizaM=; b=D+la3v+PymGzq+aVB189QaSGOp
-	pfsDoy46UAe10MHSuF+PO+ZBum3E8VsNelwM6d7Olw+o+2PGnzzVu156bhC9BBRLC1X2mIyv3DsfI
-	IhOylrNsdapDiFITttAsTqEiZaBAE/wLuG7a4UdR88t4TnycLk9x3/6JUQaGOj/EXlMv0BgFz1sdz
-	MPPmBcG4IIGa4sVq9fAwS60kvUJtNV5lEHT97Cat2GDhsTcQ/VxBOSIze7VS+3MH6ugO8Rw4Yuy6z
-	tWEXV93GZ/3etuXSVP89K7nHQZiwMGCHmRHOY6xBHUxK6fu8WgExh8bcO3Tyk/RaRTAD2nRUVBKR6
-	qJjFXKdQ==;
+	bh=SdNELu6tX0o/pi8varqYYzdto6XQxyClf203EBF5FuQ=; b=omMaVQwUfvIS/shvKHXN/b5pG5
+	4SJZyQsTbwcdpA2H9Vm8n0zAwnONhdCJ/FlqyXO+ywFzDxO1JCK4GP/rOE29fnlmVj3nbGhzmDtDP
+	n7HqG2HnMYerrD85EF4v4N60tTLSEU+8Kx0YSBSHJeAgVde6N7e1LJZczCAANYxvKZBqZL8qwB+Pp
+	UWXL5vVm+e1aXBZQ7XcSDwgvgm6Migw7mPhWl5RFkPBOjF2lBMqEC1NaVysB+362PiRf946qot1DT
+	2MUE53KvYsLhYppAnYktnn9OnBGVsmp4ONAOncZbRqjcLmSylUe2OKR5G7HAXBojz1Zf/1K+RK2GT
+	F+AhfMtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8E99-0000000GHtZ-3B2n;
-	Fri, 25 Apr 2025 08:10:55 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u8Ebn-0000000GNAE-1hWF;
+	Fri, 25 Apr 2025 08:40:31 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8E7I-0000000GHeA-2N9z
+	id 1u8EZv-0000000GMor-35co
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 08:09:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 757B9A4C270;
-	Fri, 25 Apr 2025 08:03:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FC61C4CEE4;
-	Fri, 25 Apr 2025 08:08:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745568539;
-	bh=gtRsuvmEISKz28EyTTx8EH0Xr4h+sH+AR8WuiCfVNRw=;
+	Fri, 25 Apr 2025 08:38:37 +0000
+Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 4E1D6982;
+	Fri, 25 Apr 2025 10:38:28 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1745570309;
+	bh=1mMtj98z3YShJdLxUAd5dw43PD6KBTkoMvJI6Gyi9wM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=bny011mnmcqkpjlJhSmVb7MhrUlgc7SqH/Yxq41eN/4DXdB8yNKni+99jmij1Rxdt
-	 KEZ2u2JrCIxxlv6qgs2cm0r5q5oNB0JKhXDwCfDBIZzljR5pXI5qncvipZ2OqU8jAX
-	 tequWuknHqsnGhuedOR1fC21GdhSaGACDN6lhEfXn+0laIy5dWv7wZCVgOlFYEPLhk
-	 8dXkMhCoFtngJ9EDLKpuNB9J8ZBnTNsW/Jo66256OnT6QwytmO/ehTa63vbGWUXnZf
-	 6VlMQ96C757YYziDKe66jimlrDB48ri8cBFlKUURYQafSoBv8KiR7F1sqC+kaqp0uD
-	 Q3Hx6tMBs7ahg==
-Message-ID: <fc450dca-a1ba-4b9f-befa-f9643d9b1b82@kernel.org>
-Date: Fri, 25 Apr 2025 10:08:52 +0200
+	b=dlFvvZ0RsAmZZnruhIOvgP/1hcZ71oMlzTUhKVDxi2Dmb81X8/EphUiA0KWueYZHI
+	 hQ3waux+4qNoKag7YlgA6h3TEHo/99FqJWnNHkilLNejAeWTei7tRRFjCW5XJDZaaz
+	 fn6nh6CRi/MyNdvQPfCaBoC6I4RQjwR6YcC0WRE4=
+Message-ID: <c432aca1-cbab-476c-ba3a-e0d9cc940da7@ideasonboard.com>
+Date: Fri, 25 Apr 2025 11:38:28 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [net-next v7 4/7] net: mtip: The L2 switch driver for imx287
-To: Lukasz Majewski <lukma@denx.de>
-Cc: Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
- Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- Stefan Wahren <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>,
- Andrew Lunn <andrew@lunn.ch>
-References: <20250423072911.3513073-1-lukma@denx.de>
- <20250423072911.3513073-5-lukma@denx.de> <20250424181110.2734cd0b@kernel.org>
- <0bf77ef6-d884-44d2-8ecc-a530fee215d1@kernel.org>
- <20250425080556.138922a8@wsk>
- <a5f54d46-6829-4d60-b453-9ee92e6b568c@kernel.org>
- <20250425094907.27740d07@wsk>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v4 03/11] drm/fourcc: Add DRM_FORMAT_Y8
+To: Pekka Paalanen <pekka.paalanen@haloniitty.fi>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
+ Vishal Sagar <vishal.sagar@amd.com>,
+ Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Michal Simek <michal.simek@amd.com>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+References: <20250326-xilinx-formats-v4-0-322a300c6d72@ideasonboard.com>
+ <20250326-xilinx-formats-v4-3-322a300c6d72@ideasonboard.com>
+ <CAMuHMdXM1B1c=62EpcuUdpdpaBRZSJLXb1GBB0egzp7Fyeo5-w@mail.gmail.com>
+ <b195971c-52e6-463e-a440-83dde4346e65@ideasonboard.com>
+ <20250327112009.6b4dc430@eldfell>
+ <b5cf15a4-7c65-4718-9c39-a4c86179ba4c@ideasonboard.com>
+ <20250327175842.130c0386@eldfell>
+ <CAMuHMdVEpTVWmwrYt+G-QSWucT91goUcFor9qbo5rZ+X2jnRog@mail.gmail.com>
+ <20250331105446.098f0fbe@eldfell>
+ <20250331082135.GB13690@pendragon.ideasonboard.com>
+ <20250331135337.61934003@eldfell> <20250401162732.731ef774@eldfell>
+ <73bd6628-374d-417f-a30f-88a4b1d157bb@ideasonboard.com>
+ <20250417111315.62a749e5@eldfell>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
- QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
- gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
- /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
- iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
- VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
- 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
- xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
- eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
- AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
- MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
- Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
- ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
- vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
- oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
- lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
- t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
- uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
- 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
- 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250425094907.27740d07@wsk>
-Content-Type: text/plain; charset=UTF-8
+From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
+ 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
+In-Reply-To: <20250417111315.62a749e5@eldfell>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_010900_746907_0DA11612 
-X-CRM114-Status: GOOD (  21.90  )
+X-CRM114-CacheID: sfid-20250425_013835_919574_652137B4 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,104 +132,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/04/2025 09:49, Lukasz Majewski wrote:
-> Hi Krzysztof, Jakub
-> 
->> On 25/04/2025 08:05, Lukasz Majewski wrote:
->>> Hi Krzysztof, Jakub,
->>>   
->>>> On 25/04/2025 03:11, Jakub Kicinski wrote:  
->>>>> On Wed, 23 Apr 2025 09:29:08 +0200 Lukasz Majewski wrote:    
->>>>>> This patch series provides support for More Than IP L2 switch
->>>>>> embedded in the imx287 SoC.
->>>>>>
->>>>>> This is a two port switch (placed between uDMA[01] and
->>>>>> MAC-NET[01]), which can be used for offloading the network
->>>>>> traffic.
->>>>>>
->>>>>> It can be used interchangeably with current FEC driver - to be
->>>>>> more specific: one can use either of it, depending on the
->>>>>> requirements.
->>>>>>
->>>>>> The biggest difference is the usage of DMA - when FEC is used,
->>>>>> separate DMAs are available for each ENET-MAC block.
->>>>>> However, with switch enabled - only the DMA0 is used to
->>>>>> send/receive data to/form switch (and then switch sends them to
->>>>>> respecitive ports).    
->>>>>
->>>>> Lots of sparse warnings and build issues here, at least on x86.
->>>>>
->>>>> Could you make sure it's clean with an allmodconfig config, 
->>>>> something like:
->>>>>
->>>>> make C=1 W=1 drivers/net/ethernet/freescale/mtipsw/     
->>>>
->>>> ... and W=1 with clang as well.
->>>>  
->>>
->>> The sparse warnings are because of struct switch_t casting and
->>> register  
->>
->> clang W=1 fails on errors, so it is not only sparse:
->>
->> error: cast to smaller integer type 'uint' (aka 'unsigned int') from
->> 'struct cbd_t *' [-Werror,-Wpointer-to-int-cast]
->>
->> You probably wanted there kenel_ulong_t.
-> 
-> This I did not catch earlier (probably because of my testing on
-> imx287). Thanks for spotting it.
-> 
->>
->>> access with this paradigm (as it is done with other drivers).  
->>
->> I don't understand. I see code like:
->>
->> 	struct switch_t *fecp = fep->hwp;
->>
->> But this is not a cast - the same types.
-> 
-> For example:
-> 
-> The warning:
-> 
-> mtipl2sw.c:208:30: warning: incorrect type in argument 1 (different
-> address spaces) mtipl2sw.c:208:30:    expected void const volatile
-> [noderef] __iomem *addr mtipl2sw.c:208:30:    got unsigned int *
-> 
-> corresponds to:
->  info->maclo = readl(&fecp->ESW_LREC0);   [*]
-> 
-> where:
-> 
-> struct switch_t {
->         u32 ESW_REVISION;
->         u32 ESW_SCRATCH;
-> 	...
->         /*from 0x420-0x4FC*/
->         u32 esw_reserved9[57];
->         /*0xFC0DC500---0xFC0DC508*/
->         u32 ESW_LREC0;
->         u32 ESW_LREC1;
->         u32 ESW_LSR;
-> };
-> 
-> 
-> The 'u32' type seems to be valid here as this register is 32 bit wide.
+Hi Pekka,
 
-It is not about size, but IOMEM annotation and pointer/non-pointer.
-
-
+On 17/04/2025 11:13, Pekka Paalanen wrote:
+>> My understanding is that the Y-only pixel formats behave in a well
+>> defined way (or, as well defined as the YUV formats), and there's
+>> nothing more to add here. Is that right?
 > 
-> To fix the sparse warnings - I think that I will replace [*] with:
+> There are two things:
 > 
-> info->maclo = readl((u32 __iomem *)&fecp->ESW_LREC0);
+> - Y8 follows COLOR_RANGE property, just like all other YUV formats.
+> - Y8 implies that Cb and Cr are both neutral (0.0 in nominal values).
+> 
+> I'd like these explicitly written down, so that they become obvious to
+> everyone. I suspect either one might be easy to forget when writing
+> code and taking shortcuts without thinking.
 
-I don't understand why are you reading address of ESW_LREC0. This is
-MMIO, right? So you are supposes to read base + offset (where base is a
-proper iomem pointer).
+I didn't find a suitable place in the docs for this, but would this, in 
+the drm_fourcc.h, be enough:
 
+/*
+  * Y-only (greyscale) formats
+  *
+  * The Y-only formats are handled similarly to the YCbCr formats in the 
+display
+  * pipeline, with the Cb and Cr implicitly neutral (0.0 in nominal 
+values). This
+  * also means that COLOR_RANGE property applies to the Y-only formats.
+  *
+  */
 
-Best regards,
-Krzysztof
+#define DRM_FORMAT_Y8		fourcc_code('G', 'R', 'E', 'Y')  /* 8-bit Y-only */
+#define DRM_FORMAT_Y10_P32	fourcc_code('Y', 'P', 'A', '4')  /* [31:0] 
+x:Y2:Y1:Y0 2:10:10:10 little endian */
+
+  Tomi
+
 
