@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A7FEC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 15:41:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16846C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 15:43:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kp67ZW4VcxmgHTrtBfgJeiGeHmwYCxCqWvLs7V5/pwk=; b=0IdG8xdni2PgD0MSYx+68ygMXB
-	OAqE8sk0ZuZjzX46MyeT0DxhbvZvL/IPPWuZO42ukz18YGV7Y9qRXWK8ONINsxDC2mYVqTUpvR4ne
-	psDI8XxInBg9RgNR/iSbJkTyTQIfCSW3VYHOOUKGDA85or/sIWUCACtKeoN6/JFOLRGIp3UbKUg22
-	qACLAG/pGJjz/x+cov53SPjxGouzF2pxh2U9EX09R0XcAdMMr0qOLD4LzWuS9RHbEQ1Pw2Mwp5Cxe
-	cDS6U5ReNd6GvLt0KdaRDqvIGTSIJjQYXmI43GEVFJAyz2sFwvgeuvsz/Glyn87a1FW1LgpdRkGif
-	TJQwH9/w==;
+	bh=GHJyMr0OdaGxybWiopyuwgvtEq/FNnE3Kt4tnEgDoyA=; b=M8g56UkshBjBhnUoKV96dP18E9
+	lSFZuar0T9oeEjDhHlSWQeSXLvzbUSkOGkPg8iXLhRcPoow4+uWmW2A1K4wSVlt60Wo0UfQx2Sttr
+	JeG3SL2I222zsDEHeRo3WOeoGemykxFQva4S38VKZ3ODtIPIdKdTZ2ReQWY+M1z1NVF1JxLYIqgFb
+	uxL1wzymqT5/ze3AtMb1MVBDSWzq6jUhnFOk/lHPvQyw4unIk6wvRc8pHmD8yfwmveGji9pfYLFdo
+	6eoRcDLI2mbaUclwP78hTKkN4gFrpqcwFTObp4WVaMFU1Bah8eeAo6ALSi/Y96YAdhK5IOSd6BKIf
+	h7ldNQow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8LAj-0000000058e-1CZK;
-	Fri, 25 Apr 2025 15:41:01 +0000
-Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
+	id 1u8LCY-000000005Mu-46nL;
+	Fri, 25 Apr 2025 15:42:54 +0000
+Received: from relay9-d.mail.gandi.net ([217.70.183.199])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Jpr-0000000HOqx-0b58
+	id 1u8Jpr-0000000HOrf-42vp
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 25 Apr 2025 14:15:26 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 7E106439CA;
-	Fri, 25 Apr 2025 14:15:16 +0000 (UTC)
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 3AE00439D9;
+	Fri, 25 Apr 2025 14:15:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1745590517;
+	t=1745590522;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Kp67ZW4VcxmgHTrtBfgJeiGeHmwYCxCqWvLs7V5/pwk=;
-	b=CSQwZd0rzUkioacYVX8POLUlhoDsX2VhebrVJu1Vkuiww3zFnwZ3UHCtPnEDLHloU+C80c
-	R9EXGAzvRg0UNV9aVdMwiF3sxVr2VtGvNlQoLKdKIVxenSSbrHj23AzmRIZ6qi0sqFdhmS
-	uIbHTPIVu9JX4m3DWR2aBuBXVzwfvMAcHlBse1X5b0vlpgHvWWsmo5DYJa7/w4FvHnL9V9
-	us6G9+UbIwXqdieMd2yXqg8Tr3E2GMEhlveOgUk9XPBIuovnz82szbDxqke159Kb8qUE39
-	xfmhlXAXj59VsaeEvBQplOTbYrYh5AOIyPmzyigyUA7BmznFZMYWwY73CrozyA==
+	bh=GHJyMr0OdaGxybWiopyuwgvtEq/FNnE3Kt4tnEgDoyA=;
+	b=Z2o9+faY60HRqFYuSQhnXvGHaYGT6X8RL12KQmyr591cF8ayO2AdQn1b5hULBvPgfDo8kL
+	Ut3ADe+VVxg16J1KuEfoZIP4pZ82inIHAh4IkTH6Pgn+KbzD1SXTXVzZxjKMFLSz7RnKXv
+	BtiiVdPQSHT/B30MtbrWo/vNFNdXJPhh5nwJrTGcNxohmIeUhhkWONeJ+5aE5cEsl85K2t
+	b7xpwDznppkKqTf3OO7giwAfwE7BhxSfRGx+qDuJ9cwywibJESFtcDn+MQVSJm2FKAKW8J
+	Or18e6lorWBOCbcXDk3UKOXe6/l9e6BCeEKWMrPvqB8zviWdQuxyxqSgVYZcnA==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: davem@davemloft.net
 Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
@@ -73,9 +73,9 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Romain Gantois <romain.gantois@bootlin.com>,
 	Daniel Golle <daniel@makrotopia.org>,
 	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: [PATCH net-next v5 01/14] dt-bindings: net: Introduce the ethernet-connector description
-Date: Fri, 25 Apr 2025 16:14:54 +0200
-Message-ID: <20250425141511.182537-2-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v5 04/14] net: phy: dp83822: Add support for phy_port representation
+Date: Fri, 25 Apr 2025 16:14:57 +0200
+Message-ID: <20250425141511.182537-5-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250425141511.182537-1-maxime.chevallier@bootlin.com>
 References: <20250425141511.182537-1-maxime.chevallier@bootlin.com>
@@ -83,12 +83,12 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvhedvheehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepueelgfdvtdfhkeekudegieekuedukefhkefghefgleekkeekkefhjeekgfevhfeinecuffhomhgrihhnpeguvghvihgtvghtrhgvvgdrohhrghenucfkphepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefuddprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrt
- ghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhmshhmsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhmpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrgh
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvhedvheehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepveegtdffleffleevueellefgjeefvedvjefhheegfefgffdvfeetgeevudetffdtnecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgepvdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedupdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrk
+ hgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqmhhsmhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhg
 X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_071523_526656_1DFC4ED1 
-X-CRM114-Status: GOOD (  19.28  )
+X-CRM114-CacheID: sfid-20250425_071524_134800_EEF02D24 
+X-CRM114-Status: GOOD (  20.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,137 +103,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ability to describe the physical ports of Ethernet devices is useful
-to describe multi-port devices, as well as to remove any ambiguity with
-regard to the nature of the port.
-
-Moreover, describing ports allows for a better description of features
-that are tied to connectors, such as PoE through the PSE-PD devices.
-
-Introduce a binding to allow describing the ports, for now with 2
-attributes :
-
- - The number of lanes, which is a quite generic property that allows
-   differentating between multiple similar technologies such as BaseT1
-   and "regular" BaseT (which usually means BaseT4).
-
- - The media that can be used on that port, such as BaseT for Twisted
-   Copper, BaseC for coax copper, BaseS/L for Fiber, BaseK for backplane
-   ethernet, etc. This allows defining the nature of the port, and
-   therefore avoids the need for vendor-specific properties such as
-   "micrel,fiber-mode" or "ti,fiber-mode".
-
-The port description lives in its own file, as it is intended in the
-future to allow describing the ports for phy-less devices.
+With the phy_port representation intrduced, we can use .attach_port to
+populate the port information based on either the straps or the
+ti,fiber-mode property. This allows simplifying the probe function and
+allow users to override the strapping configuration.
 
 Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- .../bindings/net/ethernet-connector.yaml      | 47 +++++++++++++++++++
- .../devicetree/bindings/net/ethernet-phy.yaml | 18 +++++++
- MAINTAINERS                                   |  1 +
- 3 files changed, 66 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/net/ethernet-connector.yaml
+ drivers/net/phy/dp83822.c | 70 ++++++++++++++++++++++++---------------
+ 1 file changed, 44 insertions(+), 26 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/net/ethernet-connector.yaml b/Documentation/devicetree/bindings/net/ethernet-connector.yaml
-new file mode 100644
-index 000000000000..2aa28e6c1523
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/ethernet-connector.yaml
-@@ -0,0 +1,47 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/ethernet-connector.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Generic Ethernet Connector
-+
-+maintainers:
-+  - Maxime Chevallier <maxime.chevallier@bootlin.com>
-+
-+description:
-+  An Ethernet Connectr represents the output of a network component such as
-+  a PHY, an Ethernet controller with no PHY, or an SFP module.
-+
-+properties:
-+
-+  lanes:
-+    description:
-+      Defines the number of lanes on the port, that is the number of physical
-+      channels used to convey the data with the link partner.
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+
-+  media:
-+    description:
-+      The mediums, as defined in 802.3, that can be used on the port.
-+    items:
-+      enum:
-+        - BaseT
-+        - BaseK
-+        - BaseS
-+        - BaseC
-+        - BaseL
-+        - BaseD
-+        - BaseE
-+        - BaseF
-+        - BaseV
-+        - BaseMLD
-+        - BaseX
-+
-+required:
-+  - lanes
-+  - media
-+
-+additionalProperties: true
-+
-+...
-diff --git a/Documentation/devicetree/bindings/net/ethernet-phy.yaml b/Documentation/devicetree/bindings/net/ethernet-phy.yaml
-index 71e2cd32580f..6bf670beb66f 100644
---- a/Documentation/devicetree/bindings/net/ethernet-phy.yaml
-+++ b/Documentation/devicetree/bindings/net/ethernet-phy.yaml
-@@ -277,6 +277,17 @@ properties:
+diff --git a/drivers/net/phy/dp83822.c b/drivers/net/phy/dp83822.c
+index 490c9f4e5d4e..bbbe509f3bd9 100644
+--- a/drivers/net/phy/dp83822.c
++++ b/drivers/net/phy/dp83822.c
+@@ -11,6 +11,7 @@
+ #include <linux/module.h>
+ #include <linux/of.h>
+ #include <linux/phy.h>
++#include <linux/phy_port.h>
+ #include <linux/netdevice.h>
+ #include <linux/bitfield.h>
  
-     additionalProperties: false
+@@ -814,17 +815,6 @@ static int dp83822_of_init(struct phy_device *phydev)
+ 	int i, ret;
+ 	u32 val;
  
-+  mdi:
-+    type: object
-+
-+    patternProperties:
-+      '^connector-[a-f0-9]+$':
-+        $ref: /schemas/net/ethernet-connector.yaml#
-+
-+        unevaluatedProperties: false
-+
-+    additionalProperties: false
-+
- required:
-   - reg
+-	/* Signal detection for the PHY is only enabled if the FX_EN and the
+-	 * SD_EN pins are strapped. Signal detection can only enabled if FX_EN
+-	 * is strapped otherwise signal detection is disabled for the PHY.
+-	 */
+-	if (dp83822->fx_enabled && dp83822->fx_sd_enable)
+-		dp83822->fx_signal_det_low = device_property_present(dev,
+-								     "ti,link-loss-low");
+-	if (!dp83822->fx_enabled)
+-		dp83822->fx_enabled = device_property_present(dev,
+-							      "ti,fiber-mode");
+-
+ 	if (!device_property_read_string(dev, "ti,gpio2-clk-out", &of_val)) {
+ 		if (strcmp(of_val, "mac-if") == 0) {
+ 			dp83822->gpio2_clk_out = DP83822_CLK_SRC_MAC_IF;
+@@ -953,6 +943,47 @@ static int dp83822_read_straps(struct phy_device *phydev)
+ 	return 0;
+ }
  
-@@ -313,5 +324,12 @@ examples:
-                     default-state = "keep";
-                 };
-             };
++static int dp83822_attach_port(struct phy_device *phydev, struct phy_port *port)
++{
++	struct dp83822_private *dp83822 = phydev->priv;
++	struct device *dev = &phydev->mdio.dev;
++	int ret;
 +
-+            mdi {
-+              connector-0 {
-+                lanes = <2>;
-+                media = "BaseT";
-+              };
-+            };
-         };
-     };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 82e4b96030df..0a400524e578 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -8769,6 +8769,7 @@ R:	Russell King <linux@armlinux.org.uk>
- L:	netdev@vger.kernel.org
- S:	Maintained
- F:	Documentation/ABI/testing/sysfs-class-net-phydev
-+F:	Documentation/devicetree/bindings/net/ethernet-connector.yaml
- F:	Documentation/devicetree/bindings/net/ethernet-phy.yaml
- F:	Documentation/devicetree/bindings/net/mdio*
- F:	Documentation/devicetree/bindings/net/qca,ar803x.yaml
++	if (port->mediums) {
++		if (phy_port_is_fiber(port))
++			dp83822->fx_enabled = true;
++	} else {
++		ret = dp83822_read_straps(phydev);
++		if (ret)
++			return ret;
++
++#ifdef CONFIG_OF_MDIO
++		if (dp83822->fx_enabled && dp83822->fx_sd_enable)
++			dp83822->fx_signal_det_low =
++				device_property_present(dev, "ti,link-loss-low");
++
++		/* ti,fiber-mode is still used for backwards compatibility, but
++		 * has been replaced with the mdi node definition, see
++		 * ethernet-port.yaml
++		 */
++		if (!dp83822->fx_enabled)
++			dp83822->fx_enabled =
++				device_property_present(dev, "ti,fiber-mode");
++#endif
++
++		if (dp83822->fx_enabled) {
++			port->lanes = 1;
++			port->mediums = BIT(ETHTOOL_LINK_MEDIUM_BASEF);
++		} else {
++			/* This PHY can only to 100BaseTX max, so on 2 lanes */
++			port->lanes = 2;
++			port->mediums = BIT(ETHTOOL_LINK_MEDIUM_BASET);
++		}
++	}
++
++	return 0;
++}
++
+ static int dp8382x_probe(struct phy_device *phydev)
+ {
+ 	struct dp83822_private *dp83822;
+@@ -971,27 +1002,13 @@ static int dp8382x_probe(struct phy_device *phydev)
+ 
+ static int dp83822_probe(struct phy_device *phydev)
+ {
+-	struct dp83822_private *dp83822;
+ 	int ret;
+ 
+ 	ret = dp8382x_probe(phydev);
+ 	if (ret)
+ 		return ret;
+ 
+-	dp83822 = phydev->priv;
+-
+-	ret = dp83822_read_straps(phydev);
+-	if (ret)
+-		return ret;
+-
+-	ret = dp83822_of_init(phydev);
+-	if (ret)
+-		return ret;
+-
+-	if (dp83822->fx_enabled)
+-		phydev->port = PORT_FIBRE;
+-
+-	return 0;
++	return dp83822_of_init(phydev);
+ }
+ 
+ static int dp83826_probe(struct phy_device *phydev)
+@@ -1175,6 +1192,7 @@ static int dp83822_led_hw_control_get(struct phy_device *phydev, u8 index,
+ 		.led_hw_is_supported = dp83822_led_hw_is_supported,	\
+ 		.led_hw_control_set = dp83822_led_hw_control_set,	\
+ 		.led_hw_control_get = dp83822_led_hw_control_get,	\
++		.attach_port = dp83822_attach_port		\
+ 	}
+ 
+ #define DP83825_PHY_DRIVER(_id, _name)				\
 -- 
 2.49.0
 
