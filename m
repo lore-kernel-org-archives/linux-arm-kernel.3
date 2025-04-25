@@ -4,98 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C560FC369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 11:46:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10C4AC369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 11:48:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ChdTpyiBERGIAfldIaUrLriDMIwYpCUiYFRLP6gx53Y=; b=xvn+WOEJdHXkrFmKTCDYYCuRZO
-	+BcFFWOWUatcU/OzvwxET7huhUGnw2KJT/oPlgVzKlETYbKJispvrn91kAYVnXctQaiowjN6UNnSG
-	p0bO6cbNe9l1MESr6VsqtM8DjgvLhC+snOn3TjvM775tDcpPySRJPwOoXk0rFCsmWa11yb8TuYOkQ
-	iF8y7ttTzaQcR+665KztYHX/80cjBTuphUpdO99+EjIg4JAvvGkaKj+CyI1ifFxzAOOCYkavTxrGU
-	VcyFHGXbqDwLi1z2kNKHT8jo0WdlCutLOAx+5EW/mrXMJ9FmeQcCbC3Id3XRcJ6ghWZytVOGbmJUb
-	gSVFmOww==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qtgU1WOXpOKgLGgZrNJLTIThCMPkblkediAeOcnKwxc=; b=VOLTzwajMeeTcROSx/KwGDZUBP
+	oZu+7zfzONH5gnlj65z9SR0smVh44PkTSDE+wHIMe4IF0IPtkNo4p1MUPpKGug3UOajBH89inUUdd
+	JMbL/QqjADaJkS45jlCuXWCGCpB5HGVEvHYW1IDuH5BeRQP0we7xiXXiXdG9WWrdM7aA6cjvHj1nI
+	K/vnaOxyFyLNROtoy6PUnCEL+J+ZflcmnGuXdmG0GKqRSXsGq0HuxYmjzFejf+tDLWBs9u6roiKec
+	FVMVP2HUdkwseA1u5ALZ69lfrriij9Hs9j1kT2hVcCuft1aWvEKZLJDG6r/H+qlwG9yyKy0ZwygbU
+	JnT41Yng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8HVj-0000000H0y1-3nUM;
-	Fri, 25 Apr 2025 11:46:27 +0000
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	id 1u8HXY-0000000H18O-2mS4;
+	Fri, 25 Apr 2025 11:48:20 +0000
+Received: from out-184.mta0.migadu.com ([91.218.175.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8FHU-0000000GWh2-41Z0
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 09:23:38 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.235])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4ZkS7F5jgPz4f3lW3
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 17:23:05 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.112])
-	by mail.maildlp.com (Postfix) with ESMTP id 542C61A06DC
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 17:23:31 +0800 (CST)
-Received: from [10.67.111.192] (unknown [10.67.111.192])
-	by APP1 (Coremail) with SMTP id cCh0CgAHanqRVAtoENpoKQ--.39960S2;
-	Fri, 25 Apr 2025 17:23:30 +0800 (CST)
-Message-ID: <2f13f928-9148-44e0-a44c-872a3779b0ef@huaweicloud.com>
-Date: Fri, 25 Apr 2025 17:23:29 +0800
+	id 1u8FKG-0000000GXBp-1fsC;
+	Fri, 25 Apr 2025 09:26:31 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1745573181;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=qtgU1WOXpOKgLGgZrNJLTIThCMPkblkediAeOcnKwxc=;
+	b=oWIYJ4sP2DQejiriCy+X853nBC07WvAU2/mW0mAkccyyiFTMK0Ndk3bYoDowxudxe+82kJ
+	uHu9QtMrjKt6Pg97/+BA4FIpd6XL2T2nJRr0J3jCUBuSzKUMhBj9vHKwkFoZ/ubpXSTJ9/
+	/20qn/eHopqpOOZdXID7eaWapvAEfjdX8qNu67Vh5likLF3e2ITcz/7CKqe3eKi775kIbX
+	TiNgnVHZB5fHfs4KY/VM6Juk1lF6jLIZG9anh3imLgQNbG8FIWUWXZuBizvvXDgYjiTSxB
+	UZtPPuMDNUr1TWP4SoiTtRhd+KdwiioNP62GrRkBp6b2nv6zyOCKOfFZO2EBLg==
+From: Diederik de Haas <didi.debian@cknow.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: Dragan Simic <dsimic@manjaro.org>,
+	Dang Huynh <danct12@riseup.net>,
+	Johan Jonker <jbx6244@gmail.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Diederik de Haas <didi.debian@cknow.org>
+Subject: [PATCH 0/4] Add vcc-supply to SPI flash on Pine64 devices + Rock 5B
+Date: Fri, 25 Apr 2025 10:44:40 +0200
+Message-ID: <20250425092601.56549-1-didi.debian@cknow.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC bpf-next 1/4] bpf: add struct largest member size in
- func model
-Content-Language: en-US
-To: =?UTF-8?Q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
- Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Cc: Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>,
- John Fastabend <john.fastabend@gmail.com>,
- Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
- <martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>,
- Song Liu <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>,
- KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
- Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
- Puranjay Mohan <puranjay@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Florent Revest <revest@chromium.org>,
- Bastien Curutchet <bastien.curutchet@bootlin.com>, ebpf@linuxfoundation.org,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, bpf@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kselftest@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
-References: <20250411-many_args_arm64-v1-0-0a32fe72339e@bootlin.com>
- <20250411-many_args_arm64-v1-1-0a32fe72339e@bootlin.com>
- <CAEf4Bzbn6BdXTOb0dTcsQmOMZpp5=DzGS2hHHQ3+dwcja=gv+w@mail.gmail.com>
- <D98Q8BRNUVS9.11J60C67L1ALR@bootlin.com>
- <CAEf4BzZHMYyGDZ4c4eNXG7Fm=ecxCCbKhKbQTbCjvWmKtdwvBw@mail.gmail.com>
- <D9E9IQQ3QKXM.3UJ17G9CBS1FH@bootlin.com>
- <6b6472c3-0718-4e60-9972-c166d51962a3@huaweicloud.com>
- <D9EWSDXHDGFJ.FIDSHIR1OP80@bootlin.com>
-From: Xu Kuohai <xukuohai@huaweicloud.com>
-In-Reply-To: <D9EWSDXHDGFJ.FIDSHIR1OP80@bootlin.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: cCh0CgAHanqRVAtoENpoKQ--.39960S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxAw4DtFW8Gry3urWkury7trb_yoW5Ar48pF
-	WftFyktrs7GF1xZF1qqw4IvFWDtwsxKr18W3yDtr18Aws0q3saqr1jkF1Y9FWxKw1kWw47
-	XayY9ayxCFy5ZrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUv0b4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
-	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
-	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
-	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
-	14v26r4a6rW5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
-	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVW8ZVWr
-	XwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x
-	0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_
-	Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU0
-	4xRDUUUUU==
-X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_022337_318942_58ABAE34 
-X-CRM114-Status: GOOD (  19.53  )
+X-CRM114-CacheID: sfid-20250425_022629_766225_92C01C97 
+X-CRM114-Status: UNSURE (   4.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,90 +78,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/24/2025 9:38 PM, Alexis Lothoré wrote:
-> Hi Xu,
-> 
-> On Thu Apr 24, 2025 at 2:00 PM CEST, Xu Kuohai wrote:
->> On 4/24/2025 3:24 AM, Alexis Lothoré wrote:
->>> Hi Andrii,
->>>
->>> On Wed Apr 23, 2025 at 7:15 PM CEST, Andrii Nakryiko wrote:
->>>> On Thu, Apr 17, 2025 at 12:14 AM Alexis Lothoré
->>>> <alexis.lothore@bootlin.com> wrote:
->>>>>
->>>>> Hi Andrii,
->>>>>
->>>>> On Wed Apr 16, 2025 at 11:24 PM CEST, Andrii Nakryiko wrote:
->>>>>> On Fri, Apr 11, 2025 at 1:32 PM Alexis Lothoré (eBPF Foundation)
->>>>>> <alexis.lothore@bootlin.com> wrote:
-> 
-> [...]
-> 
->>> Thanks for the pointer, I'll take a look at it. The more we discuss this
->>> series, the less member size sounds relevant for what I'm trying to achieve
->>> here.
->>>
->>> Following Xu's comments, I have been thinking about how I could detect the
->>> custom alignments and packing on structures, and I was wondering if I could
->>> somehow benefit from __attribute__ encoding in BTF info ([1]). But
->>> following your hint, I also see some btf_is_struct_packed() in
->>> tools/lib/bpf/btf_dump.c that could help. I'll dig this further and see if
->>> I can manage to make something work with all of this.
->>>
->>
->> With DWARF info, we might not need to detect the structure alignment anymore,
->> since the DW_AT_location attribute tells us where the structure parameter is
->> located on the stack, and DW_AT_byte_size gives us the size of the structure.
-> 
-> I am not sure to follow you here, because DWARF info is not accessible
-> from kernel at runtime, right ? Or are you meaning that we could, at build
-> time, enrich the BTF info embedded in the kernel thanks to DWARF info ?
->
+The vcc-supply property was added to "jedec,spi-nor" binding in commit:
+e7f4e924f46d ("dt-bindings: mtd: jedec,spi-nor: add optional vcc-supply")
 
-Sorry for the confusion.
+which resulted in the following warning:
+  spi-nor spiN.0: supply vcc not found, using dummy regulator
 
-What I meant is that there are two DWARF attributes, DW_AT_location and
-DW_AT_byte_size, which tell us the position and size of function parameters.
+Fix that by specifying the vcc-supply property.
 
-For the example earlier:
+Diederik de Haas (4):
+  arm64: dts: rockchip: Add vcc-supply to SPI flash on rk3328-rock64
+  arm64: dts: rockchip: Add vcc-supply to SPI flash on rk3399-rockpro64
+  arm64: dts: rockchip: Add vcc-supply to SPI flash on rk3566-pinetab2
+  arm64: dts: rockchip: Add vcc-supply to SPI flash on rk3588-rock-5b
 
-struct s2 {
-       __int128 x;
-} __attribute__((aligned(64)));
+ arch/arm64/boot/dts/rockchip/rk3328-rock64.dts     | 1 +
+ arch/arm64/boot/dts/rockchip/rk3399-rockpro64.dtsi | 1 +
+ arch/arm64/boot/dts/rockchip/rk3566-pinetab2.dtsi  | 1 +
+ arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts    | 1 +
+ 4 files changed, 4 insertions(+)
 
-int f2(__int128 a, __int128 b, __int128 c, int64_t d, __int128 e, int64_t f, struct s2 g)
-{
-     return 0;
-}
-
-On my build host, the DW_AT_location attributes for "e", "f", and "g" are:
-
-<2><ee>: Abbrev Number: 2 (DW_TAG_formal_parameter)
-     <ef>   DW_AT_name        : e
-     ...
-     <f6>   DW_AT_location    : 2 byte block: 91 0       (DW_OP_fbreg: 0)
-
-<2><f9>: Abbrev Number: 2 (DW_TAG_formal_parameter)
-     <fa>   DW_AT_name        : f
-      ...
-     <101>   DW_AT_location    : 2 byte block: 91 10     (DW_OP_fbreg: 16)
-
-<2><104>: Abbrev Number: 2 (DW_TAG_formal_parameter)
-     <105>   DW_AT_name        : g
-      ...
-     <10c>   DW_AT_location    : 2 byte block: 83 0      (DW_OP_breg19 (x19): 0)
-
-We can see "e" and "f" are at fp+0 and fp+16, but "g" is in x19+0. Disassembly shows x19
-holds a 64-byte aligned stack address.
-
-For the two questions you mentioned, I’m not sure if we can access DWARF attributes
-at runtime. As for adding parameter locations to BTF at building time, I think it
-means we would need to record CPU-related register info in BTF, which I don’t think
-is a good idea.
-
-> Thanks,
-> 
-> Alexis
-> 
+-- 
+2.49.0
 
 
