@@ -4,109 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 688C4C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 11:37:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ECDEC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 11:39:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dlGoB/HUZg4yDoY5L3zieLRRojeVT0zMfmIc8y47oNU=; b=f2DFuZ24ZojO9kNZ2RnmxDmiV5
-	sxtKlLiB197C0P2VP2L6L72XSnvteXLgBUWXQHMNoGYNfGvzvbUGGIm3cAYYqgK8ichEsLG/A0kCd
-	5YsRKo3Z588/a26enBKZBI7oedDpH9kANOQCvzIifVAnu7taE7Juzd7zJ6P6ekMlQjTKVDGeh5Vfm
-	6yGyJmHu0c/Nhs9LGHYQrbSCMSxo6Fc5jYlfaZjUaw91+i5Z4NstlO4M5drZBwn5Mzp3EiTIEGXP8
-	wqGdaoMCJoP/D67287PVVq0xRBSsTr9Bis3JP/5dOmYRnYiT0oilm55pqNYkJUOXM0gRwN8kVkLhZ
-	WZ1OzmtQ==;
+	bh=Tutt6eagRxJuPN7X8o/NsRKZE0Ge167UC+E2Dn9IrtE=; b=YIm/KOrIY9JGJD7AiJV4E/Xg1e
+	zIoWW4Ai8dF1xO1XjlDj9ERISq5oCMWo+M1Q/fveVZIdbfSTmB7bhmYAjxBgRjfcF/vfbBIyrczyh
+	uatn/7OYl5hBp7YbBL/EhZpXB2cQw4nuJP+sXs9GBB13W9TEHAIzYt7MIPb0POTEWYWe7blsmh+Ql
+	ZQ6D1y0NKhVPUjMvGS1S0Y0TPA2ANCvXjYeemblcdVSKNJ0PlYPV65VoYYV+qQgXnZamX+nb0D3Rc
+	r1PYniCYhUZSgU2tDoFkomghoOMsagoRbklzxoy71AzYSFLP6I4wFrwj2fwvriweK+CRI5UWevjnJ
+	LWd4j5zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8HMb-0000000GzNl-2swN;
-	Fri, 25 Apr 2025 11:37:01 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8F36-0000000GUE8-0edY
+	id 1u8HOQ-0000000GzcN-2OZz;
+	Fri, 25 Apr 2025 11:38:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u8F4X-0000000GUWB-1uT8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 09:08:46 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-39d83782ef6so2202902f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 02:08:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1745572123; x=1746176923; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=dlGoB/HUZg4yDoY5L3zieLRRojeVT0zMfmIc8y47oNU=;
-        b=kg7wfMB4PumYXfdO+cpkA0XiC6PqlNk44AMQyWrEezyb7kHZM00ITmUqZKBb0vYXgi
-         tfKc+obhUg4wByvzbWTOcELFE2GY5EV0srWKpb6FbXpace/tPzegpSXToUcv0lc0Qk74
-         vzNWYlY0ALWfgbkL3Io2i8LYSVT/RrVwCNM9eah3TcfyZa2Wuhoa0kAMpZhgYkuR9ppg
-         XnNQuQUwIhpk8UAicTb78LTIcMKx6qWla47J7+Qg1+8h+Hv0yBxPwDsf/mbhp65IGboT
-         Pkv0yYnlD3L75ptaivVugNexZFOLaQJc+EUUm0K5l4QA1kcWMqPS4uUDz1MW77jXMY+K
-         Ibvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745572123; x=1746176923;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=dlGoB/HUZg4yDoY5L3zieLRRojeVT0zMfmIc8y47oNU=;
-        b=lT8XPGiTvsliDHccvjw8TGQu9OXT9LJlcxQ9CA1QRApAuxeNhWDCuuN7GGRyqZSx8o
-         KCBpQ01Bl/USPl9A3y/xZ21E/TFcnU0GZAkgzzd4MFWBdBrQqynvM3VPBie0upGspnwl
-         jFc6OLcWnslCkqLZK3HQJKmD/ggV+34O5UD2niD9FExx1akOoKZaxqkKIwVUCB3MyJwk
-         ohYbuYKqQY367VWepSuvBXRnJYhKqjsowfORBc9YADvnDWkEedx3i7wc+e0IdK2jzFbc
-         n8epWczyLlXGc/j0nJEeD5RrdhBAoy+DVD+YH4bS/BKNAtmleDsFDS+6S7D8HDw6lhgY
-         /uVg==
-X-Gm-Message-State: AOJu0Yz6dFbjcl5ovO86MCPfMJoW9e3nKjRoW2kiY7vMFFEw7ur6DgXp
-	i+JXyLnT1MoBgcLhddOJQpSyWTxuLsXHuasF3mWl5tjNBQLf6JiejHqZTfnFz0V16/b50L8wC3T
-	gGtI=
-X-Gm-Gg: ASbGnctdHWltFEhaOYmaYU9bI+SQDsVaN95i4NecVTzXfSzX3dv0rbIy/CpYDtxkYnR
-	9qTvDTuIZLdcuGHQrAqezYGsz+gohl/PTE6uY8IfbPHhKoEsZBoktOExgw5+uxxONZZPJ03ULyz
-	YLWgWzbKXTh7aroxnPton2HwKe2tFMhB6rD2SdSNAA75IFOcfV/rmM1jJs2OOjf+TPTRGnRjHnP
-	K/jgiv7wVBLtk0l2f9z8dk6YdmtTVE3qWk7ikPYZ/CioZ099nVvS3StC0MvepTkjdSV9LxPcW/t
-	OihuYa0qE1VmhfdcaBKrnkQcNOXykdWgOQ==
-X-Google-Smtp-Source: AGHT+IG+vaC7MmgQ1lY8Xs/s97F/M6Om983foVEu9vVfhXq+DCq1sUbfXts/z/dMaAJgf6ogHaPHXQ==
-X-Received: by 2002:a05:6000:4285:b0:38d:e0a9:7e5e with SMTP id ffacd0b85a97d-3a06d641ee8mr5322988f8f.6.1745572122724;
-        Fri, 25 Apr 2025 02:08:42 -0700 (PDT)
-Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:3f35:2b31:c543:726d])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a073e5c9cdsm1688909f8f.87.2025.04.25.02.08.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Apr 2025 02:08:40 -0700 (PDT)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Fri, 25 Apr 2025 11:08:31 +0200
-Subject: [PATCH 3/3] pinctrl: bcm2835: use new GPIO line value setter
- callbacks
+	Fri, 25 Apr 2025 09:10:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0B96D106F;
+	Fri, 25 Apr 2025 02:10:07 -0700 (PDT)
+Received: from [10.163.51.18] (unknown [10.163.51.18])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BF7573F59E;
+	Fri, 25 Apr 2025 02:10:09 -0700 (PDT)
+Message-ID: <fc8c2bc3-210a-4cf0-a61a-ce919239b0a1@arm.com>
+Date: Fri, 25 Apr 2025 14:40:06 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V2] arm64/mm: Re-organise setting up FEAT_S1PIE registers
+ PIRE0_EL1 and PIR_EL1
+To: Ryan Roberts <ryan.roberts@arm.com>, linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
+ linux-kernel@vger.kernel.org
+References: <20250416035604.2717188-1-anshuman.khandual@arm.com>
+ <fbba5d43-d740-401a-b5c5-9dfc222db5c4@arm.com>
+ <c0c95b67-2dec-43f1-8f3a-0e1e624292bf@arm.com>
+ <7996ef9d-4872-44de-893e-ffe4bec07d5e@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <7996ef9d-4872-44de-893e-ffe4bec07d5e@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250425-gpiochip-set-rv-pinctrl-bcm-v1-3-6b8883d79b66@linaro.org>
-References: <20250425-gpiochip-set-rv-pinctrl-bcm-v1-0-6b8883d79b66@linaro.org>
-In-Reply-To: <20250425-gpiochip-set-rv-pinctrl-bcm-v1-0-6b8883d79b66@linaro.org>
-To: Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, 
- Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1810;
- i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=aKxxveH0C+uR174fNORC/elug/yziUniASTqQNWz9nc=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoC1EPXzEnCILbRcigkhvMXKkn4wcX8TtqvQacB
- KB7TBd1QxiJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaAtRDwAKCRARpy6gFHHX
- cmUiD/9yZv6dvT2Wc+LvJ58hLcbjZISnPBDhqi6UcP6kX2qjRFckiM8hGhHOQymPP4CMm0Io3FB
- 3vhD5qFTWMyUqVB20hNF8fzxFSAF7z1w2CZ78upNY4Ty8iYKY6iXlZkTb4/I2vkUQElKJc/FKuz
- ll539+UounWRewqOlHwUdLlhdIg/p3K6dVzXwe7zVGhLh4xnvbHm8w0mOjziSgYepKhgDfG2h/e
- kECtA453bSJM8Krn7c8+9i/W7S50XLMt+8Q/uK5eerfg2Ix595UQNVT8wwygug0q0ex9i2nJPxS
- kLljtjYkeCbEzhpHvXPszQKP8S3ACP7Upcx60XQ32TFPKnlOnt34eNH5XnLRbhgMA44mfrVToIF
- b4bfmC1mhk9vjJmDe95jXH94+nOr5C/u8C17k5eoxpGwd/dzJISDfRBBfNPJou45LONB2eNPoBw
- 07rSsnepk1PHd2FzBRPi2yebyN6YD7VmyRqSU6uDB/GyaCM+V/6Fdkj+6YzN5qezh314hAUT3Hg
- Ua7v8riePOMzxWiQIJGaMQmNjAC6gHILJn+73Fe4sEXX756CFMp9EyAIYp5KffDuBwm2uP9ktkg
- xTJ9J0vBSw5fxWyfFhVBhP2ijqhpM/l94+zEJuw11XNTxhheJTSyayQWYB0i8TW7Dd34VOtqoFE
- HAHE0Qmyq/keRLw==
-X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
- fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_020844_190833_242DAF9F 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20250425_021013_589714_8856302A 
+X-CRM114-Status: GOOD (  23.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,57 +69,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-struct gpio_chip now has callbacks for setting line values that return
-an integer, allowing to indicate failures. Convert the driver to using
-them.
 
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
----
- drivers/pinctrl/bcm/pinctrl-bcm2835.c | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
+On 4/24/25 17:35, Ryan Roberts wrote:
+> On 24/04/2025 12:00, Anshuman Khandual wrote:
+>>
+>>
+>> On 4/24/25 15:37, Ryan Roberts wrote:
+>>> On 16/04/2025 04:56, Anshuman Khandual wrote:
+>>>> mov_q cannot really move PIE_E[0|1] macros into a general purpose register
+>>>> as expected if those macro constants contain some 128 bit layout elements,
+>>>> that are required for D128 page tables. The primary issue is that for D128,
+>>>> PIE_E[0|1] are defined in terms of 128-bit types with shifting and masking,
+>>>> which the assembler can't accommodate.
+>>>>
+>>>> Instead pre-calculate these PIRE0_EL1/PIR_EL1 constants into asm-offsets.h
+>>>> based PIE_E0_ASM/PIE_E1_ASM which can then be used in arch/arm64/mm/proc.S.
+>>>>
+>>>> While here also move PTE_MAYBE_NG/PTE_MAYBE_SHARED assembly overrides into
+>>>> arch/arm64/kernel/asm-offsets.c to ensure PIRE0_EL1/PIR_EL1 are calculated
+>>>> in assembly without arm64_use_ng_mappings and lpa2_is_enabled() symbols
+>>>> being accessible. Also move the corresponding comment as well.
+>>>>
+>>>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>>>> Cc: Will Deacon <will@kernel.org>
+>>>> Cc: Mark Rutland <mark.rutland@arm.com>
+>>>> Cc: Ard Biesheuvel <ardb@kernel.org>
+>>>> Cc: Ryan Roberts <ryan.roberts@arm.com>
+>>>> Cc: linux-arm-kernel@lists.infradead.org
+>>>> Cc: linux-kernel@vger.kernel.org
+>>>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>>>> ---
+>>>> This patch applies on v6.15-rc2
+>>>>
+>>>> Changes in V2:
+>>>>
+>>>> - Added asm-offsets.c based PIE_E0_ASM and PIE_E1_ASM symbols as per Ard
+>>>> - Moved PTE_MAYBE_NG and PTE_MAYBE_SHARED overrides inside asm-offsets.c
+>>>>   along with the corresponding comment as per Ard
+>>>>
+>>>> Changes in V1:
+>>>>
+>>>> https://lore.kernel.org/linux-arm-kernel/20250410074024.1545768-1-anshuman.khandual@arm.com/
+>>>>
+>>>>  arch/arm64/kernel/asm-offsets.c | 16 ++++++++++++++++
+>>>>  arch/arm64/mm/proc.S            | 19 ++-----------------
+>>>>  2 files changed, 18 insertions(+), 17 deletions(-)
+>>>>
+>>>> diff --git a/arch/arm64/kernel/asm-offsets.c b/arch/arm64/kernel/asm-offsets.c
+>>>> index eb1a840e4110..5b99a78f6882 100644
+>>>> --- a/arch/arm64/kernel/asm-offsets.c
+>>>> +++ b/arch/arm64/kernel/asm-offsets.c
+>>>> @@ -182,5 +182,21 @@ int main(void)
+>>>>  #ifdef CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
+>>>>    DEFINE(FTRACE_OPS_DIRECT_CALL,	offsetof(struct ftrace_ops, direct_call));
+>>>>  #endif
+>>>> +	/*
+>>>> +	 * The PROT_* macros describing the various memory types may resolve to
+>>>> +	 * C expressions if they include the PTE_MAYBE_* macros, and so they
+>>>> +	 * can only be used from C code. The PIE_E* constants below are also
+>>>> +	 * defined in terms of those macros, but will mask out those
+>>>> +	 * PTE_MAYBE_* constants, whether they are set or not. So #define them
+>>>> +	 * as 0x0 here so we can evaluate the PIE_E* constants in asm context.
+>>>> +	 */
+>>>> +#undef PTE_MAYBE_NG
+>>>> +#define PTE_MAYBE_NG		0
+>>>> +
+>>>> +#undef PTE_MAYBE_SHARED
+>>>> +#define PTE_MAYBE_SHARED	0
+>>>
+>>> My toolchain at least is smart enough to figure out that the bits of interest in
+>>> PIE_E1 are all contstant so it works without this hack.
+>>>
+>>> I'd prefer to drop this hack on that basis. Or if there are issues with other
+>>> toolchains that mean we need to keep it, I think the wording of the comment
+>>
+>> So could we keep these for some more time and later drop them off just to be
+>> on the safer side ?
+> 
+> What exactly is your concern? That some toolchains might not be so smart? But
+> that same risk exists when we eventually drop the hack, so why not just do it now?
+> 
+> TBH, I imagine that it's spec'ed to work like this by the C standard, in which
+> case you would definitely be safe.
+> 
+> I checked with and without the hack and it gives the same answer both times:
+> 
+> 	#define PIE_E0_ASM 5769270003974144000 /* PIE_E0 */
+> 	#define PIE_E1_ASM -3708698853797527552 /* PIE_E1 */
 
-diff --git a/drivers/pinctrl/bcm/pinctrl-bcm2835.c b/drivers/pinctrl/bcm/pinctrl-bcm2835.c
-index eaeec096bc9a..826827800474 100644
---- a/drivers/pinctrl/bcm/pinctrl-bcm2835.c
-+++ b/drivers/pinctrl/bcm/pinctrl-bcm2835.c
-@@ -356,11 +356,14 @@ static int bcm2835_gpio_get_direction(struct gpio_chip *chip, unsigned int offse
- 	return GPIO_LINE_DIRECTION_IN;
- }
- 
--static void bcm2835_gpio_set(struct gpio_chip *chip, unsigned offset, int value)
-+static int bcm2835_gpio_set(struct gpio_chip *chip, unsigned int offset,
-+			    int value)
- {
- 	struct bcm2835_pinctrl *pc = gpiochip_get_data(chip);
- 
- 	bcm2835_gpio_set_bit(pc, value ? GPSET0 : GPCLR0, offset);
-+
-+	return 0;
- }
- 
- static int bcm2835_gpio_direction_output(struct gpio_chip *chip,
-@@ -394,7 +397,7 @@ static const struct gpio_chip bcm2835_gpio_chip = {
- 	.direction_output = bcm2835_gpio_direction_output,
- 	.get_direction = bcm2835_gpio_get_direction,
- 	.get = bcm2835_gpio_get,
--	.set = bcm2835_gpio_set,
-+	.set_rv = bcm2835_gpio_set,
- 	.set_config = gpiochip_generic_config,
- 	.base = -1,
- 	.ngpio = BCM2835_NUM_GPIOS,
-@@ -411,7 +414,7 @@ static const struct gpio_chip bcm2711_gpio_chip = {
- 	.direction_output = bcm2835_gpio_direction_output,
- 	.get_direction = bcm2835_gpio_get_direction,
- 	.get = bcm2835_gpio_get,
--	.set = bcm2835_gpio_set,
-+	.set_rv = bcm2835_gpio_set,
- 	.set_config = gpiochip_generic_config,
- 	.base = -1,
- 	.ngpio = BCM2711_NUM_GPIOS,
+Alright, will drop these PTE_MAYBE_* defines.
 
--- 
-2.45.2
-
+> 
+>>
+>>> should be changed since we are now in C code so the "can only be used from C
+>>> code" bit doesn't really make sense.
+>>
+>> Dropped that. Does this look better ?
+>>
+>> 	/*
+>> 	 * The PROT_* macros describing the various memory types may resolve
+>> 	 * to C expressions if they include the PTE_MAYBE_* macros. The PIE_E*
+>> 	 * constants below are also defined in terms of those macros, but will
+>> 	 * mask out those PTE_MAYBE_* constants, whether they are set or not.
+>> 	 * So #define them as 0x0 here so we can evaluate the PIE_E* constants
+>> 	 * in asm context.
+>>  	 */
+> 
+> Yeah that works if leaving it in.
+> 
+>>
+>>>
+>>> Thanks,
+>>> Ryan
+>>>
+>>>> +
+>>>> +  DEFINE(PIE_E0_ASM, PIE_E0);
+>>>> +  DEFINE(PIE_E1_ASM, PIE_E1);
+>>>>    return 0;
+>>>>  }
+>>>> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
+>>>> index fb30c8804f87..80d470aa469d 100644
+>>>> --- a/arch/arm64/mm/proc.S
+>>>> +++ b/arch/arm64/mm/proc.S
+>>>> @@ -512,26 +512,11 @@ alternative_else_nop_endif
+>>>>  	ubfx	x1, x1, #ID_AA64MMFR3_EL1_S1PIE_SHIFT, #4
+>>>>  	cbz	x1, .Lskip_indirection
+>>>>  
+>>>> -	/*
+>>>> -	 * The PROT_* macros describing the various memory types may resolve to
+>>>> -	 * C expressions if they include the PTE_MAYBE_* macros, and so they
+>>>> -	 * can only be used from C code. The PIE_E* constants below are also
+>>>> -	 * defined in terms of those macros, but will mask out those
+>>>> -	 * PTE_MAYBE_* constants, whether they are set or not. So #define them
+>>>> -	 * as 0x0 here so we can evaluate the PIE_E* constants in asm context.
+>>>> -	 */
+>>>> -
+>>>> -#define PTE_MAYBE_NG		0
+>>>> -#define PTE_MAYBE_SHARED	0
+>>>> -
+>>>> -	mov_q	x0, PIE_E0
+>>>> +	mov_q	x0, PIE_E0_ASM
+>>>>  	msr	REG_PIRE0_EL1, x0
+>>>> -	mov_q	x0, PIE_E1
+>>>> +	mov_q	x0, PIE_E1_ASM
+>>>>  	msr	REG_PIR_EL1, x0
+>>>>  
+>>>> -#undef PTE_MAYBE_NG
+>>>> -#undef PTE_MAYBE_SHARED
+>>>> -
+>>>>  	orr	tcr2, tcr2, TCR2_EL1_PIE
+>>>>  	msr	REG_TCR2_EL1, x0
+>>>>  
+>>>
+> 
 
