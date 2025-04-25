@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 142CEC369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 16:11:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66104C369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 16:13:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XQYBdxu34VR0VSrWEORHz7bVPlHkrPo4i9PmBo0cNQk=; b=Gl2nukKlc6FLTwS1ltn6/0Tz9z
-	CzR8hJ5/YDAFHjDpFlE+heOcAfGyRBOSQnPdZWUEKf16m+fQVUByV1fb0YnAr9bwDu6KLMAv3dgCp
-	J1zGryjdounrA/uxhwA8qDEV30IZr/miCTFWDjdv3qM0UFRRpS8z7Bj61f2NPdXnrvyoP/Jhhxh4O
-	M+2PbyN9aufZgI1HTNXB9rQ5IctZgtx5C4Y5kH2EnkJ58e3wD7ikavMeIbaSjeLQ9wlYuJUh22HO5
-	4uegTX8Vik3pcC/S2/4nRkbrd2NUFgR0XJZJiMj2CxeLnK1jh+aLLI/o95WH6gq1LWougP6973soI
-	n+KxZFww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AoE+mQ90cc8FXPpwsEZf1ynry64jLGcjimQNFLDVus0=; b=eDN1Zame+tg5AAP1x37/A8Lp+v
+	u1gPoWLobVcXdCjNz9CtJZUDvBkHDPMqPOxQtTOA2KGZQE2y6AXXCKs7CEpeiw+Bd6R+GfO7kxW89
+	6gBzBtKAg3rbi8ZhzOFkCR6VF2J7T/+Nlcr80CuP9i2Y9FW6qJLb91RwvKzOOUUxexZY2TIeO89Az
+	y+4wwrEUX7FuNhYpiRM3nEqvS3LD4JXdNkxqAqN/dZJ7zQcoPqecOCERjaxTkp9HMdmDMWJkBB2Er
+	ZoM75SOgWNQGJbQWWtS6wZiOjwO4FXo0fiAFs0JmVvCuicWFTTz6pZIUMZeETzqdD0+OjdbkiTgPB
+	zvptZ+JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Le9-00000000A9W-3VRX;
-	Fri, 25 Apr 2025 16:11:25 +0000
-Received: from m16.mail.163.com ([220.197.31.4])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8JvW-0000000HQ1o-1VgC;
-	Fri, 25 Apr 2025 14:21:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:From:
-	Content-Type; bh=XQYBdxu34VR0VSrWEORHz7bVPlHkrPo4i9PmBo0cNQk=;
-	b=KzhEE2qm1q8ynq7e9nb+3UmJpHkBwLvvsVuNDVfC9TNpQr811xVeXyqrM3y6Xc
-	YkpjliF9RF3VLsHI0ZKmn5iULR6+VIOGHXlKIeRZ94WGqpI5dzZg3GR8n1T62qD8
-	3zhebkc3/wl2bWEkSCnn7tYDCiYQPeFPU7HTs33oCDcMk=
-Received: from [192.168.71.89] (unknown [])
-	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wA3mC0vmgto4FqxCQ--.32274S2;
-	Fri, 25 Apr 2025 22:20:32 +0800 (CST)
-Message-ID: <a6e097e4-6d57-4db2-a541-ebd9e4a9856b@163.com>
-Date: Fri, 25 Apr 2025 22:20:30 +0800
+	id 1u8Lg0-00000000APW-0ix4;
+	Fri, 25 Apr 2025 16:13:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u8K5m-0000000HRnl-3Qdc
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Apr 2025 14:31:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AE6034AA46;
+	Fri, 25 Apr 2025 14:31:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF68BC4CEE4;
+	Fri, 25 Apr 2025 14:31:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745591510;
+	bh=UHdGkzvg9C+rC/4JDTJ4Eo9xVcjMOcIroVQ+uX2ZkKo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Ww7C8ZsKD4tFuPg33urvoD8Mi6HYfO7igLvyI8H6RSA+gIkc++dDqq5zwJEOQWHv6
+	 IC7d8VGyWZdvJm/a1ysitlAuoZvSUSKnA8tUTRLYTqGqUZlC/66wTgYdFKmvcB09WQ
+	 JHu2Hz4tsMcsqLBs7/hJ84NaBVkqZRg+Ng2ZK3iELEQ0YdAhmBGLowiP8ydjfSU8AD
+	 Gswte8ufcefAjWDm8BldtUiC8ufT+5PjueQr7huk9eppcvR5bB7mukIuc1ukAqq/PV
+	 sJQS1l5L8RtXewhBkUFiTG5rQvslDb2q470IL1jFRf7OuhVVhsP7ifDS0+ayhA/T5N
+	 XR90PTymwnXwQ==
+Date: Fri, 25 Apr 2025 11:31:47 -0300
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Cc: Junhao He <hejunhao3@huawei.com>, peterz@infradead.org,
+	mingo@redhat.com, namhyung@kernel.org, mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+	irogers@google.com, james.clark@linaro.org, leo.yan@arm.com,
+	john.g.garry@oracle.com, will@kernel.org, mike.leach@linaro.org,
+	yangyicong@hisilicon.com, linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linuxarm@huawei.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 1/3] perf vendor events arm64: Fill up Desc field for
+ Hisi hip08 hha pmu
+Message-ID: <aAuc0xx-WqVKH0d3@x1>
+References: <20250418070812.3771441-1-hejunhao3@huawei.com>
+ <20250418070812.3771441-2-hejunhao3@huawei.com>
+ <20250425120654.00007e4c@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] PCI: Remove redundant MPS configuration
-To: neil.armstrong@linaro.org, lpieralisi@kernel.org, kw@linux.com,
- bhelgaas@google.com, heiko@sntech.de, thomas.petazzoni@bootlin.com,
- manivannan.sadhasivam@linaro.org, yue.wang@Amlogic.com
-Cc: pali@kernel.org, robh@kernel.org, jingoohan1@gmail.com,
- khilman@baylibre.com, jbrunet@baylibre.com,
- martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-rockchip@lists.infradead.org
-References: <20250425095708.32662-1-18255117159@163.com>
- <20250425095708.32662-3-18255117159@163.com>
- <e6752451-4492-4ae2-9bad-3865c4945dbe@linaro.org>
-Content-Language: en-US
-From: Hans Zhang <18255117159@163.com>
-In-Reply-To: <e6752451-4492-4ae2-9bad-3865c4945dbe@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wA3mC0vmgto4FqxCQ--.32274S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxZr4kXF4UKrW7KrW3CryfWFg_yoW5XrWUpF
-	W3uF4SyF48Jr4rWFsFyan5CFWftasIkr9rJr9xGr1xuF9FyFsrJFyayFWF9a4xZr42gFnY
-	yr1Fg347C3Z8tF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UGoGdUUUUU=
-X-Originating-IP: [124.79.128.52]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/1tbiWxI6o2gLk-CiIQABsS
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250425120654.00007e4c@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_072114_783052_1EFD2DAC 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20250425_073150_870981_9729EA92 
+X-CRM114-Status: GOOD (  14.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,75 +80,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2025/4/25 19:59, neil.armstrong@linaro.org wrote:
-> On 25/04/2025 11:57, Hans Zhang wrote:
->> With the PCI core now centrally configuring root port MPS to
->> hardware-supported maximums (via 128 << pcie_mpss) during host probing,
->> platform-specific MPS adjustments are redundant. This patch removes the
->> custom the configuration of the max payload logic to align with the
->> standardized initialization flow.
->>
->> By eliminating redundant code, this change prevents conflicts with global
->> PCIe hierarchy tuning policies and reduces maintenance overhead. The 
->> Meson
->> driver now fully relies on the core PCI framework for MPS configuration,
->> ensuring consistency across the PCIe topology while preserving
->> hardware-specific MRRS handling.
->>
->> Signed-off-by: Hans Zhang <18255117159@163.com>
->> ---
->>   drivers/pci/controller/dwc/pci-meson.c | 17 -----------------
->>   drivers/pci/controller/pci-aardvark.c  |  2 --
->>   2 files changed, 19 deletions(-)
->>
->> diff --git a/drivers/pci/controller/dwc/pci-meson.c 
->> b/drivers/pci/controller/dwc/pci-meson.c
->> index db9482a113e9..126f38ed453d 100644
->> --- a/drivers/pci/controller/dwc/pci-meson.c
->> +++ b/drivers/pci/controller/dwc/pci-meson.c
->> @@ -261,22 +261,6 @@ static int meson_size_to_payload(struct 
->> meson_pcie *mp, int size)
->>       return fls(size) - 8;
->>   }
->> -static void meson_set_max_payload(struct meson_pcie *mp, int size)
->> -{
->> -    struct dw_pcie *pci = &mp->pci;
->> -    u32 val;
->> -    u16 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
->> -    int max_payload_size = meson_size_to_payload(mp, size);
->> -
->> -    val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_DEVCTL);
->> -    val &= ~PCI_EXP_DEVCTL_PAYLOAD;
->> -    dw_pcie_writel_dbi(pci, offset + PCI_EXP_DEVCTL, val);
->> -
->> -    val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_DEVCTL);
->> -    val |= PCIE_CAP_MAX_PAYLOAD_SIZE(max_payload_size);
->> -    dw_pcie_writel_dbi(pci, offset + PCI_EXP_DEVCTL, val);
->> -}
->> -
->>   static void meson_set_max_rd_req_size(struct meson_pcie *mp, int size)
->>   {
->>       struct dw_pcie *pci = &mp->pci;
->> @@ -381,7 +365,6 @@ static int meson_pcie_host_init(struct dw_pcie_rp 
->> *pp)
->>       pp->bridge->ops = &meson_pci_ops;
->> -    meson_set_max_payload(mp, MAX_PAYLOAD_SIZE);
->>       meson_set_max_rd_req_size(mp, MAX_READ_REQ_SIZE);
+On Fri, Apr 25, 2025 at 12:06:54PM +0100, Jonathan Cameron wrote:
+> On Fri, 18 Apr 2025 15:08:10 +0800
+> Junhao He <hejunhao3@huawei.com> wrote:
 > 
-> Seems you can also remove meson_set_max_rd_req_size() since it's
-> done by pcie_write_mrrs()
+> > In the same PMU, when some JSON events have the "BriefDescription" field
+> > populated while others do not, the cmp_sevent() function will split these
+> > two types of events into separate groups. As a result, when using perf
+> > list to display events, the two types of events cannot be grouped together
+> > in the output.
+> > 
+> > before patch:
+> >  $ perf list pmu
+> >  ...
+> >  uncore hha:
+> >    hisi_sccl1_hha2/sdir-hit/
+> >    hisi_sccl1_hha2/sdir-lookup/
+> >  ...
+> >  uncore hha:
+> >    edir-hit
+> >       [Count of The number of HHA E-Dir hit operations. Unit: hisi_sccl1_hha2]
+> >  ...
+> > 
+> > after patch:
+> >  $ perf list pmu
+> >  ...
+> >  uncore hha:
+> >    edir-hit
+> >       [Count of The number of HHA E-Dir hit operations. Unit: hisi_sccl1_hha2]
+> >    sdir-hit
+> >       [Count of The number of HHA S-Dir hit operations. Unit: hisi_sccl1_hha2]
+> >    sdir-lookup
+> >       [Count of the number of HHA S-Dir lookup operations. Unit: hisi_sccl1_hha2]
+> >  ...
+> > 
+> > Signed-off-by: Junhao He <hejunhao3@huawei.com>
+> > Reviewed-by: James Clark <james.clark@linaro.org>
+> One trivial comment inline that might be good to tidy up.
 
+These can come as a follow up patch, I think.
 
-Dear neil,
+> Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 
-Thank you very much for your reply and reminder.
+Applied.
 
-I want to wait for the result of the first patch discussion, and then 
-see if we need to remove meson_set_max_rd_req_size().
-
-Best regards,
-Hans
-
+- Arnaldo
 
