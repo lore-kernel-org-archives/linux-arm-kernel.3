@@ -4,78 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFE5FC369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 09:18:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FF90C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 09:22:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z398VQxRsNmOcxE+Jv3vnHLwKr1LbzbwB9Vmlu2AsS8=; b=olateiNjaEAwy0tg0G+hcApZd+
-	KJPWPbqfhZTrA54oHPsP08MnquHJvKIMO+jg20S+T9TkGJ5KZzI/q2NxPajEgi66VtTL9vq56AjTn
-	bHkyYxXXrNMbiSn8AP0vRxqgI+KYKECNYC49pPhS452MNmn2j+6qcxdj9IDut2aMs9WibPxOBYiFU
-	AhO4imSXkZhhJ+F5FmLRZEHIqHigqbb3Y6LWqO9yY/+lBQ3p7SgwTwGJThbjddStH1qkVvzkiYeHd
-	AJQanQieFO5mXUxGnuWsQon511Lcrr8UcOMEC8CF6oj7jZJEsTjaQFkCcM15gf2rB4tDbGPlU588g
-	2VrwbjWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hbLD2VXalF1wUUtZML2VeW0x2VSrybCYxHUW2Z4UM7I=; b=uar2yXYgoGMrPeJjyRzc+PGMXn
+	y5jEZvGF5EHgPzsu3ugUTQAgBmeGv/Y82hElo6/zXQ8IL+LjDrVHbxcbebIqAuedC3zBD9zVz6tVo
+	rf8mhEk1RL4fjb2zHlEJjVyrKJJD7NspjZLLI67JuSbqW3kYdpVoyIYX8bkv880YD/33iT4lsTSDD
+	aZOeVGv6FG7YqZYfgujkWoMno8YfavPQBr/TFX+KmC9Gl2pe/e8lh7hBmbzG6Ea4src2vT9q0hGoc
+	eN+Jv5zxZnrFdHvaXGKW23ihcROdKC1KUz3MII9byw559cjmPDlyYEhM9F1dlHcLe7uussVwXNfVk
+	dGnzYKUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8FCM-0000000GVjZ-31SJ;
-	Fri, 25 Apr 2025 09:18:18 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1u8FG0-0000000GWPN-1zqn;
+	Fri, 25 Apr 2025 09:22:04 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Eof-0000000GQVu-2sKs;
-	Fri, 25 Apr 2025 08:53:50 +0000
-X-UUID: ca1a80ac21b211f0a2405d5ef59ce188-20250425
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=z398VQxRsNmOcxE+Jv3vnHLwKr1LbzbwB9Vmlu2AsS8=;
-	b=sqBQle6e/nkj9raz2YIdUHJonJshXVnAWhJdCKlKgT636zDppb5aSTVMYZlID0oj//bxTtT+gEPCzGMdLiiRKr2+/nvnKON4jpl0Kpjm3ib67RjnqdXC7viHB6ogHlwhTQ7AE5U5xk3u+6vcV7yxtIvqXSgHBtr6Hj2A4hjiKPk=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:2d415da4-f426-4e5a-ab2f-aa119e9640e1,IP:0,UR
-	L:0,TC:0,Content:0,EDM:-30,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-30
-X-CID-META: VersionHash:0ef645f,CLOUDID:c6c8ca76-5fec-4b3e-b8cb-933843551e81,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:2,
-	IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:
-	0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 5,DFT
-X-CID-BAS: 5,DFT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: ca1a80ac21b211f0a2405d5ef59ce188-20250425
-Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw02.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 809278958; Fri, 25 Apr 2025 01:53:42 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Fri, 25 Apr 2025 16:53:41 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Fri, 25 Apr 2025 16:53:40 +0800
-From: Kyrie Wu <kyrie.wu@mediatek.com>
-To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
-	<mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, kyrie wu
-	<kyrie.wu@mediatek.corp-partner.google.com>, <linux-media@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-CC: Kyrie Wu <kyrie.wu@mediatek.com>
-Subject: [PATCH v3 10/12] media: mediatek: jpeg: fix decoding buffer number setting timing issue
-Date: Fri, 25 Apr 2025 16:53:26 +0800
-Message-ID: <20250425085328.16929-11-kyrie.wu@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250425085328.16929-1-kyrie.wu@mediatek.com>
-References: <20250425085328.16929-1-kyrie.wu@mediatek.com>
+	id 1u8Esc-0000000GRkL-1ffi
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Apr 2025 08:57:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 458155C2777;
+	Fri, 25 Apr 2025 08:55:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C630C4CEE4;
+	Fri, 25 Apr 2025 08:57:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745571473;
+	bh=SEMgzMn37zNgwDTilpI6l6F226AcCY0igc/LqqVT8B8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=TgntEEmkOE0f9Gz3cIAv2HmvxIvjnoHLlmmga4WEYlLMYki8EMBwFBGkCTCww9ZrR
+	 MQZSRTWvULMXvvTG+VVKlpvHKaiYHTaJfk7GKrydhk1ptGVk994fSGvkeD9x7E2/G5
+	 5L4CchERkjeC5mW1xYnv9lOeK/m4pOFyNsB7MMNLLHJlttVapdZVZSPBjMpXYIDxtu
+	 8abDeZkxln7pQey+52lQb+tI0Sjy5ysO3lt2lkDoFZMgNuFnFthMaosVHOEqmYQzY7
+	 l0Ire9TOwhBHfo44Gw8p+zTlguDQIOcfh3niR8q3V25PBnKShuzB5mxpRtU1uEIuD7
+	 m7x2kdQLgvppA==
+From: Philipp Stanner <phasta@kernel.org>
+To: Sunil Goutham <sgoutham@marvell.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Geetha sowjanya <gakula@marvell.com>,
+	Subbaraya Sundeep <sbhatta@marvell.com>,
+	hariprasad <hkelam@marvell.com>,
+	Bharat Bhushan <bbhushan2@marvell.com>,
+	Taras Chornyi <taras.chornyi@plvision.eu>,
+	Daniele Venzano <venza@brownhat.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Philipp Stanner <phasta@kernel.org>,
+	Helge Deller <deller@gmx.de>,
+	Simon Horman <horms@kernel.org>,
+	Jacob Keller <jacob.e.keller@intel.com>,
+	Ingo Molnar <mingo@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Al Viro <viro@zeniv.linux.org.uk>,
+	Shannon Nelson <shannon.nelson@amd.com>,
+	Sabrina Dubroca <sd@queasysnail.net>
+Cc: linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-parisc@vger.kernel.org
+Subject: [PATCH v2 0/8] Phase out hybrid PCI devres API
+Date: Fri, 25 Apr 2025 10:57:33 +0200
+Message-ID: <20250425085740.65304-2-phasta@kernel.org>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_015349_731149_1A435BDC 
-X-CRM114-Status: GOOD (  12.45  )
+X-CRM114-CacheID: sfid-20250425_015754_476297_79888D51 
+X-CRM114-Status: UNSURE (   9.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,75 +94,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-move decoding buffer increase code into spinlock
-protecting aera for multi-core
+Changes in v2:
+  - Rename error path. (Jakub)
+  - Apply some RBs
 
-Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
----
- drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c   | 9 +++------
- drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c | 1 +
- drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c | 1 +
- 3 files changed, 5 insertions(+), 6 deletions(-)
+Fixes a number of minor issues with the usage of the PCI API in net.
+Notbaly, it replaces calls to the sometimes-managed
+pci_request_regions() to the always-managed pcim_request_all_regions(),
+enabling us to remove that hybrid functionality from PCI.
+Philipp Stanner (8):
+  net: prestera: Use pure PCI devres API
+  net: octeontx2: Use pure PCI devres API
+  net: tulip: Use pure PCI devres API
+  net: ethernet: natsemi: Use pure PCI devres API
+  net: ethernet: sis900: Use pure PCI devres API
+  net: mdio: thunder: Use pure PCI devres API
+  net: thunder_bgx: Use pure PCI devres API
+  net: thunder_bgx: Don't disable PCI device manually
 
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-index c1d2de92f125..795916206c7c 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-@@ -1782,7 +1782,6 @@ static void mtk_jpegdec_worker(struct work_struct *work)
- 
- 	v4l2_m2m_buf_copy_metadata(src_buf, dst_buf, true);
- 	jpeg_src_buf = mtk_jpeg_vb2_to_srcbuf(&src_buf->vb2_buf);
--	jpeg_dst_buf = mtk_jpeg_vb2_to_srcbuf(&dst_buf->vb2_buf);
- 
- 	if (mtk_jpeg_check_resolution_change(ctx,
- 					     &jpeg_src_buf->dec_param)) {
-@@ -1791,11 +1790,6 @@ static void mtk_jpegdec_worker(struct work_struct *work)
- 		goto getbuf_fail;
- 	}
- 
--	jpeg_src_buf->curr_ctx = ctx;
--	jpeg_src_buf->frame_num = ctx->total_frame_num;
--	jpeg_dst_buf->curr_ctx = ctx;
--	jpeg_dst_buf->frame_num = ctx->total_frame_num;
--
- 	mtk_jpegdec_set_hw_param(ctx, hw_id, src_buf, dst_buf);
- 	ret = pm_runtime_resume_and_get(comp_jpeg[hw_id]->dev);
- 	if (ret < 0) {
-@@ -1820,6 +1814,9 @@ static void mtk_jpegdec_worker(struct work_struct *work)
- 			      msecs_to_jiffies(MTK_JPEG_HW_TIMEOUT_MSEC));
- 
- 	spin_lock_irqsave(&comp_jpeg[hw_id]->hw_lock, flags);
-+	jpeg_dst_buf = mtk_jpeg_vb2_to_srcbuf(&dst_buf->vb2_buf);
-+	jpeg_dst_buf->curr_ctx = ctx;
-+	jpeg_dst_buf->frame_num = ctx->total_frame_num;
- 	ctx->total_frame_num++;
- 	mtk_jpeg_dec_reset(comp_jpeg[hw_id]->reg_base);
- 
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-index 5d9a247f0360..2dd5543fb02e 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-@@ -516,6 +516,7 @@ static void mtk_jpegdec_put_buf(struct mtk_jpegdec_comp_dev *jpeg)
- 				v4l2_m2m_buf_done(&tmp_dst_done_buf->b,
- 						  VB2_BUF_STATE_DONE);
- 				ctx->last_done_frame_num++;
-+				break;
- 			}
- 		}
- 	}
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-index 75cd3627c5ae..f5f11ae9c92a 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-@@ -245,6 +245,7 @@ static void mtk_jpegenc_put_buf(struct mtk_jpegenc_comp_dev *jpeg)
- 				v4l2_m2m_buf_done(&tmp_dst_done_buf->b,
- 						  VB2_BUF_STATE_DONE);
- 				ctx->last_done_frame_num++;
-+				break;
- 			}
- 		}
- 	}
+ drivers/net/ethernet/cavium/thunder/thunder_bgx.c  | 13 ++++---------
+ drivers/net/ethernet/dec/tulip/tulip_core.c        |  2 +-
+ drivers/net/ethernet/dec/tulip/winbond-840.c       |  2 +-
+ .../net/ethernet/marvell/octeontx2/nic/otx2_pf.c   | 14 ++++----------
+ .../net/ethernet/marvell/octeontx2/nic/otx2_vf.c   | 14 ++++----------
+ drivers/net/ethernet/marvell/octeontx2/nic/rep.c   | 12 +++++-------
+ .../net/ethernet/marvell/prestera/prestera_pci.c   |  6 ++----
+ drivers/net/ethernet/natsemi/natsemi.c             |  2 +-
+ drivers/net/ethernet/sis/sis900.c                  |  2 +-
+ drivers/net/mdio/mdio-thunder.c                    | 10 +++-------
+ 10 files changed, 26 insertions(+), 51 deletions(-)
+
 -- 
-2.46.0
+2.48.1
 
 
