@@ -4,55 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F157CC369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 19:39:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98ACBC369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 19:41:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tnp7bdW/um/Nf3Hkgt/EOyvTtoi0plo3EB+bh3F7o3o=; b=uuMG8l75PmNbLDdLOTrRjAHCqI
-	zzyLxITCMBG4f0XApqOyoa9gMqiOyCGQQ/vNx0CipXWHe1Afx89cDymPz3Yc6vIoL4PK3fNhx1Vfe
-	HyQvY9u7Gq875zxttXWdYsd5rEkL05io+QkmbStHJ8FkwxNb289dy4hjBZ3L3d/tcdZnOxRNDySxb
-	tOoBHXtr8YI6sxqGGiptMAYanry0rUDGMbj/oZdtoBvGnK2+5YiMuHUxGU+AxKyMSyUP9Ybtq0Xcr
-	TZaOFoNtPsHe/3LpH8iKAUZWRxL69BJy2ifdZk8jNq0e8Uj9cg4DnmQ4Xl0849SN/52erCpZig7m3
-	8HNdyk2g==;
+	bh=r/yCBdXULN/7dimob9RM70hBvraS8nfz9TzFTVD+37g=; b=bkfveW4hX92zd/sShmM3vmfygU
+	dcljroSoUbcH++Rp1fagKXMWf/SCmi5h3CjPWFJV+of/1y9Vn2+d6PpejRZrmK8tIMs8ubhL/KbCB
+	nMR0/qp844COA2KTadVzTfICOo7dtyH+vO67nO4xNdX7mdoLpxOeZ1rnZM2aH3gIP27eksTsdK+Ki
+	w/UrZnBh7hsnQrMy8g3qM9/8yA5nuLso/FIHLH0DhwHh/OKUay5uThuOfJFgwG3fj9ZyL2xOjrvYU
+	0kYgM4ThExlTOb3cI0L3/Am9rWVfp7NQyBEHtNaL0CUT341aUwDEKSEkxn9A0Au5r0RG8dbLujEF2
+	DQrOFdAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8OtF-00000000gMr-1OCe;
-	Fri, 25 Apr 2025 19:39:13 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1u8Ov6-00000000gtS-1cbY;
+	Fri, 25 Apr 2025 19:41:08 +0000
+Received: from sender3-pp-f112.zoho.com ([136.143.184.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8OpY-00000000fRJ-0WSp;
-	Fri, 25 Apr 2025 19:35:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1745609710; cv=none; 
+	id 1u8Opa-00000000fSr-1i8z;
+	Fri, 25 Apr 2025 19:35:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1745609714; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=DXG0p0QU5t+Sh92jdVOwE1+qjuEE2kUcOSLlMgiftRHnIjhN3NUy++g2ACNOChcJlfHgMATrWsyYO7ofu2MHUy7D0jM1zYQ7wAfGUD/3wng9Mb1Nag3gfxmzED91tzi4Sh02Bmhbd+RS2VpAY9ElYd9XYzlJpNwLxsC6czyAo1E=
+	b=Dd5PbieyEc/C+5e1O1b11wZALoNtvt6yM+/kg08ARgdyUhpmzP/NhBN1CKmNf8AaLntYnmgLTChakcyeMaVN8WRfyUWDNENQtDeLYqmzk6Zt6l9IIWJfSo+R5j+9jpJIBlDKuLSmAebBDQFqHka3O0+y5zoIZpfa8yC0JqaZquE=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1745609710; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Tnp7bdW/um/Nf3Hkgt/EOyvTtoi0plo3EB+bh3F7o3o=; 
-	b=i73chpceXevFteW3DVM1HrLD+8lp0i6wBdYvR5hbKmu/Gi1Q8/Fqgo1gEOTTTzGNuyKa8cMASUF0U/YGGZzwi0cDU19MzGINteZRLXLOxhuFFyioWO7Dp9YVwJdv6sbbFO5VZ4jTX0mojN/82s4hUDoq42OWfkeIXhlIYzhFKdU=
+	t=1745609714; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=r/yCBdXULN/7dimob9RM70hBvraS8nfz9TzFTVD+37g=; 
+	b=Y0+ebmMQPjK2p3ZeqgQ4Rhj+IigsGl4R1yNgcS6Rl/gnxuF/9Nke5pfIc10hpopuCJluT+mBr9L0bkiSwsubz9hYoapoYsJlDL0fOWacUhjdiHkbrh1ojoBnWkkGHwGQIiYgwyl9BKHw8hkwMH4JNAcbTnGlLBJ9h6KmPJUz1Xc=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1745609710;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1745609714;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=Tnp7bdW/um/Nf3Hkgt/EOyvTtoi0plo3EB+bh3F7o3o=;
-	b=MwpFIZRjh+a8kdDXWIu8Etf8SfQpotxeIg7gwxli6hxiismcDnA8vZoN4riBVHla
-	jGF6v5tTH0HIfY1Wjoz9XBZfD6SaL/AoBO5/YETJyqnWGtuIVpvfXnC/M2TXiSyOLrQ
-	IP5IXE//EFK6Fhkwfs3aUh9hFVXVxPT3rAqhjHSs=
-Received: by mx.zohomail.com with SMTPS id 1745609708981535.9773786605982;
-	Fri, 25 Apr 2025 12:35:08 -0700 (PDT)
+	bh=r/yCBdXULN/7dimob9RM70hBvraS8nfz9TzFTVD+37g=;
+	b=kdn0Si4LxDoOzrxLzkKFSkVrcD993k4FD4Kje2SS/5wabMI22WWPRplacrKMDifc
+	vjDz/S11+9xs1hOmz6+e1BDNeE4xQUwvGkBo4/kSlMNrOFRtLw0AMZCjo4DuUpQZKFs
+	cSgHEv5ws01yAWARhnoNeTQGpZHhJlIpy4HBoKw4=
+Received: by mx.zohomail.com with SMTPS id 1745609712399137.5838901988809;
+	Fri, 25 Apr 2025 12:35:12 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Fri, 25 Apr 2025 21:34:35 +0200
-Subject: [PATCH v5 1/7] thermal: rockchip: rename rk_tsadcv3_tshut_mode
+Date: Fri, 25 Apr 2025 21:34:36 +0200
+Subject: [PATCH v5 2/7] dt-bindings: rockchip-thermal: Add RK3576
+ compatible
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250425-rk3576-tsadc-upstream-v5-1-0c840b99c30e@collabora.com>
+Message-Id: <20250425-rk3576-tsadc-upstream-v5-2-0c840b99c30e@collabora.com>
 References: <20250425-rk3576-tsadc-upstream-v5-0-0c840b99c30e@collabora.com>
 In-Reply-To: <20250425-rk3576-tsadc-upstream-v5-0-0c840b99c30e@collabora.com>
 To: "Rafael J. Wysocki" <rafael@kernel.org>, 
@@ -68,8 +69,9 @@ Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_123524_228906_845C83CF 
-X-CRM114-Status: GOOD (  12.21  )
+X-CRM114-CacheID: sfid-20250425_123526_538327_CB47AE1B 
+X-CRM114-Status: UNSURE (   7.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,40 +86,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The "v" version specifier here refers to the hardware IP revision.
-Mainline deviated from downstream here by calling the v4 revision v3 as
-it didn't support the v3 hardware revision at all.
+Add a new compatible for the thermal sensor device on the RK3576 SoC.
 
-This creates needless confusion, so rename it to rk_tsadcv4_tshut_mode
-to be consistent with what the hardware wants to be called.
-
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/thermal/rockchip_thermal.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/thermal/rockchip_thermal.c b/drivers/thermal/rockchip_thermal.c
-index a8ad85feb68fbb7ec8d79602b16c47838ecb3c00..40c7d234c3ef99f69dd8db4d8c47f9d493c0583d 100644
---- a/drivers/thermal/rockchip_thermal.c
-+++ b/drivers/thermal/rockchip_thermal.c
-@@ -1045,7 +1045,7 @@ static void rk_tsadcv2_tshut_mode(int chn, void __iomem *regs,
- 	writel_relaxed(val, regs + TSADCV2_INT_EN);
- }
+diff --git a/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
+index b717ea8261ca24ebaf709f410ec6372de1366b8a..49ceed68c92ce5a32ed8d4f39bd88fd052de0e80 100644
+--- a/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
++++ b/Documentation/devicetree/bindings/thermal/rockchip-thermal.yaml
+@@ -21,6 +21,7 @@ properties:
+       - rockchip,rk3368-tsadc
+       - rockchip,rk3399-tsadc
+       - rockchip,rk3568-tsadc
++      - rockchip,rk3576-tsadc
+       - rockchip,rk3588-tsadc
+       - rockchip,rv1108-tsadc
  
--static void rk_tsadcv3_tshut_mode(int chn, void __iomem *regs,
-+static void rk_tsadcv4_tshut_mode(int chn, void __iomem *regs,
- 				  enum tshut_mode mode)
- {
- 	u32 val_gpio, val_cru;
-@@ -1297,7 +1297,7 @@ static const struct rockchip_tsadc_chip rk3588_tsadc_data = {
- 	.get_temp = rk_tsadcv4_get_temp,
- 	.set_alarm_temp = rk_tsadcv3_alarm_temp,
- 	.set_tshut_temp = rk_tsadcv3_tshut_temp,
--	.set_tshut_mode = rk_tsadcv3_tshut_mode,
-+	.set_tshut_mode = rk_tsadcv4_tshut_mode,
- 	.table = {
- 		.id = rk3588_code_table,
- 		.length = ARRAY_SIZE(rk3588_code_table),
 
 -- 
 2.49.0
