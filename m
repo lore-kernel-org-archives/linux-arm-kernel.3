@@ -4,93 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBE64C369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 15:37:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1CD0C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 15:37:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zC5qCt8mPMFjOd0IN3TufN+hresnNEqhnO+6fQbRG2I=; b=Hu/EE2IDxR5k6dDqmQ/KumlhR/
-	mxYWPyD18FVSTT88p2MUKpy/H5ZfWpdTyMkT1gH0BuJi+ZItix+Fqhsf2Zl/mz8sp4JjQ/TB41hCo
-	FKS25pFvgoIz9i9UqyPcxNw66UvTBulsfcpqDppgvurnJTN97Pi3NkCQLuIMvAcdpqvfx/pmkXY7w
-	U8nI03hanorfSL8HiyeaUNOJDe2PZLZ7ouXqMQG+hjqn8Es+Ouhn0/dhYzuNAmqJxVHsBWF7/I0O0
-	kCSJpVKGHcXrmHXLVuVhXI83n6uYdUJ0Oc0eHDZ/gcPXjWiujNgV3RZRo+/IPAQNgIwqWG/xp3kjZ
-	vdXtda2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lFjEH3qP0dLTK5ihHzovZcinv2fwnPAf5xRz9u95KUM=; b=qXjmQ10lxrr2yn0ylHXVX+fNtL
+	SiZIbpu41+DZBo1IkfiJpke6EoZi+xoEPDBBwXjmArc4hBqAj2QnZ03nt7WtC1YS7rxVbXTaGct+g
+	/d9Cko6EOFekhJUmRHRy/iYoX9racLtzk51Ihx4ROV8Xbfy7WMlIWj6GxF0ZCfygJtq6kcZ9GieRz
+	KXfSoO4XpkoHOPw1AHOpIR6UPbj3Eh473SCql/Iuhs4ix/g2rtoC0dD4Bb+tgVEtt7fM5DTQVbp6A
+	wA6XIxb90DhDqXhqU0eoXbzIjNDA8js+sgztc1lKsIUcGlkgbkEfvdX/IMoVJCdxAoXYOZ2N7Y9FM
+	GFvPeOBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8L70-000000004Oe-3IsV;
-	Fri, 25 Apr 2025 15:37:10 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1u8L7L-000000004Vu-3xX8;
+	Fri, 25 Apr 2025 15:37:31 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8JUt-0000000HM1U-2Oql
+	id 1u8J6b-0000000HHLF-3rSq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 13:53:44 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-39c30d9085aso1677968f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 06:53:43 -0700 (PDT)
+	Fri, 25 Apr 2025 13:28:39 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-30820167b47so2311940a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 06:28:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745589222; x=1746194022; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=zC5qCt8mPMFjOd0IN3TufN+hresnNEqhnO+6fQbRG2I=;
-        b=nkEuE0mj9IhWClYh/fYjxYOhn1o94rk6iPL0gGPcYAxVV+PlWY22tE6YBdCbUalHvW
-         wHw2v0XkGRO6cP/r+GJSfX1rhQ96suL0Gqpzqen+R2c7utfkAJu1l3Y5HlcyCk1zXae7
-         X6+ykxCjrF+sT8Q8jI8PzBFGP7+Azj6Gx+QNqvplZ3pSWkydJAd0GfmZ7GnEQGCAi9Uy
-         UHCQgdeCvoG5WGO00Of0R5b3q024wDdAdDi3gvZZvoV58ToKr8KvYs3CaMRIm6iSzdbG
-         x23YmrJBMtY9r+UfkMKh7GVHVnqT785l81/mJqs+KugJeDd19SF/3kisJiC+gefNdLz0
-         7IMg==
+        d=gmail.com; s=20230601; t=1745587717; x=1746192517; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lFjEH3qP0dLTK5ihHzovZcinv2fwnPAf5xRz9u95KUM=;
+        b=hZzK4vLdajvo5OAnBFogYAuCOspVWICK2jndg8SnR5Ayhcfppf/ihyR8psOAbUI+yO
+         /s5rH4+VTF86E3+n069RIMCIkr1BoRBDcfHFV9D+v48eqsnt5tPCT4AVxeGgb6JrR6PD
+         AJ0rm4ix4SACcdCpNXHvZdoWKiRRtsuqiX7t0tAw2ZdN3y93JwLYyXE3b/9nws5MyDtc
+         UTFINGrEq9JNtBlh7GtJvekJw5r02HFr28hsB7Bs29OGmLYZaErQeFiuSVsbdUgijGiE
+         4MZBkAVNkl3YgLgJODRm7otde+UIbeMPZj/yHRrhwDL6BXxPKbxChS2iFzXhCjUNYLDW
+         Yjxw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745589222; x=1746194022;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zC5qCt8mPMFjOd0IN3TufN+hresnNEqhnO+6fQbRG2I=;
-        b=DDfMUC5ejd1LSJ7lndlxTU5zpdBhXZ/1q5/CZwu4Saa0jPzyh+WueX3SfAx7ogmpf2
-         95hjRsYvUvOL243FcMbJdmIKSXdPnGAR5pGgW7ZRrsLmNj9n1bUk2HdmDFTpWFy9BS82
-         JhtoSENq37ffAKt5XEofis47a48F8AaTzIQ2GJkc9RTRgbHczCeGxbyzGGNwrChALuDq
-         gUCX1W3EBi0tZbrFu8faPmXrw6nEa7TZZhi+bbKxva26dsE9PWSz6MJC5M8+/LDsPMOJ
-         LFcyX2VLG7DNMLA+SjvuneAcefz+76osIPdyJcuFvU4ePc9uf7J7VCl2qJv4408vT+EM
-         JCMQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXB4Bk6rXf1XgPFxHY7+F4UI4yF7Zn98CsANdiAtxWGyGo5LxV38g1aX+/bdp7cHAKcEyc2eptBeztA/M+0KuUE@lists.infradead.org
-X-Gm-Message-State: AOJu0YxGxh7+Ywatk/S3hFiD7lzUdp1TzwN/Aiy17b6pur2K+8NBgwK6
-	1LynAQkqHxYJzZUmAnjwBsJyO4p/m6+dkVj39dxcHEubUCqiEd0u
-X-Gm-Gg: ASbGncvkEbM9RJ+pxXqEx2sBSKIZGUPEhwp5F+ezMx9ApAjIyAzt0Ha+/V+gZ701Oqk
-	pYIxzxhdXTpQcQ5hTqT7+xKTTX9uJVlwiZel383e/Ndnco3GizN1lw02e61NyUWumtf12yHeCvl
-	BLTokvWWZfmuxCh29BrpV66RrRnyx2toYZ1EPWERdwVNkjWlN0b7GkJ7x4vwMMGQm2bjG2o67i1
-	Gh3zZBPEN2LYlK8QUVbKtaqNOh97P1tT6at9ytJColldQTxfqgOr0gz3QNlZ7l7ApwyvXAmEvcv
-	O7NnoCm/fA/m3fTZ00943uTMwRQI+1Y9M/928Gh4
-X-Google-Smtp-Source: AGHT+IGIeg9vP39s+96LGPXe7HvCLrwPRTVeAxK0tbQco/f365rtXoIkERRGnWA87K7ViQhH9sGePw==
-X-Received: by 2002:a05:6000:1849:b0:39a:cd84:a77a with SMTP id ffacd0b85a97d-3a074f398f1mr1823393f8f.37.1745589221600;
-        Fri, 25 Apr 2025 06:53:41 -0700 (PDT)
-Received: from Red ([2a01:cb1d:898:ab00:4a02:2aff:fe07:1efc])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3a073e46a54sm2462098f8f.67.2025.04.25.06.53.40
+        d=1e100.net; s=20230601; t=1745587717; x=1746192517;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=lFjEH3qP0dLTK5ihHzovZcinv2fwnPAf5xRz9u95KUM=;
+        b=Q6U1YBPgYNmM2EgBrZPG4CPuj8TFasnI59NNNcXw+cr3+/qeFQeToksmUq3d3hGH4h
+         PLCh/zpFG9bdJmxJFVdachyhGgEHn5l/ZRP106nmmN066yE92J4y7WnptYfHvaGe8ebR
+         HnlVIZ2YwrxIh+MgXYMqpNGVngH5bGmMM+kRDNMoHFNKZReScSYprOmDbTUrzTS6prg2
+         xlY8DYyR8hD3G8vcUPhiAZONnxy19YMNLkaOyDYkUVZVip7Yp98a7sJRK1XAjIzqkTcw
+         iuAo/yPVPXpFPFmlnHdrTwXu/M/seJfPG7gVOaZZeTKEhQKH0Bz69di9mEATgh3you3Q
+         oZ/A==
+X-Forwarded-Encrypted: i=1; AJvYcCWEHKT+XD9s4nDHY7z6yG085OOOVJuKUG+TXIAcoJJENikGn8tMlwjP4fTn8mWdfqmV5IEvsn6aForFE0RmH6xw@lists.infradead.org
+X-Gm-Message-State: AOJu0YwFv629TnQQMPasLqP4Z2bNwD9id8fpLQyEThMfDZ/+F1V+UzE5
+	AWazL1ccVaREiXonjqcmuXJ8PgP/D+JKLIobMaWXqWrgQQ3+E7Nj
+X-Gm-Gg: ASbGncvJU8B86KcRWbUAtCCyhCKHajxos4fhLELnjprn8EFNs+ixKWp9VJJOeZb0lZ2
+	8wH6upyk33YHnCVCGz+9OqAIDcXmST7V19aorr7Wuzdszk7r5O+pV/+jJbVWKgTa0DGlXnZDl4t
+	PFoajIbi42KgtpHBaDewyWVtYqi5GHveumPTumKkhiFWeIoQ+73tx9Vf88QR86SUJt2CmjYV9GM
+	YM/KvoWk6gtfaF9k34g3Dq5oqF9RHMtSWXhHgs5r9GLTkT1qvtGZD1uGfsfayRP7/F2bdzjEqSU
+	7dsmapFj9bDo9unmcdsgAysf7vWL4mpMSMiNiZWhPJBgimRTGeQs3Q==
+X-Google-Smtp-Source: AGHT+IGj9lR9tmU8eyR40XzFeimkdT87ngl3tdqW47D7njs1AnBF+aef9o+xkSHHj9j97MED9tFceA==
+X-Received: by 2002:a17:90b:1809:b0:2ee:9661:eafb with SMTP id 98e67ed59e1d1-309f8a07690mr3104746a91.12.1745587716944;
+        Fri, 25 Apr 2025 06:28:36 -0700 (PDT)
+Received: from localhost.localdomain ([110.44.101.8])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-309f7752a03sm1564313a91.18.2025.04.25.06.28.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Apr 2025 06:53:41 -0700 (PDT)
-Date: Fri, 25 Apr 2025 15:53:39 +0200
-From: Corentin Labbe <clabbe.montjoie@gmail.com>
-To: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
-Cc: herbert@gondor.apana.org.au, davem@davemloft.net,
-	linux-crypto@vger.kernel.org, wens@csie.org,
-	jernej.skrabec@gmail.com, samuel@sholland.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/4] crypto: sun8i-ce-cipher - use IS_ENABLED() checks
- for debugfs stats
-Message-ID: <aAuT4z3XC2mayIf4@Red>
-References: <20250425124517.2225963-1-ovidiu.panait.oss@gmail.com>
- <20250425124517.2225963-3-ovidiu.panait.oss@gmail.com>
- <aAuOdDhpnLE5bM_y@Red>
- <7653bf7c-03ac-4f94-a80c-2bfa3004d287@gmail.com>
+        Fri, 25 Apr 2025 06:28:36 -0700 (PDT)
+From: Anand Moon <linux.amoon@gmail.com>
+To: Chanwoo Choi <cw00.choi@samsung.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	linux-kernel@vger.kernel.org (open list:MAXIM PMIC AND MUIC DRIVERS FOR EXYNOS BASED BO...),
+	linux-clk@vger.kernel.org (open list:COMMON CLK FRAMEWORK),
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES),
+	linux-samsung-soc@vger.kernel.org (open list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES)
+Cc: Anand Moon <linux.amoon@gmail.com>
+Subject: [PATCH v1 06/10] ARM: dts: exynos: Update proper regulator states for suspend-to-mem for Exynos4412 p4node
+Date: Fri, 25 Apr 2025 18:56:26 +0530
+Message-ID: <20250425132727.5160-7-linux.amoon@gmail.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250425132727.5160-1-linux.amoon@gmail.com>
+References: <20250425132727.5160-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <7653bf7c-03ac-4f94-a80c-2bfa3004d287@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_065343_607869_36E1658D 
-X-CRM114-Status: GOOD (  22.11  )
+X-CRM114-CacheID: sfid-20250425_062837_958696_7EADE2FF 
+X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,69 +107,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Fri, Apr 25, 2025 at 04:47:35PM +0300, Ovidiu Panait a écrit :
-> Hi,
-> 
-> On 4/25/25 4:30 PM, Corentin Labbe wrote:
-> > Le Fri, Apr 25, 2025 at 03:45:16PM +0300, Ovidiu Panait a écrit :
-> >> Add IS_ENABLED(CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG) checks before the
-> >> fallback counter updates to make sure the code is not included when
-> >> debugfs statistics support is not enabled.
-> >>
-> >> Also, drop the existing ifdef guards, since 'struct sun8i_ce_alg_template'
-> >> is always defined, even with CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG disabled.
-> >>
-> >> Signed-off-by: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
-> >> ---
-> >>  .../allwinner/sun8i-ce/sun8i-ce-cipher.c      | 46 ++++++++++++-------
-> >>  1 file changed, 30 insertions(+), 16 deletions(-)
-> >>
-> >> diff --git a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c
-> >> index f03a8fa7bfa2..433cd18f0b5b 100644
-> >> --- a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c
-> >> +++ b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c
-> >> @@ -34,22 +34,30 @@ static int sun8i_ce_cipher_need_fallback(struct skcipher_request *areq)
-> >>  
-> ...
-> >> @@ -101,9 +117,7 @@ static int sun8i_ce_cipher_fallback(struct skcipher_request *areq)
-> >>  		algt = container_of(alg, struct sun8i_ce_alg_template,
-> >>  				    alg.skcipher.base);
-> >>  
-> >> -#ifdef CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG
-> >>  		algt->stat_fb++;
-> >> -#endif
-> > 
-> > Hello
-> > 
-> > You put IS_ENABLED everywhere, but here you remove it, why ?
-> > I think you forgot it.
-> > 
-> 
-> This is already part of an IS_ENABLED(CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG)
-> block, so no need to add an extra IS_ENABLED() check here. Just the
-> ifdef was dropped, as it was not really necessary.
-> 
-> Original code:
-> 
-> 	if (IS_ENABLED(CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG)) {
-> 		struct skcipher_alg *alg = crypto_skcipher_alg(tfm);
-> 		struct sun8i_ce_alg_template *algt __maybe_unused;
-> 
-> 		algt = container_of(alg, struct sun8i_ce_alg_template,
-> 				    alg.skcipher.base);
-> 
-> #ifdef CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG
-> 		algt->stat_fb++;
-> #endif
-> 	}
-> 
+The MAX77686 PMCI is able to power down and up key core supplies and other
+voltage rails via PWRREQ signal to enter / exit (deep) sleep mode.
+PWRREQ status is ignored during initial power up and down processes.
+All programming must be done before the AP enterns the sleep mode by
+pulling PWRREQ low since the AP does not have programming capability
+in (deep) sleep mode.
 
-Oups sorry didnt check with enough diff context.
+Update few regulator node with support suspend-to-mem node to regulator.
+dropped suspend-to-mem as MAX77686 do not support these.
 
-So:
-Tested-by: Corentin LABBE <clabbe.montjoie@gmail.com>
-Acked-by: Corentin LABBE <clabbe.montjoie@gmail.com>
+Regulators which can be turned off during system suspend:
+     -LDOn   :       2, 6-8, 10-12, 14-16,
+     -BUCKn  :       1-4.
+Use standard regulator bindings for it ('regulator-off-in-suspend').
 
-Thanks
-Regards
+Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+---
+ .../boot/dts/samsung/exynos4412-p4note.dtsi   | 24 +++++++++----------
+ 1 file changed, 12 insertions(+), 12 deletions(-)
+
+diff --git a/arch/arm/boot/dts/samsung/exynos4412-p4note.dtsi b/arch/arm/boot/dts/samsung/exynos4412-p4note.dtsi
+index ad0abe8d9e30..d0ecb1c6a922 100644
+--- a/arch/arm/boot/dts/samsung/exynos4412-p4note.dtsi
++++ b/arch/arm/boot/dts/samsung/exynos4412-p4note.dtsi
+@@ -448,6 +448,10 @@ ldo1_reg: LDO1 {
+ 			ldo2_reg: LDO2 {
+ 				regulator-name = "ldo2";
+ 				regulator-always-on;
++
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
+ 			};
+ 
+ 			/* WM8994 audio */
+@@ -457,10 +461,6 @@ ldo3_reg: LDO3 {
+ 				regulator-max-microvolt = <1800000>;
+ 				regulator-always-on;
+ 				regulator-boot-on;
+-
+-				regulator-state-mem {
+-					regulator-on-in-suspend;
+-				};
+ 			};
+ 
+ 			ldo4_reg: LDO4 {
+@@ -472,20 +472,24 @@ ldo5_reg: LDO5 {
+ 				regulator-name = "VCC_1.8V_IO";
+ 				regulator-min-microvolt = <1800000>;
+ 				regulator-max-microvolt = <1800000>;
+-
+-				regulator-state-mem {
+-					regulator-off-in-suspend;
+-				};
+ 			};
+ 
+ 			ldo6_reg: LDO6 {
+ 				regulator-name = "ldo6";
+ 				regulator-always-on;
++
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
+ 			};
+ 
+ 			ldo7_reg: LDO7 {
+ 				regulator-name = "ldo7";
+ 				regulator-always-on;
++
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
+ 			};
+ 
+ 			/* CSI IP block */
+@@ -506,10 +510,6 @@ ldo9_reg: LDO9 {
+ 				regulator-name = "VLED_IC_1.9V";
+ 				regulator-min-microvolt = <1950000>;
+ 				regulator-max-microvolt = <1950000>;
+-
+-				regulator-state-mem {
+-					regulator-off-in-suspend;
+-				};
+ 			};
+ 
+ 			/* CSI IP block */
+-- 
+2.49.0
+
 
