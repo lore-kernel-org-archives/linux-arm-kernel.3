@@ -4,95 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04739C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 14:42:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98C13C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 14:45:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lmkpxLdSDmguPpgr39UQg1XxREgVIbUhK4JdlMT/H/I=; b=0hb4X4RnalQsl/
-	Pn31tL28wLomzCf3IAZMqMIjSlNhYgIFU3tzoc+5aeiRJVorMpv4eV/ZHNvyEROO1/WEUtONZOxRO
-	ZlHEFPZStcxgwuPBIQvX+mxr2Eq6LzUOeWen/tLHpi65ZaTT2yOahMsfaWpwtw5y7PFW9hANJTWDo
-	KKcKukZmE0xFAsXFNhPK6MjKJGJA0kaqdEEUUypE/nYb0qcvyiGSwxJXFRET60p3cg5ydkfiPCBdM
-	wstjQn2YF7gRYkE1BhgOvV9r4iy71d3+adHlApjtlwHi5Frxy5CrUTGzF2B0WxvA1Tyf0vxb+ebAn
-	MkBoRJQ5f2so7W/mjm5w==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uAm79y7QM3RPmANHIVUvLRyIejFe0GX7u7Y2voDxIv4=; b=N2Id1yLCY+XwjDDNSTIes/6S1i
+	j9oUwJzylZbqUPHr4nxYkNG56wP1XhEKJ91Ovo/WPXyjh4ptjwM4lHowWx9ThVlV/2nTCWTlAc66X
+	43tO0GAZu7jHvmsOWUnBgItRw9ZO0AvEOd9qMR+rqSHBLSAfVSbJ1bEW3dBxJ+Yd+SBNL9VUCvO1G
+	hR37tjbiZeYLagka3Hd/g+to/RYXqAoVkgQqMNAa1885NtqHyyhMNNaqwPoc5aES2cV3YQIyrSYYo
+	dN6aSsLNs+sXNRdLZdsdjU4Tug/0odJ58/3tNy6LZVkH0CCErvV7TmWxMIumQy3VAYHcqBcKctSrU
+	eguHIsbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8KFa-0000000HTQZ-2ZqX;
-	Fri, 25 Apr 2025 14:41:58 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1u8KJG-0000000HTqF-2Gov;
+	Fri, 25 Apr 2025 14:45:46 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8JAu-0000000HILG-3ZCW
+	id 1u8JB8-0000000HIPE-170T
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 13:33:06 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2254e0b4b79so34608395ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 06:33:04 -0700 (PDT)
+	Fri, 25 Apr 2025 13:33:19 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-22409077c06so34729285ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 06:33:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745587984; x=1746192784; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=lmkpxLdSDmguPpgr39UQg1XxREgVIbUhK4JdlMT/H/I=;
-        b=TQY7w+VYGz/H1dxJCLj4Vr2GOnpi7DfPdDR48SsjKtiMrAE+254Erm50SnPRvm3yzw
-         iKhhq9XHvOCpBkuQlPXIFoyC2qi+uldZHEMG22wu7xTbLVL3gna0TotcvlO90icrGe0z
-         MqpPerL+Sq7ocldUqwHhkLZRjb4yrGd/SjTFLh9M7sAVQDqmDjUk9eOCwhasZ7awq6Ds
-         PU6NJj84rsytN0qx6YA9Pp4ZfljmwUJpjIcjvngIyILCcaCqKcDfi3WJXm+YeEgMLWDM
-         MVvwLguPp9cweLa8awIcQPV4UHvWoVijasz59GvYzsk7pKS+GtYbc3/F448uMOxjqWdh
-         CzRg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745587984; x=1746192784;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=gmail.com; s=20230601; t=1745587997; x=1746192797; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=lmkpxLdSDmguPpgr39UQg1XxREgVIbUhK4JdlMT/H/I=;
-        b=R0J2ctW4GJEbNPm60cy2uhlLCc62Ruzhx3iKoBFNjMO7EcbH/PKdM4JeqqQQyrW4+1
-         AY/LNZDrP+GwmJot1ZG8LRh3FnDVpiaAXR7ODOypUxKoWF/Xx8FMqa8/MavfxQR92osw
-         lze8r1fEIk0VasVgHOoH3b3GtW/iwjQ9YfArfM7/ysX6C1m3CBz55X+TFE5gLOVQH+I+
-         VtfoZPRrRusla+mpsrOgpnvz+Fqv92k1KBhfF21W+KvskDv/niEWA1OAOW4UHlMPjxDJ
-         hQuyolhoeWV24ulZcfu/zDrosWPDsi+Gvl3TpeBkmzRZZObai5nh8Uy+BL2jNIYmGxhK
-         t4wg==
-X-Forwarded-Encrypted: i=1; AJvYcCW7zNKjA+tjuZTtS6pv1sj1Db32f4sfUkuPRoAXJV50dfvT3yzv2a1S5y03UHh+REl4EbOoAVaGWMzZnH8gfSUb@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJxLtmS1OQoFceQO8Y5Y5PEVyCSCPTg4OVXbnU57NETNwN0NjT
-	BCqLKxRY6BvrSqljHreDAsxN2tg7+Dihx65NWMeCH09OV76xrtGH4Eg8tpApmGQ=
-X-Gm-Gg: ASbGncvUNnjv0GeuPAjzTjgdgohjhIMMEC8BKZrXV2Rgdojr02VmoXRy9SIzZUbnIVs
-	HOxKRHNaTwOqlDg2nb1ncSW78gobNKhaW1K5pL0vDMlAoAHj9QTG8PTvfg/jwfD96ACRbTj2aSU
-	Xd9IOScpT34RM0OQG6v02JIsw+b064S1gKrR0R2GVJhFjRIfmGEkBkbu9UaQe8hPK9KFtlDmP8G
-	WcGvfJCg4LSuJN7y1KAQTJblNchhWqAB3mCw4UM7GVzbvalARm7I6lC/nCNvtrhK/iawnzUmWE5
-	bt5dVZfzxkJz0nMYcL3prs6pPhZYM7yczqWvYsC+0b4W7dFd7r44
-X-Google-Smtp-Source: AGHT+IFH0+eanNgJQjmBZVObp5br1Oh/XJsL2tYmBOvekRvX/qXK61fom1pOmxFDl+NTfGiRbzGbgA==
-X-Received: by 2002:a17:903:2987:b0:220:c813:dfcc with SMTP id d9443c01a7336-22dbf73671amr38327055ad.40.1745587983942;
-        Fri, 25 Apr 2025 06:33:03 -0700 (PDT)
+        bh=uAm79y7QM3RPmANHIVUvLRyIejFe0GX7u7Y2voDxIv4=;
+        b=lW7W+TqZFuElCtaMdb1rwhrlD8nehb2fWRXN54Dha066srwx9VnrOFmeJdIh9wqzjA
+         oPhjnuY2hkELog1KRLdUs/DMGR8SSNn6Q7EEym34D076y5GfRGDJDr8VinZQEts+Cd1K
+         S6IRnOI++uEKPZB5iS0YoZnYHH8iC21BqBrbLy/rdhFxyUm18EfKW9m+OjqMsw9npGy5
+         7g6+OdQIHLZXqIGjHQtqGjadabO3XQXr1aRUkVZ/oWdULRhLg4uxrHDahShX9Qpb3R21
+         jy/O3DfuXNrnhQdQ42xYJ3BEcVnHfY4puLHeh4n+rOMIrXcfTmed2uh7guZd08jJaKW/
+         4AMA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745587997; x=1746192797;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=uAm79y7QM3RPmANHIVUvLRyIejFe0GX7u7Y2voDxIv4=;
+        b=n+An/NcIl6qvWvjPpbh3vJBNqSXXxp/wN4qbrjodox8i10YR2EVqL6qZst7b99gng7
+         3Jzoe2IH3sW8LBksA0e+YgtEnZ4n6TNG6eD7KWbwviNUJ9ntTSrlzsX3/KCdTLKWgcFt
+         xyGrK5Jt0bfi0JwOXIZ4KQioORLSDBjjA76Cm/A9LH/vn/LDpFJKLw9g7ybeiIVj4GnW
+         hDYPOlglPZ/1SHSwUHyoq4f3FwJpT+T/mC5AGa3xKZUS/rZ/5h9t0Prfq6rfd5/xPNDS
+         aQylvgyFjzg/w9OTIy7EOLm2a+rJ7zQHGWjA6yfqEHiJr1hJ4bfDgxTZidfiJC42JYM+
+         WFWQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWlGXWGTZmxHSfOZ3CPwINkd10fo5wSJLQOA49ZsyF0FN03a0yclbkmdlx3UsVCSqWp+RkkV6oRTI0nIywIYU+y@lists.infradead.org
+X-Gm-Message-State: AOJu0YztBOQ7Sz4/00/oF4LBUaaBm3RdJTwhwF3KC7D2woBsZucq5Loa
+	2nAxo4wjyj3RCFMk/G7CLEIgt5UPuTcfFDk1Nj+taGnsX8ZKAr31
+X-Gm-Gg: ASbGnct1WAmfAOst+/ss4p4pz518S5kubFCcGVoJ+k/VanqW+PEKMhxgh1i2W6ElXUc
+	PVIutfRemnS1OxluMZ7TnBmiLxA0LyQyazIpj9kjhO95fPaMP0nmt7jqBBZo5+LH3RtaXW/4vRO
+	VePLbz5Vt2bGgrn1gtaIVYt+8XZc3GhvYo9+J+K8n3pKQ+cBYo9zKAmj33+Me+DpqZC63FdZIXZ
+	0Ki1fKDUKg7v8Fu+R5zrRKYsrqaCOTrUa2wkfbbc75aKUEFvNmC37ksKiHt1Iyw5w5CKi916M+0
+	03kqYYkSGkscgJR+YYfFOTsKiRSlJD17fh29I+T4J7PCkzLY3h4S
+X-Google-Smtp-Source: AGHT+IFRCKNYLsTMn88S6eE8HozK3R4+9MF2EBm/8JjtspNKvuzU41OY7WQh0WJF+EnTGfyFFHPRJg==
+X-Received: by 2002:a17:902:ef44:b0:21f:6bda:e492 with SMTP id d9443c01a7336-22dbf63dbdbmr41128025ad.35.1745587997277;
+        Fri, 25 Apr 2025 06:33:17 -0700 (PDT)
 Received: from NB-GIGA003.letovo.school ([5.194.95.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22db50e766bsm31834165ad.149.2025.04.25.06.32.57
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22db50e766bsm31834165ad.149.2025.04.25.06.33.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Apr 2025 06:33:03 -0700 (PDT)
+        Fri, 25 Apr 2025 06:33:16 -0700 (PDT)
 From: Alexey Charkov <alchark@gmail.com>
-Subject: [PATCH v3 0/2] ARM: vt8500: Add VIA APC Rock/Paper board
-Date: Fri, 25 Apr 2025 17:32:55 +0400
-Message-Id: <20250425-apc_paper_binding-v3-0-846b0855420e@gmail.com>
+Date: Fri, 25 Apr 2025 17:32:57 +0400
+Subject: [PATCH v3 2/2] ARM: dts: vt8500: Add VIA APC Rock/Paper board
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAePC2gC/32NQQ7CIBREr9L8tRigatGV9zBNA/SX/sQCAUM0T
- e8u9gCuJm+SebNCxkSY4daskLBQpuArtIcG7Ky9Q0ZjZZBcnvlJKKajHaKOmAZDfiTvmJpQo1S
- XTnCEuosJJ3rvzkdfeab8CumzXxT5a//ZimSCic5euWxNDXN3i6bn0YYF+m3bvnJDTfKyAAAA
-X-Change-ID: 20250418-apc_paper_binding-8feae286710e
+Message-Id: <20250425-apc_paper_binding-v3-2-846b0855420e@gmail.com>
+References: <20250425-apc_paper_binding-v3-0-846b0855420e@gmail.com>
+In-Reply-To: <20250425-apc_paper_binding-v3-0-846b0855420e@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>
 Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, Alexey Charkov <alchark@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1745587999; l=1417;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1745587999; l=2604;
  i=alchark@gmail.com; s=20250416; h=from:subject:message-id;
- bh=l6zMCpp5giwHkMbUogA1VIJYL3vWli82v31S9OuDKOw=;
- b=Bkdw23JrX9vLXcy/AKC7soIdSaCj3F//7wBwkWnI2aQC0+HV5YUnu0Snzi2RfFPOwmmGYb9HH
- 2Ml1xoezjsZBA+8HmuoqRRdtBrcHo55v/jOfamqxtvknnO2Fo4anC3v
+ bh=f6XbPZl25l06W4/0lWNhLm+SfMVWRp7cUP5Uz+CFH/s=;
+ b=OFwQv0Vi8+yfi8ZdAsJ39FrNTl87PTpaXCOwzfb7PZ0G/XoCqvaHmBOltA4csm4m/yHq+q/PZ
+ IongmfZc8HxCfCMFYpGpo3sRqrFiT3wTbn7fqygskGZIkvd953XfY/G
 X-Developer-Key: i=alchark@gmail.com; a=ed25519;
  pk=ltKbQzKLTJPiDgPtcHxdo+dzFthCCMtC3V9qf7+0rkc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_063304_888282_30342055 
-X-CRM114-Status: GOOD (  10.05  )
+X-CRM114-CacheID: sfid-20250425_063318_306967_C59CA9A9 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,39 +106,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add binding and DTS for the WM8950 based VIA APC Rock board. Paper
-is the same board for all intents and purposes, so reflect it only
-in the binding description.
+APC Rock is a development board based on WonderMedia WM8590 released
+around 2013. Paper is the same board, but with the VGA port left
+unpopulated, and shipped with a recycled cardboard case
 
-Split the series from v1 into several chunks by topic so as not to
-spam all the subsystems with unrelated changes, per Rob's suggestion
-
-Changes in v2:
-- kept single-valued compatibles in a single enum (thanks Rob)
-- dropped the empty overall description node
-- Link to v1: https://lore.kernel.org/all/20250416-wmt-updates-v1-7-f9af689cdfc2@gmail.com/
-
-Changes in v3:
-- submit DTS changes together with the respective binding change
-- Link to v2: https://lore.kernel.org/r/20250418-apc_paper_binding-v2-1-17c9023b7c9b@gmail.com
+Its hardware includes:
+* Single-core Cortex-A9 CPU at 800 MHz
+* 512MB DDR3 RAM
+* 4GB NAND flash
+* 8MB SPI NOR flash
+* ARM Mali-400 GPU
+* HDMI output (type A) capable of 1080p
+* VGA output (on Rock, but not on Paper)
+* 2x USB 2.0 type A
+* 1x USB 2.0 OTG (microUSB connector)
+* microSD slot
+* 10/100M Ethernet
+* 3.5mm minijack connector with combined headphones/mic
+* Half-height miniPCIe slot (with only USB 2.0 signals)
 
 Signed-off-by: Alexey Charkov <alchark@gmail.com>
 ---
-Alexey Charkov (2):
-      dt-bindings: arm: vt8500: Add VIA APC Rock/Paper boards
-      ARM: dts: vt8500: Add VIA APC Rock/Paper board
+ arch/arm/boot/dts/vt8500/Makefile            |  3 ++-
+ arch/arm/boot/dts/vt8500/wm8950-apc-rock.dts | 21 +++++++++++++++++++++
+ arch/arm/boot/dts/vt8500/wm8950.dtsi         | 11 +++++++++++
+ 3 files changed, 34 insertions(+), 1 deletion(-)
 
- Documentation/devicetree/bindings/arm/vt8500.yaml | 23 ++++++++++++++---------
- arch/arm/boot/dts/vt8500/Makefile                 |  3 ++-
- arch/arm/boot/dts/vt8500/wm8950-apc-rock.dts      | 21 +++++++++++++++++++++
- arch/arm/boot/dts/vt8500/wm8950.dtsi              | 11 +++++++++++
- 4 files changed, 48 insertions(+), 10 deletions(-)
----
-base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
-change-id: 20250418-apc_paper_binding-8feae286710e
+diff --git a/arch/arm/boot/dts/vt8500/Makefile b/arch/arm/boot/dts/vt8500/Makefile
+index 255f4403af91c1d6a22416ab694b8eab44bf98a2..c5a2e57d53af4babe40fe2d79b2f8d9c1ae1b8db 100644
+--- a/arch/arm/boot/dts/vt8500/Makefile
++++ b/arch/arm/boot/dts/vt8500/Makefile
+@@ -4,4 +4,5 @@ dtb-$(CONFIG_ARCH_VT8500) += \
+ 	wm8505-ref.dtb \
+ 	wm8650-mid.dtb \
+ 	wm8750-apc8750.dtb \
+-	wm8850-w70v2.dtb
++	wm8850-w70v2.dtb \
++	wm8950a-apc-rock.dtb
+diff --git a/arch/arm/boot/dts/vt8500/wm8950-apc-rock.dts b/arch/arm/boot/dts/vt8500/wm8950-apc-rock.dts
+new file mode 100644
+index 0000000000000000000000000000000000000000..58b3c8deb4f20ae072bf1381f1dfa5e5adeb414a
+--- /dev/null
++++ b/arch/arm/boot/dts/vt8500/wm8950-apc-rock.dts
+@@ -0,0 +1,21 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Copyright (C) 2025 Alexey Charkov <alchark@gmail.com>
++ */
++
++/dts-v1/;
++/include/ "wm8950.dtsi"
++
++/ {
++	model = "VIA APC Rock";
++	compatible = "via,apc-rock", "wm,wm8950";
++
++	memory@0 {
++		device_type = "memory";
++		reg = <0x0 0x20000000>;
++	};
++};
++
++&uart0 {
++	status = "okay";
++};
+diff --git a/arch/arm/boot/dts/vt8500/wm8950.dtsi b/arch/arm/boot/dts/vt8500/wm8950.dtsi
+new file mode 100644
+index 0000000000000000000000000000000000000000..31fba05d3c3e70b21a64d08b5cdf645102a1faf3
+--- /dev/null
++++ b/arch/arm/boot/dts/vt8500/wm8950.dtsi
+@@ -0,0 +1,11 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Copyright (C) 2025 Alexey Charkov <alchark@gmail.com>
++ */
++
++/* No differences have been discovered vs. WM8850, but chip markings differ */
++/include/ "wm8850.dtsi"
++
++/ {
++	compatible = "wm,wm8950";
++};
 
-Best regards,
 -- 
-Alexey Charkov <alchark@gmail.com>
+2.49.0
 
 
