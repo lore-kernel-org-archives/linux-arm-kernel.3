@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28A57C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 13:00:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AAADC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 13:02:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l7USUcfV0I1Yg99L+APaMvaZnzCp9MdLbRhyP8bt7Po=; b=f1XFrbVpS0msY6EWGU4M3Y2ThS
-	LMw6hG0y784ONp2JJjCH4lZv/WchRgNY2HrWLglOBVP6TgVtzRdtvu2Ccq7PL+1MsetKvXCM+1qbB
-	hlMUasmjimxA+PSD5/zQ/V8bDuvtvAvhHN860U+Aa+xs7zpe/eaYyl58uqCRV/bljWoNvUgGehnaN
-	m3xib7oiayc9NftcW4943ju5AjGQjLgjLfpT335x1IkS4TmVikIb+l9wRdVnnl1h+S2Cw+x5cv6AD
-	JWwArxuruhj4fTG89+r5AVsL4AD2WZmEP5NoMYodlF5JSNxZJrdeVeOp5/rsNglvhp8Yrex6jCEzE
-	hWuEorLQ==;
+	bh=/5XEMDvTybGK8+bUqmsXMS81c/nZey7bKpfsqKYwd2I=; b=zqXFzo3oa4E1m29Zmji20Dsj8l
+	Gtnu5hIjy3sU+FWw3RDd9VmAm5l2xRPYo7kJOej5cfdLTIAYNrkCCNv7tDIVmmtxQvvaNpRDNX0Xq
+	72gadB/vJYLA6JeNEYrlPJLHdrfhXhJl4VxZyZrwIQlvyS2hWPKSAK2BXLe4xzQSaF0hs3ozoaC42
+	NCJifaqtKn5igDToRZiWzZy/gA8UZ+rDryJzJvVVKXd0IiliNWO0lYxIWcBIbIaGZzrGF+WzrZLnf
+	hmTZ6jEZju3GL0z2wGg4kEie/qpIXU4juT9qqnhuZX2u3QPXt8OW+TWKa1EDoh+rOlxGDunxW5Pav
+	+07obF/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8IfE-0000000HCrJ-2LJu;
-	Fri, 25 Apr 2025 13:00:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u8Ih4-0000000HD5q-3o0I;
+	Fri, 25 Apr 2025 13:02:14 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8H3Q-0000000GvV3-2NsO;
-	Fri, 25 Apr 2025 11:17:13 +0000
+	id 1u8HF8-0000000Gy6G-0VSt
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Apr 2025 11:29:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7DE844378E;
-	Fri, 25 Apr 2025 11:17:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D956C4CEE4;
-	Fri, 25 Apr 2025 11:17:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1745579832;
-	bh=WhwOteXj64XGivhOiwvnlcDEYElHNPlWxr/veIpt9QA=;
+	by dfw.source.kernel.org (Postfix) with ESMTP id B93E75C6283;
+	Fri, 25 Apr 2025 11:26:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED620C4CEE4;
+	Fri, 25 Apr 2025 11:29:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745580555;
+	bh=l4pbyFyJKgsL7EPZcn7j6uWIxIOaHPFWYyhX+MyM2yo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dwrSyhc0nfxJs4zr5Kxh7IyD+y3bTA/T0NqycOb19T2Nz/ENOIm0cY8YCKP50LdWP
-	 ubRqbt78/ak+GhrafY1iSKp1NeKXyY2IuGIwPG+apCSBMsw4Ll4N1CuHM15IPdvEz7
-	 JL+qWAZcK34SOQjgZTisUb4f6iKokg65BA7Jg3mY=
-Date: Fri, 25 Apr 2025 13:17:09 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-usb@vger.kernel.org
-Subject: Re: [PATCH v2] dt-bindings: phy: rockchip: Convert RK3399 Type-C PHY
- to schema
-Message-ID: <2025042559-badland-uncombed-c484@gregkh>
-References: <20250416202419.3836688-1-robh@kernel.org>
+	b=h6T7d/VNOP5MFUv8fVjNrVzwKe108c7cd2yUnFIDkAERZT0OAORlxukO0Pa6ymvh6
+	 9jXRs814OZa8LyweGU4Ovrv/1l7oq6pGKM6Ge6iYdwGFxKwr9b2V85mW/2cqNS5W4c
+	 uzONH+E5U7Mh1qgsOBBsRL8WD3dCXImD4FxfxZGo0mk53kfM6cZtnH/u+NEuWWFtI1
+	 FU9zjuAyn78/x7oLfwRxthWiXuB1dcH564nhHip5b/8e3QF8MAojqeXhx55xU9c4tu
+	 tL7i2YTSnlp7JvCm8+rGB0mhVY6wz9Y58KeeDDG7iK6qAXHpbVYjRs0hL2EBMHClAq
+	 x2t++k7A+Wx6A==
+Date: Fri, 25 Apr 2025 13:29:10 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: carlos.song@nxp.com
+Cc: aisheng.dong@nxp.com, frank.li@nxp.com, shawnguo@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	linux-i2c@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] i2c: imx-lpi2c: Fix clock count when probe defers
+Message-ID: <34ally74jbpae6etevqskr4zmcv5xyac46n4hl2j5ybihwtezn@jd2gvr762gs7>
+References: <20250421062341.2471922-1-carlos.song@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250416202419.3836688-1-robh@kernel.org>
+In-Reply-To: <20250421062341.2471922-1-carlos.song@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_041712_625239_58BD93E9 
-X-CRM114-Status: UNSURE (   8.47  )
+X-CRM114-CacheID: sfid-20250425_042918_193784_37639D2B 
+X-CRM114-Status: UNSURE (   9.82  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,16 +74,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 16, 2025 at 03:24:17PM -0500, Rob Herring (Arm) wrote:
-> Convert the Rockchip RK3399 Type-C PHY to DT schema format. Add the
-> missing "power-domains" property and "port" and "orientation-switch"
-> properties in the child nodes.
+On Mon, Apr 21, 2025 at 02:23:41PM +0800, carlos.song@nxp.com wrote:
+> From: Clark Wang <xiaoning.wang@nxp.com>
 > 
-> Omit the previously deprecated properties as they aren't used anywhere.
-> 
-> Drop the 2nd example which was pretty much identical to the 1st example.
-> 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> Deferred probe with pm_runtime_put() may delay clock disable, causing
+> incorrect clock usage count. Use pm_runtime_put_sync() to ensure the
+> clock is disabled immediately.
 
-Acked-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+What is the outcome of the incorrect clock usage count? Do you
+have any logs?
+
+> Signed-off-by: Carlos Song <carlos.song@nxp.com>
+> Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
+> Signed-off-by: Jun Li <jun.li@nxp.com>
+> Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
+
+Carlo's SoB should be at the end of the chain. Should be nice to
+know what these are, though, are they co-developed-by? tested-by?
+Why so many SoB's?
+
+(no need to resend for this)
+
+Andi
 
