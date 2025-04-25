@@ -4,174 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34C55C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 16:37:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA458C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 16:38:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2hIe7qlOREVblDS5RVeGTxxnk61nDJ/pHaYEZx3tMPw=; b=fB9iDs0OvW9fTAob9VWHevCNUN
-	rtFGzxr8d85NydSz6A25wGHsG3UmlPIbuTamcwSA3daNgZB1JDQlomoj0/XQGoMg3HXhXgTivlLSs
-	PgZL6B/bykJhOcdZ4mG1ebYtm9dYrxxOVEYLOJGK293x8u+bv/PKd3FBEAdR9fMR+sRI5QXopSJc2
-	AAStjJbZlSa1A0KZW20APlI+Wm2YLcoMIZOzSt661tFWPOogmH3HKw9SPZuMT67lr+E/mTYaACGsq
-	fod7iD5oMv87sZ1mG44GHsMK4Vqe/q7N5pMT4hfVLO3pxyjrb/hQU2G+wXk7TZfsmNRcDMZotr5Wj
-	lx7EL2PQ==;
+	bh=pZfB6rVZVRvFwPOC2mIb+Lex3AbasEMEJSEtzwVhu8Y=; b=TgV1c1HLFarDtv6iK6Kkwhl5nu
+	xL5NAree9Ln2vr1yAK7+e4KlA+jkpELTNPmk31HLltp/37YX1PyxGTja/qQeoKAH0XfKzIbxR/Tjl
+	1a/CTb+XDNrRPFEYWFBeDp26OF/Kupe1w3/PBoVvwtYTv3ok1DVoS/trz2PJvkp/mLchGaoC2zK71
+	hHU+IGtf6xO06TDNxJ0vofmUe1aUO5DYLBru4BuJf5Ljw3BFpPnCv48JMkUewm0lyvTFj15ktP0nV
+	hKnL8ZZfY4cjSves8cMR74fIKM61XHc9qWKbTsCg/4Y/xcwMqKtB6pk4tjH6vuJXKavw5n2B08lgQ
+	IoUa/9/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8M3Q-00000000FNz-1M9Q;
-	Fri, 25 Apr 2025 16:37:32 +0000
-Received: from mail-db5eur02on2061f.outbound.protection.outlook.com ([2a01:111:f403:2608::61f] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
+	id 1u8M4a-00000000Fdz-01hh;
+	Fri, 25 Apr 2025 16:38:44 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8JGe-0000000HJb2-2YIn
+	id 1u8L4l-000000003tM-2udl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 13:39:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wOlgMOsevlQJWXHJptiotCDG+affhDijdQKRtOg6FVXO5TKabdtd4jpPjyY2rW8KqZOzrbl75piCy8i3iXqix/wIi3zZvAxaRASreY4RrM39XjwG9+ddgLTIYwH8YXCtN517+eof4AcHUXAdRhOXee4ckj84VSVZgvJlqJC+gEzazx5Rut2uIi/HupdAEfCFWp9gydg19KjpCUfuqOF3OjYovkmx6zHlL1MvNX3RaMoue7ZkhryTtVKy/N1FrklA3gNUFXj0s8D9n4LYPEp4yS0UMW4EPOUhCknd9o0hK57spWZ0R/whGwo8bkDptw4TiDBqQlh8+NYPBDVCWQftzg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2hIe7qlOREVblDS5RVeGTxxnk61nDJ/pHaYEZx3tMPw=;
- b=zOCTwzCR/gO5I9OhRSD69irl1Ebz2vZ22e3A3NthuerOG1k9oZ6IFiXb2KTxnS7yRpWRtwwOJI0ydgecCQF5zVhr7dWJ8ot2OGaBGg/hNb3bDkx2cqyXy0IUiYiZc84hJajM8KPoqHhUnHVGCtUNErWZR38pfdNFx0xv82AoxAG4MprXYsegcfVRItWwGoXstXc0Bcky1P1PCXJalmIzm6xz9KMxdwvym7CBu82f8NihlaLQCf6rmhCOYIhc5MWXCs6KQw9MviIb+Px7sWdTRB7bRGmWcBJ+tjj7pFmfaLiKNQKYQuFKH2EZnt0iQnZ8j09tjTpqeVznEL3cnjzxMA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2hIe7qlOREVblDS5RVeGTxxnk61nDJ/pHaYEZx3tMPw=;
- b=f/h3IqVnurOfqapg9VR+lh1dFSW9qz0+7XkRsQXCk/DQTVaZkKcyRGHNlirFPRTC4Nzk8lmrDly5nQC75l0b0LvPSyo5d//9uMLLl6dTkkkUQzzITiEDuc520FDDOe0Vmfg7kudiaYhg+AiXMeTZh8wQ7vqebugS/LUCkx/tujV6lvJA4jdcC5fmAMUcKo4cIAK9JRe8faEtw31MnK90IDHOPP2ZGvTWK0PMh391hS8mZq2cZBwF6XudVBPrpmxwdYiKQoiFzPpmoz+pxUv0B3+e3qp1JyjqU9m9KzLEu6hDQ95xc1qG0qpgeqwOk/5ACf0GZSARb9I2SFIpwc4ohA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8604.eurprd04.prod.outlook.com (2603:10a6:20b:43b::21)
- by DBAPR04MB7253.eurprd04.prod.outlook.com (2603:10a6:10:1a2::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.27; Fri, 25 Apr
- 2025 13:38:57 +0000
-Received: from AM9PR04MB8604.eurprd04.prod.outlook.com
- ([fe80::e751:223e:aa3d:5827]) by AM9PR04MB8604.eurprd04.prod.outlook.com
- ([fe80::e751:223e:aa3d:5827%7]) with mapi id 15.20.8678.025; Fri, 25 Apr 2025
- 13:38:57 +0000
-From: Pankaj Gupta <pankaj.gupta@nxp.com>
-Date: Sat, 26 Apr 2025 00:31:37 +0530
-Subject: [PATCH v17 6/7] arm64: dts: imx8ulp: add secure enclave node
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250426-imx-se-if-v17-6-0c85155a50d1@nxp.com>
-References: <20250426-imx-se-if-v17-0-0c85155a50d1@nxp.com>
-In-Reply-To: <20250426-imx-se-if-v17-0-0c85155a50d1@nxp.com>
-To: Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Pankaj Gupta <pankaj.gupta@nxp.com>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1745607704; l=1446;
- i=pankaj.gupta@nxp.com; s=20240523; h=from:subject:message-id;
- bh=OzeSWTQ8pkFd70KLrEBR2u1L3tVlLYzKpWoMLGmCQe8=;
- b=qODjlsPnBJgeKEzgeM53wAonD6xmknJ6FHzMCkxTZYKINJ54mzf5yO0BQqajcFRy1lhR2lFHc
- q/CWsI6T7sdDfsnjHZWfcsHDCujOdO9bPspEKMDVcfJI7oLHJgHWa+O
-X-Developer-Key: i=pankaj.gupta@nxp.com; a=ed25519;
- pk=OA0pBQoupy5lV0XfKzD8B0OOBVB6tpAoIf+0x1bYGRg=
-X-ClientProxiedBy: SGXP274CA0011.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b8::23)
- To AM9PR04MB8604.eurprd04.prod.outlook.com (2603:10a6:20b:43b::21)
+	Fri, 25 Apr 2025 15:34:52 +0000
+Date: Fri, 25 Apr 2025 17:34:46 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1745595289;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=pZfB6rVZVRvFwPOC2mIb+Lex3AbasEMEJSEtzwVhu8Y=;
+	b=CAQGX5ZMKcx+gH46PjJwuLZ1t9TcvbFo6LX/q/nmTvNk7kW23MJ+hE5FxgJ1hv0yB1DRzF
+	KBOXWWgV6pIivBMErwQOuB2nWprnnWM+up3MqP4Ih22BAYn4qU07DRa9Uf//zzQtKVgwE8
+	PrStc/hUc0DrQL3XjwjkiR3COHh8ojkW7XMUpITrGH+GccFDvCHrA83Ciy/Q7mL2jN+mO9
+	RlfK6xHBf8DfsaeyHq3S8SDdGX7y16K3lUSrDrQJ7hXLypPEkTW7rOSXRjBU0M/ryqhqDz
+	Nqy0F1Q98GgBeEueZGvb5xIpOQnpcHUE+GPVlH8lQEdxyMNIS4X0gw5x7P5H4Q==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1745595289;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=pZfB6rVZVRvFwPOC2mIb+Lex3AbasEMEJSEtzwVhu8Y=;
+	b=oeQCafVZQ1lKq1NxkoOK+UaNraaSv3v3lJOx0jFFppeRLdPcSyF7n/HCmoLGD7aHpjxMs8
+	fv0uqcFsR4LPQCAA==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Jan Stancek <jstancek@redhat.com>
+Cc: Andy Lutomirski <luto@kernel.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Anna-Maria Behnsen <anna-maria@linutronix.de>, Frederic Weisbecker <frederic@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	Naveen N Rao <naveen@kernel.org>, Heiko Carstens <hca@linux.ibm.com>, 
+	Vasily Gorbik <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, 
+	Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org, 
+	linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>
+Subject: Re: [PATCH 08/19] vdso/gettimeofday: Prepare do_hres_timens() for
+ introduction of struct vdso_clock
+Message-ID: <20250425165448-f2ba7d6d-e54e-4f3e-ac14-5986bb1a74fc@linutronix.de>
+References: <20250303-vdso-clock-v1-0-c1b5c69a166f@linutronix.de>
+ <20250303-vdso-clock-v1-8-c1b5c69a166f@linutronix.de>
+ <aApGPAoctq_eoE2g@t14ultra>
+ <20250424173908-ffca1ea2-e292-4df3-9391-24bfdaab33e7@linutronix.de>
+ <CAASaF6xsMOWkhPrzKQWNz5SXaROSpxzFVBz+MOA-MNiEBty7gQ@mail.gmail.com>
+ <20250425104552-07539a73-8f56-44d2-97a2-e224c567a2fc@linutronix.de>
+ <CAASaF6yxThX3HTHgY_AGqNr7LJ-erdG09WV5-HyfN1fYN9pStQ@mail.gmail.com>
+ <20250425152733-0ff10421-b716-4a55-9b60-cb0a71769e56@linutronix.de>
+ <aAueO89ng7GX2iyl@t14ultra>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8604:EE_|DBAPR04MB7253:EE_
-X-MS-Office365-Filtering-Correlation-Id: 71d9863d-44de-4493-9772-08dd83fe8795
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?UEJxR3lxdGFGa1grSTVPZXo1Z0NkeGh0K3MyU2FBZnJLZ2pCTjQ2VnBpRVdk?=
- =?utf-8?B?d1NCRTYrSzBmQ1cxenIrVXpRelEwQWljSEdRNVlxK2ZqT3dLcEliL2h5NlNT?=
- =?utf-8?B?Ym5mYmpDek1vUWhZTGhhZWo4QkNNMGtHVzhvS3NYRVRVcFlVKzhoVkRROVQr?=
- =?utf-8?B?UDdwdkFQVFpCNzZKdmxBcEh2L3V0RjdpSDBXU1p4ZWtuY3l5a3BpVEtMaDcy?=
- =?utf-8?B?Rk9FQnZDNFhsYStHMkR3OXVoMm10bXg0YnRSM3Q3UW8rU2I2SzZZZThZSTd3?=
- =?utf-8?B?MERsUDdSc2J3aFpnVkoxbXlDZ2JTUDE3czNqcXo1dHp2cGdHQ3ZXOTZUSll6?=
- =?utf-8?B?ajBwUStOUitPUGZNTS9BTll6NXhFSk9UeEpRRXdpSmFjVUkrbW0zMjg2eXJ6?=
- =?utf-8?B?bmpDQUUvM1d2enVkeURaV0pDVmJDYmptbUh6YmxjRVhjK0g3djNhVFUyUE1y?=
- =?utf-8?B?K3Z0eDFydmNubHpjamRtZjVjb1BDT29FWlFwZjVDZmVnb1kvOGFaVlMrZEdH?=
- =?utf-8?B?WDJNeXdjUGd1S3V5U3BjdGdSd3lyWFgwUWdQRitlWDF3ejZiWXB1Sm9ZZEpZ?=
- =?utf-8?B?U0pvOW9Pd0UrYVNmb0pmbUZLRmpWMWZSQmVQajdnQytIMjRFb1M2SWdRSWNp?=
- =?utf-8?B?NXdOemlPZWpBMTVuVENTZEt0SDEyQmdIbXoycDkrZ0N4SFhpZW0vak1lQUlx?=
- =?utf-8?B?OW5pcWVtcGlCaGR4dFluM29Ndkhrem1VdTF2UU9RSUVoM0pMZkJTZTR2d01i?=
- =?utf-8?B?TVIxUEluUVMwMUNra00yUFVXd0FxaFdsTUdJRDdtdGgzbGV1S2puWXhhem5p?=
- =?utf-8?B?Y0d0RVFrRFNYOUgrMHRWbHdWaVBYKy9sVlNuaWI1UWtGdWZPbVhKWmM0akVr?=
- =?utf-8?B?bldZdjZycEtEOXBQQXViRW9hRWFPQ0JJWFg2VHlSMmg1bnUvN1h0OFlaZDZM?=
- =?utf-8?B?eTdYYXRMUnRCYmNFQkFYbUs3bVErQnkwbnZKUkd3c3I3UmxvbjR5SGhxay9s?=
- =?utf-8?B?TkdlQ3RvVkVLNVk3ZHUrK05UYktxOWVtRmwwL1l3QXdqQU1IeGJSN1hvMlRz?=
- =?utf-8?B?V0k3S2NGUWRqZHhFRGZIcFZCYlA1bzFRUW8zSWtJU2NjLzhFYXpBSWhJZFhX?=
- =?utf-8?B?UDJVcU9pdkEyVkVCSElaVUZ6NUVkS0hEYXFDNm5NTFZneEgyTkhJbGhqWm9h?=
- =?utf-8?B?SVJRRGorbXoxcUNMWVA4ZlA5VnhxVllaZktZMGw4R3hsUjJRQzQ2WE1JOElz?=
- =?utf-8?B?YzJzbDZhUUJ5TXhyRU03Nmx2QlhIQytnNmx3bmxyQ0Ntd3JRYnE4MEpTZ3pL?=
- =?utf-8?B?aXEwd0FySzlBS0RyTlFEZWtGZ3BLRkNXaVMrZ1NiekxLWUlCMm1qYXZmQjZF?=
- =?utf-8?B?YUM2R1loOFhYd0NZZGZhNHZuamRhaHhLcEI2TkVPZm94QUxyUEFTMHpvY3Na?=
- =?utf-8?B?dGxMVDRVK29rRlhWMC9jbUUwNXR0RC9yemVRN0x1WWZjanBkNk1lNkZkK1Jr?=
- =?utf-8?B?Z3NGWURyKy96RDNWMFNWL3hzYWVmRXRWVFV5YUVCdDF2MUxiOEdsVkQ0UmE4?=
- =?utf-8?B?RjQrY1hpaERaODR0MEozMzZFTWhWRjJSRnF2WXBqdUc2dWJRdVN5aElETDVz?=
- =?utf-8?B?WnI4TUdKYlhuZ0lCNmJvNGJlakV1bUVwc0tZeVlIQ01KenFtdFNlVDB4UHJS?=
- =?utf-8?B?bFQ1czJ4N0NUMk81YWxNRzkya3FwaHJEbmtlTXFVQWxhTzBNOE10bUxXUnp5?=
- =?utf-8?B?Zm9ORVRDcTVEOTB3dmFIdFBvdGJwVDFVdU1ZZDZ4ZGJDMndYblJCaklBTzFL?=
- =?utf-8?B?eFJiZjNnbEVlSlJxQ05DcFI3QW9BZk9NQ3FlTDdMOUlBcUhoL0hSaGFGdTVS?=
- =?utf-8?B?TXE1Q2RQWGVnYURmWW96SlVURENHUnRtNE9UcjRqYUxlT3VROWdTL1dIWE96?=
- =?utf-8?B?czlkMlhLa2NoU3NlMHpDcTJycE5BZnNhZDFHcGsrSG5qSjRNWFBPUHQvdk1l?=
- =?utf-8?B?OU05VmlDeUdBPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8604.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?M3liaHE2L3RpdVVWcDZoaXVsSG9mVG1RelFHWTdmQU5ySGZjdmcva0hwMlJW?=
- =?utf-8?B?UnoyQXhSME55bzA4QXlsV2wwdlM3TUsybllWd1pXc0p5b3RiOWphS2JVUVZo?=
- =?utf-8?B?L29UTnI4M3RhSWMxU0x0YlFSN21USENsckpNN0N4TW9QeWw5VHU4c3RkL1Nw?=
- =?utf-8?B?WjB4Q1Y1ZVpuclNWZ1JmYlNDQWNkZ1M1NlZyZzNWMnl5Y0xxZjNuaXlxWnVL?=
- =?utf-8?B?OVB5YmJpUC8xcS9ZYXVpazdCYnM5c012WnJ2T3BnanliQ1IyQXNEOFVjeDRa?=
- =?utf-8?B?ZlJ4WFVNajcxVk5SWmlBREY2U1dNeGtrM01WcHMvYWF4aTJuazAvU09tK3NN?=
- =?utf-8?B?MXl2VU1OYmlLS1IrR0FESUx0bGVJZDA4bmdubmw0MXpEYVA4NldEdmJ4cWZX?=
- =?utf-8?B?OUVCenpFRW1TUkpKbCtPZGtlY2sxWDFYdWdYZUE5S3JsU2ZRVFVXSkdXRUQ1?=
- =?utf-8?B?VTRrdVdLYkViTTl6ZVNtR2NXTjFEYkpzTlJsTDhsVU0vakF5VWpqbTdYYk5t?=
- =?utf-8?B?Wk1NOXA0K2ZKWWdrakZVMXZHK1Q2cEF4TXhKRWN6eUNsK2llMnFIMk84TWMv?=
- =?utf-8?B?STVvazJpaFA0TlRyeHJ6aDgrQWRScVRBbTg0S1dzWDdYcWhDdDdjT0UybTdR?=
- =?utf-8?B?WUx6Ykx2SCtCRHFmNlZnbVdtWjkrMi90aCs2Qlg4d3lWY0RObExwTm40RFp0?=
- =?utf-8?B?TTA4YkpJQmt4M2pQQ2l0eXZYVjk4TGlsQjU4K1FSclhBZnNISmFNc0NxTTZ2?=
- =?utf-8?B?R0lKZVRCeVUwaldjMVcvZGJlMGdoblpvZUJ3bGVVeDQrdE1yS0JSZVlHeXI5?=
- =?utf-8?B?cVZPdVVsWlBiL3JnaGQ4UUZXY0ZTUWVBYWFmQTlXTUhzMjNaR3JZWURzN2tM?=
- =?utf-8?B?WTdBTTBLc2pNcDNETit2UVJBRmFBeVhuQ2VNUmhVaHR2UGNHUDUvNE5UL2k5?=
- =?utf-8?B?NkswQW9ORFdpVGp2cUc1azVCTmZkM1VDZkowK0p1RGdDQWU0bjBOK09CejAr?=
- =?utf-8?B?MUxhekszRlZUYjRqcFhCNU1LYTdxU0RBa1NPM3BtTzJtMDE0bU9mdTlHZmJi?=
- =?utf-8?B?ZFZTRGlFSnpaUm5tWnk1eW5NZEZPTFA2Q3FjODFSQW4zeEZTSVJrQ2wzWjFi?=
- =?utf-8?B?eDNzbzRXWk50NlY2eVZnNmpYdGo2RWJ4VTlUTW1GcTdYQk1kdnJZTmI4T0xX?=
- =?utf-8?B?SUo0OGdONE82T3BnQmFZZi9XWDM4YndycDZTNjFlVk1sRzN4elhOTWFSL2o2?=
- =?utf-8?B?OGR2azFjZmdaM1lqazhsMGt1R0dCMDZOcS9aM0txY3ZtbGlYMXU4Y244MENt?=
- =?utf-8?B?OFIyZWRXUkpXWklpL0FmU0lrYTFsZ0xaV2J6Yk9EdFRSTkZjbG5rRHZEZGg3?=
- =?utf-8?B?SjFkR2dFck9tRlRhMndYNDRrbW5RUWVvK0dyQVhtMUlnMnJOZ0xYMmZJc2xD?=
- =?utf-8?B?U1hpVGlhbFB4RUFTK2U1a2tKUll3Zm8xc1FCMjBaTzlPVUo0MWdTQjRsY0xv?=
- =?utf-8?B?MDZkM3liUGtmUmZxNkUzbXVaMlNneUtmRWtpVi8vVTNvdDUzWEpjMW1iMUNI?=
- =?utf-8?B?Z2ZYTld1ZDNTbGI4Skg3QitHc3RUTU54Z1d3d1hJUTFqUG1jOVVTUjQyV2xJ?=
- =?utf-8?B?cTFVLzN2MVRSQ0VySXZyUDBzb21LdjA5ZCtjSE1jeXNWeDgwUW5KUmk1Z082?=
- =?utf-8?B?dE4ycXdQVEY2VDVHZU56RlozRU5xenBjWHlRRzBrMFlXeW5sc2RTSkVqY1Mv?=
- =?utf-8?B?VjlRcDBMRG01eTZrR3NlQWF0SWVwMmRpalNEaXphTVlmWjIzMDVuUkRIcFNQ?=
- =?utf-8?B?MUdvTllaY2JLVGFvYXppcmlobzA5SDRsVTB2NldVYi9Da0tWS2YxMWw0OXV4?=
- =?utf-8?B?dC9URVlHSU5RUlhtRkczdUR5UGxrdEJpUldBWi9hcWdsS2dCbnprQzdnUHpU?=
- =?utf-8?B?bUdqZnYzS0J1R29TWTA1L0loVkFNQ1dSekNuKzZBUGpnUFZCdzlPczNHVC92?=
- =?utf-8?B?Z1hGaS9iNk5nM1BFUGRZU2JESDdRVlVMbEtOYU9IVDlFT1RXcTNIcVF5QXZm?=
- =?utf-8?B?VGpYYjBJVnIvYWJxNE5ENW1tRFFaRUEzWm05YmtrWlVmS1FMK3QxNWUrQnVJ?=
- =?utf-8?Q?cqFfHa11e6lNp2goZAYAjeF6u?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 71d9863d-44de-4493-9772-08dd83fe8795
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8604.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Apr 2025 13:38:57.7286
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: dYP3CjUJnD9QrECM1OeIRI08NklFIrdFs4BvXE8jDkeYYE+EKLFkfVkYYUVdNvRp1BrXB2awDklV78r2eoQPzQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7253
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aAueO89ng7GX2iyl@t14ultra>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_063900_652796_4D2DD248 
-X-CRM114-Status: GOOD (  11.22  )
+X-CRM114-CacheID: sfid-20250425_083451_869074_C9783766 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,59 +99,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for NXP secure enclave called EdgeLock Enclave firmware (se-fw)
-for imx8ulp-evk.
+On Fri, Apr 25, 2025 at 04:37:47PM +0200, Jan Stancek wrote:
+> On Fri, Apr 25, 2025 at 03:40:55PM +0200, Thomas Weißschuh wrote:
+> 
+> <snip>
+> 
+> > 
+> > Some more information:
+> > 
+> > The crash comes from the address arithmetic in "vc = &vc[CS_RAW]" going wrong.
+> 
+> That appears to be because it's not doing any arithmetic, but using value
+> from some linker-generated symbol (I'll refer to it as "7a8").
 
-Add label sram0 for sram@2201f000 and add secure-enclave node
+The compiler emits a absolute relocation:
 
-Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
-changes from v16 to v17:
-- Collected Frank's R-b tag.
 
-Note: copied the change logs for v15 to v16, to cover letter.
----
- arch/arm64/boot/dts/freescale/imx8ulp.dtsi | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
+$ objdump -r --disassemble-all -z arch/arm64/kernel/vdso/vgettimeofday.o
+...
+Disassembly of section .text:
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
-index 2562a35286c2..05db47668b7e 100644
---- a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
- /*
-- * Copyright 2021 NXP
-+ * Copyright 2021, 2025 NXP
-  */
- 
- #include <dt-bindings/clock/imx8ulp-clock.h>
-@@ -154,7 +154,7 @@ sosc: clock-sosc {
- 		#clock-cells = <0>;
- 	};
- 
--	sram@2201f000 {
-+	sram0: sram@2201f000 {
- 		compatible = "mmio-sram";
- 		reg = <0x0 0x2201f000 0x0 0x1000>;
- 
-@@ -186,6 +186,13 @@ scmi_sensor: protocol@15 {
- 				#thermal-sensor-cells = <1>;
- 			};
- 		};
-+
-+		hsm0: secure-enclave {
-+			 compatible = "fsl,imx8ulp-se-ele-hsm";
-+			 mbox-names = "tx", "rx";
-+			 mboxes = <&s4muap 0 0>, <&s4muap 1 0>;
-+			 sram = <&sram0>;
-+		 };
- 	};
- 
- 	cm33: remoteproc-cm33 {
+0000000000000000 <__kernel_clock_gettime>:
+...
+ 29c:   d503201f        nop
+ 2a0:   00000000        udf     #0
+                        2a0: R_AARCH64_ABS64    vdso_u_time_data+0x100e0
+ 2a4:   00000000        udf     #0
 
--- 
-2.43.0
 
+Which then gets resolved by the linker to the absolute address from the
+symbol table.
+As the vDSO is placed completely dynamically this can't work.
+One central idea behind the vDSO is that the compiler will only ever generate
+PC-relative relocations. To force this the symbols are marked as "hidden".
+But apparently that assumption is not always true.
+
+One way around would be to add an implementation of __arch_get_vdso_u_time_data()
+to arch/arm64/include/asm/vdso/gettimeofday.h which mirrors the one from
+arch/arm64/include/asm/vdso/compat_gettimeofday.h.
+The generated code does look a lot better (to my untrained eye).
+
+(Another workaround I stumbled upon was -fno-ipa-cp)
+
+__arch_get_vdso_u_time_data() can also be simplifed with OPTIMIZER_HIDE_VAR().
+I have been wondering before if this should be done in the generic vDSO code.
+
+And on top of that we should validate at buildtime that no absolute relocations
+sneak in.
+
+
+Thomas
 
