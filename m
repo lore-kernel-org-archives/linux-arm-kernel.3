@@ -4,46 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6F72C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 16:40:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE712C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 16:42:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=9GEvDsXQVjfGXflnG4ay5A/yOJxSyhlur+mhjCCZbBU=; b=AUTQEwpKiH6Gmx
-	b+AfyP6QNHRsVP4EqyErmvW+I4qFepC7e4DFLMdP0Ynkg3sfmC0dtd+JJ2he4dP6H7PZgCa5W9Q+E
-	6umzvGOsSj8bqrHy2d3hBBUOG6QzLC316Y1NTUZoLEtkvKOImWWtQnFJfM/pNj+XD51qHoZ7AGCn/
-	2k2tr+silV2bL883az34rjZZCJBkS19RZBpSlnKpSdr50M3fLygsxT8cHYfsY/IXWfNqDcdDCVN1I
-	nkPgjxBhJ38vbXqLy8nXnWYhMEPUfmFCb/dVBDvf1q5ONmzuSbIRJCHM/X3GuznaDrl8KGWOONTFY
-	lCtbrizG2laVA2gQHjyQ==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=oSinIync4LEFYuDrpW9jHYyL5up+15asymdflr/3DFs=; b=4qza0kg5DEe0Vw
+	M8ukyj4XCwXsF7PLjhCFpFJpsiatUpa8ZvEqOZO6eCteSIOgBKRataSKntHC4qUq8k3ZybL+fKwXp
+	1eg2DEEzdFNOAdxTZyAMASiXc4WXRibJ0LfQyPPtxZEGsZmMDAUUs6QDIYpSIUMQGDogLigkIHlDu
+	O9+6S7ytuQoN4JV8hQroWaG6cQMEhoZw31xU/3zparYpDtLvguhJY3LTzd+oaJweEvLACZuxSokib
+	kd62xjtqEagyaggoFjrpw7Jakjyt56RlBUfTdIL1AMDlCouPcUlmaPcZIx4n12Ho2QFrrDMuA9OOR
+	EC/y9JHQm0W9X1Q2jwHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8M6P-00000000G33-3vL5;
-	Fri, 25 Apr 2025 16:40:37 +0000
+	id 1u8M8F-00000000GE4-2azQ;
+	Fri, 25 Apr 2025 16:42:31 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8L6t-000000004MH-45Va
+	id 1u8L6u-000000004Mc-2jbo
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 25 Apr 2025 15:37:05 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6960F106F;
-	Fri, 25 Apr 2025 08:36:54 -0700 (PDT)
-Received: from e137867.arm.com (unknown [10.57.45.221])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 6D0F83F59E;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E3EBC1C25;
 	Fri, 25 Apr 2025 08:36:58 -0700 (PDT)
+Received: from e137867.arm.com (unknown [10.57.45.221])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 262963F59E;
+	Fri, 25 Apr 2025 08:37:02 -0700 (PDT)
 From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 00/11] arm64: debug: remove hook registration, split exception entry
-Date: Fri, 25 Apr 2025 16:36:36 +0100
-Message-ID: <20250425153647.438508-1-ada.coupriediaz@arm.com>
+Subject: [PATCH 03/11] arm64: debug: call step handlers statically
+Date: Fri, 25 Apr 2025 16:36:39 +0100
+Message-ID: <20250425153647.438508-4-ada.coupriediaz@arm.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250425153647.438508-1-ada.coupriediaz@arm.com>
+References: <20250425153647.438508-1-ada.coupriediaz@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_083704_098708_102DCBB0 
-X-CRM114-Status: GOOD (  13.58  )
+X-CRM114-CacheID: sfid-20250425_083704_774354_F2499DB9 
+X-CRM114-Status: GOOD (  20.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,157 +61,183 @@ Cc: Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>, Catalin 
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Software stepping checks for the correct handler by iterating over a list
+of dynamically registered handlers and calling all of them until one
+handles the exception.
 
-This series simplifies the debug exception entry path by removing handler
-registration mechanisms for the debug exception handlers, a holdover from
-the arm kernel, as well as the break and stepping handlers.
-This moves much of the code related to debug exceptions outside of
-`mm/fault.c` where it didn't make much sense.
-This allows us to split the debug exception entries: going from one common
-path per EL for all debug exceptions to a unique one per exception and EL.
+This is the only generic way to handle software stepping handlers in arm64
+as the exception does not provide an immediate that could be checked,
+contrary to software breakpoints.
 
-The result is a much simpler and fully static exception entry path, which
-we tailor to the different exceptions and their constraints.
+However, the registration mechanism is not exported and has only
+two current users : the KGDB stepping handler, and the uprobe single step
+handler.
+Given that one comes from user mode and the other from kernel mode, call
+the appropriate one by checking the source EL of the exception, if it
+is enabled.
 
-The series is structured as such :
-1 : related clean-up in the signle step handler
-2-4 : software breakpoints and single step handlers registration removal
-5: preparatory function duplication that gets cleaned-up in patch 11
-6-11 : debug exception splitting and handler registration removal
+Unify the naming of the handler to XXX_singlestep_handler(), making it
+clear they are related.
 
-* Patch 2 copies and extends the `early_brk64` break handling for the
-normal path, byassing the dynamic registration.
-* Patch 3 does something similar for the single stepping handlers.
-* Patches 6 through 10 split each individual debug exception from
-the unified path by creating specific handlers, adapting them to
-their constraints and calling into them, bypassing the dynamically
-registered handlers used before.
-* Patches 4 and 11 are clean-ups removing the code that has been replaced
-and made redundant by the preceding patches.
+Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+---
+ arch/arm64/include/asm/kgdb.h      |  1 +
+ arch/arm64/include/asm/uprobes.h   |  1 +
+ arch/arm64/kernel/debug-monitors.c | 32 +++++++++++++-----------------
+ arch/arm64/kernel/kgdb.c           | 17 +++-------------
+ arch/arm64/kernel/probes/uprobes.c |  9 +--------
+ 5 files changed, 20 insertions(+), 40 deletions(-)
 
-Testing
-===
-
-Testing EL1 debug exceptions can only be properly done with perf.
-A simple test of hardware breakpoints, watchpoints, and software stepping
-can be achieved by using `perf stat sleep 0.01` and adding hardware events
-for `jiffies` and `hrtimer_nanosleep`, which guarantees a
-hardware watchpoint and breakpoint.
-Inserting a `WARN()` at a convenient place will allow testing both early
-and late software breakpoints at EL1, or using KGDB to test without
-changing code.
-
-For EL0 debug exceptions, the easiest is to setup a basic program and use
-GDB with a list of pre-programmed commands setting hardware and software
-breakpoints as well as watchpoints. Setpping will occur naturally when
-encountering breakpoints.
-
-All tests maintained behaviour after the patches.
-
-I also tested with KASAN on, with no apparent impact.
-
-See below for some testing examples.
-
-
-Based on v6.15-rc3.
-Thanks,
-Ada
-
-
-Testing examples
-===
-
-Perf (for EL1):
-~~~
-Assuming that `perf` is on your $PATH and building with `kallsyms`
-
-  #!/bin/bash
-  
-  watch_addr=$(sudo cat /proc/kallsyms | grep "D jiffies$" | cut -f1 -d\  )
-  break_addr=$(sudo cat /proc/kallsyms | grep "clock_nanosleep$" | cut -f1 -d\  )
-  
-  cmd="sleep 0.01"
-  
-  sudo perf stat -a -e mem:0x${watch_addr}/8:w -e mem:0x${break_addr}:x ${cmd}
-
-NB: This does /not/ test EL1 BRKs.
-
-
-GDB commands (for EL0):
-~~~
-The following C example, compiled with `-g -O0`
-
-  int main() {
-          int add = 0xAA;
-          int target = 0;
-
-          target += add;
-
-  #ifdef COMPAT
-      __asm__("BKPT");
-  #else
-      __asm__("BRK 1");
-  #endif
-  
-          return target;
-  }
-
-Combined with the following GDB command-list
-
-  start
-  hbreak 3
-  watch target
-  commands 2
-  continue
-  end
-  commands 3
-  continue
-  end
-  continue
-  jump 11
-  continue
-  quit
-
-Executed as such : `gdb -x ${COMMAND_LIST_FILE} ./a.out`
-should go through the whole program, return 0252/170/0xAA, and
-exercise all EL0 debug exception entries.
-By using a cross-compiler and passing and additional `-DCOMPAT` argument
-during compilation, the `BKPT32` path can also be tested.
-NOTE: `BKPT` *will* make GDB loop infinitely, that is expected. Sending
-SIGINT to GDB will break the loop and the execution should complete.
-
-Ada Couprie Diaz (11):
-  arm64: debug: Clean up single_step_handler logic
-  arm64: debug: call software break handlers statically
-  arm64: debug: call step handlers statically
-  arm64: debug: remove break/step handler registration infrastructure
-  arm64: entry: Add entry and exit functions for debug exceptions
-  arm64: debug: split hardware breakpoint exeception entry
-  arm64: debug: split single stepping exception entry
-  arm64: debug: split hardware watchpoint exception entry
-  arm64: debug: split brk64 exception entry
-  arm64: debug: split bkpt32 exception entry
-  arm64: debug: remove debug exception registration infrastructure
-
- arch/arm64/include/asm/debug-monitors.h       |  26 ---
- arch/arm64/include/asm/exception.h            |   6 +-
- arch/arm64/include/asm/kgdb.h                 |   4 +
- arch/arm64/include/asm/kprobes.h              |   6 +
- arch/arm64/include/asm/system_misc.h          |   4 -
- arch/arm64/include/asm/traps.h                |   6 +
- arch/arm64/include/asm/uprobes.h              |   3 +
- arch/arm64/kernel/debug-monitors.c            | 198 ++++++++----------
- arch/arm64/kernel/entry-common.c              | 129 +++++++++++-
- arch/arm64/kernel/hw_breakpoint.c             |  34 ++-
- arch/arm64/kernel/kgdb.c                      |  39 +---
- arch/arm64/kernel/probes/kprobes.c            |  31 +--
- arch/arm64/kernel/probes/kprobes_trampoline.S |   2 +-
- arch/arm64/kernel/probes/uprobes.c            |  18 +-
- arch/arm64/kernel/traps.c                     |  77 +------
- arch/arm64/mm/fault.c                         |  75 -------
- 16 files changed, 285 insertions(+), 373 deletions(-)
-
+diff --git a/arch/arm64/include/asm/kgdb.h b/arch/arm64/include/asm/kgdb.h
+index 82a76b2102fb..fd287ec38bb7 100644
+--- a/arch/arm64/include/asm/kgdb.h
++++ b/arch/arm64/include/asm/kgdb.h
+@@ -26,6 +26,7 @@ extern int kgdb_fault_expected;
+ 
+ int kgdb_brk_handler(struct pt_regs *regs, unsigned long esr);
+ int kgdb_compiled_brk_handler(struct pt_regs *regs, unsigned long esr);
++int kgdb_singlestep_handler(struct pt_regs *regs, unsigned long esr);
+ 
+ #endif /* !__ASSEMBLY__ */
+ 
+diff --git a/arch/arm64/include/asm/uprobes.h b/arch/arm64/include/asm/uprobes.h
+index 3659a79a9f32..e44bbef40eca 100644
+--- a/arch/arm64/include/asm/uprobes.h
++++ b/arch/arm64/include/asm/uprobes.h
+@@ -29,5 +29,6 @@ struct arch_uprobe {
+ };
+ 
+ int uprobe_brk_handler(struct pt_regs *regs, unsigned long esr);
++int uprobe_singlestep_handler(struct pt_regs *regs, unsigned long esr);
+ 
+ #endif
+diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
+index 4ece4a93b872..81b813e16842 100644
+--- a/arch/arm64/kernel/debug-monitors.c
++++ b/arch/arm64/kernel/debug-monitors.c
+@@ -200,30 +200,26 @@ void unregister_kernel_step_hook(struct step_hook *hook)
+ }
+ 
+ /*
+- * Call registered single step handlers
++ * Call single step handlers
+  * There is no Syndrome info to check for determining the handler.
+- * So we call all the registered handlers, until the right handler is
+- * found which returns zero.
++ * However, there is only one possible handler for user and kernel modes, so
++ * check and call the appropriate one if it is enabled.
+  */
+ static int call_step_hook(struct pt_regs *regs, unsigned long esr)
+ {
+-	struct step_hook *hook;
+-	struct list_head *list;
+-	int retval = DBG_HOOK_ERROR;
+-
+-	list = user_mode(regs) ? &user_step_hook : &kernel_step_hook;
+-
+-	/*
+-	 * Since single-step exception disables interrupt, this function is
+-	 * entirely not preemptible, and we can use rcu list safely here.
+-	 */
+-	list_for_each_entry_rcu(hook, list, node)	{
+-		retval = hook->fn(regs, esr);
+-		if (retval == DBG_HOOK_HANDLED)
+-			break;
++	if (user_mode(regs)) {
++#if CONFIG_UPROBES
++		return uprobe_singlestep_handler(regs, esr);
++#else
++		return DBG_HOOK_ERROR;
++#endif
+ 	}
+ 
+-	return retval;
++#ifdef CONFIG_KGDB
++	return kgdb_singlestep_handler(regs, esr);
++#else
++	return DBG_HOOK_ERROR;
++#endif
+ }
+ NOKPROBE_SYMBOL(call_step_hook);
+ 
+diff --git a/arch/arm64/kernel/kgdb.c b/arch/arm64/kernel/kgdb.c
+index b5a3b9c85a65..8f6ce2ea005c 100644
+--- a/arch/arm64/kernel/kgdb.c
++++ b/arch/arm64/kernel/kgdb.c
+@@ -250,7 +250,7 @@ int kgdb_compiled_brk_handler(struct pt_regs *regs, unsigned long esr)
+ }
+ NOKPROBE_SYMBOL(kgdb_compiled_brk_handler);
+ 
+-static int kgdb_step_brk_fn(struct pt_regs *regs, unsigned long esr)
++int kgdb_singlestep_handler(struct pt_regs *regs, unsigned long esr)
+ {
+ 	if (!kgdb_single_step)
+ 		return DBG_HOOK_ERROR;
+@@ -258,11 +258,7 @@ static int kgdb_step_brk_fn(struct pt_regs *regs, unsigned long esr)
+ 	kgdb_handle_exception(0, SIGTRAP, 0, regs);
+ 	return DBG_HOOK_HANDLED;
+ }
+-NOKPROBE_SYMBOL(kgdb_step_brk_fn);
+-
+-static struct step_hook kgdb_step_hook = {
+-	.fn		= kgdb_step_brk_fn
+-};
++NOKPROBE_SYMBOL(kgdb_singlestep_handler);
+ 
+ static int __kgdb_notify(struct die_args *args, unsigned long cmd)
+ {
+@@ -301,13 +297,7 @@ static struct notifier_block kgdb_notifier = {
+  */
+ int kgdb_arch_init(void)
+ {
+-	int ret = register_die_notifier(&kgdb_notifier);
+-
+-	if (ret != 0)
+-		return ret;
+-
+-	register_kernel_step_hook(&kgdb_step_hook);
+-	return 0;
++	return register_die_notifier(&kgdb_notifier);
+ }
+ 
+ /*
+@@ -317,7 +307,6 @@ int kgdb_arch_init(void)
+  */
+ void kgdb_arch_exit(void)
+ {
+-	unregister_kernel_step_hook(&kgdb_step_hook);
+ 	unregister_die_notifier(&kgdb_notifier);
+ }
+ 
+diff --git a/arch/arm64/kernel/probes/uprobes.c b/arch/arm64/kernel/probes/uprobes.c
+index ad68b4a5974d..fefc990860bc 100644
+--- a/arch/arm64/kernel/probes/uprobes.c
++++ b/arch/arm64/kernel/probes/uprobes.c
+@@ -182,7 +182,7 @@ int uprobe_brk_handler(struct pt_regs *regs,
+ 	return DBG_HOOK_ERROR;
+ }
+ 
+-static int uprobe_single_step_handler(struct pt_regs *regs,
++int uprobe_singlestep_handler(struct pt_regs *regs,
+ 				      unsigned long esr)
+ {
+ 	struct uprobe_task *utask = current->utask;
+@@ -194,15 +194,8 @@ static int uprobe_single_step_handler(struct pt_regs *regs,
+ 	return DBG_HOOK_ERROR;
+ }
+ 
+-/* uprobe single step handler hook */
+-static struct step_hook uprobes_step_hook = {
+-	.fn = uprobe_single_step_handler,
+-};
+-
+ static int __init arch_init_uprobes(void)
+ {
+-	register_user_step_hook(&uprobes_step_hook);
+-
+ 	return 0;
+ }
+ 
 -- 
 2.43.0
 
