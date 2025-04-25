@@ -4,91 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE9F4C369D7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 15:52:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37598C369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 15:52:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LeKlYioS2JXYmp7Q9/3C9L/xw/7J7FeCIZT9DvOeXtI=; b=IJSuu1XB33v50TPp3YtcDltkFE
-	w/I84hV9tlLFCMlz4E0ViHgKneimF03ucqMZl9UAAT1Lb/K66yWpAXjPtLG8wtwJqvVBSs4gjOIfG
-	DS7kDEmJuulWg8aUHoWsYoxtBe2VknsaROhmS5a+V7H8W0xQ8DbYfzm94vPXKLASJrrvbQyAFpeIW
-	rgf8LhZLeOR4QuRzSeEPUUxP5D//Gb9UV5zFk6bCXspyzlak+jVqdOEkvWNQjLDGcmaoe6XCMR+Iw
-	PCkTBhU/NYbGzPvyBdYYsiP7vD4/Isy+3kZfyEXq7+E5+3E/X8mKvqLwc032MtVc1zrW4JsjKJ7cL
-	zZv6n0Jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hqzHthpgkpaj4+Y1riWSwJnRYrae4XoK1iskKUPVhEg=; b=HcNNRiIZty3JMC4DEm7ZolzEnu
+	sFwQcFHpnAG8g8yL/5ubjFuhqnEfwhLjLP4pPJPS4GqKIKIGehLBrt6269M/Y0OcFbrG1d0d3t/2B
+	wlpZcFFqXFiQ6ke0f+qrt86dc2eS81kjox2ziMi5JvD8WidDVV8C1drr6VTYD58EPWUCRXsGeXB+W
+	zzrLr1CE9XjtyQQQEX6Dl4MkL7iegDSznimWIfkm5WUyiXrF5XSEhQHl61zVjoxzxRhJLrbFmdW3H
+	82QyNByj/kwnmEswM59nyRxmMCq0yx5AVhznH3Wo7DGvNeSoozuE7fpxzePzE9SyKxEVCUDQXzMbv
+	0crsBl4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8LLl-000000006zi-05Gb;
-	Fri, 25 Apr 2025 15:52:25 +0000
-Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
+	id 1u8LLr-0000000071M-2E7S;
+	Fri, 25 Apr 2025 15:52:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Jpy-0000000HOvb-1lUM
+	id 1u8HlS-0000000H3Tt-0bfP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 14:15:31 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 3694C43A24;
-	Fri, 25 Apr 2025 14:15:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1745590528;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LeKlYioS2JXYmp7Q9/3C9L/xw/7J7FeCIZT9DvOeXtI=;
-	b=FCFKnwTFfLLZWa3QKB82FguDzq9I+oKzItr18Kfw114c8i4wL61EnM85h3e48aaBIY2/+j
-	0bZ2e4moXtpbyYyQJc4Vl0nYiCLHLmy2zLeICq4TloRcRyomgCXH5Iua5LYFgRtj5GWLkM
-	1b01384t1/cE1bu+RjscpkRFDEJm0zPUg8YCcr4vfJM4Luhgp1cgzJz9PPW1DEih9+EbQp
-	YgAoeyYg8xR0dQljFYw4u+gO6btpMOsW7VBwXHi5vhVHft5vGE0P/p6ZEP+/7LUh1octrP
-	yejCIaOygAYlIWTFCnkkgkVqqZ+8NXHZrVogHeVxfowJf+wqp5vhZ3unlUv5eQ==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: davem@davemloft.net
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	thomas.petazzoni@bootlin.com,
-	Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
-	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	=?UTF-8?q?Nicol=C3=B2=20Veronese?= <nicveronese@gmail.com>,
-	Simon Horman <horms@kernel.org>,
-	mwojtas@chromium.org,
-	Antoine Tenart <atenart@kernel.org>,
-	devicetree@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: [PATCH net-next v5 08/14] net: phy: marvell: Support SFP through phy_port interface
-Date: Fri, 25 Apr 2025 16:15:01 +0200
-Message-ID: <20250425141511.182537-9-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250425141511.182537-1-maxime.chevallier@bootlin.com>
-References: <20250425141511.182537-1-maxime.chevallier@bootlin.com>
+	Fri, 25 Apr 2025 12:02:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2C0464A9D4;
+	Fri, 25 Apr 2025 12:02:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB6A6C4CEE4;
+	Fri, 25 Apr 2025 12:02:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745582561;
+	bh=eZPFTBz6yM2gMfLd3A3QWowYwwQJiwoej0l47rx+zYc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=asbZVeQloMPeww+Qs89fskH1vrKk4nw4P6Uupf360RcaPWx8ckq8AADihAs+vKaUw
+	 HLNqKZmXb7SsCA5sRtCy2woY7aZbcd8AsuWOfSr1JZ5z+ozi5m4r/+D1aj8lFqGI+E
+	 3zOfgQ8LsBYkfOGwGYRk26LuYGeFgB9TsKSCCDYVQOqSou0DkKRF7y01g1+cXyacKN
+	 qGbjK063ViwCpe5HzWubE+mOsxWStsfoFQrepkTXz23JCwg+89bd6QlwqRcRj3VmIV
+	 vqDunnWeNwp+zmkfQJ0cttU1Cv4gLXrDURVOkENmmbh8xPxeF8fveXNrtolTE5Iaqi
+	 e0nY0pbVnQPcg==
+Received: from johan by xi.lan with local (Exim 4.97.1)
+	(envelope-from <johan@kernel.org>)
+	id 1u8HlS-000000004qm-40F9;
+	Fri, 25 Apr 2025 14:02:43 +0200
+Date: Fri, 25 Apr 2025 14:02:42 +0200
+From: Johan Hovold <johan@kernel.org>
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Cc: Wenbin Yao <quic_wenbyao@quicinc.com>, catalin.marinas@arm.com,
+	will@kernel.org, linux-arm-kernel@lists.infradead.org,
+	andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org,
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, krishna.chundru@oss.qualcomm.com,
+	quic_vbadigan@quicinc.com, quic_mrana@quicinc.com,
+	quic_cang@quicinc.com, quic_qianyu@quicinc.com
+Subject: Re: [PATCH v2 4/4] arm64: dts: qcom: x1e80100-qcp: Add qref supply
+ for PCIe PHYs
+Message-ID: <aAt54vikoREWZyGY@hovoldconsulting.com>
+References: <20250425092955.4099677-1-quic_wenbyao@quicinc.com>
+ <20250425092955.4099677-5-quic_wenbyao@quicinc.com>
+ <aAtbFQIQMJO-BYe_@hovoldconsulting.com>
+ <e82eda3b-b27f-4584-ad23-562ca4b22847@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvhedvheehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepveegtdffleffleevueellefgjeefvedvjefhheegfefgffdvfeetgeevudetffdtnecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgepieenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedupdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrk
- hgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqmhhsmhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhg
-X-GND-Sasl: maxime.chevallier@bootlin.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e82eda3b-b27f-4584-ad23-562ca4b22847@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_071530_918801_5DBDA958 
-X-CRM114-Status: GOOD (  18.22  )
+X-CRM114-CacheID: sfid-20250425_050242_200309_8AA9D1E7 
+X-CRM114-Status: GOOD (  17.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,179 +85,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the Marvell driver (especially the 88e1512 driver) to use the
-phy_port interface to handle SFPs. This means registering a
-.attach_port() handler to detect when a serdes line interface is used
-(most likely, and SFP module).
+On Fri, Apr 25, 2025 at 12:03:06PM +0200, Konrad Dybcio wrote:
+> On 4/25/25 11:51 AM, Johan Hovold wrote:
+> > On Fri, Apr 25, 2025 at 05:29:55PM +0800, Wenbin Yao wrote:
+> >> From: Qiang Yu <quic_qianyu@quicinc.com>
+> >>
+> >> All PCIe PHYs on X1E80100 require vdda-qref power supplies, but this is
+> >> missing in the current PHY device tree node. The PCIe port can still
+> >> function because the regulator L3J, which vdda-qref consumes, is voted by
+> >> other components.
+> >>
+> >> Since the device tree should accurately describe the hardware, add the
+> >> vdda-qref power supply explicitly in all PCIe PHY device nodes.
+> > 
+> > AFAIU the PHYs do not use this qref supply directly so it does not
+> > belong in the PHY node (but possibly in the tcsr node that provides the
+> > refclk).
+> > 
+> > Since commit 031b46b4729b ("phy: qcom: qmp-pcie: drop bogus x1e80100
+> > qref supplies") it also won't have any effect for pcie4 and pcie6.
+> 
+> QREF is a separate hw block distributing the reference clocks across
+> certain on-SoC peripherals
+> 
+> If its power goes out, I don't think much of the platform would be
+> functional anyway, so it's redundant here..
+> 
+> It doesn't have its own single register region and it's frankly
+> one-shot-configured way before Linux starts up, so there should be
+> no need of describing it at all.
 
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
- drivers/net/phy/marvell.c | 100 +++++++++++++++-----------------------
- 1 file changed, 39 insertions(+), 61 deletions(-)
+Then it sounds like the qref supplies should be marked as always-on. Can
+they be disabled at all?
 
-diff --git a/drivers/net/phy/marvell.c b/drivers/net/phy/marvell.c
-index 623292948fa7..54b4f7753b2a 100644
---- a/drivers/net/phy/marvell.c
-+++ b/drivers/net/phy/marvell.c
-@@ -29,10 +29,10 @@
- #include <linux/ethtool.h>
- #include <linux/ethtool_netlink.h>
- #include <linux/phy.h>
-+#include <linux/phy_port.h>
- #include <linux/marvell_phy.h>
- #include <linux/bitfield.h>
- #include <linux/of.h>
--#include <linux/sfp.h>
- 
- #include <linux/io.h>
- #include <asm/irq.h>
-@@ -3561,42 +3561,38 @@ static int marvell_probe(struct phy_device *phydev)
- 	return marvell_hwmon_probe(phydev);
- }
- 
--static int m88e1510_sfp_insert(void *upstream, const struct sfp_eeprom_id *id)
-+static int mv88e1510_port_configure_serdes(struct phy_port *port, bool enable,
-+					   phy_interface_t interface)
- {
--	DECLARE_PHY_INTERFACE_MASK(interfaces);
--	struct phy_device *phydev = upstream;
--	phy_interface_t interface;
-+	struct phy_device *phydev = port_phydev(port);
- 	struct device *dev;
- 	int oldpage;
- 	int ret = 0;
- 	u16 mode;
- 
--	__ETHTOOL_DECLARE_LINK_MODE_MASK(supported) = { 0, };
--
- 	dev = &phydev->mdio.dev;
- 
--	sfp_parse_support(phydev->sfp_bus, id, supported, interfaces);
--	interface = sfp_select_interface(phydev->sfp_bus, supported);
--
--	dev_info(dev, "%s SFP module inserted\n", phy_modes(interface));
-+	if (enable) {
-+		switch (interface) {
-+		case PHY_INTERFACE_MODE_1000BASEX:
-+			mode = MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII_1000X;
- 
--	switch (interface) {
--	case PHY_INTERFACE_MODE_1000BASEX:
--		mode = MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII_1000X;
-+			break;
-+		case PHY_INTERFACE_MODE_100BASEX:
-+			mode = MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII_100FX;
- 
--		break;
--	case PHY_INTERFACE_MODE_100BASEX:
--		mode = MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII_100FX;
--
--		break;
--	case PHY_INTERFACE_MODE_SGMII:
--		mode = MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII_SGMII;
-+			break;
-+		case PHY_INTERFACE_MODE_SGMII:
-+			mode = MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII_SGMII;
- 
--		break;
--	default:
--		dev_err(dev, "Incompatible SFP module inserted\n");
-+			break;
-+		default:
-+			dev_err(dev, "Incompatible SFP module inserted\n");
- 
--		return -EINVAL;
-+			return -EINVAL;
-+		}
-+	} else {
-+		mode = MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII;
- 	}
- 
- 	oldpage = phy_select_page(phydev, MII_MARVELL_MODE_PAGE);
-@@ -3613,49 +3609,30 @@ static int m88e1510_sfp_insert(void *upstream, const struct sfp_eeprom_id *id)
- 
- error:
- 	return phy_restore_page(phydev, oldpage, ret);
--}
--
--static void m88e1510_sfp_remove(void *upstream)
--{
--	struct phy_device *phydev = upstream;
--	int oldpage;
--	int ret = 0;
--
--	oldpage = phy_select_page(phydev, MII_MARVELL_MODE_PAGE);
--	if (oldpage < 0)
--		goto error;
- 
--	ret = __phy_modify(phydev, MII_88E1510_GEN_CTRL_REG_1,
--			   MII_88E1510_GEN_CTRL_REG_1_MODE_MASK,
--			   MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII);
--	if (ret < 0)
--		goto error;
--
--	ret = __phy_set_bits(phydev, MII_88E1510_GEN_CTRL_REG_1,
--			     MII_88E1510_GEN_CTRL_REG_1_RESET);
--
--error:
--	phy_restore_page(phydev, oldpage, ret);
-+	return 0;
- }
- 
--static const struct sfp_upstream_ops m88e1510_sfp_ops = {
--	.module_insert = m88e1510_sfp_insert,
--	.module_remove = m88e1510_sfp_remove,
--	.attach = phy_sfp_attach,
--	.detach = phy_sfp_detach,
--	.connect_phy = phy_sfp_connect_phy,
--	.disconnect_phy = phy_sfp_disconnect_phy,
-+static const struct phy_port_ops mv88e1510_serdes_port_ops = {
-+	.configure_mii = mv88e1510_port_configure_serdes,
- };
- 
--static int m88e1510_probe(struct phy_device *phydev)
-+static int m88e1510_attach_port(struct phy_device *phy_device,
-+				struct phy_port *port)
- {
--	int err;
-+	/* For classic Copper operation, we don't have any port-specific
-+	 * control to do.
-+	 */
-+	if (!port->is_serdes)
-+		return 0;
- 
--	err = marvell_probe(phydev);
--	if (err)
--		return err;
-+	port->ops = &mv88e1510_serdes_port_ops;
-+
-+	__set_bit(PHY_INTERFACE_MODE_SGMII, port->interfaces);
-+	__set_bit(PHY_INTERFACE_MODE_1000BASEX, port->interfaces);
-+	__set_bit(PHY_INTERFACE_MODE_100BASEX, port->interfaces);
- 
--	return phy_sfp_probe(phydev, &m88e1510_sfp_ops);
-+	return 0;
- }
- 
- static struct phy_driver marvell_drivers[] = {
-@@ -3915,7 +3892,7 @@ static struct phy_driver marvell_drivers[] = {
- 		.driver_data = DEF_MARVELL_HWMON_OPS(m88e1510_hwmon_ops),
- 		.features = PHY_GBIT_FIBRE_FEATURES,
- 		.flags = PHY_POLL_CABLE_TEST,
--		.probe = m88e1510_probe,
-+		.probe = marvell_probe,
- 		.config_init = m88e1510_config_init,
- 		.config_aneg = m88e1510_config_aneg,
- 		.read_status = marvell_read_status,
-@@ -3941,6 +3918,7 @@ static struct phy_driver marvell_drivers[] = {
- 		.led_hw_is_supported = m88e1318_led_hw_is_supported,
- 		.led_hw_control_set = m88e1318_led_hw_control_set,
- 		.led_hw_control_get = m88e1318_led_hw_control_get,
-+		.attach_port = m88e1510_attach_port,
- 	},
- 	{
- 		.phy_id = MARVELL_PHY_ID_88E1540,
--- 
-2.49.0
-
+Johan
 
