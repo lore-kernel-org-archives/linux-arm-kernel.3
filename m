@@ -4,108 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8667EC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 10:13:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23FF7C369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 10:17:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i+v5BXhhKCYYQq4gpYTRiJk77N1zu/YeJY08X8KspxQ=; b=OKJxXpaHsdsy3TIDTQ74URHO55
-	RfEcm9l44HIgVD//EfMGOi9TGSa/KafUJV8QaDY60+aLvBvuqWY5bN/hEAEOG16ACSPCNF8pjcjEo
-	/Er9WdfRBjQ0EnaKxCk09g5PrCECnsAETXgTNNG9Tx7bknMDZQnzj72B0bOPhPRD1a6VbzdmOF0zg
-	V1YyM7KBdwIDpoHkey6HSqRP9qGYelQRQ0G6J+ptFh1WQC9A5QhsqQZuP+q0i5oTCpJFGVzuyxPLk
-	aL88kFO9af0rhhDeXQrLJQ3bPv6x0Mp5DvMZ3vA1ioBu78BLHYLeGfhfZId9EIsIhVvJJuCl3wmAP
-	XTukfBVw==;
+	bh=gH5Q/9/Gya6g7S3LOJ0iW2pbkqKWlFOIE72t/4lmn3Y=; b=0myfBRKKjJfVznvUGoKbo325x2
+	1r0bAO1KQnSfR+NHqYIAranG6sQKyIYsBnohAJlsYHFq6po0mxUGCaSB8tjrs+3cNXhuDZ4MH4SeI
+	Owx6I1D6+Ykd91x0WtGgD/QDgFspdM2NebqByapHys2DrZiyj+7cQODZjNFuG7HSNzhdaeSkWNG2p
+	xUprsgu3r3gMCdW9H1CocjE03MLgwuEblJdxo+8l009XxydOXF8edWgxvzOvjUsWkUMtI/kzrbbEs
+	Orb/+tpoYluuyjMFpe0/wbGZ2bU89mq5kE0Il9O9vo2K1nhqPJC4e/mPFpjqRIYmLzMhp8FDFpEcD
+	yZ4HM5Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8G3J-0000000GgOm-3K1U;
-	Fri, 25 Apr 2025 10:13:01 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1u8G7R-0000000GhS7-1T91;
+	Fri, 25 Apr 2025 10:17:17 +0000
+Received: from out-184.mta0.migadu.com ([91.218.175.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8F33-0000000GUDQ-11aw
+	id 1u8FKX-0000000GXHL-31Tw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 09:08:42 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-39ac56756f6so1945834f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 02:08:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1745572120; x=1746176920; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=i+v5BXhhKCYYQq4gpYTRiJk77N1zu/YeJY08X8KspxQ=;
-        b=kvd+yRaT1QXMY58/G9yFBpAYbBXqDrpU9XyV0nmXdn6BOStAk8l6GOWxQq2Hy7zprv
-         xZQ2GKgekFcsSkJsIAjBIPsVLso6h66+gpU2lhm0byo+oo0CJrJsabrXZKHzvpXN5S/w
-         RQpK9AWpSkMjzFuUqwebYS4lHjHxSndwwX+GSESS3tqSmBQq1H+IHjXOWHwxuRXrRFXq
-         P6VPVEuNBGx0nX8oEtKZk5m83xsqujU26C5IZTUdsonLj/fqGRkUOv8mYI5QoP5+SZbn
-         DdgC+pQsDcTYxWfR3ctUoB8Ry5c+AvBWZFeBGQfdvo6XbSDCFTp86Uff0P4G7/xCZass
-         VZuw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745572120; x=1746176920;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=i+v5BXhhKCYYQq4gpYTRiJk77N1zu/YeJY08X8KspxQ=;
-        b=I7Y3LOimYvEEfYGi2saGcYWSTil87p9P/8EGWwl16cmzC/2D167eJ6XB4122b7D/IC
-         gjuqBZA02NAdTpVP2GipDyDGob0ecy3vRr1/UZsYo02jBG29zoFflyAPOhAE12ArPXuL
-         6YCGrmIbEC51mD4NdOLjncm7HL/26EeogcGZEFEXX+En/ZIjESyQAVzZdkJZpx1ib2ra
-         v53qa8DSkBoMcz60yetp4sUUMg9QAx1GCtLs2bENbaVBBDAehLy0OEjWAcbt0HTD4PLJ
-         V4noiuO+E6kaKAoFTiBK75bU7XgdC17I7wfV79fJsi4Rlf2Q07q1Tq9RNMUoYSJGBThK
-         JCcg==
-X-Gm-Message-State: AOJu0YxEnlhwtwCpWyUOx2Bxi9kD9EUV013S9x2TdVut80Rl3PL8Pq+p
-	TT2TfGCikN75EQVuzoj2WazxEXrOvKQKuN9Wgta4QYvICGS+PWbYRmtKV4io9hM=
-X-Gm-Gg: ASbGncveN4QI8EvMnuUpIJBvLY4tM/RPMzNNlH+d+cvc7g59F3EILr/yRi7vrBy4KHx
-	2VsT3cg80SwGK2jsX/FS8yteFQFPAMq0DRH+4O/QzozfaWyiLZHNCgRCwJotNSya8BCq5TPN6u3
-	DQtOfU0k2y9vss/smotom0mhEv9A7p7Hl/bXy6rJ2IuAwObxDaH+MojKxNUd/Pq79L8AKrmvP7K
-	Cm8VVhPsYJh3p1+wO6WqAlCROGeobvxUmfS7aSiGgPWRnffKfyouwps6SFUPPrIBUNQ9rzX9vNa
-	93nHzhBo/P7BARiV2H/SutwToafUiBEXlQ==
-X-Google-Smtp-Source: AGHT+IGN/vWTOOdJRbfqbsJsmvKshGEv6l4OK38T6XOXQRPgrvaijj8/T19lKBfroHc+Nolpyh8Jqw==
-X-Received: by 2002:a05:6000:258a:b0:391:2c67:798f with SMTP id ffacd0b85a97d-3a074f154f4mr940261f8f.41.1745572119738;
-        Fri, 25 Apr 2025 02:08:39 -0700 (PDT)
-Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:3f35:2b31:c543:726d])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a073e5c9cdsm1688909f8f.87.2025.04.25.02.08.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Apr 2025 02:08:37 -0700 (PDT)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Fri, 25 Apr 2025 11:08:30 +0200
-Subject: [PATCH 2/3] pinctrl: bcm: iproc-gpio: use new GPIO line value
- setter callbacks
+	Fri, 25 Apr 2025 09:26:46 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1745573204;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=gH5Q/9/Gya6g7S3LOJ0iW2pbkqKWlFOIE72t/4lmn3Y=;
+	b=lTZkGhlOubLAFQnv5HDHfiOwIA2OpqXLEg6CO4Vya9kGFeFRlwExSb2RWSwYm5Eg8XhwMl
+	40ebWHvf0C5xx1UO+mf9m3Rz2ts1yZ7xrtn7QJRxWPW/QA0QFQzbkEVctK+/hqI3NJL0Xb
+	vfNJMdAbIhcLxg3hfoGB0NV4eQ8VC32TmsNs6lCXpqk+2LpSkraU+0HxeK3+0zJ35u7ZmS
+	I9ImvqE94u8EmgSe35zoemOT7i5A4qztXMimy74DrlUCnyXfsnwGcFbHniIeIFLSMtvJqx
+	SdboLYb34L/MNtJdNWHS8V3A81f31kgsjxhoUfkqLDRXPK5RIkYliB+kNtZNDA==
+From: Diederik de Haas <didi.debian@cknow.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: Dragan Simic <dsimic@manjaro.org>,
+	Dang Huynh <danct12@riseup.net>,
+	Johan Jonker <jbx6244@gmail.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Diederik de Haas <didi.debian@cknow.org>
+Subject: [PATCH 4/4] arm64: dts: rockchip: Add vcc-supply to SPI flash on rk3588-rock-5b
+Date: Fri, 25 Apr 2025 10:44:44 +0200
+Message-ID: <20250425092601.56549-5-didi.debian@cknow.org>
+In-Reply-To: <20250425092601.56549-1-didi.debian@cknow.org>
+References: <20250425092601.56549-1-didi.debian@cknow.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250425-gpiochip-set-rv-pinctrl-bcm-v1-2-6b8883d79b66@linaro.org>
-References: <20250425-gpiochip-set-rv-pinctrl-bcm-v1-0-6b8883d79b66@linaro.org>
-In-Reply-To: <20250425-gpiochip-set-rv-pinctrl-bcm-v1-0-6b8883d79b66@linaro.org>
-To: Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, 
- Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1648;
- i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=AXQvvsX8aRsrH6IPjREq5g+zCKjZWUt9eQLSBi8qPzM=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoC1EPM33kYpK05MSkPsmYPi2ni2pXZtF3jM//c
- +NOmi85KW6JAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaAtRDwAKCRARpy6gFHHX
- cumND/9NDhDagbohLKHaVpqHCjYGMLprtLl0fswvDQm6vOrfMCMczKAQ2yKRl7wy5ssQj5ExYFe
- iiVWum+9hVvTsheYOoQLoLDOjffUKPtRs9ottEeT7W6B6aZkqLgvgEPKEtHz33pDMuV7Vl8LPBy
- +Tl++w9ixP4DS+7Pgf4Fb+DnkSHy54Jb471i+LP/buYQCS6/WaR/a7xY9t+dSvlJiF7aMogsWs0
- 8UIS7KUOTGNac1pMUj1vjNMbbazqmx+yi/LUGMuF9FaUTo95pxr/ngMR7h6P2l/ECYWoqxx4HeO
- InOzcRHBGE3WSpGP+5Q2nedWWs2+J7hNaQZPDgPSwMPcmnofz6CIkOonLbAg1MQsqUU0flDVYER
- cZlwX7FIMeJFNWN5SbyAsdz3z7rtBBdO/0u7GHxvTyKWVZCd7cIsTgiCqQPdE2HwexPtMMRux89
- /QTTBhM0/BB5vXgdwxJTfF8FahYkc03S08Ew3ICCKoXjMsVZ5xrN+JOdnkacZLCMcJ1ftqpBwLJ
- jnb4yRvayiA+5ErzzEwSDs+3zgAGe/AAWkB8Uz/hjvTELKCMVeT/4vwIBgJWUPQgTHdHgwF1lci
- +FJVQIkoPiUp9l17NDejpnFAFqgHqY7LXJ8VA0Pvpo1JYmdQdLWOQbTmsdU4uoCXKV299Nn9a6f
- GRikUNE+adMm9qA==
-X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
- fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_020841_286445_AED87D71 
-X-CRM114-Status: GOOD (  13.84  )
+X-CRM114-CacheID: sfid-20250425_022645_900445_B9A0B26F 
+X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,50 +82,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+The Radxa Rock 5B component placement document identifies the SPI Nor
+Flash chip as 'U4300' which is described on page 25 of the Schematic
+v1.45. There we can see that the VCC connector is connected to the
+VCC_3V3_S3 power source.
 
-struct gpio_chip now has callbacks for setting line values that return
-an integer, allowing to indicate failures. Convert the driver to using
-them.
+This fixes the following warning:
 
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+  spi-nor spi5.0: supply vcc not found, using dummy regulator
+
+Fixes: e7f4e924f46d ("dt-bindings: mtd: jedec,spi-nor: add optional vcc-supply")
+Signed-off-by: Diederik de Haas <didi.debian@cknow.org>
 ---
- drivers/pinctrl/bcm/pinctrl-iproc-gpio.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+ arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/pinctrl/bcm/pinctrl-iproc-gpio.c b/drivers/pinctrl/bcm/pinctrl-iproc-gpio.c
-index c9a3d3aa8c10..1d08b8d4cdd7 100644
---- a/drivers/pinctrl/bcm/pinctrl-iproc-gpio.c
-+++ b/drivers/pinctrl/bcm/pinctrl-iproc-gpio.c
-@@ -390,7 +390,7 @@ static int iproc_gpio_get_direction(struct gpio_chip *gc, unsigned int gpio)
- 	return GPIO_LINE_DIRECTION_IN;
- }
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+index d22068475c5d..17f4fd054cd3 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts
+@@ -562,6 +562,7 @@ flash@0 {
+ 		spi-max-frequency = <104000000>;
+ 		spi-rx-bus-width = <4>;
+ 		spi-tx-bus-width = <1>;
++		vcc-supply = <&vcc_3v3_s3>;
+ 	};
+ };
  
--static void iproc_gpio_set(struct gpio_chip *gc, unsigned gpio, int val)
-+static int iproc_gpio_set(struct gpio_chip *gc, unsigned int gpio, int val)
- {
- 	struct iproc_gpio *chip = gpiochip_get_data(gc);
- 	unsigned long flags;
-@@ -400,6 +400,8 @@ static void iproc_gpio_set(struct gpio_chip *gc, unsigned gpio, int val)
- 	raw_spin_unlock_irqrestore(&chip->lock, flags);
- 
- 	dev_dbg(chip->dev, "gpio:%u set, value:%d\n", gpio, val);
-+
-+	return 0;
- }
- 
- static int iproc_gpio_get(struct gpio_chip *gc, unsigned gpio)
-@@ -863,7 +865,7 @@ static int iproc_gpio_probe(struct platform_device *pdev)
- 	gc->direction_input = iproc_gpio_direction_input;
- 	gc->direction_output = iproc_gpio_direction_output;
- 	gc->get_direction = iproc_gpio_get_direction;
--	gc->set = iproc_gpio_set;
-+	gc->set_rv = iproc_gpio_set;
- 	gc->get = iproc_gpio_get;
- 
- 	chip->pinmux_is_supported = of_property_read_bool(dev->of_node,
-
 -- 
-2.45.2
+2.49.0
 
 
