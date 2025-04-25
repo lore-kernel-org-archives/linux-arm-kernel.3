@@ -4,61 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9495C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 14:06:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EACC3C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 14:09:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XTFzkeEeapEs4qG/YwMwi6NwxIuvDTJxd9BuEbVAkYo=; b=trUca0Fxt8tglHYGVGEd9/w5ky
-	HIqKDg/+C2LHLO9iwEzgMZUQSICq2Cw8xJLnj5iXc1piWYCeQWdwcxExlk+G5BEi/eg5O7rfz3bX4
-	VtGvnWM7FgCLQkT4Vo+CbucQaecqop9oN0yDY5jcdF5eTMqFFcU5zNFpjXa1eenyLXAxJqnynbSZv
-	6g8v5JTkZqczo2WbOtJn9szkl5uZazlCt26RPP1IwgSZnWCBrJ3Pak00yoz6ilIsfkpaQKpwvIy83
-	cPsz0s7S8gmNdPy+k1tE7/ad93N4KhPG3JFBh6w03ItqpdkUrLS3brSY8ZswDy6sLFXDBbECaFbmf
-	5rLbqhug==;
+	bh=NFP2W2jmPvIjX4SKsg8ordEsFDwm2ltfl5D0WhF7rH8=; b=YfTUuRq/Qr1Y4FZZl3JiNV9K2h
+	0joB+QknRgTwKbCNLAgdfF54yRuTZ88WAYMQVyrHsYV/9arjctjMcZgHujiL2VnrjgZeKpL/9Gm+A
+	ko1ZcQzMedAAWjrqP7O06s+5oj2wzAjw97pQreO7wEAtc4gPJmQvr/AhkTx3hTE5etDnR0383fjk+
+	GlpqPZl/HskbvpWe7++TQlZA7sd5zWQZos6SUHb3pwTk9YX9iuC1Pu0ud278thsayGvPzx4vOMAmW
+	F4gxrXY2yB5l0gx3XEdHlk7+2aKxtfgvhwFW6Xi5RfJZYx+c/arUWNEldXC+0higE1Vn1eZxRSjDx
+	YMRlgEHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Jgi-0000000HNXO-16uj;
-	Fri, 25 Apr 2025 14:05:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8IYY-0000000HBTP-0m8Q
+	id 1u8JkM-0000000HNzP-19qQ;
+	Fri, 25 Apr 2025 14:09:42 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u8Ijw-0000000HDRI-1Bj2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 12:53:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7BCEF1A2D;
-	Fri, 25 Apr 2025 05:53:20 -0700 (PDT)
-Received: from pluto.. (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 234C83F59E;
-	Fri, 25 Apr 2025 05:53:22 -0700 (PDT)
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org
-Cc: sudeep.holla@arm.com,
-	james.quinlan@broadcom.com,
-	f.fainelli@gmail.com,
-	vincent.guittot@linaro.org,
-	peng.fan@oss.nxp.com,
-	michal.simek@amd.com,
-	quic_sibis@quicinc.com,
-	dan.carpenter@linaro.org,
-	maz@kernel.org,
-	johan@kernel.org,
-	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v2 4/4] [NOT FOR UPSTREAM] firmware: arm_scmi: quirk: Ignore FC bit in attributes
-Date: Fri, 25 Apr 2025 13:52:50 +0100
-Message-ID: <20250425125250.1847711-5-cristian.marussi@arm.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250425125250.1847711-1-cristian.marussi@arm.com>
-References: <20250425125250.1847711-1-cristian.marussi@arm.com>
+	Fri, 25 Apr 2025 13:05:14 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53PD57E12176482
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 25 Apr 2025 08:05:07 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1745586307;
+	bh=NFP2W2jmPvIjX4SKsg8ordEsFDwm2ltfl5D0WhF7rH8=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=pzyOup1QdVC49a8w2KlyxMfn+vrDnXsxZuqzZe98WNl+tSjvQ21J90l3ZpYDAl571
+	 +DiVrH0vDyLyfE/VmdJ45ePkh7oEmMP+S95EazUktqr0ejM4EdKlg5if0oiCXWrGFT
+	 RIdQiKOH91Du2txW5oQ4P/OuLX0Pdk++YSSh55Aw=
+Received: from DLEE101.ent.ti.com (dlee101.ent.ti.com [157.170.170.31])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53PD57Mb019281
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 25 Apr 2025 08:05:07 -0500
+Received: from DLEE113.ent.ti.com (157.170.170.24) by DLEE101.ent.ti.com
+ (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 25
+ Apr 2025 08:05:07 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE113.ent.ti.com
+ (157.170.170.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 25 Apr 2025 08:05:06 -0500
+Received: from [10.249.141.75] ([10.249.141.75])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53PD51Bn053981;
+	Fri, 25 Apr 2025 08:05:02 -0500
+Message-ID: <c63cac69-6cfc-48b9-81a3-42a88dcd74f9@ti.com>
+Date: Fri, 25 Apr 2025 18:35:01 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: ti: k3-j784s4-j742s2-main-common: fix length
+ of serdes_ln_ctrl
+To: Siddharth Vadapalli <s-vadapalli@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
+        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>
+CC: <stable@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <srk@ti.com>, <u-kumar1@ti.com>
+References: <20250423151612.48848-1-s-vadapalli@ti.com>
+Content-Language: en-US
+From: "Kumar, Udit" <u-kumar1@ti.com>
+In-Reply-To: <20250423151612.48848-1-s-vadapalli@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_055326_356949_3825F1BD 
-X-CRM114-Status: GOOD (  14.43  )
+X-CRM114-CacheID: sfid-20250425_060512_417322_2535E8EB 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,88 +89,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some platform misreported the support of FastChannel when queried: ignore
-that bit on selected platforms.
+Hello Siddharth
 
-Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
----
-Match features has to be set-up properly before upstreaming this.
-Ideally the out-of-spec firmware should be matched with a quirk matching
-pattern based on Vendor/SubVendor/ImplVersion....but it is NOT clear if the
-platform at hand will ship with future fixed firmwares where the ImplVersion
-field is properly handled.
-If we cannot be sure about that, we should fallback to a compatible match.
+On 4/23/2025 8:46 PM, Siddharth Vadapalli wrote:
+> Commit under Fixes corrected the "mux-reg-masks" property but did not
+> update the "length" field of the "reg" property to account for the newly
+> added register offsets which extend the region. Fix this.
+>
+> Fixes: 38e7f9092efb ("arm64: dts: ti: k3-j784s4-j742s2-main-common: Fix serdes_ln_ctrl reg-masks")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+> ---
+>
+> Hello,
+>
+> This patch is based on commit
+> bc3372351d0c Merge tag 'for-6.15-rc3-tag' of git://git.kernel.org/pub/scm/linux/kernel/git/kdave/linux
+> of Mainline Linux.
+>
+> Regards,
+> Siddharth.
+>
+>   arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
+> index 1944616ab357..1fc0a11c5ab4 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
+> @@ -77,7 +77,7 @@ pcie1_ctrl: pcie1-ctrl@4074 {
+>   
+>   		serdes_ln_ctrl: mux-controller@4080 {
+>   			compatible = "reg-mux";
+> -			reg = <0x00004080 0x30>;
+> +			reg = <0x00004080 0x50>;
 
-v1 -> v2
-- use multiple compats quirks syntax
 
-RFC->V1
-- fix QUIRKS conditions
----
- drivers/firmware/arm_scmi/driver.c | 8 ++++++++
- drivers/firmware/arm_scmi/quirks.c | 3 +++
- drivers/firmware/arm_scmi/quirks.h | 1 +
- 3 files changed, 12 insertions(+)
+Reviewed-by: Udit Kumar <u-kumar1@ti.com>
 
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index ffaa68cdf644..3b363bda2b1e 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -1904,6 +1904,13 @@ struct scmi_msg_resp_desc_fc {
- 	__le32 db_preserve_hmask;
- };
- 
-+#define QUIRK_PERF_FC_FORCE						\
-+	({								\
-+		if (pi->proto->id == SCMI_PROTOCOL_PERF &&		\
-+		    message_id == 0x8 /* PERF_LEVEL_GET */)		\
-+			attributes |= BIT(0);				\
-+	})
-+
- static void
- scmi_common_fastchannel_init(const struct scmi_protocol_handle *ph,
- 			     u8 describe_id, u32 message_id, u32 valid_size,
-@@ -1924,6 +1931,7 @@ scmi_common_fastchannel_init(const struct scmi_protocol_handle *ph,
- 
- 	/* Check if the MSG_ID supports fastchannel */
- 	ret = scmi_protocol_msg_check(ph, message_id, &attributes);
-+	SCMI_QUIRK(perf_level_get_fc_force, QUIRK_PERF_FC_FORCE);
- 	if (ret || !MSG_SUPPORTS_FASTCHANNEL(attributes)) {
- 		dev_dbg(ph->dev,
- 			"Skip FC init for 0x%02X/%d  domain:%d - ret:%d\n",
-diff --git a/drivers/firmware/arm_scmi/quirks.c b/drivers/firmware/arm_scmi/quirks.c
-index 120ac933ed2e..64a5809da20b 100644
---- a/drivers/firmware/arm_scmi/quirks.c
-+++ b/drivers/firmware/arm_scmi/quirks.c
-@@ -168,6 +168,8 @@ struct scmi_quirk {
- 
- /* Global Quirks Definitions */
- DEFINE_SCMI_QUIRK(clock_rates_triplet_out_of_spec, NULL, NULL, NULL);
-+DEFINE_SCMI_QUIRK(perf_level_get_fc_force,
-+		  "bad-vend", NULL, "0x20000-", "bad-compat", "bad-compat-2");
- 
- /*
-  * Quirks Pointers Array
-@@ -177,6 +179,7 @@ DEFINE_SCMI_QUIRK(clock_rates_triplet_out_of_spec, NULL, NULL, NULL);
-  */
- static struct scmi_quirk *scmi_quirks_table[] = {
- 	__DECLARE_SCMI_QUIRK_ENTRY(clock_rates_triplet_out_of_spec),
-+	__DECLARE_SCMI_QUIRK_ENTRY(perf_level_get_fc_force),
- 	NULL
- };
- 
-diff --git a/drivers/firmware/arm_scmi/quirks.h b/drivers/firmware/arm_scmi/quirks.h
-index 7fdc496c94c7..a71fde85a527 100644
---- a/drivers/firmware/arm_scmi/quirks.h
-+++ b/drivers/firmware/arm_scmi/quirks.h
-@@ -47,5 +47,6 @@ static inline void scmi_quirks_enable(struct device *dev, const char *vend,
- 
- /* Quirk delarations */
- DECLARE_SCMI_QUIRK(clock_rates_triplet_out_of_spec);
-+DECLARE_SCMI_QUIRK(perf_level_get_fc_force);
- 
- #endif /* _SCMI_QUIRKS_H */
--- 
-2.47.0
 
+>   			#mux-control-cells = <1>;
+>   			mux-reg-masks = <0x0 0x3>, <0x4 0x3>, /* SERDES0 lane0/1 select */
+>   					<0x8 0x3>, <0xc 0x3>, /* SERDES0 lane2/3 select */
 
