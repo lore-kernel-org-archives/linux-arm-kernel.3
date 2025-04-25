@@ -4,97 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B26D5C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 19:22:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92453C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 19:24:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tSiF7FhF0tHfOGpGfJXsH5sp5D81/QkR5l4lerbklaI=; b=LkjcX/X1yPihAkpa0xZ86EWZQS
-	ugSBKjEcKFJb2HqKbJWtXIGwpHKzoEnDfVGo4r33p/Q+J9WdgO9kWoLXhgqZfklWh8DU8VhXifWh5
-	xLtGR5As4CWWLmRGpOuoFzN5pp+BkuTx8s120/mQkjyuTWYqrcO2QiP8xZV2KO6lezdYvPt41BWni
-	vMgq60TpWcGBeyVCwouIJlWn7AUzz2YYeDPLOmA3uI4Per0QkyEiKRBvVrxYqAripZhzUAk5y5WOG
-	xPzluYW6Mx+DijbkBKHEGsgXTC/bvbkJvS5Psq776Pwrx0cC9PTRLHE3xy8IuiFoUaTy+MEn2w189
-	qiSjLScw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e7kqIp3MP/24W1fG470MVrUTqk7OynlrlSs6nEIYljg=; b=dednXshSPmuSpp+Lr3CYnkkMlk
+	AFGqt/GzjuRuaGqZ8XkbyIK1xBfBkBr4FlUO+BVbnonqgrmP4rzj3cGZbfqkutjx4Ovo9k5H1t1LG
+	esnpTSJhniaBTL8BN6lxYtFeoI9BiRRFP9n6IkarTJaydqCAkGjs/UmmN549nzQEa4zCYRgw5LPqm
+	82h6aiy5NcK86ysBCu+FuRjMNNm6aRW0lDGjlrjLz/nn7WMomYq0fFw5MboH2m+5BJZe+Sbibo5TO
+	BEBc+uJ/2XpXLjrepZuw0r50TLVJST/9sDTIMQJrJLdzQSM7Mr5d6teUGK2yVXPahJ95Yyp++/D70
+	a4+SpSIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Ocj-00000000dcG-0i4t;
-	Fri, 25 Apr 2025 19:22:09 +0000
-Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
+	id 1u8Oed-00000000drm-0bPH;
+	Fri, 25 Apr 2025 19:24:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Oaq-00000000dSZ-0fr3
+	id 1u8Ocm-00000000dcy-2LYv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 19:20:14 +0000
-Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-476ae781d21so29687211cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 12:20:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=libre.computer; s=google; t=1745608810; x=1746213610; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=tSiF7FhF0tHfOGpGfJXsH5sp5D81/QkR5l4lerbklaI=;
-        b=LbXdftRXVP72wO5xh4RDuPNwKMiwI6JOr2NManFKMRXffx+f95F1rjz+kGrmdcgUPC
-         wY20qjG8MLNkMe3XrryXA1Wpbpc16QLp35GRMUVanNpBIfZtfJHD3ZlQvE1loZpioZzc
-         SFpjX2DzY3qprcaTfzsnjVFsJ3hnkN7nKajM9se95PtsKpfl4r2xJO0yjRkaTw3Y6Sfn
-         rJG8ZZbalV8Dm2kCulcpJFIze4CnbtGy7LNHpH/infb5XernXXf1rj3MLGPpEkCncAkh
-         a02fwEtrQ2vP2/273xh47AQ4fCqiQMD4GdAkrOTtT9ka7SK3oPMvkD3J+3XtxX/HzQ+m
-         Q2HQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745608810; x=1746213610;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=tSiF7FhF0tHfOGpGfJXsH5sp5D81/QkR5l4lerbklaI=;
-        b=I89i7qXKBuFzenTvdRzzwMgZr/hR+3wsKr8iPVJM9tJk/C3OnEr+oAJFepbrsWVSCM
-         HQPfIQ3NQI8cDZ285HMNAJN0PGaxCMz0EV9rMeSliD9fDtIgwRMRVtVkzpZAgA8z5rFQ
-         riktHEYwxLkVNP+wwBUgfhw+Nba9FykKIkTcDlHPcpAAGcsEtJ8BJWFiHVScBXzQqB9Q
-         IKvDerqjk6TH9LP8FANpvOkOc+AZXWoIUSI2xKOtpfwjKwe7DRT6DFr0il/XOVtuQsUh
-         rLFKHam+Lqn9gkmXbzyI0ayIt2dlLNDZhomdUZA5dMqhitxXCzWzDXZCwY83z49SErmE
-         4PlA==
-X-Forwarded-Encrypted: i=1; AJvYcCVULZ1TOIPzgmDvrXH99IuNVSVK8PMSj+YIGSLzFjF38Qlt1atV9CwUnod5wpVHNAOmcnOnMTAndjRuuksE6Kuc@lists.infradead.org
-X-Gm-Message-State: AOJu0YwGtZiAvqZskT1EpfRedpQIZcBKZm04lpuhM6QKV4xVSm342NqC
-	ZE6kfL4CeSksc02wxVJ/lWcCPfDVEj8FzV/0cyP8im2ejAKYNOlhzqXi6hHqOw==
-X-Gm-Gg: ASbGncv7+zlF38zFcW/2BJDgcRD94WqQbMA9DL2OYLy6enZ6pWjFXMlkp+r9volkWXS
-	dO4TIqIk+dVajo6dI3gM2zfALRXeF9VD6smPYkz61mfEZ8MBQAIArlo2/yAjmvEI39UcHmKjEZe
-	kl70QcPL9JcJ6eKEwokEvyLyg//A2g0wXIgRy3AnufZRZNTv6g8pt1EEARGAA06EwAIhEShg9cj
-	fnGGK/EzGi3zitoXdH414VWdgWPLgYrTC9xx144FXzLcGPq95S3F+/IOPS0OFc8CD16sJowsd1K
-	iyh1+Pf2ALqx+7b8+WsS7hqzDgMDqcZCPqfp
-X-Google-Smtp-Source: AGHT+IGY/FeexPuDpgYb8JxPjPFvAGcEWUmeISWIErTY/veMEqRNOKkQikr2E7yj9IXljqqh0c90qg==
-X-Received: by 2002:ac8:7d4c:0:b0:476:a895:7e87 with SMTP id d75a77b69052e-481335610c0mr7228001cf.48.1745608810494;
-        Fri, 25 Apr 2025 12:20:10 -0700 (PDT)
-Received: from localhost ([2607:fb91:bdd9:47ad:b39:2164:cbe2:1695])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-47e9f1cc02esm29045181cf.30.2025.04.25.12.20.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Apr 2025 12:20:10 -0700 (PDT)
-From: Da Xue <da@libre.computer>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Christian Hewitt <christianshewitt@gmail.com>,
-	stable@vger.kernel.org,
-	Da Xue <da@libre.computer>
-Subject: [PATCH v3] net: mdio: mux-meson-gxl: set reversed bit when using internal phy
-Date: Fri, 25 Apr 2025 15:20:09 -0400
-Message-Id: <20250425192009.1439508-1-da@libre.computer>
-X-Mailer: git-send-email 2.39.5
-MIME-Version: 1.0
+	Fri, 25 Apr 2025 19:22:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4559A61136;
+	Fri, 25 Apr 2025 19:21:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D60FC4CEE4;
+	Fri, 25 Apr 2025 19:22:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745608931;
+	bh=Usf2G1h8hpF9rzR/da+RSah9tvDonSHdGdQC9xKTH/A=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=ZCe/XvGXWMUZHkWQevSYxQop9cUEEguMOyhDx5sTtqL5P0GT4CetGe8EHdbpMUHTF
+	 eqs453T6V4TBEQCrnsl+5FPGN2Vo0taSg0du+iAh5BR3sZsmipv0Aqx2z0eF65VAsu
+	 C5HTST2Bjc1fEPuinUdHDR/wiPZEei3D6Z765WRmwuVOJ95dH0P6xkQ7n7RhguHRQ9
+	 90PeTlSOGSIrQ9VbpFQSym2oRDLSR2eR+UQ0LSXw4tzdzL2xIk+fdrGFLdlNKpJRH/
+	 pNTGGDkV/i1u6tlM34Mb/En0nSR6z41hlMXfUo0nMy/FlOoPGAv6YXddd3moU1EaM7
+	 TuIFngV2JCjgw==
+Date: Fri, 25 Apr 2025 14:22:09 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_122012_311842_D574512B 
-X-CRM114-Status: GOOD (  12.65  )
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: willmcvicker@google.com, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, kernel-team@android.com, 
+ linux-samsung-soc@vger.kernel.org, andre.draszik@linaro.org, 
+ Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
+ tudor.ambarus@linaro.org
+To: Peter Griffin <peter.griffin@linaro.org>
+In-Reply-To: <20250425-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v2-1-f1530de9da42@linaro.org>
+References: <20250425-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v2-0-f1530de9da42@linaro.org>
+ <20250425-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v2-1-f1530de9da42@linaro.org>
+Message-Id: <174560892936.2854543.3393907207242393219.robh@kernel.org>
+Subject: Re: [PATCH v2 1/5] dt-bindings: soc: google: Add
+ gs101-pmu-intr-gen binding documentation
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,48 +74,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This bit is necessary to receive packets from the internal PHY.
-Without this bit set, no activity occurs on the interface.
 
-Normally u-boot sets this bit, but if u-boot is compiled without
-net support, the interface will be up but without any activity.
+On Fri, 25 Apr 2025 17:25:05 +0100, Peter Griffin wrote:
+> Add bindings documentation for the Power Management Unit (PMU) interrupt
+> generator.
+> 
+> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+> ---
+>  .../soc/google/google,gs101-pmu-intr-gen.yaml      | 35 ++++++++++++++++++++++
+>  1 file changed, 35 insertions(+)
+> 
 
-The vendor SDK sets this bit along with the PHY_ID bits.
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Fixes: 9a24e1ff4326 ("net: mdio: add amlogic gxl mdio mux support");
-Signed-off-by: Da Xue <da@libre.computer>
----
-Changes since v2:
-* Rename REG2_RESERVED_28 to REG2_REVERSED
+yamllint warnings/errors:
 
-Link to v2:
-https://patchwork.kernel.org/project/linux-amlogic/patch/20250331074420.3443748-1-christianshewitt@gmail.com/
----
- drivers/net/mdio/mdio-mux-meson-gxl.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/google/google,gs101-pmu-intr-gen.yaml: $id: Cannot determine base path from $id, relative path/filename doesn't match actual path or filename
+ 	 $id: http://devicetree.org/schemas/soc/samsung/google,gs101-pmu-intr-gen.yaml
+ 	file: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/soc/google/google,gs101-pmu-intr-gen.yaml
 
-diff --git a/drivers/net/mdio/mdio-mux-meson-gxl.c b/drivers/net/mdio/mdio-mux-meson-gxl.c
-index 00c66240136b..3dd12a8c8b03 100644
---- a/drivers/net/mdio/mdio-mux-meson-gxl.c
-+++ b/drivers/net/mdio/mdio-mux-meson-gxl.c
-@@ -17,6 +17,7 @@
- #define  REG2_LEDACT		GENMASK(23, 22)
- #define  REG2_LEDLINK		GENMASK(25, 24)
- #define  REG2_DIV4SEL		BIT(27)
-+#define  REG2_REVERSED		BIT(28)
- #define  REG2_ADCBYPASS		BIT(30)
- #define  REG2_CLKINSEL		BIT(31)
- #define ETH_REG3		0x4
-@@ -65,7 +66,7 @@ static void gxl_enable_internal_mdio(struct gxl_mdio_mux *priv)
- 	 * The only constraint is that it must match the one in
- 	 * drivers/net/phy/meson-gxl.c to properly match the PHY.
- 	 */
--	writel(FIELD_PREP(REG2_PHYID, EPHY_GXL_ID),
-+	writel(REG2_REVERSED | FIELD_PREP(REG2_PHYID, EPHY_GXL_ID),
- 	       priv->regs + ETH_REG2);
- 
- 	/* Enable the internal phy */
--- 
-2.39.5
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250425-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v2-1-f1530de9da42@linaro.org
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
