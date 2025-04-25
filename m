@@ -4,65 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B388EC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 20:40:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B818CC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 21:04:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X9M4+Ej+Gp96bqz6Glzq05lkUeeT+EqqEuZ4uSjjb/8=; b=wHXUb2Ff+oxDSnuuB8j28nBRv0
-	MigE2UxdecdLCX4E6xdXOZuroBlo4Ig+q2fNRJN/wbNykbGuxIYsbupaO4Dt7wIGkN41Xj1Ns/p+J
-	RXs4xygr30tU45q3Q68lgUkIwrOnuuNqp+q97G69hCc96ZSE/36vu29a6wz248VNm6ljyfTVGMixt
-	5DzZiPcCoPSwAU7bZlEjD0k8jGrJxS93Yv4Toy9LGczeMxlhOM3CvMNHpkje05kZ5DLPRUntKVHiz
-	fmgR42TxW02WVZ/jmOSl/CPIqJXHhubyACZpPhJJLD2Nu5OmuTvXuK+P4Scw9tv0l7oaHsVJJx2qO
-	KN9FpVmA==;
+	bh=5TblJnP0G9WT88M2TZcj3zg5YJeY+7C7HhDuNxDIznE=; b=Z1fjh0XdLBlHeUZmZF6J8YZkw/
+	sdiywCflMoaSZsRciyU4grK2aBi0SE8Td3XQCWBIvVYkhZiBZUK4GJ4bVGZEdRDm1GsUmRKS32drg
+	o0MGD2iwyXSotzcP1KwJtbBSxZlKkOG+03bKLV2im4E9vcupJuxiDmZqV0erUsACF2qCGZH8YlxKd
+	85T9TDQu19QNvm3WmwujIZOFhkF9TaVBH5xntNgfv3UlTGbLgETMG7uxJ+Zav6EcPvFFwGnLC882q
+	1EljMukmNNJENVNfj0giSbdJ2EiDl7+tjhwMkveK/b7nhoy3jdswJx5TleekA6aXhuaBmCKqvtDA+
+	6xacAxrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Pqa-00000000p3O-1giL;
-	Fri, 25 Apr 2025 20:40:32 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u8QDf-00000000sdL-048E;
+	Fri, 25 Apr 2025 21:04:23 +0000
+Received: from mail-qv1-xf32.google.com ([2607:f8b0:4864:20::f32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Pmy-00000000oXv-2RTN
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 25 Apr 2025 20:36:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=X9M4+Ej+Gp96bqz6Glzq05lkUeeT+EqqEuZ4uSjjb/8=; b=Ozmu3L3/XX/1Rz5n0br39c98sd
-	+NM+y4+unDGM/MrvEKTK/35ZtI36W65bKg9otOaUTiH5nuTHHge9h2J3fIyexX87+eghKwQTqVLe1
-	DWAyvg7xQedASA+j9wiEu60qU2u+FLyZQzDSE8007fe9MJV/MTlbUlLAjqKx9LOQ08ZueOuXPhnsI
-	CD1//9V6AICKD4exT4AU26/bumSbWGpKnka9TBocsVVWog9HZ4HvZT1aPLdcmEToIZWOrveJOBV8S
-	XCOVqBBRc+hmycf3nRqByJtqnDF4TDeIC/x8/7h/05EKHTmN7Y5UcvkZUC1w4xrowGhC9m8qPxItJ
-	ckWGF3sg==;
-Received: from [2a00:23ee:1cc0:5c4b:b264:5a63:8637:c285] (helo=[IPv6:::1])
-	by desiato.infradead.org with esmtpsa (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u8Pma-0000000C9YR-2BZs;
-	Fri, 25 Apr 2025 20:36:27 +0000
-Date: Fri, 25 Apr 2025 21:36:21 +0100
-From: David Woodhouse <dwmw2@infradead.org>
-To: David Hildenbrand <david@redhat.com>, Mike Rapoport <rppt@kernel.org>
-CC: Andrew Morton <akpm@linux-foundation.org>,
- "Sauerwein, David" <dssauerw@amazon.de>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Ard Biesheuvel <ardb@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Mike Rapoport <rppt@linux.ibm.com>, Will Deacon <will@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, Ruihan Li <lrh2000@pku.edu.cn>
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v4_7/7=5D_mm/mm=5Finit=3A_Use_for=5Fea?=
- =?US-ASCII?Q?ch=5Fvalid=5Fpfn=28=29_in_init=5Funavailable=5Frange=28=29?=
-User-Agent: K-9 Mail for Android
-In-Reply-To: <8fd728cf-bc54-433d-8701-234a67933a97@redhat.com>
-References: <20250423133821.789413-1-dwmw2@infradead.org> <20250423133821.789413-8-dwmw2@infradead.org> <cabc322e-d5ab-4371-a506-c7809717b38b@redhat.com> <91CA8854-2E86-4AF3-BAD0-8C47833F59D4@infradead.org> <8fd728cf-bc54-433d-8701-234a67933a97@redhat.com>
-Message-ID: <0D5ABF4F-B1F2-4EB2-BD3B-A8312629D55E@infradead.org>
+	id 1u8QBm-00000000sMV-0Yp2
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Apr 2025 21:02:27 +0000
+Received: by mail-qv1-xf32.google.com with SMTP id 6a1803df08f44-6f0cfbe2042so35667206d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 14:02:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1745614944; x=1746219744; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5TblJnP0G9WT88M2TZcj3zg5YJeY+7C7HhDuNxDIznE=;
+        b=sMcRmfaMPjH6zaEx1c9H99F8QaNZJ+f6jfnJx/HUbluoy3IVUaClAegxLBwzwZ/ova
+         hpoPJdDNUMWLByT2M43swCoSO9z82FmKKKmrze1Q8zpd1r1bjPwyAJorY7psv6CZJkTH
+         mZtkd0BdguNetgyu0M8yRLEJlrSfYb7zt3c/p3q99a+QvJsMgitGfRI01WSBwxLkVqbf
+         Qg87pfnTiLJUvy7wgcnkpNrkxYaTR510QTDhTBhp8ZBz0dAgfYLEKqcpDbJtdU1l3qmj
+         nuTv2j7hjIdmkaESi2xuoj9Q1lDIBqM3mDzSNoG0xIFR0u9xNwHO7OjMBgYDBkR/AMSf
+         ZjrA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745614944; x=1746219744;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=5TblJnP0G9WT88M2TZcj3zg5YJeY+7C7HhDuNxDIznE=;
+        b=kq6blYVYOAMCB7athHA7fgelWwmhnsH7lv+MrDFD17elOqKZ1NVHXhEQFeP9q5dSmF
+         LF5IAlqY6Kbzv4LJa4fM3CMP/wahMSW2+eakp6V9s07xlnQw8K/DfXIrsHXf7LhOPvjX
+         flLyh1UH0ayLR0d+ZDSdjQH/KSanocFC6Qo9CLVCt4pd68smLUAVK+6sr9C0zItRj7EW
+         PgI9V9mqNBiIZtlYfSizgW6oLdAoVcnhMZl6bEAJTCXVFoAVGM8R7poShnVPGU68isBN
+         zXNJNaCZHZgWlJ54GOlMsCts3bwUEnh/u5VzzghT5wL5fTiETZ8bPz23+8aCr8LKlzyy
+         ezoA==
+X-Forwarded-Encrypted: i=1; AJvYcCVXoZkXj1AzMa71S/9aGZ6iIsuf/eOj/KxPFfOAH/N6cBofIofbZcCM0ZuZMrmnOve//alZaFKwbulvoLpfVVZO@lists.infradead.org
+X-Gm-Message-State: AOJu0YyOGG31N/Fh+KUyDKJ8PzKCf1L1zlcOeIO6N+LCWdfPJjh4bOlj
+	p0Tw/zx30Fyt8ub5XKJFVSyhx0KUOgrUtJEU5oFT2npFCLiaHevfaX1Bmu64Bu5gDt5Hi7xkNBo
+	/5LMuMliX176r6/BIXjGf/Ci+tBDhL1KkuB8=
+X-Gm-Gg: ASbGncsU1d5pAobOa1mZi+q1kxWo+BYeifctr9V9tFbrqjLBLpvDgaSEfIA7u7aTYH+
+	UrzXIPztWIS8N8OoauSf5ybBo7Ilf4fMgQ1D8C+uMewPjnk42S03irvuqPb+rFnOqfEpeM+wku8
+	p+FL0OHg==
+X-Google-Smtp-Source: AGHT+IHkfUlwUem4PfnopT+6TlRr3jMpAyAEE+AOQNIQWcfuRd3shIIoUe9Vc6WoUsRXgu3w115ogjdW1I4zauvHggE=
+X-Received: by 2002:ad4:5c6e:0:b0:6e4:4adb:8c29 with SMTP id
+ 6a1803df08f44-6f4c11cfccamr135354956d6.12.1745614941905; Fri, 25 Apr 2025
+ 14:02:21 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
+References: <20250408195922.770377-1-yabinc@google.com> <20250408195922.770377-3-yabinc@google.com>
+ <358f4a8c-29ad-4e5e-91b9-063f06e769ec@linaro.org> <CAJ9a7VigiBrcenP9w84KS21iE8gnB7bGC9Q6ZFF33ZHveu9SEg@mail.gmail.com>
+In-Reply-To: <CAJ9a7VigiBrcenP9w84KS21iE8gnB7bGC9Q6ZFF33ZHveu9SEg@mail.gmail.com>
+From: Yabin Cui <yabinc@google.com>
+Date: Fri, 25 Apr 2025 14:02:10 -0700
+X-Gm-Features: ATxdqUHAWEV7N_YSxfaedx7b1DR8Tf9gK0wjsx7y8UL4mHWQiNO2xurmvYk0Xu8
+Message-ID: <CALJ9ZPPdqrAJkV7CHJBLGKoqQm5hmR7s_4_qRJ=gWyTvxJtL-g@mail.gmail.com>
+Subject: Re: [PATCH v3 2/2] coresight: core: Disable helpers for devices that
+ fail to enable
+To: Mike Leach <mike.leach@linaro.org>
+Cc: James Clark <james.clark@linaro.org>, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Leo Yan <leo.yan@arm.com>, 
+	Jie Gan <quic_jiegan@quicinc.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by desiato.infradead.org. See http://www.infradead.org/rpr.html
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250425_140226_170305_9D4DFBE4 
+X-CRM114-Status: GOOD (  25.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,90 +99,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25 April 2025 21:12:49 BST, David Hildenbrand <david@redhat=2Ecom> wrote=
-:
->On 25=2E04=2E25 21:08, David Woodhouse wrote:
->> On 25 April 2025 17:17:25 BST, David Hildenbrand <david@redhat=2Ecom> w=
-rote:
->>> On 23=2E04=2E25 15:33, David Woodhouse wrote:
->>>> From: David Woodhouse <dwmw@amazon=2Eco=2Euk>
->>>>=20
->>>> Currently, memmap_init initializes pfn_hole with 0 instead of
->>>> ARCH_PFN_OFFSET=2E Then init_unavailable_range will start iterating e=
-ach
->>>> page from the page at address zero to the first available page, but i=
-t
->>>> won't do anything for pages below ARCH_PFN_OFFSET because pfn_valid
->>>> won't pass=2E
->>>>=20
->>>> If ARCH_PFN_OFFSET is very large (e=2Eg=2E, something like 2^64-2GiB =
-if the
->>>> kernel is used as a library and loaded at a very high address), the
->>>> pointless iteration for pages below ARCH_PFN_OFFSET will take a very
->>>> long time, and the kernel will look stuck at boot time=2E
->>>>=20
->>>> Use for_each_valid_pfn() to skip the pointless iterations=2E
->>>>=20
->>>> Reported-by: Ruihan Li <lrh2000@pku=2Eedu=2Ecn>
->>>> Suggested-by: Mike Rapoport <rppt@kernel=2Eorg>
->>>> Signed-off-by: David Woodhouse <dwmw@amazon=2Eco=2Euk>
->>>> Reviewed-by: Mike Rapoport (Microsoft) <rppt@kernel=2Eorg>
->>>> Tested-by: Ruihan Li <lrh2000@pku=2Eedu=2Ecn>
->>>> ---
->>>>    mm/mm_init=2Ec | 6 +-----
->>>>    1 file changed, 1 insertion(+), 5 deletions(-)
->>>>=20
->>>> diff --git a/mm/mm_init=2Ec b/mm/mm_init=2Ec
->>>> index 41884f2155c4=2E=2E0d1a4546825c 100644
->>>> --- a/mm/mm_init=2Ec
->>>> +++ b/mm/mm_init=2Ec
->>>> @@ -845,11 +845,7 @@ static void __init init_unavailable_range(unsign=
-ed long spfn,
->>>>    	unsigned long pfn;
->>>>    	u64 pgcnt =3D 0;
->>>>    -	for (pfn =3D spfn; pfn < epfn; pfn++) {
->>>> -		if (!pfn_valid(pageblock_start_pfn(pfn))) {
->>>> -			pfn =3D pageblock_end_pfn(pfn) - 1;
->>>> -			continue;
->>>> -		}
->>>=20
->>> So, if the first pfn in a pageblock is not valid, we skip the whole pa=
-geblock =2E=2E=2E
->>>=20
->>>> +	for_each_valid_pfn(pfn, spfn, epfn) {
->>>>    		__init_single_page(pfn_to_page(pfn), pfn, zone, node);
->>>>    		__SetPageReserved(pfn_to_page(pfn));
->>>>    		pgcnt++;
->>>=20
->>> but here, we would process further pfns inside such a pageblock?
->>>=20
->>=20
->> Is it not the case that either *all*, or *none*, of the PFNs within a g=
-iven pageblock will be valid?
+On Fri, Apr 25, 2025 at 8:25=E2=80=AFAM Mike Leach <mike.leach@linaro.org> =
+wrote:
 >
->Hmm, good point=2E I was thinking about sub-sections, but all early secti=
-ons are fully valid=2E
+> On Tue, 15 Apr 2025 at 14:51, James Clark <james.clark@linaro.org> wrote:
+> >
+> >
+> >
+> > On 08/04/2025 8:59 pm, Yabin Cui wrote:
+> > > When enabling a SINK or LINK type coresight device fails, the
+> > > associated helpers should be disabled.
+> > >
+> > > Signed-off-by: Yabin Cui <yabinc@google.com>
+> > > Suggested-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> > > ---
+> > >   drivers/hwtracing/coresight/coresight-core.c | 9 +++++++--
+> > >   1 file changed, 7 insertions(+), 2 deletions(-)
+> > >
+> > > diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/h=
+wtracing/coresight/coresight-core.c
+> > > index fb43ef6a3b1f..a56ba9087538 100644
+> > > --- a/drivers/hwtracing/coresight/coresight-core.c
+> > > +++ b/drivers/hwtracing/coresight/coresight-core.c
+> > > @@ -486,8 +486,10 @@ int coresight_enable_path(struct coresight_path =
+*path, enum cs_mode mode,
+> > >                        * that need disabling. Disabling the path here
+> > >                        * would mean we could disrupt an existing sess=
+ion.
+> > >                        */
+> > > -                     if (ret)
+> > > +                     if (ret) {
+> > > +                             coresight_disable_helpers(csdev);
+> >
+> > Hi Yabin,
+> >
+> > Unfortunately coresight_disable_helpers() takes a path pointer now so
+> > this needs to be updated.
+> >
+> > I tested with that change made and it works ok.
+> >
+> > >                               goto out;
+> > > +                     }
+> > >                       break;
+> > >               case CORESIGHT_DEV_TYPE_SOURCE:
+> > >                       /* sources are enabled from either sysFS or Per=
+f */
+> > > @@ -496,10 +498,13 @@ int coresight_enable_path(struct coresight_path=
+ *path, enum cs_mode mode,
+> > >                       parent =3D list_prev_entry(nd, link)->csdev;
+> > >                       child =3D list_next_entry(nd, link)->csdev;
+> > >                       ret =3D coresight_enable_link(csdev, parent, ch=
+ild, source);
+> > > -                     if (ret)
+> > > +                     if (ret) {
+> > > +                             coresight_disable_helpers(csdev);
+> > >                               goto err;
+> > > +                     }
+> > >                       break;
+> > >               default:
+> > > +                     coresight_disable_helpers(csdev);
+> >
+> > Minor nit, you could collapse these last two into "goto
+> > err_disable_helpers" and add another label before err: that disables
+> > helpers before falling through to err:.
+> >
+> > Other than that:
+> >
+> > Reviewed-by: James Clark <james.clark@linaro.org>
+> >
+> > >                       goto err;
+> > >               }
+> > >       }
+> >
 >
->(Also, at least on x86, the subsection size should match the pageblock si=
-ze; might not be the case on other architectures, like arm64 with 64K base =
-pages =2E=2E=2E)
+> Subject to James' comments -
 >
->>=20
->> I assumed that was *why* it had that skip, as an attempt at the kind of=
- optimisation that for_each_valid_pfn() now gives us?
->
->But it's interesting in this code that we didn't optimize for "if the fir=
-st pfn is valid, all the remaining ones are valid"=2E We would still check =
-each PFN=2E
->
->In any case, trying to figure out why Lorenzo ran into an issue =2E=2E=2E=
- if it's nit because of the pageblock, maybe something in for_each_valid_pf=
-n with sparsemem is still shaky=2E
+> Reviewed-by: Mike Leach <mike.leach@linaro.org>
 >
 
-A previous round of the patch series had a less aggressively optimised ver=
-sion of the sparsemem implementation=2E=2E=2E?
+Hi Mike, I have uploaded the v4 patch as suggested by James, in
+"[PATCH v4 2/2] coresight: core: Disable helpers for devices that fail
+to enable".
+Could you help review the v4 patch? In that patch, Leo suggested consolidat=
+ing
+error handling. But you expressed concern about it when reviewing the v2 pa=
+tch.
 
-Will see if I can reproduce in the morning=2E A boot in QEMU worked here b=
-efore I sent it out=2E
+
+>
+> --
+> Mike Leach
+> Principal Engineer, ARM Ltd.
+> Manchester Design Centre. UK
 
