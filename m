@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CCBBC369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 17:43:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 408D9C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 17:45:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PGhABSDncyCkqMF1m9WG+uwjNnjeaT93SjRTLfv5Zno=; b=3/yFn3hsRqggRcIR1GnkjbXUcj
-	pwLPdP1bKnWveUJBQcHZrkegnwJF9UDcLTRj8WBJql9tc1pBL4mrGk6TBgFwNLOQqMHykWrYzzHLu
-	BF+2bG1yfXxT4OjFoY21DQGitkHRZvaP078o+C1zdqGMMVGiKVrqeRy+BzSiXSHa9LnS1od1RSkPj
-	t7BOIxvSJRjvJN7FsKoZjM5wiKDQ4zNzZtI9knbnKWkQd4bvo+BBx6Ciqzhr8x12nPSa/wsOfSExa
-	qTIGM2/N1sX7SxOu8SH0duUK9pQrEN1kkRhbvVdnzrkynmShf0vf4jBjmpHFFUH/FedJFB7Q9wA/6
-	cMJf6z8w==;
+	bh=3NqGpeCgEQAUcPs6hxmWuzzpxKmr/yNO0w1y1ZqO3+o=; b=yXtZ2Mhq8o++3M1sGcGms3HWc0
+	lN5hBYPDMak2M7Y+b+1ETl88DZz+G8jn8mGms4GX3cVwTiS1zSLWGm4mWNm2fhvjxS3E6/MTnH/9r
+	HilUZWZyXakribKbHmbomLYZ0NG6oCiMyaUviZnnvAIZptZKC9zf4LwF8XzoXJPXHi5q/Qrv302mO
+	LHu1qC0EmJoGVC2DdziHdYgtmUkUiqqDUJdWGPcIFubMplrsCe+3bsHiirRfkvTpU3cF+OWZ1bycv
+	hLtxkp6JJcegnlEhWF3i0KnqC9eAbtncJUqjcyiWO97TTShZC08D+Og14Bjs1S8XHwl0wMKLzs2xx
+	Yd2W9F5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8N50-00000000Qrx-336m;
-	Fri, 25 Apr 2025 17:43:14 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1u8N6q-00000000RIW-1b2l;
+	Fri, 25 Apr 2025 17:45:08 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8KpE-00000000147-3SaP
+	id 1u8KpG-0000000015P-0cQb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 15:18:50 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-ac7bd86f637so678580666b.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 08:18:48 -0700 (PDT)
+	Fri, 25 Apr 2025 15:18:51 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-ac2ab99e16eso517408866b.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 08:18:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=thaumatec-com.20230601.gappssmtp.com; s=20230601; t=1745594327; x=1746199127; darn=lists.infradead.org;
+        d=thaumatec-com.20230601.gappssmtp.com; s=20230601; t=1745594328; x=1746199128; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=PGhABSDncyCkqMF1m9WG+uwjNnjeaT93SjRTLfv5Zno=;
-        b=JpgYq5Jqq+rqhNyo4YNNRsuCU0kc/71ug705O+ClNtyA01OAtGoZb/2w4ZPrZZu00D
-         +IykjqTC0ofkxA8RbDDDlOdES+LcJ6r3iEISTKDF22XyE8ammS+6WA+zdXuBGn+XqA3L
-         0kDzpDVtquhehFqKXQVAADYKtJZKUWKw433aX/xNvbCXuuf2WPKDCRar9whqAh3kr/XW
-         iZBvYjql5LIoEOqtC5vJuin5gcybi3wMXIcyJNGBgj30HBUss6Cq7jxglwMYcxLSenbr
-         pouOOu+f6FMzkmLtt8haxOevyW/yBv40MYNhFYF3eBlzDGOLrjU/lQRh8G5CfxwTWHqU
-         LbjA==
+        bh=3NqGpeCgEQAUcPs6hxmWuzzpxKmr/yNO0w1y1ZqO3+o=;
+        b=rcYUU6DZkJ/GgXtaPt4Xh12QIHl6vzYo75AWDoybQTBTFcmTvbXPP6W/nv2etA93gY
+         TTQvCZJJV0qsuEDAYIFzqfIPipMVQjCeluUvPESkgAufQXReLH47TJ+NvKdGDqWikS/a
+         zIoiNG3Y47Wk7EwrRwR9wekaZbJY/F/1qf0Ioe/yKfeO7C59RpiC2WWjcWCl2XczdaHL
+         gw6yTJyUrm1M11Tau4Yg7W2NoJf3J5Qf3BgWuYitwCSCy3IElVnL9ymRwsLTn1zpMehb
+         6jRZMaGs25Xyg9JstFRLtdomtOFTP6TTUmKcLrj/GY1jesC7UeF8OiWCCP8OWOxnFloz
+         K/wQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745594327; x=1746199127;
+        d=1e100.net; s=20230601; t=1745594328; x=1746199128;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=PGhABSDncyCkqMF1m9WG+uwjNnjeaT93SjRTLfv5Zno=;
-        b=iXEN49tv1wsG/dl0DbcY5/8QkRUgSRJo5YXiX9E/MXQqQ6LvwNRU13XzMjnsTKJ+t/
-         Z0AW3qTOYz2xhlgHifoZtKRwUJxKw2fyKsNGgTOEpEDT9Wbjrev4ZVUQDgQDkXRV49Ed
-         uxgj5i89QC1f9FfOMF5ASbDgr9s0LgrjbcdGi5VxrxIX1FKN4neQthYvEDt81fT8Dh9W
-         DwrCLMDkRBf0IYHb50ImN+qY0WzxxZckYJ+fTyEiaG6+F6kQ5p6wLTrJPwAHH0ukPMfq
-         PORFEnTHuT3Pwegfy/eNWQOhDrINc4KXJi/n37A/5J0lWEWc+f8pcDOS20wXR11dYP7V
-         0dFQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW+XR/CGUV/GQUe+qUXlobbtewFee8ndqcYgn9G+I9eAUWurDo7UzD6cTscJst6D8QwtvkmIGgDKWhHcL7F74LP@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7NwFTA2S/Uh2g7RtBNLUwnHiNno7VwlMcgVn0kIjqXpe1peVw
-	L6nh4/7N5UY3gW7312nU0uUVYSkbRjGj4hvJ7KtuCtAJVziB5ZNowKl4xmVfUfIh+lCogZMhnRg
-	HTvo=
-X-Gm-Gg: ASbGncsJo9O60XP0b4mIOGz2hOG2QtIDT7yZ8SgjQFrtDDDP4XLoqJlB1Ced7KRPAbw
-	QsyY45uhblPNHJz+dr2h5tDHLyTqCD2CYFRh69KrQT31PGMAwhlJl309PqFSLklh1SaDymJTdfu
-	lvYyIxyxMMP1FryjJYILS26A70v+P5yie5fx+tHRhmMO0/67cULmWe461w8i52fIHx2ZIXwulKs
-	J8U0TSLcfzl8/NKDD6+Y82KtOSyU/P26pkPgANGVN7+m4C8TTj7isISVXA9cA8mfLsJ9Y0MQff7
-	LWtCR828L/miWYkYXeER6ZmGKull5gFHbpuAJW/RyhccuR/BO3cnzG1ZoNUKju2Y3yRS
-X-Google-Smtp-Source: AGHT+IHtzafs1U3OlDFbdl1EHKhqDpSLv5FVfv0SchkozUHNmBnUPWs9GEdrQlZ8/5oMkLAgq6/HDw==
-X-Received: by 2002:a17:907:72d0:b0:ac7:e4b5:4827 with SMTP id a640c23a62f3a-ace5a484e6dmr564732266b.28.1745594327250;
-        Fri, 25 Apr 2025 08:18:47 -0700 (PDT)
+        bh=3NqGpeCgEQAUcPs6hxmWuzzpxKmr/yNO0w1y1ZqO3+o=;
+        b=i+Ons55+/489+KsCsuQWRJHQPGWet/oL6l6nuJytJjrvbI2xPBSfQ0jDbwiZHZ8ksE
+         SI0pKjhKrZ2hwX+2CaiL48b85aeGKi/Pzl1ScGguqfZVIW9l71Xt+4CMpyZ2NhP88nXP
+         owkvxYW41OZVsljV4K9AinpJq75Th5BKoC5hexBpIDA54hWSgeAmIFXxY9IIWob6W7k7
+         iT7qMTCOdAC4/eeKn055n6y0UNx1LDcM+gySFoUnbC2Jek+/rFlq82H0tqYyXFx63vXl
+         r+GomDPfM8OwyATszVFmcMN7kgBbx7WByEmR4pGVHV7ACp868FijFO6mZduLvGvAso0a
+         PYrQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUAjpRGX784Y07evMzFPEPiNHgu6izpb063Vlfx1IrkiJJibL/hgn9rlQ4oP9f3kmdLuyJ0qM1+boRoPN0fffN2@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1lHO4G7tNN5iIXsK9tu617JcTSatKW+DG/ejNfhuhELlFdhDj
+	aEDaEFL8f0vLgrr5d1uDGwjQ+0MicNsOj03IcCrkLfbkN+64OxxyhMbQAkiRhho=
+X-Gm-Gg: ASbGncvhG0R5cY5yhcG76ZYvvOrXdFsH29u1sl/tofyWa22n7HMfNg6f+oD3qZ17j7s
+	3K2wkjFvDzLxu7cC5hoFAmVJ3ai4q+Qd3dou46KhP57+IUKlMirLV6s4wKllNZiHxa2/tEpwr5/
+	fsM9bsUnwVvY1n9CqxueFbs3fgADsdRd9lVeo34suDtRBIC1uxTM4iwJOTmE6Wn2fc/UxQ2Da37
+	yeEfH+99nu0fcLFFSoLFtFHIzfIHD+GeNxUMCtxf1lFSPtq/BsAQWpUDJhm2nvahiHW95siPXxy
+	z3wxpTqU4ZB3prEiKFiHZXZlMjnrBzdY3RKspAKFzKyprSenzRDER9eWuA==
+X-Google-Smtp-Source: AGHT+IEUamcP+7odYOOdpoBpwq4Ga4sU/sBxRb/GHkSRX9M2Uw0bvZNoH1NBuPxH9S4vCQHnw3MNhg==
+X-Received: by 2002:a17:907:72cf:b0:ac7:150e:8013 with SMTP id a640c23a62f3a-ace710a20a1mr291795166b.15.1745594328214;
+        Fri, 25 Apr 2025 08:18:48 -0700 (PDT)
 Received: from [127.0.1.1] ([185.164.142.188])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ace6e59649fsm151099766b.85.2025.04.25.08.18.46
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ace6e59649fsm151099766b.85.2025.04.25.08.18.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Apr 2025 08:18:46 -0700 (PDT)
+        Fri, 25 Apr 2025 08:18:48 -0700 (PDT)
 From: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>
-Date: Fri, 25 Apr 2025 17:18:07 +0200
-Subject: [PATCH v2 2/5] dt-bindings: usb: cypress,hx3: Add support for all
- variants
+Date: Fri, 25 Apr 2025 17:18:08 +0200
+Subject: [PATCH v2 3/5] arm64: dts: rockchip: fix internal USB hub
+ instability on RK3399 Puma
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250425-onboard_usb_dev-v2-2-4a76a474a010@thaumatec.com>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250425-onboard_usb_dev-v2-3-4a76a474a010@thaumatec.com>
 References: <20250425-onboard_usb_dev-v2-0-4a76a474a010@thaumatec.com>
 In-Reply-To: <20250425-onboard_usb_dev-v2-0-4a76a474a010@thaumatec.com>
 To: Matthias Kaehlcke <mka@chromium.org>, 
@@ -91,8 +90,8 @@ Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org,
  Lukasz Czechowski <lukasz.czechowski@thaumatec.com>, stable@vger.kernel.org
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_081848_869400_F11D5DA1 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20250425_081850_184605_DF68B4E8 
+X-CRM114-Status: GOOD (  18.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,51 +106,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Cypress HX3 hubs use different default PID value depending
-on the variant. Update compatibles list.
-Becasuse all hub variants use the same driver data, allow the
-dt node to have two compatibles: leftmost which matches the HW
-exactly, and the second one as fallback.
+Currently, the onboard Cypress CYUSB3304 USB hub is not defined in
+the device tree, and hub reset pin is provided as vcc5v0_host
+regulator to usb phy. This causes instability issues, as a result
+of improper reset duration.
 
-Fixes: 1eca51f58a10 ("dt-bindings: usb: Add binding for Cypress HX3 USB 3.0 family")
+The fixed regulator device requests the GPIO during probe in its
+inactive state (except if regulator-boot-on property is set, in
+which case it is requested in the active state). Considering gpio
+is GPIO_ACTIVE_LOW for Puma, it means it’s driving it high. Then
+the regulator gets enabled (because regulator-always-on property),
+which drives it to its active state, meaning driving it low.
+
+The Cypress CYUSB3304 USB hub actually requires the reset to be
+asserted for at least 5 ms, which we cannot guarantee right now
+since there's no delay in the current config, meaning the hub may
+sometimes work or not. We could add delay as offered by
+fixed-regulator but let's rather fix this by using the proper way
+to model onboard USB hubs.
+
+Define hub_2_0 and hub_3_0 nodes, as the onboard Cypress hub
+consist of two 'logical' hubs, for USB2.0 and USB3.0.
+Use the 'reset-gpios' property of hub to assign reset pin instead
+of using regulator. Rename the vcc5v0_host regulator to
+cy3304_reset to be more meaningful. Pin is configured to
+output-high by default, which sets the hub in reset state
+during pin controller initialization. This allows to avoid double
+enumeration of devices in case the bootloader has setup the USB
+hub before the kernel.
+The vdd-supply and vdd2-supply properties in hub nodes are
+added to provide correct dt-bindings, although power supplies are
+always enabled based on HW design.
+
+Fixes: 2c66fc34e945 ("arm64: dts: rockchip: add RK3399-Q7 (Puma) SoM")
 Cc: stable@vger.kernel.org # 6.6
-Cc: stable@vger.kernel.org # Backport of the patch ("dt-bindings: usb: usb-device: relax compatible pattern to a contains") from list: https://lore.kernel.org/linux-usb/20250418-dt-binding-usb-device-compatibles-v2-1-b3029f14e800@cherry.de/
 Cc: stable@vger.kernel.org # Backport of the patch in this series fixing product ID in onboard_dev_id_table in drivers/usb/misc/onboard_usb_dev.c driver
 Signed-off-by: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>
 ---
- .../devicetree/bindings/usb/cypress,hx3.yaml          | 19 ++++++++++++++++---
- 1 file changed, 16 insertions(+), 3 deletions(-)
+ arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi | 40 +++++++++++++++++----------
+ 1 file changed, 26 insertions(+), 14 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/usb/cypress,hx3.yaml b/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
-index 1033b7a4b8f953424cc3d31d561992c17f3594b2..d6eac1213228d2acb50ebc959d1ff15134c5a91c 100644
---- a/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
-+++ b/Documentation/devicetree/bindings/usb/cypress,hx3.yaml
-@@ -14,9 +14,22 @@ allOf:
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
+index 995b30a7aae01a0326e9f80d6be930f227968539..dd5a9bca26d1d221607e73071685d5774330d760 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi
+@@ -60,16 +60,6 @@ vcc3v3_sys: regulator-vcc3v3-sys {
+ 		vin-supply = <&vcc5v0_sys>;
+ 	};
  
- properties:
-   compatible:
--    enum:
--      - usb4b4,6504
--      - usb4b4,6506
-+    oneOf:
-+      - enum:
-+          - usb4b4,6504
-+          - usb4b4,6506
-+      - items:
-+          - enum:
-+              - usb4b4,6500
-+              - usb4b4,6508
-+          - const: usb4b4,6504
-+      - items:
-+          - enum:
-+              - usb4b4,6502
-+              - usb4b4,6503
-+              - usb4b4,6507
-+              - usb4b4,650a
-+          - const: usb4b4,6506
+-	vcc5v0_host: regulator-vcc5v0-host {
+-		compatible = "regulator-fixed";
+-		gpio = <&gpio4 RK_PA3 GPIO_ACTIVE_LOW>;
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&vcc5v0_host_en>;
+-		regulator-name = "vcc5v0_host";
+-		regulator-always-on;
+-		vin-supply = <&vcc5v0_sys>;
+-	};
+-
+ 	vcc5v0_sys: regulator-vcc5v0-sys {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "vcc5v0_sys";
+@@ -521,10 +511,10 @@ pmic_int_l: pmic-int-l {
+ 		};
+ 	};
  
-   reg: true
+-	usb2 {
+-		vcc5v0_host_en: vcc5v0-host-en {
++	usb {
++		cy3304_reset: cy3304-reset {
+ 			rockchip,pins =
+-			  <4 RK_PA3 RK_FUNC_GPIO &pcfg_pull_none>;
++			  <4 RK_PA3 RK_FUNC_GPIO &pcfg_output_high>;
+ 		};
+ 	};
  
+@@ -591,7 +581,6 @@ u2phy1_otg: otg-port {
+ 	};
+ 
+ 	u2phy1_host: host-port {
+-		phy-supply = <&vcc5v0_host>;
+ 		status = "okay";
+ 	};
+ };
+@@ -603,6 +592,29 @@ &usbdrd3_1 {
+ &usbdrd_dwc3_1 {
+ 	status = "okay";
+ 	dr_mode = "host";
++	pinctrl-names = "default";
++	pinctrl-0 = <&cy3304_reset>;
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	hub_2_0: hub@1 {
++		compatible = "usb4b4,6502", "usb4b4,6506";
++		reg = <1>;
++		peer-hub = <&hub_3_0>;
++		reset-gpios = <&gpio4 RK_PA3 GPIO_ACTIVE_HIGH>;
++		vdd-supply = <&vcc1v2_phy>;
++		vdd2-supply = <&vcc3v3_sys>;
++
++	};
++
++	hub_3_0: hub@2 {
++		compatible = "usb4b4,6500", "usb4b4,6504";
++		reg = <2>;
++		peer-hub = <&hub_2_0>;
++		reset-gpios = <&gpio4 RK_PA3 GPIO_ACTIVE_HIGH>;
++		vdd-supply = <&vcc1v2_phy>;
++		vdd2-supply = <&vcc3v3_sys>;
++	};
+ };
+ 
+ &usb_host1_ehci {
 
 -- 
 2.43.0
