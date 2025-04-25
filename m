@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34D87C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 09:58:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0746C369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 09:59:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=86MPQpP9DYDVUcUDU5TkbLJWYglOE/j2zaAMUX/6YP0=; b=yJqD369SpfF0qe
-	xn4oobAezzgonzijONdYql93arztd7WCODHmzyJOtt+8ynP6Pds44A3PMkNP1A5z6a6Md2bMu8k8v
-	+NZJ5Tn7CjsvnFZyHvrerIVEqOx7xqjmTA8OzU/QmAu590iRJKjfCztIsz2OJOicvUO+YRlI6abT9
-	b3jXO8nd2FaX75XlEvjLvkCr5g8WAq2isdKI2C+tSBbntZRr2WfX8UTpwAg+kN/tD5ajDVx0Lr2qc
-	kyo6ZB+A8nFBhAZ6FaRriXaDZpmgZdLbv4Khf08rJHC/6euDpEEIevI2L/wAs/Bx/Nb1AsSkYGM0X
-	tZFFUA2SqvR0DLvdzrEQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZB90erWf+Gm+Y0GtLErqGxR/pE5/v4Z/PlOKc5IF8Kc=; b=XV+Aevuo+tFm2ATJ7YwPvUN9f8
+	p5iy3H2QzVt6kODgF/+bneFPXXhG8JQ9XvTR+NRDa0GAAsJsJ5Y1EYBOkOXXJHf4xZ89eGIfu2IQM
+	bx+C7236llcWqIgMJZH//pCZet7sYFr9/+kgLEvp5JIF0MI3UbyorNpqgwBXVApFLi0n0bIs1Jd6b
+	FA7IhMLE42XvIPxq5d+ZzeZt8T93JPDep17JRieYBOu6YeFw0mVJGClx4AUejjlN5+00XhVBygGp5
+	n+/KHbXFDErbUePYakTCTFNs+romCRaQJfa1ivNL4zkJCwgcJV+N685mrlDJbDnp8K2DD2UIr2uJM
+	zzXxuA7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Foh-0000000GdZq-1HY1;
-	Fri, 25 Apr 2025 09:57:55 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1u8FqV-0000000Gdu8-11qd;
+	Fri, 25 Apr 2025 09:59:47 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Evk-0000000GSWa-0K91
+	id 1u8Evk-0000000GSWr-2Uby
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 09:01:09 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-39c0e0bc733so1788424f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 02:01:06 -0700 (PDT)
+	Fri, 25 Apr 2025 09:01:10 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-39c1efc457bso1398645f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 02:01:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1745571666; x=1746176466; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=86MPQpP9DYDVUcUDU5TkbLJWYglOE/j2zaAMUX/6YP0=;
-        b=U/UGwCHPSSuwY1sOaj31njTptnFDrAIlNpACxG7k/ZIs9tNB8ZY3znYpDgKzmixbFj
-         f2Z7kV465IRmCVT97NlGsWdVtQbgYLBVXhPxyIHtCev1LTUocliI/p1ffVKWnDGLIUvG
-         /QsHjvzf4gRJ11wTirznFPf0T9ab79Z/s5QlAAkUODe3i52Zyigg9QG6YcAJgvaoAukT
-         L6Q6OQu3y8cROJ7Df5fJlDIx8o6Nq716xzSnq7RC0mMRDouppu2JMlox7JNc2ag1vgVI
-         dFTl9ScLClBxRfZqt8lkt0qragjjD01P62kp++2u0+x+5yrJyscvuqkvoAFhTFotcev1
-         xjKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745571666; x=1746176466;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1745571667; x=1746176467; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=86MPQpP9DYDVUcUDU5TkbLJWYglOE/j2zaAMUX/6YP0=;
-        b=xHx4BH5nR4NTFoX6P3AOYAJnBJCNTi2KomEOicuvZhJL8IEdjQCC2CRlMpbw4wHbYu
-         vamoHfxkSS3WZQ28ANzCR6GedQlqrU+3ra1TwgAx4P1jvLlHN/gJIpae9SVa8e8FrTTY
-         ZK8min9NA4RdU4aphZ8+ZjNuuH8bUKr6n4+P3tFBmttq+2Adqe1T6c08mqpyNzCDiXqH
-         mKa7QODmPnBou6/9xW1742E4LG6uVsS9BesN4Hyj6KcJsu8Bdb637FutTjU4HFksGtMt
-         lgmygn7CONGW2Q4eTjuq9UkO5CZuptqpafKuls3XyO3I250fZbY8gH5HVC0rj0aqzzHY
-         LOjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXpr5k53sC7dvH467p3a3fC9UfP78QgQdcnuO85y9bwgX+eER3jAErDyoWKL8/23kiZ1FNaJsiThJSQxpqwg7c2@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYGKTxBnY1T9vt3Dgo+9bKwYdlqFb9qCjejJmvYQYfZI7i6rb1
-	I6lrVJup9hRJEgOlDf7M2763dJ74bHddqEbWll2eBrC9F5Rbh5aK9nq5GtDKj/U=
-X-Gm-Gg: ASbGncvtjO787ndk2W8gIqEt1f/KqQcvTxtdun83twSF074PZV9StXzVp4e/Gx1Cdg4
-	vRhW9OMm2w7g2fD9BawIX9YVYv4eI5dAbHw3rnspqH9Ha3wZO6lCNgw05jE+9+UWJgTKwplAN6C
-	2KkcH0gxJElec3x0ImTOf9I8ZHzxNdrlxKdHOYD9NPeU/MDjZKLT+56ThSyydGVxOr8RYqvCMeN
-	aGE8DelZNTGe+MEzLdBRWy939h3DTjE8uVKBa9clQdT8bHDw1qVxtMWjMpoqaEri4lhApgeOJa/
-	Eher71LVBRdr43SO6HpWGkwe6updRWVyfPKlPeZkkv61
-X-Google-Smtp-Source: AGHT+IH3OnIubuFCBwHvzDU6+k3f9N9mzQaSt1HB4QUYIlDhLHCrYidDLJkaQB3hjNSR8q+IxbksRA==
-X-Received: by 2002:a05:6000:402c:b0:39e:f51d:9cf9 with SMTP id ffacd0b85a97d-3a074f42e7amr1207472f8f.48.1745571665602;
-        Fri, 25 Apr 2025 02:01:05 -0700 (PDT)
+        bh=ZB90erWf+Gm+Y0GtLErqGxR/pE5/v4Z/PlOKc5IF8Kc=;
+        b=R9yQpTg99ED/if+ZPKOBuJ4M1ar8ASov5w6snyhwH7u4MAxAHTYGbUW9SsfbujxYYe
+         jyxHysRJq2MhiNkg+hnE5Xl2HBXz5ZshD5rm/35JF5B6hNVJzooik6IUB8e48P+wybbp
+         06CzeC9PvJHyUmo60P0RdNjD63R+79yUd8MlybiQ3Wl0w8Aie0YW1b1DhKx4ikm/uKDA
+         ObHMwDb7HiLfIZU6oqhu623oZooiNKCjzPR0G+THse7YhgKZLtHcd8Y8yslU9cjvPJn2
+         iqMLcbE9QDonvPxWI2CI8kC5wD7lwrOiHY9AJ8sGwJv5imFnqH0svGDQYnOy55dz9s1h
+         arKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745571667; x=1746176467;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ZB90erWf+Gm+Y0GtLErqGxR/pE5/v4Z/PlOKc5IF8Kc=;
+        b=GkDeeTMu+6gsAP6Kj7KnnMmrfibTNZInMIps0R/WQXeAb5PK1QTqdNZrx6CteCyT4U
+         vv+0k2Zr+Oqs8II0CubId1PB1UcMj7kVnYEBjIajCuJ/gkeEBcD7KnkYjaBGLpuzPt07
+         WMT5++CVQ3mu7/oW5DKrdwrjNYezh2T27UP0KEgE5hNroIM/T4J+8vXtYFS0V68BB7ne
+         ib7rbZtOr5Xvj8DthVcpzWXxkqwSCwv+y0CjInD6ZwaB3GfLIbILOAynbozEnTxxMqcc
+         EOYpOeg0w04PYdm2rCRz89UAQF5c9mzYKFF+tgAVhvnQqx/vBsCHmssPqVh0lNIROclu
+         7S0w==
+X-Forwarded-Encrypted: i=1; AJvYcCVcu7YEvoPVjbFqaTFEUP6m5bpK1+MrQIKkQ1hYC33xv3MWTOTLiA1acFR5u5gIMIUc6FPvdX9MYYj2MJgsCclZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxmqsxHfVyhqWNNPcoMy3k6vgcEmoQ7PLfX3bTdyNYN64H1FpAv
+	IpANp9iaaLVJwhUNOn7Mv8mWVyf5+iiPzfC0OtJEUC36VsWi/nammK8j/ehXrP0=
+X-Gm-Gg: ASbGncsp6u1ZOL63xf5WHMuw/yXe+mbFvKY3yOtJToYZxyTOlKTUm6fLeoohLeOfTum
+	HD1t5G0NjxhcZG8SBP+p8K34Kpowd66yoqwgfh9VQQeG+AoVLkopzarHVmNJi0PsPIWjMkIBXUu
+	uxD2jjiMxr00duRl4UTP26JVMqF56kaFM48NgqMGVDe+eSBs2to5zYmmFpNLTnduL1kV5cvztAL
+	l/hR3vxPim4n+rtuh1lMLaIOwQIDNb3qE+Ah2mhPkO+E7ZgDvCZrz757Pxo+jgPSSH5I3GmjLn+
+	O+EutNceBVXFF1WPRpOuIAg4rsStswK9Kw==
+X-Google-Smtp-Source: AGHT+IF0m8rX5UMES4nVD0erCZ4KstVSP6VZhmeff7Jfr6OuosoVYyYD4igGlIuV4D5i2BVa1x4EkQ==
+X-Received: by 2002:a05:6000:1a88:b0:39c:1257:c96c with SMTP id ffacd0b85a97d-3a074faf4b3mr1205781f8f.56.1745571666825;
+        Fri, 25 Apr 2025 02:01:06 -0700 (PDT)
 Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:3f35:2b31:c543:726d])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a073c8c95dsm1696571f8f.3.2025.04.25.02.01.04
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a073c8c95dsm1696571f8f.3.2025.04.25.02.01.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Apr 2025 02:01:05 -0700 (PDT)
+        Fri, 25 Apr 2025 02:01:06 -0700 (PDT)
 From: Bartosz Golaszewski <brgl@bgdev.pl>
-Subject: [PATCH 0/5] pinctrl: mediatek: convert GPIO chips to using new
- value setters
-Date: Fri, 25 Apr 2025 11:00:56 +0200
-Message-Id: <20250425-gpiochip-set-rv-pinctrl-mediatek-v1-0-93e6a01855e7@linaro.org>
+Date: Fri, 25 Apr 2025 11:00:57 +0200
+Subject: [PATCH 1/5] pinctrl: mediatek: airoha: use new GPIO line value
+ setter callbacks
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAEhPC2gC/x3NwQqDMAyA4VeRnA2YTnH4KuKhNFHDtlrSIgPx3
- Vd2/C7/f0EWU8kwNReYnJr1iBXUNhB2HzdB5WpwnRu63g24JT3CrgmzFLQTk8ZQ7I0fYfVFXkj
- Mzwf5nmkkqJlksur3v5iX+/4BviB2NHIAAAA=
+Message-Id: <20250425-gpiochip-set-rv-pinctrl-mediatek-v1-1-93e6a01855e7@linaro.org>
+References: <20250425-gpiochip-set-rv-pinctrl-mediatek-v1-0-93e6a01855e7@linaro.org>
+In-Reply-To: <20250425-gpiochip-set-rv-pinctrl-mediatek-v1-0-93e6a01855e7@linaro.org>
 To: Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
  Linus Walleij <linus.walleij@linaro.org>, 
  Matthias Brugger <matthias.bgg@gmail.com>, 
@@ -87,27 +87,26 @@ Cc: linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1272;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2370;
  i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=gcgSAGCf9S1xTbI3gVnPSPqXssP4QvQGlqxWgMXBtSY=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoC09LShA4FFFs7FxYzWMo/1MzGZYVAv/t/XsCr
- XI6PnVu6PeJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaAtPSwAKCRARpy6gFHHX
- ci3cD/9iJ/xVDYLFM7DCh189mq6iSH435TREA5mvwF1xWjo5k+b1ttZTjFnkyQHXyQCVmygSLBq
- Z9xZ3BHypbpwD8ykxvnDZ2IOP5QkvXArTwYU7SsqEAOzsLQ1woH8qCK06dOj0fXfjuBxyjY0PGw
- w2iSbbza3dIiabeuu7ed8uAJmgBuf+qrUQon1gGImTXwyYRKJSIfMZ8GwIhD5sdVbj7IF+NqVv8
- DzQMC2pOQ8/uyaoz7DDypiT8QZ4VqNyIS0YCU0qAFOsud0U3LesVVNIr7x6SViXRDaeAvF5C0vN
- xK3cd28bek61r1sYczNp5XAWFZZbZE1JanSfO/Ra1m3UFNWhxrbsPuccrAvlUHcBd+fhP6AwVwz
- 7ODzLYWquoOtJDLDMeGfZTaNmenKqsQZKEfw+5aryPpWSCrESUbP9AnejrJ2gpDGpdXaya6s84i
- YLIEB+KusN8gNbzPOy5+x2MF40OlbYfdA2479FscfDcvG3OIpn0AQox+enlI+1jVX1kX996qELm
- 3kpMjMSqIMO5RaCKGxkyiWzmkBocfOG6W6iGco1FeARqFlZB7dOn8TNzQT/X2tlgOz91ag6PvPD
- 3qfrDaI1aDWXGHlQWAT66D2q+8ZxvUHrB/4Qk0w/B/D7JwV+XE6BYhnDA9bR34WHbb9R7fzDspS
- GBnZdlnyiNYYxjg==
+ bh=uaHOfJ94TFx8k9XlThx6lSkpYsN9+1e6SW0WrRZmuoc=;
+ b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoC09Pjw/np8UeS1ttDZIlSftl0HIaXAVQAcTl+
+ qHDg6ttNnqJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaAtPTwAKCRARpy6gFHHX
+ chLhD/429DgRXwmTcgjG7Djz7jHNaXG0YDQCs3in+FxM1KrmgZ7nENGsnYdogEPNSvdYBfsUhwf
+ JSQNi2Z47oZ0and5Yvmmv3FnmvnBUpbtPa4O++YpL8TVUq7teVZIBYCPkxG6uWpbX339RqRVb4Z
+ Eu9FEoXAE5JRDGSRUmJDfaRHGeGq4apiYTNBsQpo9cnQN5L4m9pDIlRoM7+e2tYyrEzG6/v8egd
+ OSP1y6+t9WuoDPeH25a1e9Ta1ehj2ViYsD9E4pQE7gM7EPm0OsJqxT007wmerUBuqvCq4rTncQ2
+ 0EQP7ORGcUfUsLT5R/cBcIYlUFbhziuNBpeBaKginbJoYLu8wfb+ospruKX203GPKzCFPtSSRQj
+ 9TyWwf1wV+kQYa/OkcDoCC9ScRxvDE6V7FTE4KzW54hNfzl46gZK8JoJKj1+7yQQgjVnY4AqENs
+ Pt5WUaDQWxdfQotValBICHCN1jMnaWl4dDMso+xs72ErbEvVrbB5xIWWPoFuBGdazfWDfMDjyaI
+ teZVW4YCDH9O2N30eJRp9/ON2MYaliiSvfVZDr6YcXTCzcmsLIIgKqrvexUxntmwoYebcguTINs
+ SGM+230tfxLUtpfvpwqrxYPrpsv28wSCb1BlDuLaLdh+bHvGajSdqgZlxAAN8qwALpRkoR4o/K8
+ rSv4Yz4yX+so0eQ==
 X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_020108_403952_B367A1EE 
-X-CRM114-Status: UNSURE (   7.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250425_020108_660826_8599A494 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,31 +121,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+
 struct gpio_chip now has callbacks for setting line values that return
-an integer, allowing to indicate failures. We're in the process of
-converting all GPIO drivers to using the new API. This series converts
-all the mediatek pinctrl GPIO controllers.
+an integer, allowing to indicate failures. Convert the driver to using
+them.
 
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 ---
-Bartosz Golaszewski (5):
-      pinctrl: mediatek: airoha: use new GPIO line value setter callbacks
-      pinctrl: mediatek: paris: don't double-check the GPIO number
-      pinctrl: mediatek: paris: use new GPIO line value setter callbacks
-      pinctrl: mediatek: moore: use new GPIO line value setter callbacks
-      pinctrl: mediatek: common: use new GPIO line value setter callbacks
+ drivers/pinctrl/mediatek/pinctrl-airoha.c | 19 ++++++++-----------
+ 1 file changed, 8 insertions(+), 11 deletions(-)
 
- drivers/pinctrl/mediatek/pinctrl-airoha.c     | 19 ++++++++----------
- drivers/pinctrl/mediatek/pinctrl-moore.c      | 18 +++++++++--------
- drivers/pinctrl/mediatek/pinctrl-mtk-common.c | 13 ++++++++----
- drivers/pinctrl/mediatek/pinctrl-paris.c      | 29 +++++++--------------------
- 4 files changed, 34 insertions(+), 45 deletions(-)
----
-base-commit: 393d0c54cae31317deaa9043320c5fd9454deabc
-change-id: 20250425-gpiochip-set-rv-pinctrl-mediatek-1dd831a4d171
+diff --git a/drivers/pinctrl/mediatek/pinctrl-airoha.c b/drivers/pinctrl/mediatek/pinctrl-airoha.c
+index 5d84a778683d..b97b28ebb37a 100644
+--- a/drivers/pinctrl/mediatek/pinctrl-airoha.c
++++ b/drivers/pinctrl/mediatek/pinctrl-airoha.c
+@@ -2247,15 +2247,16 @@ static int airoha_convert_pin_to_reg_offset(struct pinctrl_dev *pctrl_dev,
+ }
+ 
+ /* gpio callbacks */
+-static void airoha_gpio_set(struct gpio_chip *chip, unsigned int gpio,
+-			    int value)
++static int airoha_gpio_set(struct gpio_chip *chip, unsigned int gpio,
++			   int value)
+ {
+ 	struct airoha_pinctrl *pinctrl = gpiochip_get_data(chip);
+ 	u32 offset = gpio % AIROHA_PIN_BANK_SIZE;
+ 	u8 index = gpio / AIROHA_PIN_BANK_SIZE;
+ 
+-	regmap_update_bits(pinctrl->regmap, pinctrl->gpiochip.data[index],
+-			   BIT(offset), value ? BIT(offset) : 0);
++	return regmap_update_bits(pinctrl->regmap,
++				  pinctrl->gpiochip.data[index],
++				  BIT(offset), value ? BIT(offset) : 0);
+ }
+ 
+ static int airoha_gpio_get(struct gpio_chip *chip, unsigned int gpio)
+@@ -2280,9 +2281,7 @@ static int airoha_gpio_direction_output(struct gpio_chip *chip,
+ 	if (err)
+ 		return err;
+ 
+-	airoha_gpio_set(chip, gpio, value);
+-
+-	return 0;
++	return airoha_gpio_set(chip, gpio, value);
+ }
+ 
+ /* irq callbacks */
+@@ -2419,7 +2418,7 @@ static int airoha_pinctrl_add_gpiochip(struct airoha_pinctrl *pinctrl,
+ 	gc->free = gpiochip_generic_free;
+ 	gc->direction_input = pinctrl_gpio_direction_input;
+ 	gc->direction_output = airoha_gpio_direction_output;
+-	gc->set = airoha_gpio_set;
++	gc->set_rv = airoha_gpio_set;
+ 	gc->get = airoha_gpio_get;
+ 	gc->base = -1;
+ 	gc->ngpio = AIROHA_NUM_PINS;
+@@ -2715,9 +2714,7 @@ static int airoha_pinconf_set_pin_value(struct pinctrl_dev *pctrl_dev,
+ 	if (pin < 0)
+ 		return pin;
+ 
+-	airoha_gpio_set(&pinctrl->gpiochip.chip, pin, value);
+-
+-	return 0;
++	return airoha_gpio_set(&pinctrl->gpiochip.chip, pin, value);
+ }
+ 
+ static int airoha_pinconf_set(struct pinctrl_dev *pctrl_dev,
 
-Best regards,
 -- 
-Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+2.45.2
 
 
