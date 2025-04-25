@@ -4,63 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64988C369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 11:56:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24BB5C369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 11:57:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KgKT1GTAf1ZddatWy9KEqdf6+MO3ArUSWqetOd/t7H8=; b=jEFAXmPe9dgs9p+8G7pMMyyM9L
-	sdvfREM6qubM3JaXvPfp+wrf6F4nyhqLaMiJMfjVd3jZiQb3zxPt8odhQfydTvLV6i3nzwMsSa0uo
-	qEnjnb1Cm9dWtsGbFhGrZ5AhJAbvRW9r/x+vKG8j15ofq5Vi42U3HgK8xQyhHtteofXBYAYzuMuNG
-	0+UTZe4UO2qGFfwniGP3vi4U6+B4X2+RWjkb09teNipED7wHz5WbfqjDE4Qc6nbM+iN6Z9f8LFh4w
-	yswBMBzEiqEYkNdWzAK25+9TuKR9cCifSBYY3SJgmtDd12P2D+x+PLQdNqq3l+i2kfpnG9nvGNt95
-	H5TCtrPQ==;
+	bh=eE54B0ulpkm+aWxhU2oeljTklX7QgI2Tl/j95Hz43BU=; b=kJuGccTpgZ06DnKnYDTXxwowzE
+	XwGtrBd2aQcUDbu82f2LYo7XRc8b417W34CJpGwvgce4Hy6tswQ+qbIe1IkJ9TtIYll8i7JpccWCd
+	TjxwKje6MomNL9Qw+WJMYO0j/Gf2SAI77jVv1KJv04aiNZmzXHZZIVaX51N76+F7DGxaxHnkgUQkI
+	IUabKknWh0hnf6lP1hOspHO7Aj9IIzUYDtg3v5RBurBrLpXsZw/3I+PaX3M8sO/yEhrtKcqmrsCSW
+	Aao6TFsc0ovJ5Th6nWgJrBK8MSrGFfzGqmuIYNCJc3Kxid09zG1Qdr4Y3EfIL7ukvl62DnJs+Anpt
+	lWMLdqRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Het-0000000H2AG-0qpL;
-	Fri, 25 Apr 2025 11:55:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u8Hgj-0000000H2VX-1hGH;
+	Fri, 25 Apr 2025 11:57:49 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8G7y-0000000Ghap-3nB1;
-	Fri, 25 Apr 2025 10:17:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CF1926111F;
-	Fri, 25 Apr 2025 10:17:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE911C4CEE4;
-	Fri, 25 Apr 2025 10:17:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745576269;
-	bh=jHetIDcoEMJE5Pmx9hfvbqtA0k/bgENuEA9snYJ/JQs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JVJ5ldkx0bzzY1siTZptS8iOsMb0rh/16B4dalCRuYsdMQMrTWOtVWXpNGJYSu4bI
-	 Pki4Y99cTUBsZ0ykhSfWQKuC6WO5chHnfGNNxAKOlsCCX9Tcc16vOAzY2v8YJpV3sT
-	 TJAcd3su86PT9qJWA6lqkKuaZrmTuoXJVRrIE6yWwINzDi0VTnLgJv8/XAvSuBBzE3
-	 uV9bkJn+JAwuW5M+NTSyH1EedQSY66k7kTs4+G5c4/EJ2THhDU8zE2LC51SXHAOqJV
-	 AdVDZeBeyvk542mjAKuzcXrQWY4sSlDC94JM3lZYoL2xbnK1BS5US0haYNRtQOiHAh
-	 DRR5WztJ7O4VA==
-Date: Fri, 25 Apr 2025 12:17:43 +0200
-From: Niklas Cassel <cassel@kernel.org>
-To: Hans Zhang <18255117159@163.com>
-Cc: lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com,
-	heiko@sntech.de, thomas.petazzoni@bootlin.com,
-	manivannan.sadhasivam@linaro.org, yue.wang@amlogic.com,
-	pali@kernel.org, neil.armstrong@linaro.org, robh@kernel.org,
-	jingoohan1@gmail.com, khilman@baylibre.com, jbrunet@baylibre.com,
-	martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v2 2/2] PCI: Remove redundant MPS configuration
-Message-ID: <aAthR8ZXSqfe6fzV@ryzen>
-References: <20250425095708.32662-1-18255117159@163.com>
- <20250425095708.32662-3-18255117159@163.com>
+	id 1u8G8n-0000000Ghl9-1YvA
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Apr 2025 10:18:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1745576318;
+	bh=+WMDRHwIxjNdFWZib1N8x93fRIjfmI7anWK8oxtytUg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=fS8OBStgXmEHPXUtgkQM6i6oldyGjHhVXAffJrz40OrrJDixFwzubm2Jjg2v2cmUv
+	 LmnmNqmFur9E5HCtxdfibtsa36Vxyr+lqMpHBeDveVhs5fy0gzCs33TzLPPMof0iw4
+	 ylrUroQH9zIEk5hXM3LaumCgjzrFtrshAOKLj5zW5YghhblY17lEoGLTUcdSfVYaV0
+	 EXmuYNQYKhv0cRLgc+ntPLmiHduEjMltKTcEDNshKbQKBpkrggTkKwLq+n9vOLU3Ky
+	 C7Ad1vqexnj6rH7xkvQOSaU0XBCmXcaei5EN+/YyIst8AG3onO9rnByzIXpJuk8wc7
+	 VmN2qkPkqiYTQ==
+Received: from eldfell (unknown [194.136.85.206])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: pq)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4D41617E0F66;
+	Fri, 25 Apr 2025 12:18:38 +0200 (CEST)
+Date: Fri, 25 Apr 2025 13:18:17 +0300
+From: Pekka Paalanen <pekka.paalanen@collabora.com>
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Geert Uytterhoeven
+ <geert@linux-m68k.org>, Vishal Sagar <vishal.sagar@amd.com>, Anatoliy
+ Klymenko <anatoliy.klymenko@amd.com>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Michal Simek <michal.simek@amd.com>,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Dmitry Baryshkov
+ <dmitry.baryshkov@oss.qualcomm.com>
+Subject: Re: [PATCH v4 03/11] drm/fourcc: Add DRM_FORMAT_Y8
+Message-ID: <20250425131817.01b7f7d9@eldfell>
+In-Reply-To: <c432aca1-cbab-476c-ba3a-e0d9cc940da7@ideasonboard.com>
+References: <20250326-xilinx-formats-v4-0-322a300c6d72@ideasonboard.com>
+	<20250326-xilinx-formats-v4-3-322a300c6d72@ideasonboard.com>
+	<CAMuHMdXM1B1c=62EpcuUdpdpaBRZSJLXb1GBB0egzp7Fyeo5-w@mail.gmail.com>
+	<b195971c-52e6-463e-a440-83dde4346e65@ideasonboard.com>
+	<20250327112009.6b4dc430@eldfell>
+	<b5cf15a4-7c65-4718-9c39-a4c86179ba4c@ideasonboard.com>
+	<20250327175842.130c0386@eldfell>
+	<CAMuHMdVEpTVWmwrYt+G-QSWucT91goUcFor9qbo5rZ+X2jnRog@mail.gmail.com>
+	<20250331105446.098f0fbe@eldfell>
+	<20250331082135.GB13690@pendragon.ideasonboard.com>
+	<20250331135337.61934003@eldfell>
+	<20250401162732.731ef774@eldfell>
+	<73bd6628-374d-417f-a30f-88a4b1d157bb@ideasonboard.com>
+	<20250417111315.62a749e5@eldfell>
+	<c432aca1-cbab-476c-ba3a-e0d9cc940da7@ideasonboard.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250425095708.32662-3-18255117159@163.com>
+Content-Type: multipart/signed; boundary="Sig_/+HlgRhuvMGsiYHXtWjVBSQu";
+ protocol="application/pgp-signature"; micalg=pgp-sha256
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250425_031841_569044_7159CEBC 
+X-CRM114-Status: GOOD (  17.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,28 +95,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 25, 2025 at 05:57:08PM +0800, Hans Zhang wrote:
-> With the PCI core now centrally configuring root port MPS to
-> hardware-supported maximums (via 128 << pcie_mpss) during host probing,
-> platform-specific MPS adjustments are redundant. This patch removes the
-> custom the configuration of the max payload logic to align with the
-> standardized initialization flow.
-> 
-> By eliminating redundant code, this change prevents conflicts with global
-> PCIe hierarchy tuning policies and reduces maintenance overhead. The Meson
-> driver now fully relies on the core PCI framework for MPS configuration,
-> ensuring consistency across the PCIe topology while preserving
-> hardware-specific MRRS handling.
-> 
-> Signed-off-by: Hans Zhang <18255117159@163.com>
-> ---
->  drivers/pci/controller/dwc/pci-meson.c | 17 -----------------
->  drivers/pci/controller/pci-aardvark.c  |  2 --
+--Sig_/+HlgRhuvMGsiYHXtWjVBSQu
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-Since you are touching two drivers (and the changes are not exactly identical),
-I suggest that you do one patch per driver.
+On Fri, 25 Apr 2025 11:38:28 +0300
+Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> wrote:
+
+> Hi Pekka,
+>=20
+> On 17/04/2025 11:13, Pekka Paalanen wrote:
+> >> My understanding is that the Y-only pixel formats behave in a well
+> >> defined way (or, as well defined as the YUV formats), and there's
+> >> nothing more to add here. Is that right? =20
+> >=20
+> > There are two things:
+> >=20
+> > - Y8 follows COLOR_RANGE property, just like all other YUV formats.
+> > - Y8 implies that Cb and Cr are both neutral (0.0 in nominal values).
+> >=20
+> > I'd like these explicitly written down, so that they become obvious to
+> > everyone. I suspect either one might be easy to forget when writing
+> > code and taking shortcuts without thinking. =20
+>=20
+> I didn't find a suitable place in the docs for this, but would this, in=20
+> the drm_fourcc.h, be enough:
+>=20
+> /*
+>   * Y-only (greyscale) formats
+>   *
+>   * The Y-only formats are handled similarly to the YCbCr formats in the=
+=20
+> display
+>   * pipeline, with the Cb and Cr implicitly neutral (0.0 in nominal=20
+> values). This
+>   * also means that COLOR_RANGE property applies to the Y-only formats.
+>   *
+>   */
+>=20
+> #define DRM_FORMAT_Y8		fourcc_code('G', 'R', 'E', 'Y')  /* 8-bit Y-only */
+> #define DRM_FORMAT_Y10_P32	fourcc_code('Y', 'P', 'A', '4')  /* [31:0]=20
+> x:Y2:Y1:Y0 2:10:10:10 little endian */
+>=20
+
+Hi Tomi,
+
+I would be very happy with that.
 
 
-Kind regards,
-Niklas
+Thanks,
+pq
+
+--Sig_/+HlgRhuvMGsiYHXtWjVBSQu
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEJQjwWQChkWOYOIONI1/ltBGqqqcFAmgLYWkACgkQI1/ltBGq
+qqeHUQ/+NfUcYS7wXohrzllZkrHLk6YwDQxQOoiRG6PixGDOwza/SPNNA28d2Qqm
+CunihOWPP6oCU5c7R51Yt2fZtQZdk533eaPltmaU5YuW7g9Jk8xBvG1KFvwShJgi
+O176UFzxV1TtkCwLyx04kj5Q29rDtJRbm21T84rBiEr+r6AEe007j4JGD58D84hm
+b9vgIXy7qZ/68jXEawGdAJIianBu/SN3T95jZ1vrYJgr/RSF9cC7SVgoan5K2WoV
+3MnXgBfTVqbyKMX3zMGW1NWARglgHqC+JEnd3TORbutORjS7PgRqGF7nY+vScvxt
+9JAF3XtZ+CwA5HOXLRAdLLnCqGQEQ3OmArYyM/PRznbIiUOJGbxS0dYS4SgLkfPH
+FGJCQIOq8yY9blh9pGnV5cwZJFwsVv1/LV6akaHKR2vzPFh4ii+Edy+oFMcoywwo
+Rzoqgp/eMbEtPwL/NFCyKF4CmcBBJExuQer8z8NR/ovRXZ6KObrMi6LyPaeLcsZT
+xq4ZSX2c62B+2bnUsCJeaYcYV0WyFUdQ0KBgf24At7Y3pYE4STRF3m7bUxz0Oql2
+LpQZ7caiz6GKX89Q0aw7yLSWJSY+Euu/RldMWy5EIcXNGEhuZKq3xxVWpLVmK/gv
+hpDZrDv8d23DBk5xM7VJSvWk6M7dBqbyl60f8RlvygNpPu/9rdQ=
+=tC03
+-----END PGP SIGNATURE-----
+
+--Sig_/+HlgRhuvMGsiYHXtWjVBSQu--
 
