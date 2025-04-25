@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0604C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 09:29:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5228EC369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 09:31:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W1esYsMdClOiYJnMStMZq7p5g6vLoQHmFarNnAAvQKk=; b=lqjQFdDQd8Bfdg/kkOs1zyHqAs
-	sFSy5G8XD7qnBxVQ37AQ1vfdb4xSuAioS2i1GyWuVMKd4P8NrCLiBpXmPIXxcnUFu5uOyTxGd0Ezi
-	QOpbxFFiUczSkIAnk9v7u8X3shDMJ7yzgMJTyAicfEO+WWyv1bpw9NrAFvpzT4WAjHlx8UW/yYLAW
-	GJ0xa2UenmwUzXXQ39M1DWBYer7Xc8+shOcFz4Tk9IRZtqTLiJ480GwFgEOAGCq36IfPjJ2kgHkhw
-	kzzAJ2goXNjLyK9ZdgmwMVdSAXfTtCfoNKYw6W86Fk7Y7h4huQ7JVV6mNuejro9oS3ptO3KQwVyGv
-	40lDGY4A==;
+	bh=svnQ2l286kV3owMA3bhfJ9QuAP5pVgcBYhOv22gc5Js=; b=y+HUbxn7F53bpIIwRo5vqeMoZ4
+	hlbm1yoggkATUSfOUtB015JUuTsJ/xc4hjE8cNDWDyvxTuicF3sbWWjEa2GDYfLwJNF9vnT3pLrQ7
+	eZP8EaLAYBK5mq7iw6+3t8/d05ZRL1KsqwbX7p3wpCTYa2LAxWPAcjh92wUwIdUm1j0fj/QZxbKCo
+	PejJulqUyMyIWd8zRwP6jQtMhb8R6dQvg+IrKHRXuOnnzvlbJcWXZAuwhFvOI/s/xjczhNqTcCqdm
+	vwgjdDToCgYkqE7q5qTWdVFuvaSKTCKT2ud7XBMCgzuE+7LpwGf0aXgE239x9UrDt6bMRt9XTAp9j
+	/DsD/pdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8FNI-0000000GXoU-1Kge;
-	Fri, 25 Apr 2025 09:29:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u8FP7-0000000GY86-40xP;
+	Fri, 25 Apr 2025 09:31:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Et2-0000000GRqX-2nPQ
+	id 1u8Et9-0000000GRrO-2VSV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 08:58:20 +0000
+	Fri, 25 Apr 2025 08:58:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C238768464;
-	Fri, 25 Apr 2025 08:57:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91555C4CEE4;
-	Fri, 25 Apr 2025 08:58:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B93366845F;
+	Fri, 25 Apr 2025 08:58:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56035C4CEEA;
+	Fri, 25 Apr 2025 08:58:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745571499;
-	bh=SNLiMhOsszlezKYixhj6I8LuSgz6s/EcE4gCa2JfaPI=;
+	s=k20201202; t=1745571506;
+	bh=ReLh28MMXe+RCC+isNK/dhc8sJPi0We7tbuIOvBGcMQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=AXIUSdEaBTP+wb5An5Kz724b5QqR+D1UiEHOKdeoLvVgJ5WB7Ukiadkby+TIGRQoj
-	 YIgfc8OWqfSB6+eo3/1SYXbZENETrVmHPFIowyIW+yZjXC+eN1acFx/Npw8LPfFA1n
-	 J0bzN/Se98urxB7Fv8EoLYTbpFMu9+/K5myOkjjBQtZwjJ2fYp/azg3I2LTc9pcv5o
-	 rPwDpPCuRbnLio5id4DD4I2NNE5m5jcVlh9P6AQEqgE3fJLON9Xoga8JLJ1npP9m1S
-	 BLaLhhmnztpzdyL1djs2LAIxk4DDuvGn+bfaVWM5dLh4nPCDMIc8CR1Qe5SxGcItaN
-	 Wjw28w7OZXEkg==
+	b=QYUZQrCso3T23LALKw0C7Xd397quUlqZYpWiKk/VQfZ9Ut/+uMgj4EkwVQeor3alh
+	 NItGOYyddkAC+RODzbwkyubLdDUXr0qIgf5ln/ndPKYL2+DjJyg2pTavXrlY97Mfqm
+	 gXkDzipiyPOaB66oPZ45HGkjedVytgq1whLTfr1wy19bfn5DH/BwHuyhK9W9gzX+nD
+	 kT2FYv7rR6fysxtZ/wpIUEbShtnTqOeyLiryXitRzDaYdyY2jAHBcESzqQpeWGr+iR
+	 DQVQhnfsa+67LbQpP1vuUCjI3qRNT13MqRbz3bgwYu6FYWWiN4FS8VKJ17VsvjC8AR
+	 3yD1Oovvs9ezw==
 From: Philipp Stanner <phasta@kernel.org>
 To: Sunil Goutham <sgoutham@marvell.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -70,9 +70,9 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-parisc@vger.kernel.org
-Subject: [PATCH v2 4/8] net: ethernet: natsemi: Use pure PCI devres API
-Date: Fri, 25 Apr 2025 10:57:37 +0200
-Message-ID: <20250425085740.65304-6-phasta@kernel.org>
+Subject: [PATCH v2 5/8] net: ethernet: sis900: Use pure PCI devres API
+Date: Fri, 25 Apr 2025 10:57:38 +0200
+Message-ID: <20250425085740.65304-7-phasta@kernel.org>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250425085740.65304-2-phasta@kernel.org>
 References: <20250425085740.65304-2-phasta@kernel.org>
@@ -105,21 +105,21 @@ Replace pci_request_regions() with pcim_request_all_regions().
 Signed-off-by: Philipp Stanner <phasta@kernel.org>
 Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
 ---
- drivers/net/ethernet/natsemi/natsemi.c | 2 +-
+ drivers/net/ethernet/sis/sis900.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/natsemi/natsemi.c b/drivers/net/ethernet/natsemi/natsemi.c
-index 05606692e631..dd279788cf9e 100644
---- a/drivers/net/ethernet/natsemi/natsemi.c
-+++ b/drivers/net/ethernet/natsemi/natsemi.c
-@@ -846,7 +846,7 @@ static int natsemi_probe1(struct pci_dev *pdev, const struct pci_device_id *ent)
- 		return -ENOMEM;
- 	SET_NETDEV_DEV(dev, &pdev->dev);
+diff --git a/drivers/net/ethernet/sis/sis900.c b/drivers/net/ethernet/sis/sis900.c
+index 332cbd725900..df869f82cae8 100644
+--- a/drivers/net/ethernet/sis/sis900.c
++++ b/drivers/net/ethernet/sis/sis900.c
+@@ -468,7 +468,7 @@ static int sis900_probe(struct pci_dev *pci_dev,
+ 	SET_NETDEV_DEV(net_dev, &pci_dev->dev);
  
--	i = pci_request_regions(pdev, DRV_NAME);
-+	i = pcim_request_all_regions(pdev, DRV_NAME);
- 	if (i)
- 		goto err_pci_request_regions;
+ 	/* We do a request_region() to register /proc/ioports info. */
+-	ret = pci_request_regions(pci_dev, "sis900");
++	ret = pcim_request_all_regions(pci_dev, "sis900");
+ 	if (ret)
+ 		goto err_out;
  
 -- 
 2.48.1
