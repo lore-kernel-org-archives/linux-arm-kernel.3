@@ -4,113 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 017F5C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 16:28:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24590C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 16:33:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AJIjp/qH8crQThKI7FNZxGXD0xGR7pbJCbZF1yH/PGY=; b=tvzkE/N/11+Y7fVS9RGcR9/Aih
-	Bjawx+fuGYkKxAhwfkcluuW3NJel8lIVUMGPSaW4mBled6i+I9cmGB4h9xTjvbpc6jt4cT2AXwGAy
-	zkW8iVcgWPOQ5JBwW+OkQQ+DS8KFgFUuaRGW8nRHv2tuNRnDADBwa+Mecr3ckanW4Dl9xCGFNNG9D
-	Ga+JiaZYnfchHCLV32zZOPgHcZTwSjDEfdPZk93jZhhMUvAJOzh+ROLtCIzWoalW5BVHd++SUINf2
-	4bj8O0ToEEhBZ2NtOftmBhBhr261GthDT8WEeb7bRLtI99StMBobstvg+PBZI/17ZhA38Q6z42ZeZ
-	mjxrTkTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SFMfmyje2Ay7PUB1MUIQLu/sa8uRRcfjUmehOtjPqDY=; b=cVz7x4wKJZoZQCf1bYMcQoJO/6
+	wFbMsDSA4lw5LHQcArA56UVz092p6a+ritea00Ux7i+XkoUbVcHUh6XBNGWKLENQFo3mM9JhkxwEQ
+	URIkPDnHVcIbvkpiWs54rk+GNb6CY+t+F2tpBsh34+Croq4/WxZBLBJNd05UVMLOFCku33Rn2RCol
+	lBpAD+mjOQNUHPeMIclzz+d5UyttDK4Yx+uUEdZLz6xVxDfygHgYdysZBTCpBhamjSn5/90KC9rHV
+	qVw/MlqSgPnmG1d1zhw7CcJk24UPwnxzF1S68cGXeRjLYrKqKx62N2QRhMCdyFa4d8bTf+HA7DWA+
+	VpaLtypA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Luk-00000000DO0-1P6k;
-	Fri, 25 Apr 2025 16:28:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u8Lz3-00000000EVv-3GFQ;
+	Fri, 25 Apr 2025 16:33:01 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8KKF-0000000HU0s-0C0G
+	id 1u8KwB-000000002Oy-0UJG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 14:46:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C033D6847B;
-	Fri, 25 Apr 2025 14:46:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1492CC4CEE4;
-	Fri, 25 Apr 2025 14:46:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745592405;
-	bh=KHMe3OlGoGnWcRJInhRahIcJzYzyZrBrXPmSKdqnqVU=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=GZZyu96IMNdT1z0KhNQMJNel37QXrrRT2E18XI6r5HmIC5hmAImGK8Pp2um1bZCdd
-	 VdffQwW8aPOA4Qc+dlGKODCGamFqfxtM+Gomc0J49kJzKFlxfOCAsT8/wp/JzazdX2
-	 rJcCug3m1JSCmRNuzOpMPFUE/6BCR39HPTzqd4FDsJ3xH3Z1KKtG97vNlYaZQ2DxTw
-	 gJedKQHg7jYdGNwtLMwAMAcb1g57S5zUBw0gpizufJdwELCa8mnaBLkIYoI4kiT2St
-	 y3I4Ad5Z6HsIFvqui9Ni9zWCrHPjBLN0Bm0TR4TDlF6T2hyzjaVzodbjYbl60b+cx3
-	 5H96lN2rKkmrA==
-Message-ID: <fa054136-961e-4a0f-a2cb-cdd393c3b022@kernel.org>
-Date: Fri, 25 Apr 2025 16:46:41 +0200
+	Fri, 25 Apr 2025 15:26:00 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-7394945d37eso2128073b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 08:25:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1745594758; x=1746199558; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=SFMfmyje2Ay7PUB1MUIQLu/sa8uRRcfjUmehOtjPqDY=;
+        b=XPUdMzkJKWx0NHoQ127P9cgXviTBkNP+iG5PQWs41cwHbLQ1FOeNmE0VsMqmhh+eHi
+         bJTS18mXr1N/VMQFatcbeaqRjLJOuhtvXbvejc8/yFX50YLQeJ04x3QYySYee+SXQm7p
+         ma8EEp1DzNmw9GDlybNv018zIRVBZWuz9OwkWe1n+whV3Rp3Rdtq1pK7DH5SeJq8Cf5P
+         6gKtIzvqlSv7bmQ6ulCOU1Uz9YqqyknOL6QDaMQAs5ofv7N6KftRepP9KqtayR7znrgP
+         uwKDsuxErmvVucHzIUpzZX/4H61f104CfrAsxI6YmVgodDoO8Gv5xG0a64MKAm7RZInB
+         pGxg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745594758; x=1746199558;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=SFMfmyje2Ay7PUB1MUIQLu/sa8uRRcfjUmehOtjPqDY=;
+        b=AWxwac3qF/KjGrZjRr+WHsjJzxyS/xCA0otfY96MFgWPfq+305vVwDSUcyKBKDxfsw
+         mNeIqUAShLBSCOZvkCWLgKPO+3Iysrfk6T7hsfTTpxRKN2CbXpd8m+EDe4nVq6JRyyov
+         l9RujBzb3oCf+4pXbu8w1w1UZbXMtC4pf/4ZNk5WBC/FyEFIFI5ArYIagPxZaUcFtBvc
+         MdUSEgcqcgTrtMIh+h4F7EDRcY4kyCXhjvAS3D/S+0NCV49ig854IsK9h6rtBJZRvI+s
+         jnw6/16wARP/aFAClmyKItPiXCRw51jLH2mn2xhMt7cmonrVSg1Q06ElN/aN9kAu1Cnz
+         OIQw==
+X-Forwarded-Encrypted: i=1; AJvYcCXjxLOh3ch9nl8Br/LXeg/YfGdnGnIHzZIOULxWU7MOYiKfUk9aI4heyOW9ocjnXCRBumZ7c0DptI5p7LkyAIoY@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXAV0v0XX5fuOwyUEUuv2RP4tU+rQBP/V7BMQ2ZW6YFaQ6iEUR
+	vkNwXqtDzcMXIgFCOzJ3B7i+Pmbq9S8G8uQvpfr6GSZJexgaobiRqHab6AKDWrTsmtr0pMKDSgN
+	7Grp0L+nDhKmBmXY9/eAvUsUmhs8CmjnjTjex+w==
+X-Gm-Gg: ASbGncv9j7Hp0/uRsC/1dB6uVShR8rvGli+OeZy5hwxh+ob3gtJqrBonhwtF3+onnRS
+	kguJ6nHtrUpLugPQ6DghZf18Ti4ak/nIdxNq3LY17VOci3qdDX3c4gletBIIS/H8gNu0WLgsXJU
+	ktRUVZUFUuY0QIrhd/8ffFbVIdsoNN6CDqVRr6cT5DUrriA4pi7JqCGfM=
+X-Google-Smtp-Source: AGHT+IHZt/PvL0IYviSGWGwys58uHHU/qyJ3mVkVbS0ImrXbA+M9ZGv4a48+hBPrudXzjwRv0uMRYoHDKa+TdE0Dyk8=
+X-Received: by 2002:a05:6a00:18a6:b0:736:ab1e:7775 with SMTP id
+ d2e1a72fcca58-73fc7b51460mr3994796b3a.0.1745594758219; Fri, 25 Apr 2025
+ 08:25:58 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 02/10] ARM: dts: exynos: Add rtc clock definitions for
- MAX77686 PMIC for Exynos4412 Odroid
-To: Anand Moon <linux.amoon@gmail.com>, Chanwoo Choi <cw00.choi@samsung.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- "open list:MAXIM PMIC AND MUIC DRIVERS FOR EXYNOS BASED BO..."
- <linux-kernel@vger.kernel.org>,
- "open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>,
- "moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES"
- <linux-arm-kernel@lists.infradead.org>,
- "open list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES"
- <linux-samsung-soc@vger.kernel.org>
-References: <20250425132727.5160-1-linux.amoon@gmail.com>
- <20250425132727.5160-3-linux.amoon@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250425132727.5160-3-linux.amoon@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250408195922.770377-1-yabinc@google.com> <20250408195922.770377-3-yabinc@google.com>
+ <358f4a8c-29ad-4e5e-91b9-063f06e769ec@linaro.org>
+In-Reply-To: <358f4a8c-29ad-4e5e-91b9-063f06e769ec@linaro.org>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Fri, 25 Apr 2025 16:25:46 +0100
+X-Gm-Features: ATxdqUG1fmyZ5-PKnBFr3vozBSaptLAsvKtSFIiRksEvaZt8vaft2LpISC3dbm8
+Message-ID: <CAJ9a7VigiBrcenP9w84KS21iE8gnB7bGC9Q6ZFF33ZHveu9SEg@mail.gmail.com>
+Subject: Re: [PATCH v3 2/2] coresight: core: Disable helpers for devices that
+ fail to enable
+To: James Clark <james.clark@linaro.org>
+Cc: Yabin Cui <yabinc@google.com>, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Leo Yan <leo.yan@arm.com>, 
+	Jie Gan <quic_jiegan@quicinc.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250425_082559_153607_0BF0D8CC 
+X-CRM114-Status: GOOD (  23.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,37 +97,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/04/2025 15:26, Anand Moon wrote:
-> The MAX77686A includes a crystal driver with an external load capacitance.
-> When enabled, the crystal driver starts in low power mode. The
-> LowJitterMode bit controls the crystal driver, allowing it to switch
-> between low power mode and low jitter mode (high power mode).
-> Setting the LowJitterMode bit to 1 activates low jitter mode on
-> three channels simultaneously. These three 32khz buffer outputs
-> (32KHAP, 32KHCP, P32KH) are independently enabled/disabled over I2C.
-> 
-> The 32khz_ap output is typically routed to the AP Processor, while the
-> 32khz_cp and 32khz_pmic outputs are intended for BT, WLAN, BB,
-> or peripheral chipsets.
-> 
-> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
-> ---
->  arch/arm/boot/dts/samsung/exynos4412-odroid-common.dtsi | 7 +++++++
->  1 file changed, 7 insertions(+)
-> 
-> diff --git a/arch/arm/boot/dts/samsung/exynos4412-odroid-common.dtsi b/arch/arm/boot/dts/samsung/exynos4412-odroid-common.dtsi
-> index 93ddbd4b0a18..03943c666d11 100644
-> --- a/arch/arm/boot/dts/samsung/exynos4412-odroid-common.dtsi
-> +++ b/arch/arm/boot/dts/samsung/exynos4412-odroid-common.dtsi
-> @@ -289,6 +289,13 @@ max77686: pmic@9 {
->  		reg = <0x09>;
->  		#clock-cells = <1>;
->  
-> +		max77686_osc: clocks {
-> +			compatible = "max77686-rtc";
+On Tue, 15 Apr 2025 at 14:51, James Clark <james.clark@linaro.org> wrote:
+>
+>
+>
+> On 08/04/2025 8:59 pm, Yabin Cui wrote:
+> > When enabling a SINK or LINK type coresight device fails, the
+> > associated helpers should be disabled.
+> >
+> > Signed-off-by: Yabin Cui <yabinc@google.com>
+> > Suggested-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> > ---
+> >   drivers/hwtracing/coresight/coresight-core.c | 9 +++++++--
+> >   1 file changed, 7 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+> > index fb43ef6a3b1f..a56ba9087538 100644
+> > --- a/drivers/hwtracing/coresight/coresight-core.c
+> > +++ b/drivers/hwtracing/coresight/coresight-core.c
+> > @@ -486,8 +486,10 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+> >                        * that need disabling. Disabling the path here
+> >                        * would mean we could disrupt an existing session.
+> >                        */
+> > -                     if (ret)
+> > +                     if (ret) {
+> > +                             coresight_disable_helpers(csdev);
+>
+> Hi Yabin,
+>
+> Unfortunately coresight_disable_helpers() takes a path pointer now so
+> this needs to be updated.
+>
+> I tested with that change made and it works ok.
+>
+> >                               goto out;
+> > +                     }
+> >                       break;
+> >               case CORESIGHT_DEV_TYPE_SOURCE:
+> >                       /* sources are enabled from either sysFS or Perf */
+> > @@ -496,10 +498,13 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+> >                       parent = list_prev_entry(nd, link)->csdev;
+> >                       child = list_next_entry(nd, link)->csdev;
+> >                       ret = coresight_enable_link(csdev, parent, child, source);
+> > -                     if (ret)
+> > +                     if (ret) {
+> > +                             coresight_disable_helpers(csdev);
+> >                               goto err;
+> > +                     }
+> >                       break;
+> >               default:
+> > +                     coresight_disable_helpers(csdev);
+>
+> Minor nit, you could collapse these last two into "goto
+> err_disable_helpers" and add another label before err: that disables
+> helpers before falling through to err:.
+>
+> Other than that:
+>
+> Reviewed-by: James Clark <james.clark@linaro.org>
+>
+> >                       goto err;
+> >               }
+> >       }
+>
 
-I don't believe this works.
+Subject to James' comments -
 
-Best regards,
-Krzysztof
+Reviewed-by: Mike Leach <mike.leach@linaro.org>
+
+
+-- 
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
