@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 505CEC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 09:35:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A8FEC369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 09:37:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jqgfGiH82rPcbf0X4B0Io6hmUzP6CsdcJ54xw3M+dlE=; b=NTzZv4TwdxrE5rNFjNIxHK/fOj
-	8ZV9s1x4LHQBghUy4x0sXSd6ANwaffZf4az7+mfgp64BVjS3k2dBqJZh7Gc7DeH6pf2ZVmfzT/DlW
-	Wfdi40yhN5b0IDyIA2L40h1WUYO/RitqDSkq6ZoTspCCQ/MuRPt+U7QYQNAvLq8cZdQ23bUmvYeww
-	3iJcXSrw1BlJzwIri7EaZ9r2F4rsSEVukHXvDfZ9+GcukHeDodkX3Xg2VZnil5YppsQM6P8Rtn9pB
-	PUbgqPK4v+R5nXFlfPy/iCpZFgK8Z9lomvnkevObUAqTI/hZ9Aiysoq2dO4eHcuJ3nP1Qh0PZxluh
-	bzhC7aGA==;
+	bh=ETEOctSrz3SPZaNwMr7XaKbNs3FrR7Qo8IEpjXVtJ6E=; b=aalEjdDt5PJuN9ty08mt+Af7mc
+	piHs+aWQgKl0TNfrgsPOTJpHrxpNIzf/ijNsNmh/P0UQ+WYcL69WBzhisEFoQQONt4q82vOGMLRIA
+	TTaSZCTqZEJ8iHaFMoNks1sRcEcNIAb0Zb4IDVfov+EvgGsKT36s3cgmMu4fIxLcMO4PVP5ngfESj
+	J++DIma95vlRF2TMQwv8ALLbS8o7iECWBUCNOgu45btnfkXW8bHS+aDI4rB07+LnScuAAWukUjt89
+	GEx1DLOzkgZBmhz8zm+69jD6LRsptusPhPDZ+ZCxJJFRLXWt+6BUv9WMn06t0r3f6J3NespRnTTXm
+	hBHMQ+rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8FSm-0000000GZ6h-1SiA;
-	Fri, 25 Apr 2025 09:35:16 +0000
+	id 1u8FUb-0000000GZU4-0F8y;
+	Fri, 25 Apr 2025 09:37:09 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8EtG-0000000GRtA-1QV6
+	id 1u8EtM-0000000GRuy-42dv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 08:58:34 +0000
+	Fri, 25 Apr 2025 08:58:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5F0F668464;
-	Fri, 25 Apr 2025 08:58:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D782C4CEE4;
-	Fri, 25 Apr 2025 08:58:27 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EBAC16845F;
+	Fri, 25 Apr 2025 08:58:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECFD9C4CEEF;
+	Fri, 25 Apr 2025 08:58:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745571513;
-	bh=JwQgJ9CbA/kRE+Ux8ehyLiYx0Jiy2Yv7pNe812gJer0=;
+	s=k20201202; t=1745571520;
+	bh=/riavgLrn/g2Hnn+PvsGhLQKcPhklIh8LsugSyRIhnc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=m/IbDZMYVFFXSrcufpLhIzufuUvYqMslGiwePnXGDVIEK41y8v48e8eEYaS2Cqo+g
-	 C/NMce59ezEwNMvldNt1t/Bt2bc9v13er4AJgamAxSExVbOwX1HGnPj3YA6ixJ8oPM
-	 mgiKN5dsu3g/h38hc/5Qs6dNOvCv9tc0QthrCXJEn4bfBRSrvmfkvya8Zu7Ayosb2J
-	 Iw1A1dvG/fatcvCI9oGCZD42NGaicAdECTTQlAoxcBRRFJkP97bzfr06852N2Yyj19
-	 L550ongKlfHvDzpzp6bPYCAb3Gi7MdZm0LXv0DnxZ+XV0S669mdFkpe3TJCPcv+NOb
-	 7rKzHpJjBxitg==
+	b=Q4vcUWZMRmElkhA8v6VQgdgQvXSMS9Xu2h+CVmbQbZY5E1Wo8QmqF/GEDh8Es9vZy
+	 dERS/Wq6Cd2a6eI+wRYazECrl8TBsvymEX+AQ+E3HB1FS6rEjNh5T7FK376sQXmQSY
+	 tqku3xiNxvmHwM2UsQknFrZOB/4gc+p6dOpZ1gkJaSV8oBZv1FpFLRUQ8sq78AIdBJ
+	 V1Uqs3qPr9+wQhuTZ7pY/lJ6+CKJaH0ZYEUwii+lCcfi/wowTTIUkuIRpUh9amA0iC
+	 pzmbg/mfqa3KgtLTo+zo5HeWLXr9patZTNIdqV2HS0OOkE8Bws7cXC5Mh0rZ8vOF3C
+	 uCb8UTQl+E+9w==
 From: Philipp Stanner <phasta@kernel.org>
 To: Sunil Goutham <sgoutham@marvell.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -70,9 +70,9 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-parisc@vger.kernel.org
-Subject: [PATCH v2 6/8] net: mdio: thunder: Use pure PCI devres API
-Date: Fri, 25 Apr 2025 10:57:39 +0200
-Message-ID: <20250425085740.65304-8-phasta@kernel.org>
+Subject: [PATCH v2 7/8] net: thunder_bgx: Use pure PCI devres API
+Date: Fri, 25 Apr 2025 10:57:40 +0200
+Message-ID: <20250425085740.65304-9-phasta@kernel.org>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250425085740.65304-2-phasta@kernel.org>
 References: <20250425085740.65304-2-phasta@kernel.org>
@@ -110,51 +110,48 @@ Replace pci_request_regions() with pcim_request_all_regions().
 Signed-off-by: Philipp Stanner <phasta@kernel.org>
 Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
 ---
- drivers/net/mdio/mdio-thunder.c | 10 +++-------
- 1 file changed, 3 insertions(+), 7 deletions(-)
+ drivers/net/ethernet/cavium/thunder/thunder_bgx.c | 7 ++-----
+ 1 file changed, 2 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/net/mdio/mdio-thunder.c b/drivers/net/mdio/mdio-thunder.c
-index 1e1aa72b1eff..a3047f7258a7 100644
---- a/drivers/net/mdio/mdio-thunder.c
-+++ b/drivers/net/mdio/mdio-thunder.c
-@@ -40,16 +40,16 @@ static int thunder_mdiobus_pci_probe(struct pci_dev *pdev,
- 		return err;
+diff --git a/drivers/net/ethernet/cavium/thunder/thunder_bgx.c b/drivers/net/ethernet/cavium/thunder/thunder_bgx.c
+index 608cc6af5af1..c9369bdd04e0 100644
+--- a/drivers/net/ethernet/cavium/thunder/thunder_bgx.c
++++ b/drivers/net/ethernet/cavium/thunder/thunder_bgx.c
+@@ -1605,7 +1605,7 @@ static int bgx_probe(struct pci_dev *pdev, const struct pci_device_id *ent)
+ 		return dev_err_probe(dev, err, "Failed to enable PCI device\n");
  	}
  
--	err = pci_request_regions(pdev, KBUILD_MODNAME);
-+	err = pcim_request_all_regions(pdev, KBUILD_MODNAME);
+-	err = pci_request_regions(pdev, DRV_NAME);
++	err = pcim_request_all_regions(pdev, DRV_NAME);
  	if (err) {
--		dev_err(&pdev->dev, "pci_request_regions failed\n");
-+		dev_err(&pdev->dev, "pcim_request_all_regions failed\n");
+ 		dev_err(dev, "PCI request regions failed 0x%x\n", err);
  		goto err_disable_device;
- 	}
- 
- 	nexus->bar0 = pcim_iomap(pdev, 0, pci_resource_len(pdev, 0));
- 	if (!nexus->bar0) {
+@@ -1616,7 +1616,7 @@ static int bgx_probe(struct pci_dev *pdev, const struct pci_device_id *ent)
+ 	if (!bgx->reg_base) {
+ 		dev_err(dev, "BGX: Cannot map CSR memory space, aborting\n");
  		err = -ENOMEM;
 -		goto err_release_regions;
 +		goto err_disable_device;
  	}
  
- 	i = 0;
-@@ -107,9 +107,6 @@ static int thunder_mdiobus_pci_probe(struct pci_dev *pdev,
- 	}
- 	return 0;
- 
+ 	set_max_bgx_per_node(pdev);
+@@ -1688,8 +1688,6 @@ static int bgx_probe(struct pci_dev *pdev, const struct pci_device_id *ent)
+ err_enable:
+ 	bgx_vnic[bgx->bgx_id] = NULL;
+ 	pci_free_irq(pdev, GMPX_GMI_TX_INT, bgx);
 -err_release_regions:
 -	pci_release_regions(pdev);
--
  err_disable_device:
+ 	pci_disable_device(pdev);
  	pci_set_drvdata(pdev, NULL);
- 	return err;
-@@ -129,7 +126,6 @@ static void thunder_mdiobus_pci_remove(struct pci_dev *pdev)
- 		mdiobus_unregister(bus->mii_bus);
- 		oct_mdio_writeq(0, bus->register_base + SMI_EN);
- 	}
+@@ -1710,7 +1708,6 @@ static void bgx_remove(struct pci_dev *pdev)
+ 	pci_free_irq(pdev, GMPX_GMI_TX_INT, bgx);
+ 
+ 	bgx_vnic[bgx->bgx_id] = NULL;
 -	pci_release_regions(pdev);
+ 	pci_disable_device(pdev);
  	pci_set_drvdata(pdev, NULL);
  }
- 
 -- 
 2.48.1
 
