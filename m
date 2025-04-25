@@ -4,98 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1405C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 16:22:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C666C369D7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 16:22:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pqiCINUAAonn0m4tpf2qCa2aEvL6DZ5ftKVEWyb5ynM=; b=vig41D41OEkDsXjQx1U7rV+VdN
-	s7XNBL0RyGtHNexhyAWm+fZsEuxUZjc3FrIadYan76dxQqRqHoympS02pcdEteFKk7n97oH2VVCDR
-	ljnhhCQAHGn4veFczuhSw4NzbrUJOmAjF/OPuAcpAYRMn7wCKzwvWrew8E2c0Bhgl9vmaaYCsofeJ
-	dlv4TB618OFTHK6mw79vY210cOLfheb7GH8DG7gfyaJso+rhQ16UBFV2O3a0VrIBmWOrvHbmdQJsv
-	s3ky1VNQObBujVSOUsH635nezux06S6tp/pWhUHw5u4Cu0/Fu4LO//fpr2DjnECIbfYP7CP4v9EVu
-	0IA3z7IQ==;
+	bh=8+o55FPMa7m6VVea9dp3slj5OALcBnoJzyUth39j3Gk=; b=TReKEdDah+v/Ogr2wB8VLy3khi
+	A3JU4SU4UvCNrwx0emn9iqMkVkxIlBlJ1wXcZAQKbGqr1gf51WX0Gsu8HneKOIjaoF6lePEQb2Irf
+	l2cF43OnFh2yWEsOmsVnok0BQJAayyzLwsl/D6IttCz9fmAYOCXIgLU/2YOJzOlYB7IkKdJ4/rbfx
+	eVQ7V93+tV/SXgqWmfEWsZnGiXsAd95AYU08TEBWABA/QnCXaR8y19UoMWWoOFk4PZCvyoDpM8mtQ
+	Uzt8JlZlU44k2jkuRqmlm42RFSvTgp1Vq3XntR9M+Qiic8P2++APq42F/3sSlHBTtgKsNYZu49BHn
+	N2STLMoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Lou-00000000BpL-17fI;
+	id 1u8Lou-00000000Bpm-3Ola;
 	Fri, 25 Apr 2025 16:22:32 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+Received: from mail-am6eur05on2062c.outbound.protection.outlook.com ([2a01:111:f403:2612::62c] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8JFu-0000000HJRK-12Sf
+	id 1u8JGK-0000000HJU9-0jUW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 13:38:15 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5e5bc066283so3934560a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 06:38:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745588292; x=1746193092; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=pqiCINUAAonn0m4tpf2qCa2aEvL6DZ5ftKVEWyb5ynM=;
-        b=Shpm/eWgeaVH9+3JfvrtVGcreaILgljXlQFAcZemzc0rUalISO4R0fy4bic2qD/p32
-         HqLhaRxV7eaWNrc1jPMbCn7haxdVW5OyHWVUnj5JAn+racc/ceT+N5tjTYbAaAbiDX81
-         kcpHj9pSvqPWVGWcmxrcik64IiwLcJrF4wquwnkNdfiDV+xXYfNqv3j7qDtW+jH9s8qF
-         QrRuYncXWffq+XHiArB3iOKGVc+2Z35615c+Ni29f6bzVACOI98Iqz3aRpIdRRHb5IVE
-         wsGGh8jmCy1no/ZxFq6l7++ytxikElgjMKwWtaDHyeB/SV1b89PU8NypcO/54FbMHPKn
-         QH8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745588292; x=1746193092;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pqiCINUAAonn0m4tpf2qCa2aEvL6DZ5ftKVEWyb5ynM=;
-        b=D+PYviLm6vhQQyIV8y5gREAqZS+wwz/5KL6qxBIQ6E7bWD/k93KJrplpdjf6FJy6hW
-         +P71817y5P9dukthCo5FvRMCrbleDQnKTmtBFiyrwA8U3vkaea+obWOuCCAS5H26Lh7a
-         4fFpVTF6hkKALvk0DjXA3x/oJ6DRT20r8OJIVY6EqXMydAHZoCE7631DAUiNb7hIPHTz
-         N+u4kwEHUDHSTcrTqmCyXqMrooZJK8RRE0YX975nS7ZBkuISCUywZSKqo7mYpyShn03q
-         K0hF/gI5pBE2+FVxxJzLybPtIXldqWOhl2wrRiKTJ5lcA0IIpIOVUMpCB8FNq2ARGTLN
-         Xinw==
-X-Forwarded-Encrypted: i=1; AJvYcCUrKbohsDY6Vz8SXFVXifHjILoYvdeoAUC3vW2fuV0PU1wY3zvsDagUD5OcfSnj/dTBhSGW6X4TZUZ8QQZPWrDu@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTjIosQJDho5bu33Ef9G/j3uETYQ8bgqGsB1XNf0SRCHN+9wjh
-	Gm0tH1QieAdeCbn1ae5clZntpSDxgVyb2adOumcLBj2mr+DhOcKx
-X-Gm-Gg: ASbGncufDZmTx2kRZy41eA6ObYbZcUQqOaQoUik7mk5fxMH+GoA0VNuuobjin+X5Vze
-	5FVFguc0FLF8Vr3FriKrdHjybcs3UUMASXL416l03APrhVgsbL1jAmXgJgP/g+cKXv2EeEVV7gp
-	WeBEs5eMtcMPUArv6pnMqK1ID7MhMRChjo1uxncYNe2qwcPlRTOgGe/pKULHI6K7SLKGzCbC/Mg
-	Fi3kFOGTTvPEZonw/hJ9rsUJnrZvK/FZcDKDmd8MddzJQT5Iyy+grwoeDK/Zl0+RH16z/uaVUuX
-	4zgDzRTNSn7Zf+As3BE+Koa8fGAsoaWm0WrmPUIypBaUR3cZnTiC33Q=
-X-Google-Smtp-Source: AGHT+IE86Q3+wVqPZufqaFdR5AXK2Hpei01lx1jufnMmv4wt1krtWH2mQQ/n9CHFPIgL61um5nK+HQ==
-X-Received: by 2002:a05:6402:2748:b0:5e7:88d8:30a6 with SMTP id 4fb4d7f45d1cf-5f72297c525mr2124920a12.20.1745588292119;
-        Fri, 25 Apr 2025 06:38:12 -0700 (PDT)
-Received: from localhost ([217.151.144.138])
-        by smtp.gmail.com with UTF8SMTPSA id 4fb4d7f45d1cf-5f70110791bsm1297259a12.13.2025.04.25.06.38.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Apr 2025 06:38:11 -0700 (PDT)
-Date: Fri, 25 Apr 2025 15:11:22 +0200
-From: Oliver Graute <oliver.graute@gmail.com>
-To: Thomas Richard <thomas.richard@bootlin.com>
-Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH v2 1/2] dt-bindings: watchdog: fsl,scu-wdt: Document
- imx8qm
-Message-ID: <aAuJ-qg7ZjZj0LQQ@graute-macos>
-References: <20250414-imx8qm-watchdog-v2-0-449265a9da4e@bootlin.com>
- <20250414-imx8qm-watchdog-v2-1-449265a9da4e@bootlin.com>
+	Fri, 25 Apr 2025 13:38:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jqlmKQXtiMVfwLTMtBXiTO1jShErj8V80vx7zWnyBLGCD2lPBNAz0O8mLnutja2tD0d7wB+05FOIXfzSqIdwr5N2H07wKMOhoE+mSVkehPd/4afpi8Qa27ySgoBszHTeTmh8GzviKyX++RCzgGqyRW3vP52ARr3gnL4eF3w3gjtOqVq5I1PV/jHYAMoAuPPAJAe9XVJ/pGEJxoXt/OBaCehZV0b58oDiaJ96ekAJ5fd5kd+FkqiPGFg8nncjyaObd3cpc6SsXKTQIayDi1dW0BGtp4PJuf2WHo8lwERa1SP8EL2L4Ef8SX61Jh3+EVacgxHoJLStW2yXzedMoD5waw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8+o55FPMa7m6VVea9dp3slj5OALcBnoJzyUth39j3Gk=;
+ b=U0XTjmc78ks29gRDPEryK06DVzYpr41zNfBIpoOVOoMG+bGqabUd4ifttd8tpsPT73AKoMNpwPEEIqVtSMZmSkI0xCLv5XceoG3na3DyKTJlyBAyWWqNV5XSusyly4qWxluiJ1APEC6Tj1zYTLnrQUfeb9oUio6+e8tsqQyv+YfJNPy3F3hbhkQqEpK0zyefOwSC593hOdsgR3TuXVnW4XuJeizVDsnm7EkU/LoNjG1+NjD2iE80WumhPJhQN0WHzRsOIUajbckBWFXThOj38w2arE80nFTViZ3grhbXXd46onvzh2kDxrSO/GDn9gRwwIMR0W0kec6TnWI8ppr8Nw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8+o55FPMa7m6VVea9dp3slj5OALcBnoJzyUth39j3Gk=;
+ b=Bk/IPA/ankNDKg6UP+Wm8Z/4jwGuToxTFB5tmS1ufY1pVGqx3VeWDvfeyOpVPxVfiRanJGlF93KOjBKvIooST2A/k2LA2ZS/eNnp0rGv+oAHut/fhATMQjds/z98P1WetGrozhv8MJptDEBGKp3aYGatHhM6uXNGZW8itjyzPFS+9DOexecFpTrKSrW/cu9XfDoQUBHkZhOINxOKDRNGkQekOx2WGYD9Aqnw2fxi9SUi346hKhpGqQRZ+JSQkKZFGYxzezs4zk91tv6GmH914rqWGYuMeSTerLGZnK+zucvcUisY7QOyeUrvkTOdolzrf7B7g38DOvDwSOZ1s5Va4A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM9PR04MB8604.eurprd04.prod.outlook.com (2603:10a6:20b:43b::21)
+ by GV1PR04MB10454.eurprd04.prod.outlook.com (2603:10a6:150:1cd::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.27; Fri, 25 Apr
+ 2025 13:38:35 +0000
+Received: from AM9PR04MB8604.eurprd04.prod.outlook.com
+ ([fe80::e751:223e:aa3d:5827]) by AM9PR04MB8604.eurprd04.prod.outlook.com
+ ([fe80::e751:223e:aa3d:5827%7]) with mapi id 15.20.8678.025; Fri, 25 Apr 2025
+ 13:38:35 +0000
+From: Pankaj Gupta <pankaj.gupta@nxp.com>
+Date: Sat, 26 Apr 2025 00:31:32 +0530
+Subject: [PATCH v17 1/7] Documentation/firmware: add imx/se to
+ other_interfaces
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250426-imx-se-if-v17-1-0c85155a50d1@nxp.com>
+References: <20250426-imx-se-if-v17-0-0c85155a50d1@nxp.com>
+In-Reply-To: <20250426-imx-se-if-v17-0-0c85155a50d1@nxp.com>
+To: Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Pankaj Gupta <pankaj.gupta@nxp.com>
+Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1745607704; l=6679;
+ i=pankaj.gupta@nxp.com; s=20240523; h=from:subject:message-id;
+ bh=8QvSWd4rmn+G1ZEKi8f+TGc8yN5T+yIQA/mdWdtzwO0=;
+ b=s/utgLPhSq8XiKb6TRzI6/Mi9XJB2Rx6gKj8Va+c5aDjNFTTZEqNMBYhQ2WPG+tMzWIDh4Brc
+ kCFweAJBqsHAqPUmvMSZt6PWpHeyV87PkpR6nPEHeYoHx9Z4vjFj4Dk
+X-Developer-Key: i=pankaj.gupta@nxp.com; a=ed25519;
+ pk=OA0pBQoupy5lV0XfKzD8B0OOBVB6tpAoIf+0x1bYGRg=
+X-ClientProxiedBy: SGXP274CA0011.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b8::23)
+ To AM9PR04MB8604.eurprd04.prod.outlook.com (2603:10a6:20b:43b::21)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250414-imx8qm-watchdog-v2-1-449265a9da4e@bootlin.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8604:EE_|GV1PR04MB10454:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8717aac8-e3d3-4653-63a4-08dd83fe7a7a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?aWF3RFV0a0xzMC9OMU4rUVc0TVdPcXZPMkQ3N1lyR1Q1eTFINkJDVXJYYmsx?=
+ =?utf-8?B?TjZEamxBK3c2SWxHN2dnSWVkYzIrMnpJdmU5cFFHa0tobktZYUIzNUp2dlI2?=
+ =?utf-8?B?NDUwTXRZMUc0WGtkNXVkd3VwNU1ncTQvYy9UUUJWRmFldzA2WHphdTYvVkxy?=
+ =?utf-8?B?WGY4dERiZ3BZNWpwSHJ3WjVuKzZ0VkFYQjljQ1NyR1psSnR3YmlITmE3aGdF?=
+ =?utf-8?B?Wjh0SXUwdmN2NlFaTFNGSlZHTlBadjdFN2tqenh4emNpVHBQSldCOGEycW0y?=
+ =?utf-8?B?ajFjb2p5Z1lLakdVSmVybEVzaE5KbmNQQ3NpKzlabkZ2RkJGalJmZjFRV0FO?=
+ =?utf-8?B?TkZuQStpWVhUblArYVE3dk9sQkVOWFpkd25ROHZaNHlOWlJKUUJBek5BL2lu?=
+ =?utf-8?B?YWdqVTU2emYwUXNaR3FQNVdOT3gzY3FKNzVXWXJpbTdnRGFWMHpheS81dGxD?=
+ =?utf-8?B?RTFVQUIvbDlsRzNFL095ZU9PWXNOVGt6YS9BQmVEWU1tTjdHc25Lc2RpaUpp?=
+ =?utf-8?B?WDllVHJjMitNTHNrYWJwUG1GWWwyOWdvUmZNTVI1RjV2Z1NxN1VkaXJnUGpa?=
+ =?utf-8?B?REFGNjR1ZldVNWtrV3ZBQlFoZEJkSEE3Vi8wVVRTSU9jUzBmR016MVlkN1Vq?=
+ =?utf-8?B?UEVjaUhNQ3hmMkpYV0p1U3cyUFFTcnlaTjNSNHFSRjN1Nk5obGhzUlIvQjNI?=
+ =?utf-8?B?ZTV4UUt3dTUrQzRDNlBDNVdzZWtTUFVHYmZUeUI1Umk2RkdCLy9GUUQvV0kr?=
+ =?utf-8?B?NDB3UnlzaGVHK1UzM2x0L3JONnBZRm0zWmdoTlhOOXU1YUN3Zkd0RlZyazNu?=
+ =?utf-8?B?ODdwSHhYK3orMDFxdWpDcjd1cEdLUFoyOTBEVTRwcm5nb1dhdHU0RTU1cmQ4?=
+ =?utf-8?B?MXI1ckJMMW1XUTV0bU9mMmkzemxFRUFEQi82eDRCS1lITWhFMFB4RlhOK203?=
+ =?utf-8?B?MFdOSjlBNnZGYSt5K0RuakFVbXVRTmpnMldqRm1xREJHc1B2MzBhQmRzMld0?=
+ =?utf-8?B?dGtpZTBvWkFOKzNkNjBPTG56dDdnQ3VBYXdJYk5zbXliOGFKOGcvbW9DZmtT?=
+ =?utf-8?B?QWtUa3N4VFRrMnZMQ1ZPVlBIK1c3clZ2OHdtUGtVZEl1K29KYm5PcFVyVVl0?=
+ =?utf-8?B?cExvSU56UGl4OHZ3K3ltQkc4L1ljbk1JSzBQRXpKYW1zZ29NTmxuYmRtTkhS?=
+ =?utf-8?B?a3R3cmZwT3BoZDV1ZkEyWTE5U0JwcUhlSld3T1JpQ0JyTWtsSUl5anlNUGgx?=
+ =?utf-8?B?NmRZVGZDdkpISU1wWjRSVDA1NmtMblRPZ3RPN3c4S0hZWkdnb2NxSGxBZzRj?=
+ =?utf-8?B?eVlzTk9yaDFtQTR2RnVCVXliNDF1S3ExcFRnSnBJL2s2WEFyd1BCcjBkWkVt?=
+ =?utf-8?B?Y09CN2w1ekZ1QnpBZkErZngrR0lhazQrQ2ZRT05LaWlSdjh1aFpPbk1CNDN3?=
+ =?utf-8?B?VVoyQkxRZWtpMDFuZmovV013NlJjRVBWYzRkOGViSEtCbDA1aE5RRWVCbDIw?=
+ =?utf-8?B?RU9oSmE2a2RKVVYvUE5rUDhDU3hyazdsa2xZMmZZaSs3K3BYeTNWM0o1OGxv?=
+ =?utf-8?B?bzVrV09jTnpZbVVJYWh4czBpektjRUQ1cDVaanYvakVaZFJDemdlWmJESlFy?=
+ =?utf-8?B?NE5ZTmJuS20rN0dna3lsRmphQU9oZC9zaXNsbEovUmZzOFM0UmZKTU5hM1gr?=
+ =?utf-8?B?V0xzOUZMZWxBYkZNVjVRYTBDTi9yQ2swQjZHb3R6T2U1QlBFUUlZYzN1cjMx?=
+ =?utf-8?B?dHJGQUdrZ3NCdFBNc1F0VW4rd3h6dm5CaVdlSnMvbFRRODcvRTRoUUZVZjNp?=
+ =?utf-8?B?RWVOYUpseGRnYUtEVWJPcmtwckFwUW5Pd0h3N0NUb1RDUEhNd0lMQUUwVlBQ?=
+ =?utf-8?B?elRIQzJDVWxWV1l1WUhCQnZ4TEx6OUszdy9aZ0dGUjVkazBIOG1mcXJIUWhK?=
+ =?utf-8?B?NXRZQ25NWUxOVFliRjRUNUtscW94N0pqdDNoS1lsMnUzVkkrRFpEMkw4VzBO?=
+ =?utf-8?B?Mit1ZjJoRmNnPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8604.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YytmRmF5YmJicTFVSC8zWUVXUG5rT0M1UnE4UDBSOXRPLzhZUy9nMWNTODJn?=
+ =?utf-8?B?NkZxK0JvTHBxb1cwdlhXSjJIRERFdUN5UTlhRHFNMzFOb1hKTG5OQisvNHU1?=
+ =?utf-8?B?NXBMNTRWMGQ2QUxMM0FPVmNkeGxwdFBJa21Fd0ZrVmpBUVM5TThtYWFlWmkx?=
+ =?utf-8?B?VGhwcEhtdVdrakJIOGYrWHZhVFVJTWRRNWptaVQwc25ZdzdQQm9JdXFKbWRZ?=
+ =?utf-8?B?dk93YU5taVR3YnVJbG4yUmsrSFlZVlRrS3Z1aldsRUkwVDQ4U0pxT1VSZU1X?=
+ =?utf-8?B?MFJyS2VQQURLb1I4OTY5KzlxWEN5dDJsTXNRaEo2ZkJOeFE0ZzNQVE4wVEtj?=
+ =?utf-8?B?SkM0cCtmMUJGdnVBbERSZjhsVmRkTDNCNjJXQzBVNDV3dTFJQjF5VS84RUFN?=
+ =?utf-8?B?ak9BM3dEeUhmblRWSjZIMEx3WlFObk40V3lZUXAvRDFNNWtQTExydUJHNUVx?=
+ =?utf-8?B?MThvQ2JuUmg4enpxRmg2U3JCWitoY1JXbTh6MlM0MTdvTVk3K0N4N1kxVjBa?=
+ =?utf-8?B?b3E4V0t3Ym1HNHVRc3RPdS94WDVlMmhLK05ScVViVDZsWkhVd3k0TWdOeDhv?=
+ =?utf-8?B?MHNpVHRiVmhjY05FanZsb0I1aTcwQkZBSnk0TG1UZ3FqUU02dEdQMStzd1Br?=
+ =?utf-8?B?RFRDSGdTNllqalovTDlrMVRiUWRBTkhDMW9WL0FMWlNzamJlVlhrMS9vWVdE?=
+ =?utf-8?B?eE1PNFMzNVZCeWZkS01oVnR4eTQyT3ZnbitmN3pYNi9UbFNvV1EzYUQ3MUpY?=
+ =?utf-8?B?eXJNNHlDZjJSdXhzVTRQaHAwOXZtL28zb3RJalBqWGp0WmFPZ21XbXBOMjZC?=
+ =?utf-8?B?K296ckZWdHV2NkhHbkZPV3VxcmYzUVJmRUZiNkpTVFIrV3F0aERWRkFWZHNq?=
+ =?utf-8?B?clg3WVBzSEtYbk1sbFN2Mk54V05NM0s3cGFRVDNoQ1JOMCt6aFBESHM0MndP?=
+ =?utf-8?B?NnNLK0c3MlVYUm81UWtDb0g5bmE0eHAvNDZ5SmlTUTE3T3VQYWgxZ2laVTQ2?=
+ =?utf-8?B?RUNGblBSR3UrUWdQczBpY2VnOXBEd0IwV0RQdnBhdkdEMHNwN3NuL2tNNjJl?=
+ =?utf-8?B?aEYxWmZjUlFJLytXcWZhbzBRN05JaTdUa055VTJNeDlaZXRWM2k1b2FyTjJD?=
+ =?utf-8?B?MXRVejBSWnIzWEI1bmlUa2hPNHNJYmdZNkx4Wm4yS0EydVZYVVRnQVNyVXg3?=
+ =?utf-8?B?THo4dE93dmlJQ0VrMDMyMTZZeERSWmJpVnYyUENaSmhEb1dpTHZ4RVRBbjN4?=
+ =?utf-8?B?eUIwN05nRkZVdlBPQkpSNDhVVGh1YzluSG03NklERzNwMWdhcGxYaU1LeEor?=
+ =?utf-8?B?VnJXcXNLRmpBbTdKd1FsVXJpUGJPOUVMS3lBVmU5RGxOMDV2ckljcmRFaHlL?=
+ =?utf-8?B?UlNScVNsYWdiN2NLZGNTd3Y4ampBblJXSENKbnEwZEUrVTFtZFUyOXNOdkFt?=
+ =?utf-8?B?bDZYV3hwOVkvbWFJcHVpUWRHSGNtQzdFZkJtWnFKTVAvQnFUOFY1VjN5dlYv?=
+ =?utf-8?B?VWQ2ZDlFNVpSQnljOEJwNTNQa0JEMVVnaTNnSGhFZC9lY01QS1hURGVEcW5h?=
+ =?utf-8?B?TU51ZmRjeHk1elRCYTl2c2F2TVpwOUJjZURyYXptZzErMXJ4dG1oNm93R1NU?=
+ =?utf-8?B?Umt5ODYyVVJ3RENNTExZa2FHVFlnb2p0dHBwSVZSVGVqcW9qVitBM3g2Slhm?=
+ =?utf-8?B?eG54UTFFVzRuUEllZVBZaDdSZGFvZkwzY1dWMXB4NmpVWGdaSjREUjlIRTFH?=
+ =?utf-8?B?eXdvSGVKd0NSUWYrdVduOU0wWFJEQVgwdXkwWGZIczlreVBPbXR5NWRmNStv?=
+ =?utf-8?B?dkRNWnVydGFOM05pM2JvRUtVR20zdXFsTFBNR0kxRWlvWlVBWHg1dzdtMWly?=
+ =?utf-8?B?RWtidEFyaGlMRWZyZTc0NWl4ZXo1RnhJMTU1VmJJSHZvVkdkT01ROGZRY0tS?=
+ =?utf-8?B?VUlyU0IzUEhlR3l4YnhpTk1BM2haM2k3U3ZheDIzRS9jUGpHS3BvUDZrS3pv?=
+ =?utf-8?B?YXF6cmhVc1BuNkUwQ2N0L29CMnd6U0ZiTEt4V2ltditBWlhkcHlYZ0dKMmhi?=
+ =?utf-8?B?K3ZJQWN6V09sdHFjNk9RSTFPa0xIZ0I2RVVMcnhaNnZBbC9lRzRMOEd4UlNX?=
+ =?utf-8?Q?A+4eX9PBO+QYvLgavZJn8UlLD?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8717aac8-e3d3-4653-63a4-08dd83fe7a7a
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8604.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Apr 2025 13:38:35.7515
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: yL14HFv7JEOkgFKfCPzgIGNcJ9flusVSl1J3Owkv045E42DNb9flYTc1IyGKlizW7/Q/LH7PoXaRS7/in0S7AA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10454
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_063814_285736_9BB7F29A 
-X-CRM114-Status: UNSURE (   8.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250425_063840_371871_3E1E0738 
+X-CRM114-Status: GOOD (  13.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,13 +187,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/04/25, Thomas Richard wrote:
-> Add an entry for 'fsl,imx8qm-sc-wdt' as imx8qm also contains the SCU
-> watchdog block.
-> 
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Signed-off-by: Thomas Richard <thomas.richard@bootlin.com>
+Documents i.MX SoC's Service layer and C_DEV driver for selected SoC(s)
+that contains the NXP hardware IP(s) for Secure Enclaves(se) like:
+- NXP EdgeLock Enclave on i.MX93 & i.MX8ULP
 
-Acked-by: Oliver Graute <oliver.graute@kococonnector.com>
+Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
+---
+ .../driver-api/firmware/other_interfaces.rst       | 121 +++++++++++++++++++++
+ 1 file changed, 121 insertions(+)
+
+diff --git a/Documentation/driver-api/firmware/other_interfaces.rst b/Documentation/driver-api/firmware/other_interfaces.rst
+index 06ac89adaafb..a3a95b54a174 100644
+--- a/Documentation/driver-api/firmware/other_interfaces.rst
++++ b/Documentation/driver-api/firmware/other_interfaces.rst
+@@ -49,3 +49,124 @@ of the requests on to a secure monitor (EL3).
+ 
+ .. kernel-doc:: drivers/firmware/stratix10-svc.c
+    :export:
++
++NXP Secure Enclave Firmware Interface
++=====================================
++
++Introduction
++------------
++The NXP's i.MX HW IP like EdgeLock Enclave, V2X etc., creates an embedded secure
++enclave within the SoC boundary to enable features like
++ - Hardware Security Module (HSM)
++ - Security Hardware Extension (SHE)
++ - Vehicular to Anything (V2X)
++
++Each of the above feature is enabled through dedicated NXP H/W IP on the SoC.
++On a single SoC, multiple hardware IP (or can say more than one secure enclave)
++can exist.
++
++NXP SoCs enabled with the such secure enclaves(SEs) IPs are:
++i.MX93, i.MX8ULP
++
++To communicate with one or more co-existing SE(s) on SoC, there is/are dedicated
++messaging units(MU) per SE. Each co-existing SE can have one or multiple exclusive
++MUs, dedicated to itself. None of the MU is shared between two SEs.
++Communication of the MU is realized using the Linux mailbox driver.
++
++NXP Secure Enclave(SE) Interface
++--------------------------------
++Although MU(s) is/are not shared between SE(s). But for SoC like i.MX95 which has
++multiple SE(s) like HSM, V2X-HSM, V2X-SHE; all the SE(s) and their interfaces 'se-if'
++that is/are dedicated to a particular SE will be enumerated and provisioned using the
++single compatible node("fsl,imx95-se").
++
++Each 'se-if' comprise of twp layers:
++- (C_DEV Layer) User-Space software-access interface.
++- (Service Layer) OS-level software-access interface.
++
++   +--------------------------------------------+
++   |            Character Device(C_DEV)         |
++   |                                            |
++   |   +---------+ +---------+     +---------+  |
++   |   | misc #1 | | misc #2 | ... | misc #n |  |
++   |   |  dev    | |  dev    |     | dev     |  |
++   |   +---------+ +---------+     +---------+  |
++   |        +-------------------------+         |
++   |        | Misc. Dev Synchr. Logic |         |
++   |        +-------------------------+         |
++   |                                            |
++   +--------------------------------------------+
++
++   +--------------------------------------------+
++   |               Service Layer                |
++   |                                            |
++   |      +-----------------------------+       |
++   |      | Message Serialization Logic |       |
++   |      +-----------------------------+       |
++   |          +---------------+                 |
++   |          |  imx-mailbox  |                 |
++   |          |   mailbox.c   |                 |
++   |          +---------------+                 |
++   |                                            |
++   +--------------------------------------------+
++
++- service layer:
++  This layer is responsible for ensuring the communication protocol that is defined
++  for communication with firmware.
++
++  FW Communication protocol ensures two things:
++  - Serializing the messages to be sent over an MU.
++
++  - FW can handle one command message at a time.
++
++- c_dev:
++  This layer offers character device contexts, created as '/dev/<se>_mux_chx'.
++  Using these multiple device contexts that are getting multiplexed over a single MU,
++  userspace application(s) can call fops like write/read to send the command message,
++  and read back the command response message to/from Firmware.
++  fops like read & write use the above defined service layer API(s) to communicate with
++  Firmware.
++
++  Misc-device(/dev/<se>_mux_chn) synchronization protocol:
++
++                                Non-Secure               +   Secure
++                                                         |
++                                                         |
++                  +---------+      +-------------+       |
++                  | se_fw.c +<---->+imx-mailbox.c|       |
++                  |         |      |  mailbox.c  +<-->+------+    +------+
++                  +---+-----+      +-------------+    | MU X +<-->+ ELE |
++                      |                               +------+    +------+
++                      +----------------+                 |
++                      |                |                 |
++                      v                v                 |
++                  logical           logical              |
++                  receiver          waiter               |
++                     +                 +                 |
++                     |                 |                 |
++                     |                 |                 |
++                     |            +----+------+          |
++                     |            |           |          |
++                     |            |           |          |
++              device_ctx     device_ctx     device_ctx   |
++                                                         |
++                User 0        User 1       User Y        |
++                +------+      +------+     +------+      |
++                |misc.c|      |misc.c|     |misc.c|      |
++ kernel space   +------+      +------+     +------+      |
++                                                         |
++ +------------------------------------------------------ |
++                    |             |           |          |
++ userspace     /dev/ele_muXch0    |           |          |
++                          /dev/ele_muXch1     |          |
++                                        /dev/ele_muXchY  |
++                                                         |
++
++When a user sends a command to the firmware, it registers its device_ctx
++as waiter of a response from firmware.
++
++Enclave's Firmware owns the storage management, over Linux filesystem.
++For this c_dev provisions a dedicated slave device called "receiver".
++
++.. kernel-doc:: drivers/firmware/imx/se_fw.c
++   :export:
+
+-- 
+2.43.0
+
 
