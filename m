@@ -4,118 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2644C369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 12:09:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 799D4C369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 12:11:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1igCRfVQGLQJpudpkgi6PdBXZlWbka929iUNJkPgh78=; b=uHuVZny4OdHOEl24+W6HvqqYJV
-	/d9oWY5oPm7rnqf2fR7byYk1Ja61AJxZ/CalNwRSeDQaMLlKIaDeiE3t+5Nrk8C85+cjWkR9g66ca
-	nIlWtsgvvv0HnDPco1B9sL3e4lLNNQxAWeNliVP3HnAChZtdfa94YD2ZwPzJicuyAFUvD1gHzg7So
-	baueH/+esZvJejeQDkVJhC0ZpARMhA5ISfXakj6GjP6YnlNMwM1nyLw06ATfdxgWkgY7j5kZVpTwv
-	JAjBExZUvl3e5G4q0RBbLRwJnC0vjzLLdYIIpxcqOywaNmQ5vRnfjPCQSp04QdF92Xtu0C5SVZQuv
-	77CUFobA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dVvqcqHhsiFsg0bFCeVfP4i0OhnLHgFo/lnbyU/FJbQ=; b=41kxM0qnlGEQM3twlkWbYFVIvA
+	cYFeBIB8diV3nJS+8uw42ZZzKuP9KmnGro4C5vtp5IrMVtHI9SLbqODpShJHssO7qqC3REkfTTsXU
+	PkjR1xX7LUcH2mEup0b9ie3OP472sRny0Xz1PlMDgWk0HdD1eXev9FkNcSqipHzKvc82tCygdL4Sd
+	rOxnNgOy26zvSRtd5+e5zt4E0yaLk1TXacWUnmF71nCMZ2JAYDfLusHvi2r0mN+dN+3bqq04hC+qR
+	C79El55YD/e1LyvPPXmWV90pumRISn4f0hwDJ+5oH4wE7bGDgVW1YfpsY+S0QIQgi98hmxFNyuePB
+	XKpmemPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Hrj-0000000H4H1-1r3q;
-	Fri, 25 Apr 2025 12:09:11 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1u8HtY-0000000H4ar-1iG5;
+	Fri, 25 Apr 2025 12:11:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8GD0-0000000Gidr-22Fa
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 10:23:03 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53P8TA7o023873
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 10:23:01 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	1igCRfVQGLQJpudpkgi6PdBXZlWbka929iUNJkPgh78=; b=JMwybUwp1KJ+ByIQ
-	aGAGvjgeL8Om6a7lE1RsM/DvEmelbnmYongVRMpPDm43p43+IbVjpnkYTMbRO1eK
-	5GMuqCPxOMOSs6Xu1ajBiLnel/K8rydEhiUbbpfZ6t/MGOtRSpSDGL2W0eanCV8O
-	v+1hqh1eBnO7yHQQ0GH9OllvHuqU6vZ3eSSgYRGVBnfRBq/KvzsMunRg/uGYKkKB
-	pnXTYvkia4eBMBOwjg14AECZmYRCV1SdCEyZdg/axjuulao8dRH+rvGA43HvfPq4
-	sjTNIj0GPhZEXzZkeQAnlzonifaQp9ZssMGckLPEtY0n2Tg+HviMcujVNDqvDlrf
-	gMSY8Q==
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 466jh1rna5-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 10:23:01 +0000 (GMT)
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-6ece59c3108so4964796d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 03:23:01 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745576580; x=1746181380;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=1igCRfVQGLQJpudpkgi6PdBXZlWbka929iUNJkPgh78=;
-        b=VgfdIUIAGt+0JrJI5bt+bOS+0QlFu/VOHFo/v9TPMIhWKN9+w7K8h4Le3uqp3V/AXq
-         oCtDYxWuhpabGCYJhFL/XI3nE5SS2iFb5nnvYjnJM2qZ2c5bayRQSNKSO3Oz44TBsEuT
-         8gMQ3vjcuW1LlakNKLVwP2rRpXNOu5+qS8MpgjNW2PHkb+0Al0PlYurI8naZbP2ZoWWB
-         5F2wkPa0q6IU2djKE7O8VfWyDRJcYog7ENqqelh6aHDLE/seKL22cu8B3jvhg4e+hpMp
-         SYqwNSpqm2SKYcmviwLhFuzwk/NH0E0/QKwtGqzZqjleZAyvqjTZe/rfBQ2pVH7OlTcN
-         c4JQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV/DowgLC5wp8wGSgosQQDf7c/UaWw+5OeG5xYp99vzuTBksK9ZZ/BfT7LkpMVhbUTN4mn4rePHFiHuV7xdd5iP@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy2jxz6QDVB/rn/6Pri9DPISu+2MOI7iTFxYfdkDpQ3blWPrYpI
-	5Tb1QIAnYiCkjMo5Kzv5CrKtzlFDjcdzHgRQCutKFB8k5EByFjugBPTgagFvt5muCCV4ArIg4/d
-	ZbluoNaT/4h7k6+5mEkXKw8C2dtVciZ+8hv4steB8p4qlgE6tMwFZSNPvCI+wZ7DAZCz2e9XZxw
-	==
-X-Gm-Gg: ASbGnct70WWj0YJC7fYgfcHmHW9jXRM6spWpt5w+W0Ijp2uE9jhxTXo0AInzGJFH7rz
-	iNpEhZ487EQzc355KbmR1WW0iKRKcVN1Mv5vS0fWqXC/5PGJdSw3ojgJcK7LvxS0MbM3mTS1zx6
-	wlwm2n4N+flBnY1aRRPuewMSEe+tNqGjWNTm0P1Ehg0apgyZtzUcQiv/CSNIY8cbLxWZpz3Ydi9
-	PCBpH1zQ1ZfciUZ8jzzZhj/itLTNK2mFRpmXwLmdzkdD/UcsBYoKRA5zuXsRafP9KBoDuDfeHwG
-	eQkTK9yWp6u+4UtLJZ0IS1xFasR2csP/GFUbC66j+SCeCC2q01dYt3ufuoNFC12Z
-X-Received: by 2002:a05:6214:e61:b0:6e8:fd2b:1801 with SMTP id 6a1803df08f44-6f4cb9af423mr12058346d6.2.1745576580201;
-        Fri, 25 Apr 2025 03:23:00 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHQHRUw0T1iKaDp55HxB6gYCPliox//7FFtFtFVjRAOfeqf2fXtnDneqIM45D/HHTkZv9xn8g==
-X-Received: by 2002:a05:6214:e61:b0:6e8:fd2b:1801 with SMTP id 6a1803df08f44-6f4cb9af423mr12058106d6.2.1745576579842;
-        Fri, 25 Apr 2025 03:22:59 -0700 (PDT)
-Received: from [192.168.65.5] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f7013ff45csm1082025a12.21.2025.04.25.03.22.57
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 25 Apr 2025 03:22:59 -0700 (PDT)
-Message-ID: <4bb58766-a080-4351-87f5-79a98219171c@oss.qualcomm.com>
-Date: Fri, 25 Apr 2025 12:22:56 +0200
+	id 1u8GDG-0000000GilD-2z4G;
+	Fri, 25 Apr 2025 10:23:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A97044A936;
+	Fri, 25 Apr 2025 10:23:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E63DC4CEE4;
+	Fri, 25 Apr 2025 10:23:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745576598;
+	bh=gADYdVRlTedtCvztmIJXcTmZi2Paf3CILRLCGSYZMlg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rH84NfFdudOaN325xEfK5AzM51x1HjdnMFP4ugILf+mRs51A40wGY1q0K5ZiBJNjq
+	 HYX5nWAbLLY7t0ctfyuMRalpk81pv5iAWNe0bQfuEsgeC+7t2oQQxvv24ehUFtmGZS
+	 kxPrVZ1OFGciFAGfv4dqQeo6285b1Y6R/IZf7ed9MkUD9oFOBealWK4B5iIMIlMP7h
+	 bRITLkwoCfrBj9ENyMXtrsXQPxFY3YZQdrkgQRxUAQHBsLNvZ9tbsw2c16h7pR/3gS
+	 dVSm8Uifhaa4x2FBCxxE+V9ND5wTMudCTn7HnPdj+D9MRXyGWJR7diOUonJds9bJR3
+	 oOkSnVeLy46eg==
+Date: Fri, 25 Apr 2025 12:23:12 +0200
+From: Niklas Cassel <cassel@kernel.org>
+To: Hans Zhang <18255117159@163.com>
+Cc: lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com,
+	heiko@sntech.de, thomas.petazzoni@bootlin.com,
+	manivannan.sadhasivam@linaro.org, yue.wang@amlogic.com,
+	pali@kernel.org, neil.armstrong@linaro.org, robh@kernel.org,
+	jingoohan1@gmail.com, khilman@baylibre.com, jbrunet@baylibre.com,
+	martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v2 1/2] PCI: Configure root port MPS to hardware maximum
+ during host probing
+Message-ID: <aAtikPOYlGeJCsiA@ryzen>
+References: <20250425095708.32662-1-18255117159@163.com>
+ <20250425095708.32662-2-18255117159@163.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/4] arm64: dts: qcom: x1e80100: add bus topology for
- PCIe domain 3
-To: Wenbin Yao <quic_wenbyao@quicinc.com>, catalin.marinas@arm.com,
-        will@kernel.org, linux-arm-kernel@lists.infradead.org,
-        andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org,
-        krzk+dt@kernel.org, conor+dt@kernel.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: krishna.chundru@oss.qualcomm.com, quic_vbadigan@quicinc.com,
-        quic_mrana@quicinc.com, quic_cang@quicinc.com, quic_qianyu@quicinc.com
-References: <20250425092955.4099677-1-quic_wenbyao@quicinc.com>
- <20250425092955.4099677-3-quic_wenbyao@quicinc.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20250425092955.4099677-3-quic_wenbyao@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: 2leMVSwSDKull0jXUUrohVnyBaW3dU6c
-X-Proofpoint-ORIG-GUID: 2leMVSwSDKull0jXUUrohVnyBaW3dU6c
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI1MDA3NSBTYWx0ZWRfX5lTq8f/qbMWP wVi6IkYfXAQEw/H3+Sol2A6b0VMvIWZuCaHtaC/xd0dKol0zbMxprbqDwRVOGWI2sVYMqtmW+tK JxOqC/WSunelxKv7/RyeEHEwhayGUagbj75S2I4th325sr4gVmE/BS60iXUUE4CNS3adPW58qQ5
- OsBR/tlNVL8Z6tf93Acmqvb5GSXHtLXcUI0AjbsTB2Leq5c2++gjW1n05iXzpxFfhz2hX0SUJ92 LccxNTTNhXPlW28zOy0ik4QikuSpLEAQBv7BM8MXf9joEoYxTL4jsKL8yK7gN+lYFZo0Al5pP0J vXOJ+6mQuY02AiKEjlvZHWC+dNJsOT3AIDCdNp14onDsOQakhqRn9sSZYxlJnvzSMzq4azMBb8S
- XSEGtYmlSgA5QmqNRnASVwvPSviRR1SrNgrZpikO/zzGT+HWGeIzBUzfDpun3BCFT047RLZU
-X-Authority-Analysis: v=2.4 cv=ZpjtK87G c=1 sm=1 tr=0 ts=680b6285 cx=c_pps a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=FpWmc02/iXfjRdCD7H54yg==:17 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=EUspDBNiAAAA:8 a=xscrbkT6CZb1QQ6CF7AA:9 a=QEXdDO2ut3YA:10
- a=pJ04lnu7RYOZP9TFuWaZ:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-04-25_02,2025-04-24_02,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 malwarescore=0
- lowpriorityscore=0 priorityscore=1501 phishscore=0 clxscore=1015
- bulkscore=0 suspectscore=0 mlxlogscore=999 spamscore=0 impostorscore=0
- mlxscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
- definitions=main-2504250075
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250425095708.32662-2-18255117159@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_032302_561205_BA2AE977 
-X-CRM114-Status: GOOD (  15.87  )
+X-CRM114-CacheID: sfid-20250425_032318_795334_62483E73 
+X-CRM114-Status: GOOD (  20.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,32 +79,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/25/25 11:29 AM, Wenbin Yao wrote:
-> From: Qiang Yu <quic_qianyu@quicinc.com>
+On Fri, Apr 25, 2025 at 05:57:07PM +0800, Hans Zhang wrote:
+> Current PCIe initialization logic may leave root ports operating with
+> non-optimal Maximum Payload Size (MPS) settings. While downstream device
+> configuration is handled during bus enumeration, root port MPS values
+> inherited from firmware or hardware defaults might not utilize the full
+> capabilities supported by the controller hardware. This can result in
+> suboptimal data transfer efficiency across the PCIe hierarchy.
 > 
-> Add pcie3port node to represent the PCIe bridge of PCIe3 so that PCI slot
-> voltage rails can be described under this node in the board's dts.
+> During host controller probing phase, when PCIe bus tuning is enabled,
+> the implementation now configures root port MPS settings to their
+> hardware-supported maximum values. By iterating through bridge devices
+> under the root bus and identifying PCIe root ports, each port's MPS is set
+> to 128 << pcie_mpss to match the device's maximum supported payload size.
+> The Max Read Request Size (MRRS) is subsequently adjusted through existing
+> companion logic to maintain compatibility with PCIe specifications.
 > 
-> Signed-off-by: Qiang Yu <quic_qianyu@quicinc.com>
-> Signed-off-by: Wenbin Yao <quic_wenbyao@quicinc.com>
+> Explicit initialization at host probing stage ensures consistent PCIe
+> topology configuration before downstream devices perform their own MPS
+> negotiations. This proactive approach addresses platform-specific
+> requirements where controller drivers depend on properly initialized root
+> port settings, while maintaining backward compatibility through
+> PCIE_BUS_TUNE_OFF conditional checks. Hardware capabilities are fully
+> utilized without altering existing device negotiation behaviors.
+> 
+> Signed-off-by: Hans Zhang <18255117159@163.com>
+
+Perhaps Mani deserves a Suggested-by tag?
+
+
 > ---
->  arch/arm64/boot/dts/qcom/x1e80100.dtsi | 11 +++++++++++
->  1 file changed, 11 insertions(+)
+>  drivers/pci/probe.c | 12 ++++++++++++
+>  1 file changed, 12 insertions(+)
 > 
-> diff --git a/arch/arm64/boot/dts/qcom/x1e80100.dtsi b/arch/arm64/boot/dts/qcom/x1e80100.dtsi
-> index 46b79fce9..430f9d567 100644
-> --- a/arch/arm64/boot/dts/qcom/x1e80100.dtsi
-> +++ b/arch/arm64/boot/dts/qcom/x1e80100.dtsi
-> @@ -3287,6 +3287,17 @@ opp-128000000 {
->  					opp-peak-kBps = <15753000 1>;
->  				};
->  			};
+> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+> index 364fa2a514f8..3973c593fdcf 100644
+> --- a/drivers/pci/probe.c
+> +++ b/drivers/pci/probe.c
+> @@ -3206,6 +3206,7 @@ EXPORT_SYMBOL_GPL(pci_create_root_bus);
+>  int pci_host_probe(struct pci_host_bridge *bridge)
+>  {
+>  	struct pci_bus *bus, *child;
+> +	struct pci_dev *dev;
+>  	int ret;
+>  
+>  	pci_lock_rescan_remove();
+> @@ -3228,6 +3229,17 @@ int pci_host_probe(struct pci_host_bridge *bridge)
+>  	 */
+>  	pci_assign_unassigned_root_bus_resources(bus);
+>  
+> +	if (pcie_bus_config != PCIE_BUS_TUNE_OFF) {
+> +		/* Configure root ports MPS to be MPSS by default */
+> +		for_each_pci_bridge(dev, bus) {
+> +			if (pci_pcie_type(dev) != PCI_EXP_TYPE_ROOT_PORT)
+> +				continue;
 > +
-> +			pcie3port: pcie@0 {
+> +			pcie_write_mps(dev, 128 << dev->pcie_mpss);
+> +			pcie_write_mrrs(dev);
 
-@0,0 for PCIe adressing (bus,device)
+The comment says configure MPS, but the code also calls pcie_write_mrrs().
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Should we update the comment or should we remove the call to pcie_write_mrrs()?
 
-Konrad
+Note that even when calling pcie_write_mrrs(), it will not update MRRS for the
+common case (pcie_bus_config == PCIE_BUS_DEFAULT).
+
+
+Kind regards,
+Niklas
 
