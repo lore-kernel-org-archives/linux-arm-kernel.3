@@ -4,85 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BB4EC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 16:07:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20D87C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 16:07:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JSsdkFg45Ll2VJgZTBAf+TnuU5fz9vAYn+9hEOgOa/I=; b=pszHUcrpaZegPr7IJvgPZQmGJi
-	1NXSPcpSTYaxG/MyTZ939ID1eiV0CbMsz9PBMYNzHeGZ5wIFyyaHCmxoFx2jPGjPahSh4r35jXm+G
-	UssC/Phu0WdfseA31SLai+hM3/0WZmiCl59TBi5rMc/8ClhCBoH+MEit4k4NMNRystxBx/6Jhu81p
-	6yEoQ+Zc8s/pT6veEh29L+PNR43iZ4jJPNcXDSMXLMhH5+Z6dhyPjCQ/A5MEO2oHLBUIAoNCOOl8h
-	eXm7RqrVhqzrsqTLwcWesVUX/WzXR+F8QEeKBbOEwTJywUhOZcfD9/bG4ZuE+TRP/scrpekd+rhMh
-	RYJMpH4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T5dUauytFt6G0vhlS6nMmP45chnWZOXEMoc/tzxHhIM=; b=U3DIlvXgfO1pZdiwnDpr/a2Dz6
+	s3F0FYarQvTC13RRm1gR+gccHWEigdvYG0nLEEwLL8RrK1HHAwRDthsJdwfBrxoGvrDoT60OnkoE9
+	6GG2VQXlM6/eVitF8K/ztnW5aqpC7HhEK4q47CB27fWy/ZKRuWHz20J31HxSvP//qa9giu0cx6UjC
+	YzzT0lTdHUTUNhtbTVeDTGoMFBK/ZYjEo99Rj5njnV5ILE3O8Gh0A87nIgErE1dIyXXynPpOrnn6F
+	nLVraC2EREEFY26DYMUSlx+SXw6Pc6IYEjAH14Tg/2ZU8Ff8eHGZw8eKShYZaa0Cs2rdXC6BSr/T2
+	oYXk4gQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8LaN-000000009SS-2JoZ;
-	Fri, 25 Apr 2025 16:07:31 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8IVK-0000000HAgH-0nay
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 12:50:08 +0000
-Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53P86wNj019049;
-	Fri, 25 Apr 2025 14:49:47 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=selector1; bh=JSsdkFg45Ll2VJgZTBAf+T
-	nuU5fz9vAYn+9hEOgOa/I=; b=DsFgEjvjWBi4nX+dONp8msrJbrtUXS0NJVrB0k
-	Zs1HIVJ6dWVsElHxXTKh8rHaGmcK6zO+dHJaxxbi90Q0PESwJ7ZiSVt9KuNxBjji
-	LFhMxnwoOlpx183ZDf7X2dBof6+pfdt4KAQzAEmA1zE5VkmpnxeS+c4nXHNtR4m4
-	sPiam2vjAeqfq/RXqz2ix00HmZLG+xS10aAxcwlZx2l7L1GyXeE7+N/KoOICBmid
-	ZGtTmdgnopxUjDflDw7GHI1k6/p2rZ07VLdEM6SiEIzR1xt/kBFIx3XJlj6pPQ8r
-	zC2YGik/IxUk5pNyBaBmcACmnJzbAA+/fqOAoPqXv/JvF2Hw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 466jjvm6st-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 25 Apr 2025 14:49:46 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id AA8D64004B;
-	Fri, 25 Apr 2025 14:48:45 +0200 (CEST)
-Received: from Webmail-eu.st.com (eqndag1node6.st.com [10.75.129.135])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id E20CFA09560;
-	Fri, 25 Apr 2025 14:48:04 +0200 (CEST)
-Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE6.st.com
- (10.75.129.135) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 25 Apr
- 2025 14:48:04 +0200
-Received: from localhost (10.252.15.6) by SAFDAG1NODE1.st.com (10.75.90.17)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 25 Apr
- 2025 14:48:04 +0200
-From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-To: <lee@kernel.org>, <alexandre.torgue@foss.st.com>,
-        <daniel.lezcano@linaro.org>, <tglx@linutronix.de>
-CC: <ukleinek@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <jic23@kernel.org>, <robh@kernel.org>, <catalin.marinas@arm.com>,
-        <will@kernel.org>, <devicetree@vger.kernel.org>, <wbg@kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-iio@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
-        <olivier.moysan@foss.st.com>, <fabrice.gasnier@foss.st.com>
-Subject: [PATCH v5 0/7] Add STM32MP25 LPTIM support: MFD, PWM, IIO, counter, clocksource
-Date: Fri, 25 Apr 2025 14:47:48 +0200
-Message-ID: <20250425124755.166193-1-fabrice.gasnier@foss.st.com>
-X-Mailer: git-send-email 2.25.1
+	id 1u8LaT-000000009Tl-1gyv;
+	Fri, 25 Apr 2025 16:07:37 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u8Jt4-0000000HPZe-2MbC;
+	Fri, 25 Apr 2025 14:18:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:From:
+	Content-Type; bh=T5dUauytFt6G0vhlS6nMmP45chnWZOXEMoc/tzxHhIM=;
+	b=GaGj7k2R/HA+At4zWfBYbU5M1Nqxcf4OPnU9y/mEnnsYleW6Td0tc+noxG7Ufo
+	sBnc+qihnveVY8CAK+jyZEZuemSJ2FBpEeg51ULwZeDMQCMeCAQNKmVpRNpu5Ykv
+	DNV/h0xkLAGJLhUGuCBbOQA9oX4vk6QkfTfGIlltPs9Ug=
+Received: from [192.168.71.89] (unknown [])
+	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wDnn7+UmQtocRMiCQ--.4501S2;
+	Fri, 25 Apr 2025 22:17:57 +0800 (CST)
+Message-ID: <1904ac4c-832a-4d2c-ab8b-15d3fdf515d0@163.com>
+Date: Fri, 25 Apr 2025 22:17:55 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.252.15.6]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SAFDAG1NODE1.st.com
- (10.75.90.17)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-04-25_03,2025-04-24_02,2025-02-21_01
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] PCI: Configure root port MPS to hardware maximum
+ during host probing
+To: Niklas Cassel <cassel@kernel.org>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Bjorn Helgaas <bhelgaas@google.com>
+Cc: lpieralisi@kernel.org, kw@linux.com, heiko@sntech.de,
+ thomas.petazzoni@bootlin.com, yue.wang@amlogic.com, pali@kernel.org,
+ neil.armstrong@linaro.org, robh@kernel.org, jingoohan1@gmail.com,
+ khilman@baylibre.com, jbrunet@baylibre.com,
+ martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-rockchip@lists.infradead.org
+References: <20250425095708.32662-1-18255117159@163.com>
+ <20250425095708.32662-2-18255117159@163.com> <aAtikPOYlGeJCsiA@ryzen>
+ <a4963173-dd9a-4341-b7f9-5fdb9485233a@163.com> <aAuSXhmRiKQabjLO@ryzen>
+Content-Language: en-US
+From: Hans Zhang <18255117159@163.com>
+In-Reply-To: <aAuSXhmRiKQabjLO@ryzen>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: _____wDnn7+UmQtocRMiCQ--.4501S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxuFWDCFy7Xry3ArW8Cw4xCrg_yoWxZF17pr
+	WaqF43trWkJFW5ta9rtF1UuFW7twsYvFW3tFsxGr1kta1fuFn3CwsFgry0qw47Cr9YvF1U
+	taykJ3y0qF98Ja7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jorWwUUUUU=
+X-Originating-IP: [124.79.128.52]
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/1tbiWxg6o2gLk-CiFQAAst
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_055006_727298_0A685EBE 
-X-CRM114-Status: GOOD (  12.14  )
+X-CRM114-CacheID: sfid-20250425_071842_985530_C6D8BBC2 
+X-CRM114-Status: GOOD (  30.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,64 +83,222 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support for STM32MP25 to MFD PWM, IIO, counter and
-clocksource low-power timer (LPTIM) drivers.
-This new variant is managed by using a new DT compatible string, hardware
-configuration and version registers.
-It comes with a slightly updated register set, some new features and new
-interconnect signals inside the SoC.
-Same feature list as on STM32MP1x is supported currently.
-The device tree files add all instances in stm32mp251 dtsi file.
 
-Changes in V5
----
-- Add a necessary delay in clocksource driver, when enabling the timer.
-- Add collected Acks
-- Dropped IIO trigger patch as applied by Jonathan [1] (no dependency)
-  [1] https://lore.kernel.org/all/20250331110435.26157ebe@jic23-huawei/
 
-Changes in V4
----
-- Simplify IIO trigger driver as per Jonathan's comments.
-- Rework clocksource driver: encapsulate mp25 changes in separate function
-  after Daniel's suggestion.
-- Add some definitions to MFD header.
+On 2025/4/25 21:47, Niklas Cassel wrote:
+> Hello Hans,
+> 
+> On Fri, Apr 25, 2025 at 06:56:53PM +0800, Hans Zhang wrote:
+>>
+>> But I discovered a problem:
+>>
+>> 0001:90:00.0 PCI bridge: Device 1f6c:0001 (prog-if 00 [Normal decode])
+>>           ......
+>>           Capabilities: [c0] Express (v2) Root Port (Slot-), MSI 00
+>>                   DevCap: MaxPayload 512 bytes, PhantFunc 0
+>>                           ExtTag- RBE+
+>>                   DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
+>>                           RlxdOrd+ ExtTag- PhantFunc- AuxPwr- NoSnoop+
+>>                           MaxPayload 512 bytes, MaxReadReq 1024 bytes
+>>
+>>
+>>
+>> 			Should the DevCtl MaxPayload be 256B?
+>>
+>> But I tested that the file reading and writing were normal. Is the display
+>> of 512B here what we expected?
+>>
+>> Root Port 0003:30:00.0 has the same problem. May I ask what your opinion is?
+>>
+>>
+>> 		......
+>> 0001:91:00.0 Non-Volatile memory controller: Samsung Electronics Co Ltd
+>> NVMe SSD Controller PM9A1/PM9A3/980PRO (prog-if 02 [NVM Express])
+>>           ......
+>>           Capabilities: [70] Express (v2) Endpoint, MSI 00
+>>                   DevCap: MaxPayload 256 bytes, PhantFunc 0, Latency L0s
+>> unlimited, L1 unlimited
+>>                           ExtTag+ AttnBtn- AttnInd- PwrInd- RBE+ FLReset+
+>> SlotPowerLimit 0W
+>>                   DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
+>>                           RlxdOrd+ ExtTag+ PhantFunc- AuxPwr- NoSnoop+
+>> FLReset-
+>>                           MaxPayload 256 bytes, MaxReadReq 512 bytes
+>> 		......
+> 
+> Here we see that the bridge has a higher DevCtl.MPS than the DevCap.MPS of
+> the endpoint.
+> 
+> Let me quote Bjorn from the previous mail thread:
+> 
+> """
+>    - I don't think it's safe to set MPS higher in all cases.  If we set
+>      the Root Port MPS=256, and an Endpoint only supports MPS=128, the
+>      Endpoint may do a 256-byte DMA read (assuming its MRRS>=256).  In
+>      that case the RP may respond with a 256-byte payload the Endpoint
+>      can't handle.
+> """
+> 
+> 
+> 
+> I think the problem with this patch is that pcie_write_mps() call in
+> pci_host_probe() is done after the pci_scan_root_bus_bridge() call in
+> pci_host_probe().
+> 
+> So pci_configure_mps() (called by pci_configure_device()),
+> which does the limiting of the bus to what the endpoint supports,
+> is actually called before the pcie_write_mps() call added by this patch
+> (which increases DevCtl.MPS for the bridge).
+> 
+> 
+> So I think the code added in this patch needs to be executed before
+> pci_configure_device() is done for the EP.
+> 
+> It appears that pci_configure_device() is called for each device
+> during scan, first for the bridges and then for the EPs.
+> 
+> So I think something like this should work (totally untested):
+> 
+> --- a/drivers/pci/probe.c
+> +++ b/drivers/pci/probe.c
+> @@ -45,6 +45,8 @@ struct pci_domain_busn_res {
+>          int domain_nr;
+>   };
+>   
+> +static void pcie_write_mps(struct pci_dev *dev, int mps);
+> +
+>   static struct resource *get_pci_domain_busn_res(int domain_nr)
+>   {
+>          struct pci_domain_busn_res *r;
+> @@ -2178,6 +2180,11 @@ static void pci_configure_mps(struct pci_dev *dev)
+>                  return;
+>          }
+>   
+> +       if (pci_pcie_type(dev) == PCI_EXP_TYPE_ROOT_PORT &&
+> +           pcie_bus_config != PCIE_BUS_TUNE_OFF) {
+> +               pcie_write_mps(dev, 128 << dev->pcie_mpss);
+> +       }
+> +
+>          if (!bridge || !pci_is_pcie(bridge))
+>                  return;
+> 
+> 
+> 
+> But we would probably need to move some code to avoid the
+> forward declaration.
+> 
 
-Changes in V3
----
-- Yaml indentation issue fixed, reported by Rob's bot
+Dear Niklas,
 
-Changes in V2
----
-- Review comments from Krzysztof
-  - Adopt compatible fallback in dt-bindings and driver
-  - drivers: drop "st,stm32mp25-..." compatibles when unused (e.g. no .data)
-  - counter driver: no update (patch dropped)
-  - defconfig: only enable the necessary config for upstream board
-  - add lptimer DT node in stm32mp257f-ev1 board
-- Add missing management of IER access for stm32mp25
+Thank you very much for your reply and suggestions. The patch you 
+provided has been tested by me and is normal.
 
-Fabrice Gasnier (7):
-  dt-bindings: mfd: stm32-lptimer: add support for stm32mp25
-  mfd: stm32-lptimer: add support for stm32mp25
-  clocksource: stm32-lptimer: add support for stm32mp25
-  pwm: stm32-lp: add support for stm32mp25
-  arm64: defconfig: enable STM32 LP timer clockevent driver
-  arm64: dts: st: add low-power timer nodes on stm32mp251
-  arm64: dts: st: use lptimer3 as tick broadcast source on
-    stm32mp257f-ev1
 
- .../bindings/mfd/st,stm32-lptimer.yaml        |  40 +++-
- arch/arm64/boot/dts/st/stm32mp251.dtsi        | 177 ++++++++++++++
- arch/arm64/boot/dts/st/stm32mp257f-ev1.dts    |   8 +
- arch/arm64/configs/defconfig                  |   2 +
- drivers/clocksource/timer-stm32-lp.c          |  60 ++++-
- drivers/mfd/stm32-lptimer.c                   |  33 ++-
- drivers/pwm/pwm-stm32-lp.c                    | 219 +++++++++++++++---
- include/linux/mfd/stm32-lptimer.h             |  37 ++-
- 8 files changed, 536 insertions(+), 40 deletions(-)
 
--- 
-2.25.1
+Bjorn and Mani, thoughts?
+
+
+Please see the following log:
+
+lspci -vvv
+0000:c0:00.0 PCI bridge: Device 1f6c:0001 (prog-if 00 [Normal decode])
+         ......
+         Capabilities: [c0] Express (v2) Root Port (Slot-), MSI 00
+                 DevCap: MaxPayload 512 bytes, PhantFunc 0
+                         ExtTag+ RBE+
+                 DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
+                         RlxdOrd+ ExtTag+ PhantFunc- AuxPwr- NoSnoop+
+                         MaxPayload 512 bytes, MaxReadReq 1024 bytes
+         ......
+
+0000:c1:00.0 Non-Volatile memory controller: Samsung Electronics Co Ltd 
+NVMe SSD Controller S4LV008[Pascal] (prog-if 02 [NVM Express])
+         ......
+         Capabilities: [70] Express (v2) Endpoint, MSI 00
+                 DevCap: MaxPayload 512 bytes, PhantFunc 0, Latency L0s 
+unlimited, L1 unlimited
+                         ExtTag+ AttnBtn- AttnInd- PwrInd- RBE+ FLReset+ 
+SlotPowerLimit 0W
+                 DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
+                         RlxdOrd+ ExtTag+ PhantFunc- AuxPwr- NoSnoop+ 
+FLReset-
+                         MaxPayload 512 bytes, MaxReadReq 512 bytes
+         ......
+
+0001:90:00.0 PCI bridge: Device 1f6c:0001 (prog-if 00 [Normal decode])
+         ......
+         Capabilities: [c0] Express (v2) Root Port (Slot-), MSI 00
+                 DevCap: MaxPayload 512 bytes, PhantFunc 0
+                         ExtTag- RBE+
+                 DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
+                         RlxdOrd+ ExtTag- PhantFunc- AuxPwr- NoSnoop+
+                         MaxPayload 256 bytes, MaxReadReq 1024 bytes
+         ......
+
+0001:91:00.0 Non-Volatile memory controller: Samsung Electronics Co Ltd 
+NVMe SSD Controller PM9A1/PM9A3/980PRO (prog-if 02 [NVM Express])
+         ......
+         Capabilities: [70] Express (v2) Endpoint, MSI 00
+                 DevCap: MaxPayload 256 bytes, PhantFunc 0, Latency L0s 
+unlimited, L1 unlimited
+                         ExtTag+ AttnBtn- AttnInd- PwrInd- RBE+ FLReset+ 
+SlotPowerLimit 0W
+                 DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
+                         RlxdOrd+ ExtTag+ PhantFunc- AuxPwr- NoSnoop+ 
+FLReset-
+                         MaxPayload 256 bytes, MaxReadReq 512 bytes
+         ......
+
+0003:30:00.0 PCI bridge: Device 1f6c:0001 (prog-if 00 [Normal decode])
+         ......
+         Capabilities: [c0] Express (v2) Root Port (Slot-), MSI 00
+                 DevCap: MaxPayload 512 bytes, PhantFunc 0
+                         ExtTag- RBE+
+                 DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
+                         RlxdOrd+ ExtTag- PhantFunc- AuxPwr- NoSnoop+
+                         MaxPayload 256 bytes, MaxReadReq 1024 bytes
+         ......
+
+0003:31:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd. 
+RTL8125 2.5GbE Controller (rev 05)
+         ......
+         Capabilities: [70] Express (v2) Endpoint, MSI 01
+                 DevCap: MaxPayload 256 bytes, PhantFunc 0, Latency L0s 
+<512ns, L1 <64us
+                         ExtTag- AttnBtn- AttnInd- PwrInd- RBE+ FLReset- 
+SlotPowerLimit 0W
+                 DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
+                         RlxdOrd+ ExtTag- PhantFunc- AuxPwr- NoSnoop-
+                         MaxPayload 256 bytes, MaxReadReq 4096 bytes
+         ......
+
+0004:00:00.0 PCI bridge: Device 1f6c:0001 (prog-if 00 [Normal decode])
+         ......
+         Capabilities: [c0] Express (v2) Root Port (Slot-), MSI 00
+                 DevCap: MaxPayload 512 bytes, PhantFunc 0
+                         ExtTag- RBE+
+                 DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
+                         RlxdOrd+ ExtTag- PhantFunc- AuxPwr- NoSnoop+
+                         MaxPayload 256 bytes, MaxReadReq 1024 bytes
+         ......
+
+0004:01:00.0 Network controller: Realtek Semiconductor Co., Ltd. 
+RTL8852BE PCIe 802.11ax Wireless Network Controller
+         ......
+         Capabilities: [70] Express (v2) Endpoint, MSI 00
+                 DevCap: MaxPayload 256 bytes, PhantFunc 0, Latency L0s 
+<4us, L1 <64us
+                         ExtTag- AttnBtn- AttnInd- PwrInd- RBE+ FLReset+ 
+SlotPowerLimit 0W
+                 DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
+                         RlxdOrd+ ExtTag- PhantFunc- AuxPwr- NoSnoop- 
+FLReset-
+                         MaxPayload 256 bytes, MaxReadReq 512 bytes
+         ......
+
+
+Best regards,
+Hans
+
 
 
