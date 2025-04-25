@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D97DC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 12:49:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A3D9C369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 12:51:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2bALn/jKpYbd/0B3l2cqRKxcFc/vc3c6Lpg4H+z8VBE=; b=4n9S7CnZFmfJHnAK6172JKQH5p
-	exwNUbydnN5OoNMs7D24rUG+KT7mbVps+UkaWjgBLvtNE5t+Iy6pRQWGF8rbPaOSGJ79tUuUEa8lD
-	m1rsVQG0FReBBO2NSfSVA2mKFpZSeZbs14erv1dCZ8a+C0jMwikLLcS/GjNky9BqnKppAyiKtsIkL
-	21Mpq7nKiyUWNKF6vla5zHgzN6rB5FoJfiLr/lQaL8+SWOnKPDH4ViOVsdWZ07dH5L91E931vu4fQ
-	2WLIHSBVhMRCeD3VICLRLjji1HxBcqGTZMZTufO6zJMynEfoKVgIcsAJZvZ+kyGLhaAhEXXcPRpVS
-	iI2s3Iyw==;
+	bh=PcIAVBcTgSv1ijtfEq5jGSxPADuGU09/bG1exw6o1WA=; b=TZ++Sr/iVJ59WMaRWI05Tcq/pQ
+	18DtPDgTIEA7V+eqMKMQEYBGPLO6hUJSnRL1aOsqVDnILSojRlD3QIOoYIoc2zyRpQTZcOmemaEuP
+	qqKtA9krN3ZzoKRKG8ZjTZY9utkyGc6KUXO/uGl70QhVkmlsNpBybe5QaCqqD3FFzCRyndPs6drNt
+	djjMWFhXYjvdUixAzj/XCrr5Z/q65AliL2Splfq9Lh4l0/dKOnNahFccjl8lZ+P3gVdbGaUx6GsVy
+	p/9ZJIrwHBThX7CCfVez3UG2ktxjlIQMAEV2wmYnFOg+gyB2+4xObr2fT1WoV8mu1bzZsAsrv1BCD
+	PoeXLHgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8IUD-0000000HAWy-3Tj0;
-	Fri, 25 Apr 2025 12:48:57 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Gtd-0000000GsIh-3CWb
+	id 1u8IW3-0000000HApP-265O;
+	Fri, 25 Apr 2025 12:50:51 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u8GvB-0000000GsX9-2mQE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 11:07:07 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ZkVKj39nWz6K9Hm;
-	Fri, 25 Apr 2025 19:02:17 +0800 (CST)
-Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
-	by mail.maildlp.com (Postfix) with ESMTPS id 067ED1400D7;
-	Fri, 25 Apr 2025 19:06:57 +0800 (CST)
-Received: from localhost (10.203.177.66) by frapeml500008.china.huawei.com
- (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Fri, 25 Apr
- 2025 13:06:56 +0200
-Date: Fri, 25 Apr 2025 12:06:54 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: Junhao He <hejunhao3@huawei.com>
-CC: <peterz@infradead.org>, <mingo@redhat.com>, <acme@kernel.org>,
-	<namhyung@kernel.org>, <mark.rutland@arm.com>,
-	<alexander.shishkin@linux.intel.com>, <jolsa@kernel.org>,
-	<irogers@google.com>, <james.clark@linaro.org>, <leo.yan@arm.com>,
-	<john.g.garry@oracle.com>, <will@kernel.org>, <mike.leach@linaro.org>,
-	<yangyicong@hisilicon.com>, <linux-perf-users@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linuxarm@huawei.com>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v2 1/3] perf vendor events arm64: Fill up Desc field for
- Hisi hip08 hha pmu
-Message-ID: <20250425120654.00007e4c@huawei.com>
-In-Reply-To: <20250418070812.3771441-2-hejunhao3@huawei.com>
-References: <20250418070812.3771441-1-hejunhao3@huawei.com>
-	<20250418070812.3771441-2-hejunhao3@huawei.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Fri, 25 Apr 2025 11:08:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 87BC9106F;
+	Fri, 25 Apr 2025 04:08:35 -0700 (PDT)
+Received: from [10.57.45.160] (unknown [10.57.45.160])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 709853F59E;
+	Fri, 25 Apr 2025 04:08:37 -0700 (PDT)
+Message-ID: <d582f30d-4d30-4ca0-992b-6bf7d8f7da83@arm.com>
+Date: Fri, 25 Apr 2025 12:08:36 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 05/43] arm64: RME: Check for RME support at KVM init
+Content-Language: en-GB
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>
+References: <20250416134208.383984-1-steven.price@arm.com>
+ <20250416134208.383984-6-steven.price@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20250416134208.383984-6-steven.price@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.66]
-X-ClientProxiedBy: lhrpeml100002.china.huawei.com (7.191.160.241) To
- frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_040705_952240_CCC823B9 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20250425_040841_801634_CECCA057 
+X-CRM114-Status: GOOD (  31.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,64 +75,218 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 18 Apr 2025 15:08:10 +0800
-Junhao He <hejunhao3@huawei.com> wrote:
-
-> In the same PMU, when some JSON events have the "BriefDescription" field
-> populated while others do not, the cmp_sevent() function will split these
-> two types of events into separate groups. As a result, when using perf
-> list to display events, the two types of events cannot be grouped together
-> in the output.
+On 16/04/2025 14:41, Steven Price wrote:
+> Query the RMI version number and check if it is a compatible version. A
+> static key is also provided to signal that a supported RMM is available.
 > 
-> before patch:
->  $ perf list pmu
->  ...
->  uncore hha:
->    hisi_sccl1_hha2/sdir-hit/
->    hisi_sccl1_hha2/sdir-lookup/
->  ...
->  uncore hha:
->    edir-hit
->       [Count of The number of HHA E-Dir hit operations. Unit: hisi_sccl1_hha2]
->  ...
+> Functions are provided to query if a VM or VCPU is a realm (or rec)
+> which currently will always return false.
 > 
-> after patch:
->  $ perf list pmu
->  ...
->  uncore hha:
->    edir-hit
->       [Count of The number of HHA E-Dir hit operations. Unit: hisi_sccl1_hha2]
->    sdir-hit
->       [Count of The number of HHA S-Dir hit operations. Unit: hisi_sccl1_hha2]
->    sdir-lookup
->       [Count of the number of HHA S-Dir lookup operations. Unit: hisi_sccl1_hha2]
->  ...
+> Later patches make use of struct realm and the states as the ioctls
+> interfaces are added to support realm and REC creation and destruction.
 > 
-> Signed-off-by: Junhao He <hejunhao3@huawei.com>
-> Reviewed-by: James Clark <james.clark@linaro.org>
-One trivial comment inline that might be good to tidy up.
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> ---
+> Changes since v6:
+>   * Improved message for an unsupported RMI ABI version.
+> Changes since v5:
+>   * Reword "unsupported" message from "host supports" to "we want" to
+>     clarify that 'we' are the 'host'.
+> Changes since v2:
+>   * Drop return value from kvm_init_rme(), it was always 0.
+>   * Rely on the RMM return value to identify whether the RSI ABI is
+>     compatible.
+> ---
+>   arch/arm64/include/asm/kvm_emulate.h | 18 +++++++++
+>   arch/arm64/include/asm/kvm_host.h    |  4 ++
+>   arch/arm64/include/asm/kvm_rme.h     | 56 ++++++++++++++++++++++++++++
+>   arch/arm64/include/asm/virt.h        |  1 +
+>   arch/arm64/kvm/Makefile              |  3 +-
+>   arch/arm64/kvm/arm.c                 |  6 +++
+>   arch/arm64/kvm/rme.c                 | 56 ++++++++++++++++++++++++++++
+>   7 files changed, 143 insertions(+), 1 deletion(-)
+>   create mode 100644 arch/arm64/include/asm/kvm_rme.h
+>   create mode 100644 arch/arm64/kvm/rme.c
+> 
+> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+> index d7cf66573aca..1c43a4fc25dd 100644
+> --- a/arch/arm64/include/asm/kvm_emulate.h
+> +++ b/arch/arm64/include/asm/kvm_emulate.h
+> @@ -686,4 +686,22 @@ static inline void vcpu_set_hcrx(struct kvm_vcpu *vcpu)
+>   			vcpu->arch.hcrx_el2 |= HCRX_EL2_EnFPM;
+>   	}
+>   }
+> +
+> +static inline bool kvm_is_realm(struct kvm *kvm)
+> +{
+> +	if (static_branch_unlikely(&kvm_rme_is_available) && kvm)
+> +		return kvm->arch.is_realm;
+> +	return false;
+> +}
+> +
+> +static inline enum realm_state kvm_realm_state(struct kvm *kvm)
+> +{
+> +	return READ_ONCE(kvm->arch.realm.state);
+> +}
+> +
+> +static inline bool vcpu_is_rec(struct kvm_vcpu *vcpu)
+> +{
+> +	return false;
+> +}
+> +
+>   #endif /* __ARM64_KVM_EMULATE_H__ */
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index e98cfe7855a6..7bd81b86eab0 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -27,6 +27,7 @@
+>   #include <asm/fpsimd.h>
+>   #include <asm/kvm.h>
+>   #include <asm/kvm_asm.h>
+> +#include <asm/kvm_rme.h>
+>   #include <asm/vncr_mapping.h>
+>   
+>   #define __KVM_HAVE_ARCH_INTC_INITIALIZED
+> @@ -394,6 +395,9 @@ struct kvm_arch {
+>   	 * the associated pKVM instance in the hypervisor.
+>   	 */
+>   	struct kvm_protected_vm pkvm;
+> +
+> +	bool is_realm;
+> +	struct realm realm;
+>   };
+>   
+>   struct kvm_vcpu_fault_info {
+> diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/asm/kvm_rme.h
+> new file mode 100644
+> index 000000000000..9c8a0b23e0e4
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/kvm_rme.h
+> @@ -0,0 +1,56 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (C) 2023 ARM Ltd.
+> + */
+> +
+> +#ifndef __ASM_KVM_RME_H
+> +#define __ASM_KVM_RME_H
+> +
+> +/**
+> + * enum realm_state - State of a Realm
+> + */
+> +enum realm_state {
+> +	/**
+> +	 * @REALM_STATE_NONE:
+> +	 *      Realm has not yet been created. rmi_realm_create() may be
+> +	 *      called to create the realm.
+> +	 */
+> +	REALM_STATE_NONE,
+> +	/**
+> +	 * @REALM_STATE_NEW:
+> +	 *      Realm is under construction, not eligible for execution. Pages
+> +	 *      may be populated with rmi_data_create().
+> +	 */
+> +	REALM_STATE_NEW,
+> +	/**
+> +	 * @REALM_STATE_ACTIVE:
+> +	 *      Realm has been created and is eligible for execution with
+> +	 *      rmi_rec_enter(). Pages may no longer be populated with
+> +	 *      rmi_data_create().
+> +	 */
+> +	REALM_STATE_ACTIVE,
+> +	/**
+> +	 * @REALM_STATE_DYING:
+> +	 *      Realm is in the process of being destroyed or has already been
+> +	 *      destroyed.
+> +	 */
+> +	REALM_STATE_DYING,
+> +	/**
+> +	 * @REALM_STATE_DEAD:
+> +	 *      Realm has been destroyed.
+> +	 */
+> +	REALM_STATE_DEAD
+> +};
+> +
+> +/**
+> + * struct realm - Additional per VM data for a Realm
+> + *
+> + * @state: The lifetime state machine for the realm
+> + */
+> +struct realm {
+> +	enum realm_state state;
+> +};
+> +
+> +void kvm_init_rme(void);
+> +
+> +#endif /* __ASM_KVM_RME_H */
+> diff --git a/arch/arm64/include/asm/virt.h b/arch/arm64/include/asm/virt.h
+> index ebf4a9f943ed..e45d47156dcf 100644
+> --- a/arch/arm64/include/asm/virt.h
+> +++ b/arch/arm64/include/asm/virt.h
+> @@ -81,6 +81,7 @@ void __hyp_reset_vectors(void);
+>   bool is_kvm_arm_initialised(void);
+>   
+>   DECLARE_STATIC_KEY_FALSE(kvm_protected_mode_initialized);
+> +DECLARE_STATIC_KEY_FALSE(kvm_rme_is_available);
+>   
+>   static inline bool is_pkvm_initialized(void)
+>   {
+> diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
+> index 209bc76263f1..2ebc66812d49 100644
+> --- a/arch/arm64/kvm/Makefile
+> +++ b/arch/arm64/kvm/Makefile
+> @@ -23,7 +23,8 @@ kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
+>   	 vgic/vgic-v3.o vgic/vgic-v4.o \
+>   	 vgic/vgic-mmio.o vgic/vgic-mmio-v2.o \
+>   	 vgic/vgic-mmio-v3.o vgic/vgic-kvm-device.o \
+> -	 vgic/vgic-its.o vgic/vgic-debug.o vgic/vgic-v3-nested.o
+> +	 vgic/vgic-its.o vgic/vgic-debug.o vgic/vgic-v3-nested.o \
+> +	 rme.o
+>   
+>   kvm-$(CONFIG_HW_PERF_EVENTS)  += pmu-emul.o pmu.o
+>   kvm-$(CONFIG_ARM64_PTR_AUTH)  += pauth.o
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 68fec8c95fee..856a721d41ac 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -40,6 +40,7 @@
+>   #include <asm/kvm_nested.h>
+>   #include <asm/kvm_pkvm.h>
+>   #include <asm/kvm_ptrauth.h>
+> +#include <asm/kvm_rme.h>
+>   #include <asm/sections.h>
+>   
+>   #include <kvm/arm_hypercalls.h>
+> @@ -59,6 +60,8 @@ enum kvm_wfx_trap_policy {
+>   static enum kvm_wfx_trap_policy kvm_wfi_trap_policy __read_mostly = KVM_WFX_NOTRAP_SINGLE_TASK;
+>   static enum kvm_wfx_trap_policy kvm_wfe_trap_policy __read_mostly = KVM_WFX_NOTRAP_SINGLE_TASK;
+>   
+> +DEFINE_STATIC_KEY_FALSE(kvm_rme_is_available);
+> +
+>   DECLARE_KVM_HYP_PER_CPU(unsigned long, kvm_hyp_vector);
+>   
+>   DEFINE_PER_CPU(unsigned long, kvm_arm_hyp_stack_base);
+> @@ -2819,6 +2822,9 @@ static __init int kvm_arm_init(void)
+>   
+>   	in_hyp_mode = is_kernel_in_hyp_mode();
+>   
+> +	if (in_hyp_mode)
+> +		kvm_init_rme();
+> +
 
-Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+minor nit:
 
->     {
->  	    "ConfigCode": "0x38",
->  	    "EventName": "rx_snprspdata",
-> +	    "BriefDescription": "Count of the number of SnprspData flit operations that HHA has received",
+I wondering if this check is necessary. If the host is running under a
+a hypervisor, it could relay the calls to the RMM. Nothing urgent, but
+it is a possibility. It doesn't matter to the host as such. The
+Realm Guest will do its own verification and the host can ignore
+what lies beneath ?
 
-Not SnpRspData?  For Snoop Response Data flit ?
 
+Either ways,
 
->  	    "Unit": "hisi_sccl,hha"
->     },
->     {
->  	    "ConfigCode": "0x3c",
->  	    "EventName": "rx_snprsp_outer",
-> +	    "BriefDescription": "Count of the number of SnprspData operations that HHA has received from another socket",
-
-Similar on the capitalization.
-
->  	    "Unit": "hisi_sccl,hha"
->     },
+Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 
 
 
