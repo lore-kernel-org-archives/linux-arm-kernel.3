@@ -4,66 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF0A8C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 14:13:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5A98C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 14:15:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nCEyDT0nGnZmgHn2zf2dWe+DqNKcKS+VLDZKV6s8w9k=; b=0CwLLjVpkY6EGrh7cJLiMIymxu
-	gfzKLk189o5/LcirU56v9n6DuBOGuYeJyYIVfzAzgD/hC9xr815xFiV++OF+IMSOqM/mxe1fSWeFT
-	bi9sWrQskOUgng8RwgxXxGbO/a7zXiUYkDxec/3p4yTio2+N2bcr51bFRGgSkIQCFnswpaTMnlIu/
-	hISI5zkzObwD3YUSdDK5vVbracOBUPEVSgWPM4ESl65HFZLw8wRLq6AKfOoA6A/gf3aJNPfhdWMSc
-	VYoZQa7/8bdsbLlQwiXjKJqdPOBTnIBxWnxSNSLw2vE1kAXHrnWJPBjrwEG3FhGGmurWIRdbWkkxX
-	1yr9YplQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pKYXe62kLy/PK+NiFHwGFhROYiWY2U4thO9lzKIe64I=; b=SvfXQ0xpM1j83FF4oy38wdMdlS
+	P8byuPSsGpR2HCujzE7ZTvf3e2nRcYie9V0gnYoVNvjcBW1iWN4sW+fJLmtjBIckJSgZvYlYxYpao
+	zzXk33rWapWwiuOC6hoL0bVzV0LkE6IVg8iLFet7EHcVWMy6AbR84r4HkfoFjfjf+7n6WcVHIV6jc
+	OFmrlmPCYI7dENSEF339B9YsgQiXaw5WNwTxKBk5UX1EbNx+BJo4CbykUT0AkB8VvLMVsaJtq9+LV
+	umoWuz7oPertb3V7QvtObuiScS+bBG92pLzPYPERKOJGPM36gMScBzlQzjFeatEgx5cCA/jRrkHNZ
+	BXc9WzFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Jo3-0000000HOcG-05rI;
-	Fri, 25 Apr 2025 14:13:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8J15-0000000HGUM-2ewb
+	id 1u8Jpr-0000000HOsL-3JHN;
+	Fri, 25 Apr 2025 14:15:23 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u8J25-0000000HGdS-36Rn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 13:22:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 82A88106F;
-	Fri, 25 Apr 2025 06:22:49 -0700 (PDT)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 67B103F59E;
-	Fri, 25 Apr 2025 06:22:52 -0700 (PDT)
-Date: Fri, 25 Apr 2025 14:22:50 +0100
-From: Andre Przywara <andre.przywara@arm.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>, Yixun Lan
- <dlan@gentoo.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai
- <wens@csie.org>, Samuel Holland <samuel@sholland.org>, Maxime Ripard
- <mripard@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub
- Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- netdev@vger.kernel.org, clabbe.montjoie@gmail.com
-Subject: Re: [PATCH 4/5] arm64: dts: allwinner: a527: add EMAC0 to Radxa A5E
- board
-Message-ID: <20250425142250.006a029d@donnerap.manchester.arm.com>
-In-Reply-To: <3681181a-0fbb-4979-9a7e-b8fe5c1b7c3c@lunn.ch>
-References: <20250423-01-sun55i-emac0-v1-0-46ee4c855e0a@gentoo.org>
-	<4ba3e7b8-e680-40fa-b159-5146a16a9415@lunn.ch>
-	<20250424150037.0f09a867@donnerap.manchester.arm.com>
-	<4643958.LvFx2qVVIh@jernej-laptop>
-	<20250424235658.0c662e67@minigeek.lan>
-	<3681181a-0fbb-4979-9a7e-b8fe5c1b7c3c@lunn.ch>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	Fri, 25 Apr 2025 13:23:58 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-39ac9aea656so2680559f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 06:23:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1745587436; x=1746192236; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=pKYXe62kLy/PK+NiFHwGFhROYiWY2U4thO9lzKIe64I=;
+        b=TJNivo5Mok1rUIGD3kfVYAyDRaIl90LfzzfyVUxr9qU9Ztyti9nKLWbBvfPjNgkknF
+         wyYon6dW4xQ+NobfWaGUCF6lkTrefjS6iWcQwHb1Gj1GZRt1EU1FhywfVYFDZ8FySZxP
+         y3JUbBJ8q0JgsdJjwPUBqf4yNYEoKXOvVuZM3xYxLGEiNgAOf618wcDJ9ccdNJdznxlk
+         /I/sy1psyiyQosfIoWbptCZvTjkG7mvlw/htlf09dfyAqjzdJ4oc6NIHcCzzNy4CT0/0
+         yDVHzfUCGfTkS/o86zJW1F8yvYMyJ50e3oaSUqXNfWh1167/jWZRDLuod0AF/MF3Drc4
+         Bq4g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745587436; x=1746192236;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=pKYXe62kLy/PK+NiFHwGFhROYiWY2U4thO9lzKIe64I=;
+        b=VILxOlnnWUISdMMvNKaBTEvsmulZeBVZHqMrGZbP2udD6cilEGWC7qUg9ZihGbv+Vl
+         aZrBMH7yz/WAoYnf3M4G4FhhejC65ewZrT7QH29z2jeZkg28YRWOtwCSZadSagM6x2rj
+         cQw7BedrJNNVXofTwhMDxYE5X5HAnpz+NEA3SdHyWF+rUqdT2tQswtzbX0o0mVdW/njr
+         OgUBNu389DZIxE5LXZ6zwI+lXFr/tHbH2vveL+0isghHnmp4tf5YsMhBrdkUe1rmJeNa
+         iSyETK2BcMitkucDTXkZ6j1A6miIG796y7FfSIvvqQrTJs5fLah9R3lykmSaV5Ob9rSM
+         xvlA==
+X-Forwarded-Encrypted: i=1; AJvYcCWIeFueWnTVtwOR4RIEX4rkEzRZi85jQCMZ5NXNo3x+l4uryIRjhggqQnhkpv0V6JvxX1SMxSIb2X5ok2K8RWcc@lists.infradead.org
+X-Gm-Message-State: AOJu0YyB1Wd7ZN+TKMy8OgIvyqsnwxPR2gW8g9M1gHIn8mQdGdTsuy1T
+	LdmrPwhxvWo8WumplVCkWiCW0vAGwhI5sRrvwX/wugAHvkMIlEF2
+X-Gm-Gg: ASbGnct3Ylwehv3+BUsQYernybb7dQDFEst4OZ99cObEqmgiISa7S2Vc/J4Tm1JmkfF
+	xZiC60Dika5fnVLHWtxYglCu9alYGbnFn/bpyMkG8Ox25xo6FrQVMS6MIcQaZr6Pm0MlZbx4SJW
+	LzXqbwphv7UNNP3DWvKKJeFMAMgJfVS6ODXDm1iO+OXLMP/Ct/FccvAWN0USoGR+0ZZutlh70WC
+	JfQNOxby6LVoL/Nfae1TRml2PvwjlamE/J7MQOZF4+Lu99Jg8oYVO2wzOtK9ahj05OycyB1EfV0
+	n+UkKJ6tvP/RAd/nYqYDKemIrPGt+3JKkEAYqdbd
+X-Google-Smtp-Source: AGHT+IFII0EqynEWPZzvrGLmpKWfS7u49UoGkuCQiAlKncT8hgoImF1ZrCzzJCNwbFrIyYmCHxOPfw==
+X-Received: by 2002:a05:6000:400f:b0:39c:266c:12a5 with SMTP id ffacd0b85a97d-3a074e2e6a3mr2130241f8f.13.1745587436006;
+        Fri, 25 Apr 2025 06:23:56 -0700 (PDT)
+Received: from Red ([2a01:cb1d:898:ab00:4a02:2aff:fe07:1efc])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3a073e5d4b0sm2320381f8f.89.2025.04.25.06.23.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 25 Apr 2025 06:23:55 -0700 (PDT)
+Date: Fri, 25 Apr 2025 15:23:53 +0200
+From: Corentin Labbe <clabbe.montjoie@gmail.com>
+To: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+Cc: herbert@gondor.apana.org.au, davem@davemloft.net,
+	linux-crypto@vger.kernel.org, wens@csie.org,
+	jernej.skrabec@gmail.com, samuel@sholland.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/4] crypto: sun8i-ce-cipher - use
+ crypto_skcipher_driver_name()
+Message-ID: <aAuM6SmS4Dhsdxfo@Red>
+References: <20250425124517.2225963-1-ovidiu.panait.oss@gmail.com>
+ <20250425124517.2225963-2-ovidiu.panait.oss@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250425124517.2225963-2-ovidiu.panait.oss@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_062255_722191_55739331 
-X-CRM114-Status: GOOD (  20.80  )
+X-CRM114-CacheID: sfid-20250425_062357_777061_BBD73246 
+X-CRM114-Status: GOOD (  14.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,39 +103,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 25 Apr 2025 04:01:30 +0200
-Andrew Lunn <andrew@lunn.ch> wrote:
-
-> > Ah, right, I dimly remembered there was some hardware setting, but your
-> > mentioning of those strap resistors now tickled my memory!
-> > 
-> > So according to the Radxa board schematic, RGMII0-RXD0/RXDLY is pulled
-> > up to VCCIO via 4.7K, while RGMII0-RXD1/TXDLY is pulled to GND (also via
-> > 4K7). According to the Motorcom YT8531 datasheet this means that RX
-> > delay is enabled, but TX delay is not.
-> > The Avaota board uses the same setup, albeit with an RTL8211F-CG PHY,
-> > but its datasheet confirms it uses the same logic.
-> > 
-> > So does this mean we should say rgmii-rxid, so that the MAC adds the TX
-> > delay? Does the stmmac driver actually support this? I couldn't find
-> > this part by quickly checking the code.  
+Le Fri, Apr 25, 2025 at 03:45:15PM +0300, Ovidiu Panait a écrit :
+> Use crypto_skcipher_driver_name() helper from <crypto/skcipher.h>, instead
+> of accessing struct crypto_alg directly.
 > 
-> No. It is what the PCB provides which matters. A very small number of
-> PCB have extra long clock lines to add the 2ns delay. Those boards
-> should use 'rgmii'. All other boards should use rgmii-id, meaning the
-> delays need to be provided somewhere else. Typically it is the PHY
-> which adds the delays.
+> Signed-off-by: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+> ---
+>  drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
 > 
-> The strapping should not matter, the PHY driver will override that. So
-> 'rgmii-id' should result in the PHY doing the basis 2ns in both
-> directions. The MAC DT properties then add additional delays, which i
-> consider fine tuning. Most systems don't actually need fine tuning,
-> but the YT8531 is funky, it often does need it for some reason.
+> diff --git a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c
+> index 05f67661553c..f03a8fa7bfa2 100644
+> --- a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c
+> +++ b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c
+> @@ -17,6 +17,7 @@
+>  #include <linux/io.h>
+>  #include <linux/pm_runtime.h>
+>  #include <crypto/scatterwalk.h>
+> +#include <crypto/skcipher.h>
+>  #include <crypto/internal/des.h>
+>  #include <crypto/internal/skcipher.h>
+>  #include "sun8i-ce.h"
+> @@ -438,7 +439,7 @@ int sun8i_ce_cipher_init(struct crypto_tfm *tfm)
+>  				    crypto_skcipher_reqsize(op->fallback_tfm));
+>  
+>  	memcpy(algt->fbname,
+> -	       crypto_tfm_alg_driver_name(crypto_skcipher_tfm(op->fallback_tfm)),
+> +	       crypto_skcipher_driver_name(op->fallback_tfm),
+>  	       CRYPTO_MAX_ALG_NAME);
+>  
+>  	err = pm_runtime_get_sync(op->ce->dev);
+> -- 
+> 2.48.1
+> 
 
-Ah, many thanks for the explanation, that clears that up! I read something
-about the MAC adding delays, which confused me, but what you say now makes
-sense.
+Acked-by: Corentin LABBE <clabbe.montjoie@gmail.com>
+Tested-by: Corentin LABBE <clabbe.montjoie@gmail.com>
 
-Thanks!
-Andre.
+Thanks
 
