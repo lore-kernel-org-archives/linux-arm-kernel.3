@@ -4,48 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB052C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 17:01:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 631EBC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 17:03:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xWhkjkT3nw0yV19vx0ShWAxrMoLUZyhrx3KHYstiWd8=; b=GGu+9y2oaV50l5
-	u379Nz2uh+1/Cpo5pvI6e2DVAe2CxmaCsA7NzbYE8sEYOqQ6aRGSCjWXdYbyLuYs2cirIGQQzHk+p
-	i5Jx3Dfz8hmQfLsYpEHAxF56+31OirQw4hD3Th5n/CkcTFOwoMH1f68qz0bYyAGS4AUqwiAfFXfBf
-	2e/wJvxQbcEQMItG7han9qH+o0ubbaC4vrWu67ky4WxlG/x+dGoXfdcJMlJFuwZ2/TN9nu6/YstCB
-	H8qv3yq6msgmF3I+kZqMzarG18g3E9odg33Og0K/wEiu8BsKcEn1TbGTeouXEY0bvG8A/+gD/xFrx
-	VZBSHa6V/7viUSaIzAGA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vb9C6MAl6FATJ/FSIDGrDfptehSErrlH81k1sCZvVns=; b=g8Z1KABpJxQDHyUzNJnZ8nrMvW
+	WmR716oOm9CABo9A733HKbWvwLB/WTyPbMzMy7JLTURASi40Mi/Ct8l2buAmLH2+RHxyPUNQJUfLd
+	4daLV8RYA5XYMps4ZxbnKsX2ab2WwOGe6RrtFK3DGwGFRaIrPzLp1rENnbw40gHfoLY2JAR+KLD61
+	6M/l5U4uxdDGO6EYvjP66JheXXAF5BLnnJTY87bg870MAQESdITpaeoX8gnZtSz8vNOS4dpYWLp9+
+	KSmBDNOnsKEDZGzM73Jg/OUzFiet9CoI8lfWNM/IxZR2FegU7EmckPob+Z5d9bnm9fKJRbhmGATdD
+	NWzhAwEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8MQf-00000000K2S-0mZQ;
-	Fri, 25 Apr 2025 17:01:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8L78-000000004Pt-0Li1
+	id 1u8MSU-00000000KHm-3Psz;
+	Fri, 25 Apr 2025 17:03:26 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u8L7p-000000004fH-2zFG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 15:37:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 54CA41BF7;
-	Fri, 25 Apr 2025 08:37:12 -0700 (PDT)
-Received: from e137867.arm.com (unknown [10.57.45.221])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 722F53F59E;
-	Fri, 25 Apr 2025 08:37:16 -0700 (PDT)
-From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 11/11] arm64: debug: remove debug exception registration infrastructure
-Date: Fri, 25 Apr 2025 16:36:47 +0100
-Message-ID: <20250425153647.438508-12-ada.coupriediaz@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250425153647.438508-1-ada.coupriediaz@arm.com>
-References: <20250425153647.438508-1-ada.coupriediaz@arm.com>
+	Fri, 25 Apr 2025 15:38:03 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53PFbvlT2824767
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 25 Apr 2025 10:37:57 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1745595477;
+	bh=vb9C6MAl6FATJ/FSIDGrDfptehSErrlH81k1sCZvVns=;
+	h=From:To:CC:Subject:Date;
+	b=N7DmJQ2XoB7rS8Bmox9OtdQmWZZYt3azNIBkr29AQkxzRXAdKvUkWBmPhgj8R8Bjr
+	 gMiU/oYLX3GH4ubDsV9NnKJLk7P5ZKxWbk3fAiR8xU4m6052RiCsDl80lumKB9Dtn9
+	 l9cy7+P3HVPAxZvlu9Ivf8nBIjllYwVyTVTdsMz0=
+Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53PFbvNi025228
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 25 Apr 2025 10:37:57 -0500
+Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 25
+ Apr 2025 10:37:54 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE105.ent.ti.com
+ (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 25 Apr 2025 10:37:55 -0500
+Received: from uda0506412.dhcp.ti.com (uda0506412.dhcp.ti.com [128.247.81.19])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53PFbsRt108472;
+	Fri, 25 Apr 2025 10:37:54 -0500
+From: Kendall Willis <k-willis@ti.com>
+To: <nm@ti.com>, <kristo@kernel.org>, <ssantosh@kernel.org>, <d-gole@ti.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <k-willis@ti.com>
+Subject: [PATCH] firmware: ti_sci: Convert CPU latency constraint from us to ms
+Date: Fri, 25 Apr 2025 10:37:54 -0500
+Message-ID: <20250425153754.2141984-1-k-willis@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_083718_209349_C370F0CB 
-X-CRM114-Status: GOOD (  15.50  )
+X-CRM114-CacheID: sfid-20250425_083801_860625_548B5856 
+X-CRM114-Status: GOOD (  12.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -57,215 +79,57 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that debug exceptions are handled individually and without the need
-for dynamic registration, remove the unused registration infrastructure.
+Fix CPU resume latency constraint units sent to TI SCI firmware.
+CPU latency constraints are set using the PM QoS framework. The PM QoS
+framework uses usecs as the units for latency whereas the device manager
+uses msecs, so a conversion is needed before passing to device manager.
 
-Remove `early_brk64` as it has been made redundant by
-(arm64: debug: split brk64 exception entry) and is not used anymore.
-
-Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Signed-off-by: Kendall Willis <k-willis@ti.com>
+Reviewed-by: Dhruva Gole <d-gole@ti.com>
 ---
- arch/arm64/include/asm/debug-monitors.h |  2 -
- arch/arm64/include/asm/exception.h      |  2 -
- arch/arm64/include/asm/system_misc.h    |  4 --
- arch/arm64/kernel/debug-monitors.c      |  3 -
- arch/arm64/kernel/traps.c               | 26 +--------
- arch/arm64/mm/fault.c                   | 75 -------------------------
- 6 files changed, 1 insertion(+), 111 deletions(-)
+Test log [1] shows entry to MCU Only low power mode by sending a CPU
+resume latency constraint of 100000 us using PM QoS. MCU Only is shown
+to be entered by 0x1 as the printed mode.
 
-diff --git a/arch/arm64/include/asm/debug-monitors.h b/arch/arm64/include/asm/debug-monitors.h
-index 9aabf65de693..fedcf78fb04d 100644
---- a/arch/arm64/include/asm/debug-monitors.h
-+++ b/arch/arm64/include/asm/debug-monitors.h
-@@ -94,7 +94,5 @@ static inline int reinstall_suspended_bps(struct pt_regs *regs)
+[1] https://gist.github.com/kwillis01/059a2ca38232387b414bc6f4b87c7475
+---
+ drivers/firmware/ti_sci.c | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
+index 806a975fff22..bc138a837430 100644
+--- a/drivers/firmware/ti_sci.c
++++ b/drivers/firmware/ti_sci.c
+@@ -3670,6 +3670,7 @@ static int __maybe_unused ti_sci_suspend(struct device *dev)
+ 	struct ti_sci_info *info = dev_get_drvdata(dev);
+ 	struct device *cpu_dev, *cpu_dev_max = NULL;
+ 	s32 val, cpu_lat = 0;
++	u16 cpu_lat_ms;
+ 	int i, ret;
  
- int aarch32_break_handler(struct pt_regs *regs);
- 
--void debug_traps_init(void);
--
- #endif	/* __ASSEMBLY */
- #endif	/* __ASM_DEBUG_MONITORS_H */
-diff --git a/arch/arm64/include/asm/exception.h b/arch/arm64/include/asm/exception.h
-index 4ca43d4eaf98..f7f772d75860 100644
---- a/arch/arm64/include/asm/exception.h
-+++ b/arch/arm64/include/asm/exception.h
-@@ -59,8 +59,6 @@ void do_el0_bti(struct pt_regs *regs);
- void do_el1_bti(struct pt_regs *regs, unsigned long esr);
- void do_el0_gcs(struct pt_regs *regs, unsigned long esr);
- void do_el1_gcs(struct pt_regs *regs, unsigned long esr);
--void do_debug_exception(unsigned long addr_if_watchpoint, unsigned long esr,
--			struct pt_regs *regs);
- void do_breakpoint(unsigned long esr, struct pt_regs *regs);
- void do_softstep(unsigned long esr, struct pt_regs *regs);
- void do_watchpoint(unsigned long addr, unsigned long esr,
-diff --git a/arch/arm64/include/asm/system_misc.h b/arch/arm64/include/asm/system_misc.h
-index c34344256762..344b1c1a4bbb 100644
---- a/arch/arm64/include/asm/system_misc.h
-+++ b/arch/arm64/include/asm/system_misc.h
-@@ -25,10 +25,6 @@ void arm64_notify_die(const char *str, struct pt_regs *regs,
- 		      int signo, int sicode, unsigned long far,
- 		      unsigned long err);
- 
--void hook_debug_fault_code(int nr, int (*fn)(unsigned long, unsigned long,
--					     struct pt_regs *),
--			   int sig, int code, const char *name);
--
- struct mm_struct;
- extern void __show_regs(struct pt_regs *);
- 
-diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
-index 7e4e85a212f4..bcbd9a3ff823 100644
---- a/arch/arm64/kernel/debug-monitors.c
-+++ b/arch/arm64/kernel/debug-monitors.c
-@@ -369,9 +369,6 @@ int aarch32_break_handler(struct pt_regs *regs)
- }
- NOKPROBE_SYMBOL(aarch32_break_handler);
- 
--void __init debug_traps_init(void)
--{}
--
- /* Re-enable single step for syscall restarting. */
- void user_rewind_single_step(struct task_struct *task)
- {
-diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
-index 50d7a6a75f45..ce20f46e08cb 100644
---- a/arch/arm64/kernel/traps.c
-+++ b/arch/arm64/kernel/traps.c
-@@ -1101,29 +1101,5 @@ int ubsan_brk_handler(struct pt_regs *regs, unsigned long esr)
- }
- #endif
- 
--/*
-- * Initial handler for AArch64 BRK exceptions
-- * This handler only used until debug_traps_init().
-- */
--int __init early_brk64(unsigned long addr, unsigned long esr,
--		struct pt_regs *regs)
--{
--#ifdef CONFIG_CFI_CLANG
--	if (esr_is_cfi_brk(esr))
--		return cfi_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
--#endif
--#ifdef CONFIG_KASAN_SW_TAGS
--	if ((esr_brk_comment(esr) & ~KASAN_BRK_MASK) == KASAN_BRK_IMM)
--		return kasan_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
--#endif
--#ifdef CONFIG_UBSAN_TRAP
--	if ((esr_brk_comment(esr) & ~UBSAN_BRK_MASK) == UBSAN_BRK_IMM)
--		return ubsan_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
--#endif
--	return bug_brk_handler(regs, esr) != DBG_HOOK_HANDLED;
--}
--
- void __init trap_init(void)
--{
--	debug_traps_init();
--}
-+{}
-diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-index ec0a337891dd..bc7f554dea9f 100644
---- a/arch/arm64/mm/fault.c
-+++ b/arch/arm64/mm/fault.c
-@@ -53,18 +53,12 @@ struct fault_info {
- };
- 
- static const struct fault_info fault_info[];
--static struct fault_info debug_fault_info[];
- 
- static inline const struct fault_info *esr_to_fault_info(unsigned long esr)
- {
- 	return fault_info + (esr & ESR_ELx_FSC);
- }
- 
--static inline const struct fault_info *esr_to_debug_fault_info(unsigned long esr)
--{
--	return debug_fault_info + DBG_ESR_EVT(esr);
--}
--
- static void data_abort_decode(unsigned long esr)
- {
- 	unsigned long iss2 = ESR_ELx_ISS2(esr);
-@@ -938,75 +932,6 @@ void do_sp_pc_abort(unsigned long addr, unsigned long esr, struct pt_regs *regs)
- }
- NOKPROBE_SYMBOL(do_sp_pc_abort);
- 
--/*
-- * __refdata because early_brk64 is __init, but the reference to it is
-- * clobbered at arch_initcall time.
-- * See traps.c and debug-monitors.c:debug_traps_init().
-- */
--static struct fault_info __refdata debug_fault_info[] = {
--	{ do_bad,	SIGTRAP,	TRAP_HWBKPT,	"hardware breakpoint"	},
--	{ do_bad,	SIGTRAP,	TRAP_HWBKPT,	"hardware single-step"	},
--	{ do_bad,	SIGTRAP,	TRAP_HWBKPT,	"hardware watchpoint"	},
--	{ do_bad,	SIGKILL,	SI_KERNEL,	"unknown 3"		},
--	{ do_bad,	SIGTRAP,	TRAP_BRKPT,	"aarch32 BKPT"		},
--	{ do_bad,	SIGKILL,	SI_KERNEL,	"aarch32 vector catch"	},
--	{ early_brk64,	SIGTRAP,	TRAP_BRKPT,	"aarch64 BRK"		},
--	{ do_bad,	SIGKILL,	SI_KERNEL,	"unknown 7"		},
--};
--
--void __init hook_debug_fault_code(int nr,
--				  int (*fn)(unsigned long, unsigned long, struct pt_regs *),
--				  int sig, int code, const char *name)
--{
--	BUG_ON(nr < 0 || nr >= ARRAY_SIZE(debug_fault_info));
--
--	debug_fault_info[nr].fn		= fn;
--	debug_fault_info[nr].sig	= sig;
--	debug_fault_info[nr].code	= code;
--	debug_fault_info[nr].name	= name;
--}
--
--/*
-- * In debug exception context, we explicitly disable preemption despite
-- * having interrupts disabled.
-- * This serves two purposes: it makes it much less likely that we would
-- * accidentally schedule in exception context and it will force a warning
-- * if we somehow manage to schedule by accident.
-- */
--static void debug_exception_enter(struct pt_regs *regs)
--{
--	preempt_disable();
--
--	/* This code is a bit fragile.  Test it. */
--	RCU_LOCKDEP_WARN(!rcu_is_watching(), "exception_enter didn't work");
--}
--NOKPROBE_SYMBOL(debug_exception_enter);
--
--static void debug_exception_exit(struct pt_regs *regs)
--{
--	preempt_enable_no_resched();
--}
--NOKPROBE_SYMBOL(debug_exception_exit);
--
--void do_debug_exception(unsigned long addr_if_watchpoint, unsigned long esr,
--			struct pt_regs *regs)
--{
--	const struct fault_info *inf = esr_to_debug_fault_info(esr);
--	unsigned long pc = instruction_pointer(regs);
--
--	debug_exception_enter(regs);
--
--	if (user_mode(regs) && !is_ttbr0_addr(pc))
--		arm64_apply_bp_hardening();
--
--	if (inf->fn(addr_if_watchpoint, esr, regs)) {
--		arm64_notify_die(inf->name, regs, inf->sig, inf->code, pc, esr);
--	}
--
--	debug_exception_exit(regs);
--}
--NOKPROBE_SYMBOL(do_debug_exception);
--
- /*
-  * Used during anonymous page fault handling.
-  */
+ 	if (info->fw_caps & MSG_FLAG_CAPS_LPM_DM_MANAGED) {
+@@ -3682,9 +3683,13 @@ static int __maybe_unused ti_sci_suspend(struct device *dev)
+ 			}
+ 		}
+ 		if (cpu_dev_max) {
+-			dev_dbg(cpu_dev_max, "%s: sending max CPU latency=%u\n", __func__, cpu_lat);
++			/* PM QoS latency unit is usecs, TI SCI uses msecs */
++			cpu_lat_ms = cpu_lat / USEC_PER_MSEC;
++			dev_dbg(cpu_dev_max, "%s: sending max CPU latency=%u ms\n", __func__,
++				cpu_lat_ms);
+ 			ret = ti_sci_cmd_set_latency_constraint(&info->handle,
+-								cpu_lat, TISCI_MSG_CONSTRAINT_SET);
++								cpu_lat_ms,
++								TISCI_MSG_CONSTRAINT_SET);
+ 			if (ret)
+ 				return ret;
+ 		}
+
+base-commit: 393d0c54cae31317deaa9043320c5fd9454deabc
 -- 
-2.43.0
+2.34.1
 
 
