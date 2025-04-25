@@ -4,96 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A6FDC369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 17:49:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDBE1C369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 17:51:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/OY31xp7Dll9vOIEOmAuyrG07iLGmNS/7kqtV/vhc5Y=; b=I2D8ZFm+U0CqjBNZk3oBRbQfD3
-	vXeRByxJzKfXCnyHghNVaFUl0auPCtlzGcC5amOqtpRKYPRrokIagkvVqVcjZK2BNY2u2diP+XU3o
-	Wwuty4memzduyD5ZIfk/KBKzR8AMbwdZhrkaD5ScgD+m0p01zfQ1wXkewFGrTTAZpG9d36C0SifGJ
-	GsFLLzJNeCNYKg3KKon8ht8iGaVBmB4el+F4hFUpkIynaefg+fPULwUvz1AGp7/XLOqQ2jmVO+Jpp
-	XOrK0RLFZ4P6YjWgbwAuUF1FaBTv+yUnGyuRFq07SZPyHg1nwbMyQYxZweyNLLLaT1yUv09MpFUXJ
-	gUuhvYIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ejJgdqEPZKllX4jx/pva9umANCVtEBT18p/3RAmx1Es=; b=NvLlEjk0m1hlNNDfWfZN20Srgn
+	VRSqPPFmcSaM9YMBTTUwEkd4W2YRmPP+ajMynSBmJLFKhPpzQCGzPPTS4avU6Z+BjBqurxRVK2TGb
+	Ria29KRpOTWnYzsC05AMhyH5m6+gPzohTwpZB83BP9Wr0eSpeh+Yt4iYSQIIsBQyqWVnF+DSE2uIq
+	tK1uVnMqrxryyBLzJhf5XmiQsYaK8VjR4SPTEvQSUeUB28aGlTjdcC/AyThpN01TjLwb+9ZT5RApr
+	LIA2VDThGg/LOEoQ4yxuQpyrl64xsx6/0FHu/0/Jo/uIRuDwGJehXBI4AFalExBR2oRZ1vLBNlPaW
+	erLXLsCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8NAV-00000000RvY-3Gei;
-	Fri, 25 Apr 2025 17:48:55 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1u8NCL-00000000SOH-1YKC;
+	Fri, 25 Apr 2025 17:50:49 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8KpI-0000000017P-1UKk
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 15:18:53 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-aaecf50578eso365206266b.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 08:18:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=thaumatec-com.20230601.gappssmtp.com; s=20230601; t=1745594331; x=1746199131; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/OY31xp7Dll9vOIEOmAuyrG07iLGmNS/7kqtV/vhc5Y=;
-        b=j42Mt5qxCJoOQSAZ67W/QfhQdbkruiN8scys5w72FR/PJT4SkMiuvSysOixXR9NJAT
-         Szooa0MhhB0unOV9Ti6R9o+kTVBsHSEeOpQrqwI4pHg6qXyuJWCXlXJdvoljsAU5nVEp
-         CKZYawRNh4dwCEVooHT2e1x03O50YwGwzh/NS95EedFJ/ikDy0zmWpWp2kZ6ho6YOqmT
-         9fsLBBy3gt543ewtrZBYC7QypUjUy/vT4DRjhZ+uu8eyH6t8BcgXEa6TYfn5JjK4/W3i
-         +DV2fmV0QFZHn5kRW6DwFSlGpYiJP5UJ6Af4TT3w6GhKxyS314i+OJzxroIfyiqiZD4S
-         M/6Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745594331; x=1746199131;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/OY31xp7Dll9vOIEOmAuyrG07iLGmNS/7kqtV/vhc5Y=;
-        b=slqlZzzf/rAcuDqrFuAr1BnzPE57XWUJLyjUgCurIqFH9zDEz1Pv5DlXcPD0Mf2oFS
-         XAmlHRpfyg/z9q5496CAqA1MVxWv6IxYnst1FJDuzQB3q89nGcePUYJCFz21EWQ9Z5Qm
-         YISgWS+IkI5kS2WX2POfdpltcGw0jU9nWzFkjJFtxZaj8mmuXRMMKPDQXpAaWpv3w33c
-         2UWqKUmc8/lOEJ2bdJcQU53nji2uo0prXUlzhw5JVA6tIcxSi5UGv/15Nfyk4Xq9jayk
-         yXuip4Y1qZ/l0JewnDb41WfEecOEU43+wQKBav7uV1b5SEExrCaioa9QWWrpxW9yuXph
-         6S0A==
-X-Forwarded-Encrypted: i=1; AJvYcCWLv5WevyPdzygnNh3Puz7tygcAybvdv2xf3Wax3vhYe7XUTpLAwT0wvpL4B9rZsvu9shml2e0oglxS1Jb6AUSS@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMIQsBF+rKQYngr9lPmuItYtvILKUBZ77M2X37FcB1uADLpyzq
-	CtWqAdo0kJ71CCyubwtwj//zLbTj3RyUdLQ+pR8w1CAxN+viQjEBl/Xdd1PszHqpk2X8Jt2Ifty
-	XbYA=
-X-Gm-Gg: ASbGncvB6i1w2J81COQJDJE1/8HPn6MVP/lrQPeccoyUrpkqIRt5i6eD/aComFvfuOG
-	Npu3IonOPz228GPFzZ/p59kAYOrY0Zx0cIulA3biHQcpZ9OI5nCU6Ce4AWli7M84nQywzR7pl45
-	Db5ILsajBBtK8Nu017ik4x96qI7wKp+/442C90QQwa6YLjH1ge4yj2K727ha0kJBKu9hEfB0WOY
-	E8AeOWZPprLy9CCJPsDpmsCY9cSWOMUXRg2v49/mqu3hO1UacvwHlYzxqUGcLQU9Lto7h6NlM9o
-	fGNL4hL/iPOVBh8iedPF0SOwsw/v2wfBUR+vp7pIYICNKe4keTl+t0ffQA==
-X-Google-Smtp-Source: AGHT+IF/D7KC9l8++rWqiUEiNq3eyx2s0Qq/rmeB9HU9Sb4W5K3CdWLHL8yd44YFf3+hogCSyIirhg==
-X-Received: by 2002:a17:907:2dab:b0:acb:bbc4:3344 with SMTP id a640c23a62f3a-ace71098d8dmr246518666b.22.1745594330687;
-        Fri, 25 Apr 2025 08:18:50 -0700 (PDT)
-Received: from [127.0.1.1] ([185.164.142.188])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ace6e59649fsm151099766b.85.2025.04.25.08.18.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Apr 2025 08:18:50 -0700 (PDT)
-From: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>
-Date: Fri, 25 Apr 2025 17:18:10 +0200
-Subject: [PATCH v2 5/5] arm64: dts: rockchip: disable unrouted USB
- controllers and PHY on RK3399 Puma with Haikou
+	id 1u8M2K-00000000F3y-0iJX;
+	Fri, 25 Apr 2025 16:36:25 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53PAfbvU023963;
+	Fri, 25 Apr 2025 16:35:30 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=ejJgdqEPZKllX4jx/pva9umANCVtEB
+	T18p/3RAmx1Es=; b=EqpOZv1gbGFg4t85FrLlOnzYnqCpeD+gFp/4utrY95VCIZ
+	h75Yza2MfYXQuYTjxvakxgUr08T+r3Mnj+hSHfUHEI/TJH3S6SnAHpVSsBLQaa7h
+	JG0KhJpULlDgMiyQa50wwMo8ILPeXLFm4r9+r14ubKLH8tp+Olnoy4Y6olLQampi
+	bKI2mW6zxE3Zp4T3ddLMXjQEVPJPpJUVXKRXqHsN/ACkP1gFKFnVXc9RUmaBnLmt
+	9V0KJGIT6dCYsYT11ODN9q+MH3F7P9nNOSGqwRSGOpiw3BvM9GoSszha/eq3ZnWj
+	BZdXBLYvjmEVLPiofDOoumk+2leUg7DxcnneeHug==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4688ushned-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 25 Apr 2025 16:35:29 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 53PG93Q2000973;
+	Fri, 25 Apr 2025 16:35:29 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 466jfy650a-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 25 Apr 2025 16:35:28 +0000
+Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 53PGZQqW21430558
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 25 Apr 2025 16:35:27 GMT
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id DB01720040;
+	Fri, 25 Apr 2025 16:35:26 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id DDF662004B;
+	Fri, 25 Apr 2025 16:35:23 +0000 (GMT)
+Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.111.73.111])
+	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Fri, 25 Apr 2025 16:35:23 +0000 (GMT)
+Date: Fri, 25 Apr 2025 18:35:22 +0200
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+        Albert Ou <aou@eecs.berkeley.edu>,
+        Andreas Larsson <andreas@gaisler.com>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        "David S. Miller" <davem@davemloft.net>,
+        Geert Uytterhoeven <geert@linux-m68k.org>,
+        Linus Walleij <linus.walleij@linaro.org>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Matthew Wilcox <willy@infradead.org>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        "Mike Rapoport (IBM)" <rppt@kernel.org>,
+        Palmer Dabbelt <palmer@dabbelt.com>,
+        Paul Walmsley <paul.walmsley@sifive.com>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Qi Zheng <zhengqi.arch@bytedance.com>,
+        Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
+        Yang Shi <yang@os.amperecomputing.com>, linux-arch@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+        linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org,
+        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
+        x86@kernel.org
+Subject: Re: [PATCH v2 03/12] mm: Call ctor/dtor for kernel PTEs
+Message-ID: <aAu5ylJPs+Oa9iQ3@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+References: <20250408095222.860601-1-kevin.brodsky@arm.com>
+ <20250408095222.860601-4-kevin.brodsky@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250425-onboard_usb_dev-v2-5-4a76a474a010@thaumatec.com>
-References: <20250425-onboard_usb_dev-v2-0-4a76a474a010@thaumatec.com>
-In-Reply-To: <20250425-onboard_usb_dev-v2-0-4a76a474a010@thaumatec.com>
-To: Matthias Kaehlcke <mka@chromium.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Benjamin Bara <benjamin.bara@skidata.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Klaus Goger <klaus.goger@theobroma-systems.com>
-Cc: linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, 
- Lukasz Czechowski <lukasz.czechowski@thaumatec.com>, 
- Quentin Schulz <quentin.schulz@cherry.de>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250408095222.860601-4-kevin.brodsky@arm.com>
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=dbeA3WXe c=1 sm=1 tr=0 ts=680bb9d1 cx=c_pps a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17 a=kj9zAlcOel0A:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=7CQSdrXTAAAA:8 a=VnNF1IyMAAAA:8 a=o1rnUynpLg_ZTY15UzkA:9
+ a=CjuIK1q_8ugA:10 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI1MDExNCBTYWx0ZWRfXxfQmH6A1i1kR F0Qrpt5yak4qbEYdxPP6AWpDu4jDULgX7mdTdovae8J2DMeHPJ2D4u8gmGvG8XhP8zbhnJDUi7+ oK3yajHXRE48UbY0683PBqDQHITbNZwqnJVe1YdfWQGR3ID2SwUhxCrN+9vFaZQScLGRA9ZWojV
+ RSarM6Bq4x1756TbKQ7JAqAplyDxMSMxtJfJY+CwQCIcyeMNJ2FfwH1U67EFPMKvl1DQURmevds Pee9V6Nxdjtm224E6UAw6q6vWv3bAGwXIbvyodOLAwWqUT1Dyb1+HxugPtHlhMT5cZoObV010KU 7+GC4doRznHR8qOWZytOu/IeBX++vqFmWURUnIQCQ3D26e15+uLRNAAoyxIDX5DeSwFGcgLYsiH
+ z/1Pnm5AjA0kyrP1dqxLeXwdbYN0HQt8yyFmLroqBHwiHMLU8gJ5MxgaxSjoCKoy5BK9psby
+X-Proofpoint-ORIG-GUID: MwNYdyucMFQMOg7jYooYi3IwxTZPVWry
+X-Proofpoint-GUID: MwNYdyucMFQMOg7jYooYi3IwxTZPVWry
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-04-25_04,2025-04-24_02,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 malwarescore=0
+ suspectscore=0 priorityscore=1501 impostorscore=0 spamscore=0 mlxscore=0
+ lowpriorityscore=0 bulkscore=0 adultscore=0 mlxlogscore=999 clxscore=1011
+ classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2504070000
+ definitions=main-2504250114
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_081852_400387_86F09E0C 
-X-CRM114-Status: GOOD (  17.39  )
+X-CRM114-CacheID: sfid-20250425_093624_329723_EFA39D50 
+X-CRM114-Status: GOOD (  36.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,60 +132,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Quentin Schulz <quentin.schulz@cherry.de>
+On Tue, Apr 08, 2025 at 10:52:13AM +0100, Kevin Brodsky wrote:
+> Since [1], constructors/destructors are expected to be called for
+> all page table pages, at all levels and for both user and kernel
+> pgtables. There is however one glaring exception: kernel PTEs are
+> managed via separate helpers (pte_alloc_kernel/pte_free_kernel),
+> which do not call the [cd]tor, at least not in the generic
+> implementation.
+> 
+> The most obvious reason for this anomaly is that init_mm is
+> special-cased not to use split page table locks. As a result calling
+> ptlock_init() for PTEs associated with init_mm would be wasteful,
+> potentially resulting in dynamic memory allocation. However, pgtable
+> [cd]tors perform other actions - currently related to
+> accounting/statistics, and potentially more functionally significant
+> in the future.
+> 
+> Now that pagetable_pte_ctor() is passed the associated mm, we can
+> make it skip the call to ptlock_init() for init_mm; this allows us
+> to call the ctor from pte_alloc_one_kernel() too. This is matched by
+> a call to the pgtable destructor in pte_free_kernel(); no
+> special-casing is needed on that path, as ptlock_free() is already
+> called unconditionally. (ptlock_free() is a no-op unless a ptlock
+> was allocated for the given PTP.)
+> 
+> This patch ensures that all architectures that rely on
+> <asm-generic/pgalloc.h> call the [cd]tor for kernel PTEs.
+> pte_free_kernel() cannot be overridden so changing the generic
+> implementation is sufficient. pte_alloc_one_kernel() can be
+> overridden using __HAVE_ARCH_PTE_ALLOC_ONE_KERNEL, and a few
+> architectures implement it by calling the page allocator directly.
+> We amend those so that they call the generic
+> __pte_alloc_one_kernel() instead, if possible, ensuring that the
+> ctor is called.
+> 
+> A few architectures do not use <asm-generic/pgalloc.h>; those will
+> be taken care of separately.
+> 
+> [1] https://lore.kernel.org/linux-mm/20250103184415.2744423-1-kevin.brodsky@arm.com/
+> 
+> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> ---
+>  arch/csky/include/asm/pgalloc.h | 2 +-
+>  arch/microblaze/mm/pgtable.c    | 2 +-
+>  arch/openrisc/mm/ioremap.c      | 2 +-
+>  include/asm-generic/pgalloc.h   | 7 ++++++-
+>  include/linux/mm.h              | 2 +-
+>  5 files changed, 10 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/csky/include/asm/pgalloc.h b/arch/csky/include/asm/pgalloc.h
+> index 11055c574968..9ed2b15ffd94 100644
+> --- a/arch/csky/include/asm/pgalloc.h
+> +++ b/arch/csky/include/asm/pgalloc.h
+> @@ -29,7 +29,7 @@ static inline pte_t *pte_alloc_one_kernel(struct mm_struct *mm)
+>  	pte_t *pte;
+>  	unsigned long i;
+>  
+> -	pte = (pte_t *) __get_free_page(GFP_KERNEL);
+> +	pte = __pte_alloc_one_kernel(mm);
+>  	if (!pte)
+>  		return NULL;
+>  
+> diff --git a/arch/microblaze/mm/pgtable.c b/arch/microblaze/mm/pgtable.c
+> index 9f73265aad4e..e96dd1b7aba4 100644
+> --- a/arch/microblaze/mm/pgtable.c
+> +++ b/arch/microblaze/mm/pgtable.c
+> @@ -245,7 +245,7 @@ unsigned long iopa(unsigned long addr)
+>  __ref pte_t *pte_alloc_one_kernel(struct mm_struct *mm)
+>  {
+>  	if (mem_init_done)
+> -		return (pte_t *)__get_free_page(GFP_KERNEL | __GFP_ZERO);
+> +		return __pte_alloc_one_kernel(mm);
+>  	else
+>  		return memblock_alloc_try_nid(PAGE_SIZE, PAGE_SIZE,
+>  					      MEMBLOCK_LOW_LIMIT,
+> diff --git a/arch/openrisc/mm/ioremap.c b/arch/openrisc/mm/ioremap.c
+> index 8e63e86251ca..3b352f97fecb 100644
+> --- a/arch/openrisc/mm/ioremap.c
+> +++ b/arch/openrisc/mm/ioremap.c
+> @@ -36,7 +36,7 @@ pte_t __ref *pte_alloc_one_kernel(struct mm_struct *mm)
+>  	pte_t *pte;
+>  
+>  	if (likely(mem_init_done)) {
+> -		pte = (pte_t *)get_zeroed_page(GFP_KERNEL);
+> +		pte = __pte_alloc_one_kernel(mm);
+>  	} else {
+>  		pte = memblock_alloc_or_panic(PAGE_SIZE, PAGE_SIZE);
+>  	}
+> diff --git a/include/asm-generic/pgalloc.h b/include/asm-generic/pgalloc.h
+> index e164ca66f0f6..3c8ec3bfea44 100644
+> --- a/include/asm-generic/pgalloc.h
+> +++ b/include/asm-generic/pgalloc.h
+> @@ -23,6 +23,11 @@ static inline pte_t *__pte_alloc_one_kernel_noprof(struct mm_struct *mm)
+>  
+>  	if (!ptdesc)
+>  		return NULL;
+> +	if (!pagetable_pte_ctor(mm, ptdesc)) {
+> +		pagetable_free(ptdesc);
+> +		return NULL;
+> +	}
+> +
+>  	return ptdesc_address(ptdesc);
+>  }
+>  #define __pte_alloc_one_kernel(...)	alloc_hooks(__pte_alloc_one_kernel_noprof(__VA_ARGS__))
+> @@ -48,7 +53,7 @@ static inline pte_t *pte_alloc_one_kernel_noprof(struct mm_struct *mm)
+>   */
+>  static inline void pte_free_kernel(struct mm_struct *mm, pte_t *pte)
+>  {
+> -	pagetable_free(virt_to_ptdesc(pte));
+> +	pagetable_dtor_free(virt_to_ptdesc(pte));
+>  }
+>  
+>  /**
+> diff --git a/include/linux/mm.h b/include/linux/mm.h
+> index f9b793cce2c1..3f48e449574a 100644
+> --- a/include/linux/mm.h
+> +++ b/include/linux/mm.h
+> @@ -3103,7 +3103,7 @@ static inline void pagetable_dtor_free(struct ptdesc *ptdesc)
+>  static inline bool pagetable_pte_ctor(struct mm_struct *mm,
+>  				      struct ptdesc *ptdesc)
+>  {
+> -	if (!ptlock_init(ptdesc))
+> +	if (mm != &init_mm && !ptlock_init(ptdesc))
+>  		return false;
+>  	__pagetable_ctor(ptdesc);
+>  	return true;
 
-The u2phy0_host port is the part of the USB PHY0 (namely the
-HOST0_DP/DM lanes) which routes directly to the USB2.0 HOST
-controller[1]. The other lanes of the PHY are routed to the USB3.0 OTG
-controller (dwc3), which we do use.
-
-The HOST0_DP/DM lanes aren't routed on RK3399 Puma so let's simply
-disable the USB2.0 controllers.
-
-USB3 OTG has been known to be unstable on RK3399 Puma Haikou for a
-while, one of the recurring issues being that only USB2 is detected and
-not USB3 in host mode. Reading the justification above and seeing that
-we are keeping u2phy0_host in the Haikou carrierboard DTS probably may
-have bothered you since it should be changed to u2phy0_otg. The issue is
-that if it's switched to that, USB OTG on Haikou is entirely broken. I
-have checked the routing in the Gerber file, the lanes are going to the
-expected ball pins (that is, NOT HOST0_DP/DM).
-u2phy0_host is for sure the wrong part of the PHY to use, but it's the
-only one that works at the moment for that board so keep it until we
-figure out what exactly is broken.
-
-No intended functional change.
-
-[1] https://rockchip.fr/Rockchip%20RK3399%20TRM%20V1.3%20Part2.pdf
-    Chapter 2 USB2.0 PHY
-Fixes: 2c66fc34e945 ("arm64: dts: rockchip: add RK3399-Q7 (Puma) SoM")
-Signed-off-by: Quentin Schulz <quentin.schulz@cherry.de>
-Signed-off-by: Lukasz Czechowski <lukasz.czechowski@thaumatec.com>
----
- arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dts | 8 --------
- 1 file changed, 8 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dts b/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dts
-index 947bbd62a6b09ce55320d0889ee8cf50ca59dfd4..93cefacc7a01ec8f9716de828077b3395a5e7696 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-puma-haikou.dts
-@@ -292,14 +292,6 @@ &uart2 {
- 	status = "okay";
- };
- 
--&usb_host0_ehci {
--	status = "okay";
--};
--
--&usb_host0_ohci {
--	status = "okay";
--};
--
- &vopb {
- 	status = "okay";
- };
-
--- 
-2.43.0
-
+Reviewed-by: Alexander Gordeev <agordeev@linux.ibm.com> # s390
 
