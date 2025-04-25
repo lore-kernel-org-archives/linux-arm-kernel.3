@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A96BFC369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 09:24:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA8C9C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 09:25:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pEDQhzfkBEyoaO0jKVBQPJI5FU8Kvj2BFfEXH82wM4k=; b=IvAjpBm8ikFsNRCS1cZLMOX5Fd
-	YTIh358+tR6gEuRPxu8MyBDPtEHFIPMzZ17vzXw2o5wKPDfFVBB17KEpSDPYU+tPwAe7Ggka1QZEx
-	YmQGfvr0TnZm/+obGE24ocvY/qrzasJLiaG0zNK3mDBc1IGr4Y6EkrPo0x+0AL9EiLd+3EvurSPu1
-	O1JQLRABmAfOy7ZKndcyKGTZl0WSC5jGJTGyKyDr5JJNqF6BKHa6ISQX1I69E0SJ8KLYL4ichbkTo
-	2kuMYc2AIqZobJ/NndIJ6/b/Fx/D5GGbon5BsrGXbp4xPdBMPKjynaSpAnEHOIKTYtT5dgha4g0Su
-	UUGmocfw==;
+	bh=zE0tKL/hyf3V5KnSIIgfQtQGYpkPD8lxyQAdHmVUnc4=; b=wPAzjUkUd+BytZIYJt/IkcU63O
+	gRSGqPijfcfqTWUejwCCOZu6zKmpogOHUheEPNZq5CS0XjkQkP/xMiuANYJYCvaUXE/UgNg5IBcmW
+	KofFjkx7ECDJD1CSEObiA377RIw3Smrnim/SixAy/2OISzVmzBFuFlDaNgX0N9osIR3yIxQu7tta5
+	tBXFiP4SE+z3qNMhHT8O1C2+6v5TkPhMlKIsJqRF0x94D9S3GspKF2f7HdwyU6wL30KH/W7McRzUm
+	jprMQzTEUuRvkm623sHSzEdRuXLH/KuB82xACB08WPMoq951qjiEuITtrFvaCCy6OH1DAN9phzvAn
+	7KOuWisA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8FHp-0000000GWl3-0nvV;
-	Fri, 25 Apr 2025 09:23:57 +0000
+	id 1u8FJd-0000000GX2N-3dIx;
+	Fri, 25 Apr 2025 09:25:49 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Esi-0000000GRlj-1XO4
+	id 1u8Eso-0000000GRni-3aTB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 08:58:01 +0000
+	Fri, 25 Apr 2025 08:58:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4475543FA2;
-	Fri, 25 Apr 2025 08:57:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98B81C4CEEA;
-	Fri, 25 Apr 2025 08:57:53 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D71F443FA2;
+	Fri, 25 Apr 2025 08:58:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D8EEC4CEE4;
+	Fri, 25 Apr 2025 08:58:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745571479;
-	bh=SJjOmLS6N4kbYOZUh7McqDYQHoY2qAv/ch95M7/xp/c=;
+	s=k20201202; t=1745571486;
+	bh=Yvoue+F0edeKn+VVijS0ELNZWKE39hZnWZ8xXcZpPKc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=UzFrajcyCWUQp4NoCuoJGoQpoo4y3MriQf/v7TbQeYVD2C8nnK9mKVhAUV/n5/cHB
-	 uozUBKgiEJTaxhvBZ5VOThFQNmQOQCDPxRvHwiuGNn31XeDS+Aj94qqD2bmgksgUHW
-	 AmADXjU6lKbDZN+knO59/Xz6PERMNByLLi15I+/HVid6fh3+lGviletKQZhDh7X17i
-	 P1FKsUib9mIrYjBdLASOYFXls1sakHURx85B++fDmM4rVXRXA02dBKNMVOSTUUM71m
-	 TEGDQ6fxrCbj2XXoVuIQD/WnHSjXdIEB9vG2M/gUhiTL75atMpYzJf5YeKtqn8GEQy
-	 /ejOJNzaFI8zQ==
+	b=Fy5NNKAdc+O9dq8VB8U2ZCFdvYGQHFATOAYQ9d5sWnMFUIIjRvY61cNk2+K43bwOi
+	 13EoiuUH88j1mrbF9W0J+1y90tgisJVeZQVZ97cQIhwazkNMrHr1ui4/EWDFQ8hmTZ
+	 VVAq0aK+7oVTDl2vy1XVzrA4unS//OyLRZsKyEyiF3g5GcBUTwvMhjg+w6UItwAfNV
+	 3041sc3geLGJBDnAsd0ZTil9esn9aYlfCmz6D8pRdQlHqNRCXUREtbMcWZxBaoNfpy
+	 dufhDbq1x7MZGeHt+AIYvAzMBhtuPNSV5hpqZAZGKNO7Qf+LCsFhGMUbWRNE+tPCpz
+	 oVqfIooMixUIA==
 From: Philipp Stanner <phasta@kernel.org>
 To: Sunil Goutham <sgoutham@marvell.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -69,19 +69,18 @@ To: Sunil Goutham <sgoutham@marvell.com>,
 Cc: linux-arm-kernel@lists.infradead.org,
 	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	Elad Nachman <enachman@marvell.com>
-Subject: [PATCH v2 1/8] net: prestera: Use pure PCI devres API
-Date: Fri, 25 Apr 2025 10:57:34 +0200
-Message-ID: <20250425085740.65304-3-phasta@kernel.org>
+	linux-parisc@vger.kernel.org
+Subject: [PATCH v2 2/8] net: octeontx2: Use pure PCI devres API
+Date: Fri, 25 Apr 2025 10:57:35 +0200
+Message-ID: <20250425085740.65304-4-phasta@kernel.org>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250425085740.65304-2-phasta@kernel.org>
 References: <20250425085740.65304-2-phasta@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_015800_441269_115B5A7E 
-X-CRM114-Status: GOOD (  13.49  )
+X-CRM114-CacheID: sfid-20250425_015806_930885_D17EDFE7 
+X-CRM114-Status: GOOD (  14.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,44 +111,177 @@ Remove the calls to pci_release_regions().
 Replace pci_request_regions() with pcim_request_all_regions().
 
 Signed-off-by: Philipp Stanner <phasta@kernel.org>
-Acked-by: Elad Nachman <enachman@marvell.com>
-Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
 ---
- drivers/net/ethernet/marvell/prestera/prestera_pci.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ .../net/ethernet/marvell/octeontx2/nic/otx2_pf.c   | 14 ++++----------
+ .../net/ethernet/marvell/octeontx2/nic/otx2_vf.c   | 14 ++++----------
+ drivers/net/ethernet/marvell/octeontx2/nic/rep.c   | 12 +++++-------
+ 3 files changed, 13 insertions(+), 27 deletions(-)
 
-diff --git a/drivers/net/ethernet/marvell/prestera/prestera_pci.c b/drivers/net/ethernet/marvell/prestera/prestera_pci.c
-index 35857dc19542..c45d108b2f6d 100644
---- a/drivers/net/ethernet/marvell/prestera/prestera_pci.c
-+++ b/drivers/net/ethernet/marvell/prestera/prestera_pci.c
-@@ -845,9 +845,9 @@ static int prestera_pci_probe(struct pci_dev *pdev,
- 		goto err_pci_enable_device;
+diff --git a/drivers/net/ethernet/marvell/octeontx2/nic/otx2_pf.c b/drivers/net/ethernet/marvell/octeontx2/nic/otx2_pf.c
+index cfed9ec5b157..0aee8e3861f3 100644
+--- a/drivers/net/ethernet/marvell/octeontx2/nic/otx2_pf.c
++++ b/drivers/net/ethernet/marvell/octeontx2/nic/otx2_pf.c
+@@ -3048,7 +3048,7 @@ static int otx2_probe(struct pci_dev *pdev, const struct pci_device_id *id)
+ 		return err;
  	}
  
--	err = pci_request_regions(pdev, driver_name);
-+	err = pcim_request_all_regions(pdev, driver_name);
+-	err = pci_request_regions(pdev, DRV_NAME);
++	err = pcim_request_all_regions(pdev, DRV_NAME);
  	if (err) {
--		dev_err(&pdev->dev, "pci_request_regions failed\n");
-+		dev_err(&pdev->dev, "pcim_request_all_regions failed\n");
- 		goto err_pci_request_regions;
+ 		dev_err(dev, "PCI request regions failed 0x%x\n", err);
+ 		return err;
+@@ -3057,7 +3057,7 @@ static int otx2_probe(struct pci_dev *pdev, const struct pci_device_id *id)
+ 	err = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(48));
+ 	if (err) {
+ 		dev_err(dev, "DMA mask config failed, abort\n");
+-		goto err_release_regions;
++		return err;
  	}
  
-@@ -938,7 +938,6 @@ static int prestera_pci_probe(struct pci_dev *pdev,
- err_pp_ioremap:
- err_mem_ioremap:
- err_dma_mask:
+ 	pci_set_master(pdev);
+@@ -3067,10 +3067,8 @@ static int otx2_probe(struct pci_dev *pdev, const struct pci_device_id *id)
+ 	qos_txqs = min_t(int, qcount, OTX2_QOS_MAX_LEAF_NODES);
+ 
+ 	netdev = alloc_etherdev_mqs(sizeof(*pf), qcount + qos_txqs, qcount);
+-	if (!netdev) {
+-		err = -ENOMEM;
+-		goto err_release_regions;
+-	}
++	if (!netdev)
++		return -ENOMEM;
+ 
+ 	pci_set_drvdata(pdev, netdev);
+ 	SET_NETDEV_DEV(netdev, &pdev->dev);
+@@ -3246,8 +3244,6 @@ static int otx2_probe(struct pci_dev *pdev, const struct pci_device_id *id)
+ err_free_netdev:
+ 	pci_set_drvdata(pdev, NULL);
+ 	free_netdev(netdev);
+-err_release_regions:
 -	pci_release_regions(pdev);
- err_pci_request_regions:
- err_pci_enable_device:
  	return err;
-@@ -953,7 +952,6 @@ static void prestera_pci_remove(struct pci_dev *pdev)
- 	pci_free_irq_vectors(pdev);
- 	destroy_workqueue(fw->wq);
- 	prestera_fw_uninit(fw);
+ }
+ 
+@@ -3447,8 +3443,6 @@ static void otx2_remove(struct pci_dev *pdev)
+ 	pci_free_irq_vectors(pf->pdev);
+ 	pci_set_drvdata(pdev, NULL);
+ 	free_netdev(netdev);
+-
 -	pci_release_regions(pdev);
  }
  
- static const struct pci_device_id prestera_pci_devices[] = {
+ static struct pci_driver otx2_pf_driver = {
+diff --git a/drivers/net/ethernet/marvell/octeontx2/nic/otx2_vf.c b/drivers/net/ethernet/marvell/octeontx2/nic/otx2_vf.c
+index 7ef3ba477d49..fb4da816d218 100644
+--- a/drivers/net/ethernet/marvell/octeontx2/nic/otx2_vf.c
++++ b/drivers/net/ethernet/marvell/octeontx2/nic/otx2_vf.c
+@@ -548,7 +548,7 @@ static int otx2vf_probe(struct pci_dev *pdev, const struct pci_device_id *id)
+ 		return err;
+ 	}
+ 
+-	err = pci_request_regions(pdev, DRV_NAME);
++	err = pcim_request_all_regions(pdev, DRV_NAME);
+ 	if (err) {
+ 		dev_err(dev, "PCI request regions failed 0x%x\n", err);
+ 		return err;
+@@ -557,7 +557,7 @@ static int otx2vf_probe(struct pci_dev *pdev, const struct pci_device_id *id)
+ 	err = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(48));
+ 	if (err) {
+ 		dev_err(dev, "DMA mask config failed, abort\n");
+-		goto err_release_regions;
++		return err;
+ 	}
+ 
+ 	pci_set_master(pdev);
+@@ -565,10 +565,8 @@ static int otx2vf_probe(struct pci_dev *pdev, const struct pci_device_id *id)
+ 	qcount = num_online_cpus();
+ 	qos_txqs = min_t(int, qcount, OTX2_QOS_MAX_LEAF_NODES);
+ 	netdev = alloc_etherdev_mqs(sizeof(*vf), qcount + qos_txqs, qcount);
+-	if (!netdev) {
+-		err = -ENOMEM;
+-		goto err_release_regions;
+-	}
++	if (!netdev)
++		return -ENOMEM;
+ 
+ 	pci_set_drvdata(pdev, netdev);
+ 	SET_NETDEV_DEV(netdev, &pdev->dev);
+@@ -765,8 +763,6 @@ static int otx2vf_probe(struct pci_dev *pdev, const struct pci_device_id *id)
+ err_free_netdev:
+ 	pci_set_drvdata(pdev, NULL);
+ 	free_netdev(netdev);
+-err_release_regions:
+-	pci_release_regions(pdev);
+ 	return err;
+ }
+ 
+@@ -815,8 +811,6 @@ static void otx2vf_remove(struct pci_dev *pdev)
+ 	pci_free_irq_vectors(vf->pdev);
+ 	pci_set_drvdata(pdev, NULL);
+ 	free_netdev(netdev);
+-
+-	pci_release_regions(pdev);
+ }
+ 
+ static struct pci_driver otx2vf_driver = {
+diff --git a/drivers/net/ethernet/marvell/octeontx2/nic/rep.c b/drivers/net/ethernet/marvell/octeontx2/nic/rep.c
+index 04e08e06f30f..0bb8a971c4ff 100644
+--- a/drivers/net/ethernet/marvell/octeontx2/nic/rep.c
++++ b/drivers/net/ethernet/marvell/octeontx2/nic/rep.c
+@@ -763,7 +763,7 @@ static int rvu_rep_probe(struct pci_dev *pdev, const struct pci_device_id *id)
+ 		return err;
+ 	}
+ 
+-	err = pci_request_regions(pdev, DRV_NAME);
++	err = pcim_request_all_regions(pdev, DRV_NAME);
+ 	if (err) {
+ 		dev_err(dev, "PCI request regions failed 0x%x\n", err);
+ 		return err;
+@@ -772,7 +772,7 @@ static int rvu_rep_probe(struct pci_dev *pdev, const struct pci_device_id *id)
+ 	err = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(48));
+ 	if (err) {
+ 		dev_err(dev, "DMA mask config failed, abort\n");
+-		goto err_release_regions;
++		goto err_set_drv_data;
+ 	}
+ 
+ 	pci_set_master(pdev);
+@@ -780,7 +780,7 @@ static int rvu_rep_probe(struct pci_dev *pdev, const struct pci_device_id *id)
+ 	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+ 	if (!priv) {
+ 		err = -ENOMEM;
+-		goto err_release_regions;
++		goto err_set_drv_data;
+ 	}
+ 
+ 	pci_set_drvdata(pdev, priv);
+@@ -797,7 +797,7 @@ static int rvu_rep_probe(struct pci_dev *pdev, const struct pci_device_id *id)
+ 
+ 	err = otx2_init_rsrc(pdev, priv);
+ 	if (err)
+-		goto err_release_regions;
++		goto err_set_drv_data;
+ 
+ 	priv->iommu_domain = iommu_get_domain_for_dev(dev);
+ 
+@@ -820,9 +820,8 @@ static int rvu_rep_probe(struct pci_dev *pdev, const struct pci_device_id *id)
+ 	otx2_disable_mbox_intr(priv);
+ 	otx2_pfaf_mbox_destroy(priv);
+ 	pci_free_irq_vectors(pdev);
+-err_release_regions:
++err_set_drv_data:
+ 	pci_set_drvdata(pdev, NULL);
+-	pci_release_regions(pdev);
+ 	return err;
+ }
+ 
+@@ -842,7 +841,6 @@ static void rvu_rep_remove(struct pci_dev *pdev)
+ 	otx2_pfaf_mbox_destroy(priv);
+ 	pci_free_irq_vectors(priv->pdev);
+ 	pci_set_drvdata(pdev, NULL);
+-	pci_release_regions(pdev);
+ }
+ 
+ static struct pci_driver rvu_rep_driver = {
 -- 
 2.48.1
 
