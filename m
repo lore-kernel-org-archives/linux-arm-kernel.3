@@ -4,92 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66AA1C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 11:42:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EE7BC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 11:44:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ex7ttFFeolAsCiQiimZfezkN5TbzPUbUsFH3429aqKY=; b=e3TfgxpjU2jq5iRPNmrGInE9cY
-	M9EQ+RHc9c4eQOSRXxT8bM+Y5Fl4UzyQ7rgvs7BczuIpL2zKGRoUu/LlVfuu/6XBYP2z361mNwivr
-	RrCf9r1YvFJEkoayRQLCPt7fmu1tBTUnREvgAQl6FkiH7G3ZOOVfHN6UY0S8I3dJB+MFe5IHSqRl8
-	Jy047VjP+MKOUB+RSY+5H6LOs22jWrG/ecRPVM8IhFZek6U6ipONU4tlkK7hHllB738SuVQo/2q7H
-	jGVi3TiwGZvH5GlIRrEckeQuMlE8j028+4idAK+QWq+rChXh9nK3anu7QFnZSErLgO7AcQ0Pr9h+o
-	ol6EpjqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LN1pPLHSqJ9U/pYwUJkUNGq9IVtE+AolnPWKBhc2ADA=; b=Nnr6ZGH+WbMvWsCFgwKFyJv32b
+	/KTJPxNl+F0OfLDwRSu3R8U3eoQkQ0UHHYth0em0o4AMLRvKkekhzAsN+dzo3/hMj2p6Z2YXwwSgn
+	3yUZM6YxNT8Pwxfclsv9nXamBvg5OWxFu9FCql+s7njb8kSraiXMoTFn2nZtuy7Mnyo3Bltqd6Ji9
+	YTtdrIJI3LgL4PeaSZvlr/wMWAq5Iy9FN+WxrxbfnXJJSxpM9p6KFMr7StAThN//TuAUSEUKrGqak
+	lJoD628xRMv8htFMKZpYCShbuZ/N5iGkPDkyayozZhOM17c1S1z9Ld8hJoPdvVxaWMof1wVryeZ7a
+	6KwRlQ9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8HS4-0000000H0GI-44De;
-	Fri, 25 Apr 2025 11:42:40 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1u8HTu-0000000H0gz-3ez5;
+	Fri, 25 Apr 2025 11:44:34 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8FFm-0000000GWNc-2q9b
+	id 1u8FGW-0000000GWUa-02fA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 09:21:52 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5e61d91a087so3238133a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 02:21:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745572909; x=1746177709; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ex7ttFFeolAsCiQiimZfezkN5TbzPUbUsFH3429aqKY=;
-        b=rL5n5fEEaMgd1HKUYUAptnfET44ZcXAwR5DbavkxPb7cOkuxEQBmcPyWaOilGToQ7J
-         H07aiTueO5+QpDd8/h6//eUSGwXTWertBFFhLDRDqcMXTP+U/siNJwG2pa5Fgig0EixO
-         vLeYiR5sH/PasQq25Rs6kEbEToCj1pr/1cYVmzFOBGHwYkh85mXEqYgSxs8y8TMFiIJB
-         hs3qNSBapQ5c5k406xFymUw0ZgHPJcMoer5ilpPLU9gNUBlezvnyoYUGkp4ItsEXPkql
-         Ifsj5Bs71FpzM7UElvg6JRDi8Chc5OdiXh3OIWpZcULRXskJ5U3hVn4smGc1BnP/eJgb
-         +/wg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745572909; x=1746177709;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ex7ttFFeolAsCiQiimZfezkN5TbzPUbUsFH3429aqKY=;
-        b=S5YJpetdepFqaMr/3ee43fhe7xlUAvb9NwXddIZlqc5E6BIYhdTV0IshYy4b3AFxMU
-         0jtIZYqGUSitB/Ek1/KtNp2a4QIMhPgvAPLCvFZjeZX80+xLR+yCtUi7ZYOM0K/CoZK7
-         8VSj5k5YRu42ttxRYx+JIfNPaQARtnQkOAImDpOJ4k9C6oXdCAh+jdWOwr8UCTXwedav
-         AkhLEXDBdAHv+yQjV98Igfm4tlKJAFEuQKBBgDpgybnkAIV0T4/iW+MbQU8YU/KnAMw+
-         VXtixQZMYwIs1WYIqbADakCDHn1JCekYWdR0bbPwKXolG8HxvpyEFSEstyGke8DJaFXW
-         cWVQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXys7Owoo34UGbClziwYFn1cZqghtbDFRz9XftkySOYVwTLHCA4DkbAX6jl9sYl72lNwlGYZ8jfjWAty/4vnyGl@lists.infradead.org
-X-Gm-Message-State: AOJu0YwXOb1ja+ziM2tj91YwikLMBVbfg7+n9YaZ9sYjxHXiNdHX+j2U
-	AYCTHh4OTEWe1tI/LQaClSdCH1HHQFFqvaz84zFSea7Bdw5aL/3IEivGvq81Jnc=
-X-Gm-Gg: ASbGncuOyqzkocV6wU96hKNvQYn8hcVVdyQTbRBfxmoFy7zOBsWHWJziqqVLXqB0XKL
-	vwDh+w6ldlCEFhA0Zxkcq8qv94BN6qLwiJkaQjFD6I8NQAhyrd2mTea5M2CLMRids7NYEeMmecr
-	tPMlv8Px0fWo6tdZ1dJds+eZDyEPlKy1K59jTeCyht0h2zmT86ylW84qHXx2epx475H5qtBgmXz
-	sn3XQ7ez8dVFurh4wJaJFBubc76HRwEMyM3GC77OwM5VW7NIQFRfn7V2tcEwZI6pkTyTF9M+1Bp
-	ob3pLfZIGHREtwwkorKWyZ2K65u8XPsIyOH1vzsUjYcHT0Kt8w==
-X-Google-Smtp-Source: AGHT+IHN1tq8lZGPw+yObmv5OBFBiAlAdlprz4LzswEniu88fbB371A57pfYn5r7p7hN7qREYYhCSA==
-X-Received: by 2002:a17:907:9721:b0:aca:d5e9:9ce with SMTP id a640c23a62f3a-ace71047947mr108851466b.9.1745572908825;
-        Fri, 25 Apr 2025 02:21:48 -0700 (PDT)
-Received: from [192.168.0.14] ([82.76.212.167])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ace6e4e726dsm105543966b.40.2025.04.25.02.21.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 25 Apr 2025 02:21:48 -0700 (PDT)
-Message-ID: <8b222d93-927a-4685-a44c-bdd5d7b34c74@linaro.org>
-Date: Fri, 25 Apr 2025 10:21:46 +0100
+	Fri, 25 Apr 2025 09:22:37 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53OL3NgJ000435;
+	Fri, 25 Apr 2025 09:22:32 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=LN1pPLHSqJ9U/pYwUJkUNGq9IVtE+A
+	olnPWKBhc2ADA=; b=VGrSB5nZcoK0RffuWJWHLhfuM8GAlIazwHpD7eE/OBVuHw
+	UY3GXaxKq2D71/B4zNB4vPkg7RU8GLsSd3wpAM4jUddw/7hHm2zYfpLLDCZrronN
+	7fdJJRI4pAEthFQjKihc5pKKvSyfhDCHTY10xtCx5syM+2DlwYS9+VWDvD4PWQtf
+	8Yu10XexVmGtYiWCrrw3G5PiGd55CMecKwmGz1Pdfr5LUchVzQAC46Y16zkCJ9Dc
+	tmCVBZdDy8C/obfgKZnBaMG7VemuuimbYqmjNtr7EcExilbKg51/JeEcyh9LjBl3
+	cdqVX/zvRV7P+Ha+5wq0iwzON6GHz/dXPOdcG6zA==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 467vvktjc1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 25 Apr 2025 09:22:32 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 53P8nqOG005844;
+	Fri, 25 Apr 2025 09:22:31 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 466jfxmhc7-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 25 Apr 2025 09:22:31 +0000
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 53P9MT0v52953398
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 25 Apr 2025 09:22:29 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 1CAF52008E;
+	Fri, 25 Apr 2025 09:22:29 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 904362008C;
+	Fri, 25 Apr 2025 09:22:28 +0000 (GMT)
+Received: from osiris (unknown [9.111.13.86])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Fri, 25 Apr 2025 09:22:28 +0000 (GMT)
+Date: Fri, 25 Apr 2025 11:22:27 +0200
+From: Heiko Carstens <hca@linux.ibm.com>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+        linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+        sparclinux@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH 5/7] s390/crc: drop "glue" from filenames
+Message-ID: <20250425092227.7180Bda-hca@linux.ibm.com>
+References: <20250424002038.179114-1-ebiggers@kernel.org>
+ <20250424002038.179114-6-ebiggers@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] firmware: exynos-acpm: Correct kerneldoc and use typical
- np argument name
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar
- <alim.akhtar@samsung.com>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
- <andre.draszik@linaro.org>, linux-kernel@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: kernel test robot <lkp@intel.com>
-References: <20250424203308.402168-2-krzysztof.kozlowski@linaro.org>
-Content-Language: en-US
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <20250424203308.402168-2-krzysztof.kozlowski@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250424002038.179114-6-ebiggers@kernel.org>
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI1MDA2NiBTYWx0ZWRfX3e4KGJJceAbh 8ulqlz118/sMZd30x5ryne975AKqT2PWmDFs66SGKThLVdu9fq1jhjkFbOret7lzmwtkhjbnsnB hs8lCmJaLnb69Lk1nfCnnPbWIgzBjiZaaG4lu0UN123R18mRCDBXRAC1wTGrk6iK/JjlDXTRwZV
+ 4z5lzLYQhMLPkX+/OMVNe7fX6zSl30Vb/FBd4OkHMfy3F1JIKNmN42hT5hZadKFSxrlUrjc7NMZ VQksjv1Ly9bOVvWc8XRchJM0dhpfYzENrwJOX4As6O2FlaTn8pASor5YRmutatyfFOBmNA4gl0O g2G+K9qoOwZ5KYQInoScDk+YBeHwzT3ANt0w/3x6nYd3g8WsNLWNwmzVQVVhllOpCLHZhHo7HR7
+ X38P3SFEG10nDi/t0vhJoVJqOiQz3xO3KB+YPOHMmO4fh2y/FOTF+xrLCTUtekJWCXWbaFc4
+X-Proofpoint-ORIG-GUID: fzRVex48zlkxZ2zgDgYwyiXuH5CDRUOW
+X-Proofpoint-GUID: fzRVex48zlkxZ2zgDgYwyiXuH5CDRUOW
+X-Authority-Analysis: v=2.4 cv=HoF2G1TS c=1 sm=1 tr=0 ts=680b5458 cx=c_pps a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17 a=kj9zAlcOel0A:10 a=XR8D0OoHHMoA:10 a=1XWaLZrsAAAA:8 a=VnNF1IyMAAAA:8 a=TEI_16ca6WvQRRaRdDEA:9 a=CjuIK1q_8ugA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-04-25_02,2025-04-24_02,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=632
+ lowpriorityscore=0 phishscore=0 clxscore=1015 impostorscore=0 adultscore=0
+ bulkscore=0 suspectscore=0 priorityscore=1501 malwarescore=0 mlxscore=0
+ spamscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
+ definitions=main-2504250066
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_022150_737551_F0EE30BC 
-X-CRM114-Status: UNSURE (   8.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250425_022236_052890_E92F5611 
+X-CRM114-Status: GOOD (  19.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,25 +111,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 4/24/25 9:33 PM, Krzysztof Kozlowski wrote:
-> Correct kerneldoc warnings after commit a8dc26a0ec43 ("firmware:
-> exynos-acpm: introduce devm_acpm_get_by_node()") changed the function
-> prototype:
+On Wed, Apr 23, 2025 at 05:20:36PM -0700, Eric Biggers wrote:
+> From: Eric Biggers <ebiggers@google.com>
 > 
->   exynos-acpm.c:672: warning: Function parameter or struct member 'acpm_np' not described in 'acpm_get_by_node'
->   exynos-acpm.c:672: warning: expecting prototype for acpm_get_by_phandle(). Prototype was for acpm_get_by_node() instead
+> The use of the term "glue" in filenames is a Crypto API-ism that does
+> not show up elsewhere in lib/.  I think adopting it there was a mistake.
+> The library just uses standard functions, so the amount of code that
+> could be considered "glue" is quite small.  And while often the C
+> functions just wrap the assembly functions, there are also cases like
+> crc32c_arch() in arch/x86/lib/crc32-glue.c that blur the line by
+> in-lining the actual implementation into the C function.  That's not
+> "glue code", but rather the actual code.
 > 
-> While touching the lines, change the name of device_node pointer to
-> 'np' to match convention.
+> Therefore, let's drop "glue" from the filenames and instead use e.g.
+> crc32.c instead of crc32-glue.c.
 > 
-> Fixes: a8dc26a0ec43 ("firmware: exynos-acpm: introduce devm_acpm_get_by_node()")
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202504222051.7TqaSQ48-lkp@intel.com/
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Signed-off-by: Eric Biggers <ebiggers@google.com>
+> ---
+>  arch/s390/lib/Makefile                  | 2 +-
+>  arch/s390/lib/{crc32-glue.c => crc32.c} | 0
+>  2 files changed, 1 insertion(+), 1 deletion(-)
+>  rename arch/s390/lib/{crc32-glue.c => crc32.c} (100%)
 
-Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
-
-thanks!
+Acked-by: Heiko Carstens <hca@linux.ibm.com>
 
