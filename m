@@ -4,95 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0655BC369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 15:52:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94EFEC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 15:54:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pep0nEe9nBYLhazzxkyxDOa4AuBJd4R+Hgm/7v3gc7Q=; b=4+j0t5jt+NBmDdTYhrERRUYb6m
-	o673fxz0clo7MD0vSzHvZ9OpybBkDXK5asfjBnwn3sVTvCbeecfG/5nRQZfRHA8ltc0LW4AUgPOp3
-	KNRAijMCSinSdg3BCh0RVewGOOebREJ9RGGMHw6hHVBHpnWA1IKgsoN3GmQqaRykzpfP2vgcbtEla
-	lr7E1V+DGTAsjWh5hIy+2u6HQ3VTkvPjvEAy9s6kiTSydwFtsAK6TkwZjfg224XPd6jbTA0rDoery
-	QuMTNbh45gXT/yLJGyUwi8M6KDCEw9/zQ2rZCRVJRNFJdsC+3MIiDNUK6hGyBRQm42iyHEvPAzYfm
-	51GlPKpA==;
+	bh=C8w5ALTriP5T/mRvVHqp5sZDbeSXWemuqbarruCRerk=; b=H6Gs1Pd5fj4MwEXhBuiFCdjTpG
+	WGaG4GaCU3/fSZ5rIqYbkxFeQzdTBwIvDGl3TGJkgKnZrpdD9RD1RDRXSMIdOFeGuy57n2V4moI8+
+	HbN7/pwuYEF1RhEN7y9NFReFrhJIDSi3jeiAb4AeVyi8oVSDG6yQTl2/oiPG+f6gANanXRRUYAoOq
+	koIx30k80HXGg8uhnZdqcBOWEgQwIIeAEvxXlW3VwR0JHmArNX4ZFqoZbHUjdY+LoViaPbZrEe87U
+	427YpkqLxXjb/ifKFD+hBKD2M7/JWiMCiKZrEmhA221UYPzLZI9oE+NPgIHfjSdMM+tl4Bs7ig8hc
+	6gHq5Hrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8LLs-0000000071w-0KSf;
-	Fri, 25 Apr 2025 15:52:32 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1u8LNb-000000007aM-3xVy;
+	Fri, 25 Apr 2025 15:54:19 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8JB1-0000000HINW-1SEC
+	id 1u8Jq0-0000000HOwA-0ebg
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 25 Apr 2025 14:15:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=C8w5ALTriP5T/mRvVHqp5sZDbeSXWemuqbarruCRerk=; b=IUwMsR1FdTu9S4jYrVUdDuFdeo
+	8vCbiOyAv4Hb8LPq/xpvQCucKqocRN1oh8X1w/WVtvFfpJAhTFIGuswAYfXzNZOQ4sUJCWiBSO2zV
+	J53/v7Vb/tW0MsE4PnSPsog00/wq8FNCWPySCCWrTQXPvt1BUQZK+J5SG9lGqw1hTOnph+VC7Kqjl
+	7Oz6vyc1Bj0B+D09pISRuyMSSj50BnCC2U/eoHRL3XCAqwL6NsxWwbNhxThYk7zmfV+3kQunUPXeD
+	/uc9wZ3A1ZZksUoUjevQ0Dc8xnB1InwVRWQSFjQp7/IR0MCs4EAQGDUOjmBsNG7UtIjneDHPGVxbn
+	kPfrxHGw==;
+Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u8Jpx-0000000C3wE-0iRM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 13:33:12 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2255003f4c6so24675835ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 06:33:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745587991; x=1746192791; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=pep0nEe9nBYLhazzxkyxDOa4AuBJd4R+Hgm/7v3gc7Q=;
-        b=lAOObEk4k6/P4v6gALe3J6OrUeMNThZfBTinq0nkfU1SBAgU2qiid60Ftd04hPCgNC
-         h4pjHDD4AMBBAk4M+NY1+SwOi0ENPT9WpoL5ZOk7ARdI0uDAq3uBnqL6jkFN4O4ZwpaO
-         nWw9iIHvEL15tcCXm81wxDSReNelM5Q/6Go2l3GNsyMYoEdUU2r2zkAqOyq3GxZ+8uHX
-         IRtH6Pmr5BWMpC/JSF2fHOZBtwCM/HE9qp3j/sZmMq45/hx3KHw+XvjO42UwxNFFfzY3
-         7G1rTXaP/E0krb/Kj+k6e/C6Ddl1xK+2Ef0fF94y1NRVTgMw50s9cIllwCU0+H0V+Quj
-         BKNw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745587991; x=1746192791;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=pep0nEe9nBYLhazzxkyxDOa4AuBJd4R+Hgm/7v3gc7Q=;
-        b=TtXlLEhyPK1hRH6sFYk21q2xLqA50WyHYgjrwYF8CtSPQZ1e51UDnsrvK2EW+oOf9t
-         ATJzJpiAQCnNdw4r//cmbq8krkRRPoOLmVcLjl7C/2TLKobjwzC1XkMqgkaC4zP/6/WG
-         xa+jYiEKzu+IWMO0INu6c5N56r1VUHTtUinE+yWgRdqBxGYOdcLb+XtL7lo28oiyNn4s
-         l23pvLSPKzp5vR8c7LTztYkTer4E6LfeAmpiErlNyg1EpRCrPD3eiO0tGQulfZGVKL5N
-         aQDcCMxKE0whSnwqWcmjHSfbpxMxmDhuo5ZfpicIjmVFcD5Zp6RNuikZgtw8eVEoJSsE
-         V6ZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXlVxMVms7v3/GYfN1TDE586JNJPMTIsTyubykkhSFK+a45ikOdIgpYG/oC2s744sxG2wOekb1zFjc/zyGU9Kyt@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJHwSGG3KDXUXw4AGbKbHpmOUYlew1DnR9SM9d2+uKfPpcKVD6
-	+Nb1RYr1mcnRBR0lWefjUDOtBPBlQQU1fs6jG59rgx9dhCdtEIM9
-X-Gm-Gg: ASbGnctdrloBoXoCkPPldncZ6B5wHs8Glk+yvqDnhCITNI1c+uy7R40d9gAf0XLokAJ
-	vHG4YnrN/MaWhUxPQ76/Ek+gg2tfwA9E3518/eEw7M9YD2GnGhf/r1ziyPoLNbmnytrEXSMY+3s
-	OKUUTtKpS74qzVE6Uwx56G8qkvQeBDwmN3BB9KlC52vBrgdJ1HZ6lwRuzCFC3Sl18SMfpPLCFyV
-	U+WPzqEAVeX0AJjeM1lpfItI8/BCkEtPPODrUCPGMocw6TkJ21d93ALudadPl8OBOKBMz/pVT9p
-	ZAOSahePnCJ1KetTLKiojn9po9lIfLcYG5R/urw+8euddKUg/ofQ
-X-Google-Smtp-Source: AGHT+IG4gdZGqoCFY00Bz2qafpDH6e8Ix477pgjTWfraJWV+LLOKEsFlXxB9rbKhcUQiL3rNHJ+myg==
-X-Received: by 2002:a17:903:4410:b0:227:e980:9190 with SMTP id d9443c01a7336-22dbf742dcdmr41822465ad.44.1745587990612;
-        Fri, 25 Apr 2025 06:33:10 -0700 (PDT)
-Received: from NB-GIGA003.letovo.school ([5.194.95.139])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22db50e766bsm31834165ad.149.2025.04.25.06.33.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Apr 2025 06:33:10 -0700 (PDT)
-From: Alexey Charkov <alchark@gmail.com>
-Date: Fri, 25 Apr 2025 17:32:56 +0400
-Subject: [PATCH v3 1/2] dt-bindings: arm: vt8500: Add VIA APC Rock/Paper
- boards
+	Fri, 25 Apr 2025 14:15:31 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id AFB4043A16;
+	Fri, 25 Apr 2025 14:15:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1745590524;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=C8w5ALTriP5T/mRvVHqp5sZDbeSXWemuqbarruCRerk=;
+	b=ljijN1YKzbVOc8phpZwNtIMC4purf/MhY4YLDSlo5JwJQKzPiozu03aewd0Y6WKvMD0NRt
+	O1e9bMcbRQotwpPg53sLIML0I0zQq7xZc/ptr6rHwlCyADH/QhVt4cXNt9bDE6J1OcC24n
+	XZQKLsw40WX3ZBbVckKCNjRs3V/65UEs2P8RvcA8Ik98gZsFckY1PBqO3isUCVm+KsCQD3
+	CcWcoVnuB1jcFA3PmIliq93TYg6pVDUwIa2RXK+Ps8+0swEum6QxbLP/rI5aWCd2OQvbun
+	6ACe4bXh+sOFeMqSJoyEMrNWyGN7DSMU/XVzTEn4XIRADpZ55NJLmdI/YPz5EQ==
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: davem@davemloft.net
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	thomas.petazzoni@bootlin.com,
+	Andrew Lunn <andrew@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
+	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	=?UTF-8?q?Nicol=C3=B2=20Veronese?= <nicveronese@gmail.com>,
+	Simon Horman <horms@kernel.org>,
+	mwojtas@chromium.org,
+	Antoine Tenart <atenart@kernel.org>,
+	devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
+Subject: [PATCH net-next v5 05/14] net: phy: Create a phy_port for PHY-driven SFPs
+Date: Fri, 25 Apr 2025 16:14:58 +0200
+Message-ID: <20250425141511.182537-6-maxime.chevallier@bootlin.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250425141511.182537-1-maxime.chevallier@bootlin.com>
+References: <20250425141511.182537-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250425-apc_paper_binding-v3-1-846b0855420e@gmail.com>
-References: <20250425-apc_paper_binding-v3-0-846b0855420e@gmail.com>
-In-Reply-To: <20250425-apc_paper_binding-v3-0-846b0855420e@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Alexey Charkov <alchark@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1745587999; l=1622;
- i=alchark@gmail.com; s=20250416; h=from:subject:message-id;
- bh=7MoBmJQeZLl1d5tdgIVwQgJNL7HZP8gebnQnY4ucRwo=;
- b=PCaiVieYKaF9KNg1bFpg51Oenx56aifgRnz4KdSOazltlzSwfLotz3hjw+68lvbSFv2WxfshI
- tA7p/S2WUaqALUrP0dY5PBdthUCyrkcMSAqLN8ST3RzFJ5+h2Fc5KOF
-X-Developer-Key: i=alchark@gmail.com; a=ed25519;
- pk=ltKbQzKLTJPiDgPtcHxdo+dzFthCCMtC3V9qf7+0rkc=
+Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvhedvheehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepveegtdffleffleevueellefgjeefvedvjefhheegfefgffdvfeetgeevudetffdtnecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgepvdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedupdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrk
+ hgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqmhhsmhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhg
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_063311_389983_A6495773 
-X-CRM114-Status: GOOD (  10.55  )
+X-CRM114-CacheID: sfid-20250425_151529_388778_400B8F6E 
+X-CRM114-Status: GOOD (  17.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,57 +118,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-APC Rock is a development board based on WonderMedia WM8950 SoC
-released around 2013. Paper is the same as Rock but lacking a
-VGA port and shipped with a recycled cardboard case.
+Some PHY devices may be used as media-converters to drive SFP ports (for
+example, to allow using SFP when the SoC can only output RGMII). This is
+already supported to some extend by allowing PHY drivers to registers
+themselves as being SFP upstream.
 
-While at that, put myself as the maintainer, given that Tony is
-unavailable as of lately.
+However, the logic to drive the SFP can actually be split to a per-port
+control logic, allowing support for multi-port PHYs, or PHYs that can
+either drive SFPs or Copper.
 
-Signed-off-by: Alexey Charkov <alchark@gmail.com>
+To that extent, create a phy_port when registering an SFP bus onto a
+PHY. This port is considered a "serdes" port, in that it can feed data
+to anther entity on the link. The PHY driver needs to specify the
+various PHY_INTERFACE_MODE_XXX that this port supports.
+
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- Documentation/devicetree/bindings/arm/vt8500.yaml | 23 ++++++++++++++---------
- 1 file changed, 14 insertions(+), 9 deletions(-)
+ drivers/net/phy/phy_device.c | 21 +++++++++++++++++++++
+ drivers/net/phy/phy_port.c   | 17 +++++++++++++++++
+ 2 files changed, 38 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/vt8500.yaml b/Documentation/devicetree/bindings/arm/vt8500.yaml
-index 5d5ad5a60451f569e6ef30c924a1964d02e1aa82..f2164144a7af29ca77761bc58fe7f4558e7d101c 100644
---- a/Documentation/devicetree/bindings/arm/vt8500.yaml
-+++ b/Documentation/devicetree/bindings/arm/vt8500.yaml
-@@ -7,19 +7,24 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
- title: VIA/Wondermedia VT8500 Platforms
+diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
+index 4bb177d99d45..5ab08d5f1a5b 100644
+--- a/drivers/net/phy/phy_device.c
++++ b/drivers/net/phy/phy_device.c
+@@ -1490,6 +1490,23 @@ static void phy_del_port(struct phy_device *phydev, struct phy_port *port)
+ 	phydev->n_ports--;
+ }
  
- maintainers:
--  - Tony Prisk <linux@prisktech.co.nz>
--description: test
-+  - Alexey Charkov <alchark@gmail.com>
- 
- properties:
-   $nodename:
-     const: '/'
-   compatible:
--    items:
--      - enum:
--          - via,vt8500
--          - wm,wm8505
--          - wm,wm8650
--          - wm,wm8750
--          - wm,wm8850
-+    oneOf:
-+      - items:
-+          - enum:
-+              - via,vt8500
-+              - wm,wm8505
-+              - wm,wm8650
-+              - wm,wm8750
-+              - wm,wm8850
++static int phy_setup_sfp_port(struct phy_device *phydev)
++{
++	struct phy_port *port = phy_port_alloc();
 +
-+      - description: VIA APC Rock and Paper boards
-+        items:
-+          - const: via,apc-rock
-+          - const: wm,wm8950
++	if (!port)
++		return -ENOMEM;
++
++	port->parent_type = PHY_PORT_PHY;
++	port->phy = phydev;
++
++	port->is_serdes = true;
++
++	phy_add_port(phydev, port);
++
++	return 0;
++}
++
+ /**
+  * phy_sfp_probe - probe for a SFP cage attached to this PHY device
+  * @phydev: Pointer to phy_device
+@@ -1511,6 +1528,10 @@ int phy_sfp_probe(struct phy_device *phydev,
+ 		ret = sfp_bus_add_upstream(bus, phydev, ops);
+ 		sfp_bus_put(bus);
+ 	}
++
++	if (phydev->sfp_bus)
++		ret = phy_setup_sfp_port(phydev);
++
+ 	return ret;
+ }
+ EXPORT_SYMBOL(phy_sfp_probe);
+diff --git a/drivers/net/phy/phy_port.c b/drivers/net/phy/phy_port.c
+index f54917cada39..617a68417795 100644
+--- a/drivers/net/phy/phy_port.c
++++ b/drivers/net/phy/phy_port.c
+@@ -8,6 +8,8 @@
+ #include <linux/of.h>
+ #include <linux/phy_port.h>
  
- additionalProperties: true
-
++#include "phy-caps.h"
++
+ /**
+  * phy_port_alloc: Allocate a new phy_port
+  *
+@@ -146,6 +148,21 @@ void phy_port_update_supported(struct phy_port *port)
+ 		ethtool_medium_get_supported(supported, i, port->lanes);
+ 		linkmode_or(port->supported, port->supported, supported);
+ 	}
++
++	/* Serdes ports supported may through SFP may not have any medium set,
++	 * as they will output PHY_INTERFACE_MODE_XXX modes. In that case, derive
++	 * the supported list based on these interfaces
++	 */
++	if (port->is_serdes && linkmode_empty(supported)) {
++		unsigned long interface, link_caps = 0;
++
++		/* Get each interface's caps */
++		for_each_set_bit(interface, port->interfaces,
++				 PHY_INTERFACE_MODE_MAX)
++			link_caps |= phy_caps_from_interface(interface);
++
++		phy_caps_linkmodes(link_caps, port->supported);
++	}
+ }
+ EXPORT_SYMBOL_GPL(phy_port_update_supported);
+ 
 -- 
 2.49.0
 
