@@ -4,63 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B17F0C369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 03:46:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A191C369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 03:55:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KmcrYSX7tKI9ebTpXtHeyjBitO/Uy6wo1tUMW8axktY=; b=HzWtDTeKgSuL0FGx3qUThe/5aH
-	55auPsaaUB7DqQqTcR+wSOVvhdErINXlGBmZtiecds82oGO/fdMnRbxpieCfVyN4Q7s68z8ODU9OY
-	qc7xuixBuc7/pkM3kTVjQcYOb4PoA6fB7nyc1sbcq5MbXIVeF54vW2d2It4BjY0KSAKXtRdDkzSQy
-	NDv7GJfUVGvy/Bsc7W60YLf1g5W0wOcDB5dysj9ZtRKw6Flh3bfAW+JUpFGe8myNae0ltXVHpNrg8
-	4rsdASRJmqSNJRYkz8645wfOTNhso9V00ux5UEpM2NIdnJZPcJKFi+bai0HtfZ1JPfqJqqkyaZd9o
-	xqKPH99A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=tMCG7PVJZT2ImV73Bv9BnKAx04gSVppKM7hgJ6w7nuM=; b=SU/2/rpBMCYpe5
+	Ao3VfFfZ5E+HIG4Zi6F3x3vFp3U1trMmboEnQj//x0uwyiymp5nhzlu/eTb7MBdB8kFFsZHYNzKIL
+	5NgKxkqWVJ21yY7Af/3Pg94jXppobCCRBWg+E0t96ynOTuwKIKe0qjslET/a89uwp2+sHb1p2Chf8
+	xs698OvXFTATc9fGQeRNX5M9KN4pq0o6vUFgrhol7nWotsDENMMVJr8QsIam//rM0oH2imhSEDtof
+	+G/Nkwce72e6zv5rdpPLVxiCfS/4ht3Zi8umB0AN9nc/qYNt4FEZUAJ55cA+Y1UYIMA/NtgI9c3Ik
+	MZvwGrqNoPiZMmudsp3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8A1F-0000000FsNU-0Eca;
-	Fri, 25 Apr 2025 03:46:29 +0000
-Received: from szxga01-in.huawei.com ([45.249.212.187])
+	id 1u8A9P-0000000Fsr7-0vC6;
+	Fri, 25 Apr 2025 03:54:55 +0000
+Received: from mail-lj1-f179.google.com ([209.85.208.179])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u89u0-0000000Frk9-0HbU
+	id 1u8A7X-0000000Fsgw-2lF3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 03:39:03 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.194])
-	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4ZkJSv1KLGz13Kcp;
-	Fri, 25 Apr 2025 11:37:51 +0800 (CST)
-Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id 6BA6E1400D9;
-	Fri, 25 Apr 2025 11:38:52 +0800 (CST)
-Received: from localhost.localdomain (10.50.165.33) by
- kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Fri, 25 Apr 2025 11:38:51 +0800
-From: Yicong Yang <yangyicong@huawei.com>
-To: <acme@kernel.org>, <namhyung@kernel.org>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <peterz@infradead.org>, <mingo@redhat.com>,
-	<mark.rutland@arm.com>, <jolsa@kernel.org>, <john.g.garry@oracle.com>,
-	<james.clark@linaro.org>, <leo.yan@linux.dev>, <irogers@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>
-CC: <jonathan.cameron@huawei.com>, <hejunhao3@huawei.com>,
-	<linuxarm@huawei.com>, <wangyushan12@huawei.com>, <caijingtao@huawei.com>,
-	<xueshan2@huawei.com>, <prime.zeng@hisilicon.com>, <yangyicong@hisilicon.com>
-Subject: [PATCH v2 2/3] perf arm-spe: Add support for SPE Data Source packet on HiSilicon HIP12
-Date: Fri, 25 Apr 2025 11:38:44 +0800
-Message-ID: <20250425033845.57671-3-yangyicong@huawei.com>
-X-Mailer: git-send-email 2.31.0
-In-Reply-To: <20250425033845.57671-1-yangyicong@huawei.com>
-References: <20250425033845.57671-1-yangyicong@huawei.com>
+	Fri, 25 Apr 2025 03:53:01 +0000
+Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-30db1bc464dso18304671fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 20:52:59 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745553176; x=1746157976;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=tMCG7PVJZT2ImV73Bv9BnKAx04gSVppKM7hgJ6w7nuM=;
+        b=RYKiqReTHo2bzv5tJf6IS1IZue5YFPUiNFPeEtaFbjmv49MHkv7LPoVXTfls45IU5z
+         sR+d7AVfuaSdMXAOkXKLBJ/YYQPeFhGALMef+ycUlJHK1Fdj1YP789q2eoW1HkAGtXx8
+         YRm42C2BWODPFgIenQhQ2kEaZ68T2Hx1kkLtTsBGqgdktZ8aFHd1dxie9sKnV7t5jvh4
+         RB1kjKudMNDQwOgby7jXQQr3caGouGr2Lu4ROEwDKhP0LLNxzV7C9gpFSUiCzUwAzm+i
+         4gm26Ii1VDrtrHzNa8IriICvJllzpxIUEgAkU0vyd3oUfnxwozVnGL6/3hD1Hz3jDwRt
+         A0Bw==
+X-Forwarded-Encrypted: i=1; AJvYcCWzmVEKrGuZATqinp4KzGi9eEWZfXHjSOvQSqFhUsSaeDqq091nub2/tZxe3mUKjBFyXDkozF2tjvKAM1yPdL2Z@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEsPvF07B3wvnC7lwef9paeOWBJ2xxUHnHoUoAwmbNSpUTwi6r
+	R/428BlOb2JQ1FaGJOyX3swI5izlK573/Wlcl4A5RgiViqtUAlgyDALYBoIK
+X-Gm-Gg: ASbGncvI8nYPP4/ewcMWgqo4bfFdWG7ZFWY0SnY4qbYDa0nF4hpOjrocPTSUIVAy7LY
+	ZKcUvNi8JjmmXi6cBlNDt5YH2UttQdMB5h3jJh2di8jeUfReDu/EuFq8DsEXFfpGSuDotH3G6jh
+	MxIhx1AoXw9MWQYwofiRHWyTJHUfsef6aupcQipYbfLxFne6xHV1Of1jjKfntScdvlexzu5C7i1
+	x+qIcg0CMvdvAQ0Asm8OSoPIaOdLXF6i5LTKRCI1IlORWaTwudsZ0ofHqYEKpEAHnqcEkcstYqK
+	IhDmQXXway1y2subn9UkTYPKC7f174Mtx3rYEywgSBAPszZMuM54oVf6V0pyxqUI86A5o1OYmg=
+	=
+X-Google-Smtp-Source: AGHT+IFO6+/npA7KNoobay33NRyj+/nNuxHuSCc5LdRrdlhQs2+gMfJaOOv1FzbE0rzdcOEMDk2WvQ==
+X-Received: by 2002:a2e:be14:0:b0:30c:518e:452 with SMTP id 38308e7fff4ca-3190644df3emr1393721fa.13.1745553176291;
+        Thu, 24 Apr 2025 20:52:56 -0700 (PDT)
+Received: from mail-lj1-f180.google.com (mail-lj1-f180.google.com. [209.85.208.180])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-317d1b96ab2sm5434851fa.92.2025.04.24.20.52.55
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 24 Apr 2025 20:52:56 -0700 (PDT)
+Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-30db1bc464dso18304411fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 24 Apr 2025 20:52:55 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXkLY3yPG4bnV5+27gV7vdxnubVGbCyE5I0fXwJf8UIzZ6MBsvnFZ23PsXOcT60TuI389ZUXvAchEwm0YMmCrUI@lists.infradead.org
+X-Received: by 2002:a2e:bc90:0:b0:309:26e8:cb1a with SMTP id
+ 38308e7fff4ca-319081da5e5mr1615191fa.30.1745553175817; Thu, 24 Apr 2025
+ 20:52:55 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.165.33]
-X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
- kwepemd200014.china.huawei.com (7.221.188.8)
+References: <20250425023527-GYA50272@gentoo> <20250425030006.45169-1-amadeus@jmu.edu.cn>
+In-Reply-To: <20250425030006.45169-1-amadeus@jmu.edu.cn>
+From: Chen-Yu Tsai <wens@csie.org>
+Date: Fri, 25 Apr 2025 11:52:42 +0800
+X-Gmail-Original-Message-ID: <CAGb2v649ntfAEUdV5S1wM8nUGhvaOP-RBw07XcxwdbafbC2PYQ@mail.gmail.com>
+X-Gm-Features: ATxdqUGezFuhR_KSYVB0KgNvKi6facsIdDbC9B14oLs_hkhyS0lMNSVl4JE789M
+Message-ID: <CAGb2v649ntfAEUdV5S1wM8nUGhvaOP-RBw07XcxwdbafbC2PYQ@mail.gmail.com>
+Subject: Re: [PATCH 1/1] arm64: dts: allwinner: correct the model name for
+ Radxa Cubie A5E
+To: Chukun Pan <amadeus@jmu.edu.cn>, andre.przywara@arm.com
+Cc: dlan@gentoo.org, conor+dt@kernel.org, devicetree@vger.kernel.org, 
+	jernej.skrabec@gmail.com, krzk+dt@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-sunxi@lists.linux.dev, robh@kernel.org, samuel@sholland.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_203900_471202_7C5517EC 
-X-CRM114-Status: GOOD (  14.33  )
+X-CRM114-CacheID: sfid-20250424_205259_696539_A06C44AE 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,188 +95,42 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@csie.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yicong Yang <yangyicong@hisilicon.com>
+On Fri, Apr 25, 2025 at 11:00=E2=80=AFAM Chukun Pan <amadeus@jmu.edu.cn> wr=
+ote:
+>
+> Hi,
+>
+> > It seems I'm a little bit late for this, but while we are here,
+> > Can we also append 'cubie' to dts file name?
+> > e.g. - sun55i-a527-radxa-cubie-a5e.dts
+>
+> Usually we use the device name (without the vendor name),
+> maybe sun55i-a527-cubie-a5e.dts would be better?
 
-Add data source encoding for HiSilicon HIP12 and coresponding mapping
-to the perf's memory data source. This will help to synthesize the data
-and support upper layer tools like perf-mem and perf-c2c.
+I agree with this one.
 
-Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
----
- tools/arch/arm64/include/asm/cputype.h        |  2 +
- .../util/arm-spe-decoder/arm-spe-decoder.h    | 17 ++++
- tools/perf/util/arm-spe.c                     | 96 +++++++++++++++++++
- 3 files changed, 115 insertions(+)
+I can probably squash in a name change (since I'll be squashing in the
+SD card slot fix anyway). Andre?
 
-diff --git a/tools/arch/arm64/include/asm/cputype.h b/tools/arch/arm64/include/asm/cputype.h
-index 488f8e751349..9a5d85cfd1fb 100644
---- a/tools/arch/arm64/include/asm/cputype.h
-+++ b/tools/arch/arm64/include/asm/cputype.h
-@@ -129,6 +129,7 @@
- #define FUJITSU_CPU_PART_A64FX		0x001
- 
- #define HISI_CPU_PART_TSV110		0xD01
-+#define HISI_CPU_PART_HIP12		0xD06
- 
- #define APPLE_CPU_PART_M1_ICESTORM	0x022
- #define APPLE_CPU_PART_M1_FIRESTORM	0x023
-@@ -202,6 +203,7 @@
- #define MIDR_NVIDIA_CARMEL MIDR_CPU_MODEL(ARM_CPU_IMP_NVIDIA, NVIDIA_CPU_PART_CARMEL)
- #define MIDR_FUJITSU_A64FX MIDR_CPU_MODEL(ARM_CPU_IMP_FUJITSU, FUJITSU_CPU_PART_A64FX)
- #define MIDR_HISI_TSV110 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_TSV110)
-+#define MIDR_HISI_HIP12 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_HIP12)
- #define MIDR_APPLE_M1_ICESTORM MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_ICESTORM)
- #define MIDR_APPLE_M1_FIRESTORM MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_FIRESTORM)
- #define MIDR_APPLE_M1_ICESTORM_PRO MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_ICESTORM_PRO)
-diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-index 5d232188643b..881d9f29c138 100644
---- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-+++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.h
-@@ -82,6 +82,23 @@ enum arm_spe_ampereone_data_source {
- 	ARM_SPE_AMPEREONE_L2D                           = 0x9,
- };
- 
-+enum arm_spe_hisi_hip_data_source {
-+	ARM_SPE_HISI_HIP_PEER_CPU		= 0,
-+	ARM_SPE_HISI_HIP_PEER_CPU_HITM		= 1,
-+	ARM_SPE_HISI_HIP_L3			= 2,
-+	ARM_SPE_HISI_HIP_L3_HITM		= 3,
-+	ARM_SPE_HISI_HIP_PEER_CLUSTER		= 4,
-+	ARM_SPE_HISI_HIP_PEER_CLUSTER_HITM	= 5,
-+	ARM_SPE_HISI_HIP_REMOTE_SOCKET		= 6,
-+	ARM_SPE_HISI_HIP_REMOTE_SOCKET_HITM	= 7,
-+	ARM_SPE_HISI_HIP_LOCAL_MEM		= 8,
-+	ARM_SPE_HISI_HIP_REMOTE_MEM		= 9,
-+	ARM_SPE_HISI_HIP_NC_DEV			= 13,
-+	ARM_SPE_HISI_HIP_L2			= 16,
-+	ARM_SPE_HISI_HIP_L2_HITM		= 17,
-+	ARM_SPE_HISI_HIP_L1			= 18,
-+};
-+
- struct arm_spe_record {
- 	enum arm_spe_sample_type type;
- 	int err;
-diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-index 2a9775649cc2..d46e0cccac99 100644
---- a/tools/perf/util/arm-spe.c
-+++ b/tools/perf/util/arm-spe.c
-@@ -571,6 +571,11 @@ static const struct midr_range ampereone_ds_encoding_cpus[] = {
- 	{},
- };
- 
-+static const struct midr_range hisi_hip_ds_encoding_cpus[] = {
-+	MIDR_ALL_VERSIONS(MIDR_HISI_HIP12),
-+	{},
-+};
-+
- static void arm_spe__sample_flags(struct arm_spe_queue *speq)
- {
- 	const struct arm_spe_record *record = &speq->decoder->record;
-@@ -718,9 +723,100 @@ static void arm_spe__synth_data_source_ampereone(const struct arm_spe_record *re
- 	arm_spe__synth_data_source_common(&common_record, data_src);
- }
- 
-+static void arm_spe__synth_data_source_hisi_hip(const struct arm_spe_record *record,
-+						union perf_mem_data_src *data_src)
-+{
-+	/* Use common synthesis method to handle store operations */
-+	if (record->op & ARM_SPE_OP_ST) {
-+		arm_spe__synth_data_source_common(record, data_src);
-+		return;
-+	}
-+
-+	switch (record->source) {
-+	case ARM_SPE_HISI_HIP_PEER_CPU:
-+		data_src->mem_lvl = PERF_MEM_LVL_L2 | PERF_MEM_LVL_HIT;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L2;
-+		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
-+		break;
-+	case ARM_SPE_HISI_HIP_PEER_CPU_HITM:
-+		data_src->mem_lvl = PERF_MEM_LVL_L2 | PERF_MEM_LVL_HIT;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L2;
-+		data_src->mem_snoop = PERF_MEM_SNOOP_HITM;
-+		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
-+		break;
-+	case ARM_SPE_HISI_HIP_L3:
-+		data_src->mem_lvl = PERF_MEM_LVL_L3 | PERF_MEM_LVL_HIT;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
-+		data_src->mem_snoop = PERF_MEM_SNOOP_HIT;
-+		break;
-+	case ARM_SPE_HISI_HIP_L3_HITM:
-+		data_src->mem_lvl = PERF_MEM_LVL_L3 | PERF_MEM_LVL_HIT;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
-+		data_src->mem_snoop = PERF_MEM_SNOOP_HITM;
-+		break;
-+	case ARM_SPE_HISI_HIP_PEER_CLUSTER:
-+		data_src->mem_lvl = PERF_MEM_LVL_REM_CCE1 | PERF_MEM_LVL_HIT;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
-+		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
-+		break;
-+	case ARM_SPE_HISI_HIP_PEER_CLUSTER_HITM:
-+		data_src->mem_lvl = PERF_MEM_LVL_REM_CCE1 | PERF_MEM_LVL_HIT;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L3;
-+		data_src->mem_snoop = PERF_MEM_SNOOP_HITM;
-+		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
-+		break;
-+	case ARM_SPE_HISI_HIP_REMOTE_SOCKET:
-+		data_src->mem_lvl = PERF_MEM_LVL_REM_CCE2;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_ANY_CACHE;
-+		data_src->mem_remote = PERF_MEM_REMOTE_REMOTE;
-+		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
-+		break;
-+	case ARM_SPE_HISI_HIP_REMOTE_SOCKET_HITM:
-+		data_src->mem_lvl = PERF_MEM_LVL_REM_CCE2;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_ANY_CACHE;
-+		data_src->mem_snoop = PERF_MEM_SNOOP_HITM;
-+		data_src->mem_remote = PERF_MEM_REMOTE_REMOTE;
-+		data_src->mem_snoopx = PERF_MEM_SNOOPX_PEER;
-+		break;
-+	case ARM_SPE_HISI_HIP_LOCAL_MEM:
-+		data_src->mem_lvl = PERF_MEM_LVL_LOC_RAM | PERF_MEM_LVL_HIT;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_RAM;
-+		data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
-+		break;
-+	case ARM_SPE_HISI_HIP_REMOTE_MEM:
-+		data_src->mem_lvl = PERF_MEM_LVL_REM_RAM1 | PERF_MEM_LVL_HIT;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_RAM;
-+		data_src->mem_remote = PERF_MEM_REMOTE_REMOTE;
-+		break;
-+	case ARM_SPE_HISI_HIP_NC_DEV:
-+		data_src->mem_lvl = PERF_MEM_LVL_IO | PERF_MEM_LVL_HIT;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_IO;
-+		data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
-+		break;
-+	case ARM_SPE_HISI_HIP_L2:
-+		data_src->mem_lvl = PERF_MEM_LVL_L2 | PERF_MEM_LVL_HIT;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L2;
-+		data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
-+		break;
-+	case ARM_SPE_HISI_HIP_L2_HITM:
-+		data_src->mem_lvl = PERF_MEM_LVL_L2 | PERF_MEM_LVL_HIT;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L2;
-+		data_src->mem_snoop = PERF_MEM_SNOOP_HITM;
-+		break;
-+	case ARM_SPE_HISI_HIP_L1:
-+		data_src->mem_lvl = PERF_MEM_LVL_L1 | PERF_MEM_LVL_HIT;
-+		data_src->mem_lvl_num = PERF_MEM_LVLNUM_L1;
-+		data_src->mem_snoop = PERF_MEM_SNOOP_NONE;
-+		break;
-+	default:
-+		break;
-+	}
-+}
-+
- static const struct data_source_handle data_source_handles[] = {
- 	DS(common_ds_encoding_cpus, data_source_common),
- 	DS(ampereone_ds_encoding_cpus, data_source_ampereone),
-+	DS(hisi_hip_ds_encoding_cpus, data_source_hisi_hip),
- };
- 
- static void arm_spe__synth_memory_level(const struct arm_spe_record *record,
--- 
-2.24.0
 
+In that case would you prefer to keep your current patch separate, or
+squashed in so that everything is clean from the first commit?
+
+It's up to you since you lose out on commit stats.
+
+
+Thanks
+ChenYu
+
+> Thanks,
+> Chukun
+>
+> --
+> 2.25.1
+>
+>
 
