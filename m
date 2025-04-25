@@ -4,95 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30D7CC369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 14:38:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 560F9C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 14:40:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=01k0FR3gadfOW7bYhsG0pi30JzxZ7YHZvTgo3ghbW0I=; b=apKKd7kfiyIyC8oiXtehFhLRLX
-	6XP3GpbMVFtXrzEsb62p0dDv1GznZDSCpdPYD3o7EBN+xDekNmnVrrDSjPvdtuPaDrNK+nt6ywo5O
-	YnfoxLVxwu8IdanxSoIDRSe4NXM9JkN4BkMFh0KMWMrN4tTUqKt8hI+TkfvB46/SdS7vPt67L7IZx
-	uDcKQLSNztQ1L4P/p+xIcqbC4SG5b5Ub2mXyYfBDD5VPa6rEBn2RDjoXt8yl8pWjewYVxCJo8rnb1
-	EatYkyvael+Gq2wSCWmFdqNoJboSNwA2ZbslQHTfmqCt7zlEJr79Dkv4L1Nhg2SJgoMZ6rMKHG+Ik
-	mGlEq9Jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2UqX8ZjtCt77K2Fit3CqVXamabKOpdFvwhUpSSi7NtE=; b=dsYwe+E8jpI8yAEP5XoEJ68jez
+	PI5Jr4x6xX2w8Y05QSXM5vHZ8gk09a5nQvgOd2MFEj0HtDU8yOf53kjWvGKbc5leSNfWkt1jtRPZx
+	Z1baDbEJJOtuKVcpUent30Tedv8ux1wMzFHV25Xrd6FZKeLPEBPaWhwXRObmdTepvAWUIy+akLcnt
+	cEsBLhZCASWP2gWyq9Sz4Y4AgjrzihlbkKvgTao3X6t3ugApf1ZqeHC6x+KT1BE/Em9wOFKyueCZ3
+	UyU8JwhQ82COTNXsUDujL3eak/jdHpcrHTM4dDLVhksQ5kYK1J8bwQzJVNM2wTNRKsBm2vXflJ0aR
+	/H6K0r7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8KBt-0000000HStd-0v1S;
-	Fri, 25 Apr 2025 14:38:09 +0000
-Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
+	id 1u8KDj-0000000HTEU-40rZ;
+	Fri, 25 Apr 2025 14:40:03 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8J7B-0000000HHUX-4AgL
+	id 1u8J8X-0000000HHmK-2Cop
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 25 Apr 2025 13:30:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=2UqX8ZjtCt77K2Fit3CqVXamabKOpdFvwhUpSSi7NtE=; b=l/PA8YQWitXKWa0+6ZaTaSp4do
+	WfeZuWom+FcU6g4sn/7Mc8eiesixSnKsGJ+4G1iRR6B3Xe4E6cs3FJEMkKm9nkGr8JQy13j2ZNeo1
+	d9FceL1gjRlrIakAv95e/M3aFyRK9eqBYCocayc+8vit2nMeZmHjcwUttL+poRmNs4qlQB3XU4kko
+	XHc9ydb8lhmXP/c5okbzfANAsKpdF8vVQIiuRS2zmvFE160c3GxpdaGgNr/XY0nx+rA+WRqRWy1AO
+	LbUUGiE+8n1iFGJtDkS9HGZNn9ERve8zfmxVILMeiMj4dB0xqj7iLfK0fRyggEGbS3nuYZ1ByD5ih
+	rVQVXONg==;
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u8J8U-0000000C36P-0L08
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 13:29:15 +0000
-Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-b06e9bcc986so1717978a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 06:29:13 -0700 (PDT)
+	Fri, 25 Apr 2025 13:30:35 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43edb40f357so15730295e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 06:30:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745587753; x=1746192553; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=01k0FR3gadfOW7bYhsG0pi30JzxZ7YHZvTgo3ghbW0I=;
-        b=SrK/GXgiW7Jgf2OheWE77rm+r4AcMWh+0ZlnPZclDItiiuJLOUxn4IO5KuwnWUKqt0
-         /1Es5vpyUXyBA2+v1Iw+P9mf3PCB89wLoCA8tbKhar+4e2WW5Ed8Y01DhUJ+XBOPUhBG
-         1+M8dSKtehnEqUIBiUg2TnCilfb1OBexONu/Kb8CY4qrE9oxMInBoWOtsQJUGh05rHvo
-         Wu1n6WSZ2+PjOMvERotg8M/l2JudWI61H6BXR135pCG9FXLT5gnvskxPJcg4GbiTFn/3
-         1TdPaJMoCurUJ2CliSwAEYJjcskw+RYEqRPVpY+QlohAy9mtQshKKeQ1Y3x/qonh7jCH
-         8b3g==
+        d=gmail.com; s=20230601; t=1745587831; x=1746192631; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=2UqX8ZjtCt77K2Fit3CqVXamabKOpdFvwhUpSSi7NtE=;
+        b=W5E9ifaiPfsmyFKD7617nO4SsnBY5nqZvpsd4rflFVwlef7y8y3QBQVyrOR46LGNDQ
+         MzyfO0CO/CsmKBFh9eQhWHYCWk3zBa3iAwdBnGcDAAn73ZfdrXEWXD9kOOQb+WLnimQf
+         xDPn9PV3AImSJ0OjWJS4YpwEYb6e3FX+zredoTBKYB4gvy8u/1/hMW7FwaiQfS2iT2eo
+         MfxQBS4r/yJ9/08UYxUKK/T9cBhtlyt4lAw/64+a23r14IafCB+Xw7f1klLRfQazWDto
+         R8RxiExATErih+EOGIhXPWA8v1AZEg6QL4UQvscRnlq2arTCAk+SKe02c0H2/nvwrJsp
+         R1lw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745587753; x=1746192553;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=01k0FR3gadfOW7bYhsG0pi30JzxZ7YHZvTgo3ghbW0I=;
-        b=cTA/HLpU88jaWP3w/pc/bCpSr320FZe3VSai6cV+of8CRIHenbH+4iYQUgz8HnIvQX
-         Mgaw29eVpoRIhygxAgPIT7u3WEEtmOXjybOnYaC7Zql1NrVdhA7pBTBHAOWNYtAdQhQD
-         LhlkW1Beu+5/olJmBX90CB13+23XoCTbnpDa8QPG3aMsT4fQNKhyXs9Of/nIQ+Q/IIHF
-         YZMtwNrrEugs+pS/xKReSfinixz2a7DL2ceGQ8ydZGGevb7nFMMbLqflIo+hIrl2C3tc
-         RW7GH3HQiQ+PCvOKlQDP0oDNbAWztFEPSMdfuq962HVgUJaL4PpswMIKIi/mzB/9HLY5
-         0ETQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWUNeu+WA9ADrGKBuvLLi6gzR3DZNaCf3b3kpnrPj60mJtVXi3yf32MZC5nPsD2EaeGxVX0YM1lIhUb7Gfhu2Xe@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZjPoQzYrsTCfwMHCCePWSn7J4Zb6A5zEum+cj+bMNXIajSAf5
-	5CnoE+s/Yq4HSZ/OxE/rUsSO8m7ZCmqYUrsjSgWbe6JM601vfQql
-X-Gm-Gg: ASbGncvA2MwjUKoqNk+DUNfmf8D/C/LXYonwW7jqG4iDLjPqbw5KCcSoZEp0o0Bq+3m
-	HqwGiMJTi6QxzWkGobTB8TIHitHkuC4xmn+NPZxpRKFaPnBfRBzoFPqyc6vYNIVSApyczvhnScI
-	VFl1yGDplD92kpYWUubVqwjBmD8mEWvzlvTFaoypSlAE+lZ85Xwu7CbbRIXvDA7Urj8kdlZkaNR
-	ZU3iTwG/gcDcp/x3iQbQVuv9q3fVemhFw7B0iF09EqGsELoAv7ay0RLHlMMAKPdyeLvv/15hZ0t
-	5MFtC3QlMQhWE8PWDEXsDYs03rA1iiz0Vzms1JjZjnxAiwuBe8vjtQ==
-X-Google-Smtp-Source: AGHT+IGg9or9/EVXKbPbko2FEzf8DUz4YrsrKKDLHYz0xNXlwlVAF65DQ3EkGDa+iSIFAG3GfpeaFg==
-X-Received: by 2002:a17:90b:5148:b0:2ee:f440:53ed with SMTP id 98e67ed59e1d1-309f7eb4b0amr3246854a91.31.1745587752974;
-        Fri, 25 Apr 2025 06:29:12 -0700 (PDT)
-Received: from localhost.localdomain ([110.44.101.8])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-309f7752a03sm1564313a91.18.2025.04.25.06.29.08
+        d=1e100.net; s=20230601; t=1745587831; x=1746192631;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=2UqX8ZjtCt77K2Fit3CqVXamabKOpdFvwhUpSSi7NtE=;
+        b=EAVMe1yguF6laQV/MkKDMZNqL+OI9deBJV8Mf44YzZc1wLpX4Tp1M4fOMbZrniCAtl
+         ILNDsLy29ofQkPXswsYfdMw0CCqUFmoig21DTYEoPaZlDYX641uQJScUCzsXHJGHV92C
+         dspG3QjprD+oqw7kUwLlo0YCr84IyamPX23IgDf8IX3UqRgkRgJ+o2BPfRm24uDNOaHu
+         AGRLZoHrJBGyv+CYtIvwoYG8WBzre4irXpyRjRHibrZdCk/DJmr2KRDspq+ch1UVljS8
+         AJnTGp8oyMK4NCG4T4rWtVwbsncPUF50JmHlxz6KKoFb+PCWqAaLfKo0gcD2Z9lKbwmV
+         mYRw==
+X-Forwarded-Encrypted: i=1; AJvYcCXQdI8ncYy+FhicFDBA5HDb0XdZYvWoc9gTlFdP9rBUKsWPfQuk5MzXp6KUfxYM6TfZc4obvjPvYFtCEgV4bAdz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxka0JL/Ir+lgB/8DIAUtl53Fw/bC+yMeO6HM9ssEw7NUh2Tb6N
+	S7PWrfCvzrpkev86mhDJb4s/7hCFRt4derwJW3etDjLVaQLTTtASvH4ZEw==
+X-Gm-Gg: ASbGncuoo/pJZ4hPRaTt2dXhFuvO6f1T9g1LoZe4RDIof5JGQ4lGMi0zUyaAGVH+OfM
+	GB7kttUZY7bmt4u1LTmK1V8uAzHGWapInfUYHQ5sFbVugF3SY00X9F81nWjxUSR1NfyQMdoontt
+	S5BQ3gY8wiL/5JDSnhZzp3zlLFlh5wYX/623+/tC/o/0TmXevbGrovpCOS3V+hCztd/3i4byEgK
+	eewLKhRNgdPsRKbESHqBETkg7JPq64/M3C0OrRS6S+1aeFkVB387NPRWBRAffljGvfdbapZdS7n
+	9pzFIHbfrGCBgZrUKW6XbmrOWIXH6q6ss+v3GyTh
+X-Google-Smtp-Source: AGHT+IH4MAUOUOX1z32Y5YjXpUZYGNNANOzJfIUTq3LFTRzfoVT+ERQaNUzYocvxmVzREj0gMHwqtw==
+X-Received: by 2002:a05:600c:1c0a:b0:440:68db:a045 with SMTP id 5b1f17b1804b1-440a66abaffmr18515515e9.26.1745587831225;
+        Fri, 25 Apr 2025 06:30:31 -0700 (PDT)
+Received: from Red ([2a01:cb1d:898:ab00:4a02:2aff:fe07:1efc])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4409d2a2386sm58831505e9.14.2025.04.25.06.30.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Apr 2025 06:29:12 -0700 (PDT)
-From: Anand Moon <linux.amoon@gmail.com>
-To: Chanwoo Choi <cw00.choi@samsung.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	linux-kernel@vger.kernel.org (open list:MAXIM PMIC AND MUIC DRIVERS FOR EXYNOS BASED BO...),
-	linux-clk@vger.kernel.org (open list:COMMON CLK FRAMEWORK),
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES),
-	linux-samsung-soc@vger.kernel.org (open list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES)
-Cc: Anand Moon <linux.amoon@gmail.com>
-Subject: [PATCH v1 10/10] ARM: dts: exynos: Add proper regulator states for suspend-to-mem for Exynos5250 snow
-Date: Fri, 25 Apr 2025 18:56:30 +0530
-Message-ID: <20250425132727.5160-11-linux.amoon@gmail.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250425132727.5160-1-linux.amoon@gmail.com>
-References: <20250425132727.5160-1-linux.amoon@gmail.com>
+        Fri, 25 Apr 2025 06:30:30 -0700 (PDT)
+Date: Fri, 25 Apr 2025 15:30:28 +0200
+From: Corentin Labbe <clabbe.montjoie@gmail.com>
+To: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+Cc: herbert@gondor.apana.org.au, davem@davemloft.net,
+	linux-crypto@vger.kernel.org, wens@csie.org,
+	jernej.skrabec@gmail.com, samuel@sholland.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/4] crypto: sun8i-ce-cipher - use IS_ENABLED() checks
+ for debugfs stats
+Message-ID: <aAuOdDhpnLE5bM_y@Red>
+References: <20250425124517.2225963-1-ovidiu.panait.oss@gmail.com>
+ <20250425124517.2225963-3-ovidiu.panait.oss@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250425124517.2225963-3-ovidiu.panait.oss@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_062914_034994_9FF3450B 
-X-CRM114-Status: GOOD (  15.57  )
+X-CRM114-CacheID: sfid-20250425_143034_245418_0C1436A6 
+X-CRM114-Status: GOOD (  17.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,164 +118,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MAX77686 PMCI is able to power down and up key core supplies and other
-voltage rails via PWRREQ signal to enter / exit (deep) sleep mode.
-PWRREQ status is ignored during initial power up and down processes.
-All programming must be done before the AP enterns the sleep mode by
-pulling PWRREQ low since the AP does not have programming capability
-in (deep) sleep mode.
+Le Fri, Apr 25, 2025 at 03:45:16PM +0300, Ovidiu Panait a écrit :
+> Add IS_ENABLED(CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG) checks before the
+> fallback counter updates to make sure the code is not included when
+> debugfs statistics support is not enabled.
+> 
+> Also, drop the existing ifdef guards, since 'struct sun8i_ce_alg_template'
+> is always defined, even with CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG disabled.
+> 
+> Signed-off-by: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+> ---
+>  .../allwinner/sun8i-ce/sun8i-ce-cipher.c      | 46 ++++++++++++-------
+>  1 file changed, 30 insertions(+), 16 deletions(-)
+> 
+> diff --git a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c
+> index f03a8fa7bfa2..433cd18f0b5b 100644
+> --- a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c
+> +++ b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c
+> @@ -34,22 +34,30 @@ static int sun8i_ce_cipher_need_fallback(struct skcipher_request *areq)
+>  
+>  	if (sg_nents_for_len(areq->src, areq->cryptlen) > MAX_SG ||
+>  	    sg_nents_for_len(areq->dst, areq->cryptlen) > MAX_SG) {
+> -		algt->stat_fb_maxsg++;
+> +		if (IS_ENABLED(CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG))
+> +			algt->stat_fb_maxsg++;
+> +
+>  		return true;
+>  	}
+>  
+>  	if (areq->cryptlen < crypto_skcipher_ivsize(tfm)) {
+> -		algt->stat_fb_leniv++;
+> +		if (IS_ENABLED(CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG))
+> +			algt->stat_fb_leniv++;
+> +
+>  		return true;
+>  	}
+>  
+>  	if (areq->cryptlen == 0) {
+> -		algt->stat_fb_len0++;
+> +		if (IS_ENABLED(CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG))
+> +			algt->stat_fb_len0++;
+> +
+>  		return true;
+>  	}
+>  
+>  	if (areq->cryptlen % 16) {
+> -		algt->stat_fb_mod16++;
+> +		if (IS_ENABLED(CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG))
+> +			algt->stat_fb_mod16++;
+> +
+>  		return true;
+>  	}
+>  
+> @@ -57,12 +65,16 @@ static int sun8i_ce_cipher_need_fallback(struct skcipher_request *areq)
+>  	sg = areq->src;
+>  	while (sg) {
+>  		if (!IS_ALIGNED(sg->offset, sizeof(u32))) {
+> -			algt->stat_fb_srcali++;
+> +			if (IS_ENABLED(CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG))
+> +				algt->stat_fb_srcali++;
+> +
+>  			return true;
+>  		}
+>  		todo = min(len, sg->length);
+>  		if (todo % 4) {
+> -			algt->stat_fb_srclen++;
+> +			if (IS_ENABLED(CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG))
+> +				algt->stat_fb_srclen++;
+> +
+>  			return true;
+>  		}
+>  		len -= todo;
+> @@ -73,12 +85,16 @@ static int sun8i_ce_cipher_need_fallback(struct skcipher_request *areq)
+>  	sg = areq->dst;
+>  	while (sg) {
+>  		if (!IS_ALIGNED(sg->offset, sizeof(u32))) {
+> -			algt->stat_fb_dstali++;
+> +			if (IS_ENABLED(CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG))
+> +				algt->stat_fb_dstali++;
+> +
+>  			return true;
+>  		}
+>  		todo = min(len, sg->length);
+>  		if (todo % 4) {
+> -			algt->stat_fb_dstlen++;
+> +			if (IS_ENABLED(CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG))
+> +				algt->stat_fb_dstlen++;
+> +
+>  			return true;
+>  		}
+>  		len -= todo;
+> @@ -101,9 +117,7 @@ static int sun8i_ce_cipher_fallback(struct skcipher_request *areq)
+>  		algt = container_of(alg, struct sun8i_ce_alg_template,
+>  				    alg.skcipher.base);
+>  
+> -#ifdef CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG
+>  		algt->stat_fb++;
+> -#endif
 
-Add suspend-to-mem node to regulator core to be enabled or disabled
-during system suspend and also support changing the regulator operating
-mode during runtime and when the system enter sleep mode (stand by mode).
+Hello
 
-Regulators which can be turned off during system suspend:
-        -LDOn   :       2, 6-8, 10-12, 14-16,
-        -BUCKn  :       1-4.
-Use standard regulator bindings for it ('regulator-off-in-suspend').
+You put IS_ENABLED everywhere, but here you remove it, why ?
+I think you forgot it.
 
-Signed-off-by: Anand Moon <linux.amoon@gmail.com>
----
- .../dts/samsung/exynos5250-snow-common.dtsi   | 48 +++++++++++++++++++
- 1 file changed, 48 insertions(+)
-
-diff --git a/arch/arm/boot/dts/samsung/exynos5250-snow-common.dtsi b/arch/arm/boot/dts/samsung/exynos5250-snow-common.dtsi
-index ca6ebd8a9d62..70c3e6da55b7 100644
---- a/arch/arm/boot/dts/samsung/exynos5250-snow-common.dtsi
-+++ b/arch/arm/boot/dts/samsung/exynos5250-snow-common.dtsi
-@@ -318,6 +318,10 @@ ldo2_reg: LDO2 {
- 				regulator-min-microvolt = <1800000>;
- 				regulator-max-microvolt = <1800000>;
- 				regulator-always-on;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
- 			};
- 
- 			ldo3_reg: LDO3 {
-@@ -332,6 +336,10 @@ ldo7_reg: LDO7 {
- 				regulator-min-microvolt = <1100000>;
- 				regulator-max-microvolt = <1100000>;
- 				regulator-always-on;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
- 			};
- 
- 			ldo8_reg: LDO8 {
-@@ -339,6 +347,10 @@ ldo8_reg: LDO8 {
- 				regulator-min-microvolt = <1000000>;
- 				regulator-max-microvolt = <1000000>;
- 				regulator-always-on;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
- 			};
- 
- 			ldo10_reg: LDO10 {
-@@ -346,6 +358,10 @@ ldo10_reg: LDO10 {
- 				regulator-min-microvolt = <1800000>;
- 				regulator-max-microvolt = <1800000>;
- 				regulator-always-on;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
- 			};
- 
- 			ldo12_reg: LDO12 {
-@@ -353,6 +369,10 @@ ldo12_reg: LDO12 {
- 				regulator-min-microvolt = <3000000>;
- 				regulator-max-microvolt = <3000000>;
- 				regulator-always-on;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
- 			};
- 
- 			ldo14_reg: LDO14 {
-@@ -360,6 +380,10 @@ ldo14_reg: LDO14 {
- 				regulator-min-microvolt = <1800000>;
- 				regulator-max-microvolt = <1800000>;
- 				regulator-always-on;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
- 			};
- 
- 			ldo15_reg: LDO15 {
-@@ -367,6 +391,10 @@ ldo15_reg: LDO15 {
- 				regulator-min-microvolt = <1000000>;
- 				regulator-max-microvolt = <1000000>;
- 				regulator-always-on;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
- 			};
- 
- 			ldo16_reg: LDO16 {
-@@ -374,6 +402,10 @@ ldo16_reg: LDO16 {
- 				regulator-min-microvolt = <1800000>;
- 				regulator-max-microvolt = <1800000>;
- 				regulator-always-on;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
- 			};
- 
- 			buck1_reg: BUCK1 {
-@@ -382,6 +414,10 @@ buck1_reg: BUCK1 {
- 				regulator-max-microvolt = <1300000>;
- 				regulator-always-on;
- 				regulator-boot-on;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
- 			};
- 
- 			buck2_reg: BUCK2 {
-@@ -390,6 +426,10 @@ buck2_reg: BUCK2 {
- 				regulator-max-microvolt = <1350000>;
- 				regulator-always-on;
- 				regulator-boot-on;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
- 			};
- 
- 			buck3_reg: BUCK3 {
-@@ -398,6 +438,10 @@ buck3_reg: BUCK3 {
- 				regulator-max-microvolt = <1200000>;
- 				regulator-always-on;
- 				regulator-boot-on;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
- 			};
- 
- 			buck4_reg: BUCK4 {
-@@ -406,6 +450,10 @@ buck4_reg: BUCK4 {
- 				regulator-max-microvolt = <1300000>;
- 				regulator-always-on;
- 				regulator-boot-on;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
- 			};
- 
- 			buck5_reg: BUCK5 {
--- 
-2.49.0
+Thanks
+Regards
 
 
