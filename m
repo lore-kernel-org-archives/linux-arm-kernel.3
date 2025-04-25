@@ -4,88 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CCECC369D3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1405C369C2
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 16:22:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bf4Jif3iTwu6xhT/icuxJcCkmXcEX9OzuYCH60IJsfg=; b=3q01ltYwlXbHWV+WM0dxS61Ag0
-	bQRIKDMs4pzMZ7Z5gwTYXhrjbTizGSt90af+cLta2TJltyWSCxvSsGpJS6bcpsnwdwMLdpEa2EMGc
-	JCWNthB74t+WN/43GUHJojoe/3HtzqeYHt33KrRhT+vjnh4vX86aO819u2aYF61enByzno9yj9JlU
-	GKqiYhWR6+o+KCMavkoioQp6LayeNCkfVQPWNKrjIVMbBTThOxLB19VhUurM93UkBdVyEW1XUMEII
-	6PUBDr5XrR1OP+dRMnCeOlynVz0e7b5U2ePlw2zbbU/7d10czKQAVN8W+C2DOdrW2uktFCsPrrfGk
-	GivgdaNA==;
+	bh=pqiCINUAAonn0m4tpf2qCa2aEvL6DZ5ftKVEWyb5ynM=; b=vig41D41OEkDsXjQx1U7rV+VdN
+	s7XNBL0RyGtHNexhyAWm+fZsEuxUZjc3FrIadYan76dxQqRqHoympS02pcdEteFKk7n97oH2VVCDR
+	ljnhhCQAHGn4veFczuhSw4NzbrUJOmAjF/OPuAcpAYRMn7wCKzwvWrew8E2c0Bhgl9vmaaYCsofeJ
+	dlv4TB618OFTHK6mw79vY210cOLfheb7GH8DG7gfyaJso+rhQ16UBFV2O3a0VrIBmWOrvHbmdQJsv
+	s3ky1VNQObBujVSOUsH635nezux06S6tp/pWhUHw5u4Cu0/Fu4LO//fpr2DjnECIbfYP7CP4v9EVu
+	0IA3z7IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Lot-00000000Bp2-38iK;
-	Fri, 25 Apr 2025 16:22:31 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1u8Lou-00000000BpL-17fI;
+	Fri, 25 Apr 2025 16:22:32 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8IVL-0000000HAgO-0sqj
+	id 1u8JFu-0000000HJRK-12Sf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 12:50:08 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53P8Fv5R009034;
-	Fri, 25 Apr 2025 14:49:46 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	Bf4Jif3iTwu6xhT/icuxJcCkmXcEX9OzuYCH60IJsfg=; b=VzEXtC8LjmMlaZCo
-	jyA2bQ9x8eO7Vj4XGrAUFKSw307z82Yusjdp37tJUnIzdSYPjVisYM67Ap+3nNpM
-	vIx6JMVZaHrUJuNDIIktIIkF+pGwF5b7j32Be+w48Bx5XDHLG9a2++iahOjDcwnR
-	YKbvPfgIuV6jTUbsftabc58xmadb366tHkOjdX4DANgJ8kNErW9ZzyL5MQm+ir9E
-	Puw4C3/vy7/NLN5n4x8enYVWbAAHjjVTkDZTDwKjIZjpGXK4ubqlfiJgtqeNoMJg
-	UgrQtgpaU19QXwmE+Fx3Kfv/Q6z6YJoGuJqSRGcx8nNXKW6Hnaj+lnDUk8/UHpo1
-	yB6QQg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 466jjxm5r3-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 25 Apr 2025 14:49:46 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 3D49B40045;
-	Fri, 25 Apr 2025 14:48:40 +0200 (CEST)
-Received: from Webmail-eu.st.com (eqndag1node6.st.com [10.75.129.135])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 389409CA84E;
-	Fri, 25 Apr 2025 14:48:10 +0200 (CEST)
-Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE6.st.com
- (10.75.129.135) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 25 Apr
- 2025 14:48:10 +0200
-Received: from localhost (10.252.15.6) by SAFDAG1NODE1.st.com (10.75.90.17)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 25 Apr
- 2025 14:48:09 +0200
-From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-To: <lee@kernel.org>, <alexandre.torgue@foss.st.com>,
-        <daniel.lezcano@linaro.org>, <tglx@linutronix.de>
-CC: <ukleinek@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <jic23@kernel.org>, <robh@kernel.org>, <catalin.marinas@arm.com>,
-        <will@kernel.org>, <devicetree@vger.kernel.org>, <wbg@kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-iio@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
-        <olivier.moysan@foss.st.com>, <fabrice.gasnier@foss.st.com>
-Subject: [PATCH v5 6/7] arm64: dts: st: add low-power timer nodes on stm32mp251
-Date: Fri, 25 Apr 2025 14:47:54 +0200
-Message-ID: <20250425124755.166193-7-fabrice.gasnier@foss.st.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250425124755.166193-1-fabrice.gasnier@foss.st.com>
-References: <20250425124755.166193-1-fabrice.gasnier@foss.st.com>
+	Fri, 25 Apr 2025 13:38:15 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5e5bc066283so3934560a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 06:38:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1745588292; x=1746193092; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=pqiCINUAAonn0m4tpf2qCa2aEvL6DZ5ftKVEWyb5ynM=;
+        b=Shpm/eWgeaVH9+3JfvrtVGcreaILgljXlQFAcZemzc0rUalISO4R0fy4bic2qD/p32
+         HqLhaRxV7eaWNrc1jPMbCn7haxdVW5OyHWVUnj5JAn+racc/ceT+N5tjTYbAaAbiDX81
+         kcpHj9pSvqPWVGWcmxrcik64IiwLcJrF4wquwnkNdfiDV+xXYfNqv3j7qDtW+jH9s8qF
+         QrRuYncXWffq+XHiArB3iOKGVc+2Z35615c+Ni29f6bzVACOI98Iqz3aRpIdRRHb5IVE
+         wsGGh8jmCy1no/ZxFq6l7++ytxikElgjMKwWtaDHyeB/SV1b89PU8NypcO/54FbMHPKn
+         QH8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745588292; x=1746193092;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pqiCINUAAonn0m4tpf2qCa2aEvL6DZ5ftKVEWyb5ynM=;
+        b=D+PYviLm6vhQQyIV8y5gREAqZS+wwz/5KL6qxBIQ6E7bWD/k93KJrplpdjf6FJy6hW
+         +P71817y5P9dukthCo5FvRMCrbleDQnKTmtBFiyrwA8U3vkaea+obWOuCCAS5H26Lh7a
+         4fFpVTF6hkKALvk0DjXA3x/oJ6DRT20r8OJIVY6EqXMydAHZoCE7631DAUiNb7hIPHTz
+         N+u4kwEHUDHSTcrTqmCyXqMrooZJK8RRE0YX975nS7ZBkuISCUywZSKqo7mYpyShn03q
+         K0hF/gI5pBE2+FVxxJzLybPtIXldqWOhl2wrRiKTJ5lcA0IIpIOVUMpCB8FNq2ARGTLN
+         Xinw==
+X-Forwarded-Encrypted: i=1; AJvYcCUrKbohsDY6Vz8SXFVXifHjILoYvdeoAUC3vW2fuV0PU1wY3zvsDagUD5OcfSnj/dTBhSGW6X4TZUZ8QQZPWrDu@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTjIosQJDho5bu33Ef9G/j3uETYQ8bgqGsB1XNf0SRCHN+9wjh
+	Gm0tH1QieAdeCbn1ae5clZntpSDxgVyb2adOumcLBj2mr+DhOcKx
+X-Gm-Gg: ASbGncufDZmTx2kRZy41eA6ObYbZcUQqOaQoUik7mk5fxMH+GoA0VNuuobjin+X5Vze
+	5FVFguc0FLF8Vr3FriKrdHjybcs3UUMASXL416l03APrhVgsbL1jAmXgJgP/g+cKXv2EeEVV7gp
+	WeBEs5eMtcMPUArv6pnMqK1ID7MhMRChjo1uxncYNe2qwcPlRTOgGe/pKULHI6K7SLKGzCbC/Mg
+	Fi3kFOGTTvPEZonw/hJ9rsUJnrZvK/FZcDKDmd8MddzJQT5Iyy+grwoeDK/Zl0+RH16z/uaVUuX
+	4zgDzRTNSn7Zf+As3BE+Koa8fGAsoaWm0WrmPUIypBaUR3cZnTiC33Q=
+X-Google-Smtp-Source: AGHT+IE86Q3+wVqPZufqaFdR5AXK2Hpei01lx1jufnMmv4wt1krtWH2mQQ/n9CHFPIgL61um5nK+HQ==
+X-Received: by 2002:a05:6402:2748:b0:5e7:88d8:30a6 with SMTP id 4fb4d7f45d1cf-5f72297c525mr2124920a12.20.1745588292119;
+        Fri, 25 Apr 2025 06:38:12 -0700 (PDT)
+Received: from localhost ([217.151.144.138])
+        by smtp.gmail.com with UTF8SMTPSA id 4fb4d7f45d1cf-5f70110791bsm1297259a12.13.2025.04.25.06.38.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 25 Apr 2025 06:38:11 -0700 (PDT)
+Date: Fri, 25 Apr 2025 15:11:22 +0200
+From: Oliver Graute <oliver.graute@gmail.com>
+To: Thomas Richard <thomas.richard@bootlin.com>
+Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH v2 1/2] dt-bindings: watchdog: fsl,scu-wdt: Document
+ imx8qm
+Message-ID: <aAuJ-qg7ZjZj0LQQ@graute-macos>
+References: <20250414-imx8qm-watchdog-v2-0-449265a9da4e@bootlin.com>
+ <20250414-imx8qm-watchdog-v2-1-449265a9da4e@bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.252.15.6]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SAFDAG1NODE1.st.com
- (10.75.90.17)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-04-25_03,2025-04-24_02,2025-02-21_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250414-imx8qm-watchdog-v2-1-449265a9da4e@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_055007_534521_5748C752 
-X-CRM114-Status: UNSURE (   9.91  )
+X-CRM114-CacheID: sfid-20250425_063814_285736_9BB7F29A 
+X-CRM114-Status: UNSURE (   8.20  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,216 +110,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add low-power timer (LPTimer) support on STM32MP25 SoC.
-The full feature set is implemented in LPTIM1/2/3/4. LPTIM5 supports a
-smaller set of features (no capture/compare) channel. Still, LPTIM5 can
-be used as single PWM, counter, trigger or timer.
+On 14/04/25, Thomas Richard wrote:
+> Add an entry for 'fsl,imx8qm-sc-wdt' as imx8qm also contains the SCU
+> watchdog block.
+> 
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Thomas Richard <thomas.richard@bootlin.com>
 
-Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
----
-Changes in V2:
-- Adopt two compatibles: newly introduced "st,stm32mp25-..." compatible,
-  and fallback "st,stm32-...".
----
- arch/arm64/boot/dts/st/stm32mp251.dtsi | 177 +++++++++++++++++++++++++
- 1 file changed, 177 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-index f3c6cdfd7008..505176276e72 100644
---- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
-+++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-@@ -238,6 +238,78 @@ rifsc: bus@42080000 {
- 			#access-controller-cells = <1>;
- 			ranges;
- 
-+			lptimer1: timer@40090000 {
-+				compatible = "st,stm32mp25-lptimer", "st,stm32-lptimer";
-+				reg = <0x40090000 0x400>;
-+				interrupts-extended = <&exti1 47 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&rcc CK_KER_LPTIM1>;
-+				clock-names = "mux";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				access-controllers = <&rifsc 17>;
-+				power-domains = <&RET_PD>;
-+				wakeup-source;
-+				status = "disabled";
-+
-+				counter {
-+					compatible = "st,stm32mp25-lptimer-counter", "st,stm32-lptimer-counter";
-+					status = "disabled";
-+				};
-+
-+				pwm {
-+					compatible = "st,stm32mp25-pwm-lp", "st,stm32-pwm-lp";
-+					#pwm-cells = <3>;
-+					status = "disabled";
-+				};
-+
-+				timer {
-+					compatible = "st,stm32mp25-lptimer-timer", "st,stm32-lptimer-timer";
-+					status = "disabled";
-+				};
-+
-+				trigger@0 {
-+					compatible = "st,stm32mp25-lptimer-trigger", "st,stm32-lptimer-trigger";
-+					reg = <0>;
-+					status = "disabled";
-+				};
-+			};
-+
-+			lptimer2: timer@400a0000 {
-+				compatible = "st,stm32mp25-lptimer", "st,stm32-lptimer";
-+				reg = <0x400a0000 0x400>;
-+				interrupts-extended = <&exti1 48 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&rcc CK_KER_LPTIM2>;
-+				clock-names = "mux";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				access-controllers = <&rifsc 18>;
-+				power-domains = <&RET_PD>;
-+				wakeup-source;
-+				status = "disabled";
-+
-+				counter {
-+					compatible = "st,stm32mp25-lptimer-counter", "st,stm32-lptimer-counter";
-+					status = "disabled";
-+				};
-+
-+				pwm {
-+					compatible = "st,stm32mp25-pwm-lp", "st,stm32-pwm-lp";
-+					#pwm-cells = <3>;
-+					status = "disabled";
-+				};
-+
-+				timer {
-+					compatible = "st,stm32mp25-lptimer-timer", "st,stm32-lptimer-timer";
-+					status = "disabled";
-+				};
-+
-+				trigger@1 {
-+					compatible = "st,stm32mp25-lptimer-trigger", "st,stm32-lptimer-trigger";
-+					reg = <1>;
-+					status = "disabled";
-+				};
-+			};
-+
- 			i2s2: audio-controller@400b0000 {
- 				compatible = "st,stm32mp25-i2s";
- 				reg = <0x400b0000 0x400>;
-@@ -799,6 +871,111 @@ i2c8: i2c@46040000 {
- 				status = "disabled";
- 			};
- 
-+			lptimer3: timer@46050000 {
-+				compatible = "st,stm32mp25-lptimer", "st,stm32-lptimer";
-+				reg = <0x46050000 0x400>;
-+				interrupts-extended = <&exti2 29 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&rcc CK_KER_LPTIM3>;
-+				clock-names = "mux";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				access-controllers = <&rifsc 19>;
-+				wakeup-source;
-+				status = "disabled";
-+
-+				counter {
-+					compatible = "st,stm32mp25-lptimer-counter", "st,stm32-lptimer-counter";
-+					status = "disabled";
-+				};
-+
-+				pwm {
-+					compatible = "st,stm32mp25-pwm-lp", "st,stm32-pwm-lp";
-+					#pwm-cells = <3>;
-+					status = "disabled";
-+				};
-+
-+				timer {
-+					compatible = "st,stm32mp25-lptimer-timer", "st,stm32-lptimer-timer";
-+					status = "disabled";
-+				};
-+
-+				trigger@2 {
-+					compatible = "st,stm32mp25-lptimer-trigger", "st,stm32-lptimer-trigger";
-+					reg = <2>;
-+					status = "disabled";
-+				};
-+			};
-+
-+			lptimer4: timer@46060000 {
-+				compatible = "st,stm32mp25-lptimer", "st,stm32-lptimer";
-+				reg = <0x46060000 0x400>;
-+				interrupts-extended = <&exti2 30 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&rcc CK_KER_LPTIM4>;
-+				clock-names = "mux";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				access-controllers = <&rifsc 20>;
-+				wakeup-source;
-+				status = "disabled";
-+
-+				counter {
-+					compatible = "st,stm32mp25-lptimer-counter", "st,stm32-lptimer-counter";
-+					status = "disabled";
-+				};
-+
-+				pwm {
-+					compatible = "st,stm32mp25-pwm-lp", "st,stm32-pwm-lp";
-+					#pwm-cells = <3>;
-+					status = "disabled";
-+				};
-+
-+				timer {
-+					compatible = "st,stm32mp25-lptimer-timer", "st,stm32-lptimer-timer";
-+					status = "disabled";
-+				};
-+
-+				trigger@3 {
-+					compatible = "st,stm32mp25-lptimer-trigger", "st,stm32-lptimer-trigger";
-+					reg = <3>;
-+					status = "disabled";
-+				};
-+			};
-+
-+			lptimer5: timer@46070000 {
-+				compatible = "st,stm32mp25-lptimer", "st,stm32-lptimer";
-+				reg = <0x46070000 0x400>;
-+				interrupts-extended = <&exti2 31 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&rcc CK_KER_LPTIM5>;
-+				clock-names = "mux";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				access-controllers = <&rifsc 21>;
-+				wakeup-source;
-+				status = "disabled";
-+
-+				counter {
-+					compatible = "st,stm32mp25-lptimer-counter", "st,stm32-lptimer-counter";
-+					status = "disabled";
-+				};
-+
-+				pwm {
-+					compatible = "st,stm32mp25-pwm-lp", "st,stm32-pwm-lp";
-+					#pwm-cells = <3>;
-+					status = "disabled";
-+				};
-+
-+				timer {
-+					compatible = "st,stm32mp25-lptimer-timer", "st,stm32-lptimer-timer";
-+					status = "disabled";
-+				};
-+
-+				trigger@4 {
-+					compatible = "st,stm32mp25-lptimer-trigger", "st,stm32-lptimer-trigger";
-+					reg = <4>;
-+					status = "disabled";
-+				};
-+			};
-+
- 			csi: csi@48020000 {
- 				compatible = "st,stm32mp25-csi";
- 				reg = <0x48020000 0x2000>;
--- 
-2.25.1
-
+Acked-by: Oliver Graute <oliver.graute@kococonnector.com>
 
