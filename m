@@ -4,71 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48F4FC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 13:11:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1700C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 13:13:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vursLIDY6fgCPF6bA1C00nspBgM4dFzn9vpcFtzSOwg=; b=j158aPfTP6V6fQMaD/8/4urP0Z
-	3CoUH/RoW7qgt1zKkoBnozc60SYhkqVkdjdwOokPETf7gzFI0JNKgfVaX/iC12effelTiCkQzdj3g
-	VPWrr6+l+gNCCkZcM1N1Ag90WarhgDNXaXjhn9/GPlEjvByHJqEjABYrlI18JhIHwUIdGA4oxLhuV
-	hwt78iBs+lmgJF8QMYUSfxGZhXgIFHKj2TsSpvQ5u5LJnBB7pCGSpXEIP9hA0xTxAq3iFJ+lCEJB+
-	JS5BSu6Ovdu9WKKHy50MJ01PCgAhb6dmtsBpAbeWb/JxFTf9P8zouUQwgI5h4p8dDu9UQqLGIaI4M
-	GHwuVIQQ==;
+	bh=1BMXqgQl7jfC6H77AGknLL1fmdPdkIRiy2JGqphh2TI=; b=3Ef/+qaNYdrEydAA0T6+oP23XR
+	cu59hyBqjZG8VmIDTgAauBw3xJY3XSxsfS0Rce7wmddSINtXILr2VCpSzIq8ZP10abgKy5d97W2iz
+	RkAPgXVwI33fbMiPflK8j6ju0n2N4OID5ZqYwVnyzN6H2LXN1uHb5rVUy6ZrFj4hwEh6ulfG2s3da
+	jBWd7GoWnKPCPLdfaO270koEZK2vfZ5vlVbSXs5HQ4k/JSrxavsUkN5thp8yrVHiHm4wkFB5HZTzy
+	cI/dGpB+mNMeVyYLaCijtaUHRPbnG3U9aquEJIz4A3JRk+r9XDQfde0GKBK3va2L0Fx9mPHBmP7tL
+	vwyhKE7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8IqE-0000000HEMs-3gtM;
-	Fri, 25 Apr 2025 13:11:42 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1u8Is5-0000000HEYy-0xxB;
+	Fri, 25 Apr 2025 13:13:37 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8HiM-0000000H2mF-2oXv
+	id 1u8Hid-0000000H2qu-1ESX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 11:59:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1745582367;
-	bh=OrK+DvF689UqfSSIY1P2lSSI9ygH9bOfuWGn9CE8Fbo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=RETbntMZsItntHquRM2Uky6C0lFfkp6DCJMJ/sardBOp9RXSNK0n942QAliT3rheB
-	 XaVCOPa0uEYSKjQPBcE2ILU15LbCnY+vnVSMZxJI13Ajg2jjUJeKOk4U0O3r3CIR/w
-	 2FFmRMdR4RWbQkODbzBOjwJMc7DKGBUv/PDm7urQdkHgiB97y7gf5pQ1z4llwUAc4b
-	 j2qTI/h8UkfglAvz0GUexSDY0PYYcc9dRrUqMCYfYBIr8Kmv0uLmGRi17BfQRyuEks
-	 dH3GPfh33UgC3Hhr/RIjYvn4/P/OUwXiTSPS4c+ur3npErGQGFHRv9Yd8yaplogVRY
-	 jcm32cW2AsFDA==
-Received: from eldfell (unknown [194.136.85.206])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: pq)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 448AB17E0F66;
-	Fri, 25 Apr 2025 13:59:27 +0200 (CEST)
-Date: Fri, 25 Apr 2025 14:59:15 +0300
-From: Pekka Paalanen <pekka.paalanen@collabora.com>
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Cc: Vishal Sagar <vishal.sagar@amd.com>, Anatoliy Klymenko
- <anatoliy.klymenko@amd.com>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Laurent Pinchart
- <laurent.pinchart@ideasonboard.com>, Michal Simek <michal.simek@amd.com>,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Geert Uytterhoeven
- <geert@linux-m68k.org>, Dmitry Baryshkov
- <dmitry.baryshkov@oss.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>
-Subject: Re: [PATCH v5 03/11] drm/fourcc: Add DRM_FORMAT_Y8
-Message-ID: <20250425145915.40c8c1ac@eldfell>
-In-Reply-To: <20250425-xilinx-formats-v5-3-c74263231630@ideasonboard.com>
-References: <20250425-xilinx-formats-v5-0-c74263231630@ideasonboard.com>
-	<20250425-xilinx-formats-v5-3-c74263231630@ideasonboard.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; x86_64-pc-linux-gnu)
+	Fri, 25 Apr 2025 11:59:48 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43d0359b1fcso14624715e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 04:59:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1745582385; x=1746187185; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=1BMXqgQl7jfC6H77AGknLL1fmdPdkIRiy2JGqphh2TI=;
+        b=w6bHL1CMyn0EVVsCmZdJvS+q1PphbeqsFAMXIs2IMS6CJgXDfZ8iOa6Ui33BHOGcjL
+         ywaiDnOlDb+o9AiTbj0B0x82wOnMMT36a7kRc+VmO0ZZR38esp3sj/LdT2LFMLHz0xre
+         UOz9erjjejzxkwMumj/HiIq3U9O8R6jLe0j7JItrmFahjmpwoJCe7jO4Y/H2OZ/H0BKl
+         WdOxgD5Sm94UJrGXZR0ZQ30ILxt0N8NKELFNGJAeI+T5CrlgX40SUVaMZqTTYrljOjFD
+         so7T1tPtcxnj/JTlw/BmXdRBx1noACt85Otii5wjlYB36ZxJ/7qKcgjdsfQRdSQD8RXf
+         Wn/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745582385; x=1746187185;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:subject:reply-to:from:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=1BMXqgQl7jfC6H77AGknLL1fmdPdkIRiy2JGqphh2TI=;
+        b=eRX+Q9hOlqUyZCY7i4JO4qkADhRiNCuxzN7ojvu9huAqH0r2GmRESVMwD6m7HBOgjT
+         EIVex4+C+yNl/VOwN+09h9+XPcxXHbCpS3r1mHQCTiEWU2pFKvcXTl1+WtOr1epke5Ng
+         Pzt4wlVFtIsnGIq+tCMu2FlAQ3nO4DN8iVlseLyGxFqVTm9Ir/PA/cSvuJMcmU4DMY8X
+         GwYtWJYRkxT5YYUTWVnyW1rDblF8x04EWf58UJj1GO3GqNYQYMQllwxUkfNjoMYsT6dp
+         KQFM3tNFiPaXXkzPrt4KINwU0DLs/rky9aAbjfmJ4T/81GMRoY+myvsvPW2gSAAKSqTp
+         lrdA==
+X-Forwarded-Encrypted: i=1; AJvYcCXb2a1HpNJsZkyAB9mGdpQBYps0SEHHbUsX+049ULUQaW9hh4rD4ZuSg/A4uqqQCQYo00uadO1YDMyrSl5cm7TA@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmxssDRtU6Uz+oWHA4NeZQsyEVhr2jKBf1/8e1uqocPoCVxO2L
+	DM1M2WpzxobKWwrcMWpakS/xl/9bVrzAnLDImcBh2Qg+mXb2d1AYtx2J4dt9B30=
+X-Gm-Gg: ASbGncuGAQlzB6AWaoS8Gqraji/x3zMRh3xcTlf8zJPd6aCFVfSgnafSZp9JBhD4N+q
+	hVVOHgvOzbQGilUy7u6VFoQ5wFRyV6LL3uu+pydOcVLj64goCXaHOmZ9VgNUYoeapX7Uj0jiCrl
+	H/OQCfP4S9NFLYq5HqWdPA+PNbYTpxUykzkPBKTR0p3AYBEtwLMDO+U5erseYw1Byx0Lm1TYc0m
+	2Ddb8ZhsE6q2tABJ8KHOHBKakrxllpKHWePnTrqIdlqLm4zIrBX6SSFNs4+P7FlapGssdvzMyUE
+	cOAJvqdgzKjq9fue/w7+zksCFK3UYE1Mg4IhspvBWwJVHFC+btPFmZTpmL1Si7pxfNoD/oomJBq
+	JUEYxFsJrokd1ci4=
+X-Google-Smtp-Source: AGHT+IFUziGPo9gQMFmCnZNYEF+uivB8dimTgfWb3U4m2/eIphhsJOITXlVU1qUIZpOSQaR9a2Vnog==
+X-Received: by 2002:a05:600c:c88:b0:439:5f04:4f8d with SMTP id 5b1f17b1804b1-440a6693e9fmr16619325e9.12.1745582384889;
+        Fri, 25 Apr 2025 04:59:44 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:3d9:2080:d16:61ed:6880:1168? ([2a01:e0a:3d9:2080:d16:61ed:6880:1168])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-440a530a6e9sm22682585e9.16.2025.04.25.04.59.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 25 Apr 2025 04:59:44 -0700 (PDT)
+Message-ID: <e6752451-4492-4ae2-9bad-3865c4945dbe@linaro.org>
+Date: Fri, 25 Apr 2025 13:59:43 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/JSQZW.oAKGXjXlVbB.Z8zQ3";
- protocol="application/pgp-signature"; micalg=pgp-sha256
+User-Agent: Mozilla Thunderbird
+From: neil.armstrong@linaro.org
+Subject: Re: [PATCH v2 2/2] PCI: Remove redundant MPS configuration
+To: Hans Zhang <18255117159@163.com>, lpieralisi@kernel.org, kw@linux.com,
+ bhelgaas@google.com, heiko@sntech.de, thomas.petazzoni@bootlin.com,
+ manivannan.sadhasivam@linaro.org, yue.wang@Amlogic.com
+Cc: pali@kernel.org, robh@kernel.org, jingoohan1@gmail.com,
+ khilman@baylibre.com, jbrunet@baylibre.com,
+ martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-rockchip@lists.infradead.org
+References: <20250425095708.32662-1-18255117159@163.com>
+ <20250425095708.32662-3-18255117159@163.com>
+Content-Language: en-US, fr
+Autocrypt: addr=neil.armstrong@linaro.org; keydata=
+ xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
+ GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
+ BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
+ qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
+ 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
+ AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
+ OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
+ Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
+ YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
+ GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
+ UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
+ GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
+ yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
+ QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
+ SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
+ 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
+ Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
+ oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
+ M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
+ 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
+ KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
+ 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
+ QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
+Organization: Linaro
+In-Reply-To: <20250425095708.32662-3-18255117159@163.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_045930_882009_6D063DCF 
-X-CRM114-Status: GOOD (  16.86  )
+X-CRM114-CacheID: sfid-20250425_045947_327001_802B2D8D 
+X-CRM114-Status: GOOD (  16.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,99 +130,83 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/JSQZW.oAKGXjXlVbB.Z8zQ3
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, 25 Apr 2025 14:01:23 +0300
-Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> wrote:
-
-> Add greyscale Y8 format.
->=20
-> Acked-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+On 25/04/2025 11:57, Hans Zhang wrote:
+> With the PCI core now centrally configuring root port MPS to
+> hardware-supported maximums (via 128 << pcie_mpss) during host probing,
+> platform-specific MPS adjustments are redundant. This patch removes the
+> custom the configuration of the max payload logic to align with the
+> standardized initialization flow.
+> 
+> By eliminating redundant code, this change prevents conflicts with global
+> PCIe hierarchy tuning policies and reduces maintenance overhead. The Meson
+> driver now fully relies on the core PCI framework for MPS configuration,
+> ensuring consistency across the PCIe topology while preserving
+> hardware-specific MRRS handling.
+> 
+> Signed-off-by: Hans Zhang <18255117159@163.com>
 > ---
->  drivers/gpu/drm/drm_fourcc.c  |  1 +
->  include/uapi/drm/drm_fourcc.h | 10 ++++++++++
->  2 files changed, 11 insertions(+)
->=20
-> diff --git a/drivers/gpu/drm/drm_fourcc.c b/drivers/gpu/drm/drm_fourcc.c
-> index e101d1b99aeb..355aaf7b5e9e 100644
-> --- a/drivers/gpu/drm/drm_fourcc.c
-> +++ b/drivers/gpu/drm/drm_fourcc.c
-> @@ -267,6 +267,7 @@ const struct drm_format_info *__drm_format_info(u32 f=
-ormat)
->  		{ .format =3D DRM_FORMAT_YVU422,		.depth =3D 0,  .num_planes =3D 3, .c=
-pp =3D { 1, 1, 1 }, .hsub =3D 2, .vsub =3D 1, .is_yuv =3D true },
->  		{ .format =3D DRM_FORMAT_YUV444,		.depth =3D 0,  .num_planes =3D 3, .c=
-pp =3D { 1, 1, 1 }, .hsub =3D 1, .vsub =3D 1, .is_yuv =3D true },
->  		{ .format =3D DRM_FORMAT_YVU444,		.depth =3D 0,  .num_planes =3D 3, .c=
-pp =3D { 1, 1, 1 }, .hsub =3D 1, .vsub =3D 1, .is_yuv =3D true },
-> +		{ .format =3D DRM_FORMAT_Y8,		.depth =3D 8,  .num_planes =3D 1, .cpp =
-=3D { 1, 0, 0 }, .hsub =3D 1, .vsub =3D 1, .is_yuv =3D true },
->  		{ .format =3D DRM_FORMAT_NV12,		.depth =3D 0,  .num_planes =3D 2, .cpp=
- =3D { 1, 2, 0 }, .hsub =3D 2, .vsub =3D 2, .is_yuv =3D true },
->  		{ .format =3D DRM_FORMAT_NV21,		.depth =3D 0,  .num_planes =3D 2, .cpp=
- =3D { 1, 2, 0 }, .hsub =3D 2, .vsub =3D 2, .is_yuv =3D true },
->  		{ .format =3D DRM_FORMAT_NV16,		.depth =3D 0,  .num_planes =3D 2, .cpp=
- =3D { 1, 2, 0 }, .hsub =3D 2, .vsub =3D 1, .is_yuv =3D true },
-> diff --git a/include/uapi/drm/drm_fourcc.h b/include/uapi/drm/drm_fourcc.h
-> index 1247b814bd66..5af64a683dd7 100644
-> --- a/include/uapi/drm/drm_fourcc.h
-> +++ b/include/uapi/drm/drm_fourcc.h
-> @@ -405,6 +405,16 @@ extern "C" {
->  #define DRM_FORMAT_YUV444	fourcc_code('Y', 'U', '2', '4') /* non-subsamp=
-led Cb (1) and Cr (2) planes */
->  #define DRM_FORMAT_YVU444	fourcc_code('Y', 'V', '2', '4') /* non-subsamp=
-led Cr (1) and Cb (2) planes */
-> =20
-> +/*
-> + * Y-only (greyscale) formats
-> + *
-> + * The Y-only formats are handled similarly to the YCbCr formats in the =
-display
-> + * pipeline, with the Cb and Cr implicitly neutral (0.0 in nominal value=
-s). This
-> + * also means that COLOR_RANGE property applies to the Y-only formats.
-> + *
-> + */
-> +
-> +#define DRM_FORMAT_Y8		fourcc_code('G', 'R', 'E', 'Y')  /* 8-bit Y-only =
-*/
-> =20
->  /*
->   * Format Modifiers:
->=20
+>   drivers/pci/controller/dwc/pci-meson.c | 17 -----------------
+>   drivers/pci/controller/pci-aardvark.c  |  2 --
+>   2 files changed, 19 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pci-meson.c b/drivers/pci/controller/dwc/pci-meson.c
+> index db9482a113e9..126f38ed453d 100644
+> --- a/drivers/pci/controller/dwc/pci-meson.c
+> +++ b/drivers/pci/controller/dwc/pci-meson.c
+> @@ -261,22 +261,6 @@ static int meson_size_to_payload(struct meson_pcie *mp, int size)
+>   	return fls(size) - 8;
+>   }
+>   
+> -static void meson_set_max_payload(struct meson_pcie *mp, int size)
+> -{
+> -	struct dw_pcie *pci = &mp->pci;
+> -	u32 val;
+> -	u16 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_EXP);
+> -	int max_payload_size = meson_size_to_payload(mp, size);
+> -
+> -	val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_DEVCTL);
+> -	val &= ~PCI_EXP_DEVCTL_PAYLOAD;
+> -	dw_pcie_writel_dbi(pci, offset + PCI_EXP_DEVCTL, val);
+> -
+> -	val = dw_pcie_readl_dbi(pci, offset + PCI_EXP_DEVCTL);
+> -	val |= PCIE_CAP_MAX_PAYLOAD_SIZE(max_payload_size);
+> -	dw_pcie_writel_dbi(pci, offset + PCI_EXP_DEVCTL, val);
+> -}
+> -
+>   static void meson_set_max_rd_req_size(struct meson_pcie *mp, int size)
+>   {
+>   	struct dw_pcie *pci = &mp->pci;
+> @@ -381,7 +365,6 @@ static int meson_pcie_host_init(struct dw_pcie_rp *pp)
+>   
+>   	pp->bridge->ops = &meson_pci_ops;
+>   
+> -	meson_set_max_payload(mp, MAX_PAYLOAD_SIZE);
+>   	meson_set_max_rd_req_size(mp, MAX_READ_REQ_SIZE);
 
-Reviewed-by: Pekka Paalanen <pekka.paalanen@collabora.com>
+Seems you can also remove meson_set_max_rd_req_size() since it's
+done by pcie_write_mrrs()
 
+Neil
 
-Thanks,
-pq
+>   
+>   	return 0;
+> diff --git a/drivers/pci/controller/pci-aardvark.c b/drivers/pci/controller/pci-aardvark.c
+> index a29796cce420..d8852892994a 100644
+> --- a/drivers/pci/controller/pci-aardvark.c
+> +++ b/drivers/pci/controller/pci-aardvark.c
+> @@ -549,9 +549,7 @@ static void advk_pcie_setup_hw(struct advk_pcie *pcie)
+>   	reg = advk_readl(pcie, PCIE_CORE_PCIEXP_CAP + PCI_EXP_DEVCTL);
+>   	reg &= ~PCI_EXP_DEVCTL_RELAX_EN;
+>   	reg &= ~PCI_EXP_DEVCTL_NOSNOOP_EN;
+> -	reg &= ~PCI_EXP_DEVCTL_PAYLOAD;
+>   	reg &= ~PCI_EXP_DEVCTL_READRQ;
+> -	reg |= PCI_EXP_DEVCTL_PAYLOAD_512B;
+>   	reg |= PCI_EXP_DEVCTL_READRQ_512B;
+>   	advk_writel(pcie, reg, PCIE_CORE_PCIEXP_CAP + PCI_EXP_DEVCTL);
+>   
 
---Sig_/JSQZW.oAKGXjXlVbB.Z8zQ3
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCAAdFiEEJQjwWQChkWOYOIONI1/ltBGqqqcFAmgLeRMACgkQI1/ltBGq
-qqdEDQ//dymbV1AaVc1uZviLxZPiwEKEaX3Yn350tWej+EKakdNVsWnpBIKuoaET
-BGW+KzCbP+Za7hPbDC2wIUNhthPeGnpysrxH4EQ+Zp+GXOXLZoB8/cudpKsf4cmc
-HZnkEQiPw67xNzi8ylHdvEtRMpyRI5bPxXR5oNeFviwVDo+ob9Qo2YcE+M38yDD1
-IxyjhxVYpZP4vfF1zzq3dOmo+RmoOwFy2nLz2v6syL2bCwRuKgIO4KjRYP5rUbOs
-mag51hyJL1G2lWuBvupIwwaka6ch0rVb5LwlcJTXynWHcVyGJf7FkHzm7zh8LMtB
-A/nT+dxkEwIElg94c1Tl1DWP3ZRD+hWTdrPKen8p890qGdEvxsPtkzAU2jb5Ym7q
-RyxBRojyZTA56zRUBaL5+fs1JGVv9qsR2wSVkjNdGaqiKAu0xFjscRuNZKUwkEWH
-fpJcJbcMpfnVxLcWvDsHTR3ERHSU/BTNWQlLU37cGbn9iDrEWTBnffQ/3KHjd/As
-aE6z+tQt3JEqopNFsc5U85DMr7rhFpZnHUHkhood/tT6O3YI/EgIwIzlcIbRDko0
-iM883QsDu4Z5cud3fSA/Y9ysdvgubJ2IAXmMLs7vjZ0ZeA5K1u7Zma45J1qVhYWc
-DEQUSmoJ10NInI3VMbKOQwGvv5pE6Lm4IGYvk3rznLw1QXNcmdk=
-=riT8
------END PGP SIGNATURE-----
-
---Sig_/JSQZW.oAKGXjXlVbB.Z8zQ3--
 
