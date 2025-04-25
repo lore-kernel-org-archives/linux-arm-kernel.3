@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 673D2C369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 11:29:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35F7AC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 11:31:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5B7y37K/WGDfH6iYqZP3IbPETHIDt3dOJy9LPqxh618=; b=X0o3JkEywbHZU3rN6q/1EORMdS
-	B32VrboumXvYI4SR0H06kbuF1bUiYA9UFdt9DZdl8vSZDE0j7dlkgFge8CIwkJQL5sFDYYos974a1
-	NT1CcvGTo/ubiB05yQcFSwRwN1xWRk4PLkNIbQYlOw8DqScaJg3b/cM3Vc7d2qSnyAoMdGNup0Egf
-	mcCH6k8lmGmefVwtgaO7Go3k17OvL2Z1yDgbr94LanHXBeBVoQicyUs/O+iY7IYtckAzapGGV4+2L
-	KtGuoQbtjCX/1nqkFiAJD7BHPG/b7M76I4W/2OFQj3Q9UQ+c+o2usjIMZRCdW+QhGr0RQHacvNRNk
-	DVI05orw==;
+	bh=qL/GfRaKKdsAK+0kAIMrtxaOj8SSMTgBlKehhO/P69U=; b=wQzdYjNcoMI/XfNQSessGnnTO0
+	xPNAfgVcsosmubNra+a18uFVICneOKIfmtFKCZ0TYleqXtUecftnClRrcVOKkqFfJonctpA6GYOrp
+	7nXvGnC4/S/gnRKbD8qMqEYub6cDH/Z1kS9OmCwobi55+gZ1T2UF4w6mqRcN2LDp9evqjkm23lLT7
+	cmuSQxJLqaRl1a2fztWJjw9l5Q+rZbeqeL542PjFDXnCDyXazjQh8m4p/vFEnbyjWQh3anYsbG3nE
+	pJWzJeVvu3RarlO/Jz0I4aFknOn3ffZe8gWF10mJeSVeAwHpFdBhKmjUsFLDfJ/jx0+qq4hj0Wb6U
+	nhSEqZiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8HFH-0000000Gy81-2Imb;
-	Fri, 25 Apr 2025 11:29:27 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1u8HH7-0000000GyTX-0xTg;
+	Fri, 25 Apr 2025 11:31:21 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8FyF-0000000Gf4E-3dT0
+	id 1u8FyP-0000000Gf83-0RZk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 10:07:49 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-736c277331eso3060567b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 03:07:46 -0700 (PDT)
+	Fri, 25 Apr 2025 10:07:58 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2295d78b433so22903025ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 03:07:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1745575666; x=1746180466; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1745575676; x=1746180476; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:to:subject:user-agent:mime-version:date
          :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=5B7y37K/WGDfH6iYqZP3IbPETHIDt3dOJy9LPqxh618=;
-        b=MJUzJXCzEenE3qzg+xD1Ev5BfriUAxpSaInAptf/uUCj8vGkH5+yjYQwmc7aJVxsvP
-         9owHwzpXABkrfpZqLhqKOLQHiMH77ShdX2YQy/rccaw4SEq0KcIhCBvpj/Mxhf/Y2T5J
-         H5A4N7Xy+O4fvKkmp7co1/vdUjb296LikF33U=
+        bh=qL/GfRaKKdsAK+0kAIMrtxaOj8SSMTgBlKehhO/P69U=;
+        b=NgGLZGcPQtR/EPTJNE5zExasTzuBRpJLcTT3czR0QHRU2O9d9S0nFsoFATA7gSTZGW
+         CxKsr/7jHIFdhXLUWOJ+G+toMPxlxYM9RR/QqFCJaDGkSwfMBeqDiZHzJpWOM1C4B4xB
+         l2j909kRtMm55YPw0abmxtjz/RAMouba0Mw3I=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745575666; x=1746180466;
+        d=1e100.net; s=20230601; t=1745575676; x=1746180476;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:to:subject:user-agent:mime-version:date
          :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=5B7y37K/WGDfH6iYqZP3IbPETHIDt3dOJy9LPqxh618=;
-        b=crRLPQimXeVEiwZdvYxcIWzMtNYW5FghPKWuSaZKHoCkSciNYFzy4zq73VYLb0BmEP
-         VlFIXxsIB33o6eSUMeybb1btsNWgdhIYsPFQSgFF7kDajkD0sOn1CqVN1v0f9RrZDV+Q
-         QsqMe/cPitGf3QquJDkdVHiRt6qctuza2xaDzlpWtjnfSBVJQknTFsGeXiYNjRCEFQ/w
-         8w4/r6GEK/lkuQQISmDjVu/0eimObW7GNFiVpxbXuGnduobUov3MtSUZ7jvE45rZVl66
-         b7TYt/HTyJLkzuB3ii4cQxrRDPYwwflgPTppGGDOqVIlxtfohqbFhADDEZvi6LzwY1bX
-         sUJQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVsLukUl4KsN8gPjf1Tv/20ggSynD0u9f8lqNdVdJy94jVyxc6ho/Ff+/Zv3LLOeVjkG0/xH946C2QGokjCPifF@lists.infradead.org
-X-Gm-Message-State: AOJu0YwGVoBawO/xw90dhsFwNw0RBSKuV+kq32P+YKL5ZfGnNlt5tOw0
-	J/xLFIhTYF+mmU9KMX7etJWMruyKovE/ZINWqUQwlMmBRfJ44m4dd3FEQwzPMA==
-X-Gm-Gg: ASbGncs1pYnOzzC8v3VkPhjVLNiPCNJ+VWQxrIA/zNVm5PienIOczimiLcLfFwDRtwW
-	4bjPREQV+jHNFaw30yix7ENdCCnAbOkrlmWvyNmgQ1N1/uZCeGo0GyXvJoNqtNPIAAtOzz9dIXo
-	cOXWIOWhbBNrth22xFaPjiQe6aLEIrOd9Dq6GGGiW/1gt5z5dsdI6vsyyr/A4uNJ8ESmqkFI8U9
-	LwW3dTjnmd0S0lBHsNIfOsfNiKDv9Xdf+HBjD0adL7n0nMpmTmSiYmb/JnuFwdrj5wyJTzeyS9e
-	V8TyQEiwssUgfwC9bDH07ER3Dw11Scf/ZKf7+76A+hG2RcHC8IrbF5t5BaJPpjQfqjpl2DlvZ7M
-	hf+hEqLnj5scDkNsIFf/xQpuI2SHysOlVFA==
-X-Google-Smtp-Source: AGHT+IH+RPx8vMoFBrGnE2UELbu76oBxdqLLmuOZ9MxvthItxwA6UQaxgwbV1lK1NsLiE9He6IufKQ==
-X-Received: by 2002:a05:6a21:6b0b:b0:1f3:1ba1:266a with SMTP id adf61e73a8af0-2045b1257f0mr2341262637.0.1745575666250;
-        Fri, 25 Apr 2025 03:07:46 -0700 (PDT)
+        bh=qL/GfRaKKdsAK+0kAIMrtxaOj8SSMTgBlKehhO/P69U=;
+        b=U/yKj/ezMVnt4ABnq3u+KC2nPKNMzPOYdR30Ur90m5LmWA3UKWwEx/I85ModrzMN/x
+         HmeCBJsyVIMgLKxoHFCVlRHCYd07bvceWbB8dr38DHV8ASF/FbP9jK1fMFuSvNTigQjj
+         DoLZdkNuR3RtSU+8eVjTLtSqwbaLSMdgGgXMMV1vBN+80yL8cqA344T5erh9G/VKBONk
+         m4MJYKg8XRZbecpkKCNHWEjVJD7YGUQ22u6K+hwI2CqXn5xZVQt9CihIxMoGIkAouqTv
+         p+YojRLpY/s4cqRLmH2bvICbQd+ylhGjb/vo0iaQHZFVZbjH8ZeJyHLK0MN9pOmdaYES
+         kv4g==
+X-Forwarded-Encrypted: i=1; AJvYcCVKFPXbpTzcP3l00C2FNCZ9W3i78UqEZyx4zqQkC3G790oUe+3O960+sGe7GHnTYqGRcc/opWIh5tI/3tCt8x11@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3+V0DU5585zarSTI2x09UdEhGgF1ZHwBa6KkIXK4Kp+wDVxG0
+	mbVNpGkXTXbLgcz8/lpveW1lgAs/H87wokDPTLavtjCiki2DM5FRmcPu/Ohqyw==
+X-Gm-Gg: ASbGnct4ZIFeZXUJh2D187WDwVqONC7AU0YDUhsqRmCfHvLHJITLyLQ6PAnv7L9GuZo
+	haWe4RhdKHb2s85Nx0iW82TeyAwqGgs7Blfyf/zJT4BJnlb205m2cgoDq03PAlJsWfQnU0aCclO
+	yBBdUgPgxx616/JvTeo968TLN17piN/joDhm9srZoA/1+Xn6SAg5EdparGw91EPpUrUEBKjlGAk
+	+pS++qPY53qDVsqBNZCJPvno0VA3GE+5tPr6M3kQK33jrcnY91xGIYd6+HED26idM/c/lWQfP5D
+	U6il6MDPeKdyMZCQr/AoHd8CkyVUr/C9rfl8r38axKb/RqbQJ9DRaTUo9I7Og2Fw0JbJ85HdpOU
+	3NwQq/F59oLHH1SayxKeZ7YS1dYCrJMiW1Q==
+X-Google-Smtp-Source: AGHT+IGJly1kAkAD/iMSo8eYESOtBt5XFa27wC92s+9+rjyn8NGcwgtok/8JfVLMz7TNZGrC97pXKg==
+X-Received: by 2002:a17:903:2450:b0:216:794f:6d7d with SMTP id d9443c01a7336-22dbf6354d8mr28313265ad.48.1745575676208;
+        Fri, 25 Apr 2025 03:07:56 -0700 (PDT)
 Received: from [192.168.1.105] (88-187-52-200.subs.proxad.net. [88.187.52.200])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b15f76f48b2sm2564155a12.8.2025.04.25.03.07.36
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b15f76f48b2sm2564155a12.8.2025.04.25.03.07.46
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 25 Apr 2025 03:07:45 -0700 (PDT)
-Message-ID: <78cdc9c7-47f5-4522-8dea-b0bb3228dd7b@broadcom.com>
-Date: Fri, 25 Apr 2025 12:07:33 +0200
+        Fri, 25 Apr 2025 03:07:55 -0700 (PDT)
+Message-ID: <e6207e73-05bc-4a50-a23f-0d4b3dc02c4d@broadcom.com>
+Date: Fri, 25 Apr 2025 12:07:44 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 -next 11/12] arm64: defconfig: Enable RP1
- misc/clock/gpio drivers
+Subject: Re: [PATCH v9 -next 12/12] arm64: defconfig: Enable OF_OVERLAY option
 To: Andrea della Porta <andrea.porta@suse.com>,
  Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
  <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -100,7 +99,7 @@ To: Andrea della Porta <andrea.porta@suse.com>,
  Dave Stevenson <dave.stevenson@raspberrypi.com>,
  kernel-list@raspberrypi.com, Matthias Brugger <mbrugger@suse.com>
 References: <cover.1745347417.git.andrea.porta@suse.com>
- <928679d1511a43b8dda150009eb023b4eaaff5a2.1745347417.git.andrea.porta@suse.com>
+ <8baf7818aae1fe5be046015e4bd8121ccc9acb20.1745347417.git.andrea.porta@suse.com>
 Content-Language: en-US
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
@@ -135,12 +134,12 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <928679d1511a43b8dda150009eb023b4eaaff5a2.1745347417.git.andrea.porta@suse.com>
+In-Reply-To: <8baf7818aae1fe5be046015e4bd8121ccc9acb20.1745347417.git.andrea.porta@suse.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_030748_100379_13FCADAC 
-X-CRM114-Status: UNSURE (   8.78  )
+X-CRM114-CacheID: sfid-20250425_030757_150795_085805A0 
+X-CRM114-Status: UNSURE (   8.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -159,9 +158,9 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 4/22/2025 8:53 PM, Andrea della Porta wrote:
-> Select the RP1 drivers needed to operate the PCI endpoint containing
-> several peripherals such as Ethernet and USB Controller. This chip is
-> present on RaspberryPi 5.
+> The RP1 driver uses the infrastructure enabled by OF_OVERLAY config
+> option. Enable that option in defconfig in order to produce a kernel
+> usable on RaspberryPi5 avoiding to enable it separately.
 > 
 > Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
 > Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
