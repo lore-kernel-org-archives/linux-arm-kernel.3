@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B14DC369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 11:54:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64988C369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 11:56:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ahh+yK53sLvW3MEUdC7MxK8tfSXmwwVwKVWlt8YQ5zc=; b=s3t1xi3f7pJREWVcC3hexxOyBy
-	rFpOr+G6eDtnwoDUoJsmAXzpz3VZNzoNTm30e93Y3r1PQFVKmVKOYw92bUivG+guf+olXQJmqqRNu
-	eus2mxXzMgAQX51ARi7MAFVFS49/GjOSiseUWCk4DLj/YMgvpzxUC+Z8qDmi7Lxg4w1ckaMGs9qeK
-	RoverQrOyle6Py3AXxuuha6CqdUNwiektrI/G78vJwDlNvdBjXm09qSEYp69u/dRkGEDbY5vLMCLV
-	DZhMhT78pyczFWTq7HHj5kLPzjtptA3yCSFvLMftd9MDrsq/CH+Esb9/xrtSeCZhJHpEY5+zOobCx
-	7YV+2M1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KgKT1GTAf1ZddatWy9KEqdf6+MO3ArUSWqetOd/t7H8=; b=jEFAXmPe9dgs9p+8G7pMMyyM9L
+	sdvfREM6qubM3JaXvPfp+wrf6F4nyhqLaMiJMfjVd3jZiQb3zxPt8odhQfydTvLV6i3nzwMsSa0uo
+	qEnjnb1Cm9dWtsGbFhGrZ5AhJAbvRW9r/x+vKG8j15ofq5Vi42U3HgK8xQyhHtteofXBYAYzuMuNG
+	0+UTZe4UO2qGFfwniGP3vi4U6+B4X2+RWjkb09teNipED7wHz5WbfqjDE4Qc6nbM+iN6Z9f8LFh4w
+	yswBMBzEiqEYkNdWzAK25+9TuKR9cCifSBYY3SJgmtDd12P2D+x+PLQdNqq3l+i2kfpnG9nvGNt95
+	H5TCtrPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Hd3-0000000H1iI-3uyY;
-	Fri, 25 Apr 2025 11:54:01 +0000
-Received: from out-170.mta0.migadu.com ([2001:41d0:1004:224b::aa])
+	id 1u8Het-0000000H2AG-0qpL;
+	Fri, 25 Apr 2025 11:55:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8FKT-0000000GXFo-0Q4W
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 09:26:42 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
-	t=1745573199;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Ahh+yK53sLvW3MEUdC7MxK8tfSXmwwVwKVWlt8YQ5zc=;
-	b=XkbbbFs7uTmSV9FAemeiLpf9+0tATe4g7bK4bWySVhkNoXV9RvWhjk9Ja8/2ClWJGP3hdB
-	YJJnO2D7/llOFrPIepAqYe1XNsuM0Pcr0QuBaZiNRsIHKDpTOW90BBm5tPdmHEUgRjwC5x
-	RTAlRExplX457PkviW5AvORooTo9tAwNS87X98MITNvxbt+unT5ApsLHs3h9m6xs0cysM8
-	rx2fMewJ1jw2vSVsFdfG9f+XmDtNhALmdWeAxtPLIaKjgOLxKCatMK1kDpzh+fXEJysYO4
-	uZCUAkwKbjcaSy6ezlDZcrV7DQmK+9+DLTLhyZ+QO9NAQ6kddQDgLilI6ayruQ==
-From: Diederik de Haas <didi.debian@cknow.org>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Dragan Simic <dsimic@manjaro.org>,
-	Dang Huynh <danct12@riseup.net>,
-	Johan Jonker <jbx6244@gmail.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Diederik de Haas <didi.debian@cknow.org>
-Subject: [PATCH 3/4] arm64: dts: rockchip: Add vcc-supply to SPI flash on rk3566-pinetab2
-Date: Fri, 25 Apr 2025 10:44:43 +0200
-Message-ID: <20250425092601.56549-4-didi.debian@cknow.org>
-In-Reply-To: <20250425092601.56549-1-didi.debian@cknow.org>
-References: <20250425092601.56549-1-didi.debian@cknow.org>
+	id 1u8G7y-0000000Ghap-3nB1;
+	Fri, 25 Apr 2025 10:17:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CF1926111F;
+	Fri, 25 Apr 2025 10:17:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE911C4CEE4;
+	Fri, 25 Apr 2025 10:17:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745576269;
+	bh=jHetIDcoEMJE5Pmx9hfvbqtA0k/bgENuEA9snYJ/JQs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JVJ5ldkx0bzzY1siTZptS8iOsMb0rh/16B4dalCRuYsdMQMrTWOtVWXpNGJYSu4bI
+	 Pki4Y99cTUBsZ0ykhSfWQKuC6WO5chHnfGNNxAKOlsCCX9Tcc16vOAzY2v8YJpV3sT
+	 TJAcd3su86PT9qJWA6lqkKuaZrmTuoXJVRrIE6yWwINzDi0VTnLgJv8/XAvSuBBzE3
+	 uV9bkJn+JAwuW5M+NTSyH1EedQSY66k7kTs4+G5c4/EJ2THhDU8zE2LC51SXHAOqJV
+	 AdVDZeBeyvk542mjAKuzcXrQWY4sSlDC94JM3lZYoL2xbnK1BS5US0haYNRtQOiHAh
+	 DRR5WztJ7O4VA==
+Date: Fri, 25 Apr 2025 12:17:43 +0200
+From: Niklas Cassel <cassel@kernel.org>
+To: Hans Zhang <18255117159@163.com>
+Cc: lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com,
+	heiko@sntech.de, thomas.petazzoni@bootlin.com,
+	manivannan.sadhasivam@linaro.org, yue.wang@amlogic.com,
+	pali@kernel.org, neil.armstrong@linaro.org, robh@kernel.org,
+	jingoohan1@gmail.com, khilman@baylibre.com, jbrunet@baylibre.com,
+	martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v2 2/2] PCI: Remove redundant MPS configuration
+Message-ID: <aAthR8ZXSqfe6fzV@ryzen>
+References: <20250425095708.32662-1-18255117159@163.com>
+ <20250425095708.32662-3-18255117159@163.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_022641_281355_CE9EB070 
-X-CRM114-Status: UNSURE (   9.32  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250425095708.32662-3-18255117159@163.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,33 +75,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As described on page 37 of PineTab2 Schematic-20230417, the SPI Flash's
-VCC connector is connected to VCCIO_FLASH and according to page 6 of
-that same schematic, that belongs to the VCC_1V8 power source.
+On Fri, Apr 25, 2025 at 05:57:08PM +0800, Hans Zhang wrote:
+> With the PCI core now centrally configuring root port MPS to
+> hardware-supported maximums (via 128 << pcie_mpss) during host probing,
+> platform-specific MPS adjustments are redundant. This patch removes the
+> custom the configuration of the max payload logic to align with the
+> standardized initialization flow.
+> 
+> By eliminating redundant code, this change prevents conflicts with global
+> PCIe hierarchy tuning policies and reduces maintenance overhead. The Meson
+> driver now fully relies on the core PCI framework for MPS configuration,
+> ensuring consistency across the PCIe topology while preserving
+> hardware-specific MRRS handling.
+> 
+> Signed-off-by: Hans Zhang <18255117159@163.com>
+> ---
+>  drivers/pci/controller/dwc/pci-meson.c | 17 -----------------
+>  drivers/pci/controller/pci-aardvark.c  |  2 --
 
-This fixes the following warning:
+Since you are touching two drivers (and the changes are not exactly identical),
+I suggest that you do one patch per driver.
 
-  spi-nor spi4.0: supply vcc not found, using dummy regulator
 
-Fixes: e7f4e924f46d ("dt-bindings: mtd: jedec,spi-nor: add optional vcc-supply")
-Signed-off-by: Diederik de Haas <didi.debian@cknow.org>
----
- arch/arm64/boot/dts/rockchip/rk3566-pinetab2.dtsi | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3566-pinetab2.dtsi b/arch/arm64/boot/dts/rockchip/rk3566-pinetab2.dtsi
-index 26cf765a7297..3473b1eef5cd 100644
---- a/arch/arm64/boot/dts/rockchip/rk3566-pinetab2.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3566-pinetab2.dtsi
-@@ -867,6 +867,7 @@ flash@0 {
- 		spi-max-frequency = <100000000>;
- 		spi-rx-bus-width = <2>;
- 		spi-tx-bus-width = <1>;
-+		vcc-supply = <&vcc_1v8>;
- 	};
- };
- 
--- 
-2.49.0
-
+Kind regards,
+Niklas
 
