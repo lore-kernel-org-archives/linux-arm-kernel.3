@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16D8AC369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 10:36:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E6E5C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 10:38:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iyCEldzk4Mz7ktOwec/w57CiVepRjvEdcwkCHofTpdY=; b=M7jexIB2tff2oydNlTG9h46k4z
-	ELLD0cF2CuK6BZ0hxCEv+FRTuI4S6NFd8Bw729nN39haNesSg3tB45J566XkHYe9VygJyRpb7kpF5
-	60mg3T7Td1WuIRzDvQPC4SCrvB3r0jxZm5EJZyyYmlgSBsNGIdiksxBfQx/R6D0/JfsKG9cRNHBcl
-	UxZAA91uLc1SXciOsnaQSR02BCnivnVcd0WzpxlmAtAZdbZU1lVNxJbjq7iWwSfDMwSvaWGK14Klb
-	J43cdCiooQFUVsYPbF1ENN9tAG/r7bQSJ6BVnVbLe//WAttWIGxBOR9QXMwKB0gWpN3VOOMl+thoN
-	rQRQeMSA==;
+	bh=WA0P4hHdm4z//WaWwsVofGnr1xehjmWJd1XiiZDj2eY=; b=BtOY86/ZOvwtqoQbeeLGwZWYgI
+	4Ue2asptt9LmWUE4zq1ckECjajGmRMf5t8sEB2RAPhkmZLYVnF0VcMEulmX6bu3BcvSgZ3NHMCX6O
+	ZMRY5DnnTBrKbVER3CuYMUouq5Rsjptmut7J6TeHRq4ERiy7E5+1PZuFYzmjDaJ5oelOrK6A3ttH+
+	UNtCiWHdrUsDMsWTglaExtHk/T4ZXLmnUwuE1cEzxfNIJMeN4FwhL48OI6c0HKhNOUWnkwQxFkB6b
+	LiaKc/Yclf8+WST+eUyXWtA/R6i1Y8t1N+UIhceJBS9d8F6MHt0Nn2MxJ8HbbfvmyevdKHhzcfpAR
+	+gvp1J3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8GPl-0000000GlXe-22b4;
-	Fri, 25 Apr 2025 10:36:13 +0000
+	id 1u8GRb-0000000Gltd-26kt;
+	Fri, 25 Apr 2025 10:38:07 +0000
 Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8FQO-0000000GYKh-3n0k;
-	Fri, 25 Apr 2025 09:32:50 +0000
-X-UUID: 3c10ea2a21b811f0a2405d5ef59ce188-20250425
+	id 1u8FQP-0000000GYJQ-08cy;
+	Fri, 25 Apr 2025 09:32:51 +0000
+X-UUID: 3d24c3fa21b811f0a2405d5ef59ce188-20250425
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=iyCEldzk4Mz7ktOwec/w57CiVepRjvEdcwkCHofTpdY=;
-	b=S7QJI5zNyEAjq0UyR4QmBb51RlkmWzWFBRu7cKxSUJ2QfoIfzzXanES9y2qU0XV2FQUhiHnSfMMLEdIMRSTcqg5JiNVtq2VRXKLqtFwFPDwDC8ZDuzOZZIe5DCoGNCuvv6KWRFakYwTCSm53aNt1CZYFuIqMVtV/yF7FC9r62zI=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=WA0P4hHdm4z//WaWwsVofGnr1xehjmWJd1XiiZDj2eY=;
+	b=euSyDzk47PkMXCjninUi+0UkAFVqsTwP5hqNVoOeReD8zl7FPfGTURDIHexghxQdWfUwuLRMzGHO5dGECIZzfA3rreLgCbVFLywdIl3rPGdF9B9m+iCEsY0A+TR0YiwiPUGAsp9RPD4Jm0qbrLEEgYJ42IZ0aBudglDfHiYYypM=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:00c73a61-c03f-459a-871c-21a0668296ed,IP:0,UR
+X-CID-O-INFO: VERSION:1.2.1,REQID:61a983e7-c32b-4248-b3f0-bdbde44e98e1,IP:0,UR
 	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
 	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:a539cb76-5fec-4b3e-b8cb-933843551e81,B
+X-CID-META: VersionHash:0ef645f,CLOUDID:8cc7dd6f-e08c-41ab-89e8-3ba0a33da853,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
 	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
 	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
+X-CID-BVR: 0,NGT
+X-CID-BAS: 0,NGT,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 3c10ea2a21b811f0a2405d5ef59ce188-20250425
+X-UUID: 3d24c3fa21b811f0a2405d5ef59ce188-20250425
 Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw02.mediatek.com
 	(envelope-from <jason-jh.lin@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1169485958; Fri, 25 Apr 2025 02:32:41 -0700
+	with ESMTP id 400476969; Fri, 25 Apr 2025 02:32:43 -0700
 Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
  mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Fri, 25 Apr 2025 17:32:38 +0800
+ 15.2.1258.39; Fri, 25 Apr 2025 17:32:40 +0800
 Received: from mtksitap99.mediatek.inc (10.233.130.16) by
  mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Fri, 25 Apr 2025 17:32:38 +0800
+ 15.2.1258.39 via Frontend Transport; Fri, 25 Apr 2025 17:32:40 +0800
 From: Jason-JH Lin <jason-jh.lin@mediatek.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>,
@@ -69,9 +69,9 @@ CC: Matthias Brugger <matthias.bgg@gmail.com>, Jason-JH Lin
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-media@vger.kernel.org>
-Subject: [PATCH v5 04/19] soc: mediatek: mtk-cmdq: Add cmdq_get_mbox_priv() in cmdq_pkt_create()
-Date: Fri, 25 Apr 2025 17:28:36 +0800
-Message-ID: <20250425093237.1543918-5-jason-jh.lin@mediatek.com>
+Subject: [PATCH v5 15/19] soc: mediatek: mtk-cmdq: Add mminfra_offset adjustment for DRAM addresses
+Date: Fri, 25 Apr 2025 17:28:47 +0800
+Message-ID: <20250425093237.1543918-16-jason-jh.lin@mediatek.com>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20250425093237.1543918-1-jason-jh.lin@mediatek.com>
 References: <20250425093237.1543918-1-jason-jh.lin@mediatek.com>
@@ -80,9 +80,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_023248_939280_25AFB7A8 
-X-CRM114-Status: UNSURE (   8.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250425_023249_097966_93681542 
+X-CRM114-Status: GOOD (  13.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,26 +96,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add cmdq_get_mbox_priv() in cmdq_pkt_create() to ensure getting private
-data before generating GCE instructions.
+Since GCE has been moved to MMINFRA in MT8196, all transactions from
+MMINFRA to DRAM will have their addresses adjusted by subtracting a
+mminfra_offset.
 
-Fixes: 0858fde496f8 ("mailbox: cmdq: variablize address shift in platform")
+Therefore, the CMDQ helper driver needs to get the mminfra_offset value
+of the SoC from cmdq_mbox_priv of cmdq_pkt and then add it to the DRAM
+address when generating instructions to ensure GCE accesses the correct
+DRAM address. CMDQ users can then call CMDQ helper APIs as usual.
+
 Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
 ---
- drivers/soc/mediatek/mtk-cmdq-helper.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/soc/mediatek/mtk-cmdq-helper.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/soc/mediatek/mtk-cmdq-helper.c b/drivers/soc/mediatek/mtk-cmdq-helper.c
-index 455221e8de24..8feeaa320359 100644
+index fd978fbd684b..0a718ffa5f3b 100644
 --- a/drivers/soc/mediatek/mtk-cmdq-helper.c
 +++ b/drivers/soc/mediatek/mtk-cmdq-helper.c
-@@ -140,6 +140,7 @@ int cmdq_pkt_create(struct cmdq_client *client, struct cmdq_pkt *pkt, size_t siz
- 	}
+@@ -358,6 +358,7 @@ int cmdq_pkt_mem_move(struct cmdq_pkt *pkt, dma_addr_t src_addr, dma_addr_t dst_
+ 	int ret;
  
- 	pkt->pa_base = dma_addr;
-+	cmdq_get_mbox_priv(client->chan, &pkt->priv);
+ 	/* read the value of src_addr into high_addr_reg_idx */
++	src_addr += pkt->priv.mminfra_offset;
+ 	ret = cmdq_pkt_assign(pkt, high_addr_reg_idx, CMDQ_ADDR_HIGH(src_addr));
+ 	if (ret < 0)
+ 		return ret;
+@@ -366,6 +367,7 @@ int cmdq_pkt_mem_move(struct cmdq_pkt *pkt, dma_addr_t src_addr, dma_addr_t dst_
+ 		return ret;
  
- 	return 0;
+ 	/* write the value of value_reg_idx into dst_addr */
++	dst_addr += pkt->priv.mminfra_offset;
+ 	ret = cmdq_pkt_assign(pkt, high_addr_reg_idx, CMDQ_ADDR_HIGH(dst_addr));
+ 	if (ret < 0)
+ 		return ret;
+@@ -491,7 +493,7 @@ int cmdq_pkt_poll_addr(struct cmdq_pkt *pkt, dma_addr_t addr, u32 value, u32 mas
+ 	inst.op = CMDQ_CODE_MASK;
+ 	inst.dst_t = CMDQ_REG_TYPE;
+ 	inst.sop = CMDQ_POLL_ADDR_GPR;
+-	inst.value = addr;
++	inst.value = addr + pkt->priv.mminfra_offset;
+ 	ret = cmdq_pkt_append_command(pkt, inst);
+ 	if (ret < 0)
+ 		return ret;
+@@ -551,7 +553,7 @@ int cmdq_pkt_jump_abs(struct cmdq_pkt *pkt, dma_addr_t addr)
+ 	struct cmdq_instruction inst = {
+ 		.op = CMDQ_CODE_JUMP,
+ 		.offset = CMDQ_JUMP_ABSOLUTE,
+-		.value = addr >> pkt->priv.shift_pa
++		.value = (addr +  pkt->priv.mminfra_offset) >> pkt->priv.shift_pa
+ 	};
+ 	return cmdq_pkt_append_command(pkt, inst);
  }
 -- 
 2.43.0
