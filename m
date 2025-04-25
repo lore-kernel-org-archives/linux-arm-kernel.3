@@ -4,103 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82809C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 12:13:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F144C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 12:15:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WCH9hKiBPjpn+cZKxu0zKp4hYorwKzqQl+sI+vO/ny0=; b=fos9ATAnoJUEjBYCTqh8a4pqvl
-	lddf1rQYqKQVVGqIl/NgpY/CoJUOqsovhXFKwGE0jlLnOSxYwqxkGTXMltbfTBjMkXRB+8o4LOF/W
-	cphHnGiY+U6hHZ3bMCiZI4RVY0tlHWRioIvuczlbhPSM30BW7k7bjfTBI2URdIwWBpvQKAyiUid8Z
-	CsFVVExQMgUTIyS9CSG3oWmsRub0rc3V7yszYMQslHMcpLFY/EFOdq3UDmITJUidO+KE0jBKE0S1q
-	W7fymYLwV/JjQXPk5cpDVAnNcu7QpzNMpckVAgRLWDLxgVZrscUqnvbvZRhBHc2YwcLUYTv9ntsgT
-	wsbGKmKA==;
+	bh=zG66mfWXbPjwAhDXIOR7A3831eYYgiM5AtcB2S18NL4=; b=H7uFBWNI5c3vx6cMMGy9jiPIsJ
+	S4Jkh86D0wq8hp30gR6SpGBw2/t+lanKb8kE7IZo0h1wDbbX2Er7B3bV7kZeoFUizzf6xf3GWmUi5
+	4slhdamF2DsG9VrJQwGtrwq8BdzzwxGnKQMchzvSn38/VBnAp9MIl4Us9qFrYUnofv24AawLSoIvk
+	Fd1PgBMlbG2K8aYZhZa5q0IufG4kr3CYZeNF7UDvsqtCUs7CdHhMGA7pL3xbbq4gualsimfRrMMhh
+	FCaN1KZ1rwqi0n8xNGUJnCaYcb2ui1qA9kUaCg8853VOK3rfskJ6jxujKTCmgexX7xEM2+0oBB/Ql
+	2gzEmlNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8HvP-0000000H4xQ-1L39;
-	Fri, 25 Apr 2025 12:12:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8GEO-0000000Giza-3rT7
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 10:24:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C9E1C6111F;
-	Fri, 25 Apr 2025 10:24:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B4B4C4CEE4;
-	Fri, 25 Apr 2025 10:24:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745576667;
-	bh=aghLaj8CJNDyjLELUOs0PnmheziqEUj2Lr889K4xl+U=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=h4u32XIw+nlD1FUJcoWeK7tKOX3/JT+fePuRhE+sszuKTHrIBUctdGUAFxb4veZxr
-	 SlKIni7k0SPFR6neo+eHH9sGO8qotqIN8/rlcuIQhPfBEfdfemlpgnwWcwUFT4vSkI
-	 lUS2Ry9Ze40zah66Ei78O6aE/7uYNUpAdk9gLpKZ8trvKnekEvVyfN/0AscqkFWYgh
-	 ew2b2Ras/HakRlzyBJot9EGWylU1zAKQwue/QCoxM4eXUwA1RslHtQFtokLg+ip0jY
-	 F+h5WovYxvRrLxaaarWSfrSnXlmupY8rYnS1/RFag3xW8TkB7lspp2Iq5A4ikZQG/Z
-	 QtcEcl3n5a5DA==
-Message-ID: <c38b3dde-f4ea-4812-a673-137d4727aefc@kernel.org>
-Date: Fri, 25 Apr 2025 12:24:24 +0200
+	id 1u8HxF-0000000H5Jb-08jH;
+	Fri, 25 Apr 2025 12:14:53 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u8GHU-0000000GjQC-0HMo;
+	Fri, 25 Apr 2025 10:27:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:From:
+	Content-Type; bh=zG66mfWXbPjwAhDXIOR7A3831eYYgiM5AtcB2S18NL4=;
+	b=X5PsQabrR9K6jEK20m5Eq2MEBQh2A09QM7jIB2UrPHQt0hNJboxBD2siXKisad
+	1paXffNBE7hxQ+f8HzCeu9z8lHGHyut6+CtFCe/FOO0gCvcrs27FH7TQU67pm2Mk
+	78D9AMShMMXJO++3C+VZRrCWdrbh4XpmD9TXmYvFl9DZg=
+Received: from [192.168.142.52] (unknown [])
+	by gzsmtp2 (Coremail) with SMTP id PSgvCgAH4ilJYwto+c_QBg--.57013S2;
+	Fri, 25 Apr 2025 18:26:18 +0800 (CST)
+Message-ID: <7c7d5e12-7378-473e-941a-33c1b03cc8c9@163.com>
+Date: Fri, 25 Apr 2025 18:26:16 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] soc: Add VIA/WonderMedia SoC identification driver
-To: Alexey Charkov <alchark@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20250423-wmt-soc-driver-v1-0-bd8bf32521c2@gmail.com>
- <20250423-wmt-soc-driver-v1-2-bd8bf32521c2@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v2 2/2] PCI: Remove redundant MPS configuration
+To: Niklas Cassel <cassel@kernel.org>
+Cc: lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com,
+ heiko@sntech.de, thomas.petazzoni@bootlin.com,
+ manivannan.sadhasivam@linaro.org, yue.wang@amlogic.com, pali@kernel.org,
+ neil.armstrong@linaro.org, robh@kernel.org, jingoohan1@gmail.com,
+ khilman@baylibre.com, jbrunet@baylibre.com,
+ martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-rockchip@lists.infradead.org
+References: <20250425095708.32662-1-18255117159@163.com>
+ <20250425095708.32662-3-18255117159@163.com> <aAthR8ZXSqfe6fzV@ryzen>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250423-wmt-soc-driver-v1-2-bd8bf32521c2@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+From: Hans Zhang <18255117159@163.com>
+In-Reply-To: <aAthR8ZXSqfe6fzV@ryzen>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: PSgvCgAH4ilJYwto+c_QBg--.57013S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7Xw1Dtry8AFWxKr18AFyxZrb_yoW8Jr1Upa
+	ySvrySya18tr4F9anrA3W8CryrWas7Kr90qr98Gr1xJ3Z0vF13JFya9F10q34UJryYq3W0
+	yF4Yv347C3Z0kFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UM89_UUUUU=
+X-Originating-IP: [222.71.101.198]
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/1tbiOho6o2gLYUIC+QACsA
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250425_032740_923777_65FA2C57 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,146 +80,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/04/2025 21:18, Alexey Charkov wrote:
-> Add a small SOC bus driver to parse the chip ID and revision made
-> available on VIA/WonderMedia SoCs via their system configuration
-> controller's SCC_ID register.
 
 
-...
-
-> +#include <linux/io.h>
-> +#include <linux/of.h>
-> +#include <linux/of_address.h>
-> +#include <linux/of_platform.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/slab.h>
-> +#include <linux/sys_soc.h>
-> +
-> +static struct {
-
-I think const by convention is placed here - right after static. It
-should be equivalent, just convention.
-
-> +	const char *name;
-> +	const unsigned long id;
-> +} const chip_id_table[] = {
-> +	/* VIA */
-> +	{ "VT8420", 0x3300 },
-> +	{ "VT8430", 0x3357 },
-> +	{ "VT8500", 0x3400 },
-> +
-> +	/* WonderMedia */
-> +	{ "WM8425", 0x3429 },
-> +	{ "WM8435", 0x3437 },
-> +	{ "WM8440", 0x3451 },
-> +	{ "WM8505", 0x3426 },
-> +	{ "WM8650", 0x3465 },
-> +	{ "WM8750", 0x3445 },
-> +	{ "WM8850", 0x3481 },
-> +	{ "WM8880", 0x3498 },
-> +};
-> +
-> +static const char *sccid_to_name(unsigned long sccid)
-> +{
-> +	unsigned long id = sccid >> 16;
-> +	unsigned int i;
-> +
-> +	for (i = 0 ; i < ARRAY_SIZE(chip_id_table) ; ++i) {
-> +		if (chip_id_table[i].id == id)
-> +			return chip_id_table[i].name;
-> +	}
-> +
-> +	return "Unknown";
-> +}
-> +
-> +static const char *sccid_to_rev(unsigned long sccid)
-> +{
-> +	char letter, digit;
-> +
-> +	letter = (sccid >> 8) & 0xf;
-> +	letter = (letter - 1) + 'A';
-> +
-> +	digit = sccid & 0xff;
-> +	digit = (digit - 1) + '0';
-> +
-> +	return kasprintf(GFP_KERNEL, "%c%c", letter, digit);
-> +}
-> +
-> +static int __init wmt_socinfo_init(void)
-> +{
-> +	struct soc_device_attribute *attrs;
-> +	struct soc_device *soc_dev;
-> +	struct device_node *np;
-> +	void __iomem *reg;
-> +	unsigned long sccid;
-> +	const char *machine = NULL;
-> +
-> +	np = of_find_compatible_node(NULL, NULL, "via,scc-id");
-> +	if (!of_device_is_available(np)) {
-> +		of_node_put(np);
-> +		return -ENODEV;
-> +	}
-> +
-> +	reg = of_iomap(np, 0);
-
-of_node_put(np) here... although this will be dropped (see below)
-
-
-> +	if (!reg) {
-> +		of_node_put(np);
-> +		return -ENODEV;
-> +	}
-> +	sccid = readl(reg);
-> +	iounmap(reg);
-> +
-> +	attrs = kzalloc(sizeof(*attrs), GFP_KERNEL);
-> +	if (!attrs)
-> +		return -ENODEV;
-> +
-> +	/*
-> +	 * Machine: VIA APC Rock
-> +	 * Family: WM8850
-> +	 * Revision: A2
-> +	 * SoC ID: raw silicon revision id (0x34810103)
-> +	 */
-> +
-> +	np = of_find_node_by_path("/");
-> +	of_property_read_string(np, "model", &machine);
-> +	if (machine)
-> +		attrs->machine = kstrdup(machine, GFP_KERNEL);
-> +	of_node_put(np);
-> +
-> +	attrs->family = sccid_to_name(sccid);
-> +	attrs->revision = sccid_to_rev(sccid);
-> +	attrs->soc_id = kasprintf(GFP_KERNEL, "%08lx", sccid);
-> +
-> +	soc_dev = soc_device_register(attrs);
-> +	if (IS_ERR(soc_dev)) {
-> +		kfree(attrs->machine);
-> +		kfree(attrs->soc_id);
-> +		kfree(attrs->revision);
-> +		kfree(attrs);
-> +		return PTR_ERR(soc_dev);
-> +	}
-> +
-> +	pr_info("VIA/WonderMedia %s rev %s (%s)\n",
-> +			attrs->family,
-> +			attrs->revision,
-> +			attrs->soc_id);
-> +
-> +	return 0;
-> +}
-> +early_initcall(wmt_socinfo_init);
-
-No, this does not scale. This is supposed to be module_platform_driver
-instead of manually re-ordering code. Then all your memory allocations
-become devm, printks become dev_xxx and you can simplify it.
-
-
+On 2025/4/25 18:17, Niklas Cassel wrote:
+> On Fri, Apr 25, 2025 at 05:57:08PM +0800, Hans Zhang wrote:
+>> With the PCI core now centrally configuring root port MPS to
+>> hardware-supported maximums (via 128 << pcie_mpss) during host probing,
+>> platform-specific MPS adjustments are redundant. This patch removes the
+>> custom the configuration of the max payload logic to align with the
+>> standardized initialization flow.
+>>
+>> By eliminating redundant code, this change prevents conflicts with global
+>> PCIe hierarchy tuning policies and reduces maintenance overhead. The Meson
+>> driver now fully relies on the core PCI framework for MPS configuration,
+>> ensuring consistency across the PCIe topology while preserving
+>> hardware-specific MRRS handling.
+>>
+>> Signed-off-by: Hans Zhang <18255117159@163.com>
+>> ---
+>>   drivers/pci/controller/dwc/pci-meson.c | 17 -----------------
+>>   drivers/pci/controller/pci-aardvark.c  |  2 --
 > 
+> Since you are touching two drivers (and the changes are not exactly identical),
+> I suggest that you do one patch per driver.
 
+Dear Niklas,
+
+Thank you very much for your reply. In the next version, I will split 
+two patches.
 
 Best regards,
-Krzysztof
+Hans
+
+
+
 
