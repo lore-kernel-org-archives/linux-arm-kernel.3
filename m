@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63CB1C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 15:44:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EDD1C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 15:46:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Pl1yLOmGAW6vmedIybcGq5oZm2w4idNQZkX0bm42mY=; b=LKLayCiZrFWihrvAQhrhdvQCxO
-	CMo9/c+C/sYV8ZrqnD2KiM5krWC65GjIF/FKnIfaavgRHWmVn/kSVNRTFhlcCyjw1UG70+WzXhwv4
-	5j9FbnRsIpmk1KhvR4phTelxHS48oanI5mx3bx/+sCYu3ehmO28qgC648dTYnFJJcWYestDpZq8FQ
-	IjulmdGqZrp5u+3JlftQjeBNGsbsnRxzqOrPg1zePwd3M4A8NQUThM6sos7vI47FUULDIEs2LeXR5
-	dZ+itjQCOxD+AOpXBhNqfpvb/WBn4DIsyPX3p6U0jMGilkY7AwzU/SMm6JP1ZuyRTBjIG+MFC9vn+
-	9VZbxcsg==;
+	bh=AiT0T8m/YtOBQx5yReOezU8tPuAtCADQmNxIYx7Gdl4=; b=J0ukbQQCvZlCud4C4RxWi5EzAT
+	Cy49+Nu/rpEQZL8h07fv84YCv9wbVd3zYYo7YAbaZgWa4wiaoDdwAE44YqKDsoPAu0GyMsg1SPP1j
+	XgifJUQOtAd2hIk6XFaVoo8jY4r+dtWpSfZbp3ZPQVmlsoZljv5FoG2gyJ9g9paE7BXpTtaL+/PFo
+	BBtg6zj3CJSyiM3PimZ9Euy0v2Kmm2oWpJKdRL/Bu/005kq/biIyIb8w1v1rwea3pIBBh99ojdB2G
+	lpSA7DErIX4itd0/aTKkfDkGHyeQ5/snr1Lkr24Ie1l3eVyU7Y7ocUSJfPKSHpNEgGWAiLzndnPJZ
+	PmYHqL7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8LEO-000000005dK-2wDE;
-	Fri, 25 Apr 2025 15:44:48 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1u8LGF-0000000064u-1ibf;
+	Fri, 25 Apr 2025 15:46:43 +0000
+Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Jpr-0000000HOrR-1R6w
+	id 1u8Jpr-0000000HOrK-2zpN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 14:15:26 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id B2FD043A1D;
-	Fri, 25 Apr 2025 14:15:19 +0000 (UTC)
+	Fri, 25 Apr 2025 14:15:27 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 10079439DD;
+	Fri, 25 Apr 2025 14:15:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1745590521;
+	t=1745590519;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=4Pl1yLOmGAW6vmedIybcGq5oZm2w4idNQZkX0bm42mY=;
-	b=DYBOY7XeI7nOwkggEzwtS5LUDlkt3aeCQxUBkGcVy7341uYx8jkILRL2DrqTZoleqS5PPo
-	O2L+BgDe5x+3DO+I0LUwJEUXWJ+2OIfnlgeY2GEUT3x7JXfWo3CFL0Q30cripMVylDqsTX
-	HsgCJPO+Uhn5i5ralNwEcligTLB5id07IlEY5nGqqm2OWPx/H5ZrrlaqG4B1dUq6HkDcAe
-	OTxAlwyBgbsbzW8ZSmwm9Hrdwt9XZiYZFUKNdnduv+bqger7Gb8LVA4RMOR4cXF/wu6h0F
-	hUkEKDj/ojVVDXiWxMULgpXSbXH3QN2/aN6tX7VQYujF4zOSmvpZMP5s0KbA8A==
+	bh=AiT0T8m/YtOBQx5yReOezU8tPuAtCADQmNxIYx7Gdl4=;
+	b=pGLHGgHX6nG5b+FMR04GExApsXTwqeqhxzg4pwaZjpwho4VULMzopbrukiYJkQZHXaati0
+	/4Wla1HXQi6tT+o7S+9FDQQJJPVRKXoJ2DvJEMfswrP1FFiRn2sOi0EZwnu4YkpTskJlqe
+	+z2KvX/u31E/TbFS6z6+p2W3D8RdNgfZmI6dHTyd91VM8vF6boUnCCMDA10PKD4W+pW/wG
+	mTo7svi5myA7Yn9RzCbAJmmVjf3KRY74lL7otav04ultyEqnUMkkhZUCnspNIUG/eCRqaJ
+	95i8UMKD/O8Db05KH4tNdtWfTxOqoZeYzUPkyaWjEfR8hJ5QGFd81aEvVUXXIg==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: davem@davemloft.net
 Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
@@ -73,9 +73,9 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Romain Gantois <romain.gantois@bootlin.com>,
 	Daniel Golle <daniel@makrotopia.org>,
 	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: [PATCH net-next v5 03/14] net: phy: Introduce PHY ports representation
-Date: Fri, 25 Apr 2025 16:14:56 +0200
-Message-ID: <20250425141511.182537-4-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v5 02/14] net: ethtool: Introduce ETHTOOL_LINK_MEDIUM_* values
+Date: Fri, 25 Apr 2025 16:14:55 +0200
+Message-ID: <20250425141511.182537-3-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250425141511.182537-1-maxime.chevallier@bootlin.com>
 References: <20250425141511.182537-1-maxime.chevallier@bootlin.com>
@@ -87,8 +87,8 @@ X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvhedvheehucetufdoteggode
  hgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqmhhsmhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhg
 X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_071523_664008_34986E90 
-X-CRM114-Status: GOOD (  32.35  )
+X-CRM114-CacheID: sfid-20250425_071524_130349_7FBD4ED3 
+X-CRM114-Status: GOOD (  17.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,670 +103,426 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ethernet provides a wide variety of layer 1 protocols and standards for
-data transmission. The front-facing ports of an interface have their own
-complexity and configurability.
+In an effort to have a better representation of Ethernet ports,
+introduce enumeration values representing the various ethernet Mediums.
 
-Introduce a representation of these front-facing ports. The current code
-is minimalistic and only support ports controlled by PHY devices, but
-the plan is to extend that to SFP as well as raw Ethernet MACs that
-don't use PHY devices.
+This is part of the 802.3 naming convention, for example :
 
-This minimal port representation allows describing the media and number
-of lanes of a port. From that information, we can derive the linkmodes
-usable on the port, which can be used to limit the capabilities of an
-interface.
+1000 Base T 4
+ |    |   | |
+ |    |   | \_ lanes (4)
+ |    |   \___ Medium (T == Twisted Copper Pairs)
+ |    \_______ Baseband transmission
+ \____________ Speed
 
-For now, the port lanes and medium is derived from devicetree, defined
-by the PHY driver, or populated with default values (as we assume that
-all PHYs expose at least one port).
+ Other example :
 
-The typical example is 100M ethernet. 100BaseT can work using only 2
-lanes on a Cat 5 cables. However, in the situation where a 10/100/1000
-capable PHY is wired to its RJ45 port through 2 lanes only, we have no
-way of detecting that. The "max-speed" DT property can be used, but a
-more accurate representation can be used :
+10000 Base K X 4
+           | | \_ lanes (4)
+           | \___ encoding (BaseX is 8b/10b while BaseR is 66b/64b)
+           \_____ Medium (K is backplane ethernet)
 
-mdi {
-	connector-0 {
-		media = "BaseT";
-		lanes = <2>;
-	};
-};
+In the case of representing a physical port, only the medium and number
+of lanes should be relevant. One exception would be 1000BaseX, which is
+currently also used as a medium in what appears to be any of
+1000BaseSX, 1000BaseCX and 1000BaseLX. This was reflected in the mediums
+associated with the 1000BaseX linkmode.
 
-From that information, we can derive the max speed reachable on the
-port.
+These mediums are set in the net/ethtool/common.c lookup table that
+maintains a list of all linkmodes with their number of lanes, medium,
+encoding, speed and duplex.
 
-Another benefit of having that is to avoid vendor-specific DT properties
-(micrel,fiber-mode or ti,fiber-mode).
+One notable exception to this is 100M BaseT Ethernet. 100BaseTX is a
+2-lanes protocol but it will also work on 4-lanes cables, so the lookup
+table contains 2 sets of lane numbers, indicating the min number of lanes
+for a protocol to work and the "nominal" number of lanes as well.
 
-This basic representation is meant to be expanded, by the introduction
-of port ops, userspace listing of ports, and support for multi-port
-devices.
+Another set of exceptions are linkmodes such 100000baseLR4_ER4, where
+the same link mode seems to represent 100GBaseLR4 and 100GBaseER4. The
+macro __DEFINE_LINK_MODE_PARAMS_MEDIUMS is here used to populate the
+.mediums bitfield with all appropriate mediums.
 
 Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- MAINTAINERS                  |   1 +
- drivers/net/phy/Makefile     |   2 +-
- drivers/net/phy/phy_device.c | 168 +++++++++++++++++++++++++++++++++++
- drivers/net/phy/phy_port.c   | 165 ++++++++++++++++++++++++++++++++++
- include/linux/ethtool.h      |  15 ++++
- include/linux/phy.h          |  30 +++++++
- include/linux/phy_port.h     |  92 +++++++++++++++++++
- 7 files changed, 472 insertions(+), 1 deletion(-)
- create mode 100644 drivers/net/phy/phy_port.c
- create mode 100644 include/linux/phy_port.h
+ include/linux/ethtool.h      |  18 ++-
+ include/uapi/linux/ethtool.h |  20 +++
+ net/ethtool/common.c         | 265 +++++++++++++++++++++--------------
+ 3 files changed, 191 insertions(+), 112 deletions(-)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 0a400524e578..5a6f554905eb 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -8789,6 +8789,7 @@ F:	include/linux/of_net.h
- F:	include/linux/phy.h
- F:	include/linux/phy_fixed.h
- F:	include/linux/phy_link_topology.h
-+F:	include/linux/phy_port.h
- F:	include/linux/phylib_stubs.h
- F:	include/linux/platform_data/mdio-bcm-unimac.h
- F:	include/linux/platform_data/mdio-gpio.h
-diff --git a/drivers/net/phy/Makefile b/drivers/net/phy/Makefile
-index 23ce205ae91d..25cb57859b54 100644
---- a/drivers/net/phy/Makefile
-+++ b/drivers/net/phy/Makefile
-@@ -3,7 +3,7 @@
- 
- libphy-y			:= phy.o phy-c45.o phy-core.o phy_device.o \
- 				   linkmode.o phy_link_topology.o \
--				   phy_package.o phy_caps.o
-+				   phy_package.o phy_caps.o phy_port.o
- mdio-bus-y			+= mdio_bus.o mdio_device.o
- 
- ifdef CONFIG_MDIO_DEVICE
-diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
-index f85c172c446c..4bb177d99d45 100644
---- a/drivers/net/phy/phy_device.c
-+++ b/drivers/net/phy/phy_device.c
-@@ -30,6 +30,7 @@
- #include <linux/phylib_stubs.h>
- #include <linux/phy_led_triggers.h>
- #include <linux/phy_link_topology.h>
-+#include <linux/phy_port.h>
- #include <linux/pse-pd/pse.h>
- #include <linux/property.h>
- #include <linux/ptp_clock_kernel.h>
-@@ -699,6 +700,13 @@ struct phy_device *phy_device_create(struct mii_bus *bus, int addr, u32 phy_id,
- 
- 	dev->state = PHY_DOWN;
- 	INIT_LIST_HEAD(&dev->leds);
-+	INIT_LIST_HEAD(&dev->ports);
-+
-+	/* The driver's probe function must change that to the real number
-+	 * of ports possible on the PHY. We assume by default we are dealing
-+	 * with a single-port PHY
-+	 */
-+	dev->max_n_ports = 1;
- 
- 	mutex_init(&dev->lock);
- 	INIT_DELAYED_WORK(&dev->state_queue, phy_state_machine);
-@@ -1442,6 +1450,46 @@ void phy_sfp_detach(void *upstream, struct sfp_bus *bus)
- }
- EXPORT_SYMBOL(phy_sfp_detach);
- 
-+static int phy_add_port(struct phy_device *phydev, struct phy_port *port)
-+{
-+	int ret = 0;
-+
-+	if (phydev->n_ports == phydev->max_n_ports)
-+		return -EBUSY;
-+
-+	/* We set all ports as active by default, PHY drivers may deactivate
-+	 * them (when unused)
-+	 */
-+	port->active = true;
-+
-+	if (phydev->drv && phydev->drv->attach_port)
-+		ret = phydev->drv->attach_port(phydev, port);
-+
-+	if (ret)
-+		return ret;
-+
-+	/* The PHY driver might have added, removed or set medium/lanes info,
-+	 * so update the port supported accordingly.
-+	 */
-+	phy_port_update_supported(port);
-+
-+	list_add(&port->head, &phydev->ports);
-+
-+	phydev->n_ports++;
-+
-+	return 0;
-+}
-+
-+static void phy_del_port(struct phy_device *phydev, struct phy_port *port)
-+{
-+	if (!phydev->n_ports)
-+		return;
-+
-+	list_del(&port->head);
-+
-+	phydev->n_ports--;
-+}
-+
- /**
-  * phy_sfp_probe - probe for a SFP cage attached to this PHY device
-  * @phydev: Pointer to phy_device
-@@ -3202,6 +3250,119 @@ static int of_phy_leds(struct phy_device *phydev)
- 	return 0;
- }
- 
-+static void phy_cleanup_ports(struct phy_device *phydev)
-+{
-+	struct phy_port *tmp, *port;
-+
-+	list_for_each_entry_safe(port, tmp, &phydev->ports, head) {
-+		phy_del_port(phydev, port);
-+		phy_port_destroy(port);
-+	}
-+}
-+
-+static int phy_default_setup_single_port(struct phy_device *phydev)
-+{
-+	struct phy_port *port = phy_port_alloc();
-+
-+	if (!port)
-+		return -ENOMEM;
-+
-+	port->parent_type = PHY_PORT_PHY;
-+	port->phy = phydev;
-+	linkmode_copy(port->supported, phydev->supported);
-+
-+	phy_add_port(phydev, port);
-+
-+	/* default medium is copper */
-+	if (!port->mediums)
-+		port->mediums |= BIT(ETHTOOL_LINK_MEDIUM_BASET);
-+
-+	return 0;
-+}
-+
-+static int of_phy_ports(struct phy_device *phydev)
-+{
-+	struct device_node *node = phydev->mdio.dev.of_node;
-+	struct device_node *mdi;
-+	struct phy_port *port;
-+	int err;
-+
-+	if (!IS_ENABLED(CONFIG_OF_MDIO))
-+		return 0;
-+
-+	if (!node)
-+		return 0;
-+
-+	mdi = of_get_child_by_name(node, "mdi");
-+	if (!mdi)
-+		return 0;
-+
-+	for_each_available_child_of_node_scoped(mdi, port_node) {
-+		port = phy_of_parse_port(port_node);
-+		if (IS_ERR(port)) {
-+			err = PTR_ERR(port);
-+			goto out_err;
-+		}
-+
-+		port->parent_type = PHY_PORT_PHY;
-+		port->phy = phydev;
-+		err = phy_add_port(phydev, port);
-+		if (err)
-+			goto out_err;
-+	}
-+	of_node_put(mdi);
-+
-+	return 0;
-+
-+out_err:
-+	phy_cleanup_ports(phydev);
-+	of_node_put(mdi);
-+	return err;
-+}
-+
-+static int phy_setup_ports(struct phy_device *phydev)
-+{
-+	__ETHTOOL_DECLARE_LINK_MODE_MASK(ports_supported);
-+	struct phy_port *port;
-+	int ret;
-+
-+	ret = of_phy_ports(phydev);
-+	if (ret)
-+		return ret;
-+
-+	if (phydev->n_ports < phydev->max_n_ports) {
-+		ret = phy_default_setup_single_port(phydev);
-+		if (ret)
-+			goto out;
-+	}
-+
-+	linkmode_zero(ports_supported);
-+
-+	/* Aggregate the supported modes, which are made-up of :
-+	 *  - What the PHY itself supports
-+	 *  - What the sum of all ports support
-+	 */
-+	list_for_each_entry(port, &phydev->ports, head)
-+		if (port->active)
-+			linkmode_or(ports_supported, ports_supported,
-+				    port->supported);
-+
-+	if (!linkmode_empty(ports_supported))
-+		linkmode_and(phydev->supported, phydev->supported,
-+			     ports_supported);
-+
-+	/* For now, the phy->port field is set as the first active port's type */
-+	list_for_each_entry(port, &phydev->ports, head)
-+		if (port->active)
-+			phydev->port = phy_port_get_type(port);
-+
-+	return 0;
-+
-+out:
-+	phy_cleanup_ports(phydev);
-+	return ret;
-+}
-+
- /**
-  * fwnode_mdio_find_device - Given a fwnode, find the mdio_device
-  * @fwnode: pointer to the mdio_device's fwnode
-@@ -3339,6 +3500,11 @@ static int phy_probe(struct device *dev)
- 		phydev->is_gigabit_capable = 1;
- 
- 	of_set_phy_supported(phydev);
-+
-+	err = phy_setup_ports(phydev);
-+	if (err)
-+		goto out;
-+
- 	phy_advertise_supported(phydev);
- 
- 	/* Get PHY default EEE advertising modes and handle them as potentially
-@@ -3414,6 +3580,8 @@ static int phy_remove(struct device *dev)
- 
- 	phydev->state = PHY_DOWN;
- 
-+	phy_cleanup_ports(phydev);
-+
- 	sfp_bus_del_upstream(phydev->sfp_bus);
- 	phydev->sfp_bus = NULL;
- 
-diff --git a/drivers/net/phy/phy_port.c b/drivers/net/phy/phy_port.c
-new file mode 100644
-index 000000000000..f54917cada39
---- /dev/null
-+++ b/drivers/net/phy/phy_port.c
-@@ -0,0 +1,165 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/* Framework to drive Ethernet ports
-+ *
-+ * Copyright (c) 2024 Maxime Chevallier <maxime.chevallier@bootlin.com>
-+ */
-+
-+#include <linux/linkmode.h>
-+#include <linux/of.h>
-+#include <linux/phy_port.h>
-+
-+/**
-+ * phy_port_alloc: Allocate a new phy_port
-+ *
-+ * Returns a newly allocated struct phy_port, or NULL.
-+ */
-+struct phy_port *phy_port_alloc(void)
-+{
-+	struct phy_port *port;
-+
-+	port = kzalloc(sizeof(*port), GFP_KERNEL);
-+	if (!port)
-+		return NULL;
-+
-+	linkmode_zero(port->supported);
-+	INIT_LIST_HEAD(&port->head);
-+
-+	return port;
-+}
-+EXPORT_SYMBOL_GPL(phy_port_alloc);
-+
-+/**
-+ * phy_port_destroy: Free a struct phy_port
-+ */
-+void phy_port_destroy(struct phy_port *port)
-+{
-+	kfree(port);
-+}
-+EXPORT_SYMBOL_GPL(phy_port_destroy);
-+
-+static void ethtool_medium_get_supported(unsigned long *supported,
-+					 enum ethtool_link_medium medium,
-+					 int lanes)
-+{
-+	int i;
-+
-+	for (i = 0; i < __ETHTOOL_LINK_MODE_MASK_NBITS; i++) {
-+		/* Special bits such as Autoneg, Pause, Asym_pause, etc. are
-+		 * set and will be masked away by the port parent.
-+		 */
-+		if (link_mode_params[i].mediums == BIT(ETHTOOL_LINK_MEDIUM_NONE)) {
-+			linkmode_set_bit(i, supported);
-+			continue;
-+		}
-+
-+		/* For most cases, min_lanes == lanes, except for 10/100BaseT that work
-+		 * on 2 lanes but are compatible with 4 lanes mediums
-+		 */
-+		if (link_mode_params[i].mediums & BIT(medium) &&
-+		    link_mode_params[i].lanes >= lanes &&
-+		    link_mode_params[i].min_lanes <= lanes) {
-+			linkmode_set_bit(i, supported);
-+		}
-+	}
-+}
-+
-+static enum ethtool_link_medium ethtool_str_to_medium(const char *str)
-+{
-+	int i;
-+
-+	for (i = 0; i < __ETHTOOL_LINK_MEDIUM_LAST; i++)
-+		if (!strcmp(phy_mediums(i), str))
-+			return i;
-+
-+	return ETHTOOL_LINK_MEDIUM_NONE;
-+}
-+
-+/**
-+ * phy_of_parse_port: Create a phy_port from a firmware representation
-+ *
-+ * Returns a newly allocated and initialized phy_port pointer, or an ERR_PTR.
-+ */
-+struct phy_port *phy_of_parse_port(struct device_node *dn)
-+{
-+	struct fwnode_handle *fwnode = of_fwnode_handle(dn);
-+	enum ethtool_link_medium medium;
-+	struct phy_port *port;
-+	struct property *prop;
-+	const char *med_str;
-+	u32 lanes, mediums = 0;
-+	int ret;
-+
-+	ret = fwnode_property_read_u32(fwnode, "lanes", &lanes);
-+	if (ret)
-+		lanes = 0;
-+
-+	ret = fwnode_property_read_string(fwnode, "media", &med_str);
-+	if (ret)
-+		return ERR_PTR(ret);
-+
-+	of_property_for_each_string(to_of_node(fwnode), "media", prop, med_str) {
-+		medium = ethtool_str_to_medium(med_str);
-+		if (medium == ETHTOOL_LINK_MEDIUM_NONE)
-+			return ERR_PTR(-EINVAL);
-+
-+		mediums |= BIT(medium);
-+	}
-+
-+	if (!mediums)
-+		return ERR_PTR(-EINVAL);
-+
-+	port = phy_port_alloc();
-+	if (!port)
-+		return ERR_PTR(-ENOMEM);
-+
-+	port->lanes = lanes;
-+	port->mediums = mediums;
-+
-+	return port;
-+}
-+EXPORT_SYMBOL_GPL(phy_of_parse_port);
-+
-+/**
-+ * phy_port_update_supported: Setup the port->supported field
-+ * port: the port to update
-+ *
-+ * Once the port's medium list and number of lanes has been configured based
-+ * on firmware, straps and vendor-specific properties, this function may be
-+ * called to update the port's supported linkmodes list.
-+ *
-+ * Any mode that was manually set in the port's supported list remains set.
-+ */
-+void phy_port_update_supported(struct phy_port *port)
-+{
-+	__ETHTOOL_DECLARE_LINK_MODE_MASK(supported);
-+	int i, lanes = 1;
-+
-+	/* If there's no lanes specified, we grab the default number of
-+	 * lanes as the max of the default lanes for each medium
-+	 */
-+	if (!port->lanes)
-+		for_each_set_bit(i, &port->mediums, __ETHTOOL_LINK_MEDIUM_LAST)
-+			lanes = max_t(int, lanes, phy_medium_default_lanes(i));
-+
-+	for_each_set_bit(i, &port->mediums, __ETHTOOL_LINK_MEDIUM_LAST) {
-+		linkmode_zero(supported);
-+		ethtool_medium_get_supported(supported, i, port->lanes);
-+		linkmode_or(port->supported, port->supported, supported);
-+	}
-+}
-+EXPORT_SYMBOL_GPL(phy_port_update_supported);
-+
-+/**
-+ * phy_port_get_type: get the PORT_* attribut for that port.
-+ */
-+int phy_port_get_type(struct phy_port *port)
-+{
-+	if (port->mediums & ETHTOOL_LINK_MEDIUM_BASET)
-+		return PORT_TP;
-+
-+	if (phy_port_is_fiber(port))
-+		return PORT_FIBRE;
-+
-+	return PORT_OTHER;
-+}
-+EXPORT_SYMBOL_GPL(phy_port_get_type);
 diff --git a/include/linux/ethtool.h b/include/linux/ethtool.h
-index c1d805d3e02f..0d3063af5905 100644
+index 117718c24814..c1d805d3e02f 100644
 --- a/include/linux/ethtool.h
 +++ b/include/linux/ethtool.h
-@@ -226,6 +226,10 @@ extern const struct link_mode_info link_mode_params[];
+@@ -215,13 +215,25 @@ static inline u8 *ethtool_rxfh_context_key(struct ethtool_rxfh_context *ctx)
+ void ethtool_rxfh_context_lost(struct net_device *dev, u32 context_id);
  
- extern const char ethtool_link_medium_names[][ETH_GSTRING_LEN];
+ struct link_mode_info {
+-	int                             speed;
+-	u8                              lanes;
+-	u8                              duplex;
++	int	speed;
++	u8	min_lanes;
++	u8	lanes;
++	u8	duplex;
++	u16	mediums;
+ };
  
-+#define ETHTOOL_MEDIUM_FIBER_BITS (BIT(ETHTOOL_LINK_MEDIUM_BASES) | \
-+				   BIT(ETHTOOL_LINK_MEDIUM_BASEL) | \
-+				   BIT(ETHTOOL_LINK_MEDIUM_BASEF))
+ extern const struct link_mode_info link_mode_params[];
+ 
++extern const char ethtool_link_medium_names[][ETH_GSTRING_LEN];
 +
- static inline const char *phy_mediums(enum ethtool_link_medium medium)
- {
- 	if (medium >= __ETHTOOL_LINK_MEDIUM_LAST)
-@@ -234,6 +238,17 @@ static inline const char *phy_mediums(enum ethtool_link_medium medium)
- 	return ethtool_link_medium_names[medium];
- }
- 
-+static inline int phy_medium_default_lanes(enum ethtool_link_medium medium)
++static inline const char *phy_mediums(enum ethtool_link_medium medium)
 +{
-+	/* Let's consider that the default BaseT ethernet is BaseT4, i.e.
-+	 * Gigabit Ethernet.
-+	 */
-+	if (medium == ETHTOOL_LINK_MEDIUM_BASET)
-+		return 4;
++	if (medium >= __ETHTOOL_LINK_MEDIUM_LAST)
++		return "unknown";
 +
-+	return 1;
++	return ethtool_link_medium_names[medium];
 +}
 +
  /* declare a link mode bitmap */
  #define __ETHTOOL_DECLARE_LINK_MODE_MASK(name)		\
  	DECLARE_BITMAP(name, __ETHTOOL_LINK_MODE_MASK_NBITS)
-diff --git a/include/linux/phy.h b/include/linux/phy.h
-index 3beaf225ee88..15ff45302222 100644
---- a/include/linux/phy.h
-+++ b/include/linux/phy.h
-@@ -299,6 +299,7 @@ static inline long rgmii_clock(int speed)
- struct device;
- struct kernel_hwtstamp_config;
- struct phylink;
-+struct phy_port;
- struct sfp_bus;
- struct sfp_upstream_ops;
- struct sk_buff;
-@@ -590,6 +591,9 @@ struct macsec_ops;
-  * @master_slave_state: Current master/slave configuration
-  * @mii_ts: Pointer to time stamper callbacks
-  * @psec: Pointer to Power Sourcing Equipment control struct
-+ * @ports: List of PHY ports structures
-+ * n_ports: Number of ports currently attached to the PHY
-+ * @max_n_ports: Max number of ports this PHY can expose
-  * @lock:  Mutex for serialization access to PHY
-  * @state_queue: Work queue for state machine
-  * @link_down_events: Number of times link was lost
-@@ -724,6 +728,10 @@ struct phy_device {
- 	struct mii_timestamper *mii_ts;
- 	struct pse_control *psec;
- 
-+	struct list_head ports;
-+	int n_ports;
-+	int max_n_ports;
-+
- 	u8 mdix;
- 	u8 mdix_ctrl;
- 
-@@ -1242,6 +1250,27 @@ struct phy_driver {
- 	 * Returns the time in jiffies until the next update event.
- 	 */
- 	unsigned int (*get_next_update_time)(struct phy_device *dev);
-+
-+	/**
-+	 * @attach_port: Indicates to the PHY driver that a port is detected
-+	 * @dev: PHY device to notify
-+	 * @port: The port being added
-+	 *
-+	 * Called when a port that needs to be driven by the PHY is found. The
-+	 * number of time this will be called depends on phydev->max_n_ports,
-+	 * which the driver can change in .probe().
-+	 *
-+	 * The port that is being passed may or may not be initialized. If it is
-+	 * already initialized, it is by the generic port representation from
-+	 * devicetree, which superseeds any strapping or vendor-specific
-+	 * properties.
-+	 *
-+	 * If the port isn't initialized, the port->mediums and port->lanes
-+	 * fields must be set, possibly according to stapping information.
-+	 *
-+	 * Returns 0, or an error code.
-+	 */
-+	int (*attach_port)(struct phy_device *dev, struct phy_port *port);
+diff --git a/include/uapi/linux/ethtool.h b/include/uapi/linux/ethtool.h
+index 84833cca29fe..2810cbb635dd 100644
+--- a/include/uapi/linux/ethtool.h
++++ b/include/uapi/linux/ethtool.h
+@@ -2582,4 +2582,24 @@ enum phy_upstream {
+ 	PHY_UPSTREAM_PHY,
  };
- #define to_phy_driver(d) container_of_const(to_mdio_common_driver(d),		\
- 				      struct phy_driver, mdiodrv)
-@@ -1968,6 +1997,7 @@ void phy_trigger_machine(struct phy_device *phydev);
- void phy_mac_interrupt(struct phy_device *phydev);
- void phy_start_machine(struct phy_device *phydev);
- void phy_stop_machine(struct phy_device *phydev);
+ 
++enum ethtool_link_medium {
++	ETHTOOL_LINK_MEDIUM_BASET = 0,
++	ETHTOOL_LINK_MEDIUM_BASEK,
++	ETHTOOL_LINK_MEDIUM_BASES,
++	ETHTOOL_LINK_MEDIUM_BASEC,
++	ETHTOOL_LINK_MEDIUM_BASEL,
++	ETHTOOL_LINK_MEDIUM_BASED,
++	ETHTOOL_LINK_MEDIUM_BASEE,
++	ETHTOOL_LINK_MEDIUM_BASEF,
++	ETHTOOL_LINK_MEDIUM_BASEV,
++	ETHTOOL_LINK_MEDIUM_BASEMLD,
++	ETHTOOL_LINK_MEDIUM_NONE,
 +
- void phy_ethtool_ksettings_get(struct phy_device *phydev,
- 			       struct ethtool_link_ksettings *cmd);
- int phy_ethtool_ksettings_set(struct phy_device *phydev,
-diff --git a/include/linux/phy_port.h b/include/linux/phy_port.h
-new file mode 100644
-index 000000000000..5dfad5157601
---- /dev/null
-+++ b/include/linux/phy_port.h
-@@ -0,0 +1,92 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+
-+#ifndef __PHY_PORT_H
-+#define __PHY_PORT_H
-+
-+#include <linux/ethtool.h>
-+#include <linux/types.h>
-+#include <linux/phy.h>
-+
-+struct phy_port;
-+
-+/**
-+ * enum phy_port_parent - The device this port is attached to
-+ *
-+ * @PHY_PORT_PHY: Indicates that the port is driven by a PHY device
-+ */
-+enum phy_port_parent {
-+	PHY_PORT_PHY,
++	__ETHTOOL_LINK_MEDIUM_LAST,
 +};
 +
-+struct phy_port_ops {
-+	/* Sometimes, the link state can be retrieved from physical,
-+	 * out-of-band channels such as the LOS signal on SFP. These
-+	 * callbacks allows notifying the port about state changes
-+	 */
-+	void (*link_up)(struct phy_port *port);
-+	void (*link_down)(struct phy_port *port);
++#define ETHTOOL_MEDIUM_FIBER_BITS (BIT(ETHTOOL_LINK_MEDIUM_BASES) | \
++				   BIT(ETHTOOL_LINK_MEDIUM_BASEL) | \
++				   BIT(ETHTOOL_LINK_MEDIUM_BASEF))
 +
-+	/* If the port acts as a Media Independent Interface (Serdes port),
-+	 * configures the port with the relevant state and mode. When enable is
-+	 * not set, interface should be ignored
-+	 */
-+	int (*configure_mii)(struct phy_port *port, bool enable, phy_interface_t interface);
+ #endif /* _UAPI_LINUX_ETHTOOL_H */
+diff --git a/net/ethtool/common.c b/net/ethtool/common.c
+index 49bea6b45bd5..9f6267eb9759 100644
+--- a/net/ethtool/common.c
++++ b/net/ethtool/common.c
+@@ -281,12 +281,32 @@ static_assert(ARRAY_SIZE(link_mode_names) == __ETHTOOL_LINK_MODE_MASK_NBITS);
+ #define __LINK_MODE_LANES_DR8_2		8
+ #define __LINK_MODE_LANES_T1BRR		1
+ 
+-#define __DEFINE_LINK_MODE_PARAMS(_speed, _type, _duplex)	\
++#define __DEFINE_LINK_MODE_PARAMS_LANES(_speed, _type, _min_lanes, _lanes, _duplex, _medium) \
+ 	[ETHTOOL_LINK_MODE(_speed, _type, _duplex)] = {		\
+ 		.speed  = SPEED_ ## _speed, \
++		.min_lanes  = _min_lanes, \
++		.lanes  = _lanes, \
++		.duplex	= __DUPLEX_ ## _duplex, \
++		.mediums = BIT(ETHTOOL_LINK_MEDIUM_BASE ## _medium) \
++	}
++
++#define __DEFINE_LINK_MODE_PARAMS(_speed, _type, _duplex, _medium)	\
++	[ETHTOOL_LINK_MODE(_speed, _type, _duplex)] = {		\
++		.speed  = SPEED_ ## _speed, \
++		.min_lanes  = __LINK_MODE_LANES_ ## _type, \
++		.lanes  = __LINK_MODE_LANES_ ## _type, \
++		.duplex	= __DUPLEX_ ## _duplex, \
++		.mediums = BIT(ETHTOOL_LINK_MEDIUM_BASE ## _medium) \
++	}
++#define __DEFINE_LINK_MODE_PARAMS_MEDIUMS(_speed, _type, _duplex, _mediums)	\
++	[ETHTOOL_LINK_MODE(_speed, _type, _duplex)] = {		\
++		.speed  = SPEED_ ## _speed, \
++		.min_lanes  = __LINK_MODE_LANES_ ## _type, \
+ 		.lanes  = __LINK_MODE_LANES_ ## _type, \
+-		.duplex	= __DUPLEX_ ## _duplex \
++		.duplex	= __DUPLEX_ ## _duplex, \
++		.mediums = (_mediums) \
+ 	}
++#define __MED(_medium)	(BIT(ETHTOOL_LINK_MEDIUM_BASE ## _medium))
+ #define __DUPLEX_Half DUPLEX_HALF
+ #define __DUPLEX_Full DUPLEX_FULL
+ #define __DEFINE_SPECIAL_MODE_PARAMS(_mode) \
+@@ -294,138 +314,165 @@ static_assert(ARRAY_SIZE(link_mode_names) == __ETHTOOL_LINK_MODE_MASK_NBITS);
+ 		.speed	= SPEED_UNKNOWN, \
+ 		.lanes	= 0, \
+ 		.duplex	= DUPLEX_UNKNOWN, \
++		.mediums = BIT(ETHTOOL_LINK_MEDIUM_NONE), \
+ 	}
+ 
+ const struct link_mode_info link_mode_params[] = {
+-	__DEFINE_LINK_MODE_PARAMS(10, T, Half),
+-	__DEFINE_LINK_MODE_PARAMS(10, T, Full),
+-	__DEFINE_LINK_MODE_PARAMS(100, T, Half),
+-	__DEFINE_LINK_MODE_PARAMS(100, T, Full),
+-	__DEFINE_LINK_MODE_PARAMS(1000, T, Half),
+-	__DEFINE_LINK_MODE_PARAMS(1000, T, Full),
++	__DEFINE_LINK_MODE_PARAMS_LANES(10, T, 2, 4, Half, T),
++	__DEFINE_LINK_MODE_PARAMS_LANES(10, T, 2, 4, Full, T),
++	__DEFINE_LINK_MODE_PARAMS_LANES(100, T, 2, 4, Half, T),
++	__DEFINE_LINK_MODE_PARAMS_LANES(100, T, 2, 4, Full, T),
++	__DEFINE_LINK_MODE_PARAMS(1000, T, Half, T),
++	__DEFINE_LINK_MODE_PARAMS(1000, T, Full, T),
+ 	__DEFINE_SPECIAL_MODE_PARAMS(Autoneg),
+ 	__DEFINE_SPECIAL_MODE_PARAMS(TP),
+ 	__DEFINE_SPECIAL_MODE_PARAMS(AUI),
+ 	__DEFINE_SPECIAL_MODE_PARAMS(MII),
+ 	__DEFINE_SPECIAL_MODE_PARAMS(FIBRE),
+ 	__DEFINE_SPECIAL_MODE_PARAMS(BNC),
+-	__DEFINE_LINK_MODE_PARAMS(10000, T, Full),
++	__DEFINE_LINK_MODE_PARAMS(10000, T, Full, T),
+ 	__DEFINE_SPECIAL_MODE_PARAMS(Pause),
+ 	__DEFINE_SPECIAL_MODE_PARAMS(Asym_Pause),
+-	__DEFINE_LINK_MODE_PARAMS(2500, X, Full),
++	__DEFINE_LINK_MODE_PARAMS_MEDIUMS(2500, X, Full,
++					  __MED(C) | __MED(S) | __MED(L)),
+ 	__DEFINE_SPECIAL_MODE_PARAMS(Backplane),
+-	__DEFINE_LINK_MODE_PARAMS(1000, KX, Full),
+-	__DEFINE_LINK_MODE_PARAMS(10000, KX4, Full),
+-	__DEFINE_LINK_MODE_PARAMS(10000, KR, Full),
++	__DEFINE_LINK_MODE_PARAMS(1000, KX, Full, K),
++	__DEFINE_LINK_MODE_PARAMS(10000, KX4, Full, K),
++	__DEFINE_LINK_MODE_PARAMS(10000, KR, Full, K),
+ 	[ETHTOOL_LINK_MODE_10000baseR_FEC_BIT] = {
+ 		.speed	= SPEED_10000,
+ 		.lanes	= 1,
+ 		.duplex = DUPLEX_FULL,
+ 	},
+-	__DEFINE_LINK_MODE_PARAMS(20000, MLD2, Full),
+-	__DEFINE_LINK_MODE_PARAMS(20000, KR2, Full),
+-	__DEFINE_LINK_MODE_PARAMS(40000, KR4, Full),
+-	__DEFINE_LINK_MODE_PARAMS(40000, CR4, Full),
+-	__DEFINE_LINK_MODE_PARAMS(40000, SR4, Full),
+-	__DEFINE_LINK_MODE_PARAMS(40000, LR4, Full),
+-	__DEFINE_LINK_MODE_PARAMS(56000, KR4, Full),
+-	__DEFINE_LINK_MODE_PARAMS(56000, CR4, Full),
+-	__DEFINE_LINK_MODE_PARAMS(56000, SR4, Full),
+-	__DEFINE_LINK_MODE_PARAMS(56000, LR4, Full),
+-	__DEFINE_LINK_MODE_PARAMS(25000, CR, Full),
+-	__DEFINE_LINK_MODE_PARAMS(25000, KR, Full),
+-	__DEFINE_LINK_MODE_PARAMS(25000, SR, Full),
+-	__DEFINE_LINK_MODE_PARAMS(50000, CR2, Full),
+-	__DEFINE_LINK_MODE_PARAMS(50000, KR2, Full),
+-	__DEFINE_LINK_MODE_PARAMS(100000, KR4, Full),
+-	__DEFINE_LINK_MODE_PARAMS(100000, SR4, Full),
+-	__DEFINE_LINK_MODE_PARAMS(100000, CR4, Full),
+-	__DEFINE_LINK_MODE_PARAMS(100000, LR4_ER4, Full),
+-	__DEFINE_LINK_MODE_PARAMS(50000, SR2, Full),
+-	__DEFINE_LINK_MODE_PARAMS(1000, X, Full),
+-	__DEFINE_LINK_MODE_PARAMS(10000, CR, Full),
+-	__DEFINE_LINK_MODE_PARAMS(10000, SR, Full),
+-	__DEFINE_LINK_MODE_PARAMS(10000, LR, Full),
+-	__DEFINE_LINK_MODE_PARAMS(10000, LRM, Full),
+-	__DEFINE_LINK_MODE_PARAMS(10000, ER, Full),
+-	__DEFINE_LINK_MODE_PARAMS(2500, T, Full),
+-	__DEFINE_LINK_MODE_PARAMS(5000, T, Full),
++	__DEFINE_LINK_MODE_PARAMS(20000, MLD2, Full, MLD),
++	__DEFINE_LINK_MODE_PARAMS(20000, KR2, Full, K),
++	__DEFINE_LINK_MODE_PARAMS(40000, KR4, Full, K),
++	__DEFINE_LINK_MODE_PARAMS(40000, CR4, Full, C),
++	__DEFINE_LINK_MODE_PARAMS(40000, SR4, Full, S),
++	__DEFINE_LINK_MODE_PARAMS(40000, LR4, Full, L),
++	__DEFINE_LINK_MODE_PARAMS(56000, KR4, Full, K),
++	__DEFINE_LINK_MODE_PARAMS(56000, CR4, Full, C),
++	__DEFINE_LINK_MODE_PARAMS(56000, SR4, Full, S),
++	__DEFINE_LINK_MODE_PARAMS(56000, LR4, Full, L),
++	__DEFINE_LINK_MODE_PARAMS(25000, CR, Full, C),
++	__DEFINE_LINK_MODE_PARAMS(25000, KR, Full, K),
++	__DEFINE_LINK_MODE_PARAMS(25000, SR, Full, S),
++	__DEFINE_LINK_MODE_PARAMS(50000, CR2, Full, C),
++	__DEFINE_LINK_MODE_PARAMS(50000, KR2, Full, K),
++	__DEFINE_LINK_MODE_PARAMS(100000, KR4, Full, K),
++	__DEFINE_LINK_MODE_PARAMS(100000, SR4, Full, S),
++	__DEFINE_LINK_MODE_PARAMS(100000, CR4, Full, C),
++	__DEFINE_LINK_MODE_PARAMS_MEDIUMS(100000, LR4_ER4, Full,
++					  __MED(L) | __MED(E)),
++	__DEFINE_LINK_MODE_PARAMS(50000, SR2, Full, S),
++	__DEFINE_LINK_MODE_PARAMS_MEDIUMS(1000, X, Full,
++					  __MED(C) | __MED(S) | __MED(L)),
++	__DEFINE_LINK_MODE_PARAMS(10000, CR, Full, C),
++	__DEFINE_LINK_MODE_PARAMS(10000, SR, Full, S),
++	__DEFINE_LINK_MODE_PARAMS(10000, LR, Full, L),
++	__DEFINE_LINK_MODE_PARAMS(10000, LRM, Full, L),
++	__DEFINE_LINK_MODE_PARAMS(10000, ER, Full, E),
++	__DEFINE_LINK_MODE_PARAMS(2500, T, Full, T),
++	__DEFINE_LINK_MODE_PARAMS(5000, T, Full, T),
+ 	__DEFINE_SPECIAL_MODE_PARAMS(FEC_NONE),
+ 	__DEFINE_SPECIAL_MODE_PARAMS(FEC_RS),
+ 	__DEFINE_SPECIAL_MODE_PARAMS(FEC_BASER),
+-	__DEFINE_LINK_MODE_PARAMS(50000, KR, Full),
+-	__DEFINE_LINK_MODE_PARAMS(50000, SR, Full),
+-	__DEFINE_LINK_MODE_PARAMS(50000, CR, Full),
+-	__DEFINE_LINK_MODE_PARAMS(50000, LR_ER_FR, Full),
+-	__DEFINE_LINK_MODE_PARAMS(50000, DR, Full),
+-	__DEFINE_LINK_MODE_PARAMS(100000, KR2, Full),
+-	__DEFINE_LINK_MODE_PARAMS(100000, SR2, Full),
+-	__DEFINE_LINK_MODE_PARAMS(100000, CR2, Full),
+-	__DEFINE_LINK_MODE_PARAMS(100000, LR2_ER2_FR2, Full),
+-	__DEFINE_LINK_MODE_PARAMS(100000, DR2, Full),
+-	__DEFINE_LINK_MODE_PARAMS(200000, KR4, Full),
+-	__DEFINE_LINK_MODE_PARAMS(200000, SR4, Full),
+-	__DEFINE_LINK_MODE_PARAMS(200000, LR4_ER4_FR4, Full),
+-	__DEFINE_LINK_MODE_PARAMS(200000, DR4, Full),
+-	__DEFINE_LINK_MODE_PARAMS(200000, CR4, Full),
+-	__DEFINE_LINK_MODE_PARAMS(100, T1, Full),
+-	__DEFINE_LINK_MODE_PARAMS(1000, T1, Full),
+-	__DEFINE_LINK_MODE_PARAMS(400000, KR8, Full),
+-	__DEFINE_LINK_MODE_PARAMS(400000, SR8, Full),
+-	__DEFINE_LINK_MODE_PARAMS(400000, LR8_ER8_FR8, Full),
+-	__DEFINE_LINK_MODE_PARAMS(400000, DR8, Full),
+-	__DEFINE_LINK_MODE_PARAMS(400000, CR8, Full),
++	__DEFINE_LINK_MODE_PARAMS(50000, KR, Full, K),
++	__DEFINE_LINK_MODE_PARAMS(50000, SR, Full, S),
++	__DEFINE_LINK_MODE_PARAMS(50000, CR, Full, C),
++	__DEFINE_LINK_MODE_PARAMS_MEDIUMS(50000, LR_ER_FR, Full,
++					  __MED(L) | __MED(E) | __MED(F)),
++	__DEFINE_LINK_MODE_PARAMS(50000, DR, Full, D),
++	__DEFINE_LINK_MODE_PARAMS(100000, KR2, Full, K),
++	__DEFINE_LINK_MODE_PARAMS(100000, SR2, Full, S),
++	__DEFINE_LINK_MODE_PARAMS(100000, CR2, Full, C),
++	__DEFINE_LINK_MODE_PARAMS_MEDIUMS(100000, LR2_ER2_FR2, Full,
++					  __MED(L) | __MED(E) | __MED(F)),
++	__DEFINE_LINK_MODE_PARAMS(100000, DR2, Full, D),
++	__DEFINE_LINK_MODE_PARAMS(200000, KR4, Full, K),
++	__DEFINE_LINK_MODE_PARAMS(200000, SR4, Full, S),
++	__DEFINE_LINK_MODE_PARAMS_MEDIUMS(200000, LR4_ER4_FR4, Full,
++					  __MED(L) | __MED(E) | __MED(F)),
++	__DEFINE_LINK_MODE_PARAMS(200000, DR4, Full, D),
++	__DEFINE_LINK_MODE_PARAMS(200000, CR4, Full, C),
++	__DEFINE_LINK_MODE_PARAMS(100, T1, Full, T),
++	__DEFINE_LINK_MODE_PARAMS(1000, T1, Full, T),
++	__DEFINE_LINK_MODE_PARAMS(400000, KR8, Full, K),
++	__DEFINE_LINK_MODE_PARAMS(400000, SR8, Full, S),
++	__DEFINE_LINK_MODE_PARAMS_MEDIUMS(400000, LR8_ER8_FR8, Full,
++					  __MED(L) | __MED(E) | __MED(F)),
++	__DEFINE_LINK_MODE_PARAMS(400000, DR8, Full, D),
++	__DEFINE_LINK_MODE_PARAMS(400000, CR8, Full, C),
+ 	__DEFINE_SPECIAL_MODE_PARAMS(FEC_LLRS),
+-	__DEFINE_LINK_MODE_PARAMS(100000, KR, Full),
+-	__DEFINE_LINK_MODE_PARAMS(100000, SR, Full),
+-	__DEFINE_LINK_MODE_PARAMS(100000, LR_ER_FR, Full),
+-	__DEFINE_LINK_MODE_PARAMS(100000, DR, Full),
+-	__DEFINE_LINK_MODE_PARAMS(100000, CR, Full),
+-	__DEFINE_LINK_MODE_PARAMS(200000, KR2, Full),
+-	__DEFINE_LINK_MODE_PARAMS(200000, SR2, Full),
+-	__DEFINE_LINK_MODE_PARAMS(200000, LR2_ER2_FR2, Full),
+-	__DEFINE_LINK_MODE_PARAMS(200000, DR2, Full),
+-	__DEFINE_LINK_MODE_PARAMS(200000, CR2, Full),
+-	__DEFINE_LINK_MODE_PARAMS(400000, KR4, Full),
+-	__DEFINE_LINK_MODE_PARAMS(400000, SR4, Full),
+-	__DEFINE_LINK_MODE_PARAMS(400000, LR4_ER4_FR4, Full),
+-	__DEFINE_LINK_MODE_PARAMS(400000, DR4, Full),
+-	__DEFINE_LINK_MODE_PARAMS(400000, CR4, Full),
+-	__DEFINE_LINK_MODE_PARAMS(100, FX, Half),
+-	__DEFINE_LINK_MODE_PARAMS(100, FX, Full),
+-	__DEFINE_LINK_MODE_PARAMS(10, T1L, Full),
+-	__DEFINE_LINK_MODE_PARAMS(800000, CR8, Full),
+-	__DEFINE_LINK_MODE_PARAMS(800000, KR8, Full),
+-	__DEFINE_LINK_MODE_PARAMS(800000, DR8, Full),
+-	__DEFINE_LINK_MODE_PARAMS(800000, DR8_2, Full),
+-	__DEFINE_LINK_MODE_PARAMS(800000, SR8, Full),
+-	__DEFINE_LINK_MODE_PARAMS(800000, VR8, Full),
+-	__DEFINE_LINK_MODE_PARAMS(10, T1S, Full),
+-	__DEFINE_LINK_MODE_PARAMS(10, T1S, Half),
+-	__DEFINE_LINK_MODE_PARAMS(10, T1S_P2MP, Half),
+-	__DEFINE_LINK_MODE_PARAMS(10, T1BRR, Full),
+-	__DEFINE_LINK_MODE_PARAMS(200000, CR, Full),
+-	__DEFINE_LINK_MODE_PARAMS(200000, KR, Full),
+-	__DEFINE_LINK_MODE_PARAMS(200000, DR, Full),
+-	__DEFINE_LINK_MODE_PARAMS(200000, DR_2, Full),
+-	__DEFINE_LINK_MODE_PARAMS(200000, SR, Full),
+-	__DEFINE_LINK_MODE_PARAMS(200000, VR, Full),
+-	__DEFINE_LINK_MODE_PARAMS(400000, CR2, Full),
+-	__DEFINE_LINK_MODE_PARAMS(400000, KR2, Full),
+-	__DEFINE_LINK_MODE_PARAMS(400000, DR2, Full),
+-	__DEFINE_LINK_MODE_PARAMS(400000, DR2_2, Full),
+-	__DEFINE_LINK_MODE_PARAMS(400000, SR2, Full),
+-	__DEFINE_LINK_MODE_PARAMS(400000, VR2, Full),
+-	__DEFINE_LINK_MODE_PARAMS(800000, CR4, Full),
+-	__DEFINE_LINK_MODE_PARAMS(800000, KR4, Full),
+-	__DEFINE_LINK_MODE_PARAMS(800000, DR4, Full),
+-	__DEFINE_LINK_MODE_PARAMS(800000, DR4_2, Full),
+-	__DEFINE_LINK_MODE_PARAMS(800000, SR4, Full),
+-	__DEFINE_LINK_MODE_PARAMS(800000, VR4, Full),
++	__DEFINE_LINK_MODE_PARAMS(100000, KR, Full, K),
++	__DEFINE_LINK_MODE_PARAMS(100000, SR, Full, S),
++	__DEFINE_LINK_MODE_PARAMS_MEDIUMS(100000, LR_ER_FR, Full,
++					  __MED(L) | __MED(E) | __MED(F)),
++	__DEFINE_LINK_MODE_PARAMS(100000, DR, Full, D),
++	__DEFINE_LINK_MODE_PARAMS(100000, CR, Full, C),
++	__DEFINE_LINK_MODE_PARAMS(200000, KR2, Full, K),
++	__DEFINE_LINK_MODE_PARAMS(200000, SR2, Full, S),
++	__DEFINE_LINK_MODE_PARAMS_MEDIUMS(200000, LR2_ER2_FR2, Full,
++					  __MED(L) | __MED(E) | __MED(F)),
++	__DEFINE_LINK_MODE_PARAMS(200000, DR2, Full, D),
++	__DEFINE_LINK_MODE_PARAMS(200000, CR2, Full, C),
++	__DEFINE_LINK_MODE_PARAMS(400000, KR4, Full, K),
++	__DEFINE_LINK_MODE_PARAMS(400000, SR4, Full, S),
++	__DEFINE_LINK_MODE_PARAMS_MEDIUMS(400000, LR4_ER4_FR4, Full,
++					  __MED(L) | __MED(E) | __MED(F)),
++	__DEFINE_LINK_MODE_PARAMS(400000, DR4, Full, D),
++	__DEFINE_LINK_MODE_PARAMS(400000, CR4, Full, C),
++	__DEFINE_LINK_MODE_PARAMS(100, FX, Half, F),
++	__DEFINE_LINK_MODE_PARAMS(100, FX, Full, F),
++	__DEFINE_LINK_MODE_PARAMS(10, T1L, Full, T),
++	__DEFINE_LINK_MODE_PARAMS(800000, CR8, Full, C),
++	__DEFINE_LINK_MODE_PARAMS(800000, KR8, Full, K),
++	__DEFINE_LINK_MODE_PARAMS(800000, DR8, Full, D),
++	__DEFINE_LINK_MODE_PARAMS(800000, DR8_2, Full, D),
++	__DEFINE_LINK_MODE_PARAMS(800000, SR8, Full, S),
++	__DEFINE_LINK_MODE_PARAMS(800000, VR8, Full, V),
++	__DEFINE_LINK_MODE_PARAMS(10, T1S, Full, T),
++	__DEFINE_LINK_MODE_PARAMS(10, T1S, Half, T),
++	__DEFINE_LINK_MODE_PARAMS(10, T1S_P2MP, Half, T),
++	__DEFINE_LINK_MODE_PARAMS(10, T1BRR, Full, T),
++	__DEFINE_LINK_MODE_PARAMS(200000, CR, Full, C),
++	__DEFINE_LINK_MODE_PARAMS(200000, KR, Full, K),
++	__DEFINE_LINK_MODE_PARAMS(200000, DR, Full, D),
++	__DEFINE_LINK_MODE_PARAMS(200000, DR_2, Full, D),
++	__DEFINE_LINK_MODE_PARAMS(200000, SR, Full, S),
++	__DEFINE_LINK_MODE_PARAMS(200000, VR, Full, V),
++	__DEFINE_LINK_MODE_PARAMS(400000, CR2, Full, C),
++	__DEFINE_LINK_MODE_PARAMS(400000, KR2, Full, K),
++	__DEFINE_LINK_MODE_PARAMS(400000, DR2, Full, D),
++	__DEFINE_LINK_MODE_PARAMS(400000, DR2_2, Full, D),
++	__DEFINE_LINK_MODE_PARAMS(400000, SR2, Full, S),
++	__DEFINE_LINK_MODE_PARAMS(400000, VR2, Full, V),
++	__DEFINE_LINK_MODE_PARAMS(800000, CR4, Full, C),
++	__DEFINE_LINK_MODE_PARAMS(800000, KR4, Full, K),
++	__DEFINE_LINK_MODE_PARAMS(800000, DR4, Full, D),
++	__DEFINE_LINK_MODE_PARAMS(800000, DR4_2, Full, D),
++	__DEFINE_LINK_MODE_PARAMS(800000, SR4, Full, S),
++	__DEFINE_LINK_MODE_PARAMS(800000, VR4, Full, V),
+ };
+ static_assert(ARRAY_SIZE(link_mode_params) == __ETHTOOL_LINK_MODE_MASK_NBITS);
+ EXPORT_SYMBOL_GPL(link_mode_params);
+ 
++const char ethtool_link_medium_names[][ETH_GSTRING_LEN] = {
++	[ETHTOOL_LINK_MEDIUM_BASET] = "BaseT",
++	[ETHTOOL_LINK_MEDIUM_BASEK] = "BaseK",
++	[ETHTOOL_LINK_MEDIUM_BASES] = "BaseS",
++	[ETHTOOL_LINK_MEDIUM_BASEC] = "BaseC",
++	[ETHTOOL_LINK_MEDIUM_BASEL] = "BaseL",
++	[ETHTOOL_LINK_MEDIUM_BASED] = "BaseD",
++	[ETHTOOL_LINK_MEDIUM_BASEE] = "BaseE",
++	[ETHTOOL_LINK_MEDIUM_BASEF] = "BaseF",
++	[ETHTOOL_LINK_MEDIUM_BASEV] = "BaseV",
++	[ETHTOOL_LINK_MEDIUM_BASEMLD] = "BaseMLD",
++	[ETHTOOL_LINK_MEDIUM_NONE] = "None",
 +};
++static_assert(ARRAY_SIZE(ethtool_link_medium_names) == __ETHTOOL_LINK_MEDIUM_LAST);
++EXPORT_SYMBOL_GPL(ethtool_link_medium_names);
 +
-+/**
-+ * struct phy_port - A representation of a network device physical interface
-+ *
-+ * @head: Used by the port's parent to list ports
-+ * @parent_type: The type of device this port is directly connected to
-+ * @phy: If the parent is PHY_PORT_PHYDEV, the PHY controlling that port
-+ * @lanes: The number of lanes (diff pairs) this port has, 0 if not applicable
-+ * @medium: The physical medium this port provides access to
-+ * @supported: The link modes this port can expose, if this port is MDI (not MII)
-+ * @interfaces: The MII interfaces this port supports, if this port is MII
-+ * @active: Indicates if the port is currently part of the active link.
-+ * @is_serdes: Indicates if this port is Serialised MII (Media Independent
-+ *	       Interface), or an MDI (Media Dependent Interface).
-+ */
-+struct phy_port {
-+	struct list_head head;
-+	enum phy_port_parent parent_type;
-+	union {
-+		struct phy_device *phy;
-+	};
-+
-+	const struct phy_port_ops *ops;
-+
-+	int lanes;
-+	unsigned long mediums;
-+	__ETHTOOL_DECLARE_LINK_MODE_MASK(supported);
-+	DECLARE_PHY_INTERFACE_MASK(interfaces);
-+
-+	unsigned int active:1;
-+	unsigned int is_serdes:1;
-+};
-+
-+struct phy_port *phy_port_alloc(void);
-+void phy_port_destroy(struct phy_port *port);
-+
-+static inline struct phy_device *port_phydev(struct phy_port *port)
-+{
-+	return port->phy;
-+}
-+
-+struct phy_port *phy_of_parse_port(struct device_node *dn);
-+
-+static inline bool phy_port_is_copper(struct phy_port *port)
-+{
-+	return port->mediums == BIT(ETHTOOL_LINK_MEDIUM_BASET);
-+}
-+
-+static inline bool phy_port_is_fiber(struct phy_port *port)
-+{
-+	return !!(port->mediums & ETHTOOL_MEDIUM_FIBER_BITS);
-+}
-+
-+void phy_port_update_supported(struct phy_port *port);
-+
-+int phy_port_get_type(struct phy_port *port);
-+
-+#endif
+ const char netif_msg_class_names[][ETH_GSTRING_LEN] = {
+ 	[NETIF_MSG_DRV_BIT]		= "drv",
+ 	[NETIF_MSG_PROBE_BIT]		= "probe",
 -- 
 2.49.0
 
