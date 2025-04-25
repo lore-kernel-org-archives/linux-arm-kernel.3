@@ -4,88 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4231EC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 14:52:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54D10C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 14:53:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fxe+1BqeMw88KkIco0sHqplA8QMWdxh1ONHDTZ6Mzls=; b=XU4Jw6gDDWL6Ejvrg231Ohntjj
-	5FPcfoSjiE21FWSKUjZ4/K0J+VJhltbSFJvHO1k3HG5AbV+ENo5icmdGzlHxHMyHBdZpG+35WqyAY
-	wyC8gJmx/iEl9CK+MYQ4QAdV69DJFvcggGpvh2LQVhsSLcuR1ynxuhpXcUZfNelXed081BviU+cKx
-	TgsueD1OkpeW+zUsiStYtQ3fYxQxvHtJGbLWDpAFMx9l3jXYgE+iBQfVkrr0zMaJ4rFDulEjoaJMA
-	dF2DmMtTOivBrAa9FxT1XG2NpzE2P6Q0g3+bywCrmCkYA6Oq/nFshcM/0Tf8sNQDkbxINL7IgAbxe
-	m++Moifw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Xu08WpWbP9VRkJIe5+B7WyB4NPIRhaxkc0XM7hm0jVU=; b=gBAmbrbpGPIcgOmE+7aLNtxdGa
+	+9uooTT/UnU8B6gNJ6e1+H0X0usy6jDXnKOhzrNlbMdFMsURB1bm95McNb8sgVkmRck2tin47PWAX
+	ILfJeT+IrKMQlCfiXAXrqo4EQuO/PRxFsOKVp4ibku04kv8dGwilg5CMhxlmip0qiFDzWK/xyAQIj
+	die4yhE8FG11TTfZAqo+oZkR0NqPjt2AdjnCBM6w16LemTCnSzyiCB0DswGJLZHNZga3VG7xULbku
+	s2obKZrQ2ClgPr7q9Sk6diwl9E9q+9D8Pa+4den3Is4FUVhwLDZtUxcqpFHy9q+ZrPAPEOyjtrFXY
+	48L2OT2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8KPn-0000000HUec-1KnK;
-	Fri, 25 Apr 2025 14:52:31 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	id 1u8KQa-0000000HUkW-0W3a;
+	Fri, 25 Apr 2025 14:53:20 +0000
+Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8IVe-0000000HAiu-0kRY
+	id 1u8HxM-0000000H5Ml-30ZD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 12:50:28 +0000
-Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53P8Mcg1019007;
-	Fri, 25 Apr 2025 14:50:16 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	Fxe+1BqeMw88KkIco0sHqplA8QMWdxh1ONHDTZ6Mzls=; b=4hVDvsHPHMrX2IF9
-	7Hi/EPx+aeGeFMIbhPVp8aLJEORY90cZbW/PpmF6YGAf8H2X2YFsFoVSyDPHdPC+
-	hthm/uldXfoQmFnfcDsGJH7XkcVOiZ1EkZMtNgrYV+huKFP926LwDIzehfa7vtAJ
-	uojNJ21O70mDT/G3eFAsXNc4A8MC35Q9fCpDjth9r1/aLUGjNM0OqtlEtYP1B20k
-	oMqa/vP0D6tfrcyXqf+xsZea+U+nIATrg+nZLXOo7vyPswYgpoWne6J35lukNtms
-	6Kh374oLYkKrot9VBzYyblkdqtyt9xp51APToTYRm/3GGTvO8YHjUJiG2pHpFuo1
-	TVzBmg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 466jjvm6tt-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 25 Apr 2025 14:50:16 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 12DD44004A;
-	Fri, 25 Apr 2025 14:49:12 +0200 (CEST)
-Received: from Webmail-eu.st.com (eqndag1node4.st.com [10.75.129.133])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id A3EFEA09563;
-	Fri, 25 Apr 2025 14:48:06 +0200 (CEST)
-Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE4.st.com
- (10.75.129.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 25 Apr
- 2025 14:48:06 +0200
-Received: from localhost (10.252.15.6) by SAFDAG1NODE1.st.com (10.75.90.17)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 25 Apr
- 2025 14:48:06 +0200
-From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-To: <lee@kernel.org>, <alexandre.torgue@foss.st.com>,
-        <daniel.lezcano@linaro.org>, <tglx@linutronix.de>
-CC: <ukleinek@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <jic23@kernel.org>, <robh@kernel.org>, <catalin.marinas@arm.com>,
-        <will@kernel.org>, <devicetree@vger.kernel.org>, <wbg@kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-iio@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
-        <olivier.moysan@foss.st.com>, <fabrice.gasnier@foss.st.com>
-Subject: [PATCH v5 2/7] mfd: stm32-lptimer: add support for stm32mp25
-Date: Fri, 25 Apr 2025 14:47:50 +0200
-Message-ID: <20250425124755.166193-3-fabrice.gasnier@foss.st.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250425124755.166193-1-fabrice.gasnier@foss.st.com>
-References: <20250425124755.166193-1-fabrice.gasnier@foss.st.com>
+	Fri, 25 Apr 2025 12:15:02 +0000
+Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-47664364628so25781511cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 05:15:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1745583299; x=1746188099; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Xu08WpWbP9VRkJIe5+B7WyB4NPIRhaxkc0XM7hm0jVU=;
+        b=IX8iVb+exdzWuMnJ3VbeFauz+fqOUlomQx71PCUauld+C3e9A7W8EXb0+TwdaCT8Om
+         KlsIx+OZVZDHfxAowOsiARuesrei2FIdJ5LIwU6Ba7S6SyaIzxgeR5UNQc++lSQV2EF7
+         ZQYkKfT3eqa0klIU6zwNF1RXKSRHpoK2spSqTngrD76VO8IbQ9InwHsqpEWeU530O88j
+         IevqEKb4Cu+TcBmZdsrbVgBbaTYdUCoTuyY3KZIQv30gSO1HXUycC62Z2s7YOD+apoYU
+         lkOxNo/D2VxBmEeuVnAgcLrFHobP7FTJnOfCUVY1aKUaTMp8Nv3DgWcYmNEy45h6vAEc
+         iGvw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745583299; x=1746188099;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Xu08WpWbP9VRkJIe5+B7WyB4NPIRhaxkc0XM7hm0jVU=;
+        b=gvfbKPVglZuwDk6NaUuqAlCRCLNYDQz0POkfWV61XHTH7xdbyA80Ykt+Zdz2QFrxil
+         pnIyW/DnwmIxzcWdbY4kgTxAAs9x6GePiMk4GcsP/4y9CoJIHG7bLO0gAnAJrISlja0u
+         q3N/vc21PkQ/6H4RH03Nn5CdWNDxDmdOC+DxA2Vkv5PPSXdxbk9mGkNIFRbQs63h6QQt
+         P3IT0oWudF64hpqmwq0SM1OwrX+YLlxhSuMOk9krunHYOiBD+Na0vFEewIrpI9O34N9D
+         EUPw5/kxWYCkqM8Zp9JrXZTL8kl0IThAYdW/d/pbORDn36Idjxqc8yGQteY0fS6wDK8J
+         QLzw==
+X-Forwarded-Encrypted: i=1; AJvYcCUAvtazPybMlpNorwmIX0c2+m5cci4OkYD2W/Akwb1BTvqZqkTo7I3E+huS1NnliYOad/O70hneiXBEp6PA5g0N@lists.infradead.org
+X-Gm-Message-State: AOJu0YxqW7luSoykhNuCiuIPbADRq+AJVBfhNlfYrjjDF5mJPzBJXtA2
+	qm+bxJLuttIC/i5E8rbM1cApEmeOUjd5Wvc9XlKplef5qoimI597ldLgm3H02iemPZYJx1q8rs3
+	gXwJiHiNdGzQ2E2Nvu46ChiWfc83CdsgD6Yo=
+X-Gm-Gg: ASbGncsz7zqdX86HW1nWE8c8VXvEbwdw6Uj8V7H42+F2eLmgl4/+Vg1ZX1fSGn8EKdY
+	CiCPkeDWs9Pkbf5eFQlHl0el1TeaJYDDwj1o+dBI2Qwfhk9Fi0pJg4gCARstoIWQAXkujjGAUyn
+	EigsXJRkGzWZXZNMfvC2zq4RehpblJiZDOhEGV7X6+ovGBjYAI2CZZDw==
+X-Google-Smtp-Source: AGHT+IGalm45BLBaTkyJlEQ78yqfTdEaLzyEHrABmorXnt1Rm8owTSj9BrL3OmFlL2yuC97CUZHOtQdTyCPwtz+wv2g=
+X-Received: by 2002:ac8:5f8a:0:b0:477:1dd7:af94 with SMTP id
+ d75a77b69052e-4802d4d0fd8mr29566751cf.2.1745583299424; Fri, 25 Apr 2025
+ 05:14:59 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.252.15.6]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SAFDAG1NODE1.st.com
- (10.75.90.17)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-04-25_03,2025-04-24_02,2025-02-21_01
+References: <20250423-wmt-soc-driver-v1-0-bd8bf32521c2@gmail.com>
+ <20250423-wmt-soc-driver-v1-2-bd8bf32521c2@gmail.com> <c38b3dde-f4ea-4812-a673-137d4727aefc@kernel.org>
+In-Reply-To: <c38b3dde-f4ea-4812-a673-137d4727aefc@kernel.org>
+From: Alexey Charkov <alchark@gmail.com>
+Date: Fri, 25 Apr 2025 16:15:10 +0400
+X-Gm-Features: ATxdqUFHg9dv2l091sWsrUupQVwQJ3q1a0X28XX0Jmt0SiDYrD-xa8cWrKC2sFo
+Message-ID: <CABjd4YzQVQD1PCh3fUOzy_cwhd4j6q_N6zvb=kY4gFt-bn1Psg@mail.gmail.com>
+Subject: Re: [PATCH 2/3] soc: Add VIA/WonderMedia SoC identification driver
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_055026_506201_88C5F1AC 
-X-CRM114-Status: GOOD (  21.35  )
+X-CRM114-CacheID: sfid-20250425_051500_788516_9425ACF2 
+X-CRM114-Status: GOOD (  21.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,168 +96,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for STM32MP25 SoC.
-A new hardware configuration register (HWCFGR2) has been added, to gather
-number of capture/compare channels, autonomous mode and input capture
-capability. The full feature set is implemented in LPTIM1/2/3/4. LPTIM5
-supports a smaller set of features. This can now be read from HWCFGR
-registers.
+On Fri, Apr 25, 2025 at 2:24=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.or=
+g> wrote:
+>
+> On 23/04/2025 21:18, Alexey Charkov wrote:
+> > Add a small SOC bus driver to parse the chip ID and revision made
+> > available on VIA/WonderMedia SoCs via their system configuration
+> > controller's SCC_ID register.
+>
+>
+> ...
+>
+> > +#include <linux/io.h>
+> > +#include <linux/of.h>
+> > +#include <linux/of_address.h>
+> > +#include <linux/of_platform.h>
+> > +#include <linux/platform_device.h>
+> > +#include <linux/slab.h>
+> > +#include <linux/sys_soc.h>
+> > +
+> > +static struct {
+>
+> I think const by convention is placed here - right after static. It
+> should be equivalent, just convention.
 
-Add new registers to the stm32-lptimer.h: CCMR1, CCR2, HWCFGR1/2 and VERR.
-Update the stm32_lptimer data struct so signal the number of
-capture/compare channels to the child devices.
-Also Remove some unused bit masks (CMPOK_ARROK / CMPOKCF_ARROKCF).
+Makes sense, thank you. Will adjust in v2.
 
-Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
----
-Changes in V4:
-- Add DIEROK, ARROK status flags, and their clear flags.
-Changes in V2:
-- rely on fallback compatible as no specific .data is associated to the
-  driver. Compatibility is added by reading hardware configuration
-  registers.
-- read version register, to be used by clockevent child driver
-- rename register/bits definitions
----
- drivers/mfd/stm32-lptimer.c       | 33 ++++++++++++++++++++++++++-
- include/linux/mfd/stm32-lptimer.h | 37 ++++++++++++++++++++++++++++---
- 2 files changed, 66 insertions(+), 4 deletions(-)
+> > +     const char *name;
+> > +     const unsigned long id;
+> > +} const chip_id_table[] =3D {
+> > +     /* VIA */
+> > +     { "VT8420", 0x3300 },
+> > +     { "VT8430", 0x3357 },
+> > +     { "VT8500", 0x3400 },
+> > +
+> > +     /* WonderMedia */
+> > +     { "WM8425", 0x3429 },
+> > +     { "WM8435", 0x3437 },
+> > +     { "WM8440", 0x3451 },
+> > +     { "WM8505", 0x3426 },
+> > +     { "WM8650", 0x3465 },
+> > +     { "WM8750", 0x3445 },
+> > +     { "WM8850", 0x3481 },
+> > +     { "WM8880", 0x3498 },
+> > +};
+> > +
+> > +static const char *sccid_to_name(unsigned long sccid)
+> > +{
+> > +     unsigned long id =3D sccid >> 16;
+> > +     unsigned int i;
+> > +
+> > +     for (i =3D 0 ; i < ARRAY_SIZE(chip_id_table) ; ++i) {
+> > +             if (chip_id_table[i].id =3D=3D id)
+> > +                     return chip_id_table[i].name;
+> > +     }
+> > +
+> > +     return "Unknown";
+> > +}
+> > +
+> > +static const char *sccid_to_rev(unsigned long sccid)
+> > +{
+> > +     char letter, digit;
+> > +
+> > +     letter =3D (sccid >> 8) & 0xf;
+> > +     letter =3D (letter - 1) + 'A';
+> > +
+> > +     digit =3D sccid & 0xff;
+> > +     digit =3D (digit - 1) + '0';
+> > +
+> > +     return kasprintf(GFP_KERNEL, "%c%c", letter, digit);
+> > +}
+> > +
+> > +static int __init wmt_socinfo_init(void)
+> > +{
+> > +     struct soc_device_attribute *attrs;
+> > +     struct soc_device *soc_dev;
+> > +     struct device_node *np;
+> > +     void __iomem *reg;
+> > +     unsigned long sccid;
+> > +     const char *machine =3D NULL;
+> > +
+> > +     np =3D of_find_compatible_node(NULL, NULL, "via,scc-id");
+> > +     if (!of_device_is_available(np)) {
+> > +             of_node_put(np);
+> > +             return -ENODEV;
+> > +     }
+> > +
+> > +     reg =3D of_iomap(np, 0);
+>
+> of_node_put(np) here... although this will be dropped (see below)
+>
+>
+> > +     if (!reg) {
+> > +             of_node_put(np);
+> > +             return -ENODEV;
+> > +     }
+> > +     sccid =3D readl(reg);
+> > +     iounmap(reg);
+> > +
+> > +     attrs =3D kzalloc(sizeof(*attrs), GFP_KERNEL);
+> > +     if (!attrs)
+> > +             return -ENODEV;
+> > +
+> > +     /*
+> > +      * Machine: VIA APC Rock
+> > +      * Family: WM8850
+> > +      * Revision: A2
+> > +      * SoC ID: raw silicon revision id (0x34810103)
+> > +      */
+> > +
+> > +     np =3D of_find_node_by_path("/");
+> > +     of_property_read_string(np, "model", &machine);
+> > +     if (machine)
+> > +             attrs->machine =3D kstrdup(machine, GFP_KERNEL);
+> > +     of_node_put(np);
+> > +
+> > +     attrs->family =3D sccid_to_name(sccid);
+> > +     attrs->revision =3D sccid_to_rev(sccid);
+> > +     attrs->soc_id =3D kasprintf(GFP_KERNEL, "%08lx", sccid);
+> > +
+> > +     soc_dev =3D soc_device_register(attrs);
+> > +     if (IS_ERR(soc_dev)) {
+> > +             kfree(attrs->machine);
+> > +             kfree(attrs->soc_id);
+> > +             kfree(attrs->revision);
+> > +             kfree(attrs);
+> > +             return PTR_ERR(soc_dev);
+> > +     }
+> > +
+> > +     pr_info("VIA/WonderMedia %s rev %s (%s)\n",
+> > +                     attrs->family,
+> > +                     attrs->revision,
+> > +                     attrs->soc_id);
+> > +
+> > +     return 0;
+> > +}
+> > +early_initcall(wmt_socinfo_init);
+>
+> No, this does not scale. This is supposed to be module_platform_driver
+> instead of manually re-ordering code. Then all your memory allocations
+> become devm, printks become dev_xxx and you can simplify it.
 
-diff --git a/drivers/mfd/stm32-lptimer.c b/drivers/mfd/stm32-lptimer.c
-index b2704a9809c7..09073dbc9c80 100644
---- a/drivers/mfd/stm32-lptimer.c
-+++ b/drivers/mfd/stm32-lptimer.c
-@@ -6,6 +6,7 @@
-  * Inspired by Benjamin Gaignard's stm32-timers driver
-  */
- 
-+#include <linux/bitfield.h>
- #include <linux/mfd/stm32-lptimer.h>
- #include <linux/module.h>
- #include <linux/of_platform.h>
-@@ -49,6 +50,36 @@ static int stm32_lptimer_detect_encoder(struct stm32_lptimer *ddata)
- 	return 0;
- }
- 
-+static int stm32_lptimer_detect_hwcfgr(struct stm32_lptimer *ddata)
-+{
-+	u32 val;
-+	int ret;
-+
-+	ret = regmap_read(ddata->regmap, STM32_LPTIM_VERR, &ddata->version);
-+	if (ret)
-+		return ret;
-+
-+	/* Try to guess parameters from HWCFGR: e.g. encoder mode (STM32MP15) */
-+	ret = regmap_read(ddata->regmap, STM32_LPTIM_HWCFGR1, &val);
-+	if (ret)
-+		return ret;
-+
-+	/* Fallback to legacy init if HWCFGR isn't present */
-+	if (!val)
-+		return stm32_lptimer_detect_encoder(ddata);
-+
-+	ddata->has_encoder = FIELD_GET(STM32_LPTIM_HWCFGR1_ENCODER, val);
-+
-+	ret = regmap_read(ddata->regmap, STM32_LPTIM_HWCFGR2, &val);
-+	if (ret)
-+		return ret;
-+
-+	/* Number of capture/compare channels */
-+	ddata->num_cc_chans = FIELD_GET(STM32_LPTIM_HWCFGR2_CHAN_NUM, val);
-+
-+	return 0;
-+}
-+
- static int stm32_lptimer_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-@@ -73,7 +104,7 @@ static int stm32_lptimer_probe(struct platform_device *pdev)
- 	if (IS_ERR(ddata->clk))
- 		return PTR_ERR(ddata->clk);
- 
--	ret = stm32_lptimer_detect_encoder(ddata);
-+	ret = stm32_lptimer_detect_hwcfgr(ddata);
- 	if (ret)
- 		return ret;
- 
-diff --git a/include/linux/mfd/stm32-lptimer.h b/include/linux/mfd/stm32-lptimer.h
-index 06d3f11dc3c9..a592c8dc716d 100644
---- a/include/linux/mfd/stm32-lptimer.h
-+++ b/include/linux/mfd/stm32-lptimer.h
-@@ -17,20 +17,30 @@
- #define STM32_LPTIM_IER		0x08	/* Interrupt Enable Reg      */
- #define STM32_LPTIM_CFGR	0x0C	/* Configuration Reg         */
- #define STM32_LPTIM_CR		0x10	/* Control Reg               */
--#define STM32_LPTIM_CMP		0x14	/* Compare Reg               */
-+#define STM32_LPTIM_CMP		0x14	/* Compare Reg (MP25 CCR1)   */
- #define STM32_LPTIM_ARR		0x18	/* Autoreload Reg            */
- #define STM32_LPTIM_CNT		0x1C	/* Counter Reg               */
-+#define STM32_LPTIM_CCMR1	0x2C	/* Capture/Compare Mode MP25 */
-+#define STM32_LPTIM_CCR2	0x34	/* Compare Reg2 MP25         */
-+
-+#define STM32_LPTIM_HWCFGR2	0x3EC	/* Hardware configuration register 2 - MP25 */
-+#define STM32_LPTIM_HWCFGR1	0x3F0	/* Hardware configuration register 1 - MP15 */
-+#define STM32_LPTIM_VERR	0x3F4	/* Version identification register - MP15 */
- 
- /* STM32_LPTIM_ISR - bit fields */
-+#define STM32_LPTIM_DIEROK_ARROK	(BIT(24) | BIT(4)) /* MP25 */
-+#define STM32_LPTIM_CMP2_ARROK		(BIT(19) | BIT(4))
- #define STM32_LPTIM_CMPOK_ARROK		GENMASK(4, 3)
- #define STM32_LPTIM_ARROK		BIT(4)
- #define STM32_LPTIM_CMPOK		BIT(3)
- 
- /* STM32_LPTIM_ICR - bit fields */
--#define STM32_LPTIM_ARRMCF		BIT(1)
-+#define STM32_LPTIM_DIEROKCF_ARROKCF	(BIT(24) | BIT(4)) /* MP25 */
-+#define STM32_LPTIM_CMP2OKCF_ARROKCF	(BIT(19) | BIT(4))
- #define STM32_LPTIM_CMPOKCF_ARROKCF	GENMASK(4, 3)
-+#define STM32_LPTIM_ARRMCF		BIT(1)
- 
--/* STM32_LPTIM_IER - bit flieds */
-+/* STM32_LPTIM_IER - bit fields */
- #define STM32_LPTIM_ARRMIE	BIT(1)
- 
- /* STM32_LPTIM_CR - bit fields */
-@@ -53,16 +63,37 @@
- /* STM32_LPTIM_ARR */
- #define STM32_LPTIM_MAX_ARR	0xFFFF
- 
-+/* STM32_LPTIM_CCMR1 */
-+#define STM32_LPTIM_CC2P	GENMASK(19, 18)
-+#define STM32_LPTIM_CC2E	BIT(17)
-+#define STM32_LPTIM_CC2SEL	BIT(16)
-+#define STM32_LPTIM_CC1P	GENMASK(3, 2)
-+#define STM32_LPTIM_CC1E	BIT(1)
-+#define STM32_LPTIM_CC1SEL	BIT(0)
-+
-+/* STM32_LPTIM_HWCFGR1 */
-+#define STM32_LPTIM_HWCFGR1_ENCODER	BIT(16)
-+
-+/* STM32_LPTIM_HWCFGR2 */
-+#define STM32_LPTIM_HWCFGR2_CHAN_NUM	GENMASK(3, 0)
-+
-+/* STM32_LPTIM_VERR */
-+#define STM32_LPTIM_VERR_23	0x23	/* STM32MP25 */
-+
- /**
-  * struct stm32_lptimer - STM32 Low-Power Timer data assigned by parent device
-  * @clk: clock reference for this instance
-  * @regmap: register map reference for this instance
-  * @has_encoder: indicates this Low-Power Timer supports encoder mode
-+ * @num_cc_chans: indicates the number of capture/compare channels
-+ * @version: indicates the major and minor revision of the controller
-  */
- struct stm32_lptimer {
- 	struct clk *clk;
- 	struct regmap *regmap;
- 	bool has_encoder;
-+	unsigned int num_cc_chans;
-+	u32 version;
- };
- 
- #endif
--- 
-2.25.1
+Fair enough. Will convert into a platform driver and use managed
+functions. Thanks for pointing this out!
 
+Best regards,
+Alexey
 
