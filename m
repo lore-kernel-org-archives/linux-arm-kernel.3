@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 686B4C369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 05:47:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A4D3C369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 05:50:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dmjZhI93/v342YWKoKYeDzKJpXRWM0TQF0/l5SCdg/w=; b=kMjzcM1CJDAx4xtsmg1oTTCIIN
-	Vh0iFLB/s7VDHW98xblFNzu1Z1L1Fj20CenIgJmAyesnFeZTuoArmJ7BikMaknjx4u0QD/PA7qqmw
-	JyTwOTBOSqRT9GT5SXng5ecnVPq047ITCtJzBk50tf+q3khVPV8Yj/5ld+R3g2Ucby28VUE6OGzEo
-	Bv8tRZo05TeG46YG26Pwb1z1IcAaTGUKD6+9l8FuGPPt3UNvj5Hp8A0a14DJAsvoN4AAgoj1yyjKq
-	9Z/OHgsGGzMaEle8Mi4Yxs+9h58+ob7VVDHzQ/LspFE0WvA7KPxdAeNr3kna6Wxxmd/MY5gXIj010
-	NGe4xh/g==;
+	bh=DrlxyW7iNHIQCk9a2P1Ycy8nmhKt1ldm2y2n+9d+qPc=; b=08jeFZiMmShs7zNu5Jww+hQVAp
+	7H9tw9GtqqYGLX19tfxJFTDNZwF09iosMlbJnZ+EoESXX2TOYFRV4ODezTSW8RCIQ+VPg30sAPgE9
+	gTpmxEA+o3wiu84VOCAjrDW4Vz1li3OM+azATzOLwor85+MOr757Db/brvpoY66UNSQHCEmRlBJca
+	TDgCyFOJCBE2BWn67raf8wQD35WbxxC3hJhgNFtAKBBRHdty3Sr4xkvnLJBGGwBYSmZEd6W1tquhs
+	p7ha07137MyMepGDH0RYayQx6uQ87hIGmqZ4ceomzUE9+h3pM9A45Ke8AyWU+CYB6Tcf5fsoGCHfe
+	0sfP5B6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Btp-0000000G0kg-3oPu;
-	Fri, 25 Apr 2025 05:46:57 +0000
+	id 1u8BxE-0000000G14h-4Abq;
+	Fri, 25 Apr 2025 05:50:28 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Brz-0000000G0Wq-1a9J;
-	Fri, 25 Apr 2025 05:45:04 +0000
+	id 1u8BvO-0000000G0v4-0B1Q
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Apr 2025 05:48:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D34AEA4BC91;
-	Fri, 25 Apr 2025 05:39:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38CF0C4CEE4;
-	Fri, 25 Apr 2025 05:44:57 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id EDA21A4BC8D;
+	Fri, 25 Apr 2025 05:43:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F12EC4CEE4;
+	Fri, 25 Apr 2025 05:48:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745559901;
-	bh=c/cQxcmPVIzq1Y/rQcWzaqLsIWaZOdbIdZzBhrqYqsQ=;
+	s=k20201202; t=1745560112;
+	bh=BBjmjPectrPGAcY4myZkJlcjUVghCIetgXgh3U6vdrM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Y1KSezpsHMpfS5Upkb+rdJI9zwna8UtbnvxEj++cCUXq5i2mSd+Yp8h80sxpNotTB
-	 QhJkFaxBj/BY92QnAgVGhzUGwF+g35amCwkBy/o6XoKgL9w6Mnnz/dbo5xqxWz6mSh
-	 R/aPGucwsBb2fTScDcN5fHlfRj7j1IYHLJVo2gDKaU2OmlIpEI63EIworPFtDis4e/
-	 t53lWtH2DA0yQosT9IKonp/7NtrZbh9ZHjtGBKxLe4ya8G1t+Aqr4Ar0oSJUWACPmT
-	 s0usuu9cHXBWg1jqYrUlTQJH9uKwGHCPR3VP4zrg5nyp+PPEblXDsrEKn+MsJIBMYI
-	 kgtJZMEtRdM4A==
-Message-ID: <98bbcfe8-c4bf-4302-8f12-38551eace750@kernel.org>
-Date: Fri, 25 Apr 2025 07:44:55 +0200
+	b=AuCC/HAXNbfUmkDWPEKHnkEn+K4MsQp5GltmzkAFPhwv0pD/EMUFOWiuprFNOGUqk
+	 yzI35vcar18Uqc7YOVu/DgaASBpjlDdwmeyFVwxd4xeG+fF6DQx2uPV9OG9o5qa/OJ
+	 a/Djh3ymQUV5rCyap9tdgWLBZHIEMogN+fA8RWH5rKPqTPB9ocGc+w/9Tc6k9Tr6dj
+	 A/SIh46NVx/SMtN8SRm6RdnICEVynEzLvv5MAy8o3SifX8PBS04/ki7oOI8BBImgoG
+	 GBwoDaJ0J6evbjn4rgLwclzAVsiOB/3WEbFnVcpc2DyCDT3gGUgS0FANPJ3m0ElkYc
+	 r7SjB6RHCB/5Q==
+Message-ID: <47d9c1f4-e521-4e46-ad48-a23228d06fbb@kernel.org>
+Date: Fri, 25 Apr 2025 07:48:26 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 10/10] arm64: defconfig: Add M31 eUSB2 PHY config
-To: Melody Olvera <melody.olvera@oss.qualcomm.com>,
- Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Wesley Cheng <quic_wcheng@quicinc.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20250421-sm8750_usb_master-v5-0-25c79ed01d02@oss.qualcomm.com>
- <20250421-sm8750_usb_master-v5-10-25c79ed01d02@oss.qualcomm.com>
- <2d01bcd6-80e1-4c15-ab23-b5ea5b90f2b1@kernel.org>
- <575d63e7-f390-46ef-8687-30112849b442@oss.qualcomm.com>
+Subject: Re: [PATCH v8 00/10] Add support for videocc, camcc, dispcc and gpucc
+ on Qualcomm QCS615 platform
+To: Taniya Das <quic_tdas@quicinc.com>, Bjorn Andersson
+ <andersson@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>
+Cc: Ajit Pandey <quic_ajipan@quicinc.com>,
+ Imran Shaik <quic_imrashai@quicinc.com>,
+ Jagadeesh Kona <quic_jkona@quicinc.com>, linux-arm-msm@vger.kernel.org,
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+ Dmitry Baryshkov <lumag@kernel.org>
+References: <20250424-qcs615-mm-v7-clock-controllers-v8-0-bacad5b3659a@quicinc.com>
+ <94a5f0d7-b152-4fe3-b312-a0f7792cc076@kernel.org>
+ <8552c048-df45-49ba-83b3-5c39d4b770fe@quicinc.com>
+ <3bbef5c3-1859-4a4a-b25a-83428dc15e98@kernel.org>
+ <dfa2ed59-ba7c-4cb4-ac78-97f3de716b9b@quicinc.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,13 +111,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <575d63e7-f390-46ef-8687-30112849b442@oss.qualcomm.com>
+In-Reply-To: <dfa2ed59-ba7c-4cb4-ac78-97f3de716b9b@quicinc.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_224503_653196_EEB0EF77 
-X-CRM114-Status: UNSURE (   7.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250424_224834_315042_91BF5136 
+X-CRM114-Status: GOOD (  17.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,21 +131,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/04/2025 19:13, Melody Olvera wrote:
+On 24/04/2025 18:28, Taniya Das wrote:
 > 
 > 
-> On 4/24/2025 6:16 AM, Krzysztof Kozlowski wrote:
->> On 22/04/2025 00:00, Melody Olvera wrote:
->>> The SM8750 SoCs use an eUSB2 PHY driver different from the
->> Qualcomm SM8750
+> On 4/24/2025 8:59 PM, Krzysztof Kozlowski wrote:
+>> On 24/04/2025 13:13, Taniya Das wrote:
+>>>
+>>>
+>>> On 4/24/2025 4:40 PM, Krzysztof Kozlowski wrote:
+>>>> On 24/04/2025 11:32, Taniya Das wrote:
+>>>>> Add support for multimedia clock controllers on Qualcomm QCS615 platform.
+>>>>> Update the defconfig to enable these clock controllers.
+>>>>>
+>>>>> Global clock controller support
+>>>>> https://lore.kernel.org/all/20241022-qcs615-clock-driver-v4-0-3d716ad0d987@quicinc.com/
+>>>>>
+>>>>> Changes in v8:
+>>>>> - Drop the properties which are already covered as part of gcc.yaml [Krzysztof]
+>>>>> - Drop the RB tag for dt-bindings for Camera clock controller.
+>>>>
+>>>> Why?
+>>>
+>>> It had comments, so wanted to share the latest RB-by.
+>> So there were some comments and that's the basis to ask to do review
+>> twice? So anyone can comment on anything and you will remove people's
+>> review? I am not going through this again.
 >>
->> That's a defconfig for all vendors.
 > 
-> And...? Apologies, I understand what is actionable about this comment.
-> Please be clear what you want done about this.
+> It was your comments, so I thought it would not be good to keep the RB
+> tag if it has so many comments. That was the reason to drop it.
+I was fine with the binding, then I gave some comments on other
+bindings, you implemented these comments and you claim that result:
 
-s/SM8750/Qualcomm SM8750/ because otherwise how anyone non-qcom would
-know what this commit is about?
+	code already reviewed by me + implemented my comments
+
+could be something I would not consider reviewed. Basically
+
+	my review + implemented my comments != my review
+
+I think it means I would be very inconsequential and unpredictable. I
+think this is creating unnecessary workload on me, but sure, if that was
+the intention I will do the work again.
 
 Best regards,
 Krzysztof
