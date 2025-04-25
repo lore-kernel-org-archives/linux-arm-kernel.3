@@ -4,88 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 783BFC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 13:50:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B336DC369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 13:52:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HOmtL5hvq8AIvU12GCg5bFAbpSwFxaW2vqAjynWZVng=; b=rsfAUoP2XpHTeaVTG0oGvtx4WK
-	RIL2NCz05r/n/CIm6WKX67WeIkC3Fog8hAe543Ldft9UJRq17kNKlFPhsxi28piVC97OLdU4sKn+F
-	vPsVMGi8+JIyCP7V0fdYgJ6eu3d9XGa0q0y37lxEQEt/Om+Oh/On2g81JOP4njKeEifp1WHm3cXcK
-	Z49blifyPIlAkRkeJNiJSYBiZCn0Fz6LSlVx9P+Vr2jGpXYhuWmz9+1SlmGRnDbqQN5KhsT+wb7ve
-	f+nmsg2+Jtfonrt1riM7aWd/brb4J0BZ8bhwt5/lu6c0VMRIxKc5rCiFj/iRYSfXWcTsGveWXv1EJ
-	2w7n3Sng==;
+	bh=19SQnt4bgMlzflhUBdgnvIZw2qMd2olVK4+5/MXutG8=; b=16sytl1Qsl/z7lNeNaJVzPz60u
+	8BYspONB/pHzRyWMCN0zwHGf/VII00NTfATuxRl+ctkmFBsY7CI41S9KDLSBofCglvM76fgBIjCWC
+	y7kJBaQN9bGDnniiZ0olBhb27s0CMsohOhksDV+iBgF65Qg2Bn9lhrdzzILnAgrFhga6UTGla0lSh
+	u2wTEAKYv1PpGgzkaR5tpExHK036aaVb9G0XohWIlNzi/Nk7EEIuf/bK6qQEE541NTonkj6vuaF06
+	mbWq52HlAUOAJ+gwhDxNHZs07nfCD8MUQzNLGiYaoyeDTmJhSCdEgHRYAi2XqZuUoA4C1V0OOx2Ff
+	TtzsbR4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8JS5-0000000HLat-29EB;
-	Fri, 25 Apr 2025 13:50:49 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1u8JTu-0000000HLtD-1pbU;
+	Fri, 25 Apr 2025 13:52:42 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8IVz-0000000HAoR-2wEs
+	id 1u8IWP-0000000HAwe-1wvD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 12:50:49 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53P7RfCO009028;
-	Fri, 25 Apr 2025 14:50:40 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	HOmtL5hvq8AIvU12GCg5bFAbpSwFxaW2vqAjynWZVng=; b=Upudl8zAd9iwhJLd
-	7/adp1nH2Zr3y8E1bgPfPOWKsmE6mnQZIsOkLrrMFua7ZcQ4Pm8uqOz2+SNgW5FI
-	kXprsdP1qpT8SkYcHqi5xVyTSvjXzQwS4QcmTYLhworQMuaJeAFqyo2yktxPiDNB
-	o+TMAQ64pMHIAK56qY/3QwfRyCl9KIpdMTIRNZlMHiHSVhghLtHGEbobzZIQdzA+
-	3+6XVH4sub++vTAm+pht18pRTzulRaNgg6j3ipLkYJa2XWAJ3EU/q5yqsQWExEdq
-	Arx3G2rYYhMvyJBD2/2kpBX8Nt2v3xswsm1A5gayWORcnamY5T2l3hfWT5GDffos
-	6kJtDA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 466jjxm5td-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 25 Apr 2025 14:50:40 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 440724005F;
-	Fri, 25 Apr 2025 14:49:16 +0200 (CEST)
-Received: from Webmail-eu.st.com (eqndag1node6.st.com [10.75.129.135])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 8851DA09568;
-	Fri, 25 Apr 2025 14:48:07 +0200 (CEST)
-Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE6.st.com
- (10.75.129.135) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 25 Apr
- 2025 14:48:07 +0200
-Received: from localhost (10.252.15.6) by SAFDAG1NODE1.st.com (10.75.90.17)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 25 Apr
- 2025 14:48:07 +0200
-From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-To: <lee@kernel.org>, <alexandre.torgue@foss.st.com>,
-        <daniel.lezcano@linaro.org>, <tglx@linutronix.de>
-CC: <ukleinek@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <jic23@kernel.org>, <robh@kernel.org>, <catalin.marinas@arm.com>,
-        <will@kernel.org>, <devicetree@vger.kernel.org>, <wbg@kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-iio@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
-        <olivier.moysan@foss.st.com>, <fabrice.gasnier@foss.st.com>
-Subject: [PATCH v5 3/7] clocksource: stm32-lptimer: add support for stm32mp25
-Date: Fri, 25 Apr 2025 14:47:51 +0200
-Message-ID: <20250425124755.166193-4-fabrice.gasnier@foss.st.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250425124755.166193-1-fabrice.gasnier@foss.st.com>
-References: <20250425124755.166193-1-fabrice.gasnier@foss.st.com>
+	Fri, 25 Apr 2025 12:51:14 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-aca99fc253bso330993266b.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 05:51:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1745585472; x=1746190272; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=19SQnt4bgMlzflhUBdgnvIZw2qMd2olVK4+5/MXutG8=;
+        b=KIH8LyrPtAKj7nvlZpRCecHHLPMWukGZ8AnMKSImO5+VC3P2QNtWU1FXeDd9RZOlnb
+         jKn59fGeIpSzrK6OQm/dMxhSnajwYTa3So12Skt28fNqmKuYvDsGVhJ+q+7R7k4n+1hF
+         6sd+knD+gj2VdN4NF7m0CqBkYOGhuhHRyvoha8j9lG31Vzo0y0xR4nD2qwVpSFtSzXqQ
+         0YqiM67Aha9pwBHAw3Kw/lVPZM3HJ7yDakgu5jZJxsUQg2NUErbTZVDW1af5ciV1uc+4
+         CzJrznXLtAhmr8ii5mtxQYKjSM+4oAOJcvXJyMs4kybLk3ceUUGpi+a6Uu5TjUtqVE24
+         XWhQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745585472; x=1746190272;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=19SQnt4bgMlzflhUBdgnvIZw2qMd2olVK4+5/MXutG8=;
+        b=KqvqdWTmd/d6XyP7WK13XoXedFBygwsEXIg2A/wBy/mrbBYwx0glF2Ra4oYidvMehq
+         6Z3jEHO51sSMoJ9R2z+cmSljFzy11aQcEo8uPbzwAbO2yanJDUKHtOQNJl3XIBkdxTMX
+         HNCGgrTdGQC6p/K66a8muRDpmrltErGeqJ6jD38aWw1Tc7sU5+cB/irB/x8a0WQ3VKvb
+         4v27Y0B8gxSMg5NNZWMP6HzVqthfAj1hjD3roDVi+ktwpMofs3TGboO8LwdcFxa1Ex9C
+         b+2GDQfBgh2vO2TDCeT0jApGDanPQ9G31Y1FMfVIscwJkRDci6Y9+pSX5sBtAWL55Wh5
+         fBXA==
+X-Forwarded-Encrypted: i=1; AJvYcCWMXccyMs1pDw7EJwBGUhrViGFRUXZ/NpmttGojrpHPausuqfHnlxo97WIpFb4c6s6cKTfG8zhJ9cKUm/fpgoGn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6r3acQiTr2pfTa2ZCYIN2w8aZfTOth3oPl69GH5jTU03t/Mxt
+	B7SlozF/AqB8xTeOBXidPMeqxfvoXTjzjuUAD036fiePdn0Odnlz
+X-Gm-Gg: ASbGncv8nmsQUfp70EQzBQ4kn2v9pdghr5ZUeUSkx4foX7tjIc7/KBBknvEEGiD+xUy
+	KYmN+NmdPSw0NOkBdjHb6HBttr/CEsGjZaMkpICsC7WYZUt7aIekYCS+wDXg5kTPXQZmLIOQbyM
+	69E/3MbtSmk5fNufEoV3SPpciwkuFzRvK7nOf370pm70YSy5S38JXqEAQZR0TktCZQrWMstt94M
+	KHHv1QTqkm/jEonQoE9OrVCMD24goBXcH0Y3ldqSOIUwIqeh2ojSDqMd6osyP+p6X7McB8nidc9
+	stbvhPznNhe6qurKdGfmbVC4AYWn8zINJeIiq2K4aIDIVwPIQm+38HNzw1Zp6BIZxg==
+X-Google-Smtp-Source: AGHT+IH/NrWffoy/u2nsOLxymoZYRZ+CZhi9kKY0D1DpYpA2UcXxmclpaKgPo2+5Qdo1fcEv82aORg==
+X-Received: by 2002:a17:907:781:b0:aca:cad6:458e with SMTP id a640c23a62f3a-ace713c2584mr182471466b.43.1745585471276;
+        Fri, 25 Apr 2025 05:51:11 -0700 (PDT)
+Received: from localhost ([217.151.144.138])
+        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-ace6e4f8835sm136631966b.67.2025.04.25.05.51.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 25 Apr 2025 05:51:10 -0700 (PDT)
+Date: Fri, 25 Apr 2025 14:50:10 +0200
+From: Oliver Graute <oliver.graute@gmail.com>
+To: Thomas Richard <thomas.richard@bootlin.com>
+Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/2] dt-bindings: watchdog: fsl,scu-wdt: Document imx8qm
+Message-ID: <aAuFApCnKVqKA1Zu@graute-macos>
+References: <20250407-imx8qm-watchdog-v1-0-20c219b15fd2@bootlin.com>
+ <20250407-imx8qm-watchdog-v1-1-20c219b15fd2@bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.252.15.6]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SAFDAG1NODE1.st.com
- (10.75.90.17)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-04-25_03,2025-04-24_02,2025-02-21_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250407-imx8qm-watchdog-v1-1-20c219b15fd2@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_055048_026762_C2768EB5 
-X-CRM114-Status: GOOD (  22.83  )
+X-CRM114-CacheID: sfid-20250425_055113_502668_DD72547A 
+X-CRM114-Status: UNSURE (   8.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,126 +109,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On stm32mp25, DIER (former IER) must only be modified when the lptimer
-is enabled. On earlier SoCs, it must be only be modified when it is
-disabled. There's also a new DIEROK flag, to ensure register access
-has completed.
-Add a new "set_evt" routine to be used on stm32mp25, called depending
-on the version register, read by the MFD core (LPTIM_VERR).
+On 07/04/25, Thomas Richard wrote:
+> Add an entry for 'fsl,imx8qm-sc-wdt' as imx8qm also contains the SCU
+> watchdog block.
+> 
+> Signed-off-by: Thomas Richard <thomas.richard@bootlin.com>
 
-Signed-off-by: Patrick Delaunay <patrick.delaunay@foss.st.com>
-Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
----
-Changes in V5:
-- Added a delay after timer enable, it needs two clock cycles.
-Changes in V4:
-- Daniel suggests to encapsulate IER write into a separate function
-  that manages the enabling/disabling of the LP timer. In addition,
-  DIEROK and ARROK flags checks have been added. So adopt a new routine
-  to set the event into ARR register and enable the interrupt.
-Changes in V2:
-- rely on fallback compatible as no specific .data is associated to the
-  driver. Use version data from MFD core.
-- Added interrupt enable register access update in (missed in V1)
----
- drivers/clocksource/timer-stm32-lp.c | 60 ++++++++++++++++++++++++++--
- 1 file changed, 56 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/clocksource/timer-stm32-lp.c b/drivers/clocksource/timer-stm32-lp.c
-index 928da2f6de69..a214ff6edbae 100644
---- a/drivers/clocksource/timer-stm32-lp.c
-+++ b/drivers/clocksource/timer-stm32-lp.c
-@@ -27,6 +27,7 @@ struct stm32_lp_private {
- 	u32 psc;
- 	struct device *dev;
- 	struct clk *clk;
-+	u32 version;
- };
- 
- static struct stm32_lp_private*
-@@ -47,12 +48,46 @@ static int stm32_clkevent_lp_shutdown(struct clock_event_device *clkevt)
- 	return 0;
- }
- 
--static int stm32_clkevent_lp_set_timer(unsigned long evt,
--				       struct clock_event_device *clkevt,
--				       int is_periodic)
-+static int stm32mp25_clkevent_lp_set_evt(struct stm32_lp_private *priv, unsigned long evt)
- {
--	struct stm32_lp_private *priv = to_priv(clkevt);
-+	int ret;
-+	u32 val;
-+
-+	regmap_read(priv->reg, STM32_LPTIM_CR, &val);
-+	if (!val & STM32_LPTIM_ENABLE) {
-+		/* Enable LPTIMER to be able to write into IER and ARR registers */
-+		regmap_write(priv->reg, STM32_LPTIM_CR, STM32_LPTIM_ENABLE);
-+		/*
-+		 * After setting the ENABLE bit, a delay of two counter clock cycles is needed
-+		 * before the LPTIM is actually enabled. For 32KHz rate, this makes approximately
-+		 * 62.5 micro-seconds, round it up.
-+		 */
-+		udelay(63);
-+	}
-+	/* set next event counter */
-+	regmap_write(priv->reg, STM32_LPTIM_ARR, evt);
-+	/* enable ARR interrupt */
-+	regmap_write(priv->reg, STM32_LPTIM_IER, STM32_LPTIM_ARRMIE);
-+
-+	/* Poll DIEROK and ARROK to ensure register access has completed */
-+	ret = regmap_read_poll_timeout_atomic(priv->reg, STM32_LPTIM_ISR, val,
-+					      (val & STM32_LPTIM_DIEROK_ARROK) ==
-+					      STM32_LPTIM_DIEROK_ARROK,
-+					      10, 500);
-+	if (ret) {
-+		dev_err(priv->dev, "access to LPTIM timed out\n");
-+		/* Disable LPTIMER */
-+		regmap_write(priv->reg, STM32_LPTIM_CR, 0);
-+		return ret;
-+	}
-+	/* Clear DIEROK and ARROK flags */
-+	regmap_write(priv->reg, STM32_LPTIM_ICR, STM32_LPTIM_DIEROKCF_ARROKCF);
- 
-+	return 0;
-+}
-+
-+static void stm32_clkevent_lp_set_evt(struct stm32_lp_private *priv, unsigned long evt)
-+{
- 	/* disable LPTIMER to be able to write into IER register*/
- 	regmap_write(priv->reg, STM32_LPTIM_CR, 0);
- 	/* enable ARR interrupt */
-@@ -61,6 +96,22 @@ static int stm32_clkevent_lp_set_timer(unsigned long evt,
- 	regmap_write(priv->reg, STM32_LPTIM_CR, STM32_LPTIM_ENABLE);
- 	/* set next event counter */
- 	regmap_write(priv->reg, STM32_LPTIM_ARR, evt);
-+}
-+
-+static int stm32_clkevent_lp_set_timer(unsigned long evt,
-+				       struct clock_event_device *clkevt,
-+				       int is_periodic)
-+{
-+	struct stm32_lp_private *priv = to_priv(clkevt);
-+	int ret;
-+
-+	if (priv->version == STM32_LPTIM_VERR_23) {
-+		ret = stm32mp25_clkevent_lp_set_evt(priv, evt);
-+		if (ret)
-+			return ret;
-+	} else {
-+		stm32_clkevent_lp_set_evt(priv, evt);
-+	}
- 
- 	/* start counter */
- 	if (is_periodic)
-@@ -176,6 +227,7 @@ static int stm32_clkevent_lp_probe(struct platform_device *pdev)
- 		return -ENOMEM;
- 
- 	priv->reg = ddata->regmap;
-+	priv->version = ddata->version;
- 	priv->clk = ddata->clk;
- 	ret = clk_prepare_enable(priv->clk);
- 	if (ret)
--- 
-2.25.1
-
+Acked-by: Oliver Graute <oliver.graute@kococonnector.com>
 
