@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 467C6C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 03:02:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29662C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 03:05:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LVmXxPc0GsxJCoufkyTtR1wIh6N17gyPoDGVcYXM0fk=; b=x8SSfW0Hor61kkXDY7v25++PbH
-	8XJ9O0dOyf7w03kaFUALx11mt+NTQEFO9vvKbYpeAdVRi7w6gsKINbQtFCixvZu0QeL6NGZGdxLx+
-	INlJ9y5RfWQaZmCtg7y8GZaU6TIndkcqTGZhKrnWpYEF/YAoJJ7Zs6tMiVs4AtA0Ld8r7WE9bnoxN
-	HyIqgamQmzZwcqlTvnnaagxz8jKuSH45g0CxPr99z7XIkl4EhnL+3sKgIIHpflVNNFqLrnE37MMTC
-	GNXARGw+MTAM8mEtTjZ6Fn10fCgow7AxX395VitjVR0qJfvdrHobRlkBT7QnHKPZwAHP0MEDnro9B
-	INX0INug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qxiKMycuA/S/b4aduDKHTJVt95lznX3mP7Vus3psjjw=; b=CWrA/AmfpfnOETZcjuF/eHD4eq
+	RcOb5KcvX/3Gf2HGxP6qp197gLIyOKlnH9sgDXQlgWYdO9E3bOECM7hk/jSM2tiYbY8LBGVaoXDS4
+	FwKvivfF3WW68nbT8hdONVeQZuMu8yA+tHCSOxQlb05VFV8b28hxTAUu/chrnchS1QigY96iHJ2F9
+	GpEx8JYBH9FnZVsCoh6U3Vvbo63l4BRjm1qWTUNAsSzf8bFAOsn5xljNMzGekNmCCwMdOGSNVwx1h
+	8HyJ8IxwnGPW2RxcoV6dNooGw64lkodzFroolrIGqai6l3UZa25y4iDuBP8izugwfHn/4ow5z36oe
+	21XZmlGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u89KO-0000000FpZa-38fd;
-	Fri, 25 Apr 2025 03:02:12 +0000
-Received: from mail-m49197.qiye.163.com ([45.254.49.197])
+	id 1u89Nj-0000000Fpow-2Po0;
+	Fri, 25 Apr 2025 03:05:39 +0000
+Received: from mail-m16.yeah.net ([220.197.32.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u89IX-0000000FpTe-2Tsu
+	id 1u89Lr-0000000FpgT-1Dpx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 03:00:19 +0000
-Received: from localhost.localdomain (unknown [119.122.214.249])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 131194130;
-	Fri, 25 Apr 2025 11:00:10 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: dlan@gentoo.org
-Cc: amadeus@jmu.edu.cn,
-	andre.przywara@arm.com,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	jernej.skrabec@gmail.com,
-	krzk+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	robh@kernel.org,
-	samuel@sholland.org,
-	wens@csie.org
-Subject: Re: [PATCH 1/1] arm64: dts: allwinner: correct the model name for Radxa Cubie A5E
-Date: Fri, 25 Apr 2025 11:00:06 +0800
-Message-Id: <20250425030006.45169-1-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250425023527-GYA50272@gentoo>
-References: <20250425023527-GYA50272@gentoo>
+	Fri, 25 Apr 2025 03:03:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=qxiKMycuA/S/b4aduDKHTJVt95lznX3mP7Vus3psjjw=;
+	b=VvxJ+dhMu6cRjtBkTzfZ+9gf0j6+3tBsuLq/z85fsYxjPQtBrikxTqdRjlaAri
+	E27qhrS9dWDA2Fy36ElNxP+fB3I/aLI0C96hOTSwR29LWDMxkd8j0lnDjyTR51fd
+	GylpjBrEnGjkmhVbR8POr+R5wE1dY0PYyP2FRHHqW3UrI=
+Received: from dragon (unknown [])
+	by gzsmtp2 (Coremail) with SMTP id Ms8vCgAna+J2+wpoIiTtAw--.35636S3;
+	Fri, 25 Apr 2025 11:03:19 +0800 (CST)
+Date: Fri, 25 Apr 2025 11:03:17 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: max.oss.09@gmail.com
+Cc: max.krummenacher@toradex.com, Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] arm64: dts: imx8-apalis: Add PCIe and SATA support
+Message-ID: <aAr7dQH5O3VY7+N3@dragon>
+References: <20250416151353.1692373-1-max.oss.09@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZQkNJVk1OSEpPHktPTB5IGVYeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKT1VJT0JZV1kWGg8SFR0UWUFZT0tIVUpLSEpOTE5VSktLVU
-	pCS0tZBg++
-X-HM-Tid: 0a966ae36a7503a2kunm131194130
-X-HM-MType: 10
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PRw6FAw*GTIBSj83AzhNIlEK
-	FBIaCypVSlVKTE9OTk5LS0pJSklPVTMWGhIXVRoWGh8eDgg7ERYOVR4fDlUYFUVZV1kSC1lBWUpK
-	QlVKSUlVSUpPVUlPQllXWQgBWUFKS0NLNwY+
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250416151353.1692373-1-max.oss.09@gmail.com>
+X-CM-TRANSID: Ms8vCgAna+J2+wpoIiTtAw--.35636S3
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUx7PEUUUUU
+X-Originating-IP: [114.216.210.34]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiBBQ6ZWgK1S+unQAAsk
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_200017_810894_8A453B90 
-X-CRM114-Status: UNSURE (   6.95  )
+X-CRM114-CacheID: sfid-20250424_200343_641243_5F6A11FC 
+X-CRM114-Status: UNSURE (   9.80  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,19 +78,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, Apr 16, 2025 at 05:13:41PM +0200, max.oss.09@gmail.com wrote:
+> From: Max Krummenacher <max.krummenacher@toradex.com>
+> 
+> The needed drivers to support PCIe and SATA for i.MX 8QM have been
+> added.
+> Configure them for the Apalis iMX8 SoM.
+> 
+> The pciea and pcieb blocks each get a single PCIe lane, pciea is
+> available on the carrier boards while pcieb is connected to the
+> on module Wi-Fi/BT module.
+> The SATA lane is available on the carrier boards.
+> 
+> Signed-off-by: Max Krummenacher <max.krummenacher@toradex.com>
 
-> It seems I'm a little bit late for this, but while we are here,
-> Can we also append 'cubie' to dts file name?
-> e.g. - sun55i-a527-radxa-cubie-a5e.dts
-
-Usually we use the device name (without the vendor name),
-maybe sun55i-a527-cubie-a5e.dts would be better?
-
-Thanks,
-Chukun
-
---
-2.25.1
+Applied, thanks!
 
 
