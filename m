@@ -4,175 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C666C369D7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 16:22:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A203C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 16:22:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8+o55FPMa7m6VVea9dp3slj5OALcBnoJzyUth39j3Gk=; b=TReKEdDah+v/Ogr2wB8VLy3khi
-	A3JU4SU4UvCNrwx0emn9iqMkVkxIlBlJ1wXcZAQKbGqr1gf51WX0Gsu8HneKOIjaoF6lePEQb2Irf
-	l2cF43OnFh2yWEsOmsVnok0BQJAayyzLwsl/D6IttCz9fmAYOCXIgLU/2YOJzOlYB7IkKdJ4/rbfx
-	eVQ7V93+tV/SXgqWmfEWsZnGiXsAd95AYU08TEBWABA/QnCXaR8y19UoMWWoOFk4PZCvyoDpM8mtQ
-	Uzt8JlZlU44k2jkuRqmlm42RFSvTgp1Vq3XntR9M+Qiic8P2++APq42F/3sSlHBTtgKsNYZu49BHn
-	N2STLMoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ujk3/IGYnXx3Wxmgegzw/+bFfTW+UygvpTNGj7Kcyas=; b=LzBmbl3o0fFCiGgnAYaIZC5X/X
+	VxCpYoPc71DboXow4Q2poeDXzddYGdOJ+we5DNI0jusVZPcMBkosd1ks0CgR7U18qakrsfOuAB+8a
+	YGsFA++aRlVJK303qlrFTq6Tzgnuk8kYEH3aEduU5DmqelHACQ3aJ5lMlSO8vRUw/Lk3exPTPpKK+
+	AzScuyOTXIMCmEi59QSLJTrgZ/J4zlDJti/5IGugDQkKp/TTY4UGakseFiSE/tjr+0osz8TZEgxOe
+	gjtMPMoUFuUSIkKuteyemNIHmV4OLz2JlR3BRAhAJJsao2due3VrYvnmJAW77U1SYuXbhVPaoPMIY
+	gqxUOOmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Lou-00000000Bpm-3Ola;
-	Fri, 25 Apr 2025 16:22:32 +0000
-Received: from mail-am6eur05on2062c.outbound.protection.outlook.com ([2a01:111:f403:2612::62c] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1u8LpC-00000000Bue-1rIe;
+	Fri, 25 Apr 2025 16:22:50 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8JGK-0000000HJU9-0jUW
+	id 1u8KBK-0000000HSje-2g4d
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 13:38:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jqlmKQXtiMVfwLTMtBXiTO1jShErj8V80vx7zWnyBLGCD2lPBNAz0O8mLnutja2tD0d7wB+05FOIXfzSqIdwr5N2H07wKMOhoE+mSVkehPd/4afpi8Qa27ySgoBszHTeTmh8GzviKyX++RCzgGqyRW3vP52ARr3gnL4eF3w3gjtOqVq5I1PV/jHYAMoAuPPAJAe9XVJ/pGEJxoXt/OBaCehZV0b58oDiaJ96ekAJ5fd5kd+FkqiPGFg8nncjyaObd3cpc6SsXKTQIayDi1dW0BGtp4PJuf2WHo8lwERa1SP8EL2L4Ef8SX61Jh3+EVacgxHoJLStW2yXzedMoD5waw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8+o55FPMa7m6VVea9dp3slj5OALcBnoJzyUth39j3Gk=;
- b=U0XTjmc78ks29gRDPEryK06DVzYpr41zNfBIpoOVOoMG+bGqabUd4ifttd8tpsPT73AKoMNpwPEEIqVtSMZmSkI0xCLv5XceoG3na3DyKTJlyBAyWWqNV5XSusyly4qWxluiJ1APEC6Tj1zYTLnrQUfeb9oUio6+e8tsqQyv+YfJNPy3F3hbhkQqEpK0zyefOwSC593hOdsgR3TuXVnW4XuJeizVDsnm7EkU/LoNjG1+NjD2iE80WumhPJhQN0WHzRsOIUajbckBWFXThOj38w2arE80nFTViZ3grhbXXd46onvzh2kDxrSO/GDn9gRwwIMR0W0kec6TnWI8ppr8Nw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8+o55FPMa7m6VVea9dp3slj5OALcBnoJzyUth39j3Gk=;
- b=Bk/IPA/ankNDKg6UP+Wm8Z/4jwGuToxTFB5tmS1ufY1pVGqx3VeWDvfeyOpVPxVfiRanJGlF93KOjBKvIooST2A/k2LA2ZS/eNnp0rGv+oAHut/fhATMQjds/z98P1WetGrozhv8MJptDEBGKp3aYGatHhM6uXNGZW8itjyzPFS+9DOexecFpTrKSrW/cu9XfDoQUBHkZhOINxOKDRNGkQekOx2WGYD9Aqnw2fxi9SUi346hKhpGqQRZ+JSQkKZFGYxzezs4zk91tv6GmH914rqWGYuMeSTerLGZnK+zucvcUisY7QOyeUrvkTOdolzrf7B7g38DOvDwSOZ1s5Va4A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8604.eurprd04.prod.outlook.com (2603:10a6:20b:43b::21)
- by GV1PR04MB10454.eurprd04.prod.outlook.com (2603:10a6:150:1cd::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.27; Fri, 25 Apr
- 2025 13:38:35 +0000
-Received: from AM9PR04MB8604.eurprd04.prod.outlook.com
- ([fe80::e751:223e:aa3d:5827]) by AM9PR04MB8604.eurprd04.prod.outlook.com
- ([fe80::e751:223e:aa3d:5827%7]) with mapi id 15.20.8678.025; Fri, 25 Apr 2025
- 13:38:35 +0000
-From: Pankaj Gupta <pankaj.gupta@nxp.com>
-Date: Sat, 26 Apr 2025 00:31:32 +0530
-Subject: [PATCH v17 1/7] Documentation/firmware: add imx/se to
- other_interfaces
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250426-imx-se-if-v17-1-0c85155a50d1@nxp.com>
-References: <20250426-imx-se-if-v17-0-0c85155a50d1@nxp.com>
-In-Reply-To: <20250426-imx-se-if-v17-0-0c85155a50d1@nxp.com>
-To: Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Pankaj Gupta <pankaj.gupta@nxp.com>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1745607704; l=6679;
- i=pankaj.gupta@nxp.com; s=20240523; h=from:subject:message-id;
- bh=8QvSWd4rmn+G1ZEKi8f+TGc8yN5T+yIQA/mdWdtzwO0=;
- b=s/utgLPhSq8XiKb6TRzI6/Mi9XJB2Rx6gKj8Va+c5aDjNFTTZEqNMBYhQ2WPG+tMzWIDh4Brc
- kCFweAJBqsHAqPUmvMSZt6PWpHeyV87PkpR6nPEHeYoHx9Z4vjFj4Dk
-X-Developer-Key: i=pankaj.gupta@nxp.com; a=ed25519;
- pk=OA0pBQoupy5lV0XfKzD8B0OOBVB6tpAoIf+0x1bYGRg=
-X-ClientProxiedBy: SGXP274CA0011.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b8::23)
- To AM9PR04MB8604.eurprd04.prod.outlook.com (2603:10a6:20b:43b::21)
+	Fri, 25 Apr 2025 14:37:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1745591852;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Ujk3/IGYnXx3Wxmgegzw/+bFfTW+UygvpTNGj7Kcyas=;
+	b=fHdvbbkRnuAcHV9Ff2u63X4GfbPxUpdnRy9sJTjJLPaT2o7f1t76EuUJ/YGVRS0ccZQ48y
+	ABI94Km6CDY2KnVZaZWMMNRHiEEUxRrejFxoKhMzKgm5vLGjX1VvHhSs9/qfgiYgQqobWi
+	b5nMGD7FOSrPovktSzpepe2iGYwP4QY=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-251-Vuvsb1rGNWOVF8Kn-8giVg-1; Fri, 25 Apr 2025 10:37:28 -0400
+X-MC-Unique: Vuvsb1rGNWOVF8Kn-8giVg-1
+X-Mimecast-MFC-AGG-ID: Vuvsb1rGNWOVF8Kn-8giVg_1745591848
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-39ef89b862dso1216434f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 07:37:28 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745591847; x=1746196647;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ujk3/IGYnXx3Wxmgegzw/+bFfTW+UygvpTNGj7Kcyas=;
+        b=p5MjaqzFF7nt6BzKc1PB2o9YiGNJUvbtiQDd0+uzfwVSRYcjxUv6YCBsMZzxiaaa+X
+         Dd4SnS4hpFYS4qTYhIQPK5zJFvOmvTSCr0rE3W2InrYyx7ZVG9Gm+p0M60G9ZIxRfUW2
+         nOEWNXn8u7l14QUzYPSPKhXZF84XRdC+RPq4hgiFqu2FxYlPXYyTmH40kNhFfSp6pMRa
+         8vs272NMhCa2w0dgNfbw0FWXDD3z8tK8eyjWpGDy+9AEDGCsbDWsXfBNGNF0OANj6J6P
+         KHh2rV2xunzBWd0JlmG3F0srwIUDwEO5eOvtdVLupt6kUV1Irzb40AwxrDlqQr0GkolA
+         BO2Q==
+X-Forwarded-Encrypted: i=1; AJvYcCViQWDPR1BCh6j7WZEVqUmXQfs9y4h6Q1BcfD3iO24VYW3MsXmMdD+HOajAdvwpZTvuHuCwtsNVAoBXpf0YrRSH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyb3TaKOfzNdBMDLcLEYi6IBT8yErYXsnum+VXv3xeh8/yvehSm
+	SL3Lfwe1vr0fGMqFj+IAUvOT5X27iwuO0Kgm6Axy1a6zrkolFns6LkgbwceGwhQjpSUEcrs9qMA
+	xYQZ8GdfqGePsvO0YU4J9T3Z3/6rgNeQJ4nsJhn7hqSxGrszkJiodQUq9IAaaz0ui9y2o0Chv
+X-Gm-Gg: ASbGncuU/DeKF/omwlrw4epA1CQ9jR8HQ3GyshA871g8P7uQ3F1J+hOWFMWCn2Eb8vw
+	ig6gDbYr4ycayxnZKHKPT7C/VRn5S6cxePpxNZPXNB9VSYGxpEXbNN//riT5Pno/Dva4qH82KIM
+	iLt/Xy5sgmYhzruN6T2vx0xtVO5RC92Ju5hi52HAM6Wwc15yD0oIeFA/Y6RSeP9PUnruA93GnP7
+	1BRfL93aqkpnrwmmrk0TItz0YQEMm3bPOvk1BJ1UJ2Kn3N6g/xNWZLqIq5gv6UY4ODxMvIjNsI4
+	fm4qFwkLOAn/t+ot99p2p0Xrug==
+X-Received: by 2002:a5d:47ad:0:b0:39e:cbca:8a4b with SMTP id ffacd0b85a97d-3a074e0e1a8mr2130260f8f.6.1745591847598;
+        Fri, 25 Apr 2025 07:37:27 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHHQ8vRI/X7PrO43k0DiFqkqa4Uk8XRAM7d2gJ9xafb1xfkOT7jJlK6mrbxxsPSXHf+XLM2Jg==
+X-Received: by 2002:a5d:47ad:0:b0:39e:cbca:8a4b with SMTP id ffacd0b85a97d-3a074e0e1a8mr2130242f8f.6.1745591847204;
+        Fri, 25 Apr 2025 07:37:27 -0700 (PDT)
+Received: from t14ultra (109-81-82-22.rct.o2.cz. [109.81.82.22])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-440a530a6e9sm26807935e9.16.2025.04.25.07.37.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 25 Apr 2025 07:37:26 -0700 (PDT)
+Date: Fri, 25 Apr 2025 16:37:47 +0200
+From: Jan Stancek <jstancek@redhat.com>
+To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Anna-Maria Behnsen <anna-maria@linutronix.de>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+	linux-arch@vger.kernel.org, Nam Cao <namcao@linutronix.de>
+Subject: Re: [PATCH 08/19] vdso/gettimeofday: Prepare do_hres_timens() for
+ introduction of struct vdso_clock
+Message-ID: <aAueO89ng7GX2iyl@t14ultra>
+References: <20250303-vdso-clock-v1-0-c1b5c69a166f@linutronix.de>
+ <20250303-vdso-clock-v1-8-c1b5c69a166f@linutronix.de>
+ <aApGPAoctq_eoE2g@t14ultra>
+ <20250424173908-ffca1ea2-e292-4df3-9391-24bfdaab33e7@linutronix.de>
+ <CAASaF6xsMOWkhPrzKQWNz5SXaROSpxzFVBz+MOA-MNiEBty7gQ@mail.gmail.com>
+ <20250425104552-07539a73-8f56-44d2-97a2-e224c567a2fc@linutronix.de>
+ <CAASaF6yxThX3HTHgY_AGqNr7LJ-erdG09WV5-HyfN1fYN9pStQ@mail.gmail.com>
+ <20250425152733-0ff10421-b716-4a55-9b60-cb0a71769e56@linutronix.de>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8604:EE_|GV1PR04MB10454:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8717aac8-e3d3-4653-63a4-08dd83fe7a7a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?aWF3RFV0a0xzMC9OMU4rUVc0TVdPcXZPMkQ3N1lyR1Q1eTFINkJDVXJYYmsx?=
- =?utf-8?B?TjZEamxBK3c2SWxHN2dnSWVkYzIrMnpJdmU5cFFHa0tobktZYUIzNUp2dlI2?=
- =?utf-8?B?NDUwTXRZMUc0WGtkNXVkd3VwNU1ncTQvYy9UUUJWRmFldzA2WHphdTYvVkxy?=
- =?utf-8?B?WGY4dERiZ3BZNWpwSHJ3WjVuKzZ0VkFYQjljQ1NyR1psSnR3YmlITmE3aGdF?=
- =?utf-8?B?Wjh0SXUwdmN2NlFaTFNGSlZHTlBadjdFN2tqenh4emNpVHBQSldCOGEycW0y?=
- =?utf-8?B?ajFjb2p5Z1lLakdVSmVybEVzaE5KbmNQQ3NpKzlabkZ2RkJGalJmZjFRV0FO?=
- =?utf-8?B?TkZuQStpWVhUblArYVE3dk9sQkVOWFpkd25ROHZaNHlOWlJKUUJBek5BL2lu?=
- =?utf-8?B?YWdqVTU2emYwUXNaR3FQNVdOT3gzY3FKNzVXWXJpbTdnRGFWMHpheS81dGxD?=
- =?utf-8?B?RTFVQUIvbDlsRzNFL095ZU9PWXNOVGt6YS9BQmVEWU1tTjdHc25Lc2RpaUpp?=
- =?utf-8?B?WDllVHJjMitNTHNrYWJwUG1GWWwyOWdvUmZNTVI1RjV2Z1NxN1VkaXJnUGpa?=
- =?utf-8?B?REFGNjR1ZldVNWtrV3ZBQlFoZEJkSEE3Vi8wVVRTSU9jUzBmR016MVlkN1Vq?=
- =?utf-8?B?UEVjaUhNQ3hmMkpYV0p1U3cyUFFTcnlaTjNSNHFSRjN1Nk5obGhzUlIvQjNI?=
- =?utf-8?B?ZTV4UUt3dTUrQzRDNlBDNVdzZWtTUFVHYmZUeUI1Umk2RkdCLy9GUUQvV0kr?=
- =?utf-8?B?NDB3UnlzaGVHK1UzM2x0L3JONnBZRm0zWmdoTlhOOXU1YUN3Zkd0RlZyazNu?=
- =?utf-8?B?ODdwSHhYK3orMDFxdWpDcjd1cEdLUFoyOTBEVTRwcm5nb1dhdHU0RTU1cmQ4?=
- =?utf-8?B?MXI1ckJMMW1XUTV0bU9mMmkzemxFRUFEQi82eDRCS1lITWhFMFB4RlhOK203?=
- =?utf-8?B?MFdOSjlBNnZGYSt5K0RuakFVbXVRTmpnMldqRm1xREJHc1B2MzBhQmRzMld0?=
- =?utf-8?B?dGtpZTBvWkFOKzNkNjBPTG56dDdnQ3VBYXdJYk5zbXliOGFKOGcvbW9DZmtT?=
- =?utf-8?B?QWtUa3N4VFRrMnZMQ1ZPVlBIK1c3clZ2OHdtUGtVZEl1K29KYm5PcFVyVVl0?=
- =?utf-8?B?cExvSU56UGl4OHZ3K3ltQkc4L1ljbk1JSzBQRXpKYW1zZ29NTmxuYmRtTkhS?=
- =?utf-8?B?a3R3cmZwT3BoZDV1ZkEyWTE5U0JwcUhlSld3T1JpQ0JyTWtsSUl5anlNUGgx?=
- =?utf-8?B?NmRZVGZDdkpISU1wWjRSVDA1NmtMblRPZ3RPN3c4S0hZWkdnb2NxSGxBZzRj?=
- =?utf-8?B?eVlzTk9yaDFtQTR2RnVCVXliNDF1S3ExcFRnSnBJL2s2WEFyd1BCcjBkWkVt?=
- =?utf-8?B?Y09CN2w1ekZ1QnpBZkErZngrR0lhazQrQ2ZRT05LaWlSdjh1aFpPbk1CNDN3?=
- =?utf-8?B?VVoyQkxRZWtpMDFuZmovV013NlJjRVBWYzRkOGViSEtCbDA1aE5RRWVCbDIw?=
- =?utf-8?B?RU9oSmE2a2RKVVYvUE5rUDhDU3hyazdsa2xZMmZZaSs3K3BYeTNWM0o1OGxv?=
- =?utf-8?B?bzVrV09jTnpZbVVJYWh4czBpektjRUQ1cDVaanYvakVaZFJDemdlWmJESlFy?=
- =?utf-8?B?NE5ZTmJuS20rN0dna3lsRmphQU9oZC9zaXNsbEovUmZzOFM0UmZKTU5hM1gr?=
- =?utf-8?B?V0xzOUZMZWxBYkZNVjVRYTBDTi9yQ2swQjZHb3R6T2U1QlBFUUlZYzN1cjMx?=
- =?utf-8?B?dHJGQUdrZ3NCdFBNc1F0VW4rd3h6dm5CaVdlSnMvbFRRODcvRTRoUUZVZjNp?=
- =?utf-8?B?RWVOYUpseGRnYUtEVWJPcmtwckFwUW5Pd0h3N0NUb1RDUEhNd0lMQUUwVlBQ?=
- =?utf-8?B?elRIQzJDVWxWV1l1WUhCQnZ4TEx6OUszdy9aZ0dGUjVkazBIOG1mcXJIUWhK?=
- =?utf-8?B?NXRZQ25NWUxOVFliRjRUNUtscW94N0pqdDNoS1lsMnUzVkkrRFpEMkw4VzBO?=
- =?utf-8?B?Mit1ZjJoRmNnPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8604.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YytmRmF5YmJicTFVSC8zWUVXUG5rT0M1UnE4UDBSOXRPLzhZUy9nMWNTODJn?=
- =?utf-8?B?NkZxK0JvTHBxb1cwdlhXSjJIRERFdUN5UTlhRHFNMzFOb1hKTG5OQisvNHU1?=
- =?utf-8?B?NXBMNTRWMGQ2QUxMM0FPVmNkeGxwdFBJa21Fd0ZrVmpBUVM5TThtYWFlWmkx?=
- =?utf-8?B?VGhwcEhtdVdrakJIOGYrWHZhVFVJTWRRNWptaVQwc25ZdzdQQm9JdXFKbWRZ?=
- =?utf-8?B?dk93YU5taVR3YnVJbG4yUmsrSFlZVlRrS3Z1aldsRUkwVDQ4U0pxT1VSZU1X?=
- =?utf-8?B?MFJyS2VQQURLb1I4OTY5KzlxWEN5dDJsTXNRaEo2ZkJOeFE0ZzNQVE4wVEtj?=
- =?utf-8?B?SkM0cCtmMUJGdnVBbERSZjhsVmRkTDNCNjJXQzBVNDV3dTFJQjF5VS84RUFN?=
- =?utf-8?B?ak9BM3dEeUhmblRWSjZIMEx3WlFObk40V3lZUXAvRDFNNWtQTExydUJHNUVx?=
- =?utf-8?B?MThvQ2JuUmg4enpxRmg2U3JCWitoY1JXbTh6MlM0MTdvTVk3K0N4N1kxVjBa?=
- =?utf-8?B?b3E4V0t3Ym1HNHVRc3RPdS94WDVlMmhLK05ScVViVDZsWkhVd3k0TWdOeDhv?=
- =?utf-8?B?MHNpVHRiVmhjY05FanZsb0I1aTcwQkZBSnk0TG1UZ3FqUU02dEdQMStzd1Br?=
- =?utf-8?B?RFRDSGdTNllqalovTDlrMVRiUWRBTkhDMW9WL0FMWlNzamJlVlhrMS9vWVdE?=
- =?utf-8?B?eE1PNFMzNVZCeWZkS01oVnR4eTQyT3ZnbitmN3pYNi9UbFNvV1EzYUQ3MUpY?=
- =?utf-8?B?eXJNNHlDZjJSdXhzVTRQaHAwOXZtL28zb3RJalBqWGp0WmFPZ21XbXBOMjZC?=
- =?utf-8?B?K296ckZWdHV2NkhHbkZPV3VxcmYzUVJmRUZiNkpTVFIrV3F0aERWRkFWZHNq?=
- =?utf-8?B?clg3WVBzSEtYbk1sbFN2Mk54V05NM0s3cGFRVDNoQ1JOMCt6aFBESHM0MndP?=
- =?utf-8?B?NnNLK0c3MlVYUm81UWtDb0g5bmE0eHAvNDZ5SmlTUTE3T3VQYWgxZ2laVTQ2?=
- =?utf-8?B?RUNGblBSR3UrUWdQczBpY2VnOXBEd0IwV0RQdnBhdkdEMHNwN3NuL2tNNjJl?=
- =?utf-8?B?aEYxWmZjUlFJLytXcWZhbzBRN05JaTdUa055VTJNeDlaZXRWM2k1b2FyTjJD?=
- =?utf-8?B?MXRVejBSWnIzWEI1bmlUa2hPNHNJYmdZNkx4Wm4yS0EydVZYVVRnQVNyVXg3?=
- =?utf-8?B?THo4dE93dmlJQ0VrMDMyMTZZeERSWmJpVnYyUENaSmhEb1dpTHZ4RVRBbjN4?=
- =?utf-8?B?eUIwN05nRkZVdlBPQkpSNDhVVGh1YzluSG03NklERzNwMWdhcGxYaU1LeEor?=
- =?utf-8?B?VnJXcXNLRmpBbTdKd1FsVXJpUGJPOUVMS3lBVmU5RGxOMDV2ckljcmRFaHlL?=
- =?utf-8?B?UlNScVNsYWdiN2NLZGNTd3Y4ampBblJXSENKbnEwZEUrVTFtZFUyOXNOdkFt?=
- =?utf-8?B?bDZYV3hwOVkvbWFJcHVpUWRHSGNtQzdFZkJtWnFKTVAvQnFUOFY1VjN5dlYv?=
- =?utf-8?B?VWQ2ZDlFNVpSQnljOEJwNTNQa0JEMVVnaTNnSGhFZC9lY01QS1hURGVEcW5h?=
- =?utf-8?B?TU51ZmRjeHk1elRCYTl2c2F2TVpwOUJjZURyYXptZzErMXJ4dG1oNm93R1NU?=
- =?utf-8?B?Umt5ODYyVVJ3RENNTExZa2FHVFlnb2p0dHBwSVZSVGVqcW9qVitBM3g2Slhm?=
- =?utf-8?B?eG54UTFFVzRuUEllZVBZaDdSZGFvZkwzY1dWMXB4NmpVWGdaSjREUjlIRTFH?=
- =?utf-8?B?eXdvSGVKd0NSUWYrdVduOU0wWFJEQVgwdXkwWGZIczlreVBPbXR5NWRmNStv?=
- =?utf-8?B?dkRNWnVydGFOM05pM2JvRUtVR20zdXFsTFBNR0kxRWlvWlVBWHg1dzdtMWly?=
- =?utf-8?B?RWtidEFyaGlMRWZyZTc0NWl4ZXo1RnhJMTU1VmJJSHZvVkdkT01ROGZRY0tS?=
- =?utf-8?B?VUlyU0IzUEhlR3l4YnhpTk1BM2haM2k3U3ZheDIzRS9jUGpHS3BvUDZrS3pv?=
- =?utf-8?B?YXF6cmhVc1BuNkUwQ2N0L29CMnd6U0ZiTEt4V2ltditBWlhkcHlYZ0dKMmhi?=
- =?utf-8?B?K3ZJQWN6V09sdHFjNk9RSTFPa0xIZ0I2RVVMcnhaNnZBbC9lRzRMOEd4UlNX?=
- =?utf-8?Q?A+4eX9PBO+QYvLgavZJn8UlLD?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8717aac8-e3d3-4653-63a4-08dd83fe7a7a
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8604.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Apr 2025 13:38:35.7515
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: yL14HFv7JEOkgFKfCPzgIGNcJ9flusVSl1J3Owkv045E42DNb9flYTc1IyGKlizW7/Q/LH7PoXaRS7/in0S7AA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10454
+In-Reply-To: <20250425152733-0ff10421-b716-4a55-9b60-cb0a71769e56@linutronix.de>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 9R9y46S3q7vVMujR4QT21orCCG-KvX-2GzQt4tLXx3Y_1745591848
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=iso-8859-1; format=flowed
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_063840_371871_3E1E0738 
-X-CRM114-Status: GOOD (  13.48  )
+X-CRM114-CacheID: sfid-20250425_073734_757281_3B93F018 
+X-CRM114-Status: GOOD (  16.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,146 +136,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Documents i.MX SoC's Service layer and C_DEV driver for selected SoC(s)
-that contains the NXP hardware IP(s) for Secure Enclaves(se) like:
-- NXP EdgeLock Enclave on i.MX93 & i.MX8ULP
+On Fri, Apr 25, 2025 at 03:40:55PM +0200, Thomas Weiﬂschuh wrote:
 
-Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
----
- .../driver-api/firmware/other_interfaces.rst       | 121 +++++++++++++++++++++
- 1 file changed, 121 insertions(+)
+<snip>
 
-diff --git a/Documentation/driver-api/firmware/other_interfaces.rst b/Documentation/driver-api/firmware/other_interfaces.rst
-index 06ac89adaafb..a3a95b54a174 100644
---- a/Documentation/driver-api/firmware/other_interfaces.rst
-+++ b/Documentation/driver-api/firmware/other_interfaces.rst
-@@ -49,3 +49,124 @@ of the requests on to a secure monitor (EL3).
- 
- .. kernel-doc:: drivers/firmware/stratix10-svc.c
-    :export:
-+
-+NXP Secure Enclave Firmware Interface
-+=====================================
-+
-+Introduction
-+------------
-+The NXP's i.MX HW IP like EdgeLock Enclave, V2X etc., creates an embedded secure
-+enclave within the SoC boundary to enable features like
-+ - Hardware Security Module (HSM)
-+ - Security Hardware Extension (SHE)
-+ - Vehicular to Anything (V2X)
-+
-+Each of the above feature is enabled through dedicated NXP H/W IP on the SoC.
-+On a single SoC, multiple hardware IP (or can say more than one secure enclave)
-+can exist.
-+
-+NXP SoCs enabled with the such secure enclaves(SEs) IPs are:
-+i.MX93, i.MX8ULP
-+
-+To communicate with one or more co-existing SE(s) on SoC, there is/are dedicated
-+messaging units(MU) per SE. Each co-existing SE can have one or multiple exclusive
-+MUs, dedicated to itself. None of the MU is shared between two SEs.
-+Communication of the MU is realized using the Linux mailbox driver.
-+
-+NXP Secure Enclave(SE) Interface
-+--------------------------------
-+Although MU(s) is/are not shared between SE(s). But for SoC like i.MX95 which has
-+multiple SE(s) like HSM, V2X-HSM, V2X-SHE; all the SE(s) and their interfaces 'se-if'
-+that is/are dedicated to a particular SE will be enumerated and provisioned using the
-+single compatible node("fsl,imx95-se").
-+
-+Each 'se-if' comprise of twp layers:
-+- (C_DEV Layer) User-Space software-access interface.
-+- (Service Layer) OS-level software-access interface.
-+
-+   +--------------------------------------------+
-+   |            Character Device(C_DEV)         |
-+   |                                            |
-+   |   +---------+ +---------+     +---------+  |
-+   |   | misc #1 | | misc #2 | ... | misc #n |  |
-+   |   |  dev    | |  dev    |     | dev     |  |
-+   |   +---------+ +---------+     +---------+  |
-+   |        +-------------------------+         |
-+   |        | Misc. Dev Synchr. Logic |         |
-+   |        +-------------------------+         |
-+   |                                            |
-+   +--------------------------------------------+
-+
-+   +--------------------------------------------+
-+   |               Service Layer                |
-+   |                                            |
-+   |      +-----------------------------+       |
-+   |      | Message Serialization Logic |       |
-+   |      +-----------------------------+       |
-+   |          +---------------+                 |
-+   |          |  imx-mailbox  |                 |
-+   |          |   mailbox.c   |                 |
-+   |          +---------------+                 |
-+   |                                            |
-+   +--------------------------------------------+
-+
-+- service layer:
-+  This layer is responsible for ensuring the communication protocol that is defined
-+  for communication with firmware.
-+
-+  FW Communication protocol ensures two things:
-+  - Serializing the messages to be sent over an MU.
-+
-+  - FW can handle one command message at a time.
-+
-+- c_dev:
-+  This layer offers character device contexts, created as '/dev/<se>_mux_chx'.
-+  Using these multiple device contexts that are getting multiplexed over a single MU,
-+  userspace application(s) can call fops like write/read to send the command message,
-+  and read back the command response message to/from Firmware.
-+  fops like read & write use the above defined service layer API(s) to communicate with
-+  Firmware.
-+
-+  Misc-device(/dev/<se>_mux_chn) synchronization protocol:
-+
-+                                Non-Secure               +   Secure
-+                                                         |
-+                                                         |
-+                  +---------+      +-------------+       |
-+                  | se_fw.c +<---->+imx-mailbox.c|       |
-+                  |         |      |  mailbox.c  +<-->+------+    +------+
-+                  +---+-----+      +-------------+    | MU X +<-->+ ELE |
-+                      |                               +------+    +------+
-+                      +----------------+                 |
-+                      |                |                 |
-+                      v                v                 |
-+                  logical           logical              |
-+                  receiver          waiter               |
-+                     +                 +                 |
-+                     |                 |                 |
-+                     |                 |                 |
-+                     |            +----+------+          |
-+                     |            |           |          |
-+                     |            |           |          |
-+              device_ctx     device_ctx     device_ctx   |
-+                                                         |
-+                User 0        User 1       User Y        |
-+                +------+      +------+     +------+      |
-+                |misc.c|      |misc.c|     |misc.c|      |
-+ kernel space   +------+      +------+     +------+      |
-+                                                         |
-+ +------------------------------------------------------ |
-+                    |             |           |          |
-+ userspace     /dev/ele_muXch0    |           |          |
-+                          /dev/ele_muXch1     |          |
-+                                        /dev/ele_muXchY  |
-+                                                         |
-+
-+When a user sends a command to the firmware, it registers its device_ctx
-+as waiter of a response from firmware.
-+
-+Enclave's Firmware owns the storage management, over Linux filesystem.
-+For this c_dev provisions a dedicated slave device called "receiver".
-+
-+.. kernel-doc:: drivers/firmware/imx/se_fw.c
-+   :export:
+>
+>Some more information:
+>
+>The crash comes from the address arithmetic in "vc = &vc[CS_RAW]" going wrong.
 
--- 
-2.43.0
+That appears to be because it's not doing any arithmetic, but using value
+from some linker-generated symbol (I'll refer to it as "7a8").
+
+The below is presumably the check that compares clk != CLOCK_MONOTONIC_RAW,
+CLOCK_MONOTONIC_RAW is 4. And it should choose between first and second vdso_clock
+in 2nd vvar page:
+
+# readelf -a /root/kernel-ark/arch/arm64/kernel/vdso/vdso.so.dbg | grep 7a8
+     25: 00000000000007a8     0 NOTYPE  LOCAL  DEFAULT    7 $d
+
+objdump -d -S:
+  658:   17ffffef        b       614 <__cvdso_clock_gettime_data.constprop.0+0x104>
+                 vc = &vc[CS_HRES_COARSE];
+  65c:   58000a62        ldr     x2, 7a8 <__cvdso_clock_gettime_data.constprop.0+0x298>
+  660:   7100101f        cmp     w0, #0x4
+  664:   10e7cce3        adr     x3, fffffffffffd0000 <vdso_u_data+0x10000>
+  668:   9a821063        csel    x3, x3, x2, ne  // ne = any
+         while (unlikely((seq = READ_ONCE(vc->seq)) & 1))
+  66c:   b9400065        ldr     w5, [x3]
+...
+  7a8:   fffd00e0        .word   0xfffd00e0
+  7ac:   ffffffff        .word   0xffffffff
+
+
+(gdb) r
+Thread 2.1 "a.out" received signal SIGSEGV, Segmentation fault.
+[Switching to Thread 0xfffff7ff2dc0 (LWP 44638)]
+0x0000fffff7fa066c in ?? ()
+
+(gdb) disassemble 0x0000fffff7fa0658,0x0000fffff7fa067c
+--Type <RET> for more, q to quit, c to continue without paging--
+    0x0000fffff7fa0658:  b       0xfffff7fa0614
+    0x0000fffff7fa065c:  ldr     x2, 0xfffff7fa07a8
+    0x0000fffff7fa0660:  cmp     w0, #0x4
+    0x0000fffff7fa0664:  adr     x3, 0xfffff7f70000
+    0x0000fffff7fa0668:  csel    x3, x3, x2, ne  // ne = any
+=> 0x0000fffff7fa066c:  ldr     w5, [x3]
+
+$x3 here is using correct vvar runtime address, but $x2 uses
+a bogus one from "7a8". And when it tries to load from it, it crashes:
+
+(gdb) info proc map
+process 44638
+Mapped address spaces:
+
+Start Addr         End Addr           Size               Offset             Perms File
+0x0000000000400000 0x0000000000410000 0x10000            0x0                r-xp  /root/ltp/testcases/kernel/syscalls/clock_gettime/a.out
+0x0000000000410000 0x0000000000420000 0x10000            0x0                r--p  /root/ltp/testcases/kernel/syscalls/clock_gettime/a.out
+0x0000000000420000 0x0000000000430000 0x10000            0x10000            rw-p  /root/ltp/testcases/kernel/syscalls/clock_gettime/a.out
+0x0000fffff7d80000 0x0000fffff7f30000 0x1b0000           0x0                r-xp  /usr/lib64/libc.so.6
+0x0000fffff7f30000 0x0000fffff7f40000 0x10000            0x1a0000           r--p  /usr/lib64/libc.so.6
+0x0000fffff7f40000 0x0000fffff7f50000 0x10000            0x1b0000           rw-p  /usr/lib64/libc.so.6
+0x0000fffff7f60000 0x0000fffff7fa0000 0x40000            0x0                r--p  [vvar]
+0x0000fffff7fa0000 0x0000fffff7fb0000 0x10000            0x0                r-xp  [vdso]
+0x0000fffff7fb0000 0x0000fffff7fe0000 0x30000            0x0                r-xp  /usr/lib/ld-linux-aarch64.so.1
+0x0000fffff7fe0000 0x0000fffff7ff0000 0x10000            0x20000            r--p  /usr/lib/ld-linux-aarch64.so.1
+0x0000fffff7ff0000 0x0000fffff8000000 0x10000            0x30000            rw-p  /usr/lib/ld-linux-aarch64.so.1
+0x0000fffffffd0000 0x0001000000000000 0x30000            0x0                rw-p  [stack]
+
+$x3 was the beginning of 2nd vvar page (1st vdso_clock), and $x2 looks
+like it should have been 2nd vdso_clock, but the value that is used is not
+the address of vvar during runtime. 
+
+vdso_clock has size 224 == 0xe0 (according to pahole)
+
+(gdb) x/2x 0xfffff7fa07a8
+0xfffff7fa07a8: 0xfffd00e0      0xffffffff
+(gdb) p/x $x2
+$1 = 0xfffffffffffd00e0
+(gdb) x/1x $x2
+0xfffffffffffd00e0:     Cannot access memory at address 0xfffffffffffd00e0
+
+But it does match the symbol value from vdso.so:
+
+# readelf -a /root/kernel-ark/arch/arm64/kernel/vdso/vdso.so.dbg | grep vdso_u
+     37: fffffffffffc0000     0 NOTYPE  LOCAL  DEFAULT    1 vdso_u_data
+     39: fffffffffffc0000     0 NOTYPE  LOCAL  DEFAULT  ABS vdso_u_time_data
+     40: fffffffffffe0000     0 NOTYPE  LOCAL  DEFAULT  ABS vdso_u_rng_data
+
+>>> print(hex(0xfffffffffffc0000+65536+224))
+0xfffffffffffd00e0 -> and this is address where it crashes
+
+Regards,
+Jan
+
+>This should just do "vc = vc + 1", advancing the pointer by sizeof(*vc).
+>But I get these example values of "vc" before and after the arithmetic:
+>0x00ffffbc060000 -> 0xfffffffffffd00e8
+>Which is obviously wrong.
+>
+>The arithmetic can be fixed with any one of the following changes:
+>* OPTIMIZER_HIDE_VAR() as above
+>* Replacement of -mcmodel=tiny with -mcmode=small in arch/arm64/kernel/vdso/Makefile
+>  -mcmodel=tiny is supposed to cover 1MiB programs, the vDSO only needs 300KiB here
+>* Removal of the (clk != CLOCK_MONOTONIC_RAW) case
+>
+>Shuffling code around, even without any impact on semantics, sometimes fixes
+>the issue. Compiling the vDSO with UBSAN didn't show anything.
+>
+>
+>Thomas
+>
+>> > > > > [1] https://github.com/linux-test-project/ltp/blob/master/testcases/kernel/syscalls/clock_gettime/clock_gettime03.c
+>> > > > > [2] https://koji.fedoraproject.org/koji/buildinfo?buildID=2704401
+>> > > >
+>> >
+>>
+>
 
 
