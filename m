@@ -4,66 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67F40C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 03:16:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 183DAC369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 03:32:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ns+L0aOm8q4XI8tdY0zbGpGXoWoyJjIZ1B6rDiXbX30=; b=vDasi2rQPfCfUzC8Twsox3E1D7
-	knLTs0VS2jHl10PqPzjYPe4NUVAzAf/P9ZcfAaFub0Z4FmsxDDbiTmzW6g9tyCVC54AvNqkj7vfq0
-	j3q5JYxJiS/LfPZ2DOPqoD7t44Gco12LL+Rn0qvKopj3FiQT722ekDg20PkWqVcqQsOkOcxJ8li8l
-	BuY7LpTuekYQU8JZvy6KBO7e11PhgBtlc54WkdrkKotWBJFrfFRDvN6oB/O9mrP214LFl+moKDmW+
-	oRozfm0NJcmBuQfISt5jihV0pbHpY/VEo0z2BDcRwc0ujY9UnklhxdRtDWy63VNdlWTZ66BAZhNXj
-	QdKclBMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wo1mKRm8HkVKkBZhtoJnGAKQljZzngI8DYVaXebG5gg=; b=KE0O6aKH5Y2tbGGIZ9S+tY7GuO
+	YZzcOa8Lea6HIDFqSmo67hzZn1DxNb56xrv+gPg/sGsD2Bm06wBk7gQTGfiOxKwZdCP4rh612Pbpr
+	fGi2Sxn6ACbTJo9nHMqTewwjR1VF83+6ku/HzQz5i6vXyRk1ECJhCJ3BDzBXrA9ZeQAqeS+J2trum
+	qCfdq3Y4GVh8AfLRMj2rEMgKwmaIu4lDlFz2w45IAIcKAKHiskneglcNjpnTizAUg3Zbka/J92L/B
+	rCPDKBzGGVlUE8bmqMdJ4SbaxQwnHP7AeQ/CLg4hjHim7W87Dg470mX/JY6ymnfst3Of2ekc5hIOl
+	Icut9uSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u89Xl-0000000FqOk-3oy5;
-	Fri, 25 Apr 2025 03:16:01 +0000
-Received: from mail-m16.yeah.net ([1.95.21.14])
+	id 1u89nI-0000000FrJf-1X0i;
+	Fri, 25 Apr 2025 03:32:04 +0000
+Received: from mail-m49197.qiye.163.com ([45.254.49.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u89Vv-0000000FqFp-2OBn
+	id 1u89lR-0000000Fr8e-07sF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 03:14:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=Ns+L0aOm8q4XI8tdY0zbGpGXoWoyJjIZ1B6rDiXbX30=;
-	b=SKRlq7iImJSm8WSOqSFewc3xuRNOOHQvEfFqd5/qWhssemJdgOYpsRvR8vgppJ
-	Lcod9RJv/UYLydErZV9zePUAfDLqC37XxNuhpNq8mMC1IIQ4U5jLTplbf1PDkd2v
-	D0azbviE8xSXZxe75QPU3OA1y5Qsf4FrBWyaUSVbx8tvI=
-Received: from dragon (unknown [])
-	by gzsmtp1 (Coremail) with SMTP id Mc8vCgD3zEXr_QpoCyPbAw--.5525S3;
-	Fri, 25 Apr 2025 11:13:48 +0800 (CST)
-Date: Fri, 25 Apr 2025 11:13:46 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, hongxing.zhu@nxp.com
-Subject: Re: [PATCH v2 0/8] arm64: dts: imx8: create common imx-pcie[0,1]-ep
- overlay file
-Message-ID: <aAr96tBdflbAyKSb@dragon>
-References: <20250423-imx8_pcie_ep_dts-v2-0-43c982d83a8f@nxp.com>
+	Fri, 25 Apr 2025 03:30:10 +0000
+Received: from localhost.localdomain (unknown [119.122.214.249])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 131231831;
+	Fri, 25 Apr 2025 11:30:05 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: dlan@gentoo.org
+Cc: andre.przywara@arm.com,
+	andrew+netdev@lunn.ch,
+	conor+dt@kernel.org,
+	davem@davemloft.net,
+	devicetree@vger.kernel.org,
+	edumazet@google.com,
+	jernej.skrabec@gmail.com,
+	krzk+dt@kernel.org,
+	kuba@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	mripard@kernel.org,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	samuel@sholland.org,
+	wens@csie.org,
+	Chukun Pan <amadeus@jmu.edu.cn>
+Subject: Re: [PATCH 4/5] arm64: dts: allwinner: a527: add EMAC0 to Radxa A5E board
+Date: Fri, 25 Apr 2025 11:30:01 +0800
+Message-Id: <20250425033001.50236-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250423-01-sun55i-emac0-v1-4-46ee4c855e0a@gentoo.org>
+References: <20250423-01-sun55i-emac0-v1-4-46ee4c855e0a@gentoo.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250423-imx8_pcie_ep_dts-v2-0-43c982d83a8f@nxp.com>
-X-CM-TRANSID: Mc8vCgD3zEXr_QpoCyPbAw--.5525S3
-X-Coremail-Antispam: 1Uf129KBjvdXoW5Kr4fuF1rXFy7Xry7try3twb_yoWxGFg_Cr
-	45Wa1kJ347Jw4fJ345A3ZxuFy2g345Z3y5Wry8Xwsa93WfZFWYvr4kJr1rW3WUCF13Xw4D
-	CFn8Xw1xXw4rGjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU08cTPUUUUU==
-X-Originating-IP: [114.216.210.34]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiARs6ZWgK0Y3JqQAAsb
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZH09DVk9JQkxJSU1NSE5IS1YeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKT1VJT0JZV1kWGg8SFR0UWUFZT0tIVUpLSEpOTE5VSktLVU
+	pCS0tZBg++
+X-HM-Tid: 0a966afecd6603a2kunm131231831
+X-HM-MType: 10
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6OhA6TQw5ITJWTj9KAUwvEEgt
+	CAkwCStVSlVKTE9OTk5KQ0tMSkpIVTMWGhIXVRoWGh8eDgg7ERYOVR4fDlUYFUVZV1kSC1lBWUpK
+	QlVKSUlVSUpPVUlPQllXWQgBWUFKT0xONwY+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_201407_914058_560AF663 
-X-CRM114-Status: UNSURE (   6.54  )
+X-CRM114-CacheID: sfid-20250424_203009_226708_48ED9AA7 
+X-CRM114-Status: UNSURE (   5.30  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,17 +86,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 23, 2025 at 08:41:22PM -0400, Frank Li wrote:
-> Frank Li (8):
->       arm64: dts: imx8: create unified pcie0 and pcie0_ep label for all chips
->       arm64: dts: imx8dxl-ss-hsio: correct irq number for imx8dxl
->       arm64: dts: imx8dxl-evk: Add pcie0-ep node and use unified pcie0 label
->       arm64: dts: imx8: use common imx-pcie0-ep.dtso to enable PCI ep function
->       arm64: dts: imx95: add pcie1 ep overlay file and create pcie-ep dtb files
->       arm64: dts: imx8mm-evk: add pcie0-ep node and apply pcie0-ep overlay file
->       arm64: dts: imx8mq: add pcie0-ep node
->       arm64: dts: imx8mq-evk: add pcie[0,1]-ep nodes
+Hi,
 
-Applied all, thanks!
+> On Radxa A5E board, the EMAC0 connect to an external YT8531C PHY,
+> which features a 25MHz crystal, and using PH8 pin as PHY reset.
+> 
+> Tested on A5E board with schematic V1.20.
+
+Although the schematic says it is YT8531C, the PHY on the V1.20 board
+is Maxio MAE0621A. The article of cnx-software also mentioned this:
+https://www.cnx-software.com/2025/01/04/radxa-cubie-a5e-allwinner-a527-t527-sbc-with-hdmi-2-0-dual-gbe-wifi-6-bluetooth-5-4/
+
+Thanks,
+Chukun
+
+--
+2.25.1
 
 
