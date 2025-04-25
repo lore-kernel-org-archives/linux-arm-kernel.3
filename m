@@ -4,100 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C76B0C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 10:21:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3DFDC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 10:22:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F8R5L9aakpm2jVBnWr557mhK6/T+rfwUGBzGcgDrYr4=; b=1dtO04lYVx/3Kom6b7Uho1skAy
-	NX1ni+8hx/DOguXWd+87ILe7Mg6tgNRuiRQwk2Syqt9w6sftZJP4pO5vX5b7FDcvvhI5SAiCFkMM5
-	2Cs/Jhh+7ShdOCT4jHqcX0qGPgTQHLsJeNnkaVMO3mgHx0v7J5Sgr4vzVpTIeoYy2nhhN9wrw36U6
-	t+pP/lNKUhuBwcjvtf6mAB/8jiUElRXQmVTBtpp91E3wlq/4/sJvkaxmEEHUe2D9b327XlKGgGhui
-	w/vlbfGK8SOsZ2KuJvGvtdtKY6ToaTDl5V0Vo9aFa9DYpsDl7qi0ROUF4wN/6j1atvyy8dvCTl2rs
-	oyODmc+w==;
+	bh=yf2aYlIcxVVGizSpVvZ8JYPJ5Jj59wgeBFtKAKlHX44=; b=Pb/GqU6B1sUbDFUdnH0pZi1S0M
+	iH0AoWx9D5RqRow/OTp6U147qv60EhMYx/wFnpY0VGWpAFlSyqj+DPpLfPXGW3ymRKDikfffLWEDm
+	ZZijneMj+yhc6G1uj6rgzdcxUHLFnmncf2q2/8JzY1Q8cNEZxcYrg8QHxqTO9U9DzGF3O2zRzDC07
+	yHegKWpKl0cPD6CFo7o6mU/zVFSny4PpxZKwzJehKna1xaQZcJVJ6IFkJyBr/PHcfuXuKh1wCvKo6
+	EagGgaeUHlQzv7PpIl8DTo5WgJO+FxKKpPzgv4aq4pnmvsiAO0vwlxfdoXrRrxYHz++xxxEb+2rWo
+	lusJub9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8GB5-0000000Gi7v-0yqo;
-	Fri, 25 Apr 2025 10:21:03 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1u8GCT-0000000GiXh-4A8a;
+	Fri, 25 Apr 2025 10:22:31 +0000
+Received: from dane.soverin.net ([185.233.34.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8FNp-0000000GXsA-2GBe
+	id 1u8EsC-0000000GRVK-2LxA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 09:30:10 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53P8TN7a015932;
-	Fri, 25 Apr 2025 09:30:03 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=F8R5L9aakpm
-	2jVBnWr557mhK6/T+rfwUGBzGcgDrYr4=; b=Cn3OYWLbzlZq3yU8ptl3DCFO8fN
-	apv9OdPBoLz6629U4ojzPbrNDuxXyHXGUKv1X25AdURWavEnjdGlFfiJbFVqAU6X
-	plz3vZSnhydeg+xWCvXu1MKzsRME+xuyT0aFUkrKB4Db5za2yhZMIqmqRT5V3uQD
-	1Q3EfZYgijFKOmxemhtRmvI971M7BkEhVk/l/eFl34RRXlQhzUjdmC6xF0V6LbRH
-	8GxBACX5o87KulvCPtKFSSxmUPJI2PnGYm66A8pM+aV6P+/L5ERrOAiElWeIUDlW
-	zvkUTje14+sJRKw8cSBpDWreBQu4q+ReEs0dFrqTmk4oF8hhpgcqjpTARnw==
-Received: from aptaippmta01.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com [103.229.16.4])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 466jh3gg5y-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 25 Apr 2025 09:30:03 +0000 (GMT)
-Received: from pps.filterd (APTAIPPMTA01.qualcomm.com [127.0.0.1])
-	by APTAIPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTP id 53P9U1VL022154;
-	Fri, 25 Apr 2025 09:30:01 GMT
-Received: from pps.reinject (localhost [127.0.0.1])
-	by APTAIPPMTA01.qualcomm.com (PPS) with ESMTPS id 4644wnf738-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 25 Apr 2025 09:30:01 +0000
-Received: from APTAIPPMTA01.qualcomm.com (APTAIPPMTA01.qualcomm.com [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 53P9U13R022151;
-	Fri, 25 Apr 2025 09:30:01 GMT
-Received: from cbsp-sh-gv.ap.qualcomm.com (CBSP-SH-gv.ap.qualcomm.com [10.231.249.68])
-	by APTAIPPMTA01.qualcomm.com (PPS) with ESMTPS id 53P9U1gv022143
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 25 Apr 2025 09:30:01 +0000
-Received: by cbsp-sh-gv.ap.qualcomm.com (Postfix, from userid 4635958)
-	id 1D44340D6C; Fri, 25 Apr 2025 17:30:00 +0800 (CST)
-From: Wenbin Yao <quic_wenbyao@quicinc.com>
-To: catalin.marinas@arm.com, will@kernel.org,
-        linux-arm-kernel@lists.infradead.org, andersson@kernel.org,
-        konradybcio@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-        conor+dt@kernel.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: krishna.chundru@oss.qualcomm.com, quic_vbadigan@quicinc.com,
-        quic_mrana@quicinc.com, quic_cang@quicinc.com, quic_qianyu@quicinc.com,
-        quic_wenbyao@quicinc.com
-Subject: [PATCH v2 1/4] arm64: Kconfig: enable PCI Power Control Slot driver for QCOM
-Date: Fri, 25 Apr 2025 17:29:52 +0800
-Message-Id: <20250425092955.4099677-2-quic_wenbyao@quicinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250425092955.4099677-1-quic_wenbyao@quicinc.com>
-References: <20250425092955.4099677-1-quic_wenbyao@quicinc.com>
+	Fri, 25 Apr 2025 08:57:30 +0000
+Received: from smtp.freedom.nl (unknown [10.10.4.74])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	by dane.soverin.net (Postfix) with ESMTPS id 4ZkRYS5N69z1HSD;
+	Fri, 25 Apr 2025 08:57:16 +0000 (UTC)
+Received: from smtp.freedom.nl (smtp.freedom.nl [10.10.4.107]) by freedom.nl (Postfix) with ESMTPSA id 4ZkRYS1rJ1z4Q;
+	Fri, 25 Apr 2025 08:57:16 +0000 (UTC)
+Authentication-Results: smtp.freedom.nl;
+	dkim=pass (2048-bit key; unprotected) header.d=jjverkuil.nl header.i=@jjverkuil.nl header.a=rsa-sha256 header.s=soverin1 header.b=stJOLVOW;
+	dkim-atps=neutral
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jjverkuil.nl;
+	s=soverin1; t=1745571436;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=yf2aYlIcxVVGizSpVvZ8JYPJ5Jj59wgeBFtKAKlHX44=;
+	b=stJOLVOWx5GkguUtGMLMoFigcK95Jw2D7GXH9p6YNilXkgZ2HaaZLEwbrqoupPitn80RuM
+	DtsNM9E+wwEQl5IKo1LYO9efYKjLbE8/Av7y1g/VRID7JWJr3jbUyRdmG0xdM/7E/T6/xx
+	+HgChgF7Tq9tMxY3JJxSzYrs+oxE8ViFevb2gboYpK76PKJc00vWzfdDjvK3malUPb8RtJ
+	VL2rX4WDCpl9lFFECjL4FEY4lMYo7QJW1ncf09eBfDxaBd7xhN33KFPifK5OVZKOExbafR
+	eSJDKo/zzwywnMYCh0CApxCGMxk0HQhSgs+w5m/VlBk7xmgf50sMbVXhgoSvPQ==
+X-CM-Envelope: MS4xfGH9ubBhWtgw+qry96p0p2CY3MAqye7DnTYvFFgCU+PBQbprOMA8/jc/PvCT7GLQ/9y7TYUZl9I9bi4GLgODAMu4H+QFItiyxwBDkgn3acszxm8ZccrJ qWVoq3RzX8yvSYmPiMujJZPjuMgGifWBNb277zoeG02hBMW1bb3iohnm0nrI0aXmM7xmfxBZ3EWaFdrRXn9tWbQWGI8QH6Qo/HLt7C7O4wGUap0j0/WdH9AS KwQK+XFmnWgJrgHjQ5ds6KA/NvyrWfxrHWqh+DINtRusCrtoaETywDG6UdsRq2WTfWxr2j4fHEm28jSbtWyZwwOkcPyKHTcdJ8i6QJdTU0l/xidBUIHt4ljf kgy1GIQgTCU3lWqCG1g8eu3oxhtpj0I4wuzhJB9J5WK+nDcLjab9GQdTRUfmmZ8MxG24YqPDDVxLAofWtYelUJjHpDpNmu/9ofVtqihGMT/eA7Y4GBFU5MXe Z9DAsMrhyw1tQyrv7ADcHlNIarbpxXphHC5pfQ==
+X-CM-Analysis: v=2.4 cv=I7afRMgg c=1 sm=1 tr=0 ts=680b4e6c a=xVxOAnYOZqKVbrsbIgLjXQ==:117 a=xVxOAnYOZqKVbrsbIgLjXQ==:17 a=IkcTkHD0fZMA:10 a=xq3W2uTSAAAA:8 a=EuBBl-eGEdlqjvPoGpYA:9 a=QEXdDO2ut3YA:10 a=P5L7wpMTXyg1GfFA3Gwx:22
+Message-ID: <ab1cdc06-5fbd-420f-a917-cf9604772de1@jjverkuil.nl>
+Date: Fri, 25 Apr 2025 10:57:15 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-QCInternal: smtphost
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI1MDA2OCBTYWx0ZWRfXwxM3kTIXWh/C pZ8bDy+xaFkp8PyRnnJRULeL2URuXLLm1KnBd3F2MGL4lzBnleJRwBaU532LpDk2TLmpOaih2cL sb7pOitoG586881A0TIblmjPScpsZEId+O1QnyyF7RAsKg6TYupwxxjQojol9Mq2axzcdmBzN9H
- LhpM9j21DdJRPQjWhuh5XW+edydyWBa413u55fzLUGrarxSC417jv1ug/Tor67k1G4tg1hLUizE yZ+Z45h03iHNXKctG6MQbArmTwwytUA1QhFgh5bmxtroFc3up+eImWgX3agFhgiFxeQWdxqZn1d JIO/iR4+90JiPzc+F8j0jtFrzXnDU+rMEhS+aXFZMVkg1xcV2qKLXr+IaYeW9sRIpcpuYARkskX
- bfNKze3iIGLQyEJ+7nb65tRQ+/5vHy3bdmHV3Uj29cWJKoyqoGnVoO6Kp8V7NfDRZ0xTEfyJ
-X-Authority-Analysis: v=2.4 cv=bs1MBFai c=1 sm=1 tr=0 ts=680b561b cx=c_pps a=nuhDOHQX5FNHPW3J6Bj6AA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=8J9pHfFvgnT8GwhQ4KkA:9 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: B6VPWns6vBRazbkQyXJZmCekCoKGNGIK
-X-Proofpoint-GUID: B6VPWns6vBRazbkQyXJZmCekCoKGNGIK
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-04-25_02,2025-04-24_02,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0
- priorityscore=1501 suspectscore=0 mlxlogscore=798 mlxscore=0 phishscore=0
- lowpriorityscore=0 bulkscore=0 spamscore=0 impostorscore=0 malwarescore=0
- clxscore=1015 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
- definitions=main-2504250068
+Subject: Re: [PATCH RESEND] media: platform: Add hardware sync wait to
+ fimc_is_hw_change_mode()
+To: Wentao Liang <vulab@iscas.ac.cn>, s.nawrocki@samsung.com,
+ mchehab@kernel.org, krzk@kernel.org, alim.akhtar@samsung.com
+Cc: linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250422021345.1940-1-vulab@iscas.ac.cn>
+Content-Language: en-US, nl
+From: Hans Verkuil <hans@jjverkuil.nl>
+Autocrypt: addr=hans@jjverkuil.nl; keydata=
+ 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
+In-Reply-To: <20250422021345.1940-1-vulab@iscas.ac.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Spampanel-Class: ham
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_023009_580243_65836DF5 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20250425_015728_896555_307D33DF 
+X-CRM114-Status: GOOD (  14.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,33 +128,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Qiang Yu <quic_qianyu@quicinc.com>
+On 22/04/2025 04:13, Wentao Liang wrote:
+> In fimc_is_hw_change_mode(), the function changes camera modes without
+> waiting for hardware completion, risking corrupted data or system hangs
+> if subsequent operations proceed before the hardware is ready.
+> 
+> Add fimc_is_hw_wait_intmsr0_intmsd0() after mode configuration, ensuring
+> hardware state synchronization and stable interrupt handling.
 
-Enable the pwrctrl driver, which is utilized to manage the power supplies
-of the devices connected to the PCI slots. This ensures that the voltage
-rails of the standard PCI slots on some platforms eg. X1E80100-QCP can be
-correctly turned on/off if they are described under PCIe port device tree
-node.
+Just for future reference: please don't resend. If it is in
+https://patchwork.linuxtv.org/ then it will be picked up eventually.
 
-Signed-off-by: Qiang Yu <quic_qianyu@quicinc.com>
-Signed-off-by: Wenbin Yao <quic_wenbyao@quicinc.com>
----
- arch/arm64/Kconfig.platforms | 1 +
- 1 file changed, 1 insertion(+)
+Also, always add the driver name in the subject line, that makes it much easier
+to identify who should pick up the patch.
 
-diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
-index 8b76821f1..14d2742c8 100644
---- a/arch/arm64/Kconfig.platforms
-+++ b/arch/arm64/Kconfig.platforms
-@@ -270,6 +270,7 @@ config ARCH_QCOM
- 	select GPIOLIB
- 	select PINCTRL
- 	select HAVE_PWRCTL if PCI
-+	select PCI_PWRCTL_SLOT if PCI
- 	help
- 	  This enables support for the ARMv8 based Qualcomm chipsets.
- 
--- 
-2.34.1
+Regards,
+
+	Hans
+
+> 
+> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+> ---
+>  drivers/media/platform/samsung/exynos4-is/fimc-is-regs.c | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/drivers/media/platform/samsung/exynos4-is/fimc-is-regs.c b/drivers/media/platform/samsung/exynos4-is/fimc-is-regs.c
+> index 366e6393817d..5f9c44e825a5 100644
+> --- a/drivers/media/platform/samsung/exynos4-is/fimc-is-regs.c
+> +++ b/drivers/media/platform/samsung/exynos4-is/fimc-is-regs.c
+> @@ -164,6 +164,7 @@ int fimc_is_hw_change_mode(struct fimc_is *is)
+>  	if (WARN_ON(is->config_index >= ARRAY_SIZE(cmd)))
+>  		return -EINVAL;
+>  
+> +	fimc_is_hw_wait_intmsr0_intmsd0(is);
+>  	mcuctl_write(cmd[is->config_index], is, MCUCTL_REG_ISSR(0));
+>  	mcuctl_write(is->sensor_index, is, MCUCTL_REG_ISSR(1));
+>  	mcuctl_write(is->setfile.sub_index, is, MCUCTL_REG_ISSR(2));
 
 
