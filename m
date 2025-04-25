@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53C56C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 09:03:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD038C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 09:05:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MafHlrK67o/d3FGCy1u+Y7qasnBcS5mIW6WlhV/wvWA=; b=VMcLcnVGUPKiEQIfyHs/jR/wod
-	669MbAx8OnV5gNCTlaZj6TiXgBFwqWxvNkTHa6Ou2YXF4KPGxcFeDWQK7eW6vBec/Wksf/y4iifXP
-	PCekMqiQFchPxNCrDyoBjyrSIhgts0PY4JO1fFw7H9rTmsOEvMZMT4XulRjpLs0n9ukjUyXRQ7zGi
-	6ths81kst7FwpxR9cT09QxWsx59Rmgcj0s/spFRvegkF+q+VKCNSaHbtgsybTl82+q2jRZFnG+nDq
-	v3o6RBLdcqoUvH7jxPVA2oHQR1oRCD4ULExOjBB2Zx+uWWMujdu4Bj1kxaN05X7lpg36/dtsvgskk
-	RuO4Q7fw==;
+	bh=JpC3bMATM3lf+XV0YiTWcXgm6sU8WRjyf2ObtC447xA=; b=hH5m8YTAMS49wW7FoAe8cXJDpD
+	sh2m3jV/wW0qJnopFjngIjEDgbe1yKjd/93NQ1MroSAWgvYxjbR3LWO6Le6YtAjDUEPpPFqPBvEnn
+	43wgYxU4pGz80mnrvjSZjF4+nJqBCp0MxYJJXD0z38tMeg6J+prPmoRMlKEIpu9pnhSAK+uhS50+E
+	Vt8sEzkL1lUTwL8KDtExasy83uK7c8HFdEryfoZc8vMw5apAe0fYV8FUssluWhRUKbVrXeOK2kmiT
+	ocBo3agy12kqy53HAFS9vqIeemcLo3cviCnDW9juSkhTpwLjqNSEaatRm6RP0bsryabrS+G9K13xh
+	do4v+AOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Exj-0000000GT30-3RVt;
-	Fri, 25 Apr 2025 09:03:11 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1u8EzZ-0000000GTRZ-0Jt6;
+	Fri, 25 Apr 2025 09:05:05 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8EoZ-0000000GQQ9-3guh;
-	Fri, 25 Apr 2025 08:53:45 +0000
-X-UUID: c8a4838021b211f0b1a74d0c5e11a509-20250425
+	id 1u8Eoa-0000000GQOp-2cOi;
+	Fri, 25 Apr 2025 08:53:46 +0000
+X-UUID: c68fc0d221b211f0a2405d5ef59ce188-20250425
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=MafHlrK67o/d3FGCy1u+Y7qasnBcS5mIW6WlhV/wvWA=;
-	b=J4OHsRb2a36VvKD+LHZQGH6InKrJBM9GnyV5WGoQ9RfMhYWmOa57TEB8mNu2XVSkE1Uwyv77J81rHYVe/ATgvpxAqBacBOnYB3RS7RGPxOXo/Oi3UA6Fe8zrwfynxtMIHjfNAeWAbR9EeDPdSCA+IGbxY0FkaNCN3c3fNzbTwj0=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=JpC3bMATM3lf+XV0YiTWcXgm6sU8WRjyf2ObtC447xA=;
+	b=WJvkx/6Qlxsd2WoT+EAsW/oPbhzpGE+QmiXxLNHhRrUadyQH9UZGIb54PwVE057xXvThdbNQQoMG9T1j+vO7fIAYaYSaX5EYAtymKDLCdpEPexzlmuCXopdxkXhZrLE6BhVonOh6uqr5dtVK40n1bHbHzlJ8DUcNhkRtTqwnnzo=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:83a5df52-b205-45da-bca6-b81b97a95d5f,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:aa290a07-829c-41bc-b3dd-83387f72f90e,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
-	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-O-INFO: VERSION:1.2.1,REQID:f1c0da09-746e-4e31-ba26-5d7ce8560abb,IP:0,UR
+	L:0,TC:0,Content:0,EDM:-30,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-30
+X-CID-META: VersionHash:0ef645f,CLOUDID:a357dd6f-e08c-41ab-89e8-3ba0a33da853,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:2,
+	IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:
+	0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 5,DFT
 X-CID-BAS: 5,DFT,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: c8a4838021b211f0b1a74d0c5e11a509-20250425
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
+X-UUID: c68fc0d221b211f0a2405d5ef59ce188-20250425
+Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
 	(envelope-from <kyrie.wu@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1602186749; Fri, 25 Apr 2025 01:53:40 -0700
+	with ESMTP id 201289323; Fri, 25 Apr 2025 01:53:36 -0700
 Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Fri, 25 Apr 2025 16:53:37 +0800
+ 15.2.1258.39; Fri, 25 Apr 2025 16:53:34 +0800
 Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
  mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Fri, 25 Apr 2025 16:53:36 +0800
+ 15.2.1258.39 via Frontend Transport; Fri, 25 Apr 2025 16:53:33 +0800
 From: Kyrie Wu <kyrie.wu@mediatek.com>
 To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
 	<mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
@@ -63,9 +63,9 @@ To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
 CC: Kyrie Wu <kyrie.wu@mediatek.com>
-Subject: [PATCH v3 06/12] media: mediatek: jpeg: refactor jpeg buffer payload setting
-Date: Fri, 25 Apr 2025 16:53:22 +0800
-Message-ID: <20250425085328.16929-7-kyrie.wu@mediatek.com>
+Subject: [PATCH v3 02/12] dt-bindings: media: mediatek,jpeg: Add mediatek, mt8196-jpgenc compatible
+Date: Fri, 25 Apr 2025 16:53:18 +0800
+Message-ID: <20250425085328.16929-3-kyrie.wu@mediatek.com>
 X-Mailer: git-send-email 2.46.0
 In-Reply-To: <20250425085328.16929-1-kyrie.wu@mediatek.com>
 References: <20250425085328.16929-1-kyrie.wu@mediatek.com>
@@ -74,8 +74,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_015343_928926_E04F8548 
-X-CRM114-Status: GOOD (  12.04  )
+X-CRM114-CacheID: sfid-20250425_015344_721362_1D23AA3B 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,53 +90,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-1. for multi-core jpegdec:
-   core0: |<-------- decoding buffer0 and resolution changed to smaller
-   core1:  |<-------- decoding buffer1
-   core0:   |<- handling resolution changing
-   core0:    |<- vb2_set_plane_payload
-2. the payload size is changed on the step of set format. Because core1
-is running and streaming has not been stopped, the format cannot be
-set again, resulting in no change in the payload size.
-3. at this time, the payload size is bigger than buffer length,
-it will print a warnning call trace
-4. set payload size must less than buffer length
+Compared to the previous generation IC, the MT8196 uses SMMU
+instead of IOMMU and supports features such as dynamic voltage
+and frequency scaling. Therefore, add "mediatek,mt8196-jpgenc"
+compatible to the binding document.
 
 Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
 ---
- .../platform/mediatek/jpeg/mtk_jpeg_core.c     | 18 +++++++++++++++---
- 1 file changed, 15 insertions(+), 3 deletions(-)
+ .../bindings/media/mediatek,mt8195-jpegenc.yaml           | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-index 0074d1edb534..52d59bb5c9ad 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-@@ -720,10 +720,22 @@ static int mtk_jpeg_buf_prepare(struct vb2_buffer *vb)
- 		plane_fmt = q_data->pix_mp.plane_fmt[i];
- 		if (ctx->enable_exif &&
- 		    q_data->fmt->fourcc == V4L2_PIX_FMT_JPEG)
--			vb2_set_plane_payload(vb, i, plane_fmt.sizeimage +
--					      MTK_JPEG_MAX_EXIF_SIZE);
-+			if (vb->planes[i].length > (plane_fmt.sizeimage +
-+			    MTK_JPEG_MAX_EXIF_SIZE))
-+				vb2_set_plane_payload(vb, i,
-+						      plane_fmt.sizeimage +
-+						      MTK_JPEG_MAX_EXIF_SIZE);
-+			else
-+				vb2_set_plane_payload(vb, i,
-+						      vb->planes[i].length);
-+
- 		else
--			vb2_set_plane_payload(vb, i,  plane_fmt.sizeimage);
-+			if (vb->planes[i].length > plane_fmt.sizeimage)
-+				vb2_set_plane_payload(vb, i,
-+						      plane_fmt.sizeimage);
-+			else
-+				vb2_set_plane_payload(vb, i,
-+						      vb->planes[i].length);
- 	}
+diff --git a/Documentation/devicetree/bindings/media/mediatek,mt8195-jpegenc.yaml b/Documentation/devicetree/bindings/media/mediatek,mt8195-jpegenc.yaml
+index 596186497b68..e2d772ea0fb0 100644
+--- a/Documentation/devicetree/bindings/media/mediatek,mt8195-jpegenc.yaml
++++ b/Documentation/devicetree/bindings/media/mediatek,mt8195-jpegenc.yaml
+@@ -14,7 +14,9 @@ description:
  
- 	return 0;
+ properties:
+   compatible:
+-    const: mediatek,mt8195-jpgenc
++    enum:
++      - mediatek,mt8195-jpgenc
++      - mediatek,mt8196-jpgenc
+ 
+   power-domains:
+     maxItems: 1
+@@ -44,7 +46,9 @@ patternProperties:
+ 
+     properties:
+       compatible:
+-        const: mediatek,mt8195-jpgenc-hw
++        enum:
++          - mediatek,mt8195-jpgenc-hw
++          - mediatek,mt8196-jpgenc-hw
+ 
+       reg:
+         maxItems: 1
 -- 
 2.46.0
 
