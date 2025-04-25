@@ -4,91 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51ECCC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 14:26:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C49FFC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 14:28:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aug+uhhO10dT8SA1KkPf7sPRP/dd7tZddbirMjYFdb0=; b=Nkf942UfaXiZLm46kmSGPVsCWH
-	/8baA4ieAvxOvhfdMYVRVVUTQkSvEbj61SeH+5xCVK80y9hrmL/yK5a7DYT+KL8UnR6strT0l7AZ+
-	rEidIilRxT9idjcE7lXf8WTmazlF/2csjnzOeoZOGr9D/zKWuDhsp9eIk6yolSVSP4cfTX3cZRnDk
-	LyGr4XRlgIjC8U5YcUoUdHCxuKnwYW4fZSdVZmbNCAx5zGTp+871d9MDx+VhiqQcQovuKwngRkE7w
-	y9xB4Ie8CF7Rw1sUcBY3lAJ86a9/pjgrGanouSv+8PjWsgwAXg/oLOnTFfuAilZWjz+tadqlmSIBW
-	o5Pbsu4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l94fvJs4daZVvI5xF47uHe2QvDzbrKRGqVtD3TI8CH4=; b=JZs1+R+EUUFKUQtKZ15kxhhysi
+	46qSUMRlpunCrxQ0RSmdl61tHOUNLS1EAftAY0UeVrKpyOv1bQVkEmn7DXiAqN93e0oTMeZXHxxsY
+	J3qLJhKTfqJ98RJ9zV3B4iO14Pu3yy2SNouIfKRp4Q5X/KdI3RiBkBDacQ8PpOFCSLo/yv9hK0nFd
+	P/SDXL2MQhmtQdW2GsrNaCRcAj7NqAmJ9Wz7o3g3gMJsODox0LtgKb8ohMcYwVuDM46THM+15/w+O
+	57xvvWjYTw0q08k6NhS37EHOERBySdU2/F4NQIAHS3Fw8ik5u66X2KcP8e71JFkG7nIroE35h36MU
+	0L/npbdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8K0s-0000000HQz0-1vhD;
-	Fri, 25 Apr 2025 14:26:46 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1u8K2j-0000000HRMP-0kSK;
+	Fri, 25 Apr 2025 14:28:41 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8J6M-0000000HHGl-1H0s
+	id 1u8J6S-0000000HHJf-46Fl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 13:28:23 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-39c1efc457bso1609614f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 06:28:21 -0700 (PDT)
+	Fri, 25 Apr 2025 13:28:30 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-7fd35b301bdso2750781a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 06:28:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745587700; x=1746192500; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=aug+uhhO10dT8SA1KkPf7sPRP/dd7tZddbirMjYFdb0=;
-        b=Hd1VCGx17We53ucCAr9S+KXAjIpjZ8CEIS9FT1JNODYM1gbWPwqNGd4ygoRU2XwRnb
-         c8tJqDZ1uYh5M4c6sdEywSVR4IL5G2TNeR7riCKeevl2oyzzT1nLSy4/J0lBl/LKsw7F
-         2Agwk9GBKvLVTSRUCdtbxGFFIn3n17IHDFYrldKWv9FTGtaq4X3YnrDhQGDfX7Q2aLY5
-         XtVWNC/IOyyczVNajNBGS1pIuXC1Z/ybP82eFle4yvPhGktp25F/F4Nq25Dup/YtchO5
-         +rRHmLjV7Q2slP6+SXaECf4BzBhxe0dCVi1A2FWZEywxIvEEUqyAJworuIqZ2OFyipa9
-         3rZw==
+        d=gmail.com; s=20230601; t=1745587708; x=1746192508; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=l94fvJs4daZVvI5xF47uHe2QvDzbrKRGqVtD3TI8CH4=;
+        b=lskEtMgrPf8qW9cuqYr6p6R2APY89ira5slZ84BjSMbTjmW6J3nIwXAabd4MXfzbGW
+         1QOWNd6DUC2wLjHkWyCHTh69h9ZTOstliy9cnuZ797i8DUtLywR9MUZEMUF/YlkCOdcv
+         7uIAY2fQ6pWGOPtqDuiYS4xU9+bI7wqOio71RLRHVjlO9g1g4r79lm9RkSgi2SOeARYw
+         zxnPIaGiz1ELzixbsSR1dhOhL4btiuw7+JLSV6Osaw1jY7L3wsGLJfMZz+xgWF8rR7hz
+         Ej+f1jcDoIAdMhwRHyaMceIgbcVGjyZX0/x1YvZ7fnf1LAGtWWh4jdDUIb0xFNm3STdd
+         3BIQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745587700; x=1746192500;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=aug+uhhO10dT8SA1KkPf7sPRP/dd7tZddbirMjYFdb0=;
-        b=bFSIrSxpjzUnVqRHw/kobO6rrZoXn7D6Lf07bE8My90pvf1SU+aHKxowLHow011AL4
-         yqt671gE5tOmKpZrl0bN4noIB2hqFRvS48Z0Cb6LqO574WhD6sCNvCNJKt/tmzkvmur5
-         5M8DWW4PSJKhlf/jFEDQ4XrgVzcn1NVHaK3EBfVX28JomRrDvdY3cQaG3mcLlojVVPfN
-         xcNrz2yHpZQrWWCN2VXfr7xkjlWxwGLxpjBz3+AFvOlPmcTzhrC83Xnn1vC4BlvdvrAF
-         hUO1z6qXq4YUFvC6k2IcIyOdDF2Re1OZwLH2CCvBe/jomyOseWWovie0SZWl/ARJU/zM
-         ZhOw==
-X-Forwarded-Encrypted: i=1; AJvYcCUxSApB7XkJ1QMLNHJJr1EeHWwx6CWnf7THZ4sBqJ2ZgiCnC/CNkrrsNQ4LU6EUG840EeisrazupYVBcyO+wob+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyx1C6RZqOlqLMQQHgsbc4ayR1qghoVjvAsnBz8TKZc6iyxmfhw
-	9YP8dvabU8LMozZH+ZEuKJd6EWvD00RuzrUTVlB9d6VuT6cTiPpM
-X-Gm-Gg: ASbGncsTuwg7fi0ARzBrP7OfxojgyPYytr5+NKGahKPVXR5d1Ykvu/OCKuLraYg2eIY
-	WyIrxu3pqADwcib8J2BDEGCUqyxSDRcBVTslzXdjJc57YZNP86Tdd4wuSPoJFZ4k5Qq7tyrz/E9
-	T4DYqKydb0Dk9coURuqANgS9AsDW9CRGs2oo2SxSYuTGI/3LtSwRgcuKhT7SfeP4SmvHupBYGKi
-	qYpIVCoL6mmzSCvkT1U1KPP6VuXeMUFmIxrEXydgFJl3ZBhA+0sjjZk1L9vLwcS169y9ttLi10/
-	CW5H4MEX4CRtIG9iD3PBszkSgTN3o88F54Vb764Qaj5tR5CL4dug
-X-Google-Smtp-Source: AGHT+IFSGC6ia6yK5H9T8nOwC67dP5jiFTss/M9i30fMyhHSIu9i6Cr1xRw6VNVbGW1I/F1aUlxm1w==
-X-Received: by 2002:a05:6000:144b:b0:39c:2678:302b with SMTP id ffacd0b85a97d-3a074f14a59mr1999330f8f.45.1745587700424;
-        Fri, 25 Apr 2025 06:28:20 -0700 (PDT)
-Received: from Red ([2a01:cb1d:898:ab00:4a02:2aff:fe07:1efc])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3a073c8c7fesm2394207f8f.6.2025.04.25.06.28.19
+        d=1e100.net; s=20230601; t=1745587708; x=1746192508;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=l94fvJs4daZVvI5xF47uHe2QvDzbrKRGqVtD3TI8CH4=;
+        b=t72AY+dPUxNYPeCvMFgBVhc+greRWRf0YbwoZhA+BlQa6oCskgWq3YlUr/uIVkaDIy
+         Cd8VphhqdjZU+2Al7wHjT0wCAIYsjbqjPASNOOYngiazFlXziVGaJeegU8533q0uhUjN
+         YIaq2rpmB6i6Chmhy0RqRlqOYWVVcUIusjQ2TeKHXHHZ1ha61PpfKj95LM039cVU/ohR
+         Jw8tbYmesbnc4sHrbSvYKKpfsow1rs/+dG0Fhy6pwDS/HRMBWM7Y2M3kbGM2xG0cvfUP
+         /bMapVCkpLshR4nGOs3icRV2X+4/lnFu6kJ62EkCLocRGgfdSCHzyuKGz0eJJZA14X9T
+         X82g==
+X-Forwarded-Encrypted: i=1; AJvYcCVbMp+ALJntULA7tbaDLoB2MhVc5OZ6f5pHqPB6t35FFb/4iyVDH4owbnEqTkun0AJoGtC4Ot4eJYkrKVQLP5pU@lists.infradead.org
+X-Gm-Message-State: AOJu0YxKHHzF9Qsy/HeMR7ixw21xz9iP0aQc+KYS4TX8IaIxdZckjQ3s
+	wF7v4kMD09QE0cvuW5MSLFLzRVHfkQy3y+A9kcKa2PG2D5cylxZO
+X-Gm-Gg: ASbGnctb8PR61AQq68NJz0QPpPSpdzCJU4BjcctIWNAgznr3fjkEAcIZ6rq75QcmuyZ
+	Iq/QqAlIlZeeNIVmggEaXnBpxAgJ32j0j/kYM5FnUjYVvaBOXBdxPhfTTSAZikq9EXAAZZx4Llu
+	mR3apRVyaMNDUeWZj21GvVrnH65ELCwhqLqIOq8BxjV/eJUJKkcu1WP1ytFu3onVJXBT5cc9mW2
+	tl6Zx802Jvt9Y4c87aUmfAM8v/04x8FDXv5SjYD/3pyfoZeD/06euNMkTMtACvHTBziAAxg5nSC
+	z25RsFZj4/zxTi30rNnw9Io2yydVx+9+t9R+RqU4ew7IpPSWgycAqQ==
+X-Google-Smtp-Source: AGHT+IHZk//aX1Nythqxr2CigBoZw9Zr8jeiTQwIrF2Sb5trevqSTK8qfuMg1eiI7z5y82nmYsHj7w==
+X-Received: by 2002:a17:90b:2705:b0:2ee:8ea0:6b9c with SMTP id 98e67ed59e1d1-309f7de019bmr4539523a91.12.1745587707978;
+        Fri, 25 Apr 2025 06:28:27 -0700 (PDT)
+Received: from localhost.localdomain ([110.44.101.8])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-309f7752a03sm1564313a91.18.2025.04.25.06.28.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Apr 2025 06:28:19 -0700 (PDT)
-Date: Fri, 25 Apr 2025 15:28:18 +0200
-From: Corentin Labbe <clabbe.montjoie@gmail.com>
-To: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
-Cc: herbert@gondor.apana.org.au, davem@davemloft.net,
-	linux-crypto@vger.kernel.org, wens@csie.org,
-	jernej.skrabec@gmail.com, samuel@sholland.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/4] crypto: sun8i-ce-cipher - use
- pm_runtime_resume_and_get()
-Message-ID: <aAuN8i5p1HlEkFn6@Red>
-References: <20250425124517.2225963-1-ovidiu.panait.oss@gmail.com>
- <20250425124517.2225963-4-ovidiu.panait.oss@gmail.com>
+        Fri, 25 Apr 2025 06:28:27 -0700 (PDT)
+From: Anand Moon <linux.amoon@gmail.com>
+To: Chanwoo Choi <cw00.choi@samsung.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	linux-kernel@vger.kernel.org (open list:MAXIM PMIC AND MUIC DRIVERS FOR EXYNOS BASED BO...),
+	linux-clk@vger.kernel.org (open list:COMMON CLK FRAMEWORK),
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES),
+	linux-samsung-soc@vger.kernel.org (open list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES)
+Cc: Anand Moon <linux.amoon@gmail.com>
+Subject: [PATCH v1 05/10] ARM: dts: exynos: Add rtc clock definitions for MAX77686 PMIC for Exynos4412 p4note
+Date: Fri, 25 Apr 2025 18:56:25 +0530
+Message-ID: <20250425132727.5160-6-linux.amoon@gmail.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250425132727.5160-1-linux.amoon@gmail.com>
+References: <20250425132727.5160-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250425124517.2225963-4-ovidiu.panait.oss@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_062822_337168_A70F555D 
-X-CRM114-Status: GOOD (  10.69  )
+X-CRM114-CacheID: sfid-20250425_062829_012382_928B4E72 
+X-CRM114-Status: GOOD (  14.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,24 +107,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Fri, Apr 25, 2025 at 03:45:17PM +0300, Ovidiu Panait a écrit :
-> Replace pm_runtime_get_sync() usage with pm_runtime_resume_and_get() to
-> simplify error handling.
-> 
-> This is recommended in the documentation of pm_runtime_get_sync():
-> /**
->  * pm_runtime_get_sync - Bump up usage counter of a device and resume it.
-> ...
->  * Consider using pm_runtime_resume_and_get() instead of it, especially
->  * if its return value is checked by the caller, as this is likely to result
->  * in cleaner code.
-> ...
->  */
-> 
+The MAX77686A includes a crystal driver with an external load capacitance.
+When enabled, the crystal driver starts in low power mode. The
+LowJitterMode bit controls the crystal driver, allowing it to switch
+between low power mode and low jitter mode (high power mode).
+Setting the LowJitterMode bit to 1 activates low jitter mode on
+three channels simultaneously. These three 32khz buffer outputs
+(32KHAP, 32KHCP, P32KH) are independently enabled/disabled over I2C.
 
-Tested-by: Corentin LABBE <clabbe.montjoie@gmail.com>
-Acked-by: Corentin LABBE <clabbe.montjoie@gmail.com>
+The 32khz_ap output is typically routed to the AP Processor, while the
+32khz_cp and 32khz_pmic outputs are intended for BT, WLAN, BB,
+or peripheral chipsets.
 
-Thanks
-Regards
+Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+---
+ arch/arm/boot/dts/samsung/exynos4412-p4note.dtsi | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/arch/arm/boot/dts/samsung/exynos4412-p4note.dtsi b/arch/arm/boot/dts/samsung/exynos4412-p4note.dtsi
+index 28a605802733..ad0abe8d9e30 100644
+--- a/arch/arm/boot/dts/samsung/exynos4412-p4note.dtsi
++++ b/arch/arm/boot/dts/samsung/exynos4412-p4note.dtsi
+@@ -432,6 +432,13 @@ max77686: pmic@9 {
+ 		reg = <0x09>;
+ 		#clock-cells = <1>;
+ 
++		max77686_osc: clocks {
++			compatible = "max77686-rtc";
++			#clock-cells = <1>;
++			clock-output-names = "32khz_ap",
++				"32khz_cp", "32khz_pmic";
++		};
++
+ 		voltage-regulators {
+ 			ldo1_reg: LDO1 {
+ 				regulator-name = "ldo1";
+-- 
+2.49.0
+
 
