@@ -4,65 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E234C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 02:09:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D47DEC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 02:16:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eHzuw+bc0eV8DSy5e54/eajHTpo5TtF3m3H+/km2+yw=; b=jWny3r6boQNqg/NGAbOGn+Pe4N
-	REScOFqYybsJIkabD/+duAY/4zmin+aheyAqVaU+mSj1m/HxaAB8ZUxUidfWpUScwOsKm/axkIFpP
-	KFLSV/U/OiukC3OmpdYDpqCAYk/z4fNVVOoFOKWee3uE7TiNJS4iJ6WbyNgovkN46hmXfH/bclct+
-	0mAXE0Qv1UBug+vOjuhStvQU4105RG16NpPKFE+sDGu8WlbuYP4Ght0yURNnAmT6HaTRNu9FC0feR
-	qf2N9QlxDjNLfFSeRbePrbzUsy53ednT2K4CSjTkn5ilWrb8FTdeVr3xlG11srP/KOZFb0kf2TZ0L
-	j8nkFFnQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=DNIPX+qp+mv15F6MyRu/UL9dtic3jOnL9AKBXoTHwZE=; b=EPIe5+7AQmRfSM
+	xhfHxPMlO//6XlrtEhMCScAk7m+Hzj4hAPdJij7bpbDWiub9lcPE8GoZNgIwskcSTAIKGrmew9w8N
+	9lzmk2UAOfC+Qk/ZlBqlCHlT61tM5eSHyIEY3ifSpByuqW3COuwwufmhpfPIdyGLpmgXFLC/Wc+ih
+	M7mHM0ceQDpgsosJQJX8JONVARAh+HMScRla4lj+rCNvXBpGP2X64EWl1be88RwV6QPDS10VbVjhl
+	ayseJj5DP258Rf4LKBsuQRuGpbmfZ3PFYlN8TRoPvPE8fKkpaRTlb781YSFDtWM4rCQzJGPpImEsL
+	archi9mac9wBfIeWLiWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u88VX-0000000FkaR-3F7P;
-	Fri, 25 Apr 2025 02:09:39 +0000
-Received: from mail-m16.yeah.net ([220.197.32.16])
+	id 1u88bW-0000000FlAQ-3IAY;
+	Fri, 25 Apr 2025 02:15:50 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u88Th-0000000FkUj-2ZOV
+	id 1u88Zf-0000000FkuT-3NN0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 02:07:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=eHzuw+bc0eV8DSy5e54/eajHTpo5TtF3m3H+/km2+yw=;
-	b=cOjiR3hpGSq5JZGnS9/s2OQIiPq+SRuNJ5amBAFBfyGNvxgSvcUAuOcCBxk9vn
-	t/8q5N3mwg9ZWGocNMeM/sfyAtdcbW/JeUpFJAux9YqMcpdc3JPLGNGld12Vmgk5
-	hg58WmynrXNlqV9Qm4nDOzTckLTpfNZEcMT8mM1by4Kjg=
-Received: from dragon (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id M88vCgB3KU1Z7gpoJI3SAw--.37105S3;
-	Fri, 25 Apr 2025 10:07:23 +0800 (CST)
-Date: Fri, 25 Apr 2025 10:07:21 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Adam Ford <aford173@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, aford@beaconembedded.com,
-	Frank.li@nxp.com, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH V2 01/10] arm64: dts: imx8mm-beacon: Fix RTC capacitive
- load
-Message-ID: <aAruWUaXtM1O5Js3@dragon>
-References: <20250416010141.1785841-1-aford173@gmail.com>
+	Fri, 25 Apr 2025 02:13:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 404475C6543;
+	Fri, 25 Apr 2025 02:11:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDCE4C4CEE3;
+	Fri, 25 Apr 2025 02:13:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745547233;
+	bh=zhKRqLVd26FfGbO14mufcGFlylQAXcG1racRs/okgag=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=H8xHJ3QHyW32cpizyk44/SZZ7fLssnULuTJhyh73dm6ah7nOv+8lQkBFycU3KCBQb
+	 gjtKPXLpOLt2qIOu5gy+XDnYUYQpXo3IPhkXuCPr5JhYb2E/zRHT5iPtEiCrTbA8vk
+	 0AtJeKfurLux9WVFiolGd6zSbmHF8wlHaDhwftUxAHifydoa4sIC1MSNia9uuKtfNs
+	 x0zkRhpUpZDzLXR0ubHxp+qINQrvRLFOKckCEjDzbJVQ1guaZSlY9kZFDQdW3DAvCX
+	 /DYOYrQans7jn++GyA6TCj3zsMcytNJQCpANb+tW9D/Q1gAObp27PuYKF1u3xeM+VM
+	 R9ahJvStFzGDA==
+Date: Thu, 24 Apr 2025 19:13:50 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Parvathi Pudi <parvathi@couthit.com>
+Subject: Re: [PATCH net-next v6 04/11] net: ti: prueth: Adds link detection,
+ RX and TX support.
+Message-ID: <20250424191350.7bf69fdb@kernel.org>
+In-Reply-To: <20250423072356.146726-5-parvathi@couthit.com>
+References: <20250423060707.145166-1-parvathi@couthit.com>
+	<20250423072356.146726-5-parvathi@couthit.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250416010141.1785841-1-aford173@gmail.com>
-X-CM-TRANSID: M88vCgB3KU1Z7gpoJI3SAw--.37105S3
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUsmFCUUUUU
-X-Originating-IP: [114.216.210.34]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiBAo6ZWgK1S9vFAAAsy
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_190745_953669_D5AD83D5 
-X-CRM114-Status: UNSURE (   8.13  )
+X-CRM114-CacheID: sfid-20250424_191355_890558_6762EFAE 
+X-CRM114-Status: UNSURE (   6.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,18 +69,18 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: nm@ti.com, vigneshr@ti.com, tony@atomide.com, edumazet@google.com, glaroque@baylibre.com, pmohan@couthit.com, diogo.ivo@siemens.com, robh@kernel.org, javier.carrasco.cruz@gmail.com, praneeth@ti.com, m-karicheri2@ti.com, basharath@couthit.com, pabeni@redhat.com, richardcochran@gmail.com, devicetree@vger.kernel.org, conor+dt@kernel.org, schnelle@linux.ibm.com, mohan@couthit.com, s.hauer@pengutronix.de, prajith@ti.com, rogerq@kernel.org, jacob.e.keller@intel.com, ssantosh@kernel.org, linux-arm-kernel@lists.infradead.org, rogerq@ti.com, srk@ti.com, pratheesh@ti.com, m-malladi@ti.com, netdev@vger.kernel.org, rdunlap@infradead.org, linux-kernel@vger.kernel.org, danishanwar@ti.com, afd@ti.com, andrew+netdev@lunn.ch, horms@kernel.org, krishna@couthit.com, krzk+dt@kernel.org, davem@davemloft.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 15, 2025 at 08:01:27PM -0500, Adam Ford wrote:
-> Although not noticeable when used every day, the RTC appears to drift when
-> left to sit over time.  This is due to the capacitive load not being
-> properly set. Fix RTC drift by correcting the capacitive load setting
-> from 7000 to 12500, which matches the actual hardware configuration.
-> 
-> Fixes: 593816fa2f35 ("arm64: dts: imx: Add Beacon i.MX8m-Mini development kit")
-> Signed-off-by: Adam Ford <aford173@gmail.com>
+On Wed, 23 Apr 2025 12:53:49 +0530 Parvathi Pudi wrote:
+> +static inline void icssm_prueth_write_reg(struct prueth *prueth,
+> +					  enum prueth_mem region,
+> +					  unsigned int reg, u32 val)
+> +{
+> +	writel_relaxed(val, prueth->mem[region].va + reg);
+> +}
 
-Applied all, thanks!
-
+Please don't use "inline" unnecessarily.
+The compiler will inline a single-line static function.
 
