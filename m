@@ -4,100 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33A60C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 10:26:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DF4EC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 10:28:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CzkmqC+WLm1vrlbf2jTj168oIwfL1CCLWC31NbkXyhA=; b=Ve7nLbEDEAudsyqt+06BppER/b
-	z7/GkIUxo/szqDuhWVvLEJHkplvxNyBzWStst2fz7p8n4skGvNOrxG3dIqsq1oie1HmvJldA3hT9H
-	RauOpGoTLuDUhXyjdtIzLrb5xpnKU+DkPXbY+gtF3JA8BlmJ1fbbx4q+6hcYlxooIfGu0em3zg6cE
-	PYm5iX2faXo2MTCTSzBsSoF7JZPJwRz44Ku9LUvoj9+o/atdaSlTr/R5o3z1QeEhZbvaTtQI1WfWi
-	IwDqxY2fAXLrby9IR6cdIn0pUbxeTylyvsfgCTwhDba6xRI4L3ogYW56P/J0bHt4gDx4HlfEbfE9v
-	9rAWrpBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=73OjGdGOMubdTfszLMelKp9ZlaTMb3ka3bmExa7Iw0c=; b=g7kXMYn6XyxZ/cHlo4yUfyEW8s
+	9neUSOGDxWY2MKWiORi6CU14Qk1xY+7tFgR6by5nAjStfY6HkrLL5WYDoBXpVkNzqw4p2oUzU+IA4
+	4kjmb9h+hEgEJAk62CpDVOV9O0dPRNlmyz16vfTHySCKj8Kotv+Lw6mBJ5L3FL6ilD0KnRSHYHXPq
+	ILCiqCYLr0GZT82Ki3oGSFLLyOJtx3i7yZcGhgmTWa/smzlOAfGLdjMDHLMQ/0m9FHlVxsiLziH7q
+	LzWKPlY7xI8zNQf4IfVosPGxDTLOVxUJw5jTTHzYqSH6sVuaVc5MOLL9TBxPe4Emo1iwxmJnQmAKY
+	SOebKfZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8GGZ-0000000GjI3-0VZK;
-	Fri, 25 Apr 2025 10:26:43 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1u8GIP-0000000GjZx-3WpR;
+	Fri, 25 Apr 2025 10:28:37 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8FNu-0000000GXtZ-2ChT
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 09:30:15 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53P8T8ZQ015508;
-	Fri, 25 Apr 2025 09:30:08 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=CzkmqC+WLm1
-	vrlbf2jTj168oIwfL1CCLWC31NbkXyhA=; b=BudrOJatB8RNqLEFiCFF0VuND4s
-	4J0IwqGsXgm90IY/kVEcVPEBasw7MXGVVQyXPkI3Is2Om+GNnWM9/xRHSAfycxq1
-	SAkd3gLgDL8QgOYPQYn3YerMwhzw5ZaR4DVLxEPZzRVZQQAYfj0udMJJmeLlAI4R
-	66mJ588SJV5GR0Yx5CT/74DRGBUu24Gj2+I1CNdRK4rL51hYqHRU/Tems2tD/ALf
-	s39XQInmcJj7vNebBpX9jL6nZGQKC9YvH4PTEFNV3X3UoD/cLi/gvqyuDYLVYtM1
-	BaGpWVk5W2D8EI/bl54btuKVHYkJilcV21lhoYRXbyO75NHnG1lfmHL8KDw==
-Received: from aptaippmta01.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com [103.229.16.4])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 466jh3gdyq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 25 Apr 2025 09:30:08 +0000 (GMT)
-Received: from pps.filterd (APTAIPPMTA01.qualcomm.com [127.0.0.1])
-	by APTAIPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTP id 53P9U2Vc022398;
-	Fri, 25 Apr 2025 09:30:06 GMT
-Received: from pps.reinject (localhost [127.0.0.1])
-	by APTAIPPMTA01.qualcomm.com (PPS) with ESMTPS id 4644wnf75s-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 25 Apr 2025 09:30:06 +0000
-Received: from APTAIPPMTA01.qualcomm.com (APTAIPPMTA01.qualcomm.com [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 53P9U62l022446;
-	Fri, 25 Apr 2025 09:30:06 GMT
-Received: from cbsp-sh-gv.ap.qualcomm.com (CBSP-SH-gv.ap.qualcomm.com [10.231.249.68])
-	by APTAIPPMTA01.qualcomm.com (PPS) with ESMTPS id 53P9U5XB022442
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 25 Apr 2025 09:30:06 +0000
-Received: by cbsp-sh-gv.ap.qualcomm.com (Postfix, from userid 4635958)
-	id ECAA040D72; Fri, 25 Apr 2025 17:30:04 +0800 (CST)
-From: Wenbin Yao <quic_wenbyao@quicinc.com>
-To: catalin.marinas@arm.com, will@kernel.org,
-        linux-arm-kernel@lists.infradead.org, andersson@kernel.org,
-        konradybcio@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-        conor+dt@kernel.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: krishna.chundru@oss.qualcomm.com, quic_vbadigan@quicinc.com,
-        quic_mrana@quicinc.com, quic_cang@quicinc.com, quic_qianyu@quicinc.com,
-        quic_wenbyao@quicinc.com
-Subject: [PATCH v2 4/4] arm64: dts: qcom: x1e80100-qcp: Add qref supply for PCIe PHYs
-Date: Fri, 25 Apr 2025 17:29:55 +0800
-Message-Id: <20250425092955.4099677-5-quic_wenbyao@quicinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250425092955.4099677-1-quic_wenbyao@quicinc.com>
-References: <20250425092955.4099677-1-quic_wenbyao@quicinc.com>
+	id 1u8FQN-0000000GYJQ-3ZlC;
+	Fri, 25 Apr 2025 09:32:49 +0000
+X-UUID: 3cc004a621b811f0a2405d5ef59ce188-20250425
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=73OjGdGOMubdTfszLMelKp9ZlaTMb3ka3bmExa7Iw0c=;
+	b=ZHOBa//Oxy8BzHp/PRJ8oH6i+YdNP6e19k30+CA/rLp+KpiyQJTl9aGdWgKT50e50nxkK95DCPmX1B3vXJUkKQJHJuqoD4AbACcJRyJA0tp8N5Nr/oBszIzs6YzZn++n5KDfesjvMdyDyvdr/Izbdgsmb+lPdvhI3RMGAaF2qxQ=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.1,REQID:e2a20796-59fc-4429-8d64-f3b74606da95,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:0ef645f,CLOUDID:a439cb76-5fec-4b3e-b8cb-933843551e81,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
+	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 3cc004a621b811f0a2405d5ef59ce188-20250425
+Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
+	(envelope-from <jason-jh.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1716423795; Fri, 25 Apr 2025 02:32:42 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Fri, 25 Apr 2025 17:32:39 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Fri, 25 Apr 2025 17:32:39 +0800
+From: Jason-JH Lin <jason-jh.lin@mediatek.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>,
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Mauro Carvalho Chehab
+	<mchehab@kernel.org>
+CC: Matthias Brugger <matthias.bgg@gmail.com>, Jason-JH Lin
+	<jason-jh.lin@mediatek.com>, Nancy Lin <nancy.lin@mediatek.com>, Singo Chang
+	<singo.chang@mediatek.com>, Paul-PL Chen <pual-pl.chen@mediatek.com>, Moudy
+ Ho <moudy.ho@mediatek.com>, Xavier Chang <xavier.chang@mediatek.com>,
+	Xiandong Wang <xiandong.wang@mediatek.com>, Sirius Wang
+	<sirius.wang@mediatek.com>, Fei Shao <fshao@chromium.org>, Chen-yu Tsai
+	<wenst@chromium.org>, <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<dri-devel@lists.freedesktop.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-media@vger.kernel.org>
+Subject: [PATCH v5 09/19] soc: mediatek: mtk-cmdq: Remove cmdq_pkt_jump() and cmdq_pkt_jump_rel_temp()
+Date: Fri, 25 Apr 2025 17:28:41 +0800
+Message-ID: <20250425093237.1543918-10-jason-jh.lin@mediatek.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250425093237.1543918-1-jason-jh.lin@mediatek.com>
+References: <20250425093237.1543918-1-jason-jh.lin@mediatek.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-QCInternal: smtphost
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: ALFYs74D6CbD8NMaewXD5DNcPP3R-3jy
-X-Proofpoint-GUID: ALFYs74D6CbD8NMaewXD5DNcPP3R-3jy
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI1MDA2OCBTYWx0ZWRfX2d40eRStsULl C5CldPbn7DfkLfLYxzVNqBXxebmhks0NcEwZntbYMTnjdUt6lqkdFoHLy1A9a8taYNuVTRBSkYj eoNZzvwiQAEGpydVmWn62oTwvBlLif35Cc6ePbX8SkPdiMTyO027AZJM0gAJexLo2w26OllgzZ+
- tGBXCxcej35v4Y5v49ryCQ6ieuri7hnBMMmBwPhEO1dSToLKHjz7Lym2WXGLNB94wWwKFRCg7W7 mcVrkVjss4K0+iLIiCltoM/yv8ovi/f6GrKaL0Qs57coAjk9JgYPZjIaWZUmN6nRJMnHuQSNKyz PxhqNrvf7Vipnfl9aMHyb+ahyoKXFIiA13F70r6nYpXLbGkq2zw+HnoT+/ufn7ZALAQqqRpdFbd
- sJWJcLDjBNJNIzeuy3r6WJ2elYgEq71mytanVSLe56JNhqhMAorrl0iTSv/LeZ+j013SKp6k
-X-Authority-Analysis: v=2.4 cv=Mepsu4/f c=1 sm=1 tr=0 ts=680b5620 cx=c_pps a=nuhDOHQX5FNHPW3J6Bj6AA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=OjqB7RjhM8taGROUhtwA:9 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-04-25_02,2025-04-24_02,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 phishscore=0
- adultscore=0 lowpriorityscore=0 spamscore=0 bulkscore=0 malwarescore=0
- priorityscore=1501 mlxscore=0 impostorscore=0 clxscore=1015
- mlxlogscore=920 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
- definitions=main-2504250068
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_023014_566735_56536872 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20250425_023247_899141_CB617E10 
+X-CRM114-Status: UNSURE (   9.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,51 +97,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Qiang Yu <quic_qianyu@quicinc.com>
+Since all users have migrated to the new cmdq_pkt_jump* APIs without
+shift_pa, the wrapper APIs cmdq_pkt_jump() and cmdq_pkt_jump_rel_temp()
+can be removed.
 
-All PCIe PHYs on X1E80100 require vdda-qref power supplies, but this is
-missing in the current PHY device tree node. The PCIe port can still
-function because the regulator L3J, which vdda-qref consumes, is voted by
-other components.
-
-Since the device tree should accurately describe the hardware, add the
-vdda-qref power supply explicitly in all PCIe PHY device nodes.
-
-Signed-off-by: Qiang Yu <quic_qianyu@quicinc.com>
-Signed-off-by: Wenbin Yao <quic_wenbyao@quicinc.com>
+Fixes: ade176534112 ("soc: mediatek: cmdq: Add parameter shift_pa to cmdq_pkt_jump()")
+Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
 ---
- arch/arm64/boot/dts/qcom/x1e80100-qcp.dts | 3 +++
- 1 file changed, 3 insertions(+)
+ include/linux/soc/mediatek/mtk-cmdq.h | 12 ------------
+ 1 file changed, 12 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/qcom/x1e80100-qcp.dts b/arch/arm64/boot/dts/qcom/x1e80100-qcp.dts
-index 88dfd2199..10f2ac70e 100644
---- a/arch/arm64/boot/dts/qcom/x1e80100-qcp.dts
-+++ b/arch/arm64/boot/dts/qcom/x1e80100-qcp.dts
-@@ -994,6 +994,7 @@ &pcie3 {
- &pcie3_phy {
- 	vdda-phy-supply = <&vreg_l3c_0p8>;
- 	vdda-pll-supply = <&vreg_l3e_1p2>;
-+	vdda-qref-supply = <&vreg_l3j_0p8>;
+diff --git a/include/linux/soc/mediatek/mtk-cmdq.h b/include/linux/soc/mediatek/mtk-cmdq.h
+index ee4ec64a7322..f956ee9a0b34 100644
+--- a/include/linux/soc/mediatek/mtk-cmdq.h
++++ b/include/linux/soc/mediatek/mtk-cmdq.h
+@@ -355,12 +355,6 @@ int cmdq_pkt_poll_addr(struct cmdq_pkt *pkt, dma_addr_t addr, u32 value, u32 mas
+  */
+ int cmdq_pkt_jump_abs(struct cmdq_pkt *pkt, dma_addr_t addr);
  
- 	status = "okay";
- };
-@@ -1017,6 +1018,7 @@ &pcie4 {
- &pcie4_phy {
- 	vdda-phy-supply = <&vreg_l3i_0p8>;
- 	vdda-pll-supply = <&vreg_l3e_1p2>;
-+	vdda-qref-supply = <&vreg_l3j_0p8>;
+-/* This wrapper has to be removed after all users migrated to jump_abs */
+-static inline int cmdq_pkt_jump(struct cmdq_pkt *pkt, dma_addr_t addr)
+-{
+-	return cmdq_pkt_jump_abs(pkt, addr);
+-}
+-
+ /**
+  * cmdq_pkt_jump_rel() - Append jump command to the CMDQ packet, ask GCE
+  *			 to execute an instruction that change current thread
+@@ -373,12 +367,6 @@ static inline int cmdq_pkt_jump(struct cmdq_pkt *pkt, dma_addr_t addr)
+  */
+ int cmdq_pkt_jump_rel(struct cmdq_pkt *pkt, s32 offset);
  
- 	status = "okay";
- };
-@@ -1053,6 +1055,7 @@ &pcie6a {
- &pcie6a_phy {
- 	vdda-phy-supply = <&vreg_l1d_0p8>;
- 	vdda-pll-supply = <&vreg_l2j_1p2>;
-+	vdda-qref-supply = <&vreg_l3j_0p8>;
- 
- 	status = "okay";
- };
+-/* This wrapper has to be removed after all users migrated to jump_rel */
+-static int cmdq_pkt_jump_rel_temp(struct cmdq_pkt *pkt, s32 offset, u8 shift_pa)
+-{
+-	return cmdq_pkt_jump_rel(pkt, addr);
+-}
+-
+ /**
+  * cmdq_pkt_eoc() - Append EOC and ask GCE to generate an IRQ at end of execution
+  * @pkt:	The CMDQ packet
 -- 
-2.34.1
+2.43.0
 
 
