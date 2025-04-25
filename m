@@ -4,87 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C12E2C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 13:31:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30712C369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 13:33:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/57iCSzPZz9lmb8cnuwvMg4/VJ+5z5nV92ke/d2qrv4=; b=oiDZBPK3ih3C9p0mAD6/+IwETs
-	RsWhnelA3AZOHNZVpE+/srVND+itzKzK5kGt17J6GFQMf3vu/QiWMo5+/PwEgldqHJgdhcnc27Ex4
-	BeoBQMTsf4P7O73DswjgCOXlpq4nlso2/qE5gaCJnaJ7dKqCVkxbH6IwYGqxNb4FA2Jp45Xg0HIRj
-	BGkzAjoW40lWxY9INdFF8ywaDtJuG2uaCRL7BGLwGoWMT2ReTA0NSl62eJ3IvNnI7AhM4jqyKdjyb
-	7Np2s2oulStfjLJ0JyVSWbWtg45AqebzwbBGefwfW4tjd+Ifn5a2xUbjEBTJukTRLpGbQIdd4Q8KA
-	78EoU/OA==;
+	Content-Type:Subject:To:Cc:From:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cLkf8WACstYTJxddueeqYJMP2WjUmq1R4SoKNA2QWwg=; b=QPnuON63Os8bfslGZU7Mtci8/x
+	AkjJPjjjuKEdpqU9JswT4uyQUKQOLxoSwheax6K50q2k8GdopSDAtugrIBpoto3VXx/oVW6xZ5CUS
+	5s0hh9b3g9VeB8I8uuJ6AMSZM11seQyNCOyaybcF9VgKee1vTsfvzHoZ1PTfeg5fMWgZYe9EyGIXO
+	tbYE1yNJwdZstiyM5YeAEsbJweMgRYLsYexOXNC6OchiLhpi9c/YbZJvjHHuZCWkAXug9WSe+72xh
+	yDIdlxgvsMaPCV/21DS2JiXhjcZUF7Cfp9uW4MBmp+d3EUsgwoQylgctsgk/NGSpRqsFQ0A9ZM7lG
+	0QIWigJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8J9J-0000000HHv5-2yX0;
-	Fri, 25 Apr 2025 13:31:25 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8IIj-0000000H8vk-0jDv
+	id 1u8JBA-0000000HIQD-0wXC;
+	Fri, 25 Apr 2025 13:33:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u8IN7-0000000H9XA-1TAq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 12:37:06 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-301cda78d48so2620534a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 05:37:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745584624; x=1746189424; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/57iCSzPZz9lmb8cnuwvMg4/VJ+5z5nV92ke/d2qrv4=;
-        b=KzfXX5g7U7A+2xlUkfXhVn15ZJctEYIznZmMrcW4SYHvFyuyjLaoVVcQbTDpFgCL0R
-         xHfPjQBJFFL4Zs0J/OkFnbu+YAgFTRw7Jszj8wqg5bvg1umQde/hJ6safpbSh66O+nM1
-         ht2YHzbvCydgwj3Z4mHL9UnZpnovfnt6IUV6BNTWN04biuCSB4vMj3t4DTBK+Fp1o+DW
-         P9EduYyq6cn1d3suBlyzSFyrz44ryY1FFpZeMrqW4XvxTSv5rA/Ylszm1Gx6t7mrUqtK
-         qpx53qUaDifYDLfHeAPjBTvbQv7xK0Kj1YA1doyxDAMdDwsF+nV36SLwZFG3nt9msN06
-         OacQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745584624; x=1746189424;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/57iCSzPZz9lmb8cnuwvMg4/VJ+5z5nV92ke/d2qrv4=;
-        b=k7Bpy72EHJqWCZtSlvzTJlMWrvn44eY4VxjLrLBhK+JvIPGckPyF4ksdyqSHrECJ5E
-         XClN9MaxwIazR/sxCUpHo3A2No7WC2dj8c3BYxzCK1vSc+FVUyeCVPhP58YXLSp367em
-         t3cwkUSi/79E82c4Hin4rMOJj0lEA98TbMf1H0FbiEjIKaZg4Jcz/eR+S2WVITmTnN0g
-         44EUVUYwdVt5y1d8RwipBINSxKAAK8OJZq9OYEBVFkU7AnKHBN7OTWMEA3RVwUPQwMKu
-         dEkhNlFQeUdUBUNvzH6cK1hVZL+O3/mngRQMjOt7YaihaWE/W2MliTb6gdQMyYY6xIDz
-         Y6HA==
-X-Forwarded-Encrypted: i=1; AJvYcCUMeX4ezxMFMtfDVS99uqYx4SIf0A72M0gOdf+46kZshnU+kPqW9KBcj8rBaKffokjJUiVdkr5PmK5Ze84kfQlo@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6Hui0yOJk95Q9uv9IoT20I1Oc4Bxywp++SaNu9wEHsc4oVccO
-	ppvk73ykVIv9XYS1cIgV7G/ul80MfJIIhmivHU8Tem2yrN7Pie49PaSX+YksfqMXlzdzzHG08rb
-	vrXUDJfF4fDhk7qkpvjehtRQNb5Q=
-X-Gm-Gg: ASbGncsPkNGfWH5zT0TEnUsKDSxOyR1IVPbtb6BfovKgg/CZWtP2iuzhqLsbrLOJFb/
-	GfQXcQWVIc5E+zsb0C0w3cBT74Uj2sU71GMQUdqIBeBO5FlW625NRxaGbiuxUrPuA3uaahChZu2
-	joy7MJsgOOcQJKld4I+qft+Q==
-X-Google-Smtp-Source: AGHT+IHrZKSy9HnTH+mCEVFkPApiHf33jSDgbWuJcy2WpYPblvzFC3AtdlLf658oHgbgBeN2mhj60hOxIo9mC19fh5w=
-X-Received: by 2002:a17:90a:7142:b0:2f6:be57:49d2 with SMTP id
- 98e67ed59e1d1-309f7df3069mr3065139a91.17.1745584624192; Fri, 25 Apr 2025
- 05:37:04 -0700 (PDT)
+	Fri, 25 Apr 2025 12:41:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C7016106F;
+	Fri, 25 Apr 2025 05:41:28 -0700 (PDT)
+Received: from [10.57.90.155] (unknown [10.57.90.155])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 40D123F66E;
+	Fri, 25 Apr 2025 05:41:33 -0700 (PDT)
+Message-ID: <f93db308-4a0e-4806-9faf-98f890f5a5e6@arm.com>
+Date: Fri, 25 Apr 2025 13:41:31 +0100
 MIME-Version: 1.0
-References: <CAHCN7xKy7w0Kwf8Oyjd6dFLzAhiGiqdaYOj=qfA4kSRthD5Law@mail.gmail.com>
- <20250425121451.GP18085@pendragon.ideasonboard.com>
-In-Reply-To: <20250425121451.GP18085@pendragon.ideasonboard.com>
-From: Adam Ford <aford173@gmail.com>
-Date: Fri, 25 Apr 2025 07:36:52 -0500
-X-Gm-Features: ATxdqUFspzEpPOPXt6QqvjLf6nDyAf7s4FR1KV8XPWjCOXF28L_HNZsVbYcD0QI
-Message-ID: <CAHCN7xL=vgZO7TW5uZr+OBPX1EKcw2zQhYwjRokTUOHpVq_Wbw@mail.gmail.com>
-Subject: Re: i.MX8M Nano ISI Channel Question
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, linux-media <linux-media@vger.kernel.org>, imx@lists.linux.dev, 
-	arm-soc <linux-arm-kernel@lists.infradead.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, Peng Fan <peng.fan@nxp.com>, 
-	Frank Li <Frank.Li@nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Content-Language: en-GB
+From: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Linux-MM <linux-mm@kvack.org>,
+ "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+To: Kees Cook <kees@kernel.org>,
+ =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+ Catalin Marinas <Catalin.Marinas@arm.com>
+Subject: BUG: vdso changes expose elf mapping issue
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_053705_211285_DBCF612A 
-X-CRM114-Status: GOOD (  37.47  )
+X-CRM114-CacheID: sfid-20250425_054137_475780_4A88D92E 
+X-CRM114-Status: GOOD (  16.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,92 +65,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 25, 2025 at 7:14=E2=80=AFAM Laurent Pinchart
-<laurent.pinchart@ideasonboard.com> wrote:
->
-> Hi Adam,
->
-> (CC'ing Frank Li)
->
-> On Thu, Apr 24, 2025 at 08:59:18PM -0500, Adam Ford wrote:
-> > NXP-
-> >
-> > I am trying use Libcamera to capture video on an i.MX8M Nano.
-> > (Hopefully, this makes Laurent smile)
-> >
-> > I noticed that it has a maximum capture of 1080 lines when I query it
-> > with Libcamera, but the same camera on the Mini can capture at higher
-> > rates.  The multimedia overview states it can handle 1 unprocessed
-> > camera stream at 4kp30 without scaling.  The Nano's Ref manual later
-> > states that each processing channel has one line buffer, and each line
-> > buffer can store up to 2048 pixels.  It continues to describe when
-> > processing higher resolution images like 4k, the line buffer from
-> > other channels can be combined.
-> >
-> > Section 13.4.3.5 of the Nano's Ref manual (Rev 2, dated 07/2022)
-> > explicitly goes into detail on how to capture up to 4k image
-> > resolution by combining channel 'n' with channel 'n+1' which implies
-> > there are at least two channels.
-> >
-> > Section 13.4.5.1 states the registers are dedicated for each channel
-> > and spaced 64KB apart, but then the following table only shows the
-> > base address for one, and Table 2-6 shows the ISI size is 64KB.
-> >
-> > The driver is currently written to only support 1 channel.  When
-> > reading through the driver, it appears to require one IRQ per channel,
-> > so I looked through the Nano's IRQ table (7-1), and found there are
-> > three:
-> > ISI Camera Channel 0 Interrupt - 16
-> > ISI Camera Channel 1 Interrupt - 42
-> > ISI Camera Channel 2 Interrupt - 43
-> >
-> > I attempted to enable a second channel by modifying the .num_channels
-> > =3D 2 value in the driver, and I modified my device tree to assign a
-> > second IRQ (42), but when I query the pipeline with libcamera, it
-> > still doesn't show an available resolution ov 2592x1944 that is
-> > supported by the camera and work on the Mini without the ISI system.
-> >
-> > Can someone tell me how many channels are actually available, and
-> > whether or not  4Kp30 video is really available on the Nano?
->
-> My understanding, based on the i.MX8MN reference manual, is that the ISI
-> has a single channel. The ISI features list (13.4.1.2) reports
->
-> =E2=80=A2 Supports up to 2K resolution at 30 or 60 fps (24bpp) on each ch=
-annel.
+Hi,
 
-I saw that which is why I was really confused when they listed 4K in
-other section.
->
-> If you look at the i.MX8MP reference manual, the same features list
-> reports
->
-> =E2=80=A2 Supports one source of 4K resolution at 30 fps (24bpp).
-> =E2=80=A2 Supports up to 2K resolution at 30 or 60 fps (24bpp) on each ch=
-annel.
+I'm hitting a nasty bug which is preventing VSCode from connecting to my arm64 
+VM running v6.15-rc3. Bisection fingers Commit 0b3bc3354eb9 ("arm64: vdso: 
+Switch to generic storage implementation") as the point where this started 
+failing.
 
-I didn't look there, but that makes sense.
+Debugging this, the root cause is due to ldconfig crashing with a segmentation 
+fault (I have no idea why VSCode thinks it needs to run this...). The segfault 
+happens because ldconfig's attempt to expand the program break fails because 
+vvar/vdso are in the way. The above change expands vvar by 2 pages and this 
+causes the problem.
 
->
-> There's no mention of 4K in the i.MX8MN ISI features. I expect that the
-> documentation about 4K support by combining pixel buffers comes from the
-> generic ISI documentation, and is not applicable to the i.MX8MN.
+But I don't think we can really blame this commit...
 
-I suspect you're right, but the documentation is very confusing. If
-that's true, maybe Frank can get the NXP people to remove the
-references to the 4K capture from future documents.
+ldconfig is a statically linked, PIE executable. The kernel treats this as an 
+interpreter and therefore does not map it into low memory but instead maps it 
+into high memory using mmap() (mmap is top-down on arm64). Once it's mapped, 
+vvar/vdso gets mapped and fills the hole right at the top that is left due to 
+ldconfig's alignment requirements. Before the above change, there were 2 pages 
+free between the end of the data segment and vvar; this was enough for ldconfig 
+to get it's required memory with brk(). But after the change there is no space:
 
-Any idea is the CSI on Nano is really capable of 4-channel virtual
-channels as listed in section "13.5.1.2 Features" because I believe
-it's the same, or similar CSI as what is in 8M Plus and Mini, and I
-don't think those are capable of virtual channels.
+Before:
+fffff7f20000-fffff7fde000 r-xp 00000000 fe:02 8110426                    /home/ubuntu/glibc-2.35/build/elf/ldconfig
+fffff7fee000-fffff7ff5000 rw-p 000be000 fe:02 8110426                    /home/ubuntu/glibc-2.35/build/elf/ldconfig
+fffff7ff5000-fffff7ffa000 rw-p 00000000 00:00 0 
+fffff7ffc000-fffff7ffe000 r--p 00000000 00:00 0                          [vvar]
+fffff7ffe000-fffff8000000 r-xp 00000000 00:00 0                          [vdso]
+fffffffdf000-1000000000000 rw-p 00000000 00:00 0                         [stack]
 
-thanks,
+After:
+fffff7f20000-fffff7fde000 r-xp 00000000 fe:02 8110426                    /home/ubuntu/glibc-2.35/build/elf/ldconfig
+fffff7fee000-fffff7ff5000 rw-p 000be000 fe:02 8110426                    /home/ubuntu/glibc-2.35/build/elf/ldconfig
+fffff7ff5000-fffff7ffa000 rw-p 00000000 00:00 0 
+fffff7ffa000-fffff7ffe000 r--p 00000000 00:00 0                          [vvar]
+fffff7ffe000-fffff8000000 r-xp 00000000 00:00 0                          [vdso]
+fffffffdf000-1000000000000 rw-p 00000000 00:00 0                         [stack]
 
-adam
->
-> --
-> Regards,
->
-> Laurent Pinchart
+Note that this issue only occurs with ASLR disabled. When ASLR is enabled, the 
+brk region is setup in the low memory region that would normally be used by 
+primary executable.
+
+So the issue is that when ASLR is disabled, these statically linked, PIE 
+programs are mapped with insufficient space to expand the break.
+
+I think in an ideal world, the kernel would notice that this is not an 
+interpreter and map it to low memory. But I guess we can't know that for the 
+case where the interpreter is invoked directly (as apposed to being referenced 
+in the .interp section of the invoked binary)?
+
+Another option would be to always relocate the break to low memory (but without 
+the random offset for the ASLR=off case). But it looks like there could be some 
+compat issues there? I see CONFIG_COMPAT_BRK...
+
+Or we could just ensure we enforce some dead space after the end of the program 
+that nothing else is (initially) mapped into. I think this could be done by 
+overallocating the initial MAP_FIXED_NOREPLACE mmap, then munmapping the hole 
+after ARCH_SETUP_ADDITIONAL_PAGES(). But it's not really clear what the correct 
+reservation size would be, and any mmaps the program does will start to fill 
+that space.
+
+I'm hoping someone has some suggestions...
+
+Thanks,
+Ryan
+
 
