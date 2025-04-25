@@ -4,71 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20D87C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 16:07:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28828C369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 16:09:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T5dUauytFt6G0vhlS6nMmP45chnWZOXEMoc/tzxHhIM=; b=U3DIlvXgfO1pZdiwnDpr/a2Dz6
-	s3F0FYarQvTC13RRm1gR+gccHWEigdvYG0nLEEwLL8RrK1HHAwRDthsJdwfBrxoGvrDoT60OnkoE9
-	6GG2VQXlM6/eVitF8K/ztnW5aqpC7HhEK4q47CB27fWy/ZKRuWHz20J31HxSvP//qa9giu0cx6UjC
-	YzzT0lTdHUTUNhtbTVeDTGoMFBK/ZYjEo99Rj5njnV5ILE3O8Gh0A87nIgErE1dIyXXynPpOrnn6F
-	nLVraC2EREEFY26DYMUSlx+SXw6Pc6IYEjAH14Tg/2ZU8Ff8eHGZw8eKShYZaa0Cs2rdXC6BSr/T2
-	oYXk4gQg==;
+	bh=K4BkpaId2cQLJVzZSSqTKt4CRWF10paVXfUx/kEGsA4=; b=X2Jx2ZU41czZxfilNrbQOMmkf5
+	tTxBCzitgxDH8hW5WdmhTOJVqzykCSem//F9oONOAfk7jdX+gM2rSkfV1hjewS1bSdGIAtJSEES7M
+	0JKcf/fCzerWI2z1UlCcPJEjzAnH5QQw2EUIg2AZUo4VE6IRyibXtgMQlVTQEdRmxou3KxYHzo0v3
+	uwyJ5/rqZ9mczcWuR7cBOwk1OvWBsDUSr9/isyS3pii4+Vso6pj2iqC6P2uQowGy4wfX6ANCIRB4X
+	TOJLQzuofMtCJhCaizfjthQMPxRHwRxKne7LcRgrzB/boFknkwryTuT2r0vEN7lfw7LHBsiTQQVS2
+	safdxdqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8LaT-000000009Tl-1gyv;
-	Fri, 25 Apr 2025 16:07:37 +0000
-Received: from m16.mail.163.com ([117.135.210.4])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Jt4-0000000HPZe-2MbC;
-	Fri, 25 Apr 2025 14:18:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Message-ID:Date:MIME-Version:Subject:From:
-	Content-Type; bh=T5dUauytFt6G0vhlS6nMmP45chnWZOXEMoc/tzxHhIM=;
-	b=GaGj7k2R/HA+At4zWfBYbU5M1Nqxcf4OPnU9y/mEnnsYleW6Td0tc+noxG7Ufo
-	sBnc+qihnveVY8CAK+jyZEZuemSJ2FBpEeg51ULwZeDMQCMeCAQNKmVpRNpu5Ykv
-	DNV/h0xkLAGJLhUGuCBbOQA9oX4vk6QkfTfGIlltPs9Ug=
-Received: from [192.168.71.89] (unknown [])
-	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wDnn7+UmQtocRMiCQ--.4501S2;
-	Fri, 25 Apr 2025 22:17:57 +0800 (CST)
-Message-ID: <1904ac4c-832a-4d2c-ab8b-15d3fdf515d0@163.com>
-Date: Fri, 25 Apr 2025 22:17:55 +0800
+	id 1u8LcK-000000009rn-1EBj;
+	Fri, 25 Apr 2025 16:09:32 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u8Ju6-0000000HPkO-1tTk
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Apr 2025 14:19:47 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53PEJYF32958153
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 25 Apr 2025 09:19:34 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1745590774;
+	bh=K4BkpaId2cQLJVzZSSqTKt4CRWF10paVXfUx/kEGsA4=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=CMPbCM5jp4F3Yiw9uztBLruU7FwLSPkZCPZkjgPgu83Du9WlEqBsSUFSwdJRssoxx
+	 byDduY3gG7zoZlHvfRZ+X+hAjfSveFB5sYdb/Fb/61qQ4KoyUYMFjyGvNTkhGs1dB1
+	 ORfVLxKz1LC+E1C3d9M3R0gTLYVq7qklzrN7n9dc=
+Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53PEJYuU129550
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 25 Apr 2025 09:19:34 -0500
+Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 25
+ Apr 2025 09:19:34 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 25 Apr 2025 09:19:34 -0500
+Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53PEJXGO019327;
+	Fri, 25 Apr 2025 09:19:33 -0500
+Message-ID: <1c657cc6-7667-4a59-85d7-a6f6b29c169b@ti.com>
+Date: Fri, 25 Apr 2025 09:19:33 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] PCI: Configure root port MPS to hardware maximum
- during host probing
-To: Niklas Cassel <cassel@kernel.org>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Bjorn Helgaas <bhelgaas@google.com>
-Cc: lpieralisi@kernel.org, kw@linux.com, heiko@sntech.de,
- thomas.petazzoni@bootlin.com, yue.wang@amlogic.com, pali@kernel.org,
- neil.armstrong@linaro.org, robh@kernel.org, jingoohan1@gmail.com,
- khilman@baylibre.com, jbrunet@baylibre.com,
- martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-rockchip@lists.infradead.org
-References: <20250425095708.32662-1-18255117159@163.com>
- <20250425095708.32662-2-18255117159@163.com> <aAtikPOYlGeJCsiA@ryzen>
- <a4963173-dd9a-4341-b7f9-5fdb9485233a@163.com> <aAuSXhmRiKQabjLO@ryzen>
+Subject: Re: [PATCH RESEND v3 1/3] dt-bindings: mmc: sdhci-am654: Add
+ ti,suppress-v1p8-ena
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: Ulf Hansson <ulf.hansson@linaro.org>, Nishanth Menon <nm@ti.com>,
+        Adrian
+ Hunter <adrian.hunter@intel.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Vignesh
+ Raghavendra <vigneshr@ti.com>,
+        Tero Kristo <kristo@kernel.org>, Josua Mayer
+	<josua@solid-run.com>,
+        <linux-mmc@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        Francesco Dolcini
+	<francesco@dolcini.it>,
+        Hiago De Franco <hiagofranco@gmail.com>, Moteen Shah
+	<m-shah@ti.com>,
+        <stable@vger.kernel.org>
+References: <20250422220512.297396-1-jm@ti.com>
+ <20250422220512.297396-2-jm@ti.com>
+ <20250425-agile-imported-inchworm-6ae257@kuoka>
 Content-Language: en-US
-From: Hans Zhang <18255117159@163.com>
-In-Reply-To: <aAuSXhmRiKQabjLO@ryzen>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Judith Mendez <jm@ti.com>
+In-Reply-To: <20250425-agile-imported-inchworm-6ae257@kuoka>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: _____wDnn7+UmQtocRMiCQ--.4501S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxuFWDCFy7Xry3ArW8Cw4xCrg_yoWxZF17pr
-	WaqF43trWkJFW5ta9rtF1UuFW7twsYvFW3tFsxGr1kta1fuFn3CwsFgry0qw47Cr9YvF1U
-	taykJ3y0qF98Ja7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jorWwUUUUU=
-X-Originating-IP: [124.79.128.52]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/1tbiWxg6o2gLk-CiFQAAst
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_071842_985530_C6D8BBC2 
-X-CRM114-Status: GOOD (  30.17  )
+X-CRM114-CacheID: sfid-20250425_071946_584255_280B7378 
+X-CRM114-Status: GOOD (  18.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,222 +104,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Krzysztof,
 
-
-On 2025/4/25 21:47, Niklas Cassel wrote:
-> Hello Hans,
-> 
-> On Fri, Apr 25, 2025 at 06:56:53PM +0800, Hans Zhang wrote:
+On 4/25/25 2:48 AM, Krzysztof Kozlowski wrote:
+> On Tue, Apr 22, 2025 at 05:05:10PM GMT, Judith Mendez wrote:
+>> Some Microcenter/Patriot SD cards and Kingston eMMC are failing init
+>> across Sitara K3 boards. Init failure is due to the sequence when
+>> V1P8_SIGNAL_ENA is set. The V1P8_SIGNAL_ENA has a timing component tied
+>> to it where if set, switch to full-cycle timing happens. The failing
+>> cards do not like change to full-cycle timing before changing bus
+>> width, so add flag to sdhci-am654 binding to suppress V1P8_SIGNAL_ENA
+>> before changing bus width. The switch to full-cycle timing should happen
+>> with HIGH_SPEED_ENA after change of bus width.
 >>
->> But I discovered a problem:
+>> Signed-off-by: Judith Mendez <jm@ti.com>
+>> ---
+>>   Documentation/devicetree/bindings/mmc/sdhci-am654.yaml | 5 +++++
+>>   1 file changed, 5 insertions(+)
 >>
->> 0001:90:00.0 PCI bridge: Device 1f6c:0001 (prog-if 00 [Normal decode])
->>           ......
->>           Capabilities: [c0] Express (v2) Root Port (Slot-), MSI 00
->>                   DevCap: MaxPayload 512 bytes, PhantFunc 0
->>                           ExtTag- RBE+
->>                   DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
->>                           RlxdOrd+ ExtTag- PhantFunc- AuxPwr- NoSnoop+
->>                           MaxPayload 512 bytes, MaxReadReq 1024 bytes
->>
->>
->>
->> 			Should the DevCtl MaxPayload be 256B?
->>
->> But I tested that the file reading and writing were normal. Is the display
->> of 512B here what we expected?
->>
->> Root Port 0003:30:00.0 has the same problem. May I ask what your opinion is?
->>
->>
->> 		......
->> 0001:91:00.0 Non-Volatile memory controller: Samsung Electronics Co Ltd
->> NVMe SSD Controller PM9A1/PM9A3/980PRO (prog-if 02 [NVM Express])
->>           ......
->>           Capabilities: [70] Express (v2) Endpoint, MSI 00
->>                   DevCap: MaxPayload 256 bytes, PhantFunc 0, Latency L0s
->> unlimited, L1 unlimited
->>                           ExtTag+ AttnBtn- AttnInd- PwrInd- RBE+ FLReset+
->> SlotPowerLimit 0W
->>                   DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
->>                           RlxdOrd+ ExtTag+ PhantFunc- AuxPwr- NoSnoop+
->> FLReset-
->>                           MaxPayload 256 bytes, MaxReadReq 512 bytes
->> 		......
+>> diff --git a/Documentation/devicetree/bindings/mmc/sdhci-am654.yaml b/Documentation/devicetree/bindings/mmc/sdhci-am654.yaml
+>> index 676a74695389..0f92bbf8e13b 100644
+>> --- a/Documentation/devicetree/bindings/mmc/sdhci-am654.yaml
+>> +++ b/Documentation/devicetree/bindings/mmc/sdhci-am654.yaml
+>> @@ -201,6 +201,11 @@ properties:
+>>         and the controller is required to be forced into Test mode
+>>         to set the TESTCD bit.
+>>   
+>> +  ti,suppress-v1p8-ena:
 > 
-> Here we see that the bridge has a higher DevCtl.MPS than the DevCap.MPS of
-> the endpoint.
-> 
-> Let me quote Bjorn from the previous mail thread:
-> 
-> """
->    - I don't think it's safe to set MPS higher in all cases.  If we set
->      the Root Port MPS=256, and an Endpoint only supports MPS=128, the
->      Endpoint may do a 256-byte DMA read (assuming its MRRS>=256).  In
->      that case the RP may respond with a 256-byte payload the Endpoint
->      can't handle.
-> """
-> 
-> 
-> 
-> I think the problem with this patch is that pcie_write_mps() call in
-> pci_host_probe() is done after the pci_scan_root_bus_bridge() call in
-> pci_host_probe().
-> 
-> So pci_configure_mps() (called by pci_configure_device()),
-> which does the limiting of the bus to what the endpoint supports,
-> is actually called before the pcie_write_mps() call added by this patch
-> (which increases DevCtl.MPS for the bridge).
-> 
-> 
-> So I think the code added in this patch needs to be executed before
-> pci_configure_device() is done for the EP.
-> 
-> It appears that pci_configure_device() is called for each device
-> during scan, first for the bridges and then for the EPs.
-> 
-> So I think something like this should work (totally untested):
-> 
-> --- a/drivers/pci/probe.c
-> +++ b/drivers/pci/probe.c
-> @@ -45,6 +45,8 @@ struct pci_domain_busn_res {
->          int domain_nr;
->   };
->   
-> +static void pcie_write_mps(struct pci_dev *dev, int mps);
-> +
->   static struct resource *get_pci_domain_busn_res(int domain_nr)
->   {
->          struct pci_domain_busn_res *r;
-> @@ -2178,6 +2180,11 @@ static void pci_configure_mps(struct pci_dev *dev)
->                  return;
->          }
->   
-> +       if (pci_pcie_type(dev) == PCI_EXP_TYPE_ROOT_PORT &&
-> +           pcie_bus_config != PCIE_BUS_TUNE_OFF) {
-> +               pcie_write_mps(dev, 128 << dev->pcie_mpss);
-> +       }
-> +
->          if (!bridge || !pci_is_pcie(bridge))
->                  return;
-> 
-> 
-> 
-> But we would probably need to move some code to avoid the
-> forward declaration.
+> Do not tell what the drivers should do, but tell what is the issue with
+> the hardware, e.g. some cards do not like full-cycle.... and this will
+> also hint you that it should be most likely generic, not specific to
+> this device.
 > 
 
-Dear Niklas,
+Thanks for your review, but this patch has been dropped in v4 since
+we adopted a new implementation [0] using compatible string.
 
-Thank you very much for your reply and suggestions. The patch you 
-provided has been tested by me and is normal.
+[0] 
+https://lore.kernel.org/linux-devicetree/20250423180809.l3l6sfbwquaaazar@shrank/
 
-
-
-Bjorn and Mani, thoughts?
-
-
-Please see the following log:
-
-lspci -vvv
-0000:c0:00.0 PCI bridge: Device 1f6c:0001 (prog-if 00 [Normal decode])
-         ......
-         Capabilities: [c0] Express (v2) Root Port (Slot-), MSI 00
-                 DevCap: MaxPayload 512 bytes, PhantFunc 0
-                         ExtTag+ RBE+
-                 DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
-                         RlxdOrd+ ExtTag+ PhantFunc- AuxPwr- NoSnoop+
-                         MaxPayload 512 bytes, MaxReadReq 1024 bytes
-         ......
-
-0000:c1:00.0 Non-Volatile memory controller: Samsung Electronics Co Ltd 
-NVMe SSD Controller S4LV008[Pascal] (prog-if 02 [NVM Express])
-         ......
-         Capabilities: [70] Express (v2) Endpoint, MSI 00
-                 DevCap: MaxPayload 512 bytes, PhantFunc 0, Latency L0s 
-unlimited, L1 unlimited
-                         ExtTag+ AttnBtn- AttnInd- PwrInd- RBE+ FLReset+ 
-SlotPowerLimit 0W
-                 DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
-                         RlxdOrd+ ExtTag+ PhantFunc- AuxPwr- NoSnoop+ 
-FLReset-
-                         MaxPayload 512 bytes, MaxReadReq 512 bytes
-         ......
-
-0001:90:00.0 PCI bridge: Device 1f6c:0001 (prog-if 00 [Normal decode])
-         ......
-         Capabilities: [c0] Express (v2) Root Port (Slot-), MSI 00
-                 DevCap: MaxPayload 512 bytes, PhantFunc 0
-                         ExtTag- RBE+
-                 DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
-                         RlxdOrd+ ExtTag- PhantFunc- AuxPwr- NoSnoop+
-                         MaxPayload 256 bytes, MaxReadReq 1024 bytes
-         ......
-
-0001:91:00.0 Non-Volatile memory controller: Samsung Electronics Co Ltd 
-NVMe SSD Controller PM9A1/PM9A3/980PRO (prog-if 02 [NVM Express])
-         ......
-         Capabilities: [70] Express (v2) Endpoint, MSI 00
-                 DevCap: MaxPayload 256 bytes, PhantFunc 0, Latency L0s 
-unlimited, L1 unlimited
-                         ExtTag+ AttnBtn- AttnInd- PwrInd- RBE+ FLReset+ 
-SlotPowerLimit 0W
-                 DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
-                         RlxdOrd+ ExtTag+ PhantFunc- AuxPwr- NoSnoop+ 
-FLReset-
-                         MaxPayload 256 bytes, MaxReadReq 512 bytes
-         ......
-
-0003:30:00.0 PCI bridge: Device 1f6c:0001 (prog-if 00 [Normal decode])
-         ......
-         Capabilities: [c0] Express (v2) Root Port (Slot-), MSI 00
-                 DevCap: MaxPayload 512 bytes, PhantFunc 0
-                         ExtTag- RBE+
-                 DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
-                         RlxdOrd+ ExtTag- PhantFunc- AuxPwr- NoSnoop+
-                         MaxPayload 256 bytes, MaxReadReq 1024 bytes
-         ......
-
-0003:31:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd. 
-RTL8125 2.5GbE Controller (rev 05)
-         ......
-         Capabilities: [70] Express (v2) Endpoint, MSI 01
-                 DevCap: MaxPayload 256 bytes, PhantFunc 0, Latency L0s 
-<512ns, L1 <64us
-                         ExtTag- AttnBtn- AttnInd- PwrInd- RBE+ FLReset- 
-SlotPowerLimit 0W
-                 DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
-                         RlxdOrd+ ExtTag- PhantFunc- AuxPwr- NoSnoop-
-                         MaxPayload 256 bytes, MaxReadReq 4096 bytes
-         ......
-
-0004:00:00.0 PCI bridge: Device 1f6c:0001 (prog-if 00 [Normal decode])
-         ......
-         Capabilities: [c0] Express (v2) Root Port (Slot-), MSI 00
-                 DevCap: MaxPayload 512 bytes, PhantFunc 0
-                         ExtTag- RBE+
-                 DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
-                         RlxdOrd+ ExtTag- PhantFunc- AuxPwr- NoSnoop+
-                         MaxPayload 256 bytes, MaxReadReq 1024 bytes
-         ......
-
-0004:01:00.0 Network controller: Realtek Semiconductor Co., Ltd. 
-RTL8852BE PCIe 802.11ax Wireless Network Controller
-         ......
-         Capabilities: [70] Express (v2) Endpoint, MSI 00
-                 DevCap: MaxPayload 256 bytes, PhantFunc 0, Latency L0s 
-<4us, L1 <64us
-                         ExtTag- AttnBtn- AttnInd- PwrInd- RBE+ FLReset+ 
-SlotPowerLimit 0W
-                 DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
-                         RlxdOrd+ ExtTag- PhantFunc- AuxPwr- NoSnoop- 
-FLReset-
-                         MaxPayload 256 bytes, MaxReadReq 512 bytes
-         ......
-
-
-Best regards,
-Hans
-
+~ Judith
 
 
