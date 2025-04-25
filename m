@@ -4,66 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73CCDC369D7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 00:22:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AEDBC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 00:37:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eqBpraoTOXGCxb8ozEAVpLizx6kqjiDpQ/OrLy3vvKE=; b=gRt0syEEhipTBr18S/QdWrfiXy
-	FYYexajSan+a1Yb+JzV3U+3rT/eLi/1vQwS659Wdu6ZdrCcj1/SbVwhbCu/HixVaM4ABtaSFQMl15
-	a9cB9sIH5L7TGtqdd2EI1WdVV5IdyIZKPU5tBm7w8VwpPb3XRgAEUcvq5T+gwr/VTywnllVgEoLth
-	I3sXOv4z16SnPMJhl0t3T0YsSjd++ALLXTkRsABBNZo5D5bI2JpnsTNHZDvbqCnSxvGgxqBlQofEZ
-	HAv/TphkpUV+LPCahTAh56l2tu0vQ2ytZGEZTlBxhZNCimbkiLzHlz54fpPeG7tY9PS5khg4b+bX2
-	4+c/t2sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jYVr5pgRgBzRP/yol8HnaMDCGGqfdN8UNSV5u8EJF3A=; b=HC+K+ap41V+FKnr6RIfdI+CbXA
+	sF94WjFFie3FLlbZ8QBtq3msxwsddeZ5Ce5uNEtAbCGqVfvolQw61EFO8BdPcSkvzYfAHFi+X0c8o
+	uMMdrMxvyzlnycDzubaBuT2kTReJiAjCstkUrfc/jNd58ThMx0zvGxVO7MHS3VtgHc7pUy2xiqKhg
+	vHnTzJnxntHkfOsUQiaVDgGuZqPRs6ePFZ54yxUFPT+eD/d4XK1PpeqiaKt2SHiFdbpgYEOKfxOyp
+	F1sS6PPHZWUoDsCjWPthb1SGjg1kWMuF51j3nijyv+spaK2idvhAJQg0fQndO8u2VSg8/WFz8ewH+
+	C4PQjnUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u86pE-0000000FbxJ-2pe4;
-	Fri, 25 Apr 2025 00:21:52 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u86nO-0000000Fbeq-2KxL;
-	Fri, 25 Apr 2025 00:19:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CE1384A737;
-	Fri, 25 Apr 2025 00:19:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57518C4CEE3;
-	Fri, 25 Apr 2025 00:19:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745540397;
-	bh=mmlr8E+H2BDZ4gjGcxUcUsDxQyLSFFeNX6bcoSlckCk=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=bpmvdOz3hpFfd9dFJJ+Cm04wvVLxiAHWnQTe6CBbj62VG4MWXjgDdslVkHee6hqzJ
-	 8qOm2AqSkP2hrsHAxOEDGwjnO7Hg6bM3/d0qV/ujpi6HST1RpLlwa7wyZA8CnxN+wc
-	 ns0Fhmma9AVyKsmovC89lWFoO8pUSpN43UkZGIXt1tM8Fi+lwAekX2VA9wKxjRTP0I
-	 JINyV2k8lLHKrv7d26Djn8j1s8qZjKRFrMO44Hve/sLCLLC8PFVkoSpQJFqQUeQwk1
-	 2zbodRONWWR19noqWVfzb1b/rV5Epf+5VIwuUx0VUY2h4T9c8AvF9y/BKmyS2uFN0s
-	 VbekrryogvMLA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33DA2380CFD9;
-	Fri, 25 Apr 2025 00:20:37 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	id 1u874F-0000000FdQ3-3jyA;
+	Fri, 25 Apr 2025 00:37:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u872O-0000000FdLU-3lXC
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Apr 2025 00:35:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 83D8B1007;
+	Thu, 24 Apr 2025 17:35:22 -0700 (PDT)
+Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 484183F5A1;
+	Thu, 24 Apr 2025 17:35:26 -0700 (PDT)
+From: Andre Przywara <andre.przywara@arm.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev
+Subject: [PATCH] arm64: dts: allwinner: a523: fix SD card detect pull resistor
+Date: Fri, 25 Apr 2025 01:34:22 +0100
+Message-ID: <20250425003422.3465-1-andre.przywara@arm.com>
+X-Mailer: git-send-email 2.46.3
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v3] net: ethernet: mtk_eth_soc: convert cap_bit in
- mtk_eth_muxc struct to u64
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <174554043598.3528880.12217864359987980717.git-patchwork-notify@kernel.org>
-Date: Fri, 25 Apr 2025 00:20:35 +0000
-References: <ded98b0d716c3203017a7a92151516ec2bf1abee.1745369249.git.daniel@makrotopia.org>
-In-Reply-To: <ded98b0d716c3203017a7a92151516ec2bf1abee.1745369249.git.daniel@makrotopia.org>
-To: Daniel Golle <daniel@makrotopia.org>
-Cc: nbd@nbd.name, sean.wang@mediatek.com, lorenzo@kernel.org,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_171958_613583_D013AA22 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20250424_173528_983450_D3B017B1 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,30 +66,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Trying to use the SD card on the Radxa board revealed that the card
+detect wouldn't work as expected (insert not detected). Looking at the
+schematic shows that the pull-up resistor is actually not populated
+("NC"), and the transistor just pulls the GPIO pin to GND, but it's
+floating otherwise.
+So using the pull-down flag is definitely wrong, we need the internal
+pull up to get a reliable signal. The same is true for the Avaota board
+(there is no transistor there, but it's floating in the same way). There
+is no schematic for the X96QPro+ board, but experiments show it's the
+same behaviour.
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+So change the GPIO flag for the card detect GPIO property to activate
+the pull-up resistor for that pin.
 
-On Wed, 23 Apr 2025 01:48:02 +0100 you wrote:
-> From: Bo-Cun Chen <bc-bocun.chen@mediatek.com>
-> 
-> With commit 51a4df60db5c2 ("net: ethernet: mtk_eth_soc: convert caps in
-> mtk_soc_data struct to u64") the capabilities bitfield was converted to
-> a 64-bit value, but a cap_bit in struct mtk_eth_muxc which is used to
-> store a full bitfield (rather than the bit number, as the name would
-> suggest) still holds only a 32-bit value.
-> 
-> [...]
+Fixes: 80e0fb4e491b ("arm64: dts: allwinner: a523: add Radxa A5E support")
+Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+---
+Hi,
 
-Here is the summary with links:
-  - [net-next,v3] net: ethernet: mtk_eth_soc: convert cap_bit in mtk_eth_muxc struct to u64
-    https://git.kernel.org/netdev/net-next/c/ffb0c5c4cf66
+please let me know if I should split this up into 3 patches, with proper
+Fixes: tags, or if you can maybe squash this into the original commits
+still?
 
-You are awesome, thank you!
+Cheers,
+Andre
+
+ arch/arm64/boot/dts/allwinner/sun55i-a527-radxa-a5e.dts | 2 +-
+ arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts  | 2 +-
+ arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a527-radxa-a5e.dts b/arch/arm64/boot/dts/allwinner/sun55i-a527-radxa-a5e.dts
+index 03c9a9ef5adc2..2d2f3af91d05e 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-a527-radxa-a5e.dts
++++ b/arch/arm64/boot/dts/allwinner/sun55i-a527-radxa-a5e.dts
+@@ -56,7 +56,7 @@ &ehci1 {
+ 
+ &mmc0 {
+ 	vmmc-supply = <&reg_cldo3>;
+-	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_DOWN)>; /* PF6 */
++	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PF6 */
+ 	bus-width = <4>;
+ 	status = "okay";
+ };
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts b/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
+index c0bce3f4fa925..59db103546f65 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
++++ b/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
+@@ -56,7 +56,7 @@ &ehci1 {
+ 
+ &mmc0 {
+ 	vmmc-supply = <&reg_vcc3v3>;
+-	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_DOWN)>; /* PF6 */
++	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PF6 */
+ 	bus-width = <4>;
+ 	disable-wp;
+ 	status = "okay";
+diff --git a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
+index 85a546aecdbe1..dea2acc1849bb 100644
+--- a/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
++++ b/arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
+@@ -66,7 +66,7 @@ &ehci1 {
+ 
+ &mmc0 {
+ 	vmmc-supply = <&reg_cldo3>;
+-	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_DOWN)>; /* PF6 */
++	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* PF6 */
+ 	bus-width = <4>;
+ 	status = "okay";
+ };
+
+base-commit: 1e5a69d67d1b3c55c9b0cd3933af1436b5d52aa1
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.46.3
 
 
