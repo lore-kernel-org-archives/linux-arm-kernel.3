@@ -4,57 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ECDEC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 11:39:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17415C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 11:40:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tutt6eagRxJuPN7X8o/NsRKZE0Ge167UC+E2Dn9IrtE=; b=YIm/KOrIY9JGJD7AiJV4E/Xg1e
-	zIoWW4Ai8dF1xO1XjlDj9ERISq5oCMWo+M1Q/fveVZIdbfSTmB7bhmYAjxBgRjfcF/vfbBIyrczyh
-	uatn/7OYl5hBp7YbBL/EhZpXB2cQw4nuJP+sXs9GBB13W9TEHAIzYt7MIPb0POTEWYWe7blsmh+Ql
-	ZQ6D1y0NKhVPUjMvGS1S0Y0TPA2ANCvXjYeemblcdVSKNJ0PlYPV65VoYYV+qQgXnZamX+nb0D3Rc
-	r1PYniCYhUZSgU2tDoFkomghoOMsagoRbklzxoy71AzYSFLP6I4wFrwj2fwvriweK+CRI5UWevjnJ
-	LWd4j5zg==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bCu4gnKGLji0Lj1TJspCZ0JNdQdRUdGQa5Ujm73xOi4=; b=X2LGiPQCh+Ms8mTcV+OjZsXbWk
+	ypaeemxMvD5sDJXuYy0e7IiiM1l3zpZ0QZcxzaZsy4FK8ftdUP2PQDc0mGE4fdshEbriN7IBTl9kU
+	xWa8CxjVpny1HR1bYRiT0e1aFLKLFUjsmMDqGXqXkknTUFnQQn3Qh0LFNbKFfmOXU+b6qPXz/F98V
+	opKLjTasD1O96GTZbM11A9YLQasqAA/pGKmb8wABw99NNgMkjt13To0wFWi0nMrQ/iWp5Z+qJOZvU
+	qff6kDej3xxt0GacZjGpfciMPLLDAN/piLWguoyilUzDgvvKfapbwNREG568sMPlz11EXCKJCwukD
+	0/c5z1lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8HOQ-0000000GzcN-2OZz;
-	Fri, 25 Apr 2025 11:38:54 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8F4X-0000000GUWB-1uT8
+	id 1u8HQG-0000000Gzza-1DaC;
+	Fri, 25 Apr 2025 11:40:48 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u8FDe-0000000GW1g-2Pip
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 09:10:15 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0B96D106F;
-	Fri, 25 Apr 2025 02:10:07 -0700 (PDT)
-Received: from [10.163.51.18] (unknown [10.163.51.18])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BF7573F59E;
-	Fri, 25 Apr 2025 02:10:09 -0700 (PDT)
-Message-ID: <fc8c2bc3-210a-4cf0-a61a-ce919239b0a1@arm.com>
-Date: Fri, 25 Apr 2025 14:40:06 +0530
+	Fri, 25 Apr 2025 09:19:39 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5499c5d9691so2216107e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 02:19:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1745572776; x=1746177576; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=bCu4gnKGLji0Lj1TJspCZ0JNdQdRUdGQa5Ujm73xOi4=;
+        b=P8PoGyuyX1cOllsGafJAd7jiW+nNdTGXNXFlDmsSp+mGLTOId9uFrQH7AJBwIn0waU
+         hOCzC2AM3efDQmlBPUh4QXkmH+pSk8VXBzruYUGJSMUGV4+jzHsaZUHqeVhCSIQDX0Dd
+         4ioTJX7PtYnIeRbEDUjkLybKR4v6gbU/rMI9KAaP7672j6lcB/SlW4o0NVn5BTAtGXUo
+         4s8rW/CLmqSIMUG3rdJufDCs500inDiNH4T44XOKi7TrxsUTDnhiH5RU7AYpiN1GwfUt
+         i1zmzOqyJZ06NgkBz3o/k1k6lp6GnWR2O8hiB8a9oaATc6MG5lhn0ImHn1O3Utmo9x5l
+         Wbnw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745572776; x=1746177576;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=bCu4gnKGLji0Lj1TJspCZ0JNdQdRUdGQa5Ujm73xOi4=;
+        b=aLymddpGURxmYaKBd4KBYWQqXyvVbUx66yvSO2CYdB2pFTxF55ADHp2q1dK/h52Opg
+         2OXjGLlYTLiB31qBLUi2Q4JSZSeo9HcSsmmDdKHugkz9fGPzDnGTXNqjlLQHLe+sKLWV
+         mO1qErbGAEeMVB5uiN0dFpNKdPXM3Kol2j0N7JDuZTwNfLC7p2A/zNawetvKskDskmz6
+         dXmRUMGeHfvPQCOP33J5kBiXLl6/uCxsRFIaAus5mFrU8FzsH6DENU9VdAW6RkVhqMSo
+         NvsLhSn+y95dVCi0kTi+Cf3NBN5hPNj/9kiQrUkVheAlkATbn3F9SSx3M5AkXljeRX3u
+         fmPw==
+X-Forwarded-Encrypted: i=1; AJvYcCUJFzkQsH6GY7zlaNPC8WwbBKiEA+cCAIUx483JiF0ZLhiZUcSw19K4K8dWnzUPROMAvAR3PsOfxkjKE5KymwNd@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy7kFSLvHWVMxqhpkOvl9H+yBzM8Yj9Ok41mfH8pYj/+wSogTyg
+	VBwrtRgKrq0EcTygLQqpnHWz7tQycTCWPUoqrMxrxSUuuctWTLUDIdIooNZj
+X-Gm-Gg: ASbGncsFITELFemmDr8GgOZU+zLgv94AZnM8sWL4KcRSYsg6JFXAdwPIDa6T1YFZRkP
+	Cv1/1e4y9p7KbLV825w0opb9F7qcAEMGCYqqxzt30h+0hRFHgYl6XUiBFfgQbisqjGppOzRxzA3
+	cAAuyyNIUuFmjfk2VxdCHrFdIa7/HmvX2eAKrEZ83jgTlE4XnZlToAj3Sw1Gx6kebsumhSDom+U
+	DkETNQx4MJfNplyJprkFn6JZloQzxuDOWDDR1muCCFfxcV4gycL1bhShVJG8/DtXOgZtQhuk8Pr
+	wmaghim+VpkNe5YFYH+AOQdEHPMXrG/dewaRtRUUzsLAkwpv1dDCGCg504RsIPkQ3YLs6F4UYPQ
+	dXJxhILR4xVdhq4FJxlwbKpdlVoDnzbIe+KoavEg=
+X-Google-Smtp-Source: AGHT+IFQdGmsvgDmR6TVPSbh/xxX9pxHi/YRxyBrg1Y1rk5Z58OPuXPUin/wfhblrZ2GuZjz8ygL5w==
+X-Received: by 2002:a05:6512:b05:b0:545:381:71e with SMTP id 2adb3069b0e04-54e8cc07e43mr451893e87.40.1745572775998;
+        Fri, 25 Apr 2025 02:19:35 -0700 (PDT)
+Received: from IRS-520670-Linux.atlascopco.group (84-217-94-150.customers.ownit.se. [84.217.94.150])
+        by smtp.googlemail.com with ESMTPSA id 2adb3069b0e04-54e8c7f02d9sm214299e87.78.2025.04.25.02.19.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 25 Apr 2025 02:19:35 -0700 (PDT)
+From: =?UTF-8?q?Efe=20Can=20=C4=B0=C3=A7=C3=B6z?= <efecanicoz@gmail.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de
+Cc: kernel@pengutronix.de,
+	festevam@gmail.com,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	=?UTF-8?q?Efe=20Can=20=C4=B0=C3=A7=C3=B6z?= <efecanicoz@gmail.com>
+Subject: [PATCH] ARM: dts: imx7d: update opp-table voltages
+Date: Fri, 25 Apr 2025 11:18:40 +0200
+Message-ID: <20250425091853.54437-1-efecanicoz@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V2] arm64/mm: Re-organise setting up FEAT_S1PIE registers
- PIRE0_EL1 and PIR_EL1
-To: Ryan Roberts <ryan.roberts@arm.com>, linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- linux-kernel@vger.kernel.org
-References: <20250416035604.2717188-1-anshuman.khandual@arm.com>
- <fbba5d43-d740-401a-b5c5-9dfc222db5c4@arm.com>
- <c0c95b67-2dec-43f1-8f3a-0e1e624292bf@arm.com>
- <7996ef9d-4872-44de-893e-ffe4bec07d5e@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <7996ef9d-4872-44de-893e-ffe4bec07d5e@arm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_021013_589714_8856302A 
-X-CRM114-Status: GOOD (  23.66  )
+X-CRM114-CacheID: sfid-20250425_021938_611354_60144A4A 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,158 +104,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Update accepted voltage levels according to IMX7DCEC Table 9 Operating ranges
 
+Signed-off-by: Efe Can İçöz <efecanicoz@gmail.com>
+---
+ arch/arm/boot/dts/nxp/imx/imx7d.dtsi | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-On 4/24/25 17:35, Ryan Roberts wrote:
-> On 24/04/2025 12:00, Anshuman Khandual wrote:
->>
->>
->> On 4/24/25 15:37, Ryan Roberts wrote:
->>> On 16/04/2025 04:56, Anshuman Khandual wrote:
->>>> mov_q cannot really move PIE_E[0|1] macros into a general purpose register
->>>> as expected if those macro constants contain some 128 bit layout elements,
->>>> that are required for D128 page tables. The primary issue is that for D128,
->>>> PIE_E[0|1] are defined in terms of 128-bit types with shifting and masking,
->>>> which the assembler can't accommodate.
->>>>
->>>> Instead pre-calculate these PIRE0_EL1/PIR_EL1 constants into asm-offsets.h
->>>> based PIE_E0_ASM/PIE_E1_ASM which can then be used in arch/arm64/mm/proc.S.
->>>>
->>>> While here also move PTE_MAYBE_NG/PTE_MAYBE_SHARED assembly overrides into
->>>> arch/arm64/kernel/asm-offsets.c to ensure PIRE0_EL1/PIR_EL1 are calculated
->>>> in assembly without arm64_use_ng_mappings and lpa2_is_enabled() symbols
->>>> being accessible. Also move the corresponding comment as well.
->>>>
->>>> Cc: Catalin Marinas <catalin.marinas@arm.com>
->>>> Cc: Will Deacon <will@kernel.org>
->>>> Cc: Mark Rutland <mark.rutland@arm.com>
->>>> Cc: Ard Biesheuvel <ardb@kernel.org>
->>>> Cc: Ryan Roberts <ryan.roberts@arm.com>
->>>> Cc: linux-arm-kernel@lists.infradead.org
->>>> Cc: linux-kernel@vger.kernel.org
->>>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
->>>> ---
->>>> This patch applies on v6.15-rc2
->>>>
->>>> Changes in V2:
->>>>
->>>> - Added asm-offsets.c based PIE_E0_ASM and PIE_E1_ASM symbols as per Ard
->>>> - Moved PTE_MAYBE_NG and PTE_MAYBE_SHARED overrides inside asm-offsets.c
->>>>   along with the corresponding comment as per Ard
->>>>
->>>> Changes in V1:
->>>>
->>>> https://lore.kernel.org/linux-arm-kernel/20250410074024.1545768-1-anshuman.khandual@arm.com/
->>>>
->>>>  arch/arm64/kernel/asm-offsets.c | 16 ++++++++++++++++
->>>>  arch/arm64/mm/proc.S            | 19 ++-----------------
->>>>  2 files changed, 18 insertions(+), 17 deletions(-)
->>>>
->>>> diff --git a/arch/arm64/kernel/asm-offsets.c b/arch/arm64/kernel/asm-offsets.c
->>>> index eb1a840e4110..5b99a78f6882 100644
->>>> --- a/arch/arm64/kernel/asm-offsets.c
->>>> +++ b/arch/arm64/kernel/asm-offsets.c
->>>> @@ -182,5 +182,21 @@ int main(void)
->>>>  #ifdef CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
->>>>    DEFINE(FTRACE_OPS_DIRECT_CALL,	offsetof(struct ftrace_ops, direct_call));
->>>>  #endif
->>>> +	/*
->>>> +	 * The PROT_* macros describing the various memory types may resolve to
->>>> +	 * C expressions if they include the PTE_MAYBE_* macros, and so they
->>>> +	 * can only be used from C code. The PIE_E* constants below are also
->>>> +	 * defined in terms of those macros, but will mask out those
->>>> +	 * PTE_MAYBE_* constants, whether they are set or not. So #define them
->>>> +	 * as 0x0 here so we can evaluate the PIE_E* constants in asm context.
->>>> +	 */
->>>> +#undef PTE_MAYBE_NG
->>>> +#define PTE_MAYBE_NG		0
->>>> +
->>>> +#undef PTE_MAYBE_SHARED
->>>> +#define PTE_MAYBE_SHARED	0
->>>
->>> My toolchain at least is smart enough to figure out that the bits of interest in
->>> PIE_E1 are all contstant so it works without this hack.
->>>
->>> I'd prefer to drop this hack on that basis. Or if there are issues with other
->>> toolchains that mean we need to keep it, I think the wording of the comment
->>
->> So could we keep these for some more time and later drop them off just to be
->> on the safer side ?
-> 
-> What exactly is your concern? That some toolchains might not be so smart? But
-> that same risk exists when we eventually drop the hack, so why not just do it now?
-> 
-> TBH, I imagine that it's spec'ed to work like this by the C standard, in which
-> case you would definitely be safe.
-> 
-> I checked with and without the hack and it gives the same answer both times:
-> 
-> 	#define PIE_E0_ASM 5769270003974144000 /* PIE_E0 */
-> 	#define PIE_E1_ASM -3708698853797527552 /* PIE_E1 */
+diff --git a/arch/arm/boot/dts/nxp/imx/imx7d.dtsi b/arch/arm/boot/dts/nxp/imx/imx7d.dtsi
+index 0484e349e064..d961c61a93af 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx7d.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx7d.dtsi
+@@ -48,7 +48,7 @@ cpu0_opp_table: opp-table {
+ 
+ 		opp-792000000 {
+ 			opp-hz = /bits/ 64 <792000000>;
+-			opp-microvolt = <1000000>;
++			opp-microvolt = <1000000 950000 1250000>;
+ 			clock-latency-ns = <150000>;
+ 			opp-supported-hw = <0xd>, <0x7>;
+ 			opp-suspend;
+@@ -56,7 +56,7 @@ opp-792000000 {
+ 
+ 		opp-996000000 {
+ 			opp-hz = /bits/ 64 <996000000>;
+-			opp-microvolt = <1100000>;
++			opp-microvolt = <1100000 1045000 1250000>;
+ 			clock-latency-ns = <150000>;
+ 			opp-supported-hw = <0xc>, <0x7>;
+ 			opp-suspend;
+@@ -64,7 +64,7 @@ opp-996000000 {
+ 
+ 		opp-1200000000 {
+ 			opp-hz = /bits/ 64 <1200000000>;
+-			opp-microvolt = <1225000>;
++			opp-microvolt = <1225000 1200000 1250000>;
+ 			clock-latency-ns = <150000>;
+ 			opp-supported-hw = <0x8>, <0x3>;
+ 			opp-suspend;
+-- 
+2.43.0
 
-Alright, will drop these PTE_MAYBE_* defines.
-
-> 
->>
->>> should be changed since we are now in C code so the "can only be used from C
->>> code" bit doesn't really make sense.
->>
->> Dropped that. Does this look better ?
->>
->> 	/*
->> 	 * The PROT_* macros describing the various memory types may resolve
->> 	 * to C expressions if they include the PTE_MAYBE_* macros. The PIE_E*
->> 	 * constants below are also defined in terms of those macros, but will
->> 	 * mask out those PTE_MAYBE_* constants, whether they are set or not.
->> 	 * So #define them as 0x0 here so we can evaluate the PIE_E* constants
->> 	 * in asm context.
->>  	 */
-> 
-> Yeah that works if leaving it in.
-> 
->>
->>>
->>> Thanks,
->>> Ryan
->>>
->>>> +
->>>> +  DEFINE(PIE_E0_ASM, PIE_E0);
->>>> +  DEFINE(PIE_E1_ASM, PIE_E1);
->>>>    return 0;
->>>>  }
->>>> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
->>>> index fb30c8804f87..80d470aa469d 100644
->>>> --- a/arch/arm64/mm/proc.S
->>>> +++ b/arch/arm64/mm/proc.S
->>>> @@ -512,26 +512,11 @@ alternative_else_nop_endif
->>>>  	ubfx	x1, x1, #ID_AA64MMFR3_EL1_S1PIE_SHIFT, #4
->>>>  	cbz	x1, .Lskip_indirection
->>>>  
->>>> -	/*
->>>> -	 * The PROT_* macros describing the various memory types may resolve to
->>>> -	 * C expressions if they include the PTE_MAYBE_* macros, and so they
->>>> -	 * can only be used from C code. The PIE_E* constants below are also
->>>> -	 * defined in terms of those macros, but will mask out those
->>>> -	 * PTE_MAYBE_* constants, whether they are set or not. So #define them
->>>> -	 * as 0x0 here so we can evaluate the PIE_E* constants in asm context.
->>>> -	 */
->>>> -
->>>> -#define PTE_MAYBE_NG		0
->>>> -#define PTE_MAYBE_SHARED	0
->>>> -
->>>> -	mov_q	x0, PIE_E0
->>>> +	mov_q	x0, PIE_E0_ASM
->>>>  	msr	REG_PIRE0_EL1, x0
->>>> -	mov_q	x0, PIE_E1
->>>> +	mov_q	x0, PIE_E1_ASM
->>>>  	msr	REG_PIR_EL1, x0
->>>>  
->>>> -#undef PTE_MAYBE_NG
->>>> -#undef PTE_MAYBE_SHARED
->>>> -
->>>>  	orr	tcr2, tcr2, TCR2_EL1_PIE
->>>>  	msr	REG_TCR2_EL1, x0
->>>>  
->>>
-> 
 
