@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C49FFC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 14:28:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71A7BC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 14:34:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l94fvJs4daZVvI5xF47uHe2QvDzbrKRGqVtD3TI8CH4=; b=JZs1+R+EUUFKUQtKZ15kxhhysi
-	46qSUMRlpunCrxQ0RSmdl61tHOUNLS1EAftAY0UeVrKpyOv1bQVkEmn7DXiAqN93e0oTMeZXHxxsY
-	J3qLJhKTfqJ98RJ9zV3B4iO14Pu3yy2SNouIfKRp4Q5X/KdI3RiBkBDacQ8PpOFCSLo/yv9hK0nFd
-	P/SDXL2MQhmtQdW2GsrNaCRcAj7NqAmJ9Wz7o3g3gMJsODox0LtgKb8ohMcYwVuDM46THM+15/w+O
-	57xvvWjYTw0q08k6NhS37EHOERBySdU2/F4NQIAHS3Fw8ik5u66X2KcP8e71JFkG7nIroE35h36MU
-	0L/npbdQ==;
+	bh=U3GEbJiWXV9b1fuX8u/LXLdwA8q1DhCUgWs2zybLksA=; b=L/R3FBZfxIlodRzfaV7hWaLLAf
+	Fii0FD2Tn6xB/KkrgBfllLA9VbKf6nXv+HyXgno/Iy7SVXbk1NftTBcklbGp+WPIIJHUahAyS1Yeh
+	SKv+Vk5GjUqShLemroAJfACyIt1gQ48z6LsiYAxLU5gZ0v02nM1lfsjep4Jxv359NyGzzEkLipg79
+	xXHuVk6ck6eVZlr8m5tGu4w/XcC42hjtwsc/yNFo8SE47bECtqbeUA1ahEjnMjgvkzuLYxZmCq8AG
+	IB0k0alHR+1aV/2cYUz940buGgpuQ8NbegLly8+X8DL1K5kPENy7ix1HrpURqjejkDDp5bAHxNdO8
+	UKAbSzPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8K2j-0000000HRMP-0kSK;
-	Fri, 25 Apr 2025 14:28:41 +0000
-Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
+	id 1u8K8D-0000000HS7L-1JyM;
+	Fri, 25 Apr 2025 14:34:21 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8J6S-0000000HHJf-46Fl
+	id 1u8J6u-0000000HHQS-0Y5y
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 13:28:30 +0000
-Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-7fd35b301bdso2750781a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 06:28:28 -0700 (PDT)
+	Fri, 25 Apr 2025 13:28:57 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-301e05b90caso2335623a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 06:28:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745587708; x=1746192508; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1745587735; x=1746192535; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=l94fvJs4daZVvI5xF47uHe2QvDzbrKRGqVtD3TI8CH4=;
-        b=lskEtMgrPf8qW9cuqYr6p6R2APY89ira5slZ84BjSMbTjmW6J3nIwXAabd4MXfzbGW
-         1QOWNd6DUC2wLjHkWyCHTh69h9ZTOstliy9cnuZ797i8DUtLywR9MUZEMUF/YlkCOdcv
-         7uIAY2fQ6pWGOPtqDuiYS4xU9+bI7wqOio71RLRHVjlO9g1g4r79lm9RkSgi2SOeARYw
-         zxnPIaGiz1ELzixbsSR1dhOhL4btiuw7+JLSV6Osaw1jY7L3wsGLJfMZz+xgWF8rR7hz
-         Ej+f1jcDoIAdMhwRHyaMceIgbcVGjyZX0/x1YvZ7fnf1LAGtWWh4jdDUIb0xFNm3STdd
-         3BIQ==
+        bh=U3GEbJiWXV9b1fuX8u/LXLdwA8q1DhCUgWs2zybLksA=;
+        b=TMl04DMrPBWYyEKcDaA80199pswwfPuzaVinBCC1PInPGpLXokUY9Rw1+BwoL2BX6l
+         okztJbKsw++cBIeInMrDHgJOEV+sMa1n9/mAcT0NsI9Fx1wK3O9QXgwVNdfGnNxCqc5T
+         R6JgIkuqMHv7s8Aj3hxqhVSRTnM4SCP85z5P2NE1/CA8gaBQl5p02z4fuPCzAgUUWHUR
+         f8DRLUzcdN8cpGVLAUyYa2ArKRU3OnAA44YaFxMDIy9fiezhfKNDRc0groCbjKnoaJ35
+         s1N1Vju0CYo9Q7E4o7N5Nd0ynGZlyZNg9TxJzVbzOA+3xwYt15roJ4kWkssjL7O5NxQV
+         mcjA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745587708; x=1746192508;
+        d=1e100.net; s=20230601; t=1745587735; x=1746192535;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=l94fvJs4daZVvI5xF47uHe2QvDzbrKRGqVtD3TI8CH4=;
-        b=t72AY+dPUxNYPeCvMFgBVhc+greRWRf0YbwoZhA+BlQa6oCskgWq3YlUr/uIVkaDIy
-         Cd8VphhqdjZU+2Al7wHjT0wCAIYsjbqjPASNOOYngiazFlXziVGaJeegU8533q0uhUjN
-         YIaq2rpmB6i6Chmhy0RqRlqOYWVVcUIusjQ2TeKHXHHZ1ha61PpfKj95LM039cVU/ohR
-         Jw8tbYmesbnc4sHrbSvYKKpfsow1rs/+dG0Fhy6pwDS/HRMBWM7Y2M3kbGM2xG0cvfUP
-         /bMapVCkpLshR4nGOs3icRV2X+4/lnFu6kJ62EkCLocRGgfdSCHzyuKGz0eJJZA14X9T
-         X82g==
-X-Forwarded-Encrypted: i=1; AJvYcCVbMp+ALJntULA7tbaDLoB2MhVc5OZ6f5pHqPB6t35FFb/4iyVDH4owbnEqTkun0AJoGtC4Ot4eJYkrKVQLP5pU@lists.infradead.org
-X-Gm-Message-State: AOJu0YxKHHzF9Qsy/HeMR7ixw21xz9iP0aQc+KYS4TX8IaIxdZckjQ3s
-	wF7v4kMD09QE0cvuW5MSLFLzRVHfkQy3y+A9kcKa2PG2D5cylxZO
-X-Gm-Gg: ASbGnctb8PR61AQq68NJz0QPpPSpdzCJU4BjcctIWNAgznr3fjkEAcIZ6rq75QcmuyZ
-	Iq/QqAlIlZeeNIVmggEaXnBpxAgJ32j0j/kYM5FnUjYVvaBOXBdxPhfTTSAZikq9EXAAZZx4Llu
-	mR3apRVyaMNDUeWZj21GvVrnH65ELCwhqLqIOq8BxjV/eJUJKkcu1WP1ytFu3onVJXBT5cc9mW2
-	tl6Zx802Jvt9Y4c87aUmfAM8v/04x8FDXv5SjYD/3pyfoZeD/06euNMkTMtACvHTBziAAxg5nSC
-	z25RsFZj4/zxTi30rNnw9Io2yydVx+9+t9R+RqU4ew7IpPSWgycAqQ==
-X-Google-Smtp-Source: AGHT+IHZk//aX1Nythqxr2CigBoZw9Zr8jeiTQwIrF2Sb5trevqSTK8qfuMg1eiI7z5y82nmYsHj7w==
-X-Received: by 2002:a17:90b:2705:b0:2ee:8ea0:6b9c with SMTP id 98e67ed59e1d1-309f7de019bmr4539523a91.12.1745587707978;
-        Fri, 25 Apr 2025 06:28:27 -0700 (PDT)
+        bh=U3GEbJiWXV9b1fuX8u/LXLdwA8q1DhCUgWs2zybLksA=;
+        b=ken7PmjEHAjvg5Ls5YWuh/VB472VGZDpdacDDa9ZyA9JWN6oXE7bVGNOGkWhh4S0El
+         sJ7DURnn0aveI7BdyJKAGDglDMzlMOHXu8X5bBRfN1Hb7LPBHpFky8oL37Dl/PrygHUy
+         L/QV56eivYZodPdLRqeWnqW30/SmNC/OV1Z6v8uHWquYmlfyJBvztERX2uugRAsg2ONu
+         +piEUYwkoW1RNOJAQrIXtdg60jqH8v3lfbff8TdXsxjmqdyvRU1bcdwUFKkE4hkf3sRG
+         fv+FrHnKNuoR2A+WVJQI11kgmKEm31BVERP6C6fkD2Wm+TrbLBWGz8SAQNe6frZ8rXjW
+         IBaA==
+X-Forwarded-Encrypted: i=1; AJvYcCXKsfhtyD7ldQGWTkL8uYQib+2iVT7GWhD02jh34t0s+kbXARQXoWjkTIjFufWy7xr2bdaDJhtat1LblnuOEo/5@lists.infradead.org
+X-Gm-Message-State: AOJu0YyusFI4al8EA5uYyxnF72hrz/Vbzq6WnYNxx2VjOEtEE81DZMjF
+	7nV+WNR3wmLGEWnWfWe8AqQsoDXXZ+gVLwMuwXCelLdJPw3NubTq
+X-Gm-Gg: ASbGnctDSPf9rVzmBg1LyaIwUI93Ob5Un3N/nAEzCsLHxNVugg/qLUgEjSLnkVSSD89
+	Az/3XA0RSVFbjpw8Ldt4KsLrYVJFGP8NmGab3uDiErW4vkv0QEAb/tV4NXpmll0bD2KpqvRxmO7
+	tQRr3FbepSUjtja+a8mEZmzFbVMkvk0dmkAkbCOWUXSbbsxt2K9G0mCM5naiCJvyow81m8cfKyG
+	92MdBJdFyMJPQhWqCz6U5W9e7nP6gFDZFthQzgOtUffR+nYIOgjroevzr2WVXtMVhIoG/e23/db
+	IDXZeDQh40y9bzD6ei9TcrX0d05VSHy9Exofwk5NyiMI1WGmTfeKlA==
+X-Google-Smtp-Source: AGHT+IHVqQyL9yHnD5wGAhRJP0fI3BxEExGHqelTRbyUpRiHzjzSj3ubBlLL93k+wof+NtwrNid62g==
+X-Received: by 2002:a17:90b:57eb:b0:2f8:49ad:4079 with SMTP id 98e67ed59e1d1-309f7da5af5mr3905732a91.6.1745587734998;
+        Fri, 25 Apr 2025 06:28:54 -0700 (PDT)
 Received: from localhost.localdomain ([110.44.101.8])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-309f7752a03sm1564313a91.18.2025.04.25.06.28.23
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-309f7752a03sm1564313a91.18.2025.04.25.06.28.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Apr 2025 06:28:27 -0700 (PDT)
+        Fri, 25 Apr 2025 06:28:54 -0700 (PDT)
 From: Anand Moon <linux.amoon@gmail.com>
 To: Chanwoo Choi <cw00.choi@samsung.com>,
 	Krzysztof Kozlowski <krzk@kernel.org>,
@@ -82,17 +82,17 @@ To: Chanwoo Choi <cw00.choi@samsung.com>,
 	linux-arm-kernel@lists.infradead.org (moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES),
 	linux-samsung-soc@vger.kernel.org (open list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES)
 Cc: Anand Moon <linux.amoon@gmail.com>
-Subject: [PATCH v1 05/10] ARM: dts: exynos: Add rtc clock definitions for MAX77686 PMIC for Exynos4412 p4note
-Date: Fri, 25 Apr 2025 18:56:25 +0530
-Message-ID: <20250425132727.5160-6-linux.amoon@gmail.com>
+Subject: [PATCH v1 08/10] ARM: dts: exynos: Add proper regulator states for suspend-to-mem for Exyno5250 smdk5250
+Date: Fri, 25 Apr 2025 18:56:28 +0530
+Message-ID: <20250425132727.5160-9-linux.amoon@gmail.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250425132727.5160-1-linux.amoon@gmail.com>
 References: <20250425132727.5160-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_062829_012382_928B4E72 
-X-CRM114-Status: GOOD (  14.87  )
+X-CRM114-CacheID: sfid-20250425_062856_168584_F7CF1ABD 
+X-CRM114-Status: GOOD (  15.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,41 +107,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MAX77686A includes a crystal driver with an external load capacitance.
-When enabled, the crystal driver starts in low power mode. The
-LowJitterMode bit controls the crystal driver, allowing it to switch
-between low power mode and low jitter mode (high power mode).
-Setting the LowJitterMode bit to 1 activates low jitter mode on
-three channels simultaneously. These three 32khz buffer outputs
-(32KHAP, 32KHCP, P32KH) are independently enabled/disabled over I2C.
+The MAX77686 PMCI is able to power down and up key core supplies and other
+voltage rails via PWRREQ signal to enter / exit (deep) sleep mode.
+PWRREQ status is ignored during initial power up and down processes.
+All programming must be done before the AP enterns the sleep mode by
+pulling PWRREQ low since the AP does not have programming capability
+in (deep) sleep mode.
 
-The 32khz_ap output is typically routed to the AP Processor, while the
-32khz_cp and 32khz_pmic outputs are intended for BT, WLAN, BB,
-or peripheral chipsets.
+Add suspend-to-mem node to regulator core to be enabled or disabled
+during system suspend and also support changing the regulator operating
+mode during runtime and when the system enter sleep mode (stand by mode).
+
+Regulators which can be turned off during system suspend:
+	-LDOn   :       2, 6-8, 10-12, 14-16,
+        -BUCKn  :       1-4.
+Use standard regulator bindings for it ('regulator-off-in-suspend').
 
 Signed-off-by: Anand Moon <linux.amoon@gmail.com>
 ---
- arch/arm/boot/dts/samsung/exynos4412-p4note.dtsi | 7 +++++++
- 1 file changed, 7 insertions(+)
+ .../boot/dts/samsung/exynos5250-smdk5250.dts  | 56 +++++++++++++++++++
+ 1 file changed, 56 insertions(+)
 
-diff --git a/arch/arm/boot/dts/samsung/exynos4412-p4note.dtsi b/arch/arm/boot/dts/samsung/exynos4412-p4note.dtsi
-index 28a605802733..ad0abe8d9e30 100644
---- a/arch/arm/boot/dts/samsung/exynos4412-p4note.dtsi
-+++ b/arch/arm/boot/dts/samsung/exynos4412-p4note.dtsi
-@@ -432,6 +432,13 @@ max77686: pmic@9 {
- 		reg = <0x09>;
- 		#clock-cells = <1>;
- 
-+		max77686_osc: clocks {
-+			compatible = "max77686-rtc";
-+			#clock-cells = <1>;
-+			clock-output-names = "32khz_ap",
-+				"32khz_cp", "32khz_pmic";
-+		};
+diff --git a/arch/arm/boot/dts/samsung/exynos5250-smdk5250.dts b/arch/arm/boot/dts/samsung/exynos5250-smdk5250.dts
+index d41409019671..866e56915a2a 100644
+--- a/arch/arm/boot/dts/samsung/exynos5250-smdk5250.dts
++++ b/arch/arm/boot/dts/samsung/exynos5250-smdk5250.dts
+@@ -165,6 +165,10 @@ ldo2_reg: LDO2 {
+ 				regulator-min-microvolt = <1200000>;
+ 				regulator-max-microvolt = <1200000>;
+ 				regulator-always-on;
 +
- 		voltage-regulators {
- 			ldo1_reg: LDO1 {
- 				regulator-name = "ldo1";
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
+ 			};
+ 
+ 			ldo3_reg: LDO3 {
+@@ -191,6 +195,10 @@ ldo6_reg: LDO6 {
+ 				regulator-min-microvolt = <1100000>;
+ 				regulator-max-microvolt = <1100000>;
+ 				regulator-always-on;
++
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
+ 			};
+ 
+ 			ldo7_reg: LDO7 {
+@@ -198,12 +206,20 @@ ldo7_reg: LDO7 {
+ 				regulator-min-microvolt = <1100000>;
+ 				regulator-max-microvolt = <1100000>;
+ 				regulator-always-on;
++
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
+ 			};
+ 
+ 			ldo8_reg: LDO8 {
+ 				regulator-name = "P1.0V_LDO_OUT8";
+ 				regulator-min-microvolt = <1000000>;
+ 				regulator-max-microvolt = <1000000>;
++
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
+ 			};
+ 
+ 			ldo10_reg: LDO10 {
+@@ -211,18 +227,30 @@ ldo10_reg: LDO10 {
+ 				regulator-min-microvolt = <1800000>;
+ 				regulator-max-microvolt = <1800000>;
+ 				regulator-always-on;
++
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
+ 			};
+ 
+ 			ldo11_reg: LDO11 {
+ 				regulator-name = "P1.8V_LDO_OUT11";
+ 				regulator-min-microvolt = <1800000>;
+ 				regulator-max-microvolt = <1800000>;
++
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
+ 			};
+ 
+ 			ldo12_reg: LDO12 {
+ 				regulator-name = "P3.0V_LDO_OUT12";
+ 				regulator-min-microvolt = <3000000>;
+ 				regulator-max-microvolt = <3000000>;
++
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
+ 			};
+ 
+ 			ldo13_reg: LDO13 {
+@@ -235,18 +263,30 @@ ldo14_reg: LDO14 {
+ 				regulator-name = "P1.8V_LDO_OUT14";
+ 				regulator-min-microvolt = <1800000>;
+ 				regulator-max-microvolt = <1800000>;
++
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
+ 			};
+ 
+ 			ldo15_reg: LDO15 {
+ 				regulator-name = "P1.0V_LDO_OUT15";
+ 				regulator-min-microvolt = <1000000>;
+ 				regulator-max-microvolt = <1000000>;
++
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
+ 			};
+ 
+ 			ldo16_reg: LDO16 {
+ 				regulator-name = "P1.8V_LDO_OUT16";
+ 				regulator-min-microvolt = <1800000>;
+ 				regulator-max-microvolt = <1800000>;
++
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
+ 			};
+ 
+ 			buck1_reg: BUCK1 {
+@@ -255,6 +295,10 @@ buck1_reg: BUCK1 {
+ 				regulator-max-microvolt = <1300000>;
+ 				regulator-always-on;
+ 				regulator-boot-on;
++
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
+ 			};
+ 
+ 			buck2_reg: BUCK2 {
+@@ -263,6 +307,10 @@ buck2_reg: BUCK2 {
+ 				regulator-max-microvolt = <1350000>;
+ 				regulator-always-on;
+ 				regulator-boot-on;
++
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
+ 			};
+ 
+ 			buck3_reg: BUCK3 {
+@@ -271,6 +319,10 @@ buck3_reg: BUCK3 {
+ 				regulator-max-microvolt = <1200000>;
+ 				regulator-always-on;
+ 				regulator-boot-on;
++
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
+ 			};
+ 
+ 			buck4_reg: BUCK4 {
+@@ -279,6 +331,10 @@ buck4_reg: BUCK4 {
+ 				regulator-max-microvolt = <1300000>;
+ 				regulator-always-on;
+ 				regulator-boot-on;
++
++				regulator-state-mem {
++					regulator-off-in-suspend;
++				};
+ 			};
+ 
+ 			buck5_reg: BUCK5 {
 -- 
 2.49.0
 
