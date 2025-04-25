@@ -4,73 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45624C369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 19:50:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 851D4C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 19:52:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G6WkyjIM6JJr1zT7YnCAra6NvTRkyDobXnkB7/hgoLI=; b=V6fybly9JyuBd2TQt2E4gGmjEY
-	1wF4JCSOu+1pk0TTstqXRmWcVHD1v7GBi2Z/07Xguo/nEMlZu8qZaRY/Izv8VjITimD1vT8OisdIw
-	uAycV3x4VR1lecqrdhVUAXlJ7Ei9iOG9Tivcv6MvrfIlyvqRoPu22PuPVg7ztKn2dXXXL7aRsaUYv
-	azacJwWwaBiv6QimkGfL4IeKP70z1L0fSMuWJHiFjeH5KweyPPkJHa8LGCY12cWQWIEcte6PbknGI
-	JAn9W5M2WibLKSNK6xxItJqF6yMWFVGtiL42sq1do24VQsyu/VaRqb9ypaUpb2pou5CYkJXg42onq
-	ZDMmQ+AQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L41qun/d37XTtsEg+ZVhoV/JMZlwEjni6Qps1eVyTnw=; b=1pp5bdb1yGsLqfvFUPwM7jePUd
+	W/vzcDP3q8DOX/RPcsTNkcsB50+Q1RAOTdRcexzjjLqd+UgTNuAR3QlhQ3nEtQwt08eiqGpJXw+xQ
+	G68LEVmWBTOepI72XrljBUfEnOLiAchJ0bsUbvIMF7DzZ2YxFw37J5KfwEMwISEZqz4I1xm8obB7u
+	xfSYKR38qAKSqDRevYBYw9A5IoKeckQOmuDLfUrnMQoVnRVrZA/06Vh3pqm/8yJx7A/FL0kJLQdaP
+	HnJUkjYtLThJAw67ewyYsrAy2XWa+/lZOb8zlfaVs++rXAClZGjGzyZ73ss7ddhobWear9HDOXMMs
+	noK8EiEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8P4J-00000000igC-06Nq;
-	Fri, 25 Apr 2025 19:50:39 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1u8P69-00000000j3h-0PUx;
+	Fri, 25 Apr 2025 19:52:33 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Ops-00000000fYl-2rHl;
-	Fri, 25 Apr 2025 19:35:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1745609732; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=McvM/5S/gudmAvogvJYT0yoqtZLnRN40s9bXXHlvL67PHEcnw7xpKBAPDCcRJlAUNWhiV5AILJ9nD4IRaTJzcvG4BJjbQjdzmyuLTDMFsomkjUZE81TF7KpdVVNnXisI5PngPQmGgf0FXE/w+ra2zt0rYyNHZSH1yt6CjDVGX6w=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1745609732; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=G6WkyjIM6JJr1zT7YnCAra6NvTRkyDobXnkB7/hgoLI=; 
-	b=fz9a52cGJvDD35pNj1DEF6CoWdZyZ0UxT67U/klgz6oyV9cw2BSKZyVjJ1HbXboKyDuVFSfSDSCwls29ULeecb23gtfP8Fhc72L3MmlKbSZF3MSs9YAObQHLgl4QToCzcZgm9uhW+88RDNqNxozq6BHodRftEVLVwxyDpqNZ1jU=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1745609732;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=G6WkyjIM6JJr1zT7YnCAra6NvTRkyDobXnkB7/hgoLI=;
-	b=GNIWyK0pHy0ghHmQQrpGnPIUBz6duDhzalEWJ75VwQFzs/zd7K5/5e0wJjPYd+in
-	Gs8el+NHGVSKNnIwv4g96BT1HHE8TKp1RWVlysIhEUckcLV/RA3Lh/mTJGBapQZNhiW
-	T+G3pt9ir6TumFuvTiXscaVRSkl/FWed1P/vcGn0=
-Received: by mx.zohomail.com with SMTPS id 1745609730234755.6078636363667;
-	Fri, 25 Apr 2025 12:35:30 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Fri, 25 Apr 2025 21:34:41 +0200
-Subject: [PATCH v5 7/7] arm64: dts: rockchip: Add thermal trim OTP and
- tsadc nodes
+	id 1u8OqD-00000000fep-0Em2
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Apr 2025 19:36:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 091755C6B41;
+	Fri, 25 Apr 2025 19:33:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C59AC4CEE4;
+	Fri, 25 Apr 2025 19:36:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745609763;
+	bh=GMKQHRQsZMaW/x2X5GFzFoiYvbdCI9YX8hUQDYTxlO4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GtlD/6Ju5P6YQPrb+MTpihTNuhnbgXni2oofRGIHrFloLKLC/8/OVz5hY6giij2/W
+	 E8BWpwFHg+ZvzhO+lOqgCXBOqfx/3iqo6dE78CeZTzcpm7jybv7XFSRkYnUa6lPS2G
+	 7Y3Q2Y2SFF1uUURsiDK5DV5dTAyW/3xr9G8uJd0tyYAjGaDP1qCkao5lLi8ZVWKJxV
+	 8nKneNzLxvyszz0GSZtbPwNnlaSUbI1VfJDsnnMopaah7jchedKDwpjBmzh+R6KWU3
+	 sFzz59K6/cAkRN0a7vjonwaUtACF3B3Impe0wAlIVrbvVs8+cmPWv63vAm8RGYpnN7
+	 Tme7TAv3wBeHA==
+Date: Fri, 25 Apr 2025 14:36:01 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Andrew Davis <afd@ti.com>
+Cc: Vignesh Raghavendra <vigneshr@ti.com>,
+	Jan Kiszka <jan.kiszka@siemens.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Tero Kristo <kristo@kernel.org>, Nishanth Menon <nm@ti.com>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/3] dt-bindings: mfd: ti,j721e-system-controller: Add
+ compatible string for AM654
+Message-ID: <174560975726.2869977.1530781618642734702.robh@kernel.org>
+References: <20250421214620.3770172-1-afd@ti.com>
+ <20250421214620.3770172-2-afd@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250425-rk3576-tsadc-upstream-v5-7-0c840b99c30e@collabora.com>
-References: <20250425-rk3576-tsadc-upstream-v5-0-0c840b99c30e@collabora.com>
-In-Reply-To: <20250425-rk3576-tsadc-upstream-v5-0-0c840b99c30e@collabora.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, 
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Jonas Karlman <jonas@kwiboo.se>
-Cc: Sebastian Reichel <sebastian.reichel@collabora.com>, 
- kernel@collabora.com, linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250421214620.3770172-2-afd@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_123544_782745_9F16BA2D 
-X-CRM114-Status: GOOD (  10.36  )
+X-CRM114-CacheID: sfid-20250425_123605_132916_B69E39C4 
+X-CRM114-Status: GOOD (  11.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,94 +78,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks to Heiko's work getting OTP working on the RK3576, we can specify
-the thermal sensor trim values which are stored there now, and with my
-driver addition to rockchip_thermal, we can make use of these.
 
-Add them to the devicetree for the SoC.
+On Mon, 21 Apr 2025 16:46:18 -0500, Andrew Davis wrote:
+> Add the child nodes that can be found under this node. Then as done for
+> other similar devices (J7200 and J721s2) add support for the AM654 system
+> controller to this binding.
+> 
+> Signed-off-by: Andrew Davis <afd@ti.com>
+> ---
+>  .../bindings/soc/ti/ti,j721e-system-controller.yaml | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
+> 
 
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
- arch/arm64/boot/dts/rockchip/rk3576.dtsi | 57 ++++++++++++++++++++++++++++++++
- 1 file changed, 57 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-index 1c07ad78c9230f1e46b0ef8817834f58b19eb86b..b95546163e1c54296edd3346469eed733b1670da 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-@@ -1708,6 +1708,30 @@ gpu_leakage: gpu-leakage@21 {
- 			log_leakage: log-leakage@22 {
- 				reg = <0x22 0x1>;
- 			};
-+			bigcore_tsadc_trim: bigcore-tsadc-trim@24 {
-+				reg = <0x24 0x2>;
-+				bits = <0 10>;
-+			};
-+			litcore_tsadc_trim: litcore-tsadc-trim@26 {
-+				reg = <0x26 0x2>;
-+				bits = <0 10>;
-+			};
-+			ddr_tsadc_trim: ddr-tsadc-trim@28 {
-+				reg = <0x28 0x2>;
-+				bits = <0 10>;
-+			};
-+			npu_tsadc_trim: npu-tsadc-trim@2a {
-+				reg = <0x2a 0x2>;
-+				bits = <0 10>;
-+			};
-+			gpu_tsadc_trim: gpu-tsadc-trim@2c {
-+				reg = <0x2c 0x2>;
-+				bits = <0 10>;
-+			};
-+			soc_tsadc_trim: soc-tsadc-trim@64 {
-+				reg = <0x64 0x2>;
-+				bits = <0 10>;
-+			};
- 		};
- 
- 		gic: interrupt-controller@2a701000 {
-@@ -2119,6 +2143,39 @@ tsadc: tsadc@2ae70000 {
- 			rockchip,hw-tshut-temp = <120000>;
- 			rockchip,hw-tshut-mode = <0>; /* tshut mode 0:CRU 1:GPIO */
- 			rockchip,hw-tshut-polarity = <0>; /* tshut polarity 0:LOW 1:HIGH */
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			sensor@0 {
-+				reg = <0>;
-+				nvmem-cells = <&soc_tsadc_trim>;
-+				nvmem-cell-names = "trim";
-+			};
-+			sensor@1 {
-+				reg = <1>;
-+				nvmem-cells = <&bigcore_tsadc_trim>;
-+				nvmem-cell-names = "trim";
-+			};
-+			sensor@2 {
-+				reg = <2>;
-+				nvmem-cells = <&litcore_tsadc_trim>;
-+				nvmem-cell-names = "trim";
-+			};
-+			sensor@3 {
-+				reg = <3>;
-+				nvmem-cells = <&ddr_tsadc_trim>;
-+				nvmem-cell-names = "trim";
-+			};
-+			sensor@4 {
-+				reg = <4>;
-+				nvmem-cells = <&npu_tsadc_trim>;
-+				nvmem-cell-names = "trim";
-+			};
-+			sensor@5 {
-+				reg = <5>;
-+				nvmem-cells = <&gpu_tsadc_trim>;
-+				nvmem-cell-names = "trim";
-+			};
- 		};
- 
- 		i2c9: i2c@2ae80000 {
-
--- 
-2.49.0
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
 
