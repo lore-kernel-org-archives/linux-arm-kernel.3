@@ -4,169 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6EECC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 02:53:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 467C6C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 03:02:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ly17wWta1PyoYdzOOu61ptPuUp/Zy4bwIEF+AJ6tvZ8=; b=ZQVI5RMCQi+wF7LZpBtkV7wHWl
-	TB/0OV8k+zkWT62gc8o26JzJ4EUjOiBO4Z/TJtYoW9mHWJpum8qw2A1GvznaIfKpu1LfpgW61pAVh
-	MmI+1SXMBg5M+i5ppYNO37UiGxFFEBdkJs2w+zOUbhY8Rjzadd3euURzwu3zRuhz75IxHtlgq4Cwl
-	IYEU3BEhtNCMpoophEfiek/FE7ONQDuIgCS/JE4T9DwW6KxkKqgxlag8n0Adz0XngqLwnuhwdmKvi
-	Uyst7EtAdPhEq8K6fosOeLTekRArWKLDrUdqyCIhNezO0QAR/Ja687f/qWzBhfzsWWt3Mtdlylgdh
-	MaZ9L6og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LVmXxPc0GsxJCoufkyTtR1wIh6N17gyPoDGVcYXM0fk=; b=x8SSfW0Hor61kkXDY7v25++PbH
+	8XJ9O0dOyf7w03kaFUALx11mt+NTQEFO9vvKbYpeAdVRi7w6gsKINbQtFCixvZu0QeL6NGZGdxLx+
+	INlJ9y5RfWQaZmCtg7y8GZaU6TIndkcqTGZhKrnWpYEF/YAoJJ7Zs6tMiVs4AtA0Ld8r7WE9bnoxN
+	HyIqgamQmzZwcqlTvnnaagxz8jKuSH45g0CxPr99z7XIkl4EhnL+3sKgIIHpflVNNFqLrnE37MMTC
+	GNXARGw+MTAM8mEtTjZ6Fn10fCgow7AxX395VitjVR0qJfvdrHobRlkBT7QnHKPZwAHP0MEDnro9B
+	INX0INug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u89C9-0000000FpAh-2NfM;
-	Fri, 25 Apr 2025 02:53:41 +0000
-Received: from mail-vi1eur03on20622.outbound.protection.outlook.com ([2a01:111:f403:260c::622] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
+	id 1u89KO-0000000FpZa-38fd;
+	Fri, 25 Apr 2025 03:02:12 +0000
+Received: from mail-m49197.qiye.163.com ([45.254.49.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u89AJ-0000000Fp62-00KP
+	id 1u89IX-0000000FpTe-2Tsu
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 02:51:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FfsWDiBeQ+yTMwwRWNGudgPIq1YxvstKg0V9zbqRoIVaDuT0GdNz/POa0qDK8apq1SkFSo137bWHoQ538AJV2Z0MkJ2iwIfhlRzI6KSt+G8wmBicAMXRfrrai1b10mpKDXPjrbbkxlVM8XDE96iG1aeWPaurrwBfXpljQOBEZIKZ+t14n/DCUsX75X0t8/ZxTSrM6ZQ/FDLPNm91PWf2MIqhPxErQBw2WfW4ACP4KGgcNymTtP4P9wqY5q0VdxbCpXqZ5xKravLjGwWtNuMup7BcGaOtsIRM8c+U3TmtcOb9PzV9tdmiApzpuhwAK75dZjifJym8IYiA6+lOq24qEQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ly17wWta1PyoYdzOOu61ptPuUp/Zy4bwIEF+AJ6tvZ8=;
- b=Fe59Exrm1JYa8bd3+cQJrCMGXWlB/AECXXoKV7yzh6JLabvsQ5Tq9ySpGqB5bKH3hpuBEO88Nkuq1NHELDuVluLX+MhzPvdxWRcE+/e1EVKqhWLUnl1rIZoU8umXBQZFrA+ZgewxmqkPsMQ1eDa7ifVDvNMxgVc+PD2zFbb1gbjrvUNflGndgyC/4xPf1l+vTa66bCxWOTYUUbV5vG/vHqbDbTb+5Doy/byu0lqCYjcOh1h2EgSbuyNHCZ1IoSJen4C3Gz734IW72NqIh816U/LSmW49mQCxeIGxJYSxd0FRq6TdY43oPF4lSthbsFb7FwoWFmE7LDWphxHuxMDAdQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ly17wWta1PyoYdzOOu61ptPuUp/Zy4bwIEF+AJ6tvZ8=;
- b=TvCqDN7c0p0bIbZe3j8pieDrEU0QcNF2nRUkkbwWO3K2MO+6q6FbTw/Nw8X0P7N0ULjI4HtLqRZNgO/Tri25H7hpqaUO7axx3rysncFvRfG56NMCYtINVJJoPOjEt8uqN4N0DeuyByciEQnWyB+8AoZqjbjrESPynV/59MuwUpVeGa/nHl8GyrGs3qReVjEdbauiVOvWswEtY4sPtSLIcgo+QLf5Tt+CnJhLMkYRgh67LTTc+jQfE+nz9AGzIf7CWsq6LRVVA2gwbRnhk8bF2AS6nppnqCKKFIytVYAIlpNFn8PhlLPKrTS93QMwJtkEmaCqGP0xtq/oCZpKyqYvcA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
- by DB9PR04MB9916.eurprd04.prod.outlook.com (2603:10a6:10:4ee::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.27; Fri, 25 Apr
- 2025 02:51:40 +0000
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87%4]) with mapi id 15.20.8678.025; Fri, 25 Apr 2025
- 02:51:40 +0000
-Message-ID: <cb5df47b-f0f9-4420-8d36-73ea5903d57e@oss.nxp.com>
-Date: Fri, 25 Apr 2025 10:51:28 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] media: amphion: Start decoding job when both queue are on
-To: Nicolas Dufresne <nicolas@ndufresne.ca>, Ming Qian <ming.qian@nxp.com>,
- mchehab@kernel.org, hverkuil-cisco@xs4all.nl
-Cc: shawnguo@kernel.org, robh+dt@kernel.org, s.hauer@pengutronix.de,
- kernel@pengutronix.de, festevam@gmail.com, linux-imx@nxp.com,
- xiahong.bao@nxp.com, eagle.zhou@nxp.com, tao.jiang_2@nxp.com,
- imx@lists.linux.dev, linux-media@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20240719075007.384342-1-ming.qian@nxp.com>
- <39053a9e0767289cf822beb350819d366994dd0a.camel@ndufresne.ca>
-From: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>
-In-Reply-To: <39053a9e0767289cf822beb350819d366994dd0a.camel@ndufresne.ca>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AM0PR06CA0111.eurprd06.prod.outlook.com
- (2603:10a6:208:ab::16) To PAXPR04MB8254.eurprd04.prod.outlook.com
- (2603:10a6:102:1cd::24)
+	Fri, 25 Apr 2025 03:00:19 +0000
+Received: from localhost.localdomain (unknown [119.122.214.249])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 131194130;
+	Fri, 25 Apr 2025 11:00:10 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: dlan@gentoo.org
+Cc: amadeus@jmu.edu.cn,
+	andre.przywara@arm.com,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	jernej.skrabec@gmail.com,
+	krzk+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	robh@kernel.org,
+	samuel@sholland.org,
+	wens@csie.org
+Subject: Re: [PATCH 1/1] arm64: dts: allwinner: correct the model name for Radxa Cubie A5E
+Date: Fri, 25 Apr 2025 11:00:06 +0800
+Message-Id: <20250425030006.45169-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250425023527-GYA50272@gentoo>
+References: <20250425023527-GYA50272@gentoo>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|DB9PR04MB9916:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1bd4b075-ae59-4ba8-cdd0-08dd83a419fd
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?U2ZmTVE2dUtCeEVVU2o4RmtxUU9EZElIQmpDU01UaC9XSVNzdTlSTVpEOEsv?=
- =?utf-8?B?eDBlZ1VIOURtTWliRUxuaWRGUGcvQkY2clFGcjFtbDYxRnN1TENOUDBRYWxw?=
- =?utf-8?B?QmRtOE1SMndraGZvUXZuOWRob0ZSdUhFL1NnQ3BEUTZFUXgvQnN5U2dsSzZr?=
- =?utf-8?B?Y3hLYzNyQVJpQzJFSWJ2VHZVR0o0RFl5Wm5kL0tjMHBCeFJpVzU0OC80Rjkr?=
- =?utf-8?B?ZC9HcjQxWXRUYUY4bUI5SVFmQzY2RHg4R2FWbjh5U2REWDhjcjMwejFnMkVa?=
- =?utf-8?B?dlFYWDV6UTU3R3hGUEd2MnEvVUxRL3VJOWw0NVhyUmphc3FFb1h3NmQybTh6?=
- =?utf-8?B?aEhhYTZMdncvbVF1WTlUeElsWU40Q0NIQVptaGhFOUpGMW1kWGRYZnlicENF?=
- =?utf-8?B?TTdvbDJmRXVabE9HaytFeXVTUzlhK3dXZ1pBM2NqN2VZd1VjSzdpU2o1U0JO?=
- =?utf-8?B?bjZkNEhQR1p3MDVoOGNMY3cvWG9ZYTJYVmlBWElxMGhIRzRVQkRMYXoyQk1p?=
- =?utf-8?B?OGxWSDJ5SEtRUGZrcy9YcWZwaGVmN094WFMyY2F5MWp6MlRqbENGQnVDcWM3?=
- =?utf-8?B?UHVLRG9FR29ZVTNWbmFSdWFQU3pUSEVUQ2xwWjc0aStWYktnUU5ZTThzdTMy?=
- =?utf-8?B?aGdGL3dnQWRRMk9nZzQyYmdNSDJvckpxTkY5OHo3SDZiZDcwQTM0bW0rYkNR?=
- =?utf-8?B?NU5GRCtKVkxvdHVhUncrT1F3cUF1T0RjaksyaFk0c1VJaXEzbUlOd3FPWUZ1?=
- =?utf-8?B?TlJIbUh4anVKNVpISjJsOFRQSzRTM2NadWZnN2w5M3R4cEY5TElpUjcwMmgy?=
- =?utf-8?B?Q3VMMnBWdkNXMmRWU1ArbjdmTWFHNVhTanBsc1U0bUpzdGZTNnZQck55V1NG?=
- =?utf-8?B?MkhXS0kwekVVeFVLWFlpZ28wMkhvd0hDOFdjQXFHTXZxbm5tckt0bnJyN0R4?=
- =?utf-8?B?eXMxeU5nY0ZEK1R2a2NYTkUwcllDbmF6dFF0bEcyNlNUVm5QSDRDa09Jcmlu?=
- =?utf-8?B?RGkzVXd4TUM0ZHNTd29XeVp1VXZDU3pGLzhlVE11K2pBaVBrb3k5M0JDbDFp?=
- =?utf-8?B?N1YzZDUyWXVGN1RvbWtXdHIvRDVpVjFHSjNyOXFjTjNHY2lDZ0ZGdlJnYlZl?=
- =?utf-8?B?dW1IWXZ1WnZja3JEWll6MEtyNHNXNXhUUkNUTUNCOUR4OXNocGVBZ2xMeVRz?=
- =?utf-8?B?TTNrYmpRdStFUlRUVEExL2dIaTJWWUdscWVScWUxSjlmd1RaZGt0NURDKzBJ?=
- =?utf-8?B?dWhWRWx3bEpBSi9aYXBKT095bkU0UUtGSy9kZjlQWE90Y2ZzVmxUaHNodm9h?=
- =?utf-8?B?YkxCczVTamZIdnBCNlorNHovbjBQaEJjVG1sV0NRbVJGQ3JDUzRkNlFZbEYy?=
- =?utf-8?B?MGdGSXdSVVlWOW90eUlrejF4V0pCWXZTWDhJc3Bxc1IwRUZTVlJOTnFaRCs3?=
- =?utf-8?B?bk9rYXBac0xFMUNTZ0FyTWRWOFp4Q29nYkxEbk9QdHFMUFY0NkxHUkl4aCtm?=
- =?utf-8?B?d0RlUzlyKzlJQmdoQTYvS091OGlPOE9HWGhEQyt6dC9iR2J6SEJmZ2Q2V2Ev?=
- =?utf-8?B?ZWt2dE9lVTM2VW9PeCtFbXVIT1c3dktGRWJPL0V0WnhqcnNocnhPa0E2dm5n?=
- =?utf-8?B?Z1NmbEFwMXVBZ284ZGZodk1iNG1vQ3JNT0hvM3oxWHVFbkUyVHVBU2d1VjZo?=
- =?utf-8?B?RVNZeWwzMXVkVnp1cHZYL2ExZHRSeE9WUWFwSlZCOGpWTkJWdU9iNEQ1VHRU?=
- =?utf-8?B?OWl3R2xpNFNhOXQrMkxYdXBGZnR2SFBZekFKQWFiL040RVREd25oWDJ5Y2do?=
- =?utf-8?B?V3RyQ0NwZmRsZCtmL0hVNHpSUHJja1lNdXlIZHNKUWFMeVpwdVNMdEJpNU1v?=
- =?utf-8?B?WmwyZ28rRmtYbjFjN2kzT2xSVHZmMTlDMjRKbGFCYXgzOUZnajNYZTJrL1g0?=
- =?utf-8?Q?DPr93fqxCm0=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bHJXamhEQjRSajAwREI4blJEK1JqNkN1ZFZXVy9lR3diVmtSSEdROFhkYVFK?=
- =?utf-8?B?eXlNTjB4c2ZwUWpiY0M3TnNseDdBWUt4L2s0UTM4ZzNrUEQ4ZjN0dUJNK3JI?=
- =?utf-8?B?cG0rdHM0S3RkQ3h1VmdPNmRQWUJURUJJaWEzUHNHZzQyUG12OHhoc1djaUxY?=
- =?utf-8?B?ZWdxZzY0c21uaEtqN2hMcnBaeVZHNmJlQVpEeGI4Q1c5MkZzSEdZejdLWkUz?=
- =?utf-8?B?dWJ2TysxdHhHbitrMVgvQVFqVU4zSkVDMityWk8rMEVvR0pycWh6SFkrSFlo?=
- =?utf-8?B?ak52NE51ai93YWpUZHhIdFdlMEhmVE1wVWFqOXQ4ZUZVWDRlQU5KNG5qaHVG?=
- =?utf-8?B?SzV2R2hQRWhZSExSUkdnMXh4bUpabTIxZjlXRTlxTlZWOXlZSS9FUU5QTlph?=
- =?utf-8?B?VEhhUEt3bEdFYXRrRkExc0pJZFZjbUF1RVk5M1Ztam9WQjhWb3hWb2NWTTIx?=
- =?utf-8?B?MDBBWTdtdHp3am95c1p2Zkh5cG1rQXRub25vME1BUWJhYldwUy9oc3dTTkF3?=
- =?utf-8?B?SWNJZ2tyT0tMcXk3TE5jMTE2Q0xPOEp1MlZtV1c3R1lBamM3d1VmMnhLSjNi?=
- =?utf-8?B?OWdxNGh3ZDI1cGdtc2gyZGc3K3hyQmNJdEIxQ0JQaTFWdmd2RXRqY0dZNmxN?=
- =?utf-8?B?SmxBNnFHOHFFMXd3ajd6enNyYlNiY2tFVEFnbkZPRmZGMjBkVFpmbVpXUEVx?=
- =?utf-8?B?S2FEdlg5Q1JXK09ydy9tRnJKT1pwd2RNNTA3d0duRHUxcmxVaWtsOTJVaURD?=
- =?utf-8?B?Y1BwZkVFVklMZFlUdDFoNHROMGR4ajhQeDRWQk9ZakgyNVdSemYzK3pxOEc4?=
- =?utf-8?B?Uzh6SnNDR2dVM0liVTFIZDZocktyRjJFSGYreTlMc0ptRDZUSnRSVERBem8z?=
- =?utf-8?B?SWZaNE15TURmanRqRlRUZUZsakV5U21MdW92dk5uVTAweEFtUUxvZ0x2S0ho?=
- =?utf-8?B?bjVHSjQvalBYZWlSbWlERFRjd2E0VnhKRWs2bXcwKzh1TDh3eEw3Uml4ZmNF?=
- =?utf-8?B?bUJqYXhhZUJKYzlRVFE2UVcxazIyK242YTd5UXFUbDhjeXA3S05KU0NnOU1n?=
- =?utf-8?B?WVdPUkxiTHFNSVVtbGYvS3FQdVZMNjlpK0dKcGlkNGNHZGVuTGYxeE41YU42?=
- =?utf-8?B?VUpWM0E0R1JEOHk4MEtWbytxeCs0YW1id2FBZE84dzJJR1pxNVQyNVB2OFAz?=
- =?utf-8?B?aXQyT3lXWEdKaWluWHBGQ0VBMW1CL2F1T3psYnh3NXhqUGZ6WDhTZTRzZEt4?=
- =?utf-8?B?VnJzZkNjZjF6MnhaSkMvMEdvYWpsdjh0VFhMWC9kQjl5VUhYdVNZU0Y1RHFJ?=
- =?utf-8?B?ditQRVRUZ3lYVU9iUWNsWHZVZGpUTCtEYUdNeG0zcktTakhPS1ZZLy9YdWwv?=
- =?utf-8?B?TUpvY0p2MmcraWk1c00rbm1PVHJUNmJwWTh2NDUzUW9NY0dyb3p5NCtoRXhD?=
- =?utf-8?B?cXNHTVF5cG50VWNzMjYyNFdIbW9zR0dibU1PRjVFM1NwTVRhT3IrN3MvVHdz?=
- =?utf-8?B?ckx3VHE4RFlIbnF3cHJ5OUR0VFhIZHlZTUh1MXJsR05CL1hHYnBUazhRc1px?=
- =?utf-8?B?d2xZZ0VYeDJoaEZiMjRSZFMwRStSTXJybVl5aCt4R2NuL1pGZmZ5eTMrcFM4?=
- =?utf-8?B?RHhmdklFQlNSV254VUlQeHVIZGxmM1NJeFUyNDdaUys2NmZSRXFnZXA1SU85?=
- =?utf-8?B?ZnUzV2xndkZsZXlmeGhqOW83ZXp4Vld1c00wcGNsQisyTGpIYy8yeFZ2Yis4?=
- =?utf-8?B?YlVQNGptc3N3cURRUHJsYVhJVnIveEErS1U3aGpBWjR1cU5xV3liZ2VLNkIx?=
- =?utf-8?B?TW96Y0Z2OFgzVU5MZ2p1aHBlMEw3V3FPL3V2Nm9nNExtSkFGWmo3ekdwK0Fh?=
- =?utf-8?B?dVU5dk15V1pRZ3B1Tm1BZGRCRXEyTVRhQXRUWlQzeG5oVW1mNk5FdHdvNFpF?=
- =?utf-8?B?aFJxSSs1R2JDQUtkNmxqd2ZaVjRIVG8zWWJ3Y3pUYnJsY3ViTnp5S1oxOTY4?=
- =?utf-8?B?R3VQUE1JZnc5eDZzRExmN3I2bHFuTWw3dUV4MUY1YWVNb01iSGM5bjNVcXVN?=
- =?utf-8?B?K2JOSDhkZEdXcWJQbnBycWtyQ21oT2hVRm9tTVRjSGJjYnp0MWtTbWhwdzdC?=
- =?utf-8?Q?hv6BGXnQSolR/MCRachMQ4H9P?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1bd4b075-ae59-4ba8-cdd0-08dd83a419fd
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Apr 2025 02:51:40.5765
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: lskS89Q9ve7fufn6IG7Sr1nq3LCrF3+UHn6Bylxf6zEf1KhOzj9WlLPrSfWuwxj0seGsnKnhpAYc6rIkMO6O4w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9916
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZQkNJVk1OSEpPHktPTB5IGVYeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKT1VJT0JZV1kWGg8SFR0UWUFZT0tIVUpLSEpOTE5VSktLVU
+	pCS0tZBg++
+X-HM-Tid: 0a966ae36a7503a2kunm131194130
+X-HM-MType: 10
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PRw6FAw*GTIBSj83AzhNIlEK
+	FBIaCypVSlVKTE9OTk5LS0pJSklPVTMWGhIXVRoWGh8eDgg7ERYOVR4fDlUYFUVZV1kSC1lBWUpK
+	QlVKSUlVSUpPVUlPQllXWQgBWUFKS0NLNwY+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_195147_052067_4AA21486 
-X-CRM114-Status: GOOD (  31.38  )
+X-CRM114-CacheID: sfid-20250424_200017_810894_8A453B90 
+X-CRM114-Status: UNSURE (   6.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,116 +79,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-Hi Nicolas,
+> It seems I'm a little bit late for this, but while we are here,
+> Can we also append 'cubie' to dts file name?
+> e.g. - sun55i-a527-radxa-cubie-a5e.dts
 
-On 2025/4/23 3:46, Nicolas Dufresne wrote:
-> Hi,
-> 
-> Le vendredi 19 juillet 2024 à 16:50 +0900, Ming Qian a écrit :
->> Start the decoding job when both queue are on, except the for the
->> initialization sequence.
->>
->> Especially when seeking, the capture streamon may be called after output
->> streamon, driver will start to decode job immediately after output
->> streamo, if seek to a new resolution, then the source change flow may be
->> mixed with the seek, it will cause confusion, then may led to pipeline
->> hang.
->>
->> When both output and capture queue are on, it's ready to start the
->> decoding job, and it can avoid the above potential problem.
-> 
-> This commit message needs some work and I'm unsure I understand its
-> meaning. After reading the change, I am under the impression that you
-> simply say that once the seq_hdr is found, the driver should keep
-> delaying the processing of output buffer until the capture queue is
-> ready ?
-> 
+Usually we use the device name (without the vendor name),
+maybe sun55i-a527-cubie-a5e.dts would be better?
 
-I just want to do something like v4l2_m2m, that device_run() is only
-scheduled when both queues are ready.
+Thanks,
+Chukun
 
-I admit that this patch does not have any substantial functional
-changes.
+--
+2.25.1
 
-I think this patch can be discarded, as it is confusing.
-
-Thanks a lot for the review and comments.
-
-Regards,
-Ming
-
-
->>
->> Signed-off-by: Ming Qian <ming.qian@nxp.com>
->> ---
->>   drivers/media/platform/amphion/vdec.c | 18 +++++++++++++++++-
->>   1 file changed, 17 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/media/platform/amphion/vdec.c b/drivers/media/platform/amphion/vdec.c
->> index 6a38a0fa0e2d..ca8f7319503a 100644
->> --- a/drivers/media/platform/amphion/vdec.c
->> +++ b/drivers/media/platform/amphion/vdec.c
->> @@ -1363,6 +1363,12 @@ static int vdec_process_output(struct vpu_inst *inst, struct vb2_buffer *vb)
->>   	if (inst->state == VPU_CODEC_STATE_STARTED)
->>   		vdec_update_state(inst, VPU_CODEC_STATE_ACTIVE, 0);
->>   
->> +	if (vdec->seq_hdr_found &&
->> +	    !vb2_start_streaming_called((v4l2_m2m_get_dst_vq(inst->fh.m2m_ctx)))) {
->> +		vpu_trace(inst->dev, "[%d] capture is not ready, pend input frame\n", inst->id);
->> +		return -EINVAL;
-> 
-> I got really confused by this error return value. Its clearly not an
-> error, but just a delay. I think before we add more on top, you should
-> turn all these function for which the return value is unused to void.
-> And use a plain "return;" here. That applies to all similar ops.
-> 
->> +	}
->> +
->>   	ret = vpu_iface_get_stream_buffer_desc(inst, &desc);
->>   	if (ret)
->>   		return ret;
->> @@ -1555,6 +1561,16 @@ static int vdec_start(struct vpu_inst *inst)
->>   	return ret;
->>   }
->>   
->> +static void vdec_enqueue_pending_frames(struct vpu_inst *inst)
->> +{
->> +	int i;
->> +
->> +	for (i = 0; i < v4l2_m2m_num_src_bufs_ready(inst->fh.m2m_ctx); i++) {
->> +		if (vpu_process_output_buffer(inst))
->> +			break;
-> 
-> How well does this work ? Previous you made good care of interleaving
-> the processing output and capture, which I could imaging prevents the
-> hardware from starving ?
-> 
->> +	}
->> +}
->> +
->>   static int vdec_start_session(struct vpu_inst *inst, u32 type)
->>   {
->>   	struct vdec_t *vdec = inst->priv;
->> @@ -1573,10 +1589,10 @@ static int vdec_start_session(struct vpu_inst *inst, u32 type)
->>   	if (V4L2_TYPE_IS_OUTPUT(type)) {
->>   		vdec_update_state(inst, vdec->state, 1);
->>   		vdec->eos_received = 0;
->> -		vpu_process_output_buffer(inst);
->>   	} else {
->>   		vdec_cmd_start(inst);
->>   	}
->> +	vdec_enqueue_pending_frames(inst);
-> 
-> Was this intentional to reverse the STREAMON(CAPTURE) call flow to:
-> 
->    - process_capture() (inside vdec_cmd_start())
->    - proces_output() x n
-> 
-> Nicolas
-> 
->>   	if (inst->state == VPU_CODEC_STATE_ACTIVE)
->>   		vdec_response_fs_request(inst, false);
->>   
-> 
 
