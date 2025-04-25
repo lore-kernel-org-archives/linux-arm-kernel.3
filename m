@@ -4,66 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF855C369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 15:33:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 113E0C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 15:35:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RIB6iLDPCJcMmUiRYGBXhnlE9N8R0dT+TFD3aMt0v0Q=; b=4Y+Nm2tNLkSaMB6O2UGYkY6Y0z
-	a5YPVo8mbhVXUjTuvKnRdD5knV9XLOXftD4FbpB0KmfSulPg/nXVhx8osSt/ptjZOfwtwvGQ+aHhn
-	OxeHWWcQl6WL5y4FI1jelrHD7uwLvHqiqTO5+MGXPzq+D1WGvAzXXdzkqjSGatAgpIZiwqSilbmZn
-	9waej2xPS5kN1gx2W4VMcWj1n+vB/8R5SirHF5LMT6sEuJDsWIvodT2GR/10uJ5dnGJujdpy4o52U
-	bZe5YRZAe141iYLgdkF5P7tLQoYeNkKWLgtRaVsSUlXAlLei8QPPAE8xMZHNXTe8qHSLQyszcjk2m
-	8QL3OufA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7b2k/0/MRDFBkYnkScGuwVZ9DXdXvkWRFpO84oyIems=; b=dU5GITwk2Mt2BJ8tRMmAHOhMib
+	xmRQBqQFOxpxDoguMpDAxsUx40vzgQjcjjCRzxzMFb17NGG/w5lmz5WSKl8ehB/m27uwOWX/DQqKi
+	QH82WGUVWdIMNLHIRanwhJOEZAmmiESc6quXyGHt51UIHsy7fjscHh/ZVf2GmbRXZPAVKmxTyVO9L
+	e7FiCnKUUp0skCLEGBJiAuIXvCvHMtglG9l09iAWXa91iv3nDZPpjCkkjvhcZIksfa4zhG+fNVxgr
+	VjnphZW5bEd9qpoGcthZANPdJFVZ0yj8+pN8XooH9bBadIKU3k2gOfXxsjm1yHNPuD519sZelq0Ih
+	Fn9ZrYuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8L3K-000000003Yw-0Bmg;
-	Fri, 25 Apr 2025 15:33:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u8L5A-0000000040s-2il7;
+	Fri, 25 Apr 2025 15:35:16 +0000
+Received: from mail-ed1-f49.google.com ([209.85.208.49])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8JOg-0000000HL5e-1oua;
-	Fri, 25 Apr 2025 13:47:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DC61A6847B;
-	Fri, 25 Apr 2025 13:46:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C85DC4CEE4;
-	Fri, 25 Apr 2025 13:47:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745588837;
-	bh=qi5h6vjHGkHHkMx48KdWOPGfCyT72085egpIwqt06EU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QVkHX+kql50+epGydmhjz+95MQSE8WEDlV87c70IY7HI4V1UG99qCiZRm1luxGYeO
-	 BVUaapBHvKfebXlGIwSGgPRO1pnmU00p2MUxCjvBFZEvNQ0Wke+4d9nmwMNwSkqjeK
-	 7DvdYe2JdWwvsenW+3ms5MsvBk4A7gUXIGS614Xh0d3FeRP9g+JidG4w5MUU5wef+B
-	 u7JuJ2bVjV1wS5LpFglBj3eelV/u0rhDOWAQqec5PEBdJELIg64PiO6k90NX4ZRriR
-	 drDucaxBTBnQHYnuTN84bbCm6mX7qLCkKbxUde4DshAfnex+OCWaQYmKoHHZgOyCvw
-	 eF4uPsyzoOzqA==
-Date: Fri, 25 Apr 2025 15:47:10 +0200
-From: Niklas Cassel <cassel@kernel.org>
-To: Hans Zhang <18255117159@163.com>
-Cc: lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com,
-	heiko@sntech.de, thomas.petazzoni@bootlin.com,
-	manivannan.sadhasivam@linaro.org, yue.wang@amlogic.com,
-	pali@kernel.org, neil.armstrong@linaro.org, robh@kernel.org,
-	jingoohan1@gmail.com, khilman@baylibre.com, jbrunet@baylibre.com,
-	martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v2 1/2] PCI: Configure root port MPS to hardware maximum
- during host probing
-Message-ID: <aAuSXhmRiKQabjLO@ryzen>
-References: <20250425095708.32662-1-18255117159@163.com>
- <20250425095708.32662-2-18255117159@163.com>
- <aAtikPOYlGeJCsiA@ryzen>
- <a4963173-dd9a-4341-b7f9-5fdb9485233a@163.com>
+	id 1u8JP1-0000000HLB3-0TEH
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 25 Apr 2025 13:47:40 +0000
+Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-5e5dce099f4so2925890a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 06:47:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1745588857; x=1746193657; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=7b2k/0/MRDFBkYnkScGuwVZ9DXdXvkWRFpO84oyIems=;
+        b=IjIf7BtKOPwrGSCzinomsWUJbKINW+CYIM0gyMlQyT5+4wc+cwkBJN0yZHuWq5+6Yp
+         1jMU3pAI29dP9Ace3hZVGNkZDIo8Hdjs+v29IOuiFtPe3yjt9dA5f3wJYqEXnK4NOVk5
+         zAPxEiuyQGDQhJH/8ZmvP6LRbDKfkaHtjhYlQZIcgPCxxARKYMvqI1zo/esw5UVJMl5N
+         WKR/om552+3j1OOyQiZRuSfOydo90IX4SF6kPe0gPQbkYqO5aoVY4ndwtZ2CmCQYVkeI
+         u2P8dC0Zk/4wUOWkKKh23jLJ+M2stMMfQavOoJLPAbx10X9cxkcTkWvzVbBisgALJEFK
+         f2CA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745588857; x=1746193657;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=7b2k/0/MRDFBkYnkScGuwVZ9DXdXvkWRFpO84oyIems=;
+        b=vdO4QHvgKn3ba2NddpBHw3F3npe736qeh8NhTFmHmsH9/MpH8HFqU4dL/4biF/zjlK
+         vYj1JG5U78ISUPfte0v+OYesgYGjsGvYKaG0dpbXhEydNVJUciaQmB+xSXwO5E/1x68Y
+         mvk/TmBNaj/QLAMdyoGrqtmazDRxOI1IO1GhLSHio7rQu5LO9EIlANQm/JqQRbltIyz6
+         9Nh4GtYjNInfbVI28wiQwY9Gp19cMjmBPhq2BM7YkHhsNZv9EOth9hWr2V1Ka5/M7ywt
+         paT3yL8TY1USfAzGT98eB6UfvALdY0b/457niKCB/eFADfWvrsnv4ENnsD49TslEvV2S
+         KoIw==
+X-Forwarded-Encrypted: i=1; AJvYcCU2mrG0Ttgtti3dp7Rt206h3c1MZWzxwd0eQHKPw3ffT5ygA+U9rWN1LtGFUwiLTY+C5Wc6028n2fGBdUdNpqIx@lists.infradead.org
+X-Gm-Message-State: AOJu0YxE6GY8VeGTX+4OO6S96Ym7NQDvW9a2w1gFbLJ5o5UNMpB+Dvte
+	qRBbbm9PMjwTIYLpjH7jjV96jI92gX9xk9W3j96gR8I0vRqucp0aUE4Spg==
+X-Gm-Gg: ASbGncu3Sobrpx/b3CEn+RKT2y3LzyXk07ZTw7VD249T2XeLHnyRiIvwcCM15cRNXtD
+	dEs3C+QrrlomuKpva+xAzyIWbSQIsnaB+FUzisq9LtqEosd5WgiVBe0TVJlP3tQF+Ub4OKFGFA3
+	fPeYfXzgh5sxT9LMWVwF+a3VnU3E7FhJZfhroN5plSyp29P2ooXZxOlGoXTaKD9MqIMFGDGAeNO
+	TEY+BU55kezUvUNOHto+8jN2lyiZ3qcdA2rxSuqlOVdSzFBpwg1QKFLVlrUeA6xvJpsjIBOro/I
+	BEo0WAw3fcJz0PiMUuOh0Lz+d29UuSDb78bpVMXE3b/eVA9s2QIG5rL9+TsBz0cDLUOjKTsxK5y
+	zNHCC6+KPRpHcA1ZYQp9wFelLk3issP4B3NBK
+X-Google-Smtp-Source: AGHT+IE3+U9lKdyIw2HglYpHlU5Ju6Jvd02RlixVwiVpib47lTMUqn1jZXSuE/LNf8JT5D2FHFI2jQ==
+X-Received: by 2002:a17:907:3f0b:b0:ac3:3e40:e182 with SMTP id a640c23a62f3a-ace7109ff27mr235634766b.19.1745588856499;
+        Fri, 25 Apr 2025 06:47:36 -0700 (PDT)
+Received: from ?IPV6:2a02:2f0e:c50a:8800:cf9e:ee0b:4a01:37f6? ([2a02:2f0e:c50a:8800:cf9e:ee0b:4a01:37f6])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ace6e41cb2asm143227566b.10.2025.04.25.06.47.35
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 25 Apr 2025 06:47:36 -0700 (PDT)
+Message-ID: <7653bf7c-03ac-4f94-a80c-2bfa3004d287@gmail.com>
+Date: Fri, 25 Apr 2025 16:47:35 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <a4963173-dd9a-4341-b7f9-5fdb9485233a@163.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] crypto: sun8i-ce-cipher - use IS_ENABLED() checks for
+ debugfs stats
+To: Corentin Labbe <clabbe.montjoie@gmail.com>
+Cc: herbert@gondor.apana.org.au, davem@davemloft.net,
+ linux-crypto@vger.kernel.org, wens@csie.org, jernej.skrabec@gmail.com,
+ samuel@sholland.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20250425124517.2225963-1-ovidiu.panait.oss@gmail.com>
+ <20250425124517.2225963-3-ovidiu.panait.oss@gmail.com> <aAuOdDhpnLE5bM_y@Red>
+Content-Language: en-US
+From: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+In-Reply-To: <aAuOdDhpnLE5bM_y@Red>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250425_064739_149215_CEACD912 
+X-CRM114-Status: GOOD (  15.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,108 +104,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Hans,
+Hi,
 
-On Fri, Apr 25, 2025 at 06:56:53PM +0800, Hans Zhang wrote:
+On 4/25/25 4:30 PM, Corentin Labbe wrote:
+> Le Fri, Apr 25, 2025 at 03:45:16PM +0300, Ovidiu Panait a écrit :
+>> Add IS_ENABLED(CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG) checks before the
+>> fallback counter updates to make sure the code is not included when
+>> debugfs statistics support is not enabled.
+>>
+>> Also, drop the existing ifdef guards, since 'struct sun8i_ce_alg_template'
+>> is always defined, even with CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG disabled.
+>>
+>> Signed-off-by: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+>> ---
+>>  .../allwinner/sun8i-ce/sun8i-ce-cipher.c      | 46 ++++++++++++-------
+>>  1 file changed, 30 insertions(+), 16 deletions(-)
+>>
+>> diff --git a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c
+>> index f03a8fa7bfa2..433cd18f0b5b 100644
+>> --- a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c
+>> +++ b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c
+>> @@ -34,22 +34,30 @@ static int sun8i_ce_cipher_need_fallback(struct skcipher_request *areq)
+>>  
+...
+>> @@ -101,9 +117,7 @@ static int sun8i_ce_cipher_fallback(struct skcipher_request *areq)
+>>  		algt = container_of(alg, struct sun8i_ce_alg_template,
+>>  				    alg.skcipher.base);
+>>  
+>> -#ifdef CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG
+>>  		algt->stat_fb++;
+>> -#endif
 > 
-> But I discovered a problem:
+> Hello
 > 
-> 0001:90:00.0 PCI bridge: Device 1f6c:0001 (prog-if 00 [Normal decode])
->          ......
->          Capabilities: [c0] Express (v2) Root Port (Slot-), MSI 00
->                  DevCap: MaxPayload 512 bytes, PhantFunc 0
->                          ExtTag- RBE+
->                  DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
->                          RlxdOrd+ ExtTag- PhantFunc- AuxPwr- NoSnoop+
->                          MaxPayload 512 bytes, MaxReadReq 1024 bytes
+> You put IS_ENABLED everywhere, but here you remove it, why ?
+> I think you forgot it.
 > 
+
+This is already part of an IS_ENABLED(CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG)
+block, so no need to add an extra IS_ENABLED() check here. Just the
+ifdef was dropped, as it was not really necessary.
+
+Original code:
+
+	if (IS_ENABLED(CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG)) {
+		struct skcipher_alg *alg = crypto_skcipher_alg(tfm);
+		struct sun8i_ce_alg_template *algt __maybe_unused;
+
+		algt = container_of(alg, struct sun8i_ce_alg_template,
+				    alg.skcipher.base);
+
+#ifdef CONFIG_CRYPTO_DEV_SUN8I_CE_DEBUG
+		algt->stat_fb++;
+#endif
+	}
+
+Thanks,
+Ovidiu
+
+
+> Thanks
+> Regards
 > 
-> 
-> 			Should the DevCtl MaxPayload be 256B?
-> 
-> But I tested that the file reading and writing were normal. Is the display
-> of 512B here what we expected?
-> 
-> Root Port 0003:30:00.0 has the same problem. May I ask what your opinion is?
-> 
-> 
-> 		......
-> 0001:91:00.0 Non-Volatile memory controller: Samsung Electronics Co Ltd
-> NVMe SSD Controller PM9A1/PM9A3/980PRO (prog-if 02 [NVM Express])
->          ......
->          Capabilities: [70] Express (v2) Endpoint, MSI 00
->                  DevCap: MaxPayload 256 bytes, PhantFunc 0, Latency L0s
-> unlimited, L1 unlimited
->                          ExtTag+ AttnBtn- AttnInd- PwrInd- RBE+ FLReset+
-> SlotPowerLimit 0W
->                  DevCtl: CorrErr+ NonFatalErr+ FatalErr+ UnsupReq+
->                          RlxdOrd+ ExtTag+ PhantFunc- AuxPwr- NoSnoop+
-> FLReset-
->                          MaxPayload 256 bytes, MaxReadReq 512 bytes
-> 		......
 
-Here we see that the bridge has a higher DevCtl.MPS than the DevCap.MPS of
-the endpoint.
-
-Let me quote Bjorn from the previous mail thread:
-
-"""
-  - I don't think it's safe to set MPS higher in all cases.  If we set
-    the Root Port MPS=256, and an Endpoint only supports MPS=128, the
-    Endpoint may do a 256-byte DMA read (assuming its MRRS>=256).  In
-    that case the RP may respond with a 256-byte payload the Endpoint
-    can't handle.
-"""
-
-
-
-I think the problem with this patch is that pcie_write_mps() call in
-pci_host_probe() is done after the pci_scan_root_bus_bridge() call in
-pci_host_probe().
-
-So pci_configure_mps() (called by pci_configure_device()),
-which does the limiting of the bus to what the endpoint supports,
-is actually called before the pcie_write_mps() call added by this patch
-(which increases DevCtl.MPS for the bridge).
-
-
-So I think the code added in this patch needs to be executed before
-pci_configure_device() is done for the EP.
-
-It appears that pci_configure_device() is called for each device
-during scan, first for the bridges and then for the EPs.
-
-So I think something like this should work (totally untested):
-
---- a/drivers/pci/probe.c
-+++ b/drivers/pci/probe.c
-@@ -45,6 +45,8 @@ struct pci_domain_busn_res {
-        int domain_nr;
- };
- 
-+static void pcie_write_mps(struct pci_dev *dev, int mps);
-+
- static struct resource *get_pci_domain_busn_res(int domain_nr)
- {
-        struct pci_domain_busn_res *r;
-@@ -2178,6 +2180,11 @@ static void pci_configure_mps(struct pci_dev *dev)
-                return;
-        }
- 
-+       if (pci_pcie_type(dev) == PCI_EXP_TYPE_ROOT_PORT &&
-+           pcie_bus_config != PCIE_BUS_TUNE_OFF) {
-+               pcie_write_mps(dev, 128 << dev->pcie_mpss);
-+       }
-+
-        if (!bridge || !pci_is_pcie(bridge))
-                return;
-
-
-
-But we would probably need to move some code to avoid the
-forward declaration.
-
-
-Kind regards,
-Niklas
 
