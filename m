@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29662C369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 03:05:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67F40C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 03:16:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qxiKMycuA/S/b4aduDKHTJVt95lznX3mP7Vus3psjjw=; b=CWrA/AmfpfnOETZcjuF/eHD4eq
-	RcOb5KcvX/3Gf2HGxP6qp197gLIyOKlnH9sgDXQlgWYdO9E3bOECM7hk/jSM2tiYbY8LBGVaoXDS4
-	FwKvivfF3WW68nbT8hdONVeQZuMu8yA+tHCSOxQlb05VFV8b28hxTAUu/chrnchS1QigY96iHJ2F9
-	GpEx8JYBH9FnZVsCoh6U3Vvbo63l4BRjm1qWTUNAsSzf8bFAOsn5xljNMzGekNmCCwMdOGSNVwx1h
-	8HyJ8IxwnGPW2RxcoV6dNooGw64lkodzFroolrIGqai6l3UZa25y4iDuBP8izugwfHn/4ow5z36oe
-	21XZmlGw==;
+	bh=Ns+L0aOm8q4XI8tdY0zbGpGXoWoyJjIZ1B6rDiXbX30=; b=vDasi2rQPfCfUzC8Twsox3E1D7
+	knLTs0VS2jHl10PqPzjYPe4NUVAzAf/P9ZcfAaFub0Z4FmsxDDbiTmzW6g9tyCVC54AvNqkj7vfq0
+	j3q5JYxJiS/LfPZ2DOPqoD7t44Gco12LL+Rn0qvKopj3FiQT722ekDg20PkWqVcqQsOkOcxJ8li8l
+	BuY7LpTuekYQU8JZvy6KBO7e11PhgBtlc54WkdrkKotWBJFrfFRDvN6oB/O9mrP214LFl+moKDmW+
+	oRozfm0NJcmBuQfISt5jihV0pbHpY/VEo0z2BDcRwc0ujY9UnklhxdRtDWy63VNdlWTZ66BAZhNXj
+	QdKclBMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u89Nj-0000000Fpow-2Po0;
-	Fri, 25 Apr 2025 03:05:39 +0000
-Received: from mail-m16.yeah.net ([220.197.32.16])
+	id 1u89Xl-0000000FqOk-3oy5;
+	Fri, 25 Apr 2025 03:16:01 +0000
+Received: from mail-m16.yeah.net ([1.95.21.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u89Lr-0000000FpgT-1Dpx
+	id 1u89Vv-0000000FqFp-2OBn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 03:03:47 +0000
+	Fri, 25 Apr 2025 03:14:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
 	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=qxiKMycuA/S/b4aduDKHTJVt95lznX3mP7Vus3psjjw=;
-	b=VvxJ+dhMu6cRjtBkTzfZ+9gf0j6+3tBsuLq/z85fsYxjPQtBrikxTqdRjlaAri
-	E27qhrS9dWDA2Fy36ElNxP+fB3I/aLI0C96hOTSwR29LWDMxkd8j0lnDjyTR51fd
-	GylpjBrEnGjkmhVbR8POr+R5wE1dY0PYyP2FRHHqW3UrI=
+	Content-Type; bh=Ns+L0aOm8q4XI8tdY0zbGpGXoWoyJjIZ1B6rDiXbX30=;
+	b=SKRlq7iImJSm8WSOqSFewc3xuRNOOHQvEfFqd5/qWhssemJdgOYpsRvR8vgppJ
+	Lcod9RJv/UYLydErZV9zePUAfDLqC37XxNuhpNq8mMC1IIQ4U5jLTplbf1PDkd2v
+	D0azbviE8xSXZxe75QPU3OA1y5Qsf4FrBWyaUSVbx8tvI=
 Received: from dragon (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id Ms8vCgAna+J2+wpoIiTtAw--.35636S3;
-	Fri, 25 Apr 2025 11:03:19 +0800 (CST)
-Date: Fri, 25 Apr 2025 11:03:17 +0800
+	by gzsmtp1 (Coremail) with SMTP id Mc8vCgD3zEXr_QpoCyPbAw--.5525S3;
+	Fri, 25 Apr 2025 11:13:48 +0800 (CST)
+Date: Fri, 25 Apr 2025 11:13:46 +0800
 From: Shawn Guo <shawnguo2@yeah.net>
-To: max.oss.09@gmail.com
-Cc: max.krummenacher@toradex.com, Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
 	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] arm64: dts: imx8-apalis: Add PCIe and SATA support
-Message-ID: <aAr7dQH5O3VY7+N3@dragon>
-References: <20250416151353.1692373-1-max.oss.09@gmail.com>
+	linux-kernel@vger.kernel.org, hongxing.zhu@nxp.com
+Subject: Re: [PATCH v2 0/8] arm64: dts: imx8: create common imx-pcie[0,1]-ep
+ overlay file
+Message-ID: <aAr96tBdflbAyKSb@dragon>
+References: <20250423-imx8_pcie_ep_dts-v2-0-43c982d83a8f@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250416151353.1692373-1-max.oss.09@gmail.com>
-X-CM-TRANSID: Ms8vCgAna+J2+wpoIiTtAw--.35636S3
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUx7PEUUUUU
+In-Reply-To: <20250423-imx8_pcie_ep_dts-v2-0-43c982d83a8f@nxp.com>
+X-CM-TRANSID: Mc8vCgD3zEXr_QpoCyPbAw--.5525S3
+X-Coremail-Antispam: 1Uf129KBjvdXoW5Kr4fuF1rXFy7Xry7try3twb_yoWxGFg_Cr
+	45Wa1kJ347Jw4fJ345A3ZxuFy2g345Z3y5Wry8Xwsa93WfZFWYvr4kJr1rW3WUCF13Xw4D
+	CFn8Xw1xXw4rGjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU08cTPUUUUU==
 X-Originating-IP: [114.216.210.34]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiBBQ6ZWgK1S+unQAAsk
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiARs6ZWgK0Y3JqQAAsb
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_200343_641243_5F6A11FC 
-X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-CacheID: sfid-20250424_201407_914058_560AF663 
+X-CRM114-Status: UNSURE (   6.54  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,20 +79,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 16, 2025 at 05:13:41PM +0200, max.oss.09@gmail.com wrote:
-> From: Max Krummenacher <max.krummenacher@toradex.com>
-> 
-> The needed drivers to support PCIe and SATA for i.MX 8QM have been
-> added.
-> Configure them for the Apalis iMX8 SoM.
-> 
-> The pciea and pcieb blocks each get a single PCIe lane, pciea is
-> available on the carrier boards while pcieb is connected to the
-> on module Wi-Fi/BT module.
-> The SATA lane is available on the carrier boards.
-> 
-> Signed-off-by: Max Krummenacher <max.krummenacher@toradex.com>
+On Wed, Apr 23, 2025 at 08:41:22PM -0400, Frank Li wrote:
+> Frank Li (8):
+>       arm64: dts: imx8: create unified pcie0 and pcie0_ep label for all chips
+>       arm64: dts: imx8dxl-ss-hsio: correct irq number for imx8dxl
+>       arm64: dts: imx8dxl-evk: Add pcie0-ep node and use unified pcie0 label
+>       arm64: dts: imx8: use common imx-pcie0-ep.dtso to enable PCI ep function
+>       arm64: dts: imx95: add pcie1 ep overlay file and create pcie-ep dtb files
+>       arm64: dts: imx8mm-evk: add pcie0-ep node and apply pcie0-ep overlay file
+>       arm64: dts: imx8mq: add pcie0-ep node
+>       arm64: dts: imx8mq-evk: add pcie[0,1]-ep nodes
 
-Applied, thanks!
+Applied all, thanks!
 
 
