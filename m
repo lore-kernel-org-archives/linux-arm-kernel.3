@@ -4,76 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A07FC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 21:12:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A32CBC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 21:14:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eru1uAB6XxcdGB6ETHFsUgF8NYEghEFeFKagaGASKFg=; b=AI5y90pPNkdSRUn1IhYm9bH8hn
-	009+WlNv3jEWdvY4RrVerKmyO3nQ48SLvaieVfKppUP34hZU8aeUHQw69y+Cn8QbLaJJeZJZcDIBm
-	cijiaH0ZVIsIuLAZWW7tyzbOvJakzkF7HbnfIfoXkn1efnDGhwEdHzc4u3bYiYwqLQJyp2ANJ7Os4
-	a6eJ2JVkRoPc3c5mCoNL10zxIUbSBGntZXs9djvWbtKLK0n4RB3VQc7ptiJs/pNnexH2uK2+TjRYF
-	8T0EWtjA5LecU+QCxS76/ivsRIntBD4U7YrOaQSnEuPJGe2pKscLn9l4udC4LqdBTAIYHyVOty9/u
-	akStZI2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=VpoMnDgu+7UC7RtrUCDJGErjf4myIlSL18Se8Lkjx+0=; b=CvdwypvOK8UnAM
+	H7d+oV/1xxz4CYF4eXK2Z+ZHUbgFCLn4bgOl/bwkX8oBZMY+bWMZ5W9eyDjmUvpHpmhwaXug4jt9Z
+	PEux+Lk020r155kgivagAM5+bYOmTnltUKvXoyW5KIweOh1xh9f7wP+kjdeZj/6GBeafd+y0epD17
+	MFFW1cGFpOdNMX96UrSJrGbKwCJdD8vyhvfKfjVNm8GvRl5VULKjZo+Ve/ZQP0vtubtr857EnUY2V
+	nC7lkniaK66TTP2Q64RCFmZKvsSBBKodklROWm3I3D3hKxsKkp/WqBXqaEoMRc35CfmBGsdl1Bn5a
+	xA0HvuNRK2GQT3QkdWMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8QLN-00000000tlF-2pjD;
-	Fri, 25 Apr 2025 21:12:21 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1u8QND-00000000u0h-1Xe4;
+	Fri, 25 Apr 2025 21:14:15 +0000
+Received: from mail-oa1-x35.google.com ([2001:4860:4864:20::35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8QII-00000000tBo-0qjS
+	id 1u8QIl-00000000tFU-00vt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 21:09:11 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53PL96Qu3026950
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 25 Apr 2025 16:09:06 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745615346;
-	bh=eru1uAB6XxcdGB6ETHFsUgF8NYEghEFeFKagaGASKFg=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=ebT9O2OaydUolYzIqIHMWRYDr7i7ZqMtelypk66uLG4HCw45+NbwXZrTjK8Xj0+gM
-	 lqLJKK/cgADx8Phr6K8tHWarZHR2F3KD+Uf+FiLZmXP2TQh2XfHniwPhew8gSpy/Jr
-	 F6FYAiQ/T/yTv1muWidAen7Ts+l5EuYSxDVX6hB0=
-Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53PL96c5122444
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 25 Apr 2025 16:09:06 -0500
-Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 25
- Apr 2025 16:09:05 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 25 Apr 2025 16:09:05 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53PL95iw092863;
-	Fri, 25 Apr 2025 16:09:05 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
-        Jan Kiszka <jan.kiszka@siemens.com>, Andrew
- Davis <afd@ti.com>
-CC: Nishanth Menon <nm@ti.com>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 0/3] Fix remaining TI K3 CHECK_DTBS warnings
-Date: Fri, 25 Apr 2025 16:09:04 -0500
-Message-ID: <174561533074.210099.18320816568415769793.b4-ty@ti.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250421214620.3770172-1-afd@ti.com>
-References: <20250421214620.3770172-1-afd@ti.com>
+	Fri, 25 Apr 2025 21:09:41 +0000
+Received: by mail-oa1-x35.google.com with SMTP id 586e51a60fabf-2c7f876b321so807856fac.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 14:09:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1745615377; x=1746220177; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=VpoMnDgu+7UC7RtrUCDJGErjf4myIlSL18Se8Lkjx+0=;
+        b=eqPc+8ZB+4cT0qk+ehdfVW7zHr6gc3x3DCUTTz1f30t9cYhej45Vk7epIgqHXzy9YS
+         o0cR36gfteYYI73PB5OKfX2gyB6WqNKum0Uynjh2rawhTGficOukSgvzUkH0j/NvWv5y
+         ul26yzXZbE8g/kW2He9iO6EfFXLHvM+37ImLeHAzCgiKbsqMDLLmpGfMs4ONqCR7ZhMb
+         v7QYkhni9qLK4yTqlrowcJc6xe1jP8SaSaMi+bD4om3LHmThoNtJss3jE1vRT+00iWM6
+         GnGL29Im+/K5zZoGNPF1elx0trohPLUfxWwIIRefFYl/GDUk2ZitCRRqn/Ph/4LCo9w9
+         Q9vw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745615377; x=1746220177;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=VpoMnDgu+7UC7RtrUCDJGErjf4myIlSL18Se8Lkjx+0=;
+        b=obhjUv15uvBzttGLqx8COMJCeuv4ll51vYX2i5X/3qaDqHYUanXhtroqzsfwvwmCjm
+         E7l6wgXrzYd4/6Ww2UXC+Ld/LYLN+PWQxDiZx5rCNe9j6ZXIV0tLtsVpE9UDtO+WJ8nJ
+         GGnVsLTFC5P0jvrtl/m7XoMbecdo7/totgRSCfe8gl2htA2Gfew0fIKTOlvHAColcm9B
+         7WXBcK3SLOPvgFAM8HjX0/pfN9/AQG73ITM9k+NqjyOk6AkVBxA14v9Z7cDusvWMYP2F
+         q+IjlhqJ9bu8UzkXVKW4IV0BMoIQVONDR1NJTsBRu6f/pVzaTzOUUuLX/YcMKHts66OJ
+         Sb4A==
+X-Forwarded-Encrypted: i=1; AJvYcCUHgqayddWsabgvMEVNgrAzDaTsHr2VUslk9y0tY+CJDxqEPMMxOkSSu8xlIUaeB08hTpvW83LnopeMjtJ4PqXS@lists.infradead.org
+X-Gm-Message-State: AOJu0YyOa6ivpOss8oVe1bgvk2lIRHck+GLz+pz/n7456RmgAYO6rNKU
+	RbRH7HWmYZXn3CsCLzM3IJwlepU5Ano3eNiZp3O0WX0nriIgp8JLnWRCNcLHpek=
+X-Gm-Gg: ASbGnctcLv0QAWG4zC2YI5/TTmB7gFJNh2wbqwTTH9y4XBcSVjCvRTXKN0gSj+XYP/L
+	J194KuY3LbdUaa8JhqS8gGcAtuuRLtIktVTNdTV9OOKQGgxFQNSsRS6A7jhMX1apzewzb21E/Ol
+	DRJvbCSUkfC8Hse1rIUAl4+LxtzDNeHQkQeb6v4K4vfcsa8YopFcUBEhVMFKv4Q2yzdXW1S/gBo
+	LPc+ApNR7DATxPEM3g6SJnq3/uiSIHmLxQ/seHqJSoRa1McGsc+VABy6nfxmr9A2ziWz1C2/UeE
+	Q37GOEn4k8oOYlSBvdCwRD2YHfuZXxjW4bTu334f20kn
+X-Google-Smtp-Source: AGHT+IHyxrjoVl0KXbSfTLDYg+CfefqZM8U73y5ZfAGM3b42y6FXuX1DXtEWNsTF1iIIW4wUhTqhCA==
+X-Received: by 2002:a05:6870:4595:b0:2c1:62ba:cd7c with SMTP id 586e51a60fabf-2d9be58e9a7mr562692fac.15.1745615377396;
+        Fri, 25 Apr 2025 14:09:37 -0700 (PDT)
+Received: from [127.0.1.1] ([2600:8803:e7e4:1d00:96a3:e28:3f6:dbac])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7304f188052sm847673a34.8.2025.04.25.14.09.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 25 Apr 2025 14:09:37 -0700 (PDT)
+From: David Lechner <dlechner@baylibre.com>
+Subject: [PATCH v3 0/6] iio: introduce IIO_DECLARE_BUFFER_WITH_TS
+Date: Fri, 25 Apr 2025 16:08:42 -0500
+Message-Id: <20250425-iio-introduce-iio_declare_buffer_with_ts-v3-0-f12df1bff248@baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANr5C2gC/52NsQ6CMBQAf4V0tqa0QImT/2EMKe2rvASpaQtKC
+ P9uYTJuOt4NdwsJ4BECOWUL8TBhQDckEIeM6E4NN6BoEhPOeMmKvKaIjuIQvTOjho0aA7pXHpp
+ 2tBZ888TYNTFQbmsphZVGmYqk3MODxde+ulwTdxii8/N+nvLN/jGZcsooANMVV0IoZs+tmntsP
+ Ry1u5PtM/GPNuc/tHlqC2tEVchSS1Z9tdd1fQNOGb/UPwEAAA==
+X-Change-ID: 20250418-iio-introduce-iio_declare_buffer_with_ts-2f8773f7dad6
+To: Jonathan Cameron <jic23@kernel.org>, 
+ David Lechner <dlechner@baylibre.com>, 
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Andy Shevchenko <andy@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, 
+ Michael Hennerich <Michael.Hennerich@analog.com>, 
+ Eugen Hristev <eugen.hristev@linaro.org>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2871; i=dlechner@baylibre.com;
+ h=from:subject:message-id; bh=o7BcIIIYtQBUHMADOGXaeTJA+HEbSY/NkKPNVQoDqrs=;
+ b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBoC/nfUdqmW0DVoD+FZo9SUw5csNWXEkaFoqBui
+ bDyBU03m8OJATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCaAv53wAKCRDCzCAB/wGP
+ wLHkB/4wQyGYDFJQjZBiYUgnhQdUEp7hWNlwqnEMYH7bFvPguWYt69E7pqXyv/o8AcRNpyFNwz7
+ u+Nipjjojviqe1z+4YYo2BZksKHhnD+lVzRMc3bXv6KePvl+P2mYERNI+/Tf11auIDjhSuL7rH8
+ KPBmB3NxXecOJdOBdP5QUUYXQPHCraoXxDz59qmN2nxo3WrGKrc24+lYx5Dl2AjX+2h1lS0vLOU
+ bW1wWQVh+tNBUPdS0Gw6eM8I6mvVSSIGSyJkPBJdJfx/5YXub2e9puPgxGWGWugNQjiRkDsCNQx
+ v8dZdYryvHvoLQcKJ4YsKxnSMdkJxVZpvCJGqoyCyfNk+jSC
+X-Developer-Key: i=dlechner@baylibre.com; a=openpgp;
+ fpr=8A73D82A6A1F509907F373881F8AF88C82F77C03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_140910_329528_AFCDC827 
-X-CRM114-Status: GOOD (  15.62  )
+X-CRM114-CacheID: sfid-20250425_140939_312501_B1AB7F21 
+X-CRM114-Status: GOOD (  18.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,51 +119,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew Davis,
+Creating a buffer of the proper size and correct alignment for use with
+iio_push_to_buffers_with_ts() is commonly used and not easy to get
+right (as seen by a number of recent fixes on the mailing list).
 
-On Mon, 21 Apr 2025 16:46:17 -0500, Andrew Davis wrote:
-> Until we resolve this thread[0] we do not have a set direction for
-> modeling our device's controller devices. For now as the AM654 MAIN
-> domain controller region is already one of the messy combination
-> syscon + child device containing nodes, no harm in silencing this last
-> DT check warning in the meantime.
-> 
-> Depending on the outcome of [0], this series can be safely unwound in
-> a couple ways without any backwards nor forwards compatibility breaks.
-> So no need to wait on the outcome there to take this series.
-> 
-> [...]
+In general, we prefer to use this pattern for creating such buffers:
 
-I have applied the following to branch ti-k3-dts-next on [1].
-Thank you!
+struct {
+    u16 data[2];
+    aligned_s64 timestamp;
+} buffer;
 
-[1/3] dt-bindings: mfd: ti,j721e-system-controller: Add compatible string for AM654
-      commit: 5959618631fec502ec0963f4082d565f7fbfff04
-[2/3] arm64: dts: ti: k3-am65-main: add system controller compatible
-      commit: 4765253055cc8ab3fdc5f9eb5b121d867e209fb1
-[3/3] arm64: dts: ti: am65x: Add missing power-supply for Rocktech-rk101 panel
-      commit: ae3ac9ffd59acf46b8934f4e7a5fa7a6803ac959
+However, there are many cases where a driver may have a large number of
+channels that can be optionally enabled or disabled in a scan or the
+driver might support a range of chips that have different numbers of
+channels or different storage sizes for the data. In these cases, the
+timestamp may not always be at the same place relative to the data. To
+handle these, we allocate a buffer large enough for the largest possible
+case and don't care exactly where the timestamp ends up in the buffer.
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent up the chain during
-the next merge window (or sooner if it is a relevant bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+For these cases, we propose to introduce new macros to make it easier
+it easier for both the authors to get it right and for readers of the
+code to not have to do all of the math to verify that it is correct.
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+I have just included a few examples of drivers that can make use of this
+new macro, but there are dozens more.
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+---
+Changes in v3:
+- Fixed a few mistakes, style issues and incorporate other feedback (see
+  individual commit message changelogs for details).
+- Link to v2: https://lore.kernel.org/r/20250422-iio-introduce-iio_declare_buffer_with_ts-v2-0-3fd36475c706@baylibre.com
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+Changes in v2:
+- Add 2nd macro for case where we need DMA alignment.
+- Add new patch for ad4695 to convert buffer from u8 to u16 before
+  making use of the new macro.
+- Drop the bmp280 patch since it was determined to have a better
+  alternative not using these macros.
+- Add a few more examples to show the non-DMA case, both in a struct and
+  stack allocated.
+- Link to v1: https://lore.kernel.org/r/20250418-iio-introduce-iio_declare_buffer_with_ts-v1-0-ee0c62a33a0f@baylibre.com
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
+---
+David Lechner (6):
+      iio: introduce IIO_DECLARE_BUFFER_WITH_TS macros
+      iio: adc: ad4695: use u16 for buffer elements
+      iio: adc: ad4695: use IIO_DECLARE_DMA_BUFFER_WITH_TS
+      iio: adc: ad7380: use IIO_DECLARE_DMA_BUFFER_WITH_TS
+      iio: accel: sca3300: use IIO_DECLARE_BUFFER_WITH_TS
+      iio: adc: at91-sama5d2: use IIO_DECLARE_BUFFER_WITH_TS
+
+ drivers/iio/accel/sca3300.c        | 18 ++----------------
+ drivers/iio/adc/ad4695.c           |  8 ++------
+ drivers/iio/adc/ad7380.c           |  3 +--
+ drivers/iio/adc/at91-sama5d2_adc.c | 13 ++-----------
+ include/linux/iio/iio.h            | 38 ++++++++++++++++++++++++++++++++++++++
+ 5 files changed, 45 insertions(+), 35 deletions(-)
+---
+base-commit: aff301f37e220970c2f301b5c65a8bfedf52058e
+change-id: 20250418-iio-introduce-iio_declare_buffer_with_ts-2f8773f7dad6
+
+Best regards,
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+David Lechner <dlechner@baylibre.com>
 
 
