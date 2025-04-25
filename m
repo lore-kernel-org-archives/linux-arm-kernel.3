@@ -4,71 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61BAAC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 01:05:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F39AFC369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 01:12:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pl0qo/lyM9UzqIdqAb7+uUb1jYMuJZJoIm9qSQLGRAo=; b=w+ELKHSqp2CJZXyioaJEPZjl8b
-	W/xjt+yqQiKMljuuhE104UpISddiSKHgyggCCOGfsmpE4ghu5KiZ2GXlE5FgxKHaBSJUSorcVtvlt
-	QzmZSm7MUhaXRDNOvvRxzMscLmeLYx2o/+dBY74yyoYADcgoVF4g52DBF0W9i/X8Nc3v3IWkp1FGi
-	RufCylLiBuzlQ9k0JR2mgk8ft0M70rvZLdW+ubz0IIBTcvkPuv2vk2tFGZNVGkPIz8C22HyGUEcHC
-	Wa4Q6kqtLa6K38HzbhH/v6b6DMEOKZQghKTCtl80x0XEdtdzNJCZp9wJXiJa/+Dfse6vosrKeS9WS
-	Ghnqz4Iw==;
+	bh=xuK53ZT3pmW8ZkR+lYJ8YR2B580d+pyqYdFFgzrMsMs=; b=fb/VD5JVrI8HAyvoyk3YYG6vN+
+	O+OvmyqXW0VW/83S9AMDsrF1/5gGb2dGk0OWYvIrKyE3SgARNPuh16W9mymrmWJ83JOib/qclBDUE
+	AuFzwFMxGoTVjLIbaVe0uAuDMPvf7D7cI7/boidz9KLEcno6/P6nFAIf0m76PdgR8dc6WgKauG5/z
+	oTJo3Ci2atllKXt0TyTIpk+byNdjYn2xiSvq3dvKEnx5fC8NiJH1Mro+KW/+XNN3CxSgnbzHFSZOw
+	oBxb8YS21AEvF5Okpj1tKPHj5PvMDai+Ab9fLMzn3u3eGJYTNvizYNS8g0YTlZgYXrCBOBxEaZogg
+	JpEv7Aeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u87VT-0000000FfRv-2o8b;
-	Fri, 25 Apr 2025 01:05:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u87bz-0000000FfyI-39Rk;
+	Fri, 25 Apr 2025 01:12:15 +0000
+Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u87Tc-0000000FfKh-1xZK
+	id 1u87a7-0000000Ffi8-1pRk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 01:03:37 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C9F45446FE;
-	Fri, 25 Apr 2025 01:03:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D2DAC4CEE3;
-	Fri, 25 Apr 2025 01:03:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745543015;
-	bh=yy+VuSc3Fx0mRi+RTnQZNXeln2i/gLwDFQIeSQEDxnA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=pktihD7do4jfpD4mk1hZOjAyS5YcYd8Fw5XK2UywqIyjcSEDkT9PCmYwRMe+Py9xN
-	 vLvQaxaXXXLQ/nDojg8euNrFrC9wIp7eg5LuTL3P6r5/tLYR75sOsPm+yVSSUDZ7Dj
-	 0cWcY16/rjvAgY0rqIAKtQ1EOgfUYCN+weN/dBAbkG9v9J5qkUVOwB3nMi4UTYhh08
-	 RryYt+m26YUc65zjL+H1t9wXJ3sm5zWbwFERZaj3Xec28fWFeCLwFMSq5wwPcnQCgi
-	 VEbY31thX8G1b+A+uBgn/Kizm2YR/HsVpb3Mm65P1gx/7aBCt3MmBd16UJTx7UO5Hn
-	 T/vDf07kt/ihA==
-Date: Thu, 24 Apr 2025 18:03:33 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Heiner Kallweit
- <hkallweit1@gmail.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
- linux-arm-kernel@lists.infradead.org, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
- Florian Fainelli <f.fainelli@gmail.com>, Russell King
- <linux@armlinux.org.uk>, Vladimir Oltean <vladimir.oltean@nxp.com>,
- =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>, Oleksij Rempel
- <o.rempel@pengutronix.de>, Simon Horman <horms@kernel.org>, Romain Gantois
- <romain.gantois@bootlin.com>, Piergiorgio Beruto
- <piergiorgio.beruto@gmail.com>
-Subject: Re: [PATCH net-next v7 1/3] net: ethtool: Introduce per-PHY DUMP
- operations
-Message-ID: <20250424180333.035ff7d3@kernel.org>
-In-Reply-To: <20250422161717.164440-2-maxime.chevallier@bootlin.com>
-References: <20250422161717.164440-1-maxime.chevallier@bootlin.com>
-	<20250422161717.164440-2-maxime.chevallier@bootlin.com>
+	Fri, 25 Apr 2025 01:10:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1745543416; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=xuK53ZT3pmW8ZkR+lYJ8YR2B580d+pyqYdFFgzrMsMs=;
+	b=xwdwfsl4Awk7BTPbsfuf+JovoJOmeEsoDXXNuVZTrA6zSLYDLwKt9R6usmm6F2DtCllU6JZaYvpxR99WikDqa2VLxHZBxY4HwnhnAs6PpTL7GNa04O9LT8T8eK+N5V9aUN40JIpLzjDdN6juOpHvvQEjkg/5o2k1JYgmePwq+o4=
+Received: from 30.246.162.65(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WY.2xUu_1745543410 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Fri, 25 Apr 2025 09:10:12 +0800
+Message-ID: <f60f1128-0d42-48e5-9a06-6ed7ca10767f@linux.alibaba.com>
+Date: Fri, 25 Apr 2025 09:10:09 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RESEND PATCH v18 1/2] ACPI: APEI: send SIGBUS to current task if
+ synchronous memory error not recovered
+To: Hanjun Guo <guohanjun@huawei.com>, "Luck, Tony" <tony.luck@intel.com>,
+ rafael@kernel.org, Catalin Marinas <catalin.marinas@arm.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ akpm@linux-foundation.org, linux-edac@vger.kernel.org, x86@kernel.org,
+ justin.he@arm.com, ardb@kernel.org, ying.huang@linux.alibaba.com,
+ ashish.kalra@amd.com, baolin.wang@linux.alibaba.com, tglx@linutronix.de,
+ dave.hansen@linux.intel.com, lenb@kernel.org, hpa@zytor.com,
+ robert.moore@intel.com, lvying6@huawei.com, xiexiuqi@huawei.com,
+ zhuo.song@linux.alibaba.com, sudeep.holla@arm.com, lpieralisi@kernel.org,
+ linux-acpi@vger.kernel.org, yazen.ghannam@amd.com, mark.rutland@arm.com,
+ mingo@redhat.com, robin.murphy@arm.com, Jonathan.Cameron@Huawei.com,
+ bp@alien8.de, linux-arm-kernel@lists.infradead.org,
+ wangkefeng.wang@huawei.com, tanxiaofei@huawei.com, mawupeng1@huawei.com,
+ linmiaohe@huawei.com, naoya.horiguchi@nec.com, james.morse@arm.com,
+ tongtiangen@huawei.com, gregkh@linuxfoundation.org, will@kernel.org,
+ jarkko@kernel.org
+References: <20250404112050.42040-1-xueshuai@linux.alibaba.com>
+ <20250404112050.42040-2-xueshuai@linux.alibaba.com>
+ <0c0bc332-0323-4e43-a96b-dd5f5957ecc9@huawei.com>
+ <709ee8d2-8969-424c-b32b-101c6a8220fb@linux.alibaba.com>
+ <353809e7-5373-0d54-6ddb-767bc5af9e5f@huawei.com>
+ <653abdd4-46d2-4956-b49c-8f9c309af34d@linux.alibaba.com>
+ <de5d2417-dc92-b276-1125-4feb5151de7f@huawei.com>
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+In-Reply-To: <de5d2417-dc92-b276-1125-4feb5151de7f@huawei.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_180336_558241_B5A3D1BE 
-X-CRM114-Status: GOOD (  24.79  )
+X-CRM114-CacheID: sfid-20250424_181020_214299_DB41796C 
+X-CRM114-Status: GOOD (  22.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,187 +85,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 22 Apr 2025 18:17:14 +0200 Maxime Chevallier wrote:
-> +/* perphy ->start() handler for GET requests */
 
-Just because I think there are real bugs, I will allow myself an
-uber-nit of asking to spell the perphy as per-PHY or such in the
-comment? :)
 
-> +static int ethnl_perphy_start(struct netlink_callback *cb)
-> +{
-> +	struct ethnl_perphy_dump_ctx *phy_ctx = ethnl_perphy_dump_context(cb);
-> +	const struct genl_dumpit_info *info = genl_dumpit_info(cb);
-> +	struct ethnl_dump_ctx *ctx = &phy_ctx->ethnl_ctx;
-> +	struct ethnl_reply_data *reply_data;
-> +	const struct ethnl_request_ops *ops;
-> +	struct ethnl_req_info *req_info;
-> +	struct genlmsghdr *ghdr;
-> +	int ret;
-> +
-> +	BUILD_BUG_ON(sizeof(*ctx) > sizeof(cb->ctx));
-> +
-> +	ghdr = nlmsg_data(cb->nlh);
-> +	ops = ethnl_default_requests[ghdr->cmd];
-> +	if (WARN_ONCE(!ops, "cmd %u has no ethnl_request_ops\n", ghdr->cmd))
-> +		return -EOPNOTSUPP;
-> +	req_info = kzalloc(ops->req_info_size, GFP_KERNEL);
-> +	if (!req_info)
-> +		return -ENOMEM;
-> +	reply_data = kmalloc(ops->reply_data_size, GFP_KERNEL);
-> +	if (!reply_data) {
-> +		ret = -ENOMEM;
-> +		goto free_req_info;
-> +	}
-> +
-> +	/* Don't ignore the dev even for DUMP requests */
+在 2025/4/25 09:00, Hanjun Guo 写道:
+> On 2025/4/18 20:35, Shuai Xue wrote:
+>>
+>>
+>> 在 2025/4/18 15:48, Hanjun Guo 写道:
+>>> On 2025/4/14 23:02, Shuai Xue wrote:
+>>>>
+>>>>
+>>>> 在 2025/4/14 22:37, Hanjun Guo 写道:
+>>>>> On 2025/4/4 19:20, Shuai Xue wrote:
+>>>>>> Synchronous error was detected as a result of user-space process accessing
+>>>>>> a 2-bit uncorrected error. The CPU will take a synchronous error exception
+>>>>>> such as Synchronous External Abort (SEA) on Arm64. The kernel will queue a
+>>>>>> memory_failure() work which poisons the related page, unmaps the page, and
+>>>>>> then sends a SIGBUS to the process, so that a system wide panic can be
+>>>>>> avoided.
+>>>>>>
+>>>>>> However, no memory_failure() work will be queued when abnormal synchronous
+>>>>>> errors occur. These errors can include situations such as invalid PA,
+>>>>>> unexpected severity, no memory failure config support, invalid GUID
+>>>>>> section, etc. In such case, the user-space process will trigger SEA again.
+>>>>>> This loop can potentially exceed the platform firmware threshold or even
+>>>>>> trigger a kernel hard lockup, leading to a system reboot.
+>>>>>>
+>>>>>> Fix it by performing a force kill if no memory_failure() work is queued
+>>>>>> for synchronous errors.
+>>>>>>
+>>>>>> Signed-off-by: Shuai Xue <xueshuai@linux.alibaba.com>
+>>>>>> Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
+>>>>>> Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+>>>>>> Reviewed-by: Yazen Ghannam <yazen.ghannam@amd.com>
+>>>>>> Reviewed-by: Jane Chu <jane.chu@oracle.com>
+>>>>>> ---
+>>>>>>   drivers/acpi/apei/ghes.c | 11 +++++++++++
+>>>>>>   1 file changed, 11 insertions(+)
+>>>>>>
+>>>>>> diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
+>>>>>> index b72772494655..50e4d924aa8b 100644
+>>>>>> --- a/drivers/acpi/apei/ghes.c
+>>>>>> +++ b/drivers/acpi/apei/ghes.c
+>>>>>> @@ -799,6 +799,17 @@ static bool ghes_do_proc(struct ghes *ghes,
+>>>>>>           }
+>>>>>>       }
+>>>>>> +    /*
+>>>>>> +     * If no memory failure work is queued for abnormal synchronous
+>>>>>> +     * errors, do a force kill.
+>>>>>> +     */
+>>>>>> +    if (sync && !queued) {
+>>>>>> +        dev_err(ghes->dev,
+>>>>>> +            HW_ERR GHES_PFX "%s:%d: synchronous unrecoverable error (SIGBUS)\n",
+>>>>>> +            current->comm, task_pid_nr(current));
+>>>>>> +        force_sig(SIGBUS);
+>>>>>> +    }
+>>>>>
+>>>>> I think it's reasonable to send a force kill to the task when the
+>>>>> synchronous memory error is not recovered.
+>>>>>
+>>>>> But I hope this code will not trigger some legacy firmware issues,
+>>>>> let's be careful for this, so can we just introduce arch specific
+>>>>> callbacks for this?
+>>>>
+>>>> Sorry, can you give more details? I am not sure I got your point.
+>>>>
+>>>> For x86, Tony confirmed that ghes will not dispatch x86 synchronous errors
+>>>> (a.k.a machine check exception), in previous vesion.
+>>>> Sync is only used in arm64 platform, see is_hest_sync_notify().
+>>>
+>>> Sorry for the late reply, from the code I can see that x86 will reuse
+>>> ghes_do_proc(), if Tony confirmed that x86 is OK, it's OK to me as well.
+>>
+>> Hi, Hanjun,
+>>
+>> Glad to hear that.
+>>
+>> I copy and paste in the original disscusion with @Tony from mailist.[1]
+>>
+>>> On x86 the "action required" cases are signaled by a synchronous machine check
+>>> that is delivered before the instruction that is attempting to consume the uncorrected
+>>> data retires. I.e., it is guaranteed that the uncorrected error has not been propagated
+>>> because it is not visible in any architectural state.
+>>
+>>> APEI signaled errors don't fall into that category on x86 ... the uncorrected data
+>>> could have been consumed and propagated long before the signaling used for
+>>> APEI can alert the OS.
+>>
+>> I also add comments in the code.
+>>
+>> /*
+>>   * A platform may describe one error source for the handling of synchronous
+>>   * errors (e.g. MCE or SEA), or for handling asynchronous errors (e.g. SCI
+>>   * or External Interrupt). On x86, the HEST notifications are always
+>>   * asynchronous, so only SEA on ARM is delivered as a synchronous
+>>   * notification.
+>>   */
+>> static inline bool is_hest_sync_notify(struct ghes *ghes)
+>> {
+>>      u8 notify_type = ghes->generic->notify.type;
+>>
+>>      return notify_type == ACPI_HEST_NOTIFY_SEA;
+>> }
+>>
+>>
+>> If you are happy with code, please explictly give me your reviewed-by tags :)
+> 
+> Call force_sig(SIGBUS) directly in ghes_do_proc() is not my favourite,
+> but I can bear that, please add
+> 
+> Reviewed-by: Hanjun Guo <guohanjun@huawei.com>
+> 
+> Thanks
+> Hanjun
 
-another nit, this comment wasn't super clear without looking at the dump
-for non-per-phy case. Maybe:
+Thanks. Hanjun.
 
-	/* Unlike per-dev dump, don't ignore dev. The dump handler
-	 * will notice it and dump PHYs from given dev.
-	 */
-?
+@Rafael, @Catalin,
 
-> +	ret = ethnl_default_parse(req_info, &info->info, ops, false);
-> +	if (ret < 0)
-> +		goto free_reply_data;
-> +
-> +	ctx->ops = ops;
-> +	ctx->req_info = req_info;
-> +	ctx->reply_data = reply_data;
-> +	ctx->pos_ifindex = 0;
-> +
-> +	return 0;
-> +
-> +free_reply_data:
-> +	kfree(reply_data);
-> +free_req_info:
-> +	kfree(req_info);
-> +
-> +	return ret;
-> +}
-> +
-> +static int ethnl_perphy_dump_one_dev(struct sk_buff *skb,
-> +				     struct net_device *dev,
-> +				     struct ethnl_perphy_dump_ctx *ctx,
-> +				     const struct genl_info *info)
-> +{
-> +	struct ethnl_dump_ctx *ethnl_ctx = &ctx->ethnl_ctx;
-> +	struct phy_device_node *pdn;
-> +	int ret = 0;
-> +
-> +	if (!dev->link_topo)
-> +		return 0;
+Both patch 1 and 2 have reviewed-by tag from the arm64 ACPI maintainers, Hanjun,
+now. Are you happpy to pick and queue this patch set to acpi tree or arm tree?
 
-Now for the bugs..
+If you need me to send a new version to collect the reviewed-by tag, please
+let me know.
 
-> +	xa_for_each_start(&dev->link_topo->phys, ctx->pos_phyindex, pdn,
-> +			  ctx->pos_phyindex) {
-> +		ethnl_ctx->req_info->phy_index = ctx->pos_phyindex;
-> +
-> +		/* We can re-use the original dump_one as ->prepare_data in
-> +		 * commands use ethnl_req_get_phydev(), which gets the PHY from
-> +		 * the req_info->phy_index
-> +		 */
-> +		ret = ethnl_default_dump_one(skb, dev, ethnl_ctx, info);
-> +		if (ret)
-> +			break;
+Thanks.
 
-		return ret;
-
-> +	}
-
-	ctx->pos_phyindex = 0;
-
-	return 0;
-
-IOW I don't see you resetting the pos_phyindex, so I think you'd only
-dump correctly the first device? The next device will try to dump its
-PHYs starting from the last index of the previous dev's PHY? [1]
-
-> +	return ret;
-> +}
-> +
-> +static int ethnl_perphy_dump_all_dev(struct sk_buff *skb,
-> +				     struct ethnl_perphy_dump_ctx *ctx,
-> +				     const struct genl_info *info)
-> +{
-> +	struct ethnl_dump_ctx *ethnl_ctx = &ctx->ethnl_ctx;
-> +	struct net *net = sock_net(skb->sk);
-> +	netdevice_tracker dev_tracker;
-> +	struct net_device *dev;
-> +	int ret = 0;
-> +
-> +	rcu_read_lock();
-> +	for_each_netdev_dump(net, dev, ethnl_ctx->pos_ifindex) {
-> +		netdev_hold(dev, &dev_tracker, GFP_ATOMIC);
-> +		rcu_read_unlock();
-> +
-> +		/* per-PHY commands use ethnl_req_get_phydev(), which needs the
-> +		 * net_device in the req_info
-> +		 */
-> +		ethnl_ctx->req_info->dev = dev;
-> +		ret = ethnl_perphy_dump_one_dev(skb, dev, ctx, info);
-> +
-> +		rcu_read_lock();
-> +		netdev_put(dev, &dev_tracker);
-
-missing
-
-		ethnl_ctx->req_info->dev = NULL;
-
-right? Otherwise if we need to send multiple skbs the "continuation"
-one will think we're doing a filtered dump.
-
-Looking at commits 7c93a88785dae6 and c0111878d45e may be helpful,
-but I doubt you can test it on a real system, filling even 4kB
-may be hard for small messages :(
-
-> +		if (ret < 0 && ret != -EOPNOTSUPP) {
-> +			if (likely(skb->len))
-> +				ret = skb->len;
-> +			break;
-> +		}
-> +		ret = 0;
-
-[1] or you can clear the pos_index here
-
-> +	}
-> +	rcu_read_unlock();
-> +
-> +	return ret;
-> +}
-> +
-> +/* perphy ->dumpit() handler for GET requests. */
-> +static int ethnl_perphy_dumpit(struct sk_buff *skb,
-> +			       struct netlink_callback *cb)
-> +{
-> +	struct ethnl_perphy_dump_ctx *ctx = ethnl_perphy_dump_context(cb);
-> +	struct ethnl_dump_ctx *ethnl_ctx = &ctx->ethnl_ctx;
-> +	int ret = 0;
-> +
-> +	if (ethnl_ctx->req_info->dev) {
-> +		ret = ethnl_perphy_dump_one_dev(skb, ethnl_ctx->req_info->dev,
-> +						ctx, genl_info_dump(cb));
-> +		if (ret < 0 && ret != -EOPNOTSUPP && likely(skb->len))
-> +			ret = skb->len;
-> +
-> +		netdev_put(ethnl_ctx->req_info->dev,
-> +			   &ethnl_ctx->req_info->dev_tracker);
-
-You have to release this in .done
-dumpit gets called multiple times until we run out of objects to dump.
-OTOH user may close the socket without finishing the dump operation.
-So all .dumpit implementations must be "balanced". The only state we
-should touch in them is the dump context to know where to pick up from
-next time.
-
-> +	} else {
-> +		ret = ethnl_perphy_dump_all_dev(skb, ctx, genl_info_dump(cb));
-> +	}
-> +
-> +	return ret;
-> +}
+Best Regards,
+Shuai
 
