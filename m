@@ -4,84 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CE93C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 20:36:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1FF2C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 20:38:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IR4JDRdfHYKvdpk6HtZwrxcJOGiIo5P5StChQCWf82w=; b=wyw99LrqpkQ4/h0piRjvZOMveb
-	0qXF9LdG1+Hhk8zCe1o/j00jpGd4Z+PYHY0RJyPylcFLViCOKUYpmHNs2glLJWr5InujnfE8U4+dD
-	UM9IRKBR6ol4TG6qAO1wu2wJvlQbOcT4N/z+pBZyjNxO33grIqx8BHm6NH+RsG0yJ5hY9dxiq81/s
-	Q4CtAXO3FqzFRgCginw5b5S+HP8tscxphwjTcYmfkiw1wx7u0CX6CBxOZsoxSwee8t2AfFgpfdH9M
-	VCxCK3RTmR46gTZv76vOSmHLQYCJYeZljLxflyXW5JlIYcqfFQYpWjPmhTIiL29QHCGuLZ2W35gwq
-	y4EhH7NA==;
+	bh=DmnP9FluU/HwvhyHftNofULVB0VcKcyWu1eae2RMNp0=; b=dlc7+lwF1mvcaNUdGs/eWbD5Q8
+	Jhw98EuuddrtdDNckg/xFiMVnQNOm1qeqmI5oSq7x14g28+wOulCk52pNHsuSsMeJQhsWZt/mQjlW
+	qpdKeudf8Bw2szPXd3xVtnv/JfnIF2KMvCpAvI6AgyOB2iZYilRz6a8bkH2meA+FlIgSpMusPb5/M
+	S7O5rFUcAbdrKDPQ1cb40JXoRO/wE+IhdaJHkhUkkcqZLKqaQ7xnlJaDaduTbCXhB7A0KHUDdRvzE
+	/G5+qyp5KB6Dnir1CShh8K7oW5Vo4v75TozeEzXqwU9de06mjAaAkblDtr2wk6++PQ9jNxTK9sWKY
+	m3PvCJ4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8PmN-00000000oRm-0UN8;
-	Fri, 25 Apr 2025 20:36:11 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1u8Pok-00000000os8-1gt5;
+	Fri, 25 Apr 2025 20:38:38 +0000
+Received: from smtp-fw-52005.amazon.com ([52.119.213.156])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Phy-00000000nwP-1o1s
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 20:31:39 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53PKVVpp2267729
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 25 Apr 2025 15:31:32 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745613092;
-	bh=IR4JDRdfHYKvdpk6HtZwrxcJOGiIo5P5StChQCWf82w=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=Zf6mqFb/fq0fZ7nw1aYYVoCqbYVnFsQSwK8dAtk9Sei68sx8cvNybn+Vf0N9W8twf
-	 dfr4IIlzhd/MUYc8mGbnChsFrHutbygUtgboOyGd665b8DRq4hFCuCFdnUIQGNfEXY
-	 p5OGoelufueHvwuyPtPaNwx2QXe5Lvw6tO1o3sj0=
-Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53PKVVKJ019061
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 25 Apr 2025 15:31:31 -0500
-Received: from DLEE103.ent.ti.com (157.170.170.33) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 25
- Apr 2025 15:31:31 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 25 Apr 2025 15:31:31 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53PKVVJD064112;
-	Fri, 25 Apr 2025 15:31:31 -0500
-Date: Fri, 25 Apr 2025 15:31:31 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Matt Coster <matt.coster@imgtec.com>
-CC: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Frank Binns
-	<frank.binns@imgtec.com>,
-        Alessio Belle <alessio.belle@imgtec.com>,
-        Alexandru
- Dadu <alexandru.dadu@imgtec.com>,
-        Luigi Santivetti
-	<luigi.santivetti@imgtec.com>,
-        Randolph Sapp <rs@ti.com>, Darren Etheridge
-	<detheridge@ti.com>
-Subject: Re: [PATCH v3 2/2] arm64: dts: ti: k3-j721s2: Add GPU node
-Message-ID: <20250425203131.ueswwq2kifozt7m2@footwear>
-References: <20250422-bxs-4-64-dts-v3-0-ec6657bde135@imgtec.com>
- <20250422-bxs-4-64-dts-v3-2-ec6657bde135@imgtec.com>
+	id 1u8Pms-00000000oWc-1Zp5;
+	Fri, 25 Apr 2025 20:36:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
+  t=1745613403; x=1777149403;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=DmnP9FluU/HwvhyHftNofULVB0VcKcyWu1eae2RMNp0=;
+  b=DjpCC8deOGjebYm/SMO6+71ylOW9C++5A3zZM8D7EbdV3PokKo0OvLHE
+   qi2vTqL2z/aNNwVMAKcJ/uNnijVqnjyUWaz8+uEW/1pjrPP0dagXNjSWn
+   f7SUaTCe7xshmReS5Qc1nOBxioADVOsaEY0f1FJednpspnCyuqIyJE4d4
+   8=;
+X-IronPort-AV: E=Sophos;i="6.15,240,1739836800"; 
+   d="scan'208";a="738826264"
+Received: from iad12-co-svc-p1-lb1-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.43.8.6])
+  by smtp-border-fw-52005.iad7.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Apr 2025 20:36:38 +0000
+Received: from EX19MTAUWC001.ant.amazon.com [10.0.38.20:23839]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.29.65:2525] with esmtp (Farcaster)
+ id e867d48e-e564-4aae-919e-2b0639b7151f; Fri, 25 Apr 2025 20:36:36 +0000 (UTC)
+X-Farcaster-Flow-ID: e867d48e-e564-4aae-919e-2b0639b7151f
+Received: from EX19D004ANA001.ant.amazon.com (10.37.240.138) by
+ EX19MTAUWC001.ant.amazon.com (10.250.64.174) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
+ Fri, 25 Apr 2025 20:36:36 +0000
+Received: from 6c7e67bfbae3.amazon.com (10.142.164.216) by
+ EX19D004ANA001.ant.amazon.com (10.37.240.138) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
+ Fri, 25 Apr 2025 20:36:32 +0000
+From: Kuniyuki Iwashima <kuniyu@amazon.com>
+To: <shiming.cheng@mediatek.com>
+CC: <angelogioacchino.delregno@collabora.com>, <davem@davemloft.net>,
+	<dsahern@kernel.org>, <edumazet@google.com>, <horms@kernel.org>,
+	<jibin.zhang@mediatek.com>, <kuba@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-mediatek@lists.infradead.org>, <matthias.bgg@gmail.com>,
+	<netdev@vger.kernel.org>, <pabeni@redhat.com>, <kuniyu@amazon.com>
+Subject: Re: [PATCH v2] net: use inet_twsk_put() when sk_state is TCP_TIME_WAIT
+Date: Fri, 25 Apr 2025 13:34:08 -0700
+Message-ID: <20250425203624.43634-1-kuniyu@amazon.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250425123354.29254-1-shiming.cheng@mediatek.com>
+References: <20250425123354.29254-1-shiming.cheng@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250422-bxs-4-64-dts-v3-2-ec6657bde135@imgtec.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.142.164.216]
+X-ClientProxiedBy: EX19D046UWB002.ant.amazon.com (10.13.139.181) To
+ EX19D004ANA001.ant.amazon.com (10.37.240.138)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_133138_562595_0DDC518A 
-X-CRM114-Status: GOOD (  19.54  )
+X-CRM114-CacheID: sfid-20250425_133642_575497_C90D90B1 
+X-CRM114-Status: GOOD (  21.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,71 +89,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16:26-20250422, Matt Coster wrote:
-> The J721S2 binding is based on the TI downstream binding in commit
-> 54b0f2a00d92 ("arm64: dts: ti: k3-j721s2-main: add gpu node") from [1]
-> but with updated compatible strings.
-> 
-> The clock[2] and power[3] indices were verified from HTML docs, while
-> the intterupt index comes from the TRM[4] (appendix
-       ^^ spell check interrupt (please use checkpatch.pl --strict --codespell
-to catch these minor nuisance bugs)
+> net: use inet_twsk_put() when sk_state is TCP_TIME_WAIT
 
-> "J721S2_Appendix_20241106_Public.xlsx", "Interrupts (inputs)",
-> "GPU_BXS464_WRAP0_GPU_SS_0_OS_IRQ_OUT_0").
+To be more specific:
+
+  [PATCH vX net] tcp: use sock_gen_put() when sk_state is TCP_TIME_WAIT in tcp[46]_check_fraglist_gro()
+
+
+From: Shiming Cheng <shiming.cheng@mediatek.com>
+Date: Fri, 25 Apr 2025 20:33:48 +0800
+> From: Jibin Zhang <jibin.zhang@mediatek.com>
 > 
-> [1]: https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel
-> [2]: https://downloads.ti.com/tisci/esd/latest/5_soc_doc/j721s2/clocks.html
-> [3]: https://downloads.ti.com/tisci/esd/latest/5_soc_doc/j721s2/devices.html
-> [4]: https://www.ti.com/lit/zip/spruj28 (revision E)
+> It is possible for a pointer of type struct inet_timewait_sock to be
+> returned from the functions __inet_lookup_established() and
+> __inet6_lookup_established(). This can cause a crash when the
+> returned pointer is of type struct inet_timewait_sock and
+> sock_put() is called on it. The following is a crash call stack that
+> shows sk->sk_wmem_alloc being accessed in sk_free() during the call to
+> sock_put() on a struct inet_timewait_sock pointer. To avoid this issue,
+> use inet_twsk_put() instead of sock_put() when sk->sk_state
+> is TCP_TIME_WAIT.
 > 
-> Reviewed-by: Randolph Sapp <rs@ti.com>
-> Signed-off-by: Matt Coster <matt.coster@imgtec.com>
+> mrdump.ko        ipanic() + 120
+> vmlinux          notifier_call_chain(nr_to_call=-1, nr_calls=0) + 132
+> vmlinux          atomic_notifier_call_chain(val=0) + 56
+> vmlinux          panic() + 344
+> vmlinux          add_taint() + 164
+> vmlinux          end_report() + 136
+> vmlinux          kasan_report(size=0) + 236
+> vmlinux          report_tag_fault() + 16
+> vmlinux          do_tag_recovery() + 16
+> vmlinux          __do_kernel_fault() + 88
+> vmlinux          do_bad_area() + 28
+> vmlinux          do_tag_check_fault() + 60
+> vmlinux          do_mem_abort() + 80
+> vmlinux          el1_abort() + 56
+> vmlinux          el1h_64_sync_handler() + 124
+> vmlinux        > 0xFFFFFFC080011294()
+> vmlinux          __lse_atomic_fetch_add_release(v=0xF2FFFF82A896087C)
+> vmlinux          __lse_atomic_fetch_sub_release(v=0xF2FFFF82A896087C)
+> vmlinux          arch_atomic_fetch_sub_release(i=1, v=0xF2FFFF82A896087C)
+> + 8
+
+Please don't fold this type of logs.
+
+Do you have the original stack trace decoded by
+./scripts/decode_stacktrace.sh ?
+
+Then, it would be better than the log with binary offsets.
+
+
+> vmlinux          raw_atomic_fetch_sub_release(i=1, v=0xF2FFFF82A896087C)
+> + 8
+> vmlinux          atomic_fetch_sub_release(i=1, v=0xF2FFFF82A896087C) + 8
+> vmlinux          __refcount_sub_and_test(i=1, r=0xF2FFFF82A896087C,
+> oldp=0) + 8
+> vmlinux          __refcount_dec_and_test(r=0xF2FFFF82A896087C, oldp=0) + 8
+> vmlinux          refcount_dec_and_test(r=0xF2FFFF82A896087C) + 8
+> vmlinux          sk_free(sk=0xF2FFFF82A8960700) + 28
+> vmlinux          sock_put() + 48
+> vmlinux          tcp6_check_fraglist_gro() + 236
+> vmlinux          tcp6_gro_receive() + 624
+> vmlinux          ipv6_gro_receive() + 912
+> vmlinux          dev_gro_receive() + 1116
+> vmlinux          napi_gro_receive() + 196
+> ccmni.ko         ccmni_rx_callback() + 208
+> ccmni.ko         ccmni_queue_recv_skb() + 388
+> ccci_dpmaif.ko   dpmaif_rxq_push_thread() + 1088
+> vmlinux          kthread() + 268
+> vmlinux          0xFFFFFFC08001F30C()
+>
+
+Fixes tag is needed here.
+
+  Fixes: c9d1d23e5239 ("net: add heuristic for enabling TCP fraglist GRO")
+
+> Signed-off-by: Jibin Zhang <jibin.zhang@mediatek.com>
+
+I guess the sender's SOB tag is also needed here when the author
+is different ?
+
+
 > ---
-> Changes in v3:
-> - Use assigned-clocks to pre-load the frequency of the core clock
-> - Link to v2: https://lore.kernel.org/r/20250417-bxs-4-64-dts-v2-2-9f8c09233114@imgtec.com
-> Changes in v2:
-> - Add interrupt reference details
-> - Add Randolph's Rb
-> - Link to v1: https://lore.kernel.org/r/20250415-bxs-4-64-dts-v1-2-f7d3fa06625d@imgtec.com
+>  net/ipv4/tcp_offload.c   | 8 ++++++--
+>  net/ipv6/tcpv6_offload.c | 8 ++++++--
+>  2 files changed, 12 insertions(+), 4 deletions(-)
 > 
-> This patch was previously sent as [DO NOT MERGE]:
-> https://lore.kernel.org/r/20250410-sets-bxs-4-64-patch-v1-v6-18-eda620c5865f@imgtec.com
-> ---
->  arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi | 14 ++++++++++++++
->  1 file changed, 14 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
-> index 92bf48fdbeba45ecca8c854db5f72fd3666239c5..9e36cbbe0ea2fefceedcc95b78068ded7ef395f0 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
-> @@ -2048,4 +2048,18 @@ watchdog8: watchdog@23f0000 {
->  		/* reserved for MAIN_R5F1_1 */
->  		status = "reserved";
->  	};
-> +
-> +	gpu: gpu@4e20000000 {
-> +		compatible = "ti,j721s2-gpu", "img,img-bxs-4-64", "img,img-rogue";
-> +		reg = <0x4e 0x20000000 0x00 0x80000>;
-> +		clocks = <&k3_clks 130 1>;
-> +		clock-names = "core";
-> +		assigned-clocks = <&k3_clks 130 1>;
-> +		assigned-clock-rates = <800000000>;
-> +		interrupts = <GIC_SPI 24 IRQ_TYPE_LEVEL_HIGH>;
-> +		power-domains = <&k3_pds 130 TI_SCI_PD_EXCLUSIVE>,
-> +				<&k3_pds 373 TI_SCI_PD_EXCLUSIVE>;
-> +		power-domain-names = "a", "b";
-> +		dma-coherent;
-> +	};
->  };
-> 
+> diff --git a/net/ipv4/tcp_offload.c b/net/ipv4/tcp_offload.c
+> index 2308665b51c5..95d7cbf6a2b5 100644
+> --- a/net/ipv4/tcp_offload.c
+> +++ b/net/ipv4/tcp_offload.c
+> @@ -431,8 +431,12 @@ static void tcp4_check_fraglist_gro(struct list_head *head, struct sk_buff *skb,
+>  				       iph->daddr, ntohs(th->dest),
+>  				       iif, sdif);
+>  	NAPI_GRO_CB(skb)->is_flist = !sk;
+> -	if (sk)
+> -		sock_put(sk);
+
+sock_gen_put() will be better.
+
+Thanks!
+
+
+> +	if (sk) {
+> +		if (sk->sk_state == TCP_TIME_WAIT)
+> +			inet_twsk_put(inet_twsk(sk));
+> +		else
+> +			sock_put(sk);
+> +	}
+>  }
+>  
+>  INDIRECT_CALLABLE_SCOPE
+> diff --git a/net/ipv6/tcpv6_offload.c b/net/ipv6/tcpv6_offload.c
+> index a45bf17cb2a1..5fcfa45b6f46 100644
+> --- a/net/ipv6/tcpv6_offload.c
+> +++ b/net/ipv6/tcpv6_offload.c
+> @@ -41,8 +41,12 @@ static void tcp6_check_fraglist_gro(struct list_head *head, struct sk_buff *skb,
+>  					&hdr->daddr, ntohs(th->dest),
+>  					iif, sdif);
+>  	NAPI_GRO_CB(skb)->is_flist = !sk;
+> -	if (sk)
+> -		sock_put(sk);
+> +	if (sk) {
+> +		if (sk->sk_state == TCP_TIME_WAIT)
+> +			inet_twsk_put(inet_twsk(sk));
+> +		else
+> +			sock_put(sk);
+> +	}
+>  #endif /* IS_ENABLED(CONFIG_IPV6) */
+>  }
+>  
 > -- 
-> 2.49.0
-> 
-
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+> 2.45.2
 
