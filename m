@@ -4,81 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6596C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 12:03:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF06BC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 12:05:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4xtlWzmg2HNhGfo1n6j6VZxV97pQa994I7X0fglbPbg=; b=gUjnzcHukBFBWJeEl9oqjOxwbs
-	H/+t0z/1Upc1BjauPdpTm32qw7xB6Sup5AHw2oaeD/WbNuySwhiWCV81JlQ2E0sS1xd8n4VJo30SC
-	0T6g21yY80lPpO+ChvmWoPg1DACToCQOIniR/4jBFPfet+QWtVb3kh5k+WJDidzq3EvTmiiwiZTYx
-	7+C6VYlkrgrhIFFIto0U2g1HWfnakH+V99uQotwCO5aVrIzkuz59Jio624rRLkfbGqbJoYeOPJY/p
-	ZjdGa4JWOdURoMXsMRktRd0NtdoS07vvRXvJKPhAS+KUDCJStG3GtI7AIdhMRi2BdaUcdZqV1yqKu
-	SvPNDTJg==;
+	bh=2dy23SZTpPz/OtRsVa67VPlSbZbxd200TTdg7Zq9HNk=; b=xWYBkK0GQzmmwYWdi8YljqPSaY
+	B7vP8pcdhTrbQz7xdPOJPpV1TRz66fiF1GGRL+23IhxUl773YZuFucbQ6KrJI9cQ9AiUlCD9HmbR7
+	3rxDVAJ7A12SKizAkWc/qZY+vd95wHEoMjUcpgs4xDja0OcEdROt3EGXZLUesRDnmDB5axmLGW4Eh
+	sXhPDpiwALh3boqPOHfrAm2NcGzqJ4Jq7ZEhZM7kCgolpT/uVT4VCsr4qrZbw/1InvX375lVef4Ea
+	pcRJ/ad3xv9rDmyo0q9JLK6q01di2y+cmI976V37Gy4nXVKxpqn8WEwNUeg16M85RhrtvNXB7cmVx
+	JaQ+dn4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8HmE-0000000H3ba-3COd;
-	Fri, 25 Apr 2025 12:03:30 +0000
-Received: from mail-yb1-xb2a.google.com ([2607:f8b0:4864:20::b2a])
+	id 1u8Ho4-0000000H3x5-1tbm;
+	Fri, 25 Apr 2025 12:05:24 +0000
+Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8GBJ-0000000GiJr-2C5x
+	id 1u8GBN-0000000GiLt-2nKl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 10:21:19 +0000
-Received: by mail-yb1-xb2a.google.com with SMTP id 3f1490d57ef6-e637edaa652so1479887276.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 03:21:17 -0700 (PDT)
+	Fri, 25 Apr 2025 10:21:22 +0000
+Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-707d3c12574so17730797b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 03:21:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745576476; x=1746181276; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1745576480; x=1746181280; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=4xtlWzmg2HNhGfo1n6j6VZxV97pQa994I7X0fglbPbg=;
-        b=Yy8ecAJStDKxr0VlSCvze6aDWRrfx/0ISPoXFkrhGZtOGY9Tx1YQO5ZjT9B+9jSioV
-         qgCYxs8Ct+X/QWZG7h4yJ9spXoqT2y8nCdhQnIqBBm78dPPvQEDY1gQ6sStXXT50k1wx
-         FSddQ4vxzmLB4RcQITmPGt2aW+xQO3+/Rh0al5F3JrxPBCctpKT1dPDQ3tZ3/SD4rmat
-         BrP1sudhcflZ2VaUnhJr7FKxOJyygE+qc/KKXrRKSyWazwwii+gRY+rNbEVIa0E55iKJ
-         l0BNmsu9o0YP7OwdmiyVJB06emBjCxKR2NXZmZ8jr8Xc+ayAZPjq3nhwMAR7/XiOUeyQ
-         UERQ==
+        bh=2dy23SZTpPz/OtRsVa67VPlSbZbxd200TTdg7Zq9HNk=;
+        b=wCkW+99eWphLWYsdjv4GhAiCgn3I6HuGroJV/7J0F5tCHlhH7RMhArLYlsKzNHikqv
+         Lpogx9sl2M9xmNK+bezjMKvczRiDeZw/+rT86ZZ2r/gnE18cajgWEkyCDkJgExEwoClN
+         CsgVqcQBOa0GPgeLD2qdl9DFdFzA1SNn7IX/Cstk1dJSm8zfWv+G8jUJRio2x6dEaS/c
+         zniZitz9NsnC6gGbQvYH8Q23+PVa5ChZc0hyzbAr1Tbc9jC6CCD2yxGacZyoAAUu8W3z
+         yp9efBrCFRJ4cgPOnalA2p6wQJ8F7Tai0Yl7kNh95U68TVR+isiylYn7oIKQjhPzgwQN
+         rRaA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745576476; x=1746181276;
+        d=1e100.net; s=20230601; t=1745576480; x=1746181280;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=4xtlWzmg2HNhGfo1n6j6VZxV97pQa994I7X0fglbPbg=;
-        b=l8EmtjCEzzOUUCufrmrrAFXYyEKVp8dTSHCezHY7cTygJiyTyFU1obT4hV6sB7kPNS
-         T2g3bapsz9PhIzrOpQwvbrSwgb3pAVMFa3wDeQ+T9ZL0KozAt88ooPs6W1k6b3e0qeBq
-         AoVnJXuincMtR/aglMxatsMYTuibGZzQ2uVTFa717COcLNAvC+6pmFsLr5BqC5Lh+R5G
-         SQ1bg4dE7xbeMHtBvsPEelC7sRlX7l7p2vV8SBU523TjEFIQWYevIUOpmRg7uo2hAjmC
-         YQZvHMLzz1Z2LkXLD+uEYUOlSoe/cjXHyc2QsTJhNWOcrjBCdUDNZO56GlV3bhLhq1E2
-         xXlg==
-X-Forwarded-Encrypted: i=1; AJvYcCVNMwUaZeYITWSGu8IjkJZm6nEH2vTr7Ef2wujqiu33xDngYdrVlPCG1geL/m4iU8paPuygtq4NYB/UefPzYNOV@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUrjDhxaxlPKNs+Iw4L2jhbp4B/y67i3dCOdU5vhswOY82RJBg
-	wstylqdIwqXzZYhuzKoAHqNj0jbnZqTUP7gzASXDIcc1cdp0QIRc5YWOEyunkGiUJM7L0h9EhSX
-	BqZGZsXxilJ/HbYKnb3lEa69rFuuM/zkx0N85Sg==
-X-Gm-Gg: ASbGncu8ESDt8EPflAB37+XheCu4FC7pI0pfCwqvIJLaYSWZmXSrC9nK3TBB6Nykxfq
-	3tPJ9L7RRA5arVnW9IUdRBJzfE+4WZVPRacKfVKoFA/jsTGNHi1xExtM1Heo6iSZZl7jZ5qAcmk
-	6mykcHoKtKWVYe/ruqnPnDOHg=
-X-Google-Smtp-Source: AGHT+IFwzWvVcQW2OIuOPuNm7S3wzxb/4DZpY2/AfSEZfPmecvdAWyRMS5KH+2afz+oKQvj6DmCUtklI/lnuHoLlgh8=
-X-Received: by 2002:a05:6902:2411:b0:e6d:e8d4:681f with SMTP id
- 3f1490d57ef6-e73168936fdmr2304939276.35.1745576476343; Fri, 25 Apr 2025
- 03:21:16 -0700 (PDT)
+        bh=2dy23SZTpPz/OtRsVa67VPlSbZbxd200TTdg7Zq9HNk=;
+        b=IpQIYcAA2V461OInCYGczoveYdJ7iV5VfGSWyqw/WpFHcwQ1TRXVunI6p44CEmnoo6
+         oCnLPYja17dR/bgcd5wER32Q/5orxCzYeUnkArCmgAS7SYWaWBEOdVaM8Wq9atco6slj
+         XF1BTYO5PmxWS77caoxeL40nGUUwJIK4Pl67SWdtsXC5nZOdffhE8BZLbEGEndG6PLRI
+         IYmZNiJLEglMYQxwwnhJLMcw8E74uJN2g3gkT+J3+r9ibTTixZJlJw0f6f812n237x48
+         ZLBqjffH/Q6kChNPvCgseFtusqI2SfxAJZ5of60RlWUq/2BGq/s1uYvMeavnzU0D5mo+
+         AnQg==
+X-Forwarded-Encrypted: i=1; AJvYcCXTzhrxnJP0QRswbtu91tJObwnLsAHASKsHiuE166bCsNrPWR74dHZIn0EdFBJfsz61cnP00RdSSl02AY0uV7AV@lists.infradead.org
+X-Gm-Message-State: AOJu0YwnNgDftJ2bwQDDrPrEKXHRxjmJp3gEZdZYKH4RfsnXSKrBZvL1
+	LqA+WZLCSiL8A5O1syplztChKZDykWDJHpNGQomu5bC2F8Z3O0Rdr4nC+jZzs1JnCe9E1d/wy/4
+	6v5X0owvE4Ydg8ryOdFzi1NzrbJYCkSN3W6bdIg==
+X-Gm-Gg: ASbGncuPpljPAZWszj2sgi6ot1kVyh40cND6Bg3ZBsKj13MSCYuelI3CdDYdGsgzzBH
+	R7bVXCekzHmXW/v7sbJslCMsEkHV1xQN0mEJ1CWxsRs2fUl5NMPw2rO7uLNyQekUpF+2rxp7uOZ
+	tQ+tKNmUswG4DcugfvYXrZvZU=
+X-Google-Smtp-Source: AGHT+IGCkeBYkL01Ob0/q+cYVVyOOQUT9d0JdZJ2RLVPcS+2b1wB0bERA+PHNQouav0l20rXKN6j1bHrWfsqVHaUuzI=
+X-Received: by 2002:a05:690c:61c8:b0:705:6afe:4580 with SMTP id
+ 00721157ae682-708544de4demr18549377b3.19.1745576480517; Fri, 25 Apr 2025
+ 03:21:20 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250417074645.81480-1-krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20250417074645.81480-1-krzysztof.kozlowski@linaro.org>
+References: <20250421090951.395467-1-wenst@chromium.org>
+In-Reply-To: <20250421090951.395467-1-wenst@chromium.org>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Fri, 25 Apr 2025 12:20:40 +0200
-X-Gm-Features: ATxdqUFX3-aj6uGzZ6MjZfzJuyAtiwi1E0if2kOJDDTWutgbL5RxXK5HHoQxSiU
-Message-ID: <CAPDyKFpTKxA1fvppkADP=XVbU5YroczNMfYtjELK_TyGR54f2A@mail.gmail.com>
-Subject: Re: [PATCH] pmdomain: arm: Do not enable by default during compile testing
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Sudeep Holla <sudeep.holla@arm.com>, Cristian Marussi <cristian.marussi@arm.com>, 
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Fri, 25 Apr 2025 12:20:44 +0200
+X-Gm-Features: ATxdqUFyawKWbJKKMCdA_eJxPR8YeUvlb5__azoGszdJwBU8e_s7VHYVEWsbp3g
+Message-ID: <CAPDyKFroHJt7u6CzmPLnWv6rii4+adsFNDgoVqA-2AvN6S911g@mail.gmail.com>
+Subject: Re: [PATCH] pmdomain: mediatek: Add error messages for missing regmaps
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-pm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_032117_585710_EC794452 
-X-CRM114-Status: GOOD (  16.69  )
+X-CRM114-CacheID: sfid-20250425_032121_712285_50AF35C6 
+X-CRM114-Status: GOOD (  18.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,13 +94,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 17 Apr 2025 at 09:46, Krzysztof Kozlowski
-<krzysztof.kozlowski@linaro.org> wrote:
+On Mon, 21 Apr 2025 at 11:09, Chen-Yu Tsai <wenst@chromium.org> wrote:
 >
-> Enabling the compile test should not cause automatic enabling of all
-> drivers, but only allow to choose to compile them.
+> A recent change to the syscon regmap API caused the MediaTek power
+> controller drivers to fail, as the required regmap could no longer be
+> retrieved. The error did not have an accompanying message, making the
+> failure less obvious. The aforementioned change has since been reverted.
 >
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> Add error messages to all the regmap retrievals, thereby making all
+> error paths in scpsys_add_one_domain() have visible error messages.
+>
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 
 Applied for next, thanks!
 
@@ -107,47 +112,45 @@ Kind regards
 Uffe
 
 
->
 > ---
+>  drivers/pmdomain/mediatek/mtk-pm-domains.c | 12 +++++++++---
+>  1 file changed, 9 insertions(+), 3 deletions(-)
 >
-> For longer rationale:
-> https://lore.kernel.org/all/191543a8-2e2e-4ac4-9b2b-d253820a0c9f@app.fastmail.com/
-> ---
->  drivers/pmdomain/arm/Kconfig | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
+> diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c b/drivers/pmdomain/mediatek/mtk-pm-domains.c
+> index b866b006af69..22cdd34ed008 100644
+> --- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
+> +++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
+> @@ -397,20 +397,26 @@ generic_pm_domain *scpsys_add_one_domain(struct scpsys *scpsys, struct device_no
 >
-> diff --git a/drivers/pmdomain/arm/Kconfig b/drivers/pmdomain/arm/Kconfig
-> index efa139c34e08..afed10d382ad 100644
-> --- a/drivers/pmdomain/arm/Kconfig
-> +++ b/drivers/pmdomain/arm/Kconfig
-> @@ -2,7 +2,7 @@
->  config ARM_SCMI_PERF_DOMAIN
->         tristate "SCMI performance domain driver"
->         depends on ARM_SCMI_PROTOCOL || (COMPILE_TEST && OF)
-> -       default y
-> +       default ARM_SCMI_PROTOCOL
->         select PM_GENERIC_DOMAINS if PM
->         help
->           This enables support for the SCMI performance domains which can be
-> @@ -14,7 +14,7 @@ config ARM_SCMI_PERF_DOMAIN
->  config ARM_SCMI_POWER_DOMAIN
->         tristate "SCMI power domain driver"
->         depends on ARM_SCMI_PROTOCOL || (COMPILE_TEST && OF)
-> -       default y
-> +       default ARM_SCMI_PROTOCOL
->         select PM_GENERIC_DOMAINS if PM
->         help
->           This enables support for the SCMI power domains which can be
-> @@ -27,7 +27,7 @@ config ARM_SCMI_POWER_DOMAIN
->  config ARM_SCPI_POWER_DOMAIN
->         tristate "SCPI power domain driver"
->         depends on ARM_SCPI_PROTOCOL || (COMPILE_TEST && OF)
-> -       default y
-> +       default ARM_SCPI_PROTOCOL
->         select PM_GENERIC_DOMAINS if PM
->         help
->           This enables support for the SCPI power domains which can be
+>         pd->infracfg = syscon_regmap_lookup_by_phandle_optional(node, "mediatek,infracfg");
+>         if (IS_ERR(pd->infracfg))
+> -               return ERR_CAST(pd->infracfg);
+> +               return dev_err_cast_probe(scpsys->dev, pd->infracfg,
+> +                                         "%pOF: failed to get infracfg regmap\n",
+> +                                         node);
+>
+>         smi_node = of_parse_phandle(node, "mediatek,smi", 0);
+>         if (smi_node) {
+>                 pd->smi = device_node_to_regmap(smi_node);
+>                 of_node_put(smi_node);
+>                 if (IS_ERR(pd->smi))
+> -                       return ERR_CAST(pd->smi);
+> +                       return dev_err_cast_probe(scpsys->dev, pd->smi,
+> +                                                 "%pOF: failed to get SMI regmap\n",
+> +                                                 node);
+>         }
+>
+>         if (MTK_SCPD_CAPS(pd, MTK_SCPD_HAS_INFRA_NAO)) {
+>                 pd->infracfg_nao = syscon_regmap_lookup_by_phandle(node, "mediatek,infracfg-nao");
+>                 if (IS_ERR(pd->infracfg_nao))
+> -                       return ERR_CAST(pd->infracfg_nao);
+> +                       return dev_err_cast_probe(scpsys->dev, pd->infracfg_nao,
+> +                                                 "%pOF: failed to get infracfg-nao regmap\n",
+> +                                                 node);
+>         } else {
+>                 pd->infracfg_nao = NULL;
+>         }
 > --
-> 2.45.2
+> 2.49.0.805.g082f7c87e0-goog
 >
 
