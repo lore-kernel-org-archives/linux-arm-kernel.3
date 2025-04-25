@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BAA2C369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 05:35:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 686B4C369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 05:47:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3EMXmIXfPMBpVBJ2dAfK4lKSBYnOebX3UT2rL/FEHpU=; b=YHfeuLJkIwoOhz3YMSQ0VAzr27
-	gZxTDv8fwXNAIOrurX4vrqNrAK1+0N45uUjqTFS0kUtmNiGubBH835baV+0lFd9ZrlhR6jCXtp+0t
-	r/EVnJq1qvcTtB0LhyOdoisrjXIEMnbxLZUSa17CVSQjrmsq217cCUZz4JBL1X+rN6qnWWy9BSWk8
-	vL+BGn63DqC2KwxKy9BmhVT9u5dmcr7fH0eHEfQH73g7mOcnudu38XMX3f88rzE9gS2fORCNSo7xJ
-	CZX/tblUJ83HM3pXD0fOEW7KasrW3XSfsVmrOonftEcWlxq6i9djaNAjY0HnaVyQle/u3ToOmOaDp
-	rAr/9q+w==;
+	bh=dmjZhI93/v342YWKoKYeDzKJpXRWM0TQF0/l5SCdg/w=; b=kMjzcM1CJDAx4xtsmg1oTTCIIN
+	Vh0iFLB/s7VDHW98xblFNzu1Z1L1Fj20CenIgJmAyesnFeZTuoArmJ7BikMaknjx4u0QD/PA7qqmw
+	JyTwOTBOSqRT9GT5SXng5ecnVPq047ITCtJzBk50tf+q3khVPV8Yj/5ld+R3g2Ucby28VUE6OGzEo
+	Bv8tRZo05TeG46YG26Pwb1z1IcAaTGUKD6+9l8FuGPPt3UNvj5Hp8A0a14DJAsvoN4AAgoj1yyjKq
+	9Z/OHgsGGzMaEle8Mi4Yxs+9h58+ob7VVDHzQ/LspFE0WvA7KPxdAeNr3kna6Wxxmd/MY5gXIj010
+	NGe4xh/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Bia-0000000FzNe-0oQz;
-	Fri, 25 Apr 2025 05:35:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u8Btp-0000000G0kg-3oPu;
+	Fri, 25 Apr 2025 05:46:57 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Bgj-0000000Fz9K-1ppg
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 05:33:26 +0000
+	id 1u8Brz-0000000G0Wq-1a9J;
+	Fri, 25 Apr 2025 05:45:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EE66A4A737;
-	Fri, 25 Apr 2025 05:33:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B92ECC4CEE4;
-	Fri, 25 Apr 2025 05:33:19 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id D34AEA4BC91;
+	Fri, 25 Apr 2025 05:39:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 38CF0C4CEE4;
+	Fri, 25 Apr 2025 05:44:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745559204;
-	bh=yaZ/xOw+yV7pDnZ4omfyKfpAGH6Pr1XtYBYLDUHsxpU=;
+	s=k20201202; t=1745559901;
+	bh=c/cQxcmPVIzq1Y/rQcWzaqLsIWaZOdbIdZzBhrqYqsQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mRXDkC/eFQrFfTAR3fbh0KpZCOeTtnv4cACQ2xNdDBa+FqnFssheLF5Vkep1apZjz
-	 o0bKS8Ainq6orEc5feo5R1vAa0ATuGGdGTYCMqiB+8oiNNzL14LGzOr3RPFoG9nkrE
-	 M1jcPbckn/v2S4JoPiVJ/aAS3ySZDbG4A4rs0Cq6y+kwONplUlh2GG6QKvSUhkLIMQ
-	 9a3SJjaa6+uPBMQRXICVI7IkWntN3CWPXDQ6q//fU2/l7wCbm4LMn80A/p4Y+nEEWw
-	 q6CzbpMwslcBm2d1/iJgIXf+Ti9cxhB3jFI5rAOzTo3ux6XO4YFi1fjD5Gk43e5TQ1
-	 EGk1l72F4x/PQ==
-Message-ID: <0bf77ef6-d884-44d2-8ecc-a530fee215d1@kernel.org>
-Date: Fri, 25 Apr 2025 07:33:17 +0200
+	b=Y1KSezpsHMpfS5Upkb+rdJI9zwna8UtbnvxEj++cCUXq5i2mSd+Yp8h80sxpNotTB
+	 QhJkFaxBj/BY92QnAgVGhzUGwF+g35amCwkBy/o6XoKgL9w6Mnnz/dbo5xqxWz6mSh
+	 R/aPGucwsBb2fTScDcN5fHlfRj7j1IYHLJVo2gDKaU2OmlIpEI63EIworPFtDis4e/
+	 t53lWtH2DA0yQosT9IKonp/7NtrZbh9ZHjtGBKxLe4ya8G1t+Aqr4Ar0oSJUWACPmT
+	 s0usuu9cHXBWg1jqYrUlTQJH9uKwGHCPR3VP4zrg5nyp+PPEblXDsrEKn+MsJIBMYI
+	 kgtJZMEtRdM4A==
+Message-ID: <98bbcfe8-c4bf-4302-8f12-38551eace750@kernel.org>
+Date: Fri, 25 Apr 2025 07:44:55 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [net-next v7 4/7] net: mtip: The L2 switch driver for imx287
-To: Jakub Kicinski <kuba@kernel.org>, Lukasz Majewski <lukma@denx.de>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
- Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+Subject: Re: [PATCH v5 10/10] arm64: defconfig: Add M31 eUSB2 PHY config
+To: Melody Olvera <melody.olvera@oss.qualcomm.com>,
+ Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ Conor Dooley <conor+dt@kernel.org>, Wesley Cheng <quic_wcheng@quicinc.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- Stefan Wahren <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>,
- Andrew Lunn <andrew@lunn.ch>
-References: <20250423072911.3513073-1-lukma@denx.de>
- <20250423072911.3513073-5-lukma@denx.de> <20250424181110.2734cd0b@kernel.org>
+ linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20250421-sm8750_usb_master-v5-0-25c79ed01d02@oss.qualcomm.com>
+ <20250421-sm8750_usb_master-v5-10-25c79ed01d02@oss.qualcomm.com>
+ <2d01bcd6-80e1-4c15-ab23-b5ea5b90f2b1@kernel.org>
+ <575d63e7-f390-46ef-8687-30112849b442@oss.qualcomm.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,12 +107,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250424181110.2734cd0b@kernel.org>
+In-Reply-To: <575d63e7-f390-46ef-8687-30112849b442@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_223325_520435_EF521534 
-X-CRM114-Status: GOOD (  14.88  )
+X-CRM114-CacheID: sfid-20250424_224503_653196_EEB0EF77 
+X-CRM114-Status: UNSURE (   7.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,30 +128,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/04/2025 03:11, Jakub Kicinski wrote:
-> On Wed, 23 Apr 2025 09:29:08 +0200 Lukasz Majewski wrote:
->> This patch series provides support for More Than IP L2 switch embedded
->> in the imx287 SoC.
->>
->> This is a two port switch (placed between uDMA[01] and MAC-NET[01]),
->> which can be used for offloading the network traffic.
->>
->> It can be used interchangeably with current FEC driver - to be more
->> specific: one can use either of it, depending on the requirements.
->>
->> The biggest difference is the usage of DMA - when FEC is used, separate
->> DMAs are available for each ENET-MAC block.
->> However, with switch enabled - only the DMA0 is used to send/receive data
->> to/form switch (and then switch sends them to respecitive ports).
+On 24/04/2025 19:13, Melody Olvera wrote:
 > 
-> Lots of sparse warnings and build issues here, at least on x86.
 > 
-> Could you make sure it's clean with an allmodconfig config, 
-> something like:
+> On 4/24/2025 6:16 AM, Krzysztof Kozlowski wrote:
+>> On 22/04/2025 00:00, Melody Olvera wrote:
+>>> The SM8750 SoCs use an eUSB2 PHY driver different from the
+>> Qualcomm SM8750
+>>
+>> That's a defconfig for all vendors.
 > 
-> make C=1 W=1 drivers/net/ethernet/freescale/mtipsw/ 
+> And...? Apologies, I understand what is actionable about this comment.
+> Please be clear what you want done about this.
 
-... and W=1 with clang as well.
+s/SM8750/Qualcomm SM8750/ because otherwise how anyone non-qcom would
+know what this commit is about?
 
 Best regards,
 Krzysztof
