@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFD4BC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 16:26:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 017F5C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 16:28:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B54/1Fntjrcmv4CaDmydtxpoalBJ4GKKFesBNUC1vJo=; b=H1Gv1MQgca40DUZfehXyXYwkhA
-	aQzeqqWnpLMH8d6LsSQAhuEu6wH6PbD9fIE4OYVyNiNvrmOjAsQdIOoA+jRpyn2fz//wG9YkFe4WA
-	T89WqlpQgMhXv+MKuBqkw+p7Dk8msXuN2eKmzUHnJI6eOXgI74K06lXcJSEnJvtxqrzrC1qbjx5aZ
-	euZEs1yAyUY1TVpCfLywb9JHMx4RbZLN7BhRNEKhexPjQK6JUf9AswPvUbnoqNr6wTLRDppWXNVbZ
-	MTcNi4UhQrulBigGMkriQlkoudfNX3YmuUS/nfI0Hn26K8ZYdifjChMV/oAOmlnfzhKre69WcGvGv
-	Mk9vTHIw==;
+	bh=AJIjp/qH8crQThKI7FNZxGXD0xGR7pbJCbZF1yH/PGY=; b=tvzkE/N/11+Y7fVS9RGcR9/Aih
+	Bjawx+fuGYkKxAhwfkcluuW3NJel8lIVUMGPSaW4mBled6i+I9cmGB4h9xTjvbpc6jt4cT2AXwGAy
+	zkW8iVcgWPOQ5JBwW+OkQQ+DS8KFgFUuaRGW8nRHv2tuNRnDADBwa+Mecr3ckanW4Dl9xCGFNNG9D
+	Ga+JiaZYnfchHCLV32zZOPgHcZTwSjDEfdPZk93jZhhMUvAJOzh+ROLtCIzWoalW5BVHd++SUINf2
+	4bj8O0ToEEhBZ2NtOftmBhBhr261GthDT8WEeb7bRLtI99StMBobstvg+PBZI/17ZhA38Q6z42ZeZ
+	mjxrTkTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Lst-00000000Cwg-2DHb;
-	Fri, 25 Apr 2025 16:26:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u8Luk-00000000DO0-1P6k;
+	Fri, 25 Apr 2025 16:28:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8KIK-0000000HTjb-1gnd
+	id 1u8KKF-0000000HU0s-0C0G
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 14:44:49 +0000
+	Fri, 25 Apr 2025 14:46:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EE86C4A065;
-	Fri, 25 Apr 2025 14:44:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F382C4CEE4;
-	Fri, 25 Apr 2025 14:44:44 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C033D6847B;
+	Fri, 25 Apr 2025 14:46:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1492CC4CEE4;
+	Fri, 25 Apr 2025 14:46:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745592287;
-	bh=5LLcQJbguAUXf7fhzBaS9EfxrD1vFe2/1D4vo2jOGDI=;
+	s=k20201202; t=1745592405;
+	bh=KHMe3OlGoGnWcRJInhRahIcJzYzyZrBrXPmSKdqnqVU=;
 	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=h8vBpr6lYTmBEzdUa1l4Aub/YNwD2YVTsBjm8j/XHJPsUhJN11FZp8MTVKSVYXUcW
-	 hpUlzyOx03xOGxj3jOLeFClenps1W5ZWoWoJ1bPe4HfZMbVx7+4Al5AQZWTvjbc/31
-	 wuPcBq0aQsApZ2tfed/NM3jXQQ3NoAH0dw28lsZDbhaCh1AJ9PZ0dqjSP1C4wsTXlC
-	 Z/I0f57JIMS6VYww6rtzW0mkUlvnbhoxg3aE7JA6EADIi68arzFUbQQxH6yNSdCi4b
-	 CCQs+U31hCCHOril5snNlvRWxVqU9bFuWC06SveLX6e0/1oOsPx3T57+1lQGHe76m0
-	 W7WsYr1vHdQvg==
-Message-ID: <34087c68-442f-41ec-a6c0-dd063f6d44d1@kernel.org>
-Date: Fri, 25 Apr 2025 16:44:42 +0200
+	b=GZZyu96IMNdT1z0KhNQMJNel37QXrrRT2E18XI6r5HmIC5hmAImGK8Pp2um1bZCdd
+	 VdffQwW8aPOA4Qc+dlGKODCGamFqfxtM+Gomc0J49kJzKFlxfOCAsT8/wp/JzazdX2
+	 rJcCug3m1JSCmRNuzOpMPFUE/6BCR39HPTzqd4FDsJ3xH3Z1KKtG97vNlYaZQ2DxTw
+	 gJedKQHg7jYdGNwtLMwAMAcb1g57S5zUBw0gpizufJdwELCa8mnaBLkIYoI4kiT2St
+	 y3I4Ad5Z6HsIFvqui9Ni9zWCrHPjBLN0Bm0TR4TDlF6T2hyzjaVzodbjYbl60b+cx3
+	 5H96lN2rKkmrA==
+Message-ID: <fa054136-961e-4a0f-a2cb-cdd393c3b022@kernel.org>
+Date: Fri, 25 Apr 2025 16:46:41 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 01/10] dt-bindings: clock: Add RTC clock binding for
- Maxim MAX77686
+Subject: Re: [PATCH v1 02/10] ARM: dts: exynos: Add rtc clock definitions for
+ MAX77686 PMIC for Exynos4412 Odroid
 To: Anand Moon <linux.amoon@gmail.com>, Chanwoo Choi <cw00.choi@samsung.com>,
  Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
  <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -62,7 +62,7 @@ To: Anand Moon <linux.amoon@gmail.com>, Chanwoo Choi <cw00.choi@samsung.com>,
  "open list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES"
  <linux-samsung-soc@vger.kernel.org>
 References: <20250425132727.5160-1-linux.amoon@gmail.com>
- <20250425132727.5160-2-linux.amoon@gmail.com>
+ <20250425132727.5160-3-linux.amoon@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,13 +108,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250425132727.5160-2-linux.amoon@gmail.com>
+In-Reply-To: <20250425132727.5160-3-linux.amoon@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_074448_481921_BFA2402F 
-X-CRM114-Status: UNSURE (   7.71  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,24 +126,35 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 25/04/2025 15:26, Anand Moon wrote:
-> +
-> +  The MAX77686 contains three 32.768khz crystal clock outputs that can
-> +  be controlled (gated/ungated) over I2C. Clocks are defined as
-> +  preprocessor macros in dt-bindings/clock/maxim,max77686.h.
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - max77686-rtc
+> The MAX77686A includes a crystal driver with an external load capacitance.
+> When enabled, the crystal driver starts in low power mode. The
+> LowJitterMode bit controls the crystal driver, allowing it to switch
+> between low power mode and low jitter mode (high power mode).
+> Setting the LowJitterMode bit to 1 activates low jitter mode on
+> three channels simultaneously. These three 32khz buffer outputs
+> (32KHAP, 32KHCP, P32KH) are independently enabled/disabled over I2C.
+> 
+> The 32khz_ap output is typically routed to the AP Processor, while the
+> 32khz_cp and 32khz_pmic outputs are intended for BT, WLAN, BB,
+> or peripheral chipsets.
+> 
+> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> ---
+>  arch/arm/boot/dts/samsung/exynos4412-odroid-common.dtsi | 7 +++++++
+>  1 file changed, 7 insertions(+)
+> 
+> diff --git a/arch/arm/boot/dts/samsung/exynos4412-odroid-common.dtsi b/arch/arm/boot/dts/samsung/exynos4412-odroid-common.dtsi
+> index 93ddbd4b0a18..03943c666d11 100644
+> --- a/arch/arm/boot/dts/samsung/exynos4412-odroid-common.dtsi
+> +++ b/arch/arm/boot/dts/samsung/exynos4412-odroid-common.dtsi
+> @@ -289,6 +289,13 @@ max77686: pmic@9 {
+>  		reg = <0x09>;
+>  		#clock-cells = <1>;
+>  
+> +		max77686_osc: clocks {
+> +			compatible = "max77686-rtc";
 
-So you claim RTC is a clock, right? Did not even think that RTC has a
-bit different meaning?
-
-But regardless, this code make no sense and was never tested. It cannot
-work.
-
-It reminds me previous approaches with whatever patches you found in the
-downstream...
+I don't believe this works.
 
 Best regards,
 Krzysztof
