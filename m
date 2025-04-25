@@ -4,120 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAA47C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 11:25:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14872C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 11:27:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I8QKagrcFhKv9KYvsAXHi4oyalQy8U3D+I/qLNKwZTE=; b=YPkvSXTkyNgCAcQeqsuvLoHLCU
-	VVa4Xqk1va7zJrFLnjW2/HtAasQ1huTYyXOOJvL/ahmx5XHau990T1Pyaij6v+wDdquZaz+0TdEgh
-	b1B1SkRXRSxrnFUveqA/pnbg73jqXiYgemR6LAvb3FXBroeW8b+0nX2tthyWvC3EbztXpWHY5NAZ3
-	aLRbO0ufAcnHD/oQWlfm4bp2kBcJc2LdBtw9/twM6DySgfEynI7mp/WoaQXqfngkByrYUpPimOsBc
-	tRn+C/sAczJSLSxbSz9+cMnJMF+14gGd8QFjA6K2hlBTPBL5TyZ2J0tRDDYajKdQnKW47uZFTtdKF
-	k5E5qeAQ==;
+	bh=/pdAv3L1vajERKgxSPxyO88qfXI0bDg1bbg1iV/Cff8=; b=yPZr1+P5lGzBI6XnyXaSkziJ6z
+	AZJHcIgbPUp768mXeECNJ2CFoFssJnJZMQ4eZ3D64ye3X83pGCOkaORlyWgNYDFM9/AXCW3FztHpr
+	UnP38b3jsgFYixFXSr/nz4lE5UIgoN7MmO1rzvM03/lF3dF9fleIHKAvXOdTHakPZFVpV8UsfzvCT
+	OH+0hIYfARaEyIRxrk3LFmFgv4YYms5GD7OgT485VWJnyKJqtNxHssCqK1omjRTJm3F0K8wEIHZGC
+	V9nl6alYbmFLsoH++JWZb0sAJJJWnSx3k6bYbr2h5nCQ500V4tmYwiSkMIvHQOC+nGDQIdwzaN+Ni
+	0aOkjOUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8HBb-0000000GxKT-3YtY;
-	Fri, 25 Apr 2025 11:25:39 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1u8HDR-0000000Gxj7-263W;
+	Fri, 25 Apr 2025 11:27:33 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Fto-0000000GeMn-4Afl
+	id 1u8FuC-0000000GeTa-1RgB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 25 Apr 2025 10:03:14 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53P8TCS3008729
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 10:03:11 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	I8QKagrcFhKv9KYvsAXHi4oyalQy8U3D+I/qLNKwZTE=; b=WHr6CR02/5TJ081u
-	ikBTbROJtBYz3qiKeh/3BKqGKrhzLDKuyhWwSXhcxhVHbI+5tHttz4xAtFVYob2G
-	5o7UyRySkqgLtEBC0v+Gjr5s/HwHfL1K3/6L96TMB7wzT/MIq5Eb3Xd7ZPPjeYMw
-	NxgtMRx//TkB153VudTacJPaABRj4K6Tfbf61csNEKGkHzQ75h+VdFdQE4YIVky+
-	lnArkawa2LTL9H6Y2IOwSdEk760Yv7HUW5IWsYWx1D+2IfUdsBjquXUdGNjvnF4p
-	WV/Wq1mrBVl+6tZwYbUVelXjR9YhkwJETh2+6Ak9AJHtYfqg8pW9vWO8sPmCewOj
-	LJBUUg==
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 466jgy8j5g-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 10:03:11 +0000 (GMT)
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-476786e50d9so3473821cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 03:03:11 -0700 (PDT)
+	Fri, 25 Apr 2025 10:03:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1745575415;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/pdAv3L1vajERKgxSPxyO88qfXI0bDg1bbg1iV/Cff8=;
+	b=LVNdLIODh6TkxOGbmq8P6zbNPk86PFgzWYTV4REk4Tj7/4I6d2zxKw5ZCLjhmkcHjh0wg6
+	nOozx0Ay2jiZ2zdEhmBWqUAWgrlEJDYf4QMNlMzORDke7VdV21sWl5XD/kLAfPuzvwaHEi
+	mdlkAQpy2V5/oflrKkjSjqosRXzxvXg=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-580-DkkOaJD2NouI-51NUIqb5A-1; Fri, 25 Apr 2025 06:03:32 -0400
+X-MC-Unique: DkkOaJD2NouI-51NUIqb5A-1
+X-Mimecast-MFC-AGG-ID: DkkOaJD2NouI-51NUIqb5A_1745575411
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-3a064c45effso1250164f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 03:03:32 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745575391; x=1746180191;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=I8QKagrcFhKv9KYvsAXHi4oyalQy8U3D+I/qLNKwZTE=;
-        b=DXJXZEj6IDu3UHP6xNTQlXf5G0TZucgBUiIsNc+4uIMK9BXvV8xvzHMzUCwaQayNJw
-         ifJAq0Tddke/PYO6/8661o2J4BDossUaVK9IIBeijkVqAz5wp0R+P/wlY5W+LhUldmsk
-         u9jSvc+bhIGOPgoMIL+vDa9hICqxy3Lt5rhOS0/vbZ3lBLd827xmBrOXBTkFpxT96PQG
-         D293b1XUKP5RkuVkcn4vrgjxS0D+onjCpLIKtnGp/2pjQ1PT48aLRoC/YrwnR+7hSC71
-         oAxcqNxc33rkPcEosInaTFyznt2Ja/hzhRNIMiLUb1AVpaw/JkiH5Ewx1nnbqFrDwmpr
-         JoCQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW58i9xbDj158vgivvsU6HHsu3oDTDj9Usnrxu0jrAjXkf9qCQKDifblywpn0ClZxAfvw6uvqvRBWTMbl6cXu42@lists.infradead.org
-X-Gm-Message-State: AOJu0YxDcdb3Vh43U6sDVllNG7Xp87wTV485+f55LtRNRwJIM8xW6uip
-	A3WrzV/OtYTD1Q9cEAwjOhewv2PUHzcqm3G4Ti0JOHDzlahHZ7MG/F6UvHbbeXvEMCrH/UVg6P/
-	/BAHD6JofVoOIJZ7SDIJ02k17ejQ9vYvRUNlbW0Yln9bYhbcM4GXp7zl8kkQ5vwUKXA9/Rw2jCg
-	==
-X-Gm-Gg: ASbGnct27jh7KBTMRkRWaVEEeZCCFhx4odRejjzRy1bv5/Dgf24AnKuu6yI/8McB9UX
-	xOiznIv6mwB95M0qfk66KzjR50ky+E1wGQVQSVufHws4CuiKCCcIK53MeIV6/ZG4nmV7IFxTpbP
-	NI6k8a9+IZjJb0bcraFMevDGiuQs4vjz4A2kKaUJSkpaUOS7hvoRJOqdqdFnxryVawfBODiPbVI
-	mJHzADe/J2QMuwGqkvOCdAkeOaQiyrBD65K8mNZ5tf0el72rcY+/whl5s5JunfjTQOnFvdfNMd1
-	7rdqgqy/tJRNYS0ef3Ls8E1P75pUmIEgKeIwRJmgsCe+QrYOD6aOmTfSaghgmF6/
-X-Received: by 2002:a05:622a:14c:b0:475:1c59:1748 with SMTP id d75a77b69052e-4801e4ef65bmr9252541cf.11.1745575390670;
-        Fri, 25 Apr 2025 03:03:10 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGym4C8wwZXnGdD0USz55aLh0SXbKBJJtzFo8Orhuhz+NevN4tmg5LbGw7KIIl83OOjojsuOQ==
-X-Received: by 2002:a05:622a:14c:b0:475:1c59:1748 with SMTP id d75a77b69052e-4801e4ef65bmr9252401cf.11.1745575390337;
-        Fri, 25 Apr 2025 03:03:10 -0700 (PDT)
-Received: from [192.168.65.5] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ace6e4e69efsm111315166b.46.2025.04.25.03.03.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 25 Apr 2025 03:03:09 -0700 (PDT)
-Message-ID: <e82eda3b-b27f-4584-ad23-562ca4b22847@oss.qualcomm.com>
-Date: Fri, 25 Apr 2025 12:03:06 +0200
+        d=1e100.net; s=20230601; t=1745575411; x=1746180211;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/pdAv3L1vajERKgxSPxyO88qfXI0bDg1bbg1iV/Cff8=;
+        b=NcyEgAt7tNHZxgLxXIhEPI1ADA2KSro8k6fiyJf8wsfualiuo5d70+WQ0dOpDrIcbV
+         Lprcf7a37sdxF5KJqXwg1VOvbnaunzD+JWVmOPtXEs8/YB8R3dRpxJaCKUlD9ar+2SRV
+         Ma5RW9BBZrhpDSF7O6PV8S/2nR/z36XQrBEW6uFY3rx+PvxEWbAqsC9fxfCelnxfgWMy
+         y18m0kAcLnlY0In2xU9wC42lQBYWjI2w5hKeYOgbPSa4F2uyoSx5RLaWdxdmikGzfpJi
+         Z8vitoea1Yy4aLODSOMg6c+3sDEbtD0yf7sQ3RlpFasd11LjqDpX87RiqipnZQYxpEMf
+         g2IA==
+X-Forwarded-Encrypted: i=1; AJvYcCXa1JBtK78rBtSQ+aa8m2XNsXFtEZPhf+jsbOrOuob752qE5TgvFMQPWzEn1ccwmv7dNoQxmJ/PfHfQoyIKlKpS@lists.infradead.org
+X-Gm-Message-State: AOJu0YystiJiTpp2EuEICHd6bT8zM+zYBd4Ovsz0pO2fw2GXSIJka/uU
+	WoBNkxM0WnHIhxMi676tcp+FPkikKQgt3Zz9/4BwjKAFhMxxuhEVmfCF4MTXRd66cMe1UibsA26
+	YN+KWmS7l1HSNeyFoPf6SVGFuM+Ri0VYz4cg+pH+abCBRZ9sQpGOb2DyVjD8fHOSc5FxFoYPMao
+	/m7bVPvAdjshvflQhCyzP9pXIJE7w0/9E5e6slf5oyAzwJShk=
+X-Gm-Gg: ASbGnctaQZ+g8yKouMMPCeIKYoTYmmMt0wrz1W3rSBk+RdPkyhliG3XM9OEbYPQ2T/2
+	wfjLiQN1Ygu3AMtZMk0xYMb1lSC+mjKLiEpO+enQ5uLvXev2pyrWtW8IBjx9yd+QfOP4=
+X-Received: by 2002:a05:6000:40cd:b0:39c:1257:cd3f with SMTP id ffacd0b85a97d-3a074fafc33mr1187374f8f.57.1745575410933;
+        Fri, 25 Apr 2025 03:03:30 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFhvPrUk8HaqVlny6U2TcGIeGC3vNg2/8Nd1SlrTxEwzCGtEum+5nJ8qw6AJbvzVU3WUz1E5bSUYJ0Yi6UnZY4=
+X-Received: by 2002:a05:6000:40cd:b0:39c:1257:cd3f with SMTP id
+ ffacd0b85a97d-3a074fafc33mr1187332f8f.57.1745575410491; Fri, 25 Apr 2025
+ 03:03:30 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/4] arm64: dts: qcom: x1e80100-qcp: Add qref supply
- for PCIe PHYs
-To: Johan Hovold <johan@kernel.org>, Wenbin Yao <quic_wenbyao@quicinc.com>
-Cc: catalin.marinas@arm.com, will@kernel.org,
-        linux-arm-kernel@lists.infradead.org, andersson@kernel.org,
-        konradybcio@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-        conor+dt@kernel.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        krishna.chundru@oss.qualcomm.com, quic_vbadigan@quicinc.com,
-        quic_mrana@quicinc.com, quic_cang@quicinc.com, quic_qianyu@quicinc.com
-References: <20250425092955.4099677-1-quic_wenbyao@quicinc.com>
- <20250425092955.4099677-5-quic_wenbyao@quicinc.com>
- <aAtbFQIQMJO-BYe_@hovoldconsulting.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <aAtbFQIQMJO-BYe_@hovoldconsulting.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI1MDA3MyBTYWx0ZWRfX286tZHEyh6B4 X7oKUmag2f2Vj0SEKyvRbUopl2kOPMjng5RY6PGKF9J5rbDQopXmMW+2UEc9ZS9/RGjHdyFZn2y 2CHjZqZiz5BLLp0yBpZX/WEWl0uDFeIVqN+THOVxq/kFjqGBcTx7J8aZqD8Mj6iYdDsqM7oNhIk
- Ka/5vpB18bFewtBT6GPpPhwqXVpcE61yLEpt8kTJSmbgbFGWcuH/IsM+v81N31rnF4Y0/MIqg0d vwkV59Xd0JReB2OOmqphfGB3GXkiCoGcGqGPN80DYUe5uro5A0aWTS1CEseJxEDOzpIQRN54JZx wPbJStB8/QC6o4Wnf+mls0DEqPhlOCAJ5cttx78Z1Q09C90Ekb8eb6aKCkdk2i6ilmBBMCiC/yl
- 5AHWWqE4FR/kZ9L1BbtbyVokLxjSTlxIB80/zHkBd5aAgA5nqS3lTJ2pFjswlGJCMex9H9tZ
-X-Proofpoint-GUID: GprqinWYLP0CIP-CKKoziCO-4lsVvaUO
-X-Proofpoint-ORIG-GUID: GprqinWYLP0CIP-CKKoziCO-4lsVvaUO
-X-Authority-Analysis: v=2.4 cv=M5VNKzws c=1 sm=1 tr=0 ts=680b5ddf cx=c_pps a=WeENfcodrlLV9YRTxbY/uA==:117 a=FpWmc02/iXfjRdCD7H54yg==:17 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=YoAw9hKFp1W1AvAWU5AA:9 a=QEXdDO2ut3YA:10
- a=kacYvNCVWA4VmyqE58fU:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-04-25_02,2025-04-24_02,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0
- lowpriorityscore=0 adultscore=0 spamscore=0 priorityscore=1501 mlxscore=0
- mlxlogscore=999 malwarescore=0 impostorscore=0 clxscore=1015
- suspectscore=0 phishscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
- definitions=main-2504250073
+References: <20250303-vdso-clock-v1-0-c1b5c69a166f@linutronix.de>
+ <20250303-vdso-clock-v1-8-c1b5c69a166f@linutronix.de> <aApGPAoctq_eoE2g@t14ultra>
+ <20250424173908-ffca1ea2-e292-4df3-9391-24bfdaab33e7@linutronix.de>
+ <CAASaF6xsMOWkhPrzKQWNz5SXaROSpxzFVBz+MOA-MNiEBty7gQ@mail.gmail.com> <20250425104552-07539a73-8f56-44d2-97a2-e224c567a2fc@linutronix.de>
+In-Reply-To: <20250425104552-07539a73-8f56-44d2-97a2-e224c567a2fc@linutronix.de>
+From: Jan Stancek <jstancek@redhat.com>
+Date: Fri, 25 Apr 2025 12:03:14 +0200
+X-Gm-Features: ATxdqUHUJyFDwXWlLrx8Ahqii0-Ktlj3kT6KX6YhOgPcoK-aAeGj4gOn-pX1-9g
+Message-ID: <CAASaF6yxThX3HTHgY_AGqNr7LJ-erdG09WV5-HyfN1fYN9pStQ@mail.gmail.com>
+Subject: Re: [PATCH 08/19] vdso/gettimeofday: Prepare do_hres_timens() for
+ introduction of struct vdso_clock
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Anna-Maria Behnsen <anna-maria@linutronix.de>, 
+	Frederic Weisbecker <frederic@kernel.org>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+	Christophe Leroy <christophe.leroy@csgroup.eu>, Naveen N Rao <naveen@kernel.org>, 
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Sven Schnelle <svens@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-s390@vger.kernel.org, linux-arch@vger.kernel.org, 
+	Nam Cao <namcao@linutronix.de>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: mEm-XMb3TXx4M_KI-0NKMLk3DYEGgtdIbM-BiCnIx9k_1745575411
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_030313_165208_84906F08 
-X-CRM114-Status: GOOD (  14.97  )
+X-CRM114-CacheID: sfid-20250425_030336_464779_82BA278E 
+X-CRM114-Status: GOOD (  45.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,34 +119,226 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/25/25 11:51 AM, Johan Hovold wrote:
-> On Fri, Apr 25, 2025 at 05:29:55PM +0800, Wenbin Yao wrote:
->> From: Qiang Yu <quic_qianyu@quicinc.com>
->>
->> All PCIe PHYs on X1E80100 require vdda-qref power supplies, but this is
->> missing in the current PHY device tree node. The PCIe port can still
->> function because the regulator L3J, which vdda-qref consumes, is voted by
->> other components.
->>
->> Since the device tree should accurately describe the hardware, add the
->> vdda-qref power supply explicitly in all PCIe PHY device nodes.
-> 
-> AFAIU the PHYs do not use this qref supply directly so it does not
-> belong in the PHY node (but possibly in the tcsr node that provides the
-> refclk).
-> 
-> Since commit 031b46b4729b ("phy: qcom: qmp-pcie: drop bogus x1e80100
-> qref supplies") it also won't have any effect for pcie4 and pcie6.
+On Fri, Apr 25, 2025 at 10:58=E2=80=AFAM Thomas Wei=C3=9Fschuh
+<thomas.weissschuh@linutronix.de> wrote:
+>
+> On Thu, Apr 24, 2025 at 11:57:02PM +0200, Jan Stancek wrote:
+> > On Thu, Apr 24, 2025 at 5:49=E2=80=AFPM Thomas Wei=C3=9Fschuh
+> > <thomas.weissschuh@linutronix.de> wrote:
+> > >
+> > > On Thu, Apr 24, 2025 at 04:10:04PM +0200, Jan Stancek wrote:
+> > > > On Mon, Mar 03, 2025 at 12:11:10PM +0100, Thomas Wei=C3=9Fschuh wro=
+te:
+> > > > > From: Anna-Maria Behnsen <anna-maria@linutronix.de>
+> > > > >
+> > > > > To support multiple PTP clocks, the VDSO data structure needs to =
+be
+> > > > > reworked. All clock specific data will end up in struct vdso_cloc=
+k and in
+> > > > > struct vdso_time_data there will be array of it. By now, vdso_clo=
+ck is
+> > > > > simply a define which maps vdso_clock to vdso_time_data.
+> > > > >
+> > > > > Prepare for the rework of these structures by adding struct vdso_=
+clock
+> > > > > pointer argument to do_hres_timens(), and replace the struct vdso=
+_time_data
+> > > > > pointer with the new pointer arugment whenever applicable.
+> > > > >
+> > > > > No functional change.
+> > > > >
+> > > > > Signed-off-by: Anna-Maria Behnsen <anna-maria@linutronix.de>
+> > > > > Signed-off-by: Nam Cao <namcao@linutronix.de>
+> > > > > Signed-off-by: Thomas Wei=C3=9Fschuh <thomas.weissschuh@linutroni=
+x.de>
+> > > > > ---
+> > > > > lib/vdso/gettimeofday.c | 35 ++++++++++++++++++-----------------
+> > > > > 1 file changed, 18 insertions(+), 17 deletions(-)
+> > > > >
+> > > >
+> > > > starting with this patch, I'm seeing user-space crashes when using =
+clock_gettime():
+> > > >   BAD  -> 83a2a6b8cfc5 vdso/gettimeofday: Prepare do_hres_timens() =
+for introduction of struct vdso_clock
+> > > >   GOOD -> 64c3613ce31a vdso/gettimeofday: Prepare do_hres() for int=
+roduction of struct vdso_clock
+> > > >
+> > > > It appears to be unique to aarch64 with 64k pages, and can be repro=
+duced with
+> > > > LTP clock_gettime03 [1]:
+> > > >   command: clock_gettime03   tst_kconfig.c:88: TINFO: Parsing kerne=
+l config '/lib/modules/6.15.0-0.rc3.20250423gitbc3372351d0c.30.eln147.aarch=
+64+64k/build/.config'
+> > > >   tst_test.c:1903: TINFO: LTP version: 20250130-231-gd02c2aea3
+> > > >   tst_test.c:1907: TINFO: Tested kernel: 6.15.0-0.rc3.20250423gitbc=
+3372351d0c.30.eln147.aarch64+64k #1 SMP PREEMPT_DYNAMIC Wed Apr 23 23:23:54=
+ UTC 2025 aarch64
+> > > >   tst_kconfig.c:88: TINFO: Parsing kernel config '/lib/modules/6.15=
+.0-0.rc3.20250423gitbc3372351d0c.30.eln147.aarch64+64k/build/.config'
+> > > >   tst_test.c:1720: TINFO: Overall timeout per run is 0h 05m 24s
+> > > >   clock_gettime03.c:121: TINFO: Testing variant: vDSO or syscall wi=
+th libc spec
+> > > >   clock_gettime03.c:76: TPASS: Offset (CLOCK_MONOTONIC) is correct =
+10000ms
+> > > >   clock_gettime03.c:86: TPASS: Offset (CLOCK_MONOTONIC) is correct =
+0ms
+> > > >   clock_gettime03.c:76: TPASS: Offset (CLOCK_BOOTTIME) is correct 1=
+0000ms
+> > > >   clock_gettime03.c:86: TPASS: Offset (CLOCK_BOOTTIME) is correct 0=
+ms
+> > > >   clock_gettime03.c:76: TPASS: Offset (CLOCK_MONOTONIC) is correct =
+-10000ms
+> > > >   clock_gettime03.c:86: TPASS: Offset (CLOCK_MONOTONIC) is correct =
+0ms
+> > > >   clock_gettime03.c:76: TPASS: Offset (CLOCK_BOOTTIME) is correct -=
+10000ms
+> > > >   clock_gettime03.c:86: TPASS: Offset (CLOCK_BOOTTIME) is correct 0=
+ms
+> > > >   tst_test.c:438: TBROK: Child (233649) killed by signal SIGSEGV
+> > > >
+> > > > or with:
+> > > > --------------------- 8< ----------------------
+> > > > #define _GNU_SOURCE
+> > > > #include <sched.h>
+> > > > #include <time.h>
+> > > > #include <unistd.h>                                                =
+                                                                           =
+                                                                           =
+                    #include <sys/wait.h>
+> > > >
+> > > > int main(void)
+> > > > {
+> > > >         struct timespec tp;
+> > > >         pid_t child;
+> > > >         int status;
+> > > >
+> > > >         unshare(CLONE_NEWTIME);
+> > > >
+> > > >         child =3D fork();
+> > > >         if (child =3D=3D 0) {
+> > > >                 clock_gettime(CLOCK_MONOTONIC_RAW, &tp);
+> > > >         }
+> > > >
+> > > >         wait(&status);
+> > > >         return status;
+> > > > }
+> > > >
+> > > > # ./a.out ; echo $?
+> > > > 139
+> > > > --------------------- >8 ----------------------
+> > > >
+> > > > RPMs and configs can be found at Fedora koji, latest build is at [2=
+] (look for kernel-64k).
+> > >
+> > > Hi Jan,
+> > >
+> > > Thanks for the great error report.
+> > >
+> > > Can you try the following change (on top of v6.15-rc1, should also wo=
+rk with current master)?
+> > >
+> > > diff --git a/lib/vdso/gettimeofday.c b/lib/vdso/gettimeofday.c
+> > > index 93ef801a97ef..867ce53cca94 100644
+> > > --- a/lib/vdso/gettimeofday.c
+> > > +++ b/lib/vdso/gettimeofday.c
+> > > @@ -85,14 +85,18 @@ static __always_inline
+> > >  int do_hres_timens(const struct vdso_time_data *vdns, const struct v=
+dso_clock *vcns,
+> > >                    clockid_t clk, struct __kernel_timespec *ts)
+> > >  {
+> > > -       const struct vdso_time_data *vd =3D __arch_get_vdso_u_timens_=
+data(vdns);
+> > >         const struct timens_offset *offs =3D &vcns->offset[clk];
+> > > -       const struct vdso_clock *vc =3D vd->clock_data;
+> > > +       const struct vdso_time_data *vd;
+> > > +       const struct vdso_clock *vc;
+> > >         const struct vdso_timestamp *vdso_ts;
+> > >         u64 cycles, ns;
+> > >         u32 seq;
+> > >         s64 sec;
+> > >
+> > > +       vd =3D vdns - (clk =3D=3D CLOCK_MONOTONIC_RAW ? CS_RAW : CS_H=
+RES_COARSE);
+> > > +       vd =3D __arch_get_vdso_u_timens_data(vd);
+> > > +       vc =3D vd->clock_data;
+> > > +
+> > >         if (clk !=3D CLOCK_MONOTONIC_RAW)
+> > >                 vc =3D &vc[CS_HRES_COARSE];
+> > >         else
+> > >
+> > >
+> > > I'll do some proper testing tomorrow.
+> >
+> > That does seem to work for the 2 reproducers I have.
+>
+> Thanks for testing.
+>
+> > But why is this change needed?
+>
+> So far the only thing that I can say is that this logic was there before =
+the
+> patch and was removed accidentally, so it should be restored.
+> Why the logic was there in the first place I'll have to investigate.
 
-QREF is a separate hw block distributing the reference clocks across
-certain on-SoC peripherals
+I think it paired with "vd advancing" based on "clock" in original code:
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/lib=
+/vdso/gettimeofday.c?h=3Dv6.14#n264
+and to get back to "base", you needed to subtract same value:
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/lib=
+/vdso/gettimeofday.c?h=3Dv6.14#n82
 
-If its power goes out, I don't think much of the platform would be
-functional anyway, so it's redundant here..
+After this series, "vd" isn't manipulated this way, so the removal of
+that subtraction seemed deliberate to me.
 
-It doesn't have its own single register region and it's frankly
-one-shot-configured way before Linux starts up, so there should be
-no need of describing it at all.
+>
+> > Isn't 'vdns' here equal to 'vdso_u_time_data'?
+>
+> That is true, but in a time namespace the namespaced time structure is ma=
+pped
+> in place of the normal structure and vice-versa.
+> So __arch_get_vdso_u_timens_data() will get the "real" time datastructure=
+ based
+> on a namespaced one.
+>
+> I can't explain the special logic for CLOCK_MONOTONIC_RAW yet.
+> To me it looks wrong to calculate on a 'struct vdso_time_data *' in terms=
+ of
+> CS_RAW/CS_HRES_COARSE.
+>
+>
+> Another change that "fixes" the crash for me is:
+>
+> diff --git a/lib/vdso/gettimeofday.c b/lib/vdso/gettimeofday.c
+> index 93ef801a97ef..cdc3988a0ace 100644
+> --- a/lib/vdso/gettimeofday.c
+> +++ b/lib/vdso/gettimeofday.c
+> @@ -93,6 +118,8 @@ int do_hres_timens(const struct vdso_time_data *vdns, =
+const struct vdso_clock *v
+>         u32 seq;
+>         s64 sec;
+>
+> +       OPTIMIZER_HIDE_VAR(vc);
+> +
+>         if (clk !=3D CLOCK_MONOTONIC_RAW)
+>                 vc =3D &vc[CS_HRES_COARSE];
+>         else
+>
+>
+> This is obviously not an actual fix but indicates that something weird is=
+ going on.
+> Could you run this second change also through LTP to see if it would pass=
+?
 
-Konrad
+Agreed, this does "fixes" it for me as well.
+
+>
+>
+> Thomas
+>
+> > > > [1] https://github.com/linux-test-project/ltp/blob/master/testcases=
+/kernel/syscalls/clock_gettime/clock_gettime03.c
+> > > > [2] https://koji.fedoraproject.org/koji/buildinfo?buildID=3D2704401
+> > >
+>
+
 
