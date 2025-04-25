@@ -4,67 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A4A4C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 23:06:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BCD1C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 25 Apr 2025 23:10:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ut0e2XEgaxbZOv5cGCT4eAG2SutBsfimrhVe3RGjTWs=; b=vgE8EeeUl4MKu4yj3HopLYZvUE
-	F3LlqzWGCveC3smUhiG8e701TMQazHldw5NLfWyZQsSxhUe+WMMchHR66SAfyW3xl7q3X2hu1tuEE
-	HomVHru7cdlrERlcUGSWwtfmHpkTWW7e2S+ihsBb2oAuZa8faLoifajq9QQX+KG5i0ppXrTcp09Vf
-	Z/IlJrzau0Ppb56SQVSHPQg6HcYdS2YGmXHZ5vi9rBuPkKYmJXT1noL/HTwPSi+wKlWvKNVo9da1s
-	HakbUPM9rw6/A2f2FwpsCdjOKlASRHpADYSOTdu+1q4DKbMdhJ5EEA12AmDxsAiYS8cmygOGZRq9x
-	ttTH7fHQ==;
+	bh=imM+ks2tbggHAW5y2t+eA5BzrhcUOcSnoz31iIz0VjI=; b=TmPJs6vbbPxXZ4sHHckH7a1fnh
+	DxQPAtZQUJFjPCBv1q2j8hhPig/ZrwdbzjWY3nVO/FDv1PZmCUNEMp3EGdM+QmTHCSwSpOe1Zxr6J
+	LX+MEi/JMD4E+7GaVs0cnXeVFEG3fsXqGxDK5w1+qTacy7n95vsgoTZke5/RJoQl7Pmv+MjkHx0uM
+	4h5DW2ZQ6bDicVeSGG16LDdUFWzIEB8bz0clZz29tObAxbZX+/KaI25kkG9tau/4u8z85oYhBqI+w
+	ig0bR9UT2bbAvQu0IDedl5CZuioozXr3nm04eR+B2xQqaeCP/UtJC01iVnUoawBs6pyc23ShsYGi6
+	/jxGxvng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8S87-000000015vj-1FD5;
-	Fri, 25 Apr 2025 23:06:47 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u8SBh-000000016BA-0E28;
+	Fri, 25 Apr 2025 23:10:29 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8S6H-000000015od-3Rd0
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 25 Apr 2025 23:04:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Ut0e2XEgaxbZOv5cGCT4eAG2SutBsfimrhVe3RGjTWs=; b=XNCo2KjSFlFN/f343bsGvvMB90
-	0oHg0Zmu2TjtiuLa61nd4i68BUAUu9O1zgZ1tpXBd3hOxczWMXLZ8wos88k3tqZukoQzouV69gFb1
-	XtsO5yW5L70CbuvOPILQHY9HkI0JrNwP7jl34OG+7FyD6KRxYdKBKtxr23I6qYFegKFsw53DIOj1G
-	hOhcCoyynnwGZ95K+/PHaQ1eHZ3j9tsec88a/gayiXaHoQFtJbOoVorqfHDPB239CbTdKPG7lznVu
-	vmrxIefcSb3EyOlWuO/fSNzcFV5B2xokBMmBNF7Gf54n7ULMWc2HZdphJNeVkdYqdQHU5bdb83gHZ
-	k20QaiGw==;
-Received: from [172.31.31.140] (helo=u09cd745991455d.lumleys.internal)
-	by desiato.infradead.org with esmtpsa (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u8S6A-0000000CADh-2CJH;
-	Fri, 25 Apr 2025 23:04:48 +0000
-Message-ID: <c15100fcf6781a60b852c4dbb43bdc98a678fcf0.camel@infradead.org>
-Subject: Re: [PATCH v4 7/7] mm/mm_init: Use for_each_valid_pfn() in
- init_unavailable_range()
-From: David Woodhouse <dwmw2@infradead.org>
-To: David Hildenbrand <david@redhat.com>, Mike Rapoport <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, "Sauerwein, David"
- <dssauerw@amazon.de>, Anshuman Khandual <anshuman.khandual@arm.com>, Ard
- Biesheuvel <ardb@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Marc Zyngier <maz@kernel.org>,  Mark Rutland <mark.rutland@arm.com>, Mike
- Rapoport <rppt@linux.ibm.com>, Will Deacon <will@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-mm@kvack.org, Ruihan Li <lrh2000@pku.edu.cn>
-Date: Sat, 26 Apr 2025 00:04:46 +0100
-In-Reply-To: <8fd728cf-bc54-433d-8701-234a67933a97@redhat.com>
-References: <20250423133821.789413-1-dwmw2@infradead.org>
-	 <20250423133821.789413-8-dwmw2@infradead.org>
-	 <cabc322e-d5ab-4371-a506-c7809717b38b@redhat.com>
-	 <91CA8854-2E86-4AF3-BAD0-8C47833F59D4@infradead.org>
-	 <8fd728cf-bc54-433d-8701-234a67933a97@redhat.com>
-Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-T70qnRRoSmxW08sUwGY7"
-User-Agent: Evolution 3.52.3-0ubuntu1 
+	id 1u8S9p-0000000163D-2Evu;
+	Fri, 25 Apr 2025 23:08:34 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.98.2)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1u8S3r-000000006ep-4AcF;
+	Fri, 25 Apr 2025 23:08:19 +0000
+Date: Sat, 26 Apr 2025 00:08:16 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: Felix Fietkau <nbd@nbd.name>, John Crispin <john@phrozen.org>,
+	Eric Woudstra <ericwouds@gmail.com>, Elad Yifee <eladwf@gmail.com>,
+	Bo-Cun Chen <bc-bocun.chen@mediatek.com>,
+	Sky Huang <skylake.huang@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Russell King <linux@armlinux.org.uk>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net-next] net: ethernet: mtk_eth_soc: add support for
+ MT7988 internal 2.5G PHY
+Message-ID: <aAwV4AOKYs3TljM0@makrotopia.org>
+References: <ab77dc679ed7d9669e82d8efeab41df23b524b1f.1745617638.git.daniel@makrotopia.org>
 MIME-Version: 1.0
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by desiato.infradead.org. See http://www.infradead.org/rpr.html
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ab77dc679ed7d9669e82d8efeab41df23b524b1f.1745617638.git.daniel@makrotopia.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250425_160833_572962_B3D8F166 
+X-CRM114-Status: GOOD (  17.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,142 +74,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Apr 25, 2025 at 10:51:18PM +0100, Daniel Golle wrote:
+> The MediaTek MT7988 SoC comes with an single built-in Ethernet PHY
+> supporting 2500Base-T/1000Base-T/100Base-TX/10Base-T link partners in
+> addition to the built-in MT7531-like 1GE switch. The built-in PHY only
+> supports full duplex.
+> 
+> Add muxes allowing to select GMAC2->2.5G PHY path and add basic support
+> for XGMAC as the built-in 2.5G PHY is internally connected via XGMII.
+> The XGMAC features will also be used by 5GBase-R, 10GBase-R and USXGMII
+> SerDes modes which are going to be added once support for standalone PCS
+> drivers is in place.
+> 
+> In order to make use of the built-in 2.5G PHY the appropriate PHY driver
+> as well as (proprietary) PHY firmware has to be present as well.
+> 
+> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
+> ---
+> [...]
+> diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.h b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
+> index 88ef2e9c50fc..e3a8b24dd3d3 100644
+> --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.h
+> +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.h
+> [...]
+> @@ -587,6 +603,10 @@
+>  #define GEPHY_MAC_SEL          BIT(1)
+>  
+>  /* Top misc registers */
+> +#define TOP_MISC_NETSYS_PCS_MUX	0x84
 
---=-T70qnRRoSmxW08sUwGY7
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+This offset still assumes topmisc syscon to start at 0x11d10000.
+If the pending series[1] adding that syscon at 0x11d10084 gets merged
+first, this offset will have to be changed to
+#define TOP_MISC_NETSYS_PCS_MUX	0x0
 
-On Fri, 2025-04-25 at 22:12 +0200, David Hildenbrand wrote:
->=20
-> In any case, trying to figure out why Lorenzo ran into an issue ... if=
-=20
-> it's nit because of the pageblock, maybe something in for_each_valid_pfn=
-=20
-> with sparsemem is still shaky.
-
-Yep, I think this was it:
-
---- a/include/linux/mmzone.h
-+++ b/include/linux/mmzone.h
-@@ -2190,10 +2190,10 @@ static inline unsigned long next_valid_pfn(unsigned=
- long pfn, unsigned long end_
-        /*
-         * Either every PFN within the section (or subsection for VMEMMAP) =
-is
-         * valid, or none of them are. So there's no point repeating the ch=
-eck
--        * for every PFN; only call first_valid_pfn() the first time, and w=
-hen
--        * crossing a (sub)section boundary (i.e. !(pfn & ~PFN_VALID_MASK))=
-.
-+        * for every PFN; only call first_valid_pfn() again when crossing a
-+        * (sub)section boundary (i.e. !(pfn & ~PAGE_{SUB,}SECTION_MASK)).
-         */
--       if (pfn & (IS_ENABLED(CONFIG_SPARSEMEM_VMEMMAP) ?
-+       if (pfn & ~(IS_ENABLED(CONFIG_SPARSEMEM_VMEMMAP) ?
-                   PAGE_SUBSECTION_MASK : PAGE_SECTION_MASK))
-                return pfn;
-=20
-I've pushed the fixed version out to=20
-https://git.infradead.org/users/dwmw2/linux.git/shortlog/refs/heads/for_eac=
-h_valid_pfn
-
-
---=-T70qnRRoSmxW08sUwGY7
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Transfer-Encoding: base64
-
-MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
-ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
-AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
-BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
-MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
-a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
-jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
-GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
-aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
-nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
-8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
-HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
-IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
-KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
-BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
-QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
-QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
-ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
-/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
-uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
-xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
-W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
-c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
-VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
-NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
-DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
-sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
-w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
-i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
-kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
-0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
-ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
-blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
-hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
-VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
-HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
-ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
-AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
-cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
-cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
-AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
-aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
-hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
-iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
-8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
-JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
-xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
-EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
-B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
-MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
-KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
-Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
-nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
-WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
-W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
-nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
-g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
-9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
-9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
-sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
-a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
-ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
-AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
-dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
-MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
-YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
-4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
-6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
-QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
-nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
-MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
-VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
-ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI1MDQyNTIzMDQ0
-NlowLwYJKoZIhvcNAQkEMSIEID2+O2Ib6uI75tnS0RTDwB103/BGV/zTarkUZn987lHeMGQGCSsG
-AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
-cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
-VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
-cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIAwDn9rkHVckXQ
-C9Y0xtGL+b8LPcZx7iNpWUsXztxgqjpxq3088LhLPfFCUwViYl4K04HBynF+tPQdJVJo93/kka39
-ioBGXF9UlH30MI+No2iLLDHcE3Rlx8Ew9OeeRWOXed9UbO/R8DPlLqMZufSynn2ncYn69q1QDrjK
-CwAVtaLG6GwswKW4ZEG1xpypWty0L1APjDCAL/KsxKhWjxNFYJDHZZVwYauPamLv+Yw8aTJ7tw8X
-YaqypiLwCiMQ5+GZnrRy+5nPAioJ3gY+ZD8dlV9rQtAQ2NmHE+agZL567BYx4FiqhEB/lquO+nQF
-zrHfP7m0/YZy8rxiyaOJWEkVfozAntSj7gmPtm8phLhr/0+5NxpsWt1blFF7+dFtKZX98DB1GIRt
-N7D3b7GUT/u0zXtbsphAotuHhLsjSB9Hh5rZ1enAnJ2XR+5fRJgZ8crgbaD5itZzMAn8/o4cTL7G
-TufKIZYc22N4OLwdnzGNXEm7NgRgYDp8immq8gUJkDcXjY/Ba2mr0al5OT9z8wIg4uLqpFO3T1eY
-/DCymHjoLJchTbk+PMk2xx9fhe/bHXwgtZXHVppFMUGoeX2CPe9JbPorVhv0TpYCIBf0OjpqkJHy
-oi2nMj4eApb78eCWac+4roE7/Yq478IClIfN/TYv0OmdXOSFvPySVlG2Zn4nJJkAAAAAAAA=
-
-
---=-T70qnRRoSmxW08sUwGY7--
+[1]: https://patchwork.kernel.org/project/linux-mediatek/patch/20250422132438.15735-8-linux@fw-web.de/
 
