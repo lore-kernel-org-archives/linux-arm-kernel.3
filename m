@@ -4,78 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 920D1C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 22:03:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FF2AC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 22:09:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nzrNCfIbltJDUh80KeXlbQkeQ/0zkPnKqxcq0vFHnCk=; b=cVMdCUx18fxPqNAqLoep7i0z7V
-	vfSY50OZhkUqLs4D6z19AQGBAWvMB82hXKISb5gewbWnvIzvMQd5dpEp0U8uAZHvrxLR1h858jRU+
-	y4hFOh/0pMefOSA8V89rda4R+2ztuc0JGXsIhCrQjxPqb6CLpgUzQRIZcXzVMtHx4Me95XRlywet4
-	XruC+wOdDJ5MNm3p7P323nTuelzQrUwk3csscVmuXSK4l/LH3f813Ab9I/CPJOIl101Ha7FBa+I3c
-	GZwm6eGx5qqyhRI8KSsMAfPVYez1m5OPWGfcPF247fZgpFl0DJ1l0qdCDkQ07xUc9+J64extPi2X0
-	EdrDJPkQ==;
+	bh=6XrbiVVXrsE/B+PTaSAIPJh0SzK7NoLZKAMpvhcbTBc=; b=aXx7t8TqLwsX5dQ+0k7jx1I0Sw
+	CU6BD3/HqdPxIcbANi8fMdU0+1t1asdlp+E+F4K036IjzPaAmdAFsxMJxtn8h4rQKoSX+XxOFeCC3
+	EoOcoYAg/Il+KhTN2Xz4YUEP1e40xHnk8DYrBKbvcOOBfrfyAJXxAjxwg14rF8IDlQX5ns++M8++Y
+	P+7XioxVpRqyBcKuFGnvaIz+rGiSBa0n405CT0N4WCBl+59IS3Y86s9447XLmhi0otz+PQJbZs+oK
+	b4QjJAMD4OshReA3DD9QqAnzVcRbYZgVd8bVYAfubXtRWvoTQaRXCAhtO9C69LRFXo0IwKI/02B1R
+	WM3xYR3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8ncT-00000002Z1S-2vod;
-	Sat, 26 Apr 2025 22:03:33 +0000
+	id 1u8nhy-00000002ZHe-2X3r;
+	Sat, 26 Apr 2025 22:09:14 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8nMD-00000002XOY-3wuf;
-	Sat, 26 Apr 2025 21:46:46 +0000
+	id 1u8nQd-00000002Y4Z-0kS4;
+	Sat, 26 Apr 2025 21:51:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=nzrNCfIbltJDUh80KeXlbQkeQ/0zkPnKqxcq0vFHnCk=; b=JQtUD51fZGQQxc8ThllDYRda/J
-	UsYh90YKpgmHy6rd9JUOG9a7+SmcJR5UnWZ51MWF2l8hTlfGtV6phO5NyLN/qVSKNi4HU4BrRdbAA
-	3dnXjheeTjG30PyUATW7xQXKD4PQZ18OvqlXdKb7BvV7B6/e9lFI7q3DehiofZL5tm72sBfbMYfl6
-	/fDi/XafR845N/ZOXejcqVDt6npFcjfBk3vOm+6N9ti6CAkYvmdsbQjFG/EGnAmkRyLuRFoaqvvSs
-	Ntp886f6adFTCfffJ+UaOSsyZ9H7o24mifmqjNIVSDHRqemOnHT8WyFmJHIk8H7j5drkcraRTqOZp
-	Rua6IaAw==;
+	bh=6XrbiVVXrsE/B+PTaSAIPJh0SzK7NoLZKAMpvhcbTBc=; b=Yr7W5+18DsyQVkNm+GoK+jp4Bw
+	VB4kKTWM/Ytiq3fh6mkYdS6S60yWJlfkvY9IBfL6QUv9MORSntqY6zO15I9UYsag169oxv6OYQq+q
+	mkB3IjUdo1S6B+LLO9gn/D/jcY4ZpXi5CC8b8Sbw5B04nw1Qgl+3y3qFN87jZfV+YfzUtZb6eKcaz
+	GMFle8V3BGictHtod1abh1/NfwvvaKrRv8WVu2y94rUcUHVAWGZ9HIvXJgpAuZJ4q+z2cemDtdn6G
+	DHwVIifs3Qfk46IXiM91K5RZ/nb070i0MlAgOz8ZlM6I/Xf6yZc6kIWuPKOVqFdd6Ljqxe6Po2/st
+	Ls1fovjA==;
 Received: from i53875aba.versanet.de ([83.135.90.186] helo=phil..)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1u8nLr-0001OR-W1; Sat, 26 Apr 2025 23:46:24 +0200
+	id 1u8nLt-0001OR-JL; Sat, 26 Apr 2025 23:46:25 +0200
 From: Heiko Stuebner <heiko@sntech.de>
-To: Chaoyi Chen <kernel@airkyi.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
+To: linux-rockchip@lists.infradead.org,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Jianfeng Liu <liujianfeng1994@gmail.com>,
-	Dragan Simic <dsimic@manjaro.org>,
-	Jimmy Hon <honyuenkwun@gmail.com>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	FUKAUMI Naoki <naoki@radxa.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Alexey Charkov <alchark@gmail.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Markus Reichl <m.reichl@fivetechno.de>
+Cc: Heiko Stuebner <heiko@sntech.de>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/2] Add support for RK3588 EVB2 board
-Date: Sat, 26 Apr 2025 23:46:11 +0200
-Message-ID: <174570370119.31943.10378973370072965130.b4-ty@sntech.de>
+Subject: Re: [PATCH] arm64: dts: rockchip: Add vcc supply to spi flash on rk3399-roc-pc.
+Date: Sat, 26 Apr 2025 23:46:15 +0200
+Message-ID: <174570395442.32969.5908465165720861045.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250418014757.336-1-kernel@airkyi.com>
-References: <20250418014757.336-1-kernel@airkyi.com>
+In-Reply-To: <20250411140223.1069-1-m.reichl@fivetechno.de>
+References: <20250411140223.1069-1-m.reichl@fivetechno.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250426_144645_974664_EAF27362 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20250426_145119_213066_ABE3B94A 
+X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,26 +80,17 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 18 Apr 2025 09:47:55 +0800, Chaoyi Chen wrote:
-> General features for rk3588 evb2 board:
-> - Rockchip RK3588
-> - LPDDR4/4X
-> - eMMC5.1
-> - RK806-2x2pcs + DiscretePower
-> - 1x HDMI2.1 TX / HDMI2.0 RX
-> - 1x full size DisplayPort
-> - 3x USB3.0 Host
-> - 1x USB2.0 Host
-> - WIFI/BT
+On Fri, 11 Apr 2025 16:02:21 +0200, Markus Reichl wrote:
+> Add vcc supply to the spi-nor flash chip on rk3399-roc-pc boards
+> according to the board schematics ROC-3399-PC-V10-A-20180804 to avoid
+> warnings in dmesg output.
 > 
-> [...]
+> 
 
 Applied, thanks!
 
-[1/2] dt-bindings: arm: rockchip: Add rk3588 evb2 board
-      commit: ebabb3cdb89eee8853157a6daeed9d3f5a46dce4
-[2/2] arm64: dts: rockchip: Add rk3588 evb2 board
-      commit: 013dd238a822c940e056504fe644bd0a38c5d806
+[1/1] arm64: dts: rockchip: Add vcc supply to spi flash on rk3399-roc-pc.
+      commit: 86d8dfd4a5c5df883b7ce07b7e98b8439f468581
 
 Best regards,
 -- 
