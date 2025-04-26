@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EECD8C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 00:59:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC5FFC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 01:02:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:MIME-Version:In-Reply-To:References:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4ixJnmJlNxsNRNsd61sGRX8TRaySaFY7mI+WqzKqMgM=; b=o9ST2dIK+zyvz4IMwO4di+ZepN
-	THSMYUs9Ffudf5aw5ScekgM0/xTHiYJWw2+2qCLWqXdbkDTRC6X3u3p1ER1KdLFR9pLCrHtexjwzR
-	39z1oW3HbRZu9n6444/HiXyxSf9nZv/jQuXOqAjlx1ZgtltM1aSJ38V+8q4FoZ3+NEpkVe4fuxiZc
-	27Dc6qGa4dSHwcF4LAv31hbJAATAkUd8tHwnN+15D3YrA1f8mTkzyW5UrLohOCybyXvaFUgkpip4y
-	hEpoGNzJMfJGZeQHldTbalXOP/cn0C7bzi6WLW9fdKVpaIov6+rATOvUZnZVY3BvyrUxW1hO1hwJX
-	oQbjeKAg==;
+	bh=HEf0tfLlAZujjYkEpdZQSHgrURfpFjhewgBKT1ZDn88=; b=vOulkwSLFOgwqeI0ua9nqeUAOJ
+	ZXxDhsoDPZllHhRPs7Z5qiJvsb8Mo8h6ZvUaonh36FamX9CUu6pL83pbzgVl5wYSx2KWUPpYigM2i
+	hvfimvY6XHQm6xAz74kJoGeqQJiyvX7t+LPqC8az3uCMPosdyrRGcqez7o3C69jhJyvDY42XdK2L8
+	8EElQOdXJY8xVSW6RjQxTU88YvUQ/LxwgomcfaOHgKucbPcjzXjbWU9Wnk2sQoPXmAnSU2+a0t5Bi
+	PE5M/p7W05Z8W5dM1bG/NQKMNpODTLE3Ng6D9/szr289yl+Ck6x49Cvtc9uqfZxYgmzy5xOxzPWtU
+	WFOmbTTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Tsz-00000001DrL-03L3;
-	Sat, 26 Apr 2025 00:59:17 +0000
-Received: from mail-vk1-xa31.google.com ([2607:f8b0:4864:20::a31])
+	id 1u8Tvv-00000001E48-0Yhn;
+	Sat, 26 Apr 2025 01:02:19 +0000
+Received: from mail-vk1-xa2e.google.com ([2607:f8b0:4864:20::a2e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Tr6-00000001Dmq-2pfd
+	id 1u8Tu2-00000001DxS-2mdZ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Apr 2025 00:57:22 +0000
-Received: by mail-vk1-xa31.google.com with SMTP id 71dfb90a1353d-5240b014f47so1252749e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 17:57:19 -0700 (PDT)
+	Sat, 26 Apr 2025 01:00:24 +0000
+Received: by mail-vk1-xa2e.google.com with SMTP id 71dfb90a1353d-525b44ec88aso1339683e0c.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 18:00:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1745629038; x=1746233838; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1745629221; x=1746234021; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:thread-index:mime-version:in-reply-to
          :references:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=4ixJnmJlNxsNRNsd61sGRX8TRaySaFY7mI+WqzKqMgM=;
-        b=ELwePcDd7lj/azoB4bMc+M/6QwzMOruwZXtqp5rH21dRKlQTKvbzr+e5z1XEXk/XWQ
-         QWr/6PIWp0JTE90bnXKFR4tsdoBKsPKSGw1UmS1czkNdmTPkfYxM3sNnfxG127jg+MA6
-         PNThal5PrukLmZbaKZqPj9pXoVBIVgrP+HeHY=
+        bh=HEf0tfLlAZujjYkEpdZQSHgrURfpFjhewgBKT1ZDn88=;
+        b=XLKLDZ6T2O0Ij58VpGHB2qAbdjqu609JqMvnOkqAxMwLm1uJjv9H29cTRJcf/LEZMZ
+         r8GX+4BpK03nSdbQf7l+UF46LAsJC/xtsbCYa6Ed6hNuY7AlHnZYv4S+AiWwfMUllMXF
+         oj8RZY/qbcr41OsboJSmD4JygxF1IZp4RzQR4=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745629038; x=1746233838;
+        d=1e100.net; s=20230601; t=1745629221; x=1746234021;
         h=cc:to:subject:message-id:date:thread-index:mime-version:in-reply-to
          :references:from:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=4ixJnmJlNxsNRNsd61sGRX8TRaySaFY7mI+WqzKqMgM=;
-        b=FYjUe7eiUsr71AhTJJ99V5plF5DNKCvOUEKQtl0qWVS0nKzW9F2xJ1mvkpzoxp7CcA
-         mH7X4BGx8gDNY2QJkwjUakL+xlgkfh4EmmOxyfIuoVJFWRHJ+M0o7R3G7V6aQ6PDIApf
-         +qRBujM536vCekn18lD+ooh22cgvEfiL65oxLAyuar81rPixmTW4ya4k1yJDFVfsCPem
-         vR7NezdaWH7e0zHkQVGxAiQoXiPr7i1pQEwldSzdLjg3h1QHbeY/J1jVv8iFJLIYNLqu
-         9S8CYD4R/WJ6e7brzjUrdaSn02z9REIx2Cw5MdPfkJHhcZqWRVgMvGCpg3oNdAyFHjGP
-         ACEw==
-X-Forwarded-Encrypted: i=1; AJvYcCUPNuAe6hZ88WVY5T2pFZ4veroqzmo2e/EqFMy4aKlHDFuU4Rpvt5K3kKrLQOh0SqpFXYm2vAHbx4tYy9HCvqn0@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYZD+nryq/GGm+0OAmb4ggmjtR2FvHH8kmA3EsokobI8UyLuxK
-	F6iceFtEFJPwXWercRkEp0W2G8e69m+V2ossUc8M+TDgxBdmy0zdCWTs3qpV1yeMkRKCbUVmP0G
-	/8RMljCjq0Ow/Pi42qFfWz3immhp7fMlXKmfh
-X-Gm-Gg: ASbGncu6EEhunjQN5VrV3u+VaqRiHX8umSCJIeR3auzEnepau24qRFIPBrW2WbjPrHP
-	5drCjg/7YNQUeQMh6UaS9AIjdMjqShP5ZC7RGoY0GINBennNcUOQZOhxXxmcMR6djizH5n6sZ2k
-	IUegiE4mHhPlePfK4/1IkUyVU=
-X-Google-Smtp-Source: AGHT+IGfCabDSxnkHcHNKEwo7ukTY2QxJwhElg9zsth4nwtYiGyTYnUjS0YzD2uAga5Y/GXxctTu+tXBRtbNswMd+f8=
-X-Received: by 2002:a05:6122:8c03:b0:52a:9178:d281 with SMTP id
- 71dfb90a1353d-52a96fabf9dmr1193362e0c.2.1745629037724; Fri, 25 Apr 2025
- 17:57:17 -0700 (PDT)
+        bh=HEf0tfLlAZujjYkEpdZQSHgrURfpFjhewgBKT1ZDn88=;
+        b=vm1hFrDMk525+c5qQ7qglwR+s0e7xYdw+R542/CgA0op8HN8vXr13fmZD3xxZKloRp
+         Fjzc1Ww8N9OphktSi+wayokO554PG8VTChbKyaGCZ/vtJjjBIOGsehgEav0rDZqkApqV
+         z4gxxPvUWITbctm3yDxDJ6q3BVXWFZyq4SNXxZ3MPEbP0Z154psoct9baI5oNa2sncWi
+         g6Xljr9n9M45weH11UEflMmuetm1Zibw1V7RWIFL4NMe/Hb1PTZsfZvOvyG1Yw1ed0Bl
+         AUYnUouLDWzoL9MH9QG7b01B66qtG3wgR+UYtEdF48j7WyWw9ygcsGNo0qsCvcHAZjoW
+         99XQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVlg1lxyeojnAy6omJ7xMjojAfA9KodJa/IWaOwtJZSkVsCcJ3X/HJkY0I1IplDyd4d2xGdw+RxxmDIekkXMNvN@lists.infradead.org
+X-Gm-Message-State: AOJu0YxYmCinSKRB41ElCJ+nF1P+bO5i3BZNuRZOrOlL2EpCcE+KMt5G
+	r/qUxhkdMYZq+tQq7I/3KmAgbj+379ii5DM2+j2FBE6yrcnu5pygwMqTDW5iG7p2ZMh5RKUV9BZ
+	EoMkkBQeKr4mqFUtYSB45W0EkuuMO8jl1wIXQ
+X-Gm-Gg: ASbGncuWYE05N9hDCCtS8yxLHWYx9UvfHWlYOPrW6H/D/WVVxt0ImxVDk3iUQQDoSZ8
+	LMWgoZKai/vqHf6dtUUCMwy4GMDyC8zhTcKkaz0zmogfslFpFbhcsjTi+wMz0HojiBDYhOR9HDM
+	Le5yCMJWXdWRa8lWxZBJyN/TU=
+X-Google-Smtp-Source: AGHT+IGfuRIYRudtHShN7Qj32m0l4wF5E7B6kI9WmLd7OBkLUEHBqslac8Ueg1BcOn4Ps21vkwvsVqQpFaYbg/7Qq8s=
+X-Received: by 2002:a05:6122:1826:b0:520:5185:1c31 with SMTP id
+ 71dfb90a1353d-52a89f317d0mr3621236e0c.9.1745629221431; Fri, 25 Apr 2025
+ 18:00:21 -0700 (PDT)
 From: William Zhang <william.zhang@broadcom.com>
-References: <20250406-bcmbca-peripherals-arm-v2-0-22130836c2ed@linaro.org> <20250406-bcmbca-peripherals-arm-v2-1-22130836c2ed@linaro.org>
-In-Reply-To: <20250406-bcmbca-peripherals-arm-v2-1-22130836c2ed@linaro.org>
+References: <20250406-bcmbca-peripherals-arm-v2-0-22130836c2ed@linaro.org> <20250406-bcmbca-peripherals-arm-v2-3-22130836c2ed@linaro.org>
+In-Reply-To: <20250406-bcmbca-peripherals-arm-v2-3-22130836c2ed@linaro.org>
 MIME-Version: 1.0
 X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQKk0Iba5S5vFfMGFNn0Sizjy9mbxwLhv52YsgvcC7A=
-Date: Fri, 25 Apr 2025 17:57:15 -0700
-X-Gm-Features: ATxdqUEfhXI-5rpHiSvV6Vo9vXGt-qTZ1UVBrGewfW78Ps-hs2CoXwbdTQeO1EM
-Message-ID: <763d0d72070b904af690d3e1f94c176c@mail.gmail.com>
-Subject: RE: [PATCH v2 01/12] ARM: dts: bcm6878: Correct UART0 IRQ number
+Thread-Index: AQKk0Iba5S5vFfMGFNn0Sizjy9mbxwFEQLbcshjJjRA=
+Date: Fri, 25 Apr 2025 18:00:18 -0700
+X-Gm-Features: ATxdqUG_KlDtLoooLEr6zW1rmm5dD2pYD-sILOEus3QkcmYKaI-2PvPqO3FiMWk
+Message-ID: <fcc2ee94c1ae4bf880b201cef082cc02@mail.gmail.com>
+Subject: RE: [PATCH v2 03/12] ARM: dts: bcm6846: Add interrupt to RNG
 To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
 	Anand Gore <anand.gore@broadcom.com>, Kursad Oney <kursad.oney@broadcom.com>, 
@@ -80,10 +80,10 @@ To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-crypto@vger.kernel.org
 Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
-	boundary="000000000000b8d7740633a3ee53"
+	boundary="000000000000ace1030633a3f90a"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_175720_766887_F1AC71F4 
-X-CRM114-Status: GOOD (  17.41  )
+X-CRM114-CacheID: sfid-20250425_180022_707617_C29659E9 
+X-CRM114-Status: GOOD (  16.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,13 +98,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---000000000000b8d7740633a3ee53
+--000000000000ace1030633a3f90a
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-
-Hi Linus,
-
-Sorry for the late reply.
 
 > -----Original Message-----
 > From: Linus Walleij <linus.walleij@linaro.org>
@@ -124,41 +120,39 @@ l>;
 > Cc: devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
 > linux-
 > crypto@vger.kernel.org; Linus Walleij <linus.walleij@linaro.org>
-> Subject: [PATCH v2 01/12] ARM: dts: bcm6878: Correct UART0 IRQ number
+> Subject: [PATCH v2 03/12] ARM: dts: bcm6846: Add interrupt to RNG
 >
-> According to the vendor file 6878_intr.h the UART0 has IRQ
-> 28, not 32.
->
-> Assuming this is a copy-and-paste error.
+> The r200 RNG has an interrupt so let's add it.
 >
 > Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 > ---
->  arch/arm/boot/dts/broadcom/bcm6878.dtsi | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  arch/arm/boot/dts/broadcom/bcm6846.dtsi | 1 +
+>  1 file changed, 1 insertion(+)
 >
-> diff --git a/arch/arm/boot/dts/broadcom/bcm6878.dtsi
-> b/arch/arm/boot/dts/broadcom/bcm6878.dtsi
+> diff --git a/arch/arm/boot/dts/broadcom/bcm6846.dtsi
+> b/arch/arm/boot/dts/broadcom/bcm6846.dtsi
 > index
-> 70cf23a65fdb5ac7ed9eabc986f4ebb4df263c43..cf378970db08c05c40564a3893
-> 1417a7be759532 100644
-> --- a/arch/arm/boot/dts/broadcom/bcm6878.dtsi
-> +++ b/arch/arm/boot/dts/broadcom/bcm6878.dtsi
-> @@ -137,7 +137,7 @@ nandcs: nand@0 {
->  		uart0: serial@12000 {
->  			compatible =3D "arm,pl011", "arm,primecell";
->  			reg =3D <0x12000 0x1000>;
-> -			interrupts =3D <GIC_SPI 32 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupts =3D <GIC_SPI 28 IRQ_TYPE_LEVEL_HIGH>;
-It is copy/paste error but the correct value is 92
+> e0e06af3fe891df3c3d8c2005cf1980d33a7762b..d36d0a791dbf4ca34427976919
+> 57c3247c7187e7 100644
+> --- a/arch/arm/boot/dts/broadcom/bcm6846.dtsi
+> +++ b/arch/arm/boot/dts/broadcom/bcm6846.dtsi
+> @@ -196,6 +196,7 @@ uart0: serial@640 {
+>  		rng@b80 {
+>  			compatible =3D "brcm,iproc-rng200";
+>  			reg =3D <0xb80 0x28>;
+> +			interrupts =3D <GIC_SPI 21 IRQ_TYPE_LEVEL_HIGH>;
+If you are getting the value from 6846_intr.h,  the interrupt for dtsi is
+actually
+((SPI_TABLE_OFFSET2 + 21) - 32) =3D 85
 
->  			clocks =3D <&uart_clk>, <&uart_clk>;
->  			clock-names =3D "uartclk", "apb_pclk";
->  			status =3D "disabled";
+>  		};
+>
+>  		leds: led-controller@800 {
 >
 > --
 > 2.49.0
 
---000000000000b8d7740633a3ee53
+--000000000000ace1030633a3f90a
 Content-Type: application/pkcs7-signature; name="smime.p7s"
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename="smime.p7s"
@@ -229,14 +223,14 @@ VhYAxZlzj7tSjUIM7G7IhyfqPC46GKJ/4x+Amz1Z6YxNGy71L68kYD6hIbBcA5AM42QBUufly6Oa
 urb/KlmDGfVrIRYDbL0ckhGQIP5c6L+kSQZ2sHnQK0e0WgIaZYxaPYeY5u0GLCOze+3vyRMxggJg
 MIICXAIBATBrMFsxCzAJBgNVBAYTAkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMTEwLwYD
 VQQDEyhHbG9iYWxTaWduIEdDQyBSMyBQZXJzb25hbFNpZ24gMiBDQSAyMDIwAgwxuh2XG3FXRL1W
-JOEwDQYJYIZIAWUDBAIBBQCggccwLwYJKoZIhvcNAQkEMSIEIHDL6D5AnlwEmqR7NpnE6FyIO6s0
-SqrR3Yzfd0zEVf8vMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI1
-MDQyNjAwNTcxOFowXAYJKoZIhvcNAQkPMU8wTTALBglghkgBZQMEASowCwYJYIZIAWUDBAEWMAsG
+JOEwDQYJYIZIAWUDBAIBBQCggccwLwYJKoZIhvcNAQkEMSIEIDpfgq8eZVddlT4szr0LKd2IcQs9
+q6/Aesu73sioWl2HMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI1
+MDQyNjAxMDAyMVowXAYJKoZIhvcNAQkPMU8wTTALBglghkgBZQMEASowCwYJYIZIAWUDBAEWMAsG
 CWCGSAFlAwQBAjAKBggqhkiG9w0DBzALBgkqhkiG9w0BAQcwCwYJYIZIAWUDBAIBMA0GCSqGSIb3
-DQEBAQUABIIBAEMU+kooPFkevVrOgKsuizRu95iWpXHwwqy/zeOl7EIVYvgqPc4fc844SOZ3ftlZ
-pDUV8rw+zRo7X7swY4zGXq5fUsUyoL0aX8zrM1j80DQaJH80dxjmc0s/QWdlgBvIcJrMN1vlhMYa
-LOW3TS+gDLlgIKWKTdbP2G4Sm9ZZNxYWk0KEDi/wuIwwFAmoyIa060IROAqIXysk3kReKro8jqIP
-ahwfPgJgcp19hUhuxEdW8BisBf6eFbYSOsJHXrrQGCmzcOWYVc014i9yZa1LSW+7ZfBYFNmKxRZn
-Asce4cizTLNk+qfAPCFnOR782No+l4JbzcMEVT7cGqzBzo4da0A=
---000000000000b8d7740633a3ee53--
+DQEBAQUABIIBADcmm1fkinFO8ZrJT4vAPdenS0n08JySH7wFuQ6sPBUwzWw/vlc6FC5fxsyVP8Hz
+VVnqGxvHqb7cTwO0bTUPzsxqW6c6N08/ZR1VXEzimS1CRy0R9DEX1RL+dZ40TI4W0/jTxuSVCo/X
+tBHal7+GzZC36w+SQ/RoRWIW8ccnhOnzDRSmUPSVLRtGmDoh+ao0EYg4YjJhVakzrqdw6C8WtdJQ
+1pMY3Lot+YLcIc6CuEIDB0LiD2tAbj0wWO8HgwN9zBD/bZlWo/28/jGyAmkPwevqwxnQDkEoCNbq
+xOcfgywNbGvbXpOY680fHNpQTl2iznK9g+0eiAcutwUkUs9aBnM=
+--000000000000ace1030633a3f90a--
 
