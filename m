@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5EAEC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 11:26:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF869C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 11:37:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cauEAeX5gZdD3edeRITKGPyax+4+cC+K3VGSTUIo9t0=; b=Aa/QtYDi6NPC8FoWAzyUHI0Ppm
-	HHuU3zAvs/3j+rXY6bGxlxGISICgE6mrkcIWaKjjr6NQpXexNF889eIg5XaJbC9yvvbg19rfeKtbK
-	5UU1bm/o7xeY82ZcuRE4sozMavNkyeCnxpiFu4usrPxJZv7VxIuJwiMxm5cf3m9Roi1aNKDEC7BEQ
-	i12yqTU1pjFEG3t1QZcCTDCO7JOv4KXCev0mlCuOvyvRuDgV2ogcFNfpDSlTI02FLINdaxt1Acui/
-	eLrYapaXV56p2BLZrFDm7WwU1XPLkmzSi+xAuHcKnTewXQijoa8Pdy6gFl2iaMUtr7QXlA/xmZK4f
-	Nb4kpGZQ==;
+	bh=/CSzjC2sTbKPRVCvYy/1cpgxU0NvDZ8x/QFhN5oU4eU=; b=eeXdtZ6x+g5UTZVt8yDLjO8Ae9
+	MTc0SJyuIOIU8Xij/VV2mmXTQiLEpgqkJB60w9e92DfJ7HB1Usl/6Q56nYGF2nnzy/gEdR/aXR/A6
+	2T2xvEHygTmXyjrywvg1cRNtSRr0AzGoTBgVMeOEvp0dcQCeDur01kqlLb7+z0zGzFs4ISSxxqYHp
+	8cz8mOfXBmow459GMmhdfqL9tkf4U4yyYiWTpFyABCpAMMXxVeElshgiayS7hug2SWefsqXZarjx8
+	IXCG+lrbjfxiRBHh4WmJq+6diPW0jg4NvLuKev3A6YJO7II1aenwa5UgqBmgnE7SWVQmcZsoGgthy
+	6Qu8flyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8dfw-00000001vhK-1G3E;
-	Sat, 26 Apr 2025 11:26:28 +0000
+	id 1u8dqM-00000001wNY-2S79;
+	Sat, 26 Apr 2025 11:37:14 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8de3-00000001vSz-193v
+	id 1u8doV-00000001wDI-3MdO
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Apr 2025 11:24:33 +0000
+	Sat, 26 Apr 2025 11:35:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 98079A4D10C;
-	Sat, 26 Apr 2025 11:19:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AD53C4CEE2;
-	Sat, 26 Apr 2025 11:24:26 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 04C34A4D0AA;
+	Sat, 26 Apr 2025 11:29:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74F7DC4CEE2;
+	Sat, 26 Apr 2025 11:35:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745666670;
-	bh=Vm3IZsXSU/eJ3GT/vGl/2eAMEOMlqN1H1YjSaFCjHPE=;
+	s=k20201202; t=1745667318;
+	bh=W5+9Ox8Zfwkqoo1wtMpLkQdOALYNITyDBGxiimDOcgo=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=kCnEm0L9XsLd42X/d0xWdPdEJPU7tmJ/15p7TAlv5KLJSJb/CYnsflVssIrYoHGP1
-	 oA6ItURQH2h4irWSOEx0cwTW0DyppMfy62Odo7Nfg/LEctieuYFG+iEE9qnpl+CYYI
-	 isU6WMDFGU1kqGnyZo8GjCRXfuO4TozI/bgSIIV4qHX82t572Nz5lUDBeKecp/KwH1
-	 tPMolfjPPAnSng9TgfCpRQN6jTZod1Fo0mnA+AQzr+4lerl5riS+Vwo0KyXWdSohC+
-	 RihIlAISvJgbTjwVFlsdrZIvsWmKJ+5pab9hPI/gnz2S39gH99ix+JAQ2V1JYgsZhO
-	 OPPIZ6TSSGM8Q==
-Date: Sat, 26 Apr 2025 12:24:22 +0100
+	b=g/MczSbQSQ044Au5V+WIXPOi99BlpoIK8a5nH0UwMKC7lxZVZw1PkYexMWdvB718I
+	 yVDqc55UwCECNOI++NgMgtVG/0WCDf2FW8kvgMZgSE3pVaja/ekwYmNUJ8w1Ng7xXO
+	 117U43pqKc9gBvekkYM2EkLNywj2JXNyjIJNYinWRtL5AzmP9rnK2933aKTW33KWc1
+	 WU5BvmkrSk3Lrfa8HI6W38CAwRe1mrUecnhA++VgpGM9U32Cs0aPFxt2H+5qaP9ADt
+	 AM4E65EN/Iva0jHtft0GdBt4Utkp3vjZZ9FOUJEyMTApqV6pdngSQVhUnRQicVp2po
+	 mqYsBcxhxUkFA==
+Date: Sat, 26 Apr 2025 12:35:09 +0100
 From: Jonathan Cameron <jic23@kernel.org>
 To: David Lechner <dlechner@baylibre.com>
 Cc: Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko
@@ -52,19 +52,18 @@ Cc: Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko
  <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
  linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 3/6] iio: adc: ad4695: use
- IIO_DECLARE_DMA_BUFFER_WITH_TS
-Message-ID: <20250426122422.29660e70@jic23-huawei>
-In-Reply-To: <20250425-iio-introduce-iio_declare_buffer_with_ts-v3-3-f12df1bff248@baylibre.com>
+Subject: Re: [PATCH v3 1/6] iio: introduce IIO_DECLARE_BUFFER_WITH_TS macros
+Message-ID: <20250426123509.0b04f0f9@jic23-huawei>
+In-Reply-To: <20250425-iio-introduce-iio_declare_buffer_with_ts-v3-1-f12df1bff248@baylibre.com>
 References: <20250425-iio-introduce-iio_declare_buffer_with_ts-v3-0-f12df1bff248@baylibre.com>
-	<20250425-iio-introduce-iio_declare_buffer_with_ts-v3-3-f12df1bff248@baylibre.com>
+	<20250425-iio-introduce-iio_declare_buffer_with_ts-v3-1-f12df1bff248@baylibre.com>
 X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250426_042431_373788_D3450B12 
-X-CRM114-Status: GOOD (  17.07  )
+X-CRM114-CacheID: sfid-20250426_043519_975465_E1371CE1 
+X-CRM114-Status: GOOD (  27.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,36 +78,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 25 Apr 2025 16:08:45 -0500
+On Fri, 25 Apr 2025 16:08:43 -0500
 David Lechner <dlechner@baylibre.com> wrote:
 
-> Use IIO_DECLARE_DMA_BUFFER_WITH_TS() to declare the buffer that gets
-> used with iio_push_to_buffers_with_ts(). This makes the code a bit
-> easier to read and understand.
+> Add new macros to help with the common case of declaring a buffer that
+> is safe to use with iio_push_to_buffers_with_ts(). This is not trivial
+> to do correctly because of the alignment requirements of the timestamp.
+> This will make it easier for both authors and reviewers.
 > 
+> To avoid double __align() attributes in cases where we also need DMA
+> alignment, add a 2nd variant IIO_DECLARE_DMA_BUFFER_WITH_TS().
+> 
+Generally good.  A few little things though...
+
 > Signed-off-by: David Lechner <dlechner@baylibre.com>
 > ---
->  drivers/iio/adc/ad4695.c | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
 > 
-> diff --git a/drivers/iio/adc/ad4695.c b/drivers/iio/adc/ad4695.c
-> index 0c633d43e480d5404074e9fa35f1d330b448f0a2..992abf6c63b51dee222caf624e172455fb9b9900 100644
-> --- a/drivers/iio/adc/ad4695.c
-> +++ b/drivers/iio/adc/ad4695.c
-> @@ -160,8 +160,7 @@ struct ad4695_state {
->  	struct spi_transfer buf_read_xfer[AD4695_MAX_CHANNELS * 2 + 3];
->  	struct spi_message buf_read_msg;
->  	/* Raw conversion data received. */
-> -	u16 buf[ALIGN((AD4695_MAX_CHANNELS + 1) * sizeof(u16),
-> -		      sizeof(s64)) + sizeof(s64)] __aligned(IIO_DMA_MINALIGN);
-> +	IIO_DECLARE_DMA_BUFFER_WITH_TS(u16, buf, AD4695_MAX_CHANNELS + 1);
+> v3 changes:
+> * Use leading double-underscore for "private" macro to match "private"
+>   functions that do the same.
+> * Use static_assert() from linux/build_bug.h instead of _Static_assert()
+> * Fix incorrectly using sizeof(IIO_DMA_MINALIGN).
+> * Add check that count argument is constant. (Note, I didn't include a
+>   message in this static assert because it already gives a reasonable
+>   message.)
+> 
+> /home/david/work/bl/linux/drivers/iio/accel/sca3300.c:482:51: error: expression in static assertion is not constant
+>   482 |         IIO_DECLARE_BUFFER_WITH_TS(s16, channels, val);
+>       |                                                   ^~~
+> 
+> v2 changes:
+> * Add 2nd macro for DMA alignment
+> ---
+>  include/linux/iio/iio.h | 38 ++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 38 insertions(+)
+> 
+> diff --git a/include/linux/iio/iio.h b/include/linux/iio/iio.h
+> index 638cf2420fbd85cf2924d09d061df601d1d4bb2a..1115b219271b76792539931edc404a67549bd8b1 100644
+> --- a/include/linux/iio/iio.h
+> +++ b/include/linux/iio/iio.h
+> @@ -7,6 +7,8 @@
+>  #ifndef _INDUSTRIAL_IO_H_
+>  #define _INDUSTRIAL_IO_H_
+>  
+> +#include <linux/align.h>
+> +#include <linux/build_bug.h>
+>  #include <linux/device.h>
+>  #include <linux/cdev.h>
+>  #include <linux/compiler_types.h>
+> @@ -777,6 +779,42 @@ static inline void *iio_device_get_drvdata(const struct iio_dev *indio_dev)
+>   * them safe for use with non-coherent DMA.
+>   */
+>  #define IIO_DMA_MINALIGN ARCH_DMA_MINALIGN
+> +
+> +#define __IIO_DECLARE_BUFFER_WITH_TS(type, name, count) \
+> +	static_assert(count); \
 
-As a follow up, maybe we can rename that AD4695_MAX_CHANNELS to
-AD4695_MAX_ADC_CHANNELS so I don't wonder why there is a + 1?
+Why do we care if count is 0?  Or is intent to check if is constant?
+If the thought is we don't care either way about 0 (as rather nonsensical)
+and this will fail to compile if not constant, then perhaps a comment would
+avoid future confusion?
 
->  	u16 raw_data;
->  	/* Commands to send for single conversion. */
->  	u16 cnv_cmd;
+> +	type name[ALIGN((count), sizeof(s64) / sizeof(type)) + sizeof(s64) / sizeof(type)]
+> +
+> +/**
+> + * IIO_DECLARE_BUFFER_WITH_TS() - Declare a buffer with timestamp
+> + * @type: element type of the buffer
+> + * @name: identifier name of the buffer
+> + * @count: number of elements in the buffer
+> + *
+> + * Declares a buffer that is safe to use with iio_push_to_buffer_with_ts(). In
+> + * addition to allocating enough space for @count elements of @type, it also
+> + * allocates space for a s64 timestamp at the end of the buffer and ensures
+> + * proper alignment of the timestamp.
+> + */
+> +#define IIO_DECLARE_BUFFER_WITH_TS(type, name, count) \
+> +	__IIO_DECLARE_BUFFER_WITH_TS(type, name, count) __aligned(sizeof(s64))
+> +
+> +/**
+> + * IIO_DECLARE_DMA_BUFFER_WITH_TS() - Declare a DMA-aligned buffer with timestamp
+> + * @type: element type of the buffer
+> + * @name: identifier name of the buffer
+> + * @count: number of elements in the buffer
+> + *
+> + * Same as IIO_DECLARE_BUFFER_WITH_TS(), but is uses __aligned(IIO_DMA_MINALIGN)
+> + * to ensure that the buffer doesn't share cachelines with anything that comes
+> + * before it in a struct. This should not be used for stack-allocated buffers
+> + * as stack memory cannot generally be used for DMA.
+> + */
+> +#define IIO_DECLARE_DMA_BUFFER_WITH_TS(type, name, count) \
+> +	__IIO_DECLARE_BUFFER_WITH_TS(type, name, count) __aligned(IIO_DMA_MINALIGN)
+> +
+> +static_assert(IIO_DMA_MINALIGN % sizeof(s64) == 0,
+That message isn't super helpful if seen in a compile log as we aren't reading the code here
+"IIO_DECLARE_DMA_BUFFER_WITH_TS() assumes that ...
+
+> +	"macros above assume that IIO_DMA_MINALIGN also ensures s64 timestamp alignment");
+> +
+>  struct iio_dev *iio_device_alloc(struct device *parent, int sizeof_priv);
+>  
+>  /* The information at the returned address is guaranteed to be cacheline aligned */
 > 
 
 
