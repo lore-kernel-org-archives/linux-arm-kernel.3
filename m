@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1763FC369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 06:48:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25E2AC369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 06:53:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tIyeZ4J0ITuIfGNBEjwEzxbhDS+oF6WcKAJBTAprjgI=; b=YnBUtXBaOZHAuwLif9WYkBwjFV
-	jAB65TZv+HweFTYh+Qk0G2CYNSt/X1Oll/0SJ09uQxWtQm4Bn+mOmkVBUIgOic5vp40LfCuB58lFI
-	kwACcSlj/uZ7cny3DKxoXJz0gSFKJxYhw+KkDn2pTeSpn4zEk/A2J/EtxWCH4qqQby1QNNPc4WUU6
-	1tT92anCm73JPeRKkWKnN1TW9OB+n1OSZUXOxlnXMIEx1i60JGHhZHsCkD8Eb+vdd5ezL1lYprp8v
-	aKjE8ucLwOhDfHW/SI5f8eIR2aXEyKLYEaTE2Epdvg18BfOrWG8HGaH7NCRtPy6gUfShzRjr9u8/d
-	NW27LFdA==;
+	bh=N0gg0R/N9JVaC1ts1zJUioS0z66KxBy8aKrxPv8yhT8=; b=NnuDD+2cBXR0s8b0dX2Nxcd87b
+	irRH0bJLamsryWb4O6QT7fELz1a5SLZMM6P/7ZZsWz6ahI91DCZkn7IxaSmsAn6eAsiVL24UGhteL
+	m1yWMASLwEsTv0q4lzUduICSfPe+8qxHn+Xo6Y0ObqzPmYufQqB5mY+di00bxGqob4Ror3ouNwc4m
+	XOtrHG+GeAnBisLAIe+iPoKsl6xERdZqkjImyvdQy8N9ehwYSA8qSfiAmmLKYMmI4qHfXhSXY9Us+
+	0t6AvfqeQQOSqAXnWnO52ASnJGDxI85DPW2494CjmB4ZDNxaQJ1Qa6iB6Uy9iSH9BnoiL+NSQJO/p
+	o7XzombA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8ZKa-00000001aNq-3Kcf;
-	Sat, 26 Apr 2025 06:48:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u8ZPu-00000001bQe-3IuD;
+	Sat, 26 Apr 2025 06:53:38 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Yu6-00000001XlW-0jUR
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Apr 2025 06:20:47 +0000
+	id 1u8ZO1-00000001aZ1-0iyu;
+	Sat, 26 Apr 2025 06:51:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B1B5D4A3F4;
-	Sat, 26 Apr 2025 06:20:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 553F2C4CEE2;
-	Sat, 26 Apr 2025 06:20:45 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1A63A5C059A;
+	Sat, 26 Apr 2025 06:49:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D8A8C4CEE2;
+	Sat, 26 Apr 2025 06:51:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745648445;
-	bh=EuZdc4J+N9m/JbbBsyBVqTEk6tsczDB+aFkCtyPfgrg=;
+	s=k20201202; t=1745650299;
+	bh=Wt4NiLwr3M+nnRmOESBPWOhsCFaewP404R89YU0Ma5M=;
 	h=From:To:Cc:Subject:Date:From;
-	b=J0CKb8GhCyu89m8WLk6wgl8fGUla0vi9Pe2HOsorNfOjSAM5L4kLv1Q3YXYknTFbp
-	 FuoUq+2gNoShdMjnPjkLgKTaxMp6wmoyzM0xUwQGeJ+UrGR9v57r4pO19kQwyI0vMB
-	 n9rGm/xINtg9G32RPmFNsKpzB2Ad8QESzzIbxiOA47OwNf11o6lN5P83wQIbrPcTeg
-	 o+Sv2Jyy6APE/QqvueAqvkzynle5Y/nmSskgrWgJDGq8edIj1TJLSXG4KJh0iffQ+l
-	 UDgsrDgM/Dotxtt3dHg0kSfd6+P0mDtmAhqTk3itKXQIxSZovAbj3Q6Bz80PL8wPih
-	 m3xUeCtmY0aWA==
-From: Kees Cook <kees@kernel.org>
-To: Christophe Leroy <christophe.leroy@csgroup.eu>
-Cc: Kees Cook <kees@kernel.org>,
-	Sean Anderson <sean.anderson@linux.dev>,
-	Camelia Groza <camelia.groza@nxp.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	"Dr. David Alan Gilbert" <linux@treblig.org>,
-	linuxppc-dev@lists.ozlabs.org,
+	b=Q5CKi8Fj8xTGPwU5Drh/PIkGhwVgbuW9HluQx63MK9bQszLhD1B+qOn0taEs2bOYT
+	 xBLhxHiJ14hN8wZd5OxE4WguGmBhxzXaFqJL+htoOFdKU3BzoM7lR/QIeSUuRtp/5R
+	 gig6dijFkQjn6WC6FuWjCbGcPvoQXYpyadAK/qbp921I+Fz1WufozNZ0O7WVjBivlP
+	 hD9T2mbnScBpB1uA34w+nY5WNn6DaqxIZnEognT6gjIUeJu/GMOiHHum2pD1dS7SFk
+	 vI6VS1pf337qJxrzm8RfuoAuUx7oT9vTJZmvfL9I9A7sqtxZoeM8H6MVnLOxkCewCS
+	 jDKNVfj94qJ7A==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org
-Subject: [PATCH] soc: fsl: qbman: Remove const from portal->cgrs allocation type
-Date: Fri, 25 Apr 2025 23:20:41 -0700
-Message-Id: <20250426062040.work.047-kees@kernel.org>
-X-Mailer: git-send-email 2.34.1
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	sparclinux@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	x86@kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld " <Jason@zx2c4.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: [PATCH 00/13] Architecture-optimized SHA-256 library API
+Date: Fri, 25 Apr 2025 23:50:26 -0700
+Message-ID: <20250426065041.1551914-1-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1669; i=kees@kernel.org; h=from:subject:message-id; bh=EuZdc4J+N9m/JbbBsyBVqTEk6tsczDB+aFkCtyPfgrg=; b=owGbwMvMwCVmps19z/KJym7G02pJDBk81ZZf9c6mN37K3TlZ8NlKx19Hu/4zST1oeHL4eaOol 9vC7k79jlIWBjEuBlkxRZYgO/c4F4+37eHucxVh5rAygQxh4OIUgIkcD2RkeHJ+ypGWe59nP5wo FDX9f2tg8tH/+yL5I6/UOM/7PS33dSnDP0XbhDsLHsx+rCsgm1F1sj7zepPEE/sTk7rtb7hJvly 7gR8A
-X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_232046_228960_43DE8D51 
-X-CRM114-Status: GOOD (  12.30  )
+X-CRM114-CacheID: sfid-20250425_235141_300902_FFFF159D 
+X-CRM114-Status: GOOD (  18.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,44 +78,183 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for making the kmalloc family of allocators type aware,
-we need to make sure that the returned type from the allocation matches
-the type of the variable being assigned. (Before, the allocator would
-always return "void *", which can be implicitly cast to any pointer type.)
+This is based on cryptodev commit bf0b4f15267ca404 plus the series
+https://lore.kernel.org/linux-crypto/20250422152716.5923-1-ebiggers@kernel.org/.
+It can also be retrieved from:
 
-The assigned type is "struct qman_cgrs *", but the returned type,
-while technically matching, is const qualified. As there is no general
-way to remove const qualifiers, adjust the allocation type to match
-the assignment.
+    git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git sha256-lib-v1
 
-Signed-off-by: Kees Cook <kees@kernel.org>
----
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
-Cc: Sean Anderson <sean.anderson@linux.dev>
-Cc: Camelia Groza <camelia.groza@nxp.com>
-Cc: "David S. Miller" <davem@davemloft.net>
-Cc: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: "Dr. David Alan Gilbert" <linux@treblig.org>
-Cc: <linuxppc-dev@lists.ozlabs.org>
-Cc: <linux-arm-kernel@lists.infradead.org>
----
- drivers/soc/fsl/qbman/qman.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Following the example of several other algorithms (e.g. CRC32, ChaCha,
+Poly1305, BLAKE2s), this series refactors the kernel's existing
+architecture-optimized SHA-256 code to be available via the library API,
+instead of just via the crypto_shash API as it was before.  It also
+reimplements the SHA-256 crypto_shash API on top of the library API.
 
-diff --git a/drivers/soc/fsl/qbman/qman.c b/drivers/soc/fsl/qbman/qman.c
-index 4dc8aba33d9b..9be240999f87 100644
---- a/drivers/soc/fsl/qbman/qman.c
-+++ b/drivers/soc/fsl/qbman/qman.c
-@@ -1270,7 +1270,7 @@ static int qman_create_portal(struct qman_portal *portal,
- 	qm_dqrr_set_ithresh(p, QMAN_PIRQ_DQRR_ITHRESH);
- 	qm_mr_set_ithresh(p, QMAN_PIRQ_MR_ITHRESH);
- 	qm_out(p, QM_REG_ITPR, QMAN_PIRQ_IPERIOD);
--	portal->cgrs = kmalloc_array(2, sizeof(*cgrs), GFP_KERNEL);
-+	portal->cgrs = kmalloc_array(2, sizeof(*portal->cgrs), GFP_KERNEL);
- 	if (!portal->cgrs)
- 		goto fail_cgrs;
- 	/* initial snapshot is no-depletion */
+This makes it possible to use the SHA-256 library in
+performance-critical cases.  The new design is also much simpler, with a
+negative diffstat of over 1200 lines.  Finally, this also fixes the
+longstanding issue where the arch-optimized SHA-256 was disabled by
+default, so people often forgot to enable it.
+
+For now the SHA-256 library is well-covered by the crypto_shash
+self-tests, but I plan to add a test for the library directly later.
+I've fully tested this series on arm, arm64, riscv, and x86.  On mips,
+powerpc, s390, and sparc I've only been able to partially test it, since
+QEMU does not support the SHA-256 instructions on those platforms.  If
+anyone with access to a mips, powerpc, s390, or sparc system that has
+SHA-256 instructions can verify that the crypto self-tests still pass,
+that would be appreciated.  But I don't expect any issues, especially
+since the new code is more straightforward than the old code.
+
+Eric Biggers (13):
+  crypto: sha256 - support arch-optimized lib and expose through shash
+  crypto: arm/sha256 - implement library instead of shash
+  crypto: arm64/sha256 - remove obsolete chunking logic
+  crypto: arm64/sha256 - implement library instead of shash
+  crypto: mips/sha256 - implement library instead of shash
+  crypto: powerpc/sha256 - implement library instead of shash
+  crypto: riscv/sha256 - implement library instead of shash
+  crypto: s390/sha256 - implement library instead of shash
+  crypto: sparc - move opcodes.h into asm directory
+  crypto: sparc/sha256 - implement library instead of shash
+  crypto: x86/sha256 - implement library instead of shash
+  crypto: sha256 - remove sha256_base.h
+  crypto: lib/sha256 - improve function prototypes
+
+ arch/arm/configs/exynos_defconfig             |   1 -
+ arch/arm/configs/milbeaut_m10v_defconfig      |   1 -
+ arch/arm/configs/multi_v7_defconfig           |   1 -
+ arch/arm/configs/omap2plus_defconfig          |   1 -
+ arch/arm/configs/pxa_defconfig                |   1 -
+ arch/arm/crypto/Kconfig                       |  21 -
+ arch/arm/crypto/Makefile                      |   8 +-
+ arch/arm/crypto/sha2-ce-glue.c                |  87 ----
+ arch/arm/crypto/sha256_glue.c                 | 107 -----
+ arch/arm/crypto/sha256_glue.h                 |   9 -
+ arch/arm/crypto/sha256_neon_glue.c            |  75 ---
+ arch/arm/lib/crypto/.gitignore                |   1 +
+ arch/arm/lib/crypto/Kconfig                   |   6 +
+ arch/arm/lib/crypto/Makefile                  |   8 +-
+ arch/arm/{ => lib}/crypto/sha256-armv4.pl     |   0
+ .../sha2-ce-core.S => lib/crypto/sha256-ce.S} |  10 +-
+ arch/arm/lib/crypto/sha256.c                  |  64 +++
+ arch/arm64/configs/defconfig                  |   1 -
+ arch/arm64/crypto/Kconfig                     |  19 -
+ arch/arm64/crypto/Makefile                    |  13 +-
+ arch/arm64/crypto/sha2-ce-glue.c              | 138 ------
+ arch/arm64/crypto/sha256-glue.c               | 171 -------
+ arch/arm64/lib/crypto/.gitignore              |   1 +
+ arch/arm64/lib/crypto/Kconfig                 |   5 +
+ arch/arm64/lib/crypto/Makefile                |   9 +-
+ .../crypto/sha2-armv8.pl}                     |   0
+ .../sha2-ce-core.S => lib/crypto/sha256-ce.S} |  36 +-
+ arch/arm64/lib/crypto/sha256.c                |  75 +++
+ arch/mips/cavium-octeon/Kconfig               |   6 +
+ .../mips/cavium-octeon/crypto/octeon-sha256.c | 135 ++----
+ arch/mips/configs/cavium_octeon_defconfig     |   1 -
+ arch/mips/crypto/Kconfig                      |  10 -
+ arch/powerpc/crypto/Kconfig                   |  11 -
+ arch/powerpc/crypto/Makefile                  |   2 -
+ arch/powerpc/crypto/sha256-spe-glue.c         | 128 ------
+ arch/powerpc/lib/crypto/Kconfig               |   6 +
+ arch/powerpc/lib/crypto/Makefile              |   3 +
+ .../powerpc/{ => lib}/crypto/sha256-spe-asm.S |   0
+ arch/powerpc/lib/crypto/sha256.c              |  70 +++
+ arch/riscv/crypto/Kconfig                     |  11 -
+ arch/riscv/crypto/Makefile                    |   3 -
+ arch/riscv/crypto/sha256-riscv64-glue.c       | 125 -----
+ arch/riscv/lib/crypto/Kconfig                 |   7 +
+ arch/riscv/lib/crypto/Makefile                |   3 +
+ .../sha256-riscv64-zvknha_or_zvknhb-zvkb.S    |   4 +-
+ arch/riscv/lib/crypto/sha256.c                |  62 +++
+ arch/s390/configs/debug_defconfig             |   1 -
+ arch/s390/configs/defconfig                   |   1 -
+ arch/s390/crypto/Kconfig                      |  10 -
+ arch/s390/crypto/Makefile                     |   1 -
+ arch/s390/crypto/sha256_s390.c                | 144 ------
+ arch/s390/lib/crypto/Kconfig                  |   6 +
+ arch/s390/lib/crypto/Makefile                 |   2 +
+ arch/s390/lib/crypto/sha256.c                 |  47 ++
+ arch/sparc/crypto/Kconfig                     |  10 -
+ arch/sparc/crypto/Makefile                    |   2 -
+ arch/sparc/crypto/aes_asm.S                   |   3 +-
+ arch/sparc/crypto/aes_glue.c                  |   3 +-
+ arch/sparc/crypto/camellia_asm.S              |   3 +-
+ arch/sparc/crypto/camellia_glue.c             |   3 +-
+ arch/sparc/crypto/des_asm.S                   |   3 +-
+ arch/sparc/crypto/des_glue.c                  |   3 +-
+ arch/sparc/crypto/md5_asm.S                   |   3 +-
+ arch/sparc/crypto/md5_glue.c                  |   3 +-
+ arch/sparc/crypto/sha1_asm.S                  |   3 +-
+ arch/sparc/crypto/sha1_glue.c                 |   3 +-
+ arch/sparc/crypto/sha256_glue.c               | 129 ------
+ arch/sparc/crypto/sha512_asm.S                |   3 +-
+ arch/sparc/crypto/sha512_glue.c               |   3 +-
+ arch/sparc/{crypto => include/asm}/opcodes.h  |   6 +-
+ arch/sparc/lib/Makefile                       |   1 +
+ arch/sparc/lib/crc32c_asm.S                   |   3 +-
+ arch/sparc/lib/crypto/Kconfig                 |   8 +
+ arch/sparc/lib/crypto/Makefile                |   4 +
+ arch/sparc/lib/crypto/sha256.c                |  64 +++
+ arch/sparc/{ => lib}/crypto/sha256_asm.S      |   5 +-
+ arch/x86/crypto/Kconfig                       |  14 -
+ arch/x86/crypto/Makefile                      |   3 -
+ arch/x86/crypto/sha256_ssse3_glue.c           | 432 ------------------
+ arch/x86/lib/crypto/Kconfig                   |   7 +
+ arch/x86/lib/crypto/Makefile                  |   3 +
+ arch/x86/{ => lib}/crypto/sha256-avx-asm.S    |  12 +-
+ arch/x86/{ => lib}/crypto/sha256-avx2-asm.S   |  12 +-
+ .../crypto/sha256-ni-asm.S}                   |  36 +-
+ arch/x86/{ => lib}/crypto/sha256-ssse3-asm.S  |  14 +-
+ arch/x86/lib/crypto/sha256.c                  |  74 +++
+ crypto/Kconfig                                |   1 +
+ crypto/Makefile                               |   3 +-
+ crypto/sha256.c                               | 201 ++++++++
+ crypto/sha256_generic.c                       | 102 -----
+ include/crypto/internal/sha2.h                |  28 ++
+ include/crypto/sha2.h                         |  23 +-
+ include/crypto/sha256_base.h                  | 180 --------
+ lib/crypto/Kconfig                            |  22 +
+ lib/crypto/sha256.c                           | 130 +++++-
+ 95 files changed, 1008 insertions(+), 2225 deletions(-)
+ delete mode 100644 arch/arm/crypto/sha2-ce-glue.c
+ delete mode 100644 arch/arm/crypto/sha256_glue.c
+ delete mode 100644 arch/arm/crypto/sha256_glue.h
+ delete mode 100644 arch/arm/crypto/sha256_neon_glue.c
+ rename arch/arm/{ => lib}/crypto/sha256-armv4.pl (100%)
+ rename arch/arm/{crypto/sha2-ce-core.S => lib/crypto/sha256-ce.S} (91%)
+ create mode 100644 arch/arm/lib/crypto/sha256.c
+ delete mode 100644 arch/arm64/crypto/sha2-ce-glue.c
+ delete mode 100644 arch/arm64/crypto/sha256-glue.c
+ rename arch/arm64/{crypto/sha512-armv8.pl => lib/crypto/sha2-armv8.pl} (100%)
+ rename arch/arm64/{crypto/sha2-ce-core.S => lib/crypto/sha256-ce.S} (80%)
+ create mode 100644 arch/arm64/lib/crypto/sha256.c
+ delete mode 100644 arch/powerpc/crypto/sha256-spe-glue.c
+ rename arch/powerpc/{ => lib}/crypto/sha256-spe-asm.S (100%)
+ create mode 100644 arch/powerpc/lib/crypto/sha256.c
+ delete mode 100644 arch/riscv/crypto/sha256-riscv64-glue.c
+ rename arch/riscv/{ => lib}/crypto/sha256-riscv64-zvknha_or_zvknhb-zvkb.S (98%)
+ create mode 100644 arch/riscv/lib/crypto/sha256.c
+ delete mode 100644 arch/s390/crypto/sha256_s390.c
+ create mode 100644 arch/s390/lib/crypto/sha256.c
+ delete mode 100644 arch/sparc/crypto/sha256_glue.c
+ rename arch/sparc/{crypto => include/asm}/opcodes.h (96%)
+ create mode 100644 arch/sparc/lib/crypto/Kconfig
+ create mode 100644 arch/sparc/lib/crypto/Makefile
+ create mode 100644 arch/sparc/lib/crypto/sha256.c
+ rename arch/sparc/{ => lib}/crypto/sha256_asm.S (95%)
+ delete mode 100644 arch/x86/crypto/sha256_ssse3_glue.c
+ rename arch/x86/{ => lib}/crypto/sha256-avx-asm.S (98%)
+ rename arch/x86/{ => lib}/crypto/sha256-avx2-asm.S (98%)
+ rename arch/x86/{crypto/sha256_ni_asm.S => lib/crypto/sha256-ni-asm.S} (85%)
+ rename arch/x86/{ => lib}/crypto/sha256-ssse3-asm.S (98%)
+ create mode 100644 arch/x86/lib/crypto/sha256.c
+ create mode 100644 crypto/sha256.c
+ delete mode 100644 crypto/sha256_generic.c
+ create mode 100644 include/crypto/internal/sha2.h
+ delete mode 100644 include/crypto/sha256_base.h
+
 -- 
-2.34.1
+2.49.0
 
 
