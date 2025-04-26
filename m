@@ -4,90 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6CB8C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 06:44:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5435DC369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 06:46:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P38FO6+njKGYbNLvlE2BiPsC4uR35LU84o17Ihkf2Ts=; b=f5lHmOzPDVgyp/Fex43t9Kj8cl
-	13S84EebPn1Ydc5fKfFp6L4pURc+Ip807dlmls1aN9nTPQZr0bn+vSmdqycEkYkOsJR2SlOv3LNwi
-	VfzHPJsAlOGj1mfvWneQUqL/sw3oCwUHJS5IuZn9VIdnLDoqAT1BlpMQljdU+zTDpGJMU68e0VYIW
-	iGymhS+pfuCxtoLQeLxiVPQ0PmHV5wtvWogQXOXg+dfjKFKxbXeL6xwEn8Lxt05gK2S0jbUIUQw6L
-	Ze135mwEuM8qvvpiS6vTBvANiSlTfOjvZnLUazhBLbc5V/fZQy2Yr9BlJbB/7zVbAbjzX5ssKHi6g
-	xu3pol0w==;
+	bh=Q7AoqGRPCyCnlnI8KOQDam44EVXCyf/N7POplk+Weq8=; b=v2VewmqShDk+tcCv1mnHQegUJ6
+	mPVDp4nX9WoQhAGCrRQRKeJdp/N8kKaIJuJk51xwc5yrvrp+KYdj4JUBbxCK6aPL1GVb9RqkroIVR
+	D1RpXTmrherzxmLHbhGlv/XP1RjCY6Cl+7o2UsHYi9X2ySmV3yXID4lmk+34NDPlcLhyBSGJrZTjd
+	rlhBTWDjptTOJSrRTg/7YOlgyxB7jwQY89XUcquhfsapITfAdIw8kspWzEhvpNOcNUJdhIeAyLE7H
+	g6jkSkcUXDRhEBi7MZLCwzkxEDzyTPWt+V4QUxbr0qDzkd4JpK1LSpkznnIh9dJQkXGrLf6iMDd6I
+	FWdHw8WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8ZGx-00000001a67-0VbP;
-	Sat, 26 Apr 2025 06:44:23 +0000
+	id 1u8ZIl-00000001aFz-3H3t;
+	Sat, 26 Apr 2025 06:46:15 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Ylf-00000001WLP-2AMp
+	id 1u8Ym6-00000001WOh-2gRb
 	for linux-arm-kernel@bombadil.infradead.org;
-	Sat, 26 Apr 2025 06:12:03 +0000
+	Sat, 26 Apr 2025 06:12:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
 	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=P38FO6+njKGYbNLvlE2BiPsC4uR35LU84o17Ihkf2Ts=; b=gCRBhQ0/d2rrP9YiaFBw6l6qXi
-	KO/jdUHugBz0DUxTmhHD+0Ak4mZ0RphyV75JRVSQfI3R8xZ1KBkE0rxrygL3iVl9TbYgjnIhw5uA2
-	kYo4IxYOsNwKzjZMTbiFIQ2fGfAqR4ToNOF/aZ7bm6D3NECgw87luLVYCMw4WQwkB/YcRoUn1ys++
-	YVj8OEIszS82cKM8+Lzu/Ic8YnjuaFiNxKBkHwkorig6ZRxuv2bYbwifdRT4DAmHzuFPd5t9hGiBX
-	1utVhBsp9hjgCJv/LuV1Pnems+hi/S/J3diM2B1KxFqNUwBIciw72S/VhJd7Jxj6UZyp702m7V57X
-	nSODycCw==;
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	bh=Q7AoqGRPCyCnlnI8KOQDam44EVXCyf/N7POplk+Weq8=; b=eNWWzjBNIjmPpPN0rDEo2r6zol
+	WVQAdm8cEICfaruIox87zhbMDXLNu5JawttcNLVwnQn63k/0cY39P6px+cvIBjhWKJmFveHlCaRbD
+	twVnjKxi10kerG5zGWCSX0Ppr5camcnDrfFaSCvHpB392qO3VBiTwXiuBdzLB+epRM9mbq9GkrcX0
+	Ko65CWxZnj85oV8K3MDgB15ZsWo7pw2wfDXtc38Uy6DSVqveA7ndhcLFzjbarWOm2X2kzXTEv0fRw
+	z1rDUSmYH8N9qXRNuM6G3C/wlJ7GVKgaZuLG60zUfpAOxJGdpK6QtmLRfCw1xxm12e/ZB2IHvStCA
+	muhMEG1Q==;
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u8Ylb-0000000CDVr-35cw
+	id 1u8Ym2-0000000CDYv-1wlJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Apr 2025 06:12:02 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-acb5ec407b1so495522166b.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 23:11:58 -0700 (PDT)
+	Sat, 26 Apr 2025 06:12:29 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-abec8b750ebso521527866b.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 25 Apr 2025 23:12:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745647917; x=1746252717; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1745647944; x=1746252744; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=P38FO6+njKGYbNLvlE2BiPsC4uR35LU84o17Ihkf2Ts=;
-        b=RzM4AwF8WpQ6F103Cn/4kmCCkfHscf1C+dofvo8SDmlm6GwqfXdagW6ZKxpxRCSn8d
-         9dkO/WNTGX7SHaxL1Q7P8agqvST615n8HJ6O1G5InY54qGPIXSc8ee1oyMDkjU+/7hpV
-         QBsCRj0Yje+ZPJBe5prv30jEcPB+HWr4oTberi5FvmCLdyxCa0JNCE1AxDjlo9kJSWtn
-         TuSqQJIsuFcOXNMk0KQvSNV4Mvkal9WuKYEOofBIhJHvOsxzsXNIpAGcxmiSDrDIQIWb
-         yaIOQRsyO/AIyFSN5HhWzhTzyz3r9/r45HjM2MmLxPHlPR7/wrQoCUkxzUDXM4WZg7JJ
-         8sXw==
+        bh=Q7AoqGRPCyCnlnI8KOQDam44EVXCyf/N7POplk+Weq8=;
+        b=DkMG6G8D/5pwbgIPElhA9zk6bIfZX4uLqlPbJqcicsz8A7B68IpicogXEqljYYL85R
+         zMNjFbHJP/+PKFCZe7TYmY0CiNKUfEiM70kvEomwv7YFst2W+BZp7Gk3cEXrA1yLuLWY
+         M2YLvsiLa4Hwozf7DgLqNbNW06WOLhhoGXwsqjBvZMGthIXT4yfT8Z3B2eL4+sSH05Y3
+         EZblVM/lxFIVBYk6KIuCvIkk8n90SY+FevBKy7DE5uYJqF6ntnQYyPd+itpQyM37HiD5
+         HkxkgVdJaXvgb3MXwKjaIuMeZCPR1/h31+1SkAMD8iZ4y6S0efo7uGeTEz9LvcS9jLF7
+         qflw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745647917; x=1746252717;
+        d=1e100.net; s=20230601; t=1745647944; x=1746252744;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=P38FO6+njKGYbNLvlE2BiPsC4uR35LU84o17Ihkf2Ts=;
-        b=KN9/8yfCxlrmEdXTxQU/IG2Hz123UUUP6BvE+jhmw3hdKJLLTIK2/1krUNcFbCRzLD
-         dtXQdGPFRRRB3IGOyqGyAjnj3Z5j5vXaGi0nCwH8Zfd0aRl6Vc6x8qzq/IGw18ctzEgV
-         l+UikWDVRWYzKOwxd/07tiQah7Qkhq7QSgCwY0j9+tFs5nKLuiaIydMShK5ko4Qz5O9B
-         u2DkpAwGK4xS9dkgL6E82R5Vr/qsJNkAqgFa8lT7edf8BEOxe59YzUtCTEGcpDQnyHqa
-         0ldi6HBmccz/EBmEuu2+Sp4phhZWc9I4/DHkpk6+xu7QSWIoyrUH3oOY4Qm/67Qr5zgm
-         Zp9w==
-X-Forwarded-Encrypted: i=1; AJvYcCXhvQo/WBIqR9izhn7wAM7sJ1qsiT1nl3CzM7bNwWwS+Pf4zJsPojZeNgEwmVT0si4F8GLCOnwthBm1RZSeY6Mw@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmjiVAsKA/eup1YFQ9s8POhsGO0lvVucPbRs/uiCkGK84bk9Gj
-	QjGtd21wKLPIa/77LwjmVIaHYuGhJIP/Ka4jnuvR2EvLxPJeoM1tFGhbDYcYQcjbJG8ABoEgjMY
-	aWuwaAoszykeRj3/C2k8ExEaroY7nWg==
-X-Gm-Gg: ASbGnctY8EvHLhTiufMj63WUzodseKkHRF4DpbRCQCRgnLJnM+Q4Ly4ItcdU/cGtvAr
-	kew4M7BW3EKwtciRb5KRES7xAsxIa+DyjXw8s2zRnzLNOt0SMkBWn7U8AaQAGexrcHOgV+69BSv
-	Tzmy8nj669nlFbbSsJYnEY
-X-Google-Smtp-Source: AGHT+IHU2LAHVM0ylRli8MpkgrQDDetTqppf6CoDV9/WpYVkZ1mZ4e/r3+sZhdqb/QIeFysUMK1woTg4zHQWOMLWRkI=
-X-Received: by 2002:a17:907:9483:b0:acb:b5a4:ba35 with SMTP id
- a640c23a62f3a-ace848c047bmr165437266b.2.1745647916581; Fri, 25 Apr 2025
- 23:11:56 -0700 (PDT)
+        bh=Q7AoqGRPCyCnlnI8KOQDam44EVXCyf/N7POplk+Weq8=;
+        b=nV6SUelb4b/4iQQMzw54hCuKRkaxaimLZ/opH6mRA0R5alRImi1rpB+8fwXLcg9vsq
+         2A1S2dT073vnofc127n1hDKUttnrXgTZ3DTSmg9v8eOYXyTmlmsAV8GwXrpn6RSBq1R9
+         5cCTZMi+/Zmd9PgJVU4wXa3Htb0XImP1u8VOU1THV3aBsNWXgOytMqWCm0n0tzOv10uP
+         V+JdunKNFbaK98xoSVy1+BT5ixBHl6zkEov228LJrKJH0/Tezskh23B+3/ELGB3qre6O
+         U75LatL0ABDfd9eB28ptrs+L8ZtMxqxLKlM4y5w2Ck/b2SWqKzNs0lsJAsLsXUEJBo3f
+         G6TA==
+X-Forwarded-Encrypted: i=1; AJvYcCWOXYA6+ev6bprl2lcW+0CVBfredegE55/TfRmVp3cbQtvO+lIoHzoOaibNLl26thLSza7DZaojDZuKMyMDRzrn@lists.infradead.org
+X-Gm-Message-State: AOJu0YxgC/RVafGUhN2QJ0UA8KavfaxNH7vrBbtOJKWNXHZTqHWBWzcx
+	kHBtXqHLt17s4EscG+rplhArrSVMkCo9pmlN37eOR+fHvsQ8tk3cYmmsbgJ81SQN2YZgsFsVGo5
+	KkfkbQ3C39i9IEHYsuXFSpg3Z5mI=
+X-Gm-Gg: ASbGncsfEc6YCbQC3GrnkasrE/1tPXb5Jlj6LfgP/lnjH+pPOeCdV/mLfmR+PbcTh16
+	u4gDFAlwSzs39ddVjmxTArgGV6fTmXFFwzcQvf9lXpuRgjrSjvdGVdWdBsPp61Ed+cbpog77Soc
+	fU/zZqxYWjlm4kT824AKHl
+X-Google-Smtp-Source: AGHT+IHhIwe8rU9PLpYBn4D0l6l1OxCmDLFLe9Bgm3lFBWXmThOd0XpQJqAtk/OcOVWwsd3kI1THgvNLEgb0DKDyTec=
+X-Received: by 2002:a17:906:9f88:b0:acb:b08c:76ae with SMTP id
+ a640c23a62f3a-ace710951d1mr418780966b.16.1745647943830; Fri, 25 Apr 2025
+ 23:12:23 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250425132727.5160-1-linux.amoon@gmail.com> <20250425132727.5160-2-linux.amoon@gmail.com>
- <34087c68-442f-41ec-a6c0-dd063f6d44d1@kernel.org>
-In-Reply-To: <34087c68-442f-41ec-a6c0-dd063f6d44d1@kernel.org>
+References: <20250425132727.5160-1-linux.amoon@gmail.com> <20250425132727.5160-9-linux.amoon@gmail.com>
+ <7a1e2432-46e2-40f6-84af-bff45ab79899@kernel.org>
+In-Reply-To: <7a1e2432-46e2-40f6-84af-bff45ab79899@kernel.org>
 From: Anand Moon <linux.amoon@gmail.com>
-Date: Sat, 26 Apr 2025 11:41:39 +0530
-X-Gm-Features: ATxdqUGVUzKx6XU_cLPV7j0MBc0wnh_fXqMndtXtKNtM0VKtPEyXHniD99OhSmo
-Message-ID: <CANAwSgT+ZXacTZJzVbu0DQfYQYUUjMc41jKnn7E_E1wnhY1L6w@mail.gmail.com>
-Subject: Re: [PATCH v1 01/10] dt-bindings: clock: Add RTC clock binding for
- Maxim MAX77686
+Date: Sat, 26 Apr 2025 11:42:07 +0530
+X-Gm-Features: ATxdqUE-aSBuAto3DWag_735XNh8AilQRfbJbLa3ov7b-DirWkNhYUiBgQia2w4
+Message-ID: <CANAwSgSQrW8CCg7=rdN98EsoDZ0KsWv84DKOh3K4Jgmgz66XFQ@mail.gmail.com>
+Subject: Re: [PATCH v1 08/10] ARM: dts: exynos: Add proper regulator states
+ for suspend-to-mem for Exyno5250 smdk5250
 To: Krzysztof Kozlowski <krzk@kernel.org>
 Cc: Chanwoo Choi <cw00.choi@samsung.com>, Michael Turquette <mturquette@baylibre.com>, 
 	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
@@ -99,8 +99,8 @@ Cc: Chanwoo Choi <cw00.choi@samsung.com>, Michael Turquette <mturquette@baylibre
 	"open list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES" <linux-samsung-soc@vger.kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250426_071200_136531_F91DEC69 
-X-CRM114-Status: GOOD (  16.71  )
+X-CRM114-CacheID: sfid-20250426_071226_768837_A6415863 
+X-CRM114-Status: GOOD (  20.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,38 +117,56 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Krzysztof,
 
-On Fri, 25 Apr 2025 at 20:14, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+On Fri, 25 Apr 2025 at 20:18, Krzysztof Kozlowski <krzk@kernel.org> wrote:
 >
 > On 25/04/2025 15:26, Anand Moon wrote:
-> > +
-> > +  The MAX77686 contains three 32.768khz crystal clock outputs that can
-> > +  be controlled (gated/ungated) over I2C. Clocks are defined as
-> > +  preprocessor macros in dt-bindings/clock/maxim,max77686.h.
-> > +
-> > +properties:
-> > +  compatible:
-> > +    enum:
-> > +      - max77686-rtc
+> > The MAX77686 PMCI is able to power down and up key core supplies and other
+> > voltage rails via PWRREQ signal to enter / exit (deep) sleep mode.
+> > PWRREQ status is ignored during initial power up and down processes.
+> > All programming must be done before the AP enterns the sleep mode by
+> > pulling PWRREQ low since the AP does not have programming capability
+> > in (deep) sleep mode.
+> >
+> > Add suspend-to-mem node to regulator core to be enabled or disabled
+> > during system suspend and also support changing the regulator operating
+> > mode during runtime and when the system enter sleep mode (stand by mode).
+> >
+> > Regulators which can be turned off during system suspend:
+> >       -LDOn   :       2, 6-8, 10-12, 14-16,
+> >         -BUCKn  :       1-4.
+> > Use standard regulator bindings for it ('regulator-off-in-suspend').
 >
-> So you claim RTC is a clock, right? Did not even think that RTC has a
-> bit different meaning?
+> I do not believe you tested this but instead send whatever you found
+> somewhere without actually understanding the code. In the past you were
+> sending such patches - without knowing what they do and without actually
+> testing.
 >
-> But regardless, this code make no sense and was never tested. It cannot
-> work.
+> NAK
 >
-> It reminds me previous approaches with whatever patches you found in the
-> downstream...
+Thanks for your review comments,
 
-Okay, I found the MAX77686A datasheet that Hardkernel shared long
-ago and tried to interpret the information in it.
-I will remove this repo once this is done.
+All the MAX77686 control register supports On/Off Control by PWRREQ signal.
 
-[0] https://github.com/moonlinux/Samsung_user_manuals/blob/master/MAX77686A%20Datasheet%20REV00.pdf
+Once the Application Processor (AP) boots up, the AP is able to power
+down and up key
+core supplies and other voltage rails via PWRREQ signal to enter /
+exit (deep) sleep mode.
+PWRREQ status is ignored during initial power up and down processes.
+All programming must be done before the AP enterns the sleep mode by
+pulling PWRREQ l
+ow since the AP does not have programming capability in (deep) sleep mode.
 
-I have gone through MAX77686A the regulator and the datasheet
-If you have some improvements to the code plz suggest so,
+So PWRREQ has the following states for control registers
 
->
+00: OFF (regardless of PWRREQ)
+01: Output ON/OFF controlled by PWRREQ PWRREQ=H (1) : Output ON
+PWRREQ=L (0) : Output OFF
+10: unused
+11: ON (Regardless of PWRREQ)
+
+I have dome code mapping through the driver to understand this feature.
+If there is some code improvement plz suggest so.
+
 > Best regards,
 > Krzysztof
 
