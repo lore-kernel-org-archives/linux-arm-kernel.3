@@ -4,93 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6C83C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 13:58:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF2D7C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 14:00:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CI5a7+0i1Z4ciPNBaeJ5FtbaB8j0UzTY2F+B8Sn8k24=; b=RxppeQOYav94dIyY+e7jF1Dt6q
-	umeRxnxy9BLvg0r62ADYsN9YRs2KX0SBQ57S+cKkPRyihWdAzdKGNYeu471K1i30PhdO+J9aOcy8N
-	ThiOh9wWbh7mrudWKIynlc7vvQjx6/rt4t6Y4GABGcJV20Qqe8SbEt6Y3fQ6ac0YM+ww6OdlecgHU
-	52QDzNpqDomLrZEZPLoSuSSjysIyVf3OynymyQKL0Fk5kwpBLaYJu+fweA45s0PqRcnE5nSzh39ef
-	46O8EmTHWMMoKmtcJ7IBLploH8IvoQgFZAG/tZzC1MByy331rlENAY3wDKaNazPEa5cgePwIYdBxk
-	rYpCgyGg==;
+	bh=tpKqYnXH25f3lqGlUZbd0EpV+dGbWQ4Gs839plYWRIY=; b=m6pf799WLeRrJe92ah+LPIxoHD
+	Vfy6aiF3b6gX/2RuBRg3tlNu1cUTqVIkcb7gpYQdZhqPDyEscrPmU01sDP/O9sIUIT9FyXavVIiaC
+	HWdXRjruHzbb7jP45vto79GOx+MsjZ+HdT6mRhLxT1VB4VLuWvgu0RX4eQ1ldHN06GFTUfUYf1h31
+	lKr261zZ9K/bMUn0UoVSPZKttBOTioPyngBulZOl34g9guxYmqv6rVt15KydEekpNh8aOHzec+L9T
+	3WeulzjbXXN/ShIanEmoXLrsULu7/9jR6OvcajdaH90lpbzpxrjrZOkqyqTSfb6oYAXHN65DxSNRe
+	MCs6vwdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8g2w-00000002808-09n3;
-	Sat, 26 Apr 2025 13:58:22 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1u8g4m-000000028BT-2u4i;
+	Sat, 26 Apr 2025 14:00:16 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8fPC-000000024Et-2htd
+	id 1u8fhC-000000025tF-0TAs
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Apr 2025 13:17:19 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4394a0c65fcso30859615e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Apr 2025 06:17:18 -0700 (PDT)
+	Sat, 26 Apr 2025 13:35:55 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5f624291db6so5610910a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Apr 2025 06:35:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1745673437; x=1746278237; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1745674552; x=1746279352; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=CI5a7+0i1Z4ciPNBaeJ5FtbaB8j0UzTY2F+B8Sn8k24=;
-        b=gyPadk5Mc2Y79+ilLK+TnzQGANZrt8uWU5SsmnvqXbdowXpSkudeAIC9po8R7gyO92
-         /Ny+Mm8b813iDqCAiQqw2tIvF7bOm8yHpL5X8i5yRXABfyqBYeappQ8gmqbV09nCzaOv
-         3525NZ5mMJ022v1wa2n7SXSB7WmkJ2HwBboNsPczRtBPKS0x9OnAQNI150N3vEA4Pk1i
-         XlHwWU1tREQNNkPyKY7vLlmjJ25AvvfTOBxuxVZgK7/hTIMZ5sItNegT8NwmRO1vgFoR
-         WoM/guk/D0L130iLefiirPCxQsoHdIezBZ328IyQoVwdrTMe8wNGLTxVore1VFb9E4J5
-         KSGQ==
+        bh=tpKqYnXH25f3lqGlUZbd0EpV+dGbWQ4Gs839plYWRIY=;
+        b=cJkWoXADLq4S8vM/4poZ6PfnGZCfXSruT5Ox113ZXuw0SYC2DXFN7Qj/G6cCN+zlVt
+         ZwvDJKjT0qzYDiLcytKBZX/QCIUJf8Iq3ewWyyggwQ2f9jaHae0YEIvkQwLu2uBmlBUa
+         Zgbltg8svyv03W96d/1+uDkQAU7YOJydu277zN2NXlNCz8y4DffMivzd+sN+7Vz/jQ3Q
+         xP847O1epC9WmOGkHHzvwse0n4Ruk8g1FsPncRsWwP6c0N5n+rBCu/gd056JmCD58Lrl
+         ++rzSjFNuPori39PdymMSd8wgoEWtt7rZ20DfwQmKZR7P7HsF1dMmxO37wqKMOt7gehY
+         wFUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745673437; x=1746278237;
+        d=1e100.net; s=20230601; t=1745674552; x=1746279352;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=CI5a7+0i1Z4ciPNBaeJ5FtbaB8j0UzTY2F+B8Sn8k24=;
-        b=v0lpGsxFn6RT1ZZ0pwzXveU0KmdrbXErjZ5534ZrEXRoHpFGHaqeQ4lEsx1Av9VSrO
-         SkK50StI7BI76PqYwexY+Fd+SBG2gJ/slK+OI3Dnu544BAht6YSN68RjwsqCDdRvv7aO
-         B5pvydgEvo2HI3l5mPUryJPIk4bmyQiPFaSNbaqIh7A3ezdKGGy5hOlq2r04E8OVFj6q
-         iZGa8neQga0G/cLXLsqAjGho9kHACiOZx1f8mTj5+CwG+a4KRWd8j/V5WZn1tfMO+H0M
-         NTCf5Zt67/1APBVo+zAh2O14hkFaPcsep3oNUqz4jS6LdXGj3j5TWNUWTlGZkYbsK8Og
-         AtIA==
-X-Forwarded-Encrypted: i=1; AJvYcCXV7VdT/8DCFOppx476NGwWbOaEFJi2L+pUnmz8CQyPBfnFOJCi4aK36j3OCMxVNzy7QjAfyHjXu28btejohNlV@lists.infradead.org
-X-Gm-Message-State: AOJu0YzALT/S5Ffxs2CYgbP+22YOmFmtQfldedWlhisJNgjb2QtiQ2eQ
-	iGRXBDh6oica/AH/08W6EXFZ8XDVP6+3Vi6l6swmGFmvwmgR6kMSgtI+oXTbQsU=
-X-Gm-Gg: ASbGncvQ+s51lqWzthihIBoPYBngpyZZxvwioLsrWcXGMC0bFIyXM8SWJgvWT03TGXS
-	OSM+h4W6/vB6++kUxnxOLI3cAF5OuE8NFfNC9MtYFYUDsdhT4gU3gglLQ3ivW2j+D+u+kGAQIdk
-	p5vs+ntOE/Cxpnfa9CfR5FSQcc1EwGnaQRAF+g8Mi5mAklObIYPG2LiXyJ5/UsL4KNwA7oO/pPE
-	IGlvuCKSsHZonWvXY461VMNOboLZGLUvUPnt9foc3lbS0k7gvVN1t/7EVs9o35wTbHmWmCiisrQ
-	TdCzuZm8UH8iKt5eOA2ajFlTN0O5QxdIxxIDyM9fD6TbM2kGgg==
-X-Google-Smtp-Source: AGHT+IHytqi0PRSnCZUd64Qp2/4XTNrGyd31YUwQgLulH0kGSHkkv9/ZhwEu+T7t1MGAzdiUaJUlRw==
-X-Received: by 2002:a05:600c:450c:b0:440:6a5f:c308 with SMTP id 5b1f17b1804b1-440ab79bd20mr22243255e9.13.1745673437040;
-        Sat, 26 Apr 2025 06:17:17 -0700 (PDT)
+        bh=tpKqYnXH25f3lqGlUZbd0EpV+dGbWQ4Gs839plYWRIY=;
+        b=Zaqb7PQFKBQoyWy1wP3ulQd7QS9SQGbz2AKwhvTyWh5EblmSV1NY2SMHJfm/v34IFW
+         FsnBXUBNjBLpL3qMlN3YmxB74UGOJCbB3u10EWV38dC2IqscBVE0Ii0taDn2reks8tDu
+         xeufXholUSjO37kSeSZLDhwBfkvEeZ0j/UzOgHRbWD53gmmscuLgU4KmIWKwdK8LySuv
+         yp1fVfQ54z22F1lhSPHuLdPiFtClQENhin5CoucpJoDpnhlJduYWuzT43r3FSqIkCNf3
+         IB2leKG1E0Q4tX8SX7fHrpBT2/tHK2KuTWLa4PMsi3l5+mwDXkYPdJ23zDdN7bjaKxlr
+         xrrA==
+X-Forwarded-Encrypted: i=1; AJvYcCW/jNsrKMZN0/wqz2DbLh34pUuDzwfyeY8JLDE7QGEkysrW4RmmoVW+zpQ+rx2pZ6xZdHsN83cpf23BU27Xt9tr@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxv4FarbogWzalMW+7xrReXsWJ/dMDjJYzWUjliK5L4r3nA48dK
+	snNUeZHXJ3Xvl2h+3T12R8+zlL9r4/I41AsN3S3kOINkWusGyopowuw0gt9o/To=
+X-Gm-Gg: ASbGncs4Ay301u2kasrymASbcEHwGITZvjUEwIilGSwvIe/xzrkoRdrW3t0XFk/WD1/
+	xdvSry0KOhDIpVZDIOeEqv7tl1Prfg95OdFdXt8/RVJFussNuxYT/Ev21CQ6f4DZcKPwmfC7Eh4
+	Uyfa4sYP9AiCqDJ3z6S1CSDiZjTwBVdCqcURk0Lup5FtKSjE5D0FZWmJ6T+bb6NHdtt3XxEcdsa
+	dpP6SqOE3BvkAv5c0feVmmpO89Xc10vfnHOnxKSBb7kkc8h8Rexl2DBE+70GV55zBOl18GFWMK+
+	c+Va6i1KyUU6d9PEXiEuSLr4vw0RFd/W8H5AEreZmUPFnUe7CvJ7lI26JBY+
+X-Google-Smtp-Source: AGHT+IEqy1Bjndt2pvxsKMV5+EcxiW6j9NOhnrynY2cN18NYigRKOQiOJgaMqvmfCZqpsJ/rAvLIew==
+X-Received: by 2002:a05:6402:4286:b0:5f6:23d2:e6f7 with SMTP id 4fb4d7f45d1cf-5f723a1346fmr5017034a12.32.1745674552326;
+        Sat, 26 Apr 2025 06:35:52 -0700 (PDT)
 Received: from [192.168.50.4] ([82.78.167.145])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4408d8d191bsm106573135e9.1.2025.04.26.06.17.15
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f7035464e6sm2639700a12.64.2025.04.26.06.35.51
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 26 Apr 2025 06:17:16 -0700 (PDT)
-Message-ID: <b6736e74-7f90-437c-b44c-183a75401037@tuxon.dev>
-Date: Sat, 26 Apr 2025 16:17:15 +0300
+        Sat, 26 Apr 2025 06:35:51 -0700 (PDT)
+Message-ID: <47b54406-42d8-41cd-a561-9073db09666e@tuxon.dev>
+Date: Sat, 26 Apr 2025 16:35:50 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 09/11] ARM: dts: microchip: sama7d65: Add SRAM and DRAM
- components support
+Subject: Re: [PATCH v2 2/4] clk: at91: sama7d65: Add missing clk_hw to
+ parent_data
 To: Ryan.Wanner@microchip.com, robh@kernel.org, krzk+dt@kernel.org,
  conor+dt@kernel.org, nicolas.ferre@microchip.com,
- alexandre.belloni@bootlin.com, lee@kernel.org, sre@kernel.org,
- p.zabel@pengutronix.de
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- linux-rtc@vger.kernel.org
-References: <cover.1744666011.git.Ryan.Wanner@microchip.com>
- <354ecd628fdd292d2125570a6b10a93cbecb7706.1744666011.git.Ryan.Wanner@microchip.com>
+ alexandre.belloni@bootlin.com, mturquette@baylibre.com
+Cc: sboyd@kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-clk@vger.kernel.org
+References: <cover.1742916867.git.Ryan.Wanner@microchip.com>
+ <d634ae4f72bca022e205b03c01415e90fda0bc01.1742916867.git.Ryan.Wanner@microchip.com>
 From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Content-Language: en-US
-In-Reply-To: <354ecd628fdd292d2125570a6b10a93cbecb7706.1744666011.git.Ryan.Wanner@microchip.com>
+In-Reply-To: <d634ae4f72bca022e205b03c01415e90fda0bc01.1742916867.git.Ryan.Wanner@microchip.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250426_061718_690043_0FB0E0B2 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20250426_063554_158252_26441D79 
+X-CRM114-Status: GOOD (  17.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,61 +106,47 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi, Ryan,
 
-On 15.04.2025 00:41, Ryan.Wanner@microchip.com wrote:
+On 25.03.2025 17:55, Ryan.Wanner@microchip.com wrote:
 > From: Ryan Wanner <Ryan.Wanner@microchip.com>
 > 
-> Add SRAM, secumod, UDDRC, and DDR3phy to enable support for low power modes.
+> The main_xtal clk_hw struct is not passed into parent_data.hw causing an
+> issue with main_osc parent. 
+
+Can you please describe the issue?
+
+> Passing the main_xtal struct into the
+> parent_data struct will ensure the correct parent structure.
 > 
 > Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
 > ---
->  arch/arm/boot/dts/microchip/sama7d65.dtsi | 35 +++++++++++++++++++++++
->  1 file changed, 35 insertions(+)
+>  drivers/clk/at91/sama7d65.c | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-> diff --git a/arch/arm/boot/dts/microchip/sama7d65.dtsi b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-> index b6710ccd4c36..8439c6a9e9f2 100644
-> --- a/arch/arm/boot/dts/microchip/sama7d65.dtsi
-> +++ b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-> @@ -47,6 +47,14 @@ slow_xtal: clock-slowxtal {
->  		};
->  	};
+> diff --git a/drivers/clk/at91/sama7d65.c b/drivers/clk/at91/sama7d65.c
+> index a5d40df8b2f2..08306261c9c7 100644
+> --- a/drivers/clk/at91/sama7d65.c
+> +++ b/drivers/clk/at91/sama7d65.c
+> @@ -1138,6 +1138,7 @@ static void __init sama7d65_pmc_setup(struct device_node *np)
 >  
-> +	ns_sram: sram@100000 {
-> +		compatible = "mmio-sram";
-> +		reg = <0x100000 0x20000>;
-> +		ranges;
-> +		#address-cells = <1>;
-> +		#size-cells = <1>;
-> +	};
-> +
->  	soc {
->  		compatible = "simple-bus";
->  		ranges;
-> @@ -58,6 +66,23 @@ sfrbu: sfr@e0008000 {
->  			reg = <0xe0008000 0x20>;
->  		};
->  
-> +		securam: sram@e0000800 {
-> +			compatible = "microchip,sama7d65-securam", "atmel,sama5d2-securam", "mmio-sram";
-> +			reg = <0xe0000800 0x4000>;
-> +			ranges = <0 0xe0000800 0x4000>;
-> +			clocks = <&pmc PMC_TYPE_PERIPHERAL 17>;
-> +			#address-cells = <1>;
-> +			#size-cells = <1>;
-> +			no-memory-wc;
-> +		};
-> +
-> +		secumod: security-module@e0004000 {
-> +			compatible = "microchip,sama7d65-secumod", "atmel,sama5d2-secumod", "syscon";
-> +			reg = <0xe0004000 0x4000>;
-> +			gpio-controller;
-> +			#gpio-cells = <2>;
-> +		};
-> +
+>  	parent_data.name = main_xtal_name;
+>  	parent_data.fw_name = main_xtal_name;
+> +	parent_data.hw = main_xtal_hw;
 
-These should have be before sfrbu for keeping nodes soted by their address.
-I'll adjust while applying.
+I think, from time to time, you can still hit some random failure as the
+parent_data.index is still not initialized. I think the problem may be
+solved by doing something like:
+
+-	static struct clk_parent_data parent_data;
++	static struct clk_parent_data parent_data = {0};
+
+Can you please check with this?
 
 Thank you,
 Claudiu
+
+
+>  	main_osc_hw = at91_clk_register_main_osc(regmap, "main_osc", NULL,
+>  						 &parent_data, bypass);
+>  	if (IS_ERR(main_osc_hw))
 
 
