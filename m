@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB9B6C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 09:37:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53181C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 09:51:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7H6mO4q0nClq44HpCW0anQPlhk29yZVL0iATcH2dfQQ=; b=MeE+ZWLJg6EB2Tuv0P9ldlOQdX
-	0Bc4LaWXpHZOkK3uILBkZw8nPr800Pwris1JrKssNxN5/VJP1w5QRqFlpf+ndsiw+EXA+3WOAb3X5
-	wFUZqDQ5/cxlz5v6qJMhWCfGDtxTZddaUXxKbUqFhy/03PwYkT7JX7uPjJteg7j1rDOtkYbXvnasQ
-	HAmwc/OsHSbkjusQ1oT0d0Pe3tbZ0lnQDZaDmLzs+t6c5NH4V7zYepmqWwXJ2fysklimHV/xEGrdr
-	HqH3WSfPtj4qc86CFnvXLXL2BsCM2jQZ1/5uHW4NgsNxcTS08XGywl4QnLrTyXDBkdsYivvxTpNss
-	O8ZLU/Ew==;
+	bh=w3LCgJPF74Xbd9a4LK3HZnV1+d98aQdvtMSQTN4S4yY=; b=Mv3n5xVSnqLgJBQis35zTN9DvJ
+	Blar/A3+J2lqpLZ//0lVpW6efpBDCobXqav+S8tbXTyGUHEpkFruWKGX97pWzDMlzdObNZshINtBZ
+	urfI1rrBYX8qjYUjv/X2WjnWWlGTnqA27nHgUfYvVsmE0XHCavu176+BUvDI1oC/ylN2H4Lt1r2r0
+	wyhubaN2VZ++7NHP2Nu8uemse7E6sRnGKf3/hTpuGci6cWIeWq/LEk9JJyoBXziR4dHge7ge4qNhx
+	wol8F91H4bZwLZq6XFy9owOqMq4/FDzEhznSwU/zX/hIKGj8B9lwlc57UedkwqCNvMyismptIN17P
+	qid28giQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8byb-00000001otH-2LTi;
-	Sat, 26 Apr 2025 09:37:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u8cC0-00000001pht-0Msk;
+	Sat, 26 Apr 2025 09:51:28 +0000
+Received: from out-186.mta1.migadu.com ([2001:41d0:203:375::ba])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8aw5-00000001jpp-01me
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sat, 26 Apr 2025 08:30:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=7H6mO4q0nClq44HpCW0anQPlhk29yZVL0iATcH2dfQQ=; b=Tx8keTq7wunSHryHsYM0NoeFnR
-	/oWRoZ7Rd33R4/gazf1eeFhPpAUeOmXBmYBY2AtaYqb41LZdH3WDYKOPvnEU/d4NIL4ZfveWNZE64
-	iynk2KvGccB4HVrk9day2fxO/fPhVn+rfqNDAmXKde0ZeQBewCDSGCPPchu3Dv5SSNLzadubIKokI
-	kEC7HpPvGGv6MfeS9qG5oJ8AlzSGeuM00oXCc0vZC/zAQSKhgaf81amLTGduUuq+wfjILA56MLvhX
-	0NPx8v1+Rj7tnlIm6GSfpXvrNLElLTW2HhzcJGccNJyaiIQKQfz1n3Xux5arzNkhdORoFip0sNHAI
-	PWm44dwQ==;
-Received: from [172.31.31.140] (helo=u09cd745991455d.ant.amazon.com)
-	by desiato.infradead.org with esmtpsa (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u8avy-0000000CEmt-2qY7;
-	Sat, 26 Apr 2025 08:30:50 +0000
-Message-ID: <ac77c07ecda8805a5f942f5c71b3a2ef0f9183ce.camel@infradead.org>
-Subject: Re: [PATCH v4 7/7] mm/mm_init: Use for_each_valid_pfn() in
- init_unavailable_range()
-From: David Woodhouse <dwmw2@infradead.org>
-To: Andrew Morton <akpm@linux-foundation.org>, Lorenzo Stoakes
-	 <lorenzo.stoakes@oracle.com>
-Cc: Mike Rapoport <rppt@kernel.org>, "Sauerwein, David"
- <dssauerw@amazon.de>,  Anshuman Khandual <anshuman.khandual@arm.com>, Ard
- Biesheuvel <ardb@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- David Hildenbrand <david@redhat.com>, Marc Zyngier <maz@kernel.org>, Mark
- Rutland <mark.rutland@arm.com>, Mike Rapoport <rppt@linux.ibm.com>, Will
- Deacon <will@kernel.org>,  linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org,  linux-mm@kvack.org, Ruihan Li
- <lrh2000@pku.edu.cn>
-Date: Sat, 26 Apr 2025 09:30:50 +0100
-In-Reply-To: <20250425163813.58b72a3aa2d3ebbd96d1929e@linux-foundation.org>
-References: <20250423133821.789413-1-dwmw2@infradead.org>
-	 <20250423133821.789413-8-dwmw2@infradead.org>
-	 <e772cf66-c661-422d-911a-bc13ba4d59fb@lucifer.local>
-	 <20250425163813.58b72a3aa2d3ebbd96d1929e@linux-foundation.org>
-Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-Bb+h1mZfog+7aFPuGzRE"
-User-Agent: Evolution 3.52.3-0ubuntu1 
-MIME-Version: 1.0
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by desiato.infradead.org. See http://www.infradead.org/rpr.html
+	id 1u8cA7-00000001pZ7-0Qpj
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 26 Apr 2025 09:49:33 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1745660966;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=w3LCgJPF74Xbd9a4LK3HZnV1+d98aQdvtMSQTN4S4yY=;
+	b=mL2Dr4PBjwgXUrKJj/AgVVRKSL5GmFbusKHF+A70PvEUaDDYfnu1lcLBih37M0FWhRTjSK
+	vYJ9Vm4TF5gn53WfmmM/fR3Bw6Bu6dbDgYaLkhb5Gh3eZStC8TADhI9CrKfu5mwgpI9YfQ
+	R8xX69n+r5XDJx9TYxayaqFF8zXg5A+zADwQ2njEyLmR+fJ3krEiHw8bFj8O/tiS4ojfvS
+	TL/PL3CptmOq27C9PLh9muXvi7K8WoYfr/ytT5yvh9rT10WIgQc9ilZjUehgU60VtW4SV2
+	JSGQvb7iVja5A61Cq0KkHqIe7dtE0RYSbcrDaKU14O0kVRjYwmMf7tRFRAMhQA==
+Content-Type: multipart/signed;
+ boundary=3f073c5a59fc125928ba9034ef05e53a7e470d8fbbe478b43f705ef13c24;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Sat, 26 Apr 2025 11:49:13 +0200
+Message-Id: <D9GH5V09WW47.358SY1F7LJ9ZV@cknow.org>
+Cc: <devicetree@vger.kernel.org>, <linux-pm@vger.kernel.org>, "Sebastian
+ Reichel" <sebastian.reichel@collabora.com>, <linux-kernel@vger.kernel.org>,
+ <linux-rockchip@lists.infradead.org>, <kernel@collabora.com>,
+ <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v5 5/7] thermal: rockchip: support reading trim values
+ from OTP
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "Nicolas Frattaroli" <nicolas.frattaroli@collabora.com>, "Rafael J.
+ Wysocki" <rafael@kernel.org>, "Daniel Lezcano" <daniel.lezcano@linaro.org>,
+ "Zhang Rui" <rui.zhang@intel.com>, "Lukasz Luba" <lukasz.luba@arm.com>,
+ "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Heiko
+ Stuebner" <heiko@sntech.de>, "Jonas Karlman" <jonas@kwiboo.se>
+References: <20250425-rk3576-tsadc-upstream-v5-0-0c840b99c30e@collabora.com>
+ <20250425-rk3576-tsadc-upstream-v5-5-0c840b99c30e@collabora.com>
+In-Reply-To: <20250425-rk3576-tsadc-upstream-v5-5-0c840b99c30e@collabora.com>
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250426_024931_986126_9507CAF7 
+X-CRM114-Status: GOOD (  25.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,160 +79,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---=-Bb+h1mZfog+7aFPuGzRE
-Content-Type: text/plain; charset="UTF-8"
+--3f073c5a59fc125928ba9034ef05e53a7e470d8fbbe478b43f705ef13c24
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-On Fri, 2025-04-25 at 16:38 -0700, Andrew Morton wrote:
-> On Fri, 25 Apr 2025 17:11:10 +0100 Lorenzo Stoakes <lorenzo.stoakes@oracl=
-e.com> wrote:
->=20
-> > Andrew - can we drop this from mm-new? It's breaking it.
->=20
-> I almost did, but David seems to have a fix.
->=20
-> --- a/include/linux/mmzone.h~mm-mm_init-use-for_each_valid_pfn-in-init_un=
-available_range-fix
+Hi Nicolas,
 
-The symptoms only manifested when it got used in
-init_unavailable_range() but that's actually a fix for the sparsemem
-implementation of for_each_valid_pfn(), as David H surmised.
+On Fri Apr 25, 2025 at 9:34 PM CEST, Nicolas Frattaroli wrote:
+> Many of the Rockchip SoCs support storing trim values for the sensors in
+> factory programmable memory. These values specify a fixed offset from
+> the sensor's returned temperature to get a more accurate picture of what
+> temperature the silicon is actually at.
+>
+> The way this is implemented is with various OTP cells, which may be
+> absent. There may both be whole-TSADC trim values, as well as per-sensor
+> trim values.
+>
+> In the downstream driver, whole-chip trim values override the per-sensor
+> trim values. This rewrite of the functionality changes the semantics to
+> something I see as slightly more useful: allow the whole-chip trim
+> values to serve as a fallback for lacking per-sensor trim values,
+> instead of overriding already present sensor trim values.
+>
+> Additionally, the chip may specify an offset (trim_base, trim_base_frac)
+> in degrees celsius and degrees decicelsius respectively which defines
+> what the basis is from which the trim, if any, should be calculated
+> from. By default, this is 30 degrees Celsius, but the chip can once
+> again specify a different value through OTP cells.
 
-Please could the fix be folded into
-mm-implement-for_each_valid_pfn-for-config_sparsemem.patch ?
+Would it be useful to define all the values in the same unit?
+Having celsius and decicelsius and millicelsius sounds like a recipe for
+(future) off-by-10/-100/-1000 errors.
 
-This is what it should look like with the fix:
-https://git.infradead.org/?p=3Dusers/dwmw2/linux.git;a=3Dcommitdiff;h=3D55b=
-ebbb093
+And possibly define-ing the '30' so people don't need this commit
+message to figure out where that magic number comes from?
+And also the '923' for ``.trim_slope``?
 
-If you want to keep the fix separate, then that's the patch that it
-fixes. Do you want a commit message? I'll certainly give you a proper
-SoB:
+> The implementation of these trim calculations have been tested
+> extensively on an RK3576, where it was confirmed to get rid of pesky 1.8
+> degree Celsius offsets between certain sensors.
+>
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> ---
+>  drivers/thermal/rockchip_thermal.c | 221 +++++++++++++++++++++++++++++++=
+++----
+>  1 file changed, 202 insertions(+), 19 deletions(-)
+>
+> diff --git a/drivers/thermal/rockchip_thermal.c b/drivers/thermal/rockchi=
+p_thermal.c
+> index 89e3180667e2a8f0ef5542b0db4d9e19a21a24d3..3beff9b6fac3abe8948b56132=
+b618ff1bed57217 100644
+> --- a/drivers/thermal/rockchip_thermal.c
+> +++ b/drivers/thermal/rockchip_thermal.c
+> @@ -9,6 +9,7 @@
+>  #include <linux/interrupt.h>
+>  #include <linux/io.h>
+>  #include <linux/module.h>
+> +#include <linux/nvmem-consumer.h>
+>  #include <linux/of.h>
+>  #include <linux/of_address.h>
+>  #include <linux/of_irq.h>
+> @@ -69,16 +70,18 @@ struct chip_tsadc_table {
+>   * struct rockchip_tsadc_chip - hold the private data of tsadc chip
+>   * @chn_offset: the channel offset of the first channel
+>   * @chn_num: the channel number of tsadc chip
+> - * @tshut_temp: the hardware-controlled shutdown temperature value
+> + * @trim_slope: used to convert the trim code to a temperature in millic=
+elsius
+> + * @tshut_temp: the hardware-controlled shutdown temperature value, with=
+ no trim
 
-Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
+Having the same units used everywhere would also avoid possible
+confusion here as ``trim_slope`` explicitly mentions millicelsius, but
+``tshut_temp`` does not, but AFAIK it's also in millicelsius.
 
-Happy to resend the fixed series if it helps; it looks like you've
-already basically sorted it though?
+Cheers,
+  Diederik
 
-Thanks!
+>   * @tshut_mode: the hardware-controlled shutdown mode (0:CRU 1:GPIO)
+>   * @tshut_polarity: the hardware-controlled active polarity (0:LOW 1:HIG=
+H)
+>   * @initialize: SoC special initialize tsadc controller method
+>   * @irq_ack: clear the interrupt
+>   * @control: enable/disable method for the tsadc controller
+> - * @get_temp: get the temperature
+> + * @get_temp: get the raw temperature, unadjusted by trim
+>   * @set_alarm_temp: set the high temperature interrupt
+>   * @set_tshut_temp: set the hardware-controlled shutdown temperature
+>   * @set_tshut_mode: set the hardware-controlled shutdown mode
+> + * @get_trim_code: convert a hardware temperature code to one adjusted f=
+or by trim
+>   * @table: the chip-specific conversion table
+>   */
+>  struct rockchip_tsadc_chip {
+> @@ -86,6 +89,9 @@ struct rockchip_tsadc_chip {
 
-> +++ a/include/linux/mmzone.h
-> @@ -2190,10 +2190,10 @@ static inline unsigned long next_valid_p
-> =C2=A0	/*
-> =C2=A0	 * Either every PFN within the section (or subsection for VMEMMAP)=
- is
-> =C2=A0	 * valid, or none of them are. So there's no point repeating the c=
-heck
-> -	 * for every PFN; only call first_valid_pfn() the first time, and when
-> -	 * crossing a (sub)section boundary (i.e. !(pfn & ~PFN_VALID_MASK)).
-> +	 * for every PFN; only call first_valid_pfn() again when crossing a
-> +	 * (sub)section boundary (i.e. !(pfn & ~PAGE_{SUB,}SECTION_MASK)).
-> =C2=A0	 */
-> -	if (pfn & (IS_ENABLED(CONFIG_SPARSEMEM_VMEMMAP) ?
-> +	if (pfn & ~(IS_ENABLED(CONFIG_SPARSEMEM_VMEMMAP) ?
-> =C2=A0		=C2=A0=C2=A0 PAGE_SUBSECTION_MASK : PAGE_SECTION_MASK))
-> =C2=A0		return pfn;
-> =C2=A0
-> _
->=20
+--3f073c5a59fc125928ba9034ef05e53a7e470d8fbbe478b43f705ef13c24
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
 
---=-Bb+h1mZfog+7aFPuGzRE
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Transfer-Encoding: base64
+iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaAysHwAKCRDXblvOeH7b
+btwyAP0TuDcK9Aa/VqKu9kTOU2O3d5xjx4EzW+e6XJ2ZOqBbGAEApqUGJ4a2zPpi
+S1Shb4PtPJRr9dktGwogIP97AP7t3AY=
+=e2Pn
+-----END PGP SIGNATURE-----
 
-MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCD9Aw
-ggSOMIIDdqADAgECAhAOmiw0ECVD4cWj5DqVrT9PMA0GCSqGSIb3DQEBCwUAMGUxCzAJBgNVBAYT
-AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
-BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBDQTAeFw0yNDAxMzAwMDAwMDBaFw0zMTEx
-MDkyMzU5NTlaMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYDVQQDExdWZXJv
-a2V5IFNlY3VyZSBFbWFpbCBHMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMjvgLKj
-jfhCFqxYyRiW8g3cNFAvltDbK5AzcOaR7yVzVGadr4YcCVxjKrEJOgi7WEOH8rUgCNB5cTD8N/Et
-GfZI+LGqSv0YtNa54T9D1AWJy08ZKkWvfGGIXN9UFAPMJ6OLLH/UUEgFa+7KlrEvMUupDFGnnR06
-aDJAwtycb8yXtILj+TvfhLFhafxroXrflspavejQkEiHjNjtHnwbZ+o43g0/yxjwnarGI3kgcak7
-nnI9/8Lqpq79tLHYwLajotwLiGTB71AGN5xK+tzB+D4eN9lXayrjcszgbOv2ZCgzExQUAIt98mre
-8EggKs9mwtEuKAhYBIP/0K6WsoMnQCcCAwEAAaOCAVwwggFYMBIGA1UdEwEB/wQIMAYBAf8CAQAw
-HQYDVR0OBBYEFIlICOogTndrhuWByNfhjWSEf/xwMB8GA1UdIwQYMBaAFEXroq/0ksuCMS1Ri6en
-IZ3zbcgPMA4GA1UdDwEB/wQEAwIBhjAdBgNVHSUEFjAUBggrBgEFBQcDBAYIKwYBBQUHAwIweQYI
-KwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYB
-BQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRJRFJvb3RD
-QS5jcnQwRQYDVR0fBD4wPDA6oDigNoY0aHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0
-QXNzdXJlZElEUm9vdENBLmNybDARBgNVHSAECjAIMAYGBFUdIAAwDQYJKoZIhvcNAQELBQADggEB
-ACiagCqvNVxOfSd0uYfJMiZsOEBXAKIR/kpqRp2YCfrP4Tz7fJogYN4fxNAw7iy/bPZcvpVCfe/H
-/CCcp3alXL0I8M/rnEnRlv8ItY4MEF+2T/MkdXI3u1vHy3ua8SxBM8eT9LBQokHZxGUX51cE0kwa
-uEOZ+PonVIOnMjuLp29kcNOVnzf8DGKiek+cT51FvGRjV6LbaxXOm2P47/aiaXrDD5O0RF5SiPo6
-xD1/ClkCETyyEAE5LRJlXtx288R598koyFcwCSXijeVcRvBB1cNOLEbg7RMSw1AGq14fNe2cH1HG
-W7xyduY/ydQt6gv5r21mDOQ5SaZSWC/ZRfLDuEYwggWbMIIEg6ADAgECAhAH5JEPagNRXYDiRPdl
-c1vgMA0GCSqGSIb3DQEBCwUAMEExCzAJBgNVBAYTAkFVMRAwDgYDVQQKEwdWZXJva2V5MSAwHgYD
-VQQDExdWZXJva2V5IFNlY3VyZSBFbWFpbCBHMjAeFw0yNDEyMzAwMDAwMDBaFw0yODAxMDQyMzU5
-NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqGSIb3DQEBAQUAA4IC
-DwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZeYAS/SRV6zmfXlXaZ
-sNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2zkC9S7/yHDYnqegqt
-w4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qGpgFdZEk2/c//ZvUN
-i12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41vav1RhZJzYan4a1gU0
-kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0cvnO8FM6PTqsnSbcc
-0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PWPU6zfQTOMZ9uLQRR
-ci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXtREF5lLXxp+CJ6KKS
-blPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQrlR0gO3lBzuyPPArV
-hvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7IqaAovAX0d+f1YjbmC
-VsAwjhLmveFjNwIDAQABo4IBsDCCAawwHwYDVR0jBBgwFoAUiUgI6iBOd2uG5YHI1+GNZIR//HAw
-HQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3bXcyQGluZnJhZGVh
-ZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEBMA4GA1UdDwEB/wQE
-AwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwewYDVR0fBHQwcjA3oDWgM4YxaHR0
-cDovL2NybDMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDA3oDWgM4YxaHR0
-cDovL2NybDQuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNybDB2BggrBgEFBQcB
-AQRqMGgwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTBABggrBgEFBQcwAoY0
-aHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL1Zlcm9rZXlTZWN1cmVFbWFpbEcyLmNydDANBgkq
-hkiG9w0BAQsFAAOCAQEAQXc4FPiPLRnTDvmOABEzkIumojfZAe5SlnuQoeFUfi+LsWCKiB8Uextv
-iBAvboKhLuN6eG/NC6WOzOCppn4mkQxRkOdLNThwMHW0d19jrZFEKtEG/epZ/hw/DdScTuZ2m7im
-8ppItAT6GXD3aPhXkXnJpC/zTs85uNSQR64cEcBFjjoQDuSsTeJ5DAWf8EMyhMuD8pcbqx5kRvyt
-JPsWBQzv1Dsdv2LDPLNd/JUKhHSgr7nbUr4+aAP2PHTXGcEBh8lTeYea9p4d5k969pe0OHYMV5aL
-xERqTagmSetuIwolkAuBCzA9vulg8Y49Nz2zrpUGfKGOD0FMqenYxdJHgDCCBZswggSDoAMCAQIC
-EAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQELBQAwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoT
-B1Zlcm9rZXkxIDAeBgNVBAMTF1Zlcm9rZXkgU2VjdXJlIEVtYWlsIEcyMB4XDTI0MTIzMDAwMDAw
-MFoXDTI4MDEwNDIzNTk1OVowHjEcMBoGA1UEAwwTZHdtdzJAaW5mcmFkZWFkLm9yZzCCAiIwDQYJ
-KoZIhvcNAQEBBQADggIPADCCAgoCggIBANqWLse95HW2F7FhfH9bugyT/danKmmXrbMnz5GZNAfj
-Jl5gBL9JFXrOZ9eVdpmw04Tp6aDxZctFLoEDvSWKi367Q7Sg+ci+fH4KwwfQ8Pi0IpIKx2n5emEg
-nbOQL1Lv/IcNiep6Cq3DiyaSpSp/RZf+CAfUNySHS8eWmhLU6jGpSD6hxTpYKye7PmrmvMWwfGEP
-WoamAV1kSTb9z/9m9Q2LXa89aKmTxNwnAfD3Ohn9mtU3JukwILRMewn9QRXK7KzM+01h5hkCE4nj
-W9q/VGFknNhqfhrWBTSQoE9CSVylASGrjzCgS7XmKy/BaH3/7mOOHQv5g1o3Qj/+cdKnpT0I5Qb1
-nRy+c7wUzo9OqydJtxzSP4ZyHA4dELto/a3m/ay1XHcpum1pgTOLgxAfGb/T4dCkwRUstSKLMmpL
-g9Y9TrN9BM4xn24tBFFyL5znGG0wQGzOVAM68RBzIQb6Fz758fjsr4yZnPbVsU1+gHEs/puNHrG0
-9e1EQXmUtfGn4InoopJuU8p5VGD9S3Ikd4UoBlc7xl5yjtNlQxUeYrRlnUSmdlucCEoTX1n4UmtA
-9CuVHSA7eUHO7I88CtWG9bGOU7tLgOZoSEvNqtaL/N7sQbBZK4jZ4Rr/zNTQg1SwYjjLB7u96lDP
-sipoCi8BfR35/ViNuYJWwDCOEua94WM3AgMBAAGjggGwMIIBrDAfBgNVHSMEGDAWgBSJSAjqIE53
-a4blgcjX4Y1khH/8cDAdBgNVHQ4EFgQUXGIam3Bs59Y60yTmWgfDu6pZQ6cwMAYDVR0RBCkwJ4ET
-ZHdtdzJAaW5mcmFkZWFkLm9yZ4EQZGF2aWRAd29vZGhvdS5zZTAUBgNVHSAEDTALMAkGB2eBDAEF
-AQEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDB7BgNVHR8E
-dDByMDegNaAzhjFodHRwOi8vY3JsMy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMDegNaAzhjFodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVtYWlsRzIu
-Y3JsMHYGCCsGAQUFBwEBBGowaDAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29t
-MEAGCCsGAQUFBzAChjRodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vVmVyb2tleVNlY3VyZUVt
-YWlsRzIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQBBdzgU+I8tGdMO+Y4AETOQi6aiN9kB7lKWe5Ch
-4VR+L4uxYIqIHxR7G2+IEC9ugqEu43p4b80LpY7M4KmmfiaRDFGQ50s1OHAwdbR3X2OtkUQq0Qb9
-6ln+HD8N1JxO5nabuKbymki0BPoZcPdo+FeRecmkL/NOzzm41JBHrhwRwEWOOhAO5KxN4nkMBZ/w
-QzKEy4PylxurHmRG/K0k+xYFDO/UOx2/YsM8s138lQqEdKCvudtSvj5oA/Y8dNcZwQGHyVN5h5r2
-nh3mT3r2l7Q4dgxXlovERGpNqCZJ624jCiWQC4ELMD2+6WDxjj03PbOulQZ8oY4PQUyp6djF0keA
-MYIDuzCCA7cCAQEwVTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMX
-VmVyb2tleSBTZWN1cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJYIZIAWUDBAIBBQCg
-ggE3MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI1MDQyNjA4MzA1
-MFowLwYJKoZIhvcNAQkEMSIEIBy8KcCc+fF86qyfa11nuIr+YrYTVaV/xl9Dwe3Mzc+HMGQGCSsG
-AQQBgjcQBDFXMFUwQTELMAkGA1UEBhMCQVUxEDAOBgNVBAoTB1Zlcm9rZXkxIDAeBgNVBAMTF1Zl
-cm9rZXkgU2VjdXJlIEVtYWlsIEcyAhAH5JEPagNRXYDiRPdlc1vgMGYGCyqGSIb3DQEJEAILMVeg
-VTBBMQswCQYDVQQGEwJBVTEQMA4GA1UEChMHVmVyb2tleTEgMB4GA1UEAxMXVmVyb2tleSBTZWN1
-cmUgRW1haWwgRzICEAfkkQ9qA1FdgOJE92VzW+AwDQYJKoZIhvcNAQEBBQAEggIAE1XjvUqETwYQ
-Fi6Dt0mXFbk9r7kBv5JnxC1eKACBFQgvmA9gYg4MbXWkvX75XG1MumdeFs5u38KBvy8i/fIwRUCs
-ZC0fKaucHDKKekAQQbAmje8Vc01wr/zvIJV24eamd1Q/H4hI+sY/eDUJVTmR7L78Lb40cdAmdgV9
-Zd5D+r5bFan67bpy8zogWzK/0DIBRkyBB9z4Pg3DH7LZ+Rc9/ppqFYQjaHvkUqL1xZRaTGoJqoXx
-xZA4SeBUGZZ1aM4MyLzYUP0FesjA7dmbYT4Rc1KUGPt5c799aT/ANb694Peg260Kfw/G9R79iLzg
-ulIVdG2nU8EHtQ/v0jAHmSGXKSUXH4ZbsMRotfWbLwE+MikHAhZSedJzFc/HXNOqIsKpk2jlZhIA
-xxytMccGANc2Ddd7Uj8psP4JSgHHnSGtCYlJOEmivQP/mmEzRKI9K1N+rbra+E+0/KmyjiSGzJK1
-doHf+yRLAaR1vcU7igsOVoiDgbbsP3zfEn7IlnxHZ5PLrAo7NqCPvdsMzZJbCsGKax4D2wB1F5EN
-BzoXAqyeV4ApsIIcaRSsxEhPSo2Wco/rCmi60EDIGhUPSpJy1gn3tU/3xoev8q0a/ZzkSMGcaZs7
-BZO8C3EnBw5R/JcZxCNps8XZqDRJMWV7XLH96zlhmoW9AsQcNRwa8UGLY90l2AkAAAAAAAA=
-
-
---=-Bb+h1mZfog+7aFPuGzRE--
+--3f073c5a59fc125928ba9034ef05e53a7e470d8fbbe478b43f705ef13c24--
 
