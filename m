@@ -4,66 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF869C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 11:37:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2548FC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 12:11:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/CSzjC2sTbKPRVCvYy/1cpgxU0NvDZ8x/QFhN5oU4eU=; b=eeXdtZ6x+g5UTZVt8yDLjO8Ae9
-	MTc0SJyuIOIU8Xij/VV2mmXTQiLEpgqkJB60w9e92DfJ7HB1Usl/6Q56nYGF2nnzy/gEdR/aXR/A6
-	2T2xvEHygTmXyjrywvg1cRNtSRr0AzGoTBgVMeOEvp0dcQCeDur01kqlLb7+z0zGzFs4ISSxxqYHp
-	8cz8mOfXBmow459GMmhdfqL9tkf4U4yyYiWTpFyABCpAMMXxVeElshgiayS7hug2SWefsqXZarjx8
-	IXCG+lrbjfxiRBHh4WmJq+6diPW0jg4NvLuKev3A6YJO7II1aenwa5UgqBmgnE7SWVQmcZsoGgthy
-	6Qu8flyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PdVixiK6AA3uGT/KDYmNOBn4S48Kipz1Dn8Oa05jBQ8=; b=VJx2LtsgNNOFwXaR+jSmH0uAHO
+	iEYAC72w8mzp7pHYgHfIJC8huO/Cm2uXvADnATism3FnhDVknU6iRXKlFAUpY7OJTnJ+s7M0NUWuW
+	oFfjO4KVZdR1y/ZmW3TXIIkOyupGN6IwgnWfNl0LszEGwV3TlHgKqedPN8l373rKvsYUEmLoV8hGY
+	zyWKC2Xp7Cthg0boqfSdutgvB+jmD9IQZvmxln0R4WHcoM/VdMHdZnTmiygtdZd7gciJvNeaXYQS0
+	Eioogq80jV3GrkTlwPlJedKKCUo4aIOnYpNf7VHDjHnw4jaaWssZp6lQp/VGP8jXg5H60GQmiO6Ek
+	tdWiAXog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8dqM-00000001wNY-2S79;
-	Sat, 26 Apr 2025 11:37:14 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u8eNN-00000001y20-1r43;
+	Sat, 26 Apr 2025 12:11:21 +0000
+Received: from mail-northeuropeazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8doV-00000001wDI-3MdO
+	id 1u8eLV-00000001xvR-2XUB
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Apr 2025 11:35:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 04C34A4D0AA;
-	Sat, 26 Apr 2025 11:29:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74F7DC4CEE2;
-	Sat, 26 Apr 2025 11:35:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745667318;
-	bh=W5+9Ox8Zfwkqoo1wtMpLkQdOALYNITyDBGxiimDOcgo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=g/MczSbQSQ044Au5V+WIXPOi99BlpoIK8a5nH0UwMKC7lxZVZw1PkYexMWdvB718I
-	 yVDqc55UwCECNOI++NgMgtVG/0WCDf2FW8kvgMZgSE3pVaja/ekwYmNUJ8w1Ng7xXO
-	 117U43pqKc9gBvekkYM2EkLNywj2JXNyjIJNYinWRtL5AzmP9rnK2933aKTW33KWc1
-	 WU5BvmkrSk3Lrfa8HI6W38CAwRe1mrUecnhA++VgpGM9U32Cs0aPFxt2H+5qaP9ADt
-	 AM4E65EN/Iva0jHtft0GdBt4Utkp3vjZZ9FOUJEyMTApqV6pdngSQVhUnRQicVp2po
-	 mqYsBcxhxUkFA==
-Date: Sat, 26 Apr 2025 12:35:09 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: David Lechner <dlechner@baylibre.com>
-Cc: Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko
- <andy@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, Michael Hennerich
- <Michael.Hennerich@analog.com>, Eugen Hristev <eugen.hristev@linaro.org>,
- Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni
- <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 1/6] iio: introduce IIO_DECLARE_BUFFER_WITH_TS macros
-Message-ID: <20250426123509.0b04f0f9@jic23-huawei>
-In-Reply-To: <20250425-iio-introduce-iio_declare_buffer_with_ts-v3-1-f12df1bff248@baylibre.com>
-References: <20250425-iio-introduce-iio_declare_buffer_with_ts-v3-0-f12df1bff248@baylibre.com>
-	<20250425-iio-introduce-iio_declare_buffer_with_ts-v3-1-f12df1bff248@baylibre.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
+	Sat, 26 Apr 2025 12:09:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KAXYgDcF9MLKUQ9/6xqa6bfjayyO1Ki2dpT9VRIDUx4KJpwXXFrFzxH985WCXqLu2h5gBRKUNZedkqyVM7FNo/kjHfnns6etff/3z84KNlCX8P44adNBvyFQNmX3BT6etWpoQHo1BNW8Ae3U9h13d5JOW7hgiYCp/L0BQdU/zzCgWNKoCUIKY+6OroBERZXW6tERVU9Mau1kStw0GU2V/xE4Vdf8TesDRBnicz4L1zdvReKFWQfgAIalh7AyBn2ol6mU1eg8s85g/XRzIsajBNxi4r6/xrbmNs9w2if8ZA0k+HTywma+TIEENeU/e4F0bYCFo9lCjF3/inbhAxFOEw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PdVixiK6AA3uGT/KDYmNOBn4S48Kipz1Dn8Oa05jBQ8=;
+ b=y78cFVaRtFforybnKImnKZEk4IRpWLpFNoXy2lE73Kz4YPFII2XBIQZHbrHRzPHW3Jn6+C+7M3vGUFFyzcVA6/P0hSyCEAyKGbFQM+WGpWH2YgajhoG1uVJdaZRXVTJ8aMJVh1gQCpu0czpW9QduA7O9p3dI55s6lqIhGaMYGkWn3TQKhZxuv4aTZJUL9ejv/3Ylx6+z7zQnIbQc8U2qNEnbDY9O6K76iOzBa2DN0/1R4J0XYXZIw2lvJv+fZu6DGwS/nMRumzw65Z7RVoifKxLQSFzRLyVIIVz9HKr7zD191htZRBOP9MJgPGlXug75FAWmICTGVx5CqDgQxxdQuA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PdVixiK6AA3uGT/KDYmNOBn4S48Kipz1Dn8Oa05jBQ8=;
+ b=G3dKIGvACl8LWA/teBpdUpZsb8qg23yxYI4nTFJVU7BGg44d5Cl3vZUdOTvkuBfOoCVkZS1llF1pi+dSu7ZMzzdpPSTfnSNFvdxlnhvriXUT2qUSt5DyP2I+Cdrf8nXCO1ECHBH9QtnlJY5F+eFdoWE8w7wd61yBcMlNKxD/CO9q8K0CF6aHNV82ZP2gQK9BdMgsCaSHtzxEhgTnkTKgLcDP0rCDZy+ybQX0OkTc6Eo/c3z+y3+t3XEHm+4W1Ugl4hNMDf+R/5qKzUZNcaqdFG3MYz6odaCiXfRkTPZRCqB0dtMGsQQVYJucPGYqQdve2BK5BF284biSqlb8SZW7hA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by DBAPR04MB7445.eurprd04.prod.outlook.com (2603:10a6:10:1a7::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.29; Sat, 26 Apr
+ 2025 12:09:15 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%5]) with mapi id 15.20.8678.025; Sat, 26 Apr 2025
+ 12:09:15 +0000
+Date: Sat, 26 Apr 2025 21:18:04 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Xiaolei Wang <xiaolei.wang@windriver.com>
+Cc: andersson@kernel.org, mathieu.poirier@linaro.org, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH V2 1/2] remoteproc: imx_rproc: release carveout under
+ imx_rproc after rproc_attach() fails
+Message-ID: <20250426131804.GA13806@nxa18884-linux>
+References: <20250426065348.1234391-1-xiaolei.wang@windriver.com>
+ <20250426065348.1234391-2-xiaolei.wang@windriver.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250426065348.1234391-2-xiaolei.wang@windriver.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SI1PR02CA0056.apcprd02.prod.outlook.com
+ (2603:1096:4:1f5::7) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DBAPR04MB7445:EE_
+X-MS-Office365-Filtering-Correlation-Id: 99279ca1-e885-458d-7115-08dd84bb2978
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|52116014|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?u/t/Oyphn0o8cFrWmvlupTjtLl77/h71HdMps+0pmQvFm8ZH2Jldb/dH3urF?=
+ =?us-ascii?Q?8Orso68z/7JdrzO1uYzD4CozsXgJ9aBcMz3moR7gaixKWkc1Smtx5MsV7hwH?=
+ =?us-ascii?Q?KURGkMhO8FOoRvOSk2ZtNUWdpD+K14XkolLCXJrt7api6EGqFR3MFM2umPUh?=
+ =?us-ascii?Q?TfCZwrB7fV3iMAA/MAL8FiMgg/Ue8+9TjOIzo8tghDRVEMbdgM9PhotUbdLN?=
+ =?us-ascii?Q?M4ZfmavMuiz9roSbLQK4l5G84806wGjOl+CRIFkU5o/kHSto+oTlO0djNRmJ?=
+ =?us-ascii?Q?SffdQXOftJ18MZH03O/FQjiRG+MliX2SB8CgDb1GZGtmbl3mpyQ3uHt8WndM?=
+ =?us-ascii?Q?ptlrJ4L6+vTzHguVnrrCtv5oDks43S6z4LYGmhCNa5B3SRGiIXc2Jhu254pw?=
+ =?us-ascii?Q?gnssqnUxVg+uonjypS5EdPy2z8lBFz/UmEBKCtfKdulBmndmWHGoykFPZNYk?=
+ =?us-ascii?Q?mDUHeMwk/FkrA2hIr1vdZnS83Oj/65641cplSn2UPzJgbqCju2tlzJutQIg3?=
+ =?us-ascii?Q?1GE3O4s+1U/7qWmI56N77zo030JHJAOnk+H+J0QygUzHqCBp7wIvD8ObuFNk?=
+ =?us-ascii?Q?/vAwv1GzfTwEeKW4lcAi33Hj/9hCp2soizyOKg+fiuVlBkh5uGKC4rESNHgd?=
+ =?us-ascii?Q?VwUtup5quHbHOl6Ac6/uDMZ5lWFB6g1ZYeMPUM/NoiXc6DgEcacxfSqWYidZ?=
+ =?us-ascii?Q?Bd1jzZSK4fljYiJsECPTe68kTBDCIOPiTeaDhm2yclhu/dwHOmmZqBmBtycd?=
+ =?us-ascii?Q?Nm8a7SGviZqpPSLIkCG+OM8ry/2GAqiVInmxgwz1hvskjtLOJ0nyQHWH8XKI?=
+ =?us-ascii?Q?qnuM/4sCn1Sj7Bq9pETqdUY7hCbNtx79MIzLWl4/cl7Oet7J5N9yMhj9LATA?=
+ =?us-ascii?Q?TzLKJxu+DPW8TWMj/ZYW5K5Scb/HZtP++LB5vwC10H/FjkdEul8+Bs00dkFp?=
+ =?us-ascii?Q?gD3Ghr8I8sM2DuPAPa1xWjsBLSHL7Q21Hgz7CfuHZYn+VPKLOC8YvC8sk71j?=
+ =?us-ascii?Q?qYTTAWHjwr8Py7KOgHoeQPrqzLd9MoXKGwu+tv+49oBiMqNlrVFQ5a9KU8h5?=
+ =?us-ascii?Q?FACRbLYjLs1L/Lop3UxTPRBQoNcSbwjTjNNh40VadHNP6lPtn3hJ4gyQ1/x/?=
+ =?us-ascii?Q?hkQhTbL98LSQrhd/xplVKjVYOpHbnG7kMKNxOuB8VFDggfQI3HAxXxS1TmN9?=
+ =?us-ascii?Q?0MIiIqPqW7GQIwxtu9Ob5/o2QYQdGOoIhZJPPueeMz7gVNJv/1+15zcwvTuA?=
+ =?us-ascii?Q?sj4EI+19mVKmdYzZ2afdSeizC7Te3EB2nGyZoWnNJfDp0U+qmY1OoYZPtSWi?=
+ =?us-ascii?Q?65I2KBDhmVpKIZEuP8Rhs5Nkc4SPOdhIexveCmVNoP5Sk4Yp06Q+Dt8Hs711?=
+ =?us-ascii?Q?kg42cfK7BZHvZNtq84jXKwJeTfK9KitpnvfadoG9qlDs251G3OqRyMpJdSZ5?=
+ =?us-ascii?Q?mL773VS8uUP8FAgGnATTsdC0X+BbI4K6QZnOP1us7paVNHvk44LzeSj1RTde?=
+ =?us-ascii?Q?+h8UERYU0FWX7/w=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(52116014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fIkDZCzMD7Up2iM7QOpq9cnYiuy+ZH5PbLz4eE+XJFq1CW8z5r1K4IapJY53?=
+ =?us-ascii?Q?PBEAK3Jihg6raSaKlF34dtzj9uZ0grH932GCCuDlX7JgxYDNzCtFJP17bEkw?=
+ =?us-ascii?Q?LLoiOFbkJLzmnwoE3c2y9piIhg0KD1Zdi5SPUCcDX9DWBKzQJra+QJ5CuK0S?=
+ =?us-ascii?Q?avfBt7q8Gf9n+ZSTz+GXU2Si3ZTP4m5TesznxVYj8PGlFe+hSg0DbyIZGZWG?=
+ =?us-ascii?Q?cMSmRDPNnC/bNNVAlY/ty1twunJmtHujTQaa9rIbW12DLEwiLV5rcDsldPG6?=
+ =?us-ascii?Q?wPEcwGhOWLocwwtFQsUKgD80Ufy4xKk6SGucDU9bcmAM86VOqvOtCaKUX2eR?=
+ =?us-ascii?Q?Lxc3Auu5ke47ysENmtCJdAaAk08GhEIgPwFH1xzE/bT/Ne90WmrwcqI1nusW?=
+ =?us-ascii?Q?emgEWF565HOWVg9PhFx6xUZIVy3JTD6LP4ZXlAR+jtuqW+ZbZbasbMX9tXbe?=
+ =?us-ascii?Q?ABD2GcGQDkuJVsB0c4Xn0aUcc2xhlkzdb1Iw/63i/hVCJhRFtLW8jW/tFtlG?=
+ =?us-ascii?Q?ndmsW4Ta0YZb0HUE5RlR3k2cxacn61YeB3jfwOjHA0MjOr665fUWkVMwdXgR?=
+ =?us-ascii?Q?VsE/2OHaKdP6gYu+jtXls6FHa+wkvFnJVrWg19No1tF6YdG8qN+e9Eui0HBZ?=
+ =?us-ascii?Q?5+oKDMD5pAOPiE5lPLvWOWqG7fkeTtFUu+nlZJNIM2LUB34dGsTXX/uSM4Pj?=
+ =?us-ascii?Q?X0iGvC9A8ogga06x2l3xqpyuEitmmKzpDgqDy5ZnqBUWXhaI+dIWjSNK7sGk?=
+ =?us-ascii?Q?eDHbuSN9/q4jqncg5FtHVmSmMU7vDhJpZ68zDGtqk3A3RHxXdG22s+n/Ujpb?=
+ =?us-ascii?Q?Jksl1lUx6wbpQtlzFw6vYHPYxzeYH/P1OLAnc+iaxSXLk75B4gjQ3Fdso4ip?=
+ =?us-ascii?Q?wzkTBOVNg0jA4RFE8Vg7Kffj4BbgZDTxS4wis/RABeo6KPQhGSz4pV+FwKZe?=
+ =?us-ascii?Q?fbKSmky1qPT7QcII0aPXQ2XFA2i7kDtp0Labm7++/5xB6FkpJLz4ZHOngJCR?=
+ =?us-ascii?Q?r55w4A6q2DKXTo3y9FxQdrDyUIi8nZiDiYs66a3S/nEWKhn2BDHGhr9a4Dwf?=
+ =?us-ascii?Q?XaXT/p7mCcAwHoOf9Yymb5tDhV1eX97Fwgg3amr5ky8wn7pndV87AzoDuy6H?=
+ =?us-ascii?Q?CNY8NoJSboyuZYQbRmNoF6K2PNXpF+CD2TMfJP3j9HQ7JMKb9DWhjPPSctyd?=
+ =?us-ascii?Q?p2f0Kn/ztYxlYyyuYqD7Dzbl7CAp9jXJgK3019fRGqjDvEDdMZAMI4a9ECmm?=
+ =?us-ascii?Q?0kDbVjnh2JQZLgrk5UC3sqoSDc91PSPMj6ueGuVs/nEblLu2/pT+xzsMfmgx?=
+ =?us-ascii?Q?1YYOx3opr77WgJ2F1VYD9vPxM9zT0Tqc2WCVWsguDtefNep+2Y2Py2nxlLOO?=
+ =?us-ascii?Q?Y75cbIN82bGPcnj67GYF7Yzn+TcTPgWiIbFFqMP/VUoj9toD4k1FnCdiuCAK?=
+ =?us-ascii?Q?49weZ/Q0dDLc239hyTElkOjLSz47bv/Z8Y3Mj9gSTMRtroPic0YWoGhGsiBs?=
+ =?us-ascii?Q?l0+ejjwJkQSMKEeJ9jHq/+JPMsANOaTIujoYaYRUVDWRsT66X7xspswVAonS?=
+ =?us-ascii?Q?BfTrzoff611kfeG8rS3XonqwjWU2aeCL7CMhIHlA?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 99279ca1-e885-458d-7115-08dd84bb2978
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Apr 2025 12:09:15.2565
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: sm+0xeBWeHgLFugJZbXj2XZGDtV+n676QQZMRFIZMucOXmqrmML7ONLngm8NZcTuPqDtdKlhejKlyjMzM5sQ/A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7445
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250426_043519_975465_E1371CE1 
-X-CRM114-Status: GOOD (  27.08  )
+X-CRM114-CacheID: sfid-20250426_050925_660044_D2E4E135 
+X-CRM114-Status: UNSURE (   9.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,106 +165,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 25 Apr 2025 16:08:43 -0500
-David Lechner <dlechner@baylibre.com> wrote:
+On Sat, Apr 26, 2025 at 02:53:47PM +0800, Xiaolei Wang wrote:
+>When rproc->state = RPROC_DETACHED and rproc_attach() is used
+>to attach to the remote processor, if rproc_handle_resources()
+>returns a failure, the resources allocated by rproc_prepare_device()
+>should be released, otherwise the following memory leak will occur.
+>
+>Therefore, add imx_rproc_unprepare() to imx_rproc to release the
+>memory allocated in imx_rproc_prepare().
+>
+>unreferenced object 0xffff0000861c5d00 (size 128):
+>comm "kworker/u12:3", pid 59, jiffies 4294893509 (age 149.220s)
+>hex dump (first 32 bytes):
+>00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ................
+>00 00 02 88 00 00 00 00 00 00 10 00 00 00 00 00 ............
+>backtrace:
+> [<00000000f949fe18>] slab_post_alloc_hook+0x98/0x37c
+> [<00000000adbfb3e7>] __kmem_cache_alloc_node+0x138/0x2e0
+> [<00000000521c0345>] kmalloc_trace+0x40/0x158
+> [<000000004e330a49>] rproc_mem_entry_init+0x60/0xf8
+> [<000000002815755e>] imx_rproc_prepare+0xe0/0x180
+> [<0000000003f61b4e>] rproc_boot+0x2ec/0x528
+> [<00000000e7e994ac>] rproc_add+0x124/0x17c
+> [<0000000048594076>] imx_rproc_probe+0x4ec/0x5d4
+> [<00000000efc298a1>] platform_probe+0x68/0xd8
+> [<00000000110be6fe>] really_probe+0x110/0x27c
+> [<00000000e245c0ae>] __driver_probe_device+0x78/0x12c
+> [<00000000f61f6f5e>] driver_probe_device+0x3c/0x118
+> [<00000000a7874938>] __device_attach_driver+0xb8/0xf8
+> [<0000000065319e69>] bus_for_each_drv+0x84/0xe4
+> [<00000000db3eb243>] __device_attach+0xfc/0x18c
+> [<0000000072e4e1a4>] device_initial_probe+0x14/0x20
+>
 
-> Add new macros to help with the common case of declaring a buffer that
-> is safe to use with iio_push_to_buffers_with_ts(). This is not trivial
-> to do correctly because of the alignment requirements of the timestamp.
-> This will make it easier for both authors and reviewers.
-> 
-> To avoid double __align() attributes in cases where we also need DMA
-> alignment, add a 2nd variant IIO_DECLARE_DMA_BUFFER_WITH_TS().
-> 
-Generally good.  A few little things though...
+Fix Tag?
 
-> Signed-off-by: David Lechner <dlechner@baylibre.com>
-> ---
+>Signed-off-by: Xiaolei Wang <xiaolei.wang@windriver.com>
+>---
+> drivers/remoteproc/imx_rproc.c | 14 ++++++++++++++
+> 1 file changed, 14 insertions(+)
+>
+>diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+>index 74299af1d7f1..c489bd15ee91 100644
+>--- a/drivers/remoteproc/imx_rproc.c
+>+++ b/drivers/remoteproc/imx_rproc.c
+>@@ -595,6 +595,19 @@ static int imx_rproc_prepare(struct rproc *rproc)
+> 	return  0;
+> }
 > 
-> v3 changes:
-> * Use leading double-underscore for "private" macro to match "private"
->   functions that do the same.
-> * Use static_assert() from linux/build_bug.h instead of _Static_assert()
-> * Fix incorrectly using sizeof(IIO_DMA_MINALIGN).
-> * Add check that count argument is constant. (Note, I didn't include a
->   message in this static assert because it already gives a reasonable
->   message.)
-> 
-> /home/david/work/bl/linux/drivers/iio/accel/sca3300.c:482:51: error: expression in static assertion is not constant
->   482 |         IIO_DECLARE_BUFFER_WITH_TS(s16, channels, val);
->       |                                                   ^~~
-> 
-> v2 changes:
-> * Add 2nd macro for DMA alignment
-> ---
->  include/linux/iio/iio.h | 38 ++++++++++++++++++++++++++++++++++++++
->  1 file changed, 38 insertions(+)
-> 
-> diff --git a/include/linux/iio/iio.h b/include/linux/iio/iio.h
-> index 638cf2420fbd85cf2924d09d061df601d1d4bb2a..1115b219271b76792539931edc404a67549bd8b1 100644
-> --- a/include/linux/iio/iio.h
-> +++ b/include/linux/iio/iio.h
-> @@ -7,6 +7,8 @@
->  #ifndef _INDUSTRIAL_IO_H_
->  #define _INDUSTRIAL_IO_H_
->  
-> +#include <linux/align.h>
-> +#include <linux/build_bug.h>
->  #include <linux/device.h>
->  #include <linux/cdev.h>
->  #include <linux/compiler_types.h>
-> @@ -777,6 +779,42 @@ static inline void *iio_device_get_drvdata(const struct iio_dev *indio_dev)
->   * them safe for use with non-coherent DMA.
->   */
->  #define IIO_DMA_MINALIGN ARCH_DMA_MINALIGN
-> +
-> +#define __IIO_DECLARE_BUFFER_WITH_TS(type, name, count) \
-> +	static_assert(count); \
+>+static int imx_rproc_unprepare(struct rproc *rproc)
+>+{
+>+	struct rproc_mem_entry *entry, *tmp;
+>+
+>+	rproc_coredump_cleanup(rproc);
+>+	/* clean up carveout allocations */
+>+	list_for_each_entry_safe(entry, tmp, &rproc->carveouts, node) {
+>+		list_del(&entry->node);
+>+		kfree(entry);
+>+	}
+>+	return  0;
 
-Why do we care if count is 0?  Or is intent to check if is constant?
-If the thought is we don't care either way about 0 (as rather nonsensical)
-and this will fail to compile if not constant, then perhaps a comment would
-avoid future confusion?
+Could "rproc_resource_cleanup(rproc);" be used here?
 
-> +	type name[ALIGN((count), sizeof(s64) / sizeof(type)) + sizeof(s64) / sizeof(type)]
-> +
-> +/**
-> + * IIO_DECLARE_BUFFER_WITH_TS() - Declare a buffer with timestamp
-> + * @type: element type of the buffer
-> + * @name: identifier name of the buffer
-> + * @count: number of elements in the buffer
-> + *
-> + * Declares a buffer that is safe to use with iio_push_to_buffer_with_ts(). In
-> + * addition to allocating enough space for @count elements of @type, it also
-> + * allocates space for a s64 timestamp at the end of the buffer and ensures
-> + * proper alignment of the timestamp.
-> + */
-> +#define IIO_DECLARE_BUFFER_WITH_TS(type, name, count) \
-> +	__IIO_DECLARE_BUFFER_WITH_TS(type, name, count) __aligned(sizeof(s64))
-> +
-> +/**
-> + * IIO_DECLARE_DMA_BUFFER_WITH_TS() - Declare a DMA-aligned buffer with timestamp
-> + * @type: element type of the buffer
-> + * @name: identifier name of the buffer
-> + * @count: number of elements in the buffer
-> + *
-> + * Same as IIO_DECLARE_BUFFER_WITH_TS(), but is uses __aligned(IIO_DMA_MINALIGN)
-> + * to ensure that the buffer doesn't share cachelines with anything that comes
-> + * before it in a struct. This should not be used for stack-allocated buffers
-> + * as stack memory cannot generally be used for DMA.
-> + */
-> +#define IIO_DECLARE_DMA_BUFFER_WITH_TS(type, name, count) \
-> +	__IIO_DECLARE_BUFFER_WITH_TS(type, name, count) __aligned(IIO_DMA_MINALIGN)
-> +
-> +static_assert(IIO_DMA_MINALIGN % sizeof(s64) == 0,
-That message isn't super helpful if seen in a compile log as we aren't reading the code here
-"IIO_DECLARE_DMA_BUFFER_WITH_TS() assumes that ...
-
-> +	"macros above assume that IIO_DMA_MINALIGN also ensures s64 timestamp alignment");
-> +
->  struct iio_dev *iio_device_alloc(struct device *parent, int sizeof_priv);
->  
->  /* The information at the returned address is guaranteed to be cacheline aligned */
-> 
-
+Regards,
+Peng
 
