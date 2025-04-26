@@ -4,85 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C102C369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 20:16:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE95CC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 20:59:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iMFVi6kMs2GlW3FqbZ+c8W0mX4h+96g36QjGWqU5rnM=; b=znjEWAijWEPHEpHCTRbui475tl
-	MLQxiXZeXQfzGYCLhb8/0dZC3GvLwFVGt3mFNc5YfesYdY+AdwKjbXcicw0sVIwQWCWgKRdBgHRKC
-	ui2UbM9/lEWl9sy03uaHi8oIeZsaUSJO6Ya3T54cTZoRyc6M3ei62C80zcWksnudvc6yyHpmF5Yrx
-	V0+Vw6IfcPv4aMEQ4UIeo9W1Ayart9MB47CGjyQWEJ2Ry7FyBTIop+bMpZWj9wWkQK4tEJPim2irg
-	N6dJAf438Ap+cj/SXxX1oirK9GsOcMmz3UoL9nS07OswY+5BKcBsdmlmwZ7IGH/yYXDf4WlKhVIRs
-	NUo8N7ug==;
+	bh=d5RUawyA0HZ8iOrYQ/UIr7PD1runCe3i/3feWl3o2dw=; b=R6WoEF5wo6nmseXSt7mo1WM+Df
+	q17cW1JlJ2c3Q4p+xfICbYhM0SxFS6cSGVpLro6vKi1sHMj1iALbAL1U3W99ScFq5/8LfLc83Xwmj
+	cjZKd8z8bF8R9czdZF2q2NrY6Wsl7Kpu44oi3TyoikfcEw0QxdYGruLWt4AaAMN0FE+h77cqY0r7n
+	DPkX5Z2bqtVvLPEfANtH2gCv+H2Ndxk3wrqPmX/jKTR47LmXzt5TCFcog04SFovprgVUCWiMQAtte
+	a595t6xt/sa2arqOglRiQ4DvDQRS88TA5vYHSazqNtiZ9w1zwyRJ5iLwqypGvwFxfGBKXLZbyHfEX
+	n6zU+rpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8lwx-00000002TQ3-0l9I;
-	Sat, 26 Apr 2025 20:16:35 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1u8mcL-00000002VPh-3ror;
+	Sat, 26 Apr 2025 20:59:21 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8lv5-00000002TI0-0fav
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Apr 2025 20:14:40 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5e5c7d6b96fso6628615a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Apr 2025 13:14:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745698476; x=1746303276; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=iMFVi6kMs2GlW3FqbZ+c8W0mX4h+96g36QjGWqU5rnM=;
-        b=eipx2g2bOaNeLoHMv138h3Y+OHPADg5PFgM+kbwvJdr+Pa+kuPj5633Wo3r4dYgbA6
-         7DBZ1nmHfJL5Aor2A0vXESdlNvpGJy6DBf/B6eJ/HRAENq98qCIGKZ/ypFSaQdvMS7x+
-         SKL2Tq7d+mbrCOPVmtp2pW1e7mzgf+1miWkqkHz+6AsuDzAWI5VKYwgVtygItSLvi7eg
-         FMl0/VcYebywNdx1sSs8Q4WPjuJ2TRk9FcW6ef9RUaE9vS+dNTV5bDyC4EdFZchK9h+F
-         yzmRyrzRmDBUh+E18CYqHom3IoZVNjxI+u2dJYrwpfsuyaZY+8zGrkJ/6SBawHYzTedk
-         sjVw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745698476; x=1746303276;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=iMFVi6kMs2GlW3FqbZ+c8W0mX4h+96g36QjGWqU5rnM=;
-        b=a5zjabbApOWG5Zez66STkNFrFKh2YLXrV4sub6zm0Zuk56GDCaSClm7begzQj875Qh
-         GyE4zINGqbhjaiTmCpZD6qdC4yHW/2mr/JsXoi3fnAprbfar/xAO6f/zIH8GZb7NG/mQ
-         ad2CCCYeP4IGqUizLnakkzRil9Nh/Ebos/DDHbeM9kf6QD4pi20UBov6+7B7Y+dBFV5x
-         1KhBpY0dW+BJtbOXROOEs/TSSf/7iYgUMbGOOzhsaA3+7r29u03gZoYlRlyv7Sz6Yq+x
-         BXMrMetgZA+8FSbwuXCqef3NEfkgnJsHZ0e0EnWFwACHa+p/2lGcpEmJOlFmHpXraGpq
-         JnNA==
-X-Forwarded-Encrypted: i=1; AJvYcCXu2OBtkc2n06jh480VKabsBN59D/fKayQG0/8JPDXDWZel4WZWBJ/GloOqig0R++H9yVYcFoST7g2igsP5l8Ip@lists.infradead.org
-X-Gm-Message-State: AOJu0YyeLbrSXDEicpZCcTf0qIii7C3wO2RNFBb0G5wlznAkPGfA5clH
-	kVdHhJRmse4EY64yOBYw8lhK2b786VCRAiqaAVK0NbugX080+zwjAnid2pkXXl/kv537NDJQKhY
-	tGtIu7P9jcBOKQS/XhezpN/jjal38U5YBvbQteA==
-X-Gm-Gg: ASbGncu0yjzfPWFHOiXp41rkY+Atr9cOyoFuNA2JrbnLBTUl0K/w/Avl5oVPnxhwnnv
-	ugKwPSQhzqdJdwxH8vk+L3TfjhX2slSN1zZLSABxe4yBUkh2/iaxMhCU9E9l+MZPyhzZSsnMY/3
-	Mo2b7Puzv4T7mSSpHLan1+Cai622zTtMR+BYwohxQBm6O5/1oMbXWi+JbC
-X-Google-Smtp-Source: AGHT+IFzAcYkrWSpLnALMz4IOmWDHGW3c3A0BJ5sxt15g5Kcfu+Hi0BvKk6p41FqxLu0PhKfP/bQOHVtQB7bKF8yLXM=
-X-Received: by 2002:a05:6402:274c:b0:5ec:fb3d:f51f with SMTP id
- 4fb4d7f45d1cf-5f72269088bmr5668937a12.10.1745698475929; Sat, 26 Apr 2025
- 13:14:35 -0700 (PDT)
+	id 1u8maT-00000002VF8-3Zf9;
+	Sat, 26 Apr 2025 20:57:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1745701030; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=kY8x2uGSh2Jlnn13Q7cIzSmnWqtv4xd7Z4SjbnhFP0KScN2GeQI4K3LT0eKY117HSjFkxmb6B8PXRmk15LEE70tM0J10XGxtaN2+7kjsu3igRs02sXAaMDBh+W3ufRNPlKTm/IDDfFw3gYA5ESoozPgt7J6xMSbzfe6stEiJVeQ=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1745701030; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=d5RUawyA0HZ8iOrYQ/UIr7PD1runCe3i/3feWl3o2dw=; 
+	b=CA5u7SYQvsCIFJgMNKhE8vA7o0/3vWx/lkh77k3OctLSvLkOHz8w1LPyYFXnjRrm3k5FLtxc+tdnBfB6IU/C/aT0hhN34NWI4A0OYR7Wt5PJd4f6Q+KQYBLKxOKO9VUrA1DEFua5BSrMeP5LVhi69/4i/rEkfPfsTXL4Sf8w/to=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1745701030;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=d5RUawyA0HZ8iOrYQ/UIr7PD1runCe3i/3feWl3o2dw=;
+	b=PZDOouGSbvvhbt4Z2xQnoXSSwlqd8WH3rsALrYFcBDvKFIi9OU1ItkP8MjHc0oFr
+	soAxiGgeWJPgYt4WnNFQrg7I25OX4fveMjP4B8/U8wkEWtUntFNSvmgY8N6V/arlmlQ
+	A8FW1sTCRkKxTSTSZag8nR/gOW5q2NNfJng6Ahdk=
+Received: by mx.zohomail.com with SMTPS id 1745701030129397.68583282935344;
+	Sat, 26 Apr 2025 13:57:10 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: "Rafael J. Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Heiko Stuebner <heiko@sntech.de>, Jonas Karlman <jonas@kwiboo.se>,
+ Diederik de Haas <didi.debian@cknow.org>
+Cc: devicetree@vger.kernel.org, linux-pm@vger.kernel.org,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ kernel@collabora.com, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v5 5/7] thermal: rockchip: support reading trim values from OTP
+Date: Sat, 26 Apr 2025 22:57:04 +0200
+Message-ID: <2891736.iZASKD2KPV@workhorse>
+In-Reply-To: <D9GH5V09WW47.358SY1F7LJ9ZV@cknow.org>
+References: <20250425-rk3576-tsadc-upstream-v5-0-0c840b99c30e@collabora.com>
+ <20250425-rk3576-tsadc-upstream-v5-5-0c840b99c30e@collabora.com>
+ <D9GH5V09WW47.358SY1F7LJ9ZV@cknow.org>
 MIME-Version: 1.0
-References: <20250426065348.1234391-1-xiaolei.wang@windriver.com>
- <20250426065348.1234391-2-xiaolei.wang@windriver.com> <20250426131804.GA13806@nxa18884-linux>
- <12b34414-94cc-4f84-ae63-0ecc38bf5efb@windriver.com>
-In-Reply-To: <12b34414-94cc-4f84-ae63-0ecc38bf5efb@windriver.com>
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-Date: Sat, 26 Apr 2025 14:14:24 -0600
-X-Gm-Features: ATxdqUEm-fDJNLvyvlQsgTBEC97JqhRG-_wf6f2Ng6j5VajbYKC45hcbu2ANAzk
-Message-ID: <CANLsYkzNE-Z8LwEtpXrmnWLLDNvzjFYaFHVePE_mSkmWVdQ6Zg@mail.gmail.com>
-Subject: Re: [PATCH V2 1/2] remoteproc: imx_rproc: release carveout under
- imx_rproc after rproc_attach() fails
-To: xiaolei wang <xiaolei.wang@windriver.com>
-Cc: Peng Fan <peng.fan@oss.nxp.com>, andersson@kernel.org, shawnguo@kernel.org, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250426_131439_209124_E268ED5B 
-X-CRM114-Status: GOOD (  23.35  )
+X-CRM114-CacheID: sfid-20250426_135725_978545_F7A3C896 
+X-CRM114-Status: GOOD (  35.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,87 +84,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 26 Apr 2025 at 07:46, xiaolei wang <xiaolei.wang@windriver.com> wrote:
->
->
-> On 4/26/25 21:18, Peng Fan wrote:
-> > CAUTION: This email comes from a non Wind River email account!
-> > Do not click links or open attachments unless you recognize the sender and know the content is safe.
+On Saturday, 26 April 2025 11:49:13 Central European Summer Time Diederik de Haas wrote:
+> Hi Nicolas,
+> 
+> On Fri Apr 25, 2025 at 9:34 PM CEST, Nicolas Frattaroli wrote:
+> > Many of the Rockchip SoCs support storing trim values for the sensors in
+> > factory programmable memory. These values specify a fixed offset from
+> > the sensor's returned temperature to get a more accurate picture of what
+> > temperature the silicon is actually at.
 > >
-> > On Sat, Apr 26, 2025 at 02:53:47PM +0800, Xiaolei Wang wrote:
-> >> When rproc->state = RPROC_DETACHED and rproc_attach() is used
-> >> to attach to the remote processor, if rproc_handle_resources()
-> >> returns a failure, the resources allocated by rproc_prepare_device()
-> >> should be released, otherwise the following memory leak will occur.
-> >>
-> >> Therefore, add imx_rproc_unprepare() to imx_rproc to release the
-> >> memory allocated in imx_rproc_prepare().
-> >>
-> >> unreferenced object 0xffff0000861c5d00 (size 128):
-> >> comm "kworker/u12:3", pid 59, jiffies 4294893509 (age 149.220s)
-> >> hex dump (first 32 bytes):
-> >> 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ................
-> >> 00 00 02 88 00 00 00 00 00 00 10 00 00 00 00 00 ............
-> >> backtrace:
-> >> [<00000000f949fe18>] slab_post_alloc_hook+0x98/0x37c
-> >> [<00000000adbfb3e7>] __kmem_cache_alloc_node+0x138/0x2e0
-> >> [<00000000521c0345>] kmalloc_trace+0x40/0x158
-> >> [<000000004e330a49>] rproc_mem_entry_init+0x60/0xf8
-> >> [<000000002815755e>] imx_rproc_prepare+0xe0/0x180
-> >> [<0000000003f61b4e>] rproc_boot+0x2ec/0x528
-> >> [<00000000e7e994ac>] rproc_add+0x124/0x17c
-> >> [<0000000048594076>] imx_rproc_probe+0x4ec/0x5d4
-> >> [<00000000efc298a1>] platform_probe+0x68/0xd8
-> >> [<00000000110be6fe>] really_probe+0x110/0x27c
-> >> [<00000000e245c0ae>] __driver_probe_device+0x78/0x12c
-> >> [<00000000f61f6f5e>] driver_probe_device+0x3c/0x118
-> >> [<00000000a7874938>] __device_attach_driver+0xb8/0xf8
-> >> [<0000000065319e69>] bus_for_each_drv+0x84/0xe4
-> >> [<00000000db3eb243>] __device_attach+0xfc/0x18c
-> >> [<0000000072e4e1a4>] device_initial_probe+0x14/0x20
-> >>
-> > Fix Tag?
->
-> I will add it
->
+> > The way this is implemented is with various OTP cells, which may be
+> > absent. There may both be whole-TSADC trim values, as well as per-sensor
+> > trim values.
 > >
-> >> Signed-off-by: Xiaolei Wang <xiaolei.wang@windriver.com>
-> >> ---
-> >> drivers/remoteproc/imx_rproc.c | 14 ++++++++++++++
-> >> 1 file changed, 14 insertions(+)
-> >>
-> >> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-> >> index 74299af1d7f1..c489bd15ee91 100644
-> >> --- a/drivers/remoteproc/imx_rproc.c
-> >> +++ b/drivers/remoteproc/imx_rproc.c
-> >> @@ -595,6 +595,19 @@ static int imx_rproc_prepare(struct rproc *rproc)
-> >>        return  0;
-> >> }
-> >>
-> >> +static int imx_rproc_unprepare(struct rproc *rproc)
-> >> +{
-> >> +      struct rproc_mem_entry *entry, *tmp;
-> >> +
-> >> +      rproc_coredump_cleanup(rproc);
-> >> +      /* clean up carveout allocations */
-> >> +      list_for_each_entry_safe(entry, tmp, &rproc->carveouts, node) {
-> >> +              list_del(&entry->node);
-> >> +              kfree(entry);
-> >> +      }
-> >> +      return  0;
-> > Could "rproc_resource_cleanup(rproc);" be used here?
->
-> Thanks for your suggestion, I will try it
+> > In the downstream driver, whole-chip trim values override the per-sensor
+> > trim values. This rewrite of the functionality changes the semantics to
+> > something I see as slightly more useful: allow the whole-chip trim
+> > values to serve as a fallback for lacking per-sensor trim values,
+> > instead of overriding already present sensor trim values.
+> >
+> > Additionally, the chip may specify an offset (trim_base, trim_base_frac)
+> > in degrees celsius and degrees decicelsius respectively which defines
+> > what the basis is from which the trim, if any, should be calculated
+> > from. By default, this is 30 degrees Celsius, but the chip can once
+> > again specify a different value through OTP cells.
+> 
+> Would it be useful to define all the values in the same unit?
+> Having celsius and decicelsius and millicelsius sounds like a recipe for
+> (future) off-by-10/-100/-1000 errors.
 
-Before sending another revision, please detail the steps needed to
-reproduce this problem.
+No. It is not possible to redefine the unit of these, because the values are 
+factory programmed into these one-time programmable cells.
 
->
-> thanks
->
-> xiaolei
->
+> And possibly define-ing the '30' so people don't need this commit
+> message to figure out where that magic number comes from?
+
+There is no constant of 30 in the code to define anywhere. This is what the
+factory programmed values are referenced against.
+
+> And also the '923' for ``.trim_slope``?
+
+.trim_slope is an SoC specific value that does not need to be defined a second
+time in a different place, it lives in the SoC data for that reason, much like
+the code tables and which functions the driver should use for this chip. There
+is nothing to be gained here from the indirection.
+
+> 
+> > The implementation of these trim calculations have been tested
+> > extensively on an RK3576, where it was confirmed to get rid of pesky 1.8
+> > degree Celsius offsets between certain sensors.
 > >
-> > Regards,
-> > Peng
+> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > ---
+> >  drivers/thermal/rockchip_thermal.c | 221 +++++++++++++++++++++++++++++++++----
+> >  1 file changed, 202 insertions(+), 19 deletions(-)
+> >
+> > diff --git a/drivers/thermal/rockchip_thermal.c b/drivers/thermal/rockchip_thermal.c
+> > index 89e3180667e2a8f0ef5542b0db4d9e19a21a24d3..3beff9b6fac3abe8948b56132b618ff1bed57217 100644
+> > --- a/drivers/thermal/rockchip_thermal.c
+> > +++ b/drivers/thermal/rockchip_thermal.c
+> > @@ -9,6 +9,7 @@
+> >  #include <linux/interrupt.h>
+> >  #include <linux/io.h>
+> >  #include <linux/module.h>
+> > +#include <linux/nvmem-consumer.h>
+> >  #include <linux/of.h>
+> >  #include <linux/of_address.h>
+> >  #include <linux/of_irq.h>
+> > @@ -69,16 +70,18 @@ struct chip_tsadc_table {
+> >   * struct rockchip_tsadc_chip - hold the private data of tsadc chip
+> >   * @chn_offset: the channel offset of the first channel
+> >   * @chn_num: the channel number of tsadc chip
+> > - * @tshut_temp: the hardware-controlled shutdown temperature value
+> > + * @trim_slope: used to convert the trim code to a temperature in millicelsius
+> > + * @tshut_temp: the hardware-controlled shutdown temperature value, with no trim
+> 
+> Having the same units used everywhere would also avoid possible
+> confusion here as ``trim_slope`` explicitly mentions millicelsius, but
+> ``tshut_temp`` does not, but AFAIK it's also in millicelsius.
+
+That seems like an additional change out of scope for this series, and does not
+need to hold up this patch series for a v6.
+
+> 
+> Cheers,
+>   Diederik
+> 
+> >   * @tshut_mode: the hardware-controlled shutdown mode (0:CRU 1:GPIO)
+> >   * @tshut_polarity: the hardware-controlled active polarity (0:LOW 1:HIGH)
+> >   * @initialize: SoC special initialize tsadc controller method
+> >   * @irq_ack: clear the interrupt
+> >   * @control: enable/disable method for the tsadc controller
+> > - * @get_temp: get the temperature
+> > + * @get_temp: get the raw temperature, unadjusted by trim
+> >   * @set_alarm_temp: set the high temperature interrupt
+> >   * @set_tshut_temp: set the hardware-controlled shutdown temperature
+> >   * @set_tshut_mode: set the hardware-controlled shutdown mode
+> > + * @get_trim_code: convert a hardware temperature code to one adjusted for by trim
+> >   * @table: the chip-specific conversion table
+> >   */
+> >  struct rockchip_tsadc_chip {
+> > @@ -86,6 +89,9 @@ struct rockchip_tsadc_chip {
+> 
+
+
+
+
 
