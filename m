@@ -4,96 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A298C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 22:36:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8494EC369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 23:07:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iYVVUGhcXIwOLu06TILyWFwu4mq3jXrLLzPklRAXR6Q=; b=uIfi7Du5P5ROXlVxYr+kQVFA3G
-	SKtDcPe3TTsoROCohIFrLntv3vIpl07Z3g6cwwLPx+e8j5luykH+knkSvqVDQWrykPNkRSqpvvy2T
-	sYXcwGo4XnHEhSm2+y/Kz35hBybsI08CgF4Wvyus2k2XsQRBarxQsSHuwEZIiBkphqC7+aAQTvSrK
-	7I0h1ggcoaJJTJs0iAFgUONAUa6aKCNNUVfJGVGvWRPK2svM0IrNQSGkzgVDPkOBzoF/Cud2JzuOT
-	+YLSatedJnCT25QU4rdqCRzajagh/gc60l8K2k8dwcD5z6aCqpeFG3vDtifS7XigrUAlGa+80ntYH
-	1ImtM0qg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NkBG4q84aKP7XuricBxZ0SqZkCQnMNoFILLSDq32ATA=; b=iKqb/oN0j4O3ul8G1z8Edg5+d5
+	JnEn6j++laQCu6rpnnLIP7EPZ0gwVNffX76wIPT6x1dOaGMnQO4AkmRVakOe4sfhHt3lzlEtTcSNg
+	voyPZLPeHMCiIcP2P3wH97QvYuGKsxuNze+s3kyWDlESpP3WmN5AYYVQFftUCXNACusLs+a//ooa5
+	dMfnTZR6KnR/6ZNQrtXXkIT9g4oq0fsiiN5N+1Z/7hfl+OgStqhYCRw7VUyUy1g9a1Didv0G/WATo
+	yV6j6AmbQLI+Sq4YsOx6cZartgkvdw101m2wbrkc7/tRKCI0jjPBgDZBozuD+lnR4gGUh9s+pqWXE
+	5niXyKdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8o84-00000002aIK-2zij;
-	Sat, 26 Apr 2025 22:36:12 +0000
-Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
+	id 1u8ocX-00000002bt5-2VSt;
+	Sat, 26 Apr 2025 23:07:41 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8o6B-00000002a9A-1x4M
+	id 1u8nNT-00000002Xcs-38FF
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Apr 2025 22:34:17 +0000
-Received: by mail-oi1-x22b.google.com with SMTP id 5614622812f47-3fea67e64caso2984749b6e.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Apr 2025 15:34:14 -0700 (PDT)
+	Sat, 26 Apr 2025 21:48:05 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-5eb92df4fcbso6640102a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Apr 2025 14:48:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1745706853; x=1746311653; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=iYVVUGhcXIwOLu06TILyWFwu4mq3jXrLLzPklRAXR6Q=;
-        b=a29dE27JvenLbWxByIX4xvOhMhpSRuOChcwYJB9jlVxjRVYa1R7D7WKShlnj/1mLYY
-         kDYQjtV6vUI/GL+R65Njrde5vb3WbUmpXP0zwiDiwGoIL8f56jhn4SchVTO9BPAJsKRr
-         DcqiH++UI6FmiOvqm8h9MQpw406FCKHGhjeul6YSheT3OziFg7hfNElfgrXcFHD+mdfC
-         wHf84Qn7B1PMRlR+vJwuDR8274lnSfx/LzmSwk7MNZ7ZB9nAsu1AI6NA6gP5qKez2M/i
-         DCgt7xAV8xBiG6gmNC47ppIgr8/xjkJJhmoZbqCqnVlgoKYTpY9Ee7zO7zWajGR+1x2z
-         LCpg==
+        d=linaro.org; s=google; t=1745704081; x=1746308881; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=NkBG4q84aKP7XuricBxZ0SqZkCQnMNoFILLSDq32ATA=;
+        b=tgBbnehg2fxUScmV31/VF7aFENbwiY2XhDzuAHmNg6TEy3EhIrQ7mH5JTtS3Etk4Sr
+         yKNTsVmET0irpE7AUzwnj+C3vDSR/S7adCZCSzE7Io9+ch4aEmu9BTDqXVq8M0AhkCmR
+         AVkBx6Io6ZcM4BtZSrxCUVb3uAiJTtP/VlwannMAhpIhTE+fVuQgmJkLd8mUTa/aEF9b
+         zZmMMPyC4cadrsRiDOUJXgkgNgOQh5mHthbfVv0CcM4qvNpeacct6kVDG+MGEKG4U2U5
+         fvX5W+gg5mU5I6/STJ5gV56ORWdQDHVWBB5yfDj2117+5lq1aJeMQBmrQc4cTsw5BO93
+         lj0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745706853; x=1746311653;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=iYVVUGhcXIwOLu06TILyWFwu4mq3jXrLLzPklRAXR6Q=;
-        b=vtLI0Gf1uGYMtNV0obIjsneAUcfS+7ujz7FDUAZ/LQullhOivyW0p5gKaf8lxL4l5N
-         TiVn6lYgm1sNPoxWnU7x9VT8moAdQuvD/AqFTWmf1vwPSsvHXCGo2Ap9EDT6Ujxa2Xjm
-         opVI3qXiaoZZ2QJ4U0bWixomk/mAJu6AAldKX5YtDQyfeH1XUndQRgA7Cydp4amPQekM
-         AOg5Qk8SMZoT9pdY7S54rhUvmzxP4oBg7i7pLO3XxEhzoXuSSUBi80LyrVJF/3rpWIj2
-         rT5eTl8zlN6IaeXhKlnqrcRSzU0r0lg4Dx/QJeyl/AkzrInGvJZstwXOZRlQpFcnwaDC
-         6t3g==
-X-Forwarded-Encrypted: i=1; AJvYcCV3F5VtZrPPCP3ZT61CZPzVz9GaSLhyeGakHhoMf0IESLr+czLKn5OkX2ANrvKIf+Uork0BDJPsjzd2wzfE02oq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz7AV9mDNt53eQdn+iXROgiA9nMsDvPACXIYmTnhA86gDnUsvI0
-	dxFxzqsS/7EBtCU1pZn0DTJOx+tJxNXgxrCs3d1U4mj6YS+5PRiWlPbmdYK+zYM=
-X-Gm-Gg: ASbGncuX6XgYYyz0BAd7Y7N2VkHtYTMj6Mk8ZfGhY5frThmSc/HkOqMjs2aREa0bnte
-	UIVx3a8w+D0LXq1qGND5Rbcnldb7Qyq5bOdweC7lquFJEIrDZzkDUB5mqGkwqxHMA53n1vYLykX
-	r44HfgF/zRtmYVN8bS+IFudZWh/Rdb9i6dbUulkNnS497UVEQ6vnATYkDBBwxYYzTCBxyUnrrDb
-	EGAWG9B3yMDacQJgLlpxlHUCmejmZavY+P83YpUSP8a0qp8dWJ076YbYzhQnlQTROZfGSuMWNEd
-	e9a+yYvof5AudjXEC1D77WvtgnTgS3i315l+oLxw/yd5zG0pm1r34Ry1fwi9eilTpsdUSFVLmCB
-	RwWJlQfFZfL7sXVLPMw==
-X-Google-Smtp-Source: AGHT+IEWcdgjh8/VjhINgT8GfioFVGPqEFDg87O6EIU4BE5z/R9+CNVDT1w95ttosllom+MZY3JBMQ==
-X-Received: by 2002:a05:6808:338a:b0:3f9:3de3:c8de with SMTP id 5614622812f47-401f289161fmr3985703b6e.12.1745706853626;
-        Sat, 26 Apr 2025 15:34:13 -0700 (PDT)
-Received: from ?IPV6:2600:8803:e7e4:1d00:96ff:7f79:37f3:5c67? ([2600:8803:e7e4:1d00:96ff:7f79:37f3:5c67])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-401ec977dafsm1329187b6e.41.2025.04.26.15.34.11
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 26 Apr 2025 15:34:13 -0700 (PDT)
-Message-ID: <8a57a332-c2a6-4825-a5f7-d765ea15bd6f@baylibre.com>
-Date: Sat, 26 Apr 2025 17:34:10 -0500
+        d=1e100.net; s=20230601; t=1745704081; x=1746308881;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=NkBG4q84aKP7XuricBxZ0SqZkCQnMNoFILLSDq32ATA=;
+        b=RaXms09B1CBclrU83GTeFZ7wiNVsxHR7RvzGky4w4KQ48BatBaeSTQiQSyAhIPV6w5
+         cGHQjTBUO/IvRq0BXlsFvtGH2gFTq23+g8Uf/6ubmk3P2P4pUyDub6lEoQXouDxK32eB
+         CJLArfdC6PImVvWv+sWfOOxr31FEo5yApY8eMJPJ9sAGSzFWC/fhmMQA61D0p8V9GxlO
+         cUWdMqfKQzUVWRJdxdBJELirOZiQT0ZYxM9voRKDIjXL3LBwpwYO+GcR+ROHjOrZKA7N
+         LBGLCW4rOWRxYsIef3MizbztdoHA2+ZHLNoVCfUq2zS1N4I0dGnjkBQ5ArxzN4fCWlpi
+         Ho3g==
+X-Forwarded-Encrypted: i=1; AJvYcCWnPQxAdiGT7ftdui4zgrxcXqbSLkyq8SjOqqjkAMW+PhWO1AQHB1OLi1E4j1vnpuUadwisOxzsj9S4sgjBI48g@lists.infradead.org
+X-Gm-Message-State: AOJu0YzR3eEtnBZKJWPLNad6XWX30s/62hMfzhAGRIXrRzAi7UUOT/yW
+	t3ebMIYlOeuneBQYe2+YIK6O92d+mrsMGfFCIWxkKx9UC+p2mVWLPHPRO16v4WWZrXxhChhKvGs
+	7arqbncixybMMAMWPQawX9sawXOInS1pmyrDARw==
+X-Gm-Gg: ASbGncvObCLxl8WZ5bxR1zS8DK4mB/8gYfW78wYpC6hprbRQ/xhT3gNE2fH21yorzKF
+	bvlrKoYvUBbfLGh2uBDxOvazBOKRsfeBhZ40YkxjRsfQS97LEm9L9SZ4xhqB0gvpOxZ+JdiHTe+
+	hGDAYVdA450W5HggmPv1nYk6LMNQukjRMk6rc7PYsTUOO8nagfXfAcsn9dLA9HywQPz/c=
+X-Google-Smtp-Source: AGHT+IGQG+/iNDNxq2Wojrkp26M1m1o/MKvGupfTVFI6rnZy3H/DlTzVUpcASBLitbwtfzmCUVICXWKVbeUjUf+UKWY=
+X-Received: by 2002:a17:907:7ba3:b0:acb:b6c9:90af with SMTP id
+ a640c23a62f3a-ace848feea2mr331721366b.16.1745704080990; Sat, 26 Apr 2025
+ 14:48:00 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/6] iio: introduce IIO_DECLARE_BUFFER_WITH_TS macros
-To: Jonathan Cameron <jic23@kernel.org>
-Cc: =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
- Andy Shevchenko <andy@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>,
- Michael Hennerich <Michael.Hennerich@analog.com>,
- Eugen Hristev <eugen.hristev@linaro.org>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, linux-iio@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20250425-iio-introduce-iio_declare_buffer_with_ts-v3-0-f12df1bff248@baylibre.com>
- <20250425-iio-introduce-iio_declare_buffer_with_ts-v3-1-f12df1bff248@baylibre.com>
- <20250426123509.0b04f0f9@jic23-huawei>
-From: David Lechner <dlechner@baylibre.com>
-Content-Language: en-US
-In-Reply-To: <20250426123509.0b04f0f9@jic23-huawei>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250423155131.101473-1-hiagofranco@gmail.com>
+ <aAkf6bxBLjgFjvIZ@p14s> <20250423192156.b44wobzcgwgojzk3@hiago-nb> <20250426134958.GB13806@nxa18884-linux>
+In-Reply-To: <20250426134958.GB13806@nxa18884-linux>
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+Date: Sat, 26 Apr 2025 15:47:50 -0600
+X-Gm-Features: ATxdqUEjP3yZ0cE-UqcG-bjotjV4NxJHuMem2scnUTZE4sa3KXJBizNJEQMu5o8
+Message-ID: <CANLsYkzLZKHpwv+Zz7YqtU4NCy7ZmapuzpgtfxsRfoV=Ve8rVg@mail.gmail.com>
+Subject: Re: [PATCH] remoteproc: imx_rproc: replace devm_clk_get() with devm_clk_get_optional()
+To: Peng Fan <peng.fan@oss.nxp.com>
+Cc: Hiago De Franco <hiagofranco@gmail.com>, daniel.baluta@nxp.com, 
+	iuliana.prodan@oss.nxp.com, linux-remoteproc@vger.kernel.org, 
+	Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Hiago De Franco <hiago.franco@toradex.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250426_153415_782280_4A516587 
-X-CRM114-Status: GOOD (  18.29  )
+X-CRM114-CacheID: sfid-20250426_144803_799565_12E488E8 
+X-CRM114-Status: GOOD (  45.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,89 +98,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/26/25 6:35 AM, Jonathan Cameron wrote:
-> On Fri, 25 Apr 2025 16:08:43 -0500
-> David Lechner <dlechner@baylibre.com> wrote:
-> 
+On Sat, 26 Apr 2025 at 06:41, Peng Fan <peng.fan@oss.nxp.com> wrote:
+>
+> On Wed, Apr 23, 2025 at 04:21:56PM -0300, Hiago De Franco wrote:
+> >Hi Mathieu,
+> >
+> >On Wed, Apr 23, 2025 at 11:14:17AM -0600, Mathieu Poirier wrote:
+> >> Good morning,
+> >>
+> >> On Wed, Apr 23, 2025 at 12:51:31PM -0300, Hiago De Franco wrote:
+> >> > From: Hiago De Franco <hiago.franco@toradex.com>
+> >> >
+> >> > The "clocks" device tree property is not mandatory, and if not provided
+> >> > Linux will shut down the remote processor power domain during boot if it
+> >> > is not present, even if it is running (e.g. it was started by U-Boot's
+> >> > bootaux command).
+> >>
+> >> If a clock is not present imx_rproc_probe() will fail, the clock will remain
+> >> unused and Linux will switch it off.  I think that is description of what is
+> >> happening.
+> >>
+> >> >
+> >> > Use the optional devm_clk_get instead.
+> >> >
+> >> > Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
+> >> > ---
+> >> >  drivers/remoteproc/imx_rproc.c | 2 +-
+> >> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >> >
+> >> > diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+> >> > index 74299af1d7f1..45b5b23980ec 100644
+> >> > --- a/drivers/remoteproc/imx_rproc.c
+> >> > +++ b/drivers/remoteproc/imx_rproc.c
+> >> > @@ -1033,7 +1033,7 @@ static int imx_rproc_clk_enable(struct imx_rproc *priv)
+> >> >    if (dcfg->method == IMX_RPROC_NONE)
+> >> >            return 0;
+> >> >
+> >> > -  priv->clk = devm_clk_get(dev, NULL);
+> >> > +  priv->clk = devm_clk_get_optional(dev, NULL);
+> >>
+> >> If my understanding of the problem is correct (see above), I think the real fix
+> >> for this is to make the "clocks" property mandatory in the bindings.
+> >
+> >Thanks for the information, from my understanding this was coming from
+> >the power domain, I had a small discussion about this with Peng [1],
+> >where I was able to bisect the issue into a scu-pd commit. But I see
+> >your point for this commit, I can update the commit description.
+> >
+> >About the change itself, I was not able to find a defined clock to use
+> >into the device tree node for the i.MX8QXP/DX, maybe I am missing
+> >something? I saw some downstream device trees from NXP using a dummy
+> >clock, which I tested and it works, however this would not be the
+> >correct solution.
+>
+> The clock should be "clocks = <&clk IMX_SC_R_M4_0_PID0 IMX_SC_PM_CLK_CPU>;" for
+> i.MX8QX. This should be added into device tree to reflect the hardware truth.
+>
+> But there are several working configurations regarding M4 on i.MX8QM/QX/DX/DXL.
+>
+> 1. M4 in a separate SCFW partition, linux has no permission to configure
+>   anything except building rpmsg connection.
+> 2. M4 in same SCFW partition with Linux, Linux has permission to start/stop M4
+>    In this scenario, there are two more items:
+>    -(2.1) M4 is started by bootloader
+>    -(2.2) M4 is started by Linux remoteproc.
+>
+>
+> Current imx_rproc.c only supports 1 and 2.2,
+> Your case is 2.1.
 
-...
+Remoteproc operations .attach() and .detach() are implemented in
+imx_rproc.c and as such, 2.1 _is_ supported.
 
->> @@ -777,6 +779,42 @@ static inline void *iio_device_get_drvdata(const struct iio_dev *indio_dev)
->>   * them safe for use with non-coherent DMA.
->>   */
->>  #define IIO_DMA_MINALIGN ARCH_DMA_MINALIGN
->> +
->> +#define __IIO_DECLARE_BUFFER_WITH_TS(type, name, count) \
->> +	static_assert(count); \
-> 
-> Why do we care if count is 0?  Or is intent to check if is constant?
-> If the thought is we don't care either way about 0 (as rather nonsensical)
-> and this will fail to compile if not constant, then perhaps a comment would
-> avoid future confusion?
+>
+> There is a clk_prepare_enable which not work for case 1 if adding a real
+> clock entry.
+>
+> So need move clk_prepare_enable to imx_rproc_start, not leaving it in probe?`
+> But for case 2.1, without clk_prepare_enable, kernel clk disable unused will
+> turn off the clk and hang M4. But even leaving clk_prepare_enable in probe,
+> if imx_rproc.c is built as module, clk_disable_unused will still turn
+> off the clk and hang M4.
+>
+> So for case 2.1, there is no good way to keep M4 clk not being turned off,
+> unless pass "clk_ignore_unused" in bootargs.
+>
 
-I would be inclined to just leave out the check. But yes, it is just checking
-that count is constant and we don't expect 0.
+Isn't there something like an "always on" property for clocks?
 
-> 
->> +	type name[ALIGN((count), sizeof(s64) / sizeof(type)) + sizeof(s64) / sizeof(type)]
->> +
->> +/**
->> + * IIO_DECLARE_BUFFER_WITH_TS() - Declare a buffer with timestamp
->> + * @type: element type of the buffer
->> + * @name: identifier name of the buffer
->> + * @count: number of elements in the buffer
->> + *
->> + * Declares a buffer that is safe to use with iio_push_to_buffer_with_ts(). In
->> + * addition to allocating enough space for @count elements of @type, it also
->> + * allocates space for a s64 timestamp at the end of the buffer and ensures
->> + * proper alignment of the timestamp.
->> + */
->> +#define IIO_DECLARE_BUFFER_WITH_TS(type, name, count) \
->> +	__IIO_DECLARE_BUFFER_WITH_TS(type, name, count) __aligned(sizeof(s64))
->> +
->> +/**
->> + * IIO_DECLARE_DMA_BUFFER_WITH_TS() - Declare a DMA-aligned buffer with timestamp
->> + * @type: element type of the buffer
->> + * @name: identifier name of the buffer
->> + * @count: number of elements in the buffer
->> + *
->> + * Same as IIO_DECLARE_BUFFER_WITH_TS(), but is uses __aligned(IIO_DMA_MINALIGN)
->> + * to ensure that the buffer doesn't share cachelines with anything that comes
->> + * before it in a struct. This should not be used for stack-allocated buffers
->> + * as stack memory cannot generally be used for DMA.
->> + */
->> +#define IIO_DECLARE_DMA_BUFFER_WITH_TS(type, name, count) \
->> +	__IIO_DECLARE_BUFFER_WITH_TS(type, name, count) __aligned(IIO_DMA_MINALIGN)
->> +
->> +static_assert(IIO_DMA_MINALIGN % sizeof(s64) == 0,
-> That message isn't super helpful if seen in a compile log as we aren't reading the code here
-> "IIO_DECLARE_DMA_BUFFER_WITH_TS() assumes that ...
-> 
->> +	"macros above assume that IIO_DMA_MINALIGN also ensures s64 timestamp alignment");
->> +
-
-Seems we actually have an arch (openrisc) that triggers this [1]. This arch
-doesn't define ARCH_DMA_MINALIGN so it falls back to:
-
-#define ARCH_DMA_MINALIGN __alignof__(unsigned long long)
-
-Apparently this is only of those 32-bit arches that only does 4 byte alignment.
-From the official docs [2]:
-
-	Current OR32 implementations (OR1200) do not implement 8 byte alignment,
-	but do require 4 byte alignment. Therefore the Application Binary
-	Interface (chapter 16) uses 4 byte alignment for 8 byte types. Future
-	extensions such as ORVDX64 may require natural alignment.
-
-[1]: https://lore.kernel.org/linux-iio/20250425-iio-introduce-iio_declare_buffer_with_ts-v3-0-f12df1bff248@baylibre.com/T/#m91e0332673438793ff76949037ff40a34765ca30
-[2]: https://openrisc.io/or1k.html
-
-
-It looks like this could work (it compiles for me):
-
-	__aligned(MAX(IIO_DMA_MINALIGN, sizeof(s64)))
-
-If that is OK we could leave out the static_assert(), unless we think there
-could be an arch with IIO_DMA_MINALIGN not a power of 2?!
-
+>
+> For case 2.2, you could use the clock entry to enable the clock, but actually
+> SCFW will handle the clock automatically when power on M4.
+>
+> If you have concern on the clk here, you may considering the various cases
+> and choose which to touch the clk, which to ignore the clk, but not
+> "clk get and clk prepare" for all cases in current imx_rproc.c implementation.
+>
+> Regards,
+> Peng
+>
+>
+> >
+> >[1] https://lore.kernel.org/lkml/20250404141713.ac2ntcsjsf7epdfa@hiago-nb/
+> >
+> >Cheers,
+> >Hiago.
+> >
+> >>
+> >> Daniel and Iuliana, I'd like to have your opinions on this.
+> >>
+> >> Thanks,
+> >> Mathieu
+> >>
+> >> >    if (IS_ERR(priv->clk)) {
+> >> >            dev_err(dev, "Failed to get clock\n");
+> >> >            return PTR_ERR(priv->clk);
+> >> > --
+> >> > 2.39.5
+> >> >
 
