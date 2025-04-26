@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7F7FC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 21:57:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69725C369D8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 21:59:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GEghm9KEzi4KEAVXKXRCeAyZ2hXh9Vd2xugtHnvbzp0=; b=19o0cavyiLkK9spyWe4lLa0Dhy
-	N1pv4RgIT2lITAY4MZfxQ3Q0B6kqI+IVow3ae0+QBLl71C4uQHh7HQ7NdSe3zHdV7ytq96JgmBJZR
-	GN04ebo9YcBJ0Q8psoe8aFZZaURPX3RH5GNSDYRquB90noDNw773HN8DYIuzCYulLtftCywZIsjtp
-	9jvK+wRm9mhh/wKvghHxIcZ1UoMtRbTDfTC+R4XulIo+ahOVxnzT3bpvfxMAMbmUWv7/8KHWdCOYP
-	kgLb1HfIEBmWEo7eVlMrMlgTFtYfyz8hOmKNMhr5t9ed8THoxbFUo2ANl3GG7z+0tVRp+R7GER+K2
-	qeZFOXsg==;
+	bh=1PPwkymYZC8xYiHOMvKBeSeonflfVA/++cGx6iEK8tA=; b=lLJuikwzB8tHEe6eBbnxucKhfD
+	FtpttwFM63+H0IH4zaE0svOx0KlxOBTaZDhP9OVLi3oFQJSzR09SIoDoHnm5orBNhvKlab+4Don/m
+	w/38oH6K3Z2C6S9HiQOqrZbFhqk3ZozFylSdp4WGOo+iHXyncoA/EsvZvcJDRQitS+c+VzcWUfdt6
+	e9t6/pRk4ZlVyJQQNV1yGXM1d/6y42i5GaZTvy8Wstzwague6fnhaQZciohO47Mb7MM3/CulXyVzp
+	/Xzt2RW+HeHkv/MWK0pFNKUGgOEVQ1mX85viq0bliCXvJPxa6ucXAQP1twNwrbSAA69IxPVHHowXe
+	yyB0KWZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8nWx-00000002Ydw-2g9N;
-	Sat, 26 Apr 2025 21:57:51 +0000
+	id 1u8nYn-00000002Ykg-1XyD;
+	Sat, 26 Apr 2025 21:59:45 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8nLx-00000002XLg-3904
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Apr 2025 21:46:30 +0000
+	id 1u8nLy-00000002XLt-2loD;
+	Sat, 26 Apr 2025 21:46:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=GEghm9KEzi4KEAVXKXRCeAyZ2hXh9Vd2xugtHnvbzp0=; b=eLMEsN4IxoTROZ4eRKiSlhdbEM
-	U8OW5wX3coXicFzzeQE3UIJ3nE+ArgFtZyr5n6nIw993Ls0tapsHTuhc52xnFvk04E1jRXKaUKOlo
-	c8LeNfEzLoTnUIWp4R0d2szx9/fLTnMX9W5NazIA7J8Hsf5KfhgqNOKnlSl99Y4w9ttzBNED5acnT
-	UbSnV8x3c+lXxoyhszE8s/viNhlKpx9HyGledDNObqLFUTrgaIpYR/ydNSV6gnrt3LGWGck+sZBfn
-	eUBuKuKaj9kLIaenSWPA7G0nY2LfDl6702gsCq5a1FLxlf0ylGbWQvwiHnONVFHmVAWkrUJnyJDZs
-	/vO9S+sQ==;
+	bh=1PPwkymYZC8xYiHOMvKBeSeonflfVA/++cGx6iEK8tA=; b=0aWUie/tnHEBtP7js4HSTrzYtJ
+	5GGDUiUt2A+TZTzhTimEWaxvLM4ai+Ih6j/zkeJgJMQuLqDBzbH7wvBHcEBiZL7xWtVJ7vCMApV6/
+	1KcvffwJgphub+BqVNhPzeHXKvaVsaJSFucrRRdu5cBIpiaJa70shjd5FSLIL6ZTH2/4YVS7fAq06
+	0+/kmBTWfsnbRXJqy8MDbdjO802naRtOCYsPQW3opVcSQVAYNP3Pl6CV/f+qaf9gLHMCtjUZkZuTR
+	6sjTJtX9x7bI8l+WPlgdTmVV5wlThuZvetcvBEG+7RTc4yqVdsUVWVRe6EVHaRd6daxcj+CytbZq/
+	9tn1g0uA==;
 Received: from i53875aba.versanet.de ([83.135.90.186] helo=phil..)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1u8nLp-0001OR-I3; Sat, 26 Apr 2025 23:46:21 +0200
+	id 1u8nLs-0001OR-Cd; Sat, 26 Apr 2025 23:46:24 +0200
 From: Heiko Stuebner <heiko@sntech.de>
-To: Andy Yan <andyshrk@163.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	krzk+dt@kernel.org,
-	robh@kernel.org,
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	inux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 1/2] arm64: dts: rockchip: Add eDP1 dt node for rk3588
-Date: Sat, 26 Apr 2025 23:46:06 +0200
-Message-ID: <174570370112.31943.2977804072806541531.b4-ty@sntech.de>
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Heiko Stuebner <heiko@sntech.de>
+Subject: Re: [PATCH] arm64: dts: rockchip: Align wifi node name with bindings in CB2
+Date: Sat, 26 Apr 2025 23:46:12 +0200
+Message-ID: <174570370115.31943.9281326415535306804.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250426071554.1305042-1-andyshrk@163.com>
-References: <20250426071554.1305042-1-andyshrk@163.com>
+In-Reply-To: <20250424084729.105182-1-krzysztof.kozlowski@linaro.org>
+References: <20250424084729.105182-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250426_144629_782496_D8DBBD88 
-X-CRM114-Status: UNSURE (   7.85  )
+X-CRM114-CacheID: sfid-20250426_144630_694051_11FE1860 
+X-CRM114-Status: UNSURE (   8.70  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,17 +80,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sat, 26 Apr 2025 15:15:40 +0800, Andy Yan wrote:
-> Add eDP1 dt node for RK3588 SoC
+On Thu, 24 Apr 2025 10:47:29 +0200, Krzysztof Kozlowski wrote:
+> Since commit 3c3606793f7e ("dt-bindings: wireless: bcm4329-fmac: Use
+> wireless-controller.yaml schema"), bindings expect 'wifi' as node name:
+> 
+>   rk3566-bigtreetech-cb2-manta.dtb: sdio-wifi@1: $nodename:0: 'sdio-wifi@1' does not match '^wifi(@.*)?$'
 > 
 > 
 
 Applied, thanks!
 
-[1/2] arm64: dts: rockchip: Add eDP1 dt node for rk3588
-      commit: abef2de3db010c79c584b8bffdb40f779fb7cb6b
-[2/2] arm64: dts: rockchip: Enable eDP display for Cool Pi GenBook
-      commit: 26cdcf6898894e0c27049841b924dab7c5bfe055
+[1/1] arm64: dts: rockchip: Align wifi node name with bindings in CB2
+      commit: 7ec0987da2c903d58167573e58b39d7ed19fc627
 
 Best regards,
 -- 
