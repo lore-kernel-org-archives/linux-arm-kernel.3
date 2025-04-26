@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D085C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 12:30:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6433FC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 12:32:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=43qvLnJub9il9y7c/oiikUGuqA3hYAIWrGmGOMik7Vc=; b=HnfwOTIgzczbMmaSmLHpjOQd4G
-	o9DqxxxdAlQZzhQRl+S30o4JBuok6EtLlErpLlGFfDQaIceCRvZ7ozDjO3XDp3/UZMelY2wvy5hH6
-	eyo5CjM7ahnQGSDGMdsxsDDSznpnZwLdpjcbJ46qPmgwathTEuTQALVAaBDkrCat4mUI8SXnTx2c9
-	2Q2UOwQUDr6HCqk+Zd6GD3XIejAG2KRpJ5qsaozDH8sDrr91Uc8YzXzctZsdqKK8C1AFTwfRcO/u9
-	RxzY5hEtY8KNJxpNUSUSV4TuaVxrHNFMCbi1utmSWf9q5TjjOgsmPTsxTTnhQ46F7jRIKceRanN5v
-	tO7mElVg==;
+	bh=1KZum+wrZb9689he9Iga4rK7qT12pUOfPX6DISbxiks=; b=ldvaGp71lc6ZanADL+KbJoXGNg
+	lLNNw63Rh8ppds9JPxHxoCTNjPEPRndYo0+KkpORx4NRCbRcVNSHq41XQBPFLrl5jXFr6URIIzFya
+	82chbigAPciIG2fBAb3QFMaAq2RdzE2KxCWuFmE/18VpiwVvHKVODX75lAM5xVawzfyEE2e4jxouO
+	D5FaR91wpwzhBzQlqp6x8nRtCgFBmuedxGi2dC7qoaOGsFxETUlVj1/7RzXIankmM9IzGkdUIjMgP
+	iXR7lQFFWEj4yoEDc7H2Ea+0puG/dQw1jjZ4NPaVeV+jElVHYzb7kocIc7cWgaODhRNaKSiyjcv75
+	geXHNCGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8egC-00000001zZU-1Xod;
-	Sat, 26 Apr 2025 12:30:48 +0000
+	id 1u8ei3-0000000200N-07MD;
+	Sat, 26 Apr 2025 12:32:43 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8eeJ-00000001yyc-2Oi3
+	id 1u8eeJ-00000001yye-3QtB
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 26 Apr 2025 12:28:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E6CE168443;
-	Sat, 26 Apr 2025 12:28:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66E8AC4CEE2;
+	by tor.source.kernel.org (Postfix) with ESMTP id 5A32768444;
+	Sat, 26 Apr 2025 12:28:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE556C4CEEC;
 	Sat, 26 Apr 2025 12:28:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1745670530;
-	bh=44gRQXHmjU599W1FzWtYTLfeRPiNOJ8OSvboqazC2Q0=;
+	bh=SWE9gSmuNSZa/bBGdZNKJvtdTSw2W9hfegwyfvxdpf8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QbdbB6xgxessSw9Q5prEE/drdKGxcL6YWXlwkA5c37yzG25/n/Fp2fjx39IbIwRMi
-	 5/nImXAcHxZX+jiDB8ituxHqzpTRSLOlnDEmshuIeTzX5JABfu8wq0AlPyfhR9LG/8
-	 GYWgye2slLBlUD9UoY/2u0vPi+ZvIkhPMnZc34aoIa2PCbhmjV6fh9eJ5X93KgjbqD
-	 +h0q4lUGfBhw6MViJSJV9mK0BwM783IKhIxh/8OwOz5hdM9yMSBuAOkyaMq+f1Z9FL
-	 4gSPn0iivEdjPrKlj+TPF1z5nPstHz9S1C/Iu/k0ryz2ifG2vzZhiusUkt8IsJgwGO
-	 37pCaWDwtIGew==
+	b=X10HUAxqJ6UiMUaXTEjTeyplhg9UrS2xZojSUXZ8EDzcTD182GPt4PcgtF7nMV/dn
+	 jFVUBTTJWHkd4Y1IqjhfrMKYL4bBWUUi2FzqaIRP3n5ltlkegdayZxNCegAydVYjWy
+	 HJsNlsqgOFK9h5/s27PCWgvXDDmTHFSrQ6wQTDpH7zjq05CbWwoHjXrOVN5bh9Mxx6
+	 2FiqFCPyb3ujbzuANJ8bUWjHRv7XLtK4L9tiUr84tBy40ULdN2EU9AWq6R2lICEzL1
+	 FzfsN3m8SyBpQotCDaEL/HS5xgjSa+FXoSeSUxe9IFmFaT3rLMYMaUDzeNwElThgfE
+	 QJWDGdH626K7Q==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1u8eeG-0092VH-8J;
+	id 1u8eeG-0092VH-Hl;
 	Sat, 26 Apr 2025 13:28:48 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -60,9 +60,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Fuad Tabba <tabba@google.com>,
 	Will Deacon <will@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>
-Subject: [PATCH v3 01/42] arm64: sysreg: Add ID_AA64ISAR1_EL1.LS64 encoding for FEAT_LS64WB
-Date: Sat, 26 Apr 2025 13:27:55 +0100
-Message-Id: <20250426122836.3341523-2-maz@kernel.org>
+Subject: [PATCH v3 02/42] arm64: sysreg: Update ID_AA64MMFR4_EL1 description
+Date: Sat, 26 Apr 2025 13:27:56 +0100
+Message-Id: <20250426122836.3341523-3-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250426122836.3341523-1-maz@kernel.org>
 References: <20250426122836.3341523-1-maz@kernel.org>
@@ -86,30 +86,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The 2024 extensions are adding yet another variant of LS64
-(aptly named FEAT_LS64WB) supporting LS64 accesses to write-back
-memory, as well as 32 byte single-copy atomic accesses using pairs
-of FP registers.
+Resync the ID_AA64MMFR4_EL1 with the architectue description.
 
-Add the relevant encoding to ID_AA64ISAR1_EL1.LS64.
+This results in:
+
+- the new PoPS field
+- the new NV2P1 value for the NV_frac field
+- the new RMEGDI field
+- the new SRMASK field
+
+These fields have been generated from the reference JSON file.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/tools/sysreg | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/tools/sysreg | 19 ++++++++++++++++---
+ 1 file changed, 16 insertions(+), 3 deletions(-)
 
 diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index bdf044c5d11b6..e5da8848b66b5 100644
+index e5da8848b66b5..fce8328c7c00b 100644
 --- a/arch/arm64/tools/sysreg
 +++ b/arch/arm64/tools/sysreg
-@@ -1466,6 +1466,7 @@ UnsignedEnum	63:60	LS64
- 	0b0001	LS64
- 	0b0010	LS64_V
- 	0b0011	LS64_ACCDATA
-+	0b0100	LS64WB
- EndEnum
- UnsignedEnum	59:56	XS
+@@ -1946,12 +1946,21 @@ EndEnum
+ EndSysreg
+ 
+ Sysreg	ID_AA64MMFR4_EL1	3	0	0	7	4
+-Res0	63:40
++Res0	63:48
++UnsignedEnum	47:44	SRMASK
++	0b0000	NI
++	0b0001	IMP
++EndEnum
++Res0	43:40
+ UnsignedEnum	39:36	E3DSE
  	0b0000	NI
+ 	0b0001	IMP
+ EndEnum
+-Res0	35:28
++Res0	35:32
++UnsignedEnum	31:28	RMEGDI
++	0b0000	NI
++	0b0001	IMP
++EndEnum
+ SignedEnum	27:24	E2H0
+ 	0b0000	IMP
+ 	0b1110	NI_NV1
+@@ -1960,6 +1969,7 @@ EndEnum
+ UnsignedEnum	23:20	NV_frac
+ 	0b0000	NV_NV2
+ 	0b0001	NV2_ONLY
++	0b0010	NV2P1
+ EndEnum
+ UnsignedEnum	19:16	FGWTE3
+ 	0b0000	NI
+@@ -1979,7 +1989,10 @@ SignedEnum	7:4	EIESB
+ 	0b0010	ToELx
+ 	0b1111	ANY
+ EndEnum
+-Res0	3:0
++UnsignedEnum	3:0	PoPS
++	0b0000	NI
++	0b0001	IMP
++EndEnum
+ EndSysreg
+ 
+ Sysreg	SCTLR_EL1	3	0	1	0	0
 -- 
 2.39.2
 
