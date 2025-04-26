@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0BF8C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 06:10:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2800DC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 06:14:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kgPZFVVU4Y1/17gwJAsNNC/A58dRuorCbpYgah611d4=; b=mNN1qHS+YfTcbXSru7Nuv0lvkp
-	ElY8karnXAF2WDHtC0u4xCamsG4cG3bUHmN3cLMuVPgIT9tHCa/MZrmQoEDT9/BZFgkihcTYT1IQz
-	XotvsRCPDYN18FIFlpVoO/OSQ8qRkgjGupx/Q8aoYFrrg1DGM+/DiMdhC1dEQgO+/rq1OTehSqxpR
-	LDBAsjh7OYMS4xJ8ayOs+I8pOHkrlKrqXV/lJKy2AdCNvX3lTill2Wf4ZLy41SVyfcS/Ny+Wbgggz
-	ndj8bQ4uFZR9s3P6fllRe+xk9tM/OGc4RWSFo76SYjnDBKEpS/hVhRlwK3a1xfQdyaNO8HsAV96c0
-	4ctBVzug==;
+	bh=fnlwdjnjsoFem4jnATOTWF4QhoR+5Xsj/mAgs7LBGBA=; b=X66xDdZgE7nTamfUPVE44I1mVp
+	aZhMP1rwEUTsuoGX5NPTFBf21rZRm7PVxm9npVj6ImXoHDFHUj2PPgi5B/uVSzJvdfQugjepPV3a0
+	i6/riWDPswRt4FyOaIve9cRU9+ifwug93ukhsodEGSCdJ06KY5ILYDiisPsl5e7bMgdwNJ2Y4gWSC
+	6HYNugDY8pjqzL9DQ2/7x/YjEg2cmVO5yUJjzRKXki8DM5GWoXzs/2pFuwYOVnl99ZE9BjAi3/9Y3
+	FKL6MBQYLL+f0ydHwEwjNDp6bbzQL7PZi/VoP6j63cGvgsburKpee9HeZdH46HpwSxkWQASpNGlf/
+	BRaoG4tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8Yjx-00000001W9y-2y86;
-	Sat, 26 Apr 2025 06:10:17 +0000
-Received: from mail-co1nam11on20609.outbound.protection.outlook.com ([2a01:111:f403:2416::609] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
+	id 1u8Ync-00000001Wde-3CpQ;
+	Sat, 26 Apr 2025 06:14:04 +0000
+Received: from mail-dm6nam11on2060a.outbound.protection.outlook.com ([2a01:111:f403:2415::60a] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8YZ6-00000001TfK-0t6v
+	id 1u8YZB-00000001ThO-3guP
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Apr 2025 05:59:05 +0000
+	Sat, 26 Apr 2025 05:59:11 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xBcC3jVAk75tnz3ZOdj2CTSq6icYEC2REeQJ/gl7dyEI6skcgAiEfRGHVJ1qdghxDpFXcmD/viNhZuqvxEW32q6IHOW8dCa2yeLNQdUcgijD8fTDA2iy0IYcsDQ18GCWNQ9G6+VlBKQx076XY1LpUr+lb39m/+AbIPgVbV6CUwRxHdzs0pJXJ7eTl+hawxo1I5C/w617k0A33HlGLpXrkQ8+QqnGT9Pk80R4IB7hhsyIx8eTdVUyVM3IDD/iYfigh/JIYJWItlwbZSPAyU7jrisAwGhhPoIN+LUf3UrEMgdL4m0OsDrq4Uo6PpT70URRtJp6bpLu53dXjJSh1CPDEw==
+ b=iPCQpS3PmkIOMkHmmqaInmf93KufxOGhd9v2sdPTOBZxTMQzdpQLvjBFCX0X34EOSb8G2LjCAq+z3TVqH791qBcINkGz4WyuyOpPwVI0NkQAdIvPBr7Gnkd26aaQN1jKhMNvy8DenIN+EVGTBZVDQdEb821k5TqyBDjl0Hk6SqiFlZ4T191XZcHU/fbzaj9BrkR74+m4VfPJXdT2QNmbdtTeeoHe9dmNPCtaP0y+N26mjtq1909MxgaslP3w6ZwvsP//sTMLCdKn/Ou1fjGAWxCpzRnm+2kK3NA/6cuVZeWVRHAm5ialxiO1LilHme1732r0IZ5bL+ESHa/nhMgMOA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kgPZFVVU4Y1/17gwJAsNNC/A58dRuorCbpYgah611d4=;
- b=GADbLbVdcgzA023IQ0+i8/Wz54bCo5CjFsSnkcTLYJ1xIGEEbs7gHnviDY7Hrt4l10WFUKtgOnsSPrCWjyevTJlc172zHVVQaC97Hdq5FJboRDiGZl0EidxS/+m2Cy9k60EtA8T+EfBfyeFs+5RPeYe9uagqV3jCQtrZJ/wRIpQm6bqwdN8c+aeXGRK/rlcW2q41clY5lBxe2VXWhysI5ivJ45qR9N+Nxjzi89UTdZl7oRRsko/uaQUYH0dmtg9ZYdZMBxvkxd/564bs2su/s5fPGPw+TvGuMDbD/+8CtfQL2sRryBd8ecJAIlCAFGbbwAhSbaPr3mW4Z1ns/tzrpw==
+ bh=fnlwdjnjsoFem4jnATOTWF4QhoR+5Xsj/mAgs7LBGBA=;
+ b=Z12pjuei/okcKjbbVnABmmJU+qi/iJnFPEV2KUOjnF3b+JGBhnPRimDeepamv9+bN2fr9yedUcnhjmZ9zp7E4WQ6JA8TKTyBDDKQxqpB+FrnX1z6AzrSdOowwuA1NKTDW6UbQQ7fIZIJX1Mkv+8NTYRPJyf+Ua+GynlhVRHhnDuAPaXwXi3ga9Vo6ZJqv5wQD6Xh0yHTHDWF9QqytPnpiTgpAt6LGbK87egECYcJTE6Q7JuV+j8Y7qQxAS8Zq7rlz5XjfIoE1VEC3aRgp10WZ+J+4VKnEHomqEEVxLDuPuh7yR7clxJOycuKqjgUD237v8e6REZNOlxH8phHAR2kpw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  216.228.117.161) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kgPZFVVU4Y1/17gwJAsNNC/A58dRuorCbpYgah611d4=;
- b=FUreFp+jC2eABKfQclnZ0uEyVcVNx0EYtdd+jTgi31yYI/gHE08Rv8VHShT5frA/fI9fliDvohSYRa4aQQugV1xzF3Q7zNyanDDIRgF+FpuSe2+xIuOWu48RtcRxFYJfD6d0wAHNsv+dlp3bipZg44zLX2vHZtib40pJNJ2zTfmvYWmPu9NPQVe/ttnb6e0ryfhLNnrW0olrb4qkpU+bGTdnHwuvQuKsdWAU37h/og62BtP8s11x421QhgAJfgjfjqnWxmkSNMif15Xdq3cC/LW4iES0ILK12HepfgAWXDfb6iVcfDGi2TALGKo8pVSCYtcfrnnzpfytFnE8PUMS+g==
-Received: from SA9PR13CA0049.namprd13.prod.outlook.com (2603:10b6:806:22::24)
- by PH7PR12MB7965.namprd12.prod.outlook.com (2603:10b6:510:270::8) with
+ bh=fnlwdjnjsoFem4jnATOTWF4QhoR+5Xsj/mAgs7LBGBA=;
+ b=STRFNJ4+K/IjGQ4sP0Wis3zMYO+2GF1G4HqDU4TTluhDkdukscab3CoM924uel3hhtZgF45erftmAeukQgrv7hm6osnIQ0W/HIHVDnBNLKnO0f5VCGpa48Guv1uCYVYdJMNRSJujTCv4NbLPm+HiuH/1rnwdgybV1oIJ0abGmZH4h4RsBdSbd98Kqj1TAd3Z6PMWAwGYTGzpcRRHgU+gBjFU7FQRZMAzfd+PniXahAChzXVVmGlFh1DCZl9OpTcmVfkuYwYTB2vJRoipDVYjv/DJR6YZHvEh1oVlcdXNje+X2YuYxZjMee2k/jA0KMSZx9DUjDXkfy66vrtKjHDdIw==
+Received: from SA9PR13CA0048.namprd13.prod.outlook.com (2603:10b6:806:22::23)
+ by PH7PR12MB5928.namprd12.prod.outlook.com (2603:10b6:510:1db::13) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.40; Sat, 26 Apr
- 2025 05:58:54 +0000
+ 2025 05:59:01 +0000
 Received: from SA2PEPF00001505.namprd04.prod.outlook.com
- (2603:10b6:806:22:cafe::d0) by SA9PR13CA0049.outlook.office365.com
- (2603:10b6:806:22::24) with Microsoft SMTP Server (version=TLS1_3,
+ (2603:10b6:806:22:cafe::8d) by SA9PR13CA0048.outlook.office365.com
+ (2603:10b6:806:22::23) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.23 via Frontend Transport; Sat,
- 26 Apr 2025 05:58:54 +0000
+ 26 Apr 2025 05:59:01 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
  smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
@@ -62,18 +62,18 @@ Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
 Received: from mail.nvidia.com (216.228.117.161) by
  SA2PEPF00001505.mail.protection.outlook.com (10.167.242.37) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8655.12 via Frontend Transport; Sat, 26 Apr 2025 05:58:54 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ 15.20.8655.12 via Frontend Transport; Sat, 26 Apr 2025 05:59:00 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
  (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Fri, 25 Apr
- 2025 22:58:48 -0700
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ 2025 22:58:54 -0700
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Fri, 25 Apr
- 2025 22:58:48 -0700
+ 2025 22:58:54 -0700
 Received: from Asurada-Nvidia.nvidia.com (10.127.8.12) by mail.nvidia.com
  (10.129.68.9) with Microsoft SMTP Server id 15.2.1544.14 via Frontend
- Transport; Fri, 25 Apr 2025 22:58:45 -0700
+ Transport; Fri, 25 Apr 2025 22:58:51 -0700
 From: Nicolin Chen <nicolinc@nvidia.com>
 To: <jgg@nvidia.com>, <kevin.tian@intel.com>, <corbet@lwn.net>,
 	<will@kernel.org>
@@ -86,9 +86,9 @@ CC: <bagasdotme@gmail.com>, <robin.murphy@arm.com>, <joro@8bytes.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
 	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
 	<mochs@nvidia.com>, <alok.a.tiwari@oracle.com>, <vasant.hegde@amd.com>
-Subject: [PATCH v2 05/22] iommufd: Add iommufd_struct_destroy to revert iommufd_viommu_alloc
-Date: Fri, 25 Apr 2025 22:58:00 -0700
-Message-ID: <3d8c60fe9f1cdaecd59ce3e395eb6ca029ca8ded.1745646960.git.nicolinc@nvidia.com>
+Subject: [PATCH v2 07/22] iommufd/selftest: Add covearge for viommu data
+Date: Fri, 25 Apr 2025 22:58:02 -0700
+Message-ID: <acb47bf56f1b03df9f6fca26f511529354be3caa.1745646960.git.nicolinc@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1745646960.git.nicolinc@nvidia.com>
 References: <cover.1745646960.git.nicolinc@nvidia.com>
@@ -98,51 +98,51 @@ Content-Type: text/plain
 X-NV-OnPremToCloud: AnonymousSubmission
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00001505:EE_|PH7PR12MB7965:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6c19fa9f-1c3e-4cb2-12f7-08dd84876d39
+X-MS-TrafficTypeDiagnostic: SA2PEPF00001505:EE_|PH7PR12MB5928:EE_
+X-MS-Office365-Filtering-Correlation-Id: c6bd631c-e276-49c5-5b02-08dd8487712e
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|7416014|376014|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?WwGpu3HsWydahVt4GFnilo0Tn6MVSPp7ilyyiV9/DvMLGS1Y8f9wEQRPgfPb?=
- =?us-ascii?Q?tMPgzCSGnseyjUF+9TzS9UDe/6ZzGlAZkwETTZ4xONc/Nie6YVniUCPTVnDu?=
- =?us-ascii?Q?sqz+CLhY5l5ahRpJ6zqJLbqafKaLFO2IIKXJ3QST+U14mkJucGVMEu5OAM1U?=
- =?us-ascii?Q?3bRNkd4KEv2fogEitGqgNmfCt7QccgPDBtW0ANoctTiSamIqLlrniHHOp5OV?=
- =?us-ascii?Q?MdCK4UnXYWvo+56ipyfcTOkituaWf4qPepOjOYc6hur5t5OYOuoidx2lbSEo?=
- =?us-ascii?Q?u3qhBdH72xZlxeyjFa3dKLXgNLGWpVzD5gaGSt4SZ4sH6SzcGHt3YowCR0Zt?=
- =?us-ascii?Q?9PYq2/uZLucBJdMdjOK2ck1LUs7HSwQeSq+DomeWv5O2iGPVCDYS0eY1fawU?=
- =?us-ascii?Q?92s7FLRexPdDNsyWvUW+XcuY8rxmM5cAV7YI8gEhNVdFD1AWcgZDCGyCMpEm?=
- =?us-ascii?Q?YuqYekWD7AF0xS3hPF/Qp4Us5JsrkRD7LcAqUuZ/TwTk50tvurnvrb3E7Klf?=
- =?us-ascii?Q?edbJXrRcY0MLe9tM17sZXtu4tj9wYld98NeTlWHCGRAtdtnASAQeycxqXaue?=
- =?us-ascii?Q?VGTgMIrrRfZ0Fiwn5DZkdXYdRdsJ/9zE20jHcvZQQm87uxj41QvKqWekLpNv?=
- =?us-ascii?Q?pQQTBWSER8Mr9GKQzTJhqO4mfMcasTdcUQS8fjISlsGWEip/x1uSYEUOMdvT?=
- =?us-ascii?Q?myVUv1ba2WvEsM19EgVLEPMFEqIZ2nRnYPMFyvkf8g/lKl1qW7sbhyPwHey9?=
- =?us-ascii?Q?UpF7cQcaEqb40MBwm3AyvpoJv305eymJg3ydhe0q6wLL2+0eiQvwQgOzKbX7?=
- =?us-ascii?Q?GBnKq4LemXV7xKZ21ffvduC5ApF0im3AcTLDD+eNyIAZf2A3WQfz+qySufue?=
- =?us-ascii?Q?clbuD3p0NMSUNbyxUDKXLVx/RU2L2Xc0SXvwkuVgHhBHI/yazD0ak2samxHZ?=
- =?us-ascii?Q?Z95+NCrvOVEqFMid88hxPXaXrP8ZZy+dT3hUjk+ADJev/05uJ/9oaG1wTH04?=
- =?us-ascii?Q?gvqZn7gCbREjsL4vIOkgnyJh/W13XirUftoPC3eys+QFEY03ZPxcprPqE44S?=
- =?us-ascii?Q?KIHQ0dHVwvrGJFHDbX9weuSPZmcN05fKFYYroPIX402lQkfcsAlnCVTk1lfY?=
- =?us-ascii?Q?f+QfHy5Q7HgeWldOVMH1E2CjQKO6KuC+PcEP+bF1BumWWdm/j4lZoJpdh4zt?=
- =?us-ascii?Q?97IUFY8kdBG/97tnI3GFYc6ytlvD30ZOT3o636lTcgnvqEWCIzRamMbxFVto?=
- =?us-ascii?Q?7CUnebnfaRlUHvhkkhCkzm1mDthPMhCp+fip7LW1J3AyeYqC0SGsouHj47lh?=
- =?us-ascii?Q?gJ/Q2zHgGP8Z9PFB1BZUyJuhZ8IGDNvnni8zdrD1jNE4yRUkrOFMZP6FW+zj?=
- =?us-ascii?Q?mrM+QeW2W1W/4hrvsszvQDzMe77kKP8HOBhyNiw7rPkJ+Bl5WzYESNbD2V99?=
- =?us-ascii?Q?o8TnnjJuewUxBVwJRmCVm25zUQnaROV4XEpD21Dd95krAWB/MWKkf3b3yJk1?=
- =?us-ascii?Q?aUBzIau1b9bbG9w/Xi8uvL1SYJ2IHeHkGP+k?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(7416014)(376014)(82310400026);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|82310400026|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Uv9XcJsRy1UtNmfd8KlVZsPOJbU3xpCtD4O4wEUeYC+41AO7VuUonkB4kyhi?=
+ =?us-ascii?Q?wiuQ9W6k7owwBtXamByDofUoKjPYXA/S/vSBj0vVgr6VhgY7376zfyHXydfi?=
+ =?us-ascii?Q?uAUo2eimLt4YKxdhQBhT9sRJ+oC06luKOB3Uut6HvoIju+MZIXEu9Wm5vmfe?=
+ =?us-ascii?Q?soUhV0tivUpYH15DZ8OeREMbL+61kS42wmxRXmBT3PLFBAfvyaJqv38mkW5g?=
+ =?us-ascii?Q?Y5KY85dx9ONvrxdszHlHCozWNjGo7mdR/1muZEKv5KzTcblzkltvsUpqKI9H?=
+ =?us-ascii?Q?piWvbcRG48G9AUo0vvvauIgg4i3YZ/+0VBn/INdq0fp1qsUrvwb45kBRp6qN?=
+ =?us-ascii?Q?tRFvVJxP2eF3klm7kCwc6p0Jeg52qikl4gh75P3y6MhB5Ou3DOOIC2OfU1fF?=
+ =?us-ascii?Q?+sJYfuOizYgDRoSjKgFoDMc7pAcjyO/81XASSCs/T9BpmSjGFnhEAk8mUDuH?=
+ =?us-ascii?Q?4cDtLorhM8mHUcqf1h7ZO5FkiFm1oH5Pn1K+ZJ5erXiqyFAxG/GXMNa+Lp5S?=
+ =?us-ascii?Q?4QnAGRaRS9oJLRE6xiifvmHYeIDB9MgRCPNgCygoTitHQlV/RXh1TInuGhoi?=
+ =?us-ascii?Q?fOyhnRG4toAZ2p96YgIUPBZwtU0LgdsBst6z8I4az2cJohY71Qe+a/AjB2L5?=
+ =?us-ascii?Q?Phg/90vLJxU3MVod2jxUdZlmd/iP3VjIp5Wd3X2FnXm4HupxlV2pFdNXgYvB?=
+ =?us-ascii?Q?KNBzLbxhiXFmnkEB3GahMtJhFQKsYDgdh8db+nULpORUYWG7AP699zJZqJig?=
+ =?us-ascii?Q?pZZ7UktteKhiLSNROhwoQ+bQrmcjuQ1R4pHDfOIKlqzhCjfc7H4QqVZopFPv?=
+ =?us-ascii?Q?bF7x8JCt4X+bInb2VyKhN+YY/FCkZmxShakvXuDQeCwKOC5FQ5TPdYXnJ2/q?=
+ =?us-ascii?Q?O8+71ZrGJD3V31qXvMCD+71Ti6P4sTCumU9IHD9m8qsu0nLEjHYzjO9Rz9DW?=
+ =?us-ascii?Q?PzrYwiwx7Mn+KQhoYT32S7h83c+NKq5qGCfos0Grj8ukU1+ziO51NW5jOFgg?=
+ =?us-ascii?Q?m2utyk6QWoIQQGmnmITKGPpSNi3ddfg3wCD0BScqSzsZIw+Yo5JTcC1ZssFm?=
+ =?us-ascii?Q?2EdF0MbDhHOezpnX6DlD+tgEbOGstWh68nfheSODe+VlF8deGylOqSdBjvVz?=
+ =?us-ascii?Q?IfVMJgKBjbf7tZltpTHHtncgx150GN6IJmDCrwQ+k66NJJth1uhnCckzXH40?=
+ =?us-ascii?Q?z0vXH4KCUC5H32Smb+KUG0KY6EDz/Vw0+wovbFxc9qB2zPPGt1C/KZx9N6nr?=
+ =?us-ascii?Q?UIEccrTZ54gqpHDCGL79WrEZ6iPniGP9LYclOSqp/zmioRkY/Mp+W5n03EMx?=
+ =?us-ascii?Q?JQLtT65LN4vCq/VHplskzua9ncTI2qfgehxG+ZNetMCNXVK8j0j+suWGdGYY?=
+ =?us-ascii?Q?N8UBdxLxfl3gThxLgPjiAn7bY6+KZTmPEVsITNh8eQIsKuio9tfbD2/Xclqs?=
+ =?us-ascii?Q?EqsgblKoGS9ylGyM38XXbfzD1BhHU/557A8K7ZDU5XnC9v3s2AnLzHbSuPV3?=
+ =?us-ascii?Q?PKf3m+jbG8FbBUDoA54y0wjro+lK61zZ0hZK?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(82310400026)(36860700013);DIR:OUT;SFP:1101;
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Apr 2025 05:58:54.3293
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Apr 2025 05:59:00.9230
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6c19fa9f-1c3e-4cb2-12f7-08dd84876d39
+X-MS-Exchange-CrossTenant-Network-Message-Id: c6bd631c-e276-49c5-5b02-08dd8487712e
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
 X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00001505.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7965
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5928
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_225904_247220_98979FEA 
-X-CRM114-Status: GOOD (  14.25  )
+X-CRM114-CacheID: sfid-20250425_225909_963538_21B785E8 
+X-CRM114-Status: GOOD (  13.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,123 +157,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-An IOMMU driver that allocated a vIOMMU may want to revert the allocation,
-if it encounters an internal error after the allocation. So, there needs a
-destroy helper for drivers to use.
+Extend the existing test_cmd/err_viommu_alloc helpers to accept optional
+user data. And add a TEST_F for a loopback test.
 
-Move iommufd_object_abort() to the driver.c file and the public header, to
-introduce common iommufd_struct_destroy() helper that will abort all kinds
-of driver structures, not confined to iommufd_viommu but also the new ones
-being added in the future.
-
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 ---
- drivers/iommu/iommufd/iommufd_private.h |  1 -
- include/linux/iommufd.h                 | 15 +++++++++++++++
- drivers/iommu/iommufd/driver.c          | 14 ++++++++++++++
- drivers/iommu/iommufd/main.c            | 13 -------------
- 4 files changed, 29 insertions(+), 14 deletions(-)
+ tools/testing/selftests/iommu/iommufd_utils.h | 21 +++++++++-----
+ tools/testing/selftests/iommu/iommufd.c       | 29 +++++++++++++++----
+ .../selftests/iommu/iommufd_fail_nth.c        |  5 ++--
+ 3 files changed, 39 insertions(+), 16 deletions(-)
 
-diff --git a/drivers/iommu/iommufd/iommufd_private.h b/drivers/iommu/iommufd/iommufd_private.h
-index 5c69ac05c029..8d96aa514033 100644
---- a/drivers/iommu/iommufd/iommufd_private.h
-+++ b/drivers/iommu/iommufd/iommufd_private.h
-@@ -180,7 +180,6 @@ static inline void iommufd_put_object(struct iommufd_ctx *ictx,
- 		wake_up_interruptible_all(&ictx->destroy_wait);
- }
+diff --git a/tools/testing/selftests/iommu/iommufd_utils.h b/tools/testing/selftests/iommu/iommufd_utils.h
+index 72f6636e5d90..a5d4cbd089ba 100644
+--- a/tools/testing/selftests/iommu/iommufd_utils.h
++++ b/tools/testing/selftests/iommu/iommufd_utils.h
+@@ -897,7 +897,8 @@ static int _test_cmd_trigger_iopf(int fd, __u32 device_id, __u32 pasid,
+ 					    pasid, fault_fd))
  
--void iommufd_object_abort(struct iommufd_ctx *ictx, struct iommufd_object *obj);
- void iommufd_object_abort_and_destroy(struct iommufd_ctx *ictx,
- 				      struct iommufd_object *obj);
- void iommufd_object_finalize(struct iommufd_ctx *ictx,
-diff --git a/include/linux/iommufd.h b/include/linux/iommufd.h
-index 83e5c4dff121..ef0d3c4765cf 100644
---- a/include/linux/iommufd.h
-+++ b/include/linux/iommufd.h
-@@ -211,6 +211,7 @@ static inline int iommufd_vfio_compat_set_no_iommu(struct iommufd_ctx *ictx)
- struct iommufd_object *_iommufd_object_alloc(struct iommufd_ctx *ictx,
- 					     size_t size,
- 					     enum iommufd_object_type type);
-+void iommufd_object_abort(struct iommufd_ctx *ictx, struct iommufd_object *obj);
- struct device *iommufd_viommu_find_dev(struct iommufd_viommu *viommu,
- 				       unsigned long vdev_id);
- int iommufd_viommu_get_vdev_id(struct iommufd_viommu *viommu,
-@@ -226,6 +227,11 @@ _iommufd_object_alloc(struct iommufd_ctx *ictx, size_t size,
- 	return ERR_PTR(-EOPNOTSUPP);
- }
- 
-+static inline void iommufd_object_abort(struct iommufd_ctx *ictx,
-+					struct iommufd_object *obj)
-+{
-+}
-+
- static inline struct device *
- iommufd_viommu_find_dev(struct iommufd_viommu *viommu, unsigned long vdev_id)
+ static int _test_cmd_viommu_alloc(int fd, __u32 device_id, __u32 hwpt_id,
+-				  __u32 type, __u32 flags, __u32 *viommu_id)
++				  __u32 flags, __u32 type, void *data,
++				  __u32 data_len, __u32 *viommu_id)
  {
-@@ -279,4 +285,13 @@ static inline int iommufd_viommu_report_event(struct iommufd_viommu *viommu,
- 			ret->member.viommu = viommu;                           \
- 		ret;                                                           \
- 	})
-+
-+/* Helper for IOMMU driver to destroy structures created by allocators above */
-+#define iommufd_struct_destroy(ictx, drv_struct, member)                       \
-+	({                                                                     \
-+		static_assert(__same_type(struct iommufd_object,               \
-+					  drv_struct->member.obj));            \
-+		static_assert(offsetof(typeof(*drv_struct), member.obj) == 0); \
-+		iommufd_object_abort(ictx, &drv_struct->member.obj);           \
-+	})
- #endif
-diff --git a/drivers/iommu/iommufd/driver.c b/drivers/iommu/iommufd/driver.c
-index 922cd1fe7ec2..7980a09761c2 100644
---- a/drivers/iommu/iommufd/driver.c
-+++ b/drivers/iommu/iommufd/driver.c
-@@ -36,6 +36,20 @@ struct iommufd_object *_iommufd_object_alloc(struct iommufd_ctx *ictx,
- }
- EXPORT_SYMBOL_NS_GPL(_iommufd_object_alloc, "IOMMUFD");
+ 	struct iommu_viommu_alloc cmd = {
+ 		.size = sizeof(cmd),
+@@ -905,6 +906,8 @@ static int _test_cmd_viommu_alloc(int fd, __u32 device_id, __u32 hwpt_id,
+ 		.type = type,
+ 		.dev_id = device_id,
+ 		.hwpt_id = hwpt_id,
++		.data_uptr = (uint64_t)data,
++		.data_len = data_len,
+ 	};
+ 	int ret;
  
-+/* Undo _iommufd_object_alloc() if iommufd_object_finalize() was not called */
-+void iommufd_object_abort(struct iommufd_ctx *ictx, struct iommufd_object *obj)
+@@ -916,13 +919,15 @@ static int _test_cmd_viommu_alloc(int fd, __u32 device_id, __u32 hwpt_id,
+ 	return 0;
+ }
+ 
+-#define test_cmd_viommu_alloc(device_id, hwpt_id, type, viommu_id)        \
+-	ASSERT_EQ(0, _test_cmd_viommu_alloc(self->fd, device_id, hwpt_id, \
+-					    type, 0, viommu_id))
+-#define test_err_viommu_alloc(_errno, device_id, hwpt_id, type, viommu_id) \
+-	EXPECT_ERRNO(_errno,                                               \
+-		     _test_cmd_viommu_alloc(self->fd, device_id, hwpt_id,  \
+-					    type, 0, viommu_id))
++#define test_cmd_viommu_alloc(device_id, hwpt_id, type, data, data_len,      \
++			      viommu_id)                                     \
++	ASSERT_EQ(0, _test_cmd_viommu_alloc(self->fd, device_id, hwpt_id, 0, \
++					    type, data, data_len, viommu_id))
++#define test_err_viommu_alloc(_errno, device_id, hwpt_id, type, data,        \
++			      data_len, viommu_id)                           \
++	EXPECT_ERRNO(_errno,                                                 \
++		     _test_cmd_viommu_alloc(self->fd, device_id, hwpt_id, 0, \
++					    type, data, data_len, viommu_id))
+ 
+ static int _test_cmd_vdevice_alloc(int fd, __u32 viommu_id, __u32 idev_id,
+ 				   __u64 virt_id, __u32 *vdev_id)
+diff --git a/tools/testing/selftests/iommu/iommufd.c b/tools/testing/selftests/iommu/iommufd.c
+index 1a8e85afe9aa..8ebbb7fda02d 100644
+--- a/tools/testing/selftests/iommu/iommufd.c
++++ b/tools/testing/selftests/iommu/iommufd.c
+@@ -2688,7 +2688,7 @@ FIXTURE_SETUP(iommufd_viommu)
+ 
+ 		/* Allocate a vIOMMU taking refcount of the parent hwpt */
+ 		test_cmd_viommu_alloc(self->device_id, self->hwpt_id,
+-				      IOMMU_VIOMMU_TYPE_SELFTEST,
++				      IOMMU_VIOMMU_TYPE_SELFTEST, NULL, 0,
+ 				      &self->viommu_id);
+ 
+ 		/* Allocate a regular nested hwpt */
+@@ -2727,24 +2727,27 @@ TEST_F(iommufd_viommu, viommu_negative_tests)
+ 	if (self->device_id) {
+ 		/* Negative test -- invalid hwpt (hwpt_id=0) */
+ 		test_err_viommu_alloc(ENOENT, device_id, 0,
+-				      IOMMU_VIOMMU_TYPE_SELFTEST, NULL);
++				      IOMMU_VIOMMU_TYPE_SELFTEST, NULL, 0,
++				      NULL);
+ 
+ 		/* Negative test -- not a nesting parent hwpt */
+ 		test_cmd_hwpt_alloc(device_id, ioas_id, 0, &hwpt_id);
+ 		test_err_viommu_alloc(EINVAL, device_id, hwpt_id,
+-				      IOMMU_VIOMMU_TYPE_SELFTEST, NULL);
++				      IOMMU_VIOMMU_TYPE_SELFTEST, NULL, 0,
++				      NULL);
+ 		test_ioctl_destroy(hwpt_id);
+ 
+ 		/* Negative test -- unsupported viommu type */
+ 		test_err_viommu_alloc(EOPNOTSUPP, device_id, self->hwpt_id,
+-				      0xdead, NULL);
++				      0xdead, NULL, 0, NULL);
+ 		EXPECT_ERRNO(EBUSY,
+ 			     _test_ioctl_destroy(self->fd, self->hwpt_id));
+ 		EXPECT_ERRNO(EBUSY,
+ 			     _test_ioctl_destroy(self->fd, self->viommu_id));
+ 	} else {
+ 		test_err_viommu_alloc(ENOENT, self->device_id, self->hwpt_id,
+-				      IOMMU_VIOMMU_TYPE_SELFTEST, NULL);
++				      IOMMU_VIOMMU_TYPE_SELFTEST, NULL, 0,
++				      NULL);
+ 	}
+ }
+ 
+@@ -2791,6 +2794,20 @@ TEST_F(iommufd_viommu, viommu_alloc_nested_iopf)
+ 	}
+ }
+ 
++TEST_F(iommufd_viommu, viommu_alloc_with_data)
 +{
-+	XA_STATE(xas, &ictx->objects, obj->id);
-+	void *old;
++	struct iommu_viommu_selftest data = {
++		.in_data = 0xbeef,
++	};
 +
-+	xa_lock(&ictx->objects);
-+	old = xas_store(&xas, NULL);
-+	xa_unlock(&ictx->objects);
-+	WARN_ON(old != XA_ZERO_ENTRY);
-+	kfree(obj);
++	if (self->device_id) {
++		test_cmd_viommu_alloc(self->device_id, self->hwpt_id,
++				      IOMMU_VIOMMU_TYPE_SELFTEST, &data,
++				      sizeof(data), &self->viommu_id);
++		assert(data.out_data == data.in_data);
++	}
 +}
-+EXPORT_SYMBOL_NS_GPL(iommufd_object_abort, "IOMMUFD");
 +
- /* Caller should xa_lock(&viommu->vdevs) to protect the return value */
- struct device *iommufd_viommu_find_dev(struct iommufd_viommu *viommu,
- 				       unsigned long vdev_id)
-diff --git a/drivers/iommu/iommufd/main.c b/drivers/iommu/iommufd/main.c
-index 3df468f64e7d..2b9ee9b4a424 100644
---- a/drivers/iommu/iommufd/main.c
-+++ b/drivers/iommu/iommufd/main.c
-@@ -51,19 +51,6 @@ void iommufd_object_finalize(struct iommufd_ctx *ictx,
- 	WARN_ON(old != XA_ZERO_ENTRY);
- }
+ TEST_F(iommufd_viommu, vdevice_alloc)
+ {
+ 	uint32_t viommu_id = self->viommu_id;
+@@ -3105,7 +3122,7 @@ TEST_F(iommufd_device_pasid, pasid_attach)
  
--/* Undo _iommufd_object_alloc() if iommufd_object_finalize() was not called */
--void iommufd_object_abort(struct iommufd_ctx *ictx, struct iommufd_object *obj)
--{
--	XA_STATE(xas, &ictx->objects, obj->id);
--	void *old;
--
--	xa_lock(&ictx->objects);
--	old = xas_store(&xas, NULL);
--	xa_unlock(&ictx->objects);
--	WARN_ON(old != XA_ZERO_ENTRY);
--	kfree(obj);
--}
--
- /*
-  * Abort an object that has been fully initialized and needs destroy, but has
-  * not been finalized.
+ 	/* Allocate a regular nested hwpt based on viommu */
+ 	test_cmd_viommu_alloc(self->device_id, parent_hwpt_id,
+-			      IOMMU_VIOMMU_TYPE_SELFTEST,
++			      IOMMU_VIOMMU_TYPE_SELFTEST, NULL, 0,
+ 			      &viommu_id);
+ 	test_cmd_hwpt_alloc_nested(self->device_id, viommu_id,
+ 				   IOMMU_HWPT_ALLOC_PASID,
+diff --git a/tools/testing/selftests/iommu/iommufd_fail_nth.c b/tools/testing/selftests/iommu/iommufd_fail_nth.c
+index e11ec4b121fc..f7ccf1822108 100644
+--- a/tools/testing/selftests/iommu/iommufd_fail_nth.c
++++ b/tools/testing/selftests/iommu/iommufd_fail_nth.c
+@@ -688,8 +688,9 @@ TEST_FAIL_NTH(basic_fail_nth, device)
+ 				 IOMMU_HWPT_DATA_NONE, 0, 0))
+ 		return -1;
+ 
+-	if (_test_cmd_viommu_alloc(self->fd, idev_id, hwpt_id,
+-				   IOMMU_VIOMMU_TYPE_SELFTEST, 0, &viommu_id))
++	if (_test_cmd_viommu_alloc(self->fd, idev_id, hwpt_id, 0,
++				   IOMMU_VIOMMU_TYPE_SELFTEST, NULL, 0,
++				   &viommu_id))
+ 		return -1;
+ 
+ 	if (_test_cmd_vdevice_alloc(self->fd, viommu_id, idev_id, 0, &vdev_id))
 -- 
 2.43.0
 
