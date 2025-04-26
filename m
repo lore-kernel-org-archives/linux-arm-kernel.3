@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6433FC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 12:32:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4CBEC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 12:34:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1KZum+wrZb9689he9Iga4rK7qT12pUOfPX6DISbxiks=; b=ldvaGp71lc6ZanADL+KbJoXGNg
-	lLNNw63Rh8ppds9JPxHxoCTNjPEPRndYo0+KkpORx4NRCbRcVNSHq41XQBPFLrl5jXFr6URIIzFya
-	82chbigAPciIG2fBAb3QFMaAq2RdzE2KxCWuFmE/18VpiwVvHKVODX75lAM5xVawzfyEE2e4jxouO
-	D5FaR91wpwzhBzQlqp6x8nRtCgFBmuedxGi2dC7qoaOGsFxETUlVj1/7RzXIankmM9IzGkdUIjMgP
-	iXR7lQFFWEj4yoEDc7H2Ea+0puG/dQw1jjZ4NPaVeV+jElVHYzb7kocIc7cWgaODhRNaKSiyjcv75
-	geXHNCGw==;
+	bh=rW9m/wv+0eQQy0ushRxXElsEu9MUvK3JxCnvtFqpyMQ=; b=O5u0Z6BJZJNQVthjLsuq/xI1An
+	W21rKWjfsY6Ut9qOdArG5DsljQYNBtJNipCCtqus3RUl8aC2bAbhcRwKdBUVVU9u/C8SukF6nDfkN
+	aKx3SkU0A5tiGqXzREnCxnG3YCQ1JgOHtjMI1weJU5MnrfeCUZ/t7eGKTymIZdGIJNzRjo8uF5MiS
+	3EYhp51jXjfX/eFoRc8j7yqt7j8aSPIWlFCdBkykBbI0lKQ8hxa+6j6Z8LHRJ4tVG98m3VZFvqetE
+	KxLkBeZUVzNn3liqaiV8WiZgUwiAg5G3mT4Z7jRSh7bAz26LQOH7aOUKXhcbDazKUMV0VVlxPQ1Jg
+	dwTrkm+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8ei3-0000000200N-07MD;
-	Sat, 26 Apr 2025 12:32:43 +0000
+	id 1u8ejt-000000020M5-39QY;
+	Sat, 26 Apr 2025 12:34:37 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8eeJ-00000001yye-3QtB
+	id 1u8eeK-00000001yyr-3Jty
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Apr 2025 12:28:51 +0000
+	Sat, 26 Apr 2025 12:28:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5A32768444;
-	Sat, 26 Apr 2025 12:28:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE556C4CEEC;
-	Sat, 26 Apr 2025 12:28:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5924468448;
+	Sat, 26 Apr 2025 12:28:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F09E6C4CEE2;
+	Sat, 26 Apr 2025 12:28:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745670530;
-	bh=SWE9gSmuNSZa/bBGdZNKJvtdTSw2W9hfegwyfvxdpf8=;
+	s=k20201202; t=1745670532;
+	bh=8A74ZozC9sTAb9FFk+IBeU6GZPUV1uY2uFxjvew56hk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=X10HUAxqJ6UiMUaXTEjTeyplhg9UrS2xZojSUXZ8EDzcTD182GPt4PcgtF7nMV/dn
-	 jFVUBTTJWHkd4Y1IqjhfrMKYL4bBWUUi2FzqaIRP3n5ltlkegdayZxNCegAydVYjWy
-	 HJsNlsqgOFK9h5/s27PCWgvXDDmTHFSrQ6wQTDpH7zjq05CbWwoHjXrOVN5bh9Mxx6
-	 2FiqFCPyb3ujbzuANJ8bUWjHRv7XLtK4L9tiUr84tBy40ULdN2EU9AWq6R2lICEzL1
-	 FzfsN3m8SyBpQotCDaEL/HS5xgjSa+FXoSeSUxe9IFmFaT3rLMYMaUDzeNwElThgfE
-	 QJWDGdH626K7Q==
+	b=aWE/bzN/N0ZmsgFxg7ba7AYijHbVrWhlZX3XFtDiZQz09jz3gglKTH9KXoud8aHe0
+	 aM3K4JSMY3cyCnN7MdRYWh8ErZ7IzoJY49Gw8oliVLrtzfATTjh797o2+6smm0CfuL
+	 g4wBK+2G9PgIwbnVb71f/RcmG+qXHDnKElPW8RU7pU7i5Ok2bwR6YVMBD4LiXsoTzr
+	 3nFHYqiO8zRan2moHAjYEPV2NHHQDnacvm8WgihP45k/UK/2fMhIeX3b4wTq525OTu
+	 G/+X1r4L+SlAOu06VmHP3zmXlSMzZpxGsAY6KQxUfIiVHNIU0Gr4rv7QIG+CqqavQe
+	 c3ZHoo1omkKyA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1u8eeG-0092VH-Hl;
-	Sat, 26 Apr 2025 13:28:48 +0100
+	id 1u8eeI-0092VH-2z;
+	Sat, 26 Apr 2025 13:28:50 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -60,9 +60,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Fuad Tabba <tabba@google.com>,
 	Will Deacon <will@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>
-Subject: [PATCH v3 02/42] arm64: sysreg: Update ID_AA64MMFR4_EL1 description
-Date: Sat, 26 Apr 2025 13:27:56 +0100
-Message-Id: <20250426122836.3341523-3-maz@kernel.org>
+Subject: [PATCH v3 07/42] arm64: sysreg: Update TRBIDR_EL1 description
+Date: Sat, 26 Apr 2025 13:28:01 +0100
+Message-Id: <20250426122836.3341523-8-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250426122836.3341523-1-maz@kernel.org>
 References: <20250426122836.3341523-1-maz@kernel.org>
@@ -86,70 +86,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Resync the ID_AA64MMFR4_EL1 with the architectue description.
-
-This results in:
-
-- the new PoPS field
-- the new NV2P1 value for the NV_frac field
-- the new RMEGDI field
-- the new SRMASK field
-
-These fields have been generated from the reference JSON file.
+Add the missing MPAM field.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/tools/sysreg | 19 ++++++++++++++++---
- 1 file changed, 16 insertions(+), 3 deletions(-)
+ arch/arm64/tools/sysreg | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
 diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index e5da8848b66b5..fce8328c7c00b 100644
+index 668a6f397362c..6433a3ebcef49 100644
 --- a/arch/arm64/tools/sysreg
 +++ b/arch/arm64/tools/sysreg
-@@ -1946,12 +1946,21 @@ EndEnum
+@@ -3688,7 +3688,12 @@ Field	31:0	TRG
  EndSysreg
  
- Sysreg	ID_AA64MMFR4_EL1	3	0	0	7	4
--Res0	63:40
-+Res0	63:48
-+UnsignedEnum	47:44	SRMASK
+ Sysreg	TRBIDR_EL1	3	0	9	11	7
+-Res0	63:12
++Res0	63:16
++UnsignedEnum	15:12	MPAM
 +	0b0000	NI
-+	0b0001	IMP
++	0b0001	DEFAULT
++	0b0010	IMP
 +EndEnum
-+Res0	43:40
- UnsignedEnum	39:36	E3DSE
- 	0b0000	NI
- 	0b0001	IMP
- EndEnum
--Res0	35:28
-+Res0	35:32
-+UnsignedEnum	31:28	RMEGDI
-+	0b0000	NI
-+	0b0001	IMP
-+EndEnum
- SignedEnum	27:24	E2H0
- 	0b0000	IMP
- 	0b1110	NI_NV1
-@@ -1960,6 +1969,7 @@ EndEnum
- UnsignedEnum	23:20	NV_frac
- 	0b0000	NV_NV2
- 	0b0001	NV2_ONLY
-+	0b0010	NV2P1
- EndEnum
- UnsignedEnum	19:16	FGWTE3
- 	0b0000	NI
-@@ -1979,7 +1989,10 @@ SignedEnum	7:4	EIESB
- 	0b0010	ToELx
- 	0b1111	ANY
- EndEnum
--Res0	3:0
-+UnsignedEnum	3:0	PoPS
-+	0b0000	NI
-+	0b0001	IMP
-+EndEnum
- EndSysreg
- 
- Sysreg	SCTLR_EL1	3	0	1	0	0
+ Enum	11:8	EA
+ 	0b0000	NON_DESC
+ 	0b0001	IGNORE
 -- 
 2.39.2
 
