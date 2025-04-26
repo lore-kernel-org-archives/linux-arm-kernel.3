@@ -4,61 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C33AC369D8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 18:05:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CED3C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 18:15:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oo4JdOmDlpbxDOAUm42LDGfnVqBYFAjDDVr/rEREloo=; b=ZAVUXTaMEA799x2E9bZKv+INlw
-	bABHLQZBmmEyidnuX6zOK5DzpqeDIqAXuaYjoKA9O/C8Qlvws+MfFxru+pR1kUQxs1lSBy1k8AZli
-	Uj/IPKGRWKbn2PYcB8ezYWCHRsWXFJ9KQ8xOecPoIO36CXEb+QBAToRM15VwpPehShph/38nk2zmY
-	q+6GT8TkuuO2+YPlYSQs2sdAdYXUKSENW+tthCGEjHZAeeqSAdERbJu0+IBMuJazSh72Sf0Ev16H9
-	JJx53ulInCntdDUDsRdipeItFvYtNMsU8/+LkZivuKXwo8KvwN6woMjeCJMCHjmgY0PWdQpkshI8i
-	6n2neYRg==;
+	bh=o/jO6hk4RgjYSsn7VPxu9CKY2TQdbS6NqcPa4VZI7GY=; b=TXakJ0JdP27ztwP+jCeW3L33XV
+	IB55n6DiG/k6Kx6Qhi/8fGSEOQKRxxccN2GI03WZ3Y7vKQLpVEbjd0OtlF/5mHbQhkYF7C+JupF+K
+	SQLSHt2ioeFLH3uZm1wYZehTwAuhnA+UboxxfiVBF9eeXbgM6WqyYh8h+Z2kdVSlaEeMvatsQX3un
+	NX3XPJZpwg0vsvwVy7aGmnkm3ZXgEFwuleeuapUBzAftAd6p8HxVfSWM3xK1WZRSBQDM+faaXs591
+	rhE/DUpBZnpMU5PRhjy2UEoZrTCuqHF1rpyi9NVwKkn5GX9h1UT537uRpeYVqWyRIJztI/sJXQP9r
+	sQ9Pf+nQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8ju5-00000002NT6-0wkM;
-	Sat, 26 Apr 2025 18:05:29 +0000
+	id 1u8k3l-00000002NzP-1LXO;
+	Sat, 26 Apr 2025 18:15:29 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8jsB-00000002NJG-1ynD;
-	Sat, 26 Apr 2025 18:03:31 +0000
+	id 1u8k1u-00000002Nsm-3LKT
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 26 Apr 2025 18:13:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 13AE16115D;
-	Sat, 26 Apr 2025 18:03:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C994C4CEE2;
-	Sat, 26 Apr 2025 18:03:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A1F2F6115D;
+	Sat, 26 Apr 2025 18:13:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E11BC4CEE2;
+	Sat, 26 Apr 2025 18:13:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745690608;
-	bh=thPYajZSkuIUqKSQ0PKrjdP700DcSK2zwAu2Gky2T80=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nAIxHEC/RBFXC7YAAr3+tsr8rzEcee3Oga1vMPOVdLEclJGRGGYsap6d40ssYdREa
-	 631y8iWvrWajenPInP5JKnMuJ2fzsFVn4xbQ/K+cHhgPVnyuchNRRoD0ozvKffZkS3
-	 MqUsr8paPOUnFmn+B8HDI8yKlJGh1TXUf3fq6tuJ1SIjPZir6nq73386jFGlYKnBTI
-	 uo2ZHr9L3pkwpshwb0rthNh+eao6mVOKjQYtoSDUrpgKEgzJXu+h6VzFzy4Z/K4auE
-	 MgMeah9RtM9RNppv7fmQMq0y8aXytAvAE0U5aitXE09LbzHtDgGADWAkJrVYOWn55s
-	 dQXkKhP5hQ5yw==
-Date: Sat, 26 Apr 2025 11:03:26 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Herbert Xu <herbert@gondor.apana.org.au>
-Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org,
-	linux-s390@vger.kernel.org, x86@kernel.org, ardb@kernel.org,
-	Jason@zx2c4.com, torvalds@linux-foundation.org
-Subject: Re: [PATCH 11/13] crypto: x86/sha256 - implement library instead of
- shash
-Message-ID: <20250426180326.GA1184@sol.localdomain>
-References: <20250426065041.1551914-12-ebiggers@kernel.org>
- <aAy6g3nblKtRj1l3@gondor.apana.org.au>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aAy6g3nblKtRj1l3@gondor.apana.org.au>
+	s=k20201202; t=1745691213;
+	bh=RsOofsV613x18QvDryGpmF9JPDB5AAT2eHE5SgYik/4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=lfO8Qw8uwWwgS3sjhLURcZk7YC4a076hakyri/2gKMGwKqa49LeJim1ZCTMtY9xf2
+	 dDAD/HgSeODMIk6Ok6C+QjxHYU6jg806ULnkhzQTXOe3amTq4sMyjE9bLvzQhGcrwf
+	 drQJ1O2pb3BftisDEyyE4ngOu9hU3xVuB3y4x4+u9wFe/1gdOA2MeRiYxpWpa5RXU9
+	 HiMm8mD0Wr6TlC8rDMn3m1hjjHZ+/Sd5KQ0kvF4xSlY3+20Zt5VZ6/nmQ7ftQk4ki3
+	 arijG928i0j1/5vYoC6G8W6Oqu1/6Xpj3+CyA4ZiP49y4xADB0YRwHnNQKGgyidCj1
+	 YT+y7jI4vrtuw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1u8k1r-0096YO-03;
+	Sat, 26 Apr 2025 19:13:31 +0100
+Date: Sat, 26 Apr 2025 19:13:29 +0100
+Message-ID: <86h62akcza.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: D Scott Phillips <scott@os.amperecomputing.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose
+ <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui
+ Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH] KVM: arm64: Force HCR_EL2.xMO to 1 at all times in VHE mode
+In-Reply-To: <86jz799ozo.fsf@scott-ph-mail.amperecomputing.com>
+References: <20250422123901.2675976-1-maz@kernel.org>
+	<86jz799ozo.fsf@scott-ph-mail.amperecomputing.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: scott@os.amperecomputing.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, mark.rutland@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,36 +88,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Apr 26, 2025 at 06:50:43PM +0800, Herbert Xu wrote:
-> Eric Biggers <ebiggers@kernel.org> wrote:
-> >
-> > +void sha256_blocks_arch(u32 state[SHA256_STATE_WORDS],
-> > +                       const u8 *data, size_t nblocks)
-> > +{
-> > +       if (static_branch_likely(&have_sha256_x86) && crypto_simd_usable()) {
-> > +               kernel_fpu_begin();
-> > +               static_call(sha256_blocks_x86)(state, data, nblocks);
-> > +               kernel_fpu_end();
-> > +       } else {
-> > +               sha256_blocks_generic(state, data, nblocks);
-> > +       }
+On Thu, 24 Apr 2025 23:24:59 +0100,
+D Scott Phillips <scott@os.amperecomputing.com> wrote:
 > 
-> Why did you restore the SIMD fallback path? Please provide a real
-> use-case for doing SHA2 in a hardirq or I'll just remove it again.
+> Marc Zyngier <maz@kernel.org> writes:
+> 
+> > We keep setting and clearing these bits depending on the role of
+> > the host kernel, mimicking what we do for nVHE. But that's actually
+> > pretty pointless, as we always want physical interrupts to make it
+> > to the host, at EL2.
+> >
+> > This has also two problems:
+> >
+> > - it prevents IRQs from being taken when these bits are cleared
+> >   if the implementation has chosen to implement these bits as
+> >   masks when HCR_EL2.{TGE,xMO}=={0,0}
+> >
+> > - it triggers a bad erratum on the AmpereOne HW, which catches
+> >   fire on clearing these bits while an interrupt is being taken
+> >   (AC03_CPU_36).
+> >
+> > Let's kill these two birds with a single stone.
+> >
+> > Reported-by: D Scott Phillips <scott@os.amperecomputing.com>
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  arch/arm64/include/asm/kvm_arm.h | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+> > index 974d72b5905b8..bba4b0e930915 100644
+> > --- a/arch/arm64/include/asm/kvm_arm.h
+> > +++ b/arch/arm64/include/asm/kvm_arm.h
+> > @@ -100,7 +100,7 @@
+> >  			 HCR_FMO | HCR_IMO | HCR_PTW | HCR_TID3 | HCR_TID1)
+> >  #define HCR_HOST_NVHE_FLAGS (HCR_RW | HCR_API | HCR_APK | HCR_ATA)
+> >  #define HCR_HOST_NVHE_PROTECTED_FLAGS (HCR_HOST_NVHE_FLAGS | HCR_TSC)
+> > -#define HCR_HOST_VHE_FLAGS (HCR_RW | HCR_TGE | HCR_E2H)
+> > +#define HCR_HOST_VHE_FLAGS (HCR_RW | HCR_TGE | HCR_E2H | HCR_AMO | HCR_IMO | HCR_FMO)
+> >  
+> >  #define HCRX_HOST_FLAGS (HCRX_EL2_MSCEn | HCRX_EL2_TCR2En | HCRX_EL2_EnFPM)
+> >  #define MPAMHCR_HOST_FLAGS	0
+> 
+> Should the xMO twiddling in __vgic_v3_get_gic_config() also get dropped
+> here?
 
-The SHA-256 library functions currently work in any context, and this patch
-series preserves that behavior.  Changing that would be a separate change.
+Ah, that old chestnut. Yeah, well spotted. It could do with some
+TLC. I'll do some surgery on it and post a v2.
 
-But also as I've explained before, for the library API the performance benefit
-of removing the crypto_simd_usable() doesn't seem to be worth the footgun that
-would be introduced.  Your position is, effectively, that if someone calls one
-of the sha256*() functions from a hardirq, we should sometimes corrupt a random
-task's FPU registers.  That's a really bad bug that is very difficult to
-root-cause.  My position is that we should make it just work as expected.
+Thanks,
 
-Yes, no one *should* be doing SHA-256 in a hardirq.  But I don't think that
-means we should corrupt a random task's FPU registers if someone doesn't follow
-best practices, when we can easily make the API just work as expected.
+	M.
 
-- Eric
+-- 
+Without deviation from the norm, progress is not possible.
 
