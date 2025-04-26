@@ -4,84 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92183C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 07:26:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 199D9C369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 07:29:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hnc4swAUT4ageYQdCgf2JvBEhLJpEZaUOqiedfOmY5A=; b=kor3/Mki/9kWJDP+NKR9kpeNAh
-	+x6828Kj6tUik7nvPsV+D69ZeUX2NtNGlT9A3PisfS2FmtMBX3zqUbEmqKu8dqT/xfdRvFzZ8qDFY
-	R3TkEZZPuA4g+sIEIzfd4eS/IhtvXakXPWrriGExXXPfRX/IuZd9nYkMdoTNNdUSoJavDBEfAwHxB
-	JjY4zyBcUwHV/ESwFudausdkVG5x/cLGzKGUOB/h9/f5geyYIajqh0mo6amKML3U4fSRivhDCKG5o
-	rzg17pu6IaRdzFrPQx9Ugw4ZF3y0YVUScZjbxPcT6PKbv4X0jZ+wv9xpa7S860z9RaFmUUmCaTRgb
-	XBRphnBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AAI5/pl9eCob0hfQckKDsXCAq3H8GXPTuykoKS8yFtE=; b=N4S1blKjh8eqAxDsWW4/baGP0K
+	at7Fp5SBZYcVSUaz63PoGsLiXBpC/4BAnKGRSTFhieDkYRRPUOEohcnVHbYp/G3LQykRdQ3h1zkmB
+	c8jHS+LTJQJEYFtmSor4qTIobdVkMdryqefkGNLXRiFqoW/5oHl+eOahlCm1tI3/XFCRjMxyn/Z3p
+	2S19R3MpH08PRX62xMdu98K8CDi49RIwHGOxcAFLPgC+awSilAGUBlM5axvZx1aabQriRDr3B+yxs
+	aA6ne3GtCyb/lgH11+6oJ0IcmK3NNsOun8wrvqYZm8ceO6AAoNdBmzf/RIlr70EqteIRAgNsg63rd
+	PB8AmPCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8ZvD-00000001fLZ-3uTj;
-	Sat, 26 Apr 2025 07:25:59 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1u8Zys-00000001ff7-3nMA;
+	Sat, 26 Apr 2025 07:29:46 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8ZXm-00000001cyo-3go4
+	id 1u8ZmH-00000001eSs-19kq
+	for linux-arm-kernel@bombadil.infradead.org;
+	Sat, 26 Apr 2025 07:16:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=AAI5/pl9eCob0hfQckKDsXCAq3H8GXPTuykoKS8yFtE=; b=FZqUOHZwE3yjHzDHPvBic2l7Ke
+	IDqYjwjfS7G6GziNvA8Fo4uhlL1iTdtuY63PLG8RPgZIHfg/hKmmeWeB4KQmQa19CwFE5YNWCiUcS
+	5pfF7MGdOU5lBnr+ec75ogRue95WqrgE2IPZ5xve3A/NzeVhm/Ju61NYDkckORhepsUa3Lp41EhKE
+	6wypaDIQWe0aqPztbFhxcl5iOdFbx7A0RcVHhNJD56V+DDHpq1jtPGGG4GXcjpQNqNHEUyZsuw9yU
+	4OL4qqJ7+mpuqPZLUFTQqXdTRTmHabvttemdzq57qy1+v/sPRhjRUt6R9bKIHUDgyPciqUwFj+ZF6
+	EqXx2zJg==;
+Received: from m16.mail.163.com ([220.197.31.3])
+	by desiato.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u8ZmD-0000000CEFG-2jZl
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Apr 2025 07:01:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1745650907; x=1777186907;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=GP0K1Rv9ZXdHQPB5bmi50oLNLtVvYZGG8O2PcVpf/mg=;
-  b=k5l3cfcv7wiw2SitjxMFDLQjo2i0DD2CwW9exphdvNUPtVcDwc48m9jP
-   045xiwMxp0rsypAKq2O1cv1ZG0T0K1dkxJKmsiez3dCZozWM7oM/b7Pxj
-   kHXO4HqB5a2i121bXJsBB7i0de7HADzqkYprez/vrvIHH1cpAV8weAYd1
-   y/PJcmoZpH7IdoHApHDSb1wpFyGZy2/xBnCp1Q96EqIXrQtelSOT2BrSR
-   oDcb5mIjPfOUGZvVvIlsXvNdwjcq6CUQe0j0Y912CV/BPQQEJHKRsR2uN
-   mopqmsQ8zjiM8cBkMto4ajo8ORpWi4Y2AUWzq9uwEUZkQ78DIQqOsQ/VG
-   w==;
-X-CSE-ConnectionGUID: VocfuGGiQOGD8y73WVWzSw==
-X-CSE-MsgGUID: /IL45RThQri0BGK+8SoBUg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11414"; a="51112569"
-X-IronPort-AV: E=Sophos;i="6.15,241,1739865600"; 
-   d="scan'208";a="51112569"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Apr 2025 00:01:46 -0700
-X-CSE-ConnectionGUID: UB3CB3T6QZWK5LSf3Zj6Ag==
-X-CSE-MsgGUID: ALlMkpTIRLKP8WKzX6udoQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,241,1739865600"; 
-   d="scan'208";a="138238692"
-Received: from lkp-server01.sh.intel.com (HELO 050dd05385d1) ([10.239.97.150])
-  by orviesa005.jf.intel.com with ESMTP; 26 Apr 2025 00:01:40 -0700
-Received: from kbuild by 050dd05385d1 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1u8ZXe-0005lJ-18;
-	Sat, 26 Apr 2025 07:01:38 +0000
-Date: Sat, 26 Apr 2025 15:01:29 +0800
-From: kernel test robot <lkp@intel.com>
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>, lee@kernel.org,
-	alexandre.torgue@foss.st.com, daniel.lezcano@linaro.org,
-	tglx@linutronix.de
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	ukleinek@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	jic23@kernel.org, robh@kernel.org, catalin.marinas@arm.com,
-	will@kernel.org, devicetree@vger.kernel.org, wbg@kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-iio@vger.kernel.org, linux-pwm@vger.kernel.org,
-	olivier.moysan@foss.st.com, fabrice.gasnier@foss.st.com
-Subject: Re: [PATCH v5 3/7] clocksource: stm32-lptimer: add support for
- stm32mp25
-Message-ID: <202504261456.aCATBoYN-lkp@intel.com>
-References: <20250425124755.166193-4-fabrice.gasnier@foss.st.com>
+	Sat, 26 Apr 2025 07:16:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=AAI5/
+	pl9eCob0hfQckKDsXCAq3H8GXPTuykoKS8yFtE=; b=HZHicKehiD0hLKwrFRX3O
+	K1bkC9oIiXkppeV50z/w4s2eyaPwVqcRYxMoDGs9HmOoy0d6i2Xaz77Qi2KpovN6
+	q2zu5DTewrAItxT1cdaNSHswy4jgr4A59G7zgiEvUc7cQ68wGLL/OkkJOLXkmkg+
+	Uj7FZXy3fHs0r8/ag7ydvw=
+Received: from ProDesk.. (unknown [])
+	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wD3H1s0iAxo+8N6Cg--.20762S2;
+	Sat, 26 Apr 2025 15:16:08 +0800 (CST)
+From: Andy Yan <andyshrk@163.com>
+To: heiko@sntech.de
+Cc: krzk+dt@kernel.org,
+	robh@kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	inux-rockchip@lists.infradead.org,
+	Andy Yan <andyshrk@163.com>
+Subject: [PATCH 1/2] arm64: dts: rockchip: Add eDP1 dt node for rk3588
+Date: Sat, 26 Apr 2025 15:15:40 +0800
+Message-ID: <20250426071554.1305042-1-andyshrk@163.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250425124755.166193-4-fabrice.gasnier@foss.st.com>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wD3H1s0iAxo+8N6Cg--.20762S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7uw4Utr4DJFWrCr45CFWDCFg_yoW8Gr1Up3
+	ZrCFZxWryxu3WIqwsxtw1kXrZ0yanYka98Aw1fGF1Utr4Sqry2kr9xWrs3G34Ygr47Xa12
+	9FsrtryUKr12yaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zE_HUQUUUUU=
+X-Originating-IP: [58.22.7.114]
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0hY7XmgMhFFxrwAAsO
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250426_000146_965665_DBCE8061 
-X-CRM114-Status: GOOD (  15.42  )
+X-CRM114-CacheID: sfid-20250426_081642_267140_0AB3FEE5 
+X-CRM114-Status: UNSURE (   7.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,89 +91,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fabrice,
+Add eDP1 dt node for RK3588 SoC
 
-kernel test robot noticed the following build warnings:
+Signed-off-by: Andy Yan <andyshrk@163.com>
+---
 
-[auto build test WARNING on lee-mfd/for-mfd-next]
-[also build test WARNING on lee-leds/for-leds-next linus/master v6.15-rc3 next-20250424]
-[cannot apply to atorgue-stm32/stm32-next lee-mfd/for-mfd-fixes]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+ .../arm64/boot/dts/rockchip/rk3588-extra.dtsi | 28 +++++++++++++++++++
+ 1 file changed, 28 insertions(+)
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Fabrice-Gasnier/dt-bindings-mfd-stm32-lptimer-add-support-for-stm32mp25/20250425-210409
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/lee/mfd.git for-mfd-next
-patch link:    https://lore.kernel.org/r/20250425124755.166193-4-fabrice.gasnier%40foss.st.com
-patch subject: [PATCH v5 3/7] clocksource: stm32-lptimer: add support for stm32mp25
-config: arm-randconfig-003-20250426 (https://download.01.org/0day-ci/archive/20250426/202504261456.aCATBoYN-lkp@intel.com/config)
-compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project f819f46284f2a79790038e1f6649172789734ae8)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250426/202504261456.aCATBoYN-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202504261456.aCATBoYN-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> drivers/clocksource/timer-stm32-lp.c:57:6: warning: logical not is only applied to the left hand side of this bitwise operator [-Wlogical-not-parentheses]
-      57 |         if (!val & STM32_LPTIM_ENABLE) {
-         |             ^    ~
-   drivers/clocksource/timer-stm32-lp.c:57:6: note: add parentheses after the '!' to evaluate the bitwise operator first
-      57 |         if (!val & STM32_LPTIM_ENABLE) {
-         |             ^                        
-         |              (                       )
-   drivers/clocksource/timer-stm32-lp.c:57:6: note: add parentheses around left hand side expression to silence this warning
-      57 |         if (!val & STM32_LPTIM_ENABLE) {
-         |             ^
-         |             (   )
-   1 warning generated.
-
-
-vim +57 drivers/clocksource/timer-stm32-lp.c
-
-    50	
-    51	static int stm32mp25_clkevent_lp_set_evt(struct stm32_lp_private *priv, unsigned long evt)
-    52	{
-    53		int ret;
-    54		u32 val;
-    55	
-    56		regmap_read(priv->reg, STM32_LPTIM_CR, &val);
-  > 57		if (!val & STM32_LPTIM_ENABLE) {
-    58			/* Enable LPTIMER to be able to write into IER and ARR registers */
-    59			regmap_write(priv->reg, STM32_LPTIM_CR, STM32_LPTIM_ENABLE);
-    60			/*
-    61			 * After setting the ENABLE bit, a delay of two counter clock cycles is needed
-    62			 * before the LPTIM is actually enabled. For 32KHz rate, this makes approximately
-    63			 * 62.5 micro-seconds, round it up.
-    64			 */
-    65			udelay(63);
-    66		}
-    67		/* set next event counter */
-    68		regmap_write(priv->reg, STM32_LPTIM_ARR, evt);
-    69		/* enable ARR interrupt */
-    70		regmap_write(priv->reg, STM32_LPTIM_IER, STM32_LPTIM_ARRMIE);
-    71	
-    72		/* Poll DIEROK and ARROK to ensure register access has completed */
-    73		ret = regmap_read_poll_timeout_atomic(priv->reg, STM32_LPTIM_ISR, val,
-    74						      (val & STM32_LPTIM_DIEROK_ARROK) ==
-    75						      STM32_LPTIM_DIEROK_ARROK,
-    76						      10, 500);
-    77		if (ret) {
-    78			dev_err(priv->dev, "access to LPTIM timed out\n");
-    79			/* Disable LPTIMER */
-    80			regmap_write(priv->reg, STM32_LPTIM_CR, 0);
-    81			return ret;
-    82		}
-    83		/* Clear DIEROK and ARROK flags */
-    84		regmap_write(priv->reg, STM32_LPTIM_ICR, STM32_LPTIM_DIEROKCF_ARROKCF);
-    85	
-    86		return 0;
-    87	}
-    88	
-
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
+index 099edb3fd0f6..9d81d3b9444e 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi
+@@ -252,6 +252,34 @@ hdmi1_out: port@1 {
+ 		};
+ 	};
+ 
++	edp1: edp@fded0000 {
++		compatible = "rockchip,rk3588-edp";
++		reg = <0x0 0xfded0000 0x0 0x1000>;
++		clocks = <&cru CLK_EDP1_24M>, <&cru PCLK_EDP1>, <&cru CLK_EDP1_200M>;
++		clock-names = "dp", "pclk", "spdif";
++		interrupts = <GIC_SPI 164 IRQ_TYPE_LEVEL_HIGH 0>;
++		phys = <&hdptxphy1>;
++		phy-names = "dp";
++		power-domains = <&power RK3588_PD_VO1>;
++		resets = <&cru SRST_EDP1_24M>, <&cru SRST_P_EDP1>;
++		reset-names = "dp", "apb";
++		rockchip,grf = <&vo1_grf>;
++		status = "disabled";
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			edp1_in: port@0 {
++				reg = <0>;
++			};
++
++			edp1_out: port@1 {
++				reg = <1>;
++			};
++		};
++	};
++
+ 	hdmi_receiver: hdmi_receiver@fdee0000 {
+ 		compatible = "rockchip,rk3588-hdmirx-ctrler", "snps,dw-hdmi-rx";
+ 		reg = <0x0 0xfdee0000 0x0 0x6000>;
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.43.0
+
 
