@@ -4,60 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 105DEC369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 01:38:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76CAAC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 02:15:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0cy57ya/GMRkoNPQ27o02jqVC0oevcgJ37yw2d20zGA=; b=H9ehfJsXwPhyXIwx4OsObdksxI
-	iX30gDk820qnQ7rtPZo298J17QkSlb6MzRZq126XVuo8z77HUivx9G3Q1HavACFZuJnfaQlE12Oye
-	jUlukV6noBxQkFziwzdfxzeXS06QOXAbySlAHLOcxfin13pdBYC+9IExiFTeBJ94XUGs0Si/AkHnf
-	U8EuXCtlQoTNJ99FzBUmDgmMmGUnNjc7kLRO1yPju47uAi8pzBlD4RQdVOlL+fizOLwxE30EDsixz
-	QLjQVzJRAd7r2aY0ADVXHjuCcHFNDrnz/uHhT2WQYTBYtYloNp+cwMfQcu/3BL9zjZGT8UPpmIJjN
-	IHu/roWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VwE+FP6VudviHR4DD+imSE1cBd1GwbqzddecLUlb4/o=; b=LPgLzkk/Fypfa31QdlNeRpfchQ
+	bQJk+0Mm6JCgpRBfU4oNlKfsYTnRQWOwHwM4bpTHA0lggNcnrxJrRtkHXTRj7dY9TcsIloxSyMVZ2
+	ym/B82AQFE8+/OuMPaXytGP7c94iaa+vFqq1ZwPKPJAt/xCTB+5Sv6sUf5IOQ6hd1fpOh/T6ljI24
+	AUbj6rnD7gr94dYccAUhGWV6NxOfEzXbbQPgRyDWogr/MVmPRNv/2nqhbgqniy5B1xGa87C4IR9Zu
+	Ip+oBKZrDnzIrBjkOUaI6Q8Sy43f67fF7Va/9dbV9NTRrj5rVmdU42N/Dcf92pNT3BnBqwOZk23XJ
+	cBr6HZKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8UUy-00000001GVp-0qFA;
-	Sat, 26 Apr 2025 01:38:32 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1u8V4S-00000001IpC-34zr;
+	Sat, 26 Apr 2025 02:15:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8UT5-00000001GMV-17k5;
-	Sat, 26 Apr 2025 01:36:36 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.98.2)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1u8UNB-000000007iz-3kmJ;
-	Sat, 26 Apr 2025 01:36:25 +0000
-Date: Sat, 26 Apr 2025 02:36:22 +0100
-From: Daniel Golle <daniel@makrotopia.org>
-To: Chad Monroe <chad@monroe.io>, Felix Fietkau <nbd@nbd.name>,
-	Bc-Bocun Chen <bc-bocun.chen@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net] net: ethernet: mtk_eth_soc: fix SER panic with 4GB+
- RAM
-Message-ID: <aAw4lsGc_5HwBeiK@makrotopia.org>
-References: <995df78417d6f117062d1d7ef63228426b97a26e.1745630570.git.daniel@makrotopia.org>
+	id 1u8V2b-00000001IfS-3VwR;
+	Sat, 26 Apr 2025 02:13:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5F72861127;
+	Sat, 26 Apr 2025 02:12:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1667AC4CEE4;
+	Sat, 26 Apr 2025 02:13:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745633594;
+	bh=CZWHyrSRI9rXVWjIfZhJMz/8qMBovApYmofIr02qYqc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ihFHd1dpkRKkjIbze4T1hv+T18Nf9KFeghaGyUMZCpU7f7WKRL6++Fig2DqIke+bG
+	 LujSGPHQiWXmVCH3ySideOWtYonDKfE7bfckOZPVoKofWqZizYhpKDxPimyXDSO986
+	 ACyfYdbA2LoD2qiLEp2AEGse5ZNuT2ozeCrpBB7F7idY7PLeRX11aAcQtBC/9vucuS
+	 kWQqJpTCDBzvleYUdng9gDyEYqHhno8BXg6erh3y+qS0XGOsxvzUR2t5jQ4vcJ90yX
+	 QnpeEqBY/CkdgFgkTR8op9wItIWHU+9sfsjAMulC8MRmTbxLY1SexJi020RkHjPWMC
+	 iqU08BtkrtplA==
+Date: Fri, 25 Apr 2025 19:13:13 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, Felix Fietkau
+ <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, Lorenzo Bianconi
+ <lorenzo@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
+ Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo
+ Abeni <pabeni@redhat.com>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Biao
+ Huang <biao.huang@mediatek.com>, Yinghua Pan <ot_yinghua.pan@mediatek.com>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, kernel@collabora.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net v2 2/2] net: ethernet: mtk-star-emac: rearm
+ interrupts in rx_poll only when advised
+Message-ID: <20250425191313.3692348b@kernel.org>
+In-Reply-To: <20250424111623.706c1acc@device-40.home>
+References: <20250424-mtk_star_emac-fix-spinlock-recursion-issue-v2-0-f3fde2e529d8@collabora.com>
+	<20250424-mtk_star_emac-fix-spinlock-recursion-issue-v2-2-f3fde2e529d8@collabora.com>
+	<20250424111623.706c1acc@device-40.home>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <995df78417d6f117062d1d7ef63228426b97a26e.1745630570.git.daniel@makrotopia.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_183635_302338_8E1BA1DA 
-X-CRM114-Status: GOOD (  19.73  )
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,56 +78,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Apr 26, 2025 at 02:25:23AM +0100, Daniel Golle wrote:
-> From: Chad Monroe <chad@monroe.io>
+On Thu, 24 Apr 2025 11:16:23 +0200 Maxime Chevallier wrote:
+> > In mtk_star_rx_poll function, on event processing completion, the
+> > mtk_star_emac driver calls napi_complete_done but ignores its return
+> > code and enable RX DMA interrupts inconditionally. This return code
+> > gives the info if a device should avoid rearming its interrupts or not,
+> > so fix this behaviour by taking it into account.
+> > 
+> > Fixes: 8c7bd5a454ff ("net: ethernet: mtk-star-emac: new driver")
+> > Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>  
 > 
-> If the mtk_poll_rx() function detects the MTK_RESETTING flag, it will
-> jump to release_desc and refill the high word of the SDP on the 4GB RFB.
-> Subsequently, mtk_rx_clean will process an incorrect SDP, leading to a
-> panic.
+> I'm unsure wether this counts as a bugfix, as no bug was
+> seen, and there are quite a few divers that already ignore the return
+> from napi_complete_done().
 > 
-> Add patch from Mediatek SDK to resolve this.
-> 
-> Fixes: 2d75891ebc09 ("net: ethernet: mtk_eth_soc: support 36-bit DMA addressing on MT7988")
-> Link: https://git01.mediatek.com/plugins/gitiles/openwrt/feeds/mtk-openwrt-feeds/+/11857ce2f90bf065b5e53211d182622d999a4542
+> I don't think the patch is wrong, but maybe it should be sent to
+> net-next :/
 
-The above link has to be replaced by
-Link: https://git01.mediatek.com/plugins/gitiles/openwrt/feeds/mtk-openwrt-feeds/+/71f47ea785699c6aa3b922d66c2bdc1a43da25b1
-
-> Signed-off-by: Chad Monroe <chad@monroe.io>
-> ---
->  drivers/net/ethernet/mediatek/mtk_eth_soc.c | 13 ++++++++-----
->  1 file changed, 8 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-> index 47807b202310..7bac5ccfb79c 100644
-> --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-> +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-> @@ -2252,14 +2252,17 @@ static int mtk_poll_rx(struct napi_struct *napi, int budget,
->  		ring->data[idx] = new_data;
->  		rxd->rxd1 = (unsigned int)dma_addr;
->  release_desc:
-> +		if (MTK_HAS_CAPS(eth->soc->caps, MTK_36BIT_DMA)) {
-> +			if (unlikely(dma_addr == DMA_MAPPING_ERROR))
-> +				addr64 = FIELD_GET(RX_DMA_ADDR64_MASK, rxd->rxd2);
-> +			else
-> +				addr64 = RX_DMA_PREP_ADDR64(dma_addr);
-> +		}
-> +
->  		if (MTK_HAS_CAPS(eth->soc->caps, MTK_SOC_MT7628))
->  			rxd->rxd2 = RX_DMA_LSO;
->  		else
-> -			rxd->rxd2 = RX_DMA_PREP_PLEN0(ring->buf_size);
-> -
-> -		if (MTK_HAS_CAPS(eth->soc->caps, MTK_36BIT_DMA) &&
-> -		    likely(dma_addr != DMA_MAPPING_ERROR))
-> -			rxd->rxd2 |= RX_DMA_PREP_ADDR64(dma_addr);
-> +			rxd->rxd2 = RX_DMA_PREP_PLEN0(ring->buf_size) | addr64;
->  
->  		ring->calc_idx = idx;
->  		done++;
-> -- 
-> 2.49.0
-> 
-> 
+Agreed, probably the only case where it would matter would be busy
+polling. But it's trivial and looks correct, so probably not worth 
+the respin
 
