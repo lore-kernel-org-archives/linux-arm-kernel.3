@@ -4,73 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85BF2C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 08:22:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70048C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 08:22:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QUmW/UxxLiRthI3rc4btwWDIo6V+L0AVY/1vBn7MiLA=; b=czWdHnkggkyfDwUxZsz/ED5FO8
-	Wk7uwf5fN7AUZagqFK6b9/Eb72ONNSgbFtxgYNnAIP0TC18jrsIB5PR1547kTNvfK0zeO929tI7Xs
-	A2Tcd48HH59L44nZBflncY4cd3A+MoaFbK1yOEmFMDZaToMfbgBQjmDQPdtkFgdMAWHfaEMeXzQlD
-	oEchQ8nMSnEz8fNkhCdCUuw9FyIN1oC66ZTv/qdyA/xZ9McZL2xEKLxXiNPxCZZEzoil/7b8fiKPY
-	T2t61BWrKDtUlQBBsolPbi7z2O6oIp0WvfF9vwtC62NQqe4Z/SwjVQ/T+ecIVglgG0a7wXnYv+w8y
-	BgYts6bg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wn9BjgkE2+3mBCEiin0rtZNfMaiiTypr9lnO+2M+sxw=; b=QKGDO11ZfAtwU+zrstjWciNuJZ
+	gckLsQQAUTcnop91NCz2jV5CET5l4ZhovtcfTwZ9cdmro36mnOpPzKKdUzsVpmuvqjSvw4YUqrxgM
+	KfQDPScQ6MHpbG4XE4uLv58w0Yohl5N9YcI4RG5suG4PVyzIqWI9H00vzZmBYRzZQz+OXXdDGJUCt
+	ScyhbvjaK9uwzpoqEVw+qL0HBT6j5iksVww/LxHQYagAcviUOCpcY3eNOUo83Fd8f8AD7V9aceZrh
+	bfOMj6JTDMEJ6PXKGTkgVoiPtQotRee2qsRnbSYSIsbJVwvNnOpcqVaPnx3g56IvG16C7yDtxHAH4
+	gtFFZ1zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8anz-00000001il8-2YJZ;
-	Sat, 26 Apr 2025 08:22:35 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1u8ao2-00000001ilc-0qgp;
+	Sat, 26 Apr 2025 08:22:38 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8am6-00000001iXB-2Kgw;
-	Sat, 26 Apr 2025 08:20:39 +0000
-X-UUID: 51f8c690227711f0a2405d5ef59ce188-20250426
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=QUmW/UxxLiRthI3rc4btwWDIo6V+L0AVY/1vBn7MiLA=;
-	b=riU3YVVchC+JDvnHU401sXW69UvXvcJkdfLjR5UVvIRWPjOnhOsrn8p/VMQNtuHR3JH3jVUG1WpYjVubUpAyl8f+4VstS1GYLJDxsorFD7w29VwISGo9G3OjdrG3H4x4R/fOhr/Kn9KM92BF+DiAJSP9QgqVkwKCII+OIsCFN3g=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:4635f21c-0015-482d-b23c-6c4a0115ef3c,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:414d1107-829c-41bc-b3dd-83387f72f90e,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
-	l,URL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
-	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-UUID: 51f8c690227711f0a2405d5ef59ce188-20250426
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw02.mediatek.com
-	(envelope-from <jianhua.lin@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1726132743; Sat, 26 Apr 2025 01:20:32 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Sat, 26 Apr 2025 16:20:29 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Sat, 26 Apr 2025 16:20:28 +0800
-From: Jianhua Lin <jianhua.lin@mediatek.com>
-To: <mchehab@kernel.org>, <matthias.bgg@gmail.com>,
-	<angelogioacchino.delregno@collabora.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Jianhua Lin
-	<jianhua.lin@mediatek.com>
-Subject: [PATCH 1/1] media: mediatek: jpeg: add compatible for MT8188 SoC
-Date: Sat, 26 Apr 2025 16:19:28 +0800
-Message-ID: <20250426081928.27351-1-jianhua.lin@mediatek.com>
-X-Mailer: git-send-email 2.46.0
+	id 1u8ZO6-00000001aec-40OS;
+	Sat, 26 Apr 2025 06:51:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3E074A4BC5F;
+	Sat, 26 Apr 2025 06:46:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D10DC4CEEE;
+	Sat, 26 Apr 2025 06:51:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745650305;
+	bh=nXzVAsBZCcgzdRMgpyZqkLVLDfQ1jazwy8tBAdc6LUA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Oq8ssxQ2GMaLbsEayviAIoUFEUGfQTZgnJtQuqcFykH5letAis0NfyzrSfsDuCSzo
+	 3mjZPq2Rg/VizvELuxhjNjHoKOZvJtjb1PIujZYuKSFuKStz3U0MPdqHOwbbQREGQ9
+	 RKBtmb4JrJv4gbuQzfPxyw4cFZz9wDYz+hnL7WN1vs4zNd/n1BYh4YpwtmxkIqHhVO
+	 ae99PXdIm5XQN9iaiar/CL1gYBEuX7tFehMVv2p7F2QMEAy0VCg9iI/QThbYJRjWoZ
+	 wyJbqbe5imZKLIKNTFpqetItMSvvRIFT20nKYXB5P/2frtOW8Llhw0sPKFzR5Rbtx1
+	 ulF6OeRhV8H7Q==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	sparclinux@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	x86@kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld " <Jason@zx2c4.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: [PATCH 12/13] crypto: sha256 - remove sha256_base.h
+Date: Fri, 25 Apr 2025 23:50:38 -0700
+Message-ID: <20250426065041.1551914-13-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250426065041.1551914-1-ebiggers@kernel.org>
+References: <20250426065041.1551914-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250426_012038_601618_5D71875F 
-X-CRM114-Status: UNSURE (   9.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250425_235147_130592_C366414D 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,88 +80,206 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add jpeg decoder and encoder compatible for MediaTek MT8188 SoC,
-and enable support_34bit.
+From: Eric Biggers <ebiggers@google.com>
 
-Signed-off-by: Jianhua Lin <jianhua.lin@mediatek.com>
+sha256_base.h is no longer used, so remove it.
+
+Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
-This series patches dependent on:
-[1]
-https://patchwork.linuxtv.org/project/linux-media/patch/20250424090824.5309-1-jianhua.lin@mediatek.com/
+ include/crypto/sha256_base.h | 183 -----------------------------------
+ 1 file changed, 183 deletions(-)
+ delete mode 100644 include/crypto/sha256_base.h
 
- .../platform/mediatek/jpeg/mtk_jpeg_core.c    | 44 +++++++++++++++++++
- 1 file changed, 44 insertions(+)
-
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-index 23692cd91e2c..0ed1c352bc0f 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-@@ -1869,6 +1869,10 @@ static struct clk_bulk_data mtk_jpeg_clocks[] = {
- 	{ .id = "jpgenc" },
- };
- 
-+static struct clk_bulk_data mtk_jpeg_dec_clocks[] = {
-+	{ .id = "jpgdec" },
-+};
-+
- static struct clk_bulk_data mt8173_jpeg_dec_clocks[] = {
- 	{ .id = "jpgdec-smi" },
- 	{ .id = "jpgdec" },
-@@ -1931,6 +1935,38 @@ static const struct mtk_jpeg_variant mtk8195_jpegdec_drvdata = {
- 	.jpeg_worker = mtk_jpegdec_worker,
- };
- 
-+static const struct mtk_jpeg_variant mtk8188_jpegenc_drvdata = {
-+	.clks = mtk_jpeg_clocks,
-+	.num_clks = ARRAY_SIZE(mtk_jpeg_clocks),
-+	.formats = mtk_jpeg_enc_formats,
-+	.num_formats = MTK_JPEG_ENC_NUM_FORMATS,
-+	.qops = &mtk_jpeg_enc_qops,
-+	.irq_handler = mtk_jpeg_enc_irq,
-+	.hw_reset = mtk_jpeg_enc_reset,
-+	.m2m_ops = &mtk_jpeg_enc_m2m_ops,
-+	.dev_name = "mtk-jpeg-enc",
-+	.ioctl_ops = &mtk_jpeg_enc_ioctl_ops,
-+	.out_q_default_fourcc = V4L2_PIX_FMT_YUYV,
-+	.cap_q_default_fourcc = V4L2_PIX_FMT_JPEG,
-+	.support_34bit = true,
-+};
-+
-+static const struct mtk_jpeg_variant mtk8188_jpegdec_drvdata = {
-+	.clks = mtk_jpeg_dec_clocks,
-+	.num_clks = ARRAY_SIZE(mtk_jpeg_dec_clocks),
-+	.formats = mtk_jpeg_dec_formats,
-+	.num_formats = MTK_JPEG_DEC_NUM_FORMATS,
-+	.qops = &mtk_jpeg_dec_qops,
-+	.irq_handler = mtk_jpeg_dec_irq,
-+	.hw_reset = mtk_jpeg_dec_reset,
-+	.m2m_ops = &mtk_jpeg_dec_m2m_ops,
-+	.dev_name = "mtk-jpeg-dec",
-+	.ioctl_ops = &mtk_jpeg_dec_ioctl_ops,
-+	.out_q_default_fourcc = V4L2_PIX_FMT_JPEG,
-+	.cap_q_default_fourcc = V4L2_PIX_FMT_YUV420M,
-+	.support_34bit = true,
-+};
-+
- static const struct of_device_id mtk_jpeg_match[] = {
- 	{
- 		.compatible = "mediatek,mt8173-jpgdec",
-@@ -1952,6 +1988,14 @@ static const struct of_device_id mtk_jpeg_match[] = {
- 		.compatible = "mediatek,mt8195-jpgdec",
- 		.data = &mtk8195_jpegdec_drvdata,
- 	},
-+	{
-+		.compatible = "mediatek,mt8188-jpgenc",
-+		.data = &mtk8188_jpegenc_drvdata,
-+	},
-+	{
-+		.compatible = "mediatek,mt8188-jpgdec",
-+		.data = &mtk8188_jpegdec_drvdata,
-+	},
- 	{},
- };
- 
+diff --git a/include/crypto/sha256_base.h b/include/crypto/sha256_base.h
+deleted file mode 100644
+index 6878fb9c26c04..0000000000000
+--- a/include/crypto/sha256_base.h
++++ /dev/null
+@@ -1,183 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0-only */
+-/*
+- * sha256_base.h - core logic for SHA-256 implementations
+- *
+- * Copyright (C) 2015 Linaro Ltd <ard.biesheuvel@linaro.org>
+- */
+-
+-#ifndef _CRYPTO_SHA256_BASE_H
+-#define _CRYPTO_SHA256_BASE_H
+-
+-#include <crypto/internal/hash.h>
+-#include <crypto/internal/sha2.h>
+-#include <linux/math.h>
+-#include <linux/string.h>
+-#include <linux/types.h>
+-#include <linux/unaligned.h>
+-
+-typedef void (sha256_block_fn)(struct crypto_sha256_state *sst, u8 const *src,
+-			       int blocks);
+-
+-static inline int sha224_base_init(struct shash_desc *desc)
+-{
+-	struct sha256_state *sctx = shash_desc_ctx(desc);
+-
+-	sha224_init(sctx);
+-	return 0;
+-}
+-
+-static inline int sha256_base_init(struct shash_desc *desc)
+-{
+-	struct sha256_state *sctx = shash_desc_ctx(desc);
+-
+-	sha256_init(sctx);
+-	return 0;
+-}
+-
+-static inline int lib_sha256_base_do_update(struct sha256_state *sctx,
+-					    const u8 *data,
+-					    unsigned int len,
+-					    sha256_block_fn *block_fn)
+-{
+-	unsigned int partial = sctx->count % SHA256_BLOCK_SIZE;
+-	struct crypto_sha256_state *state = (void *)sctx;
+-
+-	sctx->count += len;
+-
+-	if (unlikely((partial + len) >= SHA256_BLOCK_SIZE)) {
+-		int blocks;
+-
+-		if (partial) {
+-			int p = SHA256_BLOCK_SIZE - partial;
+-
+-			memcpy(sctx->buf + partial, data, p);
+-			data += p;
+-			len -= p;
+-
+-			block_fn(state, sctx->buf, 1);
+-		}
+-
+-		blocks = len / SHA256_BLOCK_SIZE;
+-		len %= SHA256_BLOCK_SIZE;
+-
+-		if (blocks) {
+-			block_fn(state, data, blocks);
+-			data += blocks * SHA256_BLOCK_SIZE;
+-		}
+-		partial = 0;
+-	}
+-	if (len)
+-		memcpy(sctx->buf + partial, data, len);
+-
+-	return 0;
+-}
+-
+-static inline int lib_sha256_base_do_update_blocks(
+-	struct crypto_sha256_state *sctx, const u8 *data, unsigned int len,
+-	sha256_block_fn *block_fn)
+-{
+-	unsigned int remain = len - round_down(len, SHA256_BLOCK_SIZE);
+-
+-	sctx->count += len - remain;
+-	block_fn(sctx, data, len / SHA256_BLOCK_SIZE);
+-	return remain;
+-}
+-
+-static inline int sha256_base_do_update_blocks(
+-	struct shash_desc *desc, const u8 *data, unsigned int len,
+-	sha256_block_fn *block_fn)
+-{
+-	return lib_sha256_base_do_update_blocks(shash_desc_ctx(desc), data,
+-						len, block_fn);
+-}
+-
+-static inline int lib_sha256_base_do_finup(struct crypto_sha256_state *sctx,
+-					   const u8 *src, unsigned int len,
+-					   sha256_block_fn *block_fn)
+-{
+-	unsigned int bit_offset = SHA256_BLOCK_SIZE / 8 - 1;
+-	union {
+-		__be64 b64[SHA256_BLOCK_SIZE / 4];
+-		u8 u8[SHA256_BLOCK_SIZE * 2];
+-	} block = {};
+-
+-	if (len >= bit_offset * 8)
+-		bit_offset += SHA256_BLOCK_SIZE / 8;
+-	memcpy(&block, src, len);
+-	block.u8[len] = 0x80;
+-	sctx->count += len;
+-	block.b64[bit_offset] = cpu_to_be64(sctx->count << 3);
+-	block_fn(sctx, block.u8, (bit_offset + 1) * 8 / SHA256_BLOCK_SIZE);
+-	memzero_explicit(&block, sizeof(block));
+-
+-	return 0;
+-}
+-
+-static inline int sha256_base_do_finup(struct shash_desc *desc,
+-				       const u8 *src, unsigned int len,
+-				       sha256_block_fn *block_fn)
+-{
+-	struct crypto_sha256_state *sctx = shash_desc_ctx(desc);
+-
+-	if (len >= SHA256_BLOCK_SIZE) {
+-		int remain;
+-
+-		remain = lib_sha256_base_do_update_blocks(sctx, src, len,
+-							  block_fn);
+-		src += len - remain;
+-		len = remain;
+-	}
+-	return lib_sha256_base_do_finup(sctx, src, len, block_fn);
+-}
+-
+-static inline int lib_sha256_base_do_finalize(struct sha256_state *sctx,
+-					      sha256_block_fn *block_fn)
+-{
+-	unsigned int partial = sctx->count % SHA256_BLOCK_SIZE;
+-	struct crypto_sha256_state *state = (void *)sctx;
+-
+-	sctx->count -= partial;
+-	return lib_sha256_base_do_finup(state, sctx->buf, partial, block_fn);
+-}
+-
+-static inline int sha256_base_do_finalize(struct shash_desc *desc,
+-					  sha256_block_fn *block_fn)
+-{
+-	struct sha256_state *sctx = shash_desc_ctx(desc);
+-
+-	return lib_sha256_base_do_finalize(sctx, block_fn);
+-}
+-
+-static inline int __sha256_base_finish(u32 state[SHA256_DIGEST_SIZE / 4],
+-				       u8 *out, unsigned int digest_size)
+-{
+-	__be32 *digest = (__be32 *)out;
+-	int i;
+-
+-	for (i = 0; digest_size > 0; i++, digest_size -= sizeof(__be32))
+-		put_unaligned_be32(state[i], digest++);
+-	return 0;
+-}
+-
+-static inline void lib_sha256_base_finish(struct sha256_state *sctx, u8 *out,
+-					  unsigned int digest_size)
+-{
+-	__sha256_base_finish(sctx->state, out, digest_size);
+-	memzero_explicit(sctx, sizeof(*sctx));
+-}
+-
+-static inline int sha256_base_finish(struct shash_desc *desc, u8 *out)
+-{
+-	unsigned int digest_size = crypto_shash_digestsize(desc->tfm);
+-	struct crypto_sha256_state *sctx = shash_desc_ctx(desc);
+-
+-	return __sha256_base_finish(sctx->state, out, digest_size);
+-}
+-
+-static inline void sha256_transform_blocks(struct crypto_sha256_state *sst,
+-					   const u8 *input, int blocks)
+-{
+-	sha256_blocks_generic(sst->state, input, blocks);
+-}
+-
+-#endif /* _CRYPTO_SHA256_BASE_H */
 -- 
-2.46.0
+2.49.0
 
 
