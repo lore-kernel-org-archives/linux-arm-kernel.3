@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DD2EC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 12:48:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B1F7C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 12:50:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q+NLk2//QSUgOHocmfFkW7P3znS6Tch7ChDsEmu5VEE=; b=2KPrXgkbEfbp1j6i93bQKXFqaz
-	kaBO2BSV0sh2xOddtAUFk3c9EKPggXevf4StZMiywI7hjY8AYyVMEfwl5JIHC+Q1aGsgLgOIq5c3p
-	nKrtUEq/IHlUL37NoHJ3WvBzXayASKUqVQjzuT+gj2dUhS+2iL9WCNTf79KCiz8aBsR+GIYSSEu73
-	QAYEkmc1zsKXZulfF1QHEI2CGQUXsqEUyj9q2zKJM0fZimaqrL7b4uNrF+d9oPOv0t6uwns8Aiihk
-	ahMpjk84iW+4gzZfrBkqdJ1f5cKUYHvQ6z2hqfY9EbgzL6YtAtuM2HUAM68szPV5KYG/rBaLNd4pe
-	iULypQ7w==;
+	bh=zRGbR1OHd0d2X8SZfvxsv6v1zI2FWugdielzphcA86w=; b=JWWVwpCCuqPYXNLQ6lMhWzAt0e
+	lddbeDEN0pD3uCIpgyHvnM9stLwjiQsbk6Pq7ANg6kdG8UbLORsO79FJVCboUXY7ZUACbpMmkAtfM
+	EYoVZ64w8X52+g5zcKaDtwoBusvhNKgMR7940nIHjKKx1OIXynsJEpQEKf11xdj0Yup2Vh5YVi/xf
+	m3EE2cjPOkUiItG9PRydnC+fYpckIvcMpdGtdh0kvNctZF7JWOLM2LhZ1BEO6CiPvyWMl6eVWtV+o
+	vSdfKHCFl5Nq0cT/1wuQ/68yLQDTc4ba8HaAef+ov1Y3JwtVM7OpDteq9B47/yg4AzkvGSMGyvZK1
+	RG0hDZQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8ewn-000000021Y4-3AjI;
-	Sat, 26 Apr 2025 12:47:57 +0000
+	id 1u8eyd-000000021jf-1qJl;
+	Sat, 26 Apr 2025 12:49:51 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8eeL-00000001yzF-3DcK
+	id 1u8eeL-00000001yzN-3DrZ
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 26 Apr 2025 12:28:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 300244A699;
-	Sat, 26 Apr 2025 12:28:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE0F6C4CEEB;
-	Sat, 26 Apr 2025 12:28:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 789FD4A6BF;
+	Sat, 26 Apr 2025 12:28:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C061C4CEEB;
+	Sat, 26 Apr 2025 12:28:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745670530;
-	bh=S6y/jwXKNlY3uCyiaNQQUZMZr7n6P3IW6ql+XNmT1rA=;
+	s=k20201202; t=1745670533;
+	bh=9pgxiWCL9Lomr3yxaonxBwT8LnBlQFBPORiK3/1n6t8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qfstB2jUorc8E7k9/4nVc94DJIrEIjycMLs0NUIUNkyz3oY/kIWcqAlBOZLAZWQSQ
-	 b7uiKiVw02Q0Abd9kGxrIgkq+pwQwM1uaSzv2njPIkuinFW8hkRsK+1Z4d23S6GMj5
-	 r9aaE9xSfrh0Mmdii6g/btF/MJLnmxeGMRdADtoH1OVHf8rImAv6zUwzpWYactlz7+
-	 Vl9qtUCDb9M2FAbAyp2+i//+uXbLZGsKAB4ShdUS1+sXVPm/e5MkjVr4Xo8xxDwm3X
-	 lweoh13Kk5WYTsBW/GXNiPH2XGMqo41+CbMe7oSkGoLrSmp4ONmcBG0DPVFHi4BWHh
-	 tNRvgPu/Xh0CQ==
+	b=eAnRQXjS6kf99FFOouDPsD0Yjqc64sVm83Fpuxdsl1kucZwDObM3gi8ZRlG9NJ74p
+	 iCni4VXgsow+DrINrvVEpITtr56RKH2GYgzc6vAwLWMY6rWPIzVEgv7YRx684VyOK3
+	 mjic6d0MFJaEXzNOiQMKWo3hRmJEu2n9AjflhY/px7shlRBP8scDpybu0IyTW82ucg
+	 rXkJQMgH0GBsDrExGHItYboHc3oLmpV7yogQ/PwUZigTldvq6kCvnyd2ZeuIgt/gNv
+	 BqcC/NKIu85p1nc/KrNqRjxnDc5oFKV/SHKuPf2G5aANTZWo0D+ceirO8kuiqJrMsh
+	 x7EjY/MPborsQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1u8eeG-0092VH-Qv;
-	Sat, 26 Apr 2025 13:28:48 +0100
+	id 1u8eeJ-0092VH-1n;
+	Sat, 26 Apr 2025 13:28:51 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -60,9 +60,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Fuad Tabba <tabba@google.com>,
 	Will Deacon <will@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>
-Subject: [PATCH v3 03/42] arm64: sysreg: Add layout for HCR_EL2
-Date: Sat, 26 Apr 2025 13:27:57 +0100
-Message-Id: <20250426122836.3341523-4-maz@kernel.org>
+Subject: [PATCH v3 10/42] arm64: sysreg: Add system instructions trapped by HFGIRT2_EL2
+Date: Sat, 26 Apr 2025 13:28:04 +0100
+Message-Id: <20250426122836.3341523-11-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250426122836.3341523-1-maz@kernel.org>
 References: <20250426122836.3341523-1-maz@kernel.org>
@@ -73,8 +73,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250426_052853_854190_828A04F5 
-X-CRM114-Status: GOOD (  13.45  )
+X-CRM114-CacheID: sfid-20250426_052853_837772_2E97A3F6 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,234 +89,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add HCR_EL2 to the sysreg file, more or less directly generated
-from the JSON file.
-
-Since the generated names significantly differ from the existing
-naming, express the old names in terms of the new one. One day, we'll
-fix this mess, but I'm not in any hurry.
+Add the new CMOs trapped by HFGITR2_EL2.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/include/asm/kvm_arm.h | 125 ++++++++++++++++---------------
- arch/arm64/tools/sysreg          |  68 +++++++++++++++++
- 2 files changed, 132 insertions(+), 61 deletions(-)
+ arch/arm64/include/asm/sysreg.h | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
-index 974d72b5905b8..f36d067967c33 100644
---- a/arch/arm64/include/asm/kvm_arm.h
-+++ b/arch/arm64/include/asm/kvm_arm.h
-@@ -12,67 +12,70 @@
- #include <asm/sysreg.h>
- #include <asm/types.h>
+diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+index a943eac446938..8908eec48f313 100644
+--- a/arch/arm64/include/asm/sysreg.h
++++ b/arch/arm64/include/asm/sysreg.h
+@@ -117,6 +117,7 @@
  
--/* Hyp Configuration Register (HCR) bits */
--
--#define HCR_TID5	(UL(1) << 58)
--#define HCR_DCT		(UL(1) << 57)
--#define HCR_ATA_SHIFT	56
--#define HCR_ATA		(UL(1) << HCR_ATA_SHIFT)
--#define HCR_TTLBOS	(UL(1) << 55)
--#define HCR_TTLBIS	(UL(1) << 54)
--#define HCR_ENSCXT	(UL(1) << 53)
--#define HCR_TOCU	(UL(1) << 52)
--#define HCR_AMVOFFEN	(UL(1) << 51)
--#define HCR_TICAB	(UL(1) << 50)
--#define HCR_TID4	(UL(1) << 49)
--#define HCR_FIEN	(UL(1) << 47)
--#define HCR_FWB		(UL(1) << 46)
--#define HCR_NV2		(UL(1) << 45)
--#define HCR_AT		(UL(1) << 44)
--#define HCR_NV1		(UL(1) << 43)
--#define HCR_NV		(UL(1) << 42)
--#define HCR_API		(UL(1) << 41)
--#define HCR_APK		(UL(1) << 40)
--#define HCR_TEA		(UL(1) << 37)
--#define HCR_TERR	(UL(1) << 36)
--#define HCR_TLOR	(UL(1) << 35)
--#define HCR_E2H		(UL(1) << 34)
--#define HCR_ID		(UL(1) << 33)
--#define HCR_CD		(UL(1) << 32)
--#define HCR_RW_SHIFT	31
--#define HCR_RW		(UL(1) << HCR_RW_SHIFT)
--#define HCR_TRVM	(UL(1) << 30)
--#define HCR_HCD		(UL(1) << 29)
--#define HCR_TDZ		(UL(1) << 28)
--#define HCR_TGE		(UL(1) << 27)
--#define HCR_TVM		(UL(1) << 26)
--#define HCR_TTLB	(UL(1) << 25)
--#define HCR_TPU		(UL(1) << 24)
--#define HCR_TPC		(UL(1) << 23) /* HCR_TPCP if FEAT_DPB */
--#define HCR_TSW		(UL(1) << 22)
--#define HCR_TACR	(UL(1) << 21)
--#define HCR_TIDCP	(UL(1) << 20)
--#define HCR_TSC		(UL(1) << 19)
--#define HCR_TID3	(UL(1) << 18)
--#define HCR_TID2	(UL(1) << 17)
--#define HCR_TID1	(UL(1) << 16)
--#define HCR_TID0	(UL(1) << 15)
--#define HCR_TWE		(UL(1) << 14)
--#define HCR_TWI		(UL(1) << 13)
--#define HCR_DC		(UL(1) << 12)
--#define HCR_BSU		(3 << 10)
--#define HCR_BSU_IS	(UL(1) << 10)
--#define HCR_FB		(UL(1) << 9)
--#define HCR_VSE		(UL(1) << 8)
--#define HCR_VI		(UL(1) << 7)
--#define HCR_VF		(UL(1) << 6)
--#define HCR_AMO		(UL(1) << 5)
--#define HCR_IMO		(UL(1) << 4)
--#define HCR_FMO		(UL(1) << 3)
--#define HCR_PTW		(UL(1) << 2)
--#define HCR_SWIO	(UL(1) << 1)
--#define HCR_VM		(UL(1) << 0)
--#define HCR_RES0	((UL(1) << 48) | (UL(1) << 39))
-+/*
-+ * Because I'm terribly lazy and that repainting the whole of the KVM
-+ * code with the proper names is a pain, use a helper to map the names
-+ * inherited from AArch32 with the new fancy nomenclature. One day...
-+ */
-+#define	__HCR(x)	HCR_EL2_##x
+ #define SB_BARRIER_INSN			__SYS_BARRIER_INSN(0, 7, 31)
+ 
++/* Data cache zero operations */
+ #define SYS_DC_ISW			sys_insn(1, 0, 7, 6, 2)
+ #define SYS_DC_IGSW			sys_insn(1, 0, 7, 6, 4)
+ #define SYS_DC_IGDSW			sys_insn(1, 0, 7, 6, 6)
+@@ -153,11 +154,13 @@
+ #define SYS_DC_CIGVAC			sys_insn(1, 3, 7, 14, 3)
+ #define SYS_DC_CIGDVAC			sys_insn(1, 3, 7, 14, 5)
+ 
+-/* Data cache zero operations */
+ #define SYS_DC_ZVA			sys_insn(1, 3, 7, 4, 1)
+ #define SYS_DC_GVA			sys_insn(1, 3, 7, 4, 3)
+ #define SYS_DC_GZVA			sys_insn(1, 3, 7, 4, 4)
+ 
++#define SYS_DC_CIVAPS			sys_insn(1, 0, 7, 15, 1)
++#define SYS_DC_CIGDVAPS			sys_insn(1, 0, 7, 15, 5)
 +
-+#define HCR_TID5	__HCR(TID5)
-+#define HCR_DCT		__HCR(DCT)
-+#define HCR_ATA_SHIFT	__HCR(ATA_SHIFT)
-+#define HCR_ATA		__HCR(ATA)
-+#define HCR_TTLBOS	__HCR(TTLBOS)
-+#define HCR_TTLBIS	__HCR(TTLBIS)
-+#define HCR_ENSCXT	__HCR(EnSCXT)
-+#define HCR_TOCU	__HCR(TOCU)
-+#define HCR_AMVOFFEN	__HCR(AMVOFFEN)
-+#define HCR_TICAB	__HCR(TICAB)
-+#define HCR_TID4	__HCR(TID4)
-+#define HCR_FIEN	__HCR(FIEN)
-+#define HCR_FWB		__HCR(FWB)
-+#define HCR_NV2		__HCR(NV2)
-+#define HCR_AT		__HCR(AT)
-+#define HCR_NV1		__HCR(NV1)
-+#define HCR_NV		__HCR(NV)
-+#define HCR_API		__HCR(API)
-+#define HCR_APK		__HCR(APK)
-+#define HCR_TEA		__HCR(TEA)
-+#define HCR_TERR	__HCR(TERR)
-+#define HCR_TLOR	__HCR(TLOR)
-+#define HCR_E2H		__HCR(E2H)
-+#define HCR_ID		__HCR(ID)
-+#define HCR_CD		__HCR(CD)
-+#define HCR_RW		__HCR(RW)
-+#define HCR_TRVM	__HCR(TRVM)
-+#define HCR_HCD		__HCR(HCD)
-+#define HCR_TDZ		__HCR(TDZ)
-+#define HCR_TGE		__HCR(TGE)
-+#define HCR_TVM		__HCR(TVM)
-+#define HCR_TTLB	__HCR(TTLB)
-+#define HCR_TPU		__HCR(TPU)
-+#define HCR_TPC		__HCR(TPCP)
-+#define HCR_TSW		__HCR(TSW)
-+#define HCR_TACR	__HCR(TACR)
-+#define HCR_TIDCP	__HCR(TIDCP)
-+#define HCR_TSC		__HCR(TSC)
-+#define HCR_TID3	__HCR(TID3)
-+#define HCR_TID2	__HCR(TID2)
-+#define HCR_TID1	__HCR(TID1)
-+#define HCR_TID0	__HCR(TID0)
-+#define HCR_TWE		__HCR(TWE)
-+#define HCR_TWI		__HCR(TWI)
-+#define HCR_DC		__HCR(DC)
-+#define HCR_BSU		__HCR(BSU)
-+#define HCR_BSU_IS	__HCR(BSU_IS)
-+#define HCR_FB		__HCR(FB)
-+#define HCR_VSE		__HCR(VSE)
-+#define HCR_VI		__HCR(VI)
-+#define HCR_VF		__HCR(VF)
-+#define HCR_AMO		__HCR(AMO)
-+#define HCR_IMO		__HCR(IMO)
-+#define HCR_FMO		__HCR(FMO)
-+#define HCR_PTW		__HCR(PTW)
-+#define HCR_SWIO	__HCR(SWIO)
-+#define HCR_VM		__HCR(VM)
- 
  /*
-  * The bits we set in HCR:
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index fce8328c7c00b..7f39c8f7f036d 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -2531,6 +2531,74 @@ Field	1	AFSR1_EL1
- Field	0	AFSR0_EL1
- EndSysregFields
- 
-+Sysreg	HCR_EL2		3	4	1	1	0
-+Field	63:60	TWEDEL
-+Field	59	TWEDEn
-+Field	58	TID5
-+Field	57	DCT
-+Field	56	ATA
-+Field	55	TTLBOS
-+Field	54	TTLBIS
-+Field	53	EnSCXT
-+Field	52	TOCU
-+Field	51	AMVOFFEN
-+Field	50	TICAB
-+Field	49	TID4
-+Field	48	GPF
-+Field	47	FIEN
-+Field	46	FWB
-+Field	45	NV2
-+Field	44	AT
-+Field	43	NV1
-+Field	42	NV
-+Field	41	API
-+Field	40	APK
-+Field	39	TME
-+Field	38	MIOCNCE
-+Field	37	TEA
-+Field	36	TERR
-+Field	35	TLOR
-+Field	34	E2H
-+Field	33	ID
-+Field	32	CD
-+Field	31	RW
-+Field	30	TRVM
-+Field	29	HCD
-+Field	28	TDZ
-+Field	27	TGE
-+Field	26	TVM
-+Field	25	TTLB
-+Field	24	TPU
-+Field	23	TPCP
-+Field	22	TSW
-+Field	21	TACR
-+Field	20	TIDCP
-+Field	19	TSC
-+Field	18	TID3
-+Field	17	TID2
-+Field	16	TID1
-+Field	15	TID0
-+Field	14	TWE
-+Field	13	TWI
-+Field	12	DC
-+UnsignedEnum	11:10	BSU
-+	0b00	NONE
-+	0b01	IS
-+	0b10	OS
-+	0b11	FS
-+EndEnum
-+Field	9	FB
-+Field	8	VSE
-+Field	7	VI
-+Field	6	VF
-+Field	5	AMO
-+Field	4	IMO
-+Field	3	FMO
-+Field	2	PTW
-+Field	1	SWIO
-+Field	0	VM
-+EndSysreg
-+
- Sysreg MDCR_EL2		3	4	1	1	1
- Res0	63:51
- Field	50	EnSTEPOP
+  * Automatically generated definitions for system registers, the
+  * manual encodings below are in the process of being converted to
 -- 
 2.39.2
 
