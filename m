@@ -4,68 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E82A7C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 08:22:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85BF2C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 08:22:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aPe+Rg7WHMoAQoebqyD1uvu2R3d2LQH1qq+8QNTU8FY=; b=lZ68rvWigWLqzc0MEGeBSvWUtT
-	QZQkVo+Qi/yDuFgujTDIVSrb2KfLycVReKUfxscqQvXHHNqV23TXdl+fTyvn13cSs2FcrTtaEW/Cd
-	+gKMh7F9mNaGEhWhXqHQAAdgbMXkym70u9oyvTMEaj624jYKvRJCH39DmQCCl06Df8M1xh+4Nu6NQ
-	aTG3f3L3XXwafWwZZUnwwjxroX4FIal7m+MJ0+Vn4ngcbxxeIobvoac9JSUD6Vy2rVbn0/GQFaBU7
-	jAVUyxPi9F0PpGvjxwNw48p5g3krSfwhuvMrktZiB2bVM5pEktGl3/hyLDF5VextjTnloxjkMT51J
-	jm+gyiqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QUmW/UxxLiRthI3rc4btwWDIo6V+L0AVY/1vBn7MiLA=; b=czWdHnkggkyfDwUxZsz/ED5FO8
+	Wk7uwf5fN7AUZagqFK6b9/Eb72ONNSgbFtxgYNnAIP0TC18jrsIB5PR1547kTNvfK0zeO929tI7Xs
+	A2Tcd48HH59L44nZBflncY4cd3A+MoaFbK1yOEmFMDZaToMfbgBQjmDQPdtkFgdMAWHfaEMeXzQlD
+	oEchQ8nMSnEz8fNkhCdCUuw9FyIN1oC66ZTv/qdyA/xZ9McZL2xEKLxXiNPxCZZEzoil/7b8fiKPY
+	T2t61BWrKDtUlQBBsolPbi7z2O6oIp0WvfF9vwtC62NQqe4Z/SwjVQ/T+ecIVglgG0a7wXnYv+w8y
+	BgYts6bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8ao1-00000001ilE-0Utp;
-	Sat, 26 Apr 2025 08:22:37 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u8anz-00000001il8-2YJZ;
+	Sat, 26 Apr 2025 08:22:35 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8ZO4-00000001acf-2J7y;
-	Sat, 26 Apr 2025 06:51:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EFA065C2B3F;
-	Sat, 26 Apr 2025 06:49:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63090C4CEEF;
-	Sat, 26 Apr 2025 06:51:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745650303;
-	bh=fl9W9kw6x9BtAcwxv3i+lwM7Nx55GbUHoaN+qSOzLYc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ZOhqNi6jKvwE/bGNJHEEzumLVwD4vQ4MdZmRQyxWFjNVj9gLa8xf7HHYYcgDr8cNt
-	 ey2CgVy31XIuZz0sZl0MIsJtb4VpzZpe7TKsv2l02Z0rdslmGj42z+UEGiIecNVJjW
-	 okWg21t2PACCIz7mefRbEBpLp0d/oyIj02HKGE0uVlLc4JVscx7c4EHfk40T4zM90O
-	 JN72RyEDsNIivdlySFaoDmYdqTO1N/g2oLLJDqD0YkqdAJAkhkbM9r1dNO1j07ezMV
-	 D4f5Yww36zjfTz40EbVhi9CK3eVl5oPoXRJX9MruzTclUBWQQ6+TUBrwWqIKjUhuwN
-	 x7kRfImsZ0WDg==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	sparclinux@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	x86@kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld " <Jason@zx2c4.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: [PATCH 08/13] crypto: s390/sha256 - implement library instead of shash
-Date: Fri, 25 Apr 2025 23:50:34 -0700
-Message-ID: <20250426065041.1551914-9-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250426065041.1551914-1-ebiggers@kernel.org>
-References: <20250426065041.1551914-1-ebiggers@kernel.org>
+	id 1u8am6-00000001iXB-2Kgw;
+	Sat, 26 Apr 2025 08:20:39 +0000
+X-UUID: 51f8c690227711f0a2405d5ef59ce188-20250426
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=QUmW/UxxLiRthI3rc4btwWDIo6V+L0AVY/1vBn7MiLA=;
+	b=riU3YVVchC+JDvnHU401sXW69UvXvcJkdfLjR5UVvIRWPjOnhOsrn8p/VMQNtuHR3JH3jVUG1WpYjVubUpAyl8f+4VstS1GYLJDxsorFD7w29VwISGo9G3OjdrG3H4x4R/fOhr/Kn9KM92BF+DiAJSP9QgqVkwKCII+OIsCFN3g=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.1,REQID:4635f21c-0015-482d-b23c-6c4a0115ef3c,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:0ef645f,CLOUDID:414d1107-829c-41bc-b3dd-83387f72f90e,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
+	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-UUID: 51f8c690227711f0a2405d5ef59ce188-20250426
+Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw02.mediatek.com
+	(envelope-from <jianhua.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1726132743; Sat, 26 Apr 2025 01:20:32 -0700
+Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Sat, 26 Apr 2025 16:20:29 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Sat, 26 Apr 2025 16:20:28 +0800
+From: Jianhua Lin <jianhua.lin@mediatek.com>
+To: <mchehab@kernel.org>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Jianhua Lin
+	<jianhua.lin@mediatek.com>
+Subject: [PATCH 1/1] media: mediatek: jpeg: add compatible for MT8188 SoC
+Date: Sat, 26 Apr 2025 16:19:28 +0800
+Message-ID: <20250426081928.27351-1-jianhua.lin@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_235144_692127_D814F9C0 
-X-CRM114-Status: GOOD (  17.95  )
+X-CRM114-CacheID: sfid-20250426_012038_601618_5D71875F 
+X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,333 +85,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Eric Biggers <ebiggers@google.com>
+Add jpeg decoder and encoder compatible for MediaTek MT8188 SoC,
+and enable support_34bit.
 
-Instead of providing crypto_shash algorithms for the arch-optimized
-SHA-256 code, instead implement the SHA-256 library.  This is much
-simpler, it makes the SHA-256 library functions be arch-optimized, and
-it fixes the longstanding issue where the arch-optimized SHA-256 was
-disabled by default.  SHA-256 still remains available through
-crypto_shash, but individual architectures no longer need to handle it.
-
-Signed-off-by: Eric Biggers <ebiggers@google.com>
+Signed-off-by: Jianhua Lin <jianhua.lin@mediatek.com>
 ---
- arch/s390/configs/debug_defconfig |   1 -
- arch/s390/configs/defconfig       |   1 -
- arch/s390/crypto/Kconfig          |  10 ---
- arch/s390/crypto/Makefile         |   1 -
- arch/s390/crypto/sha256_s390.c    | 144 ------------------------------
- arch/s390/lib/crypto/Kconfig      |   6 ++
- arch/s390/lib/crypto/Makefile     |   2 +
- arch/s390/lib/crypto/sha256.c     |  47 ++++++++++
- 8 files changed, 55 insertions(+), 157 deletions(-)
- delete mode 100644 arch/s390/crypto/sha256_s390.c
- create mode 100644 arch/s390/lib/crypto/sha256.c
+This series patches dependent on:
+[1]
+https://patchwork.linuxtv.org/project/linux-media/patch/20250424090824.5309-1-jianhua.lin@mediatek.com/
 
-diff --git a/arch/s390/configs/debug_defconfig b/arch/s390/configs/debug_defconfig
-index 6f2c9ce1b1548..de69faa4d94f3 100644
---- a/arch/s390/configs/debug_defconfig
-+++ b/arch/s390/configs/debug_defconfig
-@@ -793,11 +793,10 @@ CONFIG_CRYPTO_USER_API_HASH=m
- CONFIG_CRYPTO_USER_API_SKCIPHER=m
- CONFIG_CRYPTO_USER_API_RNG=m
- CONFIG_CRYPTO_USER_API_AEAD=m
- CONFIG_CRYPTO_SHA512_S390=m
- CONFIG_CRYPTO_SHA1_S390=m
--CONFIG_CRYPTO_SHA256_S390=m
- CONFIG_CRYPTO_SHA3_256_S390=m
- CONFIG_CRYPTO_SHA3_512_S390=m
- CONFIG_CRYPTO_GHASH_S390=m
- CONFIG_CRYPTO_AES_S390=m
- CONFIG_CRYPTO_DES_S390=m
-diff --git a/arch/s390/configs/defconfig b/arch/s390/configs/defconfig
-index f18a7d97ac216..f12679448e976 100644
---- a/arch/s390/configs/defconfig
-+++ b/arch/s390/configs/defconfig
-@@ -780,11 +780,10 @@ CONFIG_CRYPTO_USER_API_HASH=m
- CONFIG_CRYPTO_USER_API_SKCIPHER=m
- CONFIG_CRYPTO_USER_API_RNG=m
- CONFIG_CRYPTO_USER_API_AEAD=m
- CONFIG_CRYPTO_SHA512_S390=m
- CONFIG_CRYPTO_SHA1_S390=m
--CONFIG_CRYPTO_SHA256_S390=m
- CONFIG_CRYPTO_SHA3_256_S390=m
- CONFIG_CRYPTO_SHA3_512_S390=m
- CONFIG_CRYPTO_GHASH_S390=m
- CONFIG_CRYPTO_AES_S390=m
- CONFIG_CRYPTO_DES_S390=m
-diff --git a/arch/s390/crypto/Kconfig b/arch/s390/crypto/Kconfig
-index a2bfd6eef0ca3..e2c27588b21a9 100644
---- a/arch/s390/crypto/Kconfig
-+++ b/arch/s390/crypto/Kconfig
-@@ -20,20 +20,10 @@ config CRYPTO_SHA1_S390
+ .../platform/mediatek/jpeg/mtk_jpeg_core.c    | 44 +++++++++++++++++++
+ 1 file changed, 44 insertions(+)
+
+diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+index 23692cd91e2c..0ed1c352bc0f 100644
+--- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
++++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+@@ -1869,6 +1869,10 @@ static struct clk_bulk_data mtk_jpeg_clocks[] = {
+ 	{ .id = "jpgenc" },
+ };
  
- 	  Architecture: s390
++static struct clk_bulk_data mtk_jpeg_dec_clocks[] = {
++	{ .id = "jpgdec" },
++};
++
+ static struct clk_bulk_data mt8173_jpeg_dec_clocks[] = {
+ 	{ .id = "jpgdec-smi" },
+ 	{ .id = "jpgdec" },
+@@ -1931,6 +1935,38 @@ static const struct mtk_jpeg_variant mtk8195_jpegdec_drvdata = {
+ 	.jpeg_worker = mtk_jpegdec_worker,
+ };
  
- 	  It is available as of z990.
++static const struct mtk_jpeg_variant mtk8188_jpegenc_drvdata = {
++	.clks = mtk_jpeg_clocks,
++	.num_clks = ARRAY_SIZE(mtk_jpeg_clocks),
++	.formats = mtk_jpeg_enc_formats,
++	.num_formats = MTK_JPEG_ENC_NUM_FORMATS,
++	.qops = &mtk_jpeg_enc_qops,
++	.irq_handler = mtk_jpeg_enc_irq,
++	.hw_reset = mtk_jpeg_enc_reset,
++	.m2m_ops = &mtk_jpeg_enc_m2m_ops,
++	.dev_name = "mtk-jpeg-enc",
++	.ioctl_ops = &mtk_jpeg_enc_ioctl_ops,
++	.out_q_default_fourcc = V4L2_PIX_FMT_YUYV,
++	.cap_q_default_fourcc = V4L2_PIX_FMT_JPEG,
++	.support_34bit = true,
++};
++
++static const struct mtk_jpeg_variant mtk8188_jpegdec_drvdata = {
++	.clks = mtk_jpeg_dec_clocks,
++	.num_clks = ARRAY_SIZE(mtk_jpeg_dec_clocks),
++	.formats = mtk_jpeg_dec_formats,
++	.num_formats = MTK_JPEG_DEC_NUM_FORMATS,
++	.qops = &mtk_jpeg_dec_qops,
++	.irq_handler = mtk_jpeg_dec_irq,
++	.hw_reset = mtk_jpeg_dec_reset,
++	.m2m_ops = &mtk_jpeg_dec_m2m_ops,
++	.dev_name = "mtk-jpeg-dec",
++	.ioctl_ops = &mtk_jpeg_dec_ioctl_ops,
++	.out_q_default_fourcc = V4L2_PIX_FMT_JPEG,
++	.cap_q_default_fourcc = V4L2_PIX_FMT_YUV420M,
++	.support_34bit = true,
++};
++
+ static const struct of_device_id mtk_jpeg_match[] = {
+ 	{
+ 		.compatible = "mediatek,mt8173-jpgdec",
+@@ -1952,6 +1988,14 @@ static const struct of_device_id mtk_jpeg_match[] = {
+ 		.compatible = "mediatek,mt8195-jpgdec",
+ 		.data = &mtk8195_jpegdec_drvdata,
+ 	},
++	{
++		.compatible = "mediatek,mt8188-jpgenc",
++		.data = &mtk8188_jpegenc_drvdata,
++	},
++	{
++		.compatible = "mediatek,mt8188-jpgdec",
++		.data = &mtk8188_jpegdec_drvdata,
++	},
+ 	{},
+ };
  
--config CRYPTO_SHA256_S390
--	tristate "Hash functions: SHA-224 and SHA-256"
--	select CRYPTO_HASH
--	help
--	  SHA-224 and SHA-256 secure hash algorithms (FIPS 180)
--
--	  Architecture: s390
--
--	  It is available as of z9.
--
- config CRYPTO_SHA3_256_S390
- 	tristate "Hash functions: SHA3-224 and SHA3-256"
- 	select CRYPTO_HASH
- 	help
- 	  SHA3-224 and SHA3-256 secure hash algorithms (FIPS 202)
-diff --git a/arch/s390/crypto/Makefile b/arch/s390/crypto/Makefile
-index e3853774e1a3a..21757d86cd499 100644
---- a/arch/s390/crypto/Makefile
-+++ b/arch/s390/crypto/Makefile
-@@ -2,11 +2,10 @@
- #
- # Cryptographic API
- #
- 
- obj-$(CONFIG_CRYPTO_SHA1_S390) += sha1_s390.o sha_common.o
--obj-$(CONFIG_CRYPTO_SHA256_S390) += sha256_s390.o sha_common.o
- obj-$(CONFIG_CRYPTO_SHA512_S390) += sha512_s390.o sha_common.o
- obj-$(CONFIG_CRYPTO_SHA3_256_S390) += sha3_256_s390.o sha_common.o
- obj-$(CONFIG_CRYPTO_SHA3_512_S390) += sha3_512_s390.o sha_common.o
- obj-$(CONFIG_CRYPTO_DES_S390) += des_s390.o
- obj-$(CONFIG_CRYPTO_AES_S390) += aes_s390.o
-diff --git a/arch/s390/crypto/sha256_s390.c b/arch/s390/crypto/sha256_s390.c
-deleted file mode 100644
-index e6876c49414d5..0000000000000
---- a/arch/s390/crypto/sha256_s390.c
-+++ /dev/null
-@@ -1,144 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0+
--/*
-- * Cryptographic API.
-- *
-- * s390 implementation of the SHA256 and SHA224 Secure Hash Algorithm.
-- *
-- * s390 Version:
-- *   Copyright IBM Corp. 2005, 2011
-- *   Author(s): Jan Glauber (jang@de.ibm.com)
-- */
--#include <asm/cpacf.h>
--#include <crypto/internal/hash.h>
--#include <crypto/sha2.h>
--#include <linux/cpufeature.h>
--#include <linux/kernel.h>
--#include <linux/module.h>
--#include <linux/string.h>
--
--#include "sha.h"
--
--static int s390_sha256_init(struct shash_desc *desc)
--{
--	struct s390_sha_ctx *sctx = shash_desc_ctx(desc);
--
--	sctx->state[0] = SHA256_H0;
--	sctx->state[1] = SHA256_H1;
--	sctx->state[2] = SHA256_H2;
--	sctx->state[3] = SHA256_H3;
--	sctx->state[4] = SHA256_H4;
--	sctx->state[5] = SHA256_H5;
--	sctx->state[6] = SHA256_H6;
--	sctx->state[7] = SHA256_H7;
--	sctx->count = 0;
--	sctx->func = CPACF_KIMD_SHA_256;
--
--	return 0;
--}
--
--static int sha256_export(struct shash_desc *desc, void *out)
--{
--	struct s390_sha_ctx *sctx = shash_desc_ctx(desc);
--	struct crypto_sha256_state *octx = out;
--
--	octx->count = sctx->count;
--	memcpy(octx->state, sctx->state, sizeof(octx->state));
--	return 0;
--}
--
--static int sha256_import(struct shash_desc *desc, const void *in)
--{
--	struct s390_sha_ctx *sctx = shash_desc_ctx(desc);
--	const struct crypto_sha256_state *ictx = in;
--
--	sctx->count = ictx->count;
--	memcpy(sctx->state, ictx->state, sizeof(ictx->state));
--	sctx->func = CPACF_KIMD_SHA_256;
--	return 0;
--}
--
--static struct shash_alg sha256_alg = {
--	.digestsize	=	SHA256_DIGEST_SIZE,
--	.init		=	s390_sha256_init,
--	.update		=	s390_sha_update_blocks,
--	.finup		=	s390_sha_finup,
--	.export		=	sha256_export,
--	.import		=	sha256_import,
--	.descsize	=	S390_SHA_CTX_SIZE,
--	.statesize	=	sizeof(struct crypto_sha256_state),
--	.base		=	{
--		.cra_name	=	"sha256",
--		.cra_driver_name=	"sha256-s390",
--		.cra_priority	=	300,
--		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY,
--		.cra_blocksize	=	SHA256_BLOCK_SIZE,
--		.cra_module	=	THIS_MODULE,
--	}
--};
--
--static int s390_sha224_init(struct shash_desc *desc)
--{
--	struct s390_sha_ctx *sctx = shash_desc_ctx(desc);
--
--	sctx->state[0] = SHA224_H0;
--	sctx->state[1] = SHA224_H1;
--	sctx->state[2] = SHA224_H2;
--	sctx->state[3] = SHA224_H3;
--	sctx->state[4] = SHA224_H4;
--	sctx->state[5] = SHA224_H5;
--	sctx->state[6] = SHA224_H6;
--	sctx->state[7] = SHA224_H7;
--	sctx->count = 0;
--	sctx->func = CPACF_KIMD_SHA_256;
--
--	return 0;
--}
--
--static struct shash_alg sha224_alg = {
--	.digestsize	=	SHA224_DIGEST_SIZE,
--	.init		=	s390_sha224_init,
--	.update		=	s390_sha_update_blocks,
--	.finup		=	s390_sha_finup,
--	.export		=	sha256_export,
--	.import		=	sha256_import,
--	.descsize	=	S390_SHA_CTX_SIZE,
--	.statesize	=	sizeof(struct crypto_sha256_state),
--	.base		=	{
--		.cra_name	=	"sha224",
--		.cra_driver_name=	"sha224-s390",
--		.cra_priority	=	300,
--		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY,
--		.cra_blocksize	=	SHA224_BLOCK_SIZE,
--		.cra_module	=	THIS_MODULE,
--	}
--};
--
--static int __init sha256_s390_init(void)
--{
--	int ret;
--
--	if (!cpacf_query_func(CPACF_KIMD, CPACF_KIMD_SHA_256))
--		return -ENODEV;
--	ret = crypto_register_shash(&sha256_alg);
--	if (ret < 0)
--		goto out;
--	ret = crypto_register_shash(&sha224_alg);
--	if (ret < 0)
--		crypto_unregister_shash(&sha256_alg);
--out:
--	return ret;
--}
--
--static void __exit sha256_s390_fini(void)
--{
--	crypto_unregister_shash(&sha224_alg);
--	crypto_unregister_shash(&sha256_alg);
--}
--
--module_cpu_feature_match(S390_CPU_FEATURE_MSA, sha256_s390_init);
--module_exit(sha256_s390_fini);
--
--MODULE_ALIAS_CRYPTO("sha256");
--MODULE_ALIAS_CRYPTO("sha224");
--MODULE_LICENSE("GPL");
--MODULE_DESCRIPTION("SHA256 and SHA224 Secure Hash Algorithm");
-diff --git a/arch/s390/lib/crypto/Kconfig b/arch/s390/lib/crypto/Kconfig
-index 069b355fe51aa..e3f855ef43934 100644
---- a/arch/s390/lib/crypto/Kconfig
-+++ b/arch/s390/lib/crypto/Kconfig
-@@ -3,5 +3,11 @@
- config CRYPTO_CHACHA_S390
- 	tristate
- 	default CRYPTO_LIB_CHACHA
- 	select CRYPTO_LIB_CHACHA_GENERIC
- 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
-+
-+config CRYPTO_SHA256_S390
-+	tristate
-+	default CRYPTO_LIB_SHA256
-+	select CRYPTO_ARCH_HAVE_LIB_SHA256
-+	select CRYPTO_LIB_SHA256_GENERIC
-diff --git a/arch/s390/lib/crypto/Makefile b/arch/s390/lib/crypto/Makefile
-index 06c2cf77178ef..920197967f463 100644
---- a/arch/s390/lib/crypto/Makefile
-+++ b/arch/s390/lib/crypto/Makefile
-@@ -1,4 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0-only
- 
- obj-$(CONFIG_CRYPTO_CHACHA_S390) += chacha_s390.o
- chacha_s390-y := chacha-glue.o chacha-s390.o
-+
-+obj-$(CONFIG_CRYPTO_SHA256_S390) += sha256.o
-diff --git a/arch/s390/lib/crypto/sha256.c b/arch/s390/lib/crypto/sha256.c
-new file mode 100644
-index 0000000000000..50c592ce7a5de
---- /dev/null
-+++ b/arch/s390/lib/crypto/sha256.c
-@@ -0,0 +1,47 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * SHA-256 optimized using the CP Assist for Cryptographic Functions (CPACF)
-+ *
-+ * Copyright 2025 Google LLC
-+ */
-+#include <asm/cpacf.h>
-+#include <crypto/internal/sha2.h>
-+#include <linux/cpufeature.h>
-+#include <linux/kernel.h>
-+#include <linux/module.h>
-+
-+static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_cpacf_sha256);
-+
-+void sha256_blocks_arch(u32 state[SHA256_STATE_WORDS],
-+			const u8 *data, size_t nblocks)
-+{
-+	if (static_branch_likely(&have_cpacf_sha256))
-+		cpacf_kimd(CPACF_KIMD_SHA_256, state, data,
-+			   nblocks * SHA256_BLOCK_SIZE);
-+	else
-+		sha256_blocks_generic(state, data, nblocks);
-+}
-+EXPORT_SYMBOL(sha256_blocks_arch);
-+
-+bool sha256_is_arch_optimized(void)
-+{
-+	return static_key_enabled(&have_cpacf_sha256);
-+}
-+EXPORT_SYMBOL(sha256_is_arch_optimized);
-+
-+static int __init sha256_s390_mod_init(void)
-+{
-+	if (cpu_have_feature(S390_CPU_FEATURE_MSA) &&
-+	    cpacf_query_func(CPACF_KIMD, CPACF_KIMD_SHA_256))
-+		static_branch_enable(&have_cpacf_sha256);
-+	return 0;
-+}
-+arch_initcall(sha256_s390_mod_init);
-+
-+static void __exit sha256_s390_mod_exit(void)
-+{
-+}
-+module_exit(sha256_s390_mod_exit);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("SHA-256 using the CP Assist for Cryptographic Functions (CPACF)");
 -- 
-2.49.0
+2.46.0
 
 
