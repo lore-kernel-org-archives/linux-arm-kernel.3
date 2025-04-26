@@ -4,96 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA989C369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 16:22:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6AB8C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 26 Apr 2025 16:22:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BNlY1Kyobnrt/7plmlszUhTRPyZa/aNAr5+UYAUEWpg=; b=4v59AvjDmoLkCTrQa+rVYIel0N
-	bRsAqNPqJo+jmwjvGuubvrhrA0q45Wf/msbdZbYCV0Wy2vqHTQ2syxyvHyoIyWwhdeAs6TNe6G5Id
-	cNkGiGhNQIXCLDzqAby64eHDTlMvFF73eIqyJAHMX/N154iC+J39Q2z/+MrmBc4CF+uczgD1vWsKd
-	Y0qoAWFruzR1o3VeUp4PPhTYfOaUd+u1ILeX54aD+aGyxTu5UqGs+/nViopemXUGBJQNdfFtDgmks
-	PR69HU3jilV+mTangHHlPQcJdjFrGjLL1HTEsdF9KsTvMPZ2I3pG3L0sko8cQ8gBF4rdzkXdaqhLU
-	bEEkPOJA==;
+	bh=SLZ9qMLPAyfmjeBnwm3Gg63X9f9+6Dcdi6lawUXPmo4=; b=b/EM/uRw5Gapn+GPiDHqOEpAkP
+	hh7+flVtPG43ghPKjvF27enDs9ufZM+05xY3jX33g3p3ty8o2tM5sVrh9xu/046WmHuNc4lutBVwR
+	i3ul1r7HON/3LVbRu1wjUCBICdcKvXEk5I4Gkov9z0ffwzDck+U4llKmy0DVWazOPjmtmrrnGzfwV
+	AuU7iW2vocjRfTI2ED4ZwYyD6Ww6ecdpU0/LV34v8e98qVlynaNG8ka8B3p0Dtumo066TgLdRTErD
+	JEja62L4Q4RfCugwQPDoG4qdbk3kcX6xM8JXHdvOzvDKsoUu1+Mos9PqhZVCdVxCsHz0N721p5QJf
+	vECL1fjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8iIa-00000002HXN-1BvU;
-	Sat, 26 Apr 2025 16:22:40 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1u8iIZ-00000002HXE-1yDx;
+	Sat, 26 Apr 2025 16:22:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8hHu-00000002DXn-2ME3
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 26 Apr 2025 15:17:55 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-ac339f53df9so623496466b.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Apr 2025 08:17:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1745680673; x=1746285473; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=BNlY1Kyobnrt/7plmlszUhTRPyZa/aNAr5+UYAUEWpg=;
-        b=UWcVZ3NBQ1B3oe/AvuDXpSEp+Zdk0BBZJoalkjlmiVw71tjelQ6vL+9+qlSWeEOGiP
-         uTBS7fxTxPGZgjrHyD1YL7yL8tkzCVE9AYaj/aY9ZH2nBNc/FdL1fbyR2fJC2JjCGhu7
-         W0ZoUQsP7xRQFNFwm33Ds2MUh7T5OUj27dO3Q=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745680673; x=1746285473;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=BNlY1Kyobnrt/7plmlszUhTRPyZa/aNAr5+UYAUEWpg=;
-        b=T8dQBCSYtYwkFOV1RAw4y9jS+uAeMhY6DTHlx0M1sWw9rOBjVNgmW5jLzEfLfN5LoD
-         bvdRyb1H2j/2D7OTyLx2fBho3iW+7ewbDuPmLS2SSJnAVubUGMJU+1ROTpZ2N262cTz8
-         vN6vIWFx97Fhw8DpJW1JHGu4TMqVRXdFW8BFddk994FMlOsWKJ71FfEvj6Nz/A88tpRh
-         neOrmWCL3arDPGSgJH6gIyGgA2v18rbQq64uBunOrvaTm4S8GAoQJPfNeDx8ZvOTTtzQ
-         Lo3eRuXBNttyxwxVGU4AzQ+lqpCHD3JKmTmbpWUjsUzTa4SV1vgjdtgMVposubITjgyu
-         OO8A==
-X-Forwarded-Encrypted: i=1; AJvYcCVv1Vl0imKgzZBS7uJpU/FSdxJ3hqXwoYGx37Hsr6LsOFSxLdWlogDRbL69mA2cH3LEraXzN2yluT9UeIRQiqD9@lists.infradead.org
-X-Gm-Message-State: AOJu0YxQgXJ6LikbKs7GWIjwWFsAuXtMmr5SGLimuZjEk1j36ri09Pdv
-	jibBDA1XaBB9skWg+SgbAACkCSY0dN+gVQ/qO8O9K93qCVZmgECZcWT1j1Qp2vM99nXp2S5Q6KA
-	etRA=
-X-Gm-Gg: ASbGnct5EXH1WAZeSDIclMtkaLfLy6so+nXkpyrV6HGzBeBvHZICNvEtZcZ69yOmEt+
-	PVfLRcgitduVdbhwXji5mefdQkA08RHlQhVWahFrwPv1AKZ1FeN1xD7mu5y4S8n17p+anSs0yfj
-	HnhtUI20cdn4TNe2gjSVRjZRGJ579h7S3T7lqzVx51eQevyPvItdOQ7yTlg9uxseGLeV0evn1e2
-	grTwveQZCNfcA8TZeUoEIMXZn+oV4l3wRVIdc0x8HgD5RULKqHvjuaJt8Ig0wqDTicXFfppiKFI
-	67j6RzWKUvPRf77y5ppFsY/oPmDOtBT3HjyyOhuRHa0jCmmj+bJGWW5Xdio1Mee7NmMZHNEJYyx
-	7BI+WMcUVRRmrNIU=
-X-Google-Smtp-Source: AGHT+IGjvHR0eEgrwB7nCe3t75WLZLxWHw83x1PryFmnYRjRvm4dSlOxrIGpJXSRGY3M2VauZ2i3/g==
-X-Received: by 2002:a17:907:1ca2:b0:ac7:e366:1eab with SMTP id a640c23a62f3a-ace84af4e8emr296560166b.48.1745680672707;
-        Sat, 26 Apr 2025 08:17:52 -0700 (PDT)
-Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com. [209.85.208.45])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ace6e41cb08sm308239466b.19.2025.04.26.08.17.51
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 26 Apr 2025 08:17:51 -0700 (PDT)
-Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-5efe8d9ebdfso4555729a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Apr 2025 08:17:51 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWURiRmQ3Os2CwwOv3Sq91aEDKvrCW8cp31GrgVwnyvcBt4bqRgTDM0WfLOaBrzw0Dcoa0KvMmfjaQoNnrxh9uv@lists.infradead.org
-X-Received: by 2002:a17:907:7e95:b0:ac3:8895:2776 with SMTP id
- a640c23a62f3a-ace848c0439mr259814066b.5.1745680670908; Sat, 26 Apr 2025
- 08:17:50 -0700 (PDT)
+	id 1u8h7H-00000002CpT-1mgY;
+	Sat, 26 Apr 2025 15:06:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 908C961138;
+	Sat, 26 Apr 2025 15:06:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D99A4C4CEE2;
+	Sat, 26 Apr 2025 15:06:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745680014;
+	bh=ldltt6Txk7jsfPZAR7Ijlb8uPp+jNfir4K8QBlkQzkM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PbxTovUF6JPsV4EAqGEuw1RmjADnKA4zydRGySU/qn2Z1cXvDHPKY7T50PJmpLTJP
+	 5zNsSzqeqr/kUHy2/xORoIMr8rRMpRtX7bPDyYpAf++CcoSAaIkdX6/3WHszYBSo7A
+	 j+ivJ0XF5AtBZ0MZ5BOSueBGi0Od72CgDNxKG05WcTPHNTISotWMxbZ2AeSbnvxLxK
+	 q6YogLKhtcTPloClGq1mCZQ9YAXomgreIlxNMRlfXSR1piipkuEkKDdtpUelOb5Kfw
+	 PJcHJJk6hfNRQm3qw/6qBS50v5+pShpf8EO+IZW6RhsWt2o8L35jjjO7AUUVltPRp6
+	 kDAvLcDympExg==
+Received: by pali.im (Postfix)
+	id A3E6198A; Sat, 26 Apr 2025 17:06:50 +0200 (CEST)
+Date: Sat, 26 Apr 2025 17:06:50 +0200
+From: Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>
+To: Hans Zhang <18255117159@163.com>
+Cc: lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com,
+	heiko@sntech.de, thomas.petazzoni@bootlin.com,
+	manivannan.sadhasivam@linaro.org, yue.wang@Amlogic.com,
+	neil.armstrong@linaro.org, robh@kernel.org, jingoohan1@gmail.com,
+	khilman@baylibre.com, jbrunet@baylibre.com,
+	martin.blumenstingl@googlemail.com, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v2 2/2] PCI: Remove redundant MPS configuration
+Message-ID: <20250426150650.c63x62ugtnwx5nzy@pali>
+References: <20250425095708.32662-1-18255117159@163.com>
+ <20250425095708.32662-3-18255117159@163.com>
+ <20250425181345.bybgcht5tweyg43k@pali>
+ <5e2844cc-8359-4b87-a8ce-eb5ebb85f8ff@163.com>
 MIME-Version: 1.0
-References: <20250426065041.1551914-1-ebiggers@kernel.org>
-In-Reply-To: <20250426065041.1551914-1-ebiggers@kernel.org>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Sat, 26 Apr 2025 08:17:34 -0700
-X-Gmail-Original-Message-ID: <CAHk-=wg_ArMFL9E9SehR2Z3pfV5QPut0XwbJs9mYWkRvcZcSRw@mail.gmail.com>
-X-Gm-Features: ATxdqUFbLPq86s-2TFMi3kWckNkp7TWtoBPlYGSlRtiuXxSXCOJQKui7bzYM-j0
-Message-ID: <CAHk-=wg_ArMFL9E9SehR2Z3pfV5QPut0XwbJs9mYWkRvcZcSRw@mail.gmail.com>
-Subject: Re: [PATCH 00/13] Architecture-optimized SHA-256 library API
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org, 
-	linux-s390@vger.kernel.org, x86@kernel.org, Ard Biesheuvel <ardb@kernel.org>, 
-	"Jason A . Donenfeld" <Jason@zx2c4.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250426_081754_592510_D86880FA 
-X-CRM114-Status: UNSURE (   9.75  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <5e2844cc-8359-4b87-a8ce-eb5ebb85f8ff@163.com>
+User-Agent: NeoMutt/20180716
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,18 +81,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 25 Apr 2025 at 23:51, Eric Biggers <ebiggers@kernel.org> wrote:
->
-> Following the example of several other algorithms (e.g. CRC32, ChaCha,
-> Poly1305, BLAKE2s), this series refactors the kernel's existing
-> architecture-optimized SHA-256 code to be available via the library API,
-> instead of just via the crypto_shash API as it was before.  It also
-> reimplements the SHA-256 crypto_shash API on top of the library API.
+On Saturday 26 April 2025 23:02:08 Hans Zhang wrote:
+> On 2025/4/26 02:13, Pali Rohár wrote:
+> > On Friday 25 April 2025 17:57:08 Hans Zhang wrote:
+> > > diff --git a/drivers/pci/controller/pci-aardvark.c b/drivers/pci/controller/pci-aardvark.c
+> > > index a29796cce420..d8852892994a 100644
+> > > --- a/drivers/pci/controller/pci-aardvark.c
+> > > +++ b/drivers/pci/controller/pci-aardvark.c
+> > > @@ -549,9 +549,7 @@ static void advk_pcie_setup_hw(struct advk_pcie *pcie)
+> > >   	reg = advk_readl(pcie, PCIE_CORE_PCIEXP_CAP + PCI_EXP_DEVCTL);
+> > >   	reg &= ~PCI_EXP_DEVCTL_RELAX_EN;
+> > >   	reg &= ~PCI_EXP_DEVCTL_NOSNOOP_EN;
+> > > -	reg &= ~PCI_EXP_DEVCTL_PAYLOAD;
+> > >   	reg &= ~PCI_EXP_DEVCTL_READRQ;
+> > > -	reg |= PCI_EXP_DEVCTL_PAYLOAD_512B;
+> > >   	reg |= PCI_EXP_DEVCTL_READRQ_512B;
+> > >   	advk_writel(pcie, reg, PCIE_CORE_PCIEXP_CAP + PCI_EXP_DEVCTL);
+> > > -- 
+> > > 2.25.1
+> > > 
+> > 
+> > Please do not remove this code. It is required part of the
+> > initialization of the aardvark PCI controller at the specific phase,
+> > as defined in the Armada 3700 Functional Specification.
+> 
+> Hi Pali,
+> 
+> This series of patches is discussing the initialization of DevCtl.MPS by the
+> Root Port. Please look at the first patch I submitted. If there is a
+> reasonable method in the end, DevCtl.MPS will also be configured
+> successfully.
 
-Well, this certainly looks a lot simpler, and avoids the duplicated
-crypto glue setup for each architecture.
+This does not matter what would be configured in DevCtl.MPS at the end.
 
-So this very much seems to be the RightThing(tm) to do.
+> The PCIe maintainer will give the review opinions. Please rest
+> assured that it will not affect the functions of the aardvark PCI
+> controller.
 
-               Linus
+This patch is modifying initialization of the aardvark PCIe controller
+and is removing the mandatory step of the controller configuration as
+required and defined in the Armada 3700 Functional Specification.
+It says exactly in which order and which values to which registers has
+to be written.
+
+> Rockchip's RK3588 also has the same problem.
+> 
+> 
+> https://patchwork.kernel.org/project/linux-pci/patch/20250416151926.140202-1-18255117159@163.com/
+> 
+> Best regards,
+> Hans
+> 
 
