@@ -4,62 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61459C369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 16:06:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 177D2C369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 16:29:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MPwsKOKikUI2Hbjz9HM+ALtIQrd5D4385/ERHMTCY0Y=; b=rIrxhsnoiGBtYT5iqc6uNBkqD2
-	VxbWPn8eYKiEsyAX48Q6FcOGoXrqkIJRgyV6XgHao51I2LZYDcUF+n6od1Wo7muTVAuHsPBSap2hN
-	B/En4oge+hUM4KDTvIFbNFvIst6Aio81a/OAnDjHV6MxwG4ow6JEq95Pb6WW2m4GtZQbH1m4swto2
-	JSnwsZR59TvVxBf2H7wS9CPhVY1oPl+0eMygcdxHMZ7JZHay+ReJEr8b7uSsjTrYaHJFADe6epQVa
-	e7XSPO6//8+ypjWj5s7iGQgHNamuAN2pvU354o0jzWvoen819PWZQ8hNQ+7EjRDsAhJVnO9VLNwwD
-	gIAWPOug==;
+	bh=8Hm8ymC3WlboH6v1puutB+PkeMUv87jriOcmD+BHZJ8=; b=4mcDZVv+6HRryH0LzRc+sbpyo/
+	nCiQb7q5JHF+g0pPYa29pGhAje/nqFnKi1boEBEaTyTJeLSHPNy0BSdmUPqVVyQPw86NXrIBJrpz1
+	YyTbihpQq48L9Nsv7+4aVWgZKvbQefZabiGgeiXIYk4yY9dqegrsm9UPRZGt4ZYUZwA69tU2qwp3o
+	UYI6TNxADeb0eGwEAI5kLvaj2Q40odf151O+J6qbsDo+d1fa1Vw7QFGsAsIcwVmpyQgV6G0kVibxB
+	2Il2qK95aZJTA4sqiaQjlB5LLCH/qD/sWZkxl0eUa7baZjWtsz0MKUmMEhRh+d0wGEqNyvPU+BalV
+	xmdSHEVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u94WR-00000003lGT-04Kp;
-	Sun, 27 Apr 2025 16:06:27 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u94sF-00000003mQT-1B83;
+	Sun, 27 Apr 2025 16:28:59 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u94UU-00000003l6Q-1QEB;
-	Sun, 27 Apr 2025 16:04:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=MPwsKOKikUI2Hbjz9HM+ALtIQrd5D4385/ERHMTCY0Y=; b=g1zjxJB6RPGKQ4LCwMZljHL1gw
-	uM9f+zmJYAJ6rzQ86RNIsle6oByl7fAxntteNqBleogvDg+mC0DI+CloD+oe6m4QZWmW57wwYs2Gn
-	T3ZEkvVf9Sqf6GupTYJral8e6Yj8uEqKlwIw78Ei+uXFOy4NDWJ9X7X/kQd5h29EV6THscMBvRk6N
-	G7ZEsIIeBDwovoN96KtO4HinIvfrMo+F6BPh0Z21HOsYF+bb03U7/3Qoem1l237xgRM82G5lxhDF0
-	64ftXik4ybmPWI8HH4W/p6hCfaNLFt1ZxJijrkFVbKs8ExDs63hGrrv+ZVJTgR/4UiY7zJqYIUZae
-	AUfeTYcg==;
-Received: from [50.39.124.201] (helo=[192.168.254.17])
-	by desiato.infradead.org with esmtpsa (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u94UL-0000000CUJj-3MCO;
-	Sun, 27 Apr 2025 16:04:18 +0000
-Message-ID: <4c17ae51-475e-4bd2-8bbf-c5e3233ef319@infradead.org>
-Date: Sun, 27 Apr 2025 09:04:12 -0700
+	id 1u94qJ-00000003mI9-0HHm
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 27 Apr 2025 16:27:00 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-224019ad9edso58398055ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Apr 2025 09:26:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1745771218; x=1746376018; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8Hm8ymC3WlboH6v1puutB+PkeMUv87jriOcmD+BHZJ8=;
+        b=MC8OaGDoz0E9w5OAUDWygQ53zXkjDFuLzHVNbKY5EIX8FsTHUfutGtJRwJB/qvECaw
+         1OcXzMRCbzhaHZ7gW5sH4MIn/thfjlYE5w3idZoqtc2vTU8hIkp3m0BiStCN0QK3tJOP
+         qjk+crY0g5ISZX/EhCtQya9h0nO50aFOwGXO+ZpN+wiqhza2IOIz+XLhHk6kXiL9ZhAz
+         rkbwwPYwA4z/I20TjJNnLPWdIWL6XyUga5m6fpsnoLiGK/QnSNmBDmEiKLDlSYAqNt8D
+         RLgcF5XuxAFZ5xghCbYT7oFv7rknKA0VHkn5LpdYTDh4hIzulYlxmEDOxUFBOdoiYqaV
+         sBcQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745771218; x=1746376018;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=8Hm8ymC3WlboH6v1puutB+PkeMUv87jriOcmD+BHZJ8=;
+        b=uXjqKrm20ODtutw5mv2bYaueFPTeUWGQ5h6uahbyuupaT+l66US4LIzg4YflbdT8Ux
+         94VizAnhvDGQkH1maTjmGwdrRvLXK0n7yBcV0N+VCBMZspwZTleqDkPMa1Oh8JETSP7D
+         ixQMoDbB3ut6vFTXCMI0ufLH/sBmeg7E/azOQmKR+ttWJAoy/zgrbdf5oSVlB2ZJhgUy
+         lZznsFmzcMwNON8mAR7Pc+5k04Li5SBE1yarJ2G+EW5ejhawb0zTpR3MDENK+C0lMEGt
+         n22n2XgaQ2Y1nKuTcytApXNrkcnk7FMzskItiiZicICdBgAETI6xBqDQjE4/hWfrY7eM
+         aXjA==
+X-Forwarded-Encrypted: i=1; AJvYcCU9K7n33hV4PlYpXgrGZneAWnRZoXLY7oDzNHFPdN75pOM3pyTa+qohWUKgnSeAwzh24xVN4w8DxYHjHHA3G718@lists.infradead.org
+X-Gm-Message-State: AOJu0YycLXuL+3MMBXvFUd8pYzPyEyAX1pvwtzTbutiE77wEncW20P4b
+	DnP0NNcjKFoD5BsSlrMFdg+3CKE1lAtitXNemH0Zqsa+n8WJiC6/1A745Q4OBw==
+X-Gm-Gg: ASbGncupVMFwOsnFbUz4xQjZ5PDbJzoF+Id3Y0gJ1WJ/k5b+cWEjozUy0ETL+qeveo+
+	UJ5SaO4kdHQSuyN6gOk153AZ/WBoheP6TKQDY3jFYBWlkZhctvJLUMXUrz95QUp1xVk7bgBgoBw
+	9q8ghpyWzg5JAYGJxZyFj/KKKzNLRpXRGzZEycJpV1JZhIL+c4DSD5Nijcwa+caifSzHHsxk52M
+	zTCnePuaCr7+Mi8IgBAFhm347/OpJZfUpcKLg/+L1LTvLaKKp+h+9ex4sgs/5+cSvIH2D9Om12e
+	+cE5uZ4LbpNsopclhz1BbVYxC0sMfmqo0hlOI/84xP9YbCwdH2eg
+X-Google-Smtp-Source: AGHT+IGewTBDql+2+UdyTbCLzjXJegcsr5fvdoDv6DORAwSGJR8R6yqyunL8uBX+TIfarA0AmXkmwQ==
+X-Received: by 2002:a17:902:ccca:b0:220:f795:5f14 with SMTP id d9443c01a7336-22dbf5f0b82mr130834365ad.27.1745771218030;
+        Sun, 27 Apr 2025 09:26:58 -0700 (PDT)
+Received: from thinkpad.. ([120.60.52.11])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22db5216adbsm65705855ad.234.2025.04.27.09.26.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 27 Apr 2025 09:26:57 -0700 (PDT)
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Arnd Bergmann <arnd@kernel.org>
+Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Rob Herring <robh@kernel.org>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Thomas Richard <thomas.richard@bootlin.com>,
+	=?UTF-8?q?Th=C3=A9o=20Lebrun?= <theo.lebrun@bootlin.com>,
+	Sergio Paracuellos <sergio.paracuellos@gmail.com>,
+	linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-omap@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] pci: j721e: fix host/endpoint dependencies
+Date: Sun, 27 Apr 2025 21:56:46 +0530
+Message-ID: <174577118328.83097.3904673051712701084.b4-ty@linaro.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250423162523.2060405-1-arnd@kernel.org>
+References: <20250423162523.2060405-1-arnd@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: =?UTF-8?Q?Re=3A_=5BPATCH_v8_2/5=5D_auxdisplay=3A_add_TI_LP5812_4?=
- =?UTF-8?Q?=C3=973_Matrix_RGB_LED_Driver?=
-To: Nam Tran <trannamatk@gmail.com>, andy@kernel.org
-Cc: geert@linux-m68k.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, christophe.jaillet@wanadoo.fr, corbet@lwn.net,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, florian.fainelli@broadcom.com,
- bcm-kernel-feedback-list@broadcom.com, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-References: <20250427082447.138359-1-trannamatk@gmail.com>
- <20250427082447.138359-3-trannamatk@gmail.com>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <20250427082447.138359-3-trannamatk@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250427_092659_114621_224A1228 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,40 +112,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi--
 
-On 4/27/25 1:24 AM, Nam Tran wrote:
-> diff --git a/drivers/auxdisplay/Kconfig b/drivers/auxdisplay/Kconfig
-> index bedc6133f970..896f02b9a06b 100644
-> --- a/drivers/auxdisplay/Kconfig
-> +++ b/drivers/auxdisplay/Kconfig
-> @@ -539,6 +539,23 @@ config ARM_CHARLCD
->  	  line and the Linux version on the second line, but that's
->  	  still useful.
->  
-> +#
-> +# TI LP5812 matrix RGB LED driver section
-> +#
-> +config LP5812
+On Wed, 23 Apr 2025 18:25:16 +0200, Arnd Bergmann wrote:
+> The j721e driver has a single platform driver that can be built-in or
+> a loadable module, but it calls two separate backend drivers depending
+> on whether it is a host or endpoint.
+> 
+> If the two modes are not the same, we can end up with a situation where
+> the built-in pci-j721e driver tries to call the modular host or endpoint
+> driver, which causes a link failure:
+> 
+> [...]
 
-Missing one tab of indentation on all lines below here:
+Applied, thanks!
 
-> +tristate "Enable LP5812 support LED matrix 4x3"
-> +depends on I2C
-> +help
-> +  If you say Y here you get support for TI LP5812 LED driver.
-> +
-> +  The LP5812 is a 4 × 3 matrix RGB LED driver with autonomous
-> +  animation engine control.
-> +
-> +  To compile this driver as a module, choose M here: the
-> +  module will be called lp5812.
-> +
-> +  If unsure, say N.
-> +
->  endif # AUXDISPLAY
+[1/1] pci: j721e: fix host/endpoint dependencies
+      commit: 10aae64c2fb5148409cc9beba7f849a79fe82f17
 
+Best regards,
 -- 
-~Randy
-
+Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 
