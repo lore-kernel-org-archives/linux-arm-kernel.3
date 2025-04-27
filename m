@@ -4,68 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AD21C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 10:22:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C26AEC369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 11:13:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uOyIk933GD+b7dd6EC2wVjpJI4G+1av0Knj6VFiz1Y8=; b=3Esr+0K2rFdFVSIT7YN2bisb4Z
-	z1Da5nc5PeMYTxlBLNwkisguYdB2cwYeqQOr4cDMPgF4cYT3bIS5sdNbsKu+P+QfUrUG6hL8f9yRL
-	qXHul78iD4PWl4SEUSofZ0iGHbcozd3lKqxTJllGo39YyuMCh+DATDdsbTij6ixMnPsr3i7EWe1b6
-	y0LrscobAmwB6jfi4KK6PNbF9zZRdtYJto9nZe91xm0fEqcGD0rVQx19YGhuZhC5ol+H13l7Btubi
-	6ieswiJ/DQaB4bD84wNbNpasADyFb/Fkt2PEml+/L+5ql85jdGIzaE1pyyjoAwreJoWIpMFirfdNK
-	wj3unbWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BCW3fClu8hd3i15UY5+BkYv0EoS+YjFdR94yHfWo7NI=; b=AnUD5YLQImHkjdj8ctqm3Ezti2
+	lnmdF95RWC2XpJuxPWgIpY6uJWIHtCc5whBLNSI1OG3982Bg2azbgjIraXpDUtAJhgqv/bb9HJIJv
+	Lu7IkQTMsAE41ExuckGLZrJ3LkOAQT7I/wZR0fWvKU2us1D6Zf8FoHZ7uXOZJUXkvML+7JzEb40fq
+	QZPdwLSP2IZmPU7OKM9joaASl/A+jttWenLj+z4EVN7cPFs0leQwfsYexNHj4aj9fSN7BQGm61IVW
+	NUmrgEa+6WyIzwKvdoBntKIyUL8Wq9uDLQqlvSWmsfamKUtud/YosELyZ0XDB7Y1X97rmmOOIplBl
+	9nB6lwQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8z9q-00000003LtS-0IgS;
-	Sun, 27 Apr 2025 10:22:46 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u8zwG-00000003OHP-1SC3;
+	Sun, 27 Apr 2025 11:12:48 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8z7u-00000003Lob-3707
+	id 1u8zuI-00000003O8A-4BQy
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Apr 2025 10:20:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D2CCF5C0C41;
-	Sun, 27 Apr 2025 10:18:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C48CEC4CEE3;
-	Sun, 27 Apr 2025 10:20:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745749245;
-	bh=UvgX/22nEMLGVHnLX7utgwefDV5CfKGMP+fQPcGv4Q8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Mc+LLps/OnHxQfbiaghh+dEvxoV3Tu6fQOxBLkQ/rdYm27bU20RcLqL3a9YmusXM5
-	 CS+/188Z1gv96pms5EKq1PJ/3ynRurt6g+z1sZVQLY4Sr/E8ke8RMIANy4VNuY8ZtU
-	 O/csuIRW74bWlRCxv5qi1miUsupmS1z4uxFcnk5cxEkrjiXFxtQcZTZB/YR1zsqizi
-	 VcddKI4RMtewnXSIjbuFWddJ/+x8n8F/uB1mLjc1nPmqEoZ4yi+AiSFtA2oTvaJf+A
-	 efRx5rTreJQNcidxZ9jMT8nyWtVu38+aKrM1rtQI3Z9BvOF6Lo6LDdzsT6udCocyyk
-	 tsRD8/vZCyVsg==
-Date: Sun, 27 Apr 2025 11:20:35 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: David Lechner <dlechner@baylibre.com>
-Cc: Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy Shevchenko
- <andy@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, Michael Hennerich
- <Michael.Hennerich@analog.com>, Eugen Hristev <eugen.hristev@linaro.org>,
- Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni
- <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 1/6] iio: introduce IIO_DECLARE_BUFFER_WITH_TS macros
-Message-ID: <20250427112035.112d086d@jic23-huawei>
-In-Reply-To: <8a57a332-c2a6-4825-a5f7-d765ea15bd6f@baylibre.com>
-References: <20250425-iio-introduce-iio_declare_buffer_with_ts-v3-0-f12df1bff248@baylibre.com>
-	<20250425-iio-introduce-iio_declare_buffer_with_ts-v3-1-f12df1bff248@baylibre.com>
-	<20250426123509.0b04f0f9@jic23-huawei>
-	<8a57a332-c2a6-4825-a5f7-d765ea15bd6f@baylibre.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
+	Sun, 27 Apr 2025 11:10:48 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-22c3407a87aso57403785ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Apr 2025 04:10:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1745752246; x=1746357046; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=BCW3fClu8hd3i15UY5+BkYv0EoS+YjFdR94yHfWo7NI=;
+        b=qQoahPUfOI+obwG2uvY3pUId3JIVVZC1gqA2rdFOAxEyClJxhLCiC48Y6e8zky/xF5
+         m2Mf2aV9E0qORIvvvIzfhANFVGB0zjqfgwWPWxJb6S7q84ks9j2tq7VNFl02hTqIbDvw
+         Dtvya9yfnt7mCZiT0KapH3VU7px0/Yb/WWHxMnnjo/Fuhyd07EnMch1e8oLGkG4WMtKH
+         agRbh+xieg2YhgfDCBFIlkFgOGSoKgruAN8uYfRdsynOyZGF0ifvdBIycXfr7RFQnH2T
+         xVFwhu+kj/rMa2t0NVLcNUGzFzZDn0gkTkOqos5fXFolKhofP+k4xEdaMtUhSJqrSuYi
+         fxgA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745752246; x=1746357046;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=BCW3fClu8hd3i15UY5+BkYv0EoS+YjFdR94yHfWo7NI=;
+        b=I4cVrAtHaGzURuI9eNizhYNqwuxB405wEOdoLN1EdbEzPaPTX/tmsdwHgQQbrgWsBS
+         0zzBtXKZkW2Dc89dmQci/dIeiZZz1lCnvTFlk7tePVjJ80lXQHBs/DdqxdnnH16X8e14
+         8/yp9Lyc/fS2eu9CA06GEYxbyEn5jOT1r1UYzXJ2xKntJm8USCiWQ75AZKJ17pxoihZz
+         +VBMqdYFVIbzLxy6UW6MOqYNEw5hc+oF+TsNeM1nVg9Za7lWIE94x+CVUsGsvbwmAKHn
+         l+QQgS5/Q2fma7F7vdhfvkSZNm8/C5NjRIJLnj8pHTkoWKx8Afr1qinqHMW3Wfxl3Aly
+         a9vw==
+X-Forwarded-Encrypted: i=1; AJvYcCUxhwMv7xv+vaoKx0Ca6Qslq0iliO+/Ol4bom2eNT0m5Uu2FiPujN+/H6B4z25uzP4gibGKPVL9JxVPO/1hGSgT@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz0R69VLS4kaTnPdu1WtUQDkTmzD7C4rPsH+Posowpc/NzbdbU8
+	pSAl973fP0qB4xW/m5TQIvw4fdan2MFWjboUs4GcHGU7HOAYa9Rix5MwjDWWSw==
+X-Gm-Gg: ASbGncufcfoOeMK0gXf+bKzjbLwG4dUIesuZmSDLJO4QZpIKXszlIXZzfIl3ApX6R7p
+	aitZeeJejfkZZDjEqC4h2mEzneZ2ToP6N2X/5cEC17ck3WRyKaxs8YpLhWp2ntobHag877sqYo3
+	wWXMT1iYuso98IYadE3p6F79vY1D2OtX8+3OMjcu10YiY2kERwN9KNJ1dqrfp8fVdjdqy269SD0
+	4NSE7XYnan6A/ne41chDAUopoNyAnDLzi7jlzEtBbuq0OtAZ1ZjGyG/MJwUtW8bN+ePXyGalIFB
+	iZSfKC7AbcywGuZWny6sPAszwY0hYV6nQogNyhI1cNUzMN4p+ENR
+X-Google-Smtp-Source: AGHT+IESxIRh9ywcqSB83gIp43lT9P2vpMm3xBJxMCs41iZKziBWs0161UNH7ZZMchhUoZ94nY/2tw==
+X-Received: by 2002:a17:903:1b23:b0:220:e5be:29c7 with SMTP id d9443c01a7336-22dbf63a2c2mr132522725ad.39.1745752245995;
+        Sun, 27 Apr 2025 04:10:45 -0700 (PDT)
+Received: from thinkpad ([120.60.143.241])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22db4d74c93sm62360595ad.11.2025.04.27.04.10.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 27 Apr 2025 04:10:45 -0700 (PDT)
+Date: Sun, 27 Apr 2025 16:40:36 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Hans Zhang <18255117159@163.com>
+Cc: lpieralisi@kernel.org, kw@linux.com, bhelgaas@google.com, 
+	heiko@sntech.de, robh@kernel.org, jingoohan1@gmail.com, shawn.lin@rock-chips.com, 
+	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v3 0/3] PCI: dw-rockchip: Reorganize register and
+ bitfield definitions
+Message-ID: <yhcnrmmmphqz2egrws5sxobysf6ntnd7xxl5vuzo34y5aunbj5@pe7i352kgdm7>
+References: <20250423153214.16405-1-18255117159@163.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250423153214.16405-1-18255117159@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250427_032046_908608_3AA4D654 
-X-CRM114-Status: GOOD (  27.32  )
+X-CRM114-CacheID: sfid-20250427_041047_048879_26A0AB2A 
+X-CRM114-Status: GOOD (  17.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,94 +101,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 26 Apr 2025 17:34:10 -0500
-David Lechner <dlechner@baylibre.com> wrote:
+On Wed, Apr 23, 2025 at 11:32:11PM +0800, Hans Zhang wrote:
+> 1. PCI: dw-rockchip: Remove unused PCIE_CLIENT_GENERAL_DEBUG
+> 2. PCI: dw-rockchip: Reorganize register and bitfield definitions
+> 3. PCI: dw-rockchip: Unify link status checks with FIELD_GET
+> 
+> ---
+> Changes for v3:
+> - Delete the redundant Spaces in the comments of patch 2/3.
+> 
+> Changes for v2:
+> - Add register annotations to enhance readability.
+> - Use macro definitions instead of magic numbers.
+> 
+> https://patchwork.kernel.org/project/linux-pci/patch/20250416151926.140202-1-18255117159@163.com/
+> 
+> Bjorn Helgaas:
+> These would be material for a separate patch:
+> 
+> - The #defines for register offsets and bits are kind of a mess,
+>   e.g., PCIE_SMLH_LINKUP, PCIE_RDLH_LINKUP, PCIE_LINKUP,
+>   PCIE_L0S_ENTRY, and PCIE_LTSSM_STATUS_MASK are in
+>   PCIE_CLIENT_LTSSM_STATUS, but you couldn't tell that from the
+>   names, and they're not even defined together.
+> 
+> - Same for PCIE_RDLH_LINK_UP_CHGED, PCIE_LINK_REQ_RST_NOT_INT,
+>   PCIE_RDLH_LINK_UP_CHGED, which are in PCIE_CLIENT_INTR_STATUS_MISC.
+> 
+> - PCIE_LTSSM_ENABLE_ENHANCE is apparently in PCIE_CLIENT_HOT_RESET_CTRL?
+>   Sure wouldn't guess that from the names or the order of #defines.
+> 
+> - PCIE_CLIENT_GENERAL_DEBUG isn't used at all.
+> 
+> - Submissions based on the following v5 patches:
+> https://patchwork.kernel.org/project/linux-pci/patch/1744850111-236269-1-git-send-email-shawn.lin@rock-chips.com/
+> https://patchwork.kernel.org/project/linux-pci/patch/1744850111-236269-2-git-send-email-shawn.lin@rock-chips.com/
+> https://patchwork.kernel.org/project/linux-pci/patch/1744850111-236269-3-git-send-email-shawn.lin@rock-chips.com/
 
-> On 4/26/25 6:35 AM, Jonathan Cameron wrote:
-> > On Fri, 25 Apr 2025 16:08:43 -0500
-> > David Lechner <dlechner@baylibre.com> wrote:
-> >   
-> 
-> ...
-> 
-> >> @@ -777,6 +779,42 @@ static inline void *iio_device_get_drvdata(const struct iio_dev *indio_dev)
-> >>   * them safe for use with non-coherent DMA.
-> >>   */
-> >>  #define IIO_DMA_MINALIGN ARCH_DMA_MINALIGN
-> >> +
-> >> +#define __IIO_DECLARE_BUFFER_WITH_TS(type, name, count) \
-> >> +	static_assert(count); \  
-> > 
-> > Why do we care if count is 0?  Or is intent to check if is constant?
-> > If the thought is we don't care either way about 0 (as rather nonsensical)
-> > and this will fail to compile if not constant, then perhaps a comment would
-> > avoid future confusion?  
-> 
-> I would be inclined to just leave out the check. But yes, it is just checking
-> that count is constant and we don't expect 0.
-> 
-> >   
-> >> +	type name[ALIGN((count), sizeof(s64) / sizeof(type)) + sizeof(s64) / sizeof(type)]
-> >> +
-> >> +/**
-> >> + * IIO_DECLARE_BUFFER_WITH_TS() - Declare a buffer with timestamp
-> >> + * @type: element type of the buffer
-> >> + * @name: identifier name of the buffer
-> >> + * @count: number of elements in the buffer
-> >> + *
-> >> + * Declares a buffer that is safe to use with iio_push_to_buffer_with_ts(). In
-> >> + * addition to allocating enough space for @count elements of @type, it also
-> >> + * allocates space for a s64 timestamp at the end of the buffer and ensures
-> >> + * proper alignment of the timestamp.
-> >> + */
-> >> +#define IIO_DECLARE_BUFFER_WITH_TS(type, name, count) \
-> >> +	__IIO_DECLARE_BUFFER_WITH_TS(type, name, count) __aligned(sizeof(s64))
-> >> +
-> >> +/**
-> >> + * IIO_DECLARE_DMA_BUFFER_WITH_TS() - Declare a DMA-aligned buffer with timestamp
-> >> + * @type: element type of the buffer
-> >> + * @name: identifier name of the buffer
-> >> + * @count: number of elements in the buffer
-> >> + *
-> >> + * Same as IIO_DECLARE_BUFFER_WITH_TS(), but is uses __aligned(IIO_DMA_MINALIGN)
-> >> + * to ensure that the buffer doesn't share cachelines with anything that comes
-> >> + * before it in a struct. This should not be used for stack-allocated buffers
-> >> + * as stack memory cannot generally be used for DMA.
-> >> + */
-> >> +#define IIO_DECLARE_DMA_BUFFER_WITH_TS(type, name, count) \
-> >> +	__IIO_DECLARE_BUFFER_WITH_TS(type, name, count) __aligned(IIO_DMA_MINALIGN)
-> >> +
-> >> +static_assert(IIO_DMA_MINALIGN % sizeof(s64) == 0,  
-> > That message isn't super helpful if seen in a compile log as we aren't reading the code here
-> > "IIO_DECLARE_DMA_BUFFER_WITH_TS() assumes that ...
-> >   
-> >> +	"macros above assume that IIO_DMA_MINALIGN also ensures s64 timestamp alignment");
-> >> +  
-> 
-> Seems we actually have an arch (openrisc) that triggers this [1]. This arch
-> doesn't define ARCH_DMA_MINALIGN so it falls back to:
-> 
-> #define ARCH_DMA_MINALIGN __alignof__(unsigned long long)
-> 
-> Apparently this is only of those 32-bit arches that only does 4 byte alignment.
-> From the official docs [2]:
-> 
-> 	Current OR32 implementations (OR1200) do not implement 8 byte alignment,
-> 	but do require 4 byte alignment. Therefore the Application Binary
-> 	Interface (chapter 16) uses 4 byte alignment for 8 byte types. Future
-> 	extensions such as ORVDX64 may require natural alignment.
-> 
-> [1]: https://lore.kernel.org/linux-iio/20250425-iio-introduce-iio_declare_buffer_with_ts-v3-0-f12df1bff248@baylibre.com/T/#m91e0332673438793ff76949037ff40a34765ca30
-> [2]: https://openrisc.io/or1k.html
-> 
-> 
-> It looks like this could work (it compiles for me):
-> 
-> 	__aligned(MAX(IIO_DMA_MINALIGN, sizeof(s64)))
-> 
-> If that is OK we could leave out the static_assert(), unless we think there
-> could be an arch with IIO_DMA_MINALIGN not a power of 2?!
-> 
-That change seems fine.  Non power of 2 arch would be fun but implausible any time soon :)
+> https://patchwork.kernel.org/project/linux-pci/patch/1744940759-23823-1-git-send-email-shawn.lin@rock-chips.com/
 
+Because of *this* dependency, I couldn't apply this series. I'd suggest to
+respin this series avoiding the above mentioned patch and just rebase on top of
+controller/dw-rockchip branch:
+https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git/log/?h=controller/dw-rockchip
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
