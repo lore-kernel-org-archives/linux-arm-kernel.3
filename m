@@ -4,64 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3673C369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 13:13:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9D1CC369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 13:43:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I2RcUQv/8dBIN2L2LWxeQcaAIEeCjjfBUxKcWps9ai0=; b=xuRyD6xoBTYV0ExnDOY0q7xInG
-	OoidLx3zGR/vgtyPU0KMDaxs6jeBtulRWcmpskliJLq4NAdRoJpMRpAAEGzGYAnMN7imApMgqIVzc
-	VjThR236eq9CdV/O5gRRW/B68UEsrVOKbdfgLEpF5LFiW3rSiIbh3mcjhSwZjJwBFtbqlEEPMGTav
-	m7wKnv/+F1zfCr9QLZkdRpPl3HsodWcm1Z8ZENTlbWxV78q1biOQi/LFUyrOQt/mryvIE6DADBF78
-	kptNvlCX5WMzEdmVCXGmV5nbeWOXk18N4vXAllhkD+dGKe/yRa7z6j7ipAPtfNMrB9qMa/QgffWYD
-	PphXk4MA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lgLsTHFUHPVY+MlDYOlPHI/6Yw7FnfxYmbCzXZmnW0Y=; b=z4erXX/AzEM4tUVmP0by3rVXE1
+	i0OQ8CXxb9x8eAyaPKRV/3+H3yllkvqJqaemA6tT3TLdDm1oxHge4P0JQBtYDxhy3SiQr7t+x69Cg
+	iEPG0C0Ct5eQt+I8zxcyJdPKGhjKQwLXYDI2BUqg88Tmaul/b8yVOxtVFeCcgA6zZ3H9TuJlY7Ely
+	Fa1Dxk40wvZhuMa+89ALR0L2bl3Yw5JsrrmtjOZ9g63Yl4CQycxxJT5Lz2XMYi22uJGJRGBza1P4e
+	bd8lc75R30F1QTWp2DvyAM9OiJbWoNVoVWsQ/uyeLHBXUq8BCUNw3ToMH4SeU+VcGD9aZPsKBb+Nt
+	5lAsQnUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u91p8-00000003aLX-0Mwt;
-	Sun, 27 Apr 2025 13:13:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u92Hx-00000003cCo-0ztX;
+	Sun, 27 Apr 2025 13:43:21 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u91nC-00000003aDb-41y6;
-	Sun, 27 Apr 2025 13:11:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 078886116F;
-	Sun, 27 Apr 2025 13:11:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8414C4CEE3;
-	Sun, 27 Apr 2025 13:11:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745759493;
-	bh=hIg9xiL1wTkWBQvd+WTVpN2UA7enXw1novSCVk6FraQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Js5eBBxoHlcS56/LWyr45u7eRowNxoCYA6Md7I33bPaPRQLs3baLIHPlyTp0csghf
-	 mNCXTEbu1yNMtMOT7JTf854tXYRVvArrq3HZEnVUBQlFqylkwky2LSYaFxEK8/Kw5X
-	 Z/AcD9AseJYp4rgJMRwQ8XY9rmHzUm+sI/ac4vuLvW0OU9Ii9N2xfO9Puzy+QkAVof
-	 Nyn3ibUt23OszHmj1FWPHbibu4rE+VmW/6hBdidH2RcSqJWI7TquPP9TueEjIP/oSw
-	 /d5OvCZ/JlLLJjOP3DLWAlgxyVxgFiRpBDxeOK061Pq27N2K0t8Z0HoPDa2VNsTeb+
-	 FuI4gqQiU6ppA==
-Date: Sun, 27 Apr 2025 06:11:38 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Herbert Xu <herbert@gondor.apana.org.au>
-Cc: Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	sparclinux@vger.kernel.org, linux-s390@vger.kernel.org,
-	x86@kernel.org, Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld " <Jason@zx2c4.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: Re: [v2 PATCH 00/13] Architecture-optimized SHA-256 library API
-Message-ID: <20250427131138.GC1161@quark>
-References: <cover.1745734678.git.herbert@gondor.apana.org.au>
- <20250427123514.GA1161@quark>
- <aA4mAlozk3RvxvTe@gondor.apana.org.au>
- <20250427125641.GB1161@quark>
+	id 1u92Fz-00000003c17-3x21
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 27 Apr 2025 13:41:21 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-5f6c3f7b0b0so7165311a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Apr 2025 06:41:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1745761277; x=1746366077; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=lgLsTHFUHPVY+MlDYOlPHI/6Yw7FnfxYmbCzXZmnW0Y=;
+        b=qGEl4RCWYsfUPbHfaX3Ss+040HAgrto343h3F53yLGotfzk5ZBodjlLOOiikiHPMrP
+         7jRnpa1FEuA0DEcuIYBfETdLHJSltlA/sel5yjhIUQPYiNvS6IilyOdqBqckQFnOG7ns
+         3BtsEZAYuB9SvDW1t7K5gIQUyKRiXjyBuHWoIgMenXIJFE0MghXxExOMSqw04X1ocb2n
+         5/NG6YQ5KSsPmiwtRMaT99I3S5QIPqqARAAq/3H9PiyMfj3A27ZSGQ5HzGqPWjrao/rT
+         0TH9gyAuGYNJ5862+B/XzxQEPRTOvTvauluR+itc0Em0v+GgFNdwF9u1rTlxAxDjgeAV
+         EQ+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745761277; x=1746366077;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=lgLsTHFUHPVY+MlDYOlPHI/6Yw7FnfxYmbCzXZmnW0Y=;
+        b=b/rrdUAJsIPJBpLq1FwMZ5Ktu+Ob2VzllEDqiQsfHDaDpJsiNFlKyW0JEdm63gdet/
+         cp0pV/h+JK5r2SDYcG+kMnwLygxfYtI6CZoGmGng7JP/6JmRDJ433/zYJfwiGusG6ONd
+         l+KBDj4tWjMcLt31T3xJlFE0isDFji2qPxTFBtm/7BeFUw8dIcxIHvt7xKGSGkNwYufz
+         nYqmkYrmVQTnv13gDr/CK6BJdqsEfvsWgSnfNS02/vzXB6LjU/neNcv/UiHwc5Zv59ci
+         gXziScDxNN5Cdlp4UhSmM10cyiyytS/FLkfn/H+3Ndjfz0hfBRKbmarw7wJr3UIQvPxe
+         nzfw==
+X-Forwarded-Encrypted: i=1; AJvYcCU7erNoRcKSgT3SLp6UxtAf9N/jjqxZ/0xmyhfG7+BdXMt51qg2/Bca+IPEpyUv0n5Kz/btT5aUNEre7MNK1H0N@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXwu4qdZztZOUhyAb1RNsfbJxrRAARQ1cnQqokDfpQGZqh8XeI
+	xLBUxmFqk3mbjtTJLc59/DjKwgoMYW/Rh0L1sJPWuTgJEbqbOdsJhJmitmcVq6c=
+X-Gm-Gg: ASbGncv2oyp1lM0Jv5zRf1IapIs7U1B1TNxhYOUK3ieA/U7OM+lYZl118mhZsuprVnE
+	lAj6K9PqWqiTxM0SEG2BJU+wXS6gc/P/gr4tiV5ZIpnsrQ6J024mdSyIlt+g6cyJhY9W+iheovd
+	jO6Q9+IOq+Jub7CQKIgalj0h+bXEJBu3DTcTzeq9ik27HiYlw5e6VtG5QJceJS6qnRZ4vyFuw6G
+	jHaqppHTeiSA3ykvvqn0Ry+gd+asDtk7eV8ntch0mYDdfCglmoXjwKyMRZkjUDiOdmltTfJffzn
+	er6jsZfmWdQezYIvG3EeAb5iFz+mAd4cmyxqjaPbK2g535PNtD9551ruk6yJ
+X-Google-Smtp-Source: AGHT+IFjvYNUHCZ3dPrDRyEa/OPDZMNfSszUTn/p2tnOnx4im+io+5tXp8qpQenDsLlwqL9uw5wHmg==
+X-Received: by 2002:a05:6402:2691:b0:5e7:c773:ae35 with SMTP id 4fb4d7f45d1cf-5f722672b22mr7593685a12.5.1745761277306;
+        Sun, 27 Apr 2025 06:41:17 -0700 (PDT)
+Received: from [192.168.50.4] ([82.78.167.145])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f7013ff570sm4139225a12.23.2025.04.27.06.41.15
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 27 Apr 2025 06:41:15 -0700 (PDT)
+Message-ID: <86068277-5443-435d-b1cb-0d1a5731b331@tuxon.dev>
+Date: Sun, 27 Apr 2025 16:41:14 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250427125641.GB1161@quark>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 00/11] Enable Power Modes Support for SAMA7D65 SoC
+To: Ryan.Wanner@microchip.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, nicolas.ferre@microchip.com,
+ alexandre.belloni@bootlin.com, lee@kernel.org, sre@kernel.org,
+ p.zabel@pengutronix.de
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+ linux-rtc@vger.kernel.org
+References: <cover.1744666011.git.Ryan.Wanner@microchip.com>
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Content-Language: en-US
+In-Reply-To: <cover.1744666011.git.Ryan.Wanner@microchip.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250427_064120_134779_8354E517 
+X-CRM114-Status: UNSURE (   5.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,45 +104,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 27, 2025 at 05:56:43AM -0700, Eric Biggers wrote:
-> On Sun, Apr 27, 2025 at 08:41:38PM +0800, Herbert Xu wrote:
-> > On Sun, Apr 27, 2025 at 05:35:14AM -0700, Eric Biggers wrote:
-> > >
-> > > Well, barely a day and you've already ruined my patch series.  Now instead of a
-> > > clean design where the crypto_shash API is built on top of the normal library
-> > > API (sha256_update() etc.), there's now a special low-level API
-> > > "sha256_choose_blocks()" just for shash that it's built on top of instead, for
-> > > no good reason.  You're also still pushing your broken BLOCK_HASH_UPDATE_BLOCKS
-> > > macro that doesn't work with size_t, and putting my name on your broken code
-> > > that uses it.
-> > 
-> > Your design is unacceptable because you're forcing the partial block
-> > handling on shash where it's not needed,
-> 
-> Excuse me?  It's the other way around.  In my version the partial block handling
-> is only in the library, not shash.  In your version you've forced it into the
-> shash layer, even though the library does it already.  I understand that you've
-> added support for partial block handling to crypto/shash.c and you want to feel
-> like your work is useful, but in this case it's not, since the libray has to
-> handle arbitrary-length inputs anyway.
-> 
-> > just as you're forcing the hardirq support on everything.
-> 
-> If you want crypto_shash to warn on hardirq usage you should just put a
-> WARN_ON(in_hardirq()) in crypto_shash_*(), which will actually achieve that.
-> Not add a shash-specific non-hardirq-safe low-level API to the library that can
-> silently corrupt random tasks' SIMD registers on production systems.
 
-By the way, as I mentioned in my cover letter:
 
-    For now the SHA-256 library is well-covered by the crypto_shash
-    self-tests, but I plan to add a test for the library directly later.
+On 15.04.2025 00:41, Ryan.Wanner@microchip.com wrote:
+>   ARM: dts: microchip: sama7d65: Add SRAM and DRAM components support
+>   ARM: dts: microchip: sama7d65: Add RTT and GPBR Support for sama7d65
+>     SoC
+>   ARM: dts: microchip: sama7d65: Add RTT timer to curiosity board
 
-But due to your gratuitous changes where crypto_shash is no longer built on top
-of the normal SHA-256 library API, that's no longer the case.
-
-So while I do still plan to add a SHA-256 library test anyway, I don't see the
-reason for not also making crypto_shash just do the right thing.
-
-- Eric
+Applied to at91-dt, thanks!
 
