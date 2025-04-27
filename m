@@ -4,96 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8528C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 08:31:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 336EAC369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 08:32:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ExmNu9H1z+r+hx9rysb9NAJ4CtrthHNR0LVzxTK9j7Y=; b=u3oyPGarcmBN7eTwRty0DYRZdK
-	xeJfrC6kUgT0stt5RYNRgvKBVzWMLbOr8P5MhkOmt6/hytr3dWez2MeUTnw1xjbtaD72JzjIGp6Ia
-	kARkZFjG/KRx99GfP1PWJRtQxS8M3Y6brY/6nWSDvxk+8b47pLGPCmmvH5RrEEy3ITV9lpLXsD6n6
-	rsI/hDjumTM+vyTUkEWdVu+9HW7nEozv7OQO80ej/2VOkXX4EH+/3TY6eaX2ZUDsVk1wYIbAYVHTF
-	2OxDQB9JydqPtyaD+rHBDIAB7zuc4SGM+bVS0YpExjVkr3/ADKDAyLOCAhfOUHBRpV/6cyRowhNO3
-	D9ZYnxHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bSy3QbJRv7DmGrlDT8/1wLtqRMpqrMZ9rZcc0aoNiSs=; b=oY+cN9jIMheSsWZSd4bHTw6693
+	IJEF8dziqNTKWpBcp/piy9xDgNbkckiUgEaCjwUc5leR/DK1Mqo3jS0B9ivUx4ntuStiRKf1AEh9W
+	vUe0ThXa07yoD+3GBI7CKc3NcxPir3qDTJSEckFmbFs1wuq0jnel8AobxFOb5ePxQyXjxZGGy9MYj
+	FRxd3EmJxJYgLsli6UNJuQqGef/+3jzQEJnJXeZsq4MeZRDTfmjFqWCEeaBI0qB35EXgooXiqiUR0
+	uzS3ZFM1PQHeaOCSUqM+04fHppEMhunQg/Wl/aQ9FZ8hGR/RoI17bZ8dB5RVncVA5rUJWoUZ0xkDi
+	Ojq4G0Wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8xPY-00000003BUi-2Zen;
-	Sun, 27 Apr 2025 08:30:52 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1u8xQW-00000003BgE-07bp;
+	Sun, 27 Apr 2025 08:31:52 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8w21-000000033yK-2xYu
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Apr 2025 07:02:30 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53QGMGVQ029586;
-	Sun, 27 Apr 2025 07:02:20 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	ExmNu9H1z+r+hx9rysb9NAJ4CtrthHNR0LVzxTK9j7Y=; b=VQVgPqjv6eYDtz0e
-	VLjLXcNT47hGPSKGrQq/NvyoLgMzZ71MzPqakfvNvkqaNx/EC+R7rX72Ms3wln6t
-	W34I1wkLlTjashjqKA3AExbJ8szeTXvvqHnBCGELfhxbPG1mNq+C9Fgo2hysm71Y
-	TC5aigybMAwKTbdu967JFt0NWGxo+impUijP1ctR6v7wJ3KAPelBjDp3T0VG27a8
-	M3Z9BBhOJDF2/FKeVxEEFMka936abTzlqItYjqO5QVT5W/JnCboiISIl4IY9ZbNo
-	lr67G988Sp5inEQhOq2iKwhmTmHaYKGjCXEBK1bGshmiUI5NECjr/Q0XM/i5wB2i
-	Qbco0g==
-Received: from nasanppmta03.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 468pevba45-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sun, 27 Apr 2025 07:02:20 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53R72J7v008304
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sun, 27 Apr 2025 07:02:19 GMT
-Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Sun, 27 Apr 2025 00:02:14 -0700
-From: Vikram Sharma <quic_vikramsa@quicinc.com>
-To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
-        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <andersson@kernel.org>,
-        <konradybcio@kernel.org>, <hverkuil-cisco@xs4all.nl>,
-        <cros-qcom-dts-watchers@chromium.org>, <catalin.marinas@arm.com>,
-        <will@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <quic_vikramsa@quicinc.com>,
-        <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH RFC/WIP v2 2/9] media: qcom: camss: add generic vfe handling in vfe gen3
-Date: Sun, 27 Apr 2025 12:31:28 +0530
-Message-ID: <20250427070135.884623-3-quic_vikramsa@quicinc.com>
+	id 1u8xKH-00000003Aif-0bZz;
+	Sun, 27 Apr 2025 08:25:26 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-736bfa487c3so3094523b3a.1;
+        Sun, 27 Apr 2025 01:25:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1745742324; x=1746347124; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=bSy3QbJRv7DmGrlDT8/1wLtqRMpqrMZ9rZcc0aoNiSs=;
+        b=K1No/fxOLiJ31Vz8KrYVjCHqVEFWg8d29ZYDRcoI1skPB0B4xo/wFKxaJnPctLM6Q+
+         qz6YZ1EGoMxdaRfkeE4N7AQO4jiySK3aBKHvc/1AIEIZGPCODtYxvDZ7o2+EsojeMcnu
+         LfjiYpUv2MxVIK88rw3cEqvyjs7B+ZQYR4DsSvMBvhOeiAL/yIUa/1C/A4JFjtUQ96dv
+         j8OI1cRRMQJUSXW91k7rZsPXAO57k5X5Adpffu0EyBSMOHuCITodNEumGkkoLEmqAGq5
+         trA2fucpyVu/YZkU/lCn2CIPdjYiE+S2wftIFwQp5KdfWMnk74xTrdnYWU4kbWhHq2GR
+         qgLQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745742324; x=1746347124;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=bSy3QbJRv7DmGrlDT8/1wLtqRMpqrMZ9rZcc0aoNiSs=;
+        b=RGNCZdL6x3K/+kKekVLAqmHCRRxsY4Zwo9BVwhOx9Z8XLmpkG7DKXYH2nA7nIBCt6u
+         YlJsGkoUlyRkfzWKAcxHJlGb4uvqvp3FnvqBkrt31eEEyfxnErz1BQv+Ux1zG0vMGYsn
+         k70O+tgIaXYmJAtDfC2+ZKwhQlhsA/qBq7mmD5HDdFWmssPtFrroeLRrvXpD6JhYd76D
+         CIKueH1BtoN2jfIpnomcVmMMlv4+itlKaTw+PQkVPK9thas2ENerSDBjmzNIOCSVCR1F
+         k0O6HqAdsO2YDpJAcZUHktLYvCHs05Ws4/rKd3TCbRSWahNc05lxvt9H39b4LleMGv+q
+         T18g==
+X-Forwarded-Encrypted: i=1; AJvYcCUyd4x+zFUPRO4vmNEURGRl/edjAd1Gx8ShBZHOc96HtT+bdEbCdk4SnF4zsEFBGwcCvtjjKXeq4ekTbTLumdQ+IA==@lists.infradead.org, AJvYcCVNqpK/vKv0NEIUD7bgYjIHeidgBWMOtNFk6NbL3vMLhVKtiXIjiU+NZXfh9q0OTxJNKFnQ+MGwi8ZsdX6mY4Eg@lists.infradead.org
+X-Gm-Message-State: AOJu0YzGHQUjJRf/B91nXmR/s5KcIyj3/f2iStf3+t+PKvFlAP+0twP3
+	Kdd+7AnfZ6VtjBq/DaQXyN3InvYpKbDQkqeOPC/+v1eTdpwcWxET
+X-Gm-Gg: ASbGnctOHx5RQIMlTG4Rf7ksT1HBBLm3K94S5VAqg9KfZEfiwe0D8IewR2KfQeJbP+m
+	fhoYZ39Cl8Qa5gZpJ3qINcr8c7fOvn23XuyAeuypI3SUDF+LZEi3f8qzAqnWoW/A24jzluGgUaC
+	xlLoT4gk46842z2JvuTBcd1vkIopISyE3oWXJKADQFxewAWw3Rbdb5ayANaWamRv/1aomVrjY6P
+	b6HX0pdqCSLMor3lHNbopv8NtDokBSdu0HIGw7inS7CgDdoRGhitVYtBzZrvNHXuy7SU0Fv1bmt
+	k+flA/jLRq3sqkyaDHmTtLPze7ceZ1Dr4XGwUs25sTqChVsieRnzpA==
+X-Google-Smtp-Source: AGHT+IG5qnz5GOAH6oZvY00TzTjs1/+wlVcc1GWPA84EcPujdbxxX4tiX1r/bvb+09d6pEDael2hEg==
+X-Received: by 2002:aa7:8889:0:b0:736:5c8e:bab8 with SMTP id d2e1a72fcca58-73ff7247e46mr7010787b3a.3.1745742323637;
+        Sun, 27 Apr 2025 01:25:23 -0700 (PDT)
+Received: from localhost.localdomain ([14.171.43.210])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73e2549f570sm5900852b3a.0.2025.04.27.01.25.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 27 Apr 2025 01:25:23 -0700 (PDT)
+From: Nam Tran <trannamatk@gmail.com>
+To: andy@kernel.org
+Cc: geert@linux-m68k.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	christophe.jaillet@wanadoo.fr,
+	corbet@lwn.net,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	florian.fainelli@broadcom.com,
+	bcm-kernel-feedback-list@broadcom.com,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	Nam Tran <trannamatk@gmail.com>
+Subject: [PATCH v8 0/5] auxdisplay: add support for TI LP5812 4x3 Matrix LED driver
+Date: Sun, 27 Apr 2025 15:24:42 +0700
+Message-Id: <20250427082447.138359-1-trannamatk@gmail.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250427070135.884623-1-quic_vikramsa@quicinc.com>
-References: <20250427070135.884623-1-quic_vikramsa@quicinc.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: eOkwxa3xyihRntGPkb2fVwtdwK825rBM
-X-Authority-Analysis: v=2.4 cv=aeBhnQot c=1 sm=1 tr=0 ts=680dd67c cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=QJlLqlAAiDquw72lqzYA:9 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: eOkwxa3xyihRntGPkb2fVwtdwK825rBM
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI3MDA1NSBTYWx0ZWRfX8U07UsrEw95f XOlD6Ao7UtgJi+dXUslYgU2lK5sIre0kYgAmS+BnmqBjR7RqgpM7ccdB05RwVYWp9Io00WfW9od Cvntn5d1+z2ZXUjneOUzUXph5E+aa+1Cz7RGfyku9jI2GI4FBso4el4YnwRY6OGHbIxpeRrg4fP
- qu6ELIeLAcCaT4aLZkNk8nq9/8ubQZLhM4EL/QDS+Saob7cCKlO+THFbMDiE6Rx6CI1YCwEdNm7 v5JfIWgflTPaYWem/B04Tnrl306f+r28yZslNUqfeSiEVjS2nPKRCmbO8kMcaQcuakv1gsiV76k wv+9iQ3WX09wL8GTsdgbwuYYFfwzrylWXsf+V9ji8dPRXbP5C4iPf37VitwTcNcZrour80+8LfP
- kESsBf2xz14IZ0noP3O4uskTlkQ0DHvAhvxL0z/FMrH5oOC6wlAt5mlvtyKyOiXM/OoyZFHD
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-04-27_02,2025-04-24_02,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 clxscore=1015
- impostorscore=0 bulkscore=0 malwarescore=0 priorityscore=1501 spamscore=0
- mlxlogscore=999 phishscore=0 suspectscore=0 lowpriorityscore=0 mlxscore=0
- classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2504070000
- definitions=main-2504270055
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250427_000229_749024_C3879877 
-X-CRM114-Status: GOOD (  14.69  )
+X-CRM114-CacheID: sfid-20250427_012525_188250_900F99F8 
+X-CRM114-Status: GOOD (  16.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,136 +106,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename camss-vfe-780.c to camss-vfe-gen3.c to avoid code duplication
-for later SOCs i.e SA8775P. SA877P have vfe 690 which is almost same
-as vfe 780 with very minor changes in register bitfield.
+This patch series adds support for the TI/National Semiconductor LP5812
+4x3 matrix RGB LED driver. The driver supports features such as autonomous
+animation and time-cross-multiplexing (TCM) for dynamic LED effects.
 
-Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+Signed-off-by: Nam Tran <trannamatk@gmail.com>
 ---
- drivers/media/platform/qcom/camss/Makefile             |  2 +-
- .../qcom/camss/{camss-vfe-780.c => camss-vfe-gen3.c}   |  9 +++++----
- drivers/media/platform/qcom/camss/camss-vfe.h          |  2 +-
- drivers/media/platform/qcom/camss/camss.c              | 10 +++++-----
- 4 files changed, 12 insertions(+), 11 deletions(-)
- rename drivers/media/platform/qcom/camss/{camss-vfe-780.c => camss-vfe-gen3.c} (95%)
+Changes in v8:
+- Move driver to drivers/auxdisplay/ instead of drivers/leds/.
+- Rename files from leds-lp5812.c/.h to lp5812.c/.h.
+- Move ti,lp5812.yaml binding to auxdisplay/ directory,
+  and update the title and $id to match new path.
+- No functional changes to the binding itself (keep Reviewed-by).
+- Update commit messages and patch titles to reflect the move.
+- Link to v7: https://lore.kernel.org/linux-leds/20250422190121.46839-1-trannamatk@gmail.com/
 
-diff --git a/drivers/media/platform/qcom/camss/Makefile b/drivers/media/platform/qcom/camss/Makefile
-index ee869e69521a..9fc4591c0edb 100644
---- a/drivers/media/platform/qcom/camss/Makefile
-+++ b/drivers/media/platform/qcom/camss/Makefile
-@@ -19,7 +19,7 @@ qcom-camss-objs += \
- 		camss-vfe-17x.o \
- 		camss-vfe-480.o \
- 		camss-vfe-680.o \
--		camss-vfe-780.o \
-+		camss-vfe-gen2.o \
- 		camss-vfe-gen1.o \
- 		camss-vfe.o \
- 		camss-video.o \
-diff --git a/drivers/media/platform/qcom/camss/camss-vfe-780.c b/drivers/media/platform/qcom/camss/camss-vfe-gen3.c
-similarity index 95%
-rename from drivers/media/platform/qcom/camss/camss-vfe-780.c
-rename to drivers/media/platform/qcom/camss/camss-vfe-gen3.c
-index b9812d70f91b..ed1681148143 100644
---- a/drivers/media/platform/qcom/camss/camss-vfe-780.c
-+++ b/drivers/media/platform/qcom/camss/camss-vfe-gen3.c
-@@ -1,6 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
- /*
-- * Qualcomm MSM Camera Subsystem - VFE (Video Front End) Module v780 (SM8550)
-+ * Qualcomm MSM Camera Subsystem - VFE (Video Front End) Module gen3
-+ * Gen3 Supports Qualcomm vfe version 780 and 690
-  *
-  * Copyright (c) 2024 Qualcomm Technologies, Inc.
-  */
-@@ -113,14 +114,14 @@ static inline void vfe_reg_update_clear(struct vfe_device *vfe,
- 	camss_reg_update(vfe->camss, vfe->id, port_id, true);
- }
- 
--static const struct camss_video_ops vfe_video_ops_780 = {
-+static const struct camss_video_ops vfe_video_ops_gen2 = {
- 	.queue_buffer = vfe_queue_buffer_v2,
- 	.flush_buffers = vfe_flush_buffers,
- };
- 
- static void vfe_subdev_init(struct device *dev, struct vfe_device *vfe)
- {
--	vfe->video_ops = vfe_video_ops_780;
-+	vfe->video_ops = vfe_video_ops_gen2;
- }
- 
- static void vfe_global_reset(struct vfe_device *vfe)
-@@ -140,7 +141,7 @@ static int vfe_halt(struct vfe_device *vfe)
- 	return 0;
- }
- 
--const struct vfe_hw_ops vfe_ops_780 = {
-+const struct vfe_hw_ops vfe_ops_gen2 = {
- 	.global_reset = vfe_global_reset,
- 	.hw_version = vfe_hw_version,
- 	.isr = vfe_isr,
-diff --git a/drivers/media/platform/qcom/camss/camss-vfe.h b/drivers/media/platform/qcom/camss/camss-vfe.h
-index a23f666be753..bded88aa85c0 100644
---- a/drivers/media/platform/qcom/camss/camss-vfe.h
-+++ b/drivers/media/platform/qcom/camss/camss-vfe.h
-@@ -244,7 +244,7 @@ extern const struct vfe_hw_ops vfe_ops_4_8;
- extern const struct vfe_hw_ops vfe_ops_170;
- extern const struct vfe_hw_ops vfe_ops_480;
- extern const struct vfe_hw_ops vfe_ops_680;
--extern const struct vfe_hw_ops vfe_ops_780;
-+extern const struct vfe_hw_ops vfe_ops_gen2;
- 
- int vfe_get(struct vfe_device *vfe);
- void vfe_put(struct vfe_device *vfe);
-diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/platform/qcom/camss/camss.c
-index 1431e08dc04a..467f7ff4b042 100644
---- a/drivers/media/platform/qcom/camss/camss.c
-+++ b/drivers/media/platform/qcom/camss/camss.c
-@@ -2371,7 +2371,7 @@ static const struct camss_subdev_resources vfe_res_8550[] = {
- 			.is_lite = false,
- 			.has_pd = true,
- 			.pd_name = "ife0",
--			.hw_ops = &vfe_ops_780,
-+			.hw_ops = &vfe_ops_gen2,
- 			.formats_rdi = &vfe_formats_rdi_845,
- 			.formats_pix = &vfe_formats_pix_845
- 		}
-@@ -2395,7 +2395,7 @@ static const struct camss_subdev_resources vfe_res_8550[] = {
- 			.is_lite = false,
- 			.has_pd = true,
- 			.pd_name = "ife1",
--			.hw_ops = &vfe_ops_780,
-+			.hw_ops = &vfe_ops_gen2,
- 			.formats_rdi = &vfe_formats_rdi_845,
- 			.formats_pix = &vfe_formats_pix_845
- 		}
-@@ -2419,7 +2419,7 @@ static const struct camss_subdev_resources vfe_res_8550[] = {
- 			.is_lite = false,
- 			.has_pd = true,
- 			.pd_name = "ife2",
--			.hw_ops = &vfe_ops_780,
-+			.hw_ops = &vfe_ops_gen2,
- 			.formats_rdi = &vfe_formats_rdi_845,
- 			.formats_pix = &vfe_formats_pix_845
- 		}
-@@ -2441,7 +2441,7 @@ static const struct camss_subdev_resources vfe_res_8550[] = {
- 		.vfe = {
- 			.line_num = 4,
- 			.is_lite = true,
--			.hw_ops = &vfe_ops_780,
-+			.hw_ops = &vfe_ops_gen2,
- 			.formats_rdi = &vfe_formats_rdi_845,
- 			.formats_pix = &vfe_formats_pix_845
- 		}
-@@ -2463,7 +2463,7 @@ static const struct camss_subdev_resources vfe_res_8550[] = {
- 		.vfe = {
- 			.line_num = 4,
- 			.is_lite = true,
--			.hw_ops = &vfe_ops_780,
-+			.hw_ops = &vfe_ops_gen2,
- 			.formats_rdi = &vfe_formats_rdi_845,
- 			.formats_pix = &vfe_formats_pix_845
- 		}
+Changes in v7:
+- Mark `chip_leds_map` as const.
+- Use consistent `ret` initialization.
+- Simplify the function `set_mix_sel_led()`.
+- Refactor `dev_config_show()` and `led_auto_animation_show()` to avoid temp buffer, malloc/free.
+- Simplify the code and ensure consistent use of mutex lock/unlock in show/store functions.
+- Remove `total_leds` and `total_aeu`.
+- Link to v6: https://lore.kernel.org/linux-leds/20250419184333.56617-1-trannamatk@gmail.com/
+
+Changes in v6:
+- Add `vcc-supply` property to describe the LP5812 power supply.
+- Remove `chan-name` property and entire LED subnodes, as they are not needed.
+- Update LP5812 LED driver node to Raspberry Pi 4 B Device Tree, based on updated binding.
+- Link to v5: https://lore.kernel.org/linux-leds/20250414145742.35713-1-trannamatk@gmail.com/
+
+Changes in v5:
+- Rebase on v6.15-rc2
+- Removed unused functions (lp5812_dump_regs, lp5812_update_bit).
+- Address Krzysztof's review comments
+- Link to v4: https://lore.kernel.org/linux-leds/20250405183246.198568-1-trannamatk@gmail.com/
+---
+
+Nam Tran (5):
+  dt-bindings: auxdisplay: add TI LP5812 4×3 Matrix RGB LED Driver
+  auxdisplay: add TI LP5812 4×3 Matrix RGB LED Driver
+  docs: ABI: Document LP5812 sysfs interfaces
+  docs: auxdisplay: document TI LP5812 RGB LED driver
+  arm64: dts: Add LP5812 node for Raspberry Pi 4 Model B
+
+ .../ABI/testing/sysfs-bus-i2c-devices-lp5812  |  144 +
+ .../admin-guide/auxdisplay/index.rst          |    3 +-
+ .../admin-guide/auxdisplay/lp5812.rst         |   79 +
+ .../bindings/auxdisplay/ti,lp5812.yaml        |   46 +
+ MAINTAINERS                                   |   12 +
+ .../arm/boot/dts/broadcom/bcm2711-rpi-4-b.dts |   10 +
+ drivers/auxdisplay/Kconfig                    |   17 +
+ drivers/auxdisplay/Makefile                   |    1 +
+ drivers/auxdisplay/lp5812.c                   | 2736 +++++++++++++++++
+ drivers/auxdisplay/lp5812.h                   |  348 +++
+ 10 files changed, 3395 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/ABI/testing/sysfs-bus-i2c-devices-lp5812
+ create mode 100644 Documentation/admin-guide/auxdisplay/lp5812.rst
+ create mode 100644 Documentation/devicetree/bindings/auxdisplay/ti,lp5812.yaml
+ create mode 100644 drivers/auxdisplay/lp5812.c
+ create mode 100644 drivers/auxdisplay/lp5812.h
+
+
+base-commit: f1a3944c860b0615d0513110d8cf62bb94adbb41
 -- 
 2.25.1
 
