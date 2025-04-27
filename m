@@ -4,61 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADD82C369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 11:18:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 733FDC369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 11:20:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QkVkz6dk4cOLjXYYtXS5CCd0YLGWAVsLoyMR7Wnuhxc=; b=DJexu1/gfObDxdAHNO7WXmPjde
-	MjtWYSCiXUG3D0Ztaa1sHxPtyjmpjDj9DKIsdXLCtJyX0ZbT1d7fSve4g+OGEK9V8WK8WrThhKghX
-	e1WpBcJNwCMe/EDrNzTa3mGteGavlCN5lCWQKLYFzctVd0NzFAb/4z60Y6UbUBUuGnfJVWNLPr38n
-	c4DoCrolQhbYY4A08GWAv65c6gYqpYNTad0trtHASa3cr201bOlEobEYmANvK60i+Cy5ZSjDx/Iz4
-	uNBaUggYv6UmA5GDR1h4pIzWqEFhRLtC+1vbeuESKfXoMw1TIVSG4cBcPdftDFGxjmLudffKc1d7X
-	c7B3yVlA==;
+	bh=YOn5uDNnmbpz2YvqS/MmIuJTmu3qB5FpprhRLnKlvIE=; b=XprJ6sRa1SobQTwUdML31tyEfg
+	46J3L8N5j7cIOwIKn3NAHFYaBIxYkQ9NJQpyH138uv24tKnYUNaXPG7Sz9q8E6DYKpPrGhYLIKBw+
+	R4J3UkAOijuqAjFU4az406mbl9Pvz+ZsAbGx+XO1xrrb7eriVdtOuaZoG/CDTdIRKRpGRMydsGb7L
+	96BfzIgFBiiE0oWMT4CCd53/AOIXQu3acFtHxL7j++20XGPyYPJ5yyxxRaDsuFchpMMTbng/+AFv0
+	sEp2wMsSDWod0sM07EYsYf7E3tLJsrCCRIYANvPa+qY/qZGQftC6Jn2LNt35kFENB0hzmD2fi7IpT
+	Wk0wB3Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u901x-00000003Onv-0x4a;
-	Sun, 27 Apr 2025 11:18:41 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1u903r-00000003Oz1-3oJH;
+	Sun, 27 Apr 2025 11:20:39 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8zyX-00000003OSb-14jC;
-	Sun, 27 Apr 2025 11:15:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=QkVkz6dk4cOLjXYYtXS5CCd0YLGWAVsLoyMR7Wnuhxc=; b=UI6khAWq+pM6v4WdeLYhnQsgp/
-	lHTRCJ/dOLzPTbwx4z/4b9eMdtZKySKYeya+7mepfDy/Zvhpc7sbvJISaK0QEzpf0kly057pSuec+
-	gsnhNjtGd/7LxC+lY4l49HoLN2vUriKIb/SSXh3pvQKm/ulbt+NO24DEmA7aM4Nx9A0Yvds14+AaY
-	vMXyIMgmeWPKLPXCBnYl9BV8o7ykMuVYndjJwBVcIKiLBDIWgoO/+stCCcafW6tsCHe2ckvlCtIHb
-	wjdeLvIiJKbXWRSgrn7aV0/9XBLLYjc12FXtcGtyYa0dApxjkF9C55819jao9BUU++s4HoXTBI5zx
-	3jG2cdqg==;
-Received: from i53875aba.versanet.de ([83.135.90.186] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1u8zyN-0003VC-98; Sun, 27 Apr 2025 13:14:59 +0200
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: linux-rockchip@lists.infradead.org, Hao Zhang <hao.zhang@coolkit.cn>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- conor+dt@kernel.org, krzysztof.kozlowski+dt@linaro.org, robh+dt@kernel.org,
- linux-kernel@vger.kernel.org, "hao.zhang" <hao.zhang@coolkit.cn>
-Subject: Re: [PATCH 1/1] ARM: dts: rockchip: Wifi improvements for Sonoff iHost
-Date: Sun, 27 Apr 2025 13:14:58 +0200
-Message-ID: <1929240.tdWV9SEqCh@diego>
-In-Reply-To: <20250427065013.99871-2-hao.zhang@coolkit.cn>
-References: <20250427065013.99871-1-hao.zhang@coolkit.cn>
- <20250427065013.99871-2-hao.zhang@coolkit.cn>
+	id 1u8zzK-00000003OWX-3Kga
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 27 Apr 2025 11:16:00 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-301918a4e3bso4331265a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Apr 2025 04:15:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1745752558; x=1746357358; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=YOn5uDNnmbpz2YvqS/MmIuJTmu3qB5FpprhRLnKlvIE=;
+        b=tO1MYY+s1LdqyKv41AimtKERyC1T2AcKbUHcUtaQRoGtWgSch05rCeicMZXyj9YWrq
+         Wz55stVjJzOAEJR+2tBNpMAIbnMAx47Y3SRxFBUf9Nx0CqGkdc9BVUQCENZiqZ25jCi4
+         doeEutxkrz4SRNVXxsWrM1+LqTX5EdMidWbHHXIyaMtX3tI9MV+MLJ4r04vpZoJl19Rh
+         DjQgmCb21IkVpP/jonAACBQrJE5P1snw+5qdLEBdN27rh+S2eIXv30E6EBkSmWNqzqhX
+         rBTr9KjD3jzZsR1ApDsSFpo14WJvEJ4EL/2x0B39hxcEV7rw3NOP6bcNUOI/0opmHMU7
+         k8gw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745752558; x=1746357358;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=YOn5uDNnmbpz2YvqS/MmIuJTmu3qB5FpprhRLnKlvIE=;
+        b=EtH5Ve9ZWbmjWTpcgBN0wk1X7MMVzdk/Gvf7mWVWddQRjGudH7gn3CyfuWMHi6cKFy
+         fbgEp+HhH/bqEi7OdABr6PZoq0COtStXmdQRe6Mx9nBnXDUEgd7fb/zmT0M8fxB5ykZb
+         RywmfW5MgJgng7vRGEutoh7Qipkveg9xRY7XWM9ybqGMz2vP3GE7Tke6GziccLa+82qA
+         D5jE9Q8ZsLnGmd7U7677cAJxHSJzeTUm3iptcQn++Vj1HLCCHoByHBTU0i361Y+1gvly
+         mhV++Y2cH756/vEVEoebly70QwW0QHW3WMSvSbHJc7uqD38vYYFDHcgmekxxkZHQTQHN
+         uhQQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXU7nUpUeBy7dHUO7TwV6JTS4tVVJ1tPV2TzJWl7j3fqiPFw4BfAUgyv35BN9y9TU1GBtPIai9p4UO5QUE6L4Yv@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQSIXzoyIPO5tEazVaqsNgLFhtghXn7YI81Sj2dRLBu9rNrvhE
+	aRmvQaaQJhmBWT/IBUf9VeVioO6NiG2VgchTwn6EqQu89pppO3eBsosclI6ybQ==
+X-Gm-Gg: ASbGncsIO8Ue7JPxNJHgtqlDQtosjIz5ijzb63imuXeC3Ge6ZJZYxHqFo/grn2L08rZ
+	/vwEUtWq+233Zfg6cX8HMl1+ogvNKHYMGxXWUrpV14Xr5PsJ3SyOWrLHNFvJyskNMS8mtIYoRMn
+	PMcKJi72kEe3X442PZySF7JXqaOHGvpv2ZDS6JP6iSdtV2d12uLtaMMmr5OUKRWCKcgpUHJBlPC
+	uyqJWbTxOPYRBu8IoxEY8aWF51EfvPDYPLmMS+6Lzm+rshkOc+H4wBM3edvGsgzVlLVlJ36yLYL
+	mvnqfeAvLT8EqyXk0d6Z5s8nMDv6AOrhMBaKKByO6/yWp4LgJEPx04YyMhjs9Io=
+X-Google-Smtp-Source: AGHT+IFLgscZ/lYINfuAkkH9jISjtRT3pDQ1Z95sY0g7bHDD7akZs8rvcSaagngpu+qBp7Bz7x7Yig==
+X-Received: by 2002:a17:90b:2dca:b0:2ee:edae:75e with SMTP id 98e67ed59e1d1-309f7dd8a34mr12567779a91.13.1745752557651;
+        Sun, 27 Apr 2025 04:15:57 -0700 (PDT)
+Received: from thinkpad ([120.60.143.241])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22db50e7cb2sm62778045ad.112.2025.04.27.04.15.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 27 Apr 2025 04:15:57 -0700 (PDT)
+Date: Sun, 27 Apr 2025 16:45:51 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, 
+	kw@linux.com, robh@kernel.org, bhelgaas@google.com, shawnguo@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RESEND v6 4/7] PCI: imx6: Workaround i.MX95 PCIe may not
+ exit L23 ready
+Message-ID: <4cbv5uzo2vcigrjmpisg5ndovhkp2cpyg5sczpxsde7gmv5fd2@cf4li7yqkxwn>
+References: <20250416081314.3929794-1-hongxing.zhu@nxp.com>
+ <20250416081314.3929794-5-hongxing.zhu@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250416081314.3929794-5-hongxing.zhu@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250427_041509_317367_55033239 
-X-CRM114-Status: GOOD (  15.84  )
+X-CRM114-CacheID: sfid-20250427_041558_835199_888113D8 
+X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,88 +103,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, Apr 16, 2025 at 04:13:11PM +0800, Richard Zhu wrote:
+> ERR051624: The Controller Without Vaux Cannot Exit L23 Ready Through Beacon
+> or PERST# De-assertion
+> 
+> When the auxiliary power is not available, the controller cannot exit from
+> L23 Ready with beacon or PERST# de-assertion when main power is not
+> removed.
+> 
+> Workaround: Set SS_RW_REG_1[SYS_AUX_PWR_DET] to 1.
+> 
+> The workaround is irrespective of Vaux presence in remote partner.
+> In the other words, this workaround should work whatever the remote
+> partner has the Vaux or not.
+> 
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
 
-Am Sonntag, 27. April 2025, 08:50:13 Mitteleurop=C3=A4ische Sommerzeit schr=
-ieb Hao Zhang:
-> From: "hao.zhang" <hao.zhang@coolkit.cn>
->=20
-> After some Sonoff-iHosts have been running for a long time,=20
-> the WiFi module will run abnormally.
->=20
-> Adjust the pmu_io_domains and sdio properties=20
-> to solve the WiFi module operation abnormality.
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 
-"adjust the ... properties", really sounds like hacking around some issue.
+- Mani
 
-> diff --git a/arch/arm/boot/dts/rockchip/rv1126-sonoff-ihost.dtsi b/arch/a=
-rm/boot/dts/rockchip/rv1126-sonoff-ihost.dtsi
-> index 9a87dc0d5f66..3c0371103015 100644
-> --- a/arch/arm/boot/dts/rockchip/rv1126-sonoff-ihost.dtsi
-> +++ b/arch/arm/boot/dts/rockchip/rv1126-sonoff-ihost.dtsi
-> @@ -323,15 +323,15 @@ wifi_enable_h: wifi-enable-h {
->  };
-> =20
->  &pmu_io_domains {
-> -	pmuio0-supply =3D <&vcc1v8_pmu>;
-> +	pmuio0-supply =3D <&vcc3v3_sys>;
->  	pmuio1-supply =3D <&vcc3v3_sys>;
->  	vccio1-supply =3D <&vcc_1v8>;
->  	vccio2-supply =3D <&vccio_sd>;
-> -	vccio3-supply =3D <&vcc3v3_sd>;
-> -	vccio4-supply =3D <&vcc_dovdd>;
-> -	vccio5-supply =3D <&vcc_1v8>;
-> -	vccio6-supply =3D <&vcc_1v8>;
-> -	vccio7-supply =3D <&vcc_dovdd>;
-> +	vccio3-supply =3D <&vcc_3v3>;
-> +	vccio4-supply =3D <&vcc_3v3>;
-> +	vccio5-supply =3D <&vcc_3v3>;
-> +	vccio6-supply =3D <&vcc_3v3>;
-> +	vccio7-supply =3D <&vcc_1v8>;
->  	status =3D "okay";
->  };
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  drivers/pci/controller/dwc/pci-imx6.c | 15 +++++++++++++++
+>  1 file changed, 15 insertions(+)
+> 
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+> index 7c60b712480a..016b86add959 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -48,6 +48,8 @@
+>  #define IMX95_PCIE_SS_RW_REG_0			0xf0
+>  #define IMX95_PCIE_REF_CLKEN			BIT(23)
+>  #define IMX95_PCIE_PHY_CR_PARA_SEL		BIT(9)
+> +#define IMX95_PCIE_SS_RW_REG_1			0xf4
+> +#define IMX95_PCIE_SYS_AUX_PWR_DET		BIT(31)
+>  
+>  #define IMX95_PE0_GEN_CTRL_1			0x1050
+>  #define IMX95_PCIE_DEVICE_TYPE			GENMASK(3, 0)
+> @@ -227,6 +229,19 @@ static unsigned int imx_pcie_grp_offset(const struct imx_pcie *imx_pcie)
+>  
+>  static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
+>  {
+> +	/*
+> +	 * ERR051624: The Controller Without Vaux Cannot Exit L23 Ready
+> +	 * Through Beacon or PERST# De-assertion
+> +	 *
+> +	 * When the auxiliary power is not available, the controller
+> +	 * cannot exit from L23 Ready with beacon or PERST# de-assertion
+> +	 * when main power is not removed.
+> +	 *
+> +	 * Workaround: Set SS_RW_REG_1[SYS_AUX_PWR_DET] to 1.
+> +	 */
+> +	regmap_set_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_1,
+> +			IMX95_PCIE_SYS_AUX_PWR_DET);
+> +
+>  	regmap_update_bits(imx_pcie->iomuxc_gpr,
+>  			IMX95_PCIE_SS_RW_REG_0,
+>  			IMX95_PCIE_PHY_CR_PARA_SEL,
+> -- 
+> 2.37.1
+> 
 
-=46irst of all, this would be two patches.  If the io-domains do not follow
-the schematics, fixing this is one patch, but for such a big change
-I do expect actual references to the devices' schematics for that.
-
-This is even more important, as you're switching some supplies
-between sources of different voltages
-
-
-> @@ -342,18 +342,15 @@ &saradc {
-> =20
->  &sdio {
->  	bus-width =3D <4>;
-> -	cap-sd-highspeed;
->  	cap-sdio-irq;
->  	keep-power-in-suspend;
-> -	max-frequency =3D <50000000>;
-> +	max-frequency =3D <25000000>;
->  	mmc-pwrseq =3D <&sdio_pwrseq>;
-> +	supports-sdio;
->  	non-removable;
->  	pinctrl-names =3D "default";
->  	pinctrl-0 =3D <&sdmmc1_clk &sdmmc1_cmd &sdmmc1_bus4>;
->  	rockchip,default-sample-phase =3D <90>;
-> -	sd-uhs-sdr50;
-> -	vmmc-supply =3D <&vcc3v3_sd>;
-> -	vqmmc-supply =3D <&vcc_1v8>;
->  	status =3D "okay";
->  };
-
-and here it looks like you're more or less randomly adding and removing
-properties until it worked "for you".
-
-Especially removing the supply-regulators does not really make sense.
-If you see instabilities, the main contenders would be max-frequency and
-sd-uhs-sdr50 as culprits.
-
-Similarly, supports-sdio is not even a valid property, so neither the
-devicetree spec does allow it, nor does the kernel handle it at all.
-
-
-Heiko
-
-
+-- 
+மணிவண்ணன் சதாசிவம்
 
