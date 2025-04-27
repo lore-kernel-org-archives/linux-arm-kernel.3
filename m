@@ -4,71 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12BFAC369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 06:58:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82BFDC369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 07:02:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:From:
-	References:In-Reply-To:Message-Id:Date:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WmxKAuttIQ4TpwkzWXa1Edya4ZlZxgpVSL5JS8RjZ1k=; b=p8Id9Z/aMe9rB9CaphTzgniboP
-	j/GIS5d5VlUZM2QvrJPgiwk/1fdPJWOK+k8LloODfT4Wn5SQZral5Ds7dB3ONqb5UFKgyJEWdUREp
-	FlT7WcXlCp2o/r12+U3nLqFXiYN5xp8IYm2QSHt1F3tVYct6/Ru5QMRNrELTSFR4CNkHwcUlIqp3v
-	aIAmPxmh5DWf/eXd8rjEk5CrLNC45P+0fWsWrmlQKD8S9APe7y8rTY9ZvtdKadbK/sJQlo7FWNQsV
-	Py2HJG3DMqShVmh3JN5mgj0iLl+r8ebdcGJjLyigdVcRj0MgVr8IYHp9jeZ2NBov91aEhDC5zP+Fm
-	hu1NXCUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VI/EBoCa85mw/Z4MXqSMf+49eT1KYWHHQDL6xNlSVc8=; b=xXfk2gZ8YbYe+asHmkOzUXF4mu
+	yD7cm+ajrLUDuKlOu/PFfr9n7p9+YdRlLHSRI2wCkR8SEl0ofKVaUzA24exTiW0AglK6/INPP95cT
+	S6uVyOndGaZsGedoBaVtHb2qChUaZae+bqF5NxxHyGLBWXeATc9RTEZyuyUP4OsLthhtFd0ttvv+n
+	PKgf+AFHXejuEiqoM4G//Ai+OtPbVO93Pcn4S7caMntDhuXDZ3E1ibI8zRbaTjjo9RANEbS/wDpl7
+	A4ZYx13dFK0cm2m2jFGMzHfQYNzJW7I/ysKWqG25Td1M3l4jLJmODj+5RPAXFecNQ5snhdlga79OZ
+	Lb/qYe/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8vyG-000000033e9-3k0C;
-	Sun, 27 Apr 2025 06:58:36 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u8w25-000000033yo-1vak;
+	Sun, 27 Apr 2025 07:02:33 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8vXz-00000002zld-4BAW;
-	Sun, 27 Apr 2025 06:31:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:Subject:From:References:
-	In-Reply-To:Message-Id:Date:Sender:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=WmxKAuttIQ4TpwkzWXa1Edya4ZlZxgpVSL5JS8RjZ1k=; b=fnOp94umBSUEEEPztTPYyPf6Vq
-	kTIsbAbwwxs8Bb0eoa+zOWg5khQ9C1SGjxaoOsk0HgeP5CsXpdFMy3qKhmBHFTvg8mewCwTftN5YB
-	wdsBbdV2rmn6GNdhs4Apo0DCIb7sP77Ah+GIklK9Iz82tqzY0vo+vPBjpgp1PMxLDyUvfW34Y1oe5
-	MFf29GuB73klVqPhyZ+Ad2n8Zp7vDocMbhkS1CbmydvFyd8TEr49qtDYOiXm0VccE0mDABpncMjj8
-	f8+Rv1sH6n4geYX2MTxIDy8aBLuR6dy/LAm3f9LPoHoyZHgQj3Op6/tPNsEspv3ONMEUf3zdCBmVM
-	PwLhyCaQ==;
-Received: from abb.hmeau.com ([144.6.53.87])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u8vXl-0000000CPRd-3OmT;
-	Sun, 27 Apr 2025 06:31:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=Cc:To:Subject:From:References:In-Reply-To:Message-Id:Date:
-	Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=WmxKAuttIQ4TpwkzWXa1Edya4ZlZxgpVSL5JS8RjZ1k=; b=PA1Caw5Yptf9f/OORbHRCwty01
-	J0Q7e0GG1BqhrIO1QB5DI0NoiwuPgvWdXvrwU71W6jtpFjPGY2zLnACZbp3kcg+DtcfaTf5jnfhUD
-	nr2DDPPr2NRABskSOB8fewooFNdU5vPkSw1OiezXYm1JGJP+XbS0+ITesDQWk87+ppXElioUvgBOq
-	gbv5DwQUSg48BEW45zkXpfKJMwfK+GTbdDHIfWo6EFqEx4qnhy5xMcTXKVQ0jZeUNa3gozFMNtjAQ
-	htSi7muruEGX4Iq6PTv/m6VHv8YuuDhVLOz3smY+OWnPtlp/qmwVcHnu/Yc8dQEPz17AuR/dRwj4q
-	G8dxFEHg==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1u8vXf-001LX6-1V;
-	Sun, 27 Apr 2025 14:31:08 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sun, 27 Apr 2025 14:31:07 +0800
-Date: Sun, 27 Apr 2025 14:31:07 +0800
-Message-Id: <2d73ce888f6a2d33bd5e3e1c5389607e8c44033d.1745734678.git.herbert@gondor.apana.org.au>
-In-Reply-To: <cover.1745734678.git.herbert@gondor.apana.org.au>
-References: <cover.1745734678.git.herbert@gondor.apana.org.au>
-From: Herbert Xu <herbert@gondor.apana.org.au>
-Subject: [v2 PATCH 11/13] crypto: x86/sha256 - implement library instead of
- shash
-To: Linux Crypto Mailing List <linux-crypto@vger.kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org, linux-s390@vger.kernel.org, x86@kernel.org, Ard Biesheuvel <ardb@kernel.org>, "Jason A . Donenfeld " <Jason@zx2c4.com>, Linus Torvalds <torvalds@linux-foundation.org>
+	id 1u8vgi-000000031Xb-21D1
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 27 Apr 2025 06:40:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1745736029; x=1777272029;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=jHRCYwqkDeGnsoQZjCZlk/VB00dZCE9Xt/gFt3+3Ekg=;
+  b=HiEDRoEEJt68T4S/kASoKDSrb3P9E7jpXeLzE7/KWdyArGS6lN+MKLH+
+   Rwy1++I15gldIUQZgEaWj3MdyeYZFD96NE3vG88ElOwTL/GmbRgiEo1sK
+   FIPKLmndus56uqgPrxip3T2QlhVEw8bPi/zvceGHIQ/v8Sbk6mUyjyM26
+   FwP6f2m8CxvNEAlgwWVHjBNG6YNhJAvDIOblEr0YsazxnAYodkw5CJBDM
+   d2Ivy3mwVFpYYKNZU+FljIva/8WohXo4ac2FpK0+nqIUuI50wfQOOLuYM
+   tbkJ1PAIlOTHLay1mgLpo+FIdvWSuHPlAoMUz8TiEBeg5UfzQ7B/8zzvP
+   w==;
+X-CSE-ConnectionGUID: dWLHFVNcT5er0ecBJ4zO9Q==
+X-CSE-MsgGUID: nRUrleonTCm5NWSbtQZzMQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11415"; a="47430750"
+X-IronPort-AV: E=Sophos;i="6.15,243,1739865600"; 
+   d="scan'208";a="47430750"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Apr 2025 23:40:28 -0700
+X-CSE-ConnectionGUID: WKkjJoVMRdmCZIfMb9eS0Q==
+X-CSE-MsgGUID: wDOai0I1Qz+zMkODB65DXA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,243,1739865600"; 
+   d="scan'208";a="133731606"
+Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
+  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Apr 2025 23:40:22 -0700
+Message-ID: <43a93c81-3e7f-46cc-bf93-5e36cbf04b8f@linux.intel.com>
+Date: Sun, 27 Apr 2025 14:36:13 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 03/22] iommufd/viommu: Allow driver-specific user data
+ for a vIOMMU object
+To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com, kevin.tian@intel.com,
+ corbet@lwn.net, will@kernel.org
+Cc: bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
+ thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
+ shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
+ peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
+ praan@google.com, zhangzekun11@huawei.com, iommu@lists.linux.dev,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, patches@lists.linux.dev, mochs@nvidia.com,
+ alok.a.tiwari@oracle.com, vasant.hegde@amd.com
+References: <cover.1745646960.git.nicolinc@nvidia.com>
+ <7031ae5ab6f625e73dbd51b074c2ff8a9923c731.1745646960.git.nicolinc@nvidia.com>
+Content-Language: en-US
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <7031ae5ab6f625e73dbd51b074c2ff8a9923c731.1745646960.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250427_073119_158195_D7DE89F0 
-X-CRM114-Status: GOOD (  18.89  )
+X-CRM114-CacheID: sfid-20250426_234028_567338_82919DB9 
+X-CRM114-Status: UNSURE (   6.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,817 +96,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Eric Biggers <ebiggers@google.com>
+On 4/26/25 13:57, Nicolin Chen wrote:
+> The new type of vIOMMU for tegra241-cmdqv driver needs a driver-specific
+> user data. So, add data_len/uptr to the iommu_viommu_alloc uAPI and pass
+> it in via the viommu_alloc iommu op.
+> 
+> Reviewed-by: Jason Gunthorpe<jgg@nvidia.com>
+> Signed-off-by: Nicolin Chen<nicolinc@nvidia.com>
 
-Instead of providing crypto_shash algorithms for the arch-optimized
-SHA-256 code, instead implement the SHA-256 library.  This is much
-simpler, it makes the SHA-256 library functions be arch-optimized, and
-it fixes the longstanding issue where the arch-optimized SHA-256 was
-disabled by default.  SHA-256 still remains available through
-crypto_shash, but individual architectures no longer need to handle it.
-
-To match sha256_blocks_arch(), change the type of the nblocks parameter
-of the assembly functions from int to size_t.  The assembly functions
-actually already treated it as size_t.
-
-Signed-off-by: Eric Biggers <ebiggers@google.com>
-Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
----
- arch/x86/crypto/Kconfig                       |  14 -
- arch/x86/crypto/Makefile                      |   3 -
- arch/x86/crypto/sha256_ssse3_glue.c           | 432 ------------------
- arch/x86/lib/crypto/Kconfig                   |   8 +
- arch/x86/lib/crypto/Makefile                  |   3 +
- arch/x86/{ => lib}/crypto/sha256-avx-asm.S    |  12 +-
- arch/x86/{ => lib}/crypto/sha256-avx2-asm.S   |  12 +-
- .../crypto/sha256-ni-asm.S}                   |  36 +-
- arch/x86/{ => lib}/crypto/sha256-ssse3-asm.S  |  14 +-
- arch/x86/lib/crypto/sha256.c                  |  80 ++++
- 10 files changed, 125 insertions(+), 489 deletions(-)
- delete mode 100644 arch/x86/crypto/sha256_ssse3_glue.c
- rename arch/x86/{ => lib}/crypto/sha256-avx-asm.S (98%)
- rename arch/x86/{ => lib}/crypto/sha256-avx2-asm.S (98%)
- rename arch/x86/{crypto/sha256_ni_asm.S => lib/crypto/sha256-ni-asm.S} (85%)
- rename arch/x86/{ => lib}/crypto/sha256-ssse3-asm.S (98%)
- create mode 100644 arch/x86/lib/crypto/sha256.c
-
-diff --git a/arch/x86/crypto/Kconfig b/arch/x86/crypto/Kconfig
-index 9e941362e4cd..56cfdc79e2c6 100644
---- a/arch/x86/crypto/Kconfig
-+++ b/arch/x86/crypto/Kconfig
-@@ -390,20 +390,6 @@ config CRYPTO_SHA1_SSSE3
- 	  - AVX2 (Advanced Vector Extensions 2)
- 	  - SHA-NI (SHA Extensions New Instructions)
- 
--config CRYPTO_SHA256_SSSE3
--	tristate "Hash functions: SHA-224 and SHA-256 (SSSE3/AVX/AVX2/SHA-NI)"
--	depends on 64BIT
--	select CRYPTO_SHA256
--	select CRYPTO_HASH
--	help
--	  SHA-224 and SHA-256 secure hash algorithms (FIPS 180)
--
--	  Architecture: x86_64 using:
--	  - SSSE3 (Supplemental SSE3)
--	  - AVX (Advanced Vector Extensions)
--	  - AVX2 (Advanced Vector Extensions 2)
--	  - SHA-NI (SHA Extensions New Instructions)
--
- config CRYPTO_SHA512_SSSE3
- 	tristate "Hash functions: SHA-384 and SHA-512 (SSSE3/AVX/AVX2)"
- 	depends on 64BIT
-diff --git a/arch/x86/crypto/Makefile b/arch/x86/crypto/Makefile
-index fad59a6c6c26..aa289a9e0153 100644
---- a/arch/x86/crypto/Makefile
-+++ b/arch/x86/crypto/Makefile
-@@ -54,9 +54,6 @@ endif
- obj-$(CONFIG_CRYPTO_SHA1_SSSE3) += sha1-ssse3.o
- sha1-ssse3-y := sha1_avx2_x86_64_asm.o sha1_ssse3_asm.o sha1_ni_asm.o sha1_ssse3_glue.o
- 
--obj-$(CONFIG_CRYPTO_SHA256_SSSE3) += sha256-ssse3.o
--sha256-ssse3-y := sha256-ssse3-asm.o sha256-avx-asm.o sha256-avx2-asm.o sha256_ni_asm.o sha256_ssse3_glue.o
--
- obj-$(CONFIG_CRYPTO_SHA512_SSSE3) += sha512-ssse3.o
- sha512-ssse3-y := sha512-ssse3-asm.o sha512-avx-asm.o sha512-avx2-asm.o sha512_ssse3_glue.o
- 
-diff --git a/arch/x86/crypto/sha256_ssse3_glue.c b/arch/x86/crypto/sha256_ssse3_glue.c
-deleted file mode 100644
-index a5d3be00550b..000000000000
---- a/arch/x86/crypto/sha256_ssse3_glue.c
-+++ /dev/null
-@@ -1,432 +0,0 @@
--/*
-- * Cryptographic API.
-- *
-- * Glue code for the SHA256 Secure Hash Algorithm assembler implementations
-- * using SSSE3, AVX, AVX2, and SHA-NI instructions.
-- *
-- * This file is based on sha256_generic.c
-- *
-- * Copyright (C) 2013 Intel Corporation.
-- *
-- * Author:
-- *     Tim Chen <tim.c.chen@linux.intel.com>
-- *
-- * This program is free software; you can redistribute it and/or modify it
-- * under the terms of the GNU General Public License as published by the Free
-- * Software Foundation; either version 2 of the License, or (at your option)
-- * any later version.
-- *
-- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
-- * BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
-- * ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-- * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-- * SOFTWARE.
-- */
--
--
--#define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
--
--#include <asm/cpu_device_id.h>
--#include <asm/fpu/api.h>
--#include <crypto/internal/hash.h>
--#include <crypto/sha2.h>
--#include <crypto/sha256_base.h>
--#include <linux/kernel.h>
--#include <linux/module.h>
--
--asmlinkage void sha256_transform_ssse3(struct crypto_sha256_state *state,
--				       const u8 *data, int blocks);
--
--static const struct x86_cpu_id module_cpu_ids[] = {
--	X86_MATCH_FEATURE(X86_FEATURE_SHA_NI, NULL),
--	X86_MATCH_FEATURE(X86_FEATURE_AVX2, NULL),
--	X86_MATCH_FEATURE(X86_FEATURE_AVX, NULL),
--	X86_MATCH_FEATURE(X86_FEATURE_SSSE3, NULL),
--	{}
--};
--MODULE_DEVICE_TABLE(x86cpu, module_cpu_ids);
--
--static int _sha256_update(struct shash_desc *desc, const u8 *data,
--			  unsigned int len,
--			  sha256_block_fn *sha256_xform)
--{
--	int remain;
--
--	/*
--	 * Make sure struct crypto_sha256_state begins directly with the SHA256
--	 * 256-bit internal state, as this is what the asm functions expect.
--	 */
--	BUILD_BUG_ON(offsetof(struct crypto_sha256_state, state) != 0);
--
--	kernel_fpu_begin();
--	remain = sha256_base_do_update_blocks(desc, data, len, sha256_xform);
--	kernel_fpu_end();
--
--	return remain;
--}
--
--static int sha256_finup(struct shash_desc *desc, const u8 *data,
--	      unsigned int len, u8 *out, sha256_block_fn *sha256_xform)
--{
--	kernel_fpu_begin();
--	sha256_base_do_finup(desc, data, len, sha256_xform);
--	kernel_fpu_end();
--
--	return sha256_base_finish(desc, out);
--}
--
--static int sha256_ssse3_update(struct shash_desc *desc, const u8 *data,
--			 unsigned int len)
--{
--	return _sha256_update(desc, data, len, sha256_transform_ssse3);
--}
--
--static int sha256_ssse3_finup(struct shash_desc *desc, const u8 *data,
--	      unsigned int len, u8 *out)
--{
--	return sha256_finup(desc, data, len, out, sha256_transform_ssse3);
--}
--
--static int sha256_ssse3_digest(struct shash_desc *desc, const u8 *data,
--	      unsigned int len, u8 *out)
--{
--	return sha256_base_init(desc) ?:
--	       sha256_ssse3_finup(desc, data, len, out);
--}
--
--static struct shash_alg sha256_ssse3_algs[] = { {
--	.digestsize	=	SHA256_DIGEST_SIZE,
--	.init		=	sha256_base_init,
--	.update		=	sha256_ssse3_update,
--	.finup		=	sha256_ssse3_finup,
--	.digest		=	sha256_ssse3_digest,
--	.descsize	=	sizeof(struct crypto_sha256_state),
--	.base		=	{
--		.cra_name	=	"sha256",
--		.cra_driver_name =	"sha256-ssse3",
--		.cra_priority	=	150,
--		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					CRYPTO_AHASH_ALG_FINUP_MAX,
--		.cra_blocksize	=	SHA256_BLOCK_SIZE,
--		.cra_module	=	THIS_MODULE,
--	}
--}, {
--	.digestsize	=	SHA224_DIGEST_SIZE,
--	.init		=	sha224_base_init,
--	.update		=	sha256_ssse3_update,
--	.finup		=	sha256_ssse3_finup,
--	.descsize	=	sizeof(struct crypto_sha256_state),
--	.base		=	{
--		.cra_name	=	"sha224",
--		.cra_driver_name =	"sha224-ssse3",
--		.cra_priority	=	150,
--		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					CRYPTO_AHASH_ALG_FINUP_MAX,
--		.cra_blocksize	=	SHA224_BLOCK_SIZE,
--		.cra_module	=	THIS_MODULE,
--	}
--} };
--
--static int register_sha256_ssse3(void)
--{
--	if (boot_cpu_has(X86_FEATURE_SSSE3))
--		return crypto_register_shashes(sha256_ssse3_algs,
--				ARRAY_SIZE(sha256_ssse3_algs));
--	return 0;
--}
--
--static void unregister_sha256_ssse3(void)
--{
--	if (boot_cpu_has(X86_FEATURE_SSSE3))
--		crypto_unregister_shashes(sha256_ssse3_algs,
--				ARRAY_SIZE(sha256_ssse3_algs));
--}
--
--asmlinkage void sha256_transform_avx(struct crypto_sha256_state *state,
--				     const u8 *data, int blocks);
--
--static int sha256_avx_update(struct shash_desc *desc, const u8 *data,
--			 unsigned int len)
--{
--	return _sha256_update(desc, data, len, sha256_transform_avx);
--}
--
--static int sha256_avx_finup(struct shash_desc *desc, const u8 *data,
--		      unsigned int len, u8 *out)
--{
--	return sha256_finup(desc, data, len, out, sha256_transform_avx);
--}
--
--static int sha256_avx_digest(struct shash_desc *desc, const u8 *data,
--		      unsigned int len, u8 *out)
--{
--	return sha256_base_init(desc) ?:
--	       sha256_avx_finup(desc, data, len, out);
--}
--
--static struct shash_alg sha256_avx_algs[] = { {
--	.digestsize	=	SHA256_DIGEST_SIZE,
--	.init		=	sha256_base_init,
--	.update		=	sha256_avx_update,
--	.finup		=	sha256_avx_finup,
--	.digest		=	sha256_avx_digest,
--	.descsize	=	sizeof(struct crypto_sha256_state),
--	.base		=	{
--		.cra_name	=	"sha256",
--		.cra_driver_name =	"sha256-avx",
--		.cra_priority	=	160,
--		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					CRYPTO_AHASH_ALG_FINUP_MAX,
--		.cra_blocksize	=	SHA256_BLOCK_SIZE,
--		.cra_module	=	THIS_MODULE,
--	}
--}, {
--	.digestsize	=	SHA224_DIGEST_SIZE,
--	.init		=	sha224_base_init,
--	.update		=	sha256_avx_update,
--	.finup		=	sha256_avx_finup,
--	.descsize	=	sizeof(struct crypto_sha256_state),
--	.base		=	{
--		.cra_name	=	"sha224",
--		.cra_driver_name =	"sha224-avx",
--		.cra_priority	=	160,
--		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					CRYPTO_AHASH_ALG_FINUP_MAX,
--		.cra_blocksize	=	SHA224_BLOCK_SIZE,
--		.cra_module	=	THIS_MODULE,
--	}
--} };
--
--static bool avx_usable(void)
--{
--	if (!cpu_has_xfeatures(XFEATURE_MASK_SSE | XFEATURE_MASK_YMM, NULL)) {
--		if (boot_cpu_has(X86_FEATURE_AVX))
--			pr_info("AVX detected but unusable.\n");
--		return false;
--	}
--
--	return true;
--}
--
--static int register_sha256_avx(void)
--{
--	if (avx_usable())
--		return crypto_register_shashes(sha256_avx_algs,
--				ARRAY_SIZE(sha256_avx_algs));
--	return 0;
--}
--
--static void unregister_sha256_avx(void)
--{
--	if (avx_usable())
--		crypto_unregister_shashes(sha256_avx_algs,
--				ARRAY_SIZE(sha256_avx_algs));
--}
--
--asmlinkage void sha256_transform_rorx(struct crypto_sha256_state *state,
--				      const u8 *data, int blocks);
--
--static int sha256_avx2_update(struct shash_desc *desc, const u8 *data,
--			 unsigned int len)
--{
--	return _sha256_update(desc, data, len, sha256_transform_rorx);
--}
--
--static int sha256_avx2_finup(struct shash_desc *desc, const u8 *data,
--		      unsigned int len, u8 *out)
--{
--	return sha256_finup(desc, data, len, out, sha256_transform_rorx);
--}
--
--static int sha256_avx2_digest(struct shash_desc *desc, const u8 *data,
--		      unsigned int len, u8 *out)
--{
--	return sha256_base_init(desc) ?:
--	       sha256_avx2_finup(desc, data, len, out);
--}
--
--static struct shash_alg sha256_avx2_algs[] = { {
--	.digestsize	=	SHA256_DIGEST_SIZE,
--	.init		=	sha256_base_init,
--	.update		=	sha256_avx2_update,
--	.finup		=	sha256_avx2_finup,
--	.digest		=	sha256_avx2_digest,
--	.descsize	=	sizeof(struct crypto_sha256_state),
--	.base		=	{
--		.cra_name	=	"sha256",
--		.cra_driver_name =	"sha256-avx2",
--		.cra_priority	=	170,
--		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					CRYPTO_AHASH_ALG_FINUP_MAX,
--		.cra_blocksize	=	SHA256_BLOCK_SIZE,
--		.cra_module	=	THIS_MODULE,
--	}
--}, {
--	.digestsize	=	SHA224_DIGEST_SIZE,
--	.init		=	sha224_base_init,
--	.update		=	sha256_avx2_update,
--	.finup		=	sha256_avx2_finup,
--	.descsize	=	sizeof(struct crypto_sha256_state),
--	.base		=	{
--		.cra_name	=	"sha224",
--		.cra_driver_name =	"sha224-avx2",
--		.cra_priority	=	170,
--		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					CRYPTO_AHASH_ALG_FINUP_MAX,
--		.cra_blocksize	=	SHA224_BLOCK_SIZE,
--		.cra_module	=	THIS_MODULE,
--	}
--} };
--
--static bool avx2_usable(void)
--{
--	if (avx_usable() && boot_cpu_has(X86_FEATURE_AVX2) &&
--		    boot_cpu_has(X86_FEATURE_BMI2))
--		return true;
--
--	return false;
--}
--
--static int register_sha256_avx2(void)
--{
--	if (avx2_usable())
--		return crypto_register_shashes(sha256_avx2_algs,
--				ARRAY_SIZE(sha256_avx2_algs));
--	return 0;
--}
--
--static void unregister_sha256_avx2(void)
--{
--	if (avx2_usable())
--		crypto_unregister_shashes(sha256_avx2_algs,
--				ARRAY_SIZE(sha256_avx2_algs));
--}
--
--asmlinkage void sha256_ni_transform(struct crypto_sha256_state *digest,
--				    const u8 *data, int rounds);
--
--static int sha256_ni_update(struct shash_desc *desc, const u8 *data,
--			 unsigned int len)
--{
--	return _sha256_update(desc, data, len, sha256_ni_transform);
--}
--
--static int sha256_ni_finup(struct shash_desc *desc, const u8 *data,
--		      unsigned int len, u8 *out)
--{
--	return sha256_finup(desc, data, len, out, sha256_ni_transform);
--}
--
--static int sha256_ni_digest(struct shash_desc *desc, const u8 *data,
--		      unsigned int len, u8 *out)
--{
--	return sha256_base_init(desc) ?:
--	       sha256_ni_finup(desc, data, len, out);
--}
--
--static struct shash_alg sha256_ni_algs[] = { {
--	.digestsize	=	SHA256_DIGEST_SIZE,
--	.init		=	sha256_base_init,
--	.update		=	sha256_ni_update,
--	.finup		=	sha256_ni_finup,
--	.digest		=	sha256_ni_digest,
--	.descsize	=	sizeof(struct crypto_sha256_state),
--	.base		=	{
--		.cra_name	=	"sha256",
--		.cra_driver_name =	"sha256-ni",
--		.cra_priority	=	250,
--		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					CRYPTO_AHASH_ALG_FINUP_MAX,
--		.cra_blocksize	=	SHA256_BLOCK_SIZE,
--		.cra_module	=	THIS_MODULE,
--	}
--}, {
--	.digestsize	=	SHA224_DIGEST_SIZE,
--	.init		=	sha224_base_init,
--	.update		=	sha256_ni_update,
--	.finup		=	sha256_ni_finup,
--	.descsize	=	sizeof(struct crypto_sha256_state),
--	.base		=	{
--		.cra_name	=	"sha224",
--		.cra_driver_name =	"sha224-ni",
--		.cra_priority	=	250,
--		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					CRYPTO_AHASH_ALG_FINUP_MAX,
--		.cra_blocksize	=	SHA224_BLOCK_SIZE,
--		.cra_module	=	THIS_MODULE,
--	}
--} };
--
--static int register_sha256_ni(void)
--{
--	if (boot_cpu_has(X86_FEATURE_SHA_NI))
--		return crypto_register_shashes(sha256_ni_algs,
--				ARRAY_SIZE(sha256_ni_algs));
--	return 0;
--}
--
--static void unregister_sha256_ni(void)
--{
--	if (boot_cpu_has(X86_FEATURE_SHA_NI))
--		crypto_unregister_shashes(sha256_ni_algs,
--				ARRAY_SIZE(sha256_ni_algs));
--}
--
--static int __init sha256_ssse3_mod_init(void)
--{
--	if (!x86_match_cpu(module_cpu_ids))
--		return -ENODEV;
--
--	if (register_sha256_ssse3())
--		goto fail;
--
--	if (register_sha256_avx()) {
--		unregister_sha256_ssse3();
--		goto fail;
--	}
--
--	if (register_sha256_avx2()) {
--		unregister_sha256_avx();
--		unregister_sha256_ssse3();
--		goto fail;
--	}
--
--	if (register_sha256_ni()) {
--		unregister_sha256_avx2();
--		unregister_sha256_avx();
--		unregister_sha256_ssse3();
--		goto fail;
--	}
--
--	return 0;
--fail:
--	return -ENODEV;
--}
--
--static void __exit sha256_ssse3_mod_fini(void)
--{
--	unregister_sha256_ni();
--	unregister_sha256_avx2();
--	unregister_sha256_avx();
--	unregister_sha256_ssse3();
--}
--
--module_init(sha256_ssse3_mod_init);
--module_exit(sha256_ssse3_mod_fini);
--
--MODULE_LICENSE("GPL");
--MODULE_DESCRIPTION("SHA256 Secure Hash Algorithm, Supplemental SSE3 accelerated");
--
--MODULE_ALIAS_CRYPTO("sha256");
--MODULE_ALIAS_CRYPTO("sha256-ssse3");
--MODULE_ALIAS_CRYPTO("sha256-avx");
--MODULE_ALIAS_CRYPTO("sha256-avx2");
--MODULE_ALIAS_CRYPTO("sha224");
--MODULE_ALIAS_CRYPTO("sha224-ssse3");
--MODULE_ALIAS_CRYPTO("sha224-avx");
--MODULE_ALIAS_CRYPTO("sha224-avx2");
--MODULE_ALIAS_CRYPTO("sha256-ni");
--MODULE_ALIAS_CRYPTO("sha224-ni");
-diff --git a/arch/x86/lib/crypto/Kconfig b/arch/x86/lib/crypto/Kconfig
-index 546fe2afe0b5..5e94cdee492c 100644
---- a/arch/x86/lib/crypto/Kconfig
-+++ b/arch/x86/lib/crypto/Kconfig
-@@ -24,3 +24,11 @@ config CRYPTO_POLY1305_X86_64
- 	depends on 64BIT
- 	default CRYPTO_LIB_POLY1305
- 	select CRYPTO_ARCH_HAVE_LIB_POLY1305
-+
-+config CRYPTO_SHA256_X86_64
-+	tristate
-+	depends on 64BIT
-+	default CRYPTO_LIB_SHA256
-+	select CRYPTO_ARCH_HAVE_LIB_SHA256
-+	select CRYPTO_ARCH_HAVE_LIB_SHA256_SIMD
-+	select CRYPTO_LIB_SHA256_GENERIC
-diff --git a/arch/x86/lib/crypto/Makefile b/arch/x86/lib/crypto/Makefile
-index c2ff8c5f1046..abceca3d31c0 100644
---- a/arch/x86/lib/crypto/Makefile
-+++ b/arch/x86/lib/crypto/Makefile
-@@ -10,6 +10,9 @@ obj-$(CONFIG_CRYPTO_POLY1305_X86_64) += poly1305-x86_64.o
- poly1305-x86_64-y := poly1305-x86_64-cryptogams.o poly1305_glue.o
- targets += poly1305-x86_64-cryptogams.S
- 
-+obj-$(CONFIG_CRYPTO_SHA256_X86_64) += sha256-x86_64.o
-+sha256-x86_64-y := sha256.o sha256-ssse3-asm.o sha256-avx-asm.o sha256-avx2-asm.o sha256-ni-asm.o
-+
- quiet_cmd_perlasm = PERLASM $@
-       cmd_perlasm = $(PERL) $< > $@
- 
-diff --git a/arch/x86/crypto/sha256-avx-asm.S b/arch/x86/lib/crypto/sha256-avx-asm.S
-similarity index 98%
-rename from arch/x86/crypto/sha256-avx-asm.S
-rename to arch/x86/lib/crypto/sha256-avx-asm.S
-index 53de72bdd851..0d7b2c3e45d9 100644
---- a/arch/x86/crypto/sha256-avx-asm.S
-+++ b/arch/x86/lib/crypto/sha256-avx-asm.S
-@@ -48,7 +48,7 @@
- ########################################################################
- 
- #include <linux/linkage.h>
--#include <linux/cfi_types.h>
-+#include <linux/objtool.h>
- 
- ## assume buffers not aligned
- #define    VMOVDQ vmovdqu
-@@ -341,13 +341,13 @@ a = TMP_
- .endm
- 
- ########################################################################
--## void sha256_transform_avx(state sha256_state *state, const u8 *data, int blocks)
--## arg 1 : pointer to state
--## arg 2 : pointer to input data
--## arg 3 : Num blocks
-+## void sha256_transform_avx(u32 state[SHA256_STATE_WORDS],
-+##			     const u8 *data, size_t nblocks);
- ########################################################################
- .text
--SYM_TYPED_FUNC_START(sha256_transform_avx)
-+SYM_FUNC_START(sha256_transform_avx)
-+	ANNOTATE_NOENDBR	# since this is called only via static_call
-+
- 	pushq   %rbx
- 	pushq   %r12
- 	pushq   %r13
-diff --git a/arch/x86/crypto/sha256-avx2-asm.S b/arch/x86/lib/crypto/sha256-avx2-asm.S
-similarity index 98%
-rename from arch/x86/crypto/sha256-avx2-asm.S
-rename to arch/x86/lib/crypto/sha256-avx2-asm.S
-index 0bbec1c75cd0..25d3380321ec 100644
---- a/arch/x86/crypto/sha256-avx2-asm.S
-+++ b/arch/x86/lib/crypto/sha256-avx2-asm.S
-@@ -49,7 +49,7 @@
- ########################################################################
- 
- #include <linux/linkage.h>
--#include <linux/cfi_types.h>
-+#include <linux/objtool.h>
- 
- ## assume buffers not aligned
- #define	VMOVDQ vmovdqu
-@@ -518,13 +518,13 @@ STACK_SIZE	= _CTX      + _CTX_SIZE
- .endm
- 
- ########################################################################
--## void sha256_transform_rorx(struct sha256_state *state, const u8 *data, int blocks)
--## arg 1 : pointer to state
--## arg 2 : pointer to input data
--## arg 3 : Num blocks
-+## void sha256_transform_rorx(u32 state[SHA256_STATE_WORDS],
-+##			      const u8 *data, size_t nblocks);
- ########################################################################
- .text
--SYM_TYPED_FUNC_START(sha256_transform_rorx)
-+SYM_FUNC_START(sha256_transform_rorx)
-+	ANNOTATE_NOENDBR	# since this is called only via static_call
-+
- 	pushq	%rbx
- 	pushq	%r12
- 	pushq	%r13
-diff --git a/arch/x86/crypto/sha256_ni_asm.S b/arch/x86/lib/crypto/sha256-ni-asm.S
-similarity index 85%
-rename from arch/x86/crypto/sha256_ni_asm.S
-rename to arch/x86/lib/crypto/sha256-ni-asm.S
-index d515a55a3bc1..d3548206cf3d 100644
---- a/arch/x86/crypto/sha256_ni_asm.S
-+++ b/arch/x86/lib/crypto/sha256-ni-asm.S
-@@ -54,9 +54,9 @@
-  */
- 
- #include <linux/linkage.h>
--#include <linux/cfi_types.h>
-+#include <linux/objtool.h>
- 
--#define DIGEST_PTR	%rdi	/* 1st arg */
-+#define STATE_PTR	%rdi	/* 1st arg */
- #define DATA_PTR	%rsi	/* 2nd arg */
- #define NUM_BLKS	%rdx	/* 3rd arg */
- 
-@@ -98,24 +98,20 @@
- .endm
- 
- /*
-- * Intel SHA Extensions optimized implementation of a SHA-256 update function
-+ * Intel SHA Extensions optimized implementation of a SHA-256 block function
-  *
-- * The function takes a pointer to the current hash values, a pointer to the
-- * input data, and a number of 64 byte blocks to process.  Once all blocks have
-- * been processed, the digest pointer is  updated with the resulting hash value.
-- * The function only processes complete blocks, there is no functionality to
-- * store partial blocks.  All message padding and hash value initialization must
-- * be done outside the update function.
-+ * This function takes a pointer to the current SHA-256 state, a pointer to the
-+ * input data, and the number of 64-byte blocks to process.  Once all blocks
-+ * have been processed, the state is updated with the new state.  This function
-+ * only processes complete blocks.  State initialization, buffering of partial
-+ * blocks, and digest finalization is expected to be handled elsewhere.
-  *
-- * void sha256_ni_transform(uint32_t *digest, const void *data,
--		uint32_t numBlocks);
-- * digest : pointer to digest
-- * data: pointer to input data
-- * numBlocks: Number of blocks to process
-+ * void sha256_ni_transform(u32 state[SHA256_STATE_WORDS],
-+ *			    const u8 *data, size_t nblocks);
-  */
--
- .text
--SYM_TYPED_FUNC_START(sha256_ni_transform)
-+SYM_FUNC_START(sha256_ni_transform)
-+	ANNOTATE_NOENDBR	# since this is called only via static_call
- 
- 	shl		$6, NUM_BLKS		/*  convert to bytes */
- 	jz		.Ldone_hash
-@@ -126,8 +122,8 @@ SYM_TYPED_FUNC_START(sha256_ni_transform)
- 	 * Need to reorder these appropriately
- 	 * DCBA, HGFE -> ABEF, CDGH
- 	 */
--	movdqu		0*16(DIGEST_PTR), STATE0	/* DCBA */
--	movdqu		1*16(DIGEST_PTR), STATE1	/* HGFE */
-+	movdqu		0*16(STATE_PTR), STATE0		/* DCBA */
-+	movdqu		1*16(STATE_PTR), STATE1		/* HGFE */
- 
- 	movdqa		STATE0, TMP
- 	punpcklqdq	STATE1, STATE0			/* FEBA */
-@@ -166,8 +162,8 @@ SYM_TYPED_FUNC_START(sha256_ni_transform)
- 	pshufd		$0xB1, STATE0, STATE0		/* HGFE */
- 	pshufd		$0x1B, STATE1, STATE1		/* DCBA */
- 
--	movdqu		STATE1, 0*16(DIGEST_PTR)
--	movdqu		STATE0, 1*16(DIGEST_PTR)
-+	movdqu		STATE1, 0*16(STATE_PTR)
-+	movdqu		STATE0, 1*16(STATE_PTR)
- 
- .Ldone_hash:
- 
-diff --git a/arch/x86/crypto/sha256-ssse3-asm.S b/arch/x86/lib/crypto/sha256-ssse3-asm.S
-similarity index 98%
-rename from arch/x86/crypto/sha256-ssse3-asm.S
-rename to arch/x86/lib/crypto/sha256-ssse3-asm.S
-index 93264ee44543..7f24a4cdcb25 100644
---- a/arch/x86/crypto/sha256-ssse3-asm.S
-+++ b/arch/x86/lib/crypto/sha256-ssse3-asm.S
-@@ -47,7 +47,7 @@
- ########################################################################
- 
- #include <linux/linkage.h>
--#include <linux/cfi_types.h>
-+#include <linux/objtool.h>
- 
- ## assume buffers not aligned
- #define    MOVDQ movdqu
-@@ -348,15 +348,13 @@ a = TMP_
- .endm
- 
- ########################################################################
--## void sha256_transform_ssse3(struct sha256_state *state, const u8 *data,
--##			       int blocks);
--## arg 1 : pointer to state
--##	   (struct sha256_state is assumed to begin with u32 state[8])
--## arg 2 : pointer to input data
--## arg 3 : Num blocks
-+## void sha256_transform_ssse3(u32 state[SHA256_STATE_WORDS],
-+##			       const u8 *data, size_t nblocks);
- ########################################################################
- .text
--SYM_TYPED_FUNC_START(sha256_transform_ssse3)
-+SYM_FUNC_START(sha256_transform_ssse3)
-+	ANNOTATE_NOENDBR	# since this is called only via static_call
-+
- 	pushq   %rbx
- 	pushq   %r12
- 	pushq   %r13
-diff --git a/arch/x86/lib/crypto/sha256.c b/arch/x86/lib/crypto/sha256.c
-new file mode 100644
-index 000000000000..cdd88497eedf
---- /dev/null
-+++ b/arch/x86/lib/crypto/sha256.c
-@@ -0,0 +1,80 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * SHA-256 optimized for x86_64
-+ *
-+ * Copyright 2025 Google LLC
-+ */
-+#include <asm/fpu/api.h>
-+#include <crypto/internal/sha2.h>
-+#include <linux/kernel.h>
-+#include <linux/module.h>
-+#include <linux/static_call.h>
-+
-+asmlinkage void sha256_transform_ssse3(u32 state[SHA256_STATE_WORDS],
-+				       const u8 *data, size_t nblocks);
-+asmlinkage void sha256_transform_avx(u32 state[SHA256_STATE_WORDS],
-+				     const u8 *data, size_t nblocks);
-+asmlinkage void sha256_transform_rorx(u32 state[SHA256_STATE_WORDS],
-+				      const u8 *data, size_t nblocks);
-+asmlinkage void sha256_ni_transform(u32 state[SHA256_STATE_WORDS],
-+				    const u8 *data, size_t nblocks);
-+
-+static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_sha256_x86);
-+
-+DEFINE_STATIC_CALL(sha256_blocks_x86, sha256_transform_ssse3);
-+
-+void sha256_blocks_simd(u32 state[SHA256_STATE_WORDS],
-+			const u8 *data, size_t nblocks)
-+{
-+	if (static_branch_likely(&have_sha256_x86)) {
-+		kernel_fpu_begin();
-+		static_call(sha256_blocks_x86)(state, data, nblocks);
-+		kernel_fpu_end();
-+	} else {
-+		sha256_blocks_generic(state, data, nblocks);
-+	}
-+}
-+EXPORT_SYMBOL_GPL(sha256_blocks_simd);
-+
-+void sha256_blocks_arch(u32 state[SHA256_STATE_WORDS],
-+			const u8 *data, size_t nblocks)
-+{
-+	sha256_blocks_generic(state, data, nblocks);
-+}
-+EXPORT_SYMBOL_GPL(sha256_blocks_arch);
-+
-+bool sha256_is_arch_optimized(void)
-+{
-+	return static_key_enabled(&have_sha256_x86);
-+}
-+EXPORT_SYMBOL_GPL(sha256_is_arch_optimized);
-+
-+static int __init sha256_x86_mod_init(void)
-+{
-+	if (boot_cpu_has(X86_FEATURE_SHA_NI)) {
-+		static_call_update(sha256_blocks_x86, sha256_ni_transform);
-+	} else if (cpu_has_xfeatures(XFEATURE_MASK_SSE |
-+				     XFEATURE_MASK_YMM, NULL) &&
-+		   boot_cpu_has(X86_FEATURE_AVX)) {
-+		if (boot_cpu_has(X86_FEATURE_AVX2) &&
-+		    boot_cpu_has(X86_FEATURE_BMI2))
-+			static_call_update(sha256_blocks_x86,
-+					   sha256_transform_rorx);
-+		else
-+			static_call_update(sha256_blocks_x86,
-+					   sha256_transform_avx);
-+	} else if (!boot_cpu_has(X86_FEATURE_SSSE3)) {
-+		return 0;
-+	}
-+	static_branch_enable(&have_sha256_x86);
-+	return 0;
-+}
-+arch_initcall(sha256_x86_mod_init);
-+
-+static void __exit sha256_x86_mod_exit(void)
-+{
-+}
-+module_exit(sha256_x86_mod_exit);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("SHA-256 optimized for x86_64");
--- 
-2.39.5
-
+Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
 
