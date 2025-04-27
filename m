@@ -4,91 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C1A3C369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 11:22:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6AF1C369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 11:31:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U8PIzBYTDnuUJNOzFhZUf8k7SMLmkkalf0cCtjYXloU=; b=Ubcc0YeT1yN6ej6HmdGk9hO9kY
-	SRyLDew38fFavoJxzJc4+yNzxZ1rwEl9Uo5BkOXAEoJErkOgvT76UqbWLK2P+bYAHXwMTbAOxTKcT
-	aw/Hl2CV9PHdcYN4dZU7i9T6LMoiKa5xi3oBrLCXAwuXXQs5geRrgZfpjFK/KZFUCXswQ95JivJvA
-	ZgW70MCryIF8qeroPJNM3Cj5h2ho2jnKrCyIun785d26dhnDuZmXuuyR8wcFTz29GoD/qNstEoW9d
-	/9Y9eR/7aXpmcA5OK19TvwBWrtstIKbqRdUo/St3oyF1DbqEx6Jbmp9CNDYUUJtHtSxF3ToWQJk/w
-	MFCF46+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5AVnMYrfQqCKvIYMObZqGv0ycuhL3WyZhFo4zuHwRSU=; b=xmU+HL+xEXjaPLLs18JHw1zIby
+	zWgWkzdbJtf9uF9Jwcr7NzKzoIy539js/0Cvk9kYxpazpMh7C2DEPtSIh3LUDOo4yaljRcIWSfvDE
+	AJK+ALiLfv8u5xKduShQM/89ZkHK9i5T1PWcnl81GrEh9a8CwWrMdzme66yEdFULpEx7aUeUeR8DN
+	Z4YfGL+wPS7mz9nWXU+wGA0E0YTCe1Jzy4HFaZhSmN2rWiP5i5K3GBIl/iVAuBke6Yu7IZ7l/hX2L
+	jZJney9fV8i+F/ekbT9Vc7OuSj3OOX+HaYqI9N5G8Qta2pQkRyfZiQQGfrNlNrmNFKG7UPLaJgowS
+	MQREjW3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u905k-00000003P66-3eHc;
-	Sun, 27 Apr 2025 11:22:36 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1u90Ed-00000003Pma-1UrX;
+	Sun, 27 Apr 2025 11:31:47 +0000
+Received: from fhigh-b3-smtp.messagingengine.com ([202.12.124.154])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u903S-00000003OvZ-38Vs
+	id 1u90Cf-00000003PXZ-0mvj
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Apr 2025 11:20:15 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-739be717eddso3078081b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Apr 2025 04:20:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745752814; x=1746357614; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=U8PIzBYTDnuUJNOzFhZUf8k7SMLmkkalf0cCtjYXloU=;
-        b=AjUfnSrhGwiiGzI+8apCpZIwvLSyX/NkrNNM6LOfayh6ViB5JFteft39kLl9eRfNFj
-         fOkxLODZqkZz8OoGFDBpH+gFnRLYPeegDM0tHtA3vm/VJ2nAFdxXjKOTn6J4+/RJ8JE2
-         csBtGshH0LV0+OZueK1sfkzzl6/sZTKoIy9jTST/CHqcu8wnLBXRbvZCXzEkFXl+RHUL
-         47B8aOoal+OmJrZpkXkE8NSerML8dO3EKT3pgoi/fdVFcbUbhMzGlu3S7Mj1dETbvEkZ
-         9uTD6HNTgE9mjKY6TInIRBInQUt1sj8u4ZarT+5GifRW7/O9mU8t9ZwB1H4JB+Qbj2as
-         z4kQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745752814; x=1746357614;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=U8PIzBYTDnuUJNOzFhZUf8k7SMLmkkalf0cCtjYXloU=;
-        b=D9xlLX0Hy8GLRmFo03ttZOqcS2uqneYDKP2IiRFDYstkIQhuYZo6HH7ydH/O88Lm0e
-         P0XaZSSYJ5OzzTU23POh1L2pKjufBzwoYahbG0OJ70kds2Mh4uM4sAxdjlURJIldmWwd
-         4HzmAvJcSVPoNFqbnRh77k4xH5hjNXL3rQaUUTFKwrTFKfJh9BLvRweVcyNQ6vnRu2V6
-         CH7bXyHnvARlA9dJotKOn9arL3IKa/3dfqybZJeEWjajVznPffaDyx/U12KJkrzYDxLK
-         XB/jfMcoFfpobJ5kz3DpOtir2sOU9i74b/vm6p73h0BVdfPDfcs4tpFRWf5Q4WUFOtVf
-         7qsQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUVXYo9VkyzNRj6GAs4NDUNm6EtS6Ph8EIk4dZvhuz67n/LLY25SVi1qT0nbmknemTYxzRh1DkJjsbjfof0sgIF@lists.infradead.org
-X-Gm-Message-State: AOJu0YwmEfZmKusAgB9J/9E/m/hzXsb6uRaLC86yg1X43Fn48lp1ZEBW
-	DkprA9pT+TrwA8TYc+WT7ChjZcU7HwvyhC63LFXagg/jc3B6vZK051tcHnPBBQ==
-X-Gm-Gg: ASbGncsQupZ0X/BHVLINZB/197y2hl2y9S8fKGBElmK5/qYzCeGoiCf+6Z/690vvArp
-	PyA7Ew2HQmRnz8mTlKDC2rJrySYigEke/ypia+67ViSwRoWcm4nwS4d44eaZureuw3EQhir7lI6
-	mGsLpmRpxbcE03Z2jUCSWh/glHhWa5koEhzeDVS3NsP/jgh4p+j6Majnx1o1rjAlvehWCzRlPxn
-	259VSvILDvVlyStGAXO+8F12W8l8PEuOTUl62Z5BQch7+8loPM3ONbxvhMkAj9Ff+laa7eJtX+m
-	loi+fH1k+5sBSeHaFaSP2+CcoHKuiHjfSKs8qrCANtvKYHievubm
-X-Google-Smtp-Source: AGHT+IFv79IfZh1GxCFHYniWlVSDWEu/6IbqRbKPw+om4ozt3ytyq0VaNeh7LhP4FfVYP6Dn5aHP7g==
-X-Received: by 2002:a05:6a00:2da6:b0:73c:3060:d53 with SMTP id d2e1a72fcca58-73fd8b6bc26mr10692158b3a.18.1745752813817;
-        Sun, 27 Apr 2025 04:20:13 -0700 (PDT)
-Received: from thinkpad ([120.60.143.241])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73e25a6a17csm6054959b3a.111.2025.04.27.04.20.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 27 Apr 2025 04:20:13 -0700 (PDT)
-Date: Sun, 27 Apr 2025 16:50:06 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: frank.li@nxp.com, l.stach@pengutronix.de, lpieralisi@kernel.org, 
-	kw@linux.com, robh@kernel.org, bhelgaas@google.com, shawnguo@kernel.org, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RESEND v6 6/7] PCI: imx6: Add PLL clock lock check for
- i.MX95 PCIe
-Message-ID: <fnaivdfzjrzcivpegdozhp5i4cjqehze5smp23xiwktce7x4a2@2ryfqsuyvfec>
-References: <20250416081314.3929794-1-hongxing.zhu@nxp.com>
- <20250416081314.3929794-7-hongxing.zhu@nxp.com>
+	Sun, 27 Apr 2025 11:29:47 +0000
+Received: from phl-compute-04.internal (phl-compute-04.phl.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 4F1702540219;
+	Sun, 27 Apr 2025 07:29:41 -0400 (EDT)
+Received: from phl-imap-07 ([10.202.2.97])
+  by phl-compute-04.internal (MEProxy); Sun, 27 Apr 2025 07:29:41 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
+	 h=cc:cc:content-transfer-encoding:content-type:content-type
+	:date:date:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=fm1;
+	 t=1745753381; x=1745839781; bh=5AVnMYrfQqCKvIYMObZqGv0ycuhL3WyZ
+	hFo4zuHwRSU=; b=cHiGN+ZHVQvwAmWDVqx50p8JoFWULaccQJvoTA0aQQhbWoFj
+	6J7CETqWlKWiUxtKkRoO5VBEsJc6Am067bGJBPDJwas4PXB2FBqDdwB4cW40fhmj
+	wW7+AXxGlx5lVtBORqbrSngOYGPpMo0CvUWAa45O4OOu7+7wunwDjjoonqC7g/zW
+	Wdnh+EFjZyvK1jID1HhANCjNFi9iIEdoQ0r7P92cG721VszlAtd/czvo6+R8Hnxd
+	ucQR93PRE5ZxsRismq+JU6fyHS6HATK+azAFOjjrYuhZcxpk1Z0JCOm6aexDIxt9
+	fT5+7FT2550zPfT/Cm8SqfCMPnSLrPEoNfBqnA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1745753381; x=
+	1745839781; bh=5AVnMYrfQqCKvIYMObZqGv0ycuhL3WyZhFo4zuHwRSU=; b=E
+	jsUXopkgxavIZ1xItTb/bHcd5C9+Mg0mtnK92mV2vksvqWHpIuKCP+LQ9bu5hBCc
+	TZ2zPdMVV72GaMriRYLOEZTZN2BUlRteq/ZRE2Kz93PfwQOjIWE0wawVSOd54nKk
+	seKri/NZ/obQ3FAeZXO8dbcnPWXrcLAfqCvty8lppFSb5WdiwkR/0yTZYCUgLtRG
+	veElxm/j9xyyoVLMrHwkYYF7cSjcxkS79ZjK941CezfydKUJSLjMV4vODtI/wrcn
+	343CLszdcrK/IUnuzPChqz6yiHhvgSImt7VzQWkWukoosIkOqVrsgctzZcDflKy3
+	DsI3xeOBJqtDICJKGf9QA==
+X-ME-Sender: <xms:IxUOaJOdB7skIWg1gp5gI_f5bSLHlrtJ5DizHoMVXln4GRcU_grfCA>
+    <xme:IxUOaL9FSn8d4Om1QrpZrSgSwOPFF8UE367CRXKJQIUYLtao_KGS2rQ5caiW6IfgV
+    zZK3DICYOyduSjMrYo>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvheejleehucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
+    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
+    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
+    tddtnecuhfhrohhmpedfufhvvghnucfrvghtvghrfdcuoehsvhgvnhesshhvvghnphgvth
+    gvrhdruggvvheqnecuggftrfgrthhtvghrnhepleefteeugeduudeuudeuhfefheegveek
+    ueefffdvffektdffffelveffvddvueffnecuvehluhhsthgvrhfuihiivgeptdenucfrrg
+    hrrghmpehmrghilhhfrhhomhepshhvvghnsehsvhgvnhhpvghtvghrrdguvghvpdhnsggp
+    rhgtphhtthhopeduhedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheptghhrhhish
+    htohhphhgvrdhlvghrohihsegtshhgrhhouhhprdgvuhdprhgtphhtthhopehmphgvsegv
+    lhhlvghrmhgrnhdrihgurdgruhdprhgtphhtthhopehnphhighhgihhnsehgmhgrihhlrd
+    gtohhmpdhrtghpthhtohepnhgvrghlsehgohhmphgrrdguvghvpdhrtghpthhtohepjhes
+    jhgrnhhnrghurdhnvghtpdhrtghpthhtoheprghnughirdhshhihthhisehkvghrnhgvlh
+    drohhrghdprhgtphhtthhopehnrghvvggvnheskhgvrhhnvghlrdhorhhgpdhrtghpthht
+    ohepmhgrugguhieslhhinhhugidrihgsmhdrtghomhdprhgtphhtthhopehlihhnuhigqd
+    grrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrgh
+X-ME-Proxy: <xmx:IxUOaISkvdKNkauBTau3Yk86BBkDs_xaQlGa8g1PKqItwEO6sr7_Aw>
+    <xmx:IxUOaFsQIYPEGVcnbw5bn1-nmmufSyYvjad865GJP9x0WREMbgpV5g>
+    <xmx:IxUOaBd97cPa0WAqm8KOVrSh9n-zwiAuFqZ3Oln3jFSUdNAWa0GCEQ>
+    <xmx:IxUOaB2Jm45REZl8uOecpL_ceCAb7Zm9Jwx7F71mScOODKnIaRvMpQ>
+    <xmx:JRUOaB2nIin_JYaVvDIelqSp6Cg24ftqlZtTrULSUZnnWHPvRJfd7SeL>
+Feedback-ID: i51094778:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 3F050BA0070; Sun, 27 Apr 2025 07:29:39 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250416081314.3929794-7-hongxing.zhu@nxp.com>
+X-ThreadId: T5434dab6164679dd
+Date: Sun, 27 Apr 2025 13:29:17 +0200
+From: "Sven Peter" <sven@svenpeter.dev>
+To: "Andi Shyti" <andi.shyti@kernel.org>
+Cc: "Janne Grunau" <j@jannau.net>, "Alyssa Rosenzweig" <alyssa@rosenzweig.io>,
+ "Madhavan Srinivasan" <maddy@linux.ibm.com>,
+ "Michael Ellerman" <mpe@ellerman.id.au>,
+ "Nicholas Piggin" <npiggin@gmail.com>,
+ "Christophe Leroy" <christophe.leroy@csgroup.eu>,
+ "Naveen N Rao" <naveen@kernel.org>, "Neal Gompa" <neal@gompa.dev>,
+ "Hector Martin" <marcan@marcan.st>,
+ linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, asahi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Message-Id: <c6590a37-97b0-4497-8cc1-c4572897f0dc@app.fastmail.com>
+In-Reply-To: <dtjvj34q4ojbci67akkxfiskpiro24xupagr5rl4dn3idd6vxh@2emtiwbvpvra>
+References: <20250415-pasemi-fixes-v2-0-c543bf53151a@svenpeter.dev>
+ <20250415-pasemi-fixes-v2-4-c543bf53151a@svenpeter.dev>
+ <dtjvj34q4ojbci67akkxfiskpiro24xupagr5rl4dn3idd6vxh@2emtiwbvpvra>
+Subject: Re: [PATCH v2 4/6] i2c: pasemi: Improve error recovery
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250427_042014_799934_4AA8213B 
-X-CRM114-Status: GOOD (  20.38  )
+X-CRM114-CacheID: sfid-20250427_042945_768839_F08354F5 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,79 +124,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 16, 2025 at 04:13:13PM +0800, Richard Zhu wrote:
-> Add PLL clock lock check for i.MX95 PCIe.
-> 
-> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+Hi,
 
-Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 
-One comment below. But I'll fix it up while applying.
+On Thu, Apr 17, 2025, at 15:07, Andi Shyti wrote:
+> Hi Sven, Hector,
+>
+> ...
+>
+>> +/*
+>> + * The hardware (supposedly) has a 25ms timeout for clock stretching, thus
+>> + * use 100ms here which should be plenty.
+>> + */
+>> +#define TRANSFER_TIMEOUT_MS	100
+>
+> Please use the PASEMI prefix here. TRANSFER_TIMEOUT_MS it's not a
+> naming belonging to this driver.
+>
+> 100ms looks a bit too much to me, but if you say it works, then
+> it works.
+>
 
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> ---
->  drivers/pci/controller/dwc/pci-imx6.c | 29 +++++++++++++++++++++++++++
->  1 file changed, 29 insertions(+)
-> 
-> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-> index 7dcc9d88740d..4cff66794990 100644
-> --- a/drivers/pci/controller/dwc/pci-imx6.c
-> +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> @@ -45,6 +45,9 @@
->  #define IMX95_PCIE_PHY_GEN_CTRL			0x0
->  #define IMX95_PCIE_REF_USE_PAD			BIT(17)
->  
-> +#define IMX95_PCIE_PHY_MPLLA_CTRL		0x10
-> +#define IMX95_PCIE_PHY_MPLL_STATE		BIT(30)
-> +
->  #define IMX95_PCIE_SS_RW_REG_0			0xf0
->  #define IMX95_PCIE_REF_CLKEN			BIT(23)
->  #define IMX95_PCIE_PHY_CR_PARA_SEL		BIT(9)
-> @@ -132,6 +135,7 @@ struct imx_pcie_drvdata {
->  	int (*init_phy)(struct imx_pcie *pcie);
->  	int (*enable_ref_clk)(struct imx_pcie *pcie, bool enable);
->  	int (*core_reset)(struct imx_pcie *pcie, bool assert);
-> +	int (*wait_pll_lock)(struct imx_pcie *pcie);
->  	const struct dw_pcie_host_ops *ops;
->  };
->  
-> @@ -479,6 +483,23 @@ static void imx7d_pcie_wait_for_phy_pll_lock(struct imx_pcie *imx_pcie)
->  		dev_err(dev, "PCIe PLL lock timeout\n");
->  }
->  
-> +static int imx95_pcie_wait_for_phy_pll_lock(struct imx_pcie *imx_pcie)
-> +{
-> +	u32 val;
-> +	struct device *dev = imx_pcie->pci->dev;
-> +
-> +	if (regmap_read_poll_timeout(imx_pcie->iomuxc_gpr,
-> +				     IMX95_PCIE_PHY_MPLLA_CTRL, val,
-> +				     val & IMX95_PCIE_PHY_MPLL_STATE,
-> +				     PHY_PLL_LOCK_WAIT_USLEEP_MAX,
-> +				     PHY_PLL_LOCK_WAIT_TIMEOUT)) {
-> +		dev_err(dev, "PCIe PLL lock timeout\n");
-> +		return -ETIMEDOUT;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->  static int imx_setup_phy_mpll(struct imx_pcie *imx_pcie)
->  {
->  	unsigned long phy_rate = 0;
-> @@ -1225,6 +1246,12 @@ static int imx_pcie_host_init(struct dw_pcie_rp *pp)
->  		goto err_phy_off;
->  	}
->  
-> +	if (imx_pcie->drvdata->wait_pll_lock) {
-> +		ret = imx_pcie->drvdata->wait_pll_lock(imx_pcie);
-> +		if (ret < 0)
-> +			goto err_phy_off;
+The problem here is that we only have very outdated documentation for this
+hardware and no real idea what changed since Apple bought PASemi and continued
+using their i2c controller.
+We know that 10ms (which used to be the original timeout iirc) is not nearly
+enough and we also know that we need at least 25ms for clock strechting
+(assuming nothing changed in the past 10+ years).
+We just bumped it to 100ms to be safe after we very rarely got error
+reports which we tracked down to timeouts and haven't gotten any reports
+since.
 
-You should also assert core reset in the error path.
 
-- Mani
+I've addressed all your other comments for v3 which I'll send out in a few minutes.
 
--- 
-மணிவண்ணன் சதாசிவம்
+
+Best,
+
+
+Sven
 
