@@ -4,89 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31033C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 07:52:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B412C369D8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 07:54:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tKsx1Y0DBxO5LiUGbdeLz4euTGTr3L8Ie2JztiqIkG8=; b=2qKJ6l9WYBdP4P+chFdHRjSL9/
-	smCMjrTJ9mOspaf9fDbH1ko56oykJuO7hL/bV2cKjl+dChj5ga8YC+UrIfiX4QK+kiShNqoFMjyBa
-	Cy4kbGM9gXsL1C7lvaL9BhDYjc3s3eEgayx+ZZI2hG+izr8zlAwkaz1/tEer7McX+1Monq3vveyaN
-	tJZiCXVUWEOHLGboeCf6Ml66M8MMGI3+rEDDFrp0ZTqon768NSmqfjBlby81VJVud696d+43Gc+ZN
-	Is1w/BrkfGmZ/DEAxVhiHX/ih4iC9jfGQXbUyS4mjRS/X4K8QgpbiYPsfvyafBR0RdImn2s1TZ6cL
-	jjDPfQcg==;
+	bh=46KG8AspdUK+HWoPDCPbBAKne4wXkKAJk7Wn2N6bCdA=; b=j0j0tyZ+Nz15yDMdexgztrRKMi
+	RhiQYWrwmTNRQzQ3bx5JkRoX1aMi3FP0grylTHdf09MMt/9LxjsVWF7W7Y1LIX/5oZRY57z7quSW/
+	HtKkhSO0u1IK3PeUuQUs0isnikBLSKMc1IU2+wx7MDO+kcX1hXH9IL/9fQQ+gMU7oF58oDh/mZW1J
+	i5MMP5cLKEhKCgOOyOToeDg41PL6xyaz0+T08+6nsmeFAIja3fbNuJCccVutJYJP3AkSbHhx1C6Bi
+	1NzN4ggIZj1XvxtcxPP9X6sSGcQkXtuLu4zuUPc33TpkA7I8cg3+86lWcu0w97CBNkViiv0AxtDP0
+	UWtb9vtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8wo0-000000037oR-42dX;
-	Sun, 27 Apr 2025 07:52:04 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1u8wpu-0000000381t-2jdp;
+	Sun, 27 Apr 2025 07:54:02 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8wgP-000000037Dl-33kL
+	id 1u8wgR-000000037E7-2drn
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Apr 2025 07:44:14 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43ce71582e9so27475855e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Apr 2025 00:44:13 -0700 (PDT)
+	Sun, 27 Apr 2025 07:44:16 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4394a0c65fcso36044005e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Apr 2025 00:44:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1745739852; x=1746344652; darn=lists.infradead.org;
+        d=amarulasolutions.com; s=google; t=1745739854; x=1746344654; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=tKsx1Y0DBxO5LiUGbdeLz4euTGTr3L8Ie2JztiqIkG8=;
-        b=mgsLJMzn2mJGskLNHsiHFGjswLOW5h0kmGAejZYLOKNF7rKYgKIv5P5AjAwUokc9mB
-         /682QoMxqTy0RmKBrkebsNK6IlQjXqZixZ5Xet1NSWI/ThZeguZ/fZXnDDbB91sASaQu
-         JB6JMWE+4i5F3vJOnxzLU2DoT8EtQ9uann/Jo=
+        bh=46KG8AspdUK+HWoPDCPbBAKne4wXkKAJk7Wn2N6bCdA=;
+        b=BkHBaYw4XosuiVCy9wH+xnZ6HESrkLZGP4Dtgw8ZF3p+etGadwzKjRgLwEOhZ55OHG
+         x9y0vHHuBLu2Bar3bl4ivPKrSJRCz06OvS+2yNRPPgp+LKGk8VPbjEQhLXf0Q0LqeU6M
+         4yhCYevY9T/YNF6wrrxJBn2q/kp9W/9Id6/qI=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745739852; x=1746344652;
+        d=1e100.net; s=20230601; t=1745739854; x=1746344654;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=tKsx1Y0DBxO5LiUGbdeLz4euTGTr3L8Ie2JztiqIkG8=;
-        b=Ssc5IJK8L5odbN67eFlt7lZnUWXZKjgCe7ELYP6xQcLqpAuimhAANawzffDLIg9cBF
-         Q1+6g2rWq+g/Tq5VzDQmDnH7SWsdgBBWR0VgDbOCfkNYQ/RKJfjRz4/fa3V66G99IRZ0
-         Ir6QkTXz9tNCgXZ91BX5tIAk28oa9lSfx9XHV0HaJsyLwM/t029VVApAZvqceVb2A81G
-         eKnPjZNDzr0gcWmSuJF9K9GqasC0sMyFmflgr1StQ9vbZKRG5NsSvGLtQ9x41/vpag5M
-         GfzM6fhcegaVDpG8wlo1m+6yG56oFBmKIIlAtxL3xdh4ic53u0g2LxKtkFfbPUpbwv6s
-         DNAA==
-X-Forwarded-Encrypted: i=1; AJvYcCXkFlRAVmMdZF3m70rDAnu2oAg1yI4OC29nBFzXj5zUTqr17R+DTjw5ljt6Ymb1nDiRLKxG2H0PC2fIyeVZSY55@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdBfuXomNnldDGrfSe2lb7TmUammEJJ6KQYTV4a0IbPLLp43hJ
-	9LRBO/8lsvzL7WPc0p4b0g/yqViOoanbBDojJUb/nFRVVEtbll9QaHo//ZYp+P0=
-X-Gm-Gg: ASbGncsADOm6aU5Bu/IpkpFCYUtnhAEO3/AhKCi5JQlMrijkbCS26KPRovDSo5WuqhM
-	7oLj1drSoqu2RrsSC80+svjvRIZ05v23i5Cw28MzZ3U47/E2k0eXS4F39I0u7l/VrxvwS+FOqma
-	yb/WDwIaanqIWpGejoSAC1rDfZxDRZJygM6tm1dPTYvvlDrUfulCzcF3F+cAEJ5fDkG3eOWuCEi
-	opFgy7Ol7Zb/TLwX1N/p5jorKcD9vPd01B5wts4vm1A5EeyRlDI+omLQuGM2HWq+cylQdQm3OWM
-	kPoFbL7Qg6XOqdFQOfTeOV9ffZlworDdDPmDehMfKc7dnLafxFcNwKYQyAg9qrLcmQbk1c91pMf
-	NT5CT7Q==
-X-Google-Smtp-Source: AGHT+IFCEy8x0o5oo3zFYyMXFfS94FwDsXqBWsDjwWzSNdIUrFG48zSXY2rcjCPvG2HDuHNuAL8VeQ==
-X-Received: by 2002:a05:600c:1c18:b0:43d:8ea:8d7a with SMTP id 5b1f17b1804b1-440a66abe22mr49622795e9.28.1745739852516;
-        Sun, 27 Apr 2025 00:44:12 -0700 (PDT)
+        bh=46KG8AspdUK+HWoPDCPbBAKne4wXkKAJk7Wn2N6bCdA=;
+        b=thPerYeVifZi6wc2EZh4wbCe7Tq9tWSq8h7PFbuqEVc2GX2N53RIGbaiDXKTlSon0O
+         sTGYTak4D+RuYiW4FmZwfQl0usfGYR817FujZbsYhb2W7+0ronw6OaYp+vfPg0eAZbqf
+         iZlgBzwocqZYflNJTjarCNr5v1GnImLI4iLP/xqmAk3FAMg8us0iIkFg9jQR1UuYp33m
+         PgNt+cU4CI7Mc8M6LQWwdppCtTo8UyeTjjPYtwBb/4RM+ghg6c0B/8ig72S1KVtGLWXI
+         MvO85cOZRiue2MxCNIJ538cDx66Sr5Re+ouuffXB6VRdGnBwjVQ2iRBX8LYGfe4p3M/M
+         RmOw==
+X-Forwarded-Encrypted: i=1; AJvYcCVjELixHpTXpdp91bF3BOcfS+qPrTdEsiipW7tPzvrVWyfCMTHFHjW+lMMpJePwEnIIH3BcVyUg66veBVEtzNBQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKSIsV7MhRRlA//lm1jqc/cLtCiJFjZX4HeTBt8qLIpTezzs6e
+	Vu1a1nEmOZfSDi4ekBY6GaFJgBo0tp7iWEP5yGvwiURijQCbaAZfA+VUm/RbPd80rORY/ThRkWC
+	M
+X-Gm-Gg: ASbGncs7XIXsdDde/ivQuPZB6xf75RSQwvd+C9F3CjoGjcWmFuUr+DBj/abHINKpYxw
+	8GCW0owpuRmCk3t93EwjBCqAdyqaCT7SFKN6rqYsE4qraERLD6CXnvUGoMHG4HEPzNrAXItJEPZ
+	6UY4Yr98VCxigtLVC6KxViAf0ohWKrLV3DVvZQs+d1hqOU1o7oFyw4WtqKZEa9YWhSxoNx7Zq/v
+	C7BA1y8K5uyssqWI1ibgqvyBJml0AMK6lLP4Z7HySrgSlKqF5/m7ODRhH8XQfp8PqjhjN3UXGLT
+	4evj/0Xz1QwryLA1ZDGtPn9nGYkvu4t5+VZe4eMQG+aIr/mOQuE6f7FH+a8MI7/n5fQ/uqFglG3
+	2cdbsDg==
+X-Google-Smtp-Source: AGHT+IFmKdlug3XBTeQtHBTWufSsMQj6wGtrXk30tYDh/x80OEhGe1hDn/XAFAGgsIRKs0/u6QDg0Q==
+X-Received: by 2002:a05:600c:a02:b0:43c:e7ae:4bc9 with SMTP id 5b1f17b1804b1-440ab76b5e2mr33817675e9.1.1745739853968;
+        Sun, 27 Apr 2025 00:44:13 -0700 (PDT)
 Received: from dario-ThinkPad-T14s-Gen-2i.. ([2.196.40.180])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-440a52f8915sm87682015e9.7.2025.04.27.00.44.11
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-440a52f8915sm87682015e9.7.2025.04.27.00.44.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 27 Apr 2025 00:44:12 -0700 (PDT)
+        Sun, 27 Apr 2025 00:44:13 -0700 (PDT)
 From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 To: linux-kernel@vger.kernel.org
 Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	linux-amarula@amarulasolutions.com,
 	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH 3/8] ARM: stm32: add a new SoC - STM32H747
-Date: Sun, 27 Apr 2025 09:43:22 +0200
-Message-ID: <20250427074404.3278732-4-dario.binacchi@amarulasolutions.com>
+Subject: [PATCH 4/8] clk: stm32h7: rename USART{7,8}_CK to UART{7,8}_CK
+Date: Sun, 27 Apr 2025 09:43:23 +0200
+Message-ID: <20250427074404.3278732-5-dario.binacchi@amarulasolutions.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250427074404.3278732-1-dario.binacchi@amarulasolutions.com>
 References: <20250427074404.3278732-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250427_004413_763577_0F5BAB5F 
-X-CRM114-Status: UNSURE (   9.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250427_004415_667900_5A2C20CC 
+X-CRM114-Status: GOOD (  11.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,28 +107,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The STM32H747 is a dual-core MCU (Cortex-M7 running up to 480 MHz +
-Cortex-M4 running up to 240 MHz) containing from 1 to 2 Mbytes of Flash
-memory and 1 Mbyte of internal RAM.
+As stated in the reference manual RM0433, the STM32H743 MCU has
+USART1/2/3/6, UART4/5/7/8, and LPUART1. The patches make all the clock
+macros for the serial ports consistent with the documentation.
 
 Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 ---
 
- arch/arm/mach-stm32/board-dt.c | 1 +
- 1 file changed, 1 insertion(+)
+ include/dt-bindings/clock/stm32h7-clks.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm/mach-stm32/board-dt.c b/arch/arm/mach-stm32/board-dt.c
-index 5dcc4ddd1a56..e6233c8725ae 100644
---- a/arch/arm/mach-stm32/board-dt.c
-+++ b/arch/arm/mach-stm32/board-dt.c
-@@ -17,6 +17,7 @@ static const char *const stm32_compat[] __initconst = {
- 	"st,stm32f746",
- 	"st,stm32f769",
- 	"st,stm32h743",
-+	"st,stm32h747",
- 	"st,stm32h750",
- 	"st,stm32mp131",
- 	"st,stm32mp133",
+diff --git a/include/dt-bindings/clock/stm32h7-clks.h b/include/dt-bindings/clock/stm32h7-clks.h
+index 6637272b3242..330b39c2c303 100644
+--- a/include/dt-bindings/clock/stm32h7-clks.h
++++ b/include/dt-bindings/clock/stm32h7-clks.h
+@@ -126,8 +126,8 @@
+ #define ADC3_CK 128
+ #define DSI_CK 129
+ #define LTDC_CK 130
+-#define USART8_CK 131
+-#define USART7_CK 132
++#define UART8_CK 131
++#define UART7_CK 132
+ #define HDMICEC_CK 133
+ #define I2C3_CK 134
+ #define I2C2_CK 135
 -- 
 2.43.0
 
