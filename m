@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDC2DC369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 06:38:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4C41C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 06:40:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:From:
 	References:In-Reply-To:Message-Id:Date:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rP+NZJSdMAUCrhmpmgiLvCOP7Z+FVOqs5gTXtI8IpWU=; b=Mc8KxwTvHoPwEovbZroB0Bcz9U
-	XRlxk24MTJa+hAwd36ZZAYSdc6oXF7ysEh4fjhE6WhovXbuyIHPR4kcCkyLA6bsZgCHdLq7U6z+oC
-	LL+9tYzKiQ7zmcH4VpZNzINLi9OZI7i9ivnQGWUtH0jg3e+DOPHD83zPFSHbMs7xu3FK//CB87yBX
-	9iAIpYOQo9pftqhP5W6DlCX2ln/zB1WIyiwIkYrk+KOa6t0W5yPEIibeHEv7fk3qijUjpKv5JZ2mi
-	x/YBcNv6C8/0AuGbu36vmm8cK+AmAKMLcZ5fUpylxz5JngOMayAD8SPiKG1gM2FrkyLyO7/05pApL
-	6XkcoIkg==;
+	bh=yks5gCO0v3/Nwhtw3eMhsS1fOwKBC+qVEuvZm4t2GQQ=; b=r15fS8a/A3VqY75J4SJKsmQhLj
+	HjrvH/D6FV9k8wiuzYJjyNSSkbS2XeAqvL3AJ1lZD8TEQR/XTSItJY6zMHnDyzcSejBxYqGeIhj+8
+	Ulz5EwGPLraXEtmvMpQ58l1WwtCX+h2645xm6v99rvkRO7zCOUjiFCgYoyHoy58gY+UZys6/8lRlv
+	PlPFB9ARnfRR1cl1ljrOMtr1Qkw//qzhN5iJEUgg2E8yvTs6i2QCZ3jGI9iftepTbY8+3VdbQ0nPY
+	87R/1j0BEVVZytIAn5AZD8T7uXhOW6X/75pSUtljmOk3RAYjsJgU+/BsmQ8v7xyiXpnIop8r2ppqy
+	TI3ZKN0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8vf4-000000031Io-3EY2;
-	Sun, 27 Apr 2025 06:38:46 +0000
+	id 1u8vgz-000000031b5-0MiC;
+	Sun, 27 Apr 2025 06:40:45 +0000
 Received: from abb.hmeau.com ([144.6.53.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8vXU-00000002zYy-2GpW;
-	Sun, 27 Apr 2025 06:30:57 +0000
+	id 1u8vXZ-00000002zbD-0jPH;
+	Sun, 27 Apr 2025 06:31:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
 	s=formenos; h=Cc:To:Subject:From:References:In-Reply-To:Message-Id:Date:
 	Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
 	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=rP+NZJSdMAUCrhmpmgiLvCOP7Z+FVOqs5gTXtI8IpWU=; b=pwhukHUJkptVYhk/7mJ/wQy1SE
-	ulrhnazPKrgrGSMvq/xnNHtH8aCk7R9kBOErlOtsdOkboxZvYdOzK+2EFFhVgN/SBxH8NtogqwhTr
-	vFwwAxgkrbkOhdpJWnivNzQjAMKp2XxBTtQk0SMbzwpW9hv7igOSWzJysOCBaDXYa1BJhIuhqc6hm
-	F+dJBOAlzGlExJ1XfHXx/BF+LUkmi/vDSOEBLFYJCjVU3AUORqHRown7MHDW7Rftl3ZN7MoHjpUsH
-	M5iPNcaoAiRhr3w7uYP+ct+kpWrHQGtX2c39KRGQORcGTtMBe1IbAmB/1PsDmST+4ITgsJ5i1SAZj
-	S6+TmzOw==;
+	bh=yks5gCO0v3/Nwhtw3eMhsS1fOwKBC+qVEuvZm4t2GQQ=; b=WTqV1YENxPzNvxPcVnBKMS6EaA
+	xjItsqAUp0jyl4kNlFEw+kAt4VYusxZf8e8Fvo8B62keb3W5IzRcBBrinoyBTJR69VXosIU9J/P1m
+	D4g0K9imlogPjrh85ZdQx+GG3gGqtWApziyvqgSr+JgK5StscFItSo5WAcTvrz0dKKMI3autWvl1t
+	MwMbLU66P+ghTgq4gQbvRixy8GxP+PNDI8ToZyI/yQ/zt4tQPlUpQydUkfMe9d6p2QJOO1f6+estw
+	IvkQ1Kg1ZcpliSL63XLdtfEkJkl0TrDyn4k6xmFKtvHRYqZFe535gToM6pqeuis7FFqFC6JZFAEbe
+	UigYMfYw==;
 Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
 	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1u8vXR-001LVY-1E;
-	Sun, 27 Apr 2025 14:30:54 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sun, 27 Apr 2025 14:30:53 +0800
-Date: Sun, 27 Apr 2025 14:30:53 +0800
-Message-Id: <df59c55070d5ea79f6c6c8c60ad155ec223b8fab.1745734678.git.herbert@gondor.apana.org.au>
+	id 1u8vXW-001LW1-06;
+	Sun, 27 Apr 2025 14:30:59 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sun, 27 Apr 2025 14:30:58 +0800
+Date: Sun, 27 Apr 2025 14:30:58 +0800
+Message-Id: <f78d8294da2b20f649c676afafe8cf810dc68650.1745734678.git.herbert@gondor.apana.org.au>
 In-Reply-To: <cover.1745734678.git.herbert@gondor.apana.org.au>
 References: <cover.1745734678.git.herbert@gondor.apana.org.au>
 From: Herbert Xu <herbert@gondor.apana.org.au>
-Subject: [v2 PATCH 05/13] crypto: mips/sha256 - implement library instead of
+Subject: [v2 PATCH 07/13] crypto: riscv/sha256 - implement library instead of
  shash
 To: Linux Crypto Mailing List <linux-crypto@vger.kernel.org>
 Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org, linux-s390@vger.kernel.org, x86@kernel.org, Ard Biesheuvel <ardb@kernel.org>, "Jason A . Donenfeld " <Jason@zx2c4.com>, Linus Torvalds <torvalds@linux-foundation.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250426_233056_869817_FC03B785 
-X-CRM114-Status: GOOD (  14.85  )
+X-CRM114-CacheID: sfid-20250426_233101_508423_D48DD009 
+X-CRM114-Status: GOOD (  20.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,243 +78,310 @@ it fixes the longstanding issue where the arch-optimized SHA-256 was
 disabled by default.  SHA-256 still remains available through
 crypto_shash, but individual architectures no longer need to handle it.
 
+To match sha256_blocks_arch(), change the type of the nblocks parameter
+of the assembly function from int to size_t.  The assembly function
+actually already treated it as size_t.
+
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
 ---
- arch/mips/cavium-octeon/Kconfig               |   6 +
- .../mips/cavium-octeon/crypto/octeon-sha256.c | 139 ++++--------------
- arch/mips/configs/cavium_octeon_defconfig     |   1 -
- arch/mips/crypto/Kconfig                      |  10 --
- 4 files changed, 35 insertions(+), 121 deletions(-)
+ arch/riscv/crypto/Kconfig                     |  11 --
+ arch/riscv/crypto/Makefile                    |   3 -
+ arch/riscv/crypto/sha256-riscv64-glue.c       | 125 ------------------
+ arch/riscv/lib/crypto/Kconfig                 |   8 ++
+ arch/riscv/lib/crypto/Makefile                |   3 +
+ .../sha256-riscv64-zvknha_or_zvknhb-zvkb.S    |   4 +-
+ arch/riscv/lib/crypto/sha256.c                |  67 ++++++++++
+ 7 files changed, 80 insertions(+), 141 deletions(-)
+ delete mode 100644 arch/riscv/crypto/sha256-riscv64-glue.c
+ rename arch/riscv/{ => lib}/crypto/sha256-riscv64-zvknha_or_zvknhb-zvkb.S (98%)
+ create mode 100644 arch/riscv/lib/crypto/sha256.c
 
-diff --git a/arch/mips/cavium-octeon/Kconfig b/arch/mips/cavium-octeon/Kconfig
-index 450e979ef5d9..11f4aa6e80e9 100644
---- a/arch/mips/cavium-octeon/Kconfig
-+++ b/arch/mips/cavium-octeon/Kconfig
-@@ -23,6 +23,12 @@ config CAVIUM_OCTEON_CVMSEG_SIZE
- 	  legally range is from zero to 54 cache blocks (i.e. CVMSEG LM is
- 	  between zero and 6192 bytes).
+diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
+index 4863be2a4ec2..cd9b776602f8 100644
+--- a/arch/riscv/crypto/Kconfig
++++ b/arch/riscv/crypto/Kconfig
+@@ -28,17 +28,6 @@ config CRYPTO_GHASH_RISCV64
+ 	  Architecture: riscv64 using:
+ 	  - Zvkg vector crypto extension
  
-+config CRYPTO_SHA256_OCTEON
-+	tristate
-+	default CRYPTO_LIB_SHA256
-+	select CRYPTO_ARCH_HAVE_LIB_SHA256
-+	select CRYPTO_LIB_SHA256_GENERIC
-+
- endif # CPU_CAVIUM_OCTEON
+-config CRYPTO_SHA256_RISCV64
+-	tristate "Hash functions: SHA-224 and SHA-256"
+-	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
+-	select CRYPTO_SHA256
+-	help
+-	  SHA-224 and SHA-256 secure hash algorithm (FIPS 180)
+-
+-	  Architecture: riscv64 using:
+-	  - Zvknha or Zvknhb vector crypto extensions
+-	  - Zvkb vector crypto extension
+-
+ config CRYPTO_SHA512_RISCV64
+ 	tristate "Hash functions: SHA-384 and SHA-512"
+ 	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
+diff --git a/arch/riscv/crypto/Makefile b/arch/riscv/crypto/Makefile
+index 4ae9bf762e90..e10e8257734e 100644
+--- a/arch/riscv/crypto/Makefile
++++ b/arch/riscv/crypto/Makefile
+@@ -7,9 +7,6 @@ aes-riscv64-y := aes-riscv64-glue.o aes-riscv64-zvkned.o \
+ obj-$(CONFIG_CRYPTO_GHASH_RISCV64) += ghash-riscv64.o
+ ghash-riscv64-y := ghash-riscv64-glue.o ghash-riscv64-zvkg.o
  
- if CAVIUM_OCTEON_SOC
-diff --git a/arch/mips/cavium-octeon/crypto/octeon-sha256.c b/arch/mips/cavium-octeon/crypto/octeon-sha256.c
-index 8e85ea65387c..f93faaf1f4af 100644
---- a/arch/mips/cavium-octeon/crypto/octeon-sha256.c
-+++ b/arch/mips/cavium-octeon/crypto/octeon-sha256.c
-@@ -1,8 +1,6 @@
- // SPDX-License-Identifier: GPL-2.0-or-later
- /*
-- * Cryptographic API.
+-obj-$(CONFIG_CRYPTO_SHA256_RISCV64) += sha256-riscv64.o
+-sha256-riscv64-y := sha256-riscv64-glue.o sha256-riscv64-zvknha_or_zvknhb-zvkb.o
+-
+ obj-$(CONFIG_CRYPTO_SHA512_RISCV64) += sha512-riscv64.o
+ sha512-riscv64-y := sha512-riscv64-glue.o sha512-riscv64-zvknhb-zvkb.o
+ 
+diff --git a/arch/riscv/crypto/sha256-riscv64-glue.c b/arch/riscv/crypto/sha256-riscv64-glue.c
+deleted file mode 100644
+index c998300ab843..000000000000
+--- a/arch/riscv/crypto/sha256-riscv64-glue.c
++++ /dev/null
+@@ -1,125 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0-or-later
+-/*
+- * SHA-256 and SHA-224 using the RISC-V vector crypto extensions
 - *
-- * SHA-224 and SHA-256 Secure Hash Algorithm.
-+ * SHA-256 Secure Hash Algorithm.
-  *
-  * Adapted for OCTEON by Aaro Koskinen <aaro.koskinen@iki.fi>.
-  *
-@@ -15,9 +13,7 @@
-  */
- 
- #include <asm/octeon/octeon.h>
+- * Copyright (C) 2022 VRULL GmbH
+- * Author: Heiko Stuebner <heiko.stuebner@vrull.eu>
+- *
+- * Copyright (C) 2023 SiFive, Inc.
+- * Author: Jerry Shih <jerry.shih@sifive.com>
+- */
+-
+-#include <asm/simd.h>
+-#include <asm/vector.h>
 -#include <crypto/internal/hash.h>
--#include <crypto/sha2.h>
+-#include <crypto/internal/simd.h>
 -#include <crypto/sha256_base.h>
-+#include <crypto/internal/sha2.h>
- #include <linux/kernel.h>
- #include <linux/module.h>
- 
-@@ -27,31 +23,24 @@
-  * We pass everything as 64-bit. OCTEON can handle misaligned data.
-  */
- 
--static void octeon_sha256_store_hash(struct crypto_sha256_state *sctx)
-+void sha256_blocks_arch(u32 state[SHA256_STATE_WORDS],
-+			const u8 *data, size_t nblocks)
- {
--	u64 *hash = (u64 *)sctx->state;
-+	struct octeon_cop2_state cop2_state;
-+	u64 *state64 = (u64 *)state;
-+	unsigned long flags;
- 
--	write_octeon_64bit_hash_dword(hash[0], 0);
--	write_octeon_64bit_hash_dword(hash[1], 1);
--	write_octeon_64bit_hash_dword(hash[2], 2);
--	write_octeon_64bit_hash_dword(hash[3], 3);
--}
-+	if (!octeon_has_crypto())
-+		return sha256_blocks_generic(state, data, nblocks);
- 
--static void octeon_sha256_read_hash(struct crypto_sha256_state *sctx)
+-#include <linux/kernel.h>
+-#include <linux/module.h>
+-
+-/*
+- * Note: the asm function only uses the 'state' field of struct sha256_state.
+- * It is assumed to be the first field.
+- */
+-asmlinkage void sha256_transform_zvknha_or_zvknhb_zvkb(
+-	struct crypto_sha256_state *state, const u8 *data, int num_blocks);
+-
+-static void sha256_block(struct crypto_sha256_state *state, const u8 *data,
+-			 int num_blocks)
 -{
--	u64 *hash = (u64 *)sctx->state;
-+	flags = octeon_crypto_enable(&cop2_state);
-+	write_octeon_64bit_hash_dword(state64[0], 0);
-+	write_octeon_64bit_hash_dword(state64[1], 1);
-+	write_octeon_64bit_hash_dword(state64[2], 2);
-+	write_octeon_64bit_hash_dword(state64[3], 3);
- 
--	hash[0] = read_octeon_64bit_hash_dword(0);
--	hash[1] = read_octeon_64bit_hash_dword(1);
--	hash[2] = read_octeon_64bit_hash_dword(2);
--	hash[3] = read_octeon_64bit_hash_dword(3);
+-	/*
+-	 * Ensure struct crypto_sha256_state begins directly with the SHA-256
+-	 * 256-bit internal state, as this is what the asm function expects.
+-	 */
+-	BUILD_BUG_ON(offsetof(struct crypto_sha256_state, state) != 0);
+-
+-	if (crypto_simd_usable()) {
+-		kernel_vector_begin();
+-		sha256_transform_zvknha_or_zvknhb_zvkb(state, data, num_blocks);
+-		kernel_vector_end();
+-	} else
+-		sha256_transform_blocks(state, data, num_blocks);
 -}
 -
--static void octeon_sha256_transform(struct crypto_sha256_state *sctx,
--				    const u8 *src, int blocks)
+-static int riscv64_sha256_update(struct shash_desc *desc, const u8 *data,
+-				 unsigned int len)
 -{
- 	do {
--		const u64 *block = (const u64 *)src;
-+		const u64 *block = (const u64 *)data;
- 
- 		write_octeon_64bit_block_dword(block[0], 0);
- 		write_octeon_64bit_block_dword(block[1], 1);
-@@ -62,93 +51,23 @@ static void octeon_sha256_transform(struct crypto_sha256_state *sctx,
- 		write_octeon_64bit_block_dword(block[6], 6);
- 		octeon_sha256_start(block[7]);
- 
--		src += SHA256_BLOCK_SIZE;
--	} while (--blocks);
+-	return sha256_base_do_update_blocks(desc, data, len, sha256_block);
 -}
-+		data += SHA256_BLOCK_SIZE;
-+	} while (--nblocks);
+-
+-static int riscv64_sha256_finup(struct shash_desc *desc, const u8 *data,
+-				unsigned int len, u8 *out)
+-{
+-	sha256_base_do_finup(desc, data, len, sha256_block);
+-	return sha256_base_finish(desc, out);
+-}
+-
+-static int riscv64_sha256_digest(struct shash_desc *desc, const u8 *data,
+-				 unsigned int len, u8 *out)
+-{
+-	return sha256_base_init(desc) ?:
+-	       riscv64_sha256_finup(desc, data, len, out);
+-}
+-
+-static struct shash_alg riscv64_sha256_algs[] = {
+-	{
+-		.init = sha256_base_init,
+-		.update = riscv64_sha256_update,
+-		.finup = riscv64_sha256_finup,
+-		.digest = riscv64_sha256_digest,
+-		.descsize = sizeof(struct crypto_sha256_state),
+-		.digestsize = SHA256_DIGEST_SIZE,
+-		.base = {
+-			.cra_blocksize = SHA256_BLOCK_SIZE,
+-			.cra_flags = CRYPTO_AHASH_ALG_BLOCK_ONLY |
+-				     CRYPTO_AHASH_ALG_FINUP_MAX,
+-			.cra_priority = 300,
+-			.cra_name = "sha256",
+-			.cra_driver_name = "sha256-riscv64-zvknha_or_zvknhb-zvkb",
+-			.cra_module = THIS_MODULE,
+-		},
+-	}, {
+-		.init = sha224_base_init,
+-		.update = riscv64_sha256_update,
+-		.finup = riscv64_sha256_finup,
+-		.descsize = sizeof(struct crypto_sha256_state),
+-		.digestsize = SHA224_DIGEST_SIZE,
+-		.base = {
+-			.cra_blocksize = SHA224_BLOCK_SIZE,
+-			.cra_flags = CRYPTO_AHASH_ALG_BLOCK_ONLY |
+-				     CRYPTO_AHASH_ALG_FINUP_MAX,
+-			.cra_priority = 300,
+-			.cra_name = "sha224",
+-			.cra_driver_name = "sha224-riscv64-zvknha_or_zvknhb-zvkb",
+-			.cra_module = THIS_MODULE,
+-		},
+-	},
+-};
+-
+-static int __init riscv64_sha256_mod_init(void)
+-{
+-	/* Both zvknha and zvknhb provide the SHA-256 instructions. */
+-	if ((riscv_isa_extension_available(NULL, ZVKNHA) ||
+-	     riscv_isa_extension_available(NULL, ZVKNHB)) &&
+-	    riscv_isa_extension_available(NULL, ZVKB) &&
+-	    riscv_vector_vlen() >= 128)
+-		return crypto_register_shashes(riscv64_sha256_algs,
+-					       ARRAY_SIZE(riscv64_sha256_algs));
+-
+-	return -ENODEV;
+-}
+-
+-static void __exit riscv64_sha256_mod_exit(void)
+-{
+-	crypto_unregister_shashes(riscv64_sha256_algs,
+-				  ARRAY_SIZE(riscv64_sha256_algs));
+-}
+-
+-module_init(riscv64_sha256_mod_init);
+-module_exit(riscv64_sha256_mod_exit);
+-
+-MODULE_DESCRIPTION("SHA-256 (RISC-V accelerated)");
+-MODULE_AUTHOR("Heiko Stuebner <heiko.stuebner@vrull.eu>");
+-MODULE_LICENSE("GPL");
+-MODULE_ALIAS_CRYPTO("sha256");
+-MODULE_ALIAS_CRYPTO("sha224");
+diff --git a/arch/riscv/lib/crypto/Kconfig b/arch/riscv/lib/crypto/Kconfig
+index bc7a43f33eb3..47c99ea97ce2 100644
+--- a/arch/riscv/lib/crypto/Kconfig
++++ b/arch/riscv/lib/crypto/Kconfig
+@@ -6,3 +6,11 @@ config CRYPTO_CHACHA_RISCV64
+ 	default CRYPTO_LIB_CHACHA
+ 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
+ 	select CRYPTO_LIB_CHACHA_GENERIC
++
++config CRYPTO_SHA256_RISCV64
++	tristate
++	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
++	default CRYPTO_LIB_SHA256
++	select CRYPTO_ARCH_HAVE_LIB_SHA256
++	select CRYPTO_ARCH_HAVE_LIB_SHA256_SIMD
++	select CRYPTO_LIB_SHA256_GENERIC
+diff --git a/arch/riscv/lib/crypto/Makefile b/arch/riscv/lib/crypto/Makefile
+index e27b78f317fc..b7cb877a2c07 100644
+--- a/arch/riscv/lib/crypto/Makefile
++++ b/arch/riscv/lib/crypto/Makefile
+@@ -2,3 +2,6 @@
  
--static int octeon_sha256_update(struct shash_desc *desc, const u8 *data,
--				unsigned int len)
-+	state64[0] = read_octeon_64bit_hash_dword(0);
-+	state64[1] = read_octeon_64bit_hash_dword(1);
-+	state64[2] = read_octeon_64bit_hash_dword(2);
-+	state64[3] = read_octeon_64bit_hash_dword(3);
-+	octeon_crypto_disable(&cop2_state, flags);
+ obj-$(CONFIG_CRYPTO_CHACHA_RISCV64) += chacha-riscv64.o
+ chacha-riscv64-y := chacha-riscv64-glue.o chacha-riscv64-zvkb.o
++
++obj-$(CONFIG_CRYPTO_SHA256_RISCV64) += sha256-riscv64.o
++sha256-riscv64-y := sha256.o sha256-riscv64-zvknha_or_zvknhb-zvkb.o
+diff --git a/arch/riscv/crypto/sha256-riscv64-zvknha_or_zvknhb-zvkb.S b/arch/riscv/lib/crypto/sha256-riscv64-zvknha_or_zvknhb-zvkb.S
+similarity index 98%
+rename from arch/riscv/crypto/sha256-riscv64-zvknha_or_zvknhb-zvkb.S
+rename to arch/riscv/lib/crypto/sha256-riscv64-zvknha_or_zvknhb-zvkb.S
+index f1f5779e4732..fad501ad0617 100644
+--- a/arch/riscv/crypto/sha256-riscv64-zvknha_or_zvknhb-zvkb.S
++++ b/arch/riscv/lib/crypto/sha256-riscv64-zvknha_or_zvknhb-zvkb.S
+@@ -106,8 +106,8 @@
+ 	sha256_4rounds	\last, \k3, W3, W0, W1, W2
+ .endm
+ 
+-// void sha256_transform_zvknha_or_zvknhb_zvkb(u32 state[8], const u8 *data,
+-//					       int num_blocks);
++// void sha256_transform_zvknha_or_zvknhb_zvkb(u32 state[SHA256_STATE_WORDS],
++//					       const u8 *data, size_t nblocks);
+ SYM_FUNC_START(sha256_transform_zvknha_or_zvknhb_zvkb)
+ 
+ 	// Load the round constants into K0-K15.
+diff --git a/arch/riscv/lib/crypto/sha256.c b/arch/riscv/lib/crypto/sha256.c
+new file mode 100644
+index 000000000000..c1358eafc2ad
+--- /dev/null
++++ b/arch/riscv/lib/crypto/sha256.c
+@@ -0,0 +1,67 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * SHA-256 (RISC-V accelerated)
++ *
++ * Copyright (C) 2022 VRULL GmbH
++ * Author: Heiko Stuebner <heiko.stuebner@vrull.eu>
++ *
++ * Copyright (C) 2023 SiFive, Inc.
++ * Author: Jerry Shih <jerry.shih@sifive.com>
++ */
++
++#include <asm/vector.h>
++#include <crypto/internal/sha2.h>
++#include <linux/kernel.h>
++#include <linux/module.h>
++
++asmlinkage void sha256_transform_zvknha_or_zvknhb_zvkb(
++	u32 state[SHA256_STATE_WORDS], const u8 *data, size_t nblocks);
++
++static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_extensions);
++
++void sha256_blocks_simd(u32 state[SHA256_STATE_WORDS],
++			const u8 *data, size_t nblocks)
++{
++	if (static_branch_likely(&have_extensions)) {
++		kernel_vector_begin();
++		sha256_transform_zvknha_or_zvknhb_zvkb(state, data, nblocks);
++		kernel_vector_end();
++	} else {
++		sha256_blocks_generic(state, data, nblocks);
++	}
++}
++EXPORT_SYMBOL_GPL(sha256_blocks_simd);
++
++void sha256_blocks_arch(u32 state[SHA256_STATE_WORDS],
++			const u8 *data, size_t nblocks)
++{
++	sha256_blocks_generic(state, data, nblocks);
 +}
 +EXPORT_SYMBOL_GPL(sha256_blocks_arch);
 +
 +bool sha256_is_arch_optimized(void)
- {
--	struct crypto_sha256_state *sctx = shash_desc_ctx(desc);
--	struct octeon_cop2_state state;
--	unsigned long flags;
--	int remain;
--
--	flags = octeon_crypto_enable(&state);
--	octeon_sha256_store_hash(sctx);
--
--	remain = sha256_base_do_update_blocks(desc, data, len,
--					      octeon_sha256_transform);
--
--	octeon_sha256_read_hash(sctx);
--	octeon_crypto_disable(&state, flags);
--	return remain;
-+	return octeon_has_crypto();
- }
--
--static int octeon_sha256_finup(struct shash_desc *desc, const u8 *src,
--			       unsigned int len, u8 *out)
--{
--	struct crypto_sha256_state *sctx = shash_desc_ctx(desc);
--	struct octeon_cop2_state state;
--	unsigned long flags;
--
--	flags = octeon_crypto_enable(&state);
--	octeon_sha256_store_hash(sctx);
--
--	sha256_base_do_finup(desc, src, len, octeon_sha256_transform);
--
--	octeon_sha256_read_hash(sctx);
--	octeon_crypto_disable(&state, flags);
--	return sha256_base_finish(desc, out);
--}
--
--static struct shash_alg octeon_sha256_algs[2] = { {
--	.digestsize	=	SHA256_DIGEST_SIZE,
--	.init		=	sha256_base_init,
--	.update		=	octeon_sha256_update,
--	.finup		=	octeon_sha256_finup,
--	.descsize	=	sizeof(struct crypto_sha256_state),
--	.base		=	{
--		.cra_name	=	"sha256",
--		.cra_driver_name=	"octeon-sha256",
--		.cra_priority	=	OCTEON_CR_OPCODE_PRIORITY,
--		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY,
--		.cra_blocksize	=	SHA256_BLOCK_SIZE,
--		.cra_module	=	THIS_MODULE,
--	}
--}, {
--	.digestsize	=	SHA224_DIGEST_SIZE,
--	.init		=	sha224_base_init,
--	.update		=	octeon_sha256_update,
--	.finup		=	octeon_sha256_finup,
--	.descsize	=	sizeof(struct crypto_sha256_state),
--	.base		=	{
--		.cra_name	=	"sha224",
--		.cra_driver_name=	"octeon-sha224",
--		.cra_priority	=	OCTEON_CR_OPCODE_PRIORITY,
--		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY,
--		.cra_blocksize	=	SHA224_BLOCK_SIZE,
--		.cra_module	=	THIS_MODULE,
--	}
--} };
--
--static int __init octeon_sha256_mod_init(void)
--{
--	if (!octeon_has_crypto())
--		return -ENOTSUPP;
--	return crypto_register_shashes(octeon_sha256_algs,
--				       ARRAY_SIZE(octeon_sha256_algs));
--}
--
--static void __exit octeon_sha256_mod_fini(void)
--{
--	crypto_unregister_shashes(octeon_sha256_algs,
--				  ARRAY_SIZE(octeon_sha256_algs));
--}
--
--module_init(octeon_sha256_mod_init);
--module_exit(octeon_sha256_mod_fini);
++{
++	return static_key_enabled(&have_extensions);
++}
 +EXPORT_SYMBOL_GPL(sha256_is_arch_optimized);
- 
- MODULE_LICENSE("GPL");
--MODULE_DESCRIPTION("SHA-224 and SHA-256 Secure Hash Algorithm (OCTEON)");
-+MODULE_DESCRIPTION("SHA-256 Secure Hash Algorithm (OCTEON)");
- MODULE_AUTHOR("Aaro Koskinen <aaro.koskinen@iki.fi>");
-diff --git a/arch/mips/configs/cavium_octeon_defconfig b/arch/mips/configs/cavium_octeon_defconfig
-index f523ee6f25bf..88ae0aa85364 100644
---- a/arch/mips/configs/cavium_octeon_defconfig
-+++ b/arch/mips/configs/cavium_octeon_defconfig
-@@ -157,7 +157,6 @@ CONFIG_CRYPTO_CBC=y
- CONFIG_CRYPTO_HMAC=y
- CONFIG_CRYPTO_MD5_OCTEON=y
- CONFIG_CRYPTO_SHA1_OCTEON=m
--CONFIG_CRYPTO_SHA256_OCTEON=m
- CONFIG_CRYPTO_SHA512_OCTEON=m
- CONFIG_CRYPTO_DES=y
- CONFIG_DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT=y
-diff --git a/arch/mips/crypto/Kconfig b/arch/mips/crypto/Kconfig
-index 9db1fd6d9f0e..6bf073ae7613 100644
---- a/arch/mips/crypto/Kconfig
-+++ b/arch/mips/crypto/Kconfig
-@@ -22,16 +22,6 @@ config CRYPTO_SHA1_OCTEON
- 
- 	  Architecture: mips OCTEON
- 
--config CRYPTO_SHA256_OCTEON
--	tristate "Hash functions: SHA-224 and SHA-256 (OCTEON)"
--	depends on CPU_CAVIUM_OCTEON
--	select CRYPTO_SHA256
--	select CRYPTO_HASH
--	help
--	  SHA-224 and SHA-256 secure hash algorithms (FIPS 180)
--
--	  Architecture: mips OCTEON using crypto instructions, when available
--
- config CRYPTO_SHA512_OCTEON
- 	tristate "Hash functions: SHA-384 and SHA-512 (OCTEON)"
- 	depends on CPU_CAVIUM_OCTEON
++
++static int __init riscv64_sha256_mod_init(void)
++{
++	/* Both zvknha and zvknhb provide the SHA-256 instructions. */
++	if ((riscv_isa_extension_available(NULL, ZVKNHA) ||
++	     riscv_isa_extension_available(NULL, ZVKNHB)) &&
++	    riscv_isa_extension_available(NULL, ZVKB) &&
++	    riscv_vector_vlen() >= 128)
++		static_branch_enable(&have_extensions);
++	return 0;
++}
++arch_initcall(riscv64_sha256_mod_init);
++
++static void __exit riscv64_sha256_mod_exit(void)
++{
++}
++module_exit(riscv64_sha256_mod_exit);
++
++MODULE_DESCRIPTION("SHA-256 (RISC-V accelerated)");
++MODULE_AUTHOR("Heiko Stuebner <heiko.stuebner@vrull.eu>");
++MODULE_LICENSE("GPL");
 -- 
 2.39.5
 
