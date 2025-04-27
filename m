@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77181C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 07:13:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3F87C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 07:15:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4wem6TS2dnw8Rf1VQyFeDN7FTK3VHMUt46iflIVr5/s=; b=FCt8nrNwPkAj150Hz+hcEByg0q
-	MYczyaDVqMb9E6RKKbYR0P+xf8II3xlRL8ENzpt/DzMWax3uICSA8rgP9+a21xFEomwv6u5MUMcu6
-	rgXdXPHgHz+wknu4AV/YAhZAkHxDWF3WLoxULl4KAbj7e57UHPYVEf8jIz8ZPnuqjjAOYO50ucD3W
-	fqarCmRImMyNZMA8UvD/EYF3Id1niRvtHOKyWbcojfKBpuBnsDnIv86wG09WIfBg9L6qb1ELkJFzJ
-	161dxdzffTjCexzM1aoMkqmgGBKxA6XNAxSh0JCNeV1FgWc8fMjroxfoghCC2LL7RwtLe926sRht7
-	mU80pNIw==;
+	bh=RcY6F2eYfFPRk0mXz0Jisv83OLqToYWiU3Vjp2G/zr0=; b=h6BFMIlke+5NB2kyEKLeci4t0R
+	cXIoCgebiI4iXQwEliNl4GGBnGGoGFzHLd/5EoKqwzHgoJdDDoZJCzusR1We8nV6mZysoZMCgSgHM
+	PjB2diODBLDyJ406mw77YI9ThOPGxrw8usgeRpBBAybAizxb/VOmwREJ8z+XFLsMlinXm6o0VW/YY
+	um5c2waep4PNmrh0eFTMy8Rxj5a+BHFYQiZcDgf3sVEwWDHZ+5sfJTtRTGkF7oRrmN295+vD9JlSl
+	r+w/ac5YI3i91m4Q8YGf1SpA8Xr2BCTOUvihRnr8M7aK83BglReTbQWLg1Xu1fPYHJfunqfSO33+B
+	GspdHNgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8wCo-0000000353y-2l72;
-	Sun, 27 Apr 2025 07:13:38 +0000
+	id 1u8wEj-000000035CV-1kEp;
+	Sun, 27 Apr 2025 07:15:37 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8w2M-0000000342N-2BcM
+	id 1u8w2T-0000000343k-1NzM
 	for linux-arm-kernel@bombadil.infradead.org;
-	Sun, 27 Apr 2025 07:02:50 +0000
+	Sun, 27 Apr 2025 07:02:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=4wem6TS2dnw8Rf1VQyFeDN7FTK3VHMUt46iflIVr5/s=; b=cbmHLcsCt2inKJbcdS6LQoYy7I
-	Rv+5feYzUwbeQkJDrLlDHBZoD9OblbODbKK+rGPZv9yV/eFWGFXHI8R/cxq4qiBDHpVnDkfv5wdws
-	n9rp+cbEtLCWhytj8MLY9hdGlR2sorQhsDKcII9ykPFTiUEONYKKp8VX4KevqBZ/zwVmKBSqj4Rm5
-	cy8eAdgl6z0RPjlqeMkohOYlK54iKBPgHmTSupjK0QYe1GBxSvRfTe9Kpvo1/FPAGQRdmtQhKJ9ER
-	DYVOjq9gPBCRA9w0pM62dRQP4XXcQ0wwXOPIZFOiP3FKY4LFmxl9ABa6b3X6rp8L1nDBfY20hJpEr
-	gkEyMHUg==;
+	bh=RcY6F2eYfFPRk0mXz0Jisv83OLqToYWiU3Vjp2G/zr0=; b=X6UdhzA4dNBqxv2LaLSFY/yAPC
+	MNDWMNyKDNkTNDobKyomk4K4HIDuJXixZ50PmEbsGaGAIFKBKTOwy00cV6GibPd0/AbWolpa9Tu1b
+	/mcGMZyrrEwkxtm6rsJKLh9erwJ1Eqcq4vz2VeGvsjgQ/8jk8bwouQ+EPR9glX03N0KpGJjfv2A8L
+	OopHqnzCgHpig5JsHBfmGjApYVoip96cbrGf9rr6+5HRN827qBGZZM61aKocPIGAoVVlUl0exV8zi
+	z5zueJ0HhMO9Sg+OGk+X2Apg08IU2MvqVi+wIKWAt1ZRYIM0Fcl6osqKTH4S8sANMDAiuLkLiLYWe
+	ksWWH6qw==;
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u8w2I-0000000CQ3o-2CC9
+	id 1u8w2P-0000000CQ49-4BML
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Apr 2025 07:02:49 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53QGM42a025717;
-	Sun, 27 Apr 2025 07:02:38 GMT
+	Sun, 27 Apr 2025 07:02:56 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53QGMJ2t009896;
+	Sun, 27 Apr 2025 07:02:44 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	4wem6TS2dnw8Rf1VQyFeDN7FTK3VHMUt46iflIVr5/s=; b=CnwSN30ifJlcEw69
-	CPQdY6Y8XR/0OoMe6sIZUGiGpkNzE4sxE7jx1a55p0wnzh9IT3BkJwTJeDw3lmLJ
-	tXg6hvRf+qNqeFTnU1AkJwQRhoco6Kbn3OznPMdWzxK2gfD10koSt4pmPs6gG3MI
-	mdo/rKfUL7RmSB313OWBTX6MuiK6TS/UOg88WNcoeo9dCFcQEWhENP+FKMULq/zz
-	UrfFwHnAI/Tlu0NmLTZs1ef0hPSsAjxtOt+MMzTmxEmLt694XWyVbfi2dEPs6/LL
-	gKex3gXpEDI3VsXGRA3qMSi0PZdq8DriaPEZ3MaTYuuLEhVGx8wSb3pCRGxXkACE
-	fmpmww==
+	RcY6F2eYfFPRk0mXz0Jisv83OLqToYWiU3Vjp2G/zr0=; b=CH5vGTfdXFLEykSi
+	AFJqd+5lIVqE8lwpiBdwom/rfFECBjT0vnPluvvXWcnXGbyTmekLmJPmP48PYiht
+	YW9uwP+lIzuhfrmyNWOtYazWK1SEZSrnsBP974ypFE+WuKrgurvBier0xwpH41Ua
+	50q7C1L9KesJ2R4JDNWQwiRfoyOk6vkHZQcoEBzjK8x/BQu0EWmaiJoukKR2eV5f
+	XUj+fTwIutanteQJWReO87WBERlSF3eV4fW2CBT49ydaLQHlKWOuSuCHTbq7uVZu
+	1WEMjPrCIpoWLDLI9KsCZo3FGl6o5H1xSzn4/+XuwzSlvyvcFiqd301NCu3Iv56j
+	cg2/Cw==
 Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 468rsb33d2-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 468n6jbef3-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sun, 27 Apr 2025 07:02:38 +0000 (GMT)
+	Sun, 27 Apr 2025 07:02:44 +0000 (GMT)
 Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53R72bke016376
+	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53R72h6w016864
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sun, 27 Apr 2025 07:02:37 GMT
+	Sun, 27 Apr 2025 07:02:43 GMT
 Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
  nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Sun, 27 Apr 2025 00:02:31 -0700
+ 15.2.1544.9; Sun, 27 Apr 2025 00:02:37 -0700
 From: Vikram Sharma <quic_vikramsa@quicinc.com>
 To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
         <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
@@ -77,11 +77,11 @@ To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
 CC: <linux-arm-kernel@lists.infradead.org>, <quic_vikramsa@quicinc.com>,
         <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
         <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        "Suresh
- Vankadara" <quic_svankada@quicinc.com>
-Subject: [PATCH RFC/WIP v2 5/9] media: qcom: camss: Add sa8775p compatible
-Date: Sun, 27 Apr 2025 12:31:31 +0530
-Message-ID: <20250427070135.884623-6-quic_vikramsa@quicinc.com>
+        Wenmeng Liu
+	<quic_wenmliu@quicinc.com>
+Subject: [PATCH RFC/WIP v2 6/9] media: qcom: camss: Add support for CSIPHY 690
+Date: Sun, 27 Apr 2025 12:31:32 +0530
+Message-ID: <20250427070135.884623-7-quic_vikramsa@quicinc.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250427070135.884623-1-quic_vikramsa@quicinc.com>
 References: <20250427070135.884623-1-quic_vikramsa@quicinc.com>
@@ -93,24 +93,24 @@ X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
  nasanex01b.na.qualcomm.com (10.46.141.250)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI3MDA1NSBTYWx0ZWRfX4pfu7jq1XntR 9babJ2uNaHq94qTb/f4NFLSn6ot1PewwaMz9lqXB2FTLP0krJm4FBE+LK6xMhGSsmYNTUB73bNW VZu1eRu0BnKq0n9j3E2e+DAtWd10NrSHJuIHXvHYf3nkO1wZMjxJyya9yBwdFVOWnJpFpu8dIpD
- vmMNhvDqzkhgqHIakXIYZXjwTdXwtqbfo5FE/0pQKze1rHtsEuB4/eNyeWRCKrP+bqJpKoqLzKY r76tk1Wolm56bdGDER9CoZwACMGxzLaaO6+lrOGhj8/342j+y/R+zO+yuTODU1+5xfnHS0tBO60 imfRx0yzgC2Mt7sMMH1ZzFVH0JYEvi6VdY2bSS0k8fs6emJXE7e00Vg2L015LXMmQ7yh3uSWICT
- XhG2mRIGfGSC7D7LqGoluj6uwNNaA7rHKjkaDZ3dfQwd4iuSi1Lf82UFpoGM6OrKdSLz3RGm
-X-Proofpoint-GUID: HPGcqCENyk-yd_ffAUR2wU45naR4gMHv
-X-Proofpoint-ORIG-GUID: HPGcqCENyk-yd_ffAUR2wU45naR4gMHv
-X-Authority-Analysis: v=2.4 cv=I8ZlRMgg c=1 sm=1 tr=0 ts=680dd68e cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=gE60Ov1lhapgyOv8Ur0A:9 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI3MDA1NSBTYWx0ZWRfXxt64r15RGWhp 7Qt4njLAeGB2FOfwwlxE0T8Mqu8z8PtSwozMVnzDT1x89APadRmz2sPqxERuJ/gDIvwSFbeYm00 mkm3OLcDXwf5rqcMWDxz0nM36LCCNFj+1iwfep09wLf24TzWAWQ/h79ZFMgiFBEAGS6frNg3Opc
+ uVxw9WAib1Gh/Aose/5GY8y5/jdOCQW+nwYZ7KUZpqhDY5mPDjX17UlSLRaj//s4dD8EImdpill bUJQMLbYU93ASTbrQdDzS26PmEhAxlfcKo+g0W8syW3e0RF9it2VoRYRycuqsIm+nbNNpHt+oLJ YJPtk72t1up4BFhH5hODAcp3m8TkbcgOmTaeMeOIodUmu3jeXGB2NPRRO6QpOMIjyObM9m8Ng1v
+ omrfbKSt7JdWGFbJC3M1N5L3zXQ12oW0I6qo92Kz2B2VCxKnmconc3XFn7KfA+3R9+qX3iNA
+X-Proofpoint-GUID: ME6Mos2L2khhneyOsbmNFcMYHAZHkYDv
+X-Proofpoint-ORIG-GUID: ME6Mos2L2khhneyOsbmNFcMYHAZHkYDv
+X-Authority-Analysis: v=2.4 cv=C8fpyRP+ c=1 sm=1 tr=0 ts=680dd694 cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=k_o0Bgew7stMHXNjApkA:9 a=TjNXssC_j7lpFel5tvFf:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
  definitions=2025-04-27_02,2025-04-24_02,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
- phishscore=0 suspectscore=0 priorityscore=1501 clxscore=1015
- malwarescore=0 impostorscore=0 mlxscore=0 adultscore=0 spamscore=0
- mlxlogscore=980 bulkscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 phishscore=0
+ mlxlogscore=999 priorityscore=1501 clxscore=1015 spamscore=0 adultscore=0
+ malwarescore=0 lowpriorityscore=0 suspectscore=0 bulkscore=0 mlxscore=0
+ classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2504070000
  definitions=main-2504270055
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250427_080247_003339_06067258 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20250427_080254_459979_3710847B 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,79 +125,238 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add CAMSS_8775P enum, SA8775P compatible and sa8775p camss driver
-private data, the private data just include some basic information
-now, later changes will enumerate with csiphy, tpg, csid and vfe
-resources.
+Add support for CSIPHY found on SA8775P (Titan 690).
+This implementation is based on the titan 690 implementation.
 
-Co-developed-by: Suresh Vankadara <quic_svankada@quicinc.com>
-Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
+Co-developed-by: Wenmeng Liu <quic_wenmliu@quicinc.com>
+Signed-off-by: Wenmeng Liu <quic_wenmliu@quicinc.com>
 Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
 ---
- drivers/media/platform/qcom/camss/camss.c | 23 +++++++++++++++++++++++
- drivers/media/platform/qcom/camss/camss.h |  1 +
- 2 files changed, 24 insertions(+)
+ .../qcom/camss/camss-csiphy-3ph-1-0.c         | 84 +++++++++++++++++++
+ .../media/platform/qcom/camss/camss-csiphy.c  |  5 ++
+ .../media/platform/qcom/camss/camss-csiphy.h  |  1 +
+ drivers/media/platform/qcom/camss/camss.c     | 71 ++++++++++++++++
+ 4 files changed, 161 insertions(+)
 
+diff --git a/drivers/media/platform/qcom/camss/camss-csiphy-3ph-1-0.c b/drivers/media/platform/qcom/camss/camss-csiphy-3ph-1-0.c
+index f732a76de93e..bb5ebaa13ec8 100644
+--- a/drivers/media/platform/qcom/camss/camss-csiphy-3ph-1-0.c
++++ b/drivers/media/platform/qcom/camss/camss-csiphy-3ph-1-0.c
+@@ -64,6 +64,85 @@ struct csiphy_lane_regs {
+ 	u32 csiphy_param_type;
+ };
+ 
++/* GEN2 1.3.0 2PH */
++static const struct
++csiphy_lane_regs lane_regs_sa8775p[] = {
++	{0x0724, 0x00, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0728, 0x04, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0700, 0x80, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x070C, 0xFF, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0738, 0x1F, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x072C, 0x01, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0734, 0x0F, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0710, 0x52, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x071C, 0x0A, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0714, 0x60, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x073C, 0xB8, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0704, 0x0C, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0720, 0x00, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0708, 0x10, 0x00, CSIPHY_SETTLE_CNT_LOWER_BYTE},
++	{0x0024, 0x00, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0000, 0x8D, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0038, 0xFE, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x002C, 0x01, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0034, 0x0F, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0010, 0x52, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x001C, 0x0A, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0014, 0x60, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x003C, 0xB8, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0004, 0x0C, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0020, 0x00, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0008, 0x10, 0x00, CSIPHY_SETTLE_CNT_LOWER_BYTE},
++	{0x0224, 0x00, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0200, 0x8D, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0238, 0xFE, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x022C, 0x01, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0234, 0x0F, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0210, 0x52, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x021C, 0x0A, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0214, 0x60, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x023C, 0xB8, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0204, 0x0C, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0220, 0x00, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0208, 0x10, 0x00, CSIPHY_SETTLE_CNT_LOWER_BYTE},
++	{0x0424, 0x00, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0400, 0x8D, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0438, 0xFE, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x042C, 0x01, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0434, 0x0F, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0410, 0x52, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x041C, 0x0A, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0414, 0x60, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x043C, 0xB8, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0404, 0x0C, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0420, 0x00, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0408, 0x10, 0x00, CSIPHY_SETTLE_CNT_LOWER_BYTE},
++	{0x0624, 0x00, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0600, 0x8D, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0638, 0xFE, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x062C, 0x01, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0634, 0x0F, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0610, 0x52, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x061C, 0x0A, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0614, 0x60, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x063C, 0xB8, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0604, 0x0C, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0620, 0x00, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0608, 0x10, 0x00, CSIPHY_SETTLE_CNT_LOWER_BYTE},
++	{0x005C, 0x00, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0060, 0xFD, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0064, 0x7F, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x025C, 0x00, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0260, 0xFD, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0264, 0x7F, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x045C, 0x00, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0460, 0xFD, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0464, 0x7F, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x065C, 0x00, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0660, 0xFD, 0x00, CSIPHY_DEFAULT_PARAMS},
++	{0x0664, 0x7F, 0x00, CSIPHY_DEFAULT_PARAMS},
++};
++
+ /* GEN2 1.0 2PH */
+ static const struct
+ csiphy_lane_regs lane_regs_sdm845[] = {
+@@ -749,6 +828,7 @@ static bool csiphy_is_gen2(u32 version)
+ 	case CAMSS_8280XP:
+ 	case CAMSS_845:
+ 	case CAMSS_8550:
++	case CAMSS_8775P:
+ 	case CAMSS_X1E80100:
+ 		ret = true;
+ 		break;
+@@ -848,6 +928,10 @@ static int csiphy_init(struct csiphy_device *csiphy)
+ 		regs->lane_array_size = ARRAY_SIZE(lane_regs_sm8550);
+ 		regs->offset = 0x1000;
+ 		break;
++	case CAMSS_8775P:
++		regs->lane_regs = &lane_regs_sa8775p[0];
++		regs->lane_array_size = ARRAY_SIZE(lane_regs_sa8775p);
++		break;
+ 	default:
+ 		WARN(1, "unknown csiphy version\n");
+ 		return -ENODEV;
+diff --git a/drivers/media/platform/qcom/camss/camss-csiphy.c b/drivers/media/platform/qcom/camss/camss-csiphy.c
+index c622efcc92ff..f6a2ac385953 100644
+--- a/drivers/media/platform/qcom/camss/camss-csiphy.c
++++ b/drivers/media/platform/qcom/camss/camss-csiphy.c
+@@ -103,6 +103,11 @@ const struct csiphy_formats csiphy_formats_8x96 = {
+ 	.formats = formats_8x96
+ };
+ 
++const struct csiphy_formats csiphy_formats_sa8775p = {
++	.nformats = ARRAY_SIZE(formats_sdm845),
++	.formats = formats_sdm845
++};
++
+ const struct csiphy_formats csiphy_formats_sc7280 = {
+ 	.nformats = ARRAY_SIZE(formats_sdm845),
+ 	.formats = formats_sdm845
+diff --git a/drivers/media/platform/qcom/camss/camss-csiphy.h b/drivers/media/platform/qcom/camss/camss-csiphy.h
+index ab91273303b9..842e72b74ce4 100644
+--- a/drivers/media/platform/qcom/camss/camss-csiphy.h
++++ b/drivers/media/platform/qcom/camss/camss-csiphy.h
+@@ -126,6 +126,7 @@ void msm_csiphy_unregister_entity(struct csiphy_device *csiphy);
+ 
+ extern const struct csiphy_formats csiphy_formats_8x16;
+ extern const struct csiphy_formats csiphy_formats_8x96;
++extern const struct csiphy_formats csiphy_formats_sa8775p;
+ extern const struct csiphy_formats csiphy_formats_sc7280;
+ extern const struct csiphy_formats csiphy_formats_sdm845;
+ 
 diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/platform/qcom/camss/camss.c
-index 467f7ff4b042..9e0e1bf855bd 100644
+index 9e0e1bf855bd..60279f3a47bf 100644
 --- a/drivers/media/platform/qcom/camss/camss.c
 +++ b/drivers/media/platform/qcom/camss/camss.c
-@@ -2483,6 +2483,19 @@ static const struct resources_icc icc_res_sm8550[] = {
+@@ -2483,6 +2483,77 @@ static const struct resources_icc icc_res_sm8550[] = {
  	},
  };
  
-+static const struct resources_icc icc_res_sa8775p[] = {
++static const struct camss_subdev_resources csiphy_res_8775p[] = {
++	/* CSIPHY0 */
 +	{
-+		.name = "ahb",
-+		.icc_bw_tbl.avg = 38400,
-+		.icc_bw_tbl.peak = 76800,
++		.regulators = { "vdda-phy", "vdda-pll" },
++
++		.clock = { "csiphy_rx", "csiphy0", "csiphy0_timer"},
++		.clock_rate = {
++			{ 400000000 },
++			{ 0 },
++			{ 400000000 },
++		},
++		.reg = { "csiphy0" },
++		.interrupt = { "csiphy0" },
++		.csiphy = {
++			.hw_ops = &csiphy_ops_3ph_1_0,
++			.formats = &csiphy_formats_sa8775p
++		}
 +	},
++	/* CSIPHY1 */
 +	{
-+		.name = "hf_0",
-+		.icc_bw_tbl.avg = 2097152,
-+		.icc_bw_tbl.peak = 2097152,
++		.regulators = { "vdda-phy", "vdda-pll" },
++
++		.clock = { "csiphy_rx", "csiphy1", "csiphy1_timer"},
++		.clock_rate = {
++			{ 400000000 },
++			{ 0 },
++			{ 400000000 },
++		},
++		.reg = { "csiphy1" },
++		.interrupt = { "csiphy1" },
++		.csiphy = {
++			.hw_ops = &csiphy_ops_3ph_1_0,
++			.formats = &csiphy_formats_sa8775p
++		}
++	},
++	/* CSIPHY2 */
++	{
++		.regulators = { "vdda-phy", "vdda-pll" },
++
++		.clock = { "csiphy_rx", "csiphy2", "csiphy2_timer"},
++		.clock_rate = {
++			{ 400000000 },
++			{ 0 },
++			{ 400000000 },
++		},
++		.reg = { "csiphy2" },
++		.interrupt = { "csiphy2" },
++		.csiphy = {
++			.hw_ops = &csiphy_ops_3ph_1_0,
++			.formats = &csiphy_formats_sa8775p
++		}
++	},
++	/* CSIPHY3 */
++	{
++		.regulators = { "vdda-phy", "vdda-pll" },
++
++		.clock = { "csiphy_rx", "csiphy3", "csiphy3_timer"},
++		.clock_rate = {
++			{ 400000000 },
++			{ 0 },
++			{ 400000000 },
++		},
++		.reg = { "csiphy3" },
++		.interrupt = { "csiphy3" },
++		.csiphy = {
++			.hw_ops = &csiphy_ops_3ph_1_0,
++			.formats = &csiphy_formats_sa8775p
++		}
 +	},
 +};
 +
- static const struct camss_subdev_resources csiphy_res_x1e80100[] = {
- 	/* CSIPHY0 */
+ static const struct resources_icc icc_res_sa8775p[] = {
  	{
-@@ -3753,6 +3766,15 @@ static const struct camss_resources msm8996_resources = {
- 	.link_entities = camss_link_entities
- };
- 
-+
-+static const struct camss_resources sa8775p_resources = {
-+	.version = CAMSS_8775P,
-+	.pd_name = "top",
-+	.icc_res = icc_res_sa8775p,
-+	.icc_path_num = ARRAY_SIZE(icc_res_sa8775p),
-+	.link_entities = camss_link_entities
-+};
-+
- static const struct camss_resources sdm660_resources = {
- 	.version = CAMSS_660,
- 	.csiphy_res = csiphy_res_660,
-@@ -3865,6 +3887,7 @@ static const struct of_device_id camss_dt_match[] = {
- 	{ .compatible = "qcom,msm8916-camss", .data = &msm8916_resources },
- 	{ .compatible = "qcom,msm8953-camss", .data = &msm8953_resources },
- 	{ .compatible = "qcom,msm8996-camss", .data = &msm8996_resources },
-+	{ .compatible = "qcom,sa8775p-camss", .data = &sa8775p_resources },
- 	{ .compatible = "qcom,sc7280-camss", .data = &sc7280_resources },
- 	{ .compatible = "qcom,sc8280xp-camss", .data = &sc8280xp_resources },
- 	{ .compatible = "qcom,sdm660-camss", .data = &sdm660_resources },
-diff --git a/drivers/media/platform/qcom/camss/camss.h b/drivers/media/platform/qcom/camss/camss.h
-index 63c0afee154a..345479f6feba 100644
---- a/drivers/media/platform/qcom/camss/camss.h
-+++ b/drivers/media/platform/qcom/camss/camss.h
-@@ -86,6 +86,7 @@ enum camss_version {
- 	CAMSS_8280XP,
- 	CAMSS_845,
- 	CAMSS_8550,
-+	CAMSS_8775P,
- 	CAMSS_X1E80100,
- };
- 
+ 		.name = "ahb",
 -- 
 2.25.1
 
