@@ -4,58 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6464CC369D5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EFC9C369D8
 	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 08:30:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g+oNp7kZwyjwPU4Kaggu77LkvQ8spC/gbYZMK3mhNrw=; b=IWRIWk7Zc15c+bj6dzF/euCNK+
-	9R8FyVC2mtTbaWu/bhI2omtPBS+8ECtxDYILZ+pbxscmwlEmJkAdF+jln2qXIR5tre9529W7+Z2lJ
-	lXydI2QIeXsTpy0MnPZVBeZrNIEHhQMKyTPPDw6zKGmK8tzER70/ScKZ4GJBy6ZO8/F2dORa3gxbs
-	pPGCl+HkH0qxPkOPV6DbAv9aiUFdtThDC5l9f2cELrUUhdur13jBW4QhD44na0DE9TjdGrINfXFgp
-	dDbsaiz30mnMI0EvladMLsN0qsSqvYqmdBg/EUHQYBJwJUNWpJyTWYmoHVVEf8q8T0mTGbkSn4cRr
-	yLxxcVhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K36bmCsvMfBwcYtwVqh5TUPjXE5em0RjY8FB9UJJGIg=; b=TEf61d15vAgdUIqUYJJhok22LU
+	rjBPHsFX1xlgpTWKSx03noRbttQGr32VN679nUgw7++4BX40jc1l4fK1rEvqK+vxCnMjwkJ5lBBz0
+	FAwj+bfYTo0T9jhpv1ouJY+GJtVocvEjjZkMSjEoTnOSSIT1yv1l/OuMCmn6rOg4RhPn0fyTcR2B+
+	sBxBPAtIyyb+3aXvM+7FxTJV7hDVz1uZsqZ5dxZnyBuk9/6afWPXzEu14nj0uQ4R8iKrQVyxwcRrL
+	IcztHVkt7VYtkoj/YYfFdzK3S//TrVagbarZIxSjZDXFgbPXV6SBDAUQJzebXSjh0eFu+/MBNL8Ds
+	lNdL4SkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8xPX-00000003BUd-3BjS;
-	Sun, 27 Apr 2025 08:30:52 +0000
-Received: from out28-116.mail.aliyun.com ([115.124.28.116])
+	id 1u8xPZ-00000003BVE-1Otf;
+	Sun, 27 Apr 2025 08:30:53 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8vrA-000000032tQ-1kcQ;
-	Sun, 27 Apr 2025 06:51:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=coolkit.cn; s=default;
-	t=1745736674; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=g+oNp7kZwyjwPU4Kaggu77LkvQ8spC/gbYZMK3mhNrw=;
-	b=ERhuVFDn00TJVThwGifAPD8j5+epy7y3CFq1FUKexAfErSAj99mEa7Rd62CgP9HXIiA0zEkHcnc7ZkhNZiLF6C/bLINGIXtLyt7nQqiTPjYlypRuRqDYVlWMuj/bEHSyaS6sLzPtCrn3CTKlx166MhuLut0GJCMYjFkm5lyKsS0=
-Received: from ubuntu-z.lan(mailfrom:hao.zhang@coolkit.cn fp:SMTPD_---.cY70L5V_1745736638 cluster:ay29)
-          by smtp.aliyun-inc.com;
-          Sun, 27 Apr 2025 14:51:13 +0800
-From: Hao Zhang <hao.zhang@coolkit.cn>
-To: linux-rockchip@lists.infradead.org
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	conor+dt@kernel.org,
-	heiko@sntech.de,
-	krzysztof.kozlowski+dt@linaro.org,
-	robh+dt@kernel.org,
-	linux-kernel@vger.kernel.org,
-	"hao.zhang" <hao.zhang@coolkit.cn>
-Subject: [PATCH 1/1] ARM: dts: rockchip: Wifi improvements for Sonoff iHost
-Date: Sun, 27 Apr 2025 14:50:13 +0800
-Message-Id: <20250427065013.99871-2-hao.zhang@coolkit.cn>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250427065013.99871-1-hao.zhang@coolkit.cn>
-References: <20250427065013.99871-1-hao.zhang@coolkit.cn>
+	id 1u8w2Z-0000000344o-3Bkx
+	for linux-arm-kernel@bombadil.infradead.org;
+	Sun, 27 Apr 2025 07:03:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=K36bmCsvMfBwcYtwVqh5TUPjXE5em0RjY8FB9UJJGIg=; b=Vw6wVOFQv/PuNumBHRYmSnyjwo
+	Ps7fTzQqdTaDDBkhdzoAG1qTuBb7owYZfzOBNmcgfEi15ock8M2Szq+32muWGOM1BEkTOnzaZFgOh
+	hsrpRnIWkBSiGN/ET5iYK/+5RiFQbyLcFcRM1PKm8yu4RFv9t8NLFjbYi350QlZ8Lw+w6XqQSIu/k
+	vX5ndZfC0y0lixuDSVFCpEfrdNb1AOGjMEp3pyv/pvWw4/YaP5wc9UHmOTxLaZusOCtaCugAGjnLu
+	o+Eoi23cCMtseyShx/Uw8Wc7vc86ENBafeQ7MB2pN0FX8vwIopLdT7Mm/a1HgZwTMsww4VcB+AdjQ
+	Zhdjy6CA==;
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u8w2V-0000000CQ52-3xAs
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 27 Apr 2025 07:03:02 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53QGM1ih024808;
+	Sun, 27 Apr 2025 07:02:50 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	K36bmCsvMfBwcYtwVqh5TUPjXE5em0RjY8FB9UJJGIg=; b=m/PlECddy1opIp+h
+	+cBAR965r6zLB0jUHyIv0RMrO46bC4o/1K1GTEjb8hXhRL1L/M9S+ivfHJCEHLIo
+	YnLxkEq82DKixgyrYhXaqK4GGK6WW0p2EYZise71WNS3pWse0WqkeyyYsUvHhLe2
+	w9QW4UvcVV4TPA/d/htoiaw6osQs5dzFv7jzJaW1YcVieBWWhKYC1IGgUSiZhxsy
+	poG5NA58qIoqoPgFF8Fa6TKB7/7YmXYSnypz3nkgBlk+AZZc/OBfYg0aIKnlwHpt
+	0pmSZQDt6nDack2rPSMlcpOD6fg0Wmfi+zCUWXeJy+TTbvBPBHhFCt/1hWdFFIEK
+	RRYs4w==
+Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 468rsb33e2-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sun, 27 Apr 2025 07:02:50 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53R72n3V016951
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sun, 27 Apr 2025 07:02:49 GMT
+Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
+ nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Sun, 27 Apr 2025 00:02:43 -0700
+From: Vikram Sharma <quic_vikramsa@quicinc.com>
+To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
+        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <andersson@kernel.org>,
+        <konradybcio@kernel.org>, <hverkuil-cisco@xs4all.nl>,
+        <cros-qcom-dts-watchers@chromium.org>, <catalin.marinas@arm.com>,
+        <will@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <quic_vikramsa@quicinc.com>,
+        <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        "Suresh
+ Vankadara" <quic_svankada@quicinc.com>
+Subject: [PATCH RFC/WIP v2 7/9] media: qcom: camss: Add support for CSID for sa8775p
+Date: Sun, 27 Apr 2025 12:31:33 +0530
+Message-ID: <20250427070135.884623-8-quic_vikramsa@quicinc.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250427070135.884623-1-quic_vikramsa@quicinc.com>
+References: <20250427070135.884623-1-quic_vikramsa@quicinc.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI3MDA1NSBTYWx0ZWRfX8qwRoErxG4zp o+SQrlgvkOl32kdYPpdeum+eBgZeJynSCkSUkcTxzCmAKAYHZo8Ozj80hZeJZf7Guuw8NjxKs5s EIJKBBKgkM0/WGq6snyfH2F52A9Xx8cU6Ii54XFKMTBDGiXXtSNm1pckWQS6Jw1qKnW08Cksxah
+ +DUYHJkh6mzxW9zRLtg/90bakNQLJjLncLOk7t5szbgJ3rLgBXePFODH2UF6+CcED/GZ2N3gZXx b+B1chWRIcRJh+/hder2DRkvJbyVQOkDoX1X5jV2p8O/WGXlc10WYVSH2DllqGpPfsDKcwX2kKd wIDpHxO4v0Oz7WmY5FWdsk9hfGdj8tOempfWrrHJ/ql+88ZsYiasXL0dTQ330uVCMbcU362sxMy
+ M83pAX9E/65bfRPgxMfBTMvb6Ek3T6UWRLIDHnXvIoHT3Ef1nioqH2MaXueChauc7hGOkrQv
+X-Proofpoint-GUID: p3_1EbaIFFokyAhG3cf7n79hfHSj-sFV
+X-Proofpoint-ORIG-GUID: p3_1EbaIFFokyAhG3cf7n79hfHSj-sFV
+X-Authority-Analysis: v=2.4 cv=I8ZlRMgg c=1 sm=1 tr=0 ts=680dd69a cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=uDS5G4RjUlL95bN0Uw4A:9 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-04-27_02,2025-04-24_02,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
+ phishscore=0 suspectscore=0 priorityscore=1501 clxscore=1015
+ malwarescore=0 impostorscore=0 mlxscore=0 adultscore=0 spamscore=0
+ mlxlogscore=999 bulkscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
+ definitions=main-2504270055
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250426_235116_604097_C7CA8216 
-X-CRM114-Status: UNSURE (   8.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250427_080300_422550_A328B4A5 
+X-CRM114-Status: GOOD (  14.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,68 +125,267 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "hao.zhang" <hao.zhang@coolkit.cn>
+The CSID in sa8775p is version 690, This csid is different from
+csid 780 w.r.t few bit-fields.
 
-After some Sonoff-iHosts have been running for a long time, 
-the WiFi module will run abnormally.
-
-Adjust the pmu_io_domains and sdio properties 
-to solve the WiFi module operation abnormality.
-
-Signed-off-by: "hao.zhang" <hao.zhang@coolkit.cn>
+Co-developed-by: Suresh Vankadara <quic_svankada@quicinc.com>
+Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
+Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
 ---
+ .../platform/qcom/camss/camss-csid-gen3.c     |  31 +++-
+ drivers/media/platform/qcom/camss/camss.c     | 151 ++++++++++++++++++
+ 2 files changed, 175 insertions(+), 7 deletions(-)
 
- .../dts/rockchip/rv1126-sonoff-ihost.dtsi     | 19 ++++++++-----------
- 1 file changed, 8 insertions(+), 11 deletions(-)
-
-diff --git a/arch/arm/boot/dts/rockchip/rv1126-sonoff-ihost.dtsi b/arch/arm/boot/dts/rockchip/rv1126-sonoff-ihost.dtsi
-index 9a87dc0d5f66..3c0371103015 100644
---- a/arch/arm/boot/dts/rockchip/rv1126-sonoff-ihost.dtsi
-+++ b/arch/arm/boot/dts/rockchip/rv1126-sonoff-ihost.dtsi
-@@ -323,15 +323,15 @@ wifi_enable_h: wifi-enable-h {
+diff --git a/drivers/media/platform/qcom/camss/camss-csid-gen3.c b/drivers/media/platform/qcom/camss/camss-csid-gen3.c
+index b66105f7b901..4f9471523a08 100644
+--- a/drivers/media/platform/qcom/camss/camss-csid-gen3.c
++++ b/drivers/media/platform/qcom/camss/camss-csid-gen3.c
+@@ -48,8 +48,12 @@
+ #define CSID_CSI2_RX_IRQ_CLEAR		0xA4
+ #define CSID_CSI2_RX_IRQ_SET		0xA8
+ 
++#define IS_CSID_690(csid)	(csid->camss->res->version ==\
++					CAMSS_8775P ? true : false)
+ #define CSID_BUF_DONE_IRQ_STATUS	0x8C
+-#define		BUF_DONE_IRQ_STATUS_RDI_OFFSET	(csid_is_lite(csid) ? 1 : 14)
++#define BUF_DONE_IRQ_STATUS_RDI_OFFSET  (csid_is_lite(csid) ?\
++						1 : (IS_CSID_690(csid) ?\
++						13 : 14))
+ #define CSID_BUF_DONE_IRQ_MASK		0x90
+ #define CSID_BUF_DONE_IRQ_CLEAR		0x94
+ #define CSID_BUF_DONE_IRQ_SET		0x98
+@@ -62,6 +66,7 @@
+ 
+ #define CSID_CSI2_RX_CFG0		0x200
+ #define		CSI2_RX_CFG0_NUM_ACTIVE_LANES	0
++#define		CSI2_RX_CFG0_VC_MODE		3
+ #define		CSI2_RX_CFG0_DL0_INPUT_SEL	4
+ #define		CSI2_RX_CFG0_PHY_NUM_SEL	20
+ 
+@@ -69,7 +74,9 @@
+ #define		CSI2_RX_CFG1_ECC_CORRECTION_EN	BIT(0)
+ #define		CSI2_RX_CFG1_VC_MODE		BIT(2)
+ 
+-#define CSID_RDI_CFG0(rdi)		(0x500 + 0x100 * (rdi))
++#define CSID_RDI_CFG0(rdi)	(csid_is_lite(csid) && IS_CSID_690(csid) ?\
++					(0x300 + 0x100 * (rdi)) :\
++					(0x500 + 0x100 * (rdi)))
+ #define		RDI_CFG0_TIMESTAMP_EN		BIT(6)
+ #define		RDI_CFG0_TIMESTAMP_STB_SEL	BIT(8)
+ #define		RDI_CFG0_DECODE_FORMAT		12
+@@ -78,10 +85,14 @@
+ #define		RDI_CFG0_DT_ID			27
+ #define		RDI_CFG0_EN			BIT(31)
+ 
+-#define CSID_RDI_CTRL(rdi)		(0x504 + 0x100 * (rdi))
++#define CSID_RDI_CTRL(rdi)	(csid_is_lite(csid) && IS_CSID_690(csid) ?\
++					(0x304 + 0x100 * (rdi)) :\
++					(0x504 + 0x100 * (rdi)))
+ #define		RDI_CTRL_START_CMD		BIT(0)
+ 
+-#define CSID_RDI_CFG1(rdi)		(0x510 + 0x100 * (rdi))
++#define CSID_RDI_CFG1(rdi)	(csid_is_lite(csid) && IS_CSID_690(csid) ?\
++					(0x310 + 0x100 * (rdi)) :\
++					(0x510 + 0x100 * (rdi)))
+ #define		RDI_CFG1_DROP_H_EN		BIT(5)
+ #define		RDI_CFG1_DROP_V_EN		BIT(6)
+ #define		RDI_CFG1_CROP_H_EN		BIT(7)
+@@ -89,9 +100,12 @@
+ #define		RDI_CFG1_PIX_STORE		BIT(10)
+ #define		RDI_CFG1_PACKING_FORMAT_MIPI	BIT(15)
+ 
+-#define CSID_RDI_IRQ_SUBSAMPLE_PATTERN(rdi)	(0x548 + 0x100 * (rdi))
+-#define CSID_RDI_IRQ_SUBSAMPLE_PERIOD(rdi)	(0x54C + 0x100 * (rdi))
+-
++#define CSID_RDI_IRQ_SUBSAMPLE_PATTERN(rdi)	(csid_is_lite(csid) && IS_CSID_690(csid) ?\
++							(0x348 + 0x100 * (rdi)) :\
++							(0x548 + 0x100 * (rdi)))
++#define CSID_RDI_IRQ_SUBSAMPLE_PERIOD(rdi)	(csid_is_lite(csid) && IS_CSID_690(csid) ?\
++							(0x34C + 0x100 * (rdi)) :\
++							(0x54C + 0x100 * (rdi)))
+ #define CSI2_RX_CFG0_PHY_SEL_BASE_IDX	1
+ 
+ static void __csid_configure_rx(struct csid_device *csid,
+@@ -103,6 +117,9 @@ static void __csid_configure_rx(struct csid_device *csid,
+ 	val |= phy->lane_assign << CSI2_RX_CFG0_DL0_INPUT_SEL;
+ 	val |= (phy->csiphy_id + CSI2_RX_CFG0_PHY_SEL_BASE_IDX) << CSI2_RX_CFG0_PHY_NUM_SEL;
+ 
++	if (IS_CSID_690(csid) && (vc > 3))
++		val |= 1 << CSI2_RX_CFG0_VC_MODE;
++
+ 	writel(val, csid->base + CSID_CSI2_RX_CFG0);
+ 
+ 	val = CSI2_RX_CFG1_ECC_CORRECTION_EN;
+diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/platform/qcom/camss/camss.c
+index 60279f3a47bf..ef7b06c9f258 100644
+--- a/drivers/media/platform/qcom/camss/camss.c
++++ b/drivers/media/platform/qcom/camss/camss.c
+@@ -2269,6 +2269,10 @@ static const struct camss_subdev_resources csiphy_res_8550[] = {
+ 	}
  };
  
- &pmu_io_domains {
--	pmuio0-supply = <&vcc1v8_pmu>;
-+	pmuio0-supply = <&vcc3v3_sys>;
- 	pmuio1-supply = <&vcc3v3_sys>;
- 	vccio1-supply = <&vcc_1v8>;
- 	vccio2-supply = <&vccio_sd>;
--	vccio3-supply = <&vcc3v3_sd>;
--	vccio4-supply = <&vcc_dovdd>;
--	vccio5-supply = <&vcc_1v8>;
--	vccio6-supply = <&vcc_1v8>;
--	vccio7-supply = <&vcc_dovdd>;
-+	vccio3-supply = <&vcc_3v3>;
-+	vccio4-supply = <&vcc_3v3>;
-+	vccio5-supply = <&vcc_3v3>;
-+	vccio6-supply = <&vcc_3v3>;
-+	vccio7-supply = <&vcc_1v8>;
- 	status = "okay";
++static const struct resources_wrapper csid_wrapper_res_sa8775p = {
++	.reg = "csid_wrapper",
++};
++
+ static const struct resources_wrapper csid_wrapper_res_sm8550 = {
+ 	.reg = "csid_wrapper",
+ };
+@@ -2554,6 +2558,153 @@ static const struct camss_subdev_resources csiphy_res_8775p[] = {
+ 	},
  };
  
-@@ -342,18 +342,15 @@ &saradc {
- 
- &sdio {
- 	bus-width = <4>;
--	cap-sd-highspeed;
- 	cap-sdio-irq;
- 	keep-power-in-suspend;
--	max-frequency = <50000000>;
-+	max-frequency = <25000000>;
- 	mmc-pwrseq = <&sdio_pwrseq>;
-+	supports-sdio;
- 	non-removable;
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&sdmmc1_clk &sdmmc1_cmd &sdmmc1_bus4>;
- 	rockchip,default-sample-phase = <90>;
--	sd-uhs-sdr50;
--	vmmc-supply = <&vcc3v3_sd>;
--	vqmmc-supply = <&vcc_1v8>;
- 	status = "okay";
- };
- 
++static const struct camss_subdev_resources csid_res_8775p[] = {
++	/* CSID0 */
++	{
++		.regulators = {},
++
++		.clock = { "csid", "csiphy_rx"},
++		.clock_rate = {
++			{ 400000000, 400000000},
++			{ 400000000, 400000000}
++		},
++
++		.reg = { "csid0", "csid_top" },
++		.interrupt = { "csid0" },
++		.csid = {
++			.is_lite = false,
++			.hw_ops = &csid_ops_gen3,
++			.parent_dev_ops = &vfe_parent_dev_ops,
++			.formats = &csid_formats_gen2
++		}
++	},
++	/* CSID1 */
++	{
++		.regulators = {},
++
++		.clock = { "csid", "csiphy_rx"},
++		.clock_rate = {
++			{ 400000000, 400000000},
++			{ 400000000, 400000000}
++		},
++
++		.reg = { "csid1", "csid_top" },
++		.interrupt = { "csid1" },
++		.csid = {
++			.is_lite = false,
++			.hw_ops = &csid_ops_gen3,
++			.parent_dev_ops = &vfe_parent_dev_ops,
++			.formats = &csid_formats_gen2
++		}
++	},
++
++	/* CSID2 (lite) */
++	{
++		.regulators = {},
++
++		.clock = { "cpas_ife_lite", "vfe_lite_ahb",
++			   "vfe_lite_csid", "vfe_lite_cphy_rx",
++			   "vfe_lite"},
++		.clock_rate = {
++			{ 0, 0, 400000000, 400000000, 0},
++			{ 0, 0, 400000000, 480000000, 0}
++		},
++
++		.reg = { "csid_lite0" },
++		.interrupt = { "csid_lite0" },
++		.csid = {
++			.is_lite = true,
++			.hw_ops = &csid_ops_gen3,
++			.parent_dev_ops = &vfe_parent_dev_ops,
++			.formats = &csid_formats_gen2
++		}
++	},
++	/* CSID3 (lite) */
++	{
++		.regulators = {},
++
++		.clock = { "cpas_ife_lite", "vfe_lite_ahb",
++			   "vfe_lite_csid", "vfe_lite_cphy_rx",
++			   "vfe_lite"},
++		.clock_rate = {
++			{ 0, 0, 400000000, 400000000, 0},
++			{ 0, 0, 400000000, 480000000, 0}
++		},
++
++		.reg = { "csid_lite1" },
++		.interrupt = { "csid_lite1" },
++		.csid = {
++			.is_lite = true,
++			.hw_ops = &csid_ops_gen3,
++			.parent_dev_ops = &vfe_parent_dev_ops,
++			.formats = &csid_formats_gen2
++		}
++	},
++	/* CSID4 (lite) */
++	{
++		.regulators = {},
++
++		.clock = { "cpas_ife_lite", "vfe_lite_ahb",
++			   "vfe_lite_csid", "vfe_lite_cphy_rx",
++			   "vfe_lite"},
++		.clock_rate = {
++			{ 0, 0, 400000000, 400000000, 0},
++			{ 0, 0, 400000000, 480000000, 0}
++		},
++
++		.reg = { "csid_lite2" },
++		.interrupt = { "csid_lite2" },
++		.csid = {
++			.is_lite = true,
++			.hw_ops = &csid_ops_gen3,
++			.parent_dev_ops = &vfe_parent_dev_ops,
++			.formats = &csid_formats_gen2
++		}
++	},
++	/* CSID5 (lite) */
++	{
++		.regulators = {},
++
++		.clock = { "cpas_ife_lite", "vfe_lite_ahb",
++			   "vfe_lite_csid", "vfe_lite_cphy_rx",
++			   "vfe_lite"},
++		.clock_rate = {
++			{ 0, 0, 400000000, 400000000, 0},
++			{ 0, 0, 400000000, 480000000, 0}
++		},
++
++		.reg = { "csid_lite3" },
++		.interrupt = { "csid_lite3" },
++		.csid = {
++			.is_lite = true,
++			.hw_ops = &csid_ops_gen3,
++			.parent_dev_ops = &vfe_parent_dev_ops,
++			.formats = &csid_formats_gen2
++		}
++	},
++	/* CSID6 (lite) */
++	{
++		.regulators = {},
++
++		.clock = { "cpas_ife_lite", "vfe_lite_ahb",
++			   "vfe_lite_csid", "vfe_lite_cphy_rx",
++			   "vfe_lite"},
++		.clock_rate = {
++			{ 0, 0, 400000000, 400000000, 0},
++			{ 0, 0, 400000000, 480000000, 0}
++		},
++
++		.reg = { "csid_lite4" },
++		.interrupt = { "csid_lite4" },
++		.csid = {
++			.is_lite = true,
++			.hw_ops = &csid_ops_gen3,
++			.parent_dev_ops = &vfe_parent_dev_ops,
++			.formats = &csid_formats_gen2
++		}
++	},
++};
++
+ static const struct resources_icc icc_res_sa8775p[] = {
+ 	{
+ 		.name = "ahb",
 -- 
-2.34.1
+2.25.1
 
 
