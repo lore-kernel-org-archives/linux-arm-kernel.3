@@ -4,111 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6723CC369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 07:33:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58DCBC369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 07:35:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a1b9jZwIhmbsvzlg7my+PK+iTSLNTOdYbbPraVtsR4A=; b=OFYE5nz4BwgMFKnsLAWklmzi9M
-	gKzojVDcGda4kz2twSURfyfl7xuSC6yCE1xdUGC2sKXCEIg0BlmpJC2bwkRcQJkCctRvKd5AFJHVa
-	yWBuQvrFDfnQq6UHqVJZC1wdRVjv3jq0ZODF1qbfdCQGpEi8y6XMYv21tiwQKoukbulZ04NOyv/NR
-	IoiCbGH6KDYVSQKV55HsqtC57JFSTkIKdhpHEZcU+0gxaEn1Yv3EIlzmz6Ce3lPGxRUVyaSkLRhY0
-	5Ug3iPNlGoibS2bs8BmnxBf4Dta636tqpwWtkdfZsSdGEI69ofk6hCS0lFzGYYtInE2MXsiVN1qKG
-	FF+oPqlQ==;
+	bh=6GCbgElHZ2CxzCrYryvtDPZlLRR7eip9wa9HUlP9Y90=; b=u4RqqaWLis0vbs6Cq77T7GvIhn
+	mudpt5L3b/0W+TpWRBNljo2eCv3uR+ZOi6MQc7cpf+97i9UHzGfB+89dCNji6S8y/knN26G9ymNYc
+	t6u5F2JYA/T5MvqL6mfVvZAt6b5/EENlorVcLt+EXi//Yng3lvbzUzY/ONGYLxB9BCOqxH1y7T/C6
+	gDucrZdfo96qTCo6GSZaDsRmVWO7FWqlLCxUMDUDn5qphQAwM0KXUOg/WhXh/Dwd6Xs6whLzRXXng
+	u5NF7cS6J9XxXdIah1JaSPtQo4XE4f3rR4/9+eQAhhNSQnVe9esN67J4KbBCAWChQxN1EjhVzB8Lr
+	WCcsbplQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8wVs-000000036W1-0Dkl;
-	Sun, 27 Apr 2025 07:33:20 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u8wXl-000000036gj-2tht;
+	Sun, 27 Apr 2025 07:35:17 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8w2A-0000000340E-0XCD
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sun, 27 Apr 2025 07:02:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=a1b9jZwIhmbsvzlg7my+PK+iTSLNTOdYbbPraVtsR4A=; b=asp1gfNzIMK1/W1qWVwKCP7X9y
-	iXjgn9Y33xBjShw56oAvZbkys+KHG9uAl8sdE+MpZn9tDA8e5+2n5US2pC/p6DGTRvFKKvafrd0on
-	VCDdaQ9YtDyGzBueioMeHlqmy8CPcKPI/Gk159PHlawGhmnSy7AoGqO4+KImwiDIYg3Q2VYpKBbZD
-	j0z/71BrxGeDLIv0SdW0gqTx+B6U5E2t1SKr2/YZxGEhQtmB0uU5ugb+dEobNc7hikyVuBHtdKlDh
-	IF2jblsRiO2Yj+cqP8MAQvgMEu2PcT+1gwNGm+OAu+a4MDzoL9lehJeWmcTcsYKYJjAVxtqHKFpPL
-	SBNp2X9g==;
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u8w26-0000000CQ2o-0l4U
+	id 1u8wMA-000000035jU-2rdD
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Apr 2025 07:02:36 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53QGM2n8011200;
-	Sun, 27 Apr 2025 07:02:15 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	a1b9jZwIhmbsvzlg7my+PK+iTSLNTOdYbbPraVtsR4A=; b=QfHheDBL/QiE756Q
-	Ftawnx8htaDKxXG2QoVRmZ5AFSyrZ7yh+noBKCkqD6H9hSutcSDb01MKbL24Ng9w
-	xARJ06BF9oTVPq6WaNxdTlmT2ATm9vl4T2faEWkaEXDt/+ApkkbLZgP20VEeGKKg
-	AAbsrUyIPubnPoC2JT0993LD6P2gGrKtkzaCB3NpLSWh98von3HxQT2Qr3pdTdOH
-	LWFdWCGgZ85CefM7pw26bKFlbRHAkNWRpic2sYaxEz7JH04yAD/Hg/G/zKu5E6zx
-	4/W7wLvqJHZIHz553qxgyzZyGXNdnR3nRC3OtOoiZNIOKf6LaxI+lhuqZzdGuJnK
-	Xcnxxw==
-Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 468qq5b6f3-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sun, 27 Apr 2025 07:02:15 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53R72EOH005650
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Sun, 27 Apr 2025 07:02:14 GMT
-Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Sun, 27 Apr 2025 00:02:08 -0700
-From: Vikram Sharma <quic_vikramsa@quicinc.com>
-To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
-        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <andersson@kernel.org>,
-        <konradybcio@kernel.org>, <hverkuil-cisco@xs4all.nl>,
-        <cros-qcom-dts-watchers@chromium.org>, <catalin.marinas@arm.com>,
-        <will@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <quic_vikramsa@quicinc.com>,
-        <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH RFC/WIP v2 1/9] media: qcom: camss: add generic csid handling in csid gen3
-Date: Sun, 27 Apr 2025 12:31:27 +0530
-Message-ID: <20250427070135.884623-2-quic_vikramsa@quicinc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250427070135.884623-1-quic_vikramsa@quicinc.com>
-References: <20250427070135.884623-1-quic_vikramsa@quicinc.com>
+	Sun, 27 Apr 2025 07:23:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PIXExQ7UdgwklW6MHJj5XpZy0eXZoIeMm9aOkyQl6OXDQmb9may+TBUhY4jG7FtdE8dOhXKlyy83JaOEMtesjVSNRO9A7VjxOgSyEPxWzX4aZI+bBfzMRf+PyZTm/7f7w42pCqCvaVLRwY117QOUBAawJ5uScrFfPlOs7XA3AS2iUfklglilUjx3HIt47uKmgiNWXV5HEcRx6cUOko0p7Rb519JRl7JVSZAR6EPysRdLu5N/TDR8llCbJ0x6mjMnlAA67o/GwGokBzzPEFuTWCshTACRcAJo4DFnOx7uTmagmnpsOHDHQ+HNM1GPsASA2aCMQpxMPgqTB55Bx9fN2w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6GCbgElHZ2CxzCrYryvtDPZlLRR7eip9wa9HUlP9Y90=;
+ b=M4FFYiXeh+7TyZ7uRwroQN/9ubkuiiM+Psyy6gHQESxUEaOo5/5NHbusifpALC7kB4ZZu7ZbUl8czbZJbn1AmYuQd1Xq5HH/gABlRjtFLpQvMLBO7BIkkvVVP5xkQ2oX1hKTtzSZhlb+U7XoleU/cYVT/RmxMEhNSw++Y9CIIyQJ6pTnL7bvCEHBAcjmdhUOvogTvmlfToC84jiLfKLwkHkFF3JpMSEAoGln+Qt2BAn8zVyHRRhpyU01FRcIO70+oCNV1kn2xqJ6n7E4U+z6UNBffyah1qXGdvv53FzxFfKIaaY+p1dW4rokRin2NtMd3FBci/xdiw91inaBT/272g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6GCbgElHZ2CxzCrYryvtDPZlLRR7eip9wa9HUlP9Y90=;
+ b=LYwXHUQuGqMTSZa4o8ihgWOleqIXKXnviKxkC6x4mCw2Vc54+QWeCftQXDzpFGAqNaF7E26yFE61FENRS2V2p/wtCY0Cc6Q7K7EeYUvdUFbK+IP15G+sDzKUoiybPFJ3KLDaLScFZCsFRN66QHsgcVs1unjiUIOjiqP04t1aowQWRM2djQn7i61fXF4uNUxYshcOrSfT3KoKOo25XTAQB+HCf1Y7g3vTSZ+0VIW+pdXvcXdkqzTms4d4dAQ9uM6taApdrfjwwddF8ZGDkdqA+k0lY+1E+LPD9vTPOLr7PvN9CM37pvmqZqtxVDCzKbro2PFDK1BVpcdTY0JzIWSriw==
+Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
+ (2603:10a6:800:293::14) by DU4PR04MB11032.eurprd04.prod.outlook.com
+ (2603:10a6:10:58a::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.28; Sun, 27 Apr
+ 2025 07:23:10 +0000
+Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
+ ([fe80::75ad:fac7:cfe7:b687]) by VI2PR04MB11147.eurprd04.prod.outlook.com
+ ([fe80::75ad:fac7:cfe7:b687%7]) with mapi id 15.20.8678.028; Sun, 27 Apr 2025
+ 07:23:09 +0000
+From: Carlos Song <carlos.song@nxp.com>
+To: Andi Shyti <andi.shyti@kernel.org>
+CC: Aisheng Dong <aisheng.dong@nxp.com>, Frank Li <frank.li@nxp.com>,
+	"shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de"
+	<s.hauer@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>, "linux-i2c@vger.kernel.org"
+	<linux-i2c@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] i2c: imx-lpi2c: Fix clock count when probe defers
+Thread-Topic: [PATCH] i2c: imx-lpi2c: Fix clock count when probe defers
+Thread-Index: AQHbt0U64ghCGMLe5Eig6819ak6AgA==
+Date: Sun, 27 Apr 2025 07:23:09 +0000
+Message-ID: <VI2PR04MB111474EAC1B4DB8EB6DD32628E8862@VI2PR04MB11147.eurprd04.prod.outlook.com>
+References: <20250421062341.2471922-1-carlos.song@nxp.com>
+ <34ally74jbpae6etevqskr4zmcv5xyac46n4hl2j5ybihwtezn@jd2gvr762gs7>
+In-Reply-To: <34ally74jbpae6etevqskr4zmcv5xyac46n4hl2j5ybihwtezn@jd2gvr762gs7>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: VI2PR04MB11147:EE_|DU4PR04MB11032:EE_
+x-ms-office365-filtering-correlation-id: 4db59d63-4910-47e8-ecd5-08dd855c5cc7
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?CRmRGCCXl5yAdPKKf2nn5XiMbZWWQ91CjykrtF9mwZ6dljmgFCZqH3T/G+n6?=
+ =?us-ascii?Q?60lVBVtaLOvD6/S1ORgadBgBWC0v77/BxKYiGR4CEJjiP/y+bTqSJ6gG0FLk?=
+ =?us-ascii?Q?MLbN8RjSNm1LPxulXCu/BGtm+rdWcwwFt9v5vunxv6BFh07g0SUKZXtNM/uf?=
+ =?us-ascii?Q?zCLvTSkl6JKWyByTcD5pN2RDlRIKevkdLHVZBbhVonlb3ZsoS9ws9vJsnbgn?=
+ =?us-ascii?Q?z6Xc0X81abGvUEJcfwcSl/PCKPiM/3sWaAUFPA6rlcVVzg3/nlQEC2wLmf6m?=
+ =?us-ascii?Q?rwthY5gM7O8Eo5eHqU7sUOnNY0dh0RFUXXkHgrT7RcnUkoB+WTG3oBt6frD6?=
+ =?us-ascii?Q?Ofkf6aM4m+GnNBHSbYrrL3DGui2msEfIp0+JTECy/3aok31X0fRLlTCteaMg?=
+ =?us-ascii?Q?CD1i4//EMgdsDJL3m+EM3EkaMyB/7l4cFOBspyd7zLt8aV/+/DC6B7y/uyNU?=
+ =?us-ascii?Q?B61lMqWfzrCMGXUVX7V481Hn0RmhR4a08cQEqXD7Ojl/1rA3ZY3UY2xVI+EM?=
+ =?us-ascii?Q?7k2uYCDj3kF/C2bToEQMUF5a7AKdkkBxMnQEcMBZCiNKnODU0K752M1/KA3D?=
+ =?us-ascii?Q?d7aRn+qmldzobWg0uNtrFTkvwH2W4TBUDQ+wHxA6NV6WWmFH5D0to1htcBG8?=
+ =?us-ascii?Q?oY9WzjozV4NRdNFKqwNGVsIQ6dzVy1+UehIxfw/fvtB2nTpfGaMynlEpa80Y?=
+ =?us-ascii?Q?RbepU4OAeGnSyouePJmHyPIGDDqeEdNHIKOc/P1mhrcoCz4gjMwfDW7cr9Eu?=
+ =?us-ascii?Q?r83ucV3X4xQwCvTEEJ8qJYorU0pah2zbJnI4EUKqA6FrcKnAw/XdjDbCxayR?=
+ =?us-ascii?Q?xay9NYrQ6Sa35fmFHIXIxfRlrz/x196p54cvqNlc7uF2oknVMYYP22YIm7CU?=
+ =?us-ascii?Q?NZbMbip51yG5Xnkif9W2EgeNK7PvBaZh4xTA2Krh8SVqhM8GBbqPRJijQj2r?=
+ =?us-ascii?Q?GHc959g7IWfzcdHI0EDAQa6tSI6wcQlrVTU+wr8HN3ik4bF7CE06HwXwO9TF?=
+ =?us-ascii?Q?pBM60s/bCOcx2tP046hdkAxhATFLQyyScpvm4FlhNyeetN6OBxJRQ1IrvMmE?=
+ =?us-ascii?Q?/A6qrAypjsa1xrOYv1s/NXFXG0m3IuMOK0nnQyZ/EN0/hk63XCfVhvqVJCxy?=
+ =?us-ascii?Q?Jdx8cToF+aQ0KhJ/Ci5Ix8dqvPvloKhl/JbTr8zz494U2kwY9dw5wnfreSIc?=
+ =?us-ascii?Q?igEKBkBgVYW50rKm+sJ7JFAkOXUvIn8lZhiUpT47j7K+R6WAUmbTwvK0uc/3?=
+ =?us-ascii?Q?a2H9MNt4ajA1NdxvjddKW0CgQyuieUIHjY1b7vpQ3odzBMqO1vlYd7ZLclYc?=
+ =?us-ascii?Q?GDf0/7BMuh7i91Q8k+hGXXvKKCBkLsyJOxqHZzv16ZyYoGNF5/G7b1Pbn4rP?=
+ =?us-ascii?Q?/vHBaNaBRrGyELxV7tfLJajyk+FrSa0/lZmJGjLRO9lbl1lFTykJtuJbfR3q?=
+ =?us-ascii?Q?FbZhibqIPKlb6o9fSgeL/FOfuL3z4YvkQmPe6y84kSN1FUnxetJokWvfsqto?=
+ =?us-ascii?Q?F5Nm//z24POQtkE=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11147.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?/RBfo3m+UWIf9cepVNm0wO8eKc/Jzyb3z3tKm4GH3kuV0RdyW7zgMKL0qlbK?=
+ =?us-ascii?Q?Kv3rkqxUi5i+BLdOw0tskkhO3dAIcwZjLHIlSn9uTT+zaYCY873K3utjp6TP?=
+ =?us-ascii?Q?lc1Kr6cvWbqNKrRP1+SREC9xuXHHsI63dxEQbYHSwKuQK2pPKJGufxwSVtyf?=
+ =?us-ascii?Q?cVD7EJ6pCDoTMq3TXZBxVH/Tb6GrYwEapz87GRk4231mIqZ9RKyapz1HyiRc?=
+ =?us-ascii?Q?HkqSUSI/JRBdRu9xQzVv2nghVoqfKXBxmTVO9QaIa/bNlf+gYOQgWFxgg1n4?=
+ =?us-ascii?Q?MZ+PEdi8qPzYvLYc3x+lT8la22j8nD/bsSSE6yzpglqYDHEuxCUef6KRolDy?=
+ =?us-ascii?Q?EmGmy3C0b0CyPOK+dw26gxj1IbyE/RCOXF9ykSB36fjspTwXCjI3f1nW9JUW?=
+ =?us-ascii?Q?UR+pnm89CSjtupwtKl4iPaJmEW2Et8Yc944A/VBjXZXKInikeZGA6nY+MBUm?=
+ =?us-ascii?Q?/Lh0oIYY2Dtp3rn+kLGM7MCpsYCJaY7vSifeehcza05Buj91UTc1q1nS/3OR?=
+ =?us-ascii?Q?8QgyrqEinlxswrgYsyd28EoxfOlYSo5DF70ppIHldVdaZfEAgeDQMr9VIgkp?=
+ =?us-ascii?Q?h23olORQHX3bWKp0jXgFAsIs2h8KMiGBChUhOe3FNZM2yTcRO0Q7v40WX3iT?=
+ =?us-ascii?Q?FA1kwb1gYZ/W4VfcKVk5CTP9RQ0qAqjuQSvTJAnvvcZxJNo0pJqRPLwldqC6?=
+ =?us-ascii?Q?/KsA/Vqao8y96flGy9h9c0pkPy5fjdYU1ioxyLresbXDADQjmchVeNXyjpUT?=
+ =?us-ascii?Q?v/ii7cBJvjvUPw6jrk1XRl10ZL/FitbZnnBl+lvZTh+Kj8Kx9zZ1IwWqAI/L?=
+ =?us-ascii?Q?NaxWeBa0PGslHJit57ZjrI/x8BHts38cXoDa+gR0B2XIvnWe2njAOtjaKUjE?=
+ =?us-ascii?Q?BPsQDvxDeIE6wRDojIwWgtZ/iwvB+QLPBX3A84h/HqgC0OBRvZHaGhs8QIP1?=
+ =?us-ascii?Q?6HreKfVRp9d8Oxgek7LwYLPz8Jt6uGd1RhLDxSYBdzziUfihby8YfMJeHg8s?=
+ =?us-ascii?Q?taurJPbX4xoUAu9GIaPHi9GK/EQ9a39lFcQvbptU5B25FE0qe8QSNDD9eILz?=
+ =?us-ascii?Q?DYa4Y4hVh4Dktttqo5xzS8BVvBN3u0EgeMhDPL9csFyXIRPAFT5RetIgXaQR?=
+ =?us-ascii?Q?fCxItyNs6A2Nf47RcUDzCvjtOETtGnoa7N2Mhet2V9XMPisy8MFQrOBM26i2?=
+ =?us-ascii?Q?o9MK59z83GLZRb6UqB4anlPf0VrhlOQvxRA0/KD9K6k45CBAOESf45E5UVMg?=
+ =?us-ascii?Q?xp7aavMbobmtX4E0T5OQTeQfmxfzPE6af8eHpz9KQkNDvSrqmTHsZtIHdKff?=
+ =?us-ascii?Q?fuGMdDzY+z6Ar7RBMXJ5fldpBXeB/ZFGsS27Kk3pAisWX/5M/je+IEk6pPcQ?=
+ =?us-ascii?Q?8vLQmbD/1k1f9R4onwWIUmes44EA0xhmqO4Teh3tHbkfmdt5mOy/1Bb5bY+P?=
+ =?us-ascii?Q?q0rurJ3VOvHepLx8gh7UHfrenWW/mUNAS9R9g/5+YGHo9RBBRm8Y+y4GF+Gg?=
+ =?us-ascii?Q?dH57IrJPOoOYYtxHBMGLDRWBmMkrr8SKUv5aDYncsUOuCuVdzhIe5oV5sLm5?=
+ =?us-ascii?Q?Nel/6nVzyRog8WA+GLo=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: ljEiZQDaib6bx2WjN_ewjWfnVEv-A1ia
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI3MDA1NSBTYWx0ZWRfXzv939D57uXM3 CVA4LfZ/t6D+8+uCA2YEQK1Rb/lvhmE8aFxH2i/jIdXZZrwmIi6WKjnqbpXsufg+sMc7lOBWkPV eOsxpt4JBRU+rPluaONy/qJ0Z31oC35AHmXlDl1Ov/KRHes8iTMkmjb0vnEd/9iTXuAPgr2xhXo
- SGtWfriqucwLtACG7tC1KZTqzAtdoKjHR4JZIfS879V6nRK/J1uKCChp44+keRKuYfOQmpIUc3/ bwV6PIPjtxkH26BcYCwm3mB+0BlUF8KL5i2ya2aUCn8BU5WhJNfCYmobe4F0TeDfThEbpawHonK pJ0AeHKz6G5OWe2fGDyad7C0rCc8TyOF667eHMPFtzSiW0BePuHJUBUUo4hcnn0HxMidDqYLu33
- sysDlyRYujpdMfdDHjrQVbqtRDX9viOOxLajHk0TUb5MbIUsJfD4X+HhQsl4AZyazC7cjNun
-X-Authority-Analysis: v=2.4 cv=QP1oRhLL c=1 sm=1 tr=0 ts=680dd677 cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=WaFXn7faHerf0vuhdFYA:9 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: ljEiZQDaib6bx2WjN_ewjWfnVEv-A1ia
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-04-27_02,2025-04-24_02,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 spamscore=0
- clxscore=1015 mlxlogscore=999 lowpriorityscore=0 adultscore=0 mlxscore=0
- bulkscore=0 phishscore=0 impostorscore=0 priorityscore=1501 malwarescore=0
- classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2504070000
- definitions=main-2504270055
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11147.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4db59d63-4910-47e8-ecd5-08dd855c5cc7
+X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Apr 2025 07:23:09.6268
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: AGmaajJZLqTLlcIgGMLsdad74dUgW5Ao4BeDujkL5EeNPjOzkWUgui5cmkT/hNwjjO1p7DGW81Ai3lie+jnxEg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11032
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250427_080234_772592_33318EA4 
-X-CRM114-Status: GOOD (  17.22  )
+X-CRM114-CacheID: sfid-20250427_002318_918733_3686FD1D 
+X-CRM114-Status: GOOD (  15.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,180 +166,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename camss-csid-780.c to camss-csid-gen3.c to avoid code duplication
-for later SOCs i.e SA8775P. SA8775P have csid 690 which is almost same
-as csid 780 with very minor changes in register bitfield.
 
-Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
----
- drivers/media/platform/qcom/camss/Makefile            |  2 +-
- .../camss/{camss-csid-780.c => camss-csid-gen3.c}     | 11 +++++++----
- .../camss/{camss-csid-780.h => camss-csid-gen3.h}     |  9 +++++----
- drivers/media/platform/qcom/camss/camss-csid.h        |  2 +-
- drivers/media/platform/qcom/camss/camss.c             | 10 +++++-----
- 5 files changed, 19 insertions(+), 15 deletions(-)
- rename drivers/media/platform/qcom/camss/{camss-csid-780.c => camss-csid-gen3.c} (97%)
- rename drivers/media/platform/qcom/camss/{camss-csid-780.h => camss-csid-gen3.h} (84%)
 
-diff --git a/drivers/media/platform/qcom/camss/Makefile b/drivers/media/platform/qcom/camss/Makefile
-index d26a9c24a430..ee869e69521a 100644
---- a/drivers/media/platform/qcom/camss/Makefile
-+++ b/drivers/media/platform/qcom/camss/Makefile
-@@ -8,7 +8,7 @@ qcom-camss-objs += \
- 		camss-csid-4-7.o \
- 		camss-csid-680.o \
- 		camss-csid-gen2.o \
--		camss-csid-780.o \
-+		camss-csid-gen3.o \
- 		camss-csiphy-2ph-1-0.o \
- 		camss-csiphy-3ph-1-0.o \
- 		camss-csiphy.o \
-diff --git a/drivers/media/platform/qcom/camss/camss-csid-780.c b/drivers/media/platform/qcom/camss/camss-csid-gen3.c
-similarity index 97%
-rename from drivers/media/platform/qcom/camss/camss-csid-780.c
-rename to drivers/media/platform/qcom/camss/camss-csid-gen3.c
-index 4c720d177731..b66105f7b901 100644
---- a/drivers/media/platform/qcom/camss/camss-csid-780.c
-+++ b/drivers/media/platform/qcom/camss/camss-csid-gen3.c
-@@ -1,9 +1,12 @@
- // SPDX-License-Identifier: GPL-2.0
- /*
-- * Qualcomm MSM Camera Subsystem - CSID (CSI Decoder) Module
-+ * Qualcomm MSM Camera Subsystem - CSID (CSI Decoder) Module gen3
-+ * Gen3 Supports Qualcomm csid version 780 and 690
-  *
-  * Copyright (c) 2024 Qualcomm Technologies, Inc.
-  */
-+
-+
- #include <linux/completion.h>
- #include <linux/delay.h>
- #include <linux/interrupt.h>
-@@ -13,7 +16,7 @@
- 
- #include "camss.h"
- #include "camss-csid.h"
--#include "camss-csid-780.h"
-+#include "camss-csid-gen3.h"
- 
- #define CSID_IO_PATH_CFG0(csid)		(0x4 * (csid))
- #define		OUTPUT_IFE_EN			0x100
-@@ -259,7 +262,7 @@ static irqreturn_t csid_isr(int irq, void *dev)
- 
- 			if (buf_done_val & BIT(BUF_DONE_IRQ_STATUS_RDI_OFFSET + i)) {
- 				/*
--				 * For Titan 780, bus done and RUP IRQ have been moved to
-+				 * For Titan Gen3, bus done and RUP IRQ have been moved to
- 				 * CSID from VFE. Once CSID received bus done, need notify
- 				 * VFE of this event. Trigger VFE to handle bus done process.
- 				 */
-@@ -325,7 +328,7 @@ static void csid_subdev_init(struct csid_device *csid)
- 	csid->testgen.nmodes = CSID_PAYLOAD_MODE_DISABLED;
- }
- 
--const struct csid_hw_ops csid_ops_780 = {
-+const struct csid_hw_ops csid_ops_gen3 = {
- 	.configure_stream = csid_configure_stream,
- 	.configure_testgen_pattern = csid_configure_testgen_pattern,
- 	.hw_version = csid_hw_version,
-diff --git a/drivers/media/platform/qcom/camss/camss-csid-780.h b/drivers/media/platform/qcom/camss/camss-csid-gen3.h
-similarity index 84%
-rename from drivers/media/platform/qcom/camss/camss-csid-780.h
-rename to drivers/media/platform/qcom/camss/camss-csid-gen3.h
-index a990c66a60ff..e6298042ae74 100644
---- a/drivers/media/platform/qcom/camss/camss-csid-780.h
-+++ b/drivers/media/platform/qcom/camss/camss-csid-gen3.h
-@@ -1,13 +1,13 @@
- /* SPDX-License-Identifier: GPL-2.0 */
- /*
-- * camss-csid-780.h
-+ * camss-csid-gen3.h
-  *
-  * Qualcomm MSM Camera Subsystem - CSID (CSI Decoder) Module Generation 3
-  *
-  * Copyright (c) 2024 Qualcomm Technologies, Inc.
-  */
--#ifndef __QC_MSM_CAMSS_CSID_780_H__
--#define __QC_MSM_CAMSS_CSID_780_H__
-+#ifndef __QC_MSM_CAMSS_CSID_GEN3_H__
-+#define __QC_MSM_CAMSS_CSID_GEN3_H__
- 
- #define DECODE_FORMAT_UNCOMPRESSED_8_BIT	0x1
- #define DECODE_FORMAT_UNCOMPRESSED_10_BIT	0x2
-@@ -18,8 +18,9 @@
- #define DECODE_FORMAT_UNCOMPRESSED_24_BIT	0x7
- #define DECODE_FORMAT_PAYLOAD_ONLY		0xf
- 
-+
- #define PLAIN_FORMAT_PLAIN8	0x0 /* supports DPCM, UNCOMPRESSED_6/8_BIT */
- #define PLAIN_FORMAT_PLAIN16	0x1 /* supports DPCM, UNCOMPRESSED_10/16_BIT */
- #define PLAIN_FORMAT_PLAIN32	0x2 /* supports UNCOMPRESSED_20_BIT */
- 
--#endif /* __QC_MSM_CAMSS_CSID_780_H__ */
-+#endif /* __QC_MSM_CAMSS_CSID_GEN3_H__ */
-diff --git a/drivers/media/platform/qcom/camss/camss-csid.h b/drivers/media/platform/qcom/camss/camss-csid.h
-index 9dc826d8c8f6..62273ca9f199 100644
---- a/drivers/media/platform/qcom/camss/camss-csid.h
-+++ b/drivers/media/platform/qcom/camss/camss-csid.h
-@@ -215,7 +215,7 @@ extern const struct csid_hw_ops csid_ops_4_1;
- extern const struct csid_hw_ops csid_ops_4_7;
- extern const struct csid_hw_ops csid_ops_680;
- extern const struct csid_hw_ops csid_ops_gen2;
--extern const struct csid_hw_ops csid_ops_780;
-+extern const struct csid_hw_ops csid_ops_gen3;
- 
- /*
-  * csid_is_lite - Check if CSID is CSID lite.
-diff --git a/drivers/media/platform/qcom/camss/camss.c b/drivers/media/platform/qcom/camss/camss.c
-index 06f42875702f..1431e08dc04a 100644
---- a/drivers/media/platform/qcom/camss/camss.c
-+++ b/drivers/media/platform/qcom/camss/camss.c
-@@ -2285,7 +2285,7 @@ static const struct camss_subdev_resources csid_res_8550[] = {
- 		.csid = {
- 			.is_lite = false,
- 			.parent_dev_ops = &vfe_parent_dev_ops,
--			.hw_ops = &csid_ops_780,
-+			.hw_ops = &csid_ops_gen3,
- 			.formats = &csid_formats_gen2
- 		}
- 	},
-@@ -2300,7 +2300,7 @@ static const struct camss_subdev_resources csid_res_8550[] = {
- 		.csid = {
- 			.is_lite = false,
- 			.parent_dev_ops = &vfe_parent_dev_ops,
--			.hw_ops = &csid_ops_780,
-+			.hw_ops = &csid_ops_gen3,
- 			.formats = &csid_formats_gen2
- 		}
- 	},
-@@ -2315,7 +2315,7 @@ static const struct camss_subdev_resources csid_res_8550[] = {
- 		.csid = {
- 			.is_lite = false,
- 			.parent_dev_ops = &vfe_parent_dev_ops,
--			.hw_ops = &csid_ops_780,
-+			.hw_ops = &csid_ops_gen3,
- 			.formats = &csid_formats_gen2
- 		}
- 	},
-@@ -2330,7 +2330,7 @@ static const struct camss_subdev_resources csid_res_8550[] = {
- 		.csid = {
- 			.is_lite = true,
- 			.parent_dev_ops = &vfe_parent_dev_ops,
--			.hw_ops = &csid_ops_780,
-+			.hw_ops = &csid_ops_gen3,
- 			.formats = &csid_formats_gen2
- 		}
- 	},
-@@ -2345,7 +2345,7 @@ static const struct camss_subdev_resources csid_res_8550[] = {
- 		.csid = {
- 			.is_lite = true,
- 			.parent_dev_ops = &vfe_parent_dev_ops,
--			.hw_ops = &csid_ops_780,
-+			.hw_ops = &csid_ops_gen3,
- 			.formats = &csid_formats_gen2
- 		}
- 	}
--- 
-2.25.1
+> -----Original Message-----
+> From: Andi Shyti <andi.shyti@kernel.org>
+> Sent: Friday, April 25, 2025 7:29 PM
+> To: Carlos Song <carlos.song@nxp.com>
+> Cc: Aisheng Dong <aisheng.dong@nxp.com>; Frank Li <frank.li@nxp.com>;
+> shawnguo@kernel.org; s.hauer@pengutronix.de; kernel@pengutronix.de;
+> festevam@gmail.com; linux-i2c@vger.kernel.org; imx@lists.linux.dev;
+> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
+> Subject: [EXT] Re: [PATCH] i2c: imx-lpi2c: Fix clock count when probe def=
+ers
+>=20
+> Caution: This is an external email. Please take care when clicking links =
+or
+> opening attachments. When in doubt, report the message using the 'Report =
+this
+> email' button
+>=20
+>=20
+> On Mon, Apr 21, 2025 at 02:23:41PM +0800, carlos.song@nxp.com wrote:
+> > From: Clark Wang <xiaoning.wang@nxp.com>
+> >
+> > Deferred probe with pm_runtime_put() may delay clock disable, causing
+> > incorrect clock usage count. Use pm_runtime_put_sync() to ensure the
+> > clock is disabled immediately.
+>=20
+> What is the outcome of the incorrect clock usage count? Do you have any l=
+ogs?
+>=20
 
+Hi, Andi
+
+Thank you!
+
+At imx943 board, I notice sometimes after boot one of lpi2cs enable count i=
+s 1, but now the controller has been suspend(enable count should be 0).
+
+This is a lpi2c4 example:
+
+root@imx943evk:~# cat /sys/kernel/debug/clk/clk_summary
+                                 enable  prepare  protect                  =
+              duty  hardware                            connection
+   clock                          count    count    count        rate   acc=
+uracy phase  cycle    enable   consumer                         id
+
+    lpi2c8                           0       0        0        24000000    =
+0          0     50000      Y      deviceless                      no_conne=
+ction_id
+    lpi2c7                           0       0        0        24000000    =
+0          0     50000      Y      deviceless                      no_conne=
+ction_id
+    lpi2c6                           0       2        1        24000000    =
+0          0     50000      Y      i2c@426c0000                    no_conne=
+ction_id
+    lpi2c5                           0       0        0        24000000    =
+0          0     50000      Y      deviceless                      no_conne=
+ction_id
+-->  lpi2c4                           1       2        1        24000000   =
+ 0          0     50000      Y      i2c@42540000                    no_conn=
+ection_id
+    lpi2c3                           0       2        1        24000000    =
+0          0     50000      Y      i2c@42530000                    no_conne=
+ction_id
+    lpi2c2                           0       0        0        24000000    =
+0          0     50000      Y      deviceless                      no_conne=
+ction_id
+    lpi2c1                           0       0        0        24000000    =
+0          0     50000      Y      deviceless                      no_conne=
+ction_id
+
+root@imx943evk:~# cat /sys/devices/platform/soc/42000000.bus/42540000.i2c/p=
+ower/runtime_status
+suspended
+
+Normal case should be this:
+Enable count is 0 and controller is suspended.
+
+root@imx943evk:~#  cat /sys/kernel/debug/clk/clk_summary | grep i2c
+                                 enable  prepare  protect                  =
+              duty  hardware                            connection
+   clock                          count    count    count        rate   acc=
+uracy phase  cycle    enable   consumer                         id
+    lpi2c8                           0       0        0        24000000    =
+0          0     50000      Y      deviceless                      no_conne=
+ction_id
+    lpi2c7                           0       0        0        24000000    =
+0          0     50000      Y      deviceless                      no_conne=
+ction_id
+    lpi2c6                           0       2        1        24000000    =
+0          0     50000      Y      i2c@426c0000                    no_conne=
+ction_id
+    lpi2c5                           0       0        0        24000000    =
+0          0     50000      Y      deviceless                      no_conne=
+ction_id
+    lpi2c4                           0       2        1        24000000    =
+0          0     50000      Y      i2c@42540000                    no_conne=
+ction_id
+    lpi2c3                           0       2        1        24000000    =
+0          0     50000      Y      i2c@42530000                    no_conne=
+ction_id
+    lpi2c2                           0       0        0        24000000    =
+0          0     50000      Y      deviceless                      no_conne=
+ction_id
+    lpi2c1                           0       0        0        24000000    =
+0          0     50000      Y      deviceless                      no_conne=
+ction_id
+root@imx943evk:~# cat /sys/devices/platform/soc/42000000.bus/42540000.i2c/p=
+ower/runtime_status
+suspended
+
+Add debug log, when defer probe happened on imx-lpi2c 42540000.i2c.
+goto rpm_disable path:=20
+
+rpm_disable:
+	pm_runtime_put(&pdev->dev);
+	pm_runtime_disable(&pdev->dev);
+	pm_runtime_dont_use_autosuspend(&pdev->dev);
+
+pm_runtime_put() may not work really sometimes.
+
+[    3.203715] imx-lpi2c 42530000.i2c: defer probe
+[    3.208324] imx-lpi2c 42530000.i2c: lpi2c_runtime_suspend
+[    3.214801] imx-lpi2c 42540000.i2c: defer probe
+---> (No lpi2c_runtime_suspend callback(pm_runtime_put() is not really wrok=
+))
+[    3.220672] imx-lpi2c 426c0000.i2c: defer probe
+[    3.225248] imx-lpi2c 426c0000.i2c: lpi2c_runtime_suspend
+
+After apply this change:
+rpm_disable:
+	pm_runtime_dont_use_autosuspend(&pdev->dev);
+	pm_runtime_put_sync(&pdev->dev);
+	pm_runtime_disable(&pdev->dev);
+
+all issues gone.
+[    3.093025] imx-lpi2c 42530000.i2c: defer probe
+[    3.097592] imx-lpi2c 42530000.i2c: lpi2c_runtime_suspend
+[    3.104281] imx-lpi2c 42540000.i2c: defer probe
+[    3.108858] imx-lpi2c 42540000.i2c: lpi2c_runtime_suspend
+[    3.115278] imx-lpi2c 426c0000.i2c: defer probe
+[    3.119818] imx-lpi2c 426c0000.i2c: lpi2c_runtime_suspend
+
+root@imx943evk:~# cat /sys/kernel/debug/clk/clk_summary | grep i2c
+                                 enable  prepare  protect                  =
+              duty  hardware                            connection
+   clock                          count    count    count        rate   acc=
+uracy phase  cycle    enable   consumer                         id
+    lpi2c8                           0       0        0        24000000    =
+0          0     50000      Y      deviceless                      no_conne=
+ction_id
+    lpi2c7                           0       0        0        24000000    =
+0          0     50000      Y      deviceless                      no_conne=
+ction_id
+    lpi2c6                           0       2        1        24000000    =
+0          0     50000      Y      i2c@426c0000                    no_conne=
+ction_id
+    lpi2c5                           0       0        0        24000000    =
+0          0     50000      Y      deviceless                      no_conne=
+ction_id
+    lpi2c4                           0       2        1        24000000    =
+0          0     50000      Y      i2c@42540000                    no_conne=
+ction_id
+    lpi2c3                           0       2        1        24000000    =
+0          0     50000      Y      i2c@42530000                    no_conne=
+ction_id
+    lpi2c2                           0       0        0        24000000    =
+0          0     50000      Y      deviceless                      no_conne=
+ction_id
+    lpi2c1                           0       0        0        24000000    =
+0          0     50000      Y      deviceless                      no_conne=
+ction_id
+
+
+> > Signed-off-by: Carlos Song <carlos.song@nxp.com>
+> > Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
+> > Signed-off-by: Jun Li <jun.li@nxp.com>
+> > Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
+>=20
+> Carlo's SoB should be at the end of the chain. Should be nice to know wha=
+t these
+> are, though, are they co-developed-by? tested-by?
+> Why so many SoB's?
+>=20
+
+This patch author is not me and they meet similar issue at some boards(Vagu=
+e history), now
+I meet this issue at new SOC again. I think this local patch is helpful and=
+ looks reasonable.
+So I send the patch to community adding my SoB.
+
+> (no need to resend for this)
+>=20
+> Andi
 
