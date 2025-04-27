@@ -4,99 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1C2DC369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 09:01:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80B98C369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 09:38:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=oinzcqCiVbGgyb0iiuzscDKJeJyyI76yLcJfoJ0sjS8=; b=EUZ+ypEAY5AI2kZLAc73uc2opB
-	bIekQqmxPJC6+QimOuj40+CiGNjG1twrgpZpV61NcQvSvVGTjmhdTZXnT+ZYj6NFYqofENi0IDOPN
-	t9h+BPRHlNzSLUhMv8EfXSNed84XhiNAqY2ChtS2Tj/+qtpWVTi3Mkyl20N/N7UbMTbP618RCnLjg
-	FiI31UbvGxjHMH9EsIBA2XDNXxwtYgDQDOWfiEkN19CjA6nn0JHftWxnsoHRHy8GS37I8KeXFpnvR
-	MUUmbzMMNKUL30yYt3Afb6QsHMosjfxuSI/33T/FVFCxYiewwKH2JQAPf+Fe8NSXoo+0dUY6rbUBY
-	bUw0FHPA==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VGzuohvyvvCrwS5zOnEccgXhaNKdly9XzL/s3vD+/6M=; b=hup5PzPkJDmfQn3jrD2Y+ptgL8
+	slm3AA31znWgtl8ouEZNbQcB2TNX5A1WFf1AmuyPxgeCC3O6qy0/wjiWGDd1EZj/7zl9AdiZefwRd
+	TgivXQs3XBeenU8v4Ul3OYMjrMyqXHXiG87wM5PUy4W7Vs8QzR80xpEv4Hrqa4P62BMm7BatkUvHm
+	vVuCGMlKX8VDrTkeP35e9iCWzvek2OUKzqaQMbnSdhL9aaUXqBpPLQLKvcWQiLXfRijs+NFjd3PL/
+	EcsH7SAK8U8Ooo9ZJog/AU2DOIoKvLUUGz8qfF/raB8kypyiQejJTXj1aVNRGYkEk2etHSpXoVo9K
+	TmOAFnYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8xsZ-00000003EhC-1wkv;
-	Sun, 27 Apr 2025 09:00:51 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1u8ySl-00000003IPg-3QOU;
+	Sun, 27 Apr 2025 09:38:15 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8wgM-000000037Cg-1awm
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Apr 2025 07:44:11 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43ce71582e9so27475655e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Apr 2025 00:44:09 -0700 (PDT)
+	id 1u8yQp-00000003IIg-1JOI;
+	Sun, 27 Apr 2025 09:36:16 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-ac2bb7ca40bso642641366b.3;
+        Sun, 27 Apr 2025 02:36:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1745739848; x=1746344648; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=oinzcqCiVbGgyb0iiuzscDKJeJyyI76yLcJfoJ0sjS8=;
-        b=azOdp7kwKdOZ/u7GaLXeZ5W45dc25/PZJ7zST0dPyxh6DGS4QVzILhaACuE3SznUtM
-         MD4L4K8OK4DrKyg+VdU6aOYhJQSjn4JeFBx3xYjkV28um0zr2o6kFYWNaqehMjhwk6Sp
-         kKyA6n3TTu/GKZf3tFqL/SmcBvra98UK/pABk=
+        d=gmail.com; s=20230601; t=1745746573; x=1746351373; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VGzuohvyvvCrwS5zOnEccgXhaNKdly9XzL/s3vD+/6M=;
+        b=dwZ6iMbVN4J1d9HkrECyhtwNhaX7TGMtxJ957XRr9Qm8PYTJdeYdD2wbZr50migPJB
+         tmzTWmX0crDwB+5AxfX+f+UsLviaI8qdHoFS5Dg8iLnH37V4BXzrLI+21ajjibEr5M8D
+         NcHXyaYXrzTab7RCQWLFk/W61Ltdp2sLwC/h08TuYJhyiP4FrEWtQhLXadvWT5PFyRnb
+         qdyBo3+69tVpQFteTUhSmzz7hDYZ4/H3df4fX7tXU/EGsHKez/BVw2S+grSCJD0u+8KM
+         xzFU4qgLIveUST8MqxGsbSNTBYhhRXOkNWiUZhmk7dVrjgpXuiUwx/OJ66DJ1naG5WVL
+         wSsA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745739848; x=1746344648;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=oinzcqCiVbGgyb0iiuzscDKJeJyyI76yLcJfoJ0sjS8=;
-        b=mPZigDBDRvrVR13JwNdGmPS4EcMP7mvnzMfVATnt9Ljat5FAI6HmcIdt8RWZaacTTG
-         X6oQ8N3RNNnotgaYzT6rmL0MamfCoqqzGpCDRDUjXDtjida45pERcofMKXx2RO+RRODV
-         LyUH6ObLih66+ZNbYdnC9z6fbeGwaFDD9VhTj7sK9clhxSt0Xigm2iH5DT+J53UDPaJi
-         /11JXLVIlRaH9OVZuySw5IAzI7qzWJoM5TT8HaFp/3OqhSd8R5XtssckR0C9LYsgcuO4
-         URqamx0sviAJRwFrCdupWi58PgP9YhSO2stzBz36hEnQ4MOabrYWq21SNxnp7sYPLmh4
-         Q0+Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWtbs5e+Je5rSt/Ci1YGEw8WYYBuH9JHdMDXFakMmL4hOTSRE+q5/rzdOJ6kgRrioSgNBe2T1LsSJHCN99Xsczq@lists.infradead.org
-X-Gm-Message-State: AOJu0YxG12OM8Boy+kF1dlosST6wmspyruzvL6kol23UwPsa/NUqVZPJ
-	og0W+q/91WqSIAUK9G6XMvDPDkLqqWuZVMZrwLEu4PIuO97v1QSdGjhL0YJi948=
-X-Gm-Gg: ASbGncuMRYTo1enrSCttZUcOJI6/ekpfFdEppoQMImnsPzxjWNsjYTjINXYWH2vKdQY
-	qhYD/n/ej6ZweMiYM9IPWMP922/UsBL+abtWfrQ73fwmr0OxjOeR25MRMF7yXrNJdvj7bLx9wZ1
-	LQ6PJVTp/NOM+Cawr2suLWCd1Jdl/Mq7iiYyqsPMEfoUMzgyub/EGKbuDKUXX/1w+Br5nmagLGA
-	qtM7DU3V9BYlYASolIBmfyoXPdoKPsfSjXkgl5t++PoGnroX7hg/gLpfZjOmEXY6AWJe2rZ6yrF
-	YNqYRo228CuxPPx6C+1O6dNYQM4SLvd8OrceUTwj6dA9dgNgim4jtGkKBg1gfMXM3DyhlipX39e
-	1RC07yA==
-X-Google-Smtp-Source: AGHT+IG55beBCMeEpoU+v9sBHrbcIgFnVINAwcpqdyMq90VQ1/y+K+5G8xBe1CVGW38gxB0HOPdp+A==
-X-Received: by 2002:a05:600c:3148:b0:43c:f44c:72b7 with SMTP id 5b1f17b1804b1-440a65dd132mr80678905e9.14.1745739848202;
-        Sun, 27 Apr 2025 00:44:08 -0700 (PDT)
-Received: from dario-ThinkPad-T14s-Gen-2i.. ([2.196.40.180])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-440a52f8915sm87682015e9.7.2025.04.27.00.44.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 27 Apr 2025 00:44:07 -0700 (PDT)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-amarula@amarulasolutions.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Amelie Delaunay <amelie.delaunay@foss.st.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	David Jander <david@protonic.nl>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	=?UTF-8?q?Leonard=20G=C3=B6hrs?= <l.goehrs@pengutronix.de>,
-	Marc Kleine-Budde <mkl@pengutronix.de>,
-	Marek Vasut <marex@denx.de>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Roan van Dijk <roan@protonic.nl>,
-	Rob Herring <robh@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Stephen Boyd <sboyd@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH 0/8] Support STM32h747i-disco board
-Date: Sun, 27 Apr 2025 09:43:19 +0200
-Message-ID: <20250427074404.3278732-1-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
+        d=1e100.net; s=20230601; t=1745746573; x=1746351373;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=VGzuohvyvvCrwS5zOnEccgXhaNKdly9XzL/s3vD+/6M=;
+        b=aCqlJt9n6cLusJtvD3j82KXvhKM0uTCAKPjvRBS3Jer91Az5/xe/bLTz/jwhmYUttP
+         JamDeas3SeLtAnw0xRlfQNMuT+V/L3hjk0fjFSr33kTg1lg7yeHx6+szcLWSVzW0es7N
+         AEf9OVg6XGW5D9Wh9tGqmSte/Al0408o5DQnNX+1z0uEiEKe7oKIsOchoPJqwDt42XRM
+         E5bdKmkfPG0djTKfNxYENoZBHx5LSAMSfu7eVjYbf29o9iDYGwnWmHOrfiDYcX/oFY9G
+         WIAfNbwyj2Q3ecaZPSLHrqxuWYjhVBGBNeF6ff3GNOzHo7ICuLKcJKFwrv7czGRxrgbc
+         +tpw==
+X-Forwarded-Encrypted: i=1; AJvYcCU4b1aMEyMOeGehi9UbDuI3dMtbyarSdZiIsJ7XmQy4Zy09Y4Z2UcQs284MzbuSRtzT3YwjVbNgo+Hcx5PVI1pMig==@lists.infradead.org, AJvYcCWNjtmhb9p1UTbQHR0T54klzgyn+NInEeadFDUa2BDUSrcffrEkxb3gZekcMOQxUl7vxH9m7JPBJG/atDFE2vaa@lists.infradead.org
+X-Gm-Message-State: AOJu0YydKY0P0KPQEAmA+npzcCURpg64bbu8bSaYRC5rAu3OttQAxKOC
+	AAiz0GmwVuP7Q6vV86hlR0Q9tNTcXX9vNV5od5CDyP/4YR7OKJDx7aLIJ+E2nmn61bDwPZLC+LZ
+	n8ZiYQnT4mOEBeppzT2a1m2t+WdS+00Qe
+X-Gm-Gg: ASbGnctbolGliEiG0WdaG8d90PvRWHG4360W3slv/Gmskkw1NIHu8mZ6U95+LB8noIk
+	XuRh09Y5v6TCYa/uCcLBaT3u40qgBWVAoOpDaGqhFCNzCdGk33n1m1v1yDR3M7DgBSmpAgF0ieq
+	zxDEX63uGgSvijgQT6MgXQzg==
+X-Google-Smtp-Source: AGHT+IGoMZeNr5qp9wE08uyFjEL0FL5TyWGe8HMPsjjHQFeYThqcDC1gvwy6V+CCzAKFcw66C1iNantjGyqQ4J9Y5fw=
+X-Received: by 2002:a17:906:478b:b0:acb:aea9:5ab0 with SMTP id
+ a640c23a62f3a-ace73b1cd63mr635799166b.39.1745746572690; Sun, 27 Apr 2025
+ 02:36:12 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250427082447.138359-1-trannamatk@gmail.com>
+In-Reply-To: <20250427082447.138359-1-trannamatk@gmail.com>
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Sun, 27 Apr 2025 12:35:36 +0300
+X-Gm-Features: ATxdqUHZ_-HZyhqiJ9dWL2SAXfBdPhoDJFCF5q7xMB2DoNABvHtVkjCzw97WyVA
+Message-ID: <CAHp75Vch8i50stVO6nH0Tnn=g4xSMji_iPj6q-CE1tLnvesqcQ@mail.gmail.com>
+Subject: Re: [PATCH v8 0/5] auxdisplay: add support for TI LP5812 4x3 Matrix
+ LED driver
+To: Nam Tran <trannamatk@gmail.com>
+Cc: andy@kernel.org, geert@linux-m68k.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, christophe.jaillet@wanadoo.fr, corbet@lwn.net, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-doc@vger.kernel.org, florian.fainelli@broadcom.com, 
+	bcm-kernel-feedback-list@broadcom.com, linux-rpi-kernel@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250427_004410_432544_2F12A6D1 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20250427_023615_355265_5F5AC317 
+X-CRM114-Status: GOOD (  13.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,46 +98,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The series adds support for STM32h747i-disco board
+On Sun, Apr 27, 2025 at 11:25=E2=80=AFAM Nam Tran <trannamatk@gmail.com> wr=
+ote:
+>
+> This patch series adds support for the TI/National Semiconductor LP5812
+> 4x3 matrix RGB LED driver. The driver supports features such as autonomou=
+s
+> animation and time-cross-multiplexing (TCM) for dynamic LED effects.
+>
+> Signed-off-by: Nam Tran <trannamatk@gmail.com>
+> ---
+> Changes in v8:
+> - Move driver to drivers/auxdisplay/ instead of drivers/leds/.
+> - Rename files from leds-lp5812.c/.h to lp5812.c/.h.
+> - Move ti,lp5812.yaml binding to auxdisplay/ directory,
+>   and update the title and $id to match new path.
+> - No functional changes to the binding itself (keep Reviewed-by).
+> - Update commit messages and patch titles to reflect the move.
+> - Link to v7: https://lore.kernel.org/linux-leds/20250422190121.46839-1-t=
+rannamatk@gmail.com/
 
-The board includes an STM32H747XI SoC with the following resources:
- - 2 Mbytes Flash
- - 1 Mbyte SRAM
- - LCD-TFT controller
- - MIPI-DSI interface
- - FD-CAN
- - USB 2.0 high-speed/full-speed
- - Ethernet MAC
- - camera interface
-
-Detailed information can be found at:
-https://www.st.com/en/evaluation-tools/stm32h747i-disco.html
+Out of sudden without discussing with auxdisplay maintainers/reviewers?
+Thanks, no.
+Please, put into the cover letter the meaningful summary of what's
+going on and why this becomes an auxdisplay issue. Brief review of the
+bindings sounds more likely like LEDS or PWM subsystems.
 
 
-Dario Binacchi (8):
-  ARM: dts: stm32h7-pinctrl: add _a suffix to u[s]art_pins phandles
-  dt-bindings: arm: stm32: add compatible for stm32h747i-disco board
-  ARM: stm32: add a new SoC - STM32H747
-  clk: stm32h7: rename USART{7,8}_CK to UART{7,8}_CK
-  ARM: dts: stm32: add uart8 node for stm32h743 MCU
-  ARM: dts: stm32: add pin map for UART8 controller on stm32h743
-  ARM: dts: stm32: add an extra pin map for USART1 on stm32h743
-  ARM: dts: stm32: support STM32h747i-disco board
-
- .../devicetree/bindings/arm/stm32/stm32.yaml  |   4 +
- arch/arm/boot/dts/st/Makefile                 |   1 +
- arch/arm/boot/dts/st/stm32h7-pinctrl.dtsi     |  34 ++++-
- arch/arm/boot/dts/st/stm32h743.dtsi           |   8 ++
- arch/arm/boot/dts/st/stm32h743i-disco.dts     |   2 +-
- arch/arm/boot/dts/st/stm32h743i-eval.dts      |   2 +-
- arch/arm/boot/dts/st/stm32h747i-disco.dts     | 136 ++++++++++++++++++
- arch/arm/boot/dts/st/stm32h750i-art-pi.dts    |   6 +-
- arch/arm/mach-stm32/board-dt.c                |   1 +
- include/dt-bindings/clock/stm32h7-clks.h      |   4 +-
- 10 files changed, 187 insertions(+), 11 deletions(-)
- create mode 100644 arch/arm/boot/dts/st/stm32h747i-disco.dts
-
--- 
-2.43.0
-
+--=20
+With Best Regards,
+Andy Shevchenko
 
