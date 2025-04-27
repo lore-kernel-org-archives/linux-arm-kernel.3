@@ -4,55 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37092C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 08:15:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E680C369D8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 08:17:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=U1GZt0j74cjZz+4xaSGSJUjZ7iEQo5EUR7q2Tuw3IYI=; b=HZGV9zl+Cd7j+pody5u+vDA4Ad
-	fotLWeJusNlnNG28oqBsAg4Z7J2cx0/mKQgECCzAX9PZgTj78OOjLIo2YuJfrdhQVvDYx33Y8BDMh
-	d4OUx/tuSf1EMlfQj+0ZsrnVc2USlk0KYfjUi7nRy7POMfhnlIDkC2DJSOLz5TEBnBRNkgYdEqF16
-	PvZDaQtTWHwFlTglz54yZpsAQsLIv01Hkj0vFeoSkVizu6le5GQ92YK7of7viUI7grJ/MQcA+FrQi
-	CQTjBYi1BMSILMxX+ZUlpBVrlu41V0xpq6CJo3rxceQKRntS5M71r0rW1MN9I9WXtA3V9j3lFBRQw
-	eVQdB3bw==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Lbqq24M/Ux40LvkCpduFkVyXMFtWO1BJAG+CznhRMrg=; b=27f481Zn6P/fXoLP8/+2ed5RjT
+	0CUMqsnJQJiQKnP4zheQPFe33RWndDIaLTOMwJgnW1qiopyw4LwfBVI5Zk1kNBJ6lftIs1gZcGG3Z
+	2NMgzDOOPW7BNHE1rUCPPZJQ3GZ5NgNXiHykwM6onLIdLyU13DiimImG6avf8CUEL1XKMHsVOyL1v
+	tVGyW1ZM6yySI8+6k5XQgGDzjAZBuacvpL2x+qsNYdIQHU/klApFmBAkmVJW97YGx39PqmGutnmrm
+	uA+QStwI7SwVCnutgNeJFWq1ZZbjUGvRqv/XFwLVyTqAoOgaSo2I1YNYokcb5t8xUNBBiSwka6Avq
+	PZLHmsaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8xB0-000000039fr-3ysX;
-	Sun, 27 Apr 2025 08:15:51 +0000
-Received: from out28-133.mail.aliyun.com ([115.124.28.133])
+	id 1u8xCD-000000039t0-1kmd;
+	Sun, 27 Apr 2025 08:17:05 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8vqg-000000032qj-21SD;
-	Sun, 27 Apr 2025 06:50:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=coolkit.cn; s=default;
-	t=1745736639; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=U1GZt0j74cjZz+4xaSGSJUjZ7iEQo5EUR7q2Tuw3IYI=;
-	b=eysZYEVzR6qWOKfI8KgDvn7i5TI+OenSBv8RY/z5uHmKtYarBL4JxYbXyXAon6aZYIaJzbn1LTU4S4CgGMcFx8feJn2LyFZfIH3B05KLfWHwj1Fl0C/HctTRIeEFQvUrew8HdflxuVcAnxTsdcGKzpvXS825aRM72Rra0dqbJq8=
-Received: from ubuntu-z.lan(mailfrom:hao.zhang@coolkit.cn fp:SMTPD_---.cY70L4K_1745736637 cluster:ay29)
-          by smtp.aliyun-inc.com;
-          Sun, 27 Apr 2025 14:50:38 +0800
-From: Hao Zhang <hao.zhang@coolkit.cn>
-To: linux-rockchip@lists.infradead.org
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	conor+dt@kernel.org,
-	heiko@sntech.de,
-	krzysztof.kozlowski+dt@linaro.org,
-	robh+dt@kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: ARM: dts: rockchip: Wifi improvements for Sonoff iHost
-Date: Sun, 27 Apr 2025 14:50:12 +0800
-Message-Id: <20250427065013.99871-1-hao.zhang@coolkit.cn>
-X-Mailer: git-send-email 2.34.1
+	id 1u8xAG-000000039an-0w8h;
+	Sun, 27 Apr 2025 08:15:05 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53QMQuLn028040;
+	Sun, 27 Apr 2025 08:14:45 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Lbqq24M/Ux40LvkCpduFkVyXMFtWO1BJAG+CznhRMrg=; b=hviUbNP1WkT4L6Cl
+	TeMFp/y8yFaBQ0iEtWxgbXvoD97b1BgD4eD7zPifVnSMuamnC0GMBanw3WBhjouQ
+	NwivsIqRujQdkSBBs/MiCIiGYK+2jElLdLAlF4qeOOWfpPKt52HhBuMy62/ajbgV
+	NjFyPAab4D7jSkeWlIlMhRf+rmkQbP7T4WgMBgI1eH3S8c6tCEbltTckKOI769yy
+	CDN68HaOdMouprdnOvLd7/xcUnj/xtxeQsqew2djQi2ac3od6p6dksOm7cKS6thZ
+	RQSTxsAoBZ1GTMjUw318BjFSSvS4DRGBd7tDxUt3oIhJR75fTD2EPXEFsH0Zsf7q
+	u/ZQ8A==
+Received: from nasanppmta03.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 468rnmu73g-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sun, 27 Apr 2025 08:14:45 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53R8EinN022865
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Sun, 27 Apr 2025 08:14:44 GMT
+Received: from [10.239.155.136] (10.80.80.8) by nasanex01b.na.qualcomm.com
+ (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sun, 27 Apr
+ 2025 01:14:40 -0700
+Message-ID: <df287609-a095-4234-b23b-d335b474a130@quicinc.com>
+Date: Sun, 27 Apr 2025 16:14:37 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 0/8] Support Multi-frequency scale for UFS
+To: Luca Weiss <luca.weiss@fairphone.com>, <quic_cang@quicinc.com>,
+        <bvanassche@acm.org>, <mani@kernel.org>, <beanhuo@micron.com>,
+        <avri.altman@wdc.com>, <junwoo80.lee@samsung.com>,
+        <martin.petersen@oracle.com>, <quic_nguyenb@quicinc.com>,
+        <quic_nitirawa@quicinc.com>, <peter.wang@mediatek.com>,
+        <quic_rampraka@quicinc.com>
+CC: <linux-arm-msm@vger.kernel.org>, <linux-scsi@vger.kernel.org>,
+        "Neil
+ Armstrong" <neil.armstrong@linaro.org>,
+        Matthias Brugger
+	<matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>,
+        "open list:ARM/Mediatek SoC
+ support:Keyword:mediatek" <linux-kernel@vger.kernel.org>,
+        "moderated
+ list:ARM/Mediatek SoC support:Keyword:mediatek"
+	<linux-arm-kernel@lists.infradead.org>,
+        "moderated list:ARM/Mediatek SoC
+ support:Keyword:mediatek" <linux-mediatek@lists.infradead.org>
+References: <20250213080008.2984807-1-quic_ziqichen@quicinc.com>
+ <D9FZ9U3AEXW4.1I12FX3YQ3JPW@fairphone.com>
+Content-Language: en-US
+From: Ziqi Chen <quic_ziqichen@quicinc.com>
+In-Reply-To: <D9FZ9U3AEXW4.1I12FX3YQ3JPW@fairphone.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: lFvji37wv4xtfm_F5Wf2kgIrqNMKD_iJ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI3MDA2NSBTYWx0ZWRfXyeSi3DIebcyu wI9VJLPSF79+Ik+T4tOJP8qSGaR7jZQPnmTXuHodSQIAHCOKCFOuPCTzZJIc/K6KQAtXAHO6SW7 vifv4qg+NKzdXKOBqgNJ8V6hceifslXXFsXVHIaxgsPzREtMymnF3bJS9YNiexW6/XcujEoN0qn
+ 59ZU2uJRDj5PsjgH8NpoJWwQmXFqHFileyv78R9krpIj3omzDm+e12i1E3+/SnpiUUthH78UcNM QMnOGBEJ/CfGQpI8yJe0CZZKyitoKcSe+p5JdNG2Aq5EwvE2leeqi4iHe3ARGJBHW2nLdjAPh+W z06AAixhIm9bIJBNAFKvw8aJOVBuXb+mN5EWRx7kh7rDClVlbTZTSJSZ+sqQjys7W2IQkDBh0M9
+ 3ODkBuPorBc/1j1uQxqBuoq4AeaZvy4guhq0ILbM8jEJ6lEriubv937RmbEX6jwkeOx96bxk
+X-Proofpoint-GUID: lFvji37wv4xtfm_F5Wf2kgIrqNMKD_iJ
+X-Authority-Analysis: v=2.4 cv=V9990fni c=1 sm=1 tr=0 ts=680de775 cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=6H0WHjuAAAAA:8 a=cA56n_0BHuVisEfHO2oA:9
+ a=QEXdDO2ut3YA:10 a=Soq9LBFxuPC4vsCAQt-j:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-04-27_03,2025-04-24_02,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 suspectscore=0
+ adultscore=0 mlxlogscore=999 impostorscore=0 lowpriorityscore=0
+ priorityscore=1501 bulkscore=0 clxscore=1011 phishscore=0 mlxscore=0
+ spamscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
+ definitions=main-2504270065
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250426_235047_035878_4C2F36AA 
-X-CRM114-Status: UNSURE (   3.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250427_011504_296344_A4AED2D1 
+X-CRM114-Status: GOOD (  16.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,14 +121,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello maintainers,
+Hi Luca,
 
-This is my first patch submission for the Rockchip DTS files.
-The patch improves WiFi stability for Sonoff iHost.
+Thanks for your report.
+Really,  6350 is a special platform that the UFS_PHY_AXI_CLK doesn't
+match to the UFS_PHY_UNIPRO_CORE_CLK. We already found out the root
+cause and discussing the fix. We will submit change to fix this corner
+case.
 
-Please let me know if any modifications are needed.
+BRs
+Ziqi
 
-Best regards,
-Hao Zhang
+On 4/26/2025 3:48 AM, Luca Weiss wrote:
+> Hi Ziqi,
+> 
+> On Thu Feb 13, 2025 at 9:00 AM CET, Ziqi Chen wrote:
+>> With OPP V2 enabled, devfreq can scale clocks amongst multiple frequency
+>> plans. However, the gear speed is only toggled between min and max during
+>> clock scaling. Enable multi-level gear scaling by mapping clock frequencies
+>> to gear speeds, so that when devfreq scales clock frequencies we can put
+>> the UFS link at the appropraite gear speeds accordingly.
+> 
+> I believe this series is causing issues on SM6350:
+> 
+> [    0.859449] ufshcd-qcom 1d84000.ufshc: ufs_qcom_freq_to_gear_speed: Unsupported clock freq : 200000000
+> [    0.886668] ufshcd-qcom 1d84000.ufshc: UNIPRO clk freq 200 MHz not supported
+> [    0.903791] devfreq 1d84000.ufshc: dvfs failed with (-22) error
+> 
+> That's with this patch, I actually haven't tried without on v6.15-rc3
+> https://lore.kernel.org/all/20250314-sm6350-ufs-things-v1-2-3600362cc52c@fairphone.com/
+> 
+> I believe the issue appears because core clk and unipro clk rates don't
+> match on this platform, so this 200 MHz for GCC_UFS_PHY_AXI_CLK is not a
+> valid unipro clock rate, but for GCC_UFS_PHY_UNIPRO_CORE_CLK it's
+> specified to 150 MHz in the opp table.
+> 
+> Regards
+> Luca
+> 
+>>
+>> This series has been tested on below platforms -
+>> sm8550 mtp + UFS3.1
+>> SM8650 MTP + UFS3.1
+>> SM8750 MTP + UFS4.0
 
 
