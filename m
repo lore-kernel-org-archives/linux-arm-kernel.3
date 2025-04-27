@@ -4,84 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12C38C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 08:01:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA039C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 08:02:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cxVSZLmMMlgOfOIxDepSNZFctw57sdcS6wy9gTpFJjA=; b=LuqKBkmA5zHCaYwvol1roUxSRT
-	5aKTr+4UNfS80NFADuLr5zX7EBogaKZwAdgdB2TlFKDqmz+Kss3lpWQf3TtiwxXOyVM96SoOFXuVI
-	eN+b84Mfcc2EeyPjB6tExVWZUGWPjhnJRLEJKHIizpo5rB4iFNMkoY4GMnA5pUbg6kFjWzxr35cfE
-	mXjvSbkROSe06/GQylDYJK2RWjAYVutpIvMzLmjZTtvXatFySwYYGLnhr1YrtUrnPXgj1TCyNqVb9
-	wfVQSN5IkGuEg7DYvhbP/xTitlGxzdxgA3xNQ+VIvAA8DySIdtaP0CxkNZHbr8Jzw0sGEeT1q2OwE
-	2aQCt6Ow==;
+	bh=pL4EuVBd+kCprRkzB/cjMf7Bv+31ykO+OuQZllzhxds=; b=4MS9AvPbrlb5TdMaqfDCKSygbb
+	5UUOHKmgbQfNz4eW0eQ/M1KflLvAxMBA1oe1sUOFDlylGycXmOogQTWMag8gwfM2Qlqkm/swVRbtO
+	tXEV4AwVppDdxhU8LklqvftQopN9sHHEFRnWMOCYJ1qB478+8n0jNzO2VtE5O9lGc8vo5Di8R/tJg
+	YNEcqICN+4cf5Drayfu8ytBl9kE97E/Ah8U7poRppaQnFRKcdsYB8YuewTKhWNth3xv0k46IMUaqt
+	6AQkv1sv9NPMF7KN+vtleGac0txZM9Ad5AuZRvfs1nOz7YxGwD3ndbVd4pDdmwPyLHUTsNe0Lj+wZ
+	ne9OoTTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8wwW-000000038dw-1ljz;
-	Sun, 27 Apr 2025 08:00:52 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1u8wxY-000000038pQ-1ouq;
+	Sun, 27 Apr 2025 08:01:56 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8vcX-000000030uD-43hA
+	id 1u8wgX-000000037Fj-1y5r
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Apr 2025 06:36:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1745735770; x=1777271770;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=nMJQw4mASCaotj7CeCbT8hl1dGmW66KZ98Yv5np3pOw=;
-  b=ihKM1lxl/bI/e8pa7J5Gb5VCT2Gi8yY31uKEbcXrWqeaGZEFnajhFVUX
-   qHf8dUFS+xku1M+TOeGH2M5pgPHIPtdC8P9Z9WHM8oVeBd0spac3OuImv
-   lf9RYIRrzBKe8I8sg+tAXzf9s1yr8QgdngzFB1UBZ+3nsOy+b5a0e2G1c
-   IG8Z77zV4FcHWHI5ViiGmk5/BrW+jwCcwHh/mcXHGCRpzBQIJacx4uH3E
-   2+o2iANyGUAWVX0+L5aRWJwUuvIPC+FlFXxDm8NfHjf+VN9fXicu2zEz3
-   J/xq6OEKnmo2wQ3PF4rE8kVr4WTENlORB1xvKvGlrE+HTgVICcb7aaRQY
-   Q==;
-X-CSE-ConnectionGUID: bAc8PboaR7ySQoGh21RyLA==
-X-CSE-MsgGUID: Rsq4y+o2TM6usg8d1IP0qg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11415"; a="69841272"
-X-IronPort-AV: E=Sophos;i="6.15,243,1739865600"; 
-   d="scan'208";a="69841272"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Apr 2025 23:36:09 -0700
-X-CSE-ConnectionGUID: mBeNWfFqTZen1E8BpfidTw==
-X-CSE-MsgGUID: cmIWTG8QT0iiV/8hqXye+Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,243,1739865600"; 
-   d="scan'208";a="138048971"
-Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
-  by fmviesa005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Apr 2025 23:36:03 -0700
-Message-ID: <e569c927-65ff-4c0f-8922-45e404fefc5e@linux.intel.com>
-Date: Sun, 27 Apr 2025 14:31:54 +0800
+	Sun, 27 Apr 2025 07:44:22 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43d0359b1fcso23337595e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Apr 2025 00:44:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1745739860; x=1746344660; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pL4EuVBd+kCprRkzB/cjMf7Bv+31ykO+OuQZllzhxds=;
+        b=dpztANFbfBs5KVpV+DfebFD7GPQFFuKNUWmRsXsUaetfJvvur5l5L9PMV4tfR26nbO
+         nZnNlb7TYl0GFfsnd+ycsDAj7sxTlF44jiUa2y/3y9tMmiWtaxjbha5bF1cI579dCyQc
+         Ydfi3Vcx4S2HJZZeqztstuBkrVu39dx/ljPqw=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745739860; x=1746344660;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=pL4EuVBd+kCprRkzB/cjMf7Bv+31ykO+OuQZllzhxds=;
+        b=gn/LMLRwPgvNDPW8FHAfEWSgBDzkFBCyuXa1UhEkOXR20kqSrgmWx7yOhHfsMwr/xy
+         GvS7V8zCeDE/4oivLEd07Lim8Oa3DCvGpl1cFmZQei7uuldo567O2mFGwC2qtYMM1Phj
+         7lTt1DnenST3VOHTStzu8gngmI100rKb6NXUT5Fii4Ot11/f3yC9Vch2pi5X467yRBSk
+         2JnH5559xsO2Y8Ib1MXkfXRQEO1sGZnX73yZYoQr5dZ5/8mxOPIvJSq4ZC3WDV4jT9UH
+         FdbLY0oDvIbH/rjd+mPs9GL2ODS9a2l3s3V2ORKF6PFwtRZGBAL+DdQ/1c8n/q0JH6BU
+         AHHQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUO6EligyAsb7JXZ8CR/Tzy9Hw2nYi6IdaLVXphSrwxzv7/Pc3NOxi1WxW+zZRhh6AaDA6U+zrghBT4Y37WBgLN@lists.infradead.org
+X-Gm-Message-State: AOJu0YxfFU1Vpn3S7cIZntC7Nx0mCMp6B/2GHXlUVQoCC2KIMPM6Bq0V
+	39yuhGlkBAvYsvzxPHAwxRQx9Ga0UNmEjMnykHFb5YtipS5dEUvNSHVjew8K+Is=
+X-Gm-Gg: ASbGnctTPTa/Qnqzg5YhTNzuTflj8FYARDA/HcA/UdWci85Q20mTvPZFzvJbwRb+fh/
+	bO0fACNJNkZaEMHfxLpHRstPExWwZPZkykZGFO3KreF3HfrxrIi/3p4C0Y+u1GOutD79l6ulUci
+	9Sk8yE0hQur3pifN8/TTVuekZH8TALkP2BVAsHJLXMqjC/kXr+QBUOFUalOzHZqTDu8UpehBoNZ
+	EbRZHiXtOE9A600fXGXY17wdjXO1jvdtmu0rNABKuUPZot4EVbGFr1HEfkpqE9JRDBbTWSyi2FA
+	V0/6W2jejy8RrAyJ8ZzsHd/dgv2FvywAJOsCd5rFfnuEMjvlT7FJWTwvlQtDk06+b1LtvExPtGF
+	xIjRMfQ==
+X-Google-Smtp-Source: AGHT+IEL/lT85jIG57Q0JOnH775/lJ5IzNoIu0Chk+nAgHGI/dfLdbqsRa7ZO7X6xN8mOHy3m7EIgA==
+X-Received: by 2002:a05:600c:58d7:b0:43d:fa5f:7d04 with SMTP id 5b1f17b1804b1-4409c52a44dmr92109645e9.16.1745739859798;
+        Sun, 27 Apr 2025 00:44:19 -0700 (PDT)
+Received: from dario-ThinkPad-T14s-Gen-2i.. ([2.196.40.180])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-440a52f8915sm87682015e9.7.2025.04.27.00.44.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 27 Apr 2025 00:44:19 -0700 (PDT)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-amarula@amarulasolutions.com,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	David Jander <david@protonic.nl>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	=?UTF-8?q?Leonard=20G=C3=B6hrs?= <l.goehrs@pengutronix.de>,
+	Marc Kleine-Budde <mkl@pengutronix.de>,
+	Marek Vasut <marex@denx.de>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Roan van Dijk <roan@protonic.nl>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH 8/8] ARM: dts: stm32: support STM32h747i-disco board
+Date: Sun, 27 Apr 2025 09:43:27 +0200
+Message-ID: <20250427074404.3278732-9-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250427074404.3278732-1-dario.binacchi@amarulasolutions.com>
+References: <20250427074404.3278732-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 02/22] iommu: Pass in a driver-level user data
- structure to viommu_alloc op
-To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com, kevin.tian@intel.com,
- corbet@lwn.net, will@kernel.org
-Cc: bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
- thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
- shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
- peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
- praan@google.com, zhangzekun11@huawei.com, iommu@lists.linux.dev,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
- linux-kselftest@vger.kernel.org, patches@lists.linux.dev, mochs@nvidia.com,
- alok.a.tiwari@oracle.com, vasant.hegde@amd.com
-References: <cover.1745646960.git.nicolinc@nvidia.com>
- <f985e2802a50b5867c9d4d3182ae7b4944a989c5.1745646960.git.nicolinc@nvidia.com>
-Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <f985e2802a50b5867c9d4d3182ae7b4944a989c5.1745646960.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250426_233610_063586_2C2E462A 
-X-CRM114-Status: UNSURE (   6.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250427_004421_507468_BE2251D2 
+X-CRM114-Status: GOOD (  15.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,19 +109,183 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/26/25 13:57, Nicolin Chen wrote:
-> The new type of vIOMMU for tegra241-cmdqv needs to pass in a driver-level
-> data structure from user space via iommufd, so add a user_data to the op.
-> 
-> Reviewed-by: Jason Gunthorpe<jgg@nvidia.com>
-> Signed-off-by: Nicolin Chen<nicolinc@nvidia.com>
+The board includes an STM32H747XI SoC with the following resources:
+ - 2 Mbytes Flash
+ - 1 Mbyte SRAM
+ - LCD-TFT controller
+ - MIPI-DSI interface
+ - FD-CAN
+ - USB 2.0 high-speed/full-speed
+ - Ethernet MAC
+ - camera interface
 
-It would be better to add some words explaining what kind of user data
-can be passed when allocating a vIOMMU object and the reason why this
-might be necessary.
+Detailed information can be found at:
+https://www.st.com/en/evaluation-tools/stm32h747i-disco.html
 
-Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
+Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 
-Thanks,
-baolu
+---
+
+ arch/arm/boot/dts/st/Makefile             |   1 +
+ arch/arm/boot/dts/st/stm32h747i-disco.dts | 136 ++++++++++++++++++++++
+ 2 files changed, 137 insertions(+)
+ create mode 100644 arch/arm/boot/dts/st/stm32h747i-disco.dts
+
+diff --git a/arch/arm/boot/dts/st/Makefile b/arch/arm/boot/dts/st/Makefile
+index 60d55516f723..c66959edac12 100644
+--- a/arch/arm/boot/dts/st/Makefile
++++ b/arch/arm/boot/dts/st/Makefile
+@@ -28,6 +28,7 @@ dtb-$(CONFIG_ARCH_STM32) += \
+ 	stm32746g-eval.dtb \
+ 	stm32h743i-eval.dtb \
+ 	stm32h743i-disco.dtb \
++	stm32h747i-disco.dtb \
+ 	stm32h750i-art-pi.dtb \
+ 	stm32mp133c-prihmb.dtb \
+ 	stm32mp135f-dhcor-dhsbc.dtb \
+diff --git a/arch/arm/boot/dts/st/stm32h747i-disco.dts b/arch/arm/boot/dts/st/stm32h747i-disco.dts
+new file mode 100644
+index 000000000000..99f0255dae8e
+--- /dev/null
++++ b/arch/arm/boot/dts/st/stm32h747i-disco.dts
+@@ -0,0 +1,136 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2025 Amarula Solutions, Dario Binacchi <dario.binacchi@amarulasolutions.com>
++ */
++
++/dts-v1/;
++#include "stm32h743.dtsi"
++#include "stm32h7-pinctrl.dtsi"
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/input/input.h>
++
++/ {
++	model = "STMicroelectronics STM32H747i-Discovery board";
++	compatible = "st,stm32h747i-disco", "st,stm32h747";
++
++	chosen {
++		bootargs = "root=/dev/ram";
++		stdout-path = "serial0:115200n8";
++	};
++
++	memory@d0000000 {
++		device_type = "memory";
++		reg = <0xd0000000 0x2000000>;
++	};
++
++	aliases {
++		serial0 = &usart1;
++		serial1 = &uart8;
++	};
++
++	v3v3: regulator-v3v3 {
++		compatible = "regulator-fixed";
++		regulator-name = "v3v3";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		regulator-always-on;
++	};
++
++	leds {
++		compatible = "gpio-leds";
++		led-green {
++			gpios = <&gpioi 12 GPIO_ACTIVE_LOW>;
++			linux,default-trigger = "heartbeat";
++		};
++		led-orange {
++			gpios = <&gpioi 13 GPIO_ACTIVE_LOW>;
++		};
++		led-red {
++			gpios = <&gpioi 14 GPIO_ACTIVE_LOW>;
++		};
++		led-blue {
++			gpios = <&gpioi 15 GPIO_ACTIVE_LOW>;
++		};
++	};
++
++	gpio-keys {
++		compatible = "gpio-keys";
++		autorepeat;
++		button-0 {
++			label = "User";
++			linux,code = <KEY_WAKEUP>;
++			gpios = <&gpioc 13 GPIO_ACTIVE_HIGH>;
++		};
++		button-1 {
++			label = "JoySel";
++			linux,code = <KEY_ENTER>;
++			gpios = <&gpiok 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
++		};
++		button-2 {
++			label = "JoyDown";
++			linux,code = <KEY_DOWN>;
++			gpios = <&gpiok 3 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
++		};
++		button-3 {
++			label = "JoyUp";
++			linux,code = <KEY_UP>;
++			gpios = <&gpiok 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
++		};
++		button-4 {
++			label = "JoyLeft";
++			linux,code = <KEY_LEFT>;
++			gpios = <&gpiok 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
++		};
++		button-5 {
++			label = "JoyRight";
++			linux,code = <KEY_RIGHT>;
++			gpios = <&gpiok 5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
++		};
++	};
++};
++
++&clk_hse {
++	clock-frequency = <25000000>;
++};
++
++&mac {
++	status = "disabled";
++	pinctrl-0 = <&ethernet_rmii>;
++	pinctrl-names = "default";
++	phy-mode = "rmii";
++	phy-handle = <&phy0>;
++
++	mdio0 {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		compatible = "snps,dwmac-mdio";
++		phy0: ethernet-phy@0 {
++			reg = <0>;
++		};
++	};
++};
++
++&sdmmc1 {
++	pinctrl-names = "default", "opendrain", "sleep";
++	pinctrl-0 = <&sdmmc1_b4_pins_a>;
++	pinctrl-1 = <&sdmmc1_b4_od_pins_a>;
++	pinctrl-2 = <&sdmmc1_b4_sleep_pins_a>;
++	cd-gpios = <&gpioi 8 GPIO_ACTIVE_LOW>;
++	broken-cd;
++	st,neg-edge;
++	bus-width = <4>;
++	vmmc-supply = <&v3v3>;
++	status = "okay";
++};
++
++&usart1 {
++	pinctrl-0 = <&usart1_pins_b>;
++	pinctrl-names = "default";
++	status = "okay";
++};
++
++&uart8 {
++	pinctrl-0 = <&uart8_pins_a>;
++	pinctrl-names = "default";
++	status = "okay";
++};
+-- 
+2.43.0
+
 
