@@ -4,85 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50DC2C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 21:10:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67252C369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 23:10:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=irNnhpUPyAbG1p4UJfyash5hUpMHlzekZFDQuw5FsnE=; b=llWPQNNDkMb8dc7v2QqnizDRLf
-	1hxBWVQPGdaIuZkbHB6rSvnonnBMLklWFY6h7Et6VyO243EbVyWl1J19pqJpL47REhgLXd7Wlzfck
-	DfAGQZOkoj6hCirYk9wdg95Lit+UMAt3TB69Klo5vj8xEtRQj+koPScjuLUnFTuxAtqf7jY9lNmFK
-	spVQvNTotftU/PyDbhVCr1qacOCMDafGU9BxjbrEL9qaysTzKzJMumcFqP23oHXSILz0yU+vhzm/W
-	QN+i4U9FVgwzBwuqnbwo7/B6y2ZPOzPp8WuTLv74+ve0AtR+Su7UysmbDBgBUZwrikreFWoXk/QYb
-	VKN1eXYQ==;
+	bh=Tw4mMdPKkZhiB9WCuXB6jhjMwgKF3WY9lTBU3wZMXiE=; b=GOR8JuZnIyzPMUEkA1c2PAnl+/
+	J/6stK/wRblkjIWKbnZJus5O5WwTdyUi7yTdjims8zm7Pb7VLFsDdRN3s1oOuCes5kHTwPLvp1MV/
+	7H2ZSnXA8XllCbQCSeED7+wGr1mUQcBhcTLgFVwsuuWCHM8pG1KS4KXFvRhSyEapLmuINlmgP4tYO
+	jt2tt+5dEqO2Cmidk2+5JEHwhyaTgMS/zijOiBpsBpz7Rf5dMaKM55ZVJp4rkW03L5yQDQYFa3741
+	jkUmahaeLbYXxoVcpExStvbE4l9k++ZFIIvfsrCaZyaKQdb92DnN6IrPoslA4w28E3PA38/ex94nP
+	duAD1hgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u99Gz-000000040X0-0bto;
-	Sun, 27 Apr 2025 21:10:49 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1u9B8C-0000000461z-3F17;
+	Sun, 27 Apr 2025 23:09:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u99F2-000000040Q0-1NBh;
-	Sun, 27 Apr 2025 21:08:49 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-227a8cdd241so56752055ad.3;
-        Sun, 27 Apr 2025 14:08:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1745788127; x=1746392927; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=irNnhpUPyAbG1p4UJfyash5hUpMHlzekZFDQuw5FsnE=;
-        b=j8x1/nuh3SdJad/WpK6y6aRPf+utAoThdc6acOQWJfqmMgAsd5Xtn+qYQ52b2cBKbc
-         GasRKjxN3aR9KWPDX+pmqfkgK9lDQRCbq6NdYD2RI1zO9pfERZMt95AK1Lsxt3X95duF
-         kBs7qsDyUW6bLPwTRVhnHaxaBWZzSAg8nwm81+PaB0fiQ99Mrs+O7B+7w4X4ubXG8BBe
-         dh2MsEa48R4VAPxw7s06oOxRtehBSQDogcyL7Pk2EkJ/RmYcFLeHlhSLnXGVBB4LiCn9
-         crllqIopFRz5nxRXCPu4QrRixJAg4vH/iEw7dPMVywwelbMV+rHXujL8mCkmZFkygCnL
-         yX+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745788127; x=1746392927;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=irNnhpUPyAbG1p4UJfyash5hUpMHlzekZFDQuw5FsnE=;
-        b=fLkzbN3lK0xJsYsEsyRwpCEIHAvw52czSzsEBG392uN+3eI28vjWQHXrbca2GCFdzb
-         9E7VtWK8PpgVqhDl8zuM1AizdOPz4T80plVw/ezwwKer1+YgnXobe62f74QtdRZ6mjxG
-         JfLYuylusipNdVMMrwA2UsQ3xrmw1sCNe39wvW44vCECPfsQMN7mVmb5Y8dMpiHafTBq
-         s5XG7KjTnUmxcyKgfdd8/u+4XSum99m/sGpoN0DVdnIgZesqANcYM3P1McMLWOwAcjtV
-         V5JwDnhw6cB2ByiqlMnRuA++ut20IW97qB0N/RdqFIRX44RXSLM2WrjF+2x7OiD31Gpx
-         LceA==
-X-Forwarded-Encrypted: i=1; AJvYcCVBGWlcYgj/IFo4JZ7hkeP1v9JGdCOkhREM3WjzGbZF6M9nl2aLqhz1n93ejpltqIfluB5rdDVW+IfFkypNt8zWEQ==@lists.infradead.org, AJvYcCXWkmH128tfyowefFsQ+PM+CVRNnDuUpeW7DzYEblwHpqT3cqUhdZERI/v0Q0K261xpwZI+e9Jw41ZepEOU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwROGdrqwqqhaV6UkS+9OCC4sKqyp0os6Jf6763C6Dci09I9jto
-	4sBZhH+ZyMSKEZmaAgTYX+8JNBFVu6KT190fT3oJOb35YiqwHXoLhxsef4vgximb85yPzwELE19
-	Ut1by6155ZDohCZWfE/TjtGDUbs1cDlK7
-X-Gm-Gg: ASbGncvyIqRA4yhv/arTfoj706dRFlYdlYgCi2iObQtrurkXDVnqEQoU6nQ7KaHjn/C
-	o9vpAI1WITZn4Lbh1ysx3V7MHgbbRXrBKb5Ubvj1J2KB6rIWcz0o473DpwSaF3C1JGOJDPFsGCC
-	qQnhtoTlAo3HCmjjISJZXJdYumhBWBdxhhQmCO
-X-Google-Smtp-Source: AGHT+IGocl2yWOvr1gre0imG54JUGmymGatHDiDz76Em4CMmar3dxa70AKrZPaM7gcVEnNhp2xdwjHK7XXGAPUa+e2E=
-X-Received: by 2002:a17:903:1986:b0:224:1074:63a0 with SMTP id
- d9443c01a7336-22dbf6218c2mr150456335ad.34.1745788126873; Sun, 27 Apr 2025
- 14:08:46 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250425203118.1444481-1-da@libre.computer>
-In-Reply-To: <20250425203118.1444481-1-da@libre.computer>
-From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Sun, 27 Apr 2025 23:08:36 +0200
-X-Gm-Features: ATxdqUH4ngC-BX3cBpEPOaM7UIKT2zGBTpdyLjm5NqfvqkKNl138-a_D7ZyE064
-Message-ID: <CAFBinCCUQizs=XWq7knm-4=3=hzPDNee9RZj9LDD2Mi6DHYBrQ@mail.gmail.com>
-Subject: Re: [PATCH] arm64: dts: amlogic: gxl: set i2c bias to pull-up
-To: Da Xue <da@libre.computer>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Xianwei Zhao <xianwei.zhao@amlogic.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250427_140848_407138_2E062FD0 
-X-CRM114-Status: UNSURE (   8.82  )
-X-CRM114-Notice: Please train this message.
+	id 1u9B6D-000000045sv-1tUh
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 27 Apr 2025 23:07:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id EBE4A61126;
+	Sun, 27 Apr 2025 23:07:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C04DC4CEE3;
+	Sun, 27 Apr 2025 23:07:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1745795267;
+	bh=tT1ToXBHwKrWkNCx4aAzO7gnt63zYs1WN6coWvYxIAs=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=lmomKp6H+Z5yPVT9yORPYvCT+AEUZgKZQEVE44c1cE1vaJTgybO2JT9SQS63XTBBU
+	 a05feXjoXxpbHDOtXEZUYWOLwzLO38mBm6eXCBLgKyy7IlhOH1vgkmG1QEC3/DPMAd
+	 EQ902A6TjoVIMR4JUKWFjVKfO7GfT5r9XgeZ0obQ=
+Date: Sun, 27 Apr 2025 16:07:46 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: David Woodhouse <dwmw2@infradead.org>
+Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Mike Rapoport
+ <rppt@kernel.org>, "Sauerwein, David" <dssauerw@amazon.de>, Anshuman
+ Khandual <anshuman.khandual@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, David Hildenbrand
+ <david@redhat.com>, Marc Zyngier <maz@kernel.org>, Mark Rutland
+ <mark.rutland@arm.com>, Mike Rapoport <rppt@linux.ibm.com>, Will Deacon
+ <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, Ruihan Li
+ <lrh2000@pku.edu.cn>
+Subject: Re: [PATCH v4 7/7] mm/mm_init: Use for_each_valid_pfn() in
+ init_unavailable_range()
+Message-Id: <20250427160746.13040000164752386b936be8@linux-foundation.org>
+In-Reply-To: <ac77c07ecda8805a5f942f5c71b3a2ef0f9183ce.camel@infradead.org>
+References: <20250423133821.789413-1-dwmw2@infradead.org>
+	<20250423133821.789413-8-dwmw2@infradead.org>
+	<e772cf66-c661-422d-911a-bc13ba4d59fb@lucifer.local>
+	<20250425163813.58b72a3aa2d3ebbd96d1929e@linux-foundation.org>
+	<ac77c07ecda8805a5f942f5c71b3a2ef0f9183ce.camel@infradead.org>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,23 +78,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 25, 2025 at 10:31=E2=80=AFPM Da Xue <da@libre.computer> wrote:
->
-> GXL I2C pins need internal pull-up enabled to operate if there
-> is no external resistor. The pull-up is 60kohms per the datasheet.
->
-> We should set the bias when i2c pinmux is enabled.
->
-> Signed-off-by: Da Xue <da@libre.computer>
-Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+On Sat, 26 Apr 2025 09:30:50 +0100 David Woodhouse <dwmw2@infradead.org> wrote:
 
-+Xianwei Zhao (who has recently upstreamed Amlogic A4 pinctrl support).
-I suspect we need a similar change for all other (Meson8, Meson8b,
-GXBB, G12A, ...) SoCs as well.
-Can you confirm this? And if not, why does only GXL need this special treat=
-ment?
+> On Fri, 2025-04-25 at 16:38 -0700, Andrew Morton wrote:
+> > On Fri, 25 Apr 2025 17:11:10 +0100 Lorenzo Stoakes <lorenzo.stoakes@oracle.com> wrote:
+> > 
+> > > Andrew - can we drop this from mm-new? It's breaking it.
+> > 
+> > I almost did, but David seems to have a fix.
+> > 
+> > --- a/include/linux/mmzone.h~mm-mm_init-use-for_each_valid_pfn-in-init_unavailable_range-fix
+> 
+> The symptoms only manifested when it got used in
+> init_unavailable_range() but that's actually a fix for the sparsemem
+> implementation of for_each_valid_pfn(), as David H surmised.
+> 
+> Please could the fix be folded into
+> mm-implement-for_each_valid_pfn-for-config_sparsemem.patch ?
 
+yep, that's why I named the patch file
+"mm-mm_init-use-for_each_valid_pfn-in-init_unavailable_range-fix.patch".
+To tell myself to fold it into
+mm-mm_init-use-for_each_valid_pfn-in-init_unavailable_range.patch.
 
-Best regards,
-Martin
+> This is what it should look like with the fix:
+> https://git.infradead.org/?p=users/dwmw2/linux.git;a=commitdiff;h=55bebbb093
+
+We're good.
+
+> If you want to keep the fix separate, then that's the patch that it
+> fixes. Do you want a commit message? I'll certainly give you a proper
+> SoB:
+> 
+> Signed-off-by: David Woodhouse <dwmw@amazon.co.uk>
+
+I already unauthorisedly added that so I don't get grumpygrams from
+Stephen ;)
+
+> Happy to resend the fixed series if it helps; it looks like you've
+> already basically sorted it though?
+
+THanks, it doesn't appear necessary at this time.
 
