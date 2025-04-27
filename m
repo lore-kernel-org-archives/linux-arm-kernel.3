@@ -4,96 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FEABC369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 19:31:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78F9BC369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 20:45:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZNcCWpWkCjlURmIOiT/Xyzz/qjRhgBURVuEZyl4hvPc=; b=Xdg9l/6zh6l+V0CZ8GO9RgBqS1
-	d6FvJG2J4UkdsBjEUKK3+CeLEcBahRSfqmu9zGMwWOON+Xxd3OoqdvbxJtFdouqIf+VOT82PZoCjI
-	qzObotY4MpImkZIVcqI0cvQ2s2C3nEsHiER4lRtEFzDuk3cbI1gTDDMDAmtGJRhLLDDXuqEbkhfD0
-	HB5yiourBOl3Tqjen4JVOcQGX4eYBJ4dyxJdx7sQ6UuIT4nWgyS1EgZT9d5i7kCrermaCy4wC4RAy
-	jUQ3uHG3oNOIibVd+jeKnxekMrCdqBnYq+7eteQYF14q8SWc3W3UYZ9FGscfX3KQAeGIN7MSItG/i
-	scd+zuMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Tl7OXQaIr8vYn2l9EMuLZFrZfGWU84ju/nbYhGZC7Uc=; b=QJEDIX2NOnmY1EV+9jPsXE6olT
+	fVESxuocUZTxeapix+xUVvSobtMdj0oWSv5NYwGLvdGaRu9aIsKngGiMNX4CRN5J+u8DsFgX1GLLH
+	0MbHKep7wMkDLCh9DwwW/hAD8GW6Rz5KjV75TdEBoZYicU5BWguhj/xRkkGlyp2x7IQsaV3p8LymE
+	PQU+vPXZgglzXAH+Z14IOE+Fx7k9wMEKGa63G8krCqF/3NhtV8ZFDNlDsUtM+hAl3qAct+iyMdm2b
+	jJ0NaUBhZYH+cKKMET2DTPbWCQu/HMoUVaoBcQ/7ZgkdckqfFUBZr2mFL6HT6vWvN89uSFDp/i01q
+	TWGtXFlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u97ig-00000003vwW-0Fle;
-	Sun, 27 Apr 2025 19:31:18 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1u98s8-00000003zKT-2EdO;
+	Sun, 27 Apr 2025 20:45:08 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u97cx-00000003vPv-0fSb
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Apr 2025 19:25:24 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5f6f3f2af91so487054a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Apr 2025 12:25:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745781922; x=1746386722; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZNcCWpWkCjlURmIOiT/Xyzz/qjRhgBURVuEZyl4hvPc=;
-        b=pQg0Xaq1o2AyrrwB8SY2jl7Tmngw73UPqpp/hdo4+nkkBIfI9jQrW4PgYm4P3AdUzi
-         JMXq8ww0YIbNYTsEvSdZl1qXIjlKJLSc5ML90rq/OZAztJvCPb79cdnMFKKq45WUGABv
-         T/qjVtAeGxRhTw/TVt0fFTt12ASg6rBPIYVhgrmTGcHRR4jWWFNZqblcXvFQboDcOs3A
-         kW0pFLpTrI3Zbv0GVy/Y8ygjYpNzY8gZcx6Irz/Vk838Nqp18uQHG63SjKj7G+Tyg084
-         o7rRp2Ox6D8XwmNRXawLv997zaZej7kth+z2n8PaglnOi/J3ZTBWQRu35ApKIya22e8v
-         Ch9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745781922; x=1746386722;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZNcCWpWkCjlURmIOiT/Xyzz/qjRhgBURVuEZyl4hvPc=;
-        b=FuIwFkj6j6wv8AKVkenMSZ47sQdiEwS0g9mluCRmizbi7qVtvM63VNu6i1QS48P5tl
-         V9ZGAIOCK40a30EwqxeKQIiLveoP/NBKdavK569eLUNmus8WAt6/VoPOEBxZOkqLWSPG
-         w0WbDfJdg7F/jTgF5QjsONDVFINMeL7NuPwUoDHML5BlBpzY7HDuXZ4+SGI7YV2vuLi/
-         auYEGemDTRGDGgZ3hZPZcqtTt5GPUXhm/K2qSvxNy9IT4D8lF3sLhtk1ck25uR2ihdBq
-         k2zaDUp0bvu8ao2VIWi7m8/lWkBxyx1gPhlvk+U6KhRfXIsADlr9Az1EwDuSsuCBH30W
-         dXSg==
-X-Forwarded-Encrypted: i=1; AJvYcCUDf49ygAl2s8s2Zu3WfI3G+n6TjnZ2lwTpmdhTy31Ggqu3V31xr7z7lqDjKSTywuiIoRRm4ZtJu/2irywsXRBp@lists.infradead.org
-X-Gm-Message-State: AOJu0YycQwOQykCgozGk+x+pWIP3pZOLEP3eLkrYshYGnhEYvwGuAnSF
-	IShTTZ0X+4Cwc75iM4P/Sv1iwkDlxkXgy/ACpVaMhmt7C/1OkKDq/jeWFbFthPs=
-X-Gm-Gg: ASbGncu4BgjvB/cEQQB11i+jewpyymQH1WOMmScfyaRrU6XcdHVU6Fw3cjGbSnL331s
-	KzzWJ6dokmaCJNAziPlUgAejGLrsrvwh+XmADO30TkAXf4DfS/ySs+NEOAtoVmRENYndMXFX1RB
-	wpen1UqbvGBgqUpTdGg8JqccbncP4dNaXJ1UzhWjrrCHKPW7rfKC5ckzIJz+EHgaHrSaejs3ykk
-	udvShm1XGvBuPd6zVNPFzdevIIrAVYn9Lw7HOK/AvwmvJs4+TUmQWjN+nY2tyz3PlQLJLG4GcTy
-	KcgyK7pvDZGnGJ4C6uglOEFQ1zhKNI+L9s+kRcJtj4I9c0bws36ap9X58EA=
-X-Google-Smtp-Source: AGHT+IHbfxdly2O1fFQ/MEQQRx0A3uENOeLc1JJa8cSN//BYdEU12hN+C6YPmm2uTekVvJeuxnfO7w==
-X-Received: by 2002:a05:6402:2353:b0:5e0:a4ae:d486 with SMTP id 4fb4d7f45d1cf-5f72352ae9cmr2474742a12.7.1745781921729;
-        Sun, 27 Apr 2025 12:25:21 -0700 (PDT)
-Received: from [192.168.1.28] ([178.197.207.88])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f7016f66b7sm4650196a12.46.2025.04.27.12.25.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 27 Apr 2025 12:25:21 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Sunyeal Hong <sunyeal.hong@samsung.com>, 
- Shin Son <shin.son@samsung.com>
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20250423044153.1288077-4-shin.son@samsung.com>
-References: <20250423044153.1288077-1-shin.son@samsung.com>
- <CGME20250423044159epcas2p4a2e844c6ab502d7d5e6e6c18ecc7ee97@epcas2p4.samsung.com>
- <20250423044153.1288077-4-shin.son@samsung.com>
-Subject: Re: (subset) [PATCH v2 3/3] arm64: dts: exynosautov920: add cpucl0
- clock DT nodes
-Message-Id: <174578192026.47282.1370567375954176035.b4-ty@linaro.org>
-Date: Sun, 27 Apr 2025 21:25:20 +0200
+	id 1u98qD-00000003zEN-1PFt;
+	Sun, 27 Apr 2025 20:43:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=Tl7OXQaIr8vYn2l9EMuLZFrZfGWU84ju/nbYhGZC7Uc=; b=yKerti9/SoymfMpSROO6drskcG
+	C/sLpxGNxhLd6RyafH0eaGQGF8O6BuKDTasNE0Kf2PJz/VXeaHYkhqUHf3pmh9NUNXQNdvHYTrkUD
+	e68kxmsk9D/W0n+gNaYaPETvSWBD4YvjVOO+D0KeDlyIQfX4tL9YDjPv+Jd5uTc24Nzw=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1u98pi-00AlfG-42; Sun, 27 Apr 2025 22:42:38 +0200
+Date: Sun, 27 Apr 2025 22:42:38 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Chaoyi Chen <kernel@airkyi.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Jianfeng Liu <liujianfeng1994@gmail.com>,
+	Dragan Simic <dsimic@manjaro.org>,
+	Jimmy Hon <honyuenkwun@gmail.com>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	FUKAUMI Naoki <naoki@radxa.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Alexey Charkov <alchark@gmail.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Add rk3399-evb-ind board
+Message-ID: <6291f6b8-75d3-4243-9935-9b64450e2b7f@lunn.ch>
+References: <20250427094211.246-1-kernel@airkyi.com>
+ <20250427094211.246-3-kernel@airkyi.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250427094211.246-3-kernel@airkyi.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250427_122523_201927_5DEE4FF9 
-X-CRM114-Status: UNSURE (   6.53  )
+X-CRM114-CacheID: sfid-20250427_134309_374086_ED72E6EA 
+X-CRM114-Status: UNSURE (   6.18  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -109,19 +82,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> +&gmac {
+> +	assigned-clocks = <&cru SCLK_RMII_SRC>;
+> +	assigned-clock-parents = <&clkin_gmac>;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&rgmii_pins>;
+> +	clock_in_out = "input";
+> +	phy-supply = <&vcc_phy>;
+> +	phy-mode = "rgmii";
 
-On Wed, 23 Apr 2025 13:41:53 +0900, Shin Son wrote:
-> Add cmu_cpucl0 clocks for switch, cluster, and dbg domains respectively.
-> 
-> 
+Does the PCB have extra long clock lines to implement the RGMII 2ns
+delay?
 
-Applied, thanks!
-
-[3/3] arm64: dts: exynosautov920: add cpucl0 clock DT nodes
-      https://git.kernel.org/krzk/linux/c/2a4067c89e4137c477ca6f367e65ace0f2132922
-
-Best regards,
--- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
+	Andrew
 
