@@ -4,113 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 308BCC369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 14:18:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A53AEC369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 14:27:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MIdt4B/6I9CULlR6XbbjrilJaaHVCAilK44z1GMyFEw=; b=yspI78tnWp0yQq+ollo4yx8ZX7
-	kaYtZlaBb6Ue8DNIkxEwhofsa2gaiXdSAt1uNe8marRR4LNHHY1nZDWIP+qARS5HcFWL3E12fmBb4
-	OtDzMj/sEE+xdxIN20BHqB+tloR7qe6gHNov5UaDFDczgezknSKnEUrlAfbsClGItcZ8racexk1e8
-	GbZMXpHHb/cvr/6RIIkcN9hvtgtGY00xYyhOzz3KfP+m+N8Cxabqo/DJMVMjyx1bmeJzWiGM9kQW/
-	1ROtlvAu0WBWPxPsOTDRc4JrH5XQuIN1Pt+GoQSLdphqQzLZDaHRB1q22rZ/owzVYox+s4t/RNFyI
-	uJKQ+XVQ==;
+	bh=l+/h+HUw5Fa9i+auYLXdmFTVTqLMJ8IF6VQixN6G/8c=; b=Brfa2IDExVJGF4WXUCKdi1YnMI
+	EAnR3IZoUu8Y6sufT3uynt6RbrxEWuEboiponlGpKnsY+AxzTlkrZKJ+QqU0hgU8G+bAQAvYl1cmy
+	qhqY+Ta5NtVyVLdM+D5hGTqiBm6seGqMGt2aAiP5weDL57DhjdTpcdrRgu+tTTC2+7CG1OLCmigtc
+	B06VrEujlsKxpdvBA0pCYE99VksYkv1+ZAuG7F0pu5Gu1Sn/1fbSjthEqByNwbGYjtgC7foHcWylM
+	I1tUczMxEwdWsF42gjoxGccrLM/IC9CKskEjZnYl80LXlg2hJsqpbGgvd5qQ7dapz5keQ/SFwOiL1
+	QliFQt7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u92pp-00000003eLB-2mLA;
-	Sun, 27 Apr 2025 14:18:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u92yQ-00000003f1G-3kaX;
+	Sun, 27 Apr 2025 14:27:14 +0000
+Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u92nq-00000003eAZ-0QCy
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sun, 27 Apr 2025 14:16:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Message-ID:
-	Subject:To:From:Date:Sender:Reply-To:Cc:Content-Transfer-Encoding:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=MIdt4B/6I9CULlR6XbbjrilJaaHVCAilK44z1GMyFEw=; b=miMBnxFpagupH23M7rSVhHCaqP
-	snExh5DfQJxI/K5wBWuwknylLIOmdp/Os3UtpXrAWR37aufievxUT2GDL2qbTDN1/+B7wu4OVj2vU
-	Z89Y3kAM463RGODaq06WoMoBqF7yHUwu/xytgwuSYxkjUzD4YbpaZqesx1bC3KGOkxs10EY07h6/L
-	7yAgsLd3yayvXkc4TdJERbbnopmTSwuOELACxzxSmJ6/DVmei/Z3nlZOKnOdIviTsoVGvjf+GEjVd
-	fwGsLgrrfkFch6CHh5rYKLOmdNrVLmF21R66sLB8zPf6BqPKfD4Lnlgdn4dHu3DG+LwhbwdXQd76T
-	ZZBeQPUQ==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u92nk-0000000CTcs-2rHS
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Apr 2025 14:16:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1745763348;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type;
-	bh=MIdt4B/6I9CULlR6XbbjrilJaaHVCAilK44z1GMyFEw=;
-	b=g44TN8H5tK2TQIzuF9LghKTinCz3pdX11wQ8JHLJ3l5/YAUSowAR85k0pIjSMb/G3gGFfe
-	2UW0r65U7ahkaQuMhr8MeJ90zpTQUV4j/M4MpfHsbvY1DLKb92Um9xTRbRZh+SaOskj1qz
-	p32TZXZRbXW9A6qKseZWpVx811hTPDk=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1745763356;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type;
-	bh=MIdt4B/6I9CULlR6XbbjrilJaaHVCAilK44z1GMyFEw=;
-	b=Y4nlO1YajcMwvdK46QCgNBSociHMULuT6u1/yCBch7gn9vWlayne19Gl+oVYqDw+CrGZz/
-	6RrJ4QAj+g4ShLe9V8LVzP/a/+kdR9QKqXnZfPWGwVaTmle/0pldLWTfEu005kXTOpKpP9
-	PQ1+SRAjgmZ9lOc9waiMojEV5DfWC8Q=
-Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com
- [209.85.215.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-404-3Yv1N4TCOuilOA1CFITVoQ-1; Sun, 27 Apr 2025 10:15:46 -0400
-X-MC-Unique: 3Yv1N4TCOuilOA1CFITVoQ-1
-X-Mimecast-MFC-AGG-ID: 3Yv1N4TCOuilOA1CFITVoQ_1745763345
-Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-b1442e039eeso2267719a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Apr 2025 07:15:46 -0700 (PDT)
+	id 1u92wU-00000003eh5-1uxG;
+	Sun, 27 Apr 2025 14:25:15 +0000
+Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-30bfed67e08so41393871fa.2;
+        Sun, 27 Apr 2025 07:25:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1745763912; x=1746368712; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=l+/h+HUw5Fa9i+auYLXdmFTVTqLMJ8IF6VQixN6G/8c=;
+        b=jsYcWkkbCZEwiUHeA9vUCMZr0NlcnJE4huDeSR4mShYIQk57G3Iy+3vUL4TJlInGzm
+         a0VCbmoxouiv2tg3Gr4TAFJ3cgPecipywTvrzIx1O6bHJjfhNusAHJSEmwGxUG6QP6+R
+         R5WuAu2B6GM5jkACnA8PbuxD46MiBzHx+3Fr/T5SP0NetPOq3MkJI13nRVfc7HOQko7Z
+         RY722rlwmH4Usruy1vL7PSNCPQUEjY0Um81eiDA+dbSIqF0EVpvjdF1T55C9QN6a5qLR
+         G7aj0mv2UdyMBWdsn4iNZq4X98Fwf/BN1hQmhBD3D10G6mtYkiWH7EaHNyn8CuDogWe4
+         qXqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745763345; x=1746368145;
-        h=content-disposition:mime-version:message-id:subject:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=MIdt4B/6I9CULlR6XbbjrilJaaHVCAilK44z1GMyFEw=;
-        b=fRSoukiA1fjGh/8BCGbWT5NJwWKMlBXHYB4dc/fT+ibJo7nXk8O9WYg8/y4B3C5Ds9
-         pAIz2r/gWBDtZkt6zbJFNn+rIM2vVDGa8rcb1lIVxhB5fIvMhF2RynHPIIW7DUg6h6kd
-         2GOHo/Fo1J7BU1e8pg10o55WxJlilAHK1EbuZKQsPkW/1/km415DASikiPdQ1sXWNBgv
-         zyUoiken8G3S5m7h8slkVtsrO8NdSXFwQAQLPMkuqHn7Cu6rdV1Ku7VgpAX/gXC+2gQv
-         FuLJ5DsljREUpGPSU9KD9JKp54Y9jzb9E3JygoAhPHath9Bf8gqe5wgUyG8NGKcbolGa
-         sVeQ==
-X-Gm-Message-State: AOJu0YxkHNLRo2UL9WS3YXSlLdFzHQXauubF6NzWk6GbmInBxIVhjFNR
-	S64nN6eH8VlkzD/CEdfRvo4NSpJU1onELSxB4E0S/ljKhc3IEDGXJeMQkAveNz/0epm0sAh6I5m
-	YQR8O1udmnLk9OvO67XVe1N+ePeiEmlcWHoLGzfBGwuQbhXVFpKG+iA24LqrPxGnvtzdEZJJtKc
-	feNpVK9l7JYCDW2npfVZE+U9r1J8iaBIuQszw2O2NXjEQtZYT87HID
-X-Gm-Gg: ASbGncsU/mCvfJbSTxNZvg5Cxj+DEnID9Vu+TyiGc0+4R0U4HYVx/dKXoKf9cd2wy1/
-	LgzhpLSuAwUn29eayL8YhRTmZZ2CYIJyu6jdAOITe2xseZonea8Nw8CBTXG/KBw6Si3QAc5htLs
-	BU2xo2uDxc/XgT9QL+7QPSQCjIl2priXPeMwpMiM0ZGoILk5C4SzB/EsdyksMySX8m5IH8PtgzX
-	dv5GGE/YmIfbhWaBiBR0zH9F5JDE+bPOLjAFv2h69I7GCN+6UxS7EymqhKt7I8J+Al4ib9HUVro
-	8BygA/87h7gtReRYHQWtZ4FIKwk/LcvZtxyD7R5j8xz31tGqcSCy
-X-Received: by 2002:a17:903:1b6d:b0:220:e338:8d2 with SMTP id d9443c01a7336-22dbf5ea7femr117031425ad.21.1745763345026;
-        Sun, 27 Apr 2025 07:15:45 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEM4cJhO0FRDxlg+HMR2gflqzryby41iCWr3xFEFDXotv09J1a/HMVKJVolEsbKtUcvXkDfUw==
-X-Received: by 2002:a17:903:1b6d:b0:220:e338:8d2 with SMTP id d9443c01a7336-22dbf5ea7femr117031055ad.21.1745763344502;
-        Sun, 27 Apr 2025 07:15:44 -0700 (PDT)
-Received: from dell-per750-06-vm-08.rhts.eng.pek2.redhat.com ([209.132.188.88])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22db50e7a1dsm64773605ad.140.2025.04.27.07.15.43
-        for <linux-arm-kernel@lists.infradead.org>
+        d=1e100.net; s=20230601; t=1745763912; x=1746368712;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=l+/h+HUw5Fa9i+auYLXdmFTVTqLMJ8IF6VQixN6G/8c=;
+        b=Yek1o99HWfMtnspTeg5Db76MpCpc/vdmfa7sHEFs42O7W3ugHZeTtYVfYmRzERodnD
+         JvSX6iQLGIpda70zwnm7WuAVVgI0uZqtLfV2/MuMDani1i0oKYIH2onvxv4seXJBqYEq
+         y8t2PghT7oqQvSzHNb8ZbG1xFvTk3+wG6d1wu1PrzoNepjmGvh7QZZSuhOdsIsIevH8h
+         ax+x0UcRM5gVfMxCdxS3lzRwrgee6reNIgjZa25Ha2vEdK92K6jmO3/5P6Pg/oM4iEEK
+         Boq5mXZUZF9+qBlY7XkzP5Ghlk6U7ktSN23cGK4InQPkkUeed40yVj+EX+D4Qu27k7RG
+         Z+Rw==
+X-Forwarded-Encrypted: i=1; AJvYcCUrSEbevPQibGaapoaVVyD9KzSmawJNjRfr+0tsHw8MbK0J9Mq294w6hcGO2n+t/Wf9eytjP7V4hpe1XnU=@lists.infradead.org, AJvYcCWyGEat7yu2r2zgYmjFe/9GjN/mifcohUL62MrXyItd9Xe2wqC5xXbZItWB3uJBG1LVOTwBBiY1du3vRa3kh7/3@lists.infradead.org
+X-Gm-Message-State: AOJu0YxssJEHw3ogvjPgAstrWu2g/5JDoP11iVDP9k+BWnV+vclk4HQR
+	9+Up5ncWo5xEaVLI+QrKT5ELKEGmBBGqviJ6YsNWCQ091Fqc9ak=
+X-Gm-Gg: ASbGnctmdUYEO75z+qOG6jdt1R1SQkqjDXt98yhJk851rvLWTic13OymfZmvD58W1cq
+	4NMFjmBqLoTjPHEVXDyw4aEjiYcbd/6vQGHxWzaWSGN8lPWlQe045fKKycXDREIRjVR2Qr3jUdO
+	fJJrOQYx/XXdvY15spbYEF7oBAeqYve+AVozDtyJKeSJojJsy0FuivGNaIzEPJwxEFYhx+FWqxI
+	GI1JYT5HqDIjLB8Ek0gTK29mjPM5K5Z2W1qy/p9iAKkgO1OMR+h5+dadEXirtSpy6H62y+nfJZh
+	T7upx8S4w4cZpJQXtBcC23XY6ewOoAkeYVTmYxRVOdS6yswwfUjd427t
+X-Google-Smtp-Source: AGHT+IEZEKc9Vnf/efSmBJgLhw4tTfU2F09GmxdHClCejQ/XhLFf9brnK906waqbWQ74zPb6LP0ysg==
+X-Received: by 2002:a05:651c:158c:b0:30b:cd68:b68d with SMTP id 38308e7fff4ca-319dc02035cmr14537211fa.10.1745763911951;
+        Sun, 27 Apr 2025 07:25:11 -0700 (PDT)
+Received: from localhost.localdomain ([178.176.177.108])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-317cfb482b1sm17659191fa.29.2025.04.27.07.25.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 27 Apr 2025 07:15:44 -0700 (PDT)
-Date: Sun, 27 Apr 2025 22:15:40 +0800
-From: Zorro Lang <zlang@redhat.com>
-To: linux-arm-kernel@lists.infradead.org
-Subject: BUG: KASAN: global-out-of-bounds in is_midr_in_range_list+0x29c/0x2e0
-Message-ID: <20250427141540.yyh4lht6tzg2l4is@dell-per750-06-vm-08.rhts.eng.pek2.redhat.com>
+        Sun, 27 Apr 2025 07:25:11 -0700 (PDT)
+From: Aleksandr Shubin <privatesub2@gmail.com>
+To: linux-kernel@vger.kernel.org
+Cc: Aleksandr Shubin <privatesub2@gmail.com>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Cheo Fusi <fusibrandon13@gmail.com>,
+	linux-pwm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v12 0/3] Add support for Allwinner PWM on D1/T113s/R329 SoCs
+Date: Sun, 27 Apr 2025 17:24:52 +0300
+Message-Id: <20250427142500.151925-1-privatesub2@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: qFn3SrwVeCgr_zyOgv21wUTwJcBr59Jv1Gv2byz0tBc_1745763345
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250427_151612_968327_DE9FFBA0 
-X-CRM114-Status: UNSURE (   6.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250427_072514_496425_E8C9FF8E 
+X-CRM114-Status: GOOD (  11.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,91 +110,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+v2:
+ - fix dt-bindings
+ - fix a remark in the driver
 
-I'm from fstests@ maillist, my latest fstests [2] regression test on
-mainline linux v6.15-rc3+ (HEAD=f1a3944c860b0615d0513110d8cf62bb94adbb41)
-sometimes hit below KASAN bug [1] on aarch64 by running generic/650 [3].
-So report this issue to arm64 list to get review :)
+v3:
+ - fix dt-bindings
+ - fix sunxi-d1s-t113.dtsi
 
-Thanks,
-Zorro
+v4:
+ - fix a remark in the driver
 
+v5:
+ - dropped unused varibale in the driver
+ - fix dt-bindings
 
-[1]
-[16982.135841] run fstests generic/650 at 2025-04-26 15:57:03
-[16983.655106] evm: overlay not supported
-[16983.838316] psci: CPU114 killed (polled 0 ms)
-[16984.610264] psci: CPU32 killed (polled 0 ms)
-[16985.855711] psci: CPU19 killed (polled 0 ms)
-[16986.578909] psci: CPU48 killed (polled 0 ms)
-[16987.329376] psci: CPU1 killed (polled 0 ms)
-[16988.071610] psci: CPU0 killed (polled 0 ms)
-[16989.675527] XFS (sda5): Unmounting Filesystem 73595b5c-b0eb-4f47-9d60-41cba8eb626c
-[16989.894868] XFS (sda5): Mounting V5 Filesystem 73595b5c-b0eb-4f47-9d60-41cba8eb626c
-[16989.935608] XFS (sda5): Ending clean mount
-[16990.913789] psci: CPU98 killed (polled 0 ms)
-[16991.624018] psci: CPU94 killed (polled 0 ms)
-[16992.334849] ==================================================================
-[16992.334865] BUG: KASAN: global-out-of-bounds in is_midr_in_range_list+0x29c/0x2e0
-[16992.334888] Read of size 4 at addr ffffd4ca56f8fb18 by task swapper/94/0
+v6:
+ - add apb0 clock
 
-[16992.334905] CPU: 94 UID: 0 PID: 0 Comm: swapper/94 Kdump: loaded Tainted: G        W           6.15.0-rc3+ #1 PREEMPT(voluntary) 
-[16992.334922] Tainted: [W]=WARN
-[16992.334926] Hardware name: GIGABYTE R152-P31-00/MP32-AR1-00, BIOS F31n (SCP: 2.10.20220810) 09/30/2022
-[16992.334932] Call trace:
-[16992.334937]  show_stack+0x34/0x98 (C)
-[16992.334952]  dump_stack_lvl+0xa8/0xe8
-[16992.334965]  print_address_description.constprop.0+0x90/0x370
-[16992.334983]  print_report+0x108/0x1f8
-[16992.334996]  kasan_report+0x8c/0x1b0
-[16992.335007]  __asan_report_load4_noabort+0x20/0x30
-[16992.335019]  is_midr_in_range_list+0x29c/0x2e0
-[16992.335034]  spectre_bhb_loop_affected+0x28/0xa0
-[16992.335047]  is_spectre_bhb_affected+0x128/0x160
-[16992.335060]  verify_local_cpu_caps+0x140/0x358
-[16992.335070]  verify_local_cpu_capabilities+0x20/0x2a8
-[16992.335081]  check_local_cpu_capabilities+0x28/0x58
-[16992.335092]  secondary_start_kernel+0x80/0x180
-[16992.335104]  __secondary_switched+0xc0/0xc8
+v7:
+ - fix a remark in the driver
+ - add maintainer
 
-[16992.335120] The buggy address belongs to the variable:
-[16992.335124]  spectre_bhb_k132_list.10+0x18/0x40
+v8:
+ - fix compile driver for 6.8-rc
 
-[16992.335339] The buggy address belongs to the virtual mapping at
-                [ffffd4ca56f70000, ffffd4ca57df0000) created by:
-                paging_init+0x3b4/0x480
+v9:
+ - fix a remark in the driver
+ - fix dt-bindings
+ - rename apb0 -> apb
 
-[16992.335360] The buggy address belongs to the physical page:
-[16992.335366] page: refcount:1 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x8015ad8f
-[16992.335376] flags: 0x2fffff00002000(reserved|node=0|zone=2|lastcpupid=0xfffff)
-[16992.335392] raw: 002fffff00002000 fffffe1fc36b63c8 fffffe1fc36b63c8 0000000000000000
-[16992.335400] raw: 0000000000000000 0000000000000000 00000001ffffffff 0000000000000000
-[16992.335405] page dumped because: kasan: bad access detected
+v10:
+ - fix a remark in the driver
+ - fix compile driver for 6.12-rc2
 
-[16992.335412] Memory state around the buggy address:
-[16992.335417]  ffffd4ca56f8fa00: 00 00 00 00 00 00 00 00 00 00 00 00 00 04 f9 f9
-[16992.335424]  ffffd4ca56f8fa80: f9 f9 f9 f9 00 00 00 00 00 00 f9 f9 f9 f9 f9 f9
-[16992.335430] >ffffd4ca56f8fb00: 00 00 00 f9 f9 f9 f9 f9 00 00 00 f9 f9 f9 f9 f9
-[16992.335435]                             ^
-[16992.335440]  ffffd4ca56f8fb80: 00 00 00 00 00 00 00 00 00 00 00 00 00 04 f9 f9
-[16992.335446]  ffffd4ca56f8fc00: f9 f9 f9 f9 00 00 00 00 00 00 00 00 00 00 04 f9
-[16992.335451] ==================================================================
-[16992.335456] Disabling lock debugging due to kernel taint
-[16992.335464] CPU features: kernel page table isolation forced ON by kpti command line option
-[16992.335484] Detected PIPT I-cache on CPU94
-[16992.335628] GICv3: CPU94: found redistributor 270000 region 0:0x0000100100b00000
-[16992.335723] CPU94: Booted secondary processor 0x0000270000 [0x413fd0c1]
-[16993.795562] psci: CPU80 killed (polled 0 ms)
-[16995.515686] psci: CPU24 killed (polled 0 ms)
-[16996.794949] psci: CPU9 killed (polled 0 ms)
-[16997.494378] psci: CPU90 killed (polled 0 ms)
+v11:
+ - fix a remark in the driver
+ - fix compile driver for 6.14.0-rc2
 
+v12:
+ - fix a remark in the driver
+ - fix a remark in the dt-bindings
+ - check driver build on 6.15.0-rc3
 
-[2]
-https://git.kernel.org/pub/scm/fs/xfs/xfstests-dev.git/
+Aleksandr Shubin (3):
+  dt-bindings: pwm: Add binding for Allwinner D1/T113-S3/R329 PWM
+    controller
+  pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM support
+  riscv: dts: allwinner: d1: Add pwm node
 
-[3]
-https://git.kernel.org/pub/scm/fs/xfs/xfstests-dev.git/tree/tests/generic/650
+ .../bindings/pwm/allwinner,sun20i-pwm.yaml    |  84 ++++
+ .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |  12 +
+ drivers/pwm/Kconfig                           |  10 +
+ drivers/pwm/Makefile                          |   1 +
+ drivers/pwm/pwm-sun20i.c                      | 379 ++++++++++++++++++
+ 5 files changed, 486 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
+ create mode 100644 drivers/pwm/pwm-sun20i.c
+
+-- 
+2.25.1
 
 
