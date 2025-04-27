@@ -4,78 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0F4CC369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 08:46:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B9F9C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 09:00:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d9N/4QYyb5CyHXgCgw/9fZIPmkkQbrIVWQ0yYR+VQ+o=; b=VRrGo9kdMyZPvvR1oGYVbhsIpQ
-	cA+8QW/4jMdxG+f5cQK52p3zTqPUYJr5LtYjO2cLFQqH6jtYH8U0BA5PjxvSEhNF/XDuGjpHSL+nr
-	5wYBDP0IRxAPUX3Kv3go3J/mvPi6fuItdODThD7oh7ijoQnKbg+rpS0mbQzvHkxvNkeeqftgLbGY5
-	Qq4sDC6Gu8dQb1lomy+rU0Dbzhtp+WIsrR2stBqu5I0KrbzP5N0Bd26pFR05ZUdyHNTM4iluqEjvk
-	hT0Y/FuB3D37JuQQ2FCdR7fYThEQ6R37p50RdfCYzIyGtv6JBx2/14hLKVcTyO/isx4gg1lq+6weu
-	Lvxh4mFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=noNFGyMHn+G12oU3fMyt85bZyrL7/rnSlw7jXK1JU9I=; b=EFOZsq9WgtR9pNK5SswGwVqqDd
+	pgCNton7UX18T4Wf0h840SyOSWKAdNaAxaMkbIgIrS1chWe1StG8Ru0kfOonM0uMiJPWYte+Y/zQ9
+	iIgWEK6IdsODtsa2GIioFQB8LyCr2nHAJcjAhz3ZvPjJ5C5HUa5JByAZ2u4LPVw31b/GTYKW/6YTh
+	GOWM0YrEIU4LrDGrkUlqtRTcrQH4727OMDlZyS2t8dN5vGChKQcd3iQXyxKDqM3sd45cqphm0ETQ1
+	TuTkHqhINv4jGd1JGBTCjJm199Od1pzGB5vGOWlwSC7vYcTk0GGkCBHF5ybtZonOYNIt1f7gh3J99
+	UUMwxOMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8xeO-00000003DQa-0KVU;
-	Sun, 27 Apr 2025 08:46:12 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1u8xsZ-00000003EhG-488g;
+	Sun, 27 Apr 2025 09:00:51 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8xXt-00000003CbH-28qC;
-	Sun, 27 Apr 2025 08:39:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1745743170; x=1777279170;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=5isVS8GkuL0a55DBwyh9ZXrtSqb336aZOmGprl0xtxQ=;
-  b=AZgCtSkeyh2xowPFj0nGT6jGWS4Kt90IcvyN+oQvZ427IQEE1gR7PUu4
-   0iMuE99ITIch3eouWnrRzSlakK6/wp6wGEM3xST3ioPfdetidAbWgqpwj
-   ZvE5hZDjrfnZLhC18BbZCuCiE8wmgosRGIczGP7ijfjPEfD5gass8XIwF
-   3J5H40RJdNVsaJ5rJeqbSZmik+vnVghG1fbC74KGaRAgwQrS2DBeCyiuC
-   cLKEixN262ybMmmpFlz7QNMMRyHBvwzsLOaA7ky9OULB9XyMsG/QdCHpK
-   1VF0s0zjg5lzr8dH5Zgn6ZftSyEkxm6HTzQOLKHOmcTGUg4sp7CiQBTkZ
-   A==;
-X-CSE-ConnectionGUID: MMLUAA1XSaKKGQXQLA4HBw==
-X-CSE-MsgGUID: m9u3HzemRqSLimYkRJBr+w==
-X-IronPort-AV: E=McAfee;i="6700,10204,11415"; a="58331928"
-X-IronPort-AV: E=Sophos;i="6.15,243,1739865600"; 
-   d="scan'208";a="58331928"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Apr 2025 01:39:29 -0700
-X-CSE-ConnectionGUID: xuRv65tAQaqvZvP8J7t7jg==
-X-CSE-MsgGUID: Fes50s8iR2eAyk9cHTtoaw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,243,1739865600"; 
-   d="scan'208";a="170470569"
-Received: from lkp-server01.sh.intel.com (HELO 050dd05385d1) ([10.239.97.150])
-  by orviesa001.jf.intel.com with ESMTP; 27 Apr 2025 01:39:27 -0700
-Received: from kbuild by 050dd05385d1 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1u8xXo-0006CR-0n;
-	Sun, 27 Apr 2025 08:39:24 +0000
-Date: Sun, 27 Apr 2025 16:38:57 +0800
-From: kernel test robot <lkp@intel.com>
-To: Jianhua Lin <jianhua.lin@mediatek.com>, mchehab@kernel.org,
-	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Project_Global_Chrome_Upstream_Group@mediatek.com,
-	Jianhua Lin <jianhua.lin@mediatek.com>
-Subject: Re: [PATCH 1/1] media: mediatek: jpeg: add compatible for MT8188 SoC
-Message-ID: <202504271611.pB3EgBfr-lkp@intel.com>
-References: <20250426081928.27351-1-jianhua.lin@mediatek.com>
+	id 1u8wgM-000000037Cp-3k7w
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 27 Apr 2025 07:44:12 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4394a0c65fcso36043745e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Apr 2025 00:44:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1745739849; x=1746344649; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=noNFGyMHn+G12oU3fMyt85bZyrL7/rnSlw7jXK1JU9I=;
+        b=p2ZrZSQI/G2EvFbR+6wdLZICFasXH4Yq8qaRl7TLR9HCY2DT5i96ZRcuPeuympf66G
+         mfCZKlPxkM/cwfVxfKLVfKxHUuTx8YY6B9hAWwYhYf872/7tTIvljWFUh392iOWZq2S8
+         3N6XLQOOpdibH0Udg8BQU3xXxfHFauzoVV/lg=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745739849; x=1746344649;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=noNFGyMHn+G12oU3fMyt85bZyrL7/rnSlw7jXK1JU9I=;
+        b=rUDqYnWHy1yP5PFNruvo2RSFq1Zq+hD1zf5/xPtLey5gHohbSWIz0Ga2isj1w1/Gds
+         dp2UJS2bxOFRHzZFoyb6mN3GJs4jUen8cumVcfBYzNcVZFYqmDvdXNPqoAwUAjOWoePn
+         AKlbknxSGP5+hvVNMFIcSTWjyU0F2/OJ2Q/QVxwOX7lSr6pEbj18kXj0kTviRrv3NDNZ
+         +0eO5VfZirI7Ls9h9ECO90Wc+ax824bbMoh4aKyHQzmjoyq+6SeUwrGNEToj1VUf+aqt
+         l2QTIsKio6fgcFhPjneUvpudwUPOJxeZaKvWWZnbraD/Nq98OwH5CZmWRTMzEyFwQZvs
+         Sscw==
+X-Forwarded-Encrypted: i=1; AJvYcCXhUDV3DWusStx6gm4/0ofxLx7oxITvtB8Ib0Qsig+dNYPDTnAUBltg2jFtYridbLCyuqZJAhVOHv53au5KlEa4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7fadksxv/bx+9sPANohRFtEHbPwTFjzrlddyri8V1dzQhNpXj
+	Odtc1B+qHDPXfTwqKqWHxn48qDfRkbH4cd9zhb+bjFm68doQfD1DsZ87z1ABW4M=
+X-Gm-Gg: ASbGncvDfZulK7lIJ+bMCCMPGbLxU27Z8RjCZH6cenA/UPGH11ImjEYDd3N42r4sZHY
+	3kbOiQJfE05V4NUEz9RqMOwVSZ10pNXjPTKNCH1HJEdhSGvsmHACIhb0usx6PmLmGOfx1QrCwSO
+	UNpf5i8eVvw935u7PKQf4oMsefAOwb5nmWa6Ct7K+LUrfbmwGAhcXcYB9RSVkb1/DlDlnjr6lso
+	XZYMqEmzaEKtQRHuxLirYx+GZ+F3wrZcW0k//O6qh05DcxQVt1rGHyRr9dqdyccnmGJphomCiw1
+	DfGF7jvkf7Yz2bhKHpcbsReDdbPTkV42dkBP8Q6yQ5//bjBBBFkJqIAGMw46FH11pDt3DVKxUhH
+	PzOkhg7ZBJQjDfct6
+X-Google-Smtp-Source: AGHT+IH4VnwQA0G2EjuoChB3GFw2EN00/9sNtBiR6r7qJ1qzu/LcPcmBTKtOPPgOwsnIXhXKwnF/jA==
+X-Received: by 2002:a05:600c:524a:b0:43c:fbe2:df3c with SMTP id 5b1f17b1804b1-440ab845dfemr33087695e9.26.1745739849570;
+        Sun, 27 Apr 2025 00:44:09 -0700 (PDT)
+Received: from dario-ThinkPad-T14s-Gen-2i.. ([2.196.40.180])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-440a52f8915sm87682015e9.7.2025.04.27.00.44.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 27 Apr 2025 00:44:09 -0700 (PDT)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-amarula@amarulasolutions.com,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH 1/8] ARM: dts: stm32h7-pinctrl: add _a suffix to u[s]art_pins phandles
+Date: Sun, 27 Apr 2025 09:43:20 +0200
+Message-ID: <20250427074404.3278732-2-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250427074404.3278732-1-dario.binacchi@amarulasolutions.com>
+References: <20250427074404.3278732-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250426081928.27351-1-jianhua.lin@mediatek.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250427_013929_594915_45CA7A94 
-X-CRM114-Status: GOOD (  11.35  )
+X-CRM114-CacheID: sfid-20250427_004410_928651_E32385B7 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,61 +103,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jianhua,
+Allow expanding possible configurations for the same peripheral,
+consistent with the scheme adopted in Linux.
 
-kernel test robot noticed the following build errors:
+Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+---
 
-[auto build test ERROR on linuxtv-media-pending/master]
-[also build test ERROR on linus/master v6.15-rc3 next-20250424]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+ arch/arm/boot/dts/st/stm32h7-pinctrl.dtsi  | 8 ++++----
+ arch/arm/boot/dts/st/stm32h743i-disco.dts  | 2 +-
+ arch/arm/boot/dts/st/stm32h743i-eval.dts   | 2 +-
+ arch/arm/boot/dts/st/stm32h750i-art-pi.dts | 6 +++---
+ 4 files changed, 9 insertions(+), 9 deletions(-)
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Jianhua-Lin/media-mediatek-jpeg-add-compatible-for-MT8188-SoC/20250426-162259
-base:   https://git.linuxtv.org/media-ci/media-pending.git master
-patch link:    https://lore.kernel.org/r/20250426081928.27351-1-jianhua.lin%40mediatek.com
-patch subject: [PATCH 1/1] media: mediatek: jpeg: add compatible for MT8188 SoC
-config: s390-allmodconfig (https://download.01.org/0day-ci/archive/20250427/202504271611.pB3EgBfr-lkp@intel.com/config)
-compiler: clang version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250427/202504271611.pB3EgBfr-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202504271611.pB3EgBfr-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c:1948:3: error: field designator 'support_34bit' does not refer to any field in type 'const struct mtk_jpeg_variant'
-    1948 |         .support_34bit = true,
-         |         ~^~~~~~~~~~~~~~~~~~~~
-   drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c:1964:3: error: field designator 'support_34bit' does not refer to any field in type 'const struct mtk_jpeg_variant'
-    1964 |         .support_34bit = true,
-         |         ~^~~~~~~~~~~~~~~~~~~~
-   2 errors generated.
-
-
-vim +1948 drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-
-  1934	
-  1935	static const struct mtk_jpeg_variant mtk8188_jpegenc_drvdata = {
-  1936		.clks = mtk_jpeg_clocks,
-  1937		.num_clks = ARRAY_SIZE(mtk_jpeg_clocks),
-  1938		.formats = mtk_jpeg_enc_formats,
-  1939		.num_formats = MTK_JPEG_ENC_NUM_FORMATS,
-  1940		.qops = &mtk_jpeg_enc_qops,
-  1941		.irq_handler = mtk_jpeg_enc_irq,
-  1942		.hw_reset = mtk_jpeg_enc_reset,
-  1943		.m2m_ops = &mtk_jpeg_enc_m2m_ops,
-  1944		.dev_name = "mtk-jpeg-enc",
-  1945		.ioctl_ops = &mtk_jpeg_enc_ioctl_ops,
-  1946		.out_q_default_fourcc = V4L2_PIX_FMT_YUYV,
-  1947		.cap_q_default_fourcc = V4L2_PIX_FMT_JPEG,
-> 1948		.support_34bit = true,
-  1949	};
-  1950	
-
+diff --git a/arch/arm/boot/dts/st/stm32h7-pinctrl.dtsi b/arch/arm/boot/dts/st/stm32h7-pinctrl.dtsi
+index 7f1d234e1024..ad00c1080a96 100644
+--- a/arch/arm/boot/dts/st/stm32h7-pinctrl.dtsi
++++ b/arch/arm/boot/dts/st/stm32h7-pinctrl.dtsi
+@@ -198,7 +198,7 @@ pins2 {
+ 		};
+ 	};
+ 
+-	uart4_pins: uart4-0 {
++	uart4_pins_a: uart4-0 {
+ 		pins1 {
+ 			pinmux = <STM32_PINMUX('A', 0, AF8)>; /* UART4_TX */
+ 			bias-disable;
+@@ -211,7 +211,7 @@ pins2 {
+ 		};
+ 	};
+ 
+-	usart1_pins: usart1-0 {
++	usart1_pins_a: usart1-0 {
+ 		pins1 {
+ 			pinmux = <STM32_PINMUX('B', 14, AF4)>; /* USART1_TX */
+ 			bias-disable;
+@@ -224,7 +224,7 @@ pins2 {
+ 		};
+ 	};
+ 
+-	usart2_pins: usart2-0 {
++	usart2_pins_a: usart2-0 {
+ 		pins1 {
+ 			pinmux = <STM32_PINMUX('D', 5, AF7)>; /* USART2_TX */
+ 			bias-disable;
+@@ -237,7 +237,7 @@ pins2 {
+ 		};
+ 	};
+ 
+-	usart3_pins: usart3-0 {
++	usart3_pins_a: usart3-0 {
+ 		pins1 {
+ 			pinmux = <STM32_PINMUX('B', 10, AF7)>, /* USART3_TX */
+ 				 <STM32_PINMUX('D', 12, AF7)>; /* USART3_RTS_DE */
+diff --git a/arch/arm/boot/dts/st/stm32h743i-disco.dts b/arch/arm/boot/dts/st/stm32h743i-disco.dts
+index 2b452883a708..8451a54a9a08 100644
+--- a/arch/arm/boot/dts/st/stm32h743i-disco.dts
++++ b/arch/arm/boot/dts/st/stm32h743i-disco.dts
+@@ -105,7 +105,7 @@ &sdmmc1 {
+ };
+ 
+ &usart2 {
+-	pinctrl-0 = <&usart2_pins>;
++	pinctrl-0 = <&usart2_pins_a>;
+ 	pinctrl-names = "default";
+ 	status = "okay";
+ };
+diff --git a/arch/arm/boot/dts/st/stm32h743i-eval.dts b/arch/arm/boot/dts/st/stm32h743i-eval.dts
+index 5c5d8059bdc7..4b0ced27b80e 100644
+--- a/arch/arm/boot/dts/st/stm32h743i-eval.dts
++++ b/arch/arm/boot/dts/st/stm32h743i-eval.dts
+@@ -145,7 +145,7 @@ &sdmmc1 {
+ };
+ 
+ &usart1 {
+-	pinctrl-0 = <&usart1_pins>;
++	pinctrl-0 = <&usart1_pins_a>;
+ 	pinctrl-names = "default";
+ 	status = "okay";
+ };
+diff --git a/arch/arm/boot/dts/st/stm32h750i-art-pi.dts b/arch/arm/boot/dts/st/stm32h750i-art-pi.dts
+index 44c307f8b09c..00d195d52a45 100644
+--- a/arch/arm/boot/dts/st/stm32h750i-art-pi.dts
++++ b/arch/arm/boot/dts/st/stm32h750i-art-pi.dts
+@@ -197,14 +197,14 @@ partition@0 {
+ };
+ 
+ &usart2 {
+-	pinctrl-0 = <&usart2_pins>;
++	pinctrl-0 = <&usart2_pins_a>;
+ 	pinctrl-names = "default";
+ 	status = "disabled";
+ };
+ 
+ &usart3 {
+ 	pinctrl-names = "default";
+-	pinctrl-0 = <&usart3_pins>;
++	pinctrl-0 = <&usart3_pins_a>;
+ 	dmas = <&dmamux1 45 0x400 0x05>,
+ 	       <&dmamux1 46 0x400 0x05>;
+ 	dma-names = "rx", "tx";
+@@ -221,7 +221,7 @@ bluetooth {
+ };
+ 
+ &uart4 {
+-	pinctrl-0 = <&uart4_pins>;
++	pinctrl-0 = <&uart4_pins_a>;
+ 	pinctrl-names = "default";
+ 	status = "okay";
+ };
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.43.0
+
 
