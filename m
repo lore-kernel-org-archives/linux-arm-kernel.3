@@ -4,98 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6F5CC369AB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 06:22:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3B83C369AB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 06:24:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=arlXjTtgy3BAr37xUh1VQDxToO9hlb9HPCoLz/1bTAk=; b=QZmW5Rw9t2e3Wp8Kf3rsSb6DnR
-	aBZn9BVSyUXV6ueLwvmIEg/b6YuSAAzudkZfRWLv9XfjmSxscUWW9bgu7Z+kYWSHTM4M7OxUvzDXL
-	DZ5HtM9Hx257CgLyvfAZoh16oKI13gGyb4iK8FsyRN311oQgLMNJfXMQ1DSuXs/rYHxxHdx0OepKJ
-	kUO0vvK5k7whPUh6KnzEGN1kbs4atwGiPPH1bGhPulU5vmnAzxEBRobWkY3qdeehTQna0A3z0o39W
-	VmGSDOOt5VgQccWPq7XrDBgPhlnagaeAsw/ulZCJoPA5HVtxqM5pCwZIPbK+QGx9GWRZRbpcxaXu6
-	BxybkWSg==;
+	bh=0n2EFs/KgCVeSIsa6tmglIpKDu5v1e2qWMuiP7g4DDA=; b=0pbhijsUavHW0lx96kV0YdtXNV
+	20kiwa6RdpnzVX5HB4lF4jlkK05Xeyd1I4P6owTLLRq8X7TzpyTcwBALcukjDLUq8cI8h/IPmZc81
+	8zzMMHSWoft2IL80FILWj0K1/dq63FMDS1DqLvszzwCXUaPz5+zXNp6otvBNyYY0G+OuoQwfSOkC6
+	tTjmyjNK5eVFeKzW16icA9JqBdC1/MQ2Wj6/WThmgjzC377RjBjOCS3LiNyXZW1TODfER8cnrUZ76
+	m21ZoBZ3CR1z0cWrSKL7xsZHqvGGCDYtkn690K0N4eheS0IAOxoFJZ8AsWoNME5NJ9pC2f+t2iXN+
+	74dKpcAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8vP7-00000002yLk-3l1k;
-	Sun, 27 Apr 2025 06:22:17 +0000
-Received: from mail-pg1-x541.google.com ([2607:f8b0:4864:20::541])
+	id 1u8vRJ-00000002yaq-4B5s;
+	Sun, 27 Apr 2025 06:24:33 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8vJV-00000002xny-3sOt
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Apr 2025 06:16:31 +0000
-Received: by mail-pg1-x541.google.com with SMTP id 41be03b00d2f7-af52a624283so3255227a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 26 Apr 2025 23:16:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745734588; x=1746339388; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=arlXjTtgy3BAr37xUh1VQDxToO9hlb9HPCoLz/1bTAk=;
-        b=j3lBUpSrlMfpCO3JqgURWwQHai9urmO4yEfHktElJUJUYiqCfaEqfrQ/gq8bAHx2Wl
-         /kHX9w8EWCgruIpZNuYIYnXArxTME7p6pTH7cr5VGO0f290I9gzpaeSBTISYe0YPCtv8
-         yi4k/7TNQHW+6RHGjOZ0ym8A55Fv1zSy6bmFjIX/f+7iEReT8A3yLi5DLNQ2d+6/eInp
-         YhanUsarRRuJc52JbnK6t657Ohn2eUiakCVS9ou2bwCL/kn/IawJ8wjPdSSgOeI8SDeF
-         J5yicOYgSSwubKL80FLdI//JM9vHbbMxehH/ptRyJmR9rA9K48NDShp3GrexqCsNWxWO
-         Jc1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745734588; x=1746339388;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=arlXjTtgy3BAr37xUh1VQDxToO9hlb9HPCoLz/1bTAk=;
-        b=PsByS5rRobFJkgW8imDmN1z4NKQ9abQMGlqu9mwC+B96lnZaEfsFv8MTKCoG7+B2pM
-         BJ1c/W12nXFAksdO98GatrUgV1oLijjywVPJ9ebJB6ONPeexY8MuGSAwCzpQ6K/8n0+O
-         /V1dEnmGsu3uLHO0q2+zb18WKSyxm/2wx25kwPwEll8N+ulj5g3MrjJZLgdfhaLxoSwQ
-         pprG0zDka1WF/WWwNEf3rOhMNglPezAEYagME34QDqh2kxkg7V/CLEeNiuVNYLbbuCCF
-         GttLeiOnApe1v/Hbw191DHDMGhGHio+tFgt0QGyRblOF5kVp63OIhCauCX3MmOA8lUdZ
-         Gcog==
-X-Forwarded-Encrypted: i=1; AJvYcCUFV6/vL3L4pkXw7VgEoT/jVddlt35y1Vx4Ec6k770YPm1fV6GzXLSAO81bfSTEhjChqQXVYqYWSZlcUdRGaVTL@lists.infradead.org
-X-Gm-Message-State: AOJu0YzURNJKwxAnZbFn2j8Yre53GfhSmLeAkaKvpp9xLtkobmwgE7fm
-	S4R2ixsAfK1UQQQIEvxFInwmPzDAGz/l+EaKWERtE4D+P/wCHW0VpdikR35KhSOEQcEH
-X-Gm-Gg: ASbGncuoSvScsBT0aINPNuDNu62pj+qmiegxF0/dOFfBkfqr2+Hparh5s9EhrUxJ8IJ
-	+3RECPD+i8HQKrvZ/U3Ca5bVPzcY0Lzl7yqsD7zwvNvdJTHNCXuaxbp69lDkiRt7Gqvoh6N+fCI
-	YHUAJ9EymygoCvhRRUc+VgMPi8EGd/R0yUzlEIJmBZzwbfQtDwB16mHbhQdS+h9qSjQL0XaGjo2
-	YGOFNUxbCe1bCRDvYGaIwiy4lo3YidqZV70AdXKHRaktw3neurK1yGtzh37/vLvgvBPpEfuypGs
-	+PDaZUdX3hh3AMpY9slzvC8Q
-X-Google-Smtp-Source: AGHT+IHI7FfMmiHvegnH3jYRRExzK2Sstbajg7ZocUmpjDuKv+l+0QX83bfc8/fIIkBGnpajgMyTQQ==
-X-Received: by 2002:a17:90b:42:b0:2fa:2268:1af4 with SMTP id 98e67ed59e1d1-309ee37b550mr17322947a91.7.1745734588534;
-        Sat, 26 Apr 2025 23:16:28 -0700 (PDT)
-Received: from [127.0.1.1] ([2a0d:2683:c100::bf])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-309f782d461sm5080287a91.39.2025.04.26.23.16.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 26 Apr 2025 23:16:28 -0700 (PDT)
-From: Troy Mitchell <troymitchell988@gmail.com>
-Date: Sun, 27 Apr 2025 14:16:10 +0800
-Subject: [PATCH v2 2/2] i2c: imx: drop master prefix
+	id 1u8vPM-00000002yNn-3F0q;
+	Sun, 27 Apr 2025 06:22:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5B6785C53A1;
+	Sun, 27 Apr 2025 06:20:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AF02C4CEE3;
+	Sun, 27 Apr 2025 06:22:31 +0000 (UTC)
+Received: from wens.tw (localhost [127.0.0.1])
+	by wens.tw (Postfix) with ESMTP id B822D5F71D;
+	Sun, 27 Apr 2025 14:22:28 +0800 (CST)
+From: Chen-Yu Tsai <wens@csie.org>
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Jerome Brunet <jbrunet@baylibre.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ =?utf-8?q?Emilio_L=C3=B3pez?= <emilio@elopez.com.ar>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev
+In-Reply-To: <20250404-kconfig-defaults-clk-v1-0-4d2df5603332@linaro.org>
+References: <20250404-kconfig-defaults-clk-v1-0-4d2df5603332@linaro.org>
+Subject: Re: (subset) [PATCH 0/5] clk: Do not enable by default during
+ compile testing
+Message-Id: <174573494872.940990.8317443409308272836.b4-ty@csie.org>
+Date: Sun, 27 Apr 2025 14:22:28 +0800
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250427-i2c-imx-update-v2-2-d312e394b573@gmail.com>
-References: <20250427-i2c-imx-update-v2-0-d312e394b573@gmail.com>
-In-Reply-To: <20250427-i2c-imx-update-v2-0-d312e394b573@gmail.com>
-To: Oleksij Rempel <o.rempel@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Andi Shyti <andi.shyti@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
-Cc: linux-i2c@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Troy Mitchell <troymitchell988@gmail.com>, Yongchao Jia <jyc0019@gmail.com>, 
- Ahmad Fatoum <a.fatoum@pengutronix.de>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1745734572; l=873;
- i=troymitchell988@gmail.com; h=from:subject:message-id;
- bh=JHmA+1ZeQK8oyp8y9eMk6Hv0vqiXhbFGyjgYkZxY8Io=;
- b=brBU5+4z/15z6LPbx1Emc7dlsMzWr4mB+pXCEvGTacv+PnzSKbtWKD2fEFPLA/3wrRBLY49cj
- ffZoQ1gOG/EChkqymt2Edi//dG0kft8qcLuY1pf/DD6+0X0LiDOVCjO
-X-Developer-Key: i=troymitchell988@gmail.com; a=ed25519;
- pk=2spEMGBd/Wkpd36N1aD9KFWOk0aHrhVxZQt+jxLXVC0=
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250426_231629_965581_9F982506 
-X-CRM114-Status: GOOD (  11.98  )
+X-CRM114-CacheID: sfid-20250426_232232_860356_CFDB1ECA 
+X-CRM114-Status: UNSURE (   6.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,32 +77,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In light of the recent updates to the i2c subsystem,
-drop master prefix.
+On Fri, 04 Apr 2025 13:56:56 +0200, Krzysztof Kozlowski wrote:
+> Enabling the compile test should not cause automatic enabling of all
+> drivers.
+> 
+> No dependencies, can be picked by individual maintainers.
+> 
+> Best regards,
+> Krzysztof
+> 
+> [...]
 
-Reviewed-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Signed-off-by: Troy Mitchell <troymitchell988@gmail.com>
----
- drivers/i2c/busses/i2c-imx.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Applied to clk-for-6.16 in git@github.com:linux-sunxi/linux-sunxi.git, thanks!
 
-diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
-index a98bf01c5dde..fca3d1adb627 100644
---- a/drivers/i2c/busses/i2c-imx.c
-+++ b/drivers/i2c/busses/i2c-imx.c
-@@ -1689,8 +1689,8 @@ static u32 i2c_imx_func(struct i2c_adapter *adapter)
- }
- 
- static const struct i2c_algorithm i2c_imx_algo = {
--	.master_xfer = i2c_imx_xfer,
--	.master_xfer_atomic = i2c_imx_xfer_atomic,
-+	.xfer = i2c_imx_xfer,
-+	.xfer_atomic = i2c_imx_xfer_atomic,
- 	.functionality = i2c_imx_func,
- 	.reg_slave	= i2c_imx_reg_slave,
- 	.unreg_slave	= i2c_imx_unreg_slave,
+[4/5] clk: sunxi-ng: Do not enable by default during compile testing
+      commit: 115bd1f1ec2b6b7f925752a85dd43e9909757f9a
+[5/5] clk: sunxi: Do not enable by default during compile testing
+      commit: f06a610cb17468a3098be1e401c4b29623b99d0a
 
+Best regards,
 -- 
-2.34.1
+Chen-Yu Tsai <wens@csie.org>
 
 
