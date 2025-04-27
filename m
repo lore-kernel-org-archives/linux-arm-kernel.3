@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 480E7C369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 16:40:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 079EBC369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 16:45:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CpqPOOAbWLUjwIrGJqZUdUOO7BB8a7DkdKufQn/mPVs=; b=wUSvwfB962FO70gtXnwGtu+IDW
-	BjKjfuO7GvGWqvAujnkAGFEZeTb9TjbA8Yo8oibVie975OsxxytprCnbfUUdIZpQ5X6YI/TURP5J7
-	xsp5J8s2TLSMtJW3Sm1rAk2hCwQw5dLDEseKL7+xDhavehRYjvw/emCx1XJYoBA+4RfY8y1am9ww8
-	epMmmHreb/nL/BUIUVOS8ja4hEd5urWOreZThernS96kONm+VTFqCDz90Q0ccsrMRYU7MS/NIxtGG
-	EET6n9/GX/Km0IivEG9Q5WMEYkU4hAKrkqIUtyqYNAKwmIAo1OuCoeWnW3JuV3TNpYoUByZ3WaUQz
-	BYZgAwhA==;
+	bh=TfPHUIKfsD3DUV+r5DZM+HL4hrkge0LMWElOlpmmfSI=; b=MRImFYr8UN3I0e9b/zwcFXvRxj
+	s+X5G+T2DTGc7kAUJShX7YGC8KqQxSRK/pXXoPHT7Bh96AZ4edMZ60zTyKXoa8OeTolNRDaxld1jk
+	U7ZZ3TeyCu81cRa6+jvCCl8HMTq7zV1GW8eldT/F8KzIZ9k3fCjQ2HsLDJoNizJiC1zdzUEeENrXR
+	Kp1aP1ureYarGykfmFxKuI7rTQuQoKRpWiakJLoCwDctKzeMPdG5WI4VVspxaXxUnu6sPPLif3cS8
+	83iQcZrCnjWd1v0fW/kG6Eg6Okty1nDky2KZ/DegXTIb4fpZX5nEjVpOxrLvKpO0QcKrcIKTQGGuQ
+	PSw15QoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u952p-00000003mzp-173V;
-	Sun, 27 Apr 2025 16:39:55 +0000
+	id 1u9588-00000003nJB-1ERO;
+	Sun, 27 Apr 2025 16:45:24 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u950E-00000003mog-2q0S
+	id 1u956D-00000003nE7-0WDQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Apr 2025 16:37:14 +0000
+	Sun, 27 Apr 2025 16:43:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C722361135;
-	Sun, 27 Apr 2025 16:36:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 574FCC4CEE3;
-	Sun, 27 Apr 2025 16:37:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 26C6F60010;
+	Sun, 27 Apr 2025 16:43:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 883B9C4CEE3;
+	Sun, 27 Apr 2025 16:43:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745771831;
-	bh=e8tAvyM96LcvgN0cnj6mfcT1+7FPRKk6Gs7+YAPcM28=;
+	s=k20201202; t=1745772203;
+	bh=tPOIYQvlckSn9ZlJWzhqui3/DPJ7x4EqYVgyVa6Zg8w=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=oJYGs2h9lbWAiyJlVkCd4GqYGnqcG4Zzz8H4ceZNQs07OTfI4tSEAc1Pqx5SxZL7s
-	 wnNXOuyNFchJcDt0GnWTlHjCmAUGo2GtPtpej51H1d1bWznd4P074WM7DtymGeEY/H
-	 Dn9O/m1OXI9i0gQKpj/tIP1grACweZnUEsTWrT01610DHllLKXZxscfPcvZ+fUlDCl
-	 89Q2vgf8ooV2W4u17lC3FRHu6kgUUe5NP8bos2jUCct+3KdPhnkC7eR6KApk7cmzo1
-	 /+lqd15fLaPkLziPIEXuZ7sINtn4sHzW+jt0/ap8Tx2blY0v48+roBvSBPbPOm3XiM
-	 SQqdS4FPh6wYw==
+	b=OHXGvfoLXxYY91p48wm7+XeUIH0vDOfmxN1etUlTlYoeObj70nLyCFLkBzkiTz+SG
+	 rwwB3uER+bA8uHcZrMMGjr6388/o6TGB/W3FtjByoecMcgDJqv0guLcSY946r9oqCB
+	 IffEyyzwx6cX9j5VYd/3UCOfqx9uJQ7QsPLdA+qAVDRIBAsXQOm8R+bn+w6VUFLCFn
+	 nCqKqQ4bJWrRwIDFNuDbw/9sb4B271kfDx+9jiofT9j/qtQpplxGSaJmtZ7Ct0llsF
+	 bipW4+vgBjK+7CB3egAi32YncPI9JfgTIFGG+z1HPyXrLvghuDFUtAtz15q4VB3ICq
+	 VoBwv5d4A/xpQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1u9508-009JRM-Op;
-	Sun, 27 Apr 2025 17:37:08 +0100
-Date: Sun, 27 Apr 2025 17:37:08 +0100
-Message-ID: <86ecxdk1cb.wl-maz@kernel.org>
+	id 1u9567-009JWO-GZ;
+	Sun, 27 Apr 2025 17:43:21 +0100
+Date: Sun, 27 Apr 2025 17:43:18 +0100
+Message-ID: <86cycxk121.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: David Woodhouse <dwmw2@infradead.org>
 Cc: Ilias Stamatis <ilstam@amazon.com>,
@@ -66,15 +66,17 @@ Cc: Ilias Stamatis <ilstam@amazon.com>,
 	ugurus@amazon.co.uk,
 	nh-open-source@amazon.com
 Subject: Re: [RFC] ARM vGIC-ITS tables serialization when running protected VMs
-In-Reply-To: <94fb9d4adb81f824912ee23a296776aa07873354.camel@infradead.org>
+In-Reply-To: <6ff7bf8388303c75092d0cc1078d40f018d2bbc4.camel@infradead.org>
 References: <20250414111244.153528-1-ilstam@amazon.com>
 	<867c3llt43.wl-maz@kernel.org>
 	<94fb9d4adb81f824912ee23a296776aa07873354.camel@infradead.org>
+	<6ff7bf8388303c75092d0cc1078d40f018d2bbc4.camel@infradead.org>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: dwmw2@infradead.org, ilstam@amazon.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, eric.auger@redhat.com, andre.przywara@arm.com, will@kernel.org, jgrall@amazon.co.uk, ugurus@amazon.co.uk, nh-open-source@amazon.com
 X-SA-Exim-Mail-From: maz@kernel.org
@@ -93,138 +95,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 15 Apr 2025 10:44:39 +0100,
+On Tue, 22 Apr 2025 11:47:46 +0100,
 David Woodhouse <dwmw2@infradead.org> wrote:
-> 
+>=20
 > [1  <text/plain; UTF-8 (quoted-printable)>]
-> On Tue, 2025-04-15 at 09:35 +0100, Marc Zyngier wrote:
-> > On Mon, 14 Apr 2025 12:12:43 +0100,
-> > Ilias Stamatis <ilstam@amazon.com> wrote:
-> > > 
-> > > # The problem
-> > > 
-> > > KVM's ARM Virtual Interrupt Translation Service (ITS) interface supports the
-> > > KVM_DEV_ARM_ITS_SAVE_TABLES and KVM_DEV_ARM_ITS_RESTORE_TABLES operations.
-> > > These operations save and restore a set of tables (Device Tables, Interrupt
-> > > Translation Tables, Collection Table) to and from guest memory.
-> > > 
-> > > This can be a problem when running a protected VM on top of pKVM or another
-> > > lowvisor since the host kernel (running at EL1) cannot access guest memory.
-> > > 
-> > 
-> > pKVM doesn't allow a guest to be saved/restored, full stop.
-> 
-> Yet. Either it's going to need to learn to support live update, or
-> it'll remain a toy solution.
+> On Tue, 2025-04-15 at 10:44 +0100, David Woodhouse wrote:
+> > =C2=A0
+> >=20
+> > > > Another issue is that it's actually hard for the lowvisor to know w=
+here these
+> > > > tables live without trusting the EL1 host which virtualizes the ITS=
+. It is
+> > > > especially hard knowing the locations of the ITTs (compared to
+> > > > Collection/Device tables) because that probably means having to par=
+se the ITS
+> > > > command queue from EL2 which is complex and undesirable.
+> > > >=20
+> > > > # An alternative: Serializing ITTs into a userspace buffer
+> > >=20
+> > > NAK.
+> > >=20
+> > > Share the page-aligned memory with the rest of the hypervisor, and use
+> > > the existing API.
+> >=20
+> > That seems like a bad choice. All this is just using guest memory to
+> > store KVM's state.
+> >=20
+> > Yes, the guest provides a buffer which the virtual hardware *may* use
+> > if it wants, but with no IOMMU or access control defined in the
+> > specification.
+> >=20
+> > It seems like it would be much cleaner just to let KVM pass its state
+> > up to userspace for serialization like we do for all *other* KVM state,
+> > which is what Ilias is proposing.
+>=20
+> Ping?
+>=20
+> Redefining the GIC specification to implicitly share whole pages with
+> the hypervisor in a protected guest, when they happen to have an ITT
+> somewhere inside the page, seems like a very bad idea. Did you have
+> some proposed wording for the specification update though, if that's
+> the approach you're proposing?
 
-Toy solution to what problem?
+That's already a requirement for CCA when used with GICv3/GICv4.
 
-> 
-> > > # Page declassification and why ITTs are special
-> > > 
-> > > The Collection and Device tables are page aligned and their sizes must be a
-> > > multiple of page size. If the lowvisor knows where these tables live, it is
-> > > possible to "declassify" the corresponding pages and configure the MMU such as
-> > > that the EL1 host can write to guest memory directly.
-> > > 
-> > > The ITTs (Interrupt Translation Tables) are different. They are NOT page
-> > > aligned, they are 256 byte aligned and their size is variable. That means that
-> > > the lowvisor can't declassify pages containing ITTs and configure the MMU
-> > > giving the host direct access as above since those pages may contain unrelated
-> > > data.
-> > 
-> > And it is the responsibility of the guest to make these page aligned
-> > if it intend to let the hypervisor use them. To sum it up, the ITT
-> > isn't special at all.
-> 
-> The ITT has nothing to do with virtualization, does it? And despite
-> this being logically "DMA", I don't believe it's possible to advertise
-> it as being behind the SMMU, which would have allowed for access
-> control (and would indeed have meant that the guest would be expected
-> to grant access to full pages).
-> 
-> What exactly are you suggesting? That the GIC specification should be
-> changed to require page alignment, or to document that in a
-> confidential compute setup, the remainder of any page which contains
-> ITTs will be implicitly made non-confidential and shared with the
-> hypervisor?
+> And *implementing* it by making the lowvisor snoop on the ITS command
+> queue is also awful.
 
-The GIC architecture is of course absolutely perfect, and there is
-nothing to change there.
+Not only the command queue. *ANY* RD and ITS access. If you don't, it
+is rather easy for the host to use the GIC to repaint your privileged
+code and confidential guest, one bit at a time.
 
-I'm suggesting you do what any OS designed to run under a confidential
-infrastructure do. Which is to expose page-sized data to the
-non-trusted infrastructure. Linux has done that for a while (as part
-of both CCA and pKVM enablement), and I don't see why your toy guests
-can't do the same. It's not like using a page pool for ITT allocations
-is rocket science, is it?
-
-> And then the lowvisor would also have to snoop the ITS command queues
-> to even find out which pages to implicitly allow access to?
-
-Why should it? as long as you only expose pages that only contain
-GIC-related data, you should be safe.
-
-However, if your hypervisor doesn't fully validate the interaction of
-the *host* with the HW, then you're dead in the water.
-
-> > > If the lowvisor knows where the ITTs live in guest memory it could instead
-> > > perform the guest memory accesses on behalf of the host. I.e. the EL1 host
-> > > would attempt to save the ITTs to guest memory like it does today, that would
-> > > generate a data abort, and then the EL2 lowvisor could perform the copy after
-> > > validating that the faulty address belongs to an ITT in guest memory.
-> > > 
-> > > One issue with the above is that the ITS save/restore happens at hypervisor
-> > > live update which is a time sensitive operation and the extra traps (one per
-> > > interrupt mapping?) can introduce significant additional overhead
-> > > there.
-> > 
-> > I don't believe this for a second.
-> 
-> You don't believe that every millisecond of live update downtime,
-> perceived by the guest as unwanted steal time of a hypervisor that's
-> generally trying to be as quiescent as possible, is an issue?
-
-I absolutely don't. Certainly not for something that has no tangible
-existence, with no performance numbers whatsoever, and based on shaky
-premises.
-
-> > > Another issue is that it's actually hard for the lowvisor to know where these
-> > > tables live without trusting the EL1 host which virtualizes the ITS. It is
-> > > especially hard knowing the locations of the ITTs (compared to
-> > > Collection/Device tables) because that probably means having to parse the ITS
-> > > command queue from EL2 which is complex and undesirable.
-> > > 
-> > > # An alternative: Serializing ITTs into a userspace buffer
-> > 
-> > NAK.
-> > 
-> > Share the page-aligned memory with the rest of the hypervisor, and use
-> > the existing API.
-> 
-> That seems like a bad choice. All this is just using guest memory to
-> store KVM's state.
-
-The architecture *mandates* the memory allocation. KVM uses this
-memory for the purpose described in the architecture. If you don't
-like it, invent your own interrupt architecture. Trust me, it's real
-fun!
-
-> Yes, the guest provides a buffer which the virtual hardware *may* use
-> if it wants, but with no IOMMU or access control defined in the
-> specification.
-> 
-> It seems like it would be much cleaner just to let KVM pass its state
-> up to userspace for serialization like we do for all *other* KVM state,
-> which is what Ilias is proposing.
-
-Sure. You could also decide that SMMU page tables should be extracted
-separately, because that's the exact same rationale. You could also
-build your own hypervisor instead of inventing new ways to make the
-KVM API even more of a terrible mess.
+But that has nothing to do with sharing the ITT memory, which is only
+manipulated by the KVM emulation.
 
 	M.
 
--- 
+--=20
 Without deviation from the norm, progress is not possible.
 
