@@ -4,72 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B654FC369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 13:54:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7760FC369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 14:09:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i4Fnrl096oXKF65tzuRQZ6eRc4onRrFK13fpUbFl9Pk=; b=Ta7P1TJy5o/Bp5inF/bTL4EOsD
-	ko476PkWB8cLCjZiSGcS+N0SpU9DqbeTBwChlydxiW8jWUvOZjwCAAzqEntQ3g/hPQPf6Op2pO0Pk
-	ITTRBOF12fdnuKAEcQCATJT4EwSuoojHuxucUE7/iFQ/HVNgJJkqoqMbb9rYcH29NdsRcBMudr0dr
-	BREZGF96Ca7ThOse0tQSL12UvbQFHkLZ4UPmeUtQMgvnv9IG743/qi7Kb9IdDx34p5piCz69QlNdB
-	7ItUB80OFH1Q99ljt6O2rP4mimDnokbKEXCs+FAb8TP5SCoMTSRPT3KMNOioaEQp/N7e9vmKq7861
-	o8khdw2A==;
+	bh=bjaQCYAZZv7TZCyYcpymHM3x4tGRpcCplG+gYWSYS9Y=; b=M7Eu1SYodgjybXQwX/ghVMUxEG
+	mQUJd40ClP9UMPKpeemC2ZZiR/9Vmvh9S4PeWzXMhwrdNQaRXOjYsMF4b2PiWfb9awyMced017Cmy
+	eplD83uO9G/t2+ocuT6J2HDZ3DgoCLFcZZrxJD17ZHbG/4O45w9n0oY+fjgyeSco+9Z5uz0/WtDYq
+	/di5fi13tpgIuuL6prjxfJW7bxlOcwXwHlHSW1lmOeafuBqgU+4a8l55ZaReFW+XviPfvg3EN1/TM
+	doq3IkAXsBWYsml1MR5UfE2Spr/19cgoeOIxM15j4aSmuzVbbdpKuWGoXNwCXmFmHpP9S0JlvLBJa
+	x0SMmNrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u92Sa-00000003d0s-0aqq;
-	Sun, 27 Apr 2025 13:54:20 +0000
-Received: from mail-m16.yeah.net ([220.197.32.17])
+	id 1u92gx-00000003dgk-2znD;
+	Sun, 27 Apr 2025 14:09:11 +0000
+Received: from abb.hmeau.com ([144.6.53.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u92Qe-00000003cuo-3bIm
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Apr 2025 13:52:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=i4Fnrl096oXKF65tzuRQZ6eRc4onRrFK13fpUbFl9Pk=;
-	b=gFF+/ZQYa5fCAE5KYgEvYnr15hbTuWaIQYDpVPvL4hRk4V75FQLpe+wAQEgPJs
-	YjpTRhGSpOLJ5Z9JvtLRSAEEfwa46u3/q+ui6qPzsEK6LgcWMoyhNHYpdNQrLA9x
-	HYLSj8IGOSJx6x5e/WjQ3RhzPf6vGoqR5qlspjLDq2Ly8=
-Received: from dragon (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id M88vCgD3p0tlNg5o4Vb3Aw--.41011S3;
-	Sun, 27 Apr 2025 21:51:35 +0800 (CST)
-Date: Sun, 27 Apr 2025 21:51:33 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: Wojciech Dubowik <Wojciech.Dubowik@mt.com>
-Cc: linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Francesco Dolcini <francesco@dolcini.it>,
-	Philippe Schenker <philippe.schenker@impulsing.ch>,
-	Manuel Traut <manuel.traut@mt.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v4] arm64: dts: imx8mm-verdin: Link reg_usdhc2_vqmmc to
- usdhc2
-Message-ID: <aA42ZS8xeyDi9xNO@dragon>
-References: <20250424095916.1389731-1-Wojciech.Dubowik@mt.com>
+	id 1u92f1-00000003dVG-1P6O;
+	Sun, 27 Apr 2025 14:07:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
+	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=bjaQCYAZZv7TZCyYcpymHM3x4tGRpcCplG+gYWSYS9Y=; b=Y5RhSc5/FybI7zmz9SHjUsOJyt
+	6y13MP9+31En+C9RdXh+jvvPfmcEs8+ugf/lrbM+EuMyfHqK2AbcS8TSq6nIW/o0J5hLQbnKW2dwO
+	5PDPeGJ0dMiB+I1jO7FLhSzAAUHoGPP0xtZH8fUgS54mB21PslHj4y/wIynDPQmglvHJFPSzYGQUS
+	e6SLa2lor/mFtkN8PODNuoz4j9cgiiqr6ML354CiGk2KNJSUINJ8HzdvV/YfmSH+b2/2lTMTZ+f9n
+	8+V6BnpZAT4ZOKXfyim5oaRqg6ehnl6jo5JsXrJNniEO3jfXP0RfbAfbnaxToW16RVxQ/wE8t43b+
+	zz+/7N0Q==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1u92ev-001PEG-1R;
+	Sun, 27 Apr 2025 22:07:06 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sun, 27 Apr 2025 22:07:05 +0800
+Date: Sun, 27 Apr 2025 22:07:05 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	sparclinux@vger.kernel.org, linux-s390@vger.kernel.org,
+	x86@kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld " <Jason@zx2c4.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: Re: [v2 PATCH 00/13] Architecture-optimized SHA-256 library API
+Message-ID: <aA46Cfr7p6dMXwvU@gondor.apana.org.au>
+References: <cover.1745734678.git.herbert@gondor.apana.org.au>
+ <20250427123514.GA1161@quark>
+ <aA4mAlozk3RvxvTe@gondor.apana.org.au>
+ <20250427125641.GB1161@quark>
+ <20250427131138.GC1161@quark>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250424095916.1389731-1-Wojciech.Dubowik@mt.com>
-X-CM-TRANSID: M88vCgD3p0tlNg5o4Vb3Aw--.41011S3
-X-Coremail-Antispam: 1Uf129KBjvdXoW7JF4UXFy3Jr47JF4xWr1Dtrb_yoW3uwcE9r
-	1Fkws5Xr45Wr45Cw45tFnxZF48G3W5Kry3try29rZ5Ar95AayDJFn8KrZ5Zr43WanIvF9x
-	Z3429rs5trW7WjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU8GXdUUUUUU==
-X-Originating-IP: [117.81.80.76]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiCwA8ZWgODbOJNwAAs0
+In-Reply-To: <20250427131138.GC1161@quark>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250427_065221_290877_81D61964 
-X-CRM114-Status: UNSURE (   8.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250427_070711_372838_811B7E21 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,22 +82,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 24, 2025 at 11:59:14AM +0200, Wojciech Dubowik wrote:
-> Define vqmmc regulator-gpio for usdhc2 with vin-supply
-> coming from LDO5.
+On Sun, Apr 27, 2025 at 06:11:38AM -0700, Eric Biggers wrote:
+>
+> By the way, as I mentioned in my cover letter:
 > 
-> Without this definition LDO5 will be powered down, disabling
-> SD card after bootup. This has been introduced in commit
-> f5aab0438ef1 ("regulator: pca9450: Fix enable register for LDO5").
+>     For now the SHA-256 library is well-covered by the crypto_shash
+>     self-tests, but I plan to add a test for the library directly later.
 > 
-> Fixes: 6a57f224f734 ("arm64: dts: freescale: add initial support for verdin imx8m mini")
-> Tested-by: Manuel Traut <manuel.traut@mt.com>
-> Reviewed-by: Philippe Schenker <philippe.schenker@impulsing.ch>
-> Tested-by: Francesco Dolcini <francesco.dolcini@toradex.com>
-> Reviewed-by: Francesco Dolcini <francesco.dolcini@toradex.com>
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Wojciech Dubowik <Wojciech.Dubowik@mt.com>
+> But due to your gratuitous changes where crypto_shash is no longer built on top
+> of the normal SHA-256 library API, that's no longer the case.
+> 
+> So while I do still plan to add a SHA-256 library test anyway, I don't see the
+> reason for not also making crypto_shash just do the right thing.
 
-Applied, thanks!
+OK at least this objection makes sense.
 
+I'll add an additional sha256 shash implementation that wraps
+around the lib/sha256 interface so we don't lose that testing
+coverage.
+
+Cheers,
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
