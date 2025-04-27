@@ -4,112 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6AF1C369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 11:31:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F0B4C369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 27 Apr 2025 11:33:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5AVnMYrfQqCKvIYMObZqGv0ycuhL3WyZhFo4zuHwRSU=; b=xmU+HL+xEXjaPLLs18JHw1zIby
-	zWgWkzdbJtf9uF9Jwcr7NzKzoIy539js/0Cvk9kYxpazpMh7C2DEPtSIh3LUDOo4yaljRcIWSfvDE
-	AJK+ALiLfv8u5xKduShQM/89ZkHK9i5T1PWcnl81GrEh9a8CwWrMdzme66yEdFULpEx7aUeUeR8DN
-	Z4YfGL+wPS7mz9nWXU+wGA0E0YTCe1Jzy4HFaZhSmN2rWiP5i5K3GBIl/iVAuBke6Yu7IZ7l/hX2L
-	jZJney9fV8i+F/ekbT9Vc7OuSj3OOX+HaYqI9N5G8Qta2pQkRyfZiQQGfrNlNrmNFKG7UPLaJgowS
-	MQREjW3Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Lxi4eLQ17vFDrYq7yCmYhsgSORUcHH0C5nsCx2IPn+Y=; b=M3UbjfSfiMWPuZkSWDMdC77eaH
+	B1yK5v8fL4iHJdYvzg4Xto9DUXOz3J3Hx3L3l7o2S+FvVoBgb0pFL6lVU0UmN8YdV30/d1WHxi/UT
+	WdRLWEAj4yjrLHVJlTNPBLPzQILP7bLPvrmesJVPSDzDyFE+Kh/9oE0nfnxv+DjIce8Ckq2+GE4QT
+	F16nnfN+vO8a7VN3/BF0lK74WYYWwHEzxCGt6zTHno/t05hqsNGcHsXZyFliV96BfDxX+21c85oKs
+	0Avr6xWuxUtfRHEkhkjK165mxTCaJrtEGV3E4NPt+4Lk/9NqaMHQoAVMwIBYOy85HrYyeFQlgrAVm
+	UKYy0DKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u90Ed-00000003Pma-1UrX;
-	Sun, 27 Apr 2025 11:31:47 +0000
-Received: from fhigh-b3-smtp.messagingengine.com ([202.12.124.154])
+	id 1u90GX-00000003Q0o-045S;
+	Sun, 27 Apr 2025 11:33:45 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u90Cf-00000003PXZ-0mvj
+	id 1u90Dy-00000003PdW-255c
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 27 Apr 2025 11:29:47 +0000
-Received: from phl-compute-04.internal (phl-compute-04.phl.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 4F1702540219;
-	Sun, 27 Apr 2025 07:29:41 -0400 (EDT)
-Received: from phl-imap-07 ([10.202.2.97])
-  by phl-compute-04.internal (MEProxy); Sun, 27 Apr 2025 07:29:41 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
-	 h=cc:cc:content-transfer-encoding:content-type:content-type
-	:date:date:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=fm1;
-	 t=1745753381; x=1745839781; bh=5AVnMYrfQqCKvIYMObZqGv0ycuhL3WyZ
-	hFo4zuHwRSU=; b=cHiGN+ZHVQvwAmWDVqx50p8JoFWULaccQJvoTA0aQQhbWoFj
-	6J7CETqWlKWiUxtKkRoO5VBEsJc6Am067bGJBPDJwas4PXB2FBqDdwB4cW40fhmj
-	wW7+AXxGlx5lVtBORqbrSngOYGPpMo0CvUWAa45O4OOu7+7wunwDjjoonqC7g/zW
-	Wdnh+EFjZyvK1jID1HhANCjNFi9iIEdoQ0r7P92cG721VszlAtd/czvo6+R8Hnxd
-	ucQR93PRE5ZxsRismq+JU6fyHS6HATK+azAFOjjrYuhZcxpk1Z0JCOm6aexDIxt9
-	fT5+7FT2550zPfT/Cm8SqfCMPnSLrPEoNfBqnA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1745753381; x=
-	1745839781; bh=5AVnMYrfQqCKvIYMObZqGv0ycuhL3WyZhFo4zuHwRSU=; b=E
-	jsUXopkgxavIZ1xItTb/bHcd5C9+Mg0mtnK92mV2vksvqWHpIuKCP+LQ9bu5hBCc
-	TZ2zPdMVV72GaMriRYLOEZTZN2BUlRteq/ZRE2Kz93PfwQOjIWE0wawVSOd54nKk
-	seKri/NZ/obQ3FAeZXO8dbcnPWXrcLAfqCvty8lppFSb5WdiwkR/0yTZYCUgLtRG
-	veElxm/j9xyyoVLMrHwkYYF7cSjcxkS79ZjK941CezfydKUJSLjMV4vODtI/wrcn
-	343CLszdcrK/IUnuzPChqz6yiHhvgSImt7VzQWkWukoosIkOqVrsgctzZcDflKy3
-	DsI3xeOBJqtDICJKGf9QA==
-X-ME-Sender: <xms:IxUOaJOdB7skIWg1gp5gI_f5bSLHlrtJ5DizHoMVXln4GRcU_grfCA>
-    <xme:IxUOaL9FSn8d4Om1QrpZrSgSwOPFF8UE367CRXKJQIUYLtao_KGS2rQ5caiW6IfgV
-    zZK3DICYOyduSjMrYo>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvheejleehucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
-    tddtnecuhfhrohhmpedfufhvvghnucfrvghtvghrfdcuoehsvhgvnhesshhvvghnphgvth
-    gvrhdruggvvheqnecuggftrfgrthhtvghrnhepleefteeugeduudeuudeuhfefheegveek
-    ueefffdvffektdffffelveffvddvueffnecuvehluhhsthgvrhfuihiivgeptdenucfrrg
-    hrrghmpehmrghilhhfrhhomhepshhvvghnsehsvhgvnhhpvghtvghrrdguvghvpdhnsggp
-    rhgtphhtthhopeduhedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheptghhrhhish
-    htohhphhgvrdhlvghrohihsegtshhgrhhouhhprdgvuhdprhgtphhtthhopehmphgvsegv
-    lhhlvghrmhgrnhdrihgurdgruhdprhgtphhtthhopehnphhighhgihhnsehgmhgrihhlrd
-    gtohhmpdhrtghpthhtohepnhgvrghlsehgohhmphgrrdguvghvpdhrtghpthhtohepjhes
-    jhgrnhhnrghurdhnvghtpdhrtghpthhtoheprghnughirdhshhihthhisehkvghrnhgvlh
-    drohhrghdprhgtphhtthhopehnrghvvggvnheskhgvrhhnvghlrdhorhhgpdhrtghpthht
-    ohepmhgrugguhieslhhinhhugidrihgsmhdrtghomhdprhgtphhtthhopehlihhnuhigqd
-    grrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrgh
-X-ME-Proxy: <xmx:IxUOaISkvdKNkauBTau3Yk86BBkDs_xaQlGa8g1PKqItwEO6sr7_Aw>
-    <xmx:IxUOaFsQIYPEGVcnbw5bn1-nmmufSyYvjad865GJP9x0WREMbgpV5g>
-    <xmx:IxUOaBd97cPa0WAqm8KOVrSh9n-zwiAuFqZ3Oln3jFSUdNAWa0GCEQ>
-    <xmx:IxUOaB2Jm45REZl8uOecpL_ceCAb7Zm9Jwx7F71mScOODKnIaRvMpQ>
-    <xmx:JRUOaB2nIin_JYaVvDIelqSp6Cg24ftqlZtTrULSUZnnWHPvRJfd7SeL>
-Feedback-ID: i51094778:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 3F050BA0070; Sun, 27 Apr 2025 07:29:39 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Sun, 27 Apr 2025 11:31:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BB484437DE;
+	Sun, 27 Apr 2025 11:31:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 842F9C4CEE3;
+	Sun, 27 Apr 2025 11:31:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745753465;
+	bh=+BsL+X+30brRz3phNXt0JYIMKKNWV3x6jUYpT2ksFCo=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=m750C3CbibW7p6DOy1lkSdAcpLZHEljbRTxawEmL1bpedKtHwE3ya3Nqqa44vHTAM
+	 pQ5UlToty0iVLL7EeD9TY81QeLy7W29IL8QAhErHW1bG3ZLSlybm8sKbsmJ6IIWE5D
+	 0OAZMF2gWDUmQZ3ICxUomYWh9/gHcMptYK8QBe8bvIpokV9FgZtoYZNDBVm/mEDpSZ
+	 q47y7QrBY4dWRTSF0v2N6e5SMrM0MhGHyiw0erB9m/7wocDwyDjkLoycvFZ8CMvy7t
+	 b/LyBVDrLz6ZTipOrGYYzT+91vU+P4WvO6sUxeg+bAVVOCbLWJ9XTQq/GM0aJ3h+MJ
+	 snH6jkRNg5DHw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 78249C369D1;
+	Sun, 27 Apr 2025 11:31:05 +0000 (UTC)
+From: Sven Peter via B4 Relay <devnull+sven.svenpeter.dev@kernel.org>
+Subject: [PATCH v3 0/4] Apple/PASemi i2c error recovery fixes
+Date: Sun, 27 Apr 2025 11:30:42 +0000
+Message-Id: <20250427-pasemi-fixes-v3-0-af28568296c0@svenpeter.dev>
 MIME-Version: 1.0
-X-ThreadId: T5434dab6164679dd
-Date: Sun, 27 Apr 2025 13:29:17 +0200
-From: "Sven Peter" <sven@svenpeter.dev>
-To: "Andi Shyti" <andi.shyti@kernel.org>
-Cc: "Janne Grunau" <j@jannau.net>, "Alyssa Rosenzweig" <alyssa@rosenzweig.io>,
- "Madhavan Srinivasan" <maddy@linux.ibm.com>,
- "Michael Ellerman" <mpe@ellerman.id.au>,
- "Nicholas Piggin" <npiggin@gmail.com>,
- "Christophe Leroy" <christophe.leroy@csgroup.eu>,
- "Naveen N Rao" <naveen@kernel.org>, "Neal Gompa" <neal@gompa.dev>,
- "Hector Martin" <marcan@marcan.st>,
- linuxppc-dev <linuxppc-dev@lists.ozlabs.org>, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Message-Id: <c6590a37-97b0-4497-8cc1-c4572897f0dc@app.fastmail.com>
-In-Reply-To: <dtjvj34q4ojbci67akkxfiskpiro24xupagr5rl4dn3idd6vxh@2emtiwbvpvra>
-References: <20250415-pasemi-fixes-v2-0-c543bf53151a@svenpeter.dev>
- <20250415-pasemi-fixes-v2-4-c543bf53151a@svenpeter.dev>
- <dtjvj34q4ojbci67akkxfiskpiro24xupagr5rl4dn3idd6vxh@2emtiwbvpvra>
-Subject: Re: [PATCH v2 4/6] i2c: pasemi: Improve error recovery
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGIVDmgC/13MTQ6CMBCG4auQrq3p30h05T2Mi9IOMguBdEijI
+ dzdQmKMLN+ZfM8sGBMhi0s1i4SZmIa+hD1UInS+f6CkWFoYZUAZo+ToGZ8kW3ohy7M+haaunXK
+ NF2UyJtweZXG7l+6IpyG9Nz3r9fqFzD+UtVQy1uitjaAC4JUz9iNOmI4Rs1ixbH6A07ADTAECO
+ Nu0YDVovweWZfkAk4U9Uu0AAAA=
+X-Change-ID: 20250220-pasemi-fixes-916cb77404ba
+To: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+ Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+ Christophe Leroy <christophe.leroy@csgroup.eu>, 
+ Naveen N Rao <naveen@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
+ Neal Gompa <neal@gompa.dev>, Hector Martin <marcan@marcan.st>
+Cc: linuxppc-dev@lists.ozlabs.org, asahi@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Sven Peter <sven@svenpeter.dev>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1791; i=sven@svenpeter.dev;
+ h=from:subject:message-id;
+ bh=+BsL+X+30brRz3phNXt0JYIMKKNWV3x6jUYpT2ksFCo=;
+ b=owGbwMvMwCHmIlirolUq95LxtFoSQwafaP6/aCa2dTduGNTKVm5dHLRFrWO33Iefu73uVP578
+ 9RVu+hWRykLgxgHg6yYIsv2/famTx6+EVy66dJ7mDmsTCBDGLg4BWAiR3UZ/juGl3/+t3Lz1z+s
+ 63ZvnfBj/22L5Wl7T3Osk5l+q9xubtAihl/Mswo+Tw7s/PzwzsJpKVP/dk3f+00uItXm6OWY8mW
+ rDV5xAgA=
+X-Developer-Key: i=sven@svenpeter.dev; a=openpgp;
+ fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
+X-Endpoint-Received: by B4 Relay for sven@svenpeter.dev/default with
+ auth_id=167
+X-Original-From: Sven Peter <sven@svenpeter.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250427_042945_768839_F08354F5 
-X-CRM114-Status: GOOD (  11.93  )
+X-CRM114-CacheID: sfid-20250427_043106_582424_EDB8A168 
+X-CRM114-Status: UNSURE (   9.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,46 +94,61 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: sven@svenpeter.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Hi,
 
-
-On Thu, Apr 17, 2025, at 15:07, Andi Shyti wrote:
-> Hi Sven, Hector,
->
-> ...
->
->> +/*
->> + * The hardware (supposedly) has a 25ms timeout for clock stretching, thus
->> + * use 100ms here which should be plenty.
->> + */
->> +#define TRANSFER_TIMEOUT_MS	100
->
-> Please use the PASEMI prefix here. TRANSFER_TIMEOUT_MS it's not a
-> naming belonging to this driver.
->
-> 100ms looks a bit too much to me, but if you say it works, then
-> it works.
->
-
-The problem here is that we only have very outdated documentation for this
-hardware and no real idea what changed since Apple bought PASemi and continued
-using their i2c controller.
-We know that 10ms (which used to be the original timeout iirc) is not nearly
-enough and we also know that we need at least 25ms for clock strechting
-(assuming nothing changed in the past 10+ years).
-We just bumped it to 100ms to be safe after we very rarely got error
-reports which we tracked down to timeouts and haven't gotten any reports
-since.
-
-
-I've addressed all your other comments for v3 which I'll send out in a few minutes.
-
+This series adds a few fixes/improvements to the error recovery for
+Apple/PASemi i2c controllers.
+The patches have been in our downstream tree and were originally used
+to debug a rare glitch caused by clock strechting but are useful in
+general. We haven't seen the controller misbehave since adding these.
 
 Best,
 
-
 Sven
+
+Signed-off-by: Sven Peter <sven@svenpeter.dev>
+---
+Changes in v3:
+- dev_err instead of dev_warn for errors
+- Added PASEMI_ prefix to the timeout define
+- Declared new variables in the innermost scope they're used
+- Re-added a dev_err that was dropped by mistake
+- Removed already applied commits
+- Removed open-coded readx_poll_timeout in the non-irq path
+- Reorder commits
+- Link to v2: https://lore.kernel.org/r/20250415-pasemi-fixes-v2-0-c543bf53151a@svenpeter.dev
+
+Changes in v2:
+- Added commit to use the correct include (bits.h instead of bitfield.h)
+- Added commit to sort includes
+- Moved timeout explanations to code instead of just the commit log
+- Made timeout recovery also work correctly in the interrupt case when
+  waiting for the condition failed
+- Used readx_poll_timeout instead of open-coded alternative
+- Link to v1: https://lore.kernel.org/r/20250222-pasemi-fixes-v1-0-d7ea33d50c5e@svenpeter.dev
+
+---
+Hector Martin (3):
+      i2c: pasemi: Enable the unjam machine
+      i2c: pasemi: Improve error recovery
+      i2c: pasemi: Log bus reset causes
+
+Sven Peter (1):
+      i2c: pasemi: Improve timeout handling
+
+ drivers/i2c/busses/i2c-pasemi-core.c | 107 ++++++++++++++++++++++++++++-------
+ 1 file changed, 88 insertions(+), 19 deletions(-)
+---
+base-commit: 7cfa6946c58989507a52f38a1267faa74a65ab0e
+change-id: 20250220-pasemi-fixes-916cb77404ba
+
+Best regards,
+-- 
+Sven Peter <sven@svenpeter.dev>
+
+
 
