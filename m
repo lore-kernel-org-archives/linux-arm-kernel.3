@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E39CCC369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 07:05:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41638C36005
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 07:07:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BiegDsAiFripKF03esxeA747O9izianQ/WOJV3TpW9s=; b=zFMd4LXJ8XFgVHKdOgFF9KFPZa
-	DpqrrOjbuRo7UVn2AGZ3w64ztfny2bmd5nytD6+CP9cwSiDuiBKWysHmjqmSXVh/K1K1GflGJU14e
-	DOEahRWuJTRyisM3T1+re0QDRmRWZXnYqFSyvP0HTcJ0pda30e/XUFLR+uBf706ZchbqSqPb015JO
-	ptBCqondD77xY5g2SaRnkCbv7uE1LStgq5SGS4/NhbIE/OLzJIZRrpUL0iZA3cht9u8CUYv5YEWSI
-	EvV6kMg7LtAVVQVJAr3sbiTwaEsRCavQeQ2Gk8V4xtJuDuN8NDdiLGHm55Uiiv6tTLqXfutl5iZwC
-	atniDAZw==;
+	bh=QcR4jgsUgO9y4hZfM1aV9dZtN9n3YnM7f2ewmOGhJn4=; b=ASzOCbuCf7OsOnFsfyY5IZn0ny
+	R7CADTMwAKwo2mP16gYxO3DpoOyUObnj2Yu7sRu1iwcFwJx2c2zvHUhq+6c7mqW4cUwV83IQ4LNoY
+	JY5zZRHUzbPnhNVZXHs4xQJ4zwpZvXI2gbf3U5a8D4a4AHr4oSYFmh7uJSkZUzc+EGBz5iNXy6g0K
+	oqfW5O5kWf1KIu2sYsSEpmBXu/f8lPiZKxEXFoSK1bUlIEuHzxNhvHxd4807hn3ArToX1fHmZnvAP
+	iLSnz0yl+nMjvBAQhkYMj3fHV33SfvXaugwc30a4oH5hueUJFSzynvZGgUrf+N/rkRCwq6QDr1/65
+	j6NM3nMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9IYh-00000005Bka-12Cb;
-	Mon, 28 Apr 2025 07:05:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u9Iac-00000005C2w-1qJ6;
+	Mon, 28 Apr 2025 07:07:42 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9IUU-00000005AyX-24Ne;
-	Mon, 28 Apr 2025 07:01:22 +0000
+	id 1u9IXf-00000005BWE-2ZHD;
+	Mon, 28 Apr 2025 07:04:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 969FC61156;
-	Mon, 28 Apr 2025 07:00:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59775C4CEE4;
-	Mon, 28 Apr 2025 07:01:17 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id F1694A49DA0;
+	Mon, 28 Apr 2025 06:59:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1B8CC4CEE4;
+	Mon, 28 Apr 2025 07:04:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745823677;
-	bh=3kWcnczSy9PqVkb7D7BZRFCEGExRBTJJZ1RAYq2S0wc=;
+	s=k20201202; t=1745823878;
+	bh=ksWJoUKCRMosr0m1b32vuD5ejeinFrZWyYqhNBswWbg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YAVHa/PbhnSOL50m/Ox3H2JFZOnDthqZy5wgNh1d/VTRwGiahXD6IW+bSUAw4Ruc/
-	 dbT39t4Ack+U5dlRr/nkk7RFAsaSMCOl8xxnCudXu2ifXTN9Ovn4pL5YrctWU8adOo
-	 RmNpQZ6WEJRD2/tPNPTQkn8ivP96YbhXhIiFbS3+ugyBk7d0DJQb8QreEZe/0aobEJ
-	 /1+mjIZRAoWSRP4jlLXj1RcwxzpFu9i+cW+KcUJECZUuntH5njEnma4NW97EYKDY3r
-	 QTY4FDs9sUOluGOPFA2YedLJvFPHEyjDEIdxhNeU2KWQjGd9w93H6/wsKtOavHkRI/
-	 S1m7HCzMoSP0A==
-Date: Mon, 28 Apr 2025 09:01:15 +0200
+	b=c/xoAUJ4LZPVh5VizqyD3gbO2s09ZDqU1wPh19+oMmyWWojlL8mKFDkxa+Q15oMeI
+	 L1dEd/V0AiS3KoRjxjxup80+QASz5RbQWHuKcFoi4bLqYFWwDH5PX7wK6I4RmdH0f+
+	 fip6+xAr9ioYGWoHoxyuEQYI8GDDSY2zFzrm41Kskh77Eyw9l9g+iVZpQn6QvMtUk0
+	 fiujIG4CskPuW5SX8Af/PcxP/h92disrCm/HeFOXwPrO64zDCQjOTtNEE9sgTb02cx
+	 bTKhfx0BPxA+F5QMF6Kz5iF8GnoJOJsC0cx1mRA52jWTK2VblPZ9jLCHz3KsjPvls/
+	 oxUWl/VMDOeeg==
+Date: Mon, 28 Apr 2025 09:04:35 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Kyrie Wu <kyrie.wu@mediatek.com>
 Cc: Hans Verkuil <hverkuil-cisco@xs4all.nl>, 
@@ -51,13 +51,18 @@ Cc: Hans Verkuil <hverkuil-cisco@xs4all.nl>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, kyrie wu <kyrie.wu@mediatek.corp-partner.google.com>, 
 	linux-media@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v3 00/12] Enable jpeg enc & dec multi-hardwares for MT8196
-Message-ID: <20250428-inescapable-smiling-oriole-bfbe3e@kuoka>
+Subject: Re: [PATCH v3 01/12] dt-bindings: media: mediatek,jpeg: Add
+ mediatek, mt8196-jpgdec compatible
+Message-ID: <20250428-ambitious-deer-of-plenty-2a553a@kuoka>
 References: <20250425085328.16929-1-kyrie.wu@mediatek.com>
+ <20250425085328.16929-2-kyrie.wu@mediatek.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250425085328.16929-1-kyrie.wu@mediatek.com>
+In-Reply-To: <20250425085328.16929-2-kyrie.wu@mediatek.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250428_000439_707876_82E79730 
+X-CRM114-Status: GOOD (  10.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,47 +77,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 25, 2025 at 04:53:16PM GMT, Kyrie Wu wrote:
-> This series adds support for mt8196 multi-hardwares jpeg enc & dec,
-> by first adding mt8196 jpegdec and jpegenc compatible to install
-> kernel driver. Add smmu setting to support smmu and iommu at the
-> same time.
-> Secondly refactor buffer and clock setting to support multi-hw jpeg
-> working.
-> Lastly, fix some bugs, including resolution change handleing, stop
-> streaming sw flow and others.
+On Fri, Apr 25, 2025 at 04:53:17PM GMT, Kyrie Wu wrote:
+> Compared to the previous generation IC, the MT8196 uses SMMU
+> instead of IOMMU and supports features such as dynamic voltage
+> and frequency scaling. Therefore, add "mediatek,mt8196-jpgdec"
+> compatible to the binding document.
 > 
-> This series has been tested with MT8196 tast test.
-> Encoding and decoding worked for this chip.
-> 
-> Patches 1-3 Adds jpeg encoder and decoder compatible.
-> Patches 4 add jpeg smmu sid setting.
-> Patches 5 fix jpeg hw count setting to support different chips.
-> Patches 6 refactor jpeg buffer payload setting to handle buffer
-> size bug while resolution changed.
-> Patches 7 reconstruct jpeg dst buffer layout.
-> Patches 8 fix multi-core stop streaming flow
-> Patches 9 refactor multi-core clk suspend/resume setting
-> Patches 10 fix decoding buffer number setting timing issue
-> Patches 11 refactor decoding resolution change operation
-> Patches 12 fix remove buffer operation
-> 
-> ---
-> This series patches dependent on:
-> [1]
-> https://patchwork.kernel.org/project/linux-mediatek/patch/20250424090824.5309-1-jianhua.lin@mediatek.com/
-> 
-> Changes compared with v2:
-> --refactor smmu sid setting function interface
-> --Some modifications for patch v2's review comments.
+> Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
 
-This is very vague. What exactly changed.
-
-> 
-> Changes compared with v1:
-> --refine jpeg dt-bindings for MT8196
-
-This tells me nothing.
+I gave you a link to the exact part of documentation about prefixes to
+read. I do not see improvements, so I do not believe you read it. I could
+imagine people skip reading entire doc (who would listen to the
+reviewer, right?), but if I give direct link to specific chapter and
+still not following it, makes me feel quite dissapointed.
 
 Best regards,
 Krzysztof
