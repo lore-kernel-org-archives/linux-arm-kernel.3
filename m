@@ -4,75 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49600C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 16:07:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 458FCC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 16:10:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r3PDk0kE6Pq6FLmLOY/JDwc7lEcgFrVSKJD43x+V3Uo=; b=kP3Ksh2pY9/lrESm1Bm++OREfC
-	6IIxyXYZZp1VSLWsKFb3+9lc4Jl5eZMqXmYV1Y/XviEgoKyE2TPVv06vVKCLw8jTiDSKR8unq9MLG
-	jgtaP9+MgdFfUgfjGy4l2phiJSh2k3u5m/oWKcVx5Ay9UzxMVH0ZPL6VHndRW8cw1ZnAiHLhgg/dm
-	E+MaIZbTd1/tZR3iukKng53rc1NrkaVGqguZ3MS0JZb/c7ILz9eSOWPD474lR8IFXVVBRK7pBkdcY
-	BrG0Ks/xaEgbYXwN8JSIGgaO4fdwcdQ72Q10y5Dwd9ZES+4i4kThY+ME7exj6Mx+ojRIeGqcww4ia
-	0c8NKFNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5sZqFf0pd/XIN1B2NzEquxW9LkBSgzNN2nMSHABe7I8=; b=DR64XODMMnMVTUrRI4785YxPlp
+	GUfJ/+vL38/B7CXPZnof8t/KVNlVTISK22Inu71/4IQN1O6GXdWVWH58IsZulDzrB9l7Ql4AdpV1d
+	nBt/lxZibgK0on4UxZ0+zG/ER9NVu5CuxsZzVa9LMgaUMro1oJrcVxc05HdnjDTLrzGBD6WNjqUhm
+	v2yrTJ5nYyP/ljj2+OdeG2STLWqnGZMKYOcaEzBK5GAMwmFgIO6KAB1/dVwxslbZKp6FITe/AqVFQ
+	gUmyfsZgzJeQbxnTERThT1FlVEPZCEXcSEmXZGcquSdcObqtpUU0S5IIHuv/uVKUcW28ivorazkiU
+	xZFD8jtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9R0W-00000006rJj-0Zcr;
-	Mon, 28 Apr 2025 16:07:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u9R3H-00000006rrG-2L1I;
+	Mon, 28 Apr 2025 16:09:51 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9QyY-00000006r3q-1DYS;
-	Mon, 28 Apr 2025 16:04:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C134D4A11F;
-	Mon, 28 Apr 2025 16:04:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6576C4CEE4;
-	Mon, 28 Apr 2025 16:04:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745856297;
-	bh=7XLdbWmNFskoiToXzoYEkGfsOw/zohiTcP2XkykS74o=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=AM9L7fZuEJv8GJopbMAaCLzul2dtTfFJkqqJ7BqfmbmCyAf10FdcxcWA/Ng3eUspe
-	 UKicT9AHwF0xcV/7M0JEceXTD6wy5YgRoC81Xvjy79aPqtv7WHhmosG1kwNnZj+PLQ
-	 2VPm3GAdNQ/sMv5301JJTyBVGb6HJCDTMgEfBTGBNwTEG1novG/AMwvccQDP+V02UL
-	 6M2s58ruhrpoQeJ4Es/bu5G7f3ZtgwS+SGoA+tcjE4DAcR3OLIp/2evQhbeM4E5aT3
-	 EWlDsmGGqb/fAJ8ea7L7+HLZKI31nwe0JS5bb6+xZWMHe17K24pRXJPO1j7sRq1rPL
-	 i00uL7SUG/KTQ==
-Received: by mail-ed1-f41.google.com with SMTP id 4fb4d7f45d1cf-5f728aeedacso4967240a12.2;
-        Mon, 28 Apr 2025 09:04:57 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVxSJRD+JhDzCbQ591THjyZAoP/uifG/8ZBL9l/+ECMFCPtum5Mc1IwNTkPw32Kep5n+lgSFg3A545eVnmZCFKx@lists.infradead.org, AJvYcCXvdCoFivc2V9Gkbpst8y0qnWKQlRbUGs+S/RjGyNRCGsEDHiFq3F5mocszJVXBFOYqniNeIIu4wmEWyQMVW9k=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxpLtYfZ/NzQI9ucSrvkG7VwVFFIFS8xavfc9rmRPgdq15ZvMe/
-	1e1hVINiKLBsMzbx8P9qOPeDcraBePtc+TPZYu2Ca/t+e06w5hAgZgZwCRLgYFIrP12LTf7Rhlp
-	odARk8R9hBVFI4uAZUHfGkdSA/g==
-X-Google-Smtp-Source: AGHT+IHqyjiiOUZc7O0PTXr4PU21+O3T0XNzhaZ1i8yWNd5TokGg/Wq4TNREu/IzrAIDEiBQ7J/8fcTB66uLEb2Z3jg=
-X-Received: by 2002:a05:6402:40c6:b0:5dc:7643:4f3d with SMTP id
- 4fb4d7f45d1cf-5f83809e106mr113428a12.1.1745856296286; Mon, 28 Apr 2025
- 09:04:56 -0700 (PDT)
+	id 1u9R1J-00000006rRx-1rLi
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Apr 2025 16:07:50 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-736bfa487c3so4159620b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 09:07:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1745856468; x=1746461268; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=5sZqFf0pd/XIN1B2NzEquxW9LkBSgzNN2nMSHABe7I8=;
+        b=x+2ezmcV1T0sHMSxnFOzeMVdj1WXYDpNk97I/diBQgCU0xLwJ8F0FnbsnjJwB5nZXE
+         g2jOKVY/orpVnB+IBguzxIjqdjoSCcJpQFrO+Oj+xXod7DJBjYiwMTd7f4ukvRK9RBQn
+         SB3p6pgthJI3wkzAHjTarnQbtjmOy4hjUyy82c1378n6nlN5CIehoWyCmwxz45aXJQIk
+         3B9UPupmXYFt7yi0ZLJgKmpyDXWpIEmeoCFSY9uqgX7nJOCIM5hd7AW79HBy5e6NDjLy
+         KnSSq/Higtm6b2gcjGBtC1gZpvPt91F1R0LoKL4du0lZIoRzdF7kE9whphTSPYWygUfw
+         sLUA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745856468; x=1746461268;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=5sZqFf0pd/XIN1B2NzEquxW9LkBSgzNN2nMSHABe7I8=;
+        b=iu8goUztCzrNbMJNRDX6kDBN1kMA4BCZePYW7eqaER4Jr/ZyeNqhefgZBiYgq4Qmmq
+         oqXjJzcwlnKWSy+vLMrCzjgpX0tfE4IA/4S9ccwrZ+f65PEwzuIEC+EuQ8em1XzlqG4q
+         n8bs5yZcm7VF6u1C2Xxc/sEUwvq1Mf01X9rQpgyMBsig+oJsQr7ILM+WUKhyIgHmukXJ
+         pzIlR0sk6rjO49WTJGjMBnSDJxsRHX+4da93Eo90y4cSp7nXvkSR0ilZafbjS/lTXanY
+         MuJ6kXEpp30+L0MGbtG7BtCB2CHnM2HyJboPt2UrOF+a62EHmkvLMFWZfyF8yzWqbP3y
+         vU+Q==
+X-Forwarded-Encrypted: i=1; AJvYcCX4mJH/OWBE1BSrjhDHmG1RdChFe91q4OQMDyGV/MJRZGzkCacgiRzs2caOfvOSNHCQcN2S9wzBshpEoLIAh6i8@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZ304cz6Np7pCalCkby6+Kgx0wufq5lz39z+Y8uMoAHqLoixqe
+	6AU+HwCXCUoCFCp0NN41L3VNsNSASJWyncOl7+PwtI0l01s6VnzMwkj9JyT5jg==
+X-Gm-Gg: ASbGncuNEAnyhnRNbRtnl2gkbs+gGXMq/QS1ZCHPVEtGUDZOESa4uwEcG6JhxssHj5A
+	Ec/p/4AcJ9IaNuMrPg5jA1GlcaSOQiud/w57reXaJUxm2Dp2b7mTc8Wm8e43a8v5Fb/oTKfkPhC
+	Nq7HcrhcAMrSvbwCj8Oa1XgaqORh/x63zAJRBNKRWqMxr7moMnuB3KEtD7VfnSQzSaipnzNtucw
+	8hCZ7cbz8Wn4frXGOPpwU2/bCdRUCUG8V6b2QQBt9ZS4za2p7hoaLPJ+k5iJCCOQogxGXSexdAH
+	nf6NPSciXtHje+DHnlxjcEcnCBVRTe6mGah0DzVvqgVgtS0LqQ==
+X-Google-Smtp-Source: AGHT+IF0ND+g+mFXQq9lcsG6u5nnlgozZt0EphIl6/bHv3S/p1GH2+Y4vlSstnIZ/hRGR6y3aIC3NA==
+X-Received: by 2002:a05:6a00:138e:b0:736:3c2f:acdd with SMTP id d2e1a72fcca58-73ff72d3d28mr12125481b3a.14.1745856468420;
+        Mon, 28 Apr 2025 09:07:48 -0700 (PDT)
+Received: from thinkpad ([120.60.72.74])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73e25acc4casm8463484b3a.172.2025.04.28.09.07.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Apr 2025 09:07:47 -0700 (PDT)
+Date: Mon, 28 Apr 2025 21:37:38 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Basavaraj Natikar <Basavaraj.Natikar@amd.com>, 
+	Shyam Sundar S K <Shyam-sundar.S-k@amd.com>, Linus Walleij <linus.walleij@linaro.org>, 
+	Chen-Yu Tsai <wens@csie.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Andreas =?utf-8?Q?F=C3=A4rber?= <afaerber@suse.de>, 
+	Paul Cercueil <paul@crapouillou.net>, Steen Hegelund <Steen.Hegelund@microchip.com>, 
+	Daniel Machon <daniel.machon@microchip.com>, UNGLinuxDriver@microchip.com, 
+	Ludovic Desroches <ludovic.desroches@microchip.com>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Sylwester Nawrocki <s.nawrocki@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-actions@lists.infradead.org, linux-mips@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH 04/12] pinctrl: owl: use new GPIO line value setter
+ callbacks
+Message-ID: <ild3eqfgiez4zgtxcha6ki3udfxzdiqeywvwzh7rfympgfps7o@m6h4v5kxhq63>
+References: <20250424-gpiochip-set-rv-pinctrl-part2-v1-0-504f91120b99@linaro.org>
+ <20250424-gpiochip-set-rv-pinctrl-part2-v1-4-504f91120b99@linaro.org>
 MIME-Version: 1.0
-References: <20250410144008.475888-1-angelogioacchino.delregno@collabora.com>
- <aAETI0hrOiQZDKh2@8bytes.org> <20250428160227.GA1322286-robh@kernel.org>
-In-Reply-To: <20250428160227.GA1322286-robh@kernel.org>
-From: Rob Herring <robh@kernel.org>
-Date: Mon, 28 Apr 2025 11:04:44 -0500
-X-Gmail-Original-Message-ID: <CAL_Jsq+pE2c3GzdrgRO97Ee=ajOVAMzNtqyujD3PXyNE6Ad9vA@mail.gmail.com>
-X-Gm-Features: ATxdqUHw7IfXnRL7JJPy7HyVs4hLK90IaG__j7ETIyndbfex7BJvjd7AGV1APf0
-Message-ID: <CAL_Jsq+pE2c3GzdrgRO97Ee=ajOVAMzNtqyujD3PXyNE6Ad9vA@mail.gmail.com>
-Subject: Re: [PATCH v1 0/2] MediaTek Dimensity 1200 - Add IOMMU support
-To: Joerg Roedel <joro@8bytes.org>, yong.wu@mediatek.com
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, will@kernel.org, 
-	robin.murphy@arm.com, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	matthias.bgg@gmail.com, iommu@lists.linux.dev, 
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kernel@collabora.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250424-gpiochip-set-rv-pinctrl-part2-v1-4-504f91120b99@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_090458_353222_CBDC954E 
-X-CRM114-Status: GOOD (  15.56  )
+X-CRM114-CacheID: sfid-20250428_090749_487231_B32295D0 
+X-CRM114-Status: GOOD (  20.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,34 +113,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 28, 2025 at 11:02=E2=80=AFAM Rob Herring <robh@kernel.org> wrot=
-e:
->
-> On Thu, Apr 17, 2025 at 04:41:39PM +0200, Joerg Roedel wrote:
-> > On Thu, Apr 10, 2025 at 04:40:06PM +0200, AngeloGioacchino Del Regno wr=
-ote:
-> > > In preparation for adding basic support for the OnePlus Nord 2 5G
-> > > DN2103 smartphone, this series adds support for the IOMMU found in
-> > > the MediaTek Dimensity 1200 (MT6893) SoC.
-> > >
-> > > AngeloGioacchino Del Regno (2):
-> > >   dt-bindings: iommu: mediatek: Add binding for MT6893 MM IOMMU
-> > >   iommu/mediatek: Add support for Dimensity 1200 MT6893 MM IOMMU
-> > >
-> > >  .../bindings/iommu/mediatek,iommu.yaml        |   4 +
-> > >  drivers/iommu/mtk_iommu.c                     |  37 ++-
-> > >  .../memory/mediatek,mt6893-memory-port.h      | 288 ++++++++++++++++=
-++
-> > >  3 files changed, 318 insertions(+), 11 deletions(-)
-> > >  create mode 100644 include/dt-bindings/memory/mediatek,mt6893-memory=
--port.h
-> >
-> > Applied, thanks.
->
-> It looks like you missed the binding change for this.
+On Thu, Apr 24, 2025 at 10:35:27AM +0200, Bartosz Golaszewski wrote:
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> 
+> struct gpio_chip now has callbacks for setting line values that return
+> an integer, allowing to indicate failures. Convert the driver to using
+> them.
+> 
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-Actually, upon closer look, the driver's compatible string has a typo.
-The period should be a comma.
+Acked-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 
-Rob
+- Mani
+
+> ---
+>  drivers/pinctrl/actions/pinctrl-owl.c | 8 +++++---
+>  1 file changed, 5 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/pinctrl/actions/pinctrl-owl.c b/drivers/pinctrl/actions/pinctrl-owl.c
+> index d49b77dcfcff..86f3d5c69e36 100644
+> --- a/drivers/pinctrl/actions/pinctrl-owl.c
+> +++ b/drivers/pinctrl/actions/pinctrl-owl.c
+> @@ -598,7 +598,7 @@ static int owl_gpio_get(struct gpio_chip *chip, unsigned int offset)
+>  	return !!(val & BIT(offset));
+>  }
+>  
+> -static void owl_gpio_set(struct gpio_chip *chip, unsigned int offset, int value)
+> +static int owl_gpio_set(struct gpio_chip *chip, unsigned int offset, int value)
+>  {
+>  	struct owl_pinctrl *pctrl = gpiochip_get_data(chip);
+>  	const struct owl_gpio_port *port;
+> @@ -607,13 +607,15 @@ static void owl_gpio_set(struct gpio_chip *chip, unsigned int offset, int value)
+>  
+>  	port = owl_gpio_get_port(pctrl, &offset);
+>  	if (WARN_ON(port == NULL))
+> -		return;
+> +		return -ENODEV;
+>  
+>  	gpio_base = pctrl->base + port->offset;
+>  
+>  	raw_spin_lock_irqsave(&pctrl->lock, flags);
+>  	owl_gpio_update_reg(gpio_base + port->dat, offset, value);
+>  	raw_spin_unlock_irqrestore(&pctrl->lock, flags);
+> +
+> +	return 0;
+>  }
+>  
+>  static int owl_gpio_direction_input(struct gpio_chip *chip, unsigned int offset)
+> @@ -960,7 +962,7 @@ int owl_pinctrl_probe(struct platform_device *pdev,
+>  	pctrl->chip.direction_input  = owl_gpio_direction_input;
+>  	pctrl->chip.direction_output = owl_gpio_direction_output;
+>  	pctrl->chip.get = owl_gpio_get;
+> -	pctrl->chip.set = owl_gpio_set;
+> +	pctrl->chip.set_rv = owl_gpio_set;
+>  	pctrl->chip.request = owl_gpio_request;
+>  	pctrl->chip.free = owl_gpio_free;
+>  
+> 
+> -- 
+> 2.45.2
+> 
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
