@@ -4,204 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A0ABC369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 08:20:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73DD3C36005
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 08:21:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O2nGNphA6t8eZ/w9yiLFptxzKF+dkxpn7SOrlXZP+RU=; b=f8VLNqNtZy3P5/NMYzMOYMVkuz
-	M1TNkpyVX4sAty6/kOQkojiT2MkL4ck7lM7vB6clQSwbsXe4nIX7j5SA9zZy67jZK/LEOaCP58hWw
-	9ohhBGc8gdk+hjofztI7UA3ceUegMB/ztRTAOWd5X9NnAtzgtWYAqCJw4m9vqChFsD56i5iVPLDyb
-	dMd35P+mm3dUvdJ8H9i77pLF/j96EVDC/TpbO0WTR4rYqFpMCBJ5iVZyn8ncfeP47fx4VdWDr4IdO
-	gC3oceN5S54MS+xd0363iKYM3LJV43EejCdglKqt8mPge94nWyEDLCuIBZIZDep14LdqaKKwYe+Tr
-	6Vyx0IbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PQb6/JrtA/eLzoukWftU2fxvtoqJ28zJBaZAc0hVsHY=; b=xvyoxNYrtrKRR8d+M0nK+ZzlAF
+	6SxArlFjOWGJQo1TF2CPHGGA5tYMuvRbr04W7Jy6b1P1dK9LvvaB8qeaFfz31iLd+ekq9+4QG9vl+
+	My7bmjwuPqFPVRNZZJTiUKGB97xdZ/HODyLvlLHT1po5L3DtV+c6f89rYern8nQDY0fu5Vrbm1JoX
+	LNg2LFRyI7skZIRMs1+nvE3YjC3CxPKcsmHn+QDG8yiBWYCmh9Wf+1jPgPGiSYoJc7Mu/WPTst+wS
+	UJMcmMICe+YaX51SxzaQRkG/RnuvnFAdhorZCvGaHaAuqxkibZSYyoOcUygQHnxI3tJYC99kYpTaw
+	jkGftNNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9JiR-00000005O7l-1Gqn;
-	Mon, 28 Apr 2025 08:19:51 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1u9JkO-00000005Owa-1OrO;
+	Mon, 28 Apr 2025 08:21:52 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9JZX-00000005MX5-2TKs;
-	Mon, 28 Apr 2025 08:10:40 +0000
-X-UUID: 431813dc240811f0b1a74d0c5e11a509-20250428
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=O2nGNphA6t8eZ/w9yiLFptxzKF+dkxpn7SOrlXZP+RU=;
-	b=q50TQ1KDTyn/gdJO3DO/tqJ5fPsNVsaO7trfFy7Ap6EdOwmLG0+TfEzb9KXA6yKqknodb6ZULLTQNyuAypFtRi9/SQquAjeAJ+jsCFZvwYohWIjjst4/XEfmG5IFdgoOAipdydADGI3LFvl3MPgtFNE9nHQSAGOIhgDSNcqS5DQ=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:b2a9d69f-ec8d-4d9b-9f96-58642de20112,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:9ce91f07-829c-41bc-b3dd-83387f72f90e,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111,TC:nil,Conte
-	nt:0|50,EDM:-3,IP:nil,URL:80|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL
-	:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0,NGT
-X-CID-BAS: 0,NGT,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
-X-UUID: 431813dc240811f0b1a74d0c5e11a509-20250428
-Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw01.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 146957299; Mon, 28 Apr 2025 01:10:35 -0700
-Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Mon, 28 Apr 2025 16:10:32 +0800
-Received: from OS8PR02CU002.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Mon, 28 Apr 2025 16:10:32 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EoZ2yZnAEmmTtnBLhEM8IzGoZC5k4dy6uLCQGopw/iamCxCFE2IARgI5AbuZgTBX0BdHoLiTSWYovYFrQ6KoKJRqKWsGqSPs5lp8QlWtYjDRF/waRqLnq4iSIcsc192ogdNeGoJ+rtT9FpUpKnTSVMrv25w3hE8ZYx3J1uVgmF8lkaMgE7K4QRSLH784ak4vmwiOCr+Pfq8dTOVLUtayzd4yrH4eD9zkdUsRaoN94QHM6hcZz+2i3xHe8AcT55+1y2QZgjQ3QvqNDwik4m8fOrZNOZfhjSJmjm71yiQOEsQWFadSTnxSVOHpSiOqvw1cjccrIG13dRYYg6r3KgzVSA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=O2nGNphA6t8eZ/w9yiLFptxzKF+dkxpn7SOrlXZP+RU=;
- b=L6G86Go/qBIedpmbhcu5NE69NAItb4Rt3kW7ByDVO3IStv7463Vq2hfmxgnqfStm6qQPp5KDgGVZu/2bQt65K2Vp+FbAvvaggFqK8S/SjC5nOzyKf42P1mPfEvlKgD4MY4NoEoWCoLBW7jA9QqkhFqYQR8cb8RSEdhKdK6TnWByvp5hs1cOLh83dWJvX8f7yE7G+SmQXHIqxZriQ7tiPfcu4v0yHKc8NpQJ9T7OmALPc4DdODQZvFgcYoSbNSEepzJvOdCqtMoF3FQWAuqfak9cufZ9aEQCCnOIDLYWzT5ENF6enMQkKydp102POEJv3+av4J/tnUF/TVJkAY+Lb1g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=O2nGNphA6t8eZ/w9yiLFptxzKF+dkxpn7SOrlXZP+RU=;
- b=vtCE/wrDeyXSdrZS8+pApoRzMrP78PqrAWYuWY74ouHPUnlwm+/xSUptcuhkOmzzVWt0TEi94X5ejuyfwo2iJKAqjS+BxycaC/MhaNBUDHpgvbCZAOtqVQOSD3r3x2Nc/AIbOZg555tjoIhtazela4NfpSOBUn7Y8leiZZ0MxCw=
-Received: from PUZPR03MB6186.apcprd03.prod.outlook.com (2603:1096:301:b9::5)
- by JH0PR03MB8349.apcprd03.prod.outlook.com (2603:1096:990:4a::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.31; Mon, 28 Apr
- 2025 08:10:29 +0000
-Received: from PUZPR03MB6186.apcprd03.prod.outlook.com
- ([fe80::7b22:91f6:b76e:161c]) by PUZPR03MB6186.apcprd03.prod.outlook.com
- ([fe80::7b22:91f6:b76e:161c%5]) with mapi id 15.20.8678.028; Mon, 28 Apr 2025
- 08:10:28 +0000
-From: =?utf-8?B?S3lyaWUgV3UgKOWQtOaZlyk=?= <Kyrie.Wu@mediatek.com>
-To: "krzk@kernel.org" <krzk@kernel.org>
-CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"kyrie.wu@mediatek.corp-partner.google.com"
-	<kyrie.wu@mediatek.corp-partner.google.com>, "mchehab@kernel.org"
-	<mchehab@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"robh@kernel.org" <robh@kernel.org>, "hverkuil-cisco@xs4all.nl"
-	<hverkuil-cisco@xs4all.nl>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Subject: Re: [PATCH v3 00/12] Enable jpeg enc & dec multi-hardwares for MT8196
-Thread-Topic: [PATCH v3 00/12] Enable jpeg enc & dec multi-hardwares for
- MT8196
-Thread-Index: AQHbtb+JBOkotc7Vbkyf4sKVgb4bPbO4qyuAgAATVYA=
-Date: Mon, 28 Apr 2025 08:10:28 +0000
-Message-ID: <5735ebabb8b049bd7c8700a433bf5b073dde66ad.camel@mediatek.com>
-References: <20250425085328.16929-1-kyrie.wu@mediatek.com>
-	 <20250428-inescapable-smiling-oriole-bfbe3e@kuoka>
-In-Reply-To: <20250428-inescapable-smiling-oriole-bfbe3e@kuoka>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PUZPR03MB6186:EE_|JH0PR03MB8349:EE_
-x-ms-office365-filtering-correlation-id: 336dbe17-0e19-4aa2-2552-08dd862c2331
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|38070700018;
-x-microsoft-antispam-message-info: =?utf-8?B?YlUyOVNYVEliMHFBOWFPakpHdTB3dU5vcGY2QzkydGMweEJNUGtUNi84aThS?=
- =?utf-8?B?SjBLN21ySi9KNDkzWVBjVFdyT1RIZ2oyOU43YmZseFRTZEcybndPRFdiVzlm?=
- =?utf-8?B?ODJqSWZjS0tIYmhCdFBLaGFFS0hkK2VYN09hcDUzdERrenlzYnZMSEtZVG9V?=
- =?utf-8?B?YkNjdVN1czZTUGszZU9WclVaWjhBcHRvaVdtWUJPQTVaRWZyTHVmeVdESEF2?=
- =?utf-8?B?MlhYa3dDSWhsZFVCcUZUVHdWenY0UmdFcUk1dm1YRnpHWXM3czk1Y09ybE90?=
- =?utf-8?B?K2hFNnRvUFBaNE5HSDZqWGllTjd4Yjh2VVRyalZMSThLT3B2d0lTMCsxQzhq?=
- =?utf-8?B?M2pPU2dOb1lXQ3VkeDZtY1U4eVlKc2ViNWVPWEsxUXRXY2RnT2hIK25Fb2Yz?=
- =?utf-8?B?dzAxY3hiaVkrRTJzZnFEMld5dU1pQVRnaFBRM01IaFNjOTIzQU5wUWhnUmJh?=
- =?utf-8?B?RWUyTWJQNU40RmdDMk02T3RWd2Q4SGcycWpMWVByWVprY2VWTVVoYWlOQWo5?=
- =?utf-8?B?QmxFLzgrbnRTWk16VkhnakZsSnVUaHpMck00NG12VWdIZkJKaVBKbUl4UlA3?=
- =?utf-8?B?U1hXVDNqcGxvd3BISGNybVJjbS8wNkN3eUY1S3o2d0V2NFZOTFdUM0JvY1Fv?=
- =?utf-8?B?bEg4VWV2Y25Ud2YzQ2kzRlhYeTZHZUttaWZtKzFsQzhMUkxlWENqRzlaSTdW?=
- =?utf-8?B?MVJDTmp6RFlUOHhhc09PLzR5eTdtakVRc2RKaTljdkpVeUZLWkkzZTdUeGVz?=
- =?utf-8?B?Wi95Wk1TSy8xQW1ubGtRZW8waWp3YVo2ZHJ0clpEM1BYakIyUFBqaCtjRTFo?=
- =?utf-8?B?RndGWW9UaFdzbXZBNzYyYzJJQkJITE9VM1ZyOVIxNEcrYjJ4Ky93SFFWUWpi?=
- =?utf-8?B?MFNmL3BibUw5V1JIT1c3dURvTUp0djBTZzYrUlg3Z054bk5MVTJ2d0c4SmVv?=
- =?utf-8?B?WWN0MVUrQWhHQjVDbUtTL1dWNmFDVzNITXRqTFhETnBmWFg3aXhrYzJ5YjJn?=
- =?utf-8?B?US9UUVgxNk81dlhBam5UbTJCcmVZSm1EbWJGZ2IreGZRV0w5TTl2NDVRMmlP?=
- =?utf-8?B?T1hXdUljOUErQXA0QXVxc3VSOVBXSWJpSUlwSk5FNHVUSGt5b08vVnplN0xj?=
- =?utf-8?B?SGs5UEZzUWp6NmJ3cGdJU3ZJNDBaL2xPKzEwMEZYbm95cTJ2T1l3LzdoUEdo?=
- =?utf-8?B?NFVqYzVOdkxuRlBLTmdpdTl6akQ2bkZtZE5hQnU4eC9JM0R6Vy9OQmI2Qlhq?=
- =?utf-8?B?YlRPZUJ5cGlDVjNZb3FEem8xVzVmaTNaaC9TQTJaVXltd00zeXM1RzYzVnRn?=
- =?utf-8?B?czBTT0hDZnBSejdvY0FEVmI3eUY0cE1GbCtlbU9YOXVHSDVzQk5WdHhXRWZM?=
- =?utf-8?B?NURuYXphSmYrSU45Qks1V0pob1dkUHMzZWc3cE1aVktVYlEvWnJ1cXpSM3RZ?=
- =?utf-8?B?MFZRdTJJYkd5UVZpcGJ3VEhlRUxGemRLQVBqOVl5Y3pEazBOV25UMHFybzVW?=
- =?utf-8?B?ZzVvN1lxOEQ2ZlZEVzRONHJIZUhzKzlLcXQ1SThRd2FQZ1A5Skg5eUg1aE8z?=
- =?utf-8?B?TElSMDdwa1A1RjJjWllBdlREUlFXVS9aenpVbHF6UDNJY1NOR2YxR1lDZTR2?=
- =?utf-8?B?SHk0bE9LNlFCSW1jZ2hZazNiaC9FRUN6UzhWODJVald0ZU5LZE5wTmR2OUpJ?=
- =?utf-8?B?K3ozR1hLRFQyNzRPUXkrcHl1cytSeVcwcHliaFpScXIrbUdQbCtPWmNYTzJU?=
- =?utf-8?B?ZG1tSWoxdE81ODBnWFQwUnM5aHlzRFdpQ3AwN0lMZlZoTEVXYzBjREh3VG5X?=
- =?utf-8?B?a2tacnRXTmFoc2JjdEh0RXpuTzJ4aHZWbFhlSlJqSlV3SnF1TmhJQ0NWTVNk?=
- =?utf-8?B?T1FLU0FSQVRXNHIwZUJ1UUdxa2xZM0ZXQVRSSFlPWTYwQS9jTS9XYUtHcUpt?=
- =?utf-8?B?WnFUR0tkS1hDMnRDR21SK0NPTkttQlZQNUdQU0QzeERDWDRwY09ZREI4RjlW?=
- =?utf-8?Q?X+ldk8j5jBHPwaY3u0Xlncd1pwv9tA=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PUZPR03MB6186.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?MDFyUEduaUtSTDNZcGFPZTdPZTNreHhmbVRFZkpiQ0h6SGYwRXRDNExWazZ2?=
- =?utf-8?B?T0lHaXA5Wm1ZWUs0R3I2aFMwY2daMml2VlVSeUs0Mm8vaTZ1RWt6R3ByMS9w?=
- =?utf-8?B?LzNmbnNZUkFoOXd0NFE0a1A4M0FTNDJJR0ZkODRIdkZhdVo1RzUzNjR4KzBj?=
- =?utf-8?B?Tkk1VjVabTZVeU1oQnY5WEhDQnAwSkhtNkxCZmgxZGRJckZPSkp6YzZUNEtS?=
- =?utf-8?B?S09WNmZVclI4TFVlbUtXL28xSkR6RFFxYzdGSVVNZFFpcUw4MTUyNEtEVmxZ?=
- =?utf-8?B?K1hSOUpYWmNoK05nMVUxcVZVQUdRVlRjeGZTMUwxVUUwVS9sSFNUMTUzZXJB?=
- =?utf-8?B?eWlZakZzK2xabVBraXVSSitoa2c2RjUySUx4U2N0UlNoUDF1eGIxNkRnUDE3?=
- =?utf-8?B?L0llUWNycmZva1p3U2JEUmEvNXQ0VlVpUWhLZHVSYURBMTZMYXpndzVqZGYv?=
- =?utf-8?B?WnJReFVET0pvNzNNM2pPdlhOUU1ha0xsM0EyVDdXM2dmK2VsMGFYaGJiOEdT?=
- =?utf-8?B?eXViTDZOSGtDcjlhZ2NZWXZUd3pHSURhZjFoNVJPWlhabVFFMEw3RXpnek1L?=
- =?utf-8?B?eDEwRENhRWN1RTBnME1obVZGVm1XZlJuVVFaTjBrZFlYMzNJaFJYNStRVHdm?=
- =?utf-8?B?YVFRRXFjSzlrWkRSNHNYdSs3NzZyOWhUcHd5eFRFNjVZaHB3WGNCQkpYa2V0?=
- =?utf-8?B?empLYjFrVHNzaTlwSzJ1SisvM3g2ZldPbExhUFk3QVBNQWJET3hjYkNPdjdr?=
- =?utf-8?B?TmpPdlJScTgrYUtiWFk2WWdvZUlMZUk3K1E2V29keHRJdzhWNEozMXJTNTN0?=
- =?utf-8?B?MGxzTHlib0o0VFhzMTJUUFp1YTc3TzNkcGxLM3FWY0R0UXUvUzBaVHRHdHFi?=
- =?utf-8?B?N2lheXl0Zm5YSE03eFRqODJpUzVKVmlGSjVFbWVERWpuZDVxRTNUMUNvcEZs?=
- =?utf-8?B?MGNzZW9sWWtxNGdTZDdvK1k3RjJISStOT0hsTHhYMFRDYXhXWXBkZEpSZlV5?=
- =?utf-8?B?ZGE2OHU5cExkVjRYTC9LSGQyOWF0S29Wa0FybnBEcVA3MVNlaTE2QnBReklr?=
- =?utf-8?B?bVNjS25tbXp3V3hJYjRjcUhaVDlSVUcvKzY1ZENIT01UU0d3UnlINGcwblRX?=
- =?utf-8?B?MEVCWm1hcDdWUDY5cGtsQU5wc1o4U2ZDSzdIdW9IQk4xaWVCWXFtWDV2QkpU?=
- =?utf-8?B?UEg0M1BLRXJwMERNZXpjbnVha1BTdVZrZitkWU5XZmIra0U5UXNVejVZU0hu?=
- =?utf-8?B?ckJra1BtSkRXYzVBSUQwRTE0NncxY2RFMGVmTGt0dU0zbnFuYk0yQi9BZ0N0?=
- =?utf-8?B?MnVrZ3RQd2JSTHN5UHJxN1dRcVBKRkt6OXZVZ1cweFBWRTRVZ3I5bERBak84?=
- =?utf-8?B?MUZCSStMRzEyL1NxL2VTVm5aR2xmVit2QUdqLzdIdFQvbmNpbnRTY21PZ1hy?=
- =?utf-8?B?VHVVc1J4ZENodUpzdmp1aUFVOEs5Zm5BQmc0cDRWZ0xUekNCeUpxeis0Z1I5?=
- =?utf-8?B?VWUxSlR2dE9BWU5HZHpraUtkZlFhRjNkTnJ6cmQ2akkvcW1zUWo3TExreTFT?=
- =?utf-8?B?SFY1YlhGbVFWeGd3L0R3aFE3K2VteEZ2WFVncG02UDJNcG1jSk5oNG4zUWly?=
- =?utf-8?B?NG5kZDZHMlBETmJHeklzZWdNSzNzcFFraVJ2MHdDbGNpSVpsWmJuQnZXQnlJ?=
- =?utf-8?B?YTVwampubkxoWjhUMmNMNDRyTmF4MnFqZ1BiR0dabUZHTit1VEdORW5Zdjcr?=
- =?utf-8?B?OU4vaFQrZEEzb1h2RHpPcWlHQ01PcllMRXBwK0dBRDI5elJScldUQ0dldUxF?=
- =?utf-8?B?Q0J2TjZhTlNRanRpK1l0VWZuM0ptbGRtL0Y3NTJ0UGhrQmV3OS82YXVwc1NR?=
- =?utf-8?B?akg0czZXclhIa2twQlExeWVDL1Q1V2xWNE9mOHpaYTM2VCtMK2FHQmJnaitr?=
- =?utf-8?B?RERTWEhVbnJ3dDdMU3NFT0JIWlozcjhhaW42dm1CMUttSDRjU3p2TFZOQlpY?=
- =?utf-8?B?NURsUnJXQmExN1Z4Nk1PdXYyaFE2eFZKS1VHcWtFSThxNHBEeVByMEE3dlZl?=
- =?utf-8?B?TVNmVVRRVzkxL2hpZlh6Q2UxbFE0R3B1Qytpb0dDQlo3VHZOMnhOT3FtTVpo?=
- =?utf-8?Q?FUaHiSBvC+Cn7dlGe7hDCvZwb?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <B3B9521AB1CA494398653ECBB63B9965@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1u9Ja5-00000005MdB-17ij
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Apr 2025 08:11:15 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53S11XbV010761;
+	Mon, 28 Apr 2025 10:10:53 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	PQb6/JrtA/eLzoukWftU2fxvtoqJ28zJBaZAc0hVsHY=; b=QwoydfmJnqrIp1Bs
+	q/5op7P9yWgVMKAfoFEU1jyURgEx+qPUDq86ch/CQCNROm4Mxk9HC6YD7MH4Xtmi
+	3rQphDkC1+X5k47wruX25t+hfl48d3DGpsuF3Prb14wiAMj+EsbVHwphl0Fu3qJz
+	SmEK1tY8GUZaWs/i9ClheBgwg8NcYqTGZ+VSKcG1b0C7i2O4SBvWc3y/7E+zvtYc
+	NiEaxlGfyjdSwBnETaBtVc2kCpyyptb1Xq8l0qLOVuwN/IFbtdMo8w9pvWlHIbyO
+	23nxIBPn1Iz2uNbsjaTymfeLeJPQ8YA5tJnyzsDOlcOhxPHwotSdRgbyLDKFfAI7
+	tGWyzA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 468pcg5gx0-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 28 Apr 2025 10:10:53 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id EF3BA4004F;
+	Mon, 28 Apr 2025 10:09:12 +0200 (CEST)
+Received: from Webmail-eu.st.com (eqndag1node6.st.com [10.75.129.135])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id C8252A342DD;
+	Mon, 28 Apr 2025 10:07:54 +0200 (CEST)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE6.st.com
+ (10.75.129.135) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 28 Apr
+ 2025 10:07:54 +0200
+Received: from [10.48.86.121] (10.48.86.121) by SAFDAG1NODE1.st.com
+ (10.75.90.17) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 28 Apr
+ 2025 10:07:52 +0200
+Message-ID: <4e6840e5-34a7-4f15-a13a-1ff1ea5eff85@foss.st.com>
+Date: Mon, 28 Apr 2025 10:07:51 +0200
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PUZPR03MB6186.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 336dbe17-0e19-4aa2-2552-08dd862c2331
-X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Apr 2025 08:10:28.3262
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: vo6Z4PupQZN99cuewzwyPftEeWL88yRqEmiu6w/MuvWHqnhm+HEyWtVUWM1R92KYIaW1Qvhl+DtR6ccDOBpNlA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR03MB8349
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] of: reserved_mem: Add functions to parse
+ "memory-region"
+To: "Rob Herring (Arm)" <robh@kernel.org>,
+        Saravana Kannan
+	<saravanak@google.com>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        "Bjorn
+ Andersson" <andersson@kernel.org>,
+        Mathieu Poirier
+	<mathieu.poirier@linaro.org>,
+        Shawn Guo <shawnguo@kernel.org>,
+        Sascha Hauer
+	<s.hauer@pengutronix.de>,
+        Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>,
+        Patrice Chotard
+	<patrice.chotard@foss.st.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Chen-Yu Tsai
+	<wens@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-remoteproc@vger.kernel.org>, <imx@lists.linux.dev>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-arm-msm@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        Daniel Baluta
+	<daniel.baluta@nxp.com>
+References: <20250423-dt-memory-region-v2-v2-0-2fbd6ebd3c88@kernel.org>
+ <20250423-dt-memory-region-v2-v2-1-2fbd6ebd3c88@kernel.org>
+Content-Language: en-US
+From: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
+Organization: STMicroelectronics
+In-Reply-To: <20250423-dt-memory-region-v2-v2-1-2fbd6ebd3c88@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.86.121]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SAFDAG1NODE1.st.com
+ (10.75.90.17)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-04-28_03,2025-04-24_02,2025-02-21_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_011039_665978_BF594E3A 
-X-CRM114-Status: GOOD (  19.53  )
+X-CRM114-CacheID: sfid-20250428_011113_802293_F12A314A 
+X-CRM114-Status: GOOD (  25.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -216,47 +121,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAyMDI1LTA0LTI4IGF0IDA5OjAxICswMjAwLCBLcnp5c3p0b2YgS296bG93c2tpIHdy
-b3RlOg0KPiBFeHRlcm5hbCBlbWFpbCA6IFBsZWFzZSBkbyBub3QgY2xpY2sgbGlua3Mgb3Igb3Bl
-biBhdHRhY2htZW50cyB1bnRpbA0KPiB5b3UgaGF2ZSB2ZXJpZmllZCB0aGUgc2VuZGVyIG9yIHRo
-ZSBjb250ZW50Lg0KPiANCj4gDQo+IE9uIEZyaSwgQXByIDI1LCAyMDI1IGF0IDA0OjUzOjE2UE0g
-R01ULCBLeXJpZSBXdSB3cm90ZToNCj4gPiBUaGlzIHNlcmllcyBhZGRzIHN1cHBvcnQgZm9yIG10
-ODE5NiBtdWx0aS1oYXJkd2FyZXMganBlZyBlbmMgJiBkZWMsDQo+ID4gYnkgZmlyc3QgYWRkaW5n
-IG10ODE5NiBqcGVnZGVjIGFuZCBqcGVnZW5jIGNvbXBhdGlibGUgdG8gaW5zdGFsbA0KPiA+IGtl
-cm5lbCBkcml2ZXIuIEFkZCBzbW11IHNldHRpbmcgdG8gc3VwcG9ydCBzbW11IGFuZCBpb21tdSBh
-dCB0aGUNCj4gPiBzYW1lIHRpbWUuDQo+ID4gU2Vjb25kbHkgcmVmYWN0b3IgYnVmZmVyIGFuZCBj
-bG9jayBzZXR0aW5nIHRvIHN1cHBvcnQgbXVsdGktaHcganBlZw0KPiA+IHdvcmtpbmcuDQo+ID4g
-TGFzdGx5LCBmaXggc29tZSBidWdzLCBpbmNsdWRpbmcgcmVzb2x1dGlvbiBjaGFuZ2UgaGFuZGxl
-aW5nLCBzdG9wDQo+ID4gc3RyZWFtaW5nIHN3IGZsb3cgYW5kIG90aGVycy4NCj4gPiANCj4gPiBU
-aGlzIHNlcmllcyBoYXMgYmVlbiB0ZXN0ZWQgd2l0aCBNVDgxOTYgdGFzdCB0ZXN0Lg0KPiA+IEVu
-Y29kaW5nIGFuZCBkZWNvZGluZyB3b3JrZWQgZm9yIHRoaXMgY2hpcC4NCj4gPiANCj4gPiBQYXRj
-aGVzIDEtMyBBZGRzIGpwZWcgZW5jb2RlciBhbmQgZGVjb2RlciBjb21wYXRpYmxlLg0KPiA+IFBh
-dGNoZXMgNCBhZGQganBlZyBzbW11IHNpZCBzZXR0aW5nLg0KPiA+IFBhdGNoZXMgNSBmaXgganBl
-ZyBodyBjb3VudCBzZXR0aW5nIHRvIHN1cHBvcnQgZGlmZmVyZW50IGNoaXBzLg0KPiA+IFBhdGNo
-ZXMgNiByZWZhY3RvciBqcGVnIGJ1ZmZlciBwYXlsb2FkIHNldHRpbmcgdG8gaGFuZGxlIGJ1ZmZl
-cg0KPiA+IHNpemUgYnVnIHdoaWxlIHJlc29sdXRpb24gY2hhbmdlZC4NCj4gPiBQYXRjaGVzIDcg
-cmVjb25zdHJ1Y3QganBlZyBkc3QgYnVmZmVyIGxheW91dC4NCj4gPiBQYXRjaGVzIDggZml4IG11
-bHRpLWNvcmUgc3RvcCBzdHJlYW1pbmcgZmxvdw0KPiA+IFBhdGNoZXMgOSByZWZhY3RvciBtdWx0
-aS1jb3JlIGNsayBzdXNwZW5kL3Jlc3VtZSBzZXR0aW5nDQo+ID4gUGF0Y2hlcyAxMCBmaXggZGVj
-b2RpbmcgYnVmZmVyIG51bWJlciBzZXR0aW5nIHRpbWluZyBpc3N1ZQ0KPiA+IFBhdGNoZXMgMTEg
-cmVmYWN0b3IgZGVjb2RpbmcgcmVzb2x1dGlvbiBjaGFuZ2Ugb3BlcmF0aW9uDQo+ID4gUGF0Y2hl
-cyAxMiBmaXggcmVtb3ZlIGJ1ZmZlciBvcGVyYXRpb24NCj4gPiANCj4gPiAtLS0NCj4gPiBUaGlz
-IHNlcmllcyBwYXRjaGVzIGRlcGVuZGVudCBvbjoNCj4gPiBbMV0NCj4gPiANCmh0dHBzOi8vdXJs
-ZGVmZW5zZS5jb20vdjMvX19odHRwczovL3BhdGNod29yay5rZXJuZWwub3JnL3Byb2plY3QvbGlu
-dXgtbWVkaWF0ZWsvcGF0Y2gvMjAyNTA0MjQwOTA4MjQuNTMwOS0xLWppYW5odWEubGluQG1lZGlh
-dGVrLmNvbS9fXzshIUNUUk5LQTl3TWcwQVJidyFoRGp6eWRmMmJseUloZEFrWXNfTmJxcEVhYVdU
-dW9sTGJhSExEdzhoTGc0Qko4N3I3ZVB6S2tFVC11RHcyNFU2WVhBcW1iU3hJdGVtMVEkDQo+ID4g
-DQo+ID4gQ2hhbmdlcyBjb21wYXJlZCB3aXRoIHYyOg0KPiA+IC0tcmVmYWN0b3Igc21tdSBzaWQg
-c2V0dGluZyBmdW5jdGlvbiBpbnRlcmZhY2UNCj4gPiAtLVNvbWUgbW9kaWZpY2F0aW9ucyBmb3Ig
-cGF0Y2ggdjIncyByZXZpZXcgY29tbWVudHMuDQo+IA0KPiBUaGlzIGlzIHZlcnkgdmFndWUuIFdo
-YXQgZXhhY3RseSBjaGFuZ2VkLg0KDQpEZWFyIEtyenlzenRvZiwNCg0KU29ycnkgZm9yIHRoZSBz
-aG9ydGx5IGRlc2NyaXB0aW9ucy4gVGhlIG1haW4gY2hhbmdpbmcgaW4gVjMgaXMgZml4ZWQNCmR0
-LWJpbmRpbmdzIGNvbW1lbnRzIGJ5IHlvdS4NCj4gDQo+ID4gDQo+ID4gQ2hhbmdlcyBjb21wYXJl
-ZCB3aXRoIHYxOg0KPiA+IC0tcmVmaW5lIGpwZWcgZHQtYmluZGluZ3MgZm9yIE1UODE5Ng0KPiAN
-Cj4gVGhpcyB0ZWxscyBtZSBub3RoaW5nLg0KDQpJIGhhdmUgY2hhbmdlZCB0aGUgcGF0Y2gncyBz
-dWJqZWN0IG9mIGR0LWJpbmRpbmdzLCBidXQgaXQgc3RpbGwgbWFkZQ0KbWlzdGFrZS4gSSBtdXN0
-IGFwb2xvZ2l6ZSB0byB5b3UgYWdhaW4uIEkgZGlkIG5vdCBpZ25vcmUgeW91cg0Kc3VnZ2VzdGlv
-bnMsIGJ1dCBteSByZXZpc2lvbnMgZGlkIG5vdCBtZWV0IHlvdXIgcmVxdWlyZW1lbnRzLiBJIHdp
-bGwNCmZpeCB0aGVzZSBpc3N1ZXMgaW4gdGhlIG5leHQgdmVyc2lvbi4NCj4gDQo+IEJlc3QgcmVn
-YXJkcywNCj4gS3J6eXN6dG9mDQo+IA0KDQpSZWdhcmRzLA0KS3lyaWUuDQo=
+Hello Rob,
+
+On 4/23/25 21:42, Rob Herring (Arm) wrote:
+> Drivers with "memory-region" properties currently have to do their own
+> parsing of "memory-region" properties. The result is all the drivers
+> have similar patterns of a call to parse "memory-region" and then get
+> the region's address and size. As this is a standard property, it should
+> have common functions for drivers to use. Add new functions to count the
+> number of regions and retrieve the region's address as a resource.
+> 
+> Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+> v2:
+>  - Wrap function parameters
+> ---
+>  drivers/of/of_reserved_mem.c    | 80 +++++++++++++++++++++++++++++++++++++++++
+>  include/linux/of_reserved_mem.h | 26 ++++++++++++++
+>  2 files changed, 106 insertions(+)
+> 
+> diff --git a/drivers/of/of_reserved_mem.c b/drivers/of/of_reserved_mem.c
+> index ee2e31522d7e..f87915cce961 100644
+> --- a/drivers/of/of_reserved_mem.c
+> +++ b/drivers/of/of_reserved_mem.c
+> @@ -12,6 +12,7 @@
+>  #define pr_fmt(fmt)	"OF: reserved mem: " fmt
+>  
+>  #include <linux/err.h>
+> +#include <linux/ioport.h>
+>  #include <linux/libfdt.h>
+>  #include <linux/of.h>
+>  #include <linux/of_fdt.h>
+> @@ -740,3 +741,82 @@ struct reserved_mem *of_reserved_mem_lookup(struct device_node *np)
+>  	return NULL;
+>  }
+>  EXPORT_SYMBOL_GPL(of_reserved_mem_lookup);
+> +
+> +/**
+> + * of_reserved_mem_region_to_resource() - Get a reserved memory region as a resource
+> + * @np:		node containing 'memory-region' property
+> + * @idx:	index of 'memory-region' property to lookup
+> + * @res:	Pointer to a struct resource to fill in with reserved region
+> + *
+> + * This function allows drivers to lookup a node's 'memory-region' property
+> + * entries by index and return a struct resource for the entry.
+> + *
+> + * Returns 0 on success with @res filled in. Returns -ENODEV if 'memory-region'
+> + * is missing or unavailable, -EINVAL for any other error.
+> + */
+> +int of_reserved_mem_region_to_resource(const struct device_node *np,
+> +				       unsigned int idx, struct resource *res)
+> +{
+> +	struct reserved_mem *rmem;
+> +
+> +	if (!np)
+> +		return -EINVAL;
+> +
+> +	struct device_node __free(device_node) *target = of_parse_phandle(np, "memory-region", idx);
+> +	if (!target || !of_device_is_available(target))
+> +		return -ENODEV;
+> +
+> +	rmem = of_reserved_mem_lookup(target);
+> +	if (!rmem)
+> +		return -EINVAL;
+> +
+> +	resource_set_range(res, rmem->base, rmem->size);
+> +	res->name = rmem->name;
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL_GPL(of_reserved_mem_region_to_resource);
+> +
+> +/**
+> + * of_reserved_mem_region_to_resource_byname() - Get a reserved memory region as a resource
+> + * @np:		node containing 'memory-region' property
+> + * @name:	name of 'memory-region' property entry to lookup
+> + * @res:	Pointer to a struct resource to fill in with reserved region
+> + *
+> + * This function allows drivers to lookup a node's 'memory-region' property
+> + * entries by name and return a struct resource for the entry.
+> + *
+> + * Returns 0 on success with @res filled in. Returns -ENODEV if 'memory-region'
+> + * is missing or unavailable, -EINVAL for any other error.
+
+of_property_match_string() can return some other error values.
+
+Thanks,
+Arnaud
+
+> + */
+> +int of_reserved_mem_region_to_resource_byname(const struct device_node *np,
+> +					      const char *name,
+> +					      struct resource *res)
+> +{
+> +	int idx;
+> +
+> +	if (!name)
+> +		return -EINVAL;
+> +
+> +	idx = of_property_match_string(np, "memory-region-names", name);
+> +	if (idx < 0)
+> +		return idx;
+> +
+> +	return of_reserved_mem_region_to_resource(np, idx, res);
+> +}
+> +EXPORT_SYMBOL_GPL(of_reserved_mem_region_to_resource_byname);
+> +
+> +/**
+> + * of_reserved_mem_region_count() - Return the number of 'memory-region' entries
+> + * @np:		node containing 'memory-region' property
+> + *
+> + * This function allows drivers to retrieve the number of entries for a node's
+> + * 'memory-region' property.
+> + *
+> + * Returns the number of entries on success, or negative error code on a
+> + * malformed property.
+> + */
+> +int of_reserved_mem_region_count(const struct device_node *np)
+> +{
+> +	return of_count_phandle_with_args(np, "memory-region", NULL);
+> +}
+> +EXPORT_SYMBOL_GPL(of_reserved_mem_region_count);
+> diff --git a/include/linux/of_reserved_mem.h b/include/linux/of_reserved_mem.h
+> index e338282da652..f573423359f4 100644
+> --- a/include/linux/of_reserved_mem.h
+> +++ b/include/linux/of_reserved_mem.h
+> @@ -7,6 +7,7 @@
+>  
+>  struct of_phandle_args;
+>  struct reserved_mem_ops;
+> +struct resource;
+>  
+>  struct reserved_mem {
+>  	const char			*name;
+> @@ -39,6 +40,12 @@ int of_reserved_mem_device_init_by_name(struct device *dev,
+>  void of_reserved_mem_device_release(struct device *dev);
+>  
+>  struct reserved_mem *of_reserved_mem_lookup(struct device_node *np);
+> +int of_reserved_mem_region_to_resource(const struct device_node *np,
+> +				       unsigned int idx, struct resource *res);
+> +int of_reserved_mem_region_to_resource_byname(const struct device_node *np,
+> +					      const char *name, struct resource *res);
+> +int of_reserved_mem_region_count(const struct device_node *np);
+> +
+>  #else
+>  
+>  #define RESERVEDMEM_OF_DECLARE(name, compat, init)			\
+> @@ -63,6 +70,25 @@ static inline struct reserved_mem *of_reserved_mem_lookup(struct device_node *np
+>  {
+>  	return NULL;
+>  }
+> +
+> +static inline int of_reserved_mem_region_to_resource(const struct device_node *np,
+> +						     unsigned int idx,
+> +						     struct resource *res)
+> +{
+> +	return -ENOSYS;
+> +}
+> +
+> +static inline int of_reserved_mem_region_to_resource_byname(const struct device_node *np,
+> +							    const char *name,
+> +							    struct resource *res)
+> +{
+> +	return -ENOSYS;
+> +}
+> +
+> +static inline int of_reserved_mem_region_count(const struct device_node *np)
+> +{
+> +	return 0;
+> +}
+>  #endif
+>  
+>  /**
+> 
 
