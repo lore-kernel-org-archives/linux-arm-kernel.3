@@ -4,57 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DF95C36005
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 06:46:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19F59C36005
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 06:49:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:From:
-	References:In-Reply-To:Message-Id:Date:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Cc:To:From:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tAp+Yq2oPYdQjefDhIqTpmvZxjMW/FXB4OTXZxlKT5Q=; b=eEpICw2nlofhxaIyIRFoQbcJe1
-	U3C3mxZihRSPsckufWCH5Mjj+APV/N89Nw4fCWcZFcgreuKhylzlAu4YnRTUU0JMmlJNgMCdT2Ezg
-	rdQVB3+I8/a/47Pw2DFPYu7LZ/MphMkq0RSbJ9E7AvOU4HHLzSlwtgf1Jx8TCX1rj0ZNDl8Zcmend
-	00pZIj3SQhYG6WDVzcdnwOnq5blqUaX7k0jV6vT8FEFb6uVW1nv2yYOzZ2vTn3Yd0xbSrdTDPqt+b
-	B//OHL1cOXt8IikoZIQWWPrrozWqbPjiu/0hEc0bae90zDkiQTtUJN082q6hhwxDR7x6262lfCNQ7
-	5JFy7lPw==;
+	bh=DYnfPVaHALkZ4zVEL1fPaXQONejkm4gzI7Jo6W1CZ78=; b=cF36t6is03jgjIKZNuPnLowqNp
+	ZzKQYpFTAJFW2qaBCmaTzTrVCNIevdUUUiC9Q2rrEiJ5/9OO7zUT5Ua5zJdjItq8l7esCOZ/Bn87p
+	6Kozy2DQQnJXFU/ChjdtCKORo3nBkDtUgchFlix0/DwNYoLhl4SSH/ZE/D9VW6HD79non+5uDI1Yu
+	/WHdX1EZP/qzlNOYYMwrj3CcLaL/pfL61oeRGQFM9mi9LjztfMVU2HP8Y0kEg8J6TH+O6MADACnu5
+	h0f3yCoWPhErgtlvOlUaqTiigr08+tsr/Fc57b6iI8A8r+bXjyj25YNokEe8uMESsv3bLwFi/Pwne
+	7jwUjyhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9IFa-000000058c6-3YVc;
-	Mon, 28 Apr 2025 06:45:58 +0000
-Received: from abb.hmeau.com ([144.6.53.87])
+	id 1u9IIP-0000000598W-3YGq;
+	Mon, 28 Apr 2025 06:48:53 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Grw-00000004hTX-1odK;
-	Mon, 28 Apr 2025 05:17:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=Cc:To:Subject:From:References:In-Reply-To:Message-Id:Date:
-	Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=tAp+Yq2oPYdQjefDhIqTpmvZxjMW/FXB4OTXZxlKT5Q=; b=VirMdEldr5yxZgBao5sMAQbiO3
-	+Rpi9mN0jhAqTSP5VzAjtpyFnEYx+p8tuSU4Lm0FgE8vUsAwF2eNxb7dOFDcbLQUFjuBVmCeKC7Ht
-	3ylIkCysveNgVWl1D9uiI9UiqedqGvUZ91mIPdRjNKGVN66k+zhVbCqk2S7QZ/t0jm/D5H7QQCAQH
-	D2uefr3GZaxgPCOvZCdIrS8TISrD45riYcJQsknvRW3gsk8m9+zUN15dHOLWpbIkBUqjBWbGPRUeI
-	14BEvOCo7YLsbN130ta3eEgdPNMmd49ThLP6RdpXACt2NX8ONY/N1HsPywAJ9Mr0KrKVdJvxZADF3
-	17LTxDRg==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1u9Grt-001WTO-1C;
-	Mon, 28 Apr 2025 13:17:26 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Mon, 28 Apr 2025 13:17:25 +0800
-Date: Mon, 28 Apr 2025 13:17:25 +0800
-Message-Id: <22250663cc30d815728d838d7bcc712ceba8bedf.1745816372.git.herbert@gondor.apana.org.au>
-In-Reply-To: <cover.1745816372.git.herbert@gondor.apana.org.au>
-References: <cover.1745816372.git.herbert@gondor.apana.org.au>
-From: Herbert Xu <herbert@gondor.apana.org.au>
-Subject: [v3 PATCH 10/13] crypto: sparc/sha256 - implement library instead of
- shash
-To: Linux Crypto Mailing List <linux-crypto@vger.kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org, linux-s390@vger.kernel.org, x86@kernel.org, Ard Biesheuvel <ardb@kernel.org>, "Jason A . Donenfeld " <Jason@zx2c4.com>, Linus Torvalds <torvalds@linux-foundation.org>
+	id 1u9IGQ-000000058mk-1keY
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Apr 2025 06:46:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1745822810; x=1777358810;
+  h=from:to:cc:date:message-id:in-reply-to:references:
+   mime-version:content-transfer-encoding:subject;
+  bh=DYnfPVaHALkZ4zVEL1fPaXQONejkm4gzI7Jo6W1CZ78=;
+  b=nIEPnAVC4hvz6i2LvW1ocXlZgEQBLeKgdBhC7zWkNYK445b7TVF0wzWc
+   QBXZ7FoxuSS6Q7HH6IaKX4JZDuJx0IlOC9q4S12xLdaNpebsmuddZYADx
+   LExV91fiJNyZ5SiFvdco8/nVSEJqmG4TqrZCRgE9cAujDy3n13p4Ekhdy
+   DSa0fZHFgME6+EopOn3SQLAnMw/GRzZ/gmyET24FlNcGCJYMsPjv4BFzx
+   H2jiIYidGSF5/XNHmO2YkVH6Sv93XJfYaw6E7m9+fiPL8yExRksTpyoJg
+   YXrk+fkHKSt+N34Ov+ApuSLLzKc6RCwbIBKWcUqmcoH7uk+llyPc0sZx+
+   Q==;
+X-CSE-ConnectionGUID: FhqaYLvmQS2fD5a1/I5smw==
+X-CSE-MsgGUID: Q0op95EWQOqH1TY1KwSpYw==
+X-IronPort-AV: E=Sophos;i="6.15,245,1739833200"; 
+   d="scan'208";a="43745391"
+Subject: Re: [PATCH 1/6] arm64: dts: imx8qxp: Move Ethernet aliases out of SoC DTSI
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 28 Apr 2025 08:46:44 +0200
+X-CheckPoint: {680F2454-6-DC4DC9A0-F4F29281}
+X-MAIL-CPID: 4C08CE85893DC81446E935E5F3697A3F_0
+X-Control-Analysis: str=0001.0A006371.680F2457.0083,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AF062162003;
+	Mon, 28 Apr 2025 08:46:38 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1745822799;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DYnfPVaHALkZ4zVEL1fPaXQONejkm4gzI7Jo6W1CZ78=;
+	b=RgcF2MExF2guXWv9b2n7+g7QPphLq0nculBMqFBJdYIOJ3cfyinKpHSj6V3sLtnupkka1c
+	5CnCRCRHAgmbOPLZJ/9W04omT8R+kQ9YxCrl9p6BXSpMaBgRaPMyk4e8JQK5PEV7dNZD5+
+	taI9Owy5SISI6MFw3SlO2dglOHHHNycuZUAG/0OLjPmjBxO6Ie8h3e9KIsw9ZxhbTvtv00
+	fWhZM5JqZNJ8ZcK/5QPTNXa9quj93iZGBqbVxAebzJC7i+cgo6+7jl21za04cXjbJBLVUv
+	99j5DdWlRAeNofcLp+/BLy2xh/oysiepNw24DopJzsJzcXyz7YWdDNEZJlGFkQ==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Francesco Dolcini <francesco@dolcini.it>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux@ew.tq-group.com,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Date: Mon, 28 Apr 2025 08:46:38 +0200
+Message-ID: <2849273.mvXUDI8C0e@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20250425-dts-imx-aliases-ethernet-v1-1-15b9d5cca611@linaro.org>
+References: <20250425-dts-imx-aliases-ethernet-v1-0-15b9d5cca611@linaro.org>
+ <20250425-dts-imx-aliases-ethernet-v1-1-15b9d5cca611@linaro.org>
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250427_221728_754546_6B151EB5 
-X-CRM114-Status: GOOD (  20.82  )
+X-CRM114-CacheID: sfid-20250427_234651_323778_D27B849B 
+X-CRM114-Status: GOOD (  11.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,346 +102,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Eric Biggers <ebiggers@google.com>
+Am Freitag, 25. April 2025, 21:48:24 CEST schrieb Krzysztof Kozlowski:
+> Ethernet interface, like other exposed interfaces, aliases depend on
+> actual board configuration, e.g. its labeling, thus aliases should be
+> defined per each board or each SoM.
+>=20
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Instead of providing crypto_shash algorithms for the arch-optimized
-SHA-256 code, instead implement the SHA-256 library.  This is much
-simpler, it makes the SHA-256 library functions be arch-optimized, and
-it fixes the longstanding issue where the arch-optimized SHA-256 was
-disabled by default.  SHA-256 still remains available through
-crypto_shash, but individual architectures no longer need to handle it.
+Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com> #MBa8Xx
 
-Signed-off-by: Eric Biggers <ebiggers@google.com>
-Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
----
- arch/sparc/crypto/Kconfig                |  10 --
- arch/sparc/crypto/Makefile               |   2 -
- arch/sparc/crypto/sha256_glue.c          | 128 -----------------------
- arch/sparc/lib/Makefile                  |   1 +
- arch/sparc/lib/crypto/Kconfig            |   8 ++
- arch/sparc/lib/crypto/Makefile           |   4 +
- arch/sparc/lib/crypto/sha256.c           |  64 ++++++++++++
- arch/sparc/{ => lib}/crypto/sha256_asm.S |   2 +-
- lib/crypto/Kconfig                       |   3 +
- 9 files changed, 81 insertions(+), 141 deletions(-)
- delete mode 100644 arch/sparc/crypto/sha256_glue.c
- create mode 100644 arch/sparc/lib/crypto/Kconfig
- create mode 100644 arch/sparc/lib/crypto/Makefile
- create mode 100644 arch/sparc/lib/crypto/sha256.c
- rename arch/sparc/{ => lib}/crypto/sha256_asm.S (96%)
+> ---
+>  arch/arm64/boot/dts/freescale/imx8qxp-ai_ml.dts          | 1 +
+>  arch/arm64/boot/dts/freescale/imx8qxp-mek.dts            | 4 ++++
+>  arch/arm64/boot/dts/freescale/imx8qxp.dtsi               | 2 --
+>  arch/arm64/boot/dts/freescale/imx8x-colibri-aster.dtsi   | 6 ++++++
+>  arch/arm64/boot/dts/freescale/imx8x-colibri-eval-v3.dtsi | 1 +
+>  arch/arm64/boot/dts/freescale/imx8x-colibri-iris.dtsi    | 1 +
+>  arch/arm64/boot/dts/freescale/mba8xx.dtsi                | 2 ++
+>  7 files changed, 15 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/arch/arm64/boot/dts/freescale/imx8qxp-ai_ml.dts b/arch/arm64=
+/boot/dts/freescale/imx8qxp-ai_ml.dts
+> index 50bf7919c86305403dc9fe2d75ee312dead03b40..2586cabad31ef61594fbe7424=
+7d3868639095320 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8qxp-ai_ml.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx8qxp-ai_ml.dts
+> @@ -13,6 +13,7 @@ / {
+>  	compatible =3D "einfochips,imx8qxp-ai_ml", "fsl,imx8qxp";
+> =20
+>  	aliases {
+> +		ethernet0 =3D &fec1;
+>  		serial1 =3D &lpuart1;
+>  		serial2 =3D &lpuart2;
+>  		serial3 =3D &lpuart3;
+> diff --git a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts b/arch/arm64/b=
+oot/dts/freescale/imx8qxp-mek.dts
+> index 4ba8ddd472234704d05db51fb5fb0929e6b15567..b5b14cb20cbef9a67a7661531=
+031fafc702dcbcd 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx8qxp-mek.dts
+> @@ -12,6 +12,10 @@ / {
+>  	model =3D "Freescale i.MX8QXP MEK";
+>  	compatible =3D "fsl,imx8qxp-mek", "fsl,imx8qxp";
+> =20
+> +	aliases {
+> +		ethernet0 =3D &fec1;
+> +	};
+> +
+>  	bt_sco_codec: audio-codec-bt {
+>  		compatible =3D "linux,bt-sco";
+>  		#sound-dai-cells =3D <1>;
+> diff --git a/arch/arm64/boot/dts/freescale/imx8qxp.dtsi b/arch/arm64/boot=
+/dts/freescale/imx8qxp.dtsi
+> index 05138326f0a572f45122f5ee425089f945fdc656..6d8386bdac00d150d272b62ad=
+68c136c0da6ba2d 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8qxp.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8qxp.dtsi
+> @@ -20,8 +20,6 @@ / {
+>  	#size-cells =3D <2>;
+> =20
+>  	aliases {
+> -		ethernet0 =3D &fec1;
+> -		ethernet1 =3D &fec2;
+>  		gpio0 =3D &lsio_gpio0;
+>  		gpio1 =3D &lsio_gpio1;
+>  		gpio2 =3D &lsio_gpio2;
+> diff --git a/arch/arm64/boot/dts/freescale/imx8x-colibri-aster.dtsi b/arc=
+h/arm64/boot/dts/freescale/imx8x-colibri-aster.dtsi
+> index f7bbb2153ae01a2e97f1e28be0c23f9de4172102..7be0b9ecc8aab1f271c1b658b=
+abdb316bae41cc6 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8x-colibri-aster.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8x-colibri-aster.dtsi
+> @@ -3,6 +3,12 @@
+>   * Copyright 2018-2021 Toradex
+>   */
+> =20
+> +/ {
+> +	aliases {
+> +		ethernet0 =3D &fec1;
+> +	};
+> +};
+> +
+>  /* Colibri Analogue Inputs */
+>  &adc0 {
+>  	status =3D "okay";
+> diff --git a/arch/arm64/boot/dts/freescale/imx8x-colibri-eval-v3.dtsi b/a=
+rch/arm64/boot/dts/freescale/imx8x-colibri-eval-v3.dtsi
+> index f75499765d85dc78808af9ddadc92e133b0c3499..a7159a842d74306f372db7939=
+59cdc8e2555eb3e 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8x-colibri-eval-v3.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8x-colibri-eval-v3.dtsi
+> @@ -7,6 +7,7 @@
+> =20
+>  / {
+>  	aliases {
+> +		ethernet0 =3D &fec1;
+>  		rtc0 =3D &rtc_i2c;
+>  		rtc1 =3D &rtc;
+>  	};
+> diff --git a/arch/arm64/boot/dts/freescale/imx8x-colibri-iris.dtsi b/arch=
+/arm64/boot/dts/freescale/imx8x-colibri-iris.dtsi
+> index 54393a0c5cbfcd55dae080a9f07879748bbd4486..1e588d76a6ddb1bd7f94f444d=
+72e2819f267c490 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8x-colibri-iris.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8x-colibri-iris.dtsi
+> @@ -5,6 +5,7 @@
+> =20
+>  / {
+>  	aliases {
+> +		ethernet0 =3D &fec1;
+>  		rtc0 =3D &rtc_i2c;
+>  		rtc1 =3D &rtc;
+>  	};
+> diff --git a/arch/arm64/boot/dts/freescale/mba8xx.dtsi b/arch/arm64/boot/=
+dts/freescale/mba8xx.dtsi
+> index c4b5663949ade617fe9b7be20a3aebf0b322623a..a64ae67ef70cc6a624b06f4ab=
+1f3a8ab03ffd1f6 100644
+> --- a/arch/arm64/boot/dts/freescale/mba8xx.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/mba8xx.dtsi
+> @@ -16,6 +16,8 @@ adc {
+>  	};
+> =20
+>  	aliases {
+> +		ethernet0 =3D &fec1;
+> +		ethernet1 =3D &fec2;
+>  		rtc0 =3D &pcf85063;
+>  		rtc1 =3D &rtc;
+>  	};
+>=20
+>=20
 
-diff --git a/arch/sparc/crypto/Kconfig b/arch/sparc/crypto/Kconfig
-index e858597de89d..a6ba319c42dc 100644
---- a/arch/sparc/crypto/Kconfig
-+++ b/arch/sparc/crypto/Kconfig
-@@ -36,16 +36,6 @@ config CRYPTO_SHA1_SPARC64
- 
- 	  Architecture: sparc64
- 
--config CRYPTO_SHA256_SPARC64
--	tristate "Hash functions: SHA-224 and SHA-256"
--	depends on SPARC64
--	select CRYPTO_SHA256
--	select CRYPTO_HASH
--	help
--	  SHA-224 and SHA-256 secure hash algorithms (FIPS 180)
--
--	  Architecture: sparc64 using crypto instructions, when available
--
- config CRYPTO_SHA512_SPARC64
- 	tristate "Hash functions: SHA-384 and SHA-512"
- 	depends on SPARC64
-diff --git a/arch/sparc/crypto/Makefile b/arch/sparc/crypto/Makefile
-index a2d7fca40cb4..701c39edb0d7 100644
---- a/arch/sparc/crypto/Makefile
-+++ b/arch/sparc/crypto/Makefile
-@@ -4,7 +4,6 @@
- #
- 
- obj-$(CONFIG_CRYPTO_SHA1_SPARC64) += sha1-sparc64.o
--obj-$(CONFIG_CRYPTO_SHA256_SPARC64) += sha256-sparc64.o
- obj-$(CONFIG_CRYPTO_SHA512_SPARC64) += sha512-sparc64.o
- obj-$(CONFIG_CRYPTO_MD5_SPARC64) += md5-sparc64.o
- 
-@@ -13,7 +12,6 @@ obj-$(CONFIG_CRYPTO_DES_SPARC64) += des-sparc64.o
- obj-$(CONFIG_CRYPTO_CAMELLIA_SPARC64) += camellia-sparc64.o
- 
- sha1-sparc64-y := sha1_asm.o sha1_glue.o
--sha256-sparc64-y := sha256_asm.o sha256_glue.o
- sha512-sparc64-y := sha512_asm.o sha512_glue.o
- md5-sparc64-y := md5_asm.o md5_glue.o
- 
-diff --git a/arch/sparc/crypto/sha256_glue.c b/arch/sparc/crypto/sha256_glue.c
-deleted file mode 100644
-index 25008603a986..000000000000
---- a/arch/sparc/crypto/sha256_glue.c
-+++ /dev/null
-@@ -1,128 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-only
--/* Glue code for SHA256 hashing optimized for sparc64 crypto opcodes.
-- *
-- * This is based largely upon crypto/sha256_generic.c
-- *
-- * Copyright (c) Jean-Luc Cooke <jlcooke@certainkey.com>
-- * Copyright (c) Andrew McDonald <andrew@mcdonald.org.uk>
-- * Copyright (c) 2002 James Morris <jmorris@intercode.com.au>
-- * SHA224 Support Copyright 2007 Intel Corporation <jonathan.lynch@intel.com>
-- */
--
--#define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
--
--#include <asm/elf.h>
--#include <asm/opcodes.h>
--#include <asm/pstate.h>
--#include <crypto/internal/hash.h>
--#include <crypto/sha2.h>
--#include <crypto/sha256_base.h>
--#include <linux/kernel.h>
--#include <linux/module.h>
--
--asmlinkage void sha256_sparc64_transform(u32 *digest, const char *data,
--					 unsigned int rounds);
--
--static void sha256_block(struct crypto_sha256_state *sctx, const u8 *src,
--			 int blocks)
--{
--	sha256_sparc64_transform(sctx->state, src, blocks);
--}
--
--static int sha256_sparc64_update(struct shash_desc *desc, const u8 *data,
--				 unsigned int len)
--{
--	return sha256_base_do_update_blocks(desc, data, len, sha256_block);
--}
--
--static int sha256_sparc64_finup(struct shash_desc *desc, const u8 *src,
--				unsigned int len, u8 *out)
--{
--	sha256_base_do_finup(desc, src, len, sha256_block);
--	return sha256_base_finish(desc, out);
--}
--
--static struct shash_alg sha256_alg = {
--	.digestsize	=	SHA256_DIGEST_SIZE,
--	.init		=	sha256_base_init,
--	.update		=	sha256_sparc64_update,
--	.finup		=	sha256_sparc64_finup,
--	.descsize	=	sizeof(struct crypto_sha256_state),
--	.base		=	{
--		.cra_name	=	"sha256",
--		.cra_driver_name=	"sha256-sparc64",
--		.cra_priority	=	SPARC_CR_OPCODE_PRIORITY,
--		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					CRYPTO_AHASH_ALG_FINUP_MAX,
--		.cra_blocksize	=	SHA256_BLOCK_SIZE,
--		.cra_module	=	THIS_MODULE,
--	}
--};
--
--static struct shash_alg sha224_alg = {
--	.digestsize	=	SHA224_DIGEST_SIZE,
--	.init		=	sha224_base_init,
--	.update		=	sha256_sparc64_update,
--	.finup		=	sha256_sparc64_finup,
--	.descsize	=	sizeof(struct crypto_sha256_state),
--	.base		=	{
--		.cra_name	=	"sha224",
--		.cra_driver_name=	"sha224-sparc64",
--		.cra_priority	=	SPARC_CR_OPCODE_PRIORITY,
--		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					CRYPTO_AHASH_ALG_FINUP_MAX,
--		.cra_blocksize	=	SHA224_BLOCK_SIZE,
--		.cra_module	=	THIS_MODULE,
--	}
--};
--
--static bool __init sparc64_has_sha256_opcode(void)
--{
--	unsigned long cfr;
--
--	if (!(sparc64_elf_hwcap & HWCAP_SPARC_CRYPTO))
--		return false;
--
--	__asm__ __volatile__("rd %%asr26, %0" : "=r" (cfr));
--	if (!(cfr & CFR_SHA256))
--		return false;
--
--	return true;
--}
--
--static int __init sha256_sparc64_mod_init(void)
--{
--	if (sparc64_has_sha256_opcode()) {
--		int ret = crypto_register_shash(&sha224_alg);
--		if (ret < 0)
--			return ret;
--
--		ret = crypto_register_shash(&sha256_alg);
--		if (ret < 0) {
--			crypto_unregister_shash(&sha224_alg);
--			return ret;
--		}
--
--		pr_info("Using sparc64 sha256 opcode optimized SHA-256/SHA-224 implementation\n");
--		return 0;
--	}
--	pr_info("sparc64 sha256 opcode not available.\n");
--	return -ENODEV;
--}
--
--static void __exit sha256_sparc64_mod_fini(void)
--{
--	crypto_unregister_shash(&sha224_alg);
--	crypto_unregister_shash(&sha256_alg);
--}
--
--module_init(sha256_sparc64_mod_init);
--module_exit(sha256_sparc64_mod_fini);
--
--MODULE_LICENSE("GPL");
--MODULE_DESCRIPTION("SHA-224 and SHA-256 Secure Hash Algorithm, sparc64 sha256 opcode accelerated");
--
--MODULE_ALIAS_CRYPTO("sha224");
--MODULE_ALIAS_CRYPTO("sha256");
--
--#include "crop_devid.c"
-diff --git a/arch/sparc/lib/Makefile b/arch/sparc/lib/Makefile
-index 5724d0f356eb..98887dc295a1 100644
---- a/arch/sparc/lib/Makefile
-+++ b/arch/sparc/lib/Makefile
-@@ -4,6 +4,7 @@
- 
- asflags-y := -ansi -DST_DIV0=0x02
- 
-+obj-y                 += crypto/
- lib-$(CONFIG_SPARC32) += ashrdi3.o
- lib-$(CONFIG_SPARC32) += memcpy.o memset.o
- lib-y                 += strlen.o
-diff --git a/arch/sparc/lib/crypto/Kconfig b/arch/sparc/lib/crypto/Kconfig
-new file mode 100644
-index 000000000000..e5c3e4d3dba6
---- /dev/null
-+++ b/arch/sparc/lib/crypto/Kconfig
-@@ -0,0 +1,8 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+config CRYPTO_SHA256_SPARC64
-+	tristate
-+	depends on SPARC64
-+	default CRYPTO_LIB_SHA256
-+	select CRYPTO_ARCH_HAVE_LIB_SHA256
-+	select CRYPTO_LIB_SHA256_GENERIC
-diff --git a/arch/sparc/lib/crypto/Makefile b/arch/sparc/lib/crypto/Makefile
-new file mode 100644
-index 000000000000..75ee244ad6f7
---- /dev/null
-+++ b/arch/sparc/lib/crypto/Makefile
-@@ -0,0 +1,4 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+obj-$(CONFIG_CRYPTO_SHA256_SPARC64) += sha256-sparc64.o
-+sha256-sparc64-y := sha256.o sha256_asm.o
-diff --git a/arch/sparc/lib/crypto/sha256.c b/arch/sparc/lib/crypto/sha256.c
-new file mode 100644
-index 000000000000..b4fc475dcc40
---- /dev/null
-+++ b/arch/sparc/lib/crypto/sha256.c
-@@ -0,0 +1,64 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * SHA-256 accelerated using the sparc64 sha256 opcodes
-+ *
-+ * Copyright (c) Jean-Luc Cooke <jlcooke@certainkey.com>
-+ * Copyright (c) Andrew McDonald <andrew@mcdonald.org.uk>
-+ * Copyright (c) 2002 James Morris <jmorris@intercode.com.au>
-+ * SHA224 Support Copyright 2007 Intel Corporation <jonathan.lynch@intel.com>
-+ */
-+
-+#define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
-+
-+#include <asm/elf.h>
-+#include <asm/opcodes.h>
-+#include <asm/pstate.h>
-+#include <crypto/internal/sha2.h>
-+#include <linux/kernel.h>
-+#include <linux/module.h>
-+
-+static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_sha256_opcodes);
-+
-+asmlinkage void sha256_sparc64_transform(u32 state[SHA256_STATE_WORDS],
-+					 const u8 *data, size_t nblocks);
-+
-+void sha256_blocks_arch(u32 state[SHA256_STATE_WORDS],
-+			const u8 *data, size_t nblocks)
-+{
-+	if (static_branch_likely(&have_sha256_opcodes))
-+		sha256_sparc64_transform(state, data, nblocks);
-+	else
-+		sha256_blocks_generic(state, data, nblocks);
-+}
-+EXPORT_SYMBOL_GPL(sha256_blocks_arch);
-+
-+bool sha256_is_arch_optimized(void)
-+{
-+	return static_key_enabled(&have_sha256_opcodes);
-+}
-+EXPORT_SYMBOL_GPL(sha256_is_arch_optimized);
-+
-+static int __init sha256_sparc64_mod_init(void)
-+{
-+	unsigned long cfr;
-+
-+	if (!(sparc64_elf_hwcap & HWCAP_SPARC_CRYPTO))
-+		return 0;
-+
-+	__asm__ __volatile__("rd %%asr26, %0" : "=r" (cfr));
-+	if (!(cfr & CFR_SHA256))
-+		return 0;
-+
-+	static_branch_enable(&have_sha256_opcodes);
-+	pr_info("Using sparc64 sha256 opcode optimized SHA-256/SHA-224 implementation\n");
-+	return 0;
-+}
-+arch_initcall(sha256_sparc64_mod_init);
-+
-+static void __exit sha256_sparc64_mod_exit(void)
-+{
-+}
-+module_exit(sha256_sparc64_mod_exit);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("SHA-256 accelerated using the sparc64 sha256 opcodes");
-diff --git a/arch/sparc/crypto/sha256_asm.S b/arch/sparc/lib/crypto/sha256_asm.S
-similarity index 96%
-rename from arch/sparc/crypto/sha256_asm.S
-rename to arch/sparc/lib/crypto/sha256_asm.S
-index 8ce88611e98a..ddcdd3daf31e 100644
---- a/arch/sparc/crypto/sha256_asm.S
-+++ b/arch/sparc/lib/crypto/sha256_asm.S
-@@ -4,7 +4,7 @@
- #include <asm/visasm.h>
- 
- ENTRY(sha256_sparc64_transform)
--	/* %o0 = digest, %o1 = data, %o2 = rounds */
-+	/* %o0 = state, %o1 = data, %o2 = nblocks */
- 	VISEntryHalf
- 	ld	[%o0 + 0x00], %f0
- 	ld	[%o0 + 0x04], %f1
-diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index ad0a4705682c..1ec1466108cc 100644
---- a/lib/crypto/Kconfig
-+++ b/lib/crypto/Kconfig
-@@ -189,6 +189,9 @@ endif
- if S390
- source "arch/s390/lib/crypto/Kconfig"
- endif
-+if SPARC
-+source "arch/sparc/lib/crypto/Kconfig"
-+endif
- if X86
- source "arch/x86/lib/crypto/Kconfig"
- endif
--- 
-2.39.5
+
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
 
 
