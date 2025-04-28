@@ -4,79 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27598C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 14:41:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48099C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 14:43:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M9fpsf78Paf5UKQYjLwaXjw5Gbg+DBdSCuZWocGOz1c=; b=Gf6vu7GaGeunErJWDDERGZRzN6
-	tQ9EtX1vhZdykXKfnH28NfiQqqCsiAUDv5eakMbfMqCTBK7u8RHMx/OzYz0N2ZLFHgojufWAlD0lr
-	szGH+Cv/5qdXoMRHFVuVfp6Z6S2EIcEKjTvkx3NK4vK9LWI9/0X/K2baQgzS5OG8T6HU9SanCQg4j
-	bnCRUQ+OpHmPsYuq6VyeUmv2pZMQCYJdV+qH/fr+shXLpDBG8IZFqIhuHuppWdm1LAM95VzzxHWmk
-	qxmz9gkqDAheQOkHSuRZUtMEKl0X1DvZ4YgNvUBDyUWkTE2lG5Rc4S80iZ2XLMxKf+cXzvClUInk0
-	KeYVcFWg==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KQmmsa8m6gAOhw5GJXJqAmHztGUQbkXyy4RIJ/hPRyg=; b=UqyVZ3dcAT78Orn6VcPQyYJGfs
+	p5Ef4LTq7Qw9iFC/jlqA7VrO6O2wdBtIVazajy5bNH+mqFKtHZkGtN2Zljb81sbeHFrOJsGVx8yy6
+	+iR9Za7XnxjZiK1MUqhLqn/+//5pxAfMuzkYMBEKmdB5BrzUSph4Bny5Ztmv0dEZAktiUX5t5rzJy
+	8iKGEUr0SubwFtrV6WkSWAq0wl5R+mTzTiDoilujpyI56gr5RvzXcfqLn3DFbKpysWR7pd11ep/3S
+	isfMDesq6+6HBbgVVQcQjHONE2b9pOyQ6Az7FdB5xk6Unf373nSy/sl24JmbbatPUIrJWdNI3MYkQ
+	ckkcfLiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9PfQ-00000006fL4-2T3q;
-	Mon, 28 Apr 2025 14:41:08 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9PYg-00000006eDk-27aw
+	id 1u9PhM-00000006fWs-166X;
+	Mon, 28 Apr 2025 14:43:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u9PYw-00000006eHd-1OHJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 14:34:12 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53SEY5lE3573445
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 28 Apr 2025 09:34:05 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745850845;
-	bh=M9fpsf78Paf5UKQYjLwaXjw5Gbg+DBdSCuZWocGOz1c=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=sJPJraCHbeaVGqjYkUiiMPpzHnnFG8SQopfpgOzkvwzdyi+athULzc9Z85/Xdmh0p
-	 Jw2rdrcfbsEiuyqqr0RQE36tlz2kOb7cXH/sVCMaESkPP1kYNjHnWGaHl+cmNm/y3J
-	 ijojrKrDNmId3wSTVy1gdlaNXLJRNkRFRfFhqwsM=
-Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53SEY5uL003914
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 28 Apr 2025 09:34:05 -0500
-Received: from DFLE109.ent.ti.com (10.64.6.30) by DFLE114.ent.ti.com
- (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 28
- Apr 2025 09:34:03 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 28 Apr 2025 09:34:03 -0500
-Received: from [10.249.141.75] ([10.249.141.75])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53SEXxMp108147;
-	Mon, 28 Apr 2025 09:33:59 -0500
-Message-ID: <5619384e-28d4-48b9-99cc-dbf2e2375090@ti.com>
-Date: Mon, 28 Apr 2025 20:03:58 +0530
+	Mon, 28 Apr 2025 14:34:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9C2FA1516;
+	Mon, 28 Apr 2025 07:34:16 -0700 (PDT)
+Received: from mazurka.cambridge.arm.com (mazurka.cambridge.arm.com [10.2.80.18])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9E3DB3F66E;
+	Mon, 28 Apr 2025 07:34:18 -0700 (PDT)
+From: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
+To: ryan.roberts@arm.com,
+	suzuki.poulose@arm.com,
+	yang@os.amperecomputing.com,
+	corbet@lwn.net,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	jean-philippe@linaro.org,
+	robin.murphy@arm.com,
+	joro@8bytes.org,
+	akpm@linux-foundation.org,
+	paulmck@kernel.org,
+	mark.rutland@arm.com,
+	joey.gouly@arm.com,
+	maz@kernel.org,
+	james.morse@arm.com,
+	broonie@kernel.org,
+	oliver.upton@linux.dev,
+	baohua@kernel.org,
+	david@redhat.com,
+	ioworker0@gmail.com,
+	jgg@ziepe.ca,
+	nicolinc@nvidia.com,
+	mshavit@google.com,
+	jsnitsel@redhat.com,
+	smostafa@google.com,
+	kevin.tian@intel.com,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev
+Cc: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
+Subject: [PATCH v6 0/3] Initial BBML2 support for contpte_convert()
+Date: Mon, 28 Apr 2025 14:33:49 +0000
+Message-ID: <20250428143352.53761-2-miko.lenczewski@arm.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] arm64: dts: ti: k3-j784s4-j742s2-main-common: add
- ACSPCIE0 node
-To: Siddharth Vadapalli <s-vadapalli@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
-        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <parth105105@gmail.com>,
-        <parth.pancholi@toradex.com>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        <u-kumar1@ti.com>
-References: <20250422123218.3788223-1-s-vadapalli@ti.com>
- <20250422123218.3788223-2-s-vadapalli@ti.com>
-Content-Language: en-US
-From: "Kumar, Udit" <u-kumar1@ti.com>
-In-Reply-To: <20250422123218.3788223-2-s-vadapalli@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_073410_674327_83F42412 
-X-CRM114-Status: GOOD (  17.41  )
+X-CRM114-CacheID: sfid-20250428_073426_458908_95E3B07F 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,52 +89,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi All,
 
-On 4/22/2025 6:02 PM, Siddharth Vadapalli wrote:
-> The ACSPCIE0 module on TI's J784S4 SoC is capable of driving the
-> reference clock required by the PCIe Endpoint device. It is an
-> alternative to on-board and external reference clock generators.
-> Add the device-tree node for the same.
->
-> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> ---
->
-> The previous versions of this series were a single patch. Based on the
-> feedback received on previous versions, the SoC and Board support has
-> been split in order to allow reuse for other Boards based on the same
-> SoC.
->
-> v2 patch:
-> https://lore.kernel.org/r/20250411121307.793646-1-s-vadapalli@ti.com/
-> Changes since v2 patch:
-> - The SoC and board changes have been split across:
->    k3-j784s4-j742s2-main-common.dtsi and k3-j784s4-j742s2-evm-common.dtsi
->    respectively.
->
-> Regards,
-> Siddharth.
->
->   arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi | 5 +++++
->   1 file changed, 5 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-> index 1944616ab357..f03b2b6d5d03 100644
-> --- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi
-> @@ -126,6 +126,11 @@ audio_refclk1: clock@82e4 {
->   			assigned-clock-parents = <&k3_clks 157 63>;
->   			#clock-cells = <0>;
->   		};
-> +
-> +		acspcie0_proxy_ctrl: clock-controller@1a090 {
-> +			compatible = "ti,j784s4-acspcie-proxy-ctrl", "syscon";
-> +			reg = <0x1a090 0x4>;
+This patch series adds initial support for eliding Break-Before-Make
+requirements on systems that support BBML2 and additionally guarantee
+to never raise a conflict abort.
 
-Reviewed-by: Udit Kumar <u-kumar1@ti.com>
+This support reorders and elides both a TLB invalidation and a DSB in
+contpte_convert(), when BBML2 is supported. This leads to a 12%
+improvement when executing a microbenchmark designed to force the
+pathological path where contpte_convert() gets called. This represents
+an 80% reduction in the cost of calling contpte_convert().
 
+We clarify both the correctness and performance benefits of this elision
+with respect to the relevant Arm ARM passages, via substantial comments
+in the contpte_convert() source.
 
-> +		};
->   	};
->   
->   	main_ehrpwm0: pwm@3000000 {
+This series is based on v6.15-rc3 (9c32cda43eb7).
+
+Notes
+======
+
+Patch 1 implements an allow-list of cpus that support BBML2, but with
+the additional constraint of never causing TLB conflict aborts. We
+settled on this constraint because we will use the feature for kernel
+mappings in the future, for which we cannot handle conflict aborts
+safely.
+
+Yang Shi has a series at [1] that aims to use BBML2 to enable splitting
+the linear map at runtime. This series partially overlaps with it to add
+the cpu feature. We believe this series is fully compatible with Yang's
+requirements and could go first.
+
+Due to constraints with the current design of the cpufeature framework
+and the fact that our has_bbml2_noabort() check relies on both a MIDR
+allowlist and the exposed MMFR2 register value, if an implementation
+supports our desired BBML2+NOABORT semantics but fails to declare
+support for BBML2 via the id_aa64mmfr2.bbm field, the check will fail.
+
+Not declaring base support for BBML2 when supporting BBML2+NOABORT
+should be considered an erratum [2], and a workaround can be applied in
+__cpuinfo_store_cpu() to patch in support for BBML2 for the sanitised
+register view used by SCOPE_SYSTEM. However, SCOPE_LOCAL_CPU bypasses
+this sanitised view and reads the MSRs directly by design, and so an
+additional workaround can be applied in __read_sysreg_by_encoding()
+for the MMFR2 case.
+
+For situations where support for BBML2+NOABORT is claimed by an
+implementor and subsequently built into the kernel, but problems later
+arise that require user damage control [3], we introduce a kernel
+commandline parameter override for disabling all BBML2 support.
+
+[1]:
+  https://lore.kernel.org/linux-arm-kernel/20250304222018.615808-1-yang@os.amperecomputing.com/
+
+[2]:
+  https://lore.kernel.org/linux-arm-kernel/3bba7adb-392b-4024-984f-b6f0f0f88629@arm.com/
+
+[3]:
+  https://lore.kernel.org/all/0ac0f1f5-e4a0-46ae-8ea0-2eba7e21a7e1@arm.com/
+
+Changelog
+=========
+
+v6:
+  - clarify correctness and performance of elision of __tlb_flush_range()
+  - rebase onto v6.15-rc3
+
+v5:
+  - https://lore.kernel.org/all/20250325093625.55184-1-miko.lenczewski@arm.com/
+  - fixup coding style nits
+  - document motivation for kernel commandline parameter
+
+v4:
+  - https://lore.kernel.org/all/20250319150533.37440-2-miko.lenczewski@arm.com/
+  - rebase onto v6.14-rc5
+  - switch from arm64 sw feature override to hw feature override
+  - reintroduce has_cpuid_feature() check in addition to MIDR check
+
+v3:
+  - https://lore.kernel.org/all/20250313104111.24196-2-miko.lenczewski@arm.com/
+  - rebase onto v6.14-rc4
+  - add arm64.nobbml2 commandline override
+  - squash "delay tlbi" and "elide tlbi" patches
+
+v2:
+  - https://lore.kernel.org/all/20250228182403.6269-2-miko.lenczewski@arm.com/
+  - fix buggy MIDR check to properly account for all boot+late cpus
+  - add smmu bbml2 feature check
+
+v1:
+  - https://lore.kernel.org/all/20250219143837.44277-3-miko.lenczewski@arm.com/
+  - rebase onto v6.14-rc3
+  - remove kvm bugfix patches from series
+  - strip out conflict abort handler code
+  - switch from blocklist to allowlist of bmml2+noabort implementations
+  - remove has_cpuid_feature() in favour of MIDR check
+
+rfc-v1:
+  - https://lore.kernel.org/all/20241211154611.40395-1-miko.lenczewski@arm.com/
+  - https://lore.kernel.org/all/20241211160218.41404-1-miko.lenczewski@arm.com/
+
+Mikołaj Lenczewski (3):
+  arm64: Add BBM Level 2 cpu feature
+  iommu/arm: Add BBM Level 2 smmu feature
+  arm64/mm: Elide tlbi in contpte_convert() under BBML2
+
+ .../admin-guide/kernel-parameters.txt         |   3 +
+ arch/arm64/Kconfig                            |  19 +++
+ arch/arm64/include/asm/cpucaps.h              |   2 +
+ arch/arm64/include/asm/cpufeature.h           |   5 +
+ arch/arm64/kernel/cpufeature.c                |  71 +++++++++
+ arch/arm64/kernel/pi/idreg-override.c         |   2 +
+ arch/arm64/mm/contpte.c                       | 139 +++++++++++++++++-
+ arch/arm64/tools/cpucaps                      |   1 +
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c   |   3 +
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |   3 +
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |   4 +
+ 11 files changed, 251 insertions(+), 1 deletion(-)
+
+-- 
+2.49.0
+
 
