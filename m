@@ -4,82 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FE1AC369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 10:12:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4510C36005
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 10:19:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EyLLSu+6S+6dxer7LO6vuNlydixelSCtlsd/r01CLYw=; b=HTiA9rgyTH/fvD9JTVZlvm4SND
-	t5jXT8fWlGhT8w/rsP8mD97Y23Z55lTHii3DFEJh4YcmfXVgX0E0Ha4Ne215xCfHb7/Vq9pS3RWbS
-	8Kce6m2Sbc7dhFXCnW8rdtlLHcqvq0+Pot6/Ogv621MAUJSinv7qWltPjxFSvdbNPC8dbpxrdpfgc
-	NcG/YgUGW8O0ymwB+xoorKoJiWiHW6QFFaxowcFZUfLR8R1LoPuKGJWEJN3T9uv/CBc86iBtKa1iy
-	fhe4wHl9gRM864pQF2N3moWafmpSOR6d+SUWybUnm+5g88ctdpAwd2u6W0gia8oIMh5Z/MEcqAvFG
-	3rXYRDHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2Pxtv8aSr8lPsn9szEAcL96+tyHoCynhCC+imycmD8E=; b=CgR9CIs13cASp2MrgzOfPt3DpZ
+	e/asfA3C96ltJyegr1Ykfgj7Bvn6peXBT5kcW4GIyNJgh2y8g9rqE7psoumhIyjd3NCA+xQuPa6pb
+	4cqANZlMBck2VIYGkm9/E/tnLGmiKal6LkzmnuQSG6y/WwQSOQSo3wpCChTZbsU6243bX+RJcegHo
+	Xus/JY4PSd7J9Lyskn7P2TQbwJD7MXoMTGb+BYHeL//W2z1s1mq9At7ZNgpwDPmGJhFXp7rE3QxzQ
+	WOYdEsitOT1+A9Yx8Gsp+7r9Tr3UX4KWlMiERnxgNjeczYqZqEhweqvAJnG74K6PNLuvZkrUrrXHI
+	pDLwPSpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9LTN-00000005lgD-3Hja;
-	Mon, 28 Apr 2025 10:12:25 +0000
-Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	id 1u9La9-00000005mCf-3cT0;
+	Mon, 28 Apr 2025 10:19:25 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9LPm-00000005lFv-2caf
+	id 1u9LYC-00000005m65-2Q0r
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 10:08:45 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 0378941E0D;
-	Mon, 28 Apr 2025 10:08:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1745834916;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=EyLLSu+6S+6dxer7LO6vuNlydixelSCtlsd/r01CLYw=;
-	b=n0pN73mOyqcHetOyty577p3pErAzkt7nOjTmTs7YgE7Q0kFnEUjpP51kQxEZbEasxxXrt7
-	JLvkjuOt0AXoXFzIgQigzMagk7hFGPyQUdle3Zb9jKfyz12z4ip3NeyasSIldXmsRciGHI
-	DAPPFmRMZw65TNO0ONyFX1B9VOWdBPbWVfFQRxq7GDgZTyiOu6KiIQmtgUPrBgjq25ltX4
-	fXs7Qr6/wadKGI1e/wzLtxDQu6R/a1PPKI1hnCq8qK3a+JQ9bdUmnQfv6UUGKYpoRgrzG2
-	3kbgk9SijtBUMuGij0XV/jKboUCdiajElMI6QPih9raiz1GLhgDuUXF1++0s5Q==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 28 Apr 2025 12:08:32 +0200
-Message-Id: <D9I6TQN2I6B1.QC4FFHEWAURZ@bootlin.com>
-Cc: "Bastien Curutchet" <bastien.curutchet@bootlin.com>,
- <ebpf@linuxfoundation.org>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, <bpf@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kselftest@vger.kernel.org>,
- <linux-stm32@st-md-mailman.stormreply.com>
-Subject: Re: [PATCH RFC bpf-next 3/4] bpf/selftests: add tests to validate
- proper arguments alignment on ARM64
-From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-To: "Eduard Zingerman" <eddyz87@gmail.com>, "Alexei Starovoitov"
- <ast@kernel.org>, "Daniel Borkmann" <daniel@iogearbox.net>, "John
- Fastabend" <john.fastabend@gmail.com>, "Andrii Nakryiko"
- <andrii@kernel.org>, "Martin KaFai Lau" <martin.lau@linux.dev>, "Song Liu"
- <song@kernel.org>, "Yonghong Song" <yonghong.song@linux.dev>, "KP Singh"
- <kpsingh@kernel.org>, "Stanislav Fomichev" <sdf@fomichev.me>, "Hao Luo"
- <haoluo@google.com>, "Jiri Olsa" <jolsa@kernel.org>, "Puranjay Mohan"
- <puranjay@kernel.org>, "Xu Kuohai" <xukuohai@huaweicloud.com>, "Catalin
- Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
- "Mykola Lysenko" <mykolal@fb.com>, "Shuah Khan" <shuah@kernel.org>, "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>, "Alexandre Torgue"
- <alexandre.torgue@foss.st.com>, "Florent Revest" <revest@chromium.org>
-X-Mailer: aerc 0.20.1-0-g2ecb8770224a
-References: <20250411-many_args_arm64-v1-0-0a32fe72339e@bootlin.com>
- <20250411-many_args_arm64-v1-3-0a32fe72339e@bootlin.com>
- <3a16fae0346d4f733fb1a67ae6420d8bf935dbd8.camel@gmail.com>
-In-Reply-To: <3a16fae0346d4f733fb1a67ae6420d8bf935dbd8.camel@gmail.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddviedtieejucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpegggfgtfffkvefuhffvofhfjgesthhqredtredtjeenucfhrhhomheptehlvgigihhsucfnohhthhhorhoruceorghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeelkeehiefhfeehvefhtdegueelkeehffffffeuvdekkeekuddvueeguefgieeukeenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepledtrdekledrudeifedruddvjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeeltddrkeelrdduieefrdduvdejpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpegrlhgvgihishdrlhhothhhohhrvgessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvdelpdhrtghpthhtohepvgguugihiiekjeesghhmrghilhdrtghomhdprhgtphhtthhopegrshhtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegurghnihgvlhesihhoghgvrghrsghogidrnhgvthdprhgtphhtthhopehjohhhnhdrfhgrshhtrggsvghnugesghhmrghilhdrtghomhdprhgtphhtthhopegrnhgurhhiiheskhgvrhhnv
- ghlrdhorhhgpdhrtghpthhtohepmhgrrhhtihhnrdhlrghusehlihhnuhigrdguvghvpdhrtghpthhtohepshhonhhgsehkvghrnhgvlhdrohhrghdprhgtphhtthhopeihohhnghhhohhnghdrshhonhhgsehlihhnuhigrdguvghv
-X-GND-Sasl: alexis.lothore@bootlin.com
+	Mon, 28 Apr 2025 10:17:26 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53SACU0o023768
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 10:17:23 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=2Pxtv8aSr8lPsn9szEAcL96+
+	tyHoCynhCC+imycmD8E=; b=RpjNWBCQghFnkVznLenbzGQ7FGNRi4epvrMeyjVF
+	nEr/tyfianNYxVaNMuotOAp/T8tX6J3Y94/rNtdLETf3cR4mU+2P3H4ZQG6x1KVc
+	eQS/tEFyEnZyj8NHPvptz274q7rNSLw6hkz+1reFFHCXEH+pFbf4/MCySR7kdaud
+	M8I+GUhLM7IJrSDyYT4gAykLYuYJZUV8gAjyNqku27Bv+YNQrFEdmCowpKE1YXQA
+	B3AtMGkLgPb4pdh02QvKM/sdDqStEkVr+4uwIFMum+E1b1+dDYXNBe6sI2l6GRVK
+	XLiFcNcOgnLd1D8RZ4ymS9nMS1Qdp+qdC9rF3h19Dainhg==
+Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 468ptmgstb-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 10:17:22 +0000 (GMT)
+Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-309c6e43a9aso7017745a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 03:17:22 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745835441; x=1746440241;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=2Pxtv8aSr8lPsn9szEAcL96+tyHoCynhCC+imycmD8E=;
+        b=UmOB5REtz+thw3xFsck5q24U9r0fYeCdeDXeymCMp3cLLwjsEowcMwI2A666ACskx/
+         oNvyDKpPLD5CU7aOUvrkmD+fAFJ+U6tSFAtEb+692FPtfRBNmcbOFi8niB/rTSwizZlj
+         Xl6KSFZiAbbI8cE1752ZqHyhoDBakFW8jO0atnFJSSpVE5JM5IVKyqr2W64t78NKYBIL
+         vwP7lvcDgCJ76zdwEqj7WxoVdAYkYN3UkdsQm9S+5CePM2Fkdk6aECx7sjxvTp211tzh
+         lwCMyf/SxRGTqDmfbFfKafJztJ4jGSnvZNG+WoQVbFxXWbrseuCJrVCb4TY4GswynUJO
+         gE1Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVydoNpoMEq41DrWJYRdhDSLGuB2loMgTen2Ku9lUm2mo13sJjJfTmJ64rteICkIgXUo0jqsTZhoRB9WDLeYGYO@lists.infradead.org
+X-Gm-Message-State: AOJu0YzVouiZzkoIcPYYniXTzpUejmVWEhpgvkImQT2m4xg3al0C3VYg
+	/kaSMxrxYMMvKASlck+5YM175MBAyyHoXnLL1jOrGrLoRheCH36+OmvEE4PlOKMo2D4RM+UOEB7
+	dQv5zyH8OgNU9Lxv4vE5dDcCZlYIgMC8NrtDpc2e1u/yTmR+58MAGGRlQiA5EJUsbw4EQorNDSF
+	ksjy0817KFcdAub/xQETRjzdjrxzfeDJhaN2blViwDXvpfLa3Q
+X-Gm-Gg: ASbGncvkZQtmofzZ9AksaLdm+ZcioHZUZD2ubxjIPpkyH1n85Rp4aVp+GjQd/BipKs7
+	I/XXZhZ5H/RQ+tSvw6cfgPXGKQzWoJWJVyiIv1fjaR3MwTrIXlo/QXLo/sNIdCD1Ssb43IG1sZ4
+	QR+ZhPhZ1G7VxDsYSe47j44Fb1
+X-Received: by 2002:a17:90b:2247:b0:2fe:baa3:b8bc with SMTP id 98e67ed59e1d1-30a013b0fe9mr10022786a91.23.1745835441409;
+        Mon, 28 Apr 2025 03:17:21 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEIaELZcY1AshO25NA0l+ttmZJfXNfsi/nEo/9o06JBJB434i2TbdXrkARPRYRTyvmK6A6cuZ9Wjsgk5Ys7NMc=
+X-Received: by 2002:a17:90b:2247:b0:2fe:baa3:b8bc with SMTP id
+ 98e67ed59e1d1-30a013b0fe9mr10022761a91.23.1745835441054; Mon, 28 Apr 2025
+ 03:17:21 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250425-fix-nexus-4-v3-0-da4e39e86d41@oss.qualcomm.com>
+ <20250425-fix-nexus-4-v3-6-da4e39e86d41@oss.qualcomm.com> <3094b6e7-0de9-43a3-9678-4b1844aa600c@arm.com>
+In-Reply-To: <3094b6e7-0de9-43a3-9678-4b1844aa600c@arm.com>
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Date: Mon, 28 Apr 2025 13:17:09 +0300
+X-Gm-Features: ATxdqUEUcpx2-hktcO21OhqmqQqXyNUMMYDgeGivjswWKla-vpUY9os7A0P_Tug
+Message-ID: <CAO9ioeXhFOn=YPt0+zA_C1WRcXQJheLo-nkVDUk0+87+0YM=NA@mail.gmail.com>
+Subject: Re: [PATCH v3 06/11] dt-bindings: arm: arm,coresight-static-replicator:
+ add optional clocks
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Georgi Djakov <djakov@kernel.org>,
+        Lee Jones <lee@kernel.org>, Mike Leach <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        Leo Yan <leo.yan@linux.dev>, David Heidelberg <david@ixit.cz>,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+        linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+X-Proofpoint-ORIG-GUID: EUyvm3dzlLV-yATrREnc7kHcGb_gwy8-
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI4MDA4NCBTYWx0ZWRfX/ewduDyv5/tF 7xR8b0Y7NPU9BrsIpbbWZNMa6tcmcz1cetPSu8sN+snD8fq4nhF0obT+O6beml5rFY6kmYa4J3c YuWlLnxBG7Wh5btEp7gyHErmo/S4OhlpHKsYI4CcIhKm1l+vFaC+OfH/PkNbQOeZNjpZIy1j8Zn
+ v+SiCUCf8u1UD0832INUd59ukqeIjIf0o7WfxgsOgoq5GxYYLVFo/FrfF0Etn48y3zTHmhgmhBQ ycTemuFZ5e28zYVhiYadQxBpBLPGf8fsqWRoU2op0Q8dzJfRApA0VX1dUsR423q7dvPIGvIOnn0 LxsRPWkumIBwhvssGnGC/0XLNh+CgHkoLJ+BdVPME63EkQCETMblVJQShJhEdKynb8jYeDjVXiD
+ Q7+Oueooa3svN7f2ajDiS2cs9kd7PHH9xTaYwXualBw89ruX2tGk2jNR4i/b7EuMSIovJCuU
+X-Proofpoint-GUID: EUyvm3dzlLV-yATrREnc7kHcGb_gwy8-
+X-Authority-Analysis: v=2.4 cv=DKWP4zNb c=1 sm=1 tr=0 ts=680f55b2 cx=c_pps a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=7CQSdrXTAAAA:8 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=m05Zng2Y9WU2dLnq8PUA:9 a=QEXdDO2ut3YA:10
+ a=uKXjsCUrEbL0IQVhDsJ9:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-04-28_03,2025-04-24_02,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=999 clxscore=1015
+ priorityscore=1501 impostorscore=0 mlxscore=0 bulkscore=0 malwarescore=0
+ phishscore=0 spamscore=0 suspectscore=0 lowpriorityscore=0 adultscore=0
+ classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2504070000
+ definitions=main-2504280084
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_030843_301871_80CA0ED4 
-X-CRM114-Status: GOOD (  27.84  )
+X-CRM114-CacheID: sfid-20250428_031724_755703_FF15279D 
+X-CRM114-Status: GOOD (  21.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,161 +127,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Eduard,
-
-On Mon Apr 28, 2025 at 9:01 AM CEST, Eduard Zingerman wrote:
-> On Fri, 2025-04-11 at 22:32 +0200, Alexis Lothor=C3=A9 (eBPF Foundation) =
-wrote:
->> When dealing with large types (>8 bytes), ARM64 trampolines need to take
->> extra care about the arguments alignment to respect the calling
->> convention set by AAPCS64.
->>=20
->> Add two tests ensuring that the BPF trampoline arranges arguments with
->> the relevant layout. The two new tests involve almost the same
->> arguments, except that the second one requires a more specific alignment
->> to be set by the trampoline when preparing arguments before calling the
->> the target function.
->>=20
->> Signed-off-by: Alexis Lothor=C3=A9 (eBPF Foundation) <alexis.lothore@boo=
-tlin.com>
->> ---
+On Mon, 28 Apr 2025 at 12:06, Suzuki K Poulose <suzuki.poulose@arm.com> wrote:
 >
-> [...]
+> Hi Dmitry
 >
->> +SEC("fentry/bpf_testmod_test_struct_arg_11")
->> +int BPF_PROG2(test_struct_many_args_9, struct bpf_testmod_struct_arg_5,=
- a,
->> +	      struct bpf_testmod_struct_arg_5, b,
->> +	      struct bpf_testmod_struct_arg_5, c,
->> +	      struct bpf_testmod_struct_arg_5, d, int, e,
->> +	      struct bpf_testmod_struct_arg_5, f)
+> On 25/04/2025 18:47, Dmitry Baryshkov wrote:
+> > As most other CoreSight devices the replicator can use either of the
+> > optional clocks. Document those optional clocks in the schema.
+> > Additionally document the one-off case of Zynq-7000 platforms which uses
+> > apb_pclk and two additional debug clocks.
 >
-> Hello Alexis,
+> What is the plan for merging this series ? I am happy to pick this patch
+> via coresight tree.
+
+Please pick up coresight-related patch. Each of the maintainers is
+expected to pick relevant parts.
+
 >
-> I'm trying to double check the error you've seen for x86.
+> >
+> > Fixes: 3c15fddf3121 ("dt-bindings: arm: Convert CoreSight bindings to DT schema")
+> > Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+>
+> Otherwise,
+>
+>
+> Acked-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>
+> Suzuki
+>
+>
+>
+> > ---
+> >   .../bindings/arm/arm,coresight-static-replicator.yaml       | 13 +++++++++++++
+> >   1 file changed, 13 insertions(+)
+> >
+> > diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-static-replicator.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-static-replicator.yaml
+> > index a6f793ea03b6c193fc0ff72a45e0249a63a2ba3c..0c1017affbad2f03892b250ad864d9a5dc8d02f1 100644
+> > --- a/Documentation/devicetree/bindings/arm/arm,coresight-static-replicator.yaml
+> > +++ b/Documentation/devicetree/bindings/arm/arm,coresight-static-replicator.yaml
+> > @@ -30,6 +30,19 @@ properties:
+> >     power-domains:
+> >       maxItems: 1
+> >
+> > +  clocks:
+> > +    minItems: 1
+> > +    maxItems: 3
+> > +
+> > +  clock-names:
+> > +    oneOf:
+> > +      - items:
+> > +          - enum: [apb_pclk, atclk]
+> > +      - items: # Zynq-700
+> > +          - const: apb_pclk
+> > +          - const: dbg_trc
+> > +          - const: dbg_apb
+> > +
+> >     in-ports:
+> >       $ref: /schemas/graph.yaml#/properties/ports
+> >       additionalProperties: false
+> >
+>
 
-Thanks for taking a look at this.
 
-> I see that tracing_struct/struct_many_args fails with assertion:
-> "test_struct_many_args:FAIL:t11:f unexpected t11:f: actual 35 !=3D expect=
-ed 43".
-> Could you please help me understand this test?
-
-Sure. When we attach fentry/fexit programs to a kernel function,  a small
-trampoline is generated to handle the attached programs execution. This
-trampoline has to:
-1. properly read and aggregate the functions arguments into a bpf tracing
-context. Those arguments comes from registers, and possibly from the stack
-if not all function arguments fit in registers
-2. if the trampoline is in charge of calling the target function (that's
-the case for example when we have both a fentry and a fexit programs
-attached), it must prepare the arguments for the target function, by
-filling again the registers, and possibly pushing the additional arguments
-on the stack at the relevant offset.
-
-This test is about validating the first point: ensuring that the trampoline
-has correctly read the initial arguments from the target function and
-forwarded them to the fentry program. So the actual test triggers the
-targeted function, it triggers the attached fentry program which record the
-values passed by the trampoline in t11_a, t11_b, etc, and then the
-test checks back that those "spied" values are the one that it has actually
-passed when executing the target function.
-
-> The function listened to is defined as accepting 'struct bpf_testmod_stru=
-ct_arg_7',
-> at the same time this function uses 'struct bpf_testmod_struct_arg_5'.
-
-That's not an accidental mistake, those are in fact the same definition.
-bpf_testmod_struct_arg_7 is the kernel side definition in bpf_testmod.c:
-
-struct bpf_testmod_struct_arg_7 {
-	__int128 a;
-};
-
-and struct bpf_testmode_struct_arg_5 is the one defined in the bpf test
-program:
-
-struct bpf_testmod_struct_arg_5 {
-	__int128 a;
-};
-
-I agree while being correct, this is confusing :/ I have kind of blindly
-applied the logic I have observed in here for declaring test structs, and
-so declared it twice (in kernel part and in bpf part), just incrementing
-the index of the last defined structure. But I guess it could benefit from
-some index syncing, or better, some refactoring to properly share those
-declarations. I'll think about it for a new rev.
-
-> Nevertheless, the assertion persists even with correct types.
-
-So I digged a bit further to better share my observations here. This is the
-function stack when entering the trampoline after having triggered the
-target function execution:
-
-(gdb) x/64b $rbp+0x18
-0xffffc9000015fd60:     41      0       0       0       0       0       0  =
-     0
-0xffffc9000015fd68:     0       0       0       0       0       0       0  =
-     0
-0xffffc9000015fd70:     42      0       0       0       0       0       0  =
-     0
-0xffffc9000015fd78:     35      0       0       0       0       0       0  =
-     0
-0xffffc9000015fd80:     43      0       0       0       0       0       0  =
-     0
-0xffffc9000015fd88:     0       0       0       0       0       0       0  =
-     0
-
-We see the arguments that did not fit in registers, so d, e and f.
-
-This is the ebpf context generated by the trampoline for the fentry
-program, from the content of the stack above + the registers:
-
-(gdb) x/128b $rbp-60
-0xffffc9000015fce8:     38      0       0       0       0       0       0  =
-     0
-0xffffc9000015fcf0:     0       0       0       0       0       0       0  =
-     0
-0xffffc9000015fcf8:     39      0       0       0       0       0       0  =
-     0
-0xffffc9000015fd00:     0       0       0       0       0       0       0  =
-     0
-0xffffc9000015fd08:     40      0       0       0       0       0       0  =
-     0
-0xffffc9000015fd10:     0       0       0       0       0       0       0  =
-     0
-0xffffc9000015fd18:     41      0       0       0       0       0       0  =
-     0
-0xffffc9000015fd20:     0       0       0       0       0       0       0  =
-     0
-0xffffc9000015fd28:     42      0       0       0       0       0       0  =
-     0
-0xffffc9000015fd30:     35      0       0       0       0       0       0  =
-     0
-0xffffc9000015fd38:     43      0       0       0       0       0       0  =
-     0
-0xffffc9000015fd40:     37      0       0       0       0       0       0  =
-     0
-
-So IIUC, this is wrong because the "e" variable in the bpf program being
-an int (and about to receive value 42), it occupies only 1 "tracing context
-8-byte slot", so the value 43 (representing the content for variable f),
-should be right after it, at 0xffffc9000015fd30. What we have instead is a
-hole, very likely because we copied silently the alignment from the
-original function call (and I guess this 35 value is a remnant from the
-previous test, which uses values from 27 to 37)
-
-Regardless of this issue, based on discussion from last week, I think I'll
-go for the implementation suggested by Alexei: handling the nominal cases,
-and detecting and blocking the non trivial cases (eg: structs passed on
-stack). It sounds reasonable as there seems to be no exisiting kernel
-function currently able to trigger those very specific cases, so it could
-be added later if this changes.
-
-Alexis
---=20
-Alexis Lothor=C3=A9, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
-
+-- 
+With best wishes
+Dmitry
 
