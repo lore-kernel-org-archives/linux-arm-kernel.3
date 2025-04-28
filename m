@@ -4,138 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30DDAC369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 13:19:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3299DC369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 13:21:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YljKQXBtGiaGwd+MSQtk+gKaVlh4BPM5fTbTeZoYEdE=; b=Pqm9atKW5lsyELkN66fRMWzrdL
-	EAG2zrtWDFfvZaPM7IxeiBvlrXyB4hNWMzQ+7UB9w+2QB/xeVfSx2w82/2RTG7ST5rjMZIsKTtKAh
-	EcyiJS35hZYi57rQDbgJVWm8+4ngiyIheVCqGhU3mcCmtfzgY8vyjhndPAWlyUg/fQsnFMBRxvvk+
-	F6SOcLLqy3tUn7/EqeEhc91uFWO4peIw/8/miXpaU/ZWETFbvraW8b2+cnuaRsk7sb5xXUj5crmfF
-	LTFHsZ9mUT3TAgk9J15kg4cqIlBMu1uUt4jadBFi4Rh/oVqemfCzh2pMTy8/woBHYY5IraHeKq8Bs
-	td54IUrg==;
+	bh=tmoFP7mWK1xDtxpxC3gMfuoxF1w2bYb3YT1RZ1atP8s=; b=WcG068UYYLbDVm8uGm8GLkJWw1
+	u8cGz2EuMWMaG9+VoHhkjgAE0oh82xwV2egiOM7RFp0NRoGs40UkoAzu0TwYZrE5cY5/xX2DfKu8J
+	y1TlBXQejy6XrCJY1Vbukq/Cm2jzpyZVP5r6U6U7+6maCnCotNL7mlNDphgJRb/nm7JwvqWz/32n/
+	CZZu519GdUFFmXbznOVP2pPclzatH4cDD++b7EVe1WMRrb0Yo0CsvTcgbYBTSHDMIEVZ+9+AMskGe
+	qC5Gk6tjLVHKkTka+aBMjHUmCIlTN+s+/ph4SHyF/C1r09FYZaeHtO5rlu7w8TKpKPAKD5IuzUy/u
+	Xa+YM+og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9ONw-00000006RLD-2Kru;
-	Mon, 28 Apr 2025 13:19:00 +0000
-Received: from mail-ej1-f49.google.com ([209.85.218.49])
+	id 1u9OPu-00000006Rpi-1Cy2;
+	Mon, 28 Apr 2025 13:21:02 +0000
+Received: from out-180.mta0.migadu.com ([91.218.175.180])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9NuA-00000006GBI-0h19
+	id 1u9NwN-00000006GZC-1VjM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 12:48:15 +0000
-Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-ac3123c0ef9so46780766b.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 05:48:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745844492; x=1746449292; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=YljKQXBtGiaGwd+MSQtk+gKaVlh4BPM5fTbTeZoYEdE=;
-        b=IqV1qvtmbCODv6v0U4qSNlm/GFpxvTq1kZpSBHj+zy3LlgHk8/zClj4dS5Bg7uQF4j
-         vDrvCkJvFu9LuNL1Fv0Eo8niiSwH/CHtwJK2/u7DbFYSXS5tndkYiw5h7wNALkJkzW/P
-         qL5Q0dU60YaIzKvOtrW8DbCa2q87zUzpCOVNrf3CDnhNBQQFJw8PY+hqeNcE+hUH4j8v
-         Zn5Of4dl8g80hAMIL85xnX4Q/P3MPwldDwWOebXgQ2It1WhtpHWU6gUWR186sfR+rV+m
-         d/NTGswjY/GpJI6XjhwRp/mCEB6PNV0KFX9H1Rtu13jvAmjRSNS6ndMPvffG1DV1isft
-         bngQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745844492; x=1746449292;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=YljKQXBtGiaGwd+MSQtk+gKaVlh4BPM5fTbTeZoYEdE=;
-        b=Vzrnbk2ZSfLTSqgaJ+pnVcJwlcSxHd5/1Bb09JA/Yoly09h/RTa3bJkrDUgxyhdn92
-         dmqzzMcr+slOAYR2mm6lMCngFCr3Za3Sm/ZoctzcS3NMGyIY5fVdnnSstm3YkfdX08oe
-         Cx+6RkJndf9C9rbcxRanv3eukMb4fYhq2DKPJMvZ+BVflt9rK4Xtu+oEdDAvxRBr1xgZ
-         U3wu61/OZ2PBdjlPI1MrAjtAGatmF0fqPwzg8H4YtVGzSby2wOQNE9TwBYu28XSQm5tw
-         v+A2RYs3uBKQ9EuTUcgT+C86Yqwg2zBAVQm2f1FEPunVHeqoY3HfrZ8G+xiM2GZxCRDL
-         o7UA==
-X-Forwarded-Encrypted: i=1; AJvYcCWyRlWSqJgrfHwnHjlbcDi3Sigk7a02pBgqNgsyewZHwURQV9QMDCIpF/SSUBtZTA3llbJC7weh5x2bw1iccDPw@lists.infradead.org
-X-Gm-Message-State: AOJu0YwegaxtL0hSwC1DSDNxbgsryMEqQ5dq4O4xLOe4d5n29zC741PJ
-	SKulbzYlbXfxgfZtb5kxt8ljQ8Z+1uK6tKhfLhygF7C0+0CYTIVLaYctBYHY4Bc=
-X-Gm-Gg: ASbGncsw+thHOTLjqnsSZ8fwdRdh5I6Xw8MENRAGAvhh/GWxLltPwTaxVncNSmG7rUP
-	BcAEJ8FegvGV4ULRUiONDUVdQmbtek5JTJMI1dNwxPVDyvbpSlfoKnTesvhkCNRXEj5nF23fzLX
-	/A/z+RNHB4QG+ke2Iuv9C4n7SAXiD5iGlBk7JlEZpsjBGLSvOu8mk/J8ZPDkdE8mbuMazAocK9M
-	FcsLNXrADEV+frYK2p16kEt+RQO/H5wMbqb42lsIl4E0Z6WDJ/IZnb1Z3weFI5MprIsEpcuU3yI
-	RzHcDgfXMeOO/lBer17RQ8z1doVQIuqXomhyUE96ScQuyNh5WZnEVQKSNhU=
-X-Google-Smtp-Source: AGHT+IFOroP/fL/DAdnVjum70IajwrW6YU3IaS/LoZWYdb3NibmMKKHUKEvzakkKo/2mdE8tfvRkdQ==
-X-Received: by 2002:a17:907:3d94:b0:ac3:66fb:b197 with SMTP id a640c23a62f3a-ace7103a0c0mr347630966b.3.1745844492159;
-        Mon, 28 Apr 2025 05:48:12 -0700 (PDT)
-Received: from [192.168.1.28] ([178.197.207.88])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ace6e41b5e7sm636248466b.13.2025.04.28.05.48.10
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 28 Apr 2025 05:48:11 -0700 (PDT)
-Message-ID: <1df9b47a-d20e-4755-9b30-75d8ff150551@linaro.org>
-Date: Mon, 28 Apr 2025 14:48:09 +0200
+	Mon, 28 Apr 2025 12:50:32 +0000
+Message-ID: <edf768ec-e874-4ca6-9fd7-b94ccc1c1059@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1745844626;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=tmoFP7mWK1xDtxpxC3gMfuoxF1w2bYb3YT1RZ1atP8s=;
+	b=IVDg/78TnwGssY/I/XW2WmOiRAnxxN48wxv1DWSOCn3YYb121+/64IkBo8+FUsCQdf9s0r
+	O4aEsbZgKEok2xAK7cR2Jra+qNt2wSy6aLTx/92JqIYlczVAdJnhq0Wp4jK84B+ExiHoYm
+	jE+4B/I/DSK0Aikia6yGoAONLSl/tRw=
+Date: Mon, 28 Apr 2025 20:50:11 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: defconfig: Enable XDP socket support for
- high-performance networking
-To: Meghana Malladi <m-malladi@ti.com>, nm@ti.com, vigneshr@ti.com
-Cc: prabhakar.mahadev-lad.rj@bp.renesas.com, quic_tdas@quicinc.com,
- nfraprado@collabora.com, arnd@arndb.de, lumag@kernel.org,
- geert+renesas@glider.be, bjorn.andersson@oss.qualcomm.com, will@kernel.org,
- catalin.marinas@arm.com, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, srk@ti.com,
- Roger Quadros <rogerq@kernel.org>, danishanwar@ti.com
-References: <20250428121025.246119-1-m-malladi@ti.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH 6/7] mm: Batch around can_change_pte_writable()
 Content-Language: en-US
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <20250428121025.246119-1-m-malladi@ti.com>
-Content-Type: text/plain; charset=UTF-8
+To: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org
+Cc: ryan.roberts@arm.com, david@redhat.com, willy@infradead.org,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com,
+ will@kernel.org, Liam.Howlett@oracle.com, lorenzo.stoakes@oracle.com,
+ vbabka@suse.cz, jannh@google.com, anshuman.khandual@arm.com,
+ peterx@redhat.com, joey.gouly@arm.com, ioworker0@gmail.com,
+ baohua@kernel.org, kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
+ christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
+ linux-arm-kernel@lists.infradead.org, namit@vmware.com, hughd@google.com,
+ yang@os.amperecomputing.com, ziy@nvidia.com
+References: <20250428120414.12101-1-dev.jain@arm.com>
+ <20250428120414.12101-7-dev.jain@arm.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Lance Yang <lance.yang@linux.dev>
+In-Reply-To: <20250428120414.12101-7-dev.jain@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_054814_215729_F4AAF3B6 
-X-CRM114-Status: UNSURE (   8.00  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250428_055031_615668_EDDB2DF8 
+X-CRM114-Status: GOOD (  26.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,18 +77,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/04/2025 14:10, Meghana Malladi wrote:
-> From: MD Danish Anwar <danishanwar@ti.com>
+Hey Dev,
+
+On 2025/4/28 20:04, Dev Jain wrote:
+> In preparation for patch 7, we need to properly batch around
+> can_change_pte_writable(). We batch around pte_needs_soft_dirty_wp() by
+> the corresponding fpb flag, we batch around the page-anon exclusive check
+> using folio_maybe_mapped_shared(); modify_prot_start_ptes() collects the
+> dirty and access bits across the batch, therefore batching across
+> pte_dirty(): this is correct since the dirty bit on the PTE really
+> is just an indication that the folio got written to, so even if
+> the PTE is not actually dirty (but one of the PTEs in the batch is),
+> the wp-fault optimization can be made.
 > 
-> Enable CONFIG_XDP_SOCKETS to allow for eXpress Data Path (XDP) socket
-> support specifically on TI SoC platforms such as the AM64x and AM65x.
-> This enables the use of XDP sockets for high-performance, low-latency
-> networking applications, allowing for efficient processing of network
-> packets and improved overall system performance.
+> Signed-off-by: Dev Jain <dev.jain@arm.com>
+> ---
+>   include/linux/mm.h | 4 ++--
+>   mm/gup.c           | 2 +-
+>   mm/huge_memory.c   | 4 ++--
+>   mm/memory.c        | 6 +++---
+>   mm/mprotect.c      | 9 ++++++---
+>   5 files changed, 14 insertions(+), 11 deletions(-)
+> 
+> diff --git a/include/linux/mm.h b/include/linux/mm.h
+> index 5eb0d77c4438..ffa02e15863f 100644
+> --- a/include/linux/mm.h
+> +++ b/include/linux/mm.h
+> @@ -2710,8 +2710,8 @@ int get_cmdline(struct task_struct *task, char *buffer, int buflen);
+>   #define  MM_CP_UFFD_WP_ALL                 (MM_CP_UFFD_WP | \
+>   					    MM_CP_UFFD_WP_RESOLVE)
+>   
+> -bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
+> -			     pte_t pte);
+> +bool can_change_ptes_writable(struct vm_area_struct *vma, unsigned long addr,
+> +			     pte_t pte, struct folio *folio, unsigned int nr);
+>   extern long change_protection(struct mmu_gather *tlb,
+>   			      struct vm_area_struct *vma, unsigned long start,
+>   			      unsigned long end, unsigned long cp_flags);
+> diff --git a/mm/gup.c b/mm/gup.c
+> index 84461d384ae2..6a605fc5f2cb 100644
+> --- a/mm/gup.c
+> +++ b/mm/gup.c
+> @@ -614,7 +614,7 @@ static inline bool can_follow_write_common(struct page *page,
+>   		return false;
+>   
+>   	/*
+> -	 * See can_change_pte_writable(): we broke COW and could map the page
+> +	 * See can_change_ptes_writable(): we broke COW and could map the page
+>   	 * writable if we have an exclusive anonymous page ...
+>   	 */
+>   	return page && PageAnon(page) && PageAnonExclusive(page);
+> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+> index 28c87e0e036f..e5496c0d9e7e 100644
+> --- a/mm/huge_memory.c
+> +++ b/mm/huge_memory.c
+> @@ -2032,12 +2032,12 @@ static inline bool can_change_pmd_writable(struct vm_area_struct *vma,
+>   		return false;
+>   
+>   	if (!(vma->vm_flags & VM_SHARED)) {
+> -		/* See can_change_pte_writable(). */
+> +		/* See can_change_ptes_writable(). */
+>   		page = vm_normal_page_pmd(vma, addr, pmd);
+>   		return page && PageAnon(page) && PageAnonExclusive(page);
+>   	}
+>   
+> -	/* See can_change_pte_writable(). */
+> +	/* See can_change_ptes_writable(). */
+>   	return pmd_dirty(pmd);
+>   }
+>   
+> diff --git a/mm/memory.c b/mm/memory.c
+> index b9e8443aaa86..b1fda3de8d27 100644
+> --- a/mm/memory.c
+> +++ b/mm/memory.c
+> @@ -750,7 +750,7 @@ static void restore_exclusive_pte(struct vm_area_struct *vma,
+>   		pte = pte_mkuffd_wp(pte);
+>   
+>   	if ((vma->vm_flags & VM_WRITE) &&
+> -	    can_change_pte_writable(vma, address, pte)) {
+> +	    can_change_ptes_writable(vma, address, pte, NULL, 1)) {
+>   		if (folio_test_dirty(folio))
+>   			pte = pte_mkdirty(pte);
+>   		pte = pte_mkwrite(pte, vma);
+> @@ -5767,7 +5767,7 @@ static void numa_rebuild_large_mapping(struct vm_fault *vmf, struct vm_area_stru
+>   			ptent = pte_modify(ptent, vma->vm_page_prot);
+>   			writable = pte_write(ptent);
+>   			if (!writable && pte_write_upgrade &&
+> -			    can_change_pte_writable(vma, addr, ptent))
+> +			    can_change_ptes_writable(vma, addr, ptent, NULL, 1))
+>   				writable = true;
+>   		}
+>   
+> @@ -5808,7 +5808,7 @@ static vm_fault_t do_numa_page(struct vm_fault *vmf)
+>   	 */
+>   	writable = pte_write(pte);
+>   	if (!writable && pte_write_upgrade &&
+> -	    can_change_pte_writable(vma, vmf->address, pte))
+> +	    can_change_ptes_writable(vma, vmf->address, pte, NULL, 1))
+>   		writable = true;
+>   
+>   	folio = vm_normal_folio(vma, vmf->address, pte);
+> diff --git a/mm/mprotect.c b/mm/mprotect.c
+> index 33eabc995584..362fd7e5457d 100644
+> --- a/mm/mprotect.c
+> +++ b/mm/mprotect.c
+> @@ -40,8 +40,8 @@
+>   
+>   #include "internal.h"
+>   
+> -bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
+> -			     pte_t pte)
+> +bool can_change_ptes_writable(struct vm_area_struct *vma, unsigned long addr,
+> +			      pte_t pte, struct folio *folio, unsigned int nr)
+>   {
+>   	struct page *page;
+>   
+> @@ -67,6 +67,9 @@ bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
+>   		 * write-fault handler similarly would map them writable without
+>   		 * any additional checks while holding the PT lock.
+>   		 */
+> +		if (unlikely(nr != 1))
+> +			return !folio_maybe_mapped_shared(folio);
+> +
+>   		page = vm_normal_page(vma, addr, pte);
+>   		return page && PageAnon(page) && PageAnonExclusive(page);
+>   	}
 
-High performance, low-latency network applications do not use defconfig.
-That's a development config.
+IIUC, As mentioned in the comment above, we should do the same anonymous 
+check
+to large folios. And folio_maybe_mapped_shared() already handles both 
+order-0
+and large folios nicely, so we could simplify the logic as follows:
 
-Best regards,
-Krzysztof
+diff --git a/mm/mprotect.c b/mm/mprotect.c
+index 1605e89349d2..df56a30bb241 100644
+--- a/mm/mprotect.c
++++ b/mm/mprotect.c
+@@ -43,8 +43,6 @@
+  bool can_change_ptes_writable(struct vm_area_struct *vma, unsigned 
+long addr,
+                               pte_t pte, struct folio *folio, unsigned 
+int nr)
+  {
+-       struct page *page;
+-
+         if (WARN_ON_ONCE(!(vma->vm_flags & VM_WRITE)))
+                 return false;
+
+@@ -67,11 +65,7 @@ bool can_change_ptes_writable(struct vm_area_struct 
+*vma, unsigned long addr,
+                  * write-fault handler similarly would map them 
+writable without
+                  * any additional checks while holding the PT lock.
+                  */
+-               if (unlikely(nr != 1))
+-                       return !folio_maybe_mapped_shared(folio);
+-
+-               page = vm_normal_page(vma, addr, pte);
+-               return page && PageAnon(page) && PageAnonExclusive(page);
++               return folio_test_anon(folio) && 
+!folio_maybe_mapped_shared(folio);
+         }
+
+         VM_WARN_ON_ONCE(is_zero_pfn(pte_pfn(pte)) && pte_dirty(pte));
+--
+
+Thanks,
+Lance
+
+> @@ -222,7 +225,7 @@ static long change_pte_range(struct mmu_gather *tlb,
+>   			 */
+>   			if ((cp_flags & MM_CP_TRY_CHANGE_WRITABLE) &&
+>   			    !pte_write(ptent) &&
+> -			    can_change_pte_writable(vma, addr, ptent))
+> +			    can_change_ptes_writable(vma, addr, ptent, folio, 1))
+>   				ptent = pte_mkwrite(ptent, vma);
+>   
+>   			ptep_modify_prot_commit(vma, addr, pte, oldpte, ptent);
+
 
