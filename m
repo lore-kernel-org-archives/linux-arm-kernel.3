@@ -4,66 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D8B0C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 12:18:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C799C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 12:20:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mnUpu6aIGkBvFTLRk8XsqS6jkn7cP+pYPk1SMU1zWj0=; b=rcn56Ud42UcAO/yauCNz8d1ePY
-	fPIat7trCRSPGTFsE5LUfT+2RGzW0r55FfR4NzcJPB0t/6qjDWBhaweTQNorO2cZGPLZ1JQNk741K
-	jwI++KXwgfCf8ss2tnQVQxbvJbh8WdWy5XnXQNkRjzMhyENhjePXWRhBDA2r7uX2AIYmmuwpXPY3j
-	CpVXKY5VplUa9jAox9H4bpRWrnFZOHCyvz3NaSOswt3VtjBiYY+3/VIjMjnOxgyfvgZGSEhoJHcg+
-	1iT7L+rjg6Sea1plTYTN/HBtt6YzB85/T1r9KtZA6NKdKjtDseN4mBDP4UzDmXz6SBoATSJbWsVZZ
-	NCYmAihw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SnYLMW7hNTuN+uxvXlj0duCk+F+WxlQuRFFtaHZfAIg=; b=3eKPCSrnT9qJJMw6GzUq5egUZt
+	IfJg+JlbepSxEarC6WnPGhAzEdeiyOUxbsMmJIHTgbLq/+8Sg9VLSoLi2H2rN/QPhoh2FnGe5CTh/
+	MXIujwLZwR5kJcqHn4Ldia9K68Hi7Ap5cWxWku9gVvbKT18hj1kv+0/+Un8K6Oyt7efFyj5ncfG/T
+	RlQpj15rPxiJJCj2AYt7TELO3GdsKbL5+vIf/mXUghTbP92yMv4CRlkNbXCgQkz4M3Kag0z0Gretb
+	A50Cy2+q1UWz4FZv/RDBQnnVL7Amo89eppqk2cRJqMb9qCY5xRP1ncHRwhwEPoeGwGp2UeAb11XEY
+	xE5aoTUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9NQk-0000000699H-2bF7;
-	Mon, 28 Apr 2025 12:17:50 +0000
-Received: from abb.hmeau.com ([144.6.53.87])
+	id 1u9NSh-000000069YD-1HFa;
+	Mon, 28 Apr 2025 12:19:51 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Mpq-00000005zwP-3Sqi
+	id 1u9MqW-000000060Cc-1jZ6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 11:39:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=mnUpu6aIGkBvFTLRk8XsqS6jkn7cP+pYPk1SMU1zWj0=; b=CEUOlbvK/GAsNuym/k6N+Y0xv6
-	+at5oP3gUeO0RGzXczUnbrtxYLEudQYFL7yudwFGrpNpHHx/csGAw0zrp4U9mQyeOjjrQbSC4UO15
-	PSB3hVYzDIx2/F3M8kNwI7KpDGRggW//O9sOC6HsrnfDksd/bCtMHBP/0u0g986TiBIV411y/xAxC
-	wmJ2XhPGw609eY5XDVujevyh0GMfteMHsUXhODm6ym9WiiSOv/a0BpnCvMiUuwxdPMpeX4wWkuuHV
-	1wiMOZVAYovWVYVJI5yoN6Vm/X4liHHkOiz4+m4CcCWgPaZ6B3xOKNKlVxD7pnZ8Jf7v59sQ9cSIl
-	92kAOvOQ==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1u9Mpj-001bAH-1g;
-	Mon, 28 Apr 2025 19:39:36 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Mon, 28 Apr 2025 19:39:35 +0800
-Date: Mon, 28 Apr 2025 19:39:35 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
-Cc: clabbe.montjoie@gmail.com, davem@davemloft.net,
-	linux-crypto@vger.kernel.org, wens@csie.org,
-	jernej.skrabec@gmail.com, samuel@sholland.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/4] crypto: sun8i-ce-cipher - use
- crypto_skcipher_driver_name()
-Message-ID: <aA9o9w1odAIgmK0e@gondor.apana.org.au>
-References: <20250425124517.2225963-1-ovidiu.panait.oss@gmail.com>
- <20250425124517.2225963-2-ovidiu.panait.oss@gmail.com>
+	Mon, 28 Apr 2025 11:40:25 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53SABAQj005953;
+	Mon, 28 Apr 2025 11:40:15 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	SnYLMW7hNTuN+uxvXlj0duCk+F+WxlQuRFFtaHZfAIg=; b=EO31SXQJM3+gv2nz
+	RWcyhJbFaNLKyQT+Rg6emmInxaTMSx4jN5j8IVerpVMkyBYThmeFmUUcs148YfL6
+	Loc9M47Sm8nhjx+v3A2j8P4+2PnRKhABGw30zbqmE6HgVEDmyxqiMTnB4ATwiKAr
+	d8ZrVze5yBIIWXzLj22bh9cc2fUOdSeDTYhRa7V3EUGavHkNMRMfYDTknh4Zelc1
+	huZZBUhtdY98dCmRdaRglMWfaqHx8PL0je1PG/yNy8z+fWeP8vqlT8U78h6eBGXL
+	FatJoMpcATDGSxsobfTazIX5kGxx9ZbsYUf3PDPe7hoVpPKAZ/VZO4zbcCjMYJ9l
+	DXAOeg==
+Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 468muqh6fm-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 28 Apr 2025 11:40:15 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53SBeE0h024302
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 28 Apr 2025 11:40:14 GMT
+Received: from [10.239.133.49] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 28 Apr
+ 2025 04:40:10 -0700
+Message-ID: <774ba18b-3319-4d20-854b-cc21b48ce3f6@quicinc.com>
+Date: Mon, 28 Apr 2025 19:40:08 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250425124517.2225963-2-ovidiu.panait.oss@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/2] dt-bindings: arm: Add Qualcomm extended CTI
+From: Jinlong Mao <quic_jinlmao@quicinc.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+        Suzuki K Poulose
+	<suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>, James Clark
+	<james.clark@arm.com>,
+        Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>,
+        Andy Gross <agross@kernel.org>,
+        Bjorn
+ Andersson <andersson@kernel.org>,
+        Rob Herring <robh+dt@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+CC: <linux-kernel@vger.kernel.org>, <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>
+References: <20240903121847.6964-1-quic_jinlmao@quicinc.com>
+ <20240903121847.6964-2-quic_jinlmao@quicinc.com>
+ <8d203417-e3da-4969-87ea-f77cdb720756@kernel.org>
+ <04d46109-d499-4e91-88aa-4187145b811d@quicinc.com>
+ <cbb1191d-4e90-4887-9227-e4e8761a9b46@kernel.org>
+ <b313ab73-850e-4d75-ae19-797a8c6a16f2@quicinc.com>
+Content-Language: en-US
+In-Reply-To: <b313ab73-850e-4d75-ae19-797a8c6a16f2@quicinc.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI4MDA5NiBTYWx0ZWRfXyAoJwu1Hy6T8 esh7wK5DFBtawOa4sAyEcv6hjxXB0x/rnLOzvHLBjdDy0+6BeS56YQ4LsLe3FNltmddsxIJT1Vm lmATnlG3b371tZfjdUY3AxPZSVk8DIA/tFusJhg9O0g4zotvKbcYxGK9UbnxtoeMe6dhS4iu15/
+ hfMXOVaoPGEg+l1igqcIzLomRsA/4blmrDmetAjjLABfOvAsbGxZK5vs3fyPrvXb+k+KCBLcMxh R1Rs9noJlsdpsPI60Z7VFRJ/aQ0Io2KZJuP5zoYjuhEHNKc4dMbHNFqHiHtW9BB2RUMp9LX0su6 igmdIlsSfYXp4rPCHtZdcIBOJW4QZnxmTXpU27AThS/yL/ZdDYc1K6gi7yLXABKy1wD4XnYJDLA
+ iL/MU3+1Y/U5cnGvled5Ii2FHmBbGK1xCOjFdf+ekAtemFrvBuQcM2sAmttbgjNpolND0qbS
+X-Proofpoint-GUID: 5iWqGjB5BUTYX3FdkWHbfDIhzJwcoEA3
+X-Proofpoint-ORIG-GUID: 5iWqGjB5BUTYX3FdkWHbfDIhzJwcoEA3
+X-Authority-Analysis: v=2.4 cv=M/5NKzws c=1 sm=1 tr=0 ts=680f691f cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=KKAkSRfTAAAA:8 a=68lWJni6-NFX7yfVmSUA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22 a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-04-28_04,2025-04-24_02,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0
+ suspectscore=0 mlxscore=0 spamscore=0 malwarescore=0 mlxlogscore=999
+ adultscore=0 bulkscore=0 phishscore=0 clxscore=1015 lowpriorityscore=0
+ priorityscore=1501 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
+ definitions=main-2504280096
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_043942_866961_23917537 
-X-CRM114-Status: GOOD (  13.86  )
+X-CRM114-CacheID: sfid-20250428_044024_629669_600BAB99 
+X-CRM114-Status: GOOD (  15.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,36 +123,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 25, 2025 at 03:45:15PM +0300, Ovidiu Panait wrote:
-> Use crypto_skcipher_driver_name() helper from <crypto/skcipher.h>, instead
-> of accessing struct crypto_alg directly.
+
+
+On 2025/4/28 16:09, Jinlong Mao wrote:
 > 
-> Signed-off-by: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
-> ---
->  drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
 > 
-> diff --git a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c
-> index 05f67661553c..f03a8fa7bfa2 100644
-> --- a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c
-> +++ b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-cipher.c
-> @@ -17,6 +17,7 @@
->  #include <linux/io.h>
->  #include <linux/pm_runtime.h>
->  #include <crypto/scatterwalk.h>
-> +#include <crypto/skcipher.h>
->  #include <crypto/internal/des.h>
->  #include <crypto/internal/skcipher.h>
+> On 2025/4/28 15:39, Krzysztof Kozlowski wrote:
+>> On 28/04/2025 09:31, Jinlong Mao wrote:
+>>>
+>>>
+>>> On 2024/9/3 20:42, Krzysztof Kozlowski wrote:
+>>>> On 03/09/2024 14:18, Mao Jinlong wrote:
+>>>>> Add Qualcomm extended CTI support in CTI binding file. Qualcomm
+>>>>> extended CTI supports up to 128 triggers.
+>>>>>
+>>>>> Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
+>>>>> ---
+>>>>>    .../devicetree/bindings/arm/arm,coresight-cti.yaml | 14 ++++++++ 
+>>>>> ++++++
+>>>>>    1 file changed, 14 insertions(+)
+>>>>>
+>>>>> diff --git a/Documentation/devicetree/bindings/arm/arm,coresight- 
+>>>>> cti.yaml b/Documentation/devicetree/bindings/arm/arm,coresight- 
+>>>>> cti.yaml
+>>>>> index 6a73eaa66a42..141efba7c697 100644
+>>>>> --- a/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
+>>>>> +++ b/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
+>>>>> @@ -87,6 +87,10 @@ properties:
+>>>>>              - const: arm,coresight-cti-v8-arch
+>>>>>              - const: arm,coresight-cti
+>>>>>              - const: arm,primecell
+>>>>> +      - items:
+>>>>> +          - const: qcom,coresight-cti-extended
+>>>>
+>>>> That's just enum in previous entry/list.
+>>> Sorry for the late response. This is a new CTI type. Need the three
+>>> items in compatible at the same time, just like other kind of CTIs.
+>>
+>>
+>> Comment stays valid, you did not address it at all.
+> Hi Krzysztof,
+> 
+> Do you mean we only need const: qcom,coresight-cti-extended here ?
+> No need const: arm,coresight-cti and const: arm,primecell as they are
+> in previous entry/list, right ?
+> 
 
-If you include internal/skcipher.h, there is no need to include
-skcipher.h.
+Hi Krzysztof,
 
-There is no need to resend this as I'll just remove this hunk when
-applying the patch.
+Do you mean make changes like this ?
+       - items:
+           - enum:
+             - arm,coresight-cti-v8-arch
+             - qcom,coresight-cti-extended
+           - const: arm,coresight-cti
+           - const: arm,primecell
 
-Thanks,
--- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+
+Thanks
+Jinlong Mao
+
+>>
+>>>
+>>>>
+>>>>> +          - const: arm,coresight-cti
+>>>>> +          - const: arm,primecell
+>>>>>      reg:
+>>>>>        maxItems: 1
+>>>>> @@ -254,6 +258,16 @@ examples:
+>>>>>          clocks = <&soc_smc50mhz>;
+>>>>>          clock-names = "apb_pclk";
+>>>>>        };
+>>>>> +  # minimum extended CTI definition.
+>>>>> +  - |
+>>>>
+>>>> No need for new example. No differences here.
+>>> This is a new type CTI.
+>>
+>>
+>> Comment stays valid, you did not address it at all.
+>>
+>> Best regards,
+>> Krzysztof
+> 
+> _______________________________________________
+> CoreSight mailing list -- coresight@lists.linaro.org
+> To unsubscribe send an email to coresight-leave@lists.linaro.org
+
 
