@@ -4,87 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C140C36005
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 08:54:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF245C36005
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 08:56:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LnmNm7WNI3dN0hZzkI0OO7d/tL89uZg4kPZ2C++s6Ig=; b=XRqiHNfD/GNEn7r8aMHyhoNVIA
-	4J0LWZMGOR1ZIQCmHlto40an5yJK+Gv4ljpyJQGS8KyZqbwsQkoUzahrA92SkCMyp4JUO8dZnha2r
-	Faic4Mhq9YwK0SXsLSssJmcWnqGx+ZD9Brsquz8NaxtyHv1tqWKEjtXUIpDFW+H7hcMECYIlRNJxv
-	AOQkKvpkKnGNdJ7K0AmaY6dzlWLuCGtLSMEO+Nxv3fUHLyasxIm/RDcEkQzh5g9THtMPFIuXtnPY/
-	pmHthJ+llwr51FZ4antyu2Hi0ajQ8ZZ6JJEUTxanjAxZnX5e0jKYwNPBlIRIRkNfOh8KmMa73ZosZ
-	Eq31HViA==;
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4K3Qwsa6osT47RC+pxezJV4ZKGVwxR2f9TSemPDQ+RM=; b=ZmL579eIMv+rj0guEUQ29H8c2q
+	EZIG/y/l6XJcoLmdfpV6ntDievImTjO9pIDHzv+q4+1MRnZ7lERWhsWjWOxpirNBVX8X3cACEs6Ob
+	+D/AJppkrpdp8xHmEnxsvkJyi4mH+utn3OQFjkoFRSpCPRJ2bYCQlHqPp4foZ/Eql0UwqIfKjGvT8
+	k/brQEXoip3QCXcZRtGp/CCeAc9eSAMv/jaguSX50K7DImoEs+fIrZ0c/gLEzrdhRBDs9PsULnlbo
+	ktN04ttHMUvh0aRYPZCosSqYZ8wi3T9qtTcCpIYDlDwjAh4V1AqlCdUuLdX+3Z597y5Hq+lg0FA9q
+	PNRmZmJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9KFb-00000005WTA-2MkT;
-	Mon, 28 Apr 2025 08:54:07 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u9KHW-00000005WoN-2TyF;
+	Mon, 28 Apr 2025 08:56:06 +0000
+Received: from mail-m16.yeah.net ([1.95.21.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9K47-00000005Uvo-0LJa;
-	Mon, 28 Apr 2025 08:42:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=LnmNm7WNI3dN0hZzkI0OO7d/tL89uZg4kPZ2C++s6Ig=; b=CXO1Uk9Xj0LQCKde41itDnhIxT
-	vGH0l8qjoM0j53itiIYHdzzYDZvgDBjQ+Z1JzI3m0FYIaOBYlzQR+Wsy+0ng4LCQhTZ8b8BuxAnC+
-	c1NNcu5O2iIEzzJfk/4mlvTRoAI1gZwOsod2Pz8WXgdzqi0xwU8UYTvmOeNnMQhargxGxR+hBqswO
-	p2f4TS2PY1ejdFM0LWE+HkCbwTu/HKcheV3Eur5xkNJtisc5DczE90GxmuZc6k5fQH+Ncg44JbWZa
-	cCyr/v99mdYCEDVC6ags1p2fP1pSaK/MFXZz6ehFEB7BJtT2APukeHeYA2geUKwjEoNpfVIrOagxY
-	fKfqsEwA==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9K43-0000000CblL-3fqa;
-	Mon, 28 Apr 2025 08:42:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E8FB44A8AB;
-	Mon, 28 Apr 2025 08:42:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 966BBC4CEEC;
-	Mon, 28 Apr 2025 08:42:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745829725;
-	bh=bEhWigbCGAEUWFJ8JkgGyCA/a4Jw1TYA21NKw6cRiPc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=j/Gg3E3fhyeQLQVMiNG1WHtkk53Qf5q9PVGm54dj42RztAU2xCtIsDNi8tWVa33QZ
-	 qVaQ0Vx5Thv6Z+BRv8GJDt6m91NDyHFaD+2eyfMDXuQMNfcqBVEiVc/JtADE97rCLJ
-	 /1eoeiP72GuEn3gshvawW/CvYdWipskarCM7wH68m+7CRbyyzSvggEiiP5LoM8eJYc
-	 MIUExiVVOxLWm2mszicYR4iYigJ9PZ4xvenUIjaQ0AfceCDOqgYR3jSChSSmLLC3mg
-	 ztdpKRZYbenHiqWvY9YDuMVOqnb1jOMCvCcZgSy12VlDNSIVef8SW7FmfR9NQE8rGf
-	 4bIl3NOmzQRfw==
-From: Niklas Cassel <cassel@kernel.org>
-To: Damien Le Moal <dlemoal@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Niklas Cassel <cassel@kernel.org>,
-	kernel@collabora.com,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	linux-ide@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: (subset) [PATCH 0/2] RK3576 SATA Enablement
-Date: Mon, 28 Apr 2025 10:41:32 +0200
-Message-ID: <174582939239.704591.18413477868629759543.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250424-rk3576-sata-v1-0-23ee89c939fe@collabora.com>
-References: <20250424-rk3576-sata-v1-0-23ee89c939fe@collabora.com>
+	id 1u9K4r-00000005V0e-0b2T
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Apr 2025 08:43:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=4K3Qwsa6osT47RC+pxezJV4ZKGVwxR2f9TSemPDQ+RM=;
+	b=qbJT/6nX6mSTCQCOCMYGvgyL6IwI2sY+D7ktj7c1vVNdgBMTucsfXvR6K3XRjs
+	vRDzyVAMsX2o6BT0P2KQSBJZEFL0QAD/MLLmLqcTaCg6EZY7nLjeEYvw2Q6NiQZ0
+	odel16PFErR6M7H8A5SaTyRkfPBwuSiti4uiuAVmFjP64=
+Received: from dragon (unknown [])
+	by gzsmtp1 (Coremail) with SMTP id Mc8vCgAHLyR8Pw9oAgMVAA--.28245S3;
+	Mon, 28 Apr 2025 16:42:38 +0800 (CST)
+Date: Mon, 28 Apr 2025 16:42:36 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: soc@kernel.org, arm@kernel.org
+Cc: Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	kernel@pengutronix.de, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] i.MX fixes for 6.15
+Message-ID: <aA8/fFzh22s1Vtl1@dragon>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-X-Developer-Signature: v=1; a=openpgp-sha256; l=687; i=cassel@kernel.org; h=from:subject:message-id; bh=bEhWigbCGAEUWFJ8JkgGyCA/a4Jw1TYA21NKw6cRiPc=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGDL47e3WNM4Q6W/6UpNetH99SP87w9LUbD7DNzLnI4wbz XfxunzvKGVhEONikBVTZPH94bK/uNt9ynHFOzYwc1iZQIYwcHEKwEQq7jL8FbKwWjHbfNr8siOi CbMcpWyvMvvfPsXqs+3ao0a9jh+c3Ax/xVfyO7EcLtyfLmQTljxh3Zcs/3TDHFGZkvZD3/tPZNu xAAA=
-X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: Mc8vCgAHLyR8Pw9oAgMVAA--.28245S3
+X-Coremail-Antispam: 1Uf129KBjvJXoW7Zr1xCr47JF4rKFyDWw48Zwb_yoW8uF4UpF
+	y3CrnxGr48Jr1xZrnxt3Wqq345Jws5A3WYvF13X340yF15Ar18Xrs8W34FgryUAryIv3yY
+	yFyxtr9rK3WrZF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07Uu6wNUUUUU=
+X-Originating-IP: [117.81.80.76]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiARk9ZWgPB4HeVgAAsp
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_094212_131045_A607E57A 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20250428_014301_592362_95694BBB 
+X-CRM114-Status: UNSURE (   8.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,26 +73,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 24 Apr 2025 20:52:21 +0200, Nicolas Frattaroli wrote:
-> This is a tiny series to enable SATA on RK3576. It consists of a patch
-> to add the compatible to the bindings, and a second patch to add the
-> nodes to the SoC .dtsi.
-> 
-> I've only been able to test sata0 on my board (Sige5), but the
-> successful test gave me confidence that downstream's "dma-coherent"
-> property here is appropriate and true.
-> 
-> [...]
+The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
 
-Applied to libata/linux.git (for-6.16), thanks!
+  Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
 
-[1/2] dt-bindings: ata: rockchip-dwc-ahci: add RK3576 compatible
-      https://git.kernel.org/libata/linux/c/b8ed9475
+are available in the Git repository at:
 
+  git://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux.git tags/imx-fixes-6.15
 
-I'm assuming that Heiko will pick up patch [2/2].
+for you to fetch changes up to 5591ce0069ddda97cdbbea596bed53e698f399c2:
 
+  arm64: dts: imx8mm-verdin: Link reg_usdhc2_vqmmc to usdhc2 (2025-04-27 21:49:30 +0800)
 
-Kind regards,
-Niklas
+----------------------------------------------------------------
+i.MX fixes for 6.15:
+
+- An i.MX8MP change from Ahmad Fatoum to fix the broken nominal device
+  tree caused by commit 9f7595b3e5ae ("arm64: dts: imx8mp: configure
+  GPU and NPU clocks to overdrive rate")
+- A MAINTAINERS update from Michael Riesch to exclude Sony IMX image
+  sensor drivers from i.MX entry
+- A i.MX95 device tree change from Richard Zhu to correct the range of
+  PCIe app-reg region
+- An opos6ul device tree change from Sébastien Szymanski to fix
+  an Ethernet regression caused by commit c7e73b5051d6 ("ARM: imx:
+  mach-imx6ul: remove 14x14 EVK specific PHY fixup")
+- An imx8mm-verdin device tree change from Wojciech Dubowik to fix
+  a SD card regression caused by commit f5aab0438ef1 ("regulator:
+  pca9450: Fix enable register for LDO5")
+
+----------------------------------------------------------------
+Ahmad Fatoum (1):
+      arm64: dts: imx8mp: configure GPU and NPU clocks in nominal DTSI
+
+Michael Riesch (1):
+      MAINTAINERS: add exclude for dt-bindings to imx entry
+
+Richard Zhu (1):
+      arm64: dts: imx95: Correct the range of PCIe app-reg region
+
+Sébastien Szymanski (1):
+      ARM: dts: opos6ul: add ksz8081 phy properties
+
+Wojciech Dubowik (1):
+      arm64: dts: imx8mm-verdin: Link reg_usdhc2_vqmmc to usdhc2
+
+ MAINTAINERS                                        |  1 +
+ .../boot/dts/nxp/imx/imx6ul-imx6ull-opos6ul.dtsi   |  3 +++
+ arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi   | 25 ++++++++++++++++-----
+ arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi  | 26 ++++++++++++++++++++++
+ arch/arm64/boot/dts/freescale/imx95.dtsi           |  8 +++----
+ 5 files changed, 54 insertions(+), 9 deletions(-)
+
 
