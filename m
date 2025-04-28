@@ -4,127 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECEA4C36005
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 09:31:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09A8DC369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 09:31:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A2BE4IFNraf2nwb+gMN6BrLPdvxjK4GMRcC/zeJ//7Y=; b=XEAHQNDgcreAQEiW1fkITcJIQi
-	W2tQwoPTyHAw0VJn07cVtPmqSYTYftAsZi5WvuqwR7ken73I5V2RP2Ho+JxkJEWXMEdQ+G0IxosMy
-	Z/k6ma09lJHMZo4gfP3yKbI7wT9GTbqnsnIZD6njiyvsqLXzJk7ip0x9krXuY2tjUXzl7In/bqbd3
-	YeRTca43/q84a0sDx4IgvHX8y35VuC9P4/lnAVXHkqrpol4I2mI370jt+sb1oElRGRsCELYMcXlwh
-	W/71pIgzYWbdfbT2LK3zjFInCoCrDE6dbwaF5QZokpMrZ/zmZTkkxQBo/k7EoQjcxevT8LqY3ORI8
-	xaJucfXA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CjLKLWPVIix6Lq3CRuHZgmalj80BDZ10wGlvfmzu2jw=; b=WENODnkNOed/k89RhSAgPs6lFr
+	TDkfdVRoZYNu90ray7436F70F8iJpAGrqYRz0+4+wkiLhoOtfkK1IlpkUrLYuuhDSIiGG1o7r7gHa
+	6JFLKJtkuNeVpWTTh9hALzkgP7K5cyAkxwNkvgc15jg4C6fdWWWTzjYtSRLziEmn/yXo9QLXRXvh2
+	Tm+ZnoJXcoZSKPnBNBfpzuULgfjz/Rlin23uegMBatOC5umAfb7VI6ClqMtN6X/ecE9QT8zEE6ioE
+	lgeamcOfw62DOzTkJJVuOdTTkVvgmoxge7qg8OUVt/UiPdF2vf7RxFJ/BonkqUWkz9+4W48uMHlLe
+	dS/XKJIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9KpH-00000005dF5-2pu9;
-	Mon, 28 Apr 2025 09:30:59 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1u9KpJ-00000005dGV-1nPf;
+	Mon, 28 Apr 2025 09:31:01 +0000
+Received: from mail-ot1-x32e.google.com ([2607:f8b0:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Jbt-00000005N2Q-13Tt
+	id 1u9Jdm-00000005NPa-0v4K
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 08:13:06 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-39c14016868so4336043f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 01:13:04 -0700 (PDT)
+	Mon, 28 Apr 2025 08:15:03 +0000
+Received: by mail-ot1-x32e.google.com with SMTP id 46e09a7af769-72c14138668so1204307a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 01:15:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745827983; x=1746432783; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=A2BE4IFNraf2nwb+gMN6BrLPdvxjK4GMRcC/zeJ//7Y=;
-        b=dIhRSR176g03jzVNRI+iOGeVgGYZBJQDURVonyJIGqtjtxle/4BYKAqN4WCjSpHorq
-         p3Ty6Si1z6O0hQR3c5CXSDWHw9EoaKvx2aDQM3AjPX5YW1sNsQ2t/8q69LuEwoT8QNBU
-         l7mcEvCri/iYiilLcesINvEnatAoX5CHembKmtLXQjZp+378NzghUZ3Y4XGzrREjut1v
-         ErjUSLwc6JfBPDiZkjgK6ogwG3sdIWuex57xofuNT/QvYjVQWL0+h9gW41Pxcplo06so
-         SaLwWcekpEFmUbnnW1UxYDpr7+GqPyy6OEa5ejv6bT2ZyexcWzuzaOlzixnEPkGWN+S2
-         85hQ==
+        d=linaro.org; s=google; t=1745828101; x=1746432901; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CjLKLWPVIix6Lq3CRuHZgmalj80BDZ10wGlvfmzu2jw=;
+        b=EcMTJ3Fv4CRJCY0aFL8rrGAJe9RksayYafRFwXpPZtqylOkSLXEAb2Rs1R/yGuWTb3
+         ecGFFFYrncqsw2X/lF2BoGbbfb4o1rUsP13ZzWq6R2z34AScZsZDM++Zj8TZ/EMRGRDO
+         Cun30AEdlFHrwRI2mNMjt6W6w5L4gXdj8gyvkl6yXSqe6i4xyzf1+suUN1rlek0QlNxM
+         tMH4zOGon1tugBDfHv/GKMVEsZe8hgm0ajYnagjDWS5uff/rRGqlA5wh0AzdHvthEQLw
+         zNKKENcNMRNAm4HERdJWwbJ5ZTRwvrelyqlggypEuH+w/X9ewBlRKI5//YPmXS6KKEt0
+         KRcQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745827983; x=1746432783;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:references:cc:to:subject:reply-to:from:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=A2BE4IFNraf2nwb+gMN6BrLPdvxjK4GMRcC/zeJ//7Y=;
-        b=bOTF/EdZXyw+7YnyNZHwYc0zACayYzHjHYzR3fif2EdvPmihJUJpXNg6FJSJiqtuQ8
-         jS/VP6ldtqWzFtporitDVKdzYqymAFnvXqA9VNgVI5WHa701XUvaTdBS6K+OLEN7v80X
-         vITJvnqblUHRzZ+0Nc7678/lGI7r67/gdLYkTSNq59oiaqldRiv5HANB+qbMcEwYF/fQ
-         qI3Mha+eQ5wYxJkC4mmzuyCdDEPLCx/O4uFvawRYGQt6+DqXPplxgyLXFMMkD0o5v5yj
-         3eJNfmuVDRbCILlaZCR3HmG5Ja8NqMEhkDdmVxvUUEmBnD61FD0p9x/57/dkn35lyWKS
-         lezw==
-X-Forwarded-Encrypted: i=1; AJvYcCXI7SQpk+ooBe3f2gUrk87xMmKJWark5zjGbwibDuR8VaRyL1hFaBPuFo7jF9RhvMgv2le8G+2U+3Wh7hEsM7TM@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz158G+ilh6zhHG732F41OvHb8bb0hSphjn0SRh4wuxEKZP7X89
-	yjodYFb9mR6pPT7SGmQA267ByKGtvzuDejFFPeTmEbZoaE3B2IgQJwtTWcADNs4=
-X-Gm-Gg: ASbGnctW9O7ug3ArNH0eRqRH3XW+Oiwqp30LoabjkiomvIZQD3uCUvAgyFGTKf4y/kK
-	eNxUH+zF0/lfk6mjasK49o3+zu8Y2nmvFb6vsXsg7IJoULIWitVwzrxJhNJurUzqOdzTdrUW+RH
-	Fan3qGb8nV55kGHRkVRcs5scXY9JLm09BNsI9SYJOvt0kiWdnbnMG24470w5PB6Ad1d7yuWnk44
-	l2MmurRrEUZ0+OVxtIV++KKcAfVeDkcqU6c39hwAprVQ+bhhFPZ3RijMFvtb1qX+tUbm57+Yh9q
-	ceoZBJoWDkJIkuns3ZP4GP0cr9okX7JVEt7jbddf2pvfNi93spNhIVaHB7Fd8LxnveviFVegdcd
-	K+zzZaxgkVAWNB8+x5g==
-X-Google-Smtp-Source: AGHT+IFirYO+R6cxa4E/PxDKxv2Eoalg7DNOh3n5z36BXYljdt+Ef5dXthwTwXbfPkkn6KEjfC0prQ==
-X-Received: by 2002:a05:6000:1ac5:b0:390:f0ff:2c11 with SMTP id ffacd0b85a97d-3a074e146c6mr6922171f8f.2.1745827983497;
-        Mon, 28 Apr 2025 01:13:03 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:3d9:2080:e2bb:d0cc:c4c9:4442? ([2a01:e0a:3d9:2080:e2bb:d0cc:c4c9:4442])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a073e5d264sm10609868f8f.95.2025.04.28.01.13.02
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 28 Apr 2025 01:13:03 -0700 (PDT)
-Message-ID: <449cc46e-fab8-401a-b887-51d621695a1c@linaro.org>
-Date: Mon, 28 Apr 2025 10:13:02 +0200
+        d=1e100.net; s=20230601; t=1745828101; x=1746432901;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=CjLKLWPVIix6Lq3CRuHZgmalj80BDZ10wGlvfmzu2jw=;
+        b=LnHcgtbtAgZRmAx6T/uOJQHm24zJYK/2WbsrUeQbDviFonthvlrqwHwOiMtQnRJZt4
+         e/H7QMDU6d+LegX1WAYldCSBrdCFqSWmTzgae8gvJc5+tUSiqtIGPa0A5/o527lc33NC
+         Tp+yJ9tHBcGuclpWdAw3edTPyWEZDPSUes43Jaws1x8xkZKBpRRqVPsB3Fcvf81PA9ga
+         mQJNMCwrZ41H/Mi9QwIGEi/9fnkFKQNfX/fRRjX5DDn3q5dYP7j7x7UhG/DRNeyu4iry
+         Gxy/HG1mYOpr7E+CN9qYmYoo9A9ni3vGegDxEsIlkBGbBavWwNfdg5NxZB/d7tJfO6Xh
+         VN5w==
+X-Forwarded-Encrypted: i=1; AJvYcCUpyf7kWvVJKik7UVRjOm3F2j45KAhxaREijqM5UNvaWjuVQoCvHB1eoCvtE/ZXo0UjTBLoGC1350WM7VYB0Jdb@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmnG89z6c07wlEFRTjNPNZCmesA3+uguvWIhyOTYKKwQsWfbrY
+	5kY7uRIfjLQ8G2icmaEPq/2q4y0a6YVEbOTC282gqYhTx41IUgGdjF5+tt20mIKCAqYqyy5sWhq
+	eFOQj9DcXugiG/+pAXW8VjSG/F6h9uoiXdl5uXg==
+X-Gm-Gg: ASbGnctTiddLXqBeZh5Nz5EeA9FhsloWsOB4qDkvB269n9GmMbcEGtHH9kyMHyGgwPi
+	ukHJPcl1yn1raqaT+nHKcAFD/oesbz9QsGLySSu0ti77eb79XXPpY9vES6UjbDD0Klw4T7mh/VK
+	5m/F3nGsFohtaMRLYQyDwWSpo=
+X-Google-Smtp-Source: AGHT+IEWtlpQOJjftCm+n3ouabVHz54n2qgyLCvi3RwihIEpBbgC5PkDIay7d9OERLr+OtQPUr9HF2lFg7zlk9MOBYo=
+X-Received: by 2002:a05:6870:890a:b0:29e:6547:bffa with SMTP id
+ 586e51a60fabf-2d9be5c5aa0mr4238130fac.21.1745828100541; Mon, 28 Apr 2025
+ 01:15:00 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: neil.armstrong@linaro.org
-Subject: Re: [PATCH 0/7] Baisc devicetree support for Amlogic S6 S7 and S7D
-To: Xianwei Zhao <xianwei.zhao@amlogic.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org
-References: <20250317-s6-s7-basic-v1-0-d653384e41f3@amlogic.com>
- <a175ed1d-9e57-4150-af8f-7ca785203108@amlogic.com>
- <e3229c42-b322-447a-ad1e-86c6f20dd54e@linaro.org>
- <be8b7874-1251-4ba8-9243-a615517861ab@amlogic.com>
- <eb1c3442-6b86-42e9-a672-eaba7de8b375@linaro.org>
- <32473413-b2fb-471b-b2d5-b4fd7914b57f@amlogic.com>
-Content-Language: en-US, fr
-Autocrypt: addr=neil.armstrong@linaro.org; keydata=
- xsBNBE1ZBs8BCAD78xVLsXPwV/2qQx2FaO/7mhWL0Qodw8UcQJnkrWmgTFRobtTWxuRx8WWP
- GTjuhvbleoQ5Cxjr+v+1ARGCH46MxFP5DwauzPekwJUD5QKZlaw/bURTLmS2id5wWi3lqVH4
- BVF2WzvGyyeV1o4RTCYDnZ9VLLylJ9bneEaIs/7cjCEbipGGFlfIML3sfqnIvMAxIMZrvcl9
- qPV2k+KQ7q+aXavU5W+yLNn7QtXUB530Zlk/d2ETgzQ5FLYYnUDAaRl+8JUTjc0CNOTpCeik
- 80TZcE6f8M76Xa6yU8VcNko94Ck7iB4vj70q76P/J7kt98hklrr85/3NU3oti3nrIHmHABEB
- AAHNKk5laWwgQXJtc3Ryb25nIDxuZWlsLmFybXN0cm9uZ0BsaW5hcm8ub3JnPsLAkQQTAQoA
- OwIbIwULCQgHAwUVCgkICwUWAgMBAAIeAQIXgBYhBInsPQWERiF0UPIoSBaat7Gkz/iuBQJk
- Q5wSAhkBAAoJEBaat7Gkz/iuyhMIANiD94qDtUTJRfEW6GwXmtKWwl/mvqQtaTtZID2dos04
- YqBbshiJbejgVJjy+HODcNUIKBB3PSLaln4ltdsV73SBcwUNdzebfKspAQunCM22Mn6FBIxQ
- GizsMLcP/0FX4en9NaKGfK6ZdKK6kN1GR9YffMJd2P08EO8mHowmSRe/ExAODhAs9W7XXExw
- UNCY4pVJyRPpEhv373vvff60bHxc1k/FF9WaPscMt7hlkbFLUs85kHtQAmr8pV5Hy9ezsSRa
- GzJmiVclkPc2BY592IGBXRDQ38urXeM4nfhhvqA50b/nAEXc6FzqgXqDkEIwR66/Gbp0t3+r
- yQzpKRyQif3OwE0ETVkGzwEIALyKDN/OGURaHBVzwjgYq+ZtifvekdrSNl8TIDH8g1xicBYp
- QTbPn6bbSZbdvfeQPNCcD4/EhXZuhQXMcoJsQQQnO4vwVULmPGgtGf8PVc7dxKOeta+qUh6+
- SRh3vIcAUFHDT3f/Zdspz+e2E0hPV2hiSvICLk11qO6cyJE13zeNFoeY3ggrKY+IzbFomIZY
- 4yG6xI99NIPEVE9lNBXBKIlewIyVlkOaYvJWSV+p5gdJXOvScNN1epm5YHmf9aE2ZjnqZGoM
- Mtsyw18YoX9BqMFInxqYQQ3j/HpVgTSvmo5ea5qQDDUaCsaTf8UeDcwYOtgI8iL4oHcsGtUX
- oUk33HEAEQEAAcLAXwQYAQIACQUCTVkGzwIbDAAKCRAWmrexpM/4rrXiB/sGbkQ6itMrAIfn
- M7IbRuiSZS1unlySUVYu3SD6YBYnNi3G5EpbwfBNuT3H8//rVvtOFK4OD8cRYkxXRQmTvqa3
- 3eDIHu/zr1HMKErm+2SD6PO9umRef8V82o2oaCLvf4WeIssFjwB0b6a12opuRP7yo3E3gTCS
- KmbUuLv1CtxKQF+fUV1cVaTPMyT25Od+RC1K+iOR0F54oUJvJeq7fUzbn/KdlhA8XPGzwGRy
- 4zcsPWvwnXgfe5tk680fEKZVwOZKIEuJC3v+/yZpQzDvGYJvbyix0lHnrCzq43WefRHI5XTT
- QbM0WUIBIcGmq38+OgUsMYu4NzLu7uZFAcmp6h8g
-Organization: Linaro
-In-Reply-To: <32473413-b2fb-471b-b2d5-b4fd7914b57f@amlogic.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20250404143215.2281034-1-jens.wiklander@linaro.org>
+ <20250404143215.2281034-5-jens.wiklander@linaro.org> <CAK8z29XHZXo5e1u8q_0D=iWxr3V2m7PateRGgqVGFe-WDeFKGg@mail.gmail.com>
+In-Reply-To: <CAK8z29XHZXo5e1u8q_0D=iWxr3V2m7PateRGgqVGFe-WDeFKGg@mail.gmail.com>
+From: Jens Wiklander <jens.wiklander@linaro.org>
+Date: Mon, 28 Apr 2025 10:14:48 +0200
+X-Gm-Features: ATxdqUH0di-vJZcwSmU7RTw4PhvgopuZ5ILZgAWtuzUvUa846pxVI0QQshePM40
+Message-ID: <CAHUa44GFFUAPRSDUzp-LJ8DZgsbAzNs3ZueA3wkePP4zqG9Z3A@mail.gmail.com>
+Subject: Re: [PATCH v7 04/11] optee: sync secure world ABI headers
+To: Rouven Czerwinski <rouven.czerwinski@linaro.org>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
+	op-tee@lists.trustedfirmware.org, linux-arm-kernel@lists.infradead.org, 
+	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
+	Yong Wu <yong.wu@mediatek.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
+	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
+	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+	Sumit Garg <sumit.garg@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
+	Simona Vetter <simona.vetter@ffwll.ch>, Daniel Stone <daniel@fooishbar.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_011305_307700_19AB6437 
-X-CRM114-Status: GOOD (  16.40  )
+X-CRM114-CacheID: sfid-20250428_011502_271214_B1F9050B 
+X-CRM114-Status: GOOD (  32.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,113 +101,364 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: neil.armstrong@linaro.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/04/2025 09:57, Xianwei Zhao wrote:
-> Hi Neil,
->     Thanks for your reply.
-> 
-> On 2025/4/23 15:23, neil.armstrong@linaro.org wrote:
->> [ EXTERNAL EMAIL ]
->>
->> Hi,
->>
->> On 23/04/2025 08:15, Xianwei Zhao wrote:
->>> Hi Neil,
->>>     Thanks for your reply.
->>>
->>> On 2025/4/22 21:49, Neil Armstrong wrote:
->>>> [ EXTERNAL EMAIL ]
->>>>
->>>> Hi,
->>>>
->>>> On 22/04/2025 13:45, Xianwei Zhao wrote:
->>>>> Hi Neil,
->>>>>     A gentle ping, thanks.
->>>>
->>>> I'll apply them this week except patch 4,
->>>>
->>>> so can you send patch 4 separately since it goes via the tty tree ?
->>>>
->>>
->>> I will send patch 4 separately.
->>> The following patches(5 6 7) can be not included for now. Without the patch 4, the command "make ARCH=arm64 dtbs_check W=1" will fail to execute.
->>
->> I know, but since it's reviewed, Greg KH will pick it for the next release so it's fine.
->>
-> 
-> I have already sent patch 4 separately. From Rob's reply, do you think it can be picked up together?
-> 
-> https://lore.kernel.org/all/CAL_JsqKD=yespd0WM90VBr_XWdppimzDzecmwNfGMV+hNSHuRA@mail.gmail.com/
+Hi Rouven,
 
+On Fri, Apr 25, 2025 at 3:36=E2=80=AFPM Rouven Czerwinski
+<rouven.czerwinski@linaro.org> wrote:
+>
+> Hi,
+>
+> On Fri, 4 Apr 2025 at 16:31, Jens Wiklander <jens.wiklander@linaro.org> w=
+rote:
+> >
+> > Update the header files describing the secure world ABI, both with and
+> > without FF-A. The ABI is extended to deal with protected memory, but as
+> > usual backward compatible.
+> >
+> > Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
+> > ---
+> >  drivers/tee/optee/optee_ffa.h | 27 +++++++++---
+> >  drivers/tee/optee/optee_msg.h | 83 ++++++++++++++++++++++++++++++-----
+> >  drivers/tee/optee/optee_smc.h | 71 +++++++++++++++++++++++++++++-
+> >  3 files changed, 163 insertions(+), 18 deletions(-)
+> >
+> > diff --git a/drivers/tee/optee/optee_ffa.h b/drivers/tee/optee/optee_ff=
+a.h
+> > index 257735ae5b56..cc257e7956a3 100644
+> > --- a/drivers/tee/optee/optee_ffa.h
+> > +++ b/drivers/tee/optee/optee_ffa.h
+> > @@ -81,7 +81,7 @@
+> >   *                   as the second MSG arg struct for
+> >   *                   OPTEE_FFA_YIELDING_CALL_WITH_ARG.
+> >   *        Bit[31:8]: Reserved (MBZ)
+> > - * w5:   Bitfield of secure world capabilities OPTEE_FFA_SEC_CAP_* bel=
+ow,
+> > + * w5:   Bitfield of OP-TEE capabilities OPTEE_FFA_SEC_CAP_*
+> >   * w6:   The maximum secure world notification number
+> >   * w7:   Not used (MBZ)
+> >   */
+> > @@ -94,6 +94,8 @@
+> >  #define OPTEE_FFA_SEC_CAP_ASYNC_NOTIF  BIT(1)
+> >  /* OP-TEE supports probing for RPMB device if needed */
+> >  #define OPTEE_FFA_SEC_CAP_RPMB_PROBE   BIT(2)
+> > +/* OP-TEE supports Protected Memory for secure data path */
+> > +#define OPTEE_FFA_SEC_CAP_PROTMEM      BIT(3)
+> >
+> >  #define OPTEE_FFA_EXCHANGE_CAPABILITIES OPTEE_FFA_BLOCKING_CALL(2)
+> >
+> > @@ -108,7 +110,7 @@
+> >   *
+> >   * Return register usage:
+> >   * w3:    Error code, 0 on success
+> > - * w4-w7: Note used (MBZ)
+> > + * w4-w7: Not used (MBZ)
+> >   */
+> >  #define OPTEE_FFA_UNREGISTER_SHM       OPTEE_FFA_BLOCKING_CALL(3)
+> >
+> > @@ -119,16 +121,31 @@
+> >   * Call register usage:
+> >   * w3:    Service ID, OPTEE_FFA_ENABLE_ASYNC_NOTIF
+> >   * w4:   Notification value to request bottom half processing, should =
+be
+> > - *       less than OPTEE_FFA_MAX_ASYNC_NOTIF_VALUE.
+> > + *       less than OPTEE_FFA_MAX_ASYNC_NOTIF_VALUE
+> >   * w5-w7: Not used (MBZ)
+> >   *
+> >   * Return register usage:
+> >   * w3:    Error code, 0 on success
+> > - * w4-w7: Note used (MBZ)
+> > + * w4-w7: Not used (MBZ)
+> >   */
+> >  #define OPTEE_FFA_ENABLE_ASYNC_NOTIF   OPTEE_FFA_BLOCKING_CALL(5)
+> >
+> > -#define OPTEE_FFA_MAX_ASYNC_NOTIF_VALUE 64
+> > +#define OPTEE_FFA_MAX_ASYNC_NOTIF_VALUE        64
+> > +
+> > +/*
+> > + * Release Protected memory
+> > + *
+> > + * Call register usage:
+> > + * w3:    Service ID, OPTEE_FFA_RECLAIM_PROTMEM
+> > + * w4:    Shared memory handle, lower bits
+> > + * w5:    Shared memory handle, higher bits
+> > + * w6-w7: Not used (MBZ)
+> > + *
+> > + * Return register usage:
+> > + * w3:    Error code, 0 on success
+> > + * w4-w7: Note used (MBZ)
+> > + */
+> > +#define OPTEE_FFA_RELEASE_PROTMEM      OPTEE_FFA_BLOCKING_CALL(8)
+> >
+> >  /*
+> >   * Call with struct optee_msg_arg as argument in the supplied shared m=
+emory
+> > diff --git a/drivers/tee/optee/optee_msg.h b/drivers/tee/optee/optee_ms=
+g.h
+> > index e8840a82b983..22d71d6f110d 100644
+> > --- a/drivers/tee/optee/optee_msg.h
+> > +++ b/drivers/tee/optee/optee_msg.h
+> > @@ -133,13 +133,13 @@ struct optee_msg_param_rmem {
+> >  };
+> >
+> >  /**
+> > - * struct optee_msg_param_fmem - ffa memory reference parameter
+> > + * struct optee_msg_param_fmem - FF-A memory reference parameter
+> >   * @offs_lower:           Lower bits of offset into shared memory refe=
+rence
+> >   * @offs_upper:           Upper bits of offset into shared memory refe=
+rence
+> >   * @internal_offs: Internal offset into the first page of shared memor=
+y
+> >   *                reference
+> >   * @size:         Size of the buffer
+> > - * @global_id:    Global identifier of Shared memory
+> > + * @global_id:    Global identifier of the shared memory
+> >   */
+> >  struct optee_msg_param_fmem {
+> >         u32 offs_low;
+> > @@ -165,7 +165,7 @@ struct optee_msg_param_value {
+> >   * @attr:      attributes
+> >   * @tmem:      parameter by temporary memory reference
+> >   * @rmem:      parameter by registered memory reference
+> > - * @fmem:      parameter by ffa registered memory reference
+> > + * @fmem:      parameter by FF-A registered memory reference
+> >   * @value:     parameter by opaque value
+> >   * @octets:    parameter by octet string
+> >   *
+> > @@ -296,6 +296,18 @@ struct optee_msg_arg {
+> >   */
+> >  #define OPTEE_MSG_FUNCID_GET_OS_REVISION       0x0001
+> >
+> > +/*
+> > + * Values used in OPTEE_MSG_CMD_LEND_PROTMEM below
+> > + * OPTEE_MSG_PROTMEM_RESERVED          Reserved
+> > + * OPTEE_MSG_PROTMEM_SECURE_VIDEO_PLAY Secure Video Playback
+> > + * OPTEE_MSG_PROTMEM_TRUSTED_UI                Trused UI
+> > + * OPTEE_MSG_PROTMEM_SECURE_VIDEO_RECORD       Secure Video Recording
+> > + */
+> > +#define OPTEE_MSG_PROTMEM_RESERVED             0
+> > +#define OPTEE_MSG_PROTMEM_SECURE_VIDEO_PLAY    1
+> > +#define OPTEE_MSG_PROTMEM_TRUSTED_UI           2
+> > +#define OPTEE_MSG_PROTMEM_SECURE_VIDEO_RECORD  3
+> > +
+> >  /*
+> >   * Do a secure call with struct optee_msg_arg as argument
+> >   * The OPTEE_MSG_CMD_* below defines what goes in struct optee_msg_arg=
+::cmd
+> > @@ -337,15 +349,62 @@ struct optee_msg_arg {
+> >   * OPTEE_MSG_CMD_STOP_ASYNC_NOTIF informs secure world that from now i=
+s
+> >   * normal world unable to process asynchronous notifications. Typicall=
+y
+> >   * used when the driver is shut down.
+> > + *
+> > + * OPTEE_MSG_CMD_LEND_PROTMEM lends protected memory. The passed norma=
+l
+> > + * physical memory is protected from normal world access. The memory
+> > + * should be unmapped prior to this call since it becomes inaccessible
+> > + * during the request.
+> > + * Parameters are passed as:
+> > + * [in] param[0].attr                  OPTEE_MSG_ATTR_TYPE_VALUE_INPUT
+> > + * [in] param[0].u.value.a             OPTEE_MSG_PROTMEM_* defined abo=
+ve
+> > + * [in] param[1].attr                  OPTEE_MSG_ATTR_TYPE_TMEM_INPUT
+> > + * [in] param[1].u.tmem.buf_ptr                physical address
+> > + * [in] param[1].u.tmem.size           size
+> > + * [in] param[1].u.tmem.shm_ref                holds protected memory =
+reference
+> > + *
+> > + * OPTEE_MSG_CMD_RECLAIM_PROTMEM reclaims a previously lent protected
+> > + * memory reference. The physical memory is accessible by the normal w=
+orld
+> > + * after this function has return and can be mapped again. The informa=
+tion
+> > + * is passed as:
+> > + * [in] param[0].attr                  OPTEE_MSG_ATTR_TYPE_VALUE_INPUT
+> > + * [in] param[0].u.value.a             holds protected memory cookie
+> > + *
+> > + * OPTEE_MSG_CMD_GET_PROTMEM_CONFIG get configuration for a specific
+> > + * protected memory use case. Parameters are passed as:
+> > + * [in] param[0].attr                  OPTEE_MSG_ATTR_TYPE_VALUE_INOUT
+> > + * [in] param[0].value.a               OPTEE_MSG_PROTMEM_*
+> > + * [in] param[1].attr                  OPTEE_MSG_ATTR_TYPE_{R,F}MEM_OU=
+TPUT
+> > + * [in] param[1].u.{r,f}mem            Buffer or NULL
+> > + * [in] param[1].u.{r,f}mem.size       Provided size of buffer or 0 fo=
+r query
+> > + * output for the protected use case:
+> > + * [out] param[0].value.a              Minimal size of protected memor=
+y
+> > + * [out] param[0].value.b              Required alignment of size and =
+start of
+> > + *                                     protected memory
+> > + * [out] param[1].{r,f}mem.size                Size of output data
+> > + * [out] param[1].{r,f}mem             If non-NULL, contains an array =
+of
+> > + *                                     uint16_t holding endpoints that
+> > + *                                     must be included when lending
+> > + *                                     memory for this use case
+> > + *
+> > + * OPTEE_MSG_CMD_ASSIGN_PROTMEM assigns use-case to protected memory
+> > + * previously lent using the FFA_LEND framework ABI. Parameters are pa=
+ssed
+> > + * as:
+> > + * [in] param[0].attr                  OPTEE_MSG_ATTR_TYPE_VALUE_INPUT
+> > + * [in] param[0].u.value.a             holds protected memory cookie
+> > + * [in] param[0].u.value.b             OPTEE_MSG_PROTMEM_* defined abo=
+ve
+> >   */
+> > -#define OPTEE_MSG_CMD_OPEN_SESSION     0
+> > -#define OPTEE_MSG_CMD_INVOKE_COMMAND   1
+> > -#define OPTEE_MSG_CMD_CLOSE_SESSION    2
+> > -#define OPTEE_MSG_CMD_CANCEL           3
+> > -#define OPTEE_MSG_CMD_REGISTER_SHM     4
+> > -#define OPTEE_MSG_CMD_UNREGISTER_SHM   5
+> > -#define OPTEE_MSG_CMD_DO_BOTTOM_HALF   6
+> > -#define OPTEE_MSG_CMD_STOP_ASYNC_NOTIF 7
+> > -#define OPTEE_MSG_FUNCID_CALL_WITH_ARG 0x0004
+> > +#define OPTEE_MSG_CMD_OPEN_SESSION             0
+> > +#define OPTEE_MSG_CMD_INVOKE_COMMAND           1
+> > +#define OPTEE_MSG_CMD_CLOSE_SESSION            2
+> > +#define OPTEE_MSG_CMD_CANCEL                   3
+> > +#define OPTEE_MSG_CMD_REGISTER_SHM             4
+> > +#define OPTEE_MSG_CMD_UNREGISTER_SHM           5
+> > +#define OPTEE_MSG_CMD_DO_BOTTOM_HALF           6
+> > +#define OPTEE_MSG_CMD_STOP_ASYNC_NOTIF         7
+> > +#define OPTEE_MSG_CMD_LEND_PROTMEM             8
+> > +#define OPTEE_MSG_CMD_RECLAIM_PROTMEM          9
+> > +#define OPTEE_MSG_CMD_GET_PROTMEM_CONFIG       10
+> > +#define OPTEE_MSG_CMD_ASSIGN_PROTMEM           11
+> > +#define OPTEE_MSG_FUNCID_CALL_WITH_ARG         0x0004
+> >
+> >  #endif /* _OPTEE_MSG_H */
+> > diff --git a/drivers/tee/optee/optee_smc.h b/drivers/tee/optee/optee_sm=
+c.h
+> > index 879426300821..b17e81f464a3 100644
+> > --- a/drivers/tee/optee/optee_smc.h
+> > +++ b/drivers/tee/optee/optee_smc.h
+> > @@ -264,7 +264,6 @@ struct optee_smc_get_shm_config_result {
+> >  #define OPTEE_SMC_SEC_CAP_HAVE_RESERVED_SHM    BIT(0)
+> >  /* Secure world can communicate via previously unregistered shared mem=
+ory */
+> >  #define OPTEE_SMC_SEC_CAP_UNREGISTERED_SHM     BIT(1)
+> > -
+> >  /*
+> >   * Secure world supports commands "register/unregister shared memory",
+> >   * secure world accepts command buffers located in any parts of non-se=
+cure RAM
+> > @@ -280,6 +279,10 @@ struct optee_smc_get_shm_config_result {
+> >  #define OPTEE_SMC_SEC_CAP_RPC_ARG              BIT(6)
+> >  /* Secure world supports probing for RPMB device if needed */
+> >  #define OPTEE_SMC_SEC_CAP_RPMB_PROBE           BIT(7)
+> > +/* Secure world supports protected memory */
+> > +#define OPTEE_SMC_SEC_CAP_PROTMEM              BIT(8)
+> > +/* Secure world supports dynamic protected memory */
+> > +#define OPTEE_SMC_SEC_CAP_DYNAMIC_PROTMEM      BIT(9)
+> >
+> >  #define OPTEE_SMC_FUNCID_EXCHANGE_CAPABILITIES 9
+> >  #define OPTEE_SMC_EXCHANGE_CAPABILITIES \
+> > @@ -451,6 +454,72 @@ struct optee_smc_disable_shm_cache_result {
+> >
+> >  /* See OPTEE_SMC_CALL_WITH_REGD_ARG above */
+> >  #define OPTEE_SMC_FUNCID_CALL_WITH_REGD_ARG    19
+> > +/*
+> > + * Get protected memory config
+> > + *
+> > + * Returns the protected memory config.
+> > + *
+> > + * Call register usage:
+> > + * a0   SMC Function ID, OPTEE_SMC_GET_PROTMEM_CONFIG
+> > + * a2-6        Not used, must be zero
+> > + * a7  Hypervisor Client ID register
+> > + *
+> > + * Have config return register usage:
+> > + * a0  OPTEE_SMC_RETURN_OK
+> > + * a1  Physical address of start of protected memory
+> > + * a2  Size of protected memory
+> > + * a3  Not used
+> > + * a4-7        Preserved
+> > + *
+> > + * Not available register usage:
+> > + * a0  OPTEE_SMC_RETURN_ENOTAVAIL
+> > + * a1-3 Not used
+> > + * a4-7        Preserved
+> > + */
+> > +#define OPTEE_SMC_FUNCID_GET_PROTMEM_CONFIG            20
+> > +#define OPTEE_SMC_GET_PROTMEM_CONFIG \
+> > +       OPTEE_SMC_FAST_CALL_VAL(OPTEE_SMC_FUNCID_GET_PROTMEM_CONFIG)
+> > +
+> > +struct optee_smc_get_protmem_config_result {
+> > +       unsigned long status;
+> > +       unsigned long start;
+> > +       unsigned long size;
+> > +       unsigned long flags;
+>
+> The ABI comment does not document a flags return argument, either
+> this can be removed or the ABI comment needs to be fixed.
 
-Greg KH picked it already.
+Sure, I'll remove the field.
 
-Neil
+> Same for
+> > +};
+> > +
+> > +/*
+> > + * Get dynamic protected memory config
+> > + *
+> > + * Returns the dynamic protected memory config.
+> > + *
+> > + * Call register usage:
+> > + * a0  SMC Function ID, OPTEE_SMC_GET_DYN_SHM_CONFIG
+>
+> should be OPTEE_SMC_GET_DYN_PROTMEM_CONFIG
 
-> 
->> Neil
->>
->>>
->>>> Thanks,
->>>> Neil
->>>>
->>>>>
->>>>> On 2025/3/17 15:16, Xianwei Zhao via B4 Relay wrote:
->>>>>> [ EXTERNAL EMAIL ]
->>>>>>
->>>>>> Amlogic S6 S7 and S7D are application processors designed for
->>>>>> hybrid OTT/IP Set Top Box and high-end media box applications.
->>>>>>
->>>>>> Add the new S6 SoC/board device tree bindings.
->>>>>> Add the new S7 SoC/board device tree bindings.
->>>>>> Add the new S7D SoC/board device tree bindings.
->>>>>>
->>>>>> Add basic support for the S6 based Amlogic BL209 board, which describes
->>>>>> the following components: CPU, GIC, IRQ, Timer and UART. These are capable of
->>>>>> booting up into the serial console.
->>>>>>
->>>>>> Add basic support for the S7 based Amlogic BP201 board, which describes
->>>>>> the following components: CPU, GIC, IRQ, Timer and UART. These are capable of
->>>>>> booting up into the serial console.
->>>>>>
->>>>>> Add basic support for the S7D based Amlogic BM202 board, which describes
->>>>>> the following components: CPU, GIC, IRQ, Timer and UART. These are capable of
->>>>>> booting up into the serial console.
->>>>>>
->>>>>> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
->>>>>> ---
->>>>>> Xianwei Zhao (7):
->>>>>>        dt-bindings: arm: amlogic: add S6 support
->>>>>>        dt-bindings: arm: amlogic: add S7 support
->>>>>>        dt-bindings: arm: amlogic: add S7D support
->>>>>>        dt-bindings: serial: amlogic,meson-uart: Add compatible string for S6/S7/S7D
->>>>>>        arm64: dts: add support for S6 based Amlogic BL209
->>>>>>        arm64: dts: add support for S7 based Amlogic BP201
->>>>>>        arm64: dts: add support for S7D based Amlogic BM202
->>>>>>
->>>>>>   Documentation/devicetree/bindings/arm/amlogic.yaml | 18 ++++
->>>>>>   .../bindings/serial/amlogic,meson-uart.yaml        |  3 +
->>>>>>   arch/arm64/boot/dts/amlogic/Makefile               |  3 +
->>>>>>   .../boot/dts/amlogic/amlogic-s6-s905x5-bl209.dts   | 42 +++++++++
->>>>>>   arch/arm64/boot/dts/amlogic/amlogic-s6.dtsi        | 97 +++++++++++++++++++++
->>>>>>   .../boot/dts/amlogic/amlogic-s7-s805x3-bp201.dts   | 41 +++++++++
->>>>>>   arch/arm64/boot/dts/amlogic/amlogic-s7.dtsi        | 99 ++++++++++++++++++++++
->>>>>>   .../boot/dts/amlogic/amlogic-s7d-s905x5m-bm202.dts | 41 +++++++++
->>>>>>   arch/arm64/boot/dts/amlogic/amlogic-s7d.dtsi       | 99 ++++++++++++++++++++++
->>>>>>   9 files changed, 443 insertions(+)
->>>>>> ---
->>>>>> base-commit: 73e4ffb27bb8a093d557bb2dac1a271474cca99c
->>>>>> change-id: 20250221-s6-s7-basic-f300c30877e6
->>>>>>
->>>>>> Best regards,
->>>>>> -- 
->>>>>> Xianwei Zhao <xianwei.zhao@amlogic.com>
->>>>>>
->>>>>>
->>>>
->>
+Thanks, I'll update.
 
+>
+> > + * a2-6        Not used, must be zero
+> > + * a7  Hypervisor Client ID register
+> > + *
+> > + * Have config return register usage:
+> > + * a0  OPTEE_SMC_RETURN_OK
+> > + * a1  Minamal size of protected memory
+>
+> Nit: Typo, should be "Minimal"
+
+Yes, I'll update.
+
+Cheers,
+Jens
+
+>
+> > + * a2  Required alignment of size and start of registered protected me=
+mory
+> > + * a3  Not used
+> > + * a4-7        Preserved
+> > + *
+> > + * Not available register usage:
+> > + * a0  OPTEE_SMC_RETURN_ENOTAVAIL
+> > + * a1-3 Not used
+> > + * a4-7        Preserved
+> > + */
+> > +
+> > +#define OPTEE_SMC_FUNCID_GET_DYN_PROTMEM_CONFIG        21
+> > +#define OPTEE_SMC_GET_DYN_PROTMEM_CONFIG \
+> > +       OPTEE_SMC_FAST_CALL_VAL(OPTEE_SMC_FUNCID_GET_DYN_PROTMEM_CONFIG=
+)
+> > +
+> > +struct optee_smc_get_dyn_protmem_config_result {
+> > +       unsigned long status;
+> > +       unsigned long size;
+> > +       unsigned long align;
+> > +       unsigned long flags;
+> > +};
+> >
+> >  /*
+> >   * Resume from RPC (for example after processing a foreign interrupt)
+> > --
+> > 2.43.0
+>
+> - Rouven
 
