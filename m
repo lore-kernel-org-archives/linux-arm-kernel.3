@@ -4,64 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B81C3C36005
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 07:51:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74FD7C369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 07:54:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hwf/mZRtI46sMzZDG/sWBBNgqE8Yi4L/CkZBvcmd/qM=; b=RxVhYmXAXCfniED+iflW/gEjCq
-	AIAqgnKDN8UXQHyScwscDed7hgC8W0ljC/yAYPLlu2XEbxjrMeMGbz9/l2HoofQRKy7eUnmiEtf0x
-	hgJYp8swFrUXyMWAo4okXYkB0JgF55IeKu8ENLcZRBjaMdoLcV/JMIdp6tM+p+II8nCdZiEKoN+Hg
-	qId2NkB3hhcDcQLysONAQSy5bvU8yyHVoITYz5NpIRPSDkOVO9i0NTaBax2keYxv6LeME+MG238TY
-	KyzqbwnIo3VuFOA2pQaSPfrAbEq4kMyF7b8sUvOwkVqFmpa/vh+7wDQtF8SLi9LAX6Q0fH4YzlfPl
-	v/t0FbGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U3wascu2MVDgH52RF51gYScOn5L7mDxVieNHTFS5n8Q=; b=2ODFaXn2cPtjx9mjXZXifK+h8r
+	IljVQpHRVuc5Mv6TDiRUd2+Pqni1DsZaFB0U9RLiuyD0Pqoidi7vb8e+Lims+B77h5sf4wlqtz79R
+	R0pgKEaM/CCZy2mMBzakKXC1t+YXGBZLDh5FKouf6B5WP1+wnkYn3DCDHb3aAkDlWRFtnSxurDVls
+	0FkUUn4AcjNU5NyqPjHqhxa3UguF3lKMWo7/IZT32bFYG9Ps11rh8YxfHsDhcs+Cb67nswlvuDhAD
+	AhEcQW7VkTqi3MZ77jYxDiPZRDGxbSSXwHiDFRpUPe/4hRkzzDleBtW+PkI/8pml9jtzMw+ImuOkm
+	Ob4C/Otw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9JHL-00000005JdR-0jNx;
-	Mon, 28 Apr 2025 07:51:51 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u9JJI-00000005KEa-1hLt;
+	Mon, 28 Apr 2025 07:53:52 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9J4J-00000005Gkl-3jDN
+	id 1u9J5m-00000005H4N-3Jb0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 07:38:25 +0000
+	Mon, 28 Apr 2025 07:39:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2FB37A49F29;
-	Mon, 28 Apr 2025 07:32:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C7E4C4CEE4;
-	Mon, 28 Apr 2025 07:38:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DC5F7448E4;
+	Mon, 28 Apr 2025 07:39:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EB8CC4CEE4;
+	Mon, 28 Apr 2025 07:39:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745825902;
-	bh=VY0AB8rCEQdpSvuXBsJF3HV1v4GpXOc/HeARcm9R8IM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EHMg6fwuiMQoyjs1xDa0O+wQ6NA2F29HpWvQ+rDBG7djichKEyed0YX3ve7Nt2L2J
-	 KFSytths7FrYqakYwd9BbKESNEuYINr/+Jt5CdPrNqOS3zVQeOGxqEi2x/8cejeNew
-	 760y4OEJYkCMClqNxwrTaAfTqpIq2BMDxbcXRxEHoq1/MSQ+qAEMx0r9l0USKtarM+
-	 gzeUrqvRSDvfalxBST1grFTU/ivq67Z82sYQyQIAsO8nWlxFC26zCvo2Fp/TMM5OpX
-	 f7SDgwK/KsNhf6QX4xbAcXza6RU1umVM4wSfMgYnvqVoBtCu9mfSlxuvSie/gw44ek
-	 41Y9chvlbyTww==
-Date: Mon, 28 Apr 2025 09:38:19 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Vikram Sharma <quic_vikramsa@quicinc.com>
-Cc: rfoss@kernel.org, todor.too@gmail.com, bryan.odonoghue@linaro.org, 
-	mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	andersson@kernel.org, konradybcio@kernel.org, hverkuil-cisco@xs4all.nl, 
-	cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RFC/WIP v2 3/9] media: dt-bindings: Add qcom,sa8775p-camss
-Message-ID: <20250428-imperial-manul-of-aurora-ba1755@kuoka>
-References: <20250427070135.884623-1-quic_vikramsa@quicinc.com>
- <20250427070135.884623-4-quic_vikramsa@quicinc.com>
+	s=k20201202; t=1745825992;
+	bh=uvDRTDmzAJFkwFIMyq3QBRdrFFf5o4dx8a2V4AKQDQw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=rannNwKVYae20js66onOCjgn+54klu6eudEgXoc2bbhps11xSNF8fUc84EiTtoagD
+	 +Zvj2+2v0R34LBuGGfTufDWHCBttgwO7k0Wn1GuvTLzqRyvZWoQF2zVjljGbvDXCwp
+	 lfNV22LvYE72Y/5zbBASHgve2WcbYkeq9cHf0DbatZOdQjeUBpZq6Q5bXR4aRs34MY
+	 +dKXuW9eEOCeR162Cl6MNtsOcHbHxpRQKqc1Jb9VQzJez2gNVJcijDsHOdVDyTsUxo
+	 lHHNpY0CeIfrQEbn8owSGdMRX2d3/Ut6UNswAmf94PB0/Tflh8DybG+NvDQMwbJnsW
+	 T3+rqR+eGjUFw==
+Message-ID: <cbb1191d-4e90-4887-9227-e4e8761a9b46@kernel.org>
+Date: Mon, 28 Apr 2025 09:39:47 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250427070135.884623-4-quic_vikramsa@quicinc.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/2] dt-bindings: arm: Add Qualcomm extended CTI
+To: Jinlong Mao <quic_jinlmao@quicinc.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@linaro.org>, James Clark <james.clark@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Andy Gross <agross@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20240903121847.6964-1-quic_jinlmao@quicinc.com>
+ <20240903121847.6964-2-quic_jinlmao@quicinc.com>
+ <8d203417-e3da-4969-87ea-f77cdb720756@kernel.org>
+ <04d46109-d499-4e91-88aa-4187145b811d@quicinc.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <04d46109-d499-4e91-88aa-4187145b811d@quicinc.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_003823_987158_D1DB0D73 
-X-CRM114-Status: GOOD (  13.42  )
+X-CRM114-CacheID: sfid-20250428_003954_961460_17DFB3E2 
+X-CRM114-Status: GOOD (  10.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,45 +126,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 27, 2025 at 12:31:29PM GMT, Vikram Sharma wrote:
-> Add bindings for qcom,sa8775p-camss to support the camera subsystem
-> on SA8775P platform.
+On 28/04/2025 09:31, Jinlong Mao wrote:
+> 
+> 
+> On 2024/9/3 20:42, Krzysztof Kozlowski wrote:
+>> On 03/09/2024 14:18, Mao Jinlong wrote:
+>>> Add Qualcomm extended CTI support in CTI binding file. Qualcomm
+>>> extended CTI supports up to 128 triggers.
+>>>
+>>> Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
+>>> ---
+>>>   .../devicetree/bindings/arm/arm,coresight-cti.yaml | 14 ++++++++++++++
+>>>   1 file changed, 14 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
+>>> index 6a73eaa66a42..141efba7c697 100644
+>>> --- a/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
+>>> +++ b/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
+>>> @@ -87,6 +87,10 @@ properties:
+>>>             - const: arm,coresight-cti-v8-arch
+>>>             - const: arm,coresight-cti
+>>>             - const: arm,primecell
+>>> +      - items:
+>>> +          - const: qcom,coresight-cti-extended
+>>
+>> That's just enum in previous entry/list.
+> Sorry for the late response. This is a new CTI type. Need the three 
+> items in compatible at the same time, just like other kind of CTIs.
 
-Describe the hardware, e.g. why this does not have supplies, why and how
-this is different than all other camss.
+
+Comment stays valid, you did not address it at all.
 
 > 
-> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
-> ---
->  .../bindings/media/qcom,sa8775p-camss.yaml    | 352 ++++++++++++++++++
->  1 file changed, 352 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/media/qcom,sa8775p-camss.yaml
-> 
+>>
+>>> +          - const: arm,coresight-cti
+>>> +          - const: arm,primecell
+>>>   
+>>>     reg:
+>>>       maxItems: 1
+>>> @@ -254,6 +258,16 @@ examples:
+>>>         clocks = <&soc_smc50mhz>;
+>>>         clock-names = "apb_pclk";
+>>>       };
+>>> +  # minimum extended CTI definition.
+>>> +  - |
+>>
+>> No need for new example. No differences here.
+> This is a new type CTI.
 
-With fixes in commit msg:
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
----
-
-<form letter>
-This is an automated instruction, just in case, because many review tags
-are being ignored. If you know the process, you can skip it (please do
-not feel offended by me posting it here - no bad intentions intended).
-If you do not know the process, here is a short explanation:
-
-Please add Acked-by/Reviewed-by/Tested-by tags when posting new
-versions of patchset, under or above your Signed-off-by tag, unless
-patch changed significantly (e.g. new properties added to the DT
-bindings). Tag is "received", when provided in a message replied to you
-on the mailing list. Tools like b4 can help here. However, there's no
-need to repost patches *only* to add the tags. The upstream maintainer
-will do that for tags received on the version they apply.
-
-https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
-</form letter>
+Comment stays valid, you did not address it at all.
 
 Best regards,
 Krzysztof
-
 
