@@ -4,62 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5F35C369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 10:25:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 972ADC36005
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 10:31:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6sCIvI1DWDP8J3OnEjie52hCc+L8DYiyY5nifNG4kyo=; b=4p9C32GOWqQbcDjfJUgUYj4hi+
-	ZCOzzytk04dE/iYl82m6FlsiW6OK8FORTkt2OwAQH4T5rfWeLODFEcBN0bx1OqVaB/3dXreovzPhz
-	4biuC6Qc1c1jmBqRwFh+6acOVdSzljKzxkzWZwXxVo2FeqH1IipswVFkoS1vfBMtn4KS3hbwzIXB8
-	WOzxV3ezinMHlkpeKDYweA9G8ArcAJvIMuddhgUdyk+rLvIiqftQYZQpsPWxciz+Moz9rpigwepwt
-	hFd79gqk6KQ+956IVJooN8Wl6vrHHpsf0lALFPJciKkqPHB0pDNhJrCr65/atec5LzjnqtYEqo1Ut
-	4b23wChQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=94GaAp5IT+0nfZI1KhpMoi6ddXqkPRsHTzLkhfBtKK0=; b=AUJtjYSISw5CsP
+	ex4P1vf3iirUj+YkPPz8g6poyy0/TQ720qSt/pru+G5H1d68IjhZ7aLS25DrXat/uuATG4aDK2Khd
+	GAYqYKk+TnM942vrxJJdFuosO54mgoAybQAWS8EYvii1gCSbqQ/tOVXp5rCe5V54REUFxceU9nY6U
+	2DfivH5718P1LBXHNi5dZu8hyWdlhwHcfaUrfjpL4CPR1JfHRZnvKNTiDQCFpQ1kBShCgHnxH9O2h
+	miOuZH2QPxwMf6V6ePAGzVh8bryc8aexrw8Y2Nw6IGn/nwcejzh3i6p8bjVlTVnaCPXE0iQO3omHj
+	NOpk9q1xt5Nd0VqhBuaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9LgC-00000005mrW-1l3W;
-	Mon, 28 Apr 2025 10:25:40 +0000
-Received: from m16.mail.163.com ([117.135.210.5])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9LeD-00000005mc8-2GvW;
-	Mon, 28 Apr 2025 10:23:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=6sCIv
-	I1DWDP8J3OnEjie52hCc+L8DYiyY5nifNG4kyo=; b=ICqoQGjjKLuhxEzw/KxD/
-	K6y7Y7Hbq861tRUchInnjZRgjaOVF51ksO/2KTrw2je570anD1ndhB+TcEnKjop7
-	ZJ1btdYhMBZtVJ6rXIglAo1gUoMa/03XnlEJY2FXqzdxkMWz/DvHla3jeuI4/gvn
-	gZyPSP0w7ZOfY4SEdHZfiA=
-Received: from ProDesk.. (unknown [])
-	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wD311sPVw9oDBZeDA--.10563S2;
-	Mon, 28 Apr 2025 18:23:14 +0800 (CST)
-From: Andy Yan <andyshrk@163.com>
-To: heiko@sntech.de
-Cc: mripard@kernel.org,
-	hjc@rock-chips.com,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: [PATCH] drm/rockchip: rk3066_hdmi: switch to drm bridge
-Date: Mon, 28 Apr 2025 18:23:07 +0800
-Message-ID: <20250428102309.1501986-1-andyshrk@163.com>
-X-Mailer: git-send-email 2.43.0
+	id 1u9LlM-00000005nsq-07BI;
+	Mon, 28 Apr 2025 10:31:00 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u9KLp-00000005XKM-2VtB
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Apr 2025 09:00:35 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53S110Bq021410;
+	Mon, 28 Apr 2025 11:00:26 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=94GaAp5IT+0nfZI1KhpMoi
+	6ddXqkPRsHTzLkhfBtKK0=; b=dbASW07GxQztoLy9FsEcZXQWu1OSefGLLrOKd8
+	motbCQlyWiWT0HoYG3UEeGShSIZt94n+/KHTDwVABav8Kr8N72+VXl+IpyVodkag
+	wtX0uBTggyZv/B1jll17sPTCo72vmUqjDIUQ19nhO9625TNu0hZyh9zjnTPfOQW5
+	ZbfGSOldL20QUnKdE74CJSv8G1N1w9q/7gw7WRuvoZrC1RtNHZPBYC93jr/R+3Rs
+	nUj46RdRuDRLF2PyVx1uJxg0INRVZB32fts7OC6/jFLDmBlqRdcRl8Q9a+/EJRhW
+	8xi/tvOOKD0jHHqVpStzEHQZ4DmtqGceerBCJDqv2tzJqqYA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 468mm9dxde-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 28 Apr 2025 11:00:25 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 8A6E84002D;
+	Mon, 28 Apr 2025 10:59:22 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 78F1EA4130C;
+	Mon, 28 Apr 2025 10:58:33 +0200 (CEST)
+Received: from localhost (10.48.87.62) by SHFDAG1NODE1.st.com (10.75.129.69)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 28 Apr
+ 2025 10:58:33 +0200
+From: Patrice Chotard <patrice.chotard@foss.st.com>
+Subject: [PATCH v11 0/3] Add STM32MP25 SPI NOR support
+Date: Mon, 28 Apr 2025 10:58:29 +0200
+Message-ID: <20250428-upstream_ospi_v6-v11-0-1548736fd9d2@foss.st.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wD311sPVw9oDBZeDA--.10563S2
-X-Coremail-Antispam: 1Uf129KBjvAXoW3tr1Dtr1fZFW5WFyDZF1xGrg_yoW8AF1fXo
-	ZxJwn3Xw4rG348WFWvy3WUKr4jqa1ktr1fXw45GFWDua1DG3yqq347CryjqFW7WF1aqrW5
-	Z3Wvyr1fXFnrCF4kn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7v73VFW2AGmfu7bjvjm3
-	AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUsUUUUUUUU
-X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqAk9XmgPURumhAABsM
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIADVDD2gC/23Q3YrDIBAF4FcpXtcyo8afXvU9lqUYo60XrUFT2
+ aXk3dcWls2SwNycA/MNzJMUn6Mv5Lh7kuxrLDHdW0Dc74i72vvF0zi0gjBgHXAG9DGWKXt7O6c
+ yxnOVdBCcWY2KIXSkrY3Zh/j1Nj8+W77GMqX8/T5R5av9xXCNtQHKVd872wsuuDmFVMqhTAeXb
+ uTFVfVHCNgiVCPAB6Y75H7QuCb0klAbhG6E6pVC6dBhkGvCLAjc+Eo1jXAB0XSgtdB2TSAsDMY
+ 2jAYDlUEYwSwIj/Afmef5B1L4OKLBAQAA
+X-Change-ID: 20250320-upstream_ospi_v6-d432a8172105
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon
+	<will@kernel.org>
+CC: <christophe.kerello@foss.st.com>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Patrice Chotard
+	<patrice.chotard@foss.st.com>
+X-Mailer: b4 0.14.2
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-04-28_03,2025-04-24_02,2025-02-21_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_032337_932175_F9E68E7D 
-X-CRM114-Status: GOOD (  25.53  )
+X-CRM114-CacheID: sfid-20250428_020033_931625_00156E4D 
+X-CRM114-Status: GOOD (  14.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,511 +107,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andy Yan <andy.yan@rock-chips.com>
+This series adds SPI NOR support for STM32MP25 SoCs from STMicroelectronics.
 
-Convert it to drm bridge driver, it will be convenient for us to
-migrate the connector part to the display driver later.
+On STM32MP25 SoCs family, an Octo Memory Manager block manages the muxing,
+the memory area split, the chip select override and the time constraint
+between its 2 Octo SPI children.
 
-Note: I don't have the hardware to test this driver, so for now
-I can only do the compilation test.
+Due to these depedencies, this series adds support for:
+  - Octo Memory Manager driver.
+  - Octo SPI driver.
+  - yaml schema for Octo Memory Manager and Octo SPI drivers.
 
-Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+The device tree files adds Octo Memory Manager and its 2 associated Octo
+SPI chidren in stm32mp251.dtsi and adds SPI NOR support in stm32mp257f-ev1
+board.
+    
+Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+
+Changes in v11:
+  - Add stm32_omm_toggle_child_clock(dev, false) in stm32_omm_disable_child() in case of error.
+  - Check MUXEN bit in stm32_omm_probe() to check if child clock must be disabled.
+  - Add dev_err_probe() in stm32_omm_probe().
+  - Link to v10: https://lore.kernel.org/r/20250422-upstream_ospi_v6-v10-0-6f4942a04e10@foss.st.com
+
+Changes in v10:
+  - Add of_node_put() in stm32_omm_set_amcr().
+  - Link to v9: https://lore.kernel.org/r/20250410-upstream_ospi_v6-v9-0-cf119508848a@foss.st.com
+
+Changes in v9:
+  - split patchset by susbsystem, current one include only OMM related
+    patches.
+  - Update SPDX Identifiers to "GPL-2.0-only".
+  - Add of_node_put)() instm32_omm_set_amcr().
+  - Rework error path in stm32_omm_toggle_child_clock().
+  - Make usage of reset_control_acquire/release() in stm32_omm_disable_child()
+    and move reset_control_get in probe().
+  - Rename error label in stm32_omm_configure().
+  - Remove child compatible check in stm32_omm_probe().
+  - Make usage of devm_of_platform_populate().
+  - Link to v8: https://lore.kernel.org/r/20250407-upstream_ospi_v6-v8-0-7b7716c1c1f6@foss.st.com
+
+Changes in v8:
+  - update OMM's dt-bindings:
+    - Remove minItems for clocks and resets properties.
+    - Fix st,syscfg-amcr items declaration.
+    - move power-domains property before vendor specific properties.
+  - Update compatible check wrongly introduced during internal tests in
+    stm32_omm.c.
+  - Move ommanager's node outside bus@42080000's node in stm32mp251.dtsi.
+  - Link to v7: https://lore.kernel.org/r/20250401-upstream_ospi_v6-v7-0-0ef28513ed81@foss.st.com
+
+Changes in v7:
+  - update OMM's dt-bindings by updating :
+    - clock-names and reset-names properties.
+    - spi unit-address node.
+    - example.
+  - update stm32mp251.dtsi to match with OMM's bindings update.
+  - update stm32mp257f-ev1.dts to match with OMM's bindings update.
+  - Link to v6: https://lore.kernel.org/r/20250321-upstream_ospi_v6-v6-0-37bbcab43439@foss.st.com
+
+Changes in v6:
+  - Update MAINTAINERS file.
+  - Remove previous patch 1/8 and 2/8, merged by Mark Brown in spi git tree.
+  - Fix Signed-off-by order for patch 3.
+  - OMM driver:
+    - Add dev_err_probe() in error path.
+    - Rename stm32_omm_enable_child_clock() to stm32_omm_toggle_child_clock().
+    - Reorder initialised/non-initialized variable in stm32_omm_configure()
+          and stm32_omm_probe().
+    - Move pm_runtime_disable() calls from stm32_omm_configure() to
+      stm32_omm_probe().
+    - Update children's clocks and reset management.
+    - Use of_platform_populate() to probe children.
+    - Add missing pm_runtime_disable().
+    - Remove useless stm32_omm_check_access's first parameter.
+  - Update OMM's dt-bindings by adding OSPI's clocks and resets.
+  - Update stm32mp251.dtsi by adding OSPI's clock and reset in OMM's node.
+
+Changes in v5:
+  - Add Reviewed-by Krzysztof Kozlowski for patch 1 and 3.
+
+Changes in v4:
+  - Add default value requested by Krzysztof for st,omm-req2ack-ns,
+    st,omm-cssel-ovr and st,omm-mux properties in st,stm32mp25-omm.yaml
+  - Remove constraint in free form test for st,omm-mux property.
+  - Fix drivers/memory/Kconfig by replacing TEST_COMPILE_ by COMPILE_TEST.
+  - Fix SPDX-License-Identifier for stm32-omm.c.
+  - Fix Kernel test robot by fixing dev_err() format in stm32-omm.c.
+  - Add missing pm_runtime_disable() in the error handling path in
+    stm32-omm.c.
+  - Replace an int by an unsigned int in stm32-omm.c
+  - Remove uneeded "," after terminator in stm32-omm.c.
+  - Update cover letter description to explain dependecies between
+Octo Memory Manager and its 2 Octo SPI children.
+
+Changes in v3:
+  - Squash defconfig patches 8 and 9.
+  - Update STM32 Octo Memory Manager controller bindings.
+  - Rename st,stm32-omm.yaml to st,stm32mp25-omm.yaml.
+  - Update STM32 OSPI controller bindings.
+  - Reorder DT properties in .dtsi and .dts files.
+  - Replace devm_reset_control_get_optional() by
+    devm_reset_control_get_optional_exclusive() in stm32_omm.c.
+  - Reintroduce region-memory-names management in stm32_omm.c.
+  - Rename stm32_ospi_tx_poll() and stm32_ospi_tx() to respectively to
+    stm32_ospi_poll() and stm32_ospi_xfer() in spi-stm32-ospi.c.
+  - Set SPI_CONTROLLER_HALF_DUPLEX in controller flags in spi-stm32-ospi.c.
+
+Changes in v2:
+  - Move STM32 Octo Memory Manager controller driver and bindings from
+    misc to memory-controllers.
+  - Update STM32 OSPI controller bindings.
+  - Update STM32 Octo Memory Manager controller bindings.
+  - Update STM32 Octo Memory Manager driver to match bindings update.
+  - Update DT to match bindings update.
+
+Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
 ---
+Patrice Chotard (3):
+      dt-bindings: memory-controllers: Add STM32 Octo Memory Manager controller
+      memory: Add STM32 Octo Memory Manager driver
+      MAINTAINERS: add entry for STM32 OCTO MEMORY MANAGER driver
 
- drivers/gpu/drm/rockchip/rk3066_hdmi.c | 315 ++++++++++++-------------
- 1 file changed, 146 insertions(+), 169 deletions(-)
+ .../memory-controllers/st,stm32mp25-omm.yaml       | 226 ++++++++++
+ MAINTAINERS                                        |   6 +
+ drivers/memory/Kconfig                             |  17 +
+ drivers/memory/Makefile                            |   1 +
+ drivers/memory/stm32_omm.c                         | 476 +++++++++++++++++++++
+ 5 files changed, 726 insertions(+)
+---
+base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
+change-id: 20250320-upstream_ospi_v6-d432a8172105
 
-diff --git a/drivers/gpu/drm/rockchip/rk3066_hdmi.c b/drivers/gpu/drm/rockchip/rk3066_hdmi.c
-index f7a4601903134..a2268abc30c5b 100644
---- a/drivers/gpu/drm/rockchip/rk3066_hdmi.c
-+++ b/drivers/gpu/drm/rockchip/rk3066_hdmi.c
-@@ -5,6 +5,9 @@
-  */
- 
- #include <drm/drm_atomic.h>
-+#include <drm/drm_bridge_connector.h>
-+#include <drm/display/drm_hdmi_helper.h>
-+#include <drm/display/drm_hdmi_state_helper.h>
- #include <drm/drm_edid.h>
- #include <drm/drm_of.h>
- #include <drm/drm_probe_helper.h>
-@@ -46,27 +49,20 @@ struct rk3066_hdmi {
- 	struct clk *hclk;
- 	void __iomem *regs;
- 
--	struct drm_connector connector;
-+	struct drm_bridge bridge;
-+	struct drm_connector *connector;
- 	struct rockchip_encoder encoder;
- 
- 	struct rk3066_hdmi_i2c *i2c;
--	struct i2c_adapter *ddc;
- 
- 	unsigned int tmdsclk;
- 
- 	struct hdmi_data_info hdmi_data;
- };
- 
--static struct rk3066_hdmi *encoder_to_rk3066_hdmi(struct drm_encoder *encoder)
-+static struct rk3066_hdmi *bridge_to_rk3066_hdmi(struct drm_bridge *bridge)
- {
--	struct rockchip_encoder *rkencoder = to_rockchip_encoder(encoder);
--
--	return container_of(rkencoder, struct rk3066_hdmi, encoder);
--}
--
--static struct rk3066_hdmi *connector_to_rk3066_hdmi(struct drm_connector *connector)
--{
--	return container_of(connector, struct rk3066_hdmi, connector);
-+	return container_of(bridge, struct rk3066_hdmi, bridge);
- }
- 
- static inline u8 hdmi_readb(struct rk3066_hdmi *hdmi, u16 offset)
-@@ -161,57 +157,40 @@ static void rk3066_hdmi_set_power_mode(struct rk3066_hdmi *hdmi, int mode)
- 		hdmi->tmdsclk = DEFAULT_PLLA_RATE;
- }
- 
--static int
--rk3066_hdmi_upload_frame(struct rk3066_hdmi *hdmi, int setup_rc,
--			 union hdmi_infoframe *frame, u32 frame_index,
--			 u32 mask, u32 disable, u32 enable)
-+static int rk3066_hdmi_bridge_clear_infoframe(struct drm_bridge *bridge,
-+					      enum hdmi_infoframe_type type)
- {
--	if (mask)
--		hdmi_modb(hdmi, HDMI_CP_AUTO_SEND_CTRL, mask, disable);
--
--	hdmi_writeb(hdmi, HDMI_CP_BUF_INDEX, frame_index);
--
--	if (setup_rc >= 0) {
--		u8 packed_frame[HDMI_MAXIMUM_INFO_FRAME_SIZE];
--		ssize_t rc, i;
-+	struct rk3066_hdmi *hdmi = bridge_to_rk3066_hdmi(bridge);
- 
--		rc = hdmi_infoframe_pack(frame, packed_frame,
--					 sizeof(packed_frame));
--		if (rc < 0)
--			return rc;
--
--		for (i = 0; i < rc; i++)
--			hdmi_writeb(hdmi, HDMI_CP_BUF_ACC_HB0 + i * 4,
--				    packed_frame[i]);
--
--		if (mask)
--			hdmi_modb(hdmi, HDMI_CP_AUTO_SEND_CTRL, mask, enable);
-+	if (type != HDMI_INFOFRAME_TYPE_AVI) {
-+		drm_err(bridge->dev, "Unsupported infoframe type: %u\n", type);
-+		return 0;
- 	}
- 
--	return setup_rc;
-+	hdmi_writeb(hdmi, HDMI_CP_BUF_INDEX, HDMI_INFOFRAME_AVI);
-+
-+	return 0;
- }
- 
--static int rk3066_hdmi_config_avi(struct rk3066_hdmi *hdmi,
--				  struct drm_display_mode *mode)
-+static int
-+rk3066_hdmi_bridge_write_infoframe(struct drm_bridge *bridge,
-+				   enum hdmi_infoframe_type type,
-+				   const u8 *buffer, size_t len)
- {
--	union hdmi_infoframe frame;
--	int rc;
-+	struct rk3066_hdmi *hdmi = bridge_to_rk3066_hdmi(bridge);
-+	ssize_t i;
- 
--	rc = drm_hdmi_avi_infoframe_from_display_mode(&frame.avi,
--						      &hdmi->connector, mode);
-+	if (type != HDMI_INFOFRAME_TYPE_AVI) {
-+		drm_err(bridge->dev, "Unsupported infoframe type: %u\n", type);
-+		return 0;
-+	}
- 
--	if (hdmi->hdmi_data.enc_out_format == HDMI_COLORSPACE_YUV444)
--		frame.avi.colorspace = HDMI_COLORSPACE_YUV444;
--	else if (hdmi->hdmi_data.enc_out_format == HDMI_COLORSPACE_YUV422)
--		frame.avi.colorspace = HDMI_COLORSPACE_YUV422;
--	else
--		frame.avi.colorspace = HDMI_COLORSPACE_RGB;
-+	rk3066_hdmi_bridge_clear_infoframe(bridge, type);
- 
--	frame.avi.colorimetry = hdmi->hdmi_data.colorimetry;
--	frame.avi.scan_mode = HDMI_SCAN_MODE_NONE;
-+	for (i = 0; i < len; i++)
-+		hdmi_writeb(hdmi, HDMI_CP_BUF_ACC_HB0 + i * 4, buffer[i]);
- 
--	return rk3066_hdmi_upload_frame(hdmi, rc, &frame,
--					HDMI_INFOFRAME_AVI, 0, 0, 0);
-+	return 0;
- }
- 
- static int rk3066_hdmi_config_video_timing(struct rk3066_hdmi *hdmi,
-@@ -324,9 +303,27 @@ static void rk3066_hdmi_config_phy(struct rk3066_hdmi *hdmi)
- }
- 
- static int rk3066_hdmi_setup(struct rk3066_hdmi *hdmi,
--			     struct drm_display_mode *mode)
-+			     struct drm_atomic_state *state)
- {
--	struct drm_display_info *display = &hdmi->connector.display_info;
-+	struct drm_bridge *bridge = &hdmi->bridge;
-+	struct drm_connector *connector;
-+	struct drm_display_info *display;
-+	struct drm_display_mode *mode;
-+	struct drm_connector_state *new_conn_state;
-+	struct drm_crtc_state *new_crtc_state;
-+
-+	connector = drm_atomic_get_new_connector_for_encoder(state, bridge->encoder);
-+
-+	new_conn_state = drm_atomic_get_new_connector_state(state, connector);
-+	if (WARN_ON(!new_conn_state))
-+		return -EINVAL;
-+
-+	new_crtc_state = drm_atomic_get_new_crtc_state(state, new_conn_state->crtc);
-+	if (WARN_ON(!new_crtc_state))
-+		return -EINVAL;
-+
-+	display = &connector->display_info;
-+	mode = &new_crtc_state->adjusted_mode;
- 
- 	hdmi->hdmi_data.vic = drm_match_cea_mode(mode);
- 	hdmi->hdmi_data.enc_out_format = HDMI_COLORSPACE_RGB;
-@@ -363,7 +360,7 @@ static int rk3066_hdmi_setup(struct rk3066_hdmi *hdmi,
- 	if (display->is_hdmi) {
- 		hdmi_modb(hdmi, HDMI_HDCP_CTRL, HDMI_VIDEO_MODE_MASK,
- 			  HDMI_VIDEO_MODE_HDMI);
--		rk3066_hdmi_config_avi(hdmi, mode);
-+		drm_atomic_helper_connector_hdmi_update_infoframes(connector, state);
- 	} else {
- 		hdmi_modb(hdmi, HDMI_HDCP_CTRL, HDMI_VIDEO_MODE_MASK, 0);
- 	}
-@@ -386,15 +383,15 @@ static int rk3066_hdmi_setup(struct rk3066_hdmi *hdmi,
- 	return 0;
- }
- 
--static void rk3066_hdmi_encoder_enable(struct drm_encoder *encoder,
-+static void rk3066_hdmi_bridge_atomic_enable(struct drm_bridge *bridge,
- 				       struct drm_atomic_state *state)
- {
--	struct rk3066_hdmi *hdmi = encoder_to_rk3066_hdmi(encoder);
-+	struct rk3066_hdmi *hdmi = bridge_to_rk3066_hdmi(bridge);
- 	struct drm_connector_state *conn_state;
- 	struct drm_crtc_state *crtc_state;
- 	int mux, val;
- 
--	conn_state = drm_atomic_get_new_connector_state(state, &hdmi->connector);
-+	conn_state = drm_atomic_get_new_connector_state(state, hdmi->connector);
- 	if (WARN_ON(!conn_state))
- 		return;
- 
-@@ -402,7 +399,7 @@ static void rk3066_hdmi_encoder_enable(struct drm_encoder *encoder,
- 	if (WARN_ON(!crtc_state))
- 		return;
- 
--	mux = drm_of_encoder_active_endpoint_id(hdmi->dev->of_node, encoder);
-+	mux = drm_of_encoder_active_endpoint_id(hdmi->dev->of_node, &hdmi->encoder.encoder);
- 	if (mux)
- 		val = (HDMI_VIDEO_SEL << 16) | HDMI_VIDEO_SEL;
- 	else
-@@ -413,13 +410,13 @@ static void rk3066_hdmi_encoder_enable(struct drm_encoder *encoder,
- 	DRM_DEV_DEBUG(hdmi->dev, "hdmi encoder enable select: vop%s\n",
- 		      (mux) ? "1" : "0");
- 
--	rk3066_hdmi_setup(hdmi, &crtc_state->adjusted_mode);
-+	rk3066_hdmi_setup(hdmi, state);
- }
- 
--static void rk3066_hdmi_encoder_disable(struct drm_encoder *encoder,
--					struct drm_atomic_state *state)
-+static void rk3066_hdmi_bridge_atomic_disable(struct drm_bridge *bridge,
-+					      struct drm_atomic_state *state)
- {
--	struct rk3066_hdmi *hdmi = encoder_to_rk3066_hdmi(encoder);
-+	struct rk3066_hdmi *hdmi = bridge_to_rk3066_hdmi(bridge);
- 
- 	DRM_DEV_DEBUG(hdmi->dev, "hdmi encoder disable\n");
- 
-@@ -450,39 +447,34 @@ rk3066_hdmi_encoder_atomic_check(struct drm_encoder *encoder,
- static const
- struct drm_encoder_helper_funcs rk3066_hdmi_encoder_helper_funcs = {
- 	.atomic_check   = rk3066_hdmi_encoder_atomic_check,
--	.atomic_enable  = rk3066_hdmi_encoder_enable,
--	.atomic_disable = rk3066_hdmi_encoder_disable,
- };
- 
- static enum drm_connector_status
--rk3066_hdmi_connector_detect(struct drm_connector *connector, bool force)
-+rk3066_hdmi_bridge_detect(struct drm_bridge *bridge)
- {
--	struct rk3066_hdmi *hdmi = connector_to_rk3066_hdmi(connector);
-+	struct rk3066_hdmi *hdmi = bridge_to_rk3066_hdmi(bridge);
- 
- 	return (hdmi_readb(hdmi, HDMI_HPG_MENS_STA) & HDMI_HPG_IN_STATUS_HIGH) ?
- 		connector_status_connected : connector_status_disconnected;
- }
- 
--static int rk3066_hdmi_connector_get_modes(struct drm_connector *connector)
-+static const struct drm_edid *
-+rk3066_hdmi_bridge_edid_read(struct drm_bridge *bridge, struct drm_connector *connector)
- {
--	struct rk3066_hdmi *hdmi = connector_to_rk3066_hdmi(connector);
-+	struct rk3066_hdmi *hdmi = bridge_to_rk3066_hdmi(bridge);
- 	const struct drm_edid *drm_edid;
--	int ret = 0;
--
--	if (!hdmi->ddc)
--		return 0;
- 
--	drm_edid = drm_edid_read_ddc(connector, hdmi->ddc);
--	drm_edid_connector_update(connector, drm_edid);
--	ret = drm_edid_connector_add_modes(connector);
--	drm_edid_free(drm_edid);
-+	drm_edid = drm_edid_read_ddc(connector, bridge->ddc);
-+	if (!drm_edid)
-+		dev_dbg(hdmi->dev, "failed to get edid\n");
- 
--	return ret;
-+	return drm_edid;
- }
- 
- static enum drm_mode_status
--rk3066_hdmi_connector_mode_valid(struct drm_connector *connector,
--				 const struct drm_display_mode *mode)
-+rk3066_hdmi_bridge_mode_valid(struct drm_bridge *bridge,
-+			      const struct drm_display_info *info,
-+			      const struct drm_display_mode *mode)
- {
- 	u32 vic = drm_match_cea_mode(mode);
- 
-@@ -492,82 +484,19 @@ rk3066_hdmi_connector_mode_valid(struct drm_connector *connector,
- 		return MODE_BAD;
- }
- 
--static struct drm_encoder *
--rk3066_hdmi_connector_best_encoder(struct drm_connector *connector)
--{
--	struct rk3066_hdmi *hdmi = connector_to_rk3066_hdmi(connector);
--
--	return &hdmi->encoder.encoder;
--}
--
--static int
--rk3066_hdmi_probe_single_connector_modes(struct drm_connector *connector,
--					 uint32_t maxX, uint32_t maxY)
--{
--	if (maxX > 1920)
--		maxX = 1920;
--	if (maxY > 1080)
--		maxY = 1080;
--
--	return drm_helper_probe_single_connector_modes(connector, maxX, maxY);
--}
--
--static void rk3066_hdmi_connector_destroy(struct drm_connector *connector)
--{
--	drm_connector_unregister(connector);
--	drm_connector_cleanup(connector);
--}
--
--static const struct drm_connector_funcs rk3066_hdmi_connector_funcs = {
--	.fill_modes = rk3066_hdmi_probe_single_connector_modes,
--	.detect = rk3066_hdmi_connector_detect,
--	.destroy = rk3066_hdmi_connector_destroy,
--	.reset = drm_atomic_helper_connector_reset,
--	.atomic_duplicate_state = drm_atomic_helper_connector_duplicate_state,
--	.atomic_destroy_state = drm_atomic_helper_connector_destroy_state,
-+static const struct drm_bridge_funcs rk3066_hdmi_bridge_funcs = {
-+	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
-+	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
-+	.atomic_reset = drm_atomic_helper_bridge_reset,
-+	.atomic_enable = rk3066_hdmi_bridge_atomic_enable,
-+	.atomic_disable = rk3066_hdmi_bridge_atomic_disable,
-+	.detect = rk3066_hdmi_bridge_detect,
-+	.edid_read = rk3066_hdmi_bridge_edid_read,
-+	.hdmi_clear_infoframe = rk3066_hdmi_bridge_clear_infoframe,
-+	.hdmi_write_infoframe = rk3066_hdmi_bridge_write_infoframe,
-+	.mode_valid = rk3066_hdmi_bridge_mode_valid,
- };
- 
--static const
--struct drm_connector_helper_funcs rk3066_hdmi_connector_helper_funcs = {
--	.get_modes = rk3066_hdmi_connector_get_modes,
--	.mode_valid = rk3066_hdmi_connector_mode_valid,
--	.best_encoder = rk3066_hdmi_connector_best_encoder,
--};
--
--static int
--rk3066_hdmi_register(struct drm_device *drm, struct rk3066_hdmi *hdmi)
--{
--	struct drm_encoder *encoder = &hdmi->encoder.encoder;
--	struct device *dev = hdmi->dev;
--
--	encoder->possible_crtcs =
--		drm_of_find_possible_crtcs(drm, dev->of_node);
--
--	/*
--	 * If we failed to find the CRTC(s) which this encoder is
--	 * supposed to be connected to, it's because the CRTC has
--	 * not been registered yet.  Defer probing, and hope that
--	 * the required CRTC is added later.
--	 */
--	if (encoder->possible_crtcs == 0)
--		return -EPROBE_DEFER;
--
--	drm_encoder_helper_add(encoder, &rk3066_hdmi_encoder_helper_funcs);
--	drm_simple_encoder_init(drm, encoder, DRM_MODE_ENCODER_TMDS);
--
--	hdmi->connector.polled = DRM_CONNECTOR_POLL_HPD;
--
--	drm_connector_helper_add(&hdmi->connector,
--				 &rk3066_hdmi_connector_helper_funcs);
--	drm_connector_init_with_ddc(drm, &hdmi->connector,
--				    &rk3066_hdmi_connector_funcs,
--				    DRM_MODE_CONNECTOR_HDMIA,
--				    hdmi->ddc);
--
--	drm_connector_attach_encoder(&hdmi->connector, encoder);
--
--	return 0;
--}
- 
- static irqreturn_t rk3066_hdmi_hardirq(int irq, void *dev_id)
- {
-@@ -597,7 +526,7 @@ static irqreturn_t rk3066_hdmi_irq(int irq, void *dev_id)
- {
- 	struct rk3066_hdmi *hdmi = dev_id;
- 
--	drm_helper_hpd_irq_event(hdmi->connector.dev);
-+	drm_helper_hpd_irq_event(hdmi->connector->dev);
- 
- 	return IRQ_HANDLED;
- }
-@@ -720,7 +649,7 @@ static struct i2c_adapter *rk3066_hdmi_i2c_adapter(struct rk3066_hdmi *hdmi)
- 	strscpy(adap->name, "RK3066 HDMI", sizeof(adap->name));
- 	i2c_set_adapdata(adap, hdmi);
- 
--	ret = i2c_add_adapter(adap);
-+	ret = devm_i2c_add_adapter(hdmi->dev, adap);
- 	if (ret) {
- 		DRM_DEV_ERROR(hdmi->dev, "cannot add %s I2C adapter\n",
- 			      adap->name);
-@@ -735,6 +664,66 @@ static struct i2c_adapter *rk3066_hdmi_i2c_adapter(struct rk3066_hdmi *hdmi)
- 	return adap;
- }
- 
-+static int
-+rk3066_hdmi_register(struct drm_device *drm, struct rk3066_hdmi *hdmi)
-+{
-+	struct drm_encoder *encoder = &hdmi->encoder.encoder;
-+	struct device *dev = hdmi->dev;
-+	int ret;
-+
-+	encoder->possible_crtcs =
-+		drm_of_find_possible_crtcs(drm, dev->of_node);
-+
-+	/*
-+	 * If we failed to find the CRTC(s) which this encoder is
-+	 * supposed to be connected to, it's because the CRTC has
-+	 * not been registered yet.  Defer probing, and hope that
-+	 * the required CRTC is added later.
-+	 */
-+	if (encoder->possible_crtcs == 0)
-+		return -EPROBE_DEFER;
-+
-+	drm_encoder_helper_add(encoder, &rk3066_hdmi_encoder_helper_funcs);
-+	drm_simple_encoder_init(drm, encoder, DRM_MODE_ENCODER_TMDS);
-+
-+	hdmi->bridge.driver_private = hdmi;
-+	hdmi->bridge.funcs = &rk3066_hdmi_bridge_funcs;
-+	hdmi->bridge.ops = DRM_BRIDGE_OP_DETECT |
-+			   DRM_BRIDGE_OP_EDID |
-+			   DRM_BRIDGE_OP_HDMI |
-+			   DRM_BRIDGE_OP_HPD;
-+	hdmi->bridge.of_node = hdmi->dev->of_node;
-+	hdmi->bridge.type = DRM_MODE_CONNECTOR_HDMIA;
-+	hdmi->bridge.vendor = "Rockchip";
-+	hdmi->bridge.product = "RK3066 HDMI";
-+
-+	hdmi->bridge.ddc = rk3066_hdmi_i2c_adapter(hdmi);
-+	if (IS_ERR(hdmi->bridge.ddc))
-+		return PTR_ERR(hdmi->bridge.ddc);
-+
-+	if (IS_ERR(hdmi->bridge.ddc))
-+		return PTR_ERR(hdmi->bridge.ddc);
-+
-+	ret = devm_drm_bridge_add(dev, &hdmi->bridge);
-+	if (ret)
-+		return ret;
-+
-+	ret = drm_bridge_attach(encoder, &hdmi->bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
-+	if (ret)
-+		return ret;
-+
-+	hdmi->connector = drm_bridge_connector_init(drm, encoder);
-+	if (IS_ERR(hdmi->connector)) {
-+		ret = PTR_ERR(hdmi->connector);
-+		dev_err(hdmi->dev, "failed to init bridge connector: %d\n", ret);
-+		return ret;
-+	}
-+
-+	drm_connector_attach_encoder(hdmi->connector, encoder);
-+
-+	return 0;
-+}
-+
- static int rk3066_hdmi_bind(struct device *dev, struct device *master,
- 			    void *data)
- {
-@@ -781,14 +770,7 @@ static int rk3066_hdmi_bind(struct device *dev, struct device *master,
- 	/* internal hclk = hdmi_hclk / 25 */
- 	hdmi_writeb(hdmi, HDMI_INTERNAL_CLK_DIVIDER, 25);
- 
--	hdmi->ddc = rk3066_hdmi_i2c_adapter(hdmi);
--	if (IS_ERR(hdmi->ddc)) {
--		ret = PTR_ERR(hdmi->ddc);
--		hdmi->ddc = NULL;
--		goto err_disable_hclk;
--	}
--
--	rk3066_hdmi_set_power_mode(hdmi, HDMI_SYS_POWER_MODE_B);
-+		rk3066_hdmi_set_power_mode(hdmi, HDMI_SYS_POWER_MODE_B);
- 	usleep_range(999, 1000);
- 	hdmi_writeb(hdmi, HDMI_INTR_MASK1, HDMI_INTR_HOTPLUG);
- 	hdmi_writeb(hdmi, HDMI_INTR_MASK2, 0);
-@@ -798,7 +780,7 @@ static int rk3066_hdmi_bind(struct device *dev, struct device *master,
- 
- 	ret = rk3066_hdmi_register(drm, hdmi);
- 	if (ret)
--		goto err_disable_i2c;
-+		goto err_disable_hclk;
- 
- 	dev_set_drvdata(dev, hdmi);
- 
-@@ -813,10 +795,7 @@ static int rk3066_hdmi_bind(struct device *dev, struct device *master,
- 	return 0;
- 
- err_cleanup_hdmi:
--	hdmi->connector.funcs->destroy(&hdmi->connector);
- 	hdmi->encoder.encoder.funcs->destroy(&hdmi->encoder.encoder);
--err_disable_i2c:
--	i2c_put_adapter(hdmi->ddc);
- err_disable_hclk:
- 	clk_disable_unprepare(hdmi->hclk);
- 
-@@ -828,10 +807,8 @@ static void rk3066_hdmi_unbind(struct device *dev, struct device *master,
- {
- 	struct rk3066_hdmi *hdmi = dev_get_drvdata(dev);
- 
--	hdmi->connector.funcs->destroy(&hdmi->connector);
- 	hdmi->encoder.encoder.funcs->destroy(&hdmi->encoder.encoder);
- 
--	i2c_put_adapter(hdmi->ddc);
- 	clk_disable_unprepare(hdmi->hclk);
- }
- 
+Best regards,
 -- 
-2.43.0
+Patrice Chotard <patrice.chotard@foss.st.com>
 
 
