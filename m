@@ -4,107 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C62A6C36005
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 08:30:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0692C36005
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 08:31:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yr7t1olrwsxTtck0/lM3DwdKRKb3Z1gEKVydU7fX9vg=; b=ftNe5jgxO9YNIGNYVGcQu53E/A
-	E8R0l834Orp5FiLsUEflQIK1Hydmqk5nzAPuLVpMrLp4uz5ULNllK71m4q6wi3+GZvopbd1r+8oJ1
-	ICLKKhEYCkqjiL16rXqKJQKGbJGexRshKDh4dpWtmmwhsjWVwuvD/my5H2lDf2spc2B7cp1yaw6Fy
-	uo1sNNv2T8V8uP93Zf47bxN4b7Hw+n9s150ENwjZ1omQAYVRf8Na+4bIuZQow+rSwlH3Z7SwCXom3
-	hQT6NU9v8Q6FNchKKjgcEnNa/sB3Zf0uiu7NUoVk/8qaKEViBTEyeoz2edsHn8MdTkFOCpNJk2dTi
-	7o6HtjMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hju8e8bkKiVvaXrgWmT1aJHhrIUpIH//AB39ScrzTHE=; b=27jEFkvNuw04skWUsVQAYKvf1c
+	ITyLP/zpYlACyrJfaSJodyhhl0Kw04I2dU9XnhaIj+AHBemDKuQe+JhOUUX0G39LNOgtXSRWca+0u
+	ruI1jeJ7VvNw0FV58CDJvtoxCreeZmC8OVbvdQwh0EwhwZUjmvBa6IxJMbi+jdZ+OcP6JmbqjZteM
+	rhXfRJFP2WvjzbgMqexdCPg4TAdDNc8vg5RdAPqCWuJOGqoR7vz0tJsqOY264jvaXYXurl9IQaSIu
+	+y2LKNyzT5ZNuhI01j+mxWsggSxuYtI1ycahcl+/m0TqON1xIaH0Iy0ceXjcmjrPj7j7NiKDHjib3
+	UU/ncRtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9JsD-00000005RjI-3ZRR;
-	Mon, 28 Apr 2025 08:29:57 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1u9JtD-00000005S5x-1yDm;
+	Mon, 28 Apr 2025 08:30:59 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9JiA-00000005O3A-47IV
+	id 1u9InZ-00000005E4X-2Ftv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 08:19:37 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53S10w7P021339;
-	Mon, 28 Apr 2025 10:19:25 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	yr7t1olrwsxTtck0/lM3DwdKRKb3Z1gEKVydU7fX9vg=; b=hdMwjSORmCF7wlLm
-	irCx7AnOE8qIJNbjPKSlLflA4pJaS5QX9+kDvKlOKc0Bryt1Z6wnrJJqERnf9NKD
-	c/3SU4ACwMwXZCt1byR8rs0K0MBb6CyEdDssM991Jrcw+OBgUW99LeD0Kml0SgsG
-	MqPhHzQYIEDEYR29tSwc4qAPBZQeG3+IFqbFliIB4E2AfL8rabyB5VxYeySrfx2M
-	6YEP1gmhXIxuN6EedCVN/QmI7Sg+leAeo3WruQudKtDMscZ/wXtdN4TMj0KCzzrt
-	cpWe80Mr2F2LtoOr0yOos5ZaBOWhByW6LWlANsoXQ0AwdHY6scYRQbTpxJMf5l+n
-	MGHDTg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 468mm9drpq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 28 Apr 2025 10:19:25 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 2352040048;
-	Mon, 28 Apr 2025 10:17:43 +0200 (CEST)
-Received: from Webmail-eu.st.com (eqndag1node5.st.com [10.75.129.134])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 81ED0A2D14A;
-	Mon, 28 Apr 2025 10:16:05 +0200 (CEST)
-Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE5.st.com
- (10.75.129.134) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 28 Apr
- 2025 10:16:05 +0200
-Received: from [10.48.86.121] (10.48.86.121) by SAFDAG1NODE1.st.com
- (10.75.90.17) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 28 Apr
- 2025 10:16:04 +0200
-Message-ID: <698066cd-6fee-4fd8-9caf-0f5fbd19fda6@foss.st.com>
-Date: Mon, 28 Apr 2025 10:16:03 +0200
+	Mon, 28 Apr 2025 07:21:07 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53S7KuMk2728379
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 28 Apr 2025 02:20:56 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1745824856;
+	bh=hju8e8bkKiVvaXrgWmT1aJHhrIUpIH//AB39ScrzTHE=;
+	h=From:To:Subject:Date:In-Reply-To:References;
+	b=wLXUeqfKXwyXJ6Y/Bi35hKwKJj8bUsQ43jK3o0lVEIOPtkyJFKEqgA1Y6q/otZC5a
+	 YtCc8K4dbMxI0B0xStqz8y3kbINjDkLZ2NcdHnKRgBuLr7OBTzJ+2VGdFSbA50py7i
+	 lwkp8Us4BcEISeUleWseJc/MtRZhlai/mkLU290s=
+Received: from DFLE111.ent.ti.com (dfle111.ent.ti.com [10.64.6.32])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53S7KusE073324
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 28 Apr 2025 02:20:56 -0500
+Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE111.ent.ti.com
+ (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 28
+ Apr 2025 02:20:55 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 28 Apr 2025 02:20:55 -0500
+Received: from uda0498651.dhcp.ti.com (uda0498651.dhcp.ti.com [172.24.227.7])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53S7KdMa068873;
+	Mon, 28 Apr 2025 02:20:51 -0500
+From: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+To: <peter.ujfalusi@gmail.com>, <vkoul@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nm@ti.com>,
+        <ssantosh@kernel.org>, <s-adivi@ti.com>, <dmaengine@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <praneeth@ti.com>,
+        <vigneshr@ti.com>, <u-kumar1@ti.com>, <a-chavda@ti.com>
+Subject: [PATCH 1/8] dt-bindings: dma: ti: Add document for K3 BCDMA V2
+Date: Mon, 28 Apr 2025 12:50:25 +0530
+Message-ID: <20250428072032.946008-2-s-adivi@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250428072032.946008-1-s-adivi@ti.com>
+References: <20250428072032.946008-1-s-adivi@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/4] of: Common "memory-region" parsing
-To: "Rob Herring (Arm)" <robh@kernel.org>,
-        Saravana Kannan
-	<saravanak@google.com>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        "Bjorn
- Andersson" <andersson@kernel.org>,
-        Mathieu Poirier
-	<mathieu.poirier@linaro.org>,
-        Shawn Guo <shawnguo@kernel.org>,
-        Sascha Hauer
-	<s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>,
-        Patrice Chotard
-	<patrice.chotard@foss.st.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Chen-Yu Tsai
-	<wens@kernel.org>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-remoteproc@vger.kernel.org>, <imx@lists.linux.dev>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-arm-msm@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        Daniel Baluta
-	<daniel.baluta@nxp.com>
-References: <20250423-dt-memory-region-v2-v2-0-2fbd6ebd3c88@kernel.org>
-Content-Language: en-US
-From: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
-Organization: STMicroelectronics
-In-Reply-To: <20250423-dt-memory-region-v2-v2-0-2fbd6ebd3c88@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.121]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SAFDAG1NODE1.st.com
- (10.75.90.17)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-04-28_03,2025-04-24_02,2025-02-21_01
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_011935_298232_A7F983CA 
-X-CRM114-Status: GOOD (  15.87  )
+X-CRM114-CacheID: sfid-20250428_002105_671802_5067A6A8 
+X-CRM114-Status: GOOD (  15.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,75 +87,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+New binding document for
+Texas Instruments K3 Block Copy DMA (BCDMA) V2.
 
+BCDMA V2 is introduced as part of AM62L.
 
-On 4/23/25 21:42, Rob Herring (Arm) wrote:
-> While there's a common function to parse "memory-region" properties for
-> DMA pool regions, there's not anything for driver private regions. As a
-> result, drivers have resorted to parsing "memory-region" properties
-> themselves repeating the same pattern over and over. To fix this, this
-> series adds 2 functions to handle those cases:
-> of_reserved_mem_region_to_resource() and of_reserved_mem_region_count().
-> 
-> I've converted the whole tree, but just including remoteproc here as
-> it has the most cases. I intend to apply the first 3 patches for 6.16
-> so the driver conversions can be applied for 6.17.
-> 
-> A git tree with all the drivers converted is here[1].
-> 
-> v2:
-> - Fix of_dma_set_restricted_buffer() to maintain behavior on warning msg
-> - Export devm_ioremap_resource_wc()
-> - Rework handling of resource name to drop unit-address from name as it 
->   was before.
-> - Link to v1: 
->   https://lore.kernel.org/all/20250317232426.952188-1-robh@kernel.org
-> 
-> [1] git://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git dt/memory-region
-> 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
-> Rob Herring (Arm) (4):
->       of: reserved_mem: Add functions to parse "memory-region"
->       of: Simplify of_dma_set_restricted_buffer() to use of_for_each_phandle()
->       devres: Export devm_ioremap_resource_wc()
->       remoteproc: Use of_reserved_mem_region_* functions for "memory-region"
-> 
->  drivers/of/device.c                       | 31 +++++-------
->  drivers/of/of_reserved_mem.c              | 80 +++++++++++++++++++++++++++++++
->  drivers/remoteproc/imx_dsp_rproc.c        | 45 +++++++----------
->  drivers/remoteproc/imx_rproc.c            | 68 +++++++++++---------------
->  drivers/remoteproc/qcom_q6v5_adsp.c       | 24 ++++------
->  drivers/remoteproc/qcom_q6v5_mss.c        | 60 ++++++++---------------
->  drivers/remoteproc/qcom_q6v5_pas.c        | 69 ++++++++++----------------
->  drivers/remoteproc/qcom_q6v5_wcss.c       | 25 ++++------
->  drivers/remoteproc/qcom_wcnss.c           | 23 ++++-----
->  drivers/remoteproc/rcar_rproc.c           | 36 ++++++--------
->  drivers/remoteproc/st_remoteproc.c        | 41 ++++++++--------
->  drivers/remoteproc/stm32_rproc.c          | 44 ++++++++---------
->  drivers/remoteproc/ti_k3_dsp_remoteproc.c | 28 +++++------
->  drivers/remoteproc/ti_k3_m4_remoteproc.c  | 28 +++++------
->  drivers/remoteproc/ti_k3_r5_remoteproc.c  | 28 +++++------
->  drivers/remoteproc/xlnx_r5_remoteproc.c   | 51 ++++++++------------
->  include/linux/of_reserved_mem.h           | 26 ++++++++++
->  lib/devres.c                              |  1 +
->  18 files changed, 339 insertions(+), 369 deletions(-)
-> ---
-> base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
-> change-id: 20250423-dt-memory-region-v2-a2b15caacc63
-> 
+Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+---
+ .../bindings/dma/ti/k3-bcdma-v2.yaml          | 97 +++++++++++++++++++
+ 1 file changed, 97 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/dma/ti/k3-bcdma-v2.yaml
 
-Testing of the series on the STM32MP15 platform has passed.
+diff --git a/Documentation/devicetree/bindings/dma/ti/k3-bcdma-v2.yaml b/Documentation/devicetree/bindings/dma/ti/k3-bcdma-v2.yaml
+new file mode 100644
+index 0000000000000..af4aa3839fd66
+--- /dev/null
++++ b/Documentation/devicetree/bindings/dma/ti/k3-bcdma-v2.yaml
+@@ -0,0 +1,97 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++# Copyright (C) 2024-2025 Texas Instruments Incorporated
++# Author: Sai Sree Kartheek Adivi <s-adivi@ti.com>
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/dma/ti/k3-bcdma-v2.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Texas Instruments K3 DMSS BCDMA V2
++
++maintainers:
++  - Sai Sree Kartheek Adivi <s-adivi@ti.com>
++
++description: |
++  The BCDMA V2 is intended to perform similar functions as the TR
++  mode channels of K3 UDMA-P.
++  BCDMA V2 includes block copy channels and Split channels.
++
++  Block copy channels mainly used for memory to memory transfers, but with
++  optional triggers a block copy channel can service peripherals by accessing
++  directly to memory mapped registers or area.
++
++  Split channels can be used to service PSI-L based peripherals.
++  The peripherals can be PSI-L native or legacy, non PSI-L native peripherals
++  with PDMAs. PDMA is tasked to act as a bridge between the PSI-L fabric and the
++  legacy peripheral.
++
++allOf:
++  - $ref: /schemas/dma/dma-controller.yaml#
++
++properties:
++  compatible:
++    const: ti,dmss-bcdma-v2
++
++  reg:
++    items:
++      - description: BCDMA Control /Status Registers region
++      - description: Block Copy Channel Realtime Registers region
++      - description: Channel Realtime Registers region
++      - description: Ring Realtime Registers region
++
++  reg-names:
++    items:
++      - const: gcfg
++      - const: bchanrt
++      - const: chanrt
++      - const: ringrt
++
++  "#dma-cells":
++    const: 4
++    description: |
++      cell 1: Trigger type for the channel
++        0 - disable / no trigger
++        1 - internal channel event
++        2 - external signal
++        3 - timer manager event
++
++      cell 2: parameter for the trigger:
++        if cell 1 is 0 (disable / no trigger):
++          Unused, ignored
++        if cell 1 is 1 (internal channel event):
++          channel number whose TR event should trigger the current channel.
++        if cell 1 is 2 or 3 (external signal or timer manager event):
++          index of global interfaces that come into the DMA.
++
++          Please refer to the device documentation for global interface indexes.
++
++      cell 3: Channel number for the peripheral
++
++        Please refer to the device documentation for the channel map.
++
++      cell 4: ASEL value for the channel
++
++required:
++  - compatible
++  - "#dma-cells"
++  - reg
++  - reg-names
++
++unevaluatedProperties: false
++
++examples:
++  - |+
++    cbass_main {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++      main_bcdma: dma-controller@485c4000 {
++          compatible = "ti,dmss-bcdma-v2";
++          reg = <0x00 0x485c4000 0x00 0x4000>,
++                <0x00 0x48880000 0x00 0x10000>,
++                <0x00 0x48800000 0x00 0x80000>,
++                <0x00 0x47000000 0x00 0x200000>;
++          reg-names = "gcfg", "bchanrt", "chanrt", "ringrt";
++          #dma-cells = <4>;
++        };
++    };
+-- 
+2.34.1
 
-just one minor comment in patch 1/4.
-
-Acked-by: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
-
-Thanks,
-Arnaud
-
-
-
-
-> Best regards,
 
