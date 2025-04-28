@@ -4,60 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF245C36005
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 08:56:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97E26C369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 08:58:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4K3Qwsa6osT47RC+pxezJV4ZKGVwxR2f9TSemPDQ+RM=; b=ZmL579eIMv+rj0guEUQ29H8c2q
-	EZIG/y/l6XJcoLmdfpV6ntDievImTjO9pIDHzv+q4+1MRnZ7lERWhsWjWOxpirNBVX8X3cACEs6Ob
-	+D/AJppkrpdp8xHmEnxsvkJyi4mH+utn3OQFjkoFRSpCPRJ2bYCQlHqPp4foZ/Eql0UwqIfKjGvT8
-	k/brQEXoip3QCXcZRtGp/CCeAc9eSAMv/jaguSX50K7DImoEs+fIrZ0c/gLEzrdhRBDs9PsULnlbo
-	ktN04ttHMUvh0aRYPZCosSqYZ8wi3T9qtTcCpIYDlDwjAh4V1AqlCdUuLdX+3Z597y5Hq+lg0FA9q
-	PNRmZmJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ToFVU9D0kJNOUVuQ9UJi9Bxt0XxkB1xPx18ssjBYmrE=; b=umixWygXvqiFeX
+	gXuvonwhlbQ0kIWiwmnsd1h+3n+EcR9hXNUtaqN2HzPvTgmuCEkKbbZnKE4VVXWQR43AYm6ejQ8pG
+	4x6iCq4xFByYu2dD5LD73BwA7fGbHb9Gni46HAloLh8VpKDNPBhucr/H2V5HOctXwaB4gRZyT7E3N
+	8qMgnAswPqK+xp+aBYikNYHm/PCEyX7dw9dW/Tkr3XmhWKBirKZtbtP7Nnk6KpvkbXlfZOAdGjfJA
+	yJTTz668wdXS00CDI8DoKmrirg1LwQWsvEsR9/TiP962PcIMRkUXt2b4xjwNAW+sAolAM8qVqNHs2
+	X4vXA0n/7iSSUwsCmibg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9KHW-00000005WoN-2TyF;
-	Mon, 28 Apr 2025 08:56:06 +0000
-Received: from mail-m16.yeah.net ([1.95.21.16])
+	id 1u9KJS-00000005X3v-1Q1m;
+	Mon, 28 Apr 2025 08:58:06 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9K4r-00000005V0e-0b2T
+	id 1u9K4t-00000005V0j-0VVF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 08:43:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
-	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=4K3Qwsa6osT47RC+pxezJV4ZKGVwxR2f9TSemPDQ+RM=;
-	b=qbJT/6nX6mSTCQCOCMYGvgyL6IwI2sY+D7ktj7c1vVNdgBMTucsfXvR6K3XRjs
-	vRDzyVAMsX2o6BT0P2KQSBJZEFL0QAD/MLLmLqcTaCg6EZY7nLjeEYvw2Q6NiQZ0
-	odel16PFErR6M7H8A5SaTyRkfPBwuSiti4uiuAVmFjP64=
-Received: from dragon (unknown [])
-	by gzsmtp1 (Coremail) with SMTP id Mc8vCgAHLyR8Pw9oAgMVAA--.28245S3;
-	Mon, 28 Apr 2025 16:42:38 +0800 (CST)
-Date: Mon, 28 Apr 2025 16:42:36 +0800
-From: Shawn Guo <shawnguo2@yeah.net>
-To: soc@kernel.org, arm@kernel.org
-Cc: Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
-	kernel@pengutronix.de, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] i.MX fixes for 6.15
-Message-ID: <aA8/fFzh22s1Vtl1@dragon>
+	Mon, 28 Apr 2025 08:43:04 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53S11AlL010275;
+	Mon, 28 Apr 2025 10:42:55 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=ToFVU9D0kJNOUVuQ9UJi9B
+	xt0XxkB1xPx18ssjBYmrE=; b=qMY1A8KCvC06tdGpOMDtLnwr5pI1X1/Q1B1q+w
+	0bPw5LMf9CbVxtCBOrtFXJWu9nVRVYndDfGgqh8BtU2r4nSS+gttrGRIrYGVQpuV
+	p6gxg3mexbGS0iWdV1RPCmurva3KUy8mR5ydMsmvp6EXxDdM+RJLXnBPKXzc586T
+	iEGJ7QBFO4XEe+sUfZOOyWsbzircPMmjcoslXREiurtXdJDEzW1OEqTJtkjb9Unn
+	Q2DBujChnsAWADXd9Ip3DmLjBobcpwj4PNG8LnEoBxFhBdOIG6C1tqlUWNJYZfFQ
+	vJMghCgvlEtOzX0E1ISRyq1/9zlgxRbriEk+my6rEF3KFKbw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 468pcg5njj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 28 Apr 2025 10:42:55 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 1F79640055;
+	Mon, 28 Apr 2025 10:41:59 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id E9456A3D589;
+	Mon, 28 Apr 2025 10:40:44 +0200 (CEST)
+Received: from localhost (10.48.87.62) by SHFDAG1NODE1.st.com (10.75.129.69)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 28 Apr
+ 2025 10:40:44 +0200
+From: Patrice Chotard <patrice.chotard@foss.st.com>
+Subject: [PATCH v9 0/3] arm64: dts: st: Add SPI NOR support for
+ stm32mp257f-ev1
+Date: Mon, 28 Apr 2025 10:40:20 +0200
+Message-ID: <20250428-upstream_omm_ospi_dts-v9-0-62522b1b0922@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: Mc8vCgAHLyR8Pw9oAgMVAA--.28245S3
-X-Coremail-Antispam: 1Uf129KBjvJXoW7Zr1xCr47JF4rKFyDWw48Zwb_yoW8uF4UpF
-	y3CrnxGr48Jr1xZrnxt3Wqq345Jws5A3WYvF13X340yF15Ar18Xrs8W34FgryUAryIv3yY
-	yFyxtr9rK3WrZF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07Uu6wNUUUUU=
-X-Originating-IP: [117.81.80.76]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiARk9ZWgPB4HeVgAAsp
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAPQ+D2gC/x2MMQqAMAwAvyKZLcSiSP2KiNQaNUNraVQE8e8Wh
+ xtuuHtAKDEJdMUDiS4W3kMWUxbgNhtWUjxnB426wbpCdUY5Elk/7j4jkcf5EIX1ZFrnUFOjIbc
+ x0cL3/+2H9/0AznUuTWcAAAA=
+X-Change-ID: 20250410-upstream_omm_ospi_dts-04b97cc02e52
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>
+CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        Patrice Chotard <patrice.chotard@foss.st.com>
+X-Mailer: b4 0.14.2
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-04-28_03,2025-04-24_02,2025-02-21_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_014301_592362_95694BBB 
-X-CRM114-Status: UNSURE (   8.16  )
+X-CRM114-CacheID: sfid-20250428_014303_434438_E80A4963 
+X-CRM114-Status: UNSURE (   7.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,56 +98,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
+Add SPI NOR support for stm32mp257f-ev1 board by adding:
+  _ Octo memory Manager node in stm32mp251.dtsi
+  _ OSPI port1 pinctrl entries in stm32mp25-pinctrl.dtsi
+  _ Add SPI NOR support for stm32mp257f-ev1.dts
 
-  Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Maxime Coquelin <mcoquelin.stm32@gmail.com>
+To: Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: devicetree@vger.kernel.org
+Cc: linux-stm32@st-md-mailman.stormreply.com
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
 
-are available in the Git repository at:
+Changes in v9:
+  - split patchset by susbsystem, current one include only DTS related
+    patches.
+  - Link to v8: https://lore.kernel.org/r/20250407-upstream_ospi_v6-v8-0-7b7716c1c1f6@foss.st.com
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux.git tags/imx-fixes-6.15
+---
+Patrice Chotard (3):
+      arm64: dts: st: Add OMM node on stm32mp251
+      arm64: dts: st: Add ospi port1 pinctrl entries in stm32mp25-pinctrl.dtsi
+      arm64: dts: st: Add SPI NOR flash support on stm32mp257f-ev1 board
 
-for you to fetch changes up to 5591ce0069ddda97cdbbea596bed53e698f399c2:
+ arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi | 51 +++++++++++++++++++++++++
+ arch/arm64/boot/dts/st/stm32mp251.dtsi        | 54 +++++++++++++++++++++++++++
+ arch/arm64/boot/dts/st/stm32mp257f-ev1.dts    | 32 ++++++++++++++++
+ 3 files changed, 137 insertions(+)
+---
+base-commit: 65954899a157832f68536b488194cf698248a26e
+change-id: 20250410-upstream_omm_ospi_dts-04b97cc02e52
 
-  arm64: dts: imx8mm-verdin: Link reg_usdhc2_vqmmc to usdhc2 (2025-04-27 21:49:30 +0800)
-
-----------------------------------------------------------------
-i.MX fixes for 6.15:
-
-- An i.MX8MP change from Ahmad Fatoum to fix the broken nominal device
-  tree caused by commit 9f7595b3e5ae ("arm64: dts: imx8mp: configure
-  GPU and NPU clocks to overdrive rate")
-- A MAINTAINERS update from Michael Riesch to exclude Sony IMX image
-  sensor drivers from i.MX entry
-- A i.MX95 device tree change from Richard Zhu to correct the range of
-  PCIe app-reg region
-- An opos6ul device tree change from Sébastien Szymanski to fix
-  an Ethernet regression caused by commit c7e73b5051d6 ("ARM: imx:
-  mach-imx6ul: remove 14x14 EVK specific PHY fixup")
-- An imx8mm-verdin device tree change from Wojciech Dubowik to fix
-  a SD card regression caused by commit f5aab0438ef1 ("regulator:
-  pca9450: Fix enable register for LDO5")
-
-----------------------------------------------------------------
-Ahmad Fatoum (1):
-      arm64: dts: imx8mp: configure GPU and NPU clocks in nominal DTSI
-
-Michael Riesch (1):
-      MAINTAINERS: add exclude for dt-bindings to imx entry
-
-Richard Zhu (1):
-      arm64: dts: imx95: Correct the range of PCIe app-reg region
-
-Sébastien Szymanski (1):
-      ARM: dts: opos6ul: add ksz8081 phy properties
-
-Wojciech Dubowik (1):
-      arm64: dts: imx8mm-verdin: Link reg_usdhc2_vqmmc to usdhc2
-
- MAINTAINERS                                        |  1 +
- .../boot/dts/nxp/imx/imx6ul-imx6ull-opos6ul.dtsi   |  3 +++
- arch/arm64/boot/dts/freescale/imx8mm-verdin.dtsi   | 25 ++++++++++++++++-----
- arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi  | 26 ++++++++++++++++++++++
- arch/arm64/boot/dts/freescale/imx95.dtsi           |  8 +++----
- 5 files changed, 54 insertions(+), 9 deletions(-)
+Best regards,
+-- 
+Patrice Chotard <patrice.chotard@foss.st.com>
 
 
