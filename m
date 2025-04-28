@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DD93C36005
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 09:34:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C5EEC369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 09:36:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vwhUAkS3cazTgu1ixJlDCgiVSObXr9IQzcLrs4WtgME=; b=HaRsS0sqSYaSgOO6Yvj8Jq8Ayt
-	R9Y8CoJ1w+i8QI7MAoHBJEC91y1tVtSi99gUR2UirIq5bLNoqtZJpyZpb9abkLxiUdSzSYbu0zdaJ
-	68GUtsA312NdOAqorC4bpBzd3Omn/lQ34RIHq95nvyqWgSQ45Whjwq79hRd3CakUutd8IFcjsHRSM
-	W2UkQ9Js69RESu+ArGiKq7njueJgb/tKPV4Cb50B/50NGqBIxKm1AxDIznU07yLZRo0IwPmCvr6O8
-	N/3CLn9+2j+sumW1eYN9TZAJH4r75qu10NviqSdE9Lrol5n/Lu5sc2o5GdKSMTwhMKDxaj460wW8h
-	DGeX/qaQ==;
+	bh=eTLsTlS8eMJKdJCVodg4kjQi7Lo19qE63VJ34E86yUo=; b=Coryja/wg7i8fq7fe+NyvgBneo
+	PBnZGdnolpeuhZJS+KR+K1C1Uv+xRBqXRDY926McygtLQQcUbpVdEhWbhYGxjgB4lc2jpe8AA/XnY
+	Xmpnk8GxhGDxyn9wXc+/+RSw5NKiDKLNGIB8D/yj3BiTksLj2+NK100fAkp8yKQ+HBVpPm3nmLnnW
+	5XUnqn+ndZ1nJwxxaAKN14IaXGzUY0COyggfi2USBOZeqytWYx/Nq0DfoM5WKI+w8OWViNxiQaPbb
+	f9sAN+qWuyW/4EbI+hj9ivaJTyo5DrP2PEEmeEHkTLczXReIaMaj5yE5Tz1Br4lzhKf5pKJHY0L27
+	NEpcp7gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9KsQ-00000005eWp-0Auo;
-	Mon, 28 Apr 2025 09:34:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u9KuL-00000005fAu-3dIk;
+	Mon, 28 Apr 2025 09:36:13 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9KY0-00000005YsK-1hap
+	id 1u9KZU-00000005Z40-0Ta4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 09:13:08 +0000
+	Mon, 28 Apr 2025 09:14:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5CFF76115E;
-	Mon, 28 Apr 2025 09:12:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75A4AC4CEE4;
-	Mon, 28 Apr 2025 09:13:01 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3AA205C6228;
+	Mon, 28 Apr 2025 09:12:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE0A1C4CEE4;
+	Mon, 28 Apr 2025 09:14:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745831584;
-	bh=8/Q6dFD+zrTw12D8hBm+NBdKWBBVcv2MlmfVZOsi7j8=;
+	s=k20201202; t=1745831679;
+	bh=3mooRQIC6lHjmcuTQZDbijgFKmau+h4oMhEwGe252X4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Un1KF/nuaV9SmLPVWpPiCJYK3v/qOfiRJ3+xG9zjXKzANZMACtnfyxwPHCI0lIuL5
-	 iPANtUVhCWvMlbXHLStMEf1lIHhckKlsfchhPWr8zE8kEYrekeRnGkStS+hJaQjuKK
-	 XZr6zEVsLcatG3acLH16zQOrV7Qa+F9RXDAlk/H952SFWp6EyLz7D2HnOVhf30h2Zf
-	 rJdFWScj7WVnytbTb7nr682+/AjbIEXdh8PP2CW4IBIAzCYBKQ+2xhKyGoz2bzQBK7
-	 wL61nBv3V6Il6XyrotS2pAO5rFbJ5WRKsRt2e2lW9KP8wLCuoZ/hiB8sfhdgqDFXQF
-	 u7TalDhKZsPUw==
-Message-ID: <cc76fdc3-761f-4171-aec4-02f5e6013cb8@kernel.org>
-Date: Mon, 28 Apr 2025 11:13:00 +0200
+	b=X+II3cayIGgO6GRr9Ux3EeSzND6LJbGGipMPQIpkJP6Huhdgsanttzf/8p92QeSR1
+	 lNYbUYQoBm8ck8HKqy1oOyoWfGn11VovJM5TqVxBW111/9YPYuuCRB2WSDkye7sJ+V
+	 WF6ZDmjurQgLDet2+l/QKIvAWzUUfmEwDL0eA6WcesVWeTVUXyRVvwB/qtOxZlFabc
+	 m/ZR1Gbb6pIuUfQ6tRHimrS43ndhE9N7801oywPngP3tYOApkkltNrrnibGkjCDbmp
+	 Fm8grY3pEUmfx9wfnQ9sYkC1ElbNlk37aUnMeHsKAPg1YiF6u3vcNOscs7hyOE/sPu
+	 RbhWFMvMyYwgw==
+Message-ID: <a3438b8b-0fd2-454f-a539-39aa7cfcd57b@kernel.org>
+Date: Mon, 28 Apr 2025 11:14:33 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: clock: exynosautov920: add cpucl1/2
- clock definitions
+Subject: Re: [PATCH 2/3] clk: samsung: exynosautov920: add cpucl1/2 clock
+ support
 To: Shin Son <shin.son@samsung.com>,
  Sylwester Nawrocki <s.nawrocki@samsung.com>,
  Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
@@ -58,8 +58,8 @@ Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
 References: <20250428084721.3832664-1-shin.son@samsung.com>
- <CGME20250428084728epcas2p34ffa0051a16c10ff1c358a98cc2c2fa4@epcas2p3.samsung.com>
- <20250428084721.3832664-2-shin.son@samsung.com>
+ <CGME20250428084728epcas2p17a0253f04de15c23ab6362113a0d47bb@epcas2p1.samsung.com>
+ <20250428084721.3832664-3-shin.son@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,9 +105,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250428084721.3832664-2-shin.son@samsung.com>
+In-Reply-To: <20250428084721.3832664-3-shin.son@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250428_021440_241672_B4DA2DA3 
+X-CRM114-Status: GOOD (  16.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,40 +126,34 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 28/04/2025 10:47, Shin Son wrote:
-> Add cpucl1 and cpucl2 clock definitions.
+> Register compatible and cmu_info data to support clock CPUCL1/2
+> (CPU Cluster 1 and CPU Cluster 2),
+> these provide clock for CPUCL1/2_SWTICH/CLUSTER.
 > 
-> CPUCL1/2 refer to CPU Cluster 1 and CPU Cluster 2,
-> which provide clock support for the CPUs on Exynosauto V920 SoC.
-
-You should have sent all cpcl0-2 together, so we see complete picture.
-
+> These clocks are required early during boot for the CPUs,
+> so they are declared using CLK_OF_DECLARE instead of being registered
+> through a platform driver.
 > 
 > Signed-off-by: Shin Son <shin.son@samsung.com>
 > ---
->  .../clock/samsung,exynosautov920-clock.yaml   | 45 +++++++++++++++++++
->  .../clock/samsung,exynosautov920.h            | 32 +++++++++++++
->  2 files changed, 77 insertions(+)
+>  drivers/clk/samsung/clk-exynosautov920.c | 208 ++++++++++++++++++++++-
+>  1 file changed, 207 insertions(+), 1 deletion(-)
 > 
+> diff --git a/drivers/clk/samsung/clk-exynosautov920.c b/drivers/clk/samsung/clk-exynosautov920.c
+> index 8021e0912e50..f8168eed4a66 100644
+> --- a/drivers/clk/samsung/clk-exynosautov920.c
+> +++ b/drivers/clk/samsung/clk-exynosautov920.c
+> @@ -18,7 +18,9 @@
+>  
+>  /* NOTE: Must be equal to the last clock ID increased by one */
+>  #define CLKS_NR_TOP			(DOUT_CLKCMU_TAA_NOC + 1)
+> -#define CLKS_NR_CPUCL0			(CLK_DOUT_CLUSTER0_PERIPHCLK + 1)
+> +#define CLKS_NR_CPUCL0			(CLK_DOUT_CPUCL0_NOCP + 1)
 
 
-...
+You just added that line a week ago and it is already incorrect? Then it
+needs patch on its own explaining what are you fixing.
 
-> +    then:
-> +      properties:
-> +        clocks:
-> +          items:
-> +            - description: External reference clock (38.4 MHz)
-> +            - description: CMU_CPUCL2 SWITCH clock (from CMU_TOP)
-> +            - description: CMU_CPUCL2 CLUSTER clock (from CMU_TOP)
-> +
-> +        clock-names:
-> +          items:
-> +            - const: oscclk
-> +            - const: switch
-> +            - const: cluster
-> +
-> +
-Just one blank line.
 
 Best regards,
 Krzysztof
