@@ -4,63 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D895C36005
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 09:32:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DD93C36005
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 09:34:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mXqOF0zItQm0/6dSL7+HvHvhO+2+acJmJkk/veJ0LL4=; b=jidQfXriacnXay+eGqKctskBpx
-	LTq56g5VpOJ/ZdJFnMMMPJ/Rb/i0JQG7+ioZNiwl+bzgbiO3CHj4GHxbPPL59VfPqXAAy/CTgUWec
-	WrVhuYtNF6rJlBXqR9FTv3MnNKaa01yM8G+6/gmuSuQX99fVgcqHDB2UXdarG8vlVcvezxGJUPU85
-	xQ5rGbsK+3nJ/N1cs1VR8Co+/rgOaW3sjeQdMefKI0ip9bAcDx0qSXv4klf0xTpalR7yOurcTmQoe
-	UuSrnIqwrEzciTQKe/ZfY8JYQQg10ekWdnwp6EzqXy9nuGeexTh6tmj6IoYnUSfZ84deBSCrXWgoN
-	0VDIcscw==;
+	bh=vwhUAkS3cazTgu1ixJlDCgiVSObXr9IQzcLrs4WtgME=; b=HaRsS0sqSYaSgOO6Yvj8Jq8Ayt
+	R9Y8CoJ1w+i8QI7MAoHBJEC91y1tVtSi99gUR2UirIq5bLNoqtZJpyZpb9abkLxiUdSzSYbu0zdaJ
+	68GUtsA312NdOAqorC4bpBzd3Omn/lQ34RIHq95nvyqWgSQ45Whjwq79hRd3CakUutd8IFcjsHRSM
+	W2UkQ9Js69RESu+ArGiKq7njueJgb/tKPV4Cb50B/50NGqBIxKm1AxDIznU07yLZRo0IwPmCvr6O8
+	N/3CLn9+2j+sumW1eYN9TZAJH4r75qu10NviqSdE9Lrol5n/Lu5sc2o5GdKSMTwhMKDxaj460wW8h
+	DGeX/qaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9KqU-00000005drm-0ovH;
-	Mon, 28 Apr 2025 09:32:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9KRj-00000005Y6n-2hO2
+	id 1u9KsQ-00000005eWp-0Auo;
+	Mon, 28 Apr 2025 09:34:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u9KY0-00000005YsK-1hap
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 09:06:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5EDDB1595;
-	Mon, 28 Apr 2025 02:06:32 -0700 (PDT)
-Received: from [10.1.37.44] (Suzukis-MBP.cambridge.arm.com [10.1.37.44])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 00B283F673;
-	Mon, 28 Apr 2025 02:06:35 -0700 (PDT)
-Message-ID: <3094b6e7-0de9-43a3-9678-4b1844aa600c@arm.com>
-Date: Mon, 28 Apr 2025 10:06:35 +0100
+	Mon, 28 Apr 2025 09:13:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5CFF76115E;
+	Mon, 28 Apr 2025 09:12:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75A4AC4CEE4;
+	Mon, 28 Apr 2025 09:13:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745831584;
+	bh=8/Q6dFD+zrTw12D8hBm+NBdKWBBVcv2MlmfVZOsi7j8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Un1KF/nuaV9SmLPVWpPiCJYK3v/qOfiRJ3+xG9zjXKzANZMACtnfyxwPHCI0lIuL5
+	 iPANtUVhCWvMlbXHLStMEf1lIHhckKlsfchhPWr8zE8kEYrekeRnGkStS+hJaQjuKK
+	 XZr6zEVsLcatG3acLH16zQOrV7Qa+F9RXDAlk/H952SFWp6EyLz7D2HnOVhf30h2Zf
+	 rJdFWScj7WVnytbTb7nr682+/AjbIEXdh8PP2CW4IBIAzCYBKQ+2xhKyGoz2bzQBK7
+	 wL61nBv3V6Il6XyrotS2pAO5rFbJ5WRKsRt2e2lW9KP8wLCuoZ/hiB8sfhdgqDFXQF
+	 u7TalDhKZsPUw==
+Message-ID: <cc76fdc3-761f-4171-aec4-02f5e6013cb8@kernel.org>
+Date: Mon, 28 Apr 2025 11:13:00 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 06/11] dt-bindings: arm:
- arm,coresight-static-replicator: add optional clocks
-Content-Language: en-GB
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Georgi Djakov <djakov@kernel.org>,
- Lee Jones <lee@kernel.org>, Mike Leach <mike.leach@linaro.org>,
- James Clark <james.clark@linaro.org>,
- Mathieu Poirier <mathieu.poirier@linaro.org>, Leo Yan <leo.yan@linux.dev>,
- David Heidelberg <david@ixit.cz>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org
-References: <20250425-fix-nexus-4-v3-0-da4e39e86d41@oss.qualcomm.com>
- <20250425-fix-nexus-4-v3-6-da4e39e86d41@oss.qualcomm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20250425-fix-nexus-4-v3-6-da4e39e86d41@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH 1/3] dt-bindings: clock: exynosautov920: add cpucl1/2
+ clock definitions
+To: Shin Son <shin.son@samsung.com>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Sunyeal Hong <sunyeal.hong@samsung.com>
+Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250428084721.3832664-1-shin.son@samsung.com>
+ <CGME20250428084728epcas2p34ffa0051a16c10ff1c358a98cc2c2fa4@epcas2p3.samsung.com>
+ <20250428084721.3832664-2-shin.son@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250428084721.3832664-2-shin.son@samsung.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_020639_731658_549EFC99 
-X-CRM114-Status: GOOD (  14.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,59 +122,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dmitry
+On 28/04/2025 10:47, Shin Son wrote:
+> Add cpucl1 and cpucl2 clock definitions.
+> 
+> CPUCL1/2 refer to CPU Cluster 1 and CPU Cluster 2,
+> which provide clock support for the CPUs on Exynosauto V920 SoC.
 
-On 25/04/2025 18:47, Dmitry Baryshkov wrote:
-> As most other CoreSight devices the replicator can use either of the
-> optional clocks. Document those optional clocks in the schema.
-> Additionally document the one-off case of Zynq-7000 platforms which uses
-> apb_pclk and two additional debug clocks.
-
-What is the plan for merging this series ? I am happy to pick this patch
-via coresight tree.
+You should have sent all cpcl0-2 together, so we see complete picture.
 
 > 
-> Fixes: 3c15fddf3121 ("dt-bindings: arm: Convert CoreSight bindings to DT schema")
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-
-Otherwise,
-
-
-Acked-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-
-Suzuki
-
-
-
+> Signed-off-by: Shin Son <shin.son@samsung.com>
 > ---
->   .../bindings/arm/arm,coresight-static-replicator.yaml       | 13 +++++++++++++
->   1 file changed, 13 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-static-replicator.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-static-replicator.yaml
-> index a6f793ea03b6c193fc0ff72a45e0249a63a2ba3c..0c1017affbad2f03892b250ad864d9a5dc8d02f1 100644
-> --- a/Documentation/devicetree/bindings/arm/arm,coresight-static-replicator.yaml
-> +++ b/Documentation/devicetree/bindings/arm/arm,coresight-static-replicator.yaml
-> @@ -30,6 +30,19 @@ properties:
->     power-domains:
->       maxItems: 1
->   
-> +  clocks:
-> +    minItems: 1
-> +    maxItems: 3
-> +
-> +  clock-names:
-> +    oneOf:
-> +      - items:
-> +          - enum: [apb_pclk, atclk]
-> +      - items: # Zynq-700
-> +          - const: apb_pclk
-> +          - const: dbg_trc
-> +          - const: dbg_apb
-> +
->     in-ports:
->       $ref: /schemas/graph.yaml#/properties/ports
->       additionalProperties: false
+>  .../clock/samsung,exynosautov920-clock.yaml   | 45 +++++++++++++++++++
+>  .../clock/samsung,exynosautov920.h            | 32 +++++++++++++
+>  2 files changed, 77 insertions(+)
 > 
 
+
+...
+
+> +    then:
+> +      properties:
+> +        clocks:
+> +          items:
+> +            - description: External reference clock (38.4 MHz)
+> +            - description: CMU_CPUCL2 SWITCH clock (from CMU_TOP)
+> +            - description: CMU_CPUCL2 CLUSTER clock (from CMU_TOP)
+> +
+> +        clock-names:
+> +          items:
+> +            - const: oscclk
+> +            - const: switch
+> +            - const: cluster
+> +
+> +
+Just one blank line.
+
+Best regards,
+Krzysztof
 
