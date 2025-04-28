@@ -4,62 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EA7FC369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 16:21:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 984F5C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 16:23:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XUW8w4O0Yn/2Hr01MuvON9SigYc2UDOORqOgGF5r4kg=; b=LiYzKLJoTwi7EKu/mL9wP6M3sm
-	XZ19BTnGGOLjdGetPAKxqFNvmNEGnhgIrJTi0TNI1e+uuR88RXaSDD+uCc5uIi8NiZA44DKkAD1aP
-	2isJajbzlWd+UyArLtEfiqCZRKPdn2ocPhLF5slJaezs+BJ3pGqZkiTjIQXsdfkTuqtjPbHu7DiNj
-	jvDG3zqS5cHuZnvajSC7lzZZIATovFxQ5F7rRXA5Yx3NQMGCB3DyeA/0LwD+N8yiNmJ4UkI2DH4Zt
-	83kIH8xpTobpNnHc0hfSStw8WvOpgobNu3inA3Zlx4RQtoo/X8QWHJLAZ0iHxDwSVJFf+4bB35AHz
-	1g8bmAvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ozyYaD4uyMvYAeC6ThRYIW6+h6QCpMFE1Z79BTTe4Ys=; b=POY5nwO1QqKcH5Ggi0I7AFnyQs
+	b1q6cnS426Sih0gpDJeJonB5uN3fzyCrGNOS+Jc34ejR9bJuzITEZMgChlw5MjSylfb4HzoNKu7kD
+	Mu7RIEKcJswRYn6Q91IrYhSS3LacaW7mhFujQYd40Jc5hnfzXDCbP09Ltm8qorIyzZklZ6x8raAPi
+	X009zAgqD8E9eGaVlA7YEGUde7HXXIOeGlGJc5kCX+7Qukv9hB+qpKKOsgtFriZMuQ/a/1ZLxCSsE
+	/DjZ3s0yiwkDia2vBuen21QbNO662mqn8A9rZco5LRb7g+XRD8OXz8RrtGgnrekdIzOeLxC0EAnMD
+	6aAqA0zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9RDy-00000006tuQ-3Lfi;
-	Mon, 28 Apr 2025 16:20:54 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9RAc-00000006tJa-0ZLc
+	id 1u9RGi-00000006ulK-3nTz;
+	Mon, 28 Apr 2025 16:23:44 +0000
+Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u9REj-00000006u6d-3Ubb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 16:17:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E6B1A1007;
-	Mon, 28 Apr 2025 09:17:18 -0700 (PDT)
-Received: from [10.57.90.155] (unknown [10.57.90.155])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C39EA3F66E;
-	Mon, 28 Apr 2025 09:17:21 -0700 (PDT)
-Message-ID: <fb0d2181-4e91-4c1a-9410-8729cbba0dfe@arm.com>
-Date: Mon, 28 Apr 2025 17:17:20 +0100
+	Mon, 28 Apr 2025 16:21:43 +0000
+Received: by mail-yw1-x112c.google.com with SMTP id 00721157ae682-70842dc27easo44088027b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 09:21:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1745857301; x=1746462101; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=ozyYaD4uyMvYAeC6ThRYIW6+h6QCpMFE1Z79BTTe4Ys=;
+        b=MlmTv+8Qjifz7gcNndMWmd/VfUlgHdIWLBbCpo4zA+26beQh6kzVmk5PK81tkhVbOn
+         DiI2I5xAwMQykmWAMatC8HBXnymdVJNHT2Dx0fdzEzgsBCL4bGAxCYcgVtPn1zc26shp
+         vXuq94cmbcJ18N+2j2WYXvE+lwNvxkrmcSoca4VGArTKdiOPD6+IwpMaFPEKpy8fPkuV
+         AWZXOgfLx+kH9haVsgneQydsbzlOCBp0sLMe0F2obI5YVqaVRVPg5bSIe0+FWLSzCzVE
+         CjtEWMHOM6O3ptozfCVy7NDZWGJvxyvgiGNB1NrZ8hJ2cPW/30HJg8WrjSu/2cuDFntn
+         TBAw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745857301; x=1746462101;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ozyYaD4uyMvYAeC6ThRYIW6+h6QCpMFE1Z79BTTe4Ys=;
+        b=O2d9DPLlDUq9N0ExZJzupP0Sfk1uMv/cOq5BCIo0mL9+t93ZN81NrXpDdW2LH5cCYE
+         pI+mSLfOl29/w7Yee3CebLRqLOrOy7xR+F6iSm6uJPi2AFt4p5B3m8EWra65upVTPYin
+         UyeqAkyYk+Zeehcysyad340QF6Z0drUd7CJRfqrskV8P5U0kHOxGZf9mfhNKRqgvrV4f
+         ygCezO/GsNYDME394yzVL/wmHO45EjPfVxp7o18aW2QrwtvqTHRxw1IxtEhV0xVkoXQd
+         CRlEA3sMt/cLsBnSbkAktENzRawpCAL4V0HMe2StEZ1VeA9MFPn8DXSgwbaRjJFf75cQ
+         454w==
+X-Forwarded-Encrypted: i=1; AJvYcCWVRaO0JWYOyIhw/duYKN2Q0GuPqq0XVFsT6DyrpdFtw02iytgE7E96UK5GA96+UTwe4mCxEgwqXzjX73j3nF/z@lists.infradead.org
+X-Gm-Message-State: AOJu0YxCSTBJLUoFGQ3CMpW4GnnMA7fHiO405pd6YDE//Twprziebk1S
+	DE5mhfvtmEJfAMvL5NjNO1SX3kltyMIPRmGEvb0n8WJ3KGVJOqTLwxmOaUSf+ynAIkesxnFdNX2
+	2XxuKnbHLyBg8mYBxUJzZDRlOjjaoWs8329yE3Q==
+X-Gm-Gg: ASbGncu2BfO0f8hkW3Wa1kwugHC8WwtZWx5XZKRa3wb2dO/XTtXY+E/4m3aw+1sUN50
+	oQG6SlwRGiBAau4T2fXiNKVgQaucP8JlsQnVSap5KixCesI+RYqiOH0D4Co5prCFv143CloLMg2
+	y2dfDklDEgIGUdr/gScSkZglM=
+X-Google-Smtp-Source: AGHT+IF3Nj6mWpTWBj/+o4tJL25s0CN8hYakvk9PwN70OV0ov5/0UD6xzNyRF97ztJi6m2LHGnOwz76IAO3Cf/tDFG0=
+X-Received: by 2002:a05:690c:7304:b0:708:170c:a699 with SMTP id
+ 00721157ae682-7085f239adamr122430517b3.27.1745857300782; Mon, 28 Apr 2025
+ 09:21:40 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND PATCH v6 3/3] arm64/mm: Elide tlbi in contpte_convert()
- under BBML2
-Content-Language: en-GB
-To: =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
- suzuki.poulose@arm.com, yang@os.amperecomputing.com, corbet@lwn.net,
- catalin.marinas@arm.com, will@kernel.org, jean-philippe@linaro.org,
- robin.murphy@arm.com, joro@8bytes.org, akpm@linux-foundation.org,
- paulmck@kernel.org, mark.rutland@arm.com, joey.gouly@arm.com,
- maz@kernel.org, james.morse@arm.com, broonie@kernel.org,
- oliver.upton@linux.dev, baohua@kernel.org, david@redhat.com,
- ioworker0@gmail.com, jgg@ziepe.ca, nicolinc@nvidia.com, mshavit@google.com,
- jsnitsel@redhat.com, smostafa@google.com, kevin.tian@intel.com,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
-References: <20250428153514.55772-2-miko.lenczewski@arm.com>
- <20250428153514.55772-8-miko.lenczewski@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250428153514.55772-8-miko.lenczewski@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20250416120245.147951-1-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20250416120245.147951-1-angelogioacchino.delregno@collabora.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Mon, 28 Apr 2025 18:21:05 +0200
+X-Gm-Features: ATxdqUG1v-Vp3M3iAycu00z5_FRl29-cbPTsX6LqWTtDPHUaj3lI0F-RZsKBbmI
+Message-ID: <CAPDyKFrjaEk49O4T1dfaxmA1OSsFaF_iH3U73mq-fWnbBiRaVw@mail.gmail.com>
+Subject: Re: [PATCH] dt-bindings: mmc: mtk-sd: Add support for Dimensity 1200 MT6893
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: chaotian.jing@mediatek.com, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, matthias.bgg@gmail.com, wenbin.mei@mediatek.com, 
+	linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, kernel@collabora.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_091726_261466_790DDDA7 
-X-CRM114-Status: GOOD (  39.64  )
+X-CRM114-CacheID: sfid-20250428_092141_871415_D4BB4158 
+X-CRM114-Status: GOOD (  16.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,199 +95,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/04/2025 16:35, Mikołaj Lenczewski wrote:
-> When converting a region via contpte_convert() to use mTHP, we have two
-> different goals. We have to mark each entry as contiguous, and we would
-> like to smear the dirty and young (access) bits across all entries in
-> the contiguous block. Currently, we do this by first accumulating the
-> dirty and young bits in the block, using an atomic
-> __ptep_get_and_clear() and the relevant pte_{dirty,young}() calls,
-> performing a tlbi, and finally smearing the correct bits across the
-> block using __set_ptes().
-> 
-> This approach works fine for BBM level 0, but with support for BBM level
-> 2 we are allowed to reorder the tlbi to after setting the pagetable
-> entries. We expect the time cost of a tlbi to be much greater than the
-> cost of clearing and resetting the PTEs. As such, this reordering of the
-> tlbi outside the window where our PTEs are invalid greatly reduces the
-> duration the PTE are visibly invalid for other threads. This reduces the
-> likelyhood of a concurrent page walk finding an invalid PTE, reducing
-> the likelyhood of a fault in other threads, and improving performance
-> (more so when there are more threads).
-> 
-> Because we support via allowlist only bbml2 implementations that never
-> raise conflict aborts and instead invalidate the tlb entries
-> automatically in hardware, we can avoid the final flush altogether.
-> 
-> However, avoiding the intermediate tlbi+dsb must be carefully considered
-> to ensure that we remain both correct and performant. We document our
-> reasoning and the expected interactions further in the contpte_convert()
-> source. To do so we rely on the aarch64 spec (DDI 0487L.a D8.7.1.1)
-> requirements RNGLXZ and RJQQTC to provide guarantees that the elision is
-> correct.
-> 
-> Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
+On Wed, 16 Apr 2025 at 14:02, AngeloGioacchino Del Regno
+<angelogioacchino.delregno@collabora.com> wrote:
+>
+> Add a compatible for the MediaTek Dimensity 1200 (MT6893) SoC.
+> All of the MMC/SD controllers in this chip are compatible with
+> the ones found in MT8183, but do also make use of an optional
+> crypto clock when enabling HW disk encryption.
+>
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+Applied for next, thanks!
 
-It would be great to see this series merged this cycle!
+Kind regards
+Uffe
 
-Thanks,
-Ryan
 
 > ---
->  arch/arm64/mm/contpte.c | 139 +++++++++++++++++++++++++++++++++++++++-
->  1 file changed, 138 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
-> index bcac4f55f9c1..203357061d0a 100644
-> --- a/arch/arm64/mm/contpte.c
-> +++ b/arch/arm64/mm/contpte.c
-> @@ -68,7 +68,144 @@ static void contpte_convert(struct mm_struct *mm, unsigned long addr,
->  			pte = pte_mkyoung(pte);
->  	}
->  
-> -	__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, true, 3);
-> +	/*
-> +	 * On eliding the __tlb_flush_range() under BBML2+noabort:
-> +	 *
-> +	 * NOTE: Instead of using N=16 as the contiguous block length, we use
-> +	 *       N=4 for clarity.
-> +	 *
-> +	 * NOTE: 'n' and 'c' are used to denote the "contiguous bit" being
-> +	 *       unset and set, respectively.
-> +	 *
-> +	 * We worry about two cases where contiguous bit is used:
-> +	 *  - When folding N smaller non-contiguous ptes as 1 contiguous block.
-> +	 *  - When unfolding a contiguous block into N smaller non-contiguous ptes.
-> +	 *
-> +	 * Currently, the BBML0 folding case looks as follows:
-> +	 *
-> +	 *  0) Initial page-table layout:
-> +	 *
-> +	 *   +----+----+----+----+
-> +	 *   |RO,n|RO,n|RO,n|RW,n| <--- last page being set as RO
-> +	 *   +----+----+----+----+
-> +	 *
-> +	 *  1) Aggregate AF + dirty flags using __ptep_get_and_clear():
-> +	 *
-> +	 *   +----+----+----+----+
-> +	 *   |  0 |  0 |  0 |  0 |
-> +	 *   +----+----+----+----+
-> +	 *
-> +	 *  2) __flush_tlb_range():
-> +	 *
-> +	 *   |____ tlbi + dsb ____|
-> +	 *
-> +	 *  3) __set_ptes() to repaint contiguous block:
-> +	 *
-> +	 *   +----+----+----+----+
-> +	 *   |RO,c|RO,c|RO,c|RO,c|
-> +	 *   +----+----+----+----+
-> +	 *
-> +	 *  4) The kernel will eventually __flush_tlb() for changed page:
-> +	 *
-> +	 *                  |____| <--- tlbi + dsb
-> +	 *
-> +	 * As expected, the intermediate tlbi+dsb ensures that other PEs
-> +	 * only ever see an invalid (0) entry, or the new contiguous TLB entry.
-> +	 * The final tlbi+dsb will always throw away the newly installed
-> +	 * contiguous TLB entry, which is a micro-optimisation opportunity,
-> +	 * but does not affect correctness.
-> +	 *
-> +	 * In the BBML2 case, the change is avoiding the intermediate tlbi+dsb.
-> +	 * This means a few things, but notably other PEs will still "see" any
-> +	 * stale cached TLB entries. This could lead to a "contiguous bit
-> +	 * misprogramming" issue until the final tlbi+dsb of the changed page,
-> +	 * which would clear out both the stale (RW,n) entry and the new (RO,c)
-> +	 * contiguous entry installed in its place.
-> +	 *
-> +	 * What this is saying, is the following:
-> +	 *
-> +	 *  +----+----+----+----+
-> +	 *  |RO,n|RO,n|RO,n|RW,n| <--- old page tables, all non-contiguous
-> +	 *  +----+----+----+----+
-> +	 *
-> +	 *  +----+----+----+----+
-> +	 *  |RO,c|RO,c|RO,c|RO,c| <--- new page tables, all contiguous
-> +	 *  +----+----+----+----+
-> +	 *   /\
-> +	 *   ||
-> +	 *
-> +	 *  If both the old single (RW,n) and new contiguous (RO,c) TLB entries
-> +	 *  are present, and a write is made to this address, do we fault or
-> +	 *  is the write permitted (via amalgamation)?
-> +	 *
-> +	 * The relevant Arm ARM DDI 0487L.a requirements are RNGLXZ and RJQQTC,
-> +	 * and together state that when BBML1 or BBML2 are implemented, either
-> +	 * a TLB conflict abort is raised (which we expressly forbid), or will
-> +	 * "produce an OA, access permissions, and memory attributes that are
-> +	 * consistent with any of the programmed translation table values".
-> +	 *
-> +	 * That is to say, will either raise a TLB conflict, or produce one of
-> +	 * the cached TLB entries, but never amalgamate.
-> +	 *
-> +	 * Thus, as the page tables are only considered "consistent" after
-> +	 * the final tlbi+dsb (which evicts both the single stale (RW,n) TLB
-> +	 * entry as well as the new contiguous (RO,c) TLB entry), omitting the
-> +	 * initial tlbi+dsb is correct.
-> +	 *
-> +	 * It is also important to note that at the end of the BBML2 folding
-> +	 * case, we are still left with potentially all N TLB entries still
-> +	 * cached (the N-1 non-contiguous ptes, and the single contiguous
-> +	 * block). However, over time, natural TLB pressure will cause the
-> +	 * non-contiguous pte TLB entries to be flushed, leaving only the
-> +	 * contiguous block TLB entry. This means that omitting the tlbi+dsb is
-> +	 * not only correct, but also keeps our eventual performance benefits.
-> +	 *
-> +	 * For the unfolding case, BBML0 looks as follows:
-> +	 *
-> +	 *  0) Initial page-table layout:
-> +	 *
-> +	 *   +----+----+----+----+
-> +	 *   |RW,c|RW,c|RW,c|RW,c| <--- last page being set as RO
-> +	 *   +----+----+----+----+
-> +	 *
-> +	 *  1) Aggregate AF + dirty flags using __ptep_get_and_clear():
-> +	 *
-> +	 *   +----+----+----+----+
-> +	 *   |  0 |  0 |  0 |  0 |
-> +	 *   +----+----+----+----+
-> +	 *
-> +	 *  2) __flush_tlb_range():
-> +	 *
-> +	 *   |____ tlbi + dsb ____|
-> +	 *
-> +	 *  3) __set_ptes() to repaint as non-contiguous:
-> +	 *
-> +	 *   +----+----+----+----+
-> +	 *   |RW,n|RW,n|RW,n|RW,n|
-> +	 *   +----+----+----+----+
-> +	 *
-> +	 *  4) Update changed page permissions:
-> +	 *
-> +	 *   +----+----+----+----+
-> +	 *   |RW,n|RW,n|RW,n|RO,n| <--- last page permissions set
-> +	 *   +----+----+----+----+
-> +	 *
-> +	 *  5) The kernel will eventually __flush_tlb() for changed page:
-> +	 *
-> +	 *                  |____| <--- tlbi + dsb
-> +	 *
-> +	 * For BBML2, we again remove the intermediate tlbi+dsb. Here, there
-> +	 * are no issues, as the final tlbi+dsb covering the changed page is
-> +	 * guaranteed to remove the original large contiguous (RW,c) TLB entry,
-> +	 * as well as the intermediate (RW,n) TLB entry; the next access will
-> +	 * install the new (RO,n) TLB entry and the page tables are only
-> +	 * considered "consistent" after the final tlbi+dsb, so software must
-> +	 * be prepared for this inconsistency prior to finishing the mm dance
-> +	 * regardless.
-> +	 */
-> +
-> +	if (!system_supports_bbml2_noabort())
-> +		__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, true, 3);
->  
->  	__set_ptes(mm, start_addr, start_ptep, pte, CONT_PTES);
->  }
-
+>  Documentation/devicetree/bindings/mmc/mtk-sd.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/mmc/mtk-sd.yaml b/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
+> index 0debccbd6519..6dd26ad31491 100644
+> --- a/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
+> +++ b/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
+> @@ -32,6 +32,7 @@ properties:
+>            - const: mediatek,mt2701-mmc
+>        - items:
+>            - enum:
+> +              - mediatek,mt6893-mmc
+>                - mediatek,mt8186-mmc
+>                - mediatek,mt8188-mmc
+>                - mediatek,mt8192-mmc
+> @@ -299,6 +300,7 @@ allOf:
+>        properties:
+>          compatible:
+>            enum:
+> +            - mediatek,mt6893-mmc
+>              - mediatek,mt8186-mmc
+>              - mediatek,mt8188-mmc
+>              - mediatek,mt8195-mmc
+> --
+> 2.49.0
+>
 
