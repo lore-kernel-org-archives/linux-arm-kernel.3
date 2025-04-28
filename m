@@ -4,75 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29E08C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 14:57:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22DBBC369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 14:59:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J7+h/LgZtBmvJt8JuJ5cbWqsFbL9/uU/TCLyYAqk33s=; b=V+MCFcySvEOEQ02RX0K7XMOQ9q
-	n7Iofz3amxCkFxXrFolCdz7N2VkbKaqRaGfXUUAqsxNkx+rSFM+6BVdKMRaUsmZHiwW/yk1Fw+YSa
-	9a3JmxmxF2wnsDF6Khtlgt1SQJSXhpDdP/g2l7TKidxJPqzY3JfiLAZlcSdbJwQO4x4QrjzzBDsIM
-	hbhvdbqz0fKb63sHO6cH7cifrCCzr5ZamLWMY9vo4m0jwp9BFWeF0ydnkuIvKRsP26gQvjmUqmFF3
-	nOtmgo5zZognXw39t7grx4fcnk6SllFM3U8H9dWxKx9lwqYyLVVtMtId/brkTJ37f4Ckn8IrR60m8
-	EP+g1M9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XWuVVEEzCO6CTK/zeEtGw6vKXtOS128jKZE/G/8MKJ0=; b=K29/nCGWynSZxio1Or+UAVq5lu
+	0t3uqQDxwPhU7qZVqZ8oKdCajUlWIbahkFg8VgGkyPbCOl/PIb0yYhN1XVcu5I0z71c6ivHkU+5jP
+	Xq+5Qw0Xq5msUdP5QwQ3lb+6l8x5oOxojSegH8Lffcbd4nFlx6BSCdiG5CmDC2SMnIxW/0qVNFVif
+	CPyiyVxOi27gXsMjwdjlk+mVXQ+9V7zVUhOBjYj/xYXXC5R0n7vkk8AIwfUa3o+KTs08Cp+P7eI4M
+	bYAE+u9Ar3VjX8+jhMwewSOhKW+khCJPSfvZHxxmLqUB4bG11QpsYD0DyGm6JT8lXsPMoW1g3RXE9
+	9j/Evs8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Pus-00000006hKB-0Zp3;
-	Mon, 28 Apr 2025 14:57:06 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1u9Pwn-00000006hWM-3Tpz;
+	Mon, 28 Apr 2025 14:59:05 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9PhJ-00000006fWO-0Wvf
+	id 1u9Pjl-00000006fp5-0gjK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 14:43:06 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53SEh0JD2801171
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 28 Apr 2025 09:43:00 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745851380;
-	bh=J7+h/LgZtBmvJt8JuJ5cbWqsFbL9/uU/TCLyYAqk33s=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=ScNhtt87S6L5/RXRu3uQs1c2gOVUzCCvnUBkonVZaNmPICtYHcpHAfY7+7XyskCRM
-	 bb8VMEQ097iak0CDJ+tm5sSireTi89IjNm7E3/E1yMyIkm0NoUqtD99eRjUmtUsr33
-	 W+VycRRJLzO4mSMcSczdh4NWTHFyZJZ8KIZ+p3xA=
-Received: from DFLE101.ent.ti.com (dfle101.ent.ti.com [10.64.6.22])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53SEh0LH010797
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 28 Apr 2025 09:43:00 -0500
-Received: from DFLE112.ent.ti.com (10.64.6.33) by DFLE101.ent.ti.com
- (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 28
- Apr 2025 09:42:59 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 28 Apr 2025 09:42:59 -0500
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53SEgxWO102875;
-	Mon, 28 Apr 2025 09:42:59 -0500
-Message-ID: <09979b2a-73b0-4a74-978c-b082764e777e@ti.com>
-Date: Mon, 28 Apr 2025 09:42:59 -0500
+	Mon, 28 Apr 2025 14:45:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=XWuVVEEzCO6CTK/zeEtGw6vKXtOS128jKZE/G/8MKJ0=; b=HxF2K4TuhzmH1NjzQixF1OySKO
+	6MKUqFdnxdCWEKsJdo/LQnQxKBW241ZeAuPOLZ57ZLBLUd/Be4x7yxuNKTOpt3Kjrah/W39Ja9icC
+	q6pyoJ12YKinvnVisGPYKJqe1oQDgDObnQz2WSjrqlXLFcpLszegSM8gg16lbr9btloM=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1u9PjR-00AqaV-0z; Mon, 28 Apr 2025 16:45:17 +0200
+Date: Mon, 28 Apr 2025 16:45:17 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>,
+	"Russell King (Oracle)" <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andy Whitcroft <apw@canonical.com>,
+	Dwaipayan Ray <dwaipayanray1@gmail.com>,
+	Lukas Bulwahn <lukas.bulwahn@gmail.com>,
+	Joe Perches <joe@perches.com>, Jonathan Corbet <corbet@lwn.net>,
+	Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+	Roger Quadros <rogerq@kernel.org>, Tero Kristo <kristo@kernel.org>,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com
+Subject: Re: [PATCH net-next 1/4] dt-bindings: net: ethernet-controller:
+ update descriptions of RGMII modes
+Message-ID: <e5f75ff1-a4ed-40f7-9919-aecd2f9a0ae8@lunn.ch>
+References: <cover.1744710099.git.matthias.schiffer@ew.tq-group.com>
+ <218a27ae2b2ef2db53fdb3573b58229659db65f9.1744710099.git.matthias.schiffer@ew.tq-group.com>
+ <aAaafd8LZ3Ks-AoT@shell.armlinux.org.uk>
+ <a53b5f22-d603-4b7d-9765-a1fc8571614d@lunn.ch>
+ <aAe2NFFrcXDice2Z@shell.armlinux.org.uk>
+ <fdc02e46e4906ba92b562f8d2516901adc85659b.camel@ew.tq-group.com>
+ <9b9fc5d0-e973-4f4f-8dd5-d3896bf29093@lunn.ch>
+ <8b166e41-8d21-4519-bd59-01b5ae877655@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/4] Add global CMA areas for few TI SoCs
-To: Jayesh Choudhary <j-choudhary@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
-        <linux-kernel@vger.kernel.org>
-CC: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <kristo@kernel.org>, <u-kumar1@ti.com>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devarsht@ti.com>
-References: <20250424084415.66457-1-j-choudhary@ti.com>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20250424084415.66457-1-j-choudhary@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <8b166e41-8d21-4519-bd59-01b5ae877655@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_074305_269134_E3316EFF 
-X-CRM114-Status: GOOD (  13.79  )
+X-CRM114-CacheID: sfid-20250428_074537_206247_D350D16B 
+X-CRM114-Status: UNSURE (   8.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,50 +91,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/24/25 3:44 AM, Jayesh Choudhary wrote:
-> Hello All,
+> A complete description might be something like:
 > 
-> Following AM62* platforms[0], this patches add global CMA reserve area for:
-> - J721S2-EVM (1056 MiB)
-> - J784S4-EVM (1920 MiB)
-> - AM68-SK (1008 MiB)
-> - AM69-SK (1904 MiB)
-> 
-> These SoCs does not have MMU and hence they require contiguous memory
-> pool to support various multimedia usecase.
-> 
-> The calculation was done considering H264 codec requirements, dual-display
-> supported in each platforms and multicamera use-cases.
-> Additional buffer was kept for other peripheral s and to account for
-> fragmentation.
+> mac {
+> 	pcb-traces {
+> 		mac-to-phy-trace-delay = <X>; // Nanoseconds
+> 		phy-to-mac-trace-delay = <Y>; // Nanoseconds
+> 	};
 
-What if I'm not going to use 8 cameras, 2 displays, and decode 16 H264
-streams all at the same time? Why should I always lose 2GB of DRAM
-unconditionally, just in-case someone someday runs this imagined
-worst-case situation?
+> In some designs, the "mac-to-phy-trace" and the "phy-to-mac-trace" are
+> treated as a part of the MAC block for example.
 
-If I *do* intend to have my device perform some nightmare use-case like
-the above, I can pass the needed CMA size in on the kernel command line.
-That is a configuration for my specific use-case after all, and DT is
-*not* for configuration, especially not insane configurations like this.
+PCB traces cannot be part of the MAC block, since they are copper on
+the PCB. In fact, such a consideration just adds to the confusion,
+because how do you know which designs do and which don't include the
+MAC block?
 
-Andrew
+	Andrew
 
-> The breakdown is mentioned in each commit message.
-> 
-> [0]: https://lore.kernel.org/all/20240613150902.2173582-1-devarsht@ti.com/
-> 
-> Jayesh Choudhary (4):
->    arm64: dts: ti: k3-j721s2-som-p0: Reserve 1056MiB of global CMA
->    arm64: dts: ti: k3-j784s4-j742s2-evm-common: Reserve 1920MiB of global
->      CMA
->    arm64: dts: ti: k3-am68-sk-som: Reserve 1008MiB of global CMA
->    arm64: dts: ti: k3-am69-sk: Reserve 1904MiB of global CMA
-> 
->   arch/arm64/boot/dts/ti/k3-am68-sk-som.dtsi              | 8 ++++++++
->   arch/arm64/boot/dts/ti/k3-am69-sk.dts                   | 8 ++++++++
->   arch/arm64/boot/dts/ti/k3-j721s2-som-p0.dtsi            | 8 ++++++++
->   arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi | 8 ++++++++
->   4 files changed, 32 insertions(+)
-> 
 
