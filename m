@@ -4,97 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54013C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 20:48:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69F2DC369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 20:50:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RG16IxyNFQzdJ+l8YiIgV31gwxuUGCnbYmlOxmYE8vM=; b=iuXjgAQQHui7/dNpRzpXacyR5Y
-	iIExvsgdSThg7QO/mp2OE6NlyEF1xPlJwdi0LO7SBPKdXej98sWwc4ama1p5JA6qmmxc45RxJP4hF
-	xrH+keiLIJHxZHn/7immAoVbHJetypv545busP7J9IpGqJnyq70SkFlHcOwJJubSzuWMCYoTytx6u
-	n6yqg63/1T3p1rOajNlM0eePLipR7ODGSFxsMzvQpVUGOKEuoRO5PerY4J/tMogIGAXHYu/VKR87o
-	W7x9n5aZvTUXQzZSrCPSJFCiUP9c8MHwe07Fs7Szh+rPiRmHqJr/zl8bR0osuzhqN7tqGrcmgU+d2
-	cfm4wyaA==;
+	bh=b4S5NohzcZt8hjZWHfp8WHteVctUQSoPl0lKofU3tDA=; b=mNAsdftfT3u3P6s4hUEzQ3vzpO
+	dwapTezN6uvmRzluo6Rw4PWnBMlVoacEdTWn7uGhKEcjelSvaUrFepAFwTf9q082Dh/LyqNHHHV/v
+	NZrMldZynm59Ik+PERpLURtRttzsDUjECYvH1sKpFokQMDXRcVC28F+LKtt2+0wd8rTCqrUvY5lve
+	9kbXOD/meD90fV5cXDJCeDaxufR1kqvMsd6U2cZ+KC3ANk+E5hV0eQSZeHgECiB7tiK3TcZ4dPkNr
+	HGnXNosbTPQPRa8v9SVJFiI/MEnOdw2YTXUW/s8ITOHkA+9EK1xETxmHz7aeHGKxAR3EMUFmZEwee
+	W0/otQtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9VOY-00000007VNZ-2VYk;
-	Mon, 28 Apr 2025 20:48:06 +0000
-Received: from mail-qv1-xf2e.google.com ([2607:f8b0:4864:20::f2e])
+	id 1u9VQT-00000007Vda-1Zs3;
+	Mon, 28 Apr 2025 20:50:05 +0000
+Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9VEB-00000007UOa-02ie
+	id 1u9VHz-00000007Unj-3ZqC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 20:37:24 +0000
-Received: by mail-qv1-xf2e.google.com with SMTP id 6a1803df08f44-6f0c30a1ca3so62610036d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 13:37:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1745872642; x=1746477442; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=RG16IxyNFQzdJ+l8YiIgV31gwxuUGCnbYmlOxmYE8vM=;
-        b=TzeGk5GjHXS3s071IdEB6cpcu5H8XZ2lPbB3xgw/pXmIf0dWW1hhStfnQnzHICdRw7
-         gam0enejw0wH+igJ0XptKQ5SiPQoFR/3WIm5mCNCSwLAjpe+132rnTQOXtht3InFou6z
-         Lt3xmu48SC/+IkYZxLcvikLm22l8ZgV6j/a0cT92icKy0O/eT7XvussOaOe/xV5PbIzU
-         Vsim+cs3C33Z6tBFmZX8gxewr73giI6EUzCIDkdOC6mbznBkSzahLXq8kIFaYVFjqqoF
-         DkX0d2oev9xG1YYhjhM5flswXpi21/JcOYCRvvgGOiDf9AqkTFHoaVfUR29H7sIgcCdu
-         fMwg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745872642; x=1746477442;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=RG16IxyNFQzdJ+l8YiIgV31gwxuUGCnbYmlOxmYE8vM=;
-        b=XvPIafr7Vuw+3uYHBMCSkfYQPA0QC2IuLXWQBYFHwNli8n6NnR2rEsLQLsu3N5/VhG
-         gY/u0UIIHhr268IsC5erTYwLEuj2RTD7eHZGPgKJsWYuBNFZ0V6HRN3W7srMY+0H6Ya9
-         YbX0RS7xn09/lZW1UpKnTAUWY2SKi0wUl450Nxp6egmYEJR0e1WII7QAi5enq0BW1uI7
-         2iIGySjD3WTLOCwU/UI6Nfn3RUFm5IKnngpEFQFZ53rTDfGXKqk0tXP9nj8nHBFoJ5WU
-         WbxtCF+XdJwT6R2mizSbqpDLl/zR1ATVbq16hF6SVORDaTkLkgsscv6S2qVj7j8VlCfT
-         z37Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVpsB/uVK+DuhCz0bXotiB2p/Ss7XdQKSbrO48+oPiHGezgMpzrvQM0iqABOjcFmK/jwI3TgD+TS9xvP2TwZWtj@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyz89yXHrw3EDUB4t1aAtI9NxCTcJdjFdz9GlELmGWf1FOOHuTE
-	uEGnmhB68kE2eWlUrIcMCeQ+rkFSLuDf4Kk60RDa9Pn4J/ERLmcmOBIU7+OPyjM=
-X-Gm-Gg: ASbGncvAXhmORnbHTBbxK3df3dpV+vWc75oleDWJbv3Z4UObENWy0WADTkDDAW8SNhc
-	kSvLwN50M0p0iLsAshkkE5kzajpt4UE+B5gADZ6rYaMJBvYRUaFD+FBdwY7kUPAXeGh/lnVexz9
-	gQ0hBKxuFD2wPVCvqcB2fQFDG6lnP9mHKF1c0eAOvY1tu2Emnv7NPf3yqdlp8IxHxjwis7NjA3L
-	f2vzvpAbOBWScSKLBPvJVVXclxyHZzLTc7RozsfbkB4Qlp2cpiG1G9JF3rgQyLqLunjPf4m3cIN
-	ZZp1TmVdg2W+fQY/gTn3THAS7Gipx2vV5huxcKi66uOG7qz9dOjCyed2MZg64rYXu5D9Y7DQjln
-	bCdk4Fy/5
-X-Google-Smtp-Source: AGHT+IE8cclfNjGpRErtSU+IQYlC80KA/mvktmZUSPUgteaPfn+oZPkriEMGFnPqNoJ53MfrrkiFuA==
-X-Received: by 2002:a05:6214:19ed:b0:6f2:c88a:50b2 with SMTP id 6a1803df08f44-6f4f1b9bf0bmr10177236d6.3.1745872641862;
-        Mon, 28 Apr 2025 13:37:21 -0700 (PDT)
-Received: from [192.168.40.12] (d24-150-219-207.home.cgocable.net. [24.150.219.207])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6f4c0ad4382sm65108736d6.125.2025.04.28.13.37.20
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 28 Apr 2025 13:37:21 -0700 (PDT)
-Message-ID: <0082078a-32ef-48cb-a181-c2d598ae29e6@baylibre.com>
-Date: Mon, 28 Apr 2025 16:37:19 -0400
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 4/7] iio: adc: ad4695: rename AD4695_MAX_VIN_CHANNELS
-To: David Lechner <dlechner@baylibre.com>, Jonathan Cameron
- <jic23@kernel.org>, =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
- Andy Shevchenko <andy@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>,
- Michael Hennerich <Michael.Hennerich@analog.com>,
- Eugen Hristev <eugen.hristev@linaro.org>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20250428-iio-introduce-iio_declare_buffer_with_ts-v4-0-6f7f6126f1cb@baylibre.com>
- <20250428-iio-introduce-iio_declare_buffer_with_ts-v4-4-6f7f6126f1cb@baylibre.com>
-Content-Language: en-US
-From: Trevor Gamblin <tgamblin@baylibre.com>
-In-Reply-To: <20250428-iio-introduce-iio_declare_buffer_with_ts-v4-4-6f7f6126f1cb@baylibre.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	Mon, 28 Apr 2025 20:41:22 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 5B548438B9;
+	Mon, 28 Apr 2025 20:41:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1745872876;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=b4S5NohzcZt8hjZWHfp8WHteVctUQSoPl0lKofU3tDA=;
+	b=aKaQLhaISwSMkAlavm0KAhgbL2bv1f7sjgQSBKhWkB3EbQh+EF8u7bEF4eAVxMVarACoFw
+	xFdlkcS3HVdC9Xqk7e/Bby0QzpfLuppbosJROUureXUuEzaXySDxfm2SC7blF/WcjwaFY5
+	4JWfDaNu9g1yK3AOxPq5ZbYZazSAng+4Dn9TCwM7YhGabMo+iT/zE0Og4JCTK+lFypYNqP
+	sWvVj0apUgJpkdZgbzLKpMw+yFUXoFw1wfNEDwuGlmGBiWoxUBjno0DyVJ7ENZ8cQt8QyH
+	I63KthotL9d/f85B4/Da4IaFzVzGAcdpqvc5CiQj5Ryvcmx8qCOlftgukfq+ZA==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 28 Apr 2025 22:41:13 +0200
+Message-Id: <D9IKA5K8PFAO.21V0PXVU6VPF1@bootlin.com>
+Cc: "Alexei Starovoitov" <ast@kernel.org>, "Daniel Borkmann"
+ <daniel@iogearbox.net>, "John Fastabend" <john.fastabend@gmail.com>,
+ "Andrii Nakryiko" <andrii@kernel.org>, "Martin KaFai Lau"
+ <martin.lau@linux.dev>, "Song Liu" <song@kernel.org>, "Yonghong Song"
+ <yonghong.song@linux.dev>, "KP Singh" <kpsingh@kernel.org>, "Stanislav
+ Fomichev" <sdf@fomichev.me>, "Hao Luo" <haoluo@google.com>, "Jiri Olsa"
+ <jolsa@kernel.org>, "Puranjay Mohan" <puranjay@kernel.org>, "Xu Kuohai"
+ <xukuohai@huaweicloud.com>, "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Will Deacon" <will@kernel.org>, "Mykola Lysenko" <mykolal@fb.com>, "Shuah
+ Khan" <shuah@kernel.org>, "Maxime Coquelin" <mcoquelin.stm32@gmail.com>,
+ "Alexandre Torgue" <alexandre.torgue@foss.st.com>, "Florent Revest"
+ <revest@chromium.org>, "Bastien Curutchet" <bastien.curutchet@bootlin.com>,
+ <ebpf@linuxfoundation.org>, "Thomas Petazzoni"
+ <thomas.petazzoni@bootlin.com>, <bpf@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kselftest@vger.kernel.org>,
+ <linux-stm32@st-md-mailman.stormreply.com>
+Subject: Re: [PATCH RFC bpf-next 3/4] bpf/selftests: add tests to validate
+ proper arguments alignment on ARM64
+From: =?utf-8?q?Alexis_Lothor=C3=A9?= <alexis.lothore@bootlin.com>
+To: "Eduard Zingerman" <eddyz87@gmail.com>
+X-Mailer: aerc 0.20.1-0-g2ecb8770224a
+References: <20250411-many_args_arm64-v1-0-0a32fe72339e@bootlin.com>
+ <20250411-many_args_arm64-v1-3-0a32fe72339e@bootlin.com>
+ <3a16fae0346d4f733fb1a67ae6420d8bf935dbd8.camel@gmail.com>
+ <D9I6TQN2I6B1.QC4FFHEWAURZ@bootlin.com> <m21ptcmdnw.fsf@gmail.com>
+In-Reply-To: <m21ptcmdnw.fsf@gmail.com>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvieduleegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpegggfgtfffkvefuhffvofhfjgesthhqredtredtjeenucfhrhhomheptehlvgigihhsucfnohhthhhorhoruceorghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeffvddufffhieffheetfffggeeugedtieduheeilefguddvheegvdeuffeuveeltdenucffohhmrghinhepkhgvrhhnvghlrdhorhhgpdgsohhothhlihhnrdgtohhmnecukfhppedvrgdtvdemkeegvdekmehfleegtgemvgdttdemmehfkeehnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddvmeekgedvkeemfhelgegtmegvtddtmeemfhekhedphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomheprghlvgigihhsrdhlohhthhhorhgvsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvledprhgtphhtthhopegvugguhiiikeejsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprghstheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepuggrnhhivghlsehiohhgvggrrhgsohigrdhnvghtpdhrtghpthhtohepjhhohhhnrdhfrghsthgrsggvn
+ hgusehgmhgrihhlrdgtohhmpdhrtghpthhtoheprghnughrihhisehkvghrnhgvlhdrohhrghdprhgtphhtthhopehmrghrthhinhdrlhgruheslhhinhhugidruggvvhdprhgtphhtthhopehsohhngheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohephihonhhghhhonhhgrdhsohhngheslhhinhhugidruggvvh
+X-GND-Sasl: alexis.lothore@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_133723_050162_89925E42 
-X-CRM114-Status: UNSURE (   8.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250428_134120_813885_E8B1E749 
+X-CRM114-Status: GOOD (  20.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,12 +95,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 2025-04-28 16:23, David Lechner wrote:
-> Rename AD4695_MAX_CHANNELS to AD4695_MAX_VIN_CHANNELS. It has been a
-> point of confusion that this macro is only the voltage input channels
-> and not all channels.
+On Mon Apr 28, 2025 at 6:52 PM CEST, Eduard Zingerman wrote:
+> Alexis Lothor=C3=A9 <alexis.lothore@bootlin.com> writes:
 >
-> Signed-off-by: David Lechner <dlechner@baylibre.com>
-Reviewed-by: Trevor Gamblin <tgamblin@baylibre.com>
+> [...]
+>
+>>> The function listened to is defined as accepting 'struct bpf_testmod_st=
+ruct_arg_7',
+>>> at the same time this function uses 'struct bpf_testmod_struct_arg_5'.
+>>
+>> That's not an accidental mistake, those are in fact the same definition.
+>> bpf_testmod_struct_arg_7 is the kernel side definition in bpf_testmod.c:
+>>
+>> struct bpf_testmod_struct_arg_7 {
+>> 	__int128 a;
+>> };
+>>
+>> and struct bpf_testmode_struct_arg_5 is the one defined in the bpf test
+>> program:
+>>
+>> struct bpf_testmod_struct_arg_5 {
+>> 	__int128 a;
+>> };
+>
+> Apologies, but I'm still confused:
+> - I apply this series on top of:
+>   224ee86639f5 ("Merge git://git.kernel.org/pub/scm/linux/kernel/git/bpf/=
+bpf after rc4")
+>
+> - line 12 of tracing_struct_many_args.c has the following definition:
+>
+>   struct bpf_testmod_struct_arg_5 {
+>          char a;
+>          short b;
+>          int c;
+>          long d;
+>   };
+>
+> - line 135 of the same file has the following definition:
+>
+>    SEC("fentry/bpf_testmod_test_struct_arg_11")
+>    int BPF_PROG2(test_struct_many_args_9, struct bpf_testmod_struct_arg_5=
+, a,
+>                  struct bpf_testmod_struct_arg_5, b,
+>                  struct bpf_testmod_struct_arg_5, c,
+>                  struct bpf_testmod_struct_arg_5, d, int, e,
+>                  struct bpf_testmod_struct_arg_5, f)
+>
+> - line 70 of tools/testing/selftests/bpf/test_kmods/bpf_testmod.c:
+>
+>    struct bpf_testmod_struct_arg_7 {
+>          __int128 a;
+>    };
+>
+> - line 152 of the same file:
+>
+>   noinline int bpf_testmod_test_struct_arg_11(struct bpf_testmod_struct_a=
+rg_7 a,
+>                                               struct bpf_testmod_struct_a=
+rg_7 b,
+>                                               struct bpf_testmod_struct_a=
+rg_7 c,
+>                                               struct bpf_testmod_struct_a=
+rg_7 d,
+>                                               short e,
+>                                               struct bpf_testmod_struct_a=
+rg_7 f)
+>
+> Do I use a wrong base to apply the series?
+
+Argh, no, no, you are right, I checked again and I made some confusions
+between progs/tracing_struct.c and progs/tracing_struct_many_args.c. I
+initially did most of the work in tracing_struct.c, and eventually moved
+the code to tracing_struct_many_args.c before sending my series, but I
+apparently forgot to move bpf_testmod_struct_arg_5 declaration in
+tracing_struct_many_args.c (and so, to rename it, since this name is
+already used in there). As a consequence the bpf program is actually using
+the wrong struct layout. So thanks for insisting and spotting this issue !
+
+I fixed my mess locally in order to re-run the gdb analysis mentioned in my
+previous mail, and the bug seems to be the same (unexpected t11:f: actual
+35 !=3D expected 43), with the same layout issue on the bpf context passed =
+on
+the stack ("lucky" mistake ?). However, thinking more about this, I feel
+like there is still something that I have missed:
+
+0xffffc900001dbce8:     38      0       0       0       0       0       0  =
+     0
+0xffffc900001dbcf0:     0       0       0       0       0       0       0  =
+     0
+0xffffc900001dbcf8:     39      0       0       0       0       0       0  =
+     0
+0xffffc900001dbd00:     0       0       0       0       0       0       0  =
+     0
+0xffffc900001dbd08:     40      0       0       0       0       0       0  =
+     0
+0xffffc900001dbd10:     0       0       0       0       0       0       0  =
+     0
+0xffffc900001dbd18:     41      0       0       0       0       0       0  =
+     0
+0xffffc900001dbd20:     0       0       0       0       0       0       0  =
+     0
+0xffffffffc04016a6:     42      0       0       0       0       0       0  =
+     0
+0xffffc900001dbd30:     35      0       0       0       0       0       0  =
+     0
+0xffffc900001dbd38:     43      0       0       0       0       0       0  =
+     0
+0xffffc900001dbd40:     37      0       0       0       0       0       0  =
+     0
+
+If things really behaved correctly, f would not have the correct value but
+would still be handled as a 16 bytes value, so the test would not fail with
+"actual 35 !=3D 43", but something like "actual
+27254487904906932132179118915584 !=3D 43" (43 << 64 | 35) I guess. I still
+need to sort this out.
+
+Alexis
+--=20
+Alexis Lothor=C3=A9, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
 
