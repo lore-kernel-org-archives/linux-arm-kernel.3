@@ -4,82 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6371DC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 18:31:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFBB0C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 18:36:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2sQ+p3+QrymWT8nnLjQCGwjWQ/0HSVRiTj7uvtZXqco=; b=ehpjKLCrsyxgWRjPrS1J2+2GZ/
-	CJsc5hw/sr3LCw6pQH8qUjl2N+x4Cspfai/xQXl0DMG8U1V5l5nTAEYxst51sA5pqT23PK9xdW+Kq
-	TGS/5xc9HmxCzwHJBagMzdj0h4NNj6xF/PMOMH9xOE2W2W66drODjAvjGFjdlwrvL0qbQYfcJBULT
-	d2Q2r7MvLGMVOxwSA13ZDrQhnO5zWJD48sHVje2YEAZoi2vEC6zLVEwDfBIsAkEHQ18vTKtDzJSfC
-	Z/4CrbEItb0SmJ1VXFDrdiR6aUPRhq1pOJ8zyZ7nd5Pexz6y+YAU79APJJ2ns9HsfZKipZKtPDY64
-	JK5AGNRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BF98+iWw6S+SddbNEtMxh73bD8dO1jfw9PwcCASrTUw=; b=N64l+15CfuFcVZjDJenuzOPRS2
+	HxTikssyH4AZYMPDRnUNwMrGe01JDrfX3ncSx4TKM4LWf6KkdMeurY0xuOMEg8XBrHaYkumGBmybp
+	EOjPe2mHFCaToLzwMHBeDjg/MGQ9ck7mDgrvBUWJTOrCNMHjNNVItxaDhk7PDoUUc3yKMPbtEHlhq
+	/xHbcarebCWqj2DDnxtqkr1h1cz3BmTY8D+9uxpXkySbhXJMJQH4Vd8GhTEzEEHvMKQWHeFFbjTYx
+	Y0DENZ/rFfO0Y25g1EkCa2E+EBREe6O7+/jFjEWsafN0x3SxNPE2gc9IVbL8rVj8x5OFQEOSgortX
+	iPz+/PVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9TG0-00000007EfC-11WK;
-	Mon, 28 Apr 2025 18:31:08 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u9TLG-00000007Fbw-3rEk;
+	Mon, 28 Apr 2025 18:36:34 +0000
+Received: from mail-southcentralusazon11021106.outbound.protection.outlook.com ([40.93.194.106] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Rrw-0000000710E-3iCa;
-	Mon, 28 Apr 2025 17:02:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=2sQ+p3+QrymWT8nnLjQCGwjWQ/0HSVRiTj7uvtZXqco=; b=k+9JAtw+9KEcJiq8HAGgAEtKuD
-	/MphoXju0wKQXBaT/pN5oTM5688faySj0e+bOkT8xTf6gGfzeoohUXcRVRpqv6LzQzJhiitGFHU2Q
-	DQsLOcuMyfBQLwfTZDljgzWIux8tZ6GI1U3wC3wMjV+XauJCsVVFCO+SmHNPM2iyLfr6pAmdybxXx
-	+3ilNJ0+GfC3vNPnPlAKW7ayLGXBc+5d/TGqeTeh35iZS0ZC+yfMkEEDl6AOInilYKkn+G2X8+yeE
-	ENf0x8vNzRn7WIordr831cR/K4kUsMH8SbC7iFHPUEoBBShxr8ZVsyKv8Fst8Ehd1svEOHxFNic+C
-	KNNQOqBA==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9Rrr-0000000Ctlh-3Tsx;
-	Mon, 28 Apr 2025 17:02:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AA02E5C5C9E;
-	Mon, 28 Apr 2025 16:59:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D1CAC4CEF1;
-	Mon, 28 Apr 2025 17:02:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745859724;
-	bh=EyLlHErF32h0yhzCTHHerfcTZv7f2HWfwZtPUgAb89A=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nWs3ffHSwLFiJ+nJXf3tiPeNBseY3x1B+ENVAeoD3EdVbkOt6GHfVwDET7Nims8/3
-	 LRO/AnB8eumBIYl1IrG/isEe8YzvvIuuZlDBaFtm9TZl2IxtKWh1EI8vmuUlKRjM2l
-	 8ZxLBvupIrvKm0qqI1HQStsBzJw0hQ7TAaj3tOH5WniveJt2Na6wiXuDwvlJeCwfSi
-	 OyDuS/19REKeKjFBsAv6Y0pLf6V5kHC7DubjM4pd7VvW2uzEcwbG/vnmCcmtLox90K
-	 4OxyWmlbzmDjS8gS6kcq/SKtHVnoETrb2NJ19qgsrbu+LMQAw9dfhPQeA0JPVwiiv+
-	 MD6xxLga7JX6Q==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	sparclinux@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	x86@kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: [PATCH v4 10/13] crypto: sparc/sha256 - implement library instead of shash
-Date: Mon, 28 Apr 2025 10:00:35 -0700
-Message-ID: <20250428170040.423825-11-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250428170040.423825-1-ebiggers@kernel.org>
-References: <20250428170040.423825-1-ebiggers@kernel.org>
+	id 1u9TJI-00000007FRr-1HZ8
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Apr 2025 18:34:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OqP0lpkOfqO5ofXIJWmXqGi5b1EXqmOn0bbHoWU3GXFixaXSE/mZ07+0RhHnf9VIn036s1KOk4CzHqVwRgKkdDh2EjysTkb5mrEYiVp3UdylzUEw1e+wA8+5Fq3DmqEHEK9PSc6QIpCTQZRKLI3QDayS1YIuYFatq60tHIvDvyD0kK5bCfudC2lk0BWdozJgrYR+Td0o/iTjdILuLLC53M8OdsG2mgRTGqwOlb/pyGn92pfdnhg1nexh/ao5b2FL2D9xQJpeoqSM2WsU9HFMsvzZFkU5JyqiLHMi6jKJH9eeuunqi8iI6ABQE5rEhFu40z+dfN5VEpwmLE9+wjy3WQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BF98+iWw6S+SddbNEtMxh73bD8dO1jfw9PwcCASrTUw=;
+ b=Y95DbHJJwrkHZSG/higls50jo9RAlPJDYDucF4v3t2vjcjEQGYrBCe58YgXSfnrnFjRKTZi6Nj4Id5DXdzNOR3ioMfWvUL3WSrN1aJITRAE3OXunj4Ln7nUIoPwZ7+yWDJmlVxVAMDJwjHous0DhYO8W0l+Fuw+FAwoyrfSQSpq9ZmUpBCjVDGuTLX2HhYTx7diXv0RiLlsGeF2Ga4dxd3Okd+Xg1j3TnNFrM9dfEIFt+57J9umXDLBJD7qWy5K0cwyOBplvL5YGUnK/rjdHpoGkLoNUN1GMD8SkrW1H/wh8/QkQzUHpdVMZqvc5cz65a1lQTM+frvMEOdyIGKImHQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BF98+iWw6S+SddbNEtMxh73bD8dO1jfw9PwcCASrTUw=;
+ b=b9/23kaxitO0lx/Sa9h5EXmHU5U5iLApNPbUAlDvshic1ZEtRd7CIPenWBE2sTz9uQklxYHCKouyx5MqW8xrjPR9Zn9ZHfMDZ4jHZ7ZTOj7L0GwgFYXAbpsMY6CPTweXqK9TSMX0aLQ7yqcoQl3bCiA7XLASxXTcZP6Kph401vQ=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from SJ2PR01MB8101.prod.exchangelabs.com (2603:10b6:a03:4f6::10) by
+ CYYPR01MB8386.prod.exchangelabs.com (2603:10b6:930:bf::14) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8678.31; Mon, 28 Apr 2025 18:33:19 +0000
+Received: from SJ2PR01MB8101.prod.exchangelabs.com
+ ([fe80::292:6d9c:eb9a:95c9]) by SJ2PR01MB8101.prod.exchangelabs.com
+ ([fe80::292:6d9c:eb9a:95c9%3]) with mapi id 15.20.8678.028; Mon, 28 Apr 2025
+ 18:33:18 +0000
+Message-ID: <4e63a13f-c5dc-4f97-879a-26b5548da07f@os.amperecomputing.com>
+Date: Tue, 29 Apr 2025 00:03:10 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 00/42] KVM: arm64: Revamp Fine Grained Trap handling
+To: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
+ kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose
+ <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Zenghui Yu <yuzenghui@huawei.com>, Mark Rutland <mark.rutland@arm.com>,
+ Fuad Tabba <tabba@google.com>, Will Deacon <will@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>
+References: <20250426122836.3341523-1-maz@kernel.org>
+Content-Language: en-US
+From: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+In-Reply-To: <20250426122836.3341523-1-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SI2PR01CA0049.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:193::13) To SJ2PR01MB8101.prod.exchangelabs.com
+ (2603:10b6:a03:4f6::10)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR01MB8101:EE_|CYYPR01MB8386:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6acf18ab-062d-40f0-cc05-08dd8683259b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UlRUVmsyL0Y2cUlsRjl4Q1o0eENySjJMZk5VK2QvR3RTUElKSkJ4UEhPN2J2?=
+ =?utf-8?B?c2RrSUFDUHM4V0x6RE5TYWhhNFRKOUViQnBzL01EU083V1BoUldDL1BwdytR?=
+ =?utf-8?B?a1VlOHZ0MVVTdWRIenY2T3hBNEZBYXdnSWZEUEY5eWVZMkNDU3JMakxrMmhC?=
+ =?utf-8?B?dmJzV3BXbk93VVZoTmdSb1Z0aFVOYk9NYWRFR2syeVUxVzdSMnJSSmNGODlN?=
+ =?utf-8?B?K2xQc2E4S1hrMk5WdlBycFg3cWVKWS9TYi96L2xqbjEyTHJVUmgwQXlYQXc0?=
+ =?utf-8?B?aVUzc3BTd0I3bjhXcEhxeXZsdWZQa2pZSmd5MWtKT1QzZEpsNStuNUoyUUph?=
+ =?utf-8?B?eWxiUm1uWjh4OEtQelc3aDFUcThibWIxR0JYZGNhMUpCeEY4dU5Td29FYXZK?=
+ =?utf-8?B?NHo4ck9XMDdMdHJUcUlybFI0YWVOTnhnYjRSVGN5bDVkczgrS3hFaG9zWmNq?=
+ =?utf-8?B?eGdSR0YvNENwMXhUbXYrUENJQmhYVUR1RlFSQXJneVlLWEtQTnFJS1l1b0Zq?=
+ =?utf-8?B?V3p1WFU4UzBWQWxoZkZhc2ZvdVo4QW1HTlo4NGUrbnlWcERJdERFd0txZldq?=
+ =?utf-8?B?T2s4ZHB3OWVrajhwQmNFUlJNNG9ja2wrSVdNQk5DbXZJNUppSS9PQ2FrVnhY?=
+ =?utf-8?B?VkRwNzhvQ2pUR0JHU0lCeTFHb2h3VGFkOXI3ZXJoeGpNOHZtTXVocll5UUU2?=
+ =?utf-8?B?cHVUVjlrRXIwamRwT1h6aWlwck5hc2FHTUU1c3hjdHpWeDRGNFhSK2NWakd3?=
+ =?utf-8?B?UzJhQm5BOUJKVjBQMFBqUkJENzNtSFVldXJhdjJ4aFM3bklqbDFMbU4vWVhx?=
+ =?utf-8?B?TjB0ajdDdnplZzZaRlgvaHJVaGpmTHhNNlZtY0IrUlk2YlZqV2I2b0RPV21m?=
+ =?utf-8?B?RmxtOEcwRkwyeXNWcEppei93aXJGSmVCcGhLY0FsVlFGaFJKTXkxYWNrTzFZ?=
+ =?utf-8?B?M2ErMTB5UzhWcnZNM0crUmRxbi9iRk1PbW9tN2M1eUsrV2lSTjk5eXNjNndt?=
+ =?utf-8?B?NktYMzJuMUc0OUxKTnVUV0pFdVZkVEl2dE4zRkN3RmlGaml2VXZ0ZXBDVkFZ?=
+ =?utf-8?B?M2gzVDd2V1RWQnRwZElpdU5iRWRWTUVkdXpPbk9EVEpwZWZxTnI3b0tXM3J4?=
+ =?utf-8?B?bHhhcnlWdllxMHZnYzB5d3RZRmNod3BHNkEycnM4VlhUN2NMRHR3c2FObUEw?=
+ =?utf-8?B?dDVQNXJ4c0Y3a29oRmFpM1lSUXlLZEFtUWhaaHZ0djNxZDhvQVMwRDVJS1Jn?=
+ =?utf-8?B?UGc0R1lUM1dxcytnVlJlVU10bmVlQUlidXpPbEN6ZDc5cWV3Sm9QTmZwS2RP?=
+ =?utf-8?B?UDJWcC9jTXowcHl1YWtiZlJYQzVuLzNXWTg0bzQ1U25ueHNOY3F3Zkd6SmZh?=
+ =?utf-8?B?RGFUTXduQS9raDJLWkNFcFhmV2MrSUw1KzA2SW1ybk04ZmVqKzRkSWU2cFdy?=
+ =?utf-8?B?TXV4Rlplb0FrcW5GbWhkb2NvakN6c3pGaHl5TDQwRmkzeUdEY0NQR3ZTeWhH?=
+ =?utf-8?B?dDZXQzIvWDh0SmlTMDRuZU40WXNJUXJCbURXZWhsRE8ycWl4RTZyWmg1VytY?=
+ =?utf-8?B?QzZCNWdtc2FJZjVvUlBJM09qemNEVDY1WXIya2g3QWFmd2EwamY0RHF6MXo5?=
+ =?utf-8?B?V0QrM2pUQ05pL1R4SkUyeXJDNVNRYVFyRnVqMkhqSTlUamRLNXNoM2FrblQw?=
+ =?utf-8?B?WmpUQTFNcUZxQ0Q4WHoybTNKS1NDRzBVVjRUbFJLM2xRZXVnYUgxSy9KSlFr?=
+ =?utf-8?B?R0RTWGRIU1o0dzVLUDVxSGdRc2Eyejg3WDBjSEk3aGFoMHB5MHR2T2lQb2kr?=
+ =?utf-8?B?OWprOFZrZHM0T3dabC8vZkJWT3UyZHR2K0VuRCtSYWU2MXE0SkF0SXUrbXpD?=
+ =?utf-8?B?QXZBbjRCOHc3S1ZoQkFyd2NTc3RtN3RUdHFxbzRESjk2V0swT2tsMzJLY3hv?=
+ =?utf-8?Q?R6ji9ze5gR8=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR01MB8101.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dXpQVm1iVlJ2REYySHE3TGFkaGZQUVhkcFBuMGJ1SmVNdnNKeEdCa2VCeEND?=
+ =?utf-8?B?SlVjcjFQRWJtcExvdi9ZWERHUFdvUG1ydWRLdC80clA2LzN4eVB3NHhpdnJl?=
+ =?utf-8?B?K1AzY3dvdUpDcEtYUlFFa0JlZmhFQitJamZPV2htbDExWTJ4UTFXckhKdG1E?=
+ =?utf-8?B?WkY3RUJFSjEwQkh0clVzY2JwelZFdVc0WlJwYVp0Ulcwcm90UmJDSGU0RjRh?=
+ =?utf-8?B?djZOdTlJZXBqb1pOUVlrdGw2c0kxZ1EwZ0RPZ2xBNVF0alo5Q3BQVms1Tzh2?=
+ =?utf-8?B?Zm9LMUZRK2ZWSFVYMjBhdm5jVndEWVVFdEtXVXkvV2tjb1J4eW9Ga0xQZUZM?=
+ =?utf-8?B?ZVVteGp1bFVSSUMrU3JPTE5nSnNFT29NcWZMSERHNGp2aFNYYllXQkFWUWVi?=
+ =?utf-8?B?c0RpdW1ySWxwTFFMb1NaZkE2d0oxamdOWG9CUGdlUVVCNnZMMDYrMzM4WDNx?=
+ =?utf-8?B?LzFjVndoa2FXcGhacmdPR2NLVWF2VThqNmVCOGVybzlyUnZkbVU1RGZNNFhD?=
+ =?utf-8?B?eWpTWnJjV2g5YTVVbDdxN2tUWElLK0I0d1d3Mk8rNHBzSjRNMDNnZnBDc0dS?=
+ =?utf-8?B?SnhDbk54eTZmVzdabHNsSmNaSUpvM2tvMUluRjhIM3daRzFVQzJ0bXFvY3pU?=
+ =?utf-8?B?Sklxb2F6dThBbWFRQm9vcDBCWVpGZG9ZVjVzRnlaZzVXaUFPY3pneDUza0JK?=
+ =?utf-8?B?MFZCeXUxeHl3TUU3bDJseXhkakloTE9ZbXB0WkVVVVFCUVNWNXBVUUZ0bEtH?=
+ =?utf-8?B?YWliVnlJcDd0S1REZC92b2NQTUhQMkNuLzVYNUZPZUZIKzBGaGlWalJkd0xT?=
+ =?utf-8?B?Nnlwd3F5Si90dHprUDd6RitmUG44bkFvdHJWTm1vMmVLL0NFS0V4bElPQkVN?=
+ =?utf-8?B?SkhwMXh0cUY5Y0ZPZGVuR0dBYUdHaVVDUDd0MzNsKzZYV1pLSlFQakpJckxp?=
+ =?utf-8?B?aWhQYjNpNlFDbm04bU5hajdyTmxIaFN5R2Z5dTdOS2NNa3cwZFB4WCs5d00x?=
+ =?utf-8?B?ZUpnbFR4ZUJJTUFsdGJCanBtbnhLaWZJYkdtNmJMNk8xZUdoODhoYWN4L2N3?=
+ =?utf-8?B?LzFIZXlybVdickxueENnNWRmRVc1WmloWXIrNEhtQ3l2SEplbUQwejBEamlY?=
+ =?utf-8?B?dFNvQzhyWXJzSHZpbWEraC9nME1sVTFWeENjQzBnSDdpZnZYRXdyWldjSnNw?=
+ =?utf-8?B?NWRFcFRpUStadGx4SWUrdXVoV3NsTTJaRUN4KzFoc3JjRndsUmxXTWY4VFoz?=
+ =?utf-8?B?VzFwTFR6WWp3U1ArbXQ4ZjZ6MHFVTDZUcWhIQmJiQi80c3RlRnMycU15cGZB?=
+ =?utf-8?B?ODkzdThZZFVxV3NYRXN3NGJxMFBKbmt5NVkzSytGR2hqaGNRb0greGJDM2tQ?=
+ =?utf-8?B?cGF0N3Q0dGhKZkY2bDA3ZzNZZU1xVUhNUUtKZTcxdVZhZVJRSzI4SXY4c2Za?=
+ =?utf-8?B?dzAwamZlbDV3eGtlM2VxaytIRGtDT3dJdVR5SWZjdGllVzAzaFpKWnZjS1Rt?=
+ =?utf-8?B?Tnl2NjlsVjljcUJTTUdvUWRyZkxmYlJhVEtHN1UrRm5oS2YwTldCb1Z2MVBH?=
+ =?utf-8?B?VVNVSzNxc1FQdjZPbFROd3pyb1dGVWZtY1hIODVva0tiSndhbGlOYUx1c1Qv?=
+ =?utf-8?B?dlR1cldFUlRpQ09xQlVKbVg4SVVnZ2VjbkFnZ21SK2VGZEIvVlVDKy8rWlNP?=
+ =?utf-8?B?TklIYU1kUms0NGVqUDhHd21ncVAyQko4eFVBb2NrNVU1QWUrSjB2MWxaRnZj?=
+ =?utf-8?B?eFRNVkk0a2t6N0Nzd2pLRWtZSzM3VllzSXJrRFpXU0grMHJXajNialFyUG1j?=
+ =?utf-8?B?NkowOEF2TnEwWkRKYnNPbzE3cWFjQ3ZsaVJhSDRtYWhWbFhSMWZTdENpQjBo?=
+ =?utf-8?B?MHlHRUNCNmJnNVFZMWg0Ui9OYlBwYTBVM2oyUmVVT1dqcFNNQ1QrM1AxMGNZ?=
+ =?utf-8?B?R3ZRdUN0c0NybUU3emtCelNHdDEwUG85SVVnSE9GS2RxMFROZWpJTlZRbFc1?=
+ =?utf-8?B?MnFSTmE1VVVBa1NDTkRVelpSdkwwMHZxbExIcTBOdzRzUW1USFBIQ0lncEE0?=
+ =?utf-8?B?UFBud2FNeGhpRDdUNmtFekpNRjFJOEpRMHNEakM5dysrZGlXeURoV0RsRHRl?=
+ =?utf-8?B?ZjBEUE02V3NRZHlUaWUwNGh0MVcrU25XMmlqMHJwOXh2WEdWY2h5RjAzOGVQ?=
+ =?utf-8?Q?21SBw3Id1bzCqp+Z81bp9KcKOuRU6KvGXT2VNJHaOfVY?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6acf18ab-062d-40f0-cc05-08dd8683259b
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR01MB8101.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2025 18:33:18.8026
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Q9gAfupByUTg8WA5Xqza4e469E94aWqAU4/i+gLmi2TroeXa9F4mUIyacKwloFUrFdBbdqQELSxYrcuZIFeU/8f02yjMJbNQ1jQejS4w+E/R+aAG+QfXdyFLu0dFi7e1
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR01MB8386
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_180208_226342_7212A75C 
-X-CRM114-Status: GOOD (  21.57  )
+X-CRM114-CacheID: sfid-20250428_113432_397029_C5DDB6D6 
+X-CRM114-Status: GOOD (  20.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,366 +180,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Eric Biggers <ebiggers@google.com>
+Hi Marc,
 
-Instead of providing crypto_shash algorithms for the arch-optimized
-SHA-256 code, instead implement the SHA-256 library.  This is much
-simpler, it makes the SHA-256 library functions be arch-optimized, and
-it fixes the longstanding issue where the arch-optimized SHA-256 was
-disabled by default.  SHA-256 still remains available through
-crypto_shash, but individual architectures no longer need to handle it.
+On 26-04-2025 17:57, Marc Zyngier wrote:
+> This is yet another version of the series last posted at [1].
+> 
+> The eagled eye reviewer will have noticed that since v2, the series
+> has more or less doubled in size for any reasonable metric (number of
+> patches, number of lines added or deleted). It is therefore pretty
+> urgent that this gets either merged or forgotten! ;-)
+> 
+> See the change log below for the details -- most of it is related to
+> FGT2 (and its rather large dependencies) being added.
+> 
+> * From v2:
+> 
+>    - Added comprehensive support for FEAT_FGT2, as the host kernel is
+>      now making use of these registers, without any form of context
+>      switch in KVM. What could possibly go wrong?
+> 
+>    - Reworked some of the FGT description and handling primitives,
+>      reducing the boilerplate code and tables that get added over time.
+> 
+>    - Rebased on 6.15-rc3.
+> 
+> [1]: https://lore.kernel.org/r/20250310122505.2857610-1-maz@kernel.org
+> 
+> Marc Zyngier (41):
+>    arm64: sysreg: Add ID_AA64ISAR1_EL1.LS64 encoding for FEAT_LS64WB
+>    arm64: sysreg: Update ID_AA64MMFR4_EL1 description
+>    arm64: sysreg: Add layout for HCR_EL2
+>    arm64: sysreg: Replace HGFxTR_EL2 with HFG{R,W}TR_EL2
+>    arm64: sysreg: Update ID_AA64PFR0_EL1 description
+>    arm64: sysreg: Update PMSIDR_EL1 description
+>    arm64: sysreg: Update TRBIDR_EL1 description
+>    arm64: sysreg: Add registers trapped by HFG{R,W}TR2_EL2
+>    arm64: sysreg: Add registers trapped by HDFG{R,W}TR2_EL2
+>    arm64: sysreg: Add system instructions trapped by HFGIRT2_EL2
+>    arm64: Remove duplicated sysreg encodings
+>    arm64: tools: Resync sysreg.h
+>    arm64: Add syndrome information for trapped LD64B/ST64B{,V,V0}
+>    arm64: Add FEAT_FGT2 capability
+>    KVM: arm64: Tighten handling of unknown FGT groups
+>    KVM: arm64: Simplify handling of negative FGT bits
+>    KVM: arm64: Handle trapping of FEAT_LS64* instructions
+>    KVM: arm64: Restrict ACCDATA_EL1 undef to FEAT_ST64_ACCDATA being
+>      disabled
+>    KVM: arm64: Don't treat HCRX_EL2 as a FGT register
+>    KVM: arm64: Plug FEAT_GCS handling
+>    KVM: arm64: Compute FGT masks from KVM's own FGT tables
+>    KVM: arm64: Add description of FGT bits leading to EC!=0x18
+>    KVM: arm64: Use computed masks as sanitisers for FGT registers
+>    KVM: arm64: Propagate FGT masks to the nVHE hypervisor
+>    KVM: arm64: Use computed FGT masks to setup FGT registers
+>    KVM: arm64: Remove hand-crafted masks for FGT registers
+>    KVM: arm64: Use KVM-specific HCRX_EL2 RES0 mask
+>    KVM: arm64: Handle PSB CSYNC traps
+>    KVM: arm64: Switch to table-driven FGU configuration
+>    KVM: arm64: Validate FGT register descriptions against RES0 masks
+>    KVM: arm64: Use FGT feature maps to drive RES0 bits
+>    KVM: arm64: Allow kvm_has_feat() to take variable arguments
+>    KVM: arm64: Use HCRX_EL2 feature map to drive fixed-value bits
+>    KVM: arm64: Use HCR_EL2 feature map to drive fixed-value bits
+>    KVM: arm64: Add FEAT_FGT2 registers to the VNCR page
+>    KVM: arm64: Add sanitisation for FEAT_FGT2 registers
+>    KVM: arm64: Add trap routing for FEAT_FGT2 registers
+>    KVM: arm64: Add context-switch for FEAT_FGT2 registers
+>    KVM: arm64: Allow sysreg ranges for FGT descriptors
+>    KVM: arm64: Add FGT descriptors for FEAT_FGT2
+>    KVM: arm64: Handle TSB CSYNC traps
+> 
+> Mark Rutland (1):
+>    KVM: arm64: Unconditionally configure fine-grain traps
+> 
+>   arch/arm64/include/asm/el2_setup.h      |   14 +-
+>   arch/arm64/include/asm/esr.h            |   10 +-
+>   arch/arm64/include/asm/kvm_arm.h        |  186 ++--
+>   arch/arm64/include/asm/kvm_host.h       |   56 +-
+>   arch/arm64/include/asm/sysreg.h         |   26 +-
+>   arch/arm64/include/asm/vncr_mapping.h   |    5 +
+>   arch/arm64/kernel/cpufeature.c          |    7 +
+>   arch/arm64/kvm/Makefile                 |    2 +-
+>   arch/arm64/kvm/arm.c                    |   13 +
+>   arch/arm64/kvm/config.c                 | 1085 +++++++++++++++++++++++
+>   arch/arm64/kvm/emulate-nested.c         |  580 ++++++++----
+>   arch/arm64/kvm/handle_exit.c            |   77 ++
+>   arch/arm64/kvm/hyp/include/hyp/switch.h |  158 ++--
+>   arch/arm64/kvm/hyp/nvhe/switch.c        |   12 +
+>   arch/arm64/kvm/hyp/vgic-v3-sr.c         |    8 +-
+>   arch/arm64/kvm/nested.c                 |  223 +----
+>   arch/arm64/kvm/sys_regs.c               |   68 +-
+>   arch/arm64/tools/cpucaps                |    1 +
+>   arch/arm64/tools/sysreg                 | 1002 ++++++++++++++++++++-
+>   tools/arch/arm64/include/asm/sysreg.h   |   65 +-
+>   20 files changed, 2888 insertions(+), 710 deletions(-)
+>   create mode 100644 arch/arm64/kvm/config.c
+> 
 
-Signed-off-by: Eric Biggers <ebiggers@google.com>
----
- arch/sparc/crypto/Kconfig                |  10 --
- arch/sparc/crypto/Makefile               |   2 -
- arch/sparc/crypto/sha256_glue.c          | 128 -----------------------
- arch/sparc/lib/Makefile                  |   1 +
- arch/sparc/lib/crypto/Kconfig            |   8 ++
- arch/sparc/lib/crypto/Makefile           |   4 +
- arch/sparc/lib/crypto/sha256.c           |  64 ++++++++++++
- arch/sparc/{ => lib}/crypto/sha256_asm.S |   2 +-
- lib/crypto/Kconfig                       |   3 +
- 9 files changed, 81 insertions(+), 141 deletions(-)
- delete mode 100644 arch/sparc/crypto/sha256_glue.c
- create mode 100644 arch/sparc/lib/crypto/Kconfig
- create mode 100644 arch/sparc/lib/crypto/Makefile
- create mode 100644 arch/sparc/lib/crypto/sha256.c
- rename arch/sparc/{ => lib}/crypto/sha256_asm.S (96%)
+I am trying nv-next branch and I believe these FGT related changes are 
+merged. With this, selftest arm64/set_id_regs is failing. From initial 
+debug it seems, the register access of SYS_CTR_EL0, SYS_MIDR_EL1, 
+SYS_REVIDR_EL1 and SYS_AIDR_EL1 from guest_code is resulting in trap to 
+EL2 (HCR_ID1,ID2 are set) and is getting forwarded back to EL1, since 
+EL1 sync handler is not installed in the test code, resulting in 
+hang(endless guest_exit/entry).
 
-diff --git a/arch/sparc/crypto/Kconfig b/arch/sparc/crypto/Kconfig
-index e858597de89db..a6ba319c42dce 100644
---- a/arch/sparc/crypto/Kconfig
-+++ b/arch/sparc/crypto/Kconfig
-@@ -34,20 +34,10 @@ config CRYPTO_SHA1_SPARC64
- 	help
- 	  SHA-1 secure hash algorithm (FIPS 180)
- 
- 	  Architecture: sparc64
- 
--config CRYPTO_SHA256_SPARC64
--	tristate "Hash functions: SHA-224 and SHA-256"
--	depends on SPARC64
--	select CRYPTO_SHA256
--	select CRYPTO_HASH
--	help
--	  SHA-224 and SHA-256 secure hash algorithms (FIPS 180)
--
--	  Architecture: sparc64 using crypto instructions, when available
--
- config CRYPTO_SHA512_SPARC64
- 	tristate "Hash functions: SHA-384 and SHA-512"
- 	depends on SPARC64
- 	select CRYPTO_SHA512
- 	select CRYPTO_HASH
-diff --git a/arch/sparc/crypto/Makefile b/arch/sparc/crypto/Makefile
-index a2d7fca40cb4b..701c39edb0d73 100644
---- a/arch/sparc/crypto/Makefile
-+++ b/arch/sparc/crypto/Makefile
-@@ -2,20 +2,18 @@
- #
- # Arch-specific CryptoAPI modules.
- #
- 
- obj-$(CONFIG_CRYPTO_SHA1_SPARC64) += sha1-sparc64.o
--obj-$(CONFIG_CRYPTO_SHA256_SPARC64) += sha256-sparc64.o
- obj-$(CONFIG_CRYPTO_SHA512_SPARC64) += sha512-sparc64.o
- obj-$(CONFIG_CRYPTO_MD5_SPARC64) += md5-sparc64.o
- 
- obj-$(CONFIG_CRYPTO_AES_SPARC64) += aes-sparc64.o
- obj-$(CONFIG_CRYPTO_DES_SPARC64) += des-sparc64.o
- obj-$(CONFIG_CRYPTO_CAMELLIA_SPARC64) += camellia-sparc64.o
- 
- sha1-sparc64-y := sha1_asm.o sha1_glue.o
--sha256-sparc64-y := sha256_asm.o sha256_glue.o
- sha512-sparc64-y := sha512_asm.o sha512_glue.o
- md5-sparc64-y := md5_asm.o md5_glue.o
- 
- aes-sparc64-y := aes_asm.o aes_glue.o
- des-sparc64-y := des_asm.o des_glue.o
-diff --git a/arch/sparc/crypto/sha256_glue.c b/arch/sparc/crypto/sha256_glue.c
-deleted file mode 100644
-index 25008603a9868..0000000000000
---- a/arch/sparc/crypto/sha256_glue.c
-+++ /dev/null
-@@ -1,128 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-only
--/* Glue code for SHA256 hashing optimized for sparc64 crypto opcodes.
-- *
-- * This is based largely upon crypto/sha256_generic.c
-- *
-- * Copyright (c) Jean-Luc Cooke <jlcooke@certainkey.com>
-- * Copyright (c) Andrew McDonald <andrew@mcdonald.org.uk>
-- * Copyright (c) 2002 James Morris <jmorris@intercode.com.au>
-- * SHA224 Support Copyright 2007 Intel Corporation <jonathan.lynch@intel.com>
-- */
--
--#define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
--
--#include <asm/elf.h>
--#include <asm/opcodes.h>
--#include <asm/pstate.h>
--#include <crypto/internal/hash.h>
--#include <crypto/sha2.h>
--#include <crypto/sha256_base.h>
--#include <linux/kernel.h>
--#include <linux/module.h>
--
--asmlinkage void sha256_sparc64_transform(u32 *digest, const char *data,
--					 unsigned int rounds);
--
--static void sha256_block(struct crypto_sha256_state *sctx, const u8 *src,
--			 int blocks)
--{
--	sha256_sparc64_transform(sctx->state, src, blocks);
--}
--
--static int sha256_sparc64_update(struct shash_desc *desc, const u8 *data,
--				 unsigned int len)
--{
--	return sha256_base_do_update_blocks(desc, data, len, sha256_block);
--}
--
--static int sha256_sparc64_finup(struct shash_desc *desc, const u8 *src,
--				unsigned int len, u8 *out)
--{
--	sha256_base_do_finup(desc, src, len, sha256_block);
--	return sha256_base_finish(desc, out);
--}
--
--static struct shash_alg sha256_alg = {
--	.digestsize	=	SHA256_DIGEST_SIZE,
--	.init		=	sha256_base_init,
--	.update		=	sha256_sparc64_update,
--	.finup		=	sha256_sparc64_finup,
--	.descsize	=	sizeof(struct crypto_sha256_state),
--	.base		=	{
--		.cra_name	=	"sha256",
--		.cra_driver_name=	"sha256-sparc64",
--		.cra_priority	=	SPARC_CR_OPCODE_PRIORITY,
--		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					CRYPTO_AHASH_ALG_FINUP_MAX,
--		.cra_blocksize	=	SHA256_BLOCK_SIZE,
--		.cra_module	=	THIS_MODULE,
--	}
--};
--
--static struct shash_alg sha224_alg = {
--	.digestsize	=	SHA224_DIGEST_SIZE,
--	.init		=	sha224_base_init,
--	.update		=	sha256_sparc64_update,
--	.finup		=	sha256_sparc64_finup,
--	.descsize	=	sizeof(struct crypto_sha256_state),
--	.base		=	{
--		.cra_name	=	"sha224",
--		.cra_driver_name=	"sha224-sparc64",
--		.cra_priority	=	SPARC_CR_OPCODE_PRIORITY,
--		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					CRYPTO_AHASH_ALG_FINUP_MAX,
--		.cra_blocksize	=	SHA224_BLOCK_SIZE,
--		.cra_module	=	THIS_MODULE,
--	}
--};
--
--static bool __init sparc64_has_sha256_opcode(void)
--{
--	unsigned long cfr;
--
--	if (!(sparc64_elf_hwcap & HWCAP_SPARC_CRYPTO))
--		return false;
--
--	__asm__ __volatile__("rd %%asr26, %0" : "=r" (cfr));
--	if (!(cfr & CFR_SHA256))
--		return false;
--
--	return true;
--}
--
--static int __init sha256_sparc64_mod_init(void)
--{
--	if (sparc64_has_sha256_opcode()) {
--		int ret = crypto_register_shash(&sha224_alg);
--		if (ret < 0)
--			return ret;
--
--		ret = crypto_register_shash(&sha256_alg);
--		if (ret < 0) {
--			crypto_unregister_shash(&sha224_alg);
--			return ret;
--		}
--
--		pr_info("Using sparc64 sha256 opcode optimized SHA-256/SHA-224 implementation\n");
--		return 0;
--	}
--	pr_info("sparc64 sha256 opcode not available.\n");
--	return -ENODEV;
--}
--
--static void __exit sha256_sparc64_mod_fini(void)
--{
--	crypto_unregister_shash(&sha224_alg);
--	crypto_unregister_shash(&sha256_alg);
--}
--
--module_init(sha256_sparc64_mod_init);
--module_exit(sha256_sparc64_mod_fini);
--
--MODULE_LICENSE("GPL");
--MODULE_DESCRIPTION("SHA-224 and SHA-256 Secure Hash Algorithm, sparc64 sha256 opcode accelerated");
--
--MODULE_ALIAS_CRYPTO("sha224");
--MODULE_ALIAS_CRYPTO("sha256");
--
--#include "crop_devid.c"
-diff --git a/arch/sparc/lib/Makefile b/arch/sparc/lib/Makefile
-index 5724d0f356eb5..98887dc295a1e 100644
---- a/arch/sparc/lib/Makefile
-+++ b/arch/sparc/lib/Makefile
-@@ -2,10 +2,11 @@
- # Makefile for Sparc library files..
- #
- 
- asflags-y := -ansi -DST_DIV0=0x02
- 
-+obj-y                 += crypto/
- lib-$(CONFIG_SPARC32) += ashrdi3.o
- lib-$(CONFIG_SPARC32) += memcpy.o memset.o
- lib-y                 += strlen.o
- lib-y                 += checksum_$(BITS).o
- lib-$(CONFIG_SPARC32) += blockops.o
-diff --git a/arch/sparc/lib/crypto/Kconfig b/arch/sparc/lib/crypto/Kconfig
-new file mode 100644
-index 0000000000000..e5c3e4d3dba62
---- /dev/null
-+++ b/arch/sparc/lib/crypto/Kconfig
-@@ -0,0 +1,8 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+config CRYPTO_SHA256_SPARC64
-+	tristate
-+	depends on SPARC64
-+	default CRYPTO_LIB_SHA256
-+	select CRYPTO_ARCH_HAVE_LIB_SHA256
-+	select CRYPTO_LIB_SHA256_GENERIC
-diff --git a/arch/sparc/lib/crypto/Makefile b/arch/sparc/lib/crypto/Makefile
-new file mode 100644
-index 0000000000000..75ee244ad6f79
---- /dev/null
-+++ b/arch/sparc/lib/crypto/Makefile
-@@ -0,0 +1,4 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+obj-$(CONFIG_CRYPTO_SHA256_SPARC64) += sha256-sparc64.o
-+sha256-sparc64-y := sha256.o sha256_asm.o
-diff --git a/arch/sparc/lib/crypto/sha256.c b/arch/sparc/lib/crypto/sha256.c
-new file mode 100644
-index 0000000000000..6f118a23d210a
---- /dev/null
-+++ b/arch/sparc/lib/crypto/sha256.c
-@@ -0,0 +1,64 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * SHA-256 accelerated using the sparc64 sha256 opcodes
-+ *
-+ * Copyright (c) Jean-Luc Cooke <jlcooke@certainkey.com>
-+ * Copyright (c) Andrew McDonald <andrew@mcdonald.org.uk>
-+ * Copyright (c) 2002 James Morris <jmorris@intercode.com.au>
-+ * SHA224 Support Copyright 2007 Intel Corporation <jonathan.lynch@intel.com>
-+ */
-+
-+#define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
-+
-+#include <asm/elf.h>
-+#include <asm/opcodes.h>
-+#include <asm/pstate.h>
-+#include <crypto/internal/sha2.h>
-+#include <linux/kernel.h>
-+#include <linux/module.h>
-+
-+static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_sha256_opcodes);
-+
-+asmlinkage void sha256_sparc64_transform(u32 state[SHA256_STATE_WORDS],
-+					 const u8 *data, size_t nblocks);
-+
-+void sha256_blocks_arch(u32 state[SHA256_STATE_WORDS],
-+			const u8 *data, size_t nblocks)
-+{
-+	if (static_branch_likely(&have_sha256_opcodes))
-+		sha256_sparc64_transform(state, data, nblocks);
-+	else
-+		sha256_blocks_generic(state, data, nblocks);
-+}
-+EXPORT_SYMBOL(sha256_blocks_arch);
-+
-+bool sha256_is_arch_optimized(void)
-+{
-+	return static_key_enabled(&have_sha256_opcodes);
-+}
-+EXPORT_SYMBOL(sha256_is_arch_optimized);
-+
-+static int __init sha256_sparc64_mod_init(void)
-+{
-+	unsigned long cfr;
-+
-+	if (!(sparc64_elf_hwcap & HWCAP_SPARC_CRYPTO))
-+		return 0;
-+
-+	__asm__ __volatile__("rd %%asr26, %0" : "=r" (cfr));
-+	if (!(cfr & CFR_SHA256))
-+		return 0;
-+
-+	static_branch_enable(&have_sha256_opcodes);
-+	pr_info("Using sparc64 sha256 opcode optimized SHA-256/SHA-224 implementation\n");
-+	return 0;
-+}
-+arch_initcall(sha256_sparc64_mod_init);
-+
-+static void __exit sha256_sparc64_mod_exit(void)
-+{
-+}
-+module_exit(sha256_sparc64_mod_exit);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("SHA-256 accelerated using the sparc64 sha256 opcodes");
-diff --git a/arch/sparc/crypto/sha256_asm.S b/arch/sparc/lib/crypto/sha256_asm.S
-similarity index 96%
-rename from arch/sparc/crypto/sha256_asm.S
-rename to arch/sparc/lib/crypto/sha256_asm.S
-index 8ce88611e98ad..ddcdd3daf31e3 100644
---- a/arch/sparc/crypto/sha256_asm.S
-+++ b/arch/sparc/lib/crypto/sha256_asm.S
-@@ -2,11 +2,11 @@
- #include <linux/linkage.h>
- #include <asm/opcodes.h>
- #include <asm/visasm.h>
- 
- ENTRY(sha256_sparc64_transform)
--	/* %o0 = digest, %o1 = data, %o2 = rounds */
-+	/* %o0 = state, %o1 = data, %o2 = nblocks */
- 	VISEntryHalf
- 	ld	[%o0 + 0x00], %f0
- 	ld	[%o0 + 0x04], %f1
- 	ld	[%o0 + 0x08], %f2
- 	ld	[%o0 + 0x0c], %f3
-diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index 7fe678047939b..6319358b38c20 100644
---- a/lib/crypto/Kconfig
-+++ b/lib/crypto/Kconfig
-@@ -179,10 +179,13 @@ if RISCV
- source "arch/riscv/lib/crypto/Kconfig"
- endif
- if S390
- source "arch/s390/lib/crypto/Kconfig"
- endif
-+if SPARC
-+source "arch/sparc/lib/crypto/Kconfig"
-+endif
- if X86
- source "arch/x86/lib/crypto/Kconfig"
- endif
- endif
- 
+It is due to function "triage_sysreg_trap" is returning true.
+
+When guest_code is in EL1 (default case) it is due to return in below if.
+
+  if (tc.fgt != __NO_FGT_GROUP__ &&
+             (vcpu->kvm->arch.fgu[tc.fgt] & BIT(tc.bit))) {
+                 kvm_inject_undefined(vcpu);
+                 return true;
+         }
+
+IMO, Host should return the value of these sysreg read instead of 
+forwarding the trap to guest or something more to be added to testcode?
+
 -- 
-2.49.0
-
+Thanks,
+Gk
 
