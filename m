@@ -4,108 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A0F8C369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 07:19:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32484C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 07:21:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rm+sbkuyIl5Y+bos9mHKqEPinYnP6asBDkPxQIs9z0M=; b=m2m6EgNSFyH9fSJCg3WQpFaRMC
-	v/iGdJd3IPBttyhn7GxzH/FkoIe8WSDtqPizscJ99JB78DHKk4aEkug28YBJjtQYNhPq9XzuE4Plr
-	SYs21fS4MChqU7Y10p0Ev7YaoVAk4df1ntR6qFPyKfbto7tyQW8yDWWYQP0aL8aiWRXpKjsADWanj
-	GMtU5+sNWoImo1A5IxJzIKfQqJizqQqzI/0nXSGFMMPbz78zvZx/gvS6ulZs3PAO4x7Y4Rdmhm0Dn
-	IIdbD7Y6fab+WgzYRrt9ZUeOgLHX3O49gvJEzNoemHaSFp88u+bJvWn9MLw8RKq9PpqMRmN0VDwTL
-	BIT+z6IA==;
+	bh=yk38dcNFpb3NyuTUUvlalQvIOAhpTp/gtGWIAYmjz3E=; b=zhUCUfR/fS5GhIHqljKGgWbkhb
+	QLNJmuGbcZuzm8mPnm/xPQ1IBHEbWga92rftf/AK1/fEoUDbXK/SKxWc86riD8pMJy1m2fP8JzNhl
+	mxK7dC+kTL1B1mpeQoW3dRUFltF/lE7FO3IzH5UdN0IIWMWLH0MvorXDC9WaEndc9LUas6q9MazfJ
+	u2OaDkWalp7+nnmduXbzW9vuHQg0KSBLSBwm5ukGRKu2ZLbFcofl7Tc6Fg1vGpCUywsnrgW7PDZe6
+	Om3LI7Xe+wYq1PF1hGOYgjeU+RlDS91+3SGXhIbV/zK0Ts7V8beVtGlAfJhwP9FZ9JVlsLG9DaAJt
+	yo/7SqnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9ImI-00000005Dto-1SoV;
-	Mon, 28 Apr 2025 07:19:46 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1u9IoF-00000005ECZ-1aQA;
+	Mon, 28 Apr 2025 07:21:47 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Iex-00000005CtM-0eZG
+	id 1u9Ifn-00000005D40-2qez
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 07:12:14 +0000
-Received: from epcas1p2.samsung.com (unknown [182.195.41.46])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250428071203epoutp018ee57d5ee75389e2cb2538953bf6b525~6afkGf6dP1916319163epoutp01O
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 07:12:03 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250428071203epoutp018ee57d5ee75389e2cb2538953bf6b525~6afkGf6dP1916319163epoutp01O
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1745824323;
-	bh=Rm+sbkuyIl5Y+bos9mHKqEPinYnP6asBDkPxQIs9z0M=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=g/yqmF+FCo0GpJmO9FQ9QqGTfJwu1mv5lFSFv+MCnWocQQcSf0xZGSv2FjdY4XpT0
-	 K2VjMbK7EmWEz+9miHBvif2kgpRWDSmJ26ZIatGSKAM27+M8oWrb4p4Z+y8SXT5ug4
-	 DszhQyykbKrhynpFa4eyFlslyyRKeyKAZdz9G9B4=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas1p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250428071203epcas1p2c57fb9dece55294359470c95b17bccfd~6afjYt4b90886408864epcas1p2b;
-	Mon, 28 Apr 2025 07:12:03 +0000 (GMT)
-Received: from epcas1p1.samsung.com (unknown [182.195.36.222]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4ZmF4d1H7Zz6B9mF; Mon, 28 Apr
-	2025 07:12:01 +0000 (GMT)
-Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
-	epcas1p3.samsung.com (KnoxPortal) with ESMTPA id
-	20250428071200epcas1p385b2c91ccece320d8e3b1f3105169c14~6afhAgwcz2655326553epcas1p32;
-	Mon, 28 Apr 2025 07:12:00 +0000 (GMT)
-Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
-	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20250428071200epsmtrp20acad91f45caad152db194cdceb05064~6afg-pCDC1908819088epsmtrp2X;
-	Mon, 28 Apr 2025 07:12:00 +0000 (GMT)
-X-AuditID: b6c32a52-f0cb424000004c16-07-680f2a407cc5
-Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
-	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
-	81.C4.19478.04A2F086; Mon, 28 Apr 2025 16:12:00 +0900 (KST)
-Received: from sgsupark03 (unknown [10.246.147.33]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250428071200epsmtip213219b61ffca80641e815ff54fd5aefd~6afg0CLli1354113541epsmtip2I;
-	Mon, 28 Apr 2025 07:12:00 +0000 (GMT)
-From: "Seongsu Park" <sgsu.park@samsung.com>
-To: "'Anshuman Khandual'" <anshuman.khandual@arm.com>, <will@kernel.org>,
-	<catalin.marinas@arm.com>, <suzuki.poulose@arm.com>, <joey.gouly@arm.com>,
-	<oliver.upton@linux.dev>, <maz@kernel.org>
-Cc: <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <cpgs@samsung.com>
-In-Reply-To: <f998cbba-bda0-472b-8f4a-a972a29f21ef@arm.com>
-Subject: RE: [PATCH] arm64: kvm: Replace ternary flags with str_on_off()
- helper
-Date: Mon, 28 Apr 2025 16:11:59 +0900
-Message-ID: <0fd501dbb80c$d5a91d30$80fb5790$@samsung.com>
+	Mon, 28 Apr 2025 07:13:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1745824382;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=yk38dcNFpb3NyuTUUvlalQvIOAhpTp/gtGWIAYmjz3E=;
+	b=ORdrVM0KHpmE4E/n1mJ6yRuRQZske46lgjqkusIdg9AsJqta8rbfMYUQ9AXx8ouLFtSroc
+	ZGbcJko481oPHZHfrgzQuGr1pQWC0o0KwXw+wyc718MJbRn0ry2BwE3/p1qEK0yIulvtul
+	TSM2Jp1BziRe2a4R19RNmo9W+W+4/LM=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-507-A1tgBQJ1M2epO10ohbItOA-1; Mon, 28 Apr 2025 03:13:00 -0400
+X-MC-Unique: A1tgBQJ1M2epO10ohbItOA-1
+X-Mimecast-MFC-AGG-ID: A1tgBQJ1M2epO10ohbItOA_1745824379
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-39134c762ebso1235576f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 00:13:00 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745824379; x=1746429179;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=yk38dcNFpb3NyuTUUvlalQvIOAhpTp/gtGWIAYmjz3E=;
+        b=wYpvuuh5IGSfO02pBZ2MrD5gt7OYeiEZSHZEi0aYmpPtaTaHAvMnGweIL/5JHhveKU
+         tNSpR3dpFRwojW5IPzYCSCmDj2769N85ffmlcNmrRiqDuHkrglDc9nPna2kI2aMVtSjB
+         v9D0xE5Xa+yBSW19KB4jaqnzbWxaS+dGA5wuNYfn13rZnNpkk4IJ/kOZcQZlcZ5UkDB/
+         LwADAlyHzBA7RlY4JFBx1HxNlmQv7USFCH3oFh2+GlPVz913cQaFuBky8iKFYsOlQ869
+         VVry5G1tezYbPsf4rY2+A8WSu+VH0G0E7HV8Em00isMKiLJG2trDPKL6QbS5YVUhGlef
+         YD7Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUiSEGII5O+18Bo9X5sH7EX7FwYuuVJupXYBSzVWW1zkidb8S68aqKdI/oVyDhrYHm74gDFB6aS+qThO1Qf13kH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy7Kb8XwOdVjgr6CtAlCBLIPhUWdJkevB924/QZH/W7W5/waRrq
+	raJaaZpN9bbTMTwKiHaQt2kO5SiTnxycVjYlWxL66Yqm/kVbuurqdvjnMn9Rk106wQgi/Li5Noo
+	gJxIklMKcWAVoRg4ILxgzme2iO1wbRfZhcJ2QlmMA7IP/utElb/w8Z5hHpTmOq3ox9GlX1UdG
+X-Gm-Gg: ASbGncsT4Onm4RDOGPTMmgBzA3/SeexEjQIai6fjwSA7Gd8hCjSl/bLZB4ottQQhwjP
+	jSQA3ks4kS6LWXEXRSNn/A09tjGVUhvuXqCnmSRooBlTnjwYvgZskC7UH7YdHy5hBN26AScdV8n
+	2AKfPQ8NydnFlL53/SXUaEtgD3TF7uxM/pFLkB9lR+pzLQ+uwwzsCvPtIYGSpDqQW1OFKPBu66W
+	Kta+dHnZLTJkEP+jTwAW7Q9quHnQYNZHoiCLf2VuLMc4DEErYdGJu9Y3fmqTYpAUXbouEbC1VYm
+	CrHBPjRv3YOktUvlwx8ojLRPv/VspXPscxFTXo5d9a70x5TYVnhFKt3djD+6z0QKi86/qrHh0LF
+	h3Z86jbBllFlHWueCN3/CP0YEjPuTCXOOs+U4Yyc=
+X-Received: by 2002:a05:6000:1889:b0:39c:3107:c503 with SMTP id ffacd0b85a97d-3a074e373ebmr8519592f8f.31.1745824379189;
+        Mon, 28 Apr 2025 00:12:59 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGpSAksKCbJ1VK4JeaLjNhMDHZs48tHAcNCnbpVgtIQST0BGNh5aKTscVsAHj7ABAEjwi32Bw==
+X-Received: by 2002:a05:6000:1889:b0:39c:3107:c503 with SMTP id ffacd0b85a97d-3a074e373ebmr8519557f8f.31.1745824378747;
+        Mon, 28 Apr 2025 00:12:58 -0700 (PDT)
+Received: from ?IPV6:2003:cb:c72f:ea00:2f00:e7e5:8875:a0ea? (p200300cbc72fea002f00e7e58875a0ea.dip0.t-ipconnect.de. [2003:cb:c72f:ea00:2f00:e7e5:8875:a0ea])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a073c8c968sm10073483f8f.8.2025.04.28.00.12.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 28 Apr 2025 00:12:58 -0700 (PDT)
+Message-ID: <84b46ea0-12a1-469f-921e-2d0fd6dacd0d@redhat.com>
+Date: Mon, 28 Apr 2025 09:12:57 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 7/7] mm/mm_init: Use for_each_valid_pfn() in
+ init_unavailable_range()
+To: David Woodhouse <dwmw2@infradead.org>, Mike Rapoport <rppt@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ "Sauerwein, David" <dssauerw@amazon.de>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Ard Biesheuvel <ardb@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Marc Zyngier <maz@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Mike Rapoport <rppt@linux.ibm.com>, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, Ruihan Li <lrh2000@pku.edu.cn>
+References: <20250423133821.789413-1-dwmw2@infradead.org>
+ <20250423133821.789413-8-dwmw2@infradead.org>
+ <cabc322e-d5ab-4371-a506-c7809717b38b@redhat.com>
+ <91CA8854-2E86-4AF3-BAD0-8C47833F59D4@infradead.org>
+ <8fd728cf-bc54-433d-8701-234a67933a97@redhat.com>
+ <c15100fcf6781a60b852c4dbb43bdc98a678fcf0.camel@infradead.org>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <c15100fcf6781a60b852c4dbb43bdc98a678fcf0.camel@infradead.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: FJy_7y5p4LE4nDVkIrIf_sp97m4FPcdzQphxJ__Hdm4_1745824379
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQKwPNvFjEbOOPYz+nksCQ06Lg5v7wJYV8DmAgJ6uJCx7MjvUA==
-Content-Language: ko
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprBIsWRmVeSWpSXmKPExsWy7bCSvK6DFn+GwZoV0hb7TiRbvF/Ww2jx
-	8pCmxZfmNiaLV1sOs1hsenyN1eLyrjlsFjvnnGS1mPrzDZvFzNu3GS1a7pg6cHusmbeG0WPT
-	qk42j4UNU5k9Ni+p93ixeSajR9+WVYwenzfJBbBHcdmkpOZklqUW6dslcGV863jDXHCUu2LK
-	m3ssDYw/OboYOTkkBEwkHq65xtjFyMUhJLCdUaLx6EcmiISkRPu7yyxdjBxAtrDE4cPFEDXP
-	GCWuTt7LClLDJqAj8e3bFBYQW0TgNKNER78xSD2zQJ3EqjVFEPWHGSW6D74Gq+cUsJb41jyb
-	GcQWFvCX2LhxK1gvi4CqxNevO8D28gpYSmzaepcRwhaUODnzCVgNs4C2xNObT6FseYntb+cw
-	Q9ypIPHz6TJWiBucJKYe3cIOUSMiMbuzjXkCo/AsJKNmIRk1C8moWUhaFjCyrGIUTS0ozk3P
-	TS4w1CtOzC0uzUvXS87P3cQIjjytoB2My9b/1TvEyMTBeIhRgoNZSYR3qTV3hhBvSmJlVWpR
-	fnxRaU5q8SFGaQ4WJXFe5ZzOFCGB9MSS1OzU1ILUIpgsEwenVAMTl7/+h4MF/o/PH3X6sPTq
-	PlPLJR+Np+/RyQuV/8uo9mjOYRs1j2N+IeLBlxZ6H/PYlPik5ltjz93KU7qf/5+/f0L43O2j
-	/XZ3k66kx3u+O/dnuYxvA6/lsz+N3xZ5nXqxujdopmiy+MrPX+KebomPtoqbZaX+6eejF2zX
-	avo0S01luEQ4eJ+G3fmdx7sqSGTF/YhFWTrfz6t+2ntgPnffk1SOfx4zE4q6vvsprf1tNvXN
-	+cbJvW1N7vM3XjVLf1DUOlen/eZ+B9P5efn9p/gsf//rOvC2b/30FrfPa5qfTPjGMLc96H/k
-	b67iE4IKngfal1+Wr1tx6EOE3Om47bZFE3/qLyjgM9NOn+emU95epsRSnJFoqMVcVJwIAMJw
-	QRQrAwAA
-X-CMS-MailID: 20250428071200epcas1p385b2c91ccece320d8e3b1f3105169c14
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 101P
-X-CPGSPASS: Y
-cpgsPolicy: CPGSC10-711,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250415012410epcas1p42b48977934c21b5db0b19f4185f7a63c
-References: <CGME20250415012410epcas1p42b48977934c21b5db0b19f4185f7a63c@epcas1p4.samsung.com>
-	<1891546521.01744691102904.JavaMail.epsvc@epcpadp1new>
-	<f998cbba-bda0-472b-8f4a-a972a29f21ef@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_001211_511176_50552F98 
-X-CRM114-Status: GOOD (  21.83  )
+X-CRM114-CacheID: sfid-20250428_001303_808523_F44DDCC5 
+X-CRM114-Status: GOOD (  19.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,52 +168,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-> On 4/15/25 06:54, Seongsu Park wrote:
-> > Replace repetitive ternary expressions with the str_on_off() helper
-> > function. This change improves code readability and ensures
-> > consistency in tracepoint string formatting
-> >
-> > Signed-off-by: Seongsu Park <sgsu.park@samsung.com>
-> > ---
-> >  arch/arm64/kvm/trace_arm.h | 6 +++---
-> >  1 file changed, 3 insertions(+), 3 deletions(-)
-> >
-> > diff --git a/arch/arm64/kvm/trace_arm.h b/arch/arm64/kvm/trace_arm.h
-> > index c18c1a95831e..9c60f6465c78 100644
-> > --- a/arch/arm64/kvm/trace_arm.h
-> > +++ b/arch/arm64/kvm/trace_arm.h
-> > @@ -176,7 +176,7 @@ TRACE_EVENT(kvm_set_way_flush,
-> >  	    ),
-> >
-> >  	    TP_printk("S/W flush at 0x%016lx (cache %s)",
-> > -		      __entry->vcpu_pc, __entry->cache ? "on" : "off")
-> > +		      __entry->vcpu_pc, str_on_off(__entry->cache))
-> >  );
-> >
-> >  TRACE_EVENT(kvm_toggle_cache,
-> > @@ -196,8 +196,8 @@ TRACE_EVENT(kvm_toggle_cache,
-> >  	    ),
-> >
-> >  	    TP_printk("VM op at 0x%016lx (cache was %s, now %s)",
-> > -		      __entry->vcpu_pc, __entry->was ? "on" : "off",
-> > -		      __entry->now ? "on" : "off")
-> > +		      __entry->vcpu_pc, str_on_off(__entry->was),
-> > +		      str_on_off(__entry->now))
-> >  );
-> >
-> >  /*
+On 26.04.25 01:04, David Woodhouse wrote:
+> On Fri, 2025-04-25 at 22:12 +0200, David Hildenbrand wrote:
+>>
+>> In any case, trying to figure out why Lorenzo ran into an issue ... if
+>> it's nit because of the pageblock, maybe something in for_each_valid_pfn
+>> with sparsemem is still shaky.
 > 
-> Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> Yep, I think this was it:
+> 
+> --- a/include/linux/mmzone.h
+> +++ b/include/linux/mmzone.h
+> @@ -2190,10 +2190,10 @@ static inline unsigned long next_valid_pfn(unsigned long pfn, unsigned long end_
+>          /*
+>           * Either every PFN within the section (or subsection for VMEMMAP) is
+>           * valid, or none of them are. So there's no point repeating the check
+> -        * for every PFN; only call first_valid_pfn() the first time, and when
+> -        * crossing a (sub)section boundary (i.e. !(pfn & ~PFN_VALID_MASK)).
+> +        * for every PFN; only call first_valid_pfn() again when crossing a
+> +        * (sub)section boundary (i.e. !(pfn & ~PAGE_{SUB,}SECTION_MASK)).
+>           */
+> -       if (pfn & (IS_ENABLED(CONFIG_SPARSEMEM_VMEMMAP) ?
+> +       if (pfn & ~(IS_ENABLED(CONFIG_SPARSEMEM_VMEMMAP) ?
+>                     PAGE_SUBSECTION_MASK : PAGE_SECTION_MASK))
 
-Dear Anshuman,
 
-Do you have any feedback?
-If you have, please let me know.
-I think this patch is appropriate.
+LGTM, although we could make way this easier to understand:
 
-Thanks.
-Seongsu Park.
+Something like:
+
+
+unsigned long pfn_mask = PAGE_SECTION_MASK;
+
+if (IS_ENABLED(CONFIG_SPARSEMEM_VMEMMAP)
+	pfn_mask = PAGE_SUBSECTION_MASK;
+
+if (pfn & ~pfn_mask)
+	...
+
+-- 
+Cheers,
+
+David / dhildenb
 
 
