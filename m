@@ -4,95 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 972ADC36005
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 10:31:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66184C36005
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 10:39:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=94GaAp5IT+0nfZI1KhpMoi6ddXqkPRsHTzLkhfBtKK0=; b=AUJtjYSISw5CsP
-	ex4P1vf3iirUj+YkPPz8g6poyy0/TQ720qSt/pru+G5H1d68IjhZ7aLS25DrXat/uuATG4aDK2Khd
-	GAYqYKk+TnM942vrxJJdFuosO54mgoAybQAWS8EYvii1gCSbqQ/tOVXp5rCe5V54REUFxceU9nY6U
-	2DfivH5718P1LBXHNi5dZu8hyWdlhwHcfaUrfjpL4CPR1JfHRZnvKNTiDQCFpQ1kBShCgHnxH9O2h
-	miOuZH2QPxwMf6V6ePAGzVh8bryc8aexrw8Y2Nw6IGn/nwcejzh3i6p8bjVlTVnaCPXE0iQO3omHj
-	NOpk9q1xt5Nd0VqhBuaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sK1vyzZ1/+Jz3BVDrNB5HsQaiId/G9OE1+QZi7+pUo4=; b=a/24M51ESjfuy9eGJFc1zkyPMd
+	JfAqpjjrY1kFSvdMxjUXtOgetXmKkg/vzikBBRJEa6AjCTZwPQ2EAB0cVCvUOsxKjUMUZ/y0oWZxY
+	x4kpqiNFpA0NgtZ08AOk4vLfX4RXBeKLlP3AOW9qPQO0/ZzmERUNfcZRr/flCXKJNXBx8YsOKm/92
+	kbsBv6fR5obaEHQiqSqs9v9ZM6U57BdrSb6GwcAGc+qogtI7fLwi2ich3LcVZ4YpSpppFI5aHgqFI
+	D+1Q2x/REn8mV2MVC1d4zRwcNFQGuq/dpaO/U4YMKElkic1JED/v03OtnYOk0xa4yAuhT9emLizcI
+	VwfNekQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9LlM-00000005nsq-07BI;
-	Mon, 28 Apr 2025 10:31:00 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1u9LtH-00000005ooh-31xZ;
+	Mon, 28 Apr 2025 10:39:11 +0000
+Received: from jabberwock.ucw.cz ([46.255.230.98])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9KLp-00000005XKM-2VtB
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 09:00:35 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53S110Bq021410;
-	Mon, 28 Apr 2025 11:00:26 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=selector1; bh=94GaAp5IT+0nfZI1KhpMoi
-	6ddXqkPRsHTzLkhfBtKK0=; b=dbASW07GxQztoLy9FsEcZXQWu1OSefGLLrOKd8
-	motbCQlyWiWT0HoYG3UEeGShSIZt94n+/KHTDwVABav8Kr8N72+VXl+IpyVodkag
-	wtX0uBTggyZv/B1jll17sPTCo72vmUqjDIUQ19nhO9625TNu0hZyh9zjnTPfOQW5
-	ZbfGSOldL20QUnKdE74CJSv8G1N1w9q/7gw7WRuvoZrC1RtNHZPBYC93jr/R+3Rs
-	nUj46RdRuDRLF2PyVx1uJxg0INRVZB32fts7OC6/jFLDmBlqRdcRl8Q9a+/EJRhW
-	8xi/tvOOKD0jHHqVpStzEHQZ4DmtqGceerBCJDqv2tzJqqYA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 468mm9dxde-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 28 Apr 2025 11:00:25 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 8A6E84002D;
-	Mon, 28 Apr 2025 10:59:22 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 78F1EA4130C;
-	Mon, 28 Apr 2025 10:58:33 +0200 (CEST)
-Received: from localhost (10.48.87.62) by SHFDAG1NODE1.st.com (10.75.129.69)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 28 Apr
- 2025 10:58:33 +0200
-From: Patrice Chotard <patrice.chotard@foss.st.com>
-Subject: [PATCH v11 0/3] Add STM32MP25 SPI NOR support
-Date: Mon, 28 Apr 2025 10:58:29 +0200
-Message-ID: <20250428-upstream_ospi_v6-v11-0-1548736fd9d2@foss.st.com>
+	id 1u9LrI-00000005oWP-2cQ3;
+	Mon, 28 Apr 2025 10:37:10 +0000
+Received: by jabberwock.ucw.cz (Postfix, from userid 1017)
+	id 803651C00B2; Mon, 28 Apr 2025 12:37:02 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ucw.cz; s=gen1;
+	t=1745836622;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=sK1vyzZ1/+Jz3BVDrNB5HsQaiId/G9OE1+QZi7+pUo4=;
+	b=NovZaOQrOnYyuz4h8MTpMapCl+bGF0gUM27+yMWiDTxs4K56P/UTaF4wfkDUFWS+kjPZil
+	7fPVRr+WvxX++Xxt/1j0WMsCDMdJcvb6Za5AiE6qz4VPlng+0vsZFR2nWCw8ljivMhaGKO
+	1RYtOP22T4/eItT4cLkXKQJw1grdt+0=
+Date: Mon, 28 Apr 2025 12:37:02 +0200
+From: Pavel Machek <pavel@ucw.cz>
+To: Andy Shevchenko <andy.shevchenko@gmail.com>
+Cc: Nam Tran <trannamatk@gmail.com>, andy@kernel.org, geert@linux-m68k.org,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	christophe.jaillet@wanadoo.fr, corbet@lwn.net,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, florian.fainelli@broadcom.com,
+	bcm-kernel-feedback-list@broadcom.com,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v8 0/5] auxdisplay: add support for TI LP5812 4x3 Matrix
+ LED driver
+Message-ID: <aA9aTjhXHb3gddd9@duo.ucw.cz>
+References: <20250427082447.138359-1-trannamatk@gmail.com>
+ <CAHp75Vch8i50stVO6nH0Tnn=g4xSMji_iPj6q-CE1tLnvesqcQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIADVDD2gC/23Q3YrDIBAF4FcpXtcyo8afXvU9lqUYo60XrUFT2
- aXk3dcWls2SwNycA/MNzJMUn6Mv5Lh7kuxrLDHdW0Dc74i72vvF0zi0gjBgHXAG9DGWKXt7O6c
- yxnOVdBCcWY2KIXSkrY3Zh/j1Nj8+W77GMqX8/T5R5av9xXCNtQHKVd872wsuuDmFVMqhTAeXb
- uTFVfVHCNgiVCPAB6Y75H7QuCb0klAbhG6E6pVC6dBhkGvCLAjc+Eo1jXAB0XSgtdB2TSAsDMY
- 2jAYDlUEYwSwIj/Afmef5B1L4OKLBAQAA
-X-Change-ID: 20250320-upstream_ospi_v6-d432a8172105
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon
-	<will@kernel.org>
-CC: <christophe.kerello@foss.st.com>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Patrice Chotard
-	<patrice.chotard@foss.st.com>
-X-Mailer: b4 0.14.2
-X-Originating-IP: [10.48.87.62]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-04-28_03,2025-04-24_02,2025-02-21_01
+Content-Type: multipart/signed; micalg=pgp-sha1;
+	protocol="application/pgp-signature"; boundary="Ag0ctD1RJcTfntuY"
+Content-Disposition: inline
+In-Reply-To: <CAHp75Vch8i50stVO6nH0Tnn=g4xSMji_iPj6q-CE1tLnvesqcQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_020033_931625_00156E4D 
-X-CRM114-Status: GOOD (  14.67  )
+X-CRM114-CacheID: sfid-20250428_033709_107835_25E473A4 
+X-CRM114-Status: GOOD (  17.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,140 +75,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds SPI NOR support for STM32MP25 SoCs from STMicroelectronics.
 
-On STM32MP25 SoCs family, an Octo Memory Manager block manages the muxing,
-the memory area split, the chip select override and the time constraint
-between its 2 Octo SPI children.
+--Ag0ctD1RJcTfntuY
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Due to these depedencies, this series adds support for:
-  - Octo Memory Manager driver.
-  - Octo SPI driver.
-  - yaml schema for Octo Memory Manager and Octo SPI drivers.
+Hi!
 
-The device tree files adds Octo Memory Manager and its 2 associated Octo
-SPI chidren in stm32mp251.dtsi and adds SPI NOR support in stm32mp257f-ev1
-board.
-    
-Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+> > This patch series adds support for the TI/National Semiconductor LP5812
+> > 4x3 matrix RGB LED driver. The driver supports features such as autonom=
+ous
+> > animation and time-cross-multiplexing (TCM) for dynamic LED effects.
+> >
+> > Signed-off-by: Nam Tran <trannamatk@gmail.com>
+> > ---
+> > Changes in v8:
+> > - Move driver to drivers/auxdisplay/ instead of drivers/leds/.
+> > - Rename files from leds-lp5812.c/.h to lp5812.c/.h.
+> > - Move ti,lp5812.yaml binding to auxdisplay/ directory,
+> >   and update the title and $id to match new path.
+> > - No functional changes to the binding itself (keep Reviewed-by).
+> > - Update commit messages and patch titles to reflect the move.
+> > - Link to v7: https://lore.kernel.org/linux-leds/20250422190121.46839-1=
+-trannamatk@gmail.com/
+>=20
+> Out of sudden without discussing with auxdisplay maintainers/reviewers?
+> Thanks, no.
+> Please, put into the cover letter the meaningful summary of what's
+> going on and why this becomes an auxdisplay issue. Brief review of the
+> bindings sounds more likely like LEDS or PWM subsystems.
 
-Changes in v11:
-  - Add stm32_omm_toggle_child_clock(dev, false) in stm32_omm_disable_child() in case of error.
-  - Check MUXEN bit in stm32_omm_probe() to check if child clock must be disabled.
-  - Add dev_err_probe() in stm32_omm_probe().
-  - Link to v10: https://lore.kernel.org/r/20250422-upstream_ospi_v6-v10-0-6f4942a04e10@foss.st.com
-
-Changes in v10:
-  - Add of_node_put() in stm32_omm_set_amcr().
-  - Link to v9: https://lore.kernel.org/r/20250410-upstream_ospi_v6-v9-0-cf119508848a@foss.st.com
-
-Changes in v9:
-  - split patchset by susbsystem, current one include only OMM related
-    patches.
-  - Update SPDX Identifiers to "GPL-2.0-only".
-  - Add of_node_put)() instm32_omm_set_amcr().
-  - Rework error path in stm32_omm_toggle_child_clock().
-  - Make usage of reset_control_acquire/release() in stm32_omm_disable_child()
-    and move reset_control_get in probe().
-  - Rename error label in stm32_omm_configure().
-  - Remove child compatible check in stm32_omm_probe().
-  - Make usage of devm_of_platform_populate().
-  - Link to v8: https://lore.kernel.org/r/20250407-upstream_ospi_v6-v8-0-7b7716c1c1f6@foss.st.com
-
-Changes in v8:
-  - update OMM's dt-bindings:
-    - Remove minItems for clocks and resets properties.
-    - Fix st,syscfg-amcr items declaration.
-    - move power-domains property before vendor specific properties.
-  - Update compatible check wrongly introduced during internal tests in
-    stm32_omm.c.
-  - Move ommanager's node outside bus@42080000's node in stm32mp251.dtsi.
-  - Link to v7: https://lore.kernel.org/r/20250401-upstream_ospi_v6-v7-0-0ef28513ed81@foss.st.com
-
-Changes in v7:
-  - update OMM's dt-bindings by updating :
-    - clock-names and reset-names properties.
-    - spi unit-address node.
-    - example.
-  - update stm32mp251.dtsi to match with OMM's bindings update.
-  - update stm32mp257f-ev1.dts to match with OMM's bindings update.
-  - Link to v6: https://lore.kernel.org/r/20250321-upstream_ospi_v6-v6-0-37bbcab43439@foss.st.com
-
-Changes in v6:
-  - Update MAINTAINERS file.
-  - Remove previous patch 1/8 and 2/8, merged by Mark Brown in spi git tree.
-  - Fix Signed-off-by order for patch 3.
-  - OMM driver:
-    - Add dev_err_probe() in error path.
-    - Rename stm32_omm_enable_child_clock() to stm32_omm_toggle_child_clock().
-    - Reorder initialised/non-initialized variable in stm32_omm_configure()
-          and stm32_omm_probe().
-    - Move pm_runtime_disable() calls from stm32_omm_configure() to
-      stm32_omm_probe().
-    - Update children's clocks and reset management.
-    - Use of_platform_populate() to probe children.
-    - Add missing pm_runtime_disable().
-    - Remove useless stm32_omm_check_access's first parameter.
-  - Update OMM's dt-bindings by adding OSPI's clocks and resets.
-  - Update stm32mp251.dtsi by adding OSPI's clock and reset in OMM's node.
-
-Changes in v5:
-  - Add Reviewed-by Krzysztof Kozlowski for patch 1 and 3.
-
-Changes in v4:
-  - Add default value requested by Krzysztof for st,omm-req2ack-ns,
-    st,omm-cssel-ovr and st,omm-mux properties in st,stm32mp25-omm.yaml
-  - Remove constraint in free form test for st,omm-mux property.
-  - Fix drivers/memory/Kconfig by replacing TEST_COMPILE_ by COMPILE_TEST.
-  - Fix SPDX-License-Identifier for stm32-omm.c.
-  - Fix Kernel test robot by fixing dev_err() format in stm32-omm.c.
-  - Add missing pm_runtime_disable() in the error handling path in
-    stm32-omm.c.
-  - Replace an int by an unsigned int in stm32-omm.c
-  - Remove uneeded "," after terminator in stm32-omm.c.
-  - Update cover letter description to explain dependecies between
-Octo Memory Manager and its 2 Octo SPI children.
-
-Changes in v3:
-  - Squash defconfig patches 8 and 9.
-  - Update STM32 Octo Memory Manager controller bindings.
-  - Rename st,stm32-omm.yaml to st,stm32mp25-omm.yaml.
-  - Update STM32 OSPI controller bindings.
-  - Reorder DT properties in .dtsi and .dts files.
-  - Replace devm_reset_control_get_optional() by
-    devm_reset_control_get_optional_exclusive() in stm32_omm.c.
-  - Reintroduce region-memory-names management in stm32_omm.c.
-  - Rename stm32_ospi_tx_poll() and stm32_ospi_tx() to respectively to
-    stm32_ospi_poll() and stm32_ospi_xfer() in spi-stm32-ospi.c.
-  - Set SPI_CONTROLLER_HALF_DUPLEX in controller flags in spi-stm32-ospi.c.
-
-Changes in v2:
-  - Move STM32 Octo Memory Manager controller driver and bindings from
-    misc to memory-controllers.
-  - Update STM32 OSPI controller bindings.
-  - Update STM32 Octo Memory Manager controller bindings.
-  - Update STM32 Octo Memory Manager driver to match bindings update.
-  - Update DT to match bindings update.
-
-Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
----
-Patrice Chotard (3):
-      dt-bindings: memory-controllers: Add STM32 Octo Memory Manager controller
-      memory: Add STM32 Octo Memory Manager driver
-      MAINTAINERS: add entry for STM32 OCTO MEMORY MANAGER driver
-
- .../memory-controllers/st,stm32mp25-omm.yaml       | 226 ++++++++++
- MAINTAINERS                                        |   6 +
- drivers/memory/Kconfig                             |  17 +
- drivers/memory/Makefile                            |   1 +
- drivers/memory/stm32_omm.c                         | 476 +++++++++++++++++++++
- 5 files changed, 726 insertions(+)
----
-base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
-change-id: 20250320-upstream_ospi_v6-d432a8172105
+It is 4x3 matrix. That means it is not suitable for LEDs. I don't
+believe it is suitable for PWM, either -- yes, it is 36 PWM outputs,
+but...
 
 Best regards,
--- 
-Patrice Chotard <patrice.chotard@foss.st.com>
+								Pavel
+--=20
+I don't work for Nazis and criminals, and neither should you.
+Boycott Putin, Trump, and Musk!
 
+--Ag0ctD1RJcTfntuY
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iF0EABECAB0WIQRPfPO7r0eAhk010v0w5/Bqldv68gUCaA9aTgAKCRAw5/Bqldv6
+8u5oAKCw7eoZkIX/nBIa7XNYs4+P55FOvwCfaRsaqwJ7S1BjMxnZd5ElzqJ4liY=
+=6Zmi
+-----END PGP SIGNATURE-----
+
+--Ag0ctD1RJcTfntuY--
 
