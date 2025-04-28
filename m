@@ -4,149 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8CA3C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 16:19:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EA7FC369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 16:21:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jn4Ur3+o49kOmZe9t8CXlbRVJ1k7taI8CrmoSgHuahI=; b=jO8CiSY/mgjeKLfyOr60g8ZpvM
-	13F2hhiZTRj7/eruUTpzRTxDBuztT1NSgfYZOjMHIpSwYaF89xDRK6ch0fFTIn6NSiPpGm0gJ5tz6
-	JddJJWcXiWFg5rOnK1Xp7EOaG0rL/pJ5Im1s1GtOMgd8zE/YW6f5Qnm4EiskaIrUoEBtFAlurR7SI
-	oI/OSB65VV2PedCUQr4JAUEwBgKaMyje/AwIjFksMk5G1MZMGbVk07hqykE5SKuV4GLs4aOaEVwxc
-	5oGy/+luLIdqFIbTciIy21gk74rn8+B95D2ZldnCu8cNw6zuYOFwjhjCWp/NiSWIZvBaNx65VrP+2
-	+Kmd5Xhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XUW8w4O0Yn/2Hr01MuvON9SigYc2UDOORqOgGF5r4kg=; b=LiYzKLJoTwi7EKu/mL9wP6M3sm
+	XZ19BTnGGOLjdGetPAKxqFNvmNEGnhgIrJTi0TNI1e+uuR88RXaSDD+uCc5uIi8NiZA44DKkAD1aP
+	2isJajbzlWd+UyArLtEfiqCZRKPdn2ocPhLF5slJaezs+BJ3pGqZkiTjIQXsdfkTuqtjPbHu7DiNj
+	jvDG3zqS5cHuZnvajSC7lzZZIATovFxQ5F7rRXA5Yx3NQMGCB3DyeA/0LwD+N8yiNmJ4UkI2DH4Zt
+	83kIH8xpTobpNnHc0hfSStw8WvOpgobNu3inA3Zlx4RQtoo/X8QWHJLAZ0iHxDwSVJFf+4bB35AHz
+	1g8bmAvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9RC3-00000006tbx-06aG;
-	Mon, 28 Apr 2025 16:18:55 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9RA4-00000006t9p-430e
+	id 1u9RDy-00000006tuQ-3Lfi;
+	Mon, 28 Apr 2025 16:20:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u9RAc-00000006tJa-0ZLc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 16:16:54 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ony06w4zXTapoVPPMhR6Hd2U9YA6khCF7MGZOisQ27WgVASu1Pn1/ZFAwsNjpGhbSyN+MnIiczmeIIxfCTPPIygIP0iNXeFVNbbyVNc1Epd0etM9bu4c7TAHkCrzQ3UgEtjtEH/5ova6DX388zUwrvCoHwNJSb2E7UZcwM8VPh08LNJGpRPJRanVVGWiytxffZBr2S77MV/VlEIiJHJZIPXJ80xfdvzMRzV55bQeeM1Ez/8JG+sCu9jEnkh/5S2N6yvSXHps9MST40ZfdEuPQPZ+7BYjV13VpUP4SK5wsUDDgxvRdqQygC4SKOHCY0LkiNRiN0Ncls/m+iSUtxeG6A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Jn4Ur3+o49kOmZe9t8CXlbRVJ1k7taI8CrmoSgHuahI=;
- b=FI3RAK/1hCdeHHH7uLJLf2W9BlRixjlQUPVci1ZkIrhgCFdHvcHX0rDpQN9W57EhRrPbttwriV2TdL4D5B7Qc0Z69DXOglAYbncnsv4QWLg3xT34iEVTePdzFik3hBDo8xjtF5Y/xwIks9pkOHV/OYynsp3WXlMDfT+Tir5sUcXZQRBd0HLLTFUYYCDInnuv1pmBfiBxgpDoX6/povDTT3tNJbW610yB3kj4z80W7ZI4wOjZjLc8238wRb4pqSyzkIknvZixTxytRwF5r0VEzfV41cOFf1cfCx9V8Pw0YCEs+qaj0iN2jNFaLyPhnRShMJUE5UAXlgZphULWJ+M2ew==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Jn4Ur3+o49kOmZe9t8CXlbRVJ1k7taI8CrmoSgHuahI=;
- b=YMSZPJeufgjp5zIh0Pu4jXfSQiVRF8pjmnXYXF6vVuL+K6uW6icAaig3AqxmTsNhmGk6gqCU3rsK3W92aP3TN2Uo88xkfc3D/n3UrTU2qMzB4kvuMdycEvksggUkje5mh379pxq1h28qBfuEdClGiYS2Oa6mpm6dyOtBVO6rTpPrm6d49/yAyZSW5Z3akdYe/t8GRnPgkals5e7ezoi8kLva+bhi2blaGOVfcnS/H2716Yu5hKU+aig3bnKMScYIBg+eyCvDreC/ee84VKJlXIdauwkZmEXjBXonvdcbnsFvEdFaUsKayO2wMUTEEBkTKND5KqkP51XfeFAE7+fZ5A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM8PR04MB7779.eurprd04.prod.outlook.com (2603:10a6:20b:24b::14)
- by DUZPR04MB9726.eurprd04.prod.outlook.com (2603:10a6:10:4e3::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.31; Mon, 28 Apr
- 2025 16:16:47 +0000
-Received: from AM8PR04MB7779.eurprd04.prod.outlook.com
- ([fe80::7417:d17f:8d97:44d2]) by AM8PR04MB7779.eurprd04.prod.outlook.com
- ([fe80::7417:d17f:8d97:44d2%4]) with mapi id 15.20.8678.028; Mon, 28 Apr 2025
- 16:16:47 +0000
-Date: Mon, 28 Apr 2025 19:16:44 +0300
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: Wei Fang <wei.fang@nxp.com>
-Cc: claudiu.manoil@nxp.com, xiaoning.wang@nxp.com, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	pabeni@redhat.com, christophe.leroy@csgroup.eu,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v6 net-next 00/14] Add more features for ENETC v4 - round
- 2
-Message-ID: <20250428161644.ygf3bg6pyyfftccn@skbuf>
-References: <20250428105657.3283130-1-wei.fang@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250428105657.3283130-1-wei.fang@nxp.com>
-X-ClientProxiedBy: VI1P195CA0095.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:802:59::48) To AM8PR04MB7779.eurprd04.prod.outlook.com
- (2603:10a6:20b:24b::14)
+	Mon, 28 Apr 2025 16:17:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E6B1A1007;
+	Mon, 28 Apr 2025 09:17:18 -0700 (PDT)
+Received: from [10.57.90.155] (unknown [10.57.90.155])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C39EA3F66E;
+	Mon, 28 Apr 2025 09:17:21 -0700 (PDT)
+Message-ID: <fb0d2181-4e91-4c1a-9410-8729cbba0dfe@arm.com>
+Date: Mon, 28 Apr 2025 17:17:20 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7779:EE_|DUZPR04MB9726:EE_
-X-MS-Office365-Filtering-Correlation-Id: e9f6c3c7-ff7d-4fce-2c91-08dd8670131d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vPx+WBx42FW0PVl0O1b5sD597yx1F6dddEou7HmXPqkkKQFG1FS+w4Z80i0I?=
- =?us-ascii?Q?cCwTfC8kJqI8ya6ySd//IfVWKjLtmkINQQDY6iMdaxGHII8QsLP7c+Kthlg3?=
- =?us-ascii?Q?e8WRUaLWHeAkhot6ucSFHk2azO9yKUHmhudNDz2rBU00KUmqAatK0dB8lEV4?=
- =?us-ascii?Q?Zb6MaOsWHVWZ94csK3VT5rXBDcW33lWUpS+B+NPxvSMUQybOS3KXtui+1pjf?=
- =?us-ascii?Q?ZcwauLu7fMCOrTN2NtC0E5LxlaV5ZkLiDcoEXf2xDmASWkeT6cn0pDqt4+Q7?=
- =?us-ascii?Q?hF4H0yU29Wd7rfxQUBytGAjqUoJjRZeMXIY6CmT/xe0ivbw8mcgBbHBZJS86?=
- =?us-ascii?Q?RBkIcFsSyrDgZVT4jjN90wKNxbm2NT3SofxrALmtKEytNB0SaUrOYWWaDj4j?=
- =?us-ascii?Q?HjrR6u5dWF6/Gz6RP2VjCmgwKEqkPf+vQiCSk/6KNatw4nzEEIExlc8DNBFC?=
- =?us-ascii?Q?jJ17Q1godId4d+GSk6vmp+38FSUSdHE27x8PqrI/SvQsGqE2+bjXK+OZ3dbV?=
- =?us-ascii?Q?mn7dKVwVWQrbWtt4RAhu6clv7rSqrAmCSb7OyEyuxh7Y4VBz3X8Ht8B4qtwh?=
- =?us-ascii?Q?B/TurAOa7U6OMGUNbi/itEHFmQwR8b32jUrahd6aBtvi/HgtEhBYgJO1hWVT?=
- =?us-ascii?Q?iR29BuOXbjz65Be/AUoP1XNZwAL1nIDPsuKVbkKqE5juvyzxG96BxYASPh94?=
- =?us-ascii?Q?RgAaigokYzKAxLNevtX6BZ9rbNEPO+3aYQ8kKzb1QNamBnBpCOAptR01ikSx?=
- =?us-ascii?Q?iQE9xXhl8PQV5hoHOBAQ0HyusfNRohoRwZoSJmzwKz8KtALgYG9fqi/vuqEo?=
- =?us-ascii?Q?1T2pYhmOA1YbJYvOyOufj0nelvzkXb97u9VML8SUUHikX+WNWGnDTOgqfYlm?=
- =?us-ascii?Q?yw1qlSorv0UmvP9QtIp9f9nc31714uUVtz3IgaUcF9H/Ty0rZAacJaIhlfTQ?=
- =?us-ascii?Q?L2XmI2Tt5bMo5SeGg0AgJvbJXZcaDA9PQQMjtx3NU76ETEWCs0L5gh1ESfhD?=
- =?us-ascii?Q?0e+L6y4ZPV+nnBMUzBdcuQCekwe/Hrb+GhqP14I92NhI+wG0EMgb5u3WAE0P?=
- =?us-ascii?Q?JMNrWoEcJTBp8uayuzFd6h7uo1gmJIu0FEcHr8c3LdX9bknNf+LqECDEdG+T?=
- =?us-ascii?Q?FuPh+jh46lPc4PyCJvYM7HuqvrOQHjtphFWoRPK+AU7szECCnfpyv5+wObl8?=
- =?us-ascii?Q?rARF579/xw/jxSA0102v/ltOu9g6SPfebhjqC1lDgTp3PC5L5squ3rDr6NMM?=
- =?us-ascii?Q?Mwoz6h0w4mMdknYXyxkkRm4Jd8DFkpeiUYKjwKPGGQMTHKINu5itMMJD+NTM?=
- =?us-ascii?Q?1yBuCz/g+eZ1n6N2/1C7nRjCpLIJszzXytDG3d2hAUzgSmFK87E9NoErCb5T?=
- =?us-ascii?Q?zUEV8JTcpO9bdb9vpoP1/7LMIpvhNYEMc/vCtTEnUNqiFa/vd2CZh9KoPszb?=
- =?us-ascii?Q?2MVApZXxGO0=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7779.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?nJcdZ5UjsWX4JR7kMwlXRyPVLj6Pm/dAmKHzOgUiARc7haVyWy/PDoLsvcjp?=
- =?us-ascii?Q?BfwtFcfvGJGxmA1Ixjl0DvNv4tYA9nWQFb7/27vE7f7njKmKzQMjD00NLRBf?=
- =?us-ascii?Q?UFDulKUnV6GV9oV+jcrCm3LKYkOCJTmQn7q+r1lqJq0kTmk82U4ofb6nWeG6?=
- =?us-ascii?Q?ZYKruLymbpei+u1jHEEKaRG+EvaVd78045XnDUazCixl5HRr+En9WXiseglQ?=
- =?us-ascii?Q?hqa9g46OuawOjzQmOvcJ/pO9f1nYkskPxvyCWW2U7kg6fL25gr0SJCKjx1vW?=
- =?us-ascii?Q?HMLH9SiNQuYPeqln9LPqNOeqqZ//GaQJ8pXRt+cHCRaOFNBVONfqZx4/WuA1?=
- =?us-ascii?Q?WC1ldT/IiB6CERgt19D+KAaFvSEybD1+QP8HBhb+DYcD/vEuERUSuNqfmMyL?=
- =?us-ascii?Q?W9mGkl6DlV6lwW1dz5ws/bFEMOiedxt+fI+i8fVmchQM/rRDewoov37Evvl6?=
- =?us-ascii?Q?9/kAAgyE23KT1EcHjIUl1uwZ87xFt+WsrKcHydyyZFb+c8kioj0XUM7XMxOk?=
- =?us-ascii?Q?86CMRiF73oNPOxhcr+HPsvx76xIjekoXa82GVz+2TMkCdD6VN2MViy8SRHtr?=
- =?us-ascii?Q?mohG4WVSF8ZT64TRviJr6R4xour5fs/vMWYe0Fpuy9VWE5VLrkAbtf6JOW70?=
- =?us-ascii?Q?3M0nz6zuMSe29+BfdZCOTnVmiJyV8Qof299cADe59xLFq59FLn3MM5gXzvGo?=
- =?us-ascii?Q?a5Tuh54pZwUam4cxHGjcGPe96j0tG8AqS2avtN2kpDTXjjbE9cIc4usEaIB2?=
- =?us-ascii?Q?GMwfh59DKXIpEaQ4yyoT7m2RkmE6CUBt1I/4Vs8zh76jFJvMGtSHTpFIt04s?=
- =?us-ascii?Q?L4f7HlzrvMhavWInOk8J/7FXV2dYkxLrL1ssv/dyn6WgCzkbsG5r8o7sgoIM?=
- =?us-ascii?Q?LM0UX/lIjulCVPnopjaL8Eqq13AbaYdilTfPSvjcbfDZTR7A6qs5Fscw247t?=
- =?us-ascii?Q?HeK3rYrZVB7gUlX6S0rGdqqTv/k9aEDi3tGLG4rkqVbsNwMZQViDQONTtRC2?=
- =?us-ascii?Q?5O0nr0iQdw81jy98kFAqiikRQS+viPk+8H92lc2xIGQGfpJF5BBpBy6ypmvp?=
- =?us-ascii?Q?L92ortGa+o7VfeedX1X0mlNHGQcQlqqaGGGg8bpRSh5v5jEH+QVjhuFIuWSd?=
- =?us-ascii?Q?m1b5gDdFA81o5ta7IFD1d6lSqWHczRrHmz3Mos2BTwJXHK9cadh3K177M4l+?=
- =?us-ascii?Q?G/ugboDkQBNBIy0F9PP1FeMPPeOo43qM5gb8bhSrs3kKpl9DpTvWeydJ881W?=
- =?us-ascii?Q?NWu9Qq8KN/gXH8FeVK/yJ3l885KDCMW9dc9C47YBwiH2CLuvSqoFsR2bb0YJ?=
- =?us-ascii?Q?zRwGFan3ttVVMym1gVMzVrSovIgpo6TmN3sNunY47+hraoP+Dex5DTog00mQ?=
- =?us-ascii?Q?GgZJ0pzS5RWpOZKExwtiF+8VhUDE3V9w4dkd3QdiZ3pDRtQ5SVKp2DvxJbZC?=
- =?us-ascii?Q?Q+JS/l/eNDe8GVDpWK8qQlE3wfI+RWrO7vPI0p4ytc8tRd24KpZUC4bLAw5g?=
- =?us-ascii?Q?8kjRIg32U/XF0gfeXvSkSaTPvfmqCwIcjkFteI3lF89ZHz31YyZ5zXvKWSmM?=
- =?us-ascii?Q?NrYWDZQrjHHcX5FTXkt0kV+B4kY49DvYH8o3Dj+mOUlxpltfqOBk4jEIjJhG?=
- =?us-ascii?Q?5w=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e9f6c3c7-ff7d-4fce-2c91-08dd8670131d
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7779.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2025 16:16:47.6233
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Dab0irRcnRX4T+DJOSlwDoyoH93Nbg1adiBUDDmsrZo2RujJHtUnefoLgd98RcVUXnjlBCw15jXP9kYIIsIR1A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB9726
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RESEND PATCH v6 3/3] arm64/mm: Elide tlbi in contpte_convert()
+ under BBML2
+Content-Language: en-GB
+To: =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
+ suzuki.poulose@arm.com, yang@os.amperecomputing.com, corbet@lwn.net,
+ catalin.marinas@arm.com, will@kernel.org, jean-philippe@linaro.org,
+ robin.murphy@arm.com, joro@8bytes.org, akpm@linux-foundation.org,
+ paulmck@kernel.org, mark.rutland@arm.com, joey.gouly@arm.com,
+ maz@kernel.org, james.morse@arm.com, broonie@kernel.org,
+ oliver.upton@linux.dev, baohua@kernel.org, david@redhat.com,
+ ioworker0@gmail.com, jgg@ziepe.ca, nicolinc@nvidia.com, mshavit@google.com,
+ jsnitsel@redhat.com, smostafa@google.com, kevin.tian@intel.com,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
+References: <20250428153514.55772-2-miko.lenczewski@arm.com>
+ <20250428153514.55772-8-miko.lenczewski@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20250428153514.55772-8-miko.lenczewski@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_091653_005118_5A99B474 
-X-CRM114-Status: GOOD (  13.57  )
+X-CRM114-CacheID: sfid-20250428_091726_261466_790DDDA7 
+X-CRM114-Status: GOOD (  39.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,22 +74,199 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Wei,
+On 28/04/2025 16:35, Mikołaj Lenczewski wrote:
+> When converting a region via contpte_convert() to use mTHP, we have two
+> different goals. We have to mark each entry as contiguous, and we would
+> like to smear the dirty and young (access) bits across all entries in
+> the contiguous block. Currently, we do this by first accumulating the
+> dirty and young bits in the block, using an atomic
+> __ptep_get_and_clear() and the relevant pte_{dirty,young}() calls,
+> performing a tlbi, and finally smearing the correct bits across the
+> block using __set_ptes().
+> 
+> This approach works fine for BBM level 0, but with support for BBM level
+> 2 we are allowed to reorder the tlbi to after setting the pagetable
+> entries. We expect the time cost of a tlbi to be much greater than the
+> cost of clearing and resetting the PTEs. As such, this reordering of the
+> tlbi outside the window where our PTEs are invalid greatly reduces the
+> duration the PTE are visibly invalid for other threads. This reduces the
+> likelyhood of a concurrent page walk finding an invalid PTE, reducing
+> the likelyhood of a fault in other threads, and improving performance
+> (more so when there are more threads).
+> 
+> Because we support via allowlist only bbml2 implementations that never
+> raise conflict aborts and instead invalidate the tlb entries
+> automatically in hardware, we can avoid the final flush altogether.
+> 
+> However, avoiding the intermediate tlbi+dsb must be carefully considered
+> to ensure that we remain both correct and performant. We document our
+> reasoning and the expected interactions further in the contpte_convert()
+> source. To do so we rely on the aarch64 spec (DDI 0487L.a D8.7.1.1)
+> requirements RNGLXZ and RJQQTC to provide guarantees that the elision is
+> correct.
+> 
+> Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
 
-On Mon, Apr 28, 2025 at 06:56:43PM +0800, Wei Fang wrote:
-> This patch set adds the following features.
-> 1. Compared with ENETC v1, the formats of tables and command BD of ENETC
-> v4 have changed significantly, and the two are not compatible. Therefore,
-> in order to support the NETC Table Management Protocol (NTMP) v2.0, we
-> introduced the netc-lib driver and added support for MAC address filter
-> table and RSS table.
-> 2. Add MAC filter and VLAN filter support for i.MX95 ENETC PF.
-> 3. Add RSS support for i.MX95 ENETC PF.
-> 4. Add loopback support for i.MX95 ENETC PF.
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
 
-I don't see any functional issues with this set. I am also not sure
-whether MAC address filtering is implemented in the simplest way, but I
-suppose it can also be simplified over time.
+It would be great to see this series merged this cycle!
 
-Reviewed-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+Thanks,
+Ryan
+
+> ---
+>  arch/arm64/mm/contpte.c | 139 +++++++++++++++++++++++++++++++++++++++-
+>  1 file changed, 138 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+> index bcac4f55f9c1..203357061d0a 100644
+> --- a/arch/arm64/mm/contpte.c
+> +++ b/arch/arm64/mm/contpte.c
+> @@ -68,7 +68,144 @@ static void contpte_convert(struct mm_struct *mm, unsigned long addr,
+>  			pte = pte_mkyoung(pte);
+>  	}
+>  
+> -	__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, true, 3);
+> +	/*
+> +	 * On eliding the __tlb_flush_range() under BBML2+noabort:
+> +	 *
+> +	 * NOTE: Instead of using N=16 as the contiguous block length, we use
+> +	 *       N=4 for clarity.
+> +	 *
+> +	 * NOTE: 'n' and 'c' are used to denote the "contiguous bit" being
+> +	 *       unset and set, respectively.
+> +	 *
+> +	 * We worry about two cases where contiguous bit is used:
+> +	 *  - When folding N smaller non-contiguous ptes as 1 contiguous block.
+> +	 *  - When unfolding a contiguous block into N smaller non-contiguous ptes.
+> +	 *
+> +	 * Currently, the BBML0 folding case looks as follows:
+> +	 *
+> +	 *  0) Initial page-table layout:
+> +	 *
+> +	 *   +----+----+----+----+
+> +	 *   |RO,n|RO,n|RO,n|RW,n| <--- last page being set as RO
+> +	 *   +----+----+----+----+
+> +	 *
+> +	 *  1) Aggregate AF + dirty flags using __ptep_get_and_clear():
+> +	 *
+> +	 *   +----+----+----+----+
+> +	 *   |  0 |  0 |  0 |  0 |
+> +	 *   +----+----+----+----+
+> +	 *
+> +	 *  2) __flush_tlb_range():
+> +	 *
+> +	 *   |____ tlbi + dsb ____|
+> +	 *
+> +	 *  3) __set_ptes() to repaint contiguous block:
+> +	 *
+> +	 *   +----+----+----+----+
+> +	 *   |RO,c|RO,c|RO,c|RO,c|
+> +	 *   +----+----+----+----+
+> +	 *
+> +	 *  4) The kernel will eventually __flush_tlb() for changed page:
+> +	 *
+> +	 *                  |____| <--- tlbi + dsb
+> +	 *
+> +	 * As expected, the intermediate tlbi+dsb ensures that other PEs
+> +	 * only ever see an invalid (0) entry, or the new contiguous TLB entry.
+> +	 * The final tlbi+dsb will always throw away the newly installed
+> +	 * contiguous TLB entry, which is a micro-optimisation opportunity,
+> +	 * but does not affect correctness.
+> +	 *
+> +	 * In the BBML2 case, the change is avoiding the intermediate tlbi+dsb.
+> +	 * This means a few things, but notably other PEs will still "see" any
+> +	 * stale cached TLB entries. This could lead to a "contiguous bit
+> +	 * misprogramming" issue until the final tlbi+dsb of the changed page,
+> +	 * which would clear out both the stale (RW,n) entry and the new (RO,c)
+> +	 * contiguous entry installed in its place.
+> +	 *
+> +	 * What this is saying, is the following:
+> +	 *
+> +	 *  +----+----+----+----+
+> +	 *  |RO,n|RO,n|RO,n|RW,n| <--- old page tables, all non-contiguous
+> +	 *  +----+----+----+----+
+> +	 *
+> +	 *  +----+----+----+----+
+> +	 *  |RO,c|RO,c|RO,c|RO,c| <--- new page tables, all contiguous
+> +	 *  +----+----+----+----+
+> +	 *   /\
+> +	 *   ||
+> +	 *
+> +	 *  If both the old single (RW,n) and new contiguous (RO,c) TLB entries
+> +	 *  are present, and a write is made to this address, do we fault or
+> +	 *  is the write permitted (via amalgamation)?
+> +	 *
+> +	 * The relevant Arm ARM DDI 0487L.a requirements are RNGLXZ and RJQQTC,
+> +	 * and together state that when BBML1 or BBML2 are implemented, either
+> +	 * a TLB conflict abort is raised (which we expressly forbid), or will
+> +	 * "produce an OA, access permissions, and memory attributes that are
+> +	 * consistent with any of the programmed translation table values".
+> +	 *
+> +	 * That is to say, will either raise a TLB conflict, or produce one of
+> +	 * the cached TLB entries, but never amalgamate.
+> +	 *
+> +	 * Thus, as the page tables are only considered "consistent" after
+> +	 * the final tlbi+dsb (which evicts both the single stale (RW,n) TLB
+> +	 * entry as well as the new contiguous (RO,c) TLB entry), omitting the
+> +	 * initial tlbi+dsb is correct.
+> +	 *
+> +	 * It is also important to note that at the end of the BBML2 folding
+> +	 * case, we are still left with potentially all N TLB entries still
+> +	 * cached (the N-1 non-contiguous ptes, and the single contiguous
+> +	 * block). However, over time, natural TLB pressure will cause the
+> +	 * non-contiguous pte TLB entries to be flushed, leaving only the
+> +	 * contiguous block TLB entry. This means that omitting the tlbi+dsb is
+> +	 * not only correct, but also keeps our eventual performance benefits.
+> +	 *
+> +	 * For the unfolding case, BBML0 looks as follows:
+> +	 *
+> +	 *  0) Initial page-table layout:
+> +	 *
+> +	 *   +----+----+----+----+
+> +	 *   |RW,c|RW,c|RW,c|RW,c| <--- last page being set as RO
+> +	 *   +----+----+----+----+
+> +	 *
+> +	 *  1) Aggregate AF + dirty flags using __ptep_get_and_clear():
+> +	 *
+> +	 *   +----+----+----+----+
+> +	 *   |  0 |  0 |  0 |  0 |
+> +	 *   +----+----+----+----+
+> +	 *
+> +	 *  2) __flush_tlb_range():
+> +	 *
+> +	 *   |____ tlbi + dsb ____|
+> +	 *
+> +	 *  3) __set_ptes() to repaint as non-contiguous:
+> +	 *
+> +	 *   +----+----+----+----+
+> +	 *   |RW,n|RW,n|RW,n|RW,n|
+> +	 *   +----+----+----+----+
+> +	 *
+> +	 *  4) Update changed page permissions:
+> +	 *
+> +	 *   +----+----+----+----+
+> +	 *   |RW,n|RW,n|RW,n|RO,n| <--- last page permissions set
+> +	 *   +----+----+----+----+
+> +	 *
+> +	 *  5) The kernel will eventually __flush_tlb() for changed page:
+> +	 *
+> +	 *                  |____| <--- tlbi + dsb
+> +	 *
+> +	 * For BBML2, we again remove the intermediate tlbi+dsb. Here, there
+> +	 * are no issues, as the final tlbi+dsb covering the changed page is
+> +	 * guaranteed to remove the original large contiguous (RW,c) TLB entry,
+> +	 * as well as the intermediate (RW,n) TLB entry; the next access will
+> +	 * install the new (RO,n) TLB entry and the page tables are only
+> +	 * considered "consistent" after the final tlbi+dsb, so software must
+> +	 * be prepared for this inconsistency prior to finishing the mm dance
+> +	 * regardless.
+> +	 */
+> +
+> +	if (!system_supports_bbml2_noabort())
+> +		__flush_tlb_range(&vma, start_addr, addr, PAGE_SIZE, true, 3);
+>  
+>  	__set_ptes(mm, start_addr, start_ptep, pte, CONT_PTES);
+>  }
+
 
