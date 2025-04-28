@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AA34C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 15:58:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63BC5C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 16:04:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dawl8i88r8gHM8GMLkwVV5hNLqE1msotfeeEvyM0UGg=; b=TbfIAZ7ScDANyJUhVxx/avv8px
-	nfVmw8+y123S+7Ria7+MYe9ucnqNcnIcT241XCaYJXJH86UBSwBKBbbo9LL2H0x3yHGPEkdKsjCnM
-	qRymBb17Ijz8VBmzrEzeIJ2RhhgGvMlrIeRKfSfYRJPPfSWU65cdFD2adGVRTpMW2anKG7bEJPTkH
-	T54jINw7LWaFriIV6vS4giWmsPCBWOZ9a5vPfQ7Vvh/eWT/ue4UH+vbGTZ4OnKrNQvVvs344/sL3t
-	fvopgqN5a74Y4b2ponYSzt86JLyaRLpYtxKd7Y5hIQX62Uw9Dnv1okERBXB9QsOanMFz/ubQQyQ8m
-	BAij4o/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BlSeBSkQjEiAOqVJNxRfOEuimUO18o/411bIydKZxM0=; b=3As52X5XXPu9wvRRrE/um0fygk
+	SccSUzw40fFh94XxxSM+Kak7011r6JW5RomSy9FtDGhsGP6LXdubVwtUCzAjSm9VaWo/KY2xjyfYZ
+	Px1NN9aqVaT3HKS7L7Bmeso5UKX1vYmSUyrTsn4lf8fXuu/snTyQryDxC9zwcrGWXE1tnCCm237n/
+	Kjeey667pJ6HmaOqTUAZc11heyi+uWoqbOUpk8bu3qmH2KOg9O0wNxRsveFR/WtaGpe512zuOvPSw
+	bcPbJdkJ9ghjAOfID8cO6HOZL47MOOZThDk2d0dgQTKHE2JnWDL5XDFadsvKpRX4Ffbp21QptlNvJ
+	kp3yxMrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9QsA-00000006qKF-2lnD;
-	Mon, 28 Apr 2025 15:58:22 +0000
-Received: from out-177.mta0.migadu.com ([91.218.175.177])
+	id 1u9Qy9-00000006qy4-30ue;
+	Mon, 28 Apr 2025 16:04:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Qol-00000006prt-2WMe
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 15:54:53 +0000
-Message-ID: <6a0b4d81-a1b8-4533-8b4e-de270e39c5aa@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1745855688;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Dawl8i88r8gHM8GMLkwVV5hNLqE1msotfeeEvyM0UGg=;
-	b=FaA0Twe5lUPFZNu4Y8Ll6qulwKqptD919xn9eQA4GemadbkvSp/kBtsBN6cXgzPo6c5Bys
-	0vMyUWz47EYj2SSEgpHpVWO2bEjAKyuDU58SILPTrWX76GLpW6uVnLbhjNNtDoNYSOtu3f
-	obX5tmczNYhctTAqE69zHyFgFSiNFjo=
-Date: Mon, 28 Apr 2025 23:54:34 +0800
+	id 1u9QwB-00000006ql1-23pn;
+	Mon, 28 Apr 2025 16:02:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 915D944810;
+	Mon, 28 Apr 2025 16:02:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DE4BC4CEE4;
+	Mon, 28 Apr 2025 16:02:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745856149;
+	bh=+F0aVRE/fg2cXsJEag0GSt3k1+oaEiHh7xyT0ADeQLk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Lak2ghekf9IwpvNw+4iqdf4xfsEY5Nf4Us9kuj/97WrdrGRHp0J3qTNy3euMa9p+y
+	 LJV5omJuB8I35eAT0FHrnfyhcFsn7xk+qoZg1b4ccWIErsCZVbN7B8A8iGPM5llymD
+	 RH9GzhZgZAA8fG1hHedgK37evt0yOKKD3GlK/44uU13bPO019zjAEgxwYbKc4Qr5pO
+	 4Gbx4cP9YQEKq352qKATJjERjf58sW7HSCCGzQ8E9wYxeCfiLrkTNGsule4ZJva9qS
+	 +hXyDH79pbBgjP6nFRrEHsA7mXYwEABGEu2HofPHuSifXHKUnRvB1/vIKytbr6Yp0C
+	 FAtQlXV61XXsQ==
+Date: Mon, 28 Apr 2025 11:02:27 -0500
+From: Rob Herring <robh@kernel.org>
+To: Joerg Roedel <joro@8bytes.org>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	yong.wu@mediatek.com, will@kernel.org, robin.murphy@arm.com,
+	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com,
+	iommu@lists.linux.dev, linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kernel@collabora.com
+Subject: Re: [PATCH v1 0/2] MediaTek Dimensity 1200 - Add IOMMU support
+Message-ID: <20250428160227.GA1322286-robh@kernel.org>
+References: <20250410144008.475888-1-angelogioacchino.delregno@collabora.com>
+ <aAETI0hrOiQZDKh2@8bytes.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH 6/7] mm: Batch around can_change_pte_writable()
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Lance Yang <lance.yang@linux.dev>
-To: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org
-Cc: ryan.roberts@arm.com, david@redhat.com, willy@infradead.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com,
- will@kernel.org, Liam.Howlett@oracle.com, lorenzo.stoakes@oracle.com,
- vbabka@suse.cz, jannh@google.com, anshuman.khandual@arm.com,
- peterx@redhat.com, joey.gouly@arm.com, ioworker0@gmail.com,
- baohua@kernel.org, kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
- christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
- linux-arm-kernel@lists.infradead.org, namit@vmware.com, hughd@google.com,
- yang@os.amperecomputing.com, ziy@nvidia.com
-References: <20250428120414.12101-1-dev.jain@arm.com>
- <20250428120414.12101-7-dev.jain@arm.com>
- <edf768ec-e874-4ca6-9fd7-b94ccc1c1059@linux.dev>
- <29c70c06-42c2-4bc0-a56e-443a1200fde0@linux.dev>
-In-Reply-To: <29c70c06-42c2-4bc0-a56e-443a1200fde0@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aAETI0hrOiQZDKh2@8bytes.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_085451_852703_514B1E65 
-X-CRM114-Status: GOOD (  21.26  )
+X-CRM114-CacheID: sfid-20250428_090231_545863_FAF01088 
+X-CRM114-Status: GOOD (  14.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,211 +75,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Apr 17, 2025 at 04:41:39PM +0200, Joerg Roedel wrote:
+> On Thu, Apr 10, 2025 at 04:40:06PM +0200, AngeloGioacchino Del Regno wrote:
+> > In preparation for adding basic support for the OnePlus Nord 2 5G
+> > DN2103 smartphone, this series adds support for the IOMMU found in
+> > the MediaTek Dimensity 1200 (MT6893) SoC.
+> > 
+> > AngeloGioacchino Del Regno (2):
+> >   dt-bindings: iommu: mediatek: Add binding for MT6893 MM IOMMU
+> >   iommu/mediatek: Add support for Dimensity 1200 MT6893 MM IOMMU
+> > 
+> >  .../bindings/iommu/mediatek,iommu.yaml        |   4 +
+> >  drivers/iommu/mtk_iommu.c                     |  37 ++-
+> >  .../memory/mediatek,mt6893-memory-port.h      | 288 ++++++++++++++++++
+> >  3 files changed, 318 insertions(+), 11 deletions(-)
+> >  create mode 100644 include/dt-bindings/memory/mediatek,mt6893-memory-port.h
+> 
+> Applied, thanks.
 
+It looks like you missed the binding change for this.
 
-On 2025/4/28 21:16, Lance Yang wrote:
-> 
-> 
-> On 2025/4/28 20:50, Lance Yang wrote:
->> Hey Dev,
->>
->> On 2025/4/28 20:04, Dev Jain wrote:
->>> In preparation for patch 7, we need to properly batch around
->>> can_change_pte_writable(). We batch around pte_needs_soft_dirty_wp() by
->>> the corresponding fpb flag, we batch around the page-anon exclusive 
->>> check
->>> using folio_maybe_mapped_shared(); modify_prot_start_ptes() collects the
->>> dirty and access bits across the batch, therefore batching across
->>> pte_dirty(): this is correct since the dirty bit on the PTE really
->>> is just an indication that the folio got written to, so even if
->>> the PTE is not actually dirty (but one of the PTEs in the batch is),
->>> the wp-fault optimization can be made.
->>>
->>> Signed-off-by: Dev Jain <dev.jain@arm.com>
->>> ---
->>>   include/linux/mm.h | 4 ++--
->>>   mm/gup.c           | 2 +-
->>>   mm/huge_memory.c   | 4 ++--
->>>   mm/memory.c        | 6 +++---
->>>   mm/mprotect.c      | 9 ++++++---
->>>   5 files changed, 14 insertions(+), 11 deletions(-)
->>>
->>> diff --git a/include/linux/mm.h b/include/linux/mm.h
->>> index 5eb0d77c4438..ffa02e15863f 100644
->>> --- a/include/linux/mm.h
->>> +++ b/include/linux/mm.h
->>> @@ -2710,8 +2710,8 @@ int get_cmdline(struct task_struct *task, char 
->>> *buffer, int buflen);
->>>   #define  MM_CP_UFFD_WP_ALL                 (MM_CP_UFFD_WP | \
->>>                           MM_CP_UFFD_WP_RESOLVE)
->>> -bool can_change_pte_writable(struct vm_area_struct *vma, unsigned 
->>> long addr,
->>> -                 pte_t pte);
->>> +bool can_change_ptes_writable(struct vm_area_struct *vma, unsigned 
->>> long addr,
->>> +                 pte_t pte, struct folio *folio, unsigned int nr);
->>>   extern long change_protection(struct mmu_gather *tlb,
->>>                     struct vm_area_struct *vma, unsigned long start,
->>>                     unsigned long end, unsigned long cp_flags);
->>> diff --git a/mm/gup.c b/mm/gup.c
->>> index 84461d384ae2..6a605fc5f2cb 100644
->>> --- a/mm/gup.c
->>> +++ b/mm/gup.c
->>> @@ -614,7 +614,7 @@ static inline bool can_follow_write_common(struct 
->>> page *page,
->>>           return false;
->>>       /*
->>> -     * See can_change_pte_writable(): we broke COW and could map the 
->>> page
->>> +     * See can_change_ptes_writable(): we broke COW and could map 
->>> the page
->>>        * writable if we have an exclusive anonymous page ...
->>>        */
->>>       return page && PageAnon(page) && PageAnonExclusive(page);
->>> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
->>> index 28c87e0e036f..e5496c0d9e7e 100644
->>> --- a/mm/huge_memory.c
->>> +++ b/mm/huge_memory.c
->>> @@ -2032,12 +2032,12 @@ static inline bool 
->>> can_change_pmd_writable(struct vm_area_struct *vma,
->>>           return false;
->>>       if (!(vma->vm_flags & VM_SHARED)) {
->>> -        /* See can_change_pte_writable(). */
->>> +        /* See can_change_ptes_writable(). */
->>>           page = vm_normal_page_pmd(vma, addr, pmd);
->>>           return page && PageAnon(page) && PageAnonExclusive(page);
->>>       }
->>> -    /* See can_change_pte_writable(). */
->>> +    /* See can_change_ptes_writable(). */
->>>       return pmd_dirty(pmd);
->>>   }
->>> diff --git a/mm/memory.c b/mm/memory.c
->>> index b9e8443aaa86..b1fda3de8d27 100644
->>> --- a/mm/memory.c
->>> +++ b/mm/memory.c
->>> @@ -750,7 +750,7 @@ static void restore_exclusive_pte(struct 
->>> vm_area_struct *vma,
->>>           pte = pte_mkuffd_wp(pte);
->>>       if ((vma->vm_flags & VM_WRITE) &&
->>> -        can_change_pte_writable(vma, address, pte)) {
->>> +        can_change_ptes_writable(vma, address, pte, NULL, 1)) {
->>>           if (folio_test_dirty(folio))
->>>               pte = pte_mkdirty(pte);
->>>           pte = pte_mkwrite(pte, vma);
->>> @@ -5767,7 +5767,7 @@ static void numa_rebuild_large_mapping(struct 
->>> vm_fault *vmf, struct vm_area_stru
->>>               ptent = pte_modify(ptent, vma->vm_page_prot);
->>>               writable = pte_write(ptent);
->>>               if (!writable && pte_write_upgrade &&
->>> -                can_change_pte_writable(vma, addr, ptent))
->>> +                can_change_ptes_writable(vma, addr, ptent, NULL, 1))
->>>                   writable = true;
->>>           }
->>> @@ -5808,7 +5808,7 @@ static vm_fault_t do_numa_page(struct vm_fault 
->>> *vmf)
->>>        */
->>>       writable = pte_write(pte);
->>>       if (!writable && pte_write_upgrade &&
->>> -        can_change_pte_writable(vma, vmf->address, pte))
->>> +        can_change_ptes_writable(vma, vmf->address, pte, NULL, 1))
->>>           writable = true;
->>>       folio = vm_normal_folio(vma, vmf->address, pte);
->>> diff --git a/mm/mprotect.c b/mm/mprotect.c
->>> index 33eabc995584..362fd7e5457d 100644
->>> --- a/mm/mprotect.c
->>> +++ b/mm/mprotect.c
->>> @@ -40,8 +40,8 @@
->>>   #include "internal.h"
->>> -bool can_change_pte_writable(struct vm_area_struct *vma, unsigned 
->>> long addr,
->>> -                 pte_t pte)
->>> +bool can_change_ptes_writable(struct vm_area_struct *vma, unsigned 
->>> long addr,
->>> +                  pte_t pte, struct folio *folio, unsigned int nr)
->>>   {
->>>       struct page *page;
->>> @@ -67,6 +67,9 @@ bool can_change_pte_writable(struct vm_area_struct 
->>> *vma, unsigned long addr,
->>>            * write-fault handler similarly would map them writable 
->>> without
->>>            * any additional checks while holding the PT lock.
->>>            */
->>> +        if (unlikely(nr != 1))
->>> +            return !folio_maybe_mapped_shared(folio);
->>> +
->>>           page = vm_normal_page(vma, addr, pte);
->>>           return page && PageAnon(page) && PageAnonExclusive(page);
->>>       }
->>
->> IIUC, As mentioned in the comment above, we should do the same 
->> anonymous check
->> to large folios. And folio_maybe_mapped_shared() already handles both 
->> order-0
->> and large folios nicely, so we could simplify the logic as follows:
-> 
-> Forget to add:
-> 
-> Note that the exclusive flag is set only for non-large folios or the head
-> page of large folios during mapping, so PageAnonExclusive() will always
-> return false for tail pages of large folios, IIUC.
-
-Correction: the exclusive flag would be set for all sub pages of large 
-folios
-during mapping.
-
-Thanks,
-Lance
-
-> 
-> Thanks,
-> Lance
-> 
->>
->> diff --git a/mm/mprotect.c b/mm/mprotect.c
->> index 1605e89349d2..df56a30bb241 100644
->> --- a/mm/mprotect.c
->> +++ b/mm/mprotect.c
->> @@ -43,8 +43,6 @@
->>   bool can_change_ptes_writable(struct vm_area_struct *vma, unsigned 
->> long addr,
->>                                pte_t pte, struct folio *folio, 
->> unsigned int nr)
->>   {
->> -       struct page *page;
->> -
->>          if (WARN_ON_ONCE(!(vma->vm_flags & VM_WRITE)))
->>                  return false;
->>
->> @@ -67,11 +65,7 @@ bool can_change_ptes_writable(struct vm_area_struct 
->> *vma, unsigned long addr,
->>                   * write-fault handler similarly would map them 
->> writable without
->>                   * any additional checks while holding the PT lock.
->>                   */
->> -               if (unlikely(nr != 1))
->> -                       return !folio_maybe_mapped_shared(folio);
->> -
->> -               page = vm_normal_page(vma, addr, pte);
->> -               return page && PageAnon(page) && PageAnonExclusive(page);
->> +               return folio_test_anon(folio) && ! 
->> folio_maybe_mapped_shared(folio);
->>          }
->>
->>          VM_WARN_ON_ONCE(is_zero_pfn(pte_pfn(pte)) && pte_dirty(pte));
->> -- 
->>
->> Thanks,
->> Lance
->>
->>> @@ -222,7 +225,7 @@ static long change_pte_range(struct mmu_gather *tlb,
->>>                */
->>>               if ((cp_flags & MM_CP_TRY_CHANGE_WRITABLE) &&
->>>                   !pte_write(ptent) &&
->>> -                can_change_pte_writable(vma, addr, ptent))
->>> +                can_change_ptes_writable(vma, addr, ptent, folio, 1))
->>>                   ptent = pte_mkwrite(ptent, vma);
->>>               ptep_modify_prot_commit(vma, addr, pte, oldpte, ptent);
->>
-> 
-
+Rob
 
