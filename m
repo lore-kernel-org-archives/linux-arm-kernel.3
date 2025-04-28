@@ -4,63 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46AFCC369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 20:20:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3A9AC369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 20:26:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pL7e0c02mbv/0vwsIMwslL/GXK+LDR2a6ftGA055ovQ=; b=EnCCIbn+9gaNYHGplvUFh2IDdV
-	5xVQeb2OPdUBm7wbX5l4XjinFoQfndZZtGDH4bkCBI3dekOsi3MQuKDyf5eIBOe5RoUk3yfaMi284
-	MVnN2bWyU86AqSZSnlC/u1zN61KMenZ+SwKqanuXb8gqx+Esz39H9wW8K0TnK6PoMrWIUZ3uH05NV
-	DoyYj7sij49e7MJkpqMIYC1GrcEIX9m0sVtSaLfBj0A2EF01HIn69krLdwQ8Gfai4MejHcZC1NGrx
-	KR253KredPAMMqBzGwOjFa05AqyscFEjrpREABf7QgXRfNo8BNJuXKTWMqC2PsOxpWTq6ggMQLgM9
-	LAvNl33w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9tdKCqfhNi/JvvQ3LXajpm7vHRn6watP93o/+t4rnHA=; b=4O2AlswSVuY3yq
+	dXquIRCiGqhlt1+rdloSjJw93BCRC+SW/S91rFF0q3V2ZtAmL22CQfaPhX86mUKoC8MLDZZgTgSNq
+	Dd+/ylz594DH5jBGtNXtpVQqiLU08PMuEfX/ULXsLpACmK5iPBphMYV9OLDDGVmJEw2RyUmXvJ+2a
+	lxvtviL0egFRuSzFd75ViOdJUlC6llhMCjHmkYF1ix4gZg2hZJgP6ua+Ji6rEg+ZfMvHdoMv7yyRE
+	VLullT9+DpOSR+Uz5RKcOq9PHRBFIIgkppgJcleagx2SlzaiM77ZBCejGE6ZSBNvhFnEfTWTKqC21
+	s+JXxjmkHyPxMkGtm8ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Uy6-00000007RqX-0KXv;
-	Mon, 28 Apr 2025 20:20:46 +0000
-Received: from jabberwock.ucw.cz ([46.255.230.98])
+	id 1u9V3H-00000007Sdn-3A5U;
+	Mon, 28 Apr 2025 20:26:07 +0000
+Received: from mail-oi1-x22c.google.com ([2607:f8b0:4864:20::22c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Uw5-00000007RXZ-42LA;
-	Mon, 28 Apr 2025 20:18:43 +0000
-Received: by jabberwock.ucw.cz (Postfix, from userid 1017)
-	id 6B5881C00B2; Mon, 28 Apr 2025 22:18:38 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ucw.cz; s=gen1;
-	t=1745871518;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pL7e0c02mbv/0vwsIMwslL/GXK+LDR2a6ftGA055ovQ=;
-	b=X2sswUxgS8rseE954SAultNrk/gSe6kFPYI/ahGW0v6GaxxwGRyoJwzni0/XGns+i6V6Gu
-	wegTZ0i5B0iAYmvz1ToPZrRese1ZzshF30N4j3q1qa/QuQ/siLpRc8Vsihus/YUYqiTfh9
-	CO/zM40LI8WPDX4dyrAoj25hoelcEOw=
-Date: Mon, 28 Apr 2025 22:18:37 +0200
-From: Pavel Machek <pavel@ucw.cz>
-To: Nam Tran <trannamatk@gmail.com>
-Cc: geert@linux-m68k.org, andy@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org,
-	christophe.jaillet@wanadoo.fr, corbet@lwn.net,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org, florian.fainelli@broadcom.com,
-	bcm-kernel-feedback-list@broadcom.com,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v8 0/5] auxdisplay: add support for TI LP5812 4x3 Matrix
- LED driver
-Message-ID: <aA/ineUBAM5IU79J@duo.ucw.cz>
-References: <CAMuHMdVJNPRd3GMRV3=W0vsNW+fm4up-mWPOZ_W1-wQigQj8vw@mail.gmail.com>
- <20250428172917.25405-1-trannamatk@gmail.com>
+	id 1u9V1I-00000007SCi-1BFy
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Apr 2025 20:24:06 +0000
+Received: by mail-oi1-x22c.google.com with SMTP id 5614622812f47-3f9a7cbc8f1so1666998b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 13:24:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1745871843; x=1746476643; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9tdKCqfhNi/JvvQ3LXajpm7vHRn6watP93o/+t4rnHA=;
+        b=ACWaZMOLt4+wVcvl1r0OxWi+0Qw1meNJP83b+xxxE7NRG3+ppame7LVPjuCh1trquX
+         GeA3TW69pWXzT/S3jUup/fxUw+JL0J6UjTNdUdSiYX9Gy2ItGX60S+ldG1390EszhJt/
+         2Tdv93TT0Wch5BhwJCBaVOQleFfTC7GiCaI/8qHmrp/wE1AT5p1x3Vyc8undYAcZhucE
+         eip11FQxqP2BeRVdwuQ5L3qorssVJfAHRi9o1IRW0nX+l5ZLxX1lB2EpRGCozZfZYj0L
+         NrB/XdP7EmgoTivuBrqbhKRfC7Z3hdCGNxAlOEMf6ULW8LxqR8e5bVnXCKYeS5Xby16t
+         wV0Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745871843; x=1746476643;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9tdKCqfhNi/JvvQ3LXajpm7vHRn6watP93o/+t4rnHA=;
+        b=EBpZBPHxkF8KvOqJhbqZasWTCx7uqIR21OIErnkJ8J3yBwM2zURsPZlzgcy8omhXQ7
+         cYIHIcO+VOjDtC3d4HZQJoW3RSw4Rk2HlkKJ+MNgODc8+OklC/AOtb+i0fSs0A9o2Pfw
+         625aXERHkp0Rgs4FNonzxkCVMN8l0LPCxBPdlMky3hQWG+1y23uMK+DZLkN/VuRtcsWc
+         HFGx3k6PkJI405FVPK+gKPeIp/8ngQjUyi98XN/5A/RyPMwsdm26067V7Gk5CHLqOfgn
+         NCMlbR0Wjesen3+TV968J5bSMCE8SyQ+avDltZ9Alz7hCY8echiIGH+pa47CUrbDvjZt
+         gN2g==
+X-Forwarded-Encrypted: i=1; AJvYcCWmiNeDQrqtOhvYJvU8WSwA1AtE0b6/+B46nqJVHEJ0GlvmZYy1JtB5Ah5QQMWGfuxv9u30uLdUiVhtVPiLSE7k@lists.infradead.org
+X-Gm-Message-State: AOJu0YzCHcJ60m7ioW0v7AyF6YC+7y3P7WufeFRIUUEmN3TC/vIwu/7r
+	KHfPS+Uk9c+KdBLidBiqVzIeC4rQJzHQJ8Z6idLIg4fqN9pz16C6dHJEQu0Z6Mc=
+X-Gm-Gg: ASbGnctbCZ8TANP9izzu29G4S4idP6FgyEWJrrOPRN4xBkDzyR5Z+K8iGy3GUKMQc+4
+	M+VA7Btlmm6CHkhYe6Zoz4F1I+n7gatzAuVWcQzCH/ntW5MK6FIzs6uHd3x7GO8kQCIEubE0Osk
+	aCt9slV84vxLRRnAPPRJ4dAsHEGg/zYZSy9Cm8SaB/KuJ57oN0Da9yxvCcWOE5j/7y9GS13tkcz
+	5H/EED45o3WPb9P8bQ1aB7YKcEx2qLXsLIClJmvESrOIB0J7OtukAK0NAaQ65rIvCJdLgfwM/Vd
+	718+H7DtCYAkaWDt0FdVcYz26IOQIwL+0itHifx2iyfdmmU=
+X-Google-Smtp-Source: AGHT+IF1EuPjn/DEf1QhC+aDlZPSIxSeXzD/o5izMSvjBsPrlYnTcW9R+2F3oqNl0RUDxTkvTw1Hfg==
+X-Received: by 2002:a05:6808:45e8:b0:3f9:28b9:7013 with SMTP id 5614622812f47-402116321bdmr140283b6e.39.1745871842781;
+        Mon, 28 Apr 2025 13:24:02 -0700 (PDT)
+Received: from [127.0.1.1] ([2600:8803:e7e4:1d00:cff6:9ed0:6e45:1ff9])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-401ec970ec5sm2196187b6e.34.2025.04.28.13.24.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Apr 2025 13:24:02 -0700 (PDT)
+From: David Lechner <dlechner@baylibre.com>
+Subject: [PATCH v4 0/7] iio: introduce IIO_DECLARE_BUFFER_WITH_TS
+Date: Mon, 28 Apr 2025 15:23:02 -0500
+Message-Id: <20250428-iio-introduce-iio_declare_buffer_with_ts-v4-0-6f7f6126f1cb@baylibre.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha1;
-	protocol="application/pgp-signature"; boundary="MN9BK62TjYm6fNeb"
-Content-Disposition: inline
-In-Reply-To: <20250428172917.25405-1-trannamatk@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAKbjD2gC/53NQW7CMBCF4asgr+vKHidx1FXvUaHIsWeakWiM7
+ CSAUO6OwwpVbGD5v8X3riJjYszia3cVCRfOHMcS1cdO+MGNvyg5lBagoFaVbiVzlDxOKYbZ41Z
+ dQH9wCbt+JsLUnXgauilLoNZaQza40IjCHRMSn+9XP/vSA+cppsv9edHb+sbJoqWSiMo34Ixxi
+ r57dzlwn/DTxz+x/SzwYAO8YEOxDQXTVLb2VjVPbPNo1y/YptikIZDuiaBq/9nrut4ASKi+Y5s
+ BAAA=
+X-Change-ID: 20250418-iio-introduce-iio_declare_buffer_with_ts-2f8773f7dad6
+To: Jonathan Cameron <jic23@kernel.org>, 
+ David Lechner <dlechner@baylibre.com>, 
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
+ Andy Shevchenko <andy@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>, 
+ Michael Hennerich <Michael.Hennerich@analog.com>, 
+ Eugen Hristev <eugen.hristev@linaro.org>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3246; i=dlechner@baylibre.com;
+ h=from:subject:message-id; bh=a8bJv4lOvUcgV41/KJzOF4OaGq1VqvfSWIwe6HuDGqE=;
+ b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBoD+OqjReq+BhspuUVtz0EMsqRO/lA3U1zBWnP4
+ ZDmhDleszeJATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCaA/jqgAKCRDCzCAB/wGP
+ wJ8ZB/0dhW1BDI5dhJvZZQbIpgkQVXzm3FHw7pEzQ4dLhe+9NyHNfV+/EvpQ02GLQZoBB3LMG26
+ KPUin42QdiNYuFXDQ0G2WIVSQAXEpPU7gpIdKCKH+XECYH2eEG0byEGcvqVR//BBsxWnMyMT6ht
+ 6WGTgzJqMciiPE4RJrZ2iN4197LY3qvKppTRqh4tde/4eKKI5wcUQ+YSkuWsHPwm6sbgMZi/50s
+ NplZKQIQJgrrP/5AyXbECJqkEvuQUy3QxA/h/bRYYwo2LT61TiYYCsGAaWro+il1pXb+WPTly19
+ k3S/4+j0KA/nqaSvHpyqhAVj0FQsJtWPfJfOOGxk+/P+Qedq
+X-Developer-Key: i=dlechner@baylibre.com; a=openpgp;
+ fpr=8A73D82A6A1F509907F373881F8AF88C82F77C03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_131842_441283_AC807F7C 
-X-CRM114-Status: GOOD (  24.46  )
+X-CRM114-CacheID: sfid-20250428_132404_591527_FCC800FB 
+X-CRM114-Status: GOOD (  19.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,79 +120,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Creating a buffer of the proper size and correct alignment for use with
+iio_push_to_buffers_with_ts() is commonly used and not easy to get
+right (as seen by a number of recent fixes on the mailing list).
 
---MN9BK62TjYm6fNeb
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+In general, we prefer to use this pattern for creating such buffers:
 
-Hi!
+struct {
+    u16 data[2];
+    aligned_s64 timestamp;
+} buffer;
 
-> Thank you, Pavel, for the confirmation.
-> Thank you, Geert, for the review and the question.
->=20
-> I would like to make it clearer.
->=20
-> On Mon, 28 Apr 2025 Geert Uytterhoeven wrote:
->=20
+However, there are many cases where a driver may have a large number of
+channels that can be optionally enabled or disabled in a scan or the
+driver might support a range of chips that have different numbers of
+channels or different storage sizes for the data. In these cases, the
+timestamp may not always be at the same place relative to the data. To
+handle these, we allocate a buffer large enough for the largest possible
+case and don't care exactly where the timestamp ends up in the buffer.
 
-> > > > > - Move driver to drivers/auxdisplay/ instead of drivers/leds/.
-> > > > > - Rename files from leds-lp5812.c/.h to lp5812.c/.h.
-> > > > > - Move ti,lp5812.yaml binding to auxdisplay/ directory,
-> > > > >   and update the title and $id to match new path.
-> > > > > - No functional changes to the binding itself (keep Reviewed-by).
-> > > > > - Update commit messages and patch titles to reflect the move.
-> > > > > - Link to v7: https://lore.kernel.org/linux-leds/20250422190121.4=
-6839-1-trannamatk@gmail.com/
-> > > >
-> > > > Out of sudden without discussing with auxdisplay maintainers/review=
-ers?
-> > > > Thanks, no.
-> > > > Please, put into the cover letter the meaningful summary of what's
-> > > > going on and why this becomes an auxdisplay issue. Brief review of =
-the
-> > > > bindings sounds more likely like LEDS or PWM subsystems.
-> > >
-> > > It is 4x3 matrix. That means it is not suitable for LEDs. I don't
-> > > believe it is suitable for PWM, either -- yes, it is 36 PWM outputs,
-> > > but...
-> >=20
-> > Is it intended to be used as a 4x3 matrix, or is this just an internal
-> > wiring detail, and should it be exposed as 12 individual LEDs instead?
->=20
-> The 4=C3=973 matrix is a real and fundamental aspect of the LP5812=E2=80=
-=99s operation.
-> It is not just an internal wiring detail.
-> The device adopts a Time-Cross-Multiplexing (TCM) structure, where 4 outp=
-ut
-> pins control 12 LED dots individually through scanning. Each pin includes
-> both high-side and low-side drive circuits, meaning matrix multiplexing is
-> required for proper operation =E2=80=94 it cannot be treated as 12 comple=
-tely
-> independent LEDs.
+For these cases, we propose to introduce new macros to make it easier
+it easier for both the authors to get it right and for readers of the
+code to not have to do all of the math to verify that it is correct.
 
-Scanning is really a detail.
+I have just included a few examples of drivers that can make use of this
+new macro, but there are dozens more.
 
-If this is used as rectangular 4x3 display, then it goes to auxdisplay.
+---
+Changes in v4:
+- Dropped static_assert()s from the first patch.
+- Handle case when IIO_DMA_MINALIGN < sizeof(timestamp).
+- Added one more patch for ad4695 to rename a confusing macro.
+- Link to v3: https://lore.kernel.org/r/20250425-iio-introduce-iio_declare_buffer_with_ts-v3-0-f12df1bff248@baylibre.com
 
-If this is used as a power LED, SD activity LED, capslock and numlock
-=2E.. placed randomly all around the device, then it goes LED subsystem.
+Changes in v3:
+- Fixed a few mistakes, style issues and incorporate other feedback (see
+  individual commit message changelogs for details).
+- Link to v2: https://lore.kernel.org/r/20250422-iio-introduce-iio_declare_buffer_with_ts-v2-0-3fd36475c706@baylibre.com
+
+Changes in v2:
+- Add 2nd macro for case where we need DMA alignment.
+- Add new patch for ad4695 to convert buffer from u8 to u16 before
+  making use of the new macro.
+- Drop the bmp280 patch since it was determined to have a better
+  alternative not using these macros.
+- Add a few more examples to show the non-DMA case, both in a struct and
+  stack allocated.
+- Link to v1: https://lore.kernel.org/r/20250418-iio-introduce-iio_declare_buffer_with_ts-v1-0-ee0c62a33a0f@baylibre.com
+
+---
+David Lechner (7):
+      iio: introduce IIO_DECLARE_BUFFER_WITH_TS macros
+      iio: adc: ad4695: use u16 for buffer elements
+      iio: adc: ad4695: use IIO_DECLARE_DMA_BUFFER_WITH_TS
+      iio: adc: ad4695: rename AD4695_MAX_VIN_CHANNELS
+      iio: adc: ad7380: use IIO_DECLARE_DMA_BUFFER_WITH_TS
+      iio: accel: sca3300: use IIO_DECLARE_BUFFER_WITH_TS
+      iio: adc: at91-sama5d2: use IIO_DECLARE_BUFFER_WITH_TS
+
+ drivers/iio/accel/sca3300.c        | 18 ++----------------
+ drivers/iio/adc/ad4695.c           | 16 ++++++----------
+ drivers/iio/adc/ad7380.c           |  3 +--
+ drivers/iio/adc/at91-sama5d2_adc.c | 13 ++-----------
+ include/linux/iio/iio.h            | 37 +++++++++++++++++++++++++++++++++++++
+ 5 files changed, 48 insertions(+), 39 deletions(-)
+---
+base-commit: aff301f37e220970c2f301b5c65a8bfedf52058e
+change-id: 20250418-iio-introduce-iio_declare_buffer_with_ts-2f8773f7dad6
 
 Best regards,
-								Pavel
---=20
-I don't work for Nazis and criminals, and neither should you.
-Boycott Putin, Trump, and Musk!
+-- 
+David Lechner <dlechner@baylibre.com>
 
---MN9BK62TjYm6fNeb
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iF0EABECAB0WIQRPfPO7r0eAhk010v0w5/Bqldv68gUCaA/inQAKCRAw5/Bqldv6
-8uIbAJ9b7Wxw9w0XNXTWOjMbMpolG2mURwCfZJERufyKV1fAXGFzbOZeb+pFo7g=
-=PiIm
------END PGP SIGNATURE-----
-
---MN9BK62TjYm6fNeb--
 
