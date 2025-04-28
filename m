@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4BB6C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 21:24:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 139D7C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 21:25:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GR2GmT7fACAPkitPj8eTbd2Bh3lgrZjljTTbjCNGmE4=; b=wWD3G1VLb0C2cXyOz1rshDkuL6
-	dhJ0rSCu+N6vSyANG1ZwbpXYHtIGtK12onTreKb8im9a0F21JYchjdX+MjNKrrwKa82N0pr/UqhF+
-	h7NNZNTRE3rCpTTbULEvyv+X+nZCTs85lYRQTJffAjIufYiN5pwwO6uUdYCgwtkwMYNNoqv45sGVG
-	YwjvOCMi4zkCyvBW8bYXiiKtqCK0dtN9ED1vA+PaDF0/GjBkWuJTvK2IUcrco/0kKKFRZ4fypWoTr
-	79HN52xr5iO3gJRMwZWpJf2zBJWXFJ4pe5Be9PSaw1sgmuPjA+GZcIjkMgueie/DH5stNDvXkOoeQ
-	xMbdLlEQ==;
+	bh=hiV1KAvAfB/N2ESs9iUxrXckjGXm4ld7nwAWfxyz8q4=; b=MzrOGD3Lp5J03oS6ZsgjaQ7KeA
+	CuianVGiRXn3oDt4N0KT83eL/mLgZqjGpB2KOskVMXQqsYfVEIwkc9oWszcpaZ1mWadbRaHNZVsoR
+	n+ivS0MXO7jn6y8Nx3lv8oYHtiG9yqfRutyW9/U1ldPjewj3DPXxsTDb3HqRg5vruJR8UjC96eH07
+	bLqjYMjVTFHiOj6Sf0z53wSISRB0OF23lA/GWS+aC+qiqAOsfcThJHc1fTXgplti/LSGOIkzO0eXw
+	Bfg7nkG1uf234sU0i8oKkrlveOKMQdY+IOEfkilSFI57kw+cWjAhF2974qdQIY9rb2CxiLkYmzGCG
+	zR6H1R4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9VxA-00000007brD-0jso;
-	Mon, 28 Apr 2025 21:23:52 +0000
+	id 1u9Vz4-00000007c1K-3aoD;
+	Mon, 28 Apr 2025 21:25:50 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Vhl-00000007ZHp-3gze
+	id 1u9Vhl-00000007ZHo-3iIe
 	for linux-arm-kernel@bombadil.infradead.org;
 	Mon, 28 Apr 2025 21:07:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=GR2GmT7fACAPkitPj8eTbd2Bh3lgrZjljTTbjCNGmE4=; b=KmrRLlJEimkapbLkld4AN+ppeP
-	ZSJBnWKs5YVrmTQOm5ClW2nTsNessBWvUV97gwK9yT9jodGHduwWtmo/DEsPIIPhholLK4Og6AWU0
-	aCK+k7ESnz861vMQ6SpqhJUhNIdOgY0wEQBRqqlVNmof3BWGlMmktvdfIkjTe7/e1LhTucNM8uk/K
-	fD4VqoMVEmfPF/XSKdxF9zqEuQgCk/UXO5PB4neJBdkBGvOJkey34T60Uq208tAEyIaHuVdoOVQ4M
-	WYjbmUZiVTJseruJ7OKANs0l7AE0uB0d4tVYzK95ZTTW5cJ0V1w+4qoMbP299dacXs1/TSe4mQdQn
-	pA00arwA==;
+	bh=hiV1KAvAfB/N2ESs9iUxrXckjGXm4ld7nwAWfxyz8q4=; b=QiZWS+u20eVY+nwV0n36hQ2seF
+	SII59WESBtRR0n1rhNxfz14F4puOBkGIW7le6tNYYmPCdZAB6UQL+1HYEc9XZ7EsViKbwL3bFcuF/
+	qgp0whFoNYVp3H4b9JDbuWT5HcQquWSC+AHQD7RaSv9EyHlPhNr/hTpqEZtiztAHWVhfGkA+4FrvR
+	tqXevu2p9iSIto7ZAmErrGovK7aMLa1s172gbm2zIvis+QdxVE6IwHUjQqxi+uUYYAfDaAPzt1hnD
+	V3ueMV0Fpp9c5g83c8PhSogKlHoacLLbsF6sYKXmCP4X6SrJoy88TQ689fPXdehVRpwn9DxXWFtbs
+	i9FwsBsg==;
 Received: from linux.microsoft.com ([13.77.154.182])
 	by desiato.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9Vhg-0000000D3Bo-059w
+	id 1u9Vhg-0000000D3Bn-1Ix2
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 28 Apr 2025 21:07:55 +0000
 Received: from romank-3650.corp.microsoft.com (unknown [131.107.1.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 5C6B7211AD21;
-	Mon, 28 Apr 2025 14:07:46 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 5C6B7211AD21
+	by linux.microsoft.com (Postfix) with ESMTPSA id A61D1211AD25;
+	Mon, 28 Apr 2025 14:07:45 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com A61D1211AD25
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1745874466;
-	bh=GR2GmT7fACAPkitPj8eTbd2Bh3lgrZjljTTbjCNGmE4=;
+	s=default; t=1745874465;
+	bh=hiV1KAvAfB/N2ESs9iUxrXckjGXm4ld7nwAWfxyz8q4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Xrw8QVTfiTdtUP3Y8XlV6NXORxmGnKRHs6fWUJthCc88pfIoxm/IszIEQ4yT7dF+J
-	 IRdTAY+Xw1gv2O6QZ4w+YGqJlEbcz4XZOTz7bjcQJb1wy+VDB9tqoau7RBV0LeNFr1
-	 ag/ISihJr8moPxOFn8Xf1tDPZgBBXcfdsNbWhxQI=
+	b=rxRfdfTrS5MZLUdV8vOjhbRD76KCrJhbZapoQYJ1PhffsS07PiZh/fHgiezi6WQsX
+	 714+Byq7ABtGAAEWUoD2H8cjlJ7nN1F1kRZzYtOUzdMDi7Okvd1OrJKgPB9vsaUwxV
+	 1d+NYGGKN7Hg1aFKYhdh2RjSEc5pUe0BGO78oE40=
 From: Roman Kisel <romank@linux.microsoft.com>
 To: arnd@arndb.de,
 	bhelgaas@google.com,
@@ -96,17 +96,18 @@ Cc: apais@microsoft.com,
 	benhill@microsoft.com,
 	bperkins@microsoft.com,
 	sunilmut@microsoft.com
-Subject: [PATCH hyperv-next v9 07/11] dt-bindings: microsoft,vmbus: Add interrupt and DMA coherence properties
-Date: Mon, 28 Apr 2025 14:07:38 -0700
-Message-ID: <20250428210742.435282-8-romank@linux.microsoft.com>
+Subject: [PATCH hyperv-next v9 05/11] arm64: hyperv: Initialize the Virtual Trust Level field
+Date: Mon, 28 Apr 2025 14:07:36 -0700
+Message-ID: <20250428210742.435282-6-romank@linux.microsoft.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250428210742.435282-1-romank@linux.microsoft.com>
 References: <20250428210742.435282-1-romank@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_220753_493781_902AF9E9 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20250428_220753_254738_4BCC5CC9 
+X-CRM114-Status: UNSURE (   8.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,70 +122,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To boot in the VTL mode, VMBus on arm64 needs interrupt description
-which the binding documentation lacks. The transactions on the bus are
-DMA coherent which is not mentioned as well.
+Various parts of the hyperv code need to know what VTL
+the kernel runs at, most notably VMBus needs that to
+establish communication with the host.
 
-Add the interrupt property and the DMA coherence property to the VMBus
-binding. Update the example to match that. Fix typos.
+Initialize the Virtual Trust Level field to enable
+booting in the Virtual Trust Level.
 
 Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Michael Kelley <mhklinux@outlook.com>
 ---
- .../devicetree/bindings/bus/microsoft,vmbus.yaml | 16 ++++++++++++++--
- 1 file changed, 14 insertions(+), 2 deletions(-)
+ arch/arm64/hyperv/mshyperv.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml b/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
-index a8d40c766dcd..0bea4f5287ce 100644
---- a/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
-+++ b/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
-@@ -10,8 +10,8 @@ maintainers:
-   - Saurabh Sengar <ssengar@linux.microsoft.com>
+diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
+index 21458b6338aa..43f422a7ef34 100644
+--- a/arch/arm64/hyperv/mshyperv.c
++++ b/arch/arm64/hyperv/mshyperv.c
+@@ -117,6 +117,7 @@ static int __init hyperv_init(void)
  
- description:
--  VMBus is a software bus that implement the protocols for communication
--  between the root or host OS and guest OSs (virtual machines).
-+  VMBus is a software bus that implements the protocols for communication
-+  between the root or host OS and guest OS'es (virtual machines).
+ 	if (ms_hyperv.priv_high & HV_ACCESS_PARTITION_ID)
+ 		hv_get_partition_id();
++	ms_hyperv.vtl = get_vtl();
  
- properties:
-   compatible:
-@@ -25,9 +25,16 @@ properties:
-   '#size-cells':
-     const: 1
+ 	ms_hyperv_late_init();
  
-+  dma-coherent: true
-+
-+  interrupts:
-+    maxItems: 1
-+    description: Interrupt is used to report a message from the host.
-+
- required:
-   - compatible
-   - ranges
-+  - interrupts
-   - '#address-cells'
-   - '#size-cells'
- 
-@@ -35,6 +42,8 @@ additionalProperties: false
- 
- examples:
-   - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-     soc {
-         #address-cells = <2>;
-         #size-cells = <1>;
-@@ -49,6 +58,9 @@ examples:
-                 #address-cells = <2>;
-                 #size-cells = <1>;
-                 ranges = <0x0f 0xf0000000 0x0f 0xf0000000 0x10000000>;
-+                dma-coherent;
-+                interrupt-parent = <&gic>;
-+                interrupts = <GIC_PPI 2 IRQ_TYPE_EDGE_RISING>;
-             };
-         };
-     };
 -- 
 2.43.0
 
