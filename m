@@ -4,65 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9986C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 18:48:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CFC5C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 18:57:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C5PyhSBtLGsuIRqq3Wnao3XAIXhZyuUQyTbhMf8dn6A=; b=BkgqRG8yn+Xh4GzCnvPmloUPGf
-	np0BdkPtuYqOoWwEoVMImTgkbv5d50OvpWit+TmmBbz96puwFbBKCkVsC2AqFmtDASluHXLoWOt09
-	1kzE/2LTWdhvEPyNzVtZsMgB/vx9UiUO70HjIviph3rFMNYkTV/TTnyrGZUB+JCOVAcONZzOS3kDe
-	kAxZ+6fvMMIezvy84dMXm8Qy1zg0oQJlwAQWob6Q2F9YVrMropoF1cllIkjx+eIO3fq8VU6bauZWG
-	4Zf8Ng12fhRx2sIak2k0q+gxS7Ax24xpIbktFFlMEwvoYUGDPGJFJNut2qAFOFGVD1G+22lA0MJUH
-	uqLpLbkQ==;
+	bh=0XofZIRi+6sx4PvT/SsmA1lRh7pOwIOqG8DJIB4g9lY=; b=vdx/RJUUp2oOdTX7sBOrYPJnCD
+	AadW6cTtTAE8/NPIfjNeEw3ZILtICgaI8zYkbF1JN00C+kZxkEUYzipC/0XXUIWPsFDqB6ZBW0Exp
+	+PKrkyljz5S+5X39toGVVVVLWKMAbdNqKSXDSiUlMnkzh5pUCRyhhykQwQMqRYUUHX+B5y/1HsNJ4
+	sac6aWtyOD/YKCy5PMdc+vPq+Rp9lTLJuP4JjI+TQJs6wd5Fwt/RDmTVYwhf43wCoBENhl6CVK7Ml
+	+VDN9b7bz3lPYJSiMr2AdO0A7C0fw/Kpael7KPAia6P5h6CytZb6S8q7H747Ls2JvQ/pcIZaF/JoT
+	zatRolzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9TWl-00000007GVr-36Or;
-	Mon, 28 Apr 2025 18:48:27 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u9Tf8-00000007HFM-0qpf;
+	Mon, 28 Apr 2025 18:57:06 +0000
+Received: from mail-mw2nam10on2061c.outbound.protection.outlook.com ([2a01:111:f403:2412::61c] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9TUn-00000007GO1-30OV;
-	Mon, 28 Apr 2025 18:46:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B213F5C5B4C;
-	Mon, 28 Apr 2025 18:44:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D976EC4CEE4;
-	Mon, 28 Apr 2025 18:46:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745865984;
-	bh=eg2rhi0L3VMr8m4UZ0QPZtf2aVXg+cv9p7DYcqzOc+E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nwQ/uJirTeuEwbzEq35HzL0lhukH2fGVnWgA0xvyKMAKApCs7eQKnUgIHU7VWTM1z
-	 Z7clnXZlmMDwtZVmyO5DHHqq9YcbhMqttevow3Q+agRCh5lsKO3u8mw3q9eYpJs7/1
-	 onMgQ28y7+7Un/zt0I1LGwFSuAJ8nYmQnyBtVDbc37L/ZwKqJgqCfzXjPhtarXMU7+
-	 4EVngi8i1xpiiQy5R41NB50pKGpWYG52jGgdB+rn+IHxIXamDzJF8yp1C9M8NNeuJP
-	 3OOwNXp441BywuQ9SVRWqe+AvMBIvUUX4Km14gQ6g8GwKPkwAX9VC36pxB0ynHFKW3
-	 oKyMJRYdrFMdQ==
-Date: Mon, 28 Apr 2025 19:46:19 +0100
-From: Simon Horman <horms@kernel.org>
-To: Kuniyuki Iwashima <kuniyu@amazon.com>
-Cc: shiming.cheng@mediatek.com, angelogioacchino.delregno@collabora.com,
-	davem@davemloft.net, dsahern@kernel.org, edumazet@google.com,
-	jibin.zhang@mediatek.com, kuba@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org, matthias.bgg@gmail.com,
-	netdev@vger.kernel.org, pabeni@redhat.com
-Subject: Re: [PATCH v2] net: use inet_twsk_put() when sk_state is
- TCP_TIME_WAIT
-Message-ID: <20250428184619.GH3339421@horms.kernel.org>
-References: <20250425123354.29254-1-shiming.cheng@mediatek.com>
- <20250425203624.43634-1-kuniyu@amazon.com>
+	id 1u9TdA-00000007H1m-10RH
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Apr 2025 18:55:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xjvxiRsuLeBHXHbdfy4gq+5/Yp+SA2k07Q6zdxXL6bmmh6R056Z8QkgFmsTFtyjjAcYwtRMb15SlYLzdWf2Vfso6FoT2M5wp4GrcrDaE+l89rbGJKnQeZVv/+kwotJgq2im6InanHaFBXz5QSPRYBEGSQE2q5L7NsKoc9mqrvlj1J7U9jIK2JVur9ec2cj98s19XPhMIzhV/WwHk0NONVk3WaOcpuwFsTpO73YEgtUGrXLajcoKpFryCzyxyT4kS7qVKgK3nv4Yoh+sKgdmOurJ1jLCiPycQG9lWbORnv1IjubCMMh/Zu1H0QkGSvTAhFkd3dw6NKY9Yoms2Yghsjw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0XofZIRi+6sx4PvT/SsmA1lRh7pOwIOqG8DJIB4g9lY=;
+ b=LpV+yBzuyUjeiIB1DPuQo68xAB3KQApGUKrf/MN3MmZJ3X3xXPt6sHbA6LrwrfTSdRNU7FhgL4xvfxL/IvVk16AAKwiyceEftBpG/0xXL8JUIJmHDLqQRp5QZgNkV0gq04D5HJsFMwuwGnK1cYXkvwtlbWF1ppTEZ2tup0hnpht6Y5MaCCaUObk58/NnOdNQ6EsuPqSWOmTl17gaSgRYA5wFtbSAAnaGadB8ih2bxb7/HtKcM5ZPXylYR1EhsHCEcttanVnsUe25X/3osNf/ub6xubI8jHiSkq6wD39fHVZ/wcUA3/CRNH2w54MHR2XETknKLAzupdcfuQ0So3//Vw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=linux.intel.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0XofZIRi+6sx4PvT/SsmA1lRh7pOwIOqG8DJIB4g9lY=;
+ b=Uwtjf7qNTgVMkR+cwy4zgtmtp+gl8d4SbywTm2GTaNt9kQZEjO+WHUsO+ADTJ0HkJ2BRnxhc2UreZ9B0vYVbYFsstert6HluYdPXE8LZYj1PqZvw9R/FUaeOrrz9YcJap/1RHcuaaZ9W18iLwO+OpDBopeHhfQth5brDYLuDbgb1Uwj639w4uaoimkjMS8cHRBBXEvDL8IurNR5LV1XlZmB/JfFw/T2xNokq1oy8Qwl8uNNUlr8I6u0hCT2s9IJ27KT4JxS5VUQdT8e/2lhejCZOZKXZM5lfMLNLduUddO5a/wkgsf+qDfinSX1Nzr8oLQ/p+V3VR4He5sKTBTdTuQ==
+Received: from CH0P221CA0036.NAMP221.PROD.OUTLOOK.COM (2603:10b6:610:11d::14)
+ by SA1PR12MB6797.namprd12.prod.outlook.com (2603:10b6:806:259::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.31; Mon, 28 Apr
+ 2025 18:54:53 +0000
+Received: from CH3PEPF00000011.namprd21.prod.outlook.com
+ (2603:10b6:610:11d:cafe::4e) by CH0P221CA0036.outlook.office365.com
+ (2603:10b6:610:11d::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.37 via Frontend Transport; Mon,
+ 28 Apr 2025 18:54:52 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ CH3PEPF00000011.mail.protection.outlook.com (10.167.244.116) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8722.2 via Frontend Transport; Mon, 28 Apr 2025 18:54:52 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 28 Apr
+ 2025 11:54:18 -0700
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 28 Apr
+ 2025 11:54:18 -0700
+Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com (10.129.68.10)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Mon, 28 Apr 2025 11:54:15 -0700
+Date: Mon, 28 Apr 2025 11:54:13 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Baolu Lu <baolu.lu@linux.intel.com>
+CC: <jgg@nvidia.com>, <kevin.tian@intel.com>, <corbet@lwn.net>,
+	<will@kernel.org>, <bagasdotme@gmail.com>, <robin.murphy@arm.com>,
+	<joro@8bytes.org>, <thierry.reding@gmail.com>, <vdumpa@nvidia.com>,
+	<jonathanh@nvidia.com>, <shuah@kernel.org>, <jsnitsel@redhat.com>,
+	<nathan@kernel.org>, <peterz@infradead.org>, <yi.l.liu@intel.com>,
+	<mshavit@google.com>, <praan@google.com>, <zhangzekun11@huawei.com>,
+	<iommu@lists.linux.dev>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-tegra@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
+	<patches@lists.linux.dev>, <mochs@nvidia.com>, <alok.a.tiwari@oracle.com>,
+	<vasant.hegde@amd.com>
+Subject: Re: [PATCH v2 13/22] iommufd: Add mmap interface
+Message-ID: <aA/O1eeEJx6ZHdfS@Asurada-Nvidia>
+References: <cover.1745646960.git.nicolinc@nvidia.com>
+ <7be26560c604b0cbc2fd218997b97a47e4ed11ff.1745646960.git.nicolinc@nvidia.com>
+ <c4d03b52-422e-41ab-845b-1d2eda7ca9e2@linux.intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20250425203624.43634-1-kuniyu@amazon.com>
+In-Reply-To: <c4d03b52-422e-41ab-845b-1d2eda7ca9e2@linux.intel.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PEPF00000011:EE_|SA1PR12MB6797:EE_
+X-MS-Office365-Filtering-Correlation-Id: be08db45-80ff-410d-0ccd-08dd868628d0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|1800799024|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?cL+/9uNRQ1+IqI41E4s4xsfbaiKNov+D12S25LpLXDTQqci+4w4RqkvWPDxX?=
+ =?us-ascii?Q?8oL0OYWa4muh5zmvzJRB18x4lxaZi1hOhZKnG2MDXwjLkdkFhtK9Ie+q01Xx?=
+ =?us-ascii?Q?4q7iGorR1kml7kKbbajGOeH823UyMTmDUAiQk37PW5WEsKo9elJAwb6cvU7K?=
+ =?us-ascii?Q?Li86+RmEjtvB2qdwzsYUQzQp8Z8LAyW/uhYyXM5oC5LGzBE79SLLECrLhmu2?=
+ =?us-ascii?Q?zOiKRUXvPlajcsmG31xlNZdV9ocl1Md7DJgtbxMWtZmBz3bsXANGQgD9X+0f?=
+ =?us-ascii?Q?dXwecUFSX99enBUjUK1MFBTj5DtlcP/4YrfYwSpHW3ak+w+r6dlizxWdpeF/?=
+ =?us-ascii?Q?ZWE5zaCM8eZOAET92XZonAvwu+uOMSFgcFX+e7DI0BghG18t1lW6ZC40wGui?=
+ =?us-ascii?Q?d3MVXzkcCUmdF7MlAhS8SdgGzz9W+fs1dU9IA5C5djTz6DGeD4AtRo87GUrH?=
+ =?us-ascii?Q?3SWkGJICwIu3g68RZNx/ougZVn8N2KfgZBiRibuJtGb7CWpYtn+VRa9IHzjT?=
+ =?us-ascii?Q?/Tanli/9Y+Vq5A34hMAN9FKTBtWvMJVHGBB1KnquGMn1befsNzBygR78XK6Q?=
+ =?us-ascii?Q?tCNuMAASZJ2mMucQOEzvcCzDw/MYuJTUiQEQUw8aM4a0NrsLg/WAUFL/YvgQ?=
+ =?us-ascii?Q?ZiiR5J483wxDh7GnmLwVagerrXFE1l7jkQbNS5V21JW24ChywyxLTm4tKI5M?=
+ =?us-ascii?Q?coQrDE4Zu5lLw+dT3x+J3U774ZMemxJGxcH4oNrnlmJvNsbZ2ACkCiYB/ujp?=
+ =?us-ascii?Q?A0IKc7k9yzFfiojTsJtrg9HN2SHOCDiA/Ghl7xOJv+7TSQOt+Awon9SVKGut?=
+ =?us-ascii?Q?wSAu//Ew7y83UPZk1V6ad3yUftLXqjKCZx8m+uIB7pCut/TZ85KGhoxR91Ay?=
+ =?us-ascii?Q?m3d5UFRahYcKOAm6OYOqtzapZkxR6k1m6q1Z/lG1pYNK2fK3k+rVigLQ2g5/?=
+ =?us-ascii?Q?wjEZm1gacMgYZTMBr5+zhYQkseL5aKCgl87NiGktcmkAk9O+oRUdeS5E4b7T?=
+ =?us-ascii?Q?Op7BhnjezNYaIFj9QovwSjSk3MT+UI3VLaZ+2QNsqTd4+X6Px7YsBEj7YYuI?=
+ =?us-ascii?Q?9DuHtRALg1A6lkZtU+ZPDz4u/ou9ys2GFYbBqEQ2ML/LFPllzidB0AV0w1jf?=
+ =?us-ascii?Q?sHZMCsgAmV+wFDme7rr13BUhk87GkLDkCC7tLBMkxfmuWsCRnG33kvED7u7v?=
+ =?us-ascii?Q?8KmbqxoN9INSKeHCx6qkgafXF6ZSSeA3QVD5VlP47OwaaiXtrhwcDg0Y9C8y?=
+ =?us-ascii?Q?meVfV0kNQhYeYg5kizGxa4rOaxKWPRvxicbITkrP1MYmfZJUny5r6Kf5qofi?=
+ =?us-ascii?Q?nxvaOj5Ivr/ojsC/JVvSibXEuj0A+rbGSxacBcAnAdjep0ZwS5tHGzQeV70F?=
+ =?us-ascii?Q?/TMm7mKmTT9TqwnHppEgRJ01i3jGIMS54wjKzeaF0nx/agE7tMoG3e7NQPjM?=
+ =?us-ascii?Q?zI+MmZ+jmTMRcw5cjzoZX2Tsf1aI7RC6CULL/qTDsNJWUkp+WZvoKvrukHav?=
+ =?us-ascii?Q?tNrvUtWN+inoNwks99JVE/BpcDfWbVCkx1p2?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(1800799024)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2025 18:54:52.3300
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: be08db45-80ff-410d-0ccd-08dd868628d0
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF00000011.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6797
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_114625_811968_614CDD96 
-X-CRM114-Status: UNSURE (   9.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250428_115504_289516_06B49FC0 
+X-CRM114-Status: GOOD (  28.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,23 +160,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 25, 2025 at 01:34:08PM -0700, Kuniyuki Iwashima wrote:
-
-...
-
-> From: Shiming Cheng <shiming.cheng@mediatek.com>
-> Date: Fri, 25 Apr 2025 20:33:48 +0800
-> > From: Jibin Zhang <jibin.zhang@mediatek.com>
-
-...
-
-
-> > Signed-off-by: Jibin Zhang <jibin.zhang@mediatek.com>
+On Mon, Apr 28, 2025 at 10:50:32AM +0800, Baolu Lu wrote:
+> On 4/26/25 13:58, Nicolin Chen wrote:
+> > For vIOMMU passing through HW resources to user space (VMs), add an mmap
+> > infrastructure to map a region of hardware MMIO pages.
+> > 
+> > Maintain an mt_mmap per ictx for validations. To allow IOMMU drivers to
+> > add and delete mmappable regions to/from the mt_mmap, add a pair of new
+> > helpers: iommufd_ctx_alloc_mmap() and iommufd_ctx_free_mmap().
 > 
-> I guess the sender's SOB tag is also needed here when the author
-> is different ?
+> I am wondering why the dma_buf mechanism isn't used here, considering
+> that this also involves an export and import pattern.
 
-Yes, I think so too.
+The use case here is to expose one small MMIO page for user space
+to directly HW control, so mmap seems to be a good fit. What would
+it benefit from using dma_buf here?
 
-...
+> > @@ -55,6 +57,12 @@ struct iommufd_ctx {
+> >   	struct iommufd_ioas *vfio_ioas;
+> >   };
+> > +/* Entry for iommufd_ctx::mt_mmap */
+> > +struct iommufd_mmap {
+> > +	unsigned long pfn_start;
+> > +	unsigned long pfn_end;
+> > +};
+> 
+> This structure is introduced to represent a mappable/mapped region,
+> right? It would be better to add comments specifying whether the start
+> and end are inclusive or exclusive.
+
+Yes. Sure I can add that pfn_start/pfn_end are inclusive.
+
+> > diff --git a/drivers/iommu/iommufd/driver.c b/drivers/iommu/iommufd/driver.c
+> > index fb7f8fe40f95..c55336c580dc 100644
+> > --- a/drivers/iommu/iommufd/driver.c
+> > +++ b/drivers/iommu/iommufd/driver.c
+> > @@ -78,6 +78,45 @@ void iommufd_object_undepend(struct iommufd_object *obj_dependent,
+> >   }
+> >   EXPORT_SYMBOL_NS_GPL(iommufd_object_undepend, "IOMMUFD");
+> > +/* Driver should report the output @immap_id to user space for mmap() syscall */
+> > +int iommufd_ctx_alloc_mmap(struct iommufd_ctx *ictx, phys_addr_t base,
+> > +			   size_t size, unsigned long *immap_id)
+> > +{
+> > +	struct iommufd_mmap *immap;
+> > +	int rc;
+> > +
+> > +	if (WARN_ON_ONCE(!immap_id))
+> > +		return -EINVAL;
+> > +	if (base & ~PAGE_MASK)
+> > +		return -EINVAL;
+> 
+> Is it equal to PAGE_ALIGNED()?
+
+Yes. Will change.
+
+> > +void iommufd_ctx_free_mmap(struct iommufd_ctx *ictx, unsigned long immap_id)
+> > +{
+> > +	kfree(mtree_erase(&ictx->mt_mmap, immap_id >> PAGE_SHIFT));
+> 
+> MMIO lifecycle question: what happens if a region is removed from the
+> maple tree (and is therefore no longer mappable), but is still mapped
+> and in use by userspace?
+
+That's a good point!
+
+Yea, mmap() should refcount an object to prevent its destroy call
+where this iommufd_ctx_free_mmap gets called. So, these two could
+probably be iommufd_object_alloc_mmap/unmmap().
+
+And I need to find some callback in the munmap path to release the
+reference..
+
+Thanks
+Nicolin
 
