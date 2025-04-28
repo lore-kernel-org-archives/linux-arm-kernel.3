@@ -4,82 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAA59C36005
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 07:46:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 909FBC36005
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 07:47:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8zY686LvOGJYrYXa+bY9kzT3uv0M2cUnBikXFi3QNhk=; b=MdHxjAePPQ2pKSAR/zJb9NSm23
-	PLaeOYBbR6m3aZNcnJ6fVjQA1QDpooQUIIswYSi3qvpfat/hACiC0w2eYmRf1fD70rxNymI+ZjGQD
-	+shWu8f1ZK8RrSYx8lEkmwzQEBFgkNHiBSGRju2f8PdaFyi5I8khCxMbf5gwjhIi8n3BF5r7zm052
-	lCER697H3XpISaduJtsu0CFQUy3bFdL6bb01L7stAsPjR2huE2VHL3xbyzZEdwjhH9q/l+IuuOpRl
-	tGIRtem2w2Qkw3u7KaV+K3LP6WyRbaSBjagTT/f2FcfKcp1LNYcHV0ccWA0HJ6xIzM4BKnTeW0T0l
-	0uXUhL7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h5Tt7944qJjJ4KMmdRD5KDY8T/NskZ0ugtNihbgVNHI=; b=z4hERijllXKG1rWg/Je2jr9J/F
+	OUdpBjlnHUySw2xdlmInjDEMxRsqfwpcnbHSxxN+SXFcyxNVb9jc1VcV1yrS8PUBb0Gc/GmuEAEXo
+	gkhmBHdRwWfZkIygAQvQyd761jKkV6RPt6+2XEfsUO4feWuZif7q/Nf99i5Xof8MDWyAU4ydAn1ib
+	7yN+8xoi+l5NDbTi/f/7XBd+9r/h8sJ/U7k1SwTjmLUTUyUlC+Rloq5+c75GcItFg1i/G11MXJR89
+	7jv8Rhvq8FiBvdE1o7dq8woOMXvYkMS+NxLzKSzyqsnn/Nawhu2VIcmQ/i9q1EgFGbs15ruiDTk7z
+	WiLWhY9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9JBW-00000005IPm-1OuA;
-	Mon, 28 Apr 2025 07:45:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u9JDS-00000005Iw1-1S8N;
+	Mon, 28 Apr 2025 07:47:50 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9ItJ-00000005FFt-1d8y
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 28 Apr 2025 07:27:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=8zY686LvOGJYrYXa+bY9kzT3uv0M2cUnBikXFi3QNhk=; b=rTpVpKDSN+zukm3OdySkqvH/U9
-	fMyrtyDt2fBv8/LayXaswWKboQX6vL/xX23It3O3ttkbPK9UkX13HWE/QTu4f0CsXY1deTAdqhMSr
-	TP4+z7PbOm+7kcLyFOl/u0pHkP/04c4a9Qw6uzfpa3oXh2qx6G2egPjHYTP7AzHj8TzDkjDs9pAXB
-	yPDBT1dwR5CjGZOABqvEqw/pGU318ufpAbFjS1drYtNOpuDK7EO55OOHla4e5xjDGKeQnF8hHgDGs
-	XwQsEO5H9wxRQ4n8IBo1CANyHW4wflH6hWIIjcmgaCo+//8Pis6Br04B+BwWHPZ0xGOSQH1x9uK31
-	OJxJ2KNA==;
-Received: from mout02.posteo.de ([185.67.36.66])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9ItG-0000000Ca9R-0jKf
+	id 1u9Ixv-00000005FsV-2z8U
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 07:27:00 +0000
-Received: from submission (posteo.de [185.67.36.169]) 
-	by mout02.posteo.de (Postfix) with ESMTPS id CC198240103
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 09:26:45 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=posteo.net; s=2017;
-	t=1745825205; bh=nDBkBJAdWu/ACY86EyWr8Sx3/0ngI6TPK6V9GBIUBiU=;
-	h=Date:From:To:Cc:Subject:Message-ID:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:From;
-	b=BOcE2IqSE0aj4vSs00NcAdlFm8ATmFEhh9teUyMmf0JirIaIWhgwB1vb2PndV51Xs
-	 DeOwScmMKSPH4wtviibnNMzL1gBjlrmeWAo7YWmOy9GH59FrZwhqj3/u548KECG1Fn
-	 UTrRW8YU2WWYkc+rrFqL12G1f+FJiDHnBnzAhVh20btLU4XT6l84J1O8rHrL8xsyxE
-	 NNKOO1THUDZahjCzlAucJlX4qtQdrgWTXJuPevlaS8hmOqzM8Pg3PYZOwHbPdi/+xU
-	 kzTbPBhNVrcUdj7xjTBlu1pA7oiSdaqZK8YGTapplJdQeeNKFx+6u9JjzqT50Yoke5
-	 5tNdOFlnxVVrg==
-Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4ZmFPZ1fG3z9rxG;
-	Mon, 28 Apr 2025 09:26:42 +0200 (CEST)
-Date: Mon, 28 Apr 2025 07:26:41 +0000
-From: =?utf-8?Q?J=2E_Neusch=C3=A4fer?= <j.ne@posteo.net>
-To: Chen-Yu Tsai <wens@csie.org>
-Cc: j.ne@posteo.net, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ARM: dts: allwinner: orangepi-zero: Enable audio codec
-Message-ID: <aA8tsao6hhW50k4e@probook>
-References: <20250418-opz-audio-v1-1-4e86bb5bc734@posteo.net>
- <CAGb2v67-1tk0uAmYL-y6479itUxBJua76qhjn+0tTsN+Ni_a1w@mail.gmail.com>
+	Mon, 28 Apr 2025 07:31:49 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53S3rMns012306;
+	Mon, 28 Apr 2025 07:31:38 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	h5Tt7944qJjJ4KMmdRD5KDY8T/NskZ0ugtNihbgVNHI=; b=jQ90LpaVCaB9g8Mq
+	2Jjcjy6k0irS9zpbLckFjtq11TfrVIuRRMzK+JqjbkRYx5JBV0CKcE33Xk5AAADh
+	m9XBG904AXgYkKgHBlbI5sXUD6/lfYOLt1V5jcqcWc3rRf5kjdKmc9BXjdS2UY8Q
+	EvvpMfMqcCY+pU2d4c6HZOR9406GmEcQmf/pfE8sy2liC6d8DEJP+aoIckRp1Zva
+	4ZFIL+qVI+keg5TqlQFDPaBS7epzb+Qf4xanAE7eNgrNx8D/wKZJTfCf5Q6z1Qup
+	4Y5Do3yFu3EWX5Nt7gPjmaxSJrw5yUW6j8sR78m5Sdmhln9u/7kjm6LnJnAXiDyJ
+	O0X/Sw==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 468r8hpuvp-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 28 Apr 2025 07:31:37 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53S7Vb5J018597
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 28 Apr 2025 07:31:37 GMT
+Received: from [10.239.133.49] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 28 Apr
+ 2025 00:31:33 -0700
+Message-ID: <04d46109-d499-4e91-88aa-4187145b811d@quicinc.com>
+Date: Mon, 28 Apr 2025 15:31:17 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGb2v67-1tk0uAmYL-y6479itUxBJua76qhjn+0tTsN+Ni_a1w@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/2] dt-bindings: arm: Add Qualcomm extended CTI
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+        Suzuki K Poulose
+	<suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>, James Clark
+	<james.clark@arm.com>,
+        Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>,
+        Andy Gross <agross@kernel.org>,
+        Bjorn
+ Andersson <andersson@kernel.org>,
+        Rob Herring <robh+dt@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+CC: <linux-kernel@vger.kernel.org>, <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>
+References: <20240903121847.6964-1-quic_jinlmao@quicinc.com>
+ <20240903121847.6964-2-quic_jinlmao@quicinc.com>
+ <8d203417-e3da-4969-87ea-f77cdb720756@kernel.org>
+Content-Language: en-US
+From: Jinlong Mao <quic_jinlmao@quicinc.com>
+In-Reply-To: <8d203417-e3da-4969-87ea-f77cdb720756@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: aDsDaYIgclR7eS8pnA0nbiEW7aeN6APZ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI4MDA2MiBTYWx0ZWRfX7EVVk9LNKvOj K0eTbT1JteIl+PlllryskKWOK8Jt+x2tQanwgSAcjyV2bqem670wEQhRF/vwWrof2G+PhU30bSk rPqSHsds4x9OFDalnlQCVRkYgWbNNV2Fd8Q923L8X86/7m6XJK11F7m+jDW9mmvNcvxaBcSX9wB
+ qZPz7m4swNAwV3iMENhKSFNEvSQxYMnAbiJ/4CQUxPTWvlrx9C8COLmTeVf5WQf1NFnb5tQ7gm+ g2pp/Upsca3J1KAUuLwi1cMPwhqm9oyvLoovoHKkOkS7qjTXRmYu3ynbAi8jtqsLfYET4DQ6aaP JzHR9hENcQmv4WjQpI/3j3jcqMc0u4koQgH1C+VUvc5JKJhGKVwbYa26PiGQrAkIRWRbir1/D1m
+ rb/VWxnXxVZ5jttiqT+CJdiCOzpJaXMT22JHqAXGhTk1JX6gGXndtatFG8iK8+B6ueRUg4v5
+X-Authority-Analysis: v=2.4 cv=cfzSrmDM c=1 sm=1 tr=0 ts=680f2ed9 cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=WjK4Y3n_-wVlLzch4jIA:9 a=QEXdDO2ut3YA:10
+ a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: aDsDaYIgclR7eS8pnA0nbiEW7aeN6APZ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-04-28_02,2025-04-24_02,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 phishscore=0
+ lowpriorityscore=0 bulkscore=0 suspectscore=0 malwarescore=0
+ priorityscore=1501 spamscore=0 mlxscore=0 mlxlogscore=999 adultscore=0
+ clxscore=1011 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
+ definitions=main-2504280062
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_082658_350229_380E0996 
-X-CRM114-Status: GOOD (  19.16  )
+X-CRM114-CacheID: sfid-20250428_003147_760126_BA1FD22B 
+X-CRM114-Status: GOOD (  13.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,55 +120,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 27, 2025 at 01:28:58PM +0800, Chen-Yu Tsai wrote:
-> On Fri, Apr 18, 2025 at 7:32 AM J. Neuschäfer via B4 Relay
-> <devnull+j.ne.posteo.net@kernel.org> wrote:
-> >
-> > From: "J. Neuschäfer" <j.ne@posteo.net>
-> >
-> > Line out playback and microphone capture work, after enabling the
-> > corresponding ALSA controls. Tested with the Orange Pi Zero interface
-> > board, which is a (mostly) passive adapter from the 13-pin header to
-> > standard connectors (2x USB A, 1x Audio/Video output, 1x built-in
-> > microphone).
-> >
-> >   https://orangepi.com/index.php?route=product/product&product_id=871
+
+
+On 2024/9/3 20:42, Krzysztof Kozlowski wrote:
+> On 03/09/2024 14:18, Mao Jinlong wrote:
+>> Add Qualcomm extended CTI support in CTI binding file. Qualcomm
+>> extended CTI supports up to 128 triggers.
+>>
+>> Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
+>> ---
+>>   .../devicetree/bindings/arm/arm,coresight-cti.yaml | 14 ++++++++++++++
+>>   1 file changed, 14 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
+>> index 6a73eaa66a42..141efba7c697 100644
+>> --- a/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
+>> +++ b/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
+>> @@ -87,6 +87,10 @@ properties:
+>>             - const: arm,coresight-cti-v8-arch
+>>             - const: arm,coresight-cti
+>>             - const: arm,primecell
+>> +      - items:
+>> +          - const: qcom,coresight-cti-extended
 > 
-> What about the USB ports?
+> That's just enum in previous entry/list.
+Sorry for the late response. This is a new CTI type. Need the three 
+items in compatible at the same time, just like other kind of CTIs.
 
-Good point, I could test these. I have not mentioned them because they
-are not related to audio.
+> 
+>> +          - const: arm,coresight-cti
+>> +          - const: arm,primecell
+>>   
+>>     reg:
+>>       maxItems: 1
+>> @@ -254,6 +258,16 @@ examples:
+>>         clocks = <&soc_smc50mhz>;
+>>         clock-names = "apb_pclk";
+>>       };
+>> +  # minimum extended CTI definition.
+>> +  - |
+> 
+> No need for new example. No differences here.
+This is a new type CTI.
 
-> In any case, we don't enable peripherals on "headers" by default. That's
-> up to the end user. The description for the whole adapter board could be
-> an overlay that users can then apply directly.
+> 
+> 
+> Best regards,
+> Krzysztof
+> 
 
-For features such as pinmuxed UARTs (already present and disabled in the
-dts), I fully agree, because they could as well be used as GPIO, and
-that's for the user to decide.
-
-For the audio pins, there's nothing else one can do with them, as far as
-I understand it. It is possible to use at the least the Line Out pins
-with very minimal setup, e.g. just connecting the pins to headphones or
-something else.
-
-I'll clarify the following points in a comment in the next version:
-
- - The audio signals are exposed on the 1x13 header described in
-   https://linux-sunxi.org/Xunlong_Orange_Pi_Zero
-
- - The pins can't be used for anything else according to section
-   3.1. Pin Characteristics of the Allwinner H3 Datasheet.
-
-Although I would prefer to enable the audio pins by default (because
-they are present on the Orange Pi Zero board), I would also be ok with
-adding them as status = "disabled", as is the case with uart1 and uart2.
-Please let me know your opinion.
-
-I will test the USB ports and write a devicetree overlay at
-arch/arm/boot/dts/allwinner/orangepi-zero-interface-board.dtso
-
-
-Best regards,
-J. Neuschäfer
 
