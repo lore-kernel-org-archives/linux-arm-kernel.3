@@ -4,79 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C00DC369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 15:44:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19D6CC369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 15:46:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jydpl1cVr32Ac84WRku0YCQA10wtBvr1Fqy6dS8BvBE=; b=HMIKocqHI3QyfBrN9unFhpcVBj
-	9YQ6GTDNi1Vr6YKYbV2IwOZAEhKN7c5Cw683gOl8CZ/X5pnWBWVTe+MFUFMwWja2MeutrAVchUHza
-	9+p4ldOJul2SOAhlfOVY0igUOKim6rz+bihEo8KSiAQLyiZdq6zYUtjy3wZFgD60xjRvEZoEUY+1b
-	gRmYjANLKDq4aEBu66D45zuzxaM0xTys3QNJJxlITccd0SeFK4KOEkFX52LkJVVzl/l37xUfeFeQC
-	w98H7+mq4AsyKZRSHHtJvXIokPiKYbJkEW3tgNWdZ3QWFRwupCpBQJO44axKh9v7ww/jCjtPkz6dx
-	v7CghaJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RBnt6oCOdXftASOE020D1oKxhactwZNgt5XQP4zEG/g=; b=2ydWg99tzndWI6QmPcBlIZ0Sy7
+	lQRICQJJZmdzXz+ndQKypS6+KcrCkEN00l1EUMvl3kNSBIZwj+V34kz1pmf9++eH3+05CBMBOTFA7
+	XIXqTI8uTGitTrMht1/zrS36TMgqAZhtiHgbG2cNUbNsbFMJxe5Wkhub1JgyovETWpigDfJdM387I
+	5qSwDy5x5t/JPOfoPSqtzO7g2osWNs4jG1xrnPtn6lc7W5LcYzxE0ouzVBoZaIM6z61U8a45hU5/Q
+	H8dBO6jfAGTULruUKpQ2CL+GUusCvgk4LLhJy7YLCcylH4P7FQQ4u1jWLOGDW7NuPZAx8C96kccrD
+	/W0MyPzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9QeY-00000006o4k-0kdX;
-	Mon, 28 Apr 2025 15:44:18 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9QXE-00000006mya-2Y0X
+	id 1u9QgE-00000006oSj-3wBR;
+	Mon, 28 Apr 2025 15:46:02 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u9PTm-00000006dWb-1ePw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 15:36:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 63E561516;
-	Mon, 28 Apr 2025 08:36:37 -0700 (PDT)
-Received: from mazurka.cambridge.arm.com (mazurka.cambridge.arm.com [10.2.80.18])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8C61A3F673;
-	Mon, 28 Apr 2025 08:36:39 -0700 (PDT)
-From: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
-To: ryan.roberts@arm.com,
-	suzuki.poulose@arm.com,
-	yang@os.amperecomputing.com,
-	corbet@lwn.net,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	jean-philippe@linaro.org,
-	robin.murphy@arm.com,
-	joro@8bytes.org,
-	akpm@linux-foundation.org,
-	paulmck@kernel.org,
-	mark.rutland@arm.com,
-	joey.gouly@arm.com,
-	maz@kernel.org,
-	james.morse@arm.com,
-	broonie@kernel.org,
-	oliver.upton@linux.dev,
-	baohua@kernel.org,
-	david@redhat.com,
-	ioworker0@gmail.com,
-	jgg@ziepe.ca,
-	nicolinc@nvidia.com,
-	mshavit@google.com,
-	jsnitsel@redhat.com,
-	smostafa@google.com,
-	kevin.tian@intel.com,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev
-Cc: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
-Subject: [RESEND PATCH v6 2/3] iommu/arm: Add BBM Level 2 smmu feature
-Date: Mon, 28 Apr 2025 15:35:16 +0000
-Message-ID: <20250428153514.55772-6-miko.lenczewski@arm.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250428153514.55772-2-miko.lenczewski@arm.com>
-References: <20250428153514.55772-2-miko.lenczewski@arm.com>
+	Mon, 28 Apr 2025 14:29:07 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53SESiWF2797224
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 28 Apr 2025 09:28:44 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1745850524;
+	bh=RBnt6oCOdXftASOE020D1oKxhactwZNgt5XQP4zEG/g=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=GuTa/GwUemjpMPB21SqSYZEWi8J73Q9cSTDCHdOGiWTFgWJZx3Jmjo8ep6SYaL4mT
+	 Sem9HbvtdPMacM3XxfBBejYAxRVA4XBuZ5HlbmNuysJDAgvoSPgF85+JXJcbOJjq0U
+	 jpzx7fhACyOWooFH+E1/3X3luNknWIBdRuTJfFBA=
+Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53SESivY077126
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 28 Apr 2025 09:28:44 -0500
+Received: from DFLE101.ent.ti.com (10.64.6.22) by DFLE115.ent.ti.com
+ (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 28
+ Apr 2025 09:28:44 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE101.ent.ti.com
+ (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 28 Apr 2025 09:28:44 -0500
+Received: from localhost (uda0492258.dhcp.ti.com [10.24.72.113])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53SESgc4076217;
+	Mon, 28 Apr 2025 09:28:43 -0500
+Date: Mon, 28 Apr 2025 19:58:42 +0530
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: Andrew Lunn <andrew@lunn.ch>
+CC: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>,
+        "Russell King
+ (Oracle)" <linux@armlinux.org.uk>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo
+ Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Andy Whitcroft
+	<apw@canonical.com>,
+        Dwaipayan Ray <dwaipayanray1@gmail.com>,
+        Lukas Bulwahn
+	<lukas.bulwahn@gmail.com>,
+        Joe Perches <joe@perches.com>, Jonathan Corbet
+	<corbet@lwn.net>,
+        Nishanth Menon <nm@ti.com>, Vignesh Raghavendra
+	<vigneshr@ti.com>,
+        Siddharth Vadapalli <s-vadapalli@ti.com>,
+        Roger Quadros
+	<rogerq@kernel.org>, Tero Kristo <kristo@kernel.org>,
+        <linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux@ew.tq-group.com>
+Subject: Re: [PATCH net-next 1/4] dt-bindings: net: ethernet-controller:
+ update descriptions of RGMII modes
+Message-ID: <8b166e41-8d21-4519-bd59-01b5ae877655@ti.com>
+References: <cover.1744710099.git.matthias.schiffer@ew.tq-group.com>
+ <218a27ae2b2ef2db53fdb3573b58229659db65f9.1744710099.git.matthias.schiffer@ew.tq-group.com>
+ <aAaafd8LZ3Ks-AoT@shell.armlinux.org.uk>
+ <a53b5f22-d603-4b7d-9765-a1fc8571614d@lunn.ch>
+ <aAe2NFFrcXDice2Z@shell.armlinux.org.uk>
+ <fdc02e46e4906ba92b562f8d2516901adc85659b.camel@ew.tq-group.com>
+ <9b9fc5d0-e973-4f4f-8dd5-d3896bf29093@lunn.ch>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <9b9fc5d0-e973-4f4f-8dd5-d3896bf29093@lunn.ch>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_083644_724712_A24E85FB 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20250428_072906_529739_DF3660C6 
+X-CRM114-Status: GOOD (  24.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,74 +113,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For supporting BBM Level 2 for userspace mappings, we want to ensure
-that the smmu also supports its own version of BBM Level 2. Luckily, the
-smmu spec (IHI 0070G 3.21.1.3) is stricter than the aarch64 spec (DDI
-0487K.a D8.16.2), so already guarantees that no aborts are raised when
-BBM level 2 is claimed.
+On Mon, Apr 28, 2025 at 04:08:10PM +0200, Andrew Lunn wrote:
+> > > However, with the yaml stuff, if that is basically becoming "DT
+> > > specification" then it needs to be clearly defined what each value
+> > > actually means for the system, and not this vague airy-fairy thing
+> > > we have now.
+> 
+>  
+> > I agree with Russell that it seems preferable to make it unambiguous whether
+> > delays are added on the MAC or PHY side, in particular for fine-tuning. If
+> > anything is left to the implementation, we should make the range of acceptable
+> > driver behavior very clear in the documentation.
+> 
+> I think we should try the "Informative" route first, see what the DT
+> Maintainers think when we describe in detail how Linux interprets
+> these values.
+> 
+> I don't think a whole new set of properties will solve anything. I
+> would say the core of the problem is that there are multiple ways of
+> getting a working system, many of which don't fit the DT binding. But
+> DT developers don't care about that, they are just happy when it
+> works. Adding a different set of properties won't change that.
 
-Add the feature and testing for it under arm_smmu_sva_supported().
+Isn't the ambiguity arising due to an incomplete description wherein we
+are not having an accurate description for the PCB Traces?
 
-Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
-Reviewed-by: Robin Murphy <robin.murphy@arm.com>
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c | 3 +++
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c     | 3 +++
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h     | 4 ++++
- 3 files changed, 10 insertions(+)
+A complete description might be something like:
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-index 9ba596430e7c..6ba182572788 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-@@ -222,6 +222,9 @@ bool arm_smmu_sva_supported(struct arm_smmu_device *smmu)
- 		feat_mask |= ARM_SMMU_FEAT_VAX;
- 	}
- 
-+	if (system_supports_bbml2_noabort())
-+		feat_mask |= ARM_SMMU_FEAT_BBML2;
-+
- 	if ((smmu->features & feat_mask) != feat_mask)
- 		return false;
- 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index b4c21aaed126..a8b171372f17 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -4430,6 +4430,9 @@ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
- 	if (FIELD_GET(IDR3_RIL, reg))
- 		smmu->features |= ARM_SMMU_FEAT_RANGE_INV;
- 
-+	if (FIELD_GET(IDR3_BBML, reg) == IDR3_BBML2)
-+		smmu->features |= ARM_SMMU_FEAT_BBML2;
-+
- 	/* IDR5 */
- 	reg = readl_relaxed(smmu->base + ARM_SMMU_IDR5);
- 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index dd1ad56ce863..e67653d342e1 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -60,6 +60,9 @@ struct arm_smmu_device;
- #define ARM_SMMU_IDR3			0xc
- #define IDR3_FWB			(1 << 8)
- #define IDR3_RIL			(1 << 10)
-+#define IDR3_BBML			GENMASK(12, 11)
-+#define IDR3_BBML1			(1 << 11)
-+#define IDR3_BBML2			(2 << 11)
- 
- #define ARM_SMMU_IDR5			0x14
- #define IDR5_STALL_MAX			GENMASK(31, 16)
-@@ -755,6 +758,7 @@ struct arm_smmu_device {
- #define ARM_SMMU_FEAT_HA		(1 << 21)
- #define ARM_SMMU_FEAT_HD		(1 << 22)
- #define ARM_SMMU_FEAT_S2FWB		(1 << 23)
-+#define ARM_SMMU_FEAT_BBML2		(1 << 24)
- 	u32				features;
- 
- #define ARM_SMMU_OPT_SKIP_PREFETCH	(1 << 0)
--- 
-2.49.0
+mac {
+	pcb-traces {
+		mac-to-phy-trace-delay = <X>; // Nanoseconds
+		phy-to-mac-trace-delay = <Y>; // Nanoseconds
+	};
+	phy-mode = "rgmii-*";
+	phy-handle = <&phy>;
+};
 
+In some designs, the "mac-to-phy-trace" and the "phy-to-mac-trace" are
+treated as a part of the MAC block for example. Depending on which block
+contains the trace, the delay is added accordingly.
+
+Regards,
+Siddharth.
 
