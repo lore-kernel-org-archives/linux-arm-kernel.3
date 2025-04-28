@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E59BAC369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 20:28:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12882C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 20:30:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BDO3BrucMxULVTP7wxmNOUlpxABCLZ8/GfNo16L3AFU=; b=YJMjfKBdx/QntLf2z0LD7B4Mht
-	44tGEgdAQXKs7D8+V49jSZOj7nn8bq0yPWUG8vAShzv/PCKC0It2/FXjdwfVgL5ff3CTfi+86GXKY
-	jjbH/4R4c2eq/h/gFCm5B0bl/OHW65sj5hWuJOi0QW5qVjFGoEPgwH+/o/UwwdyLDE30uvOZ1scS/
-	sxFuiZHVnIgs1tCyo5sVxz/OD3aO9Ew57BO0rMWYFsrC5yhs9nY19Hw+I15Vd+ctebbxaISjxj4NL
-	1aky6QSStRVkQEuX2RPWkD/OkL/DgygDWjuhq3XQxrSIrI70n77DZYOwyMmFQ/LeKWwq8iwtSd8aE
-	Do5mePyg==;
+	bh=B2koMhN4hR5KSSnBsIlIFgfxzAiKDp/j1dG+oyh3qTA=; b=gkoWkldn5Wx3XjoHSZ0n7KJVVG
+	ZMw40tUxmDR16kiGTr33OYCPCC+d1r8Mt18lc8nD5W+FvvnG7s+LMdBYPGjOpLgetkU5XLd9X6LEu
+	VLDUizIYOqeaivzYXZ9cniv8NlT6FlFoGR51Vo0biKtk3Sw4vCd7Pzh8VcqSeCHGps09Ur1M7lPCF
+	NCb4LDzsgpqGt6Ulgm7+IAccNn0d9bS4tvs0WxuMcezHSegLrE1tzApohamXpHJr+akPhHGqvI4OA
+	MjFeVUDFAPkBRMfdeMpkgn5l9t9ABhlhia6zj9NoU/0p5N50kyvoQ0jTFcdyCRNVfALZESAjx2bkM
+	+HLM4KKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9V5D-00000007T1c-1lVR;
-	Mon, 28 Apr 2025 20:28:07 +0000
-Received: from mail-oi1-x231.google.com ([2607:f8b0:4864:20::231])
+	id 1u9V79-00000007TUa-0XRm;
+	Mon, 28 Apr 2025 20:30:07 +0000
+Received: from mail-oi1-x235.google.com ([2607:f8b0:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9V1K-00000007SDl-3Oth
+	id 1u9V1M-00000007SEe-23kN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 20:24:07 +0000
-Received: by mail-oi1-x231.google.com with SMTP id 5614622812f47-400fa6eafa9so3910461b6e.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 13:24:06 -0700 (PDT)
+	Mon, 28 Apr 2025 20:24:09 +0000
+Received: by mail-oi1-x235.google.com with SMTP id 5614622812f47-3f8df49e75fso1164132b6e.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 13:24:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1745871846; x=1746476646; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1745871847; x=1746476647; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=BDO3BrucMxULVTP7wxmNOUlpxABCLZ8/GfNo16L3AFU=;
-        b=biwc4JGeoEuJfqTNhpujW3mTuCsppaUa8sP4PArVB3EFmIivu7HD99JLISUk+RvU8i
-         LcPHrA8PpIQv/ld9/2KUk6duZzdSjaqCbe7i4SCLbPde9lCBXMmg63bMG/LNSwLXAw4D
-         16pf1nXkcj8KW0k/X5BvUcIEMPlrD77+znoSTiZjVXT1ktx4wwI8WcbgyatGUKjh8DiS
-         v3wx/wV2jFi93cyxdNuWV+8KtEkZwU6MbnF7H6JkqUJrWZhiupmDQRBFllNxcdth1+Em
-         5qtEnt+6spz6R4EwAafVyLy/ETTO+7Ph6t1G4HzlJueDeBVGd01Hlf6OFlZ40psiOON+
-         Svng==
+        bh=B2koMhN4hR5KSSnBsIlIFgfxzAiKDp/j1dG+oyh3qTA=;
+        b=Zvxz4mlCW3Ul+AS9s5ivQ6D2IXfbypsBxhH3KBKQpGgCf2An3/Kdd3FeNl9h0IzkRD
+         5YTMEAY8yLZH1rNaLlnUKMdzwk0ewluRo0F+C8BoOzDZOOcBNhXNLNz6ulRk1gwHSr4r
+         6bqXVC0Hqz9NiJ1IxtcowuFX+PpDf+WPkbXPE62rhPTa3gj4IWV2CgzOUwdAVaZBXWlm
+         uhhJ7E9tLt/JnWmzHEUvfN308Wm49l6JyEnnWCguxhbMqKp9ijqrR7+AQdffwHbpAz8B
+         35ydJwN4lb8l7ryiuuS8p9PyGdvP538hmnOBE8nUxKvrmxts4kGhsgiplzVcGuQOb13c
+         j+0Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745871846; x=1746476646;
+        d=1e100.net; s=20230601; t=1745871847; x=1746476647;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=BDO3BrucMxULVTP7wxmNOUlpxABCLZ8/GfNo16L3AFU=;
-        b=nK+KCS3+UDorRiR8juYXHwjUj05wJOnaHThYEyLJDMo5Z7PweDMulNify4Srq6yjJN
-         VQ8fqsr1LRM8DiAzuKwgFWOyiYlB7e3RvsOT0UiIZ+b+xpOKFzt94/MRDNkFZY+pyvYo
-         0bg1NCLNelho+EWJA85+kiqwbeisdnvc9GCwA2pRYMhxcruIxX0tDqi9lOtM74xiqX1G
-         94wl0MwfyP2KDDaoKM+WYJHHSPWnYHHyP3e4d5uYum6kNzAQHNa9lfasrWBoGGnEj6fE
-         GJGEvCEN3eBu/lrHNTEAdNisF9QVLmXatZCxtGfsVdO8AoXbwSWNba2S4hv9ZU/YLyo5
-         i20g==
-X-Forwarded-Encrypted: i=1; AJvYcCVnOShtB1LvRKyTqxRfQ5FqDzjKE5LXHuHo491GEaYkN4vYLTbOrP5r+LtOtcon7G5yExX/LhiQWMFmS0CPt3xd@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzx3eRvGYMzldn8AFLjwSRZ7/lWekIxzUGUAA9Zl2NzCK1rm9d6
-	JhaCUUl5KTOUkHbEC5so4A3Z4IKIXX4q+9jkMcFxm+eE5T998S5sVjxZJ15hgWM=
-X-Gm-Gg: ASbGncue2m09KTo6/7kbWshyNwJZ9ltQmyzweU2djjrAbJsL5K0ZxMEgWL0rt1mGApP
-	IKqqcWlv3Teg9jy1AQXZLFV8rh97jjvVFcqH0aTG4iF8xmhnZwipFct3CjM/21ymw8v4/GBhubZ
-	2PtssvaKP2X7zLvt6IgO2+PpGhp2CjPYM/93HnjTsSvS9OsjeaAUAkFnOwZrAKaG+fy/4ypH9Sj
-	fLHG5rMfmDJ36L4v7yvVz+lrDqwWnMhP/ivqZRchjhtQ5P6zY7+LgKRSLFzVOYxvFUmB6zfO3oD
-	t6nF1ANxoxrwq1pjyTDQqMFNBWGJF25uElswyAABmom0UwY=
-X-Google-Smtp-Source: AGHT+IEIb+/7jwFycj6Lxs0AIAmOXJEQMNM+ExPcVNff3F0TuKaEDFx36DEm3NSKVEONbWj2NvQzbw==
-X-Received: by 2002:a05:6808:1597:b0:3f7:6824:5839 with SMTP id 5614622812f47-402115793e8mr196510b6e.19.1745871845666;
-        Mon, 28 Apr 2025 13:24:05 -0700 (PDT)
+        bh=B2koMhN4hR5KSSnBsIlIFgfxzAiKDp/j1dG+oyh3qTA=;
+        b=ZTxG+owJ4lKA0eH2c22p9zqlnhPxjvB2mUkaVKOTAJQYFZlKHwUCaVvta6TR4RM7Y7
+         JxwCCuDUOIdXmeve5JdaurPEYNNkTe2KyNi7Aj0pq80XswzKJ3KG5eiCbfSuPQmovYn6
+         14+diXSewPaoTB7JsS5jxFkDSSB8N611HiuvsC1ui3X/CRUmcIY+hny8OY+t1DRIdNqB
+         NLDw62mx0MPnQG+8VhoGrCXa7d/0AjEh6tv8DjS7a+fsbtfW9sX2OKBuv/lAWUK0aEn9
+         wqiwLXodny3hCUJP7zL+fK89359j/b2R5f53dzbpTX29xdd9cxpMeBRD30m95IH/arn2
+         zo6g==
+X-Forwarded-Encrypted: i=1; AJvYcCWkbXHoMpNzVufueKjdF750vggeKQXj+UBL9s4rPVWK0Zs/YirN6FnV89h9TUBXtwmwE8uKdfYbZtQplx8fRhIh@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAKJCkrIOZ+Hh+robgDGd6GOylAS4YBL8WRSSlgqQmpJNzH48w
+	UAUWfCt+P4VcYTZv4aqCvtFOPlRN7wn+J1k2w9Il2RtnMwAssJFQBW9iGa2drlk=
+X-Gm-Gg: ASbGncs/TMtQ2CIlnUBfd0MWyRhk/tKCLMdj/A01ATe6pMsxnJ7BFO5sj1llAvhDVea
+	EioPwnMM+D6XHGs9IceIc8pCRT+j04rKtg6R4P5hCEtEDcSbiGxb0nhxN1l+l21RE3By0ffCYkd
+	gohUJ+djAWUpM9HePuNB8ApfkdNAmxEQhOcv3CkMBAe7TtTtAE/upNlTg36uZGH5HgAPO3RfPLY
+	V4+VJaHo18cpVgxjyr/NTwUI5UEVrrPP9AirUIxDmUbT33iuxrb3Hn3bNul4188y1gzvNzM3egE
+	fNaBKfwdMinNOYDC4z8AoisZfkaQYP6fe+Olrk2i/BRmw0w=
+X-Google-Smtp-Source: AGHT+IE2t1mIKjTbfLOxxHnPGtF5EANZEhBUSNDmzIqx7nof0PYr33NBqzeXXAMHb0wVBbQ/ZHOTBg==
+X-Received: by 2002:a05:6808:3386:b0:401:e7c0:62b7 with SMTP id 5614622812f47-401fd6e2ff3mr6007281b6e.1.1745871847483;
+        Mon, 28 Apr 2025 13:24:07 -0700 (PDT)
 Received: from [127.0.1.1] ([2600:8803:e7e4:1d00:cff6:9ed0:6e45:1ff9])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-401ec970ec5sm2196187b6e.34.2025.04.28.13.24.02
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-401ec970ec5sm2196187b6e.34.2025.04.28.13.24.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Apr 2025 13:24:04 -0700 (PDT)
+        Mon, 28 Apr 2025 13:24:06 -0700 (PDT)
 From: David Lechner <dlechner@baylibre.com>
-Date: Mon, 28 Apr 2025 15:23:03 -0500
-Subject: [PATCH v4 1/7] iio: introduce IIO_DECLARE_BUFFER_WITH_TS macros
+Date: Mon, 28 Apr 2025 15:23:04 -0500
+Subject: [PATCH v4 2/7] iio: adc: ad4695: use u16 for buffer elements
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250428-iio-introduce-iio_declare_buffer_with_ts-v4-1-6f7f6126f1cb@baylibre.com>
+Message-Id: <20250428-iio-introduce-iio_declare_buffer_with_ts-v4-2-6f7f6126f1cb@baylibre.com>
 References: <20250428-iio-introduce-iio_declare_buffer_with_ts-v4-0-6f7f6126f1cb@baylibre.com>
 In-Reply-To: <20250428-iio-introduce-iio_declare_buffer_with_ts-v4-0-6f7f6126f1cb@baylibre.com>
 To: Jonathan Cameron <jic23@kernel.org>, 
@@ -89,20 +89,20 @@ To: Jonathan Cameron <jic23@kernel.org>,
 Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4338; i=dlechner@baylibre.com;
- h=from:subject:message-id; bh=NbvlMBP/8hkPgeT8KG8PAd/JVAGx954UfPXMpF7Wv10=;
- b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBoD+OxkAV7kbZhJxHC4iKN/xmbZ/Lc7pauhbWdp
- +DmlLR4dguJATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCaA/jsQAKCRDCzCAB/wGP
- wJ72B/0UaG/hbNwQmC2jqV8Rbj6GBpaWfbcJAA1elDDGhYuyJ64XSLue9cdWjFH6yHyLS6A9xFI
- +onUBUrKMut5HCGv9SdkQo5a9imJSUAXjTv8Ybl5c/tk6Jrsq1URo3qjRmbmL4/kH4L5gv27bQ3
- oKMt+m/912KVXfQxhD3WgV75N+7lUB6G8GJd2hyhlVFrkcXqVi1yB0ynX9s39mqfcundWaczazG
- qfz/2+xNtm9ozLVPvaRf0fREtx5UaYGSOj9W/fkpXMbpysJW8cmG1acPjbDyoAKZ4nDBw/g+Jig
- dXM8MBCBPdgtaLwMqGWw6SdzKM6WU8EmTzGIqtMyx16s0Hpo
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2149; i=dlechner@baylibre.com;
+ h=from:subject:message-id; bh=NLK9rHWGxHgHc450e6JA3Kx5J3+N1Fpz21XOi57G4v0=;
+ b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBoD+O4WpNLbL3CYKCp+PPUsjmA9mnQKptP+x5eq
+ ren3YBYwRWJATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCaA/juAAKCRDCzCAB/wGP
+ wAtvB/4vVUEBo0j0lHeSRNlDndrnUGlRw/RjDbtLEEZfSuKleOliq3a7xcyqLmSE8l85l1qeMND
+ eLCSL522/2esSp4tE5jPHvqeLOokuWiy8HrX0U8V79et+AQSe4Q178E9j1qgV+HJ/kxSMtuxSZy
+ DwXsfcULwYiB7aLCyGKdgDKkjXBmLGDVNLU+ooKF8xABky2jX+R8g1clxwuUKk1aWN8c5GZpUzc
+ aD+jYlThFlC/yF5p9noGzD8oD+RfSYC0AlpuI2cUIJVQqei6XeDO6E8xMd3uIj1ouPdmohMu0JD
+ 5O45phj5sO9zskocZ99/2RyH1ZnmderDB//fPMXwIbcNufJP
 X-Developer-Key: i=dlechner@baylibre.com; a=openpgp;
  fpr=8A73D82A6A1F509907F373881F8AF88C82F77C03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_132406_856252_97C9937C 
-X-CRM114-Status: GOOD (  21.17  )
+X-CRM114-CacheID: sfid-20250428_132408_523717_EF2C5DC9 
+X-CRM114-Status: GOOD (  16.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,105 +117,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add new macros to help with the common case of declaring a buffer that
-is safe to use with iio_push_to_buffers_with_ts(). This is not trivial
-to do correctly because of the alignment requirements of the timestamp.
-This will make it easier for both authors and reviewers.
+Change the type of the buffer elements to u16 since we currently only
+support 16-bit word size. The code was originally written to also allow
+for 32-bit word size when oversampling is enabled, but so far,
+oversampling is only implemented when using SPI offload and therefore
+doesn't use this buffer.
 
-To avoid double __align() attributes in cases where we also need DMA
-alignment, add a 2nd variant IIO_DECLARE_DMA_BUFFER_WITH_TS().
+AD4695_MAX_CHANNEL_SIZE macro is dropped since it no longer adds any
+value.
+
+AD4695_MAX_CHANNELS + 2 is changed to AD4695_MAX_CHANNELS + 1 because
+previously we were overallocating. AD4695_MAX_CHANNELS is the number of
+of voltage channels and + 1 is for the temperature channel.
 
 Signed-off-by: David Lechner <dlechner@baylibre.com>
 ---
+ drivers/iio/adc/ad4695.c | 9 +++------
+ 1 file changed, 3 insertions(+), 6 deletions(-)
 
-v4 changes:
-* Drop the static_asserts(). Some 32-bit arches were triggering one, so
-  we had to address the problem instead of hoping that it didn't exist.
-  The other made a multi-statement macro, which isn't the best practice
-  and didn't have a way to make a really helpful error message. The
-  condition we were trying to catch is still caught by -Wvla.
-* Changed __align(IIO_DMA_MINALIGN) to __align(MAX(IIO_DMA_MINALIGN,
-  sizeof(s64))). As the build-bots found, there are some 32-bit arches
-  where IIO_DMA_MINALIGN is 4, but we still need 8-byte alignment for
-  the timestamp.
-
-v3 changes:
-* Use leading double-underscore for "private" macro to match "private"
-  functions that do the same.
-* Use static_assert() from linux/build_bug.h instead of _Static_assert()
-* Fix incorrectly using sizeof(IIO_DMA_MINALIGN).
-* Add check that count argument is constant. (Note, I didn't include a
-  message in this static assert because it already gives a reasonable
-  message.)
-
-/home/david/work/bl/linux/drivers/iio/accel/sca3300.c:482:51: error: expression in static assertion is not constant
-  482 |         IIO_DECLARE_BUFFER_WITH_TS(s16, channels, val);
-      |                                                   ^~~
-
-v2 changes:
-* Add 2nd macro for DMA alignment
----
- include/linux/iio/iio.h | 37 +++++++++++++++++++++++++++++++++++++
- 1 file changed, 37 insertions(+)
-
-diff --git a/include/linux/iio/iio.h b/include/linux/iio/iio.h
-index 638cf2420fbd85cf2924d09d061df601d1d4bb2a..95d90740b4ffb3ebd819d03ad2bd05ecf40d4384 100644
---- a/include/linux/iio/iio.h
-+++ b/include/linux/iio/iio.h
-@@ -7,9 +7,12 @@
- #ifndef _INDUSTRIAL_IO_H_
- #define _INDUSTRIAL_IO_H_
+diff --git a/drivers/iio/adc/ad4695.c b/drivers/iio/adc/ad4695.c
+index 68c6625db0d75f4cade7cb029e94191118dbcaa0..0c633d43e480d5404074e9fa35f1d330b448f0a2 100644
+--- a/drivers/iio/adc/ad4695.c
++++ b/drivers/iio/adc/ad4695.c
+@@ -106,8 +106,6 @@
  
-+#include <linux/align.h>
-+#include <linux/build_bug.h>
- #include <linux/device.h>
- #include <linux/cdev.h>
- #include <linux/compiler_types.h>
-+#include <linux/minmax.h>
- #include <linux/slab.h>
- #include <linux/iio/types.h>
- /* IIO TODO LIST */
-@@ -777,6 +780,40 @@ static inline void *iio_device_get_drvdata(const struct iio_dev *indio_dev)
-  * them safe for use with non-coherent DMA.
-  */
- #define IIO_DMA_MINALIGN ARCH_DMA_MINALIGN
-+
-+#define __IIO_DECLARE_BUFFER_WITH_TS(type, name, count) \
-+	type name[ALIGN((count), sizeof(s64) / sizeof(type)) + sizeof(s64) / sizeof(type)]
-+
-+/**
-+ * IIO_DECLARE_BUFFER_WITH_TS() - Declare a buffer with timestamp
-+ * @type: element type of the buffer
-+ * @name: identifier name of the buffer
-+ * @count: number of elements in the buffer
-+ *
-+ * Declares a buffer that is safe to use with iio_push_to_buffer_with_ts(). In
-+ * addition to allocating enough space for @count elements of @type, it also
-+ * allocates space for a s64 timestamp at the end of the buffer and ensures
-+ * proper alignment of the timestamp.
-+ */
-+#define IIO_DECLARE_BUFFER_WITH_TS(type, name, count) \
-+	__IIO_DECLARE_BUFFER_WITH_TS(type, name, count) __aligned(sizeof(s64))
-+
-+/**
-+ * IIO_DECLARE_DMA_BUFFER_WITH_TS() - Declare a DMA-aligned buffer with timestamp
-+ * @type: element type of the buffer
-+ * @name: identifier name of the buffer
-+ * @count: number of elements in the buffer
-+ *
-+ * Same as IIO_DECLARE_BUFFER_WITH_TS(), but is uses __aligned(IIO_DMA_MINALIGN)
-+ * to ensure that the buffer doesn't share cachelines with anything that comes
-+ * before it in a struct. This should not be used for stack-allocated buffers
-+ * as stack memory cannot generally be used for DMA.
-+ */
-+#define IIO_DECLARE_DMA_BUFFER_WITH_TS(type, name, count)	\
-+	__IIO_DECLARE_BUFFER_WITH_TS(type, name, count)		\
-+	/* IIO_DMA_MINALIGN may be 4 on some 32-bit arches. */	\
-+	__aligned(MAX(IIO_DMA_MINALIGN, sizeof(s64)))
-+
- struct iio_dev *iio_device_alloc(struct device *parent, int sizeof_priv);
+ /* Max number of voltage input channels. */
+ #define AD4695_MAX_CHANNELS		16
+-/* Max size of 1 raw sample in bytes. */
+-#define AD4695_MAX_CHANNEL_SIZE		2
  
- /* The information at the returned address is guaranteed to be cacheline aligned */
+ enum ad4695_in_pair {
+ 	AD4695_IN_PAIR_REFGND,
+@@ -162,8 +160,8 @@ struct ad4695_state {
+ 	struct spi_transfer buf_read_xfer[AD4695_MAX_CHANNELS * 2 + 3];
+ 	struct spi_message buf_read_msg;
+ 	/* Raw conversion data received. */
+-	u8 buf[ALIGN((AD4695_MAX_CHANNELS + 2) * AD4695_MAX_CHANNEL_SIZE,
+-		     sizeof(s64)) + sizeof(s64)] __aligned(IIO_DMA_MINALIGN);
++	u16 buf[ALIGN((AD4695_MAX_CHANNELS + 1) * sizeof(u16),
++		      sizeof(s64)) + sizeof(s64)] __aligned(IIO_DMA_MINALIGN);
+ 	u16 raw_data;
+ 	/* Commands to send for single conversion. */
+ 	u16 cnv_cmd;
+@@ -660,9 +658,8 @@ static int ad4695_buffer_preenable(struct iio_dev *indio_dev)
+ 	iio_for_each_active_channel(indio_dev, bit) {
+ 		xfer = &st->buf_read_xfer[num_xfer];
+ 		xfer->bits_per_word = 16;
+-		xfer->rx_buf = &st->buf[rx_buf_offset];
++		xfer->rx_buf = &st->buf[rx_buf_offset++];
+ 		xfer->len = 2;
+-		rx_buf_offset += xfer->len;
+ 
+ 		if (bit == temp_chan_bit) {
+ 			temp_en = 1;
 
 -- 
 2.43.0
