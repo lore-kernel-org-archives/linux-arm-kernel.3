@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01DA9C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 21:16:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E59E6C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 21:17:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lsXaOr8+ydp4391G04pG5yjyYwLMw52KvZnaLoZT8bk=; b=LVg+mNPuYo/VREL2KEpzGATL2h
-	LCF/4U8ItKr66PtV5B9chRLjvHOjj+qoV2JGET+TFn4ahVsJucboZJe94GocPgdUi39ajDalcqNcE
-	m851TGtCNayQM5a7sVZ15ql5V3GiJhuzRhcDk6D71Zu+Bj8LUEj4EYFSeDymxNQS1YqYnX4ok1Vc9
-	vDN6podGG3JrRHmefo8+xtNO6IF+Aqq105K6tWlZEfL/VMP2WktBa/PS6x9rOLefPzcqlNEINdvow
-	S4xs4xT4X7GF6iHROZ7tZz8R7ZFMJMMvhLLfOzY54fhOx9IyhhI0AbL4B6s4IdwjeZ6KxbsJQf/Kp
-	7DOC73gw==;
+	bh=y7usvJbWdzao6Cpj0TdEPzfAZnIHMs9Jb/NJTFyO0qY=; b=ScCGVWfIt2gC24pf7kTzY+GrOE
+	7HgLNnnClwq22kc27TAcE2wvwpL1wC1koQFx5Qaq1TmbbRJMZa6X+/F1nKXIzHOO79CIjIW37vAhw
+	aoxpdqjyvYdSFIDJERVdMeIeZEY1x0NvZ4d+3xHcoj+nJJr5sFYo8lZXMQsEtYmMKUnGdkBtzbAck
+	aV4NJkgbVZVrVkU7Oo7hmPrGRqzwZTaD8yGQKoEpKJ8JSK1u/qOru/3GF9W62Dd2sf/LZpXzHhln1
+	aTGgdNdtX1myvZKQMYQ9cTZPPZiSw9qD6it2GZ0d19DcFneb8xsN79pKZfaO+2OUQgImwC+7rrUEN
+	00BkOLjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9VpQ-00000007b5N-1Nxo;
-	Mon, 28 Apr 2025 21:15:52 +0000
+	id 1u9VrM-00000007bGI-0Eg5;
+	Mon, 28 Apr 2025 21:17:52 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9VhZ-00000007ZAu-3PTm
+	id 1u9Vhc-00000007ZDM-1V2n
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 21:07:48 +0000
+	Mon, 28 Apr 2025 21:07:49 +0000
 Received: from romank-3650.corp.microsoft.com (unknown [131.107.1.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id EF3CC211AD22;
-	Mon, 28 Apr 2025 14:07:44 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com EF3CC211AD22
+	by linux.microsoft.com (Postfix) with ESMTPSA id B20F3211AD29;
+	Mon, 28 Apr 2025 14:07:46 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com B20F3211AD29
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1745874465;
-	bh=lsXaOr8+ydp4391G04pG5yjyYwLMw52KvZnaLoZT8bk=;
+	s=default; t=1745874467;
+	bh=y7usvJbWdzao6Cpj0TdEPzfAZnIHMs9Jb/NJTFyO0qY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ifKn8Z5fXxWzZW6ev0hTrRyoOLF2Nljo9HUUDbv0CiSHWujqo21HpWaY1QmjoqMzc
-	 lm4Gt7oco8cZyWnQni0h4DlaIBiqoP/scg9TFDwakbP2+LcrVDN5CdbQt7yMAZG0KK
-	 qJYNXObeUNWLcs8AMegzvZ8Vg89XHeiPA+/MbwgY=
+	b=P+KW5CaSoCbQi9o6XB9zLTfpeiTdjUkzewMGSbKy8SFA3x63HsNmEARd3ZBJ73iT2
+	 SiSnT0PDfn+oJix6qZoOLKGPRwyPsYeUamEn4mFjMcQk7q6RERrhYi1tw+ze7L4NnH
+	 9RqubtAj8Coi16UOorjgYRL4eCiSAcPgyufzc7FA=
 From: Roman Kisel <romank@linux.microsoft.com>
 To: arnd@arndb.de,
 	bhelgaas@google.com,
@@ -81,18 +81,17 @@ Cc: apais@microsoft.com,
 	benhill@microsoft.com,
 	bperkins@microsoft.com,
 	sunilmut@microsoft.com
-Subject: [PATCH hyperv-next v9 03/11] Drivers: hv: Enable VTL mode for arm64
-Date: Mon, 28 Apr 2025 14:07:34 -0700
-Message-ID: <20250428210742.435282-4-romank@linux.microsoft.com>
+Subject: [PATCH hyperv-next v9 08/11] Drivers: hv: vmbus: Get the IRQ number from DeviceTree
+Date: Mon, 28 Apr 2025 14:07:39 -0700
+Message-ID: <20250428210742.435282-9-romank@linux.microsoft.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250428210742.435282-1-romank@linux.microsoft.com>
 References: <20250428210742.435282-1-romank@linux.microsoft.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_140745_877617_862EE407 
-X-CRM114-Status: GOOD (  13.95  )
+X-CRM114-CacheID: sfid-20250428_140748_449106_02BD51B7 
+X-CRM114-Status: GOOD (  12.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,49 +106,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Kconfig dependencies for arm64 guests on Hyper-V require that be
-ACPI enabled, and limit VTL mode to x86/x64. To enable VTL mode
-on arm64 as well, update the dependencies. Since VTL mode requires
-DeviceTree instead of ACPI, don’t require arm64 guests on Hyper-V
-to have ACPI unconditionally.
+The VMBus driver uses ACPI for interrupt assignment on
+arm64 hence it won't function in the VTL mode where only
+DeviceTree can be used.
+
+Update the VMBus driver to discover interrupt configuration
+from DT.
 
 Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
 Reviewed-by: Michael Kelley <mhklinux@outlook.com>
 ---
- drivers/hv/Kconfig | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ drivers/hv/vmbus_drv.c | 30 ++++++++++++++++++++++++++++++
+ 1 file changed, 30 insertions(+)
 
-diff --git a/drivers/hv/Kconfig b/drivers/hv/Kconfig
-index 6c1416167bd2..eefa0b559b73 100644
---- a/drivers/hv/Kconfig
-+++ b/drivers/hv/Kconfig
-@@ -5,7 +5,7 @@ menu "Microsoft Hyper-V guest support"
- config HYPERV
- 	tristate "Microsoft Hyper-V client drivers"
- 	depends on (X86 && X86_LOCAL_APIC && HYPERVISOR_GUEST) \
--		|| (ACPI && ARM64 && !CPU_BIG_ENDIAN)
-+		|| (ARM64 && !CPU_BIG_ENDIAN)
- 	select PARAVIRT
- 	select X86_HV_CALLBACK_VECTOR if X86
- 	select OF_EARLY_FLATTREE if OF
-@@ -15,7 +15,7 @@ config HYPERV
+diff --git a/drivers/hv/vmbus_drv.c b/drivers/hv/vmbus_drv.c
+index 22afebfc28ff..e8f2c3e92d1f 100644
+--- a/drivers/hv/vmbus_drv.c
++++ b/drivers/hv/vmbus_drv.c
+@@ -2345,6 +2345,31 @@ static int vmbus_acpi_add(struct platform_device *pdev)
+ }
+ #endif
  
- config HYPERV_VTL_MODE
- 	bool "Enable Linux to boot in VTL context"
--	depends on X86_64 && HYPERV
-+	depends on (X86_64 || ARM64) && HYPERV
- 	depends on SMP
- 	default n
- 	help
-@@ -31,7 +31,7 @@ config HYPERV_VTL_MODE
++static int vmbus_set_irq(struct platform_device *pdev)
++{
++	struct irq_data *data;
++	int irq;
++	irq_hw_number_t hwirq;
++
++	irq = platform_get_irq(pdev, 0);
++	/* platform_get_irq() may not return 0. */
++	if (irq < 0)
++		return irq;
++
++	data = irq_get_irq_data(irq);
++	if (!data) {
++		pr_err("No interrupt data for VMBus virq %d\n", irq);
++		return -ENODEV;
++	}
++	hwirq = irqd_to_hwirq(data);
++
++	vmbus_irq = irq;
++	vmbus_interrupt = hwirq;
++	pr_debug("VMBus virq %d, hwirq %d\n", vmbus_irq, vmbus_interrupt);
++
++	return 0;
++}
++
+ static int vmbus_device_add(struct platform_device *pdev)
+ {
+ 	struct resource **cur_res = &hyperv_mmio;
+@@ -2359,6 +2384,11 @@ static int vmbus_device_add(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
  
- 	  Select this option to build a Linux kernel to run at a VTL other than
- 	  the normal VTL0, which currently is only VTL2.  This option
--	  initializes the x86 platform for VTL2, and adds the ability to boot
-+	  initializes the kernel to run in VTL2, and adds the ability to boot
- 	  secondary CPUs directly into 64-bit context as required for VTLs other
- 	  than 0.  A kernel built with this option must run at VTL2, and will
- 	  not run as a normal guest.
++	if (!__is_defined(HYPERVISOR_CALLBACK_VECTOR))
++		ret = vmbus_set_irq(pdev);
++	if (ret)
++		return ret;
++
+ 	for_each_of_range(&parser, &range) {
+ 		struct resource *res;
+ 
 -- 
 2.43.0
 
