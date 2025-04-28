@@ -4,54 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 135DFC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 19:31:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC7E4C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 19:35:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9h/BaKRTPYdLXDxNQmGYix2G3Kidpo6pHZzmvCG51PA=; b=gEVDPzJj8Gb/ljQvUJ7xum79P2
-	J+UADgkvpS58go1orkUqUCxTmJBr5PUSAdIM++mbgOPE0DVycyPaNkeKC+ixVIX2XBLqp2CmruV8+
-	QI38CUXn25OgdSaySlXcgVrdOKyDey8yXqJzKgFCGI0KowJeSuXEOeWX7SBrRD+OIHcMoZV6rIGEB
-	xzn/iP/p/lEqPsXerRd5Ikoe7iXa5DvoeMp21JG5GyjQ1QFJrN4NpkzLvCJaMMJK5dMAKbhw1OPTx
-	tDsZgPs+8yrzgchdMt9rJ+S2PT1dFPpNk7LJvE/ID65EmejBMoU3UxE6el7EcoIAFD3q2bzKYINl8
-	Wqs456Mw==;
+	bh=mfzpR+XCt8jA2E6ve9YtKygB0tbO6iFuLJbvzZ6DwIk=; b=AAy/taRDMdv6cdB1NetMjUD17g
+	/GRoEhEE1tu99ncNKoVxOTZr3H8ZQPELCe8SD2kOeyd33OVY59aJhZiFMGi/FKlUwK/nvjcw18L42
+	f3JH9MR9I07ztfBU0YDRwgFnRx3rPh+Ltxtl0beO+p7TLEpSrxYBPd7mLegfTfFpyIyiDquOWNUeg
+	oB6tNy4cwAUpISt0RrXxTOZWnDEBthH7WvdEXFz0yZA5Hp5fOOlJMUHZ2cUHVhOqT8faVT9F2RP4T
+	vXMupdXYAZ6Qim57h+UWOKlolF8aPmvIblo44vkxs9/Cmqqf6uORkAn63D+VCse2D+21WuxVWbIlT
+	5BxjB1lA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9UC4-00000007LbP-3DoA;
-	Mon, 28 Apr 2025 19:31:08 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u9UFi-00000007M3S-43zb;
+	Mon, 28 Apr 2025 19:34:54 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9U75-00000007Klx-1sPs
+	id 1u9UDk-00000007Loe-2rth
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 19:25:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B8D20614AE;
-	Mon, 28 Apr 2025 19:25:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B96FC4CEE4;
-	Mon, 28 Apr 2025 19:25:56 +0000 (UTC)
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: linux-arm-kernel@lists.infradead.org,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>
-Cc: broonie@kernel.org,
-	daniel.kiss@arm.com,
-	maz@kernel.org,
-	richard.sandiford@arm.com,
-	sander.desmalen@arm.com,
-	tamas.petz@arm.com,
-	yury.khrustalev@arm.com
-Subject: Re: [PATCH] arm64/fpsimd: signal: Clear TPIDR2 when delivering signals
-Date: Mon, 28 Apr 2025 20:25:54 +0100
-Message-Id: <174586835122.250615.2378305002313638533.b4-ty@arm.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250417190113.3778111-1-mark.rutland@arm.com>
-References: <20250417190113.3778111-1-mark.rutland@arm.com>
+	Mon, 28 Apr 2025 19:32:53 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-736a7e126c7so4805168b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 12:32:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1745868771; x=1746473571; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mfzpR+XCt8jA2E6ve9YtKygB0tbO6iFuLJbvzZ6DwIk=;
+        b=YG3pQW6aMH8dUtnuoq9pMf4LCQSYKKZBlSsnc4QXqEBVBiDbPe1D1L6lr1lRiNQaAD
+         kPYCF2BM2akvd7bcOkph2Qyt49R3PYINxX4GU3P+JnJQ88B6jo1NGXPR9FlPFitxMWAg
+         RnOwoSE0WZxyg232Ge0AogF1XXzs8tPnvvOyk=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745868771; x=1746473571;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=mfzpR+XCt8jA2E6ve9YtKygB0tbO6iFuLJbvzZ6DwIk=;
+        b=HfQVRN2Lmu+MRZ1wU/6KWCXuuedkbte/NXIzNjM/PFcfKtbzL8lbio0Leyjoi9QILz
+         N7ALrPzaPS6QjI1xuagtNM8RWUbH0zcrZEVxS8UB93d5A6gtpx5qx2k0PuM5yCnQI0OB
+         yCK7IQphn+WgLgvc9IV3tJcimuo6JHvx22PuaXRIlMml8wDMPIDZ5YznF+Nt0gZaSoIR
+         1VYh+x6Es/H8JBKYWU1NAXA29zkxmq7MUWdvOfc1QkoTewHWeB012sDt8oqze4YqfhLm
+         V70mtthk9o1xo9BEHoEBaAHUrLVFTSqMgpbFUUDdOwe/nuSmrwhrUgqibzbI1iy6MlFX
+         gfaQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUgtsSgGIygt8J+AVn6BR/+q98W9b0dvVr8/9mHtT8JGrNHWVEPhb9f1xNooHBI7nbQRcAvLroH+okVnemUGm69@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/YBUEswn3Nm6gTGm3U+ozz/Ch1V0yhH73oaiWqUrMiLiQmLcY
+	TVrScyyJPJs5hHXmkvr26cYSp4UfbURbNDobOmzwfCp5IoWwZkAiSlvpgDeiKlw4WsVITaYaBtc
+	=
+X-Gm-Gg: ASbGncsWtaruVfprWp1ztD8mkLX7YRJtnlWPvLNzcgCSxlvhij/9Arrl0IauFe/Lue3
+	0ljZxvSHn/PS6zJer45ayMIatBjb/cP8quX53Ko6hXTDCXrVv3OyzWNXNSgU3OXefuWXcljfeaY
+	OkDM7/CPD6lnGla141Wyom6G7DBPeGbR0lfRznMbhaFV52v2kbLkvlAJxs1gVRDUZSQqeHjefXW
+	bbqq56is5GMaeCxVqZ5ycGux68z/+62X2xS1t3uR55ILITsUF0/JnROwbGC09rWKnXcjV6AQoW1
+	qaInPloRrd4QBxkYcPjrJxXy9VGk1qZvvor7SjnCF2Twujc0Z6lhfZAEF3xHe/wRkrgu3sXRzP8
+	a+wsfBjBa
+X-Google-Smtp-Source: AGHT+IFrMAOLXvaaS0iybB3Fv2XAyBokaB6hMj+h/qVbShOv2aNOoBRIgbDuiN4jHPLHY+mb0SOIyA==
+X-Received: by 2002:a05:6a00:4b09:b0:73e:2359:4115 with SMTP id d2e1a72fcca58-73ff7397c0fmr13786685b3a.23.1745868771690;
+        Mon, 28 Apr 2025 12:32:51 -0700 (PDT)
+Received: from mail-pg1-f181.google.com (mail-pg1-f181.google.com. [209.85.215.181])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73e25a6a033sm8652534b3a.105.2025.04.28.12.32.51
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 28 Apr 2025 12:32:51 -0700 (PDT)
+Received: by mail-pg1-f181.google.com with SMTP id 41be03b00d2f7-af50f56b862so3587487a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 12:32:51 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXyKeoyyfTCmXDnxHwZOR7UByHEf7DcC2bIOJ2OnmXt9WfbioGPasbr9ymg6jpGzWNwXXlFQUJ1Inw+dAuVLSnK@lists.infradead.org
+X-Received: by 2002:a17:90b:5490:b0:309:f5c6:4c5c with SMTP id
+ 98e67ed59e1d1-30a01398884mr14674637a91.25.1745868770606; Mon, 28 Apr 2025
+ 12:32:50 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+References: <20250421101248.426929-1-wenst@chromium.org> <20250421101248.426929-2-wenst@chromium.org>
+In-Reply-To: <20250421101248.426929-2-wenst@chromium.org>
+From: Doug Anderson <dianders@chromium.org>
+Date: Mon, 28 Apr 2025 12:32:39 -0700
+X-Gmail-Original-Message-ID: <CAD=FV=XLonF5qM+f6diESvnqAHKm4Y7wwPsNssdNqZfkn2OzSw@mail.gmail.com>
+X-Gm-Features: ATxdqUEnTKoRxhC-TaBEXil7UFoCr2GvfRCzsqwspS2g_INzWAwlvG_Di1SAl68
+Message-ID: <CAD=FV=XLonF5qM+f6diESvnqAHKm4Y7wwPsNssdNqZfkn2OzSw@mail.gmail.com>
+Subject: Re: [PATCH v2 1/8] dt-bindings: HID: i2c-hid: elan: Introduce Elan eKTH8D18
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Benson Leung <bleung@chromium.org>, Tzung-Bi Shih <tzungbi@kernel.org>, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, chrome-platform@lists.linux.dev, 
+	linux-input@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250428_123252_742723_18F77C0B 
+X-CRM114-Status: GOOD (  19.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,24 +111,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 17 Apr 2025 20:01:13 +0100, Mark Rutland wrote:
-> Linux is intended to be compatible with userspace written to Arm's
-> AAPCS64 procedure call standard [1,2]. For the Scalable Matrix Extension
-> (SME), AAPCS64 was extended with a "ZA lazy saving scheme", where SME's
-> ZA tile is lazily callee-saved and caller-restored. In this scheme,
-> TPIDR2_EL0 indicates whether the ZA tile is live or has been saved by
-> pointing to a "TPIDR2 block" in memory, which has a "za_save_buffer"
-> pointer. This scheme has been implemented in GCC and LLVM, with
-> necessary runtime support implemented in glibc.
-> 
-> [...]
+Hi,
 
-Applied to arm64 (for-next/sme-fixes), thanks!
+On Mon, Apr 21, 2025 at 3:13=E2=80=AFAM Chen-Yu Tsai <wenst@chromium.org> w=
+rote:
+>
+> The Elan eKTH8D18 touchscreen controller is an I2C HID device with a
+> longer boot-up time. Power sequence timing wise it is compatible with
+> the eKTH6A12NAY, with a power-on delay of at least 5ms, 20ms
+> out-of-reset for I2C ack response, and 150ms out-of-reset for I2C HID
+> enumeration, both shorter than what the eKTH6A12NAY requires.
+> Enumeration and subsequent operation follows the I2C HID standard.
+>
+> Add a compatible string for it with the ekth6a12nay one as a fallback.
+> No enum was used as it is rare to actually add new entries. These
+> chips are commonly completely backward compatible, and unless the
+> power sequencing delays change, there is no real effort being made to
+> keep track of new parts, which come out constantly.
+>
+> Also drop the constraints on the I2C address since it's not really
+> part of the binding.
+>
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> ---
+> Changes since v1:
+> - Reworded commit message
+> - Dropped the enum for the new compatible string entry
+> - Dropped constraint on I2C address completely
+> ---
+>  .../devicetree/bindings/input/elan,ekth6915.yaml     | 12 +++++++-----
+>  1 file changed, 7 insertions(+), 5 deletions(-)
 
-[1/1] arm64/fpsimd: signal: Clear TPIDR2 when delivering signals
-      https://git.kernel.org/arm64/c/b376108e1f88
-
--- 
-Catalin
-
+Reviewed-by: Douglas Anderson <dianders@chromium.org>
 
