@@ -4,91 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8708C36005
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 10:08:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD98FC36005
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 10:10:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ucZUAd/InboFfZClRnamk8ZirwH9aq8qtdNhcPq2zyw=; b=GFvi4yYd4iRHtEMY8lq4pxIdpN
-	q6vUMoRAxURUMgvTpXOJ4CxTgw9/QzAO0evMmkB5CkYR0tkf+VRstcG4684lbNMuDtEpR9pWADJ+Z
-	U7TI5BSN6cIx6zJU0MkpadH81maD9qwYrjCAvzeqgA4H1U6ZcZLydKAGZVERuICeH4lGX/i9xyYue
-	3K8OmngM19oCGNCJ0+v01D69mBD6FteZr4yK2doWATsKhUknDhbzihM7VFjDscJ84sFev0Bn6lMTk
-	khYsylyetwfMDJmKqDgcbVMW6w3vHjs/lTcA0Av1uOwTCu+X65OPRmqYle7vyw4qkNdOfKrQ2OYDj
-	LllRjIdQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eWaIen6eo2SXPif9Yt6V2blg9we19vELALYOzhSIwtc=; b=XeS58IDla5e7fT10QVsdXkGXUQ
+	YkWOgJOWQy51zhdqoYnjb8yD7TrLNjTDHdWj9hzpOgmsKjd2umL1q4tA4pofEl3pBr2nRQg1g4gpc
+	dHql0uf7nq4hHgETlavpawaDsp2o7N2ago25ShlBUNREVIX2UTLWqTYw3ssETQf1RTmpVVjLJpB5F
+	coCp/rNnmB7y79EPNVG9Wdc/dxq01X4H+eiS26Jqeai9xauS+SqeoJiTyVL0/6eHu+RLln694CDev
+	z+O1k5bWuyhy+8/HLyc7s8tP9TItmVQ0h30VhZAm+ywB3N/Z7XrG4h3SpPcV3h6kPUPjRAb0wJtmw
+	TWrZ/LJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9LPY-00000005lCD-0fNZ;
-	Mon, 28 Apr 2025 10:08:28 +0000
-Received: from mail-yw1-x1135.google.com ([2607:f8b0:4864:20::1135])
+	id 1u9LRT-00000005lWN-0F3N;
+	Mon, 28 Apr 2025 10:10:27 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9LLV-00000005kLF-1lJU
+	id 1u9LOd-00000005kwv-4BZ8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 10:04:19 +0000
-Received: by mail-yw1-x1135.google.com with SMTP id 00721157ae682-6feab7c5f96so41267817b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 03:04:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1745834656; x=1746439456; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=ucZUAd/InboFfZClRnamk8ZirwH9aq8qtdNhcPq2zyw=;
-        b=CDkyqP8QHAUFatRo+gTb1C6u7xZJgSYB9jN1tz/MSu1swquLJQKDH2dbQbtJz0meuw
-         P8+/AR8gkgu2U/ZIKbalhNz3pKwb9cRoTqc7lrNe6r1ufRtrOe3cIDADvuZrZ+qSn9+R
-         g/C2i+HkhoLVVIymSIBOW6x1GrJq+NEgQzAf2uxza33xYuRtiZ/NqV97EnioZ08o7VGc
-         Pla6qXAc47Rad7yFXfLwBNOkyoZYoxVci7MZQ3gMhAftq+RNxCvzJkK/UdauugeLr6aW
-         Rk8ayatcvlzS2sdTLol2fdY0NkFspPXC5T2vsRhJ4MS6wnlLwwwlUlGjUZ7EVVSZzbFM
-         C4Gg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745834656; x=1746439456;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ucZUAd/InboFfZClRnamk8ZirwH9aq8qtdNhcPq2zyw=;
-        b=QcnBpkHP+VwoZfyIR21eyPB3AISM+DPr6dV4z88IvR4at/PGJ2wKX/E949emskvj/A
-         l1lubymgSymiv7hJkpQ8INnRTyvDoB0Xqt6IdibjYRNNsWB1BE9qpZ80DawsqSyLSvEn
-         HhQnG2wxWjF9shRAysbfQGn9QDR77dUf7JKKvA4rAoBIW5QDrGhhYhSYnpvgwNgd4+a2
-         CxFUsyUFA5+qWNI3E578IdmIpbv/8HqsEHWSRHhi/Kea5/2Kdfo08vsLzxpZur5csbeR
-         UPzGs6orxj78VLPWB7jne95SQ+fK30SoPKRZDN0007yESLJHUp+nkow0Ut+zKNDt+CJg
-         FhiA==
-X-Forwarded-Encrypted: i=1; AJvYcCXeec/HnL+aNONQjfN2S7u/zjg412zIouiDopmFnqj5RK8E8ssKnToYKbAeuvr/lOvbusAXKMdltaOj9+tZYwbO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy9XyVgEeMX0O3gEQWdrdQXktOu3QUQjtlBhn+aJRKVPAGyU7Er
-	EUJsUCdXN1Pf0zFdXnpo04tCvRy5YfSxi312tJq+QRgMQkAnOzD/sGBAz8G/Sks5SFHs9rlJ0bG
-	4A3qaqu4obSE8D/k+q8myHqGk6iQup61DMThpWw==
-X-Gm-Gg: ASbGncujY9aRI2lzOMbVHjqBFX6ArecRmZN4ghOLyQ+VClnXY66UEVV8ntGKmtuCfr+
-	50gR1r96LpgMUhMHgNAyC1qyEwoDmvVNQ2m2V5JZFJmcRo22OdKWNC7NJI45C9VyKSILPNIqBd8
-	yng2HfPEtUqmXFWg0m0kyxGw==
-X-Google-Smtp-Source: AGHT+IHLAwgs2jvyhndbI9eeTcAvfYwmKCKu2Wwt19IFmNuoMlsiM2VhTNy+bvMEOC6zz520PPUY1yZ92SlmTgkYlVM=
-X-Received: by 2002:a05:690c:7084:b0:702:4eb0:6af with SMTP id
- 00721157ae682-7085f252950mr116417097b3.31.1745834655665; Mon, 28 Apr 2025
- 03:04:15 -0700 (PDT)
+	Mon, 28 Apr 2025 10:07:33 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53S8fBf7010204;
+	Mon, 28 Apr 2025 10:07:07 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=eWaIen6eo2SXPif9Yt6V2b
+	lg9we19vELALYOzhSIwtc=; b=M7nrpeQeE08a79PiuiT/onuZBlKondtEc4KlAX
+	y2XiCzDCeYv3VtRL+e6xNaRWjsAcI69yogdvdVJ0CpBGJfZ8hbBBQcXU0ciLrltW
+	mU18z/0hRRQh3q7u5pn8zNrkv3ufYPQiQdd6A37BKc1W7ccascZ13kiTqAFLSaT6
+	lXQZVK22qhR5wVWrTKPfgRZrKMJ+P++4/Zux26LOhoa/aRAjOiJH3LOvV0ChE0uU
+	meZFgXnQpfewT7fByQq8wiL9KXOXCFqSmkvKW/WlwKm5yAzWUXqPm3HzOt3R49F+
+	j75blA1+uIEVLhr7AMc6zLH2siVQIY0He0fUi8ZwxeQdKEDA==
+Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 468pevfu88-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 28 Apr 2025 10:07:06 +0000 (GMT)
+Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
+	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53SA755w003634
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 28 Apr 2025 10:07:05 GMT
+Received: from hyiwei-gv.qualcomm.com (10.80.80.8) by
+ nalasex01b.na.qualcomm.com (10.47.209.197) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Mon, 28 Apr 2025 03:06:59 -0700
+From: Huang Yiwei <quic_hyiwei@quicinc.com>
+To: <rafael@kernel.org>, <lenb@kernel.org>, <james.morse@arm.com>,
+        <tony.luck@intel.com>, <bp@alien8.de>
+CC: Huang Yiwei <quic_hyiwei@quicinc.com>, <xueshuai@linux.alibaba.com>,
+        <quic_aiquny@quicinc.com>, <quic_satyap@quicinc.com>,
+        <linux-acpi@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <kernel@quicinc.com>,
+        <kernel@oss.qualcomm.com>
+Subject: [PATCH] firmware: SDEI: Allow sdei initialization without ACPI_APEI_GHES
+Date: Mon, 28 Apr 2025 17:56:23 +0800
+Message-ID: <20250428095623.3220369-1-quic_hyiwei@quicinc.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20250423-media-rpi-hevc-dec-v3-0-8fd3fad1d6fb@raspberrypi.com>
- <20250423-media-rpi-hevc-dec-v3-3-8fd3fad1d6fb@raspberrypi.com> <20250425-inescapable-beagle-of-bliss-8ae3ff@kuoka>
-In-Reply-To: <20250425-inescapable-beagle-of-bliss-8ae3ff@kuoka>
-From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Mon, 28 Apr 2025 11:03:57 +0100
-X-Gm-Features: ATxdqUGx5uUk2kPmuSg5gFgBWEs3E2SY1xjorpWkszYXuV-kigFS84yL46qfHpo
-Message-ID: <CAPY8ntCWzp9cRKwLg44G20jG17q2KhavZa_8qpodhGUGS2Bc7Q@mail.gmail.com>
-Subject: Re: [PATCH v3 3/5] media: dt-bindings: media: Add binding for the
- Raspberry Pi HEVC decoder
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Sakari Ailus <sakari.ailus@linux.intel.com>, 
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, John Cox <john.cox@raspberrypi.com>, 
-	Dom Cobley <dom@raspberrypi.com>, review list <kernel-list@raspberrypi.com>, 
-	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, John Cox <jc@kynesim.co.uk>, 
-	linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01b.na.qualcomm.com (10.47.209.197)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: J4vdveoOh9iAt7PvfjFwRV7BSYaA87bJ
+X-Authority-Analysis: v=2.4 cv=aeBhnQot c=1 sm=1 tr=0 ts=680f534a cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8 a=SRrdq9N9AAAA:8 a=COk6AnOGAAAA:8
+ a=ODOW-txAOSA8bPpV2xoA:9 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: J4vdveoOh9iAt7PvfjFwRV7BSYaA87bJ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI4MDA4MyBTYWx0ZWRfX1WcCnLhv2G4G qk+Is7tNLX0h15/gqmvE97xI7941ISJfzPn9Y0giX7IRIHDRlhz8M2f2A7myxmdd0ZnEUYpjEEn iDcOMigECOaf2pKNQsWPgM75w5bgACdFm0Gny75mpgvvmcZft2lVas5HOnmfkpbbytDObirsLeE
+ iZ55j8U3aMpRIUjcKM8DbBr8WOoVH8D3hz+GieLZErHRfztbRhRo7sciCX46KHtPOhJgzeFkkaP 0K8D1YFWv03WUP7A/yH2HTDvLBjeBH3X5OOxgxCzRhGsWT6C2/RuG8pjSmKdDj2aIqxiUjv2qST WdAXeX/HIFchjGd3xuCJsb6FdcaKzpkZ/y8Q2TZIpLIZXpNifstrivr3NZiO8VSdYwJ+leC0/+f
+ 5xfjQUNaKB3QS0KtYR03DiqK6BR/9QiTh+/mrPjdOhInnI/00NpAk+byp4LqjKhPijoLA3s9
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-04-28_03,2025-04-24_02,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 clxscore=1011
+ impostorscore=0 bulkscore=0 malwarescore=0 priorityscore=1501 spamscore=0
+ mlxlogscore=537 phishscore=0 suspectscore=0 lowpriorityscore=0 mlxscore=0
+ classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2504070000
+ definitions=main-2504280083
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_030417_617041_08FD62FB 
-X-CRM114-Status: GOOD (  23.42  )
+X-CRM114-CacheID: sfid-20250428_030732_040687_5FCA10C1 
+X-CRM114-Status: GOOD (  20.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,89 +104,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof
+SDEI usually initialize with the ACPI table, but on platforms where
+ACPI is not used, the SDEI feature can still be used to handle
+specific firmware calls or other customized purposes. Therefore, it
+is not necessary for ARM_SDE_INTERFACE to depend on ACPI_APEI_GHES.
 
-On Fri, 25 Apr 2025 at 08:53, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->
-> On Wed, Apr 23, 2025 at 06:20:20PM GMT, Dave Stevenson wrote:
-> > Adds a binding for the HEVC decoder found on th +maintainers:
-> > +  - John Cox <john.cox@raspberrypi.com>
-> > +  - Dom Cobley <dom@raspberrypi.com>
-> > +  - Dave Stevenson <dave.stevenson@raspberrypi.com>
->
-> > +  - Raspberry Pi internal review list <kernel-list@raspberrypi.com>
->
-> Drop, no mailing lists in bindings maintainers. These must be people.
+In commit dc4e8c07e9e2 ("ACPI: APEI: explicit init of HEST and GHES
+in acpi_init()"), to make APEI ready earlier, sdei_init was moved
+into acpi_ghes_init instead of being a standalone initcall, adding
+ACPI_APEI_GHES dependency to ARM_SDE_INTERFACE. This restricts the
+flexibility and usability of SDEI.
 
-Ack
+This patch corrects the dependency in Kconfig and allows the
+initialization of SDEI without ACPI_APEI_GHES enabled.
 
-> > +
-> > +description:
-> > +  The Raspberry Pi HEVC decoder is a hardware video decode accelerator block
-> > +  found in the BCM2711 and BCM2712 processors used on Raspberry Pi 4 and 5
-> > +  boards respectively.
-> > +
-> > +properties:
-> > +  compatible:
-> > +    items:
-> > +      - enum:
-> > +          - brcm,bcm2711-hevc-dec
-> > +          - brcm,bcm2712-hevc-dec
-> > +      - const: raspberrypi,hevc-dec
->
-> Not what Rob asked. You should use specific SoC compatible as fallback.
+Fixes: dc4e8c07e9e2 ("ACPI: APEI: explicit init of HEST and GHES in apci_init()")
+Cc: Shuai Xue <xueshuai@linux.alibaba.com>
+Signed-off-by: Huang Yiwei <quic_hyiwei@quicinc.com>
+---
+Link: https://lore.kernel.org/all/20230906130900.12218-1-schspa@gmail.com/
 
-In which case I don't understand what Rob was asking for.
-I asked for clarification in [1], but got no reply. Sending a new
-version has at least got an answer, but I'm none the wiser.
+Current patch has been verified in the following scenarios:
+  - ACPI_APEI_GHES enabled and ARM_SDE_INTERFACE enabled
+  - ACPI_APEI_GHES disabled and ARM_SDE_INTERFACE enabled
+  - ACPI_APEI_GHES disabled and ARM_SDE_INTERFACE disabled
+  - SDEI works well with DT node and compatiable firmware when
+    ACPI_APEI_GHES disabled
 
-Staring at this trying to work out your meaning, you want the generic
-first, and SoC specific second? ie
-+  compatible:
-+    items:
-+      - const: raspberrypi,hevc-dec
-+      - enum:
-+          - brcm,bcm2711-hevc-dec
-+          - brcm,bcm2712-hevc-dec
+The scenario where CONFIG_ACPI enabled but not used has not been
+considered in this patch due to the absence of such platform.
 
-> You referred to file "raspberrypi,pisbe.yaml" before, but there is no
-> such file in the next.
+ drivers/acpi/apei/Kconfig   | 1 +
+ drivers/firmware/Kconfig    | 1 -
+ drivers/firmware/arm_sdei.c | 9 +++++++--
+ include/linux/arm_sdei.h    | 4 ++--
+ 4 files changed, 10 insertions(+), 5 deletions(-)
 
-Typo.
-https://github.com/torvalds/linux/blob/master/Documentation/devicetree/bindings/media/raspberrypi%2Cpispbe.yaml
-Reviewed by Rob only just over a year ago [2]
+diff --git a/drivers/acpi/apei/Kconfig b/drivers/acpi/apei/Kconfig
+index 3cfe7e7475f2..070c07d68dfb 100644
+--- a/drivers/acpi/apei/Kconfig
++++ b/drivers/acpi/apei/Kconfig
+@@ -23,6 +23,7 @@ config ACPI_APEI_GHES
+ 	select ACPI_HED
+ 	select IRQ_WORK
+ 	select GENERIC_ALLOCATOR
++	select ARM_SDE_INTERFACE if ARM64
+ 	help
+ 	  Generic Hardware Error Source provides a way to report
+ 	  platform hardware errors (such as that from chipset). It
+diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
+index aadc395ee168..7df19d82aa68 100644
+--- a/drivers/firmware/Kconfig
++++ b/drivers/firmware/Kconfig
+@@ -31,7 +31,6 @@ config ARM_SCPI_PROTOCOL
+ config ARM_SDE_INTERFACE
+ 	bool "ARM Software Delegated Exception Interface (SDEI)"
+ 	depends on ARM64
+-	depends on ACPI_APEI_GHES
+ 	help
+ 	  The Software Delegated Exception Interface (SDEI) is an ARM
+ 	  standard for registering callbacks from the platform firmware
+diff --git a/drivers/firmware/arm_sdei.c b/drivers/firmware/arm_sdei.c
+index 3e8051fe8296..ddb10389b340 100644
+--- a/drivers/firmware/arm_sdei.c
++++ b/drivers/firmware/arm_sdei.c
+@@ -1062,14 +1062,14 @@ static bool __init sdei_present_acpi(void)
+ 	return true;
+ }
+ 
+-void __init sdei_init(void)
++int __init sdei_init(void)
+ {
+ 	struct platform_device *pdev;
+ 	int ret;
+ 
+ 	ret = platform_driver_register(&sdei_driver);
+ 	if (ret || !sdei_present_acpi())
+-		return;
++		return ret;
+ 
+ 	pdev = platform_device_register_simple(sdei_driver.driver.name,
+ 					       0, NULL, 0);
+@@ -1079,7 +1079,12 @@ void __init sdei_init(void)
+ 		pr_info("Failed to register ACPI:SDEI platform device %d\n",
+ 			ret);
+ 	}
++
++	return ret;
+ }
++#ifndef CONFIG_ACPI_APEI_GHES
++subsys_initcall_sync(sdei_init);
++#endif
+ 
+ int sdei_event_handler(struct pt_regs *regs,
+ 		       struct sdei_registered_event *arg)
+diff --git a/include/linux/arm_sdei.h b/include/linux/arm_sdei.h
+index 255701e1251b..1a54f0eebb0d 100644
+--- a/include/linux/arm_sdei.h
++++ b/include/linux/arm_sdei.h
+@@ -46,12 +46,12 @@ int sdei_unregister_ghes(struct ghes *ghes);
+ /* For use by arch code when CPU hotplug notifiers are not appropriate. */
+ int sdei_mask_local_cpu(void);
+ int sdei_unmask_local_cpu(void);
+-void __init sdei_init(void);
++int __init sdei_init(void);
+ void sdei_handler_abort(void);
+ #else
+ static inline int sdei_mask_local_cpu(void) { return 0; }
+ static inline int sdei_unmask_local_cpu(void) { return 0; }
+-static inline void sdei_init(void) { }
++static inline int sdei_init(void) { return 0; }
+ static inline void sdei_handler_abort(void) { }
+ #endif /* CONFIG_ARM_SDE_INTERFACE */
+ 
+-- 
+2.25.1
 
-> Before you reply that there is a binding using different rules: well,
-> there is always poor code. Above two comments are repeated, especially
-> this about specific compatible - all the time, so these are not new
-> rules. These are given in reviews since some years.
-
-My Google-foo is totally failing with the only directly relevant
-mention of "fallback compatible" I find is [3], which just says to use
-them.
-
-You're effectively saying I can't take anything in the kernel tree as
-being a valid example as it could be poor code, and a layman such as
-myself has no way of telling.
-Could you please point me at documentation and examples I can rely on,
-or educate me with what is wanted in this situation to avoid me having
-to guess?
-
-A further mailing list search has brought up [4] which is a thread
-with yourself from 2 years ago which looks to be a very similar
-situation. Other than missing the const on the SoC strings (although
-that isn't in the merged version of cnm,wave521c.yaml), and two SoC
-specific strings, I'm not seeing an obvious difference between there
-and here either.
-
-Many thanks
-  Dave
-
-> Best regards,
-> Krzysztof
-
-[1] https://lore.kernel.org/linux-media/CAPY8ntD3Frq5HzV06OrS1051QfjJFzvqs9H4mUkVnd4QKqiMhg@mail.gmail.com/
-[2] https://www.spinics.net/lists/linux-media/msg250095.html
-[3] https://www.kernel.org/doc/html/latest/devicetree/bindings/writing-bindings.html#properties
-[4] https://patchwork.kernel.org/project/linux-arm-kernel/patch/20230929-wave5_v13_media_master-v13-6-5ac60ccbf2ce@collabora.com/#25567148
 
