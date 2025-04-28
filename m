@@ -4,102 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16063C36005
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 07:03:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E39CCC369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 07:05:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9yZmW0hn3MrvYOWlnfGa/3CtDPfOpCdnzl3M85GUApc=; b=rQlqv6jAPgnt6OwR0Rd32sVG4D
-	Tr1BM2T5f07KXiw0oVzJhXGEeovcyHa8+CKc6+gHxLy02AfmGPQ2NvVFAG7aSXVK6CrsfsspmqLxZ
-	MjzHsRzNjMdiKPh85Pw1+AGJUcicxp8IKMrWef6pk/Jt2fcQ9NVaH/RdU60HqnN1sLW76eWx+WQVc
-	Hnn+LScszyb2QCfwHESGK9RDKclVM+CRHpikHWa6eRKG8kuHsjQAJytBx2pr5uqWa+2UerVk5NE+8
-	Yy5TunCXo2GJ8X30Zx5mAPNETHAxgrKaBKbysE4beoXhYVPCI+WsK0F9un80CsiOqRTaCjjWkbqwp
-	32okvCGw==;
+	bh=BiegDsAiFripKF03esxeA747O9izianQ/WOJV3TpW9s=; b=zFMd4LXJ8XFgVHKdOgFF9KFPZa
+	DpqrrOjbuRo7UVn2AGZ3w64ztfny2bmd5nytD6+CP9cwSiDuiBKWysHmjqmSXVh/K1K1GflGJU14e
+	DOEahRWuJTRyisM3T1+re0QDRmRWZXnYqFSyvP0HTcJ0pda30e/XUFLR+uBf706ZchbqSqPb015JO
+	ptBCqondD77xY5g2SaRnkCbv7uE1LStgq5SGS4/NhbIE/OLzJIZRrpUL0iZA3cht9u8CUYv5YEWSI
+	EvV6kMg7LtAVVQVJAr3sbiTwaEsRCavQeQ2Gk8V4xtJuDuN8NDdiLGHm55Uiiv6tTLqXfutl5iZwC
+	atniDAZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9IWj-00000005BO5-28rA;
-	Mon, 28 Apr 2025 07:03:41 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1u9IYh-00000005Bka-12Cb;
+	Mon, 28 Apr 2025 07:05:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9IUH-00000005AvV-1mGf
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 07:01:10 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-7399a2dc13fso6228025b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 00:01:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745823668; x=1746428468; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=9yZmW0hn3MrvYOWlnfGa/3CtDPfOpCdnzl3M85GUApc=;
-        b=G5+0nJ+/qXSTMqaBjKe4deA7RvfyAHC7ObbcR8D95T662TjGxFAeJkc4vxC1h/PXAw
-         kxxtqT6SfBT+MhRfIPxheEeRBWJDehUjuK8RRgNU9eRPHPDDEEAzGNdjX//29kz6Wqrz
-         WKytOuldFExzedC7n4Ds3eWCrBpfIHT5CshXm5xlyuYuvEXYlVETQsy/QX3qQVkit8lH
-         Ft7yiouAaXNnHqAe4tMfebOEX2XStqmjiEL4xHQKcoIG20fFO8Be1jEeIij/T36o5seD
-         O9I8wzWjkaOF2YwdPEH+oqNw7AWlGiI/B7dYKODHZl4cJ41IbVOziRhuYblrYscOROWE
-         8V0Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745823668; x=1746428468;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=9yZmW0hn3MrvYOWlnfGa/3CtDPfOpCdnzl3M85GUApc=;
-        b=j7DHwQ8nnrPx9HlYkMr2K9EHowJ9dqyXdzpYasYJ9O78pMAXOLZvn1sGP7qXgIUQjm
-         qIF6w22JMbgNbZ6B4BPFccAhXMvA9jYFlB82OksU5M0Ep9k7F/jH4kCo1R9Q8usTmbYp
-         gz64AySjTUc1sk+AIE+/VwbQAIZeGf23Z0kUphekOUOVro46zBZvy1GKthzUyzizeptL
-         +8M3pA32f2b/OAiWmqyn25R3NjhQfJD8ZjnRAwzd+BL+qqjlVt/VLi9AU9EtOLnZz1CM
-         mbE5jiztZU3et1pYcgGJsGyr4SY0gPRtcgLizUMOoq2yaOJBx13pWqUH/AVAT9IB5LZH
-         lOuQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUuefGtvkdDgwLfbvBFJ0tnjb8q+zx+98BGRsiO2maNGiWNRbQa3wAJy+VxodZSGVwZyroO8j5ZZYLXVBq129GS@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5a4N+HXlAb0FQa41mRz9vdE9whZwSTyxy7HA1uA++DTJ3kLpM
-	ATkJuQIkisgCnPii5gzM+L6xBfKFFEjij9pYz/xH7XOMIVWWXyEO
-X-Gm-Gg: ASbGncsYhkKIFNSfedqCIxP9JdJS3m5VDCkO5cKVkQqnHDdcDcrdejSHiSHtrvXirEA
-	vxvOnMRHml0x8OzyYKMyV8c983P4ZxjWGqDg5IsvKVVYMkytcVhKPgmHDHTF60m0mQ1FctGtB4i
-	FhfV2aQE3jOFn3hU/lUWs1STjQN1reyiQrhSGqq822+o2ipTtYnafY/uBBofaqcXkzIDmn5vUX4
-	pToR+9y8dxYYOkyiYwkVEyIyegIqHLsYtR9cMSwx3VaBXykUWZjZDjCzBj3uQAvycUNqcAOwvIg
-	iFYC4YCcPNJfMVOoMHE7jvSrheezrmaPRihp
-X-Google-Smtp-Source: AGHT+IGP4IZjA+2oOl5Xp+BcG0TkWdBytzGu1mFgdq9c4ypqmC8f8TKCih+yUOSsexG/Sbbus31DKg==
-X-Received: by 2002:a05:6a00:2e14:b0:736:5664:53f3 with SMTP id d2e1a72fcca58-73ff73bcf1emr9419880b3a.15.1745823668236;
-        Mon, 28 Apr 2025 00:01:08 -0700 (PDT)
-Received: from [192.168.0.56] ([38.34.87.7])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73e25a9abf2sm7173316b3a.122.2025.04.28.00.01.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Apr 2025 00:01:07 -0700 (PDT)
-Message-ID: <3a16fae0346d4f733fb1a67ae6420d8bf935dbd8.camel@gmail.com>
-Subject: Re: [PATCH RFC bpf-next 3/4] bpf/selftests: add tests to validate
- proper arguments alignment on ARM64
-From: Eduard Zingerman <eddyz87@gmail.com>
-To: Alexis =?ISO-8859-1?Q?Lothor=E9?= "(eBPF Foundation)"	
- <alexis.lothore@bootlin.com>, Alexei Starovoitov <ast@kernel.org>, Daniel
- Borkmann <daniel@iogearbox.net>, John Fastabend <john.fastabend@gmail.com>,
- Andrii Nakryiko	 <andrii@kernel.org>, Martin KaFai Lau
- <martin.lau@linux.dev>, Song Liu	 <song@kernel.org>, Yonghong Song
- <yonghong.song@linux.dev>, KP Singh	 <kpsingh@kernel.org>, Stanislav
- Fomichev <sdf@fomichev.me>, Hao Luo	 <haoluo@google.com>, Jiri Olsa
- <jolsa@kernel.org>, Puranjay Mohan	 <puranjay@kernel.org>, Xu Kuohai
- <xukuohai@huaweicloud.com>, Catalin Marinas	 <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Mykola Lysenko	 <mykolal@fb.com>, Shuah Khan
- <shuah@kernel.org>, Maxime Coquelin	 <mcoquelin.stm32@gmail.com>, Alexandre
- Torgue <alexandre.torgue@foss.st.com>,  Florent Revest <revest@chromium.org>
-Cc: Bastien Curutchet <bastien.curutchet@bootlin.com>, 
-	ebpf@linuxfoundation.org, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	bpf@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com
-Date: Mon, 28 Apr 2025 00:01:05 -0700
-In-Reply-To: <20250411-many_args_arm64-v1-3-0a32fe72339e@bootlin.com>
-References: <20250411-many_args_arm64-v1-0-0a32fe72339e@bootlin.com>
-	 <20250411-many_args_arm64-v1-3-0a32fe72339e@bootlin.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.54.3 (3.54.3-1.fc41) 
+	id 1u9IUU-00000005AyX-24Ne;
+	Mon, 28 Apr 2025 07:01:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 969FC61156;
+	Mon, 28 Apr 2025 07:00:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59775C4CEE4;
+	Mon, 28 Apr 2025 07:01:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745823677;
+	bh=3kWcnczSy9PqVkb7D7BZRFCEGExRBTJJZ1RAYq2S0wc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YAVHa/PbhnSOL50m/Ox3H2JFZOnDthqZy5wgNh1d/VTRwGiahXD6IW+bSUAw4Ruc/
+	 dbT39t4Ack+U5dlRr/nkk7RFAsaSMCOl8xxnCudXu2ifXTN9Ovn4pL5YrctWU8adOo
+	 RmNpQZ6WEJRD2/tPNPTQkn8ivP96YbhXhIiFbS3+ugyBk7d0DJQb8QreEZe/0aobEJ
+	 /1+mjIZRAoWSRP4jlLXj1RcwxzpFu9i+cW+KcUJECZUuntH5njEnma4NW97EYKDY3r
+	 QTY4FDs9sUOluGOPFA2YedLJvFPHEyjDEIdxhNeU2KWQjGd9w93H6/wsKtOavHkRI/
+	 S1m7HCzMoSP0A==
+Date: Mon, 28 Apr 2025 09:01:15 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Kyrie Wu <kyrie.wu@mediatek.com>
+Cc: Hans Verkuil <hverkuil-cisco@xs4all.nl>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, kyrie wu <kyrie.wu@mediatek.corp-partner.google.com>, 
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v3 00/12] Enable jpeg enc & dec multi-hardwares for MT8196
+Message-ID: <20250428-inescapable-smiling-oriole-bfbe3e@kuoka>
+References: <20250425085328.16929-1-kyrie.wu@mediatek.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_000109_462077_766324C6 
-X-CRM114-Status: GOOD (  13.40  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250425085328.16929-1-kyrie.wu@mediatek.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,54 +72,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2025-04-11 at 22:32 +0200, Alexis Lothor=C3=A9 (eBPF Foundation) wr=
-ote:
-> When dealing with large types (>8 bytes), ARM64 trampolines need to take
-> extra care about the arguments alignment to respect the calling
-> convention set by AAPCS64.
->=20
-> Add two tests ensuring that the BPF trampoline arranges arguments with
-> the relevant layout. The two new tests involve almost the same
-> arguments, except that the second one requires a more specific alignment
-> to be set by the trampoline when preparing arguments before calling the
-> the target function.
->=20
-> Signed-off-by: Alexis Lothor=C3=A9 (eBPF Foundation) <alexis.lothore@boot=
-lin.com>
+On Fri, Apr 25, 2025 at 04:53:16PM GMT, Kyrie Wu wrote:
+> This series adds support for mt8196 multi-hardwares jpeg enc & dec,
+> by first adding mt8196 jpegdec and jpegenc compatible to install
+> kernel driver. Add smmu setting to support smmu and iommu at the
+> same time.
+> Secondly refactor buffer and clock setting to support multi-hw jpeg
+> working.
+> Lastly, fix some bugs, including resolution change handleing, stop
+> streaming sw flow and others.
+> 
+> This series has been tested with MT8196 tast test.
+> Encoding and decoding worked for this chip.
+> 
+> Patches 1-3 Adds jpeg encoder and decoder compatible.
+> Patches 4 add jpeg smmu sid setting.
+> Patches 5 fix jpeg hw count setting to support different chips.
+> Patches 6 refactor jpeg buffer payload setting to handle buffer
+> size bug while resolution changed.
+> Patches 7 reconstruct jpeg dst buffer layout.
+> Patches 8 fix multi-core stop streaming flow
+> Patches 9 refactor multi-core clk suspend/resume setting
+> Patches 10 fix decoding buffer number setting timing issue
+> Patches 11 refactor decoding resolution change operation
+> Patches 12 fix remove buffer operation
+> 
 > ---
+> This series patches dependent on:
+> [1]
+> https://patchwork.kernel.org/project/linux-mediatek/patch/20250424090824.5309-1-jianhua.lin@mediatek.com/
+> 
+> Changes compared with v2:
+> --refactor smmu sid setting function interface
+> --Some modifications for patch v2's review comments.
 
-[...]
+This is very vague. What exactly changed.
 
-> +SEC("fentry/bpf_testmod_test_struct_arg_11")
-> +int BPF_PROG2(test_struct_many_args_9, struct bpf_testmod_struct_arg_5, =
-a,
-> +	      struct bpf_testmod_struct_arg_5, b,
-> +	      struct bpf_testmod_struct_arg_5, c,
-> +	      struct bpf_testmod_struct_arg_5, d, int, e,
-> +	      struct bpf_testmod_struct_arg_5, f)
+> 
+> Changes compared with v1:
+> --refine jpeg dt-bindings for MT8196
 
-Hello Alexis,
+This tells me nothing.
 
-I'm trying to double check the error you've seen for x86.
-I see that tracing_struct/struct_many_args fails with assertion:
-"test_struct_many_args:FAIL:t11:f unexpected t11:f: actual 35 !=3D expected=
- 43".
-Could you please help me understand this test?
-The function listened to is defined as accepting 'struct bpf_testmod_struct=
-_arg_7',
-at the same time this function uses 'struct bpf_testmod_struct_arg_5'.
-Nevertheless, the assertion persists even with correct types.
-
-> +{
-> +	t11_a =3D a.a;
-> +	t11_b =3D b.a;
-> +	t11_c =3D c.a;
-> +	t11_d =3D d.a;
-> +	t11_e =3D e;
-> +	t11_f =3D f.a;
-> +	return 0;
-> +}
-
-[...]
+Best regards,
+Krzysztof
 
 
