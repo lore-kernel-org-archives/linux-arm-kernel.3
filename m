@@ -4,61 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CB45C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 13:27:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B754C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 13:29:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vW9Zk8xCpUIBi2yoZrAD7iyYrLxWS2AOyv+ofm5sIAw=; b=uw3n26U5stcDG8JEdHnwnSJgQW
-	tlewkL3DVi8XpyKZmZV+8i4YiYrBz87uON37ZXKWDMqIyPKsw3y79+/mIDcMxu3a/CefgSms22apj
-	oe7i5drlyOTiMH64giQVhe0ZlEZuWWyWz+FWi2vkZeRDEuwJbS5tF1me1TdTkvkFbNcNd4E6MDH/n
-	97MwjbrjDxl/kbAEq2ET9swUac6q6iQUFcB6QX1S9pMi0m0KK372k62sU2qKlV0wo5hqKnbj3z/K5
-	NqevRStRTTSShyI5eEdfroL4ptOQj2d4VYKMamc0vAm3edmNPs2ScfIUY5U3fi1seBhSdnQ7rWqO4
-	AEFNADhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q8lp5UrUp+XdpwqCCx1TxDIQu5ltAd7kTY6JKNYmfio=; b=hY0ERlU2RGae/tRWBV+HgC9Iaa
+	zgZi+RCk4rWpD/lNm6WdrVvvzI3RglLJbxHusYALEYCdGjuy1vSVBDFDRqpQD27eopk8GCkKGh3xJ
+	MDVyyD+zfPB8FhiTHvsdSUsE4VNCIYbxxfLdpS9iVZtT7fA5Umi+il0Cm3+vDN7f0X5RzoJsVs/VY
+	Y3qCPu4UBC4R+fXhDxS6GVCjkBbm8e/CakG9puQvX7RR8xhLvJq5eTQwZlVnIzP4W4OUzTnY9oce1
+	KQyip0CQ/ZkQ2m3YCGJZg/ktMUZTFUZPj7yomspcwPj2L0ztZcca9aWB7QeWSfe7qbrev+T1sSKrs
+	F9aAelHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9OVk-00000006TPO-1nqN;
-	Mon, 28 Apr 2025 13:27:04 +0000
+	id 1u9OXi-00000006TyB-0bXg;
+	Mon, 28 Apr 2025 13:29:06 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u9OBD-00000006LSe-0kuc
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 28 Apr 2025 13:05:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=Q8lp5UrUp+XdpwqCCx1TxDIQu5ltAd7kTY6JKNYmfio=; b=F4p8K4X7Wvd1p/zxoqz2lg4cX9
+	g+buQgW7LC7Ipq3/UyUq8IBt7KZpvCiSWDT2YYnY60M8eMxYTdIbQmljDlo/ZWME2Vv3kJtT0znCg
+	d4wPJfZQEcBDEVXtJfzGu4rvFWA6TTWidT38Q667Ty09e7AEmmlLRpshoWUe7TTGDCpziQsGyakEY
+	DioV2vjjvlxfAQnZ9SmQKe+ba/HLibbh5xHn04FJISNV5ZeDh+mNE7MVFjSCHTEI4HL50EoIoWz68
+	hdmzmgC6RE+EPgrKds1urPe57FqBsukN+WOue0WM8Du7sMdDpnPqC240sJLP3az4CG7SEDDRyXYQm
+	AkIQ/MXw==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9O57-00000006Icx-1ynh
+	by casper.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u9OAw-0000000HRCA-15NH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 12:59:34 +0000
+	Mon, 28 Apr 2025 13:05:43 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 651F21516;
-	Mon, 28 Apr 2025 05:59:26 -0700 (PDT)
-Received: from [10.163.78.210] (unknown [10.163.78.210])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8B9353F673;
-	Mon, 28 Apr 2025 05:59:24 -0700 (PDT)
-Message-ID: <083865e8-572b-41b2-9221-3cee01349fab@arm.com>
-Date: Mon, 28 Apr 2025 18:29:21 +0530
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BBF6F1516;
+	Mon, 28 Apr 2025 06:05:17 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CD5A63F673;
+	Mon, 28 Apr 2025 06:05:23 -0700 (PDT)
+Date: Mon, 28 Apr 2025 14:05:19 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Mike Leach <mike.leach@linaro.org>
+Cc: Yabin Cui <yabinc@google.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Jie Gan <quic_jiegan@quicinc.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] coresight: trbe: Save/restore state across CPU low power
+ state
+Message-ID: <20250428130519.GF551819@e132581.arm.com>
+References: <20250423230046.1134389-1-yabinc@google.com>
+ <731dbb1d-e804-4678-9b8c-40f6395e94a7@arm.com>
+ <CALJ9ZPNExud7ZQ-ZgpVtPJHUsAyJv_O-CH8mCa6gUyu1E1T8zg@mail.gmail.com>
+ <CAJ9a7VhMJDMbowRuB5zgjQw+UfxP7eumZX1SKF2MJQ2_2NebHA@mail.gmail.com>
+ <20250428122408.GD551819@e132581.arm.com>
+ <CAJ9a7VjhCRk9BxGvE3ZyyZzq__+A1PpD=oRtFQOcD8BwXKa27Q@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/7] mm: Batch around can_change_pte_writable()
-To: Lance Yang <lance.yang@linux.dev>, akpm@linux-foundation.org
-Cc: ryan.roberts@arm.com, david@redhat.com, willy@infradead.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com,
- will@kernel.org, Liam.Howlett@oracle.com, lorenzo.stoakes@oracle.com,
- vbabka@suse.cz, jannh@google.com, anshuman.khandual@arm.com,
- peterx@redhat.com, joey.gouly@arm.com, ioworker0@gmail.com,
- baohua@kernel.org, kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
- christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
- linux-arm-kernel@lists.infradead.org, namit@vmware.com, hughd@google.com,
- yang@os.amperecomputing.com, ziy@nvidia.com
-References: <20250428120414.12101-1-dev.jain@arm.com>
- <20250428120414.12101-7-dev.jain@arm.com>
- <edf768ec-e874-4ca6-9fd7-b94ccc1c1059@linux.dev>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <edf768ec-e874-4ca6-9fd7-b94ccc1c1059@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAJ9a7VjhCRk9BxGvE3ZyyZzq__+A1PpD=oRtFQOcD8BwXKa27Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_055933_603575_6131A470 
-X-CRM114-Status: GOOD (  26.30  )
+X-CRM114-CacheID: sfid-20250428_140534_589923_BC8456EF 
+X-CRM114-Status: GOOD (  15.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,193 +89,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Apr 28, 2025 at 01:55:29PM +0100, Mike Leach wrote:
 
+[...]
 
-On 28/04/25 6:20 pm, Lance Yang wrote:
-> Hey Dev,
+> > > The TRBE PM can follow the model of the ETE / ETMv4 and save and
+> > > restore if currently in use.
+> >
+> > If TRBE PM is registered as a seperate PM notifier, a prominent issue is
+> > it cannot promise the depedency between ETE and TRBE when execute CPU
+> > power management.  E.g., when entering CPU idle states, ETE should be
+> > disabled prior to switch off TRBE, otherwise, it might cause lockup
+> > issue in hardware.  If ETE and TRBE register PM notifier separately,
+> > we cannot ensure the sequence between ETE and TRBE, this is why we need
+> > to do the operations based on CoreSight paths.
+> >
 > 
-> On 2025/4/28 20:04, Dev Jain wrote:
->> In preparation for patch 7, we need to properly batch around
->> can_change_pte_writable(). We batch around pte_needs_soft_dirty_wp() by
->> the corresponding fpb flag, we batch around the page-anon exclusive check
->> using folio_maybe_mapped_shared(); modify_prot_start_ptes() collects the
->> dirty and access bits across the batch, therefore batching across
->> pte_dirty(): this is correct since the dirty bit on the PTE really
->> is just an indication that the folio got written to, so even if
->> the PTE is not actually dirty (but one of the PTEs in the batch is),
->> the wp-fault optimization can be made.
->>
->> Signed-off-by: Dev Jain <dev.jain@arm.com>
->> ---
->>   include/linux/mm.h | 4 ++--
->>   mm/gup.c           | 2 +-
->>   mm/huge_memory.c   | 4 ++--
->>   mm/memory.c        | 6 +++---
->>   mm/mprotect.c      | 9 ++++++---
->>   5 files changed, 14 insertions(+), 11 deletions(-)
->>
->> diff --git a/include/linux/mm.h b/include/linux/mm.h
->> index 5eb0d77c4438..ffa02e15863f 100644
->> --- a/include/linux/mm.h
->> +++ b/include/linux/mm.h
->> @@ -2710,8 +2710,8 @@ int get_cmdline(struct task_struct *task, char 
->> *buffer, int buflen);
->>   #define  MM_CP_UFFD_WP_ALL                 (MM_CP_UFFD_WP | \
->>                           MM_CP_UFFD_WP_RESOLVE)
->> -bool can_change_pte_writable(struct vm_area_struct *vma, unsigned 
->> long addr,
->> -                 pte_t pte);
->> +bool can_change_ptes_writable(struct vm_area_struct *vma, unsigned 
->> long addr,
->> +                 pte_t pte, struct folio *folio, unsigned int nr);
->>   extern long change_protection(struct mmu_gather *tlb,
->>                     struct vm_area_struct *vma, unsigned long start,
->>                     unsigned long end, unsigned long cp_flags);
->> diff --git a/mm/gup.c b/mm/gup.c
->> index 84461d384ae2..6a605fc5f2cb 100644
->> --- a/mm/gup.c
->> +++ b/mm/gup.c
->> @@ -614,7 +614,7 @@ static inline bool can_follow_write_common(struct 
->> page *page,
->>           return false;
->>       /*
->> -     * See can_change_pte_writable(): we broke COW and could map the 
->> page
->> +     * See can_change_ptes_writable(): we broke COW and could map the 
->> page
->>        * writable if we have an exclusive anonymous page ...
->>        */
->>       return page && PageAnon(page) && PageAnonExclusive(page);
->> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
->> index 28c87e0e036f..e5496c0d9e7e 100644
->> --- a/mm/huge_memory.c
->> +++ b/mm/huge_memory.c
->> @@ -2032,12 +2032,12 @@ static inline bool 
->> can_change_pmd_writable(struct vm_area_struct *vma,
->>           return false;
->>       if (!(vma->vm_flags & VM_SHARED)) {
->> -        /* See can_change_pte_writable(). */
->> +        /* See can_change_ptes_writable(). */
->>           page = vm_normal_page_pmd(vma, addr, pmd);
->>           return page && PageAnon(page) && PageAnonExclusive(page);
->>       }
->> -    /* See can_change_pte_writable(). */
->> +    /* See can_change_ptes_writable(). */
->>       return pmd_dirty(pmd);
->>   }
->> diff --git a/mm/memory.c b/mm/memory.c
->> index b9e8443aaa86..b1fda3de8d27 100644
->> --- a/mm/memory.c
->> +++ b/mm/memory.c
->> @@ -750,7 +750,7 @@ static void restore_exclusive_pte(struct 
->> vm_area_struct *vma,
->>           pte = pte_mkuffd_wp(pte);
->>       if ((vma->vm_flags & VM_WRITE) &&
->> -        can_change_pte_writable(vma, address, pte)) {
->> +        can_change_ptes_writable(vma, address, pte, NULL, 1)) {
->>           if (folio_test_dirty(folio))
->>               pte = pte_mkdirty(pte);
->>           pte = pte_mkwrite(pte, vma);
->> @@ -5767,7 +5767,7 @@ static void numa_rebuild_large_mapping(struct 
->> vm_fault *vmf, struct vm_area_stru
->>               ptent = pte_modify(ptent, vma->vm_page_prot);
->>               writable = pte_write(ptent);
->>               if (!writable && pte_write_upgrade &&
->> -                can_change_pte_writable(vma, addr, ptent))
->> +                can_change_ptes_writable(vma, addr, ptent, NULL, 1))
->>                   writable = true;
->>           }
->> @@ -5808,7 +5808,7 @@ static vm_fault_t do_numa_page(struct vm_fault 
->> *vmf)
->>        */
->>       writable = pte_write(pte);
->>       if (!writable && pte_write_upgrade &&
->> -        can_change_pte_writable(vma, vmf->address, pte))
->> +        can_change_ptes_writable(vma, vmf->address, pte, NULL, 1))
->>           writable = true;
->>       folio = vm_normal_folio(vma, vmf->address, pte);
->> diff --git a/mm/mprotect.c b/mm/mprotect.c
->> index 33eabc995584..362fd7e5457d 100644
->> --- a/mm/mprotect.c
->> +++ b/mm/mprotect.c
->> @@ -40,8 +40,8 @@
->>   #include "internal.h"
->> -bool can_change_pte_writable(struct vm_area_struct *vma, unsigned 
->> long addr,
->> -                 pte_t pte)
->> +bool can_change_ptes_writable(struct vm_area_struct *vma, unsigned 
->> long addr,
->> +                  pte_t pte, struct folio *folio, unsigned int nr)
->>   {
->>       struct page *page;
->> @@ -67,6 +67,9 @@ bool can_change_pte_writable(struct vm_area_struct 
->> *vma, unsigned long addr,
->>            * write-fault handler similarly would map them writable 
->> without
->>            * any additional checks while holding the PT lock.
->>            */
->> +        if (unlikely(nr != 1))
->> +            return !folio_maybe_mapped_shared(folio);
->> +
->>           page = vm_normal_page(vma, addr, pte);
->>           return page && PageAnon(page) && PageAnonExclusive(page);
->>       }
-> 
-> IIUC, As mentioned in the comment above, we should do the same anonymous 
-> check
-> to large folios. And folio_maybe_mapped_shared() already handles both 
-> order-0
-> and large folios nicely, so we could simplify the logic as follows:
+> I believe that the architecture requires that if the disabled TRBE
+> cannot receive trace then the ETE should regard the trace as having
+> been output (A1.4 ETE spec). Incorrect sequencing should only result
+> in missing trace, not a core lockup - unless the implementation is not
+> compliant.
 
-Thanks. Although we will have to call vm_normal_folio() in case of 
-!folio, since we may not have the folio already for nr == 1 case.
+Thanks for clarification, Mike.
 
-> 
-> diff --git a/mm/mprotect.c b/mm/mprotect.c
-> index 1605e89349d2..df56a30bb241 100644
-> --- a/mm/mprotect.c
-> +++ b/mm/mprotect.c
-> @@ -43,8 +43,6 @@
->   bool can_change_ptes_writable(struct vm_area_struct *vma, unsigned 
-> long addr,
->                                pte_t pte, struct folio *folio, unsigned 
-> int nr)
->   {
-> -       struct page *page;
-> -
->          if (WARN_ON_ONCE(!(vma->vm_flags & VM_WRITE)))
->                  return false;
-> 
-> @@ -67,11 +65,7 @@ bool can_change_ptes_writable(struct vm_area_struct 
-> *vma, unsigned long addr,
->                   * write-fault handler similarly would map them 
-> writable without
->                   * any additional checks while holding the PT lock.
->                   */
-> -               if (unlikely(nr != 1))
-> -                       return !folio_maybe_mapped_shared(folio);
-> -
-> -               page = vm_normal_page(vma, addr, pte);
-> -               return page && PageAnon(page) && PageAnonExclusive(page);
-> +               return folio_test_anon(folio) && ! 
-> folio_maybe_mapped_shared(folio);
->          }
-> 
->          VM_WARN_ON_ONCE(is_zero_pfn(pte_pfn(pte)) && pte_dirty(pte));
-> -- 
-> 
-> Thanks,
-> Lance
-> 
->> @@ -222,7 +225,7 @@ static long change_pte_range(struct mmu_gather *tlb,
->>                */
->>               if ((cp_flags & MM_CP_TRY_CHANGE_WRITABLE) &&
->>                   !pte_write(ptent) &&
->> -                can_change_pte_writable(vma, addr, ptent))
->> +                can_change_ptes_writable(vma, addr, ptent, folio, 1))
->>                   ptent = pte_mkwrite(ptent, vma);
->>               ptep_modify_prot_commit(vma, addr, pte, oldpte, ptent);
-> 
-> 
+I would prefer to stick with the CoreSight path approach, as this will
+help us to resolve the issue in a general way - not just for ETE / TRBE
+case, this would be applicable for other types of links and sinks.
 
+Thanks,
+Leo
 
