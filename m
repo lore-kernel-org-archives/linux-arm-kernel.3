@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D2D3C36005
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 08:44:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE501C36005
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 08:46:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4kiCrTOBQ1WQnEvSTrH5wRzIRZ6TpG0/zh39U8i5yYs=; b=pNT1HJjJQLDhzstlcTzXcDJkl/
-	iQOAqioEPmObxXCt+6qBlQ4MAFsfR9BGrIYpIktqRFq4ZMPSjUmLib2GpRaHMe4NXD0A6bKey9ajq
-	KyWFBzxM+JHpeUVCMLlkRK/QRt5ROWN1vPd4WFrkAcClahzKztyM/r9he8kH93gs74fHSljlVf+H0
-	kaXxVIDAedySZN0uPIfR1BfRghTIA1Qfl/xjerw5mcY/9PNItERAq+gmiPV7Y891D9763AWqHWae6
-	QdZ0+t1EybLLRdjYJ1cP/YS0/vCqwo1I7acLrsIduhbB+l3Xl/jDo9Wnv3BHg+Un/QKY5EQOIngG8
-	nZPuKA9Q==;
+	bh=WbBBTJC/oRU9ms8+LqiBnsiP6cXseVaQgtIeGu/s9Ic=; b=LtxHE6RCMt2yVB6KepZoY14g4L
+	erwKe6RMvEQ/npgY1gMghqamJAVC+qujSb2Kitvn84Dhaqr3DDgNCN2IXb682W474OORW+ZdiDQfB
+	W8qUl0XeDc7IfUn/2EdpQ8zVY3T3cIxExAMaXmw0uFwOWHRXjkNcrdxLaKNaDZnn9ZzZU7NAXhTPT
+	enVBv6NjEh7UiFppB7/JmvSBeVKCtm3MA32lAs/5hiwKGocIWcvdQmhQpiBAiQIDnbNkbfB3gPw7i
+	8b7bLsmOeWtWZaJqpCqRYBs+yDM0T5fcyk+yQCp9LIL+8l495Whz5JF70lSD4dzx00MUgfAqNE2R/
+	fGqMytwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9K5t-00000005VB7-2qUh;
-	Mon, 28 Apr 2025 08:44:05 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u9K7i-00000005VPW-4BC4;
+	Mon, 28 Apr 2025 08:45:58 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9JrZ-00000005RXA-14ey
+	id 1u9IpS-00000005EVo-27Wr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 08:29:18 +0000
+	Mon, 28 Apr 2025 07:23:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 961554A454;
-	Mon, 28 Apr 2025 08:29:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23DB9C4CEE4;
-	Mon, 28 Apr 2025 08:29:15 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id D92275C5E65;
+	Mon, 28 Apr 2025 07:20:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1CC7BC4CEE4;
+	Mon, 28 Apr 2025 07:23:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745828956;
-	bh=cGQWR8jhKsA88ie48McerFwOTjkySfn7kxfyN/o03kc=;
+	s=k20201202; t=1745824981;
+	bh=qP/8wVu9kz7JxXZ42YE7w0X2oBw+B6PGhKfko70XC1A=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iSsc9NbZ2OSX6s0FYmkOrwZ4Y74di5SxQ6HBbf6tgdP7n2h957ekjxLAv9ilO/rD2
-	 dirqo66vOK6jJtwxntmnjuAfK9JdXlgGf4sMesLv7Z90drZS9fZqpl1+Rp8d65/pPI
-	 mp7I/0Yp9ILFuLR+wwL2ZEysja3HLgT2u23WG603H1EOPEP/zec4Hv1SlX2AiT5/nb
-	 8OFdNeDp7A5nB5ztO+cBYLW9M5WOIRlOvIMjX8G0jPGnf+7haxCnlpQL6CHQOT65AI
-	 GyiRBBGT0lQxy/mI6HpomVcx38Hje4+xxayzjLfDhLTb1r1mr+OiVaHn6TNEDuzojP
-	 3GREHEKb+H+TA==
-Date: Mon, 28 Apr 2025 10:29:14 +0200
+	b=t94DEvDU03gDddW43clwxceIcPAB2+GzF2WaZICJGfgbmDrd1Ns4viVu7ZniKI/Zv
+	 dJG6PV3+RmBkV2AGzDsqvuC6UQEpvebsYRWW1JSYJgwj1/ia+GJ7Zc+znQtbp67iYa
+	 4eN68nGvHpFr4MUEkGV3Q5zqBkCx1IUfYohtQoRZtHvK47qxLtGRVH0G1NuZOpTsuC
+	 1yrR/OZ57JtDnLBuTPskbe45xdaN4UkaqYgYkwkBZWAYM8jaIurkvZDBx4ztRe7cWQ
+	 HsDGJqKihvuGc8p+wk32Q/L9HpXztpak8KSDED4aw6D6VxPG9AipDCwWBWqqZrQrLN
+	 mO6hqAQMGF+VQ==
+Date: Mon, 28 Apr 2025 09:22:59 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Primoz Fiser <primoz.fiser@norik.com>
+To: Yixun Lan <dlan@gentoo.org>
 Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	upstream@lists.phytec.de
-Subject: Re: [PATCH 1/2] bindings: arm: fsl: Add PHYTEC phyBOARD-Nash-i.MX93
- board
-Message-ID: <20250428-neat-manul-from-avalon-b2db3a@kuoka>
-References: <20250425064107.174548-1-primoz.fiser@norik.com>
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Maxime Ripard <mripard@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Andre Przywara <andre.przywara@arm.com>, Corentin Labbe <clabbe.montjoie@gmail.com>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH v2 2/5] dt-bindings: arm: sunxi: Add A523 EMAC0 compatible
+Message-ID: <20250428-prehistoric-fragrant-bear-163afa@kuoka>
+References: <20250424-01-sun55i-emac0-v2-0-833f04d23e1d@gentoo.org>
+ <20250424-01-sun55i-emac0-v2-2-833f04d23e1d@gentoo.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250425064107.174548-1-primoz.fiser@norik.com>
+In-Reply-To: <20250424-01-sun55i-emac0-v2-2-833f04d23e1d@gentoo.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_012917_313770_085218B1 
-X-CRM114-Status: GOOD (  10.71  )
+X-CRM114-CacheID: sfid-20250428_002302_584477_DCE01288 
+X-CRM114-Status: UNSURE (   8.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,19 +80,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 25, 2025 at 08:41:06AM GMT, Primoz Fiser wrote:
-> Add devicetree bindings for PHYTEC phyBOARD-Nash-i.MX93 board based on
-> the existing PHYTEC phyCORE-i.MX93 SoM (System-on-Module).
+On Thu, Apr 24, 2025 at 06:08:40PM GMT, Yixun Lan wrote:
+> Allwinner A523 SoC variant (A527/T527) contains an "EMAC0" Ethernet
+> MAC compatible to the A64 version.
 > 
-> Adjust the compatibles for the existing phyBOARD-Segin-i.MX93 board, to
-> be able to add additional board based on the phyCORE-i.MX93 SoM.
-> 
-> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+> Reviewed-by: Andre Przywara <andre.przywara@arm.com>
+> Signed-off-by: Yixun Lan <dlan@gentoo.org>
 > ---
->  Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
+>  Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml | 1 +
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
