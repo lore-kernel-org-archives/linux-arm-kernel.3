@@ -4,148 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BE86C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 22:46:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16FF6C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 22:48:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lcu0VhdocjPUY5Om8/5e95ZLsbzjCgF4NnK60ih07I8=; b=E2o4ux0Ya2R/BcY4B48B9t+3f4
-	G1r8xWVomFtFPDt9PmoINWe36VAKeaYMiTmqjXkAhn//pOlTv5pY6JjxnSFXWzo7pyi+eIwDHkYKn
-	CUX05rOs6gsTNANVwop+8aBYQThFaOVRB00D3qaA38UEv2QBoTshWCnCp6nw3IDYSt36+dv9FqRQg
-	80gOhP8rksTJoQg47OqGZ3TSyr5cqxYD0VTEWvpNmx97uMWFzJ5mIAs4o684gg1aQLsgued30TAbP
-	PyKHPt0k0yuIkkjzohr+SSwvONLjyv7omySFAoKHNGmTodz3+Y0+tueC5pgDjkJM+GeVKrYDZfxlI
-	eu48rn8g==;
+	bh=qqZsxRe5YN9EuISiamPnjxKWy6QshrLL8TJ8PdqwMXA=; b=rtkyP++57qY+LYE0MdwBWrGenP
+	ExUwwzn3aPk7rN1jEkhA7fEpmeAjLmrtvSCKjfACnS2GjtuC77MeqPAEE1jB89C5adCu4eOK4OKWa
+	K31Fyu97xGwLSIBgfLLNVWHs/YIMeCK/G/XowL6yU+BmVC/s1dWvpVWpDDozIIdaFvBBISQarvuTQ
+	N1O454p5kAEdzu7y1C/ib9fHBw8AMOgK3yoFo47cutGqO4T7v6RlqXQLW82z17hC0+buNh+zU2DGU
+	9YrcZBc2ohZywGgCiE3+IEk6SuNenpVRvkSx64tfPpiEPhLVzuWWcFtfSoOA9YSMSciSwcsmO2wmZ
+	rnP0ZPlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9XFC-00000007kPj-40LZ;
-	Mon, 28 Apr 2025 22:46:34 +0000
-Received: from mail-dm6nam12on20605.outbound.protection.outlook.com ([2a01:111:f403:2417::605] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1u9XHA-00000007kdV-2eAJ;
+	Mon, 28 Apr 2025 22:48:36 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9XDE-00000007kDS-0ZW3
+	id 1u9XDy-00000007kJV-03K4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 22:44:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Bi9iEFqy6qgP/hJx9mN5AXh3JTsbeO9t+d1r4uAlY9QJeOos74YBxXgWdKKWW1SSq2AQ6H/mUydULj98Bdp03TDwfB9ZpUq+k8YlvT5Pu5pEcT4C6i70dfqNqXsYb0d0wniCJw83dPysP2spHFpFt0pUG8fuvSBbI3yl9ix8F/GrdG6RgZSE3LekugepB1t+A+I6KHuMAJ6jCTwUNefDPbIljZVPZs5t8e1X0w5yIQqt00CjdsIHUF7Ed1KJ1xp3ZiMLyyIQgbqXXXr1AOi6fZ0eBul+y+cV/bujB8JJ23b9GWfutOn/2eptIBOJc0DGGjdRYeeISatbUPKYIGg+5g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lcu0VhdocjPUY5Om8/5e95ZLsbzjCgF4NnK60ih07I8=;
- b=cnftzoyXQQB4BYtDTkb4/ouIr+RzzIqLH+WCzmdpCSZ48PZliXAUKwmmAxbrdrEWH6MH4umxq7v8icyuzTW6Md2VZyHlOMGUO8TxDFTAq9Ispk21PNRqus0gWGfsP2lu8xzHLHpu3esDS6OkSLJTPu3iIxIdi+3V3JLZDZ708hnIYicpGtSgB7/v/1fZqyREnagEPMdlee5zfEl9Ai06VyLCXMxkc1axV/czVObFtt2qI2OiYP/NtWgXiTQftRYgSmdsXLO+dvaivCVJbDlW/qp2pGEAOSoqy4RKEMYTVMSrju7kTkWC3/qSi45JRF7Y6LRmbVqXzIprjUgY3ShFeQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lcu0VhdocjPUY5Om8/5e95ZLsbzjCgF4NnK60ih07I8=;
- b=JXNrTLj8RO4DT6/Kr/opDGmj1R90IVU2qdgt9MPBvTQq9qQsnupuc4ymx1vOkPGGs0p1GV6jv++qCio3RPJ3lHbIdcbfv6E1Us8d0F429C91nHUDbBmgtzUFCliZe4McytKG7TZ/V/jMlU7dXIt3FuP1uH8wjGnCRCWAR2t42oAqX6sLGzjN5KlXaC+GvWnL3e7waiRknVVyhjjOZV7Ci5a0K96yOB8jRfp4tmSbVdGnpkKjCXYdY6zl6i1AGFN3LWALvixwBV8Rh3+/T0w8sfFFs9A/iUuJzE9Y0P4MNSmmaFhyZQv9Gm4a9hR3bMCg3EiZHYXB8E0OncbHZInRxg==
-Received: from BN8PR04CA0023.namprd04.prod.outlook.com (2603:10b6:408:70::36)
- by CY1PR12MB9604.namprd12.prod.outlook.com (2603:10b6:930:108::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.34; Mon, 28 Apr
- 2025 22:44:22 +0000
-Received: from BN2PEPF000044A0.namprd02.prod.outlook.com
- (2603:10b6:408:70:cafe::54) by BN8PR04CA0023.outlook.office365.com
- (2603:10b6:408:70::36) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.36 via Frontend Transport; Mon,
- 28 Apr 2025 22:44:22 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- BN2PEPF000044A0.mail.protection.outlook.com (10.167.243.151) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8678.33 via Frontend Transport; Mon, 28 Apr 2025 22:44:21 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 28 Apr
- 2025 15:44:12 -0700
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Mon, 28 Apr 2025 15:44:12 -0700
-Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com
- (10.126.190.182) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Mon, 28 Apr 2025 15:44:10 -0700
-Date: Mon, 28 Apr 2025 15:44:08 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Pranjal Shrivastava <praan@google.com>
-CC: <jgg@nvidia.com>, <kevin.tian@intel.com>, <corbet@lwn.net>,
-	<will@kernel.org>, <bagasdotme@gmail.com>, <robin.murphy@arm.com>,
-	<joro@8bytes.org>, <thierry.reding@gmail.com>, <vdumpa@nvidia.com>,
-	<jonathanh@nvidia.com>, <shuah@kernel.org>, <jsnitsel@redhat.com>,
-	<nathan@kernel.org>, <peterz@infradead.org>, <yi.l.liu@intel.com>,
-	<mshavit@google.com>, <zhangzekun11@huawei.com>, <iommu@lists.linux.dev>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
-	<mochs@nvidia.com>, <alok.a.tiwari@oracle.com>, <vasant.hegde@amd.com>
-Subject: Re: [PATCH v2 10/22] iommufd/viommmu: Add IOMMUFD_CMD_VCMDQ_ALLOC
- ioctl
-Message-ID: <aBAEuP9962XweHPc@Asurada-Nvidia>
-References: <cover.1745646960.git.nicolinc@nvidia.com>
- <094992b874190ffdcf6012104b419c8649b5e4b4.1745646960.git.nicolinc@nvidia.com>
- <aA_0TV0RkVOHk7Qj@google.com>
+	Mon, 28 Apr 2025 22:45:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id EBA035C5ECA;
+	Mon, 28 Apr 2025 22:42:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 986C3C4CEE4;
+	Mon, 28 Apr 2025 22:45:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745880316;
+	bh=iEgcLTkDkFJOT7HlI3aSWIUb6zLNar111Rw+B+KVd0E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qKGA7d4I1Xv4lnO2QEvAFptiF/Bk8yCyZlzREFkxc8/ZbydV/Io4cKBOfsFiepgbx
+	 faoR2VNi7zkUBoJk10MO/Cy+DPlgiJf7FQnBHCd9GwRokCO6HNBXQbFFhr65FUiFmc
+	 Ipt4egabLR2vqhIJpvijiGY3y+5zCOUMlvVDnL2w8K1EyM6OSneipar6rwIBIpfLoh
+	 35ITA8fTL4cG8OcFr5r1VIiZArG0GO2mf8LM1FVUQBBaql/FwO029E5PPjrIARsiUD
+	 Rz990rOVpRtTaZxytBdzAqS8q3wpYYuBhgM+LS8juAwbkU0X1hvbS00qrq3xI/G00c
+	 BPha6HbRhfIKg==
+Date: Tue, 29 Apr 2025 00:45:12 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: sven@svenpeter.dev
+Cc: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	Naveen N Rao <naveen@kernel.org>, Neal Gompa <neal@gompa.dev>, Hector Martin <marcan@marcan.st>, 
+	linuxppc-dev@lists.ozlabs.org, asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/4] Apple/PASemi i2c error recovery fixes
+Message-ID: <enap4curtpjaiazxpcsw3sk64aq2i7wqi3iwm6l2pfph5qduwj@gkagpeazcumg>
+References: <20250427-pasemi-fixes-v3-0-af28568296c0@svenpeter.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aA_0TV0RkVOHk7Qj@google.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF000044A0:EE_|CY1PR12MB9604:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6d7cebfa-3188-4e81-05a1-08dd86a6381f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|82310400026|36860700013|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?TBK+Rf5Rzote/I80I/6BxV7wV+v550pExbyJGO3UqeMFyMCOeMmPja0N4BQv?=
- =?us-ascii?Q?GkeHilz2zMPL+Zk22kcsOdP2EQFNXeSKoEjE2eA1Bl/fVszHn2Pf2RabUmVh?=
- =?us-ascii?Q?loacwWcR1xi5yWD2zexvu1EiNxkcIlgOiftOMcFzzkhaT3I4URXB+74EI6Hd?=
- =?us-ascii?Q?+/LtqeFH/jdJV4pbcD2LCQZa5jaH3y+t6qhaxmL31dyTNLRU4SGRPtgberpr?=
- =?us-ascii?Q?dp0pNA1Aj5mtMaYNoW9B+VUpym5WatSSJLKt6LD9jeNIF0vSey9QknXEvoCV?=
- =?us-ascii?Q?MTmgQHfQ+T9dfeDCHDdm0AQhGrjcDl2QkQVW/vBc4bcfhmSqYtk+Bgt6Xy0k?=
- =?us-ascii?Q?/BsehlgAn1OvJ8MxqmLlSh7LCrg9GVjmZtvgeyJvWD1bV/Tj6F/PwaAhCP3P?=
- =?us-ascii?Q?23JmJkShRZMoZ9XxeAV6RWtejNi9HZK/vuPROeTwWUZd00LA9Ag5+0s9bo6+?=
- =?us-ascii?Q?nvQUxNupeb1cNITuV9BuBVqKLROFwCadVv9xSZxvpkLMHly9yh4kiatjBniM?=
- =?us-ascii?Q?x1r3ZrxB8RkziGvsew3eUXdds+AI6dfVZ1bDLwVkpDxBr+V9MsGQ8E5lPyBY?=
- =?us-ascii?Q?mFCybtXheEYreHjqAgCMhO4tXk3mfFxH04izcSG5N5VFCPVuf9SinW9PNRI8?=
- =?us-ascii?Q?sm/B94+BCXoKe7BPh+RuUtImgz4pPylgaLd7sl32cV5zAaj2yd2WmXoC5Thl?=
- =?us-ascii?Q?b4CHW2ZgES7fzyVZfNqrHvYEZ2jvMx5dDhCHzJd+1NeWnzR+5KMZOutz/30r?=
- =?us-ascii?Q?xm3arfO7NLMYa4ujls5+28hk87Ryc1vS/kGcZC9A6Wg/5nQM603nNAgrPSlE?=
- =?us-ascii?Q?xYMw86bcDKyhFGOGgCVD0AQ1BBXaYsEtFw6y79zT5wmTMbr8AzUN3W2B3men?=
- =?us-ascii?Q?Cl8BleCfuVrl80QzIgYgivmaNqsOlxM2DlgxrLtgUx4MvLRX7oW+ZP68nQ1K?=
- =?us-ascii?Q?EdZegyC31voDZ0+gyVctrSlJ4wNW65o0RR3Anq8x10hYI0jzC3Chxr2LzYMY?=
- =?us-ascii?Q?jk1X0e9DKMQh4bngHFgBThufx2q4M1Z0FayN9ioASB97FmJJcVvQHm4Y4WvB?=
- =?us-ascii?Q?g5c/yjpo7moQwU7gitaFNGB154p8dljixx60+KolEcEiv/O8QOjvJSPQ4YZi?=
- =?us-ascii?Q?R4X02DY5ViQZxa7pdv8F2ZiENTjMt3uVJChKnXeNfvUx5p9MzsVxkAV62DS/?=
- =?us-ascii?Q?4siYl9lGt49YVEXwllerWIOX+/UkabBjCRgsKijPnqoe7/yZy6F16HmSKQp/?=
- =?us-ascii?Q?qSqjSsgBnujYLC+sXQgarwrMgYNcT09NQYorrMVHaRqG2RmZt8U4dtpliJ4k?=
- =?us-ascii?Q?xbBFWskAVcfUORwzeSFCyGQFydYg7kV9x6J8Pi63UHaue11sgmXJcjzJ1nCK?=
- =?us-ascii?Q?T9FtJqa5eFLWnfCB3DDAIiJegkqSaaApClpZaT4aMWcqxMX6Ps/tEXgNjITa?=
- =?us-ascii?Q?p6IQv2988sW71x8+99xKemdTyHNsT3kDbsRjLgQpc0du577AHxhc7nk/IV2g?=
- =?us-ascii?Q?ffN9emaQ72XzOfNePUPbGmSxJnW1vyosJ+Ni?=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(82310400026)(36860700013)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2025 22:44:21.8852
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6d7cebfa-3188-4e81-05a1-08dd86a6381f
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044A0.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY1PR12MB9604
+In-Reply-To: <20250427-pasemi-fixes-v3-0-af28568296c0@svenpeter.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_154432_181315_17B3060F 
-X-CRM114-Status: GOOD (  26.67  )
+X-CRM114-CacheID: sfid-20250428_154518_098515_7EDF9CF2 
+X-CRM114-Status: UNSURE (   5.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,100 +76,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 28, 2025 at 09:34:05PM +0000, Pranjal Shrivastava wrote:
-> On Fri, Apr 25, 2025 at 10:58:05PM -0700, Nicolin Chen wrote:
-> > @@ -501,6 +504,9 @@ static const struct iommufd_object_ops iommufd_object_ops[] = {
-> >  	[IOMMUFD_OBJ_IOAS] = {
-> >  		.destroy = iommufd_ioas_destroy,
-> >  	},
-> > +	[IOMMUFD_OBJ_VCMDQ] = {
-> > +		.destroy = iommufd_vcmdq_destroy,
-> > +	},
-> >  	[IOMMUFD_OBJ_VDEVICE] = {
-> >  		.destroy = iommufd_vdevice_destroy,
-> >  	},
+Hi Sven,
+
+> Hector Martin (3):
+>       i2c: pasemi: Enable the unjam machine
+>       i2c: pasemi: Improve error recovery
+>       i2c: pasemi: Log bus reset causes
 > 
-> When do we expect the VMM to use this ioctl? While it's spawning a new
-> VM?
+> Sven Peter (1):
+>       i2c: pasemi: Improve timeout handling
 
-When guest OS clears the VCMDQ's base address register, or when
-guest OS reboots or shuts down.
+merged to i2c/i2c-host.
 
-> IIUC, one vintf can have multiple lvcmdqs and looking at the series
-> it looks like the vcmdq_alloc allocates a single lvcmdq. Is the plan to
-> dedicate one lvcmdq to per VM? Which means VMs can share a vintf?
-
-VINTF is a vSMMU instance per SMMU. Each VINTF can have multiple
-LVCMDQs. Each vCMDQ is allocated per IOMMUFD_CMD_VCMDQ_ALLOC. In
-other word, VM can issue multiple IOMMUFD_CMD_VCMDQ_ALLOC calls
-for each VTINF/vSMMU.
-
-> Or do we plan to trap access to trap the access everytime the VM
-> accesses an lvcmdq base register?
-
-Yes. That's the only place the VMM can trap. All other register
-accesses are going to the HW directly without trappings.
-
-> > diff --git a/drivers/iommu/iommufd/viommu.c b/drivers/iommu/iommufd/viommu.c
-> > index a65153458a26..02a111710ffe 100644
-> > --- a/drivers/iommu/iommufd/viommu.c
-> > +++ b/drivers/iommu/iommufd/viommu.c
-> > @@ -170,3 +170,97 @@ int iommufd_vdevice_alloc_ioctl(struct iommufd_ucmd *ucmd)
-> >  	iommufd_put_object(ucmd->ictx, &viommu->obj);
-> >  	return rc;
-> >  }
-> > +
-> > +void iommufd_vcmdq_destroy(struct iommufd_object *obj)
-> > +{
-> > +	struct iommufd_vcmdq *vcmdq =
-> > +		container_of(obj, struct iommufd_vcmdq, obj);
-> > +	struct iommufd_viommu *viommu = vcmdq->viommu;
-> > +
-> > +	if (viommu->ops->vcmdq_destroy)
-> > +		viommu->ops->vcmdq_destroy(vcmdq);
-> > +	iopt_unpin_pages(&viommu->hwpt->ioas->iopt, vcmdq->addr, vcmdq->length);
-> > +	refcount_dec(&viommu->obj.users);
-> > +}
-> > +
-> > +int iommufd_vcmdq_alloc_ioctl(struct iommufd_ucmd *ucmd)
-> > +{
-> > +	struct iommu_vcmdq_alloc *cmd = ucmd->cmd;
-> > +	struct iommufd_viommu *viommu;
-> > +	struct iommufd_vcmdq *vcmdq;
-> > +	struct page **pages;
-> > +	int max_npages, i;
-> > +	dma_addr_t end;
-> > +	int rc;
-> > +
-> > +	if (cmd->flags || cmd->type == IOMMU_VCMDQ_TYPE_DEFAULT)
-> > +		return -EOPNOTSUPP;
-> 
-> The cmd->type check is a little confusing here, I think we could
-> re-order the series and add this check when we have the CMDQV type.
-
-This is the patch that introduces the IOMMU_VCMDQ_TYPE_DEFAULT.
-So, it's natural we check it here. The thing is that we have to
-introduce something to fill the enum iommu_vcmdq_type, so that
-it wouldn't be empty.
-
-An unsupported DEFAULT type is what we have for vIOMMU/vEVENTQ
-also.
-
-A driver patch should define its own type along with the driver
-patch. And it's what this series does. I think it's pretty clear?
-
-> Alternatively, we could keep this in place and
-[..]
-> add the driver-specific
-> vcmdq_alloc op calls when it's added/available for Tegra CMDQV while
-> stubbing out the rest of this function accordingly.
-
-Why?
-
-The vcmdq_alloc op is already introduced in the prior patch. It
-is cleaner to keep all core code in one patch. And then another
-tegra patch to add driver type and its support.
-
-Thanks
-Nicolin
+Thanks,
+Andi
 
