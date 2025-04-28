@@ -4,70 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 709D4C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 23:52:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C508C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 23:57:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FqMZmsJw+P2abON4ei6yPGQZiJ1gPP87oeCgoLHuSM8=; b=m5PAsUAO1+pmId6jm0DwMPsxtQ
-	+r6W6veeO1YTD8uGu1RQTZkNNZL/rtBCR5Z/nvDdQH0CffaT7GfrCE+6pMWq1neg6h6LcdjYoMBzs
-	BGkrIDN8AfQjfOaTChgbxlil6NMlP9boJJxSvXoKyRuXcUyiRpoRaIZzshhDv1HwYkTVTI2xsv5ee
-	vpO9hhSdjAIZWuzxJdQviSxGUA515QBLO7yVZrx93RCO0VmHC4ibnUv7G5pF1mdobEt7mc/XxnoD1
-	W8YGcRco092SxpG7K+4Q58mf2ODSi9JBT6/UStE8To7x8s1vpCv4EgdyP2wOo94fDJjCf5qyK1e1j
-	an3ObPGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:References:In-Reply-To:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LJobFLI9bUS7cIOXH6lW9QHErDLL0/CVqlV/7NhJ0Ck=; b=zdwdLUEF6K5LblNCFJ72qanJ9n
+	ouM2zjlWEa9VQ3U5TVGlYqoT+94QpUw0HaiJQsIduDmq271RbQsnuGt1yC8BaV6FuRku9x3dPdCqR
+	j1AWqatIfcqaFa4SdLI9I1iPnofLedldITpwhEiOijCGLtGQiCP1XIeTR2gZXlVT5NC+QfH808RCg
+	CNkl8OM5J6CY40CRV54X/3A9KLVkzNt2Fc8u3CkqvujIr0duu2hGtM+LofbXWEtP/u9wivUpLJGMF
+	nrxX7lcPjy++sUDb005kwkLrI2bDtmuayE+XaVg3IZtUgt6TjP0iZmcnQ2+EDx8c7d2+UesksSPqi
+	mQ9sRIsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9YGh-00000007qKF-184z;
-	Mon, 28 Apr 2025 23:52:11 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u9YLr-00000007qhk-0yhj;
+	Mon, 28 Apr 2025 23:57:31 +0000
+Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9YEb-00000007q6o-3tra
+	id 1u9YJu-00000007qVt-0FKB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 23:50:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D327C5C546A;
-	Mon, 28 Apr 2025 23:47:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98A6AC4CEE4;
-	Mon, 28 Apr 2025 23:50:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745884200;
-	bh=vsCYRJOu2+7O/vaGXslstlkjSpMCXUDLAHK65Ew0rG0=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=aGJP4i/u7wVlXy+99f3czCJoOsn4bi4HjuC4uYD0eZ7DUNidJen8244Hc5WgthPof
-	 xDwv5RreNyi0aZOIMyRC0qnk154UIAX0cN4yZyR+N+53PRCBLF/xwrkAaBRRr1vZVU
-	 iCSP7q8GciiXf1yZIym1xY6MU1eLTJrfZgBJMQ8YbqEg6CFYVrI3WAoY888ZQWJm4E
-	 NTcCeUS2nIA84m0TuKhDRddrr3YXCJkzd+Eic63sX4vhsCHEPjgzPqKgBtzefarWMo
-	 ERTHZYuurxiVhCgkHMwUYhls6WP/8qcPEUACvh1fDucevmJcB4Qx8V8D5NyhzPwJAi
-	 Is1By8WOGx3jw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADEC83822D4A;
-	Mon, 28 Apr 2025 23:50:40 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Mon, 28 Apr 2025 23:55:31 +0000
+Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-7c922169051so292018285a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 16:55:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1745884528; x=1746489328; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:user-agent:from:references
+         :in-reply-to:mime-version:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=LJobFLI9bUS7cIOXH6lW9QHErDLL0/CVqlV/7NhJ0Ck=;
+        b=C3KNuspXlZ5oJ+6Xxn4mSr3SFjinH5CY7utJYcYLZB8eY4Ad5n/9EHXILGMyDhkZIN
+         AAjzAAAYl49nxZs/nnwv8poYOW1pE60ciWdTcQFjjra5IXFwUJMJg1yTMXGjH8DVyz1G
+         0+WR9WuXpPC1c4JNqVot+aPA4ojVKsoPWEntc=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745884528; x=1746489328;
+        h=cc:to:subject:message-id:date:user-agent:from:references
+         :in-reply-to:mime-version:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LJobFLI9bUS7cIOXH6lW9QHErDLL0/CVqlV/7NhJ0Ck=;
+        b=B2riyppwrjRl0dkLdMq4Ngefsdlt1CKJanFySBTEG/ypp7fxB3PW38hde1yV114Bkm
+         q01X8vxcdhLQue7/My/iRI3UKPQqJJgNxfLReZUle6w5if2B7LwP4ZpC/FGxCOAiJ9W/
+         MCIfVpH4IRlHTKrbqD4EyaSgHHiPLH02rlm20XOQ66AUKV3+9CIQUm1y8y1eASb1Jo5J
+         u629ohnwiJPZZXWUeHmE1UyEYp4J5t9RW49i3SaDawq4WSvy7ECR60MMS4/sxNGrKWt1
+         z0AmX4pQ4mS4tao+xuyOW79Nn0yh1PHLY7hDUxuWifHed76NzX4VyNdOggu6HJ33JD1f
+         U/gw==
+X-Forwarded-Encrypted: i=1; AJvYcCWEc9c8reTw9k9p+r1/PmN0w94x7tc5wSjXO6q32MiW9B6soYUil7qTlF+ggBrU4OdwoJzzLq2j/EgjtMgr1CGj@lists.infradead.org
+X-Gm-Message-State: AOJu0YzW3cliYRouQPtWjFmstGM8+niRaeP2STMQZ/4Igk6WIq6BWFvF
+	jfLORFJ8oFwFPgF57DPVcqY0n12GBo3OuZ/TjAx8j80T9Iz96/GiFvLN6L1aLFpq8fV4ZD6CgYP
+	Gw6pB35ZvgmFNH/RxeoeGURt4Zmkc4VTB93fB
+X-Gm-Gg: ASbGncsodglE/he3SNpxFHVLTBY7yZzyzt/OPcxpwhR56xMCFjJkbkHAAGkl35nmF2G
+	AWE8jPC6S37oKy69gJialWfe33iqxlk5Xb6gcs5zTutxeEuP3DzNMViPxTQBN25vvbELkgvl6Ax
+	U5ySGRfpB8DE9VKxiyCB2N7JAxYEs0kdlLn0To42ghJjj9RJ3uaRlIjw63YlNg
+X-Google-Smtp-Source: AGHT+IEoQ9Mtpgq6IV7o2myPZsE3iTvANfEmqsxJiZUsKgJmcwAzipipK3XToxVL1xycDMjbiz/L+FlGLzhvF5FKt7E=
+X-Received: by 2002:a05:620a:2610:b0:7c5:5e5b:2fdb with SMTP id
+ af79cd13be357-7cabddaf1cfmr245880985a.41.1745884528355; Mon, 28 Apr 2025
+ 16:55:28 -0700 (PDT)
+Received: from 753933720722 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 28 Apr 2025 16:55:27 -0700
+Received: from 753933720722 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 28 Apr 2025 16:55:27 -0700
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v2 0/8] Phase out hybrid PCI devres API
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <174588423950.1081621.6688170836136857875.git-patchwork-notify@kernel.org>
-Date: Mon, 28 Apr 2025 23:50:39 +0000
-References: <20250425085740.65304-2-phasta@kernel.org>
-In-Reply-To: <20250425085740.65304-2-phasta@kernel.org>
-To: Philipp Stanner <phasta@kernel.org>
-Cc: sgoutham@marvell.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, gakula@marvell.com,
- sbhatta@marvell.com, hkelam@marvell.com, bbhushan2@marvell.com,
- taras.chornyi@plvision.eu, venza@brownhat.org, hkallweit1@gmail.com,
- linux@armlinux.org.uk, deller@gmx.de, horms@kernel.org,
- jacob.e.keller@intel.com, mingo@kernel.org, tglx@linutronix.de,
- viro@zeniv.linux.org.uk, shannon.nelson@amd.com, sd@queasysnail.net,
- linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org
+In-Reply-To: <6eeb7bca-6018-46de-a7db-7189d60c0942@oss.qualcomm.com>
+References: <20250416000208.3568635-1-swboyd@chromium.org> <20250416000208.3568635-2-swboyd@chromium.org>
+ <6eeb7bca-6018-46de-a7db-7189d60c0942@oss.qualcomm.com>
+From: Stephen Boyd <swboyd@chromium.org>
+User-Agent: alot/0.12.dev8+g17a99a841c4b
+Date: Mon, 28 Apr 2025 16:55:27 -0700
+X-Gm-Features: ATxdqUHpAwR2wd_47EUgCGBgUk1wdQDezy5iMkujDq5bA3ST_h6HrhmS7YUoEN4
+Message-ID: <CAE-0n53ypGBXAt3frrbfAsbJZEkxK4BCB0+3MWOFRxZ9E+6P9Q@mail.gmail.com>
+Subject: Re: [PATCH 1/7] platform/chrome: cros_ec_typec: No pending status
+ means attention
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Tzung-Bi Shih <tzungbi@kernel.org>
+Cc: linux-kernel@vger.kernel.org, patches@lists.linux.dev, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	devicetree@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Rob Herring <robh@kernel.org>, linux-arm-msm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
+	Benson Leung <bleung@chromium.org>, chrome-platform@lists.linux.dev, 
+	Pin-yen Lin <treapking@chromium.org>, 
+	Abhishek Pandit-Subedi <abhishekpandit@chromium.org>, =?UTF-8?Q?=C5=81ukasz_Bartosik?= <ukaszb@chromium.org>, 
+	Jameson Thies <jthies@google.com>, Andrei Kuchynski <akuchynski@chromium.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_165002_056720_0C263939 
-X-CRM114-Status: UNSURE (   9.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250428_165530_120847_8969FBAC 
+X-CRM114-Status: GOOD (  10.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,54 +104,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Quoting Dmitry Baryshkov (2025-04-22 06:38:17)
+> On 16/04/2025 03:02, Stephen Boyd wrote:
+> > If we aren't expecting a status update when
+> > cros_typec_displayport_status_update() is called then we're handling an
+> > attention message, like HPD high/low or IRQ. Call
+> > typec_altmode_attention() in this case so that HPD signaling works in
+> > the DP altmode driver.
+>
+> Fixes?
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+I didn't put a fixes because it only matters to make the displayport
+altmode driver work with the typec port which isn't used so far on DT
+platforms. I view it as a new feature, not a fix for an existing
+feature, because we don't use the altmode driver.
 
-On Fri, 25 Apr 2025 10:57:33 +0200 you wrote:
-> Changes in v2:
->   - Rename error path. (Jakub)
->   - Apply some RBs
-> 
-> Fixes a number of minor issues with the usage of the PCI API in net.
-> Notbaly, it replaces calls to the sometimes-managed
-> pci_request_regions() to the always-managed pcim_request_all_regions(),
-> enabling us to remove that hybrid functionality from PCI.
-> Philipp Stanner (8):
->   net: prestera: Use pure PCI devres API
->   net: octeontx2: Use pure PCI devres API
->   net: tulip: Use pure PCI devres API
->   net: ethernet: natsemi: Use pure PCI devres API
->   net: ethernet: sis900: Use pure PCI devres API
->   net: mdio: thunder: Use pure PCI devres API
->   net: thunder_bgx: Use pure PCI devres API
->   net: thunder_bgx: Don't disable PCI device manually
-> 
-> [...]
-
-Here is the summary with links:
-  - [v2,1/8] net: prestera: Use pure PCI devres API
-    https://git.kernel.org/netdev/net-next/c/66ada7471155
-  - [v2,2/8] net: octeontx2: Use pure PCI devres API
-    https://git.kernel.org/netdev/net-next/c/48217b834529
-  - [v2,3/8] net: tulip: Use pure PCI devres API
-    https://git.kernel.org/netdev/net-next/c/adc36d0914f6
-  - [v2,4/8] net: ethernet: natsemi: Use pure PCI devres API
-    https://git.kernel.org/netdev/net-next/c/2a5a74947a2b
-  - [v2,5/8] net: ethernet: sis900: Use pure PCI devres API
-    https://git.kernel.org/netdev/net-next/c/6e5f7a5b5e0c
-  - [v2,6/8] net: mdio: thunder: Use pure PCI devres API
-    https://git.kernel.org/netdev/net-next/c/fad4d94d9ae5
-  - [v2,7/8] net: thunder_bgx: Use pure PCI devres API
-    https://git.kernel.org/netdev/net-next/c/06133ddc3590
-  - [v2,8/8] net: thunder_bgx: Don't disable PCI device manually
-    https://git.kernel.org/netdev/net-next/c/1549bd06e340
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+It also seems like it was intentional on ACPI systems to only handle
+mode entry/exit and not HPD signaling per my reading of the mailing
+list.
 
