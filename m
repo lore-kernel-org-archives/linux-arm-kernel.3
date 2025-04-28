@@ -4,101 +4,213 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65729C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 15:52:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1771C3ABA4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 15:54:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PU/sixtY71LvEi4Fz6DQo24QLlRpV93TUetQH3mfBu0=; b=wmNZVWYpw7GCIg6lKdr2FBETmW
-	Y4rXsJLvo3Q7Lbm71/2wrcgnHE06M0qCTnFoAk1+PgxjPhdvjdO500nCBvZirKcjngGT77c4epCTC
-	HlPXTfGLDwEK4ronSJGZP+kGQgVkey3xhcDEehwLRniJmBgEmFBWsDyTxYZHqic/+E9dgRI9iE6IC
-	SdIn1JCjiWCCnNOaVc9rXrMpXbZZEejhE5e3yg32YCK4gKKrwJyCNVg8gj4ojDL4hwNi87kjah3HD
-	3Fn1qqfoW8DudasaO0ckvQtZ64HwF/pqgReCb84zEYqK2PVRUbSt8poJ91nYFiSPbPhF+n6efZvFm
-	v6sH7N/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7sci4zNsJXDj4J5tp8nODVX9k9vJmu3btOoqvSc66mE=; b=32ABzYxjfK4/dPlGzvvsAmXWbS
+	UyNLXOu3LCIxUexuM2PEtyTB5lxxQ4EIfDY5ValNub+r1Okkbg6ZpGprJ7F8t7RyOvkgBQHUWFoqJ
+	5PzgQb08R/3ihv5FuiOlZTzdSCRqfqf59TEv8UY0IpFnOX+hTzpTcKhNjNAmxTNcVGwamTWkp2ctX
+	18yXQgECxprsvt2+zict8/tiPuSQj8mymO+YXjZgQrK04k/BcVNN3XEQullpih030PsLn15Ehm+Cw
+	zpM6eSZ8GMQo/fUiDWIFLZm8r+hoYtbMlLd0gVqmVz+ANMO3DXmgGSwIDJvjtc5kc/LfYgy74LLfz
+	Z4lBgdqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9QmN-00000006pWi-2YbC;
-	Mon, 28 Apr 2025 15:52:23 +0000
-Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
+	id 1u9QoJ-00000006pmh-1Uda;
+	Mon, 28 Apr 2025 15:54:23 +0000
+Received: from mail-db5eur02on20607.outbound.protection.outlook.com ([2a01:111:f403:2608::607] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Qfe-00000006oJw-01oI
+	id 1u9QhC-00000006oem-1se7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 15:45:28 +0000
-Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-70565ccf3bcso52198007b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 08:45:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1745855124; x=1746459924; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PU/sixtY71LvEi4Fz6DQo24QLlRpV93TUetQH3mfBu0=;
-        b=hDGWxTAKgoNHmssjd0ZblOP7iVduzYc9lactbLBWtt842FyFSKLFRNViZ6DA1BEluI
-         QjLs3vVRwf9cAvRrS6gYydWXuiXOuBIpvPCUnhZEKZFc3M0I3zPxDvLGmzkSvJAC75og
-         uJlMl7pMY93hOzaNWO6EMwyiZinEbke0Ykq7p0jAyd/+RNfE1PyEdIFHLaBTNE/mvoZG
-         iUv8oosM9NfPRwPTeGbYWHW5CGTG9RpVu7oUgoI6aX1zKejz1anspvoVEbbjhhivA2s3
-         d4VIUi/krwmNtoJfxfR2kUS1LFMwCl0T5ESmo4Dm4BxyGQUB7HgWhvT7AlGxW8WGTHDU
-         ffaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745855124; x=1746459924;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=PU/sixtY71LvEi4Fz6DQo24QLlRpV93TUetQH3mfBu0=;
-        b=sW7kyydBcb9eYzn6Uf9hV5Lfrm7YxJ2qWe/J3SSWe1IblZgiWTCS9XfxR29E7ttsur
-         +cmES1Ua9wPD7i6Dmah77zDg1k0SPbKCvXUQXztjhA+SYLLQhbdwgbJT1zBOXE4Ba2J2
-         p4V2zeV3Vjmk/+INl329Vi+zEiFS4EFKqhZucnbaTe42W6SNxjEoArupIVYkEvfiY5FV
-         NUqwm3tQo0q6RK8q+sB2d6z5D/g7MjwOY5cxWvXVTXYeVitzD0f9lwazmmvURKyehzeX
-         EscOgLAvsJvaOjTc9X+KCUEIfEm6Ddo/Y8arF4jHos+vEFctc+cdaQ3OF3C8LP1ufWOM
-         A/sQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUSTlN8Z1sF4h0H1PuFbJR0vu7cNz/FpSpEqkD/qNeuSBR+Oo1hktuCIPVjCn+k5m6ALjMWlJaBBxpiXHkcVoRp@lists.infradead.org
-X-Gm-Message-State: AOJu0YyWgasISytF6tbUt9W8Huh1eokJYvrOmr3S6iSmCACNgeBgepJ+
-	F4OVsnBxsEJ0opWvFpeANWXXk+lMTvBWbhquXJ4tEIEZGY0mrHOPWiYzkPDmfRZkDF35f/c6vAX
-	izaeAKZpVbrKM/weLcQ1RBjMM/Oz8LN50T83Uqg==
-X-Gm-Gg: ASbGncufYrVK63Q+ElJXXX/ryncQXi0dLUgce/8kyaKjj9GfOjphGSTF90ymjNRRava
-	ODfhNTxoNaj3PvGLpw/dUpr5WTxbNeRqyWYkr9p/OVhsie7vdtcuDGtnW/FeOgokQosNk1vjtl7
-	2XqZVL8cTtqLJl1kCao8i9DdiXHA5HVle6CLO4L5VoXY+0W6Ppls5kdKUUgIjQkz0=
-X-Google-Smtp-Source: AGHT+IEF9MSlc844cuGTIRN/jaSQKExcmjeU1UeJwf54mw2x30vI+iBpqqWrdgOqbrjU+FD8mBfkUxmgGRAbgf2Y+6M=
-X-Received: by 2002:a05:6902:2701:b0:e72:d88e:7a9a with SMTP id
- 3f1490d57ef6-e73500e777emr136870276.45.1745855124717; Mon, 28 Apr 2025
- 08:45:24 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250424-drm-bridge-convert-to-alloc-api-v2-0-8f91a404d86b@bootlin.com>
- <20250424-drm-bridge-convert-to-alloc-api-v2-27-8f91a404d86b@bootlin.com>
-In-Reply-To: <20250424-drm-bridge-convert-to-alloc-api-v2-27-8f91a404d86b@bootlin.com>
-From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Mon, 28 Apr 2025 16:45:08 +0100
-X-Gm-Features: ATxdqUF8zRJ18UCRRqpYogjOFDok1I-AvafpDPPJcxH-STXodhofR9H1CLM8tQg
-Message-ID: <CAPY8ntDwK0DZ6sThryDRBUgjTb+muNHtRNp+LohTs6+FWeB5TQ@mail.gmail.com>
-Subject: Re: [PATCH v2 27/34] drm/vc4: convert to devm_drm_bridge_alloc() API
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Jagan Teki <jagan@amarulasolutions.com>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Douglas Anderson <dianders@chromium.org>, 
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Anusha Srivatsa <asrivats@redhat.com>, Paul Kocialkowski <paulk@sys-base.io>, 
-	Dmitry Baryshkov <lumag@kernel.org>, Hui Pu <Hui.Pu@gehealthcare.com>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, dri-devel@lists.freedesktop.org, 
-	asahi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	chrome-platform@lists.linux.dev, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
-	platform-driver-x86@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org, 
-	linux-stm32@st-md-mailman.stormreply.com, =?UTF-8?B?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-Content-Type: text/plain; charset="UTF-8"
+	Mon, 28 Apr 2025 15:47:04 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=aXCRRqMNAwc+QCQty/fK8i8Bm0JtN39ZHVQ4lONHCwZemU5QF8JQAkISZfx7WWHUz0ca02K3CQaC295OCM6+dy4pW0cbe0v74l8kXjMOALwryOcWcs16HWNgA8JyphEFoFVKhvz8MbY9M0PPc1w2jON8lwsk86Wd+HLknJQ2dtitVIoSZ2KLRsKrN1MZS4peOZizbw0OBn6ElH3zxkIqSnXAJoBS12ex/ivsc7S4D1bVJqzkYI+LIUOG/Z95MZuzJCkOP7hV4r1GVBXouNNbkFXt2IkqcHSL0uSCey5kPVPhZdvJru5nwRThZ7yRyX8qdDTyucWkYSgvn2Yn4wAU+Q==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7sci4zNsJXDj4J5tp8nODVX9k9vJmu3btOoqvSc66mE=;
+ b=OnCbExo523JwgvH8G/+cevLOE1DDIvojBdHxSB2OwEPunfVxUbqOXNu6wRDqLBawjNuYcnOeFnwCArWt3TK01sShalWyVT9UmvYbbJ3P4yAGWoCAX259kZDs057PAoOut5/GJYEckxMKWCxgi3rEG7GQEwTiTGU+HOuAuhVPhMaEOSg5QdsoeZon5WkeYHpgO0QfW8MNufMqTNBh479moZNpY5wlShvYKtntBrfqyYZrKuxkrULH4doXOEfRhlWfgMp7Gx/KNz5UTsVVPfNYzan/7G8ESkM3TuLuDp+4Buk8JtRB8mgFwPf4K7lmAOtTm6zm73QocGiv4j5Z4kOf9g==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=redhat.com smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7sci4zNsJXDj4J5tp8nODVX9k9vJmu3btOoqvSc66mE=;
+ b=lmdVZdpnWUBMeLDy8PRfAz2uvoTvvMYebfQ+QWbI2RgrtAM+FgydVEcmD+0dwkWqBStAnwG3yoP+7dU9c3zM1IVFCkgwX9GaOAad7KJLgEf5rSijP9L+7O0OSmgJzUpvxHxOs2PGWTv0Ya75ffeQxh4bJUo7NWQcWd9zVjAQ/dw=
+Received: from DUZPR01CA0293.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4b7::7) by DBAPR08MB5656.eurprd08.prod.outlook.com
+ (2603:10a6:10:1a2::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.31; Mon, 28 Apr
+ 2025 15:46:52 +0000
+Received: from DB1PEPF0003922F.eurprd03.prod.outlook.com
+ (2603:10a6:10:4b7:cafe::ef) by DUZPR01CA0293.outlook.office365.com
+ (2603:10a6:10:4b7::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.41 via Frontend Transport; Mon,
+ 28 Apr 2025 15:47:05 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DB1PEPF0003922F.mail.protection.outlook.com (10.167.8.102) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8678.33
+ via Frontend Transport; Mon, 28 Apr 2025 15:46:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RKDR2M1JciOvLrd0poMkdFogrA72OqthrsSS+ulut3/y/MkSClqbhSsBoYyH8aizHl9AL5/E4+wL941zMXhUZMKVZpTgBI851hvifN9bsoLPHC4CBU9Bori3YqZ0kXzHXCnQoE5EtEACNbfdXkxqmBC/vrYno57EPlYmepTu312QomuO8gVXweew+vQtWZp3vfgxvx3GjeNkBjybKY+NE32POJvIxr2HEXBkMbRRrq4MAMLlojeFXoQ4Mo9oswK5PvVuUhSaHKNJfHpnmC+J0C4Ax/5GzphfLFpSGdYQJasfXrhWiq0BAqoDNxfK0wKcWZhNVaSZ+PcCH6qbGid4gw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7sci4zNsJXDj4J5tp8nODVX9k9vJmu3btOoqvSc66mE=;
+ b=wggOT4ECu6DtgE37F1yGfdwlrEDemIfmUEF5xY5xjymdjfrI4+sz05bzG85gleAq6d+I+1MHzX2EdWs3nSKYzidQY4ccvuZz+/dmmayvamUmGaX5dTe6ewEA771QDCSmtFCb5FAsF6UMssDeGarxYQ7zmYemjfwuOenDzjDDjN2quLdQG0bjr92xzDF/Y9TODBgfcFLxcdPw0+N3JIQuUz+SE5s0pAMv98Qv0BdGlJ4noaKsz4uzxX59ZNhmEIESGjPtGjhJKTNwPkNqcYz2mePfCQnh/vPpd1sUic7+WdY0dGHIxfVaZbgCJ2jiTx+nOaN1Q75f72WwAl+NIhXWzg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7sci4zNsJXDj4J5tp8nODVX9k9vJmu3btOoqvSc66mE=;
+ b=lmdVZdpnWUBMeLDy8PRfAz2uvoTvvMYebfQ+QWbI2RgrtAM+FgydVEcmD+0dwkWqBStAnwG3yoP+7dU9c3zM1IVFCkgwX9GaOAad7KJLgEf5rSijP9L+7O0OSmgJzUpvxHxOs2PGWTv0Ya75ffeQxh4bJUo7NWQcWd9zVjAQ/dw=
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20) by VI1PR08MB10175.eurprd08.prod.outlook.com
+ (2603:10a6:800:1cf::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.27; Mon, 28 Apr
+ 2025 15:46:18 +0000
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::d430:4ef9:b30b:c739%6]) with mapi id 15.20.8678.028; Mon, 28 Apr 2025
+ 15:46:17 +0000
+From: Yeo Reum Yun <YeoReum.Yun@arm.com>
+To: David Hildenbrand <david@redhat.com>, Catalin Marinas
+	<Catalin.Marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
+	"broonie@kernel.org" <broonie@kernel.org>, Anshuman Khandual
+	<Anshuman.Khandual@arm.com>, Joey Gouly <Joey.Gouly@arm.com>,
+	"maz@kernel.org" <maz@kernel.org>, "oliver.upton@linux.dev"
+	<oliver.upton@linux.dev>, "frederic@kernel.org" <frederic@kernel.org>, James
+ Morse <James.Morse@arm.com>, "hardevsinh.palaniya@siliconsignals.io"
+	<hardevsinh.palaniya@siliconsignals.io>,
+	"shameerali.kolothum.thodi@huawei.com"
+	<shameerali.kolothum.thodi@huawei.com>, "huangxiaojia2@huawei.com"
+	<huangxiaojia2@huawei.com>, Mark Rutland <Mark.Rutland@arm.com>,
+	"samuel.holland@sifive.com" <samuel.holland@sifive.com>,
+	"palmer@rivosinc.com" <palmer@rivosinc.com>, "charlie@rivosinc.com"
+	<charlie@rivosinc.com>, "thiago.bauermann@linaro.org"
+	<thiago.bauermann@linaro.org>, "bgray@linux.ibm.com" <bgray@linux.ibm.com>,
+	"tglx@linutronix.de" <tglx@linutronix.de>, "puranjay@kernel.org"
+	<puranjay@kernel.org>, "yang@os.amperecomputing.com"
+	<yang@os.amperecomputing.com>, "mbenes@suse.cz" <mbenes@suse.cz>,
+	"joel.granados@kernel.org" <joel.granados@kernel.org>
+CC: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, nd <nd@arm.com>
+Subject: Re: [PATCH v3 2/4] prtcl: introduce PR_MTE_STORE_ONLY
+Thread-Topic: [PATCH v3 2/4] prtcl: introduce PR_MTE_STORE_ONLY
+Thread-Index: AQHbqe+ilprKLvmPak6kl/nA7+Nv/rOzXNCAgAX2o/c=
+Date: Mon, 28 Apr 2025 15:46:17 +0000
+Message-ID: <GV1PR08MB10521255DDF2BE9AF745CEF7AFB812@GV1PR08MB10521.eurprd08.prod.outlook.com>
+References: <20250410080723.953525-1-yeoreum.yun@arm.com>
+ <20250410080723.953525-3-yeoreum.yun@arm.com>
+ <390f3d5e-8da6-4286-b8a9-72eabcc3abd5@redhat.com>
+In-Reply-To: <390f3d5e-8da6-4286-b8a9-72eabcc3abd5@redhat.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-GB
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+x-ms-traffictypediagnostic: GV1PR08MB10521:EE_|VI1PR08MB10175:EE_|DB1PEPF0003922F:EE_|DBAPR08MB5656:EE_
+X-MS-Office365-Filtering-Correlation-Id: 804e35e9-27fa-4260-8eb3-08dd866be4a3
+x-checkrecipientrouted: true
+nodisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|38070700018|921020;
+X-Microsoft-Antispam-Message-Info-Original: =?iso-8859-1?Q?sJKioM7LIWdJIrwXyMB5Ym8t3Yfm2pYY6VlC61JOsdHhLp2VcdwcW9yRLc?=
+ =?iso-8859-1?Q?Kw29l8FNxXjniVcz+6buKxpXW6USSnST+RUbYEwDpp7MgkjvFeXZCy54Pu?=
+ =?iso-8859-1?Q?BlRwMrJqWO9fk7pSQiuQQYb/4KuvfxMr00pBoe6pUs+N0aSzzmXyWlwMnn?=
+ =?iso-8859-1?Q?SC8Ww6hB1UsSoAgpzw2P/bMRtCFd/Uo74xylqdhoG9HGUiPIl4zkxVK2YG?=
+ =?iso-8859-1?Q?wZohChvJXmt0dI4H9YkK+hgWLTWyGpUYc0gU7jLM0nxFh4LLveLotMcUL0?=
+ =?iso-8859-1?Q?CQcVCMYZ4mN3DYBW9kCzHK0c/r0Mr12xF2RZx6HfVT3oJgk8Rw5QPvTnwN?=
+ =?iso-8859-1?Q?0t5mBzZn/OAuIEmpB+uSvAQB+UchH9N1U2Xtkyy60UUn4xSpn8cTA8lqSd?=
+ =?iso-8859-1?Q?/mkQkiGpNaIPipPQbBc0keXWnhroBbsjuKdDmOWMp2OcrVARtQL8sRl36u?=
+ =?iso-8859-1?Q?YroY95RiC2EQbBGvL6xICeWlzX9eGqsezqwlPIveWj+IrTg8sB0w0AcR+e?=
+ =?iso-8859-1?Q?n5TUUvaklNn2kJFKGnWhliZWTGJDJllYgmhNErMbuFBP277hrH/9TBaksC?=
+ =?iso-8859-1?Q?VD2mGyiRichT0O+B2EwUsjgXW7/rUbMgobkL2BRdrJ5P3vfH8jPRdyAwqN?=
+ =?iso-8859-1?Q?gR3cB/lmQcV/mlTW0Cst0wW8p0ValjRu06afW4EZiI9AX+8VRngZS4Yy6n?=
+ =?iso-8859-1?Q?Zz1zhFqMQyiAQsT3EMRKTW13DiBxVz2yYiyDjkaV7e2uQfFQz/5xDdId53?=
+ =?iso-8859-1?Q?HUmjYUaHpcW+Xoh6J1RlT+jm5rh0xKmXCa2nUiKA1Az+s5/b0/HJfWpIf7?=
+ =?iso-8859-1?Q?0OMNT8ikNOipHySO1+m/A2K+JI/vNNZv+BJ7nreM7f1dk05Lc15vj/1PuB?=
+ =?iso-8859-1?Q?7mG7cWlJ8QLkfPXHY4gHq1Oo9Og2KDaOBcuNfl8LmqHBkcbz6z9HxeI+47?=
+ =?iso-8859-1?Q?4tlyUN+F2GeZ/yeuiQ+QuZkzjN14xcVDeBdMWyunxudnNgnRDA2JOMnueC?=
+ =?iso-8859-1?Q?bazlNQrIlt3EUCkjtgJieGcuWLuo2vUNOwva875XMNMR6psjSUqBIqFQoU?=
+ =?iso-8859-1?Q?wy4WhhJ/beNDslNti4/61yxHoM56eNy4ugtu8cSTLUMznRrdlKmsuSTy24?=
+ =?iso-8859-1?Q?a+KAjyOlXGAS9liZl+u/KWC4SvU4yZxCqpknx2baHkGz9aDExwlXFePuYd?=
+ =?iso-8859-1?Q?h7Jfzk+xLOOMoz9e5iBcEnrTUL/Gn4VSN9LBixMVc55DKyKnTQy9l07tmo?=
+ =?iso-8859-1?Q?sQ1A5HXifHLuE5PkxHZaaoXis30Rmk7Ocv4LU5oAbS1cTE3JWjE8oPjCk9?=
+ =?iso-8859-1?Q?VI0MF8Nk5DaaD+zC7w/Nlx7eQ8QBSx7M1xdNdofMTdVkT0QddZ3QsCBZe+?=
+ =?iso-8859-1?Q?+Yh4Wt0CSVsbyKqpPSC0cUYGM0e7sabWjC4n5CBeuQJSigsS0kJbIjfAvd?=
+ =?iso-8859-1?Q?8h4PH110wBfPEtUChH1LpxMFApTspvNMZZneb37V29WptD47eXHBoomxWZ?=
+ =?iso-8859-1?Q?H8jaYZyl3BfN4c2wBZYtZS4k1PZzuOZopEL16/QF4aCEXRU8Pbmjk02n3S?=
+ =?iso-8859-1?Q?1rv7MqQ=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(38070700018)(921020);DIR:OUT;SFP:1101;
+Content-Type: text/plain; charset="iso-8859-1"
 Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR08MB10175
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF0003922F.eurprd03.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 7eed2e50-4d2e-4d6c-c56e-08dd866bd0af
+X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|1800799024|376014|36860700013|82310400026|14060799003|7416014|921020;
+X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?47xiwg6NWDmy9rRHjfemv+WWWkH8CYpjKk7wk6z7mlRcHshsMlCKrWe4Lk?=
+ =?iso-8859-1?Q?uZJcHS2Yv08OOzSu/85dMOiDUKIT2TS7RWCuD4ht0LEm+cKifuJCr040Tn?=
+ =?iso-8859-1?Q?hfhJ0/pfCOTOhSd/w67JViUHfw7IQeGMtMspKp45JlUuLTuvQFUKC0iTB7?=
+ =?iso-8859-1?Q?sr/oktM9qP5lSXBPWhKUY9xC8uDPRBI4T7/ESAiVyp4nsDmOHk4YnMv7QI?=
+ =?iso-8859-1?Q?XpyFTJ7tjqqAwU2aNJfLjnq5OPaTddJ2Zxl+ReBiAoBrLnVD75oeuzGLuJ?=
+ =?iso-8859-1?Q?c3HlPqFGKmdJHI+9o1tw8kCyWRs7yW60vkJUjqWwuEM/DyIJRSmUhYvKmg?=
+ =?iso-8859-1?Q?+z4RqMw2yQbRVr0jYcmmnHgfHuOOHhDv7q4ZNHYTmJqmnsLI/c/ZEAqHbQ?=
+ =?iso-8859-1?Q?GaJCSj4JBdkNM+rzzbd5BGdZC5Cx0RHDiF7XTPYEZ3meB7uPKcHVyH/bld?=
+ =?iso-8859-1?Q?HhyDPoXkyhQ4O1S5nSXSJN+YqQXg7s99vJ7YVRSh4C3v1XDBG3Cl7LbIZq?=
+ =?iso-8859-1?Q?GXa+GCw7eYdH2RGeB/O3zxL1KkNFUGNwGX4GmOPqp72cZlovagy7rk2lhH?=
+ =?iso-8859-1?Q?7mvbQHJJzq6QTvN6EW4BTgLri3otsezjzRNCipzfkRZsgJcf+k9otBStec?=
+ =?iso-8859-1?Q?3Gok4OJPwdVzwXnWE8A8+TFbxITlI9mvZJLTuVjcc1TRNobIRSD3IgM/uY?=
+ =?iso-8859-1?Q?O13T09ZumXRdc+IpS7rp1rqfZknv9HTsbfqxzesGs59xCBFJxbqssLWwIe?=
+ =?iso-8859-1?Q?kp4n5guw1XnwbYvbTxtOg9ga1Tm8EcawQfMRCRunjYRIaewwrfnmtO4tXI?=
+ =?iso-8859-1?Q?htiqZQfWv4DNMDUP+hhJ+fK1rFVwPQgHeOp3mLkGTz+blmruNWyIqFqiUk?=
+ =?iso-8859-1?Q?ioSOCTlWESWW3zIvV9oDheoV++CNbdKC/Z8M+HCu6uJ47kt8OpO5tHGZxw?=
+ =?iso-8859-1?Q?1HhujUagKJijmD0AXd+SWlf6T8lsk1vKOCN7h4n7v9lkppmy8O86+D8qTo?=
+ =?iso-8859-1?Q?fmQrcvrLimp5uNb4SHckeXL9tTNkHx1I9DgK4+BTHMoIX/T473LGHfIOaO?=
+ =?iso-8859-1?Q?eIErWl2r5eyzi/vILqjVsPmNfZMqdRcmSa6ZozHtNX+txRuH+fXMVSQUAi?=
+ =?iso-8859-1?Q?FjF4BiKA1HGAKxdJb1ExZ1uxbIxerB8m5KbyZjixUjokEq4uiBndx0hhlD?=
+ =?iso-8859-1?Q?GLAKeBqJTHYtx9YUK9bBz8IfrASatK+FomjZz/EYGaWNO2XMuGf3nFQlCZ?=
+ =?iso-8859-1?Q?NQ4VtWMEzG/9lrtA9CYTzD54Ow7HzpOWj1RApM/rwkSgqgAV9G8Y6IUfXR?=
+ =?iso-8859-1?Q?8xFc2bjBdKrWnSCOWASYNFaun2/awfUtzigmwrUmxR0PqvDmONBN0Wqlpk?=
+ =?iso-8859-1?Q?GG6GRL8qwWD9pXo0tbR2KrtUmSWNN03HDv0ylvqj3ZpXW5U6lqMrkkjJkL?=
+ =?iso-8859-1?Q?scuvhdWVvJKvxaaU8dRAB83Lc/jLiIHY3vVnCDNNAsDJmIvTgRdYxIA7RQ?=
+ =?iso-8859-1?Q?jFZiE4rMMjTFKEKUuuWofwSwjUvNVSPMi8ZEpj4uFG+3VDyWsL+QDJ0W7m?=
+ =?iso-8859-1?Q?D5owYF8+dNkBICoUDREK1rvrhBarm4HXgcfevvm/xfRjnjx6uQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(1800799024)(376014)(36860700013)(82310400026)(14060799003)(7416014)(921020);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2025 15:46:51.1055
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 804e35e9-27fa-4260-8eb3-08dd866be4a3
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF0003922F.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR08MB5656
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_084526_050025_DCC41BBF 
-X-CRM114-Status: GOOD (  22.32  )
+X-CRM114-CacheID: sfid-20250428_084702_639780_72E22EB8 
+X-CRM114-Status: GOOD (  16.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,126 +225,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 24 Apr 2025 at 20:01, Luca Ceresoli <luca.ceresoli@bootlin.com> wro=
-te:
->
-> This is the new API for allocating DRM bridges.
->
-> This driver already implements refcounting of the struct vc4_dsi, which
-> embeds struct drm_bridge. Now this is a duplicate of the refcounting
-> implemented by the DRM bridge core, so convert the vc4_dsi_get/put() call=
-s
-> into drm_bridge_get/put() calls and get rid of the driver-specific
-> refcounting implementation.
->
-> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-
-Acked-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
-
-Thanks.
-
-> ---
->
-> Cc: "Ma=C3=ADra Canal" <mcanal@igalia.com>
-> Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>
-> Cc: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
->
-> Changed in v2:
-> - fix error code checking
-> ---
->  drivers/gpu/drm/vc4/vc4_dsi.c | 34 +++++-----------------------------
->  1 file changed, 5 insertions(+), 29 deletions(-)
->
-> diff --git a/drivers/gpu/drm/vc4/vc4_dsi.c b/drivers/gpu/drm/vc4/vc4_dsi.=
-c
-> index efc6f6078b026764c59cfb2a33b28a88b7018c3a..458e5d9879645f18bcbcaeeb7=
-1b5f1038f9581da 100644
-> --- a/drivers/gpu/drm/vc4/vc4_dsi.c
-> +++ b/drivers/gpu/drm/vc4/vc4_dsi.c
-> @@ -552,8 +552,6 @@ struct vc4_dsi {
->         struct vc4_encoder encoder;
->         struct mipi_dsi_host dsi_host;
->
-> -       struct kref kref;
-> -
->         struct platform_device *pdev;
->
->         struct drm_bridge *out_bridge;
-> @@ -1622,29 +1620,11 @@ static void vc4_dsi_dma_chan_release(void *ptr)
->         dsi->reg_dma_chan =3D NULL;
->  }
->
-> -static void vc4_dsi_release(struct kref *kref)
-> -{
-> -       struct vc4_dsi *dsi =3D
-> -               container_of(kref, struct vc4_dsi, kref);
-> -
-> -       kfree(dsi);
-> -}
-> -
-> -static void vc4_dsi_get(struct vc4_dsi *dsi)
-> -{
-> -       kref_get(&dsi->kref);
-> -}
-> -
-> -static void vc4_dsi_put(struct vc4_dsi *dsi)
-> -{
-> -       kref_put(&dsi->kref, &vc4_dsi_release);
-> -}
-> -
->  static void vc4_dsi_release_action(struct drm_device *drm, void *ptr)
->  {
->         struct vc4_dsi *dsi =3D ptr;
->
-> -       vc4_dsi_put(dsi);
-> +       drm_bridge_put(&dsi->bridge);
->  }
->
->  static int vc4_dsi_bind(struct device *dev, struct device *master, void =
-*data)
-> @@ -1655,7 +1635,7 @@ static int vc4_dsi_bind(struct device *dev, struct =
-device *master, void *data)
->         struct drm_encoder *encoder =3D &dsi->encoder.base;
->         int ret;
->
-> -       vc4_dsi_get(dsi);
-> +       drm_bridge_get(&dsi->bridge);
->
->         ret =3D drmm_add_action_or_reset(drm, vc4_dsi_release_action, dsi=
-);
->         if (ret)
-> @@ -1810,15 +1790,12 @@ static int vc4_dsi_dev_probe(struct platform_devi=
-ce *pdev)
->         struct device *dev =3D &pdev->dev;
->         struct vc4_dsi *dsi;
->
-> -       dsi =3D kzalloc(sizeof(*dsi), GFP_KERNEL);
-> -       if (!dsi)
-> -               return -ENOMEM;
-> +       dsi =3D devm_drm_bridge_alloc(&pdev->dev, struct vc4_dsi, bridge,=
- &vc4_dsi_bridge_funcs);
-> +       if (IS_ERR(dsi))
-> +               return PTR_ERR(dsi);
->         dev_set_drvdata(dev, dsi);
->
-> -       kref_init(&dsi->kref);
-> -
->         dsi->pdev =3D pdev;
-> -       dsi->bridge.funcs =3D &vc4_dsi_bridge_funcs;
->  #ifdef CONFIG_OF
->         dsi->bridge.of_node =3D dev->of_node;
->  #endif
-> @@ -1836,7 +1813,6 @@ static void vc4_dsi_dev_remove(struct platform_devi=
-ce *pdev)
->         struct vc4_dsi *dsi =3D dev_get_drvdata(dev);
->
->         mipi_dsi_host_unregister(&dsi->dsi_host);
-> -       vc4_dsi_put(dsi);
->  }
->
->  struct platform_driver vc4_dsi_driver =3D {
->
-> --
-> 2.49.0
->
+Hi David.=0A=
+=0A=
+> > PR_MTE_STORE_ONLY is used to restrict the MTE tag check for store=0A=
+> > opeartion only.=0A=
+> >=0A=
+> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>=0A=
+> > ---=0A=
+> >   include/uapi/linux/prctl.h | 2 ++=0A=
+> >   1 file changed, 2 insertions(+)=0A=
+> >=0A=
+> > diff --git a/include/uapi/linux/prctl.h b/include/uapi/linux/prctl.h=0A=
+> > index 15c18ef4eb11..83ac566251d8 100644=0A=
+> > --- a/include/uapi/linux/prctl.h=0A=
+> > +++ b/include/uapi/linux/prctl.h=0A=
+> > @@ -244,6 +244,8 @@ struct prctl_mm_map {=0A=
+> >   # define PR_MTE_TAG_MASK            (0xffffUL << PR_MTE_TAG_SHIFT)=0A=
+> >   /* Unused; kept only for source compatibility */=0A=
+> >   # define PR_MTE_TCF_SHIFT           1=0A=
+> > +/* MTE tag check store only */=0A=
+> > +# define PR_MTE_STORE_ONLY           (1UL << 19)=0A=
+>=0A=
+> That is the next available bit after PR_MTE_TAG_MASK, correct?=0A=
+>=0A=
+> Would we want to leave some space to grow PR_MTE_TAG_MASK in the future=
+=0A=
+> (could that happen?)?=0A=
+=0A=
+Yes it is. But I don't think it would grow up=0A=
+since  GCR_EL1's exlude field size 16 bits where PR_MTE_TAG_MASK value is s=
+et=0A=
+and the next bit is used by other purpose. =0A=
+=0A=
+thou, exclude field would be some bit filed in GCR_EL1=0A=
+AFAIK there's no plan to add new exclude field to extend=0A=
+and when new field is added for this, I think it would be better to add cor=
+respond=0A=
+MASK for the new field.=0A=
+=0A=
+Thanks.=0A=
+=0A=
+---=0A=
+Sincerely,=0A=
+Yeoreum Yun=0A=
 
