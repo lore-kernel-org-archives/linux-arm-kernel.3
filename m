@@ -4,107 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7362FC36005
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 09:16:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D4F8C369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 09:18:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QoLHO3NZ8rCIAR98kSnIlqa+IDRuSTF1aJXvuCF0QoI=; b=hlGB2O8lQkZxl31kYdmkpKp0Df
-	Dz8J5kDauwjyf2RKnI/AN8mSp9CPyKDbtXCSAVcM1rZtn4M87aE9ijt1x11+RnXl1NtzE/q9wHdbp
-	gHJL6wut/qeisomsAxaG6u7mlZMCAUULrutClq/t3cw4ymt2mo0ZBZZXSGSIebUP0dFkKMb7doxyk
-	3Ab+5S0AL6ofmfwdfq7+BwdR9HbDlZlOOSkT2ny12cdZJ3+bygrtWiHUp00RKuT+R7gMfyWdu2oVN
-	zFJJQ4hDx2Vbacj+kjAU/iIK/+LhR0AgdYR0DLzBAMQnYj6ZwjwXnnTrNngRHBcFT53qpPjgWpjVT
-	bnej20/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=U11p1IY2aK2v6bA7NuFH2Skoo0U6MbsQxOYKzBo9dzc=; b=p+5gKuG7Nls040vOovWV/Lna8m
+	TIjOb6N/VEfG8w43M/TE+MhLGY2lrUMunmHPzzNi9lmpEKrn0REW9+QnT7S+8+m5GQOBya0yVRf/G
+	ayKvmExQZlh+XMFYvAzvN9l6yJKcrYI18z4HRj0+bEJrpzdYkckXwIyKzJA8lr76QHQjj8/Kul3/5
+	ql3zDQcExNSEAzFTEGz4dVaDzwmIyX6fnKP4bbG4rHF0LY+s9leCZIigp4c1UPWOyD7AUunZ0bWWD
+	cI2XWOmXjl/Tx71BnFUpUERuJ8cEoFHADJr8V2BHcOwBd9dgu7wgkM8OXZWp4cLvDxVkSWTZ4aJGH
+	Dd4lTR4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Kau-00000005ZD3-3iKX;
-	Mon, 28 Apr 2025 09:16:08 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1u9Kcq-00000005ZVN-2Lmm;
+	Mon, 28 Apr 2025 09:18:08 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9K9I-00000005Vfa-39lQ
+	id 1u9KBk-00000005VxN-08UE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 08:47:41 +0000
-Received: from epcas2p2.samsung.com (unknown [182.195.41.54])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250428084730epoutp01e93ae46ea8afc39976ee72f35f22dbe1~6by5C-uRO1617916179epoutp01Z
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 08:47:30 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250428084730epoutp01e93ae46ea8afc39976ee72f35f22dbe1~6by5C-uRO1617916179epoutp01Z
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1745830050;
-	bh=QoLHO3NZ8rCIAR98kSnIlqa+IDRuSTF1aJXvuCF0QoI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=DJCyUBORRyMdGMvG69AU9hZxdEruCceJnKm7Iti4ydd8Myd9GcFPDAI7qekwG+Ws2
-	 +mfoSiqJdcVFPG9JeigXakIENRg0oBhQRTrGYP69rTzwBwEbCmdf8RwNWp3qDEPWoJ
-	 uEE/IyAnAZHZtwj4BVFtTeyp1uoBlXSccp7HZpV0=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas2p3.samsung.com (KnoxPortal) with ESMTPS id
-	20250428084729epcas2p35137e4bcf253f9e096fb3f5606f686e4~6by4jwZkH3025530255epcas2p3G;
-	Mon, 28 Apr 2025 08:47:29 +0000 (GMT)
-Received: from epcas2p4.samsung.com (unknown [182.195.36.100]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4ZmHBn1Yllz3hhTF; Mon, 28 Apr
-	2025 08:47:29 +0000 (GMT)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas2p3.samsung.com (KnoxPortal) with ESMTPA id
-	20250428084728epcas2p34ffa0051a16c10ff1c358a98cc2c2fa4~6by3suCY13025530255epcas2p3D;
-	Mon, 28 Apr 2025 08:47:28 +0000 (GMT)
-Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250428084728epsmtrp174d195cdaba526ea41263bb1f6542b04~6by3rh5KQ2986529865epsmtrp1Y;
-	Mon, 28 Apr 2025 08:47:28 +0000 (GMT)
-X-AuditID: b6c32a52-40bff70000004c16-cc-680f40a03307
-Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
-	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
-	E2.CF.19478.0A04F086; Mon, 28 Apr 2025 17:47:28 +0900 (KST)
-Received: from localhost.localdomain (unknown [10.229.9.60]) by
-	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250428084728epsmtip141d3738578162e2eca70d97b76378d1b~6by3bPxOp1942219422epsmtip1G;
-	Mon, 28 Apr 2025 08:47:28 +0000 (GMT)
-From: Shin Son <shin.son@samsung.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Sylwester Nawrocki
-	<s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar
-	<alim.akhtar@samsung.com>, Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Sunyeal Hong <sunyeal.hong@samsung.com>
-Cc: Shin Son <shin.son@samsung.com>, linux-samsung-soc@vger.kernel.org,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH 1/3] dt-bindings: clock: exynosautov920: add cpucl1/2 clock
- definitions
-Date: Mon, 28 Apr 2025 17:47:19 +0900
-Message-ID: <20250428084721.3832664-2-shin.son@samsung.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250428084721.3832664-1-shin.son@samsung.com>
+	Mon, 28 Apr 2025 08:50:09 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53S10wD1009691;
+	Mon, 28 Apr 2025 10:49:58 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=selector1; bh=U11p1IY2aK2v6bA7NuFH2S
+	koo0U6MbsQxOYKzBo9dzc=; b=Rca96GAABPkgMmwgmIBMQrb/IQ1Cv5krsECLbv
+	rUneOz0zCUfLj/67KK7Jna7nwOGVQabWLi3O7RQaJI5v4pxD6/locx+iOzZmeH1N
+	c8YM0bq8CmYWxkV8rbYlUvIrzfD1NDIQEjam9RtzLYk1/siPSBfJptyg6L7swnkz
+	MHRAZuqijtfz/7Xx2nsp/H/7f5poxno9jaS3+3BR1kGA++jSn6ss14p5orJ6CTM4
+	1uQpJoiNJqYyZBs2EuqTalCEcZQk7YP+Xnez/YvUC97idlH6rv8Nuv1FW4bLSikj
+	XFu5XALQn+3Ybli6cVF3azxuTfH5G7YBlhYfOkCVtQ/dtlLQ==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 468pcg5pda-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 28 Apr 2025 10:49:58 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id E8BDA4005D;
+	Mon, 28 Apr 2025 10:49:15 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 00C32A3B91A;
+	Mon, 28 Apr 2025 10:47:44 +0200 (CEST)
+Received: from localhost (10.48.87.62) by SHFDAG1NODE1.st.com (10.75.129.69)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 28 Apr
+ 2025 10:47:43 +0200
+From: Patrice Chotard <patrice.chotard@foss.st.com>
+Date: Mon, 28 Apr 2025 10:47:35 +0200
+Subject: [PATCH v9] arm64: defconfig: Enable STM32 Octo Memory Manager and
+ OcstoSPI driver
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrOLMWRmVeSWpSXmKPExsWy7bCSnO4CB/4Mg/uTpC0ezNvGZrFm7zkm
-	i+tfnrNazD9yjtXi/PkN7BabHl9jtfjYc4/V4vKuOWwWM87vY7K4eMrV4v+eHewWh9+0s1r8
-	u7aRxWLy8bWsFk3L1jM58Hu8v9HK7rFpVSebx+Yl9R59W1YxenzeJBfAGsVlk5Kak1mWWqRv
-	l8CV8e7RG/aC87IVjZe2sjYwHhLrYuTkkBAwkej+sJi5i5GLQ0hgO6NEY8djJoiEhMThGRMY
-	IWxhifstR1ghit4zStyb3sfexcjBwSagKrHptzxIXETgLZPE8v8HwJqZBU4zSuw8IwNiCwuE
-	S3y+f4MZxGYBqb+4jwXE5hWwlmibdoUNZI6EgLxEf4cESJhTwEbi/MVOsLAQUElfDzdEtaDE
-	yZlPWCCmy0s0b53NPIFRYBaS1CwkqQWMTKsYRVMLinPTc5MLDPWKE3OLS/PS9ZLzczcxguNC
-	K2gH47L1f/UOMTJxMB5ilOBgVhLhrTLgzxDiTUmsrEotyo8vKs1JLT7EKM3BoiTOq5zTmSIk
-	kJ5YkpqdmlqQWgSTZeLglGpgCosTW+DWcrw1YPqBMzXrSmRy+f6lx9yXm7xUZ3PnR2eD20ob
-	7k7+9uDF2wWSn1RnqbvtTzVqYtnsUvrtZNWsvU917Ex9LM7f+XtGwXnhrxue4VvesavvKnkp
-	3vBe9bfc4nvLLlz4WHqt/C7DXL+jAk991L/HLsxVuiDv43NjTdlGnym+m18t15HRUZrfk67T
-	9f+/VOOpTPmiq+fEX5puenKw97pwQ6beWcWSw3vrXs2NPFHHW9i34tGvKX7hV34fzMiwFK1i
-	t/h6vOSksWPWHhWh4uvPln6ZxrpRRm9v28btr2S6+PPz7BeE5fy/FHVnn8uD4g/OH7av+tC3
-	dt+DbRyXNi+LWfosVPrPxSTdCa+VWIozEg21mIuKEwHlZRX5+gIAAA==
-X-CMS-MailID: 20250428084728epcas2p34ffa0051a16c10ff1c358a98cc2c2fa4
-X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-cpgsPolicy: CPGSC10-234,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250428084728epcas2p34ffa0051a16c10ff1c358a98cc2c2fa4
-References: <20250428084721.3832664-1-shin.son@samsung.com>
-	<CGME20250428084728epcas2p34ffa0051a16c10ff1c358a98cc2c2fa4@epcas2p3.samsung.com>
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250428-upstream_omm_ospi_defconfig-v9-1-66c1bbac5461@foss.st.com>
+X-B4-Tracking: v=1; b=H4sIAKZAD2gC/x3MQQqAIBBA0avErBPMiqirRITpWLNIxakIorsnL
+ f7ibf4DjImQYSgeSHgRU/AZfVmA2bRfUZDNBiVVK5tKijPykVDvc9hzHGm26EzwjlZhFrS6M0s
+ tlYZ8iAkd3f99nN73A+OtOFttAAAA
+X-Change-ID: 20250410-upstream_omm_ospi_defconfig-cbeda7cb302a
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        Patrice Chotard <patrice.chotard@foss.st.com>
+X-Mailer: b4 0.14.2
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-04-28_03,2025-04-24_02,2025-02-21_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_014739_042166_B8551D46 
-X-CRM114-Status: GOOD (  17.09  )
+X-CRM114-CacheID: sfid-20250428_015008_361612_15632ECE 
+X-CRM114-Status: UNSURE (   8.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,124 +93,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add cpucl1 and cpucl2 clock definitions.
+Enable STM32 OctoSPI driver.
+Enable STM32 Octo Memory Manager (OMM) driver which is needed
+for OSPI usage on STM32MP257F-EV1 board.
 
-CPUCL1/2 refer to CPU Cluster 1 and CPU Cluster 2,
-which provide clock support for the CPUs on Exynosauto V920 SoC.
-
-Signed-off-by: Shin Son <shin.son@samsung.com>
+Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
 ---
- .../clock/samsung,exynosautov920-clock.yaml   | 45 +++++++++++++++++++
- .../clock/samsung,exynosautov920.h            | 32 +++++++++++++
- 2 files changed, 77 insertions(+)
+Changes in v9:
+  - split patchset by susbsystem, current one include only defconfig related
+    patch.
+  - Link to v8: https://lore.kernel.org/r/20250407-upstream_ospi_v6-v8-0-7b7716c1c1f6@foss.st.com
+---
+ arch/arm64/configs/defconfig | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/samsung,exynosautov920-clock.yaml b/Documentation/devicetree/bindings/clock/samsung,exynosautov920-clock.yaml
-index d12b17c177df..dbeae0cb0cb9 100644
---- a/Documentation/devicetree/bindings/clock/samsung,exynosautov920-clock.yaml
-+++ b/Documentation/devicetree/bindings/clock/samsung,exynosautov920-clock.yaml
-@@ -34,6 +34,8 @@ properties:
-     enum:
-       - samsung,exynosautov920-cmu-top
-       - samsung,exynosautov920-cmu-cpucl0
-+      - samsung,exynosautov920-cmu-cpucl1
-+      - samsung,exynosautov920-cmu-cpucl2
-       - samsung,exynosautov920-cmu-peric0
-       - samsung,exynosautov920-cmu-peric1
-       - samsung,exynosautov920-cmu-misc
-@@ -94,6 +96,49 @@ allOf:
-             - const: cluster
-             - const: dbg
- 
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - samsung,exynosautov920-cmu-cpucl1
-+
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (38.4 MHz)
-+            - description: CMU_CPUCL1 SWITCH clock (from CMU_TOP)
-+            - description: CMU_CPUCL1 CLUSTER clock (from CMU_TOP)
-+
-+        clock-names:
-+          items:
-+            - const: oscclk
-+            - const: switch
-+            - const: cluster
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - samsung,exynosautov920-cmu-cpucl2
-+
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: External reference clock (38.4 MHz)
-+            - description: CMU_CPUCL2 SWITCH clock (from CMU_TOP)
-+            - description: CMU_CPUCL2 CLUSTER clock (from CMU_TOP)
-+
-+        clock-names:
-+          items:
-+            - const: oscclk
-+            - const: switch
-+            - const: cluster
-+
-+
-   - if:
-       properties:
-         compatible:
-diff --git a/include/dt-bindings/clock/samsung,exynosautov920.h b/include/dt-bindings/clock/samsung,exynosautov920.h
-index c57a1d749700..5e6896e9627f 100644
---- a/include/dt-bindings/clock/samsung,exynosautov920.h
-+++ b/include/dt-bindings/clock/samsung,exynosautov920.h
-@@ -181,6 +181,38 @@
- #define CLK_DOUT_CPUCL0_DBG_PCLKDBG	14
- #define CLK_DOUT_CPUCL0_NOCP		15
- 
-+/* CMU_CPUCL1 */
-+#define CLK_FOUT_CPUCL1_PLL		1
-+
-+#define CLK_MOUT_PLL_CPUCL1		2
-+#define CLK_MOUT_CPUCL1_CLUSTER_USER	3
-+#define CLK_MOUT_CPUCL1_SWITCH_USER	4
-+#define CLK_MOUT_CPUCL1_CLUSTER		5
-+#define CLK_MOUT_CPUCL1_CORE		6
-+
-+#define CLK_DOUT_CLUSTER1_ACLK		7
-+#define CLK_DOUT_CLUSTER1_ATCLK		8
-+#define CLK_DOUT_CLUSTER1_MPCLK		9
-+#define CLK_DOUT_CLUSTER1_PCLK		10
-+#define CLK_DOUT_CLUSTER1_PERIPHCLK	11
-+#define CLK_DOUT_CPUCL1_NOCP		12
-+
-+/* CMU_CPUCL2 */
-+#define CLK_FOUT_CPUCL2_PLL		1
-+
-+#define CLK_MOUT_PLL_CPUCL2		2
-+#define CLK_MOUT_CPUCL2_CLUSTER_USER	3
-+#define CLK_MOUT_CPUCL2_SWITCH_USER	4
-+#define CLK_MOUT_CPUCL2_CLUSTER		5
-+#define CLK_MOUT_CPUCL2_CORE		6
-+
-+#define CLK_DOUT_CLUSTER2_ACLK		7
-+#define CLK_DOUT_CLUSTER2_ATCLK		8
-+#define CLK_DOUT_CLUSTER2_MPCLK		9
-+#define CLK_DOUT_CLUSTER2_PCLK		10
-+#define CLK_DOUT_CLUSTER2_PERIPHCLK	11
-+#define CLK_DOUT_CPUCL2_NOCP		12
-+
- /* CMU_PERIC0 */
- #define CLK_MOUT_PERIC0_IP_USER		1
- #define CLK_MOUT_PERIC0_NOC_USER	2
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 5bb8f09422a22116781169611482179b10798c14..288b3beff20246c59b497fc869c5f366a21b089a 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -580,6 +580,7 @@ CONFIG_SPI_QUP=y
+ CONFIG_SPI_QCOM_GENI=m
+ CONFIG_SPI_S3C64XX=y
+ CONFIG_SPI_SH_MSIOF=m
++CONFIG_SPI_STM32_OSPI=m
+ CONFIG_SPI_SUN6I=y
+ CONFIG_SPI_TEGRA210_QUAD=m
+ CONFIG_SPI_TEGRA114=m
+@@ -1520,6 +1521,7 @@ CONFIG_EXTCON_USB_GPIO=y
+ CONFIG_EXTCON_USBC_CROS_EC=y
+ CONFIG_FSL_IFC=y
+ CONFIG_RENESAS_RPCIF=m
++CONFIG_STM32_OMM=m
+ CONFIG_IIO=y
+ CONFIG_EXYNOS_ADC=y
+ CONFIG_IMX8QXP_ADC=m
+
+---
+base-commit: 1990c01f0bcc5655596709d0b8cf4e412b4c837c
+change-id: 20250410-upstream_omm_ospi_defconfig-cbeda7cb302a
+
+Best regards,
 -- 
-2.49.0
+Patrice Chotard <patrice.chotard@foss.st.com>
 
 
