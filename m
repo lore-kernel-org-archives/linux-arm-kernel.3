@@ -4,77 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B754C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 13:29:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C1CFC369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 13:31:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q8lp5UrUp+XdpwqCCx1TxDIQu5ltAd7kTY6JKNYmfio=; b=hY0ERlU2RGae/tRWBV+HgC9Iaa
-	zgZi+RCk4rWpD/lNm6WdrVvvzI3RglLJbxHusYALEYCdGjuy1vSVBDFDRqpQD27eopk8GCkKGh3xJ
-	MDVyyD+zfPB8FhiTHvsdSUsE4VNCIYbxxfLdpS9iVZtT7fA5Umi+il0Cm3+vDN7f0X5RzoJsVs/VY
-	Y3qCPu4UBC4R+fXhDxS6GVCjkBbm8e/CakG9puQvX7RR8xhLvJq5eTQwZlVnIzP4W4OUzTnY9oce1
-	KQyip0CQ/ZkQ2m3YCGJZg/ktMUZTFUZPj7yomspcwPj2L0ztZcca9aWB7QeWSfe7qbrev+T1sSKrs
-	F9aAelHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TWpWmVQh5LkKQ38Ckz6b68wz7ZGK8S3wIAjuRScvxvk=; b=elEkJFINNdxPGTeBLT27GqgnCk
+	FYTjXmoz/LOkms4PuMn1A34hH/3AfImgOu5VmgzrY/1EkrCekkwgte4ic9yjRK4zA15kkF7tWV4/g
+	RHRNiTzxun1C9av/lb7XkOgSmXEsulSTpjMrA3zHBYS2zOHnT5df4c8cCCBWZ/11ntIHRDfsfgxaA
+	c5TnpjfmFRXZFbsZ4b+50ibvTVQs0oAXZe6on7JZ3eOxaKLjYWsWtqaMN3SHtp2lgBVo5c31Y7AW9
+	IiHkaIgp2zHZkL8zXMSei7h9tKF8RI5l6mC9zeeEABIYw/66RON0QkxvuwOEMDOrzLgOPNT+TFopE
+	mm2FoFiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9OXi-00000006TyB-0bXg;
-	Mon, 28 Apr 2025 13:29:06 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1u9OZd-00000006UNp-3qSJ;
+	Mon, 28 Apr 2025 13:31:05 +0000
+Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9OBD-00000006LSe-0kuc
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 28 Apr 2025 13:05:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Q8lp5UrUp+XdpwqCCx1TxDIQu5ltAd7kTY6JKNYmfio=; b=F4p8K4X7Wvd1p/zxoqz2lg4cX9
-	g+buQgW7LC7Ipq3/UyUq8IBt7KZpvCiSWDT2YYnY60M8eMxYTdIbQmljDlo/ZWME2Vv3kJtT0znCg
-	d4wPJfZQEcBDEVXtJfzGu4rvFWA6TTWidT38Q667Ty09e7AEmmlLRpshoWUe7TTGDCpziQsGyakEY
-	DioV2vjjvlxfAQnZ9SmQKe+ba/HLibbh5xHn04FJISNV5ZeDh+mNE7MVFjSCHTEI4HL50EoIoWz68
-	hdmzmgC6RE+EPgrKds1urPe57FqBsukN+WOue0WM8Du7sMdDpnPqC240sJLP3az4CG7SEDDRyXYQm
-	AkIQ/MXw==;
-Received: from foss.arm.com ([217.140.110.172])
-	by casper.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9OAw-0000000HRCA-15NH
+	id 1u9NTJ-000000069gJ-3jpo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 13:05:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BBF6F1516;
-	Mon, 28 Apr 2025 06:05:17 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CD5A63F673;
-	Mon, 28 Apr 2025 06:05:23 -0700 (PDT)
-Date: Mon, 28 Apr 2025 14:05:19 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Mike Leach <mike.leach@linaro.org>
-Cc: Yabin Cui <yabinc@google.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Jie Gan <quic_jiegan@quicinc.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] coresight: trbe: Save/restore state across CPU low power
- state
-Message-ID: <20250428130519.GF551819@e132581.arm.com>
-References: <20250423230046.1134389-1-yabinc@google.com>
- <731dbb1d-e804-4678-9b8c-40f6395e94a7@arm.com>
- <CALJ9ZPNExud7ZQ-ZgpVtPJHUsAyJv_O-CH8mCa6gUyu1E1T8zg@mail.gmail.com>
- <CAJ9a7VhMJDMbowRuB5zgjQw+UfxP7eumZX1SKF2MJQ2_2NebHA@mail.gmail.com>
- <20250428122408.GD551819@e132581.arm.com>
- <CAJ9a7VjhCRk9BxGvE3ZyyZzq__+A1PpD=oRtFQOcD8BwXKa27Q@mail.gmail.com>
+	Mon, 28 Apr 2025 12:20:31 +0000
+Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-30c44a87b9cso40839621fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 05:20:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1745842827; x=1746447627; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TWpWmVQh5LkKQ38Ckz6b68wz7ZGK8S3wIAjuRScvxvk=;
+        b=lj/jjeL7/JZ4h1qNwNLShwLB41ua1Wd4BjYUtEu1hylXe8URe/bSXoFjXXa/Iqf/pH
+         PlTDmR27fbA0WnnXDnnWt9hJC4X2AzU7/w+W5alGJ5x72/hAQY39EVXe7iaCYpLerCj4
+         HRaS8T5/3E67dib5Kp4o8e1v6JH1r1t2oINEX/ZLleuowYYpYEIGiGwN6Teu7YXoXM7V
+         /oE2OmmE0ZZsnqBOs3mQw7PIvbucNH2Q8fXobSX0Y9sPhs4TQ+o+T2GBLRubDa/qR3nd
+         j8OUP0EAH02TddmMelh5thEQ2Vr9GrHCbvUqaiDRGN7ZUhmHH9+hvNtI2t/5x1scLFoV
+         HNCQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745842827; x=1746447627;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TWpWmVQh5LkKQ38Ckz6b68wz7ZGK8S3wIAjuRScvxvk=;
+        b=FBBtjTI6NjfCPqrimfmytXnOPuGrPyDRy3fhuo366R4lU1kErXFgpqqm7dBH1l4qq4
+         CxQyQDfpFnsPC3A/75SkBxoNiyh5KBfbtQbHjLECOrT24A3gyNKRytKqifllTpwtD0W0
+         jCgdBf5XDCO8g5Wn+3hh63KnXiIcamm96wmqJ6pQaD48hAKOPIP5NS+3KvxFpYv3vvtw
+         LR41xSJSwCLRMrR/YzMBV0Whgl0G7C8YY50HTA4HItJO6KAHAliQbMD/1+8+F7bemdQ1
+         6n1pnh1d4NnBUgS2OShhsrQsOFiYDDX5hHf4tivb74rtb2Pj+jAi9v3CqTS82m/khccG
+         Iteg==
+X-Forwarded-Encrypted: i=1; AJvYcCV0FTfMQyjNZzlfYql4szmoCqc86UO4e93gpNOrBfqjlPoHqdYaCo5wlbELNAkVnd+wmg0x77ZAPr851vyEHsm5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzw7VC5UtGr216AaCuIRwXqj1OCOX+TqzTjpdyHAEzE+O6Yrhs3
+	pVFm6yBB52tWvIoZOCw7i/gA3zSFKv5cFGqBskFMpjW+uAmWbAYX6UMd19Mt3zt+/wJQWvroUzX
+	dcLI/inxLx3RwJF/yia6WgYZ2eCc=
+X-Gm-Gg: ASbGnctGVZM7K18c2aFBZEtqgq+DD4Habh3fBCIyvbOwOTa0uqQCno/29BUjteGupT/
+	NfHxq8t1lne21U21I2cLzJiHAARpQ+sR4EIKFEDBvJKabLBbA2DpL7FlFq8odobEgvW5jNAKXhl
+	syhKx8Pl26CxGLEsiErMtDTY+EXoumcKw7aXSxc/BTUlkCPGmfwCfENisRD4Ngq3cl
+X-Google-Smtp-Source: AGHT+IEH7MzW5oALwsc/C1WmzilPjbYvu0ys4k1ey8nO0994HXLEhmlKcG8IDGOmdq5NvefT7TwCpG/T3Y0sA3Y96g4=
+X-Received: by 2002:a2e:8048:0:b0:31a:56a5:8454 with SMTP id
+ 38308e7fff4ca-31a56a58783mr13285171fa.15.1745842827247; Mon, 28 Apr 2025
+ 05:20:27 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAJ9a7VjhCRk9BxGvE3ZyyZzq__+A1PpD=oRtFQOcD8BwXKa27Q@mail.gmail.com>
+References: <20250428074424.3311978-1-lukma@denx.de> <20250428074424.3311978-2-lukma@denx.de>
+In-Reply-To: <20250428074424.3311978-2-lukma@denx.de>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Mon, 28 Apr 2025 09:20:15 -0300
+X-Gm-Features: ATxdqUF9vhWUQdAh6ucd_rpBTSQD6jiO0FGzDnLrY9eVB0nzIxQ7MHR_oHtFiUs
+Message-ID: <CAOMZO5CYq8YKZBM6nk2pk8W0005MBBPdVqS_qe-O4-ZzkUG0bA@mail.gmail.com>
+Subject: Re: [net-next v8 1/7] dt-bindings: net: Add MTIP L2 switch description
+To: Lukasz Majewski <lukma@denx.de>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, Stefan Wahren <wahrenst@gmx.net>, 
+	Simon Horman <horms@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_140534_589923_BC8456EF 
-X-CRM114-Status: GOOD (  15.92  )
+X-CRM114-CacheID: sfid-20250428_052029_951654_88C6168D 
+X-CRM114-Status: UNSURE (   7.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,34 +101,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 28, 2025 at 01:55:29PM +0100, Mike Leach wrote:
+Hi Lukasz,
 
-[...]
+On Mon, Apr 28, 2025 at 4:44=E2=80=AFAM Lukasz Majewski <lukma@denx.de> wro=
+te:
 
-> > > The TRBE PM can follow the model of the ETE / ETMv4 and save and
-> > > restore if currently in use.
-> >
-> > If TRBE PM is registered as a seperate PM notifier, a prominent issue is
-> > it cannot promise the depedency between ETE and TRBE when execute CPU
-> > power management.  E.g., when entering CPU idle states, ETE should be
-> > disabled prior to switch off TRBE, otherwise, it might cause lockup
-> > issue in hardware.  If ETE and TRBE register PM notifier separately,
-> > we cannot ensure the sequence between ETE and TRBE, this is why we need
-> > to do the operations based on CoreSight paths.
-> >
-> 
-> I believe that the architecture requires that if the disabled TRBE
-> cannot receive trace then the ETE should regard the trace as having
-> been output (A1.4 ETE spec). Incorrect sequencing should only result
-> in missing trace, not a core lockup - unless the implementation is not
-> compliant.
+> +            reset-gpios =3D <&gpio2 13 0>;
 
-Thanks for clarification, Mike.
+The zero here means active high.
 
-I would prefer to stick with the CoreSight path approach, as this will
-help us to resolve the issue in a general way - not just for ETE / TRBE
-case, this would be applicable for other types of links and sinks.
+I assume active low is more common, and you even used active low in
+the XEA board.
 
-Thanks,
-Leo
+I suggest using
+
+ reset-gpios =3D <&gpio2 13 GPIO_ACTIVE_LOW>; in the dt-binding example.
 
