@@ -4,63 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62C8BC369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 09:22:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8267C36005
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 09:26:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d+8odPJYqWAZSRbkc64FjcHm4z/552G2IQm6CYtf8E0=; b=IC8ZPXhXgz5ThiCG/2qSvpoyOJ
-	lqYzszfpjktrGaiOOsURdy/8whxMCgkWl46sunzm4GjWgGcR7ppt46GoAlrGKTGHPcBrRIVUZQ7hL
-	nMdnMr79NRRZJhDaVTWOnfHw6FRbdr0eDk32oaOYfoardpjPd/4i3b+x3MDlAjNUc78l5685ByPnl
-	V0UalIVXwDt3MRiON/nWqygHd50Irk4cvHDiNxGTC0O77Olxn2w3UiJyx/xQUIUZnolQOcg7FJTXc
-	kTw4dZYTTBqokSX1oJ8J+PZmsUQESe8t419d54vHDav3oX+tfX/eCtP5sQYDN3KRUiAZDFca5jiw5
-	sXrPt8wA==;
+	bh=mb7szTxe+O4/YlWD5eNPv4K70cyMKU44+b4hZfrYsbU=; b=ltO3nOrW6+a7A6yxl44m/sUtHy
+	vyer7XFar2Ha0UnPXsDbxU55l5sb0JVXKKsKsfEe0xba7eU327ioKUZuC0V0jUsCp89NDm+JIDbl7
+	ttqg/RbMuvDlw7zjsLrxsAg5fLaE9+KFnfAmZ3rsL2bgzJwE4cOVBH14mp0aQUcsDekxRr+F5Chsc
+	DXLjvErHDE7fnllS9H1ZV5Dr3i47sKf+PF8P1WCm4LpznPMtt6tAYuHwqgKkx7BgjtcEgPC+2UIx4
+	i5NZ58EPrj9SvLJnSquDE6lXlbSr4v+tva8WduaSOMSRrWGnWSagq9b1GIMSAfE/bg6iUpWYZvWtF
+	dTDe8szw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Kgj-00000005Zza-1C3r;
-	Mon, 28 Apr 2025 09:22:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9KJl-00000005X6A-2KjZ
+	id 1u9Kkd-00000005beO-0iWe;
+	Mon, 28 Apr 2025 09:26:11 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u9KLq-00000005XKN-0VGY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 08:58:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9F6591595;
-	Mon, 28 Apr 2025 01:58:15 -0700 (PDT)
-Received: from [10.1.37.44] (Suzukis-MBP.cambridge.arm.com [10.1.37.44])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 29A013F673;
-	Mon, 28 Apr 2025 01:58:19 -0700 (PDT)
-Message-ID: <35a91f8c-cdf6-4595-9ed2-c792a8e9d679@arm.com>
-Date: Mon, 28 Apr 2025 09:58:18 +0100
+	Mon, 28 Apr 2025 09:00:35 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53S11GYP010486;
+	Mon, 28 Apr 2025 11:00:26 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	mb7szTxe+O4/YlWD5eNPv4K70cyMKU44+b4hZfrYsbU=; b=7oK+1B836G7AwO7h
+	Akmppiq+LTbSTzu109hRh2a1h93D/mAk5IVfgktHhkeK/H/xodG1HHznSAtYgElj
+	xoVQ5XviHelBpjGHdOc+qfxjEKFsQmsGWUX0A5CSModcMaeba9f0BdINBMg8QTMZ
+	FnSMMf2WqdPd29iM541ju6CLfHvBwPUvQ2X173tPH/su5KCjmo8kHNP8v+cxny4K
+	9JUi4ADPNNFLCULUEbGlstp9KFguZbtepoJ8IbHYfYpnaZniYcY5CRizunxM0/8V
+	Vh1gi1OURhRrJVrNpX5iPM0CilUEVqCB78AGL0B7u9hbSOvmafO/DYwqgEnemz7p
+	ox33jg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 468pcg5qwd-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 28 Apr 2025 11:00:26 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id EAE6E40045;
+	Mon, 28 Apr 2025 10:59:22 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 34D09A40A3C;
+	Mon, 28 Apr 2025 10:58:34 +0200 (CEST)
+Received: from localhost (10.48.87.62) by SHFDAG1NODE1.st.com (10.75.129.69)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 28 Apr
+ 2025 10:58:33 +0200
+From: Patrice Chotard <patrice.chotard@foss.st.com>
+Date: Mon, 28 Apr 2025 10:58:30 +0200
+Subject: [PATCH v11 1/3] dt-bindings: memory-controllers: Add STM32 Octo
+ Memory Manager controller
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 06/43] arm64: RME: Define the user ABI
-Content-Language: en-GB
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>
-References: <20250416134208.383984-1-steven.price@arm.com>
- <20250416134208.383984-7-steven.price@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20250416134208.383984-7-steven.price@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-ID: <20250428-upstream_ospi_v6-v11-1-1548736fd9d2@foss.st.com>
+References: <20250428-upstream_ospi_v6-v11-0-1548736fd9d2@foss.st.com>
+In-Reply-To: <20250428-upstream_ospi_v6-v11-0-1548736fd9d2@foss.st.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon
+	<will@kernel.org>
+CC: <christophe.kerello@foss.st.com>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Patrice Chotard
+	<patrice.chotard@foss.st.com>
+X-Mailer: b4 0.14.2
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-04-28_03,2025-04-24_02,2025-02-21_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_015825_986105_506F0C86 
-X-CRM114-Status: GOOD (  35.14  )
+X-CRM114-CacheID: sfid-20250428_020034_468498_0D6A9134 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,261 +105,261 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Steven
+Add bindings for STM32 Octo Memory Manager (OMM) controller.
 
-On 16/04/2025 14:41, Steven Price wrote:
-> There is one (multiplexed) CAP which can be used to create, populate and
-> then activate the realm.
-> 
-> Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> Changes since v7:
->   * Add documentation of new ioctls
->   * Bump the magic numbers to avoid conflicts
-> Changes since v6:
->   * Rename some of the symbols to make their usage clearer and avoid
->     repetition.
-> Changes from v5:
->   * Actually expose the new VCPU capability (KVM_ARM_VCPU_REC) by bumping
->     KVM_VCPU_MAX_FEATURES - note this also exposes KVM_ARM_VCPU_HAS_EL2!
-> ---
->   Documentation/virt/kvm/api.rst    | 70 +++++++++++++++++++++++++++++++
->   arch/arm64/include/uapi/asm/kvm.h | 49 ++++++++++++++++++++++
->   include/uapi/linux/kvm.h          | 10 +++++
->   3 files changed, 129 insertions(+)
-> 
-> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-> index 1f8625b7646a..99ba6c82cf37 100644
-> --- a/Documentation/virt/kvm/api.rst
-> +++ b/Documentation/virt/kvm/api.rst
-> @@ -3527,6 +3527,11 @@ Possible features:
->   	      - the KVM_REG_ARM64_SVE_VLS pseudo-register is immutable, and can
->   	        no longer be written using KVM_SET_ONE_REG.
->   
-> +	- KVM_ARM_VCPU_REC: Allocate a REC (Realm Execution Context) for this
-> +	  VCPU. This must be specified on all VCPUs created in a Realm VM.
-> +	  Depends on KVM_CAP_ARM_RME.
-> +	  Requires KVM_ARM_VCPU_FINALIZE(KVM_ARM_VCPU_REC).
-> +
->   4.83 KVM_ARM_PREFERRED_TARGET
->   -----------------------------
->   
-> @@ -5098,6 +5103,7 @@ Recognised values for feature:
->   
->     =====      ===========================================
->     arm64      KVM_ARM_VCPU_SVE (requires KVM_CAP_ARM_SVE)
-> +  arm64      KVM_ARM_VCPU_REC (requires KVM_CAP_ARM_RME)
->     =====      ===========================================
->   
->   Finalizes the configuration of the specified vcpu feature.
-> @@ -6452,6 +6458,30 @@ the capability to be present.
->   
->   `flags` must currently be zero.
->   
-> +4.144 KVM_ARM_VCPU_RMM_PSCI_COMPLETE
-> +------------------------------------
-> +
-> +:Capability: KVM_CAP_ARM_RME
-> +:Architectures: arm64
-> +:Type: vcpu ioctl
-> +:Parameters: struct kvm_arm_rmm_psci_complete (in)
-> +:Returns: 0 if successful, < 0 on error
-> +
-> +::
-> +
-> +  struct kvm_arm_rmm_psci_complete {
-> +	__u64 target_mpidr;
-> +	__u32 psci_status;
-> +	__u32 padding[3];
-> +  };
-> +
-> +Where PSCI functions are handled by user space, the RMM needs to be informed of
-> +the target of the operation using `target_mpidr`, along with the status
-> +(`psci_status`). The RMM v1.0 specification defines two functions that require
-> +this call: PSCI_CPU_ON and PSCI_AFFINITY_INFO.
-> +
-> +If the kernel is handling PSCI then this is done automatically and the VMM
-> +doesn't need to call this ioctl.
->   
->   .. _kvm_run:
->   
-> @@ -8280,6 +8310,46 @@ aforementioned registers before the first KVM_RUN. These registers are VM
->   scoped, meaning that the same set of values are presented on all vCPUs in a
->   given VM.
->   
-> +7.38 KVM_CAP_ARM_RME
-> +--------------------
-> +
-> +:Architectures: arm64
-> +:Target: VM
-> +:Parameters: args[0] provides an action, args[1] points to a structure in
-> +	     memory for some actions.
-> +:Returns: 0 on success, negative value on error
-> +
-> +Used to configure and set up the memory for a Realm. The available actions are:
-> +
-> +================================= =============================================
-> + KVM_CAP_ARM_RME_CONFIG_REALM     Takes struct arm_rme_config as args[1] and
-> +                                  configures realm parameters prior to it being
-> +                                  created.
-> +
-> +                                  Options are ARM_RME_CONFIG_RPV to set the
-> +                                  "Realm Personalization Value" and
-> +                                  ARM_RME_CONFIG_HASH_ALGO to set the hash
-> +                                  algorithm.
-> +
-> + KVM_CAP_ARM_RME_CREATE_REALM     Request the RMM create the realm. The realm's
+OMM manages:
+  - the muxing between 2 OSPI busses and 2 output ports.
+    There are 4 possible muxing configurations:
+      - direct mode (no multiplexing): OSPI1 output is on port 1 and OSPI2
+        output is on port 2
+      - OSPI1 and OSPI2 are multiplexed over the same output port 1
+      - swapped mode (no multiplexing), OSPI1 output is on port 2,
+        OSPI2 output is on port 1
+      - OSPI1 and OSPI2 are multiplexed over the same output port 2
+  - the split of the memory area shared between the 2 OSPI instances.
+  - chip select selection override.
+  - the time between 2 transactions in multiplexed mode.
 
-minor nit: s/RMM create/RMM to create/
+Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../memory-controllers/st,stm32mp25-omm.yaml       | 226 +++++++++++++++++++++
+ 1 file changed, 226 insertions(+)
 
-Or may be rephrase it:
+diff --git a/Documentation/devicetree/bindings/memory-controllers/st,stm32mp25-omm.yaml b/Documentation/devicetree/bindings/memory-controllers/st,stm32mp25-omm.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..344878db88188f5df5f9ee426335bed38a8fac5c
+--- /dev/null
++++ b/Documentation/devicetree/bindings/memory-controllers/st,stm32mp25-omm.yaml
+@@ -0,0 +1,226 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/memory-controllers/st,stm32mp25-omm.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: STM32 Octo Memory Manager (OMM)
++
++maintainers:
++  - Patrice Chotard <patrice.chotard@foss.st.com>
++
++description: |
++  The STM32 Octo Memory Manager is a low-level interface that enables an
++  efficient OCTOSPI pin assignment with a full I/O matrix (before alternate
++  function map) and multiplex of single/dual/quad/octal SPI interfaces over
++  the same bus. It Supports up to:
++    - Two single/dual/quad/octal SPI interfaces
++    - Two ports for pin assignment
++
++properties:
++  compatible:
++    const: st,stm32mp25-omm
++
++  "#address-cells":
++    const: 2
++
++  "#size-cells":
++    const: 1
++
++  ranges:
++    description: |
++      Reflects the memory layout per OSPI instance.
++      Format:
++      <chip-select> 0 <registers base address> <size>
++    minItems: 2
++    maxItems: 2
++
++  reg:
++    items:
++      - description: OMM registers
++      - description: OMM memory map area
++
++  reg-names:
++    items:
++      - const: regs
++      - const: memory_map
++
++  memory-region:
++    description:
++      Memory region shared between the 2 OCTOSPI instance.
++      One or two phandle to a node describing a memory mapped region
++      depending of child number.
++    minItems: 1
++    maxItems: 2
++
++  memory-region-names:
++    description:
++      Identify to which OSPI instance the memory region belongs to.
++    items:
++      enum: [ospi1, ospi2]
++    minItems: 1
++    maxItems: 2
++
++  clocks:
++    maxItems: 3
++
++  clock-names:
++    items:
++      - const: omm
++      - const: ospi1
++      - const: ospi2
++
++  resets:
++    maxItems: 3
++
++  reset-names:
++    items:
++      - const: omm
++      - const: ospi1
++      - const: ospi2
++
++  access-controllers:
++    maxItems: 1
++
++  power-domains:
++    maxItems: 1
++
++  st,syscfg-amcr:
++    $ref: /schemas/types.yaml#/definitions/phandle-array
++    description: |
++      The Address Mapping Control Register (AMCR) is used to split the 256MB
++      memory map area shared between the 2 OSPI instance. The Octo Memory
++      Manager sets the AMCR depending of the memory-region configuration.
++      The memory split bitmask description is:
++        - 000: OCTOSPI1 (256 Mbytes), OCTOSPI2 unmapped
++        - 001: OCTOSPI1 (192 Mbytes), OCTOSPI2 (64 Mbytes)
++        - 010: OCTOSPI1 (128 Mbytes), OCTOSPI2 (128 Mbytes)
++        - 011: OCTOSPI1 (64 Mbytes), OCTOSPI2 (192 Mbytes)
++        - 1xx: OCTOSPI1 unmapped, OCTOSPI2 (256 Mbytes)
++    items:
++      - items:
++          - description: phandle to syscfg
++          - description: register offset within syscfg
++          - description: register bitmask for memory split
++
++  st,omm-req2ack-ns:
++    description:
++      In multiplexed mode (MUXEN = 1), this field defines the time in
++      nanoseconds between two transactions.
++    default: 0
++
++  st,omm-cssel-ovr:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description: |
++      Configure the chip select selector override for the 2 OCTOSPIs.
++      - 0: OCTOSPI1 chip select send to NCS1 OCTOSPI2 chip select send to NCS1
++      - 1: OCTOSPI1 chip select send to NCS2 OCTOSPI2 chip select send to NCS1
++      - 2: OCTOSPI1 chip select send to NCS1 OCTOSPI2 chip select send to NCS2
++      - 3: OCTOSPI1 chip select send to NCS2 OCTOSPI2 chip select send to NCS2
++    minimum: 0
++    maximum: 3
++    default: 0
++
++  st,omm-mux:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description: |
++      Configure the muxing between the 2 OCTOSPIs busses and the 2 output ports.
++      - 0: direct mode
++      - 1: mux OCTOSPI1 and OCTOSPI2 to port 1
++      - 2: swapped mode
++      - 3: mux OCTOSPI1 and OCTOSPI2 to port 2
++    minimum: 0
++    maximum: 3
++    default: 0
++
++patternProperties:
++  ^spi@[0-9]:
++    type: object
++    $ref: /schemas/spi/st,stm32mp25-ospi.yaml#
++    description: Required spi child node
++
++required:
++  - compatible
++  - reg
++  - "#address-cells"
++  - "#size-cells"
++  - clocks
++  - clock-names
++  - resets
++  - reset-names
++  - st,syscfg-amcr
++  - ranges
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/st,stm32mp25-rcc.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/reset/st,stm32mp25-rcc.h>
++    ommanager@40500000 {
++      compatible = "st,stm32mp25-omm";
++      reg = <0x40500000 0x400>, <0x60000000 0x10000000>;
++      reg-names = "regs", "memory_map";
++      ranges = <0 0 0x40430000 0x400>,
++               <1 0 0x40440000 0x400>;
++      memory-region = <&mm_ospi1>, <&mm_ospi2>;
++      memory-region-names = "ospi1", "ospi2";
++      pinctrl-0 = <&ospi_port1_clk_pins_a
++                   &ospi_port1_io03_pins_a
++                   &ospi_port1_cs0_pins_a>;
++      pinctrl-1 = <&ospi_port1_clk_sleep_pins_a
++                   &ospi_port1_io03_sleep_pins_a
++                   &ospi_port1_cs0_sleep_pins_a>;
++      pinctrl-names = "default", "sleep";
++      clocks = <&rcc CK_BUS_OSPIIOM>,
++               <&scmi_clk CK_SCMI_OSPI1>,
++               <&scmi_clk CK_SCMI_OSPI2>;
++      clock-names = "omm", "ospi1", "ospi2";
++      resets = <&rcc OSPIIOM_R>,
++               <&scmi_reset RST_SCMI_OSPI1>,
++               <&scmi_reset RST_SCMI_OSPI2>;
++      reset-names = "omm", "ospi1", "ospi2";
++      access-controllers = <&rifsc 111>;
++      power-domains = <&CLUSTER_PD>;
++      #address-cells = <2>;
++      #size-cells = <1>;
++      st,syscfg-amcr = <&syscfg 0x2c00 0x7>;
++      st,omm-req2ack-ns = <0>;
++      st,omm-mux = <0>;
++      st,omm-cssel-ovr = <0>;
++
++      spi@0 {
++        compatible = "st,stm32mp25-ospi";
++        reg = <0 0 0x400>;
++        memory-region = <&mm_ospi1>;
++        interrupts = <GIC_SPI 163 IRQ_TYPE_LEVEL_HIGH>;
++        dmas = <&hpdma 2 0x62 0x00003121 0x0>,
++               <&hpdma 2 0x42 0x00003112 0x0>;
++        dma-names = "tx", "rx";
++        clocks = <&scmi_clk CK_SCMI_OSPI1>;
++        resets = <&scmi_reset RST_SCMI_OSPI1>, <&scmi_reset RST_SCMI_OSPI1DLL>;
++        access-controllers = <&rifsc 74>;
++        power-domains = <&CLUSTER_PD>;
++        #address-cells = <1>;
++        #size-cells = <0>;
++        st,syscfg-dlyb = <&syscfg 0x1000>;
++      };
++
++      spi@1 {
++        compatible = "st,stm32mp25-ospi";
++        reg = <1 0 0x400>;
++        memory-region = <&mm_ospi1>;
++        interrupts = <GIC_SPI 164 IRQ_TYPE_LEVEL_HIGH>;
++        dmas = <&hpdma 3 0x62 0x00003121 0x0>,
++               <&hpdma 3 0x42 0x00003112 0x0>;
++        dma-names = "tx", "rx";
++        clocks = <&scmi_clk CK_KER_OSPI2>;
++        resets = <&scmi_reset RST_SCMI_OSPI2>, <&scmi_reset RST_SCMI_OSPI1DLL>;
++        access-controllers = <&rifsc 75>;
++        power-domains = <&CLUSTER_PD>;
++        #address-cells = <1>;
++        #size-cells = <0>;
++        st,syscfg-dlyb = <&syscfg 0x1000>;
++      };
++    };
 
-Request the RMM to create the Realm with the configured parameters.
-
-
-> +                                  configuration parameters must be set first.
-> +
-> + KVM_CAP_ARM_RME_INIT_RIPAS_REALM Takes struct arm_rme_init_ripas as args[1]
-> +                                  and sets the RIPAS (Realm IPA State) to
-> +                                  RIPAS_RAM of a specified area of the realm's
-> +                                  IPA.
-> +
-> + KVM_CAP_ARM_RME_POPULATE_REALM   Takes struct arm_rme_init_ripas as args[1]
-
-nit: struct arm_rme_populate_realm
-
-> +                                  and populates a region of protected address
-> +                                  space by copying the data from the shared
-> +                                  alias.
-> +
-> + KVM_CAP_ARM_RME_ACTIVATE_REALM   Request the RMM activate the realm. No
-
-s/the RMM/the RMM to/
-
-> +                                  further changes can be made to the realm's
-> +                                  configuration, and VCPUs are not permitted to
-> +                                  enter the realm until it has been activated.
-
-minor nit: this sounds as if "configurations" (of parameters)  are
-possible after the CREATE_REALM and before ACTIVATE_REALM ? Could we
-also make it clear that the VCPUs must have been created before ACTIVATE ?
-
-
-May be rephrase it to:
-
-No changes can be made to Realm's memory (including the IPA state). No 
-new VCPUs can be created after this step.
-
-
-> +================================= =============================================
-> +
->   8. Other capabilities.
->   ======================
->   
-> diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
-> index af9d9acaf997..b57712880605 100644
-> --- a/arch/arm64/include/uapi/asm/kvm.h
-> +++ b/arch/arm64/include/uapi/asm/kvm.h
-> @@ -106,6 +106,7 @@ struct kvm_regs {
->   #define KVM_ARM_VCPU_PTRAUTH_GENERIC	6 /* VCPU uses generic authentication */
->   #define KVM_ARM_VCPU_HAS_EL2		7 /* Support nested virtualization */
->   #define KVM_ARM_VCPU_HAS_EL2_E2H0	8 /* Limit NV support to E2H RES0 */
-> +#define KVM_ARM_VCPU_REC		9 /* VCPU REC state as part of Realm */
->   
->   struct kvm_vcpu_init {
->   	__u32 target;
-> @@ -429,6 +430,54 @@ enum {
->   #define   KVM_DEV_ARM_VGIC_SAVE_PENDING_TABLES	3
->   #define   KVM_DEV_ARM_ITS_CTRL_RESET		4
->   
-> +/* KVM_CAP_ARM_RME on VM fd */
-> +#define KVM_CAP_ARM_RME_CONFIG_REALM		0
-> +#define KVM_CAP_ARM_RME_CREATE_REALM		1
-> +#define KVM_CAP_ARM_RME_INIT_RIPAS_REALM	2
-> +#define KVM_CAP_ARM_RME_POPULATE_REALM		3
-> +#define KVM_CAP_ARM_RME_ACTIVATE_REALM		4
-> +
-> +/* List of configuration items accepted for KVM_CAP_ARM_RME_CONFIG_REALM */
-> +#define ARM_RME_CONFIG_RPV			0
-> +#define ARM_RME_CONFIG_HASH_ALGO		1
-> +
-> +#define ARM_RME_CONFIG_MEASUREMENT_ALGO_SHA256		0
-> +#define ARM_RME_CONFIG_MEASUREMENT_ALGO_SHA512		1
-
-minor nit:
-May be we could rename this to CONFIG_HASH_ALGO_* to align with the
-RMM spec (btw which also moved from measurement to hash) and the
-parameter.
-
-
-Suzuki
-
-
-> +
-> +#define ARM_RME_CONFIG_RPV_SIZE 64
-> +
-> +struct arm_rme_config {
-> +	__u32 cfg;
-> +	union {
-> +		/* cfg == ARM_RME_CONFIG_RPV */
-> +		struct {
-> +			__u8	rpv[ARM_RME_CONFIG_RPV_SIZE];
-> +		};
-> +
-> +		/* cfg == ARM_RME_CONFIG_HASH_ALGO */
-> +		struct {
-> +			__u32	hash_algo;
-> +		};
-> +
-> +		/* Fix the size of the union */
-> +		__u8	reserved[256];
-> +	};
-> +};
-> +
-> +#define KVM_ARM_RME_POPULATE_FLAGS_MEASURE	(1 << 0)
-> +struct arm_rme_populate_realm {
-> +	__u64 base;
-> +	__u64 size;
-> +	__u32 flags;
-> +	__u32 reserved[3];
-> +};
-> +
-> +struct arm_rme_init_ripas {
-> +	__u64 base;
-> +	__u64 size;
-> +	__u64 reserved[2];
-> +};
-> +
->   /* Device Control API on vcpu fd */
->   #define KVM_ARM_VCPU_PMU_V3_CTRL	0
->   #define   KVM_ARM_VCPU_PMU_V3_IRQ	0
-> diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-> index b6ae8ad8934b..0b8479985581 100644
-> --- a/include/uapi/linux/kvm.h
-> +++ b/include/uapi/linux/kvm.h
-> @@ -930,6 +930,7 @@ struct kvm_enable_cap {
->   #define KVM_CAP_X86_APIC_BUS_CYCLES_NS 237
->   #define KVM_CAP_X86_GUEST_MODE 238
->   #define KVM_CAP_ARM_WRITABLE_IMP_ID_REGS 239
-> +#define KVM_CAP_ARM_RME 240
->   
->   struct kvm_irq_routing_irqchip {
->   	__u32 irqchip;
-> @@ -1582,4 +1583,13 @@ struct kvm_pre_fault_memory {
->   	__u64 padding[5];
->   };
->   
-> +/* Available with KVM_CAP_ARM_RME, only for VMs with KVM_VM_TYPE_ARM_REALM  */
-> +struct kvm_arm_rmm_psci_complete {
-> +	__u64 target_mpidr;
-> +	__u32 psci_status;
-> +	__u32 padding[3];
-> +};
-> +
-> +#define KVM_ARM_VCPU_RMM_PSCI_COMPLETE	_IOW(KVMIO, 0xd6, struct kvm_arm_rmm_psci_complete)
-> +
->   #endif /* __LINUX_KVM_H */
+-- 
+2.25.1
 
 
