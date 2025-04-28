@@ -4,113 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BFC9C36005
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 08:40:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D2D3C36005
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 08:44:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C3ekUdVyc5lKna1B3ODGvGE5qt1aBk/h9qBhnTOllb4=; b=2PW3tToo98vxcNeOlvZyIsLQxb
-	9O57nk/Fd1AinE5cVQ+2TbEJBtregKUUYToK4alWYXkgQSs+mLynueA4K2RMjcuAGcwQm6+1tdx/w
-	3BWM9Sx8owrT7ljZHj5ArUpJWDxz2yFL+jTGLcTJPFZpD3vy96K6NyXgDmUYa9huNXybKWfBT1X5x
-	/j4tZRJh3oxOBhWZZVxjBr9czIiFM7R8M76nGOkB4rzeWfvzdy+Au/b1MlkfcoOIH8tW0r/yPBBdf
-	ikb7wtnU/uP3s88RQ73ktd79E6Ut6BwqU7DALRV4u8gU72d7fVig4OXyeZ9ElpQ5dk9xFz7loZXFK
-	CVvFIRpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4kiCrTOBQ1WQnEvSTrH5wRzIRZ6TpG0/zh39U8i5yYs=; b=pNT1HJjJQLDhzstlcTzXcDJkl/
+	iQOAqioEPmObxXCt+6qBlQ4MAFsfR9BGrIYpIktqRFq4ZMPSjUmLib2GpRaHMe4NXD0A6bKey9ajq
+	KyWFBzxM+JHpeUVCMLlkRK/QRt5ROWN1vPd4WFrkAcClahzKztyM/r9he8kH93gs74fHSljlVf+H0
+	kaXxVIDAedySZN0uPIfR1BfRghTIA1Qfl/xjerw5mcY/9PNItERAq+gmiPV7Y891D9763AWqHWae6
+	QdZ0+t1EybLLRdjYJ1cP/YS0/vCqwo1I7acLrsIduhbB+l3Xl/jDo9Wnv3BHg+Un/QKY5EQOIngG8
+	nZPuKA9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9K22-00000005UTA-0MCd;
-	Mon, 28 Apr 2025 08:40:06 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1u9K5t-00000005VB7-2qUh;
+	Mon, 28 Apr 2025 08:44:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9JpJ-00000005Qdd-1hi7
+	id 1u9JrZ-00000005RXA-14ey
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 08:26:59 +0000
-Received: from epcas2p4.samsung.com (unknown [182.195.41.56])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250428082648epoutp04f38db3731500622527d0d1ec1ff7b9b8~6bg0x4f8n0507505075epoutp04a
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 08:26:48 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250428082648epoutp04f38db3731500622527d0d1ec1ff7b9b8~6bg0x4f8n0507505075epoutp04a
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1745828808;
-	bh=C3ekUdVyc5lKna1B3ODGvGE5qt1aBk/h9qBhnTOllb4=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=Pv7DxwpXM38xwIgOGr3ofXWmYLHIQJJmHK9SJYLLinNxtziegPvuuWtDV7diB44/9
-	 mZzr8qWXaO+Pp3BLt9e+LCtHI3gQp7umnr/hLEnAjC85c3PfW3a1dq7EoowXkHKARy
-	 xZBBRTGqEfbrnpSQs9DZ8QFGGC42wVWSYbQ8Xcys=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas2p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250428082647epcas2p2dfc36e3cf5aa0bf32155279b15f89c6b~6bg0RZBUp0907509075epcas2p2C;
-	Mon, 28 Apr 2025 08:26:47 +0000 (GMT)
-Received: from epcas2p2.samsung.com (unknown [182.195.36.100]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4ZmGkv4Sssz6B9mB; Mon, 28 Apr
-	2025 08:26:47 +0000 (GMT)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas2p4.samsung.com (KnoxPortal) with ESMTPA id
-	20250428082646epcas2p4460f473df235e8546df6a71e05240119~6bgzSPIU_0314903149epcas2p4o;
-	Mon, 28 Apr 2025 08:26:46 +0000 (GMT)
-Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250428082646epsmtrp143bee6ba981f6e33c5cf36ee9e09b6c7~6bgzRdC8X1746317463epsmtrp1Q;
-	Mon, 28 Apr 2025 08:26:46 +0000 (GMT)
-X-AuditID: b6c32a29-55afd7000000223e-12-680f3bc6c77b
-Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
-	epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	23.20.08766.6CB3F086; Mon, 28 Apr 2025 17:26:46 +0900 (KST)
-Received: from KORCO115296 (unknown [12.36.150.221]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250428082646epsmtip1d3bbcbdee9a21ba30bf0891de9710294~6bgzCkV6Y0683206832epsmtip1I;
-	Mon, 28 Apr 2025 08:26:46 +0000 (GMT)
-From: =?UTF-8?B?7IaQ7Iug?= <shin.son@samsung.com>
-To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, "'Sylwester Nawrocki'"
-	<s.nawrocki@samsung.com>, "'Chanwoo Choi'" <cw00.choi@samsung.com>, "'Alim
- Akhtar'" <alim.akhtar@samsung.com>, "'Michael Turquette'"
-	<mturquette@baylibre.com>, "'Stephen Boyd'" <sboyd@kernel.org>, "'Rob
- Herring'" <robh@kernel.org>, "'Conor Dooley'" <conor+dt@kernel.org>,
-	"'Sunyeal Hong'" <sunyeal.hong@samsung.com>
-Cc: <linux-samsung-soc@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-In-Reply-To: <cdbc8c9b-ecfb-4969-997c-52e873a3abf0@kernel.org>
-Subject: RE: [PATCH v2 2/3] clk: samsung: exynosautov920: add cpucl0 clock
- support
-Date: Mon, 28 Apr 2025 17:26:46 +0900
-Message-ID: <02b401dbb817$47c67a70$d7536f50$@samsung.com>
+	Mon, 28 Apr 2025 08:29:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 961554A454;
+	Mon, 28 Apr 2025 08:29:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23DB9C4CEE4;
+	Mon, 28 Apr 2025 08:29:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745828956;
+	bh=cGQWR8jhKsA88ie48McerFwOTjkySfn7kxfyN/o03kc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=iSsc9NbZ2OSX6s0FYmkOrwZ4Y74di5SxQ6HBbf6tgdP7n2h957ekjxLAv9ilO/rD2
+	 dirqo66vOK6jJtwxntmnjuAfK9JdXlgGf4sMesLv7Z90drZS9fZqpl1+Rp8d65/pPI
+	 mp7I/0Yp9ILFuLR+wwL2ZEysja3HLgT2u23WG603H1EOPEP/zec4Hv1SlX2AiT5/nb
+	 8OFdNeDp7A5nB5ztO+cBYLW9M5WOIRlOvIMjX8G0jPGnf+7haxCnlpQL6CHQOT65AI
+	 GyiRBBGT0lQxy/mI6HpomVcx38Hje4+xxayzjLfDhLTb1r1mr+OiVaHn6TNEDuzojP
+	 3GREHEKb+H+TA==
+Date: Mon, 28 Apr 2025 10:29:14 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Primoz Fiser <primoz.fiser@norik.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	upstream@lists.phytec.de
+Subject: Re: [PATCH 1/2] bindings: arm: fsl: Add PHYTEC phyBOARD-Nash-i.MX93
+ board
+Message-ID: <20250428-neat-manul-from-avalon-b2db3a@kuoka>
+References: <20250425064107.174548-1-primoz.fiser@norik.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-X-Mailer: Microsoft Outlook 15.0
-Thread-Index: AQGOlsMvr1R6l3BJizf5uOhEVh8iDwK47iPiAr6d9CQCUOddC7QUvGjg
-Content-Language: ko
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrCIsWRmVeSWpSXmKPExsWy7bCSnO4xa/4Mgw9P9C0ezNvGZrFm7zkm
-	i+tfnrNazD9yjtXi/PkN7BabHl9jtfjYc4/V4vKuOWwWM87vY7K4eMrV4v+eHewWh9+0s1r8
-	u7aRxaJp2XomBz6P9zda2T02repk89i8pN6jb8sqRo/Pm+QCWKO4bFJSczLLUov07RK4MqY3
-	qhX85q5YfPYxUwNjI1cXIweHhICJxJyNpl2MXBxCArsZJb6cusXWxcgJFJeQODxjAiOELSxx
-	v+UIK4gtJPCcUeLhr3QQm03AUGLVj+1MIM0iAhOZJS59uMAC4jALbGKUOLf7JhvE2PeMEh3N
-	F9hBWjgF7CQ+n/kFNkpYIEhi8tPlzCA2i4CqxPKed2BxXgFLidutN9kgbEGJkzOfsIDYzALa
-	Er0PWxkhbHmJ7W/nMEOcpyCx+9NRsF4RATeJ9sv32CFqRCRmd7YxT2AUnoVk1Cwko2YhGTUL
-	ScsCRpZVjJKpBcW56bnFhgWGeanlesWJucWleel6yfm5mxjBEamluYNx+6oPeocYmTgYDzFK
-	cDArifBWGfBnCPGmJFZWpRblxxeV5qQWH2KU5mBREucVf9GbIiSQnliSmp2aWpBaBJNl4uCU
-	amAyaC/3uOd2Ip4tcUf7x75HT2rP8vLceeO+4Ovb/zodskoaJxRPC7589/HQq7y0rm3bmrM7
-	FncpqTF/Ztpzy+hG+UW77OUc8t1r1XMYbvu36id2eb9tEN/EXLbuiMtpq7lz1ZZJx222eOgU
-	t3d54tvPr3vNRe9t+Kc6IzyrbevOZ6prJh9Uvy7j0X0kI9hk5+4ui0+/1r3KOxW2P23GnO0v
-	O7h/C8/nm6v725JLsraRw/nK9cWfdbOsOpPmyZ6bd0X62ZGAzy3HZK5K+MYp87C4v7I51FOV
-	uNZ5f+Zk0/WX7df8U7WbrrFH5fLczOPHr+s8OSDQVuD+cxuPfWDbzdsdCSXPvrR4Ndv4KT5+
-	otusxFKckWioxVxUnAgAJcX7djcDAAA=
-X-CMS-MailID: 20250428082646epcas2p4460f473df235e8546df6a71e05240119
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-cpgsPolicy: CPGSC10-234,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250423044159epcas2p3476aede31ffc8de8a9169584ec8a3d78
-References: <20250423044153.1288077-1-shin.son@samsung.com>
-	<CGME20250423044159epcas2p3476aede31ffc8de8a9169584ec8a3d78@epcas2p3.samsung.com>
-	<20250423044153.1288077-3-shin.son@samsung.com>
-	<cdbc8c9b-ecfb-4969-997c-52e873a3abf0@kernel.org>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250425064107.174548-1-primoz.fiser@norik.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_012658_087556_82DA2D6B 
-X-CRM114-Status: GOOD (  18.27  )
+X-CRM114-CacheID: sfid-20250428_012917_313770_085218B1 
+X-CRM114-Status: GOOD (  10.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,46 +76,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> -----Original Message-----
-> From: Krzysztof Kozlowski [mailto:krzk@kernel.org]
-> Sent: Monday, April 28, 2025 4:23 AM
-> To: Shin Son <shin.son@samsung.com>; Sylwester Nawrocki
-> <s.nawrocki@samsung.com>; Chanwoo Choi <cw00.choi@samsung.com>; Alim
-> Akhtar <alim.akhtar@samsung.com>; Michael Turquette
-> <mturquette@baylibre.com>; Stephen Boyd <sboyd@kernel.org>; Rob Herring
-> <robh@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Sunyeal Hong
-> <sunyeal.hong@samsung.com>
-> Cc: linux-samsung-soc@vger.kernel.org; linux-clk@vger.kernel.org;
-> devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
-> kernel@vger.kernel.org
-> Subject: Re: [PATCH v2 2/3] clk: samsung: exynosautov920: add cpucl0 clock
-> support
+On Fri, Apr 25, 2025 at 08:41:06AM GMT, Primoz Fiser wrote:
+> Add devicetree bindings for PHYTEC phyBOARD-Nash-i.MX93 board based on
+> the existing PHYTEC phyCORE-i.MX93 SoM (System-on-Module).
 > 
-> On 23/04/2025 06:41, Shin Son wrote:
-> > Register compatible and cmu_info data to support clock CPUCL0(CPU
-> > Cluster 0), this provides clock for CPUCL0_SWTICH/DBG/CLUSTER.
-> > These clocks are required early during boot for the CPUs, so they are
-> > declared using CLK_OF_DECLARE instead of being registered through a
-> platform driver.
-> >
-> > Signed-off-by: Shin Son <shin.son@samsung.com>
+> Adjust the compatibles for the existing phyBOARD-Segin-i.MX93 board, to
+> be able to add additional board based on the phyCORE-i.MX93 SoM.
 > 
-> Applied, but remember to use proper wrapping and run checkpatch.
-> 
-> [Checkpatch]
-> WARNING: Prefer a maximum 75 chars per line (possible unwrapped commit
-> description?)
-> 
-> 
-> Best regards,
-> Krzysztof
+> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+> ---
+>  Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
 
-Hello, Krzysztof Kozlowski.
-
-Ack, thanks for your feedback. 
-I will make sure to thoroughly review my patches next time.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
-Shin Son
+Krzysztof
 
 
