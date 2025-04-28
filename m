@@ -4,149 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3112C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 18:13:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B6A6C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 18:15:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5863dNGJJp3eODoc18NgqrDBXKCW73pyjiHAStnh9lk=; b=afGPDT8G2HdQKBJve3yfFsRVYr
-	+UEIwYa+LBk7pr6NSCfbjZn5ULMuxyGTsfHdzbIzE9atykuQUPAs4Gry6DI0yc2g6FKu7pgX8hKQY
-	qGfiaXi4jjDriUUh7gQMdBHrxjT5jaWETkkj11thux4odH+vQiqVA7CKxaazUgHd6+t40tg3yy8U+
-	hvYCFlOVGjPsaO0SOfXx3az78JqQsFCi+f/oRe6Fvz/ROC3MUrfIwDaolWwuWwAqKQodlP+KJZnWy
-	y9WS7CDRqvr6j0+vP0nChtfHLfzrtTNkfRhJvmMLwvci4weeYfXzWhy1ztGhWF10T2IC1S3mnOKuE
-	oWBOd7Xw==;
+	bh=GbszfIc2ET/PTFgJSbbnkaPhvrSSCjYcL8giV7vQyOI=; b=rKdoO37f9i4LaLYGJkJCLVWpGD
+	9E19LcqLbIOXYLKrHIBtDs0blnvglUYzVN15ikLx9xlf1dWxpYgzMrB/eurR5QRod07YE/0BdPxz0
+	ZxqEHmUjXvsNZ17GhSbShoLTrmWT1Kx1I0HdUoiOrce4+prKv1dUwKejTZhp5c22meMsPDIs1NGwz
+	JPtsR5jrCkZdQyVO33UtBqOWu45EjdAu9skgSOFxUw4k6Jy3BGwQCueOGOEjV/0WFwm0lOUaIGVDo
+	bM0XoaWwmQVmmq+fSa50afUho/XZ6jiT1PFAQTq0vnvOLe6dkImrObjO8oMhVu9FOjVzyor45sIY6
+	eURyFmOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Syh-00000007BRc-36JH;
-	Mon, 28 Apr 2025 18:13:15 +0000
-Received: from mail-dm6nam10on20602.outbound.protection.outlook.com ([2a01:111:f403:2413::602] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1u9T0d-00000007C5o-3MI2;
+	Mon, 28 Apr 2025 18:15:15 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Swi-00000007B8W-2REU
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 18:11:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=r9ajSM18K/BWH39N1cARLtUCECOxbAXPCtA5JKIYx6GWcx9+74K/W1hYUJkY905gT/tqx4z7ZAL/XfoIC3TkTAal7l6WFgptpDvGTDbjBezTZb7RL22gNsm96eFQBeDwlnQcq9NA45ESj+P+R9ROQbzseELrZgLV44/pM/FnNbTxRspBHr2dHh6irsnSoX3hWUR3HyoNKx5W+DlwArrnQANvMtBMG3gBbb0HpwGIkCVfrTd6n6vPepsKn2fuvBcgRjxD4w25MQyVhTTHdVmeuQQpXSUpoX37VXI7ybiwgQdE2yOeN00kHPICNolOUy1mrpQlmNAERh+b1fRYf0eU8A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5863dNGJJp3eODoc18NgqrDBXKCW73pyjiHAStnh9lk=;
- b=yYYuUK5ICwOgPSDEi6AD0WTdYorXECoFGF4qN1qpjcIAGshNoZ1uCT1PZ4QF6lfsxrZE9Ata/HIa8xe7l9MfvYcCgW0eLpc9fSATaiD70GfMu+GpIkjrpNtkel5cNKBdPrCw5gIc2ewsNsmQBVUqVkxYfBLbeaKH03pFgoGoPt8+kSa06+4hESKkDfiIvByU8f5vk+OAjB45uEaw+uX6dcKckGQubzpzL990+dushqPVGuCR8qgIqDE3Ojo75geG6+HSil44j48z437ATyAicjXkxbU1WWPtlpVZOxTC403rA1Mxb/pachRZFR6SRtFGfnsbd6c10cvWNkqYqkgdjg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=linux.intel.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5863dNGJJp3eODoc18NgqrDBXKCW73pyjiHAStnh9lk=;
- b=AUfIQcmVF+ksOXDbLhFp5+yx+kr0DgsgkJumJT4psfA1ofv3PDF3dqwfXpHb4VUhemOItnjttXSTTeJN6+5gOA2SmXIgfelqhZ6GUW5j2UmJtMoZoJ1U0x7vnA51GcoXnaqTC1FHHr92Gh872IupHehIoOaXgiMZ9sNLwZwnL3ooIL9tFMMV8ifWCJZBTH5uLErckHNYAcK6bRijYvhAvLEXUm4dVxCDg0j0fjLRtpAVXkpngltarcG0WoCxHuyGlLrdshNesb9fq863OOP6cvyoWkHLp3xMYvsfMeEG0sTYsmOu8NvX9a2kIsBkTgpNMeKzTI0U5fTwFkn424Z0VQ==
-Received: from BN9P221CA0018.NAMP221.PROD.OUTLOOK.COM (2603:10b6:408:10a::35)
- by SA1PR12MB5659.namprd12.prod.outlook.com (2603:10b6:806:236::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.27; Mon, 28 Apr
- 2025 18:11:04 +0000
-Received: from BL6PEPF00020E61.namprd04.prod.outlook.com
- (2603:10b6:408:10a:cafe::9c) by BN9P221CA0018.outlook.office365.com
- (2603:10b6:408:10a::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.37 via Frontend Transport; Mon,
- 28 Apr 2025 18:11:04 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- BL6PEPF00020E61.mail.protection.outlook.com (10.167.249.22) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8678.33 via Frontend Transport; Mon, 28 Apr 2025 18:11:03 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 28 Apr
- 2025 11:10:44 -0700
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 28 Apr
- 2025 11:10:44 -0700
-Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com (10.129.68.9)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Mon, 28 Apr 2025 11:10:41 -0700
-Date: Mon, 28 Apr 2025 11:10:40 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Baolu Lu <baolu.lu@linux.intel.com>
-CC: <jgg@nvidia.com>, <kevin.tian@intel.com>, <corbet@lwn.net>,
-	<will@kernel.org>, <bagasdotme@gmail.com>, <robin.murphy@arm.com>,
-	<joro@8bytes.org>, <thierry.reding@gmail.com>, <vdumpa@nvidia.com>,
-	<jonathanh@nvidia.com>, <shuah@kernel.org>, <jsnitsel@redhat.com>,
-	<nathan@kernel.org>, <peterz@infradead.org>, <yi.l.liu@intel.com>,
-	<mshavit@google.com>, <praan@google.com>, <zhangzekun11@huawei.com>,
-	<iommu@lists.linux.dev>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-tegra@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
-	<patches@lists.linux.dev>, <mochs@nvidia.com>, <alok.a.tiwari@oracle.com>,
-	<vasant.hegde@amd.com>
-Subject: Re: [PATCH v2 09/22] iommufd/viommu: Introduce IOMMUFD_OBJ_VCMDQ and
- its related struct
-Message-ID: <aA/EoEFtbnL2+zAw@Asurada-Nvidia>
-References: <cover.1745646960.git.nicolinc@nvidia.com>
- <8bab0069503fa21b48298ed2ffe29a06963f71f5.1745646960.git.nicolinc@nvidia.com>
- <28e513ec-4d8b-4967-a241-d6f63d533050@linux.intel.com>
+	id 1u9SyH-00000007BLi-1Nwt;
+	Mon, 28 Apr 2025 18:12:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0894F5C5EFB;
+	Mon, 28 Apr 2025 18:10:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88C13C4CEEC;
+	Mon, 28 Apr 2025 18:12:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745863967;
+	bh=KTqQYLBw1XS55ajrDgXBIWQeeAlb817N/mkPEkK6Xfw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QWIuA4peX9ZsjZC1m/7A/fpkdxquCZ50ltGIQwsvl5bPQXH6/fG73jq8dNkv3sNui
+	 9nXcFpAcjM4s+axJKSCs6FKBzGrFnw/+CllMT95PkfTUroNAchm/SjoihsJ4CW7H3G
+	 KY5jNIpRIN+m1dXf+VIuOgNWlOUTAV1n9a+at9yE/XO45hJr+rPtjnbCia6HsoT3V9
+	 JOlKkYVPwCMRtxWXyCeGQNB+gAb9BT/SpDdLoA2o2J9xCqE6AbN/22vJ8bKEq69fAM
+	 A4ljOqumSo96/ynTfEkG7txH+ZEXs27JJtQFQR1uMIbO/7qNlCBXl0drB0hKzosK/I
+	 cRf1JI1duM30A==
+Date: Mon, 28 Apr 2025 19:12:42 +0100
+From: Simon Horman <horms@kernel.org>
+To: Da Xue <da@libre.computer>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Christian Hewitt <christianshewitt@gmail.com>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v3] net: mdio: mux-meson-gxl: set reversed bit when using
+ internal phy
+Message-ID: <20250428181242.GG3339421@horms.kernel.org>
+References: <20250425192009.1439508-1-da@libre.computer>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <28e513ec-4d8b-4967-a241-d6f63d533050@linux.intel.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF00020E61:EE_|SA1PR12MB5659:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4f6293ef-6719-48e0-8e95-08dd86800a2c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|1800799024|36860700013|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?NFHjORpNmYiDZU/3jj6F3cLH/QGwqaiV+nZibujVSz4BDyd6H7naYTfQ849Y?=
- =?us-ascii?Q?Xdx2w54aYI274p84W4moDfD0Gm4mgdsQL04IrqxjDws0pBWr7Jt18EKssaXX?=
- =?us-ascii?Q?AwrIZK7d888McxDK9LDFq4JCL8NwcXvnAPXEjjFgij5bviyCVT3GO5QbkSdB?=
- =?us-ascii?Q?EDKwbQZjpjdWOvFIHp5iUL4aY1kFxVxlNvuTALVlS6gnxT4Ta5PsLfU8fVHj?=
- =?us-ascii?Q?T88/u9DWPQGEvW+BO77ga06h7DAKPxrWQa+auAluqQOq1T5mUQvtITFfyYPF?=
- =?us-ascii?Q?cjBIOFrkR23yUm0h0g3zLCcYSp7UKb2DwtspjFE7USuTjkZRlN37r+kKIzFH?=
- =?us-ascii?Q?0LeWWOY5MS9oc1x+tkrGVkVvlQlXkm87WwYqsdrY1yl8J2HpYl+OZotCxFSA?=
- =?us-ascii?Q?XSGwh9OnwXnco7Qg043BCN7US2XOrFQQ3sLOQLdZpEKcaU840fPpyF1mVWVs?=
- =?us-ascii?Q?LXdh9J69Vt8acRrwNmK2GfyM/Tck0EPMM8gi7a/VwWqqyZc2HUO04mpFg5T0?=
- =?us-ascii?Q?lUTfQ4CeUMQYXY9wNBQYdSLcm7CEBaOMlE5BQ/g8oex890UqcwdIMpOsfVyJ?=
- =?us-ascii?Q?UmD3n0HE1WAtDqop6lfW3Kabb5Nf1vXBYBiJ4SVSZqzxv1N8N4UeTVFjIC2v?=
- =?us-ascii?Q?YL57hzMoAB/K+/RIBZ3ABF3RByGKluPcig+sVzJE6l6g3fHS7HJV1aqHciTT?=
- =?us-ascii?Q?wgV3xu50rc742dYMSAGV8YUiC0STV2N38I85OhKTb04ZAXxOMlsNbYjsVYyX?=
- =?us-ascii?Q?QyQ17L9fA/g1oW9GMJVOIBlxnhSVIe+iOhnLyI2Ot33F3kUhbVIAft5wOKjp?=
- =?us-ascii?Q?ybe6KNbctoTVE1phiJq4LUGgHgexbPzvRpZnbRi1td7giKDmh2dcKhbZv8cv?=
- =?us-ascii?Q?vbMGxarX+o3romTeAUI3jJHYGdCFbkjq9/AX6d9z1L/er9kdsotmwvwooWCh?=
- =?us-ascii?Q?XGlU4hzN5jOixze+KqCu+NUr+wABjBaSeDBKFaFJpiVqgS08hKRuzm5t7AGA?=
- =?us-ascii?Q?r9hbpzMShhew6weM2SFj4MUwPs3kKI1ouYHhV4mmlUHLv0bCV6hYtPvR09Iw?=
- =?us-ascii?Q?1cz2UZ9l6aHcx6DikrtDii8gwslJsI24K9TfQMlj4uXWOISlnI2MAgIkBmof?=
- =?us-ascii?Q?d0Mm/1tYcaqxA0llN8+VzhuB4AY2X+N+/YIn9jMN53IZ6F+vs5ekkJzBUZ7W?=
- =?us-ascii?Q?mJwsJ5rlSheot5m/lK74tXWP8MM4vp+XMltEyn/F5uZuqxWcDzcz0+QeQ/93?=
- =?us-ascii?Q?x8/bFfI2i0xPgj8hVY7jFG2CmR3MK+ciIof7u6aP7de63gDzz5gtBnqin2NS?=
- =?us-ascii?Q?LT0oCMkb9ZrPlhzTk/tA+cD2L4ooRI+Zv6s4qvCHBj24CjusUW9QIsR07/TL?=
- =?us-ascii?Q?eiR0B0cXY3XGgwzD+r7e13FLK8to20XBpDMxuvJdBmWI0MP2VDEErm2imsZH?=
- =?us-ascii?Q?KV68XP4KOpEvPZmRCc60BoUMOvbtbRaXTxnroqjNDuxhcZ689wc8iS9OgKHc?=
- =?us-ascii?Q?955IK4EV4OtxOVFA6LlrVrGG9xwqB2Bi1S8n?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(1800799024)(36860700013)(7053199007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2025 18:11:03.9000
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4f6293ef-6719-48e0-8e95-08dd86800a2c
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF00020E61.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB5659
+In-Reply-To: <20250425192009.1439508-1-da@libre.computer>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_111112_614346_4325D8B3 
-X-CRM114-Status: GOOD (  17.79  )
+X-CRM114-CacheID: sfid-20250428_111249_423675_6FAB5E65 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,56 +82,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 28, 2025 at 09:09:19AM +0800, Baolu Lu wrote:
-> On 4/26/25 13:58, Nicolin Chen wrote:
-> > Add a new IOMMUFD_OBJ_VCMDQ with an iommufd_vcmdq structure, representing
-> > a command queue type of physical HW passed to a user space VM. This vCMDQ
-> > object, is a subset of vIOMMU resources of a physical IOMMU's, such as:
-> >   - NVIDIA's virtual command queue
-> >   - AMD vIOMMU's command buffer
-> > 
-> > Inroduce a struct iommufd_vcmdq and its allocator iommufd_vcmdq_alloc().
-> > Also add a pair of viommu ops for iommufd to forward user space ioctls to
-> > IOMMU drivers.
-> > 
-> > Signed-off-by: Nicolin Chen<nicolinc@nvidia.com>
+On Fri, Apr 25, 2025 at 03:20:09PM -0400, Da Xue wrote:
+> This bit is necessary to receive packets from the internal PHY.
+> Without this bit set, no activity occurs on the interface.
 > 
-> Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
+> Normally u-boot sets this bit, but if u-boot is compiled without
+> net support, the interface will be up but without any activity.
 > 
-> with a small nit below ...
-> 
-> > ---
-> >   include/linux/iommufd.h | 35 +++++++++++++++++++++++++++++++++++
-> >   1 file changed, 35 insertions(+)
-> > 
-> > diff --git a/include/linux/iommufd.h b/include/linux/iommufd.h
-> > index ef0d3c4765cf..e91381aaec5a 100644
-> > --- a/include/linux/iommufd.h
-> > +++ b/include/linux/iommufd.h
-> > @@ -37,6 +37,7 @@ enum iommufd_object_type {
-> >   	IOMMUFD_OBJ_VIOMMU,
-> >   	IOMMUFD_OBJ_VDEVICE,
-> >   	IOMMUFD_OBJ_VEVENTQ,
-> > +	IOMMUFD_OBJ_VCMDQ,
-> >   #ifdef CONFIG_IOMMUFD_TEST
-> >   	IOMMUFD_OBJ_SELFTEST,
-> >   #endif
-> > @@ -112,6 +113,14 @@ struct iommufd_vdevice {
-> >   	u64 id; /* per-vIOMMU virtual ID */
-> >   };
-> > +struct iommufd_vcmdq {
-> > +	struct iommufd_object obj;
-> > +	struct iommufd_ctx *ictx;
-> > +	struct iommufd_viommu *viommu;
-> > +	dma_addr_t addr;
-> 
-> It's better to add a comment to state that @addr is a guest physical
-> address. Or not?
+> The vendor SDK sets this bit along with the PHY_ID bits.
 
-Yea. Let's add one:
+I'd like to clarify that:
+Without this patch the writel the patch is modifying will clear the PHY_ID bit.
+But despite that the system works if at some point (uboot) set the PHY_ID bit?
 
-	dma_addr_t addr; /* in guest physical address space */
+> 
+> Fixes: 9a24e1ff4326 ("net: mdio: add amlogic gxl mdio mux support");
 
-Thanks
-Nicolin
+I don't think you need to resend because of this,
+but the correct syntax is as follows. (No trailing ';'.)
+
+Fixes: 9a24e1ff4326 ("net: mdio: add amlogic gxl mdio mux support")
+
+> Signed-off-by: Da Xue <da@libre.computer>
+> ---
+> Changes since v2:
+> * Rename REG2_RESERVED_28 to REG2_REVERSED
+> 
+> Link to v2:
+> https://patchwork.kernel.org/project/linux-amlogic/patch/20250331074420.3443748-1-christianshewitt@gmail.com/
+
+...
 
