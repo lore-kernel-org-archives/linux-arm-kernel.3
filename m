@@ -4,43 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B1F6C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 18:31:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6371DC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 18:31:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5mSGc1rDPRCWuNltUIoucMKNleHyPy9iryPtlf2Kd8I=; b=wZ4eGyBamVTApdCQY/dXmkwZN6
-	3UEUeRnqVGjCkiT+Czs0o2+yJP6PJDN+iNQE871OHLeeGA3w02EDZeig4+0N1A7eaIIrMFovJ17fb
-	JYMMZkpHWw7kFPA5m/gIs3hQ3lcamRygo+l3VqL2+N9fqz0SxMszWcUcMyFR/AHKaYcGrnClqOPS9
-	ritWCP5NkrauroW972CDq0z3vx73oXGX43GR3Jgwwiln2R0oiSbtId5C6Ezae4EeBj5mIsCHtn3Ed
-	RRnJwULwnmFlhJeOjZjKqBnMPdwzXV2HhvvRBFqlD9a55xMHQ9YCJtNEdlMtq64G1ijOsl0Jpz3tN
-	2gP3WnIA==;
+	bh=2sQ+p3+QrymWT8nnLjQCGwjWQ/0HSVRiTj7uvtZXqco=; b=ehpjKLCrsyxgWRjPrS1J2+2GZ/
+	CJsc5hw/sr3LCw6pQH8qUjl2N+x4Cspfai/xQXl0DMG8U1V5l5nTAEYxst51sA5pqT23PK9xdW+Kq
+	TGS/5xc9HmxCzwHJBagMzdj0h4NNj6xF/PMOMH9xOE2W2W66drODjAvjGFjdlwrvL0qbQYfcJBULT
+	d2Q2r7MvLGMVOxwSA13ZDrQhnO5zWJD48sHVje2YEAZoi2vEC6zLVEwDfBIsAkEHQ18vTKtDzJSfC
+	Z/4CrbEItb0SmJ1VXFDrdiR6aUPRhq1pOJ8zyZ7nd5Pexz6y+YAU79APJJ2ns9HsfZKipZKtPDY64
+	JK5AGNRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9TFy-00000007Eda-1iJa;
-	Mon, 28 Apr 2025 18:31:06 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u9TG0-00000007EfC-11WK;
+	Mon, 28 Apr 2025 18:31:08 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Rrp-000000070uc-1fG1;
-	Mon, 28 Apr 2025 17:02:07 +0000
+	id 1u9Rrw-0000000710E-3iCa;
+	Mon, 28 Apr 2025 17:02:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=2sQ+p3+QrymWT8nnLjQCGwjWQ/0HSVRiTj7uvtZXqco=; b=k+9JAtw+9KEcJiq8HAGgAEtKuD
+	/MphoXju0wKQXBaT/pN5oTM5688faySj0e+bOkT8xTf6gGfzeoohUXcRVRpqv6LzQzJhiitGFHU2Q
+	DQsLOcuMyfBQLwfTZDljgzWIux8tZ6GI1U3wC3wMjV+XauJCsVVFCO+SmHNPM2iyLfr6pAmdybxXx
+	+3ilNJ0+GfC3vNPnPlAKW7ayLGXBc+5d/TGqeTeh35iZS0ZC+yfMkEEDl6AOInilYKkn+G2X8+yeE
+	ENf0x8vNzRn7WIordr831cR/K4kUsMH8SbC7iFHPUEoBBShxr8ZVsyKv8Fst8Ehd1svEOHxFNic+C
+	KNNQOqBA==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u9Rrr-0000000Ctlh-3Tsx;
+	Mon, 28 Apr 2025 17:02:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 320664AAD6;
-	Mon, 28 Apr 2025 17:02:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C05F1C4CEEC;
+	by dfw.source.kernel.org (Postfix) with ESMTP id AA02E5C5C9E;
+	Mon, 28 Apr 2025 16:59:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D1CAC4CEF1;
 	Mon, 28 Apr 2025 17:02:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745859725;
-	bh=Y1aKy5QVBGFd4CpCHS+L+Ce3zC0X9xCmDHzwr3yuur8=;
+	s=k20201202; t=1745859724;
+	bh=EyLlHErF32h0yhzCTHHerfcTZv7f2HWfwZtPUgAb89A=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=hqdkhL+UMMJPm5vxVwm3fl8kApgJUo3lWSkFbb6VpXx2mNzFvG3AvRMiVAJmXBFsW
-	 ENOMmL7cVq0zW8tcZNx6Cf7Ofjj68U4nCYAJc48K6TwoLLZRmAhMvRx4+O0/TvII14
-	 j1++Upi+QJiJ/wQ9DHFojgEomi8KbvIdimR/9TMRJKdSqN0Nn6Ekja2LBClCghaK+j
-	 nfm2NI4OaTTmLGnn93IZU1CYStm0eYAICUFpBzIYZJHFBWqepIjgzOlr/0/2UpvA6V
-	 UmM+fjSuht755278fXPtAr6ZoEk42bisgCADq+WHlC8RgLwQetZ8d9QUJLXqoNjozI
-	 67UiHu08xx6TA==
+	b=nWs3ffHSwLFiJ+nJXf3tiPeNBseY3x1B+ENVAeoD3EdVbkOt6GHfVwDET7Nims8/3
+	 LRO/AnB8eumBIYl1IrG/isEe8YzvvIuuZlDBaFtm9TZl2IxtKWh1EI8vmuUlKRjM2l
+	 8ZxLBvupIrvKm0qqI1HQStsBzJw0hQ7TAaj3tOH5WniveJt2Na6wiXuDwvlJeCwfSi
+	 OyDuS/19REKeKjFBsAv6Y0pLf6V5kHC7DubjM4pd7VvW2uzEcwbG/vnmCcmtLox90K
+	 4OxyWmlbzmDjS8gS6kcq/SKtHVnoETrb2NJ19qgsrbu+LMQAw9dfhPQeA0JPVwiiv+
+	 MD6xxLga7JX6Q==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -55,17 +69,17 @@ Cc: linux-kernel@vger.kernel.org,
 	Ard Biesheuvel <ardb@kernel.org>,
 	"Jason A . Donenfeld" <Jason@zx2c4.com>,
 	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: [PATCH v4 11/13] crypto: x86/sha256 - implement library instead of shash
-Date: Mon, 28 Apr 2025 10:00:36 -0700
-Message-ID: <20250428170040.423825-12-ebiggers@kernel.org>
+Subject: [PATCH v4 10/13] crypto: sparc/sha256 - implement library instead of shash
+Date: Mon, 28 Apr 2025 10:00:35 -0700
+Message-ID: <20250428170040.423825-11-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250428170040.423825-1-ebiggers@kernel.org>
 References: <20250428170040.423825-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_100205_499241_56208E47 
-X-CRM114-Status: GOOD (  20.13  )
+X-CRM114-CacheID: sfid-20250428_180208_226342_7212A75C 
+X-CRM114-Status: GOOD (  21.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,852 +103,356 @@ it fixes the longstanding issue where the arch-optimized SHA-256 was
 disabled by default.  SHA-256 still remains available through
 crypto_shash, but individual architectures no longer need to handle it.
 
-To match sha256_blocks_arch(), change the type of the nblocks parameter
-of the assembly functions from int to size_t.  The assembly functions
-actually already treated it as size_t.
-
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- arch/x86/crypto/Kconfig                       |  14 -
- arch/x86/crypto/Makefile                      |   3 -
- arch/x86/crypto/sha256_ssse3_glue.c           | 432 ------------------
- arch/x86/lib/crypto/Kconfig                   |   7 +
- arch/x86/lib/crypto/Makefile                  |   3 +
- arch/x86/{ => lib}/crypto/sha256-avx-asm.S    |  12 +-
- arch/x86/{ => lib}/crypto/sha256-avx2-asm.S   |  12 +-
- .../crypto/sha256-ni-asm.S}                   |  36 +-
- arch/x86/{ => lib}/crypto/sha256-ssse3-asm.S  |  14 +-
- arch/x86/lib/crypto/sha256.c                  |  74 +++
- 10 files changed, 118 insertions(+), 489 deletions(-)
- delete mode 100644 arch/x86/crypto/sha256_ssse3_glue.c
- rename arch/x86/{ => lib}/crypto/sha256-avx-asm.S (98%)
- rename arch/x86/{ => lib}/crypto/sha256-avx2-asm.S (98%)
- rename arch/x86/{crypto/sha256_ni_asm.S => lib/crypto/sha256-ni-asm.S} (85%)
- rename arch/x86/{ => lib}/crypto/sha256-ssse3-asm.S (98%)
- create mode 100644 arch/x86/lib/crypto/sha256.c
+ arch/sparc/crypto/Kconfig                |  10 --
+ arch/sparc/crypto/Makefile               |   2 -
+ arch/sparc/crypto/sha256_glue.c          | 128 -----------------------
+ arch/sparc/lib/Makefile                  |   1 +
+ arch/sparc/lib/crypto/Kconfig            |   8 ++
+ arch/sparc/lib/crypto/Makefile           |   4 +
+ arch/sparc/lib/crypto/sha256.c           |  64 ++++++++++++
+ arch/sparc/{ => lib}/crypto/sha256_asm.S |   2 +-
+ lib/crypto/Kconfig                       |   3 +
+ 9 files changed, 81 insertions(+), 141 deletions(-)
+ delete mode 100644 arch/sparc/crypto/sha256_glue.c
+ create mode 100644 arch/sparc/lib/crypto/Kconfig
+ create mode 100644 arch/sparc/lib/crypto/Makefile
+ create mode 100644 arch/sparc/lib/crypto/sha256.c
+ rename arch/sparc/{ => lib}/crypto/sha256_asm.S (96%)
 
-diff --git a/arch/x86/crypto/Kconfig b/arch/x86/crypto/Kconfig
-index 9e941362e4cd5..56cfdc79e2c66 100644
---- a/arch/x86/crypto/Kconfig
-+++ b/arch/x86/crypto/Kconfig
-@@ -388,24 +388,10 @@ config CRYPTO_SHA1_SSSE3
- 	  - SSSE3 (Supplemental SSE3)
- 	  - AVX (Advanced Vector Extensions)
- 	  - AVX2 (Advanced Vector Extensions 2)
- 	  - SHA-NI (SHA Extensions New Instructions)
+diff --git a/arch/sparc/crypto/Kconfig b/arch/sparc/crypto/Kconfig
+index e858597de89db..a6ba319c42dce 100644
+--- a/arch/sparc/crypto/Kconfig
++++ b/arch/sparc/crypto/Kconfig
+@@ -34,20 +34,10 @@ config CRYPTO_SHA1_SPARC64
+ 	help
+ 	  SHA-1 secure hash algorithm (FIPS 180)
  
--config CRYPTO_SHA256_SSSE3
--	tristate "Hash functions: SHA-224 and SHA-256 (SSSE3/AVX/AVX2/SHA-NI)"
--	depends on 64BIT
+ 	  Architecture: sparc64
+ 
+-config CRYPTO_SHA256_SPARC64
+-	tristate "Hash functions: SHA-224 and SHA-256"
+-	depends on SPARC64
 -	select CRYPTO_SHA256
 -	select CRYPTO_HASH
 -	help
 -	  SHA-224 and SHA-256 secure hash algorithms (FIPS 180)
 -
--	  Architecture: x86_64 using:
--	  - SSSE3 (Supplemental SSE3)
--	  - AVX (Advanced Vector Extensions)
--	  - AVX2 (Advanced Vector Extensions 2)
--	  - SHA-NI (SHA Extensions New Instructions)
+-	  Architecture: sparc64 using crypto instructions, when available
 -
- config CRYPTO_SHA512_SSSE3
- 	tristate "Hash functions: SHA-384 and SHA-512 (SSSE3/AVX/AVX2)"
- 	depends on 64BIT
+ config CRYPTO_SHA512_SPARC64
+ 	tristate "Hash functions: SHA-384 and SHA-512"
+ 	depends on SPARC64
  	select CRYPTO_SHA512
  	select CRYPTO_HASH
-diff --git a/arch/x86/crypto/Makefile b/arch/x86/crypto/Makefile
-index fad59a6c6c26f..aa289a9e0153b 100644
---- a/arch/x86/crypto/Makefile
-+++ b/arch/x86/crypto/Makefile
-@@ -52,13 +52,10 @@ aesni-intel-$(CONFIG_64BIT) += aes-gcm-avx10-x86_64.o
- endif
+diff --git a/arch/sparc/crypto/Makefile b/arch/sparc/crypto/Makefile
+index a2d7fca40cb4b..701c39edb0d73 100644
+--- a/arch/sparc/crypto/Makefile
++++ b/arch/sparc/crypto/Makefile
+@@ -2,20 +2,18 @@
+ #
+ # Arch-specific CryptoAPI modules.
+ #
  
- obj-$(CONFIG_CRYPTO_SHA1_SSSE3) += sha1-ssse3.o
- sha1-ssse3-y := sha1_avx2_x86_64_asm.o sha1_ssse3_asm.o sha1_ni_asm.o sha1_ssse3_glue.o
+ obj-$(CONFIG_CRYPTO_SHA1_SPARC64) += sha1-sparc64.o
+-obj-$(CONFIG_CRYPTO_SHA256_SPARC64) += sha256-sparc64.o
+ obj-$(CONFIG_CRYPTO_SHA512_SPARC64) += sha512-sparc64.o
+ obj-$(CONFIG_CRYPTO_MD5_SPARC64) += md5-sparc64.o
  
--obj-$(CONFIG_CRYPTO_SHA256_SSSE3) += sha256-ssse3.o
--sha256-ssse3-y := sha256-ssse3-asm.o sha256-avx-asm.o sha256-avx2-asm.o sha256_ni_asm.o sha256_ssse3_glue.o
--
- obj-$(CONFIG_CRYPTO_SHA512_SSSE3) += sha512-ssse3.o
- sha512-ssse3-y := sha512-ssse3-asm.o sha512-avx-asm.o sha512-avx2-asm.o sha512_ssse3_glue.o
+ obj-$(CONFIG_CRYPTO_AES_SPARC64) += aes-sparc64.o
+ obj-$(CONFIG_CRYPTO_DES_SPARC64) += des-sparc64.o
+ obj-$(CONFIG_CRYPTO_CAMELLIA_SPARC64) += camellia-sparc64.o
  
- obj-$(CONFIG_CRYPTO_GHASH_CLMUL_NI_INTEL) += ghash-clmulni-intel.o
- ghash-clmulni-intel-y := ghash-clmulni-intel_asm.o ghash-clmulni-intel_glue.o
-diff --git a/arch/x86/crypto/sha256_ssse3_glue.c b/arch/x86/crypto/sha256_ssse3_glue.c
+ sha1-sparc64-y := sha1_asm.o sha1_glue.o
+-sha256-sparc64-y := sha256_asm.o sha256_glue.o
+ sha512-sparc64-y := sha512_asm.o sha512_glue.o
+ md5-sparc64-y := md5_asm.o md5_glue.o
+ 
+ aes-sparc64-y := aes_asm.o aes_glue.o
+ des-sparc64-y := des_asm.o des_glue.o
+diff --git a/arch/sparc/crypto/sha256_glue.c b/arch/sparc/crypto/sha256_glue.c
 deleted file mode 100644
-index a5d3be00550b8..0000000000000
---- a/arch/x86/crypto/sha256_ssse3_glue.c
+index 25008603a9868..0000000000000
+--- a/arch/sparc/crypto/sha256_glue.c
 +++ /dev/null
-@@ -1,432 +0,0 @@
--/*
-- * Cryptographic API.
+@@ -1,128 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0-only
+-/* Glue code for SHA256 hashing optimized for sparc64 crypto opcodes.
 - *
-- * Glue code for the SHA256 Secure Hash Algorithm assembler implementations
-- * using SSSE3, AVX, AVX2, and SHA-NI instructions.
+- * This is based largely upon crypto/sha256_generic.c
 - *
-- * This file is based on sha256_generic.c
-- *
-- * Copyright (C) 2013 Intel Corporation.
-- *
-- * Author:
-- *     Tim Chen <tim.c.chen@linux.intel.com>
-- *
-- * This program is free software; you can redistribute it and/or modify it
-- * under the terms of the GNU General Public License as published by the Free
-- * Software Foundation; either version 2 of the License, or (at your option)
-- * any later version.
-- *
-- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
-- * BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
-- * ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-- * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-- * SOFTWARE.
+- * Copyright (c) Jean-Luc Cooke <jlcooke@certainkey.com>
+- * Copyright (c) Andrew McDonald <andrew@mcdonald.org.uk>
+- * Copyright (c) 2002 James Morris <jmorris@intercode.com.au>
+- * SHA224 Support Copyright 2007 Intel Corporation <jonathan.lynch@intel.com>
 - */
--
 -
 -#define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
 -
--#include <asm/cpu_device_id.h>
--#include <asm/fpu/api.h>
+-#include <asm/elf.h>
+-#include <asm/opcodes.h>
+-#include <asm/pstate.h>
 -#include <crypto/internal/hash.h>
 -#include <crypto/sha2.h>
 -#include <crypto/sha256_base.h>
 -#include <linux/kernel.h>
 -#include <linux/module.h>
 -
--asmlinkage void sha256_transform_ssse3(struct crypto_sha256_state *state,
--				       const u8 *data, int blocks);
+-asmlinkage void sha256_sparc64_transform(u32 *digest, const char *data,
+-					 unsigned int rounds);
 -
--static const struct x86_cpu_id module_cpu_ids[] = {
--	X86_MATCH_FEATURE(X86_FEATURE_SHA_NI, NULL),
--	X86_MATCH_FEATURE(X86_FEATURE_AVX2, NULL),
--	X86_MATCH_FEATURE(X86_FEATURE_AVX, NULL),
--	X86_MATCH_FEATURE(X86_FEATURE_SSSE3, NULL),
--	{}
--};
--MODULE_DEVICE_TABLE(x86cpu, module_cpu_ids);
--
--static int _sha256_update(struct shash_desc *desc, const u8 *data,
--			  unsigned int len,
--			  sha256_block_fn *sha256_xform)
+-static void sha256_block(struct crypto_sha256_state *sctx, const u8 *src,
+-			 int blocks)
 -{
--	int remain;
--
--	/*
--	 * Make sure struct crypto_sha256_state begins directly with the SHA256
--	 * 256-bit internal state, as this is what the asm functions expect.
--	 */
--	BUILD_BUG_ON(offsetof(struct crypto_sha256_state, state) != 0);
--
--	kernel_fpu_begin();
--	remain = sha256_base_do_update_blocks(desc, data, len, sha256_xform);
--	kernel_fpu_end();
--
--	return remain;
+-	sha256_sparc64_transform(sctx->state, src, blocks);
 -}
 -
--static int sha256_finup(struct shash_desc *desc, const u8 *data,
--	      unsigned int len, u8 *out, sha256_block_fn *sha256_xform)
+-static int sha256_sparc64_update(struct shash_desc *desc, const u8 *data,
+-				 unsigned int len)
 -{
--	kernel_fpu_begin();
--	sha256_base_do_finup(desc, data, len, sha256_xform);
--	kernel_fpu_end();
+-	return sha256_base_do_update_blocks(desc, data, len, sha256_block);
+-}
 -
+-static int sha256_sparc64_finup(struct shash_desc *desc, const u8 *src,
+-				unsigned int len, u8 *out)
+-{
+-	sha256_base_do_finup(desc, src, len, sha256_block);
 -	return sha256_base_finish(desc, out);
 -}
 -
--static int sha256_ssse3_update(struct shash_desc *desc, const u8 *data,
--			 unsigned int len)
--{
--	return _sha256_update(desc, data, len, sha256_transform_ssse3);
--}
--
--static int sha256_ssse3_finup(struct shash_desc *desc, const u8 *data,
--	      unsigned int len, u8 *out)
--{
--	return sha256_finup(desc, data, len, out, sha256_transform_ssse3);
--}
--
--static int sha256_ssse3_digest(struct shash_desc *desc, const u8 *data,
--	      unsigned int len, u8 *out)
--{
--	return sha256_base_init(desc) ?:
--	       sha256_ssse3_finup(desc, data, len, out);
--}
--
--static struct shash_alg sha256_ssse3_algs[] = { {
+-static struct shash_alg sha256_alg = {
 -	.digestsize	=	SHA256_DIGEST_SIZE,
 -	.init		=	sha256_base_init,
--	.update		=	sha256_ssse3_update,
--	.finup		=	sha256_ssse3_finup,
--	.digest		=	sha256_ssse3_digest,
+-	.update		=	sha256_sparc64_update,
+-	.finup		=	sha256_sparc64_finup,
 -	.descsize	=	sizeof(struct crypto_sha256_state),
 -	.base		=	{
 -		.cra_name	=	"sha256",
--		.cra_driver_name =	"sha256-ssse3",
--		.cra_priority	=	150,
+-		.cra_driver_name=	"sha256-sparc64",
+-		.cra_priority	=	SPARC_CR_OPCODE_PRIORITY,
 -		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
 -					CRYPTO_AHASH_ALG_FINUP_MAX,
 -		.cra_blocksize	=	SHA256_BLOCK_SIZE,
 -		.cra_module	=	THIS_MODULE,
 -	}
--}, {
+-};
+-
+-static struct shash_alg sha224_alg = {
 -	.digestsize	=	SHA224_DIGEST_SIZE,
 -	.init		=	sha224_base_init,
--	.update		=	sha256_ssse3_update,
--	.finup		=	sha256_ssse3_finup,
+-	.update		=	sha256_sparc64_update,
+-	.finup		=	sha256_sparc64_finup,
 -	.descsize	=	sizeof(struct crypto_sha256_state),
 -	.base		=	{
 -		.cra_name	=	"sha224",
--		.cra_driver_name =	"sha224-ssse3",
--		.cra_priority	=	150,
+-		.cra_driver_name=	"sha224-sparc64",
+-		.cra_priority	=	SPARC_CR_OPCODE_PRIORITY,
 -		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
 -					CRYPTO_AHASH_ALG_FINUP_MAX,
 -		.cra_blocksize	=	SHA224_BLOCK_SIZE,
 -		.cra_module	=	THIS_MODULE,
 -	}
--} };
+-};
 -
--static int register_sha256_ssse3(void)
+-static bool __init sparc64_has_sha256_opcode(void)
 -{
--	if (boot_cpu_has(X86_FEATURE_SSSE3))
--		return crypto_register_shashes(sha256_ssse3_algs,
--				ARRAY_SIZE(sha256_ssse3_algs));
--	return 0;
--}
+-	unsigned long cfr;
 -
--static void unregister_sha256_ssse3(void)
--{
--	if (boot_cpu_has(X86_FEATURE_SSSE3))
--		crypto_unregister_shashes(sha256_ssse3_algs,
--				ARRAY_SIZE(sha256_ssse3_algs));
--}
--
--asmlinkage void sha256_transform_avx(struct crypto_sha256_state *state,
--				     const u8 *data, int blocks);
--
--static int sha256_avx_update(struct shash_desc *desc, const u8 *data,
--			 unsigned int len)
--{
--	return _sha256_update(desc, data, len, sha256_transform_avx);
--}
--
--static int sha256_avx_finup(struct shash_desc *desc, const u8 *data,
--		      unsigned int len, u8 *out)
--{
--	return sha256_finup(desc, data, len, out, sha256_transform_avx);
--}
--
--static int sha256_avx_digest(struct shash_desc *desc, const u8 *data,
--		      unsigned int len, u8 *out)
--{
--	return sha256_base_init(desc) ?:
--	       sha256_avx_finup(desc, data, len, out);
--}
--
--static struct shash_alg sha256_avx_algs[] = { {
--	.digestsize	=	SHA256_DIGEST_SIZE,
--	.init		=	sha256_base_init,
--	.update		=	sha256_avx_update,
--	.finup		=	sha256_avx_finup,
--	.digest		=	sha256_avx_digest,
--	.descsize	=	sizeof(struct crypto_sha256_state),
--	.base		=	{
--		.cra_name	=	"sha256",
--		.cra_driver_name =	"sha256-avx",
--		.cra_priority	=	160,
--		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					CRYPTO_AHASH_ALG_FINUP_MAX,
--		.cra_blocksize	=	SHA256_BLOCK_SIZE,
--		.cra_module	=	THIS_MODULE,
--	}
--}, {
--	.digestsize	=	SHA224_DIGEST_SIZE,
--	.init		=	sha224_base_init,
--	.update		=	sha256_avx_update,
--	.finup		=	sha256_avx_finup,
--	.descsize	=	sizeof(struct crypto_sha256_state),
--	.base		=	{
--		.cra_name	=	"sha224",
--		.cra_driver_name =	"sha224-avx",
--		.cra_priority	=	160,
--		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					CRYPTO_AHASH_ALG_FINUP_MAX,
--		.cra_blocksize	=	SHA224_BLOCK_SIZE,
--		.cra_module	=	THIS_MODULE,
--	}
--} };
--
--static bool avx_usable(void)
--{
--	if (!cpu_has_xfeatures(XFEATURE_MASK_SSE | XFEATURE_MASK_YMM, NULL)) {
--		if (boot_cpu_has(X86_FEATURE_AVX))
--			pr_info("AVX detected but unusable.\n");
+-	if (!(sparc64_elf_hwcap & HWCAP_SPARC_CRYPTO))
 -		return false;
--	}
+-
+-	__asm__ __volatile__("rd %%asr26, %0" : "=r" (cfr));
+-	if (!(cfr & CFR_SHA256))
+-		return false;
 -
 -	return true;
 -}
 -
--static int register_sha256_avx(void)
+-static int __init sha256_sparc64_mod_init(void)
 -{
--	if (avx_usable())
--		return crypto_register_shashes(sha256_avx_algs,
--				ARRAY_SIZE(sha256_avx_algs));
--	return 0;
--}
+-	if (sparc64_has_sha256_opcode()) {
+-		int ret = crypto_register_shash(&sha224_alg);
+-		if (ret < 0)
+-			return ret;
 -
--static void unregister_sha256_avx(void)
--{
--	if (avx_usable())
--		crypto_unregister_shashes(sha256_avx_algs,
--				ARRAY_SIZE(sha256_avx_algs));
--}
+-		ret = crypto_register_shash(&sha256_alg);
+-		if (ret < 0) {
+-			crypto_unregister_shash(&sha224_alg);
+-			return ret;
+-		}
 -
--asmlinkage void sha256_transform_rorx(struct crypto_sha256_state *state,
--				      const u8 *data, int blocks);
--
--static int sha256_avx2_update(struct shash_desc *desc, const u8 *data,
--			 unsigned int len)
--{
--	return _sha256_update(desc, data, len, sha256_transform_rorx);
--}
--
--static int sha256_avx2_finup(struct shash_desc *desc, const u8 *data,
--		      unsigned int len, u8 *out)
--{
--	return sha256_finup(desc, data, len, out, sha256_transform_rorx);
--}
--
--static int sha256_avx2_digest(struct shash_desc *desc, const u8 *data,
--		      unsigned int len, u8 *out)
--{
--	return sha256_base_init(desc) ?:
--	       sha256_avx2_finup(desc, data, len, out);
--}
--
--static struct shash_alg sha256_avx2_algs[] = { {
--	.digestsize	=	SHA256_DIGEST_SIZE,
--	.init		=	sha256_base_init,
--	.update		=	sha256_avx2_update,
--	.finup		=	sha256_avx2_finup,
--	.digest		=	sha256_avx2_digest,
--	.descsize	=	sizeof(struct crypto_sha256_state),
--	.base		=	{
--		.cra_name	=	"sha256",
--		.cra_driver_name =	"sha256-avx2",
--		.cra_priority	=	170,
--		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					CRYPTO_AHASH_ALG_FINUP_MAX,
--		.cra_blocksize	=	SHA256_BLOCK_SIZE,
--		.cra_module	=	THIS_MODULE,
+-		pr_info("Using sparc64 sha256 opcode optimized SHA-256/SHA-224 implementation\n");
+-		return 0;
 -	}
--}, {
--	.digestsize	=	SHA224_DIGEST_SIZE,
--	.init		=	sha224_base_init,
--	.update		=	sha256_avx2_update,
--	.finup		=	sha256_avx2_finup,
--	.descsize	=	sizeof(struct crypto_sha256_state),
--	.base		=	{
--		.cra_name	=	"sha224",
--		.cra_driver_name =	"sha224-avx2",
--		.cra_priority	=	170,
--		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					CRYPTO_AHASH_ALG_FINUP_MAX,
--		.cra_blocksize	=	SHA224_BLOCK_SIZE,
--		.cra_module	=	THIS_MODULE,
--	}
--} };
--
--static bool avx2_usable(void)
--{
--	if (avx_usable() && boot_cpu_has(X86_FEATURE_AVX2) &&
--		    boot_cpu_has(X86_FEATURE_BMI2))
--		return true;
--
--	return false;
--}
--
--static int register_sha256_avx2(void)
--{
--	if (avx2_usable())
--		return crypto_register_shashes(sha256_avx2_algs,
--				ARRAY_SIZE(sha256_avx2_algs));
--	return 0;
--}
--
--static void unregister_sha256_avx2(void)
--{
--	if (avx2_usable())
--		crypto_unregister_shashes(sha256_avx2_algs,
--				ARRAY_SIZE(sha256_avx2_algs));
--}
--
--asmlinkage void sha256_ni_transform(struct crypto_sha256_state *digest,
--				    const u8 *data, int rounds);
--
--static int sha256_ni_update(struct shash_desc *desc, const u8 *data,
--			 unsigned int len)
--{
--	return _sha256_update(desc, data, len, sha256_ni_transform);
--}
--
--static int sha256_ni_finup(struct shash_desc *desc, const u8 *data,
--		      unsigned int len, u8 *out)
--{
--	return sha256_finup(desc, data, len, out, sha256_ni_transform);
--}
--
--static int sha256_ni_digest(struct shash_desc *desc, const u8 *data,
--		      unsigned int len, u8 *out)
--{
--	return sha256_base_init(desc) ?:
--	       sha256_ni_finup(desc, data, len, out);
--}
--
--static struct shash_alg sha256_ni_algs[] = { {
--	.digestsize	=	SHA256_DIGEST_SIZE,
--	.init		=	sha256_base_init,
--	.update		=	sha256_ni_update,
--	.finup		=	sha256_ni_finup,
--	.digest		=	sha256_ni_digest,
--	.descsize	=	sizeof(struct crypto_sha256_state),
--	.base		=	{
--		.cra_name	=	"sha256",
--		.cra_driver_name =	"sha256-ni",
--		.cra_priority	=	250,
--		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					CRYPTO_AHASH_ALG_FINUP_MAX,
--		.cra_blocksize	=	SHA256_BLOCK_SIZE,
--		.cra_module	=	THIS_MODULE,
--	}
--}, {
--	.digestsize	=	SHA224_DIGEST_SIZE,
--	.init		=	sha224_base_init,
--	.update		=	sha256_ni_update,
--	.finup		=	sha256_ni_finup,
--	.descsize	=	sizeof(struct crypto_sha256_state),
--	.base		=	{
--		.cra_name	=	"sha224",
--		.cra_driver_name =	"sha224-ni",
--		.cra_priority	=	250,
--		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
--					CRYPTO_AHASH_ALG_FINUP_MAX,
--		.cra_blocksize	=	SHA224_BLOCK_SIZE,
--		.cra_module	=	THIS_MODULE,
--	}
--} };
--
--static int register_sha256_ni(void)
--{
--	if (boot_cpu_has(X86_FEATURE_SHA_NI))
--		return crypto_register_shashes(sha256_ni_algs,
--				ARRAY_SIZE(sha256_ni_algs));
--	return 0;
--}
--
--static void unregister_sha256_ni(void)
--{
--	if (boot_cpu_has(X86_FEATURE_SHA_NI))
--		crypto_unregister_shashes(sha256_ni_algs,
--				ARRAY_SIZE(sha256_ni_algs));
--}
--
--static int __init sha256_ssse3_mod_init(void)
--{
--	if (!x86_match_cpu(module_cpu_ids))
--		return -ENODEV;
--
--	if (register_sha256_ssse3())
--		goto fail;
--
--	if (register_sha256_avx()) {
--		unregister_sha256_ssse3();
--		goto fail;
--	}
--
--	if (register_sha256_avx2()) {
--		unregister_sha256_avx();
--		unregister_sha256_ssse3();
--		goto fail;
--	}
--
--	if (register_sha256_ni()) {
--		unregister_sha256_avx2();
--		unregister_sha256_avx();
--		unregister_sha256_ssse3();
--		goto fail;
--	}
--
--	return 0;
--fail:
+-	pr_info("sparc64 sha256 opcode not available.\n");
 -	return -ENODEV;
 -}
 -
--static void __exit sha256_ssse3_mod_fini(void)
+-static void __exit sha256_sparc64_mod_fini(void)
 -{
--	unregister_sha256_ni();
--	unregister_sha256_avx2();
--	unregister_sha256_avx();
--	unregister_sha256_ssse3();
+-	crypto_unregister_shash(&sha224_alg);
+-	crypto_unregister_shash(&sha256_alg);
 -}
 -
--module_init(sha256_ssse3_mod_init);
--module_exit(sha256_ssse3_mod_fini);
+-module_init(sha256_sparc64_mod_init);
+-module_exit(sha256_sparc64_mod_fini);
 -
 -MODULE_LICENSE("GPL");
--MODULE_DESCRIPTION("SHA256 Secure Hash Algorithm, Supplemental SSE3 accelerated");
+-MODULE_DESCRIPTION("SHA-224 and SHA-256 Secure Hash Algorithm, sparc64 sha256 opcode accelerated");
 -
--MODULE_ALIAS_CRYPTO("sha256");
--MODULE_ALIAS_CRYPTO("sha256-ssse3");
--MODULE_ALIAS_CRYPTO("sha256-avx");
--MODULE_ALIAS_CRYPTO("sha256-avx2");
 -MODULE_ALIAS_CRYPTO("sha224");
--MODULE_ALIAS_CRYPTO("sha224-ssse3");
--MODULE_ALIAS_CRYPTO("sha224-avx");
--MODULE_ALIAS_CRYPTO("sha224-avx2");
--MODULE_ALIAS_CRYPTO("sha256-ni");
--MODULE_ALIAS_CRYPTO("sha224-ni");
-diff --git a/arch/x86/lib/crypto/Kconfig b/arch/x86/lib/crypto/Kconfig
-index 546fe2afe0b51..e344579db3d85 100644
---- a/arch/x86/lib/crypto/Kconfig
-+++ b/arch/x86/lib/crypto/Kconfig
-@@ -22,5 +22,12 @@ config CRYPTO_CHACHA20_X86_64
- config CRYPTO_POLY1305_X86_64
- 	tristate
- 	depends on 64BIT
- 	default CRYPTO_LIB_POLY1305
- 	select CRYPTO_ARCH_HAVE_LIB_POLY1305
+-MODULE_ALIAS_CRYPTO("sha256");
+-
+-#include "crop_devid.c"
+diff --git a/arch/sparc/lib/Makefile b/arch/sparc/lib/Makefile
+index 5724d0f356eb5..98887dc295a1e 100644
+--- a/arch/sparc/lib/Makefile
++++ b/arch/sparc/lib/Makefile
+@@ -2,10 +2,11 @@
+ # Makefile for Sparc library files..
+ #
+ 
+ asflags-y := -ansi -DST_DIV0=0x02
+ 
++obj-y                 += crypto/
+ lib-$(CONFIG_SPARC32) += ashrdi3.o
+ lib-$(CONFIG_SPARC32) += memcpy.o memset.o
+ lib-y                 += strlen.o
+ lib-y                 += checksum_$(BITS).o
+ lib-$(CONFIG_SPARC32) += blockops.o
+diff --git a/arch/sparc/lib/crypto/Kconfig b/arch/sparc/lib/crypto/Kconfig
+new file mode 100644
+index 0000000000000..e5c3e4d3dba62
+--- /dev/null
++++ b/arch/sparc/lib/crypto/Kconfig
+@@ -0,0 +1,8 @@
++# SPDX-License-Identifier: GPL-2.0-only
 +
-+config CRYPTO_SHA256_X86_64
++config CRYPTO_SHA256_SPARC64
 +	tristate
-+	depends on 64BIT
++	depends on SPARC64
 +	default CRYPTO_LIB_SHA256
 +	select CRYPTO_ARCH_HAVE_LIB_SHA256
 +	select CRYPTO_LIB_SHA256_GENERIC
-diff --git a/arch/x86/lib/crypto/Makefile b/arch/x86/lib/crypto/Makefile
-index c2ff8c5f1046e..abceca3d31c01 100644
---- a/arch/x86/lib/crypto/Makefile
-+++ b/arch/x86/lib/crypto/Makefile
-@@ -8,10 +8,13 @@ chacha-x86_64-y := chacha-avx2-x86_64.o chacha-ssse3-x86_64.o chacha-avx512vl-x8
- 
- obj-$(CONFIG_CRYPTO_POLY1305_X86_64) += poly1305-x86_64.o
- poly1305-x86_64-y := poly1305-x86_64-cryptogams.o poly1305_glue.o
- targets += poly1305-x86_64-cryptogams.S
- 
-+obj-$(CONFIG_CRYPTO_SHA256_X86_64) += sha256-x86_64.o
-+sha256-x86_64-y := sha256.o sha256-ssse3-asm.o sha256-avx-asm.o sha256-avx2-asm.o sha256-ni-asm.o
-+
- quiet_cmd_perlasm = PERLASM $@
-       cmd_perlasm = $(PERL) $< > $@
- 
- $(obj)/%.S: $(src)/%.pl FORCE
- 	$(call if_changed,perlasm)
-diff --git a/arch/x86/crypto/sha256-avx-asm.S b/arch/x86/lib/crypto/sha256-avx-asm.S
-similarity index 98%
-rename from arch/x86/crypto/sha256-avx-asm.S
-rename to arch/x86/lib/crypto/sha256-avx-asm.S
-index 53de72bdd851e..0d7b2c3e45d9a 100644
---- a/arch/x86/crypto/sha256-avx-asm.S
-+++ b/arch/x86/lib/crypto/sha256-avx-asm.S
-@@ -46,11 +46,11 @@
- ########################################################################
- # This code schedules 1 block at a time, with 4 lanes per block
- ########################################################################
- 
- #include <linux/linkage.h>
--#include <linux/cfi_types.h>
-+#include <linux/objtool.h>
- 
- ## assume buffers not aligned
- #define    VMOVDQ vmovdqu
- 
- ################################ Define Macros
-@@ -339,17 +339,17 @@ a = TMP_
-         add     y0, h                   # h = h + S1 + CH + k + w + S0 + MAJ
-         ROTATE_ARGS
- .endm
- 
- ########################################################################
--## void sha256_transform_avx(state sha256_state *state, const u8 *data, int blocks)
--## arg 1 : pointer to state
--## arg 2 : pointer to input data
--## arg 3 : Num blocks
-+## void sha256_transform_avx(u32 state[SHA256_STATE_WORDS],
-+##			     const u8 *data, size_t nblocks);
- ########################################################################
- .text
--SYM_TYPED_FUNC_START(sha256_transform_avx)
-+SYM_FUNC_START(sha256_transform_avx)
-+	ANNOTATE_NOENDBR	# since this is called only via static_call
-+
- 	pushq   %rbx
- 	pushq   %r12
- 	pushq   %r13
- 	pushq   %r14
- 	pushq   %r15
-diff --git a/arch/x86/crypto/sha256-avx2-asm.S b/arch/x86/lib/crypto/sha256-avx2-asm.S
-similarity index 98%
-rename from arch/x86/crypto/sha256-avx2-asm.S
-rename to arch/x86/lib/crypto/sha256-avx2-asm.S
-index 0bbec1c75cd0b..25d3380321ec3 100644
---- a/arch/x86/crypto/sha256-avx2-asm.S
-+++ b/arch/x86/lib/crypto/sha256-avx2-asm.S
-@@ -47,11 +47,11 @@
- ########################################################################
- # This code schedules 2 blocks at a time, with 4 lanes per block
- ########################################################################
- 
- #include <linux/linkage.h>
--#include <linux/cfi_types.h>
-+#include <linux/objtool.h>
- 
- ## assume buffers not aligned
- #define	VMOVDQ vmovdqu
- 
- ################################ Define Macros
-@@ -516,17 +516,17 @@ STACK_SIZE	= _CTX      + _CTX_SIZE
- 	ROTATE_ARGS
- 
- .endm
- 
- ########################################################################
--## void sha256_transform_rorx(struct sha256_state *state, const u8 *data, int blocks)
--## arg 1 : pointer to state
--## arg 2 : pointer to input data
--## arg 3 : Num blocks
-+## void sha256_transform_rorx(u32 state[SHA256_STATE_WORDS],
-+##			      const u8 *data, size_t nblocks);
- ########################################################################
- .text
--SYM_TYPED_FUNC_START(sha256_transform_rorx)
-+SYM_FUNC_START(sha256_transform_rorx)
-+	ANNOTATE_NOENDBR	# since this is called only via static_call
-+
- 	pushq	%rbx
- 	pushq	%r12
- 	pushq	%r13
- 	pushq	%r14
- 	pushq	%r15
-diff --git a/arch/x86/crypto/sha256_ni_asm.S b/arch/x86/lib/crypto/sha256-ni-asm.S
-similarity index 85%
-rename from arch/x86/crypto/sha256_ni_asm.S
-rename to arch/x86/lib/crypto/sha256-ni-asm.S
-index d515a55a3bc1d..d3548206cf3d4 100644
---- a/arch/x86/crypto/sha256_ni_asm.S
-+++ b/arch/x86/lib/crypto/sha256-ni-asm.S
-@@ -52,13 +52,13 @@
-  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-  *
-  */
- 
- #include <linux/linkage.h>
--#include <linux/cfi_types.h>
-+#include <linux/objtool.h>
- 
--#define DIGEST_PTR	%rdi	/* 1st arg */
-+#define STATE_PTR	%rdi	/* 1st arg */
- #define DATA_PTR	%rsi	/* 2nd arg */
- #define NUM_BLKS	%rdx	/* 3rd arg */
- 
- #define SHA256CONSTANTS	%rax
- 
-@@ -96,40 +96,36 @@
- 	sha256msg1	\m0, \m3
- .endif
- .endm
- 
- /*
-- * Intel SHA Extensions optimized implementation of a SHA-256 update function
-+ * Intel SHA Extensions optimized implementation of a SHA-256 block function
-  *
-- * The function takes a pointer to the current hash values, a pointer to the
-- * input data, and a number of 64 byte blocks to process.  Once all blocks have
-- * been processed, the digest pointer is  updated with the resulting hash value.
-- * The function only processes complete blocks, there is no functionality to
-- * store partial blocks.  All message padding and hash value initialization must
-- * be done outside the update function.
-+ * This function takes a pointer to the current SHA-256 state, a pointer to the
-+ * input data, and the number of 64-byte blocks to process.  Once all blocks
-+ * have been processed, the state is updated with the new state.  This function
-+ * only processes complete blocks.  State initialization, buffering of partial
-+ * blocks, and digest finalization is expected to be handled elsewhere.
-  *
-- * void sha256_ni_transform(uint32_t *digest, const void *data,
--		uint32_t numBlocks);
-- * digest : pointer to digest
-- * data: pointer to input data
-- * numBlocks: Number of blocks to process
-+ * void sha256_ni_transform(u32 state[SHA256_STATE_WORDS],
-+ *			    const u8 *data, size_t nblocks);
-  */
--
- .text
--SYM_TYPED_FUNC_START(sha256_ni_transform)
-+SYM_FUNC_START(sha256_ni_transform)
-+	ANNOTATE_NOENDBR	# since this is called only via static_call
- 
- 	shl		$6, NUM_BLKS		/*  convert to bytes */
- 	jz		.Ldone_hash
- 	add		DATA_PTR, NUM_BLKS	/* pointer to end of data */
- 
- 	/*
- 	 * load initial hash values
- 	 * Need to reorder these appropriately
- 	 * DCBA, HGFE -> ABEF, CDGH
- 	 */
--	movdqu		0*16(DIGEST_PTR), STATE0	/* DCBA */
--	movdqu		1*16(DIGEST_PTR), STATE1	/* HGFE */
-+	movdqu		0*16(STATE_PTR), STATE0		/* DCBA */
-+	movdqu		1*16(STATE_PTR), STATE1		/* HGFE */
- 
- 	movdqa		STATE0, TMP
- 	punpcklqdq	STATE1, STATE0			/* FEBA */
- 	punpckhqdq	TMP, STATE1			/* DCHG */
- 	pshufd		$0x1B, STATE0, STATE0		/* ABEF */
-@@ -164,12 +160,12 @@ SYM_TYPED_FUNC_START(sha256_ni_transform)
- 	punpcklqdq	STATE1, STATE0			/* GHEF */
- 	punpckhqdq	TMP, STATE1			/* ABCD */
- 	pshufd		$0xB1, STATE0, STATE0		/* HGFE */
- 	pshufd		$0x1B, STATE1, STATE1		/* DCBA */
- 
--	movdqu		STATE1, 0*16(DIGEST_PTR)
--	movdqu		STATE0, 1*16(DIGEST_PTR)
-+	movdqu		STATE1, 0*16(STATE_PTR)
-+	movdqu		STATE0, 1*16(STATE_PTR)
- 
- .Ldone_hash:
- 
- 	RET
- SYM_FUNC_END(sha256_ni_transform)
-diff --git a/arch/x86/crypto/sha256-ssse3-asm.S b/arch/x86/lib/crypto/sha256-ssse3-asm.S
-similarity index 98%
-rename from arch/x86/crypto/sha256-ssse3-asm.S
-rename to arch/x86/lib/crypto/sha256-ssse3-asm.S
-index 93264ee445432..7f24a4cdcb257 100644
---- a/arch/x86/crypto/sha256-ssse3-asm.S
-+++ b/arch/x86/lib/crypto/sha256-ssse3-asm.S
-@@ -45,11 +45,11 @@
- # and search for that title.
- #
- ########################################################################
- 
- #include <linux/linkage.h>
--#include <linux/cfi_types.h>
-+#include <linux/objtool.h>
- 
- ## assume buffers not aligned
- #define    MOVDQ movdqu
- 
- ################################ Define Macros
-@@ -346,19 +346,17 @@ a = TMP_
- 	add     y0, h		      # h = h + S1 + CH + k + w + S0 + MAJ
- 	ROTATE_ARGS
- .endm
- 
- ########################################################################
--## void sha256_transform_ssse3(struct sha256_state *state, const u8 *data,
--##			       int blocks);
--## arg 1 : pointer to state
--##	   (struct sha256_state is assumed to begin with u32 state[8])
--## arg 2 : pointer to input data
--## arg 3 : Num blocks
-+## void sha256_transform_ssse3(u32 state[SHA256_STATE_WORDS],
-+##			       const u8 *data, size_t nblocks);
- ########################################################################
- .text
--SYM_TYPED_FUNC_START(sha256_transform_ssse3)
-+SYM_FUNC_START(sha256_transform_ssse3)
-+	ANNOTATE_NOENDBR	# since this is called only via static_call
-+
- 	pushq   %rbx
- 	pushq   %r12
- 	pushq   %r13
- 	pushq   %r14
- 	pushq   %r15
-diff --git a/arch/x86/lib/crypto/sha256.c b/arch/x86/lib/crypto/sha256.c
+diff --git a/arch/sparc/lib/crypto/Makefile b/arch/sparc/lib/crypto/Makefile
 new file mode 100644
-index 0000000000000..47865b5cd94be
+index 0000000000000..75ee244ad6f79
 --- /dev/null
-+++ b/arch/x86/lib/crypto/sha256.c
-@@ -0,0 +1,74 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
++++ b/arch/sparc/lib/crypto/Makefile
+@@ -0,0 +1,4 @@
++# SPDX-License-Identifier: GPL-2.0-only
++
++obj-$(CONFIG_CRYPTO_SHA256_SPARC64) += sha256-sparc64.o
++sha256-sparc64-y := sha256.o sha256_asm.o
+diff --git a/arch/sparc/lib/crypto/sha256.c b/arch/sparc/lib/crypto/sha256.c
+new file mode 100644
+index 0000000000000..6f118a23d210a
+--- /dev/null
++++ b/arch/sparc/lib/crypto/sha256.c
+@@ -0,0 +1,64 @@
++// SPDX-License-Identifier: GPL-2.0-only
 +/*
-+ * SHA-256 optimized for x86_64
++ * SHA-256 accelerated using the sparc64 sha256 opcodes
 + *
-+ * Copyright 2025 Google LLC
++ * Copyright (c) Jean-Luc Cooke <jlcooke@certainkey.com>
++ * Copyright (c) Andrew McDonald <andrew@mcdonald.org.uk>
++ * Copyright (c) 2002 James Morris <jmorris@intercode.com.au>
++ * SHA224 Support Copyright 2007 Intel Corporation <jonathan.lynch@intel.com>
 + */
-+#include <asm/fpu/api.h>
++
++#define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
++
++#include <asm/elf.h>
++#include <asm/opcodes.h>
++#include <asm/pstate.h>
 +#include <crypto/internal/sha2.h>
-+#include <crypto/internal/simd.h>
 +#include <linux/kernel.h>
 +#include <linux/module.h>
-+#include <linux/static_call.h>
 +
-+asmlinkage void sha256_transform_ssse3(u32 state[SHA256_STATE_WORDS],
-+				       const u8 *data, size_t nblocks);
-+asmlinkage void sha256_transform_avx(u32 state[SHA256_STATE_WORDS],
-+				     const u8 *data, size_t nblocks);
-+asmlinkage void sha256_transform_rorx(u32 state[SHA256_STATE_WORDS],
-+				      const u8 *data, size_t nblocks);
-+asmlinkage void sha256_ni_transform(u32 state[SHA256_STATE_WORDS],
-+				    const u8 *data, size_t nblocks);
++static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_sha256_opcodes);
 +
-+static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_sha256_x86);
-+
-+DEFINE_STATIC_CALL(sha256_blocks_x86, sha256_transform_ssse3);
++asmlinkage void sha256_sparc64_transform(u32 state[SHA256_STATE_WORDS],
++					 const u8 *data, size_t nblocks);
 +
 +void sha256_blocks_arch(u32 state[SHA256_STATE_WORDS],
 +			const u8 *data, size_t nblocks)
 +{
-+	if (static_branch_likely(&have_sha256_x86) && crypto_simd_usable()) {
-+		kernel_fpu_begin();
-+		static_call(sha256_blocks_x86)(state, data, nblocks);
-+		kernel_fpu_end();
-+	} else {
++	if (static_branch_likely(&have_sha256_opcodes))
++		sha256_sparc64_transform(state, data, nblocks);
++	else
 +		sha256_blocks_generic(state, data, nblocks);
-+	}
 +}
 +EXPORT_SYMBOL(sha256_blocks_arch);
 +
 +bool sha256_is_arch_optimized(void)
 +{
-+	return static_key_enabled(&have_sha256_x86);
++	return static_key_enabled(&have_sha256_opcodes);
 +}
 +EXPORT_SYMBOL(sha256_is_arch_optimized);
 +
-+static int __init sha256_x86_mod_init(void)
++static int __init sha256_sparc64_mod_init(void)
 +{
-+	if (boot_cpu_has(X86_FEATURE_SHA_NI)) {
-+		static_call_update(sha256_blocks_x86, sha256_ni_transform);
-+	} else if (cpu_has_xfeatures(XFEATURE_MASK_SSE |
-+				     XFEATURE_MASK_YMM, NULL) &&
-+		   boot_cpu_has(X86_FEATURE_AVX)) {
-+		if (boot_cpu_has(X86_FEATURE_AVX2) &&
-+		    boot_cpu_has(X86_FEATURE_BMI2))
-+			static_call_update(sha256_blocks_x86,
-+					   sha256_transform_rorx);
-+		else
-+			static_call_update(sha256_blocks_x86,
-+					   sha256_transform_avx);
-+	} else if (!boot_cpu_has(X86_FEATURE_SSSE3)) {
++	unsigned long cfr;
++
++	if (!(sparc64_elf_hwcap & HWCAP_SPARC_CRYPTO))
 +		return 0;
-+	}
-+	static_branch_enable(&have_sha256_x86);
++
++	__asm__ __volatile__("rd %%asr26, %0" : "=r" (cfr));
++	if (!(cfr & CFR_SHA256))
++		return 0;
++
++	static_branch_enable(&have_sha256_opcodes);
++	pr_info("Using sparc64 sha256 opcode optimized SHA-256/SHA-224 implementation\n");
 +	return 0;
 +}
-+arch_initcall(sha256_x86_mod_init);
++arch_initcall(sha256_sparc64_mod_init);
 +
-+static void __exit sha256_x86_mod_exit(void)
++static void __exit sha256_sparc64_mod_exit(void)
 +{
 +}
-+module_exit(sha256_x86_mod_exit);
++module_exit(sha256_sparc64_mod_exit);
 +
 +MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("SHA-256 optimized for x86_64");
++MODULE_DESCRIPTION("SHA-256 accelerated using the sparc64 sha256 opcodes");
+diff --git a/arch/sparc/crypto/sha256_asm.S b/arch/sparc/lib/crypto/sha256_asm.S
+similarity index 96%
+rename from arch/sparc/crypto/sha256_asm.S
+rename to arch/sparc/lib/crypto/sha256_asm.S
+index 8ce88611e98ad..ddcdd3daf31e3 100644
+--- a/arch/sparc/crypto/sha256_asm.S
++++ b/arch/sparc/lib/crypto/sha256_asm.S
+@@ -2,11 +2,11 @@
+ #include <linux/linkage.h>
+ #include <asm/opcodes.h>
+ #include <asm/visasm.h>
+ 
+ ENTRY(sha256_sparc64_transform)
+-	/* %o0 = digest, %o1 = data, %o2 = rounds */
++	/* %o0 = state, %o1 = data, %o2 = nblocks */
+ 	VISEntryHalf
+ 	ld	[%o0 + 0x00], %f0
+ 	ld	[%o0 + 0x04], %f1
+ 	ld	[%o0 + 0x08], %f2
+ 	ld	[%o0 + 0x0c], %f3
+diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
+index 7fe678047939b..6319358b38c20 100644
+--- a/lib/crypto/Kconfig
++++ b/lib/crypto/Kconfig
+@@ -179,10 +179,13 @@ if RISCV
+ source "arch/riscv/lib/crypto/Kconfig"
+ endif
+ if S390
+ source "arch/s390/lib/crypto/Kconfig"
+ endif
++if SPARC
++source "arch/sparc/lib/crypto/Kconfig"
++endif
+ if X86
+ source "arch/x86/lib/crypto/Kconfig"
+ endif
+ endif
+ 
 -- 
 2.49.0
 
