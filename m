@@ -4,66 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6309C3ABA5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 14:46:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2A78C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 14:47:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pl+KPkumGyZZwr+tofCIGd83ptHYkXoo+19YHgOdFUo=; b=EmaV8Z6OPXurp3NT44ci9uUpDa
-	SEy9IAuUI4t1EVNIBPK8bFlGZM0pyMkAHAOBwaUYJtuytcpYACh7c/M+jVuOb+1Q2+v6YDLPuffTw
-	sL9qpXbmrd6+nt8O/YFVAohEHVokW/Cpx1VkppPgHjlUowRWdAg07uQQlGj1pLHnVZ0yHt5BSZxza
-	Nj1wTBcwieE/3e3dQOdaD3At/5Hg/xWgYmTaNcyBpd4u0PPe7KTGaZpZeANIN0j1G86ZTS9QijiMo
-	7UjU6FyB7vz3eY8guq+eex8uahRtBhZKC0gIWtUXw+OlU2ivtU8plAPvCDSmil1zskIkYuHB5L/2/
-	RtKCF6eQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jydpl1cVr32Ac84WRku0YCQA10wtBvr1Fqy6dS8BvBE=; b=DYPNSg6ysDnPUsqySW2K+Wrqaz
+	NXEBlNpFka9hasCqRB5eJHDZmlSWY6eWHLDZzUQjpomnHuA8dZBx60pTt1lRWK43TkpGvEV7wnkhq
+	UwxJtJVguIGS53OI6dX8TC4sGdorIok7bJWEsFKgo908IfgaNB4O0Ij3nm18Wl5QO28ctWj4TyGWg
+	ETGxvVdgoykvb0JLmBE28qttvXHaM+vb51X/s3Ci1d8FPqgTn63nlRT9rk3SSKHUc+VJ/aX1M3lO5
+	9aO9UPSQHUHIK+iYYsLP6d6QdU4d59rzoDAs8hZNevoOjh26hDATymCC5cy6xTC587l8Q2k6rYPNz
+	pqG4yjiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9PkA-00000006fuZ-2uQw;
-	Mon, 28 Apr 2025 14:46:02 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Ne1-00000006CJH-0nHr
+	id 1u9PlC-00000006g7S-2R0R;
+	Mon, 28 Apr 2025 14:47:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u9PZ3-00000006eJq-0NV5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 12:31:34 +0000
-Received: from localhost (unknown [116.232.18.46])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id DB59234306D;
-	Mon, 28 Apr 2025 12:31:31 +0000 (UTC)
-Date: Mon, 28 Apr 2025 12:31:27 +0000
-From: Yixun Lan <dlan@gentoo.org>
-To: Chen-Yu Tsai <wens@csie.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Corentin Labbe <clabbe.montjoie@gmail.com>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH v2 2/5] dt-bindings: arm: sunxi: Add A523 EMAC0 compatible
-Message-ID: <20250428123127-GYB56330@gentoo>
-References: <20250424-01-sun55i-emac0-v2-0-833f04d23e1d@gentoo.org>
- <20250424-01-sun55i-emac0-v2-2-833f04d23e1d@gentoo.org>
- <CAGb2v64vy9Zx-mJgT7dLMMcx4nbAeQ3n8pbvwT6QkuMTL6kQTg@mail.gmail.com>
+	Mon, 28 Apr 2025 14:34:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D5D9515A1;
+	Mon, 28 Apr 2025 07:34:25 -0700 (PDT)
+Received: from mazurka.cambridge.arm.com (mazurka.cambridge.arm.com [10.2.80.18])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F0E2F3F66E;
+	Mon, 28 Apr 2025 07:34:27 -0700 (PDT)
+From: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
+To: ryan.roberts@arm.com,
+	suzuki.poulose@arm.com,
+	yang@os.amperecomputing.com,
+	corbet@lwn.net,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	jean-philippe@linaro.org,
+	robin.murphy@arm.com,
+	joro@8bytes.org,
+	akpm@linux-foundation.org,
+	paulmck@kernel.org,
+	mark.rutland@arm.com,
+	joey.gouly@arm.com,
+	maz@kernel.org,
+	james.morse@arm.com,
+	broonie@kernel.org,
+	oliver.upton@linux.dev,
+	baohua@kernel.org,
+	david@redhat.com,
+	ioworker0@gmail.com,
+	jgg@ziepe.ca,
+	nicolinc@nvidia.com,
+	mshavit@google.com,
+	jsnitsel@redhat.com,
+	smostafa@google.com,
+	kevin.tian@intel.com,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev
+Cc: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
+Subject: [PATCH v6 2/3] iommu/arm: Add BBM Level 2 smmu feature
+Date: Mon, 28 Apr 2025 14:33:51 +0000
+Message-ID: <20250428143352.53761-4-miko.lenczewski@arm.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250428143352.53761-2-miko.lenczewski@arm.com>
+References: <20250428143352.53761-2-miko.lenczewski@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGb2v64vy9Zx-mJgT7dLMMcx4nbAeQ3n8pbvwT6QkuMTL6kQTg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_053133_252038_6085EA6F 
-X-CRM114-Status: GOOD (  16.72  )
+X-CRM114-CacheID: sfid-20250428_073433_220026_6545195E 
+X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,51 +91,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi All,
+For supporting BBM Level 2 for userspace mappings, we want to ensure
+that the smmu also supports its own version of BBM Level 2. Luckily, the
+smmu spec (IHI 0070G 3.21.1.3) is stricter than the aarch64 spec (DDI
+0487K.a D8.16.2), so already guarantees that no aborts are raised when
+BBM level 2 is claimed.
 
-On 13:43 Sun 27 Apr     , Chen-Yu Tsai wrote:
-> On Thu, Apr 24, 2025 at 6:09 PM Yixun Lan <dlan@gentoo.org> wrote:
-> >
-> > Allwinner A523 SoC variant (A527/T527) contains an "EMAC0" Ethernet
-> > MAC compatible to the A64 version.
-> 
-> The patch subject prefix should be "dt-bindings: net: sun8i-emac: ".
-> 
-Ok, I can update in next version
+Add the feature and testing for it under arm_smmu_sva_supported().
 
-> And this needs an Ack from the DT binding maintainers.
-> 
-I'd assume Krzysztof Kozlowski also fine to have his ack kept in next version
-with above subject updated, since I saw he already gave an ack to this patch.
+Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
+Reviewed-by: Robin Murphy <robin.murphy@arm.com>
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c | 3 +++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c     | 3 +++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h     | 4 ++++
+ 3 files changed, 10 insertions(+)
 
-Thanks
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+index 9ba596430e7c..6ba182572788 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+@@ -222,6 +222,9 @@ bool arm_smmu_sva_supported(struct arm_smmu_device *smmu)
+ 		feat_mask |= ARM_SMMU_FEAT_VAX;
+ 	}
+ 
++	if (system_supports_bbml2_noabort())
++		feat_mask |= ARM_SMMU_FEAT_BBML2;
++
+ 	if ((smmu->features & feat_mask) != feat_mask)
+ 		return false;
+ 
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index b4c21aaed126..a8b171372f17 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -4430,6 +4430,9 @@ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
+ 	if (FIELD_GET(IDR3_RIL, reg))
+ 		smmu->features |= ARM_SMMU_FEAT_RANGE_INV;
+ 
++	if (FIELD_GET(IDR3_BBML, reg) == IDR3_BBML2)
++		smmu->features |= ARM_SMMU_FEAT_BBML2;
++
+ 	/* IDR5 */
+ 	reg = readl_relaxed(smmu->base + ARM_SMMU_IDR5);
+ 
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index dd1ad56ce863..e67653d342e1 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -60,6 +60,9 @@ struct arm_smmu_device;
+ #define ARM_SMMU_IDR3			0xc
+ #define IDR3_FWB			(1 << 8)
+ #define IDR3_RIL			(1 << 10)
++#define IDR3_BBML			GENMASK(12, 11)
++#define IDR3_BBML1			(1 << 11)
++#define IDR3_BBML2			(2 << 11)
+ 
+ #define ARM_SMMU_IDR5			0x14
+ #define IDR5_STALL_MAX			GENMASK(31, 16)
+@@ -755,6 +758,7 @@ struct arm_smmu_device {
+ #define ARM_SMMU_FEAT_HA		(1 << 21)
+ #define ARM_SMMU_FEAT_HD		(1 << 22)
+ #define ARM_SMMU_FEAT_S2FWB		(1 << 23)
++#define ARM_SMMU_FEAT_BBML2		(1 << 24)
+ 	u32				features;
+ 
+ #define ARM_SMMU_OPT_SKIP_PREFETCH	(1 << 0)
+-- 
+2.49.0
 
-Yixun Lan
-
-> ChenYu
-> 
-> 
-> > Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-> > Signed-off-by: Yixun Lan <dlan@gentoo.org>
-> > ---
-> >  Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml | 1 +
-> >  1 file changed, 1 insertion(+)
-> >
-> > diff --git a/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml b/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
-> > index 7fe0352dff0f8d74a08f3f6aac5450ad685e6a08..7b6a2fde8175353621367c8d8f7a956e4aac7177 100644
-> > --- a/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
-> > +++ b/Documentation/devicetree/bindings/net/allwinner,sun8i-a83t-emac.yaml
-> > @@ -23,6 +23,7 @@ properties:
-> >                - allwinner,sun20i-d1-emac
-> >                - allwinner,sun50i-h6-emac
-> >                - allwinner,sun50i-h616-emac0
-> > +              - allwinner,sun55i-a523-emac0
-> >            - const: allwinner,sun50i-a64-emac
-> >
-> >    reg:
-> >
-> > --
-> > 2.49.0
-> >
-> >
 
