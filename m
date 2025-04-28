@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E330FC36005
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 08:06:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89133C369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 08:10:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t7DLuyDYAPkZzlLUMFZVPAR+CEZDIwuS01mn8WqtW0M=; b=1n7raHy+qpmKVV4VrXbWmrqm3c
-	ZGO1xXQnDsLalFevCN/nN3rAO2s/5tXVTv3a46zB+Zc0oXzqyE5x3YBVu2ovQA+T/ABlNY1f+R1CB
-	S4ejUKplTxsNJhTopJD1xAsFt2whlmvgyFC9tJz0NF5oZObGc58/lQ9kzevyUlVxizfgGhTqwnC0e
-	O6CStIjB/70nilnHokCJ3CAf0dZbB9TgRgUIjttM6V7zhrjwNZQ5Pd9Cgvmttlh0ei96Xo6GnfM58
-	Z9EVcqI32ywA+2o6nbnJLS5c+JkhYUFPhfLoMtRW0B16f2h5OFanu6FWfGKlJAJoLfYtGfQPNXfTP
-	Bkkzpw7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZHvvHhceHa8plRP4xtRJKiJR0MG9BOvLLfDUR5Tau4U=; b=tJ4MRd4N/oSwM/X2uJcXpEcVfL
+	aJ6XGV1vCYy3KuibJ2KNJNHTXEnFbSX+2YnQMVauQpdvxWNvkJG+GOQxT7SxrtyPCUOrg3me1T0lt
+	VrOJP1MTdneHWnFMx2pOcwlMM/EysBS9fAx4wlWRV3PJPBGqIXEe6JRKyFo+W349s2aR9OdyBd8bi
+	3yKyv0cQ+JmN1Yp8jdkZkm0kpI8+pGLTvfDfLRsF1tSXzMenL2ASULE9RVE2BuadGOJ90+GlEN7xN
+	IZoonyh87TNu+yX/Cdi9Pahmc+ltKOYSLX4DPRbVVU6+6flUnCt6Bv5VIP/9gQNTk+/oe4rc6d+lL
+	riav4vWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9JUu-00000005Lrh-2RdD;
-	Mon, 28 Apr 2025 08:05:52 +0000
-Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
+	id 1u9JYl-00000005MOq-45oW;
+	Mon, 28 Apr 2025 08:09:51 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9JAm-00000005IEd-0gPB
+	id 1u9JF7-00000005JFo-468A
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 07:45:05 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0A8841026CEA3;
-	Mon, 28 Apr 2025 09:45:00 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1745826302; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=t7DLuyDYAPkZzlLUMFZVPAR+CEZDIwuS01mn8WqtW0M=;
-	b=TwsXkZvE4625wb5vwTj1RfsBRlJCj7Uot/PKWbzbBVsVDIzwskSTyO6wSlaR/WGiyMf06/
-	x9j+/fjVV1D8EGAvPebT/2IvTPyL/tyzMMnNQyqtmNkugClMINrkV7NyFRwoCITXnrSshB
-	oep7q13nlrHfy4v9+tY/FI6TVeiq+agweD+fYOss6wfoZ/8xlzinx7YhsCGfwsa5p33E2H
-	bIpqNy9CiQqEJlXMPqizVNjMW28iwLQ0HWXYxhbWaih0VBuxwsiLcithCa11S6A7ObUpwc
-	bOfDeZwOtdyIXyfejnZUqt0BIwSt7KUHP0/8EwgzJYiqdWgQh642ILEamKGclg==
-From: Lukasz Majewski <lukma@denx.de>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Simon Horman <horms@kernel.org>,
-	Lukasz Majewski <lukma@denx.de>
-Subject: [net-next v8 6/7] ARM: mxs_defconfig: Update mxs_defconfig to 6.15-rc1
-Date: Mon, 28 Apr 2025 09:44:23 +0200
-Message-Id: <20250428074424.3311978-7-lukma@denx.de>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250428074424.3311978-1-lukma@denx.de>
-References: <20250428074424.3311978-1-lukma@denx.de>
+	Mon, 28 Apr 2025 07:49:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A3F1C5C5FAA;
+	Mon, 28 Apr 2025 07:47:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02BD6C4CEEC;
+	Mon, 28 Apr 2025 07:49:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745826572;
+	bh=gz3v87ioQs5PO0ngRoziti1AQO3BGFw3wZSaC9CSs8I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uPximnopkAxrgRV655KCEfhvJ1fjCkHn8Cnxg5LGMEmrjp+Wb0hcUOj1p00wqeqUO
+	 dzJlkTJF0OCpYhqD3T2sHusjTHmrV8HhuFPzeYoC9V6RUTrTkB/0j/UJBuE23ZJbIK
+	 TWcyt2JNxEdwdo7bsUjYx8qw7JVCoLMq6jNtjD7NTLAdkRqg7c9ooybXK1uMDVJDlo
+	 vfCdlKGblIlmWtEeht8ssisgKsw3pxrKias4RnPnfsZtslh2PmIMouwpR316bapMvJ
+	 8JhEytjwyJYy+Vj9ezr4IpLOfyTyA3Y3d6rwFgAw1qPRi8CXbojTuvkhgv2nhhkGjH
+	 iQMcp72gl2QeA==
+Date: Mon, 28 Apr 2025 13:19:24 +0530
+From: Sumit Garg <sumit.garg@kernel.org>
+To: Stefano Garzarella <sgarzare@redhat.com>
+Cc: Jens Wiklander <jens.wiklander@linaro.org>,
+	Jarkko Sakkinen <jarkko@kernel.org>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Peter Huewe <peterhuewe@gmx.de>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Naveen N Rao <naveen@kernel.org>,
+	Nicholas Piggin <npiggin@gmail.com>, linuxppc-dev@lists.ozlabs.org,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	James Bottomley <James.Bottomley@hansenpartnership.com>,
+	linux-integrity@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Jason Gunthorpe <jgg@ziepe.ca>
+Subject: Re: [PATCH v3 3/4] tpm/tpm_ftpm_tee: support TPM_CHIP_FLAG_SYNC
+Message-ID: <aA8zBP6h8oG5m4w9@sumit-X1>
+References: <20250414145653.239081-1-sgarzare@redhat.com>
+ <20250414145653.239081-4-sgarzare@redhat.com>
+ <CAGxU2F5SJ9nQfAV-D1WKjsUow_01xjGBRXP4d+q4T=5Bw=yaOg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAGxU2F5SJ9nQfAV-D1WKjsUow_01xjGBRXP4d+q4T=5Bw=yaOg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_004504_343511_CF4CA958 
-X-CRM114-Status: UNSURE (   9.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250428_004934_057392_BA2F97F2 
+X-CRM114-Status: GOOD (  17.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,81 +86,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This file is the updated version of mxs_defconfig for the v6.15-rc1
-linux-next.
+On Mon, Apr 14, 2025 at 04:59:47PM +0200, Stefano Garzarella wrote:
+> On Mon, 14 Apr 2025 at 16:57, Stefano Garzarella <sgarzare@redhat.com> wrote:
+> >
+> > From: Stefano Garzarella <sgarzare@redhat.com>
+> >
+> > This driver does not support interrupts, and receiving the response is
+> > synchronous with sending the command.
+> >
+> > So we can set TPM_CHIP_FLAG_SYNC to support synchronous send() and
+> > return responses in the same buffer used for commands. This way we
+> > don't need the 4KB internal buffer used to cache the response before
+> > .send() and .recv(). Also we don't need to implement recv() op.
+> >
+> > Signed-off-by: Stefano Garzarella <sgarzare@redhat.com>
+> > ---
+> > v2:
+> > - set TPM_CHIP_FLAG_SYNC and support it in the new send()
+> > - removed Jens' T-b
+> 
+> @Jens @Sumit can you test/review this patch again since from v1 we
+> changed the core a bit adding TPM_CHIP_FLAG_SYNC instead of
+> send_recv() op?
 
-Detailed description of removed configuration entries:
--CONFIG_MTD_M25P80=y -> it has been replaced MTD_SPI_NOR (which is enabled)
--CONFIG_SMSC_PHY=y -> is enabled implicit by USB_NET_SMSC95XX
--CONFIG_GPIO_SYSFS=y -> it has been deprecated by moving to EXPERT and
-                        its replacement GPIO_CDEV is enabled by default
+Reviewed-by: Sumit Garg <sumit.garg@oss.qualcomm.com>
 
-Signed-off-by: Lukasz Majewski <lukma@denx.de>
-Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
-Suggested-by: Stefan Wahren <wahrenst@gmx.net>
-
----
-Changes for v5:
-- New patch
-
-Changes for v6:
-- Add detailed description on the removed configuration options
-  after update
-
-Changes for v7:
-- None
-
-Changes for v8:
-- None
----
- arch/arm/configs/mxs_defconfig | 7 -------
- 1 file changed, 7 deletions(-)
-
-diff --git a/arch/arm/configs/mxs_defconfig b/arch/arm/configs/mxs_defconfig
-index 22f7639f61fe..b1a31cb914c8 100644
---- a/arch/arm/configs/mxs_defconfig
-+++ b/arch/arm/configs/mxs_defconfig
-@@ -32,9 +32,6 @@ CONFIG_INET=y
- CONFIG_IP_PNP=y
- CONFIG_IP_PNP_DHCP=y
- CONFIG_SYN_COOKIES=y
--# CONFIG_INET_XFRM_MODE_TRANSPORT is not set
--# CONFIG_INET_XFRM_MODE_TUNNEL is not set
--# CONFIG_INET_XFRM_MODE_BEET is not set
- # CONFIG_INET_DIAG is not set
- # CONFIG_IPV6 is not set
- CONFIG_CAN=m
-@@ -45,7 +42,6 @@ CONFIG_MTD=y
- CONFIG_MTD_CMDLINE_PARTS=y
- CONFIG_MTD_BLOCK=y
- CONFIG_MTD_DATAFLASH=y
--CONFIG_MTD_M25P80=y
- CONFIG_MTD_SST25L=y
- CONFIG_MTD_RAW_NAND=y
- CONFIG_MTD_NAND_GPMI_NAND=y
-@@ -60,7 +56,6 @@ CONFIG_ENC28J60=y
- CONFIG_ICPLUS_PHY=y
- CONFIG_MICREL_PHY=y
- CONFIG_REALTEK_PHY=y
--CONFIG_SMSC_PHY=y
- CONFIG_CAN_FLEXCAN=m
- CONFIG_USB_USBNET=y
- CONFIG_USB_NET_SMSC95XX=y
-@@ -77,13 +72,11 @@ CONFIG_SERIAL_AMBA_PL011=y
- CONFIG_SERIAL_AMBA_PL011_CONSOLE=y
- CONFIG_SERIAL_MXS_AUART=y
- # CONFIG_HW_RANDOM is not set
--# CONFIG_I2C_COMPAT is not set
- CONFIG_I2C_CHARDEV=y
- CONFIG_I2C_MXS=y
- CONFIG_SPI=y
- CONFIG_SPI_GPIO=m
- CONFIG_SPI_MXS=y
--CONFIG_GPIO_SYSFS=y
- # CONFIG_HWMON is not set
- CONFIG_WATCHDOG=y
- CONFIG_STMP3XXX_RTC_WATCHDOG=y
--- 
-2.39.5
-
+-Sumit
 
