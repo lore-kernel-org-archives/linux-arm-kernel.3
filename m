@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15BBDC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 21:29:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2902BC369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 21:32:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p06uq8XhOZ91Yg4u1whAGotLnTqFDzRz1U6ixjHKEKM=; b=17pj1FLbRw2Vx5pUFAmXZ96Lny
-	kD/BA6qZrnVm3MbNLZs+RSiyPam4NXdmlATvmxrCfh9KMZCTN/x0BjsrsmnQulh+ZHbgMbU/yPSdX
-	91lEUA4c1Kj172Z2NC5cbNer9WhDthH/bh5YAp0IPigw85vQd9rictrLgn+ON2oNlRvrWeuEWUBja
-	hKwoXBLIITjULIhBJqkhRYxbme6zzcVmsrc3JwMeQjg9AE/uc62ZvEGhL8ScW9Cwm1HzPBP+oei7w
-	6M/m/vq/Hoi6euUqHSdjkCmjiduy5KEHgtCoIoBx2gzesSJrPjgW9QC9HebpTYocacJe74J1JCjL/
-	A6fFFXcA==;
+	bh=6NhcoKa6JL1NM9sMn3gmj98XuhFiqjkn7M2jrThtdQE=; b=XFXdZvOw4VZffSVbyKC/p2SET1
+	xvTs7DGTU/swWrizphAg9/rP11t6HbCYF1Lp8wMPs/wG9H5T1k9/5uIy72QV+XQpv/ItdtLuvFlCG
+	n2Migs5bj8OB2sJLUQ4lJLQRW/aQihZakxJ7MMPs5tZ6U9LVaADZinJ/aQrT7Hv/PJa/ycDs04wdB
+	osTxx8+h9WIRHRXGc46ri753/XKUDtCihyUv6nqBiFuhkOVrhfYesCABT419QFjRNif0oiaFrftVj
+	6akHxlxCpr3JKCZeWD8CO4gn6kO2dV+Z2+Ryr+LPwE1Ux8luRsWBJ+jBfYe5woIHtb1XsUXae41N7
+	k1et+xqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9W2w-00000007cV4-1Ftu;
-	Mon, 28 Apr 2025 21:29:50 +0000
+	id 1u9W4r-00000007ciy-42u6;
+	Mon, 28 Apr 2025 21:31:49 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Vhm-00000007ZIB-1bbi
+	id 1u9Vhm-00000007ZIC-2lUm
 	for linux-arm-kernel@bombadil.infradead.org;
 	Mon, 28 Apr 2025 21:07:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=p06uq8XhOZ91Yg4u1whAGotLnTqFDzRz1U6ixjHKEKM=; b=YYDYhN0fVt11xhX8oBEOHUqJUJ
-	rjRg61TxShoW9cn5muQiSsO56U3wOqKFEBCN+KNajx/Qew4csrJqYYzSPEslXscX0cUKeT4bU6tz1
-	oyBtAaNFKkXsz9ytcT41QnmNDy+avAy0jAWd+NSRs+bFdUD9Uksg/OSrVf8H+6HxBpyG6FEDNkDSG
-	sNMtS68bmCuL3+Rol0uexNy7/CVlmGblZ3Brf1vPVko8UIssZt3NQBN3ts0beIjS1EFve+m9iZA5F
-	YPpFzI0+3S5BzlU2ad+Y25mOiRocwJy6dDAhuxnahGqOMAXChOjQtmlzLq8j0D6jre9hgxepjihJ4
-	23oRPx2w==;
+	bh=6NhcoKa6JL1NM9sMn3gmj98XuhFiqjkn7M2jrThtdQE=; b=TXcZSH5I0lWQaboLh36RQAiN50
+	XGj2DgesmU9OQxOLcj9N88/rPQL5KipLuaWcOyXiUQDQTo9cPYEHFRnL6J2aWYQNH9x2G+l2r7L5O
+	TQcRoC5QCJ19s0qRn3UogM9DCADnpGKtF77ieeovPp9+SdG8B45OjFY3ZqRrdrGYBM32xZNTb89g7
+	EcJIjDhLaa0azducfvZbvqnDqvKj/hzqJK/ziNCNXGIpM68jiTmjyHNsgNNLwyOvmflvjuGIXijmO
+	yyN6xa3ws2nVfyglrl3nOnbvVlblmoHQ7J1zH4484kww5a0OjCDFa5aPEgaoEdxX3K34C38fu/YWC
+	jp652BZw==;
 Received: from linux.microsoft.com ([13.77.154.182])
 	by desiato.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9Vhg-0000000D3Br-2uRW
+	id 1u9Vhg-0000000D3Bp-2A4F
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 21:07:55 +0000
+	Mon, 28 Apr 2025 21:07:56 +0000
 Received: from romank-3650.corp.microsoft.com (unknown [131.107.1.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id BEEC9211AD24;
+	by linux.microsoft.com (Postfix) with ESMTPSA id 68E9E211AD1F;
 	Mon, 28 Apr 2025 14:07:47 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com BEEC9211AD24
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 68E9E211AD1F
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1745874468;
-	bh=p06uq8XhOZ91Yg4u1whAGotLnTqFDzRz1U6ixjHKEKM=;
+	s=default; t=1745874467;
+	bh=6NhcoKa6JL1NM9sMn3gmj98XuhFiqjkn7M2jrThtdQE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QmZ6a3tvBXcsj2PR8xjaRO0wEknP1h42qVloR2kEp9FcliNUsZJ4W4DQbGbt3iu8c
-	 S4uxBKcyhtihtT0zU98rnglR+K7xteRfG0lJJT4YXlAEtLfsZy/OgcokaCneJbwIDJ
-	 +uI0GFlcWfHdJWNhEn1dYQ6C4/ZoRC5YmZThWfXI=
+	b=Jwo1/Znv21DwhCwBkZB4bkCP3jGQY+BoKRyw9i0SnKH+c977NDRZA1JeslcM8DbHq
+	 d0gSlA/QJgMEoWGPIf6suAfT1E7CtJZ7rMQZtSBLnC1X++4Xdm7IDBonL6NldD89EM
+	 krWea9gXWRuVAAeJbQq9ZPvxkkv97n8QniJlU+8Y=
 From: Roman Kisel <romank@linux.microsoft.com>
 To: arnd@arndb.de,
 	bhelgaas@google.com,
@@ -96,17 +96,17 @@ Cc: apais@microsoft.com,
 	benhill@microsoft.com,
 	bperkins@microsoft.com,
 	sunilmut@microsoft.com
-Subject: [PATCH hyperv-next v9 11/11] PCI: hv: Get vPCI MSI IRQ domain from DeviceTree
-Date: Mon, 28 Apr 2025 14:07:42 -0700
-Message-ID: <20250428210742.435282-12-romank@linux.microsoft.com>
+Subject: [PATCH hyperv-next v9 10/11] ACPI: irq: Introduce acpi_get_gsi_dispatcher()
+Date: Mon, 28 Apr 2025 14:07:41 -0700
+Message-ID: <20250428210742.435282-11-romank@linux.microsoft.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250428210742.435282-1-romank@linux.microsoft.com>
 References: <20250428210742.435282-1-romank@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_220753_850266_7CAC19B2 
-X-CRM114-Status: GOOD (  16.60  )
+X-CRM114-CacheID: sfid-20250428_220753_970666_14A85157 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,125 +121,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The hyperv-pci driver uses ACPI for MSI IRQ domain configuration on
-arm64. It won't be able to do that in the VTL mode where only DeviceTree
-can be used.
+Using acpi_irq_create_hierarchy() in the cases where the code
+also handles OF leads to code duplication as the ACPI subsystem
+doesn't provide means to compute the IRQ domain parent whereas
+the OF does.
 
-Update the hyperv-pci driver to get vPCI MSI IRQ domain in the DeviceTree
-case, too.
+Introduce acpi_get_gsi_dispatcher() so that the drivers relying
+on both ACPI and OF may use irq_domain_create_hierarchy() in the
+common code paths.
+
+No functional changes.
 
 Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
-Acked-by: Bjorn Helgaas <bhelgaas@google.com>
+Reviewed-by: Michael Kelley <mhklinux@outlook.com>
+Acked-by: Rafael J. Wysocki <rafael.j.wysocki@intel.com>
 ---
- drivers/pci/controller/pci-hyperv.c | 70 ++++++++++++++++++++++++++---
- 1 file changed, 64 insertions(+), 6 deletions(-)
+ drivers/acpi/irq.c   | 16 ++++++++++++++--
+ include/linux/acpi.h |  5 ++++-
+ 2 files changed, 18 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/pci/controller/pci-hyperv.c b/drivers/pci/controller/pci-hyperv.c
-index 6084b38bdda1..a48524d2a1eb 100644
---- a/drivers/pci/controller/pci-hyperv.c
-+++ b/drivers/pci/controller/pci-hyperv.c
-@@ -50,6 +50,7 @@
- #include <linux/irqdomain.h>
- #include <linux/acpi.h>
- #include <linux/sizes.h>
-+#include <linux/of_irq.h>
- #include <asm/mshyperv.h>
+diff --git a/drivers/acpi/irq.c b/drivers/acpi/irq.c
+index 1687483ff319..76a856c32c4d 100644
+--- a/drivers/acpi/irq.c
++++ b/drivers/acpi/irq.c
+@@ -12,7 +12,7 @@
  
- /*
-@@ -817,9 +818,17 @@ static int hv_pci_vec_irq_gic_domain_alloc(struct irq_domain *domain,
- 	int ret;
+ enum acpi_irq_model_id acpi_irq_model;
  
- 	fwspec.fwnode = domain->parent->fwnode;
--	fwspec.param_count = 2;
--	fwspec.param[0] = hwirq;
--	fwspec.param[1] = IRQ_TYPE_EDGE_RISING;
-+	if (is_of_node(fwspec.fwnode)) {
-+		/* SPI lines for OF translations start at offset 32 */
-+		fwspec.param_count = 3;
-+		fwspec.param[0] = 0;
-+		fwspec.param[1] = hwirq - 32;
-+		fwspec.param[2] = IRQ_TYPE_EDGE_RISING;
-+	} else {
-+		fwspec.param_count = 2;
-+		fwspec.param[0] = hwirq;
-+		fwspec.param[1] = IRQ_TYPE_EDGE_RISING;
-+	}
+-static struct fwnode_handle *(*acpi_get_gsi_domain_id)(u32 gsi);
++static acpi_gsi_domain_disp_fn acpi_get_gsi_domain_id;
+ static u32 (*acpi_gsi_to_irq_fallback)(u32 gsi);
  
- 	ret = irq_domain_alloc_irqs_parent(domain, virq, 1, &fwspec);
- 	if (ret)
-@@ -887,10 +896,44 @@ static const struct irq_domain_ops hv_pci_domain_ops = {
- 	.activate = hv_pci_vec_irq_domain_activate,
- };
- 
-+#ifdef CONFIG_OF
-+
-+static struct irq_domain *hv_pci_of_irq_domain_parent(void)
-+{
-+	struct device_node *parent;
-+	struct irq_domain *domain;
-+
-+	parent = of_irq_find_parent(hv_get_vmbus_root_device()->of_node);
-+	if (!parent)
-+		return NULL;
-+	domain = irq_find_host(parent);
-+	of_node_put(parent);
-+
-+	return domain;
-+}
-+
-+#endif
-+
-+#ifdef CONFIG_ACPI
-+
-+static struct irq_domain *hv_pci_acpi_irq_domain_parent(void)
-+{
-+	acpi_gsi_domain_disp_fn gsi_domain_disp_fn;
-+
-+	gsi_domain_disp_fn = acpi_get_gsi_dispatcher();
-+	if (!gsi_domain_disp_fn)
-+		return NULL;
-+	return irq_find_matching_fwnode(gsi_domain_disp_fn(0),
-+				     DOMAIN_BUS_ANY);
-+}
-+
-+#endif
-+
- static int hv_pci_irqchip_init(void)
+ /**
+@@ -307,12 +307,24 @@ EXPORT_SYMBOL_GPL(acpi_irq_get);
+  *	for a given GSI
+  */
+ void __init acpi_set_irq_model(enum acpi_irq_model_id model,
+-			       struct fwnode_handle *(*fn)(u32))
++			       acpi_gsi_domain_disp_fn fn)
  {
- 	static struct hv_pci_chip_data *chip_data;
- 	struct fwnode_handle *fn = NULL;
-+	struct irq_domain *irq_domain_parent = NULL;
- 	int ret = -ENOMEM;
+ 	acpi_irq_model = model;
+ 	acpi_get_gsi_domain_id = fn;
+ }
  
- 	chip_data = kzalloc(sizeof(*chip_data), GFP_KERNEL);
-@@ -907,9 +950,24 @@ static int hv_pci_irqchip_init(void)
- 	 * way to ensure that all the corresponding devices are also gone and
- 	 * no interrupts will be generated.
- 	 */
--	hv_msi_gic_irq_domain = acpi_irq_create_hierarchy(0, HV_PCI_MSI_SPI_NR,
--							  fn, &hv_pci_domain_ops,
--							  chip_data);
-+#ifdef CONFIG_ACPI
-+	if (!acpi_disabled)
-+		irq_domain_parent = hv_pci_acpi_irq_domain_parent();
-+#endif
-+#ifdef CONFIG_OF
-+	if (!irq_domain_parent)
-+		irq_domain_parent = hv_pci_of_irq_domain_parent();
-+#endif
-+	if (!irq_domain_parent) {
-+		WARN_ONCE(1, "Invalid firmware configuration for VMBus interrupts\n");
-+		ret = -EINVAL;
-+		goto free_chip;
-+	}
++/*
++ * acpi_get_gsi_dispatcher() - Get the GSI dispatcher function
++ *
++ * Return the dispatcher function that computes the domain fwnode for
++ * a given GSI.
++ */
++acpi_gsi_domain_disp_fn acpi_get_gsi_dispatcher(void)
++{
++	return acpi_get_gsi_domain_id;
++}
++EXPORT_SYMBOL_GPL(acpi_get_gsi_dispatcher);
 +
-+	hv_msi_gic_irq_domain = irq_domain_create_hierarchy(irq_domain_parent, 0,
-+		HV_PCI_MSI_SPI_NR,
-+		fn, &hv_pci_domain_ops,
-+		chip_data);
+ /**
+  * acpi_set_gsi_to_irq_fallback - Register a GSI transfer
+  * callback to fallback to arch specified implementation.
+diff --git a/include/linux/acpi.h b/include/linux/acpi.h
+index 4e495b29c640..1917044dea72 100644
+--- a/include/linux/acpi.h
++++ b/include/linux/acpi.h
+@@ -336,8 +336,11 @@ int acpi_register_gsi (struct device *dev, u32 gsi, int triggering, int polarity
+ int acpi_gsi_to_irq (u32 gsi, unsigned int *irq);
+ int acpi_isa_irq_to_gsi (unsigned isa_irq, u32 *gsi);
  
- 	if (!hv_msi_gic_irq_domain) {
- 		pr_err("Failed to create Hyper-V arm64 vPCI MSI IRQ domain\n");
++typedef struct fwnode_handle *(*acpi_gsi_domain_disp_fn)(u32);
++
+ void acpi_set_irq_model(enum acpi_irq_model_id model,
+-			struct fwnode_handle *(*)(u32));
++			acpi_gsi_domain_disp_fn fn);
++acpi_gsi_domain_disp_fn acpi_get_gsi_dispatcher(void);
+ void acpi_set_gsi_to_irq_fallback(u32 (*)(u32));
+ 
+ struct irq_domain *acpi_irq_create_hierarchy(unsigned int flags,
 -- 
 2.43.0
 
