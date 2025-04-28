@@ -4,85 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58C41C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 16:29:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8138C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 16:32:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pLCRaOu6Tt3QIEat0TyIkyelowGCiPWKGTNSyRo/nPE=; b=4a/iFlygry/4uEtt2aeNee68yb
-	aecjVKwT39ieBYV88uDidpgb+0ANUCoALohcsWVChRElUk+B79F+36LIENhIoyRwkYxspZwHPX1Mb
-	+DPfnC3o20igFUpEMq71gYFVqYUz6tk8EKuJSiVsIUvnGiof86zgv983LnAvipAZlApK8NP0+rSmJ
-	kHlmSovq9N+1uaQF7Vz9wBKB6uQ+UChbkRZQ2BEaK3CNhSPbWCXCf/GxGGRi5kUgm358Nw0iFpiCM
-	7/JxHm8ZjMoNw+exU6WhcFeYCx48Debee5akLKAj0f1vrrsxStBgJo1HxnkOVXVwJJ2nn24TOX5h5
-	pL0ZK4cw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XV4yjXWpsfgvi2gIF5WipGrZ8nMjBf4R4GhF3QGKVo4=; b=uey0zfJOskThikgXGH+ePKyMlj
+	KBOTnn+CJJeCE0/W4FLBsL6zl6Pm2mtl09jDaLRb82QbH71i4pv06nQPjLT95dTGMbBmYgn0r2DMl
+	u6RSwj4vIF45Hcv8OeAjBBvB2UM06qo4mhH10LFQhE9v/7p6+XCa7S4gVCrBDsqGa3R98UBgPN61E
+	N7hY/5fSSnWt/EXzpRGNmKOvpzgd+GSSl38otBSmyUdEqezstzeyfkeTchjUn4ZQYFGpjY36HAOYj
+	YijilghuEDin3iWIXEbfrGZBSw+PybPczmOKhOn5bO7s26BkUoL8bQoqbmzj/USuPgbTq2625QwUH
+	N440VIIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9RMY-00000006w64-3BZg;
-	Mon, 28 Apr 2025 16:29:46 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1u9ROX-00000006wTp-1xs4;
+	Mon, 28 Apr 2025 16:31:49 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9RHF-00000006uvX-0Goo
+	id 1u9RJA-00000006vU5-2ITR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 16:24:18 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53SGOCqJ2821103
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 28 Apr 2025 11:24:12 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745857452;
-	bh=pLCRaOu6Tt3QIEat0TyIkyelowGCiPWKGTNSyRo/nPE=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=BPDZRIutC8V4ELh+wV6b8dCune1mLxqJ2gVOwKmJ58FO2WOuRKvinMXHUI91+rEJF
-	 7upqnTaJpw5Q6Z+twKycCmru6wZ6qzJb7kkMfKCuFPwfflNzjIIVETWsprTrvxwLG+
-	 Rg37T5jK54Q3TIGJIq2jQfu9j4gT3b3VJoxUUH3w=
-Received: from DFLE111.ent.ti.com (dfle111.ent.ti.com [10.64.6.32])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53SGOCPL028905
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 28 Apr 2025 11:24:12 -0500
-Received: from DFLE101.ent.ti.com (10.64.6.22) by DFLE111.ent.ti.com
- (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 28
- Apr 2025 11:24:12 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE101.ent.ti.com
- (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 28 Apr 2025 11:24:12 -0500
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53SGOB4S127609;
-	Mon, 28 Apr 2025 11:24:11 -0500
-Message-ID: <f8424c7e-e778-4140-9cf9-83f43cef1a04@ti.com>
-Date: Mon, 28 Apr 2025 11:24:11 -0500
+	Mon, 28 Apr 2025 16:26:18 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43d0359b1fcso31768185e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 09:26:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1745857575; x=1746462375; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=XV4yjXWpsfgvi2gIF5WipGrZ8nMjBf4R4GhF3QGKVo4=;
+        b=fuaCuTozgB7TVpMX+PiP+RXvLHM2FiZaymVJj40U/ZOSBTciB+0oKgavSaUE7zoCBU
+         HtLXWZBKXILJhO9XdV9u1raHO2tcQO2Ovyqro8cCDBf9u587uTxPB/57p09z5MDXCdDx
+         EsTIrWnK/5nh+DH64ULA3qpNG1FQLESCSNohgSYR1aXn5h/16/8n22dAYWpai5YjHfKI
+         /6ueXyCj39q6MDKVocC/J5FMR25ZnvNVx4V4DeSI5rqOCfK8lYvwwdnXFONVcTx2o6uW
+         9JlbibCW+4jerhZxBBpbrUxUjTDrVMdhGQKghMxysVSHf41DgdexJSQtWtgxnPv8EOsX
+         ceyQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745857575; x=1746462375;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XV4yjXWpsfgvi2gIF5WipGrZ8nMjBf4R4GhF3QGKVo4=;
+        b=F8IosVFw7ORGYiNWVebSnx6ML15caHgxgG0jyLPYuLfFrmHX4Gua1DndPD+sr610WB
+         WwHSxzoyfasiyxCj0HFvqD+5AsNfi5O2s5uHDRmRjRMZHyGef3OeinGidesVf8683MX+
+         G4hWsJ6MhYd6QPpiFzmzPJ530lK+t3QVDpb3eD36bf+NCXhyktNpBKdHHv6juKgBep02
+         +kZhOcDleQAtXDQEcGuKaG6dPDsu2TaS2dS0962MiCTn90zMUlI2W27+bV0ptwXuA1+j
+         NWroSQwlWHAwK17TRBXSyKeN2Bc6bDiuMwnxxGiAVUrugmIS7YtaLma01Vbn38ZEsEEo
+         gA+A==
+X-Forwarded-Encrypted: i=1; AJvYcCUOsr75OXZ8Pn+m8Sv3KJtPPxgt7v1iW75IB47DxiBcij6xPdLhiUSOsV82cx5SAesu3Gr9woU3NzcUC5rNXai5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1t7ZzuoXFF07HESMeZBvKhNCpN4ZFUCZc0oNpIAHFvXT0j26c
+	ApMLB6L2gpcbaQqIpHqpoxb3nHoGepgXR8mTh0Ri5BfhY7vW2SksNlHICZO6xJU=
+X-Gm-Gg: ASbGncuFU4/6QKf4mR25R5lEbuuy7+oHKMIk9gTky+m0OpSw0SClee27DSyx0MD1n2T
+	y1bdIiiAodqpl7NxG7T7weJRUHGaC/+Q59C+EYuu8elb7F+obuZF5bGsDiNjETQAGkde5qJlSYO
+	cqAgmW4vl+7gOu05J0QKsZmGm1geTsC016KVuCjnUnvTocdl9OB/PgxYL7J8lsLj/4PoOo7h5pw
+	QRLUT5yy17XCHpqt0gg4dECyBdkBfJBLoTdrDq3mvHGZdKMZOcl9nZDbUkusaZAZYAAOIA0Qlp/
+	zQh41nh88dAbARsnH50xrmZTglnCPHohA9o04tM57HeQSy0LH5k5J5FV4A9hQzmrPZLVW+KJk8b
+	beeievdg=
+X-Google-Smtp-Source: AGHT+IEP8H3aiAFda5s5dKpOrFeQRMJEIdcZabiUZJB78eZVPzFrS+hWt+HhXg2/aWcVvb4/lTgz0g==
+X-Received: by 2002:a05:600c:55c7:b0:43b:4829:8067 with SMTP id 5b1f17b1804b1-4409c4615e0mr119997455e9.6.1745857574733;
+        Mon, 28 Apr 2025 09:26:14 -0700 (PDT)
+Received: from localhost (p200300f65f00780800000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f00:7808::1b9])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-440a5310a8fsm131672255e9.22.2025.04.28.09.26.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Apr 2025 09:26:14 -0700 (PDT)
+Date: Mon, 28 Apr 2025 18:26:12 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Alexandre Mergnat <amergnat@baylibre.com>
+Cc: Eddie Huang <eddie.huang@mediatek.com>, 
+	Sean Wang <sean.wang@mediatek.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, linux-rtc@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] rtc: mt6359: Add mt6357 support
+Message-ID: <darxi3ojg6c6uhzyzb3224sb4lmpqcwx72pvoaam5qn5b6v5du@36zqss6i46ig>
+References: <20250428-rtc-mt6357-v1-1-31f673b0a723@baylibre.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 08/11] arm64: dts: ti: k3-am62x-sk-common: Enable IPC
- with remote processors
-To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>
-CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Hari Nagalla <hnagalla@ti.com>,
-        Beleswar
- Prasad <b-padhi@ti.com>,
-        Markus Schneider-Pargmann <msp@baylibre.com>,
-        Devarsh Thakkar <devarsht@lewv0571a.ent.ti.com>
-References: <20250415153147.1844076-1-jm@ti.com>
- <20250415153147.1844076-9-jm@ti.com>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20250415153147.1844076-9-jm@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="xvyefmwg7jcr7kfx"
+Content-Disposition: inline
+In-Reply-To: <20250428-rtc-mt6357-v1-1-31f673b0a723@baylibre.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_092417_201351_A4E9A881 
-X-CRM114-Status: GOOD (  16.03  )
+X-CRM114-CacheID: sfid-20250428_092616_853040_C898F386 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,93 +101,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/15/25 10:31 AM, Judith Mendez wrote:
-> From: Hari Nagalla <hnagalla@ti.com>
-> 
-> For each remote proc, reserve memory for IPC and bind the mailbox
-> assignments. Two memory regions are reserved for each remote processor.
-> The first region of 1MB of memory is used for Vring shared buffers
-> and the second region is used as external memory to the remote processor
-> for the resource table and for tracebuffer allocations.
-> 
-> Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
-> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
-> Signed-off-by: Judith Mendez <jm@ti.com>
-> ---
 
-Acked-by: Andrew Davis <afd@ti.com>
+--xvyefmwg7jcr7kfx
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] rtc: mt6359: Add mt6357 support
+MIME-Version: 1.0
 
->   .../arm64/boot/dts/ti/k3-am62x-sk-common.dtsi | 34 ++++++++++++++++---
->   1 file changed, 29 insertions(+), 5 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-> index d52cb2a5a589a..364b2ba6af958 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-> @@ -70,6 +70,18 @@ mcu_m4fss_memory_region: m4f-memory@9cc00000 {
->   			no-map;
->   		};
->   
-> +		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9da00000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9da00000 0x00 0x100000>;
-> +			no-map;
-> +		};
-> +
-> +		wkup_r5fss0_core0_memory_region: r5f-memory@9db00000 {
-> +			compatible = "shared-dma-pool";
-> +			reg = <0x00 0x9db00000 0x00 0xc00000>;
-> +			no-map;
-> +		};
-> +
->   		secure_tfa_ddr: tfa@9e780000 {
->   			reg = <0x00 0x9e780000 0x00 0x80000>;
->   			alignment = <0x1000>;
-> @@ -82,11 +94,6 @@ secure_ddr: optee@9e800000 {
->   			no-map;
->   		};
->   
-> -		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9db00000 {
-> -			compatible = "shared-dma-pool";
-> -			reg = <0x00 0x9db00000 0x00 0xc00000>;
-> -			no-map;
-> -		};
->   	};
->   
->   	leds {
-> @@ -476,10 +483,17 @@ cpsw3g_phy0: ethernet-phy@0 {
->   };
->   
->   &mailbox0_cluster0 {
-> +	status = "okay";
-> +
->   	mbox_m4_0: mbox-m4-0 {
->   		ti,mbox-rx = <0 0 0>;
->   		ti,mbox-tx = <1 0 0>;
->   	};
-> +
-> +	mbox_r5_0: mbox-r5-0 {
-> +		ti,mbox-rx = <2 0 0>;
-> +		ti,mbox-tx = <3 0 0>;
-> +	};
->   };
->   
->   &mcu_m4fss {
-> @@ -489,6 +503,16 @@ &mcu_m4fss {
->   	status = "okay";
->   };
->   
-> +&wkup_r5fss0 {
-> +	status = "okay";
-> +};
-> +
-> +&wkup_r5fss0_core0 {
-> +	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
-> +	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
-> +			<&wkup_r5fss0_core0_memory_region>;
-> +};
-> +
->   &usbss0 {
->   	bootph-all;
->   	status = "okay";
+On Mon, Apr 28, 2025 at 04:29:55PM +0200, Alexandre Mergnat wrote:
+> The MT6357 PMIC contains the same RTC as MT6358 which allows to add
+> support for it trivially by just complementing the list of compatibles.
+>=20
+> Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
+
+Acked-by: Uwe Kleine-K=F6nig <u.kleine-koenig@baylibre.com>
+Tested-by: Uwe Kleine-K=F6nig <u.kleine-koenig@baylibre.com>
+
+Thanks a lot!
+
+Uwe
+
+--xvyefmwg7jcr7kfx
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmgPrCIACgkQj4D7WH0S
+/k5uzggAkQji5a5MAOBNxwmFwsge9xxOpHA0xqM5HwRUZBCYeca34VWPG6n6U0GA
+bVXWEN1KWJBrgdsv/505roy1O5c3HcRRroWFLF4euSrMAl7kKfPvKbCb92TMLNwt
+KO/BFcz7rRZ60I3Re6vmSTR+tW8915S5vXOV6PNh/YgvNMCnGCtIH2lCzdE8dc49
+F2tW/utynBHpBiUnDE0UgFr18FyM3PQtpSCJWVpUaGwp54yVfozTDv19k4p9e4sP
+XdJBBDNhi8yhT/855addjBUKSFWAW7cxCx64lq7Agwx7yZMcaaoEgdEOq75R+8Lg
+SZ4wlhsxQ3BXN7P43l5g6dm94TzLZA==
+=TwLE
+-----END PGP SIGNATURE-----
+
+--xvyefmwg7jcr7kfx--
 
