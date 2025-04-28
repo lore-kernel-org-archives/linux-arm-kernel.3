@@ -4,87 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 483A5C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 15:01:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A3C3C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 15:26:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=REEy6b10z80FpJq+c7VBu9J7y5yUHNB3/QON7VBOWJo=; b=XTB+f/vSW3hGYHOrY0XM1Jukhs
-	h+ridNZ0wYSyjOCJIfqAD3NFB19kyT4WiQCoc2N4OEiKa7M1WjMcqNNI7Q76+VRDuGNaytBsbz9hQ
-	GSJ50mkDC4bxLmKc905HQXURlkptQoRCNQg9A/K+sWLPf138g2fLTyMjxGdgoFzp/w/kE4rsjol7v
-	DcCWaWocatClfs81frxrlp52G1tRa+pfz3DpC4sCq4ZWas+TB5ChNa8rwPqycPtuVqBKSHUn/R2vg
-	KPOfInzCFh8WFA1AAjJJlp5AMb1nN8HCCMQXqb2oGcrmffjRlqzGxc8AOWaw+GM/jQ4M6loCGYhzN
-	Eb1NXyXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZmHDDMjE/LTKxFydAAU+P7QoP/xktKjXvpz/1FyBlOU=; b=1fqiR1ULSIzbSUo96swWmY9uNl
+	aVxV+eVWVfHjD6NpeaJ3L28mkQjqSLYqX0tdXsliNSfvrwhA/G4TVk3j9enElfbMk15YAabU3EU32
+	P9XSwmfuBp1hjO+ETjvBLTRcJVp1OcD07MKgz0C0sCjrvczIQljVtWv1nUrb66KoVcKSuX31IbGyk
+	rqfHKHDrRjJ3o3yo+3I5EEBOtI9/QcQsEmaFrn0fBdtdLJahhtwuL72YfkM0OAB896jbyTsTz2NIS
+	Q1aObJVdD8BnKk9ha9DNHIosv+NeEas44ruyyfxfEnJtBqnuOMX0g/ufZ9rXcZb2ubh0xUyqlv8Tl
+	2Z0B2pSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Pyj-00000006hnA-0Slb;
-	Mon, 28 Apr 2025 15:01:05 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1u9QMw-00000006lG6-2anw;
+	Mon, 28 Apr 2025 15:26:06 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9PkO-00000006fy5-0h5I
+	id 1u9QKw-00000006kbm-27Nn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 14:46:17 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-549b116321aso5977972e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 07:46:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745851573; x=1746456373; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=REEy6b10z80FpJq+c7VBu9J7y5yUHNB3/QON7VBOWJo=;
-        b=ENsaO9nx2yMdvLV91SmPYdqDb6tikBQ76x3R7YWPlvQKBSzZss+vPIv83QSKs8f1NO
-         pyo96yar6GcYgGxAZH7HqEQRhKPBRiz60f8QXEm7p7pMlDt5RT1J8POrk+5cmHf09Ut9
-         nKYwrmBVnPGAHsVZhW7zOq7rSHz1XrTIOAyQcI2K0APf6P9sQP5h4XwgvUVKdcoVvJ81
-         9I4crdhsCJNgYUTZIyDshXxgoV6GEqnJ+04njwaqJJ4GtodXu/NbLmVXqhOWrjW1dFmH
-         6xQL4cyj1G+bDoi0GQJEPaJ1NwjnQkgfRitJdS4gMaczWP+P2kccoT8SbtJTgVgb2Lok
-         YDXg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745851573; x=1746456373;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=REEy6b10z80FpJq+c7VBu9J7y5yUHNB3/QON7VBOWJo=;
-        b=HVB9mGsgL7bNmvu4rmy3W66eShUdhKUkji6cGHzq9izIIrtfNgyQ9nSdcVmM6/mrAF
-         qneaIXIgTa+B1McAHOpzUPAB7Njz4sS8kPFDrlDSPYjIyrqgZO0j0A+QgBzyv8idl6mr
-         1enOImttbi5oDmQsb38R+HrFGLBlpc3KH1fqlWWeoJ8g503roPUmYRmMPPzgSWBhz8de
-         XWuGI0IrhkWPGyQakHNuY81hM6yAJv4oMo0NlVcS5sARXEhEEb3M/x0XomehIqHm3teA
-         F9bk58x41UwTRXPWPFSjmFfcngGKtWyrcWHisxp7DbZKImOVQ7D53OAysFLGNZA7U377
-         64dg==
-X-Forwarded-Encrypted: i=1; AJvYcCUjUJ3iCD8Cexbidpvtf2zuSbWTe1qsiAPPrqhdnjhqXiN05Ai5i0ARVyXe9x++rc2qs1MeqLCtqXRlotp2ATpt@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywn+HJ40VmlJ5GGVNjLKskaqsa5cg53kWnD8FY0l7gNc8JNNovD
-	qHY0TlGXkIa3XgFrXjJaLkjvi6GQVAGWwMkwacIGfhn2OtuwJUWeSd/eFt7fnznpb9Q8ApfNsgb
-	kxa5bvnRfPuzn4qu9qEitOJ9DXFDy3G9a73gwEQ==
-X-Gm-Gg: ASbGncsoYr37WWYNN5NpXVBnH0Spi79RtdzhZgapDRMyI3c47PRVuXHqDYopUX+nZm3
-	NgEBKwacSinbasUjwOnGJT2upgHAhNKbtW53j5I+7G4uqW+cQdY+3+iyOzA7rOA9Or4blaPveMH
-	cwSWemWBb8h7MNLZ98QtCe0g==
-X-Google-Smtp-Source: AGHT+IFWNrvY2zhmFhQG3VtbUYY9jXh+oGkUXjhJfnL+1hK9N6b7ww8hmsko5k28gYHwQ3NKVlNFSCIpmpyiGZa1dOI=
-X-Received: by 2002:a05:6512:b27:b0:545:1db5:f224 with SMTP id
- 2adb3069b0e04-54e8ffbe01bmr2371285e87.11.1745851572916; Mon, 28 Apr 2025
- 07:46:12 -0700 (PDT)
+	Mon, 28 Apr 2025 15:24:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6350F5C4AD4;
+	Mon, 28 Apr 2025 15:21:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BEA0C4CEE4;
+	Mon, 28 Apr 2025 15:23:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745853841;
+	bh=HzKzkrxa9A4F/zt2zYIknGsXS+zLy1fxDykz1llhI68=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hq3lpwr6J3FigWsiuBd93GDgW7+LocZzZO4qV35W2Z3DVqLenlDHfJukspyiadhYm
+	 uj9RRJp8DCUnPxagJAp2mDC8QgicsTp+AU7gFHo4L0fhRtj2t2btuUDnKTkafimpAO
+	 jp2SjwZ909NDiImGdOHfc37lXm1c72newPMRUzXAqODW7nr23tQoKIcZfBnDd0X0hE
+	 bPcKrnpek9brq0HwhW2DTumJdIZIyDI06TjdFtEHzvLmNIGwpaH6ifPFrj9WWn9zvi
+	 isa7xYK/bOoG9YGq2Wh9Nc6ndsl8Wqs2XQI1xbhw0UbodP2JI5kY/PtRFa4d8SbpMo
+	 LO4MFVuKpFbrg==
+Date: Mon, 28 Apr 2025 16:23:51 +0100
+From: Will Deacon <will@kernel.org>
+To: Shuai Xue <xueshuai@linux.alibaba.com>
+Cc: Hanjun Guo <guohanjun@huawei.com>, "Luck, Tony" <tony.luck@intel.com>,
+	rafael@kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+	akpm@linux-foundation.org, linux-edac@vger.kernel.org,
+	x86@kernel.org, justin.he@arm.com, ardb@kernel.org,
+	ying.huang@linux.alibaba.com, ashish.kalra@amd.com,
+	baolin.wang@linux.alibaba.com, tglx@linutronix.de,
+	dave.hansen@linux.intel.com, lenb@kernel.org, hpa@zytor.com,
+	robert.moore@intel.com, lvying6@huawei.com, xiexiuqi@huawei.com,
+	zhuo.song@linux.alibaba.com, sudeep.holla@arm.com,
+	lpieralisi@kernel.org, linux-acpi@vger.kernel.org,
+	yazen.ghannam@amd.com, mark.rutland@arm.com, mingo@redhat.com,
+	robin.murphy@arm.com, Jonathan.Cameron@Huawei.com, bp@alien8.de,
+	linux-arm-kernel@lists.infradead.org, wangkefeng.wang@huawei.com,
+	tanxiaofei@huawei.com, mawupeng1@huawei.com, linmiaohe@huawei.com,
+	naoya.horiguchi@nec.com, james.morse@arm.com,
+	tongtiangen@huawei.com, gregkh@linuxfoundation.org,
+	jarkko@kernel.org
+Subject: Re: [RESEND PATCH v18 1/2] ACPI: APEI: send SIGBUS to current task
+ if synchronous memory error not recovered
+Message-ID: <20250428152350.GA23615@willie-the-truck>
+References: <20250404112050.42040-1-xueshuai@linux.alibaba.com>
+ <20250404112050.42040-2-xueshuai@linux.alibaba.com>
+ <0c0bc332-0323-4e43-a96b-dd5f5957ecc9@huawei.com>
+ <709ee8d2-8969-424c-b32b-101c6a8220fb@linux.alibaba.com>
+ <353809e7-5373-0d54-6ddb-767bc5af9e5f@huawei.com>
+ <653abdd4-46d2-4956-b49c-8f9c309af34d@linux.alibaba.com>
+ <de5d2417-dc92-b276-1125-4feb5151de7f@huawei.com>
+ <f60f1128-0d42-48e5-9a06-6ed7ca10767f@linux.alibaba.com>
 MIME-Version: 1.0
-References: <20250213130007.1418890-2-ruanjinjie@huawei.com> <20250320142612.396250-1-linus.walleij@linaro.org>
-In-Reply-To: <20250320142612.396250-1-linus.walleij@linaro.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Mon, 28 Apr 2025 16:46:02 +0200
-X-Gm-Features: ATxdqUGsQaqXShJ-EtsBmv3W1CufmpuxHhPZaYdywlnyB64XCFXLSvzLTFyW4v0
-Message-ID: <CACRpkdZKaUtnv0HfTci1-_WekNkmJyNA3znx7cUgJW5NNDAYVg@mail.gmail.com>
-Subject: Re: [PATCH -next v6 1/8] entry: Split generic entry into generic
- exception and syscall entry
-To: tglx@linutronix.de
-Cc: ruanjinjie@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
-	oleg@redhat.com, sstabellini@kernel.org, peterz@infradead.org, 
-	luto@kernel.org, linux-kernel@vger.kernel.org, arnd@arndb.de, 
-	paulmck@kernel.org, mingo@redhat.com, dietmar.eggemann@arm.com, 
-	linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com, 
-	joey.gouly@arm.com, kevin.brodsky@arm.com, dave.martin@arm.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <f60f1128-0d42-48e5-9a06-6ed7ca10767f@linux.alibaba.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_074616_210904_E747A48A 
-X-CRM114-Status: GOOD (  17.53  )
+X-CRM114-CacheID: sfid-20250428_082402_595775_1BCBCF9F 
+X-CRM114-Status: GOOD (  11.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,38 +97,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Thomas,
+On Fri, Apr 25, 2025 at 09:10:09AM +0800, Shuai Xue wrote:
+> 在 2025/4/25 09:00, Hanjun Guo 写道:
+> > Call force_sig(SIGBUS) directly in ghes_do_proc() is not my favourite,
+> > but I can bear that, please add
+> > 
+> > Reviewed-by: Hanjun Guo <guohanjun@huawei.com>
+> > 
+> > Thanks
+> > Hanjun
+> 
+> Thanks. Hanjun.
+> 
+> @Rafael, @Catalin,
+> 
+> Both patch 1 and 2 have reviewed-by tag from the arm64 ACPI maintainers, Hanjun,
+> now. Are you happpy to pick and queue this patch set to acpi tree or arm tree?
 
-On Thu, Mar 20, 2025 at 3:26=E2=80=AFPM Linus Walleij <linus.walleij@linaro=
-.org> wrote:
+Since this primarily touches drivers/acpi/apei/ghes.c, I think it should
+go via the ACPI tree and not the arm64 one.
 
-> > Currently CONFIG_GENERIC_ENTRY enables both the generic exception
-> > entry logic and the generic syscall entry logic, which are otherwise
-> > loosely coupled.
-> >
-> > Introduce separate config options for these so that archtiectures can
-> > select the two independently. This will make it easier for
-> > architectures to migrate to generic entry code.
-> >
-> > Suggested-by: Mark Rutland <mark.rutland@arm.com>
-> > Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
->
-> If the generic entry maintainer (hi Thomas) thinks this patch is
-> OK it would be nice to have it applied because it will also make
-> the ARM32 transition to generic entry easier as we can work on
-> exception and syscall entry each in isolation.
->
-> Acked-by: Linus Walleij <linus.walleij@linaro.org>
-
-Do you think this patch is something you could queue on some
-tip branch for v6.16?
-
-I don't know if either arm64 or arm32 is going anywhere with
-generic entry for v6.16, but having this in-tree makes it easier
-to split the task going forward. We can always pull it into some
-branch or just wait for v6.16-rc1 to get this patch under our
-patch stacks.
-
-Yours,
-Linus Walleij
+Will
 
