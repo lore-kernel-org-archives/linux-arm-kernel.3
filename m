@@ -4,81 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 400E2C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 12:50:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCAD7C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 12:52:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UOnsX2khC4QQb5DzauQ7MTn2WKff96OYmxGALdbK5CM=; b=m4Um6HO9VWdz3QkGGYrKkriRPC
-	uFG4gdYB86Yg0jpUxCFYoCFTvFcziOT18JApbxVCDVQgrqkMn1cqSHTrF/F2suK4sZdiCvSSaLUqv
-	BwlG5RH296JIrMrYKRfX94PgTmlT3XzayvCImzHSen+8+b2WjoP+DALnw8vz2C5leSeBPzxbLBP60
-	znBKHqulwxROXtWMbSqhJ84Eua968E8sGSvZHSl/7rCnfAUNtYIADszCT4uWxA1xqCcWO4fnB9njx
-	j/RCWUVDrUixB55EyW/4dGZ7fhsNwNgAbFNfh18lN8V+fLUGXeLxFqmAQyfphN2zNdQI1NaVGclT+
-	z2wAOa+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q8cZD9ZzY3v39fKexFRUN197TL2q7m4akqDWnsZ08ZA=; b=ylQOGH7+HRHo5Vtm6YUku1xkhm
+	a2Ft3eEm6XtEgUTVaEdUDTppQ5/sh0oh6PfxV0m7Wkk90zSQtDZoUhGb8XO62YpoaJ55OzqdLCcvD
+	JRgMWAfBfK+oub5i/ZdaIVcuirZK9yV9oeg0AjXGdT4upqJempFEmvxKAVw+z36W/uSr58Kmpl2/a
+	DNuCJ51/26WwXkEx7RHjYROQge/sHT+oLcFlDX0fgQJz86WKDiZSvEfhbifaccb27dALDN9IKwxtB
+	9hQVdowL1efcmauz9CofoQBLbpKfNKxUjQYzCT3D53B72g5GRQD8XyIr7Bqpo8HBvtzZShN9733ux
+	NpAFSrYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Nvt-00000006GUR-2UCs;
-	Mon, 28 Apr 2025 12:50:01 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9NEr-0000000662d-1eax
+	id 1u9Nxs-00000006Gqo-19YZ;
+	Mon, 28 Apr 2025 12:52:04 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u9NEw-0000000664q-0j7Z
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 12:05:34 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53SC5IvP3393357
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 28 Apr 2025 07:05:18 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745841918;
-	bh=UOnsX2khC4QQb5DzauQ7MTn2WKff96OYmxGALdbK5CM=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=DTiiK5OTcuPZ7OW1xtZa+Ig0wRwTCT/hRNr354wkAlhVPgAP62gLS0hDK/8/nz1RW
-	 c/3LWpMjWGDhyAYtsZI6BQqEoJdSxJCqhEIoELehC21TSm6EAx3vHl2f712kebwXCB
-	 4a1P8WSNmXQuuldUIpoQR7C/E/5SKsJcUgrTS1eY=
-Received: from DLEE110.ent.ti.com (dlee110.ent.ti.com [157.170.170.21])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53SC5IpX038345
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 28 Apr 2025 07:05:18 -0500
-Received: from DLEE101.ent.ti.com (157.170.170.31) by DLEE110.ent.ti.com
- (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 28
- Apr 2025 07:05:17 -0500
-Received: from fllvsmtp8.itg.ti.com (10.64.41.158) by DLEE101.ent.ti.com
- (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 28 Apr 2025 07:05:17 -0500
-Received: from fllv0122.itg.ti.com (fllv0122.itg.ti.com [10.247.120.72])
-	by fllvsmtp8.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53SC5H95098287;
-	Mon, 28 Apr 2025 07:05:17 -0500
-Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
-	by fllv0122.itg.ti.com (8.14.7/8.14.7) with ESMTP id 53SC5G1B016903;
-	Mon, 28 Apr 2025 07:05:17 -0500
-From: Meghana Malladi <m-malladi@ti.com>
-To: <dan.carpenter@linaro.org>, <m-malladi@ti.com>, <john.fastabend@gmail.com>,
-        <hawk@kernel.org>, <daniel@iogearbox.net>, <ast@kernel.org>,
-        <pabeni@redhat.com>, <kuba@kernel.org>, <edumazet@google.com>,
-        <davem@davemloft.net>, <andrew+netdev@lunn.ch>
-CC: <bpf@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <srk@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Roger Quadros
-	<rogerq@kernel.org>, <danishanwar@ti.com>
-Subject: [PATCH net 4/4] net: ti: icssg-prueth: Fix kernel panic during concurrent Tx queue access
-Date: Mon, 28 Apr 2025 17:34:59 +0530
-Message-ID: <20250428120459.244525-5-m-malladi@ti.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250428120459.244525-1-m-malladi@ti.com>
-References: <20250428120459.244525-1-m-malladi@ti.com>
+	Mon, 28 Apr 2025 12:05:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4F13D22D7;
+	Mon, 28 Apr 2025 05:05:31 -0700 (PDT)
+Received: from K4MQJ0H1H2.arm.com (unknown [10.163.78.210])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 7DED83F66E;
+	Mon, 28 Apr 2025 05:05:29 -0700 (PDT)
+From: Dev Jain <dev.jain@arm.com>
+To: akpm@linux-foundation.org
+Cc: ryan.roberts@arm.com,
+	david@redhat.com,
+	willy@infradead.org,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	Liam.Howlett@oracle.com,
+	lorenzo.stoakes@oracle.com,
+	vbabka@suse.cz,
+	jannh@google.com,
+	anshuman.khandual@arm.com,
+	peterx@redhat.com,
+	joey.gouly@arm.com,
+	ioworker0@gmail.com,
+	baohua@kernel.org,
+	kevin.brodsky@arm.com,
+	quic_zhenhuah@quicinc.com,
+	christophe.leroy@csgroup.eu,
+	yangyicong@hisilicon.com,
+	linux-arm-kernel@lists.infradead.org,
+	namit@vmware.com,
+	hughd@google.com,
+	yang@os.amperecomputing.com,
+	ziy@nvidia.com,
+	Dev Jain <dev.jain@arm.com>
+Subject: [PATCH 6/7] mm: Batch around can_change_pte_writable()
+Date: Mon, 28 Apr 2025 17:34:13 +0530
+Message-Id: <20250428120414.12101-7-dev.jain@arm.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <20250428120414.12101-1-dev.jain@arm.com>
+References: <20250428120414.12101-1-dev.jain@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_050533_530601_5BC2BA95 
-X-CRM114-Status: GOOD (  15.60  )
+X-CRM114-CacheID: sfid-20250428_050538_297574_B6AD4D12 
+X-CRM114-Status: GOOD (  15.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,86 +86,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add __netif_tx_lock() to ensure that only one packet is being
-transmitted at a time to avoid race conditions in the netif_txq
-struct and prevent packet data corruption. Failing to do so causes
-kernel panic with the following error:
+In preparation for patch 7, we need to properly batch around
+can_change_pte_writable(). We batch around pte_needs_soft_dirty_wp() by
+the corresponding fpb flag, we batch around the page-anon exclusive check
+using folio_maybe_mapped_shared(); modify_prot_start_ptes() collects the
+dirty and access bits across the batch, therefore batching across
+pte_dirty(): this is correct since the dirty bit on the PTE really
+is just an indication that the folio got written to, so even if
+the PTE is not actually dirty (but one of the PTEs in the batch is),
+the wp-fault optimization can be made.
 
-[ 2184.746764] ------------[ cut here ]------------
-[ 2184.751412] kernel BUG at lib/dynamic_queue_limits.c:99!
-[ 2184.756728] Internal error: Oops - BUG: 00000000f2000800 [#1] PREEMPT SMP
-
-logs: https://gist.github.com/MeghanaMalladiTI/9c7aa5fc3b7fb03f87c74aad487956e9
-
-The lock is acquired before calling emac_xmit_xdp_frame() and released after the
-call returns. This ensures that the TX queue is protected from concurrent access
-during the transmission of XDP frames.
-
-Fixes: 62aa3246f462 ("net: ti: icssg-prueth: Add XDP support")
-Signed-off-by: Meghana Malladi <m-malladi@ti.com>
+Signed-off-by: Dev Jain <dev.jain@arm.com>
 ---
- drivers/net/ethernet/ti/icssg/icssg_common.c | 7 ++++++-
- drivers/net/ethernet/ti/icssg/icssg_prueth.c | 7 ++++++-
- 2 files changed, 12 insertions(+), 2 deletions(-)
+ include/linux/mm.h | 4 ++--
+ mm/gup.c           | 2 +-
+ mm/huge_memory.c   | 4 ++--
+ mm/memory.c        | 6 +++---
+ mm/mprotect.c      | 9 ++++++---
+ 5 files changed, 14 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
-index a120ff6fec8f..e509b6ff81e7 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_common.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
-@@ -660,6 +660,8 @@ static u32 emac_run_xdp(struct prueth_emac *emac, struct xdp_buff *xdp,
- 			struct page *page, u32 *len)
- {
- 	struct net_device *ndev = emac->ndev;
-+	struct netdev_queue *netif_txq;
-+	int cpu = smp_processor_id();
- 	struct bpf_prog *xdp_prog;
- 	struct xdp_frame *xdpf;
- 	u32 pkt_len = *len;
-@@ -679,8 +681,11 @@ static u32 emac_run_xdp(struct prueth_emac *emac, struct xdp_buff *xdp,
- 			goto drop;
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index 5eb0d77c4438..ffa02e15863f 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -2710,8 +2710,8 @@ int get_cmdline(struct task_struct *task, char *buffer, int buflen);
+ #define  MM_CP_UFFD_WP_ALL                 (MM_CP_UFFD_WP | \
+ 					    MM_CP_UFFD_WP_RESOLVE)
+ 
+-bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
+-			     pte_t pte);
++bool can_change_ptes_writable(struct vm_area_struct *vma, unsigned long addr,
++			     pte_t pte, struct folio *folio, unsigned int nr);
+ extern long change_protection(struct mmu_gather *tlb,
+ 			      struct vm_area_struct *vma, unsigned long start,
+ 			      unsigned long end, unsigned long cp_flags);
+diff --git a/mm/gup.c b/mm/gup.c
+index 84461d384ae2..6a605fc5f2cb 100644
+--- a/mm/gup.c
++++ b/mm/gup.c
+@@ -614,7 +614,7 @@ static inline bool can_follow_write_common(struct page *page,
+ 		return false;
+ 
+ 	/*
+-	 * See can_change_pte_writable(): we broke COW and could map the page
++	 * See can_change_ptes_writable(): we broke COW and could map the page
+ 	 * writable if we have an exclusive anonymous page ...
+ 	 */
+ 	return page && PageAnon(page) && PageAnonExclusive(page);
+diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+index 28c87e0e036f..e5496c0d9e7e 100644
+--- a/mm/huge_memory.c
++++ b/mm/huge_memory.c
+@@ -2032,12 +2032,12 @@ static inline bool can_change_pmd_writable(struct vm_area_struct *vma,
+ 		return false;
+ 
+ 	if (!(vma->vm_flags & VM_SHARED)) {
+-		/* See can_change_pte_writable(). */
++		/* See can_change_ptes_writable(). */
+ 		page = vm_normal_page_pmd(vma, addr, pmd);
+ 		return page && PageAnon(page) && PageAnonExclusive(page);
+ 	}
+ 
+-	/* See can_change_pte_writable(). */
++	/* See can_change_ptes_writable(). */
+ 	return pmd_dirty(pmd);
+ }
+ 
+diff --git a/mm/memory.c b/mm/memory.c
+index b9e8443aaa86..b1fda3de8d27 100644
+--- a/mm/memory.c
++++ b/mm/memory.c
+@@ -750,7 +750,7 @@ static void restore_exclusive_pte(struct vm_area_struct *vma,
+ 		pte = pte_mkuffd_wp(pte);
+ 
+ 	if ((vma->vm_flags & VM_WRITE) &&
+-	    can_change_pte_writable(vma, address, pte)) {
++	    can_change_ptes_writable(vma, address, pte, NULL, 1)) {
+ 		if (folio_test_dirty(folio))
+ 			pte = pte_mkdirty(pte);
+ 		pte = pte_mkwrite(pte, vma);
+@@ -5767,7 +5767,7 @@ static void numa_rebuild_large_mapping(struct vm_fault *vmf, struct vm_area_stru
+ 			ptent = pte_modify(ptent, vma->vm_page_prot);
+ 			writable = pte_write(ptent);
+ 			if (!writable && pte_write_upgrade &&
+-			    can_change_pte_writable(vma, addr, ptent))
++			    can_change_ptes_writable(vma, addr, ptent, NULL, 1))
+ 				writable = true;
  		}
  
--		q_idx = smp_processor_id() % emac->tx_ch_num;
-+		q_idx = cpu % emac->tx_ch_num;
-+		netif_txq = netdev_get_tx_queue(ndev, q_idx);
-+		__netif_tx_lock(netif_txq, cpu);
- 		result = emac_xmit_xdp_frame(emac, xdpf, page, q_idx);
-+		__netif_tx_unlock(netif_txq);
- 		if (result == ICSSG_XDP_CONSUMED) {
- 			ndev->stats.tx_dropped++;
- 			goto drop;
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-index ee35fecf61e7..b31060e7f698 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-@@ -1075,20 +1075,25 @@ static int emac_xdp_xmit(struct net_device *dev, int n, struct xdp_frame **frame
+@@ -5808,7 +5808,7 @@ static vm_fault_t do_numa_page(struct vm_fault *vmf)
+ 	 */
+ 	writable = pte_write(pte);
+ 	if (!writable && pte_write_upgrade &&
+-	    can_change_pte_writable(vma, vmf->address, pte))
++	    can_change_ptes_writable(vma, vmf->address, pte, NULL, 1))
+ 		writable = true;
+ 
+ 	folio = vm_normal_folio(vma, vmf->address, pte);
+diff --git a/mm/mprotect.c b/mm/mprotect.c
+index 33eabc995584..362fd7e5457d 100644
+--- a/mm/mprotect.c
++++ b/mm/mprotect.c
+@@ -40,8 +40,8 @@
+ 
+ #include "internal.h"
+ 
+-bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
+-			     pte_t pte)
++bool can_change_ptes_writable(struct vm_area_struct *vma, unsigned long addr,
++			      pte_t pte, struct folio *folio, unsigned int nr)
  {
- 	struct prueth_emac *emac = netdev_priv(dev);
- 	struct net_device *ndev = emac->ndev;
-+	struct netdev_queue *netif_txq;
-+	int cpu = smp_processor_id();
- 	struct xdp_frame *xdpf;
- 	unsigned int q_idx;
- 	int nxmit = 0;
- 	u32 err;
- 	int i;
+ 	struct page *page;
  
--	q_idx = smp_processor_id() % emac->tx_ch_num;
-+	q_idx = cpu % emac->tx_ch_num;
-+	netif_txq = netdev_get_tx_queue(ndev, q_idx);
+@@ -67,6 +67,9 @@ bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
+ 		 * write-fault handler similarly would map them writable without
+ 		 * any additional checks while holding the PT lock.
+ 		 */
++		if (unlikely(nr != 1))
++			return !folio_maybe_mapped_shared(folio);
++
+ 		page = vm_normal_page(vma, addr, pte);
+ 		return page && PageAnon(page) && PageAnonExclusive(page);
+ 	}
+@@ -222,7 +225,7 @@ static long change_pte_range(struct mmu_gather *tlb,
+ 			 */
+ 			if ((cp_flags & MM_CP_TRY_CHANGE_WRITABLE) &&
+ 			    !pte_write(ptent) &&
+-			    can_change_pte_writable(vma, addr, ptent))
++			    can_change_ptes_writable(vma, addr, ptent, folio, 1))
+ 				ptent = pte_mkwrite(ptent, vma);
  
- 	if (unlikely(flags & ~XDP_XMIT_FLAGS_MASK))
- 		return -EINVAL;
- 
- 	for (i = 0; i < n; i++) {
- 		xdpf = frames[i];
-+		__netif_tx_lock(netif_txq, cpu);
- 		err = emac_xmit_xdp_frame(emac, xdpf, NULL, q_idx);
-+		__netif_tx_unlock(netif_txq);
- 		if (err != ICSSG_XDP_TX) {
- 			ndev->stats.tx_dropped++;
- 			break;
+ 			ptep_modify_prot_commit(vma, addr, pte, oldpte, ptent);
 -- 
-2.43.0
+2.30.2
 
 
