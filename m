@@ -4,173 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A641C36005
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 06:39:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DF95C36005
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 06:46:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=6uQ/zQO/mAn1k2sH6o/Xsqpp/6ywJj9BatpTxDqlYn0=; b=bahoAiQwKXHkGqpXvaiDnxDJOS
-	4fzTstZ+I6FZTzySxJKf7TMaEG/SEZ4hu83LhU2lRVt6Pb+cax2o/cbMOs3l76tz1zKl0rMPR6e/t
-	Q6no/3250fJaQRitm5bLG9lEBbBSarsPQUEp8GFukKhU8Skb9Ymwmt/qa2kEuQbYk0jEClhELmn5+
-	i6gNa7Cpa+JG+SaS3GvcVtAATB02LR6I07ZFgk7z5zjeEjVziyS0pWqbdV+DFmbYknGXyHTPcUo4f
-	1QUkzUcnRthgRg00BDC5toXDZFXsR8zqwS24R+uGEvLUZwdya1tuOuA3CvrWGKHMRzhfap80sPQws
-	RIFeuU8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:From:
+	References:In-Reply-To:Message-Id:Date:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tAp+Yq2oPYdQjefDhIqTpmvZxjMW/FXB4OTXZxlKT5Q=; b=eEpICw2nlofhxaIyIRFoQbcJe1
+	U3C3mxZihRSPsckufWCH5Mjj+APV/N89Nw4fCWcZFcgreuKhylzlAu4YnRTUU0JMmlJNgMCdT2Ezg
+	rdQVB3+I8/a/47Pw2DFPYu7LZ/MphMkq0RSbJ9E7AvOU4HHLzSlwtgf1Jx8TCX1rj0ZNDl8Zcmend
+	00pZIj3SQhYG6WDVzcdnwOnq5blqUaX7k0jV6vT8FEFb6uVW1nv2yYOzZ2vTn3Yd0xbSrdTDPqt+b
+	B//OHL1cOXt8IikoZIQWWPrrozWqbPjiu/0hEc0bae90zDkiQTtUJN082q6hhwxDR7x6262lfCNQ7
+	5JFy7lPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9I95-000000057ok-3Rjm;
-	Mon, 28 Apr 2025 06:39:15 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1u9IFa-000000058c6-3YVc;
+	Mon, 28 Apr 2025 06:45:58 +0000
+Received: from abb.hmeau.com ([144.6.53.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9I75-000000057Ac-0pX4;
-	Mon, 28 Apr 2025 06:37:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Eiigpx9GgJNYD/htqjBY7ZoYSYL6ao20gzEv2AFthahC/yzFsy4fNz9WCkP/M7BfdXXOjZQFq0cVYvFLd3Hs5O4ZpVXW51QfGl0yIpE0iCoOAeo1KqnE+7ub5dwTtrUUCCuc+TWoQ3rbtZiC4jTVI2yoC1SdSN30ENZbFiGnvUDOvccGiGnxd+CYKO02dnMHjOe0ZaZCZ3suu2NcN3gQ0WJqsES7MQOHPzYbjaYb6hOebJi2NHwYGoDDqp15NMPmtevl3wNaqONsoI3urlvYfC5XDdVzbtgN+bKd4DgO5WDVbFde9VCTvb28XoBNH8mb2Hhvh2wBmU7K7k8phDm5kQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6uQ/zQO/mAn1k2sH6o/Xsqpp/6ywJj9BatpTxDqlYn0=;
- b=RTVJPst3uStQ9Sd4h9ojRFkxQYSqoF9y29+/YNqPV1tn7c9qW2HtDbMclcX/bpJHOzx+dfymqYJWqx0wQWfBiH7UImZy/TgBexpVuOTnmPaaB06bKsCYaaCpABIxxe4FPQs+efjNJag/WFmNfwD25PeeiWiP2gQ/wXGaO5XDLm8GfRGbJRfNbTcOqgQVJd/G96wQqwQxD84wDtOPC16g4JKNRTMJ5TfPkirnD7aQfljsyyOjHg+fGxHNK/CodVBskHTuw4hqr8SQpnlt5A1oFxfC+QuXrxPkXmEzdBolI1Qn6t8QiYSUUZNI1tbRBY9OAcQfosJZ39dEm4MHY4q7MQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 13.93.42.39) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=topic.nl;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=topic.nl; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=topic.nl; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6uQ/zQO/mAn1k2sH6o/Xsqpp/6ywJj9BatpTxDqlYn0=;
- b=A/OyIBWOvOFJIUGWONkIhnrsUjZG0LVyjoLQfhPAmVtfVbFziAM8j+RDrzpSVypLzFEYnWDdjqXiFHEoHd0Jgcq35oIGGv0olqZ1PGleZLMBn46ValY5XXazmbpCHBGpEz56juvqgOWna1dD5AolHoHH70vFWPnQtDX2f4811dASGSgBErYK+7Na2FuWawAboEgawLgiv1ZNj415G8Sx4hFxh8GDxBPRMVc3/ymtcf6BkhdEmh284U3OO4oRRBBt7ohjRkE1laaBH0m0InklEWnffMPH9deSsA5f57rbyMWk7V+XvFl9JBXjVFHiDGfPrzj+jRaM4ez/UYyOQgSSDA==
-Received: from AM9P250CA0021.EURP250.PROD.OUTLOOK.COM (2603:10a6:20b:21c::26)
- by DU2PR04MB9050.eurprd04.prod.outlook.com (2603:10a6:10:2e5::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.31; Mon, 28 Apr
- 2025 06:36:57 +0000
-Received: from AMS0EPF000001A0.eurprd05.prod.outlook.com
- (2603:10a6:20b:21c:cafe::b8) by AM9P250CA0021.outlook.office365.com
- (2603:10a6:20b:21c::26) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.35 via Frontend Transport; Mon,
- 28 Apr 2025 06:36:57 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 13.93.42.39)
- smtp.mailfrom=topic.nl; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=topic.nl;
-Received-SPF: Pass (protection.outlook.com: domain of topic.nl designates
- 13.93.42.39 as permitted sender) receiver=protection.outlook.com;
- client-ip=13.93.42.39; helo=westeu12-emailsignatures-cloud.codetwo.com; pr=C
-Received: from westeu12-emailsignatures-cloud.codetwo.com (13.93.42.39) by
- AMS0EPF000001A0.mail.protection.outlook.com (10.167.16.230) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8678.33 via Frontend Transport; Mon, 28 Apr 2025 06:36:56 +0000
-Received: from EUR02-AM0-obe.outbound.protection.outlook.com (104.47.11.232) by westeu12-emailsignatures-cloud.codetwo.com with CodeTwo SMTP Server (TLS12) via SMTP; Mon, 28 Apr 2025 06:36:56 +0000
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=topic.nl;
-Received: from AS8PR04MB8644.eurprd04.prod.outlook.com (2603:10a6:20b:42b::12)
- by PAWPR04MB9863.eurprd04.prod.outlook.com (2603:10a6:102:37f::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.33; Mon, 28 Apr
- 2025 06:36:54 +0000
-Received: from AS8PR04MB8644.eurprd04.prod.outlook.com
- ([fe80::e86d:f110:534e:480a]) by AS8PR04MB8644.eurprd04.prod.outlook.com
- ([fe80::e86d:f110:534e:480a%5]) with mapi id 15.20.8678.028; Mon, 28 Apr 2025
- 06:36:54 +0000
-From: Mike Looijmans <mike.looijmans@topic.nl>
-To: linux-phy@lists.infradead.org
-CC: Mike Looijmans <mike.looijmans@topic.nl>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] phy-zynqmp: Postpone getting clock rate until actually needed
-Date: Mon, 28 Apr 2025 08:35:47 +0200
-Message-ID: <20250428063648.22034-1-mike.looijmans@topic.nl>
-X-Mailer: git-send-email 2.43.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain
-X-ClientProxiedBy: AM9P195CA0022.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:20b:21f::27) To AS8PR04MB8644.eurprd04.prod.outlook.com
- (2603:10a6:20b:42b::12)
-MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8644:EE_|PAWPR04MB9863:EE_|AMS0EPF000001A0:EE_|DU2PR04MB9050:EE_
-X-MS-Office365-Filtering-Correlation-Id: e4415a08-3d6f-4266-b3c8-08dd861f1277
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|376014|52116014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?RDxOGaIazsXIVDIgpiu+TSPbCOEmujbuqmnEtO/lbcq3k81YPEvU4kGtwgOm?=
- =?us-ascii?Q?L5ug74+3Lv16kulNzwDq4Uf4/CyfETF2GlU52tTB1ch6FA1QOTctye5p3F4O?=
- =?us-ascii?Q?7Z7IbO3bllz20u7lqtpYw/297gEKr1y4VHj0TnX3gSXhXnCzHE7qMHCBDGo/?=
- =?us-ascii?Q?jFG6R6ybjdhhXJu5SAgAV6srEoVM77gWEqdIN7fC646jUM9tpluGdcsonf8+?=
- =?us-ascii?Q?az/LsHyam8sk3ZmvXI25ITdLczE2DbXu4P/bZyvADJLmbQDmrFRn5Q09JGwv?=
- =?us-ascii?Q?Qd9F4/SEYEwBGFrNfcartBQthJxq5lZ8ftAbzNJWm7Infifw9orOJ2BcNL6a?=
- =?us-ascii?Q?mHL3ueLw8jamZUDh4+3+ZNgZv/k88/7dyvcjF9lTdx837CgkGxey0z+ek281?=
- =?us-ascii?Q?VG0pB5s8tkxm3E8+Ew5GuLPhgOv9q687V18cZmy9qEhrGiXZFhrfOxOXRmEG?=
- =?us-ascii?Q?bvi4+lathSY62ylW24byweWWWldHDvnbyDbCpgNqN9lF+VJkADsJZcnswh46?=
- =?us-ascii?Q?72qGKo9CymjGoqOW19L8dobLe10ILRJdruPyuc9JulmffBX5vjPKRJRGzNds?=
- =?us-ascii?Q?jcrn2au4Fc9B4K2qr/xa6wNKVfl5KCQ8jP/SePv9I08TniYLuyRwA9b9S40t?=
- =?us-ascii?Q?7IuK5wop6PmuPOu99z/uazIW3KDo/w+xWHN4QTFWf5WMlr89oVGjfAj8fYib?=
- =?us-ascii?Q?Sh9jkUQMqtnP3qeVdbtFcPS8/gSz2JceJ8s2WdY27IWPgD7SGdZ9xqYKcye8?=
- =?us-ascii?Q?Ul2DW1xGsKl4jB+Wy/MyfAr9op7Gj7j8ZfmGSL9Vfpj/lLsw1RqAUYgNWAIm?=
- =?us-ascii?Q?65UDjDHRlRlv/fO3bQkUBGu1iHhjO7fqOS02rkGOTgXdi039ODnYBHi3r2NE?=
- =?us-ascii?Q?NaaXjOmlVRYfoMpb0GJVYNDeOaq0Jh8Ns1hy7+p5t01vh2vZhTygw/8rsvrT?=
- =?us-ascii?Q?cRxl2RJKTIkqgFNnrfEE0eqRkcqp2ur/hd5RBNRRnfbmJ0pguLJ8wgK5FaKb?=
- =?us-ascii?Q?yT9hUwq9n/fnRiUID3gVAsEjAxOLG6KTRxVG3Svf98GLzeuTTnO3tu00xMpY?=
- =?us-ascii?Q?WvMzSwjrMPlrkd5syI8a50lOPUdplmO9lgqqJjy0fMv1u+oU8AzSL0V1iMdI?=
- =?us-ascii?Q?GNPHAQJcAQbAtHdGnYNv3wAwsI8isEhbU35ltuLL57vQ1vy5U3DhQRkTEgut?=
- =?us-ascii?Q?ixZKhgRj6PJxW55KPuSQVsZAjGr2wGJOumZJRa1Th0SaAkwAN3mHYBta3L7+?=
- =?us-ascii?Q?nKZUQqte9GJmx+IlpFOCPAJUaCPPbuW0CTpAxbSknesJxfvOkOP2TeRB2cYm?=
- =?us-ascii?Q?NW5SDykRJAY1iRTJdaJtQOpiD99zAptPta56vimOMm8HuajRAlEiBedV0uHN?=
- =?us-ascii?Q?1RS/+fF364BZRL6kJtSziagOLFYjT/Yk/xhBgNwMEjM4yflhBETNnqkTbfWm?=
- =?us-ascii?Q?MfWL06NCig9xHtqkObVP2k7EIWEieQXxarV+IT332vtPlWYsY/mOVg=3D=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8644.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(52116014)(366016)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB9863
-X-CodeTwo-MessageID: ec0ff9eb-3af8-450f-b11f-ba6313c7ed95.20250428063656@westeu12-emailsignatures-cloud.codetwo.com
-References: <1b153bce-a66a-45ee-a5c6-963ea6fb1c82.949ef384-8293-46b8-903f-40a477c056ae.298e943d-5a80-491d-b36f-77b3b9a86df9@emailsignatures365.codetwo.com>
-X-CodeTwoProcessed: true
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS0EPF000001A0.eurprd05.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 598cdd72-ebc4-4e32-0de5-08dd861f10d2
-X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|82310400026|36860700013|376014|35042699022|1800799024|13003099007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?f5bZY8RWza/9wh9+VzIJ1GkkGmeKMOiJ8+BXvQ5oPQpvUEamp4sqyINHIJzb?=
- =?us-ascii?Q?yP+RxdYipAuyWG8QEhxRqYXRcKJu0af7vp8KNp+Iy6psz1WG/sbyTfTL3OMA?=
- =?us-ascii?Q?fwOmf7e6+3rCOgdUDyj96z8DMeTh5ENoyF6h3DMQGmeuq99ObQ4nSL9j2CkT?=
- =?us-ascii?Q?7WeScXnRA27uiikVVnR3kMVkHWRNjuSphtft0Mt0VdwBtxG/nisSqTFTHrhi?=
- =?us-ascii?Q?IlO/bXn+61d6crOblTKce0L9JT0bKmA5+ocN55VhqKY2/7CN7O4aO/NFmn6s?=
- =?us-ascii?Q?p6DZkBoT3KSOZ5X2FYgR5bBpRtVow4NbvERYQtDPb2S4gzHsSTfosFJuoCrD?=
- =?us-ascii?Q?YAYGypt/n+SLiPWsOJlIg1Q1eSTkO6TxLPk2MUdcvKf5e+IBozYuegAY0Y04?=
- =?us-ascii?Q?K+g7o1r4lt4WEn2ljl9muWWL451oEuVDTKCU5hSH8qaBmKeivPZsi+sKCuIz?=
- =?us-ascii?Q?L5I/OzyuSKZshZ0PwZX2wjOl3coFh6uoiA3ZQZO5QTNa4dPr4ExS35kIV4Lz?=
- =?us-ascii?Q?yCWoZbBSalPE2tfP3ndgMozr81FB1g9+5idU7gjUYaMAct/+wXkuCYNo/qbB?=
- =?us-ascii?Q?PZl8Ava4WChcw+5K78FUUiPBLnA9Rp3y6pQ01nze8cJPG43FlidFS5egRJ/v?=
- =?us-ascii?Q?X8UCi/sA2k1ZY9+nDnlSaXfa2kcQ6aN/Z7a+BDyZ58Hl5vaUI3OXWnA3PkqX?=
- =?us-ascii?Q?6zmzTyuYIqFAIMfP4oZjAUUsdj381G6lcK4SgHWN+jlE0pVfK/d6W7NSNyRc?=
- =?us-ascii?Q?1o1fM7jG8fj9am4pZbA7JwpUFTxwAzsV1VSbAXLUMgW8PYpUbU/ePmjFvqti?=
- =?us-ascii?Q?qHp5VseOnhU6TCHbBB3Qjlo0WSbmWcsqAWEj03+ZvkygatN240ZW4XZ+KAy8?=
- =?us-ascii?Q?LvpnVZQOR+k9Xc+yGoxX28m9jP/6ePLzHaY1q0U7tSKzc96T2cTbJsomORSS?=
- =?us-ascii?Q?vS1tVmaCP1hgJ9g+5cSevBrWmIe2nwPsG6jxHFjHxE0xms6BtbwDl7OPEOzR?=
- =?us-ascii?Q?xbUFTEpdMz5mBAYQwbXJYBVqINMmNZwr4BxKQR0MmWzOU5ThiklDZtdoeCoB?=
- =?us-ascii?Q?auQJYTNQLXVYcdACoL+I+jNYVIoSWyVfUBgOuRjHU4cBfvGCWWdXLxkmrZTk?=
- =?us-ascii?Q?MixqdmvRzX8vX/LZY0qmInykdDsDillpHCpCIeDfbHSkYd3AqaLVTwEZvMHw?=
- =?us-ascii?Q?klvzdlORSnAXMivNxAiyVlbRVw0MOqcNxkBqPHYRBDUIMwFPTOBBijPoUwP/?=
- =?us-ascii?Q?hBEaupH/cxIoR/+O7+ywNfENN/sJSNJcmnuEN7aANHZZGaGjvWBDDqgGy/Wn?=
- =?us-ascii?Q?IL71MgZJMhPUZBC2WvRtKeg2wvGph8Ltwjq81T80cS2nhJMpShF24N7gSD4B?=
- =?us-ascii?Q?DD+rVy6Qefh/tcGqFQ8GBeA3rGq1l17kdc2Pocx+wFeBQX3XEorOrgVjYsUl?=
- =?us-ascii?Q?QVabEL89zAeAqIjs5CXkVUkl+JByPxBJtEZ46azNKNMfML4KXH4AUg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:13.93.42.39;CTRY:NL;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:westeu12-emailsignatures-cloud.codetwo.com;PTR:westeu12-emailsignatures-cloud.codetwo.com;CAT:NONE;SFS:(13230040)(14060799003)(82310400026)(36860700013)(376014)(35042699022)(1800799024)(13003099007);DIR:OUT;SFP:1102;
-X-OriginatorOrg: topic.nl
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2025 06:36:56.8138
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e4415a08-3d6f-4266-b3c8-08dd861f1277
-X-MS-Exchange-CrossTenant-Id: 449607a5-3517-482d-8d16-41dd868cbda3
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=449607a5-3517-482d-8d16-41dd868cbda3;Ip=[13.93.42.39];Helo=[westeu12-emailsignatures-cloud.codetwo.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001A0.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB9050
+	id 1u9Grw-00000004hTX-1odK;
+	Mon, 28 Apr 2025 05:17:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
+	s=formenos; h=Cc:To:Subject:From:References:In-Reply-To:Message-Id:Date:
+	Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=tAp+Yq2oPYdQjefDhIqTpmvZxjMW/FXB4OTXZxlKT5Q=; b=VirMdEldr5yxZgBao5sMAQbiO3
+	+Rpi9mN0jhAqTSP5VzAjtpyFnEYx+p8tuSU4Lm0FgE8vUsAwF2eNxb7dOFDcbLQUFjuBVmCeKC7Ht
+	3ylIkCysveNgVWl1D9uiI9UiqedqGvUZ91mIPdRjNKGVN66k+zhVbCqk2S7QZ/t0jm/D5H7QQCAQH
+	D2uefr3GZaxgPCOvZCdIrS8TISrD45riYcJQsknvRW3gsk8m9+zUN15dHOLWpbIkBUqjBWbGPRUeI
+	14BEvOCo7YLsbN130ta3eEgdPNMmd49ThLP6RdpXACt2NX8ONY/N1HsPywAJ9Mr0KrKVdJvxZADF3
+	17LTxDRg==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1u9Grt-001WTO-1C;
+	Mon, 28 Apr 2025 13:17:26 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Mon, 28 Apr 2025 13:17:25 +0800
+Date: Mon, 28 Apr 2025 13:17:25 +0800
+Message-Id: <22250663cc30d815728d838d7bcc712ceba8bedf.1745816372.git.herbert@gondor.apana.org.au>
+In-Reply-To: <cover.1745816372.git.herbert@gondor.apana.org.au>
+References: <cover.1745816372.git.herbert@gondor.apana.org.au>
+From: Herbert Xu <herbert@gondor.apana.org.au>
+Subject: [v3 PATCH 10/13] crypto: sparc/sha256 - implement library instead of
+ shash
+To: Linux Crypto Mailing List <linux-crypto@vger.kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org, linux-s390@vger.kernel.org, x86@kernel.org, Ard Biesheuvel <ardb@kernel.org>, "Jason A . Donenfeld " <Jason@zx2c4.com>, Linus Torvalds <torvalds@linux-foundation.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250427_233711_401715_C1D50AC9 
-X-CRM114-Status: GOOD (  19.64  )
+X-CRM114-CacheID: sfid-20250427_221728_754546_6B151EB5 
+X-CRM114-Status: GOOD (  20.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,190 +69,346 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-At probe time the driver would display the following error and abort:
-  xilinx-psgtr fd400000.phy: Invalid rate 0 for reference clock 0
+From: Eric Biggers <ebiggers@google.com>
 
-At probe time, the associated GTR driver (e.g. SATA or PCIe) hasn't
-initialized the clock yet, so clk_get_rate() likely returns 0 if the clock
-is programmable. So this driver only works if the clock is fixed.
+Instead of providing crypto_shash algorithms for the arch-optimized
+SHA-256 code, instead implement the SHA-256 library.  This is much
+simpler, it makes the SHA-256 library functions be arch-optimized, and
+it fixes the longstanding issue where the arch-optimized SHA-256 was
+disabled by default.  SHA-256 still remains available through
+crypto_shash, but individual architectures no longer need to handle it.
 
-The PHY driver doesn't need to know the clock frequency at probe yet, so
-wait until the associated driver initializes the lane before requesting the
-clock rate setting.
-
-In addition to allowing the driver to be used with programmable clocks,
-this also reduces the driver's runtime memory footprint by removing an
-array of pointers from struct xpsgtr_phy.
-
-Signed-off-by: Mike Looijmans <mike.looijmans@topic.nl>
+Signed-off-by: Eric Biggers <ebiggers@google.com>
+Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
 ---
+ arch/sparc/crypto/Kconfig                |  10 --
+ arch/sparc/crypto/Makefile               |   2 -
+ arch/sparc/crypto/sha256_glue.c          | 128 -----------------------
+ arch/sparc/lib/Makefile                  |   1 +
+ arch/sparc/lib/crypto/Kconfig            |   8 ++
+ arch/sparc/lib/crypto/Makefile           |   4 +
+ arch/sparc/lib/crypto/sha256.c           |  64 ++++++++++++
+ arch/sparc/{ => lib}/crypto/sha256_asm.S |   2 +-
+ lib/crypto/Kconfig                       |   3 +
+ 9 files changed, 81 insertions(+), 141 deletions(-)
+ delete mode 100644 arch/sparc/crypto/sha256_glue.c
+ create mode 100644 arch/sparc/lib/crypto/Kconfig
+ create mode 100644 arch/sparc/lib/crypto/Makefile
+ create mode 100644 arch/sparc/lib/crypto/sha256.c
+ rename arch/sparc/{ => lib}/crypto/sha256_asm.S (96%)
 
-Changes in v2:
-Explain the issue and the fix better in the commit text
-Propagate errors (as reported by Laurent Pinchart)
-
- drivers/phy/xilinx/phy-zynqmp.c | 70 +++++++++++++++++----------------
- 1 file changed, 37 insertions(+), 33 deletions(-)
-
-diff --git a/drivers/phy/xilinx/phy-zynqmp.c b/drivers/phy/xilinx/phy-zynqm=
-p.c
-index 05a4a59f7c40..fe6b4925d166 100644
---- a/drivers/phy/xilinx/phy-zynqmp.c
-+++ b/drivers/phy/xilinx/phy-zynqmp.c
-@@ -222,7 +222,6 @@ struct xpsgtr_phy {
-  * @siou: siou base address
-  * @gtr_mutex: mutex for locking
-  * @phys: PHY lanes
-- * @refclk_sscs: spread spectrum settings for the reference clocks
-  * @clk: reference clocks
-  * @tx_term_fix: fix for GT issue
-  * @saved_icm_cfg0: stored value of ICM CFG0 register
-@@ -235,7 +234,6 @@ struct xpsgtr_dev {
- 	void __iomem *siou;
- 	struct mutex gtr_mutex; /* mutex for locking */
- 	struct xpsgtr_phy phys[NUM_LANES];
--	const struct xpsgtr_ssc *refclk_sscs[NUM_LANES];
- 	struct clk *clk[NUM_LANES];
- 	bool tx_term_fix;
- 	unsigned int saved_icm_cfg0;
-@@ -398,13 +396,40 @@ static int xpsgtr_wait_pll_lock(struct phy *phy)
- 	return ret;
- }
-=20
-+/* Get the spread spectrum (SSC) settings for the reference clock rate */
-+static const struct xpsgtr_ssc *xpsgtr_find_sscs(struct xpsgtr_phy *gtr_ph=
-y)
+diff --git a/arch/sparc/crypto/Kconfig b/arch/sparc/crypto/Kconfig
+index e858597de89d..a6ba319c42dc 100644
+--- a/arch/sparc/crypto/Kconfig
++++ b/arch/sparc/crypto/Kconfig
+@@ -36,16 +36,6 @@ config CRYPTO_SHA1_SPARC64
+ 
+ 	  Architecture: sparc64
+ 
+-config CRYPTO_SHA256_SPARC64
+-	tristate "Hash functions: SHA-224 and SHA-256"
+-	depends on SPARC64
+-	select CRYPTO_SHA256
+-	select CRYPTO_HASH
+-	help
+-	  SHA-224 and SHA-256 secure hash algorithms (FIPS 180)
+-
+-	  Architecture: sparc64 using crypto instructions, when available
+-
+ config CRYPTO_SHA512_SPARC64
+ 	tristate "Hash functions: SHA-384 and SHA-512"
+ 	depends on SPARC64
+diff --git a/arch/sparc/crypto/Makefile b/arch/sparc/crypto/Makefile
+index a2d7fca40cb4..701c39edb0d7 100644
+--- a/arch/sparc/crypto/Makefile
++++ b/arch/sparc/crypto/Makefile
+@@ -4,7 +4,6 @@
+ #
+ 
+ obj-$(CONFIG_CRYPTO_SHA1_SPARC64) += sha1-sparc64.o
+-obj-$(CONFIG_CRYPTO_SHA256_SPARC64) += sha256-sparc64.o
+ obj-$(CONFIG_CRYPTO_SHA512_SPARC64) += sha512-sparc64.o
+ obj-$(CONFIG_CRYPTO_MD5_SPARC64) += md5-sparc64.o
+ 
+@@ -13,7 +12,6 @@ obj-$(CONFIG_CRYPTO_DES_SPARC64) += des-sparc64.o
+ obj-$(CONFIG_CRYPTO_CAMELLIA_SPARC64) += camellia-sparc64.o
+ 
+ sha1-sparc64-y := sha1_asm.o sha1_glue.o
+-sha256-sparc64-y := sha256_asm.o sha256_glue.o
+ sha512-sparc64-y := sha512_asm.o sha512_glue.o
+ md5-sparc64-y := md5_asm.o md5_glue.o
+ 
+diff --git a/arch/sparc/crypto/sha256_glue.c b/arch/sparc/crypto/sha256_glue.c
+deleted file mode 100644
+index 25008603a986..000000000000
+--- a/arch/sparc/crypto/sha256_glue.c
++++ /dev/null
+@@ -1,128 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0-only
+-/* Glue code for SHA256 hashing optimized for sparc64 crypto opcodes.
+- *
+- * This is based largely upon crypto/sha256_generic.c
+- *
+- * Copyright (c) Jean-Luc Cooke <jlcooke@certainkey.com>
+- * Copyright (c) Andrew McDonald <andrew@mcdonald.org.uk>
+- * Copyright (c) 2002 James Morris <jmorris@intercode.com.au>
+- * SHA224 Support Copyright 2007 Intel Corporation <jonathan.lynch@intel.com>
+- */
+-
+-#define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
+-
+-#include <asm/elf.h>
+-#include <asm/opcodes.h>
+-#include <asm/pstate.h>
+-#include <crypto/internal/hash.h>
+-#include <crypto/sha2.h>
+-#include <crypto/sha256_base.h>
+-#include <linux/kernel.h>
+-#include <linux/module.h>
+-
+-asmlinkage void sha256_sparc64_transform(u32 *digest, const char *data,
+-					 unsigned int rounds);
+-
+-static void sha256_block(struct crypto_sha256_state *sctx, const u8 *src,
+-			 int blocks)
+-{
+-	sha256_sparc64_transform(sctx->state, src, blocks);
+-}
+-
+-static int sha256_sparc64_update(struct shash_desc *desc, const u8 *data,
+-				 unsigned int len)
+-{
+-	return sha256_base_do_update_blocks(desc, data, len, sha256_block);
+-}
+-
+-static int sha256_sparc64_finup(struct shash_desc *desc, const u8 *src,
+-				unsigned int len, u8 *out)
+-{
+-	sha256_base_do_finup(desc, src, len, sha256_block);
+-	return sha256_base_finish(desc, out);
+-}
+-
+-static struct shash_alg sha256_alg = {
+-	.digestsize	=	SHA256_DIGEST_SIZE,
+-	.init		=	sha256_base_init,
+-	.update		=	sha256_sparc64_update,
+-	.finup		=	sha256_sparc64_finup,
+-	.descsize	=	sizeof(struct crypto_sha256_state),
+-	.base		=	{
+-		.cra_name	=	"sha256",
+-		.cra_driver_name=	"sha256-sparc64",
+-		.cra_priority	=	SPARC_CR_OPCODE_PRIORITY,
+-		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
+-					CRYPTO_AHASH_ALG_FINUP_MAX,
+-		.cra_blocksize	=	SHA256_BLOCK_SIZE,
+-		.cra_module	=	THIS_MODULE,
+-	}
+-};
+-
+-static struct shash_alg sha224_alg = {
+-	.digestsize	=	SHA224_DIGEST_SIZE,
+-	.init		=	sha224_base_init,
+-	.update		=	sha256_sparc64_update,
+-	.finup		=	sha256_sparc64_finup,
+-	.descsize	=	sizeof(struct crypto_sha256_state),
+-	.base		=	{
+-		.cra_name	=	"sha224",
+-		.cra_driver_name=	"sha224-sparc64",
+-		.cra_priority	=	SPARC_CR_OPCODE_PRIORITY,
+-		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
+-					CRYPTO_AHASH_ALG_FINUP_MAX,
+-		.cra_blocksize	=	SHA224_BLOCK_SIZE,
+-		.cra_module	=	THIS_MODULE,
+-	}
+-};
+-
+-static bool __init sparc64_has_sha256_opcode(void)
+-{
+-	unsigned long cfr;
+-
+-	if (!(sparc64_elf_hwcap & HWCAP_SPARC_CRYPTO))
+-		return false;
+-
+-	__asm__ __volatile__("rd %%asr26, %0" : "=r" (cfr));
+-	if (!(cfr & CFR_SHA256))
+-		return false;
+-
+-	return true;
+-}
+-
+-static int __init sha256_sparc64_mod_init(void)
+-{
+-	if (sparc64_has_sha256_opcode()) {
+-		int ret = crypto_register_shash(&sha224_alg);
+-		if (ret < 0)
+-			return ret;
+-
+-		ret = crypto_register_shash(&sha256_alg);
+-		if (ret < 0) {
+-			crypto_unregister_shash(&sha224_alg);
+-			return ret;
+-		}
+-
+-		pr_info("Using sparc64 sha256 opcode optimized SHA-256/SHA-224 implementation\n");
+-		return 0;
+-	}
+-	pr_info("sparc64 sha256 opcode not available.\n");
+-	return -ENODEV;
+-}
+-
+-static void __exit sha256_sparc64_mod_fini(void)
+-{
+-	crypto_unregister_shash(&sha224_alg);
+-	crypto_unregister_shash(&sha256_alg);
+-}
+-
+-module_init(sha256_sparc64_mod_init);
+-module_exit(sha256_sparc64_mod_fini);
+-
+-MODULE_LICENSE("GPL");
+-MODULE_DESCRIPTION("SHA-224 and SHA-256 Secure Hash Algorithm, sparc64 sha256 opcode accelerated");
+-
+-MODULE_ALIAS_CRYPTO("sha224");
+-MODULE_ALIAS_CRYPTO("sha256");
+-
+-#include "crop_devid.c"
+diff --git a/arch/sparc/lib/Makefile b/arch/sparc/lib/Makefile
+index 5724d0f356eb..98887dc295a1 100644
+--- a/arch/sparc/lib/Makefile
++++ b/arch/sparc/lib/Makefile
+@@ -4,6 +4,7 @@
+ 
+ asflags-y := -ansi -DST_DIV0=0x02
+ 
++obj-y                 += crypto/
+ lib-$(CONFIG_SPARC32) += ashrdi3.o
+ lib-$(CONFIG_SPARC32) += memcpy.o memset.o
+ lib-y                 += strlen.o
+diff --git a/arch/sparc/lib/crypto/Kconfig b/arch/sparc/lib/crypto/Kconfig
+new file mode 100644
+index 000000000000..e5c3e4d3dba6
+--- /dev/null
++++ b/arch/sparc/lib/crypto/Kconfig
+@@ -0,0 +1,8 @@
++# SPDX-License-Identifier: GPL-2.0-only
++
++config CRYPTO_SHA256_SPARC64
++	tristate
++	depends on SPARC64
++	default CRYPTO_LIB_SHA256
++	select CRYPTO_ARCH_HAVE_LIB_SHA256
++	select CRYPTO_LIB_SHA256_GENERIC
+diff --git a/arch/sparc/lib/crypto/Makefile b/arch/sparc/lib/crypto/Makefile
+new file mode 100644
+index 000000000000..75ee244ad6f7
+--- /dev/null
++++ b/arch/sparc/lib/crypto/Makefile
+@@ -0,0 +1,4 @@
++# SPDX-License-Identifier: GPL-2.0-only
++
++obj-$(CONFIG_CRYPTO_SHA256_SPARC64) += sha256-sparc64.o
++sha256-sparc64-y := sha256.o sha256_asm.o
+diff --git a/arch/sparc/lib/crypto/sha256.c b/arch/sparc/lib/crypto/sha256.c
+new file mode 100644
+index 000000000000..b4fc475dcc40
+--- /dev/null
++++ b/arch/sparc/lib/crypto/sha256.c
+@@ -0,0 +1,64 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * SHA-256 accelerated using the sparc64 sha256 opcodes
++ *
++ * Copyright (c) Jean-Luc Cooke <jlcooke@certainkey.com>
++ * Copyright (c) Andrew McDonald <andrew@mcdonald.org.uk>
++ * Copyright (c) 2002 James Morris <jmorris@intercode.com.au>
++ * SHA224 Support Copyright 2007 Intel Corporation <jonathan.lynch@intel.com>
++ */
++
++#define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
++
++#include <asm/elf.h>
++#include <asm/opcodes.h>
++#include <asm/pstate.h>
++#include <crypto/internal/sha2.h>
++#include <linux/kernel.h>
++#include <linux/module.h>
++
++static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_sha256_opcodes);
++
++asmlinkage void sha256_sparc64_transform(u32 state[SHA256_STATE_WORDS],
++					 const u8 *data, size_t nblocks);
++
++void sha256_blocks_arch(u32 state[SHA256_STATE_WORDS],
++			const u8 *data, size_t nblocks)
 +{
-+	unsigned long rate;
-+	struct clk *clk;
-+	unsigned int i;
-+
-+	clk =3D gtr_phy->dev->clk[gtr_phy->refclk];
-+	rate =3D clk_get_rate(clk);
-+
-+	for (i =3D 0 ; i < ARRAY_SIZE(ssc_lookup); i++) {
-+		/* Allow an error of 100 ppm */
-+		unsigned long error =3D ssc_lookup[i].refclk_rate / 10000;
-+
-+		if (abs(rate - ssc_lookup[i].refclk_rate) < error)
-+			return &ssc_lookup[i];
-+	}
-+
-+	dev_err(gtr_phy->dev->dev, "Invalid rate %lu for reference clock %u\n",
-+		rate, gtr_phy->refclk);
-+
-+	return NULL;
++	if (static_branch_likely(&have_sha256_opcodes))
++		sha256_sparc64_transform(state, data, nblocks);
++	else
++		sha256_blocks_generic(state, data, nblocks);
 +}
++EXPORT_SYMBOL_GPL(sha256_blocks_arch);
 +
- /* Configure PLL and spread-sprectrum clock. */
--static void xpsgtr_configure_pll(struct xpsgtr_phy *gtr_phy)
-+static int xpsgtr_configure_pll(struct xpsgtr_phy *gtr_phy)
- {
- 	const struct xpsgtr_ssc *ssc;
- 	u32 step_size;
-=20
--	ssc =3D gtr_phy->dev->refclk_sscs[gtr_phy->refclk];
-+	ssc =3D xpsgtr_find_sscs(gtr_phy);
-+	if (!ssc)
-+		return -EINVAL;
++bool sha256_is_arch_optimized(void)
++{
++	return static_key_enabled(&have_sha256_opcodes);
++}
++EXPORT_SYMBOL_GPL(sha256_is_arch_optimized);
 +
- 	step_size =3D ssc->step_size;
-=20
- 	xpsgtr_clr_set(gtr_phy->dev, PLL_REF_SEL(gtr_phy->lane),
-@@ -446,6 +471,8 @@ static void xpsgtr_configure_pll(struct xpsgtr_phy *gtr=
-_phy)
- 	xpsgtr_clr_set_phy(gtr_phy, L0_PLL_SS_STEP_SIZE_3_MSB,
- 			   STEP_SIZE_3_MASK, (step_size & STEP_SIZE_3_MASK) |
- 			   FORCE_STEP_SIZE | FORCE_STEPS);
++static int __init sha256_sparc64_mod_init(void)
++{
++	unsigned long cfr;
 +
++	if (!(sparc64_elf_hwcap & HWCAP_SPARC_CRYPTO))
++		return 0;
++
++	__asm__ __volatile__("rd %%asr26, %0" : "=r" (cfr));
++	if (!(cfr & CFR_SHA256))
++		return 0;
++
++	static_branch_enable(&have_sha256_opcodes);
++	pr_info("Using sparc64 sha256 opcode optimized SHA-256/SHA-224 implementation\n");
 +	return 0;
- }
-=20
- /* Configure the lane protocol. */
-@@ -658,7 +685,10 @@ static int xpsgtr_phy_init(struct phy *phy)
- 	 * Configure the PLL, the lane protocol, and perform protocol-specific
- 	 * initialization.
- 	 */
--	xpsgtr_configure_pll(gtr_phy);
-+	ret =3D xpsgtr_configure_pll(gtr_phy);
-+	if (ret)
-+		goto out;
++}
++arch_initcall(sha256_sparc64_mod_init);
 +
- 	xpsgtr_lane_set_protocol(gtr_phy);
-=20
- 	switch (gtr_phy->protocol) {
-@@ -823,8 +853,7 @@ static struct phy *xpsgtr_xlate(struct device *dev,
- 	}
-=20
- 	refclk =3D args->args[3];
--	if (refclk >=3D ARRAY_SIZE(gtr_dev->refclk_sscs) ||
--	    !gtr_dev->refclk_sscs[refclk]) {
-+	if (refclk >=3D ARRAY_SIZE(gtr_dev->clk)) {
- 		dev_err(dev, "Invalid reference clock number %u\n", refclk);
- 		return ERR_PTR(-EINVAL);
- 	}
-@@ -928,9 +957,7 @@ static int xpsgtr_get_ref_clocks(struct xpsgtr_dev *gtr=
-_dev)
- {
- 	unsigned int refclk;
-=20
--	for (refclk =3D 0; refclk < ARRAY_SIZE(gtr_dev->refclk_sscs); ++refclk) {
--		unsigned long rate;
--		unsigned int i;
-+	for (refclk =3D 0; refclk < ARRAY_SIZE(gtr_dev->clk); ++refclk) {
- 		struct clk *clk;
- 		char name[8];
-=20
-@@ -946,29 +973,6 @@ static int xpsgtr_get_ref_clocks(struct xpsgtr_dev *gt=
-r_dev)
- 			continue;
-=20
- 		gtr_dev->clk[refclk] =3D clk;
--
--		/*
--		 * Get the spread spectrum (SSC) settings for the reference
--		 * clock rate.
--		 */
--		rate =3D clk_get_rate(clk);
--
--		for (i =3D 0 ; i < ARRAY_SIZE(ssc_lookup); i++) {
--			/* Allow an error of 100 ppm */
--			unsigned long error =3D ssc_lookup[i].refclk_rate / 10000;
--
--			if (abs(rate - ssc_lookup[i].refclk_rate) < error) {
--				gtr_dev->refclk_sscs[refclk] =3D &ssc_lookup[i];
--				break;
--			}
--		}
--
--		if (i =3D=3D ARRAY_SIZE(ssc_lookup)) {
--			dev_err(gtr_dev->dev,
--				"Invalid rate %lu for reference clock %u\n",
--				rate, refclk);
--			return -EINVAL;
--		}
- 	}
-=20
- 	return 0;
---=20
-2.43.0
++static void __exit sha256_sparc64_mod_exit(void)
++{
++}
++module_exit(sha256_sparc64_mod_exit);
++
++MODULE_LICENSE("GPL");
++MODULE_DESCRIPTION("SHA-256 accelerated using the sparc64 sha256 opcodes");
+diff --git a/arch/sparc/crypto/sha256_asm.S b/arch/sparc/lib/crypto/sha256_asm.S
+similarity index 96%
+rename from arch/sparc/crypto/sha256_asm.S
+rename to arch/sparc/lib/crypto/sha256_asm.S
+index 8ce88611e98a..ddcdd3daf31e 100644
+--- a/arch/sparc/crypto/sha256_asm.S
++++ b/arch/sparc/lib/crypto/sha256_asm.S
+@@ -4,7 +4,7 @@
+ #include <asm/visasm.h>
+ 
+ ENTRY(sha256_sparc64_transform)
+-	/* %o0 = digest, %o1 = data, %o2 = rounds */
++	/* %o0 = state, %o1 = data, %o2 = nblocks */
+ 	VISEntryHalf
+ 	ld	[%o0 + 0x00], %f0
+ 	ld	[%o0 + 0x04], %f1
+diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
+index ad0a4705682c..1ec1466108cc 100644
+--- a/lib/crypto/Kconfig
++++ b/lib/crypto/Kconfig
+@@ -189,6 +189,9 @@ endif
+ if S390
+ source "arch/s390/lib/crypto/Kconfig"
+ endif
++if SPARC
++source "arch/sparc/lib/crypto/Kconfig"
++endif
+ if X86
+ source "arch/x86/lib/crypto/Kconfig"
+ endif
+-- 
+2.39.5
 
-base-commit: 8cc713032dae3b74742d90a35e2f93b6cb23684f
-branch: linux-master-xilinx-pcie-reset
-
-Met vriendelijke groet / kind regards,=0A=
-=0A=
-Mike Looijmans=0A=
-System Expert=0A=
-=0A=
-=0A=
-TOPIC Embedded Products B.V.=0A=
-Materiaalweg 4, 5681 RJ Best=0A=
-The Netherlands=0A=
-=0A=
-T: +31 (0) 499 33 69 69=0A=
-E: mike.looijmans@topic.nl=0A=
-W: www.topic.nl=0A=
-=0A=
-Please consider the environment before printing this e-mail=0A=
 
