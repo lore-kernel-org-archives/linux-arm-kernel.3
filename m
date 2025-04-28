@@ -4,95 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 518ABC369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 21:04:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A72E8C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 21:09:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YTPDgyBQFtwamlv7MOGnKiNXfQ7Dnv+t8g+TQ5a6GG8=; b=Hum+5it62kLVx7dxF8EurqSJ96
-	xIVmDnYmVuddfnztgVTb5o5CahcD3DkPd82Hxu6lHBzHI1kavZOHKshBM6XYJJ/d0NFTfXdKp/yof
-	Co6MZIGMYxCM+z665iAvyvTSPmYEShnjRWbtMdAnKMn899pLxgxIZUJ4UgDloqt1md+4yvReDyQiW
-	+fky/222kYBBFJRh+LM2YL6VG11fgOH/BfOqVI0db4EHeA8DGbxLuo1xnwuWbIxWlW/PUBYh4PVmW
-	ceGuOdxndRa4BfYhBLr7Lm0KWlWwFMy5uGAN+dl1t276NJMX4QMR3BPah0BCiERqvocApb+gba7I6
-	tKhUyG7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QSRzi2tZPIvIrsfPgn9XnDgdRLZDtKC6Y9CQpDRifwU=; b=mOooJtv3XrvxNy5yTBvU+HVcDg
+	3h3Z44ipNLOMfvIgBiSjpcH0lzTEvxHvHBak5+IwKyJbBkuyUj6p0/fft/ztTyXa30DoHoHmZionP
+	kuM99+zGvCREIX2TYavC84jK/1tJwFXiwJFlE2e6ngw7zJ2aoqxXsNbMydDBhqPdtPZZyLuSUIhf+
+	iatsg/gdfGWjaJPWU84x8c6yEFsu/rNEiMM0RlUiwZUQTbTv4kuOgvy6f5ct9el24w/h3yJdk7OE3
+	AQNopyuuUdF09CvHMAdS/p+RchgsABSdJRbvPb+bijW5Gf8II3iIUNWcuPBRLJyaZEQl24/E9n6Cd
+	d4SxOQog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9VeB-00000007YRp-0ihm;
-	Mon, 28 Apr 2025 21:04:15 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9VcA-00000007Y2L-3eHQ
+	id 1u9VjY-00000007Zhw-0vaZ;
+	Mon, 28 Apr 2025 21:09:48 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u9VhZ-00000007ZAc-2GCT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 21:02:12 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2263428c8baso14115ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 14:02:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1745874130; x=1746478930; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=YTPDgyBQFtwamlv7MOGnKiNXfQ7Dnv+t8g+TQ5a6GG8=;
-        b=NKaBLhIE0FwmEuSJX3lkxqspRVcoOoZZhxkO6Bqe5tRtqF7CsGvZCX/24MBFnB11xz
-         RgLvkKkYSjpZrbownmZOiPOi/X479pCae+8xDH2h/2/eQoAaIbjN2T6AutfxZuk6cwav
-         ZPhzQSrP400b4SiylmVBrUvB2Whlp6oipOOwsCMXkTo/LuNYAMwdpJ/m7Wozi1t3kBpd
-         CRfJESYcUauNYlETssLZzCXs0sX3wVRLVZlFxowOxK8Ae0Dk2FMfgYZS7FMTiqz7vvxa
-         MBId8eUP2deiEsKUAkYs8tlGYLeNz4Jg0z8FtYgpFSl6B++uCAht6+zo40X+IrxvXRFT
-         +j+g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745874130; x=1746478930;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YTPDgyBQFtwamlv7MOGnKiNXfQ7Dnv+t8g+TQ5a6GG8=;
-        b=WqBafCwXFaOyhyWesg+A7QJd8P2SfakeZf+/V7XTb9uhYhf6pJqePh46FjsO9zIuap
-         aePN1EXPYlhjDGuhYTBh6DIDnvGaPU0NYRTubBogDZPkwohXdWwDWwRzcozrhPnZhkUG
-         8UdygO+YlwARDazaQxzXous01n1pSiCdapUW+WGCpG3S14dtS7+Hv1WmCmqAWaqLj4to
-         F3HXCj0uMcG7ANCTZsaR2BSK5eaS2c2iHnFXtQegDqHi5oWoMqJ8jimDSRcUqUralwUB
-         Y/Bn9dH/TlbPYI2fjFiKfCMpkh9kzOPVJBrJrbWbUZTEaBYo2Wm5rYjAFSxOrYJ36+JU
-         FtPw==
-X-Forwarded-Encrypted: i=1; AJvYcCWYfv9S2FczBQQJ3RU477bINrxJauiN6qS1MdtiGVeAzwuHNYr84ZtCDMpg+Gnf7MyxnTtfQyBsLB0daN4udlSr@lists.infradead.org
-X-Gm-Message-State: AOJu0YxFy9g3tidjEnjsqM9LRNupI4QGsIRCxRRYRekn6CGO7akouIxp
-	fiIsUKUPbA/V8JvAVe1zJuwPs93E3BHTBdMoiQRwThsYWo9rBOXFFvBeoDfarg==
-X-Gm-Gg: ASbGncvz95V4znR+cqtnvy/T8f89nY2SusZHoXBUrPKAMCvfVyVJcfcumK41982BxZt
-	kTPEk6WIrPZj0S9HjWkt3St+Z47WwaPrYP9CKpotvCjeiMa/5orRAzyUZt3facTul4JmyK6FWoQ
-	XMj4VIOJ5aHYFB3VsndF3CoO/aoYXPFqPzmDIEEpfirvOqkhUBF3y128AxmzzoxjcxYQbUFAsiH
-	QIkezBLZYQ6KRolVCKhruAPRSMdF77C8o1vKUB356ItuTedhzrXV/9lW6QcvHoSpBO6XjczaREX
-	ApbIIYMGv9XmwWtUh+3H02MTb+GprC5nb6xXK1MsEi4C3AToYUMvbi1fh1Ii/6Qz964BMqqEUcX
-	uDsBLZ5k=
-X-Google-Smtp-Source: AGHT+IGSuMnWnZQ91ixDrXUdSEwCsKBdyqU3BwTCUj27r44/z7SX9aXDHYQTjWFgiPOhsJhMa9YvFg==
-X-Received: by 2002:a17:903:124d:b0:223:37ec:63be with SMTP id d9443c01a7336-22de6c49626mr781305ad.4.1745874129655;
-        Mon, 28 Apr 2025 14:02:09 -0700 (PDT)
-Received: from google.com (2.210.143.34.bc.googleusercontent.com. [34.143.210.2])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73e25a6a3casm8778803b3a.96.2025.04.28.14.02.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Apr 2025 14:02:09 -0700 (PDT)
-Date: Mon, 28 Apr 2025 21:01:58 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
-	bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
-	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
-	shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
-	peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
-	zhangzekun11@huawei.com, iommu@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
-	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com
-Subject: Re: [PATCH v2 09/22] iommufd/viommu: Introduce IOMMUFD_OBJ_VCMDQ and
- its related struct
-Message-ID: <aA_sxstJRbG1znKs@google.com>
-References: <cover.1745646960.git.nicolinc@nvidia.com>
- <8bab0069503fa21b48298ed2ffe29a06963f71f5.1745646960.git.nicolinc@nvidia.com>
+	Mon, 28 Apr 2025 21:07:46 +0000
+Received: from romank-3650.corp.microsoft.com (unknown [131.107.1.188])
+	by linux.microsoft.com (Postfix) with ESMTPSA id DB61E20BCAD1;
+	Mon, 28 Apr 2025 14:07:43 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com DB61E20BCAD1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1745874464;
+	bh=QSRzi2tZPIvIrsfPgn9XnDgdRLZDtKC6Y9CQpDRifwU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=M3xCB6nI4T4edZdfuN4uLmiKdfs9Tkgkm2Xw1x/aOJOEqATA7M2R5w4ioXAc27Mjp
+	 lnQgmvPptLQOrU9ARFnraU78ZUBqWG4x0EhOdU96Gwac5vlCWPPK7igMKoyKXZCqUy
+	 80ZydzlLKDrOVkva2nuq25JUhTimm6FNSgxcOKns=
+From: Roman Kisel <romank@linux.microsoft.com>
+To: arnd@arndb.de,
+	bhelgaas@google.com,
+	bp@alien8.de,
+	catalin.marinas@arm.com,
+	conor+dt@kernel.org,
+	dave.hansen@linux.intel.com,
+	decui@microsoft.com,
+	haiyangz@microsoft.com,
+	hpa@zytor.com,
+	joey.gouly@arm.com,
+	krzk+dt@kernel.org,
+	kw@linux.com,
+	kys@microsoft.com,
+	lenb@kernel.org,
+	lpieralisi@kernel.org,
+	manivannan.sadhasivam@linaro.org,
+	mark.rutland@arm.com,
+	maz@kernel.org,
+	mingo@redhat.com,
+	oliver.upton@linux.dev,
+	rafael@kernel.org,
+	robh@kernel.org,
+	ssengar@linux.microsoft.com,
+	sudeep.holla@arm.com,
+	suzuki.poulose@arm.com,
+	tglx@linutronix.de,
+	wei.liu@kernel.org,
+	will@kernel.org,
+	yuzenghui@huawei.com,
+	linux-hyperv@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-acpi@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	x86@kernel.org
+Cc: apais@microsoft.com,
+	benhill@microsoft.com,
+	bperkins@microsoft.com,
+	sunilmut@microsoft.com
+Subject: [PATCH hyperv-next v9 00/11] arm64: hyperv: Support Virtual Trust Level Boot
+Date: Mon, 28 Apr 2025 14:07:31 -0700
+Message-ID: <20250428210742.435282-1-romank@linux.microsoft.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <8bab0069503fa21b48298ed2ffe29a06963f71f5.1745646960.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_140210_908617_1B25876C 
-X-CRM114-Status: GOOD (  24.25  )
+X-CRM114-CacheID: sfid-20250428_140745_634692_B141CBED 
+X-CRM114-Status: GOOD (  38.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,100 +105,248 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 25, 2025 at 10:58:04PM -0700, Nicolin Chen wrote:
-> Add a new IOMMUFD_OBJ_VCMDQ with an iommufd_vcmdq structure, representing
-> a command queue type of physical HW passed to a user space VM. This vCMDQ
-> object, is a subset of vIOMMU resources of a physical IOMMU's, such as:
->  - NVIDIA's virtual command queue
->  - AMD vIOMMU's command buffer
-> 
-> Inroduce a struct iommufd_vcmdq and its allocator iommufd_vcmdq_alloc().
-> Also add a pair of viommu ops for iommufd to forward user space ioctls to
-> IOMMU drivers.
-> 
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+This patch set allows the Hyper-V code to boot on ARM64 inside a Virtual Trust
+Level. These levels are a part of the Virtual Secure Mode documented in the
+Top-Level Functional Specification available at
+https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/tlfs/vsm.
 
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
+The OpenHCL paravisor https://github.com/microsoft/openvmm/tree/main/openhcl
+can serve as a practical application of these patches on ARM64.
 
-> ---
->  include/linux/iommufd.h | 35 +++++++++++++++++++++++++++++++++++
->  1 file changed, 35 insertions(+)
-> 
-> diff --git a/include/linux/iommufd.h b/include/linux/iommufd.h
-> index ef0d3c4765cf..e91381aaec5a 100644
-> --- a/include/linux/iommufd.h
-> +++ b/include/linux/iommufd.h
-> @@ -37,6 +37,7 @@ enum iommufd_object_type {
->  	IOMMUFD_OBJ_VIOMMU,
->  	IOMMUFD_OBJ_VDEVICE,
->  	IOMMUFD_OBJ_VEVENTQ,
-> +	IOMMUFD_OBJ_VCMDQ,
->  #ifdef CONFIG_IOMMUFD_TEST
->  	IOMMUFD_OBJ_SELFTEST,
->  #endif
-> @@ -112,6 +113,14 @@ struct iommufd_vdevice {
->  	u64 id; /* per-vIOMMU virtual ID */
->  };
->  
-> +struct iommufd_vcmdq {
-> +	struct iommufd_object obj;
-> +	struct iommufd_ctx *ictx;
-> +	struct iommufd_viommu *viommu;
-> +	dma_addr_t addr;
-> +	size_t length;
-> +};
-> +
->  /**
->   * struct iommufd_viommu_ops - vIOMMU specific operations
->   * @destroy: Clean up all driver-specific parts of an iommufd_viommu. The memory
-> @@ -135,6 +144,13 @@ struct iommufd_vdevice {
->   * @vdevice_destroy: Clean up all driver-specific parts of an iommufd_vdevice.
->   *                   The memory of the vDEVICE will be free-ed by iommufd core
->   *                   after calling this op
-> + * @vcmdq_alloc: Allocate a @type of iommufd_vcmdq as a user space command queue
-> + *               for a @viommu. @index carries the logical vcmdq ID (for a multi-
-> + *               queue case); @addr carries the guest physical base address of
-> + *               the queue memory; @length carries the size of the queue memory
-> + * @vcmdq_destroy: Clean up all driver-specific parts of an iommufd_vcmdq. The
-> + *                 memory of the iommufd_vcmdq will be free-ed by iommufd core
-> + *                 after calling this op
->   */
->  struct iommufd_viommu_ops {
->  	void (*destroy)(struct iommufd_viommu *viommu);
-> @@ -147,6 +163,10 @@ struct iommufd_viommu_ops {
->  						 struct device *dev,
->  						 u64 virt_id);
->  	void (*vdevice_destroy)(struct iommufd_vdevice *vdev);
-> +	struct iommufd_vcmdq *(*vcmdq_alloc)(struct iommufd_viommu *viommu,
-> +					     unsigned int type, u32 index,
-> +					     dma_addr_t addr, size_t length);
-> +	void (*vcmdq_destroy)(struct iommufd_vcmdq *vcmdq);
->  };
->  
->  #if IS_ENABLED(CONFIG_IOMMUFD)
-> @@ -286,6 +306,21 @@ static inline int iommufd_viommu_report_event(struct iommufd_viommu *viommu,
->  		ret;                                                           \
->  	})
->  
-> +#define iommufd_vcmdq_alloc(viommu, drv_struct, member)                        \
-> +	({                                                                     \
-> +		drv_struct *ret;                                               \
-> +									       \
-> +		static_assert(__same_type(struct iommufd_viommu, *viommu));    \
-> +		static_assert(__same_type(struct iommufd_vcmdq,                \
-> +					  ((drv_struct *)NULL)->member));      \
-> +		static_assert(offsetof(drv_struct, member.obj) == 0);          \
-> +		ret = (drv_struct *)_iommufd_object_alloc(                     \
-> +			viommu->ictx, sizeof(drv_struct), IOMMUFD_OBJ_VCMDQ);  \
-> +		if (!IS_ERR(ret))                                              \
-> +			ret->member.viommu = viommu;                           \
-> +		ret;                                                           \
-> +	})
-> +
->  /* Helper for IOMMU driver to destroy structures created by allocators above */
->  #define iommufd_struct_destroy(ictx, drv_struct, member)                       \
->  	({                                                                     \
-> -- 
-> 2.43.0
-> 
+For validation, I built kernels for the {x86_64, ARM64} x {VTL0, VTL2} set with
+a small initrd embedded into the kernel and booted VMs managed by Hyper-V and
+OpenVMM off of that.
+
+Starting from V5, the patch series includes a non-functional change to KVM on
+arm64 which I tested as well.
+
+I've kept the Acked-by tags given by Arnd and Bjorn. These patches (1 and 11)
+have changed very slightly since then (V5 and V6), no functional changes:
+in patch 1, removed macro's in favour of functions as Marc suggested to get rid
+of "sparse" warnings, and in patch 11, fixed building as a module. Please let me
+know if I should have not kept the tags.
+
+[V9]
+    - Fix building the pci-hyperv driver as a module.
+      ** Thank you, Micheal! **
+  
+    - Removed an overzealous check for the ACPI IRQ model on arm64 running with
+      Hyper-V -- only GIC is supported. That check belongs to the lower layer
+      code, and I took it from the ACPI driver while open-coding getting the
+      parent IRQ domain.
+
+[V8]
+    https://lore.kernel.org/linux-hyperv/20250414224713.1866095-1-romank@linux.microsoft.com/
+    - Use the Linux derfined macro __ASSEMBLY__ instead of the gcc's pre-defined
+      macro __ASSEMBLER__ to follow the kernel coding style.
+      ** Thank you, Marc! **
+
+[V7]
+    https://lore.kernel.org/linux-hyperv/20250407201336.66913-1-romank@linux.microsoft.com/
+    - Used another approach not to increase the number of warnings produced when
+      building with CHECK_ENDIAN.
+      ** Thank you, Arnd! **
+
+     - Adjusted the function parameter formatting to match the rest of the code.
+      ** Thank you, Bjorn! **
+
+    - Removed the now unused local variable.
+      ** Thank you, kernel robot! **
+
+    - Fixed the description in the VMBus DT binding patch.
+      ** Thank you, Krzysztof! **
+
+    - Adjusted the function names and comments to better reflect what they do,
+      used the suggested approach to handling UUIDs to make code more readable
+      and maintainable on big-endian.
+    - Replaced ifdeffery with a stub function to make the code more readable.
+      ** Thank you, Mark! **
+
+    - Fixed the Kconfig not to build the VTL mode code on 32-bit kernels.
+      ** Thank you, Michael! **
+
+    - Fixed the indentation and the comment style.
+      ** Thank you, Rafael! **
+
+[V6]
+    https://lore.kernel.org/linux-hyperv/20250315001931.631210-1-romank@linux.microsoft.com/
+    - Use more intuitive Kconfig update.
+    - Remove ifdef for getting IRQ number
+    ** Thank you, Arnd! **
+
+    - Simplify code for finding the parent IRQ domain.
+    ** Thank you, Bjorn! **
+
+    - Remove a superfluous check.
+    ** Thank you, Dan! **
+
+    - Make the commit title and descrtiption legible.
+    - Don't set additionalProperties to true.
+    ** Thank you, Krzysztof! **
+
+    - Fix spelling in the commit title and description.
+    - Trade-offs for options in Kconfig.
+    - Export the new symbol as hyperv-pci can be built as a module.
+    ** Thank you, Michael! **
+
+    - Simplify code for getting IRQ number.
+    ** Thank you, Rob! **
+
+    - Add comment to clarify when running in VTL mode is reported.
+    ** Thank you, Wei! **
+
+[V5]
+  https://lore.kernel.org/linux-hyperv/20250307220304.247725-1-romank@linux.microsoft.com/
+    - Provide and use a common SMCCC-based infra for the arm64 hypervisor guests
+      to detect hypervisor presence.
+    ** Thank you, Arnd! **
+
+    - Fix line wraps to follow the rest of the code.
+    - Open-code getting IRQ domain parent in the ACPI case to make the code
+      better.
+    ** Thank you, Bjorn! **
+
+    - Test the binding with the latest dtschema.
+    - Clean up the commit title and description.
+    - Use proper defines for known constants.
+    ** Thank you, Krzysztof! **
+
+    - Extend comment on why ACPI v6 is checked for.
+    - Reorder patches to make sure that even with partial series application
+      the compilation succeeds.
+    - Report VTL the kernel runs in.
+    - Use "X86_64" in Kconfig rather than "X86".
+    - Extract a non-functional change for hv_get_vmbus_root_device() into
+      a separate patch.
+    ** Thank you, Michael! **
+
+[V4]
+    https://lore.kernel.org/linux-hyperv/20250212014321.1108840-1-romank@linux.microsoft.com/
+    - Fixed wording to match acronyms defined in the "Terms and Abbreviations"
+      section of the SMCCC specification throughout the patch series.
+      **Thank you, Michael!**
+
+    - Replaced the hypervisor ID containing ASCII with an UUID as
+      required by the specification.
+      **Thank you, Michael!**
+
+    - Added an explicit check for `SMCCC_RET_NOT_SUPPORTED` when discovering the
+      hypervisor presence to make the backward compatibility obvious.
+      **Thank you, Saurabh!**
+
+    - Split the fix for `get_vtl(void)` out to make it easier to backport.
+    - Refactored the configuration options as requested to eliminate the risk
+      of building non-functional kernels with randomly selected options.
+      **Thank you, Michael!**
+
+    - Refactored the changes not to introduce an additional file with
+      a one-line function.
+      **Thank you, Wei!**
+
+    - Fixed change description for the VMBus DeviceTree changes, used
+      `scripts/get_maintainers.pl` on the latest kernel to get the up-to-date list
+      of maintainers as requested.
+      **Thank you, Krzysztof!**
+
+    - Removed the added (paranoidal+superfluous) checks for DMA coherence in the
+      VMBus driver and instead relied on the DMA and the OF subsystem code.
+      **Thank you, Arnd, Krzysztof, Michael!**
+
+    - Used another set of APIs for discovering the hardware interrupt number
+      in the VMBus driver to be able to build the driver as a module.
+      **Thank you, Michael, Saurabh!**
+
+    - Renamed the newly introduced `get_vmbus_root_device(void)` function to
+      `hv_get_vmbus_root_device(void)` as requested.
+      **Thank you, Wei!**
+
+    - Applied the suggested small-scale refactoring to simplify changes to the Hyper-V
+      PCI driver. Taking the offered liberty of doing the large scale refactoring
+      in another patch series.
+      **Thank you, Michael!**
+
+    - Added a fix for the issue discovered internally where the CPU would not
+      get the interrupt from a PCI device attached to VTL2 as the shared peripheral
+      interrupt number (SPI) was not offset by 32 (the first valid SPI number).
+      **Thank you, Brian!**
+
+[V3]
+    https://lore.kernel.org/lkml/20240726225910.1912537-1-romank@linux.microsoft.com/
+    - Employed the SMCCC function recently implemented in the Microsoft Hyper-V
+      hypervisor to detect running on Hyper-V/arm64. No dependence on ACPI/DT is
+      needed anymore although the source code still falls back to ACPI as the new
+      hypervisor might be available only in the Windows Insiders channel just
+      yet.
+    - As a part of the above, refactored detecting the hypervisor via ACPI FADT.
+    - There was a suggestion to explore whether it is feasible or not to express
+      that ACPI must be absent for the VTL mode and present for the regular guests
+      in the Hyper-V Kconfig file.
+      My current conclusion is that this will require refactoring in many places.
+      That becomes especially convoluted on x86_64 due to the MSI and APIC
+      dependencies. I'd ask to let us tackle that in another patch series (or chalk
+      up to nice-have's rather than fires to put out) to separate concerns and
+      decrease chances of breakage.
+    - While refactoring `get_vtl(void)` and the related code, fixed the hypercall
+      output address not to overlap with the input as the Hyper-V TLFS mandates:
+      "The input and output parameter lists cannot overlap or cross page boundaries."
+      See https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/tlfs/hypercall-interface
+      for more.
+      Some might argue that should've been a topic for a separate patch series;
+      I'd counter that the change is well-contained (one line), has no dependencies,
+      and makes the code legal.
+    - Made the VTL boot code (c)leaner as was suggested.
+    - Set DMA cache coherency for the VMBus.
+    - Updated DT bindings in the VMBus documentation (separated out into a new patch).
+    - Fixed `vmbus_set_irq` to use the API that works both for the ACPI and OF.
+    - Reworked setting up the vPCI MSI IRQ domain in the non-ACPI case. The logic
+      looks a bit fiddly/ad-hoc as I couldn't find the API that would fit the bill.
+      Added comments to explain myself.
+
+[V2]
+    https://lore.kernel.org/all/20240514224508.212318-1-romank@linux.microsoft.com/
+    - Decreased number of #ifdef's
+    - Updated the wording in the commit messages to adhere to the guidlines
+    - Sending to the correct set of maintainers and mail lists
+
+[V1]
+    https://lore.kernel.org/all/20240510160602.1311352-1-romank@linux.microsoft.com/
+
+Roman Kisel (11):
+  arm64: kvm, smccc: Introduce and use API for getting hypervisor UUID
+  arm64: hyperv: Use SMCCC to detect hypervisor presence
+  Drivers: hv: Enable VTL mode for arm64
+  Drivers: hv: Provide arch-neutral implementation of get_vtl()
+  arm64: hyperv: Initialize the Virtual Trust Level field
+  arm64, x86: hyperv: Report the VTL the system boots in
+  dt-bindings: microsoft,vmbus: Add interrupt and DMA coherence
+    properties
+  Drivers: hv: vmbus: Get the IRQ number from DeviceTree
+  Drivers: hv: vmbus: Introduce hv_get_vmbus_root_device()
+  ACPI: irq: Introduce acpi_get_gsi_dispatcher()
+  PCI: hv: Get vPCI MSI IRQ domain from DeviceTree
+
+ .../bindings/bus/microsoft,vmbus.yaml         | 16 ++++-
+ arch/arm64/hyperv/mshyperv.c                  | 53 ++++++++++++--
+ arch/arm64/kvm/hypercalls.c                   | 10 +--
+ arch/x86/hyperv/hv_init.c                     | 34 ---------
+ arch/x86/hyperv/hv_vtl.c                      |  7 +-
+ drivers/acpi/irq.c                            | 16 ++++-
+ drivers/firmware/smccc/kvm_guest.c            | 10 +--
+ drivers/firmware/smccc/smccc.c                | 17 +++++
+ drivers/hv/Kconfig                            |  6 +-
+ drivers/hv/hv_common.c                        | 31 ++++++++
+ drivers/hv/vmbus_drv.c                        | 53 +++++++++++---
+ drivers/pci/controller/pci-hyperv.c           | 70 +++++++++++++++++--
+ include/asm-generic/mshyperv.h                |  6 ++
+ include/hyperv/hvgdk_mini.h                   |  2 +-
+ include/linux/acpi.h                          |  5 +-
+ include/linux/arm-smccc.h                     | 64 +++++++++++++++--
+ include/linux/hyperv.h                        |  2 +
+ 17 files changed, 323 insertions(+), 79 deletions(-)
+
+
+base-commit: 628cc040b3a2980df6032766e8ef0688e981ab95
+-- 
+2.43.0
+
 
