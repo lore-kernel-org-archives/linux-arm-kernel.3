@@ -4,79 +4,165 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E28F7C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 20:01:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1025C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 20:05:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TD6ZTcBbZ4U6DFH/9WyStRYKsx/zCoklNoMWN/P14xU=; b=aencwp1Fey5A7jRhfiQvwRJBPz
-	TbPlu3Ppeu3UThYgMTL6DpRztLvUCimmYckLnx2Z84V3yXaslNyz4u5/5o1LAsjQ9i6KTMpyRvWuV
-	C64jIqJTpC08cSWUA3W9dl7MksNrnTCiSu1Adnt2k++cYaIzFqoZt572mpheqZuCU+OvJyzR5gTXu
-	d6I6T4j3ShxzA8nrS9KPxdsD+jyxNcYgl5XYVEUwY/UmDDnxfotV1M/vW90yMiUGnoYxElbI9cFSl
-	t5SpFBsz6iP7juiz3SOcdMbvrlqAgiQJdDjZMFhm/lSTuYL90qeWRPqP1gfQf+RkX3V/wUbRZ8BOE
-	dc+pOCCw==;
+	bh=J+4jt2aHKM9OQOxWZhzm58mt7UbTuOvn+tJa+Fg30QU=; b=z921szBHi/WvbjsVcLCV1ChPyz
+	xQoPSNOAzd+vQQXvfvfR8pFMQPDLTtVVZKYqe9dtU67A/XGMvAv8YdUC1ykQbUYfcgyc8B688+Hhx
+	zdmYF7nkNjN2E/H+Cauv8juwHwKXy5+wW9Iw3QVj96VETBPr+IRtBPMyo13LS1FV3P4Kh+EtcPdA+
+	MdHoKoeo3Lh6JiPCs+1bYtJx3s8HnrWcQFIFspXtm4ATlqQHduiN9XJQtxjGL8xF5fVFIZe+PWC7c
+	XoiGP3F6gM9gdphrOKfF4Lr90euMkzG6FNvKjRXS4eWUwe0C7j4zesCBpzE9Q9S07pAHixBbi1c94
+	lOgeltYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Uf4-00000007PAJ-1ntA;
-	Mon, 28 Apr 2025 20:01:06 +0000
+	id 1u9Uiw-00000007Pmm-2eLF;
+	Mon, 28 Apr 2025 20:05:06 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9S0K-00000007374-365K
+	id 1u9Uh0-00000007PbY-3dii
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 28 Apr 2025 17:10:52 +0000
+	Mon, 28 Apr 2025 20:03:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	References:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=TD6ZTcBbZ4U6DFH/9WyStRYKsx/zCoklNoMWN/P14xU=; b=b9z41P3uUYYRQTisPMvmx95H2Y
-	yQhukQ6JzllPEWb27LjkVUcRsMjWxf34DkeWy1B4CuPPlrRUP/w6fQHG50CS8KttvRaeKXn7Mf1Hd
-	J93DwlWd/wAIzuGFGgVSTf7r6DVwyGA/gYrGh7W2IJxQp22Tf/s+EYQLLiPd6s/ZfH+VID/brHZ+c
-	EFmdUIsGGU7XUf0UOq0xCCHuwkb72yC4e+aLX6gDYPk5Z1P4BR6uuPqbDLqFhQcfEfu6yUIVS12gP
-	kMb9Hep6tcAqD2uabUssH2O5/P2Bd5ws3jDMpv0cFtkm3+XBLFuv1i/tVydUXcK/99Mu0iaLStO1v
-	iFgH63/g==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	bh=J+4jt2aHKM9OQOxWZhzm58mt7UbTuOvn+tJa+Fg30QU=; b=pALZNHTzgZHWFfXlMwEX4O2FdC
+	oxWoH91sNLopv6c4UBFsFhudw01BFuY42FZ3RwfUe0nlkuBDCDuVffpqd7aWA+YY38b1kit9LW/em
+	034XKgiiwVt9b42+rA2XiM81yNu8Dr6LZTJ6+N/3z3Ktem+Dux+F3J/noCQ1nuUUaNHJ/2lwt+zPD
+	/yfW5KDVe/YhHc3w9ZLffyDA5VwPaLVt6xKak5lUw5ErizVMWbjI/4/bUjJufZ//P0VivaMIH4bIj
+	qfXyf/Ha6lDvl+TJ2VNw+nM2nSZHmwd8TasxI5N6FUt/W9TienCRPZTcVsAPk1GYyDW6vQhMSaAua
+	cB013IPw==;
+Received: from mail-mw2nam12on20615.outbound.protection.outlook.com ([2a01:111:f403:200a::615] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9S0F-0000000Cu7Y-0iym
+	id 1u9Ugs-0000000D1Ip-1vTo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 17:10:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 877D7A4B0C1;
-	Mon, 28 Apr 2025 17:05:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EF00C4CEE4;
-	Mon, 28 Apr 2025 17:10:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1745860245;
-	bh=5AgkR+22VDjIBm+J00qc5j3ln4mZEAFE46+wzRtBSgA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tY3G8aUU7JZKmsYWpxRE1JAAsUEtYAgG3SSxEKSFzK4Q5ZNILSy/8AXziYAqsmV6T
-	 CAWnasTLDNL5BDx37i72roQIJoULZbs27Kw1vmZXX1gAvGbsgIQN6bSmNM2/Q/bdQ3
-	 OuwV2QlZ2uc01mW3mdUvK5A7+khDu+oI7lCc6zO8=
-Date: Mon, 28 Apr 2025 19:10:42 +0200
-From: 'Greg KH' <gregkh@linuxfoundation.org>
-To: Faraz Ata <faraz.ata@samsung.com>
-Cc: 'Krzysztof Kozlowski' <krzk@kernel.org>, alim.akhtar@samsung.com,
-	jirislaby@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-serial@vger.kernel.org, dev.tailor@samsung.com,
-	rosa.pila@samsung.com
-Subject: Re: [PATCH v3] tty: serial: samsung_tty: support 18 uart ports
-Message-ID: <2025042829-heroics-deskwork-e74d@gregkh>
-References: <CGME20250417042427epcas5p2df3d35803adcb24da7d83e5df586380d@epcas5p2.samsung.com>
- <20250417043427.1205626-1-faraz.ata@samsung.com>
- <d350841c-3560-4511-a866-9490737e48f7@kernel.org>
- <06cb01dbaf5a$1ea1a8b0$5be4fa10$@samsung.com>
- <2025042508-statute-pleading-df6f@gregkh>
- <0ce801dbb837$19706530$4c512f90$@samsung.com>
+	Mon, 28 Apr 2025 20:03:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tJEoo4HqdaCiyGGb306ZcQYvp4TIAScNXENVdyhiZNTB2Zh78n98GSHKcLk0oaoIaA/9g5fDFF3hvQS8ZctEC0Btel80KidwQ6hRk35Ake3yZG40sVsZ5I4HnafrOzzs3nRTS0yl0VvCU20xkfDYOFgm+EMlGrFoe4Qa8CyJdG+yTEyUHzzb+sUBJOX0YVVNIOFChWp8+LJAxFLxkEGe0hh3pDvYfBkUGexQhe6WjQKxf3Qr///q3gA0SeGL8f/QuQmjWXDx5EKQYK5U8bxooKclngxSyq3RFA8B8p+bmixzFz4GvWX1SYqKox2h1PY5pH4wnqFJNj4mQDz6CWR5Sg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=J+4jt2aHKM9OQOxWZhzm58mt7UbTuOvn+tJa+Fg30QU=;
+ b=njc8YWbMRvB5MPk7+1qAdl1imxNnEoc3o7cyLtUi+CVVU/Csl6iWVUcqj8LNtoW8bFSlF0Oti+DJ08LwVdOPgOVYjl9nAY66FkSz/SQwW6Kgi2Q4DXl8MjAIhRfMijvu3boDtYowfRyMMJohtlp5ssnUXLj8EEn68vT+VHqlYsh/+TauAJd/slxJrdmEMOB6Fm+gN5TB8cXjUrL9q+FP6ZTpDIs0ypFAbRhXLN+8boBN5GLU6XsOhb5KNaPPghCAK34En+MqywrbWE6DTgzOE1j8UmpixZ+06guIOltdZ5tk19u9KO1duh4pMF3b+qJ9yRzEa+VIQAimn1iQBw5kqw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=amd.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=J+4jt2aHKM9OQOxWZhzm58mt7UbTuOvn+tJa+Fg30QU=;
+ b=nNrR5qyGr9uG2SObRjBvb7HiE7wKyfpGGsd5dGRnHWb0hp1b2sP9dsROq6Aza3xL+D7CJH1Qr705hCGudI0DMbeDsKB/bHvYK4Io+69+k6tqzah5VtLc8KoDV9u6jmA9e9aHtvtSgygx8mp8qDpNZtsG7bpF7ZScd1dgv+3BUfn268vaPwotmz+zM0yGSo1MPMFAQppHVtEkFu4qVrC87qz2BUsUsXhfmVJ/SPjEK1ikSpNk6hR06lo24ViszDLe86pTMOyYYJgbEwYUliOB+n647V79EqqCKLDeCAxf+z6iyD2IFd78KmrTWxiogT8B/ca0KnjjPH85Vvm07/5Qlw==
+Received: from CH0PR03CA0404.namprd03.prod.outlook.com (2603:10b6:610:11b::33)
+ by SJ2PR12MB8009.namprd12.prod.outlook.com (2603:10b6:a03:4c7::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.31; Mon, 28 Apr
+ 2025 20:02:36 +0000
+Received: from CH2PEPF0000014A.namprd02.prod.outlook.com
+ (2603:10b6:610:11b:cafe::7e) by CH0PR03CA0404.outlook.office365.com
+ (2603:10b6:610:11b::33) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.37 via Frontend Transport; Mon,
+ 28 Apr 2025 20:02:35 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ CH2PEPF0000014A.mail.protection.outlook.com (10.167.244.107) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8678.33 via Frontend Transport; Mon, 28 Apr 2025 20:02:35 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 28 Apr
+ 2025 13:02:20 -0700
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 28 Apr
+ 2025 13:02:19 -0700
+Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com (10.129.68.10)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Mon, 28 Apr 2025 13:02:17 -0700
+Date: Mon, 28 Apr 2025 13:02:15 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Vasant Hegde <vasant.hegde@amd.com>
+CC: <jgg@nvidia.com>, <kevin.tian@intel.com>, <corbet@lwn.net>,
+	<will@kernel.org>, <bagasdotme@gmail.com>, <robin.murphy@arm.com>,
+	<joro@8bytes.org>, <thierry.reding@gmail.com>, <vdumpa@nvidia.com>,
+	<jonathanh@nvidia.com>, <shuah@kernel.org>, <jsnitsel@redhat.com>,
+	<nathan@kernel.org>, <peterz@infradead.org>, <yi.l.liu@intel.com>,
+	<mshavit@google.com>, <praan@google.com>, <zhangzekun11@huawei.com>,
+	<iommu@lists.linux.dev>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-tegra@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
+	<patches@lists.linux.dev>, <mochs@nvidia.com>, <alok.a.tiwari@oracle.com>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>
+Subject: Re: [PATCH v2 10/22] iommufd/viommmu: Add IOMMUFD_CMD_VCMDQ_ALLOC
+ ioctl
+Message-ID: <aA/exylmYJhIhEVL@Asurada-Nvidia>
+References: <cover.1745646960.git.nicolinc@nvidia.com>
+ <094992b874190ffdcf6012104b419c8649b5e4b4.1745646960.git.nicolinc@nvidia.com>
+ <b0d01609-bdda-49a3-af0c-ca828a9c4cea@amd.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <0ce801dbb837$19706530$4c512f90$@samsung.com>
+In-Reply-To: <b0d01609-bdda-49a3-af0c-ca828a9c4cea@amd.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF0000014A:EE_|SJ2PR12MB8009:EE_
+X-MS-Office365-Filtering-Correlation-Id: ab83bf12-0bbf-458d-2674-08dd868f9ec7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|376014|7416014|36860700013|13003099007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?eygLkwFwoONFetAiaOlkvRv561Cx0cmGlBj9l1OsDspcpkRbC4mMXFWMzn4w?=
+ =?us-ascii?Q?b6+FCX+JEOYra0lJP2UxF2NpJeVUhydzGt4MTy6w0JL9J5FDp+U6Ws6FqXG/?=
+ =?us-ascii?Q?fz7gGu52nRDvE7DJl8RCvBg12zNAD2/64Aoz9qqVAffzEGIw1J3grBAWcfCa?=
+ =?us-ascii?Q?bLB+5gXjHe9Qigvd4FiNEbvH/2KLX1+AbJ3t5xU/T4/B60ekheugIQjTvYSO?=
+ =?us-ascii?Q?grAKJgcKmkHTrZME+Xm4XuI/KcARAL0MiD62E/crQVceYipCGcQO/vKZzZH+?=
+ =?us-ascii?Q?oL1SmkOdOapoQaHVQ3CsGxpsNY42VvJWhjmty6Ti9bOi9eQEPOD17Rukl4XL?=
+ =?us-ascii?Q?SR2gbW3T3lqR+MZOipDlWJLNLGsHLmL7jv/Lnrn7I747dKaMt59Vt5L/i9gB?=
+ =?us-ascii?Q?3Kj8G0/kqv4NFsuwA5Xym2Sh4kkoBY1N5NGUvwY/JlhTcnCZvIqSzqR11gCA?=
+ =?us-ascii?Q?/WQgUVYy/UdSVR2qKpKCv7OxjcXKtD9vg1vqKfvpxNdtiFz3oojifbcwcbvU?=
+ =?us-ascii?Q?rICfG2YPUflbgQzjm63SnB5TV2XIWqGrLn8s7K9TfnO/pmKaJbGvhV4WByq1?=
+ =?us-ascii?Q?e9xOQKkplFLXfIaRTSGsaBEoklBHjBeq5LvcUCHoi9TinHTTRh74GPlgbWd1?=
+ =?us-ascii?Q?HWT1YQkBIM/NLyUDBhzUqh+5xh8CKAKrzj70nK8ZgYU3S6JsO3WZwkIj3ig8?=
+ =?us-ascii?Q?sFPFCbsM4hw0Kkh0jO5bBiMdIesX3CQFks3LNY2NScqt1fnjQCB4PxXDZOEO?=
+ =?us-ascii?Q?uTA6GPu+tz48rmqogxFSF4rkI0wfs4naIfoC4zqE2kL7tI8kElq5cs4eFtYv?=
+ =?us-ascii?Q?fJyNAMnfgOc7BxJ+8K1hjEADKWLGKWEgWkPxc9F+M11Ec+PpZYPEtSwhP55t?=
+ =?us-ascii?Q?hhnYeVFW2AL4arqZwp8E5QEbn0XlYJ5KtRLg5sph0Vz1yHngHr2RRKlQEchz?=
+ =?us-ascii?Q?2OnYXVyezaw7CpESrdWvOGH/BboXDFrDfeVdxGYGrDp43OXqgULF5Lr7upy/?=
+ =?us-ascii?Q?Hx03YBsurJz6x+w5BqExWTPB04hZJ3ZoFsik0uPbiUkvlMovL6T3C2XkkdTJ?=
+ =?us-ascii?Q?q7WyupTNNhtF5CBsWQSHrMaYCunN2UBUR37U0IH0Y5IPiZ2y7xSPFSAgPG98?=
+ =?us-ascii?Q?ap9OkMg32vdqoz+tSSOcrKBhUgp1aD5Lqoz1xASyDTi21pb0lesnFV0viWK7?=
+ =?us-ascii?Q?vjYhG2IbexnDf5BgJYinyBEJbuyLyq9vrDO6W5IYDVCzpY9J8P1tc9DvTG2u?=
+ =?us-ascii?Q?0iRozBy7gBw6CjK1/Q8yV5gE+YXAIzg2xOrs9RgnKlvWDqtGjpoU7X78iA3H?=
+ =?us-ascii?Q?F8SdqOeK88qfjsnplCwGQSyk9WgHe7wAANX2YgRyXYsEvrc7oz4ukt7ed2JQ?=
+ =?us-ascii?Q?MqKHncUAGoMwSXc06EhaeNIRJ6m5IGMsJc1vhpZ3BNJtQPzcTSesc6ZCtd6U?=
+ =?us-ascii?Q?65HOJ1fuRql3jm4wIwM53rFpsbmNb8ju1lNXwtZ0UvSlRIDiD92Xxj7U8atA?=
+ =?us-ascii?Q?XzqQj+IaGthosV5f0s7EkvUmU/7ZZ0z1Xqr/IStW7/npzDFYrG9+GN97Jw?=
+ =?us-ascii?Q?=3D=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(376014)(7416014)(36860700013)(13003099007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2025 20:02:35.7139
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ab83bf12-0bbf-458d-2674-08dd868f9ec7
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000014A.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8009
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_181048_170642_394DFB23 
-X-CRM114-Status: GOOD (  17.17  )
+X-CRM114-CacheID: sfid-20250428_210258_806633_A39C7FC2 
+X-CRM114-Status: GOOD (  28.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,47 +177,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 28, 2025 at 05:44:21PM +0530, Faraz Ata wrote:
-> HI Greg
+On Mon, Apr 28, 2025 at 05:42:27PM +0530, Vasant Hegde wrote:
+> > +/**
+> > + * struct iommu_vcmdq_alloc - ioctl(IOMMU_VCMDQ_ALLOC)
+> > + * @size: sizeof(struct iommu_vcmdq_alloc)
+> > + * @flags: Must be 0
+> > + * @viommu_id: Virtual IOMMU ID to associate the virtual command queue with
+> > + * @type: One of enum iommu_vcmdq_type
+> > + * @index: The logical index to the virtual command queue per virtual IOMMU, for
+> > + *         a multi-queue model
+> > + * @out_vcmdq_id: The ID of the new virtual command queue
+> > + * @addr: Base address of the queue memory in the guest physical address space
 > 
-> > Subject: Re: [PATCH v3] tty: serial: samsung_tty: support 18 uart ports
-> > 
-> > On Thu, Apr 17, 2025 at 11:02:24AM +0530, Faraz Ata wrote:
-> > > Hello Krzysztof
-> > >
-> > > > -----Original Message-----
-> > > > From: Krzysztof Kozlowski <krzk@kernel.org>
-> > > > Sent: Thursday, April 17, 2025 10:50 AM
-> > > > To: Faraz Ata <faraz.ata@samsung.com>; alim.akhtar@samsung.com;
-> > > > gregkh@linuxfoundation.org; jirislaby@kernel.org
-> > > > Cc: linux-arm-kernel@lists.infradead.org; linux-samsung-
-> > > > soc@vger.kernel.org; linux-kernel@vger.kernel.org; linux-
-> > > > serial@vger.kernel.org; dev.tailor@samsung.com;
-> > > > rosa.pila@samsung.com
-> > > > Subject: Re: [PATCH v3] tty: serial: samsung_tty: support 18 uart
-> > > > ports
-> > > >
-> > > > On 17/04/2025 06:34, Faraz Ata wrote:
-> > > > > ExynosAutov920 SoC supports 18 UART ports, update the value of
-> > > > UART_NR
-> > > > > to accommodate the same.
-> > > > >
-> > > > > Signed-off-by: Faraz Ata <faraz.ata@samsung.com>
-> > > > > ---
-> > > > > Changes in v3:
-> > > > > - Fixed review comments from Krzysztof
-> > > >
-> > > > Which ones? What changed?
-> > > >
-> > > While sending v2  change log was missed unintentionally.
-> > > Added missed change log in v3.
-> > 
-> > Can you add this properly and send a v4?
-> > 
-> This was a clarification given to Krzysztof.
-> The complete change-log was missed in v2, This was pointed out by Krzysztof.
-> Added those missed changes in v3.
-> Do you want me to add this clarification as well and send v4 ?
+> Sorry. I didn't get this part.
+> 
+> So here `addr` is command queue base address like
+>  - NVIDIA's virtual command queue
+>  - AMD vIOMMU's command buffer
+> 
+> .. and it will allocate vcmdq for each buffer type. Is that the correct
+> understanding?
 
-Yes please.
+Yes. For AMD "vIOMMU", it needs a new type for iommufd vIOMMU:
+	IOMMU_VIOMMU_TYPE_AMD_VIOMMU,
+
+For AMD "vIOMMU" command buffer, it needs a new type too:
+	IOMMU_VCMDQ_TYPE_AMD_VIOMMU, /* Kdoc it to be Command Buffer */
+
+Then, use IOMMUFD_CMD_VIOMMU_ALLOC ioctl to allocate an vIOMMU
+obj, and use IOMMUFD_CMD_VCMDQ_ALLOC ioctl(s) to allocate vCMDQ
+objs.
+
+> In case of AMD vIOMMU, buffer base address is programmed in different register
+> (ex: MMIO Offset 0008h Command Buffer Base Address Register) and buffer
+> enable/disable is done via different register (ex: MMIO Offset 0018h IOMMU
+> Control Register). And we need to communicate both to hypervisor. Not sure this
+> API can accommodate this as addr seems to be mandatory.
+
+NVIDIA's CMDQV has all three of them too. What we do here is to
+let VMM trap the buffer base address (in guest physical address
+space) and forward it to kernel using this @addr. Then, kernel
+will translate this @addr to host physical address space, and
+program the physical address and size to the register.
+
+> [1]
+> https://www.amd.com/content/dam/amd/en/documents/processor-tech-docs/specifications/48882_IOMMU.pdf
+
+Thanks for the doc. So, AMD has:
+
+Command Buffer Base Address Register [MMIO Offset 0008h]
+"used to program the system physical base address and size of the
+ command buffer. The command buffer occupies contiguous physical
+ memory starting at the programmed base address, up to the
+ programmed size."
+Command Buffer Head Pointer Register [MMIO Offset 2000h]
+Command Buffer Tail Pointer Register [MMIO Offset 2008h]
+
+IIUIC, AMD should do the same: VMM traps VM's Command Buffer Base
+Address register when the guest kernel allocates a command buffer
+by programming the VM's Command Buffer Base Address register, to
+capture the guest PA and size. Then, VMM allocates a vCMDQ object
+(for this command buffer) forwarding its buffer address and size
+via @addr and @length to the host kernel. Then, the kernel should
+translate the guest PA to host PA to program the HW.
+
+We can see that the Head/Tail registers are in a different MMIO
+page (offset by two 4K pages), which is very like NVIDIA CMDQV
+that allows VMM to mmap that MMIO page of the Head/Tail registers
+for guest OS to directly control the HW (i.e. VMM doesn't trap
+these two registers.
+
+When guest OS wants to issue a new command, the guest kernel can
+just fill the guest command buffer at the entry that the Head
+register points to, and program the Tail register (backed by an
+mmap'd MMIO page), then the HW will read the programmed physical
+address from the entry (Head) till the entry (Tail) in the guest
+command buffer.
+
+> > @@ -170,3 +170,97 @@ int iommufd_vdevice_alloc_ioctl(struct iommufd_ucmd *ucmd)
+> >  	iommufd_put_object(ucmd->ictx, &viommu->obj);
+> >  	return rc;
+> >  }
+> > +
+> > +void iommufd_vcmdq_destroy(struct iommufd_object *obj)
+> > +{
+> 
+> I didn't understood destroy flow in general. Can you please help me to understand:
+> 
+> VMM is expected to track all buffers and call this interface?  OR iommufd will
+> take care of it? What happens if VM crashes ?
+
+In a normal routine, VMM gets a vCMDQ object ID for each vCMDQ
+object it allocated. So, it should track all the IDs and release
+them when VM shuts down.
+
+The iommufd core does track all the objects that belong to an
+iommufd context (ictx), and automatically release them. But, it
+can't resolve certain dependency on other FD, e.g. vEVENTQ and
+FAULT QUEUE would return another FD that user space listens to
+and must be closed properly to destroy the QUEUE object.
+
+> > +	/* The underlying physical pages must be pinned in the IOAS */
+> > +	rc = iopt_pin_pages(&viommu->hwpt->ioas->iopt, cmd->addr, cmd->length,
+> > +			    pages, 0);
+> 
+> Why do we need this? is it not pinned already as part of vfio binding?
+
+I think this could be clearer:
+	/*
+	 * The underlying physical pages must be pinned to prevent them from
+	 * being unmapped (via IOMMUFD_CMD_IOAS_UNMAP) during the life cycle
+	 * of the vCMDQ object.
+	 */
+
+Thanks
+Nicolin
 
