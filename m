@@ -4,89 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8138C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 16:32:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E22B0C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 16:33:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XV4yjXWpsfgvi2gIF5WipGrZ8nMjBf4R4GhF3QGKVo4=; b=uey0zfJOskThikgXGH+ePKyMlj
-	KBOTnn+CJJeCE0/W4FLBsL6zl6Pm2mtl09jDaLRb82QbH71i4pv06nQPjLT95dTGMbBmYgn0r2DMl
-	u6RSwj4vIF45Hcv8OeAjBBvB2UM06qo4mhH10LFQhE9v/7p6+XCa7S4gVCrBDsqGa3R98UBgPN61E
-	N7hY/5fSSnWt/EXzpRGNmKOvpzgd+GSSl38otBSmyUdEqezstzeyfkeTchjUn4ZQYFGpjY36HAOYj
-	YijilghuEDin3iWIXEbfrGZBSw+PybPczmOKhOn5bO7s26BkUoL8bQoqbmzj/USuPgbTq2625QwUH
-	N440VIIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PH8LqPmdzTiyEIRldLyF2ISfaZauzPwN6cosQsO86rM=; b=jnTJmWdhwHT2LBGm/U1wOvc4y2
+	KdsT40axFpLQzAU5skZi0Dbrmbb77XbvlTG/G9HDk7EUiRvH2RVxK4npdwFGfTihBejuSZS1ZnAA7
+	/x/KJ2BwJZu3rLIJ5dkvQkGZshUHRNaT0KfXTBeG7lA0GOSgPy3NC1PDirfUxYbXAECdp82Jo9Bgl
+	P9PL9I5QUFr9PchRzj1gtVFWU/qSaGy/5C266MR54L94yKxZmRFg+W12FUjPdmwsC6V0CUndL3OJo
+	0twWSFyXhWrVAWvloxaHyarBnU+RXWeVpMYZGz+VF1iQGCcvOsqLYRZZe9fN5/ebjqHn2TXGmLI8i
+	WY3Bqt5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9ROX-00000006wTp-1xs4;
-	Mon, 28 Apr 2025 16:31:49 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1u9RQT-00000006wkD-2DYN;
+	Mon, 28 Apr 2025 16:33:49 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9RJA-00000006vU5-2ITR
+	id 1u9RLK-00000006vsk-1F8u
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 16:26:18 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43d0359b1fcso31768185e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 09:26:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1745857575; x=1746462375; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=XV4yjXWpsfgvi2gIF5WipGrZ8nMjBf4R4GhF3QGKVo4=;
-        b=fuaCuTozgB7TVpMX+PiP+RXvLHM2FiZaymVJj40U/ZOSBTciB+0oKgavSaUE7zoCBU
-         HtLXWZBKXILJhO9XdV9u1raHO2tcQO2Ovyqro8cCDBf9u587uTxPB/57p09z5MDXCdDx
-         EsTIrWnK/5nh+DH64ULA3qpNG1FQLESCSNohgSYR1aXn5h/16/8n22dAYWpai5YjHfKI
-         /6ueXyCj39q6MDKVocC/J5FMR25ZnvNVx4V4DeSI5rqOCfK8lYvwwdnXFONVcTx2o6uW
-         9JlbibCW+4jerhZxBBpbrUxUjTDrVMdhGQKghMxysVSHf41DgdexJSQtWtgxnPv8EOsX
-         ceyQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745857575; x=1746462375;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XV4yjXWpsfgvi2gIF5WipGrZ8nMjBf4R4GhF3QGKVo4=;
-        b=F8IosVFw7ORGYiNWVebSnx6ML15caHgxgG0jyLPYuLfFrmHX4Gua1DndPD+sr610WB
-         WwHSxzoyfasiyxCj0HFvqD+5AsNfi5O2s5uHDRmRjRMZHyGef3OeinGidesVf8683MX+
-         G4hWsJ6MhYd6QPpiFzmzPJ530lK+t3QVDpb3eD36bf+NCXhyktNpBKdHHv6juKgBep02
-         +kZhOcDleQAtXDQEcGuKaG6dPDsu2TaS2dS0962MiCTn90zMUlI2W27+bV0ptwXuA1+j
-         NWroSQwlWHAwK17TRBXSyKeN2Bc6bDiuMwnxxGiAVUrugmIS7YtaLma01Vbn38ZEsEEo
-         gA+A==
-X-Forwarded-Encrypted: i=1; AJvYcCUOsr75OXZ8Pn+m8Sv3KJtPPxgt7v1iW75IB47DxiBcij6xPdLhiUSOsV82cx5SAesu3Gr9woU3NzcUC5rNXai5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1t7ZzuoXFF07HESMeZBvKhNCpN4ZFUCZc0oNpIAHFvXT0j26c
-	ApMLB6L2gpcbaQqIpHqpoxb3nHoGepgXR8mTh0Ri5BfhY7vW2SksNlHICZO6xJU=
-X-Gm-Gg: ASbGncuFU4/6QKf4mR25R5lEbuuy7+oHKMIk9gTky+m0OpSw0SClee27DSyx0MD1n2T
-	y1bdIiiAodqpl7NxG7T7weJRUHGaC/+Q59C+EYuu8elb7F+obuZF5bGsDiNjETQAGkde5qJlSYO
-	cqAgmW4vl+7gOu05J0QKsZmGm1geTsC016KVuCjnUnvTocdl9OB/PgxYL7J8lsLj/4PoOo7h5pw
-	QRLUT5yy17XCHpqt0gg4dECyBdkBfJBLoTdrDq3mvHGZdKMZOcl9nZDbUkusaZAZYAAOIA0Qlp/
-	zQh41nh88dAbARsnH50xrmZTglnCPHohA9o04tM57HeQSy0LH5k5J5FV4A9hQzmrPZLVW+KJk8b
-	beeievdg=
-X-Google-Smtp-Source: AGHT+IEP8H3aiAFda5s5dKpOrFeQRMJEIdcZabiUZJB78eZVPzFrS+hWt+HhXg2/aWcVvb4/lTgz0g==
-X-Received: by 2002:a05:600c:55c7:b0:43b:4829:8067 with SMTP id 5b1f17b1804b1-4409c4615e0mr119997455e9.6.1745857574733;
-        Mon, 28 Apr 2025 09:26:14 -0700 (PDT)
-Received: from localhost (p200300f65f00780800000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f00:7808::1b9])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-440a5310a8fsm131672255e9.22.2025.04.28.09.26.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Apr 2025 09:26:14 -0700 (PDT)
-Date: Mon, 28 Apr 2025 18:26:12 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-To: Alexandre Mergnat <amergnat@baylibre.com>
-Cc: Eddie Huang <eddie.huang@mediatek.com>, 
-	Sean Wang <sean.wang@mediatek.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, linux-rtc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] rtc: mt6359: Add mt6357 support
-Message-ID: <darxi3ojg6c6uhzyzb3224sb4lmpqcwx72pvoaam5qn5b6v5du@36zqss6i46ig>
-References: <20250428-rtc-mt6357-v1-1-31f673b0a723@baylibre.com>
+	Mon, 28 Apr 2025 16:28:31 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53SGSQ6C2821463
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 28 Apr 2025 11:28:26 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1745857706;
+	bh=PH8LqPmdzTiyEIRldLyF2ISfaZauzPwN6cosQsO86rM=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=qDV8X6IzH1PUAHkhmVrfhtoObnZWlDkppcKErvmxXxjYVqtbOvT6h2QNCnZ03WwtC
+	 W/WDPUTdPSv6VykJ5uNdHmglIhSGoT81YbKXxoy9Epup9XYdRJd7OGvw26d+kHDfvD
+	 m54ZRX/DzE6DihLbFJjq49di4VwjCDdZB78LcxCs=
+Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53SGSQB4025096
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 28 Apr 2025 11:28:26 -0500
+Received: from DFLE115.ent.ti.com (10.64.6.36) by DFLE112.ent.ti.com
+ (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 28
+ Apr 2025 11:28:26 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE115.ent.ti.com
+ (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 28 Apr 2025 11:28:26 -0500
+Received: from [10.249.42.149] ([10.249.42.149])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53SGSPa9001778;
+	Mon, 28 Apr 2025 11:28:25 -0500
+Message-ID: <31b0b9ed-859b-44f7-89b0-26cc6384356d@ti.com>
+Date: Mon, 28 Apr 2025 11:28:25 -0500
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="xvyefmwg7jcr7kfx"
-Content-Disposition: inline
-In-Reply-To: <20250428-rtc-mt6357-v1-1-31f673b0a723@baylibre.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 09/11] arm64: dts: ti: k3-am62a7-sk: Reserve
+ main_timer2 for C7x DSP
+To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>
+CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Hari Nagalla <hnagalla@ti.com>,
+        Beleswar
+ Prasad <b-padhi@ti.com>,
+        Markus Schneider-Pargmann <msp@baylibre.com>,
+        Devarsh Thakkar <devarsht@ti.com>
+References: <20250415153147.1844076-1-jm@ti.com>
+ <20250415153147.1844076-10-jm@ti.com>
+Content-Language: en-US
+From: Andrew Davis <afd@ti.com>
+In-Reply-To: <20250415153147.1844076-10-jm@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_092616_853040_C898F386 
-X-CRM114-Status: GOOD (  12.92  )
+X-CRM114-CacheID: sfid-20250428_092830_432108_3027C568 
+X-CRM114-Status: GOOD (  15.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,41 +97,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 4/15/25 10:31 AM, Judith Mendez wrote:
+> From: Hari Nagalla <hnagalla@ti.com>
+> 
+> C7x DSP uses main_timer2, so mark it as reserved in linux DT.
+> 
 
---xvyefmwg7jcr7kfx
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] rtc: mt6359: Add mt6357 support
-MIME-Version: 1.0
+The set of peripherals used by this C7x core depends on the firmware
+running on the core. Long term we should think on a better way of
+communicating this from firmware to Linux. Same goes for the next
+two patches.
 
-On Mon, Apr 28, 2025 at 04:29:55PM +0200, Alexandre Mergnat wrote:
-> The MT6357 PMIC contains the same RTC as MT6358 which allows to add
-> support for it trivially by just complementing the list of compatibles.
->=20
-> Signed-off-by: Alexandre Mergnat <amergnat@baylibre.com>
+For now since these timers are always used by all firmware, this
+will be safe to do, but for other peripherals we will need that
+better solution.
 
-Acked-by: Uwe Kleine-K=F6nig <u.kleine-koenig@baylibre.com>
-Tested-by: Uwe Kleine-K=F6nig <u.kleine-koenig@baylibre.com>
+Reviewed-by: Andrew Davis <afd@ti.com>
 
-Thanks a lot!
-
-Uwe
-
---xvyefmwg7jcr7kfx
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmgPrCIACgkQj4D7WH0S
-/k5uzggAkQji5a5MAOBNxwmFwsge9xxOpHA0xqM5HwRUZBCYeca34VWPG6n6U0GA
-bVXWEN1KWJBrgdsv/505roy1O5c3HcRRroWFLF4euSrMAl7kKfPvKbCb92TMLNwt
-KO/BFcz7rRZ60I3Re6vmSTR+tW8915S5vXOV6PNh/YgvNMCnGCtIH2lCzdE8dc49
-F2tW/utynBHpBiUnDE0UgFr18FyM3PQtpSCJWVpUaGwp54yVfozTDv19k4p9e4sP
-XdJBBDNhi8yhT/855addjBUKSFWAW7cxCx64lq7Agwx7yZMcaaoEgdEOq75R+8Lg
-SZ4wlhsxQ3BXN7P43l5g6dm94TzLZA==
-=TwLE
------END PGP SIGNATURE-----
-
---xvyefmwg7jcr7kfx--
+> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
+> Signed-off-by: Judith Mendez <jm@ti.com>
+> ---
+>   arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 5 +++++
+>   1 file changed, 5 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+> index 7d817b447c1d0..8d7645bb90337 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
+> @@ -682,6 +682,11 @@ &main_uart1 {
+>   	status = "reserved";
+>   };
+>   
+> +/* main_timer2 is used by C7x DSP */
+> +&main_timer2 {
+> +	status = "reserved";
+> +};
+> +
+>   &usbss0 {
+>   	status = "okay";
+>   	ti,vbus-divider;
 
