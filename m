@@ -4,174 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7FA0C369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 08:34:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF677C369D3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 08:36:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wKiK1wB8A5u+4qGQRWNn0Ccgll1DnKh3FgVk1iLjQIU=; b=CXhQEtRb+QzaGw3O9PdMOyxUci
-	k9W/jkh3oWw4DU9lJjpjKSQTLC5xjNwPO6oBBTFGrLaXGpjgeBZqh5aFyhAI4T5RQTr12M7TudlYa
-	2WxLvdnFyubvqxxP051Zi1CJLYzvcW/SG3CQqN9MrueXEpnLQzrFH9XPup6vDqDkOuR0ws0lrj/qp
-	E+8/Lz/jFUP6K2XzgXat+6YxcsGWcvXZdeeiSzWpdTIPCb+X0AdOOuzRf9UpCrBWfI52lptDVz4LS
-	LghFKufkrSUXwT6UCJK2fzFB7Sym6ag0azBeCqfB2kn6RGaxmkjKfwkenE4BHS15zK4h5MX6rmsTd
-	Olx1hqsw==;
+	bh=+JMJPWT5sAbn1eVNLnMArnmkb1w3D1mo7DTtvJRXonQ=; b=vFTeioIjHx+tSPjX1aAjEjkgq3
+	+fOJ4ZXxvBN8dHzvmhiAngPGKDRGH9mhs/N0fERX8UNivt6WLbxeJzb1UJ22MjZIpe567ahyf1E0u
+	GPSqBbooFKLlrWXy4P/18EBFW55pLH38XKNPJKmGe57+JksiqtS4bnZA/NkZP+qSzOzmzM04KgTOm
+	TcPwK1ECXwEZYSNwDOsaarToxMud1GcEE2nlUkIuwLVtYP7ApGI7aPb8I9B7iiaTB6iPs2jHBrjWO
+	DccEWptd31mQ4UBHxdlNe/5ADNrI6phJfhR+QKkI5CIcTp7A7uFcF5ixbXhK2x6+NJNDvnZC5VxNj
+	PpXzFHNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9JwA-00000005T4j-256F;
-	Mon, 28 Apr 2025 08:34:02 +0000
-Received: from mail-westeuropeazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c201::7] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1u9Jy9-00000005Tap-0TSe;
+	Mon, 28 Apr 2025 08:36:05 +0000
+Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9JiQ-00000005O62-20Wk;
-	Mon, 28 Apr 2025 08:19:52 +0000
+	id 1u9Jmc-00000005Pg4-2uwE;
+	Mon, 28 Apr 2025 08:24:11 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MFkJR3ldW08+dah4ikmF0Zn4MV5LLP+emVh+JMr7yCUuhVQC8SBBhyplpoxdf7JnN6ePyLbdFIRM8Sp7HuLUAEYbbJ7JkejTm/gPrWnb3Ot6eTndKUMJzZtLu/A/OznvZQUmgLoIJrxFrEOhuOMjfxaMxBphFINqR2Vo0iWfRPLOqF8DXWQf01xkG2zOjPXWIJYw8HLkjGZaGJhKs7LyShoabBlT48DhuBQlHyef7wBNFQBv36F7sqoMm/EuyWBe8oKVPb+MOs+qS8l8X2IH4wt8Nk73Y+TMmJk+4tAEiHgppqZDxFQsLp6cFbYsanHAQDMjtvWVo1an0NL4o+VzLQ==
+ b=HZKjNZHeFPvmL4aBZEQvBQN1OTDapYbFDKDMD+vXxYj8vLHSe7rQEqvjW7MSvGY2kBz0yjV0powjkYQ9F03qE0xUs2AIVKAnWUvk4FThlrxAfXLBYHgqRz5sr67uBVVD84MxK+1yKzUqLxO6sfhUPNHOL+/Qh4gsMD3jp3hS9hzmBHaAXn/eu5O2LoAn24psArLsrsD4Mj/JRcboAlRsJn2km4mp1v2gwVgXyeAtEV8K15suDXGWqCQCODIQ0UZ3WH2f2bxF7rKFemsqgDn4bjqC4L2OiTJymAM3HC6jRYGTDtyEUbdq35hR8VVIpKoTuEIrTmDacxDZse0gwdDf4g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wKiK1wB8A5u+4qGQRWNn0Ccgll1DnKh3FgVk1iLjQIU=;
- b=xX7y5TXKq0pFoi154PKZ3+yv+kmk4l2ywDd9OcntwYAO9TZrsnbyh3//be1PxL+iTcN+3+KXxm17vMXLhMIXgZNbmvJqaT1lg8FtQMdNQvFjohFbU/ktPF/ktPBsF665mxQ6aOR6IfaSgD/RdGVqkFalKV8WSPqewDPTxqP9rvW2cKOk7XqD+xLzN3pi0yKG1Gdp5UHEl4ZBzf5TWPElSt3RcJ/MbPIm3spdqnnmo/6JWiceylrWaFx7U6MAqQ5mlS+FnsKmGQN3HvRuq4IwCQJOdZNTsVOzbuG+GWMSvpv42bZZR4InnIce2BT9T6FYEaKZeK0EugOhCIDg9xFZmg==
+ bh=+JMJPWT5sAbn1eVNLnMArnmkb1w3D1mo7DTtvJRXonQ=;
+ b=LGk2xmR7/1+lfZEwKFy+ElHmJJV+evKtdUnCLEKC8mcpP4YGTYQ7kNfQud/cKcZb20vG37f9FEQn9mIsFsvYlEVua542B4pVZugu6mZS0ktORAFfItuftIk3cO7lsvHpHLA9il+QoPSEijMzrcPtIx5slT8TM91v+LTg91fZ+Yx8WBwIrI5c7ruFmQQYIQ54Bb63hBnt7tPopPXDeIyaTf6PtuQk2u6uZjQW9ETurhBIkTxwgwC7S9LzawSXahFdqsMvhxGMn9Vb0M63RlFeco1MDzSySDjyVzi0lcSIiEeZC/P/sQYhOc1H/sYjbi+nedOGp2ckLEMDTvo9VFy48Q==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wKiK1wB8A5u+4qGQRWNn0Ccgll1DnKh3FgVk1iLjQIU=;
- b=lFBbj2wx0up1EWBBmuu8TMJVPVMIxm4FiKr6F7yLcYup8hnM/QupClfPqLYKVN3ioAHHf9sIqBBBdL5JmVN6PoM48D9H9A+GnICOksTN6EApV63YjtKpavpi6Z29QszHtXGDDZW2lb4jrpMYbvACtU5boEHPmrJdxZv9VnO5fSg=
+ bh=+JMJPWT5sAbn1eVNLnMArnmkb1w3D1mo7DTtvJRXonQ=;
+ b=Aie21RrEk+CmfUuHUnuokx+PNqk9Wz548snoj3l8p7Gr5aDG4emA4hfIvuKB3W6N78eOqOqN8UYFniCOuhX9waQRd0Sxir3U+iq3nkoLeR8QR+JpculKRInskT8o4/R7PB3V05d2xFJiZOD/JlwArSDz1o8rHX3gUXV93k7J4823z4HBB+TP4VMftHXxpPKpdKZ2cRsnQFukhta6jdz8GwmmLZ3LeSyPwFKoAJ7rGdsMEVmZy0mj1os+vTV31zyiTf90ckoq7aSTGVnCC7sgqTXGZ9SLS9TqnhpSFeBiEnaA4pQmFB8ipo8yVGDU9mbcAAtsiodxZLePS4v5fzYjQg==
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
- by AM8PR04MB7267.eurprd04.prod.outlook.com (2603:10a6:20b:1df::8) with
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
+ by PAWPR04MB10029.eurprd04.prod.outlook.com (2603:10a6:102:380::13) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.31; Mon, 28 Apr
- 2025 08:19:41 +0000
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a%7]) with mapi id 15.20.8678.028; Mon, 28 Apr 2025
- 08:19:41 +0000
-Message-ID: <561d13ec-c487-4695-b50f-af8f2a65c61c@cherry.de>
-Date: Mon, 28 Apr 2025 10:19:39 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Add rk3399-evb-ind board
-To: Chaoyi Chen <kernel@airkyi.com>, Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
- Kever Yang <kever.yang@rock-chips.com>,
- Jianfeng Liu <liujianfeng1994@gmail.com>, Dragan Simic <dsimic@manjaro.org>,
- Jimmy Hon <honyuenkwun@gmail.com>, FUKAUMI Naoki <naoki@radxa.com>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Alexey Charkov <alchark@gmail.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Chaoyi Chen <chaoyi.chen@rock-chips.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250427094211.246-1-kernel@airkyi.com>
- <20250427094211.246-3-kernel@airkyi.com>
-Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <20250427094211.246-3-kernel@airkyi.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR0P281CA0191.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:ab::14) To AS8PR04MB8897.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::20)
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.33; Mon, 28 Apr
+ 2025 08:24:00 +0000
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::4e24:c2c7:bd58:c5c7]) by DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::4e24:c2c7:bd58:c5c7%5]) with mapi id 15.20.8678.028; Mon, 28 Apr 2025
+ 08:23:59 +0000
+Date: Mon, 28 Apr 2025 16:20:02 +0800
+From: Xu Yang <xu.yang_2@nxp.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	jun.li@nxp.com, alexander.stein@ew.tq-group.com,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/2] dt-bindings: phy: imx8mq-usb: improve some tuning
+ properties
+Message-ID: <20250428082002.gd275e2rqollatcj@hippo>
+References: <20250423094607.1029429-1-xu.yang_2@nxp.com>
+ <20250428-thankful-observant-trogon-a5a003@kuoka>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250428-thankful-observant-trogon-a5a003@kuoka>
+X-ClientProxiedBy: SG2PR03CA0097.apcprd03.prod.outlook.com
+ (2603:1096:4:7c::25) To DU2PR04MB8822.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e1::11)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|AM8PR04MB7267:EE_
-X-MS-Office365-Filtering-Correlation-Id: 38b599fd-dbc5-4baf-6a38-08dd862d6c76
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|PAWPR04MB10029:EE_
+X-MS-Office365-Filtering-Correlation-Id: f70bb409-3877-4564-45e5-08dd862e06bb
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|376014|10070799003|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MlhrRC9rNWk3LzNpYXkyMkZjWTBCbGZaZ2R3VzVQR3IveHhZeUJ5SURzYmRl?=
- =?utf-8?B?aU80R3JFN09pQmV2ZE1tdDJSOEVXS1VPYnoxTHZGY09KZktwNUFKRXkxT25T?=
- =?utf-8?B?Z0d6QXFUaUp4bkpxc1VDNTVKQzZpQ0o5U1g3RVVwVHI4b0dYZ1RGNEEyQ0pE?=
- =?utf-8?B?d2hiS3RxeFRKUjhpb3E4dXY2elRHSlluSEx2UW0yMEZ3MmhRVHdpM3psQWNv?=
- =?utf-8?B?UU5QeFRNWG10MG9icGw1bmNOSHVYMm5YbTJWaXN4NmpuS0ZDUHVMS2NOUWxt?=
- =?utf-8?B?WmRrOWJNbGNicGh4LzRxaFE5eTNXRWo1R2krZEZlZjRMQkRWeFRBcC9ZUW1j?=
- =?utf-8?B?M2F1WTRjNHNheC8rdzl2bVlFRy9vR3lrYTJJQWs1alBnd2dDSzJmNnl1b25l?=
- =?utf-8?B?OFZoRWRHckVUcm50dDY4OStLQjR1SXhmcFNjTUs5ejV1Rm9TYTJaN1F3bmFs?=
- =?utf-8?B?M3FSUnZtYjVXajdRY2xrOXRxc2lUUjdqU0lOYkNoZlJQVk5QZ0xDclEyckJI?=
- =?utf-8?B?TVlWandjeXJQUHVtbXI5WEI0Z255bXpVRmtna1VIRjZWR29FQ2owOHNKZkd4?=
- =?utf-8?B?cnJtUFJHdFJPcTdLSkppeHpBZFFZdmo3OUhleFdJZ3ArbUVqNXY0NEkzQ0xR?=
- =?utf-8?B?YllDUjR3OG9QS2g2SFJoaHBkY0lhd245SHdIall4RUVIWGhHdTdXOG1kakl5?=
- =?utf-8?B?eVUwMDFNTm5mcjlFY0dMcHg1anQ1RklzZ0ZhZnVOT1pxalFsUDNKcUpEdTha?=
- =?utf-8?B?dWNHS09tMXhOVGdEcmk3S2gzQTJ2cWtCaXQ0WklpT0UyR2xXbGY4NVBOK1py?=
- =?utf-8?B?TXZ1VXRZdEtlZ2lwOVdBanJVbG1uWkd6d1JpOEd4ZUZhZmEyZVVyRGhTQ05P?=
- =?utf-8?B?a1FFUGNGVVFVbWhyWEV5S2o3NHFXZWFIWGNuaXRwTUZ0RWpMR1JMZElIbHBH?=
- =?utf-8?B?d0NOS1JCU0ZoeVdjYk10cWlsWmE2YjdRQmltdWdwN1M2VGVDbDg2cHYvcng5?=
- =?utf-8?B?endyZnAyejAwTDNYMk45VUZRdmZMZFRYVi9mRW1KRVdSTmVJNnhIY0srZURH?=
- =?utf-8?B?YWdycGphcDM2eGpJYVpDTGVwNzZlOVRlNldjQjBNV2xVVVRZTHFqVDd4ZXRE?=
- =?utf-8?B?c0ZSWjBkR1EwWEd6ZndEV3NDQi9pZXN2ci9NVk9ycitHNUpCbjJMaVVUemN6?=
- =?utf-8?B?YjlrS2xpQi96ZHRDTE0xWHkwZFV2WkRad2xNMVQySThrNE5DMGFhOUdZMlNt?=
- =?utf-8?B?NVdqVXEwZFFNS1pPVU9KYkhNRU8xYTFSMGJORVh5cmdoTkd6VUYwdXNia0JM?=
- =?utf-8?B?L0I2OHBPRGtBaGd2NnBJa05tRyswK2ViL0tobExWc2lLRzBNY2c0YWhvQjAx?=
- =?utf-8?B?NEwySjFxSGJnY0xlOGJRTUtFcFJrVW1aVzF5YlZFSk5Ha0VmOU9NcEE5QTJ0?=
- =?utf-8?B?WlNKOVRhWmI1QzRIL3VyWUUxT0dTUnF4UkZ4bkxjTXZ4b3JFUE03dTJXTDJ2?=
- =?utf-8?B?bjVxZURzd25QRlkyamFpZDlxOEhWeThlZnovdzNLS0FLOUZCakNaQTF6clR1?=
- =?utf-8?B?UmJrR2dLT3d2YjBCOU5hOWpLeUFnZllaNnR5Z3NaYU1mNDdHR0xXYUIvRnI5?=
- =?utf-8?B?WlBFUjU0R3RjanArZC9STW54RUFEbHdKMm1uQnJGYnBMc1M2VGFtRXVVQUtK?=
- =?utf-8?B?S0QwK2pGUTBQNkFOdnJaZ0VWZ0V1NWhZV0hZa0s3elN2ek83WFVpa3I3WmdP?=
- =?utf-8?B?OWxKZnl1UkRWVW9oN1FpbWdJbXhXWWRtNVZ6VTFFSkYwUGFXSjZMWEU0RWVW?=
- =?utf-8?B?WlBJWGVuaW51ZTQ4VVdHT1laeVFDRU40TzVOanREWHBPRTlqNlFZL29VOWxV?=
- =?utf-8?B?QmdFS1VMa1FJV0hPK1dLc1B4REt2cHZVRmxVWXE2b01nSitUbmdpUWd3L1Az?=
- =?utf-8?Q?HGS0HJ/fR64=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(10070799003)(1800799024);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?KaNQVBWhV40sYLXN1WfYQr3kHKiYQhy8KuNZNrfVzl4F1t9Xlg1kF4ZyKvUL?=
+ =?us-ascii?Q?HpqSnX3ftdjgQrY8piZmk/NE/K7nslV4BF3dg0gEIoSJ0Iqk1HIvTZtE1J2Y?=
+ =?us-ascii?Q?Mp9DjaX6pI7SIorqjgSJkeurH7j4TPEOabg8GTQ+2clSPR4XQvUzHxVbO+xj?=
+ =?us-ascii?Q?5TE4k6vGJCzOgN+sX0P2vHc+nxPP3EsBsVBcSrHhlr2w19bXFmdZfIUharX2?=
+ =?us-ascii?Q?q6Wy4gV0zWKTQqQNRpX18uaCMtkwAbYxtE2JZSPtCIGtDNO3NfNJ54oPquwJ?=
+ =?us-ascii?Q?PIjDJGFLLTk9Pr0rSr9asXWEm4/JnW+TDR/Y1oxCTysfD+tYA6jZz0CShYyP?=
+ =?us-ascii?Q?e4fhjkTbKRkLBevLQpPlTPnQIIsDUqDEVOdDpZdmypH4YQGRaEKNKqwCh+Gy?=
+ =?us-ascii?Q?PfMWPAYe1RG2K68PPJ/FUT9YMpx42aRHJ4uqzH1Glth+AOlUy5RqUq0BVV/V?=
+ =?us-ascii?Q?Kqx6Wrljanjl5YFD1cUF/6ePUtdjoe2bbXhaw9WjmTGpgoQaLzXvsaY2s01W?=
+ =?us-ascii?Q?IcPFwa6ISY9ekOWyt2/ehFIYv0CC7tv1xhnDaWtQQifuFRyOvW0DmALA88ew?=
+ =?us-ascii?Q?OVC0Ft+60FiqlopIXE/Cz9vjGiHkXKlBk+5YH7pWaq+YWSsKBj29JUoX81wT?=
+ =?us-ascii?Q?yi/M8FdzLvB6fzIn7iORMbu9dr/hMm9YWfVVK79wfwnyjhz0WPe1fjUzjf+Q?=
+ =?us-ascii?Q?l91W6+BHDFbsTxsEyBZK+u7G3/rErCiNmNLAOlcrc2c7PbKz5O5lK27P+OeD?=
+ =?us-ascii?Q?fNGLvzOGWT04qeUbcUtFsPBWZBzNaJwIo0283+HPtQEPiGjpfHjYYKdhoZ6s?=
+ =?us-ascii?Q?ZbjouCCllaZPFXnOcdaKCi3bsPQHe+sMQgzTIem2G7Vm0c47P4AZh2/ZWO3E?=
+ =?us-ascii?Q?ayys9fbEYwi+hRv9cvioDW/CtGrxradzJ9M9O+OMuO3Hc+TRnzfiOJf7FfWT?=
+ =?us-ascii?Q?Db+jW4lb75i9Y817Y805e21EvibZIHbKSWrxDav93Z9oGGSIvAL3XsftQZIo?=
+ =?us-ascii?Q?bXsYLodDOkKh++eQRa9778sFz2NPwTFNC2bYB5VLt+WTn9nqLkaLlS3fWhOu?=
+ =?us-ascii?Q?vuNN3WsPxpzAfVIScUbW87lXEvWQhh/K4gVG2nXGMRNdHlG+d+CzEvQQDxKR?=
+ =?us-ascii?Q?gf5W+WwTvto4DQr/dhi116AVdkJkvUdjuKFS2rB2Q7aSObEt9xcKuFfwsYG0?=
+ =?us-ascii?Q?Rv7qtP2CqMCSJF8EUvW56CfWtEwEAh49IK697sHcFkOdsREgKBtq3GrYnJrk?=
+ =?us-ascii?Q?rmj0eHrxw2DXZExQlN0Jta+N8M+N/Sdw22LUawGw7N19RsviR6qH5JF4VjjY?=
+ =?us-ascii?Q?ePLqWALrPi5z0M4C1qUIpByGi3wDElao52fUKRc8/fxGHFxkWS+5maHyUzuB?=
+ =?us-ascii?Q?BSf16EXOh2fn9Z5IvaXh9PdjThXycg7tjZo2tCqUZDjGkAG54A5Tte4v3+gz?=
+ =?us-ascii?Q?6jwLr2jmb6xi4ETgdnrlfMl8iYHSed3SbjKIItRXSnEaFZ9SD9Nodg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?c0poWmR1SlRWcWw1S0VpbzErYWxZTHVqMGk2YUpkcXRLZWRXYjU4ekt3YzBZ?=
- =?utf-8?B?eTYwcVo0RXcvMmpQUTVUTUh5THlwWnFGZUFRenJXTzhJR1ZrTGE0RzJyeDkv?=
- =?utf-8?B?YkJ2L1AzbzlUYTJpNHBKK0U3UCt0N0VvSnNLRGw0bmlKY3cxYTg2SXJxMTNX?=
- =?utf-8?B?T0RlcnpVQXhJbUtxWnNNYWhwdm9nZ3FZdmZLZm56eHQ4ejlSSG5GeFVMWkwy?=
- =?utf-8?B?MmlmTkVKSHRGdENKNXczQ29Vb0JYOWpzMDEzY1NRNUdyaFdkT2NXZXQreVlR?=
- =?utf-8?B?YjdaeDAreXphcTVhZURnTTJId0Ivb01DOVVUakRMeDRXdXRUcDdXSVEvZnpK?=
- =?utf-8?B?L1J1UFd4aWhrdXF2QnFVSWFXdFFEK2xnTnllM2NuWWZPbFQzSngzeGhKWkgz?=
- =?utf-8?B?ZkJvU3ZxZ00rRmdMN20rQVdMTkZVN3I2WE9vZXRRWktxVU5Ic0FSRHRobEh2?=
- =?utf-8?B?bkQ5ajRkakc5S0plaTh5akxZbHBQU3l0YUh0cVdkSVE5TFBnRFlsSjVFTVBs?=
- =?utf-8?B?Zy85dFo3LzBTUXJkbHlxNWpmNG9ieUZqZjZyRkh1Sk5uSm81NGRTaHdUUEp6?=
- =?utf-8?B?dXJiRkVyWGNkc0J0a3hQbmNGR09aUHpjcnJncEx4VjZhc21YbDJpUnk2L1Yr?=
- =?utf-8?B?cUM1Y0d5c3MzMjlzWkJ1ZnUzZ2R3UWcrbjBkYmoyTkxRcTFaOHpTYUxNTitE?=
- =?utf-8?B?Q0hTcVZsNDRzdTVUU3VMQlBQbXY5aG0zN1VINUJnQjd0UVluY09PNXpKbUFW?=
- =?utf-8?B?cmtCcGhGYXdWVlovSXl1STB3OHRwUmlKcHR0YXQ0dmVZeHJZK2loT0xjTStj?=
- =?utf-8?B?eEpSd3FDUHl1RzBJd1RmcXJ2bVFPSTh5bjFjZEJZLzVQRS93UXE5Rk92bE05?=
- =?utf-8?B?dklaMHY0K1V1NGtyazRnWVBrMWptaExUT1hOOEcxYnNBTzhXRkw3ekNZSmVN?=
- =?utf-8?B?QTU1cmhGQjAvN0gwclc2WkJ1WUsrcjhUUFg5NDl4UkVjUitBK3hvalNOUW9U?=
- =?utf-8?B?K3dvekhUeFRMdUppejYvYlRGREh4RG9SV0ZkeEk4MkY1QVRSSklNakMxTG9J?=
- =?utf-8?B?VEFIKzdhdUdURUlXZGhlTGFNT1owQzllbWZJa2dBcG01OENmTHNKcUtRR0NQ?=
- =?utf-8?B?SC95Z2FVUm9EVlF5UHJ0K1c2aWUxV1BUOUFkOWZyOTYxOVFIMUsyaU9IdWpt?=
- =?utf-8?B?dFRHdGt2OUhlYU44WDNNNGhTZDNZQ0czYU9DWmlBbkUxWXZRVWU0VlhqUjRC?=
- =?utf-8?B?cjJtaDlDMmZBTGpXT2FBalByL1AwRjk3MUVOeTMxcXVZajFSTndCMVI5Z1NB?=
- =?utf-8?B?aUJ6cGJXTkdGMjJheXhqTGg5dXhhVVRaWUk1dEM3SUtyWTdWVFAvdFJUWWts?=
- =?utf-8?B?bm9ZYTJxTmg5aXFheXJRNVN0Ymo5Q2plcTB5TEJ0TXNndmNGZUxQSEJEbW5I?=
- =?utf-8?B?L2p3QWlyL0NQVVpUYWFZN2dKd1p4TFQ5Um5RWGtmNTJFUHVORWVnN1Q3Vmtp?=
- =?utf-8?B?enpwVzJDQlFUcDJPRExJUTkxYXJzQndiazc3RXMxU21QTDNSM2pONndydzg5?=
- =?utf-8?B?T20yYVBnbWc3V2RacjVyTllaMXZFbW5IcjZwRFRyVHZnbWZaWmxwU3JWbUl4?=
- =?utf-8?B?TmRTZ25INzlibmlKWEthSWlQTUdUWHhaZjhRdUJsbSsrazh5bkt5QXdQc0dZ?=
- =?utf-8?B?SEpnOUdXdnNwZUlhb3ovWXE2ZzVkdHBJREpreDFTNE1wOXpGN0FqakV4YU1X?=
- =?utf-8?B?Q0lxQmNkR2FnaUFRWDdtdEdGUVBkaUMvcmJueXl0dmpDMllsQ0FUVG9Ta3dV?=
- =?utf-8?B?SmpHdGIwU3pITUltWmJ6VWp1cU9tSGw5bGxPM3ptamphQncvRGNISzRVbXVa?=
- =?utf-8?B?VHJ3UmRSVU5XSXZRdlZMRGM3dE4wSWNabjVMbkZXVFRqMXhuZ3d1dkcxdnVt?=
- =?utf-8?B?a1FKelZEN1VJSG1KZk5NWWFQNGdYUTZTMEtLZWFWSlhaSnJRU3ZpZ3pSbGc4?=
- =?utf-8?B?YkNpYmVvQTlTOGd2dVZMak9zeDJzdHRKUEFsSnkxYWRIdzJRNzVNcytsZkF5?=
- =?utf-8?B?KzYzNEtKd3d2NjNVUVQ2VmhEWittdjcvampBUWpJSjY4V2o2V1dmMUpmOTBu?=
- =?utf-8?B?UWxGZ1U0N2VnSmtXajhXTGd3aDVSUnVxS1UzYmU1WnFvcm80Z0pOOW9PbTgz?=
- =?utf-8?Q?T+auatPrlxGLmKYB1uMmp/I=3D?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 38b599fd-dbc5-4baf-6a38-08dd862d6c76
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?v+QhodC9EPjRVULs1njNiaQDQgmELEz3rFUzf1EO0WxRNwtiUaeXmDqe244o?=
+ =?us-ascii?Q?b7UDsJDG0WjL6zq3e6Gz/KgHcSaDElOMuajl3zSFmnXJTmRbteOGCZkSaHcb?=
+ =?us-ascii?Q?OyxpqYsquNP9v4RfAXF7035fzowm/SLtD5nI+6KKQHYjnCwL7GuzkYx+1u/h?=
+ =?us-ascii?Q?4PhgIJpZkyk5zY5KXWUIJhcGiHL5idtgXC02+de7GuFgf+yqywICmsVlEF9C?=
+ =?us-ascii?Q?9mDIc6YHKyy/TlcTPT8lI4cyH1ucaiA1GZTbmofXsIYx+o8eamUO+373JR3V?=
+ =?us-ascii?Q?o3055JRvyN5S5IKiZGWOjCOT4ajbcFhhIaS5/iyHw1B/H0EFL8L5ypNnsBh6?=
+ =?us-ascii?Q?CFPONCddV0PjAqwG8AxlX9KkvdgI58Om8Yr0XLlpdDdx8P28ozEzGavsPhjO?=
+ =?us-ascii?Q?yC4NTL/C2hDN6RVFNbWVXTIMkgRAJNNClKPHXShFgPASnJ6DJYRkYaZcDlhk?=
+ =?us-ascii?Q?QXKWeIOb8r/XmzFKWeehbTrNFYYm3dxGP9qkP8hJDdGAPL9RNjDS1N4qa4S0?=
+ =?us-ascii?Q?Uuk/vuzbcYyrKetB60rQ7rTl0O6IYQRAPIXZPj7rPXel4Rc68eAkSuAgEqu+?=
+ =?us-ascii?Q?PLWJ1x+Itwa5GPBTbiHe6rXdcAkB4LsjLiTJfMqCwXdT4AKjhtJxiT4rvz/6?=
+ =?us-ascii?Q?WN04+epgvitSdTk7JR9gIfrPCYIZP3dZoFLBDvtZ+2eNJcozIKO4kcr3E3fs?=
+ =?us-ascii?Q?OFBSF4GWAa5XnApLME72tGYYH/NkUUiOy/ZJWOK85Fww05pyH60x0pFVmc3j?=
+ =?us-ascii?Q?S2qw5F0DNPRvxdYviq5gzLyF/H3mL9mlSQnuAfU39Cea37aJyL6L0EaXBiYB?=
+ =?us-ascii?Q?MZzGzqRbfsj09e6Iz3LRw2/8wRQDgmvadG1mebUsJh+vjfY6MI7I9BdBZuLo?=
+ =?us-ascii?Q?pFPVv3b8mPrN6HKProxkJQsgSwoL8yjvZp9pot4xYspyYaIHH4rBLRWJdHkn?=
+ =?us-ascii?Q?J77N0VaYyVlsSShx5REZfPUQVx66jVzjX1pISbrx9FTEKlZMB50aOr60V6D9?=
+ =?us-ascii?Q?h4lGOrQY2yP9wsiU5Sgo+PSQlSarQfesa87cqDzKk9O3JyUx2fX6KqfhbYhO?=
+ =?us-ascii?Q?ZP+B9RBckUOrjtW7o+vuaIz2mizmJlarKgzM7R3b+hj9iSIQCNelaabZzcxK?=
+ =?us-ascii?Q?0YkTnuErCgWHnJlit7yisXp3yOMvpvXjczAiwvE4SzkyN1cOiom6Z/16lPze?=
+ =?us-ascii?Q?su+YTQzRr0V5+9YNahew6kVI9JPKDUQmch2blmj6ykoDAY7+Rl1Vaqfpp1Bm?=
+ =?us-ascii?Q?NOG7HOrV7/HX3v9X2PBzFfpxsNkroyokJY+q6fRlmDSMnObknsYPKznowiJh?=
+ =?us-ascii?Q?W3r4NjU0JWadbTOoiHI7gmQpWZ+ReasWQc1TI1xvA3eZNlN4FfVRtHjVXyr3?=
+ =?us-ascii?Q?N9zjKQQpvXudLwOu9humQ06jF0U6m+eIknYPCiFTfuBRi1sQCrW3hQajjewO?=
+ =?us-ascii?Q?zB86WOX3z+nXafCZLpn3KK3yYGQeflz0ClOD3PFKM+daP85WDMvGc4uEXApm?=
+ =?us-ascii?Q?WcIsrB4D5L0aDC6JFBbCmNvcgMVx6vxuxIOw5f8tP7L6+/6PlrSHr+8hxcGL?=
+ =?us-ascii?Q?SQV6YYwP6YfwWT9feUkMzYofFMuV3TMxYZpztWRg?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f70bb409-3877-4564-45e5-08dd862e06bb
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2025 08:19:41.0109
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2025 08:23:59.9033
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: enKys7VZaPQB3axeunAbBG4kiabgBWI89EV+ZEXiZSHMhrHwpwXIk+2m/iUvz4bEWzd91ccYQcJ2lgWVj97DHbgXuQSqZ0iRFpINAlPABxI=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7267
+X-MS-Exchange-CrossTenant-UserPrincipalName: TUUvUOQx0J5AmekgUWY43uprQpc2uGvCeZW60q4lqRE0gaQNP7swOkTZua/iVZgRMg2RE1GLfmr9Bhu17pavzw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB10029
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_011950_853222_190445B5 
-X-CRM114-Status: GOOD (  16.62  )
+X-CRM114-CacheID: sfid-20250428_012410_742339_C89240A7 
+X-CRM114-Status: GOOD (  26.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,292 +160,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chaoyi,
-
-On 4/27/25 11:42 AM, Chaoyi Chen wrote:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+On Mon, Apr 28, 2025 at 09:59:42AM +0200, Krzysztof Kozlowski wrote:
+> On Wed, Apr 23, 2025 at 05:46:06PM GMT, Xu Yang wrote:
+> > Commit b2e75563dc39 ("dt-bindings: phy: imx8mq-usb: add phy tuning
+> > properties") add many tuning properties, but some parameter value doesn't
+> > match the register description. It made some changes based on the original
+> > value: add offset to a negative number so turn it to a non-negative number.
+> > However, this conversion bring many pain when some properties need to be
+> > improved.
+> > 
+> > Because device-tree supports negative parameter number, this will improve
+> > some propertie's parameter.
+> > 
+> > Mainly include below properties:
+> >  - fsl,phy-tx-vref-tune-percent
+> >  - fsl,phy-tx-rise-tune-percent
+> >  - fsl,phy-comp-dis-tune-percent
+> > 
+> > The parameter value of above 3 properties are USB PHY specific. i.MX8MP
+> > and i.MX95 USB PHY has different meanings. So this add restrictions for
+> > them.
+> > 
+> >  - fsl,phy-tx-vboost-level-microvolt
+> > 
+> > For this property, the parameter value is wrong in register description.
+> > This will correct it according to true value.
+> > 
+> > For detailed info, please refer to i.MX8MP and i.MX95 latest reference
+> > manual.
+> > 
+> > Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+> > ---
+> >  .../bindings/phy/fsl,imx8mq-usb-phy.yaml      | 43 +++++++++++++++----
+> >  1 file changed, 35 insertions(+), 8 deletions(-)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml b/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
+> > index daee0c0fc915..b09e3dab4c59 100644
+> > --- a/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
+> > +++ b/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
+> > @@ -43,15 +43,11 @@ properties:
+> >    fsl,phy-tx-vref-tune-percent:
+> >      description:
+> >        Tunes the HS DC level relative to the nominal level
+> > -    minimum: 94
+> > -    maximum: 124
 > 
-> General feature for rk3399 industry evaluation board:
-> - Rockchip RK3399
-> - 4GB LPDDR4
-> - emmc5.1
-> - SDIO3.0 compatible TF card
-> - 1x HDMI2.0a TX
-> - 1x HDMI1.4b RX with TC358749XBG HDMI to MIPI CSI2 bridge chip
-> - 1x type-c DisplayPort
-> - 3x USB3.0 Host
-> - 1x USB2.0 Host
-> - 1x Ethernet / USB3.0 to Ethernet
+> Widest constraints should always stay here.
+
+If so, I will restore and modify them in v2.
+
 > 
-
-Are there publicly available schematics by any chance?
-
-> Tested with HDMI/GPU/USB2.0/USB3.0/Ethernet/TF card/emmc.
+> >  
+> >    fsl,phy-tx-rise-tune-percent:
+> >      description:
+> >        Adjusts the rise/fall time duration of the HS waveform relative to
+> >        its nominal value
+> > -    minimum: 97
+> > -    maximum: 103
+> >  
+> >    fsl,phy-tx-preemp-amp-tune-microamp:
+> >      description:
+> > @@ -63,15 +59,12 @@ properties:
+> >    fsl,phy-tx-vboost-level-microvolt:
+> >      description:
+> >        Adjust the boosted transmit launch pk-pk differential amplitude
+> > -    minimum: 880
+> > -    maximum: 1120
+> > +    enum: [844, 1008, 1156]
+> >  
+> >    fsl,phy-comp-dis-tune-percent:
+> >      description:
+> >        Adjust the voltage level used to detect a disconnect event at the host
+> >        relative to the nominal value
+> > -    minimum: 91
+> > -    maximum: 115
+> >  
+> >    fsl,phy-pcs-tx-deemph-3p5db-attenuation-db:
+> >      description:
+> > @@ -112,6 +105,40 @@ allOf:
+> >          reg:
+> >            maxItems: 1
+> >  
+> > +  - if:
+> > +      properties:
+> > +        compatible:
+> > +          enum:
+> > +            - fsl,imx8mq-usb-phy
+> > +            - fsl,imx8mp-usb-phy
+> > +    then:
+> > +      properties:
+> > +        fsl,phy-tx-vref-tune-percent:
+> > +          minimum: -6
+> > +          maximum: 24
 > 
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> ---
->   arch/arm64/boot/dts/rockchip/Makefile         |   1 +
->   .../boot/dts/rockchip/rk3399-evb-ind.dts      | 222 ++++++++++++++++++
->   2 files changed, 223 insertions(+)
->   create mode 100644 arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts
+> That's ABI break with vague reason "some pain".
+
+For these four properties, no DTS files use them now. So that's why I'm
+going to improve them. I think no ABI break here.
+
+ - fsl,phy-tx-vref-tune-percent
+ - fsl,phy-tx-rise-tune-percent
+ - fsl,phy-comp-dis-tune-percent
+ - fsl,phy-tx-vboost-level-microvolt
+
+Thanks,
+Xu Yang
+
 > 
-> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-> index 3e8771ef69ba..8a3adb7482ca 100644
-> --- a/arch/arm64/boot/dts/rockchip/Makefile
-> +++ b/arch/arm64/boot/dts/rockchip/Makefile
-> @@ -40,6 +40,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3368-px5-evb.dtb
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3368-r88.dtb
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-eaidk-610.dtb
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-evb.dtb
-> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-evb-ind.dtb
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-ficus.dtb
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-firefly.dtb
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-gru-bob.dtb
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts b/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts
-> new file mode 100644
-> index 000000000000..a995d4ff202d
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts
-> @@ -0,0 +1,222 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +/*
-> + * Copyright (c) 2025 Rockchip Electronics Co., Ltd.
-> + */
-> +
-> +/dts-v1/;
-> +#include "rk3399-base.dtsi"
-> +
-> +/ {
-> +	model = "Rockchip RK3399 EVB IND LPDDR4 Board";
-> +	compatible = "rockchip,rk3399-evb-ind", "rockchip,rk3399";
-> +
-> +	aliases {
-> +		ethernet0 = &gmac;
-> +		mmc0 = &sdhci;
-> +		mmc1 = &sdmmc;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = "serial2:1500000n8";
-> +	};
-> +
-> +	clkin_gmac: external-gmac-clock {
-> +		compatible = "fixed-clock";
-> +		clock-frequency = <125000000>;
-> +		clock-output-names = "clkin_gmac";
-> +		#clock-cells = <0>;
-> +	};
-> +
-> +	vcc5v0_sys: regulator-vcc5v0-sys {
-> +		compatible = "regulator-fixed";
-> +		enable-active-high;
-> +		gpio = <&gpio4 RK_PD2 GPIO_ACTIVE_HIGH>;
-> +		regulator-name = "vcc5v0_sys";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-max-microvolt = <5000000>;
-> +		regulator-min-microvolt = <5000000>;
-> +	};
-> +
-> +	vcc_phy: regulator-vcc-phy {
-> +		compatible = "regulator-fixed";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-name = "vcc_phy";
-> +	};
-> +};
-> +
-> +&emmc_phy {
-> +	status = "okay";
-> +};
-> +
-> +&gmac {
-> +	assigned-clocks = <&cru SCLK_RMII_SRC>;
-> +	assigned-clock-parents = <&clkin_gmac>;
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&rgmii_pins>;
-> +	clock_in_out = "input";
-> +	phy-supply = <&vcc_phy>;
-> +	phy-mode = "rgmii";
-> +	snps,reset-gpio = <&gpio3 RK_PB7 GPIO_ACTIVE_LOW>;
-> +	snps,reset-active-low;
-> +	snps,reset-delays-us = <0 10000 150000>;
-> +	tx_delay = <0x22>;
-> +	rx_delay = <0x23>;
-> +	status = "okay";
-> +};
-> +
-> +&gpu {
-> +	mali-supply = <&vdd_gpu>;
-> +	status = "okay";
-> +};
-> +
-> +&hdmi {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&hdmi_i2c_xfer>, <&hdmi_cec>;
-> +	status = "okay";
-> +};
-> +
-> +&hdmi_in_vopl {
-> +	status = "disabled";
-> +};
-> +
-
-Why disabled?
-
-> +&hdmi_sound {
-> +	status = "okay";
-> +};
-> +
-> +&i2c0 {
-> +	clock-frequency = <400000>;
-> +	i2c-scl-falling-time-ns = <4>;
-> +	i2c-scl-rising-time-ns = <168>;
-> +	status = "okay";
-> +
-> +	vdd_gpu: tcs4526@10 {
-> +		compatible = "tcs,tcs4525";
-> +		reg = <0x10>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&vsel2_gpio>;
-> +		fcs,suspend-voltage-selector = <1>;
-> +		vin-supply = <&vcc5v0_sys>;
-> +		vsel-gpios = <&gpio1 RK_PB6 GPIO_ACTIVE_HIGH>;
-> +		regulator-compatible = "fan53555-reg";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-initial-state = <3>;
-> +		regulator-max-microvolt = <1500000>;
-> +		regulator-min-microvolt = <712500>;
-> +		regulator-name = "vdd_gpu";
-> +		regulator-ramp-delay = <1000>;
-> +		regulator-state-mem {
-> +			regulator-off-in-suspend;
-> +		};
-
-No RK80x PMIC on this board?
-
-> +	};
-> +};
-> +
-
-Missing io_domains here no? I guess it'll rely on the addition of the 
-RK80x PMIC for this to work?
-
-> +&sdmmc {
-> +	bus-width = <4>;
-> +	cap-mmc-highspeed;
-> +	cap-sd-highspeed;
-> +	cd-gpios = <&gpio0 RK_PA7 GPIO_ACTIVE_LOW>;
-> +	disable-wp;
-> +	max-frequency = <150000000>;
-
-It's already defaulting to that frequency in rk3399-base.dtsi so no need 
-to duplicate the info here.
-
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&sdmmc_clk &sdmmc_cmd &sdmmc_bus4>;
-> +	status = "okay";
-> +};
-> +
-> +&sdhci {
-> +	bus-width = <8>;
-> +	keep-power-in-suspend;
-> +	mmc-hs400-1_8v;
-> +	mmc-hs400-enhanced-strobe;
-> +	no-sdio;
-> +	no-sd;
-> +	non-removable;
-> +	status = "okay";
-> +};
-> +
-> +&tcphy0 {
-> +	status = "okay";
-> +};
-> +
-> +&tcphy1 {
-> +	status = "okay";
-> +};
-> +
-> +&u2phy0 {
-> +	status = "okay";
-> +};
-> +
-> +&u2phy0_host {
-> +	status = "okay";
-> +};
-> +
-> +&u2phy0_otg {
-> +	status = "okay";
-> +};
-> +
-> +&u2phy1 {
-> +	status = "okay";
-> +};
-> +
-> +&u2phy1_host {
-> +	status = "okay";
-> +};
-> +
-> +&u2phy1_otg {
-> +	status = "okay";
-> +};
-> +
-> +&uart2 {
-> +	status = "okay";
-> +};
-> +
-> +&usbdrd_dwc3_0 {
-> +	status = "okay";
-> +};
-> +
-> +&usbdrd3_0 {
-> +	status = "okay";
-> +};
-> +
-> +&usbdrd3_1 {
-> +	status = "okay";
-> +};
-> +
-> +&usbdrd_dwc3_1 {
-> +	dr_mode = "host";
-> +	status = "okay";
-> +};
-> +
-> +&usb_host0_ehci {
-> +	status = "okay";
-> +};
-> +
-> +&usb_host0_ohci {
-> +	status = "okay";
-> +};
-> +
-> +&usb_host1_ehci {
-> +	status = "okay";
-> +};
-> +
-> +&usb_host1_ohci {
-> +	status = "okay";
-> +};
-> +
-> +&pinctrl {
-> +	pmic {
-> +		vsel2_gpio: vsel2-gpio {
-> +			rockchip,pins = <1 RK_PB6 RK_FUNC_GPIO &pcfg_pull_down>;
-> +		};
-> +	};
-> +};
-> +
-> +&vopb {
-> +	status = "okay";
-> +};
-> +
-> +&vopb_mmu {
-> +	status = "okay";
-> +};
-
-Why no vopl?
-
-Cheers,
-Quentin
+> Best regards,
+> Krzysztof
+> 
 
