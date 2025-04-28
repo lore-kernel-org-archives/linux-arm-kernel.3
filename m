@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 139D7C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 21:25:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A8C3C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 21:28:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hiV1KAvAfB/N2ESs9iUxrXckjGXm4ld7nwAWfxyz8q4=; b=MzrOGD3Lp5J03oS6ZsgjaQ7KeA
-	CuianVGiRXn3oDt4N0KT83eL/mLgZqjGpB2KOskVMXQqsYfVEIwkc9oWszcpaZ1mWadbRaHNZVsoR
-	n+ivS0MXO7jn6y8Nx3lv8oYHtiG9yqfRutyW9/U1ldPjewj3DPXxsTDb3HqRg5vruJR8UjC96eH07
-	bLqjYMjVTFHiOj6Sf0z53wSISRB0OF23lA/GWS+aC+qiqAOsfcThJHc1fTXgplti/LSGOIkzO0eXw
-	Bfg7nkG1uf234sU0i8oKkrlveOKMQdY+IOEfkilSFI57kw+cWjAhF2974qdQIY9rb2CxiLkYmzGCG
-	zR6H1R4g==;
+	bh=aQvs5PM1gpfyo8zFdbVtMefzo4Lv3nxL51EfMSsyelE=; b=zv+61dksRjj5GV9tuK4ewvFIys
+	Y8iFwXpnB/oWIm9L7H/N8MWM8SjdpNaVUh0URYNVVaJkgXslBvyf1SKbJMmfwtIvzzluC9Qp/jGfM
+	2ywI9jsYAs1RHcIR89eOCsL1+z+LL5zwSo6Wb4vY22a9eKTJVDzvpIzALhffRE5ffpldNsu51vh8T
+	ujA0tGpp1aQLXR55dC9ccn51ut+Ngw/vEGbNPUxSXe6zfed6fBu2Vm5t5WPvYFQG98rSKbI/fFcV1
+	5cAkT4QZUszv3Dcpx89YPGv0iMqunNRDdhNIoHJ56yezFYXL69+EQitS27/rbHQU0JvHNzw7rlm3a
+	uA1Zu07Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Vz4-00000007c1K-3aoD;
-	Mon, 28 Apr 2025 21:25:50 +0000
+	id 1u9W11-00000007cJ7-2YjH;
+	Mon, 28 Apr 2025 21:27:51 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Vhl-00000007ZHo-3iIe
+	id 1u9Vhm-00000007ZHn-05vA
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 28 Apr 2025 21:07:57 +0000
+	Mon, 28 Apr 2025 21:07:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=hiV1KAvAfB/N2ESs9iUxrXckjGXm4ld7nwAWfxyz8q4=; b=QiZWS+u20eVY+nwV0n36hQ2seF
-	SII59WESBtRR0n1rhNxfz14F4puOBkGIW7le6tNYYmPCdZAB6UQL+1HYEc9XZ7EsViKbwL3bFcuF/
-	qgp0whFoNYVp3H4b9JDbuWT5HcQquWSC+AHQD7RaSv9EyHlPhNr/hTpqEZtiztAHWVhfGkA+4FrvR
-	tqXevu2p9iSIto7ZAmErrGovK7aMLa1s172gbm2zIvis+QdxVE6IwHUjQqxi+uUYYAfDaAPzt1hnD
-	V3ueMV0Fpp9c5g83c8PhSogKlHoacLLbsF6sYKXmCP4X6SrJoy88TQ689fPXdehVRpwn9DxXWFtbs
-	i9FwsBsg==;
+	bh=aQvs5PM1gpfyo8zFdbVtMefzo4Lv3nxL51EfMSsyelE=; b=W07HFG5cwsutAHHlBNskVuxyTO
+	5t6Qzz4AcwN/Xcon0NRU/kFGLH5i51QvRY7Pm9Ll5XqH0KyT68WRRfCV8PGISmFOzu2bG48j4ZQcw
+	wZnoY80sopadKhuTiVHgF6EfINV2RI88foOE73knau9/N01i2tOOu7rlucdxVpf+EpRlN/oOfhd7t
+	L/FCrAgZBjErluFbv+AXUx8LoOPWdAPmpjc82bHzTFwivQj2q/RIFYj9f2UiAsVyMChVS/+nnewKY
+	WtPqSNtbc4QqKJUElNbcHmzOexOJTsUVyM1NtYIAdB7fdo9EdhyzHcWo2TSglX+WSf16WmCiLnj+W
+	RjONBCzg==;
 Received: from linux.microsoft.com ([13.77.154.182])
 	by desiato.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9Vhg-0000000D3Bn-1Ix2
+	id 1u9Vhf-0000000D3Bh-2RCu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 21:07:55 +0000
+	Mon, 28 Apr 2025 21:07:54 +0000
 Received: from romank-3650.corp.microsoft.com (unknown [131.107.1.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id A61D1211AD25;
+	by linux.microsoft.com (Postfix) with ESMTPSA id 50DA7211AD26;
 	Mon, 28 Apr 2025 14:07:45 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com A61D1211AD25
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 50DA7211AD26
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
 	s=default; t=1745874465;
-	bh=hiV1KAvAfB/N2ESs9iUxrXckjGXm4ld7nwAWfxyz8q4=;
+	bh=aQvs5PM1gpfyo8zFdbVtMefzo4Lv3nxL51EfMSsyelE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rxRfdfTrS5MZLUdV8vOjhbRD76KCrJhbZapoQYJ1PhffsS07PiZh/fHgiezi6WQsX
-	 714+Byq7ABtGAAEWUoD2H8cjlJ7nN1F1kRZzYtOUzdMDi7Okvd1OrJKgPB9vsaUwxV
-	 1d+NYGGKN7Hg1aFKYhdh2RjSEc5pUe0BGO78oE40=
+	b=NbmLTb0r0rHGwGK2xB0H1U8bn048I5hkWjnFOkoV7D3qykI5rUF0xvX/weI2hrTXG
+	 c5AvE7XEbPplTqUuQQrRpRHhUJ1BhGU9fSafYrC8F2d6ClQx6IKDTrbBDtOMyP5Fku
+	 tGZrSfHKxllfTj+Wvk9QVtXkvIzvbEgrFD8N91RQ=
 From: Roman Kisel <romank@linux.microsoft.com>
 To: arnd@arndb.de,
 	bhelgaas@google.com,
@@ -96,18 +96,17 @@ Cc: apais@microsoft.com,
 	benhill@microsoft.com,
 	bperkins@microsoft.com,
 	sunilmut@microsoft.com
-Subject: [PATCH hyperv-next v9 05/11] arm64: hyperv: Initialize the Virtual Trust Level field
-Date: Mon, 28 Apr 2025 14:07:36 -0700
-Message-ID: <20250428210742.435282-6-romank@linux.microsoft.com>
+Subject: [PATCH hyperv-next v9 04/11] Drivers: hv: Provide arch-neutral implementation of get_vtl()
+Date: Mon, 28 Apr 2025 14:07:35 -0700
+Message-ID: <20250428210742.435282-5-romank@linux.microsoft.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250428210742.435282-1-romank@linux.microsoft.com>
 References: <20250428210742.435282-1-romank@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_220753_254738_4BCC5CC9 
-X-CRM114-Status: UNSURE (   8.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250428_220752_731939_63314A01 
+X-CRM114-Status: GOOD (  17.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,31 +121,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Various parts of the hyperv code need to know what VTL
-the kernel runs at, most notably VMBus needs that to
-establish communication with the host.
+To run in the VTL mode, Hyper-V drivers have to know what
+VTL the system boots in, and the arm64/hyperv code does not
+have the means to compute that.
 
-Initialize the Virtual Trust Level field to enable
-booting in the Virtual Trust Level.
+Refactor the code to hoist the function that detects VTL,
+make it arch-neutral to be able to employ it to get the VTL
+on arm64.
 
 Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
 Reviewed-by: Michael Kelley <mhklinux@outlook.com>
+Reviewed-by: Tianyu Lan <tiala@microsoft.com>
 ---
- arch/arm64/hyperv/mshyperv.c | 1 +
- 1 file changed, 1 insertion(+)
+ arch/x86/hyperv/hv_init.c      | 34 ----------------------------------
+ drivers/hv/hv_common.c         | 31 +++++++++++++++++++++++++++++++
+ include/asm-generic/mshyperv.h |  6 ++++++
+ include/hyperv/hvgdk_mini.h    |  2 +-
+ 4 files changed, 38 insertions(+), 35 deletions(-)
 
-diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
-index 21458b6338aa..43f422a7ef34 100644
---- a/arch/arm64/hyperv/mshyperv.c
-+++ b/arch/arm64/hyperv/mshyperv.c
-@@ -117,6 +117,7 @@ static int __init hyperv_init(void)
+diff --git a/arch/x86/hyperv/hv_init.c b/arch/x86/hyperv/hv_init.c
+index ddeb40930bc8..3b569291dfed 100644
+--- a/arch/x86/hyperv/hv_init.c
++++ b/arch/x86/hyperv/hv_init.c
+@@ -390,40 +390,6 @@ static void __init hv_stimer_setup_percpu_clockev(void)
+ 		old_setup_percpu_clockev();
+ }
  
- 	if (ms_hyperv.priv_high & HV_ACCESS_PARTITION_ID)
- 		hv_get_partition_id();
-+	ms_hyperv.vtl = get_vtl();
+-#if IS_ENABLED(CONFIG_HYPERV_VTL_MODE)
+-static u8 __init get_vtl(void)
+-{
+-	u64 control = HV_HYPERCALL_REP_COMP_1 | HVCALL_GET_VP_REGISTERS;
+-	struct hv_input_get_vp_registers *input;
+-	struct hv_output_get_vp_registers *output;
+-	unsigned long flags;
+-	u64 ret;
+-
+-	local_irq_save(flags);
+-	input = *this_cpu_ptr(hyperv_pcpu_input_arg);
+-	output = *this_cpu_ptr(hyperv_pcpu_output_arg);
+-
+-	memset(input, 0, struct_size(input, names, 1));
+-	input->partition_id = HV_PARTITION_ID_SELF;
+-	input->vp_index = HV_VP_INDEX_SELF;
+-	input->input_vtl.as_uint8 = 0;
+-	input->names[0] = HV_REGISTER_VSM_VP_STATUS;
+-
+-	ret = hv_do_hypercall(control, input, output);
+-	if (hv_result_success(ret)) {
+-		ret = output->values[0].reg8 & HV_X64_VTL_MASK;
+-	} else {
+-		pr_err("Failed to get VTL(error: %lld) exiting...\n", ret);
+-		BUG();
+-	}
+-
+-	local_irq_restore(flags);
+-	return ret;
+-}
+-#else
+-static inline u8 get_vtl(void) { return 0; }
+-#endif
+-
+ /*
+  * This function is to be invoked early in the boot sequence after the
+  * hypervisor has been detected.
+diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
+index b3b11be11650..1ece6721c486 100644
+--- a/drivers/hv/hv_common.c
++++ b/drivers/hv/hv_common.c
+@@ -317,6 +317,37 @@ void __init hv_get_partition_id(void)
+ 		pr_err("Hyper-V: failed to get partition ID: %#x\n",
+ 		       hv_result(status));
+ }
++#if IS_ENABLED(CONFIG_HYPERV_VTL_MODE)
++u8 __init get_vtl(void)
++{
++	u64 control = HV_HYPERCALL_REP_COMP_1 | HVCALL_GET_VP_REGISTERS;
++	struct hv_input_get_vp_registers *input;
++	struct hv_output_get_vp_registers *output;
++	unsigned long flags;
++	u64 ret;
++
++	local_irq_save(flags);
++	input = *this_cpu_ptr(hyperv_pcpu_input_arg);
++	output = *this_cpu_ptr(hyperv_pcpu_output_arg);
++
++	memset(input, 0, struct_size(input, names, 1));
++	input->partition_id = HV_PARTITION_ID_SELF;
++	input->vp_index = HV_VP_INDEX_SELF;
++	input->input_vtl.as_uint8 = 0;
++	input->names[0] = HV_REGISTER_VSM_VP_STATUS;
++
++	ret = hv_do_hypercall(control, input, output);
++	if (hv_result_success(ret)) {
++		ret = output->values[0].reg8 & HV_VTL_MASK;
++	} else {
++		pr_err("Failed to get VTL(error: %lld) exiting...\n", ret);
++		BUG();
++	}
++
++	local_irq_restore(flags);
++	return ret;
++}
++#endif
  
- 	ms_hyperv_late_init();
+ int __init hv_common_init(void)
+ {
+diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
+index ccccb1cbf7df..6c51a25ed7b5 100644
+--- a/include/asm-generic/mshyperv.h
++++ b/include/asm-generic/mshyperv.h
+@@ -378,4 +378,10 @@ static inline int hv_call_create_vp(int node, u64 partition_id, u32 vp_index, u3
+ }
+ #endif /* CONFIG_MSHV_ROOT */
  
++#if IS_ENABLED(CONFIG_HYPERV_VTL_MODE)
++u8 __init get_vtl(void);
++#else
++static inline u8 get_vtl(void) { return 0; }
++#endif
++
+ #endif
+diff --git a/include/hyperv/hvgdk_mini.h b/include/hyperv/hvgdk_mini.h
+index abf0bd76e370..cf0923dc727d 100644
+--- a/include/hyperv/hvgdk_mini.h
++++ b/include/hyperv/hvgdk_mini.h
+@@ -1228,7 +1228,7 @@ struct hv_send_ipi {	 /* HV_INPUT_SEND_SYNTHETIC_CLUSTER_IPI */
+ 	u64 cpu_mask;
+ } __packed;
+ 
+-#define	HV_X64_VTL_MASK			GENMASK(3, 0)
++#define	HV_VTL_MASK			GENMASK(3, 0)
+ 
+ /* Hyper-V memory host visibility */
+ enum hv_mem_host_visibility {
 -- 
 2.43.0
 
