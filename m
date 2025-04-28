@@ -4,91 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A491C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 14:01:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE69CC369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 14:08:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WKpFz0sFR5mCvXUjLxoDEJGO4+bSqpZN4lZyQeOmWkQ=; b=TQEx+vyEwIrHzTFEgTR5oemogh
-	cZnXueegpOIa3NJ1NPjyBHLIf4/cdL6eDDhAa0UL+QdUZ7fRD4vnOWgqcBl5vSY+tTwzcMD3Um0bl
-	WVSvM+2GAc4qa86DZIqnVDgFN2TJs8kkxk5GzjSeA0tMO12vApi7BQOIj7RcTCw6wC7vQThC5b74R
-	dJJBNVMt1FrnIoc0zmSuObp9JUHSgSQJfzO6flzADRR3AfxTzNSST6GCS1B2YDmpCVMEjYp/HF/cl
-	WfPfLNsQ08sYc07X5FzvRQoItXFVJUVM3gYiz9JnZ4g5Nzk+ngU59FeOkfibF77XQ51izFu4Q7Y7c
-	rkeL918Q==;
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Rnvsrs/RnUfAdIFURUw+pSZpIvXzBwDBppysxb89Nz8=; b=e4IyYhBSR37aFV/V+s8VYALtxL
+	Ipm9w4cToUhD8E4plhPNRYhqWa5/Pqe6yNCT7oHkilAJxdimGV8VglhjK2HvoRNJzRdi2q//NjWd3
+	2/+tdR/7J0BGarIqT9ImC0QuUVy2KX90Ppin6Wptq+Ip34fjBEZE8Dx1m4xijkxlbVGAhiBRTOj+h
+	gQVWmhkGIe2c9jG88bj9rbdVKhjz5Q6RbrVws7hUiGme0BOPp3RR+OAvbhz7MhfNQHw4yp30ntg9o
+	8EPGj15SJxAD4VY9XJVqBIXCP9QKTKV9O19mA8resMGm5QvtihNrr2fOFMMv8lQrGfc/JCz94vKuw
+	GD0WBpNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9P32-00000006ZVS-3Nvw;
-	Mon, 28 Apr 2025 14:01:28 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1u9P9c-00000006aHu-1JSO;
+	Mon, 28 Apr 2025 14:08:16 +0000
+Received: from mout.web.de ([212.227.17.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9P14-00000006ZDp-04AL
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 13:59:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1745848766; x=1777384766;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=WKpFz0sFR5mCvXUjLxoDEJGO4+bSqpZN4lZyQeOmWkQ=;
-  b=hAWdxv54aF/AyNfu/5thP/kioGmIFK2YVnQzXq9JwpdCqGSriS02dKJ7
-   aJ8k3zWrWbVmfhYH5TpD5Ut+w2KzMKtw3rgocCvFR/MptyaiMlBGRZvlL
-   ZzpfX6YOjEKzmw7UTif9VncyPkMWUbCP/jI896Q4CXLNI7T0W+2kKQdcw
-   dGvMTjpxRCAXod6vlEd5P4DnSiiBJSOTcCvimLZOt0UCNnLmN+GL+MdOZ
-   X/f5xg09AQeawPiY3ZEs6zE6jkNn91/gEj/dMzQgxl18rbvXCVUWM5vhW
-   njulTqBPail+oPbk/vqQYKHMnMH3gKiRsSewFi6h9RiJA72YJ3Ob5h5Vn
-   A==;
-X-CSE-ConnectionGUID: 9CeSALBcSamhBdAtN/0Uaw==
-X-CSE-MsgGUID: 1lcsG385T/uI+2rHjKtZmg==
-X-IronPort-AV: E=Sophos;i="6.15,246,1739833200"; 
-   d="scan'208";a="43759129"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 28 Apr 2025 15:59:23 +0200
-X-CheckPoint: {680F89BA-26-2417938-F0170C2B}
-X-MAIL-CPID: ED23F6D0B04F11E4999A0A2C1B96DE42_2
-X-Control-Analysis: str=0001.0A006396.680F89B9.007A,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A5A111615E0;
-	Mon, 28 Apr 2025 15:59:17 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1745848758;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=WKpFz0sFR5mCvXUjLxoDEJGO4+bSqpZN4lZyQeOmWkQ=;
-	b=UJbPZw/EeB14ZfS1ldzTzTFLeJF7p0m/+I5DS+PogBIKzwX9ySrbfmPO+qon4qkcnVWAGX
-	d5zGmfOae2tq9xt2KCQmHm5I9Qoxb7zIKkTe/ezD7vjz9V6Gjk+Qi3VDffo8eQuV3KLGHC
-	bhw3Evp1LuwWkZKuEFRU/rHOubaZ8mOx3C/cYljCbrtURicoUXkYt/xc6oU0TtU+9kdaqm
-	R/m2Glz1ARWF80VyorozyfBCTwm+o3cDpB4vq9priXL0Uhxl5eoZApV7oKH2+sCwOKJoJ0
-	mhTQfy7fcBiEFha0afAjdTkBZZ7Si9Nrj9oB0hIS/eNHJKi6NIxF8vEjnf5Tdg==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux@ew.tq-group.com,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH v2 1/2] dt: bindings: arm: add bindings for TQMa95xxSA
-Date: Mon, 28 Apr 2025 15:59:08 +0200
-Message-ID: <20250428135915.520432-1-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
+	id 1u9P7c-00000006a3b-2WFp;
+	Mon, 28 Apr 2025 14:06:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1745849124; x=1746453924; i=markus.elfring@web.de;
+	bh=Rnvsrs/RnUfAdIFURUw+pSZpIvXzBwDBppysxb89Nz8=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=t5QLb/BKuzh6YSLCKkNGOz0i5eSxRDo1zMIsSD5cUqqAoqe0CrLI4t7vkNZE/crW
+	 ahvDtJE1sYWyxf6KYIgFZjEaLOlxlUXQvsDonQRMSilL+nvQ8dSscYc9MAZO1aODg
+	 gC4S21hrByDCCrpPMeJA98dZyRoGy+5HDqXA+tbdgyvfBrKlofQOimhjCoiLNeaMB
+	 iNoUjdJ6QNuokkTaoM4P2l6+FfcgNvuHtQ+R0Oc2zSTpXTC3b7f3brp+jxyNHJmyC
+	 WrZpFYNCeBH7GaS7VctKYHCTUX9wZdLZvAYxH1eTMwlmMOeVNw/XdBRkx/gbtZKzp
+	 jA5BswtUlU9xsohUTw==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.70.68]) by smtp.web.de (mrweb105
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MmQcl-1ur1S11M9Z-00pd9Q; Mon, 28
+ Apr 2025 16:05:24 +0200
+Message-ID: <07f95756-8ba3-4cad-b97a-cf69866e0c2e@web.de>
+Date: Mon, 28 Apr 2025 16:05:19 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+To: Gerald Loacker <gerald.loacker@wolfvision.net>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ Mehdi Djait <mehdi.djait@bootlin.com>,
+ Michael Riesch <michael.riesch@wolfvision.net>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org,
+ Alexander Shiyan <eagle.alexander923@gmail.com>,
+ Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Kever Yang <kever.yang@rock-chips.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Paul Kocialkowski <paulk@sys-base.io>, Philipp Zabel
+ <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Sebastian Fricke <sebastian.fricke@collabora.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Val Packett <val@packett.cool>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+ Mehdi Djait <mehdi.djait@linux.intel.com>
+References: <20250306-v6-8-topic-rk3568-vicap-v5-5-f02152534f3c@wolfvision.net>
+Subject: Re: [PATCH v5 05/11] media: rockchip: add a driver for the rockchip
+ camera interface
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20250306-v6-8-topic-rk3568-vicap-v5-5-f02152534f3c@wolfvision.net>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:0JXlIylFyGR2e+S5ZPdkWqY5NoftdtiKqkjdk+sF/38iaLsBaia
+ mybUMF+Jo2kRjb9rNvSl/JbQD73LNLjA1wTLr29EfAXExtrgkOArJL87AqHFeCQjv0dpm4L
+ lfex3Tmn0u7uT452l9FOCnGgm7P5bjYHUb+AZS2d/0MQtrHTpwuBoziQXhziR//zW099QBv
+ 4dAX/qJsHm7/t9sXnkMrA==
+UI-OutboundReport: notjunk:1;M01:P0:ptwO+GMJirc=;jIKzgwI1RijYUHZ29yER4P3Rvg+
+ XJe7YkSpk9IPW7pUEQAt9mDGgQmEHlAnf7NYDxheK+LDbReCzeLYfJ++/ZRx66Ryb14vGLbqM
+ JyUIkge3fc6UVBBgI1QAvGQBRVt0SwFTF9/t6faEEiqgYnCfvDu9v3ZBDnJnzpXVeEUeKmPj1
+ maJtSMhK1uNKdFlYz/HVm9s17918lntm8AabMi7k8uSnXQmkBxZpDfxb86Rm3czyJyQPC/8qx
+ IgcLDj3+/LV0ETSmEcX2qS04teepZGIrUuCsUPsH4z+G8TQrKmH7YvOzkAPKDIwlwmtj7Qvxb
+ ncHSEFAaiSt63Wk7UI0fQPYYFLHGGCYknvkYaXtbkTpQygQaQKnHb5BicEDvO+P/4Z13VH81/
+ kB3aFnlwZqzeP9xzO4CTrGT9TJPNxjHZ5kcm+WOBO2ydDZkboF5/6N8zSFroRW09e23fqOpQP
+ SHKKtDOfG65d+VX3ncEqheloJfHLuHBL3T94loCib4YBRmbyRoo749RwJoKwpI/o3WMM54grM
+ 0acRMLeo59kf1C5H9Hx7IsufhXgSXocKydqtH77iG4Dqtn5gHIoKBkYMsawyIO6aK1fF87OXx
+ j8B52rWiN5QUFYNBubabjv3Pdu/fcWSgiUMIvIv89ylR1TFbvzFx0JEjag5x2EYTKOdyG1zo7
+ QUzVfvQLtCoQ97Ei38f3xT3R+eAgeQkGkEAX8plo0BGIV0Ne94Jzq5IPPYsqlgdGUjTNU0R73
+ Vx3MRd2001xhjcE+2SobG6P5GHy5UUIdH6SAhywfsLGs+7cyIlfAYsPQ+xgWcQ8+u35iJsl2Y
+ SK1+7TXzIEEmJdJ74cB5zyeFGzkbr7VyoYAKzXy56Fm1/C717lSIB3oCu9E67xadjaLAKbV3E
+ d+XDiV1Mx/n+pZLTxMP793Wy9i2rcIy7BNI7d00+ubkQRW4CyCW/jGF+VSHRK2ViXpK+wDohl
+ P8q8MNJixF1+sR4tF8dcyqoL8e0w8VD4liIL4gke5JtE4myM1aozFk9izJ88fhx5IXNqORk6e
+ aODGzGcU2krfrq9aS+PRcMXAnGYgt9nLgTFl04vbZFsFIKCMx1wVsf/FUzYH+34FgknJWgtUD
+ unakhO3WFE2czQE1O1qB5k8xiKUUxwvF43CbShKJxFO4+M22IF4YzBphALrnjH52gQZ3nezKH
+ je0BrMA63lOnUPYjJfKey4gxZNCegmqE+Y6NYlEX9K43WbT+i8awboS7c0UVThsU9/sAzGb1G
+ JGYwP1CwM5P+trB1Vz4EpSsUsNkrGbayvtxBBDa6E0yZzwIoMHu1wq9qRE3/+zQlWQrFrf2F/
+ jIZ2rj8zfdn/nqxpjKCk27hkRUui2LoUkj01nTgQfi/XnbdVK+JzYb6UBjcj4CtFehfjzZZaK
+ 70fqqOLKc/SDRpqAIHXVeskWf46FXX8KDFqkuChYPwioTdqnAzGEBrv19m62FB5kaLt/qubyP
+ VRMc2YoKF0qsX0yTqbkq8LakWwjYT2BAPKf8EZegZL+Jhkw0QPqg1WnM70UU4ECJu6kDdahCj
+ Kh5InYmKABNGX/cHIFjAglNr7PeDTYXMgJL3whfwU6BivKHG9zPB746kAuUp2iaNwJrFmsp8S
+ prAEy9p7ttQHNUugI+waml0FDX9niEa5AOIuS0GNgdUGEVeWCf/FfJJT7WchwiXPBI/bqpgal
+ cDdsl/SsvwMCTcM5WLeKcoG7BJ7Bi2MxaGjzooBy7LVqPQHefedVOMcYm44qvPUKnXt+8bI/9
+ xzxk5m0Q23a3QyvAFTCfZjnV4Fk807T/7UNoT0FBjr4LlvsoM/w1yh3nRs3FKJORFzcGXMR2n
+ 9yZNEc/jB9OY9KrHz+JxffPM1PPhO+K6+0mBjKrW3m9XMBDgWGqPIxX1dysjExtQPW8V72Id4
+ mLKLANGep7VBBXYCnQ9sk5BZiOfNyJkCK5s1V2aMcg3cdiFmHTnQm65ivK2PaUpFz3ji1RjqH
+ LkzddI2xmF19ZcnDNjx1hjmMtLjgdxEaTGTZrSiezZ/Xlq3Ulz9bqYn5Tca9Sk3q7zMkUo+Fd
+ sfF1nOTqowOqTIE9JECLVoxzNNEYa/6ngh4oEDwRvGM09wt5bktGmCK4TzGXiSYPASM59zimv
+ YcSqzbd9e422FQP5YqupH0BaTyl9hY/qZIwYLPc8BAOnkmY4BdY8QuUbfxqpLgaSWClVedEHG
+ uKS34uZ+vrvVIBNC9XOBOUQthEH76ACHUKijFvRtaH1sS90UMFj/4O41AiJsSzgHHFwoa0a/U
+ kpIa9iFDzj/lwpzOfgEsbkox2OhU+11BU4dyfa5BIcM1B5hxq1tC91di3eOf9P5HhPtqZ5B0f
+ WFthPE8RL2DpPrg9AwuqG7u035EDvpraxsCaVQDhHTGC6qIs6rMURyDwQWA2mQF22el6qAlIy
+ 0DOsuyqZ10wA8W2uI/Jj7WBEhEEhn4s4SYl1VjFoqTivCBNUx+5nIbL3Huyzbljjwle1SJo7e
+ Kn/PPVbwY8uTnEsI7TFY290PwU5UEahYM+xNJpsGkp6ZmPgjJ3l72WTU2xWi1EcLFm8jQ9S+c
+ DpJEpf7VNxaAGyiwQBfup4CjRuNI5oe1JtcjhpU8e9AD6P3Rc5Q/FTsyMoLTq8ilgtw0PY/iF
+ 9oBbMqDKm/PzjpDAqOsWs108lhmv3t6llOF772WMik+PuuSbI/PduyzHggKh8cbeZqdCnvbUn
+ acP9P7d2yjEO4kPDig8I9CACzhcEtIkD8dlHSZgUz5v7ch5jRRyn87j8rWxdE1UXGKfBekK1m
+ Co9Api9PN7lnaAwKu3O0ilLZnJ5kuqIWRqmL4ueTyopWgCQl8h9fZyMeiuL6q2E/bsiNoA64g
+ Pf6WPk4DXzUozzffNj3jDbZhw3EcTWP0Dez9GhHbpUj3OieAyB6ye+BDjSvFHhJUm5mrd23Jq
+ Lbxs2dJ49N9QRVn07wn52kYe7KD4vj3Wo1UeLagW/PSekXb9J/dlICZd2/kHWANDzXvYSQtwT
+ 0ZMxvfkx7cB3r6pjVZVpJAW0oO0N2BtV8e5jWHtgS35tp81UWbY8txa2GKWPEiSv/EJZRoovO
+ PGsHCCJCmVjAdoJOHm+ZqkZ8lwH+k6TAV5fb6IElqFutomX9nKPVShiGC+dkJfx+Q==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_065926_532762_F9DEC69D 
-X-CRM114-Status: UNSURE (   7.59  )
+X-CRM114-CacheID: sfid-20250428_070612_928432_58544867 
+X-CRM114-Status: UNSURE (   6.02  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,41 +144,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-TQMa95xxSA is a SOM using NXP i.MX95 CPU. MB-SMARC-2 is a carrier
-reference design.
+=E2=80=A6
+> +++ b/drivers/media/platform/rockchip/rkcif/rkcif-stream.c
+> @@ -0,0 +1,622 @@
+=E2=80=A6
+> +static void rkcif_stream_push_buffer(struct rkcif_stream *stream,
+> +				     struct rkcif_buffer *buffer)
+> +{
+> +	unsigned long lock_flags;
+> +
+> +	spin_lock_irqsave(&stream->driver_queue_lock, lock_flags);
+> +	list_add_tail(&buffer->queue, &stream->driver_queue);
+> +	spin_unlock_irqrestore(&stream->driver_queue_lock, lock_flags);
+> +}
+=E2=80=A6
 
-[1] https://www.tq-group.com/en/products/tq-embedded/arm-architecture/tqma95xxsa/
+Will development interests grow to apply a statement
+like =E2=80=9Cguard(spinlock_irqsave)(&stream->driver_queue_lock);=E2=80=
+=9D?
+https://elixir.bootlin.com/linux/v6.15-rc3/source/include/linux/spinlock.h=
+#L571-L573
 
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
-Changes in v2:
-* None
-
- Documentation/devicetree/bindings/arm/fsl.yaml | 10 ++++++++++
- 1 file changed, 10 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-index 447054b52ea39..a6cf65e10d43f 100644
---- a/Documentation/devicetree/bindings/arm/fsl.yaml
-+++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-@@ -1419,6 +1419,16 @@ properties:
-           - const: kontron,imx93-osm-s    # Kontron OSM-S i.MX93 SoM
-           - const: fsl,imx93
- 
-+      - description:
-+          TQMa95xxSA is a series of SOM featuring NXP i.MX95 SoC variants.
-+          It has the SMARC form factor and is designed to be placed on
-+          different carrier boards. MB-SMARC-2 is a carrier reference design.
-+        items:
-+          - enum:
-+              - tq,imx95-tqma9596sa-mb-smarc-2 # TQ-Systems GmbH i.MX95 TQMa95xxSA SOM on MB-SMARC-2
-+          - const: tq,imx95-tqma9596sa         # TQ-Systems GmbH i.MX95 TQMa95xxSA SOM
-+          - const: fsl,imx95
-+
-       - description:
-           Freescale Vybrid Platform Device Tree Bindings
- 
--- 
-2.43.0
-
+Regards,
+Markus
 
