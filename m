@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0D91C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 05:33:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCDFBC369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 05:35:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:From:
 	References:In-Reply-To:Message-Id:Date:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yks5gCO0v3/Nwhtw3eMhsS1fOwKBC+qVEuvZm4t2GQQ=; b=vaZjyzOeNOgLtGUHcOo7QNr4Nk
-	wOMVAE6XLLQyMujkVX+6Q79dVcFlJOPAYtNqXDkK/cR1sGbOqIn/7nLutU4mud+3L7dbZqfXYfLZd
-	4je865hqI53+fNINZsZ9KPyQ9Bey7dnAhKuPf7q9iZuTgtGJ9dmRdN0wMm4rto5OBZuFr3YFGZsxl
-	cqzvjhd1K9KSJj6vZorVV7/LUXomPihqXJgLDnhMHXZWYbrCgjxEtm9swfnl2gXBR34jJDPFFUkSW
-	PI7fOaX+Z1oUeRxIxKWWHPfSndukWSmoqJOc0WtroJjLMWxuXaNoPXv4tL3AGZuwRRumpkYcM2Rra
-	7B3cLxXA==;
+	bh=yYMhF56UBrW4vw1N5woszYg1tkkmu/whJytCBt7SJNI=; b=Qu01AR0qi/osRSRczVBZNLJ6Wh
+	Yvn3OxwxzSoLDNJeE4UDcMppjQvVVeCGc/HzNh1MsizWcwDG1ZL2YKE4OC8Svl26XoN8D/Mb+oOm+
+	u2VbdRon/5u0xet/AasctyLTalbs1fygjSDJRH4F9P6wJVLRSapGeczxatRiZ2EHMe9sUVELoVqPb
+	jnrLAVgYcDBVmkTBd3pzgxWKmgVhlf1vIy5Bes65bfuwJ3sNoZuPPQMqOyjkIdHxbayo31Z6F1o4d
+	Vw00irlDezZ9vZquK6dRKSAcmljQbNOFPiYc70sPH/IAJwMC+yrRmJqDYjkaYkqrBtX5edBSlA2va
+	VlsHWNXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9H7G-00000004nrk-3f1o;
-	Mon, 28 Apr 2025 05:33:18 +0000
+	id 1u9H9E-00000004oai-0i5p;
+	Mon, 28 Apr 2025 05:35:20 +0000
 Received: from abb.hmeau.com ([144.6.53.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Grp-00000004hN7-1M0B;
-	Mon, 28 Apr 2025 05:17:23 +0000
+	id 1u9Gru-00000004hR7-0d6s;
+	Mon, 28 Apr 2025 05:17:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
 	s=formenos; h=Cc:To:Subject:From:References:In-Reply-To:Message-Id:Date:
 	Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
 	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=yks5gCO0v3/Nwhtw3eMhsS1fOwKBC+qVEuvZm4t2GQQ=; b=cJ+PF6EJadwZhfSP8Yfth8KzAG
-	zE2Oc1vkH1yBL4Vy1RID3n3qqTWYaV8jIApzqoiGIcw7Xqc2kFqU9/vqaZaE4XqRpfFAhpFdveGJi
-	d60WPVg3yRvfczy/SJL7rgFv92S/Hew7gW6XlvsYA38dM+J7cnflk9zrzBubvt3EKkvbqPJjyEdNG
-	mBkhT746KKjyBlAQZEZkt2C3X/GoNO/EeUHDMi90+xNz9DXhlEF2rD0Bv8Q+gt1mgVXIhz3cbV71Q
-	q+9w7recayVxKFOv0FodAtdUGSADtD654i8/vzLVbRXJk4q3VJntYc+ZhXKTJ0so2wT/QrgNSVDFK
-	rwn9HHJQ==;
+	bh=yYMhF56UBrW4vw1N5woszYg1tkkmu/whJytCBt7SJNI=; b=U7AV7SMQE3Ngi7iqHYPHIzH5iR
+	L3ugqhMCfLAccduQYIZ08uhYkjBD9jW/bOfP+laSFAZAp6sEto2dBpQ9w19NLu/pPq+Mp8z1dFE8H
+	nhhqC5K0wIGWpmCOgmLXFI86XwPW/TnqVUNgj+xp5FrqZY7IQar8LnEgsJFozBjDyRPMUIvakGYRs
+	X872grzd8NavkpcizDhsCcJ5Y35Z6H9RklKqnF5Wx4OToTvLZCKooa8dOtMuHCmXsuwiR7qv2+xzm
+	tYQybTXxqG50NkN+Edbb5jaT0spo7fGp4kdOyBpg2K6PHKttGrFIJN7lx+o6N91vx9302aVMyaige
+	VgeUUJnA==;
 Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
 	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1u9Grm-001WSV-0n;
-	Mon, 28 Apr 2025 13:17:19 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Mon, 28 Apr 2025 13:17:18 +0800
-Date: Mon, 28 Apr 2025 13:17:18 +0800
-Message-Id: <e124edc9271092e0d8a9cc60079b1943d6038564.1745816372.git.herbert@gondor.apana.org.au>
+	id 1u9Grr-001WT7-0J;
+	Mon, 28 Apr 2025 13:17:24 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Mon, 28 Apr 2025 13:17:23 +0800
+Date: Mon, 28 Apr 2025 13:17:23 +0800
+Message-Id: <0418c85eadaaaeda55c107716ebd3c04446218d2.1745816372.git.herbert@gondor.apana.org.au>
 In-Reply-To: <cover.1745816372.git.herbert@gondor.apana.org.au>
 References: <cover.1745816372.git.herbert@gondor.apana.org.au>
 From: Herbert Xu <herbert@gondor.apana.org.au>
-Subject: [v3 PATCH 07/13] crypto: riscv/sha256 - implement library instead of
- shash
+Subject: [v3 PATCH 09/13] crypto: sparc - move opcodes.h into asm directory
 To: Linux Crypto Mailing List <linux-crypto@vger.kernel.org>
 Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org, linux-s390@vger.kernel.org, x86@kernel.org, Ard Biesheuvel <ardb@kernel.org>, "Jason A . Donenfeld " <Jason@zx2c4.com>, Linus Torvalds <torvalds@linux-foundation.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250427_221721_656442_9A2A30B8 
-X-CRM114-Status: GOOD (  20.42  )
+X-CRM114-CacheID: sfid-20250427_221726_482640_45561E13 
+X-CRM114-Status: UNSURE (   9.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,317 +71,310 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Eric Biggers <ebiggers@google.com>
 
-Instead of providing crypto_shash algorithms for the arch-optimized
-SHA-256 code, instead implement the SHA-256 library.  This is much
-simpler, it makes the SHA-256 library functions be arch-optimized, and
-it fixes the longstanding issue where the arch-optimized SHA-256 was
-disabled by default.  SHA-256 still remains available through
-crypto_shash, but individual architectures no longer need to handle it.
-
-To match sha256_blocks_arch(), change the type of the nblocks parameter
-of the assembly function from int to size_t.  The assembly function
-actually already treated it as size_t.
+Since arch/sparc/crypto/opcodes.h is now needed outside the
+arch/sparc/crypto/ directory, move it into arch/sparc/include/asm/ so
+that it can be included as <asm/opcodes.h>.
 
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
 ---
- arch/riscv/crypto/Kconfig                     |  11 --
- arch/riscv/crypto/Makefile                    |   3 -
- arch/riscv/crypto/sha256-riscv64-glue.c       | 125 ------------------
- arch/riscv/lib/crypto/Kconfig                 |   8 ++
- arch/riscv/lib/crypto/Makefile                |   3 +
- .../sha256-riscv64-zvknha_or_zvknhb-zvkb.S    |   4 +-
- arch/riscv/lib/crypto/sha256.c                |  67 ++++++++++
- 7 files changed, 80 insertions(+), 141 deletions(-)
- delete mode 100644 arch/riscv/crypto/sha256-riscv64-glue.c
- rename arch/riscv/{ => lib}/crypto/sha256-riscv64-zvknha_or_zvknhb-zvkb.S (98%)
- create mode 100644 arch/riscv/lib/crypto/sha256.c
+ arch/sparc/crypto/aes_asm.S                  | 3 +--
+ arch/sparc/crypto/aes_glue.c                 | 3 +--
+ arch/sparc/crypto/camellia_asm.S             | 3 +--
+ arch/sparc/crypto/camellia_glue.c            | 3 +--
+ arch/sparc/crypto/des_asm.S                  | 3 +--
+ arch/sparc/crypto/des_glue.c                 | 3 +--
+ arch/sparc/crypto/md5_asm.S                  | 3 +--
+ arch/sparc/crypto/md5_glue.c                 | 3 +--
+ arch/sparc/crypto/sha1_asm.S                 | 3 +--
+ arch/sparc/crypto/sha1_glue.c                | 3 +--
+ arch/sparc/crypto/sha256_asm.S               | 3 +--
+ arch/sparc/crypto/sha256_glue.c              | 3 +--
+ arch/sparc/crypto/sha512_asm.S               | 3 +--
+ arch/sparc/crypto/sha512_glue.c              | 3 +--
+ arch/sparc/{crypto => include/asm}/opcodes.h | 6 +++---
+ arch/sparc/lib/crc32c_asm.S                  | 3 +--
+ 16 files changed, 18 insertions(+), 33 deletions(-)
+ rename arch/sparc/{crypto => include/asm}/opcodes.h (96%)
 
-diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
-index 4863be2a4ec2..cd9b776602f8 100644
---- a/arch/riscv/crypto/Kconfig
-+++ b/arch/riscv/crypto/Kconfig
-@@ -28,17 +28,6 @@ config CRYPTO_GHASH_RISCV64
- 	  Architecture: riscv64 using:
- 	  - Zvkg vector crypto extension
+diff --git a/arch/sparc/crypto/aes_asm.S b/arch/sparc/crypto/aes_asm.S
+index 155cefb98520..f291174a72a1 100644
+--- a/arch/sparc/crypto/aes_asm.S
++++ b/arch/sparc/crypto/aes_asm.S
+@@ -1,9 +1,8 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+ #include <linux/linkage.h>
++#include <asm/opcodes.h>
+ #include <asm/visasm.h>
  
--config CRYPTO_SHA256_RISCV64
--	tristate "Hash functions: SHA-224 and SHA-256"
--	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
--	select CRYPTO_SHA256
--	help
--	  SHA-224 and SHA-256 secure hash algorithm (FIPS 180)
+-#include "opcodes.h"
 -
--	  Architecture: riscv64 using:
--	  - Zvknha or Zvknhb vector crypto extensions
--	  - Zvkb vector crypto extension
--
- config CRYPTO_SHA512_RISCV64
- 	tristate "Hash functions: SHA-384 and SHA-512"
- 	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
-diff --git a/arch/riscv/crypto/Makefile b/arch/riscv/crypto/Makefile
-index 4ae9bf762e90..e10e8257734e 100644
---- a/arch/riscv/crypto/Makefile
-+++ b/arch/riscv/crypto/Makefile
-@@ -7,9 +7,6 @@ aes-riscv64-y := aes-riscv64-glue.o aes-riscv64-zvkned.o \
- obj-$(CONFIG_CRYPTO_GHASH_RISCV64) += ghash-riscv64.o
- ghash-riscv64-y := ghash-riscv64-glue.o ghash-riscv64-zvkg.o
+ #define ENCRYPT_TWO_ROUNDS(KEY_BASE, I0, I1, T0, T1) \
+ 	AES_EROUND01(KEY_BASE +  0, I0, I1, T0) \
+ 	AES_EROUND23(KEY_BASE +  2, I0, I1, T1) \
+diff --git a/arch/sparc/crypto/aes_glue.c b/arch/sparc/crypto/aes_glue.c
+index 683150830356..359f22643b05 100644
+--- a/arch/sparc/crypto/aes_glue.c
++++ b/arch/sparc/crypto/aes_glue.c
+@@ -27,11 +27,10 @@
+ #include <crypto/internal/skcipher.h>
  
--obj-$(CONFIG_CRYPTO_SHA256_RISCV64) += sha256-riscv64.o
--sha256-riscv64-y := sha256-riscv64-glue.o sha256-riscv64-zvknha_or_zvknhb-zvkb.o
--
- obj-$(CONFIG_CRYPTO_SHA512_RISCV64) += sha512-riscv64.o
- sha512-riscv64-y := sha512-riscv64-glue.o sha512-riscv64-zvknhb-zvkb.o
+ #include <asm/fpumacro.h>
++#include <asm/opcodes.h>
+ #include <asm/pstate.h>
+ #include <asm/elf.h>
  
-diff --git a/arch/riscv/crypto/sha256-riscv64-glue.c b/arch/riscv/crypto/sha256-riscv64-glue.c
-deleted file mode 100644
-index c998300ab843..000000000000
---- a/arch/riscv/crypto/sha256-riscv64-glue.c
-+++ /dev/null
-@@ -1,125 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0-or-later
--/*
-- * SHA-256 and SHA-224 using the RISC-V vector crypto extensions
-- *
-- * Copyright (C) 2022 VRULL GmbH
-- * Author: Heiko Stuebner <heiko.stuebner@vrull.eu>
-- *
-- * Copyright (C) 2023 SiFive, Inc.
-- * Author: Jerry Shih <jerry.shih@sifive.com>
-- */
+-#include "opcodes.h"
 -
--#include <asm/simd.h>
--#include <asm/vector.h>
--#include <crypto/internal/hash.h>
--#include <crypto/internal/simd.h>
--#include <crypto/sha256_base.h>
--#include <linux/kernel.h>
--#include <linux/module.h>
--
--/*
-- * Note: the asm function only uses the 'state' field of struct sha256_state.
-- * It is assumed to be the first field.
-- */
--asmlinkage void sha256_transform_zvknha_or_zvknhb_zvkb(
--	struct crypto_sha256_state *state, const u8 *data, int num_blocks);
--
--static void sha256_block(struct crypto_sha256_state *state, const u8 *data,
--			 int num_blocks)
--{
--	/*
--	 * Ensure struct crypto_sha256_state begins directly with the SHA-256
--	 * 256-bit internal state, as this is what the asm function expects.
--	 */
--	BUILD_BUG_ON(offsetof(struct crypto_sha256_state, state) != 0);
--
--	if (crypto_simd_usable()) {
--		kernel_vector_begin();
--		sha256_transform_zvknha_or_zvknhb_zvkb(state, data, num_blocks);
--		kernel_vector_end();
--	} else
--		sha256_transform_blocks(state, data, num_blocks);
--}
--
--static int riscv64_sha256_update(struct shash_desc *desc, const u8 *data,
--				 unsigned int len)
--{
--	return sha256_base_do_update_blocks(desc, data, len, sha256_block);
--}
--
--static int riscv64_sha256_finup(struct shash_desc *desc, const u8 *data,
--				unsigned int len, u8 *out)
--{
--	sha256_base_do_finup(desc, data, len, sha256_block);
--	return sha256_base_finish(desc, out);
--}
--
--static int riscv64_sha256_digest(struct shash_desc *desc, const u8 *data,
--				 unsigned int len, u8 *out)
--{
--	return sha256_base_init(desc) ?:
--	       riscv64_sha256_finup(desc, data, len, out);
--}
--
--static struct shash_alg riscv64_sha256_algs[] = {
--	{
--		.init = sha256_base_init,
--		.update = riscv64_sha256_update,
--		.finup = riscv64_sha256_finup,
--		.digest = riscv64_sha256_digest,
--		.descsize = sizeof(struct crypto_sha256_state),
--		.digestsize = SHA256_DIGEST_SIZE,
--		.base = {
--			.cra_blocksize = SHA256_BLOCK_SIZE,
--			.cra_flags = CRYPTO_AHASH_ALG_BLOCK_ONLY |
--				     CRYPTO_AHASH_ALG_FINUP_MAX,
--			.cra_priority = 300,
--			.cra_name = "sha256",
--			.cra_driver_name = "sha256-riscv64-zvknha_or_zvknhb-zvkb",
--			.cra_module = THIS_MODULE,
--		},
--	}, {
--		.init = sha224_base_init,
--		.update = riscv64_sha256_update,
--		.finup = riscv64_sha256_finup,
--		.descsize = sizeof(struct crypto_sha256_state),
--		.digestsize = SHA224_DIGEST_SIZE,
--		.base = {
--			.cra_blocksize = SHA224_BLOCK_SIZE,
--			.cra_flags = CRYPTO_AHASH_ALG_BLOCK_ONLY |
--				     CRYPTO_AHASH_ALG_FINUP_MAX,
--			.cra_priority = 300,
--			.cra_name = "sha224",
--			.cra_driver_name = "sha224-riscv64-zvknha_or_zvknhb-zvkb",
--			.cra_module = THIS_MODULE,
--		},
--	},
--};
--
--static int __init riscv64_sha256_mod_init(void)
--{
--	/* Both zvknha and zvknhb provide the SHA-256 instructions. */
--	if ((riscv_isa_extension_available(NULL, ZVKNHA) ||
--	     riscv_isa_extension_available(NULL, ZVKNHB)) &&
--	    riscv_isa_extension_available(NULL, ZVKB) &&
--	    riscv_vector_vlen() >= 128)
--		return crypto_register_shashes(riscv64_sha256_algs,
--					       ARRAY_SIZE(riscv64_sha256_algs));
--
--	return -ENODEV;
--}
--
--static void __exit riscv64_sha256_mod_exit(void)
--{
--	crypto_unregister_shashes(riscv64_sha256_algs,
--				  ARRAY_SIZE(riscv64_sha256_algs));
--}
--
--module_init(riscv64_sha256_mod_init);
--module_exit(riscv64_sha256_mod_exit);
--
--MODULE_DESCRIPTION("SHA-256 (RISC-V accelerated)");
--MODULE_AUTHOR("Heiko Stuebner <heiko.stuebner@vrull.eu>");
--MODULE_LICENSE("GPL");
--MODULE_ALIAS_CRYPTO("sha256");
--MODULE_ALIAS_CRYPTO("sha224");
-diff --git a/arch/riscv/lib/crypto/Kconfig b/arch/riscv/lib/crypto/Kconfig
-index bc7a43f33eb3..47c99ea97ce2 100644
---- a/arch/riscv/lib/crypto/Kconfig
-+++ b/arch/riscv/lib/crypto/Kconfig
-@@ -6,3 +6,11 @@ config CRYPTO_CHACHA_RISCV64
- 	default CRYPTO_LIB_CHACHA
- 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
- 	select CRYPTO_LIB_CHACHA_GENERIC
-+
-+config CRYPTO_SHA256_RISCV64
-+	tristate
-+	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
-+	default CRYPTO_LIB_SHA256
-+	select CRYPTO_ARCH_HAVE_LIB_SHA256
-+	select CRYPTO_ARCH_HAVE_LIB_SHA256_SIMD
-+	select CRYPTO_LIB_SHA256_GENERIC
-diff --git a/arch/riscv/lib/crypto/Makefile b/arch/riscv/lib/crypto/Makefile
-index e27b78f317fc..b7cb877a2c07 100644
---- a/arch/riscv/lib/crypto/Makefile
-+++ b/arch/riscv/lib/crypto/Makefile
-@@ -2,3 +2,6 @@
+ struct aes_ops {
+ 	void (*encrypt)(const u64 *key, const u32 *input, u32 *output);
+ 	void (*decrypt)(const u64 *key, const u32 *input, u32 *output);
+diff --git a/arch/sparc/crypto/camellia_asm.S b/arch/sparc/crypto/camellia_asm.S
+index dcdc9193fcd7..8471b346ef54 100644
+--- a/arch/sparc/crypto/camellia_asm.S
++++ b/arch/sparc/crypto/camellia_asm.S
+@@ -1,9 +1,8 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+ #include <linux/linkage.h>
++#include <asm/opcodes.h>
+ #include <asm/visasm.h>
  
- obj-$(CONFIG_CRYPTO_CHACHA_RISCV64) += chacha-riscv64.o
- chacha-riscv64-y := chacha-riscv64-glue.o chacha-riscv64-zvkb.o
-+
-+obj-$(CONFIG_CRYPTO_SHA256_RISCV64) += sha256-riscv64.o
-+sha256-riscv64-y := sha256.o sha256-riscv64-zvknha_or_zvknhb-zvkb.o
-diff --git a/arch/riscv/crypto/sha256-riscv64-zvknha_or_zvknhb-zvkb.S b/arch/riscv/lib/crypto/sha256-riscv64-zvknha_or_zvknhb-zvkb.S
-similarity index 98%
-rename from arch/riscv/crypto/sha256-riscv64-zvknha_or_zvknhb-zvkb.S
-rename to arch/riscv/lib/crypto/sha256-riscv64-zvknha_or_zvknhb-zvkb.S
-index f1f5779e4732..fad501ad0617 100644
---- a/arch/riscv/crypto/sha256-riscv64-zvknha_or_zvknhb-zvkb.S
-+++ b/arch/riscv/lib/crypto/sha256-riscv64-zvknha_or_zvknhb-zvkb.S
-@@ -106,8 +106,8 @@
- 	sha256_4rounds	\last, \k3, W3, W0, W1, W2
- .endm
+-#include "opcodes.h"
+-
+ #define CAMELLIA_6ROUNDS(KEY_BASE, I0, I1) \
+ 	CAMELLIA_F(KEY_BASE +  0, I1, I0, I1) \
+ 	CAMELLIA_F(KEY_BASE +  2, I0, I1, I0) \
+diff --git a/arch/sparc/crypto/camellia_glue.c b/arch/sparc/crypto/camellia_glue.c
+index aaa9714378e6..e7a1e1c42b99 100644
+--- a/arch/sparc/crypto/camellia_glue.c
++++ b/arch/sparc/crypto/camellia_glue.c
+@@ -15,11 +15,10 @@
+ #include <crypto/internal/skcipher.h>
  
--// void sha256_transform_zvknha_or_zvknhb_zvkb(u32 state[8], const u8 *data,
--//					       int num_blocks);
-+// void sha256_transform_zvknha_or_zvknhb_zvkb(u32 state[SHA256_STATE_WORDS],
-+//					       const u8 *data, size_t nblocks);
- SYM_FUNC_START(sha256_transform_zvknha_or_zvknhb_zvkb)
+ #include <asm/fpumacro.h>
++#include <asm/opcodes.h>
+ #include <asm/pstate.h>
+ #include <asm/elf.h>
  
- 	// Load the round constants into K0-K15.
-diff --git a/arch/riscv/lib/crypto/sha256.c b/arch/riscv/lib/crypto/sha256.c
-new file mode 100644
-index 000000000000..c1358eafc2ad
---- /dev/null
-+++ b/arch/riscv/lib/crypto/sha256.c
-@@ -0,0 +1,67 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * SHA-256 (RISC-V accelerated)
-+ *
-+ * Copyright (C) 2022 VRULL GmbH
-+ * Author: Heiko Stuebner <heiko.stuebner@vrull.eu>
-+ *
-+ * Copyright (C) 2023 SiFive, Inc.
-+ * Author: Jerry Shih <jerry.shih@sifive.com>
-+ */
-+
-+#include <asm/vector.h>
-+#include <crypto/internal/sha2.h>
-+#include <linux/kernel.h>
-+#include <linux/module.h>
-+
-+asmlinkage void sha256_transform_zvknha_or_zvknhb_zvkb(
-+	u32 state[SHA256_STATE_WORDS], const u8 *data, size_t nblocks);
-+
-+static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_extensions);
-+
-+void sha256_blocks_simd(u32 state[SHA256_STATE_WORDS],
-+			const u8 *data, size_t nblocks)
-+{
-+	if (static_branch_likely(&have_extensions)) {
-+		kernel_vector_begin();
-+		sha256_transform_zvknha_or_zvknhb_zvkb(state, data, nblocks);
-+		kernel_vector_end();
-+	} else {
-+		sha256_blocks_generic(state, data, nblocks);
-+	}
-+}
-+EXPORT_SYMBOL_GPL(sha256_blocks_simd);
-+
-+void sha256_blocks_arch(u32 state[SHA256_STATE_WORDS],
-+			const u8 *data, size_t nblocks)
-+{
-+	sha256_blocks_generic(state, data, nblocks);
-+}
-+EXPORT_SYMBOL_GPL(sha256_blocks_arch);
-+
-+bool sha256_is_arch_optimized(void)
-+{
-+	return static_key_enabled(&have_extensions);
-+}
-+EXPORT_SYMBOL_GPL(sha256_is_arch_optimized);
-+
-+static int __init riscv64_sha256_mod_init(void)
-+{
-+	/* Both zvknha and zvknhb provide the SHA-256 instructions. */
-+	if ((riscv_isa_extension_available(NULL, ZVKNHA) ||
-+	     riscv_isa_extension_available(NULL, ZVKNHB)) &&
-+	    riscv_isa_extension_available(NULL, ZVKB) &&
-+	    riscv_vector_vlen() >= 128)
-+		static_branch_enable(&have_extensions);
-+	return 0;
-+}
-+arch_initcall(riscv64_sha256_mod_init);
-+
-+static void __exit riscv64_sha256_mod_exit(void)
-+{
-+}
-+module_exit(riscv64_sha256_mod_exit);
-+
-+MODULE_DESCRIPTION("SHA-256 (RISC-V accelerated)");
-+MODULE_AUTHOR("Heiko Stuebner <heiko.stuebner@vrull.eu>");
-+MODULE_LICENSE("GPL");
+-#include "opcodes.h"
+-
+ #define CAMELLIA_MIN_KEY_SIZE        16
+ #define CAMELLIA_MAX_KEY_SIZE        32
+ #define CAMELLIA_BLOCK_SIZE          16
+diff --git a/arch/sparc/crypto/des_asm.S b/arch/sparc/crypto/des_asm.S
+index 7157468a679d..d534446cbef9 100644
+--- a/arch/sparc/crypto/des_asm.S
++++ b/arch/sparc/crypto/des_asm.S
+@@ -1,9 +1,8 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+ #include <linux/linkage.h>
++#include <asm/opcodes.h>
+ #include <asm/visasm.h>
+ 
+-#include "opcodes.h"
+-
+ 	.align	32
+ ENTRY(des_sparc64_key_expand)
+ 	/* %o0=input_key, %o1=output_key */
+diff --git a/arch/sparc/crypto/des_glue.c b/arch/sparc/crypto/des_glue.c
+index a499102bf706..e50ec4cd57cd 100644
+--- a/arch/sparc/crypto/des_glue.c
++++ b/arch/sparc/crypto/des_glue.c
+@@ -16,11 +16,10 @@
+ #include <crypto/internal/skcipher.h>
+ 
+ #include <asm/fpumacro.h>
++#include <asm/opcodes.h>
+ #include <asm/pstate.h>
+ #include <asm/elf.h>
+ 
+-#include "opcodes.h"
+-
+ struct des_sparc64_ctx {
+ 	u64 encrypt_expkey[DES_EXPKEY_WORDS / 2];
+ 	u64 decrypt_expkey[DES_EXPKEY_WORDS / 2];
+diff --git a/arch/sparc/crypto/md5_asm.S b/arch/sparc/crypto/md5_asm.S
+index 7a6637455f37..60b544e4d205 100644
+--- a/arch/sparc/crypto/md5_asm.S
++++ b/arch/sparc/crypto/md5_asm.S
+@@ -1,9 +1,8 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+ #include <linux/linkage.h>
++#include <asm/opcodes.h>
+ #include <asm/visasm.h>
+ 
+-#include "opcodes.h"
+-
+ ENTRY(md5_sparc64_transform)
+ 	/* %o0 = digest, %o1 = data, %o2 = rounds */
+ 	VISEntryHalf
+diff --git a/arch/sparc/crypto/md5_glue.c b/arch/sparc/crypto/md5_glue.c
+index 5b018c6a376c..b3615f0cdf62 100644
+--- a/arch/sparc/crypto/md5_glue.c
++++ b/arch/sparc/crypto/md5_glue.c
+@@ -15,6 +15,7 @@
+ #define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
+ 
+ #include <asm/elf.h>
++#include <asm/opcodes.h>
+ #include <asm/pstate.h>
+ #include <crypto/internal/hash.h>
+ #include <crypto/md5.h>
+@@ -24,8 +25,6 @@
+ #include <linux/string.h>
+ #include <linux/unaligned.h>
+ 
+-#include "opcodes.h"
+-
+ struct sparc_md5_state {
+ 	__le32 hash[MD5_HASH_WORDS];
+ 	u64 byte_count;
+diff --git a/arch/sparc/crypto/sha1_asm.S b/arch/sparc/crypto/sha1_asm.S
+index 7d8bf354f0e7..00b46bac1b08 100644
+--- a/arch/sparc/crypto/sha1_asm.S
++++ b/arch/sparc/crypto/sha1_asm.S
+@@ -1,9 +1,8 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+ #include <linux/linkage.h>
++#include <asm/opcodes.h>
+ #include <asm/visasm.h>
+ 
+-#include "opcodes.h"
+-
+ ENTRY(sha1_sparc64_transform)
+ 	/* %o0 = digest, %o1 = data, %o2 = rounds */
+ 	VISEntryHalf
+diff --git a/arch/sparc/crypto/sha1_glue.c b/arch/sparc/crypto/sha1_glue.c
+index ec5a06948e0d..ef19d5023b1b 100644
+--- a/arch/sparc/crypto/sha1_glue.c
++++ b/arch/sparc/crypto/sha1_glue.c
+@@ -12,6 +12,7 @@
+ #define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
+ 
+ #include <asm/elf.h>
++#include <asm/opcodes.h>
+ #include <asm/pstate.h>
+ #include <crypto/internal/hash.h>
+ #include <crypto/sha1.h>
+@@ -19,8 +20,6 @@
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ 
+-#include "opcodes.h"
+-
+ asmlinkage void sha1_sparc64_transform(struct sha1_state *digest,
+ 				       const u8 *data, int rounds);
+ 
+diff --git a/arch/sparc/crypto/sha256_asm.S b/arch/sparc/crypto/sha256_asm.S
+index 0b39ec7d7ca2..8ce88611e98a 100644
+--- a/arch/sparc/crypto/sha256_asm.S
++++ b/arch/sparc/crypto/sha256_asm.S
+@@ -1,9 +1,8 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+ #include <linux/linkage.h>
++#include <asm/opcodes.h>
+ #include <asm/visasm.h>
+ 
+-#include "opcodes.h"
+-
+ ENTRY(sha256_sparc64_transform)
+ 	/* %o0 = digest, %o1 = data, %o2 = rounds */
+ 	VISEntryHalf
+diff --git a/arch/sparc/crypto/sha256_glue.c b/arch/sparc/crypto/sha256_glue.c
+index ddb250242faf..25008603a986 100644
+--- a/arch/sparc/crypto/sha256_glue.c
++++ b/arch/sparc/crypto/sha256_glue.c
+@@ -12,6 +12,7 @@
+ #define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
+ 
+ #include <asm/elf.h>
++#include <asm/opcodes.h>
+ #include <asm/pstate.h>
+ #include <crypto/internal/hash.h>
+ #include <crypto/sha2.h>
+@@ -19,8 +20,6 @@
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ 
+-#include "opcodes.h"
+-
+ asmlinkage void sha256_sparc64_transform(u32 *digest, const char *data,
+ 					 unsigned int rounds);
+ 
+diff --git a/arch/sparc/crypto/sha512_asm.S b/arch/sparc/crypto/sha512_asm.S
+index b2f6e6728802..9932b4fe1b59 100644
+--- a/arch/sparc/crypto/sha512_asm.S
++++ b/arch/sparc/crypto/sha512_asm.S
+@@ -1,9 +1,8 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+ #include <linux/linkage.h>
++#include <asm/opcodes.h>
+ #include <asm/visasm.h>
+ 
+-#include "opcodes.h"
+-
+ ENTRY(sha512_sparc64_transform)
+ 	/* %o0 = digest, %o1 = data, %o2 = rounds */
+ 	VISEntry
+diff --git a/arch/sparc/crypto/sha512_glue.c b/arch/sparc/crypto/sha512_glue.c
+index 1d0e1f98ca46..47b9277b6877 100644
+--- a/arch/sparc/crypto/sha512_glue.c
++++ b/arch/sparc/crypto/sha512_glue.c
+@@ -11,6 +11,7 @@
+ #define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
+ 
+ #include <asm/elf.h>
++#include <asm/opcodes.h>
+ #include <asm/pstate.h>
+ #include <crypto/internal/hash.h>
+ #include <crypto/sha2.h>
+@@ -18,8 +19,6 @@
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ 
+-#include "opcodes.h"
+-
+ asmlinkage void sha512_sparc64_transform(u64 *digest, const char *data,
+ 					 unsigned int rounds);
+ 
+diff --git a/arch/sparc/crypto/opcodes.h b/arch/sparc/include/asm/opcodes.h
+similarity index 96%
+rename from arch/sparc/crypto/opcodes.h
+rename to arch/sparc/include/asm/opcodes.h
+index 417b6a10a337..ebfda6eb49b2 100644
+--- a/arch/sparc/crypto/opcodes.h
++++ b/arch/sparc/include/asm/opcodes.h
+@@ -1,6 +1,6 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+-#ifndef _OPCODES_H
+-#define _OPCODES_H
++#ifndef _SPARC_ASM_OPCODES_H
++#define _SPARC_ASM_OPCODES_H
+ 
+ #define SPARC_CR_OPCODE_PRIORITY	300
+ 
+@@ -97,4 +97,4 @@
+ #define MOVXTOD_G7_F62		\
+ 	.word	0xbfb02307;
+ 
+-#endif /* _OPCODES_H */
++#endif /* _SPARC_ASM_OPCODES_H */
+diff --git a/arch/sparc/lib/crc32c_asm.S b/arch/sparc/lib/crc32c_asm.S
+index ee454fa6aed6..4db873850f44 100644
+--- a/arch/sparc/lib/crc32c_asm.S
++++ b/arch/sparc/lib/crc32c_asm.S
+@@ -1,10 +1,9 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+ #include <linux/linkage.h>
++#include <asm/opcodes.h>
+ #include <asm/visasm.h>
+ #include <asm/asi.h>
+ 
+-#include "../crypto/opcodes.h"
+-
+ ENTRY(crc32c_sparc64)
+ 	/* %o0=crc32p, %o1=data_ptr, %o2=len */
+ 	VISEntryHalf
 -- 
 2.39.5
 
