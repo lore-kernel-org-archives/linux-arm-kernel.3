@@ -4,75 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8757C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 19:17:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E265C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 19:19:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lBCJPzECeQ94pyLvoYBNYZYvuPQv+pUF49fQn7m2S6o=; b=xwSzVZoHQNtOYJhtUfkTt6+Xg1
-	mZL0t1a7KVHiJhzaj59HIxOOqimX8wL73lquxf7kz3nFTpICBaXmne4xhMlajh2D+VWKHd6/OF4Kz
-	m/Fc/aGr2kuDtI3Eu5wAogxIodzL5ASmkmugXlZnlOdvEaPGu98NNARQsOiGl1a0ZZKjuJUEIG65X
-	JdL1h8eX0IJ+mQagzjani8r9ffG50Z5AA7eScZLfOaJitRjNiJz1yo+IdBOo1di+abwQIy2J1Y5MN
-	VBWtOjQ56d8yToPsmz2KzMUbm/hUG5gA5D9y+3w3ZhndtIs50PhMgrlrnl6+vhtVwfmZTIQXs8r8T
-	8YW1EloQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ouAMR0mGNfIQVg2S9MotdJShNkUBuJY/DR185B5BNZ4=; b=OtIj3dRvOQfgCEP7gW8I3Vcz56
+	m85sqLEqme+F4zUxBkjyfgtTS02Vo8HLAVg4TGTlHsTvXgLVAUGk5NTdaSEEigRSQFN4QPajZ0fLe
+	9/B9FhmAzOXI8yYMXSEzaqYH6+xfymO7lDuhB5xEwixu1+mAP1SSqBPnOKtiMAx9vncUq6uY/EOKv
+	vu6+JtxSCfw868QseQcKydBmk/LIujPYUZsuMaaHt2lF2ov7zq4+dYHHxfysPPr+u8jbT5U0ceL0P
+	udDvKVK4KqS9wECO7p4b7p97mCF+k7rfTiX4y51txL/4sd7qRQKybdP8AkT6iPyj0dD5SGc1YwfkI
+	XNgKXK6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Tyw-00000007Jmh-3c82;
-	Mon, 28 Apr 2025 19:17:34 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1u9U0s-00000007K0J-2NcM;
+	Mon, 28 Apr 2025 19:19:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Twz-00000007JZI-057I
+	id 1u9Tyc-00000007JjY-0VEy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 19:15:34 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53SJFQ4A3483992
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 28 Apr 2025 14:15:26 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745867726;
-	bh=lBCJPzECeQ94pyLvoYBNYZYvuPQv+pUF49fQn7m2S6o=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=paY4TVDuTXutO7pM+NNIDs0LVN2B+hE4gQ/q8uG9n7nIZhh5fsJdClT60QCAGHPGn
-	 MlmpvvzW8gdmibeUGN3BhVFEOypPNlhE1rHT6ZvXOfUxZY70/4pHV0WGoJsV2HHyUS
-	 z91bBLmk4ul5PRMYkYDsxgUb0XaFst9rzXoglBpQ=
-Received: from DFLE100.ent.ti.com (dfle100.ent.ti.com [10.64.6.21])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53SJFQCM127901
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 28 Apr 2025 14:15:26 -0500
-Received: from DFLE104.ent.ti.com (10.64.6.25) by DFLE100.ent.ti.com
- (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 28
- Apr 2025 14:15:26 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE104.ent.ti.com
- (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 28 Apr 2025 14:15:26 -0500
-Received: from [128.247.81.19] (uda0506412.dhcp.ti.com [128.247.81.19])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53SJFPe6065459;
-	Mon, 28 Apr 2025 14:15:25 -0500
-Message-ID: <76193d4e-965b-4029-98ba-393870e5f86f@ti.com>
-Date: Mon, 28 Apr 2025 14:15:25 -0500
+	Mon, 28 Apr 2025 19:17:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A345243600;
+	Mon, 28 Apr 2025 19:17:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1554BC4CEE4;
+	Mon, 28 Apr 2025 19:17:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745867833;
+	bh=+Pt11UMRuRnTvhbLia21GdJOsV7PGpiNDBc9vcqLQvI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aSRI3GkUAhCCiZj0WUU80xHJQT+SghGms4KZcVH/xrqsDa1/Gu/BIzMPU1MfKWyTd
+	 IjheCLi4QmgirILEewftqYgZDqgwKZnSvLDLfog3cgvYiXvKQXWVE36+MQ8AgLpvlA
+	 HI4AQ0AYcXl3ZCWySwGV6Nxi2T/+6nSlzjimx29GiWwtyEW2xaE5zEphUfBzaz0/jD
+	 vhTPFJemxn5ql1wx52r3vsuMEG1klAv2Trw5xbcw7+GCBw0SGebkN+tytD5MzibpTx
+	 DnqstA4gBIlT+tu7lMOvgb9z7nWMMWEq6eM3P1yW4UHf8NbF1FYAud3qF0d8hA3tf/
+	 NdwEuMBJS4kTw==
+Date: Mon, 28 Apr 2025 21:17:09 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Carlos Song <carlos.song@nxp.com>
+Cc: Aisheng Dong <aisheng.dong@nxp.com>, Frank Li <frank.li@nxp.com>, 
+	"shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, 
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
+	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] i2c: imx-lpi2c: Fix clock count when probe defers
+Message-ID: <l7meopd4ny4lbux64w5jgyugza3idt4sabwzojmvrafw67fhsw@uf4xbbajzfrj>
+References: <20250421062341.2471922-1-carlos.song@nxp.com>
+ <34ally74jbpae6etevqskr4zmcv5xyac46n4hl2j5ybihwtezn@jd2gvr762gs7>
+ <VI2PR04MB111474EAC1B4DB8EB6DD32628E8862@VI2PR04MB11147.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] firmware: ti_sci: Convert CPU latency constraint from us
- to ms
-To: Nishanth Menon <nm@ti.com>
-CC: <kristo@kernel.org>, <ssantosh@kernel.org>, <d-gole@ti.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20250425153754.2141984-1-k-willis@ti.com>
- <20250425190803.s7bag5fop7hsxcxe@sliced>
-Content-Language: en-US
-From: Kendall Willis <k-willis@ti.com>
-In-Reply-To: <20250425190803.s7bag5fop7hsxcxe@sliced>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <VI2PR04MB111474EAC1B4DB8EB6DD32628E8862@VI2PR04MB11147.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_121533_231904_FD39A7B6 
-X-CRM114-Status: GOOD (  20.40  )
+X-CRM114-CacheID: sfid-20250428_121714_201410_4DB07C27 
+X-CRM114-Status: GOOD (  17.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,76 +76,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/25/25 14:08, Nishanth Menon wrote:
-> On 10:37-20250425, Kendall Willis wrote:
->> Fix CPU resume latency constraint units sent to TI SCI firmware.
->> CPU latency constraints are set using the PM QoS framework. The PM QoS
->> framework uses usecs as the units for latency whereas the device manager
->> uses msecs, so a conversion is needed before passing to device manager.
->>
-> 
-> If this is a bug fix (sounds like it), follow the stable kernel rules.
-> 
-> Also please do not expect reviewers in the community know what this
-> means, I think you intent to point folks to the url
-> https://software-dl.ti.com/tisci/esd/latest/2_tisci_msgs/pm/lpm.html#tisci-msg-lpm-set-latency-constraint
-> 
-> If so, add the reference to your commit message.
->  >
->> Signed-off-by: Kendall Willis <k-willis@ti.com>
->> Reviewed-by: Dhruva Gole <d-gole@ti.com>
->> ---
->> Test log [1] shows entry to MCU Only low power mode by sending a CPU
->> resume latency constraint of 100000 us using PM QoS. MCU Only is shown
->> to be entered by 0x1 as the printed mode.
->>
->> [1] https://gist.github.com/kwillis01/059a2ca38232387b414bc6f4b87c7475
->> ---
->>   drivers/firmware/ti_sci.c | 9 +++++++--
->>   1 file changed, 7 insertions(+), 2 deletions(-)
->>
->> diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
->> index 806a975fff22..bc138a837430 100644
->> --- a/drivers/firmware/ti_sci.c
->> +++ b/drivers/firmware/ti_sci.c
->> @@ -3670,6 +3670,7 @@ static int __maybe_unused ti_sci_suspend(struct device *dev)
->>   	struct ti_sci_info *info = dev_get_drvdata(dev);
->>   	struct device *cpu_dev, *cpu_dev_max = NULL;
->>   	s32 val, cpu_lat = 0;
->> +	u16 cpu_lat_ms;
->>   	int i, ret;
->>   
->>   	if (info->fw_caps & MSG_FLAG_CAPS_LPM_DM_MANAGED) {
->> @@ -3682,9 +3683,13 @@ static int __maybe_unused ti_sci_suspend(struct device *dev)
->>   			}
->>   		}
->>   		if (cpu_dev_max) {
->> -			dev_dbg(cpu_dev_max, "%s: sending max CPU latency=%u\n", __func__, cpu_lat);
->> +			/* PM QoS latency unit is usecs, TI SCI uses msecs */
->> +			cpu_lat_ms = cpu_lat / USEC_PER_MSEC;
-> 
-> round_down or a round_up? I assume you intent round_down, please
-> document that in the comments.
-> 
->> +			dev_dbg(cpu_dev_max, "%s: sending max CPU latency=%u ms\n", __func__,
->> +				cpu_lat_ms);
->>   			ret = ti_sci_cmd_set_latency_constraint(&info->handle,
->> -								cpu_lat, TISCI_MSG_CONSTRAINT_SET);
->> +								cpu_lat_ms,
->> +								TISCI_MSG_CONSTRAINT_SET);
->>   			if (ret)
->>   				return ret;
->>   		}
->>
->> base-commit: 393d0c54cae31317deaa9043320c5fd9454deabc
->> -- 
->> 2.34.1
->>
-> 
+Hi Carlos,
 
-Thanks for looking this over, Nishanth. I will implement your comments 
-in V2.
+> rpm_disable:
+> 	pm_runtime_put(&pdev->dev);
+> 	pm_runtime_disable(&pdev->dev);
+> 	pm_runtime_dont_use_autosuspend(&pdev->dev);
+> 
+> pm_runtime_put() may not work really sometimes.
+> 
+> [    3.203715] imx-lpi2c 42530000.i2c: defer probe
+> [    3.208324] imx-lpi2c 42530000.i2c: lpi2c_runtime_suspend
+> [    3.214801] imx-lpi2c 42540000.i2c: defer probe
+> ---> (No lpi2c_runtime_suspend callback(pm_runtime_put() is not really wrok))
+> [    3.220672] imx-lpi2c 426c0000.i2c: defer probe
+> [    3.225248] imx-lpi2c 426c0000.i2c: lpi2c_runtime_suspend
+> 
+> After apply this change:
+> rpm_disable:
+> 	pm_runtime_dont_use_autosuspend(&pdev->dev);
+> 	pm_runtime_put_sync(&pdev->dev);
+> 	pm_runtime_disable(&pdev->dev);
+> 
+> all issues gone.
+> [    3.093025] imx-lpi2c 42530000.i2c: defer probe
+> [    3.097592] imx-lpi2c 42530000.i2c: lpi2c_runtime_suspend
+> [    3.104281] imx-lpi2c 42540000.i2c: defer probe
+> [    3.108858] imx-lpi2c 42540000.i2c: lpi2c_runtime_suspend
+> [    3.115278] imx-lpi2c 426c0000.i2c: defer probe
+> [    3.119818] imx-lpi2c 426c0000.i2c: lpi2c_runtime_suspend
 
-Best,
-Kendall Willis
+Thanks for the explanation. If we lose the count here, I think we
+also need for the Fixes tag, do you agree? Should we add:
+
+Fixes: 13d6eb20fc79 ("i2c: imx-lpi2c: add runtime pm support")
+Cc: <stable@vger.kernel.org> # v4.16+
+
+as well?
+
+...
+
+> > > Signed-off-by: Carlos Song <carlos.song@nxp.com>
+> > > Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
+> > > Signed-off-by: Jun Li <jun.li@nxp.com>
+> > > Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
+> > 
+> > Carlo's SoB should be at the end of the chain. Should be nice to know what these
+> > are, though, are they co-developed-by? tested-by?
+> > Why so many SoB's?
+> > 
+> 
+> This patch author is not me and they meet similar issue at some boards(Vague history), now
+> I meet this issue at new SOC again. I think this local patch is helpful and looks reasonable.
+> So I send the patch to community adding my SoB.
+
+So Clark has authored the patch and you have sent it. And your
+SoB makes sense (even though, your SoB shoud be placed at the
+end, because you sent the patch).
+
+Juan and Haibo have tested it? Reported it?
+
+A practical rule of thumb for tags is that they are placed in
+chronological order, e.g.:
+
+ Reported-by: <reporter of the bug>
+ Fixes: <commit that introduced the bug>
+ Closes: <link where the bug has been reported>
+ Co-developed-by: <co-developer>
+ Signed-off-by: <co-developer>
+ Signed-off-by: <developer>
+ Cc: <people who should be aware of the patch>
+ Tested-by: <tester>
+ Reviewed-by: <reviewer>
+ Acked-by: <someone who agrees>
+ Signed-off-by: <patch sender>
+ Link: <lore link>
+ Signed-off-by: <maintainer who applies the patch>
+
+If you notice, more or less things are in chronological order. I
+hope this makes it a bit clearer.
+
+Andi
 
