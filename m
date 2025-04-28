@@ -4,83 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A54B0C369D1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 02:48:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFA1DC369D1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 02:57:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IfKzZySM9EUQJqp8130gsM0h0TRncUUI3ZQ+y8xX3+w=; b=kTz9e1ouJTNFEeULVKK0uL7rhg
-	ioopnYHlywuelo8UmZilXVt8a5S/M3CwteaWa+UlNn969GVf5vbdqgoSjW9buzecUwQLTHiRTm8Bi
-	GQXsgoBCvGnQxK6w9JUpFSfT5BQy8Zvq7oDYJ0wVu8gUgGneGi1/Y/bQf1VNUjNSfvM83vsMUNcF5
-	z9JVvQZ85EQTOSxIY557G5+YTnFjm3UdyrEGwwwmdZl2ETqUXKjtBSrK1/7miZcPaQ8iFiFSSffPx
-	JnLKe2x1NJob67WvMvIdsIM+rLJ1yXwe9AifwdJ873adQC9I0D1rAIIrp9eimnWB7+KlOSGKwl+U4
-	3q+nVAPg==;
+	bh=tUFRAsGPUrmxTvUi3n4dpptHopKyu19slCIJDggC7v4=; b=H9xqjDaNr0NjUTU1WRbeT7lu8n
+	AFSMGepd6ZlWpFvlzdzpV9fHLxsmDCIGhOVNTbKLm9KJswzbu8fH+LBdY04LJrldyaAICtN3ncBJb
+	eS7ZuE+mQ2bLP7zT9yKRcbdn+6DLiWGYvlOYlHEHoOenZY9QmjFUkZZxeLQEq/jMO/dNcNcfSCIVt
+	qLm8V0SSb6uZv1YW3U+oBTVHIS5Cb43HIJEpf72azeW4+DcCbdX5kx5Vi1Z5Ed4lTrChFpZbisFXw
+	3xgIDERVO7wT6kKGU+ipaYeOj23hVPlvqpFJzViMTn19PDQlT79VYsMSPQ+eVzdt2sk2WfKmL75RY
+	dwS/Ktpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9EXc-00000004Nlt-3WUD;
-	Mon, 28 Apr 2025 02:48:20 +0000
-Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
+	id 1u9Efv-00000004OKi-0CUg;
+	Mon, 28 Apr 2025 02:56:55 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9EVg-00000004NcX-2BMb
+	id 1u9Edu-00000004O8u-0tem
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 02:46:21 +0000
-Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-afc857702d1so4067862a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 27 Apr 2025 19:46:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=lessconfused.com; s=lessconfused; t=1745808379; x=1746413179; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IfKzZySM9EUQJqp8130gsM0h0TRncUUI3ZQ+y8xX3+w=;
-        b=BHNqO43M+DKFbcUbH1GQrSKOimsp1YFefVi81RausxHex4rCZzP1sdx5Gfd/OXGsqG
-         Ep8QWzmzgYjNKuMVZtt3Fby9GkC0K9J9YVg9tU6Sbj6wKmp49kOiEHT1VCR+73GFg3Nr
-         kUh+F+EpJ9FyRpAR0wKmkq5MVgLpy6GTmihkY=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745808379; x=1746413179;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=IfKzZySM9EUQJqp8130gsM0h0TRncUUI3ZQ+y8xX3+w=;
-        b=LANuQDEk2p802Xa4tWzRCTUOA0/E5bklpB1ale8vjDPuY1hNFdvBAHFXQms+w3U+Hz
-         6Odkk3b8ide7wvqTJR4zuePpu1axh2dEOW58Rac6Sk83BGFg8tsEbv9SEtobWMbNmMcW
-         UdR2W1iYY/2vMyJYIFiQFRFAHPwGCqmSKPh+P9c6F53nB9M/155Ou9a9IaQy//FdieZ2
-         BGWwS/twtoMhff+/s9y9WHhLdSFfNPWZvntEV5+HWN/MZFduSGbHuN6tX3vWakz4orrP
-         GyzruKwmNVcRuTCLSA0JmFUC+n12IfDC8xivM3+PIMzuDjcxoMzAgDn/5SFXXikFtXOQ
-         rZow==
-X-Forwarded-Encrypted: i=1; AJvYcCVvmFIACO45RJv/ZsPn8a1coOuAskMM2VrRz20jUGyoJSmXZ+mIakZ2NDc+dwoGEWfTpXmEKtNoN36H18neEZEo@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzv+G8U5rrup2whkCEFOsBwHljKkan97tALS2PHUDYAp8NJn37p
-	MFmrhNFkBxcQcG2b1QjWeAir1XQtDMiAMS1vAwHC+hgG3M7Z5S8+2fHKL0hb/06heKBMbE8Ly/v
-	RgCo0lF+EwBRykh/1zmI0dJ1svtyFP0oAeAwPF4Jsvn5P1elzTvs=
-X-Gm-Gg: ASbGncv91zzn61oSvQzE23ehwZ4/pIcuWPnXosjxgSc5PzMS8lsOF8PmJMcvH5ScBp1
-	CfOSX1QrOoMHC1S0V8eWUnuybPlZEVfXPne/5yASvvH7mTMz75NFunf1R0d5FiUdFffbMjQjo7J
-	ZwBdWlF+6+fsTMuT+5nG7Vhxz5Lw5jIf15mdrV3Uz6Yw7UI0jJknvkSQM=
-X-Google-Smtp-Source: AGHT+IFnzBUOX899hEhTQB+VFNRLl+PxXCq+IL10Ns4KASmw7qSvMl53RlFdnCNy3FuGcz9Ynut9j1cIj9JyY2lnZPI=
-X-Received: by 2002:a17:90b:3944:b0:301:98fc:9b5a with SMTP id
- 98e67ed59e1d1-309f7da6d2fmr14756992a91.6.1745808378981; Sun, 27 Apr 2025
- 19:46:18 -0700 (PDT)
+	Mon, 28 Apr 2025 02:54:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1745808891; x=1777344891;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=8UmPPcYF02m42D0X2SqZC95wLkwf70+0LBSPOHRvYHs=;
+  b=Kl1bFAdLaSiUzYVihKqUN3S5qa90izVATeGWHO0OL2L/Fcox7qaSbZ/l
+   uwRG5KF5IG8Lq+BJZyyhUFWeM30t0UEMumfLAh7eO5mbLr/pFNdRbFfOA
+   wFfoUcWG/cfgOm/vY5lvgEDYesz7GYrTZRl+3NmUtAvbuf6fivt0xG7E4
+   e8ryHtzxvxtOXyl/m6OYDMUYDFkxhPdmKBFqLlIQe9Cy+cpA+yBgME+hH
+   yZJcHOGOR2OPgUwr9Fud7SPst/psNNF9B2BgyaItbh+PARhmEu5iCPnOD
+   4Ns2tJzofQiJdz4xUjG6okgXFDMH6rOer3NTqgO9lIVNL+lpNdd/lAQUH
+   w==;
+X-CSE-ConnectionGUID: Zho6OKJOSlinWOd0D557MA==
+X-CSE-MsgGUID: QHcYMzwNSNeUzL0ez172Lg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11416"; a="51191798"
+X-IronPort-AV: E=Sophos;i="6.15,245,1739865600"; 
+   d="scan'208";a="51191798"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Apr 2025 19:54:48 -0700
+X-CSE-ConnectionGUID: +mY80rqWTlmDXdkEN10FGw==
+X-CSE-MsgGUID: I+oqtZWeS3+OR7W5/JQ1Gw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,245,1739865600"; 
+   d="scan'208";a="133277233"
+Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
+  by fmviesa006-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Apr 2025 19:54:42 -0700
+Message-ID: <c4d03b52-422e-41ab-845b-1d2eda7ca9e2@linux.intel.com>
+Date: Mon, 28 Apr 2025 10:50:32 +0800
 MIME-Version: 1.0
-References: <20250425203118.1444481-1-da@libre.computer> <CAFBinCCUQizs=XWq7knm-4=3=hzPDNee9RZj9LDD2Mi6DHYBrQ@mail.gmail.com>
-In-Reply-To: <CAFBinCCUQizs=XWq7knm-4=3=hzPDNee9RZj9LDD2Mi6DHYBrQ@mail.gmail.com>
-From: Da Xue <da@lessconfused.com>
-Date: Sun, 27 Apr 2025 22:46:07 -0400
-X-Gm-Features: ATxdqUGWEOGuPy-ymNWEfY9-YxSHKLuGJnDXSl4c3NrXQIsa-1uCWVa4Pkv940Q
-Message-ID: <CACdvmAhn_25GWtOwGsChU-U3PV481_h6-pC3o3G4p7T0Z5dHog@mail.gmail.com>
-Subject: Re: [PATCH] arm64: dts: amlogic: gxl: set i2c bias to pull-up
-To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: Da Xue <da@libre.computer>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Xianwei Zhao <xianwei.zhao@amlogic.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 13/22] iommufd: Add mmap interface
+To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com, kevin.tian@intel.com,
+ corbet@lwn.net, will@kernel.org
+Cc: bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
+ thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
+ shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
+ peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
+ praan@google.com, zhangzekun11@huawei.com, iommu@lists.linux.dev,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, patches@lists.linux.dev, mochs@nvidia.com,
+ alok.a.tiwari@oracle.com, vasant.hegde@amd.com
+References: <cover.1745646960.git.nicolinc@nvidia.com>
+ <7be26560c604b0cbc2fd218997b97a47e4ed11ff.1745646960.git.nicolinc@nvidia.com>
+Content-Language: en-US
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <7be26560c604b0cbc2fd218997b97a47e4ed11ff.1745646960.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250427_194620_553423_EFC3F4CF 
-X-CRM114-Status: GOOD (  17.79  )
+X-CRM114-CacheID: sfid-20250427_195450_309992_77BAD6FC 
+X-CRM114-Status: GOOD (  27.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,38 +94,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 27, 2025 at 5:11=E2=80=AFPM Martin Blumenstingl
-<martin.blumenstingl@googlemail.com> wrote:
->
-> On Fri, Apr 25, 2025 at 10:31=E2=80=AFPM Da Xue <da@libre.computer> wrote=
-:
-> >
-> > GXL I2C pins need internal pull-up enabled to operate if there
-> > is no external resistor. The pull-up is 60kohms per the datasheet.
-> >
-> > We should set the bias when i2c pinmux is enabled.
-> >
-> > Signed-off-by: Da Xue <da@libre.computer>
-> Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
->
-> +Xianwei Zhao (who has recently upstreamed Amlogic A4 pinctrl support).
-> I suspect we need a similar change for all other (Meson8, Meson8b,
-> GXBB, G12A, ...) SoCs as well.
-> Can you confirm this? And if not, why does only GXL need this special tre=
-atment?
+On 4/26/25 13:58, Nicolin Chen wrote:
+> For vIOMMU passing through HW resources to user space (VMs), add an mmap
+> infrastructure to map a region of hardware MMIO pages.
+> 
+> Maintain an mt_mmap per ictx for validations. To allow IOMMU drivers to
+> add and delete mmappable regions to/from the mt_mmap, add a pair of new
+> helpers: iommufd_ctx_alloc_mmap() and iommufd_ctx_free_mmap().
 
-We've only tested this extensively on GXL (S805X, S905D, S905X). I
-think we should enable it for all SoCs if this patch doesn't cause any
-issues. I don't see most Amlogic boards implement pull-ups but I
-haven't tested that as extensively as I've done for these.
+I am wondering why the dma_buf mechanism isn't used here, considering
+that this also involves an export and import pattern.
 
->
->
-> Best regards,
-> Martin
->
-> _______________________________________________
-> linux-amlogic mailing list
-> linux-amlogic@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-amlogic
+> 
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+>   drivers/iommu/iommufd/iommufd_private.h |  8 +++++
+>   include/linux/iommufd.h                 | 15 ++++++++++
+>   drivers/iommu/iommufd/driver.c          | 39 +++++++++++++++++++++++++
+>   drivers/iommu/iommufd/main.c            | 39 +++++++++++++++++++++++++
+>   4 files changed, 101 insertions(+)
+> 
+> diff --git a/drivers/iommu/iommufd/iommufd_private.h b/drivers/iommu/iommufd/iommufd_private.h
+> index b974c207ae8a..db5b62ec4abb 100644
+> --- a/drivers/iommu/iommufd/iommufd_private.h
+> +++ b/drivers/iommu/iommufd/iommufd_private.h
+> @@ -7,6 +7,7 @@
+>   #include <linux/iommu.h>
+>   #include <linux/iommufd.h>
+>   #include <linux/iova_bitmap.h>
+> +#include <linux/maple_tree.h>
+>   #include <linux/rwsem.h>
+>   #include <linux/uaccess.h>
+>   #include <linux/xarray.h>
+> @@ -44,6 +45,7 @@ struct iommufd_ctx {
+>   	struct xarray groups;
+>   	wait_queue_head_t destroy_wait;
+>   	struct rw_semaphore ioas_creation_lock;
+> +	struct maple_tree mt_mmap;
+>   
+>   	struct mutex sw_msi_lock;
+>   	struct list_head sw_msi_list;
+> @@ -55,6 +57,12 @@ struct iommufd_ctx {
+>   	struct iommufd_ioas *vfio_ioas;
+>   };
+>   
+> +/* Entry for iommufd_ctx::mt_mmap */
+> +struct iommufd_mmap {
+> +	unsigned long pfn_start;
+> +	unsigned long pfn_end;
+> +};
+
+This structure is introduced to represent a mappable/mapped region,
+right? It would be better to add comments specifying whether the start
+and end are inclusive or exclusive.
+
+> +
+>   /*
+>    * The IOVA to PFN map. The map automatically copies the PFNs into multiple
+>    * domains and permits sharing of PFNs between io_pagetable instances. This
+> diff --git a/include/linux/iommufd.h b/include/linux/iommufd.h
+> index 5dff154e8ce1..d63e2d91be0d 100644
+> --- a/include/linux/iommufd.h
+> +++ b/include/linux/iommufd.h
+> @@ -236,6 +236,9 @@ int iommufd_object_depend(struct iommufd_object *obj_dependent,
+>   			  struct iommufd_object *obj_depended);
+>   void iommufd_object_undepend(struct iommufd_object *obj_dependent,
+>   			     struct iommufd_object *obj_depended);
+> +int iommufd_ctx_alloc_mmap(struct iommufd_ctx *ictx, phys_addr_t base,
+> +			   size_t size, unsigned long *immap_id);
+> +void iommufd_ctx_free_mmap(struct iommufd_ctx *ictx, unsigned long immap_id);
+>   struct device *iommufd_viommu_find_dev(struct iommufd_viommu *viommu,
+>   				       unsigned long vdev_id);
+>   int iommufd_viommu_get_vdev_id(struct iommufd_viommu *viommu,
+> @@ -262,11 +265,23 @@ static inline int iommufd_object_depend(struct iommufd_object *obj_dependent,
+>   	return -EOPNOTSUPP;
+>   }
+>   
+> +static inline int iommufd_ctx_alloc_mmap(struct iommufd_ctx *ictx,
+> +					 phys_addr_t base, size_t size,
+> +					 unsigned long *immap_id)
+> +{
+> +	return -EOPNOTSUPP;
+> +}
+> +
+>   static inline void iommufd_object_undepend(struct iommufd_object *obj_dependent,
+>   					   struct iommufd_object *obj_depended)
+>   {
+>   }
+>   
+> +static inline void iommufd_ctx_free_mmap(struct iommufd_ctx *ictx,
+> +					 unsigned long immap_id)
+> +{
+> +}
+> +
+>   static inline struct device *
+>   iommufd_viommu_find_dev(struct iommufd_viommu *viommu, unsigned long vdev_id)
+>   {
+> diff --git a/drivers/iommu/iommufd/driver.c b/drivers/iommu/iommufd/driver.c
+> index fb7f8fe40f95..c55336c580dc 100644
+> --- a/drivers/iommu/iommufd/driver.c
+> +++ b/drivers/iommu/iommufd/driver.c
+> @@ -78,6 +78,45 @@ void iommufd_object_undepend(struct iommufd_object *obj_dependent,
+>   }
+>   EXPORT_SYMBOL_NS_GPL(iommufd_object_undepend, "IOMMUFD");
+>   
+> +/* Driver should report the output @immap_id to user space for mmap() syscall */
+> +int iommufd_ctx_alloc_mmap(struct iommufd_ctx *ictx, phys_addr_t base,
+> +			   size_t size, unsigned long *immap_id)
+> +{
+> +	struct iommufd_mmap *immap;
+> +	int rc;
+> +
+> +	if (WARN_ON_ONCE(!immap_id))
+> +		return -EINVAL;
+> +	if (base & ~PAGE_MASK)
+> +		return -EINVAL;
+
+Is it equal to PAGE_ALIGNED()?
+
+> +	if (!size || size & ~PAGE_MASK)
+> +		return -EINVAL;
+> +
+> +	immap = kzalloc(sizeof(*immap), GFP_KERNEL);
+> +	if (!immap)
+> +		return -ENOMEM;
+> +	immap->pfn_start = base >> PAGE_SHIFT;
+> +	immap->pfn_end = immap->pfn_start + (size >> PAGE_SHIFT) - 1;
+> +
+> +	rc = mtree_alloc_range(&ictx->mt_mmap, immap_id, immap, sizeof(immap),
+> +			       0, LONG_MAX >> PAGE_SHIFT, GFP_KERNEL);
+> +	if (rc < 0) {
+> +		kfree(immap);
+> +		return rc;
+> +	}
+> +
+> +	/* mmap() syscall will right-shift the immap_id to vma->vm_pgoff */
+> +	*immap_id <<= PAGE_SHIFT;
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL_NS_GPL(iommufd_ctx_alloc_mmap, "IOMMUFD");
+> +
+> +void iommufd_ctx_free_mmap(struct iommufd_ctx *ictx, unsigned long immap_id)
+> +{
+> +	kfree(mtree_erase(&ictx->mt_mmap, immap_id >> PAGE_SHIFT));
+
+MMIO lifecycle question: what happens if a region is removed from the
+maple tree (and is therefore no longer mappable), but is still mapped
+and in use by userspace?
+
+> +}
+> +EXPORT_SYMBOL_NS_GPL(iommufd_ctx_free_mmap, "IOMMUFD");
+> +
+>   /* Caller should xa_lock(&viommu->vdevs) to protect the return value */
+>   struct device *iommufd_viommu_find_dev(struct iommufd_viommu *viommu,
+>   				       unsigned long vdev_id)
+
+Thanks,
+baolu
 
