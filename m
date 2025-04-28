@@ -4,118 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32525C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 18:00:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB9C8C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 18:06:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GMzZP0wBjRZHvN8x9LGLEY2Fdy6y89iWZs30oQDarVA=; b=L7V1VW1oR1NjIsnIiyR5Zuz5SZ
-	obUB9bZ6g1N1Xs14cNC/Z2ad6SecNytIRoBGtxK+AsEeU9SVE/9vk0IOPoT2CBrumww7/gyz9l6h4
-	1e+7vfLv/LcOFLypqUHHlF5Al1ol3kSB1MFQHb0tD96uFL7AtmnlMVqh1kp2bhi1eabU9jEpHaTn2
-	YMKb2JWCJSv8bFtkRFqEBo6Vmipa08/e3xJ7/tTNpUFUyZAogU4kFVO1TPK1Y2Jxx39JmUan3wI62
-	cd9uO8HAtfMNlKcy6wA2h1wD2kkNS1MPXh2M0r1iHSXVhV+S+0zEtPRvGtmiJBqBSQu32aTAdI3wB
-	BDwozzSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LhH2cWJiOFiPJwDHm1EMiooPrujkspMZlGWkH+fi+54=; b=bwqzyYGwgnBo8/yi51IbS6iHV2
+	0/7frZIR0swNr36rlxnYoP8uoTCaefXnl/B/bboLMXvUTC7GiInjdRM6PogLaGNMYX3fSUez9I086
+	2ceLQBRY/92nPQ6qFBe6iLFPxVLsU5ak5MlbCCPwXNe9Et+mX/8MwB6XZhYG2PIf1Zh3ZZlU8jdYv
+	SIBqRwrTeFFZdqHAblWbJKh1iUO7CNmt15nv1N1wmxKJyuEcFfKgVUq9hBHFBJceog6OROWEANGUq
+	cUEVgzMuLCIWyqeG6WZoxyTuamttPJaPbETCJDvkk7BwA9dv+IwjDTUBJWwbKUmMRZb+XrmHly53V
+	ntb6viHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Sm5-000000079i5-1l4L;
-	Mon, 28 Apr 2025 18:00:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u9Srh-00000007Abn-44Ip;
+	Mon, 28 Apr 2025 18:06:01 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Siy-000000079Qf-3Fs5;
-	Mon, 28 Apr 2025 17:57:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C1BB644959;
-	Mon, 28 Apr 2025 17:56:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A20EFC4CEE4;
-	Mon, 28 Apr 2025 17:56:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745863019;
-	bh=6sSqIjjMb5dgxnnth90EefvvkhjjHWZTx2JaVDNrCME=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=LR62Am6WKH/7SD0zqaWk8+1x0EHWCDdALwrUvN7WCkuj04hamMrzB3gzXyIgiIPkr
-	 wFSU3WSkieVz/gJXkzYfJ5FnkXA3sGag83KtuEkGPjEDAKLfXVp+5NWo8Id12AW/eg
-	 ztWMadJFxmNEYayDBnkP/80B1JJ0UfJrJ+yQGNebdpWnSi+AZlge+w5vGa0fOh7hSb
-	 sLzYhMv/QJlrd8RNyypLDRu/0p6A9szUro77UcIOrO/rhSFZT1RHl508UDjn7ztoWT
-	 KSWXpsTdG54YbjRey0Pu4g0g9DQukZG7/Ro5dtOiCjTm0EVZtb6A6vj9FECx2Q4KIR
-	 BUTSnjoDvaZwA==
-Message-ID: <e00ec6f8-479e-46c4-9c99-7de4c9fa1c27@kernel.org>
-Date: Mon, 28 Apr 2025 19:56:53 +0200
+	id 1u9Spi-00000007ALP-40PQ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Apr 2025 18:04:00 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-43cfe574976so35292345e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 11:03:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1745863437; x=1746468237; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=LhH2cWJiOFiPJwDHm1EMiooPrujkspMZlGWkH+fi+54=;
+        b=B6TzaecirWR/PfAaILi31xWy6pGf2rWZu3pdgWEh9b6MxRUXR4A1yWbXRsluPZZq8P
+         Gm9bYs0aKGVgBs8nrRfvBSiGa8r04lpm75OxVHKcooHNAEguRALsW7jkrYgJAcNcm+WA
+         HLAXherm7zUgXZY7vPoga33fJYMoBcR8fd9BD0+lD5vUtpFUz/YW0GTw/5jZZJEYyH6B
+         GUpkdExOCnuJGhDuKxFCpP5gxQysE4R2x5y+yo5KBSd6N5sxa9QV9wSIumrv8FwxVYYF
+         lU3mQHgpYvPfNni9R8gx3wlADvnleswgyJ94qnBIvS33wvVuWz/E/9o5MTWMahsB3I1v
+         VMYA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745863437; x=1746468237;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=LhH2cWJiOFiPJwDHm1EMiooPrujkspMZlGWkH+fi+54=;
+        b=satSmjGxNZZRHa0T5FzybsdedW28OiUpA7ZGXeLS/PvdingGQdz7PXPcAbdp3p4ySA
+         MEaHWo3H2E5q/He4v87CK32ZPP1mFdaBR1V5svcVfhpR9SWO/dil3Wuzq9jlQ1G3NeK/
+         wd6vLu3ru07c0rg4+jwDdYXG40YKEiQLTFGgFCY75ChtvwOBOIzfn9N571nR6QnTNM5T
+         vkPs0yIKdAw7dRepGXFQ2xMtuSawWN3zQQ0iFHdVauKhkEdJ2VIhqptWcHNPizyxiM3J
+         GC8us5bY0xhJ03aXCBfEi8ZfWZoG+9Cebf+5AYCxgwZvo2bsomK5omltXgy8Cu6F1X7l
+         0q8Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWh94z+i08Tfg1OqP53Jc95taOE+wkwDg0rk719YifT16py67vKWkKp4pGFzeD3FdiRPxDF8ApVKbEvFoPwcR8/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzVGqn/7Mp4i1zBthYOJRe2gr9K9BaUGxI6Td6eZH5GkyowNoiP
+	n6AYz5D0Km/fNFhpduMxAeZ+s2QQzm/eJw/KBn8fcONjR5Hq6QCTwRrWS+qo4iE=
+X-Gm-Gg: ASbGncuhx8h9IUtxzAYuHSbD36PN5FRUegWNzecLPsvDIgzMZkflrwv5WG6a7R7UAa5
+	4k7oSoqv/9J7HK1xOKFRmJghuxGbTznaClBjd8VDv99xAmkx67UR1vJs1/u9jkAP4/UvXz44JCE
+	eLXcjvYMhQFl2aPvUuV8LOFHzYA7qkO7oph8XcN4bRVylTdUT2Sf/Po5PL/5YtXc4aG50tKGfny
+	/8RgJl4Q6g3aiycV7BfQRQbNQRY1EuBRBBu0YfViYl91oNsbFiqB+azq38Bp8Cf3aodey5bzLP9
+	IPZbK8ZF6MWqVlvuWvG0M7HMFw0IyeI7R8tPf0I/NuDy
+X-Google-Smtp-Source: AGHT+IFufjFxqWpK/DiwzoIhe+tnqis6Q5i4cTihbGu1kOEcV7a+TqrcCHr03xN9hBxN/HPNsngJAw==
+X-Received: by 2002:a05:6000:4282:b0:39a:c9c1:5453 with SMTP id ffacd0b85a97d-3a08a3c8a48mr205683f8f.49.1745863436775;
+        Mon, 28 Apr 2025 11:03:56 -0700 (PDT)
+Received: from draszik.lan ([80.111.64.44])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4409d29b9c4sm167552465e9.3.2025.04.28.11.03.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Apr 2025 11:03:56 -0700 (PDT)
+Message-ID: <e12bac66ea9158e058e48521e6906cb04960e980.camel@linaro.org>
+Subject: Re: [PATCH v4 00/32] Samsung S2MPG10 PMIC MFD-based drivers
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, Conor Dooley	
+ <conor+dt@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, Chanwoo
+ Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Michael Turquette	 <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Russell King	 <linux@armlinux.org.uk>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon	 <will@kernel.org>, Alexandre
+ Belloni <alexandre.belloni@bootlin.com>, Peter Griffin
+ <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, Will
+ McVicker	 <willmcvicker@google.com>, kernel-team@android.com, 
+	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org
+Date: Mon, 28 Apr 2025 19:03:54 +0100
+In-Reply-To: <20250410-dancing-free-peacock-536c24@shite>
+References: <20250409-s2mpg10-v4-0-d66d5f39b6bf@linaro.org>
+	 <20250410-dancing-free-peacock-536c24@shite>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.54.3-2+build1 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/5] media: dt-bindings: media: Add binding for the
- Raspberry Pi HEVC decoder
-To: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Cc: Sakari Ailus <sakari.ailus@linux.intel.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, John Cox
- <john.cox@raspberrypi.com>, Dom Cobley <dom@raspberrypi.com>,
- review list <kernel-list@raspberrypi.com>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, John Cox
- <jc@kynesim.co.uk>, linux-media@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-References: <20250423-media-rpi-hevc-dec-v3-0-8fd3fad1d6fb@raspberrypi.com>
- <20250423-media-rpi-hevc-dec-v3-3-8fd3fad1d6fb@raspberrypi.com>
- <20250425-inescapable-beagle-of-bliss-8ae3ff@kuoka>
- <CAPY8ntCWzp9cRKwLg44G20jG17q2KhavZa_8qpodhGUGS2Bc7Q@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <CAPY8ntCWzp9cRKwLg44G20jG17q2KhavZa_8qpodhGUGS2Bc7Q@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_105700_865253_669B9372 
-X-CRM114-Status: GOOD (  26.06  )
+X-CRM114-CacheID: sfid-20250428_110359_009730_95CFF912 
+X-CRM114-Status: GOOD (  26.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,111 +109,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/04/2025 12:03, Dave Stevenson wrote:
-> Hi Krzysztof
-> 
-> On Fri, 25 Apr 2025 at 08:53, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->> On Wed, Apr 23, 2025 at 06:20:20PM GMT, Dave Stevenson wrote:
->>> Adds a binding for the HEVC decoder found on th +maintainers:
->>> +  - John Cox <john.cox@raspberrypi.com>
->>> +  - Dom Cobley <dom@raspberrypi.com>
->>> +  - Dave Stevenson <dave.stevenson@raspberrypi.com>
->>
->>> +  - Raspberry Pi internal review list <kernel-list@raspberrypi.com>
->>
->> Drop, no mailing lists in bindings maintainers. These must be people.
-> 
-> Ack
-> 
->>> +
->>> +description:
->>> +  The Raspberry Pi HEVC decoder is a hardware video decode accelerator block
->>> +  found in the BCM2711 and BCM2712 processors used on Raspberry Pi 4 and 5
->>> +  boards respectively.
->>> +
->>> +properties:
->>> +  compatible:
->>> +    items:
->>> +      - enum:
->>> +          - brcm,bcm2711-hevc-dec
->>> +          - brcm,bcm2712-hevc-dec
->>> +      - const: raspberrypi,hevc-dec
->>
->> Not what Rob asked. You should use specific SoC compatible as fallback.
-> 
-> In which case I don't understand what Rob was asking for.
-> I asked for clarification in [1], but got no reply. Sending a new
-> version has at least got an answer, but I'm none the wiser.
-> 
-> Staring at this trying to work out your meaning, you want the generic
-> first, and SoC specific second? ie
-> +  compatible:
-> +    items:
-> +      - const: raspberrypi,hevc-dec
+Hi Krzysztof,
 
-Drop
+On Thu, 2025-04-10 at 08:18 +0200, Krzysztof Kozlowski wrote:
+> On Wed, Apr 09, 2025 at 09:37:21PM GMT, Andr=C3=A9 Draszik wrote:
+> > This series adds initial support for the Samsung S2MPG10 PMIC using the
+> > MFD framework. This is a PMIC for mobile applications and is used on
+> > the Google Pixel 6 and 6 Pro (oriole / raven).
+> >=20
+> > *** dependency note ***
+> >=20
+> > To compile, this depends on the Samsung ACPM driver in Linux next with
+>=20
+> Are you sure these are build time dependencies? Do not look like.
 
-> +      - enum:
+Yes, there is a build time dependency on the ACPM driver (also
+mentioned in Kconfig). In particular the last series mentioned
+below (acpm-children) adds devm_acpm_get_by_node() which this
+driver needs.
 
-That's enum, not fallback.
+>  Also,
+> if they are, the patchset will wait for quite some time.
 
-> +          - brcm,bcm2711-hevc-dec
-> +          - brcm,bcm2712-hevc-dec
-> 
->> You referred to file "raspberrypi,pisbe.yaml" before, but there is no
->> such file in the next.
-> 
-> Typo.
-> https://github.com/torvalds/linux/blob/master/Documentation/devicetree/bindings/media/raspberrypi%2Cpispbe.yaml
-> Reviewed by Rob only just over a year ago [2]
+All the dependencies appear to have landed in linux-next as of
+writing this.
 
-There were some discussions and reasons with explanations.
+>=20
+> > the following additional patches:
+> > https://lore.kernel.org/all/20250324-acpm-atomic-v2-0-7d87746e1765@lina=
+ro.org/
+> > https://lore.kernel.org/all/20250319-acpm-fixes-v2-0-ac2c1bcf322b@linar=
+o.org/
+> > https://lore.kernel.org/all/20250327-acpm-children-v1-0-0afe15ee2ff7@li=
+naro.org/
+> >=20
+> > *** dependency note end ***
+> >=20
+> > +++ Kconfig update +++
+> >=20
+> > There is a Kconfig symbol update in this series, because the existing
+> > Samsung S2M driver has been split into core and transport (I2C & ACPM)
+> > parts. CONFIG_MFD_SEC_CORE is now truly a core driver, and
+> > the I2C code that was part of it is now enabled via CONFIG_MFD_SEC_I2C.
+> >=20
+> > This was necessary because unlike the other S2M PMICs, S2MPG10 doesn't
+> > talk via I2C, but via the Samsung ACPM firmware.
+> >=20
+> > +++ Kconfig update end +++
+> >=20
+> > This series must be applied in-order, due to interdependencies of some
+> > of the patches. There are also various cleanup patches to the S2M
+> > drivers. I've kept them ordered as:
+>=20
+> They should not depend... although actually not my trees, except the
+> firmware.
 
-Feel free to use same arguments and accurately describe the hardware, so
-we won't be needing to ask usual questions.
-
-Anyway, we asked for fallback, so you need items, just like every SoC
-compatible (see also example schema).
+The s2mpg10 core patch adds enums and register macros for the new
+PMIC, which the clk and rtc drivers then use, hence I'm calling out
+this dependency - they can not compile without the core patch in place.
 
 
-> 
->> Before you reply that there is a binding using different rules: well,
->> there is always poor code. Above two comments are repeated, especially
->> this about specific compatible - all the time, so these are not new
->> rules. These are given in reviews since some years.
-> 
-> My Google-foo is totally failing with the only directly relevant
-> mention of "fallback compatible" I find is [3], which just says to use
-> them.
-> 
-> You're effectively saying I can't take anything in the kernel tree as
-> being a valid example as it could be poor code, and a layman such as
-> myself has no way of telling.
+Cheers,
+Andre'
 
-No, I am saying that argument "I saw someone doing this, so I am allowed
-to do the same" is not correct. There are good and bad examples. For
-example in my talks I mentioned good examples. The list of good examples
-was not accepted to the kernel so well... I just use as an example any
-recent Qcom binding using specific compatibles.
-
-> Could you please point me at documentation and examples I can rely on,
-> or educate me with what is wanted in this situation to avoid me having
-> to guess?
-> 
-> A further mailing list search has brought up [4] which is a thread
-> with yourself from 2 years ago which looks to be a very similar
-> situation. Other than missing the const on the SoC strings (although
-> that isn't in the merged version of cnm,wave521c.yaml), and two SoC
-> specific strings, I'm not seeing an obvious difference between there
-> and here either.
-
-How is the [4] relevant? That's IP block from other vendor.
-
-https://www.kernel.org/doc/html/latest/devicetree/bindings/writing-bindings.html#properties
-
-https://elixir.bootlin.com/linux/v6.3-rc6/source/Documentation/devicetree/bindings/sound/nvidia,tegra210-ope.yaml#L31
-
-Best regards,
-Krzysztof
 
