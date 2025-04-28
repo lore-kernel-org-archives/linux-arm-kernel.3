@@ -4,87 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 434B6C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 00:46:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60AD5C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 01:21:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+aoBAoeFpkctJ6JqzIU/vyQwUkSp0QwqX2H1qRlEkgw=; b=2nMmZ4nuUb7bcTdSwUH9qIYSgs
-	3OUQnXowYyWX0fqKy71VwaqPJxfG8jBTC10Q3ZooG8LZog5FKELup+BSQdHWbsorPm1hF6hexH+Oe
-	B5gstye9Ynx7/eG4Vw47/EjRx9LnDS+DY58lbyXgDpS73csGTiwIEA8W6T6PYpkcIZ7vpbpVBkh0x
-	Ha9hzIHa2P2Wf45T+YTBg2balE35O6k8iDGPo7WiuBZOFRzRH8rXeW/2jG6FVRScW4J9382agTJwP
-	BQh6Wf+GX1n90Rs32ENmaNirVI1QVh/ul/O81Pod8+M5qZAQolZAEPGsmE99CGMn5kYp7gowoFvHI
-	RQs5mmgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lPNsFcUYhv82KSowqlG7eWMjT5EQftUTzDLZ/eIlBJ8=; b=WZnPCn1TD8JxZLFTTW7M5zuHVZ
+	jSygxEZAKRNAsij3hIEYUQu39LV3TBIX/zqJ7zKmEeES42WYO6uq7At+SFL2qyviX7sJfBGuj51tn
+	1BWSJChAj0yXeTrf+PSWlPqtnoArBH7S7Z/phT8i/qIxdQpkAJk8VyuTU5WdsSmf4XoQ9IWeuVpTh
+	Njfwt3FY/kUrssD5Ox+oOadcdHJcl6/5dbU3WfQ+d6GoZpC1yI0MC1nLPZP764XqIjvvAawqq17qP
+	+poO+Gj1QXVrXL/LEeDkIlo+KAZ4edGpm3OEHnrvZj6r3e+1g9RTFcqXklPOTXWsRPc4YI5/IbTTg
+	l36EoVXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Z7C-00000007wIO-3i7f;
-	Tue, 29 Apr 2025 00:46:26 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1u9ZfL-00000007z2K-3zmh;
+	Tue, 29 Apr 2025 01:21:43 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Z5G-00000007w8z-3LkM
+	id 1u9ZdP-00000007yiX-2uHF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 00:44:28 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-301918a4e3bso6077652a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 17:44:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=lessconfused.com; s=lessconfused; t=1745887466; x=1746492266; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+aoBAoeFpkctJ6JqzIU/vyQwUkSp0QwqX2H1qRlEkgw=;
-        b=UEGAmY/gHbx6zf1fmLYGmUS9GcUWa5Bil1F1UUsmcPHJI9pbF3xdp8vp13RbmLWvst
-         06SoCVSDC5Piz4mk8J/fzrrvY5O7A4M1go9l7GkImXm8Tv4tkvlN2jgAGHk9nEkNjFjt
-         ZJJ922gK6OxoJguD3VM9jG/QBaWxLHjjwy/aA=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745887466; x=1746492266;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+aoBAoeFpkctJ6JqzIU/vyQwUkSp0QwqX2H1qRlEkgw=;
-        b=saUwHWj1r9DzgGXpuFLuU7/RikFkE8iwTua7ouJhJs1gjjqfUbHUcPWDcL3SEe/Sim
-         u2MlcNrSpaz1TYyS4ifjLEAnCjq4ensmiWTAlf1V1BW1VN/KK+83AnkgH9UhD6geBB8z
-         14e+MKn15GHxG4UduXYUV1ZSqBe/nTugczE8B0w4KREkPud7ikRYIkE+201VrBNeQVBL
-         20vwhMVUlXTLNI7DAb6hz31uXzIt4b6rhoBkCKQ7V00aQOMRUuDUNFOvzZLtDSnMV4mU
-         JR1DF1/fkzZ8M/7qVTAd1ImXGjuKoI2+JnK54O3V221Vpv+s8/ZAfVPa5iOZoBjcB5ju
-         2RSg==
-X-Forwarded-Encrypted: i=1; AJvYcCUCsEJGFajBu3fDj8bPzo4dg0kmATDtIL8KiaYQ7alC7RmEr7o/DFNAXeCGXtRC0wvT1fOX9IXuW+o57BUsytGM@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdFt1s7YNWPWeXMtpAmpJneTfe+/VE1lDMmSbZdcRectDNnU/r
-	sNtKK+DvDptDSTKXUqJZaOx0Is1EXlWl4jqgbglAYbgyqum0QzT2atSy3EbgaIYxz+5IEbCI+Fu
-	NK9bb+w2j12O2ATtgg18XL1dyGx1CT+usQsXYeQ==
-X-Gm-Gg: ASbGnct8hacm+3sGIt+5yo/gdbMZRHnIxfQMDMftB7wJyWJwy/f7vKXujpfFKoQqRoF
-	Zx3JnjMY6wHVjKR7bSDE4Cjq4r/UbGULjLIWgIxL39c+1amSy7AyH0VP1j3nBd6xJAgpUUqsvgL
-	Lri3ObJtRyNNYV1lUolmsq14AZtSOYRniquueJvSPlIy8rtvpFVUQWnFE=
-X-Google-Smtp-Source: AGHT+IFjPL18h5P/u4F4dyTMOcvewGcroYbUT0gU7VtQUvVqhIshw60ZVQaT8g8ZD4qgd/tbKkO0lKtc/fcYY5m9kdU=
-X-Received: by 2002:a17:90b:280c:b0:301:6343:1626 with SMTP id
- 98e67ed59e1d1-30a21546d6fmr2342151a91.1.1745887465903; Mon, 28 Apr 2025
- 17:44:25 -0700 (PDT)
+	Tue, 29 Apr 2025 01:19:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1745889583; x=1777425583;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=R3UAhkpOPCmKmxNTzkcTSJ8pqpaUKXLkVbgY8NNMnek=;
+  b=lRraj1R+ehvFb3Au8U5K/nfXd6G5tWEY8wiy2yh91DIj+PeWIlJImIzA
+   ZicndxjSJtl/5Q3vC4vLkh05qyV72wJD4Fo60OLrlEGuHovxNU9AEwLs1
+   ykC/o/0FZ5sadgbEfBjay2zFWyTpunkj5lkJ0suvbWSPMZCNO1HH7NM0Q
+   p003/scP9xsF/NyfMmLb/0CxaexABEH1bW3mchEEwdxLrG7zpr2I+OUj7
+   kgxtwKMZTV9a44t+fgsb3kykT2phk9LmYh2CW28pmrCnGcXsO+ZyYwDQG
+   HGUkE6baXyGQGwO58cxCf8be+eepJx76gO0t+kahJjcqPyMG8eW23xTAZ
+   Q==;
+X-CSE-ConnectionGUID: yR4VFsZfT+aU/SttomWyCA==
+X-CSE-MsgGUID: 1phUDBbMSCi4qQ0T6XQyGg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11417"; a="51165275"
+X-IronPort-AV: E=Sophos;i="6.15,247,1739865600"; 
+   d="scan'208";a="51165275"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Apr 2025 18:19:35 -0700
+X-CSE-ConnectionGUID: NL+2JPk/QSatszxG4Hf86A==
+X-CSE-MsgGUID: SgVXDWYzSQ2Krf65Z8hqvw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,247,1739865600"; 
+   d="scan'208";a="164775790"
+Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
+  by fmviesa001.fm.intel.com with ESMTP; 28 Apr 2025 18:19:28 -0700
+Received: from kbuild by 1992f890471c with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1u9Zd7-00001R-1V;
+	Tue, 29 Apr 2025 01:19:25 +0000
+Date: Tue, 29 Apr 2025 02:45:46 +0800
+From: kernel test robot <lkp@intel.com>
+To: Sai Sree Kartheek Adivi <s-adivi@ti.com>, peter.ujfalusi@gmail.com,
+	vkoul@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, nm@ti.com, ssantosh@kernel.org,
+	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	praneeth@ti.com, vigneshr@ti.com, u-kumar1@ti.com, a-chavda@ti.com
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev
+Subject: Re: [PATCH 5/8] drivers: soc: ti: k3-ringacc: handle absence of tisci
+Message-ID: <202504290207.ct0tnV56-lkp@intel.com>
+References: <20250428072032.946008-6-s-adivi@ti.com>
 MIME-Version: 1.0
-References: <20250425192009.1439508-1-da@libre.computer> <20250428181242.GG3339421@horms.kernel.org>
-In-Reply-To: <20250428181242.GG3339421@horms.kernel.org>
-From: Da Xue <da@lessconfused.com>
-Date: Mon, 28 Apr 2025 20:44:14 -0400
-X-Gm-Features: ATxdqUEf_AoTzAnuf_I1pvf8_AvQf7sxk_KOWa8wGk2GqUmGhIm8SEm3MmjT6RI
-Message-ID: <CACdvmAhcBmoDNyuu0npZzyExfhyLKdyPw9HvHvV+OdADxEfJJQ@mail.gmail.com>
-Subject: Re: [PATCH v3] net: mdio: mux-meson-gxl: set reversed bit when using
- internal phy
-To: Simon Horman <horms@kernel.org>
-Cc: Da Xue <da@libre.computer>, Andrew Lunn <andrew@lunn.ch>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Kevin Hilman <khilman@baylibre.com>, 
-	Russell King <linux@armlinux.org.uk>, stable@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Eric Dumazet <edumazet@google.com>, netdev@vger.kernel.org, 
-	Jerome Brunet <jbrunet@baylibre.com>, Jakub Kicinski <kuba@kernel.org>, 
-	linux-amlogic@lists.infradead.org, Paolo Abeni <pabeni@redhat.com>, 
-	"David S. Miller" <davem@davemloft.net>, linux-arm-kernel@lists.infradead.org, 
-	Heiner Kallweit <hkallweit1@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250428072032.946008-6-s-adivi@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_174426_837625_AF7DB61A 
-X-CRM114-Status: GOOD (  23.59  )
+X-CRM114-CacheID: sfid-20250428_181943_776171_E732A0FF 
+X-CRM114-Status: GOOD (  12.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,57 +91,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 28, 2025 at 2:13=E2=80=AFPM Simon Horman <horms@kernel.org> wro=
-te:
->
-> On Fri, Apr 25, 2025 at 03:20:09PM -0400, Da Xue wrote:
-> > This bit is necessary to receive packets from the internal PHY.
-> > Without this bit set, no activity occurs on the interface.
-> >
-> > Normally u-boot sets this bit, but if u-boot is compiled without
-> > net support, the interface will be up but without any activity.
-> >
-> > The vendor SDK sets this bit along with the PHY_ID bits.
->
-> I'd like to clarify that:
-> Without this patch the writel the patch is modifying will clear the PHY_I=
-D bit.
-> But despite that the system works if at some point (uboot) set the PHY_ID=
- bit?
+Hi Sai,
 
-Correct. If this is set once, it will work until the IP is powered
-down or reset.
-If u-boot does not set it, Linux will not set it and the IP will not work.
-If u-boot does set it, the IP will not work after suspend-resume since
-the IP is reset.
-Thus, we need to set it on the Linux side when bringing up the interface.
+kernel test robot noticed the following build warnings:
 
->
-> >
-> > Fixes: 9a24e1ff4326 ("net: mdio: add amlogic gxl mdio mux support");
->
-> I don't think you need to resend because of this,
-> but the correct syntax is as follows. (No trailing ';'.)
+[auto build test WARNING on vkoul-dmaengine/next]
+[also build test WARNING on linus/master v6.15-rc4]
+[cannot apply to next-20250428]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Great and thanks! I just set up git send-email so I'm a little rough
-around the edges.
+url:    https://github.com/intel-lab-lkp/linux/commits/Sai-Sree-Kartheek-Adivi/dt-bindings-dma-ti-Add-document-for-K3-BCDMA-V2/20250428-152616
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/vkoul/dmaengine.git next
+patch link:    https://lore.kernel.org/r/20250428072032.946008-6-s-adivi%40ti.com
+patch subject: [PATCH 5/8] drivers: soc: ti: k3-ringacc: handle absence of tisci
+config: arm64-randconfig-001-20250428 (https://download.01.org/0day-ci/archive/20250429/202504290207.ct0tnV56-lkp@intel.com/config)
+compiler: clang version 20.1.2 (https://github.com/llvm/llvm-project 58df0ef89dd64126512e4ee27b4ac3fd8ddf6247)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250429/202504290207.ct0tnV56-lkp@intel.com/reproduce)
 
->
-> Fixes: 9a24e1ff4326 ("net: mdio: add amlogic gxl mdio mux support")
->
-> > Signed-off-by: Da Xue <da@libre.computer>
-> > ---
-> > Changes since v2:
-> > * Rename REG2_RESERVED_28 to REG2_REVERSED
-> >
-> > Link to v2:
-> > https://patchwork.kernel.org/project/linux-amlogic/patch/20250331074420=
-.3443748-1-christianshewitt@gmail.com/
->
-> ...
->
-> _______________________________________________
-> linux-amlogic mailing list
-> linux-amlogic@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-amlogic
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202504290207.ct0tnV56-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/soc/ti/k3-ringacc.c:214: warning: Function parameter or struct member 'cfg' not described in 'k3_ring'
+>> drivers/soc/ti/k3-ringacc.c:214: warning: Function parameter or struct member 'intr' not described in 'k3_ring'
+
+
+vim +214 drivers/soc/ti/k3-ringacc.c
+
+6b3da0b475b877 Peter Ujfalusi          2020-07-24  168  
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  169  /**
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  170   * struct k3_ring - RA Ring descriptor
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  171   *
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  172   * @rt: Ring control/status registers
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  173   * @fifos: Ring queues registers
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  174   * @proxy: Ring Proxy Datapath registers
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  175   * @ring_mem_dma: Ring buffer dma address
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  176   * @ring_mem_virt: Ring buffer virt address
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  177   * @ops: Ring operations
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  178   * @size: Ring size in elements
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  179   * @elm_size: Size of the ring element
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  180   * @mode: Ring mode
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  181   * @flags: flags
+50883affe17e11 Lee Jones               2020-11-21  182   * @state: Ring state
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  183   * @ring_id: Ring Id
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  184   * @parent: Pointer on struct @k3_ringacc
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  185   * @use_count: Use count for shared rings
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  186   * @proxy_id: RA Ring Proxy Id (only if @K3_RINGACC_RING_USE_PROXY)
+8c42379e40e2db Peter Ujfalusi          2020-10-25  187   * @dma_dev: device to be used for DMA API (allocation, mapping)
+d782298c6f6b85 Grygorii Strashko       2020-12-08  188   * @asel: Address Space Select value for physical addresses
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  189   */
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  190  struct k3_ring {
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  191  	struct k3_ring_rt_regs __iomem *rt;
+babdc2c3524293 Sai Sree Kartheek Adivi 2025-04-28  192  	struct k3_ring_cfg_regs __iomem *cfg;
+babdc2c3524293 Sai Sree Kartheek Adivi 2025-04-28  193  	struct k3_ring_intr_regs __iomem *intr;
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  194  	struct k3_ring_fifo_regs __iomem *fifos;
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  195  	struct k3_ringacc_proxy_target_regs  __iomem *proxy;
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  196  	dma_addr_t	ring_mem_dma;
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  197  	void		*ring_mem_virt;
+d9483b44c94eba Christophe JAILLET      2024-07-09  198  	const struct k3_ring_ops *ops;
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  199  	u32		size;
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  200  	enum k3_ring_size elm_size;
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  201  	enum k3_ring_mode mode;
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  202  	u32		flags;
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  203  #define K3_RING_FLAG_BUSY	BIT(1)
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  204  #define K3_RING_FLAG_SHARED	BIT(2)
+d782298c6f6b85 Grygorii Strashko       2020-12-08  205  #define K3_RING_FLAG_REVERSE	BIT(3)
+6b3da0b475b877 Peter Ujfalusi          2020-07-24  206  	struct k3_ring_state state;
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  207  	u32		ring_id;
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  208  	struct k3_ringacc	*parent;
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  209  	u32		use_count;
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  210  	int		proxy_id;
+8c42379e40e2db Peter Ujfalusi          2020-10-25  211  	struct device	*dma_dev;
+d782298c6f6b85 Grygorii Strashko       2020-12-08  212  	u32		asel;
+d782298c6f6b85 Grygorii Strashko       2020-12-08  213  #define K3_ADDRESS_ASEL_SHIFT	48
+3277e8aa2504d9 Grygorii Strashko       2020-01-15 @214  };
+3277e8aa2504d9 Grygorii Strashko       2020-01-15  215  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
