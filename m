@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E22B0C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 16:33:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2F0EC369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 16:35:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PH8LqPmdzTiyEIRldLyF2ISfaZauzPwN6cosQsO86rM=; b=jnTJmWdhwHT2LBGm/U1wOvc4y2
-	KdsT40axFpLQzAU5skZi0Dbrmbb77XbvlTG/G9HDk7EUiRvH2RVxK4npdwFGfTihBejuSZS1ZnAA7
-	/x/KJ2BwJZu3rLIJ5dkvQkGZshUHRNaT0KfXTBeG7lA0GOSgPy3NC1PDirfUxYbXAECdp82Jo9Bgl
-	P9PL9I5QUFr9PchRzj1gtVFWU/qSaGy/5C266MR54L94yKxZmRFg+W12FUjPdmwsC6V0CUndL3OJo
-	0twWSFyXhWrVAWvloxaHyarBnU+RXWeVpMYZGz+VF1iQGCcvOsqLYRZZe9fN5/ebjqHn2TXGmLI8i
-	WY3Bqt5A==;
+	bh=6ktsSLpDHL/YXYlSRA4w0F/KyZ2Iy1Ve2h1qSr/sg/w=; b=f4wxmaaDoGLhTucPozVExYjJnj
+	lT0XE4YR3qVirKBcMwbMTpEdddNmF8rycx99r/rCFbljothQD6QsolLrmU4rOgi1l7U7pW/6kIxu6
+	rECnboe09iBJSmHD45NCCMu5FUDFgRzd0r02eRBVXHoZ/wGeh76HoFwRERc5Izseq9G0aG+NaySyC
+	5uMwmM3ebyJosWPPjbRDtfIdBDAbZOoXR5AsHTp4ZU3yQSmBHe12JDPzn2BqjK0EGZuN70LaMGbzJ
+	4kEw3JKRb79i4RtwAmZW3AKvNV7HiAnVdUIlugp2QDmrhRvaJVx6MDHr702BPPBl/VHpJqrgP2Qnw
+	khYetd5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9RQT-00000006wkD-2DYN;
-	Mon, 28 Apr 2025 16:33:49 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1u9RSQ-00000006x4R-0v7O;
+	Mon, 28 Apr 2025 16:35:50 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9RLK-00000006vsk-1F8u
+	id 1u9RMG-00000006w26-0aZ2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 16:28:31 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53SGSQ6C2821463
+	Mon, 28 Apr 2025 16:29:29 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53SGTOo53610771
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 28 Apr 2025 11:28:26 -0500
+	Mon, 28 Apr 2025 11:29:24 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745857706;
-	bh=PH8LqPmdzTiyEIRldLyF2ISfaZauzPwN6cosQsO86rM=;
+	s=ti-com-17Q1; t=1745857764;
+	bh=6ktsSLpDHL/YXYlSRA4w0F/KyZ2Iy1Ve2h1qSr/sg/w=;
 	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=qDV8X6IzH1PUAHkhmVrfhtoObnZWlDkppcKErvmxXxjYVqtbOvT6h2QNCnZ03WwtC
-	 W/WDPUTdPSv6VykJ5uNdHmglIhSGoT81YbKXxoy9Epup9XYdRJd7OGvw26d+kHDfvD
-	 m54ZRX/DzE6DihLbFJjq49di4VwjCDdZB78LcxCs=
-Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53SGSQB4025096
+	b=YkUKNpGuYviCbnm2NmUujjNnyx/hsW+3bCF6vezGm8SuvlAaH0MlZsc0p93R/UtbV
+	 mzaWHWPV73W7SGNfjSrGF+PRLwhukngK60e4PECqq4pJQpDsUIULLPhtZ1x1pOBsjE
+	 Xa/94eYWpJcYTAf0QFodPVPn9JsJAhqSqCcjMzqo=
+Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53SGTOp0031572
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 28 Apr 2025 11:28:26 -0500
-Received: from DFLE115.ent.ti.com (10.64.6.36) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+	Mon, 28 Apr 2025 11:29:24 -0500
+Received: from DFLE115.ent.ti.com (10.64.6.36) by DFLE115.ent.ti.com
+ (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 28
- Apr 2025 11:28:26 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE115.ent.ti.com
+ Apr 2025 11:29:23 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE115.ent.ti.com
  (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 28 Apr 2025 11:28:26 -0500
+ Frontend Transport; Mon, 28 Apr 2025 11:29:23 -0500
 Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53SGSPa9001778;
-	Mon, 28 Apr 2025 11:28:25 -0500
-Message-ID: <31b0b9ed-859b-44f7-89b0-26cc6384356d@ti.com>
-Date: Mon, 28 Apr 2025 11:28:25 -0500
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53SGTMkS115141;
+	Mon, 28 Apr 2025 11:29:22 -0500
+Message-ID: <72e88ddd-dcf6-42ad-92c7-15869f83dd8c@ti.com>
+Date: Mon, 28 Apr 2025 11:29:22 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 09/11] arm64: dts: ti: k3-am62a7-sk: Reserve
- main_timer2 for C7x DSP
+Subject: Re: [PATCH v7 10/11] arm64: dts: ti: k3-am62a7-sk: Reserve main_rti4
+ for C7x DSP
 To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
         Vignesh Raghavendra
 	<vigneshr@ti.com>
@@ -73,16 +73,16 @@ CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
         Markus Schneider-Pargmann <msp@baylibre.com>,
         Devarsh Thakkar <devarsht@ti.com>
 References: <20250415153147.1844076-1-jm@ti.com>
- <20250415153147.1844076-10-jm@ti.com>
+ <20250415153147.1844076-11-jm@ti.com>
 Content-Language: en-US
 From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20250415153147.1844076-10-jm@ti.com>
+In-Reply-To: <20250415153147.1844076-11-jm@ti.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_092830_432108_3027C568 
-X-CRM114-Status: GOOD (  15.76  )
+X-CRM114-CacheID: sfid-20250428_092928_229260_29679EEA 
+X-CRM114-Status: GOOD (  14.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,40 +100,29 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 4/15/25 10:31 AM, Judith Mendez wrote:
 > From: Hari Nagalla <hnagalla@ti.com>
 > 
-> C7x DSP uses main_timer2, so mark it as reserved in linux DT.
+> The main rti4 watchdog timer is used by the C7x DSP, so reserve the
+> timer in the linux device tree.
 > 
-
-The set of peripherals used by this C7x core depends on the firmware
-running on the core. Long term we should think on a better way of
-communicating this from firmware to Linux. Same goes for the next
-two patches.
-
-For now since these timers are always used by all firmware, this
-will be safe to do, but for other peripherals we will need that
-better solution.
-
-Reviewed-by: Andrew Davis <afd@ti.com>
-
 > Signed-off-by: Hari Nagalla <hnagalla@ti.com>
 > Signed-off-by: Judith Mendez <jm@ti.com>
 > ---
+
+Reviewed-by: Andrew Davis <afd@ti.com>
+
 >   arch/arm64/boot/dts/ti/k3-am62a7-sk.dts | 5 +++++
 >   1 file changed, 5 insertions(+)
 > 
 > diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-> index 7d817b447c1d0..8d7645bb90337 100644
+> index 8d7645bb90337..032f1f18d184e 100644
 > --- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
 > +++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-> @@ -682,6 +682,11 @@ &main_uart1 {
->   	status = "reserved";
+> @@ -830,3 +830,8 @@ &c7x_0 {
+>   			<&c7x_0_memory_region>;
+>   	status = "okay";
 >   };
->   
-> +/* main_timer2 is used by C7x DSP */
-> +&main_timer2 {
+> +
+> +/* main_rti4 is used by C7x DSP */
+> +&main_rti4 {
 > +	status = "reserved";
 > +};
-> +
->   &usbss0 {
->   	status = "okay";
->   	ti,vbus-divider;
 
