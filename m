@@ -4,147 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2623CC369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 18:24:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E188C3ABA5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 18:31:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Ow2JS5qmdHMtaRW1X7L+gY862oQC41/ZISthtO4Se4=; b=QWa1V6ePrDjMZLjDR6wQ15Kd0W
-	UN+YZunOtQOSNTulGzesliUyAWATcG9I/4G+g0aVL/93bX+zHTFU71wzM3TVcIjN55D4KEaF3n2LX
-	+tbkbud9HEIfLgr2TcyfRR9cQD3UtgjYZ4wqyF69UUkWbGuHSu55EuN64Z+AOtaRqOl9FLWQxE8LU
-	yh2uoEaLT25DIa8FCbmnRTSi/SShfC28aOgNk5WHYoHRZK04uKMVtbzyhK7lO0XQtU/O21T4iCa4+
-	AaWwE1DnB9Bumb4YiEoRfWaZZT2R1FBqf3quwCjfeFXWKW/3UlPd4HLM7FbR022AbZ0Tv6Ozv6db2
-	6bxPHP7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mV6RRDzurQK/QDHVsWwoXStPnY+UbIPCihlZZGD4jdA=; b=yBIEMw+s1repPhgNEED5rIuvHc
+	3lJ1Omh2XyM0X7IIixOl7oXIknvWVrV9iwWyEfzgYeUrYrlGcgpzeVcyKtwTqKiYaFze18Y0YSoHC
+	ZGMfCUVkherkmHP0gr2LP1t375BNV1j4rvUOGtC1JY5VOP7ySOgXk1cRRCF8+kLOAmbzTh4S6o+/6
+	oY2LByE1zCHt8uZtZyubf2UKlAv8DgymOHEaeTLKfc5TktFwlXs/UWihpBWalL8CH5XoepkT7oRUQ
+	l3/baouuNp079+ksqnTSQd37/BYV0GNKF59P89lEMmXH1/5ZwpSOORnq+KiacuZOXdNggxJx/WQNh
+	t0DK56aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9T9I-00000007DSU-0prW;
-	Mon, 28 Apr 2025 18:24:12 +0000
-Received: from mail-bn7nam10on20608.outbound.protection.outlook.com ([2a01:111:f403:2009::608] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
+	id 1u9TFx-00000007Ecx-1BFM;
+	Mon, 28 Apr 2025 18:31:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9T7I-00000007DBt-1f2A
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 18:22:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=k/0Zgklb7texH9BPnQiRPFudxC9KlhY+bXZcZ7XicM5+G0dyl+IBGmYzEgG3PbOysn5mTPDG/FVPvPnGzw3bbEIE7ukjQrWQ9EwfIFnadJAGlV+fmrhQYnWeTZ4KHaM+XB332hM+/fpdsmHLqTezHvC8YHcVHJvNqnSchqqZayKd7Ea54J2putlH6+TgZo6DlOVe6Q6poCbxlKXX+694UKZc6wVp8hvS+tPeoFnWIvqCxpbOUpnyMyBUnF+jOYndLhHZRxwUE1Wnvtqijq8TJiR+tDJqC7k2wyVK0HIypkr/H6K4tuwNlJt2b7iQUEe8+ugfqeAes2iWIDDp3ceybw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+Ow2JS5qmdHMtaRW1X7L+gY862oQC41/ZISthtO4Se4=;
- b=qSHR01Xt7jJVgO27ZM62Nd15BDomBTTcOycjKBOCt40JdQ7Qr0V2+vfy/VxtF+GjSvofwYMDTYA1r3ibV07BNNCSxGM9SDWlxklJjcYWQF3x9on4Mc6sXXJVrxpUZ0qQ1GXZtP43roVJcp/ND6dURDrms+EzMb64scBj2VRgpE/188UsbcQNb21cSc2XhnHQUX04R9l0t+xtyH+9q45wmccD9Omx60ZtcSjLxtTP3QRNGetJo/RWu+ZYEg+bS3D2z7B6b3B6/Gqaud+q8CbpBvc6DuMlzgIuuimp3dR7J3vsWgIlJPBLKUulTUxhb+2tIQ0xa9/bY6DaVAJhua9nsA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+Ow2JS5qmdHMtaRW1X7L+gY862oQC41/ZISthtO4Se4=;
- b=SkeCY8ywbMm2h1SSyUhaEVNTlC3UfveZ8m2xQGRrI7av+kacL+x58q2rFOsmwgMaOs7Kcq3VN/oELWXZ9KzrrsPewF6QKXXhGq9rXxjrYWD26BCuSYRBPOwEEVF8Ap3yM2/ZZq/KDanL9PllrGTX+pVcV5mSJF5ZJainLbHgdfao+kND76kO7cEXen9kvLNdO6l3Zy1DntucUPlDfPrBvrgDLxhv3w9EZknvYL1LOn9tKTedczWDZinWerXw8RXBp1OIUxuZZ0vnvvHd3PrQ5NM+5DfG+bOF8noyr/jLujYrKaItnopdgadaczXUsrAyCj4d+pTLNx1qsG39Qzk7+Q==
-Received: from PH8P220CA0019.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:345::10)
- by PH8PR12MB7352.namprd12.prod.outlook.com (2603:10b6:510:214::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.33; Mon, 28 Apr
- 2025 18:22:01 +0000
-Received: from CY4PEPF0000FCC5.namprd03.prod.outlook.com
- (2603:10b6:510:345:cafe::41) by PH8P220CA0019.outlook.office365.com
- (2603:10b6:510:345::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.37 via Frontend Transport; Mon,
- 28 Apr 2025 18:22:01 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- CY4PEPF0000FCC5.mail.protection.outlook.com (10.167.242.107) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8678.33 via Frontend Transport; Mon, 28 Apr 2025 18:22:00 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 28 Apr
- 2025 11:21:46 -0700
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Mon, 28 Apr 2025 11:21:46 -0700
-Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com
- (10.126.190.182) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Mon, 28 Apr 2025 11:21:44 -0700
-Date: Mon, 28 Apr 2025 11:21:43 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Pranjal Shrivastava <praan@google.com>
-CC: <jgg@nvidia.com>, <kevin.tian@intel.com>, <corbet@lwn.net>,
-	<will@kernel.org>, <bagasdotme@gmail.com>, <robin.murphy@arm.com>,
-	<joro@8bytes.org>, <thierry.reding@gmail.com>, <vdumpa@nvidia.com>,
-	<jonathanh@nvidia.com>, <shuah@kernel.org>, <jsnitsel@redhat.com>,
-	<nathan@kernel.org>, <peterz@infradead.org>, <yi.l.liu@intel.com>,
-	<mshavit@google.com>, <zhangzekun11@huawei.com>, <iommu@lists.linux.dev>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
-	<mochs@nvidia.com>, <alok.a.tiwari@oracle.com>, <vasant.hegde@amd.com>
-Subject: Re: [PATCH v2 04/22] iommu: Add iommu_copy_struct_to_user helper
-Message-ID: <aA/HN2CV+0UQ4S9j@Asurada-Nvidia>
-References: <cover.1745646960.git.nicolinc@nvidia.com>
- <ca032e90c0241fe0653023fcb655185dba763f5f.1745646960.git.nicolinc@nvidia.com>
- <aA-_5FQK0uZPdGVA@google.com>
+	id 1u9Rro-000000070vo-2Avt;
+	Mon, 28 Apr 2025 17:02:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1D2834AAC4;
+	Mon, 28 Apr 2025 17:02:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD436C4CEF5;
+	Mon, 28 Apr 2025 17:02:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745859724;
+	bh=frmoNMX9rkL1gGxdvxYvF+q9FW0efq8uiNqM3qhMIXk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=WA7uLejx4xoqBJQ7fXdy8TqDNqpFQvuvIr91wiuNMVCIiR8NBhJxFspDoP2RfMZgi
+	 gGFNP8fJpiBJf4pI+5cHnwuP4PliLxQLaWuXKruvM3SqF1hmhCv0ORLwttKDrfsqaJ
+	 wdy47IC9S2g5A8vSN7TyLkQFJKh5IGztlcWpNXDx3eLLnI97LZbXedjwQNv94lGHBT
+	 P0PuLXEQJmzreIdUivGN5u6Ym+fTyeNCogFKhTw2HIsXyJdx+oK0K05zG7fofkFCtq
+	 SyDv2Xr9hBYiLeWYGHOJj2T0Ts5MO1hbnGzjDJl+gjGtlobXQgWuWkmIzsmkztZjmf
+	 66PLi9pBmqbKA==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	sparclinux@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	x86@kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: [PATCH v4 09/13] crypto: sparc - move opcodes.h into asm directory
+Date: Mon, 28 Apr 2025 10:00:34 -0700
+Message-ID: <20250428170040.423825-10-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250428170040.423825-1-ebiggers@kernel.org>
+References: <20250428170040.423825-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <aA-_5FQK0uZPdGVA@google.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000FCC5:EE_|PH8PR12MB7352:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2ca85158-954f-454c-5ed7-08dd868191b8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|7416014|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?zGckPn894esKrllVYbQRoph5A4lKgSPPT4rJUq8LjWYKIiCfAeVFWCLhytL4?=
- =?us-ascii?Q?hLhbbyTbhZ/cZ25qBkt+en14ZVkdb3g0M1nUTcy3+WpLAaBNDcQw8DXKK5Y1?=
- =?us-ascii?Q?s38jCe6/+wq0SokOOGxBiVIEZkL4XcgGAAy2QskX2ZbTukZyxqv7sysFl1yV?=
- =?us-ascii?Q?BkrTKmEFdV2CIUYjgL5YiPPbxoAdUC4olzJNG212wYqO8dXojQ0Mg0e8jL0k?=
- =?us-ascii?Q?D+JJm0vX/49qDV8deX5FvpaPXD35PKccyQfIpMiyluwF23evFDGL0j75uCAC?=
- =?us-ascii?Q?69z4i9DrtFmM9av3O4aGyCBmFbh9qqpY3W9dhLc6WN+oAoPnzP9LcR9VKNPx?=
- =?us-ascii?Q?QIM+XtAyoPnyJDxYMcdlRFrcSD191rIM01l08sxu6UNya8nXsWcXLB4+4+8B?=
- =?us-ascii?Q?6xzIL5p9bxoUEEMJe6Osj1nyBqvIvOzX82JCFTK74ZAEVw/yXGWULX2JDTHU?=
- =?us-ascii?Q?4AFjd48VlatZiJ7+pUfAmXPaCSUhW70kGfKWZNUxCPg2vp9zakpNlkonK1rM?=
- =?us-ascii?Q?YINhYGJ+PXSB5apk2lMlFhupK7+fBvF3gafTaKqseFzMuMoBHI4JLnUTyppN?=
- =?us-ascii?Q?6fBCW0INqPrKk5AH5OuTZR0epM8G/HlwhM22Np1gN6lCTI4ZaQs30TQYQdS3?=
- =?us-ascii?Q?gT6V8/YQ60dxPTnZli899VmnNqz5fdw/j+gxirbFeqmrxSjwnG/bm/Jnh1lR?=
- =?us-ascii?Q?d481A793l4RVicoLq6RIXGJvEZExw0N0/pokJaOjm54W4ucGYe6fOCbqn4cZ?=
- =?us-ascii?Q?b0XkQ/n9NUNu1mxPwDPvVxSp0rWc3qLd5rguRVzSGCVf6cckejla0ajrNpxT?=
- =?us-ascii?Q?jmYVVvssBtVFHP5RD7wE8RVTyX5LWENN8zTo94HIRA+b3Rv0EL5oTTjArvIs?=
- =?us-ascii?Q?OqTEos6HANCICNG4NXHYE300Us7YL8C0xleB7xxkZOFOyOmVOYpbos/WOcj2?=
- =?us-ascii?Q?Vs8hFVdQcp/B/sKJ4Gy117hRmlcnBG/dVkGo+a9hkH7nY0uwcwPlz3yS1vZv?=
- =?us-ascii?Q?caWGSz4PAKpIgsoEZ+p9EZig0iLWFnkMDSkZorrOk06XRXXgOgTzWTm2Ku7s?=
- =?us-ascii?Q?U/Tr4SWNzJ1Zdz5aHouOHkqNjH25hMMVEi6MBE+QuhsRvFsciKpQZa6v81l/?=
- =?us-ascii?Q?5GIfC12TDybiIjK7e+NG0qRbJ7Vi37r2VnvwPCTANncd3VRI+JJPYlR9cF6h?=
- =?us-ascii?Q?9mHNuMBK0lAXsWJb9S54DmfCcTYZfpeeweJGNAHaT+kzK7LfLnP7XqQndrSf?=
- =?us-ascii?Q?375zpSrHQGNXWIY3uL6I6h5LgnguKqc097ZXKF5U2aOk96OZY2jWzQmTUpZG?=
- =?us-ascii?Q?oKen2zxquWEB944yd1tARvICjBrqRaLlEbxv8i3Qic+Y8TO368o7IPmZ2rZl?=
- =?us-ascii?Q?A5nBvTTdwn0/CkDE0+KTJnCfJsFretZsNoQqvgj92c1KG3oNNk8f+oQlRhx4?=
- =?us-ascii?Q?eFV3hBAKr10lyPLyD5YAuoNicGcrE9BivvCUdBhrLLJDbqY2nFg5Wn2EvzON?=
- =?us-ascii?Q?LSNahICeFJzaMkH0mQFzQLmMShDA29CP7Bsi?=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2025 18:22:00.9172
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2ca85158-954f-454c-5ed7-08dd868191b8
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000FCC5.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB7352
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_112208_434489_8CE04A83 
-X-CRM114-Status: GOOD (  17.13  )
+X-CRM114-CacheID: sfid-20250428_100204_609883_6E8086B7 
+X-CRM114-Status: GOOD (  10.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,38 +80,362 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 28, 2025 at 05:50:28PM +0000, Pranjal Shrivastava wrote:
-> On Fri, Apr 25, 2025 at 10:57:59PM -0700, Nicolin Chen wrote:
-> > Similar to the iommu_copy_struct_from_user helper receiving data from the
-> > user space, add an iommu_copy_struct_to_user helper to report output data
-> > back to the user space data pointer.
-> > 
-> > Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> > Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> > ---
-> >  include/linux/iommu.h | 40 ++++++++++++++++++++++++++++++++++++++++
-> >  1 file changed, 40 insertions(+)
-> > 
-> > diff --git a/include/linux/iommu.h b/include/linux/iommu.h
-> > index ba7add27e9a0..634ff647888d 100644
-> > --- a/include/linux/iommu.h
-> > +++ b/include/linux/iommu.h
-> > @@ -562,6 +562,46 @@ iommu_copy_struct_from_full_user_array(void *kdst, size_t kdst_entry_size,
-> >  	return 0;
-> >  }
-> >  
-> > +/**
-> > + * __iommu_copy_struct_to_user - Report iommu driver specific user space data
-> > + * @dst_data: Pointer to a struct iommu_user_data for user space data location
-> > + * @src_data: Pointer to an iommu driver specific user data that is defined in
-> > + *            include/uapi/linux/iommufd.h
-> > + * @data_type: The data type of the @dst_data. Must match with @src_data.type
-> 								   ^
-> Nit: Must match with @dst_data type.
+From: Eric Biggers <ebiggers@google.com>
 
-Oh, that's a copy-n-paste mistake. It should be:
-  * @data_type: The data type of the @src_data. Must match with @dst_data.type
+Since arch/sparc/crypto/opcodes.h is now needed outside the
+arch/sparc/crypto/ directory, move it into arch/sparc/include/asm/ so
+that it can be included as <asm/opcodes.h>.
 
-Thanks!
-Nicolin
+Signed-off-by: Eric Biggers <ebiggers@google.com>
+---
+ arch/sparc/crypto/aes_asm.S                  | 3 +--
+ arch/sparc/crypto/aes_glue.c                 | 3 +--
+ arch/sparc/crypto/camellia_asm.S             | 3 +--
+ arch/sparc/crypto/camellia_glue.c            | 3 +--
+ arch/sparc/crypto/des_asm.S                  | 3 +--
+ arch/sparc/crypto/des_glue.c                 | 3 +--
+ arch/sparc/crypto/md5_asm.S                  | 3 +--
+ arch/sparc/crypto/md5_glue.c                 | 3 +--
+ arch/sparc/crypto/sha1_asm.S                 | 3 +--
+ arch/sparc/crypto/sha1_glue.c                | 3 +--
+ arch/sparc/crypto/sha256_asm.S               | 3 +--
+ arch/sparc/crypto/sha256_glue.c              | 3 +--
+ arch/sparc/crypto/sha512_asm.S               | 3 +--
+ arch/sparc/crypto/sha512_glue.c              | 3 +--
+ arch/sparc/{crypto => include/asm}/opcodes.h | 6 +++---
+ arch/sparc/lib/crc32c_asm.S                  | 3 +--
+ 16 files changed, 18 insertions(+), 33 deletions(-)
+ rename arch/sparc/{crypto => include/asm}/opcodes.h (96%)
+
+diff --git a/arch/sparc/crypto/aes_asm.S b/arch/sparc/crypto/aes_asm.S
+index 155cefb98520e..f291174a72a1d 100644
+--- a/arch/sparc/crypto/aes_asm.S
++++ b/arch/sparc/crypto/aes_asm.S
+@@ -1,11 +1,10 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+ #include <linux/linkage.h>
++#include <asm/opcodes.h>
+ #include <asm/visasm.h>
+ 
+-#include "opcodes.h"
+-
+ #define ENCRYPT_TWO_ROUNDS(KEY_BASE, I0, I1, T0, T1) \
+ 	AES_EROUND01(KEY_BASE +  0, I0, I1, T0) \
+ 	AES_EROUND23(KEY_BASE +  2, I0, I1, T1) \
+ 	AES_EROUND01(KEY_BASE +  4, T0, T1, I0) \
+ 	AES_EROUND23(KEY_BASE +  6, T0, T1, I1)
+diff --git a/arch/sparc/crypto/aes_glue.c b/arch/sparc/crypto/aes_glue.c
+index 6831508303562..359f22643b051 100644
+--- a/arch/sparc/crypto/aes_glue.c
++++ b/arch/sparc/crypto/aes_glue.c
+@@ -25,15 +25,14 @@
+ #include <crypto/algapi.h>
+ #include <crypto/aes.h>
+ #include <crypto/internal/skcipher.h>
+ 
+ #include <asm/fpumacro.h>
++#include <asm/opcodes.h>
+ #include <asm/pstate.h>
+ #include <asm/elf.h>
+ 
+-#include "opcodes.h"
+-
+ struct aes_ops {
+ 	void (*encrypt)(const u64 *key, const u32 *input, u32 *output);
+ 	void (*decrypt)(const u64 *key, const u32 *input, u32 *output);
+ 	void (*load_encrypt_keys)(const u64 *key);
+ 	void (*load_decrypt_keys)(const u64 *key);
+diff --git a/arch/sparc/crypto/camellia_asm.S b/arch/sparc/crypto/camellia_asm.S
+index dcdc9193fcd72..8471b346ef548 100644
+--- a/arch/sparc/crypto/camellia_asm.S
++++ b/arch/sparc/crypto/camellia_asm.S
+@@ -1,11 +1,10 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+ #include <linux/linkage.h>
++#include <asm/opcodes.h>
+ #include <asm/visasm.h>
+ 
+-#include "opcodes.h"
+-
+ #define CAMELLIA_6ROUNDS(KEY_BASE, I0, I1) \
+ 	CAMELLIA_F(KEY_BASE +  0, I1, I0, I1) \
+ 	CAMELLIA_F(KEY_BASE +  2, I0, I1, I0) \
+ 	CAMELLIA_F(KEY_BASE +  4, I1, I0, I1) \
+ 	CAMELLIA_F(KEY_BASE +  6, I0, I1, I0) \
+diff --git a/arch/sparc/crypto/camellia_glue.c b/arch/sparc/crypto/camellia_glue.c
+index aaa9714378e66..e7a1e1c42b996 100644
+--- a/arch/sparc/crypto/camellia_glue.c
++++ b/arch/sparc/crypto/camellia_glue.c
+@@ -13,15 +13,14 @@
+ #include <linux/types.h>
+ #include <crypto/algapi.h>
+ #include <crypto/internal/skcipher.h>
+ 
+ #include <asm/fpumacro.h>
++#include <asm/opcodes.h>
+ #include <asm/pstate.h>
+ #include <asm/elf.h>
+ 
+-#include "opcodes.h"
+-
+ #define CAMELLIA_MIN_KEY_SIZE        16
+ #define CAMELLIA_MAX_KEY_SIZE        32
+ #define CAMELLIA_BLOCK_SIZE          16
+ #define CAMELLIA_TABLE_BYTE_LEN     272
+ 
+diff --git a/arch/sparc/crypto/des_asm.S b/arch/sparc/crypto/des_asm.S
+index 7157468a679df..d534446cbef9a 100644
+--- a/arch/sparc/crypto/des_asm.S
++++ b/arch/sparc/crypto/des_asm.S
+@@ -1,11 +1,10 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+ #include <linux/linkage.h>
++#include <asm/opcodes.h>
+ #include <asm/visasm.h>
+ 
+-#include "opcodes.h"
+-
+ 	.align	32
+ ENTRY(des_sparc64_key_expand)
+ 	/* %o0=input_key, %o1=output_key */
+ 	VISEntryHalf
+ 	ld	[%o0 + 0x00], %f0
+diff --git a/arch/sparc/crypto/des_glue.c b/arch/sparc/crypto/des_glue.c
+index a499102bf7065..e50ec4cd57cde 100644
+--- a/arch/sparc/crypto/des_glue.c
++++ b/arch/sparc/crypto/des_glue.c
+@@ -14,15 +14,14 @@
+ #include <crypto/algapi.h>
+ #include <crypto/internal/des.h>
+ #include <crypto/internal/skcipher.h>
+ 
+ #include <asm/fpumacro.h>
++#include <asm/opcodes.h>
+ #include <asm/pstate.h>
+ #include <asm/elf.h>
+ 
+-#include "opcodes.h"
+-
+ struct des_sparc64_ctx {
+ 	u64 encrypt_expkey[DES_EXPKEY_WORDS / 2];
+ 	u64 decrypt_expkey[DES_EXPKEY_WORDS / 2];
+ };
+ 
+diff --git a/arch/sparc/crypto/md5_asm.S b/arch/sparc/crypto/md5_asm.S
+index 7a6637455f37a..60b544e4d205b 100644
+--- a/arch/sparc/crypto/md5_asm.S
++++ b/arch/sparc/crypto/md5_asm.S
+@@ -1,11 +1,10 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+ #include <linux/linkage.h>
++#include <asm/opcodes.h>
+ #include <asm/visasm.h>
+ 
+-#include "opcodes.h"
+-
+ ENTRY(md5_sparc64_transform)
+ 	/* %o0 = digest, %o1 = data, %o2 = rounds */
+ 	VISEntryHalf
+ 	ld	[%o0 + 0x00], %f0
+ 	ld	[%o0 + 0x04], %f1
+diff --git a/arch/sparc/crypto/md5_glue.c b/arch/sparc/crypto/md5_glue.c
+index 5b018c6a376c4..b3615f0cdf626 100644
+--- a/arch/sparc/crypto/md5_glue.c
++++ b/arch/sparc/crypto/md5_glue.c
+@@ -13,21 +13,20 @@
+  */
+ 
+ #define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
+ 
+ #include <asm/elf.h>
++#include <asm/opcodes.h>
+ #include <asm/pstate.h>
+ #include <crypto/internal/hash.h>
+ #include <crypto/md5.h>
+ #include <linux/errno.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/string.h>
+ #include <linux/unaligned.h>
+ 
+-#include "opcodes.h"
+-
+ struct sparc_md5_state {
+ 	__le32 hash[MD5_HASH_WORDS];
+ 	u64 byte_count;
+ };
+ 
+diff --git a/arch/sparc/crypto/sha1_asm.S b/arch/sparc/crypto/sha1_asm.S
+index 7d8bf354f0e79..00b46bac1b08f 100644
+--- a/arch/sparc/crypto/sha1_asm.S
++++ b/arch/sparc/crypto/sha1_asm.S
+@@ -1,11 +1,10 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+ #include <linux/linkage.h>
++#include <asm/opcodes.h>
+ #include <asm/visasm.h>
+ 
+-#include "opcodes.h"
+-
+ ENTRY(sha1_sparc64_transform)
+ 	/* %o0 = digest, %o1 = data, %o2 = rounds */
+ 	VISEntryHalf
+ 	ld	[%o0 + 0x00], %f0
+ 	ld	[%o0 + 0x04], %f1
+diff --git a/arch/sparc/crypto/sha1_glue.c b/arch/sparc/crypto/sha1_glue.c
+index ec5a06948e0d4..ef19d5023b1bc 100644
+--- a/arch/sparc/crypto/sha1_glue.c
++++ b/arch/sparc/crypto/sha1_glue.c
+@@ -10,19 +10,18 @@
+  */
+ 
+ #define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
+ 
+ #include <asm/elf.h>
++#include <asm/opcodes.h>
+ #include <asm/pstate.h>
+ #include <crypto/internal/hash.h>
+ #include <crypto/sha1.h>
+ #include <crypto/sha1_base.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ 
+-#include "opcodes.h"
+-
+ asmlinkage void sha1_sparc64_transform(struct sha1_state *digest,
+ 				       const u8 *data, int rounds);
+ 
+ static int sha1_sparc64_update(struct shash_desc *desc, const u8 *data,
+ 			       unsigned int len)
+diff --git a/arch/sparc/crypto/sha256_asm.S b/arch/sparc/crypto/sha256_asm.S
+index 0b39ec7d7ca29..8ce88611e98ad 100644
+--- a/arch/sparc/crypto/sha256_asm.S
++++ b/arch/sparc/crypto/sha256_asm.S
+@@ -1,11 +1,10 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+ #include <linux/linkage.h>
++#include <asm/opcodes.h>
+ #include <asm/visasm.h>
+ 
+-#include "opcodes.h"
+-
+ ENTRY(sha256_sparc64_transform)
+ 	/* %o0 = digest, %o1 = data, %o2 = rounds */
+ 	VISEntryHalf
+ 	ld	[%o0 + 0x00], %f0
+ 	ld	[%o0 + 0x04], %f1
+diff --git a/arch/sparc/crypto/sha256_glue.c b/arch/sparc/crypto/sha256_glue.c
+index ddb250242faf4..25008603a9868 100644
+--- a/arch/sparc/crypto/sha256_glue.c
++++ b/arch/sparc/crypto/sha256_glue.c
+@@ -10,19 +10,18 @@
+  */
+ 
+ #define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
+ 
+ #include <asm/elf.h>
++#include <asm/opcodes.h>
+ #include <asm/pstate.h>
+ #include <crypto/internal/hash.h>
+ #include <crypto/sha2.h>
+ #include <crypto/sha256_base.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ 
+-#include "opcodes.h"
+-
+ asmlinkage void sha256_sparc64_transform(u32 *digest, const char *data,
+ 					 unsigned int rounds);
+ 
+ static void sha256_block(struct crypto_sha256_state *sctx, const u8 *src,
+ 			 int blocks)
+diff --git a/arch/sparc/crypto/sha512_asm.S b/arch/sparc/crypto/sha512_asm.S
+index b2f6e67288023..9932b4fe1b599 100644
+--- a/arch/sparc/crypto/sha512_asm.S
++++ b/arch/sparc/crypto/sha512_asm.S
+@@ -1,11 +1,10 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+ #include <linux/linkage.h>
++#include <asm/opcodes.h>
+ #include <asm/visasm.h>
+ 
+-#include "opcodes.h"
+-
+ ENTRY(sha512_sparc64_transform)
+ 	/* %o0 = digest, %o1 = data, %o2 = rounds */
+ 	VISEntry
+ 	ldd	[%o0 + 0x00], %f0
+ 	ldd	[%o0 + 0x08], %f2
+diff --git a/arch/sparc/crypto/sha512_glue.c b/arch/sparc/crypto/sha512_glue.c
+index 1d0e1f98ca461..47b9277b6877a 100644
+--- a/arch/sparc/crypto/sha512_glue.c
++++ b/arch/sparc/crypto/sha512_glue.c
+@@ -9,19 +9,18 @@
+  */
+ 
+ #define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
+ 
+ #include <asm/elf.h>
++#include <asm/opcodes.h>
+ #include <asm/pstate.h>
+ #include <crypto/internal/hash.h>
+ #include <crypto/sha2.h>
+ #include <crypto/sha512_base.h>
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ 
+-#include "opcodes.h"
+-
+ asmlinkage void sha512_sparc64_transform(u64 *digest, const char *data,
+ 					 unsigned int rounds);
+ 
+ static void sha512_block(struct sha512_state *sctx, const u8 *src, int blocks)
+ {
+diff --git a/arch/sparc/crypto/opcodes.h b/arch/sparc/include/asm/opcodes.h
+similarity index 96%
+rename from arch/sparc/crypto/opcodes.h
+rename to arch/sparc/include/asm/opcodes.h
+index 417b6a10a337a..ebfda6eb49b26 100644
+--- a/arch/sparc/crypto/opcodes.h
++++ b/arch/sparc/include/asm/opcodes.h
+@@ -1,8 +1,8 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+-#ifndef _OPCODES_H
+-#define _OPCODES_H
++#ifndef _SPARC_ASM_OPCODES_H
++#define _SPARC_ASM_OPCODES_H
+ 
+ #define SPARC_CR_OPCODE_PRIORITY	300
+ 
+ #define F3F(x,y,z)	(((x)<<30)|((y)<<19)|((z)<<5))
+ 
+@@ -95,6 +95,6 @@
+ #define MOVXTOD_G3_F60		\
+ 	.word	0xbbb02303;
+ #define MOVXTOD_G7_F62		\
+ 	.word	0xbfb02307;
+ 
+-#endif /* _OPCODES_H */
++#endif /* _SPARC_ASM_OPCODES_H */
+diff --git a/arch/sparc/lib/crc32c_asm.S b/arch/sparc/lib/crc32c_asm.S
+index ee454fa6aed68..4db873850f44c 100644
+--- a/arch/sparc/lib/crc32c_asm.S
++++ b/arch/sparc/lib/crc32c_asm.S
+@@ -1,12 +1,11 @@
+ /* SPDX-License-Identifier: GPL-2.0 */
+ #include <linux/linkage.h>
++#include <asm/opcodes.h>
+ #include <asm/visasm.h>
+ #include <asm/asi.h>
+ 
+-#include "../crypto/opcodes.h"
+-
+ ENTRY(crc32c_sparc64)
+ 	/* %o0=crc32p, %o1=data_ptr, %o2=len */
+ 	VISEntryHalf
+ 	lda	[%o0] ASI_PL, %f1
+ 1:	ldd	[%o1], %f2
+-- 
+2.49.0
+
 
