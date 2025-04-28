@@ -4,108 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCCD2C3ABA4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 16:58:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DD66C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 17:04:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IjvZYK2d2GAr0o6m4ARn5rvHXuqogyOYirhk7zcNjLo=; b=3kSJr5uuIcRpvHWulKwTHf8Z74
-	PhE9wQF4KuRkqN5ZKZGmVcSKQ01y56tcejlqzItf8D/VRc7dhAJzneU12a19NWLxO8/E2QxxVspaJ
-	VgtZnJyrp2BJqf4heD/5PclBJAFkMpPsCL8WKFLBsslrmPQ6ByqRIhe/VpMAo+oBjML0x0Vj0EHEW
-	nBzOW0i/WDc66lZgoTlpUCSGzKWM1XN7dZYEequFECc8tAWdQK6WvK7B588ptgL0AEuWLjHEWfbWf
-	27t7UUuj+JyejE9/OlJZvwGmruK7accS0JBJYydGN+l/plAB/ze+a6zTFA/61g15upQH2oERudY5h
-	iAd9wmmA==;
+	bh=1NZg+14WaxlHMlgnTMxZW6YSgxBxkd6H6B4u4svQw3Y=; b=splf+zaIndgvQ/xTsP82QoN9/v
+	Z/X+St6+gs37dyCtmFZ/SXKHZVde4nUnM7nsWTzeqIZTJpHY8JP9z87kEfKi3U/A9uETPNrwd/JQw
+	/BjuqXovcbfiTH0IF7vF6eqm5GDuTdHxPXu3CcsmzhM/2JwX9MDXsf4rcsqH1ooHAvR3EuujpxB9M
+	AlPSgyA9FFHYpBPcis+gPMt41o/QmBjmIb9nRYhJAgQQwoCwDWdYOOW4JLv5zeM2+9kEhIcTaFT2D
+	R57PWLtNKoMvbBjbwBZCT2sioyaabDjmHoOPDE+wMoYYaKnazbYQaYXogHrre7JxqzZOSeiQynJeS
+	UNGQ9scQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Rnj-000000070CW-24yD;
-	Mon, 28 Apr 2025 16:57:51 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1u9Rtk-000000071dd-3nOo;
+	Mon, 28 Apr 2025 17:04:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Rii-00000006zPx-0j2y
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 16:52:41 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-22423adf751so51701355ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 09:52:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745859159; x=1746463959; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:user-agent:message-id:date
-         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=IjvZYK2d2GAr0o6m4ARn5rvHXuqogyOYirhk7zcNjLo=;
-        b=BONd0QYiMZcAkmEGu942KWP0t4D4kNUH8rk/sw/u5nuQlFtZHhpBNOn7oAHI5nioxi
-         ScVoirlu9Yqm4MhTq+MNk0u94V166COr43hDHqnFIGHdWoP5y9ZEb4ANS7UkxbWUL5gE
-         pAGysEDH2G4JPrsqVz0Wr/9HTITUH6cyHXEgYRHhskuanMlW7wk6vMjbMpLgZ/OprX8P
-         MEgOf2/h8ZJQG41mX/KAH6ov4vD9QV7Vp6JrS9tyKyua5HgkBAHYvf8B+T2eeWGBFIdI
-         c7c727kfX9WndwLNorQxDPQnt8yBwm9FkfqJ8VOSK2+5t36AxihWHgxpXDQ6C8MvQcEP
-         umxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745859159; x=1746463959;
-        h=content-transfer-encoding:mime-version:user-agent:message-id:date
-         :references:in-reply-to:subject:cc:to:from:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=IjvZYK2d2GAr0o6m4ARn5rvHXuqogyOYirhk7zcNjLo=;
-        b=us1e2NhFxamHLffsjDOW3DfPxKwb3k7W0yTEcQxNAEniiyGco1hQTVPiZhH7IIUUsB
-         ks6WBf14fkCo1ayrf6viOGyiGgh7FwTtM+wkwQVgzPz36FbNatqfkKACR0E4iH5Dwq1Q
-         +t0vlQ6plwO7hUaRhCaycUWOFmKDh2+ORzeWRVmmCtFfkGfQfKcN3cPZ7KiA7OpUwG7N
-         oNQ7WrmuM047OhmabQDIzVLcQjxDQp/WrOoWPwHqcLa2ZjPCQ/U91nX2mXFVvzoZLI11
-         MOfo3O0j/Tw+LutnAuTt0cZwmZO2ZXRq2FhMgfITEj6yYfDWfcGEfm2XiKgAp8pvLEAb
-         FkZg==
-X-Forwarded-Encrypted: i=1; AJvYcCXfHhuN+3TL2sqP4gRQlRTroMV7q/B4sCHmhT65EcGD3Zr8p+D8191QBhnEBNo7FCTP4D/411i3pRP/Ao2igpTJ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/TtEKd/kT7zEP0+OQigHCid/CrrX0v7riI/Kr0fFr9d5Mqyac
-	CrirGRYCAi8aoNEkV9JkqTO5PEW1ezW0cXPEpACllPB67QlEdSdOYDCY1Yei4PI=
-X-Gm-Gg: ASbGncttOTZt19K8AD9b1XtlCZtnbq7JtnoXgUdRvNi6wSrd1ZIAyolMW5j1UTOcLnZ
-	KabkvWjD+UNAVWMTtHV/GLGPsnt3FKpqEDo/OuHDXv2GK8C6NIyhg+e8T/Z18hNhDqESc4unKKL
-	UMUzjE8iWGls0qxYfUV85oLkhGqjXCAifjgmgTTq0rPrcZMTk16ajXllGk2klWWXB1cSkKdt/iw
-	izGrryN4p7cf8PnZR27bCi8YLUURG13iqrigp8BOL51+IVTbq/rFYD+a0nlc7KYFzg/F6gHN3BU
-	sVt5IvSl+z/rMHYG9NLEq+ugsU1WOyy7bVOBTu2uiJ/q0lwEtg==
-X-Google-Smtp-Source: AGHT+IGBCRKNAZsf7FtVymPsCdsoGJ/DJafrNa9HOoRlQsbwOsn8q7cEi76BNaSHeHA2zQC4abBnMA==
-X-Received: by 2002:a17:903:40cb:b0:224:1935:fb91 with SMTP id d9443c01a7336-22dbf5fd432mr161245665ad.27.1745859159109;
-        Mon, 28 Apr 2025 09:52:39 -0700 (PDT)
-Received: from ezingerman-mba ([2620:10d:c090:500::6:6628])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22dd86032dcsm25258755ad.181.2025.04.28.09.52.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Apr 2025 09:52:38 -0700 (PDT)
-From: Eduard Zingerman <eddyz87@gmail.com>
-To: Alexis =?utf-8?Q?Lothor=C3=A9?= <alexis.lothore@bootlin.com>
-Cc: "Alexei Starovoitov" <ast@kernel.org>,  "Daniel Borkmann"
- <daniel@iogearbox.net>,  "John Fastabend" <john.fastabend@gmail.com>,
-  "Andrii Nakryiko" <andrii@kernel.org>,  "Martin KaFai Lau"
- <martin.lau@linux.dev>,  "Song Liu" <song@kernel.org>,  "Yonghong Song"
- <yonghong.song@linux.dev>,  "KP Singh" <kpsingh@kernel.org>,  "Stanislav
- Fomichev" <sdf@fomichev.me>,  "Hao Luo" <haoluo@google.com>,  "Jiri Olsa"
- <jolsa@kernel.org>,  "Puranjay Mohan" <puranjay@kernel.org>,  "Xu Kuohai"
- <xukuohai@huaweicloud.com>,  "Catalin Marinas" <catalin.marinas@arm.com>,
-  "Will Deacon" <will@kernel.org>,  "Mykola Lysenko" <mykolal@fb.com>,
-  "Shuah Khan" <shuah@kernel.org>,  "Maxime Coquelin"
- <mcoquelin.stm32@gmail.com>,  "Alexandre Torgue"
- <alexandre.torgue@foss.st.com>,  "Florent Revest" <revest@chromium.org>,
-  "Bastien Curutchet" <bastien.curutchet@bootlin.com>,
-  <ebpf@linuxfoundation.org>,  "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>,  <bpf@vger.kernel.org>,
-  <linux-kernel@vger.kernel.org>,  <linux-arm-kernel@lists.infradead.org>,
-  <linux-kselftest@vger.kernel.org>,
-  <linux-stm32@st-md-mailman.stormreply.com>
-Subject: Re: [PATCH RFC bpf-next 3/4] bpf/selftests: add tests to validate
- proper arguments alignment on ARM64
-In-Reply-To: <D9I6TQN2I6B1.QC4FFHEWAURZ@bootlin.com> ("Alexis =?utf-8?Q?Lo?=
- =?utf-8?Q?thor=C3=A9=22's?=
-	message of "Mon, 28 Apr 2025 12:08:32 +0200")
-References: <20250411-many_args_arm64-v1-0-0a32fe72339e@bootlin.com>
-	<20250411-many_args_arm64-v1-3-0a32fe72339e@bootlin.com>
-	<3a16fae0346d4f733fb1a67ae6420d8bf935dbd8.camel@gmail.com>
-	<D9I6TQN2I6B1.QC4FFHEWAURZ@bootlin.com>
-Date: Mon, 28 Apr 2025 09:52:35 -0700
-Message-ID: <m21ptcmdnw.fsf@gmail.com>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	id 1u9Rrl-000000070sJ-07rg;
+	Mon, 28 Apr 2025 17:02:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 55ED64AAB5;
+	Mon, 28 Apr 2025 17:01:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4594C4CEEE;
+	Mon, 28 Apr 2025 17:01:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745859720;
+	bh=2wQ4dKPjbt6322fqCkwvI5D9WmXKkv+pG1xO3VUUEeI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=FZzXEvxz5tD8v1n/+f1V+oDu1OqH4R+p5z6fc9M0BUliz9y4cLZUD9bAFio9d3MJ1
+	 WDrrl+wgy+UFq65ebkcpTuQLq/6Z8rxW+7P9zJWFCLLFSgcDhD28dOo1WEgq8l+jIU
+	 mADpeVlYNxzw3KqvzrxRjJjoM9C8495Q8dRud2ybKpriXA03vButU5fEI2o/l7upkq
+	 mcU8AC0FCQlBpwUY+vRIO4OlaGmpjNLPBaGOeT8uItB/9GkMS0vjbTZB2KNo/wA3T2
+	 WBHtLh3DgzvSw6oGZFSRCq5OgLYDeYkzQwmBq92qau2gSjrwuBzjj7aOCFVxson+QV
+	 HUrAg6HiMHjTA==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	sparclinux@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	x86@kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: [PATCH v4 02/13] crypto: arm/sha256 - implement library instead of shash
+Date: Mon, 28 Apr 2025 10:00:27 -0700
+Message-ID: <20250428170040.423825-3-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250428170040.423825-1-ebiggers@kernel.org>
+References: <20250428170040.423825-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_095240_220301_F9912664 
-X-CRM114-Status: GOOD (  24.99  )
+X-CRM114-CacheID: sfid-20250428_100201_140585_0465B348 
+X-CRM114-Status: GOOD (  19.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,145 +81,698 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Alexis Lothor=C3=A9 <alexis.lothore@bootlin.com> writes:
+From: Eric Biggers <ebiggers@google.com>
 
-[...]
+Instead of providing crypto_shash algorithms for the arch-optimized
+SHA-256 code, instead implement the SHA-256 library.  This is much
+simpler, it makes the SHA-256 library functions be arch-optimized, and
+it fixes the longstanding issue where the arch-optimized SHA-256 was
+disabled by default.  SHA-256 still remains available through
+crypto_shash, but individual architectures no longer need to handle it.
 
->> The function listened to is defined as accepting 'struct bpf_testmod_str=
-uct_arg_7',
->> at the same time this function uses 'struct bpf_testmod_struct_arg_5'.
->
-> That's not an accidental mistake, those are in fact the same definition.
-> bpf_testmod_struct_arg_7 is the kernel side definition in bpf_testmod.c:
->
-> struct bpf_testmod_struct_arg_7 {
-> 	__int128 a;
-> };
->
-> and struct bpf_testmode_struct_arg_5 is the one defined in the bpf test
-> program:
->
-> struct bpf_testmod_struct_arg_5 {
-> 	__int128 a;
-> };
+To merge the scalar, NEON, and CE code all into one module cleanly, add
+!CPU_V7M as a direct dependency of the CE code.  Previously, !CPU_V7M
+was only a direct dependency of the scalar and NEON code.  The result is
+still the same because CPU_V7M implies !KERNEL_MODE_NEON, so !CPU_V7M
+was already an indirect dependency of the CE code.
 
-Apologies, but I'm still confused:
-- I apply this series on top of:
-  224ee86639f5 ("Merge git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bp=
-f after rc4")
+To match sha256_blocks_arch(), change the type of the nblocks parameter
+of the assembly functions from int to size_t.  The assembly functions
+actually already treated it as size_t.
 
-- line 12 of tracing_struct_many_args.c has the following definition:
+While renaming the assembly files, also fix the naming quirk where
+"sha2" meant sha256.  (SHA-512 is also part of SHA-2.)
 
-  struct bpf_testmod_struct_arg_5 {
-         char a;
-         short b;
-         int c;
-         long d;
-  };
+Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+Signed-off-by: Eric Biggers <ebiggers@google.com>
+---
+ arch/arm/configs/exynos_defconfig             |   1 -
+ arch/arm/configs/milbeaut_m10v_defconfig      |   1 -
+ arch/arm/configs/multi_v7_defconfig           |   1 -
+ arch/arm/configs/omap2plus_defconfig          |   1 -
+ arch/arm/configs/pxa_defconfig                |   1 -
+ arch/arm/crypto/Kconfig                       |  21 ----
+ arch/arm/crypto/Makefile                      |   8 +-
+ arch/arm/crypto/sha2-ce-glue.c                |  87 --------------
+ arch/arm/crypto/sha256_glue.c                 | 107 ------------------
+ arch/arm/crypto/sha256_glue.h                 |   9 --
+ arch/arm/crypto/sha256_neon_glue.c            |  75 ------------
+ arch/arm/lib/crypto/.gitignore                |   1 +
+ arch/arm/lib/crypto/Kconfig                   |   6 +
+ arch/arm/lib/crypto/Makefile                  |   8 +-
+ arch/arm/{ => lib}/crypto/sha256-armv4.pl     |   0
+ .../sha2-ce-core.S => lib/crypto/sha256-ce.S} |  10 +-
+ arch/arm/lib/crypto/sha256.c                  |  64 +++++++++++
+ 17 files changed, 84 insertions(+), 317 deletions(-)
+ delete mode 100644 arch/arm/crypto/sha2-ce-glue.c
+ delete mode 100644 arch/arm/crypto/sha256_glue.c
+ delete mode 100644 arch/arm/crypto/sha256_glue.h
+ delete mode 100644 arch/arm/crypto/sha256_neon_glue.c
+ rename arch/arm/{ => lib}/crypto/sha256-armv4.pl (100%)
+ rename arch/arm/{crypto/sha2-ce-core.S => lib/crypto/sha256-ce.S} (91%)
+ create mode 100644 arch/arm/lib/crypto/sha256.c
 
-- line 135 of the same file has the following definition:
+diff --git a/arch/arm/configs/exynos_defconfig b/arch/arm/configs/exynos_defconfig
+index 7ad48fdda1dac..244dd5dec98bd 100644
+--- a/arch/arm/configs/exynos_defconfig
++++ b/arch/arm/configs/exynos_defconfig
+@@ -362,11 +362,10 @@ CONFIG_CRYPTO_LZ4=m
+ CONFIG_CRYPTO_USER_API_HASH=m
+ CONFIG_CRYPTO_USER_API_SKCIPHER=m
+ CONFIG_CRYPTO_USER_API_RNG=m
+ CONFIG_CRYPTO_USER_API_AEAD=m
+ CONFIG_CRYPTO_SHA1_ARM_NEON=m
+-CONFIG_CRYPTO_SHA256_ARM=m
+ CONFIG_CRYPTO_SHA512_ARM=m
+ CONFIG_CRYPTO_AES_ARM_BS=m
+ CONFIG_CRYPTO_CHACHA20_NEON=m
+ CONFIG_CRYPTO_DEV_EXYNOS_RNG=y
+ CONFIG_CRYPTO_DEV_S5P=y
+diff --git a/arch/arm/configs/milbeaut_m10v_defconfig b/arch/arm/configs/milbeaut_m10v_defconfig
+index acd16204f8d7f..fce33c1eb65bf 100644
+--- a/arch/arm/configs/milbeaut_m10v_defconfig
++++ b/arch/arm/configs/milbeaut_m10v_defconfig
+@@ -99,11 +99,10 @@ CONFIG_CRYPTO_MANAGER=y
+ CONFIG_CRYPTO_AES=y
+ CONFIG_CRYPTO_SEQIV=m
+ CONFIG_CRYPTO_GHASH_ARM_CE=m
+ CONFIG_CRYPTO_SHA1_ARM_NEON=m
+ CONFIG_CRYPTO_SHA1_ARM_CE=m
+-CONFIG_CRYPTO_SHA2_ARM_CE=m
+ CONFIG_CRYPTO_SHA512_ARM=m
+ CONFIG_CRYPTO_AES_ARM=m
+ CONFIG_CRYPTO_AES_ARM_BS=m
+ CONFIG_CRYPTO_AES_ARM_CE=m
+ CONFIG_CRYPTO_CHACHA20_NEON=m
+diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
+index ad037c175fdb0..96178acedad0b 100644
+--- a/arch/arm/configs/multi_v7_defconfig
++++ b/arch/arm/configs/multi_v7_defconfig
+@@ -1299,11 +1299,10 @@ CONFIG_CRYPTO_USER_API_SKCIPHER=m
+ CONFIG_CRYPTO_USER_API_RNG=m
+ CONFIG_CRYPTO_USER_API_AEAD=m
+ CONFIG_CRYPTO_GHASH_ARM_CE=m
+ CONFIG_CRYPTO_SHA1_ARM_NEON=m
+ CONFIG_CRYPTO_SHA1_ARM_CE=m
+-CONFIG_CRYPTO_SHA2_ARM_CE=m
+ CONFIG_CRYPTO_SHA512_ARM=m
+ CONFIG_CRYPTO_AES_ARM=m
+ CONFIG_CRYPTO_AES_ARM_BS=m
+ CONFIG_CRYPTO_AES_ARM_CE=m
+ CONFIG_CRYPTO_CHACHA20_NEON=m
+diff --git a/arch/arm/configs/omap2plus_defconfig b/arch/arm/configs/omap2plus_defconfig
+index 113d6dfe52435..57d9e4dba29e3 100644
+--- a/arch/arm/configs/omap2plus_defconfig
++++ b/arch/arm/configs/omap2plus_defconfig
+@@ -695,11 +695,10 @@ CONFIG_NLS_CODEPAGE_437=y
+ CONFIG_NLS_ISO8859_1=y
+ CONFIG_SECURITY=y
+ CONFIG_CRYPTO_MICHAEL_MIC=y
+ CONFIG_CRYPTO_GHASH_ARM_CE=m
+ CONFIG_CRYPTO_SHA1_ARM_NEON=m
+-CONFIG_CRYPTO_SHA256_ARM=m
+ CONFIG_CRYPTO_SHA512_ARM=m
+ CONFIG_CRYPTO_AES_ARM=m
+ CONFIG_CRYPTO_AES_ARM_BS=m
+ CONFIG_CRYPTO_CHACHA20_NEON=m
+ CONFIG_CRYPTO_DEV_OMAP=m
+diff --git a/arch/arm/configs/pxa_defconfig b/arch/arm/configs/pxa_defconfig
+index de0ac8f521d76..fa631523616f8 100644
+--- a/arch/arm/configs/pxa_defconfig
++++ b/arch/arm/configs/pxa_defconfig
+@@ -658,11 +658,10 @@ CONFIG_CRYPTO_WP512=m
+ CONFIG_CRYPTO_ANUBIS=m
+ CONFIG_CRYPTO_XCBC=m
+ CONFIG_CRYPTO_DEFLATE=y
+ CONFIG_CRYPTO_LZO=y
+ CONFIG_CRYPTO_SHA1_ARM=m
+-CONFIG_CRYPTO_SHA256_ARM=m
+ CONFIG_CRYPTO_SHA512_ARM=m
+ CONFIG_CRYPTO_AES_ARM=m
+ CONFIG_CRC_CCITT=y
+ CONFIG_CRC_T10DIF=m
+ CONFIG_FONTS=y
+diff --git a/arch/arm/crypto/Kconfig b/arch/arm/crypto/Kconfig
+index 1f889d6bab77d..7efb9a8596e4e 100644
+--- a/arch/arm/crypto/Kconfig
++++ b/arch/arm/crypto/Kconfig
+@@ -91,31 +91,10 @@ config CRYPTO_SHA1_ARM_CE
+ 	help
+ 	  SHA-1 secure hash algorithm (FIPS 180)
+ 
+ 	  Architecture: arm using ARMv8 Crypto Extensions
+ 
+-config CRYPTO_SHA2_ARM_CE
+-	tristate "Hash functions: SHA-224 and SHA-256 (ARMv8 Crypto Extensions)"
+-	depends on KERNEL_MODE_NEON
+-	select CRYPTO_SHA256_ARM
+-	select CRYPTO_HASH
+-	help
+-	  SHA-224 and SHA-256 secure hash algorithms (FIPS 180)
+-
+-	  Architecture: arm using
+-	  - ARMv8 Crypto Extensions
+-
+-config CRYPTO_SHA256_ARM
+-	tristate "Hash functions: SHA-224 and SHA-256 (NEON)"
+-	select CRYPTO_HASH
+-	depends on !CPU_V7M
+-	help
+-	  SHA-224 and SHA-256 secure hash algorithms (FIPS 180)
+-
+-	  Architecture: arm using
+-	  - NEON (Advanced SIMD) extensions
+-
+ config CRYPTO_SHA512_ARM
+ 	tristate "Hash functions: SHA-384 and SHA-512 (NEON)"
+ 	select CRYPTO_HASH
+ 	depends on !CPU_V7M
+ 	help
+diff --git a/arch/arm/crypto/Makefile b/arch/arm/crypto/Makefile
+index ecabe6603e080..8479137c6e800 100644
+--- a/arch/arm/crypto/Makefile
++++ b/arch/arm/crypto/Makefile
+@@ -5,32 +5,27 @@
+ 
+ obj-$(CONFIG_CRYPTO_AES_ARM) += aes-arm.o
+ obj-$(CONFIG_CRYPTO_AES_ARM_BS) += aes-arm-bs.o
+ obj-$(CONFIG_CRYPTO_SHA1_ARM) += sha1-arm.o
+ obj-$(CONFIG_CRYPTO_SHA1_ARM_NEON) += sha1-arm-neon.o
+-obj-$(CONFIG_CRYPTO_SHA256_ARM) += sha256-arm.o
+ obj-$(CONFIG_CRYPTO_SHA512_ARM) += sha512-arm.o
+ obj-$(CONFIG_CRYPTO_BLAKE2B_NEON) += blake2b-neon.o
+ obj-$(CONFIG_CRYPTO_NHPOLY1305_NEON) += nhpoly1305-neon.o
+ obj-$(CONFIG_CRYPTO_CURVE25519_NEON) += curve25519-neon.o
+ 
+ obj-$(CONFIG_CRYPTO_AES_ARM_CE) += aes-arm-ce.o
+ obj-$(CONFIG_CRYPTO_SHA1_ARM_CE) += sha1-arm-ce.o
+-obj-$(CONFIG_CRYPTO_SHA2_ARM_CE) += sha2-arm-ce.o
+ obj-$(CONFIG_CRYPTO_GHASH_ARM_CE) += ghash-arm-ce.o
+ 
+ aes-arm-y	:= aes-cipher-core.o aes-cipher-glue.o
+ aes-arm-bs-y	:= aes-neonbs-core.o aes-neonbs-glue.o
+ sha1-arm-y	:= sha1-armv4-large.o sha1_glue.o
+ sha1-arm-neon-y	:= sha1-armv7-neon.o sha1_neon_glue.o
+-sha256-arm-neon-$(CONFIG_KERNEL_MODE_NEON) := sha256_neon_glue.o
+-sha256-arm-y	:= sha256-core.o sha256_glue.o $(sha256-arm-neon-y)
+ sha512-arm-neon-$(CONFIG_KERNEL_MODE_NEON) := sha512-neon-glue.o
+ sha512-arm-y	:= sha512-core.o sha512-glue.o $(sha512-arm-neon-y)
+ blake2b-neon-y  := blake2b-neon-core.o blake2b-neon-glue.o
+ sha1-arm-ce-y	:= sha1-ce-core.o sha1-ce-glue.o
+-sha2-arm-ce-y	:= sha2-ce-core.o sha2-ce-glue.o
+ aes-arm-ce-y	:= aes-ce-core.o aes-ce-glue.o
+ ghash-arm-ce-y	:= ghash-ce-core.o ghash-ce-glue.o
+ nhpoly1305-neon-y := nh-neon-core.o nhpoly1305-neon-glue.o
+ curve25519-neon-y := curve25519-core.o curve25519-glue.o
+ 
+@@ -38,11 +33,10 @@ quiet_cmd_perl = PERL    $@
+       cmd_perl = $(PERL) $(<) > $(@)
+ 
+ $(obj)/%-core.S: $(src)/%-armv4.pl
+ 	$(call cmd,perl)
+ 
+-clean-files += sha256-core.S sha512-core.S
++clean-files += sha512-core.S
+ 
+ aflags-thumb2-$(CONFIG_THUMB2_KERNEL)  := -U__thumb2__ -D__thumb2__=1
+ 
+-AFLAGS_sha256-core.o += $(aflags-thumb2-y)
+ AFLAGS_sha512-core.o += $(aflags-thumb2-y)
+diff --git a/arch/arm/crypto/sha2-ce-glue.c b/arch/arm/crypto/sha2-ce-glue.c
+deleted file mode 100644
+index 1e9d16f796787..0000000000000
+--- a/arch/arm/crypto/sha2-ce-glue.c
++++ /dev/null
+@@ -1,87 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0-only
+-/*
+- * sha2-ce-glue.c - SHA-224/SHA-256 using ARMv8 Crypto Extensions
+- *
+- * Copyright (C) 2015 Linaro Ltd <ard.biesheuvel@linaro.org>
+- */
+-
+-#include <asm/neon.h>
+-#include <crypto/internal/hash.h>
+-#include <crypto/sha2.h>
+-#include <crypto/sha256_base.h>
+-#include <linux/cpufeature.h>
+-#include <linux/kernel.h>
+-#include <linux/module.h>
+-
+-MODULE_DESCRIPTION("SHA-224/SHA-256 secure hash using ARMv8 Crypto Extensions");
+-MODULE_AUTHOR("Ard Biesheuvel <ard.biesheuvel@linaro.org>");
+-MODULE_LICENSE("GPL v2");
+-
+-asmlinkage void sha2_ce_transform(struct crypto_sha256_state *sst,
+-				  u8 const *src, int blocks);
+-
+-static int sha2_ce_update(struct shash_desc *desc, const u8 *data,
+-			  unsigned int len)
+-{
+-	int remain;
+-
+-	kernel_neon_begin();
+-	remain = sha256_base_do_update_blocks(desc, data, len,
+-					      sha2_ce_transform);
+-	kernel_neon_end();
+-	return remain;
+-}
+-
+-static int sha2_ce_finup(struct shash_desc *desc, const u8 *data,
+-			 unsigned int len, u8 *out)
+-{
+-	kernel_neon_begin();
+-	sha256_base_do_finup(desc, data, len, sha2_ce_transform);
+-	kernel_neon_end();
+-	return sha256_base_finish(desc, out);
+-}
+-
+-static struct shash_alg algs[] = { {
+-	.init			= sha224_base_init,
+-	.update			= sha2_ce_update,
+-	.finup			= sha2_ce_finup,
+-	.descsize		= sizeof(struct crypto_sha256_state),
+-	.digestsize		= SHA224_DIGEST_SIZE,
+-	.base			= {
+-		.cra_name		= "sha224",
+-		.cra_driver_name	= "sha224-ce",
+-		.cra_priority		= 300,
+-		.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY |
+-					  CRYPTO_AHASH_ALG_FINUP_MAX,
+-		.cra_blocksize		= SHA256_BLOCK_SIZE,
+-		.cra_module		= THIS_MODULE,
+-	}
+-}, {
+-	.init			= sha256_base_init,
+-	.update			= sha2_ce_update,
+-	.finup			= sha2_ce_finup,
+-	.descsize		= sizeof(struct crypto_sha256_state),
+-	.digestsize		= SHA256_DIGEST_SIZE,
+-	.base			= {
+-		.cra_name		= "sha256",
+-		.cra_driver_name	= "sha256-ce",
+-		.cra_priority		= 300,
+-		.cra_flags		= CRYPTO_AHASH_ALG_BLOCK_ONLY |
+-					  CRYPTO_AHASH_ALG_FINUP_MAX,
+-		.cra_blocksize		= SHA256_BLOCK_SIZE,
+-		.cra_module		= THIS_MODULE,
+-	}
+-} };
+-
+-static int __init sha2_ce_mod_init(void)
+-{
+-	return crypto_register_shashes(algs, ARRAY_SIZE(algs));
+-}
+-
+-static void __exit sha2_ce_mod_fini(void)
+-{
+-	crypto_unregister_shashes(algs, ARRAY_SIZE(algs));
+-}
+-
+-module_cpu_feature_match(SHA2, sha2_ce_mod_init);
+-module_exit(sha2_ce_mod_fini);
+diff --git a/arch/arm/crypto/sha256_glue.c b/arch/arm/crypto/sha256_glue.c
+deleted file mode 100644
+index d04c4e6bae6d3..0000000000000
+--- a/arch/arm/crypto/sha256_glue.c
++++ /dev/null
+@@ -1,107 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0-or-later
+-/*
+- * Glue code for the SHA256 Secure Hash Algorithm assembly implementation
+- * using optimized ARM assembler and NEON instructions.
+- *
+- * Copyright © 2015 Google Inc.
+- *
+- * This file is based on sha256_ssse3_glue.c:
+- *   Copyright (C) 2013 Intel Corporation
+- *   Author: Tim Chen <tim.c.chen@linux.intel.com>
+- */
+-
+-#include <asm/neon.h>
+-#include <crypto/internal/hash.h>
+-#include <crypto/sha2.h>
+-#include <crypto/sha256_base.h>
+-#include <linux/kernel.h>
+-#include <linux/module.h>
+-
+-#include "sha256_glue.h"
+-
+-asmlinkage void sha256_block_data_order(struct crypto_sha256_state *state,
+-					const u8 *data, int num_blks);
+-
+-static int crypto_sha256_arm_update(struct shash_desc *desc, const u8 *data,
+-				    unsigned int len)
+-{
+-	/* make sure casting to sha256_block_fn() is safe */
+-	BUILD_BUG_ON(offsetof(struct crypto_sha256_state, state) != 0);
+-
+-	return sha256_base_do_update_blocks(desc, data, len,
+-					    sha256_block_data_order);
+-}
+-
+-static int crypto_sha256_arm_finup(struct shash_desc *desc, const u8 *data,
+-				   unsigned int len, u8 *out)
+-{
+-	sha256_base_do_finup(desc, data, len, sha256_block_data_order);
+-	return sha256_base_finish(desc, out);
+-}
+-
+-static struct shash_alg algs[] = { {
+-	.digestsize	=	SHA256_DIGEST_SIZE,
+-	.init		=	sha256_base_init,
+-	.update		=	crypto_sha256_arm_update,
+-	.finup		=	crypto_sha256_arm_finup,
+-	.descsize	=	sizeof(struct crypto_sha256_state),
+-	.base		=	{
+-		.cra_name	=	"sha256",
+-		.cra_driver_name =	"sha256-asm",
+-		.cra_priority	=	150,
+-		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
+-					CRYPTO_AHASH_ALG_FINUP_MAX,
+-		.cra_blocksize	=	SHA256_BLOCK_SIZE,
+-		.cra_module	=	THIS_MODULE,
+-	}
+-}, {
+-	.digestsize	=	SHA224_DIGEST_SIZE,
+-	.init		=	sha224_base_init,
+-	.update		=	crypto_sha256_arm_update,
+-	.finup		=	crypto_sha256_arm_finup,
+-	.descsize	=	sizeof(struct crypto_sha256_state),
+-	.base		=	{
+-		.cra_name	=	"sha224",
+-		.cra_driver_name =	"sha224-asm",
+-		.cra_priority	=	150,
+-		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
+-					CRYPTO_AHASH_ALG_FINUP_MAX,
+-		.cra_blocksize	=	SHA224_BLOCK_SIZE,
+-		.cra_module	=	THIS_MODULE,
+-	}
+-} };
+-
+-static int __init sha256_mod_init(void)
+-{
+-	int res = crypto_register_shashes(algs, ARRAY_SIZE(algs));
+-
+-	if (res < 0)
+-		return res;
+-
+-	if (IS_ENABLED(CONFIG_KERNEL_MODE_NEON) && cpu_has_neon()) {
+-		res = crypto_register_shashes(sha256_neon_algs,
+-					      ARRAY_SIZE(sha256_neon_algs));
+-
+-		if (res < 0)
+-			crypto_unregister_shashes(algs, ARRAY_SIZE(algs));
+-	}
+-
+-	return res;
+-}
+-
+-static void __exit sha256_mod_fini(void)
+-{
+-	crypto_unregister_shashes(algs, ARRAY_SIZE(algs));
+-
+-	if (IS_ENABLED(CONFIG_KERNEL_MODE_NEON) && cpu_has_neon())
+-		crypto_unregister_shashes(sha256_neon_algs,
+-					  ARRAY_SIZE(sha256_neon_algs));
+-}
+-
+-module_init(sha256_mod_init);
+-module_exit(sha256_mod_fini);
+-
+-MODULE_LICENSE("GPL");
+-MODULE_DESCRIPTION("SHA256 Secure Hash Algorithm (ARM), including NEON");
+-
+-MODULE_ALIAS_CRYPTO("sha256");
+diff --git a/arch/arm/crypto/sha256_glue.h b/arch/arm/crypto/sha256_glue.h
+deleted file mode 100644
+index 9881c9a115d1f..0000000000000
+--- a/arch/arm/crypto/sha256_glue.h
++++ /dev/null
+@@ -1,9 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-#ifndef _CRYPTO_SHA256_GLUE_H
+-#define _CRYPTO_SHA256_GLUE_H
+-
+-#include <crypto/hash.h>
+-
+-extern struct shash_alg sha256_neon_algs[2];
+-
+-#endif /* _CRYPTO_SHA256_GLUE_H */
+diff --git a/arch/arm/crypto/sha256_neon_glue.c b/arch/arm/crypto/sha256_neon_glue.c
+deleted file mode 100644
+index 76eb3cdc21c96..0000000000000
+--- a/arch/arm/crypto/sha256_neon_glue.c
++++ /dev/null
+@@ -1,75 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0-or-later
+-/*
+- * Glue code for the SHA256 Secure Hash Algorithm assembly implementation
+- * using NEON instructions.
+- *
+- * Copyright © 2015 Google Inc.
+- *
+- * This file is based on sha512_neon_glue.c:
+- *   Copyright © 2014 Jussi Kivilinna <jussi.kivilinna@iki.fi>
+- */
+-
+-#include <asm/neon.h>
+-#include <crypto/internal/hash.h>
+-#include <crypto/sha2.h>
+-#include <crypto/sha256_base.h>
+-#include <linux/kernel.h>
+-#include <linux/module.h>
+-
+-#include "sha256_glue.h"
+-
+-asmlinkage void sha256_block_data_order_neon(
+-	struct crypto_sha256_state *digest, const u8 *data, int num_blks);
+-
+-static int crypto_sha256_neon_update(struct shash_desc *desc, const u8 *data,
+-				     unsigned int len)
+-{
+-	int remain;
+-
+-	kernel_neon_begin();
+-	remain = sha256_base_do_update_blocks(desc, data, len,
+-					      sha256_block_data_order_neon);
+-	kernel_neon_end();
+-	return remain;
+-}
+-
+-static int crypto_sha256_neon_finup(struct shash_desc *desc, const u8 *data,
+-				    unsigned int len, u8 *out)
+-{
+-	kernel_neon_begin();
+-	sha256_base_do_finup(desc, data, len, sha256_block_data_order_neon);
+-	kernel_neon_end();
+-	return sha256_base_finish(desc, out);
+-}
+-
+-struct shash_alg sha256_neon_algs[] = { {
+-	.digestsize	=	SHA256_DIGEST_SIZE,
+-	.init		=	sha256_base_init,
+-	.update		=	crypto_sha256_neon_update,
+-	.finup		=	crypto_sha256_neon_finup,
+-	.descsize	=	sizeof(struct crypto_sha256_state),
+-	.base		=	{
+-		.cra_name	=	"sha256",
+-		.cra_driver_name =	"sha256-neon",
+-		.cra_priority	=	250,
+-		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
+-					CRYPTO_AHASH_ALG_FINUP_MAX,
+-		.cra_blocksize	=	SHA256_BLOCK_SIZE,
+-		.cra_module	=	THIS_MODULE,
+-	}
+-}, {
+-	.digestsize	=	SHA224_DIGEST_SIZE,
+-	.init		=	sha224_base_init,
+-	.update		=	crypto_sha256_neon_update,
+-	.finup		=	crypto_sha256_neon_finup,
+-	.descsize	=	sizeof(struct crypto_sha256_state),
+-	.base		=	{
+-		.cra_name	=	"sha224",
+-		.cra_driver_name =	"sha224-neon",
+-		.cra_priority	=	250,
+-		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
+-					CRYPTO_AHASH_ALG_FINUP_MAX,
+-		.cra_blocksize	=	SHA224_BLOCK_SIZE,
+-		.cra_module	=	THIS_MODULE,
+-	}
+-} };
+diff --git a/arch/arm/lib/crypto/.gitignore b/arch/arm/lib/crypto/.gitignore
+index 0d47d4f21c6de..12d74d8b03d0a 100644
+--- a/arch/arm/lib/crypto/.gitignore
++++ b/arch/arm/lib/crypto/.gitignore
+@@ -1,2 +1,3 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ poly1305-core.S
++sha256-core.S
+diff --git a/arch/arm/lib/crypto/Kconfig b/arch/arm/lib/crypto/Kconfig
+index e8444fd0aae30..9f3ff30f40328 100644
+--- a/arch/arm/lib/crypto/Kconfig
++++ b/arch/arm/lib/crypto/Kconfig
+@@ -20,5 +20,11 @@ config CRYPTO_CHACHA20_NEON
+ 
+ config CRYPTO_POLY1305_ARM
+ 	tristate
+ 	default CRYPTO_LIB_POLY1305
+ 	select CRYPTO_ARCH_HAVE_LIB_POLY1305
++
++config CRYPTO_SHA256_ARM
++	tristate
++	depends on !CPU_V7M
++	default CRYPTO_LIB_SHA256
++	select CRYPTO_ARCH_HAVE_LIB_SHA256
+diff --git a/arch/arm/lib/crypto/Makefile b/arch/arm/lib/crypto/Makefile
+index 4c042a4c77ed6..431f77c3ff6fd 100644
+--- a/arch/arm/lib/crypto/Makefile
++++ b/arch/arm/lib/crypto/Makefile
+@@ -8,19 +8,25 @@ chacha-neon-y := chacha-scalar-core.o chacha-glue.o
+ chacha-neon-$(CONFIG_KERNEL_MODE_NEON) += chacha-neon-core.o
+ 
+ obj-$(CONFIG_CRYPTO_POLY1305_ARM) += poly1305-arm.o
+ poly1305-arm-y := poly1305-core.o poly1305-glue.o
+ 
++obj-$(CONFIG_CRYPTO_SHA256_ARM) += sha256-arm.o
++sha256-arm-y := sha256.o sha256-core.o
++sha256-arm-$(CONFIG_KERNEL_MODE_NEON) += sha256-ce.o
++
+ quiet_cmd_perl = PERL    $@
+       cmd_perl = $(PERL) $(<) > $(@)
+ 
+ $(obj)/%-core.S: $(src)/%-armv4.pl
+ 	$(call cmd,perl)
+ 
+-clean-files += poly1305-core.S
++clean-files += poly1305-core.S sha256-core.S
+ 
+ aflags-thumb2-$(CONFIG_THUMB2_KERNEL)  := -U__thumb2__ -D__thumb2__=1
+ 
+ # massage the perlasm code a bit so we only get the NEON routine if we need it
+ poly1305-aflags-$(CONFIG_CPU_V7) := -U__LINUX_ARM_ARCH__ -D__LINUX_ARM_ARCH__=5
+ poly1305-aflags-$(CONFIG_KERNEL_MODE_NEON) := -U__LINUX_ARM_ARCH__ -D__LINUX_ARM_ARCH__=7
+ AFLAGS_poly1305-core.o += $(poly1305-aflags-y) $(aflags-thumb2-y)
++
++AFLAGS_sha256-core.o += $(aflags-thumb2-y)
+diff --git a/arch/arm/crypto/sha256-armv4.pl b/arch/arm/lib/crypto/sha256-armv4.pl
+similarity index 100%
+rename from arch/arm/crypto/sha256-armv4.pl
+rename to arch/arm/lib/crypto/sha256-armv4.pl
+diff --git a/arch/arm/crypto/sha2-ce-core.S b/arch/arm/lib/crypto/sha256-ce.S
+similarity index 91%
+rename from arch/arm/crypto/sha2-ce-core.S
+rename to arch/arm/lib/crypto/sha256-ce.S
+index b6369d2440a19..ac2c9b01b22d2 100644
+--- a/arch/arm/crypto/sha2-ce-core.S
++++ b/arch/arm/lib/crypto/sha256-ce.S
+@@ -1,8 +1,8 @@
+ /* SPDX-License-Identifier: GPL-2.0-only */
+ /*
+- * sha2-ce-core.S - SHA-224/256 secure hash using ARMv8 Crypto Extensions
++ * sha256-ce.S - SHA-224/256 secure hash using ARMv8 Crypto Extensions
+  *
+  * Copyright (C) 2015 Linaro Ltd.
+  * Author: Ard Biesheuvel <ard.biesheuvel@linaro.org>
+  */
+ 
+@@ -65,14 +65,14 @@
+ 	.word		0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3
+ 	.word		0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208
+ 	.word		0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2
+ 
+ 	/*
+-	 * void sha2_ce_transform(struct sha256_state *sst, u8 const *src,
+-				  int blocks);
++	 * void sha256_ce_transform(u32 state[SHA256_STATE_WORDS],
++	 *			    const u8 *data, size_t nblocks);
+ 	 */
+-ENTRY(sha2_ce_transform)
++ENTRY(sha256_ce_transform)
+ 	/* load state */
+ 	vld1.32		{dga-dgb}, [r0]
+ 
+ 	/* load input */
+ 0:	vld1.32		{q0-q1}, [r1]!
+@@ -118,6 +118,6 @@ ENTRY(sha2_ce_transform)
+ 	bne		0b
+ 
+ 	/* store new state */
+ 	vst1.32		{dga-dgb}, [r0]
+ 	bx		lr
+-ENDPROC(sha2_ce_transform)
++ENDPROC(sha256_ce_transform)
+diff --git a/arch/arm/lib/crypto/sha256.c b/arch/arm/lib/crypto/sha256.c
+new file mode 100644
+index 0000000000000..3a8dfc304807a
+--- /dev/null
++++ b/arch/arm/lib/crypto/sha256.c
+@@ -0,0 +1,64 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * SHA-256 optimized for ARM
++ *
++ * Copyright 2025 Google LLC
++ */
++#include <asm/neon.h>
++#include <crypto/internal/sha2.h>
++#include <crypto/internal/simd.h>
++#include <linux/kernel.h>
++#include <linux/module.h>
++
++asmlinkage void sha256_block_data_order(u32 state[SHA256_STATE_WORDS],
++					const u8 *data, size_t nblocks);
++asmlinkage void sha256_block_data_order_neon(u32 state[SHA256_STATE_WORDS],
++					     const u8 *data, size_t nblocks);
++asmlinkage void sha256_ce_transform(u32 state[SHA256_STATE_WORDS],
++				    const u8 *data, size_t nblocks);
++
++static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_neon);
++static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_ce);
++
++void sha256_blocks_arch(u32 state[SHA256_STATE_WORDS],
++			const u8 *data, size_t nblocks)
++{
++	if (IS_ENABLED(CONFIG_KERNEL_MODE_NEON) &&
++	    static_branch_likely(&have_neon) && crypto_simd_usable()) {
++		kernel_neon_begin();
++		if (static_branch_likely(&have_ce))
++			sha256_ce_transform(state, data, nblocks);
++		else
++			sha256_block_data_order_neon(state, data, nblocks);
++		kernel_neon_end();
++	} else {
++		sha256_block_data_order(state, data, nblocks);
++	}
++}
++EXPORT_SYMBOL(sha256_blocks_arch);
++
++bool sha256_is_arch_optimized(void)
++{
++	/* We always can use at least the ARM scalar implementation. */
++	return true;
++}
++EXPORT_SYMBOL(sha256_is_arch_optimized);
++
++static int __init sha256_arm_mod_init(void)
++{
++	if (IS_ENABLED(CONFIG_KERNEL_MODE_NEON) && (elf_hwcap & HWCAP_NEON)) {
++		static_branch_enable(&have_neon);
++		if (elf_hwcap2 & HWCAP2_SHA2)
++			static_branch_enable(&have_ce);
++	}
++	return 0;
++}
++arch_initcall(sha256_arm_mod_init);
++
++static void __exit sha256_arm_mod_exit(void)
++{
++}
++module_exit(sha256_arm_mod_exit);
++
++MODULE_LICENSE("GPL");
++MODULE_DESCRIPTION("SHA-256 optimized for ARM");
+-- 
+2.49.0
 
-   SEC("fentry/bpf_testmod_test_struct_arg_11")
-   int BPF_PROG2(test_struct_many_args_9, struct bpf_testmod_struct_arg_5, =
-a,
-                 struct bpf_testmod_struct_arg_5, b,
-                 struct bpf_testmod_struct_arg_5, c,
-                 struct bpf_testmod_struct_arg_5, d, int, e,
-                 struct bpf_testmod_struct_arg_5, f)
-
-- line 70 of tools/testing/selftests/bpf/test_kmods/bpf_testmod.c:
-
-   struct bpf_testmod_struct_arg_7 {
-         __int128 a;
-   };
-
-- line 152 of the same file:
-
-  noinline int bpf_testmod_test_struct_arg_11(struct bpf_testmod_struct_arg=
-_7 a,
-                                              struct bpf_testmod_struct_arg=
-_7 b,
-                                              struct bpf_testmod_struct_arg=
-_7 c,
-                                              struct bpf_testmod_struct_arg=
-_7 d,
-                                              short e,
-                                              struct bpf_testmod_struct_arg=
-_7 f)
-
-Do I use a wrong base to apply the series?
-
-[...]
-
->> Nevertheless, the assertion persists even with correct types.
->
-> So I digged a bit further to better share my observations here. This is t=
-he
-> function stack when entering the trampoline after having triggered the
-> target function execution:
->
-> (gdb) x/64b $rbp+0x18
-> 0xffffc9000015fd60:     41      0       0       0       0       0       0=
-       0
-> 0xffffc9000015fd68:     0       0       0       0       0       0       0=
-       0
-> 0xffffc9000015fd70:     42      0       0       0       0       0       0=
-       0
-> 0xffffc9000015fd78:     35      0       0       0       0       0       0=
-       0
-> 0xffffc9000015fd80:     43      0       0       0       0       0       0=
-       0
-> 0xffffc9000015fd88:     0       0       0       0       0       0       0=
-       0
->
-> We see the arguments that did not fit in registers, so d, e and f.
->
-> This is the ebpf context generated by the trampoline for the fentry
-> program, from the content of the stack above + the registers:
->
-> (gdb) x/128b $rbp-60
-> 0xffffc9000015fce8:     38      0       0       0       0       0       0=
-       0
-> 0xffffc9000015fcf0:     0       0       0       0       0       0       0=
-       0
-> 0xffffc9000015fcf8:     39      0       0       0       0       0       0=
-       0
-> 0xffffc9000015fd00:     0       0       0       0       0       0       0=
-       0
-> 0xffffc9000015fd08:     40      0       0       0       0       0       0=
-       0
-> 0xffffc9000015fd10:     0       0       0       0       0       0       0=
-       0
-> 0xffffc9000015fd18:     41      0       0       0       0       0       0=
-       0
-> 0xffffc9000015fd20:     0       0       0       0       0       0       0=
-       0
-> 0xffffc9000015fd28:     42      0       0       0       0       0       0=
-       0
-> 0xffffc9000015fd30:     35      0       0       0       0       0       0=
-       0
-> 0xffffc9000015fd38:     43      0       0       0       0       0       0=
-       0
-> 0xffffc9000015fd40:     37      0       0       0       0       0       0=
-       0
->
-> So IIUC, this is wrong because the "e" variable in the bpf program being
-> an int (and about to receive value 42), it occupies only 1 "tracing conte=
-xt
-> 8-byte slot", so the value 43 (representing the content for variable f),
-> should be right after it, at 0xffffc9000015fd30. What we have instead is a
-> hole, very likely because we copied silently the alignment from the
-> original function call (and I guess this 35 value is a remnant from the
-> previous test, which uses values from 27 to 37)
-
-Interesting, thank you for the print outs.
-
-> Regardless of this issue, based on discussion from last week, I think I'll
-> go for the implementation suggested by Alexei: handling the nominal cases,
-> and detecting and blocking the non trivial cases (eg: structs passed on
-> stack). It sounds reasonable as there seems to be no exisiting kernel
-> function currently able to trigger those very specific cases, so it could
-> be added later if this changes.
-
-Yes, this makes sense.
 
