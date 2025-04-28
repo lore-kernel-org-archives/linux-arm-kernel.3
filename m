@@ -4,70 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B6A6C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 18:15:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04B8DC369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 18:19:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GbszfIc2ET/PTFgJSbbnkaPhvrSSCjYcL8giV7vQyOI=; b=rKdoO37f9i4LaLYGJkJCLVWpGD
-	9E19LcqLbIOXYLKrHIBtDs0blnvglUYzVN15ikLx9xlf1dWxpYgzMrB/eurR5QRod07YE/0BdPxz0
-	ZxqEHmUjXvsNZ17GhSbShoLTrmWT1Kx1I0HdUoiOrce4+prKv1dUwKejTZhp5c22meMsPDIs1NGwz
-	JPtsR5jrCkZdQyVO33UtBqOWu45EjdAu9skgSOFxUw4k6Jy3BGwQCueOGOEjV/0WFwm0lOUaIGVDo
-	bM0XoaWwmQVmmq+fSa50afUho/XZ6jiT1PFAQTq0vnvOLe6dkImrObjO8oMhVu9FOjVzyor45sIY6
-	eURyFmOQ==;
+	bh=ihGPBiIAT0ONS82KUfYaHLC1u5yTJJn+nPz0lvfjuhM=; b=CiWwzSwZv8k3f4mW2JYbL2cPy/
+	pM8dt4f71Ekc1DrMNPjYHcQg4In1zrmKxYqEIRlpxFsJI5y3dzBmo24CSXfxy7E0Y+x0mdKvDb7g+
+	GX6jHW2UfItjL33Iu3H4w3SFa4H6qTDXJTJS23vWeLhR7pN4TDLpkd/RUb/A7bpmd62Z9I4Jtf9ja
+	flS+aNfrMCzL/mI3lIvPUJJ53MjPqiPsz5pe8AwVwrp275UESFbOy8gKxmzuEc1/U5Ld/PpATgVme
+	E4xL4QwsQRiPZqaiY8x0UNjeaE54pfaEUzCdjgPMJeipN8L6PkDfcbeuxXydNg7lUyH6wLJHI/LEA
+	H3JiOm+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9T0d-00000007C5o-3MI2;
-	Mon, 28 Apr 2025 18:15:15 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u9T4l-00000007CwP-39gG;
+	Mon, 28 Apr 2025 18:19:31 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9SyH-00000007BLi-1Nwt;
-	Mon, 28 Apr 2025 18:12:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0894F5C5EFB;
-	Mon, 28 Apr 2025 18:10:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88C13C4CEEC;
-	Mon, 28 Apr 2025 18:12:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745863967;
-	bh=KTqQYLBw1XS55ajrDgXBIWQeeAlb817N/mkPEkK6Xfw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QWIuA4peX9ZsjZC1m/7A/fpkdxquCZ50ltGIQwsvl5bPQXH6/fG73jq8dNkv3sNui
-	 9nXcFpAcjM4s+axJKSCs6FKBzGrFnw/+CllMT95PkfTUroNAchm/SjoihsJ4CW7H3G
-	 KY5jNIpRIN+m1dXf+VIuOgNWlOUTAV1n9a+at9yE/XO45hJr+rPtjnbCia6HsoT3V9
-	 JOlKkYVPwCMRtxWXyCeGQNB+gAb9BT/SpDdLoA2o2J9xCqE6AbN/22vJ8bKEq69fAM
-	 A4ljOqumSo96/ynTfEkG7txH+ZEXs27JJtQFQR1uMIbO/7qNlCBXl0drB0hKzosK/I
-	 cRf1JI1duM30A==
-Date: Mon, 28 Apr 2025 19:12:42 +0100
-From: Simon Horman <horms@kernel.org>
-To: Da Xue <da@libre.computer>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Christian Hewitt <christianshewitt@gmail.com>,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v3] net: mdio: mux-meson-gxl: set reversed bit when using
- internal phy
-Message-ID: <20250428181242.GG3339421@horms.kernel.org>
-References: <20250425192009.1439508-1-da@libre.computer>
+	id 1u9T2n-00000007Cam-23JJ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 28 Apr 2025 18:17:30 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-39c1efc4577so2976859f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 11:17:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1745864248; x=1746469048; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=ihGPBiIAT0ONS82KUfYaHLC1u5yTJJn+nPz0lvfjuhM=;
+        b=OjancfIzaBrl53fzELI1n8OC3ICnB3GJpHq2Q6qBwRCKz3qJWVsc5e9lxJniJvQLkC
+         C7EiCGiHIFNB1xzxU7AiUNGFBvCT4oqhM70sRwK9LWj2G2sxtdEclo+OjL2KfbaPyfbh
+         MrpJtxIDQeR9pWlwW47nlTc9pLqnZ5meI7npiJScf9kYvA2rrMPAdhPFNFO6iVp0nfJ5
+         q9j7gz6OOD57YQOyCKoCvRXrK68Cj6hSZIIt00QtJnVo/BI/U/veQ2f+9A2kaTLaqcAm
+         +nXZJYfOAeLlhzhWbGZDjTebQUjy0Btk9ghvonZ7nPcU99+ozdtwas8hc/rFCi++ZQUx
+         1Idw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745864248; x=1746469048;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ihGPBiIAT0ONS82KUfYaHLC1u5yTJJn+nPz0lvfjuhM=;
+        b=aw0oMA2MrotLtz8NWk86HqZYm3xhJJcOf2zzrkasuVZYejiK857vyGOWbaloyJjYGD
+         OxJZvpZIbX1KQc65DqjnVJZSnE/RB4cE14nDVAjvlZ7xq61GHbxOwmzr4cObko0QtEx2
+         tvP6tL5QxvURvXLXHXvMOHAXFalHr4fp8tgQUvCrgODl8T/8rOplzs52EJ4noc/fv8SC
+         eHeHKv6uVhoe4aFzvAgBcTtEQF+iGXT/kEzgxDAqBk1UV4eCBNV0BMsdeLcOyl4jHZMV
+         UN3JRAYyJebPBCFpHHUKqNE/oNCRrAsMRPV+cW0tHgGwxlBaybpHPGUJ1RIMcwWbCkD6
+         IQoQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUJNJVzij1TVnnvX6oOQOPzVx2gALkZlmnm8kMVVF9d/nJ8aHdSGpMxMGZHdX6U498fRsKiUK0tH8zQH5aicIeh@lists.infradead.org
+X-Gm-Message-State: AOJu0YwZsBD0xK2oOGU2Fzd7iKckbhbYGj/jdpdm05S8Iyz1iEu6m7WX
+	Sdo0e8NI7OcXKu0o0vpKuMMrRLQmGNZWDV2OEWNoj0N4/d9gMLsrkdIdpzqPQ40=
+X-Gm-Gg: ASbGnctAhmP/g5pGVd5zS3MLGW4i1e8Blhc46ogjFcYlIRriKRd7gkNtaT68Zjo9Bnp
+	V+mITdCQx/65jP8EIrRUy8M7aOMjs56IQthYyOsCJTDJl3PTvidNqAt05ZgqIJQQN16AX+F5wB7
+	fofw7LedgyB9ODGVNleYuQltnMkAtTITi2kqtWjw+UTdkuk26txihtIa2nj2oAh1Ca80/QDs2NU
+	Yi3nsJRUcUN2LaGyIspz96tYF+V4V5jIOxU8JPHUtbgcMlzm2wW+uAjB4/4pz45xOiobN6adP7b
+	eXfl3LJr/BPw5dKrfgNp8djadNLwQ4ByNzgou9ctMbx2CJaE3+Cnmhk=
+X-Google-Smtp-Source: AGHT+IFizjQdKkSD/fIMemBtF85cPFPzy/Yw/Dq5QRP9W6htVYIl18G4A6sBNzjsAqVDMr/gP96C0g==
+X-Received: by 2002:a05:6000:250e:b0:391:3157:7717 with SMTP id ffacd0b85a97d-3a08a371630mr250630f8f.34.1745864247691;
+        Mon, 28 Apr 2025 11:17:27 -0700 (PDT)
+Received: from draszik.lan ([80.111.64.44])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a073ca497esm11718402f8f.24.2025.04.28.11.17.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Apr 2025 11:17:27 -0700 (PDT)
+Message-ID: <24314441936d97a1892474eacdbbd690612de265.camel@linaro.org>
+Subject: Re: [PATCH v4 00/32] Samsung S2MPG10 PMIC MFD-based drivers
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>, Lee Jones
+	 <lee@kernel.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sylwester Nawrocki
+ <s.nawrocki@samsung.com>, Chanwoo Choi	 <cw00.choi@samsung.com>, Alim
+ Akhtar <alim.akhtar@samsung.com>, Michael Turquette
+ <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Russell King	
+ <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, Will
+ Deacon	 <will@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, Tudor
+ Ambarus	 <tudor.ambarus@linaro.org>, Will McVicker
+ <willmcvicker@google.com>, 	kernel-team@android.com,
+ linux-kernel@vger.kernel.org, 	linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, 	linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, 	linux-rtc@vger.kernel.org, Krzysztof
+ Kozlowski <krzysztof.kozlowski@linaro.org>
+Date: Mon, 28 Apr 2025 19:17:25 +0100
+In-Reply-To: <2025041715425693974c6d@mail.local>
+References: <20250409-s2mpg10-v4-0-d66d5f39b6bf@linaro.org>
+	 <20250415160212.GA372032@google.com> <2025041715425693974c6d@mail.local>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: base64
+User-Agent: Evolution 3.54.3-2+build1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250425192009.1439508-1-da@libre.computer>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_111249_423675_6FAB5E65 
-X-CRM114-Status: GOOD (  12.69  )
+X-CRM114-CacheID: sfid-20250428_111729_536779_6F02C297 
+X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,34 +111,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 25, 2025 at 03:20:09PM -0400, Da Xue wrote:
-> This bit is necessary to receive packets from the internal PHY.
-> Without this bit set, no activity occurs on the interface.
-> 
-> Normally u-boot sets this bit, but if u-boot is compiled without
-> net support, the interface will be up but without any activity.
-> 
-> The vendor SDK sets this bit along with the PHY_ID bits.
+SGkgQWxleGFuZHJlLAoKT24gVGh1LCAyMDI1LTA0LTE3IGF0IDE3OjQyICswMjAwLCBBbGV4YW5k
+cmUgQmVsbG9uaSB3cm90ZToKPiBPbiAxNS8wNC8yMDI1IDE3OjAyOjEyKzAxMDAsIExlZSBKb25l
+cyB3cm90ZToKPiA+ID4gwqBkcml2ZXJzL21mZC9LY29uZmlnwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgIDM1ICstCj4gPiA+
+IMKgZHJpdmVycy9tZmQvTWFrZWZpbGXCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgwqAgNSArLQo+ID4gPiDCoGRyaXZlcnMvbWZk
+L3NlYy1hY3BtLmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoCB8IDQ0MiArKysrKysrKysrKysrKysrKysrCj4gPiA+IMKgZHJpdmVycy9tZmQv
+c2VjLWNvbW1vbi5jwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoCB8IDMwMSArKysrKysrKysrKysrCj4gPiA+IMKgZHJpdmVycy9tZmQvc2VjLWNvcmUu
+Y8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+IHwgNDgxIC0tLS0tLS0tLS0tLS0tLS0tLS0tLQo+ID4gPiDCoGRyaXZlcnMvbWZkL3NlYy1jb3Jl
+LmjCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oCB8wqAgMjMgKwo+ID4gPiDCoGRyaXZlcnMvbWZkL3NlYy1pMmMuY8KgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfCAyMzkgKysrKysrKysr
+Kwo+ID4gPiDCoGRyaXZlcnMvbWZkL3NlYy1pcnEuY8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfCA0NjAgKysrKysrKy0tLS0tLS0tLS0t
+LS0KPiA+IAo+ID4gPiDCoGRyaXZlcnMvcnRjL3J0Yy1zNW0uY8KgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfCAxOTcgKysrKysrLS0tCj4g
+PiAKPiA+IE1GRCBwYXJ0cyBsb29rIG9rYXkgdG8gbWUgbm93Lgo+ID4gCj4gPiBXaXRoIEFja3Mg
+ZnJvbSB0aGUgQ2xrIGFuZCBSVEMgbWFpbnRhaW5lcnMsIEkgY2FuIG1lcmdlIGFsbCBvZiB0aGUK
+PiA+IGRyaXZlciBzdHVmZiB0b2dldGhlciBhbmQgc3VibWl0IGEgUFIgZm9yIG90aGVycyB0byBw
+dWxsIGZyb20uCj4gPiAKPiAKPiBJIGRvbid0IHRoaW5rIHRoZSBSVEMgcGFydCBkZXBlbmRzIG9u
+IHRoZSBNRkQgb25lIHNvIEkgd2FzIGdvaW5nIHRvCj4gYXBwbHkgdGhlIHBhdGNoZXMgaW4gbXkg
+dHJlZSBpZiB0aGlzIGlzIGZpbmUgZm9yIGV2ZXJ5b25lLgoKUlRDIHBhdGNoIDI3IGRvZXMgZGVw
+ZW5kIG9uIHRoZSBzMm1wZzEwIG1mZCBjb3JlIGRyaXZlciAoZHVlIHRvCnVzaW5nIGVudW1zIGFu
+ZCBtYWNyb3MgaW50cm9kdWNlZCB0aGVyZSkuCgpQYXRjaGVzIDI1LiAyNiwgMjgsIDI5LCAzMCwg
+MzEgaW5kZWVkIGRvbid0IHN0cmljdGx5IGRlcGVuZCBvbiB0aGUKTUZEIGNoYW5nZXMuIFdpdGhv
+dXQgcGF0Y2ggMjcgaW4gcGxhY2UsIHBhdGNoZXMgMjUgJiAyNSB3aWxsCmRlZmluaXRlbHkgc3Rp
+bGwgYXBwbHksIGFuZCBwYXRjaGVzIDI4Kysgd2lsbCBwcm9iYWJseSBhcHBseS4KCklmIHlvdSB3
+YW50IHRvIHRha2UgdGhlbSwgSSBjYW4gdGhlbiByZWJhc2UgdGhpcyBzZXJpZXMgaWYgeW91IHRo
+aW5rCnRoYXQncyBiZXR0ZXIuCgpJJ2xsIGRvIHdoYXRldmVyIGlzIHByZWZlcnJlZCwganVzdCBs
+ZXQgbWUga25vdyA6LSkKCgpDaGVlcnMsCkFuZHJlJwoK
 
-I'd like to clarify that:
-Without this patch the writel the patch is modifying will clear the PHY_ID bit.
-But despite that the system works if at some point (uboot) set the PHY_ID bit?
-
-> 
-> Fixes: 9a24e1ff4326 ("net: mdio: add amlogic gxl mdio mux support");
-
-I don't think you need to resend because of this,
-but the correct syntax is as follows. (No trailing ';'.)
-
-Fixes: 9a24e1ff4326 ("net: mdio: add amlogic gxl mdio mux support")
-
-> Signed-off-by: Da Xue <da@libre.computer>
-> ---
-> Changes since v2:
-> * Rename REG2_RESERVED_28 to REG2_REVERSED
-> 
-> Link to v2:
-> https://patchwork.kernel.org/project/linux-amlogic/patch/20250331074420.3443748-1-christianshewitt@gmail.com/
-
-...
 
