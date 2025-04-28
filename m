@@ -4,97 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7E79C369D3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 11:15:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87C81C369D8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 11:17:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ja1nnYiYVVPOxqkZvfptQISEEK1d3OniR8WGUf28Bq0=; b=MN5Ue4UQRy0kL0y/pI66LEz4dR
-	aV5QL1CYWIViFJZTWFwT+6NagWTkxjDlYrcmvVn8nxZnFIHTS73Q8WZb/0S+bm1DNOOI5OdXamsz8
-	mXYMJ+1CJkf/v4VoGuoCgeTFOK1l2VG3agXfGBP/beuPqhWS4j9/ocaJ3wvz/XNRVMUgZsi791m/y
-	nnwUd/rAC2AxlanmdvNVl2PKzD/wW+5tdoZPLU49qR/XAmV8gHp3ffXcmanQrzQ2GgOyVBPqYRnVv
-	4NdsxFORnhghAjw7GcYfceaoxx6cygOR6q61SruC6FNOASNbX6CssibNsYQgmcjV6YXAxgHDEHcyG
-	ivkl4ugg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dV+LOz120S0Jtp/84dG/TNRs73N6Uw+WapeFQ9kJZ4w=; b=ln4rzTA21bbsMSeHVCDNgFBJHY
+	ymRhUB7ueJiVr7wIYGSV/2OmE0b0ccZQEUdL4RdKkaPGhVlqSUWr5dKsXiSGHVy4/WPEvIFlbFm2w
+	x4QDcxYCuN+lFZzkiwLEAajuPFBYZbLxyuRW01r7AD+RZXosPxKRDUb1PnynsYgA1U1t6xKnESWP6
+	+xZCL0mRDNM6lJesIpsnwjhmNdCCGlJBsOvKG0fLDs/jtD0j9H8OAsqqaBoORWzTY19iTmrKANGam
+	GxsqlHFl8Pf2XqCLuzdX+b9IyOBzbBlxusAiMLstuDfsMUc72KDMbmkWUrUXqSqxmytyEeii15Rr7
+	5hGr7ykw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9MSc-00000005uVe-0Ko4;
-	Mon, 28 Apr 2025 11:15:42 +0000
-Received: from mx08-00376f01.pphosted.com ([91.207.212.86])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9MMl-00000005tO5-1A6R
+	id 1u9MUY-00000005v56-3Tf2;
+	Mon, 28 Apr 2025 11:17:42 +0000
+Received: from mail.8bytes.org ([85.214.250.239])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u9MOr-00000005ttk-1Hae
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 11:09:41 +0000
-Received: from pps.filterd (m0168888.ppops.net [127.0.0.1])
-	by mx08-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53S6jub8031219;
-	Mon, 28 Apr 2025 12:09:26 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=dk201812; bh=j
-	a1nnYiYVVPOxqkZvfptQISEEK1d3OniR8WGUf28Bq0=; b=c1s9jZjnX1qiq2pfV
-	nky5gp9a0dNhS7DjoEefMAvoYONlBTy7uBkoZgj01ijZ20+guc8ikl21JMEYfDp/
-	NgVbibNFc6bElQiA6Q77/fbg4UTCXFIyMqyUvBosPdS64XGAkK3tLSldD0J/p4wa
-	4HgYTI6yvjT3M7AA5v02Xf3SlR+3+TFJ9VX+sOPs2a/Synf1EKmuOE/3XQCCvzpn
-	4RdMnmAHcTNbpnqadhnNDidS3H3b4MxLIowVqOvz+5QBvSkmJ/rGcs6pHowoxaHm
-	PeYlIRXJ9J6XNcBxJHao3P2V0XhGnKl00mmbqJmHBPj4th6o/Yp1J/yulriWzaMt
-	pxraw==
-Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 4694618xrx-3
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Mon, 28 Apr 2025 12:09:26 +0100 (BST)
-Received: from
- 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
- (172.25.2.134) by HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Mon, 28 Apr 2025 12:09:24 +0100
-From: Matt Coster <matt.coster@imgtec.com>
-Date: Mon, 28 Apr 2025 12:07:15 +0100
-Subject: [PATCH v4 2/2] arm64: dts: ti: k3-j721s2: Add GPU node
+	Mon, 28 Apr 2025 11:11:50 +0000
+Received: from 8bytes.org (p4ffe03ae.dip0.t-ipconnect.de [79.254.3.174])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.8bytes.org (Postfix) with ESMTPSA id BC9F8470B7;
+	Mon, 28 Apr 2025 13:11:45 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=8bytes.org;
+	s=default; t=1745838705;
+	bh=Veuk+Z/sR4H/xEb/EwiI6wtFnWURIfFvrkb6odssbcY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rfRFviFJT9ccUMEDhTzc9B++u4Pr5H0EL3t3VfgeVKGXQ8RrEh5S0KxD2Dhq9xug/
+	 tHWt+hwHh0cnIdaIS0zwo/Kkc8uQeNCUQ2dz8XcNXVLlHnWQkzaUeHPHJR7ea93huV
+	 BBLNPqoZUgqaRrWoc3bxmCNgkApYyuGeTG3bRPggD169NN4Z845VzaOXFILpmRXUWv
+	 bFY4iuMo5NjMycRxlzypzkDfjVaBQ6Eg78ETnJTGi2KymeCCTqs1lvpNS54/V1a5od
+	 3SR+jOTguk26n3yfFXMlaSLV/h1WAdfCvaJ00HVnwsdEB+zKQ6v85aaikKpRyRBv7E
+	 45xCYAe9Y+XSw==
+Date: Mon, 28 Apr 2025 13:11:44 +0200
+From: Joerg Roedel <joro@8bytes.org>
+To: Chen Ni <nichen@iscas.ac.cn>
+Cc: sven@svenpeter.dev, j@jannau.net, alyssa@rosenzweig.io, neal@gompa.dev,
+	will@kernel.org, robin.murphy@arm.com, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] iommu: apple-dart: Remove unnecessary NULL check before
+ free_io_pgtable_ops()
+Message-ID: <aA9icDMayHKAocnc@8bytes.org>
+References: <20250422072511.1334243-1-nichen@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250428-bxs-4-64-dts-v4-2-eddafb4ae19f@imgtec.com>
-References: <20250428-bxs-4-64-dts-v4-0-eddafb4ae19f@imgtec.com>
-In-Reply-To: <20250428-bxs-4-64-dts-v4-0-eddafb4ae19f@imgtec.com>
-To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        "Tero
- Kristo" <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Frank Binns <frank.binns@imgtec.com>,
-        "Alessio Belle" <alessio.belle@imgtec.com>,
-        Alexandru Dadu
-	<alexandru.dadu@imgtec.com>,
-        Luigi Santivetti <luigi.santivetti@imgtec.com>,
-        Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>,
-        Matt Coster
-	<matt.coster@imgtec.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2459;
- i=matt.coster@imgtec.com; h=from:subject:message-id;
- bh=IeXXgzKgQ8kwF0+F01gM2sNmOCQIR4xlPk8JwmdDjm8=;
- b=owGbwMvMwCFWuUfy8817WRsYT6slMWTwJz4Wfh7ZzninLOGznY/fkeXFrBP+PNu/s+2CWEDAl
- 5eOEl3+HaUsDGIcDLJiiiw7VliuUPujpiVx41cxzBxWJpAhDFycAjCRi+yMDHcyHAq4RPavMgkJ
- zHw2vT5v7aq/5WLzk98HCt1jNEgJXM/IcEVt/+8N+Xe6RSZ8SZKt/rrysvAOJtPOoker73DWm9n
- z8wAA
-X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
- fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
-X-Originating-IP: [172.25.2.134]
-X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
-X-Authority-Analysis: v=2.4 cv=WoMrMcfv c=1 sm=1 tr=0 ts=680f61e6 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=OXfeAiaCWNgA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=sozttTNsAAAA:8 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8
- a=KjGJ_YhaLPe-tYgPVq4A:9 a=QEXdDO2ut3YA:10 a=S-JV1fTmrHgA:10 a=j2-svP0xy3wA:10 a=t8nPyN_e6usw4ciXM-Pk:22
-X-Proofpoint-GUID: vaxiKJJFniPvml___2t2S2s1DCfpFwlG
-X-Proofpoint-ORIG-GUID: vaxiKJJFniPvml___2t2S2s1DCfpFwlG
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI4MDA5MiBTYWx0ZWRfXx+mtO/Gv5Iuf CJe5917eWgHlSDP3JvBZf4l4n3hTfNJrlf2Aaap1WPfiJ2dNGnxOQ9K2d4EsGb9aNIZrryo/Mlx 1iHBDRUJ0D3zvJ6slLFRHaYP1dNjrbPHCS454Fyd8cSMI+HpohHUzkKsDcHk/QXBHdBEDZVy93n
- HRg1lWAkYsUhPvuQEryw1O5ZfiN7tnbmXVYyU7zXjNqzhLZP73fXYFd0aLbu4Kt5sEqUijd+Vym ZdglEMtjyizN5wghEC5P2lW64Pz0w3rx5kejjhGe9iAk106NiaOFAPZKaokVE/k8/YLVNNywmdc S2kNZ+yUpDMMJGXhjvl7u0ZtwbI2RJP9Py/MOwnyQwgUwiYu8/jhdpKxagdok1Djeb8dhOjlApO
- eWEEhTON9OARS7E2n8ZIZBucBcIrL/lL7z3haJbn7JrrqAGz1vgEdOXhLer7jqdGdCKC02b4
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250422072511.1334243-1-nichen@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_040939_592047_8A1C393A 
-X-CRM114-Status: GOOD (  11.05  )
+X-CRM114-CacheID: sfid-20250428_041149_566409_FAA87430 
+X-CRM114-Status: UNSURE (   8.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,65 +76,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The J721S2 binding is based on the TI downstream binding in commit
-54b0f2a00d92 ("arm64: dts: ti: k3-j721s2-main: add gpu node") from [1]
-but with updated compatible strings.
+On Tue, Apr 22, 2025 at 03:25:11PM +0800, Chen Ni wrote:
+> free_io_pgtable_ops() checks for NULL pointers internally.
+> Remove unneeded NULL check here.
+> 
+> Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
+> ---
+>  drivers/iommu/apple-dart.c | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
 
-The clock[2] and power[3] indices were verified from HTML docs, while
-the interrupt index comes from the TRM[4] (appendix
-"J721S2_Appendix_20241106_Public.xlsx", "Interrupts (inputs)",
-"GPU_BXS464_WRAP0_GPU_SS_0_OS_IRQ_OUT_0").
-
-[1]: https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel
-[2]: https://downloads.ti.com/tisci/esd/latest/5_soc_doc/j721s2/clocks.html
-[3]: https://downloads.ti.com/tisci/esd/latest/5_soc_doc/j721s2/devices.html
-[4]: https://www.ti.com/lit/zip/spruj28 (revision E)
-
-Reviewed-by: Randolph Sapp <rs@ti.com>
-Signed-off-by: Matt Coster <matt.coster@imgtec.com>
----
-Changes in v4:
-- Fix typo in commit message (intterupt -> interrupt)
-- Link to v3: https://lore.kernel.org/r/20250422-bxs-4-64-dts-v3-2-ec6657bde135@imgtec.com
-Changes in v3:
-- Use assigned-clocks to pre-load the frequency of the core clock
-- Link to v2: https://lore.kernel.org/r/20250417-bxs-4-64-dts-v2-2-9f8c09233114@imgtec.com
-Changes in v2:
-- Add interrupt reference details
-- Add Randolph's Rb
-- Link to v1: https://lore.kernel.org/r/20250415-bxs-4-64-dts-v1-2-f7d3fa06625d@imgtec.com
-
-This patch was previously sent as [DO NOT MERGE]:
-https://lore.kernel.org/r/20250410-sets-bxs-4-64-patch-v1-v6-18-eda620c5865f@imgtec.com
----
- arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
-index 92bf48fdbeba45ecca8c854db5f72fd3666239c5..9e36cbbe0ea2fefceedcc95b78068ded7ef395f0 100644
---- a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
-@@ -2048,4 +2048,18 @@ watchdog8: watchdog@23f0000 {
- 		/* reserved for MAIN_R5F1_1 */
- 		status = "reserved";
- 	};
-+
-+	gpu: gpu@4e20000000 {
-+		compatible = "ti,j721s2-gpu", "img,img-bxs-4-64", "img,img-rogue";
-+		reg = <0x4e 0x20000000 0x00 0x80000>;
-+		clocks = <&k3_clks 130 1>;
-+		clock-names = "core";
-+		assigned-clocks = <&k3_clks 130 1>;
-+		assigned-clock-rates = <800000000>;
-+		interrupts = <GIC_SPI 24 IRQ_TYPE_LEVEL_HIGH>;
-+		power-domains = <&k3_pds 130 TI_SCI_PD_EXCLUSIVE>,
-+				<&k3_pds 373 TI_SCI_PD_EXCLUSIVE>;
-+		power-domain-names = "a", "b";
-+		dma-coherent;
-+	};
- };
-
--- 
-2.49.0
+Applied, thanks.
 
 
