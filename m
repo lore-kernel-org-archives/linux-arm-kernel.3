@@ -4,64 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCF98C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 13:53:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96FF9C3ABA4
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 13:55:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1I1m/NMRedzmoEPaCinaZP4GnU/mr3udTbmFVWL9GKc=; b=L2argGxIYaR/YzdKAv3Tu/0u1l
-	qgWFV33cOEYSknxkvWbogc0QPknWZAFYIX8yF7EjkrNnzk6VmDI2MBx/SdJF8/cWI1Dxjrq5FaeBB
-	ZBiHjAl4ehGVQ832yl3MafYKfdLK343viyxcLDOK9P+ttbP4uy1zdAeWMw+CoSUXlPf+0Xwx4qARO
-	dWO+cdkhc1G62c02qvnBS8icTzuf8Fg6fZBtxYT01bHFcRn2CgcW/LZcBhEGgoVJMqPlHlrNtxnYw
-	Q1P6VeBo59DdpySDWhLx4CbKz8jP22ihdxggEICVDX4bQhBtt7Y+Nka3q03lvDl8zpTdeGM2hoeK9
-	PZ0R3XvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:MIME-Version:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=OTzOZIYgOSm5iHgHYHs17cr0e11rjTGNrgKqn3vjBeY=; b=wcnHwjv3dTZo8LXn0GQaRjCSb/
+	nZtXni8qrHjYVoS1PPRMZTTny1A3D8SYnevxeuUPwqYhey/9KObzQ8DWHRevMglPgFRK1fIiDFb9Z
+	O3k4DfN/Z9PWkz5pug0I4PFGAcowwcqhoVcuOR5JJiS2Qs2aw+FwyMbMDv2MtpEoSmkjM6eU4sjnI
+	sFykDCPl0NG3DefOliQ3rvMSBKexisFcnQ0yFmkjWr/bpi3rlD0P4S1j+A8X9VTV01w/+7tHKYJUr
+	aSzjysiLLAtOMwCt1EZGAQo25ESRsXG9puXp4/Utf/6ZNfmdP0/x04aKGiZO/aAohdespQ9QHk5Du
+	qroVjoSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Ouw-00000006Y3M-22Sf;
-	Mon, 28 Apr 2025 13:53:06 +0000
-Received: from out-180.mta0.migadu.com ([91.218.175.180])
+	id 1u9Owr-00000006YGO-2iMs;
+	Mon, 28 Apr 2025 13:55:05 +0000
+Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Oai-00000006UdQ-3Z4z
+	id 1u9Obv-00000006UsI-3hEf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 13:32:14 +0000
-Message-ID: <2c70d515-f02e-477a-afc5-d3a25f6c9c0d@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1745847120;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1I1m/NMRedzmoEPaCinaZP4GnU/mr3udTbmFVWL9GKc=;
-	b=Lf9J4TLdsEL7qv8tRkyxqwiS2Mw9EzoicQ9mUKrPz/9krGq7uE4l+FoLo/dfhvmzEJc7fM
-	QtCdib57F8JZyzFQz9LA46XNFAA9ff00znw8ix8cwaIvQEZ9a98oRTz79TZeqPNdii253h
-	UhnJw+hpU0rcz3+blGmfL5Wg0DM6Tyg=
-Date: Mon, 28 Apr 2025 21:31:40 +0800
+	Mon, 28 Apr 2025 13:33:29 +0000
+Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-31062172698so50397041fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 06:33:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1745847205; x=1746452005; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=OTzOZIYgOSm5iHgHYHs17cr0e11rjTGNrgKqn3vjBeY=;
+        b=K/J6mA0Ub2p3zEEH3U4LmmzlAceIasOOaKN/me0OrMp4pog54G2AD3RGhfxW1bvKlF
+         40q0++x3/tw6pX8GUnEZv3rJGbHMM2kFiLCcz4tkaFsMsuQqFfA/Cn2peOY+31SIODAz
+         pejzy7be+HKkTxPLV2rN2oDM4JSnJ70uK2Ec8oDUbOYoOrHxeTVm1DTeOwYsaj1ueYAe
+         GZo5h/eA33I2dIdmD/4seMDtSfj/HP5s7110XVEGGdiUpoEJmzqasGJ/VVh/ltSyGzmA
+         7y7QPVLbcGU3mElqw3qE06vZeZqr9SJxLRGoIBpKzM6B3Bf4oxYNcD4KzEwy736sNiGJ
+         CJFg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745847205; x=1746452005;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=OTzOZIYgOSm5iHgHYHs17cr0e11rjTGNrgKqn3vjBeY=;
+        b=ubXWrEIuL4+TCEU5MyefOqCdPbSY7F4gyFOH/MAgU09w1XA1/ctUg3Iw7QkS5sZPzz
+         a8qIt9jhDqCXOZadCdokJaXm+X0bYxVomXYMSPaKlhCGMwlZrA4QSC7BXMAhJMog45t5
+         VilU+/nfhaPIA80R5/tEExDuigo8J68xnyB12pphSo+jnfRZ7D7l38zL8+s4d/g4v7/l
+         Ef7wckRopDXAtZZ+98EQwEhw1uLA+jWzb0ADz28xt2oLbeDqye51xHSuGrD6rYpz+C1R
+         xkQa8eNnNFQNhYTtfF5MczK92gqTr2OCdMHoKBMAQ3f7OA9a1Ite0qzGVjuB1igDPJdG
+         fBLw==
+X-Gm-Message-State: AOJu0YxppE0d1Y6tMVM0QLzLxRXTI2YIGu1/v47U3Q38uMx/juVdPB3z
+	a5+7ET3E6jPoahMl2g2rhsY0NwgHRRmCA9d25o3Z92MUCNGZKCk1QSF1DoDXkThJNXniUz4ww4Y
+	E/XuOxEjP/1ofeU4oi+p3WmOM7xC88AA/bTulEwunPfo1s9+L+FI=
+X-Gm-Gg: ASbGnctHUBSSNNCKBrL/tH/H3eueiO44i78JP/7AgAFRe0Os1YrsWO7ZhRpCsJZmLxg
+	YiCCqP6PE3PsGpQj9DSUYShMXUQR81/Iki6IKIthNRO6ou7XvsyRLhGpGJ616cAlrQbnVhMY9o3
+	PM01tYpK4g2dumyfm2F/2qJA==
+X-Google-Smtp-Source: AGHT+IHg0AT7QEt67ZcddZlZ0cst6ypLtze1zVI2LlhtcUEjYYjpW8WKEZ9byzb7Kcir1ctsBebclNZzqHA8eROwPPw=
+X-Received: by 2002:a05:651c:210f:b0:309:2653:5dda with SMTP id
+ 38308e7fff4ca-31907611ed5mr41639391fa.29.1745847204931; Mon, 28 Apr 2025
+ 06:33:24 -0700 (PDT)
 MIME-Version: 1.0
-Subject: Re: [PATCH 0/7] Optimize mprotect for large folios
-Content-Language: en-US
-To: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org
-Cc: ryan.roberts@arm.com, david@redhat.com, willy@infradead.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com,
- will@kernel.org, Liam.Howlett@oracle.com, lorenzo.stoakes@oracle.com,
- vbabka@suse.cz, jannh@google.com, anshuman.khandual@arm.com,
- peterx@redhat.com, joey.gouly@arm.com, ioworker0@gmail.com,
- baohua@kernel.org, kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
- christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
- linux-arm-kernel@lists.infradead.org, namit@vmware.com, hughd@google.com,
- yang@os.amperecomputing.com, ziy@nvidia.com
-References: <20250428120414.12101-1-dev.jain@arm.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Lance Yang <lance.yang@linux.dev>
-In-Reply-To: <20250428120414.12101-1-dev.jain@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Mon, 28 Apr 2025 15:33:13 +0200
+X-Gm-Features: ATxdqUGU8Ix5hUMDuCCK8X0KpttsBjuthMDapQsBmSFhrZWTWQmiRbpNq7qfXFY
+Message-ID: <CACRpkdaAiF0=SCNBuOT7fyJwbHdMXMfBsRUiQEPnqWO-7nYz5A@mail.gmail.com>
+Subject: [GIT PULL] Generic entry for ARM for v6.16
+To: Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	Russell King <rmk+kernel@armlinux.org.uk>
+Cc: linux-kernel <linux-kernel@vger.kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	"Paul E. McKenney" <paulmck@kernel.org>, Arnd Bergmann <arnd@arndb.de>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_063213_173589_C57E09D2 
-X-CRM114-Status: GOOD (  15.31  )
+X-CRM114-CacheID: sfid-20250428_063327_918859_D278C1A1 
+X-CRM114-Status: GOOD (  18.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,116 +89,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I'm hitting the following compilation errors after applying this patch
-series:
+Hi Russell,
 
-In file included from ./include/linux/kasan.h:37,
-                  from ./include/linux/slab.h:260,
-                  from ./include/linux/crypto.h:19,
-                  from arch/x86/kernel/asm-offsets.c:9:
-./include/linux/pgtable.h: In function ‘modify_prot_start_ptes’:
-./include/linux/pgtable.h:905:15: error: implicit declaration of 
-function ‘ptep_modify_prot_start’ [-Werror=implicit-function-declaration]
-   905 |         pte = ptep_modify_prot_start(vma, addr, ptep);
-       |               ^~~~~~~~~~~~~~~~~~~~~~
-./include/linux/pgtable.h:905:15: error: incompatible types when 
-assigning to type ‘pte_t’ from type ‘int’
-./include/linux/pgtable.h:909:27: error: incompatible types when 
-assigning to type ‘pte_t’ from type ‘int’
-   909 |                 tmp_pte = ptep_modify_prot_start(vma, addr, ptep);
-       |                           ^~~~~~~~~~~~~~~~~~~~~~
-./include/linux/pgtable.h: In function ‘modify_prot_commit_ptes’:
-./include/linux/pgtable.h:925:17: error: implicit declaration of 
-function ‘ptep_modify_prot_commit’ [-Werror=implicit-function-declaration]
-   925 |                 ptep_modify_prot_commit(vma, addr, ptep, 
-old_pte, pte);
-       |                 ^~~~~~~~~~~~~~~~~~~~~~~
-./include/linux/pgtable.h: At top level:
-./include/linux/pgtable.h:1360:21: error: conflicting types for 
-‘ptep_modify_prot_start’; have ‘pte_t(struct vm_area_struct *, long 
-unsigned int,  pte_t *)’
-  1360 | static inline pte_t ptep_modify_prot_start(struct 
-vm_area_struct *vma,
-       |                     ^~~~~~~~~~~~~~~~~~~~~~
-./include/linux/pgtable.h:905:15: note: previous implicit declaration of 
-‘ptep_modify_prot_start’ with type ‘int()’
-   905 |         pte = ptep_modify_prot_start(vma, addr, ptep);
-       |               ^~~~~~~~~~~~~~~~~~~~~~
-./include/linux/pgtable.h:1371:20: warning: conflicting types for 
-‘ptep_modify_prot_commit’; have ‘void(struct vm_area_struct *, long 
-unsigned int,  pte_t *, pte_t,  pte_t)’
-  1371 | static inline void ptep_modify_prot_commit(struct 
-vm_area_struct *vma,
-       |                    ^~~~~~~~~~~~~~~~~~~~~~~
-./include/linux/pgtable.h:1371:20: error: static declaration of 
-‘ptep_modify_prot_commit’ follows non-static declaration
-./include/linux/pgtable.h:925:17: note: previous implicit declaration of 
-‘ptep_modify_prot_commit’ with type ‘void(struct vm_area_struct *, long 
-unsigned int,  pte_t *, pte_t,  pte_t)’
-   925 |                 ptep_modify_prot_commit(vma, addr, ptep, 
-old_pte, pte);
-       |                 ^~~~~~~~~~~~~~~~~~~~~~~
-cc1: some warnings being treated as errors
-make[2]: *** [scripts/Makefile.build:98: arch/x86/kernel/asm-offsets.s] 
-Error 1
-make[1]: *** 
-[/home/runner/work/mm-test-robot/mm-test-robot/linux/Makefile:1280: 
-prepare0] Error 2
-make: *** [Makefile:248: __sub-make] Error 2
+please consider pulling the following git branch for ARM generic entry,
+for v6.16 see below.
 
-Based on:
+This branch is identical to the v6 patch series:
+https://lore.kernel.org/linux-arm-kernel/20250420-arm-generic-entry-v6-0-95f1fcdfeeb2@linaro.org/
 
-mm-unstable b18dec6a6ad3d051dadc3c16fb838e4abddf8d3c ("mm/numa: remove 
-unnecessary local variable in alloc_node_data()")
+It's possible to squash patches, even all of them into one
+big all-or-nothing patch, given the not very gradual nature generic
+entry conversion seems to have.
+
+Main upsides and downsides are in the signed tag.
+
+This series contains the ACKs from tglx and paulmck.
+
+What's new apart from rebasing is the two following remasks in the
+signed tag:
+
+- Makes it possible to move ahead with ARCH_WANTS_NO_INSTR.
+
+- Good base for CONFIG_ARCH_HAS_RESCHED_LAZY which is a good
+  base for CONFIG_PREEMPT_RT.
+
+I think Arnd may be working on this and this could be a good starting
+point for PREEMPT_RT.
+
+Yours,
+Linus Walleij
 
 
-Thanks,
-Lance
+The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
 
+  Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
 
+are available in the Git repository at:
 
-On 2025/4/28 20:04, Dev Jain wrote:
-> This patchset optimizes the mprotect() system call for large folios
-> by PTE-batching.
-> 
-> We use the following test cases to measure performance, mprotect()'ing
-> the mapped memory to read-only then read-write 40 times:
-> 
-> Test case 1: Mapping 1G of memory, touching it to get PMD-THPs, then
-> pte-mapping those THPs
-> Test case 2: Mapping 1G of memory with 64K mTHPs
-> Test case 3: Mapping 1G of memory with 4K pages
-> 
-> Average execution time on arm64, Apple M3:
-> Before the patchset:
-> T1: 7.9 seconds   T2: 7.9 seconds   T3: 4.2 seconds
-> 
-> After the patchset:
-> T1: 2.1 seconds   T2: 2.2 seconds   T3: 4.2 seconds
-> 
-> Observing T1/T2 and T3 before the patchset, we also remove the regression
-> introduced by ptep_get() on a contpte block. And, for large folios we get
-> an almost 276% performance improvement.
-> 
-> Dev Jain (7):
->    mm: Refactor code in mprotect
->    mm: Optimize mprotect() by batch-skipping PTEs
->    mm: Add batched versions of ptep_modify_prot_start/commit
->    arm64: Add batched version of ptep_modify_prot_start
->    arm64: Add batched version of ptep_modify_prot_commit
->    mm: Batch around can_change_pte_writable()
->    mm: Optimize mprotect() through PTE-batching
-> 
->   arch/arm64/include/asm/pgtable.h |  10 ++
->   arch/arm64/mm/mmu.c              |  21 +++-
->   include/linux/mm.h               |   4 +-
->   include/linux/pgtable.h          |  42 ++++++++
->   mm/gup.c                         |   2 +-
->   mm/huge_memory.c                 |   4 +-
->   mm/memory.c                      |   6 +-
->   mm/mprotect.c                    | 163 +++++++++++++++++++++----------
->   mm/pgtable-generic.c             |  16 ++-
->   9 files changed, 198 insertions(+), 70 deletions(-)
-> 
+  git://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-integrator.git
+tags/arm-generic-entry-for-v6.16
 
+for you to fetch changes up to 8c259349fa675315e1a80a463b04803501a045f6:
+
+  ARM: entry: Reimplement local restart in C (2025-04-07 14:51:17 +0200)
+
+----------------------------------------------------------------
+Main upsides:
+
+- Using the same common entry as used by x86_64, RISCV, S390
+  and Loongarch, probably soon also ARM64.
+
+- Moves ARM away from the obsoleted context tracker entry points
+  user_enter_callable() and user_exit_callable() are now only used
+  by ARM, CSKY and Xtensa.
+
+- Solves a few lockdep warnings in the process.
+
+- Converts a bit of assembly into C.
+
+- Makes it possible to move ahead with ARCH_WANTS_NO_INSTR.
+
+- Good base for CONFIG_ARCH_HAS_RESCHED_LAZY which is a good
+  base for CONFIG_PREEMPT_RT.
+
+Main downside:
+
+- Slightly increased system call overhead, around 6% in
+  measurements.
+
+----------------------------------------------------------------
+Linus Walleij (32):
+      ARM: Switch to generic entry
+      ARM: Prepare includes for generic entry
+      ARM: ptrace: Split report_syscall()
+      ARM: entry: Skip ret_slow_syscall label
+      ARM: process: Rewrite ret_from_fork i C
+      ARM: process: Remove local restart
+      ARM: entry: Invoke syscalls using C
+      ARM: entry: Rewrite two asm calls in C
+      ARM: entry: Move trace entry to C function
+      ARM: entry: save the syscall sp in thread_info
+      ARM: entry: move all tracing invocation to C
+      ARM: entry: Merge the common and trace entry code
+      ARM: entry: Rename syscall invocation
+      ARM: entry: Create user_mode_enter/exit
+      ARM: entry: Drop trace argument from usr_entry macro
+      ARM: entry: Separate call path for syscall SWI entry
+      ARM: entry: Drop argument to asm_irqentry macros
+      ARM: entry: Implement syscall_exit_to_user_mode()
+      ARM: entry: Drop the superfast ret_fast_syscall
+      ARM: entry: Remove fast and offset register restore
+      ARM: entry: Untangle ret_fast_syscall/to_user
+      ARM: entry: Do not double-call exit functions
+      ARM: entry: Move work processing to C
+      ARM: entry: Stop exiting syscalls like IRQs
+      ARM: entry: Complete syscall and IRQ transition to C
+      ARM: entry: Create irqentry calls from kernel mode
+      ARM: entry: Move in-kernel hardirq tracing to C
+      ARM: irq: Add irqstack helper
+      ARM: entry: Convert to generic entry
+      ARM: entry: Handle dabt, pabt, and und as interrupts
+      ARM: entry: Block IRQs in early IRQ context
+      ARM: entry: Reimplement local restart in C
+
+ arch/arm/Kconfig                    |   1 +
+ arch/arm/include/asm/entry-common.h |  66 ++++++++++++
+ arch/arm/include/asm/entry.h        |  14 +++
+ arch/arm/include/asm/ptrace.h       |   8 +-
+ arch/arm/include/asm/signal.h       |   4 -
+ arch/arm/include/asm/stacktrace.h   |   2 +-
+ arch/arm/include/asm/switch_to.h    |   4 +
+ arch/arm/include/asm/syscall.h      |   7 ++
+ arch/arm/include/asm/thread_info.h  |  22 ++--
+ arch/arm/include/asm/traps.h        |   5 +-
+ arch/arm/include/uapi/asm/ptrace.h  |   2 +
+ arch/arm/kernel/Makefile            |   5 +-
+ arch/arm/kernel/asm-offsets.c       |   1 +
+ arch/arm/kernel/entry-armv.S        |  82 ++++-----------
+ arch/arm/kernel/entry-common.S      | 198 +++++++++++++-----------------------
+ arch/arm/kernel/entry-header.S      | 100 ++----------------
+ arch/arm/kernel/entry.c             | 120 ++++++++++++++++++++++
+ arch/arm/kernel/irq.c               |   6 ++
+ arch/arm/kernel/irq.h               |   2 +
+ arch/arm/kernel/process.c           |  25 ++++-
+ arch/arm/kernel/ptrace.c            |  81 +--------------
+ arch/arm/kernel/signal.c            |  68 +++----------
+ arch/arm/kernel/syscall.c           |  59 +++++++++++
+ arch/arm/kernel/traps.c             |  30 +-----
+ arch/arm/mm/abort-ev4.S             |   2 +-
+ arch/arm/mm/abort-ev4t.S            |   2 +-
+ arch/arm/mm/abort-ev5t.S            |   4 +-
+ arch/arm/mm/abort-ev5tj.S           |   6 +-
+ arch/arm/mm/abort-ev6.S             |   2 +-
+ arch/arm/mm/abort-ev7.S             |   2 +-
+ arch/arm/mm/abort-lv4t.S            |  36 +++----
+ arch/arm/mm/abort-macro.S           |   2 +-
+ arch/arm/mm/abort-nommu.S           |   2 +-
+ arch/arm/mm/fault.c                 |   4 +-
+ arch/arm/mm/fault.h                 |   8 +-
+ arch/arm/mm/pabort-legacy.S         |   2 +-
+ arch/arm/mm/pabort-v6.S             |   2 +-
+ arch/arm/mm/pabort-v7.S             |   2 +-
+ 38 files changed, 484 insertions(+), 504 deletions(-)
+ create mode 100644 arch/arm/include/asm/entry-common.h
+ create mode 100644 arch/arm/include/asm/entry.h
+ create mode 100644 arch/arm/kernel/entry.c
+ create mode 100644 arch/arm/kernel/irq.h
+ create mode 100644 arch/arm/kernel/syscall.c
 
