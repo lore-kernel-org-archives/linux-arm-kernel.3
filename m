@@ -4,165 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2991CC36005
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 08:46:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6755DC36005
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 08:48:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qvT04c1A57p2tZVUQSmHyiBRJRwM9e60GnBNU0D4IoQ=; b=XPijdIeJ6hygZWkUkkHR0wNPTR
-	R32+lalLR7Lh8Mj/46zmxZ8NiZGuIM967U0hjzkf/zFxouGVG17AB3OXlLSNqaUX+F5NQE1Wsmpie
-	yQj3H1sitPDMjYHlsnCZnwSvpJPe9aQ85Bk9fGcYyNz5hfmFEH6fjiwPdtwYzwcOIGFESU50bJ7g6
-	y5mdbc7al/fIuk5qeOvLWhyH+AiujCdQoHhrBvkGDCfVd9B5VPKM6aquHJCM5YMWONmGzLUr5paoz
-	18YLtEbWBWVZ6YA7e07cAabCEBYRyxxOD7rlbuOZ9ejiViiX3mBl6lYsVaYGAy4Io5qd9lnHe26u6
-	w71lDxJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YvPPksWSsF+tDMCbvEs2TcRi7+oLctmG615v6XJg4jg=; b=DJVdN++TGmKla+2aW1k7uSQcih
+	Vw/f6wWL42vzREonyfIKZ/9w0AN8Re3Z/kIJxuf0pmWcHDu7xG6K1Rl8tDm87wXcEH8DCVdHP1RjR
+	ewqMroE0b4GKZ1qVHUtZAfR+lYmik8KD3pCL2o9Zt7rH+8hLxV19L5csdKVjJB7fMBEo9M4tm08pE
+	ZW3VzV6ldT6popgskawHBU0XcvSxXNs+Wk1k3iiherRV9IHmHA20b+PjiU30BXEh21u9crR4eEctl
+	8m4/oMoFAMIaGAGLoWsGfC5Moa2Ojzj0nU84udFkJDAdzqBNO/TECZ5EhrAl89A4HeI+Yl+hkTXMS
+	XUdUgxSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9K7p-00000005VR6-2FLu;
-	Mon, 28 Apr 2025 08:46:05 +0000
-Received: from mail-southcentralusazlp170110000.outbound.protection.outlook.com ([2a01:111:f403:c102::] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1u9K9l-00000005Vmm-0viT;
+	Mon, 28 Apr 2025 08:48:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Jwr-00000005TJ4-1wlH
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 08:34:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZHUAP7uqa/Ncp9ZkutAoQXa99JcftZVu5BtVB2jOc2+bgiP66QrnvyRVAACvCSx4b+ZjoL8JdsjPoG6752ad1JLI92V3FefLkbMWB0E7AAlswm273Yt4LtmiA62KklsL469V2pHQXtU4lwtz5Olq0W65nkZKV7uR5em4jt2bpjWMcBlOF6nQeXW6kIEuSPdEtWtTO9jm5dpomrrnE03xu1LtRLhnTS97Gc5Jx+gHvBIGmIPbp3ORLYpv8kYGZHZE68qt7HsUhh7CsdMlY6SFZ2Lpy+q5xyZ+EAiEuy8UUUOPLBAU7/GE5gLAhi3a2LR73AY8P2mmQi38gbCGHhGdJg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qvT04c1A57p2tZVUQSmHyiBRJRwM9e60GnBNU0D4IoQ=;
- b=t6yVIeeIjslYoMoMOLGdCLSYPnjtxtxsgt4LoNsICqlO5GuoKmiV2h9HuOYKOYNVDpTh3otOAWJ8yFhYgPJcLrH+f5Qgknkqgk8P9qPQ1GzKK18sgC1yyCEx4u8gSlsHSMGMRrDGh82LUYAuLT41C3KFKZ5b7XAqToMXxok7xoMXSxW6D/gwKKwAMpRgJNuJQCrhzwt9XcIkkiZMOPHx+4GTT2XMC+WsGNbXN+bddAPuo5l6G4xycWNdaEpXGTPiEdM1ikOe/m/TjqUFne2mQvHdj5+7lVw5hm3UKCvtIXvS19H3zsQ3FDx9lZK+EEnAdgy31us8mnOobKFKs0/F0Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
- dkim=pass header.d=altera.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qvT04c1A57p2tZVUQSmHyiBRJRwM9e60GnBNU0D4IoQ=;
- b=ECfoZGbcOcP7tsMpzJfU0FYU33cQFXo3nrDpF9e7ysv78T6xVYjOl2IMLZuLYBuFvhwRNDoYDu3bVnsBNV0hq1bDlvgOzbq8SfSNYZu5UKPhjevv8HqFGX5sqEIdUUzjxOJSQNge0AxBM4XR6k8UXPwzH5hQi1KssxXbVf6pkjjzbZrxSEfsQcsUgcLMq6silvDn26qp0fqDtB7kuaAk7ReRFn8VlH0KLOZvAJDfcaw1uUBeevMdRzi7Al2kLLYv9PxyzMgKNHAvVMZpoKwk0KIP1TUkkj9GdRpWyfRnEnYlAzYpwJL092pIA+/mkVfxpuNpnNAavN0HypSXFGbAYw==
-Received: from BN8PR03MB5073.namprd03.prod.outlook.com (2603:10b6:408:dc::21)
- by CH7PR03MB7906.namprd03.prod.outlook.com (2603:10b6:610:24c::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.31; Mon, 28 Apr
- 2025 08:34:33 +0000
-Received: from BN8PR03MB5073.namprd03.prod.outlook.com
- ([fe80::7483:7886:9e3d:f62a]) by BN8PR03MB5073.namprd03.prod.outlook.com
- ([fe80::7483:7886:9e3d:f62a%5]) with mapi id 15.20.8678.028; Mon, 28 Apr 2025
- 08:34:33 +0000
-From: "Ng, Boon Khai" <boon.khai.ng@altera.com>
-To: Simon Horman <horms@kernel.org>
-CC: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-stm32@st-md-mailman.stormreply.com"
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "bpf@vger.kernel.org" <bpf@vger.kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Russell King <linux@armlinux.org.uk>, Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer
-	<hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, Furong Xu
-	<0x1207@gmail.com>, "Gerlach, Matthew" <matthew.gerlach@altera.com>, "Ang,
- Tien Sung" <tien.sung.ang@altera.com>, "Tham, Mun Yew"
-	<mun.yew.tham@altera.com>, "G Thomas, Rohan" <rohan.g.thomas@altera.com>
-Subject: RE: [PATCH net-next v4 1/2] net: stmmac: Refactor VLAN implementation
-Thread-Topic: [PATCH net-next v4 1/2] net: stmmac: Refactor VLAN
- implementation
-Thread-Index: AQHbstqfHgt1ZgfId0y44506iJ/Lf7Oyv5cAgAX8cpA=
-Date: Mon, 28 Apr 2025 08:34:33 +0000
-Message-ID: <BN8PR03MB507352B608A7E90E5017E017B4812@BN8PR03MB5073.namprd03.prod.outlook.com>
-References: <20250421162930.10237-1-boon.khai.ng@altera.com>
- <20250421162930.10237-2-boon.khai.ng@altera.com>
- <20250424121604.GE3042781@horms.kernel.org>
-In-Reply-To: <20250424121604.GE3042781@horms.kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=altera.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BN8PR03MB5073:EE_|CH7PR03MB7906:EE_
-x-ms-office365-filtering-correlation-id: 6631129d-a49a-4d55-ead0-08dd862f80b4
-x-ms-exchange-atpmessageproperties: SA
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?BvbcoG2pklyIwU6XV8qEZSJUMAhKrbZcHKOunW4GxpDjJolJm7HfJwZzC6ve?=
- =?us-ascii?Q?gWUVeFbVVFNYiYCftH1YLvroya5s+i1Zdu4nWiqMe80Umhl4P2jKSfb7YkPp?=
- =?us-ascii?Q?NddwGBENV59rQmvLi23xiCMdR9Uf+4y1Aos8L2KQP34y4ZO4d5BgwilB5OKy?=
- =?us-ascii?Q?nb6Q9T69NyoA0sWbVazaBYgrLahu2MiO0N9MWubxw0eavk+0yiLvKl+J9sLt?=
- =?us-ascii?Q?1b324fQ1PTxFNzr4fsFbe91IlU0Ga1ANGgbMNdCda587DHIWQWbXqZBgMQ0T?=
- =?us-ascii?Q?1MM2hTyduh3qzQPECQ56SUPB7jZSbRUQHl2V7g4SVcYHXot30L4X6o8fvcV1?=
- =?us-ascii?Q?Rqr9bhvsCMBcZPvhtbRN2VaIUAhVbCeudHwJQlvqlJPKRnYtq0RDJWu2GWuK?=
- =?us-ascii?Q?vA4v9PGqiLtFcYcoOmOe5jLfHdOuPLda2+J4zHtQgqIzNJNclraEIinmyJv+?=
- =?us-ascii?Q?V6mXCItVChiN85Q6IGFpUHliIFPDbrDMejiWZN+rKWBIqcqvrtlVDBUz8h1m?=
- =?us-ascii?Q?XSmWcbGdUFxnJuvVX5MoaNcWe0L8PAkOWX1CgXqExpiZElUgNCjBnNAv4GNo?=
- =?us-ascii?Q?OBJWqd/ygP1Yd7SfSydYc5rIZaxsoBgZtahCN23hOLR7KFwrJo1dRb/MWHF7?=
- =?us-ascii?Q?RO5+57DucKRvY/8WBdyPjt8Js2tUB3NDAk1JSL1FbHi3U7b7EZy3AoY2MoAh?=
- =?us-ascii?Q?tP6KE7JCQC0+KA6tfKqf/NF8hMbi0imHn8WSaOXXCQW0LewCmR/ve2aNuiSM?=
- =?us-ascii?Q?RoVAx6KzDOuDZwkl4VRyzoF0slmsbC1U3bUwSpV+uNFbC6+AFk2LZ6maA30C?=
- =?us-ascii?Q?sxHm5bB6CihFBoZd78PEOUZay9xRUS8XzsNBax5ngrffMRC4RVzTwKb6qDBA?=
- =?us-ascii?Q?3E9kMe2CfOjiFJXVeX9thAaiJjeLL9G65Mm7lhg2N4+ZHlyS67eqEsrAiErR?=
- =?us-ascii?Q?h4oLIc8eIRMNBFUr/A31UuYKZvyHc4KS76kRTzvNbhEaMuO95THt+M7VP2Vm?=
- =?us-ascii?Q?GW+QsmelQByNoG2Ca14Vqv4YwYvA3fYcC442EJhAmp2c8v5xPGVefCRb5F7J?=
- =?us-ascii?Q?JlQ1uBD5mjS1xU9EMRDgA7J/odsQf2dKmtEJ1j42sDaEMHRe4q0+MriPO88z?=
- =?us-ascii?Q?BkXFeRTxe2eVU+dUIG3dxpPcFT289NzUdsTUuVr8FtcOH9ch7AF5xPAt/9mo?=
- =?us-ascii?Q?9/okgWSIgq3u+zvX6LW94a5nR68892o8ABs4bVDz0cG2rHUVUzSzIwiSSKzE?=
- =?us-ascii?Q?UP8UnMX74OgrNL/fw8Q3d9UCoQWhPW2pXS53dY75nmPehRMXx1gHLju4PhZI?=
- =?us-ascii?Q?IjK9+VRhxqmT5bizQjwVpxIsmSan7WBbCFkvxG3yUMqEBTm2hcyxFuovViOQ?=
- =?us-ascii?Q?8Y+SNv9WK5rCwRpu4VC+xJSrHVsYGQuT4JCAiN5NwBjRugefAfMatadCCAX9?=
- =?us-ascii?Q?srYBSy0varPxVUbCptZT+bInvOrQ6YBnHQfLOJYThVAx/LNj10gf4A=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN8PR03MB5073.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?6F7KLc+tVKx3+IWINF17FnJi9CSPFFI9AtxJWOZlgt6FmBcgAVxk3r+2LbIi?=
- =?us-ascii?Q?6BqJ1uJAoe9VMSzvRf2nvHPEkq7q5tnbNeCeHu6uiLIqYIYseL1UHnvu2NoS?=
- =?us-ascii?Q?fZBDiUbcYJhKNHq0g91lhU9YbycmLb766ema6dbNK/SDe+il858EQf7XOMro?=
- =?us-ascii?Q?hUtPPxlkaiNWcPALlqJycTOk5SYJmjxCSY4kRrC5Q8qhE1ucEV9UOIeeFuAj?=
- =?us-ascii?Q?sdL13lDazj9dpDLRbQ9oy36RQGIy3mHTRj6vbJ8CiIMXRHGDSEwgrjRUraEA?=
- =?us-ascii?Q?mUK+yRBkN80OZvJGqiXlsaZxrYWRGWPdro7w9qc/kTpqVN8tFYRmwnIYzQvu?=
- =?us-ascii?Q?0Np4TnEMto1srUogUhIMk9bBv2ItsOujprdkivDXY37tN8hZcTqRG+Xatszx?=
- =?us-ascii?Q?09r+vLV8qxRvNqNCNlT91dkIwiBHjrDUcs0NcwBQsLgpwjtA4SbxVGjRzzwl?=
- =?us-ascii?Q?UhOsYP+Y2BT2W2wmjqW4AfzFIm9tYFBNeCLGAJzl/d2vq0dgLK1Nufnn9t+y?=
- =?us-ascii?Q?9OgTfSsWY4qZinMs4CsBupB2n/+d1gerJqwew012GP3PEJ8ZN0AyqghiurS8?=
- =?us-ascii?Q?HxP1Oj6DpL8HxeUAvXk3j34qqehO+P87QiPs9TcZESaaiQaQyIOK9EStnqnj?=
- =?us-ascii?Q?d4Y8QAw3K7jIrcTr3Levp8kMPVpo9S9Y4XdgpDBkfDCKFm1D8rh4Jnw5ENKs?=
- =?us-ascii?Q?PUytrtDGhheVPKvd9KdRx0TsyajHPDa2w9doYawR0Z+HswZCSSvb4jl0VyXP?=
- =?us-ascii?Q?8Bb+yaaOOk9YO/Ti14dw0iBGUB7ltmRe8rNeN9NYs6NWhCxL8KHppQYininw?=
- =?us-ascii?Q?QWW4j2i0xwphcsEbHUCXZPMl3ZvlfnSYQ4N7aCIlob1Su3V3N0AxMUClvMDS?=
- =?us-ascii?Q?kdniwoPBqcPoVs1uc/bjk6Vpm6rR6Ux09pZs+rsqD/d8XsH/s7YgEwKV2rBE?=
- =?us-ascii?Q?uFzOPgvMNN/VPirtkhwe/AsuwpOLgv5Qfd+M5WgMmLOEhR6QxYsbRpSL1N8z?=
- =?us-ascii?Q?TYHiby9psZM6xcjmtqrWkxtCc23C/v8vshg2TNn/C6OCOXh3I95tmaGkGeSA?=
- =?us-ascii?Q?/Bb8fBLG6U3KYv5i5M9xYWIhHclj4ZCwdFMtSy/r6VZ3oxEECTw5KMjXk48x?=
- =?us-ascii?Q?sYsfnHlYsxppgji3XsJsfXuNKZ1hp8N0MFTohPbvXT3ToU5omaT/LLw6cIX6?=
- =?us-ascii?Q?7vZ3mcAx4AK7+g31GCfmtKKAm80Z/ZQ8cySG5b+xa+tgzdsIdDxbIVpdum0M?=
- =?us-ascii?Q?glohpXpi4fawBvuBYQhJlBh8NypZEh65O9OxMSsKp6pTqv/Nzv3p6onkVpSH?=
- =?us-ascii?Q?/Xy+IBstULCf04qVbFotvmmZJO5t6mKm629qfdqoDAAE36CY9p9I/HMYB5OS?=
- =?us-ascii?Q?fcJhTXwIH15VQWFiMD6k7X6cRAP7Fesj3PGeLm2OBfGucF6H0xV7vSrlNNnx?=
- =?us-ascii?Q?B1VqRKZQfzY9R/4ad3ryyrNDpuEXP6V3RlOhusawPt3y+n7Nc4CZQ6CyLATM?=
- =?us-ascii?Q?1bFU5EaZ/E8r37WxHIFLafJreGSK976WCCZhiukZeZDCWG8MgSEmJBlo1uDj?=
- =?us-ascii?Q?pTUcw8azAIul5zw8WKA2n7h0dK9WrAu38OAxXTp8?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1u9JxY-00000005TUC-0qyS;
+	Mon, 28 Apr 2025 08:35:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id EA1DD61156;
+	Mon, 28 Apr 2025 08:34:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DEDBDC4CEE4;
+	Mon, 28 Apr 2025 08:35:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745829323;
+	bh=klD0yv01bNm8wfCoVGBvRVDfqDEPJmac1efJ8e3eiuU=;
+	h=From:Date:Subject:To:Cc:From;
+	b=EWssw/degF9d52y01LUX3btS1KaiMEgTm8vT9UI7TXsPEy8aku9mD+fpzl6p7usS+
+	 QcA93ZUz+uxUgPIFXKKqI5efNteLeVSBu/cIsGrQIthKcUZzgIzTliWMN/2jqhB+SD
+	 TG4Dlet4Rsh9XkFXp//cD+rpnRTWYpmFlVIfLD8/qfc7BPNMhPes93ed97zYCB27Ad
+	 kDxG448m1u+t9waz7UhPLdi6bZLD57cBVTeg7dYaHcedOgdMTgtYJZKWH6WZrJTQKc
+	 tiQMA/aZgrU56G8QD1HWbPur0Qx0oUQqmwATEWeFSCjfs4qKZlivNUH3NdG/cgDUY7
+	 mwRqk3wPbqq3A==
+From: Mattijs Korpershoek <mkorpershoek@kernel.org>
+Date: Mon, 28 Apr 2025 10:35:13 +0200
+Subject: [PATCH RESEND] dt-bindings: mediatek,mt6779-keypad: Update
+ Mattijs' email address
 MIME-Version: 1.0
-X-OriginatorOrg: altera.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BN8PR03MB5073.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6631129d-a49a-4d55-ead0-08dd862f80b4
-X-MS-Exchange-CrossTenant-originalarrivaltime: 28 Apr 2025 08:34:33.7200
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: fbd72e03-d4a5-4110-adce-614d51f2077a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: PswD0cjzK/6yXvVXQzxTBoeasdSF33ulaI+HrELpd+q2evhWfnT+hWyDSaLC5IMg5dOjrBzAhi2eWLms1BTrcg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH7PR03MB7906
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_013445_500460_9B87E980 
-X-CRM114-Status: GOOD (  15.17  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250428-keypad-email-v1-1-dde6ac76725b@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAMA9D2gC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDEyML3ezUyoLEFN3U3MTMHN2URIMUE8s0E8NEIwMloJaCotS0zAqwcdF
+ KQa7Brn4uSrG1tQCLzcXtZgAAAA==
+X-Change-ID: 20250428-keypad-email-da0d49f41a20
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Mattijs Korpershoek <mkorpershoek@kernel.org>, linux-input@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+X-Mailer: b4 0.14.3-dev-7b9b9
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1315;
+ i=mkorpershoek@kernel.org; h=from:subject:message-id;
+ bh=klD0yv01bNm8wfCoVGBvRVDfqDEPJmac1efJ8e3eiuU=;
+ b=owEBbQGS/pANAwAKARkNHbRmThk1AcsmYgBoDz3IMCv1w77XgX5NrlwsfIOOrq7C9ZyynIyHL
+ xD7dUlX1seJATMEAAEKAB0WIQQu6UKnth9qvlMTrQAZDR20Zk4ZNQUCaA89yAAKCRAZDR20Zk4Z
+ NduXB/0f7JL64NbMpgZ91HFYYNb/FNnjQYOXVD/hnH0iIEGh8QkXpJyoHRfCk9pWYrekxRW5FBM
+ 8I4wPQyEepyHbWa49tQspk6xU/Vp7vwQuY0mtxeHZewHtRDxSqIXqaCaXLXp+XOfqQfXs6wMSxc
+ yOGKU1oDrJ/W09S8HzM5RZtV8Lq04e2OkeMyeunabYfqMxPl+1XSVCyqjbGYwWlxNDJnPZElNFv
+ 5Eyg7jjmQ5caLlvqreAB+E1cuMaTOM4GEBGXmdUMfwdaXNveAl6gZQKBEjIybWJzwVpAEf+hZ+5
+ 4IHhRo7A+vgpAIEUPt8MK2qJj5Ni85UzoNu5ShVWvAAOLIFJ
+X-Developer-Key: i=mkorpershoek@kernel.org; a=openpgp;
+ fpr=8234A35B45C0D26B31C1A2DA570338B018144F28
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,66 +88,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->=20
-> Here the XGMAC_FILTER_VTFE bit of XGMAC_PACKET_FILTER is set.
-> However, this logic does not appear in vlan_update_hash()
->=20
+Update Mattijs Korpershoek's email address to @kernel.org.
 
-Hi Simon,
+Signed-off-by: Mattijs Korpershoek <mkorpershoek@kernel.org>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+---
+Hi Dmitry,
 
-This is a bit tricky when combining both implementations,
-but it seems to be a software difference rather than a hardware one.=20
-According to the documentation, the VTFE bit is located at the same
-offset for both.
+Would it be possible to pick this up please?
+My BayLibre email will no longer work soon and I'd really like to stay
+involved with the mt6779-keypad driver.
 
-Comparing dwmac4 and dwxgmac2, the VTFE bit is enabled in
-different places:
+Thanks!
+Mattijs
+---
+ Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-In dwmac4, it is set in dwmac4_set_filter().
-In dwxgmac2, it is set in dwxgmac2_update_vlan_hash().
+diff --git a/Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml b/Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml
+index 517a4ac1bea3..e365413732e7 100644
+--- a/Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml
++++ b/Documentation/devicetree/bindings/input/mediatek,mt6779-keypad.yaml
+@@ -7,7 +7,7 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ title: Mediatek's Keypad Controller
+ 
+ maintainers:
+-  - Mattijs Korpershoek <mkorpershoek@baylibre.com>
++  - Mattijs Korpershoek <mkorpershoek@kernel.org>
+ 
+ allOf:
+   - $ref: /schemas/input/matrix-keymap.yaml#
 
-From my testing, both approaches work. I ported the
-code from dwmac4 to stmmac_vlan.c and verified it on
-dwxgmac2 successfully.
+---
+base-commit: 393d0c54cae31317deaa9043320c5fd9454deabc
+change-id: 20250428-keypad-email-da0d49f41a20
 
->=20
-> And likewise, here value is based on reading from XGMAC_VLAN_TAG.
-> Whereas in vlan_update_hash is constructed without reading from
-> XGMAC_VLAN_TAG.
-
-Both drivers write to VLAN_TAG, but they differ in when they read it.
-dwmac4 reads VLAN_TAG at the start of the function.
-
-dwxgmac2 reads it within each if block.
-The difference seems intentional: in dwxgmac2, the same value
-variable is used to program both XGMAC_PACKET_FILTER and
-XGMAC_VLAN_TAG, so reading VLAN_TAG at=20
-the beginning would be overwritten anyway.
-
-When merging into stmmac_vlan.c, I believe we can
-consolidate both paths cleanly and avoid discrepancies,=20
-which aligns with Andrew's goal of combining them.
-
->=20
-> Can I clarify that this is intentional and that vlan_update_hash(), which=
- is based
-> on the DWMAC4 implementation, will also work for DWXGMAC IP?
->=20
-
-Yes, based on my tests and the documentation (same register offsets),
- it works for DWXGMAC IP as well.
-
->=20
-> I am curious to know why readl_poll_timeout() isn't used here as was the =
-case
-> in dwmac4_write_vlan_filter().
-
-This was my oversight when porting from older dwmac4 code.=20
-As Russell pointed out, I will update it to use the latest dwmac4=20
-VLAN handling code in v5.
-
-Regards,
-Boon Khai.
-
+Best regards,
+-- 
+Mattijs Korpershoek <mkorpershoek@kernel.org>
 
 
