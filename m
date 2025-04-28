@@ -4,80 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC929C36005
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 09:08:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE00BC36005
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 09:10:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=exze3ueWY+HNg4sMqbZbk5lkw0dlxCK14ZF2dFm2BRU=; b=VwR8iuPXSzOplm03JeBcux1Vnh
-	RcdXvyBxpQeCeXrdoHvdIflWT5TFXggtjwfkWGiKnWeVYkghmkH2T5CrC/4ieUYZoPj0Hwx0zwLhe
-	yRN7HAzGD1SNeRBllu4QDW/NrHymL/gBsSyZdyFRN1ObGqPvytGdvixZrC9myXEJer4EfmUFXx85r
-	iZ0l4BZoOf5tKAg/oNN/qfNH7XXAEGhPAJcOViH5bAI/JFhgNRNftC4oT9Q5qh4BV87fxTl5nmr3u
-	wsT0ZLeCEFLBlnbf8gBSpTN/JcUj+l9ock3kmWwPYjGD7a4mmUXnHqfFpH5lVLIwzXVTgVbBoU+fi
-	S2+tsUng==;
+	bh=kwb6sfk/OTplMs5Q5TACguVNBchZ6pfP8g0wZXekkjI=; b=3W60iAMoFx2xqvTA25Az0jwA3p
+	2DI9mwU0r1GTWn0pHkHx51sTS5HtNPZt5y5UPjskhCWdCexvE/fyGdmx7DHChJYp385mBDA7ViMnT
+	4EGnr6nf2jJ/QPA6rZs6dM6J3Ml/xNbvzSCgefH1EN8uOzFsqf/JuVcsPvqSSIj8rp4Y8cUPAwqES
+	5pkji4Yu4jG5rjHvH93s+bCvv+8dYx5WFnuBZSz/KLrSM4sYchVXDS4CHoA2EQhs/4xAxxQyaxEPa
+	LsghO2p0kO4/dxUdp8jf6oa+7iEXrxmIDr/iFSO0mkK8NM6MTIEgX3Z1+9+N5vV8w4/IdRQyebcmu
+	xY0f/rOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9KTC-00000005YNV-3bfa;
-	Mon, 28 Apr 2025 09:08:11 +0000
-Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
+	id 1u9KV9-00000005YZZ-0Iad;
+	Mon, 28 Apr 2025 09:10:11 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9K6W-00000005VFW-21eG
+	id 1u9K9J-00000005Vfl-2MrQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 08:44:46 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 1C4DE432F7;
-	Mon, 28 Apr 2025 08:44:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1745829879;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=exze3ueWY+HNg4sMqbZbk5lkw0dlxCK14ZF2dFm2BRU=;
-	b=cUrsXZFFd/v0NeT60IbLaHgTaEtrXloAc/FEI1pkezzTfr37o1ION9UL0dU09kyhS9lZg7
-	kF3NlmFLd88E6im5ehC+SFkPTJ4N7FAx8gmOzgaQjWZ1I1whHL5LfkvRHolJ5GHdmhADOM
-	V4saVye8J3rRi8QPqJP21fIckt7SthtTvxxF7v/h3iGw7N/R5jNBnHwNdRkihDGXe3yiim
-	D8JlBfxfmKmqOSSSbQ5pDPfqMVbdnBWIrnjRvWpnvP/TCEpFDcb+MZeViTrsTZRNDciCP3
-	E9QTweYL4AEPbrKUqC4qoEqWqKeDva9WueGKRWdcVZXoTeWIf9EP3GdyPH35hA==
-Date: Mon, 28 Apr 2025 10:44:34 +0200
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Heiner Kallweit
- <hkallweit1@gmail.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
- linux-arm-kernel@lists.infradead.org, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
- Florian Fainelli <f.fainelli@gmail.com>, Russell King
- <linux@armlinux.org.uk>, Vladimir Oltean <vladimir.oltean@nxp.com>,
- =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>, Oleksij Rempel
- <o.rempel@pengutronix.de>, Simon Horman <horms@kernel.org>, Romain Gantois
- <romain.gantois@bootlin.com>, Piergiorgio Beruto
- <piergiorgio.beruto@gmail.com>
-Subject: Re: [PATCH net-next v7 1/3] net: ethtool: Introduce per-PHY DUMP
- operations
-Message-ID: <20250428104434.5d4fab73@device-130.home>
-In-Reply-To: <20250425171044.4a9e1b4a@kernel.org>
-References: <20250422161717.164440-1-maxime.chevallier@bootlin.com>
-	<20250422161717.164440-2-maxime.chevallier@bootlin.com>
-	<20250424180333.035ff7d3@kernel.org>
-	<20250425090153.170f11bd@device-40.home>
-	<20250425171044.4a9e1b4a@kernel.org>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	Mon, 28 Apr 2025 08:47:40 +0000
+Received: from epcas2p4.samsung.com (unknown [182.195.41.56])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250428084730epoutp044d4b7c8cd9779e177268d10f8d20b91e~6by5Z3Fvv2679726797epoutp04R
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 08:47:30 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250428084730epoutp044d4b7c8cd9779e177268d10f8d20b91e~6by5Z3Fvv2679726797epoutp04R
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1745830050;
+	bh=kwb6sfk/OTplMs5Q5TACguVNBchZ6pfP8g0wZXekkjI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=FtWP69PJmEYKxMEkxF1kxz7LVhM9oGKF/8DK7HZxgvOkQQn+FgQlnsEqCW+06W4j+
+	 QncPE5D44wKiI14CIwxC2fcj1V1yCgejGmAnGsDExLnZEuKODA9U7oyubL0yXCQA7Z
+	 jewE/aGHVv50mBWmEAq6RSSXS1kD8znWW6QTX86o=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas2p4.samsung.com (KnoxPortal) with ESMTPS id
+	20250428084729epcas2p47daf637f98853b875a65d0910ebc72e6~6by427dZC0662806628epcas2p4z;
+	Mon, 28 Apr 2025 08:47:29 +0000 (GMT)
+Received: from epcas2p1.samsung.com (unknown [182.195.36.97]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4ZmHBn2n6Mz6B9m7; Mon, 28 Apr
+	2025 08:47:29 +0000 (GMT)
+Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
+	epcas2p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250428084728epcas2p1d293e6a40eae00465c6b2f5f037dbfef~6by32lK6f0605306053epcas2p1q;
+	Mon, 28 Apr 2025 08:47:28 +0000 (GMT)
+Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
+	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20250428084728epsmtrp2bfe7deabe0f8a74a1e52e70d4ff5330a~6by3zmG6z1061810618epsmtrp2G;
+	Mon, 28 Apr 2025 08:47:28 +0000 (GMT)
+X-AuditID: b6c32a52-41dfa70000004c16-cd-680f40a0f99b
+Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
+	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
+	E3.CF.19478.0A04F086; Mon, 28 Apr 2025 17:47:28 +0900 (KST)
+Received: from localhost.localdomain (unknown [10.229.9.60]) by
+	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250428084728epsmtip1e211e99deb8a28118667e82b210a4aa5~6by3m-rTj1942219422epsmtip1H;
+	Mon, 28 Apr 2025 08:47:28 +0000 (GMT)
+From: Shin Son <shin.son@samsung.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Sylwester Nawrocki
+	<s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar
+	<alim.akhtar@samsung.com>, Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Sunyeal Hong <sunyeal.hong@samsung.com>
+Cc: Shin Son <shin.son@samsung.com>, linux-samsung-soc@vger.kernel.org,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH 3/3] arm64: dts: exynosautov920: add cpucl1/2 clock DT nodes
+Date: Mon, 28 Apr 2025 17:47:21 +0900
+Message-ID: <20250428084721.3832664-4-shin.son@samsung.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250428084721.3832664-1-shin.son@samsung.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddviedthedtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmegvhegsfhemuggtfeelmegvvgejudemudekfeelnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemvgehsghfmegutgefleemvggvjedumedukeefledphhgvlhhopeguvghvihgtvgdqudeftddrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvddtpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhto
- hepvgguuhhmrgiivghtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtohephhhkrghllhifvghithdusehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-GND-Sasl: maxime.chevallier@bootlin.com
+Content-Transfer-Encoding: 8bit
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrMLMWRmVeSWpSXmKPExsWy7bCSnO4CB/4Mg857ahYP5m1js1iz9xyT
+	xfUvz1kt5h85x2px/vwGdotNj6+xWnzsucdqcXnXHDaLGef3MVlcPOVq8X/PDnaLw2/aWS3+
+	XdvIYjH5+FpWi6Zl65kc+D3e32hl99i0qpPNY/OSeo++LasYPT5vkgtgjeKySUnNySxLLdK3
+	S+DKeHFKqOAtV8XOxslsDYwnOLoYOTkkBEwktl15wQRiCwlsZ5SYcNcVIi4hcXjGBEYIW1ji
+	fssRVoia94wSb59kdjFycLAJqEps+i3fxcjFISLwlkli+f8DYHOYBU4zSuw8IwNiCwv4SPyc
+	f4UZxGYBqn85dxIjSC+vgLVE+95yEFNCQF6iv0MCpIJTwEbi/MVONpCwEFBFXw83SJhXQFDi
+	5MwnLBDD5SWat85mnsAoMAtJahaS1AJGplWMoqkFxbnpuckFhnrFibnFpXnpesn5uZsYwfGg
+	FbSDcdn6v3qHGJk4GA8xSnAwK4nwVhnwZwjxpiRWVqUW5ccXleakFh9ilOZgURLnVc7pTBES
+	SE8sSc1OTS1ILYLJMnFwSjUwccwMbN6nXyM22b21bF/slWcJqkIfWn6LXFGtk431+ZlxxTgq
+	SeGu3LqzDWkvVvQd2GG7dt8LX8VC3l1fQ6R+MDetelJ70M3W4dLaZ8fOMbCebPCJW/fLICq9
+	abV8UF60gMg9p5UT7NytV657mya18LhK4p7pNRX7nPXTjv/0qe9+/XjGWa4Nsc48fzqinkdt
+	Zrc4IvS8zO2NZl50yIyvb/3eJPjoNjgoXlmQZsp07t7sVSbLVk1ZvHH2mQJtRalJ7nsv3eDQ
+	PDIzQEJ2tglvvvKyrme/9bfEGZecvrfhlskW4XAD+bTGNtmiAJEnnhtqTSzcVLzEeg5ba1yT
+	fNlSvzdGxs/J9Vxo3oW0Je+UWIozEg21mIuKEwHpfgtO9gIAAA==
+X-CMS-MailID: 20250428084728epcas2p1d293e6a40eae00465c6b2f5f037dbfef
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+cpgsPolicy: CPGSC10-234,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250428084728epcas2p1d293e6a40eae00465c6b2f5f037dbfef
+References: <20250428084721.3832664-1-shin.son@samsung.com>
+	<CGME20250428084728epcas2p1d293e6a40eae00465c6b2f5f037dbfef@epcas2p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_014444_956960_D8BDAD1C 
-X-CRM114-Status: GOOD (  24.25  )
+X-CRM114-CacheID: sfid-20250428_014739_030898_A5BE1382 
+X-CRM114-Status: GOOD (  13.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,52 +118,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 25 Apr 2025 17:10:44 -0700
-Jakub Kicinski <kuba@kernel.org> wrote:
+Add cmu_cpucl1/2(CPU Cluster 1 and CPU Cluster 2) clocks
+for switch, cluster domains respectively.
 
-> On Fri, 25 Apr 2025 09:01:53 +0200 Maxime Chevallier wrote:
-> > > > +/* perphy ->dumpit() handler for GET requests. */
-> > > > +static int ethnl_perphy_dumpit(struct sk_buff *skb,
-> > > > +			       struct netlink_callback *cb)
-> > > > +{
-> > > > +	struct ethnl_perphy_dump_ctx *ctx = ethnl_perphy_dump_context(cb);
-> > > > +	struct ethnl_dump_ctx *ethnl_ctx = &ctx->ethnl_ctx;
-> > > > +	int ret = 0;
-> > > > +
-> > > > +	if (ethnl_ctx->req_info->dev) {
-> > > > +		ret = ethnl_perphy_dump_one_dev(skb, ethnl_ctx->req_info->dev,
-> > > > +						ctx, genl_info_dump(cb));
-> > > > +		if (ret < 0 && ret != -EOPNOTSUPP && likely(skb->len))
-> > > > +			ret = skb->len;
-> > > > +
-> > > > +		netdev_put(ethnl_ctx->req_info->dev,
-> > > > +			   &ethnl_ctx->req_info->dev_tracker);      
-> > > 
-> > > You have to release this in .done
-> > > dumpit gets called multiple times until we run out of objects to dump.
-> > > OTOH user may close the socket without finishing the dump operation.
-> > > So all .dumpit implementations must be "balanced". The only state we
-> > > should touch in them is the dump context to know where to pick up from
-> > > next time.    
-> > 
-> > Thanks for poiting it out.
-> > 
-> > Now that you say that, I guess that I should also move the reftracker
-> > I'm using for the netdev_hold in ethnl_perphy_dump_one_dev() call to
-> > struct ethnl_perphy_dump_ctx ? That way we make sure the netdev doesn't
-> > go away in-between the multiple .dumpit() calls then...
-> > 
-> > Is that correct ?  
-> 
-> Probably not. That'd allow an unprivileged user space program to take 
-> a ref on a netdev, and never call recv() to make progress on the dump.
-> 
-> The possibility that the netdev may disappear half way thru is inherent
-> to the netlink dump model. We will pick back up within that netdev
-> based on its ifindex, no need to hold it.
+Signed-off-by: Shin Son <shin.son@samsung.com>
+---
+ .../arm64/boot/dts/exynos/exynosautov920.dtsi | 26 +++++++++++++++++++
+ 1 file changed, 26 insertions(+)
 
-OK I'm good with that then ! Thanks for the explanations, makes a lot
-of sense. I'll followup with a new version soon :)
+diff --git a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
+index 9350c53f935e..2cb8041c8a9f 100644
+--- a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
++++ b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
+@@ -1090,6 +1090,32 @@ cmu_cpucl0: clock-controller@1ec00000 {
+ 				      "cluster",
+ 				      "dbg";
+ 		};
++
++		cmu_cpucl1: clock-controller@1ed00000 {
++			compatible = "samsung,exynosautov920-cmu-cpucl1";
++			reg = <0x1ed00000 0x8000>;
++			#clock-cells = <1>;
++
++			clocks = <&xtcxo>,
++				 <&cmu_top DOUT_CLKCMU_CPUCL1_SWITCH>,
++				 <&cmu_top DOUT_CLKCMU_CPUCL1_CLUSTER>;
++			clock-names = "oscclk",
++				      "switch",
++				      "cluster";
++		};
++
++		cmu_cpucl2: clock-controller@1ee00000 {
++			compatible = "samsung,exynosautov920-cmu-cpucl2";
++			reg = <0x1ee00000 0x8000>;
++			#clock-cells = <1>;
++
++			clocks = <&xtcxo>,
++				 <&cmu_top DOUT_CLKCMU_CPUCL2_SWITCH>,
++				 <&cmu_top DOUT_CLKCMU_CPUCL2_CLUSTER>;
++			clock-names = "oscclk",
++				      "switch",
++				      "cluster";
++		};
+ 	};
+ 
+ 	timer {
+-- 
+2.49.0
 
-Maxime
 
