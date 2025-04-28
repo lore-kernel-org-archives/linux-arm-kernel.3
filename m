@@ -4,93 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D319EC369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 19:05:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA17AC369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 19:16:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FYyPt2jR26wCNvi6PxzFs+Tv2/OybZasQ+Gm5GQ685c=; b=Q4dQOmBTUP+gwUJJO5HbipI3xZ
-	JZNyL3HHbL6ybdrYF+cgYrKQTLZCLjRMx9PC6xkCjN/Njwhp0UZagSWe6Tnb+MqUR8PQcjKZ3cS/D
-	6QcVM/z6aL86ut0pDM7bBEmNzg+1dfloFUH212hxtOT3pJQsSAc1VFcmrG+Ca+rvQBHYDzEfNoqyv
-	5WUy0/5ohyqESAQL3BH+1XuaBzW72cIf3GSiptoTKRthMUPCN9oLBeUEIJ+Ab16aSIbC1dzOAgquR
-	1VXGKy8/uU/iz/g/pgECg9AAdq85SrocDtVjOB7NtE9yfR2JIYLpF0MSGQindGg4SjEM1TaxphWDx
-	P+FZNzlQ==;
+	bh=ZEnr6Sx1gemJgvJzFSAlQy+xj13hfGTnYfOpiX8ykzg=; b=vLxbaxtCB5ao8R8LWULF7Tr1IQ
+	DBdDbGdjFcX7mwjqPo5ShvYHtPi0/poqKn3Ccy69Rbl0UGG2f5iEOJXQFkWQsdnXaEedRrCLUkyqB
+	75A4K9CpB6ObGYa+gSOVW/gLMokkVcwdmgqy/WbHffrojDTsVUQI0TEDdcu9IEdRnvyrSMTT0URpo
+	fFUXdVNVWzcxXNF+9VDlQ2Pb4sSpr+Kdcn+BktQ76otmM4+moFexLjJcKHLRSjE0Ry+bca7dzns0R
+	moEZa93dR9DW2HPhVKDvyXeahOTvKMDwWDQNrAinLwCrK0cFiWdxeNLvugqGpI6s5ziOi6XpXmsC0
+	lfKH5C+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Tms-00000007ILD-1Auh;
-	Mon, 28 Apr 2025 19:05:06 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1u9TxW-00000007Jd6-0XWl;
+	Mon, 28 Apr 2025 19:16:06 +0000
+Received: from mail-bn1nam02on20625.outbound.protection.outlook.com ([2a01:111:f403:2407::625] helo=NAM02-BN1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Tkk-00000007I7e-2vtd
+	id 1u9SsN-00000007AgN-1XtM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 19:02:55 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2264c9d0295so37385ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 12:02:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1745866974; x=1746471774; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=FYyPt2jR26wCNvi6PxzFs+Tv2/OybZasQ+Gm5GQ685c=;
-        b=JFmvsMz6BfrBi0TcPLIvMK84sGxX/YsEb9jJEzkeZht5f+Nu4utfXulsetKAoxF4XA
-         xN7TBM0kttGE9Q06lRRKBi5OJ+SRzMLbW1JiZQa6MbjVz1I1seRR1mwQSgqD6I9PEzyz
-         HEapRheOgkPKP59vE2m7O41y5k0/hSmjWj9/EOaKRJuBJfDjiveaIeVcpvA9hq/iHo2s
-         HbQ+02l41N0B64sFfJdcnYpYTcrNnEZ2yRF5OzAuNTHRGR2VpQKly9G2ep2BpXX1wz7r
-         t5DQG5jRQEY6QYcR9MzCzLXnOy6rx9OY/rFcEQGtRbak+RraMqpDcUz5+2mCKGku3Xek
-         i8Vg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745866974; x=1746471774;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FYyPt2jR26wCNvi6PxzFs+Tv2/OybZasQ+Gm5GQ685c=;
-        b=pcZAIYOyhVzoCXnPv1gT89XqY7a36oTKduvxqAUSC53Y5hT86RN1P2Rg4mKnAOFd1Z
-         blGtzcxmM2lDCVfDVs+Qx9+bn0dpJP19wi2GjjSFbzHqHdtB8co5JOc9ECNdsl4/noBy
-         LhtGLPkkWq91v5eScEwXaj+CrE0iVxBwhxD5QaQxsRajiZDtDEzHL4hk4umkbt9mfjcD
-         Y0e0LYHQmWR1b3QKHahjhe9QlQSq1Er0WUlBtf1Em1TH1e/1/hbGO54Bn3LLWwOAVM+J
-         kpeTj90YY6Uw1bnZ8/Kx2jhWnKbL6t/owjT+sZEh8WJAhGVEGCZqPbTrJrce9zc2a2ye
-         JqVA==
-X-Forwarded-Encrypted: i=1; AJvYcCVj8uVtDoVa5Hj+4XD6et4xciercuNY+NI8bYKJU2Ha3X+8DM3wwjPzczHmi6F7u87efNyNkKJ2Q9j1UX+dryxi@lists.infradead.org
-X-Gm-Message-State: AOJu0YxNDXrQWi5NkgJpLLqbpEJKjglBuBncnQf3Cm3ILtraSo9RPVZf
-	MNLLCbwu3XJqh1kgoxirlEsGja952EbhofImcR8Jado1070zRmm6ue52t6w+lQ==
-X-Gm-Gg: ASbGnctZMI4xQTtkG0zKnlZvw9S9I4pHuyBUqH4h1VjrbexLrNThnE9R8BxZgz2c12t
-	Ppvf+RV7VLpZHPzuGD79W7jqQ3XJN0UEs5uoW01YNvR3GYav7Fz7uLW2nLdMX8CatUXQQhRso9v
-	BoLRppKwiERIL8HQ9Djqgs55e3u7b25h3WkKOlbsT00t2nJS++p0nz6AH7/kTbxPUgLTQkj8w85
-	I54eHYw/S+yzVKofFXI2txbeBwNR2VhLAfTA3BOCxO3EhFj1sy2mJcx7tGbZa9u+klKok2kpiet
-	Rc/9P3sIo8HfolHgVfL/vsPddeuqQCD2yvS7/BSJunM+AoOwQSynNsOeWXJdERXVYvqAlfEG
-X-Google-Smtp-Source: AGHT+IEJGsiJDrtJlEO2nY+Xes9iIUQJtfbQGQMK+W7yiK5m4Ms2rwNKriCBn3CEAxNgqNLQt8mwbw==
-X-Received: by 2002:a17:903:32cc:b0:21f:3f5c:d24c with SMTP id d9443c01a7336-22de6bc7c32mr473905ad.0.1745866973500;
-        Mon, 28 Apr 2025 12:02:53 -0700 (PDT)
-Received: from google.com (2.210.143.34.bc.googleusercontent.com. [34.143.210.2])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-309eef7cc58sm9392543a91.0.2025.04.28.12.02.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Apr 2025 12:02:52 -0700 (PDT)
-Date: Mon, 28 Apr 2025 19:02:42 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
-	bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
-	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
-	shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
-	peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
-	zhangzekun11@huawei.com, iommu@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
-	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com
-Subject: Re: [PATCH v2 07/22] iommufd/selftest: Add covearge for viommu data
-Message-ID: <aA_Q0o74AySmRM2G@google.com>
-References: <cover.1745646960.git.nicolinc@nvidia.com>
- <acb47bf56f1b03df9f6fca26f511529354be3caa.1745646960.git.nicolinc@nvidia.com>
+	Mon, 28 Apr 2025 18:06:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=s9wcVHsCRRn/F4FevOrz7L/zLB3XEs6WSnPa+F/iINq4kSCQ3KFTHYH2bytYIQYmRnhfBMedz6ZV+b/QB6EKpGJkpTiaTKmCfd/5FlmFqFnoxO1fKMLWj35ugAjeWEv4fayyi3JwUkF1om1gDiQCPQIvO5YXFUGvheKDuMO2ehLoIWQ4dWdcR0l3edQDZLIUl9v3eZ0g0JvPUzj/1VgrwFixtYNxnz+qnw3pTp+PODvzzgYP0uJvbzA9pyL4vkB1COYV2/e2awbtUg72Tw5iuKfOUI9c2aJxKrfAWm7UCeZLmWSBW5vnqL2A/01R8UN95lnwyjCDB43NUb/BjU6MBg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZEnr6Sx1gemJgvJzFSAlQy+xj13hfGTnYfOpiX8ykzg=;
+ b=e7d8ZLwLfzQbrN1BJoJPjQY7sUC55RyPpCGdYUZOFPfM6K6HRomyhwsWad2lE6HPs8GXkZzV+0+SGeErQzdpozKRC6IZ6HSciiKL8J8czuu3njdOLftFNh9OZiMIxt0VLNwYT+QJKMQqMcaTvY8NAvr42wcTph2nEL6oEWusp9duv+44qNXCfyVIwBUEzYE/nz1B5BCAx9wmOZJrf8yJaXsXEB1DUNFseo1LTsig6fmSMgXOxZMs0JKHWk7PD/dETpJ/6+fMKpNYvxvYr05CX4DrJpmtBZUU7Iuqj2i8DHHsXSEiE3eG8V+AsbwKun6P3FVWF6yqeLG9/pEoZsiKKQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZEnr6Sx1gemJgvJzFSAlQy+xj13hfGTnYfOpiX8ykzg=;
+ b=izJuRjnMiQstW7zM2CWQ+iX2DDosM/U1NbHzIt0Fwz4CyNmopfovf7z0XiCbGkN8rDMls0gE8tvE3P2SqhPNF6iKI4kO2zA2F6pN7swEmVp7rRstSgm6U5AAdskxzV4hmsdXati/dmUlTrY/ln8n5sIwmoUofRWk6FfUSpHdNweYBcbLK6qZMIhcp2oCR7EUY1aZhRkr7oFY2JFxitv8QPHFpc69fTGZND5F3KcdcieH7uh3YzuKEjoR2XEExyq0bf54ctq5hudXVmM1AiPbkTgHbC13Pi7jan4n+pENppk+NMa/WYnQaVLI0msE4kIyFnWAHD85kg9WySTboRH66w==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS7PR12MB9473.namprd12.prod.outlook.com (2603:10b6:8:252::5) by
+ CH3PR12MB9170.namprd12.prod.outlook.com (2603:10b6:610:199::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.30; Mon, 28 Apr
+ 2025 18:06:38 +0000
+Received: from DS7PR12MB9473.namprd12.prod.outlook.com
+ ([fe80::5189:ecec:d84a:133a]) by DS7PR12MB9473.namprd12.prod.outlook.com
+ ([fe80::5189:ecec:d84a:133a%5]) with mapi id 15.20.8678.028; Mon, 28 Apr 2025
+ 18:06:38 +0000
+From: Zi Yan <ziy@nvidia.com>
+To: Dev Jain <dev.jain@arm.com>
+Cc: akpm@linux-foundation.org, ryan.roberts@arm.com, david@redhat.com,
+ willy@infradead.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ catalin.marinas@arm.com, will@kernel.org, Liam.Howlett@oracle.com,
+ lorenzo.stoakes@oracle.com, vbabka@suse.cz, jannh@google.com,
+ anshuman.khandual@arm.com, peterx@redhat.com, joey.gouly@arm.com,
+ ioworker0@gmail.com, baohua@kernel.org, kevin.brodsky@arm.com,
+ quic_zhenhuah@quicinc.com, christophe.leroy@csgroup.eu,
+ yangyicong@hisilicon.com, linux-arm-kernel@lists.infradead.org,
+ namit@vmware.com, hughd@google.com, yang@os.amperecomputing.com
+Subject: Re: [PATCH 4/7] arm64: Add batched version of ptep_modify_prot_start
+Date: Mon, 28 Apr 2025 14:06:34 -0400
+X-Mailer: MailMate (2.0r6245)
+Message-ID: <3D9FEC39-98C8-435B-BEA0-BD30EBB05E79@nvidia.com>
+In-Reply-To: <20250428120414.12101-5-dev.jain@arm.com>
+References: <20250428120414.12101-1-dev.jain@arm.com>
+ <20250428120414.12101-5-dev.jain@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-ClientProxiedBy: MN2PR08CA0021.namprd08.prod.outlook.com
+ (2603:10b6:208:239::26) To DS7PR12MB9473.namprd12.prod.outlook.com
+ (2603:10b6:8:252::5)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <acb47bf56f1b03df9f6fca26f511529354be3caa.1745646960.git.nicolinc@nvidia.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS7PR12MB9473:EE_|CH3PR12MB9170:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3494a15d-dc7d-4a25-9d89-08dd867f6bbf
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?MTV6NXVEaGF2SGIxanhBVkQxQ0twNXA4bGhHWVZlamFZK1JHQlp5ZWR4WHk2?=
+ =?utf-8?B?Nmp0VmFZZkZvY0hRZlQ3bDdJK0E3SjIvbmNhOHBtTTdIcVJyNERRVzRMa0Jm?=
+ =?utf-8?B?enBnNlBDMTFXaWJQa2lPamNKSkZBbHNteGdvZzhMbzlpc05mL2dCRGJNVlZI?=
+ =?utf-8?B?cTRvcjRVT0JnUTVRRkNzZG9MTi9yTFBuWkNRN3dXdkFGSmttQWtPdjZIMTlO?=
+ =?utf-8?B?N0lIN3d3dU04dDR3Z3pyVTBGN09HM3ZRTU5CQkE3YUdRdng5WFVRaDYvTUcv?=
+ =?utf-8?B?ampnZ2xwbGg3N2k1dXE3Mzd2VWQyZEVjaGFvYUM5RlMyaTNrY0kxVmd6Zk1J?=
+ =?utf-8?B?MEZXSzQ1c3ZpRk41aFF3L2NOMS9ybGl2RjN4MGsvR3d2dzZHMWI0amFqOC9P?=
+ =?utf-8?B?VjBSSkdSYTZRWDd6THp5Z0pjUmNGRWVQYnFWSGZIKzNNVGY1YTNnV0o2Vk5P?=
+ =?utf-8?B?TVdJcE45VHZ1U2lkMDNpdm9OSDloUHppR3d6VU5DSWFlTnl4WGFZTit3cHln?=
+ =?utf-8?B?REttQS92dXMyL2ZxdThPak1HODJPRU8rUldtUVFVdmdpZmh2V0greEo5N1dn?=
+ =?utf-8?B?N1FUeFA2eXh1MFBQYjdiMFlPRWdOc1dBVnhsYlBUT2lNL1hta2lDKzc3M2I4?=
+ =?utf-8?B?WHh5R2hzVnRVcTA0Mi94S1hhS1dOUUdETUQ2V0l5dzFIcXkvMWZmN2s0d1Bt?=
+ =?utf-8?B?aFJnajJlejB5WU50N3FzeFl1RkZ3cnlNUXVyUCsvRld4TVFHV2ZyVE5JbnVB?=
+ =?utf-8?B?ZTRVWDQreWJ4OTI5RHFvMnZWQkZkbVlvVlRhbUt3blE5NGhtN3p4Wm43TGtm?=
+ =?utf-8?B?UGhQRnRSU2FSNGdzMlZDL1BFeFpWM3krTEN3YXRtWnMralRPWTAwVFIyd2NQ?=
+ =?utf-8?B?S0g4NDViRlhXeUNacEZkWlRJb2RpY0cyUGF1SkllRjNLWDNVbFFtS21La0tK?=
+ =?utf-8?B?WGNBOStrMTZUcEVCYVNpWVZRcVNpZUdlaWM5eWJUN3NrbXFqSUFHSnUyRkd1?=
+ =?utf-8?B?U1M4STk1K3BldWxlTFh6MWx6aVpqcFlPcWZjbStLUVp1cnQzRUtZSkc2TE0x?=
+ =?utf-8?B?NGtOYkhrZ3I3eGlyWGRpVEdqMEM1cUI2SUtTcXQyRTNheFVIZXp6L01EQ29m?=
+ =?utf-8?B?ajhpVkNIam5rbzYxeGorMVdpSTJibjRQbUV5QVFZdlVxMVJUdTc2YTU3TGtQ?=
+ =?utf-8?B?ZmpiY1VJWERlMEl6SEc1cmlTV3g1UGdZOGx2Rk95OTdGYXhhT3F0dmxhYzQ1?=
+ =?utf-8?B?SE1NWCtrQmNtK3lrTUprekxBTklRN1ZNVi9TYmFBYlVoalZqTCtxNjhyMFo3?=
+ =?utf-8?B?ZUVnL0d0QXBWcGk1TitEZ05xa3dlTDljQkFZeG4vNWVxMG8yQnhLZmdaelR1?=
+ =?utf-8?B?UW1NMHlZUDl4b3pkK25DUWdXd2FiTWN3WitYQWU3SDlmbDhQVWJsQUZTS0hC?=
+ =?utf-8?B?eGxGc2lkWFpkMkdsZlRmbExCZjZ5QjNYb1BDeXpQSk1HZjJHYjliYjNUbDh2?=
+ =?utf-8?B?NlBwUm04U0pLeWdONldvbnFFYUZkOXl0WVVkSkhyYlI4cTFGUWdjUGY4TktZ?=
+ =?utf-8?B?VGhZWjgzT0YvbFA0aXhsQ0hRVEN5OWl5WUZDQ2JhdG1kOEwzZVJWRWFMcGo4?=
+ =?utf-8?B?VlFsV3M1R0ZlY0tyQWRmcG13V2IwTGl1VmRLdXI3SmJ5L3dXbWJpT3FFTE0v?=
+ =?utf-8?B?UE00bXNpSnJFMXRFTytlbVA2dWJzTFFVOXpRdnlIelBlcm9Ia1Z4aXRsd0Nj?=
+ =?utf-8?B?RVZpSjVrMmZRV3ZIcnhER0JqbTVFSDdnc1IxWjc0Zk9Sd1BMN2pVU0NqWlZs?=
+ =?utf-8?B?UU1aOGgyeWh6bnVFbVpGMndwaUpBUEFaSUZFYjhuUDVmSXEzaEZqYTRlSWRl?=
+ =?utf-8?B?VWNBcnZnWlBnOGJIK2hnM3I2bmJ5UDF1dm83MWlubXZsbUpCcEZqUHJ0VUt4?=
+ =?utf-8?Q?v/nKKH2wYqg=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB9473.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aGt6Nk00Sm5xalA2WTJCQVJLV08wdGEyUytPSHJlVDFEZnR0Yi8vZjJGQUF3?=
+ =?utf-8?B?VEhCNHNHUE4yYit0bHJqN2VoN1RGWTQ2SGNhRFZZM2w1YjJaSU5ZU0R1Ylo5?=
+ =?utf-8?B?ZTY3a0dmQ21QTjBLRlhjNlZYYWhrMGVnZUwrZDNMcSt6MWdOQXhreEtZRlY2?=
+ =?utf-8?B?T01sMHl0bnFwb1hiUjVUNy93YzUwdVR4NGlDYkIvdG93QWtEQUpnY21ZajdT?=
+ =?utf-8?B?bEhrcG52eE13TjNkZllBT3prcmk3YTdENkxocW9oa3VSMVdWNEx1bHdKNkd3?=
+ =?utf-8?B?aGdYczgrR05QVVQvYktlWTllVTFodCtVd2NTZm1Od2pkdHhEVlIwK3R4NlNw?=
+ =?utf-8?B?ampTZ2d3WWJwQVdGWkUwR1Q5dTYvVkdoeE1YNzEzRFo1UStuNEozekI3cmJT?=
+ =?utf-8?B?ek1tZEpTZjhnYXVONEdoTTdja29vZDJhVzhlUjh4MEU4eWJwNUZDakRtMnV0?=
+ =?utf-8?B?ZHB4a1ZvODNGQlVZUUd3MGpyNmp3bzdLeDBId1lDUlBzYkhyS3FGWDQrWDlx?=
+ =?utf-8?B?eFVkYXd1THVlN1gzUVVHalJ1dG1obldqRWg0ckI5RG1veHFjd2c2SWdHWDVl?=
+ =?utf-8?B?Y0Y1ckFyQ2F6eWFyalM0TUZ5bFlMUXc3ZE1SbzJ0M2szeFhxbCtLZTZYMUZt?=
+ =?utf-8?B?UUh2akVRWUZRQVpGcjBVUm54MXVHcno4Q2VGRVJyZ1BFR1ZYeVczVkN3K09U?=
+ =?utf-8?B?WWhpYVk3RFc0ZTNtOVFTejZ3cXVTL3ExUnYwMURWVFFBa0c3ZFlRSHRDZ1Ni?=
+ =?utf-8?B?KzJaVWVNNGszZjFrejM0WFArQTZocEl2czd1dVVnN2w3Y2lLZGMvSFp5cDJk?=
+ =?utf-8?B?UnVocCtyak10bk5ROFV3dVpIRnV5RTBjdlpQdXBBajJCWUs1ZlZPRDFUbTVk?=
+ =?utf-8?B?TnM0L05BbEppMHZ0dzJvdGE1U05rekxZWWNYWnI4WW5wRGZVVlRqcVdQY29x?=
+ =?utf-8?B?S3orcm9hemNBVGEwRm5SQ3Z1cUo4dDhMSUFLZ2VnZTEyTnJsWERJWDJqaVU4?=
+ =?utf-8?B?SVNONmtWU011dTE4RGtxdy9IWEFlRmJmc0xEcTlGNE94UHVCSjEwRVdpNzBD?=
+ =?utf-8?B?d2pQTWtHM2NJNHA2NzVMRDdBSGlOTzNFMGNNYURNUHVKRjN3c3FQd1lMcHJm?=
+ =?utf-8?B?ODZLQzkvZWhvYnNSa3p1WFBqUVFYN0xldWtscVFBcS9PT0NHS3lYb3RoWFpa?=
+ =?utf-8?B?c1d1MkJ5VnUxVW5IWGtsdUd4c1pNcTZRY2ZSVnd2Q0tUTU5hVUIvWTR5bDBn?=
+ =?utf-8?B?THc4NUJzdUNJSDBWRExzQ01ESHRULzVaR0RTYlBaTlBDeURRa2p6NDFwd2lN?=
+ =?utf-8?B?SVVJU3FMWXgxdTNXZEVZeEhFbjkyNkk5RmJMR25RU0xxWVAwS0JVVWsrSHI0?=
+ =?utf-8?B?RllaM3dvZEJ6eFA3TzZmODBKT2hLcVdBSGxFdGRMdmdmaUpYNlVSNFVRem4x?=
+ =?utf-8?B?ZVBYa21INUZ4VlMyYytzY2tuSmltNFQvZmhjZFQ1NXEvZm4rWnZhZUVhVlJH?=
+ =?utf-8?B?cU9VN056S0dycUhCWHY2ZHdWQmhtdjc3Q0d5aDV6QzM5QnVyNmpiNWFiMDJC?=
+ =?utf-8?B?dTlNYUJQSHN6Zml1dnozNnFwc3Vqckdmc003Qk1GN3cwVGdNcTkrSW9hNUpV?=
+ =?utf-8?B?ajFSakxuOWYvSHg1MFI2ZC8zeTRZSWNHRXhTOGNmUFFLNE1iN1hIdGJzaWsz?=
+ =?utf-8?B?K2pxVWQwMGd5Nms3SmYvZW9ldWtlWkF2a0ppS09GdU9FaVJ6MnlRak40WVM2?=
+ =?utf-8?B?ekNhOGZpb1QxWU94VXRsT01KVkR2QzcwK1ZqNTZXYmMyQ0Fpb1R3Znp0WnZI?=
+ =?utf-8?B?ZldUMkZWbjE4clBoNnNPQ0FsK2JBL2V2bzhrZ0lhSmllSEpLTWk5ZWtNRDR0?=
+ =?utf-8?B?Z2RDbW53U1NXVUhGcVpCWUZsQVNwdFBoNUxDeVJ2RnpOWkdmV3VNTmVrYXFD?=
+ =?utf-8?B?ZEJ4RGdNRFlEYjc5dHMzRXRoMVYzQkkrTDFKYThjN1Y1ckF2OVYxMHBldFRW?=
+ =?utf-8?B?VGMzZ0puSThxSW5SeGJhWjJYWlQ0WkJlaWNaNzlkdTgwV0xyZ24rWCtEeTl3?=
+ =?utf-8?B?VVYraVllUUZuRkp1TWlKbjJzTXRBQnlJbEl4WkVRVXRQanFzdWxaODU1Y0g2?=
+ =?utf-8?Q?81CGz7Bzcdh5VyfdPgdB9ctBn?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3494a15d-dc7d-4a25-9d89-08dd867f6bbf
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB9473.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Apr 2025 18:06:38.4752
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jH+rO7xrLctgz5AVg48HxNqmI6YHuF1lnzlOu7QMb4UG5jvBbo097jsMeq2kWYP3
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9170
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_120254_747623_C8ACF75E 
-X-CRM114-Status: GOOD (  22.91  )
+X-CRM114-CacheID: sfid-20250428_110643_425484_2B588041 
+X-CRM114-Status: GOOD (  19.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,158 +182,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 25, 2025 at 10:58:02PM -0700, Nicolin Chen wrote:
-> Extend the existing test_cmd/err_viommu_alloc helpers to accept optional
-> user data. And add a TEST_F for a loopback test.
-> 
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+On 28 Apr 2025, at 8:04, Dev Jain wrote:
 
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
+> Override the generic definition to use get_and_clear_full_ptes(), so that
+> we do a TLBI possibly only on the "contpte-edges" of the large PTE block,
 
+What do you mean by =E2=80=9Ccontpte-edges=E2=80=9D? Can you provide an exa=
+mple?
+
+> instead of doing it for every contpte block, which happens for ptep_get_a=
+nd_clear().
+>
+> Signed-off-by: Dev Jain <dev.jain@arm.com>
 > ---
->  tools/testing/selftests/iommu/iommufd_utils.h | 21 +++++++++-----
->  tools/testing/selftests/iommu/iommufd.c       | 29 +++++++++++++++----
->  .../selftests/iommu/iommufd_fail_nth.c        |  5 ++--
->  3 files changed, 39 insertions(+), 16 deletions(-)
-> 
-> diff --git a/tools/testing/selftests/iommu/iommufd_utils.h b/tools/testing/selftests/iommu/iommufd_utils.h
-> index 72f6636e5d90..a5d4cbd089ba 100644
-> --- a/tools/testing/selftests/iommu/iommufd_utils.h
-> +++ b/tools/testing/selftests/iommu/iommufd_utils.h
-> @@ -897,7 +897,8 @@ static int _test_cmd_trigger_iopf(int fd, __u32 device_id, __u32 pasid,
->  					    pasid, fault_fd))
->  
->  static int _test_cmd_viommu_alloc(int fd, __u32 device_id, __u32 hwpt_id,
-> -				  __u32 type, __u32 flags, __u32 *viommu_id)
-> +				  __u32 flags, __u32 type, void *data,
-> +				  __u32 data_len, __u32 *viommu_id)
->  {
->  	struct iommu_viommu_alloc cmd = {
->  		.size = sizeof(cmd),
-> @@ -905,6 +906,8 @@ static int _test_cmd_viommu_alloc(int fd, __u32 device_id, __u32 hwpt_id,
->  		.type = type,
->  		.dev_id = device_id,
->  		.hwpt_id = hwpt_id,
-> +		.data_uptr = (uint64_t)data,
-> +		.data_len = data_len,
->  	};
->  	int ret;
->  
-> @@ -916,13 +919,15 @@ static int _test_cmd_viommu_alloc(int fd, __u32 device_id, __u32 hwpt_id,
->  	return 0;
->  }
->  
-> -#define test_cmd_viommu_alloc(device_id, hwpt_id, type, viommu_id)        \
-> -	ASSERT_EQ(0, _test_cmd_viommu_alloc(self->fd, device_id, hwpt_id, \
-> -					    type, 0, viommu_id))
-> -#define test_err_viommu_alloc(_errno, device_id, hwpt_id, type, viommu_id) \
-> -	EXPECT_ERRNO(_errno,                                               \
-> -		     _test_cmd_viommu_alloc(self->fd, device_id, hwpt_id,  \
-> -					    type, 0, viommu_id))
-> +#define test_cmd_viommu_alloc(device_id, hwpt_id, type, data, data_len,      \
-> +			      viommu_id)                                     \
-> +	ASSERT_EQ(0, _test_cmd_viommu_alloc(self->fd, device_id, hwpt_id, 0, \
-> +					    type, data, data_len, viommu_id))
-> +#define test_err_viommu_alloc(_errno, device_id, hwpt_id, type, data,        \
-> +			      data_len, viommu_id)                           \
-> +	EXPECT_ERRNO(_errno,                                                 \
-> +		     _test_cmd_viommu_alloc(self->fd, device_id, hwpt_id, 0, \
-> +					    type, data, data_len, viommu_id))
->  
->  static int _test_cmd_vdevice_alloc(int fd, __u32 viommu_id, __u32 idev_id,
->  				   __u64 virt_id, __u32 *vdev_id)
-> diff --git a/tools/testing/selftests/iommu/iommufd.c b/tools/testing/selftests/iommu/iommufd.c
-> index 1a8e85afe9aa..8ebbb7fda02d 100644
-> --- a/tools/testing/selftests/iommu/iommufd.c
-> +++ b/tools/testing/selftests/iommu/iommufd.c
-> @@ -2688,7 +2688,7 @@ FIXTURE_SETUP(iommufd_viommu)
->  
->  		/* Allocate a vIOMMU taking refcount of the parent hwpt */
->  		test_cmd_viommu_alloc(self->device_id, self->hwpt_id,
-> -				      IOMMU_VIOMMU_TYPE_SELFTEST,
-> +				      IOMMU_VIOMMU_TYPE_SELFTEST, NULL, 0,
->  				      &self->viommu_id);
->  
->  		/* Allocate a regular nested hwpt */
-> @@ -2727,24 +2727,27 @@ TEST_F(iommufd_viommu, viommu_negative_tests)
->  	if (self->device_id) {
->  		/* Negative test -- invalid hwpt (hwpt_id=0) */
->  		test_err_viommu_alloc(ENOENT, device_id, 0,
-> -				      IOMMU_VIOMMU_TYPE_SELFTEST, NULL);
-> +				      IOMMU_VIOMMU_TYPE_SELFTEST, NULL, 0,
-> +				      NULL);
->  
->  		/* Negative test -- not a nesting parent hwpt */
->  		test_cmd_hwpt_alloc(device_id, ioas_id, 0, &hwpt_id);
->  		test_err_viommu_alloc(EINVAL, device_id, hwpt_id,
-> -				      IOMMU_VIOMMU_TYPE_SELFTEST, NULL);
-> +				      IOMMU_VIOMMU_TYPE_SELFTEST, NULL, 0,
-> +				      NULL);
->  		test_ioctl_destroy(hwpt_id);
->  
->  		/* Negative test -- unsupported viommu type */
->  		test_err_viommu_alloc(EOPNOTSUPP, device_id, self->hwpt_id,
-> -				      0xdead, NULL);
-> +				      0xdead, NULL, 0, NULL);
->  		EXPECT_ERRNO(EBUSY,
->  			     _test_ioctl_destroy(self->fd, self->hwpt_id));
->  		EXPECT_ERRNO(EBUSY,
->  			     _test_ioctl_destroy(self->fd, self->viommu_id));
->  	} else {
->  		test_err_viommu_alloc(ENOENT, self->device_id, self->hwpt_id,
-> -				      IOMMU_VIOMMU_TYPE_SELFTEST, NULL);
-> +				      IOMMU_VIOMMU_TYPE_SELFTEST, NULL, 0,
-> +				      NULL);
->  	}
->  }
->  
-> @@ -2791,6 +2794,20 @@ TEST_F(iommufd_viommu, viommu_alloc_nested_iopf)
->  	}
->  }
->  
-> +TEST_F(iommufd_viommu, viommu_alloc_with_data)
-> +{
-> +	struct iommu_viommu_selftest data = {
-> +		.in_data = 0xbeef,
-> +	};
+>  arch/arm64/include/asm/pgtable.h |  5 +++++
+>  arch/arm64/mm/mmu.c              | 12 +++++++++---
+>  include/linux/pgtable.h          |  4 ++++
+>  mm/pgtable-generic.c             | 16 +++++++++++-----
+>  4 files changed, 29 insertions(+), 8 deletions(-)
+>
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pg=
+table.h
+> index 2a77f11b78d5..8872ea5f0642 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -1553,6 +1553,11 @@ extern void ptep_modify_prot_commit(struct vm_area=
+_struct *vma,
+>  				    unsigned long addr, pte_t *ptep,
+>  				    pte_t old_pte, pte_t new_pte);
+>
+> +#define modify_prot_start_ptes modify_prot_start_ptes
+> +extern pte_t modify_prot_start_ptes(struct vm_area_struct *vma,
+> +				    unsigned long addr, pte_t *ptep,
+> +				    unsigned int nr);
 > +
-> +	if (self->device_id) {
-> +		test_cmd_viommu_alloc(self->device_id, self->hwpt_id,
-> +				      IOMMU_VIOMMU_TYPE_SELFTEST, &data,
-> +				      sizeof(data), &self->viommu_id);
-> +		assert(data.out_data == data.in_data);
-> +	}
+>  #ifdef CONFIG_ARM64_CONTPTE
+>
+>  /*
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index 8fcf59ba39db..fe60be8774f4 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -1523,7 +1523,8 @@ static int __init prevent_bootmem_remove_init(void)
+>  early_initcall(prevent_bootmem_remove_init);
+>  #endif
+>
+> -pte_t ptep_modify_prot_start(struct vm_area_struct *vma, unsigned long a=
+ddr, pte_t *ptep)
+> +pte_t modify_prot_start_ptes(struct vm_area_struct *vma, unsigned long a=
+ddr,
+> +			     pte_t *ptep, unsigned int nr)
+
+Putting ptes at the end seems to break the naming convention. How about
+ptep_modify_prot_range_start? ptes_modify_prot_start might be OK too.
+
+>  {
+>  	if (alternative_has_cap_unlikely(ARM64_WORKAROUND_2645198)) {
+>  		/*
+> @@ -1532,9 +1533,14 @@ pte_t ptep_modify_prot_start(struct vm_area_struct=
+ *vma, unsigned long addr, pte
+>  		 * in cases where cpu is affected with errata #2645198.
+>  		 */
+>  		if (pte_user_exec(ptep_get(ptep)))
+> -			return ptep_clear_flush(vma, addr, ptep);
+> +			return clear_flush_ptes(vma, addr, ptep, nr);
+>  	}
+> -	return ptep_get_and_clear(vma->vm_mm, addr, ptep);
+> +	return get_and_clear_full_ptes(vma->vm_mm, addr, ptep, nr, 0);
 > +}
 > +
->  TEST_F(iommufd_viommu, vdevice_alloc)
+> +pte_t ptep_modify_prot_start(struct vm_area_struct *vma, unsigned long a=
+ddr, pte_t *ptep)
+> +{
+> +	return modify_prot_start_ptes(vma, addr, ptep, 1);
+>  }
+>
+>  void ptep_modify_prot_commit(struct vm_area_struct *vma, unsigned long a=
+ddr, pte_t *ptep,
+> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> index ed287289335f..10cdb87ccecf 100644
+> --- a/include/linux/pgtable.h
+> +++ b/include/linux/pgtable.h
+> @@ -828,6 +828,10 @@ extern pte_t ptep_clear_flush(struct vm_area_struct =
+*vma,
+>  			      pte_t *ptep);
+>  #endif
+>
+> +extern pte_t clear_flush_ptes(struct vm_area_struct *vma,
+> +			      unsigned long address,
+> +			      pte_t *ptep, unsigned int nr);
+> +
+>  #ifndef __HAVE_ARCH_PMDP_HUGE_CLEAR_FLUSH
+>  extern pmd_t pmdp_huge_clear_flush(struct vm_area_struct *vma,
+>  			      unsigned long address,
+> diff --git a/mm/pgtable-generic.c b/mm/pgtable-generic.c
+> index 5a882f2b10f9..e238f88c3cac 100644
+> --- a/mm/pgtable-generic.c
+> +++ b/mm/pgtable-generic.c
+> @@ -90,17 +90,23 @@ int ptep_clear_flush_young(struct vm_area_struct *vma=
+,
+>  }
+>  #endif
+>
+> -#ifndef __HAVE_ARCH_PTEP_CLEAR_FLUSH
+> -pte_t ptep_clear_flush(struct vm_area_struct *vma, unsigned long address=
+,
+> -		       pte_t *ptep)
+> +pte_t clear_flush_ptes(struct vm_area_struct *vma, unsigned long address=
+,
+> +		       pte_t *ptep, unsigned int nr)
 >  {
->  	uint32_t viommu_id = self->viommu_id;
-> @@ -3105,7 +3122,7 @@ TEST_F(iommufd_device_pasid, pasid_attach)
->  
->  	/* Allocate a regular nested hwpt based on viommu */
->  	test_cmd_viommu_alloc(self->device_id, parent_hwpt_id,
-> -			      IOMMU_VIOMMU_TYPE_SELFTEST,
-> +			      IOMMU_VIOMMU_TYPE_SELFTEST, NULL, 0,
->  			      &viommu_id);
->  	test_cmd_hwpt_alloc_nested(self->device_id, viommu_id,
->  				   IOMMU_HWPT_ALLOC_PASID,
-> diff --git a/tools/testing/selftests/iommu/iommufd_fail_nth.c b/tools/testing/selftests/iommu/iommufd_fail_nth.c
-> index e11ec4b121fc..f7ccf1822108 100644
-> --- a/tools/testing/selftests/iommu/iommufd_fail_nth.c
-> +++ b/tools/testing/selftests/iommu/iommufd_fail_nth.c
-> @@ -688,8 +688,9 @@ TEST_FAIL_NTH(basic_fail_nth, device)
->  				 IOMMU_HWPT_DATA_NONE, 0, 0))
->  		return -1;
->  
-> -	if (_test_cmd_viommu_alloc(self->fd, idev_id, hwpt_id,
-> -				   IOMMU_VIOMMU_TYPE_SELFTEST, 0, &viommu_id))
-> +	if (_test_cmd_viommu_alloc(self->fd, idev_id, hwpt_id, 0,
-> +				   IOMMU_VIOMMU_TYPE_SELFTEST, NULL, 0,
-> +				   &viommu_id))
->  		return -1;
->  
->  	if (_test_cmd_vdevice_alloc(self->fd, viommu_id, idev_id, 0, &vdev_id))
-> -- 
-> 2.43.0
-> 
+
+Ditto.
+
+>  	struct mm_struct *mm =3D (vma)->vm_mm;
+>  	pte_t pte;
+> -	pte =3D ptep_get_and_clear(mm, address, ptep);
+> +	pte =3D get_and_clear_full_ptes(mm, address, ptep, nr, 0);
+>  	if (pte_accessible(mm, pte))
+> -		flush_tlb_page(vma, address);
+> +		flush_tlb_range(vma, address, address + nr * PAGE_SIZE);
+>  	return pte;
+>  }
+> +
+> +#ifndef __HAVE_ARCH_PTEP_CLEAR_FLUSH
+> +pte_t ptep_clear_flush(struct vm_area_struct *vma, unsigned long address=
+,
+> +		       pte_t *ptep)
+> +{
+> +	return clear_flush_ptes(vma, address, ptep, 1);
+> +}
+>  #endif
+>
+>  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+> --=20
+> 2.30.2
+
+
+Best Regards,
+Yan, Zi
 
