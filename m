@@ -4,40 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D554C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 21:20:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 828F0C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 21:22:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k4K++fqiP84qacsZ/10/m3tNXa1bo+IGgMpwd09KRMY=; b=O5MIhUNa9bJn8vEFsz5IgJJyAd
-	f3gK7yy36Iho2Kjh3imUIFmkyEfdg2Np+G0lMhX2BgX7Fd1QwuQLZWCypeBLwdCCLdQHjHMR8eVqu
-	kTnw77cqWhdxy2bC5c4pIXOA++HYggV1eM4gHpTZNuRDe5BisN7LtNsCadasLp16ziTruV/AfSePu
-	otceiHfWDeCcnKxQayieC8vLp3KCvzeStfETetBF09UhfL7VxBObZBZyx7Wnqswr0hk7p6NiJDvcA
-	bdTwEwRIC7qTVu3JtZyxyKpX1dk0NQZrWf0P2kbfzMpeGYnORkTq1ctzbv6YW0g7IJBoxmRMNYp8c
-	eywJfnPw==;
+	bh=xt1rbRXU40eBeYFqn5S5410daeID7AsrUbw+WPHynno=; b=JM1G6l1n8sHPZ54zFELi7sTPfG
+	E/0eTebzxOp/wNAvT7p+oP4o1Ds8/O4lvkTmWbfl5AYcM8fSCez3CuGx5jxaXgP3v0iNXqkCk67rz
+	+adBNArxqgP/Gltjz6b4TYGR4TgjeGE6rJy/btpj/UhIdkCchh/ny9hNf7Z30jWF1X30iwn6qr0K6
+	giec3fl//Rs030v4OybiJ6fXVmM/d3ML7v0RmIz8OCGdxWAZIbbOmkwO1aj3XsQvjWyKWxQRY/Wqv
+	WXVnBDxLJYCU3AtWlUig6sfQ835TxxTPOxz31qM93KJFZB8SBmVVv04G3YrOmvSjaZ51OxyFW9gwK
+	9PsLBtBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9VtI-00000007bPb-3HPn;
-	Mon, 28 Apr 2025 21:19:52 +0000
+	id 1u9VvE-00000007bfa-29AU;
+	Mon, 28 Apr 2025 21:21:52 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u9Vhl-00000007ZHj-1XOx
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 28 Apr 2025 21:07:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=xt1rbRXU40eBeYFqn5S5410daeID7AsrUbw+WPHynno=; b=KJpfl/LUTh85Xln4UmFoBh+JrW
+	tGoxyuluCsCRaQQLc3P9xx9VTsCy0wzI2HyA9yiEyymV3Vr08m8rvrZsQ8dEXPpPdU9RemKGpkVTk
+	XRLcEBimK9ksbKfejWDMgb2snmkC4FyZeC06S2OHJWAaGZG7s0TlOsqQz7sKypfcDO3p+V8NxDcHu
+	ffIsSzpM92dQeg0QzyPH8sAnCp4lG442NpaKoXFwi1n76lvVbHhZPsYwwgu6qmkHUhnBTazJXkp/d
+	rZCafYLasbCbidMMglYhOJUodjoNWdfQp1FUEGTELYQLn5iFb2E5Fk8LKUM29VFVfOmO7kQCrOccs
+	fZPiC0+Q==;
 Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Vhc-00000007ZDx-372Y
+	by desiato.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u9Vhf-0000000D3Bl-0IHC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 21:07:50 +0000
+	Mon, 28 Apr 2025 21:07:53 +0000
 Received: from romank-3650.corp.microsoft.com (unknown [131.107.1.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 13885211AD27;
-	Mon, 28 Apr 2025 14:07:47 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 13885211AD27
+	by linux.microsoft.com (Postfix) with ESMTPSA id 06B0A211AD28;
+	Mon, 28 Apr 2025 14:07:46 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 06B0A211AD28
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1745874467;
-	bh=k4K++fqiP84qacsZ/10/m3tNXa1bo+IGgMpwd09KRMY=;
+	s=default; t=1745874466;
+	bh=xt1rbRXU40eBeYFqn5S5410daeID7AsrUbw+WPHynno=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=WU4RsUaTuuvY/IKawtSFapkgq+MshWUXZRTG94o/VHd73Ab3uOLj57nA/0fx3JBAW
-	 Yo6qAlohhzeSNXJVlhzYTQolMKko6rPif/Y0wMrVVXB9VF/qtBhMZYm73cDU/SRGOP
-	 UplYyOFItHYLIXvu4/gnD4ZRed20iJeKVP+PH7ps=
+	b=ILeQxzGcrqOI4PpdKoj7u5guh0X0UX9/VyUrwB0JxYD13NsGVGsLZHHEMhXrkz1XI
+	 T1m7CheHstc2Y2+zmY8+VfPt0ye9i1Hv2lytSJggpw039jJ4ClPFk/GxeLHaKmFhPC
+	 X8uoP1iwndOfYCt6dIZggjhIHT+M1l89I3vcvyzU=
 From: Roman Kisel <romank@linux.microsoft.com>
 To: arnd@arndb.de,
 	bhelgaas@google.com,
@@ -81,17 +96,17 @@ Cc: apais@microsoft.com,
 	benhill@microsoft.com,
 	bperkins@microsoft.com,
 	sunilmut@microsoft.com
-Subject: [PATCH hyperv-next v9 09/11] Drivers: hv: vmbus: Introduce hv_get_vmbus_root_device()
-Date: Mon, 28 Apr 2025 14:07:40 -0700
-Message-ID: <20250428210742.435282-10-romank@linux.microsoft.com>
+Subject: [PATCH hyperv-next v9 06/11] arm64, x86: hyperv: Report the VTL the system boots in
+Date: Mon, 28 Apr 2025 14:07:37 -0700
+Message-ID: <20250428210742.435282-7-romank@linux.microsoft.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250428210742.435282-1-romank@linux.microsoft.com>
 References: <20250428210742.435282-1-romank@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_140748_827228_60FC0397 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20250428_220752_241428_EFDCF8EA 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,118 +121,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ARM64 PCI code for hyperv needs to know the VMBus root
-device, and it is private.
+The hyperv guest code might run in various Virtual Trust Levels.
 
-Provide a function that returns it. Rename it from "hv_dev"
-as "hv_dev" as a symbol is very overloaded. No functional
-changes.
+Report the level when the kernel boots in the non-default (0)
+one.
 
 Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
 Reviewed-by: Michael Kelley <mhklinux@outlook.com>
 ---
- drivers/hv/vmbus_drv.c | 23 +++++++++++++++--------
- include/linux/hyperv.h |  2 ++
- 2 files changed, 17 insertions(+), 8 deletions(-)
+ arch/arm64/hyperv/mshyperv.c | 2 ++
+ arch/x86/hyperv/hv_vtl.c     | 7 ++++++-
+ 2 files changed, 8 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/hv/vmbus_drv.c b/drivers/hv/vmbus_drv.c
-index e8f2c3e92d1f..df18b4070b01 100644
---- a/drivers/hv/vmbus_drv.c
-+++ b/drivers/hv/vmbus_drv.c
-@@ -45,7 +45,8 @@ struct vmbus_dynid {
- 	struct hv_vmbus_device_id id;
- };
+diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
+index 43f422a7ef34..4fdc26ade1d7 100644
+--- a/arch/arm64/hyperv/mshyperv.c
++++ b/arch/arm64/hyperv/mshyperv.c
+@@ -118,6 +118,8 @@ static int __init hyperv_init(void)
+ 	if (ms_hyperv.priv_high & HV_ACCESS_PARTITION_ID)
+ 		hv_get_partition_id();
+ 	ms_hyperv.vtl = get_vtl();
++	if (ms_hyperv.vtl > 0) /* non default VTL */
++		pr_info("Linux runs in Hyper-V Virtual Trust Level %d\n", ms_hyperv.vtl);
  
--static struct device  *hv_dev;
-+/* VMBus Root Device */
-+static struct device  *vmbus_root_device;
+ 	ms_hyperv_late_init();
  
- static int hyperv_cpuhp_online;
+diff --git a/arch/x86/hyperv/hv_vtl.c b/arch/x86/hyperv/hv_vtl.c
+index 582fe820e29c..038c896fdd60 100644
+--- a/arch/x86/hyperv/hv_vtl.c
++++ b/arch/x86/hyperv/hv_vtl.c
+@@ -55,7 +55,12 @@ static void  __noreturn hv_vtl_restart(char __maybe_unused *cmd)
  
-@@ -80,9 +81,15 @@ static struct resource *fb_mmio;
- static struct resource *hyperv_mmio;
- static DEFINE_MUTEX(hyperv_mmio_lock);
- 
-+struct device *hv_get_vmbus_root_device(void)
-+{
-+	return vmbus_root_device;
-+}
-+EXPORT_SYMBOL_GPL(hv_get_vmbus_root_device);
-+
- static int vmbus_exists(void)
+ void __init hv_vtl_init_platform(void)
  {
--	if (hv_dev == NULL)
-+	if (vmbus_root_device == NULL)
- 		return -ENODEV;
+-	pr_info("Linux runs in Hyper-V Virtual Trust Level\n");
++	/*
++	 * This function is a no-op if the VTL mode is not enabled.
++	 * If it is, this function runs if and only the kernel boots in
++	 * VTL2 which the x86 hv initialization path makes sure of.
++	 */
++	pr_info("Linux runs in Hyper-V Virtual Trust Level %d\n", ms_hyperv.vtl);
  
- 	return 0;
-@@ -861,7 +868,7 @@ static int vmbus_dma_configure(struct device *child_device)
- 	 * On x86/x64 coherence is assumed and these calls have no effect.
- 	 */
- 	hv_setup_dma_ops(child_device,
--		device_get_dma_attr(hv_dev) == DEV_DMA_COHERENT);
-+		device_get_dma_attr(vmbus_root_device) == DEV_DMA_COHERENT);
- 	return 0;
- }
- 
-@@ -1930,7 +1937,7 @@ int vmbus_device_register(struct hv_device *child_device_obj)
- 		     &child_device_obj->channel->offermsg.offer.if_instance);
- 
- 	child_device_obj->device.bus = &hv_bus;
--	child_device_obj->device.parent = hv_dev;
-+	child_device_obj->device.parent = vmbus_root_device;
- 	child_device_obj->device.release = vmbus_device_release;
- 
- 	child_device_obj->device.dma_parms = &child_device_obj->dma_parms;
-@@ -2292,7 +2299,7 @@ static int vmbus_acpi_add(struct platform_device *pdev)
- 	struct acpi_device *ancestor;
- 	struct acpi_device *device = ACPI_COMPANION(&pdev->dev);
- 
--	hv_dev = &device->dev;
-+	vmbus_root_device = &device->dev;
- 
- 	/*
- 	 * Older versions of Hyper-V for ARM64 fail to include the _CCA
-@@ -2378,7 +2385,7 @@ static int vmbus_device_add(struct platform_device *pdev)
- 	struct device_node *np = pdev->dev.of_node;
- 	int ret;
- 
--	hv_dev = &pdev->dev;
-+	vmbus_root_device = &pdev->dev;
- 
- 	ret = of_range_parser_init(&parser, np);
- 	if (ret)
-@@ -2696,7 +2703,7 @@ static int __init hv_acpi_init(void)
- 	if (ret)
- 		return ret;
- 
--	if (!hv_dev) {
-+	if (!vmbus_root_device) {
- 		ret = -ENODEV;
- 		goto cleanup;
- 	}
-@@ -2727,7 +2734,7 @@ static int __init hv_acpi_init(void)
- 
- cleanup:
- 	platform_driver_unregister(&vmbus_platform_driver);
--	hv_dev = NULL;
-+	vmbus_root_device = NULL;
- 	return ret;
- }
- 
-diff --git a/include/linux/hyperv.h b/include/linux/hyperv.h
-index 675959fb97ba..1f310fbbc4f9 100644
---- a/include/linux/hyperv.h
-+++ b/include/linux/hyperv.h
-@@ -1277,6 +1277,8 @@ static inline void *hv_get_drvdata(struct hv_device *dev)
- 	return dev_get_drvdata(&dev->device);
- }
- 
-+struct device *hv_get_vmbus_root_device(void);
-+
- struct hv_ring_buffer_debug_info {
- 	u32 current_interrupt_mask;
- 	u32 current_read_index;
+ 	x86_platform.realmode_reserve = x86_init_noop;
+ 	x86_platform.realmode_init = x86_init_noop;
 -- 
 2.43.0
 
