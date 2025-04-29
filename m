@@ -4,89 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4A5DC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 12:25:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1416C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 12:27:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=meoPhVggS3wumqy6Ke2Ko62bIsOAQVu1jBlESn1C8SM=; b=A9p28r86Exd3UlR214fMBHdbw/
-	ODII5O8kbhpyDkII6X4MzpXmsvBwqmOf9UYdj982pYC6/UAF0+SpS3eNwXCsIUv2zlSDFr3VqCY/4
-	pHqU9VNdJ8NJBlAske39cjDJ7ipuNOj8wPDPCTM3Z3la1/h/33XqJ6Jbcl7I4SRNUG2AI1bUppbol
-	Iwo/u92iDTZ9UkOX0Lj4DdbrStUTvE+GyPB/1meluXmEHYi20WiSSsqYQza3DREauM0z+/L7kMiRH
-	KQS7PvzUmPIt9QhDAVhftBT4fyIGl63pSBAtHgYfS59XR76Tt+J0cRF3oVhu/4OUBhthvhNaCg7t0
-	ghd4hdig==;
+	bh=mWPI8IBrH7hlnkBmEO8Qt52b2JZ2LdgusDzm/ZmxwCM=; b=2kWcb3pRL2fHkRQAvwTySiiVzS
+	V6/GcLWKyDkybvv4MG1N5r0ml8ueXmMPBE4SWEfvdpzcQePkoycOJ7RBTSA2t7KWwXzCVujipx6AU
+	f7vUv8GF9wxfiJZNw8A5K0c/VY/2Yhy3nFXZpVMEfsjnOmv6edicwrjrXbWikPH9k8LRm+Ssyubw6
+	mT9JuIuZpSJegTrLb9XaiGI6Ydpf1J8L7HT6npdG1ZwcFm6nPbie+jtmut1FeB9jE41xROl4Znc0B
+	sO6nP4BkAiCUowVHqiYLSaw5flmp7y3UpVtXxoCfTZxzjHWpTA5q3PTUkqubpM5kgLC6kjkm61lcm
+	xz8xapeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9k1L-00000009dfe-1P6i;
-	Tue, 29 Apr 2025 12:25:07 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u9k3F-00000009e0M-2WhA;
+	Tue, 29 Apr 2025 12:27:05 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9jzR-00000009dKn-0alI;
-	Tue, 29 Apr 2025 12:23:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=meoPhVggS3wumqy6Ke2Ko62bIsOAQVu1jBlESn1C8SM=; b=YRHZdCzIReVZ4PNeNIgCgBHoEv
-	nFRJJttO6vwatbmRy5x2yyZnyzn1+tnUzWzlB9xvlbxfrqvbd0J7TEe3kDyXxUUCqWmPxNv/BaBr0
-	eQrtCn+pZyEa7kjaRrVrSkyDHWClUSPEdy8My4s2O8M2zEWzqYECvuHL8uoiivu1P+A/CTk6U9BTD
-	TBSUR6OmqvgKPjIAh63HeqQlmH2eIzRk+T7/q7+NZyoDKAKL2gQOfNbV7hHyIy2O5ZF6EsKqmcvY3
-	PEATlGJ+2aZTluxOG416+V0QwefF1qXs3th/S2GLtn/y90Os2gXkSFfheB12Nixu8IaAS1b000OaG
-	h8xgrCEA==;
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9jzM-0000000DKHh-3nsy;
-	Tue, 29 Apr 2025 12:23:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=meoPhVggS3wumqy6Ke2Ko62bIsOAQVu1jBlESn1C8SM=; b=B2
-	iKM9PpkWmwizh8mO2WAIDAqfutsjR8oH4aJj8DxFvS8Uk6oE7cmBCvS0aM9BQd3NWwm2X9uX+MRlw
-	N0SoQLzsQBOxRkXjh+tTXitrlzC+inE+6+BYrhV06OoWv8+wx+PeldZ9yILlKNXCNbpgOQEMTnlpF
-	j8omBVlKPikhDaA=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1u9jyy-00Aw3n-Vi; Tue, 29 Apr 2025 14:22:40 +0200
-Date: Tue, 29 Apr 2025 14:22:40 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Cc: Chaoyi Chen <kernel@airkyi.com>, Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Jianfeng Liu <liujianfeng1994@gmail.com>,
-	Dragan Simic <dsimic@manjaro.org>,
-	Jimmy Hon <honyuenkwun@gmail.com>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	FUKAUMI Naoki <naoki@radxa.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Alexey Charkov <alchark@gmail.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Add rk3399-evb-ind board
-Message-ID: <c9b46d09-f1ed-4549-8267-9a38ceca6461@lunn.ch>
-References: <20250427094211.246-1-kernel@airkyi.com>
- <20250427094211.246-3-kernel@airkyi.com>
- <6291f6b8-75d3-4243-9935-9b64450e2b7f@lunn.ch>
- <c583c59a-d5b7-4e20-9a1f-96f51bd7b4f3@rock-chips.com>
- <15ee1a6b-55ba-41e9-b8a0-6e0bf62cabf0@lunn.ch>
- <027de192-4227-4010-a759-5283b6af1531@rock-chips.com>
+	id 1u9k08-00000009dRJ-0gei
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Apr 2025 12:23:53 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53TA73VW011798
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 12:23:51 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=mWPI8IBrH7hlnkBmEO8Qt52b
+	2JZ2LdgusDzm/ZmxwCM=; b=Jepv/vp+wV4PAFttjELu8cAbXFsPwIV29w+Gx0Eg
+	6S+1lTWzJKVUDMIkSbq6iFufXGAxdwdKKH0zRx4sHPHG6oUGySHVy768YCLlOjP2
+	rtNOBox+emSg593ZEVQzvX63vlYUoH2ss/j6MlyHNXdUgFAAXIFLffIxRHsue1Fd
+	xXRd9NnBe+c9Cjbzjru6lrF677kA5dn2oj5SFr40nVn+fruysjAKcfM4fSLqnKut
+	K9tqjhzUxj1ml3GGZ/rTteRcjB5eTMK0W5yu4qKSsWJfuQmfCicudCMvJvnxqN1b
+	GNqm4yJshWEACANApoM2uKrrekgVxI4/0RGTkjSDab5XWQ==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 468pg9chv1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 12:23:51 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-7c3c8f8ab79so924287185a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 05:23:51 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745929430; x=1746534230;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mWPI8IBrH7hlnkBmEO8Qt52b2JZ2LdgusDzm/ZmxwCM=;
+        b=bhYzJ9ymJCwoZjE6gu4E/+V8k9WNDmWuUDh6b+reHJP+Ockqystmv+t/3IcngZYN89
+         Y2Clk8TCpT2JKjVxzCBETaWegYXbKF74XFVyLrXv2Xmw7GCPrtLy4n/fKsf08K89ot7B
+         awmEzVq92K6J9uT0pYCLqLyFzs3xdlSG/79mlDdG3tHt7wczchP6xYPNa6PXoVl+zlD4
+         C6mzCj0J+nfKtxtlqKW6ot8ebYbFT53jt2Eb00XtfALscpivU1RM17W6AbmiyPLjl21Z
+         cvsfEcRxG+1VKxiWSxsqmzrMOjURCIV1QTZz2Uhc2d+DB0ZdkGgaH8oavdpU1GzuikPQ
+         xYNA==
+X-Forwarded-Encrypted: i=1; AJvYcCV9owr1WQDyOHtuIv1HnSo8gn5xKuSBaHN5vdy0inb/jGC1H3T83MaflXHLxRXvSuMUYIBsFK7uR/l3t1UKy6Uc@lists.infradead.org
+X-Gm-Message-State: AOJu0YySyPH72H33rS0/baFRi8dHflieyr0bM+aJoD7HZfyclx7NBXYb
+	Erc0qDPyL/56sDydpQ1O5U01anq9SD0DaC9sGyw967QsKrOrpZZleTE9KITmN+6tcGabaG7F5Sh
+	82HH3cfsH2dnH4aH4CGhwkCTwqaafbk/gHVG1MbqF/LKVBm9KuG49tE4JGL3X0N061EDPG+e5pg
+	==
+X-Gm-Gg: ASbGnctP7xz16BKTTZkpnrtlIjGHH8JmYVZIMUpPoRu0V7vG0he2FkD87faxG5nNEIu
+	q3baXI38zyMLyKexn3kWYHv7wO+a1fmwOrdhDt9nYadSkrdvU4/mmDvWlxo2GLeRKerlLuuQxRb
+	qFVcGuQb705iwncrbMVuegQeH131bGpJrnkRYcKx8WMY/ogQvmcXf6hZndONxolw3StlCo/G01g
+	0R5UrTqZIIMBpHC3AWr48p+4uXx8g3NisNSQ9z0J5tPXikoKYogAXXi1eMIhTqy8jFBXciGtGe2
+	Dx0ca2nQqVU3rUtn3zIBlGDQnD4DJ3Z4ppLElIc5blOPg0QryHTxaR09RoNyIdI3sKGrK0PYKLk
+	=
+X-Received: by 2002:a05:620a:6117:b0:7ca:c5bb:3007 with SMTP id af79cd13be357-7cac5bb32b5mr25637385a.37.1745929430404;
+        Tue, 29 Apr 2025 05:23:50 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IF/YVYTF7AsqT0sUlkNbluJNYqiS/QEjcLK0UlrF+CJVw0ltMIa46t+oqSpGCfKt2bt7Fmb9w==
+X-Received: by 2002:a05:620a:6117:b0:7ca:c5bb:3007 with SMTP id af79cd13be357-7cac5bb32b5mr25634585a.37.1745929430043;
+        Tue, 29 Apr 2025 05:23:50 -0700 (PDT)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-317cfb49872sm24408651fa.35.2025.04.29.05.23.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Apr 2025 05:23:49 -0700 (PDT)
+Date: Tue, 29 Apr 2025 15:23:47 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Georgi Djakov <djakov@kernel.org>,
+        Lee Jones <lee@kernel.org>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        Leo Yan <leo.yan@linux.dev>, David Heidelberg <david@ixit.cz>,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+        linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 01/11] Revert "dt-bindings: mfd: syscon: Add
+ qcom,apq8064-mmss-sfpb"
+Message-ID: <igei6wspjs7qetjx7nrhr42kbvb25yaldpfx32hyrjalajmcfg@qcshsrzwejxe>
+References: <20250425-fix-nexus-4-v3-0-da4e39e86d41@oss.qualcomm.com>
+ <20250425-fix-nexus-4-v3-1-da4e39e86d41@oss.qualcomm.com>
+ <20250428-prudent-hasty-pheasant-aecec4@kuoka>
+ <29d15e93-8f5e-4cec-97b8-8592beb01d6a@kernel.org>
+ <CAO9ioeUo_vO+-wuC4JGi4JfSMZx+JZkvLvsi=ppBD_LvuV2ZLA@mail.gmail.com>
+ <676324e0-43a7-4227-8b6f-3fec97a484b0@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <027de192-4227-4010-a759-5283b6af1531@rock-chips.com>
+In-Reply-To: <676324e0-43a7-4227-8b6f-3fec97a484b0@kernel.org>
+X-Authority-Analysis: v=2.4 cv=ZpvtK87G c=1 sm=1 tr=0 ts=6810c4d7 cx=c_pps a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=CcgAk7be1liTUAj5SvwA:9 a=CjuIK1q_8ugA:10
+ a=PEH46H7Ffwr30OY-TuGO:22
+X-Proofpoint-ORIG-GUID: j5cFIWo-5nC3uBqtHqT_kPOe3n6XqDdb
+X-Proofpoint-GUID: j5cFIWo-5nC3uBqtHqT_kPOe3n6XqDdb
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI5MDA5MiBTYWx0ZWRfX2y2wI9MUHK0c 4jCVtbtlkzXsfxbyyJ1DVqQSn3PR9Gya8PjiW/eBKHwbUulvChG4HMHu/5ADV13HG5/cNVyj7gw eatMYAMBXLxaR5W74xqst5inSry/8qjedTub8H0NN4tSywjX9N9hRdzB3zcdpQqRcQuxsfPcUQC
+ mawS7r8exK8zYK65wXZjliUaD/q72qdii6yOI+wCkScBKixeEjWMafrQoawqTCvUOy+L2yavZR9 j3o4fsJK2COZDYyms4aMrz7QVy8r4BM5vmXJBWt/aQJPBoWgQViYExAoRTZIpjn4hhsZ+1aUTal 13r3YxmK6XSkhFr7AhP3CutHWEOcAjpWHAApFcxeUzKFxMeC/j0GrI8J+TiENbXSg3C6szmUtZX
+ G49zRb2WIyK/WZz35CPW0F1iiE50uOQdDMHw1n2YmnnQvSyN/6RHzF7o5ZIHmim8uc7gusVA
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-04-29_04,2025-04-24_02,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 impostorscore=0
+ mlxscore=0 bulkscore=0 mlxlogscore=999 malwarescore=0 adultscore=0
+ clxscore=1015 priorityscore=1501 lowpriorityscore=0 suspectscore=0
+ phishscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
+ definitions=main-2504290092
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_132305_227624_D5DFEB90 
-X-CRM114-Status: GOOD (  26.06  )
+X-CRM114-CacheID: sfid-20250429_052352_323905_45B3C6A7 
+X-CRM114-Status: GOOD (  26.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,63 +138,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 29, 2025 at 10:42:59AM +0800, Chaoyi Chen wrote:
-> Hi Andrew,
-> 
-> On 2025/4/28 20:45, Andrew Lunn wrote:
-> > On Mon, Apr 28, 2025 at 09:47:34AM +0800, Chaoyi Chen wrote:
-> > > Hi Andrew,
-> > > 
-> > > On 2025/4/28 4:42, Andrew Lunn wrote:
-> > > > > +&gmac {
-> > > > > +	assigned-clocks = <&cru SCLK_RMII_SRC>;
-> > > > > +	assigned-clock-parents = <&clkin_gmac>;
-> > > > > +	pinctrl-names = "default";
-> > > > > +	pinctrl-0 = <&rgmii_pins>;
-> > > > > +	clock_in_out = "input";
-> > > > > +	phy-supply = <&vcc_phy>;
-> > > > > +	phy-mode = "rgmii";
-> > > > Does the PCB have extra long clock lines to implement the RGMII 2ns
-> > > > delay?
-> > > The 2ns delay of RGMII is implemented inside the RK3399 chip instead of PCB
-> > > lines, and there are also additional delayline configurations.
-> > If the PCB does not implement the delay, rgmii is wrong.
+On Mon, Apr 28, 2025 at 07:50:04PM +0200, Krzysztof Kozlowski wrote:
+> On 28/04/2025 12:49, Dmitry Baryshkov wrote:
+> > On Mon, 28 Apr 2025 at 10:09, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> >>
+> >> On 28/04/2025 09:07, Krzysztof Kozlowski wrote:
+> >>> On Fri, Apr 25, 2025 at 08:47:01PM GMT, Dmitry Baryshkov wrote:
+> >>>> For some reason Lee has mis-squashed two commits, picking up one chunk
+> >>>> from the first patch and one chunk from the second one. Rather than
+> >>>> trying to fix it, revert commit 2c8de7df7418 ("dt-bindings: mfd: syscon:
+> >>>> Add qcom,apq8064-mmss-sfpb").
+> >>>
+> >>> I don't understand: that commit looks like direct, proper result for
+> >>> https://lore.kernel.org/all/20250318-fix-nexus-4-v2-5-bcedd1406790@oss.qualcomm.com/
+> >>> so where is squashing two commits? The diff markers have offset by few
+> >>> lines, but it's still just few lines and they do not matter - there is
+> >>> no diff/patch mismatch from that point of view.
+> >>
+> >> Ah, difference in compatibles. I see the error. Anyway, I don't think
+> >> revert is correct. Just add missing compatibles.
 > > 
-> > If the MAC/PHY pair is implementing the delay, you need to use
-> > rgmii-id. You can then use additional properties to fine tune the
-> > delay the MAC/PHY is adding. And the Linux preference is that the PHY
-> > adds the delay.
+> > Why? The commit that went in is invalid, didn't come from my patches
+> > and was produced in some weird way.
+> And revert is pointless if you immediately add the same changes. Just
+> make the changes.
 > 
-> The signal path of RK3399 is as follows:
+> When we see a bug, we do not revert the feature and then re-add that
+> feature corrected.
+
+That depends. If the original patch went really bad, we sometimes revert
+it and add a clear implementation rather than just trying to fix the
+damaged state.
+
 > 
-> MAC <---> IO <---> PHY
+> Instead we correct the feature.
 > 
-> In fact, the delay is added to the path between the MAC and the IO, rather
-> than being implemented in the MAC itself. These delay value is controlled by
-> the GRF register[0] . These paths are implemented inside the SoC and have
-> not yet reached the board level.
+> Best regards,
+> Krzysztof
 
-'rgmii' implies that the PCB is implementing the delay. Since this is
-not the case here, you should be using rgmii-id.
-
-> According to the document[1], use "rgmii" when "RX and TX delays are added
-> by the MAC when required". In addition, currently we can see that all RK3399
-> boards use "rgmii".  Is there anything I missed? Thank you.
-
-What you are missing is that they are all wrong. Quite a few systems
-get is wrong at the moment, and i'm being more strict. Ideally i want
-to stop more examples of wrong rgmii being added. There is also a
-discussion going on to clarify the documentation.
-
-Implementing delays via the IO is also reasonably common. The MAC
-should have control over the GRF register, normally via syscon. So the
-MAC can implement correct behaviour. The default is that the MAC,
-including IO, adds 0 delay, passes phy-mode to the PHY and the PHY
-adds the delay.
-
-Please consider how you can fix the MAC driver without breaking all
-the boards using the wrong rgmii value. There are a few discussion
-about this on the mailing list if you go searching.
-
-	Andrew
+-- 
+With best wishes
+Dmitry
 
