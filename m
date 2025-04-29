@@ -4,84 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 630A6C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 19:56:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4041C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 20:01:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:From:MIME-Version:Date:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DpuU/QbbCsDjn7g/5fZL7Kv0FMaEuMia8xRIYO6BRcY=; b=l15ZwSLljx/pITOnvDQ0AOQov2
-	am0X4FX0evKlmIdCOqckGvPrDWOJDzy8Wp9q9unn+tV8WaOENlgms4vGTANI+kcZErx3KN0IrgDKq
-	iaFngnb7b/MhzRFSzgtHNMVyVQVwDGoULPUTGGAGzYo78gGlIjlPE8XIzqN+Kfj7pYP0LH6vi7MVp
-	hY5fWlC/yTPu1VOkT1rnpDL7bgZB+UZ8If2S8Ne7YQbnGdWAOhBXF3kf/6V5wrco5So/k2ZHI9iXy
-	Yr4GtiLW4EesDnGkHeLkMWK5PLQEQjTHvDCWopSR/FW9UHOidT6WhVkYzE/PJY+UtIk+kI/8UgfIv
-	ro2ecvzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fdXV/8C/yQUJ8I+wtd2Z/G5iaXapJqIY6nj11Km1s7M=; b=wrV0NyDzs4U4oxtldFNUhiRdp0
+	sN/cHh8Hq+mchriytXxzUvtl8FYvD9qj1DPqnPU/0JSadQu6skKPZkbmcL3yLBx7FD8GkQSZUnQZd
+	ojC6HX4esebg1+QvLPkf4n0ln37gsoJl3AOe2jbMAmYh2Hsph8MSjmC9ABAuJZ0kxIZu8DOOcDc/f
+	52/kHwwO7v2IMIV6EyzGZXZ4Pbg5dH9B+jxE1ijQIGsrWZG+TryqyBFy4HPlya0sgJbEBxBUORf2X
+	i/UEtfYubIJ+g/QYW+hoP4iOVh3irgl2kXxk7epOLkvGEjUgjO/dsWvgH0oTb7nsbYs9Jl/62lNPT
+	1fS4S95g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9r3e-0000000AhEq-06Ha;
-	Tue, 29 Apr 2025 19:55:58 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1u9r8n-0000000Ahai-0CCr;
+	Tue, 29 Apr 2025 20:01:17 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9qz5-0000000AgdO-25vU
+	id 1u9q9G-0000000AbfA-3M6z
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 19:51:17 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-391342fc0b5so4722648f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 12:51:14 -0700 (PDT)
+	Tue, 29 Apr 2025 18:57:44 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2242ac37caeso53685ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 11:57:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745956273; x=1746561073; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:from:content-language
-         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DpuU/QbbCsDjn7g/5fZL7Kv0FMaEuMia8xRIYO6BRcY=;
-        b=jOlr6OaDiO9uJlM3AgTgr8O/tDzsZhy6MNYFnweWpC2opL9o4MT3QL5INbEu93lECK
-         uprE+hyxrvtrV5WfW9oDTQiy+ewJQqn8z8MoJsPGKy2Be70QuM8sY6P5hhwDxa5ir0rl
-         dr3xsAR5P4NP1KyRwOL5u51KRwWAPsCmZjfN7Qif94Mwm5qj5O0Ay3XIn0azTQourKwz
-         YiBhK2PtD9tb9yjxnrHXKhxh1R3RUiv1rjhQM6yqwRHkaWlv1LIV8Q0g/uHdkZwbqZ9+
-         BACVJ1JwAoliizZenJpa8Pmy7Am2JpQ7UmzlZ/772jLsiTzPK1+L5B+7RQB5omDzjo2P
-         WBPQ==
+        d=google.com; s=20230601; t=1745953062; x=1746557862; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=fdXV/8C/yQUJ8I+wtd2Z/G5iaXapJqIY6nj11Km1s7M=;
+        b=E9T9Wn/aXFMeM23oeINyUSTA8schbgKIYcKzq/bSUUGNg6mOJP+JlCQoo24Nk0nFyP
+         Ss3XBlTbw7HZk2JwVjPVgxDUr6t8HVsvI1dPybizFc231xEE6N9HvInuxQV7ithZjGB/
+         TL14HZUqb3JBYXBLMmyAtXs2s6ALSt8ei2eZFkY8Tfxl0aLrCHX08QPx8hcsET5b9rze
+         bR3k/POGzxrzdzrbDZcTOlUjnA9vBjG4j5DzpEYFOh1ZWywy4Vi1gXfNRJTit4ICnRHO
+         iHfCpOme9o2T55gmSUcsZM6lHEbc0SUXCkJUMp0ZgOcOvlfVEhiQFn94MjDjT4dVNUau
+         0BHA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745956273; x=1746561073;
-        h=content-transfer-encoding:cc:to:subject:from:content-language
-         :user-agent:mime-version:date:message-id:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=DpuU/QbbCsDjn7g/5fZL7Kv0FMaEuMia8xRIYO6BRcY=;
-        b=inMpskT2SWundW0XSjQ1FZ3lladafW2X7UArHbC350ZuV17bdbDQzMgsJ4zu3mYVDq
-         aftWe3KUDXkrIiCyTp1+MO34ovbTIsyXpiE81+3FFn/OhGWkZKmz+B8HiEYcnE5d92ox
-         LUu4Yu+6b7ZH+peC1W2oBGYerHJHp/cz1YCqVZLZrajVhBJFvEJXFUslsYZwO9m+DSEp
-         AudsR/L/q5ZW68QSSfOWYDwqMZhiGuljZJRld+CbbvQcIizl51wDRGtUokfrgMbaG/FW
-         ZPbMAJCDnAXgCXS+zLw9xOLYbHCVRIsMR8UqZ95Ld9BHSp7bnoMyiclnwNTXibTUshkl
-         /7lA==
-X-Gm-Message-State: AOJu0YwAXD891/1ltlx15Trtu00UjqqddwISEx6Is9WOaIWQcRxVVu/+
-	vLYH/0VgFWTCc9io5dbzH6EzXEyJ1wBENLzmjKGowG/VJJnuw9LpyzqEdfr3
-X-Gm-Gg: ASbGncub30Xvc3+qR/myZh7JYc+ZA76UCGrVt345n/60IJYZBXrHzt3x4SLFcMOXwIU
-	EpwFdEfe6g8z00YheMT0szws6ZVBK7/nmJUKjg8Rp4+zcid5MhSDaQ6ZhFvULAXKyWskJ8SX48e
-	03MsgtecmfptPbRARU/xHB7mBIGL+8Fri5jhaeilUGh3iC+U1OCeVBee4JBGeeN0sM/h40Cw7FC
-	PWenJCvs4JhnhVF7ngmbVRWLEqglaJTTW0dc1DFrtWOhNZPHQJWlLw0WbR8Oa4iqmE8Vastyl3T
-	7ZYTlmUO/wEoZhJjQnKnHSKvl+KSIyRzTMQFGVQn22LyumqCkZ5O
-X-Google-Smtp-Source: AGHT+IEjgsJPfac2XxBU5WYmuZlZ/uRKQBSizR1fl3RJO5bgEc0OUCbXE2MDpOf6drk91+Ec3iF26w==
-X-Received: by 2002:a05:6000:420e:b0:39e:dd1e:f325 with SMTP id ffacd0b85a97d-3a08f77c26fmr606792f8f.31.1745956273149;
-        Tue, 29 Apr 2025 12:51:13 -0700 (PDT)
-Received: from [192.168.1.121] ([176.206.99.211])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a073e46869sm14883373f8f.72.2025.04.29.12.51.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 29 Apr 2025 12:51:12 -0700 (PDT)
-Message-ID: <c84e8246-8104-4409-8d95-389d61bc07af@gmail.com>
-Date: Tue, 29 Apr 2025 21:51:12 +0200
+        d=1e100.net; s=20230601; t=1745953062; x=1746557862;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fdXV/8C/yQUJ8I+wtd2Z/G5iaXapJqIY6nj11Km1s7M=;
+        b=VBACG1Im99S8PHlgydH7uWU2WNMOBcYQZ4anoHzHEUmdds8GUSRgv7rg+5m4xFlnLP
+         ggv1qqlggsapHC6/k3kKbJwaxhKjH/BOl0d/J2AGpVxqYMfAFyXiQNfNUGvWpGLvUc9I
+         qA4KoVm9RSBgf6dSbunNU1iDtX2YKZkWDthW7q5QJ4Ip+23StnEMmDq/J/YbzsTPW1Dm
+         CdQ6x8wW5GDE48pn6NAoISYwahodkEhV6M5TrAMSfobEWFRrLAD56HeVoXQoqpuWSfVn
+         5S5Us0uTHESC89QuqeHW8D9IRQ31xlEZgoLUaMwbLeWmM3rcDSVo7jM2XP7DkRU/sNW3
+         eBcw==
+X-Forwarded-Encrypted: i=1; AJvYcCVbL5i+wzma19VRGEj/gnSvQv1C+SiwIiFmwrAy+CxIu1AMnqvO91n6gXk7QoD4fiyIJq7Pp0x2Sv9ku57QBgj2@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzqz0lzbinWD5IQOQ5B5lpUhQhlG1Iq1dH1D4P7J52oy5lpiSzA
+	pi6nTj4MDAeNANVNrnuky1u8kO3nZgymsY/HiE5bN9WK1x579AllOLfBt1hl+g==
+X-Gm-Gg: ASbGncszrZ1nVqVfbfZa0jImP45I097E1nudZ0sfz5EEiSW5Q7U+CPUTGura0VaGS0C
+	mt1OcnrLMAAiz+/B6FePvSZzlnaI+mhJy2cHcEEBsaj2JQLsfPrt6unXJwEHa55JZ3cMTpVCf4g
+	/opiEsP4hLVsn8nQvHklsO722b0RWA0DVLiaXR36rI943+2p6ZF5OcCQ/AtxNuTpTNdNJ9F1UUH
+	0TxVzIsAbpYIo9MNDUVh7Xd8vGPV776UkoGJwIRpNb4EV+6cUcDyLTQt5bZK9Ttvyeszblbn807
+	cxEHL+MtUnReEpTJO22e+2Wmr6mDAQLgp5HN6VO+6178MLVPrbplKX2/9TIW3Qexey7LrmM4
+X-Google-Smtp-Source: AGHT+IGgXGpqrHCfuif7QcKDzCUp9vTefuXFD3aLx4LdLjCaDTVmYgt+1uOwojrpCvF02XNkiYlVaw==
+X-Received: by 2002:a17:903:248:b0:215:7ced:9d66 with SMTP id d9443c01a7336-22df3f77b8cmr333515ad.10.1745953061819;
+        Tue, 29 Apr 2025 11:57:41 -0700 (PDT)
+Received: from google.com (2.210.143.34.bc.googleusercontent.com. [34.143.210.2])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-309ef097e0csm11594174a91.25.2025.04.29.11.57.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Apr 2025 11:57:41 -0700 (PDT)
+Date: Tue, 29 Apr 2025 18:57:30 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
+	bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
+	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
+	shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
+	peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
+	zhangzekun11@huawei.com, iommu@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
+	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com
+Subject: Re: [PATCH v2 10/22] iommufd/viommmu: Add IOMMUFD_CMD_VCMDQ_ALLOC
+ ioctl
+Message-ID: <aBEhGmoh0E865PxF@google.com>
+References: <cover.1745646960.git.nicolinc@nvidia.com>
+ <094992b874190ffdcf6012104b419c8649b5e4b4.1745646960.git.nicolinc@nvidia.com>
+ <aA_0TV0RkVOHk7Qj@google.com>
+ <aBAEuP9962XweHPc@Asurada-Nvidia>
+ <aBCNkcLp6XZpjYYT@google.com>
+ <aBEWFw2wq40SHjTn@google.com>
+ <aBEXJFnLalIh788i@Asurada-Nvidia>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Content-Language: en-US, it-IT, en-US-large
-From: Denis Benato <benato.denis96@gmail.com>
-Subject: Cannot boot imx8mm symphony board
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aBEXJFnLalIh788i@Asurada-Nvidia>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_125115_542654_5506B938 
-X-CRM114-Status: GOOD (  18.89  )
+X-CRM114-CacheID: sfid-20250429_115742_838752_7DBF4D18 
+X-CRM114-Status: GOOD (  20.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,40 +111,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+On Tue, Apr 29, 2025 at 11:15:00AM -0700, Nicolin Chen wrote:
+> On Tue, Apr 29, 2025 at 06:10:31PM +0000, Pranjal Shrivastava wrote:
+> > On Tue, Apr 29, 2025 at 08:28:01AM +0000, Pranjal Shrivastava wrote:
+> > > On Mon, Apr 28, 2025 at 03:44:08PM -0700, Nicolin Chen wrote:
+> > > > On Mon, Apr 28, 2025 at 09:34:05PM +0000, Pranjal Shrivastava wrote:
+> > > > > On Fri, Apr 25, 2025 at 10:58:05PM -0700, Nicolin Chen wrote:
+> > > [...] 
+> > > > > IIUC, one vintf can have multiple lvcmdqs and looking at the series
+> > > > > it looks like the vcmdq_alloc allocates a single lvcmdq. Is the plan to
+> > > > > dedicate one lvcmdq to per VM? Which means VMs can share a vintf?
+> > > > 
+> > > > VINTF is a vSMMU instance per SMMU. Each VINTF can have multiple
+> > > > LVCMDQs. Each vCMDQ is allocated per IOMMUFD_CMD_VCMDQ_ALLOC. In
+> > > > other word, VM can issue multiple IOMMUFD_CMD_VCMDQ_ALLOC calls
+> > > > for each VTINF/vSMMU.
+> > > > 
+> > > 
+> > > Ack. I'm just wondering why would a single VM want more than one vCMDQ
+> > > per vSMMU?
+> > > [...]
+> > 
+> > I guess the only thing on this patch from me was to understand why
+> > would a single VM want more than one vCMDQ per vSMMU? (Just curious to
+> > know :) )
+> 
+> It gives some perf gain since it has two portals to fill commands.
 
-I write this to ask for help in booting linux on a slight variation of the development board imx8mm-var-symphony.
+Ohh! I'm imagining concurrent invalidations / commands! Interesting!
 
-At the moment I am using an u-boot version that can boot a linux 6.6 kernel and a 5.15.60 that I have
-adapted to my custom board: https://github.com/NeroReflex/linux-imx/tree/old
+> 
+> Nicolin
 
-I can boot that without any problem: the gpu works as well as networking, backlight, RTC and every other device on the board; however I want to use either 6.14.4 or linux-next.
-
-On that version I can see a device tree arch/arm64/boot/dts/freescale/imx8mm-var-som-symphony.dts
-that, from my understanding, is supposed to at least arrive at the point of printing something from the debug serial, where I can actually pick up and start figuring out what's missing/wrong.
-
-My problem is that u-boot (the same u-boot version that can boot v6.6 just fine) works flawlessly, the fdt is
-loaded into memory as well as the kernel, but then I have no output on the debug serial, no backlight is turned on (I tried adding my screen to the device tree) and the ethernet controller on my board does not reset as
-it usually does when a working kernel is booted: this lead me into thinking there is a problem somewhere in
-the early boot sequence.
-
-Therefore I attempted to use the previously working device tree, the one from 5.15, but to no avail.
-
-At this time I think my problem can only be either one of these:
-- u-boot I am using is not suitable to boot kernels past 6.6
-
-- I have a problem in my config
-
-I also tried using the following patch as it appears to be relevant for this hardware:
-
-https://lore.kernel.org/all/20250311-wip-obbardc-qcom-defconfig-interconnects-builtin-v1-1-675b6bc57176@linaro.org
-
-but again to no avail.
-
-Can someone please point me in the right direction? What config am I supposed to be using to boot that board?
-What version of u-boot (and configuration) should I be using?
-
-Thanks in advice,
-Denis
-
+Thanks!
+Praan
 
