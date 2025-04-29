@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD2E3C369DC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E83A2C3ABA9
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 19:16:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,89 +12,82 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5gO38QVftzp7foJd8AqWRzdImXv3oAewp8XDWFfWfG4=; b=TR5tmXp6hab4RKJ7RXRS6gujgi
-	z3SaNkm4vATSDtpiMEUBlCiQo+jUl5zjkpY3aCoT3qPNcgk9GE1+wohIPuV17WmBjOOneAZT3SqEP
-	n7VPqL/owVmCyo4y3C99Yoe9ZljMfQclst37yQ2EZf7j4bzHaWdWs/S64Ic9r97kjBPK18k+O4ScX
-	+98TrIt1YSX5KmP24ijMM+DGxBWFNOyhK7tvZCxaYSjDxJsCoJ8aIVqCd7uHyr/j8jeG5tt11D04y
-	NuE0unE+XmkiMBwHElolZ4ny72jZLh157aA1FIqy3hukPMR7tBj/xSac5RMN1wrn2aRF2W7ue3yjo
-	VpwiTGVg==;
+	bh=bJ8AnGaJFq1d/EGjbs2hpni0IcLnTMbT0aJoA8FUM9g=; b=H82eEHHsMOX2wNHQEeVXriUqku
+	BRrN/J7LSwkoO7mALyNnbEApRwecYWftFWYz/SBZMFiyBM7KzqjGZ65tdlDjCcxAJqox/Jp90xr0p
+	YTTb+tCOLJ7z71H1aGr/lQey5qpa3P381nMsR7yYDLWpfSq8accOdVlAKyM3UzT0dOLl9HEeE7snM
+	81EL1tCPV0FrNVlE5J+AaDi1NY4K5zKFLA2eLUiWkv5rKEbkfOK8jVDZjC7L3cGHkq0L8cwAtZ2NE
+	rQVds/i5H+sln5dqgE+rxWPOhhUXT916Vrw2mEDBSDYd6USJDyRwPTpPDDXb+GE4qlxDTnjX6xjZR
+	gRasooOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9qRF-0000000AdwM-1Sob;
+	id 1u9qRF-0000000AdwQ-3Z7O;
 	Tue, 29 Apr 2025 19:16:17 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9pIj-0000000ATnn-3Yyi
+	id 1u9pOy-0000000AUPA-1aRE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 18:03:26 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2263428c8baso47785ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 11:03:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1745949805; x=1746554605; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=5gO38QVftzp7foJd8AqWRzdImXv3oAewp8XDWFfWfG4=;
-        b=ICxchRAPalyYX+J0dd4Val3iRLTTnlBsvBMM/EtE2/sEuhDE8bRiOgeNg8yhLrtt6X
-         vLVzJ+W0BgxNrflP+1x8EJraWNK/4wP6fxfW2H07Q73NEsl7CkUu5Irpv2o4feMBHz7w
-         mmBkwfOoEtqgsD5uET7DMY2+zSF0oTlLcMKBtpaBSYF6zXs4j0nsxUe2X8aZrxXgI/ml
-         Q+yWhV+9YFHr/DKcyQ32yGZo9/pmj7sa9lOde9dLKaiuWoE6CAfAanHtQIm5tQis9Qjo
-         sZChtqy5GSRUdrkLRUCcZ7XIicXhdivRHg4aTFJHlhsyFSOcJ5PZtFWbWRb6+qqUkSHT
-         X0pw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745949805; x=1746554605;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5gO38QVftzp7foJd8AqWRzdImXv3oAewp8XDWFfWfG4=;
-        b=CiKePtlSurvSNboaRrOjDFkAmPkImsBeynPqhyEvCzB5Bptx14p+ZnGituNqNI25tn
-         6WGCJIn9p5RYUuhbQD0NuXDRIPYgnyfqKchOAbBqhHFQHXYmn7IRSxSa04soJWHt3acu
-         PoTYqbn8Hs6j0h6sh0WJeWN+5vMtai6sAOCBmjjdBp0IOyt3sK6VEU6BieJRpzcMcYVP
-         fMopbQnwu1JkmvCkz2+r7b+93HK36EIYv/0z9kAwfabAaBK0Mv5GDqFmgMtRbbAxF1R0
-         63drRrC9RpSerMJpr1iM4VEsu0AcRc4dvKqbxmPFtdJxDruUU1ucYVQ5HWNarZWIoSQz
-         vE0w==
-X-Forwarded-Encrypted: i=1; AJvYcCU5r1n36AuKcsW9EOc7ZQTh0aujR/+04VE2/OVkXA4KaEvIsn1p3nEPCViV/2sI3+DDAsCeDJCPDfTvXg2Gd/Uq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxp0Evw3/iuFHQEQB5qcHl87RqNeiObYGCDqzK/HD6hMhpAFou3
-	hRjsuCNtSv6DKviWMhH8lIqajzQZ9tlSlLId7MorEVwJ0PCw9PmWVcR8tdldog==
-X-Gm-Gg: ASbGnctmkX1lGw2W8rnLyScQXeMvWkxkjSYGoNuDr8jXCfFOSmVUtsOPPVSJ+Myi54Q
-	tLyty79ScyzuYZRra0MJPmxBbM0F97kKhtckFyllvriyQrX/4Eb483ZWy0qmWGq9soawnpfd1qC
-	gDCYbv3oylPZY394as9EA0RYeljM3BvZKVKZnQ91eDrRdEkFEldreyD2VdzE4TNpVJ9VJO2YAUy
-	6mnKmB46lfj7L8t2sA1uF2eEjdg2wry4gkJlaVn0jSEShTd4PHDlp3CrylqDFP//LuLWOLeVvsc
-	+uJF/0KcexOY2UMulJREy2AAL1OuaakhWIKbV7r3GxzS+SXOFQdiyb/2wJo1ndd9DdhzTx3X
-X-Google-Smtp-Source: AGHT+IHcbHv78LbKHTcjYARgVuVMIU3PlvzwcFa5Mynrm4iDVnN6pnPgBf3EmKTpPOmaL66ic8Z84Q==
-X-Received: by 2002:a17:902:f60a:b0:215:9ab0:402 with SMTP id d9443c01a7336-22df40757bemr145535ad.18.1745949804669;
-        Tue, 29 Apr 2025 11:03:24 -0700 (PDT)
-Received: from google.com (2.210.143.34.bc.googleusercontent.com. [34.143.210.2])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b15faded711sm9272213a12.66.2025.04.29.11.03.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Apr 2025 11:03:24 -0700 (PDT)
-Date: Tue, 29 Apr 2025 18:03:13 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
-	bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
-	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
-	shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
-	peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
-	zhangzekun11@huawei.com, iommu@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
-	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com
-Subject: Re: [PATCH v2 08/22] iommufd: Abstract iopt_pin_pages and
- iopt_unpin_pages helpers
-Message-ID: <aBEUYdlCLcH70UlT@google.com>
-References: <cover.1745646960.git.nicolinc@nvidia.com>
- <d44272c153e7596c3cef716044de3dc6c2a8254a.1745646960.git.nicolinc@nvidia.com>
- <aA_hm_AD4Xzm3qJZ@google.com>
- <aA/9TZq99TF+MRYv@Asurada-Nvidia>
- <aBAQdq0jeoCdKdsC@Asurada-Nvidia>
+	Tue, 29 Apr 2025 18:09:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 76F9F6846F;
+	Tue, 29 Apr 2025 18:09:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1CB2C4CEEA;
+	Tue, 29 Apr 2025 18:09:44 +0000 (UTC)
+Date: Tue, 29 Apr 2025 19:09:42 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Ankit Agrawal <ankita@nvidia.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Sean Christopherson <seanjc@google.com>,
+	Marc Zyngier <maz@kernel.org>,
+	"joey.gouly@arm.com" <joey.gouly@arm.com>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"ryan.roberts@arm.com" <ryan.roberts@arm.com>,
+	"shahuang@redhat.com" <shahuang@redhat.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"david@redhat.com" <david@redhat.com>,
+	Aniket Agashe <aniketa@nvidia.com>, Neo Jia <cjia@nvidia.com>,
+	Kirti Wankhede <kwankhede@nvidia.com>,
+	"Tarun Gupta (SW-GPU)" <targupta@nvidia.com>,
+	Vikram Sethi <vsethi@nvidia.com>, Andy Currid <acurrid@nvidia.com>,
+	Alistair Popple <apopple@nvidia.com>,
+	John Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>,
+	Zhi Wang <zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>,
+	Uday Dhoke <udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>,
+	Krishnakant Jaju <kjaju@nvidia.com>,
+	"alex.williamson@redhat.com" <alex.williamson@redhat.com>,
+	"sebastianene@google.com" <sebastianene@google.com>,
+	"coltonlewis@google.com" <coltonlewis@google.com>,
+	"kevin.tian@intel.com" <kevin.tian@intel.com>,
+	"yi.l.liu@intel.com" <yi.l.liu@intel.com>,
+	"ardb@kernel.org" <ardb@kernel.org>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"gshan@redhat.com" <gshan@redhat.com>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"ddutile@redhat.com" <ddutile@redhat.com>,
+	"tabba@google.com" <tabba@google.com>,
+	"qperret@google.com" <qperret@google.com>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
+ VMA flags
+Message-ID: <aBEV5gxYoDFct9PC@arm.com>
+References: <20250422233556.GB1648741@nvidia.com>
+ <aAjEsIwhYQpkphrW@arm.com>
+ <20250423120243.GD1648741@nvidia.com>
+ <aAjci3rddHt_R_x3@arm.com>
+ <20250423130323.GE1648741@nvidia.com>
+ <SA1PR12MB71996988916E1FB15149DD13B0802@SA1PR12MB7199.namprd12.prod.outlook.com>
+ <aBDTpu_ACoXAPoE2@arm.com>
+ <20250429141437.GC2260709@nvidia.com>
+ <aBD4RsUZp-BmcLwC@arm.com>
+ <20250429164430.GD2260709@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aBAQdq0jeoCdKdsC@Asurada-Nvidia>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_110325_887195_6330B1E3 
-X-CRM114-Status: GOOD (  20.56  )
+In-Reply-To: <20250429164430.GD2260709@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,45 +102,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 28, 2025 at 04:34:14PM -0700, Nicolin Chen wrote:
-> On Mon, Apr 28, 2025 at 03:12:33PM -0700, Nicolin Chen wrote:
-> > On Mon, Apr 28, 2025 at 08:14:19PM +0000, Pranjal Shrivastava wrote:
-> > > On Fri, Apr 25, 2025 at 10:58:03PM -0700, Nicolin Chen wrote:
-> > > > +	iopt_for_each_contig_area(&iter, area, iopt, iova, last_iova) {
-> > > > +		unsigned long last = min(last_iova, iopt_area_last_iova(area));
-> > > > +		unsigned long last_index = iopt_area_iova_to_index(area, last);
-> > > > +		unsigned long index =
-> > > > +			iopt_area_iova_to_index(area, iter.cur_iova);
-> > > > +
-> > > > +		if (area->prevent_access ||
+On Tue, Apr 29, 2025 at 01:44:30PM -0300, Jason Gunthorpe wrote:
+> On Tue, Apr 29, 2025 at 05:03:18PM +0100, Catalin Marinas wrote:
+> > On Tue, Apr 29, 2025 at 11:14:37AM -0300, Jason Gunthorpe wrote:
+> > > On Tue, Apr 29, 2025 at 02:27:02PM +0100, Catalin Marinas wrote:
+> > > > BTW, we should reject exec mappings as well (they probably fail for S1
+> > > > VFIO since set_pte_at() will try to do cache maintenance).
 > > > 
-> > > Nit:
-> > > Shouldn't we return -EBUSY or something if (area->prevent_access == 1) ?
-> > > IIUC, this just means that an unmap attempt is in progress, hence avoid
-> > > accessing the area.
+> > > To be clear the S2 should leave the mapping as execute allowed
+> > > though. Only the VM knows how it will use this memory and VM's do
+> > > actually execute out of the cachable PFNMAP VMA today. The VM will set
+> > > any execute deny/allow on its S1 table according to how it uses the
+> > > memory.
 > > 
-> > Maybe. But this is what it was. So we need a different patch to
-> > change that.
+> > If S2 is executable, wouldn't KVM try to invalidate the I-cache and it
+> > won't have an alias to do this? Unless it doesn't end up in
+> > stage2_map_walker_try_leaf() or the walk has been flagged as skipping
+> > the CMO.
 > 
-> Rereading the code. The prevent_access is set by an unmap(), which
-> means there shouldn't be any pin() and rw() as the caller should
-> finish unmap() first.
+> Okay, that does seem to have been overlooked a bit. The answer I got
+> back is:
 > 
-> In the newer use case of vCMDQ, it's similar. If VMM is unmapping
-> the stage-2 mapping, it shouldn't try to allocate a vCMDQ.
-> 
-> -EBUSY makes some sense, but -EINVAL could still stand.
-> 
-> So, I am leaving it as is, since this patch is just about moving
-> the functions for sharing.
+> Cachable PFNMAP is also relying on ARM64_HAS_CACHE_DIC also, simlar to
+> how S2FWB allows KVM to avoid flushing the D cache, that CPU cap
+> allows KVM to avoid flushing the icache and turns icache_inval_pou()
+> into a NOP.
 
-Ack. I don't have a strong preference too. This should be fine, we can
-re-visit this if needed in the future.
+Another CAP for executable PFNMAP then? I feel like this is a different
+use-case (e.g. more like general purpose CXL attached memory) than the
+GPU one. Unless FWB implies CTR_EL0.DIC (AFAIK, it doesn't) we may be
+restricting some CPUs.
 
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
-
-> 
-> Nicolin
-
-Thanks!
+-- 
+Catalin
 
