@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59A60C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 09:01:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECDB6C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 09:05:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:To:Subject:Message-ID:Date:From:MIME-Version:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Pryg4BOjErXSs0Xn2yHTUz35QCoY9O3vsgYvN0uOPVw=; b=2e/jkryiUQkna4KBpRucoIc65D
-	dTcVohIiHTRcpEvsBsyUf9HXhuxB+zM1MjrzN0f0PU/mHm35oVB416vPKr/uJckq+s3iHPHU2QRkJ
-	Z4ekRArRDjgNX94rvYSPhATcMxknhUW31dzzAsN1jn2bDXhXiLsZ+05xxgUpbBSH7PRRQPGBFqyRP
-	u75Db6b/Yc+YlT+1wphvD0emSGkkcGecHnLDWUij2e7tl1RCGKRGvdWKYBD9yLCJlwKX7kugvtGKs
-	OD1PcGfbN6yRtHedtQb3xoLyl8xwnIbEkf4vOSAHj9MO5wlAdXY3gNZWvS28IRRX6NNLh01CgCWeb
-	Xo3bXc/g==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lLqAjRZDHiPs2P6vow4biMhYvSqfTYsVglK1DeDbMm0=; b=qR7T4H4c6ZUpJIJc9hMNyfWbYu
+	ATHte4a5Nb6e653Ln8NgfLD4tqf2SpvZk4iMUeKGTl23UrdXP7UAtpihO5gYJ2t/rEvZ26TMDng4v
+	54KwTkmSMzOOE/BC+5+4QSWU7Q2QC77PoH3V+tjNpIcnIvN5YrN7AwTZ2RxvPg9HIVxICS94uLzLh
+	+SUxc3P5G9aK6+U9k8tRpG+pioMzD4qZlDQJz3Rkwhu75VBKBVANT+3y1QWJ4xRf7LI8WXDhxfAl9
+	6TNe8RRZLUpnT6W2UfjzoFuJj/Un/ZkrHioX7jIRaxN8sWPDQz5+AqqDKgVH4TZdR3jOr42xyq0vp
+	Skz/W2MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9gqR-0000000932X-25Sd;
-	Tue, 29 Apr 2025 09:01:39 +0000
-Received: from mail-lj1-x231.google.com ([2a00:1450:4864:20::231])
+	id 1u9guD-000000093kZ-2If3;
+	Tue, 29 Apr 2025 09:05:33 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9gnr-000000092aB-0JFq
+	id 1u9gqI-000000092zf-1UZO
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 29 Apr 2025 09:01:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=lLqAjRZDHiPs2P6vow4biMhYvSqfTYsVglK1DeDbMm0=; b=DVYkunCgkrZfWlsdhjOfZ5E8jO
+	IkthDJoICYoTjEv9Y/wHo3LYubzmG0DVZZsE4YeVIyVwQ7CSRTv9ABxZGYYf5BkxNS4STX/rMFLKu
+	vsV5psQRuPsT4HGUndYDLDHckHQjFLzs0nYDREX4ulLV/OA3rKNUYkzp+XZvclQesdivr8s+KAzKP
+	0tgGtpdS8UNxZ3CgHvuKV55d0JxC1IW8TtLvFBYb7IhK3C+AfxzsU6/giQ9T7zJ9aHZ+F2/vS27lS
+	Kd8DbfXMxfkhB1wdoy6TFrpygS45iWWMUO1CgEzky902qAEIG8GskFWKgLi0B3Edofpim0vuQuHH5
+	jskdmS5w==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u9gqE-0000000DEXu-47zI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 08:59:00 +0000
-Received: by mail-lj1-x231.google.com with SMTP id 38308e7fff4ca-310447fe59aso65591101fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 01:58:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=hifiphile-com.20230601.gappssmtp.com; s=20230601; t=1745917136; x=1746521936; darn=lists.infradead.org;
-        h=content-transfer-encoding:to:subject:message-id:date:from
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Pryg4BOjErXSs0Xn2yHTUz35QCoY9O3vsgYvN0uOPVw=;
-        b=keRmYynEuq/zCaM99wuzIixSs17s4v0wfV4kr4pgWJxclOUn9M+w6UPBBNZ9GEXOFy
-         7s/99oq/XpWTaaVc9vnwvJ4c3GcU1+Exj4R36UifHLNXvtZT9w2csQPySr2DnkAgx+cF
-         Il2Tmp7PYXL5wf+E2QHEajmIwEU7HzEcjbNIEhb7oEBS5yWjPoetJNwJtDbZKaAkej7m
-         SFTRVb26gom2f4I2kWrvyEXkWQteUd+MIBWn7lAxB3I+3kkaU4N+tOV8LyKav3euSoco
-         e0MScVQWwMI6/2IIr80zuwlclUUleoGv9b5uNpJGz23cP/HY7TBPzlanO4Cq7D6JMKxO
-         pB+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745917136; x=1746521936;
-        h=content-transfer-encoding:to:subject:message-id:date:from
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Pryg4BOjErXSs0Xn2yHTUz35QCoY9O3vsgYvN0uOPVw=;
-        b=gyWSgIzR4VVtP9igPmgKiEW6IjvCwY+INl+zkt54h+BqFTzMy38p3foP81KqcSnb8r
-         VqcpE0n807NuOY8/UAE00Aq/Bt2+MOA+eHvbvvSRCBI8c65Q11DoNzw/hVfQEmtyyqCB
-         /Xusj8Cyq6YIpTP7lI1oIOVUSYCBrMb8RBwvudvhpgfi9BUD/mKHxcLFmd6aQ9EEOkY2
-         XjFkvaYVIuYmU6/pDQLaQJRdZ1LI/WmCrjfrxE7DqkUrYWdC5XwrS6mE73hW5YZ7RkVm
-         +CoetqG0WlC4H34EpggCseuOzWTI+mjPU3O5Ay5bW0haWw5Z0Dq8LZFWFdgrZJovfcBv
-         MAwg==
-X-Gm-Message-State: AOJu0YxJowLAGUuBSwVYEfZyDEjNAGFsX21URNAbhkt/YPbb6WAAjTrQ
-	03isXaIMjwt3IzI1BVa+bwoK7nSMKSbqbIvHBxaQjCXXsbR7nVClMgjQfBW1uUNQYdwJXrVKT+h
-	kts3ShKeKW7KKYDXLI2VdD/OP0afgF25/bsY06/WTQr4G8q2i9dk=
-X-Gm-Gg: ASbGncvWCpO4yqcUf9c4NjAtZbQS2FRfXtQBuXLdoF7IlXlyLJ53hv9rH1NJU9Cs2i9
-	zkhr1aXcdpbVCBcKlDPo3MkNqPT3szaoFNvK87pgVjlYBaH6z1ncwpWR7L/T+U11CmcP32ZK8Hc
-	RtLIK9yY6Qhc41ImDb70lxVA==
-X-Google-Smtp-Source: AGHT+IEO3BJ8joM1Fb7OTOGcMtRtvqTiiPZCiRSmO5TgzokC5yzzbwL9ugJzMkP7dPAim4SZnVBszhXqICAvjDabWRU=
-X-Received: by 2002:a05:651c:1506:b0:30c:5190:b264 with SMTP id
- 38308e7fff4ca-31d34c61109mr8012211fa.20.1745917135739; Tue, 29 Apr 2025
- 01:58:55 -0700 (PDT)
+	Tue, 29 Apr 2025 09:01:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E601F1516;
+	Tue, 29 Apr 2025 02:01:18 -0700 (PDT)
+Received: from [10.163.78.253] (unknown [10.163.78.253])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4C0A53F673;
+	Tue, 29 Apr 2025 02:01:15 -0700 (PDT)
+Message-ID: <d4516c2c-2468-43c7-a270-d068392460e5@arm.com>
+Date: Tue, 29 Apr 2025 14:31:12 +0530
 MIME-Version: 1.0
-From: Zixun LI <admin@hifiphile.com>
-Date: Tue, 29 Apr 2025 10:58:45 +0200
-X-Gm-Features: ATxdqUH3W8ubinIe5leGWwyad8aSOdWOpnbMfl7K6pol0JPaGAGuOW-Dv3IjlyY
-Message-ID: <CA+GyqebJPJ-EDd3M_mvfjeHEhnz_L8sTN-T3e3SV_MfdLLoLVA@mail.gmail.com>
-Subject: sam9x60: how to select TD_SLCK instead of MD_SLCK for PCK output
-To: "SoC support'" <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/7] mm: Add batched versions of
+ ptep_modify_prot_start/commit
+To: Anshuman Khandual <anshuman.khandual@arm.com>, akpm@linux-foundation.org
+Cc: ryan.roberts@arm.com, david@redhat.com, willy@infradead.org,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com,
+ will@kernel.org, Liam.Howlett@oracle.com, lorenzo.stoakes@oracle.com,
+ vbabka@suse.cz, jannh@google.com, peterx@redhat.com, joey.gouly@arm.com,
+ ioworker0@gmail.com, baohua@kernel.org, kevin.brodsky@arm.com,
+ quic_zhenhuah@quicinc.com, christophe.leroy@csgroup.eu,
+ yangyicong@hisilicon.com, linux-arm-kernel@lists.infradead.org,
+ namit@vmware.com, hughd@google.com, yang@os.amperecomputing.com,
+ ziy@nvidia.com
+References: <20250429052336.18912-1-dev.jain@arm.com>
+ <20250429052336.18912-4-dev.jain@arm.com>
+ <93411699-2e36-4a4e-bc3a-3efeb8e2260b@arm.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <93411699-2e36-4a4e-bc3a-3efeb8e2260b@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_015859_315304_98E9D5B5 
-X-CRM114-Status: UNSURE (   6.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250429_100127_525863_788FEC81 
+X-CRM114-Status: GOOD (  16.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,31 +89,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-I=E2=80=99m using linux-mchp 6.6.
 
-In order to provide 32.768kHz clock to a SDIO device from PCK0  I=E2=80=99v=
-e added
-a mmc-pwrseq-simple node to the DT:
+On 29/04/25 2:09 pm, Anshuman Khandual wrote:
+> 
+> 
+> On 4/29/25 10:53, Dev Jain wrote:
+>> Batch ptep_modify_prot_start/commit in preparation for optimizing mprotect.
+>> Architecture can override these helpers.
+>>
+>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+>> ---
+>>   include/linux/pgtable.h | 38 ++++++++++++++++++++++++++++++++++++++
+>>   1 file changed, 38 insertions(+)
+>>
+>> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+>> index b50447ef1c92..ed287289335f 100644
+>> --- a/include/linux/pgtable.h
+>> +++ b/include/linux/pgtable.h
+>> @@ -891,6 +891,44 @@ static inline void wrprotect_ptes(struct mm_struct *mm, unsigned long addr,
+>>   }
+>>   #endif
+>>   
+>> +/* See the comment for ptep_modify_prot_start */
+>> +#ifndef modify_prot_start_ptes
+>> +static inline pte_t modify_prot_start_ptes(struct vm_area_struct *vma,
+>> +		unsigned long addr, pte_t *ptep, unsigned int nr)
+>> +{
+>> +	pte_t pte, tmp_pte;
+>> +
+>> +	pte = ptep_modify_prot_start(vma, addr, ptep);
+>> +	while (--nr) {
+>> +		ptep++;
+>> +		addr += PAGE_SIZE;
+>> +		tmp_pte = ptep_modify_prot_start(vma, addr, ptep);
+>> +		if (pte_dirty(tmp_pte))
+>> +			pte = pte_mkdirty(pte);
+>> +		if (pte_young(tmp_pte))
+>> +			pte = pte_mkyoung(pte);
+>> +	}
+>> +	return pte;
+>> +}
+>> +#endif
+>> +
+>> +/* See the comment for ptep_modify_prot_commit */
+>> +#ifndef modify_prot_commit_ptes
+>> +static inline void modify_prot_commit_ptes(struct vm_area_struct *vma, unsigned long addr,
+>> +		pte_t *ptep, pte_t old_pte, pte_t pte, unsigned int nr)
+>> +{
+>> +	for (;;) {
+>> +		ptep_modify_prot_commit(vma, addr, ptep, old_pte, pte);
+>> +		if (--nr == 0)
+>> +			break;
+>> +		ptep++;
+>> +		addr += PAGE_SIZE;
+>> +		old_pte = pte_next_pfn(old_pte);
+>> +		pte = pte_next_pfn(pte);
+>> +	}
+>> +}
+>> +#endif
+> 
+> Is there any particular reason why the first loop here is while { }
+> based where as the second one is a for { } loop ?
 
-wifi_pwrseq: wifi_pwrseq {
-compatible =3D "mmc-pwrseq-simple";
-reset-gpios =3D <&pioA 14 GPIO_ACTIVE_LOW>;
-pinctrl-0 =3D <&pinctrl_wifi_pwrseq>;
-pinctrl-names =3D "default";
-clocks =3D <&pmc PMC_TYPE_SYSTEM 8>;
-clock-names =3D "ext_clock";
-assigned-clocks =3D <&pmc PMC_TYPE_SYSTEM 8>;
-assigned-clock-rates =3D <32768>;
-};
+modify_prot_start_ptes follows the pattern of get_and_clear_full_ptes. 
+modify_prot_commit_ptes follows the pattern of wrprotect_ptes.
 
-However the output is inaccurate as internal MD_SLCK is selected from
-TD_SLCK, which is confirmed by a PMC_PCK0 register reading. If I set
-CSS field to 0x01 manually, PCK0 output becomes accurate TD_SLCK.
+> 
+>> +
+>>   /*
+>>    * On some architectures hardware does not set page access bit when accessing
+>>    * memory page, it is responsibility of software setting this bit. It brings
+> 
+> These helpers should be added with at least a single caller using them.
 
-I=E2=80=99d like to know how to use TD_SLCK by default ?
-
-Thanks,
-Zixun LI
 
