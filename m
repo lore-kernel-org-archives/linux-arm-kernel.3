@@ -4,149 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3730CC3ABA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 14:13:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02979C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 14:13:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yPyK7OPmSGzm3Zze+gdNib98ih182Uy40k26euou3/s=; b=psZSCP4l6NFvZNgQ13KQp0yzO0
-	BjB+KnKwLEY/vC93vN4DQxew+BdRVaecvqH3QNBTi6V7HPW1bERqUPwApWpNJi6lPFF7FfMczbDHF
-	+gCPZqsZF5WjZA8i4ME1G8+ICnDbN9j4OZd8fn0e1q4eV9x1oLKL1VTHA84fwNSZIZJ5vX8FS9k+e
-	DfmbN6lGV8YtyjhvuZrvTDEazfJFEbJCatZ3YZQ8aBsBTnUWAUjdW4Mh0o2QJCoM26mqzZjme/ORW
-	MMdxXhvb+8uikuKjvUFGgDAuFsQXZtkk2EE0jexK/iOUCnAHLkfaZlcpSBNz+0O+uZfOZ18oYJs7v
-	AlseN5xg==;
+	bh=hhyBzxR8NyUZrkIJH4pc7IFsAn1vSN/LWAh25/3km3g=; b=ZyQSpXnmn1+xX4rEyjc30fKlKM
+	NLuIa4EIBNXfGRpwblEGUNFdrEkkrtRH1ljGFWufK+r+YFMnEIYk0tH7Slklqi17AKegn71yt0pcC
+	lSQTrijI6phYC7zJV9f232tcxUKtNGKa9OlssYKWgdkW+JjX39oYZidqjalTO1SRIdXABGUD0DHKd
+	KHr7XtuVW00hvhEeeu6DEqb5zFX2nA+aH0811PR3K+UYY1eizKFoAvWP+iAqEmGYufgjaIvJYS0iM
+	GWxxG3kL9SvRh8+36OYfAUBfcy1HnvxXM02jaxeq1/zNuZThxXtmJO5+2z5qQkqF53oUTbeL2pLkV
+	JpBHBLjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9lhs-00000009rza-2exn;
-	Tue, 29 Apr 2025 14:13:08 +0000
-Received: from mail-am6eur05on20621.outbound.protection.outlook.com ([2a01:111:f403:2612::621] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1u9lhv-00000009s2R-0YJ7;
+	Tue, 29 Apr 2025 14:13:11 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9jnb-00000009cJM-1DAe;
-	Tue, 29 Apr 2025 12:10:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iJlmkN1PFjPF05D6veHHgBaW6KyqFsOPSkJnWE0SGL2ru5JWSk9z6g+Zg+VWSnnd6GYV2wVwRhp5h0LI1p53pe/E1FCtRu837SJonJbliafw3C46FXsMPpHKEly9uKOv4YLjzo1PoNyqYmsqD/z/cXcrd7DJIzRvfvpOfMPRmn3yNvx14gFgz8zNvYcqLLOBRZ8wvXRguMle2KYJJuUemNrgScFEq5pxM2EGBZvLa0HhJFwjKA9kn3MbKvY4NU0ehQUN2qfbExDXUliw4rc3+9A8RHsOsL7GCiTfVkQ6c1BNRoOgdYmHvP08QAv3FNG4+MOxNfUmRMSLtxQ64YWYAg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yPyK7OPmSGzm3Zze+gdNib98ih182Uy40k26euou3/s=;
- b=kM5sJRWn8a5nGSZ181oQo8I5PhCw8EUMD2kwBWDJ3hfDlKcNdCCRUV6gUt/ZjMi4v6DMdq1iCnNRlJP/x93Q4s0TCBEL/e0I9YaVRNOqgujjVmI9W0mPv5qXhAJ/o8xLIbNH5QkUGauZ9zPnfrxo/Fm/lhv+MDTCjKO5Lj+tWi0Vg8nq5IH8JiF9glKfj0O3qwQgGfzKkMGBQ7ErZtcnew2+voPSTVVxbY7yVMk0SOPdS35xnkGrx5DspxmnPE6zoZvEYMdul/AR6ByIVMLyDTYABx9Lt/XgimdUrq6BICXAycYNAtovsOUYCiK06M7UPnOv/qhguN8tJPyzSOYdCA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yPyK7OPmSGzm3Zze+gdNib98ih182Uy40k26euou3/s=;
- b=IewqNolD/0TdU3wkAog5pjGKvpElMGmIKv0VhwTADUDxbmAElYXdL8RTXi0AP4/Zbqyn1R5wnboqXioqET3HrBCXY3VkZJJY3edvhOi4UpJfC2JpNCKi9/v3vjk4BkSUsSJc0+147IluLt2sIlMfKkcOb5IEenlbuCbMWit2dU/wb4EyH1cNydGYadZ7V4mX+E7DV3j75U3sXEdFGJBAyAD+1um5QqxCYPV4Lp7yq4ic8S63mBF+o2IDMCx/u4kFP/ZqGb99C4XR17IbHGvFPThA5P5cl1QYZKgfBiAABfKUvr+RwaIuqbvuOy86ceqXDmMBh2GbcCET1RhZwqEwNA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by VI2PR04MB10690.eurprd04.prod.outlook.com (2603:10a6:800:279::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.31; Tue, 29 Apr
- 2025 12:10:48 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8678.028; Tue, 29 Apr 2025
- 12:10:48 +0000
-Date: Tue, 29 Apr 2025 08:10:39 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Xu Yang <xu.yang_2@nxp.com>
-Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	jun.li@nxp.com, alexander.stein@ew.tq-group.com,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 1/3] dt-bindings: phy: imx8mq-usb: improve some tuning
- properties
-Message-ID: <aBDBvzA11/NXPAbD@lizhi-Precision-Tower-5810>
-References: <20250429033009.2388291-1-xu.yang_2@nxp.com>
- <aBBpzljSQEnQwlvU@lizhi-Precision-Tower-5810>
- <20250429062640.cqqtkp3vwkd5a2gp@hippo>
+	id 1u9kG4-00000009fWW-00vh
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Apr 2025 12:40:21 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2264c9d0295so118055ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 05:40:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1745930419; x=1746535219; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=hhyBzxR8NyUZrkIJH4pc7IFsAn1vSN/LWAh25/3km3g=;
+        b=y88GIe2oKnf++B5HwvYIsS9gE0QrpoAg68HzY8NdWXYjaZ45JJqlA4MczxmPAax4Ho
+         iNVAUrTI8lTT8H+usJWVh6alDXbA9WVME6aGJmwjBIGYn4AU/X0PVvTTux9vS24aTptp
+         YJs+Yb9HS4Qsu8xaLcjxJKSXxS805P8Fh4Oc0skzIlkcNj4CrhbLmqd1ceB9XY55IcFs
+         XYZvXgYGkH9aJLJPPfwf2B1wCt2Z6n611cWeUbnPMJMCDWyDyw6ENTD7fTOrmh0CXTk0
+         oG++9PUrz0Vmml/Bv7XLBm10rxN3Zwpavi1OsrmzvtIMXntH0Cb0WKibUQmG9X0qmfcf
+         NZ6g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745930419; x=1746535219;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hhyBzxR8NyUZrkIJH4pc7IFsAn1vSN/LWAh25/3km3g=;
+        b=RPtj72flr81ptrE1VZHAZaUkxOufrG2JXPFN46b797APyLBsy+zQ+H7TdBzc6/soZA
+         fFS4te1f+ajzxmCO/iaKnK/haRsVlC5+0cqrUa9vBHpVYewLGM0NHQtQEbIBFMgZKz7K
+         pqxlslavAa5scMlzDxAZiHD6Xco5OEQLEQLitwM92wuShphmgT9PuTNJEMNdWqiHxzqD
+         8rCE455R9k/na4pRPRjArDvp6rxspqhypii8QnOTIdIbEQbCofj/FyAPzJECw2x+eFcf
+         FTdmUzI0n0xh8f0Dyspeo6H6aS37dmkeOZ5dkkuzCdAqGbtUn3oT8auLggcuLjLPHYTH
+         6OZg==
+X-Forwarded-Encrypted: i=1; AJvYcCWy6lzvZhd5dxA6NDrijo70ryeBa75wGQMFLV9bB9Zxz5XjxjHc8tOlfNNPqJNHHuSrHLSCYXZbbn0xXVbbMJc+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx/Kw5XxBxH8vw0y6su5s8YkH0fHOuDaFVVO42IemCR/ttLssYA
+	/1O+zkI6Wsul5OERytcwvr9bSxcYRmUrsXiKrghW0e7Ij2lqH3UiHjxXdxQBJQ==
+X-Gm-Gg: ASbGncsRFGn+Xbq2N+X6p4bfqhLanKIM1av/efENJMKGQ5CFV2Z0xsBnotzq83P733I
+	aFiaTTI1Sbw9PFJ42Hr3d4k95qbfzWO1X3v1v0fwnHS/xJKGxuetFLo2PLDjY9C4JDn13vkwJAM
+	gDyQ3JBf0LSmI5ORGKVcoNyD/JUpuQGU5vjO+2rust/dkNAJclc6rog7dAU8cwBD8Y7kLT3bT2W
+	bK7EeNmWJpf2zrTs+6I5mpfl76RAplk3MwleFNqQuSzjRbEIOfpLBiQo9cZvNRDyZt8IwnDuY9I
+	shLHS4UZCUf8DwByslz3KQUuskdzqEW/1d77vFZHAvxfDFD/VUcTaDAVChPtet1RjtQcmaGE
+X-Google-Smtp-Source: AGHT+IH/V/T2eUYQJIXG2EPtw/1cOV7MQT9tuyQOLSioTulIDCv1mtnsV9bjGKGjf9rlwz1NRxgL8g==
+X-Received: by 2002:a17:902:e786:b0:216:201e:1b63 with SMTP id d9443c01a7336-22de85f23admr2173255ad.11.1745930418710;
+        Tue, 29 Apr 2025 05:40:18 -0700 (PDT)
+Received: from google.com (2.210.143.34.bc.googleusercontent.com. [34.143.210.2])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73e25acd2fcsm10065488b3a.179.2025.04.29.05.40.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Apr 2025 05:40:18 -0700 (PDT)
+Date: Tue, 29 Apr 2025 12:40:07 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
+	bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
+	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
+	shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
+	peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
+	zhangzekun11@huawei.com, iommu@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
+	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com
+Subject: Re: [PATCH v2 11/22] iommufd: Add for-driver helpers
+ iommufd_vcmdq_depend/undepend()
+Message-ID: <aBDIpz7w8wxIn_AF@google.com>
+References: <cover.1745646960.git.nicolinc@nvidia.com>
+ <a25c9454c17663f9e79b37bc2908bf3a99856be6.1745646960.git.nicolinc@nvidia.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250429062640.cqqtkp3vwkd5a2gp@hippo>
-X-ClientProxiedBy: PH7P220CA0042.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:32b::25) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|VI2PR04MB10690:EE_
-X-MS-Office365-Filtering-Correlation-Id: ffc16d84-f98f-4923-6dc6-08dd8716dfbe
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Nd6ca5ONEL7xbQDNNEsfs9iMDL+7NhZLQTBfvEU5f/fHliS0CTskPMwDGcTa?=
- =?us-ascii?Q?7q6YWVOJJEjavWcHSAhTNoy9M30wqxD8g5tRO4wey+mbKbdfL2FAlf/GPb09?=
- =?us-ascii?Q?tXhsyzHmYe29QOlSE/ODKZIoFlH9ALIEDH1bA+emUPV/LCl+4MmEtUon75yP?=
- =?us-ascii?Q?IKOyCE3L4zgOkDtKAG3eavzGB/SoshF8BZ3kkoApk+jQROLSCJLX4s1ikALv?=
- =?us-ascii?Q?htI6H8NC3BwtrZ3k17tD8jI8xSqdwiGNrvbPstAWVUIvEOsDkK+kXemMb5zl?=
- =?us-ascii?Q?jx1lONgrvOA+gjz9x9IxKFAizarOZp+LPprcfso3jXyvdmO8cItkobgYpZ4J?=
- =?us-ascii?Q?evQrzeOXnmX5IPi2GW860dI5tsJeIzLXzeK6ka2Ri2Q14QHwiZN88aKZnorS?=
- =?us-ascii?Q?HRw+nWUS96CmfcMKbYTdQzrkoIJlrw/saB1/pAuVyhptzNZT2gkm4M5WgDrh?=
- =?us-ascii?Q?Ttbp8aZssalB7rHjnFzE3HFpW8gbpNu1h0Q5/4VptZR4iV8FBoDN180AWXKI?=
- =?us-ascii?Q?QnL7FQYaGfqDIxLDcuWu4g3WxT0puvm1dMrM93etffdCp3wwF2JHiEhllZn7?=
- =?us-ascii?Q?1Fp1RzOMHCwbeIcLsB+JLe8t3XyMu4jNfPo8dvpqNiYCvk6UWjy6lcxZ7gHf?=
- =?us-ascii?Q?VlzsU2rO0B5TGmX4rqzbFvCM4yGJaYpN9Dwpj+x9rTXlumrxfAOPgcnR9/J5?=
- =?us-ascii?Q?VkYFFcfK0PIgkN0qr2V/dcNBsEzt1oMRXb5tQ2xWxntcDEcw5Xy9g0Krs9g/?=
- =?us-ascii?Q?6yK+zfO8hMKufwBGT7lNmFHfaExCbvDsxcS+qLc/QSxViQFO6HmuM8LVJVR+?=
- =?us-ascii?Q?SiwqRYozJ/+psbVGystcUYQI0wRawgxWr/sTZitYgg7Sd9WXpEFv+OjI/bDy?=
- =?us-ascii?Q?beRK2jAD3uq7ZKKfAMZpox3nKklzmvziUvqO9/teFdI5QidDmREyel5ZJJ6L?=
- =?us-ascii?Q?M4uo63YTrrpmq1NcUzd3n7zvTzEELp+9/ixe5ndaiyMjWjlkwbVaZxV5UgZU?=
- =?us-ascii?Q?riCnA5DHlnXe84lEOG0jbwmpwvKoWG3nRX8PvtnDGcMm8vvizDVi/C8W7r2e?=
- =?us-ascii?Q?GwrG4uLEI7I2mqhZW/9KJNW78rfqlT5k1t+ynb41jCekK9dGRnMEQ6lb4GOy?=
- =?us-ascii?Q?YmSf9+aOMfluR9tN2+8TOiYEixX4WJWZFrmWvfClXT6hqKrgmWcCrouug1UK?=
- =?us-ascii?Q?ng5GSAQhqZnhGTON3rKnV1VLrdkiq+Hu8wQ0a8xMZ99SQdlYe2u8D8JFD3pn?=
- =?us-ascii?Q?pvaFdgWr8wRBEOrsABNk2T70G/Kx99CLXwW5ZFr4pHbSv9NHwUlXB9b4Tdx9?=
- =?us-ascii?Q?DBjBBEAECulGC/kREG3lfEyNndES9ceu+dvPLHAVlqRwuRikcNinKmNmqMw9?=
- =?us-ascii?Q?k/ZP2swv5lVbiaS0Wk2pewG+/8hGB/QsBTaPBH1yLFRc3iFRjU1J1EGOoJge?=
- =?us-ascii?Q?/lOS3FDWP2Z29nAn9S5sjEe/qyav8B+bSkSJQ+bckZMEUAwnbdxpHw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?r64rL8V5oePMgepRCFyTLufIuX1xQAQDOw9momEG133dZJoA1IHbnXRzYNAx?=
- =?us-ascii?Q?LNpwAAtkoCze1veql2uvs0FSQFEhQVgWvcGI8ykuEMd05vhvaGDuK/DnVfLI?=
- =?us-ascii?Q?Oz6m+mMc0odop8g86/BQKW24wsJNarYuLPxruvv2voUIFNNVfQGE0NTT1R6Z?=
- =?us-ascii?Q?pgRuhEKtqKsqN1R1GCQilTT0HoONJfr+5pZK0v5583y80w7maReu9K7ArmF8?=
- =?us-ascii?Q?XSbiopUCdCi8ZyEyo67n/vORIyWGVpjbUbJsQiNzpkXRslSZNIHFgLNCla91?=
- =?us-ascii?Q?oMe2onsTqvQwHEmR94F00CTxYJT1Kpeo+T/soLQHM2BP5lsXOPZnuNUhsgae?=
- =?us-ascii?Q?29wV/3VaIt9zw+50zdwNjR+UGmtkYr6/VMJcIavgy4ONOsVBQXcHOWpa+2dj?=
- =?us-ascii?Q?DB1n/z9y+8pJiJDe8Zi6XPVoyvoolqxKKLdeDmLtUOKRb5nHKRaHwmH2LT04?=
- =?us-ascii?Q?5W8d4XqklSWCy1Hfku6Ts6JM0yNGJMQNv25/spUpRdh1ytQYT+eyz2xI2xsb?=
- =?us-ascii?Q?uIM7t0Iyhzy2bC1BRUnj3P9sJWp9Pjrp3AEKHgd2UkiToWkf9y+Pd6oRUVbY?=
- =?us-ascii?Q?ZpxrTeWr9kznmm/2gRutXCx2mH2A4klQr1RrZ81Ue6jObFRmcdsz3R7PqXSe?=
- =?us-ascii?Q?0aBAeQLFnPiEB00xFq1wkq6QlpRrUHo4kPuQ8GpMxKsIFquhCmpqYnndqrpY?=
- =?us-ascii?Q?C60nVSj6xvps6EEScf6DrWogGqyKrPzYP5pt8muvl1yEUOW6dQbCbhg2qAd3?=
- =?us-ascii?Q?sFu5hAapC97Ol3J6NPzYrigN8kBgO6Mtr4jEaerB3w54XBWoLoPuMXRerLUc?=
- =?us-ascii?Q?weParw6xEJfvdNQind2HqLlfm2fKCcdnCEFz1wQeEDYe5yeoH8cZS1n0tTus?=
- =?us-ascii?Q?ItHobTmaP5IyLnllDPGJFEtzgsD27m7V3YpnLRnEfV1GAmfHUZc8cXPJhqo3?=
- =?us-ascii?Q?qSJksF/ICXdFDWrmSO8Z7KLeTw94g/Np3zdZ+eBbLwTfQv32jQtZ8+OwUodR?=
- =?us-ascii?Q?2xcDYG2TQZowSUpSLF82IDExgS+ES1tHWEPexuhWjARbeuGosHOT9WdYxJ8c?=
- =?us-ascii?Q?W12AI7bPd8Q9WbY7rYYnnnQEUe2fJvKlT/wjfNwVqeTl9Fl7pV1xttsiulYu?=
- =?us-ascii?Q?qFHUnmzfQF3fdWA+0znc4SA2aU8bdLvRsOkvtTDuo7E1xgEGFg0Anm93jd13?=
- =?us-ascii?Q?6JQRMP9NI0OEM4zlYCLRSIFhcdrET6vKoGKLRKPrsyiVPXXJnNGL6J5mve2K?=
- =?us-ascii?Q?xQds12RHMuNVep6h2bOdbWXpjJX+Ol8If7/lEgdhkg+lzV6p1rwRCl9ArJZa?=
- =?us-ascii?Q?x0sRP9nhiGQG3tITcPnVNSGMz+qvN77zeGdw7z9rIWisS7AaX0ruuDzi/6Dg?=
- =?us-ascii?Q?uJqmkM3yEJpZCNSCgIk9FAM4a3ZH7ftKo7GRIzYqxAG8Sx5EJAiR4RdV/cSy?=
- =?us-ascii?Q?tz8n2f1rLCtwJUDSCgSOR5owFlTCkqK+iGp9/RRtNb9lsw4SAfBwYoyarQVy?=
- =?us-ascii?Q?rlerp7R/8sBMp8V1M0FkdOIAtifb/7i/hgi6qJgJkxBEv6lh6PXahicNYHbs?=
- =?us-ascii?Q?qPfudjFurNhR2Knjp9Y=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ffc16d84-f98f-4923-6dc6-08dd8716dfbe
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Apr 2025 12:10:47.3020
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: t6rbLrnlArNI/vC3Tm8KO7xdzwiboA7DK8Y7r52FUiv+orU0P78sT5eSsbN1oz40GHcCiBJSYlx+cPcQcOtvWw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10690
+In-Reply-To: <a25c9454c17663f9e79b37bc2908bf3a99856be6.1745646960.git.nicolinc@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_051055_478686_724D1423 
-X-CRM114-Status: GOOD (  34.80  )
+X-CRM114-CacheID: sfid-20250429_054020_071651_D97F0ED7 
+X-CRM114-Status: GOOD (  31.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,182 +106,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 29, 2025 at 02:26:40PM +0800, Xu Yang wrote:
-> Hi Frank,
->
-> On Tue, Apr 29, 2025 at 01:55:26AM -0400, Frank Li wrote:
-> > On Tue, Apr 29, 2025 at 11:30:07AM +0800, Xu Yang wrote:
-> > > Commit b2e75563dc39 ("dt-bindings: phy: imx8mq-usb: add phy tuning
-> > > properties") add many tuning properties, but some parameter value doesn't
-> > > match the register description. It made some changes based on the original
-> > > value: add offset to a negative number so turn it to a non-negative number.
-> > > However, it's not easy to find an exact tuning value from register field
-> > > with such conversion.
-> > >
-> > > Because device-tree supports negative parameter number, this will improve
-> > > some propertie's parameter.
-> > >
-> > > Mainly include below properties:
-> > >  - fsl,phy-tx-vref-tune-percent
-> > >  - fsl,phy-tx-rise-tune-percent
-> > >  - fsl,phy-comp-dis-tune-percent
-> >
-> > It should be standard unit. for example 0% to 100%. DT don't prefer you
-> > direct use register value.
->
-> Yes. The dtschema and driver already use standard unit.
-> This patch is going to correct the unintuitive expression.
->
-> Take tx-rise-tune as example, register field as below:
->
-> 		00b - + 3%
->  [21:20]	01b - 0 (default)
-> TXRISETUNE	10b - - 1%
-> 		11b - - 3%
->
-> The valid value of tx-rise-tune is [-3%, +3%]. However, the current dtschema
-> add an offset which caused the valid value to [97%, 103%].
->
+On Fri, Apr 25, 2025 at 10:58:06PM -0700, Nicolin Chen wrote:
+> NVIDIA Virtual Command Queue is one of the iommufd users exposing vIOMMU
+> features to user space VMs. Its hardware has a strict rule when mapping
+> and unmapping multiple global CMDQVs to/from a VM-owned VINTF, requiring
+> mappings in ascending order and unmappings in descending order.
+> 
+> The tegra241-cmdqv driver can apply the rule for a mapping in the LVCMDQ
+> allocation handler, however it can't do the same for an unmapping since
+> the destroy op returns void.
+> 
+> Add iommufd_vcmdq_depend/undepend() for-driver helpers, allowing LVCMDQ
+> allocator to refcount_inc() a sibling LVCMDQ object and LVCMDQ destroyer
+> to refcount_dec().
+> 
+> This is a bit of compromise, because a driver might end up with abusing
+> the API that deadlocks the objects. So restrict the API to a dependency
+> between two driver-allocated objects of the same type, as iommufd would
+> unlikely build any core-level dependency in this case.
+> 
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+>  include/linux/iommufd.h        | 47 ++++++++++++++++++++++++++++++++++
+>  drivers/iommu/iommufd/driver.c | 28 ++++++++++++++++++++
+>  2 files changed, 75 insertions(+)
+> 
+> diff --git a/include/linux/iommufd.h b/include/linux/iommufd.h
+> index e91381aaec5a..5dff154e8ce1 100644
+> --- a/include/linux/iommufd.h
+> +++ b/include/linux/iommufd.h
+> @@ -232,6 +232,10 @@ struct iommufd_object *_iommufd_object_alloc(struct iommufd_ctx *ictx,
+>  					     size_t size,
+>  					     enum iommufd_object_type type);
+>  void iommufd_object_abort(struct iommufd_ctx *ictx, struct iommufd_object *obj);
+> +int iommufd_object_depend(struct iommufd_object *obj_dependent,
+> +			  struct iommufd_object *obj_depended);
+> +void iommufd_object_undepend(struct iommufd_object *obj_dependent,
+> +			     struct iommufd_object *obj_depended);
+>  struct device *iommufd_viommu_find_dev(struct iommufd_viommu *viommu,
+>  				       unsigned long vdev_id);
+>  int iommufd_viommu_get_vdev_id(struct iommufd_viommu *viommu,
+> @@ -252,6 +256,17 @@ static inline void iommufd_object_abort(struct iommufd_ctx *ictx,
+>  {
+>  }
+>  
+> +static inline int iommufd_object_depend(struct iommufd_object *obj_dependent,
+> +					struct iommufd_object *obj_depended)
+> +{
+> +	return -EOPNOTSUPP;
+> +}
+> +
+> +static inline void iommufd_object_undepend(struct iommufd_object *obj_dependent,
+> +					   struct iommufd_object *obj_depended)
+> +{
+> +}
+> +
+>  static inline struct device *
+>  iommufd_viommu_find_dev(struct iommufd_viommu *viommu, unsigned long vdev_id)
+>  {
+> @@ -329,4 +344,36 @@ static inline int iommufd_viommu_report_event(struct iommufd_viommu *viommu,
+>  		static_assert(offsetof(typeof(*drv_struct), member.obj) == 0); \
+>  		iommufd_object_abort(ictx, &drv_struct->member.obj);           \
+>  	})
+> +
+> +/*
+> + * Helpers for IOMMU driver to build/destroy a dependency between two sibling
+> + * structures created by one of the allocators above
+> + */
+> +#define iommufd_vcmdq_depend(vcmdq_dependent, vcmdq_depended, member)          \
+> +	({                                                                     \
+> +		static_assert(__same_type(struct iommufd_object,               \
+> +					  vcmdq_dependent->member.obj));       \
+> +		static_assert(offsetof(typeof(*vcmdq_dependent),               \
+> +					      member.obj) == 0);               \
+> +		static_assert(__same_type(struct iommufd_object,               \
+> +					  vcmdq_depended->member.obj));        \
+> +		static_assert(offsetof(typeof(*vcmdq_depended),                \
+> +					      member.obj) == 0);               \
+> +		iommufd_object_depend(&vcmdq_dependent->member.obj,            \
+> +				      &vcmdq_depended->member.obj);            \
+> +	})
+> +
+> +#define iommufd_vcmdq_undepend(vcmdq_dependent, vcmdq_depended, member)        \
+> +	({                                                                     \
+> +		static_assert(__same_type(struct iommufd_object,               \
+> +					  vcmdq_dependent->member.obj));       \
+> +		static_assert(offsetof(typeof(*vcmdq_dependent),               \
+> +					      member.obj) == 0);               \
+> +		static_assert(__same_type(struct iommufd_object,               \
+> +					  vcmdq_depended->member.obj));        \
+> +		static_assert(offsetof(typeof(*vcmdq_depended),                \
+> +					      member.obj) == 0);               \
+> +		iommufd_object_undepend(&vcmdq_dependent->member.obj,          \
+> +					&vcmdq_depended->member.obj);          \
+> +	})
+>  #endif
+> diff --git a/drivers/iommu/iommufd/driver.c b/drivers/iommu/iommufd/driver.c
+> index 7980a09761c2..fb7f8fe40f95 100644
+> --- a/drivers/iommu/iommufd/driver.c
+> +++ b/drivers/iommu/iommufd/driver.c
+> @@ -50,6 +50,34 @@ void iommufd_object_abort(struct iommufd_ctx *ictx, struct iommufd_object *obj)
+>  }
+>  EXPORT_SYMBOL_NS_GPL(iommufd_object_abort, "IOMMUFD");
+>  
+> +/* A per-structure helper is available in include/linux/iommufd.h */
+> +int iommufd_object_depend(struct iommufd_object *obj_dependent,
+> +			  struct iommufd_object *obj_depended)
+> +{
+> +	/* Reject self dependency that dead locks */
+> +	if (obj_dependent == obj_depended)
+> +		return -EINVAL;
+> +	/* Only support dependency between two objects of the same type */
+> +	if (obj_dependent->type != obj_depended->type)
+> +		return -EINVAL;
+> +
+> +	refcount_inc(&obj_depended->users);
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL_NS_GPL(iommufd_object_depend, "IOMMUFD");
+> +
+> +/* A per-structure helper is available in include/linux/iommufd.h */
+> +void iommufd_object_undepend(struct iommufd_object *obj_dependent,
+> +			     struct iommufd_object *obj_depended)
+> +{
+> +	if (WARN_ON_ONCE(obj_dependent == obj_depended ||
+> +			 obj_dependent->type != obj_depended->type))
+> +		return;
+> +
+> +	refcount_dec(&obj_depended->users);
+> +}
+> +EXPORT_SYMBOL_NS_GPL(iommufd_object_undepend, "IOMMUFD");
+> +
+>  /* Caller should xa_lock(&viommu->vdevs) to protect the return value */
+>  struct device *iommufd_viommu_find_dev(struct iommufd_viommu *viommu,
+>  				       unsigned long vdev_id)
 
-I think [97%, 103%] make sense.  (Normal value) * (fsl,phy-tx-vref-tune-percent)
+If I'm getting this right, I think we are setting up dependencies like:
+vcmdq[2] -> vcmdq[1] -> vcmdq[0] based on refcounts of each object,
+which ensures that the unmaps happen in descending order..
 
-Your formual will be (Normal value) * (100% + fsl,phy-tx-vref-tune-percent)
+If that's right, Is it fair to have iommufd_vcmdq_depend/undepend in the
+core code itself? Since it's a driver-level limitation, I think we
+should just have iommufd_object_depend/undepend in the core code and the
+iommufd_vcmdq_depend/undepend can move into the CMDQV driver?
 
-DT scheme don't care register implement.
+> -- 
+> 2.43.0
+> 
 
-Frank
-
-
-> fsl,phy-tx-rise-tune-percent:
->   minimum: 97
->   maximum: 103
->
-> When I first added tuning property to DTS, I thought I was reading the wrong
-> dtschema. Other users may meet such confuse too.
->
-> Thanks,
-> Xu Yang
->
-> >
-> > Frank
-> >
-> > >
-> > > The parameter value of above 3 properties are USB PHY specific. i.MX8MP
-> > > and i.MX95 USB PHY has different meanings. So this add restrictions for
-> > > them.
-> > >
-> > >  - fsl,phy-tx-vboost-level-microvolt
-> > >
-> > > For this property, the parameter value is wrong in register description.
-> > > This will correct it according to true value.
-> > >
-> > > For detailed info, please refer to i.MX8MP and i.MX95 latest reference
-> > > manual.
-> > >
-> > > Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
-> > >
-> > > ---
-> > > Changes in v2:
-> > >  - keep widest constraints
-> > >  - use multipleOf for some properties
-> > > ---
-> > >  .../bindings/phy/fsl,imx8mq-usb-phy.yaml      | 60 +++++++++++++++----
-> > >  1 file changed, 49 insertions(+), 11 deletions(-)
-> > >
-> > > diff --git a/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml b/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
-> > > index daee0c0fc915..71e5940ef4b8 100644
-> > > --- a/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
-> > > +++ b/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
-> > > @@ -42,16 +42,17 @@ properties:
-> > >
-> > >    fsl,phy-tx-vref-tune-percent:
-> > >      description:
-> > > -      Tunes the HS DC level relative to the nominal level
-> > > -    minimum: 94
-> > > -    maximum: 124
-> > > +      Tunes the HS DC level relative to the nominal level. It varies
-> > > +      between different PHY versions
-> > > +    minimum: -1000
-> > > +    maximum: 875
-> > >
-> > >    fsl,phy-tx-rise-tune-percent:
-> > >      description:
-> > >        Adjusts the rise/fall time duration of the HS waveform relative to
-> > > -      its nominal value
-> > > -    minimum: 97
-> > > -    maximum: 103
-> > > +      its nominal value. It varies between different PHY versions
-> > > +    minimum: -10
-> > > +    maximum: 20
-> > >
-> > >    fsl,phy-tx-preemp-amp-tune-microamp:
-> > >      description:
-> > > @@ -63,15 +64,14 @@ properties:
-> > >    fsl,phy-tx-vboost-level-microvolt:
-> > >      description:
-> > >        Adjust the boosted transmit launch pk-pk differential amplitude
-> > > -    minimum: 880
-> > > -    maximum: 1120
-> > > +    enum: [844, 1008, 1156]
-> > >
-> > >    fsl,phy-comp-dis-tune-percent:
-> > >      description:
-> > >        Adjust the voltage level used to detect a disconnect event at the host
-> > > -      relative to the nominal value
-> > > -    minimum: 91
-> > > -    maximum: 115
-> > > +      relative to the nominal value. It varies between different PHY versions
-> > > +    minimum: -60
-> > > +    maximum: 45
-> > >
-> > >    fsl,phy-pcs-tx-deemph-3p5db-attenuation-db:
-> > >      description:
-> > > @@ -112,6 +112,44 @@ allOf:
-> > >          reg:
-> > >            maxItems: 1
-> > >
-> > > +  - if:
-> > > +      properties:
-> > > +        compatible:
-> > > +          enum:
-> > > +            - fsl,imx8mq-usb-phy
-> > > +            - fsl,imx8mp-usb-phy
-> > > +    then:
-> > > +      properties:
-> > > +        fsl,phy-tx-vref-tune-percent:
-> > > +          minimum: -6
-> > > +          maximum: 24
-> > > +          multipleOf: 2
-> > > +        fsl,phy-tx-rise-tune-percent:
-> > > +          enum: [-3, -1, 0, 3]
-> > > +        fsl,phy-comp-dis-tune-percent:
-> > > +          enum: [-9, -6, -3, 0, 4, 7, 11, 15]
-> > > +
-> > > +  - if:
-> > > +      properties:
-> > > +        compatible:
-> > > +          contains:
-> > > +            enum:
-> > > +              - fsl,imx95-usb-phy
-> > > +    then:
-> > > +      properties:
-> > > +        fsl,phy-tx-vref-tune-percent:
-> > > +          description: 100x the original
-> > > +          minimum: -1000
-> > > +          maximum: 875
-> > > +          multipleOf: 125
-> > > +        fsl,phy-tx-rise-tune-percent:
-> > > +          enum: [-10, 0, 15, 20]
-> > > +        fsl,phy-comp-dis-tune-percent:
-> > > +          description: 10x the original
-> > > +          minimum: -60
-> > > +          maximum: 45
-> > > +          multipleOf: 15
-> > > +
-> > >    - if:
-> > >        required:
-> > >          - orientation-switch
-> > > --
-> > > 2.34.1
-> > >
+Thanks,
+Praan
 
