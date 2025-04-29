@@ -4,93 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF4A5C3ABAB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 14:14:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29BD1C3ABA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 14:14:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y26J0iAJoKCmJNS38dntVfyxrAVGftlCnn+OgGntO2A=; b=Bp/6X0NdUmg2N5FNJDw7rJ7t07
-	KnhQ8G9uTyhb3ItQLBb6W8PfkU6RRcMsFYL69JYbDrTiLzgeURx4AFI7M4R+WR6Z0GiCrYdQuymFK
-	HcX+uJh5QkJrguqClbBpv91kLRfSvHMFCx1e1+NKHpk8Pbva/8M0jKRfgGQRjxVFcAOp+s8zK2Qlz
-	Otd8QC8PS11jNRarbXxUyw+ZLY5aHjOLVVNBDChjtYIS6P5Mw0HqPFO2kUmpzv6BQ+Zxzjj4AXcdq
-	NZbUUr+RUQpJfwnsIG0hPkTYCv75ddlNdnqbvitLYnSI/2FmXEuy4yQnWm3bMztPghThzGBrY8Omt
-	0cgq+cnQ==;
+	bh=57S3Y4tVlca4Dw5c6G5OvN38Kpt5Qx2pAqXhp0W85aI=; b=StxQRrhNJelE9Kz4GF/SBTWbyj
+	7OlnqNb2tkgm9z09aRmyy2LUI09J9zLkOcbu+1OoFHRPadrdBSx7Dt+tytCrTq53XgHypgnx42OXn
+	WrtPIbmN1qBOlaIL9RvqytUk6hj+926rFW7alDEXW7ZTbMRL5hodqOTjpFx/rBvgucV2/DZ42R5fb
+	G3GNw0KW/8wrRXTuHZj9o2vv81Br44LCy1gwXnoLkGzl4Hs+AzYnbVFguzYEg8OpZDXGJxHksU22j
+	Je7srTxQ0n10Do8AgJcxDLMS4M8RDzMNyQEsNg031RIPQWez6XLipGP94I+R/4e/hmmqXnwl0Cckz
+	9zZZo3fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9liw-00000009toa-21uU;
-	Tue, 29 Apr 2025 14:14:14 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1u9lj0-00000009tvd-0eFu;
+	Tue, 29 Apr 2025 14:14:18 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9lA5-00000009nNB-1g05
+	id 1u9lLB-00000009ooS-0co7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 13:38:14 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-ac2963dc379so888542166b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 06:38:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745933891; x=1746538691; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Y26J0iAJoKCmJNS38dntVfyxrAVGftlCnn+OgGntO2A=;
-        b=GUSkSAkG/RhD90csKbBFjaQNC+JuwOv4o7WqzOitBdlNpgACs39jeHb7CS6XY4kRlT
-         jr85oS60x3Z9o3c66sZQzSyxVNNZSfE0ANE5dHhapM9zsblMOnnzUnxUuzqpvgnbZkGz
-         P9lPPqNenLo7//o60kG2y1Grxw8G4ldlNNTsocCNazhVHXKiqpv2UARbWTjrEfN6rKjx
-         TzWW5+WVAnowbr3AVFV3Jg4k4hkEa0CWhdZqyIWQwtpsyfL8caEpRozdjTY3PHlfHniv
-         AANIwNBSLMKgsVuooIT0i8VA/h+Ujv23ZxkG2ccQmISFn6DQp454OK7sXtBiHsDDVWKZ
-         QPNA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745933891; x=1746538691;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Y26J0iAJoKCmJNS38dntVfyxrAVGftlCnn+OgGntO2A=;
-        b=Htuo0ErYZs2Pr8BeSjXGgyhCIt8oqzzhLnh0fHCoH3aMeGKU1tN69BqssxDlp4RvMg
-         Iaj0Dm8MjzN5pXqk5WCk7VTTTh6o5I+4/YwsSOeAExXWkum4/RtwmJKT0ZpYqnea2t7o
-         vTZpGzextg9pkl5Hm6XY1aGqW2oS2maa4/yR8rnAluwJHWuoyFSL7CBic2tIlC//fNpu
-         5LWHIcvIR2vPZbLPw6x65Aipfb1slQ0UWLDRQsF/tXxJ6EidOz39hg163YwyUH/L9ovi
-         K6Cq60HhLhV+ZKaky4c73Ikib6YVJSL9MDOza6vOYPStjIVenqWjycr6Ze6nkVCFhlag
-         fEpg==
-X-Forwarded-Encrypted: i=1; AJvYcCVE/emnkqNs87hg2aOQ3JNYsgMngv0YgZbfYe+4VpeMJDVePKhovhHU3BZZnVZC4GS/0tEtl7BVX6UyuoZxTKCE@lists.infradead.org
-X-Gm-Message-State: AOJu0YxKiVul54lfydzTyRvuMpV9dk81sU/xgQwUWOvqO2b4mlgDh13P
-	4ZdgxibvcsfOIyjF5bvecRiAFNu1EpvY5teDRvTwn9tctrmBBTzh
-X-Gm-Gg: ASbGncvAkRSGzM0BwYYCgvkOdWJaAi2TR5VtKLnb9FM9n3Mx5Q8hqGMhw2pnTns9OwA
-	SapfYamUkDf7wppyA93OopJlG8oX8B7Vyd5WJEsxYrI9QCN6WailXv6eeKFncCpdvQ0DS1Iqmm6
-	jsxPbtLCX3jUFrpgwNaKFY6L5daJ3APYrnxbfVRhCVuy9nT0S2DZfgNOC8/BIk6ueRr0KwsR+xz
-	I3kDPVTtM/UAthQtpiUYRhVUBzSWSu3LeDcv1eoTnyZ7XG3ef6WLA0LZoeQJSi1jmtLH40xScHy
-	ruPcVQAkCwwB6mH5ooATQwmynC7ctXkcawOPi3TZlhBucwBkVXxe7+A=
-X-Google-Smtp-Source: AGHT+IECDUUSwqdQe+jFeZC4zccITFBfdZlwb9V2S+BXUJyiLooaUiYpAnL5q+y3JtdKb9LMa4l5/A==
-X-Received: by 2002:a17:907:97c9:b0:ace:63b0:6f70 with SMTP id a640c23a62f3a-ace84b71607mr1146290666b.61.1745933891105;
-        Tue, 29 Apr 2025 06:38:11 -0700 (PDT)
-Received: from localhost ([217.151.144.138])
-        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-ace6ed72826sm778242466b.154.2025.04.29.06.38.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Apr 2025 06:38:10 -0700 (PDT)
-Date: Tue, 29 Apr 2025 15:37:27 +0200
-From: Oliver Graute <oliver.graute@gmail.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Francesco Dolcini <francesco@dolcini.it>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux@ew.tq-group.com
-Subject: Re: [PATCH 6/6] arm64: dts: imx8qm: Add Ethernet aliases
-Message-ID: <aBDWF4-63M60EwX9@graute-macos>
-References: <20250425-dts-imx-aliases-ethernet-v1-0-15b9d5cca611@linaro.org>
- <20250425-dts-imx-aliases-ethernet-v1-6-15b9d5cca611@linaro.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250425-dts-imx-aliases-ethernet-v1-6-15b9d5cca611@linaro.org>
+	Tue, 29 Apr 2025 13:49:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 774C65C04AF;
+	Tue, 29 Apr 2025 13:47:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42D58C4CEE3;
+	Tue, 29 Apr 2025 13:49:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745934580;
+	bh=B3/QK4Il9/bFKReyINzmP0VuCV66h4eDXoELS2iLT8o=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=BCQ54AOQ0P3jLiyj+3w+/U+Ozru8AXZ3vJ4UPPknNCpINRX5xG2zBuQeAf6+ycX9s
+	 LyaELBBcBOjAVG0BO33HV/GOXXs8QR+pLZ5ZHik3tYdQPp02yDhFP3hNxw2k8Io6Ux
+	 IMdDh+G7oigOC5jGIqOjiyJY/pBKN1cFmKhZIduFmgWzAwOqf3vcpHcIjZTwU9H1QY
+	 ekLSlfFojx8v7OH10vWFdI8Wpn/GQqix7O0ErGYdSKSO11wK3/wag9SEEPOVTTj1sn
+	 ttuC1YQnlR/YRpb2haakKoJtCS099oEw+kMkbsBaAiJkKaSwK0tWGg/zypzcCXAHJz
+	 Xc6sfcEeydGGg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1u9lL7-009vjZ-UB;
+	Tue, 29 Apr 2025 14:49:38 +0100
+Date: Tue, 29 Apr 2025 14:49:37 +0100
+Message-ID: <86h627hyby.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose
+ <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [PATCH v3 24/42] KVM: arm64: Unconditionally configure fine-grain traps
+In-Reply-To: <363383a2-c05e-458c-82b7-acc6e5d73939@arm.com>
+References: <20250426122836.3341523-1-maz@kernel.org>
+	<20250426122836.3341523-25-maz@kernel.org>
+	<363383a2-c05e-458c-82b7-acc6e5d73939@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ben.horgan@arm.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, mark.rutland@arm.com, tabba@google.com, will@kernel.org, catalin.marinas@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_063813_436443_ED0DE666 
-X-CRM114-Status: UNSURE (   8.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250429_064941_282670_81B01C46 
+X-CRM114-Status: GOOD (  22.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,11 +95,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/04/25, Krzysztof Kozlowski wrote:
-> Add Ethernet aliases for predictable names and for firmware or
-> bootloader to fill up MAC address.
+On Tue, 29 Apr 2025 14:08:27 +0100,
+Ben Horgan <ben.horgan@arm.com> wrote:
 > 
-> Suggested-by: Francesco Dolcini <francesco@dolcini.it>
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Reviewed-by: Oliver Graute <oliver.graute@kococonnector.com>
+> Hi Marc,
+> 
+> On 4/26/25 13:28, Marc Zyngier wrote:
+> > From: Mark Rutland <mark.rutland@arm.com>
+> > 
+> > ... otherwise we can inherit the host configuration if this differs from
+> > the KVM configuration.
+> > 
+> > Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> > [maz: simplified a couple of things]
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >   arch/arm64/kvm/hyp/include/hyp/switch.h | 39 ++++++++++---------------
+> >   1 file changed, 15 insertions(+), 24 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> > index 027d05f308f75..925a3288bd5be 100644
+> > --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
+> > +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> > @@ -107,7 +107,8 @@ static inline void __activate_traps_fpsimd32(struct kvm_vcpu *vcpu)
+> >   [...]
+> >     static inline void __deactivate_traps_hfgxtr(struct kvm_vcpu
+> > *vcpu)
+> >   {
+> >   	struct kvm_cpu_context *hctxt = host_data_ptr(host_ctxt);
+> > -	struct kvm *kvm = kern_hyp_va(vcpu->kvm);
+> >     	if (!cpus_have_final_cap(ARM64_HAS_FGT))
+> >   		return;
+> >   -	__deactivate_fgt(hctxt, vcpu, kvm, HFGRTR_EL2);
+> > -	if (cpus_have_final_cap(ARM64_WORKAROUND_AMPERE_AC03_CPU_38))
+> Don't we need to continue considering the ampere errata here? Or, at
+> least worth a mention in the commit message.
+
+The FGT registers are always context switched, so whatever was saved
+*before* the workaround was applied in __activate_traps_hfgxtr() is
+blindly restored...
+
+> > -		write_sysreg_s(ctxt_sys_reg(hctxt, HFGWTR_EL2), SYS_HFGWTR_EL2);
+
+... and this write always happens.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
