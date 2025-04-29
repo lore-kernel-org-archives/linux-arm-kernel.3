@@ -4,53 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A73BFC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 05:07:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C09E2C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 05:26:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rKXKiKxusagH0d2kb7gVCeTetEKAsWH0/C66SRxQLq8=; b=ZYfaoNkwPMwzLSiLAUqcPjQflj
-	4vBFl1nP8+M0n+gKwglKSkISbQod7kxGy1EIsx010Dxn+kTltOQ85h2rHcjZU2UE7A9LPkZUeZMSv
-	FrcYGR4bNYb5gSXybK/OHRG6a8VrWkb5JETmm6D7Mzy8G+TadG+3BOFV6LTh0fo7+Sk99sjfNNrZN
-	Elgjo+lLXo86wMz70qsVPnCKZbZikkJACmUfnSS0Q1K1QLJOlbvRQNsrWcK66IHQdXvyZhz2+9Sk/
-	b+crIr2RR2nPDLGR+sXWTbPyl6yAFGnylVrUDBvf8OMslACThRFCcoAs+zTLa16FBK0sevaBBBXzL
-	IzONBLEg==;
+	bh=qIbZJlNMhbSEmprd78lKLWlB6+65wt48maP2tOZf1Go=; b=p02HjOw+G5ZzTH0liyZKl5oZRI
+	rYGl2nhpmu0s8fafRgp6sTldbaxkv3iJ4a4N1lSRIYwsTgAnypmXTCbyU9fzjb1MciO7AeScT8i1y
+	iN1Mc2LBa8D5WdfG2GCSQMonX66KJ1erVg4LtzSbnP615tm8/7fxU2QNmBvvYfRv+ef0l95bRVFnn
+	v7xhyKhpnB4KkDa+i58L3HJRdHx7mow7Jxo4sNtvZJoExsj21hGz+AjJvCQrRnBL9s3r2Rbho5s0D
+	12jvDsWRoRmpASVUG9OSdarR/5Wid5QlfZB4SrbCLaoHBSouH8H9iablluwYFjQltaUfL70q0B4Ts
+	Tc5X2Ibw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9dBh-00000008MLj-1dzy;
-	Tue, 29 Apr 2025 05:07:21 +0000
+	id 1u9dTd-00000008NxE-2bQ8;
+	Tue, 29 Apr 2025 05:25:53 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9d9n-00000008MDy-1DWS
+	id 1u9dRh-00000008NPa-0fVw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 05:05:24 +0000
+	Tue, 29 Apr 2025 05:23:54 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 96D361515;
-	Mon, 28 Apr 2025 22:05:15 -0700 (PDT)
-Received: from a077893.arm.com (unknown [10.163.52.122])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 5F3693F5A1;
-	Mon, 28 Apr 2025 22:05:18 -0700 (PDT)
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH V3] arm64/mm: Re-organise setting up FEAT_S1PIE registers PIRE0_EL1 and PIR_EL1
-Date: Tue, 29 Apr 2025 10:35:11 +0530
-Message-Id: <20250429050511.1663235-1-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.25.1
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CB84E1515;
+	Mon, 28 Apr 2025 22:23:44 -0700 (PDT)
+Received: from K4MQJ0H1H2.arm.com (unknown [10.163.78.253])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 0692B3F5A1;
+	Mon, 28 Apr 2025 22:23:41 -0700 (PDT)
+From: Dev Jain <dev.jain@arm.com>
+To: akpm@linux-foundation.org
+Cc: ryan.roberts@arm.com,
+	david@redhat.com,
+	willy@infradead.org,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	Liam.Howlett@oracle.com,
+	lorenzo.stoakes@oracle.com,
+	vbabka@suse.cz,
+	jannh@google.com,
+	anshuman.khandual@arm.com,
+	peterx@redhat.com,
+	joey.gouly@arm.com,
+	ioworker0@gmail.com,
+	baohua@kernel.org,
+	kevin.brodsky@arm.com,
+	quic_zhenhuah@quicinc.com,
+	christophe.leroy@csgroup.eu,
+	yangyicong@hisilicon.com,
+	linux-arm-kernel@lists.infradead.org,
+	namit@vmware.com,
+	hughd@google.com,
+	yang@os.amperecomputing.com,
+	ziy@nvidia.com,
+	Dev Jain <dev.jain@arm.com>
+Subject: [PATCH v2 0/7] Optimize mprotect for large folios
+Date: Tue, 29 Apr 2025 10:53:29 +0530
+Message-Id: <20250429052336.18912-1-dev.jain@arm.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_220523_415311_1884A958 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20250428_222353_238405_A9F85977 
+X-CRM114-Status: UNSURE (   7.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,96 +85,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mov_q cannot really move PIE_E[0|1] macros into a general purpose register
-as expected if those macro constants contain some 128 bit layout elements,
-that are required for D128 page tables. The primary issue is that for D128,
-PIE_E[0|1] are defined in terms of 128-bit types with shifting and masking,
-which the assembler can't accommodate.
+This patchset optimizes the mprotect() system call for large folios
+by PTE-batching.
 
-Instead pre-calculate these PIRE0_EL1/PIR_EL1 constants into asm-offsets.h
-based PIE_E0_ASM/PIE_E1_ASM which can then be used in arch/arm64/mm/proc.S.
+We use the following test cases to measure performance, mprotect()'ing
+the mapped memory to read-only then read-write 40 times:
 
-While here also drop PTE_MAYBE_NG/PTE_MAYBE_SHARED assembly overrides which
-are not required any longer, as the compiler toolchains are smart enough to
-compute both the PIE_[E0|E1]_ASM constants in all scenarios.
+Test case 1: Mapping 1G of memory, touching it to get PMD-THPs, then
+pte-mapping those THPs
+Test case 2: Mapping 1G of memory with 64K mTHPs
+Test case 3: Mapping 1G of memory with 4K pages
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>
-Cc: Ryan Roberts <ryan.roberts@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
-This patch applies on v6.15-rc4
+Average execution time on arm64, Apple M3:
+Before the patchset:
+T1: 7.9 seconds   T2: 7.9 seconds   T3: 4.2 seconds
 
-Changes in V3:
+After the patchset:
+T1: 2.1 seconds   T2: 2.2 seconds   T3: 4.2 seconds
 
-- Dropped off macros PTE_MAYBE_NG and PTE_MAYBE_SHARED as per Ryan
+Observing T1/T2 and T3 before the patchset, we also remove the regression
+introduced by ptep_get() on a contpte block. And, for large folios we get
+an almost 74% performance improvement.
 
-Changes in V2:
+v1->v2:
+ - Rebase onto mm-unstable (6ebffe676fcf: util_macros.h: make the header more resilient)
+ - Abridge the anon-exclusive condition (Lance Yang)
 
-https://lore.kernel.org/all/20250416035604.2717188-1-anshuman.khandual@arm.com/
+Dev Jain (7):
+  mm: Refactor code in mprotect
+  mm: Optimize mprotect() by batch-skipping PTEs
+  mm: Add batched versions of ptep_modify_prot_start/commit
+  arm64: Add batched version of ptep_modify_prot_start
+  arm64: Add batched version of ptep_modify_prot_commit
+  mm: Batch around can_change_pte_writable()
+  mm: Optimize mprotect() through PTE-batching
 
-- Added asm-offsets.c based PIE_E0_ASM and PIE_E1_ASM symbols as per Ard
-- Moved PTE_MAYBE_NG and PTE_MAYBE_SHARED overrides inside asm-offsets.c
-  along with the corresponding comment as per Ard
+ arch/arm64/include/asm/pgtable.h |  10 ++
+ arch/arm64/mm/mmu.c              |  21 +++-
+ include/linux/mm.h               |   4 +-
+ include/linux/pgtable.h          |  42 ++++++++
+ mm/gup.c                         |   2 +-
+ mm/huge_memory.c                 |   4 +-
+ mm/memory.c                      |   6 +-
+ mm/mprotect.c                    | 165 ++++++++++++++++++++-----------
+ mm/pgtable-generic.c             |  16 ++-
+ 9 files changed, 198 insertions(+), 72 deletions(-)
 
-Changes in V1:
-
-https://lore.kernel.org/linux-arm-kernel/20250410074024.1545768-1-anshuman.khandual@arm.com/
-
- arch/arm64/kernel/asm-offsets.c |  2 ++
- arch/arm64/mm/proc.S            | 19 ++-----------------
- 2 files changed, 4 insertions(+), 17 deletions(-)
-
-diff --git a/arch/arm64/kernel/asm-offsets.c b/arch/arm64/kernel/asm-offsets.c
-index eb1a840e4110..30d4bbe68661 100644
---- a/arch/arm64/kernel/asm-offsets.c
-+++ b/arch/arm64/kernel/asm-offsets.c
-@@ -182,5 +182,7 @@ int main(void)
- #ifdef CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
-   DEFINE(FTRACE_OPS_DIRECT_CALL,	offsetof(struct ftrace_ops, direct_call));
- #endif
-+  DEFINE(PIE_E0_ASM, PIE_E0);
-+  DEFINE(PIE_E1_ASM, PIE_E1);
-   return 0;
- }
-diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
-index fb30c8804f87..80d470aa469d 100644
---- a/arch/arm64/mm/proc.S
-+++ b/arch/arm64/mm/proc.S
-@@ -512,26 +512,11 @@ alternative_else_nop_endif
- 	ubfx	x1, x1, #ID_AA64MMFR3_EL1_S1PIE_SHIFT, #4
- 	cbz	x1, .Lskip_indirection
- 
--	/*
--	 * The PROT_* macros describing the various memory types may resolve to
--	 * C expressions if they include the PTE_MAYBE_* macros, and so they
--	 * can only be used from C code. The PIE_E* constants below are also
--	 * defined in terms of those macros, but will mask out those
--	 * PTE_MAYBE_* constants, whether they are set or not. So #define them
--	 * as 0x0 here so we can evaluate the PIE_E* constants in asm context.
--	 */
--
--#define PTE_MAYBE_NG		0
--#define PTE_MAYBE_SHARED	0
--
--	mov_q	x0, PIE_E0
-+	mov_q	x0, PIE_E0_ASM
- 	msr	REG_PIRE0_EL1, x0
--	mov_q	x0, PIE_E1
-+	mov_q	x0, PIE_E1_ASM
- 	msr	REG_PIR_EL1, x0
- 
--#undef PTE_MAYBE_NG
--#undef PTE_MAYBE_SHARED
--
- 	orr	tcr2, tcr2, TCR2_EL1_PIE
- 	msr	REG_TCR2_EL1, x0
- 
 -- 
-2.25.1
+2.30.2
 
 
