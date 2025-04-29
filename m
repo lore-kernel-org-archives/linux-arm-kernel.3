@@ -4,72 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C7DEC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 08:11:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08BCFC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 08:17:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=97/XTbBVa/VhLqAzcVmPdfXdxwWdIcyYHBaxl2j9mtY=; b=Iv27Y38LKI1xyCu0i8ThJ6b14p
-	dRNRzsDqJJLDaXIb5YUDLeAyj1GmwsBU1HwhgcJlLeCciBN4z6LtZzmPbUXUGzm/3CYhJmQLnViRr
-	0bEQ1r5YDpgQwTuGuJwI3cHzAwYg8ZWu3BLyzgHcT4YVQBFcMOQ5aawYuCxrqRNJwDNnjPZO/cbvR
-	wNoWFCSpnGKKUMZRojNqKXPzvNhT19J3cAz8UgxfdxKExbpk65rcXxGetSXwSuon2/7KPSPzm2Smv
-	AVZvJKqgn/lJcSdpCKBMmubxZiFzTKS8XdK+7lB8WrmY8Cb14elIZmzUxH5z518uRIsUGjcgcfrXg
-	sXcQS9kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0jWn/KFVD/PhQGEeRPiIgFZV9yfIp5BQEz26X19uNxE=; b=pkAzreXU2nHMom+MQShu0ZoJIU
+	vxhAfOCpc8ayKOzG6fbp/vS5OK9ExNYgjq9Nvj9MMPS7c8Cftj67CTr+bvNdl0BG6qNbbYNLmnDy3
+	W2zs6IlKVGzzbtYNxrtfFP172ZoCkpJ9L2QTW+VPRjcNRpwsV1zuJu1dTQLn7uD8PvEMR7stOxrvg
+	TdobfqLIRfpvlCUOHLUHJ92vI5jmERQQZNdmkiBc/Vkb0qeZSthHM/eDlweGoNvRyq3ZfUMFK7Tfh
+	rarhsW9KDLSLXk3aXgVAcYH+5Y1adw2ljjs8vLVkVo8mLACkHRaxL3dP++QLE02MMmholQTfR0X0B
+	d/XevGBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9g3h-00000008sK1-0pyZ;
-	Tue, 29 Apr 2025 08:11:17 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u9g9h-00000008tXg-2soI;
+	Tue, 29 Apr 2025 08:17:29 +0000
+Received: from relay4-d.mail.gandi.net ([217.70.183.196])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9fzI-00000008rPN-4C25;
-	Tue, 29 Apr 2025 08:06:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C797F5C4D8E;
-	Tue, 29 Apr 2025 08:04:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D988C4CEE3;
-	Tue, 29 Apr 2025 08:06:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745914003;
-	bh=T+OFZKl+3KvYwlqOnSAJknFTlFAGkXBm4R7faZdxC7g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=g4MP1qWhXsNl/uB3rPYca9oL1jVE0ekWEV6gfciWYbB1+dqLQ9mMLhKCeQ4kEML3r
-	 bJyb0LeyWTmqcsUmRVfFDi6VMDW5WBeVc88je0PluGWeRS97AYRHNXEXRaWe2ZBNUR
-	 h2P24d0Nb3ya3adWViA9y0dL9GADK0WkUOludE9eaO59e5mCjZo+20Kkb33rkTCZ3T
-	 joUB021ZBtmCwCwJ8IZUTlrvA217Wsdkv6riqQodhqkESfxv93/qyLqVSaXCE995Qd
-	 adxuArH/4q+RMu7lWE/6XP1SpcSbdgr9HJnDqYvJZCKjQED2Lf6yl72MdWWvLKHiTL
-	 2/8qg6TYlg6Ig==
-Date: Tue, 29 Apr 2025 11:06:29 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Dave Hansen <dave.hansen@intel.com>
-Cc: Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org,
-	akpm@linux-foundation.org, anthony.yznaga@oracle.com, arnd@arndb.de,
-	ashish.kalra@amd.com, benh@kernel.crashing.org, bp@alien8.de,
-	catalin.marinas@arm.com, corbet@lwn.net,
-	dave.hansen@linux.intel.com, devicetree@vger.kernel.org,
-	dwmw2@infradead.org, ebiederm@xmission.com, graf@amazon.com,
-	hpa@zytor.com, jgowans@amazon.com, kexec@lists.infradead.org,
-	krzk@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, luto@kernel.org,
-	mark.rutland@arm.com, mingo@redhat.com, pasha.tatashin@soleen.com,
-	pbonzini@redhat.com, peterz@infradead.org, ptyadav@amazon.de,
-	robh@kernel.org, rostedt@goodmis.org, saravanak@google.com,
-	skinsburskii@linux.microsoft.com, tglx@linutronix.de,
-	thomas.lendacky@amd.com, will@kernel.org, x86@kernel.org
-Subject: Re: [PATCH v6 11/14] x86: add KHO support
-Message-ID: <aBCIhQjKKyaAuvC9@kernel.org>
-References: <20250411053745.1817356-1-changyuanl@google.com>
- <20250411053745.1817356-12-changyuanl@google.com>
- <35c58191-f774-40cf-8d66-d1e2aaf11a62@intel.com>
+	id 1u9g7l-00000008tCk-23Fz;
+	Tue, 29 Apr 2025 08:15:31 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id F1C05433E9;
+	Tue, 29 Apr 2025 08:15:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1745914526;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0jWn/KFVD/PhQGEeRPiIgFZV9yfIp5BQEz26X19uNxE=;
+	b=bdKVEWzHLtdV3g3fdHtJap4AYJ1a1U05TI+3nB2J2c6TtDHHUShrhrQ3Vsno/vAbdiitaA
+	iXo3tfhRNNVunDzPDxRSBIxWkZELCxpy6/rW6Nd5AidH/UFQ0i6s4MpI/bdG46R5Yok6FS
+	4C5VtaUGiu4ZKO0KBaMeHi8QZx7DwpNwoS6zCffudJYeJENdmm/jnfHyxOjmzMJ4RdmLlM
+	QmRMKWo35M/8PBLDsvl7ZfhEDm3Llpn8JhH2VbJrwHsArXQsR0X93oIbE6ry7uTgWB/5S2
+	WxEfF+4r6xVXzbVdEfctZYhmDMfXALNH8yd/uIxYFVvz5VgA6J7HM6k3iknoDw==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Chuanhong Guo <gch981213@gmail.com>
+Cc: Sky Huang <SkyLake.Huang@mediatek.com>,  Matthias Brugger
+ <matthias.bgg@gmail.com>,  AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>,  Richard Weinberger
+ <richard@nod.at>,  Vignesh Raghavendra <vigneshr@ti.com>,  Daniel Golle
+ <daniel@makrotopia.org>,  Chia-Lin Kao <acelan.kao@canonical.com>,  Cheng
+ Ming Lin <chengminglin@mxic.com.tw>,  Christophe JAILLET
+ <christophe.jaillet@wanadoo.fr>,  Pratyush Yadav <pratyush@kernel.org>,
+  linux-kernel@vger.kernel.org,  linux-mtd@lists.infradead.org,
+  linux-arm-kernel@lists.infradead.org,
+  linux-mediatek@lists.infradead.org,  Steven Liu <Steven.Liu@mediatek.com>
+Subject: Re: [PATCH nand/next] mtd: nand: spi: Use write_cache first and
+ then update_cache in write operation
+In-Reply-To: <c1e2d8ea-1b37-479d-8239-cb9bf0efdcaf@gmail.com> (Chuanhong Guo's
+	message of "Tue, 22 Apr 2025 09:38:26 +0800")
+References: <20241119093949.3014-1-SkyLake.Huang@mediatek.com>
+	<871pymtab3.fsf@bootlin.com>
+	<c1e2d8ea-1b37-479d-8239-cb9bf0efdcaf@gmail.com>
+User-Agent: mu4e 1.12.7; emacs 29.4
+Date: Tue, 29 Apr 2025 10:15:22 +0200
+Message-ID: <87bjsfv0x1.fsf@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <35c58191-f774-40cf-8d66-d1e2aaf11a62@intel.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvieeffeduucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufgjfhgffffkgggtgfesthhqredttderjeenucfhrhhomhepofhiqhhuvghlucftrgihnhgrlhcuoehmihhquhgvlhdrrhgrhihnrghlsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeffgefhjedtfeeigeduudekudejkedtiefhleelueeiueevheekvdeludehiedvfeenucfkphepledvrddukeegrddutdekrddvheehnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledvrddukeegrddutdekrddvheehpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpehmihhquhgvlhdrrhgrhihnrghlsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeduiedprhgtphhtthhopehgtghhleekuddvudefsehgmhgrihhlrdgtohhmpdhrtghpthhtohepufhkhifnrghkvgdrjfhurghnghesmhgvughirghtvghkrdgtohhmpdhrtghpthhtohepmhgrthhthhhirghsrdgsghhgsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprghnghgvlhhoghhiohgrtggthhhinhhordguvghlrhgvghhnohestgholhhlrggsohhrrgdrtghomhdprhgtphhtthhopehri
+ hgthhgrrhgusehnohgurdgrthdprhgtphhtthhopehvihhgnhgvshhhrhesthhirdgtohhmpdhrtghpthhtohepuggrnhhivghlsehmrghkrhhothhophhirgdrohhrghdprhgtphhtthhopegrtggvlhgrnhdrkhgrohestggrnhhonhhitggrlhdrtghomh
+X-GND-Sasl: miquel.raynal@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_010645_136956_794CBF6A 
-X-CRM114-Status: GOOD (  24.01  )
+X-CRM114-CacheID: sfid-20250429_011529_656412_99C40FE3 
+X-CRM114-Status: GOOD (  19.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,67 +87,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 28, 2025 at 03:05:55PM -0700, Dave Hansen wrote:
-> On 4/10/25 22:37, Changyuan Lyu wrote:
-> > From: Alexander Graf <graf@amazon.com>
-> > 
-> > +/*
-> > + * If KHO is active, only process its scratch areas to ensure we are not
-> > + * stepping onto preserved memory.
-> > + */
-> 
-> Same thing on the imperative voice here.
-> 
-> I'm also not fully understanding the comment. Do these "scratch" regions
-> basically represent all the memory that's not being handed over? It's
-> not obvious.
+Hello,
 
-Scratch memory represents areas created at the boot of the first kernel and
-it's known that scratch areas won't contain any memory that's being handed
-over.
- 
-> > diff --git a/arch/x86/kernel/e820.c b/arch/x86/kernel/e820.c
-> > index 57120f0749cc3..c314212a5ecd5 100644
-> > --- a/arch/x86/kernel/e820.c
-> > +++ b/arch/x86/kernel/e820.c
-> > @@ -1300,6 +1300,24 @@ void __init e820__memblock_setup(void)
-> >  		memblock_add(entry->addr, entry->size);
-> >  	}
-> >  
-> > +	/*
-> > +	 * At this point with KHO we only allocate from scratch memory.
-> > +	 * At the same time, we configure memblock to only allow
-> > +	 * allocations from memory below ISA_END_ADDRESS which is not
-> > +	 * a natural scratch region, because Linux ignores memory below
-> > +	 * ISA_END_ADDRESS at runtime. Beside very few (if any) early
-> > +	 * allocations, we must allocate real-mode trapoline below
-> 
-> 						trampoline ^
-> 
-> > +	 * ISA_END_ADDRESS.
-> > +	 *
-> > +	 * To make sure that we can actually perform allocations during
-> > +	 * this phase, let's mark memory below ISA_END_ADDRESS as scratch
-> > +	 * so we can allocate from there in a scratch-only world.
-> > +	 *
-> > +	 * After real mode trampoline is allocated, we clear scratch
-> > +	 * marking from the memory below ISA_END_ADDRESS
-> > +	 */
-> > +	memblock_mark_kho_scratch(0, ISA_END_ADDRESS);
-> 
-> This isn't making a whole ton of sense to me.
-> 
-> Is this *only* to facilitate possible users that need <ISA_END_ADDRESS
-> allocations? If so, please say that.
-> 
-> I _think_ this is trying to say that KHO kernels are special and are
-> trying to only allocate from scratch areas. But <ISA_END_ADDRESS
-> allocations are both necessary and not marked by KHO _as_ a scratch area
-> which causes a problem.
+On 22/04/2025 at 09:38:26 +08, Chuanhong Guo <gch981213@gmail.com> wrote:
 
-Yes :)
+> Hello!
+> =E5=9C=A8 2024/12/5 23:32, Miquel Raynal =E5=86=99=E9=81=93:
+>> Hello,
+>> On 19/11/2024 at 17:39:49 +08, Sky Huang <SkyLake.Huang@mediatek.com>
+>> wrote:
+>>=20
+>>> From: Sky Huang <skylake.huang@mediatek.com>
+>>>
+>>> According to discussion with Miquel Raynal <miquel.raynal@bootlin.com>
+>>> and Chuanhong Guo <gch981213@gmail.com> on FORESEE F35SQA002G patch,
+>>> Chuanhong recommmends that we can use the following sequence in
+>>> spinand_write_to_cache_op():
+>>>
+>>> x1 mode:
+>>> 02H(program data load) -> 84H(random program data load) -> 84H ...
+>>>
+>>> x4 mode:
+>>> 32H(program data load x4) -> 34H(random program data load x4) -> 34H ...
+>>>
+>>> 02H or 32H commands will clear cache buffer on SPI-NAND and load
+>>> data to it. For those SPI controllers which can't finish transmission
+>>> in single step, 84H or 34H will be triggered for the rest data.
+>>>
+>>> We observe that some current SPI-NANDs, including FORESEE F35SQA001G and
+>>> F35SQA002G, must use 02H or 32H to reset cache buffer in flash before
+>>> using 84H or 34H. Or users may encounter program failure issue. This is=
+sue
+>>> is not always reproducible, but it may occur and cause system instabili=
+ty.
+>>>
+>>> This sequence should work on all SPI-NANDs nowadays. I also check with
+>>> Foresee that the sequence can solve the above program failure issue.
+>>>
+>>> On my test platform (MT7988), SPI driver is drivers/spi/spi-mt65xx.c.
+>>> And I limit MTK_SPI_IPM_PACKET_SIZE to SZ_1K to simulate lightweight SPI
+>>> controller which can only transmit 1024 bytes.
+>>>
+>>> The test step is the following:
+>>> - mtd erase /dev/mtd2
+>>> - dd if=3D/dev/zero bs=3D2048 count=3D1 | tr '\0' '\xA5' > output.bin
+>>> - mtd write output.bin /dev/mtd2
+>>>
+>>> Before applying this patch, write operation uses only 34H(update_cache):
+>>> [78.937720] OP code: 0x34, addr val: 0x0, data nbytes: 1020, data 1st b=
+yte: 0xa5
+>>> [78.945297] OP code: 0x34, addr val: 0x3fc, data nbytes: 1020, data 1st=
+ byte: 0xa5
+>>> [78.954251] OP code: 0x34, addr val: 0x7f8, data nbytes: 72, data 1st b=
+yte: 0xa5
+>>> [78.962966] OP code: 0x10, addr val: 0x300
+>>> [78.968816] OP code: 0x34, addr val: 0x0, data nbytes: 1020, data 1st b=
+yte: 0xff
+>>> [78.977233] OP code: 0x34, addr val: 0x3fc, data nbytes: 1020, data 1st=
+ byte: 0xff
+>>> [78.985124] OP code: 0x34, addr val: 0x7f8, data nbytes: 72, data 1st b=
+yte: 0xff
+>>> [78.992527] OP code: 0x10, addr val: 0x301
+>>> [78.996981] OP code: 0x34, addr val: 0x0, data nbytes: 1020, data 1st b=
+yte: 0xff
+>>> [79.004416] OP code: 0x34, addr val: 0x3fc, data nbytes: 1020, data 1st=
+ byte: 0xff
+>>> [79.012031] OP code: 0x34, addr val: 0x7f8, data nbytes: 72, data 1st b=
+yte: 0xff
+>>> [79.019435] OP code: 0x10, addr val: 0x302
+>> I am sorry but above you said that we should not perform:
+>>      0x32, 0x32, 0x32...
+>> because the second time it would clear the cache again. And here
+>> you tell us that actually the core already handles that by performing
+>> instead:
+>>      0x34, 0x34, 0x34...
+>> So what is the problem?
+>> Or maybe I misunderstood the issue, but I think Chuanhong raised an
+>> issue that is already solved? Isn't it?
+>>=20
+>
+> The issue is that the FORESEE NANDs require the first cache writing
+> instruction to be WRITE_CACHE instead of UPDATE_CACHE. i.e. it needs a
+> command sequence of:
+>     0x32, 0x34, 0x34, 0x34...
 
--- 
-Sincerely yours,
-Mike.
+So Foresee NANDs do not support update_cache, why are they advertised in
+the first place? Could you we have a less impacting solution for the
+other NANDs?
+
+> This patch does exactly that, making the first instruction issued 0x32.
+> It should be applied to fix the issue above.
+
+My understanding is that this is very specific to FORESEE NANDs and you
+are changing this for all NANDs. I have fears that it will break
+everywhere else.
+
+Overall I understand the problem, but I disagree with the fix. Could you
+propose something less impacting as hinted above?
+
+Thanks and sorry for the delay.
+Miqu=C3=A8l
 
