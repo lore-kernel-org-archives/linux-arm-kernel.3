@@ -4,92 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C508C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 28 Apr 2025 23:57:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F74CC369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 00:05:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:References:In-Reply-To:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LJobFLI9bUS7cIOXH6lW9QHErDLL0/CVqlV/7NhJ0Ck=; b=zdwdLUEF6K5LblNCFJ72qanJ9n
-	ouM2zjlWEa9VQ3U5TVGlYqoT+94QpUw0HaiJQsIduDmq271RbQsnuGt1yC8BaV6FuRku9x3dPdCqR
-	j1AWqatIfcqaFa4SdLI9I1iPnofLedldITpwhEiOijCGLtGQiCP1XIeTR2gZXlVT5NC+QfH808RCg
-	CNkl8OM5J6CY40CRV54X/3A9KLVkzNt2Fc8u3CkqvujIr0duu2hGtM+LofbXWEtP/u9wivUpLJGMF
-	nrxX7lcPjy++sUDb005kwkLrI2bDtmuayE+XaVg3IZtUgt6TjP0iZmcnQ2+EDx8c7d2+UesksSPqi
-	mQ9sRIsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5yQq99vkLsa1w0G1Lg+vZYB2vDdvIHE/Uu0S+iTulGg=; b=rx1p4DIfbGwjCeyx6XpRVK5SUy
+	nr6fGxKlpIg9c0TqYa0gUYW/QsP97NdtSFsq0dnoT1oW/orrkJNCvTzvqq2myEW9rIxltqVVqJ+qu
+	qjKDy06l7fxXUfXcjNdtcuDxxaJHSlo8BBie+tnGPxvLMFz393wVHGjw5lbfOIrJPxhcpvezZRLit
+	v/j4fW7xt5Ptu4m4nftSIAyWegxHB/Hvz1PvRE7UiBXD8A6NtbGX2cOaTqUE00avhY4x/RJy5bMsm
+	u2dj04YnoCMzkGeKHYNCk2Y8iIMb6EfGT1slLbY1Uk6Mu0hqkjxMzKKJ/ftFxwMqcf0aimoLhYi7H
+	E/Yjfxwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9YLr-00000007qhk-0yhj;
-	Mon, 28 Apr 2025 23:57:31 +0000
-Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
+	id 1u9YTh-00000007rXZ-0IUT;
+	Tue, 29 Apr 2025 00:05:37 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9YJu-00000007qVt-0FKB
+	id 1u9YRj-00000007rKS-0IkF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 28 Apr 2025 23:55:31 +0000
-Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-7c922169051so292018285a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 16:55:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1745884528; x=1746489328; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:user-agent:from:references
-         :in-reply-to:mime-version:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=LJobFLI9bUS7cIOXH6lW9QHErDLL0/CVqlV/7NhJ0Ck=;
-        b=C3KNuspXlZ5oJ+6Xxn4mSr3SFjinH5CY7utJYcYLZB8eY4Ad5n/9EHXILGMyDhkZIN
-         AAjzAAAYl49nxZs/nnwv8poYOW1pE60ciWdTcQFjjra5IXFwUJMJg1yTMXGjH8DVyz1G
-         0+WR9WuXpPC1c4JNqVot+aPA4ojVKsoPWEntc=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745884528; x=1746489328;
-        h=cc:to:subject:message-id:date:user-agent:from:references
-         :in-reply-to:mime-version:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LJobFLI9bUS7cIOXH6lW9QHErDLL0/CVqlV/7NhJ0Ck=;
-        b=B2riyppwrjRl0dkLdMq4Ngefsdlt1CKJanFySBTEG/ypp7fxB3PW38hde1yV114Bkm
-         q01X8vxcdhLQue7/My/iRI3UKPQqJJgNxfLReZUle6w5if2B7LwP4ZpC/FGxCOAiJ9W/
-         MCIfVpH4IRlHTKrbqD4EyaSgHHiPLH02rlm20XOQ66AUKV3+9CIQUm1y8y1eASb1Jo5J
-         u629ohnwiJPZZXWUeHmE1UyEYp4J5t9RW49i3SaDawq4WSvy7ECR60MMS4/sxNGrKWt1
-         z0AmX4pQ4mS4tao+xuyOW79Nn0yh1PHLY7hDUxuWifHed76NzX4VyNdOggu6HJ33JD1f
-         U/gw==
-X-Forwarded-Encrypted: i=1; AJvYcCWEc9c8reTw9k9p+r1/PmN0w94x7tc5wSjXO6q32MiW9B6soYUil7qTlF+ggBrU4OdwoJzzLq2j/EgjtMgr1CGj@lists.infradead.org
-X-Gm-Message-State: AOJu0YzW3cliYRouQPtWjFmstGM8+niRaeP2STMQZ/4Igk6WIq6BWFvF
-	jfLORFJ8oFwFPgF57DPVcqY0n12GBo3OuZ/TjAx8j80T9Iz96/GiFvLN6L1aLFpq8fV4ZD6CgYP
-	Gw6pB35ZvgmFNH/RxeoeGURt4Zmkc4VTB93fB
-X-Gm-Gg: ASbGncsodglE/he3SNpxFHVLTBY7yZzyzt/OPcxpwhR56xMCFjJkbkHAAGkl35nmF2G
-	AWE8jPC6S37oKy69gJialWfe33iqxlk5Xb6gcs5zTutxeEuP3DzNMViPxTQBN25vvbELkgvl6Ax
-	U5ySGRfpB8DE9VKxiyCB2N7JAxYEs0kdlLn0To42ghJjj9RJ3uaRlIjw63YlNg
-X-Google-Smtp-Source: AGHT+IEoQ9Mtpgq6IV7o2myPZsE3iTvANfEmqsxJiZUsKgJmcwAzipipK3XToxVL1xycDMjbiz/L+FlGLzhvF5FKt7E=
-X-Received: by 2002:a05:620a:2610:b0:7c5:5e5b:2fdb with SMTP id
- af79cd13be357-7cabddaf1cfmr245880985a.41.1745884528355; Mon, 28 Apr 2025
- 16:55:28 -0700 (PDT)
-Received: from 753933720722 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 28 Apr 2025 16:55:27 -0700
-Received: from 753933720722 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 28 Apr 2025 16:55:27 -0700
+	Tue, 29 Apr 2025 00:03:39 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53SNqxT0013632;
+	Tue, 29 Apr 2025 00:03:20 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	5yQq99vkLsa1w0G1Lg+vZYB2vDdvIHE/Uu0S+iTulGg=; b=g357zBq8xrEHzKQu
+	s0FVT6Gl3ko6VuljJuRXh5tnPsRuT1fGc9bJhk7b6srbvnLMn3U3Cx6NoDZETpos
+	mI+O7ZNn5q9/nTDWv1vHmIDYc4qQXKQ57MbJnPwaYulpSGqor+/kCdGZx+TiBK9z
+	qvbRY0xbuhPK0VUl4h/4Cav4L32n7nTvowuhHM/kKLCOgyWx2x3koJ11tatwwF3C
+	r/i4VNJ2t+1BCsxNuj89TVL+Bev6MDBINyHqYLOk3SU1tOLwN8Xhb30jkUt/T+FS
+	lG5QGZid2fPxqmeICxNE2+sIbdNs4HBa1fxkk9sUorZxt1lMdqikCydhC1b381Ka
+	TjEqTQ==
+Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 468rnn1m54-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 29 Apr 2025 00:03:19 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53T03JfI009026
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 29 Apr 2025 00:03:19 GMT
+Received: from [10.134.71.99] (10.80.80.8) by nasanex01b.na.qualcomm.com
+ (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 28 Apr
+ 2025 17:03:18 -0700
+Message-ID: <ef0b0a0b-ad08-4716-8eba-8745aced8981@quicinc.com>
+Date: Mon, 28 Apr 2025 17:03:17 -0700
 MIME-Version: 1.0
-In-Reply-To: <6eeb7bca-6018-46de-a7db-7189d60c0942@oss.qualcomm.com>
-References: <20250416000208.3568635-1-swboyd@chromium.org> <20250416000208.3568635-2-swboyd@chromium.org>
- <6eeb7bca-6018-46de-a7db-7189d60c0942@oss.qualcomm.com>
-From: Stephen Boyd <swboyd@chromium.org>
-User-Agent: alot/0.12.dev8+g17a99a841c4b
-Date: Mon, 28 Apr 2025 16:55:27 -0700
-X-Gm-Features: ATxdqUHpAwR2wd_47EUgCGBgUk1wdQDezy5iMkujDq5bA3ST_h6HrhmS7YUoEN4
-Message-ID: <CAE-0n53ypGBXAt3frrbfAsbJZEkxK4BCB0+3MWOFRxZ9E+6P9Q@mail.gmail.com>
-Subject: Re: [PATCH 1/7] platform/chrome: cros_ec_typec: No pending status
- means attention
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, Tzung-Bi Shih <tzungbi@kernel.org>
-Cc: linux-kernel@vger.kernel.org, patches@lists.linux.dev, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	devicetree@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Rob Herring <robh@kernel.org>, linux-arm-msm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
-	Benson Leung <bleung@chromium.org>, chrome-platform@lists.linux.dev, 
-	Pin-yen Lin <treapking@chromium.org>, 
-	Abhishek Pandit-Subedi <abhishekpandit@chromium.org>, =?UTF-8?Q?=C5=81ukasz_Bartosik?= <ukaszb@chromium.org>, 
-	Jameson Thies <jthies@google.com>, Andrei Kuchynski <akuchynski@chromium.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 06/10] drm/msm/mdss: add SAR2130P device configuration
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Rob Clark
+	<robdclark@gmail.com>,
+        Abhinav Kumar <quic_abhinavk@quicinc.com>,
+        "Dmitry
+ Baryshkov" <lumag@kernel.org>, Sean Paul <sean@poorly.run>,
+        Marijn Suijten
+	<marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, "Simona
+ Vetter" <simona@ffwll.ch>,
+        Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Kuogee Hsieh <quic_khsieh@quicinc.com>,
+        Krishna Manikandan
+	<quic_mkrishn@quicinc.com>,
+        Jonathan Marek <jonathan@marek.ca>,
+        "Bjorn
+ Andersson" <andersson@kernel.org>,
+        Neil Armstrong
+	<neil.armstrong@linaro.org>,
+        Will Deacon <will@kernel.org>, Robin Murphy
+	<robin.murphy@arm.com>,
+        "Joerg Roedel" <joro@8bytes.org>,
+        Konrad Dybcio
+	<konradybcio@kernel.org>
+CC: <linux-arm-msm@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
+        <freedreno@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Dmitry Baryshkov
+	<dmitry.baryshkov@linaro.org>
+References: <20250418-sar2130p-display-v5-0-442c905cb3a4@oss.qualcomm.com>
+ <20250418-sar2130p-display-v5-6-442c905cb3a4@oss.qualcomm.com>
+Content-Language: en-US
+From: Jessica Zhang <quic_jesszhan@quicinc.com>
+In-Reply-To: <20250418-sar2130p-display-v5-6-442c905cb3a4@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-ORIG-GUID: ZNRjRlcfew--F-L5Dko5CQ0VhzFk2FfT
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI4MDE5MSBTYWx0ZWRfX4gyRfNrTYC4g 18L9qJvZpbTQ7Dydx4KdgwqKGDSBrQUZ+gDZkUZ38ScCr7hiD4c4+jM9skafDTzAyU2gEXjpYk8 TY3KsKCVMn7OktrSTS/bo+DClFhlRKucIOrRpFNrH6Q2xJZzVOLRPy6+nlvVFvQjQQdPwIfg8MV
+ SQLL9R5pSzgt6+QzaZy6XFNgPZSiVfNTK63l5zI21KtEhLH29Z3CUXOeQ9E+MlbPaYtMlZ3B5A3 nK93IlsyiYIb5qPmhikt2gC5DOTO9oNFrFo7qyKmi81r4BlXVvWxRGZFI62XyFJoLFNZkHKuUf0 aiWHOX+QUtC9RpZQ5OK15MZroTj7TIFLVGxlBRYe0qrQtjpE4s+CKFn4BaNW8JJnWM/xCjOkSg2
+ n6G8g9PcyN1e7DlWQBv04kuz+0rvlDwpRd7CzDD+rJd7M/Kpur+OmuPhtdfOdFDlncEQR71X
+X-Proofpoint-GUID: ZNRjRlcfew--F-L5Dko5CQ0VhzFk2FfT
+X-Authority-Analysis: v=2.4 cv=V9990fni c=1 sm=1 tr=0 ts=68101748 cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=KKAkSRfTAAAA:8 a=COk6AnOGAAAA:8 a=oemococDzsnvMBNZoewA:9
+ a=QEXdDO2ut3YA:10 a=cvBusfyB2V15izCimMoJ:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-04-28_09,2025-04-24_02,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 suspectscore=0
+ adultscore=0 mlxlogscore=999 impostorscore=0 lowpriorityscore=0
+ priorityscore=1501 bulkscore=0 clxscore=1011 phishscore=0 mlxscore=0
+ spamscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
+ definitions=main-2504280191
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_165530_120847_8969FBAC 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20250428_170335_123859_E350E666 
+X-CRM114-Status: GOOD (  15.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,22 +137,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Dmitry Baryshkov (2025-04-22 06:38:17)
-> On 16/04/2025 03:02, Stephen Boyd wrote:
-> > If we aren't expecting a status update when
-> > cros_typec_displayport_status_update() is called then we're handling an
-> > attention message, like HPD high/low or IRQ. Call
-> > typec_altmode_attention() in this case so that HPD signaling works in
-> > the DP altmode driver.
->
-> Fixes?
 
-I didn't put a fixes because it only matters to make the displayport
-altmode driver work with the typec port which isn't used so far on DT
-platforms. I view it as a new feature, not a fix for an existing
-feature, because we don't use the altmode driver.
 
-It also seems like it was intentional on ACPI systems to only handle
-mode entry/exit and not HPD signaling per my reading of the mailing
-list.
+On 4/18/2025 12:50 AM, Dmitry Baryshkov wrote:
+> From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> 
+> Add compatible and device configuration for the Qualcomm SAR2130P
+> platform.
+> 
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+
+Reviewed-by: Jessica Zhang <quic_jesszhan@quicinc.com>
+
+> ---
+>   drivers/gpu/drm/msm/msm_mdss.c | 11 +++++++++++
+>   1 file changed, 11 insertions(+)
+> 
+> diff --git a/drivers/gpu/drm/msm/msm_mdss.c b/drivers/gpu/drm/msm/msm_mdss.c
+> index dcb49fd30402b80edd2cb5971f95a78eaad6081f..f706e44231a9c360ac4abe26e4050e416d8c3940 100644
+> --- a/drivers/gpu/drm/msm/msm_mdss.c
+> +++ b/drivers/gpu/drm/msm/msm_mdss.c
+> @@ -592,6 +592,16 @@ static const struct msm_mdss_data sa8775p_data = {
+>   	.reg_bus_bw = 74000,
+>   };
+>   
+> +static const struct msm_mdss_data sar2130p_data = {
+> +	.ubwc_enc_version = UBWC_3_0, /* 4.0.2 in hw */
+> +	.ubwc_dec_version = UBWC_4_3,
+> +	.ubwc_swizzle = 6,
+> +	.ubwc_bank_spread = true,
+> +	.highest_bank_bit = 0,
+> +	.macrotile_mode = 1,
+> +	.reg_bus_bw = 74000,
+> +};
+> +
+>   static const struct msm_mdss_data sc7180_data = {
+>   	.ubwc_enc_version = UBWC_2_0,
+>   	.ubwc_dec_version = UBWC_2_0,
+> @@ -738,6 +748,7 @@ static const struct of_device_id mdss_dt_match[] = {
+>   	{ .compatible = "qcom,msm8998-mdss", .data = &msm8998_data },
+>   	{ .compatible = "qcom,qcm2290-mdss", .data = &qcm2290_data },
+>   	{ .compatible = "qcom,sa8775p-mdss", .data = &sa8775p_data },
+> +	{ .compatible = "qcom,sar2130p-mdss", .data = &sar2130p_data },
+>   	{ .compatible = "qcom,sdm670-mdss", .data = &sdm670_data },
+>   	{ .compatible = "qcom,sdm845-mdss", .data = &sdm845_data },
+>   	{ .compatible = "qcom,sc7180-mdss", .data = &sc7180_data },
+> 
+
 
