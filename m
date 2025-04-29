@@ -4,203 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C67E9C3ABAB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 15:01:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0887C3ABA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 15:03:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9s3nAdO9IZEKhROB9Swb/p+9iLMfaAgDhcuv+FyNc6E=; b=dwwtTw5yxSL7zmaFerAMeN3BfF
-	auifuAMg6mZNMaSBBglPU+uNA8HbsS8isJ8hvYif3MWiZGDFs7Z6Bxp0GxwfYL6CGRVGiHKRdn1u/
-	qeqebM2XfUkK0atHtewQG0/GSMY6GAQojEx9L5h+JRBy+FAlUUkuGy0NlhUih79211Ddn2ALf8Eaz
-	mB2LRjmJs/+RPesEcQu/oeRdy+KBtzzNcM1gBJEvbTo+Hk8Z2ZFExLBniVZ7i0fyURkcR5d/J4E4K
-	Au39Wwrj3m7rfaYaBvv5rg/RiBUgDuhhphhsGhxgOpS+0AaWV3DhTVlr2vN4U2O3YRsj9Ids23oka
-	IM0b8CCQ==;
+	bh=fBCQ7yC4DZE+Brh4t/wNH1fz7LCB0Tusx2dGusJqi60=; b=JHKGPTNwp8X+SXCb5AymDGGO6N
+	Be4XjzM9g1HwqvZSOtA3mEL0jr8b3orLneZgmnIdhhXqybAbigMSdAtjZbkcp/T8ECrf6A4iE7Pua
+	38OvQ+LUDsc4WvxwSZQEqnIPsW8oU/kaU1DIZWy5Ilk7qdHw68B+arczA4inQk37hh7l2unz4sgcX
+	P3dQVQNkd8rGbKfyrM86n4OWWBaJiWA45KP9jx716qeDLFXhHGU9oSpX5jiV5IIRezNy1UNR2hr6P
+	l/1JEyRTWkXcldkYL7fL59lNusTuNFv7xIx0782ljJXVxvV4xhaP2azUbCp/M5qeAojaiuxZO/wDO
+	Z3bMEqwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9mSU-0000000A2wT-2VYa;
-	Tue, 29 Apr 2025 15:01:18 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u9mUO-0000000A3G6-0toN;
+	Tue, 29 Apr 2025 15:03:16 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9m2g-00000009ySL-1BjA;
-	Tue, 29 Apr 2025 14:34:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=9s3nAdO9IZEKhROB9Swb/p+9iLMfaAgDhcuv+FyNc6E=; b=QgOQYdiK2gE0elH+0T0sU0zY7f
-	NMY6xroUq7HCXqamXeTy6benvywVpQkIfehSHxGLMehzUkcENcOFgPrZw4O0LtGKc6dAqOrIvoO3F
-	Sv4AsdBCuxObAEG3hKGpwaj1g8rpQAkNwPldpNgehF7064UarkFm1TyQRFkax6jkDab29/Uhc3NqB
-	RJHxiGOh2xkJVPL4sjYcMfEj3QMfP9jSphgz0kA3RUtISRLw0hQoBVmmub4FCOuvE+0TRZb1htVh9
-	G917e+CFRySZrKXFOJfSCrcLr+ikeNzvLfny+L2GoCqN7Ayo/iVxxw9bHdG1MOSSIYly/zKuTghV0
-	10emHvgg==;
-Received: from mail-dm6nam12on20600.outbound.protection.outlook.com ([2a01:111:f403:2417::600] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9m2d-0000000DORf-1KOo;
-	Tue, 29 Apr 2025 14:34:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=x34W23GZlOsamyxf4jP4NDCgwrkELaJQAxZDRSUFBKAoMZ9arkHkObXR5cAzBTqavpX4J0mGAAD7BQXblGFMgiVkmO7Eg11LbS/o8wEp4jgMkSa/xh+M6HpPxMN1LI3I6fPQAMnHDq6vvJ+X7+7E3amBKlBx8nDf3niu9QvlEQ7TnN3tIVnREOZ1U1WJtR1HcdkCGqmC31HfxDp4fUL9hLwdc7nGmYFTHynhjmuImexSatVzP+ldNgm27netmkvSXeK8reQeoawwr6Sdh4VVGcCiCUs6vQa6HsP8LeDjW6R3cOBlU68CWTOFZW26WCGzzQudo4WA8sPxa6cysxMhYg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9s3nAdO9IZEKhROB9Swb/p+9iLMfaAgDhcuv+FyNc6E=;
- b=BKD9jvyhIuukKXwY7gpRtKnxj/jBdb0QZtp/0UZq6RC5dHKUUYqvmpFBAvu7XocV2EsshXg805FDA6g7R/oEhqiz+hJ5LPZZZWSZiN1EFKn0VLMG2r5KhTRv5hKyV6VYThHGwum65prF0xA0QhkQsceB26jgamCqsezV2R/9qVn88tTW8WAbVbIw1BkC7BT+OpvTzhJwb59b5KPrU2ap+EOzQNejlD5KatVIvuKmSRFq6KKjtfnQYUQRq8jrw7SuvgzUeeLx2597FZ1Ag/O/2JbNe9SG2i0BYt6CbzFMNvd2OtPUUV1/hCqXJ/NyKWRn3I6zDenJmZxAQrBCZD8Cqw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9s3nAdO9IZEKhROB9Swb/p+9iLMfaAgDhcuv+FyNc6E=;
- b=d3EHE4UBUjwWKcXNKTecbFMgyJlWH0pbDMEs1fqQHTY5IXxBGU6Xgqvg3nKHZ8XGnJhSOj3CW0CkP3BifWBZrhHoB91P/J1g2FaPx5OOHV/ycU0fT3Qj0f+CuFisStjGAZOHzt+J22GLrtlDcVOQeXFNBoFZR7A43NsSNdyIIa7DXqS907Dk0MbO4v8TzvIVchHApYWrcyaTw7wfHMydP2EpAWxiVIYFDIqJDp2C2W5Rh5wNaMNdvZ15xLuD7e8KlSWI3hNWxSBDa+46YThxl3QY+ZtDOY6LC21+uuZ6xR/LrodVWvNms9W3QoJj+X5S2TMygrg8iNOJWY1IRXSXwQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by CH3PR12MB7523.namprd12.prod.outlook.com (2603:10b6:610:148::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.19; Tue, 29 Apr
- 2025 14:34:25 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8678.028; Tue, 29 Apr 2025
- 14:34:25 +0000
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Alexandre Ghiti <alex@ghiti.fr>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	asahi@lists.linux.dev,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	iommu@lists.linux.dev,
-	Janne Grunau <j@jannau.net>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Kevin Tian <kevin.tian@intel.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Matthew Rosato <mjrosato@linux.ibm.com>,
-	Neal Gompa <neal@gompa.dev>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Rob Clark <robdclark@gmail.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Niklas Schnelle <schnelle@linux.ibm.com>,
-	Sven Peter <sven@svenpeter.dev>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Tomasz Jeznach <tjeznach@rivosinc.com>,
-	Krishna Reddy <vdumpa@nvidia.com>,
-	virtualization@lists.linux.dev,
-	Chen-Yu Tsai <wens@csie.org>,
-	Will Deacon <will@kernel.org>,
-	Yong Wu <yong.wu@mediatek.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>
-Cc: patches@lists.linux.dev
-Subject: [PATCH 1/7] iommu/arm-smmu-v3: Remove iommu_ops pgsize_bitmap
-Date: Tue, 29 Apr 2025 11:34:11 -0300
-Message-ID: <1-v1-7c5282b0c334+2db-iommu_rm_ops_pgsize_jgg@nvidia.com>
-In-Reply-To: <0-v1-7c5282b0c334+2db-iommu_rm_ops_pgsize_jgg@nvidia.com>
-References: 
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MN2PR14CA0022.namprd14.prod.outlook.com
- (2603:10b6:208:23e::27) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1u9m2t-00000009yV4-31FF
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Apr 2025 14:34:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1745937289;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=fBCQ7yC4DZE+Brh4t/wNH1fz7LCB0Tusx2dGusJqi60=;
+	b=etcDz7JQcxASr818JR3UxlOVWGDJ5Dwa7nCFieb8vSXCEfeM2jRhhPmOns88ybs2BCogHD
+	ObFEtS8/9/AFzURh9NUl/xgvItpVOn8jS9FYTT+RSTU16Hq+VlZngSpG4Ik245Y/pHXzjf
+	I7vfvParOOWaKZT6Scd+Vm6+4iDW+U8=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-196-S8uHCHEKMwmIg7GXE8-YJQ-1; Tue, 29 Apr 2025 10:34:47 -0400
+X-MC-Unique: S8uHCHEKMwmIg7GXE8-YJQ-1
+X-Mimecast-MFC-AGG-ID: S8uHCHEKMwmIg7GXE8-YJQ_1745937286
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-43d0830c3f7so47005235e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 07:34:47 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745937286; x=1746542086;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=fBCQ7yC4DZE+Brh4t/wNH1fz7LCB0Tusx2dGusJqi60=;
+        b=m5Q997Iz5/EMA6eb41Uv/NTlhbtu9TzuATVpPoLtbBG4iwE85D3XEkzm5UN7ShLSGl
+         A6KhIx6RAJ3Y4Q/ZpOddgzgS1FLe8SQlfHWrB+Bxqijz/bDCoPzbhz1OS1xUzN8+2cXh
+         6JFn5Schc728hon+cD+lMesmI0OX0e1V2lvxjVgu7xMrPh5lGn5zyE3K/aA0kGfwK7Md
+         ptYEiWh6i1jWKJDm9aADCdIsR7xWWNO2Chln/C1HG1W1XaP5Hyo9/99O/IONzg0rKQBb
+         UiySUlchec3wVHf4w+yORePw3id370XhL76ZXli51nbldai6XZ/iflsWeyPpBgZjrgx7
+         Z0sg==
+X-Forwarded-Encrypted: i=1; AJvYcCUQsB3iM83VG4Yl1TqqITr/70Kilu8Qmluas3nurPLAUGgTHyvqY5CwMeGArWkprsYwpbIl/R4nwCW7guE8Mllf@lists.infradead.org
+X-Gm-Message-State: AOJu0YwnyEEs1o83+LSGzTNtkkaq5CYbaSzn6qO4jkF9DOqTCEm+2CFn
+	FVthuMvQw92c1fG2frOOjrzMa2/wVI12JbaJ9FcB63inOesDLwt/xg7zSGsbrCiz8yW7sqAwq6k
+	HAq+r3G+E+1RPmV/xZiKYvIUodzI5M7ICrmMy2kSTfIQSTxCMBqmwWEvLYRHTQ0BTUjiGqsxC
+X-Gm-Gg: ASbGnctevl4TTRDA3lnohHYIJ9cOYFTkc2t312VQWRfp2hvpZ9n/LL08zftQZn7vpVR
+	qud9ToUedaCCUmpU1SR8M7jXpU3ffSuBvIUob2nzk/qmhSyqGmojdppqmTR63+4wlUOfi1LOUIF
+	9r6HtDEDfKLno8l/AnDrEFf2z1MchQeXPRhKm9f9R8zP6ITOat6iOOpY8jpZbNvacaoEM80uehw
+	aln1/zhhTRNemBIUpVZGrTyEdoDVwLpusJpOPI4Z38GEPFlbA0yaXnAwr2WVeyQRwHjbFYm6Fhg
+	pwNf9HrIn4iROsFSQ6g=
+X-Received: by 2002:a05:600c:1e0e:b0:43c:fcbc:9680 with SMTP id 5b1f17b1804b1-441ac88acb9mr28922515e9.25.1745937286067;
+        Tue, 29 Apr 2025 07:34:46 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEzFC7JTH1cCKfCoD0KtL/PJnk0rLhxxGRVYh+6Vv8ZU7rmNtMiOe/2tPKSMhGhjoS8cjz9Pw==
+X-Received: by 2002:a05:600c:1e0e:b0:43c:fcbc:9680 with SMTP id 5b1f17b1804b1-441ac88acb9mr28922245e9.25.1745937285632;
+        Tue, 29 Apr 2025 07:34:45 -0700 (PDT)
+Received: from ?IPV6:2a0d:3344:2726:1910::f39? ([2a0d:3344:2726:1910::f39])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-440a0692a22sm177630795e9.2.2025.04.29.07.34.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 29 Apr 2025 07:34:45 -0700 (PDT)
+Message-ID: <06953a63-7309-40d4-b515-ffc56e751559@redhat.com>
+Date: Tue, 29 Apr 2025 16:34:43 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CH3PR12MB7523:EE_
-X-MS-Office365-Filtering-Correlation-Id: 468ec824-c129-4d5a-6c15-08dd872aee0a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?demoxvXyHq3BbSQu1lo4/tHBd1dgxRfKXQwmx6hJfCZjx1712q9i6Gc1jnm1?=
- =?us-ascii?Q?JQgwQfwMQvZ6TeDt1wqfWikCGVNWW7xkHQecm35gM4hcwb9OSVEGR7uXSbAx?=
- =?us-ascii?Q?BHFy7bvjvp6IPuUSoF+8qPW6LNEIUKbePNiMHiVkb0qmk45e5z9TvFCmIT3p?=
- =?us-ascii?Q?AQhKBT1djQZi2/gbvq67oRm6X489tsVmiZBDwNq6sGYPJzbeB5575Nrga7ei?=
- =?us-ascii?Q?KOpug8BD2BAc6E71AlfTax/kckUPuw+7dqx1ZRubwRJMykz5AKcseP8IC1Mp?=
- =?us-ascii?Q?lsvivWC7AtQeQioYmzMn3Ibuplzia/rv3GukaortzKvoPCdPo06e8np+eadL?=
- =?us-ascii?Q?+8dQAHGwR/CPaJORiawKWx+S0sybiv6a2xV3Ll+ZW1An2A/9y9fG0q3nh2t+?=
- =?us-ascii?Q?MRKEAUtff1ApkiNFOtWxp3mOWY67IAZCLuZoH/CNaAv6Ki9lus/KXUuK+ByW?=
- =?us-ascii?Q?jF6MEIFQf4+rBUMwxxub/hrhl3Vlzq4+sZ9EvUWr4la4wuLO2JzG7GvQYnDf?=
- =?us-ascii?Q?zIQVpVUSpu5Dc3R0H3EkjuGWc3EKgWvKIY7aB60nBuW4l7SWRqy4Ltq4q6vO?=
- =?us-ascii?Q?Oyo21aG2WDc6dTQKX5yfkdmCIR7XJzN3Q4APxuCcpCA0uCzpLLEt7DSMYVfy?=
- =?us-ascii?Q?4N1tfn2ZrBZwHuxeNByTE2T5QYItXIOwnkkZoBzwfCf9JdsG82Kru5qEUWgq?=
- =?us-ascii?Q?c7kcILkeJ4gRIku/oIpLO9E6ZsinUmoOBV/LTmy15DefRRKxpk7wdSPDtJqQ?=
- =?us-ascii?Q?+g0rJnVKvwRJsTv0IT3fZxn74jCWZhIgs7aMUsBESY4nNe7+8vFnZLTHJcgG?=
- =?us-ascii?Q?Id0dffdMzkNXKA3PuP1bm5ghH3uME2/4Q1Lh5FE/CHmkVIlLw+NW3udipSF8?=
- =?us-ascii?Q?2gUOCiRvr/i1iEhC8aLAdHleln2kIDUXWFsLkpj4AuutrWEnX3rlIqtLvh0U?=
- =?us-ascii?Q?KPR/XtLSs2/fOE4D2XYgn8kzUj2KsurdBHJKozfkQGaFLWnOhgDn4cawBPcw?=
- =?us-ascii?Q?wbGWVnqce4O+kZrK3Z7wXOw3gz/WaVKzbbLhi3Hji2lOmnz4I1Oc3gAAcBrU?=
- =?us-ascii?Q?2Ol9+hezN2dfX1c1bCPpgp7nWfrdyyBaJTGrdurfUhKNE6+fw+WAF3Er6H+z?=
- =?us-ascii?Q?1fbckQIrS2HY6iTX9WFWc86agEsxAGj1kXiv+vbr2c+LqG1MxVBq7coBvIyA?=
- =?us-ascii?Q?9Q474TccDj5AHs8NSkrRUavT2+feaCh4AEjBQjBTNe0OrE8+kLb+bHupoidl?=
- =?us-ascii?Q?yJebNJwK/I/IKQGcNbk3caeTZbR4B+yTbBKfxA5OiBqBMpApto0Heeu6VfrR?=
- =?us-ascii?Q?qq9eAPAQ1v6OXjcM+C2Ww7qjMFcXrT54EFXxdEbe8UJAcIUYQk9sf2cuKPiy?=
- =?us-ascii?Q?R7w7m51bpRT86hk+NMx5wR14DMi1w26pDKwqC2BXfZLfGcvLmHEq1xKo14rQ?=
- =?us-ascii?Q?ERgrw3Fznpeta0u+newRcGNqAUoXAtLIqWYoT/gvSYzlLARALrQKZA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?dVg+YpLhDEPnm6GPplhsWfgcKB6MMdCgGY4bruhsUcDYHlVEGEhzH4gIFnZU?=
- =?us-ascii?Q?F1NT0gKDe7TPJxvns4+e1wlUCL8F4Oc6QT78c8hHsRvcKLbuz2R3QrFkqTA9?=
- =?us-ascii?Q?YawJ3T0uppTASToZ3cH+Nn9dSKSd0xQ+T0raLIFl43oiUo6c5WsjUqELvUK7?=
- =?us-ascii?Q?1YMmodK1GufY9Li4HOVrER3APHrUl1nulepfymK4olRg3xQa8rZTKFTrxavv?=
- =?us-ascii?Q?qqrN3U26rlozO4v3g9alHjHKdgm2N550dH1yAWuKusRxfJTLh3AYI9T7cdIL?=
- =?us-ascii?Q?B1DlB5L6Qknw6hBmW+BTI0SOKWxhxheks6/VNcr0yCnBDbWx+UzpyyYP6k/z?=
- =?us-ascii?Q?yVuGiE6cPYfFUcdnLg43i2Q8eHMxEAp5BV2o8bhDu0g7PowBWnmTxZXWDjKs?=
- =?us-ascii?Q?C/RQIcnF0fxUDf2hXNVu/R/3J6vTNmAiKvUBIiHLpFZUVlvzsS3rlO+Sfj78?=
- =?us-ascii?Q?lwaaZMMUeN/+WAa3O8HCRXzbGNgoirs/aMOCITr85pQxJBtS/KCq9NjYn5xy?=
- =?us-ascii?Q?MK53DcjMoFeFJgFB1dMrNfI8Q9XgVUR1K87qjnq3tSKb4+ByRn0XWBLMBdsA?=
- =?us-ascii?Q?aQToHdLJHKrr/AtRzKk6isLLufssngrEoIGLP7SvTpX2G5xMSZjUCqSMKqxx?=
- =?us-ascii?Q?lZ4cm4YT3xmmBuJL+PXYWtmQ1BZoyTWZL2DNppxzS1DPJ/wBfSi59n9VEY7z?=
- =?us-ascii?Q?rMsNQECNkjTR4a9foDvpSep0EQCPCOGp3qyZo3NwUBYid+EIULTW1x4ndUnD?=
- =?us-ascii?Q?VlyCWNjONUoIbUO3VuwFZzmqbITc281YkSVicj8zGaFGfX3W8vN/EQXQBw7o?=
- =?us-ascii?Q?K2adeTTeXtBrBKZgKeTmB3BbUxmDxlx86AivOGzmdZeQuK1Y5nm5SBZLkItu?=
- =?us-ascii?Q?Fn/JKIXwy/LCOV6CO6M6xUkNaZ27nG+vb4yyfS54BSjhp6irIlraMUNExU85?=
- =?us-ascii?Q?HR79hhZh6oldy7qgw2QtWo8Spq91dnaO97sFh/p+sNJVZP+nVmDC0oyLDCcs?=
- =?us-ascii?Q?ddGSecMESacZEuWC9Wkc4979njMopmQyyTHguaZoBkFHYJbvj2UEhsmduXg3?=
- =?us-ascii?Q?k2MhBRbW3CB7IVUt3koitcEy8ZoaBF1nDU3xgyPf0cBSIo2GMeRgW7qVdQRe?=
- =?us-ascii?Q?VI07gexcEbp8+9DiWO+4i5ftIue6tpUIK+HoVVeYhz36C8aSAKUnujUmUiGw?=
- =?us-ascii?Q?CB9H2sJyLbs/W7GB1rwUkAHkTyaKdV5PWOJkOmJUldenk7+SYC0HO/ZZk8B4?=
- =?us-ascii?Q?lgfoVBt9EUo/O+3HdsQ+L1QOC6r8TFB8m71YXq9XBiEZHOP9H3NB9hZw5Gvn?=
- =?us-ascii?Q?w5/rlhQaI+XwpBYrLzyqgvwX8Avd13VnaOhJ9Bsk4jgKl58HYWaGt2jdC9Z7?=
- =?us-ascii?Q?cohiulNLJeCyjEpQcbfpkQRWH2hPXmG1JCtfwaDjZ4oJ2XqGw8zIR0sYPmLU?=
- =?us-ascii?Q?g3pn3s/3Y7QSa5tcvak/hKJmI5NRPNDZ3BXZMpKzjENka0oy3i/ZlLrdv6oU?=
- =?us-ascii?Q?tCB5AVZZ3PMozTasft0F9tMs25fSm7vOJIs/sVL3c38/JiphNDCGtXclMQiB?=
- =?us-ascii?Q?xeLEao0lR2KptTkmio7Rge9NzZHFgIU7X4AqcUsb?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 468ec824-c129-4d5a-6c15-08dd872aee0a
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Apr 2025 14:34:23.2499
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Mt4U7xbmw0VTrkS0CjtRX6K1/ap56mSK7lvCxOSF4X9AWvAlrWnKj3yymFK9EwJU
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB7523
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] net: call inet_twsk_put() on TIMEWAIT sockets It is
+ possible for a pointer of type struct inet_timewait_sock to be returned from
+ the functions __inet_lookup_established() and __inet6_lookup_established().
+ This can cause a crash when the returned pointer is of type struct
+ inet_timewait_sock and sock_put() is called on it. The following is a crash
+ call stack that shows sk->sk_wmem_alloc being accessed in sk_free() during
+ the call to sock_put() on a struct inet_timewait_sock pointer. To avoid this
+ issue, use inet_twsk_put() instead of sock_put() when sk->sk_state is
+ TCP_TIME_WAIT.
+To: Shiming Cheng <shiming.cheng@mediatek.com>, edumazet@google.com,
+ davem@davemloft.net, dsahern@kernel.org, kuba@kernel.org, horms@kernel.org,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Cc: Jibin Zhang <jibin.zhang@mediatek.com>
+References: <20250425073120.28195-1-shiming.cheng@mediatek.com>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20250425073120.28195-1-shiming.cheng@mediatek.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: qGV5eebiT28HexcHtHzbw8gVutO-Vdc5a7UUoCCg60s_1745937286
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_153435_522673_4AD14131 
-X-CRM114-Status: GOOD (  12.81  )
+X-CRM114-CacheID: sfid-20250429_073451_829029_9A0A529F 
+X-CRM114-Status: GOOD (  17.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -215,61 +120,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver never reads this value, arm_smmu_domain_finalise() always sets
-domain.pgsize_bitmap to pgtbl_cfg, which comes from the per-smmu
-calculated value.
+On 4/25/25 9:31 AM, Shiming Cheng wrote:
+> From: Jibin Zhang <jibin.zhang@mediatek.com>
+> 
+> mrdump.ko        ipanic() + 120
+> vmlinux          notifier_call_chain(nr_to_call=-1, nr_calls=0) + 132
+> vmlinux          atomic_notifier_call_chain(val=0) + 56
+> vmlinux          panic() + 344
+> vmlinux          add_taint() + 164
+> vmlinux          end_report() + 136
+> vmlinux          kasan_report(size=0) + 236
+> vmlinux          report_tag_fault() + 16
+> vmlinux          do_tag_recovery() + 16
+> vmlinux          __do_kernel_fault() + 88
+> vmlinux          do_bad_area() + 28
+> vmlinux          do_tag_check_fault() + 60
+> vmlinux          do_mem_abort() + 80
+> vmlinux          el1_abort() + 56
+> vmlinux          el1h_64_sync_handler() + 124
+> vmlinux        > 0xFFFFFFC080011294()
+> vmlinux          __lse_atomic_fetch_add_release(v=0xF2FFFF82A896087C)
+> vmlinux          __lse_atomic_fetch_sub_release(v=0xF2FFFF82A896087C)
+> vmlinux          arch_atomic_fetch_sub_release(i=1, v=0xF2FFFF82A896087C)
+> + 8
+> vmlinux          raw_atomic_fetch_sub_release(i=1, v=0xF2FFFF82A896087C)
+> + 8
+> vmlinux          atomic_fetch_sub_release(i=1, v=0xF2FFFF82A896087C) + 8
+> vmlinux          __refcount_sub_and_test(i=1, r=0xF2FFFF82A896087C,
+> oldp=0) + 8
+> vmlinux          __refcount_dec_and_test(r=0xF2FFFF82A896087C, oldp=0) + 8
+> vmlinux          refcount_dec_and_test(r=0xF2FFFF82A896087C) + 8
+> vmlinux          sk_free(sk=0xF2FFFF82A8960700) + 28
+> vmlinux          sock_put() + 48
+> vmlinux          tcp6_check_fraglist_gro() + 236
+> vmlinux          tcp6_gro_receive() + 624
+> vmlinux          ipv6_gro_receive() + 912
+> vmlinux          dev_gro_receive() + 1116
+> vmlinux          napi_gro_receive() + 196
+> ccmni.ko         ccmni_rx_callback() + 208
+> ccmni.ko         ccmni_queue_recv_skb() + 388
+> ccci_dpmaif.ko   dpmaif_rxq_push_thread() + 1088
+> vmlinux          kthread() + 268
+> vmlinux          0xFFFFFFC08001F30C()
 
-Remove the ops version entirely, the related dead code and make
-arm_smmu_ops const.
+Part of the commit message landed inside the patch subject, the stack
+trace should be decoded, the patch should target the 'net' tree and
+include a suitable fixes tag.
 
-Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 10 ++--------
- 1 file changed, 2 insertions(+), 8 deletions(-)
+Please have an accurate read at the process documentation under:
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index e91d20e5785e06..a3e79a0896063b 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -38,7 +38,7 @@ module_param(disable_msipolling, bool, 0444);
- MODULE_PARM_DESC(disable_msipolling,
- 	"Disable MSI-based polling for CMD_SYNC completion.");
- 
--static struct iommu_ops arm_smmu_ops;
-+static const struct iommu_ops arm_smmu_ops;
- static struct iommu_dirty_ops arm_smmu_dirty_ops;
- 
- enum arm_smmu_msi_index {
-@@ -3674,7 +3674,7 @@ static int arm_smmu_def_domain_type(struct device *dev)
- 	return 0;
- }
- 
--static struct iommu_ops arm_smmu_ops = {
-+static const struct iommu_ops arm_smmu_ops = {
- 	.identity_domain	= &arm_smmu_identity_domain,
- 	.blocked_domain		= &arm_smmu_blocked_domain,
- 	.capable		= arm_smmu_capable,
-@@ -3690,7 +3690,6 @@ static struct iommu_ops arm_smmu_ops = {
- 	.def_domain_type	= arm_smmu_def_domain_type,
- 	.viommu_alloc		= arm_vsmmu_alloc,
- 	.user_pasid_table	= 1,
--	.pgsize_bitmap		= -1UL, /* Restricted during device attach */
- 	.owner			= THIS_MODULE,
- 	.default_domain_ops = &(const struct iommu_domain_ops) {
- 		.attach_dev		= arm_smmu_attach_dev,
-@@ -4504,11 +4503,6 @@ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
- 		smmu->oas = 48;
- 	}
- 
--	if (arm_smmu_ops.pgsize_bitmap == -1UL)
--		arm_smmu_ops.pgsize_bitmap = smmu->pgsize_bitmap;
--	else
--		arm_smmu_ops.pgsize_bitmap |= smmu->pgsize_bitmap;
--
- 	/* Set the DMA mask for our table walker */
- 	if (dma_set_mask_and_coherent(smmu->dev, DMA_BIT_MASK(smmu->oas)))
- 		dev_warn(smmu->dev,
--- 
-2.43.0
+Documentation/process/
+
+and especially to Documentation/process/maintainer-netdev.rst before the
+next submission.
+
+> 
+> Signed-off-by: Jibin Zhang <jibin.zhang@mediatek.com>
+> ---
+>  net/ipv4/tcp_offload.c   | 8 ++++++--
+>  net/ipv6/tcpv6_offload.c | 8 ++++++--
+>  2 files changed, 12 insertions(+), 4 deletions(-)
+> 
+> diff --git a/net/ipv4/tcp_offload.c b/net/ipv4/tcp_offload.c
+> index 2308665b51c5..95d7cbf6a2b5 100644
+> --- a/net/ipv4/tcp_offload.c
+> +++ b/net/ipv4/tcp_offload.c
+> @@ -431,8 +431,12 @@ static void tcp4_check_fraglist_gro(struct list_head *head, struct sk_buff *skb,
+>  				       iph->daddr, ntohs(th->dest),
+>  				       iif, sdif);
+>  	NAPI_GRO_CB(skb)->is_flist = !sk;
+> -	if (sk)
+> -		sock_put(sk);
+> +	if (sk) {
+> +		if (sk->sk_state == TCP_TIME_WAIT)
+> +			inet_twsk_put(inet_twsk(sk));
+> +		else
+> +			sock_put(sk);
+
+You can simply use sock_gen_put() instead
+
+/P
 
 
