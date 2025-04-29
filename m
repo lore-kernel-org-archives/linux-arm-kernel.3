@@ -4,72 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A5ADC3ABA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 13:01:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55739C3ABA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 14:13:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jmwVSwL7UNaUQ1jfds4nV4hE6xI6SFKBwje6lexgNao=; b=Uk1N/b+TTAqgOjGdVRZQoWjlX0
-	6j3rgHHBEYB+5DPANrpswMC2UfMt1zI/l56KLDxwN+5ipTPxjPEXu5CyTnECUjinoEUxuAXjRb+f1
-	3cKkkpxdtQMncK8/eHEjkSAZzyGHE7yStNR4PPR9Ic6oD5x+p2jNzOrPVy2ZSqwdNhJuL6zAU8pzT
-	mhqAi6RO3gqn6osWpGeqycAHZ2UIvl0E9AWcknbDN/HeKw24XW0wfI8EWFOr+qn3gi++ZQwfYpL7B
-	gO8zKFvJdZloZk3ZFGuQlLwO0QKfGLy951cUT3iRX0VZ4iLzmlbfodrHeCiyVczfK3SmPYabTt4Xj
-	n0RZwaKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oDwIkddYcjzqpY0qn+RN60cxRzSZFEEPA0b1jtHao/Y=; b=cLWfbgnQ8P8Fc58/4ua7ccRk27
+	VwSh4C/6dzswsCEYZCwwqC/NIw2qOpW2dUOtR6OGGDTR9PoX2qWp5NYl1zsvqaAXx4/k4GAxHNpsC
+	PYBqdVwEakJe1fy20ZQFCf4BaO2SGhQYoegWj5JTg5dMoYAbJSrKCfpzXy6w/hhzxrDTBJqlNxksc
+	cnclcmclMM6wE4gW886dfaR9U1KUhaBEaIey2a0sHxXqWknsnRjS3udgHq13ZQhRXu3V1Ss865DEU
+	E8amvKAZ2Xj5HPpQBxblIH5JzRs78hfeMI6cUI3YZIGKyKqDvBqd7jEuTgeFoOpoUwxLD3a0PKU9o
+	9yaUK+Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9kaF-00000009iFx-2mXK;
-	Tue, 29 Apr 2025 13:01:11 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u9lhm-00000009rth-28Dg;
+	Tue, 29 Apr 2025 14:13:02 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9jL2-00000009VZC-1xQM
+	id 1u9jSS-00000009YWU-2RyJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 11:41:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DAA0FA4ADF0;
-	Tue, 29 Apr 2025 11:35:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EB46C4CEEB;
-	Tue, 29 Apr 2025 11:41:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745926883;
-	bh=z7vRY6j0385eKhIiCYAI50mg523Vhh6+q1JFXwnzUdE=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Z5IDkc9QmnF156EVu9ZzmDZrwjdxZ90IGgHdzed+020IwE8u5OLLG3TW2V7tb/xnP
-	 gaFfLfUq66jpo4tw4iXaSyhSluCA6IkVb4v5wfP06p/YqpnzTxnQTQr2vHwbAaT1cl
-	 x3PsCXgMcBmtpwxKIkA7fsIWFYcS2gTuXX2hqJVcsm/prfh5HCCEQt7f5xk+eKiU3F
-	 S0HgXNdI751oc1+EyQvlO0p5pwEY8IbgIZfdvLSFOyAzlILoRKL5GGiY6OTcv3ufyd
-	 sTicQ27SPT+YjWApIXQ4T9inmqW+8dB6HVGklIbyvxMoyNyJ2OaA58bi955nNo/ooD
-	 oaU901VICr6OA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1u9jKz-009t0f-6k;
-	Tue, 29 Apr 2025 12:41:21 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-Subject: [PATCH 0/2] KVM: arm64: Make AArch64 support sticky
-Date: Tue, 29 Apr 2025 12:41:15 +0100
-Message-Id: <20250429114117.3618800-1-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
+	Tue, 29 Apr 2025 11:49:05 +0000
+Received: from gaggiata.pivistrello.it (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 070E81F945;
+	Tue, 29 Apr 2025 13:49:03 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1745927343;
+	bh=oDwIkddYcjzqpY0qn+RN60cxRzSZFEEPA0b1jtHao/Y=;
+	h=Received:From:To:Subject;
+	b=kZN9ESihpGKMvPY4cStlEn6RlCOnHRvDpolr94jqob8QWMXuZSmIGMA/LL2RgepaF
+	 enHO+t6u/Ug1npMjfqK4EfrjvnMgezzOJ3Jo8m2UxqJUjiJ9n/1of4majt2inv70wb
+	 bCcNx/65qczywfHfoXMUXd/8fWtBDSqnbZYHUlQ3ct85QGyW8JtoamDHRg0ryC8cX8
+	 7djC+wHLUcFTMTd5gfWaTt5aKa4j7lF5d5zJBs1GhxFm4frAhxQKakwhnMjLEtPoAe
+	 Dl5lhkIU4s/GInKY8O7f2co6OAwK2PAMBnbGeFe8FR06mn3vQKtxo1j9rs/cH5vxLn
+	 H3slz76KCoPOw==
+Received: by gaggiata.pivistrello.it (Postfix, from userid 1000)
+	id 7A8997F9D9; Tue, 29 Apr 2025 13:49:02 +0200 (CEST)
+Date: Tue, 29 Apr 2025 13:49:02 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Lucas Stach <l.stach@pengutronix.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	Francesco Dolcini <francesco@dolcini.it>, imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux@ew.tq-group.com
+Subject: Re: [PATCH 0/6] arm64: dts: imx: Move Ethernet aliases out of SoC
+ DTSI
+Message-ID: <aBC8rvt-u8P4Qlzw@gaggiata.pivistrello.it>
+References: <20250425-dts-imx-aliases-ethernet-v1-0-15b9d5cca611@linaro.org>
+ <e97d3388a5b4272d70d7379b020843a47874a104.camel@pengutronix.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, gankulkarni@os.amperecomputing.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e97d3388a5b4272d70d7379b020843a47874a104.camel@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_044124_583019_F3C2F4E4 
-X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-CacheID: sfid-20250429_044904_775473_3A05E084 
+X-CRM114-Status: UNSURE (   8.26  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,30 +82,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It's been recently reported[1] that our sorry excuse for a test suite
-is writing a bunch of zeroes to ID_AA64PFR0_EL1.EL{0,1,2,3},
-effectively removing the advertised support for AArch64 to the guest.
+Hello,
 
-This leads to an interesting interaction with the NV code which reacts
-in a slightly overzealous way and inject an UNDEF at the earliest
-opportunity.
+On Tue, Apr 29, 2025 at 11:39:20AM +0200, Lucas Stach wrote:
+> Am Freitag, dem 25.04.2025 um 21:48 +0200 schrieb Krzysztof Kozlowski:
+> > Ethernet interface, like other exposed interfaces, aliases depend on
+> > actual board configuration, e.g. its labeling, thus aliases should be
+> > defined per each board or each SoM.
+> > 
+> Breaking existing users for the sake of aligning the i.MX platform with more
+> idiomatic DT usage does not seem to be a worthwhile trade-off to me.
 
-This small series fixes KVM by bluntly refusing to disable AArch64,
-and the test to stop being so lame. I'm also fixing the NV code
-separately, since it isn't upstream.
+FWIW, I agree with Lucas.
 
-[1] https://lore.kernel.org/r/4e63a13f-c5dc-4f97-879a-26b5548da07f@os.amperecomputing.com
-
-Marc Zyngier (2):
-  KVM: arm64: Prevent userspace from disabling AArch64 support at any
-    virtualisable EL
-  KVM: arm64: selftest: Don't try to disable AArch64 support
-
- arch/arm64/kvm/sys_regs.c                       | 6 ++++++
- tools/testing/selftests/kvm/arm64/set_id_regs.c | 8 ++++----
- 2 files changed, 10 insertions(+), 4 deletions(-)
-
--- 
-2.39.2
+Francesco
 
 
