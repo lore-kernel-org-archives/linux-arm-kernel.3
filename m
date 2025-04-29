@@ -4,63 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2354C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 16:35:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50D1AC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 16:37:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1AYIfCRubgr3ytaWw4YwTKH2zepYd5oozfTRIaPeKYo=; b=KkJ+i2B+kJBPkKThRYzDqdg61L
-	Okpw22PZN9M0rqKKmr/4AwvPCbGEzmO6IW4qaH1DKBpz26x48drSKb8HwNd8ziasSlg61Hrt0SIAh
-	LQyB/u/L0P4E3tbQqqF7SI3hF/P6JHAEE+sdsMjkGOF1fJGKy7TpSzk9mIKcJ4f2QpilUobuWgReq
-	wrzJNubU+cRsDBUpygyOk/I1UbKJOgLQahlY1sFPixf5h9N/47/UQ27KHQS63ChVQgicDwn/+xuLP
-	/wHTJUUhnv3aUlQG7TC8XyTS1Y/0l0FJXzc3S8aQ0utieOjYyMeGDmfYlGWPbj7gtXnyLozWphB3j
-	i0APv9/w==;
+	bh=Gj+lzkgRPCCF6n+yScpRzmM61Ws09xV++STXBmF59Ko=; b=UITlMdf8a9xj3+2HbfWHqAIFiF
+	5qiqwomzKjymoOv72J5i1nkNv+b1koJMS+7AlEyzlN4d2wyNAhHyvz0ZADbmIPTPQ6Z+7D8Iuh0nx
+	fXKf2wEt06XMzneziAL8euSrb0M2HaqkXdNVcrYt28gcngIhLf7bfmm2SwUgosZUhNLncJrgJQPsw
+	T62LIerLprSdT5yG975IbI9wTFElxJ284Z9EkQdA/o8vwSWL4p72s2cE5V9IZnW8PzH66xSoO4QeF
+	wiXHxkEWKwgbXVFu0u9LnhleYPk0vY0mu6EwDGbnPH/fngnYuVs3AkCCP4TE98eUYMVlUORLX0hFU
+	jf3hoEMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9nv8-0000000AGo2-2qZU;
-	Tue, 29 Apr 2025 16:34:58 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u9nx4-0000000AHI1-21QP;
+	Tue, 29 Apr 2025 16:36:58 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9noP-0000000AFjl-1HJC
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 16:28:02 +0000
+	id 1u9nt3-0000000AGR7-2M9q;
+	Tue, 29 Apr 2025 16:32:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 344015C0C37;
-	Tue, 29 Apr 2025 16:25:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C15EC4CEE3;
-	Tue, 29 Apr 2025 16:27:58 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 86F795C1046;
+	Tue, 29 Apr 2025 16:30:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54235C4CEE3;
+	Tue, 29 Apr 2025 16:32:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745944080;
-	bh=N2yloLqzeCYmCLu5QV8WhOHX/p5K2Q2uHfqHQcwn9VI=;
+	s=k20201202; t=1745944368;
+	bh=feUIYWjgsatR0wsDBnR320zo35FzttrKF/ike0EndGM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fax++9eoc5gEmi/RxNw+zJsseUJgTlD/AJdUz9fH1BumzRBF96udkuEqNhE76I+8f
-	 1bS8LbohlL+sSCpFY0h+ohk+xIhfQz1H/xUhP1jDXy3St0NzAVehHOgIuzye92kwYe
-	 LKP8WTq5mFFrNHQp8cBvVFbYVzKJDMOrVaH5NhzHrvsvtZBStw2xbUPSQ1dJtcIlMG
-	 oL+F3heySAMsaq9+k8iUqA3Z98MVDYlRkOhtIjuVfFacA+q49vTJ3/RyXW3uv8SRAi
-	 YJpaJiBn9gZUbkLol1zxgH6T7bHayqifIfUYcylyJ3EHPNvOEvncFQNUnumeA1xx9m
-	 isJCx55e6Kvyg==
-Date: Tue, 29 Apr 2025 17:27:55 +0100
-From: Will Deacon <will@kernel.org>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-doc@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] documentation: Add nodebugmon for arm64 platforms
-Message-ID: <20250429162754.GA26677@willie-the-truck>
-References: <20250416062706.2735563-1-anshuman.khandual@arm.com>
+	b=gGIHmtRoeMc5skK+Uret9+sNF7RFNy3BEWPrbyWSDJ+5SRrf7mtw1bAaMaUc6Xpj8
+	 cYPvdk+7/ciq2q8+VgFYyN7TT6ImhpLntVfyBRLNgAZjSDnD9Id6MvYJbX/7QMkwCm
+	 OActXunbzjeRJyiT8rrBVDY9bRcxWjIjlkS79dq1HDDVQSGzoyxM2WU1eGEaBF3nEo
+	 Ov0OcO8fHJCJgb5p86Z9lkWvoV9LqaeYYsDCuW1pKfMqxL2G7G7BdHP0mkU+FKXbR4
+	 cOVOWOMT+9kujdP/3J71kDyjtlIDIzSdgSPSHd7D6d+NXNL58zUquXaMgCAakyuoel
+	 J6QVYo/6Endyw==
+Date: Tue, 29 Apr 2025 19:32:33 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Dave Hansen <dave.hansen@intel.com>
+Cc: Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org,
+	akpm@linux-foundation.org, anthony.yznaga@oracle.com, arnd@arndb.de,
+	ashish.kalra@amd.com, benh@kernel.crashing.org, bp@alien8.de,
+	catalin.marinas@arm.com, corbet@lwn.net,
+	dave.hansen@linux.intel.com, devicetree@vger.kernel.org,
+	dwmw2@infradead.org, ebiederm@xmission.com, graf@amazon.com,
+	hpa@zytor.com, jgowans@amazon.com, kexec@lists.infradead.org,
+	krzk@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-mm@kvack.org, luto@kernel.org,
+	mark.rutland@arm.com, mingo@redhat.com, pasha.tatashin@soleen.com,
+	pbonzini@redhat.com, peterz@infradead.org, ptyadav@amazon.de,
+	robh@kernel.org, rostedt@goodmis.org, saravanak@google.com,
+	skinsburskii@linux.microsoft.com, tglx@linutronix.de,
+	thomas.lendacky@amd.com, will@kernel.org, x86@kernel.org
+Subject: Re: [PATCH v6 11/14] x86: add KHO support
+Message-ID: <aBD_IUE6xmbphB5R@kernel.org>
+References: <20250411053745.1817356-1-changyuanl@google.com>
+ <20250411053745.1817356-12-changyuanl@google.com>
+ <35c58191-f774-40cf-8d66-d1e2aaf11a62@intel.com>
+ <aBCIhQjKKyaAuvC9@kernel.org>
+ <d64a4593-c9bd-42c7-81f6-137a22ff5caa@intel.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250416062706.2735563-1-anshuman.khandual@arm.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <d64a4593-c9bd-42c7-81f6-137a22ff5caa@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_092801_444990_382E9642 
-X-CRM114-Status: GOOD (  24.74  )
+X-CRM114-CacheID: sfid-20250429_093249_701164_ACAD5E63 
+X-CRM114-Status: GOOD (  22.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,62 +86,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 16, 2025 at 11:57:06AM +0530, Anshuman Khandual wrote:
-> Add an entry for nodebugmon which has been used on arm64 platforms.
+On Tue, Apr 29, 2025 at 09:06:19AM -0700, Dave Hansen wrote:
+> On 4/29/25 01:06, Mike Rapoport wrote:
+> > On Mon, Apr 28, 2025 at 03:05:55PM -0700, Dave Hansen wrote:
+> >> On 4/10/25 22:37, Changyuan Lyu wrote:
+> >>> From: Alexander Graf <graf@amazon.com>
+> >>>
+> >>> @@ -1300,6 +1300,24 @@ void __init e820__memblock_setup(void)
+> >>>  		memblock_add(entry->addr, entry->size);
+> >>>  	}
+> >>>  
+> >>> +	/*
+> >>> +	 * At this point with KHO we only allocate from scratch memory.
+> >>> +	 * At the same time, we configure memblock to only allow
+> >>> +	 * allocations from memory below ISA_END_ADDRESS which is not
+> >>> +	 * a natural scratch region, because Linux ignores memory below
+> >>> +	 * ISA_END_ADDRESS at runtime. Beside very few (if any) early
+> >>> +	 * allocations, we must allocate real-mode trapoline below
+> >>
+> >> 						trampoline ^
+> >>
+> >>> +	 * ISA_END_ADDRESS.
+> >>> +	 *
+> >>> +	 * To make sure that we can actually perform allocations during
+> >>> +	 * this phase, let's mark memory below ISA_END_ADDRESS as scratch
+> >>> +	 * so we can allocate from there in a scratch-only world.
+> >>> +	 *
+> >>> +	 * After real mode trampoline is allocated, we clear scratch
+> >>> +	 * marking from the memory below ISA_END_ADDRESS
+> >>> +	 */
+> >>> +	memblock_mark_kho_scratch(0, ISA_END_ADDRESS);
+> >>
+> >> This isn't making a whole ton of sense to me.
+> >>
+> >> Is this *only* to facilitate possible users that need <ISA_END_ADDRESS
+> >> allocations? If so, please say that.
+> >>
+> >> I _think_ this is trying to say that KHO kernels are special and are
+> >> trying to only allocate from scratch areas. But <ISA_END_ADDRESS
+> >> allocations are both necessary and not marked by KHO _as_ a scratch area
+> >> which causes a problem.
+> > 
+> > Yes :)
 > 
-> Cc: Jonathan Corbet <corbet@lwn.net>
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: linux-doc@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
-> This patch applies on v6.15-rc2
-> 
->  Documentation/admin-guide/kernel-parameters.txt | 7 +++++++
->  1 file changed, 7 insertions(+)
-> 
-> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-> index d9fd26b95b34..f4a313d6c0ab 100644
-> --- a/Documentation/admin-guide/kernel-parameters.txt
-> +++ b/Documentation/admin-guide/kernel-parameters.txt
-> @@ -4085,6 +4085,13 @@
->  			/sys/module/printk/parameters/console_suspend) to
->  			turn on/off it dynamically.
->  
-> +	nodebugmon
-> +			[HW,ARM64] Disable debug monitor
-> +			Disables the debug monitor exception handling on the platform
-> +			regardless whether breakpoints and watchpoints are programmed
-> +			or not. This prevents debug exceptions from being enabled via
-> +			MDSCR_EL1 register.
+> So, on both of these, could the submitters please add or revise the
+> comments to make it more clear?
 
-Hmm. I appreciate the effort to document this, but I'm not sure that the
-text above is really going to help anybody.
+Is this one clearer?
 
-Firstly, this option goes hand-in-hand with a debugfs control
-("debug_enabled") and so the two would ideally be documented together.
+	/*
+	 * At this point memblock is only allowed to allocate from memory
+	 * below 1M (aka ISA_END_ADDRESS) up until direct map is completely set
+	 * up in init_mem_mapping().
+	 *
+	 * KHO kernels are special and use only scratch memory for memblock
+	 * allocations, but memory below 1M is ignored by kernel after early
+	 * boot and cannot be naturally marked as scratch.
+	 *
+	 * To allow allocation of the real-mode trampoline and a few (if any)
+	 * other very early allocations from below 1M forcibly mark the memory
+	 * below 1M as scratch.
+	 *
+	 * After real mode trampoline is allocated, we clear that scratch
+	 * marking.
+	 */
+	memblock_mark_kho_scratch(0, SZ_1M);
 
-Secondly, I think the documentation should talk about the user-visible
-effects that the control has... and that's where I get stuck! This has
-been there since day 1 but I'm not really sure what it's useful for. I
-_do_ remember needing it to use the DS-5 debugger back in the day, but
-looking at what the option does (it mostly prevents the kernel from
-touching MDSCR_EL1.{MDE,KDE} which effectively disables hardware
-breakpoints and watchpoints for kernel/user and single-step for kernel)
-I don't see why that's relevant for halting debug. The architecture says
-that EDSCR.HDE can be used by the external debugger to enter debug state
-and I don't see anything to suggest that MDSCR_EL1 settings interfere
-with this.
-
-Maybe the problem was that the external debugger left a load of live
-breakpoint registers around after detaching, so this was a way to
-suppress those? I don't remember :/
-
-I wonder if we can remove this?
-
-Will
+-- 
+Sincerely yours,
+Mike.
 
