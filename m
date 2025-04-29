@@ -4,94 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2456AC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 05:55:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FC95C3ABA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 05:57:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H+ePYln7tPjjBoVKR5HPMEIWQT/EraWtuD1GVt6HQFQ=; b=ShUG5zCe6Qr3o89ikVOK76i2yN
-	qTWjwQIx+RxO+dnn4Xc6w2PcSJM0TZdEO0Zm1tRDTPXI0Hb9Wi9yKJzmMNAQNbvSFh8aiQhw+3fA3
-	Xhs5FGalo8+Zt65JlG2Uw/N9p/9lcOtPbCWpG8jW6v1jEAC1YEsRLUlxkVxX/ZINVPPH5mP1B73WD
-	fHDvvDAEuc4JDD/tLaPxb/iTFlqd2jNqpBBuaHVBJUsoqyn2Sidh6/MfRNwqVRvdNXJ9ocwtvJBR3
-	N8nkNc/75uViVhhmdgh5Duder8xADb+t+ADKEVscU340CotRXSeoonGLQ3VYzLhAY5gvCf7z/oYmf
-	S+PUoxqQ==;
+	bh=zUpC3HqLRLpSxZnE8t0M+qNSgPwmDPeQ0pic9h30wA0=; b=tmL2HLt6wMnRtdGnlYjV8sW3qd
+	mLt/H/SZDxVGSZN1QPWr2DF02iD8OO4Ade9dLKtwKsJRVOV0ok36bka8mxb713pDQYSen03XDRcAL
+	hU14qQWnBIBoTsfiH7e7N1yui2c6OGQkyh6YRdhi6U9fbMwBYnTFrrOtwxjrooqaCrGO9peYqQcaS
+	mZsJYZQMoIbOsmkgiQPWOaWB4lwQvWn2V0Cdh2se63yNk4n7WslBqvuSDmjxzpFgQ/Y6ap4TBg1//
+	SEAExGduDu/YpvCtvkOAWS8ZxS/WlJ1h9ECqntUmPaFJfkR35N/DkfdAvEpVckQxphIcMWW5lwGy2
+	R1P6eAew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9dvh-00000008RvH-2ZJK;
-	Tue, 29 Apr 2025 05:54:53 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1u9dyK-00000008SJG-0La7;
+	Tue, 29 Apr 2025 05:57:36 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9dtl-00000008RYQ-12hJ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 05:52:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1745905973; x=1777441973;
-  h=from:to:subject:date:message-id:in-reply-to:references:
-   mime-version:content-transfer-encoding;
-  bh=H+ePYln7tPjjBoVKR5HPMEIWQT/EraWtuD1GVt6HQFQ=;
-  b=Zu9L/7HS8GKXHM3Lm/A3tVQIeF/wsU8VJugAmDp+yMmo1jTHg2BjLZF8
-   tzU6HXw3qqGjQHqp/Dc234kbQdy2AOBNaaivQgM2tjB43LlHfRPjz+x0i
-   51dhmPX9KhqO5L3gLTtmDskWqQFWU2PhaK8VOHCv1++V8XBT9vaBsmlpS
-   rN+oa6WHBq72XUUeznwwU0foi8SrrGnB6eWyZ0POe56a2RpZSdN1+F+J+
-   /thByEYMip+MOaZg77lOeJDk5hCqGXucyGnwyImn5zaCY3wtwKeGbDyqW
-   3gIj9NMAMOkmnsu/jjZkNa3JS71/k5QgT39yRidYr9KKUF7zU1rLCaxQ5
-   Q==;
-X-CSE-ConnectionGUID: S+IJdN4BTNCSJu0p4aaddQ==
-X-CSE-MsgGUID: PJJbB2nYTaKOVHj4c7k3fQ==
-X-IronPort-AV: E=Sophos;i="6.15,248,1739833200"; 
-   d="scan'208";a="43769108"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 29 Apr 2025 07:52:50 +0200
-X-CheckPoint: {68106932-7-903EAEAC-E04C76C8}
-X-MAIL-CPID: 873A8EB189AFEA30A497699562E47968_5
-X-Control-Analysis: str=0001.0A006398.6810693E.0055,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 945A916AADE;
-	Tue, 29 Apr 2025 07:52:44 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1745905965;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=H+ePYln7tPjjBoVKR5HPMEIWQT/EraWtuD1GVt6HQFQ=;
-	b=TBLMHc1qj6p8JIsxAqlB6IGbirIcg2hrkGe1NspBevfecMRkvRfmAa+zmdyf/55v7iaABs
-	vtYVyApWu3GM0POM3BBmvkNZKwxW6soD462APIiKguDhKuXGIxA64Vdo0tufqD4gxqUW54
-	q59lL/AtXKDtgGcgeabeZ/S3PSUUVJtAk3+N5Wo8HyygS/ml5Yk5DwVyKCIuV4QQmBgsUb
-	K4S/5OLkhdJQjr14Mv/6Ntr2H2OqYrJnr24nFTjiJdTChIdLLTESnEdhNQykzO63tUAx5S
-	PywhHa6o2GpfAiwjkLJHPT3HhTQxG6Hl8WSG1wSe86BosPWqQBJL2VDLwyEOMw==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
- Alexander Stein <alexander.stein@ew.tq-group.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com,
- linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] arm64: dt: imx95: Add TQMa95xxSA
-Date: Tue, 29 Apr 2025 07:52:44 +0200
-Message-ID: <2436245.ElGaqSPkdT@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <aA-xLX_O94O_U5Mt@shikoro>
-References: <20250428135915.520432-1-alexander.stein@ew.tq-group.com>
- <20250428135915.520432-2-alexander.stein@ew.tq-group.com>
- <aA-xLX_O94O_U5Mt@shikoro>
+	id 1u9dwP-00000008S4O-1nug;
+	Tue, 29 Apr 2025 05:55:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GX0A/Cgl9ElQlM1roJHvg2tnE+hzuhCefjAWJozmHjN5yXUK0qFtM/0sfn0Gqx1bQXTAgIW6DllsAwDTdRWRDlvXjgm0+TVUZy9CD7snTbzeCnJSI6DB4oPtm36S9Vcoh9vfNc2tNi79p/heRGtr0rQd9kQP3ffYnO8QX/M3FS3cKX/rLPN61kjBImL7ENXz+sVhyYovFddZbvea6HBpe2sVcZhZnC+6uDMaR4l/4kr0xyi7AZ7z7lXhUjBf9PP32HYg5kUVJLWzI1p/vuF1CcIu3yjEJ8kb12lxE74OJmToW9uUebdcYrf1Ln4GsTHiZCcJfxhwhC6rWASO22fY7Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zUpC3HqLRLpSxZnE8t0M+qNSgPwmDPeQ0pic9h30wA0=;
+ b=P+xQskpYJ6wes/O6aiJLbGI0v5gZiO37OZ0HXf1aQVCrPZFG4EUIUNBZfTW8S8LqisaVQ2gMT5za+9+OAkChPitx4/3d5kZp2X9ZZgpCRMGMpzH6NPAx47VPn23AWU2hvC12SYypbESemyI6yptpij3p7BZGPhWe3wcQ/HBBgjPbB73sOl53XAjW8Y73nBoZ874fCNo+B9bYVvchFPeICUNoh+a8uULYzF0reoSMooasYHsZvPZiuzkSTnRFF0nEyh7Vk3pZN+qKJdHkXREWhfEfCTYUtLG2NFj4rIBOatZnrJj6D2LF7Y4RKfSZgxqvRvGl1xUZeceXnHuDR9c9Rw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zUpC3HqLRLpSxZnE8t0M+qNSgPwmDPeQ0pic9h30wA0=;
+ b=DyCzEsZFEjBi30yaeVWfKJnPdcY7wF0nfYtsTWWYj1cbzpsoLEHOg5L2j3WJtFKu8saKulLGb8V2rNe7hSCqzP9CYYJrFOWCAYUwYaMTNRwo0YTj8wotUSx5hVpqpLpmxnHKpHgwOYt2oUnVhulF1GqLKN6VrhLsYjTgAATFgI3q2UrFDDkdSpxDV3vk8Upf9nM9CoZPmO4VyXDwaaDiyoNTY/HuBHK4JFn/sBnb4yp7NcOsyoXB+B0PHOG8dRQmhfxcl2F09aSiuUQ9WzCq+TLhY7gTVurw1iN/Kr/XNnwMet1Lu9PFkUyC/37ER/4ZzWbkVgJmEwIH3PZlMrBgDQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AS8PR04MB7701.eurprd04.prod.outlook.com (2603:10a6:20b:293::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.33; Tue, 29 Apr
+ 2025 05:55:34 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8678.028; Tue, 29 Apr 2025
+ 05:55:34 +0000
+Date: Tue, 29 Apr 2025 01:55:26 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Xu Yang <xu.yang_2@nxp.com>
+Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	jun.li@nxp.com, alexander.stein@ew.tq-group.com,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: phy: imx8mq-usb: improve some tuning
+ properties
+Message-ID: <aBBpzljSQEnQwlvU@lizhi-Precision-Tower-5810>
+References: <20250429033009.2388291-1-xu.yang_2@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250429033009.2388291-1-xu.yang_2@nxp.com>
+X-ClientProxiedBy: PH0PR07CA0028.namprd07.prod.outlook.com
+ (2603:10b6:510:5::33) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS8PR04MB7701:EE_
+X-MS-Office365-Filtering-Correlation-Id: 02f5ca0f-a52b-4788-557b-08dd86e274ee
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|366016|7416014|376014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?XLacwEC9hb2QE3LlaAcPs1AYIHkfTddF8AY5ql9EeOJs4jVYS9AuD+4SZDC1?=
+ =?us-ascii?Q?oDX1EDoCNelOBR892cauT7VxuRhE0aTDHudXgay9sEV1OciGjteAYOdnXefI?=
+ =?us-ascii?Q?aa486A6SmBKRYwqhXo9hapJZASvy1Lz8pVYiisdxTeRoUeNYBk867+/ajE64?=
+ =?us-ascii?Q?dnzfLANT6+cKxoO2laVjriMXhqqyy2zRQo4F8h9wtirxIeFSVWa90PvB2/XS?=
+ =?us-ascii?Q?lo6RCd83fTmYVblku0lCz0N6AAsj7oA2q2NJefAgO+hja72jwE9mQl+DCCkv?=
+ =?us-ascii?Q?pL7RJmAKca1/40/nYsNvNb0gapX2rhkUeyzbAYY2qOKAkam2Pmh2pZosHQoD?=
+ =?us-ascii?Q?8+UorVACJDzMJsQoJA4duI0JOJr9/YLDs/ECLAyI+oiTZG2fbAUYzgaT1o02?=
+ =?us-ascii?Q?tan6YSPDB4lzbNwO3evmCQdJ5YDsjtqT9116lxQovUqjm+ysNfwNbNAtmi77?=
+ =?us-ascii?Q?4n+fCrPHenHwHb0sRIgDs31r184brYbHaAjFYwlCO9VCSpoPDIf5MrNfdL7H?=
+ =?us-ascii?Q?FxE/G8FfLad7YLblAQBVJTID41D8yBJEmWkErCM2uRNCWPNjaj3Irv2yaP2I?=
+ =?us-ascii?Q?Dv6OTTy0XEdhFYcB0+pGp46K0w31AGvMoYXpE1DEwCe00S7gzqMvCyk2YF95?=
+ =?us-ascii?Q?alqerXho+sVfadOKcmIxHfxmGRuvjZ94NHKrgadkH1dP/0wnfzpnXx1z7491?=
+ =?us-ascii?Q?p9ucOF1fwyXGJWCsNrT2Zkfq9+D4gIeNLITyOcRGi3tQgl9qwkh5XIVR+DzJ?=
+ =?us-ascii?Q?oc+s642YKG+AG0BE5p4IPe8uj7zr2EibTsPByN78xLfCtmsJoGJwQ831u7yZ?=
+ =?us-ascii?Q?/KeWhPfqXSmWVXJEVEwq5sZwhj2jSHt5vJhYqdgIo3tO+TalHQoxdCCwTrWy?=
+ =?us-ascii?Q?dIPKqH5Ymm6q6ZYkvR1cg7ffUqzD7OfPbeg77iaEqb0L57bwn6zej+ii4ixc?=
+ =?us-ascii?Q?NTVjHsDLDJNFuT9edeREpks9hlVg2TvXsxsgBJg09CM/cmwokbUxPHuTz3eU?=
+ =?us-ascii?Q?CPRZoNx7YyU7ly2mL0DORLCI/tBTobwi/UoK82PG+v80p7UtRXs/r7YRxUje?=
+ =?us-ascii?Q?5CHpHhegpu7LBnzyjrgdwerUZIQCYwgu4cy8QfzECYJCUaIV+L1M5eUd0Ix3?=
+ =?us-ascii?Q?nZ+lTwUQJqO54v9iahz4+B9uam11rB/GyhO69JwiF8I6Cn5lRekIUyZrJ4js?=
+ =?us-ascii?Q?9Wgseijo78wA77PmQkXwXaBitN247wkJ9TOajFKojCI5mmXjIN2WlJ06hH7G?=
+ =?us-ascii?Q?GMzZQASzBbv01p+jLlBSVMQGsOTjkuzWcfEcvU7epQFoKGHLUEvcLQdAcTRM?=
+ =?us-ascii?Q?qBdGrkfh+tdgJvLNpM6ZEg9zRyxO81eWyHGsV8md8TnDEMJhe/HV6zGx0zRI?=
+ =?us-ascii?Q?zdhU+Na+Tx8D1UHoDQZHj7K8zcViwIM3ecQ2wh4cDq2uYw91+eDcjidAu3FD?=
+ =?us-ascii?Q?5+rUMFE2uano3aKFz1x3Lzf273hhHZE3j9ci+Yw4MsHCUpIBpeAD7g=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(366016)(7416014)(376014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6GVkT8RN1IqN8aILroz5h404odit1bEprOy32Bws86XFiyh3s5aff97OjE5X?=
+ =?us-ascii?Q?bLeQ+AE+hBqKGCdu7qskD380/ozcpnSlP9m01Rb4D3tprYzcumaJyt2ZRHRK?=
+ =?us-ascii?Q?p3LRXaxkwOVI/U3sbb05vzGvg6ns4Bs+jhYKuWBUYXJEJbByGwKyxYNHuMiB?=
+ =?us-ascii?Q?JWqUE0YIrFRzz6Nns2uqrIWU/WoS7c8YcdmMTZZ1s7VFOjeJN8OpNUY56Hd4?=
+ =?us-ascii?Q?z5BCjiFo9rXFfz88gv/DkwCmtcOWXJVyC3emE0Dzcp+RyGptHRLp8oGji0y+?=
+ =?us-ascii?Q?Vv7Xe8rZqyGO+rjIQaa+ssQIEaszw7kbsiE9b9xWa7Rm4qcQ0rN/DU1UJl3f?=
+ =?us-ascii?Q?fYBEq35ya8+TXuUdIt2zWpWJ1CkWEORqCNM3s/mbiykWq1nZPig5uEeVZUC/?=
+ =?us-ascii?Q?qir349eTwRe/eQqAJdXZ2SETE46mQVJyFEF19l4hkw+Lw86Pfs72bkPgahxO?=
+ =?us-ascii?Q?4g7p8aWu3bs79FsWnhy05sq0jsI6foZWhrqPQj4W8W/wRZis0JVeOCyH8qED?=
+ =?us-ascii?Q?W9JJ+6eyOsSfb62psyNt7gS2gHRvKsHsTQ1DJZ8mCXfXxQN0UdVpgJ3eap1d?=
+ =?us-ascii?Q?J3QMagirY01LJWsh3QR2XomNNba1Sjs9IH0KO1sVZqU2db6au85dD+7ecinV?=
+ =?us-ascii?Q?ginB/+bJXp4/f0I2b2K6k5l4xaF9qbCRnQnui+qB0rlCo8zFhQsHbM6OEP3C?=
+ =?us-ascii?Q?92W8tf4GOCtt6fIBf+mFXyeoctL7pCq4ezYlmthBh2rKRN04eou1TmmvwBXR?=
+ =?us-ascii?Q?8dypjOfELjcfAkz2XrhRSyHpWOi5dCtFbgg9gGNCz0KyRA9zNp4HsgITT/Di?=
+ =?us-ascii?Q?kqoaj9AC99ez+wbGCb7A7r9baXHGa1OkqWNDGmx8aUruRZwY7xJkzYxI+OPT?=
+ =?us-ascii?Q?ZQwu5vS3cr1hp13pIbb0T8doW7eXzSzY3lsHx+NnvnaixXr0TTbNAo8b4FYu?=
+ =?us-ascii?Q?6d1/cEPQ5FaheIK5xaMueZWPmcSjyKrON2avEvUigHTze5hJp4ItVkBNn/4C?=
+ =?us-ascii?Q?ns4fb0FybcWXqfuI9YwnOzzQIvSO47PrKtoPwWHy/E3+ELQxohdmNy/GKvKZ?=
+ =?us-ascii?Q?ya8WXSOHzE9pAv2xlzLdFdIvz6oQAjn0JOp8AcusrBkZ8DDIOkjhXAWuls8V?=
+ =?us-ascii?Q?dvmN1LP0wzr0TvWecblbHJDAQDed3pSxt4EuHJ77BlzIwYlDof+xln8pNeQr?=
+ =?us-ascii?Q?5YZBBbTjuatW8zTd2IMuAEvl7N8b1HrE99fthVq6OxU20Kw8FpNDy642ufRU?=
+ =?us-ascii?Q?pPgIFf+NGLxV5go1ri8K9Rsq7mgYYSmcZOyi14S9C5fbqYDEQ22ncgOjeCBs?=
+ =?us-ascii?Q?beD8+yJY2+gzmlI8470LbLJp3fudbkjdOTebjCPCIKrKYJgf3htV4DYCoMGj?=
+ =?us-ascii?Q?HIzj95I/uoAJ4uemTkSRJb2zkPUYEEEyWXyC8qvr8BnfKfXc5meUk3MSZ9oj?=
+ =?us-ascii?Q?0uRcBA/q91AzytbqOwsgyyhBcT7pIzw7FvlkJz2A2BeKYjv8fnFWFjOxZ4MR?=
+ =?us-ascii?Q?nCXFPYDaDjpL2MqAFGtfM/04Lm4qET7tfOahVdGD1RM12JwIuRwBErOzk5sa?=
+ =?us-ascii?Q?/cYcfTRGwlRXWvyMBn4=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 02f5ca0f-a52b-4788-557b-08dd86e274ee
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Apr 2025 05:55:34.1328
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ccPfsv5k4DJOy7HOF/nvuEGBmzjbERBY3t5kp5JHDUZRI9SAsJc1cmROFsRSN8wDMZMS+66V5+tRlX3EU9ekRQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7701
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_225253_765945_BCB2BFF8 
-X-CRM114-Status: UNSURE (   9.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250428_225537_472978_E270E39A 
+X-CRM114-Status: GOOD (  25.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,44 +159,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Wolfram,
+On Tue, Apr 29, 2025 at 11:30:07AM +0800, Xu Yang wrote:
+> Commit b2e75563dc39 ("dt-bindings: phy: imx8mq-usb: add phy tuning
+> properties") add many tuning properties, but some parameter value doesn't
+> match the register description. It made some changes based on the original
+> value: add offset to a negative number so turn it to a non-negative number.
+> However, it's not easy to find an exact tuning value from register field
+> with such conversion.
+>
+> Because device-tree supports negative parameter number, this will improve
+> some propertie's parameter.
+>
+> Mainly include below properties:
+>  - fsl,phy-tx-vref-tune-percent
+>  - fsl,phy-tx-rise-tune-percent
+>  - fsl,phy-comp-dis-tune-percent
 
-Am Montag, 28. April 2025, 18:47:41 CEST schrieb Wolfram Sang:
->=20
-> > Add initial support for TQMa95xxSA module compatible to SMARC-2.
-> > There is a common device tree for all variants with e.g. reduced CPU co=
-unt.
-> > It supports LPUART7 for console, CAN, PCIe I2C, SPI, USB3.0, USB2.0, Au=
-dio,
-> > SDHC1/2 and QSPI as storage.
->=20
-> Dunno why renesas-soc was CCed but since you are here... ;) do these
-> boards support I3C, too? I know that imx95 has I3C cores. Just out of
-> interest, not relevant for this series, of course.
+It should be standard unit. for example 0% to 100%. DT don't prefer you
+direct use register value.
 
-get_maintainer.pl lists (among others) for this patch
-> linux-renesas-soc@vger.kernel.org (open list:ARM/RISC-V/RENESAS ARCHITECT=
-URE:Keyword:\brenesas,)
+Frank
 
-because of this node
-> pcieclk: clock-generator@6a {
->     compatible =3D "renesas,9fgv0441";
->     reg =3D <0x6a>;
->     clocks =3D <&clk_xtal25>;
->     #clock-cells =3D <1>;
-> };
-
-renesas-soc gets triggered ;-) I'll pay attention for further patches.
-
-This is a SMARC-2 module, but there is no i3c interface in this standard.
-
-Best regards
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
-
-
+>
+> The parameter value of above 3 properties are USB PHY specific. i.MX8MP
+> and i.MX95 USB PHY has different meanings. So this add restrictions for
+> them.
+>
+>  - fsl,phy-tx-vboost-level-microvolt
+>
+> For this property, the parameter value is wrong in register description.
+> This will correct it according to true value.
+>
+> For detailed info, please refer to i.MX8MP and i.MX95 latest reference
+> manual.
+>
+> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+>
+> ---
+> Changes in v2:
+>  - keep widest constraints
+>  - use multipleOf for some properties
+> ---
+>  .../bindings/phy/fsl,imx8mq-usb-phy.yaml      | 60 +++++++++++++++----
+>  1 file changed, 49 insertions(+), 11 deletions(-)
+>
+> diff --git a/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml b/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
+> index daee0c0fc915..71e5940ef4b8 100644
+> --- a/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
+> @@ -42,16 +42,17 @@ properties:
+>
+>    fsl,phy-tx-vref-tune-percent:
+>      description:
+> -      Tunes the HS DC level relative to the nominal level
+> -    minimum: 94
+> -    maximum: 124
+> +      Tunes the HS DC level relative to the nominal level. It varies
+> +      between different PHY versions
+> +    minimum: -1000
+> +    maximum: 875
+>
+>    fsl,phy-tx-rise-tune-percent:
+>      description:
+>        Adjusts the rise/fall time duration of the HS waveform relative to
+> -      its nominal value
+> -    minimum: 97
+> -    maximum: 103
+> +      its nominal value. It varies between different PHY versions
+> +    minimum: -10
+> +    maximum: 20
+>
+>    fsl,phy-tx-preemp-amp-tune-microamp:
+>      description:
+> @@ -63,15 +64,14 @@ properties:
+>    fsl,phy-tx-vboost-level-microvolt:
+>      description:
+>        Adjust the boosted transmit launch pk-pk differential amplitude
+> -    minimum: 880
+> -    maximum: 1120
+> +    enum: [844, 1008, 1156]
+>
+>    fsl,phy-comp-dis-tune-percent:
+>      description:
+>        Adjust the voltage level used to detect a disconnect event at the host
+> -      relative to the nominal value
+> -    minimum: 91
+> -    maximum: 115
+> +      relative to the nominal value. It varies between different PHY versions
+> +    minimum: -60
+> +    maximum: 45
+>
+>    fsl,phy-pcs-tx-deemph-3p5db-attenuation-db:
+>      description:
+> @@ -112,6 +112,44 @@ allOf:
+>          reg:
+>            maxItems: 1
+>
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          enum:
+> +            - fsl,imx8mq-usb-phy
+> +            - fsl,imx8mp-usb-phy
+> +    then:
+> +      properties:
+> +        fsl,phy-tx-vref-tune-percent:
+> +          minimum: -6
+> +          maximum: 24
+> +          multipleOf: 2
+> +        fsl,phy-tx-rise-tune-percent:
+> +          enum: [-3, -1, 0, 3]
+> +        fsl,phy-comp-dis-tune-percent:
+> +          enum: [-9, -6, -3, 0, 4, 7, 11, 15]
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - fsl,imx95-usb-phy
+> +    then:
+> +      properties:
+> +        fsl,phy-tx-vref-tune-percent:
+> +          description: 100x the original
+> +          minimum: -1000
+> +          maximum: 875
+> +          multipleOf: 125
+> +        fsl,phy-tx-rise-tune-percent:
+> +          enum: [-10, 0, 15, 20]
+> +        fsl,phy-comp-dis-tune-percent:
+> +          description: 10x the original
+> +          minimum: -60
+> +          maximum: 45
+> +          multipleOf: 15
+> +
+>    - if:
+>        required:
+>          - orientation-switch
+> --
+> 2.34.1
+>
 
