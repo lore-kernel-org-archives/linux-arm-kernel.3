@@ -4,151 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE464C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 19:31:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E584C3ABA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 19:33:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qZjd2AJcsFaYi/nRk0zh41/cqrcDOBosGIW9jn0Zsbc=; b=xEWZKVB8j5Axza8PI7Ox10gmi4
-	RvxOVK/TPHmf8dtsYwfvCXupP9P7zUQVGG9kh26nEN3me94xs+ixZgZTADdaIArsLzBfpg7z1hif7
-	FDf9jhroK8mhbCFae3gd7xGpdfbg3fHBGsak1SIoSlzyOrEbEUVyW7GlmJUqu+CRqPqYIBboYxGWA
-	+GgZXrJtkBKv0AdorAkUsErLlKS3cJcXLjfHlDgvbuT26w/4uWt81CWpUric1VCDsXQU6Dua40EqV
-	1Arigz/Z24RLdixtgfoa0GquQLDuZ1GUTuaeHlnsLwisxL8pQtSnMgbFA4LRzPIPOtcomEJlc2uS4
-	wvfZ7jiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IEA9coPSR+RXT/e6kG1IdF6r8oRJJfl6KimXKU4XDp0=; b=fSRZnfdc/gpXpMAg7sX4bG19tA
+	ttYqyEGQflU8OX/6nkV1WOirug2chdG9y6jRJ100soTFIJ2Z4x3cM/hg+oGswQdPHjtxyxam+X+j2
+	JWDarBEOP9wErLdzgIt6otmVRFqG2+/RvHzdjQMvwpXKWBz+Hr5GSBcNaYlHfpTrFdIRlDVosMwmp
+	WT6ezWj36u+rFgXKSuQ0QvVCCzYwTw7u9wuzGSbQji9Ek8Sz0CS3ES6KC3AkCbcceAFxgOgcYOzAF
+	CnULQ8qNtE7QEa5vqsioSt2Ts/d/GTbFKN8KRulbHUUr58Yxfd117vv8i7c6aO9fn+cTT0MYiqi8Q
+	0RTu355g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9qfk-0000000Af0r-469y;
-	Tue, 29 Apr 2025 19:31:16 +0000
-Received: from mail-mw2nam10on20626.outbound.protection.outlook.com ([2a01:111:f403:2412::626] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1u9qhV-0000000AfDY-35mu;
+	Tue, 29 Apr 2025 19:33:05 +0000
+Received: from mail-ot1-x330.google.com ([2607:f8b0:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9pUM-0000000AVAI-3ngt
+	id 1u9qfY-0000000Af0E-1vbh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 18:15:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VIPaSKM1xa0+0r8kHBy9QrD1Vpu4z9Qz+cQ2nhSXdJcCG3oHyOKDJcqYrsOYc7u/hdxJhWXAmwv2CfYfbdcqY2pdYIUerBrE6muIPg3Hxj84oU7ioxf7H6BhZJtKDTffiNgXauWj7UqhEId8KVj4DcyclIpSWDVSaFziIVf4SjcUbJYqgVJkEwJRCMfLep4KTHoJjcH+mh6o+XlYN7K+rdWvJXD47j+UyWAL7IhOuIxd3cEIbyWBNIQSr+Ua1HMQTfJ/LOqviydtBy0BgQR/nexynIxEaoq1iWeIe/5MdxMzm6RhnM5HxR1QL2zknC5ih72OqM3TO02aXenNOqqRVg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qZjd2AJcsFaYi/nRk0zh41/cqrcDOBosGIW9jn0Zsbc=;
- b=MinnTn04AcKsKKn2MgoUe2K5P9IlRQA1WfGlagsTAsebOakystMfGTtr7BGWqwVrdiYhRrWdjRMdWG2OrVLln6XY+1iZLKFS+iI9XfeAzXEdROUYKEA6g87aFI/jXewk0k5kXrqgRmis7tUyxhwksHfediM9pj70bJY5jgEiNMbXVhMmLOAsCZBn7QAKuizTFAcrbLxQ027Gx4I2k0NZsKuQ9LtZ2p5GWiPoSpT2rWP3cg0gr1lxNw5tYfr/l0oapN6nheVeHxQk4SKCaxQAXKtTxVv9uow76ZdERENF0pDcliJdM8j0Nvh4T4qxJWmsRTiFOOWPhWuMmEnp4hlJOA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qZjd2AJcsFaYi/nRk0zh41/cqrcDOBosGIW9jn0Zsbc=;
- b=UAfhclOVX2+nIacGd6b4AbEQ7SFz6xe+bCb3sv3LoglorV/7snKytbn9zrIXm+ktpOU2bEBb4mQqjCv4v/dmxRMWy/uJLTIzuP5hG4caGP+TbYQ+tEGuWzJDIWIM8OINMZag5Dgo+eenV+UHCyDVfFWeoFukiz2ZyVI++uLnyPQ1XGvi1/TGPPMRc7+rwdgNBBmPS7u/cAZVzl7YyhUQYnzI1Ci29DUMgFF+VVmZdDy0ldji8SlL3wXP6/07SRG/DYB4feO8eN3ZcUYvMbnbpaK4pESSvxlTLmFcwvvgUQLeNUTi87jWA8lvhFttZzxGGnVeoY6sgHHppuU7ltDn9Q==
-Received: from CH2PR08CA0005.namprd08.prod.outlook.com (2603:10b6:610:5a::15)
- by SA1PR12MB7128.namprd12.prod.outlook.com (2603:10b6:806:29c::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.27; Tue, 29 Apr
- 2025 18:15:17 +0000
-Received: from CH2PEPF0000009A.namprd02.prod.outlook.com
- (2603:10b6:610:5a:cafe::27) by CH2PR08CA0005.outlook.office365.com
- (2603:10b6:610:5a::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.36 via Frontend Transport; Tue,
- 29 Apr 2025 18:15:17 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- CH2PEPF0000009A.mail.protection.outlook.com (10.167.244.22) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8699.20 via Frontend Transport; Tue, 29 Apr 2025 18:15:16 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 29 Apr
- 2025 11:15:04 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Tue, 29 Apr 2025 11:15:04 -0700
-Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com
- (10.126.190.181) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Tue, 29 Apr 2025 11:15:02 -0700
-Date: Tue, 29 Apr 2025 11:15:00 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Pranjal Shrivastava <praan@google.com>
-CC: <jgg@nvidia.com>, <kevin.tian@intel.com>, <corbet@lwn.net>,
-	<will@kernel.org>, <bagasdotme@gmail.com>, <robin.murphy@arm.com>,
-	<joro@8bytes.org>, <thierry.reding@gmail.com>, <vdumpa@nvidia.com>,
-	<jonathanh@nvidia.com>, <shuah@kernel.org>, <jsnitsel@redhat.com>,
-	<nathan@kernel.org>, <peterz@infradead.org>, <yi.l.liu@intel.com>,
-	<mshavit@google.com>, <zhangzekun11@huawei.com>, <iommu@lists.linux.dev>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
-	<mochs@nvidia.com>, <alok.a.tiwari@oracle.com>, <vasant.hegde@amd.com>
-Subject: Re: [PATCH v2 10/22] iommufd/viommmu: Add IOMMUFD_CMD_VCMDQ_ALLOC
- ioctl
-Message-ID: <aBEXJFnLalIh788i@Asurada-Nvidia>
-References: <cover.1745646960.git.nicolinc@nvidia.com>
- <094992b874190ffdcf6012104b419c8649b5e4b4.1745646960.git.nicolinc@nvidia.com>
- <aA_0TV0RkVOHk7Qj@google.com>
- <aBAEuP9962XweHPc@Asurada-Nvidia>
- <aBCNkcLp6XZpjYYT@google.com>
- <aBEWFw2wq40SHjTn@google.com>
+	Tue, 29 Apr 2025 19:31:06 +0000
+Received: by mail-ot1-x330.google.com with SMTP id 46e09a7af769-7306482f958so2580241a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 12:31:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1745955063; x=1746559863; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=IEA9coPSR+RXT/e6kG1IdF6r8oRJJfl6KimXKU4XDp0=;
+        b=rk8zT7PkBSb5NVgnxA0BDsx9HvP51ECemtV9qisGV5CaNHMsphR9hPGm2+Fw8G66Xn
+         WmbwDMUoynshONlEw7s2htzygvhByaEeChsqOm2r9RxKly73GtGFUQZAVQV3CkjWStWK
+         LCB0Kn7thbl4NV4g62BB2/Ccqsf0vYkIXI0BB3sKDeY8pQsLR25TN8SPHhW0PPuY56J+
+         DmtjpHKCgLbRxlLqUGb9JJ+w55SdQAAP1IKKSb7MvuJSMbwlJVfpSdoP+Z5ZflBDp/mu
+         OUeE7PpfH0uWcsWiW2JOpgQuUzeMz8aGyWpDgiQiKAmFC8itgUvVYg8YZ/YEvo87SwTG
+         rtYw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745955063; x=1746559863;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=IEA9coPSR+RXT/e6kG1IdF6r8oRJJfl6KimXKU4XDp0=;
+        b=fyivkd2y2wtv2tP24QIVbvvW+Sh9+Y7XamPrmWp8bx+7lLPTFXlQJJIpcoCm12YykA
+         zSmj/JviLZ7xTs+TzD28wk2MUqN8IyLBesHDpte4PC6kD/CgfVqU6MSSkQ31GD6si/8C
+         PRnHifpiDc0CQnHJ83/CdJELEu7q0aBX3O0iLq6DC7aA9JQVqiEZwdtg9LYR2WWL1+bs
+         fLDKVbhaXUUoLqJSp9spaP+2Vmjfa1aJSCfGCk27OZfbfbEAiT7KZg7yYoP03rTo3oBX
+         0pSr05OPGV8r1XICQNMRaldSgOgdcmhVZNk/3IBgRQNjD2/3okDVz23xmKn5NqZTC/Oi
+         R7Yg==
+X-Forwarded-Encrypted: i=1; AJvYcCXqIoD5Tq9k9B0MXFg2VKalOVHuVsPQQzAdlGcniN292Z5+bC1ERObWdeenZ9zZH4xwDTwJ1lDoNUbPTFQ9l7dU@lists.infradead.org
+X-Gm-Message-State: AOJu0YykibK3wp7hAtsahPtDIqOZPA0H1d07fpCGfp3mDNo2+snPLL7i
+	5BXMCctb7BKisu99ZuwCXhvCwbThQ4Bll7WZz62dLcrTb1NHypnr816+gSI6Pqs=
+X-Gm-Gg: ASbGnctWZLaiTCXmSug7aEnCNlZtKhMB8+6N26PvsAP/9Zpkmw7+0GdZVbd0/pVhlza
+	E/BrSHSDqBkct+il8E4fC55JHeSio2/cSCLFQHWQT9W3s3hyoaFTxSi3oTetJDR0FAw7hvrbhw+
+	7ipcTWSCt2AKL2DATMxV9qoF/aL6o3DNNU0C5B+/GvptOv0DyAii0Kt4FcZ8eq6QmGgahF2wGOa
+	B2R2RS21DInWqs4lhy8BdWhG/p6Bu12sRJ/vvu+8tDjTSEZ925fnqsFfjeWet7DPfs0SYeL62Or
+	UhvULo6quWg3m95JqMm7LnTwhXZtPwdReAozkg/ylOlgK5WYIzmgTY/Vsqh6ctk1zemgatWl6XQ
+	aq+UkZF0OKXA16QOwnw==
+X-Google-Smtp-Source: AGHT+IEaVlZVZe+jb2HlViK5TnZL0Nc4jro3bTaGV2+pNP/R765+0tJ8r0OzgrEjBUiZuFEMIPtr+g==
+X-Received: by 2002:a05:6830:4420:b0:727:42aa:e888 with SMTP id 46e09a7af769-731c0ab2949mr234320a34.27.1745955063337;
+        Tue, 29 Apr 2025 12:31:03 -0700 (PDT)
+Received: from ?IPV6:2600:8803:e7e4:1d00:dc17:157d:e8b2:3ad6? ([2600:8803:e7e4:1d00:dc17:157d:e8b2:3ad6])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7308b0f35b0sm444024a34.11.2025.04.29.12.31.02
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 29 Apr 2025 12:31:02 -0700 (PDT)
+Message-ID: <5c762653-b636-45bd-8800-e804ad8dfda5@baylibre.com>
+Date: Tue, 29 Apr 2025 14:31:02 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <aBEWFw2wq40SHjTn@google.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF0000009A:EE_|SA1PR12MB7128:EE_
-X-MS-Office365-Filtering-Correlation-Id: a674492f-654b-4d77-92ef-08dd8749cb5e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?i47DZKPnZvI/KB+eNLyVsx6DYkeieEGt7G3z8pL0N/lsj6S4yRvhxqwjyWBo?=
- =?us-ascii?Q?9oOTAFK2D30mDayKNrCBtI+xND7nWjGd/qmhZD5F24bSsPwefqtnoboR5Whz?=
- =?us-ascii?Q?s1CL5wEfv63oo+lcCWUylhFi7ClcT5uB5nm1Z8+xk+t0qLKl7RDv0v3xmtf0?=
- =?us-ascii?Q?gk7JgpaFndQOjbxUT92W4LM3nvuGzoRcxFyDPzdwnyP7CxjoA+gcGv7K0Rf4?=
- =?us-ascii?Q?T7G3P2wWm5FjG6trRvaa6VOsXCfyMR+1IzyVSDPHmUSYa95rKPf7ihWBbReL?=
- =?us-ascii?Q?P8dzlp6NzrlHK6XiUCUHWqUqXJzPt0bd18MSkEyFofc+dMpN5dwh0H/B7RNu?=
- =?us-ascii?Q?foEva7R0rhzjlHEkCvjB2RE8eVlEyvw8vDO0ozwTKD0niWcE7eoEZiudZ1Sd?=
- =?us-ascii?Q?8XNUK7+v7IuXKH0A8QyLYayNzyg2WiJbFzIzyjQqI6APEsTTWCzOqJqamHq9?=
- =?us-ascii?Q?y3EOqbQfn+tIPh7l7e5ZijYOK20vzpcHizsUtqZmxChGU2RhBQyprxCF9KWz?=
- =?us-ascii?Q?tSz5krPnBF+lx1Y0mzNmpnsTBF0aSKdSxLByNP6EvmiboYCdMVzTA3It+sIy?=
- =?us-ascii?Q?ginMdShKNS7Qs/mHrDHcEvSzEl0eFSZ7/0pZiM0kB8T9nXHCOKk+MdxIAZJV?=
- =?us-ascii?Q?IAV5wDuFd4/B7Q0F/sUgIY7DGm3/Bvti6ebnmqLfcVj4YLEfAzaccXQu2qEF?=
- =?us-ascii?Q?tbbA1irt2tJvvXnxhN4lvLQY37OLSNIHj6CQYEjJmf28Wm6VeuLhoSQiuKph?=
- =?us-ascii?Q?kLDn3TOaDmomVHRoiGyYR3RYfXC7cbYgv6kmw2rZN11yDcBGLwG7ezjSmZYD?=
- =?us-ascii?Q?2WLc8teaZlXKWBlIbyjheEmcl07jDct6mEU0V/D6fmtkVKXt7h5USKFqIuHc?=
- =?us-ascii?Q?3J1sxvltePUOcmHbcFtuX06AvEtlKezye2nnayS6HDzPoxmAda6pk4TwjfxG?=
- =?us-ascii?Q?rMCSQzAwe7GGTbdfF1Yk3iiv1UW3AIG69GUAp1M084esS7rj1gmGNeEdofoA?=
- =?us-ascii?Q?7VnFrsNcKw+MiR4ouhMR3ZWOgBNxsNShPjalpH9d/k0LHNZWOGUtSmK7EVEi?=
- =?us-ascii?Q?SiRGNo93CrzoiEhX/xqwxWl0Ih2rkzOF1ea3wCd/X9/QZwBO4mwo+CXG/iac?=
- =?us-ascii?Q?BCMvf/HLE6ejuXz5RHPyCWYG/A5ialNZokG1QdV4dW9MO/ovrYe0y+UC4Wbz?=
- =?us-ascii?Q?ggUtr/dyWMydTMLgeENDnUQxXR2tJUZbTscbquxN39gliSjrf2jiC6d/V/Q4?=
- =?us-ascii?Q?JahSBLXC5mx+O0TTjRHGPx/wKsBQV1hJbEh7faykTyRUerI/WCQcLmJfDezP?=
- =?us-ascii?Q?nmUf2avQeCdQAQXyUYNYBcvonv+WMteGXZ4+vCsnJg/TZU3m4wVLAfHb28LA?=
- =?us-ascii?Q?9b84h/x40khRCL/mfoFxH/r/AvFpp62PRBPmhZpituGGbHV8X0dUstUsRat8?=
- =?us-ascii?Q?/2QGqSYo/dytFrX4UgYxJhzSnU/MzZpDMX3ONYdiIUZbmskNOg1GoOL7EITG?=
- =?us-ascii?Q?ke3VxSML2yuY/kPnzTPopVF71rWFg8kpFEV4?=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(7416014)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Apr 2025 18:15:16.9249
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a674492f-654b-4d77-92ef-08dd8749cb5e
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000009A.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB7128
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/7] iio: introduce IIO_DECLARE_BUFFER_WITH_TS macros
+From: David Lechner <dlechner@baylibre.com>
+To: Jonathan Cameron <jic23@kernel.org>, =?UTF-8?Q?Nuno_S=C3=A1?=
+ <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>,
+ Lars-Peter Clausen <lars@metafoo.de>,
+ Michael Hennerich <Michael.Hennerich@analog.com>,
+ Eugen Hristev <eugen.hristev@linaro.org>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20250428-iio-introduce-iio_declare_buffer_with_ts-v4-0-6f7f6126f1cb@baylibre.com>
+ <20250428-iio-introduce-iio_declare_buffer_with_ts-v4-1-6f7f6126f1cb@baylibre.com>
+ <1d90fae5-9c58-4a77-b81c-2946e7cc74d4@baylibre.com>
+Content-Language: en-US
+In-Reply-To: <1d90fae5-9c58-4a77-b81c-2946e7cc74d4@baylibre.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_111526_938244_8A4DB19A 
-X-CRM114-Status: GOOD (  18.17  )
+X-CRM114-CacheID: sfid-20250429_123104_501626_2C4278A1 
+X-CRM114-Status: GOOD (  22.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,31 +109,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 29, 2025 at 06:10:31PM +0000, Pranjal Shrivastava wrote:
-> On Tue, Apr 29, 2025 at 08:28:01AM +0000, Pranjal Shrivastava wrote:
-> > On Mon, Apr 28, 2025 at 03:44:08PM -0700, Nicolin Chen wrote:
-> > > On Mon, Apr 28, 2025 at 09:34:05PM +0000, Pranjal Shrivastava wrote:
-> > > > On Fri, Apr 25, 2025 at 10:58:05PM -0700, Nicolin Chen wrote:
-> > [...] 
-> > > > IIUC, one vintf can have multiple lvcmdqs and looking at the series
-> > > > it looks like the vcmdq_alloc allocates a single lvcmdq. Is the plan to
-> > > > dedicate one lvcmdq to per VM? Which means VMs can share a vintf?
-> > > 
-> > > VINTF is a vSMMU instance per SMMU. Each VINTF can have multiple
-> > > LVCMDQs. Each vCMDQ is allocated per IOMMUFD_CMD_VCMDQ_ALLOC. In
-> > > other word, VM can issue multiple IOMMUFD_CMD_VCMDQ_ALLOC calls
-> > > for each VTINF/vSMMU.
-> > > 
-> > 
-> > Ack. I'm just wondering why would a single VM want more than one vCMDQ
-> > per vSMMU?
-> > [...]
+On 4/28/25 9:12 PM, David Lechner wrote:
+> On 4/28/25 3:23 PM, David Lechner wrote:
+>> Add new macros to help with the common case of declaring a buffer that
+>> is safe to use with iio_push_to_buffers_with_ts(). This is not trivial
+>> to do correctly because of the alignment requirements of the timestamp.
+>> This will make it easier for both authors and reviewers.
+>>
+>> To avoid double __align() attributes in cases where we also need DMA
+>> alignment, add a 2nd variant IIO_DECLARE_DMA_BUFFER_WITH_TS().
+>>
+>> Signed-off-by: David Lechner <dlechner@baylibre.com>
+>> ---
 > 
-> I guess the only thing on this patch from me was to understand why
-> would a single VM want more than one vCMDQ per vSMMU? (Just curious to
-> know :) )
+> ...
+> 
+>> +/**
+>> + * IIO_DECLARE_DMA_BUFFER_WITH_TS() - Declare a DMA-aligned buffer with timestamp
+>> + * @type: element type of the buffer
+>> + * @name: identifier name of the buffer
+>> + * @count: number of elements in the buffer
+>> + *
+>> + * Same as IIO_DECLARE_BUFFER_WITH_TS(), but is uses __aligned(IIO_DMA_MINALIGN)
+>> + * to ensure that the buffer doesn't share cachelines with anything that comes
+>> + * before it in a struct. This should not be used for stack-allocated buffers
+>> + * as stack memory cannot generally be used for DMA.
+>> + */
+>> +#define IIO_DECLARE_DMA_BUFFER_WITH_TS(type, name, count)	\
+>> +	__IIO_DECLARE_BUFFER_WITH_TS(type, name, count)		\
+>> +	/* IIO_DMA_MINALIGN may be 4 on some 32-bit arches. */	\
+>> +	__aligned(MAX(IIO_DMA_MINALIGN, sizeof(s64)))
+> 
+> I just realized my logic behind this is faulty. It assumes sizeof(s64) ==
+> __alignof__(s64), but that isn't always true and that is what caused the builds
+> to hit the static_assert() on v3.
+> 
+> We should be able to leave this as __aligned(IIO_DMA_MINALIGN)
+> 
+> And have this (with better error message):
+> 
+> static assert(IIO_DMA_MINALIGN % __alignof__(s64) == 0);
 
-It gives some perf gain since it has two portals to fill commands.
+I was working late yesterday and should have saved that reply until morning
+to think about it more!
 
-Nicolin
+We do want to align to to sizeof(s64) instead of __alignof__(s64) to avoid
+issues with, e.g. 32-bit kernel and 64-bit userspace (same reason that
+aligned_s64 exists and always uses 8-byte alignment).
+
+So I think this patch is correct as-is after all.
 
