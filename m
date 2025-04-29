@@ -4,70 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F137C3ABB0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 16:46:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5F98C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 16:46:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tPKAm8L3sD8kcbCC88TXij3+hl6lEIJeJOyk0hJGd4A=; b=us3RadyrHylaqiuuFM2+/Q5/Tu
-	d8kQdOWOXZjBAN081WEpUUr1AkAsKZ4vNz5Cx1czpwIIrBNSlVyvDaX96IrJ2ZrbU11HivobV8unF
-	eZo7FzuafUn4JLa3Lq2WXohldoVclmumb7Wp7zdCqyHsXs9B4cCDIuUU568TEYxza+jX5U3lhb4Bs
-	lmBf+QjzuqCUI+/2y/R19mm3tTxrYXviG3+8SUNyAMZ7XgstQ0n5F6Wcy5ycAQW1zmEnUBdlT41+E
-	eUyy9a3VNcddBgrMO6DCpVTioWEXR5b8Xo6IItEA+uTY47e8WE9trQVzvyJHSBZ2vIuc38I8DlIpw
-	Kno9IxMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eT1vk5XLAjl/TpZqvTHxGOR9jCT9UoSjSIUIYdqBtkE=; b=XJRI4CM7Wl1/yhtvMeVHYmj0Gq
+	dJerRNFkbEW+f5vCZC1qQTU+OYBCz4PqWSRq4PI9EdzOIRwU/WlZJ3tS9xDMVtWiWaQuCG/5TriY+
+	U6b4F2p/3ZQUzYG+laxcm20m1PMvZy46EQg5X7MWsN2bHdPZoUF3kLecChh7WDGEDuQGb+wkePOUq
+	Ira+ZPFflrujLFosTxiJ5QavEpKXkzWmGn2A/0vB6Q9IkQ1aXpgb5ZtiJ9WUUZJOrkZ8vLTpguwmz
+	BjVdofraXtVvkR7S3xohwz7wgFybyeP289BcG9xcUtMnqzgGF7e15IjtZh6KUsQLz2tSUNaKPEAFa
+	20Egq5rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9o66-0000000AIZz-3AmN;
-	Tue, 29 Apr 2025 16:46:18 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u9o69-0000000AIdt-457b;
+	Tue, 29 Apr 2025 16:46:21 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9ltv-00000009wuF-3VJE
+	id 1u9mfp-0000000A4hm-1lOL
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 29 Apr 2025 15:15:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=eT1vk5XLAjl/TpZqvTHxGOR9jCT9UoSjSIUIYdqBtkE=; b=Go8vyfBy129tsyI7Yj+/EIPAlJ
+	+IC4zEekDiOqBOgFHKjJbhCTPlRzUk9MzFyoW5U22hVTQQiHy40e0dioHf+hceF1E3MPVAh7R0MRc
+	lna/E1n+5+ZjPwfzBcgom6ZhV1j3d8LpdnC9gtUG22SElp3Eh78uCoWDEtAso1BMeVJBysFYvtRQv
+	uimpgt+LNc8XBOKus967wB7rO7H26Ax4CB7tCQ3mc3e7CWOI7YtmOwHCUu1N1qB0uNvZe4fmaan8W
+	2YwTBmZGZLx3bVje9dFq4uxjBdaRzhAvK1RGxVek2OA/E8sxFGtQh0mwNX+pGKT3S/q7xVTmAH6K3
+	r7YsHJUA==;
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u9mfm-0000000DQsm-03kF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 14:25:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 423DD61567
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 14:25:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F32C6C4CEE3
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 14:25:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745936735;
-	bh=HHHetzLClcVyYWk8l98u58LIcuM9dJ1z/dYCNokcUQA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=V0JJAKMSEGVTjCwPFtyo8go+iibWfKjH21D3IHWH/elVlYCuBN6XNSH8v3feeDIRj
-	 4DduDmZNPcPI00kLYwDAtJRtRtrf23mVgOcgzRGRGqG8DZMLXcX/HIW0VHzAAEDpgf
-	 t3OHbqJAMKEHDxRciwllPq6taUB1x7mNMTzvSnXA48xZXrJ3uqFUIfNusUAp7BamBG
-	 A/6qGRqV+k3nBx5tVaghxlU8bBd2265WD7ojHMsEg3C3JIO4PDTqmBg6JEA8Raekmc
-	 7fpXRCbUDgPqY0W868RyW1OFiGhLNTTwY5oi7VTc5ygv4cwX8FmB2Ddp5UJob9jPzx
-	 RjjA1XGQhWQcQ==
-Received: by mail-ed1-f44.google.com with SMTP id 4fb4d7f45d1cf-5e5deb6482cso12471795a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 07:25:34 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCV9VwYFaMr5qslxGMQ3RscG8MpS18QfVmEU28YI34rJsVA1whBeGe/6AQNTdzgUoAQzX8Mfe3Fk653FVDvjBDDy@lists.infradead.org
-X-Gm-Message-State: AOJu0YweLmnSyapS2kE5+bYozmIeiKdi5yy8LNikjWwMiWDm4g4M2AId
-	K0WdA/Ke6nrLaWcUaHZCWK15e70i519hqPbWivT49mTYvDzS7dzdEBH+tb0rXwh0p7vfhabck0/
-	+UfY0A+UDlxjpRMa1mnjKMQX38A==
-X-Google-Smtp-Source: AGHT+IHfroQjiVVCpl99LNHJxjRUar4RVaGCvkl0v3xBaP9iBGHIfGCUcloWbvPs8CSF2by68p4lpBN+j6whe6viwkg=
-X-Received: by 2002:a05:6402:4304:b0:5e0:752a:1c7c with SMTP id
- 4fb4d7f45d1cf-5f839204819mr3535728a12.1.1745936733598; Tue, 29 Apr 2025
- 07:25:33 -0700 (PDT)
+	Tue, 29 Apr 2025 15:15:04 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53TFEtE43129345
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 29 Apr 2025 10:14:55 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1745939695;
+	bh=eT1vk5XLAjl/TpZqvTHxGOR9jCT9UoSjSIUIYdqBtkE=;
+	h=From:To:CC:Subject:Date;
+	b=UKMn933M0o57lbaJ4fAAZ1jCkSHygKp9fWbNCyGFcDEk2b6xTPkjRQSmV2a0zrtKS
+	 Z5Bde8Gn0XzjbSTkeifW6x1TwWC6F327OHjWjEh4xxwkElPFfh5kVYa1no1tx5KDAu
+	 meC+vuHu3RzlqPlnPmeRfOnBOXvViDvMlMfPwSwQ=
+Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53TFEtoW032103
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 29 Apr 2025 10:14:55 -0500
+Received: from DFLE105.ent.ti.com (10.64.6.26) by DFLE104.ent.ti.com
+ (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 29
+ Apr 2025 10:14:54 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 29 Apr 2025 10:14:54 -0500
+Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53TFEslu129369;
+	Tue, 29 Apr 2025 10:14:54 -0500
+From: Judith Mendez <jm@ti.com>
+To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>
+CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Moteen Shah <m-shah@ti.com>,
+        Udit Kumar
+	<u-kumar1@ti.com>
+Subject: [PATCH v3 0/3] Misc MMC updates
+Date: Tue, 29 Apr 2025 10:14:51 -0500
+Message-ID: <20250429151454.4160506-1-jm@ti.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-References: <20250422084340.457-1-alireza.sanaee@huawei.com>
-In-Reply-To: <20250422084340.457-1-alireza.sanaee@huawei.com>
-From: Rob Herring <robh@kernel.org>
-Date: Tue, 29 Apr 2025 09:25:21 -0500
-X-Gmail-Original-Message-ID: <CAL_Jsq+mDoT=XFcPzx5V4dREGfBSGpWo6cnVo0-dsa+dD2tc2A@mail.gmail.com>
-X-Gm-Features: ATxdqUEHELZ1OjOnNJfx6ZMPIlivh56dcvLWcKfe4o76j4u1lowH3t3yLvFF3WI
-Message-ID: <CAL_Jsq+mDoT=XFcPzx5V4dREGfBSGpWo6cnVo0-dsa+dD2tc2A@mail.gmail.com>
-Subject: Re: [PATCH v1 0/5] DT: Enable sharing resources for SMT threads
-To: Alireza Sanaee <alireza.sanaee@huawei.com>
-Cc: devicetree-spec@vger.kernel.org, mark.rutland@arm.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	jonathan.cameron@huawei.com, shameerali.kolothum.thodi@huawei.com, 
-	linuxarm@huawei.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250429_161502_403278_BA9C56C1 
+X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,80 +106,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 22, 2025 at 3:43=E2=80=AFAM Alireza Sanaee
-<alireza.sanaee@huawei.com> wrote:
->
-> This patchset allows for sharing resources between SMT threads in the
-> device tree (DT).
->
-> WHY? Given the current use of the DT, it is not possible to share L1
-> caches, as well as other resources such as clock among SMT threads.
-> However, DT spec in section Section 3.8.1 [1], describes how SMT threads
-> can be described in the reg array, this is how PowerPC describes SMT
-> threads in DT.
->
-> CHALLENGE: Given discussions with the community [2], it was apparent
-> that it is not straightforward to implement this, since cpu-maps must
-> point to a particular CPU node in DT [3], Section 2.1. However, it is
-> not only the cpu-map but also there other nodes that point to cpu nodes
-> which indeed need care and changes.
->
-> SOLUTION: This led to more discussions on what the solution should look
-> like and based on recent converstations we ended up with the following
-> approach [4].
->
-> core0 {
->   thread0 {
->     cpu =3D <&cpu0 0>;
->   };
->   thread1 {
->     cpu =3D <&cpu0 1>;
->   };
-> };
->
-> In this layout, first parameter is the phandle to cpu-node and second
-> index would be the local-thread index in the reg array available in the
-> cpu-node reg property. Further, when reading the property in the cpu-map
-> we must know how many parameters phandle has in cpu property. Therefore,
-> we optionally introduced "#cpu-cells" property to indicate the number of
-> cells.
->
-> [1] https://github.com/devicetree-org/devicetree-specification/releases/d=
-ownload/v0.4/devicetree-specification-v0.4.pdf
-> [2] https://lore.kernel.org/linux-arm-kernel/Z4FJZPRg75YIUR2l@J2N7QTR9R3/
-> [3] https://www.kernel.org/doc/Documentation/devicetree/bindings/cpu/cpu-=
-topology.txt
-> [4] https://lore.kernel.org/devicetree-spec/CAL_JsqK1yqRLD9B+G7UUp=3DD8K+=
-+mXHq0Rmv=3D1i6DL_jXyZwXAw@mail.gmail.com/
->
-> Alireza Sanaee (5):
->   DT: add infra for finding CPU id from phandle.
->   arm64: of: handle multiple threads in ARM cpu node
+This patch series includes updates for eMMC and SD nodes across
+Sitara K3 SoC boards:
 
->   driver/base/arch_topology: update CPU map to use the new API.
->   driver/hwtracing/coresight: Use of_cpu_phandle_to_id for grabbing CPU
->     id.
+Add boot phase flag to MMC nodes and dependency nodes to support SD and
+eMMC boot. 
+Add non-removable flag to eMMC nodes to void having to redetect
+eMMC after suspend/resume.
+Remove disable-wp for eMMC nodes since property is specific to SD.
 
-You kind of have the path, but it's 'drivers' not 'driver'. In any
-case, that should be dropped. Use the prefix of the particular
-subsystem (git log --oneline path should tell you).
+Changes since v2:
+- Split out patches meant for stable
+- add review tags
 
-These 2 patches do the same change. Use a consistent subject.
+Link to v2:
+https://lore.kernel.org/linux-devicetree/20250417233040.3658761-1-jm@ti.com/
+Link to v1:
+https://lore.kernel.org/linux-devicetree/20241014194722.358444-1-jm@ti.com/
 
->   DT: of_cpu_phandle_to_id to support SMT threads
+Judith Mendez (3):
+  arm64: dts: ti: k3-am6*: Add boot phase flag to support MMC boot
+  arm64: dts: ti: k3-am62*: Add non-removable flag for eMMC
+  arm64: dts: ti: k3-am6*: Remove disable-wp for eMMC
 
-Patches 1, 3, and 4 are useful refactoring regardless. They should
-come first in the series.
+ arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts             | 12 ++++++++++++
+ arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi      |  1 -
+ arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts       |  2 +-
+ arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi     |  1 -
+ arch/arm64/boot/dts/ti/k3-am62a7-sk.dts              |  3 ++-
+ arch/arm64/boot/dts/ti/k3-am62p5-sk.dts              |  2 +-
+ arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi       |  2 +-
+ arch/arm64/boot/dts/ti/k3-am642-evm.dts              |  1 -
+ arch/arm64/boot/dts/ti/k3-am654-base-board.dts       |  1 -
+ .../dts/ti/k3-am6548-iot2050-advanced-common.dtsi    |  1 -
+ arch/arm64/boot/dts/ti/k3-am69-sk.dts                |  1 -
+ 11 files changed, 17 insertions(+), 10 deletions(-)
 
->  arch/arm64/kernel/smp.c                       | 74 ++++++++++---------
->  drivers/base/arch_topology.c                  | 12 +--
->  .../coresight/coresight-cti-platform.c        | 15 +---
->  .../hwtracing/coresight/coresight-platform.c  | 14 +---
->  drivers/of/cpu.c                              | 45 +++++++++++
->  include/linux/of.h                            |  3 +
->  6 files changed, 100 insertions(+), 63 deletions(-)
->
-> --
-> 2.43.0
->
+
+base-commit: d864bb528a6725e775d564fd4430762acbb9dd0d
+-- 
+2.49.0
+
 
