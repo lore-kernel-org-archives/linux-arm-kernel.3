@@ -4,65 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CC43C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 15:26:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8257C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 15:30:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nUlWML/fsXetNwxqvoOqkD0pz1cXL+R3ZbMDWiTp+MA=; b=Q21WwaMk78/d+rvG0dSrdxOkNU
-	e3//irDxA3pgTsL9lxCwZpaqn3Hi7b4Tpj/RXhzkKa3P3DUGy754cmaxQEsv7fj1MesN+24U4J9bK
-	BNPjht9OgzOUb3sIXvcAArArNx88EOCVzJxs+QWVAva6npSHE36dwCu1mmtjveLcJ0zPWmL1u+5oN
-	9XSP0IG7hyR9Wz6L1Mln58KfrfETEWf1UjFjpuG69csFkb+ku1V+2tP3QEAd+ogLfqZ228PJbCsru
-	ffRFA8DV9Eslpyoe4wwOXe6jqfgzeL3+EjM5ERDDcejSS6u5+SV3qgpep0KgCaF41oZWbFnH6zll8
-	2ON7ePow==;
+	bh=CnjcBtyGIDTiKHQk3dUD9TDEJJzI09MCxpNuZkCGi9U=; b=EggefMjbc+VySmPlmv4lbDKoPr
+	fCTBtC805pxAc9v0LXhY4MmMMN8tAqHxRNUyYRbAwXUhMb4yM6AkaVQjENOr8Rk2dDVsAQRGNeoJ9
+	ws/aS8GFiHRu24TJi8zwpgSe1jUOspD6RvswqebjOyMtk5nPJQaCahkrVdYt9u75BBNArzy74HPZ/
+	I0AW1+Zu0cO4E0qeiWGgIdjVkiaaDYWNnsLKMHBir6AI/AVnJ5bkCRiTGRmLJsJ6jyz+wzRrOl6Ef
+	K7NdEVRRBSX33rVunQknIc6hpLf5Apc3GuRLsc1a9xn1D3uzCwTsjeMgKSZNaj7riWzWAvzdNab9q
+	o9aIRNTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9mrB-0000000A7i3-3k4G;
-	Tue, 29 Apr 2025 15:26:49 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u9muy-0000000A8QG-46cf;
+	Tue, 29 Apr 2025 15:30:44 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9mV7-0000000A3Nm-2kmQ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 15:04:01 +0000
+	id 1u9mbJ-0000000A4Kj-29St;
+	Tue, 29 Apr 2025 15:10:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=CnjcBtyGIDTiKHQk3dUD9TDEJJzI09MCxpNuZkCGi9U=; b=CFlLCNXMwE7VorssBCcpH3p8gS
+	j7jf6dalGfTvYs2j/kkKJ8Z2fHHRRPhrdhWHYnCsoNfdZZ6jl9tPwafUWBIKDc6YBtLSBY4y7SbhH
+	pU8YtmQMD+Evt1PXvVA7oyWu4BmrG+aEer/6+HozDSVzKRKACckcIXfjvoToQKnaFRgQRa/5r8V28
+	G713w0yowrzYP9NpWRpF+BaHFw11ELas3OpLWUc4+oonfxJ33mAfKmvSBowwRNHSzTPwwXciWj72h
+	CkX8DrRcaCGj6KiCorfmarlYyEqW2/Pup5QrEKj7lqHNxoPRI/Z4dvVJEZEmeChBvJNeiYm93OcAM
+	rvXOCU2w==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u9mbF-0000000DQhX-43zQ;
+	Tue, 29 Apr 2025 15:10:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0E05761567;
-	Tue, 29 Apr 2025 15:03:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA8E5C4CEE3;
-	Tue, 29 Apr 2025 15:03:57 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id D4926A4B73E;
+	Tue, 29 Apr 2025 15:04:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60BA3C4CEE3;
+	Tue, 29 Apr 2025 15:10:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745939040;
-	bh=07G9Y0+nqlY03fvr8srBQeJEfqq0mWj7H4qgzsSSMC0=;
+	s=k20201202; t=1745939418;
+	bh=tH/b0H08UXNUu6dgbm5YvkwLd90cHvKfu0wgbJrpW2g=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=b2RSriF1PYemUlOEM4eytLR7EQokiggwNpQWL0brlA0py7t88h57IFIcL3nc5JPlr
-	 zCEIvgdOJeWphGywZ/RdE3vyNdiDgxakgkRvo8c5nD9A+l8FFq94QHjjT6CL3E7iQD
-	 +098om27DJSagNnfegkQWkf90HjK3jV2dh7n9xJvapwQSzFEtyQuLE3O+aKosQPIzQ
-	 PWsy1RFZv3tZbkoSWBEeBtLsfLMRcnP+abFPekl8OrQKHAU9m66tMiwhjoC1X6b8EX
-	 KL2W+7To5tAf31adc5+48VNfVCFm1h1z3tMqjdEWqeuGGTOIegkqrdycZSIQPOmxaN
-	 u4KpDbEcNoCrw==
-Date: Tue, 29 Apr 2025 16:03:54 +0100
-From: Will Deacon <will@kernel.org>
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: tglx@linutronix.de, ruanjinjie@huawei.com, catalin.marinas@arm.com,
-	oleg@redhat.com, sstabellini@kernel.org, peterz@infradead.org,
-	luto@kernel.org, linux-kernel@vger.kernel.org, arnd@arndb.de,
-	paulmck@kernel.org, mingo@redhat.com, dietmar.eggemann@arm.com,
-	linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com,
-	joey.gouly@arm.com, kevin.brodsky@arm.com, dave.martin@arm.com
-Subject: Re: [PATCH -next v6 1/8] entry: Split generic entry into generic
- exception and syscall entry
-Message-ID: <20250429150353.GA26272@willie-the-truck>
-References: <20250213130007.1418890-2-ruanjinjie@huawei.com>
- <20250320142612.396250-1-linus.walleij@linaro.org>
- <CACRpkdZKaUtnv0HfTci1-_WekNkmJyNA3znx7cUgJW5NNDAYVg@mail.gmail.com>
+	b=hy6OqaRBXW2VArQAk0HkFGDWr69g/SzJsfJZ8IPR1Da5ckDhHLpiiUjgvvbO+3d+z
+	 x6OyY3irDdVMdsLz93UdVfUuXLXt9ZAbakYx2C+aZr4c4Ht9M7eKlJE18cZ4+e8PfM
+	 GI/Msv6SpjxgBS/1192R8lJEg7LYJPB9EVTCaBdSJsWFgdI+zpB/1LQK/WjxeVTvQz
+	 SySUAwMTrdZQPKibhIOSLjq/dlrplor/hJGnfSBtKUcau3TUy64Nah2sllXE3kGObb
+	 IWFx+2ZIX4B3VrYYkYCvDyMsMz7FhOd7svLyuOj755afscDhWwYdztPQR0zDf6d9i4
+	 uWJG6YYSthiuA==
+Date: Tue, 29 Apr 2025 16:10:13 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Xu Yang <xu.yang_2@nxp.com>
+Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	jun.li@nxp.com, alexander.stein@ew.tq-group.com,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: phy: imx8mq-usb: improve some tuning
+ properties
+Message-ID: <20250429-charbroil-easing-04f579c68a2d@spud>
+References: <20250429033009.2388291-1-xu.yang_2@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="6fwPel+VdaSrAtp/"
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CACRpkdZKaUtnv0HfTci1-_WekNkmJyNA3znx7cUgJW5NNDAYVg@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <20250429033009.2388291-1-xu.yang_2@nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250429_161022_292317_0CD095F8 
+X-CRM114-Status: GOOD (  24.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,41 +90,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 28, 2025 at 04:46:02PM +0200, Linus Walleij wrote:
-> Hi Thomas,
-> 
-> On Thu, Mar 20, 2025 at 3:26 PM Linus Walleij <linus.walleij@linaro.org> wrote:
-> 
-> > > Currently CONFIG_GENERIC_ENTRY enables both the generic exception
-> > > entry logic and the generic syscall entry logic, which are otherwise
-> > > loosely coupled.
-> > >
-> > > Introduce separate config options for these so that archtiectures can
-> > > select the two independently. This will make it easier for
-> > > architectures to migrate to generic entry code.
-> > >
-> > > Suggested-by: Mark Rutland <mark.rutland@arm.com>
-> > > Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> >
-> > If the generic entry maintainer (hi Thomas) thinks this patch is
-> > OK it would be nice to have it applied because it will also make
-> > the ARM32 transition to generic entry easier as we can work on
-> > exception and syscall entry each in isolation.
-> >
-> > Acked-by: Linus Walleij <linus.walleij@linaro.org>
-> 
-> Do you think this patch is something you could queue on some
-> tip branch for v6.16?
-> 
-> I don't know if either arm64 or arm32 is going anywhere with
-> generic entry for v6.16, but having this in-tree makes it easier
-> to split the task going forward. We can always pull it into some
-> branch or just wait for v6.16-rc1 to get this patch under our
-> patch stacks.
 
-Agreed, having the core part merged would be really helpful if possible.
+--6fwPel+VdaSrAtp/
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Cheers,
+On Tue, Apr 29, 2025 at 11:30:07AM +0800, Xu Yang wrote:
+> Commit b2e75563dc39 ("dt-bindings: phy: imx8mq-usb: add phy tuning
+> properties") add many tuning properties, but some parameter value doesn't
+> match the register description. It made some changes based on the original
+> value: add offset to a negative number so turn it to a non-negative numbe=
+r.
+> However, it's not easy to find an exact tuning value from register field
+> with such conversion.
+>=20
+> Because device-tree supports negative parameter number, this will improve
+> some propertie's parameter.
+>=20
+> Mainly include below properties:
+>  - fsl,phy-tx-vref-tune-percent
+>  - fsl,phy-tx-rise-tune-percent
+>  - fsl,phy-comp-dis-tune-percent
+>=20
+> The parameter value of above 3 properties are USB PHY specific. i.MX8MP
+> and i.MX95 USB PHY has different meanings. So this add restrictions for
+> them.
 
-Will
+It's hard for me to understand from this if you're actually changing the
+meaning of the property. Will the current/old values continue to
+function as they have been?
+
+>=20
+>  - fsl,phy-tx-vboost-level-microvolt
+>=20
+> For this property, the parameter value is wrong in register description.
+> This will correct it according to true value.
+>=20
+> For detailed info, please refer to i.MX8MP and i.MX95 latest reference
+> manual.
+>=20
+> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+>=20
+> ---
+> Changes in v2:
+>  - keep widest constraints
+>  - use multipleOf for some properties
+> ---
+>  .../bindings/phy/fsl,imx8mq-usb-phy.yaml      | 60 +++++++++++++++----
+>  1 file changed, 49 insertions(+), 11 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yam=
+l b/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
+> index daee0c0fc915..71e5940ef4b8 100644
+> --- a/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
+> @@ -42,16 +42,17 @@ properties:
+> =20
+>    fsl,phy-tx-vref-tune-percent:
+>      description:
+> -      Tunes the HS DC level relative to the nominal level
+> -    minimum: 94
+> -    maximum: 124
+> +      Tunes the HS DC level relative to the nominal level. It varies
+> +      between different PHY versions
+> +    minimum: -1000
+> +    maximum: 875
+> =20
+>    fsl,phy-tx-rise-tune-percent:
+>      description:
+>        Adjusts the rise/fall time duration of the HS waveform relative to
+> -      its nominal value
+> -    minimum: 97
+> -    maximum: 103
+> +      its nominal value. It varies between different PHY versions
+> +    minimum: -10
+> +    maximum: 20
+> =20
+>    fsl,phy-tx-preemp-amp-tune-microamp:
+>      description:
+> @@ -63,15 +64,14 @@ properties:
+>    fsl,phy-tx-vboost-level-microvolt:
+>      description:
+>        Adjust the boosted transmit launch pk-pk differential amplitude
+> -    minimum: 880
+> -    maximum: 1120
+> +    enum: [844, 1008, 1156]
+> =20
+>    fsl,phy-comp-dis-tune-percent:
+>      description:
+>        Adjust the voltage level used to detect a disconnect event at the =
+host
+> -      relative to the nominal value
+> -    minimum: 91
+> -    maximum: 115
+> +      relative to the nominal value. It varies between different PHY ver=
+sions
+> +    minimum: -60
+> +    maximum: 45
+> =20
+>    fsl,phy-pcs-tx-deemph-3p5db-attenuation-db:
+>      description:
+> @@ -112,6 +112,44 @@ allOf:
+>          reg:
+>            maxItems: 1
+> =20
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          enum:
+> +            - fsl,imx8mq-usb-phy
+> +            - fsl,imx8mp-usb-phy
+> +    then:
+> +      properties:
+> +        fsl,phy-tx-vref-tune-percent:
+> +          minimum: -6
+> +          maximum: 24
+> +          multipleOf: 2
+> +        fsl,phy-tx-rise-tune-percent:
+> +          enum: [-3, -1, 0, 3]
+> +        fsl,phy-comp-dis-tune-percent:
+> +          enum: [-9, -6, -3, 0, 4, 7, 11, 15]
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - fsl,imx95-usb-phy
+> +    then:
+> +      properties:
+> +        fsl,phy-tx-vref-tune-percent:
+> +          description: 100x the original
+> +          minimum: -1000
+> +          maximum: 875
+> +          multipleOf: 125
+> +        fsl,phy-tx-rise-tune-percent:
+> +          enum: [-10, 0, 15, 20]
+> +        fsl,phy-comp-dis-tune-percent:
+> +          description: 10x the original
+> +          minimum: -60
+> +          maximum: 45
+> +          multipleOf: 15
+> +
+>    - if:
+>        required:
+>          - orientation-switch
+> --=20
+> 2.34.1
+>=20
+
+--6fwPel+VdaSrAtp/
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaBDr1AAKCRB4tDGHoIJi
+0ih9AQDT8xFlp6KhPojdSp42RYiUGcj8PdnHv9paubx+sFlINgEAwKSNVrFiQ6Z0
+NamP3TPzHWAbYTYUyslHKxgpO109Kg0=
+=5BX7
+-----END PGP SIGNATURE-----
+
+--6fwPel+VdaSrAtp/--
 
