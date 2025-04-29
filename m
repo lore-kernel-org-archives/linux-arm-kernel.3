@@ -4,123 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42281C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 06:52:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10CB3C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 06:54:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DZu3TV8trj7jEXy9C3oxl4Sy0FYWykPDbiLWiHrWJao=; b=rum28evpkNc2pKDQnDiEIYyxO/
-	PuR1tceUmhL6spIHifWxkeb1SlLev/8O0Txz2503vHQisN8hLlbk9Q9jPiAwldWh59n20hmCY8Ppr
-	+8R/4fGMMpbEgvzOww4r1alpRG7W2c5L68LqYsuZnqBLceB/E9G3yLfLjC+OOVhi5eLsUE4zZG3I+
-	rRzx9W6UCy4xngUbt6klCS94zPREQMbY1ipPoAiwh61hzVIxQNXGqkcsmLfd6kzAKBwEs1T4MlTGE
-	tfL4s5y6laVBNSyf+CP4wiCCrC397olEcZ9y8fwL3nlubnVzc4c0dCcCOzfEBFu9J+3dvJZwOPhEj
-	Fb57cYSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HqK9sYjuO7DYCo0ffwC6/cbJHgQOhwGD3w4CdRaE3vs=; b=lT95B0FiD5S/y61AcITNNmwQ6c
+	ZWVcK0gi3+nuvYDOA6m/2K1NGmQqs1sGhg54YxEd7YFo15XUL6m2zcoJG7gbusptjr2WvKvVck1Eh
+	zzOctgSJPP2FM/LJv46uqJ+pF2mOL2SG5vtUZnIoMW97nEuT50wA/EPmd/5iHRFvyu8oiQdxjRlCs
+	m/FYnaSq0KmZ3MpcrBrT3t4uXV2oC8RPO93qMxUROQ5Wju83lORh2o7IZIvbd6hTpl9B3t864snY2
+	0pdIDgCCGIUeB/AJh/3Iprd7TNLeIusJFjN/SD4bQWYpok+2p3lVFeS6Fzpzxl1uA8Qsj2j/3+UnH
+	7+/k0Kmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9epN-00000008dhX-12yZ;
-	Tue, 29 Apr 2025 06:52:25 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1u9erH-00000008e1B-0UPI;
+	Tue, 29 Apr 2025 06:54:23 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9ejq-00000008cij-0Rpt
+	id 1u9ejx-00000008cki-43wm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 06:46:43 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53SNrrFD014932
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 06:46:41 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=DZu3TV8trj7jEXy9C3oxl4Sy
-	0FYWykPDbiLWiHrWJao=; b=N6XDVcY+mrQT+m461o4bwqUWem/L+QiXXwUoTQT0
-	lyHKLGcln/unMyGQcwf3WRs2L8baOoyGPxiO8Fi/7QY863ItKpelgREWLF4Q56DY
-	a2y4pMer6xyrT7r6p+TKDcBBG6Yyfj5B3/+xfPSX+CXgBLj+VrNHcsfk5JHYW6rG
-	0bQA4qxj155NOjhDwrUTJwVwUNCzpyzqoR4s2q1rTWv5/UL0JWpMaFZnnCOodCbY
-	8Sbji9o/STMdR9CM3wM6C16DPPrgryVadXWag3uF19gcNf8KURm4R2fLwomWVN46
-	8XbEMtYYzl9uMe1NEUhr/iq9Bha0/5C7U3N1Xo83+s6ZJQ==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 468rnn2efj-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 06:46:41 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-4769a1db721so145989861cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 23:46:40 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745909200; x=1746514000;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DZu3TV8trj7jEXy9C3oxl4Sy0FYWykPDbiLWiHrWJao=;
-        b=mXaOyETpJqYsZ+8iUMY61e55ncwCOfuTF+TNRh6txuPO8gBDtomBwyKqLXtIctU+SK
-         20wW1QTCV1Y/pk70jNcHKLyeJ3+x2y9M7WLhsFHQbLI5j1KyFafP/LywdrtdD8j12Ho+
-         pTkVyUWlvD+jGHtGzZjhKSweA98NkLag3LsjS9AzlacbG0/2oIpUsra7JrxHqkXqRx0w
-         b6oV+3HMn1eD+h2mMyXtndRuPQBTi0ax/n6dp6mV43bO2FskIYuoctM+GoFg5tDuZQEl
-         tiwrVECGCje3Sei4wWXd3n4rGjCACU9aoFdynCVCMmEjQUbSDl+/2o0VaLS6zyMaf4vD
-         rfGA==
-X-Forwarded-Encrypted: i=1; AJvYcCUyiYw64XsKi4w2W449l4wuXW4B8mK+kuRbfdkzejUnY8FjaLInUsJaN+IZeBslSF8Bwg2XOrDn2ZazXspEhhmr@lists.infradead.org
-X-Gm-Message-State: AOJu0YxE7b9AQ4QtCABTnKTskO+jcIAwAj3Y0izUY8moLkn98WWfZqaA
-	3FuNtzTfHLq9ZlAmdw7I11X4X/Pz7TBtBa0Xl2RaXCBuP9FL67FE/1DSPJ/W2eYuwmuoHjE1qp8
-	Ja3Jc5z7D3hajigM8nYLlTlpxWGFqGT2A95nh7aZRJ3gzGPpDhm4uhf003debBVXTjGY4x++KFw
-	==
-X-Gm-Gg: ASbGncttawdyNizAHpmDWUjCN2kLaz0o6dsf7hw4FLjTPdMFVQe4Ywlm7XfwSBzXPp6
-	HzN9KWeDebVVy5+A5OEh8y2IKONljpa48WpkviqXPN0AGVgHrZhKXyJDEq6MmI2lps7Cx/vuv02
-	u1LeKNEpZbKs5MCDxrd+ltC3o7/iOSKtDPc6xt6n5UV8WLl3PTYwwJgQKYVYiX+UvJc3ggpHgS3
-	vronpdL2CDuVJr0dcHvJNxstzoBCH+KSCYo5Ev8b+2Cxnkb7GmEsd6b6l3hBbFI1ddPnGd5gZDc
-	JvIjZ2+gvpHkFGHSkXvoi5EXoHgA44WmOFAkadZ+SfAQJj8NyW22giAQpVvji8wU9jtAWIG4k4c
-	=
-X-Received: by 2002:ac8:7f8e:0:b0:476:a967:b247 with SMTP id d75a77b69052e-48133562059mr203907661cf.47.1745909199806;
-        Mon, 28 Apr 2025 23:46:39 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEMg1rHdHs2/nbrDBu8fCMcRUEKSoFdhUgPQjOmgqhIt37Lk0kiYKjrtVvVlpe5Endpr+SpyQ==
-X-Received: by 2002:ac8:7f8e:0:b0:476:a967:b247 with SMTP id d75a77b69052e-48133562059mr203907431cf.47.1745909199361;
-        Mon, 28 Apr 2025 23:46:39 -0700 (PDT)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-317d206b703sm22953181fa.114.2025.04.28.23.46.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Apr 2025 23:46:38 -0700 (PDT)
-Date: Tue, 29 Apr 2025 09:46:36 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Stephen Boyd <swboyd@chromium.org>
-Cc: Tzung-Bi Shih <tzungbi@kernel.org>, linux-kernel@vger.kernel.org,
-        patches@lists.linux.dev, Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, devicetree@vger.kernel.org,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Rob Herring <robh@kernel.org>, linux-arm-msm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        Conor Dooley <conor+dt@kernel.org>, Benson Leung <bleung@chromium.org>,
-        chrome-platform@lists.linux.dev, Pin-yen Lin <treapking@chromium.org>,
-        Abhishek Pandit-Subedi <abhishekpandit@chromium.org>,
-        =?utf-8?Q?=C5=81ukasz?= Bartosik <ukaszb@chromium.org>,
-        Jameson Thies <jthies@google.com>,
-        Andrei Kuchynski <akuchynski@chromium.org>
-Subject: Re: [PATCH 1/7] platform/chrome: cros_ec_typec: No pending status
- means attention
-Message-ID: <zjofw6fe5aznnqphtneccj426vqpbimm23kcpi3xts6p6zhftk@kjhrxvhanamm>
-References: <20250416000208.3568635-1-swboyd@chromium.org>
- <20250416000208.3568635-2-swboyd@chromium.org>
- <6eeb7bca-6018-46de-a7db-7189d60c0942@oss.qualcomm.com>
- <CAE-0n53ypGBXAt3frrbfAsbJZEkxK4BCB0+3MWOFRxZ9E+6P9Q@mail.gmail.com>
+	Tue, 29 Apr 2025 06:46:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1745909210; x=1777445210;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=ieiXV0ThKdfuBnVXzi3wa16gcjZ8T7wrdtl4EAofTag=;
+  b=mzzI826vA8KG2pq9YRRJg573XX41Cri7daJT9Q3xsG/45nciY093Jfpu
+   Dc7snA5Pm/Fm/lwp1QSN9EC42zK5KsNUfFV4jt1skmxAxcvVOM1zEyISX
+   +WsID1yGx4vWE/3Y6RgrdCYw6TPvY8Dh69vyq06KLBr7HfOY9hGvMHfwK
+   AL2DbVxx2B7k0UbzpRDRuEzKlRAjlqNKtJ992Jk+BQbP/UwO8S2eXDDUV
+   eIAx0HO+TtSh5FuKBPcvqemVsESCOJ0VyJNpI6YUrqgoYUYi0y5cWvCNa
+   sr0WYXS6cM0LBDQSPASyfqK4UUinbCXjyQtd1WVxny9QkiBM+DErfSiRf
+   g==;
+X-CSE-ConnectionGUID: webqCOvUQk+OxUCosxyWJQ==
+X-CSE-MsgGUID: kiPcj2hiQICAXrUgF+n1kw==
+X-IronPort-AV: E=Sophos;i="6.15,248,1739862000"; 
+   d="scan'208";a="272370086"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 28 Apr 2025 23:46:48 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Mon, 28 Apr 2025 23:46:07 -0700
+Received: from archlinux.mchp-main.com (10.10.85.11) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
+ 15.1.2507.44 via Frontend Transport; Mon, 28 Apr 2025 23:46:05 -0700
+From: Mihai Sain <mihai.sain@microchip.com>
+To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: Mihai Sain <mihai.sain@microchip.com>
+Subject: [PATCH] ARM: dts: microchip: sama7g54_curiosity: Add fixed-partitions for spi-nor flash
+Date: Tue, 29 Apr 2025 09:45:47 +0300
+Message-ID: <20250429064547.5807-1-mihai.sain@microchip.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAE-0n53ypGBXAt3frrbfAsbJZEkxK4BCB0+3MWOFRxZ9E+6P9Q@mail.gmail.com>
-X-Proofpoint-ORIG-GUID: sGdw0ANpbEzZvoHD9YDmHLn8vHE16GSV
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI5MDA1MCBTYWx0ZWRfX1GUrahOgMJY0 JJG5wb2yhlFPzvmUbp+hMGu/Lfr9SoWtvVRcQdGTIa017/A7L/uW7QBoxQUfTeGj3YtwhexCe4u 6itUP3Bif6CIptc5SkiZxP+roW9nz/ZyOPFeSJrB9fYCLxGrWlaqFmh4bOpSiO5sJBktY4YX7Co
- /fXptkDHQyxi29WnNWe35s0LVUDZoqZD+KcLoDhEeiWyZgCWvrbwtomu0nQ87C6c7pVCKDV7fIb eMuUOBMatXqUgi6Zs4zNs3RumTqDv+lp4PXK/MgdI9crgOcUaBjkIxtpAgBF1xGOilYn79vlCKR xQTtzUOAiN8HIUJOeFovOYoNLNCeId+GAT1zX2y1RLnAc0p4T65P/GxGIZp6bYjrwzN2eGKEPAE
- vul5BM9tZ5NjyRJeWl3DSdNLHTA4FYYQaJlkUYc/5s3x7z4GhYQyUbsTQl1OS45vfLv/t0HX
-X-Proofpoint-GUID: sGdw0ANpbEzZvoHD9YDmHLn8vHE16GSV
-X-Authority-Analysis: v=2.4 cv=V9990fni c=1 sm=1 tr=0 ts=681075d1 cx=c_pps a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10 a=XR8D0OoHHMoA:10 a=EUspDBNiAAAA:8 a=yV4NexEFXbUgmP4BVSMA:9 a=CjuIK1q_8ugA:10 a=dawVfQjAaf238kedN5IG:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-04-29_02,2025-04-24_02,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 suspectscore=0
- adultscore=0 mlxlogscore=629 impostorscore=0 lowpriorityscore=0
- priorityscore=1501 bulkscore=0 clxscore=1015 phishscore=0 mlxscore=0
- spamscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
- definitions=main-2504290050
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_234642_162929_6647ADD9 
-X-CRM114-Status: GOOD (  21.15  )
+X-CRM114-CacheID: sfid-20250428_234650_128699_1B36762D 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,29 +85,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 28, 2025 at 04:55:27PM -0700, Stephen Boyd wrote:
-> Quoting Dmitry Baryshkov (2025-04-22 06:38:17)
-> > On 16/04/2025 03:02, Stephen Boyd wrote:
-> > > If we aren't expecting a status update when
-> > > cros_typec_displayport_status_update() is called then we're handling an
-> > > attention message, like HPD high/low or IRQ. Call
-> > > typec_altmode_attention() in this case so that HPD signaling works in
-> > > the DP altmode driver.
-> >
-> > Fixes?
-> 
-> I didn't put a fixes because it only matters to make the displayport
-> altmode driver work with the typec port which isn't used so far on DT
-> platforms. I view it as a new feature, not a fix for an existing
-> feature, because we don't use the altmode driver.
-> 
-> It also seems like it was intentional on ACPI systems to only handle
-> mode entry/exit and not HPD signaling per my reading of the mailing
-> list.
+Add fixed-partitions for spi-nor flash to match the at91 boot flow
+and layout of the nand flash.
+Partitions can be listed from /proc/mtd:
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+[root@sama7g54 ~]$ cat /proc/mtd | grep qspi
+mtd6: 00040000 00001000 "qspi1: at91bootstrap"
+mtd7: 00100000 00001000 "qspi1: u-boot"
+mtd8: 00040000 00001000 "qspi1: u-boot env"
+mtd9: 00080000 00001000 "qspi1: device tree"
+mtd10: 00600000 00001000 "qspi1: kernel"
 
+[root@sama7g54 ~]$ mtdinfo /dev/mtd10
+mtd10
+Name:                           qspi1: kernel
+Type:                           nor
+Eraseblock size:                4096 bytes, 4.0 KiB
+Amount of eraseblocks:          1536 (6291456 bytes, 6.0 MiB)
+Minimum input/output unit size: 1 byte
+Sub-page size:                  1 byte
+Character device major/minor:   90:20
+Bad blocks are allowed:         false
+Device is writable:             true
+
+Signed-off-by: Mihai Sain <mihai.sain@microchip.com>
+---
+ .../dts/microchip/at91-sama7g54_curiosity.dts | 32 +++++++++++++++++++
+ 1 file changed, 32 insertions(+)
+
+diff --git a/arch/arm/boot/dts/microchip/at91-sama7g54_curiosity.dts b/arch/arm/boot/dts/microchip/at91-sama7g54_curiosity.dts
+index 2dec2218f32c..eb5f27ce1942 100644
+--- a/arch/arm/boot/dts/microchip/at91-sama7g54_curiosity.dts
++++ b/arch/arm/boot/dts/microchip/at91-sama7g54_curiosity.dts
+@@ -369,6 +369,38 @@ flash@0 {
+ 		spi-tx-bus-width = <4>;
+ 		spi-rx-bus-width = <4>;
+ 		m25p,fast-read;
++		label = "at91-qspi";
++
++		partitions {
++			compatible = "fixed-partitions";
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			at91bootstrap@0 {
++				label = "qspi1: at91bootstrap";
++				reg = <0x0 0x40000>;
++			};
++
++			bootloader@40000 {
++				label = "qspi1: u-boot";
++				reg = <0x40000 0x100000>;
++			};
++
++			bootloaderenv@140000 {
++				label = "qspi1: u-boot env";
++				reg = <0x140000 0x40000>;
++			};
++
++			dtb@180000 {
++				label = "qspi1: device tree";
++				reg = <0x180000 0x80000>;
++			};
++
++			kernel@200000 {
++				label = "qspi1: kernel";
++				reg = <0x200000 0x600000>;
++			};
++		};
+ 	};
+ };
+ 
+
+base-commit: ca91b9500108d4cf083a635c2e11c884d5dd20ea
 -- 
-With best wishes
-Dmitry
+2.49.0
+
 
