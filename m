@@ -4,61 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2E2AC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 14:22:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F2CEC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 14:24:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ewDIGsrTOKcK5t+6x0L4JQIY+2yd00ESNYr2i52+INc=; b=JVD12ikFJgPpdP3hcglUvda5rR
-	+/K0K3FusVNc5yr95WnjIfXYElteYbOfczRgZVD0qyhs5v4xrHE7Sr0w+A7D7+yBa44X7CPw5iOlJ
-	+kSyCVZhsKLnW17fSrHw5uEAuW58yrh+r41x3Mx8cg83tz8hD7SebIPV/HPgaFU84FtveKZGiqwpm
-	GjFU2fwBrJs6b6Agpo1JoDel/AtgQ3EJMvdwEEzfHFCaaShSBXLIgn4+pFAoQC4ss1h/bhjRt7F8z
-	0rZQ/fPZEB715L5tCXMQlvxEDx4cWZKq0bk+OtMjsBX62V40OIpZfm7SFMXBQ2cmrIuHgDT8XLWUk
-	qN2MnwWA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:References:
+	In-Reply-To:Subject:To:From:Date:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=imsoYydlGnAzqSvS+Cgaf9J/PO2EBb7ogqV0YK6n2ZE=; b=OZ/xKb67N95XLc
+	//bgNIhqRqIppFkQjVNTPeauPHkwFw2fGwO+MiEcy50vLAFwWwOBuhRJWcpA3qm254EAN3ync31ef
+	vRGfYuDN//neauWELUw7Woyq4MdIkOj6Yv3lPA5XqDPgcyvNIzX/ktf+EMSgdjN/PgWWT/oEHfc+o
+	nq8xPjmtkyHJKd7vSZCTdQTYuoYOn387u3s6i5v88ko9DEMH6pjYZ8tj3/IEom6eVLvSKARe6JKqy
+	oJssS4RJLXHlZLlXhFpJD6ZPueworxKvMMBumhO1XlDEirLfp/DUlw2UKMmT2BM2dn1PdtoV01AQB
+	xWwV91Pu8aQBEFf8YPFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9lqY-00000009wQl-2jAn;
-	Tue, 29 Apr 2025 14:22:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9lgR-00000009re1-2Bnj
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 14:11:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 071E81516;
-	Tue, 29 Apr 2025 07:11:32 -0700 (PDT)
-Received: from pluto.guest.local (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9FAF53F66E;
-	Tue, 29 Apr 2025 07:11:36 -0700 (PDT)
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org
-Cc: sudeep.holla@arm.com,
-	james.quinlan@broadcom.com,
-	f.fainelli@gmail.com,
-	vincent.guittot@linaro.org,
-	peng.fan@oss.nxp.com,
-	michal.simek@amd.com,
-	quic_sibis@quicinc.com,
-	dan.carpenter@linaro.org,
-	maz@kernel.org,
-	johan@kernel.org,
-	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v3 3/3] firmware: arm_scmi: quirk: Fix CLOCK_DESCRIBE_RATES triplet
-Date: Tue, 29 Apr 2025 15:11:08 +0100
-Message-ID: <20250429141108.406045-4-cristian.marussi@arm.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250429141108.406045-1-cristian.marussi@arm.com>
-References: <20250429141108.406045-1-cristian.marussi@arm.com>
+	id 1u9lsS-00000009whD-1eDZ;
+	Tue, 29 Apr 2025 14:24:04 +0000
+Received: from mout.gmx.net ([212.227.17.22])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u9lhJ-00000009rlQ-1Zcr;
+	Tue, 29 Apr 2025 14:12:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
+	s=s31663417; t=1745935945; x=1746540745; i=frank-w@public-files.de;
+	bh=imsoYydlGnAzqSvS+Cgaf9J/PO2EBb7ogqV0YK6n2ZE=;
+	h=X-UI-Sender-Class:Date:From:To:Subject:Reply-to:In-Reply-To:
+	 References:Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=Bb7Or9NVfzguMEnkuzp0m4GpQBTLG5zW9fGSeybTB5dL9qXZT9PU3phGLD3BeY1q
+	 AnSeuHg5wxb6FowfU38f7J9BhSfPSwYe0ckI+JCmkX2jBtSlNUF13NKOsZDcTWZ+G
+	 vxyz99NXJQuonSuJ5Fmpjlqrxc5E/TvxY23EqGgs5FMJ5aXV/v1hIqeEcpOS7qDyw
+	 iCQ+rA0a4uUbjSw7hWte0RX9y7gilxZk9SeWwq46/l+hHLkymgtqXJnE5izS7JW9M
+	 D/T8czDrtBHlcnFxYadqX2GhTHq819z7zpVNeyIAtjjiKgvUWkgfyGYP5dBuITumz
+	 VAF3PoqH8odLqnYlWQ==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [127.0.0.1] ([217.61.153.176]) by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MQ5rU-1uMshd2CsS-00VQEL; Tue, 29
+ Apr 2025 16:12:25 +0200
+Date: Tue, 29 Apr 2025 16:12:19 +0200
+From: Frank Wunderlich <frank-w@public-files.de>
+To: linux-mediatek@lists.infradead.org, Daniel Golle <daniel@makrotopia.org>,
+ Felix Fietkau <nbd@nbd.name>, John Crispin <john@phrozen.org>,
+ Eric Woudstra <ericwouds@gmail.com>, Elad Yifee <eladwf@gmail.com>,
+ Bo-Cun Chen <bc-bocun.chen@mediatek.com>,
+ Sky Huang <skylake.huang@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Russell King <linux@armlinux.org.uk>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_net-next=5D_net=3A_ethernet=3A_mtk=5Feth=5F?=
+ =?US-ASCII?Q?soc=3A_add_support_for_MT7988_internal_2=2E5G_PHY?=
+User-Agent: K-9 Mail for Android
+In-Reply-To: <aAwV4AOKYs3TljM0@makrotopia.org>
+References: <ab77dc679ed7d9669e82d8efeab41df23b524b1f.1745617638.git.daniel@makrotopia.org> <aAwV4AOKYs3TljM0@makrotopia.org>
+Message-ID: <687380A7-A580-41EB-8278-73B9942E4280@public-files.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:LCZ0cZToW3QDgS4il2LDpUb80XsrcmZ8Bs18A2wtEoO1pa2kLQS
+ zYN+be3fphd6c2i93tEmaDrunFYtlUWaj/U0ncO1/kT+m4tztyCDr1V9yv8+XPv3+GOKp2G
+ uXzoYIxQaIsttmpcrvsukm55jp7fm59kvMuzGy/Cns56pboft4pCVmE9HgSBaw0S8+N0LIJ
+ STySUJpaJ30gtxJB71TKw==
+UI-OutboundReport: notjunk:1;M01:P0:LYEblK1YRis=;yPsTQbRPNKDUObP2u7qs6CGmfF/
+ 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_071139_686476_CE3D6838 
-X-CRM114-Status: GOOD (  16.58  )
+X-CRM114-CacheID: sfid-20250429_071233_806046_8D704388 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,115 +132,64 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: frank-w@public-files.de
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert an existing quirk in CLOCK_DESCRIBE_RATES parsing to the new quirk
-framework. This is a sort of a peculiar quirk since it matches any platform
-and any firmware.
+Am 26=2E April 2025 01:08:16 MESZ schrieb Daniel Golle <daniel@makrotopia=
+=2Eorg>:
+>On Fri, Apr 25, 2025 at 10:51:18PM +0100, Daniel Golle wrote:
+>> The MediaTek MT7988 SoC comes with an single built-in Ethernet PHY
+>> supporting 2500Base-T/1000Base-T/100Base-TX/10Base-T link partners in
+>> addition to the built-in MT7531-like 1GE switch=2E The built-in PHY onl=
+y
+>> supports full duplex=2E
+>>=20
+>> Add muxes allowing to select GMAC2->2=2E5G PHY path and add basic suppo=
+rt
+>> for XGMAC as the built-in 2=2E5G PHY is internally connected via XGMII=
+=2E
+>> The XGMAC features will also be used by 5GBase-R, 10GBase-R and USXGMII
+>> SerDes modes which are going to be added once support for standalone PC=
+S
+>> drivers is in place=2E
+>>=20
+>> In order to make use of the built-in 2=2E5G PHY the appropriate PHY dri=
+ver
+>> as well as (proprietary) PHY firmware has to be present as well=2E
+>>=20
+>> Signed-off-by: Daniel Golle <daniel@makrotopia=2Eorg>
+>> ---
+>> [=2E=2E=2E]
+>> diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc=2Eh b/drivers/ne=
+t/ethernet/mediatek/mtk_eth_soc=2Eh
+>> index 88ef2e9c50fc=2E=2Ee3a8b24dd3d3 100644
+>> --- a/drivers/net/ethernet/mediatek/mtk_eth_soc=2Eh
+>> +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc=2Eh
+>> [=2E=2E=2E]
+>> @@ -587,6 +603,10 @@
+>>  #define GEPHY_MAC_SEL          BIT(1)
+>> =20
+>>  /* Top misc registers */
+>> +#define TOP_MISC_NETSYS_PCS_MUX	0x84
+>
+>This offset still assumes topmisc syscon to start at 0x11d10000=2E
+>If the pending series[1] adding that syscon at 0x11d10084 gets merged
+>first, this offset will have to be changed to
+>#define TOP_MISC_NETSYS_PCS_MUX	0x0
+>
+>[1]: https://patchwork=2Ekernel=2Eorg/project/linux-mediatek/patch/202504=
+22132438=2E15735-8-linux@fw-web=2Ede/
 
-Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
----
-V1 -> V2
-- reduced the quirk size by placing the warn outside
-- using new compatibles conditions
----
- drivers/firmware/arm_scmi/clock.c  | 33 ++++++++++++++++++------------
- drivers/firmware/arm_scmi/quirks.c |  2 ++
- drivers/firmware/arm_scmi/quirks.h |  3 +++
- 3 files changed, 25 insertions(+), 13 deletions(-)
+Imho this should be changed as well
 
-diff --git a/drivers/firmware/arm_scmi/clock.c b/drivers/firmware/arm_scmi/clock.c
-index 2ed2279388f0..afa7981efe82 100644
---- a/drivers/firmware/arm_scmi/clock.c
-+++ b/drivers/firmware/arm_scmi/clock.c
-@@ -11,6 +11,7 @@
- 
- #include "protocols.h"
- #include "notify.h"
-+#include "quirks.h"
- 
- /* Updated only after ALL the mandatory features for that version are merged */
- #define SCMI_PROTOCOL_SUPPORTED_VERSION		0x30000
-@@ -429,6 +430,23 @@ static void iter_clk_describe_prepare_message(void *message,
- 	msg->rate_index = cpu_to_le32(desc_index);
- }
- 
-+#define QUIRK_OUT_OF_SPEC_TRIPLET					       \
-+	({								       \
-+		/*							       \
-+		 * A known quirk: a triplet is returned but num_returned != 3  \
-+		 * Check for a safe payload size and fix.		       \
-+		 */							       \
-+		if (st->num_returned != 3 && st->num_remaining == 0 &&	       \
-+		    st->rx_len == sizeof(*r) + sizeof(__le32) * 2 * 3) {       \
-+			st->num_returned = 3;				       \
-+			st->num_remaining = 0;				       \
-+		} else {						       \
-+			dev_err(p->dev,					       \
-+				"Cannot fix out-of-spec reply !\n");	       \
-+			return -EPROTO;					       \
-+		}							       \
-+	})
-+
- static int
- iter_clk_describe_update_state(struct scmi_iterator_state *st,
- 			       const void *response, void *priv)
-@@ -450,19 +468,8 @@ iter_clk_describe_update_state(struct scmi_iterator_state *st,
- 			 p->clk->name, st->num_returned, st->num_remaining,
- 			 st->rx_len);
- 
--		/*
--		 * A known quirk: a triplet is returned but num_returned != 3
--		 * Check for a safe payload size and fix.
--		 */
--		if (st->num_returned != 3 && st->num_remaining == 0 &&
--		    st->rx_len == sizeof(*r) + sizeof(__le32) * 2 * 3) {
--			st->num_returned = 3;
--			st->num_remaining = 0;
--		} else {
--			dev_err(p->dev,
--				"Cannot fix out-of-spec reply !\n");
--			return -EPROTO;
--		}
-+		SCMI_QUIRK(clock_rates_triplet_out_of_spec,
-+			   QUIRK_OUT_OF_SPEC_TRIPLET);
- 	}
- 
- 	return 0;
-diff --git a/drivers/firmware/arm_scmi/quirks.c b/drivers/firmware/arm_scmi/quirks.c
-index eff03a89de85..8958f1fa4c89 100644
---- a/drivers/firmware/arm_scmi/quirks.c
-+++ b/drivers/firmware/arm_scmi/quirks.c
-@@ -167,6 +167,7 @@ struct scmi_quirk {
- 	__DEFINE_SCMI_QUIRK_ENTRY(_qn, _ven, _sub, _impl, ##__VA_ARGS__)
- 
- /* Global Quirks Definitions */
-+DEFINE_SCMI_QUIRK(clock_rates_triplet_out_of_spec, NULL, NULL, NULL);
- 
- /*
-  * Quirks Pointers Array
-@@ -175,6 +176,7 @@ struct scmi_quirk {
-  * defined quirks descriptors.
-  */
- static struct scmi_quirk *scmi_quirks_table[] = {
-+	__DECLARE_SCMI_QUIRK_ENTRY(clock_rates_triplet_out_of_spec),
- 	NULL
- };
- 
-diff --git a/drivers/firmware/arm_scmi/quirks.h b/drivers/firmware/arm_scmi/quirks.h
-index 28829b4f0646..7fdc496c94c7 100644
---- a/drivers/firmware/arm_scmi/quirks.h
-+++ b/drivers/firmware/arm_scmi/quirks.h
-@@ -45,4 +45,7 @@ static inline void scmi_quirks_enable(struct device *dev, const char *vend,
- 
- #endif /* CONFIG_ARM_SCMI_QUIRKS */
- 
-+/* Quirk delarations */
-+DECLARE_SCMI_QUIRK(clock_rates_triplet_out_of_spec);
-+
- #endif /* _SCMI_QUIRKS_H */
--- 
-2.47.0
+#define USB_PHY_SWITCH_REG	0x218
 
+To
+
+0x194
+
+It is used in mtk_eth_path=2Ec set_mux_u3_gmac2_to_qphy
+
+regards Frank
 
