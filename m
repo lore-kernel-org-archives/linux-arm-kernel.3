@@ -4,75 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08BCFC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 08:17:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A671DC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 08:22:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0jWn/KFVD/PhQGEeRPiIgFZV9yfIp5BQEz26X19uNxE=; b=pkAzreXU2nHMom+MQShu0ZoJIU
-	vxhAfOCpc8ayKOzG6fbp/vS5OK9ExNYgjq9Nvj9MMPS7c8Cftj67CTr+bvNdl0BG6qNbbYNLmnDy3
-	W2zs6IlKVGzzbtYNxrtfFP172ZoCkpJ9L2QTW+VPRjcNRpwsV1zuJu1dTQLn7uD8PvEMR7stOxrvg
-	TdobfqLIRfpvlCUOHLUHJ92vI5jmERQQZNdmkiBc/Vkb0qeZSthHM/eDlweGoNvRyq3ZfUMFK7Tfh
-	rarhsW9KDLSLXk3aXgVAcYH+5Y1adw2ljjs8vLVkVo8mLACkHRaxL3dP++QLE02MMmholQTfR0X0B
-	d/XevGBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Xe+5znHVUqk5GYGgi3E2U343rq4B5qNUfQk8zHOXAdQ=; b=FMctXIcK5/48UOLEQ9cLv//65Z
+	GN1dZtJbw2+G5Py8yQ+00SBXhIu/Suw66PUpla9TwXqXzHa3MG90+z2Y/CMkPfy9/nd8CZP/d4+yb
+	8+MFnsuYaZ2l/MOwWKCbNrI3bYOIWy6DyQUcvnEVjsh6SO/oI6W+X3z3K4uJ6P0t3t14gUZSoCjVN
+	Nv10vG48+JBJG3bLv0p7oZl/faoLMIOxOeVlaL1vOsYWvEzeYHDAxO9SpcBuovPC8wUTzviRXFblO
+	hvwPquJFPnJWBbJ93hUC8/SqG+u9pAkd0mEu8bhfn9e2vNqdcm2F1Duq36XTgGXyDawLiCsi8bwU0
+	sSgbt+ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9g9h-00000008tXg-2soI;
-	Tue, 29 Apr 2025 08:17:29 +0000
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+	id 1u9gDt-00000008ujx-3M5w;
+	Tue, 29 Apr 2025 08:21:49 +0000
+Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9g7l-00000008tCk-23Fz;
-	Tue, 29 Apr 2025 08:15:31 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id F1C05433E9;
-	Tue, 29 Apr 2025 08:15:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1745914526;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0jWn/KFVD/PhQGEeRPiIgFZV9yfIp5BQEz26X19uNxE=;
-	b=bdKVEWzHLtdV3g3fdHtJap4AYJ1a1U05TI+3nB2J2c6TtDHHUShrhrQ3Vsno/vAbdiitaA
-	iXo3tfhRNNVunDzPDxRSBIxWkZELCxpy6/rW6Nd5AidH/UFQ0i6s4MpI/bdG46R5Yok6FS
-	4C5VtaUGiu4ZKO0KBaMeHi8QZx7DwpNwoS6zCffudJYeJENdmm/jnfHyxOjmzMJ4RdmLlM
-	QmRMKWo35M/8PBLDsvl7ZfhEDm3Llpn8JhH2VbJrwHsArXQsR0X93oIbE6ry7uTgWB/5S2
-	WxEfF+4r6xVXzbVdEfctZYhmDMfXALNH8yd/uIxYFVvz5VgA6J7HM6k3iknoDw==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Chuanhong Guo <gch981213@gmail.com>
-Cc: Sky Huang <SkyLake.Huang@mediatek.com>,  Matthias Brugger
- <matthias.bgg@gmail.com>,  AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>,  Richard Weinberger
- <richard@nod.at>,  Vignesh Raghavendra <vigneshr@ti.com>,  Daniel Golle
- <daniel@makrotopia.org>,  Chia-Lin Kao <acelan.kao@canonical.com>,  Cheng
- Ming Lin <chengminglin@mxic.com.tw>,  Christophe JAILLET
- <christophe.jaillet@wanadoo.fr>,  Pratyush Yadav <pratyush@kernel.org>,
-  linux-kernel@vger.kernel.org,  linux-mtd@lists.infradead.org,
-  linux-arm-kernel@lists.infradead.org,
-  linux-mediatek@lists.infradead.org,  Steven Liu <Steven.Liu@mediatek.com>
-Subject: Re: [PATCH nand/next] mtd: nand: spi: Use write_cache first and
- then update_cache in write operation
-In-Reply-To: <c1e2d8ea-1b37-479d-8239-cb9bf0efdcaf@gmail.com> (Chuanhong Guo's
-	message of "Tue, 22 Apr 2025 09:38:26 +0800")
-References: <20241119093949.3014-1-SkyLake.Huang@mediatek.com>
-	<871pymtab3.fsf@bootlin.com>
-	<c1e2d8ea-1b37-479d-8239-cb9bf0efdcaf@gmail.com>
-User-Agent: mu4e 1.12.7; emacs 29.4
-Date: Tue, 29 Apr 2025 10:15:22 +0200
-Message-ID: <87bjsfv0x1.fsf@bootlin.com>
+	id 1u9gBx-00000008uKc-48OY
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Apr 2025 08:19:51 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C94F110271400;
+	Tue, 29 Apr 2025 10:19:40 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1745914785; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=Xe+5znHVUqk5GYGgi3E2U343rq4B5qNUfQk8zHOXAdQ=;
+	b=gFr5oOyMT8linriMuZr4uL8ElmpqxoxstsyXFpKtaJBbO/PHV0+T/mvjKtJIq0pW7818vo
+	fKP1kr190BR1IYMiH+OBIRxpV0dBeHoDWDV7S1N6R6qqdYAsYd6r39YGf5uGyjCPQa27VD
+	RDTRJsd+oTkMZOY5TrV7Tg6outSqHIHlVUnqm1WIq7+6fpnER7bCYnNaVISTyqZRVIwOFs
+	PUt1eZwWSGb0Zpfnojzid/sB4N003pyGEZDQs/Xlg3OiuzqdM/Qa6Z2Lbbvm7vnf2Ga3fT
+	GJQ19qKKbF2BleEtlQaAzpYVTmp646Uxr1rnI8AB2R/o1Vr/baw76GJE70KLLQ==
+Date: Tue, 29 Apr 2025 10:19:38 +0200
+From: Lukasz Majewski <lukma@denx.de>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Richard Cochran
+ <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
+ <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>, Andrew Lunn
+ <andrew@lunn.ch>
+Subject: Re: [net-next v8 4/7] net: mtip: The L2 switch driver for imx287
+Message-ID: <20250429101938.54790e51@wsk>
+In-Reply-To: <20250428132932.273fc568@kernel.org>
+References: <20250428074424.3311978-1-lukma@denx.de>
+	<20250428074424.3311978-5-lukma@denx.de>
+	<20250428132932.273fc568@kernel.org>
+Organization: denx.de
+X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvieeffeduucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufgjfhgffffkgggtgfesthhqredttderjeenucfhrhhomhepofhiqhhuvghlucftrgihnhgrlhcuoehmihhquhgvlhdrrhgrhihnrghlsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeffgefhjedtfeeigeduudekudejkedtiefhleelueeiueevheekvdeludehiedvfeenucfkphepledvrddukeegrddutdekrddvheehnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledvrddukeegrddutdekrddvheehpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpehmihhquhgvlhdrrhgrhihnrghlsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeduiedprhgtphhtthhopehgtghhleekuddvudefsehgmhgrihhlrdgtohhmpdhrtghpthhtohepufhkhifnrghkvgdrjfhurghnghesmhgvughirghtvghkrdgtohhmpdhrtghpthhtohepmhgrthhthhhirghsrdgsghhgsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprghnghgvlhhoghhiohgrtggthhhinhhordguvghlrhgvghhnohestgholhhlrggsohhrrgdrtghomhdprhgtphhtthhopehri
- hgthhgrrhgusehnohgurdgrthdprhgtphhtthhopehvihhgnhgvshhhrhesthhirdgtohhmpdhrtghpthhtohepuggrnhhivghlsehmrghkrhhothhophhirgdrohhrghdprhgtphhtthhopegrtggvlhgrnhdrkhgrohestggrnhhonhhitggrlhdrtghomh
-X-GND-Sasl: miquel.raynal@bootlin.com
+Content-Type: multipart/signed; boundary="Sig_/7C5c+VP_Ssr.yXpqT9xQXe/";
+ protocol="application/pgp-signature"; micalg=pgp-sha512
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_011529_656412_99C40FE3 
-X-CRM114-Status: GOOD (  19.49  )
+X-CRM114-CacheID: sfid-20250429_011950_313149_0132736C 
+X-CRM114-Status: GOOD (  23.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,104 +80,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+--Sig_/7C5c+VP_Ssr.yXpqT9xQXe/
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-On 22/04/2025 at 09:38:26 +08, Chuanhong Guo <gch981213@gmail.com> wrote:
+Hi Jakub,
 
-> Hello!
-> =E5=9C=A8 2024/12/5 23:32, Miquel Raynal =E5=86=99=E9=81=93:
->> Hello,
->> On 19/11/2024 at 17:39:49 +08, Sky Huang <SkyLake.Huang@mediatek.com>
->> wrote:
->>=20
->>> From: Sky Huang <skylake.huang@mediatek.com>
->>>
->>> According to discussion with Miquel Raynal <miquel.raynal@bootlin.com>
->>> and Chuanhong Guo <gch981213@gmail.com> on FORESEE F35SQA002G patch,
->>> Chuanhong recommmends that we can use the following sequence in
->>> spinand_write_to_cache_op():
->>>
->>> x1 mode:
->>> 02H(program data load) -> 84H(random program data load) -> 84H ...
->>>
->>> x4 mode:
->>> 32H(program data load x4) -> 34H(random program data load x4) -> 34H ...
->>>
->>> 02H or 32H commands will clear cache buffer on SPI-NAND and load
->>> data to it. For those SPI controllers which can't finish transmission
->>> in single step, 84H or 34H will be triggered for the rest data.
->>>
->>> We observe that some current SPI-NANDs, including FORESEE F35SQA001G and
->>> F35SQA002G, must use 02H or 32H to reset cache buffer in flash before
->>> using 84H or 34H. Or users may encounter program failure issue. This is=
-sue
->>> is not always reproducible, but it may occur and cause system instabili=
-ty.
->>>
->>> This sequence should work on all SPI-NANDs nowadays. I also check with
->>> Foresee that the sequence can solve the above program failure issue.
->>>
->>> On my test platform (MT7988), SPI driver is drivers/spi/spi-mt65xx.c.
->>> And I limit MTK_SPI_IPM_PACKET_SIZE to SZ_1K to simulate lightweight SPI
->>> controller which can only transmit 1024 bytes.
->>>
->>> The test step is the following:
->>> - mtd erase /dev/mtd2
->>> - dd if=3D/dev/zero bs=3D2048 count=3D1 | tr '\0' '\xA5' > output.bin
->>> - mtd write output.bin /dev/mtd2
->>>
->>> Before applying this patch, write operation uses only 34H(update_cache):
->>> [78.937720] OP code: 0x34, addr val: 0x0, data nbytes: 1020, data 1st b=
-yte: 0xa5
->>> [78.945297] OP code: 0x34, addr val: 0x3fc, data nbytes: 1020, data 1st=
- byte: 0xa5
->>> [78.954251] OP code: 0x34, addr val: 0x7f8, data nbytes: 72, data 1st b=
-yte: 0xa5
->>> [78.962966] OP code: 0x10, addr val: 0x300
->>> [78.968816] OP code: 0x34, addr val: 0x0, data nbytes: 1020, data 1st b=
-yte: 0xff
->>> [78.977233] OP code: 0x34, addr val: 0x3fc, data nbytes: 1020, data 1st=
- byte: 0xff
->>> [78.985124] OP code: 0x34, addr val: 0x7f8, data nbytes: 72, data 1st b=
-yte: 0xff
->>> [78.992527] OP code: 0x10, addr val: 0x301
->>> [78.996981] OP code: 0x34, addr val: 0x0, data nbytes: 1020, data 1st b=
-yte: 0xff
->>> [79.004416] OP code: 0x34, addr val: 0x3fc, data nbytes: 1020, data 1st=
- byte: 0xff
->>> [79.012031] OP code: 0x34, addr val: 0x7f8, data nbytes: 72, data 1st b=
-yte: 0xff
->>> [79.019435] OP code: 0x10, addr val: 0x302
->> I am sorry but above you said that we should not perform:
->>      0x32, 0x32, 0x32...
->> because the second time it would clear the cache again. And here
->> you tell us that actually the core already handles that by performing
->> instead:
->>      0x34, 0x34, 0x34...
->> So what is the problem?
->> Or maybe I misunderstood the issue, but I think Chuanhong raised an
->> issue that is already solved? Isn't it?
->>=20
->
-> The issue is that the FORESEE NANDs require the first cache writing
-> instruction to be WRITE_CACHE instead of UPDATE_CACHE. i.e. it needs a
-> command sequence of:
->     0x32, 0x34, 0x34, 0x34...
+> On Mon, 28 Apr 2025 09:44:21 +0200 Lukasz Majewski wrote:
+> > This patch series provides support for More Than IP L2 switch
+> > embedded in the imx287 SoC.
+> >=20
+> > This is a two port switch (placed between uDMA[01] and MAC-NET[01]),
+> > which can be used for offloading the network traffic.
+> >=20
+> > It can be used interchangeably with current FEC driver - to be more
+> > specific: one can use either of it, depending on the requirements.
+> >=20
+> > The biggest difference is the usage of DMA - when FEC is used,
+> > separate DMAs are available for each ENET-MAC block.
+> > However, with switch enabled - only the DMA0 is used to
+> > send/receive data to/form switch (and then switch sends them to
+> > respecitive ports).
+> >=20
+> > Signed-off-by: Lukasz Majewski <lukma@denx.de>
+> > Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
+> > Reviewed-by: Andrew Lunn <andrew@lunn.ch> =20
+>=20
+> Linking fails with allmodconfig
+>=20
+> ERROR: modpost: missing MODULE_LICENSE() in
+> drivers/net/ethernet/freescale/mtipsw/mtipl2sw_mgnt.o WARNING:
+> modpost: missing MODULE_DESCRIPTION() in
+> drivers/net/ethernet/freescale/mtipsw/mtipl2sw_mgnt.o ERROR: modpost:
+> missing MODULE_LICENSE() in
+> drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.o WARNING: modpost:
+> missing MODULE_DESCRIPTION() in
+> drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.o ERROR: modpost:
+> "mtip_forced_forward"
+> [drivers/net/ethernet/freescale/mtipsw/mtipl2sw.ko] undefined! ERROR:
+> modpost: "mtip_port_learning_config"
+> [drivers/net/ethernet/freescale/mtipsw/mtipl2sw.ko] undefined! ERROR:
+> modpost: "mtip_port_blocking_config"
+> [drivers/net/ethernet/freescale/mtipsw/mtipl2sw.ko] undefined! ERROR:
+> modpost: "mtip_port_enable_config"
+> [drivers/net/ethernet/freescale/mtipsw/mtipl2sw.ko] undefined! ERROR:
+> modpost: "mtip_port_broadcast_config"
+> [drivers/net/ethernet/freescale/mtipsw/mtipl2sw.ko] undefined! ERROR:
+> modpost: "mtip_port_multicast_config"
+> [drivers/net/ethernet/freescale/mtipsw/mtipl2sw.ko] undefined! ERROR:
+> modpost: "mtip_switch_en_port_separation"
+> [drivers/net/ethernet/freescale/mtipsw/mtipl2sw.ko] undefined! ERROR:
+> modpost: "mtip_register_notifiers"
+> [drivers/net/ethernet/freescale/mtipsw/mtipl2sw.ko] undefined! ERROR:
+> modpost: "mtip_unregister_notifiers"
+> [drivers/net/ethernet/freescale/mtipsw/mtipl2sw.ko] undefined! ERROR:
+> modpost: "mtip_is_switch_netdev_port"
+> [drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.ko] undefined!
+> WARNING: modpost: suppressed 3 unresolved symbol warnings because
+> there were too many)
 
-So Foresee NANDs do not support update_cache, why are they advertised in
-the first place? Could you we have a less impacting solution for the
-other NANDs?
+Yes, you are right.
 
-> This patch does exactly that, making the first instruction issued 0x32.
-> It should be applied to fix the issue above.
+I've adjusted makefile to build it properly as a module.
 
-My understanding is that this is very specific to FORESEE NANDs and you
-are changing this for all NANDs. I have fears that it will break
-everywhere else.
+Thanks for spotting it.
 
-Overall I understand the problem, but I disagree with the fix. Could you
-propose something less impacting as hinted above?
 
-Thanks and sorry for the delay.
-Miqu=C3=A8l
+Best regards,
+
+Lukasz Majewski
+
+--
+
+DENX Software Engineering GmbH,      Managing Director: Erika Unter
+HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
+Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
+
+--Sig_/7C5c+VP_Ssr.yXpqT9xQXe/
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmgQi5oACgkQAR8vZIA0
+zr0EhQgAlT/wbAiGajLapmWxKuLFGzpGBN8yTQAWZkR4q5Av8pTGrIofsvMVyke5
+CAsy+yyi3ZJTiuqTKCKQYolWV3uFnFxiUhyy/s1V/8gJqZFPUx3H3p/vC1ezXORM
+f6gWiBdCwYS9e3FPbAY8UFo8oaIjF9O3ec020NvIeCbBXYTy5KOyp+Vbpkifc3uj
+Ns3T/3nqxmuzg6OyIos2sJIi/NUc6z9ihZV5wyg9AyOBccteEsIfTWamUSKNj/i8
+2GyU4WiMR8/h9lOiXB+wtrCQ9m8DtpnrfBNek1bOuIZgZr7yQhh7A2pUqRk698NS
+zC79DNTenk6v6L6vNX/Ii47rbfis/w==
+=llBU
+-----END PGP SIGNATURE-----
+
+--Sig_/7C5c+VP_Ssr.yXpqT9xQXe/--
 
