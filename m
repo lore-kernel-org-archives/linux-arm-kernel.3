@@ -4,74 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67B7BC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 20:51:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2984DC3ABA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 20:53:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vzI1gstnxb9weSMJeZFI0ZuIvfgMs6aH56AjAYTE9IY=; b=YyLudk51fDuVayz1u7bqInaHcA
-	dqhhenBISdxuNDa4x7hpxnzDUiTHgaH020pYl3/WR9pfiQ/IUli4q4POELLvh2LHELZ+a1qXaMu6x
-	szBtQ/fhjv3ZlXuPxMa5yuMs/4LS86pA7MOqTjf3dnh4B32yY4kzY47ckwD0F+pObzUBKz6dynxvY
-	vXjTEYFrgjNXieC9cl1NDcV3BGjnUVa2HE8qo16a2P3Mb64l1DFqRke5M5423gT0mBMU6NJoEcyRR
-	2SnWfsR4g+NiZThVjx/o6y6P7J41F3ZRKYf+otHSoPoAS6hu68vvfuaV1WzFww5YT+NPt7h6y4eed
-	Yut3uwug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+vD+SO2JAT8G1MZey1yCSiJUKQmZMj4na64WTuCtC9c=; b=4HRbce3FRLMr5ltMxWWjNrXH7U
+	yIV453EGDHQseSoLS4hA30lsK66jW2RrLY8dIbTN2d/3x3JQvHQto3eGP7DE0GG5JVARyTuiLx1K4
+	1DjpnzYp6/lPXKSp7Se4MKnEbUj/kW8uujwjQbD+pdTWmXt+4U0qIXO7O77VD5bo72b3E3eOgmUI5
+	MKD0duKKrx5jYhHtgM4LY/r+hx0j/DGMqNFDqm+IS/Iu+92KbmThAYPfx48C79NC6ubhq1Ir0vjyz
+	SO2Fep9ooM1fMWALgEHDGCslkX0Bs8wf6FNSA1yr9vNv3KVsozKg8CtJbhQTFG8ZeXZDJ2+mEq0ln
+	lvrA4cfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9rvM-0000000AnJW-2lvo;
-	Tue, 29 Apr 2025 20:51:28 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u9rxF-0000000AnU4-1RpL;
+	Tue, 29 Apr 2025 20:53:25 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9rZ5-0000000AkYt-0pBj
+	id 1u9rfY-0000000AlQr-1Tzk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 20:28:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 64E1F5C02BC;
-	Tue, 29 Apr 2025 20:26:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DD32C4CEEA;
-	Tue, 29 Apr 2025 20:28:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745958506;
-	bh=ox3lx5JlJ8b5ZVrs7yb4Ryi6efyD6oZG+SX4GVnpUQ0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IgK0Q+KTnoknBdI0qBrfZEEOVwiUsIiTq7TZOWSVo5nqxDmsIIOI5tQCsQOejuIXM
-	 ZmhoDXq8c4JlVXS8Kx4eo1MN/bkEtdwWYIBiiRL7+tuHShNIydxOl+Ir5Iuc5LR7nz
-	 5k4QOqzSs+CziwyNEBW8e+v2uKZjNEEcYwVieS/Lx7j7IKHmL0xhpaZ65U4urXN9ra
-	 mIcoawHkHAK5hvo7xhHrwOe76zpSL3X4uQk3AjZwjFFmeVZt/a/4cRYXo7HobGuT6I
-	 TNxxY/jCii66xs4U2yJg70ZpRG3TouPBlWj70rp/xF5POQ4kzsN/Y0w9ZPgoiuUG0C
-	 I13Toccn/EaMA==
-From: Will Deacon <will@kernel.org>
-To: catalin.marinas@arm.com,
-	maz@kernel.org,
-	oliver.upton@linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	Yicong Yang <yangyicong@huawei.com>
-Cc: kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	shameerali.kolothum.thodi@huawei.com,
-	jonathan.cameron@huawei.com,
-	prime.zeng@hisilicon.com,
-	xuwei5@huawei.com,
-	yangyicong@hisilicon.com,
-	linuxarm@huawei.com
-Subject: Re: [PATCH 0/3] Two minor fixups around FEAT_E2H0
-Date: Tue, 29 Apr 2025 21:27:53 +0100
-Message-Id: <174593019872.429067.18438816126339860301.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20250329034409.21354-1-yangyicong@huawei.com>
-References: <20250329034409.21354-1-yangyicong@huawei.com>
+	Tue, 29 Apr 2025 20:35:09 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2263428c8baso71055ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 13:35:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1745958908; x=1746563708; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=+vD+SO2JAT8G1MZey1yCSiJUKQmZMj4na64WTuCtC9c=;
+        b=4HwgOTEXBmZnL1j6f3LYanOyBO5Ko/mr3L9JHuZsGQG7RsprxqmkSvSeVrQ1eV6JET
+         eRh9nQvSq2L0wFblEGfkWYzt7AyEyRi1PrT4i2nT3TryWF3tOaXgad8/vTF16lf8+9td
+         1OhiKDC0da6rQIgT7KAtJpNqnuMu1ky+cHZgVq3eZzumTNHlIVCp/Yiz/DQwT3SeW4zK
+         Um1nhrvkljr9ijcNThpbtJphU+fME+SIQd5F7V1PI16sLz7mJFEYWB84IoakMfy0MBlP
+         fv8Gn6/xnQbM11fhEGeag9AYmnapIbQydzGtBKbHoxtkX1sf5LYC6v960kx1j8Sf3Rig
+         j4rg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745958908; x=1746563708;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+vD+SO2JAT8G1MZey1yCSiJUKQmZMj4na64WTuCtC9c=;
+        b=nWybQPxGAz6ce49CO55UdaCtOUQR/JBrDetY2OKePs1Qx3HtENF476A+jBWw7EJU0E
+         yw6MZRUcbC8SpFJEWHxnhEvods/Qy8ghsbRf4yvi3CIoB/eI3lUmlBtjw6kJlDuSzKsC
+         Ql9cDgK1/a1eJdGwRwq1e07muZ7RFwPBMHDSyDFUTw0bS4udz8wa1yPTCW17CTbWU4a7
+         hEl6uiti/BCwjAEA3gu+1q3RrvtgNkpC4mKGF9woL0KLjcbIGA3Ppa6GOlHVkRvTgdGb
+         3NQ7sL+tf6DZKl7A2LfJUv1Ng+C2NlaDKMZ2aPhm3/0ArUUuFXt1jVuCFGdxmmOnEpHk
+         EYHg==
+X-Forwarded-Encrypted: i=1; AJvYcCUYYzohA/8YNxyJXT5JdmC4rKuklXEKt564pjuKv3JoTyBk0A0pyRSTbUGsUXDPJaV1EtJyyTDLbn1YDL1vOo9l@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRu3o7OiCs0I/fGMkFUkwBWLY0aypVN2nmocBmmw+PibWpBTFB
+	tt9ot6FKTsNwp5E43MuwYiI4FfxP64z8oY4bbklDn9DpMKvglWgHqG2WUF0fxA==
+X-Gm-Gg: ASbGncurrhTLJ/1sw025NgAfyPXJWHPO1VRSLe9ffX/d51c2ZYarZdG7+Hf80+p0iZ5
+	3AFoGErLJFkpDuJlHUwyit61OXE1f5CN+n7pjG1DEskhtQdwF7cG01KbkSUhAEe/QAcrE3vPUtv
+	6Bo/PgbhnpUZE6sR10Bv8hKn0wcXQDIcU1ApCaQXAPfjyQkRO67xRDysnaXlIZ1Zpb07han2xnX
+	V5J9IeZxKsFUVwxUdoB8lKC0xQSZ/ntcW7HJqZuJq0f2ak12mySbMGyhLF4bf1cUvxzge3HlQ7U
+	4vcBktHBtUJnL2DlzeUw8IIQFFIjjnUEWNYDZeFDf04Eewvo9eX0TsK3Yg/Xv5xaHtk0wyue
+X-Google-Smtp-Source: AGHT+IFKPPlpxna3qRGix+Jw6uZGa6gOYQsO5q0W0Jg8s6IionXDPPsNCjS7Wm3OZ9MyZ/QobcGPBw==
+X-Received: by 2002:a17:903:1c7:b0:215:42a3:e844 with SMTP id d9443c01a7336-22df545d640mr62955ad.17.1745958907341;
+        Tue, 29 Apr 2025 13:35:07 -0700 (PDT)
+Received: from google.com (2.210.143.34.bc.googleusercontent.com. [34.143.210.2])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22db4dbc0c6sm107319265ad.81.2025.04.29.13.35.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 29 Apr 2025 13:35:06 -0700 (PDT)
+Date: Tue, 29 Apr 2025 20:34:56 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
+	bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
+	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
+	shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
+	peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
+	zhangzekun11@huawei.com, iommu@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
+	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com
+Subject: Re: [PATCH v2 13/22] iommufd: Add mmap interface
+Message-ID: <aBE38GwvGBnpRNLc@google.com>
+References: <cover.1745646960.git.nicolinc@nvidia.com>
+ <7be26560c604b0cbc2fd218997b97a47e4ed11ff.1745646960.git.nicolinc@nvidia.com>
+ <aBE1gUz9y415EuBQ@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aBE1gUz9y415EuBQ@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_132827_287470_E63F9DB4 
-X-CRM114-Status: UNSURE (   9.02  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250429_133508_398218_D9F9EAC2 
+X-CRM114-Status: GOOD (  36.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,31 +106,217 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 29 Mar 2025 11:44:06 +0800, Yicong Yang wrote:
-> Two minor fixups for the FEAT_E2H0:
-> 1) add missing feature register update
-> 2) fix boot warning with kvm-arm.mode=nvhe if !FEAT_E2H0
+On Tue, Apr 29, 2025 at 08:24:33PM +0000, Pranjal Shrivastava wrote:
+> On Fri, Apr 25, 2025 at 10:58:08PM -0700, Nicolin Chen wrote:
+> > For vIOMMU passing through HW resources to user space (VMs), add an mmap
+> > infrastructure to map a region of hardware MMIO pages.
+> > 
+> > Maintain an mt_mmap per ictx for validations. To allow IOMMU drivers to
+> > add and delete mmappable regions to/from the mt_mmap, add a pair of new
+> > helpers: iommufd_ctx_alloc_mmap() and iommufd_ctx_free_mmap().
+> > 
+> > Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> > ---
+> >  drivers/iommu/iommufd/iommufd_private.h |  8 +++++
+> >  include/linux/iommufd.h                 | 15 ++++++++++
+> >  drivers/iommu/iommufd/driver.c          | 39 +++++++++++++++++++++++++
+> >  drivers/iommu/iommufd/main.c            | 39 +++++++++++++++++++++++++
+> >  4 files changed, 101 insertions(+)
+> > 
+> > diff --git a/drivers/iommu/iommufd/iommufd_private.h b/drivers/iommu/iommufd/iommufd_private.h
+> > index b974c207ae8a..db5b62ec4abb 100644
+> > --- a/drivers/iommu/iommufd/iommufd_private.h
+> > +++ b/drivers/iommu/iommufd/iommufd_private.h
+> > @@ -7,6 +7,7 @@
+> >  #include <linux/iommu.h>
+> >  #include <linux/iommufd.h>
+> >  #include <linux/iova_bitmap.h>
+> > +#include <linux/maple_tree.h>
+> >  #include <linux/rwsem.h>
+> >  #include <linux/uaccess.h>
+> >  #include <linux/xarray.h>
+> > @@ -44,6 +45,7 @@ struct iommufd_ctx {
+> >  	struct xarray groups;
+> >  	wait_queue_head_t destroy_wait;
+> >  	struct rw_semaphore ioas_creation_lock;
+> > +	struct maple_tree mt_mmap;
+> >  
+> >  	struct mutex sw_msi_lock;
+> >  	struct list_head sw_msi_list;
+> > @@ -55,6 +57,12 @@ struct iommufd_ctx {
+> >  	struct iommufd_ioas *vfio_ioas;
+> >  };
+> >  
+> > +/* Entry for iommufd_ctx::mt_mmap */
+> > +struct iommufd_mmap {
+> > +	unsigned long pfn_start;
+> > +	unsigned long pfn_end;
+> > +};
+> > +
+> >  /*
+> >   * The IOVA to PFN map. The map automatically copies the PFNs into multiple
+> >   * domains and permits sharing of PFNs between io_pagetable instances. This
+> > diff --git a/include/linux/iommufd.h b/include/linux/iommufd.h
+> > index 5dff154e8ce1..d63e2d91be0d 100644
+> > --- a/include/linux/iommufd.h
+> > +++ b/include/linux/iommufd.h
+> > @@ -236,6 +236,9 @@ int iommufd_object_depend(struct iommufd_object *obj_dependent,
+> >  			  struct iommufd_object *obj_depended);
+> >  void iommufd_object_undepend(struct iommufd_object *obj_dependent,
+> >  			     struct iommufd_object *obj_depended);
+> > +int iommufd_ctx_alloc_mmap(struct iommufd_ctx *ictx, phys_addr_t base,
+> > +			   size_t size, unsigned long *immap_id);
+> > +void iommufd_ctx_free_mmap(struct iommufd_ctx *ictx, unsigned long immap_id);
+> >  struct device *iommufd_viommu_find_dev(struct iommufd_viommu *viommu,
+> >  				       unsigned long vdev_id);
+> >  int iommufd_viommu_get_vdev_id(struct iommufd_viommu *viommu,
+> > @@ -262,11 +265,23 @@ static inline int iommufd_object_depend(struct iommufd_object *obj_dependent,
+> >  	return -EOPNOTSUPP;
+> >  }
+> >  
+> > +static inline int iommufd_ctx_alloc_mmap(struct iommufd_ctx *ictx,
+> > +					 phys_addr_t base, size_t size,
+> > +					 unsigned long *immap_id)
+> > +{
+> > +	return -EOPNOTSUPP;
+> > +}
+> > +
+> >  static inline void iommufd_object_undepend(struct iommufd_object *obj_dependent,
+> >  					   struct iommufd_object *obj_depended)
+> >  {
+> >  }
+> >  
+> > +static inline void iommufd_ctx_free_mmap(struct iommufd_ctx *ictx,
+> > +					 unsigned long immap_id)
+> > +{
+> > +}
+> > +
+> >  static inline struct device *
+> >  iommufd_viommu_find_dev(struct iommufd_viommu *viommu, unsigned long vdev_id)
+> >  {
+> > diff --git a/drivers/iommu/iommufd/driver.c b/drivers/iommu/iommufd/driver.c
+> > index fb7f8fe40f95..c55336c580dc 100644
+> > --- a/drivers/iommu/iommufd/driver.c
+> > +++ b/drivers/iommu/iommufd/driver.c
+> > @@ -78,6 +78,45 @@ void iommufd_object_undepend(struct iommufd_object *obj_dependent,
+> >  }
+> >  EXPORT_SYMBOL_NS_GPL(iommufd_object_undepend, "IOMMUFD");
+> >  
+> > +/* Driver should report the output @immap_id to user space for mmap() syscall */
+> > +int iommufd_ctx_alloc_mmap(struct iommufd_ctx *ictx, phys_addr_t base,
+> > +			   size_t size, unsigned long *immap_id)
+> > +{
+> > +	struct iommufd_mmap *immap;
+> > +	int rc;
+> > +
+> > +	if (WARN_ON_ONCE(!immap_id))
+> > +		return -EINVAL;
+> > +	if (base & ~PAGE_MASK)
+> > +		return -EINVAL;
+> > +	if (!size || size & ~PAGE_MASK)
+> > +		return -EINVAL;
+> > +
+> > +	immap = kzalloc(sizeof(*immap), GFP_KERNEL);
+> > +	if (!immap)
+> > +		return -ENOMEM;
+> > +	immap->pfn_start = base >> PAGE_SHIFT;
+> > +	immap->pfn_end = immap->pfn_start + (size >> PAGE_SHIFT) - 1;
+> > +
+> > +	rc = mtree_alloc_range(&ictx->mt_mmap, immap_id, immap, sizeof(immap),
 > 
-> Add a cpucap identify the HCR_EL2.E2H RES1 (!FEAT_E2H0) support.
+> I believe this should be sizeof(*immap) ?
+
+Ugh, Sorry, shouldn't this be size >> PAGE_SHIFT (num_indices to alloc) ?
+
 > 
-> Yicong Yang (3):
->   arm64/cpufeature: Add missing id_aa64mmfr4 feature reg update
->   arm64/cpufeature: Add cpucap for HCR_EL2.E2H RES1 (!FEAT_E2H0)
->   KVM: arm64: Fix boot warning with kvm-arm.mode=nvhe on !FEAT_E2H0
->     platforms
+> > +			       0, LONG_MAX >> PAGE_SHIFT, GFP_KERNEL);
+> > +	if (rc < 0) {
+> > +		kfree(immap);
+> > +		return rc;
+> > +	}
+> > +
+> > +	/* mmap() syscall will right-shift the immap_id to vma->vm_pgoff */
+> > +	*immap_id <<= PAGE_SHIFT;
+> > +	return 0;
+> > +}
+> > +EXPORT_SYMBOL_NS_GPL(iommufd_ctx_alloc_mmap, "IOMMUFD");
+> > +
+> > +void iommufd_ctx_free_mmap(struct iommufd_ctx *ictx, unsigned long immap_id)
+> > +{
+> > +	kfree(mtree_erase(&ictx->mt_mmap, immap_id >> PAGE_SHIFT));
+> > +}
+> > +EXPORT_SYMBOL_NS_GPL(iommufd_ctx_free_mmap, "IOMMUFD");
+> > +
+> >  /* Caller should xa_lock(&viommu->vdevs) to protect the return value */
+> >  struct device *iommufd_viommu_find_dev(struct iommufd_viommu *viommu,
+> >  				       unsigned long vdev_id)
+> > diff --git a/drivers/iommu/iommufd/main.c b/drivers/iommu/iommufd/main.c
+> > index ac51d5cfaa61..4b46ea47164d 100644
+> > --- a/drivers/iommu/iommufd/main.c
+> > +++ b/drivers/iommu/iommufd/main.c
+> > @@ -213,6 +213,7 @@ static int iommufd_fops_open(struct inode *inode, struct file *filp)
+> >  	xa_init_flags(&ictx->objects, XA_FLAGS_ALLOC1 | XA_FLAGS_ACCOUNT);
+> >  	xa_init(&ictx->groups);
+> >  	ictx->file = filp;
+> > +	mt_init_flags(&ictx->mt_mmap, MT_FLAGS_ALLOC_RANGE);
+> >  	init_waitqueue_head(&ictx->destroy_wait);
+> >  	mutex_init(&ictx->sw_msi_lock);
+> >  	INIT_LIST_HEAD(&ictx->sw_msi_list);
+> > @@ -410,11 +411,49 @@ static long iommufd_fops_ioctl(struct file *filp, unsigned int cmd,
+> >  	return ret;
+> >  }
+> >  
+> > +/*
+> > + * Kernel driver must first do iommufd_ctx_alloc_mmap() to register an mmappable
+> > + * MMIO region to the iommufd core to receive an "immap_id". Then, driver should
+> > + * report to user space this immap_id and the size of the registered MMIO region
+> > + * for @vm_pgoff and @size of an mmap() call, via an IOMMU_VIOMMU_ALLOC ioctl in
+> > + * the output fields of its driver-type data structure.
+> > + *
+> > + * Note the @size is allowed to be smaller than the registered size as a partial
+> > + * mmap starting from the registered base address.
+> > + */
+> > +static int iommufd_fops_mmap(struct file *filp, struct vm_area_struct *vma)
+> > +{
+> > +	struct iommufd_ctx *ictx = filp->private_data;
+> > +	size_t size = vma->vm_end - vma->vm_start;
+> > +	struct iommufd_mmap *immap;
+> > +
+> > +	if (size & ~PAGE_MASK)
+> > +		return -EINVAL;
+> > +	if (!(vma->vm_flags & VM_SHARED))
+> > +		return -EINVAL;
+> > +	if (vma->vm_flags & VM_EXEC)
+> > +		return -EPERM;
+> > +
+> > +	/* vm_pgoff carries an index (immap_id) to an mtree entry (immap) */
+> > +	immap = mtree_load(&ictx->mt_mmap, vma->vm_pgoff);
+> > +	if (!immap)
+> > +		return -ENXIO;
+> > +	if (size >> PAGE_SHIFT > immap->pfn_end - immap->pfn_start + 1)
+> > +		return -ENXIO;
+> > +
+> > +	vma->vm_pgoff = 0;
+> > +	vma->vm_page_prot = pgprot_noncached(vma->vm_page_prot);
+> > +	vm_flags_set(vma, VM_PFNMAP | VM_DONTEXPAND | VM_DONTDUMP | VM_IO);
+> > +	return remap_pfn_range(vma, vma->vm_start, immap->pfn_start, size,
+> > +			       vma->vm_page_prot);
+> > +}
+> > +
+> >  static const struct file_operations iommufd_fops = {
+> >  	.owner = THIS_MODULE,
+> >  	.open = iommufd_fops_open,
+> >  	.release = iommufd_fops_release,
+> >  	.unlocked_ioctl = iommufd_fops_ioctl,
+> > +	.mmap = iommufd_fops_mmap,
+> >  };
+> >  
+> >  /**
 > 
-> [...]
-
-Applied first patch only to arm64 (for-next/cpufeature), thanks!
-
-[1/3] arm64/cpufeature: Add missing id_aa64mmfr4 feature reg update
-      https://git.kernel.org/arm64/c/35382a364640
-
-Cheers,
--- 
-Will
-
-https://fixes.arm64.dev
-https://next.arm64.dev
-https://will.arm64.dev
+> Thanks,
+> Praan
+> 
+> > -- 
+> > 2.43.0
+> > 
 
