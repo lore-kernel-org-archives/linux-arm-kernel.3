@@ -4,77 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D998C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 10:12:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E4E8C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 10:14:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JxbCFy+YVAok7lkWS9hgSHArZDCzdlEOMBm9HS++e8M=; b=MOSYVn3S8Cc5rueaYROfw3DuxY
-	axY5zjRtH29zvcyoy4RZQtoZ2F7HfY0Kf+uApOqn5ydwtRe5GmIb42iXPHn6HHILyUb84vXsz5b0J
-	+HvaBIfZSnI+BdgHENZMkEkl7e3BxWSRaqWIrZxDBLELyipCgSFjxU4iMAR5X33WLjU6GdOHBQX1M
-	zZgRFlv+YRnKRCLtTdwf+Oqva4Nm0TX9AKnk1ZDHA3IuGgMKOsq0ff0ARvtRRLPRk99ly484jz1It
-	ep3Vfc3xE5T/A5cJZeQwUKQUMawxPrrb3m8bZpq+1hyk56L4r1At9pCpOH9Kai9eF4zfiQ7GdmmU3
-	wdpGMwqg==;
+	bh=jjQQ1gbntdrSbZtDquO40Eje9JxI9rUu3v+V9iiuKlU=; b=OKxT/vVuTGBzxhslEItuw6juDa
+	8qJMNoaDeal3zzMl9UsY3fbRkZK+sEzEr35SshPh9pm8hnD+IdQxKO/B61petsAVIT5Wh5h85Tg0c
+	uVoiOAh9eonm90HZvPtmZt2kgcJ4Lfj07eqNU+K+9pzvf3n0aopkov47ZBNO4kn7T+NjZ9H3k0sBE
+	EaWlxTddSDW9ydsbB4pvT80xDG1R0GTUliyqKlHqXRKW0+gIQPaoPCRSWjEwaQtd196TLmLBWt0qj
+	+Pftr8jISC9vhN+yFIAZQVv3ghG563HcK32y7zoCLdAwrGYSxuSdENuFkeOQHURem1z20nAcY9i2z
+	hUOo8HEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9hx0-00000009GGM-0Ppz;
-	Tue, 29 Apr 2025 10:12:30 +0000
-Received: from sender3-pp-f112.zoho.com ([136.143.184.112])
+	id 1u9hyu-00000009GUY-3Q3s;
+	Tue, 29 Apr 2025 10:14:28 +0000
+Received: from mail-yw1-x112a.google.com ([2607:f8b0:4864:20::112a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9hqf-00000009Esx-2CQS;
-	Tue, 29 Apr 2025 10:05:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1745921137; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=jpSzhwxlzOAiAzYn1qgSNGg8hpGzpfBH9ZSCGDbaaQWaYBf+YTPl5HH5Y2t2me7v9d7Nqt9ShWyU/To8C5dpiQKL2aiNXBunoimO6cOc0f0dvRz6hN2jaAvgLenXRYp4rx0zkLJ8StgkMH3sI7h+Ow2hlEgQezjW5j4OGT9aIVM=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1745921137; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=JxbCFy+YVAok7lkWS9hgSHArZDCzdlEOMBm9HS++e8M=; 
-	b=GKpj86eYoSeNFysHu2RMVKHTLtlZZzBLvMvKoBNr7LcpO+Z4Znm7AnG7AuZ9MdQ/qdj2qKDpK/fAs72EzucerpNxuxBl4dFmgoONR6L/FT/KtbHbAadNOUR9IX3AM8qy0kWUq0YhI+kJvAHyoCKKbHcuyuWTBB3vkzeCzRrUEvs=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1745921137;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=JxbCFy+YVAok7lkWS9hgSHArZDCzdlEOMBm9HS++e8M=;
-	b=ScUGTsBQeOdzXPal+jTXkQH/TtCHyCJS3xVRpl0+uUm5bDvVOrABlUbBHKOKQNex
-	CpvEWt235HdE+Hb2sFR6N01jaBy52WClbaN3+ye+vb+cQLyL8dRzGH84JXN/SQnxi/3
-	gj/y5VEPmR225Abunl34QxehV4TCifdRWstIpdhI=
-Received: by mx.zohomail.com with SMTPS id 1745921136083931.6736324937333;
-	Tue, 29 Apr 2025 03:05:36 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Oded Gabbay <ogabbay@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Sumit Semwal <sumit.semwal@linaro.org>,
- Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Jeffrey Hugo <quic_jhugo@quicinc.com>, linux-rockchip@lists.infradead.org,
- Tomeu Vizoso <tomeu@tomeuvizoso.net>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
- linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
- Tomeu Vizoso <tomeu@tomeuvizoso.net>
-Subject: Re: [PATCH v2 6/7] accel/rocket: Add job submission IOCTL
-Date: Tue, 29 Apr 2025 12:05:28 +0200
-Message-ID: <2365360.ElGaqSPkdT@workhorse>
-In-Reply-To: <20250225-6-10-rocket-v2-6-d4dbcfafc141@tomeuvizoso.net>
-References: <20250225-6-10-rocket-v2-0-d4dbcfafc141@tomeuvizoso.net>
- <20250225-6-10-rocket-v2-6-d4dbcfafc141@tomeuvizoso.net>
+	id 1u9hrZ-00000009F39-3Dwd
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Apr 2025 10:06:55 +0000
+Received: by mail-yw1-x112a.google.com with SMTP id 00721157ae682-6feab7c5f96so52069677b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 03:06:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1745921212; x=1746526012; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=jjQQ1gbntdrSbZtDquO40Eje9JxI9rUu3v+V9iiuKlU=;
+        b=a8CzHyghZ0yFpRMsQSY5Q8U6SvWRuNIDk6BVEkqIDkdQUB9zzNo7mN4bfFvuznzezg
+         lclx+z5qDp/xtTkP0UsTRGokn9b0tTVxhXPeVNzObEsytut1kAgnLm4EotzhIwZK6evf
+         4g43Y9aNKWlmRllRQixQ+dCfY9EyQ2byKGwdUnsJX+t2jgmrcxIqUI81geON0iYzhG53
+         a5CJl2NlcJ3m1cIE/tnjdFPaQDKdLjYedSd9SValt5cFivTo8DO0Y3DH6FeIcj7r7isy
+         eBFhd2uG5lirNCySi1duzxd6Yortheg+2GtXYCUCSbaASxPLhhpc6Z66H3l5CDxnD9Dd
+         1/Jw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745921212; x=1746526012;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jjQQ1gbntdrSbZtDquO40Eje9JxI9rUu3v+V9iiuKlU=;
+        b=Tc+OP62ncFy3WzPf0WikArSSAhOXOom/GDepVyo2vKnzF1ScQ/5WadIorVor/9DL/B
+         7GtSKmByyD/kJFUcQ8ZKe0KMoc1uaelVRJqSlz7Fns2LRqfcIUhUv9fIy8WQDbdXfo+U
+         FTNsjK07ksf2eYI1b8RauyzCriMen//xAVJJYJMEgfqln0970zlR7QAvQv0EsdliI3Ry
+         rDoV0k6x+nVgdZGfXC/9NsnXgz5udXmfZieRH2QXQJEaebO9YSFRmGy4b9fLKb2ifoPc
+         CdsZaXWYxTbyp2+9htsV/xi6DZtJTBVhLgCw1DMxeI/rxm6PeQxjhaLLaS+b6Aa9c3WP
+         rY7A==
+X-Forwarded-Encrypted: i=1; AJvYcCW1hu3uONIQGkVGidHJgrwjFImBfA3L8RBx3sJJ3OrX7+xd3GlrzZTeEkUu5eSS+h+MizJAzaU/asq/csGtvtEI@lists.infradead.org
+X-Gm-Message-State: AOJu0YycbQUJ13KKXc9Mwm4OVcZpmrAeTxNvl0UgRteU/CIbLG79puGF
+	AoJ82lMUVbOnA2klJ85/wiYOXDQXBApHbnMysVx9e+GfYGiQa986l07GRF9dSymoapOVsLGUAyj
+	OsYkTfMrVLckRwj1xMSA+iIZUsX3DM4XLmhyctw==
+X-Gm-Gg: ASbGnctd/gdTOPo1zptUVQVBlmrY69um8c/BpmF2d3qOBXyb5bGKOBYuQ637BlXuAjx
+	0gyCrv+0Qiz+KccqtZZEiN8iUTVX1fdnt2UDIieydJWQXepzvWmWLS/X42iAer7rdGQD6MFSWs/
+	8EAWJrAq/CfoQGRFNbSGw7+ec=
+X-Google-Smtp-Source: AGHT+IG6WmWyhSGVmxVC3f3XCypyrDEpbVGX6ioUnUsJtVsCpx9/EXtlcANtXZwlnV6IGsG9Jd4CkmBcfsgDrtEzaaQ=
+X-Received: by 2002:a05:690c:3506:b0:703:b8f4:5b0e with SMTP id
+ 00721157ae682-7085f236277mr162475347b3.28.1745921212260; Tue, 29 Apr 2025
+ 03:06:52 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+References: <20250423-rk3576-emmc-fix-v3-1-0bf80e29967f@collabora.com>
+In-Reply-To: <20250423-rk3576-emmc-fix-v3-1-0bf80e29967f@collabora.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Tue, 29 Apr 2025 12:06:16 +0200
+X-Gm-Features: ATxdqUGRQt2dS-dYXQNUSdM9bjw6NNZW_Ep_w3cK8lN-p_Z_PHKTCdtR2wWOe8s
+Message-ID: <CAPDyKFp5N23KCZwOTba6vGyk9eaS1-SjSqY52FfPDng-bahn6g@mail.gmail.com>
+Subject: Re: [PATCH v3] mmc: sdhci-of-dwcmshc: add PD workaround on RK3576
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Shawn Lin <shawn.lin@rock-chips.com>, Heiko Stuebner <heiko@sntech.de>, 
+	Elaine Zhang <zhangqing@rock-chips.com>, Finley Xiao <finley.xiao@rock-chips.com>, 
+	Adrian Hunter <adrian.hunter@intel.com>, 
+	Sebastian Reichel <sebastian.reichel@collabora.com>, 
+	Detlev Casanova <detlev.casanova@collabora.com>, kernel@collabora.com, 
+	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mmc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_030557_660544_2581D089 
-X-CRM114-Status: GOOD (  30.06  )
+X-CRM114-CacheID: sfid-20250429_030653_819777_D2B9C45F 
+X-CRM114-Status: GOOD (  37.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,161 +98,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tuesday, 25 February 2025 08:55:52 Central European Summer Time Tomeu Vizoso wrote:
-> Using the DRM GPU scheduler infrastructure, with a scheduler for each
-> core.
-> 
-> Userspace can decide for a series of tasks to be executed sequentially
-> in the same core, so SRAM locality can be taken advantage of.
-> 
-> The job submission code was initially based on Panfrost.
-> 
-> v2:
-> - Remove hardcoded number of cores
-> - Misc. style fixes (Jeffrey Hugo)
-> - Repack IOCTL struct (Jeffrey Hugo)
-> 
-> Signed-off-by: Tomeu Vizoso <tomeu@tomeuvizoso.net>
+On Wed, 23 Apr 2025 at 09:54, Nicolas Frattaroli
+<nicolas.frattaroli@collabora.com> wrote:
+>
+> RK3576's power domains have a peculiar design where the PD_NVM power
+> domain, of which the sdhci controller is a part, seemingly does not have
+> idempotent runtime disable/enable. The end effect is that if PD_NVM gets
+> turned off by the generic power domain logic because all the devices
+> depending on it are suspended, then the next time the sdhci device is
+> unsuspended, it'll hang the SoC as soon as it tries accessing the CQHCI
+> registers.
+>
+> RK3576's UFS support needed a new dev_pm_genpd_rpm_always_on function
+> added to the generic power domains API to handle what appears to be a
+> similar hardware design.
+>
+> Use this new function to ask for the same treatment in the sdhci
+> controller by giving rk3576 its own platform data with its own postinit
+> function. The benefit of doing this instead of marking the power domains
+> always on in the power domain core is that we only do this if we know
+> the platform we're running on actually uses the sdhci controller. For
+> others, keeping PD_NVM always on would be a waste, as they won't run
+> into this specific issue. The only other IP in PD_NVM that could be
+> affected is FSPI0. If it gets a mainline driver, it will probably want
+> to do the same thing.
+>
+> Acked-by: Adrian Hunter <adrian.hunter@intel.com>
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+
+Applied for next, thanks!
+
+Kind regards
+Uffe
+
+
 > ---
->  drivers/accel/rocket/Makefile        |   3 +-
->  drivers/accel/rocket/rocket_core.c   |   6 +
->  drivers/accel/rocket/rocket_core.h   |  14 +
->  drivers/accel/rocket/rocket_device.c |   2 +
->  drivers/accel/rocket/rocket_device.h |   2 +
->  drivers/accel/rocket/rocket_drv.c    |  15 +
->  drivers/accel/rocket/rocket_drv.h    |   4 +
->  drivers/accel/rocket/rocket_job.c    | 710 +++++++++++++++++++++++++++++++++++
->  drivers/accel/rocket/rocket_job.h    |  50 +++
->  include/uapi/drm/rocket_accel.h      |  55 +++
->  10 files changed, 860 insertions(+), 1 deletion(-)
-
-Hi Tomeu,
-
-some more power management things I've noticed here.
-
+> Changes in v3:
+> - Reword comment and commit message to correct that this is not a
+>   silicon bug, but seemingly intentional design with regards to runtime
+>   power management.
+> - Link to v2: https://lore.kernel.org/r/20250412-rk3576-emmc-fix-v2-1-830e653ad4f0@collabora.com
 >
-> [...]
+> Changes in v2:
+> - Rewrite patch to use dev_pm_genpd_rpm_always_on in sdhci driver
+>   instead, after Ulf Hansson made me aware of its existence
+> - Link to v1: https://lore.kernel.org/r/20250408-rk3576-emmc-fix-v1-1-3009828b1b31@collabora.com
+> ---
+>  drivers/mmc/host/sdhci-of-dwcmshc.c | 40 +++++++++++++++++++++++++++++++++++++
+>  1 file changed, 40 insertions(+)
 >
-> diff --git a/drivers/accel/rocket/rocket_job.c b/drivers/accel/rocket/rocket_job.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..25b31f28e932aaee86173b9a0962932c9c640c03
-> --- /dev/null
-> +++ b/drivers/accel/rocket/rocket_job.c
+> diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
+> index 09b9ab15e4995f0bddf57dd309c010c849be40d9..a20d03fdd6a93ecc5229c71f825bade5ac730370 100644
+> --- a/drivers/mmc/host/sdhci-of-dwcmshc.c
+> +++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
+> @@ -17,6 +17,7 @@
+>  #include <linux/module.h>
+>  #include <linux/of.h>
+>  #include <linux/platform_device.h>
+> +#include <linux/pm_domain.h>
+>  #include <linux/pm_runtime.h>
+>  #include <linux/reset.h>
+>  #include <linux/sizes.h>
+> @@ -745,6 +746,29 @@ static void dwcmshc_rk35xx_postinit(struct sdhci_host *host, struct dwcmshc_priv
+>         }
+>  }
 >
-> [...]
->
-> +static void
-> +rocket_reset(struct rocket_core *core, struct drm_sched_job *bad)
+> +static void dwcmshc_rk3576_postinit(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv)
 > +{
-> +	bool cookie;
+> +       struct device *dev = mmc_dev(host->mmc);
+> +       int ret;
 > +
-> +	if (!atomic_read(&core->reset.pending))
-> +		return;
+> +       /*
+> +        * This works around the design of the RK3576's power domains, which
+> +        * makes the PD_NVM power domain, which the sdhci controller on the
+> +        * RK3576 is in, never come back the same way once it's run-time
+> +        * suspended once. This can happen during early kernel boot if no driver
+> +        * is using either PD_NVM or its child power domain PD_SDGMAC for a
+> +        * short moment, leading to it being turned off to save power. By
+> +        * keeping it on, sdhci suspending won't lead to PD_NVM becoming a
+> +        * candidate for getting turned off.
+> +        */
+> +       ret = dev_pm_genpd_rpm_always_on(dev, true);
+> +       if (ret && ret != -EOPNOTSUPP)
+> +               dev_warn(dev, "failed to set PD rpm always on, SoC may hang later: %pe\n",
+> +                        ERR_PTR(ret));
 > +
-> +	/*
-> +	 * Stop the scheduler.
-> +	 *
-> +	 * FIXME: We temporarily get out of the dma_fence_signalling section
-> +	 * because the cleanup path generate lockdep splats when taking locks
-> +	 * to release job resources. We should rework the code to follow this
-> +	 * pattern:
-> +	 *
-> +	 *	try_lock
-> +	 *	if (locked)
-> +	 *		release
-> +	 *	else
-> +	 *		schedule_work_to_release_later
-> +	 */
-> +	drm_sched_stop(&core->sched, bad);
-> +
-> +	cookie = dma_fence_begin_signalling();
-> +
-> +	if (bad)
-> +		drm_sched_increase_karma(bad);
-> +
-> +	/*
-> +	 * Mask job interrupts and synchronize to make sure we won't be
-> +	 * interrupted during our reset.
-> +	 */
-> +	rocket_write(core, REG_PC_INTERRUPT_MASK, 0x0);
-> +	synchronize_irq(core->irq);
-> +
-> +	/* Handle the remaining interrupts before we reset. */
-> +	rocket_job_handle_irq(core);
-> +
-> +	/*
-> +	 * Remaining interrupts have been handled, but we might still have
-> +	 * stuck jobs. Let's make sure the PM counters stay balanced by
-> +	 * manually calling pm_runtime_put_noidle() and
-> +	 * rocket_devfreq_record_idle() for each stuck job.
-> +	 * Let's also make sure the cycle counting register's refcnt is
-> +	 * kept balanced to prevent it from running forever
-> +	 */
-> +	spin_lock(&core->job_lock);
-> +	if (core->in_flight_job)
-> +		pm_runtime_put_noidle(core->dev);
-
-This particular line of code caused me issues when I was experimenting with the
-driver on RK3576. My current situation is that every job that gets submitted
-times out because of some IRQs never arriving, which is besides the point, but
-it did expose a power management bug here that I suspect may affect RK3588 as
-well. After like 3 timeouts, we reset again and hang in the interrupt mask write
-just a few lines above. This is because we somehow managed to get into a
-situation where this function is called with pclk disabled, and this manual
-balancing act may be part of it. Not doing the manual balancing at all here
-doesn't fix it, I had to explicitly wrap the reset function in
-pm_runtime_get_sync and pm_runtime_put_noidle to avoid having this function
-execute with disabled clocks. That seems like the "wrong solution" though
-because it means something already powered off our hardware too eagerly before
-we got the reset done.
-
-My gut instinct tells me that there's a bug here with multiple timed out jobs
-being in flight, but I'm not 100% on it. Maybe you'll be able to reproduce it
-on an RK3588 by artificially forcing all your jobs to time out with some very
-low timeout value or by masking the interrupts.
-
-> +
-> +	core->in_flight_job = NULL;
-> +	spin_unlock(&core->job_lock);
-> +
-> +	/* Proceed with reset now. */
-> +	pm_runtime_force_suspend(core->dev);
-> +	pm_runtime_force_resume(core->dev);
-
-Do we need to guarantee some sort of exclusivity here so that nothing tries to
-concurrently use the device while we're forcing it off and back on again? I'm
-unfamiliar with the drm fence stuff, so I may be overthinking this.
-
-> +
-> +	/* GPU has been reset, we can clear the reset pending bit. */
-> +	atomic_set(&core->reset.pending, 0);
-
-Nitpick: should probably be "NPU" ;)
-
-> +
-> +	/*
-> +	 * Now resubmit jobs that were previously queued but didn't have a
-> +	 * chance to finish.
-> +	 * FIXME: We temporarily get out of the DMA fence signalling section
-> +	 * while resubmitting jobs because the job submission logic will
-> +	 * allocate memory with the GFP_KERNEL flag which can trigger memory
-> +	 * reclaim and exposes a lock ordering issue.
-> +	 */
-> +	dma_fence_end_signalling(cookie);
-> +	drm_sched_resubmit_jobs(&core->sched);
-> +	cookie = dma_fence_begin_signalling();
-> +
-> +	/* Restart the scheduler */
-> +	drm_sched_start(&core->sched, 0);
-> +
-> +	dma_fence_end_signalling(cookie);
+> +       dwcmshc_rk35xx_postinit(host, dwc_priv);
 > +}
+> +
+>  static int th1520_execute_tuning(struct sdhci_host *host, u32 opcode)
+>  {
+>         struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+> @@ -1176,6 +1200,18 @@ static const struct dwcmshc_pltfm_data sdhci_dwcmshc_rk35xx_pdata = {
+>         .postinit = dwcmshc_rk35xx_postinit,
+>  };
 >
-> [...]
+> +static const struct dwcmshc_pltfm_data sdhci_dwcmshc_rk3576_pdata = {
+> +       .pdata = {
+> +               .ops = &sdhci_dwcmshc_rk35xx_ops,
+> +               .quirks = SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN |
+> +                         SDHCI_QUIRK_BROKEN_TIMEOUT_VAL,
+> +               .quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN |
+> +                          SDHCI_QUIRK2_CLOCK_DIV_ZERO_BROKEN,
+> +       },
+> +       .init = dwcmshc_rk35xx_init,
+> +       .postinit = dwcmshc_rk3576_postinit,
+> +};
+> +
+>  static const struct dwcmshc_pltfm_data sdhci_dwcmshc_th1520_pdata = {
+>         .pdata = {
+>                 .ops = &sdhci_dwcmshc_th1520_ops,
+> @@ -1274,6 +1310,10 @@ static const struct of_device_id sdhci_dwcmshc_dt_ids[] = {
+>                 .compatible = "rockchip,rk3588-dwcmshc",
+>                 .data = &sdhci_dwcmshc_rk35xx_pdata,
+>         },
+> +       {
+> +               .compatible = "rockchip,rk3576-dwcmshc",
+> +               .data = &sdhci_dwcmshc_rk3576_pdata,
+> +       },
+>         {
+>                 .compatible = "rockchip,rk3568-dwcmshc",
+>                 .data = &sdhci_dwcmshc_rk35xx_pdata,
 >
-
-Kind regards,
-Nicolas Frattaroli
-
-
+> ---
+> base-commit: f34da179a4517854b2ffbe4bce8c3405bd9be04e
+> change-id: 20250317-rk3576-emmc-fix-7dc81a627422
+>
+> Best regards,
+> --
+> Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+>
 
