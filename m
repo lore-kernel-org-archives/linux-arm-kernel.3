@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AD6FC3ABA9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 11:35:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D87A3C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 11:37:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3IC7RgsdFRjgNaYf9Bgi/HQazgo9UqZR6LcWu3Lxorw=; b=FviO6BrzE+btSahr/EFYVJ+1K5
-	TvcZu6BKNn6lnhHBjko722jd/7PVJxbiLW2yaJLOygGPa0UHw+X4mQ/piyr56BJz/M+2xHWmk7Kcq
-	Z/aYbFJGpwOmuLWxctyQVaYzUpX8HRSNSy3Yau/5uPxymHr0iKs76kiHmGao+8Nz7dmhthpNPM2tC
-	IcXQBjvFVLJ1pEdpfCEhJhKEc+XPQDzsKwa/mWXS34uZI/bRzoV4ibWKrYBoctIEa34z8CrmEeO1M
-	bSv9kn3lScbTJ9L8aHcP904ClLp1bUjjBN4Z9exbBUfFwPYYAqp7gXVJgZyr6jskS4vlH9oLCJTgY
-	9AQEYD+g==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WGtQcFOkR3P6lXc8Dxo93r1W4pTAA0FrpNH5NilciEc=; b=ja+bQAJqYNhFCbeGiEoyjfJB0X
+	R9qnKdec/WeP9kVm07TcpIFvT57Vu5o6xEiebU5NJ/ZfHC+ASFXqvFfek+yqtdoMQYSg31GyacyQh
+	RECJDACUcdQK8DmOmR6PqrUhkZGozg+hLO1CUvvpLe4rj0qHD6F/QsaPvvceSyt6LCESFY2jY74Gm
+	ZrmxjKbWHSqb1koVF5P1pq0pEbneEOUqJcbUCnyAUYOIQn+AZIIurUBzLJGqUxSlTERaoNGnxKEB5
+	DDdS7M/vrJlVhzY+1tMl2H+bRnaHwlxuvIcHFBo9lIylGK+zpLziZRAe8SOskEstlKvDJclqQE6HL
+	Nm67RIIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9jFP-00000009TVk-3oDl;
-	Tue, 29 Apr 2025 11:35:35 +0000
+	id 1u9jHJ-00000009UEC-2bDJ;
+	Tue, 29 Apr 2025 11:37:33 +0000
 Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9jBY-00000009SHI-0TBQ
+	id 1u9jBX-00000009SHY-13wU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 11:31:37 +0000
+	Tue, 29 Apr 2025 11:31:38 +0000
 Received: from francesco-nb.pivistrello.it (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id 904B31F945;
-	Tue, 29 Apr 2025 13:31:27 +0200 (CEST)
+	by mail11.truemail.it (Postfix) with ESMTPA id B2B391F9C7;
+	Tue, 29 Apr 2025 13:31:29 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1745926288;
-	bh=3IC7RgsdFRjgNaYf9Bgi/HQazgo9UqZR6LcWu3Lxorw=; h=From:To:Subject;
-	b=q6blwe0VuViLMGWdxk2Q8Jg5bwm254tstAbZUf3GJpHVVQYpsAiW3T8DM3OwSYin0
-	 V4iyB0dW6x/prfk0GRhPDsumLqBPVV2BCklB/Xcnd2qzPKVfXkQg7FlhgWOhrusU1R
-	 jX0b4rKAs2gvxO9awAp4WMNe+rsnvWi5nvLxYJvlPiNGBeMK8yPERXEkjTy8Vk1GZY
-	 IolJAKQpk/ECxFpQRt9gEioJqx4EXhTd+KLXl5H728WXTf7mv239KPg36UL9LabifY
-	 WMxz8K16saan9eple72fd7sXoyiE+HYZ+pYq+E+1OBdYkvCU3I4JK2Bvcp+nL/rqK3
-	 dlh5kYZBle7Vw==
+	s=default; t=1745926290;
+	bh=WGtQcFOkR3P6lXc8Dxo93r1W4pTAA0FrpNH5NilciEc=; h=From:To:Subject;
+	b=L1/KTm31msK5qiUquI9I+shB1t7o6QMWrV5Fu2FgrsZusPXh5DQPdMHG+b9jBgolj
+	 C6NqR+o4q50BAH3yBKSjo6JDEFAlUZ2mnh6KVI51xX72EtibBnGYo3Zv6gzCK/MnQ4
+	 5MxSjxn+Dk99q/XYc6/ZFDpb1DM5uSK0fCiwof+Vooffavp+vdwAchpf2pzxSAiW2y
+	 l0hRbeploNUGE5/1QUpDpy2+HiK6gv0FZTUJ2FgDgK5b5u5J+0jasK0U7uXbLgIyc5
+	 /rpScbXN+4Qtc6sCHLtoWxBB6b/NMYK2nKjMpPMsbzXg2dIYxwqDfxGM2KPERBDSPD
+	 W31miQThzMYgQ==
 From: Francesco Dolcini <francesco@dolcini.it>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -49,20 +49,23 @@ To: Rob Herring <robh@kernel.org>,
 	Fabio Estevam <festevam@gmail.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>
-Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
+Cc: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>,
 	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 0/4]  arm64: dts: freescale: imx8mp-toradex-smarc: add fan, ec, gpio
-Date: Tue, 29 Apr 2025 13:31:15 +0200
-Message-Id: <20250429113119.124427-1-francesco@dolcini.it>
+	linux-kernel@vger.kernel.org,
+	Francesco Dolcini <francesco.dolcini@toradex.com>
+Subject: [PATCH v1 3/4] arm64: dts: freescale: imx8mp-toradex-smarc: add gpio expander
+Date: Tue, 29 Apr 2025 13:31:18 +0200
+Message-Id: <20250429113119.124427-4-francesco@dolcini.it>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250429113119.124427-1-francesco@dolcini.it>
+References: <20250429113119.124427-1-francesco@dolcini.it>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_043136_321550_6BE45726 
-X-CRM114-Status: UNSURE (   6.33  )
+X-CRM114-CacheID: sfid-20250429_043136_322797_C314EFA6 
+X-CRM114-Status: UNSURE (   8.17  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,29 +81,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Francesco Dolcini <francesco.dolcini@toradex.com>
+From: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
 
-Add fan, gpio expander and embedded-controller to the Toradex SMARC iMX8MP
-device tree file.
+Add gpio expander node to the device tree and the related nodes.
 
-All the required DT bindings and drivers are now in next:
- - https://lore.kernel.org/all/20250331072644.17921-1-francesco@dolcini.it/
- - https://lore.kernel.org/all/20250414171455.155155-1-francesco@dolcini.it/
- - https://lore.kernel.org/all/20250402102146.65406-1-francesco@dolcini.it/
+Signed-off-by: Emanuele Ghidoli <emanuele.ghidoli@toradex.com>
+Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+---
+ .../dts/freescale/imx8mp-toradex-smarc.dtsi   | 25 +++++++++++++++++++
+ 1 file changed, 25 insertions(+)
 
-Emanuele Ghidoli (2):
-  arm64: dts: freescale: imx8mp-toradex-smarc: add embedded controller
-  arm64: dts: freescale: imx8mp-toradex-smarc: add gpio expander
-
-Francesco Dolcini (2):
-  arm64: dts: freescale: imx8mp-toradex-smarc: add fan PWM configuration
-  arm64: defconfig: Add Toradex Embedded Controller config
-
- .../freescale/imx8mp-toradex-smarc-dev.dts    |  9 +++++-
- .../dts/freescale/imx8mp-toradex-smarc.dtsi   | 30 +++++++++++++++++++
- arch/arm64/configs/defconfig                  |  1 +
- 3 files changed, 39 insertions(+), 1 deletion(-)
-
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc.dtsi
+index c4ca01ce60d0..de84e7e52efd 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc.dtsi
+@@ -54,6 +54,13 @@ smarc_key_sleep: key-sleep {
+ 			wakeup-source;
+ 			linux,code = <KEY_SLEEP>;
+ 		};
++
++		smarc_switch_lid: switch-lid {
++			gpios = <&som_ec_gpio_expander 2 GPIO_ACTIVE_LOW>;
++			label = "SMARC_LID#";
++			linux,code = <SW_LID>;
++			linux,input-type = <EV_SW>;
++		};
+ 	};
+ 
+ 	reg_usb0_vbus: regulator-usb0-vbus {
+@@ -539,6 +546,24 @@ embedded-controller@28 {
+ 		reg = <0x28>;
+ 	};
+ 
++	som_ec_gpio_expander: gpio-expander@29 {
++		compatible = "toradex,ecgpiol16", "nxp,pcal6416";
++		reg = <0x29>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_mcu_int>;
++		#interrupt-cells = <2>;
++		interrupt-controller;
++		interrupt-parent = <&gpio3>;
++		interrupts = <8 IRQ_TYPE_LEVEL_LOW>;
++		#gpio-cells = <2>;
++		gpio-controller;
++		gpio-line-names =
++			"SMARC_CHARGER_PRSNT#",
++			"SMARC_CHARGING#",
++			"SMARC_LID#",
++			"SMARC_BATLOW#";
++	};
++
+ 	rtc_i2c: rtc@32 {
+ 		compatible = "epson,rx8130";
+ 		reg = <0x32>;
 -- 
 2.39.5
 
