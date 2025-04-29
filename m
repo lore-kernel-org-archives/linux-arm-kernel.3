@@ -4,63 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0650C3ABAB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02276C3ABA5
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 16:31:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OduaXqO0vpWQkm2nTVR92WsTV4Q+eJ6nrxylSonj7oQ=; b=IgXKYJpphcj7CkUTbsSlNboD1y
-	tXqfM4iizSop+b/iOFeaeYZj5MBm8Qzy/D4tRtgAZ6L31sJ2AwbKyU/Zu87WcQ5nl9Grgs5Kh2MdS
-	g8A4ajCH1vI2Q1hEu7iJMyGH5e0peVzERlDhPC/mY0UnI6Q115ZVR12/wsa1E74tiA2gA8nSwfAu8
-	3lPFyXblJet5hwNlUgWRPkJDW/ldNRBREHcZWjFT+crafy746fYWmdwuS2Q7KTMpsRfZENlDxntmN
-	z/09cy086p9KZJT+8QHVmibnlJu6sIJ89DSiuAFPZOEVJbb7CbAfg9+1HegqUkWsgUr+fcfbuiemS
-	VSIQXsXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AUtH6qYBNKD+N5mY6n6DhaFZniwZFgbgJcKa/OYa00o=; b=OtQWyIKpx7UX8s9ipeB41IdyqO
+	rr3mMgW6m+kCOY6qdTjGAaYvRB73zx1HdB3IUqrzw9lRNB9WBs28EdjzNtmLZ2ljMXSoGgj0eaHcY
+	r7qWffPeGkQfBDyuW/XNzzC/Ey8U8fsT1Syuk5JMrECXc2WB8qDF8DyAIhdKQqNz4Eequ2SxodjEV
+	0R4rAlsiVBGX1KGQ2qKd7DqR6YUp5H1O9V+DsWGeBpb5rCFTuD5Kdn8qthQgPowvpHxslSbnl8Wla
+	upJJcso7g//Mu17klXlMBMEb7kt/eqbA4EG+damK5iUa08kyW3hvZtbLFCjVjbzHXYvRcMpG6mZ1f
+	56v6AH6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9nrY-0000000AG4C-0XBs;
-	Tue, 29 Apr 2025 16:31:16 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1u9nrW-0000000AG3A-3vzp;
+	Tue, 29 Apr 2025 16:31:14 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9maY-0000000A49R-2UDs
+	id 1u9mES-0000000A0HL-3Zse
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 15:09:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=OduaXqO0vpWQkm2nTVR92WsTV4Q+eJ6nrxylSonj7oQ=; b=XL
-	fMdKhhooPPpr7PglDfv/395KTHmc33skhhEu3pHQ8o3hzgpAyhN4ZI6NnVsCWyMyJWIzM/TZqp+5U
-	njOmiFSDSiQjslO/jdmfKlJV8RRXoFHKrgY26MgyEsLM9F3NkY5QxCr1tRxO0p7xdrsOjhszVymot
-	TIKFQDB196BQykY=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1u9maI-00Ax53-Aq; Tue, 29 Apr 2025 17:09:22 +0200
-Date: Tue, 29 Apr 2025 17:09:22 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jernej =?utf-8?Q?=C5=A0krabec?= <jernej.skrabec@gmail.com>
-Cc: Andre Przywara <andre.przywara@arm.com>, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, wens@csie.org,
-	samuel@sholland.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] arm64: dts: allwinner: h6: Add OrangePi 3 LTS DTS
-Message-ID: <6a056bf8-9f39-4204-9378-8cc39be60038@lunn.ch>
-References: <20250413134318.66681-1-jernej.skrabec@gmail.com>
- <2219754.irdbgypaU6@jernej-laptop>
- <34e30bf2-6f80-4c43-9e52-c1ebe0521c43@lunn.ch>
- <5880182.DvuYhMxLoT@jernej-laptop>
+	Tue, 29 Apr 2025 14:46:50 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53TEkjNL3699137
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 29 Apr 2025 09:46:45 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1745938005;
+	bh=AUtH6qYBNKD+N5mY6n6DhaFZniwZFgbgJcKa/OYa00o=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=yEeVUC7BKsxRLNh/tIJg1TLtguiDJc9T/hlHcOxEP5xEaiTVszFaXTM6kkJ0Ra8M9
+	 LCLHU/FjPOSgCf6VvYZGNdITTNtKC2zcMRbLJa6LFSBhLVHdn4Kytt5GYpbKmNz5L+
+	 r37iSeiSV85FmeB1Z6NIADrg1Wrwo+CqzZcFmOVA=
+Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53TEkiZO013806
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 29 Apr 2025 09:46:45 -0500
+Received: from DFLE112.ent.ti.com (10.64.6.33) by DFLE110.ent.ti.com
+ (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 29
+ Apr 2025 09:46:44 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE112.ent.ti.com
+ (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 29 Apr 2025 09:46:44 -0500
+Received: from [128.247.81.105] (judy-hp.dhcp.ti.com [128.247.81.105])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53TEkiuj117182;
+	Tue, 29 Apr 2025 09:46:44 -0500
+Message-ID: <9128dc1c-8f15-499b-84f6-f824bbfe61fe@ti.com>
+Date: Tue, 29 Apr 2025 09:46:44 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <5880182.DvuYhMxLoT@jernej-laptop>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: ti: k3-am6*: Set eMMC clock parents to
+ default
+To: Nishanth Menon <nm@ti.com>
+CC: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>
+References: <20250429142333.4140010-1-jm@ti.com>
+ <20250429142825.bvrbpoc5iz32wh35@garment>
+Content-Language: en-US
+From: Judith Mendez <jm@ti.com>
+In-Reply-To: <20250429142825.bvrbpoc5iz32wh35@garment>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_080938_629590_93C730A7 
-X-CRM114-Status: GOOD (  21.48  )
+X-CRM114-CacheID: sfid-20250429_074648_954730_17F5B8A6 
+X-CRM114-Status: GOOD (  12.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,50 +90,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 29, 2025 at 04:51:59PM +0200, Jernej Škrabec wrote:
-> Dne ponedeljek, 28. april 2025 ob 14:37:48 Srednjeevropski poletni čas je Andrew Lunn napisal(a):
-> > On Sat, Apr 26, 2025 at 08:00:49PM +0200, Jernej Škrabec wrote:
-> > > Dne petek, 25. april 2025 ob 17:34:14 Srednjeevropski poletni čas je Andrew Lunn napisal(a):
-> > > > > > +&emac {
-> > > > > > +	pinctrl-names = "default";
-> > > > > > +	pinctrl-0 = <&ext_rgmii_pins>;
-> > > > > > +	phy-mode = "rgmii-rxid";
-> > > > > 
-> > > > > So relating to what Andrew said earlier today, should this read rgmii-id
-> > > > > instead? Since the strap resistors just set some boot-up value, but we
-> > > > > want the PHY driver to enable both RX and TX delay programmatically?
-> > > > 
-> > > > Yes.
-> > > > 
-> > > > There is a checkpatch.pl patch working its way through the system
-> > > > which will add warning about any rgmii value other than rgmii-id. Such
-> > > > values need a comment that the PCB has extra long clock
-> > > > lines. Hopefully that will make people actually stop and think about
-> > > > this, rather than just copy broken vendor code.
-> > > 
-> > > I spent quite some time working on ethernet support for this board. Once
-> > > I've found PHY datasheet, I confirmed that there is added delay. So this
-> > > particular board needs "rgmii-rxid" mode.
-> > 
-> > There have been numerous discussions about what these rgmii modes
-> > mean, because DT developers frequently get them wrong.
-> > 
-> > Does the PCB have an extra long clock line in the TX direction? That
-> > is what rgmii-rxid means, the PCB is providing the TX delay, the
-> > MAC/PHY pair needs to add the RX delay.
+Hi Nishanth,
+
+On 4/29/25 9:28 AM, Nishanth Menon wrote:
+> On 09:23-20250429, Judith Mendez wrote:
+>> Set eMMC clock parents to the defaults which is MAIN_PLL0_HSDIV5_CLKOUT
+>> for eMMC. This change is necessary since DM is not implementing the
+>> correct procedure to switch PLL clock source for eMMC and we have a
+>> non-glich-free mux. To remove any potential issues, lets switch back to
+>> the defaults.
+>>
+>> Fixes: c37c58fdeb8a ("arm64: dts: ti: k3-am62: Add more peripheral nodes")
+>> Fixes: d3ae4e8d8b6a ("arm64: dts: ti: k3-am62a-main: Add sdhci0 instance")
+>> Fixes: b5080c7c1f7e ("arm64: dts: ti: k3-am62p: Add nodes for more IPs")
 > 
-> While schematic is accessible, AFAIK PCB/gerbers are not, so I can't really
-> tell how long it is. But without this extra delay, ethernet doesn't work.
+> I thought I had given this comment previously as well, please DONOT put
+> multiple fixes in a single patch -> All three are solving the similar
+> problems, but on three different baseline - please think through how
+> this patch needs to be automatically backported to previous stable
+> kernels.
+> 
 
-You are not adding an extra delay, you are subtracting a
-delay. 'rgmii-rxid' says the TX delay is implemented by the PCB, hence
-the PHY does not need to add the delay.
+I understand now, will split this patch in three, thanks.
 
-What is normal is that the PCB adds no delays, and the PHY adds the
-delay for both the RX and the TX. And you represent this with
-'rgmii-id'.
+~ Judith
 
-So what you need to find out is, where does the TX delay come from?
-
-	Andrew
 
