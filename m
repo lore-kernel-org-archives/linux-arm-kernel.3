@@ -4,56 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74CA4C3ABA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 16:50:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C744C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 16:58:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=79HYUPxXmEiwQeTLRxHyWGIwdhNEzGLiGXQoDP2hR2k=; b=GSAmdLgRV8UvowYH1tyqU5jrss
-	vJY7KXdkMfzIWShqe2dkf/fYhYXwJYx+gbgcrFdD25BCd+QwNcom2i+XJO1gKXW2Ls5rkDUg9eZ6R
-	OQNfvTiDsVRR3D3sebPtz7lau8k6YyOGBfVkER539DqpJ+Zbex3QHP1OAkoCGlfohcaEhmmDxlYTB
-	RiEfzuRxN/blHYC5StOk3Gfc4NS2Ntzra5PNW3ofZeX8BRUxlqVRi3KAce4ITp9teACkYkrCVdtkC
-	/bBaZCIijHnQ5FdWyH4ziriuU8nLWfeT2IvcG4vS1g5SOlP40YtJZKe7TwUGVoSBblIIm9RAAqlHl
-	ufJ+51gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3hn7TI/NIifsiTf4RtEzy2zuXp6Q4rhXJuOfP6jWeJw=; b=w8kYG+4xM+a7l+3RUOSZskrFcY
+	pt7qFb2Yz7XWm3HaP8efziWa40q4wwfZH0kl7Fl5Rz/fAHToPgTDwKah59LcQh1vF6g5mD4BvuMwO
+	KQScfDPyTAAGx1nHqj32bsMNZ1XgUbAHqqPVxLYzug0XBkjf3zkKKinRANxtUW9lTFdGbV8xSqFN5
+	F8nxzLvw9vFP2xFB3CYzJuR9Ie9ji6RZ5nijD8ELAPm/5uW7c+BQqGG5m045WJ7oO6Ezr9gcvFnZS
+	LDP1oAAJodvJApqHaKILUNGa4vOotkNJiEz8JuifVBpZFJ5cYDjO5y7bncBYLAtX/Su89rlA+EVeW
+	bsUDxp8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9oAL-0000000AJnJ-3pWe;
-	Tue, 29 Apr 2025 16:50:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9o5F-0000000AIPs-26qj
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 16:45:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EF9DF1515;
-	Tue, 29 Apr 2025 09:45:12 -0700 (PDT)
-Received: from [10.1.25.156] (XHFQ2J9959.cambridge.arm.com [10.1.25.156])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A832A3F66E;
-	Tue, 29 Apr 2025 09:45:18 -0700 (PDT)
-Message-ID: <b07c1320-3140-40d3-899b-7c2b6e0d3c18@arm.com>
-Date: Tue, 29 Apr 2025 17:45:16 +0100
+	id 1u9oHx-0000000AL1J-10fw;
+	Tue, 29 Apr 2025 16:58:33 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u9oC6-0000000AKHG-310w;
+	Tue, 29 Apr 2025 16:52:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1745945533; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=IQBQTzconYJkqWZwYVbRGCr0fE2QNxTFfE3QMFz6gVJvqqjVNRcp2WzYj6h+XjBoGDtnOwgRXtU4MQotaYUT7/jbbr50Xbg6I79CiNY/zyud3E4Q9mX8xFOoKJLaFQUUaZnfQaOFpSxS+znfdhhs0wQeqrvItZnZemNMOS1zkSs=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1745945533; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=3hn7TI/NIifsiTf4RtEzy2zuXp6Q4rhXJuOfP6jWeJw=; 
+	b=YKACafeXthLiyZt4GzZHB89ADiQiUemvk91QX01rpznlzPVelZ2D700U4mpJudnJD+Z1zzaKxOXvPQae3EwQjLwwZW5WzluKVEApp0yGf30eDKkAfX0R0N90PMas83qOyh2CmGBWY8pHImSW5+uIglGNU7pPcWl1HfXVVf+MGgg=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1745945532;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:To:To:Cc:Cc:Reply-To;
+	bh=3hn7TI/NIifsiTf4RtEzy2zuXp6Q4rhXJuOfP6jWeJw=;
+	b=LrKvbKunSVI/bXi0eGOSIhTtqmEIxNKK8+JHQmS6zxTAqs7D9di/oS1wd8kmygIq
+	+KVSl52vk2D2C+eLPatAmN+tCgO71mESSy3jpjvZwPNZMB6GbnAsdvjQ4pIr7P2ubrr
+	ITZukGJ3wGH7l9tGmZqoP+i2VQkKYTKRsExjpbJM=
+Received: by mx.zohomail.com with SMTPS id 1745945531729697.7459362757056;
+	Tue, 29 Apr 2025 09:52:11 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Tue, 29 Apr 2025 18:51:55 +0200
+Subject: [PATCH] arm64: dts: rockchip: fix Sige5 RTC interrupt pin
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V2] arm64/mm: Implement pte_po_index() for permission
- overlay index
-Content-Language: en-GB
-To: Will Deacon <will@kernel.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
- Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20250415054442.2287891-1-anshuman.khandual@arm.com>
- <20250429151134.GB26272@willie-the-truck>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250429151134.GB26272@willie-the-truck>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20250429-sige5-rtc-oopsie-v1-1-8686767d0f1f@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAKoDEWgC/y3MQQ6CMBCF4as0s3YSrDZFrmJY1DLiLGhxphgSw
+ t1txOX/kvdtoCRMCp3ZQOjDyjnVOJ8MxFdIIyEPtcE21jVXe0PlkRxKiZjzrEw4XKIL3nvyoYV
+ 6m4WevP7Ie3+00HupcjlGeAQljHmauHQm0Vrwr7fQ7/sXWxEMNZMAAAA=
+X-Change-ID: 20250429-sige5-rtc-oopsie-d3c5a777e7a8
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Detlev Casanova <detlev.casanova@collabora.com>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_094525_588868_9B79F88F 
-X-CRM114-Status: GOOD (  21.02  )
+X-CRM114-CacheID: sfid-20250429_095230_845467_115E18CB 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,49 +82,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/04/2025 16:11, Will Deacon wrote:
-> On Tue, Apr 15, 2025 at 11:14:42AM +0530, Anshuman Khandual wrote:
->> From: Ryan Roberts <ryan.roberts@arm.com>
->>
->> Previously pte_access_permitted() used FIELD_GET() directly to retrieve
->> the permission overlay index from the pte. However, FIELD_GET() doesn't
->> work for 128 bit quanitites. Since we are about to add support for D128
->> pgtables, let's create a specific helper, pte_po_index() which can do
->> the required mask and shift regardless of the data type width.
-> 
-> You say:
-> 
-> "we are about to add support for D128 pgtables"
+Someone made a typo when they added the RTC to the Sige5 DTS, which
+resulted in it using interrupts from GPIO0 B0 instead of GPIO0 A0. The
+pinctrl entry for it wasn't typoed though, curiously enough.
 
-Providing some context: Anshuman has a private branch that adds D128 pgtable
-support to the kernel (it does not yet do this for KVM). I originally created
-this patch to fix a bug on that branch, so the "we are about to add ..." comment
-really only makes sense in that context.
+The Sige5 v1.1 schematic was used to verify that GPIO0 A0 is the correct
+pin for the RTC wakeup interrupt, so let's change it to that.
 
-We are not yet ready to post D128 upstream - there are still a lot of questions
-to answer - but Anshuman has been posting some of the reshuffling and cleanups
-that prepare the way for D128 where (we think) it makes sense. The aim is to
-reduce the diff as much as we can.
+Fixes: 40f742b07ab2 ("arm64: dts: rockchip: Add rk3576-armsom-sige5 board")
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> 
-> but all I've seen so far are piecemeal patches like this and it's hard
-> to know what to do with them, to be honest. Somebody could reasonably
-> turn up next week and clean this up to use FIELD_GET() again.
-> 
-> Grepping around, I also see that the KVM page-table code uses the FIELD_*
-> macros on page-table entries, so perhaps we're better off adding support
-> for 128-bit types to those instead of trying to avoid them?
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+index 964ee351d3b63fcb4ede70f4b6c06541715cfe19..570252c4c0bfe56a3c269e47d81fca7676e61787 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+@@ -616,7 +616,7 @@ hym8563: rtc@51 {
+ 		reg = <0x51>;
+ 		clock-output-names = "hym8563";
+ 		interrupt-parent = <&gpio0>;
+-		interrupts = <RK_PB0 IRQ_TYPE_LEVEL_LOW>;
++		interrupts = <RK_PA0 IRQ_TYPE_LEVEL_LOW>;
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&hym8563_int>;
+ 		wakeup-source;
 
-I think FIELD_* are always implicitly 64 bit, right? I could be wrong...
+---
+base-commit: 05c58e5408604391298fccf956f8cd0a4662da73
+change-id: 20250429-sige5-rtc-oopsie-d3c5a777e7a8
 
-But I agree with the overall sentiment; where stuff is clearly crossing over
-into KVM, which hasn't been tackled yet, don't post until we have a good view on
-what KVM needs.
-
-Thanks,
-Ryan
-
-> 
-> Will
+Best regards,
+-- 
+Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
 
