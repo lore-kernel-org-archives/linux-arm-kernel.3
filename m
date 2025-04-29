@@ -4,59 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6D4CC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 14:14:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 730C2C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 14:14:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2/y1oyivJMSAEjr6lXPFwpHxNpW9dO8CfdCGEFf7lQQ=; b=m2wJ+qEF/xnipaXoBhsszwuguH
-	JTIxKPW1M8jtsKHlr3TWqEjOEEmwGG6QnwT2QNTgLJamg7AUJGgYh9Y4ZI05SKFkH7ubSXZtuM9ts
-	jGPXoWOwAd4SeZoa5L0cmhJARIujZ9H5P6bad0gRiVo9QUDnuB0cfadLzagkZ5ThxKoQHlwy3/sJf
-	H3OtwV9kbCM8kor9eASQ9fOD9P+5x95wZeINPnLd0Q2o9GJ1j+MWMDT5+78LUc2k6TBmdYTt4ZYvV
-	oKSvBGvVcfhg91LdLYVasQP7wouR6y6FGkMUWrwVmV3/MakqBpoRHh9X2pV+ynejDQpEfLwqrXL/g
-	DVmf6hSw==;
+	bh=wBjgqJmieR7DJHSg+66WYd/OAVSF9qfUFkVkpy0fHEI=; b=Nge5jB0KWAGGH9LYDmvDCI8Ko3
+	1seDFb1NVdfzHSM2ryEVQhtk20y92LculPGJq3oloyZns0vRgfgqxj5NOQ/JUxaXMenIOkxvra81q
+	gks6wI7p61hEhAet3anJlmohkhEnpoIS1KzHbrG0XWhIPrfCkg4D/UQu+vdjzPoRb50cz+jOvv2Wj
+	34TdBKP8BF0Q81w6dsACvblCzev6/878SB1jbvyVgeztY+1j/Ah9rQlZ9G9TgPgHhn0kMnZeG8RiE
+	C49QCHnbhBK6tNv/9Ewx5XHRaUTV3ZmTTCG+JNg7bMP1oTCToW5dt0RlrzaNJ02ELHzFez/Bck42f
+	K5jVpm6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9lir-00000009tfv-149b;
-	Tue, 29 Apr 2025 14:14:09 +0000
+	id 1u9liv-00000009tmk-1MRP;
+	Tue, 29 Apr 2025 14:14:13 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9l98-00000009nI4-1KaQ
+	id 1u9lA0-00000009nMl-49ok
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 13:37:15 +0000
+	Tue, 29 Apr 2025 13:38:10 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 025551515;
-	Tue, 29 Apr 2025 06:37:07 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B6ECC3F673;
-	Tue, 29 Apr 2025 06:37:11 -0700 (PDT)
-Date: Tue, 29 Apr 2025 14:37:09 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Johan Hovold <johan@kernel.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, sudeep.holla@arm.com,
-	james.quinlan@broadcom.com, f.fainelli@gmail.com,
-	vincent.guittot@linaro.org, peng.fan@oss.nxp.com,
-	michal.simek@amd.com, quic_sibis@quicinc.com,
-	dan.carpenter@linaro.org, maz@kernel.org
-Subject: Re: [PATCH v2 2/4] firmware: arm_scmi: Add Quirks framework
-Message-ID: <aBDWBWqHTY-gfc_k@pluto>
-References: <20250425125250.1847711-1-cristian.marussi@arm.com>
- <20250425125250.1847711-3-cristian.marussi@arm.com>
- <aA5BeONpC3CJE5-Z@hovoldconsulting.com>
- <aBCuSpToEklg340R@pluto>
- <aBC16CGDhZ_XO3Xr@hovoldconsulting.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AD6D81515;
+	Tue, 29 Apr 2025 06:38:01 -0700 (PDT)
+Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 916F93F673;
+	Tue, 29 Apr 2025 06:38:06 -0700 (PDT)
+Date: Tue, 29 Apr 2025 14:38:03 +0100
+From: Joey Gouly <joey.gouly@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>, Fuad Tabba <tabba@google.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [PATCH v3 02/42] arm64: sysreg: Update ID_AA64MMFR4_EL1
+ description
+Message-ID: <20250429133803.GB1859293@e124191.cambridge.arm.com>
+References: <20250426122836.3341523-1-maz@kernel.org>
+ <20250426122836.3341523-3-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aBC16CGDhZ_XO3Xr@hovoldconsulting.com>
+In-Reply-To: <20250426122836.3341523-3-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_063714_443917_69009AED 
-X-CRM114-Status: GOOD (  43.82  )
+X-CRM114-CacheID: sfid-20250429_063809_069518_A60AE0DF 
+X-CRM114-Status: GOOD (  15.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,127 +70,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 29, 2025 at 01:20:08PM +0200, Johan Hovold wrote:
-> On Tue, Apr 29, 2025 at 11:47:54AM +0100, Cristian Marussi wrote:
-> > On Sun, Apr 27, 2025 at 04:38:48PM +0200, Johan Hovold wrote:
-> > > On Fri, Apr 25, 2025 at 01:52:48PM +0100, Cristian Marussi wrote:
-> > > > Add a common framework to describe SCMI quirks and associate them with a
-> > > > specific platform or a specific set of SCMI firmware versions.
-> > > > 
-> > > > All the matching SCMI quirks will be enabled when the SCMI core stack
-> > > > probes and after all the needed SCMI firmware versioning information was
-> > > > retrieved using Base protocol.
+On Sat, Apr 26, 2025 at 01:27:56PM +0100, Marc Zyngier wrote:
+> Resync the ID_AA64MMFR4_EL1 with the architectue description.
 > 
-> > > > +static void scmi_enable_matching_quirks(struct scmi_info *info)
-> > > > +{
-> > > > +	struct scmi_revision_info *rev = &info->version;
-> > > > +	const char *compatible = NULL;
-> > > > +	struct device_node *root;
-> > > > +
-> > > > +	root = of_find_node_by_path("/");
-> > > > +	if (root) {
-> > > > +		of_property_read_string(root, "compatible", &compatible);
-> > > > +		of_node_put(root);
-> > > > +	}
-> > > > +
-> > > > +	dev_dbg(info->dev, "Looking for quirks matching: %s/%s/%s/0x%08X\n",
-> > > > +		compatible, rev->vendor_id, rev->sub_vendor_id, rev->impl_ver);
-> > > 
-> > > You're now just looking up the most specific compatible string in order
-> > > to include it in this dev_dbg(). Since you're now matching on all
-> > > compatible strings, perhaps you can consider just dropping it.
-> > > 
-> > 
-> > Yes indeed I was not sure to keep all of this machinery just to print
-> > the machine compatible that is used to try to match against the
-> > (possible) list of compats....on the other side seemed useful to know
-> > exactly what you are trying to match against....but maybe we can simply
-> > assume that the machine compatible is well-known....
+> This results in:
 > 
-> Perhaps it would have been more useful if you printed all the compatible
-> strings here and not just the most specific one, but yeah, there are
-> other ways to read this strings through sysfs.
+> - the new PoPS field
+> - the new NV2P1 value for the NV_frac field
+> - the new RMEGDI field
+> - the new SRMASK field
 > 
-> Keeping as-is should be fine too.
+> These fields have been generated from the reference JSON file.
 > 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/tools/sysreg | 19 ++++++++++++++++---
+>  1 file changed, 16 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+> index e5da8848b66b5..fce8328c7c00b 100644
+> --- a/arch/arm64/tools/sysreg
+> +++ b/arch/arm64/tools/sysreg
+> @@ -1946,12 +1946,21 @@ EndEnum
+>  EndSysreg
+>  
+>  Sysreg	ID_AA64MMFR4_EL1	3	0	0	7	4
+> -Res0	63:40
+> +Res0	63:48
+> +UnsignedEnum	47:44	SRMASK
+> +	0b0000	NI
+> +	0b0001	IMP
+> +EndEnum
+> +Res0	43:40
+>  UnsignedEnum	39:36	E3DSE
+>  	0b0000	NI
+>  	0b0001	IMP
+>  EndEnum
+> -Res0	35:28
+> +Res0	35:32
+> +UnsignedEnum	31:28	RMEGDI
+> +	0b0000	NI
+> +	0b0001	IMP
+> +EndEnum
+>  SignedEnum	27:24	E2H0
+>  	0b0000	IMP
+>  	0b1110	NI_NV1
+> @@ -1960,6 +1969,7 @@ EndEnum
+>  UnsignedEnum	23:20	NV_frac
+>  	0b0000	NV_NV2
+>  	0b0001	NV2_ONLY
+> +	0b0010	NV2P1
+>  EndEnum
+>  UnsignedEnum	19:16	FGWTE3
+>  	0b0000	NI
+> @@ -1979,7 +1989,10 @@ SignedEnum	7:4	EIESB
+>  	0b0010	ToELx
+>  	0b1111	ANY
+>  EndEnum
+> -Res0	3:0
+> +UnsignedEnum	3:0	PoPS
+> +	0b0000	NI
+> +	0b0001	IMP
+> +EndEnum
+>  EndSysreg
+>  
+>  Sysreg	SCTLR_EL1	3	0	1	0	0
 
-I have dropped the whole machinery.
-
-> > > > +		/*
-> > > > +		 * Note that there could be multiple matches so we
-> > > > +		 * will enable multiple quirk part of an hash collision
-> > > 
-> > > nit: "quirks that are part of a"?
-> > > 
-> > 
-> > mmm...as a non-native and poor English speaker I am, though, reasonably
-> > confident that a/an is chosen based on the vowel/consonant SOUND of the
-> > next word NOT on the effective letter...am I wrong ?
-> > (then we could digress about which is the sound of a[n] 'hash' :P ...)
-> 
-> That's my understanding as well, but 'hash' begins with a consonant
-> sound so I'm pretty sure it's "a hash".
-
-:P ... so it is now certified publicly how bad my pronunciation skills are 
-
-> 
-> > > > +		 * domain...BUT we cannot assume that ALL quirks on the
-> > > > +		 * same collision domain are a full match.
-> > > > +		 */
-> > > > +		hash_for_each_possible(scmi_quirks_ht, quirk, hash, hkey) {
-> > > > +			if (quirk->enabled || quirk->hkey != hkey ||
-> > > > +			    impl < quirk->start_range ||
-> > > > +			    impl > quirk->end_range)
-> > > > +				continue;
-> > > > +
-> > > > +			if (quirk->compats[0] &&
-> > > > +			    !of_machine_compatible_match(quirk->compats))
-> > > > +				continue;
-> > > > +
-> > > > +			dev_info(dev, "Enabling SCMI Quirk [%s]\n",
-> > > > +				 quirk->name);
-> > > > +
-> > > > +			dev_dbg(dev,
-> > > > +				"Quirk matched on: %s/%s/%s/[0x%08X-0x%08X]\n",
-> > > > +				quirk->compats[0], quirk->vendor,
-> > > 
-> > > You can now match on more than one compats string, but I guess printing
-> > > just the first one is fine.
-> > > 
-> > 
-> > Yes, same as above dev_dbg...not sure if it was meaningful really to
-> > dump all the list and overload the log with all such info...
-> 
-> Right, indicating there is some compatible string that's being used is
-> still useful to know.
-> 
-> > > > +				quirk->sub_vendor_id,
-> > > > +				quirk->start_range, quirk->end_range);
-> > > > +
-> > > > +			static_branch_enable(quirk->key);
-> > > > +			quirk->enabled = true;
-> > > > +		}
-> > > > +	}
-> > > > +}
-> > > 
-> > > This seems to work as intended and I've tried matching on machine and
-> > > SoC compatible strings and/or vendor and protocol version:
-> > > 
-> > > Tested-by: Johan Hovold <johan+linaro@kernel.org>
-> > > 
-> > 
-> > Thanks for the review Johan.
-> > 
-> > Since you have tested the effective final quirk patch, may I ask you to
-> > post straight away your final tested quirk patch on top of my next V3
-> > (with your authorship of course..)...I will drop the [NOT FOR UPSTREAM]
-> > example patch so that Sudeep can easily pick-up your patch.
-> 
-> Sure, I'll do so. Thanks for your help with getting this sorted!
->
-
-You're welcome.
-
-Cheers,
-Cristian
+Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 
