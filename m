@@ -4,64 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1500EC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 20:39:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 237DBC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 20:41:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gWUvkOjprNuOMIPwPmC1XXs07VAogGop9mYHI6E0LpU=; b=eM2QRIj8g3v/sYkp0r06UnTvqX
-	bIeNfIb6Sf+1i84tOIlRtjurW8do1Uw6RQNj7R4DCn+e+uuLRDiOH51V1wjFCJJzViBKQEbK2tD6N
-	WHFqdXN2mLlRTdrRqpJ8XiKtSOMDNIl+y4ev472EqQaMap3ycwYTPt+kLQIBPD/1EUtPEswNHtiWu
-	qByLxWzfF2gQju5lMU32qrSYRWLSOzmKs2UCGu6zjYesIVzSE4AtDKiKrIKA5fiAdbUZYalKRmCdG
-	ptVT5IJ6wfSz+VrBdXzkQdYYZA5dex/s/uPtYBbk0wWoIlwGGYcy+cmFOyzLVbPOTSrZbZVJZ7r+U
-	J15Rqxlg==;
+	bh=1muiG6r1Y6aTMJltz/i48BkuYMlcYEFNd8ZwblGnAMs=; b=QLyzYwdPXyC0D1z4wWmAKodjez
+	uHFxbiu+L6Zb6VbFHJ8DJpXfmELtgSmsxIffCU2G5KaNii0ufuCnfqgjsP1kfLOLevK1a5fdJjmEn
+	J9pRHpVimMGBXUfB5B8/IAS+SRXQtmkyZepgNUnoVytXMaPcaxD1I9mrU7kSRc2tSCESggiVWRTIR
+	K7QP2YGji5XztWLPDEZ5Zw57zL/j25NyEzv/ApykivRLcpvaZeN/uSU8/tlbxnpBSXa3r2Au/67rg
+	FnXa0o1K+tnzYogeAiVli9znqUFLqCgFpIphgV0fJFjL09G9sjeUwOOCriXUQNajrbIDOyfhUeHG6
+	l2iijWzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9rk3-0000000AlzQ-23RF;
-	Tue, 29 Apr 2025 20:39:47 +0000
+	id 1u9rlw-0000000AmFs-0kQs;
+	Tue, 29 Apr 2025 20:41:44 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9rYp-0000000AkUQ-2etM
+	id 1u9rYr-0000000AkVU-3TbT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 20:28:12 +0000
+	Tue, 29 Apr 2025 20:28:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D0ECD5C2D38;
-	Tue, 29 Apr 2025 20:25:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C5ADC4CEEA;
-	Tue, 29 Apr 2025 20:28:09 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2B12F5C2D38;
+	Tue, 29 Apr 2025 20:25:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27413C4CEE3;
+	Tue, 29 Apr 2025 20:28:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745958490;
-	bh=V5504nCr5YVY+aUVaTaQum/nWhvhVD1JVWfcTWd0F+o=;
+	s=k20201202; t=1745958493;
+	bh=pww28JlyTBzS88AER217678R1eGmM0hTlESvUyPTfGc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cQQC5h66yl9wAfWNZ0V92DQXp/qI5ztJpLg4a33RjISyuiU2JAMKNRtlcQQeiWpkK
-	 ViYWKkutM3w5EJ/Z1PBeW1veqhXwIjgl1ZdUhDryve/SV6ZZ8PVjrngTtaHFncvZUd
-	 a/0niFuWzQ3ibyMKlTRJk3GyEGCiEdBLG0j/fvhu1ghYiNrCLLE+LEoCRT+jqfw4dc
-	 DWfzj6z2+3VsUJEh+n0BTmDp2ff/U/1gcLXaq84I1k/1LDRzrB9n9s4s4EfBC0E/Es
-	 UB3k+tRLSq6kRk02/pcFK9krOie/x+T69D3NHoOu1/zynqPm94D47ZE/4fzkSqmMMA
-	 NE9PS7VOfSZxg==
+	b=TbeadhyBqAFVD0mn9RAVEXLytFdg3lODFFUe5lpfsxg14ZozPnlGu2bii3qsIuQQ4
+	 UQlui9EnSxzCmouPszdd/t/Yv5YfEhqWWhmCv9qseRj/gV6U4J4VagxgZwZaossTRz
+	 rqZXN33+3C0oK5bycH0vg+/nW/VDUj1PUghWySNTM20CjbRTd967DHIu1j6NTq35F3
+	 47RJWftcIR1iRuOhABl/1nVHrF9TcrxiR9r0x71CoTtTbKRptstYha98Nb9aPQHsNN
+	 bmoBcQa/4Nf7nPw5iLAQK6Fz9hf0s8Gt73LHbYd29uDQ8o+bowFzq6qFnrgTYmXMkK
+	 sOgrwGCATsOAg==
 From: Will Deacon <will@kernel.org>
 To: Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Jason Gunthorpe <jgg@ziepe.ca>
+	=?UTF-8?q?Kornel=20Dul=C4=99ba?= <korneld@google.com>
 Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	patches@lists.linux.dev
-Subject: Re: [PATCH] arm: Add missing includes for mem_encrypt
-Date: Tue, 29 Apr 2025 21:27:47 +0100
-Message-Id: <174594001259.473241.3974467799211720649.b4-ty@kernel.org>
+	Steve Capper <steve.capper@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	ssradjacoumar@google.com,
+	chromeos-krk-upstreaming@google.com,
+	Anshuman Khandual <anshuman.khandual@arm.com>
+Subject: Re: [PATCH v2] arm64: Support ARM64_VA_BITS=52 when setting ARCH_MMAP_RND_BITS_MAX
+Date: Tue, 29 Apr 2025 21:27:48 +0100
+Message-Id: <174593987866.472512.6873137326879401537.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <0-v1-47aadfbd64cd+25795-arm_memenc_h_jgg@nvidia.com>
-References: <0-v1-47aadfbd64cd+25795-arm_memenc_h_jgg@nvidia.com>
+In-Reply-To: <20250417114754.3238273-1-korneld@google.com>
+References: <20250417114754.3238273-1-korneld@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_132811_718416_5EC8C818 
-X-CRM114-Status: UNSURE (   7.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250429_132813_915861_C6E62174 
+X-CRM114-Status: GOOD (  14.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,22 +79,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 17 Apr 2025 13:26:16 -0300, Jason Gunthorpe wrote:
-> Doing:
->  #include <linux/mem_encrypt.h>
-> 
-> Causes a bunch of compiler failures due to missing implicit includes that
-> don't happen on x86:
-> 
-> ../arch/arm64/include/asm/rsi_cmds.h:117:2: error: call to undeclared library function 'memcpy' with type 'void *(void *, const void *, unsigned long)'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
->   117 |         memcpy(&regs.a1, challenge, size);
+On Thu, 17 Apr 2025 11:47:54 +0000, Kornel Dulęba wrote:
+> When the 52-bit virtual addressing was introduced the select like
+> ARCH_MMAP_RND_BITS_MAX logic was never updated to account for it.
+> Because of that the rnd max bits knob is set to the default value of 18
+> when ARM64_VA_BITS=52.
+> Fix this by setting ARCH_MMAP_RND_BITS_MAX to the same value that would
+> be used if 48-bit addressing was used. Higher values can't used here
+> because 52-bit addressing is used only if the caller provides a hint to
+> mmap, with a fallback to 48-bit. The knob in question is an upper bound
+> for what the user can set in /proc/sys/vm/mmap_rnd_bits, which in turn
+> is used to determine how many random bits can be inserted into the base
+> address used for mmap allocations. Since 48-bit allocations are legal
+> with ARM64_VA_BITS=52, we need to make sure that the base address is
+> small enough to facilitate this.
 > 
 > [...]
 
-Applied to arm64 (for-next/misc), thanks!
+Applied to arm64 (for-next/mm), thanks!
 
-[1/1] arm: Add missing includes for mem_encrypt
-      https://git.kernel.org/arm64/c/20125324c01d
+[1/1] arm64: Support ARM64_VA_BITS=52 when setting ARCH_MMAP_RND_BITS_MAX
+      https://git.kernel.org/arm64/c/f101c5644771
 
 Cheers,
 -- 
