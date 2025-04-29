@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 959C1C3ABA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 21:39:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E064EC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 21:41:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mpYoUff4tpb7ZnYnv11tnvX2uEPBYr9ascXUqkCwOTE=; b=MzK1EO5A8cGt7/S3CFY2o5QdKJ
-	TJsEq4e9MeTk+pZ5tOeYfME8iYp1rMcy3x3fqWMtziS1jfmX/oGQVwMoEMD6CuNDzmujxf/rVJ4RL
-	4FQf9NIg1NKmFKbC6E6HiI/6jSr0VnvMHgivE4nGSUgQTw1hDWZsAKexX/sQL6ZBGu5XvWMdPUUfg
-	SA4mgWbFsx8Gnc+QSSDSlvX8xXtT78TM6xjRSTYfvmQlH8fPwlThvAweP5zWCj7Oxje2eWEfmiWlW
-	oj/s2deJONp2qcWRtCdNhVkzB8iCM18ZWaKgypW+caJhKIe89WRt2E214vf8HOGjxswSGsFxkHjxz
-	c5JBwFZg==;
+	bh=VFHhD4L18F4DbheB1ANr+oLMK0ky8CpJtw12v2WCTVo=; b=HjFzAsOx64Um4CYTfLgUvxCBm+
+	SCAU0zWsQe296w3krhcHy2MxTl9Vf+nmByDyKGHNeOUQv3A0FNn1FeChPV4jSTjw/BilN6COIxqGY
+	IXgpqTW985xFUOI51PN/p49wUtE7XW8SaRPbzVx6YLoq4yDPKceWXXYMmE8Yobu0pGSvKUDajrIAf
+	yOfuKVOG/2pto97HcR2iCvElgMVtlapv861ZOCf3MdEcnPZ4hA5YKO0mPnFeLQHoPCGCMZZz6REvz
+	TY7UO6SWnaeNbmDj5KReGjcF7J0b4GAt5oEZlytwV6EC4j1IadRcA1KNHgTfJN85r58QV96hmx5Ri
+	M6xvEkqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9sfW-0000000Asgt-3gqc;
-	Tue, 29 Apr 2025 21:39:10 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1u9shQ-0000000At0f-2WOk;
+	Tue, 29 Apr 2025 21:41:08 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9sbn-0000000AsDP-3d5m
+	id 1u9scn-0000000AsNy-1KRg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 21:35:21 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2242ac37caeso74655ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 14:35:19 -0700 (PDT)
+	Tue, 29 Apr 2025 21:36:22 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2263428c8baso80845ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 14:36:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1745962519; x=1746567319; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1745962580; x=1746567380; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=mpYoUff4tpb7ZnYnv11tnvX2uEPBYr9ascXUqkCwOTE=;
-        b=c+HepXwTwS6+M+Snu2JJGYPifLATcVd8Lyc3rPOGFxZ87v8nKEp1lk/wvQ6UPyg82X
-         H8/SoG2SpXhdyOhKn+AEoc5u8K9NWYjVv7/Mjq9PsbjqmYZ7VS1yq9b98jkZjuhyIF8F
-         G356EsJ17t500K3OAlO7EF6TICzFIxrZCWlNrcNXTkMRnzu5a09BqCNPjzfklOpbyoXC
-         nNF90S6Nz/bCKSTmuDaP7dfXxfox/zo2h1Bhkqn3UENAiWc9peYaEsWYJCcEBXXS8D/0
-         8fPx4Neo5zOrVdeVFjKyo4WvGIc01KpjLh4AjkkDqQafdDn3zByqLGM+7MUMCsKZEUoy
-         6cJQ==
+        bh=VFHhD4L18F4DbheB1ANr+oLMK0ky8CpJtw12v2WCTVo=;
+        b=AldOlRmzdMsxfxSs7dhcC2Mp/4RkE66BMDyu9GUyS1Kq7RNXKjZHuHmw/2aNBSvYq+
+         y2jg89Z+F8EEFpisDmqYiIwKjFJTJfLjfnIdHEv2XyA157gZYPNDPkLMEJdhTiv/+bav
+         O/2XITrpNg1JM8dnCbzwZLhdWBdhKefR9W0Mbc/9SKgZbaUL2BK/NIVKqxSggUSb8IVM
+         DvD3IZk1tokz9CyYqf2Oq6tw8TWyXSZxo4takt3xmHzpOI+e7m3lnojiO2ECYURaT0jp
+         IM5R/jPwG1s0UQJxFyCIxvIFxs6A7PICk3yrRlsBhs37VbSCgzG9OHBUo5jQuEoIAdcY
+         GnWg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745962519; x=1746567319;
+        d=1e100.net; s=20230601; t=1745962580; x=1746567380;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=mpYoUff4tpb7ZnYnv11tnvX2uEPBYr9ascXUqkCwOTE=;
-        b=QilxxCFHrnwSkQK+439CKEJVq6FgRkv/JWybaMUpjwGtFnGUi3BTdEsxG8An62P5Qh
-         Hmq3ra67chM2w+Ius90ePZe9xoQuznlZKEfv19+VqMxgc6U/44bdllkhlGrJqoTlFFoE
-         H8rP8+yGP6PaCqKlejrggXiA9GsYvmhE/XZEM6qYqn7cH57QNyfEKkYOP0jHgQk8SUb1
-         Di5iraWYKh7KjjYW0gHYpc2E6lp0tSjThK1rDk8LqjIFSNbxUxDnLCMFghxor23C9AW0
-         E/tkHyX+bkvr9NP+KnVbGuOhG+JJoBxX5hRopAfPsWC0QnlkXuyVdpSAwjkISotxqLz1
-         ddew==
-X-Forwarded-Encrypted: i=1; AJvYcCUENtLOHGqp61NlKgq+txXP0Sm4a/YUWPtSCAZk8x5PE4gfvbM+quBATZ57AlTfNBXFlyqt7aWZSicxp/6F/gQ5@lists.infradead.org
-X-Gm-Message-State: AOJu0YydGrkdTBN31yOJEQjSBG5fBzo6VKIIogc2LSe/fCTSXAdIr3zZ
-	Rpi/Acvg+nTZH+HNh4AoDmQIPkMTKUo3vbYKNi8YM1QQgRVNobIzKWoV01jyZg==
-X-Gm-Gg: ASbGncsksR1joYiGC1VxwlZG8JiKRDhYoMsVP55HvRhYQbwnJJNQuRtc9r7OgEOnMYf
-	+fRvQVDswaufn6g5AdsL8IE2Ze/OvZW/nwTrhIWTKM6+hZqXBj8KJh8p6I4dfKTQAgL00RjIIbC
-	3bGZbiH5jRO/riMdje3UQSVo2RKt/qyATk8LmEXOvn6wBOYTZV9eMdGMrrGrJgz3LwXpJi37ZUH
-	HpJkuCEcUd9RYpXVGzsXFQJtiHPD0ZtorHrGshstYQ81RHEvq1GNLS5x9NBIJsKVQnAyeKbR+sl
-	r9O1TiMznz26hP1O8STwkU8KDCURtCXR2DyZ9aOw0O7Gt1rQQTOeBapVYQOM8GsB98jfp/Pz
-X-Google-Smtp-Source: AGHT+IEiAc8Ows6C4iR4kgPCFAlWxuerupIBpLK64UuYqayp18C/qOLe733Vqo0YiAcQG8JFaBI7KQ==
-X-Received: by 2002:a17:902:f681:b0:200:97b5:dc2b with SMTP id d9443c01a7336-22df54469b2mr228275ad.15.1745962518918;
-        Tue, 29 Apr 2025 14:35:18 -0700 (PDT)
+        bh=VFHhD4L18F4DbheB1ANr+oLMK0ky8CpJtw12v2WCTVo=;
+        b=l2rEPz6Xbo0gcJaXDtReJ006lMxTwprLXtTqS0lyxJP0kd99bIV+rMSHyjOcPvh/9b
+         azaCV+omNtsHdIn78u+EOqy2yp4deakfBTvd47qpllFvZ4giL5mCbBizZIrSm7Cvo6MZ
+         /3ci5RkmRYz5xcTReeFGA+Qi9Ny5dqWf1j6s6gIwB46DkzrIhJ03Xo9uhqmUR1d0aIzc
+         ssaCvwiO1Sexts22L8Ue8HcSSx1l8b1qZ0k/yQlwkqGxpbBeuszVasoFt2CFO1aonCa7
+         /O5JsqrJgnNin1POuTf2t13RxQMVyIbfjhr0RKYz5zBZVtp4v+4uKCN07z2ljGHM7+wE
+         BrWg==
+X-Forwarded-Encrypted: i=1; AJvYcCXJ+8PPGDJkzqPU1+ry+eOrNMfN8pCcq7zVJ+Y7yPqpXY5cc/HkkHtajN4TOOjqxjKoQqisSwOaOZVYp54OHLbo@lists.infradead.org
+X-Gm-Message-State: AOJu0YxssIk+QmIt+5I+hM0xx8F/O+2aP4PXgEV4CEp0mU3LdJ0Qog2A
+	rFuk2tOwoy6EYlbLPglyJBvEaveiAn5HQ2GbasqdODr0Sk86YQOtfIkCbSDTLg==
+X-Gm-Gg: ASbGncumvKn5aqEwN7RyNZsfibkSKVIB6r04boDA8fFEdq0eOUwgqi6MstANv/Fyvc0
+	veNIFoHkdKoaXvLbUZ0DMLWKLcvj79JcfLYgCto3ddYciUaAd8ZifB9bmeisx0bDzzZ6o7njP7R
+	NiO2Ds0Rn2xG600jIj4u4/f8BZb0sWwh+eODrIV1BhbrkdkNjP8gIzuXj0913V8UI/fykkFEY5W
+	ur4VH3Y5T2qc3Hn7c36dUR0ovgFtHl6Fee9wFJOCsiZ2CPfG/K9+jIsZQdJxGJ2UnVMd3nvJZvq
+	shf2HNBJPVZseS0O8aCBpNIKoNnmQKyXkidPSA8xOYqLKDU1BmLbnfMw3s6wNt1R/tv1IRk9
+X-Google-Smtp-Source: AGHT+IHMqNgjircjCmAkmKl5VbBskPIbU47nTYxADS2hK6tD9L6Ge4YAR4USLtbPpDWqfiuVVAQ0lQ==
+X-Received: by 2002:a17:903:144f:b0:21f:3f5c:d24c with SMTP id d9443c01a7336-22df3dda537mr1044155ad.0.1745962580224;
+        Tue, 29 Apr 2025 14:36:20 -0700 (PDT)
 Received: from google.com (2.210.143.34.bc.googleusercontent.com. [34.143.210.2])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-30a3480f08csm42489a91.39.2025.04.29.14.35.13
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22db4d76d34sm108297185ad.39.2025.04.29.14.36.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Apr 2025 14:35:18 -0700 (PDT)
-Date: Tue, 29 Apr 2025 21:35:07 +0000
+        Tue, 29 Apr 2025 14:36:19 -0700 (PDT)
+Date: Tue, 29 Apr 2025 21:36:09 +0000
 From: Pranjal Shrivastava <praan@google.com>
 To: Nicolin Chen <nicolinc@nvidia.com>
 Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
@@ -80,22 +80,18 @@ Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
 	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
 	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com
-Subject: Re: [PATCH v2 13/22] iommufd: Add mmap interface
-Message-ID: <aBFGCxcTh54pecsk@google.com>
+Subject: Re: [PATCH v2 16/22] iommu/arm-smmu-v3-iommufd: Add vsmmu_alloc impl
+ op
+Message-ID: <aBFGSRGcIsCDU1Zj@google.com>
 References: <cover.1745646960.git.nicolinc@nvidia.com>
- <7be26560c604b0cbc2fd218997b97a47e4ed11ff.1745646960.git.nicolinc@nvidia.com>
- <aBE1gUz9y415EuBQ@google.com>
- <aBE38GwvGBnpRNLc@google.com>
- <aBE47aySzDp2lsAz@Asurada-Nvidia>
- <aBE800DsAOOZ4ybv@google.com>
- <aBE/CD4Ilbydnmud@Asurada-Nvidia>
+ <73b1fc34b07f2ac42d542dd996c7119ae5f8939c.1745646960.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aBE/CD4Ilbydnmud@Asurada-Nvidia>
+In-Reply-To: <73b1fc34b07f2ac42d542dd996c7119ae5f8939c.1745646960.git.nicolinc@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_143519_901220_DCA95452 
-X-CRM114-Status: GOOD (  22.94  )
+X-CRM114-CacheID: sfid-20250429_143621_347436_33DAB3D9 
+X-CRM114-Status: GOOD (  21.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,51 +106,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 29, 2025 at 02:05:12PM -0700, Nicolin Chen wrote:
-> On Tue, Apr 29, 2025 at 08:55:47PM +0000, Pranjal Shrivastava wrote:
-> > On Tue, Apr 29, 2025 at 01:39:09PM -0700, Nicolin Chen wrote:
-> > > On Tue, Apr 29, 2025 at 08:34:56PM +0000, Pranjal Shrivastava wrote:
-> > > > On Tue, Apr 29, 2025 at 08:24:33PM +0000, Pranjal Shrivastava wrote:
-> > > > > On Fri, Apr 25, 2025 at 10:58:08PM -0700, Nicolin Chen wrote:
-> > > > > > +	struct iommufd_mmap *immap;
-> > > > > > +	int rc;
-> > > > > > +
-> > > > > > +	if (WARN_ON_ONCE(!immap_id))
-> > > > > > +		return -EINVAL;
-> > > > > > +	if (base & ~PAGE_MASK)
-> > > > > > +		return -EINVAL;
-> > > > > > +	if (!size || size & ~PAGE_MASK)
-> > > > > > +		return -EINVAL;
-> > > > > > +
-> > > > > > +	immap = kzalloc(sizeof(*immap), GFP_KERNEL);
-> > > > > > +	if (!immap)
-> > > > > > +		return -ENOMEM;
-> > > > > > +	immap->pfn_start = base >> PAGE_SHIFT;
-> > > > > > +	immap->pfn_end = immap->pfn_start + (size >> PAGE_SHIFT) - 1;
-> > > > > > +
-> > > > > > +	rc = mtree_alloc_range(&ictx->mt_mmap, immap_id, immap, sizeof(immap),
-> > > > > 
-> > > > > I believe this should be sizeof(*immap) ?
-> > > > 
-> > > > Ugh, Sorry, shouldn't this be size >> PAGE_SHIFT (num_indices to alloc) ?
-> > > 
-> > > mtree_load() returns a "struct iommufd_map *" pointer.
-> > 
-> > I'm not talking about mtree_load. I meant mtree_alloc_range takes in a
-> > "size" parameter, which is being passed as sizeof(imap) in this patch.
-> > IIUC, the mtree_alloc_range, via mas_empty_area, gets a range that is
-> > sufficient for the given "size". 
-> > 
-> > Now in this case, "size" would be the no. of pfns which are mmap-able.
-> > By passing sizeof(immap), we're simply reserving sizeof(ptr) i.e. 8 pfns
-> > for a 64-bit machine. Whereas we really, just want to reserve a range
-> > for size >> PAGE_SHIFT pfns.
+On Fri, Apr 25, 2025 at 10:58:11PM -0700, Nicolin Chen wrote:
+> An impl driver might support its own vIOMMU object, as tegra241-cmdqv will
+> add IOMMU_VIOMMU_TYPE_TEGRA241_CMDQV.
 > 
-> But we are not storing pfns but the immap pointer..
-
-Ohh... so we are storing the raw pointer in the mtree.. I got confused
-with the `LONG_MAX >> PAGE_SHIFT`.. Sorry about the confusion!
-
+> Add a vsmmu_alloc op to give impl a try, upon failure fallback to standard
+> vsmmu allocation for IOMMU_VIOMMU_TYPE_ARM_SMMUV3.
 > 
-> Nicolin
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+
+Reviewd-by: Pranjal Shrivastava <praan@google.com>
+
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h     |  6 ++++++
+>  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c | 17 +++++++++++------
+>  2 files changed, 17 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> index 6b8f0d20dac3..a5835af72417 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> @@ -16,6 +16,7 @@
+>  #include <linux/sizes.h>
+>  
+>  struct arm_smmu_device;
+> +struct arm_smmu_domain;
+>  
+>  /* MMIO registers */
+>  #define ARM_SMMU_IDR0			0x0
+> @@ -720,6 +721,11 @@ struct arm_smmu_impl_ops {
+>  	int (*init_structures)(struct arm_smmu_device *smmu);
+>  	struct arm_smmu_cmdq *(*get_secondary_cmdq)(
+>  		struct arm_smmu_device *smmu, struct arm_smmu_cmdq_ent *ent);
+> +	struct arm_vsmmu *(*vsmmu_alloc)(
+> +		struct arm_smmu_device *smmu,
+> +		struct arm_smmu_domain *smmu_domain, struct iommufd_ctx *ictx,
+> +		unsigned int viommu_type,
+> +		const struct iommu_user_data *user_data);
+>  };
+>  
+>  /* An SMMUv3 instance */
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+> index 66855cae775e..a8a78131702d 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+> @@ -392,10 +392,7 @@ struct iommufd_viommu *arm_vsmmu_alloc(struct device *dev,
+>  		iommu_get_iommu_dev(dev, struct arm_smmu_device, iommu);
+>  	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
+>  	struct arm_smmu_domain *s2_parent = to_smmu_domain(parent);
+> -	struct arm_vsmmu *vsmmu;
+> -
+> -	if (viommu_type != IOMMU_VIOMMU_TYPE_ARM_SMMUV3)
+> -		return ERR_PTR(-EOPNOTSUPP);
+> +	struct arm_vsmmu *vsmmu = ERR_PTR(-EOPNOTSUPP);
+>  
+>  	if (!(smmu->features & ARM_SMMU_FEAT_NESTING))
+>  		return ERR_PTR(-EOPNOTSUPP);
+> @@ -423,8 +420,16 @@ struct iommufd_viommu *arm_vsmmu_alloc(struct device *dev,
+>  	    !(smmu->features & ARM_SMMU_FEAT_S2FWB))
+>  		return ERR_PTR(-EOPNOTSUPP);
+>  
+> -	vsmmu = iommufd_viommu_alloc(ictx, struct arm_vsmmu, core,
+> -				     &arm_vsmmu_ops);
+> +	if (master->smmu->impl_ops && master->smmu->impl_ops->vsmmu_alloc)
+> +		vsmmu = master->smmu->impl_ops->vsmmu_alloc(
+> +			master->smmu, s2_parent, ictx, viommu_type, user_data);
+> +	if (PTR_ERR(vsmmu) == -EOPNOTSUPP) {
+> +		if (viommu_type != IOMMU_VIOMMU_TYPE_ARM_SMMUV3)
+> +			return ERR_PTR(-EOPNOTSUPP);
+> +		/* Fallback to standard SMMUv3 type if viommu_type matches */
+> +		vsmmu = iommufd_viommu_alloc(ictx, struct arm_vsmmu, core,
+> +					     &arm_vsmmu_ops);
+> +	}
+>  	if (IS_ERR(vsmmu))
+>  		return ERR_CAST(vsmmu);
+>  
+> -- 
+> 2.43.0
+> 
 
