@@ -4,148 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6AB2C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 17:13:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0925CC3ABA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 17:16:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xH//tbfB8ZvbQC2Z7CBZ43RpuiqFuQWtDv72Nrv6IMw=; b=ykaoFibZG8RX7psl2Wm7BxMfbe
-	NUpqoZ+Rs2vzll7dvvYj14eyzQOdAFqntH8YzF0YsOMvWwdrT1HjQJ91AOqzYh2JSd+Wb9OEiDQsB
-	eLJbtewHYqJJJ/4lxnV+sXjnOVz+os81uwOdphMYLaMTbMSV1+CbIoBtqVwD/JzpHDJE2q9TBMCjH
-	w3m0YbhFRGR2LlRTR3Gbl1P5pRNKvvc7WJNs8DSUzXxYA8Bd+JAivYDKNpA2lazv3J/ESXIK08/v8
-	WM5qtlfvn0S1N955JbfaH6FBTvwySU68jFAay2D8x1jZ54NOlC8nwWP+KhIFA7V0C9MOeVf5h0Vgu
-	kMgnSIaA==;
+	bh=9djZgw6Hj9gUyVv79ArAsFuTfqHYi4Rxedw6oJnHtNY=; b=4S8wu7LLG7sV138nZSaEgPyizv
+	YbIhbBJZSnaxV1+xd+ICwrvUqeUwn6uprwgMzWmjO6ZvaZFgLjInI+e/gah+C+QeV5Ipb/pGu/XOs
+	16IO43ELtzOhwuf9CNrKuuUYqUKfhEdRXZk2rJ9PFUbTZ6wQLSd6TWxOpPrFVJ01+JZADPq/IpMIt
+	jF7gVNUsf5w4ZQNIm7BCRqisVyuGOOIaDf8DEediFh1udH0Xvqj6XWRbZ5BBjASGNyluh56Kevqlf
+	YatZGotXAcxksbdhHfAMaOMgIOqZQ4bqk3Nt+nFwUGIrsjz8israzUDlJWHxI3nf6nj7krT+Zfasg
+	zQXlCC9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9oVn-0000000AND6-3RZY;
-	Tue, 29 Apr 2025 17:12:51 +0000
-Received: from mail-dm6nam10on20623.outbound.protection.outlook.com ([2a01:111:f403:2413::623] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1u9oZ6-0000000ANdX-3lGy;
+	Tue, 29 Apr 2025 17:16:16 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9oTs-0000000AN5n-26C5
+	id 1u9n5q-0000000A9wS-3U9c
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 17:10:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MAPtA37D2HG2n8Fv27VB33FpBdPsGVZ17giWDv1hb4G4QivTwLT2gpC1sGGBSQlUNxJ2otnUP2h2g/kSkvly51hs1rh+CQ3S9aIDWnXLkTdt6qoZlFfdRgJb9IIVh3iWeaLOsFg1blZlt1Y64Ga8Lzq9XumcEOcbD0/xX4E6jZgT/G5T7E/ephjY2bN093ludzVczYFLCUDOlZhshQqqcRFdklARsKILjcNN2dH4t9UQzAXfdT5/o9SRv7nwv379SZjsBCshKSw9P+p8kUqGHI7beFWLLjhjsaPeSVc8u1bbp2VTRHLLzJeDLG2sfX2uM/pKSxQCL7pJnc35Q5EfYQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xH//tbfB8ZvbQC2Z7CBZ43RpuiqFuQWtDv72Nrv6IMw=;
- b=EaYapucddJRIgIXTcxdM3JeiaXFPRJBv4kGSU2tl6gc1ISMEEXAYe70Gok/mx4mP2vjwRUJMevNpNI7bvQwvQAQw+D4C7sgfuXxmgkxOhAjUmf2LFo/7BBXw1zE4G8HiXfCxjq0X7XZV89EpXduXzlNqiE144xIbNISw2U8A8lUqJ3Z6EO52oNBdje1Dn2aKDq0AhlfLrmyiTqXHirGsVgZJBLlpAS81yPYO28hrH7fIK6EvOpZCrXEV6K7xkbO4N04BpME91AmfXvkVd4H+Voh1GL9eOIRYjRk2P+CUPD54oSBzPWHKCmVztTZBwa+Fz6kjGBunDdFPugRFsonYXA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xH//tbfB8ZvbQC2Z7CBZ43RpuiqFuQWtDv72Nrv6IMw=;
- b=sORLEGudqfCA/CG12jJj84M0WjpdJ8QxVKvaY8BSp7uMG7cirix2PVSb4NEQTc5Y1+xrVUBA3xaAsQGse8PfEv/d1W9aQh3/FNUBzjkck6+93U3y/0c1XI30fzFIWfS0Zcc6caXrj2NbOqRnBYvQd3I721cPPeTald2aDCH34NOXA72RJ5zFWUeI1PpFigqJW1M6KnBEF5qvMFFeWra1o3+WN3rtjlpD9H8r5O4W6tTL4ZQEI7lmv1uhHCuQ6s16MhrhV33DGCmPy83XHgihhL7v+ppRKHwZHK8I0mOfyUWQRDMMduMzd6pO3ssuTRJThT+UkdVnzEee6KEaUJG1uQ==
-Received: from BN0PR04CA0171.namprd04.prod.outlook.com (2603:10b6:408:eb::26)
- by SJ2PR12MB9192.namprd12.prod.outlook.com (2603:10b6:a03:55d::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.30; Tue, 29 Apr
- 2025 17:10:47 +0000
-Received: from BN3PEPF0000B06B.namprd21.prod.outlook.com
- (2603:10b6:408:eb:cafe::7a) by BN0PR04CA0171.outlook.office365.com
- (2603:10b6:408:eb::26) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.25 via Frontend Transport; Tue,
- 29 Apr 2025 17:10:47 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- BN3PEPF0000B06B.mail.protection.outlook.com (10.167.243.70) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8722.2 via Frontend Transport; Tue, 29 Apr 2025 17:10:46 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 29 Apr
- 2025 10:10:33 -0700
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Tue, 29 Apr 2025 10:10:32 -0700
-Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com
- (10.126.190.182) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Tue, 29 Apr 2025 10:10:30 -0700
-Date: Tue, 29 Apr 2025 10:10:28 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Pranjal Shrivastava <praan@google.com>
-CC: <jgg@nvidia.com>, <kevin.tian@intel.com>, <corbet@lwn.net>,
-	<will@kernel.org>, <bagasdotme@gmail.com>, <robin.murphy@arm.com>,
-	<joro@8bytes.org>, <thierry.reding@gmail.com>, <vdumpa@nvidia.com>,
-	<jonathanh@nvidia.com>, <shuah@kernel.org>, <jsnitsel@redhat.com>,
-	<nathan@kernel.org>, <peterz@infradead.org>, <yi.l.liu@intel.com>,
-	<mshavit@google.com>, <zhangzekun11@huawei.com>, <iommu@lists.linux.dev>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
-	<mochs@nvidia.com>, <alok.a.tiwari@oracle.com>, <vasant.hegde@amd.com>
-Subject: Re: [PATCH v2 11/22] iommufd: Add for-driver helpers
- iommufd_vcmdq_depend/undepend()
-Message-ID: <aBEIBKdjuecVHgpU@Asurada-Nvidia>
-References: <cover.1745646960.git.nicolinc@nvidia.com>
- <a25c9454c17663f9e79b37bc2908bf3a99856be6.1745646960.git.nicolinc@nvidia.com>
- <aBDIpz7w8wxIn_AF@google.com>
+	Tue, 29 Apr 2025 15:42:00 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53TFfnMl3882267
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 29 Apr 2025 10:41:49 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1745941309;
+	bh=9djZgw6Hj9gUyVv79ArAsFuTfqHYi4Rxedw6oJnHtNY=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=yA5Esrqc4sv17iUK44Pbns/57RK0u/2WJ8w9TD4enrHUlV387QyPlaoYkMJ5ED8se
+	 wdrFUCET06nVSySIK5zD/FfZMPIcdaojI4VYJdtx7EN44U6HfB1Oles26DRTPHuxaZ
+	 HUZpB3uzQb9okE+fOeZ6TL3QCQvrlWnBAIiZqnAM=
+Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53TFfnGd111701
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 29 Apr 2025 10:41:49 -0500
+Received: from DLEE111.ent.ti.com (157.170.170.22) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 29
+ Apr 2025 10:41:49 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE111.ent.ti.com
+ (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 29 Apr 2025 10:41:49 -0500
+Received: from ws.dhcp.ti.com (ws.dhcp.ti.com [10.24.69.232])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53TFfXVr030051;
+	Tue, 29 Apr 2025 10:41:44 -0500
+From: Rishikesh Donadkar <r-donadkar@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>
+CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <vaishnav.a@ti.com>, <devarsht@ti.com>,
+        <y-abhilashchandra@ti.com>, <s-jain1@ti.com>, <jai.luthra@linux.dev>,
+        <jai.luthra@ideasonboard.com>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <imx@lists.linux.dev>, <r-donadkar@ti.com>
+Subject: [PATCH v1 2/4] arm64: dts: ti: k3-am62x: Add required voltage supplies for IMX219
+Date: Tue, 29 Apr 2025 21:11:31 +0530
+Message-ID: <20250429154133.3377962-3-r-donadkar@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250429154133.3377962-1-r-donadkar@ti.com>
+References: <20250429154133.3377962-1-r-donadkar@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <aBDIpz7w8wxIn_AF@google.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF0000B06B:EE_|SJ2PR12MB9192:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4d970dde-838e-42d9-25f8-08dd8740c8a4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700013|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?cpJ6GwYTmxqcWzqVV9pMy+n9hLpHKru4eML91WqCZDwatEmIGSXcuFq+RMSK?=
- =?us-ascii?Q?H2LGxbP+eklnY3udutrOAOW1fGKaaIiI1HQjBziKE+xvheHW4EyUJrf//qFC?=
- =?us-ascii?Q?bV+KXYRemhSt24Mz/AvirCMi2k/ija9eks4iLAY6QwR2Mbyyo8chFNi/xQIG?=
- =?us-ascii?Q?ChG/o6gn7zSCNHL+l/ahMuJhzv/Eupiz7QeDbNyHklYCCSC1Pw5dyi/dXXyz?=
- =?us-ascii?Q?leaZH9M6C3KMfwWaaqS8DZBxJhQ9i8+D5OoBUhLnbI/jga5a+VR4CaUm4ABk?=
- =?us-ascii?Q?/Y45vaeydC8hy6UU7ODSAwuCHWs3g8n/WC8rcGQA60lMU3DpdmK8X01rGD7u?=
- =?us-ascii?Q?1mMbQr4eHmoWaYXi3zA0o8nVG1fMZCpfsIgujyPk15fP0qjckd+Yl1zAQ1nI?=
- =?us-ascii?Q?0VhuJ66nknA7OmxwlpdCrG+MPKMJ65q7tbD2/+ZM/Y+lEdSQe9wolVNiQsNn?=
- =?us-ascii?Q?dQT/pcWwFFVNYkRQozVjSSABy2P5MccS7U84UMOEPUgS4TdcAy/3661DqcQa?=
- =?us-ascii?Q?btbRP4K6mgQnV7z1ZpDBr8evVvdkO6O6H0oTYuw7f4liQ/ZEBDWqVv20RMU2?=
- =?us-ascii?Q?Z9XmZX0Yix7sz1MXxWDE29Zkt+FviFS6AlwXuQnFtDvUciLBwisHlwRw2l2i?=
- =?us-ascii?Q?1W/kPVMOdwQDGY9+RxSaKzDB1hYM6TG6rEb7gnqgpNJ+N/PRQCMDspiw0h/1?=
- =?us-ascii?Q?vF9Ii/c2udyO/dLxPHoc9cfE01YQR+kLM7jbZApLhJZnLKduqxvbhyxkjv4b?=
- =?us-ascii?Q?bI1ebEGQIfuXHdear7lbmmB8zk5tBWMwd44RRfOYqi65SlzW/XvNyC8szceP?=
- =?us-ascii?Q?x84cbacf6CnLx63Rhx2mgwhWYp9xLxQl/9nTsmSXv4Ee9gFnyXiQJsKW+9E0?=
- =?us-ascii?Q?wj+d6pav6judJ4Hl7yJ0R8Y312X/mDR99ahPvrFplENLK+U8bMiZ/7vKI/Ng?=
- =?us-ascii?Q?VFjQv19c/ySSpzopwTZFJXsMMxvQSLsBM4EkSlCyuFwDxvd59LtpPzlgvflB?=
- =?us-ascii?Q?Uj+hvY3OGhS8BNOSpeiWAQNf2e/RDS7IK2WGus7UKkaNFiDV8wYsOQtT4KBH?=
- =?us-ascii?Q?RenK+NxWD9ztzA+kbD6+KUIgfLXmm1CI1amxNpuTmmy/Fpc7gnBRJfv7G97Y?=
- =?us-ascii?Q?FhBUk2vcqu+pvoYFh37dPk+kFQK4IXEZWg9Kp2M109MU4tNS+WG7MnQ4SrDS?=
- =?us-ascii?Q?AmXlxKYcJPK8Au10oHRz+ib6FMz2EU0pmO1K55tMJoGfe+Sj1NDvDoNrRokb?=
- =?us-ascii?Q?0/Bsb1ZHGuHa1Dfz4Zqf5nt175rysamu9XN4dslcI+pkjPE7smBHh/LIFcrV?=
- =?us-ascii?Q?QRwmiGMlqCKF8ojF4jKWGnkgU8Jo0wmXsu1ND+lncw7L+6cX1IWXkkVNJC9A?=
- =?us-ascii?Q?MXEUfD9mbEG2ZU9cMCf8ZmPwghOM3DsnDoIhexNPY8YvD8XbwIC6dV8zGPKJ?=
- =?us-ascii?Q?NIIREMomObprfeKum4DcOr0DYZV+7JTOAsTBicQsQMcIHgasJHsGU8ZM8Yob?=
- =?us-ascii?Q?Tl7+D1XNO9d+0cS2pnaTa4KTmAPyyzXw28rK?=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700013)(1800799024)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Apr 2025 17:10:46.8461
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4d970dde-838e-42d9-25f8-08dd8740c8a4
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B06B.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB9192
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_101052_541885_4EC8042A 
-X-CRM114-Status: GOOD (  16.68  )
+X-CRM114-CacheID: sfid-20250429_084158_976511_AF0B6B95 
+X-CRM114-Status: UNSURE (   9.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,32 +89,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 29, 2025 at 12:40:07PM +0000, Pranjal Shrivastava wrote:
-> On Fri, Apr 25, 2025 at 10:58:06PM -0700, Nicolin Chen wrote:
-> >  /* Caller should xa_lock(&viommu->vdevs) to protect the return value */
-> >  struct device *iommufd_viommu_find_dev(struct iommufd_viommu *viommu,
-> >  				       unsigned long vdev_id)
-> 
-> If I'm getting this right, I think we are setting up dependencies like:
-> vcmdq[2] -> vcmdq[1] -> vcmdq[0] based on refcounts of each object,
-> which ensures that the unmaps happen in descending order..
+The device tree overlay for the IMX219 sensor requires three voltage
+supplies to be defined: VANA (analog), VDIG (digital core), and VDDL
+(digital I/O).
 
-Yes.
+Add the corresponding voltage supply definitions to avoid dtbs_check
+warnings.
 
-> If that's right, Is it fair to have iommufd_vcmdq_depend/undepend in the
-> core code itself? Since it's a driver-level limitation, I think we
-> should just have iommufd_object_depend/undepend in the core code and the
-> iommufd_vcmdq_depend/undepend can move into the CMDQV driver?
+Signed-off-by: Rishikesh Donadkar <r-donadkar@ti.com>
+---
+ .../boot/dts/ti/k3-am62x-sk-csi2-imx219.dtso  | 31 +++++++++++++++++++
+ 1 file changed, 31 insertions(+)
 
-The moment we added iommufd_object_depend/undepend, we already had
-a blur boundary here since we had no choice to handle in the driver
-but to ask core for help.
+diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-imx219.dtso b/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-imx219.dtso
+index dd090813a32d6..149c59c071823 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-imx219.dtso
++++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-imx219.dtso
+@@ -15,6 +15,33 @@ clk_imx219_fixed: imx219-xclk {
+ 		#clock-cells = <0>;
+ 		clock-frequency = <24000000>;
+ 	};
++
++	reg_2p8v: regulator-2p8v {
++		compatible = "regulator-fixed";
++		regulator-name = "2P8V";
++		regulator-min-microvolt = <2800000>;
++		regulator-max-microvolt = <2800000>;
++		vin-supply = <&vcc_3v3_sys>;
++		regulator-always-on;
++	};
++
++	reg_1p8v: regulator-1p8v {
++		compatible = "regulator-fixed";
++		regulator-name = "1P8V";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++		vin-supply = <&vcc_3v3_sys>;
++		regulator-always-on;
++	};
++
++	reg_1p2v: regulator-1p2v {
++		compatible = "regulator-fixed";
++		regulator-name = "1P2V";
++		regulator-min-microvolt = <1200000>;
++		regulator-max-microvolt = <1200000>;
++		vin-supply = <&vcc_3v3_sys>;
++		regulator-always-on;
++	};
+ };
+ 
+ &main_i2c2 {
+@@ -40,6 +67,10 @@ ov5640: camera@10 {
+ 
+ 				clocks = <&clk_imx219_fixed>;
+ 
++				VANA-supply = <&reg_2p8v>;
++				VDIG-supply = <&reg_1p8v>;
++				VDDL-supply = <&reg_1p2v>;
++
+ 				reset-gpios = <&exp1 13 GPIO_ACTIVE_HIGH>;
+ 
+ 				port {
+-- 
+2.34.1
 
-The iommufd_vcmdq_depend/undepend is just a pair of macros to help
-validating the structure inputs that are core defined. It is quite
-fair to put next to the raw functions. I also had the notes on top
-of the raw functions suggesting callers to use the macros instead.
-
-Thanks
-Nicolin
 
