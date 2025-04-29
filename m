@@ -4,154 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BA26C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 17:17:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8213C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 17:34:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kruR6bWWOlnzfkA4gkSvY4hRWIKumokxk7j7hVm+VWo=; b=nNNpUXL3fmLevY+lh0Ve7Cfwar
-	lygH+xv/eB5CMJcw4Y4kEm3IX75+q4OWGtQV7TSGzFBlZPnZLolsycwDYq/sQgCBQ/c4NxX7M2gPY
-	gXVHDeJz2hsm/TxyZHaq/9rJ2XjDnuOWPoRb2UFyW7hD3uiZgK4fgudNfqCpmq2mLOAn6tTe3AOzu
-	kDuk/23Cb/3BZYTQqE/FicT2tVOqEuz/fMi3Y2nEfSn5F/u/Ij7s30TxhJEcyeGdbxWVc4SnW0GaS
-	tXr0SvDWKo+FMNr5O66aCaiHg81903gokcykFvLWLhIUSYY7Me1qVPjrIVv47thJur4HtcRFLfSBx
-	yGmQgkxg==;
+	bh=Sc4+TzSowcDRl7hLIypowfP7AcQ7Rbov5yPrrWksHAo=; b=UwmvUpi1jnhcAh03f2Ebqu+fxH
+	qzohVwRQzBftk7RT1AaY5UCCeezgmuYWX/JO5GZIMkkkNs5wnmO8Wdlejrg9ASBXQiuSfCJgJHaI4
+	n2iMzCutA6Lj0FpKywj32FKPk2/sa+uJVIIaqAjj8jyKG9SmywYyoj/xDhpe9T8Gd4fbb7O3WbnBb
+	cbNQebotqGxC1LOd5E5Vwta2SXjX2abf95+143GUo8HU6Nduc6XuXNA4n8t83pySszaEExqkNyhPz
+	3XukRvkM83yVH1kXXbrEjjsKGusSY60osadrk+JtQFAbDKZEwNdWCZml1zoBKK/zbc9Blsw/2Xvni
+	3TnSNcrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9oa0-0000000ANlK-1z9I;
-	Tue, 29 Apr 2025 17:17:12 +0000
-Received: from mail-dm6nam10on20610.outbound.protection.outlook.com ([2a01:111:f403:2413::610] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1u9oqR-0000000AQA9-15ji;
+	Tue, 29 Apr 2025 17:34:11 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9oY4-0000000ANVh-0ouu
+	id 1u9omk-0000000APgP-0sCG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 17:15:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NGjNwyiD15y7GeASIlru+9BoKsj2DlovVZUrQfkJICNmUVIwR5erToeXMrBtc/rPhffpQIkHaNtudEjF8Ik9YItynAqVGD5wBOVlTLjRxRXz8myh1hdOCyh6KdcmOWDDLqwhBj8K0m0PZwxBu+ObYlDW6u2VCVnyuo+64lp7xgymqjr2D1fZA+9vfOf+GWvdrQQtaYeuYN1A3PMDVNcLoqNHOeKjc+ZApHM5c/ErpE+niQEizmrqfONYyJZ7B09t9pRrYNvkmDKkj4Lo6sdkbSlMIRrP6Zfh8dUmG3Qpif1c24QQq3KfvHtCf9QYVtpWn/jS0rI/uwJZCv9ha1hvfA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kruR6bWWOlnzfkA4gkSvY4hRWIKumokxk7j7hVm+VWo=;
- b=lHd4xW0t6hFr4Rqr5eE0VL1ythFVH+HAAPSw1Glo00AyB9H6a+y5nqCOb0iPrkEtzW6JeEzmMOW5KXUIXaEePNQmkfJOlQkF2ipyHVS5dty7H8ChjaeF5Clz/4aPy/smL/N6R+6cxufHRsACsc4TvIq6xWMy0ziJY9FUXY1URRnxFAIgStD8cY4/lHRN4xHHEMD7z7745yzeLKdbT9iGr+qsGnAnHHOS2zK72Q2Wr1g3M81sU9AHgLQmeGSI4FzTwT86pSJ7wbZDq9mmpbSCVhyUzneqcKjweFdFRJS/clDsTPFSrI0QQrFvp8dcwn1CkOgc+1rsV9P2Uy1miNkr9w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kruR6bWWOlnzfkA4gkSvY4hRWIKumokxk7j7hVm+VWo=;
- b=TQzKFRugDRaVFKxp45hPCnEDJ5cLP0FSJ/1zAjhXCMntRZrlYba0723VOSnq3tLqsc0TAiNrmHVo06uFCE60/+dXudV7OmIWlCr09Z2YLQsQmfH9hKFvpr6Un6aeTk9h3uE1ONWpeGZ+zFaIMr6mpETZYMRGWkrfsvFqWTaxEG0Fd0hb0lG7RMPK2FObxWynFxA3xAKabJnmF7xaYmb2UeIx97+4XB26yeaUGkHFMpPgOO4z8QhmQVEghvBWXHq7rNauW+FNtECheM5vJklMQ+xuSDMsAMk83ioO6c8HNkI2uboaNjaV14b2h3XcT1ZtteYzN5V+FzuT0+99mz4B4Q==
-Received: from CH2PR08CA0015.namprd08.prod.outlook.com (2603:10b6:610:5a::25)
- by MW4PR12MB6778.namprd12.prod.outlook.com (2603:10b6:303:1e8::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.29; Tue, 29 Apr
- 2025 17:14:54 +0000
-Received: from CH2PEPF0000013C.namprd02.prod.outlook.com
- (2603:10b6:610:5a:cafe::67) by CH2PR08CA0015.outlook.office365.com
- (2603:10b6:610:5a::25) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.35 via Frontend Transport; Tue,
- 29 Apr 2025 17:14:53 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- CH2PEPF0000013C.mail.protection.outlook.com (10.167.244.73) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8699.20 via Frontend Transport; Tue, 29 Apr 2025 17:14:53 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 29 Apr
- 2025 10:14:38 -0700
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Tue, 29 Apr
- 2025 10:14:38 -0700
-Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com (10.129.68.6)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Tue, 29 Apr 2025 10:14:35 -0700
-Date: Tue, 29 Apr 2025 10:14:33 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <jgg@nvidia.com>, <kevin.tian@intel.com>, Vasant Hegde
-	<vasant.hegde@amd.com>
-CC: <corbet@lwn.net>, <will@kernel.org>, <bagasdotme@gmail.com>,
-	<robin.murphy@arm.com>, <joro@8bytes.org>, <thierry.reding@gmail.com>,
-	<vdumpa@nvidia.com>, <jonathanh@nvidia.com>, <shuah@kernel.org>,
-	<jsnitsel@redhat.com>, <nathan@kernel.org>, <peterz@infradead.org>,
-	<yi.l.liu@intel.com>, <mshavit@google.com>, <praan@google.com>,
-	<zhangzekun11@huawei.com>, <iommu@lists.linux.dev>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
-	<mochs@nvidia.com>, <alok.a.tiwari@oracle.com>, Suravee Suthikulpanit
-	<suravee.suthikulpanit@amd.com>
-Subject: Re: [PATCH v2 10/22] iommufd/viommmu: Add IOMMUFD_CMD_VCMDQ_ALLOC
- ioctl
-Message-ID: <aBEI+T7P+hV8Y6tU@Asurada-Nvidia>
-References: <cover.1745646960.git.nicolinc@nvidia.com>
- <094992b874190ffdcf6012104b419c8649b5e4b4.1745646960.git.nicolinc@nvidia.com>
- <b0d01609-bdda-49a3-af0c-ca828a9c4cea@amd.com>
- <aA/exylmYJhIhEVL@Asurada-Nvidia>
- <b8338b47-6fbf-44ac-9b99-3555997c9f36@amd.com>
- <aBB1gLfahnLmn0N1@Asurada-Nvidia>
- <a3860aed-5b6b-4e68-a8fd-1a6ee28ba022@amd.com>
+	Tue, 29 Apr 2025 17:30:23 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-5e8be1c6ff8so790500a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 10:30:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1745947820; x=1746552620; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=Sc4+TzSowcDRl7hLIypowfP7AcQ7Rbov5yPrrWksHAo=;
+        b=YvT9VeaavGgAVO+6rmtu/AZVIaWMqiEgrcyrRgVQ45fvFatxIO6/eEPUGaH/8pdlFP
+         s5A525CurFRT1s+6dzqLe++w3JGarzU/ZgUSom1pLkGr0lCFB8pQePK8gMHci74xB+1L
+         Wb7MHfcX4BSo/nZ+VpNbIbySUJ5QIJPnfArRhjGsteWuIXU4/4JhhYuviDRI0LtmJuDF
+         zSNqxWKWFUzICSEF3EYmT5lEoUPYGQgl05gk21g5lHAXTAX6c1HBurb1OE4F58hyJXim
+         9R4vieTfHs59rC4RFcA2/ZE1EakjTGCRxQE/0WBTr5LTH7dx0t4Jayhr3VxPecWBghP7
+         eeyg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745947820; x=1746552620;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Sc4+TzSowcDRl7hLIypowfP7AcQ7Rbov5yPrrWksHAo=;
+        b=uOVEGc/Jlqixw06uajev36Wrtms+8/XHK+SSJVPVvtbjOs9GNV/Q1p16g2016cfMSP
+         MtfuFxVAXtDcXKv01648ozIjqW5696nRbQ6/uZ3gv8ytGZFlCcffUs8ItvbZWVxeUIpT
+         pICBLZh+VVenlBzM1TfMHDShq2WtkjtfbAF7r4ceCdF3n6pQHb3wVb2790v7BUjLWIHJ
+         adv0Xls4QXRJvBfxQEeM6R9i+SDGHQ5mc7YW7ZGjIQAghbua9Vk4C8F2jN6PAdL4JfDx
+         3OGuNR1/OGZpvgdPtGXzcYEMwuGboDoqe8E6sQ980V3prpIAUBalFpL5VdCsM/CdfnFT
+         Ovng==
+X-Forwarded-Encrypted: i=1; AJvYcCVohxQh60F9GMKXmJqDt+2YMYlf9ag+Z95Enl1oswnk/KhLCaRje2S/TDoYV7cETIPsJSZvhYChBjaq292FCUj1@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmVSOSym2MEEf/gycjGkC/Fze4UO+yOK4QS6bEaG1kNDdXWBh5
+	OYyXBQG/fmO/299N6HmvjSjUx8OxxrspsVL83V7p+E+rcga94ruIl9OWgOrDBdCIZ24DnCKWcuk
+	b5uTd9O+AX9IhVbxgU6Etn3yniWkrUf/6psw/Ig==
+X-Gm-Gg: ASbGnctmmafjUuNh+Tkz+fJDg78wHyDzZ7r3hvuB6PU7ZbNh5OKrGhwiQXnrJvNvcEp
+	BSt2Ut0xDIlbtyF/mJzEN0D7zKz2YdKBWY+ur+B7/a9kTI9Rj5UKT0kQOnWuGhNzk23TFT3r3JK
+	evABDe32BKNu5Msa8yrGCMlXm2+fSObP+avvNoSzjyV5fT9vXmUefg+Cc9
+X-Google-Smtp-Source: AGHT+IFehYf0d8PpH1R2BJB2r7eFTKl8u51pe/GzhtkLgjZNrelsbpFr//PxWWkACriX1/8jtoRJQERGiEtx1uS0LIQ=
+X-Received: by 2002:a05:6402:40d3:b0:5e5:bdfe:6bfb with SMTP id
+ 4fb4d7f45d1cf-5f83885f55bmr4196335a12.16.1745947819729; Tue, 29 Apr 2025
+ 10:30:19 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <a3860aed-5b6b-4e68-a8fd-1a6ee28ba022@amd.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF0000013C:EE_|MW4PR12MB6778:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5dd9d4b4-c0da-4a37-1524-08dd87415bc1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|82310400026|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6M/IA226Rb5OOncApanguEvg5AxubrK6K9Mf10xDj54L2kMbXLCTdPdZGVV9?=
- =?us-ascii?Q?h8F+LtUniHBw6E7PO9Zfd2jeutyYyLEZ7WmL2RIEQL62hw+Ug8qb1V442fzc?=
- =?us-ascii?Q?3ygfohHmBC7VAZrrvk1RZ2QEkC16E+4K335CPKQAXxdQaDXMNUbS/0q3GMN/?=
- =?us-ascii?Q?lPjFvJzGlzR6OSCxuWv15MsGCdWKquiwb+Mh4do2cYDxCVJ8HETgFz50qXEf?=
- =?us-ascii?Q?bjbU3y6H75DdlCNlQ9+YXt8rDVRW6zqOJOpud2vOnbFEUCv8nO4J7CjIGmvV?=
- =?us-ascii?Q?cIZK08lcHPhBRlYBNZlMhTu4n/5MWJU/TG7lJsp3iB44OX2fciBn4ZBlgPzU?=
- =?us-ascii?Q?nhIgx1+QjUirMSzVNYfIXuIC71sQ/NiAMtaYFDv/Uv9z0KchoKqlLU/5DLE7?=
- =?us-ascii?Q?PCvb39pHUns2y6/w6b/h6rL4frFH255LUlNZlPMfDVkDTg4Y4pz71/LNJBx4?=
- =?us-ascii?Q?yFql9fasCkC+orfrAEuhp8hbLulZywaXy5LhAT79JGY6CT18Scm/xYaoZmrA?=
- =?us-ascii?Q?hPtSJELIFuAvpdfXu/5ZXAJ6dbmHWmj/LyfRU1QRiTAjKD4PajMNvTvT9VlW?=
- =?us-ascii?Q?nFYx965d4vWXzsdrAVEcIR/ThsjqPYnRwp1mP8YMC84PScHuZGfbFS2EllSc?=
- =?us-ascii?Q?ejru1dNvBDSsfSk95Z/eYWzsCdmB5XNhC2m4QB1+JvRnOUjsEEOD0qqJMwDz?=
- =?us-ascii?Q?Xon5AoP09BaLaztsanE2pdGNSHeOfOxehyGkW0GO9Q7JhczTAU2anllqLKjc?=
- =?us-ascii?Q?rr9ftT0rNVjbeO9VEY51Ee3WGKHJSsGSCrNv8bQEdxAUUMmC1RowxUk+zNy9?=
- =?us-ascii?Q?zvwiWbxU5+YoXcGzORxDI/UlwD3T23SdqhynOtlxwthz59sm/ZgLHJibsCP5?=
- =?us-ascii?Q?ddskBkuKv48Alz2LkrwiACPTKUaiLvzSjTt5R2k5QCHwhcpH3W+LnkCKWrZ0?=
- =?us-ascii?Q?HvLi3NsVLjJ5+WDD7Y8/Pcd0E5jsvDbX5Wqks0weJeDFwdunmfC7/s8k0LI3?=
- =?us-ascii?Q?8xP7nHtQlkcUdch7qpSVFjyB3jkFay0/sO+5oL9AXPA7jNScNu17kwNglOVb?=
- =?us-ascii?Q?QANG0yT+ZUFnLgOKU/4Ycgz3luyb8c1Qmp1AdtRhwsoon0CHvNkmB+gveAQY?=
- =?us-ascii?Q?HSzx+5yFlbq7/lRcd3LN8Ev0Teez/T737+UE2+MbN6rh39yP4ZgGKcWkRGr4?=
- =?us-ascii?Q?uZrqdolrlF8fJluXPGyhdMbXVN5LKNFsQbQNjaEU2ym5JjHH3a0+Xu5rRaGP?=
- =?us-ascii?Q?+a59bNDu3H0TaAEgt0y2FpBNMA6kpUjeFFsvQPdAxZU0z91bthJNhnraxnVc?=
- =?us-ascii?Q?Dcl2H2rkr+7AfVHH0yy+b4q+u7OLLMRiwi6zIhztrFQdnTIe8eGvR17AZeqp?=
- =?us-ascii?Q?A9COUwF7bPwcUQCsG+KJ0kyIFnkXAAcOufTq2TMof3yY/cBXJh1eBNY2gJq1?=
- =?us-ascii?Q?pBtpIgyXa5bESaVZduODZ42dTP2EJ1FL2KtMqgOhj3rfXHGDaEJBX3NNDVR3?=
- =?us-ascii?Q?7rVJOYTyPSyTMMLPlEAcTy6y3zxzAeIgxMDf?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(82310400026)(7416014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Apr 2025 17:14:53.7238
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5dd9d4b4-c0da-4a37-1524-08dd87415bc1
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000013C.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB6778
+References: <20250426065348.1234391-1-xiaolei.wang@windriver.com>
+ <20250426065348.1234391-3-xiaolei.wang@windriver.com> <09bab7ab-badd-4a7d-9ba5-5dd7181f6a6f@windriver.com>
+In-Reply-To: <09bab7ab-badd-4a7d-9ba5-5dd7181f6a6f@windriver.com>
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+Date: Tue, 29 Apr 2025 11:30:08 -0600
+X-Gm-Features: ATxdqUGGH1oEM35wjSVapCU_wc_NAw2TKa6cQrQ2zmSrZZbypcsXceaQ3lXxPSI
+Message-ID: <CANLsYkynk4wogcEAvVQ-MTyCGRF3CyqSjxaKUS4eYCbGsL7+Kg@mail.gmail.com>
+Subject: Re: [PATCH V2 2/2] remoteproc: core: release rproc->clean_table after
+ rproc_attach() fails
+To: Xiaolei Wang <xiaolei.wang@windriver.com>
+Cc: andersson@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, linux-remoteproc@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_101512_230442_2D956FEE 
-X-CRM114-Status: GOOD (  21.08  )
+X-CRM114-CacheID: sfid-20250429_103022_256205_CB4873D5 
+X-CRM114-Status: GOOD (  20.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,48 +96,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 29, 2025 at 03:52:48PM +0530, Vasant Hegde wrote:
-> On 4/29/2025 12:15 PM, Nicolin Chen wrote:
-> > On Tue, Apr 29, 2025 at 11:04:06AM +0530, Vasant Hegde wrote:
-> >> On 4/29/2025 1:32 AM, Nicolin Chen wrote:
-> >>> On Mon, Apr 28, 2025 at 05:42:27PM +0530, Vasant Hegde wrote:
-> >>> Yes. For AMD "vIOMMU", it needs a new type for iommufd vIOMMU:
-> >>> 	IOMMU_VIOMMU_TYPE_AMD_VIOMMU,
-> >>>
-> >>> For AMD "vIOMMU" command buffer, it needs a new type too:
-> >>> 	IOMMU_VCMDQ_TYPE_AMD_VIOMMU, /* Kdoc it to be Command Buffer */
-> >>
-> >> You are suggesting we define one type for AMD and use it for all buffers like
-> >> command buffer, event log, PPR buffet etc? and use iommu_vcmdq_alloc->index to
-> >> identity different buffer type?
-> > 
-> > We have vEVENTQ for event logging and FAULT_QUEUE for PRI, but both
-> > are not for hardware accelerated use cases.
-> > 
-> > I didn't check the details of AMD's event log and PPR buffers. But
-> > they seem to be the same ring buffers and can be consumed by guest
-> > kernel directly?
-> 
-> Right. Event log is accelerated and consumed by guest directly. Also we have
-> Event Log B !
-> 
-> > 
-> > Will the hardware replace the physical device ID in the event with
-> > the virtual device ID when injecting the event to a guest event/PPR
-> > queue? 
-> > If so, yea, I think you can define them separately using the> vCMDQ
-> infrastructures:
-> >  - IOMMU_VCMDQ_TYPE_AMD_VIOMMU_CMDBUF
-> >  - IOMMU_VCMDQ_TYPE_AMD_VIOMMU_EVENTLOG
-> >  - IOMMU_VCMDQ_TYPE_AMD_VIOMMU_PPRLOG
-> > (@Kevin @Jason Hmm, in this case we might want to revert the naming
-> >  "vCMDQ" back to "vQEUEUE", once Vasant confirms.)
+On Mon, 28 Apr 2025 at 20:20, Xiaolei Wang <xiaolei.wang@windriver.com> wrote:
+>
+>
+> On 4/26/25 14:53, Xiaolei Wang wrote:
+> > When rproc->state = RPROC_DETACHED is attached to remote processor
+> > through rproc_attach(), if rproc_handle_resources() returns failure,
+> > then the clean table should be released, otherwise the following
+> > memory leak will occur.
+> >
+> > unreferenced object 0xffff000086a99800 (size 1024):
+> > comm "kworker/u12:3", pid 59, jiffies 4294893670 (age 121.140s)
+> > hex dump (first 32 bytes):
+> > 00 00 00 00 00 80 00 00 00 00 00 00 00 00 10 00 ............
+> > 00 00 00 00 00 00 08 00 00 00 00 00 00 00 00 00 ............
+> > backtrace:
+> >   [<000000008bbe4ca8>] slab_post_alloc_hook+0x98/0x3fc
+> >   [<000000003b8a272b>] __kmem_cache_alloc_node+0x13c/0x230
+> >   [<000000007a507c51>] __kmalloc_node_track_caller+0x5c/0x260
+> >   [<0000000037818dae>] kmemdup+0x34/0x60
+> >   [<00000000610f7f57>] rproc_boot+0x35c/0x56c
+> >   [<0000000065f8871a>] rproc_add+0x124/0x17c
+> >   [<00000000497416ee>] imx_rproc_probe+0x4ec/0x5d4
+> >   [<000000003bcaa37d>] platform_probe+0x68/0xd8
+> >   [<00000000771577f9>] really_probe+0x110/0x27c
+> >   [<00000000531fea59>] __driver_probe_device+0x78/0x12c
+> >   [<0000000080036a04>] driver_probe_device+0x3c/0x118
+> >   [<000000007e0bddcb>] __device_attach_driver+0xb8/0xf8
+> >   [<000000000cf1fa33>] bus_for_each_drv+0x84/0xe4
+> >   [<000000001a53b53e>] __device_attach+0xfc/0x18c
+> >   [<00000000d1a2a32c>] device_initial_probe+0x14/0x20
+> >   [<00000000d8f8b7ae>] bus_probe_device+0xb0/0xb4
+> >   unreferenced object 0xffff0000864c9690 (size 16):
+> >
+> > Signed-off-by: Xiaolei Wang <xiaolei.wang@windriver.com>
+> > ---
+> >   drivers/remoteproc/remoteproc_core.c | 1 +
+> >   1 file changed, 1 insertion(+)
+> >
+> > diff --git a/drivers/remoteproc/remoteproc_core.c b/drivers/remoteproc/remoteproc_core.c
+> > index b21eedefff87..6226e2d12a97 100644
+> > --- a/drivers/remoteproc/remoteproc_core.c
+> > +++ b/drivers/remoteproc/remoteproc_core.c
+> > @@ -1656,6 +1656,7 @@ static int rproc_attach(struct rproc *rproc)
+> >   unprepare_device:
+> >       /* release HW resources if needed */
+> >       rproc_unprepare_device(rproc);
+> > +     kfree(rproc->clean_table);
+> >   disable_iommu:
+> >       rproc_disable_iommu(rproc);
+> >       return ret;
+>
+> Hi Mathieu
+>
+> For this patch, if I use devm_kmemdup() instead of kmemdup()
 
-I think I should rename IOMMUFD_OBJ_VCMDQ back to IOMMUFD_OBJ_VQUEUE
-since the same object fits three types of queue now in the AMD case.
+I don't think using devm_kmemdup() would work in this case since the
+memory is only free'd when rproc->dev is released.  So if you have
+Attach()->detach()->attach(), we'd only keep accumulating memory that
+is no longer used.
 
-Or any better naming suggestion?
-
-Thanks
-Nicolin
+>
+> in rproc_set_rsc_table() function, is it better? Also delete
+>
+> kfree(rproc->clean_table) in rproc_set_rsc_table()
+>
+> thanks
+>
+> xiaolei
+>
 
