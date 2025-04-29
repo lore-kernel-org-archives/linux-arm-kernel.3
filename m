@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAA90C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 20:43:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5B6AC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 20:45:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C6RXByEGrqpK4gerZlPpWAajPo/Ew2XDbxXVoe7V8Dk=; b=vIKAjxst/5u+vqwMGFFsqkyGqh
-	sFqnZeGRK8JQPEd92LcU18Vq7Rn5MGW4sTpXS8wBBCJ1zCw2wJ28p+Ak0k686R3Vlw8H8XWe19g/f
-	MjP6oES6/Fep3ArLgDgapzrM++SWi+FWxvFiE4jmoyZxkbnGRkkieF6fKhY2Ykriv0MVmzSvYp3oK
-	nZjvBNQe/SxeBD05ln0nrSWcBdWMTCc2oJlO0buhlnTfGUdWT7HqaIqwLVlQGkkkd87Ba9bByODgQ
-	4HpuI+Z08v4mbRG4hJObNpFy9Dc+AxQGldsdCSipscCOBlqtxvdiYv5xFQRoqCqYB6BiKH/xQ+srG
-	c0ibIxPQ==;
+	bh=XYN2Bke3VREHxmieFqP1r5nOcD97yErLgzUz8SxXVYo=; b=lbnxPBRA7k9rzxKbzoaGP0odb0
+	0ozqY6DYwF0OPf3VpVTa7h2t8y7id04fW2u39hn1epNUVtnLBpbyMhCbVCFUa6sWlcEnaa0RzG1Rz
+	3+Wl51igROQgPv2o+jCt1jFwwAbqYan6l3VxRbzHEkc+aWAw58R1iyRFdDlJJsHr7THu3Umqumziw
+	+SJk0CLrWEe9jgR3L00k1v3nhrCZ5bh11zc2Fot6AM6lJs3h3sAfyqzTIHR07QrdbOcjt2A478M/Z
+	kocYWsdQaVAn1Hfp3n9vXhQ+/ar+RkM4GtfnIJJWS9UVJd/OxVqsSq5MtlXhdkviA9W89SjvU+WkU
+	/nHK0FRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9rnp-0000000AmQM-3neR;
-	Tue, 29 Apr 2025 20:43:41 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u9rpj-0000000Ami4-2O4h;
+	Tue, 29 Apr 2025 20:45:39 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9rYt-0000000AkWH-3kxg
+	id 1u9rYw-0000000AkWj-0g3O
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 20:28:15 +0000
+	Tue, 29 Apr 2025 20:28:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0937D68474;
-	Tue, 29 Apr 2025 20:27:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73ACDC4CEEB;
-	Tue, 29 Apr 2025 20:28:13 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id AFF5BA4B4E2;
+	Tue, 29 Apr 2025 20:22:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B92CC4CEE3;
+	Tue, 29 Apr 2025 20:28:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745958495;
-	bh=9FRjNM4uCLNjjY3QIHD4J298olP3+FXybe72CiKG8cA=;
+	s=k20201202; t=1745958497;
+	bh=j6cRsnJcuJGGzquyyvJ5hVFHCEDkziQIJdUywXnkqdc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=umBlrp14BgM85CcnRGvHfx5YjGLKhW0YiuigLlEVhBlL2UdMCpUN4xwfupHw2mHGn
-	 jBCCiGT31dPcHduZyWSxYfJSCEE5jznhY8tMGv7R2vLPvAZIlh+hOx99I8sGfOvmpa
-	 jK/NSSl7A9/WlblsB0JEUKtj9r5WRTV7a4/MDWdNxjwKG3QKtiJOya4RtYTJJA+Ync
-	 0Tc0FdZZDDILbBBwlepw5aBVqILFtc3eYvt/eh1akBg75C446+IJIyt5cieTETX52Z
-	 oj0tpus+I+0PB84InZPIbnd8OAccYCDox7p71DSs/SHTEWgOv3AlvZsSg1zqa783HX
-	 RJVJxc462Uisg==
+	b=EklBAx+Sk8O4MDypA+nM92eodqBUZf0kdoLrsXb+d2WOK1BU58bLd3a5sXIc62A6X
+	 er/oXBPQw2TWvWNyWIuXZt2mK82LBRX+7xXyQV17jPEGkuPJXDuyK0O2f//Bd3hdNV
+	 ZeJg1YvouKFQoecBZHnExac9vvKbsKVZ8ko3mnofvs6yPuAOUta+8QqrzqmMENxPAn
+	 /SdsjlE/DGEhU1XKnrIsGv0KgIVzpdYBhbrMxrItAEjSoS57ga4wqh0KHUhFhJxLG+
+	 eTzpLa6MbPkGYk1NoTQ3X+kKHz9gq0wM2S1HG4QOUGPl0Df0PCP8J488BT+AfNblFF
+	 L3WmnVM6fUT2g==
 From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	maz@kernel.org,
-	Breno Leitao <leitao@debian.org>
-Cc: kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
+To: Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	kernel-team@meta.com
-Subject: Re: [PATCH] arm64: vdso: Use __arch_counter_get_cntvct()
-Date: Tue, 29 Apr 2025 21:27:49 +0100
-Message-Id: <174593151898.435692.885709123307410375.b4-ty@kernel.org>
+	Miaoqian Lin <linmq006@gmail.com>
+Cc: kernel-team@android.com,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH] firmware: psci: Fix refcount leak in psci_dt_init
+Date: Tue, 29 Apr 2025 21:27:50 +0100
+Message-Id: <174592994212.427921.17461621351639066667.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20250407-arm-vdso-v1-1-7012de25b195@debian.org>
-References: <20250407-arm-vdso-v1-1-7012de25b195@debian.org>
+In-Reply-To: <20250318151712.28763-1-linmq006@gmail.com>
+References: <20250318151712.28763-1-linmq006@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250429_132818_259730_FF347021 
+X-CRM114-Status: UNSURE (   6.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,20 +79,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 07 Apr 2025 04:33:25 -0700, Breno Leitao wrote:
-> While reading how `cntvct_el0` was read in the kernel, I found that
-> __arch_get_hw_counter() is doing something very similar to what
-> __arch_counter_get_cntvct() is already doing.
+On Tue, 18 Mar 2025 23:17:12 +0800, Miaoqian Lin wrote:
+> Fix a reference counter leak in psci_dt_init() where of_node_put(np) was
+> missing after of_find_matching_node_and_match() when np is unavailable.
 > 
-> Use the existing __arch_counter_get_cntvct() function instead of
-> duplicating similar inline assembly code in __arch_get_hw_counter().
 > 
-> [...]
 
-Applied to arm64 (for-next/vdso), thanks!
+Applied to arm64 (for-next/psci), thanks!
 
-[1/1] arm64: vdso: Use __arch_counter_get_cntvct()
-      https://git.kernel.org/arm64/c/00b39d150986
+[1/1] firmware: psci: Fix refcount leak in psci_dt_init
+      https://git.kernel.org/arm64/c/7ff37d29fd5c
 
 Cheers,
 -- 
