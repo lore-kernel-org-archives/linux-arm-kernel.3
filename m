@@ -4,74 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ECEDC369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 02:03:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5125C3ABA3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 02:10:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tuj9BGUeMzegQ0lV1ZfFdTK//nspAIt+974jv6fTnJA=; b=RzC3kKKCtPe2OOztQRjvUEuh8B
-	mVL0gQ2johLS75HWPGEEqK8aiVj6qhWKDtQTFNALlVkomp/0ITGZn5iC6VGql1aXYBNbKzwyjDllf
-	HCRBrTDwWSEa2Hwyt5oizh+UJnfvngE0tiywUOdrpSmtYTxzTeF3FiLb1HeXNvm8YNchvaqIx8kyE
-	xqfJygMwn6uKW9rtoiQ1ZhjvGkun5r+/FnBD2qTULoO8nTof8PSxXVXNvcHDL7yDqovV5oYz+ia3G
-	uYTx1Tf+1fOteahkBpwud6XA07IGK9N5qzgZSP6/aj+i0761mKazrEH1TkY2XrOqtY5I8g0T8Yfn2
-	TPRzBPUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rOL8cAzDh7/cTXRXsftT/THY4eVY9mbWKCNY3CIWC+E=; b=bJRAOSc0U1LB+KetVGiGrb8sHl
+	BpH2cORp8+8ptQLSRYs+1d3W8YOyNTN/XMMh1yJMIkO/ylsyAQzm4ByCsFd5h7Im4ed2gAM1n7AQM
+	gjamJHU66y7sq/SWRJNCDmd5bY4imJt+YkcoFhMj5OgZj9bFCIv752ifl+ykB89i7H1EF2nHKkIKU
+	ZFMbh+XFyil/udQ9UctFCXpAoWXFuX8z8QSyhU90/s44yEKp4iXgLCfEnZKMdMuxbsY1eNjXAPa3K
+	TLzdR3vuNhjlI00q6C2UntwUiG3AZc1oD1bd96vn91SLXtR0u8Y2MOF4vDc+Muc+FR1xorGC87oBY
+	6KGB1krQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9aJp-000000082gE-48SU;
-	Tue, 29 Apr 2025 02:03:33 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1u9aQs-000000083YB-2fiB;
+	Tue, 29 Apr 2025 02:10:50 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9aHv-000000082Qd-0sux;
-	Tue, 29 Apr 2025 02:01:36 +0000
-X-UUID: dd41533e249d11f0a2405d5ef59ce188-20250428
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=tuj9BGUeMzegQ0lV1ZfFdTK//nspAIt+974jv6fTnJA=;
-	b=doq19GrQproFjoinsb2/rxU5UbsDXd5+nk4ketEZuCd7cAiuNYxot4tDs1ANElXTgzlE+o5G4L7Fi7l6Iv+tcOiVPRsBqTB7QLQDfWjVSiUhhORd4+PwA9aulMlJZB5PHbUCECfaNcRYfvCFUtQeNM0pq+eeJK0rflGmxQHlslY=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:39de3577-2f4b-4a8c-9bab-fe63b13734d0,IP:0,UR
-	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-25
-X-CID-META: VersionHash:0ef645f,CLOUDID:2d88b9f0-ff26-40e8-a637-f0e9524b171a,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
-	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
-	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: dd41533e249d11f0a2405d5ef59ce188-20250428
-Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
-	(envelope-from <shiming.cheng@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 2093781024; Mon, 28 Apr 2025 19:01:28 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Tue, 29 Apr 2025 10:01:26 +0800
-Received: from mbjsdccf07.gcn.mediatek.inc (10.15.20.246) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Tue, 29 Apr 2025 10:01:25 +0800
-From: Shiming Cheng <shiming.cheng@mediatek.com>
-To: <edumazet@google.com>, <davem@davemloft.net>, <dsahern@kernel.org>,
-	<kuba@kernel.org>, <pabeni@redhat.com>, <horms@kernel.org>,
-	<matthias.bgg@gmail.com>, <angelogioacchino.delregno@collabora.com>,
-	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-CC: <shiming.cheng@mediatek.com>, <lena.wang@mediatek.com>, Jibin Zhang
-	<jibin.zhang@mediatek.com>
-Subject: [PATCH v3] net: use sock_gen_put() when sk_state is TCP_TIME_WAIT
-Date: Tue, 29 Apr 2025 09:59:48 +0800
-Message-ID: <20250429020412.14163-1-shiming.cheng@mediatek.com>
-X-Mailer: git-send-email 2.45.2
+	id 1u9aOw-0000000839h-1lLN
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Apr 2025 02:08:51 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-b03bc416962so3875605a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 19:08:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=lessconfused.com; s=lessconfused; t=1745892529; x=1746497329; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rOL8cAzDh7/cTXRXsftT/THY4eVY9mbWKCNY3CIWC+E=;
+        b=j6cBtDzSG4y2VPNKbhbq2IIhT0x5TTLbmqiCSnn2gZI0aeOENMNh97CV2uEVSXr5nJ
+         aKsOYuiKYKuhzWW2Xsg/bEJXmf4WVaF8xFcWReQ7fU1r57c1OEqICLBbGC1Fhb/h7AUQ
+         EOFGYjcNkM2+bK6S6eq8G2F2KSeJLr7vOJlB8=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745892529; x=1746497329;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=rOL8cAzDh7/cTXRXsftT/THY4eVY9mbWKCNY3CIWC+E=;
+        b=GjNEl7w6/hAV/dClAJGYbLfSeAdY3dhrJHiYrn+zDEvY8UChOOJYFAR8FrYM4KZUkI
+         0ggkwwmRUpe6A6fRcn+uGXaf0LDleTV2GK0J2vZXruDLbt9RTSmbjm4q/NVGvDSx6xSK
+         hVNVV5wMIsJdlmSXz8o6vCUL2zYLT8iNZxoY4NcxOhlYf4i+Gd6sB6roW9hpo2760Sn8
+         rVU7Hmesy8UR3HTGsi/QYmrIS3R2hQTC+aukQe60XMhgKXZ9W/9TlKZLXuob/bpm8w5y
+         NqnKPRDh6LjeUmseE84+SM9Pzwjcu8UHxiwH99EROfVmHC8mJd2Hd3ompfcEeTJklASR
+         iHtg==
+X-Forwarded-Encrypted: i=1; AJvYcCUaHxGKK+saQNKv5Te+trQRdFE9V88509h7WbNw5kxLDI1sl1Mm8dxTxdK+ggUAfcCzAhqZyDKkyWFcsLpfpbg5@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUcOiJf5SqviiTL7AsIOL80sGJecCaWyGiT8a61Vp+Tps7GXD9
+	rQIMkv2GJjNOfHEdnOI+qyKxTcACaZuJQoHM98mB6EtlVtJg00ax+49RZW0vAwgH9xP+sfu3glM
+	LVF69cmrnXQgGTixZnTEt5muqiO5rtAQlGwrnHw==
+X-Gm-Gg: ASbGnctUhab0WJR5nS29D3ERfq/dN1k968MeooCDWmaTtTLJnSrOcayET/HDskNELZn
+	BEJCLDc8xBFBBle3mk/9S6R+gsBMPIIbY+k5lQND/JDrV7RNnsTBrTiTBU6XYiZ59aQPCvpVPqH
+	rf/zhpi34zNm8H5qNAHS0tPxCWPW/ar+YrmAx0h7fAoVO+Lnn3sloUGMI=
+X-Google-Smtp-Source: AGHT+IHCPRZOUIvFcl8lsvnwfO+9RLYKzmV+Oh7P+gkUHVtVP2yGSVFYEv1JALFXz/61Bb1nArjTw0CpObv33VgEMCo=
+X-Received: by 2002:a17:90a:c88c:b0:309:ebe3:1ef9 with SMTP id
+ 98e67ed59e1d1-30a013070damr20213230a91.12.1745892529578; Mon, 28 Apr 2025
+ 19:08:49 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+References: <20250425203118.1444481-1-da@libre.computer> <20523c9e-f7de-4355-82ed-380ee03083f0@linaro.org>
+In-Reply-To: <20523c9e-f7de-4355-82ed-380ee03083f0@linaro.org>
+From: Da Xue <da@lessconfused.com>
+Date: Mon, 28 Apr 2025 22:08:38 -0400
+X-Gm-Features: ATxdqUEtIxVd1qwCtsriUSTxo6iPaZohjrD-HjaaVAgl0Wkxs3YcV-UpkMno1rk
+Message-ID: <CACdvmAi9v=DFqSOjWdeAabNC1QECs0U3yHM4LZ=Gtthn-pUMNA@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: amlogic: gxl: set i2c bias to pull-up
+To: neil.armstrong@linaro.org
+Cc: Da Xue <da@libre.computer>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_190135_255744_796AD66B 
-X-CRM114-Status: GOOD (  12.68  )
+X-CRM114-CacheID: sfid-20250428_190850_460415_28BCECA7 
+X-CRM114-Status: GOOD (  24.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,93 +95,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jibin Zhang <jibin.zhang@mediatek.com>
+On Mon, Apr 28, 2025 at 3:50=E2=80=AFAM Neil Armstrong
+<neil.armstrong@linaro.org> wrote:
+>
+> On 25/04/2025 22:31, Da Xue wrote:
+> > GXL I2C pins need internal pull-up enabled to operate if there
+> > is no external resistor. The pull-up is 60kohms per the datasheet.
+> >
+> > We should set the bias when i2c pinmux is enabled.
+>
+> So, yes in some cases when the on-board pull-up is missing, the on-pad
+> pull-up is required, but the whole idea was to only add the pull-up prope=
+rty
+> when needed.
+>
+> So I know the real motivation is again about the 40pin headers, where
+> some applications don't add a pull-up and still want to have i2c working.
+>
+> So my question is: why can't the pull-up property be added in overlays ?
 
-It is possible for a pointer of type struct inet_timewait_sock to be
-returned from the functions __inet_lookup_established() and
-__inet6_lookup_established(). This can cause a crash when the
-returned pointer is of type struct inet_timewait_sock and
-sock_put() is called on it. The following is a crash call stack that
-shows sk->sk_wmem_alloc being accessed in sk_free() during the call to
-sock_put() on a struct inet_timewait_sock pointer. To avoid this issue,
-use sock_gen_put() instead of sock_put() when sk->sk_state
-is TCP_TIME_WAIT.
+The issue is the property types. I wish the bias was bias =3D <PULL_UP>
+instead of bias-disabled, bias-pull-up, bias-pull-down since we have
+to hack a bunch of /delete-property/ in the overlays. A lot of the
+merging tools ignore /delete-property/. This is a convenience patch
+which may cause push-pull times to change by an insignificant amount.
+We have been carrying this patch out-of-tree for 5+ years without
+issues. I have not seen any design on GXL that had a PU for I2C.
+Externally, I've seen threads of people asking why I2C does not work
+on other boards.
 
-mrdump.ko        ipanic() + 120
-vmlinux          notifier_call_chain(nr_to_call=-1, nr_calls=0) + 132
-vmlinux          atomic_notifier_call_chain(val=0) + 56
-vmlinux          panic() + 344
-vmlinux          add_taint() + 164
-vmlinux          end_report() + 136
-vmlinux          kasan_report(size=0) + 236
-vmlinux          report_tag_fault() + 16
-vmlinux          do_tag_recovery() + 16
-vmlinux          __do_kernel_fault() + 88
-vmlinux          do_bad_area() + 28
-vmlinux          do_tag_check_fault() + 60
-vmlinux          do_mem_abort() + 80
-vmlinux          el1_abort() + 56
-vmlinux          el1h_64_sync_handler() + 124
-vmlinux        > 0xFFFFFFC080011294()
-vmlinux          __lse_atomic_fetch_add_release(v=0xF2FFFF82A896087C)
-vmlinux          __lse_atomic_fetch_sub_release(v=0xF2FFFF82A896087C)
-vmlinux          arch_atomic_fetch_sub_release(i=1, v=0xF2FFFF82A896087C)
-+ 8
-vmlinux          raw_atomic_fetch_sub_release(i=1, v=0xF2FFFF82A896087C)
-+ 8
-vmlinux          atomic_fetch_sub_release(i=1, v=0xF2FFFF82A896087C) + 8
-vmlinux          __refcount_sub_and_test(i=1, r=0xF2FFFF82A896087C,
-oldp=0) + 8
-vmlinux          __refcount_dec_and_test(r=0xF2FFFF82A896087C, oldp=0) + 8
-vmlinux          refcount_dec_and_test(r=0xF2FFFF82A896087C) + 8
-vmlinux          sk_free(sk=0xF2FFFF82A8960700) + 28
-vmlinux          sock_put() + 48
-vmlinux          tcp6_check_fraglist_gro() + 236
-vmlinux          tcp6_gro_receive() + 624
-vmlinux          ipv6_gro_receive() + 912
-vmlinux          dev_gro_receive() + 1116
-vmlinux          napi_gro_receive() + 196
-ccmni.ko         ccmni_rx_callback() + 208
-ccmni.ko         ccmni_queue_recv_skb() + 388
-ccci_dpmaif.ko   dpmaif_rxq_push_thread() + 1088
-vmlinux          kthread() + 268
-vmlinux          0xFFFFFFC08001F30C()
-
-Fixes: c9d1d23e5239 ("net: add heuristic for enabling TCP fraglist GRO")
-Signed-off-by: Jibin Zhang <jibin.zhang@mediatek.com>
-Signed-off-by: Shiming Cheng <shiming.cheng@mediatek.com>
----
- net/ipv4/tcp_offload.c   | 2 +-
- net/ipv6/tcpv6_offload.c | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/net/ipv4/tcp_offload.c b/net/ipv4/tcp_offload.c
-index 2308665b51c5..f55026b597ff 100644
---- a/net/ipv4/tcp_offload.c
-+++ b/net/ipv4/tcp_offload.c
-@@ -432,7 +432,7 @@ static void tcp4_check_fraglist_gro(struct list_head *head, struct sk_buff *skb,
- 				       iif, sdif);
- 	NAPI_GRO_CB(skb)->is_flist = !sk;
- 	if (sk)
--		sock_put(sk);
-+		sock_gen_put(sk);
- }
- 
- INDIRECT_CALLABLE_SCOPE
-diff --git a/net/ipv6/tcpv6_offload.c b/net/ipv6/tcpv6_offload.c
-index a45bf17cb2a1..b1f284e0c15a 100644
---- a/net/ipv6/tcpv6_offload.c
-+++ b/net/ipv6/tcpv6_offload.c
-@@ -42,7 +42,7 @@ static void tcp6_check_fraglist_gro(struct list_head *head, struct sk_buff *skb,
- 					iif, sdif);
- 	NAPI_GRO_CB(skb)->is_flist = !sk;
- 	if (sk)
--		sock_put(sk);
-+		sock_gen_put(sk);
- #endif /* IS_ENABLED(CONFIG_IPV6) */
- }
- 
--- 
-2.45.2
-
+>
+> Neil
+>
+> >
+> > Signed-off-by: Da Xue <da@libre.computer>
+> > ---
+> >   arch/arm64/boot/dts/amlogic/meson-gxl.dtsi | 10 +++++-----
+> >   1 file changed, 5 insertions(+), 5 deletions(-)
+> >
+> > diff --git a/arch/arm64/boot/dts/amlogic/meson-gxl.dtsi b/arch/arm64/bo=
+ot/dts/amlogic/meson-gxl.dtsi
+> > index 2dc2fdaecf9f..aed8dbfbb64d 100644
+> > --- a/arch/arm64/boot/dts/amlogic/meson-gxl.dtsi
+> > +++ b/arch/arm64/boot/dts/amlogic/meson-gxl.dtsi
+> > @@ -214,7 +214,7 @@ mux {
+> >                               groups =3D "i2c_sck_ao",
+> >                                      "i2c_sda_ao";
+> >                               function =3D "i2c_ao";
+> > -                             bias-disable;
+> > +                             bias-pull-up;
+> >                       };
+> >               };
+> >
+> > @@ -576,7 +576,7 @@ mux {
+> >                               groups =3D "i2c_sck_a",
+> >                                    "i2c_sda_a";
+> >                               function =3D "i2c_a";
+> > -                             bias-disable;
+> > +                             bias-pull-up;
+> >                       };
+> >               };
+> >
+> > @@ -585,7 +585,7 @@ mux {
+> >                               groups =3D "i2c_sck_b",
+> >                                     "i2c_sda_b";
+> >                               function =3D "i2c_b";
+> > -                             bias-disable;
+> > +                             bias-pull-up;
+> >                       };
+> >               };
+> >
+> > @@ -594,7 +594,7 @@ mux {
+> >                               groups =3D "i2c_sck_c",
+> >                                     "i2c_sda_c";
+> >                               function =3D "i2c_c";
+> > -                             bias-disable;
+> > +                             bias-pull-up;
+> >                       };
+> >               };
+> >
+> > @@ -603,7 +603,7 @@ mux {
+> >                               groups =3D "i2c_sck_c_dv19",
+> >                                     "i2c_sda_c_dv18";
+> >                               function =3D "i2c_c";
+> > -                             bias-disable;
+> > +                             bias-pull-up;
+> >                       };
+> >               };
+> >
+>
+>
+> _______________________________________________
+> linux-amlogic mailing list
+> linux-amlogic@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-amlogic
 
