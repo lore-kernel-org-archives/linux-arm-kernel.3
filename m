@@ -4,57 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 281BAC3ABAB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 14:15:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36C2CC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 14:16:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O3Hqk+voAspNA05JgGy2ulcmZCqTYHC3FTjOs2lq/08=; b=ZeV/YvX8jo+6kJfzsye9zW8H0q
-	yvEZ9A2PWxRl3EWfpfNOaHA3cRFW1R21h7rVpft/Rj0uEPgOvYbksL49oEn1ZW1Dr7gO70WrP8Zs/
-	fuEo+LZ3Z9QkO2nw46qp/vTZaJVkXCLwA0a/qIbK/mCvyLB0k+G5mLhC0CR9ouS845iXIrQBgUi5y
-	ZGf/Rk6m+aeyBr6M6hsABpgJCg/iqPHurCjeXo7Fiieyv6QqJZxS/O5P5iBA2Oz2kglIxkPP/B5+a
-	3+i2uGHAvKNoTVdQgW9fT5arXExK385tlt2NOEkMqGDGNCEQwWOXfuXl1z8rJEaYy1l012Iyl8uOY
-	YuwJjmOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LAQKSlBfPEsgD45q3zj3fKBJSzT8ED6H+K7kEuG9rLc=; b=0JB17nkONhN/HVLusxSwoLEtSd
+	HkZwCpEQ9xKYj0JdPEF26kgxkwIXVmswLOwOY1XgXFYEi0s4/+8Q211Mh3a/8Q2jcTYz6eVVmv1ns
+	chObvK5+7+lDr/1bDuK9fTrIaimMNWagjfQmnGEwVekNHiTopNmZJWI2am0t/6JRwuBOHTqyCFRdL
+	Q1Os0Gjm1EKOXMdLN3kkYU/ssyEdVZQuG9/Um4vT0vXX3DA5Qj6xHwqbplYUrJMym35TlE7D5GRFS
+	o1x3TnqE0lkrCvjpzcoLRn7x/cLdNJGcUstuJUDg3AIm2YnU06MuBXwgdOGXey9goPEtnMxE402EY
+	Z7VI9mjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9ljV-00000009uik-2LP8;
-	Tue, 29 Apr 2025 14:14:49 +0000
+	id 1u9lkt-00000009voU-43Zc;
+	Tue, 29 Apr 2025 14:16:15 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9lXG-00000009qHI-3JSa
+	id 1u9lgJ-00000009rb1-1kXy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 14:02:13 +0000
+	Tue, 29 Apr 2025 14:11:32 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 57E5C1515;
-	Tue, 29 Apr 2025 07:02:02 -0700 (PDT)
-Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3CE2B3F66E;
-	Tue, 29 Apr 2025 07:02:07 -0700 (PDT)
-Date: Tue, 29 Apr 2025 15:02:04 +0100
-From: Joey Gouly <joey.gouly@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org,
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C33091515;
+	Tue, 29 Apr 2025 07:11:23 -0700 (PDT)
+Received: from pluto.guest.local (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 377423F66E;
+	Tue, 29 Apr 2025 07:11:28 -0700 (PDT)
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>, Fuad Tabba <tabba@google.com>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>
-Subject: Re: [PATCH v3 03/42] arm64: sysreg: Add layout for HCR_EL2
-Message-ID: <20250429140204.GC1859293@e124191.cambridge.arm.com>
-References: <20250426122836.3341523-1-maz@kernel.org>
- <20250426122836.3341523-4-maz@kernel.org>
+	arm-scmi@vger.kernel.org
+Cc: sudeep.holla@arm.com,
+	james.quinlan@broadcom.com,
+	f.fainelli@gmail.com,
+	vincent.guittot@linaro.org,
+	peng.fan@oss.nxp.com,
+	michal.simek@amd.com,
+	quic_sibis@quicinc.com,
+	dan.carpenter@linaro.org,
+	maz@kernel.org,
+	johan@kernel.org,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: [PATCH v3 0/3] Introduce SCMI Quirks framework
+Date: Tue, 29 Apr 2025 15:11:05 +0100
+Message-ID: <20250429141108.406045-1-cristian.marussi@arm.com>
+X-Mailer: git-send-email 2.47.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250426122836.3341523-4-maz@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_070210_916289_425015E9 
-X-CRM114-Status: GOOD (  19.19  )
+X-CRM114-CacheID: sfid-20250429_071131_539182_3F0F4899 
+X-CRM114-Status: GOOD (  17.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,235 +71,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Apr 26, 2025 at 01:27:57PM +0100, Marc Zyngier wrote:
-> Add HCR_EL2 to the sysreg file, more or less directly generated
-> from the JSON file.
-> 
-> Since the generated names significantly differ from the existing
-> naming, express the old names in terms of the new one. One day, we'll
-> fix this mess, but I'm not in any hurry.
-> 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  arch/arm64/include/asm/kvm_arm.h | 125 ++++++++++++++++---------------
->  arch/arm64/tools/sysreg          |  68 +++++++++++++++++
->  2 files changed, 132 insertions(+), 61 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
-> index 974d72b5905b8..f36d067967c33 100644
-> --- a/arch/arm64/include/asm/kvm_arm.h
-> +++ b/arch/arm64/include/asm/kvm_arm.h
-> @@ -12,67 +12,70 @@
->  #include <asm/sysreg.h>
->  #include <asm/types.h>
->  
-> -/* Hyp Configuration Register (HCR) bits */
-> -
-> -#define HCR_TID5	(UL(1) << 58)
-> -#define HCR_DCT		(UL(1) << 57)
-> -#define HCR_ATA_SHIFT	56
-> -#define HCR_ATA		(UL(1) << HCR_ATA_SHIFT)
-> -#define HCR_TTLBOS	(UL(1) << 55)
-> -#define HCR_TTLBIS	(UL(1) << 54)
-> -#define HCR_ENSCXT	(UL(1) << 53)
-> -#define HCR_TOCU	(UL(1) << 52)
-> -#define HCR_AMVOFFEN	(UL(1) << 51)
-> -#define HCR_TICAB	(UL(1) << 50)
-> -#define HCR_TID4	(UL(1) << 49)
-> -#define HCR_FIEN	(UL(1) << 47)
-> -#define HCR_FWB		(UL(1) << 46)
-> -#define HCR_NV2		(UL(1) << 45)
-> -#define HCR_AT		(UL(1) << 44)
-> -#define HCR_NV1		(UL(1) << 43)
-> -#define HCR_NV		(UL(1) << 42)
-> -#define HCR_API		(UL(1) << 41)
-> -#define HCR_APK		(UL(1) << 40)
-> -#define HCR_TEA		(UL(1) << 37)
-> -#define HCR_TERR	(UL(1) << 36)
-> -#define HCR_TLOR	(UL(1) << 35)
-> -#define HCR_E2H		(UL(1) << 34)
-> -#define HCR_ID		(UL(1) << 33)
-> -#define HCR_CD		(UL(1) << 32)
-> -#define HCR_RW_SHIFT	31
-> -#define HCR_RW		(UL(1) << HCR_RW_SHIFT)
-> -#define HCR_TRVM	(UL(1) << 30)
-> -#define HCR_HCD		(UL(1) << 29)
-> -#define HCR_TDZ		(UL(1) << 28)
-> -#define HCR_TGE		(UL(1) << 27)
-> -#define HCR_TVM		(UL(1) << 26)
-> -#define HCR_TTLB	(UL(1) << 25)
-> -#define HCR_TPU		(UL(1) << 24)
-> -#define HCR_TPC		(UL(1) << 23) /* HCR_TPCP if FEAT_DPB */
-> -#define HCR_TSW		(UL(1) << 22)
-> -#define HCR_TACR	(UL(1) << 21)
-> -#define HCR_TIDCP	(UL(1) << 20)
-> -#define HCR_TSC		(UL(1) << 19)
-> -#define HCR_TID3	(UL(1) << 18)
-> -#define HCR_TID2	(UL(1) << 17)
-> -#define HCR_TID1	(UL(1) << 16)
-> -#define HCR_TID0	(UL(1) << 15)
-> -#define HCR_TWE		(UL(1) << 14)
-> -#define HCR_TWI		(UL(1) << 13)
-> -#define HCR_DC		(UL(1) << 12)
-> -#define HCR_BSU		(3 << 10)
-> -#define HCR_BSU_IS	(UL(1) << 10)
-> -#define HCR_FB		(UL(1) << 9)
-> -#define HCR_VSE		(UL(1) << 8)
-> -#define HCR_VI		(UL(1) << 7)
-> -#define HCR_VF		(UL(1) << 6)
-> -#define HCR_AMO		(UL(1) << 5)
-> -#define HCR_IMO		(UL(1) << 4)
-> -#define HCR_FMO		(UL(1) << 3)
-> -#define HCR_PTW		(UL(1) << 2)
-> -#define HCR_SWIO	(UL(1) << 1)
-> -#define HCR_VM		(UL(1) << 0)
-> -#define HCR_RES0	((UL(1) << 48) | (UL(1) << 39))
-> +/*
-> + * Because I'm terribly lazy and that repainting the whole of the KVM
-> + * code with the proper names is a pain, use a helper to map the names
-> + * inherited from AArch32 with the new fancy nomenclature. One day...
-> + */
-> +#define	__HCR(x)	HCR_EL2_##x
-> +
-> +#define HCR_TID5	__HCR(TID5)
-> +#define HCR_DCT		__HCR(DCT)
-> +#define HCR_ATA_SHIFT	__HCR(ATA_SHIFT)
-> +#define HCR_ATA		__HCR(ATA)
-> +#define HCR_TTLBOS	__HCR(TTLBOS)
-> +#define HCR_TTLBIS	__HCR(TTLBIS)
-> +#define HCR_ENSCXT	__HCR(EnSCXT)
-> +#define HCR_TOCU	__HCR(TOCU)
-> +#define HCR_AMVOFFEN	__HCR(AMVOFFEN)
-> +#define HCR_TICAB	__HCR(TICAB)
-> +#define HCR_TID4	__HCR(TID4)
-> +#define HCR_FIEN	__HCR(FIEN)
-> +#define HCR_FWB		__HCR(FWB)
-> +#define HCR_NV2		__HCR(NV2)
-> +#define HCR_AT		__HCR(AT)
-> +#define HCR_NV1		__HCR(NV1)
-> +#define HCR_NV		__HCR(NV)
-> +#define HCR_API		__HCR(API)
-> +#define HCR_APK		__HCR(APK)
-> +#define HCR_TEA		__HCR(TEA)
-> +#define HCR_TERR	__HCR(TERR)
-> +#define HCR_TLOR	__HCR(TLOR)
-> +#define HCR_E2H		__HCR(E2H)
-> +#define HCR_ID		__HCR(ID)
-> +#define HCR_CD		__HCR(CD)
-> +#define HCR_RW		__HCR(RW)
-> +#define HCR_TRVM	__HCR(TRVM)
-> +#define HCR_HCD		__HCR(HCD)
-> +#define HCR_TDZ		__HCR(TDZ)
-> +#define HCR_TGE		__HCR(TGE)
-> +#define HCR_TVM		__HCR(TVM)
-> +#define HCR_TTLB	__HCR(TTLB)
-> +#define HCR_TPU		__HCR(TPU)
-> +#define HCR_TPC		__HCR(TPCP)
-> +#define HCR_TSW		__HCR(TSW)
-> +#define HCR_TACR	__HCR(TACR)
-> +#define HCR_TIDCP	__HCR(TIDCP)
-> +#define HCR_TSC		__HCR(TSC)
-> +#define HCR_TID3	__HCR(TID3)
-> +#define HCR_TID2	__HCR(TID2)
-> +#define HCR_TID1	__HCR(TID1)
-> +#define HCR_TID0	__HCR(TID0)
-> +#define HCR_TWE		__HCR(TWE)
-> +#define HCR_TWI		__HCR(TWI)
-> +#define HCR_DC		__HCR(DC)
-> +#define HCR_BSU		__HCR(BSU)
-> +#define HCR_BSU_IS	__HCR(BSU_IS)
-> +#define HCR_FB		__HCR(FB)
-> +#define HCR_VSE		__HCR(VSE)
-> +#define HCR_VI		__HCR(VI)
-> +#define HCR_VF		__HCR(VF)
-> +#define HCR_AMO		__HCR(AMO)
-> +#define HCR_IMO		__HCR(IMO)
-> +#define HCR_FMO		__HCR(FMO)
-> +#define HCR_PTW		__HCR(PTW)
-> +#define HCR_SWIO	__HCR(SWIO)
-> +#define HCR_VM		__HCR(VM)
->  
->  /*
->   * The bits we set in HCR:
-> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-> index fce8328c7c00b..7f39c8f7f036d 100644
-> --- a/arch/arm64/tools/sysreg
-> +++ b/arch/arm64/tools/sysreg
-> @@ -2531,6 +2531,74 @@ Field	1	AFSR1_EL1
->  Field	0	AFSR0_EL1
->  EndSysregFields
->  
-> +Sysreg	HCR_EL2		3	4	1	1	0
-> +Field	63:60	TWEDEL
-> +Field	59	TWEDEn
-> +Field	58	TID5
-> +Field	57	DCT
-> +Field	56	ATA
-> +Field	55	TTLBOS
-> +Field	54	TTLBIS
-> +Field	53	EnSCXT
-> +Field	52	TOCU
-> +Field	51	AMVOFFEN
-> +Field	50	TICAB
-> +Field	49	TID4
-> +Field	48	GPF
-> +Field	47	FIEN
-> +Field	46	FWB
-> +Field	45	NV2
-> +Field	44	AT
-> +Field	43	NV1
-> +Field	42	NV
-> +Field	41	API
-> +Field	40	APK
-> +Field	39	TME
-> +Field	38	MIOCNCE
-> +Field	37	TEA
-> +Field	36	TERR
-> +Field	35	TLOR
-> +Field	34	E2H
-> +Field	33	ID
-> +Field	32	CD
-> +Field	31	RW
-> +Field	30	TRVM
-> +Field	29	HCD
-> +Field	28	TDZ
-> +Field	27	TGE
-> +Field	26	TVM
-> +Field	25	TTLB
-> +Field	24	TPU
-> +Field	23	TPCP
-> +Field	22	TSW
-> +Field	21	TACR
-> +Field	20	TIDCP
-> +Field	19	TSC
-> +Field	18	TID3
-> +Field	17	TID2
-> +Field	16	TID1
-> +Field	15	TID0
-> +Field	14	TWE
-> +Field	13	TWI
-> +Field	12	DC
-> +UnsignedEnum	11:10	BSU
-> +	0b00	NONE
-> +	0b01	IS
-> +	0b10	OS
-> +	0b11	FS
-> +EndEnum
-> +Field	9	FB
-> +Field	8	VSE
-> +Field	7	VI
-> +Field	6	VF
-> +Field	5	AMO
-> +Field	4	IMO
-> +Field	3	FMO
-> +Field	2	PTW
-> +Field	1	SWIO
-> +Field	0	VM
-> +EndSysreg
-> +
->  Sysreg MDCR_EL2		3	4	1	1	1
->  Res0	63:51
->  Field	50	EnSTEPOP
+Hi,
 
-Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+with the increasing adoption of SCMI across arm64 ecosystems, we have to
+start considering how to deal and take care of out-of-spec SCMI firmware
+platforms that are actively deployed in the wild, in a consistent manner.
+
+This small series introduces a simple framework, based on static_keys,
+that allows a user to:
+
+- define a quirk and its matching conditions; quirks can match based on:
+
+  { comp, comp2, NULL } / Vendor_ID / Sub_Vendor_ID / [Min_Vers, Max_Vers]
+
+  from the longest matching sequence down to the shortest.
+
+  When the SCMI core stack boots it will enable the matching quirks
+  depending on the information gathered from the platform via Base
+  protocol: any NULL match condition is ignored during matching and is
+  interpreted as ANY, so you can decide to match on a very specific
+  combination of compatibles and FW versions OR simply on a compatible.
+
+- define a quirk code-block: simply a block of code, meant to play the
+  magic quirk trick, defined in the proximity of where it will be used
+  and gated by an implicit quirk static-key associated with the defined
+  quirk
+
+Patch 1/3 in the series is really unrelated to the Quirk framework
+itself: it is a slight variation on a fix posted previously by Sibi around
+PERF FastChannels and it is included here for simplicity, since the example
+quirk provided later in this series has to be applied exactly where 1/3
+applies its modifications.
+
+Patch 2/3 introduces support for SCMI quirks: support is default-y in
+Kconfig as of this series. All the quirks found defined are stored in
+an hashtable at module initialization time.
+Since V1 the quirks are matched on ranges of ImplementationVersion if
+provided.
+Since V2 the matching condition based on compatible, it is optionally
+represented by a list of possible compatibles.
+
+Later on, when the SCMI core stack probes and it has retrieved basic info
+via Base protocol, all the matching quirks are enabled, which simply means
+the related underlying specific quirks static-keys are enabled.
+
+Patch 3/3 Convert a pre-existing quirk to use the Quirk framework: it is,
+though, a peculiar quirk, since it was meant to match any firmware version
+or from any vendor/sub_vendor.
+
+The macro-salad still triggers a lot of checkpatch warns.
+
+Any feedback and testing is very much welcome.
+
+Thanks,
+Cristian
+
+---
+V2 -> V3
+- fixed a few typos
+- rebased on v6.15-rc4
+- drop machine compatible lookup for dev_dbg()
+- tags colletion
+- dropped patch 4 (real quirk)
+
+V1 -> V2
+- added support for matching against an optional list of compatibles
+- compile the quirks even if Quirks framework is not enabled
+- reduced CLOCK_DESCRIBE_RATES triplet Quirk size
+- added more docs & examples
+
+RFC -> V1
+ - collected tags for patch 1/4
+ - Added version ranges handling for Implementation Version
+ - make Quirk frmwk default-y
+ - add COMPILE_TEST depend
+ - move quirk enabling logic out of Base protocol init to avoid possible
+   deadlocks with cpu_lock (reported LOCKDEP splat from Johan)
+ - fix Quirk matching conditions for quirk_perf_level_get_fc_force
+
+
+Cristian Marussi (2):
+  firmware: arm_scmi: Add Quirks framework
+  firmware: arm_scmi: quirk: Fix CLOCK_DESCRIBE_RATES triplet
+
+Sibi Sankar (1):
+  firmware: arm_scmi: Ensure that the message-id supports fastchannel
+
+ drivers/firmware/arm_scmi/Kconfig     |  13 ++
+ drivers/firmware/arm_scmi/Makefile    |   1 +
+ drivers/firmware/arm_scmi/clock.c     |  33 +--
+ drivers/firmware/arm_scmi/driver.c    |  95 +++++---
+ drivers/firmware/arm_scmi/protocols.h |   2 +
+ drivers/firmware/arm_scmi/quirks.c    | 318 ++++++++++++++++++++++++++
+ drivers/firmware/arm_scmi/quirks.h    |  51 +++++
+ 7 files changed, 466 insertions(+), 47 deletions(-)
+ create mode 100644 drivers/firmware/arm_scmi/quirks.c
+ create mode 100644 drivers/firmware/arm_scmi/quirks.h
+
+-- 
+2.47.0
+
 
