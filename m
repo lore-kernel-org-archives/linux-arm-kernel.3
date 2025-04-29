@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0374AC3ABA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 17:02:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADC09C3ABA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 17:04:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r5rlUDCcvbNorSSfBxhY0Uo2Pju4LLTw7V0kTzWGnw0=; b=nQGGcs1N9cMEKas2P9Va3HlSeL
-	DI1SDjsyo52G5SIrudJCUwFh/KuOUiibKQ3JkhjbpCKY6vqbfy+zZywAelZT8qVCxLMbudggV1eyN
-	2+L8veV5abloo2s2vRe6itIyXqJuvKe/h45DjfH38ZsbqtWk/cZ3YtxS7cNJk+ZJ8vz5w8JaUeWWN
-	vsdBwCSJq1kZRSNb6kwN+7/0Ghn9a0PTRi4DGlfx7Uo9nfP873ZZ8RUH5n51ciwve9fZmmF6MBnuj
-	3SyLSygMDZiiEn/aiufCWrjLoZlho53hkkyUukcCJMOWWUyAHVLELUV4kFymLWHTggFLvF31wa2y1
-	KRdhCTQQ==;
+	bh=QO/JzkFeR8Cw4Pz+qN3wV2FVMmsJPbvvbqUaPRHm5Ko=; b=I52iY2E5e4vvOkr6tcT/7/V9Dk
+	4t9reDF2V2nWEpCpGfPkHjv0KqhqGKeYHOGIu+lRC0BuZA5jkdUIyq1xoWC3N215kV4wo/z0opNis
+	XDO52pmYA/aKqkyJRsO/0acZym3XqKzvpzGuwv4Lpma0qfmm7dPqEZCEs8ShzRkckFX685Bhg8GPj
+	d8/Gk8j+hu9brHhYsIGXyRkFx9xWWrcKram+JCWCNXKK1MMRaUNNnqOigfrJSrmvV65jrrJ9Fz2Jv
+	TYn5FAUPoY2YcZDmSvg5jEE7yWfRB9t348GRzOMcHMl6PLsdxzZQApGX+5eShgSBr140rXbv41rZH
+	4r1RaDSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9oLl-0000000ALuC-3rib;
-	Tue, 29 Apr 2025 17:02:29 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1u9oNf-0000000AMBD-2odR;
+	Tue, 29 Apr 2025 17:04:27 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9oFl-0000000AKhs-2R8C
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 16:56:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=r5rlUDCcvbNorSSfBxhY0Uo2Pju4LLTw7V0kTzWGnw0=; b=Ho9e5JmdTFW+pLmFUi4wNow9wm
-	VXlhmjwcdIcVeswarlOATW52sNWISJ24fB8EbnhqWkVPq5rWXCKE4XW6CCvksmzSNXGu6Rjho0bq/
-	E09xKIHdsgcp/D40bvZt6p8bdcgD1GU2aPoc/q59R6QMlkz38uxPZV9YB6ACDKlDfR3Q=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1u9oFc-00AxlT-0j; Tue, 29 Apr 2025 18:56:08 +0200
-Date: Tue, 29 Apr 2025 18:56:08 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Chen-Yu Tsai <wens@csie.org>
-Cc: Jernej =?utf-8?Q?=C5=A0krabec?= <jernej.skrabec@gmail.com>,
-	Andre Przywara <andre.przywara@arm.com>, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, samuel@sholland.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] arm64: dts: allwinner: h6: Add OrangePi 3 LTS DTS
-Message-ID: <b98d6bab-d3bb-44d2-9dbf-623dfb673671@lunn.ch>
-References: <20250413134318.66681-1-jernej.skrabec@gmail.com>
- <6a056bf8-9f39-4204-9378-8cc39be60038@lunn.ch>
- <4645060.LvFx2qVVIh@jernej-laptop>
- <4975791.GXAFRqVoOG@jernej-laptop>
- <2486dae4-c5a5-4df2-8048-87b4b2d46d54@lunn.ch>
- <CAGb2v66dF8hMmjjJMnpVxM+092q=ZYZ+kT316roZuty6i+rcXQ@mail.gmail.com>
+	id 1u9oHI-0000000AKuw-34tu;
+	Tue, 29 Apr 2025 16:57:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id CB9BC5C136A;
+	Tue, 29 Apr 2025 16:55:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EA3CC4CEEA;
+	Tue, 29 Apr 2025 16:57:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745945871;
+	bh=Tg1ctzwo0ak0Lwu1YWKgH+RS3fovIZ1X+v294BjOsH8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VfHRE0ZfOmDAVECATIVhnIIEDv8InpF/NVtbUFhMnpUd0U4Y+5b0Ww4zgRVL1MNmR
+	 u8gCoUF2f9BknbD6Z34UXG4o4jeie06f9l37yhBS9hg7PyyZPh0t76hiNmFRLKGGi5
+	 iEyi9z3gFBB3tX3cQpD1giyD3J3AvQz31/yIHy3BsfSa938ZSffUIHVakH6CrbbrdF
+	 VDAjwRavumw/UONhO/E9zhOSkKcu9AG/KUZggezyKAUSbacO11GC7UHvJUwjFrcjyu
+	 f0RJmP3EuGwQ5b0kiClDl4KQSZySaB5MQps8Q90qLLDnvzKrTossosvNsmID5DJOBH
+	 TIWeglu12AohQ==
+Date: Tue, 29 Apr 2025 09:57:49 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Herbert Xu <herbert@gondor.apana.org.au>
+Cc: Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	sparclinux@vger.kernel.org, linux-s390@vger.kernel.org,
+	x86@kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld " <Jason@zx2c4.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: Re: [v3 PATCH 00/13] Architecture-optimized SHA-256 library API
+Message-ID: <20250429165749.GC1743@sol.localdomain>
+References: <cover.1745816372.git.herbert@gondor.apana.org.au>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAGb2v66dF8hMmjjJMnpVxM+092q=ZYZ+kT316roZuty6i+rcXQ@mail.gmail.com>
+In-Reply-To: <cover.1745816372.git.herbert@gondor.apana.org.au>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_095617_627856_44C46BEC 
-X-CRM114-Status: GOOD (  23.59  )
+X-CRM114-CacheID: sfid-20250429_095752_876600_D1E8ECC6 
+X-CRM114-Status: GOOD (  23.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,61 +76,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > The RX path looks O.K. RGMII-RXID means the PHY should be adding the
-> > 2ns delay. The allwinner,rx-delay-ps = <0> should be redundant, that
-> > should be the driver default. And there are no properties in the PHY
-> > node about RX. All good.
+On Mon, Apr 28, 2025 at 01:17:02PM +0800, Herbert Xu wrote:
+> Changes in v3:
+> - Add shash sha256-lib/sha224-lib to provide test coverage for libsha256.
 > 
-> The default action when the property is missing is to leave the hardware
-> settings alone. I admit this doesn't match the bindings.
-
-Please submit a patch fix the binding.
-
-> > TX is the problem. The allwinner,tx-delay-ps = <700> causes the MAC to
-> > add 700ps delay, and 'rgmii-rxid' means the PHY should not add any
-> > delay. But 700ps is too low. It should be around 2000ps. So something
-> > else is adding a delay, or the 700ps is not really 700ps.
+> This is based on
 > 
-> Anything is possible. As was raised in a previous reply, it's possible
-> instead of extending the delay range, the decreased the step size and
-> added more steps. The problem is we don't really know.
-
-By poking around with other configuration knobs, i hope we can
-determine if this 700ps actually is 700ps.
-
-> > You say the PHY is a YT8531C. These PHYs also accept
-> > rx-internal-delay-ps and tx-internal-delay-ps properties in their DT
-> > node.
-> >
-> > Try setting 'rgmii-id', allwinner,tx-delay-ps = <0>, and both
-> > rx-internal-delay-ps and tx-internal-delay-ps in the PHY node to 1950.
-> > If that does not work, try other values in the PHY node.
+> 	https://patchwork.kernel.org/project/linux-crypto/list/?series=957558
 > 
-> I don't get why we should ignore the strappings instead of using them
-> as reference or even truth.
+> Original description:
+> 
+> Following the example of several other algorithms (e.g. CRC32, ChaCha,
+> Poly1305, BLAKE2s), this series refactors the kernel's existing
+> architecture-optimized SHA-256 code to be available via the library API,
+> instead of just via the crypto_shash API as it was before.  It also
+> reimplements the SHA-256 crypto_shash API on top of the library API.
+> 
+> This makes it possible to use the SHA-256 library in
+> performance-critical cases.  The new design is also much simpler, with a
+> negative diffstat of over 1200 lines.  Finally, this also fixes the
+> longstanding issue where the arch-optimized SHA-256 was disabled by
+> default, so people often forgot to enable it.
+> 
+> For now the SHA-256 library is well-covered by the crypto_shash
+> self-tests, but I plan to add a test for the library directly later.
+> I've fully tested this series on arm, arm64, riscv, and x86.  On mips,
+> powerpc, s390, and sparc I've only been able to partially test it, since
+> QEMU does not support the SHA-256 instructions on those platforms.  If
+> anyone with access to a mips, powerpc, s390, or sparc system that has
+> SHA-256 instructions can verify that the crypto self-tests still pass,
+> that would be appreciated.  But I don't expect any issues, especially
+> since the new code is more straightforward than the old code.
+> 
+> Eric Biggers (13):
+>   crypto: sha256 - support arch-optimized lib and expose through shash
+>   crypto: arm/sha256 - implement library instead of shash
+>   crypto: arm64/sha256 - remove obsolete chunking logic
+>   crypto: arm64/sha256 - implement library instead of shash
+>   crypto: mips/sha256 - implement library instead of shash
+>   crypto: powerpc/sha256 - implement library instead of shash
+>   crypto: riscv/sha256 - implement library instead of shash
+>   crypto: s390/sha256 - implement library instead of shash
+>   crypto: sparc - move opcodes.h into asm directory
+>   crypto: sparc/sha256 - implement library instead of shash
+>   crypto: x86/sha256 - implement library instead of shash
+>   crypto: sha256 - remove sha256_base.h
+>   crypto: lib/sha256 - improve function prototypes
 
-If you don't want the PHY to be reprogrammed pass:
+To be clear, the objections I have on your v2 patchset still hold.  Your
+unsolicited changes to my patches add unnecessary complexity and redundancy,
+make the crypto_shash API even harder to use correctly, and also break the build
+for several architectures.  If you're going to again use your maintainer
+privileges to push these out anyway over my objections, I'd appreciate it if you
+at least made your dubious changes as incremental patches using your own
+authorship so that they can be properly reviewed/blamed.
 
-* @PHY_INTERFACE_MODE_NA: Not Applicable - don't touch
+Please also note that I've sent a v4 which fixes the one real issue that my v1
+patchset had: https://lore.kernel.org/r/20250428170040.423825-1-ebiggers@kernel.org
 
-rather than one of
-
- * @PHY_INTERFACE_MODE_RGMII: Reduced gigabit media-independent interface
- * @PHY_INTERFACE_MODE_RGMII_ID: RGMII with Internal RX+TX delay
- * @PHY_INTERFACE_MODE_RGMII_RXID: RGMII with Internal RX delay
- * @PHY_INTERFACE_MODE_RGMII_TXID: RGMII with Internal TX delay
-
-However, if we do pass one of these RGMII modes, i expect the PHY to
-follow them.
-
-> If the strappings worked correctly w/ the
-> generic PHY driver (that doesn't know how to configure the delay mode
-> on the PHY side), isn't it working as intended?
-
-The generic PHY driver is there as a fallback, for when the real PHY
-driver is missing. It is nice if it works, but it often does not in
-current systems.  What we really care about is that the real PHY
-driver works, and the system as a whole follows the DT bindings.
-
-	Andrew
+- Eric
 
