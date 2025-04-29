@@ -4,105 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 995BBC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 15:16:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D47AC3ABA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 15:16:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mbvpqyn/yKqDR2wqkV1ibqZHZf7OzfouG9YwuShX+0M=; b=tEg4EQjMpW8TW56l6G3YlDVUX3
-	dIpJg8UOuLiWyXfUUpGP5rM0MZK2U0jC39oy0bhnOL1gh9r1/a4GoHA4CBXFgtI04eIH0w5W0oa7V
-	BJDvQ10+AzUwvJrkF4GrJAqDbIcE0uK8VdwUvmjd8/bImrEpRAoeAiYCpSXKxYhf9HIqVThZjD92X
-	EV6hpsL3AUjvuAzvXU2neU9hsALyi8O/P+VGUyvsE6JL1HWMMQ2Fgb+xnHnLgbJXTyHYeZCODUGA2
-	DME0gjUjrLhEKPGfDboeeaVHkiU+eI1X2vh3KjXZt0iul5DO8qy0rbj4fvsf0160QOlytQ9n/DiaY
-	eRvEyuqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QQ/EQc8WvbyIZPOpA4lkCX/kb4dojAY/N219rBVNE14=; b=D0CG9XtAubjT3b3ryvXqsAKs9a
+	N/+LmCRBFw3xipnpaxAV85+3W2QQW65/QWREMsU7Zc2gvrQTcXwApGUY2GiW7iaxLhl2j4FQDkrtj
+	t4ctP9iPHxYtzkkR6PILVX+rBgExO56WQ1IsW7vr2c3egPoLZsCPEmsTu+ag6BSyIWicpwCgPOiBY
+	H2Eccwlcwnz2suNnvF+D6o+ofVNqJ3TXbv45Qd86DRmWWU7UUee3Laqu49YHs7hifA+UVXdqKflUT
+	MGnTRJwItoqHDiJfPLYoaq96Ka9cyT6RGyRZDyJt3DKTG77H5tYfvx23ZI+6b2wR8GtgRaU0w2NzQ
+	jf5EoY4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9mh1-0000000A4wb-3k0U;
-	Tue, 29 Apr 2025 15:16:19 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u9mh4-0000000A4zY-10qG;
+	Tue, 29 Apr 2025 15:16:22 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9kis-00000009jvw-3gNl;
-	Tue, 29 Apr 2025 13:10:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2AE196156A;
-	Tue, 29 Apr 2025 13:09:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24FD1C4CEE3;
-	Tue, 29 Apr 2025 13:10:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745932205;
-	bh=fIQEbuA/kO9VYwXim9tHJ6f2pOEgEMCz95QzxPz6AcQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=fieCCqCR+O4/cS8h7Jj8Kx+6ismUUpeUEDV0S82JWADziiyg8L+llTNdcOy1YbrOT
-	 mbSyxAnc3y6dYLyaj+/cLLrlA3qUEjcX7teq3D024wLhk/Kdv9miD3rEkRyI2JcMm9
-	 V3jowJ5AWzQyOPZn5qfb/UYQKi+Vlv8+Nb09lUFXOUUYnonlsJoFxs/QBabv7m38Js
-	 rpxwB31dmLO4THwQnJzIwjqamfkXNWejwkVPBNKCiG3675Q2VzFL1mnbVGDU/aN6j/
-	 XkQgPHNoR2wPGoaLqmSQJ3RYs3w5kaZnKao+oixTWSSSUvqV6WNclsQoXnfEoA2Zju
-	 pcfoLP5u+0PGA==
-Message-ID: <3c470fec-7d24-4b65-bb84-9ff46ad1ab42@kernel.org>
-Date: Tue, 29 Apr 2025 15:10:00 +0200
+	id 1u9ktm-00000009log-0qIn
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Apr 2025 13:21:23 +0000
+Received: from gaggiata.pivistrello.it (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 1E1AA1F9D4;
+	Tue, 29 Apr 2025 15:21:20 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1745932880;
+	bh=QQ/EQc8WvbyIZPOpA4lkCX/kb4dojAY/N219rBVNE14=;
+	h=Received:From:To:Subject;
+	b=zC8R43wBUP7wutGFTJMfh1wvS6igFi2q7v3bslVZyjhQi02aCb7j7OzrRTtQDE1KV
+	 yz0Baxx4FjNUyqusL4d/Fl4+ETQ91aCUDJbw9t8Ykp5keBSE7MAH3BCFvu68IeC/jA
+	 53B5kUNjA2ZTAV6FJ4UW2CIvtHbfkBwIJh0knoqlshvLGbKS58JbhDk3zKTrR/5SbC
+	 Wzf2k4/1z6pxkPxioNKvRPbF2o3Y1rjllYjjuLH6TPjZPZdZKi4NfOlz1i2oawz/bb
+	 +CGp+XbTrCcV2My0qEA08Dsc8nf00Zd5A8Zf4fcCB9qaNYlKpPWh7mRxlbH+rWl6ka
+	 4p/EFhea5bwYw==
+Received: by gaggiata.pivistrello.it (Postfix, from userid 1000)
+	id CDDA87F820; Tue, 29 Apr 2025 15:21:19 +0200 (CEST)
+Date: Tue, 29 Apr 2025 15:21:19 +0200
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Jerome Neanne <jneanne@baylibre.com>,
+	Shree Ramamoorthy <s-ramamoorthy@ti.com>,
+	Mark Brown <broonie@kernel.org>, Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>
+Cc: Tero Kristo <kristo@kernel.org>, Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Roger Quadros <rogerq@kernel.org>, Tony Lindgren <tony@atomide.com>,
+	Liam Girdwood <lgirdwood@gmail.com>, linux-omap@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: tps65219/am62p kernel oops
+Message-ID: <aBDSTxALaOc-PD7X@gaggiata.pivistrello.it>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] dt-bindings: phy: imx8mq-usb: improve some tuning
- properties
-To: Xu Yang <xu.yang_2@nxp.com>, vkoul@kernel.org, kishon@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com
-Cc: jun.li@nxp.com, alexander.stein@ew.tq-group.com,
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20250429033009.2388291-1-xu.yang_2@nxp.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250429033009.2388291-1-xu.yang_2@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250429_062122_553029_B8D58255 
+X-CRM114-Status: GOOD (  14.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,63 +76,215 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/04/2025 05:30, Xu Yang wrote:
-> Commit b2e75563dc39 ("dt-bindings: phy: imx8mq-usb: add phy tuning
-> properties") add many tuning properties, but some parameter value doesn't
-> match the register description. It made some changes based on the original
-> value: add offset to a negative number so turn it to a non-negative number.
-> However, it's not easy to find an exact tuning value from register field
-> with such conversion.
-> 
-> Because device-tree supports negative parameter number, this will improve
-> some propertie's parameter.
-> 
-> Mainly include below properties:
->  - fsl,phy-tx-vref-tune-percent
->  - fsl,phy-tx-rise-tune-percent
->  - fsl,phy-comp-dis-tune-percent
-> 
-> The parameter value of above 3 properties are USB PHY specific. i.MX8MP
-> and i.MX95 USB PHY has different meanings. So this add restrictions for
-> them.
-> 
->  - fsl,phy-tx-vboost-level-microvolt
-> 
-> For this property, the parameter value is wrong in register description.
-> This will correct it according to true value.
-> 
-> For detailed info, please refer to i.MX8MP and i.MX95 latest reference
-> manual.
-> 
-> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
-> 
-> ---
-> Changes in v2:
->  - keep widest constraints
->  - use multipleOf for some properties
-> ---
->  .../bindings/phy/fsl,imx8mq-usb-phy.yaml      | 60 +++++++++++++++----
->  1 file changed, 49 insertions(+), 11 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml b/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
-> index daee0c0fc915..71e5940ef4b8 100644
-> --- a/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
-> +++ b/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
-> @@ -42,16 +42,17 @@ properties:
->  
->    fsl,phy-tx-vref-tune-percent:
->      description:
-> -      Tunes the HS DC level relative to the nominal level
-> -    minimum: 94
-> -    maximum: 124
-> +      Tunes the HS DC level relative to the nominal level. It varies
-> +      between different PHY versions
-> +    minimum: -1000
-> +    maximum: 875
+Hello all,
+while working on adding support in mainline for a new board based on TI
+AM62P SoC I noticed the following Kernel Oops.
 
-Nothing improved here. You just sent v2 ignoring reviewers feedback.
+This oops was reproduced running current Linux
+master, 6.15.0-rc4+, ca91b9500108d4cf083a635c2e11c884d5dd20ea, but I was able
+to reproduce the same with 6.14.4.
 
-NAK
-Best regards,
-Krzysztof
+[  +0.010478] Unable to handle kernel NULL pointer dereference at virtual address 00000000000003b0
+[  +0.000038] Mem abort info:
+[  +0.000010]   ESR = 0x0000000096000005
+[  +0.000010]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  +0.000013]   SET = 0, FnV = 0
+[  +0.000009]   EA = 0, S1PTW = 0
+[  +0.000010]   FSC = 0x05: level 1 translation fault
+[  +0.000012] Data abort info:
+[  +0.000009]   ISV = 0, ISS = 0x00000005, ISS2 = 0x00000000
+[  +0.000012]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+[  +0.000012]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+[  +0.000012] [00000000000003b0] user address but active_mm is swapper
+[  +0.000014] Internal error: Oops: 0000000096000005 [#1]  SMP
+[  +0.000014] Modules linked in:
+[  +0.000018] CPU: 0 UID: 0 PID: 60 Comm: irq/26-tps65219 Not tainted 6.15.0-rc4+ #1 PREEMPT
+[  +0.000020] Hardware name: Toradex Verdin AM62P WB on Verdin Development Board (DT)
+[  +0.000016] pstate: a0000005 (NzCv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[  +0.000016] pc : regulator_notifier_call_chain+0x20/0xa4
+[  +0.000024] lr : tps65219_regulator_irq_handler+0x34/0x80
+[  +0.000017] sp : ffffffc08220bc60
+[  +0.000010] x29: ffffffc08220bc60 x28: ffffffc0800ac308 x27: ffffff80019b1180
+[  +0.000023] x26: 0000000000000008 x25: ffffff8003684c00 x24: 0000000000000001
+[  +0.000022] x23: ffffff8003684adc x22: 0000000000000024 x21: 0000000000000000
+[  +0.000022] x20: 0000000000000000 x19: 0000000000008000 x18: 00000000ffffffff
+[  +0.000022] x17: ffffff800103ff80 x16: ffffff800103ff00 x15: ffffffc08199b860
+[  +0.000022] x14: 0000000000000151 x13: 0000000000000158 x12: 0000000000000001
+[  +0.000022] x11: 0000000000000001 x10: 0000000000000980 x9 : 1ffffff0006e1f01
+[  +0.000022] x8 : 0000000000000001 x7 : ffffff800370f800 x6 : ffffff800370f808
+[  +0.000022] x5 : 0000000000000039 x4 : ffffffbffeaf0000 x3 : 0000000000000001
+[  +0.000021] x2 : 0000000000000000 x1 : 0000000000008000 x0 : 0000000000000000
+[  +0.000022] Call trace:
+[  +0.000011]  regulator_notifier_call_chain+0x20/0xa4 (P)
+[  +0.000018]  tps65219_regulator_irq_handler+0x34/0x80
+[  +0.000017]  handle_nested_irq+0xb8/0x138
+[  +0.000018]  regmap_irq_thread+0x2d4/0x718
+[  +0.000019]  irq_thread_fn+0x2c/0xa8
+[  +0.000014]  irq_thread+0x17c/0x284
+[  +0.000015]  kthread+0x12c/0x1ec
+[  +0.000018]  ret_from_fork+0x10/0x20
+[  +0.000022] Code: aa0103f3 aa0003f4 f90013f5 aa0203f5 (f941d801)
+[  +0.000016] ---[ end trace 0000000000000000 ]---
+[  +0.000026] genirq: exiting task "irq/26-tps65219" (60) is an active IRQ thread (irq 26)
+
+
+I cannot tell if this is a regression or not, but what I know is that
+the same board, with the same DT, does not have such an error with
+6.6 TI kernel branch.
+
+With TI 6.6 kernel, using the power button, that is connected to the PMIC, I
+see from /proc/interrupts that the count of tps65219_irq increases accordingly
+to the amount of time I press the button, so my assumption is that the
+interrupt configuration in the DT is correct.
+
+I'd like also to mention that we use the same PMIC, connected in a very similar
+way, on a TI AM625 based system, and the issue there is not present.
+
+As I wrote the DT that is triggering this error is not in mainline, yet,
+however here a small snippet for reference, hopefully I'll send it to
+the LKML in a few days.
+
+	pmic@30 {
+		compatible = "ti,tps65219";
+		reg = <0x30>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&pinctrl_pmic_extint>;
+		interrupt-parent = <&gic500>;
+		interrupts = <GIC_SPI 224 IRQ_TYPE_LEVEL_HIGH>;
+
+		buck1-supply = <&reg_vsodimm>;
+		buck2-supply = <&reg_vsodimm>;
+		buck3-supply = <&reg_vsodimm>;
+		ldo1-supply = <&reg_3v3>;
+		ldo2-supply = <&reg_1v8>;
+		ldo3-supply = <&reg_3v3>;
+		ldo4-supply = <&reg_3v3>;
+		system-power-controller;
+		ti,power-button;
+
+		regulators {
+	...
+
+	pinctrl_pmic_extint: main-system-extint-default-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x01f4, PIN_INPUT, 0) /* (D16) EXTINTn */
+		>;
+	};
+
+	...
+
+# cat /proc/interrupts 
+           CPU0       CPU1       CPU2       CPU3       
+ 11:       2023       2474       2352       2095    GICv3  30 Level     arch_timer
+ 14:          0          0          0          0    GICv3  23 Level     arm-pmu
+ 15:       2327          0          0          0    GICv3  66 Level     4d000000.mailbox thr_012
+ 24:          0          0          0          0    GICv3 139 Level     4900000.i2c
+ 25:        204          0          0          0    GICv3 197 Level     2b200000.i2c
+ 26:          0          0          0          0    GICv3 256 Level     tps65219_irq
+ 27:          0          0          0          0 tps65219_irq   0 Edge      LDO3_SCG
+ 28:          0          0          0          0 tps65219_irq   1 Edge      LDO3_OC
+ 29:          0          0          0          0 tps65219_irq   2 Edge      LDO3_UV
+ 30:          0          0          0          0 tps65219_irq   3 Edge      LDO4_SCG
+ 31:          0          0          0          0 tps65219_irq   4 Edge      LDO4_OC
+ 32:          0          0          0          0 tps65219_irq   5 Edge      LDO4_UV
+ 33:          0          0          0          0 tps65219_irq  12 Edge      LDO1_SCG
+ 34:          0          0          0          0 tps65219_irq  13 Edge      LDO1_OC
+ 35:          0          0          0          0 tps65219_irq  14 Edge      LDO1_UV
+ 36:          0          0          0          0 tps65219_irq  15 Edge      LDO2_SCG
+ 37:          0          0          0          0 tps65219_irq  16 Edge      LDO2_OC
+ 38:          0          0          0          0 tps65219_irq  17 Edge      LDO2_UV
+ 39:          0          0          0          0 tps65219_irq  18 Edge      BUCK3_SCG
+ 40:          0          0          0          0 tps65219_irq  19 Edge      BUCK3_OC
+ 41:          0          0          0          0 tps65219_irq  20 Edge      BUCK3_NEG_OC
+ 42:          0          0          0          0 tps65219_irq  21 Edge      BUCK3_UV
+ 43:          0          0          0          0 tps65219_irq  22 Edge      BUCK1_SCG
+ 44:          0          0          0          0 tps65219_irq  23 Edge      BUCK1_OC
+ 45:          0          0          0          0 tps65219_irq  24 Edge      BUCK1_NEG_OC
+ 46:          0          0          0          0 tps65219_irq  25 Edge      BUCK1_UV
+ 47:          0          0          0          0 tps65219_irq  26 Edge      BUCK2_SCG
+ 48:          0          0          0          0 tps65219_irq  27 Edge      BUCK2_OC
+ 49:          0          0          0          0 tps65219_irq  28 Edge      BUCK2_NEG_OC
+ 50:          0          0          0          0 tps65219_irq  29 Edge      BUCK2_UV
+ 51:          0          0          0          0 tps65219_irq  38 Edge      BUCK1_RV
+ 52:          0          0          0          0 tps65219_irq  39 Edge      BUCK2_RV
+ 53:          0          0          0          0 tps65219_irq  40 Edge      BUCK3_RV
+ 54:          0          0          0          0 tps65219_irq  41 Edge      LDO1_RV
+ 55:          0          0          0          0 tps65219_irq  42 Edge      LDO2_RV
+ 56:          0          0          0          0 tps65219_irq  45 Edge      LDO3_RV
+ 57:          0          0          0          0 tps65219_irq  46 Edge      LDO4_RV
+ 58:          0          0          0          0 tps65219_irq  47 Edge      BUCK1_RV_SD
+ 59:          0          0          0          0 tps65219_irq  48 Edge      BUCK2_RV_SD
+ 60:          0          0          0          0 tps65219_irq  49 Edge      BUCK3_RV_SD
+ 61:          0          0          0          0 tps65219_irq  50 Edge      LDO1_RV_SD
+ 62:          0          0          0          0 tps65219_irq  53 Edge      LDO2_RV_SD
+ 63:          0          0          0          0 tps65219_irq  54 Edge      LDO3_RV_SD
+ 64:          0          0          0          0 tps65219_irq  55 Edge      LDO4_RV_SD
+ 65:          0          0          0          0 tps65219_irq  56 Edge      TIMEOUT
+ 66:          0          0          0          0 tps65219_irq  30 Edge      SENSOR_3_WARM
+ 67:          0          0          0          0 tps65219_irq  31 Edge      SENSOR_2_WARM
+ 68:          0          0          0          0 tps65219_irq  32 Edge      SENSOR_1_WARM
+ 69:          0          0          0          0 tps65219_irq  33 Edge      SENSOR_0_WARM
+ 70:          0          0          0          0 tps65219_irq  34 Edge      SENSOR_3_HOT
+ 71:          0          0          0          0 tps65219_irq  35 Edge      SENSOR_2_HOT
+ 72:          0          0          0          0 tps65219_irq  36 Edge      SENSOR_1_HOT
+ 73:          0          0          0          0 tps65219_irq  37 Edge      SENSOR_0_HOT
+ 74:          0          0          0          0 tps65219_irq  57 Edge      tps65219-pwrbutton.2.auto
+ 75:          0          0          0          0 tps65219_irq  58 Edge      tps65219-pwrbutton.2.auto
+ 76:         85          0          0          0    GICv3 193 Level     20000000.i2c
+ 77:          0          0          0          0    GICv3 194 Level     20010000.i2c
+ 78:          0          0          0          0    GICv3 196 Level     20030000.i2c
+ 79:          0          0          0          0 MSI-INTA 1713156 Level     485c0100.dma-controller chan2
+ 97:          0          0          0          0 MSI-INTA 1714176 Edge      485c0100.dma-controller chan0
+109:          0          0          0          0 MSI-INTA 1714688 Level     485c0100.dma-controller chan0
+121:          0          0          0          0 MSI-INTA 1715712 Edge      485c0100.dma-controller chan1
+139:          0          0          0          0 MSI-INTA 1716224 Level     485c0100.dma-controller chan1
+167:         10          0          0          0 MSI-INTA 1970707 Level     8000000.ethernet-tx0
+175:          3          0          0          0 MSI-INTA 1970715 Level     8000000.ethernet-tx1
+183:          2          0          0          0 MSI-INTA 1970723 Level     8000000.ethernet-tx2
+191:          0          0          0          0 MSI-INTA 1970731 Level     8000000.ethernet-tx3
+199:          0          0          0          0 MSI-INTA 1970739 Level     8000000.ethernet-tx4
+207:          2          0          0          0 MSI-INTA 1970747 Level     8000000.ethernet-tx5
+215:          2          0          0          0 MSI-INTA 1970755 Level     8000000.ethernet-tx6
+223:          0          0          0          0 MSI-INTA 1970763 Level     8000000.ethernet-tx7
+239:          0          0          0          0 MSI-INTA 1970779 Level     485c0000.dma-controller chan2
+257:          1          0          0          0 MSI-INTA 1971731 Level     8000000.ethernet-rx0
+281:          0          0          0          0 MSI-INTA 1971755 Level     485c0000.dma-controller chan0
+282:          0          0          0          0 MSI-INTA 1971756 Level     485c0000.dma-controller chan1
+301:          0          0          0          0    GICv3 217 Level     4a00000.serial
+302:        496          0          0          0    GICv3 210 Level     2800000.serial
+303:          0          0          0          0    GICv3 211 Level     2810000.serial
+304:       7674          0          0          0    GICv3 216 Level     2860000.serial
+305:          0          0          0          0    GICv3 134 Level     8000000.ethernet
+307:       2188          0          0          0    GICv3 165 Level     mmc0
+308:        187          0          0          0    GICv3 114 Level     mmc2
+342:          0          0          0          0     GPIO   1 Edge    -davinci_gpio  Wake-Up
+372:          0          0          0          0     GPIO  31 Edge    -davinci_gpio  connector
+377:          2          0          0          0     GPIO  36 Edge    -davinci_gpio  8000f00.mdio:00
+383:          0          0          0          0     GPIO  42 Edge    -davinci_gpio  8000f00.mdio:07
+485:          0          0          0          0     GPIO  48 Edge    -davinci_gpio  fa00000.mmc cd
+489:          0          0          0          0    GICv3 115 Level     mmc1
+490:          0          0          0          0    GICv3 204 Level     20100000.spi
+495:          0          0          0          0    GICv3 267 Level     2b00000.audio-controller_rx
+496:          0          0          0          0    GICv3 268 Level     2b00000.audio-controller_tx
+497:          0          0          0          0    GICv3 218 Level     2b300000.serial
+498:          0          0          0          0    GICv3 205 Level     20110000.spi
+499:          0          0          0          0    GICv3 132 Level     2b1f0000.rtc
+500:          0          0          0          0    GICv3 171 Level     fc40000.spi
+501:        162          0          0          0    GICv3 220 Level     dwc3
+502:        112          0          0          0    GICv3 258 Level     xhci-hcd:usb1
+IPI0:       511        587        632        420       Rescheduling interrupts
+IPI1:      1920       3344       2395       1843       Function call interrupts
+IPI2:         0          0          0          0       CPU stop interrupts
+IPI3:         0          0          0          0       CPU stop NMIs
+IPI4:         0          0          0          0       Timer broadcast interrupts
+IPI5:        79         99         62         47       IRQ work interrupts
+IPI6:         0          0          0          0       CPU backtrace interrupts
+IPI7:         0          0          0          0       KGDB roundup interrupts
+Err:          0
+
+
+Any suggestion?
+
+Francesco
+
 
