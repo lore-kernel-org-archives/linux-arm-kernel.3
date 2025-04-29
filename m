@@ -4,86 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E4E8C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 10:14:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A4D1C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 10:16:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jjQQ1gbntdrSbZtDquO40Eje9JxI9rUu3v+V9iiuKlU=; b=OKxT/vVuTGBzxhslEItuw6juDa
-	8qJMNoaDeal3zzMl9UsY3fbRkZK+sEzEr35SshPh9pm8hnD+IdQxKO/B61petsAVIT5Wh5h85Tg0c
-	uVoiOAh9eonm90HZvPtmZt2kgcJ4Lfj07eqNU+K+9pzvf3n0aopkov47ZBNO4kn7T+NjZ9H3k0sBE
-	EaWlxTddSDW9ydsbB4pvT80xDG1R0GTUliyqKlHqXRKW0+gIQPaoPCRSWjEwaQtd196TLmLBWt0qj
-	+Pftr8jISC9vhN+yFIAZQVv3ghG563HcK32y7zoCLdAwrGYSxuSdENuFkeOQHURem1z20nAcY9i2z
-	hUOo8HEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r5SlIgstzdRCbxuA22hxLl1exRHTX9P1h9O3d47Mdrc=; b=f/3rX6F+WHK8lfFh5TgKkuGSGf
+	NDAWxCHU98XpMsTarMUSvB4+jLT6LXZyK9AOHf87ciBDkGvUl5NPbNLt9bVMczaUtbMKi8RBnZ8iR
+	Xfo6n/TGYjnEHounykvxxAB/LrMxUfaQLlUxmFJ5ZwHXVTXJfTU3vWxvlqIsHnnkbe/o9k3CIsA+k
+	zfJ7Ps430Q09pxSJgr1oIm7xGJTi3s2X/1lIxu4PpThfqMD76Gmbc/cbB1H92u/Unept5iPPvPCtr
+	V7WfU16SjGvzHW93R7rwYC0+RAGpfWNPGUrY5wYp/f/l2sTftct5Viq9Ep0QuTk14v8AzEAsa9jUY
+	HbMJJ6eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9hyu-00000009GUY-3Q3s;
-	Tue, 29 Apr 2025 10:14:28 +0000
-Received: from mail-yw1-x112a.google.com ([2607:f8b0:4864:20::112a])
+	id 1u9i0Z-00000009Gkq-0Gio;
+	Tue, 29 Apr 2025 10:16:11 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9hrZ-00000009F39-3Dwd
+	id 1u9goQ-000000092eM-0VLg
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 29 Apr 2025 08:59:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=r5SlIgstzdRCbxuA22hxLl1exRHTX9P1h9O3d47Mdrc=; b=GUEw8GUG1Bo2o88R7K4EiZCn7x
+	TG+PZ6e23xTs9crIXhvW/Xnle+5s+TFdOHl7Wc7HdU7qz7A+oU+PtbuHHFh0Rg2G+Eso6+PBvOcI7
+	sr/979uVLDXzgfw6s+9vfyc5pH/eGYpZmZlCRMhwqnTEawlK6hnDdT8jF76CtXVijsVP6tWXGdM7p
+	/mFe6x0ooqZU1Td6HyLu8Zczs/QeFV+LLSOwmm8u0x3bD0LJXcrnt3Et+Blk1X8Ln3bCcpqm7IL2n
+	zXIDRXbNA7XablMg/OVc1vwzOxzsLlDlPn08t3WFHGYYgq9MFF2dHKGe7PYwz1kNCXU9xwwwt6hUt
+	xCZD5PuQ==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u9goM-0000000DERq-0XaX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 10:06:55 +0000
-Received: by mail-yw1-x112a.google.com with SMTP id 00721157ae682-6feab7c5f96so52069677b3.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 03:06:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745921212; x=1746526012; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=jjQQ1gbntdrSbZtDquO40Eje9JxI9rUu3v+V9iiuKlU=;
-        b=a8CzHyghZ0yFpRMsQSY5Q8U6SvWRuNIDk6BVEkqIDkdQUB9zzNo7mN4bfFvuznzezg
-         lclx+z5qDp/xtTkP0UsTRGokn9b0tTVxhXPeVNzObEsytut1kAgnLm4EotzhIwZK6evf
-         4g43Y9aNKWlmRllRQixQ+dCfY9EyQ2byKGwdUnsJX+t2jgmrcxIqUI81geON0iYzhG53
-         a5CJl2NlcJ3m1cIE/tnjdFPaQDKdLjYedSd9SValt5cFivTo8DO0Y3DH6FeIcj7r7isy
-         eBFhd2uG5lirNCySi1duzxd6Yortheg+2GtXYCUCSbaASxPLhhpc6Z66H3l5CDxnD9Dd
-         1/Jw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745921212; x=1746526012;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=jjQQ1gbntdrSbZtDquO40Eje9JxI9rUu3v+V9iiuKlU=;
-        b=Tc+OP62ncFy3WzPf0WikArSSAhOXOom/GDepVyo2vKnzF1ScQ/5WadIorVor/9DL/B
-         7GtSKmByyD/kJFUcQ8ZKe0KMoc1uaelVRJqSlz7Fns2LRqfcIUhUv9fIy8WQDbdXfo+U
-         FTNsjK07ksf2eYI1b8RauyzCriMen//xAVJJYJMEgfqln0970zlR7QAvQv0EsdliI3Ry
-         rDoV0k6x+nVgdZGfXC/9NsnXgz5udXmfZieRH2QXQJEaebO9YSFRmGy4b9fLKb2ifoPc
-         CdsZaXWYxTbyp2+9htsV/xi6DZtJTBVhLgCw1DMxeI/rxm6PeQxjhaLLaS+b6Aa9c3WP
-         rY7A==
-X-Forwarded-Encrypted: i=1; AJvYcCW1hu3uONIQGkVGidHJgrwjFImBfA3L8RBx3sJJ3OrX7+xd3GlrzZTeEkUu5eSS+h+MizJAzaU/asq/csGtvtEI@lists.infradead.org
-X-Gm-Message-State: AOJu0YycbQUJ13KKXc9Mwm4OVcZpmrAeTxNvl0UgRteU/CIbLG79puGF
-	AoJ82lMUVbOnA2klJ85/wiYOXDQXBApHbnMysVx9e+GfYGiQa986l07GRF9dSymoapOVsLGUAyj
-	OsYkTfMrVLckRwj1xMSA+iIZUsX3DM4XLmhyctw==
-X-Gm-Gg: ASbGnctd/gdTOPo1zptUVQVBlmrY69um8c/BpmF2d3qOBXyb5bGKOBYuQ637BlXuAjx
-	0gyCrv+0Qiz+KccqtZZEiN8iUTVX1fdnt2UDIieydJWQXepzvWmWLS/X42iAer7rdGQD6MFSWs/
-	8EAWJrAq/CfoQGRFNbSGw7+ec=
-X-Google-Smtp-Source: AGHT+IG6WmWyhSGVmxVC3f3XCypyrDEpbVGX6ioUnUsJtVsCpx9/EXtlcANtXZwlnV6IGsG9Jd4CkmBcfsgDrtEzaaQ=
-X-Received: by 2002:a05:690c:3506:b0:703:b8f4:5b0e with SMTP id
- 00721157ae682-7085f236277mr162475347b3.28.1745921212260; Tue, 29 Apr 2025
- 03:06:52 -0700 (PDT)
+	Tue, 29 Apr 2025 08:59:32 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DAC0A1515;
+	Tue, 29 Apr 2025 01:59:19 -0700 (PDT)
+Received: from [10.163.78.253] (unknown [10.163.78.253])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 78FBB3F673;
+	Tue, 29 Apr 2025 01:59:16 -0700 (PDT)
+Message-ID: <33e8d9fe-d30a-4cbb-b141-133b8989019e@arm.com>
+Date: Tue, 29 Apr 2025 14:29:13 +0530
 MIME-Version: 1.0
-References: <20250423-rk3576-emmc-fix-v3-1-0bf80e29967f@collabora.com>
-In-Reply-To: <20250423-rk3576-emmc-fix-v3-1-0bf80e29967f@collabora.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Tue, 29 Apr 2025 12:06:16 +0200
-X-Gm-Features: ATxdqUGRQt2dS-dYXQNUSdM9bjw6NNZW_Ep_w3cK8lN-p_Z_PHKTCdtR2wWOe8s
-Message-ID: <CAPDyKFp5N23KCZwOTba6vGyk9eaS1-SjSqY52FfPDng-bahn6g@mail.gmail.com>
-Subject: Re: [PATCH v3] mmc: sdhci-of-dwcmshc: add PD workaround on RK3576
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Shawn Lin <shawn.lin@rock-chips.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Elaine Zhang <zhangqing@rock-chips.com>, Finley Xiao <finley.xiao@rock-chips.com>, 
-	Adrian Hunter <adrian.hunter@intel.com>, 
-	Sebastian Reichel <sebastian.reichel@collabora.com>, 
-	Detlev Casanova <detlev.casanova@collabora.com>, kernel@collabora.com, 
-	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-mmc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/7] mm: Optimize mprotect() by batch-skipping PTEs
+To: Anshuman Khandual <anshuman.khandual@arm.com>, akpm@linux-foundation.org
+Cc: ryan.roberts@arm.com, david@redhat.com, willy@infradead.org,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com,
+ will@kernel.org, Liam.Howlett@oracle.com, lorenzo.stoakes@oracle.com,
+ vbabka@suse.cz, jannh@google.com, peterx@redhat.com, joey.gouly@arm.com,
+ ioworker0@gmail.com, baohua@kernel.org, kevin.brodsky@arm.com,
+ quic_zhenhuah@quicinc.com, christophe.leroy@csgroup.eu,
+ yangyicong@hisilicon.com, linux-arm-kernel@lists.infradead.org,
+ namit@vmware.com, hughd@google.com, yang@os.amperecomputing.com,
+ ziy@nvidia.com
+References: <20250429052336.18912-1-dev.jain@arm.com>
+ <20250429052336.18912-3-dev.jain@arm.com>
+ <ebf73f29-dab4-4551-b1a0-951cae76b5ce@arm.com>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <ebf73f29-dab4-4551-b1a0-951cae76b5ce@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_030653_819777_D2B9C45F 
-X-CRM114-Status: GOOD (  37.83  )
+X-CRM114-CacheID: sfid-20250429_095930_479957_C97916E5 
+X-CRM114-Status: GOOD (  18.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,134 +88,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Apr 2025 at 09:54, Nicolas Frattaroli
-<nicolas.frattaroli@collabora.com> wrote:
->
-> RK3576's power domains have a peculiar design where the PD_NVM power
-> domain, of which the sdhci controller is a part, seemingly does not have
-> idempotent runtime disable/enable. The end effect is that if PD_NVM gets
-> turned off by the generic power domain logic because all the devices
-> depending on it are suspended, then the next time the sdhci device is
-> unsuspended, it'll hang the SoC as soon as it tries accessing the CQHCI
-> registers.
->
-> RK3576's UFS support needed a new dev_pm_genpd_rpm_always_on function
-> added to the generic power domains API to handle what appears to be a
-> similar hardware design.
->
-> Use this new function to ask for the same treatment in the sdhci
-> controller by giving rk3576 its own platform data with its own postinit
-> function. The benefit of doing this instead of marking the power domains
-> always on in the power domain core is that we only do this if we know
-> the platform we're running on actually uses the sdhci controller. For
-> others, keeping PD_NVM always on would be a waste, as they won't run
-> into this specific issue. The only other IP in PD_NVM that could be
-> affected is FSPI0. If it gets a mainline driver, it will probably want
-> to do the same thing.
->
-> Acked-by: Adrian Hunter <adrian.hunter@intel.com>
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-
-Applied for next, thanks!
-
-Kind regards
-Uffe
 
 
-> ---
-> Changes in v3:
-> - Reword comment and commit message to correct that this is not a
->   silicon bug, but seemingly intentional design with regards to runtime
->   power management.
-> - Link to v2: https://lore.kernel.org/r/20250412-rk3576-emmc-fix-v2-1-830e653ad4f0@collabora.com
->
-> Changes in v2:
-> - Rewrite patch to use dev_pm_genpd_rpm_always_on in sdhci driver
->   instead, after Ulf Hansson made me aware of its existence
-> - Link to v1: https://lore.kernel.org/r/20250408-rk3576-emmc-fix-v1-1-3009828b1b31@collabora.com
-> ---
->  drivers/mmc/host/sdhci-of-dwcmshc.c | 40 +++++++++++++++++++++++++++++++++++++
->  1 file changed, 40 insertions(+)
->
-> diff --git a/drivers/mmc/host/sdhci-of-dwcmshc.c b/drivers/mmc/host/sdhci-of-dwcmshc.c
-> index 09b9ab15e4995f0bddf57dd309c010c849be40d9..a20d03fdd6a93ecc5229c71f825bade5ac730370 100644
-> --- a/drivers/mmc/host/sdhci-of-dwcmshc.c
-> +++ b/drivers/mmc/host/sdhci-of-dwcmshc.c
-> @@ -17,6 +17,7 @@
->  #include <linux/module.h>
->  #include <linux/of.h>
->  #include <linux/platform_device.h>
-> +#include <linux/pm_domain.h>
->  #include <linux/pm_runtime.h>
->  #include <linux/reset.h>
->  #include <linux/sizes.h>
-> @@ -745,6 +746,29 @@ static void dwcmshc_rk35xx_postinit(struct sdhci_host *host, struct dwcmshc_priv
->         }
->  }
->
-> +static void dwcmshc_rk3576_postinit(struct sdhci_host *host, struct dwcmshc_priv *dwc_priv)
-> +{
-> +       struct device *dev = mmc_dev(host->mmc);
-> +       int ret;
-> +
-> +       /*
-> +        * This works around the design of the RK3576's power domains, which
-> +        * makes the PD_NVM power domain, which the sdhci controller on the
-> +        * RK3576 is in, never come back the same way once it's run-time
-> +        * suspended once. This can happen during early kernel boot if no driver
-> +        * is using either PD_NVM or its child power domain PD_SDGMAC for a
-> +        * short moment, leading to it being turned off to save power. By
-> +        * keeping it on, sdhci suspending won't lead to PD_NVM becoming a
-> +        * candidate for getting turned off.
-> +        */
-> +       ret = dev_pm_genpd_rpm_always_on(dev, true);
-> +       if (ret && ret != -EOPNOTSUPP)
-> +               dev_warn(dev, "failed to set PD rpm always on, SoC may hang later: %pe\n",
-> +                        ERR_PTR(ret));
-> +
-> +       dwcmshc_rk35xx_postinit(host, dwc_priv);
-> +}
-> +
->  static int th1520_execute_tuning(struct sdhci_host *host, u32 opcode)
->  {
->         struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> @@ -1176,6 +1200,18 @@ static const struct dwcmshc_pltfm_data sdhci_dwcmshc_rk35xx_pdata = {
->         .postinit = dwcmshc_rk35xx_postinit,
->  };
->
-> +static const struct dwcmshc_pltfm_data sdhci_dwcmshc_rk3576_pdata = {
-> +       .pdata = {
-> +               .ops = &sdhci_dwcmshc_rk35xx_ops,
-> +               .quirks = SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN |
-> +                         SDHCI_QUIRK_BROKEN_TIMEOUT_VAL,
-> +               .quirks2 = SDHCI_QUIRK2_PRESET_VALUE_BROKEN |
-> +                          SDHCI_QUIRK2_CLOCK_DIV_ZERO_BROKEN,
-> +       },
-> +       .init = dwcmshc_rk35xx_init,
-> +       .postinit = dwcmshc_rk3576_postinit,
-> +};
-> +
->  static const struct dwcmshc_pltfm_data sdhci_dwcmshc_th1520_pdata = {
->         .pdata = {
->                 .ops = &sdhci_dwcmshc_th1520_ops,
-> @@ -1274,6 +1310,10 @@ static const struct of_device_id sdhci_dwcmshc_dt_ids[] = {
->                 .compatible = "rockchip,rk3588-dwcmshc",
->                 .data = &sdhci_dwcmshc_rk35xx_pdata,
->         },
-> +       {
-> +               .compatible = "rockchip,rk3576-dwcmshc",
-> +               .data = &sdhci_dwcmshc_rk3576_pdata,
-> +       },
->         {
->                 .compatible = "rockchip,rk3568-dwcmshc",
->                 .data = &sdhci_dwcmshc_rk35xx_pdata,
->
-> ---
-> base-commit: f34da179a4517854b2ffbe4bce8c3405bd9be04e
-> change-id: 20250317-rk3576-emmc-fix-7dc81a627422
->
-> Best regards,
-> --
-> Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
->
+On 29/04/25 12:44 pm, Anshuman Khandual wrote:
+> On 4/29/25 10:53, Dev Jain wrote:
+>> In case of prot_numa, there are various cases in which we can skip to the
+>> next iteration. Since the skip condition is based on the folio and not
+>> the PTEs, we can skip a PTE batch.
+>>
+>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+>> ---
+>>   mm/mprotect.c | 27 ++++++++++++++++++++-------
+>>   1 file changed, 20 insertions(+), 7 deletions(-)
+>>
+>> diff --git a/mm/mprotect.c b/mm/mprotect.c
+>> index 70f59aa8c2a8..ec5d17af7650 100644
+>> --- a/mm/mprotect.c
+>> +++ b/mm/mprotect.c
+>> @@ -91,6 +91,9 @@ static bool prot_numa_skip(struct vm_area_struct *vma, struct folio *folio,
+>>   	bool toptier;
+>>   	int nid;
+>>   
+>> +	if (folio_is_zone_device(folio) || folio_test_ksm(folio))
+>> +		return true;
+>> +
+> 
+> Moving these here from prot_numa_avoid_fault() could have been done
+> earlier, while adding prot_numa_skip() itself in the previous patch
+> (in case this helper is determined to be really required).
+
+True. I'll do that.
+
+> 
+>>   	/* Also skip shared copy-on-write pages */
+>>   	if (is_cow_mapping(vma->vm_flags) &&
+>>   	    (folio_maybe_dma_pinned(folio) ||
+>> @@ -126,8 +129,10 @@ static bool prot_numa_skip(struct vm_area_struct *vma, struct folio *folio,
+>>   }
+>>   
+>>   static bool prot_numa_avoid_fault(struct vm_area_struct *vma,
+>> -		unsigned long addr, pte_t oldpte, int target_node)
+>> +		unsigned long addr, pte_t *pte, pte_t oldpte, int target_node,
+>> +		int max_nr, int *nr)
+>>   {
+>> +	const fpb_t flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
+> 
+> Flags are all correct.
+> 
+>>   	struct folio *folio;
+>>   	int ret;
+>>   
+>> @@ -136,12 +141,16 @@ static bool prot_numa_avoid_fault(struct vm_area_struct *vma,
+>>   		return true;
+>>   
+>>   	folio = vm_normal_folio(vma, addr, oldpte);
+>> -	if (!folio || folio_is_zone_device(folio) ||
+>> -	    folio_test_ksm(folio))
+>> +	if (!folio)
+>>   		return true;
+>> +
+>>   	ret = prot_numa_skip(vma, folio, target_node);
+>> -	if (ret)
+>> +	if (ret) {
+>> +		if (folio_test_large(folio) && max_nr != 1)
+> 
+> Conditional checks are all correct.
+> 
+>> +			*nr = folio_pte_batch(folio, addr, pte, oldpte,
+>> +					      max_nr, flags, NULL, NULL, NULL);
+>>   		return ret;
+>> +	}
+>>   	if (folio_use_access_time(folio))
+>>   		folio_xchg_access_time(folio,
+>>   			jiffies_to_msecs(jiffies));
+>> @@ -159,6 +168,7 @@ static long change_pte_range(struct mmu_gather *tlb,
+>>   	bool prot_numa = cp_flags & MM_CP_PROT_NUMA;
+>>   	bool uffd_wp = cp_flags & MM_CP_UFFD_WP;
+>>   	bool uffd_wp_resolve = cp_flags & MM_CP_UFFD_WP_RESOLVE;
+>> +	int nr;
+>>   
+>>   	tlb_change_page_size(tlb, PAGE_SIZE);
+>>   	pte = pte_offset_map_lock(vma->vm_mm, pmd, addr, &ptl);
+>> @@ -173,8 +183,10 @@ static long change_pte_range(struct mmu_gather *tlb,
+>>   	flush_tlb_batched_pending(vma->vm_mm);
+>>   	arch_enter_lazy_mmu_mode();
+>>   	do {
+>> +		nr = 1;
+> 
+> 'nr' resets each iteration.
+> 
+>>   		oldpte = ptep_get(pte);
+>>   		if (pte_present(oldpte)) {
+>> +			int max_nr = (end - addr) >> PAGE_SHIFT;
+> 
+> Small nit - 'max_nr' declaration could be moved earlier along with 'nr'.
+
+Sure.
+
+> 
+>>   			pte_t ptent;
+>>   
+>>   			/*
+>> @@ -182,8 +194,9 @@ static long change_pte_range(struct mmu_gather *tlb,
+>>   			 * pages. See similar comment in change_huge_pmd.
+>>   			 */
+>>   			if (prot_numa &&
+>> -			    prot_numa_avoid_fault(vma, addr,
+>> -						  oldpte, target_node))
+>> +			    prot_numa_avoid_fault(vma, addr, pte,
+>> +						  oldpte, target_node,
+>> +							  max_nr, &nr))
+>>   					continue;
+>>   
+>>   			oldpte = ptep_modify_prot_start(vma, addr, pte);
+>> @@ -300,7 +313,7 @@ static long change_pte_range(struct mmu_gather *tlb,
+>>   				pages++;
+>>   			}
+>>   		}
+>> -	} while (pte++, addr += PAGE_SIZE, addr != end);
+>> +	} while (pte += nr, addr += nr * PAGE_SIZE, addr != end);
+>>   	arch_leave_lazy_mmu_mode();
+>>   	pte_unmap_unlock(pte - 1, ptl);
+>>   
+> 
+> Otherwise LGTM
+
 
