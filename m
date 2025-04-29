@@ -4,64 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95C56C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 00:32:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 434B6C369D5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 00:46:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7HvGh0vHf0aJ5hPlx2/mvouJllSqfDDAfiDS+F1oxn0=; b=UcSAEAUSCTJB3XUF125bMUis/U
-	73YsWfhVgGvzeO7BHCmfhOuUi5e8bKV251GGwSY8iFNpZohbPTSTsaDAbniyrnWDN6Y6bNpWFEZzV
-	/IBOHlRURxDT+dQzudX13A+DKvI+qxEfHI0a4CkLW7J6/XSdb0PFJwM4mv5uTxBdI4PstCU6xpk/s
-	E7Vw3q3mx2ND4Gvujiwsq8GNNiOkr0uhZ8deIyE2Q5SXvd8vDc8LsfIvyL1ucGEG2/DD6tj98RHUx
-	1sMtGzLUXlQojyastqHZ1vzOwdGrxUnUnc4hVYmQF/z1flWyqgo6xXNYHDqK45WXmjmhbVTUpswzW
-	HyMQZTnQ==;
+	bh=+aoBAoeFpkctJ6JqzIU/vyQwUkSp0QwqX2H1qRlEkgw=; b=2nMmZ4nuUb7bcTdSwUH9qIYSgs
+	3OUQnXowYyWX0fqKy71VwaqPJxfG8jBTC10Q3ZooG8LZog5FKELup+BSQdHWbsorPm1hF6hexH+Oe
+	B5gstye9Ynx7/eG4Vw47/EjRx9LnDS+DY58lbyXgDpS73csGTiwIEA8W6T6PYpkcIZ7vpbpVBkh0x
+	Ha9hzIHa2P2Wf45T+YTBg2balE35O6k8iDGPo7WiuBZOFRzRH8rXeW/2jG6FVRScW4J9382agTJwP
+	BQh6Wf+GX1n90Rs32ENmaNirVI1QVh/ul/O81Pod8+M5qZAQolZAEPGsmE99CGMn5kYp7gowoFvHI
+	RQs5mmgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Yt5-00000007tbC-2Gu7;
-	Tue, 29 Apr 2025 00:31:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u9Z7C-00000007wIO-3i7f;
+	Tue, 29 Apr 2025 00:46:26 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9YrB-00000007tNA-05kq
+	id 1u9Z5G-00000007w8z-3LkM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 00:29:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D245C614AE;
-	Tue, 29 Apr 2025 00:29:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6DB8C4CEE4;
-	Tue, 29 Apr 2025 00:29:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745886591;
-	bh=xLvpM+/YuRZqwaRcqxD1kjCWYPLCDIfbBOLIg1SMM40=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=H0TKN022OBo+yn8vkT+oPyNAhr90AwmTrpcYsory0cjH1Jc8N3vZ7z9ZFLCKPcjpE
-	 ombPm2xswWQAHqZP7OJKpBZkEP06mqxGjtRgeNeQQz60Ro+EecpCkyxIQI+CmKogod
-	 SPf7v/JOBZduqwm7DjZ0EhfZm7J8Flw7hiC1zwzyz5ZCzL1qjBWUm/QZyhqhN69MNH
-	 Yhh8n3PVgHhapQ8LJ+FhPX3GJqWR0f4ajg7yCdno74nhmtiKeb3zrcLYILkghzBjv1
-	 SNljoD0ABy+LMW4pa9i5tmnGT81Vb+7X4AMTgeC0f5ttURx9IJJYJ0BqKBq95APsYq
-	 h29HxEULil7fw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAF0A3822D4A;
-	Tue, 29 Apr 2025 00:30:31 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Tue, 29 Apr 2025 00:44:28 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-301918a4e3bso6077652a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 17:44:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=lessconfused.com; s=lessconfused; t=1745887466; x=1746492266; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+aoBAoeFpkctJ6JqzIU/vyQwUkSp0QwqX2H1qRlEkgw=;
+        b=UEGAmY/gHbx6zf1fmLYGmUS9GcUWa5Bil1F1UUsmcPHJI9pbF3xdp8vp13RbmLWvst
+         06SoCVSDC5Piz4mk8J/fzrrvY5O7A4M1go9l7GkImXm8Tv4tkvlN2jgAGHk9nEkNjFjt
+         ZJJ922gK6OxoJguD3VM9jG/QBaWxLHjjwy/aA=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745887466; x=1746492266;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+aoBAoeFpkctJ6JqzIU/vyQwUkSp0QwqX2H1qRlEkgw=;
+        b=saUwHWj1r9DzgGXpuFLuU7/RikFkE8iwTua7ouJhJs1gjjqfUbHUcPWDcL3SEe/Sim
+         u2MlcNrSpaz1TYyS4ifjLEAnCjq4ensmiWTAlf1V1BW1VN/KK+83AnkgH9UhD6geBB8z
+         14e+MKn15GHxG4UduXYUV1ZSqBe/nTugczE8B0w4KREkPud7ikRYIkE+201VrBNeQVBL
+         20vwhMVUlXTLNI7DAb6hz31uXzIt4b6rhoBkCKQ7V00aQOMRUuDUNFOvzZLtDSnMV4mU
+         JR1DF1/fkzZ8M/7qVTAd1ImXGjuKoI2+JnK54O3V221Vpv+s8/ZAfVPa5iOZoBjcB5ju
+         2RSg==
+X-Forwarded-Encrypted: i=1; AJvYcCUCsEJGFajBu3fDj8bPzo4dg0kmATDtIL8KiaYQ7alC7RmEr7o/DFNAXeCGXtRC0wvT1fOX9IXuW+o57BUsytGM@lists.infradead.org
+X-Gm-Message-State: AOJu0YxdFt1s7YNWPWeXMtpAmpJneTfe+/VE1lDMmSbZdcRectDNnU/r
+	sNtKK+DvDptDSTKXUqJZaOx0Is1EXlWl4jqgbglAYbgyqum0QzT2atSy3EbgaIYxz+5IEbCI+Fu
+	NK9bb+w2j12O2ATtgg18XL1dyGx1CT+usQsXYeQ==
+X-Gm-Gg: ASbGnct8hacm+3sGIt+5yo/gdbMZRHnIxfQMDMftB7wJyWJwy/f7vKXujpfFKoQqRoF
+	Zx3JnjMY6wHVjKR7bSDE4Cjq4r/UbGULjLIWgIxL39c+1amSy7AyH0VP1j3nBd6xJAgpUUqsvgL
+	Lri3ObJtRyNNYV1lUolmsq14AZtSOYRniquueJvSPlIy8rtvpFVUQWnFE=
+X-Google-Smtp-Source: AGHT+IFjPL18h5P/u4F4dyTMOcvewGcroYbUT0gU7VtQUvVqhIshw60ZVQaT8g8ZD4qgd/tbKkO0lKtc/fcYY5m9kdU=
+X-Received: by 2002:a17:90b:280c:b0:301:6343:1626 with SMTP id
+ 98e67ed59e1d1-30a21546d6fmr2342151a91.1.1745887465903; Mon, 28 Apr 2025
+ 17:44:25 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v3] net: ti: icssg-prueth: Add ICSSG FW Stats
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <174588663075.1088650.16999100387793787155.git-patchwork-notify@kernel.org>
-Date: Tue, 29 Apr 2025 00:30:30 +0000
-References: <20250424095316.2643573-1-danishanwar@ti.com>
-In-Reply-To: <20250424095316.2643573-1-danishanwar@ti.com>
-To: MD Danish Anwar <danishanwar@ti.com>
-Cc: dan.carpenter@linaro.org, m-malladi@ti.com, lee@trager.us,
- maddy@linux.ibm.com, arnd@arndb.de, mpe@ellerman.id.au,
- andrew+netdev@lunn.ch, rogerq@kernel.org, corbet@lwn.net, horms@kernel.org,
- pabeni@redhat.com, kuba@kernel.org, edumazet@google.com, davem@davemloft.net,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, netdev@vger.kernel.org, srk@ti.com,
- vigneshr@ti.com
+References: <20250425192009.1439508-1-da@libre.computer> <20250428181242.GG3339421@horms.kernel.org>
+In-Reply-To: <20250428181242.GG3339421@horms.kernel.org>
+From: Da Xue <da@lessconfused.com>
+Date: Mon, 28 Apr 2025 20:44:14 -0400
+X-Gm-Features: ATxdqUEf_AoTzAnuf_I1pvf8_AvQf7sxk_KOWa8wGk2GqUmGhIm8SEm3MmjT6RI
+Message-ID: <CACdvmAhcBmoDNyuu0npZzyExfhyLKdyPw9HvHvV+OdADxEfJJQ@mail.gmail.com>
+Subject: Re: [PATCH v3] net: mdio: mux-meson-gxl: set reversed bit when using
+ internal phy
+To: Simon Horman <horms@kernel.org>
+Cc: Da Xue <da@libre.computer>, Andrew Lunn <andrew@lunn.ch>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Kevin Hilman <khilman@baylibre.com>, 
+	Russell King <linux@armlinux.org.uk>, stable@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, Eric Dumazet <edumazet@google.com>, netdev@vger.kernel.org, 
+	Jerome Brunet <jbrunet@baylibre.com>, Jakub Kicinski <kuba@kernel.org>, 
+	linux-amlogic@lists.infradead.org, Paolo Abeni <pabeni@redhat.com>, 
+	"David S. Miller" <davem@davemloft.net>, linux-arm-kernel@lists.infradead.org, 
+	Heiner Kallweit <hkallweit1@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250428_174426_837625_AF7DB61A 
+X-CRM114-Status: GOOD (  23.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,31 +99,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On Mon, Apr 28, 2025 at 2:13=E2=80=AFPM Simon Horman <horms@kernel.org> wro=
+te:
+>
+> On Fri, Apr 25, 2025 at 03:20:09PM -0400, Da Xue wrote:
+> > This bit is necessary to receive packets from the internal PHY.
+> > Without this bit set, no activity occurs on the interface.
+> >
+> > Normally u-boot sets this bit, but if u-boot is compiled without
+> > net support, the interface will be up but without any activity.
+> >
+> > The vendor SDK sets this bit along with the PHY_ID bits.
+>
+> I'd like to clarify that:
+> Without this patch the writel the patch is modifying will clear the PHY_I=
+D bit.
+> But despite that the system works if at some point (uboot) set the PHY_ID=
+ bit?
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Correct. If this is set once, it will work until the IP is powered
+down or reset.
+If u-boot does not set it, Linux will not set it and the IP will not work.
+If u-boot does set it, the IP will not work after suspend-resume since
+the IP is reset.
+Thus, we need to set it on the Linux side when bringing up the interface.
 
-On Thu, 24 Apr 2025 15:23:16 +0530 you wrote:
-> The ICSSG firmware maintains set of stats called PA_STATS.
-> Currently the driver only dumps 4 stats. Add support for dumping more
-> stats.
-> 
-> The offset for different stats are defined as MACROs in icssg_switch_map.h
-> file. All the offsets are for Slice0. Slice1 offsets are slice0 + 4.
-> The offset calculation is taken care while reading the stats in
-> emac_update_hardware_stats().
-> 
-> [...]
+>
+> >
+> > Fixes: 9a24e1ff4326 ("net: mdio: add amlogic gxl mdio mux support");
+>
+> I don't think you need to resend because of this,
+> but the correct syntax is as follows. (No trailing ';'.)
 
-Here is the summary with links:
-  - [net-next,v3] net: ti: icssg-prueth: Add ICSSG FW Stats
-    https://git.kernel.org/netdev/net-next/c/0d15a26b247d
+Great and thanks! I just set up git send-email so I'm a little rough
+around the edges.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+>
+> Fixes: 9a24e1ff4326 ("net: mdio: add amlogic gxl mdio mux support")
+>
+> > Signed-off-by: Da Xue <da@libre.computer>
+> > ---
+> > Changes since v2:
+> > * Rename REG2_RESERVED_28 to REG2_REVERSED
+> >
+> > Link to v2:
+> > https://patchwork.kernel.org/project/linux-amlogic/patch/20250331074420=
+.3443748-1-christianshewitt@gmail.com/
+>
+> ...
+>
+> _______________________________________________
+> linux-amlogic mailing list
+> linux-amlogic@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-amlogic
 
