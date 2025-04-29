@@ -4,70 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55739C3ABA5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CF89C369DC
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 14:13:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oDwIkddYcjzqpY0qn+RN60cxRzSZFEEPA0b1jtHao/Y=; b=cLWfbgnQ8P8Fc58/4ua7ccRk27
-	VwSh4C/6dzswsCEYZCwwqC/NIw2qOpW2dUOtR6OGGDTR9PoX2qWp5NYl1zsvqaAXx4/k4GAxHNpsC
-	PYBqdVwEakJe1fy20ZQFCf4BaO2SGhQYoegWj5JTg5dMoYAbJSrKCfpzXy6w/hhzxrDTBJqlNxksc
-	cnclcmclMM6wE4gW886dfaR9U1KUhaBEaIey2a0sHxXqWknsnRjS3udgHq13ZQhRXu3V1Ss865DEU
-	E8amvKAZ2Xj5HPpQBxblIH5JzRs78hfeMI6cUI3YZIGKyKqDvBqd7jEuTgeFoOpoUwxLD3a0PKU9o
-	9yaUK+Ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JNIeCvRJ59hmZ1OuvgQ2L3CemabnrU2FtguWiVOSCkE=; b=DDy3Ge5vMN0fsS+9lISml2R2/M
+	iYqe6Q4NwJB4SYRW4wnhnFaeD8Cy0jONm/cZbthZD7b+xubHQkYpMVs2k5OTBWHWniH8YVBjeoWcH
+	yP1APMIQE18OuBr3mwHDvPbl1aqeEGXI9buX0msIOWya/lsEbW8ioielI4fxrcnhWzaIW2ypaEcs5
+	szboyrXYr6ID5ZjW8jLGvrlaWw76zZqdlm0Nnwah18K/ZX0z6l1q7x2nYEr9w5dmND9gVxIDpfmjA
+	jbeDhTBqM1pYZGs74QsWvDNoxYWO0Bz2U8VmnKt4w+d0+9uyZ9z8H28XbH9+iy+6JuKRyPGvshNk5
+	tM2F6jQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9lhm-00000009rth-28Dg;
-	Tue, 29 Apr 2025 14:13:02 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	id 1u9lhi-00000009rr5-3eoW;
+	Tue, 29 Apr 2025 14:12:58 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9jSS-00000009YWU-2RyJ
+	id 1u9jNE-00000009XGc-0ab3
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 29 Apr 2025 11:43:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=JNIeCvRJ59hmZ1OuvgQ2L3CemabnrU2FtguWiVOSCkE=; b=Dh3Jz5VkqPktv8DT2U6ZTMsFmt
+	N6cBKXeyayq6kg+ieUI1gXkhe8fpqZ5mmgkVKFlchVN9IBrvLeJMk3oRN9UJzL/YNAdR1f8vVPD3B
+	arIBwa/9c63KlW6bbnZYLMUrkJAC4/NqQRSHhALT4C/M4efJb/sse/iKSXZZshxOxDitaZlZROBgy
+	gDjdwDCPWGVUgX6SmrLzHWwfys4NdcVa6uHetE/9e97b4shvOXwPXZ9CTx/Y5Jq7nNtJNki3fG5sB
+	NOGycnzGpC+mN1qCvJNchEZdCPVkVsQuCoNTyTrr67qZ4jtLeLm1e3Jex/r5GanHqzgZz3oxSdpp5
+	OshzA0eQ==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u9jN9-0000000DHgK-3pmb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 11:49:05 +0000
-Received: from gaggiata.pivistrello.it (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id 070E81F945;
-	Tue, 29 Apr 2025 13:49:03 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1745927343;
-	bh=oDwIkddYcjzqpY0qn+RN60cxRzSZFEEPA0b1jtHao/Y=;
-	h=Received:From:To:Subject;
-	b=kZN9ESihpGKMvPY4cStlEn6RlCOnHRvDpolr94jqob8QWMXuZSmIGMA/LL2RgepaF
-	 enHO+t6u/Ug1npMjfqK4EfrjvnMgezzOJ3Jo8m2UxqJUjiJ9n/1of4majt2inv70wb
-	 bCcNx/65qczywfHfoXMUXd/8fWtBDSqnbZYHUlQ3ct85QGyW8JtoamDHRg0ryC8cX8
-	 7djC+wHLUcFTMTd5gfWaTt5aKa4j7lF5d5zJBs1GhxFm4frAhxQKakwhnMjLEtPoAe
-	 Dl5lhkIU4s/GInKY8O7f2co6OAwK2PAMBnbGeFe8FR06mn3vQKtxo1j9rs/cH5vxLn
-	 H3slz76KCoPOw==
-Received: by gaggiata.pivistrello.it (Postfix, from userid 1000)
-	id 7A8997F9D9; Tue, 29 Apr 2025 13:49:02 +0200 (CEST)
-Date: Tue, 29 Apr 2025 13:49:02 +0200
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Lucas Stach <l.stach@pengutronix.de>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	Francesco Dolcini <francesco@dolcini.it>, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux@ew.tq-group.com
-Subject: Re: [PATCH 0/6] arm64: dts: imx: Move Ethernet aliases out of SoC
- DTSI
-Message-ID: <aBC8rvt-u8P4Qlzw@gaggiata.pivistrello.it>
-References: <20250425-dts-imx-aliases-ethernet-v1-0-15b9d5cca611@linaro.org>
- <e97d3388a5b4272d70d7379b020843a47874a104.camel@pengutronix.de>
+	Tue, 29 Apr 2025 11:43:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5D63DA4AE03;
+	Tue, 29 Apr 2025 11:38:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6D4BC4CEE3;
+	Tue, 29 Apr 2025 11:43:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745927011;
+	bh=9ZzZ2PUUe62ESKAkB2c5E8q80p5NNCf2tGXDF7sXtlA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Eef7Ny0Nw1TSqWdRODz4I099aCTZln80IlK5ML2ODp35P7NV5Z6uBafKBI2BCfT8j
+	 tG2CgqLMZlwc4X0do2X9+RG6vD7NwjCs8tHxqGyLJmWaoigZTlntAaqxKcIH72uG/p
+	 /r3QtlD3RNShyID2I6kIaC2qUhde7kLVU+DQJt6euHZn+r63H0UAi6J24qKhZ5RNOU
+	 95bbx+r3K7t6dbSKnfbZnBrB0DDxybnaSNdCDNDQDNUVmMP2QMS7JHDgBFWFzYqcQG
+	 caEGtoF+F3QvYBbQNKAZz/cwsj+ZuXk7Heayg6DOSjtDUU+hZIWHQSNPVl+HpJ2r5K
+	 zA3PfYHylyxOA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1u9jN3-009t4S-LJ;
+	Tue, 29 Apr 2025 12:43:29 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	D Scott Phillips <scott@os.amperecomputing.com>
+Subject: [PATCH v2] KVM: arm64: Force HCR_EL2.xMO to 1 at all times in VHE mode
+Date: Tue, 29 Apr 2025 12:43:26 +0100
+Message-Id: <20250429114326.3618875-1-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <e97d3388a5b4272d70d7379b020843a47874a104.camel@pengutronix.de>
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, mark.rutland@arm.com, scott@os.amperecomputing.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_044904_775473_3A05E084 
-X-CRM114-Status: UNSURE (   8.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250429_124336_931243_A3B09046 
+X-CRM114-Status: GOOD (  20.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,19 +100,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+We keep setting and clearing these bits depending on the role of
+the host kernel, mimicking what we do for nVHE. But that's actually
+pretty pointless, as we always want physical interrupts to make it
+to the host, at EL2.
 
-On Tue, Apr 29, 2025 at 11:39:20AM +0200, Lucas Stach wrote:
-> Am Freitag, dem 25.04.2025 um 21:48 +0200 schrieb Krzysztof Kozlowski:
-> > Ethernet interface, like other exposed interfaces, aliases depend on
-> > actual board configuration, e.g. its labeling, thus aliases should be
-> > defined per each board or each SoM.
-> > 
-> Breaking existing users for the sake of aligning the i.MX platform with more
-> idiomatic DT usage does not seem to be a worthwhile trade-off to me.
+This has also two problems:
 
-FWIW, I agree with Lucas.
+- it prevents IRQs from being taken when these bits are cleared
+  if the implementation has chosen to implement these bits as
+  masks when HCR_EL2.{TGE,xMO}=={0,0}
 
-Francesco
+- it triggers a bad erratum on the AmpereOne HW, which catches
+  fire on clearing these bits while an interrupt is being taken
+  (AC03_CPU_36).
+
+Let's kill these two birds with a single stone, and permanently
+set the xMO bits when running VHE. This involves a bit of surgery
+on code paths that rely on flipping these bits on and off for
+other purposes.
+
+Note that the earliest setting of hcr_el2 (in the init_hcr_el2
+macro) is left untouched as is runs extremely early, with interrupts
+disabled, and soon enough overwritten with the final value containing
+the xMO bits.
+
+Reported-by: D Scott Phillips <scott@os.amperecomputing.com>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/include/asm/kvm_arm.h |  2 +-
+ arch/arm64/kvm/hyp/vgic-v3-sr.c  | 36 +++++++++++++++++++-------------
+ 2 files changed, 22 insertions(+), 16 deletions(-)
+
+diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+index 974d72b5905b8..bba4b0e930915 100644
+--- a/arch/arm64/include/asm/kvm_arm.h
++++ b/arch/arm64/include/asm/kvm_arm.h
+@@ -100,7 +100,7 @@
+ 			 HCR_FMO | HCR_IMO | HCR_PTW | HCR_TID3 | HCR_TID1)
+ #define HCR_HOST_NVHE_FLAGS (HCR_RW | HCR_API | HCR_APK | HCR_ATA)
+ #define HCR_HOST_NVHE_PROTECTED_FLAGS (HCR_HOST_NVHE_FLAGS | HCR_TSC)
+-#define HCR_HOST_VHE_FLAGS (HCR_RW | HCR_TGE | HCR_E2H)
++#define HCR_HOST_VHE_FLAGS (HCR_RW | HCR_TGE | HCR_E2H | HCR_AMO | HCR_IMO | HCR_FMO)
+ 
+ #define HCRX_HOST_FLAGS (HCRX_EL2_MSCEn | HCRX_EL2_TCR2En | HCRX_EL2_EnFPM)
+ #define MPAMHCR_HOST_FLAGS	0
+diff --git a/arch/arm64/kvm/hyp/vgic-v3-sr.c b/arch/arm64/kvm/hyp/vgic-v3-sr.c
+index ed363aa3027e5..50aa8dbcae75b 100644
+--- a/arch/arm64/kvm/hyp/vgic-v3-sr.c
++++ b/arch/arm64/kvm/hyp/vgic-v3-sr.c
+@@ -429,23 +429,27 @@ u64 __vgic_v3_get_gic_config(void)
+ 	/*
+ 	 * To check whether we have a MMIO-based (GICv2 compatible)
+ 	 * CPU interface, we need to disable the system register
+-	 * view. To do that safely, we have to prevent any interrupt
+-	 * from firing (which would be deadly).
++	 * view.
+ 	 *
+-	 * Note that this only makes sense on VHE, as interrupts are
+-	 * already masked for nVHE as part of the exception entry to
+-	 * EL2.
+-	 */
+-	if (has_vhe())
+-		flags = local_daif_save();
+-
+-	/*
+ 	 * Table 11-2 "Permitted ICC_SRE_ELx.SRE settings" indicates
+ 	 * that to be able to set ICC_SRE_EL1.SRE to 0, all the
+ 	 * interrupt overrides must be set. You've got to love this.
++	 *
++	 * As we always run VHE with HCR_xMO set, no extra xMO
++	 * manipulation is required in that case.
++	 *
++	 * To safely disable SRE, we have to prevent any interrupt
++	 * from firing (which would be deadly). This only makes sense
++	 * on VHE, as interrupts are already masked for nVHE as part
++	 * of the exception entry to EL2.
+ 	 */
+-	sysreg_clear_set(hcr_el2, 0, HCR_AMO | HCR_FMO | HCR_IMO);
+-	isb();
++	if (has_vhe()) {
++		flags = local_daif_save();
++	} else {
++		sysreg_clear_set(hcr_el2, 0, HCR_AMO | HCR_FMO | HCR_IMO);
++		isb();
++	}
++
+ 	write_gicreg(0, ICC_SRE_EL1);
+ 	isb();
+ 
+@@ -453,11 +457,13 @@ u64 __vgic_v3_get_gic_config(void)
+ 
+ 	write_gicreg(sre, ICC_SRE_EL1);
+ 	isb();
+-	sysreg_clear_set(hcr_el2, HCR_AMO | HCR_FMO | HCR_IMO, 0);
+-	isb();
+ 
+-	if (has_vhe())
++	if (has_vhe()) {
+ 		local_daif_restore(flags);
++	} else {
++		sysreg_clear_set(hcr_el2, HCR_AMO | HCR_FMO | HCR_IMO, 0);
++		isb();
++	}
+ 
+ 	val  = (val & ICC_SRE_EL1_SRE) ? 0 : (1ULL << 63);
+ 	val |= read_gicreg(ICH_VTR_EL2);
+-- 
+2.39.2
 
 
