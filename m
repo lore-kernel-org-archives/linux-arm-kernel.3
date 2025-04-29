@@ -4,103 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82701C3ABAD
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 14:13:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD76AC3ABA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 14:13:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7lSXy23NyIoCnv7AdynnvVePkNuQAzOXFJ7Vp/Rq3+Y=; b=daLcOmYaw0LjBIskqk8hhrci8y
-	wkgOiYFSdca1reHW20bZsxX23Ww3FC7o5brqNVeT/JAkezsBAd3Fr/kM1zMA5z03KCrxQPLSX2DbT
-	KsQn0M7BfLQY4xobgG+WZs4M+Uf1eeTjo8M/tyTei59Dbg2dv0GgIFVSUte5eyeReqgG8owb3LjrW
-	ni2is7mLkrfUrUBu/ZcdF73+gBH5uocG35QGLq1cVmbR/epYk5jPgOhQySm0KL1lr8TDndBZzwaHQ
-	d1BePpAAqPQ9b/IwMpumG0oKZ2qkFL4E4KQoslOmGOZbljes6B+gmQTqjkubaS5ymUYIV868fO58o
-	DbNiwk/g==;
+	bh=QAvR8bHc7xRGQ12NxG7wqG8ta/oQ0TQJr7gEjuwlswM=; b=Ed09EJYPKMz9r7vTyWtRHsgipy
+	Tr1nedtoNKM3o5jvPqSi+hLwIz5QUavCNE1rXdPfxBhY+kamj2bxEyXhhgNsTj67ms/9rHZ3bLkK5
+	LTkPgbFzkIgq9XDb4JlhIIxtHYOQIIYU5JIGVrKoBWEa5VW/Usz2W55clTpYfGFCwhNspxH9L6Ipt
+	5coEqLKSNDeF5X/dwQuP7T3MCpf2MXdd7FQOuyHKwvJKNaHaFWrim5kMCyx0pT3SLsn433Yz9Kv98
+	RkKftKZ9v1ThwjSZsJ7qqTUMNHdM/JVOV7W/ywkeA/j0q4YKvjojhCrsyhDVSvisGgYZ+CWR7Pf3U
+	49cM5u6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9lhu-00000009s1G-1ODg;
-	Tue, 29 Apr 2025 14:13:10 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1u9lhy-00000009s8Z-2Bzy;
+	Tue, 29 Apr 2025 14:13:14 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9kEd-00000009fMy-0qU5
+	id 1u9kTm-00000009h5p-38LD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 12:38:53 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53TAJdTg011895;
-	Tue, 29 Apr 2025 12:38:40 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	Tue, 29 Apr 2025 12:54:32 +0000
+Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53TB98ZF013482;
+	Tue, 29 Apr 2025 14:54:21 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	7lSXy23NyIoCnv7AdynnvVePkNuQAzOXFJ7Vp/Rq3+Y=; b=FnFGdDEiI58Sb7yp
-	FTHPu9DczkUUdrTuh0zEo2+XzJIwkN5pH6Jf4aKNLXiPl8t4XgHz8/sSYiPRPVOG
-	lPMFk49zqmoNzbPpb/cuN1HRGF6irtPbN7xabVh5QxBU4yWDg+wAV/ZaVaBgeOnG
-	A+go4kBx0eYCtI3Nhao3nu5dkQy31GIyFJ1eYj27NuHIyybC2A0vHVYdIUVpZ1f3
-	4PyKTZ4GJhUd21MoPe1XV3XRW2niUy8YXgS2GckYuQE0r7WIMSzgoVCIf9f89e/2
-	ffHPRG5TmsfHvonDe3C9Eg8SS4yLcDjbdcRGglP9iBMug20FK/A9Gc9T3Md+tCVg
-	r5w3rA==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 468q324fs2-1
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	QAvR8bHc7xRGQ12NxG7wqG8ta/oQ0TQJr7gEjuwlswM=; b=gpgoSvPemAGq7hwu
+	LXd1p1LJrw48X1vgcZfrVdt6FuTYgV4yCeFlkTNgTsCmnupRfTE3CD1vpz2gKO5X
+	ef+gcBhjS6Qq1u8HRCerkACbYWwPGKMTVkhxI9upO6AcgxdxHr9Eujumynak9+vC
+	TOzizTyXYfpypk8T46fiBpbzAjAqmKLY/bS97ubPn4oXUF+sJWRczG2j5xGnffeb
+	a70nZiMRbVRN7y/znCoN/u9ixfHsZRY+RF0jVoIonvMzy7O7KJNL7b/+iIt2ZAs6
+	f0vwvDVtV3Li7yipAjoDPnahoKSaSMRZg3WMrf22H2JCnuFIsmOPqc7eQYrM0W1V
+	5zvXTA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 468mwm3pda-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 29 Apr 2025 12:38:39 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53TCcc8r001801
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 29 Apr 2025 12:38:38 GMT
-Received: from [10.239.133.49] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Tue, 29 Apr
- 2025 05:38:35 -0700
-Message-ID: <14b9213c-7a33-4fc5-89a6-65af1ae67de2@quicinc.com>
-Date: Tue, 29 Apr 2025 20:38:33 +0800
+	Tue, 29 Apr 2025 14:54:21 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 630454004D;
+	Tue, 29 Apr 2025 14:53:12 +0200 (CEST)
+Received: from Webmail-eu.st.com (eqndag1node4.st.com [10.75.129.133])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 648E6A7751D;
+	Tue, 29 Apr 2025 14:51:49 +0200 (CEST)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE4.st.com
+ (10.75.129.133) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 29 Apr
+ 2025 14:51:49 +0200
+Received: from localhost (10.252.5.160) by SAFDAG1NODE1.st.com (10.75.90.17)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 29 Apr
+ 2025 14:51:48 +0200
+From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+To: <daniel.lezcano@linaro.org>, <lee@kernel.org>,
+        <alexandre.torgue@foss.st.com>, <tglx@linutronix.de>
+CC: <ukleinek@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <jic23@kernel.org>, <robh@kernel.org>, <catalin.marinas@arm.com>,
+        <will@kernel.org>, <devicetree@vger.kernel.org>, <wbg@kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-iio@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
+        <olivier.moysan@foss.st.com>, <fabrice.gasnier@foss.st.com>
+Subject: [PATCH v6 4/7] pwm: stm32-lp: add support for stm32mp25
+Date: Tue, 29 Apr 2025 14:51:30 +0200
+Message-ID: <20250429125133.1574167-5-fabrice.gasnier@foss.st.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250429125133.1574167-1-fabrice.gasnier@foss.st.com>
+References: <20250429125133.1574167-1-fabrice.gasnier@foss.st.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] coresight: cti: Add Qualcomm extended CTI support
-To: Mike Leach <mike.leach@linaro.org>
-CC: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        James Clark
-	<james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Alexander Shishkin
-	<alexander.shishkin@linux.intel.com>,
-        <coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-msm@vger.kernel.org>
-References: <20250429071841.1158315-1-quic_jinlmao@quicinc.com>
- <20250429071841.1158315-3-quic_jinlmao@quicinc.com>
- <CAJ9a7ViLqe=b+fe+vEZGFWLk3puN1d5V5D6M7mG6f8-QSSs4VQ@mail.gmail.com>
-Content-Language: en-US
-From: Jinlong Mao <quic_jinlmao@quicinc.com>
-In-Reply-To: <CAJ9a7ViLqe=b+fe+vEZGFWLk3puN1d5V5D6M7mG6f8-QSSs4VQ@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=M7xNKzws c=1 sm=1 tr=0 ts=6810c850 cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=5fHrK8YIULuiGrlOEc8A:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: ViG1Yzv1Ynqek6LjVeLUjthg21d8ZS8c
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI5MDA5NCBTYWx0ZWRfXwNbib33LzX85 VSV1zyrNElSok1hEKIb6XpwqI8D3JIuEwjV+1lPUswjCGp86jZt+Za3K9EZ+9A534PJ4EDk5WYq ai6CpdQYrU78xaaa56uCt5XEE8/3S1snLlDgmdO1FXVemyUX/hzTQfW7T/48GWvG8CDP9rJIlEQ
- 3Kst/GN+Cp9s7YofJ5Efv0i8F3HWA1upbRo4HOp6fzta7XtZpefz63YA4mg6lylw80+J4a3q9p+ FKoqYGZ7iNzZeCgo0L2oa5bs+SitEO5VU7ak7lXsYMFCHDuXAhMyu8luUChC22g9qnjeCqRPBDo j4NHI5YZVQT8i4BaOnqwI30A05Ory8JJn243scSmpLo4PbkiBrtHXTmS2P9lmm/k7dI+PAOYplM
- 1fgXbNIBfCgAlpoALjiyDMYIe0xKm5z0tLtZcLZuHLNtGYq8DUjFu/twmmtSr0rkOwe1f/Rb
-X-Proofpoint-ORIG-GUID: ViG1Yzv1Ynqek6LjVeLUjthg21d8ZS8c
+X-Originating-IP: [10.252.5.160]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SAFDAG1NODE1.st.com
+ (10.75.90.17)
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
  definitions=2025-04-29_04,2025-04-24_02,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0
- priorityscore=1501 clxscore=1015 mlxlogscore=999 spamscore=0 phishscore=0
- bulkscore=0 adultscore=0 lowpriorityscore=0 suspectscore=0 malwarescore=0
- mlxscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
- definitions=main-2504290094
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_053851_389695_44D8738E 
-X-CRM114-Status: GOOD (  29.94  )
+X-CRM114-CacheID: sfid-20250429_055431_088065_E7C6A626 
+X-CRM114-Status: GOOD (  32.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,766 +100,369 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add support for STM32MP25 SoC. A new compatible has been added to the
+dt-bindings. It represents handle new features, registers and bits
+diversity.
+It isn't used currently in the driver, as matching is done by retrieving
+MFD parent data.
 
+New dedicated capture/compare channels has been added: e.g. a new compare
+register for channel 2. Some controls (polarity / cc channel enable) are
+handled in CCMR register on this new variant (instead of wavepol bit).
 
-On 2025/4/29 16:57, Mike Leach wrote:
-> Hi,
-> 
-> A few initial comments.
-> 
-> On Tue, 29 Apr 2025 at 08:19, Mao Jinlong <quic_jinlmao@quicinc.com> wrote:
->>
->> The QCOM extended CTI is a heavily parameterized version of ARM’s CSCTI.
->> It allows a debugger to send to trigger events to a processor or to send
->> a trigger event to one or more processors when a trigger event occurs
->> on another processor on the same SoC, or even between SoCs. For Qualcomm
->> extended CTI, it supports up to 128 triggers.
->>
->> Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
->> ---
->>   .../hwtracing/coresight/coresight-cti-core.c  | 127 ++++++++++++++----
->>   .../coresight/coresight-cti-platform.c        |  16 ++-
->>   .../hwtracing/coresight/coresight-cti-sysfs.c | 124 +++++++++++++----
->>   drivers/hwtracing/coresight/coresight-cti.h   |  72 +++++-----
->>   4 files changed, 240 insertions(+), 99 deletions(-)
->>
->> diff --git a/drivers/hwtracing/coresight/coresight-cti-core.c b/drivers/hwtracing/coresight/coresight-cti-core.c
->> index d2b5a5718c29..7fb5d31b0557 100644
->> --- a/drivers/hwtracing/coresight/coresight-cti-core.c
->> +++ b/drivers/hwtracing/coresight/coresight-cti-core.c
->> @@ -15,6 +15,7 @@
->>   #include <linux/kernel.h>
->>   #include <linux/list.h>
->>   #include <linux/mutex.h>
->> +#include <linux/of.h>
->>   #include <linux/pm_runtime.h>
->>   #include <linux/property.h>
->>   #include <linux/spinlock.h>
->> @@ -22,6 +23,54 @@
->>   #include "coresight-priv.h"
->>   #include "coresight-cti.h"
->>
->> +#define CTI_EXTENDED "qcom,coresight-cti-extended"
->> +
->> +static const int cti_normal_offset[] = {
->> +       0x010,          /* CTIINTACK */
->> +       0x014,          /* CTIAPPSET */
->> +       0x018,          /* CTIAPPCLEAR */
->> +       0x01C,          /* CTIAPPPULSE */
->> +       0x020,          /* CTIINEN */
->> +       0x0A0,          /* CTIOUTEN */
->> +       0x130,          /* CTITRIGINSTATUS */
->> +       0x134,          /* CTITRIGOUTSTATUS */
->> +       0x138,          /* CTICHINSTATUS */
->> +       0x13C,          /* CTICHOUTSTATUS */
->> +       0x140,          /* CTIGATE */
->> +       0x144,          /* ASICCTL */
->> +       0xEDC,          /* ITCHINACK */
->> +       0xEE0,          /* ITTRIGINACK */
->> +       0xEE4,          /* ITCHOUT */
->> +       0xEE8,          /* ITTRIGOUT */
->> +       0xEEC,          /* ITCHOUTACK */
->> +       0xEF0,          /* ITTRIGOUTACK */
->> +       0xEF4,          /* ITCHIN */
->> +       0xEF8,          /* ITTRIGIN */
->> +};
->> +
->> +static const int cti_extended_offset[] = {
->> +       0x020,          /* CTIINTACK */
->> +       0x004,          /* CTIAPPSET */
->> +       0x008,          /* CTIAPPCLEAR */
->> +       0x00C,          /* CTIAPPPULSE */
->> +       0x400,          /* CTIINEN */
->> +       0x800,          /* CTIOUTEN */
->> +       0x040,          /* CTITRIGINSTATUS */
->> +       0x060,          /* CTITRIGOUTSTATUS */
->> +       0x080,          /* CTICHINSTATUS */
->> +       0x084,          /* CTICHOUTSTATUS */
->> +       0x088,          /* CTIGATE */
->> +       0x08c,          /* ASICCTL */
->> +       0xE70,          /* ITCHINACK */
->> +       0xE80,          /* ITTRIGINACK */
->> +       0xE74,          /* ITCHOUT */
->> +       0xEA,           /* ITTRIGOUT */
->> +       0xE78,          /* ITCHOUTACK */
->> +       0xEC0,          /* ITTRIGOUTACK */
->> +       0xE7C,          /* ITCHIN */
->> +       0xEE0,          /* ITTRIGIN */
->> +};
->> +
->>   /*
->>    * CTI devices can be associated with a PE, or be connected to CoreSight
->>    * hardware. We have a list of all CTIs irrespective of CPU bound or
->> @@ -57,6 +106,12 @@ static struct cti_drvdata *cti_cpu_drvdata[NR_CPUS];
->>    */
->>   DEFINE_CORESIGHT_DEVLIST(cti_sys_devs, "cti_sys");
->>
->> +u32 cti_offset(struct cti_drvdata *drvdata, int index, int num)
->> +{
->> +       return (drvdata->is_extended_cti ? cti_extended_offset[index]
->> +                       : cti_normal_offset[index]) + (4 * num);
->> +}
->> +
->>   /* write set of regs to hardware - call with spinlock claimed */
->>   void cti_write_all_hw_regs(struct cti_drvdata *drvdata)
->>   {
->> @@ -70,15 +125,15 @@ void cti_write_all_hw_regs(struct cti_drvdata *drvdata)
->>
->>          /* write the CTI trigger registers */
->>          for (i = 0; i < config->nr_trig_max; i++) {
->> -               writel_relaxed(config->ctiinen[i], drvdata->base + CTIINEN(i));
->> +               writel_relaxed(config->ctiinen[i], drvdata->base + cti_offset(drvdata, CTIINEN, 0));
-> 
-> This changes the functionality - why is 'i' dropped - this looks like
-> it repeatedly writes to the same register, rather than all the trigger
-> registers.
+So, Low-power timer can now have up to two PWM outputs. Use device data
+from the MFD parent to configure the number of PWM channels e.g. 'npwm'.
 
-Yes. I missed 'i' here.
+Update current get_state() and apply() ops to support either:
+- one PWM channel (as on older revision, or LPTIM5 on STM32MP25)
+- two PWM channels (e.g. LPTIM1/2/3/4 on STM32MP25 that has the full
+  feature set)
+Introduce new routines to manage common prescaler, reload register and
+global enable bit.
 
-> 
->>                  writel_relaxed(config->ctiouten[i],
->> -                              drvdata->base + CTIOUTEN(i));
->> +                              drvdata->base + cti_offset(drvdata, CTIOUTEN, 0));
->>          }
->>
->>          /* other regs */
->> -       writel_relaxed(config->ctigate, drvdata->base + CTIGATE);
->> -       writel_relaxed(config->asicctl, drvdata->base + ASICCTL);
->> -       writel_relaxed(config->ctiappset, drvdata->base + CTIAPPSET);
->> +       writel_relaxed(config->ctigate, drvdata->base + cti_offset(drvdata, CTIGATE, 0));
->> +       writel_relaxed(config->asicctl, drvdata->base + cti_offset(drvdata, ASICCTL, 0));
->> +       writel_relaxed(config->ctiappset, drvdata->base + cti_offset(drvdata, CTIAPPSET, 0));
->>
-> 
-> 
-> 
->>          /* re-enable CTI */
->>          writel_relaxed(1, drvdata->base + CTICONTROL);
->> @@ -99,10 +154,13 @@ static int cti_enable_hw(struct cti_drvdata *drvdata)
->>          if (config->hw_enabled || !config->hw_powered)
->>                  goto cti_state_unchanged;
->>
->> -       /* claim the device */
->> -       rc = coresight_claim_device(drvdata->csdev);
->> -       if (rc)
->> -               goto cti_err_not_enabled;
->> +       /* There is no relationship between the CLR and SET pair for extended CTI. */
-> 
-> The CLAIMSET and CLAIMCLR registers are a CoreSight architectural
-> requirement. I do not understand what this comment means.
-> The set/clr registers must be used to claim the resource to prevent
-> external debug agents from using the resource when it is used by the
-> OS and vice versa.
-> This still applies to any CoreSight compliant component - including
-> the extended CTI you have here.
-> 
+Acked-by: Uwe Kleine-König <ukleinek@kernel.org>
+Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+---
+Changes in V5:
+- Add Uwe's Acked-by
+Changes in V2:
+- rely on fallback compatible as no specific .data is associated to the
+  driver. Matching is achieved by using MFD parent data.
+- renamed registers/bits defintions
+---
+ drivers/pwm/pwm-stm32-lp.c | 219 ++++++++++++++++++++++++++++++++-----
+ 1 file changed, 193 insertions(+), 26 deletions(-)
 
-For Qcom extended CTI, it implements CLAIM regs as simple RW so there is 
-no logic to create the relationship between the CLAIMCLR and CLAIMSET 
-pair. This is info from internal design team.
-
->> +       if (!drvdata->is_extended_cti) {
->> +               /* claim the device */
->> +               rc = coresight_claim_device(drvdata->csdev);
->> +               if (rc)
->> +                       goto cti_err_not_enabled;
->> +       }
->>
->>          cti_write_all_hw_regs(drvdata);
->>
->> @@ -175,7 +233,8 @@ static int cti_disable_hw(struct cti_drvdata *drvdata)
->>          writel_relaxed(0, drvdata->base + CTICONTROL);
->>          config->hw_enabled = false;
->>
->> -       coresight_disclaim_device_unlocked(csdev);
->> +       if (!drvdata->is_extended_cti)
->> +               coresight_disclaim_device_unlocked(csdev);
->>          CS_LOCK(drvdata->base);
->>          spin_unlock(&drvdata->spinlock);
->>          return ret;
->> @@ -270,8 +329,10 @@ int cti_add_connection_entry(struct device *dev, struct cti_drvdata *drvdata,
->>          cti_dev->nr_trig_con++;
->>
->>          /* add connection usage bit info to overall info */
->> -       drvdata->config.trig_in_use |= tc->con_in->used_mask;
->> -       drvdata->config.trig_out_use |= tc->con_out->used_mask;
->> +       bitmap_or(drvdata->config.trig_in_use, drvdata->config.trig_in_use,
->> +                       tc->con_in->used_mask, drvdata->config.nr_trig_max);
->> +       bitmap_or(drvdata->config.trig_out_use, drvdata->config.trig_out_use,
->> +                       tc->con_out->used_mask, drvdata->config.nr_trig_max);
->>
->>          return 0;
->>   }
->> @@ -314,7 +375,6 @@ int cti_add_default_connection(struct device *dev, struct cti_drvdata *drvdata)
->>   {
->>          int ret = 0;
->>          int n_trigs = drvdata->config.nr_trig_max;
->> -       u32 n_trig_mask = GENMASK(n_trigs - 1, 0);
->>          struct cti_trig_con *tc = NULL;
->>
->>          /*
->> @@ -325,8 +385,9 @@ int cti_add_default_connection(struct device *dev, struct cti_drvdata *drvdata)
->>          if (!tc)
->>                  return -ENOMEM;
->>
->> -       tc->con_in->used_mask = n_trig_mask;
->> -       tc->con_out->used_mask = n_trig_mask;
->> +       bitmap_fill(tc->con_in->used_mask, n_trigs);
->> +       bitmap_fill(tc->con_out->used_mask, n_trigs);
->> +
->>          ret = cti_add_connection_entry(dev, drvdata, tc, NULL, "default");
->>          return ret;
->>   }
->> @@ -339,7 +400,6 @@ int cti_channel_trig_op(struct device *dev, enum cti_chan_op op,
->>   {
->>          struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
->>          struct cti_config *config = &drvdata->config;
->> -       u32 trig_bitmask;
->>          u32 chan_bitmask;
->>          u32 reg_value;
->>          int reg_offset;
->> @@ -349,25 +409,23 @@ int cti_channel_trig_op(struct device *dev, enum cti_chan_op op,
->>             (trigger_idx >= config->nr_trig_max))
->>                  return -EINVAL;
->>
->> -       trig_bitmask = BIT(trigger_idx);
->> -
->>          /* ensure registered triggers and not out filtered */
->>          if (direction == CTI_TRIG_IN)   {
->> -               if (!(trig_bitmask & config->trig_in_use))
->> +               if (!(test_bit(trigger_idx, config->trig_in_use)))
->>                          return -EINVAL;
->>          } else {
->> -               if (!(trig_bitmask & config->trig_out_use))
->> +               if (!(test_bit(trigger_idx, config->trig_out_use)))
->>                          return -EINVAL;
->>
->>                  if ((config->trig_filter_enable) &&
->> -                   (config->trig_out_filter & trig_bitmask))
->> +                       test_bit(trigger_idx, config->trig_out_filter))
->>                          return -EINVAL;
->>          }
->>
->>          /* update the local register values */
->>          chan_bitmask = BIT(channel_idx);
->> -       reg_offset = (direction == CTI_TRIG_IN ? CTIINEN(trigger_idx) :
->> -                     CTIOUTEN(trigger_idx));
->> +       reg_offset = (direction == CTI_TRIG_IN ? cti_offset(drvdata, CTIINEN, trigger_idx) :
->> +                     cti_offset(drvdata, CTIOUTEN, trigger_idx));
->>
->>          spin_lock(&drvdata->spinlock);
->>
->> @@ -451,19 +509,19 @@ int cti_channel_setop(struct device *dev, enum cti_chan_set_op op,
->>          case CTI_CHAN_SET:
->>                  config->ctiappset |= chan_bitmask;
->>                  reg_value  = config->ctiappset;
->> -               reg_offset = CTIAPPSET;
->> +               reg_offset = cti_offset(drvdata, CTIAPPSET, 0);
->>                  break;
->>
->>          case CTI_CHAN_CLR:
->>                  config->ctiappset &= ~chan_bitmask;
->>                  reg_value = chan_bitmask;
->> -               reg_offset = CTIAPPCLEAR;
->> +               reg_offset = cti_offset(drvdata, CTIAPPCLEAR, 0);
->>                  break;
->>
->>          case CTI_CHAN_PULSE:
->>                  config->ctiappset &= ~chan_bitmask;
->>                  reg_value = chan_bitmask;
->> -               reg_offset = CTIAPPPULSE;
->> +               reg_offset = cti_offset(drvdata, CTIAPPPULSE, 0);
->>                  break;
->>
->>          default:
->> @@ -857,6 +915,19 @@ static void cti_remove(struct amba_device *adev)
->>          coresight_unregister(drvdata->csdev);
->>   }
->>
->> +static bool is_extended_cti(struct device *dev)
-> 
-> you may want to call this of_is_extended_cti()
-
-ok, I will change it.
-
-> 
->> +{
->> +       struct fwnode_handle *fwnode = dev_fwnode(dev);
->> +
->> +       if (is_of_node(fwnode)) {
->> +               if (of_device_is_compatible(to_of_node(fwnode),
->> +                               CTI_EXTENDED))
->> +                       return true;
->> +       }
->> +
->> +       return false;
->> +}
->> +
->>   static int cti_probe(struct amba_device *adev, const struct amba_id *id)
->>   {
->>          int ret = 0;
->> @@ -948,9 +1019,11 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
->>          drvdata->csdev_release = drvdata->csdev->dev.release;
->>          drvdata->csdev->dev.release = cti_device_release;
->>
->> +       drvdata->is_extended_cti = is_extended_cti(dev);
->> +
->>          /* all done - dec pm refcount */
->>          pm_runtime_put(&adev->dev);
->> -       dev_info(&drvdata->csdev->dev, "CTI initialized\n");
->> +       dev_info(&drvdata->csdev->dev, "CTI initialized %d\n", drvdata->is_extended_cti);
->>          return 0;
->>
->>   pm_release:
->> diff --git a/drivers/hwtracing/coresight/coresight-cti-platform.c b/drivers/hwtracing/coresight/coresight-cti-platform.c
->> index d0ae10bf6128..f5c25748ca30 100644
->> --- a/drivers/hwtracing/coresight/coresight-cti-platform.c
->> +++ b/drivers/hwtracing/coresight/coresight-cti-platform.c
->> @@ -136,8 +136,8 @@ static int cti_plat_create_v8_etm_connection(struct device *dev,
->>                  goto create_v8_etm_out;
->>
->>          /* build connection data */
->> -       tc->con_in->used_mask = 0xF0; /* sigs <4,5,6,7> */
->> -       tc->con_out->used_mask = 0xF0; /* sigs <4,5,6,7> */
->> +       bitmap_set(tc->con_in->used_mask, 4, 4); /* sigs <4,5,6,7> */
->> +       bitmap_set(tc->con_out->used_mask, 4, 4); /* sigs <4,5,6,7> */
->>
->>          /*
->>           * The EXTOUT type signals from the ETM are connected to a set of input
->> @@ -194,10 +194,10 @@ static int cti_plat_create_v8_connections(struct device *dev,
->>                  goto of_create_v8_out;
->>
->>          /* Set the v8 PE CTI connection data */
->> -       tc->con_in->used_mask = 0x3; /* sigs <0 1> */
->> +       bitmap_set(tc->con_in->used_mask, 0, 2); /* sigs <0 1> */
->>          tc->con_in->sig_types[0] = PE_DBGTRIGGER;
->>          tc->con_in->sig_types[1] = PE_PMUIRQ;
->> -       tc->con_out->used_mask = 0x7; /* sigs <0 1 2 > */
->> +       bitmap_set(tc->con_out->used_mask, 0, 3); /* sigs <0 1 2 > */
->>          tc->con_out->sig_types[0] = PE_EDBGREQ;
->>          tc->con_out->sig_types[1] = PE_DBGRESTART;
->>          tc->con_out->sig_types[2] = PE_CTIIRQ;
->> @@ -213,7 +213,7 @@ static int cti_plat_create_v8_connections(struct device *dev,
->>                  goto of_create_v8_out;
->>
->>          /* filter pe_edbgreq - PE trigout sig <0> */
->> -       drvdata->config.trig_out_filter |= 0x1;
->> +       set_bit(0, drvdata->config.trig_out_filter);
->>
->>   of_create_v8_out:
->>          return ret;
->> @@ -257,7 +257,7 @@ static int cti_plat_read_trig_group(struct cti_trig_grp *tgrp,
->>          if (!err) {
->>                  /* set the signal usage mask */
->>                  for (idx = 0; idx < tgrp->nr_sigs; idx++)
->> -                       tgrp->used_mask |= BIT(values[idx]);
->> +                       set_bit(values[idx], tgrp->used_mask);
->>          }
->>
->>          kfree(values);
->> @@ -331,7 +331,9 @@ static int cti_plat_process_filter_sigs(struct cti_drvdata *drvdata,
->>
->>          err = cti_plat_read_trig_group(tg, fwnode, CTI_DT_FILTER_OUT_SIGS);
->>          if (!err)
->> -               drvdata->config.trig_out_filter |= tg->used_mask;
->> +               bitmap_or(drvdata->config.trig_out_filter,
->> +                               drvdata->config.trig_out_filter,
->> +                               tg->used_mask, drvdata->config.nr_trig_max);
->>
->>          kfree(tg);
->>          return err;
->> diff --git a/drivers/hwtracing/coresight/coresight-cti-sysfs.c b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
->> index d25dd2737b49..0c15b9c9f125 100644
->> --- a/drivers/hwtracing/coresight/coresight-cti-sysfs.c
->> +++ b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
->> @@ -172,8 +172,7 @@ static struct attribute *coresight_cti_attrs[] = {
->>
->>   /* register based attributes */
->>
->> -/* Read registers with power check only (no enable check). */
->> -static ssize_t coresight_cti_reg_show(struct device *dev,
->> +static ssize_t coresight_cti_mgmt_reg_show(struct device *dev,
->>                             struct device_attribute *attr, char *buf)
->>   {
-> 
-> Revers this change - the new coresight_cti_reg_show does not appear to
-> be called anywhere.
-> 
->>          struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
->> @@ -189,6 +188,52 @@ static ssize_t coresight_cti_reg_show(struct device *dev,
->>          return sysfs_emit(buf, "0x%x\n", val);
->>   }
->>
->> +/* Read registers with power check only (no enable check). */
->> +static ssize_t coresight_cti_reg_show(struct device *dev,
->> +                          struct device_attribute *attr, char *buf)
-> 
-> This function appears to never be called. Drop it.
-
-This function is for the attrs in coresight_cti_regs_attrs.
-
-> 
->> +{
->> +       struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
->> +       struct cs_off_attribute *cti_attr = container_of(attr, struct cs_off_attribute, attr);
->> +       struct cti_config *cfg = &drvdata->config;
->> +       u32 val = 0;
->> +       int i, num;
->> +       ssize_t size = 0;
->> +
->> +       pm_runtime_get_sync(dev->parent);
->> +       spin_lock(&drvdata->spinlock);
->> +       if (drvdata->config.hw_powered) {
->> +               switch (cti_attr->off) {
->> +               case CTICHINSTATUS:
->> +               case CTICHOUTSTATUS:
->> +               case ITCHINACK:
->> +               case ITCHOUT:
->> +               case ITCHOUTACK:
->> +               case ITCHIN:
->> +                       val = readl_relaxed(drvdata->base + cti_offset(drvdata, cti_attr->off, 0));
->> +                       size += sysfs_emit(buf, "0x%x\n", val);
->> +                       break;
->> +
->> +               case CTITRIGINSTATUS:
->> +               case CTITRIGOUTSTATUS:
->> +               case ITTRIGINACK:
->> +               case ITTRIGOUT:
->> +               case ITTRIGOUTACK:
->> +               case ITTRIGIN:
->> +                       num = (cfg->nr_trig_max - 1) / 32;
->> +                       for (i = 0; i <= num; i++) {
->> +                               val = readl_relaxed(drvdata->base +
->> +                                               cti_offset(drvdata, cti_attr->off, i));
->> +                               size += sysfs_emit_at(buf, size, "0x%x\n", val);
-> 
-> Multi-line output in sysfs is generally not permiitted. 1 file, 1 line.
-
-sure. I will follow it.
-
-> 
->> +                       }
->> +                       break;
->> +               }
->> +
->> +       }
->> +       spin_unlock(&drvdata->spinlock);
->> +       pm_runtime_put_sync(dev->parent);
->> +       return size;
->> +}
->> +
->>   /* Write registers with power check only (no enable check). */
->>   static __maybe_unused ssize_t coresight_cti_reg_store(struct device *dev,
->>                                                        struct device_attribute *attr,
->> @@ -197,19 +242,44 @@ static __maybe_unused ssize_t coresight_cti_reg_store(struct device *dev,
->>          struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
->>          struct cs_off_attribute *cti_attr = container_of(attr, struct cs_off_attribute, attr);
->>          unsigned long val = 0;
->> +       int num, i;
->>
->>          if (kstrtoul(buf, 0, &val))
->>                  return -EINVAL;
->>
->>          pm_runtime_get_sync(dev->parent);
->>          spin_lock(&drvdata->spinlock);
->> -       if (drvdata->config.hw_powered)
->> -               cti_write_single_reg(drvdata, cti_attr->off, val);
->> +       if (drvdata->config.hw_powered) {
->> +               switch (cti_attr->off) {
->> +               case ITCHINACK:
->> +               case ITCHOUT:
->> +                       cti_write_single_reg(drvdata, cti_offset(drvdata, cti_attr->off, 0), val);
->> +                       break;
->> +
->> +               case ITTRIGINACK:
->> +               case ITTRIGOUT:
->> +               case ITTRIGOUTACK:
->> +                       num = val / 32;
->> +                       i = val % 32;
->> +                       for (i = 0; i <= num; i++)
->> +                               cti_write_single_reg(drvdata,
->> +                                               cti_offset(drvdata, cti_attr->off, i), BIT(i));
->> +                       break;
->> +               }
->> +       }
-> 
-> This appears to write multiple registers from a single value? Should
-> only wrtie one?
-
-yes. only need to write one register. Here should be
-cti_write_single_reg(drvdata,
-		cti_offset(drvdata, cti_attr->off, m), BIT(i));
-
-
->>          spin_unlock(&drvdata->spinlock);
->>          pm_runtime_put_sync(dev->parent);
->>          return size;
->>   }
->>
->> +#define coresight_cti_mgmt_reg(name, offset)                                   \
->> +       (&((struct cs_off_attribute[]) {                                \
->> +          {                                                            \
->> +               __ATTR(name, 0444, coresight_cti_mgmt_reg_show, NULL),  \
->> +               offset                                                  \
->> +          }                                                            \
->> +       })[0].attr.attr)
->> +
->>   #define coresight_cti_reg(name, offset)                                        \
->>          (&((struct cs_off_attribute[]) {                                \
->>             {                                                            \
->> @@ -237,17 +307,17 @@ static __maybe_unused ssize_t coresight_cti_reg_store(struct device *dev,
->>
->>   /* coresight management registers */
->>   static struct attribute *coresight_cti_mgmt_attrs[] = {
->> -       coresight_cti_reg(devaff0, CTIDEVAFF0),
->> -       coresight_cti_reg(devaff1, CTIDEVAFF1),
->> -       coresight_cti_reg(authstatus, CORESIGHT_AUTHSTATUS),
->> -       coresight_cti_reg(devarch, CORESIGHT_DEVARCH),
->> -       coresight_cti_reg(devid, CORESIGHT_DEVID),
->> -       coresight_cti_reg(devtype, CORESIGHT_DEVTYPE),
->> -       coresight_cti_reg(pidr0, CORESIGHT_PERIPHIDR0),
->> -       coresight_cti_reg(pidr1, CORESIGHT_PERIPHIDR1),
->> -       coresight_cti_reg(pidr2, CORESIGHT_PERIPHIDR2),
->> -       coresight_cti_reg(pidr3, CORESIGHT_PERIPHIDR3),
->> -       coresight_cti_reg(pidr4, CORESIGHT_PERIPHIDR4),
->> +       coresight_cti_mgmt_reg(devaff0, CTIDEVAFF0),
->> +       coresight_cti_mgmt_reg(devaff1, CTIDEVAFF1),
->> +       coresight_cti_mgmt_reg(authstatus, CORESIGHT_AUTHSTATUS),
->> +       coresight_cti_mgmt_reg(devarch, CORESIGHT_DEVARCH),
->> +       coresight_cti_mgmt_reg(devid, CORESIGHT_DEVID),
->> +       coresight_cti_mgmt_reg(devtype, CORESIGHT_DEVTYPE),
->> +       coresight_cti_mgmt_reg(pidr0, CORESIGHT_PERIPHIDR0),
->> +       coresight_cti_mgmt_reg(pidr1, CORESIGHT_PERIPHIDR1),
->> +       coresight_cti_mgmt_reg(pidr2, CORESIGHT_PERIPHIDR2),
->> +       coresight_cti_mgmt_reg(pidr3, CORESIGHT_PERIPHIDR3),
->> +       coresight_cti_mgmt_reg(pidr4, CORESIGHT_PERIPHIDR4),
->>          NULL,
->>   };
->>
->> @@ -284,11 +354,12 @@ static ssize_t cti_reg32_show(struct device *dev, char *buf,
->>    * if reg_offset >= 0 then write through if enabled.
->>    */
->>   static ssize_t cti_reg32_store(struct device *dev, const char *buf,
->> -                              size_t size, u32 *pcached_val, int reg_offset)
->> +                              size_t size, u32 *pcached_val, int index)
->>   {
->>          unsigned long val;
->>          struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
->>          struct cti_config *config = &drvdata->config;
->> +       int reg_offset;
->>
->>          if (kstrtoul(buf, 0, &val))
->>                  return -EINVAL;
->> @@ -298,6 +369,7 @@ static ssize_t cti_reg32_store(struct device *dev, const char *buf,
->>          if (pcached_val)
->>                  *pcached_val = (u32)val;
->>
->> +       reg_offset = cti_offset(drvdata, index, 0);
->>          /* write through if offset and enabled */
->>          if ((reg_offset >= 0) && cti_active(config))
->>                  cti_write_single_reg(drvdata, reg_offset, val);
->> @@ -306,14 +378,14 @@ static ssize_t cti_reg32_store(struct device *dev, const char *buf,
->>   }
->>
->>   /* Standard macro for simple rw cti config registers */
->> -#define cti_config_reg32_rw(name, cfgname, offset)                     \
->> +#define cti_config_reg32_rw(name, cfgname, index)                      \
->>   static ssize_t name##_show(struct device *dev,                         \
->>                             struct device_attribute *attr,               \
->>                             char *buf)                                   \
->>   {                                                                      \
->>          struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);     \
->>          return cti_reg32_show(dev, buf,                                 \
->> -                             &drvdata->config.cfgname, offset);        \
->> +                             &drvdata->config.cfgname, index);         \
->>   }                                                                      \
->>                                                                          \
->>   static ssize_t name##_store(struct device *dev,                                \
->> @@ -322,7 +394,7 @@ static ssize_t name##_store(struct device *dev,                             \
->>   {                                                                      \
->>          struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);     \
->>          return cti_reg32_store(dev, buf, size,                          \
->> -                              &drvdata->config.cfgname, offset);       \
->> +                              &drvdata->config.cfgname, index);        \
->>   }                                                                      \
->>   static DEVICE_ATTR_RW(name)
->>
->> @@ -389,7 +461,7 @@ static ssize_t inen_store(struct device *dev,
->>
->>          /* write through if enabled */
->>          if (cti_active(config))
->> -               cti_write_single_reg(drvdata, CTIINEN(index), val);
->> +               cti_write_single_reg(drvdata, cti_offset(drvdata, CTIINEN, index), val);
->>          spin_unlock(&drvdata->spinlock);
->>          return size;
->>   }
->> @@ -428,7 +500,7 @@ static ssize_t outen_store(struct device *dev,
->>
->>          /* write through if enabled */
->>          if (cti_active(config))
->> -               cti_write_single_reg(drvdata, CTIOUTEN(index), val);
->> +               cti_write_single_reg(drvdata, cti_offset(drvdata, CTIOUTEN, index), val);
->>          spin_unlock(&drvdata->spinlock);
->>          return size;
->>   }
->> @@ -711,10 +783,8 @@ static ssize_t trigout_filtered_show(struct device *dev,
->>          struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
->>          struct cti_config *cfg = &drvdata->config;
->>          int size = 0, nr_trig_max = cfg->nr_trig_max;
->> -       unsigned long mask = cfg->trig_out_filter;
->>
->> -       if (mask)
->> -               size = bitmap_print_to_pagebuf(true, buf, &mask, nr_trig_max);
->> +       size = bitmap_print_to_pagebuf(true, buf, cfg->trig_out_filter, nr_trig_max);
->>          return size;
->>   }
->>   static DEVICE_ATTR_RO(trigout_filtered);
->> @@ -926,9 +996,8 @@ static ssize_t trigin_sig_show(struct device *dev,
->>          struct cti_trig_con *con = (struct cti_trig_con *)ext_attr->var;
->>          struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
->>          struct cti_config *cfg = &drvdata->config;
->> -       unsigned long mask = con->con_in->used_mask;
->>
->> -       return bitmap_print_to_pagebuf(true, buf, &mask, cfg->nr_trig_max);
->> +       return bitmap_print_to_pagebuf(true, buf, con->con_in->used_mask, cfg->nr_trig_max);
->>   }
->>
->>   static ssize_t trigout_sig_show(struct device *dev,
->> @@ -940,9 +1009,8 @@ static ssize_t trigout_sig_show(struct device *dev,
->>          struct cti_trig_con *con = (struct cti_trig_con *)ext_attr->var;
->>          struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
->>          struct cti_config *cfg = &drvdata->config;
->> -       unsigned long mask = con->con_out->used_mask;
->>
->> -       return bitmap_print_to_pagebuf(true, buf, &mask, cfg->nr_trig_max);
->> +       return bitmap_print_to_pagebuf(true, buf, con->con_out->used_mask, cfg->nr_trig_max);
->>   }
->>
->>   /* convert a sig type id to a name */
->> diff --git a/drivers/hwtracing/coresight/coresight-cti.h b/drivers/hwtracing/coresight/coresight-cti.h
->> index cb9ee616d01f..642f4b2be93c 100644
->> --- a/drivers/hwtracing/coresight/coresight-cti.h
->> +++ b/drivers/hwtracing/coresight/coresight-cti.h
->> @@ -18,45 +18,41 @@
->>   #include "coresight-priv.h"
->>
->>   /*
->> - * Device registers
->> - * 0x000 - 0x144: CTI programming and status
->> - * 0xEDC - 0xEF8: CTI integration test.
->> - * 0xF00 - 0xFFC: Coresight management registers.
->> + * CTI CSSoc 600 has a max of 32 trigger signals per direction.
->> + * CTI CSSoc 400 has 8 IO triggers - other CTIs can be impl def.
->> + * Max of in and out defined in the DEVID register.
->> + * - pick up actual number used from .dts parameters if present.
->>    */
->> -/* CTI programming registers */
->> +#define CTIINOUTEN_MAX         128
->> +
->>   #define CTICONTROL             0x000
->> -#define CTIINTACK              0x010
->> -#define CTIAPPSET              0x014
->> -#define CTIAPPCLEAR            0x018
->> -#define CTIAPPPULSE            0x01C
->> -#define CTIINEN(n)             (0x020 + (4 * n))
->> -#define CTIOUTEN(n)            (0x0A0 + (4 * n))
->> -#define CTITRIGINSTATUS                0x130
->> -#define CTITRIGOUTSTATUS       0x134
->> -#define CTICHINSTATUS          0x138
->> -#define CTICHOUTSTATUS         0x13C
->> -#define CTIGATE                        0x140
->> -#define ASICCTL                        0x144
->> -/* Integration test registers */
->> -#define ITCHINACK              0xEDC /* WO CTI CSSoc 400 only*/
->> -#define ITTRIGINACK            0xEE0 /* WO CTI CSSoc 400 only*/
->> -#define ITCHOUT                        0xEE4 /* WO RW-600 */
->> -#define ITTRIGOUT              0xEE8 /* WO RW-600 */
->> -#define ITCHOUTACK             0xEEC /* RO CTI CSSoc 400 only*/
->> -#define ITTRIGOUTACK           0xEF0 /* RO CTI CSSoc 400 only*/
->> -#define ITCHIN                 0xEF4 /* RO */
->> -#define ITTRIGIN               0xEF8 /* RO */
->> +
->>   /* management registers */
->>   #define CTIDEVAFF0             0xFA8
->>   #define CTIDEVAFF1             0xFAC
->>
->> -/*
->> - * CTI CSSoc 600 has a max of 32 trigger signals per direction.
->> - * CTI CSSoc 400 has 8 IO triggers - other CTIs can be impl def.
->> - * Max of in and out defined in the DEVID register.
->> - * - pick up actual number used from .dts parameters if present.
->> - */
->> -#define CTIINOUTEN_MAX         32
->> +enum cti_offset_index {
->> +       CTIINTACK,
->> +       CTIAPPSET,
->> +       CTIAPPCLEAR,
->> +       CTIAPPPULSE,
->> +       CTIINEN,
->> +       CTIOUTEN,
->> +       CTITRIGINSTATUS,
->> +       CTITRIGOUTSTATUS,
->> +       CTICHINSTATUS,
->> +       CTICHOUTSTATUS,
->> +       CTIGATE,
->> +       ASICCTL,
->> +       ITCHINACK,
->> +       ITTRIGINACK,
->> +       ITCHOUT,
->> +       ITTRIGOUT,
->> +       ITCHOUTACK,
->> +       ITTRIGOUTACK,
->> +       ITCHIN,
->> +       ITTRIGIN,
->> +};
->>
->>   /**
->>    * Group of related trigger signals
->> @@ -67,7 +63,7 @@
->>    */
->>   struct cti_trig_grp {
->>          int nr_sigs;
->> -       u32 used_mask;
->> +       DECLARE_BITMAP(used_mask, CTIINOUTEN_MAX);
->>          int sig_types[];
->>   };
->>
->> @@ -146,9 +142,9 @@ struct cti_config {
->>          bool hw_powered;
->>
->>          /* registered triggers and filtering */
->> -       u32 trig_in_use;
->> -       u32 trig_out_use;
->> -       u32 trig_out_filter;
->> +       DECLARE_BITMAP(trig_in_use, CTIINOUTEN_MAX);
->> +       DECLARE_BITMAP(trig_out_use, CTIINOUTEN_MAX);
->> +       DECLARE_BITMAP(trig_out_filter, CTIINOUTEN_MAX);
->>          bool trig_filter_enable;
->>          u8 xtrig_rchan_sel;
->>
->> @@ -179,6 +175,7 @@ struct cti_drvdata {
->>          struct cti_config config;
->>          struct list_head node;
->>          void (*csdev_release)(struct device *dev);
->> +       bool is_extended_cti;
->>   };
->>
->>   /*
->> @@ -231,6 +228,7 @@ int cti_create_cons_sysfs(struct device *dev, struct cti_drvdata *drvdata);
->>   struct coresight_platform_data *
->>   coresight_cti_get_platform_data(struct device *dev);
->>   const char *cti_plat_get_node_name(struct fwnode_handle *fwnode);
->> +u32 cti_offset(struct cti_drvdata *drvdata, int index, int num);
->>
->>   /* cti powered and enabled */
->>   static inline bool cti_active(struct cti_config *cfg)
->> --
->> 2.25.1
->>
-> 
-> Regards
-> 
-> Mike
-> 
+diff --git a/drivers/pwm/pwm-stm32-lp.c b/drivers/pwm/pwm-stm32-lp.c
+index 5832dce8ed9d..4789eafb8bac 100644
+--- a/drivers/pwm/pwm-stm32-lp.c
++++ b/drivers/pwm/pwm-stm32-lp.c
+@@ -20,6 +20,7 @@
+ struct stm32_pwm_lp {
+ 	struct clk *clk;
+ 	struct regmap *regmap;
++	unsigned int num_cc_chans;
+ };
+ 
+ static inline struct stm32_pwm_lp *to_stm32_pwm_lp(struct pwm_chip *chip)
+@@ -30,13 +31,101 @@ static inline struct stm32_pwm_lp *to_stm32_pwm_lp(struct pwm_chip *chip)
+ /* STM32 Low-Power Timer is preceded by a configurable power-of-2 prescaler */
+ #define STM32_LPTIM_MAX_PRESCALER	128
+ 
++static int stm32_pwm_lp_update_allowed(struct stm32_pwm_lp *priv, int channel)
++{
++	int ret;
++	u32 ccmr1;
++	unsigned long ccmr;
++
++	/* Only one PWM on this LPTIMER: enable, prescaler and reload value can be changed */
++	if (!priv->num_cc_chans)
++		return true;
++
++	ret = regmap_read(priv->regmap, STM32_LPTIM_CCMR1, &ccmr1);
++	if (ret)
++		return ret;
++	ccmr = ccmr1 & (STM32_LPTIM_CC1E | STM32_LPTIM_CC2E);
++
++	/* More than one channel enabled: enable, prescaler or ARR value can't be changed */
++	if (bitmap_weight(&ccmr, sizeof(u32) * BITS_PER_BYTE) > 1)
++		return false;
++
++	/*
++	 * Only one channel is enabled (or none): check status on the other channel, to
++	 * report if enable, prescaler or ARR value can be changed.
++	 */
++	if (channel)
++		return !(ccmr1 & STM32_LPTIM_CC1E);
++	else
++		return !(ccmr1 & STM32_LPTIM_CC2E);
++}
++
++static int stm32_pwm_lp_compare_channel_apply(struct stm32_pwm_lp *priv, int channel,
++					      bool enable, enum pwm_polarity polarity)
++{
++	u32 ccmr1, val, mask;
++	bool reenable;
++	int ret;
++
++	/* No dedicated CC channel: nothing to do */
++	if (!priv->num_cc_chans)
++		return 0;
++
++	ret = regmap_read(priv->regmap, STM32_LPTIM_CCMR1, &ccmr1);
++	if (ret)
++		return ret;
++
++	if (channel) {
++		/* Must disable CC channel (CCxE) to modify polarity (CCxP), then re-enable */
++		reenable = (enable && FIELD_GET(STM32_LPTIM_CC2E, ccmr1)) &&
++			(polarity != FIELD_GET(STM32_LPTIM_CC2P, ccmr1));
++
++		mask = STM32_LPTIM_CC2SEL | STM32_LPTIM_CC2E | STM32_LPTIM_CC2P;
++		val = FIELD_PREP(STM32_LPTIM_CC2P, polarity);
++		val |= FIELD_PREP(STM32_LPTIM_CC2E, enable);
++	} else {
++		reenable = (enable && FIELD_GET(STM32_LPTIM_CC1E, ccmr1)) &&
++			(polarity != FIELD_GET(STM32_LPTIM_CC1P, ccmr1));
++
++		mask = STM32_LPTIM_CC1SEL | STM32_LPTIM_CC1E | STM32_LPTIM_CC1P;
++		val = FIELD_PREP(STM32_LPTIM_CC1P, polarity);
++		val |= FIELD_PREP(STM32_LPTIM_CC1E, enable);
++	}
++
++	if (reenable) {
++		u32 cfgr, presc;
++		unsigned long rate;
++		unsigned int delay_us;
++
++		ret = regmap_update_bits(priv->regmap, STM32_LPTIM_CCMR1,
++					 channel ? STM32_LPTIM_CC2E : STM32_LPTIM_CC1E, 0);
++		if (ret)
++			return ret;
++		/*
++		 * After a write to the LPTIM_CCMRx register, a new write operation can only be
++		 * performed after a delay of at least (PRESC × 3) clock cycles
++		 */
++		ret = regmap_read(priv->regmap, STM32_LPTIM_CFGR, &cfgr);
++		if (ret)
++			return ret;
++		presc = FIELD_GET(STM32_LPTIM_PRESC, cfgr);
++		rate = clk_get_rate(priv->clk) >> presc;
++		if (!rate)
++			return -EINVAL;
++		delay_us = 3 * DIV_ROUND_UP(USEC_PER_SEC, rate);
++		usleep_range(delay_us, delay_us * 2);
++	}
++
++	return regmap_update_bits(priv->regmap, STM32_LPTIM_CCMR1, mask, val);
++}
++
+ static int stm32_pwm_lp_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+ 			      const struct pwm_state *state)
+ {
+ 	struct stm32_pwm_lp *priv = to_stm32_pwm_lp(chip);
+ 	unsigned long long prd, div, dty;
+ 	struct pwm_state cstate;
+-	u32 val, mask, cfgr, presc = 0;
++	u32 arr, val, mask, cfgr, presc = 0;
+ 	bool reenable;
+ 	int ret;
+ 
+@@ -45,10 +134,28 @@ static int stm32_pwm_lp_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+ 
+ 	if (!state->enabled) {
+ 		if (cstate.enabled) {
+-			/* Disable LP timer */
+-			ret = regmap_write(priv->regmap, STM32_LPTIM_CR, 0);
++			/* Disable CC channel if any */
++			ret = stm32_pwm_lp_compare_channel_apply(priv, pwm->hwpwm, false,
++								 state->polarity);
+ 			if (ret)
+ 				return ret;
++			ret = regmap_write(priv->regmap, pwm->hwpwm ?
++					   STM32_LPTIM_CCR2 : STM32_LPTIM_CMP, 0);
++			if (ret)
++				return ret;
++
++			/* Check if the timer can be disabled */
++			ret = stm32_pwm_lp_update_allowed(priv, pwm->hwpwm);
++			if (ret < 0)
++				return ret;
++
++			if (ret) {
++				/* Disable LP timer */
++				ret = regmap_write(priv->regmap, STM32_LPTIM_CR, 0);
++				if (ret)
++					return ret;
++			}
++
+ 			/* disable clock to PWM counter */
+ 			clk_disable(priv->clk);
+ 		}
+@@ -79,6 +186,23 @@ static int stm32_pwm_lp_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+ 	dty = prd * state->duty_cycle;
+ 	do_div(dty, state->period);
+ 
++	ret = regmap_read(priv->regmap, STM32_LPTIM_CFGR, &cfgr);
++	if (ret)
++		return ret;
++
++	/*
++	 * When there are several channels, they share the same prescaler and reload value.
++	 * Check if this can be changed, or the values are the same for all channels.
++	 */
++	if (!stm32_pwm_lp_update_allowed(priv, pwm->hwpwm)) {
++		ret = regmap_read(priv->regmap, STM32_LPTIM_ARR, &arr);
++		if (ret)
++			return ret;
++
++		if ((FIELD_GET(STM32_LPTIM_PRESC, cfgr) != presc) || (arr != prd - 1))
++			return -EBUSY;
++	}
++
+ 	if (!cstate.enabled) {
+ 		/* enable clock to drive PWM counter */
+ 		ret = clk_enable(priv->clk);
+@@ -86,15 +210,20 @@ static int stm32_pwm_lp_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+ 			return ret;
+ 	}
+ 
+-	ret = regmap_read(priv->regmap, STM32_LPTIM_CFGR, &cfgr);
+-	if (ret)
+-		goto err;
+-
+ 	if ((FIELD_GET(STM32_LPTIM_PRESC, cfgr) != presc) ||
+-	    (FIELD_GET(STM32_LPTIM_WAVPOL, cfgr) != state->polarity)) {
++	    ((FIELD_GET(STM32_LPTIM_WAVPOL, cfgr) != state->polarity) && !priv->num_cc_chans)) {
+ 		val = FIELD_PREP(STM32_LPTIM_PRESC, presc);
+-		val |= FIELD_PREP(STM32_LPTIM_WAVPOL, state->polarity);
+-		mask = STM32_LPTIM_PRESC | STM32_LPTIM_WAVPOL;
++		mask = STM32_LPTIM_PRESC;
++
++		if (!priv->num_cc_chans) {
++			/*
++			 * WAVPOL bit is only available when no capature compare channel is used,
++			 * e.g. on LPTIMER instances that have only one output channel. CCMR1 is
++			 * used otherwise.
++			 */
++			val |= FIELD_PREP(STM32_LPTIM_WAVPOL, state->polarity);
++			mask |= STM32_LPTIM_WAVPOL;
++		}
+ 
+ 		/* Must disable LP timer to modify CFGR */
+ 		reenable = true;
+@@ -120,20 +249,27 @@ static int stm32_pwm_lp_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+ 	if (ret)
+ 		goto err;
+ 
+-	ret = regmap_write(priv->regmap, STM32_LPTIM_CMP, prd - (1 + dty));
++	/* Write CMP/CCRx register and ensure it's been properly written */
++	ret = regmap_write(priv->regmap, pwm->hwpwm ? STM32_LPTIM_CCR2 : STM32_LPTIM_CMP,
++			   prd - (1 + dty));
+ 	if (ret)
+ 		goto err;
+ 
+-	/* ensure CMP & ARR registers are properly written */
+-	ret = regmap_read_poll_timeout(priv->regmap, STM32_LPTIM_ISR, val,
++	/* ensure ARR and CMP/CCRx registers are properly written */
++	ret = regmap_read_poll_timeout(priv->regmap, STM32_LPTIM_ISR, val, pwm->hwpwm ?
++				       (val & STM32_LPTIM_CMP2_ARROK) == STM32_LPTIM_CMP2_ARROK :
+ 				       (val & STM32_LPTIM_CMPOK_ARROK) == STM32_LPTIM_CMPOK_ARROK,
+ 				       100, 1000);
+ 	if (ret) {
+ 		dev_err(pwmchip_parent(chip), "ARR/CMP registers write issue\n");
+ 		goto err;
+ 	}
+-	ret = regmap_write(priv->regmap, STM32_LPTIM_ICR,
+-			   STM32_LPTIM_CMPOKCF_ARROKCF);
++	ret = regmap_write(priv->regmap, STM32_LPTIM_ICR, pwm->hwpwm ?
++			   STM32_LPTIM_CMP2OKCF_ARROKCF : STM32_LPTIM_CMPOKCF_ARROKCF);
++	if (ret)
++		goto err;
++
++	ret = stm32_pwm_lp_compare_channel_apply(priv, pwm->hwpwm, true, state->polarity);
+ 	if (ret)
+ 		goto err;
+ 
+@@ -161,11 +297,22 @@ static int stm32_pwm_lp_get_state(struct pwm_chip *chip,
+ {
+ 	struct stm32_pwm_lp *priv = to_stm32_pwm_lp(chip);
+ 	unsigned long rate = clk_get_rate(priv->clk);
+-	u32 val, presc, prd;
++	u32 val, presc, prd, ccmr1;
++	bool enabled;
+ 	u64 tmp;
+ 
+ 	regmap_read(priv->regmap, STM32_LPTIM_CR, &val);
+-	state->enabled = !!FIELD_GET(STM32_LPTIM_ENABLE, val);
++	enabled = !!FIELD_GET(STM32_LPTIM_ENABLE, val);
++	if (priv->num_cc_chans) {
++		/* There's a CC chan, need to also check if it's enabled */
++		regmap_read(priv->regmap, STM32_LPTIM_CCMR1, &ccmr1);
++		if (pwm->hwpwm)
++			enabled &= !!FIELD_GET(STM32_LPTIM_CC2E, ccmr1);
++		else
++			enabled &= !!FIELD_GET(STM32_LPTIM_CC1E, ccmr1);
++	}
++	state->enabled = enabled;
++
+ 	/* Keep PWM counter clock refcount in sync with PWM initial state */
+ 	if (state->enabled) {
+ 		int ret = clk_enable(priv->clk);
+@@ -176,14 +323,21 @@ static int stm32_pwm_lp_get_state(struct pwm_chip *chip,
+ 
+ 	regmap_read(priv->regmap, STM32_LPTIM_CFGR, &val);
+ 	presc = FIELD_GET(STM32_LPTIM_PRESC, val);
+-	state->polarity = FIELD_GET(STM32_LPTIM_WAVPOL, val);
++	if (priv->num_cc_chans) {
++		if (pwm->hwpwm)
++			state->polarity = FIELD_GET(STM32_LPTIM_CC2P, ccmr1);
++		else
++			state->polarity = FIELD_GET(STM32_LPTIM_CC1P, ccmr1);
++	} else {
++		state->polarity = FIELD_GET(STM32_LPTIM_WAVPOL, val);
++	}
+ 
+ 	regmap_read(priv->regmap, STM32_LPTIM_ARR, &prd);
+ 	tmp = prd + 1;
+ 	tmp = (tmp << presc) * NSEC_PER_SEC;
+ 	state->period = DIV_ROUND_CLOSEST_ULL(tmp, rate);
+ 
+-	regmap_read(priv->regmap, STM32_LPTIM_CMP, &val);
++	regmap_read(priv->regmap, pwm->hwpwm ? STM32_LPTIM_CCR2 : STM32_LPTIM_CMP, &val);
+ 	tmp = prd - val;
+ 	tmp = (tmp << presc) * NSEC_PER_SEC;
+ 	state->duty_cycle = DIV_ROUND_CLOSEST_ULL(tmp, rate);
+@@ -201,15 +355,25 @@ static int stm32_pwm_lp_probe(struct platform_device *pdev)
+ 	struct stm32_lptimer *ddata = dev_get_drvdata(pdev->dev.parent);
+ 	struct stm32_pwm_lp *priv;
+ 	struct pwm_chip *chip;
++	unsigned int npwm;
+ 	int ret;
+ 
+-	chip = devm_pwmchip_alloc(&pdev->dev, 1, sizeof(*priv));
++	if (!ddata->num_cc_chans) {
++		/* No dedicated CC channel, so there's only one PWM channel */
++		npwm = 1;
++	} else {
++		/* There are dedicated CC channels, each with one PWM output */
++		npwm = ddata->num_cc_chans;
++	}
++
++	chip = devm_pwmchip_alloc(&pdev->dev, npwm, sizeof(*priv));
+ 	if (IS_ERR(chip))
+ 		return PTR_ERR(chip);
+ 	priv = to_stm32_pwm_lp(chip);
+ 
+ 	priv->regmap = ddata->regmap;
+ 	priv->clk = ddata->clk;
++	priv->num_cc_chans = ddata->num_cc_chans;
+ 	chip->ops = &stm32_pwm_lp_ops;
+ 
+ 	ret = devm_pwmchip_add(&pdev->dev, chip);
+@@ -225,12 +389,15 @@ static int stm32_pwm_lp_suspend(struct device *dev)
+ {
+ 	struct pwm_chip *chip = dev_get_drvdata(dev);
+ 	struct pwm_state state;
+-
+-	pwm_get_state(&chip->pwms[0], &state);
+-	if (state.enabled) {
+-		dev_err(dev, "The consumer didn't stop us (%s)\n",
+-			chip->pwms[0].label);
+-		return -EBUSY;
++	unsigned int i;
++
++	for (i = 0; i < chip->npwm; i++) {
++		pwm_get_state(&chip->pwms[i], &state);
++		if (state.enabled) {
++			dev_err(dev, "The consumer didn't stop us (%s)\n",
++				chip->pwms[i].label);
++			return -EBUSY;
++		}
+ 	}
+ 
+ 	return pinctrl_pm_select_sleep_state(dev);
+-- 
+2.25.1
 
 
