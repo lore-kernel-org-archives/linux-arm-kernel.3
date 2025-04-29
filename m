@@ -4,56 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB554C3ABA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 14:13:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E07BCC3ABAB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 14:13:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FlYkFTFojRP45j3VhNLEnZY+Z6wi/7daiUZTOv4SREc=; b=KxDhW79AxfLZWXDAwran9uhBOw
-	cCBoyx8gh39clXxTjSWVYTRzbi9uwjrq+8XLbeVW7Sb9CAn31KNtCab1nCNhxXDA2WO1rFfgXziM6
-	iUUCKOop4ofyuXx2J9CjTzzQWMgK8mqyfrZLP61JRfq3opWlMUdyV8sEAoLCj01syJj1sKcMCdGev
-	GuzcInkQGvRWV8WsrfBuVVvSaxh7HgJJ9/N5mMu2GP9W9ntZUNNnWpSJVtEXhYML9fCnFnai2IrPa
-	4AedqyGoFYGUfZYnMOLfoQ1MH0lxvyS0D1+9prPUW5xEtZSuFWR7YbniNR+PxLhoOjc5WW0E07xtY
-	d9nimoxg==;
+	bh=EzyfwtJPA0bsz5vqDWrnQTyNggO4hOrLGIaIhLcUF6o=; b=uFdVGLNh1aCGx1j6w35uWIKsLn
+	9IOCP7abh+jIe+vlXIqPTmVj+coU3o7wuhHR4T+KnUCA9AQdSFqNsKJPAsavdZPeUz4HrxuMNxS0g
+	SMPoruhgL0ot6zcp05wA/zgB5Y8m0517Sf0hDHp+XJUDbox75NssvW3RCpCfOcg3sLBupBRVHhJiQ
+	t7DNiKj/oLnlXeSIo6Q0UCb8XC+pBbtyDrxguhtoLzYGOAA9yKmKDO/RE05Y+q4gTOUw0aqIjX2dK
+	pYSL/TjLWcdj2CAh7sk0MPyB5yM6Xh8GkKk8bpSsYUGMLEX0gT1VumVgNHKf40PD1Ilr1YuLAHHjr
+	hmnyElmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9liM-00000009smd-1NVD;
-	Tue, 29 Apr 2025 14:13:38 +0000
+	id 1u9liP-00000009srZ-26WK;
+	Tue, 29 Apr 2025 14:13:41 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9kep-00000009j6G-13W6
+	id 1u9kg9-00000009jOU-2E9l
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 13:05:55 +0000
+	Tue, 29 Apr 2025 13:07:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B72BB61568;
-	Tue, 29 Apr 2025 13:05:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1F63C4CEE3;
-	Tue, 29 Apr 2025 13:05:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0530861567;
+	Tue, 29 Apr 2025 13:06:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CADF6C4CEE3;
+	Tue, 29 Apr 2025 13:07:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745931954;
-	bh=CyJN33OKpiyB3H+RaMMXug2TVr9R3h4wpkJGQqwoUJg=;
+	s=k20201202; t=1745932036;
+	bh=YajxN6o8E2wBV9PQA8nOcxq4wroVRWWjxNOmmZp4oMQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Iutp6+ZYwNoeZeaLM1M9CYUq7xOe58XWW60+k2Ij5iz3w8JSRwTJNWZliKq8lr5e9
-	 Wocdlu4AD0zdKm72O+8FYHfPN+sFLWlwofa6qRGhHy+mZrsEoRefLB+iIEI2m7aCIn
-	 fVbrm1slTGF22TPms1nT5yp08r308nWC3xK/JW9Lf8OTqaGqvtsL6NhkH3K0+QJgCl
-	 UYm2fecWOyWKyld2xp0QEdCysvsia/BeV5A7ydN1UjQfTMJizBIpSlKJ0qtWayDEms
-	 Tt6kzs+aTau4iFeaiDITl7UuHDKzZzPR9196XhnV4rTvd5PCXlnvHWTcTOyBlyJuPP
-	 XU7BusJzH6q6g==
-Message-ID: <baa21129-287b-4c94-93ad-ff859bdd1698@kernel.org>
-Date: Tue, 29 Apr 2025 15:05:49 +0200
+	b=PlFVWqnsEPfe7gbx7q/pBhsxuKU0NF2LURA6nyjHkrAqChrExfio6R7WBb2YZ8aEE
+	 ZgAYQcfBHh6qOdcedusI389FKU503dyOxGZyUwGSGPXemo2Y1Mb96lOLEH37WPIXXp
+	 +z4+BRyejsGm391RGW7w7yeUJ0NZ8AomnY6YFN2yIa67oTIB6MtRLINo8/RXMjd0C4
+	 JQz8OfNUSqF02S4QHvBqrjAOYwjlQbRNh41cG+P3rU3/ZrG4NAPuzuiRXHpU8v6Fpl
+	 OCwBYvKxhw6f8McezoXuUjw2i5kS3Xw3KQVNGy4KpxCnGfQnF3Wwhp1dGbzCuWE03l
+	 TLSXqaeg38TnA==
+Message-ID: <b00514f2-55ca-49f0-aefb-ec1e784545d6@kernel.org>
+Date: Tue, 29 Apr 2025 15:07:12 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4] tty: serial: samsung_tty: support 18 uart ports
-To: Faraz Ata <faraz.ata@samsung.com>, alim.akhtar@samsung.com,
- gregkh@linuxfoundation.org, jirislaby@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
- dev.tailor@samsung.com, rosa.pila@samsung.com
-References: <CGME20250429101953epcas5p4604a6bd79548ebc29e1c72bdc64965a4@epcas5p4.samsung.com>
- <20250429102941.4138463-1-faraz.ata@samsung.com>
+Subject: Re: [PATCH] arm64: dts: exynos: Added the ethernet pin configuration
+To: Yashwant Varur <yashwant.v@samsung.com>, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: cs0617.lee@samsung.com, g.naidu@samsung.com, niyas.ahmed@samsung.com
+References: <CGME20250423060042epcas5p2c04be779e21089f33b8a9a7785bb151a@epcas5p2.samsung.com>
+ <20250423060034.973-1-yashwant.v@samsung.com>
+ <73a5d0a6-ceb0-4c47-9992-260828f074d0@kernel.org>
+ <0ed501dbb8e9$45aa96e0$d0ffc4a0$@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -99,7 +101,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250429102941.4138463-1-faraz.ata@samsung.com>
+In-Reply-To: <0ed501dbb8e9$45aa96e0$d0ffc4a0$@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -116,13 +118,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/04/2025 12:29, Faraz Ata wrote:
-> ExynosAutov920 SoC supports 18 UART ports, update
-> the value of UART_NR to accommodate the same.
+On 29/04/2025 11:29, Yashwant Varur wrote:
 > 
-> Signed-off-by: Faraz Ata <faraz.ata@samsung.com>
+> Please follow DTS coding style carefully. This applies to all commits you try to send from your downstream/vendor code.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+hm?
+
+>>
+> Sure, thanks
+> 
+> What is more important, I don't really understand why you are doing this
+> - there is no user of these entries - and commit msg does not help here.
+>>
+> Understood, in v2 will add the Ethernet node as well.
+
+I don't understand what is your reply here and what is quote. Use
+standard email style, not some mySingle or Outlook output. I suggest
+reading typical guidelines how to use email based workflows (kernel also
+has one).
+
 
 Best regards,
 Krzysztof
