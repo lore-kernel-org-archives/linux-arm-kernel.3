@@ -4,61 +4,185 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA584C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 16:16:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7519FC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 16:16:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rZacv51gxt+tIIzFGsfReIvqxR8pwOcZnpHg3jeGf+M=; b=tlfq0TVYoVtHMlDg7ekncsBjTh
-	MsHyMeCJWvAltXqWEv+jTAoBUN8yE9+L/9Orgxlsr6UgV6HIBvIW2xzCYlsieT4j+xhX9UQpo3bSO
-	pCeg6xR8hCLVlwY5WJWd5iD3nTfChEWQBgVNCqwxlzn/qUcFFpm4kQuvxcjfRNBeywuWnmbrG7pcR
-	VZMQUeTVqz+UsBLUNvSdjqgI/7xN+IGDtR6rdihPk2QFMNhG8XfhNVBcOwLuAAxeHppSahuWt8L6O
-	Lgp6HXEbRZmda0gCdLeDuDmczLuo9JDP+Vq+d6FyDypjBYeZKMBJTdrc8ysx6OQR3n8+eO/ePBSv6
-	bIwCANhg==;
+	bh=TEOzNs2WPc+dS3ub2TLoWZ6zU55yYhX/vJB3S42Ij+I=; b=Qn7gI6KRM98wxtwpbIm3MWh16t
+	KcQiP6Fh5WCzN7K8+IKT3dXJmpCMB0rmMb2L93Vdp8ZPkn93WIbLPwhWS5MIvbqad//3yGZ9Vo5/7
+	kYiwrX8WjQyo456f7+cak8vfS5TjrRUaBRklhdbtJG9DfLfCInmhWWqhdE07bNrmNElZSgXIk2dTV
+	0a2SBQ5OU+p5IMkXEO69UXKgcGzp7wAO9kFL27ANkj7yNXYNXWKwKhhYovGIoBWzwGQNKrPOFdc3U
+	MyiqB1pGG3wJMT9c/fMx7zx+u7fh/uaJexjkMFTRtcyLcINFWjdbOnzitO8oNPQCz3kZNIaDL9FP+
+	t2ShE6Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9nd1-0000000AEEm-0oHi;
-	Tue, 29 Apr 2025 16:16:15 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u9nd2-0000000AEFC-0lrs;
+	Tue, 29 Apr 2025 16:16:16 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9mC4-00000009zjU-49ad
+	id 1u9mDp-0000000A08z-3p47
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 29 Apr 2025 14:46:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=TEOzNs2WPc+dS3ub2TLoWZ6zU55yYhX/vJB3S42Ij+I=; b=ZDwSwUWcbsTCv3Psbe5aifrxzG
+	hSjGcDN6FvaunGrc/Y3hpaPu4JiIo1gNBpHz8CQDHNKN1Js+diEHNBjKtizPoUD9QQz3rkVNcgKDo
+	1qyrTczsFvLHR7ZAPX2dpajWmt7boNzEjdA16v4ulz24GVcwpAlRBCiNdLavgZXM88hmuwkRQliRc
+	VEstGbbYg9ZMRC1qdx8qlu/uMKH7IK2EIV7XvXFfwl3glELwh8scoKWsikfHjIdUvQyjQ5kVGxv0d
+	hYjMfrWB/ApMMoZ3onRXnj6fsEYC71FyCJtNMAqQwQlnmcyBdWugRnEoR+1lJJRt6WD18fHcHwKo6
+	QIQ7bhHA==;
+Received: from mail-mw2nam10on20730.outbound.protection.outlook.com ([2a01:111:f403:2412::730] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u9mDm-0000000DPDZ-2Y5B
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 14:44:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 42BEE615CC;
-	Tue, 29 Apr 2025 14:43:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D14C7C4CEE3;
-	Tue, 29 Apr 2025 14:44:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745937860;
-	bh=4rr0S3mSjoui4D8DbAX2wTbORXf1cAmtg5M9HmjHuhU=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=d3YUk0Ov4iLTp8IvzNdV/ZNp8XRfU0tpb5oO11Ch7TeqYX980y0eKGMK/tSkiZdHG
-	 vKKfoEdkR1s+NYjN7a+AJ5LIM2s8BnXPc1k9zkOx3UAgsn7GdLXMskG8pcyMg6PZjr
-	 hnW+l0awaOZdLhL+FF6sOcWJBst8YDQPRSyQW//eEcvnLFRkEHcFbRJrI4NtMZ4/5s
-	 9oXWECSmFA4F6IcyherLCLXt/f8gFvTWDlZX+lIkLCg2rPK6y/rBhahA2HfK5II7y2
-	 TITnqai63Vv44JqE0pz38xD3AqDqqBaPCzJM4ILcDM3e08c2AK0fAgXs+F+HIJjvhE
-	 S2Zreml59gaJw==
-Date: Tue, 29 Apr 2025 09:44:18 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Tue, 29 Apr 2025 14:46:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ENzCRajRsQrNKadLBlZVMkViX2OOHxWC7mb1cVGU8N3AFbJ8noW5v4DAheQ4FceR3znu4wNRUjy+IgjC7uNgy0wzzL46jS55D6PaGil1zY7fBlSc2tZfgll/ES6Ex/Mi0MiTsArmG9CU8whLOtbllvQwSCYLgB2ptunJBcKFX/VFdrzojyJgmA9eOtAHdAdQzTvhaVnOH4gl8pMSrebRI5f94YRis4EJPzgwUt6lRIB7TTvW9u51mG3kx8r21WbR9do5E8AhhUUESm37jVKOUax6m9nPlwzak1HkdVDYMWQkH/P/ZTtnuWEopw6XBAuw+CFNkzMQC9sRhVbzLd5sWA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TEOzNs2WPc+dS3ub2TLoWZ6zU55yYhX/vJB3S42Ij+I=;
+ b=aYB63QTfskAQBPndxAHlNDt+Lul/Z83J9jiYVJz56jVUuyAeHV6TSSpdxUXUxFKa/C0hBLq4kW5rCfmCAzDLNkT9PzNxV2ajpcy9sPnHClcllnVDImhKAwdfqXQIjCrw4bQi1el5TqYEWG1/VrlGO9Ll/C+UkKHEJbLBNs9qulkkI1FYj71bjIcleBhEPTOd8dLjHa6qkYwLS5Q96Q0GEBUr1tBrN6cmWbH08ovS8en1qAHctLa6pjSXlmIU7zzfjqY1Zql4BWv0dpL1mj94+c5xQB2/leX1i6q+uVXYCzPzXu9KYWB44gizdtFnj/sgQdcPa0/RJGEYWuZ20IIXcQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TEOzNs2WPc+dS3ub2TLoWZ6zU55yYhX/vJB3S42Ij+I=;
+ b=TNVEwTmP0qHnQg29d6bSEUSXAY4A78WxTyJ7MN7t9ci8XSz+htCD8dFBDvqJJwDbM9xO4uyY1d554mvXnseM+Ae4CKu8yja38EOSD1HRzETTfX6vwL40L0MbGzK99p1HhCu6DTgAF1HB8infcchm+e+nYc4GHOgLdeRLNHtHWLg=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from SJ2PR01MB8101.prod.exchangelabs.com (2603:10b6:a03:4f6::10) by
+ PH0PR01MB6327.prod.exchangelabs.com (2603:10b6:510:8::20) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8678.34; Tue, 29 Apr 2025 14:30:13 +0000
+Received: from SJ2PR01MB8101.prod.exchangelabs.com
+ ([fe80::292:6d9c:eb9a:95c9]) by SJ2PR01MB8101.prod.exchangelabs.com
+ ([fe80::292:6d9c:eb9a:95c9%3]) with mapi id 15.20.8678.028; Tue, 29 Apr 2025
+ 14:30:13 +0000
+Message-ID: <5096b86f-f766-46e1-b1d1-729d45a6bc4c@os.amperecomputing.com>
+Date: Tue, 29 Apr 2025 20:00:04 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 00/42] KVM: arm64: Revamp Fine Grained Trap handling
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ Mark Rutland <mark.rutland@arm.com>, Fuad Tabba <tabba@google.com>,
+ Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>
+References: <20250426122836.3341523-1-maz@kernel.org>
+ <4e63a13f-c5dc-4f97-879a-26b5548da07f@os.amperecomputing.com>
+ <87msbzxvye.wl-maz@kernel.org>
+Content-Language: en-US
+From: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+In-Reply-To: <87msbzxvye.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SI2PR01CA0015.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:191::15) To SJ2PR01MB8101.prod.exchangelabs.com
+ (2603:10b6:a03:4f6::10)
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-kernel@vger.kernel.org, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- linux-stm32@st-md-mailman.stormreply.com, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, Maxime Coquelin <mcoquelin.stm32@gmail.com>
-To: Patrice Chotard <patrice.chotard@foss.st.com>
-In-Reply-To: <20250428-upstream_omm_ospi_dts-v9-0-62522b1b0922@foss.st.com>
-References: <20250428-upstream_omm_ospi_dts-v9-0-62522b1b0922@foss.st.com>
-Message-Id: <174593770361.4057747.4332961101566967821.robh@kernel.org>
-Subject: Re: [PATCH v9 0/3] arm64: dts: st: Add SPI NOR support for
- stm32mp257f-ev1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR01MB8101:EE_|PH0PR01MB6327:EE_
+X-MS-Office365-Filtering-Correlation-Id: c3a0ff83-30c8-45bd-e351-08dd872a5a44
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?R0oyTVFSejVwRWt1dFBzbGwvZGlYV3UzVmh2c3lUQXFtK0k3cEQwMzBZcFhp?=
+ =?utf-8?B?NnkvSGg1OUZsM3FqRkYrUEhrK1dadHo0blFmNXBuUnJMNG5adFE1NTdPYXBB?=
+ =?utf-8?B?WHRERzNldE9ta1JvUXdKR0IwejN2SVNWQjVFVkFMbFBQLzZ2YXIweXUrRXBi?=
+ =?utf-8?B?SzRoWDNKdURqK25FWW1jYzF1dWh5WTVmcmFXNGFoWkw5bTZpOHowcjRrSlV2?=
+ =?utf-8?B?Z0dOL0g4OEMvWG82ekNtUWZsU3hPOE1Jcy9GdUJFcXp5d3A3NHdjVWtnMEdF?=
+ =?utf-8?B?VzFjbGNIRHpkRTNKK3ZjV3NQZHRMSVd4cnpHLzlYVkRiclRqa1lpQWxCVUtD?=
+ =?utf-8?B?UzlQV0FQUUlSL3ZHZllqNFBPTHhNL1lUUURqWVZvbUVscC9UcEVWeCtEandX?=
+ =?utf-8?B?V241ejhhcWFVSGpYUGpBOHIvUEVVRDhBYjdmNy9vcjVZSXhKRE54a055Ymxn?=
+ =?utf-8?B?Y0I0dVJmQ1NJU3pxTzI2a004RTZRdDVtWEFCb1NDQkJvSFFkNHo3OVhRNjVq?=
+ =?utf-8?B?RG9hUFIzQ1FNVS84OVlQblJqaGhZRUZPZXhlOG9pN2ZxMkxMRGw4a1hQWHJs?=
+ =?utf-8?B?QUtJR2t5RTRDbzhRaWR2UmdRTXJ3Z09aTXRndVVZNnNqZTBINjNYQ1NRTjZm?=
+ =?utf-8?B?Q3MxbEpCL2RDZ3dHK0RaTi9kYmZxRCszR0hncnNnaWJVRStTckIzSkc1ekow?=
+ =?utf-8?B?YmNhaFZseWVVUDMyTUMwd2NyN3RNUHdkL2xDelVxNy9jVzJsbUp6azdXT3Mv?=
+ =?utf-8?B?L2JaWnU0a1F1WWp4QTBIUDJOM25USDUvdXl2N1crUnF3eUpPWnZZekdXYk9z?=
+ =?utf-8?B?NEJGSDVRMGRZdjdVaWtPTjZnd1M5UHJsT0ZIaUMrbXhVTFFVdWRzU0pvUy9V?=
+ =?utf-8?B?dXZ2R3dsT1dUd2JXd1IzRFB5ZFVaS2JzQmdSZU1UZDJFUG4vRkdSWE9jSjhI?=
+ =?utf-8?B?ZWNqN0R5c2doTDN6a3QveXpoZGRKZE1HWDVBZEZPbUlwY2dacUFlQm5ZZnRF?=
+ =?utf-8?B?KzhSeVQ0ZTRjVGtUaTREc3JyY3FndStxdG1ETHpTbXlQdEpPb0VjelVtLzg2?=
+ =?utf-8?B?RUtva002QWZMckpEVEx4TEJZK2pnMXE2d0hYMm9MS0MvRzVvT2JjQTczd3hm?=
+ =?utf-8?B?Ukhic0Fyb0FGWGE4VUFvWGtucHBnSDNrbVp3a1BCSFpFeEpnKzB0cHBmcjk4?=
+ =?utf-8?B?NkEzYXpsWVdzcHJOS2lWVlZxcEtCMnJXNXJJWHFmdzk4aE9wRzl3MFpPSkhN?=
+ =?utf-8?B?aDU2MUo2dFJZbGduYWdzZDNKOE5KeDBCbUc1WWc1cHB5SWpSRDNqUjM4cm9P?=
+ =?utf-8?B?VFpmZFBBKzVYaDUvWExXQVZSQUoyVG16aXV6R0lBemNyNXNhZHI1UVVuRWJG?=
+ =?utf-8?B?bDVvQWc2ODBRZTZxZ2JBekxZNGVEZHlkQ3hjdVRkVGNVM0k5ejYwQlNVd3VU?=
+ =?utf-8?B?Zkl6UUFoWGpRZ1Z0VzFqb3R1Sy8vTnRINlcvaklCa2Q5TUtCTm5sTktpZEVS?=
+ =?utf-8?B?NU1pY3JUU1Uwanh0MEN6L3I0YTludFN3YTlFNmlVdDFueFVJL1c0SnZMRTZY?=
+ =?utf-8?B?amFkM01yaGJFZmU0WmVPem9DTitDbDBJcWNFMUNHU3VqWkNrb3czQmtmWXVH?=
+ =?utf-8?B?NkhSSlRZbVBObURJUVhtbFFyWS9RdzUzN3dMK0VwMjF4S1MvZjBFQmR2cFBH?=
+ =?utf-8?B?bTlBNk9wVjdWTDVCK2ZZOU1xRWd1V0lrZDROY3FKbnIxUG9KclkwTjhpRG85?=
+ =?utf-8?B?TjRkSkhaVkwrK1ZuUkc2RGRNaTJ5NnFFSFNOOGVRaFZnbXFYSG15QjFySVMz?=
+ =?utf-8?B?WGVsbnY0ODIzSHFsblRHT281Y3lia0M0TW0rUXAzS3BLOVJadDkxdWhOQ1lW?=
+ =?utf-8?B?NDZGNE5MT2Y5MHc3WjhNSDJaYVdEdGJrK0I0bGhiV2NlUTJFMVhjYitFREhL?=
+ =?utf-8?Q?GkzmH936hSQ=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR01MB8101.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Uk85b2NYVjNXa1o2ajducWhrTFo0YStqVU9PWWdqRERFaU0wSExVTit2VlJV?=
+ =?utf-8?B?MGM3aWYvU2JuaWdYZEdINUNkQk1mNFhPdEE1SnVkZ01GcXVlYWhxcUN4M0pQ?=
+ =?utf-8?B?ZUo0K0p2eEt5Y0ZjK2IrajNRSGpkckQ4NnQzTklLZkNRdG9aRTRyS3lvTGZW?=
+ =?utf-8?B?djUzdC8ySHQ3K3VhS3RrYklXWmY0Q1dTL01GOWhSdkZMSjBBODBBbGhQWHRj?=
+ =?utf-8?B?VlZoRkphMHZKN0RXL1Y4eXhrNE5Qd1crcFc5a3ZVaUpYc0tNenEycjNyQjM5?=
+ =?utf-8?B?YnFPV2dOZWpOOWU3dUFISExJQ1NNcllLUlUvYVltV2pYcHNRREh5b2NMR1N0?=
+ =?utf-8?B?Sk5FMWpvZml5b3BTL0pZbnhVWHdyK2t5UEdHT0lLTUpWcG1sMnloMHgvd2tH?=
+ =?utf-8?B?VWdRZ2lKcDFTcy9qSHZPWU1jZVpsV01zMTJWVE9aQkhSYlRjYkMrU09CU3NB?=
+ =?utf-8?B?cmFBYXpCcWJSSVo1TjlZZEdmNXdZRVY5UExSYVhrWnovcENrYUZMZU8wS0tG?=
+ =?utf-8?B?dmgyelRWTmhidTRIMzdicGxYZ1RhU3RBY3pYelpkS2FTdzlucVNUZFVQMzNv?=
+ =?utf-8?B?MkFQU3NIaHc3TCtCblU0OWpJWE85Qnl1WFkxbzNYTHV3WVJqbHZQdjROWC9B?=
+ =?utf-8?B?cDJ2NFRqNG5SY2tGVTM1Q29zYTFMeWwreXhvZkZaVVJoUWFTRzB5TStJaEFF?=
+ =?utf-8?B?Rm5PL1g3S1YvTkh0VEhVL2EvMnZGK0g4dTFyZDQwWXlKZ3ZhczRYNHArSWNN?=
+ =?utf-8?B?Y0ZZbzFHVjJzeW9xTGJXNGVwMXUxOU1uYUg1ZExxMnpFVHU2YXpCMmpmVVU4?=
+ =?utf-8?B?NGU1SDRtclBKRG42S3ZnUkg2Y2JFeEV0MEhYdXhLZHhINUtIQ1JleDFaTWFX?=
+ =?utf-8?B?U2luY01XNkEzUTJQREpubmFNeThQb1ZVQTQyblhTSVRKRVpySlVSUVN3OXRF?=
+ =?utf-8?B?QURqOC9qRVA0TFp1bkdocmxwQ05hd1pOZEpweFBVR2V3dDN4bW9XeWxybllS?=
+ =?utf-8?B?eUJqWW1JQ3dZYlJSLzl1S3dKWmpEc1RLcW9kRmJlMVJnOFBZdEYwaVp2aGhL?=
+ =?utf-8?B?NlkwaVA1aE5NcVFkYlRPbEFVVE1CN0lHSHNJL2lQZUFHeVVSejlmbU9qcWFT?=
+ =?utf-8?B?RVJ1dlJuK01JTlZjelY4czhIWnZ2MkpsaEpLc1ZhNlZaTHdka05MSkdacGcy?=
+ =?utf-8?B?dzFsTDNlUFNwWFVTZ01INHFHTkxLUjhyakVxWWtJMG9XbExmZElzS1diRERK?=
+ =?utf-8?B?Q0FtS2RMSFpNd1hzUjBtbFEwNzM0ekppTjdreWNVMzdLSTdEZ2Npenp1WWxI?=
+ =?utf-8?B?Ymtqdkd2d3dQSTVsNXoyOCtYd3IyWnQ1d1V5ejJYZVJyalZrelBZNlE2M1A0?=
+ =?utf-8?B?OEJTRDlhMjZ3U0cvUjVIKzQ1NGpvcHNjMDdHL0k4ZThaQ3YycU42aS9RaldK?=
+ =?utf-8?B?STZIdHlCMElON0NMMzV1M2VtcEY5UWtnQUt3SjFqZ1ZtdGlSS2lZelZ0K1hz?=
+ =?utf-8?B?enlKQlZVbDE4aFIyRTNWZWFnclUzTTE4Q2p1cThKYTZUdW5DMG9QcW1FZmZk?=
+ =?utf-8?B?b1BubHI2UkN1emxrWk51SWdFSWxwdC9uWGp6OXVZcHhuKzZnbDdUMlZrTHk2?=
+ =?utf-8?B?YXQ5cHBRTFZ5WHVDRVlsdUI5RzVhV01kYnpGWTRBUUhCbG8zbWlwQWdyVUsx?=
+ =?utf-8?B?TlFtSWJOaklCK0hDUXJCM1VIcFFDdlJDVGlTd3ljMHljaWV4bHIvUk5USG9l?=
+ =?utf-8?B?clZIb2lIUHJSbzUxRXowN2UxWU1LNDhXU3B1a0JTT3ZodmJESUpWYjZhRks0?=
+ =?utf-8?B?eVppUWNCSEdlNjhOTGhjZ0FWNHUwTHFVaEZXZUZaZ3lDakNkckZGVFpTYXNK?=
+ =?utf-8?B?aDR4QVgzM1dRam8wRmJ3c0RvK01TcXBZNEhGOUswdmpFUEtjWG1PYWxkUlBF?=
+ =?utf-8?B?WDVUckhWbjIzQVhKakR0YlRXemNhMkFlVE1lUzB4NGJjdHo3VXNMb2d6SERk?=
+ =?utf-8?B?TFRHWmJHNGI3bkFhYlF3TS9RdmRvNDEyc3BkWCtyYVY4UStpekNGdTdoUzFt?=
+ =?utf-8?B?YjV1RXFxNy9pcTdzZ2NDUVdobHhDT2s3QmpmUmhCOW1OSGZaekJqS1VybWxq?=
+ =?utf-8?B?WVZMUVdaNnovS0JGVm81MmxpUjEvRk1mdjFvTjJiZ2docCtiYThWdU5YNElH?=
+ =?utf-8?Q?EXmeVvMR0YBgHYkZkOt48DcSH+JRuRWBfTTRaur1or4z?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c3a0ff83-30c8-45bd-e351-08dd872a5a44
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR01MB8101.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Apr 2025 14:30:13.0863
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: knywcNkHWACyJ7zcO6BgXnuMz2CDqloTTrSt0TiEBpRTne+/rMOMuYVlVqJz0/q44wLaIBZV1F0Ln1YrCLaWJ32JhC7QVq7LWiH2xbldXC30IznAC1vRpJQnjWkYxxxN
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR01MB6327
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250429_154606_946374_A8EE6C0D 
+X-CRM114-Status: GOOD (  24.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,82 +197,350 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 4/29/2025 1:04 PM, Marc Zyngier wrote:
 
-On Mon, 28 Apr 2025 10:40:20 +0200, Patrice Chotard wrote:
-> Add SPI NOR support for stm32mp257f-ev1 board by adding:
->   _ Octo memory Manager node in stm32mp251.dtsi
->   _ OSPI port1 pinctrl entries in stm32mp25-pinctrl.dtsi
->   _ Add SPI NOR support for stm32mp257f-ev1.dts
+>>
+>> I am trying nv-next branch and I believe these FGT related changes are
+>> merged. With this, selftest arm64/set_id_regs is failing. From initial
+>> debug it seems, the register access of SYS_CTR_EL0, SYS_MIDR_EL1,
+>> SYS_REVIDR_EL1 and SYS_AIDR_EL1 from guest_code is resulting in trap
+>> to EL2 (HCR_ID1,ID2 are set) and is getting forwarded back to EL1,
+>> since EL1 sync handler is not installed in the test code, resulting in
+>> hang(endless guest_exit/entry).
 > 
-> To: Rob Herring <robh@kernel.org>
-> To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> To: Conor Dooley <conor+dt@kernel.org>
-> To: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-> To: Alexandre Torgue <alexandre.torgue@foss.st.com>
-> Cc: devicetree@vger.kernel.org
-> Cc: linux-stm32@st-md-mailman.stormreply.com
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+> Let's start by calling bullshit on the test itself:
 > 
-> Changes in v9:
->   - split patchset by susbsystem, current one include only DTS related
->     patches.
->   - Link to v8: https://lore.kernel.org/r/20250407-upstream_ospi_v6-v8-0-7b7716c1c1f6@foss.st.com
+> root@semi-fraudulent:/home/maz# grep AA64PFR0 /sys/kernel/debug/kvm/2008-4/idregs
+>   SYS_ID_AA64PFR0_EL1:	0000000020110000
 > 
-> ---
-> Patrice Chotard (3):
->       arm64: dts: st: Add OMM node on stm32mp251
->       arm64: dts: st: Add ospi port1 pinctrl entries in stm32mp25-pinctrl.dtsi
->       arm64: dts: st: Add SPI NOR flash support on stm32mp257f-ev1 board
+> It basically disable anything 64bit at EL{0,1,2,3]. Frankly, all these
+> tests are pure garbage. I'm baffled that anyone expects this crap to
+> give any meaningful result.
 > 
->  arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi | 51 +++++++++++++++++++++++++
->  arch/arm64/boot/dts/st/stm32mp251.dtsi        | 54 +++++++++++++++++++++++++++
->  arch/arm64/boot/dts/st/stm32mp257f-ev1.dts    | 32 ++++++++++++++++
->  3 files changed, 137 insertions(+)
-> ---
-> base-commit: 65954899a157832f68536b488194cf698248a26e
-> change-id: 20250410-upstream_omm_ospi_dts-04b97cc02e52
+>> It is due to function "triage_sysreg_trap" is returning true.
+>>
+>> When guest_code is in EL1 (default case) it is due to return in below if.
+>>
+>>   if (tc.fgt != __NO_FGT_GROUP__ &&
+>>              (vcpu->kvm->arch.fgu[tc.fgt] & BIT(tc.bit))) {
+>>                  kvm_inject_undefined(vcpu);
+>>                  return true;
+>>          }
 > 
-> Best regards,
-> --
-> Patrice Chotard <patrice.chotard@foss.st.com>
-> 
-> 
+> That explains why we end-up here. The 64bit ISA is "disabled", a bunch
+> of trap bits are advertised as depending on it, so the corresponding
+> FGU bits are set to "emulate" the requested behaviour.
 > 
 
+OK, was comparing fgu for this test case and VM boot.
+For this test, all HFGRTR bits were set in fgu.
+thanks, I did not notice that guest was disabled for AArch64.
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+> Works as intended, and this proves once more that what we call testing
+> is just horseshit.
+> 
+> In retrospect, we should do a few things:
+> 
+> - Prevent writes to ID_AA64PFR0_EL1 disabling the 64bit ISA, breaking
+>    this stupid test for good.
+> 
+> - Flag all the FGT bits depending on FEAT_AA64EL1 as NEVER_FGU,
+>    because that shouldn't happen, by construction (there is no
+>    architecture revision where these sysregs are UNDEFined).
+> 
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+Yes we should.
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
+> - Mark all these test as unmaintained and deprecated, recognising that
+>    they are utterly pointless (optional).
+> 
 
-  pip3 install dtschema --upgrade
+Just wondering, should I continue to modify this test to run in vEL2?
 
+> Full patch below.
+> 
+> 	M.
+> 
+> diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+> index d4e1218b004dd..666070d4ccd7f 100644
+> --- a/arch/arm64/kvm/config.c
+> +++ b/arch/arm64/kvm/config.c
+> @@ -295,34 +295,34 @@ static const struct reg_bits_to_feat_map hfgrtr_feat_map[] = {
+>   		   HFGRTR_EL2_APDBKey		|
+>   		   HFGRTR_EL2_APDAKey,
+>   		   feat_pauth),
+> -	NEEDS_FEAT(HFGRTR_EL2_VBAR_EL1		|
+> -		   HFGRTR_EL2_TTBR1_EL1		|
+> -		   HFGRTR_EL2_TTBR0_EL1		|
+> -		   HFGRTR_EL2_TPIDR_EL0		|
+> -		   HFGRTR_EL2_TPIDRRO_EL0	|
+> -		   HFGRTR_EL2_TPIDR_EL1		|
+> -		   HFGRTR_EL2_TCR_EL1		|
+> -		   HFGRTR_EL2_SCTLR_EL1		|
+> -		   HFGRTR_EL2_REVIDR_EL1	|
+> -		   HFGRTR_EL2_PAR_EL1		|
+> -		   HFGRTR_EL2_MPIDR_EL1		|
+> -		   HFGRTR_EL2_MIDR_EL1		|
+> -		   HFGRTR_EL2_MAIR_EL1		|
+> -		   HFGRTR_EL2_ISR_EL1		|
+> -		   HFGRTR_EL2_FAR_EL1		|
+> -		   HFGRTR_EL2_ESR_EL1		|
+> -		   HFGRTR_EL2_DCZID_EL0		|
+> -		   HFGRTR_EL2_CTR_EL0		|
+> -		   HFGRTR_EL2_CSSELR_EL1	|
+> -		   HFGRTR_EL2_CPACR_EL1		|
+> -		   HFGRTR_EL2_CONTEXTIDR_EL1	|
+> -		   HFGRTR_EL2_CLIDR_EL1		|
+> -		   HFGRTR_EL2_CCSIDR_EL1	|
+> -		   HFGRTR_EL2_AMAIR_EL1		|
+> -		   HFGRTR_EL2_AIDR_EL1		|
+> -		   HFGRTR_EL2_AFSR1_EL1		|
+> -		   HFGRTR_EL2_AFSR0_EL1,
+> -		   FEAT_AA64EL1),
+> +	NEEDS_FEAT_FLAG(HFGRTR_EL2_VBAR_EL1	|
+> +			HFGRTR_EL2_TTBR1_EL1	|
+> +			HFGRTR_EL2_TTBR0_EL1	|
+> +			HFGRTR_EL2_TPIDR_EL0	|
+> +			HFGRTR_EL2_TPIDRRO_EL0	|
+> +			HFGRTR_EL2_TPIDR_EL1	|
+> +			HFGRTR_EL2_TCR_EL1	|
+> +			HFGRTR_EL2_SCTLR_EL1	|
+> +			HFGRTR_EL2_REVIDR_EL1	|
+> +			HFGRTR_EL2_PAR_EL1	|
+> +			HFGRTR_EL2_MPIDR_EL1	|
+> +			HFGRTR_EL2_MIDR_EL1	|
+> +			HFGRTR_EL2_MAIR_EL1	|
+> +			HFGRTR_EL2_ISR_EL1	|
+> +			HFGRTR_EL2_FAR_EL1	|
+> +			HFGRTR_EL2_ESR_EL1	|
+> +			HFGRTR_EL2_DCZID_EL0	|
+> +			HFGRTR_EL2_CTR_EL0	|
+> +			HFGRTR_EL2_CSSELR_EL1	|
+> +			HFGRTR_EL2_CPACR_EL1	|
+> +			HFGRTR_EL2_CONTEXTIDR_EL1|
+> +			HFGRTR_EL2_CLIDR_EL1	|
+> +			HFGRTR_EL2_CCSIDR_EL1	|
+> +			HFGRTR_EL2_AMAIR_EL1	|
+> +			HFGRTR_EL2_AIDR_EL1	|
+> +			HFGRTR_EL2_AFSR1_EL1	|
+> +			HFGRTR_EL2_AFSR0_EL1,
+> +			NEVER_FGU, FEAT_AA64EL1),
+>   };
+>   
+>   static const struct reg_bits_to_feat_map hfgwtr_feat_map[] = {
+> @@ -368,25 +368,25 @@ static const struct reg_bits_to_feat_map hfgwtr_feat_map[] = {
+>   		   HFGWTR_EL2_APDBKey		|
+>   		   HFGWTR_EL2_APDAKey,
+>   		   feat_pauth),
+> -	NEEDS_FEAT(HFGWTR_EL2_VBAR_EL1		|
+> -		   HFGWTR_EL2_TTBR1_EL1		|
+> -		   HFGWTR_EL2_TTBR0_EL1		|
+> -		   HFGWTR_EL2_TPIDR_EL0		|
+> -		   HFGWTR_EL2_TPIDRRO_EL0	|
+> -		   HFGWTR_EL2_TPIDR_EL1		|
+> -		   HFGWTR_EL2_TCR_EL1		|
+> -		   HFGWTR_EL2_SCTLR_EL1		|
+> -		   HFGWTR_EL2_PAR_EL1		|
+> -		   HFGWTR_EL2_MAIR_EL1		|
+> -		   HFGWTR_EL2_FAR_EL1		|
+> -		   HFGWTR_EL2_ESR_EL1		|
+> -		   HFGWTR_EL2_CSSELR_EL1	|
+> -		   HFGWTR_EL2_CPACR_EL1		|
+> -		   HFGWTR_EL2_CONTEXTIDR_EL1	|
+> -		   HFGWTR_EL2_AMAIR_EL1		|
+> -		   HFGWTR_EL2_AFSR1_EL1		|
+> -		   HFGWTR_EL2_AFSR0_EL1,
+> -		   FEAT_AA64EL1),
+> +	NEEDS_FEAT_FLAG(HFGWTR_EL2_VBAR_EL1	|
+> +			HFGWTR_EL2_TTBR1_EL1	|
+> +			HFGWTR_EL2_TTBR0_EL1	|
+> +			HFGWTR_EL2_TPIDR_EL0	|
+> +			HFGWTR_EL2_TPIDRRO_EL0	|
+> +			HFGWTR_EL2_TPIDR_EL1	|
+> +			HFGWTR_EL2_TCR_EL1	|
+> +			HFGWTR_EL2_SCTLR_EL1	|
+> +			HFGWTR_EL2_PAR_EL1	|
+> +			HFGWTR_EL2_MAIR_EL1	|
+> +			HFGWTR_EL2_FAR_EL1	|
+> +			HFGWTR_EL2_ESR_EL1	|
+> +			HFGWTR_EL2_CSSELR_EL1	|
+> +			HFGWTR_EL2_CPACR_EL1	|
+> +			HFGWTR_EL2_CONTEXTIDR_EL1|
+> +			HFGWTR_EL2_AMAIR_EL1	|
+> +			HFGWTR_EL2_AFSR1_EL1	|
+> +			HFGWTR_EL2_AFSR0_EL1,
+> +			NEVER_FGU, FEAT_AA64EL1),
+>   };
+>   
+>   static const struct reg_bits_to_feat_map hdfgrtr_feat_map[] = {
+> @@ -443,17 +443,17 @@ static const struct reg_bits_to_feat_map hdfgrtr_feat_map[] = {
+>   		   FEAT_TRBE),
+>   	NEEDS_FEAT_FLAG(HDFGRTR_EL2_OSDLR_EL1, NEVER_FGU,
+>   			FEAT_DoubleLock),
+> -	NEEDS_FEAT(HDFGRTR_EL2_OSECCR_EL1	|
+> -		   HDFGRTR_EL2_OSLSR_EL1	|
+> -		   HDFGRTR_EL2_DBGPRCR_EL1	|
+> -		   HDFGRTR_EL2_DBGAUTHSTATUS_EL1|
+> -		   HDFGRTR_EL2_DBGCLAIM		|
+> -		   HDFGRTR_EL2_MDSCR_EL1	|
+> -		   HDFGRTR_EL2_DBGWVRn_EL1	|
+> -		   HDFGRTR_EL2_DBGWCRn_EL1	|
+> -		   HDFGRTR_EL2_DBGBVRn_EL1	|
+> -		   HDFGRTR_EL2_DBGBCRn_EL1,
+> -		   FEAT_AA64EL1)
+> +	NEEDS_FEAT_FLAG(HDFGRTR_EL2_OSECCR_EL1	|
+> +			HDFGRTR_EL2_OSLSR_EL1	|
+> +			HDFGRTR_EL2_DBGPRCR_EL1	|
+> +			HDFGRTR_EL2_DBGAUTHSTATUS_EL1|
+> +			HDFGRTR_EL2_DBGCLAIM	|
+> +			HDFGRTR_EL2_MDSCR_EL1	|
+> +			HDFGRTR_EL2_DBGWVRn_EL1	|
+> +			HDFGRTR_EL2_DBGWCRn_EL1	|
+> +			HDFGRTR_EL2_DBGBVRn_EL1	|
+> +			HDFGRTR_EL2_DBGBCRn_EL1,
+> +			NEVER_FGU, FEAT_AA64EL1)
+>   };
+>   
+>   static const struct reg_bits_to_feat_map hdfgwtr_feat_map[] = {
+> @@ -503,16 +503,16 @@ static const struct reg_bits_to_feat_map hdfgwtr_feat_map[] = {
+>   		   FEAT_TRBE),
+>   	NEEDS_FEAT_FLAG(HDFGWTR_EL2_OSDLR_EL1,
+>   			NEVER_FGU, FEAT_DoubleLock),
+> -	NEEDS_FEAT(HDFGWTR_EL2_OSECCR_EL1	|
+> -		   HDFGWTR_EL2_OSLAR_EL1	|
+> -		   HDFGWTR_EL2_DBGPRCR_EL1	|
+> -		   HDFGWTR_EL2_DBGCLAIM		|
+> -		   HDFGWTR_EL2_MDSCR_EL1	|
+> -		   HDFGWTR_EL2_DBGWVRn_EL1	|
+> -		   HDFGWTR_EL2_DBGWCRn_EL1	|
+> -		   HDFGWTR_EL2_DBGBVRn_EL1	|
+> -		   HDFGWTR_EL2_DBGBCRn_EL1,
+> -		   FEAT_AA64EL1),
+> +	NEEDS_FEAT_FLAG(HDFGWTR_EL2_OSECCR_EL1	|
+> +			HDFGWTR_EL2_OSLAR_EL1	|
+> +			HDFGWTR_EL2_DBGPRCR_EL1	|
+> +			HDFGWTR_EL2_DBGCLAIM	|
+> +			HDFGWTR_EL2_MDSCR_EL1	|
+> +			HDFGWTR_EL2_DBGWVRn_EL1	|
+> +			HDFGWTR_EL2_DBGWCRn_EL1	|
+> +			HDFGWTR_EL2_DBGBVRn_EL1	|
+> +			HDFGWTR_EL2_DBGBCRn_EL1,
+> +			NEVER_FGU, FEAT_AA64EL1),
+>   	NEEDS_FEAT(HDFGWTR_EL2_TRFCR_EL1, FEAT_TRF),
+>   };
+>   
+> @@ -556,38 +556,38 @@ static const struct reg_bits_to_feat_map hfgitr_feat_map[] = {
+>   		   HFGITR_EL2_ATS1E1RP,
+>   		   FEAT_PAN2),
+>   	NEEDS_FEAT(HFGITR_EL2_DCCVADP, FEAT_DPB2),
+> -	NEEDS_FEAT(HFGITR_EL2_DCCVAC		|
+> -		   HFGITR_EL2_SVC_EL1		|
+> -		   HFGITR_EL2_SVC_EL0		|
+> -		   HFGITR_EL2_ERET		|
+> -		   HFGITR_EL2_TLBIVAALE1	|
+> -		   HFGITR_EL2_TLBIVALE1		|
+> -		   HFGITR_EL2_TLBIVAAE1		|
+> -		   HFGITR_EL2_TLBIASIDE1	|
+> -		   HFGITR_EL2_TLBIVAE1		|
+> -		   HFGITR_EL2_TLBIVMALLE1	|
+> -		   HFGITR_EL2_TLBIVAALE1IS	|
+> -		   HFGITR_EL2_TLBIVALE1IS	|
+> -		   HFGITR_EL2_TLBIVAAE1IS	|
+> -		   HFGITR_EL2_TLBIASIDE1IS	|
+> -		   HFGITR_EL2_TLBIVAE1IS	|
+> -		   HFGITR_EL2_TLBIVMALLE1IS	|
+> -		   HFGITR_EL2_ATS1E0W		|
+> -		   HFGITR_EL2_ATS1E0R		|
+> -		   HFGITR_EL2_ATS1E1W		|
+> -		   HFGITR_EL2_ATS1E1R		|
+> -		   HFGITR_EL2_DCZVA		|
+> -		   HFGITR_EL2_DCCIVAC		|
+> -		   HFGITR_EL2_DCCVAP		|
+> -		   HFGITR_EL2_DCCVAU		|
+> -		   HFGITR_EL2_DCCISW		|
+> -		   HFGITR_EL2_DCCSW		|
+> -		   HFGITR_EL2_DCISW		|
+> -		   HFGITR_EL2_DCIVAC		|
+> -		   HFGITR_EL2_ICIVAU		|
+> -		   HFGITR_EL2_ICIALLU		|
+> -		   HFGITR_EL2_ICIALLUIS,
+> -		   FEAT_AA64EL1),
+> +	NEEDS_FEAT_FLAG(HFGITR_EL2_DCCVAC	|
+> +			HFGITR_EL2_SVC_EL1	|
+> +			HFGITR_EL2_SVC_EL0	|
+> +			HFGITR_EL2_ERET		|
+> +			HFGITR_EL2_TLBIVAALE1	|
+> +			HFGITR_EL2_TLBIVALE1	|
+> +			HFGITR_EL2_TLBIVAAE1	|
+> +			HFGITR_EL2_TLBIASIDE1	|
+> +			HFGITR_EL2_TLBIVAE1	|
+> +			HFGITR_EL2_TLBIVMALLE1	|
+> +			HFGITR_EL2_TLBIVAALE1IS	|
+> +			HFGITR_EL2_TLBIVALE1IS	|
+> +			HFGITR_EL2_TLBIVAAE1IS	|
+> +			HFGITR_EL2_TLBIASIDE1IS	|
+> +			HFGITR_EL2_TLBIVAE1IS	|
+> +			HFGITR_EL2_TLBIVMALLE1IS|
+> +			HFGITR_EL2_ATS1E0W	|
+> +			HFGITR_EL2_ATS1E0R	|
+> +			HFGITR_EL2_ATS1E1W	|
+> +			HFGITR_EL2_ATS1E1R	|
+> +			HFGITR_EL2_DCZVA	|
+> +			HFGITR_EL2_DCCIVAC	|
+> +			HFGITR_EL2_DCCVAP	|
+> +			HFGITR_EL2_DCCVAU	|
+> +			HFGITR_EL2_DCCISW	|
+> +			HFGITR_EL2_DCCSW	|
+> +			HFGITR_EL2_DCISW	|
+> +			HFGITR_EL2_DCIVAC	|
+> +			HFGITR_EL2_ICIVAU	|
+> +			HFGITR_EL2_ICIALLU	|
+> +			HFGITR_EL2_ICIALLUIS,
+> +			NEVER_FGU, FEAT_AA64EL1),
+>   };
+>   
+>   static const struct reg_bits_to_feat_map hafgrtr_feat_map[] = {
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index 157de0ace6e7e..28dc778d0d9bb 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -1946,6 +1946,12 @@ static int set_id_aa64pfr0_el1(struct kvm_vcpu *vcpu,
+>   	if ((hw_val & mpam_mask) == (user_val & mpam_mask))
+>   		user_val &= ~ID_AA64PFR0_EL1_MPAM_MASK;
+>   
+> +	/* Fail the guest's request to disable the AA64 ISA at EL{0,1,2} */
+> +	if (!FIELD_GET(ID_AA64PFR0_EL1_EL0, user_val) ||
+> +	    !FIELD_GET(ID_AA64PFR0_EL1_EL1, user_val) ||
+> +	    (vcpu_has_nv(vcpu) && !FIELD_GET(ID_AA64PFR0_EL1_EL2, user_val)))
+> +		return -EINVAL;
+> +
+>   	return set_id_reg(vcpu, rd, user_val);
+>   }
+>   
+> diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
+> index 322b9d3b01255..57708de2075df 100644
+> --- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
+> +++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
+> @@ -129,10 +129,10 @@ static const struct reg_ftr_bits ftr_id_aa64pfr0_el1[] = {
+>   	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR0_EL1, DIT, 0),
+>   	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR0_EL1, SEL2, 0),
+>   	REG_FTR_BITS(FTR_EXACT, ID_AA64PFR0_EL1, GIC, 0),
+> -	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR0_EL1, EL3, 0),
+> -	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR0_EL1, EL2, 0),
+> -	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR0_EL1, EL1, 0),
+> -	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR0_EL1, EL0, 0),
+> +	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR0_EL1, EL3, 1),
+> +	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR0_EL1, EL2, 1),
+> +	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR0_EL1, EL1, 1),
+> +	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR0_EL1, EL0, 1),
+>   	REG_FTR_END,
+>   };
+>   
+> 
+This diff fixes the hang seen while running this test(test ran gracefully).
+Tried to run this test in vEL2 and it passing for majority of the registers and failing for the few, looking in to it.
 
-This patch series was applied (using b4) to base:
- Base: using specified base-commit 65954899a157832f68536b488194cf698248a26e
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/st/' for 20250428-upstream_omm_ospi_dts-v9-0-62522b1b0922@foss.st.com:
-
-arch/arm64/boot/dts/st/stm32mp257f-dk.dtb: /soc@0/ommanager@40500000: failed to match any schema with compatible: ['st,stm32mp25-omm']
-arch/arm64/boot/dts/st/stm32mp257f-ev1.dtb: /soc@0/ommanager@40500000: failed to match any schema with compatible: ['st,stm32mp25-omm']
-arch/arm64/boot/dts/st/stm32mp257f-dk.dtb: /soc@0/ommanager@40500000/spi@0: failed to match any schema with compatible: ['st,stm32mp25-ospi']
-arch/arm64/boot/dts/st/stm32mp257f-ev1.dtb: /soc@0/ommanager@40500000/spi@0: failed to match any schema with compatible: ['st,stm32mp25-ospi']
-arch/arm64/boot/dts/st/stm32mp257f-dk.dtb: /soc@0/ommanager@40500000/spi@1: failed to match any schema with compatible: ['st,stm32mp25-ospi']
-arch/arm64/boot/dts/st/stm32mp257f-ev1.dtb: /soc@0/ommanager@40500000/spi@1: failed to match any schema with compatible: ['st,stm32mp25-ospi']
-
-
-
-
-
+-- 
+Thanks,
+Gk
 
