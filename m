@@ -4,83 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1592C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 07:29:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0FA3C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 07:32:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eyqiKFHppWJecvLWPqnoqiZIgBN9McBLLBAx3iq3BJc=; b=ZimMCfK6+ayHrDR5Os4eiXgvNb
-	jpxHs7HbMs3A1HxgNa3UcV10PFn/X0UuK/xNUaMeE48YWa1egINPxngtujsPexQrE8r7LDqJVIIi+
-	npTZB3jrBkB5+R8ZNxIiyITVEWy1Setne+xFO3oy3l/suY8V0jLm6avset3EX0hGsLXgYHRjV2T/M
-	qJLG3JjNfu6mTEBS24I7Q/R8WLn2wLd6H93xRF2qh9K+Nteh49p2I0xlFHbJKvReYwdThFUcWsyVq
-	ncEXJYG7EspQklWFadHcRnAFgaokaiFhroL9HQeUue9+1MVIKiisrfFohGjl6orpXGA8Apwq2HaBo
-	pTPvq6DQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RyhhKHcQn/OtgTmNOO+AF/jrAuW0rpCyeN4utPF33Kc=; b=oEeHoMbr3R/ENY/RZnkbsKb9gR
+	qZMOuAlol0aaiWXooP04N3KgPyYSh7jr06QUanqcusbpHeaqqsxisbYqMr6m2mSRJeygsytfPR19e
+	bprg2us5N9CkV+bmKtlvdl88WHXGQMI/vAvWuNb/+sHd7vkRoQQDy1tgrs4ShGVwGI3bJ0gYo8r0A
+	e7uzNs4Yx/JefNTw/HevwxdrFqhboQ/8xnZKgaHsgdYBMb0agK6BurOAGZ/los4Z4Tq1pv0ZJ8KnV
+	bE+n5Kuw5e3rhfhubO0ZfFsYzPUDGB24DwonaC/1nvH4XK4r1X+WWzG6JUYl3TIw0MN7Jz8UoGgq6
+	nIM0Z+sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9fOe-00000008ks1-043p;
-	Tue, 29 Apr 2025 07:28:52 +0000
-Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
+	id 1u9fSQ-00000008laF-1ZHy;
+	Tue, 29 Apr 2025 07:32:46 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9fGW-00000008jH1-0JyJ
+	id 1u9fMq-00000008kVK-1M8i
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 07:20:29 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 4104E43A54;
-	Tue, 29 Apr 2025 07:20:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1745911225;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eyqiKFHppWJecvLWPqnoqiZIgBN9McBLLBAx3iq3BJc=;
-	b=AOlvZUbDeCYCofu6N6SVZm37ESGY0nMlrkfxQ5dAN84Fq2iaUrmBO4hxGrIsQgFwXG8jKs
-	r57awTqRSW9gLM820C44Qz1M7D7XZU6f9KW4R8dL9Xf/84rIH1G3jtt2bZKdjBno9Hls6f
-	P4AQqF7HAo4UfNJUbivJW5ZU89QK5OyBMKq5HmZXZSqsjOf2bU271p/xax7yIUknv7bfHm
-	235bRBUyIr7mgFAvzPiNzKEC5Ek2rVNPMtQjlIm5hdoMuyTHGlsqy0eJ6IPLTOS9nipI1K
-	YjpjNrjhwy7LNygVeqRYRqdCSAheOXzlkDZcggURgMnTYzkbo8vbJPrt5EbYdA==
-Date: Tue, 29 Apr 2025 09:20:22 +0200
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: davem@davemloft.net, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Russell King
- <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, Christophe
- Leroy <christophe.leroy@csgroup.eu>, Herve Codina
- <herve.codina@bootlin.com>, Florian Fainelli <f.fainelli@gmail.com>, Heiner
- Kallweit <hkallweit1@gmail.com>, Vladimir Oltean <vladimir.oltean@nxp.com>,
- =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>, Marek
- =?UTF-8?B?QmVow7pu?= <kabel@kernel.org>, Oleksij Rempel
- <o.rempel@pengutronix.de>, =?UTF-8?B?Tmljb2zDsg==?= Veronese
- <nicveronese@gmail.com>, Simon Horman <horms@kernel.org>,
- mwojtas@chromium.org, Antoine Tenart <atenart@kernel.org>,
- devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, Romain
- Gantois <romain.gantois@bootlin.com>, Daniel Golle <daniel@makrotopia.org>,
- Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: Re: [PATCH net-next v5 03/14] net: phy: Introduce PHY ports
- representation
-Message-ID: <20250429092022.1463d5bf@device-130.home>
-In-Reply-To: <20250428171102.37455ad6@kernel.org>
-References: <20250425141511.182537-1-maxime.chevallier@bootlin.com>
-	<20250425141511.182537-4-maxime.chevallier@bootlin.com>
-	<20250428171102.37455ad6@kernel.org>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	Tue, 29 Apr 2025 07:27:01 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53T7QlpD3785291
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 29 Apr 2025 02:26:47 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1745911607;
+	bh=RyhhKHcQn/OtgTmNOO+AF/jrAuW0rpCyeN4utPF33Kc=;
+	h=From:To:CC:Subject:Date;
+	b=deKrmW0CpxxomB5UltntmFvpnqIFK7vxG9so3tJrwKj3hGGJN8Ld/vxMr3n/aEZT2
+	 vktX/z50+bfRE7UUFpkGBrE+IjvGT0xnz/IiS6wNnp7zIaAynmeEXXCW2esskFYDv0
+	 NehrjlZrn5ddm+QmxIU5fcdKihJHgBRGpkFirKRU=
+Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53T7QlEE026072
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 29 Apr 2025 02:26:47 -0500
+Received: from DLEE104.ent.ti.com (157.170.170.34) by DLEE105.ent.ti.com
+ (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 29
+ Apr 2025 02:26:46 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE104.ent.ti.com
+ (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 29 Apr 2025 02:26:46 -0500
+Received: from localhost (chintan-thinkstation-p360-tower.dhcp.ti.com [172.24.227.220])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53T7QjXR088302;
+	Tue, 29 Apr 2025 02:26:46 -0500
+From: Chintan Vankar <c-vankar@ti.com>
+To: Conor Dooley <conor+dt@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Rob Herring <robh@kernel.org>, Tero Kristo
+	<kristo@kernel.org>,
+        Vignesh Raghavendra <vigneshr@ti.com>, Nishanth Menon
+	<nm@ti.com>
+CC: <srk@ti.com>, <s-vadapalli@ti.com>, <danishanwar@ti.com>,
+        <c-vankar@ti.com>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH v4 0/2] Add bootph-all property to necessary nodes to enable ethernet boot for AM68-SK, J722s and AM62p-SK
+Date: Tue, 29 Apr 2025 12:56:42 +0530
+Message-ID: <20250429072644.2400295-1-c-vankar@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvieefvdduucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopeguvghvihgtvgdqudeftddrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfedtpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrkhgvrhhnvghlrdhor
- hhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqmhhsmhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhm
-X-GND-Sasl: maxime.chevallier@bootlin.com
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_002028_310778_CEE5B2C5 
-X-CRM114-Status: GOOD (  10.82  )
+X-CRM114-CacheID: sfid-20250429_002700_461751_45B0E0AF 
+X-CRM114-Status: UNSURE (   9.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,23 +90,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jakub,
+This series adds bootph-all property to necessary nodes to enable
+ethernet boot support for AM68-SK, J722s and AM62p-SK.
 
-On Mon, 28 Apr 2025 17:11:02 -0700
-Jakub Kicinski <kuba@kernel.org> wrote:
+This series is based on linux-next tagged next-20250428.
 
-> On Fri, 25 Apr 2025 16:14:56 +0200 Maxime Chevallier wrote:
-> > +/**
-> > + * phy_port_get_type: get the PORT_* attribut for that port.
-> > + */
-> > +int phy_port_get_type(struct phy_port *port)  
-> 
-> Bunch of missing argument descriptions in the kdoc in this patch.
+Link to v3:
+https://lore.kernel.org/r/20250425051055.2393301-1-c-vankar@ti.com/
 
-Thanks for taking a look :) I'll address the kdoc for next time
+Changes from v3 to v4:
+- As per Nishanth's suggestion, moved nodes which require "bootph-all"
+  property into board specific file for AM68-SK.
 
-I'll wait a bit before re-spin, to get a chance to get some feedback on
-the whole thing from the PHY folks.
+Chintan Vankar (2):
+  arm64: dts: ti: k3-am68-sk-base-board: Add bootph-all property to
+    enable Ethernet boot
+  arm64: dts: ti: k3-am62p*/k3-j722s: Add bootph-all property to enable
+    Ethernet boot
 
-Maxime
+ .../boot/dts/ti/k3-am62p-j722s-common-main.dtsi      |  3 +++
+ arch/arm64/boot/dts/ti/k3-am62p5-sk.dts              |  2 ++
+ arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts     | 12 ++++++++++++
+ arch/arm64/boot/dts/ti/k3-j722s-evm.dts              |  3 +++
+ 4 files changed, 20 insertions(+)
+
+-- 
+2.34.1
+
 
