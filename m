@@ -4,116 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4BBCC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 19:28:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE464C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 19:31:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SZDZI43E332yNRCJFIwANBWoXEasKU0d/26e/2xQtgs=; b=Xf7sbZHW1pqYZAqHAUov3rOgPv
-	Gt/ni9grFuA574vIKxF2tl4dV9HnZ9RdrVjIHhicW7zeo7otrzsu34AgwsjT5A8Q7enQu3fgreXcI
-	Y2dGuyJwrC4HGO/H3gEPnsDnMDmt8TMPcY6c9uX/dRBEKoJpDJ67DklG4m6sGwso+tYZ9X/W9osuR
-	UpsADR/2Zz8MkxDay+ZOanSUn9b9Csy0mjA5mS88MFO5ssVaipaBbcOK8n98SjdiMIABaaNX5Vhtj
-	hJ49/4NY29Eo1fgt+K9FhloFC1Xr8w+zZ14gzPLbro4AAINbxV8OsPIzox7nZZMoHvBMMyWjLk/jV
-	VPx3GN7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qZjd2AJcsFaYi/nRk0zh41/cqrcDOBosGIW9jn0Zsbc=; b=xEWZKVB8j5Axza8PI7Ox10gmi4
+	RvxOVK/TPHmf8dtsYwfvCXupP9P7zUQVGG9kh26nEN3me94xs+ixZgZTADdaIArsLzBfpg7z1hif7
+	FDf9jhroK8mhbCFae3gd7xGpdfbg3fHBGsak1SIoSlzyOrEbEUVyW7GlmJUqu+CRqPqYIBboYxGWA
+	+GgZXrJtkBKv0AdorAkUsErLlKS3cJcXLjfHlDgvbuT26w/4uWt81CWpUric1VCDsXQU6Dua40EqV
+	1Arigz/Z24RLdixtgfoa0GquQLDuZ1GUTuaeHlnsLwisxL8pQtSnMgbFA4LRzPIPOtcomEJlc2uS4
+	wvfZ7jiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9qcc-0000000AefG-0o1D;
-	Tue, 29 Apr 2025 19:28:02 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1u9qfk-0000000Af0r-469y;
+	Tue, 29 Apr 2025 19:31:16 +0000
+Received: from mail-mw2nam10on20626.outbound.protection.outlook.com ([2a01:111:f403:2412::626] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9qaf-0000000AeRY-3TYi
+	id 1u9pUM-0000000AVAI-3ngt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 19:26:03 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53TA2GWu015302
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 19:26:00 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	SZDZI43E332yNRCJFIwANBWoXEasKU0d/26e/2xQtgs=; b=o3eFeqyZdPLFuCuH
-	mP7nN9MEbhQ+Mt8pmNMbSPMTt1IvhBiQzblyX1+x3ULG0XB1A+lB/aoNc3Ht4Pgq
-	DlJ4M/1r2Ctd0FG1W82odOgUwCgjimm92UfF6YNB/KiCTuFj95eCRUFib32hij9U
-	ycI7pnmb5QjnW/ZqIkqWaYYpcI0sVq2Bb5O3JPKiBy3x93oPJjd2pKylQcIpjlbp
-	tgvWeTUtS5hx81RgYui13cn413QQPZ6mrXy45V6FLtvuwArdNbifm/fjn71LrwAL
-	nIQ6OeFIlrqhpko4UqwJ7U2DeZ8UY8TDP5sWorLJIkLQ+SD/UBfQXa/nNCDYDiXI
-	p+9Ugg==
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 468r8hvjfg-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 19:25:59 +0000 (GMT)
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-4775bdbcdc3so14521811cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 12:25:59 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745954759; x=1746559559;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=SZDZI43E332yNRCJFIwANBWoXEasKU0d/26e/2xQtgs=;
-        b=FfYfdAIuPvBLVqswJYdJyfjv6zWYx+MOvG4TYpPCq0Or/I3Nazs4JMWGlb38ZTZ3M+
-         37hh3LQCPzsnYLO5OT5z19dxKtvTpGSy8CmFNMnMFT/fC4v12SzwHIL2xsHdP7If+M+n
-         QNSMFlPHv+wfODyZUDAQwAA7r/U1Ns24fvyFBHZQ2v4nYkz8HJZ7HlGvmEcvDmUovgcF
-         DYGnLe1rFtRrUz9zBTuTFWjhVcAIJkTwUWE8qgXO0/gMGs7Ol1KsmV+p3dyk9xtaHmV5
-         0VQfdTPdf/ntCubvmVMyHZ2UlugPEmMmgLfR0Co3kMUMm6MCyKufabGIP6NNSArLB0D1
-         Kndg==
-X-Forwarded-Encrypted: i=1; AJvYcCUrnzKdYLVlTKGYaC/tGNxFmYH0tgpuzNPtcNzAQpYD8jb05iBpLp9VZTUVq1Au/4LEbY4lK4eyLtM4GT2FHI5j@lists.infradead.org
-X-Gm-Message-State: AOJu0YxwZmG/A+NWN58q5LoHdsZ40s6W8rIvp93R5scmqnOIbqykznSj
-	BzSqiNHiP/rhgmnQMMJAA8e1WsyH1/owTEooF1fW+f+2VnpMvnwjtnVLbXCuKUhqGMX+Nr188zi
-	nIwsPd7PN7IAHOUM5QUOtKlNgsF2anvtkwvvjEltBqfag/X3hcTlRGzntuIi8OBErwXRw2BCOqQ
-	==
-X-Gm-Gg: ASbGncsBZN4zafT2fibiiGUov1JBK3dUMdIZqFJkksxvVX2gc9BtN9LuyCg0vvu3slN
-	54fhwA3/VcMamXwjZTGRc2MhNvzqPhbqtZ4olNDVHaoA0z54x456ZxrGb3gQoY+mf5ScepcnKpf
-	22dZeJPnZwjHUfW9PAxfeV3S3bHY70VRKqHcZOMSfS0jhBSm7vEtFTibLNIwBYvlA/xs3TW9hux
-	2rr4nk1rgTCyUtZDBjxMn/cropbl4b+D8u+2FBb2cf6v6hgp6QRd79fMCFfbWjMtMroP1ArNi/0
-	Gav1+EY9DLnsm96VxTE6SBeVeXbZG/9AtIw448+rdQnPrCZawGmVy2JPnyj1qhGBZw==
-X-Received: by 2002:a05:622a:1490:b0:472:1d00:1fc3 with SMTP id d75a77b69052e-489c445ca44mr1384761cf.8.1745954758655;
-        Tue, 29 Apr 2025 12:25:58 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHeCpvJWeqZH0ttcvHHJ9VqFEgyci4j9m5BtdmVr/zQ3sRean1THCu8ARbeAV6i3mZ/LHvo8g==
-X-Received: by 2002:a05:622a:1490:b0:472:1d00:1fc3 with SMTP id d75a77b69052e-489c445ca44mr1384561cf.8.1745954758152;
-        Tue, 29 Apr 2025 12:25:58 -0700 (PDT)
-Received: from [192.168.65.43] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-acec0530c37sm225421966b.136.2025.04.29.12.25.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 29 Apr 2025 12:25:57 -0700 (PDT)
-Message-ID: <da8f8506-edbe-4a4a-bef9-29126d3e5c04@oss.qualcomm.com>
-Date: Tue, 29 Apr 2025 21:25:55 +0200
+	Tue, 29 Apr 2025 18:15:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VIPaSKM1xa0+0r8kHBy9QrD1Vpu4z9Qz+cQ2nhSXdJcCG3oHyOKDJcqYrsOYc7u/hdxJhWXAmwv2CfYfbdcqY2pdYIUerBrE6muIPg3Hxj84oU7ioxf7H6BhZJtKDTffiNgXauWj7UqhEId8KVj4DcyclIpSWDVSaFziIVf4SjcUbJYqgVJkEwJRCMfLep4KTHoJjcH+mh6o+XlYN7K+rdWvJXD47j+UyWAL7IhOuIxd3cEIbyWBNIQSr+Ua1HMQTfJ/LOqviydtBy0BgQR/nexynIxEaoq1iWeIe/5MdxMzm6RhnM5HxR1QL2zknC5ih72OqM3TO02aXenNOqqRVg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qZjd2AJcsFaYi/nRk0zh41/cqrcDOBosGIW9jn0Zsbc=;
+ b=MinnTn04AcKsKKn2MgoUe2K5P9IlRQA1WfGlagsTAsebOakystMfGTtr7BGWqwVrdiYhRrWdjRMdWG2OrVLln6XY+1iZLKFS+iI9XfeAzXEdROUYKEA6g87aFI/jXewk0k5kXrqgRmis7tUyxhwksHfediM9pj70bJY5jgEiNMbXVhMmLOAsCZBn7QAKuizTFAcrbLxQ027Gx4I2k0NZsKuQ9LtZ2p5GWiPoSpT2rWP3cg0gr1lxNw5tYfr/l0oapN6nheVeHxQk4SKCaxQAXKtTxVv9uow76ZdERENF0pDcliJdM8j0Nvh4T4qxJWmsRTiFOOWPhWuMmEnp4hlJOA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qZjd2AJcsFaYi/nRk0zh41/cqrcDOBosGIW9jn0Zsbc=;
+ b=UAfhclOVX2+nIacGd6b4AbEQ7SFz6xe+bCb3sv3LoglorV/7snKytbn9zrIXm+ktpOU2bEBb4mQqjCv4v/dmxRMWy/uJLTIzuP5hG4caGP+TbYQ+tEGuWzJDIWIM8OINMZag5Dgo+eenV+UHCyDVfFWeoFukiz2ZyVI++uLnyPQ1XGvi1/TGPPMRc7+rwdgNBBmPS7u/cAZVzl7YyhUQYnzI1Ci29DUMgFF+VVmZdDy0ldji8SlL3wXP6/07SRG/DYB4feO8eN3ZcUYvMbnbpaK4pESSvxlTLmFcwvvgUQLeNUTi87jWA8lvhFttZzxGGnVeoY6sgHHppuU7ltDn9Q==
+Received: from CH2PR08CA0005.namprd08.prod.outlook.com (2603:10b6:610:5a::15)
+ by SA1PR12MB7128.namprd12.prod.outlook.com (2603:10b6:806:29c::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.27; Tue, 29 Apr
+ 2025 18:15:17 +0000
+Received: from CH2PEPF0000009A.namprd02.prod.outlook.com
+ (2603:10b6:610:5a:cafe::27) by CH2PR08CA0005.outlook.office365.com
+ (2603:10b6:610:5a::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.36 via Frontend Transport; Tue,
+ 29 Apr 2025 18:15:17 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ CH2PEPF0000009A.mail.protection.outlook.com (10.167.244.22) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8699.20 via Frontend Transport; Tue, 29 Apr 2025 18:15:16 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 29 Apr
+ 2025 11:15:04 -0700
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Tue, 29 Apr 2025 11:15:04 -0700
+Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com
+ (10.126.190.181) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Tue, 29 Apr 2025 11:15:02 -0700
+Date: Tue, 29 Apr 2025 11:15:00 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Pranjal Shrivastava <praan@google.com>
+CC: <jgg@nvidia.com>, <kevin.tian@intel.com>, <corbet@lwn.net>,
+	<will@kernel.org>, <bagasdotme@gmail.com>, <robin.murphy@arm.com>,
+	<joro@8bytes.org>, <thierry.reding@gmail.com>, <vdumpa@nvidia.com>,
+	<jonathanh@nvidia.com>, <shuah@kernel.org>, <jsnitsel@redhat.com>,
+	<nathan@kernel.org>, <peterz@infradead.org>, <yi.l.liu@intel.com>,
+	<mshavit@google.com>, <zhangzekun11@huawei.com>, <iommu@lists.linux.dev>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
+	<mochs@nvidia.com>, <alok.a.tiwari@oracle.com>, <vasant.hegde@amd.com>
+Subject: Re: [PATCH v2 10/22] iommufd/viommmu: Add IOMMUFD_CMD_VCMDQ_ALLOC
+ ioctl
+Message-ID: <aBEXJFnLalIh788i@Asurada-Nvidia>
+References: <cover.1745646960.git.nicolinc@nvidia.com>
+ <094992b874190ffdcf6012104b419c8649b5e4b4.1745646960.git.nicolinc@nvidia.com>
+ <aA_0TV0RkVOHk7Qj@google.com>
+ <aBAEuP9962XweHPc@Asurada-Nvidia>
+ <aBCNkcLp6XZpjYYT@google.com>
+ <aBEWFw2wq40SHjTn@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] firmware: SDEI: Allow sdei initialization without
- ACPI_APEI_GHES
-To: Huang Yiwei <quic_hyiwei@quicinc.com>, rafael@kernel.org, lenb@kernel.org,
-        james.morse@arm.com, tony.luck@intel.com, bp@alien8.de
-Cc: xueshuai@linux.alibaba.com, quic_aiquny@quicinc.com,
-        quic_satyap@quicinc.com, linux-acpi@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        kernel@quicinc.com, kernel@oss.qualcomm.com
-References: <20250428095623.3220369-1-quic_hyiwei@quicinc.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20250428095623.3220369-1-quic_hyiwei@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: z1Oob557YAkpIYRCpImWXGYJXZ4GbYwz
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI5MDE0MiBTYWx0ZWRfXwfcys8zEQOxq Rmim23bwRlefNHiov5qh5wXXfvfH0gpG5ond96S9FtnpyJmW3f/BLRpUr/n4q8Sdh+Vh81Obzgr UjY3bH6cfecjwJilJS46tCYbTDD5AXmuq/2bJJF65FR6UTATzrSfln8eBstVLOtBElmJN/kwVf7
- l9fjnWeEQo+L8DZz5Mt1PZSwjo1A9+h2SMBHJHIIWkd/nHl8Vj83GOoDGGRsBK92UMd6RGXTU9i vVzjfRXjRlPNmjnrpjnk6ZH1ONqlgKqVkszvLErkp+8PJpce3RkuC2m76shiQVo8mqNJOaTyu0e 4m2t9Ylt7fXmA1HqOm5s5wtP7Fxb8OZ/WYl4KAlZ5JGKv9k515vbUqRoJluO26kMTghw9wuh3uZ
- xdDa2sEjU0dui8MVznep5LwzVR2QORXCqaB6mjaax1nZ1gBIKiBrjotXPoQnNRTUV8UoKptN
-X-Authority-Analysis: v=2.4 cv=cfzSrmDM c=1 sm=1 tr=0 ts=681127c7 cx=c_pps a=WeENfcodrlLV9YRTxbY/uA==:117 a=FpWmc02/iXfjRdCD7H54yg==:17 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=SRrdq9N9AAAA:8 a=COk6AnOGAAAA:8 a=uYIpP0hKP73jGhetqrMA:9 a=QEXdDO2ut3YA:10
- a=kacYvNCVWA4VmyqE58fU:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: z1Oob557YAkpIYRCpImWXGYJXZ4GbYwz
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-04-29_07,2025-04-24_02,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 phishscore=0
- lowpriorityscore=0 bulkscore=0 suspectscore=0 malwarescore=0
- priorityscore=1501 spamscore=0 mlxscore=0 mlxlogscore=898 adultscore=0
- clxscore=1015 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
- definitions=main-2504290142
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <aBEWFw2wq40SHjTn@google.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF0000009A:EE_|SA1PR12MB7128:EE_
+X-MS-Office365-Filtering-Correlation-Id: a674492f-654b-4d77-92ef-08dd8749cb5e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?i47DZKPnZvI/KB+eNLyVsx6DYkeieEGt7G3z8pL0N/lsj6S4yRvhxqwjyWBo?=
+ =?us-ascii?Q?9oOTAFK2D30mDayKNrCBtI+xND7nWjGd/qmhZD5F24bSsPwefqtnoboR5Whz?=
+ =?us-ascii?Q?s1CL5wEfv63oo+lcCWUylhFi7ClcT5uB5nm1Z8+xk+t0qLKl7RDv0v3xmtf0?=
+ =?us-ascii?Q?gk7JgpaFndQOjbxUT92W4LM3nvuGzoRcxFyDPzdwnyP7CxjoA+gcGv7K0Rf4?=
+ =?us-ascii?Q?T7G3P2wWm5FjG6trRvaa6VOsXCfyMR+1IzyVSDPHmUSYa95rKPf7ihWBbReL?=
+ =?us-ascii?Q?P8dzlp6NzrlHK6XiUCUHWqUqXJzPt0bd18MSkEyFofc+dMpN5dwh0H/B7RNu?=
+ =?us-ascii?Q?foEva7R0rhzjlHEkCvjB2RE8eVlEyvw8vDO0ozwTKD0niWcE7eoEZiudZ1Sd?=
+ =?us-ascii?Q?8XNUK7+v7IuXKH0A8QyLYayNzyg2WiJbFzIzyjQqI6APEsTTWCzOqJqamHq9?=
+ =?us-ascii?Q?y3EOqbQfn+tIPh7l7e5ZijYOK20vzpcHizsUtqZmxChGU2RhBQyprxCF9KWz?=
+ =?us-ascii?Q?tSz5krPnBF+lx1Y0mzNmpnsTBF0aSKdSxLByNP6EvmiboYCdMVzTA3It+sIy?=
+ =?us-ascii?Q?ginMdShKNS7Qs/mHrDHcEvSzEl0eFSZ7/0pZiM0kB8T9nXHCOKk+MdxIAZJV?=
+ =?us-ascii?Q?IAV5wDuFd4/B7Q0F/sUgIY7DGm3/Bvti6ebnmqLfcVj4YLEfAzaccXQu2qEF?=
+ =?us-ascii?Q?tbbA1irt2tJvvXnxhN4lvLQY37OLSNIHj6CQYEjJmf28Wm6VeuLhoSQiuKph?=
+ =?us-ascii?Q?kLDn3TOaDmomVHRoiGyYR3RYfXC7cbYgv6kmw2rZN11yDcBGLwG7ezjSmZYD?=
+ =?us-ascii?Q?2WLc8teaZlXKWBlIbyjheEmcl07jDct6mEU0V/D6fmtkVKXt7h5USKFqIuHc?=
+ =?us-ascii?Q?3J1sxvltePUOcmHbcFtuX06AvEtlKezye2nnayS6HDzPoxmAda6pk4TwjfxG?=
+ =?us-ascii?Q?rMCSQzAwe7GGTbdfF1Yk3iiv1UW3AIG69GUAp1M084esS7rj1gmGNeEdofoA?=
+ =?us-ascii?Q?7VnFrsNcKw+MiR4ouhMR3ZWOgBNxsNShPjalpH9d/k0LHNZWOGUtSmK7EVEi?=
+ =?us-ascii?Q?SiRGNo93CrzoiEhX/xqwxWl0Ih2rkzOF1ea3wCd/X9/QZwBO4mwo+CXG/iac?=
+ =?us-ascii?Q?BCMvf/HLE6ejuXz5RHPyCWYG/A5ialNZokG1QdV4dW9MO/ovrYe0y+UC4Wbz?=
+ =?us-ascii?Q?ggUtr/dyWMydTMLgeENDnUQxXR2tJUZbTscbquxN39gliSjrf2jiC6d/V/Q4?=
+ =?us-ascii?Q?JahSBLXC5mx+O0TTjRHGPx/wKsBQV1hJbEh7faykTyRUerI/WCQcLmJfDezP?=
+ =?us-ascii?Q?nmUf2avQeCdQAQXyUYNYBcvonv+WMteGXZ4+vCsnJg/TZU3m4wVLAfHb28LA?=
+ =?us-ascii?Q?9b84h/x40khRCL/mfoFxH/r/AvFpp62PRBPmhZpituGGbHV8X0dUstUsRat8?=
+ =?us-ascii?Q?/2QGqSYo/dytFrX4UgYxJhzSnU/MzZpDMX3ONYdiIUZbmskNOg1GoOL7EITG?=
+ =?us-ascii?Q?ke3VxSML2yuY/kPnzTPopVF71rWFg8kpFEV4?=
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(7416014)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Apr 2025 18:15:16.9249
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a674492f-654b-4d77-92ef-08dd8749cb5e
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000009A.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB7128
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_122601_875545_6C1384FC 
-X-CRM114-Status: GOOD (  16.04  )
+X-CRM114-CacheID: sfid-20250429_111526_938244_8A4DB19A 
+X-CRM114-Status: GOOD (  18.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,34 +163,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/28/25 11:56 AM, Huang Yiwei wrote:
-> SDEI usually initialize with the ACPI table, but on platforms where
-> ACPI is not used, the SDEI feature can still be used to handle
-> specific firmware calls or other customized purposes. Therefore, it
-> is not necessary for ARM_SDE_INTERFACE to depend on ACPI_APEI_GHES.
+On Tue, Apr 29, 2025 at 06:10:31PM +0000, Pranjal Shrivastava wrote:
+> On Tue, Apr 29, 2025 at 08:28:01AM +0000, Pranjal Shrivastava wrote:
+> > On Mon, Apr 28, 2025 at 03:44:08PM -0700, Nicolin Chen wrote:
+> > > On Mon, Apr 28, 2025 at 09:34:05PM +0000, Pranjal Shrivastava wrote:
+> > > > On Fri, Apr 25, 2025 at 10:58:05PM -0700, Nicolin Chen wrote:
+> > [...] 
+> > > > IIUC, one vintf can have multiple lvcmdqs and looking at the series
+> > > > it looks like the vcmdq_alloc allocates a single lvcmdq. Is the plan to
+> > > > dedicate one lvcmdq to per VM? Which means VMs can share a vintf?
+> > > 
+> > > VINTF is a vSMMU instance per SMMU. Each VINTF can have multiple
+> > > LVCMDQs. Each vCMDQ is allocated per IOMMUFD_CMD_VCMDQ_ALLOC. In
+> > > other word, VM can issue multiple IOMMUFD_CMD_VCMDQ_ALLOC calls
+> > > for each VTINF/vSMMU.
+> > > 
+> > 
+> > Ack. I'm just wondering why would a single VM want more than one vCMDQ
+> > per vSMMU?
+> > [...]
 > 
-> In commit dc4e8c07e9e2 ("ACPI: APEI: explicit init of HEST and GHES
-> in acpi_init()"), to make APEI ready earlier, sdei_init was moved
-> into acpi_ghes_init instead of being a standalone initcall, adding
-> ACPI_APEI_GHES dependency to ARM_SDE_INTERFACE. This restricts the
-> flexibility and usability of SDEI.
-> 
-> This patch corrects the dependency in Kconfig and allows the
-> initialization of SDEI without ACPI_APEI_GHES enabled.
-> 
-> Fixes: dc4e8c07e9e2 ("ACPI: APEI: explicit init of HEST and GHES in apci_init()")
-> Cc: Shuai Xue <xueshuai@linux.alibaba.com>
-> Signed-off-by: Huang Yiwei <quic_hyiwei@quicinc.com>
-> ---
+> I guess the only thing on this patch from me was to understand why
+> would a single VM want more than one vCMDQ per vSMMU? (Just curious to
+> know :) )
 
-[...]
+It gives some perf gain since it has two portals to fill commands.
 
-> +#ifndef CONFIG_ACPI_APEI_GHES
-> +subsys_initcall_sync(sdei_init);
-
-I think it'd be good to leave a comment such as:
-
-/* Initialized by acpi_ghes_init() when ACPI is present */
-
-Konrad
+Nicolin
 
