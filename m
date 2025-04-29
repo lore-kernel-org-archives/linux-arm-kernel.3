@@ -4,89 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83D7DC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 12:00:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1E49C3ABA9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 12:03:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YC2LGGpE70kiPFeCCi72EkYRfCk+pYT/yGe+VdlkBmI=; b=t/+ImzXlrsI5Q9S6d3awGbKvhJ
-	vYFST6FExPPSIypMz8Sv8FKGbh12HxAAGtNOkuOKlghrWhkw4972KFgDHidkDCRy68HBIw+1bWXo7
-	PKNntzEsrduKG30HVmhfITUBl0WiihL8eA0htQi6CR1cuPlpjf8TRKUNnDY/E3YrBOnMCC5DDbk4b
-	VMwDlTUOcuqsJ7+6s1aWp8dzaRG1fjBK9TX3PElcUaRsm+2jAHWCip25rfPGm8leI2de3D2V3tt2s
-	eISAuDK9D+TtIw8wknxlUpnCkGK589oeovmgbGCQOqm/QbskVMXh4PeQE9rvu8v5R0OrAuY0R+MK3
-	cmY7Cfng==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=viTeIvUZAaR+aMI3MB4hor71bLaSJLSIuEX3AYS+noY=; b=FKNREX9PwFFPKX3U7hkeWSIWY6
+	GLxzvZRNwHonO6kjuXtmjQBcMK5DN47QfpwjATjg3xeS60GLXmT6ZZ6WtMN4LxP22ezxVQla3qa2p
+	P2a03ni8n4FawKTOKKWQ784ri2FN/Q/Ti6VERVplQMZbIQze8X2tFrQ/IfpNp279Bfg5hbWOoXI7p
+	UlElr/QRApI0KGNGKJ+3QIWjGlFc46Zd6B6OZeJq1LCtWsYrXlN3kF4AtOQm3Xta7oP0Du/DZH8SV
+	m4Acio6jh/ptVBhmGaafMbkZAmfSadvDT54dXbwCqaunj8c7MxHXORwgYkbKvINu6A0/vWEnJwf8F
+	NjbEE4hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9jdO-00000009aaV-22Ew;
-	Tue, 29 Apr 2025 12:00:22 +0000
-Received: from mail-yb1-f170.google.com ([209.85.219.170])
+	id 1u9jgS-00000009bDp-2CF8;
+	Tue, 29 Apr 2025 12:03:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9jbP-00000009aIq-0NE7;
-	Tue, 29 Apr 2025 11:58:20 +0000
-Received: by mail-yb1-f170.google.com with SMTP id 3f1490d57ef6-e6e2971f79fso4564281276.0;
-        Tue, 29 Apr 2025 04:58:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745927897; x=1746532697; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YC2LGGpE70kiPFeCCi72EkYRfCk+pYT/yGe+VdlkBmI=;
-        b=BCcw++fGJudhrYs7H0oY4t/SPNNhk+mKuEzOY5QnM6UnwPVPWC/CvvuBktontzFxz7
-         apXnTy5yx6Jc6+BZ78j5YFpJXdJGmecqnOIRHzkg7lPEk9klHgLYfRvuZhGcL84HtXeR
-         i5jQyqv/5vAYNG8yyd988gktebpzPTajy3dKc3z3jVvmUdoNLEL35LAxfMBVr33UHTkG
-         lQP7HGj/tMq0XuB8iDtDiaJrPrNzt/hVZlzZ9jA6N61HlG1yltPqpzXasSANBXKWlCkN
-         fbKsn+hSaMYUTEKT/x8489nDyVfkDridPeUoEdF/Fwt7nlpV5zdp5Y7+mSJtI2rD74Pr
-         aIVQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745927897; x=1746532697;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=YC2LGGpE70kiPFeCCi72EkYRfCk+pYT/yGe+VdlkBmI=;
-        b=FD6FOWUpSnz3x7oNyxsKVXz2XTvWS5qySWVVmk26bQM5wtMRYIC7Bt/VeNDBv43Bdj
-         FjPQ3r6gu2bUiqBvdGCQJXeNwypOrAhIr3W2goZ5wT9u3DILK1PMmaimDAq1GiDkDjff
-         89zQ88lmp0KzNqDQdp27sXyduY5h84ZyvA+dEyEoLZV7iPIk4oa3JYsSSoOjDGQYtDNa
-         KFhKGC19UUgUXxRm5EiBbiuawKbzoY3CWQYpNWm999U3dUna+EONlWAttu3MZQ2wOEr7
-         uXq4+c6LCJqnsM/Msaqow8j09Xf9zgV4bnuhN1saXoT04oSCsqwaSDbHRlanBf6Md+0o
-         7/8Q==
-X-Forwarded-Encrypted: i=1; AJvYcCV5BMhbVntJKYxZRZcDEU/hw8e31EUQzJGcxg6OYfWvfRq0e0EmI0H/P93KggUDSE7KISn6pN4ireEz@lists.infradead.org, AJvYcCWCX+2NI4tp4jdFXVFnoLLkNZeCUpvMigR4ZX520cCvTsLfhMMZoCF3T+2+kNuu3PXqRjBO/nNj1rvWYpdE9Ld+@lists.infradead.org, AJvYcCX11qCEBPmlJbd427DJNWLaw6e1OoMjd+8uITFlxfWhs+NTArt94bauGKtcMGRHEt+C1R+cYdqvTvYYzxYe2iI=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzL0iz3F4eFClS2by28btPoYwL/oidRwXyPdD1/nzGQbk5Xafel
-	idlERKItvWC1zBpmlvR+saG0ZVLuc089Y7SGUy98mpzvAhI7O7crD+NHSBIBksEWfmLkrMGKSbm
-	DYX56G4C58tKpwRb7eq4TWl2VQTA=
-X-Gm-Gg: ASbGncthGey3N0JGet+8ekA+GkIC0n5BAmLy8CcXvOw23XgZMYvBVOEqWphNnAF4K1R
-	XyeI/3jmhTtrrKam6MKFbDHOoz8I3X7A1tB6xBYncd8IE3V1s19u+MgFfoG2oh4DFDSusUfirSr
-	joVp8v9QLcPh12NcaqACp/fg==
-X-Google-Smtp-Source: AGHT+IFZuUpUcT0FpWh/xFcN7YV8mTmhhmd1TfDP2Xpd6GzqIj7t/GP6ENv//lBM+JolYrLZVqHMwRl7cIw868ZvG+I=
-X-Received: by 2002:a05:6902:2085:b0:e73:9d0:1823 with SMTP id
- 3f1490d57ef6-e7323472933mr17628295276.47.1745927897185; Tue, 29 Apr 2025
- 04:58:17 -0700 (PDT)
+	id 1u9jeW-00000009axb-43k4;
+	Tue, 29 Apr 2025 12:01:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=viTeIvUZAaR+aMI3MB4hor71bLaSJLSIuEX3AYS+noY=; b=AOvo12WYjOezGJHnGtHPjJIf4t
+	5Wi1TUj7WX/QnTPrdS9Smqtob1LDH122MYvQaJPnoRt0nUTXdK3uK05HEhr336xI5u0RUNN+HWnUZ
+	m96tSAMIMDretpD576OVEM5t2fNCcWXg6V6+LW3SLflaOMd7usKH+7khtE2OjifV2WKTh/cFb09wj
+	HeZ6ds9fJMtONx4/9qsrxgyQWgYyZ1YtCM2rgJS4k3KpUwsakZ8iK4u4U9NegzqY2OuVjHCPkUjwa
+	HJo8p3EIfl3oK9NZoipFVt1tlTbNBBOe7m2Ca786ngJ2KlB6huIfr1MUkiVGZeBsgqpDRsVlByVdX
+	1TqXiOPw==;
+Received: from galois.linutronix.de ([193.142.43.55])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u9jeT-0000000DIyp-3Jfr;
+	Tue, 29 Apr 2025 12:01:31 +0000
+From: Nam Cao <namcao@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1745928085;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=viTeIvUZAaR+aMI3MB4hor71bLaSJLSIuEX3AYS+noY=;
+	b=HPWYMh9ANumns3dOYgrIxaS21mGlRZFzigzT+mlH6e1oH/bKIeHfc085Qq3JbPJTDCWBuj
+	wUQsjg6qO4dIfUlDA6dCAMskZHreZegvuioENVYd9z+QICXySsEGmg1dX4N/R2s9bTyKVM
+	IRCV4pJrew7oLOSaooaPQjLlaHhV3FwDO5eVYEfXvXmLotzEpwzZArNTBFyINsw9VkHy2D
+	BBy8cC4m6aY0ZW/vly79cNx8WnANi9+Bcb+Uc9NqA6OzF6SkIaLU1/dBmnxoykrgV/+2gZ
+	f1409wWrkNtY1VMg4cRPHwnq12FOHlKlMmQAPjFZUBsYxARWCq81N2a3/WPVzg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1745928085;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=viTeIvUZAaR+aMI3MB4hor71bLaSJLSIuEX3AYS+noY=;
+	b=yCcSOC96gr65RHOTSy1AdZ3Az9YaIsQAeiU4rn8rvj4vIymBEl0cYtsOx7xqO336LCfhrs
+	Mh8ik2Sv6mm5M9Cg==
+To: Steven Rostedt <rostedt@goodmis.org>,
+	Gabriele Monaco <gmonaco@redhat.com>,
+	linux-trace-kernel@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: john.ogness@linutronix.de,
+	Nam Cao <namcao@linutronix.de>,
+	Petr Mladek <pmladek@suse.com>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Waiman Long <longman@redhat.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v5 00/23] RV: Linear temporal logic monitors for RT application
+Date: Tue, 29 Apr 2025 14:00:45 +0200
+Message-Id: <cover.1745926331.git.namcao@linutronix.de>
 MIME-Version: 1.0
-References: <20241119093949.3014-1-SkyLake.Huang@mediatek.com>
- <871pymtab3.fsf@bootlin.com> <c1e2d8ea-1b37-479d-8239-cb9bf0efdcaf@gmail.com> <87bjsfv0x1.fsf@bootlin.com>
-In-Reply-To: <87bjsfv0x1.fsf@bootlin.com>
-From: Chuanhong Guo <gch981213@gmail.com>
-Date: Tue, 29 Apr 2025 19:58:05 +0800
-X-Gm-Features: ATxdqUFw156jElhjP-eZDXnKLbf_YdyLPXPeNQmy3SBNzsMbmjDF-l2toZGqZGM
-Message-ID: <CAJsYDVKiMeYY2rw_BxuW4BAxvMcq5hDwzhiPoAR=tkXzZpRYiw@mail.gmail.com>
-Subject: Re: [PATCH nand/next] mtd: nand: spi: Use write_cache first and then
- update_cache in write operation
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: Sky Huang <SkyLake.Huang@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, Daniel Golle <daniel@makrotopia.org>, 
-	Chia-Lin Kao <acelan.kao@canonical.com>, Cheng Ming Lin <chengminglin@mxic.com.tw>, 
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>, Pratyush Yadav <pratyush@kernel.org>, 
-	linux-kernel@vger.kernel.org, linux-mtd@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	Steven Liu <Steven.Liu@mediatek.com>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_045819_133153_A6093AA5 
-X-CRM114-Status: GOOD (  34.63  )
+X-CRM114-CacheID: sfid-20250429_130130_046355_CA7B621C 
+X-CRM114-Status: GOOD (  27.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,133 +107,263 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello, Miquel!
+Real-time applications may have design flaws causing them to have
+unexpected latency. For example, the applications may raise page faults, or
+may be blocked trying to take a mutex without priority inheritance.
 
-On Tue, Apr 29, 2025 at 4:15=E2=80=AFPM Miquel Raynal <miquel.raynal@bootli=
-n.com> wrote:
->
-> Hello,
->
-> On 22/04/2025 at 09:38:26 +08, Chuanhong Guo <gch981213@gmail.com> wrote:
->
-> > Hello!
-> > =E5=9C=A8 2024/12/5 23:32, Miquel Raynal =E5=86=99=E9=81=93:
-> >> Hello,
-> >> On 19/11/2024 at 17:39:49 +08, Sky Huang <SkyLake.Huang@mediatek.com>
-> >> wrote:
-> >>
-> >>> From: Sky Huang <skylake.huang@mediatek.com>
-> >>>
-> >>> According to discussion with Miquel Raynal <miquel.raynal@bootlin.com=
->
-> >>> and Chuanhong Guo <gch981213@gmail.com> on FORESEE F35SQA002G patch,
-> >>> Chuanhong recommmends that we can use the following sequence in
-> >>> spinand_write_to_cache_op():
-> >>>
-> >>> x1 mode:
-> >>> 02H(program data load) -> 84H(random program data load) -> 84H ...
-> >>>
-> >>> x4 mode:
-> >>> 32H(program data load x4) -> 34H(random program data load x4) -> 34H =
-...
-> >>>
-> >>> 02H or 32H commands will clear cache buffer on SPI-NAND and load
-> >>> data to it. For those SPI controllers which can't finish transmission
-> >>> in single step, 84H or 34H will be triggered for the rest data.
-> >>>
-> >>> We observe that some current SPI-NANDs, including FORESEE F35SQA001G =
-and
-> >>> F35SQA002G, must use 02H or 32H to reset cache buffer in flash before
-> >>> using 84H or 34H. Or users may encounter program failure issue. This =
-issue
-> >>> is not always reproducible, but it may occur and cause system instabi=
-lity.
-> >>>
-> >>> This sequence should work on all SPI-NANDs nowadays. I also check wit=
-h
-> >>> Foresee that the sequence can solve the above program failure issue.
-> >>>
-> >>> On my test platform (MT7988), SPI driver is drivers/spi/spi-mt65xx.c.
-> >>> And I limit MTK_SPI_IPM_PACKET_SIZE to SZ_1K to simulate lightweight =
-SPI
-> >>> controller which can only transmit 1024 bytes.
-> >>>
-> >>> The test step is the following:
-> >>> - mtd erase /dev/mtd2
-> >>> - dd if=3D/dev/zero bs=3D2048 count=3D1 | tr '\0' '\xA5' > output.bin
-> >>> - mtd write output.bin /dev/mtd2
-> >>>
-> >>> Before applying this patch, write operation uses only 34H(update_cach=
-e):
-> >>> [78.937720] OP code: 0x34, addr val: 0x0, data nbytes: 1020, data 1st=
- byte: 0xa5
-> >>> [78.945297] OP code: 0x34, addr val: 0x3fc, data nbytes: 1020, data 1=
-st byte: 0xa5
-> >>> [78.954251] OP code: 0x34, addr val: 0x7f8, data nbytes: 72, data 1st=
- byte: 0xa5
-> >>> [78.962966] OP code: 0x10, addr val: 0x300
-> >>> [78.968816] OP code: 0x34, addr val: 0x0, data nbytes: 1020, data 1st=
- byte: 0xff
-> >>> [78.977233] OP code: 0x34, addr val: 0x3fc, data nbytes: 1020, data 1=
-st byte: 0xff
-> >>> [78.985124] OP code: 0x34, addr val: 0x7f8, data nbytes: 72, data 1st=
- byte: 0xff
-> >>> [78.992527] OP code: 0x10, addr val: 0x301
-> >>> [78.996981] OP code: 0x34, addr val: 0x0, data nbytes: 1020, data 1st=
- byte: 0xff
-> >>> [79.004416] OP code: 0x34, addr val: 0x3fc, data nbytes: 1020, data 1=
-st byte: 0xff
-> >>> [79.012031] OP code: 0x34, addr val: 0x7f8, data nbytes: 72, data 1st=
- byte: 0xff
-> >>> [79.019435] OP code: 0x10, addr val: 0x302
-> >> I am sorry but above you said that we should not perform:
-> >>      0x32, 0x32, 0x32...
-> >> because the second time it would clear the cache again. And here
-> >> you tell us that actually the core already handles that by performing
-> >> instead:
-> >>      0x34, 0x34, 0x34...
-> >> So what is the problem?
-> >> Or maybe I misunderstood the issue, but I think Chuanhong raised an
-> >> issue that is already solved? Isn't it?
-> >>
-> >
-> > The issue is that the FORESEE NANDs require the first cache writing
-> > instruction to be WRITE_CACHE instead of UPDATE_CACHE. i.e. it needs a
-> > command sequence of:
-> >     0x32, 0x34, 0x34, 0x34...
->
-> So Foresee NANDs do not support update_cache, why are they advertised in
-> the first place? Could you we have a less impacting solution for the
-> other NANDs?
->
-> > This patch does exactly that, making the first instruction issued 0x32.
-> > It should be applied to fix the issue above.
->
-> My understanding is that this is very specific to FORESEE NANDs and you
-> are changing this for all NANDs. I have fears that it will break
-> everywhere else.
+However, while attempting to implement DA monitors for these real-time
+rules, deterministic automaton is found to be inappropriate as the
+specification language. The automaton is complicated, hard to understand,
+and error-prone.
 
-I just checked a few datasheets of SPI-NANDs from
-Toshiba/Winbond/Etron/ESMT/GigaDevice/Macronix.
-All of them specify the programming sequence to be:
-write_enable->write_cache->update_cache if needed->
-program_execute->poll status.
-Some of them mentions that the only difference between write_cache
-and update_cache is whether the page cache is cleared before
-writing (Winbond), while others don't specifically say that.
+For these cases, linear temporal logic is found to be more suitable. The
+LTL is more concise and intuitive.
 
-The original sequence doesn't seem to be following any manufacturers'
-instructions. We just haven't run into any problems until this FORESEE
-one.
+This series adds support for LTL RV monitor, and use it to implement two
+monitors for reporting problems with real-time tasks.
 
->
-> Overall I understand the problem, but I disagree with the fix. Could you
-> propose something less impacting as hinted above?
->
-> Thanks and sorry for the delay.
-> Miqu=C3=A8l
+Patch 1-12 cleanup and prepare the RV code for the integration of LTL
+monitors.
+
+Patch 13 adds support for LTL monitors.
+
+Patch 14 adds the container monitor "rtapp". This encapsulates the
+sub-monitors for real-time.
+
+Patch 15-18 prepares the pagefault tracepoints, so that patch 19 can add
+the monitor which watches real-time tasks doing page faults.
+
+Patch 20 add block_on_rt_mutex tracepoints, allowing patch 21 adds the
+"sleep" monitor.
+
+Patch 22 adds documentation on the new monitors.
+
+Patch 23 allows the number of per-task monitors to be configurable, so that
+the two new monitors can be enabled simultaneously.
+
+v4->v5 https://lore.kernel.org/lkml/cover.1745390829.git.namcao@linutronix.=
+de
+  - sleep monitor: Fix a false positive due to a race with waking and
+    scheduling.
+  - sleep monitor: Add block_on_rt_mutex tracepoints and use them for
+    BLOCK_ON_RT_MUTEX, instead of trace_sched_pi_setprio
+  - sleep monitor: tighten the rule on nanosleep: only clock_nanosleep()
+    with TIMER_ABSTIME and CLOCK_MONOTONIC is allowed
+  - add comments explaining why it is correct to treat PI-boosted tasks as
+    real-time tasks.
+
+    It should be noted that due to the changes in v5, 'perf' does not work
+    as well as before, because sometimes the errors happen out of the
+    real-time tasks' contexts. Fixing this is left for future work.
+
+    stress-ng is also far noisier in v5, because the rule on nanosleep is
+    tightened.
+
+v3->v4 https://lore.kernel.org/lkml/cover.1744785335.git.namcao@linutronix.=
+de
+  - support deadline tasks
+  - rtapp_sleep: use sched_pi_setprio tracepoint instead of contention
+    tracepoints for BLOCK_ON_RT_MUTEX, so that proxy lock is covered.
+  - fix the scripts generating an "slightly" incorrect verification automat=
+on
+  - makes rtapp monitor depends on RV_PER_TASK_MONITORS >=3D 2
+  - make the event tracepoint output a bit more readable
+  - some documentation's format fixes
+
+v2->v3 https://lore.kernel.org/lkml/cover.1744355018.git.namcao@linutronix.=
+de/
+  - fix a problem with sleep monitor's specification (around
+    KTHREAD_SHOULD_STOP)
+  - merge the patches that move the dot2k/rvgen scripts around
+  - pull panic/printk changes into separate patches
+  - fixup some build errors
+  - fixup monitor's init function return code
+  - fix some flake8 warnings with the scripts
+  - add some references to LTL documentation
+  - fixup some mistakes with rtapp documentation
+  - fixup capitalization mistake with monitor_synthesis.rst
+  - remove the now-redundant macro RV_PER_TASK_MONITORS
+
+v1->v2 https://lore.kernel.org/lkml/cover.1741708239.git.namcao@linutronix.=
+de/
+  - Integrate the LTL scripts into the existing dot2k tool, taking
+    advantage of the existing monitor generation scripts.
+  - Switch the struct ltl_monitor to use bitmap instead of an array, to
+    optimize memory usage.
+  - Correct the generated code to be non-deterministic state machine,
+    instead of deterministic state machine
+  - Put common code for all LTL monitors into a single file
+    (include/rv/ltl_monitor.h), reducing code duplication
+  - Change the LTL monitors to make user of container. Add a bug fix to
+    container while at it.
+  - Make the number of per-task monitor configurable
+
+Cc: Petr Mladek <pmladek@suse.com>
+Cc: John Ogness <john.ogness@linutronix.de>
+Cc: Sergey Senozhatsky <senozhatsky@chromium.org>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Boqun Feng <boqun.feng@gmail.com>
+Cc: Waiman Long <longman@redhat.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: Dave Hansen <dave.hansen@linux.intel.com>
+Cc: x86@kernel.org
+Cc: H. Peter Anvin <hpa@zytor.com>
+Cc: Andy Lutomirski <luto@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org
+
+Nam Cao (23):
+  rv: Add #undef TRACE_INCLUDE_FILE
+  printk: Make vprintk_deferred() public
+  panic: Add vpanic()
+  rv: Let the reactors take care of buffers
+  verification/dot2k: Make a separate dot2k_templates/Kconfig_container
+  verification/dot2k: Remove __buff_to_string()
+  verification/dot2k: Replace is_container() hack with subparsers
+  rv: rename CONFIG_DA_MON_EVENTS to CONFIG_RV_MON_EVENTS
+  verification/dot2k: Prepare the frontend for LTL inclusion
+  Documentation/rv: Prepare monitor synthesis document for LTL inclusion
+  verification/rvgen: Restructure the templates files
+  verification/rvgen: Restructure the classes to prepare for LTL
+    inclusion
+  rv: Add support for LTL monitors
+  rv: Add rtapp container monitor
+  x86/tracing: Remove redundant trace_pagefault_key
+  x86/tracing: Move page fault trace points to generic
+  arm64: mm: Add page fault trace points
+  riscv: mm: Add page fault trace points
+  rv: Add rtapp_pagefault monitor
+  locking/rtmutex: Add block_on_rt_mutex tracepoints
+  rv: Add rtapp_sleep monitor
+  rv: Add documentation for rtapp monitor
+  rv: Allow to configure the number of per-task monitor
+
+ .../trace/rv/da_monitor_synthesis.rst         | 147 -----
+ Documentation/trace/rv/index.rst              |   4 +-
+ .../trace/rv/linear_temporal_logic.rst        | 122 ++++
+ Documentation/trace/rv/monitor_rtapp.rst      | 114 ++++
+ Documentation/trace/rv/monitor_synthesis.rst  | 256 ++++++++
+ arch/arm64/mm/fault.c                         |   8 +
+ arch/riscv/mm/fault.c                         |   8 +
+ arch/x86/include/asm/trace/common.h           |  12 -
+ arch/x86/include/asm/trace/irq_vectors.h      |   1 -
+ arch/x86/kernel/Makefile                      |   1 -
+ arch/x86/kernel/tracepoint.c                  |  21 -
+ arch/x86/mm/fault.c                           |   5 +-
+ include/linux/panic.h                         |   3 +
+ include/linux/printk.h                        |   5 +
+ include/linux/rv.h                            |  74 ++-
+ include/linux/sched.h                         |   8 +-
+ include/rv/da_monitor.h                       |  45 +-
+ include/rv/ltl_monitor.h                      | 184 ++++++
+ .../trace/events}/exceptions.h                |  27 +-
+ include/trace/events/lock.h                   |   8 +
+ kernel/fork.c                                 |   5 +-
+ kernel/locking/rtmutex.c                      |   2 +
+ kernel/locking/rtmutex_api.c                  |   4 +
+ kernel/panic.c                                |  17 +-
+ kernel/printk/internal.h                      |   1 -
+ kernel/trace/rv/Kconfig                       |  27 +-
+ kernel/trace/rv/Makefile                      |   3 +
+ kernel/trace/rv/monitors/pagefault/Kconfig    |  11 +
+ .../trace/rv/monitors/pagefault/pagefault.c   |  87 +++
+ .../trace/rv/monitors/pagefault/pagefault.h   |  57 ++
+ .../rv/monitors/pagefault/pagefault_trace.h   |  14 +
+ kernel/trace/rv/monitors/rtapp/Kconfig        |   7 +
+ kernel/trace/rv/monitors/rtapp/rtapp.c        |  33 ++
+ kernel/trace/rv/monitors/rtapp/rtapp.h        |   3 +
+ kernel/trace/rv/monitors/sleep/Kconfig        |  13 +
+ kernel/trace/rv/monitors/sleep/sleep.c        | 224 +++++++
+ kernel/trace/rv/monitors/sleep/sleep.h        | 232 ++++++++
+ kernel/trace/rv/monitors/sleep/sleep_trace.h  |  14 +
+ kernel/trace/rv/reactor_panic.c               |   8 +-
+ kernel/trace/rv/reactor_printk.c              |   8 +-
+ kernel/trace/rv/rv.c                          |  10 +-
+ kernel/trace/rv/rv_reactors.c                 |   2 +-
+ kernel/trace/rv/rv_trace.h                    |  52 +-
+ tools/verification/dot2/Makefile              |  26 -
+ tools/verification/dot2/dot2k                 |  53 --
+ tools/verification/models/rtapp/pagefault.ltl |   1 +
+ tools/verification/models/rtapp/sleep.ltl     |  20 +
+ tools/verification/rvgen/.gitignore           |   3 +
+ tools/verification/rvgen/Makefile             |  27 +
+ tools/verification/rvgen/__main__.py          |  67 +++
+ tools/verification/{dot2 =3D> rvgen}/dot2c      |   2 +-
+ .../{dot2 =3D> rvgen/rvgen}/automata.py         |   0
+ tools/verification/rvgen/rvgen/container.py   |  22 +
+ .../{dot2 =3D> rvgen/rvgen}/dot2c.py            |   2 +-
+ tools/verification/rvgen/rvgen/dot2k.py       | 129 ++++
+ .../dot2k.py =3D> rvgen/rvgen/generator.py}     | 249 ++------
+ tools/verification/rvgen/rvgen/ltl2ba.py      | 558 ++++++++++++++++++
+ tools/verification/rvgen/rvgen/ltl2k.py       | 245 ++++++++
+ .../rvgen/templates}/Kconfig                  |   0
+ .../rvgen/rvgen/templates/container/Kconfig   |   5 +
+ .../rvgen/templates/container/main.c}         |   0
+ .../rvgen/templates/container/main.h}         |   0
+ .../rvgen/templates/dot2k}/main.c             |   0
+ .../rvgen/templates/dot2k}/trace.h            |   0
+ .../rvgen/rvgen/templates/ltl2k/main.c        | 102 ++++
+ .../rvgen/rvgen/templates/ltl2k/trace.h       |  14 +
+ 66 files changed, 2862 insertions(+), 550 deletions(-)
+ delete mode 100644 Documentation/trace/rv/da_monitor_synthesis.rst
+ create mode 100644 Documentation/trace/rv/linear_temporal_logic.rst
+ create mode 100644 Documentation/trace/rv/monitor_rtapp.rst
+ create mode 100644 Documentation/trace/rv/monitor_synthesis.rst
+ delete mode 100644 arch/x86/include/asm/trace/common.h
+ delete mode 100644 arch/x86/kernel/tracepoint.c
+ create mode 100644 include/rv/ltl_monitor.h
+ rename {arch/x86/include/asm/trace =3D> include/trace/events}/exceptions.h=
+ (55%)
+ create mode 100644 kernel/trace/rv/monitors/pagefault/Kconfig
+ create mode 100644 kernel/trace/rv/monitors/pagefault/pagefault.c
+ create mode 100644 kernel/trace/rv/monitors/pagefault/pagefault.h
+ create mode 100644 kernel/trace/rv/monitors/pagefault/pagefault_trace.h
+ create mode 100644 kernel/trace/rv/monitors/rtapp/Kconfig
+ create mode 100644 kernel/trace/rv/monitors/rtapp/rtapp.c
+ create mode 100644 kernel/trace/rv/monitors/rtapp/rtapp.h
+ create mode 100644 kernel/trace/rv/monitors/sleep/Kconfig
+ create mode 100644 kernel/trace/rv/monitors/sleep/sleep.c
+ create mode 100644 kernel/trace/rv/monitors/sleep/sleep.h
+ create mode 100644 kernel/trace/rv/monitors/sleep/sleep_trace.h
+ delete mode 100644 tools/verification/dot2/Makefile
+ delete mode 100644 tools/verification/dot2/dot2k
+ create mode 100644 tools/verification/models/rtapp/pagefault.ltl
+ create mode 100644 tools/verification/models/rtapp/sleep.ltl
+ create mode 100644 tools/verification/rvgen/.gitignore
+ create mode 100644 tools/verification/rvgen/Makefile
+ create mode 100644 tools/verification/rvgen/__main__.py
+ rename tools/verification/{dot2 =3D> rvgen}/dot2c (97%)
+ rename tools/verification/{dot2 =3D> rvgen/rvgen}/automata.py (100%)
+ create mode 100644 tools/verification/rvgen/rvgen/container.py
+ rename tools/verification/{dot2 =3D> rvgen/rvgen}/dot2c.py (99%)
+ create mode 100644 tools/verification/rvgen/rvgen/dot2k.py
+ rename tools/verification/{dot2/dot2k.py =3D> rvgen/rvgen/generator.py} (5=
+2%)
+ create mode 100644 tools/verification/rvgen/rvgen/ltl2ba.py
+ create mode 100644 tools/verification/rvgen/rvgen/ltl2k.py
+ rename tools/verification/{dot2/dot2k_templates =3D> rvgen/rvgen/templates=
+}/Kconfig (100%)
+ create mode 100644 tools/verification/rvgen/rvgen/templates/container/Kcon=
+fig
+ rename tools/verification/{dot2/dot2k_templates/main_container.c =3D> rvge=
+n/rvgen/templates/container/main.c} (100%)
+ rename tools/verification/{dot2/dot2k_templates/main_container.h =3D> rvge=
+n/rvgen/templates/container/main.h} (100%)
+ rename tools/verification/{dot2/dot2k_templates =3D> rvgen/rvgen/templates=
+/dot2k}/main.c (100%)
+ rename tools/verification/{dot2/dot2k_templates =3D> rvgen/rvgen/templates=
+/dot2k}/trace.h (100%)
+ create mode 100644 tools/verification/rvgen/rvgen/templates/ltl2k/main.c
+ create mode 100644 tools/verification/rvgen/rvgen/templates/ltl2k/trace.h
 
 --=20
-Regards,
-Chuanhong Guo
+2.39.5
+
 
