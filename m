@@ -4,94 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77BABC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 22:08:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E36FEC3ABA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 22:10:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:CC:To:From:Subject:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R47AcAvcUPYEXwZnHLXErEx0+JYbAettmKys/t37PLc=; b=wrdCuYmcbaqPMnbGJ6frdhcMqo
-	RB6jAsRQb/43Y/sOWpPq19n1fbQouOa7Be5OlIx4D0EmsNGU0XUafiMOutV11xYPOzd7v93yQpqFS
-	3HZg8DMYL6P/Uf/3vfOVHlicPUdJEv++3KOPss+MMOiS4pj5EY9iG1HYE70uZx4QCOk9SooU9jcAn
-	j755vhw5UYCQEjA1reT+ShmNB5Qzr62xcGAsNzNN5Sp8LRMe5sQqMpkz3433pc5QsDeXbJ8IxvbLm
-	BszllfiRM55jwrQnyrxwTo7uBabZz8lpy/AerNY/0yRjioLcBoXpW0uTSzF3sMKeEOOOXdQt7morw
-	vanPtVDw==;
+	bh=1qtA1j0MhbLF0zo1Nt4V6pirpw6boJzLVrd/FQprni8=; b=wKyiaK8PtuSMOeNstG5y68Xkz0
+	/82QvDBtQAS9HSf0Raj1E+Cst6efevNs95Zy/T8E+4ZnWtWrSZS/1WDpr+8eOW9YlwugEOtMqMSVb
+	UeImNllYS0FKXi+PcvuDteTic4hqB/1lPvMA2MmNQ5t4uxcGJsaZB35mPmE8O6V3kUWGPUZeJth8D
+	cZ0aMTG7efzUNOy22gxEVFrx0FbTIKgp0Q9hOf2CnEzWarHXEv3StAd8tdp3iMVLaKwd3v+3cQeCj
+	tPMi7NHxu3oUvmGCEa0nAyg0I5ZQHlLBRnXIvMuY7YpRw0LEg4LmoZ1Tg3jEQ2X1FWpr2FxJ6LTl0
+	MlCmLhxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9t7U-0000000AwcW-37Zl;
-	Tue, 29 Apr 2025 22:08:04 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1u9t9P-0000000Awkr-22F7;
+	Tue, 29 Apr 2025 22:10:03 +0000
+Received: from smtp-fw-80009.amazon.com ([99.78.197.220])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9t5Y-0000000AwGm-1mra
+	id 1u9t6C-0000000AwRe-1Y6T
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 22:06:05 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2264c9d0295so242365ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 15:06:04 -0700 (PDT)
+	Tue, 29 Apr 2025 22:06:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1745964363; x=1746569163; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=R47AcAvcUPYEXwZnHLXErEx0+JYbAettmKys/t37PLc=;
-        b=1sITc/ZUwvivdzUvPheNobt8aig2Rs+K9iDDlpP3ZDMlQBrD5UwGbiachn/8ZkJ3hP
-         RaLvMaXGMtLsNleFXJR1fTnkx9C2cbb+ssdISab+WwNmEFLoasKUuiQ+qj7aP9Qa0eWE
-         0UnJkK35A0GakTt8hWqiFLT40+LEkOQjop2+VMNfAXSDnnXi2pEp1OibV8knG5Mjrq+b
-         OnMW92eZnGMIn0Toz0JsaIKgBLov2tYv1j9/tpjRWFFRPH1Om2Sh1/ALG6REv7gSIuwf
-         A22PLOXlGMaWUdcxHoktlJPvH5sSpOnPOHGSkX2YifKHegS1d6WVEyCDB4BzpCVyCW9v
-         9fqw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745964363; x=1746569163;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=R47AcAvcUPYEXwZnHLXErEx0+JYbAettmKys/t37PLc=;
-        b=EIMFWXA5FQqQvp2Q4G2ZgRLB2lo3jHiozfmrXBn8o+ZHDS4wcf9/LpU1kpMBiwU1SS
-         jRJqHJt9Fkm8dOIr5TRWtlMh3+NE17q3iVg10+O107R3MQShkrFWX+478t+CFPdXoxFV
-         hWnwvCVsRhhlQG+S7j8C4TWvtm3yUfvmoKXD1QEMCLVfGuoqniYB0rApZ/I4A3Jt2FDe
-         2Y9+cV4cOxInu2e/RCIvBoq6EkSt+nHaPrS/eC7DOJX37QmlIIII7Qi8KJF+LaUF1tzA
-         vDt/OVKPqDJQ2oKqDaoiJjKyNjYdZEQO472Y8aBio2MCNxT6RIPzoUOWKNHfapN8RdKz
-         qmuA==
-X-Forwarded-Encrypted: i=1; AJvYcCUSdNenEn29DmHU+EN9AjOSjT4YFGDHJOTzQWkFJWTEnl27YoKLwP95QA4A+1DX40b9ED0X06SPgaeI7POEWXbD@lists.infradead.org
-X-Gm-Message-State: AOJu0YxhzJY1mwfFJKcktbWz09WLBK1F7sJw5e+Q04faUYt6OF6xHoQU
-	7IXgJzEuwOdgr9bHT8F+mG2rJ3aU/zyY/hxm9AIzbF4prqeB9okWfFIZh3FKDA==
-X-Gm-Gg: ASbGncvjWY0F6exjslYOnbgV9oEG1AWzWgR6CJcComp8qgnY/bcAHqGV8Uk7eYFk41d
-	QJJVpnKEMVlLVtYZBJnBSMcs5NSGQx9ylbwh+5jjLPlZIldBkQB/Oqmx6I0MBHIt3E4CFj0o/d2
-	zPntZhR7Lc4R5nmr0KAyEzNngpwnKb2ovZX6bUmJoilj6DTiiIpGQJlGR51TBJrVYz5/ZR9QV21
-	D54Y0IpffN54JqrA8yxOXAvVByeqahLGfPvgQEKztsEVZkCxolXj6Dst+Gmyz+sj3bLKZybe60x
-	+EXbdISOt3y9yhsMBcOHBVyDMRXs4PTAHDBpGSx495LIPRtKqA/ABCrZfQtOTuVK/8pRrMga
-X-Google-Smtp-Source: AGHT+IH6piFbPZPJtlfgLIuHdj3oSeyNguwt8iF17ao/opI6U18w7y2m7t4fquT0Dch2XSA/jTVSww==
-X-Received: by 2002:a17:903:41d1:b0:21f:2ded:bfc5 with SMTP id d9443c01a7336-22df4076324mr1004945ad.28.1745964363012;
-        Tue, 29 Apr 2025 15:06:03 -0700 (PDT)
-Received: from google.com (2.210.143.34.bc.googleusercontent.com. [34.143.210.2])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22db5100aa7sm107720575ad.161.2025.04.29.15.05.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Apr 2025 15:06:02 -0700 (PDT)
-Date: Tue, 29 Apr 2025 22:05:52 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
-	bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
-	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
-	shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
-	peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
-	zhangzekun11@huawei.com, iommu@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
-	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com
-Subject: Re: [PATCH v2 19/22] iommu/tegra241-cmdqv: Simplify deinit flow in
- tegra241_cmdqv_remove_vintf()
-Message-ID: <aBFNQFVbxyr596gB@google.com>
-References: <cover.1745646960.git.nicolinc@nvidia.com>
- <7c180fb751def39cbc8634b08b65c3f26ad73833.1745646960.git.nicolinc@nvidia.com>
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
+  t=1745964404; x=1777500404;
+  h=from:to:cc:date:message-id:references:in-reply-to:
+   content-id:content-transfer-encoding:mime-version:subject;
+  bh=1qtA1j0MhbLF0zo1Nt4V6pirpw6boJzLVrd/FQprni8=;
+  b=d2jpslmkyWaEYu6zVf2BJgZNIq8149bb4kze6nZ89y+Gbx+6dlJlPofc
+   0g+oUFzojiOSK7NfMQN3/Eqkumw6u4zgW9Hxbx/JI0b6lfH/EN6TRxvGX
+   rRLzhB7bim5vX3Wg93vGrD9vMh3pXahp97oHw4msEPjRErKpGO7LrdZDR
+   c=;
+X-IronPort-AV: E=Sophos;i="6.15,250,1739836800"; 
+   d="scan'208";a="195640350"
+Subject: Re: EEVDF regression still exists
+Thread-Topic: EEVDF regression still exists
+Received: from pdx4-co-svc-p1-lb2-vlan2.amazon.com (HELO smtpout.prod.us-east-1.prod.farcaster.email.amazon.dev) ([10.25.36.210])
+  by smtp-border-fw-80009.pdx80.corp.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Apr 2025 22:06:41 +0000
+Received: from EX19MTAUWC001.ant.amazon.com [10.0.7.35:17678]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.30.21:2525] with esmtp (Farcaster)
+ id 6f501886-48f9-40e5-bb89-67048c5aa3e8; Tue, 29 Apr 2025 22:06:41 +0000 (UTC)
+X-Farcaster-Flow-ID: 6f501886-48f9-40e5-bb89-67048c5aa3e8
+Received: from EX19D002UWC001.ant.amazon.com (10.13.138.148) by
+ EX19MTAUWC001.ant.amazon.com (10.250.64.174) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
+ Tue, 29 Apr 2025 22:06:40 +0000
+Received: from EX19D016UWA004.ant.amazon.com (10.13.139.119) by
+ EX19D002UWC001.ant.amazon.com (10.13.138.148) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
+ Tue, 29 Apr 2025 22:06:40 +0000
+Received: from EX19D016UWA004.ant.amazon.com ([fe80::92ec:e30c:889c:c2c0]) by
+ EX19D016UWA004.ant.amazon.com ([fe80::92ec:e30c:889c:c2c0%5]) with mapi id
+ 15.02.1544.014; Tue, 29 Apr 2025 22:06:40 +0000
+From: "Prundeanu, Cristian" <cpru@amazon.com>
+To: Peter Zijlstra <peterz@infradead.org>
+CC: K Prateek Nayak <kprateek.nayak@amd.com>, "Mohamed Abuelfotoh, Hazem"
+	<abuehaze@amazon.com>, "Saidi, Ali" <alisaidi@amazon.com>, "Benjamin
+ Herrenschmidt" <benh@kernel.crashing.org>, "Blake, Geoff"
+	<blakgeof@amazon.com>, "Csoma, Csaba" <csabac@amazon.com>, "Doebel, Bjoern"
+	<doebel@amazon.de>, Gautham Shenoy <gautham.shenoy@amd.com>, Swapnil Sapkal
+	<swapnil.sapkal@amd.com>, Joseph Salisbury <joseph.salisbury@oracle.com>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>, Ingo Molnar <mingo@redhat.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>, Borislav Petkov
+	<bp@alien8.de>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-tip-commits@vger.kernel.org"
+	<linux-tip-commits@vger.kernel.org>, "x86@kernel.org" <x86@kernel.org>
+Thread-Index: AQHbuU8Zth8BPweWAUWz5H5EpP8DD7O7MGMA//+vIgA=
+Date: Tue, 29 Apr 2025 22:06:40 +0000
+Message-ID: <82DC7187-7CED-4285-85FC-7181688CD873@amazon.com>
+References: <20250429213817.65651-1-cpru@amazon.com>
+ <20250429215604.GE4439@noisy.programming.kicks-ass.net>
+In-Reply-To: <20250429215604.GE4439@noisy.programming.kicks-ass.net>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.13.138.67]
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <DA0471B48DE52F47B5D491744D0CD7D6@amazon.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <7c180fb751def39cbc8634b08b65c3f26ad73833.1745646960.git.nicolinc@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_150604_462955_2102D3EC 
-X-CRM114-Status: GOOD (  19.84  )
+X-CRM114-CacheID: sfid-20250429_150644_445659_70AEB6D1 
+X-CRM114-Status: GOOD (  12.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,71 +104,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 25, 2025 at 10:58:14PM -0700, Nicolin Chen wrote:
-> The current flow of tegra241_cmdqv_remove_vintf() is:
->  1. For each LVCMDQ, tegra241_vintf_remove_lvcmdq():
->     a. Disable the LVCMDQ HW
->     b. Release the LVCMDQ SW resource
->  2. For current VINTF, tegra241_vintf_hw_deinit():
->     c. Disable all LVCMDQ HWs
->     d. Disable VINTF HW
-> 
-> Obviously, the step 1.a and the step 2.c are redundant.
-> 
-> Since tegra241_vintf_hw_deinit() disables all of its LVCMDQ HWs, it could
-> simplify the flow in tegra241_cmdqv_remove_vintf() by calling that first:
->  1. For current VINTF, tegra241_vintf_hw_deinit():
->     a. Disable all LVCMDQ HWs
->     b. Disable VINTF HW
->  2. Release all LVCMDQ SW resources
-> 
-> Drop tegra241_vintf_remove_lvcmdq(), and move tegra241_vintf_free_lvcmdq()
-> as the new step 2.
-> 
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->  drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c | 13 +++----------
->  1 file changed, 3 insertions(+), 10 deletions(-)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-> index ba029f7d24ce..8d418c131b1b 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-> @@ -628,24 +628,17 @@ static int tegra241_cmdqv_init_vintf(struct tegra241_cmdqv *cmdqv, u16 max_idx,
->  
->  /* Remove Helpers */
->  
-> -static void tegra241_vintf_remove_lvcmdq(struct tegra241_vintf *vintf, u16 lidx)
-> -{
-> -	tegra241_vcmdq_hw_deinit(vintf->lvcmdqs[lidx]);
-> -	tegra241_vintf_free_lvcmdq(vintf, lidx);
-> -}
-> -
->  static void tegra241_cmdqv_remove_vintf(struct tegra241_cmdqv *cmdqv, u16 idx)
->  {
->  	struct tegra241_vintf *vintf = cmdqv->vintfs[idx];
->  	u16 lidx;
->  
-> +	tegra241_vintf_hw_deinit(vintf);
-> +
->  	/* Remove LVCMDQ resources */
->  	for (lidx = 0; lidx < vintf->cmdqv->num_lvcmdqs_per_vintf; lidx++)
->  		if (vintf->lvcmdqs[lidx])
-> -			tegra241_vintf_remove_lvcmdq(vintf, lidx);
-> -
-> -	/* Remove VINTF resources */
-> -	tegra241_vintf_hw_deinit(vintf);
-> +			tegra241_vintf_free_lvcmdq(vintf, lidx);
->  
->  	dev_dbg(cmdqv->dev, "VINTF%u: deallocated\n", vintf->idx);
->  	tegra241_cmdqv_deinit_vintf(cmdqv, idx);
-
-I don't have access to a HW spec to verify HW behaviour, but the changes
-make sense to me.
-
-Acked-by: Pranjal Shrivastava <praan@google.com>
-
-> -- 
-> 2.43.0
-> 
+T24gMjAyNS0wNC0yOSwgMTY6NTcsICJQZXRlciBaaWpsc3RyYSIgPHBldGVyekBpbmZyYWRlYWQu
+b3JnIDxtYWlsdG86cGV0ZXJ6QGluZnJhZGVhZC5vcmc+PiB3cm90ZToNCg0KPj4gSGVyZSBhcmUg
+dGhlIGxhdGVzdCByZXN1bHRzIGZvciB0aGUgRUVWREYgaW1wYWN0IG9uIGRhdGFiYXNlIHdvcmts
+b2Fkcy4NCj4+IFRoZSByZWdyZXNzaW9uIGludHJvZHVjZWQgaW4ga2VybmVsIDYuNiBzdGlsbCBw
+ZXJzaXN0cyBhbmQgZG9lc24ndCBsb29rDQo+PiBsaWtlIGl0IGlzIGltcHJvdmluZy4NCj4NCj4g
+V2VsbCwgSSB3YXMgdW5kZXIgdGhlIGltcHJlc3Npb24gaXQgaGFkIGFjdHVhbGx5IGJlZW4gc29s
+dmVkIDotKA0KPg0KPiBNeSB1bmRlcnN0YW5kaW5nIGZyb20gdGhlIGxhc3Qgcm91bmQgd2FzIHRo
+YXQgUHJhdGVlayBhbmQgY28gaGFkIGl0DQo+IHNvcnRlZCAtLSB3aXRoIHRoZSBjYXZlYXQgYmVp
+bmcgdGhhdCB5b3UgaGFkIHRvIHN0aWNrIFNDSEVEX0JBVENIIGluIGF0DQo+IHRoZSByaWdodCBw
+bGFjZSBpbiBNeVNRTCBzdGFydCBzY3JpcHRzIG9yIHNvbWVzdWNoLg0KDQpUaGUgc3RhdGVtZW50
+IGluIHRoZSBwcmV2aW91cyB0aHJlYWQgWzFdIHdhcyB0aGF0IHVzaW5nIFNDSEVEX0JBVENIIGlt
+cHJvdmVzIA0KcGVyZm9ybWFuY2Ugb3ZlciBkZWZhdWx0LiBXaGlsZSB0aGF0IHN0aWxsIGhvbGRz
+IHRydWUsIGl0IGlzIGFsc28gZXF1YWxseSB0cnVlDQphYm91dCB1c2luZyBTQ0hFRF9CQVRDSCBv
+biBrZXJuZWwgNi41Lg0KDQpTbywgd2hlbiB3ZSBjb21wYXJlIDYuNSB3aXRoIHJlY2VudCBrZXJu
+ZWxzLCBib3RoIHVzaW5nIFNDSEVEX0JBVENILCB0aGUNCnJlZ3Jlc3Npb24gaXMgc3RpbGwgdmlz
+aWJsZS4gKFByZXZpb3VzbHksIHdlIG9ubHkgY29tcGFyZWQgU0NIRURfQkFUQ0ggd2l0aCANCjYu
+NSBkZWZhdWx0LCBsZWFkaW5nIHRvIHRoZSB3cm9uZyBjb25jbHVzaW9uIHRoYXQgaXQncyBhIGZp
+eCkuDQoNClsxXSBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvZmViMzFiNmUtNjQ1Ny00NTRj
+LWE0ZjMtY2U4YWQ5NmJmOGRlQGFtZC5jb20vDQoNCg==
 
