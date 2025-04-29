@@ -4,154 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63EACC3ABAB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 14:13:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3730CC3ABA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 14:13:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yAp0LdgXVQkJihbVytViUFNyVYiIbcoCGNDRQ8jMoF4=; b=EtA+XitqSlfe9IzHScJO/r8PxI
-	YK6p7VDePkf3AMxf3bo+syK/JnWxcFkEOC9UW2dkQghL+IDv602N7h2qnKCFh1IiV8c3qqwAI9Ad6
-	y0HQXoyiFrC7gbkKQzHpK3EWAzLwk2G4sANHCWvBL+2B26rVDqbN+CHHvn5h7iNaEnzydOR3/Q+ld
-	CYcUqMUe5tzFmKfHgkOdisy1GVT0rlxJfXfdOs8M5jvkpxSlY3EEJSF3IUMhjmo5ehSToqwni8ZXG
-	WyDuSWbFR8sHHKl5j4eT8qInkmFTtTIRobT0HA0DrZr8D8HjzlUAY044o28d0js1lQMO3gCY2xcr+
-	UUV3EZiw==;
+	bh=yPyK7OPmSGzm3Zze+gdNib98ih182Uy40k26euou3/s=; b=psZSCP4l6NFvZNgQ13KQp0yzO0
+	BjB+KnKwLEY/vC93vN4DQxew+BdRVaecvqH3QNBTi6V7HPW1bERqUPwApWpNJi6lPFF7FfMczbDHF
+	+gCPZqsZF5WjZA8i4ME1G8+ICnDbN9j4OZd8fn0e1q4eV9x1oLKL1VTHA84fwNSZIZJ5vX8FS9k+e
+	DfmbN6lGV8YtyjhvuZrvTDEazfJFEbJCatZ3YZQ8aBsBTnUWAUjdW4Mh0o2QJCoM26mqzZjme/ORW
+	MMdxXhvb+8uikuKjvUFGgDAuFsQXZtkk2EE0jexK/iOUCnAHLkfaZlcpSBNz+0O+uZfOZ18oYJs7v
+	AlseN5xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9lhr-00000009rxx-1wjk;
-	Tue, 29 Apr 2025 14:13:07 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u9lhs-00000009rza-2exn;
+	Tue, 29 Apr 2025 14:13:08 +0000
+Received: from mail-am6eur05on20621.outbound.protection.outlook.com ([2a01:111:f403:2612::621] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9jmU-00000009cCB-0fp3
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Apr 2025 12:09:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=yAp0LdgXVQkJihbVytViUFNyVYiIbcoCGNDRQ8jMoF4=; b=qs2zS1YOosXsExvOOmS378/Ded
-	13vlj348iOrfp1SaA5Cl9rt0tNukCMXEH+ZwRPbWDjMM+KUZHUVTe5mk8qbKg6gpUL5AWDhbIph3o
-	FjpDcgQ7tp3ejcmZ1t08x3ba5TglVQD2L0nau7GAn+78v/tNPQ1jy3Ti1z5eO4euPs2wha/wdduo9
-	AmeELZKpf+f9ABF1jxHT1rjIQdHr23nT/goe26RQkQThkkBzfVkI/LdqdcQSOyxozz8Y0u66rqRmL
-	Zr1yDCukucUe7dPRNZyQLGOJ01ePjfg3o/ZgY/K5n4JEMqTp8kbA+OgD21Yz9maBlZ894atOGpOBX
-	U45E0RVg==;
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9jmQ-0000000DJeU-3K1U
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 12:09:45 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53T9lGBF014390
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 12:09:37 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=yAp0LdgXVQkJihbVytViUFNy
-	VYiIbcoCGNDRQ8jMoF4=; b=KkGLmgB1DUQVYWqXwzauECf/oT8pq4VmjVHlEunk
-	60PS2gs7/H0DESvhb9ZkWdajJVWYBc8XZJ6+r3VBlX/PrWCpiVFsMOKOjWwsLZ4t
-	sXQTvabHEZhXvFjTVeV6ojv0tXyQyMf+4VwIdfW/+cvhKbD2+Cptb0qLFNbYBKOV
-	kCgjxc0jZnxjzNKDyp8jynZy9R89u8Wrt01rbIVpNTIlJHDyWm9hQWyDs49ffJbI
-	SEEtVDUFdikzuWOxvPwun+mTwUweeuxz304qGFE9FgTXReqbnwaHZSozHf/PX2XC
-	DS17DjEVCDPYU9BhBSG7uHOMyzzuv/3KfNKxuKl89G/dGA==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 468pg9cgn9-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 12:09:37 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-7c9255d5e8cso1036862585a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 05:09:37 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745928577; x=1746533377;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yAp0LdgXVQkJihbVytViUFNyVYiIbcoCGNDRQ8jMoF4=;
-        b=K+ZwbkCEb34qnXc4QXxn/1CvRlUPOoAwjS+pi9zcd1oDfmuk8FU0URMYS3UsHHKY/V
-         0LvYbdeWmtLxmWt0NK4biKm6sdiri9B6ecV9HL5EhUducT1xjBDoJ57uwusKAzj9Hlk7
-         I2ej8sGh1CL27u0WdWnyNnEBwqmHtXfN8zN8n1JnoIPAzMzYhaRq0wlBknRQPeeBZhRk
-         20R+MPvQfXKbIoGTJdrjEW0++lHxUOsvjqMLMlVqN4MQO6J1TDl2f+vT/5eZloSVAmAc
-         ry4e0mnp4cipq1O7J+qHmAkFGBMVU70mBcEBK2lSKzL4XTKOwG8Z6Oc0umx/tjfWUGfc
-         RaeA==
-X-Forwarded-Encrypted: i=1; AJvYcCWdv3OkA/Up+I8LyidkPARDyiwy0HdomRyhtEuxZZBY9Xr3dxFBX6DkiFaC2GEPHtIhb5KigtsUVES3WtkF4Bos@lists.infradead.org
-X-Gm-Message-State: AOJu0YxL2GJfuHl3q7xFeHM+neZSXlNGPRzDAZPhrm3GQknzUVBejhq+
-	pLORgupAfKiGVkWLuM1Par6fMdXwqZckDshq0OkNUGB+MiiaXIZrCJKs6CwtTRRe81jpSGX3mW9
-	goDMDwA0r1s757ddPGZwQQf+WG1oWxm4kyxzBWBTfGNg9aumQY8rPUjNvGYUcijOZFmp1w2a6gw
-	==
-X-Gm-Gg: ASbGncun0VxczKnNNE9bsYPRnTuAkZuFLhc6X6N04p/+GCZv/1ILnwcik2xrw5QlgwG
-	KRdFmm3//52oLYKkVMr7xlBtcJzmNMvj8Lsz4EL26zKYwmklZ04LplfBIAq7KnEHOQKJqDbgR/3
-	SY1Ut7LfRiyl8T5YSmlMjF+PnLKKEYTKniQAZ24L/+/xAUXVousO/sQaD8b7lOdaw7EATv1EaFy
-	UMmIhKyQs/7c1gCcnw/ZTgJn5PGoFCbjGoBabmY+NS1Qq5C2A+gUP8S6M3wmiuHgxWyTfSCn06X
-	KzTISAp1C9/p8h4tczRyzDqEkUBS/HqFCUMjtETXBzZiGRP3AqmvexEkrN5WkOVIVv2a+/w9zYg
-	=
-X-Received: by 2002:a05:620a:8802:b0:7c7:93c7:83b8 with SMTP id af79cd13be357-7cabdd8fac8mr556718085a.31.1745928576934;
-        Tue, 29 Apr 2025 05:09:36 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE+WiBW2dMdMKjL5rCtckyag5tI3q0y87zTTMxYAoMUgZTNEX197tRyQ4loVEQ9A423pNGqNQ==
-X-Received: by 2002:a05:620a:8802:b0:7c7:93c7:83b8 with SMTP id af79cd13be357-7cabdd8fac8mr556713685a.31.1745928576612;
-        Tue, 29 Apr 2025 05:09:36 -0700 (PDT)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-317d16a85ecsm24278761fa.72.2025.04.29.05.09.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Apr 2025 05:09:35 -0700 (PDT)
-Date: Tue, 29 Apr 2025 15:09:33 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Jagan Teki <jagan@amarulasolutions.com>,
-        Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>,
-        Douglas Anderson <dianders@chromium.org>,
-        Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Anusha Srivatsa <asrivats@redhat.com>,
-        Paul Kocialkowski <paulk@sys-base.io>,
-        Dmitry Baryshkov <lumag@kernel.org>, Hui Pu <Hui.Pu@gehealthcare.com>,
-        Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-        dri-devel@lists.freedesktop.org, asahi@lists.linux.dev,
-        linux-kernel@vger.kernel.org, chrome-platform@lists.linux.dev,
-        imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-        linux-mediatek@lists.infradead.org, linux-amlogic@lists.infradead.org,
-        linux-renesas-soc@vger.kernel.org, platform-driver-x86@vger.kernel.org,
-        linux-samsung-soc@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        freedreno@lists.freedesktop.org,
-        linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v2 07/34] drm/bridge: lt9611uxc: convert to
- devm_drm_bridge_alloc() API
-Message-ID: <lg5hhtncppqy2vreut2z7h36mmnuzn2xhw7asrjmftqg7koaqh@as6jetr3pw3b>
-References: <20250424-drm-bridge-convert-to-alloc-api-v2-0-8f91a404d86b@bootlin.com>
- <20250424-drm-bridge-convert-to-alloc-api-v2-7-8f91a404d86b@bootlin.com>
-MIME-Version: 1.0
+	id 1u9jnb-00000009cJM-1DAe;
+	Tue, 29 Apr 2025 12:10:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iJlmkN1PFjPF05D6veHHgBaW6KyqFsOPSkJnWE0SGL2ru5JWSk9z6g+Zg+VWSnnd6GYV2wVwRhp5h0LI1p53pe/E1FCtRu837SJonJbliafw3C46FXsMPpHKEly9uKOv4YLjzo1PoNyqYmsqD/z/cXcrd7DJIzRvfvpOfMPRmn3yNvx14gFgz8zNvYcqLLOBRZ8wvXRguMle2KYJJuUemNrgScFEq5pxM2EGBZvLa0HhJFwjKA9kn3MbKvY4NU0ehQUN2qfbExDXUliw4rc3+9A8RHsOsL7GCiTfVkQ6c1BNRoOgdYmHvP08QAv3FNG4+MOxNfUmRMSLtxQ64YWYAg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yPyK7OPmSGzm3Zze+gdNib98ih182Uy40k26euou3/s=;
+ b=kM5sJRWn8a5nGSZ181oQo8I5PhCw8EUMD2kwBWDJ3hfDlKcNdCCRUV6gUt/ZjMi4v6DMdq1iCnNRlJP/x93Q4s0TCBEL/e0I9YaVRNOqgujjVmI9W0mPv5qXhAJ/o8xLIbNH5QkUGauZ9zPnfrxo/Fm/lhv+MDTCjKO5Lj+tWi0Vg8nq5IH8JiF9glKfj0O3qwQgGfzKkMGBQ7ErZtcnew2+voPSTVVxbY7yVMk0SOPdS35xnkGrx5DspxmnPE6zoZvEYMdul/AR6ByIVMLyDTYABx9Lt/XgimdUrq6BICXAycYNAtovsOUYCiK06M7UPnOv/qhguN8tJPyzSOYdCA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yPyK7OPmSGzm3Zze+gdNib98ih182Uy40k26euou3/s=;
+ b=IewqNolD/0TdU3wkAog5pjGKvpElMGmIKv0VhwTADUDxbmAElYXdL8RTXi0AP4/Zbqyn1R5wnboqXioqET3HrBCXY3VkZJJY3edvhOi4UpJfC2JpNCKi9/v3vjk4BkSUsSJc0+147IluLt2sIlMfKkcOb5IEenlbuCbMWit2dU/wb4EyH1cNydGYadZ7V4mX+E7DV3j75U3sXEdFGJBAyAD+1um5QqxCYPV4Lp7yq4ic8S63mBF+o2IDMCx/u4kFP/ZqGb99C4XR17IbHGvFPThA5P5cl1QYZKgfBiAABfKUvr+RwaIuqbvuOy86ceqXDmMBh2GbcCET1RhZwqEwNA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by VI2PR04MB10690.eurprd04.prod.outlook.com (2603:10a6:800:279::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.31; Tue, 29 Apr
+ 2025 12:10:48 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%2]) with mapi id 15.20.8678.028; Tue, 29 Apr 2025
+ 12:10:48 +0000
+Date: Tue, 29 Apr 2025 08:10:39 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Xu Yang <xu.yang_2@nxp.com>
+Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	jun.li@nxp.com, alexander.stein@ew.tq-group.com,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: phy: imx8mq-usb: improve some tuning
+ properties
+Message-ID: <aBDBvzA11/NXPAbD@lizhi-Precision-Tower-5810>
+References: <20250429033009.2388291-1-xu.yang_2@nxp.com>
+ <aBBpzljSQEnQwlvU@lizhi-Precision-Tower-5810>
+ <20250429062640.cqqtkp3vwkd5a2gp@hippo>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250424-drm-bridge-convert-to-alloc-api-v2-7-8f91a404d86b@bootlin.com>
-X-Authority-Analysis: v=2.4 cv=ZpvtK87G c=1 sm=1 tr=0 ts=6810c181 cx=c_pps a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10 a=XR8D0OoHHMoA:10 a=EUspDBNiAAAA:8 a=P-IC7800AAAA:8 a=iF-wyJFYdUVxq7VKmwgA:9 a=CjuIK1q_8ugA:10
- a=PEH46H7Ffwr30OY-TuGO:22 a=d3PnA9EDa4IxuAV0gXij:22
-X-Proofpoint-ORIG-GUID: dAbUM9eEkEjz6iESnGlCGc7yB6_QgDTy
-X-Proofpoint-GUID: dAbUM9eEkEjz6iESnGlCGc7yB6_QgDTy
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI5MDA5MCBTYWx0ZWRfX6Dvi7c728Em/ +2585Vv9RWt7pRPvCWsTBs3dqtAHFLPjZT03IloRg4R3/5DMHOxYiXWSTlx0ikVHzcQux3aTh1L GDtpT2eEdjOjdrsr9jqzJVvAUhk5pvIvtEmKbeupgFZAQ6D1n7kK6qTFuwoxAVj0bYC2j/MA7AI
- v4cykUtrFD465OA8dXVgX5MyXWIRiUavGa8vXS4ntDMqiQeGNu1HHuowt/J8UAt4gpM+tOkdNCX iw41x7+/bxW79pPJBIYLk71NafJ51tqVddDGYMB5Ajsh7sclcMDpzBkFkM1PrcbJoHIcUt3GOWZ yu3XPZXvvW64xzfdftzMBvwEENkp2NiIXa9K84wsmGcLpcFor6BJu5p5RNP7AoUVbVxzW7X9n9c
- SXj9BaA5TJ4GP1dZu5cHR9zTGi26y5MfErRPUahsFu/uyKcAZvbA/N8mEsGpJ7M9SqbtCjnA
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-04-29_04,2025-04-24_02,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 impostorscore=0
- mlxscore=0 bulkscore=0 mlxlogscore=874 malwarescore=0 adultscore=0
- clxscore=1015 priorityscore=1501 lowpriorityscore=0 suspectscore=0
- phishscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
- definitions=main-2504290090
+In-Reply-To: <20250429062640.cqqtkp3vwkd5a2gp@hippo>
+X-ClientProxiedBy: PH7P220CA0042.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:32b::25) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|VI2PR04MB10690:EE_
+X-MS-Office365-Filtering-Correlation-Id: ffc16d84-f98f-4923-6dc6-08dd8716dfbe
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Nd6ca5ONEL7xbQDNNEsfs9iMDL+7NhZLQTBfvEU5f/fHliS0CTskPMwDGcTa?=
+ =?us-ascii?Q?7q6YWVOJJEjavWcHSAhTNoy9M30wqxD8g5tRO4wey+mbKbdfL2FAlf/GPb09?=
+ =?us-ascii?Q?tXhsyzHmYe29QOlSE/ODKZIoFlH9ALIEDH1bA+emUPV/LCl+4MmEtUon75yP?=
+ =?us-ascii?Q?IKOyCE3L4zgOkDtKAG3eavzGB/SoshF8BZ3kkoApk+jQROLSCJLX4s1ikALv?=
+ =?us-ascii?Q?htI6H8NC3BwtrZ3k17tD8jI8xSqdwiGNrvbPstAWVUIvEOsDkK+kXemMb5zl?=
+ =?us-ascii?Q?jx1lONgrvOA+gjz9x9IxKFAizarOZp+LPprcfso3jXyvdmO8cItkobgYpZ4J?=
+ =?us-ascii?Q?evQrzeOXnmX5IPi2GW860dI5tsJeIzLXzeK6ka2Ri2Q14QHwiZN88aKZnorS?=
+ =?us-ascii?Q?HRw+nWUS96CmfcMKbYTdQzrkoIJlrw/saB1/pAuVyhptzNZT2gkm4M5WgDrh?=
+ =?us-ascii?Q?Ttbp8aZssalB7rHjnFzE3HFpW8gbpNu1h0Q5/4VptZR4iV8FBoDN180AWXKI?=
+ =?us-ascii?Q?QnL7FQYaGfqDIxLDcuWu4g3WxT0puvm1dMrM93etffdCp3wwF2JHiEhllZn7?=
+ =?us-ascii?Q?1Fp1RzOMHCwbeIcLsB+JLe8t3XyMu4jNfPo8dvpqNiYCvk6UWjy6lcxZ7gHf?=
+ =?us-ascii?Q?VlzsU2rO0B5TGmX4rqzbFvCM4yGJaYpN9Dwpj+x9rTXlumrxfAOPgcnR9/J5?=
+ =?us-ascii?Q?VkYFFcfK0PIgkN0qr2V/dcNBsEzt1oMRXb5tQ2xWxntcDEcw5Xy9g0Krs9g/?=
+ =?us-ascii?Q?6yK+zfO8hMKufwBGT7lNmFHfaExCbvDsxcS+qLc/QSxViQFO6HmuM8LVJVR+?=
+ =?us-ascii?Q?SiwqRYozJ/+psbVGystcUYQI0wRawgxWr/sTZitYgg7Sd9WXpEFv+OjI/bDy?=
+ =?us-ascii?Q?beRK2jAD3uq7ZKKfAMZpox3nKklzmvziUvqO9/teFdI5QidDmREyel5ZJJ6L?=
+ =?us-ascii?Q?M4uo63YTrrpmq1NcUzd3n7zvTzEELp+9/ixe5ndaiyMjWjlkwbVaZxV5UgZU?=
+ =?us-ascii?Q?riCnA5DHlnXe84lEOG0jbwmpwvKoWG3nRX8PvtnDGcMm8vvizDVi/C8W7r2e?=
+ =?us-ascii?Q?GwrG4uLEI7I2mqhZW/9KJNW78rfqlT5k1t+ynb41jCekK9dGRnMEQ6lb4GOy?=
+ =?us-ascii?Q?YmSf9+aOMfluR9tN2+8TOiYEixX4WJWZFrmWvfClXT6hqKrgmWcCrouug1UK?=
+ =?us-ascii?Q?ng5GSAQhqZnhGTON3rKnV1VLrdkiq+Hu8wQ0a8xMZ99SQdlYe2u8D8JFD3pn?=
+ =?us-ascii?Q?pvaFdgWr8wRBEOrsABNk2T70G/Kx99CLXwW5ZFr4pHbSv9NHwUlXB9b4Tdx9?=
+ =?us-ascii?Q?DBjBBEAECulGC/kREG3lfEyNndES9ceu+dvPLHAVlqRwuRikcNinKmNmqMw9?=
+ =?us-ascii?Q?k/ZP2swv5lVbiaS0Wk2pewG+/8hGB/QsBTaPBH1yLFRc3iFRjU1J1EGOoJge?=
+ =?us-ascii?Q?/lOS3FDWP2Z29nAn9S5sjEe/qyav8B+bSkSJQ+bckZMEUAwnbdxpHw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?r64rL8V5oePMgepRCFyTLufIuX1xQAQDOw9momEG133dZJoA1IHbnXRzYNAx?=
+ =?us-ascii?Q?LNpwAAtkoCze1veql2uvs0FSQFEhQVgWvcGI8ykuEMd05vhvaGDuK/DnVfLI?=
+ =?us-ascii?Q?Oz6m+mMc0odop8g86/BQKW24wsJNarYuLPxruvv2voUIFNNVfQGE0NTT1R6Z?=
+ =?us-ascii?Q?pgRuhEKtqKsqN1R1GCQilTT0HoONJfr+5pZK0v5583y80w7maReu9K7ArmF8?=
+ =?us-ascii?Q?XSbiopUCdCi8ZyEyo67n/vORIyWGVpjbUbJsQiNzpkXRslSZNIHFgLNCla91?=
+ =?us-ascii?Q?oMe2onsTqvQwHEmR94F00CTxYJT1Kpeo+T/soLQHM2BP5lsXOPZnuNUhsgae?=
+ =?us-ascii?Q?29wV/3VaIt9zw+50zdwNjR+UGmtkYr6/VMJcIavgy4ONOsVBQXcHOWpa+2dj?=
+ =?us-ascii?Q?DB1n/z9y+8pJiJDe8Zi6XPVoyvoolqxKKLdeDmLtUOKRb5nHKRaHwmH2LT04?=
+ =?us-ascii?Q?5W8d4XqklSWCy1Hfku6Ts6JM0yNGJMQNv25/spUpRdh1ytQYT+eyz2xI2xsb?=
+ =?us-ascii?Q?uIM7t0Iyhzy2bC1BRUnj3P9sJWp9Pjrp3AEKHgd2UkiToWkf9y+Pd6oRUVbY?=
+ =?us-ascii?Q?ZpxrTeWr9kznmm/2gRutXCx2mH2A4klQr1RrZ81Ue6jObFRmcdsz3R7PqXSe?=
+ =?us-ascii?Q?0aBAeQLFnPiEB00xFq1wkq6QlpRrUHo4kPuQ8GpMxKsIFquhCmpqYnndqrpY?=
+ =?us-ascii?Q?C60nVSj6xvps6EEScf6DrWogGqyKrPzYP5pt8muvl1yEUOW6dQbCbhg2qAd3?=
+ =?us-ascii?Q?sFu5hAapC97Ol3J6NPzYrigN8kBgO6Mtr4jEaerB3w54XBWoLoPuMXRerLUc?=
+ =?us-ascii?Q?weParw6xEJfvdNQind2HqLlfm2fKCcdnCEFz1wQeEDYe5yeoH8cZS1n0tTus?=
+ =?us-ascii?Q?ItHobTmaP5IyLnllDPGJFEtzgsD27m7V3YpnLRnEfV1GAmfHUZc8cXPJhqo3?=
+ =?us-ascii?Q?qSJksF/ICXdFDWrmSO8Z7KLeTw94g/Np3zdZ+eBbLwTfQv32jQtZ8+OwUodR?=
+ =?us-ascii?Q?2xcDYG2TQZowSUpSLF82IDExgS+ES1tHWEPexuhWjARbeuGosHOT9WdYxJ8c?=
+ =?us-ascii?Q?W12AI7bPd8Q9WbY7rYYnnnQEUe2fJvKlT/wjfNwVqeTl9Fl7pV1xttsiulYu?=
+ =?us-ascii?Q?qFHUnmzfQF3fdWA+0znc4SA2aU8bdLvRsOkvtTDuo7E1xgEGFg0Anm93jd13?=
+ =?us-ascii?Q?6JQRMP9NI0OEM4zlYCLRSIFhcdrET6vKoGKLRKPrsyiVPXXJnNGL6J5mve2K?=
+ =?us-ascii?Q?xQds12RHMuNVep6h2bOdbWXpjJX+Ol8If7/lEgdhkg+lzV6p1rwRCl9ArJZa?=
+ =?us-ascii?Q?x0sRP9nhiGQG3tITcPnVNSGMz+qvN77zeGdw7z9rIWisS7AaX0ruuDzi/6Dg?=
+ =?us-ascii?Q?uJqmkM3yEJpZCNSCgIk9FAM4a3ZH7ftKo7GRIzYqxAG8Sx5EJAiR4RdV/cSy?=
+ =?us-ascii?Q?tz8n2f1rLCtwJUDSCgSOR5owFlTCkqK+iGp9/RRtNb9lsw4SAfBwYoyarQVy?=
+ =?us-ascii?Q?rlerp7R/8sBMp8V1M0FkdOIAtifb/7i/hgi6qJgJkxBEv6lh6PXahicNYHbs?=
+ =?us-ascii?Q?qPfudjFurNhR2Knjp9Y=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ffc16d84-f98f-4923-6dc6-08dd8716dfbe
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Apr 2025 12:10:47.3020
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: t6rbLrnlArNI/vC3Tm8KO7xdzwiboA7DK8Y7r52FUiv+orU0P78sT5eSsbN1oz40GHcCiBJSYlx+cPcQcOtvWw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10690
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_130943_182913_BABD1F83 
-X-CRM114-Status: GOOD (  15.56  )
+X-CRM114-CacheID: sfid-20250429_051055_478686_724D1423 
+X-CRM114-Status: GOOD (  34.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,19 +161,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 24, 2025 at 08:59:14PM +0200, Luca Ceresoli wrote:
-> This is the new API for allocating DRM bridges.
-> 
-> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-> ---
->  drivers/gpu/drm/bridge/lontium-lt9611uxc.c | 7 +++----
->  1 file changed, 3 insertions(+), 4 deletions(-)
-> 
+On Tue, Apr 29, 2025 at 02:26:40PM +0800, Xu Yang wrote:
+> Hi Frank,
+>
+> On Tue, Apr 29, 2025 at 01:55:26AM -0400, Frank Li wrote:
+> > On Tue, Apr 29, 2025 at 11:30:07AM +0800, Xu Yang wrote:
+> > > Commit b2e75563dc39 ("dt-bindings: phy: imx8mq-usb: add phy tuning
+> > > properties") add many tuning properties, but some parameter value doesn't
+> > > match the register description. It made some changes based on the original
+> > > value: add offset to a negative number so turn it to a non-negative number.
+> > > However, it's not easy to find an exact tuning value from register field
+> > > with such conversion.
+> > >
+> > > Because device-tree supports negative parameter number, this will improve
+> > > some propertie's parameter.
+> > >
+> > > Mainly include below properties:
+> > >  - fsl,phy-tx-vref-tune-percent
+> > >  - fsl,phy-tx-rise-tune-percent
+> > >  - fsl,phy-comp-dis-tune-percent
+> >
+> > It should be standard unit. for example 0% to 100%. DT don't prefer you
+> > direct use register value.
+>
+> Yes. The dtschema and driver already use standard unit.
+> This patch is going to correct the unintuitive expression.
+>
+> Take tx-rise-tune as example, register field as below:
+>
+> 		00b - + 3%
+>  [21:20]	01b - 0 (default)
+> TXRISETUNE	10b - - 1%
+> 		11b - - 3%
+>
+> The valid value of tx-rise-tune is [-3%, +3%]. However, the current dtschema
+> add an offset which caused the valid value to [97%, 103%].
+>
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+I think [97%, 103%] make sense.  (Normal value) * (fsl,phy-tx-vref-tune-percent)
 
--- 
-With best wishes
-Dmitry
+Your formual will be (Normal value) * (100% + fsl,phy-tx-vref-tune-percent)
+
+DT scheme don't care register implement.
+
+Frank
+
+
+> fsl,phy-tx-rise-tune-percent:
+>   minimum: 97
+>   maximum: 103
+>
+> When I first added tuning property to DTS, I thought I was reading the wrong
+> dtschema. Other users may meet such confuse too.
+>
+> Thanks,
+> Xu Yang
+>
+> >
+> > Frank
+> >
+> > >
+> > > The parameter value of above 3 properties are USB PHY specific. i.MX8MP
+> > > and i.MX95 USB PHY has different meanings. So this add restrictions for
+> > > them.
+> > >
+> > >  - fsl,phy-tx-vboost-level-microvolt
+> > >
+> > > For this property, the parameter value is wrong in register description.
+> > > This will correct it according to true value.
+> > >
+> > > For detailed info, please refer to i.MX8MP and i.MX95 latest reference
+> > > manual.
+> > >
+> > > Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+> > >
+> > > ---
+> > > Changes in v2:
+> > >  - keep widest constraints
+> > >  - use multipleOf for some properties
+> > > ---
+> > >  .../bindings/phy/fsl,imx8mq-usb-phy.yaml      | 60 +++++++++++++++----
+> > >  1 file changed, 49 insertions(+), 11 deletions(-)
+> > >
+> > > diff --git a/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml b/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
+> > > index daee0c0fc915..71e5940ef4b8 100644
+> > > --- a/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
+> > > +++ b/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
+> > > @@ -42,16 +42,17 @@ properties:
+> > >
+> > >    fsl,phy-tx-vref-tune-percent:
+> > >      description:
+> > > -      Tunes the HS DC level relative to the nominal level
+> > > -    minimum: 94
+> > > -    maximum: 124
+> > > +      Tunes the HS DC level relative to the nominal level. It varies
+> > > +      between different PHY versions
+> > > +    minimum: -1000
+> > > +    maximum: 875
+> > >
+> > >    fsl,phy-tx-rise-tune-percent:
+> > >      description:
+> > >        Adjusts the rise/fall time duration of the HS waveform relative to
+> > > -      its nominal value
+> > > -    minimum: 97
+> > > -    maximum: 103
+> > > +      its nominal value. It varies between different PHY versions
+> > > +    minimum: -10
+> > > +    maximum: 20
+> > >
+> > >    fsl,phy-tx-preemp-amp-tune-microamp:
+> > >      description:
+> > > @@ -63,15 +64,14 @@ properties:
+> > >    fsl,phy-tx-vboost-level-microvolt:
+> > >      description:
+> > >        Adjust the boosted transmit launch pk-pk differential amplitude
+> > > -    minimum: 880
+> > > -    maximum: 1120
+> > > +    enum: [844, 1008, 1156]
+> > >
+> > >    fsl,phy-comp-dis-tune-percent:
+> > >      description:
+> > >        Adjust the voltage level used to detect a disconnect event at the host
+> > > -      relative to the nominal value
+> > > -    minimum: 91
+> > > -    maximum: 115
+> > > +      relative to the nominal value. It varies between different PHY versions
+> > > +    minimum: -60
+> > > +    maximum: 45
+> > >
+> > >    fsl,phy-pcs-tx-deemph-3p5db-attenuation-db:
+> > >      description:
+> > > @@ -112,6 +112,44 @@ allOf:
+> > >          reg:
+> > >            maxItems: 1
+> > >
+> > > +  - if:
+> > > +      properties:
+> > > +        compatible:
+> > > +          enum:
+> > > +            - fsl,imx8mq-usb-phy
+> > > +            - fsl,imx8mp-usb-phy
+> > > +    then:
+> > > +      properties:
+> > > +        fsl,phy-tx-vref-tune-percent:
+> > > +          minimum: -6
+> > > +          maximum: 24
+> > > +          multipleOf: 2
+> > > +        fsl,phy-tx-rise-tune-percent:
+> > > +          enum: [-3, -1, 0, 3]
+> > > +        fsl,phy-comp-dis-tune-percent:
+> > > +          enum: [-9, -6, -3, 0, 4, 7, 11, 15]
+> > > +
+> > > +  - if:
+> > > +      properties:
+> > > +        compatible:
+> > > +          contains:
+> > > +            enum:
+> > > +              - fsl,imx95-usb-phy
+> > > +    then:
+> > > +      properties:
+> > > +        fsl,phy-tx-vref-tune-percent:
+> > > +          description: 100x the original
+> > > +          minimum: -1000
+> > > +          maximum: 875
+> > > +          multipleOf: 125
+> > > +        fsl,phy-tx-rise-tune-percent:
+> > > +          enum: [-10, 0, 15, 20]
+> > > +        fsl,phy-comp-dis-tune-percent:
+> > > +          description: 10x the original
+> > > +          minimum: -60
+> > > +          maximum: 45
+> > > +          multipleOf: 15
+> > > +
+> > >    - if:
+> > >        required:
+> > >          - orientation-switch
+> > > --
+> > > 2.34.1
+> > >
 
