@@ -4,81 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FE81C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 11:11:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2719DC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 11:22:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6W5bZ7kV+SEAo1aKDYzV8iQ9Oc96d7635w7XhaN2yN0=; b=BqCqsO0jfE12KChHsQAKTh4BsN
-	CBwucmvtUBMdWu/XdPyMjIP+afuBvuCsIiK3Wx1r42/MtUsj6yb9V8L9Z4FPRgDE8kbdPFszpw7eG
-	kWWNs5o0k+JiBQ63Q9SW7niY18zmHROawugsmKxTvpqcnNCRGsFN1bh/qsw7uKySMy+JqUbBPVT07
-	V9pAC2r53D+8ZzaVEz9FjH9P4HEIhPHFhEpEiy/mkLMtlCvZlxtHGCzvHRY3ZAStDH7XjeSbLsD3h
-	/bpVJIdZHQwVoZJdwwWxaVmL5Sa5NKg6VUo2c67YNPd6xVeYjSQyz+tfqUprvhq50hp0mz1UGNGjH
-	5sINEdLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uZLzXH4c7jsLwPwilTWhs/liNutisVYx9hkNNioDC+g=; b=joIl2BoXza5QGmF9WKqxJSX2YD
+	NJFYVxP08KUDNgIP3enQeAT/4q+vdw0r6pmsM0WJJCDtDMSTl3oiOY4e988eJp5pwIpUw57WazEoG
+	+kdN1bYlK5GbzPA1iMO+aWqTKQb4Dm8tsvoghEtNldbQy4QVx+XDbQiOS7TjZIxBdSWFAY2+K3eKF
+	9mY8CqzgBGfW5HoBiU5QFm2F6F2qENmZzAWwGjtb9YV2EixL5vFNYtfMaPgVAr7kxzTSVoU3aUI8Q
+	n+jDk5wG5pypk8fzvoAIH7Rhh6Rzb/v9/fygdicvIydKqlysS+ZiNXuWp0hgFu++gLCg4x11anTfO
+	CYe+vilQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9irg-00000009PnR-3pu3;
-	Tue, 29 Apr 2025 11:11:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u9j2P-00000009QyG-18XS;
+	Tue, 29 Apr 2025 11:22:09 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9ipl-00000009PTR-2xUx
+	id 1u9j0S-00000009QlU-0IoQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 11:09:06 +0000
+	Tue, 29 Apr 2025 11:20:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E8D674A6E6
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 11:09:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3148C4CEF0
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 11:09:03 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id ABFCE5C5967;
+	Tue, 29 Apr 2025 11:17:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74BABC4CEE3;
+	Tue, 29 Apr 2025 11:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745924943;
-	bh=6W5bZ7kV+SEAo1aKDYzV8iQ9Oc96d7635w7XhaN2yN0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=kJoNtR21vvtiSK5I4AhujhMcNV+jG3JNu8FI7oxh5yfbV+ZGNOJAcf70SZ6ZSbSSh
-	 WBA6V6p0QtkKVHNdfpf78MPtWIqpmwUBJlYJTzrZvhAcslEg+Ok3J8Th6QnSWh8qvV
-	 10U4NKBGv5e21OLZCs4VfN9DALwLzye40muCMeiO6cNaIXV7O6k77LyqZA0oBKafXN
-	 qVziuIj7I6gsva59f529qRXh9gygYQYEzDjUdqla68igWIwRnbbirGlzXeO2cbCs9r
-	 PYgmQ9Ww/z9N3j3sDgyS4MQc7ykvmUy+DCcAa6TahzHBHr9YBfpaSxLoPgOHYximNo
-	 7L0asRTv1pDAg==
-Received: by mail-oi1-f171.google.com with SMTP id 5614622812f47-400b64ac5fcso3654317b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 04:09:03 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXCWNksENyXL/3WdXpuEmA8KZKZ8P0gzOquQ5Lgk9AyZRt0JwfSglyENicovMH8StlL94EvIsh5I7l59e8261Tk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzu2OtgIwawvfMwwRvzpNlkQ/CPZ+ABPEMHKHHU23n0GhlxDrqp
-	0MAMSk21+ScMVleFObL+RtNmMuUTSpFgN5d0Pfw2JEnhvlQLWSdY9rtluuud4sFrSC32oHgs4nb
-	3SBlD2gbEXZpRs91FGeSwIdw0P2A=
-X-Google-Smtp-Source: AGHT+IFY4i+B3pR5hn7A2kqkAlnBnbb/HDJe+RY21qXj4tISAk0tiDxufLtwdDVT//wBwk48KcRpyo3+ep5C+qD0nl0=
-X-Received: by 2002:a05:6871:2886:b0:2c3:f8e3:bdb9 with SMTP id
- 586e51a60fabf-2da486a7a9amr1047877fac.28.1745924943157; Tue, 29 Apr 2025
- 04:09:03 -0700 (PDT)
+	s=k20201202; t=1745925606;
+	bh=u+0gdMWMSYuRtMYk3VUjuG61dFzk1pC1LDJTnsyEa3s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aoKIaDwY/xb45oY72JY/BRGb+W+OWRF7/1r/YrOz0KE6LAFRMfU0HgJgfg1QfNXdM
+	 I5a+6oi6V3WKBi5gH0WcU+TP9amgRQe5C8k0uCwS4tHU6M3zTdibURGvIjJ6k+0R8x
+	 gQQVUrKmDJLI6mVtvCaJSFFLaW0KZqnyVAxerqbt0UnxwaYorUbTWtsYxMqAt49yzT
+	 SINuoXkOTasyRABSb0bUKGBIm/EX8kU23KJbJfZ7E+DNGCHBh6nwdU9WDPOF7IFYYf
+	 /q2lIslPP6bGsJM5FDHlT0PSQDzX0iD9Q+aviNIM2BS2Djgtwtmw/SnroxVVRu5Tci
+	 ZKBbQ2Is03m7Q==
+Received: from johan by xi.lan with local (Exim 4.97.1)
+	(envelope-from <johan@kernel.org>)
+	id 1u9j0S-000000003cC-08Pc;
+	Tue, 29 Apr 2025 13:20:08 +0200
+Date: Tue, 29 Apr 2025 13:20:08 +0200
+From: Johan Hovold <johan@kernel.org>
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org, sudeep.holla@arm.com,
+	james.quinlan@broadcom.com, f.fainelli@gmail.com,
+	vincent.guittot@linaro.org, peng.fan@oss.nxp.com,
+	michal.simek@amd.com, quic_sibis@quicinc.com,
+	dan.carpenter@linaro.org, maz@kernel.org
+Subject: Re: [PATCH v2 2/4] firmware: arm_scmi: Add Quirks framework
+Message-ID: <aBC16CGDhZ_XO3Xr@hovoldconsulting.com>
+References: <20250425125250.1847711-1-cristian.marussi@arm.com>
+ <20250425125250.1847711-3-cristian.marussi@arm.com>
+ <aA5BeONpC3CJE5-Z@hovoldconsulting.com>
+ <aBCuSpToEklg340R@pluto>
 MIME-Version: 1.0
-References: <20250327195928.680771-2-csokas.bence@prolan.hu>
- <20250327195928.680771-3-csokas.bence@prolan.hu> <CAJZ5v0jmuzvo-xzGBDhGVBbY7svbrqEdi-SeJrx5BG=qtN6ZiQ@mail.gmail.com>
- <b38b27d4-c3d3-450c-8634-2e07f393a76c@prolan.hu>
-In-Reply-To: <b38b27d4-c3d3-450c-8634-2e07f393a76c@prolan.hu>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Tue, 29 Apr 2025 13:08:51 +0200
-X-Gmail-Original-Message-ID: <CAJZ5v0hRsXw45utNMEhLB=i56tsJDz8AvYfV2stPbtRHh09HUg@mail.gmail.com>
-X-Gm-Features: ATxdqUES0FmjmyEqrlOpgBYB8t6ofrTgX8zGFUf5SN2x5tU_vCgg6l81l9wKEDc
-Message-ID: <CAJZ5v0hRsXw45utNMEhLB=i56tsJDz8AvYfV2stPbtRHh09HUg@mail.gmail.com>
-Subject: Re: [PATCH v6 1/2] pm: runtime: Add new devm functions
-To: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, 
-	Varshini Rajendran <varshini.rajendran@microchip.com>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
-	Mark Brown <broonie@kernel.org>, linux-spi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Len Brown <len.brown@intel.com>, 
-	Pavel Machek <pavel@ucw.cz>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Alexander Dahl <ada@thorsis.com>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Pavel Machek <pavel@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aBCuSpToEklg340R@pluto>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_040905_761826_931BE4D2 
-X-CRM114-Status: GOOD (  16.19  )
+X-CRM114-CacheID: sfid-20250429_042008_215824_98202C9F 
+X-CRM114-Status: GOOD (  39.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,29 +82,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 28, 2025 at 10:44=E2=80=AFAM Cs=C3=B3k=C3=A1s Bence <csokas.ben=
-ce@prolan.hu> wrote:
->
-> Hi,
->
-> On 2025. 04. 09. 19:43, Rafael J. Wysocki wrote:
-> > On Thu, Mar 27, 2025 at 8:59=E2=80=AFPM Bence Cs=C3=B3k=C3=A1s <csokas.=
-bence@prolan.hu> wrote:
-> >>
-> >> Add `devm_pm_runtime_set_active_enabled()` and
-> >> `devm_pm_runtime_get_noresume()` for simplifying common cases in drive=
-rs.
-> >>
-> >> Signed-off-by: Bence Cs=C3=B3k=C3=A1s <csokas.bence@prolan.hu>
-> >
-> > I can apply this one alone if you want me to do that, but I could also
-> > apply the other patch in the series if it got an ACK from the driver
-> > maintainer.
->
-> Did this end up being applied?
+On Tue, Apr 29, 2025 at 11:47:54AM +0100, Cristian Marussi wrote:
+> On Sun, Apr 27, 2025 at 04:38:48PM +0200, Johan Hovold wrote:
+> > On Fri, Apr 25, 2025 at 01:52:48PM +0100, Cristian Marussi wrote:
+> > > Add a common framework to describe SCMI quirks and associate them with a
+> > > specific platform or a specific set of SCMI firmware versions.
+> > > 
+> > > All the matching SCMI quirks will be enabled when the SCMI core stack
+> > > probes and after all the needed SCMI firmware versioning information was
+> > > retrieved using Base protocol.
 
-Just applied as 6.16 material, I'll let you know when the tag to pull
-from is ready.
+> > > +static void scmi_enable_matching_quirks(struct scmi_info *info)
+> > > +{
+> > > +	struct scmi_revision_info *rev = &info->version;
+> > > +	const char *compatible = NULL;
+> > > +	struct device_node *root;
+> > > +
+> > > +	root = of_find_node_by_path("/");
+> > > +	if (root) {
+> > > +		of_property_read_string(root, "compatible", &compatible);
+> > > +		of_node_put(root);
+> > > +	}
+> > > +
+> > > +	dev_dbg(info->dev, "Looking for quirks matching: %s/%s/%s/0x%08X\n",
+> > > +		compatible, rev->vendor_id, rev->sub_vendor_id, rev->impl_ver);
+> > 
+> > You're now just looking up the most specific compatible string in order
+> > to include it in this dev_dbg(). Since you're now matching on all
+> > compatible strings, perhaps you can consider just dropping it.
+> > 
+> 
+> Yes indeed I was not sure to keep all of this machinery just to print
+> the machine compatible that is used to try to match against the
+> (possible) list of compats....on the other side seemed useful to know
+> exactly what you are trying to match against....but maybe we can simply
+> assume that the machine compatible is well-known....
 
-Thanks!
+Perhaps it would have been more useful if you printed all the compatible
+strings here and not just the most specific one, but yeah, there are
+other ways to read this strings through sysfs.
+
+Keeping as-is should be fine too.
+
+> > > +		/*
+> > > +		 * Note that there could be multiple matches so we
+> > > +		 * will enable multiple quirk part of an hash collision
+> > 
+> > nit: "quirks that are part of a"?
+> > 
+> 
+> mmm...as a non-native and poor English speaker I am, though, reasonably
+> confident that a/an is chosen based on the vowel/consonant SOUND of the
+> next word NOT on the effective letter...am I wrong ?
+> (then we could digress about which is the sound of a[n] 'hash' :P ...)
+
+That's my understanding as well, but 'hash' begins with a consonant
+sound so I'm pretty sure it's "a hash".
+
+> > > +		 * domain...BUT we cannot assume that ALL quirks on the
+> > > +		 * same collision domain are a full match.
+> > > +		 */
+> > > +		hash_for_each_possible(scmi_quirks_ht, quirk, hash, hkey) {
+> > > +			if (quirk->enabled || quirk->hkey != hkey ||
+> > > +			    impl < quirk->start_range ||
+> > > +			    impl > quirk->end_range)
+> > > +				continue;
+> > > +
+> > > +			if (quirk->compats[0] &&
+> > > +			    !of_machine_compatible_match(quirk->compats))
+> > > +				continue;
+> > > +
+> > > +			dev_info(dev, "Enabling SCMI Quirk [%s]\n",
+> > > +				 quirk->name);
+> > > +
+> > > +			dev_dbg(dev,
+> > > +				"Quirk matched on: %s/%s/%s/[0x%08X-0x%08X]\n",
+> > > +				quirk->compats[0], quirk->vendor,
+> > 
+> > You can now match on more than one compats string, but I guess printing
+> > just the first one is fine.
+> > 
+> 
+> Yes, same as above dev_dbg...not sure if it was meaningful really to
+> dump all the list and overload the log with all such info...
+
+Right, indicating there is some compatible string that's being used is
+still useful to know.
+
+> > > +				quirk->sub_vendor_id,
+> > > +				quirk->start_range, quirk->end_range);
+> > > +
+> > > +			static_branch_enable(quirk->key);
+> > > +			quirk->enabled = true;
+> > > +		}
+> > > +	}
+> > > +}
+> > 
+> > This seems to work as intended and I've tried matching on machine and
+> > SoC compatible strings and/or vendor and protocol version:
+> > 
+> > Tested-by: Johan Hovold <johan+linaro@kernel.org>
+> > 
+> 
+> Thanks for the review Johan.
+> 
+> Since you have tested the effective final quirk patch, may I ask you to
+> post straight away your final tested quirk patch on top of my next V3
+> (with your authorship of course..)...I will drop the [NOT FOR UPSTREAM]
+> example patch so that Sudeep can easily pick-up your patch.
+
+Sure, I'll do so. Thanks for your help with getting this sorted!
+
+Johan
 
