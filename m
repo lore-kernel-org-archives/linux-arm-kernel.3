@@ -4,88 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CF89C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 14:13:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41EA3C3ABAB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 14:13:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JNIeCvRJ59hmZ1OuvgQ2L3CemabnrU2FtguWiVOSCkE=; b=DDy3Ge5vMN0fsS+9lISml2R2/M
-	iYqe6Q4NwJB4SYRW4wnhnFaeD8Cy0jONm/cZbthZD7b+xubHQkYpMVs2k5OTBWHWniH8YVBjeoWcH
-	yP1APMIQE18OuBr3mwHDvPbl1aqeEGXI9buX0msIOWya/lsEbW8ioielI4fxrcnhWzaIW2ypaEcs5
-	szboyrXYr6ID5ZjW8jLGvrlaWw76zZqdlm0Nnwah18K/ZX0z6l1q7x2nYEr9w5dmND9gVxIDpfmjA
-	jbeDhTBqM1pYZGs74QsWvDNoxYWO0Bz2U8VmnKt4w+d0+9uyZ9z8H28XbH9+iy+6JuKRyPGvshNk5
-	tM2F6jQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=5uRh7v+3Xppszuxd+O9qGTEWq0rsPe8cIDG/eMajO7k=; b=3boDm1KX2ZajOD
+	GTKlYTV2kehazmDUpn3lpeOpzE+fs6UsZQ1uOLE0Pym6iX6KWxue/71LdNaOFxndeT8dFQaQmUMW1
+	0c34eAu6TbXCJRIToIKa6sbdEM2RBDA+TG3p3COR3xwEspNHoDxQlE5YuaGiiCejoxsQ9gKtHmqaE
+	DDESH6ArJmOiARxL4RRPWQVA1tz9ssTRnX5Q4MDw3sGD7USNH0fPNE4Jkos+j6b7m6hlnbs+yHVY9
+	FAfzGn7Tb/MEkFCLFJRgg6rXemKv6P34WtEsP9ld9o093L0+Yfp0z6SwOgJtpMA0xY5ea1Tr6Gzji
+	/A/IuVQgunr+NaiQupWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9lhi-00000009rr5-3eoW;
-	Tue, 29 Apr 2025 14:12:58 +0000
+	id 1u9lhn-00000009ruC-0Ikx;
+	Tue, 29 Apr 2025 14:13:03 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9jNE-00000009XGc-0ab3
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Apr 2025 11:43:40 +0000
+	id 1u9jUy-00000009ZEq-3TAC;
+	Tue, 29 Apr 2025 11:51:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=JNIeCvRJ59hmZ1OuvgQ2L3CemabnrU2FtguWiVOSCkE=; b=Dh3Jz5VkqPktv8DT2U6ZTMsFmt
-	N6cBKXeyayq6kg+ieUI1gXkhe8fpqZ5mmgkVKFlchVN9IBrvLeJMk3oRN9UJzL/YNAdR1f8vVPD3B
-	arIBwa/9c63KlW6bbnZYLMUrkJAC4/NqQRSHhALT4C/M4efJb/sse/iKSXZZshxOxDitaZlZROBgy
-	gDjdwDCPWGVUgX6SmrLzHWwfys4NdcVa6uHetE/9e97b4shvOXwPXZ9CTx/Y5Jq7nNtJNki3fG5sB
-	NOGycnzGpC+mN1qCvJNchEZdCPVkVsQuCoNTyTrr67qZ4jtLeLm1e3Jex/r5GanHqzgZz3oxSdpp5
-	OshzA0eQ==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=5uRh7v+3Xppszuxd+O9qGTEWq0rsPe8cIDG/eMajO7k=; b=j4WYKktM3k/nP0t3PymhaBbDfS
+	yyr9mMHEe7WfbvCAvl72KpBCumxmGjYvy0gJUTEoHkJSn1G4iV7gLMJy2aPsvEiVFV+hSrbnlHKim
+	3iwXBL+5FDm/Gbqt3/aE2oiEhMjVOl11PPwEzoTVQnq8GeofSq0CFKdxQXp027KjPqHFPOWSfHgGO
+	S9TL8KuEQBrkjzzjWpVe9aSBI31XOBmh/+9KtK9dr+WJq0HrNFnRJyrmonVpExIGJww8G46q7Eo0d
+	O45SsExnwKpJfTZVi/kVa47s2vT+ZZqIkjy+jpnS2ayN/tH9UrBTiSt2sFUVs22/UXvFxWh1StFrE
+	0eg2M1uw==;
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9jN9-0000000DHgK-3pmb
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 11:43:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5D63DA4AE03;
-	Tue, 29 Apr 2025 11:38:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6D4BC4CEE3;
-	Tue, 29 Apr 2025 11:43:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745927011;
-	bh=9ZzZ2PUUe62ESKAkB2c5E8q80p5NNCf2tGXDF7sXtlA=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Eef7Ny0Nw1TSqWdRODz4I099aCTZln80IlK5ML2ODp35P7NV5Z6uBafKBI2BCfT8j
-	 tG2CgqLMZlwc4X0do2X9+RG6vD7NwjCs8tHxqGyLJmWaoigZTlntAaqxKcIH72uG/p
-	 /r3QtlD3RNShyID2I6kIaC2qUhde7kLVU+DQJt6euHZn+r63H0UAi6J24qKhZ5RNOU
-	 95bbx+r3K7t6dbSKnfbZnBrB0DDxybnaSNdCDNDQDNUVmMP2QMS7JHDgBFWFzYqcQG
-	 caEGtoF+F3QvYBbQNKAZz/cwsj+ZuXk7Heayg6DOSjtDUU+hZIWHQSNPVl+HpJ2r5K
-	 zA3PfYHylyxOA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1u9jN3-009t4S-LJ;
-	Tue, 29 Apr 2025 12:43:29 +0100
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	D Scott Phillips <scott@os.amperecomputing.com>
-Subject: [PATCH v2] KVM: arm64: Force HCR_EL2.xMO to 1 at all times in VHE mode
-Date: Tue, 29 Apr 2025 12:43:26 +0100
-Message-Id: <20250429114326.3618875-1-maz@kernel.org>
-X-Mailer: git-send-email 2.39.2
+	id 1u9jUv-0000000DIRv-3dmW;
+	Tue, 29 Apr 2025 11:51:39 +0000
+Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c31:2dc0:c767:bd08:cc70:b57a])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 9DCE5669;
+	Tue, 29 Apr 2025 13:42:10 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1745926931;
+	bh=AZ2eZQaNSO0yCaJCJF7YZMQJ3yiP1EQgrAq27CE+3bs=;
+	h=From:Subject:Date:To:Cc:From;
+	b=vs5679kzWwlXTQjwm0t3PP0k+sNKF0MlobQS8j/WP5SamnqE92G6/TJJJrRzOSaKD
+	 qz/Q7wSes6oeUmgWbcfFzOWL9+rXMf9QRoTOPwz3qOQ9QI46dthTT0ZNWSJu02h/EY
+	 s+7vv5Q6VULBKFu15SAmrhpXHEyXwum2TV1+3YN4=
+From: Jai Luthra <jai.luthra@ideasonboard.com>
+Subject: [PATCH v5 0/2] media: rockchip: rkisp1: Add support for WDR and
+ AWB64
+Date: Tue, 29 Apr 2025 17:11:52 +0530
+Message-Id: <20250429-awb64-v5-0-2dc3163a8cfc@ideasonboard.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, mark.rutland@arm.com, scott@os.amperecomputing.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAC7EGgC/3XMwU7DMAzG8VeZcibIdu1m5cR7TByS1mE50EwJK
+ kNT351sUpmE2PGz/PtfTNWStJqX3cUUXVJNeW5DnnZmPPr5XW2a2jYExEgdWP8VerZuIAcw7BV
+ FTfs9FY3pfOsc3to+pvqZy/ctu+D1+rewoEVLLoBqL1EEX9OkvuY5ZF+m5zF/mGtooQ0LIP5ia
+ hgwuBjYIffyAHd3TCQb7mzrRBoCEqDy/gHmO2bkDXPDIXr1Av0YJvgHr+v6A/IMClZYAQAA
+X-Change-ID: 20241230-awb64-79270098e15e
+To: Dafna Hirschfeld <dafna@fastmail.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Stefan Klug <stefan.klug@ideasonboard.com>, 
+ Jai Luthra <jai.luthra@ideasonboard.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2602;
+ i=jai.luthra@ideasonboard.com; h=from:subject:message-id;
+ bh=AZ2eZQaNSO0yCaJCJF7YZMQJ3yiP1EQgrAq27CE+3bs=;
+ b=owEBbQKS/ZANAwAIAUPekfkkmnFFAcsmYgBoELsTxQIT+DLzaFo7pNmFfkrO1SlM1rs5Gzm65
+ e0PQH3xivKJAjMEAAEIAB0WIQRN4NgY5dV16NRar8VD3pH5JJpxRQUCaBC7EwAKCRBD3pH5JJpx
+ RZSFEAC4Y9wFnZTWtjTeeGVI+ve4I/72zodwegFHDyzcxqnS/CUg8KIcE6U1F6n8BCsrGEds4RW
+ Dioiv3/1cYZ1VebIWBhDlHsaquPRLQMbeIxOwd5+9oixJIvZ7UJfqrZxEVTm7ANxcF+QISdIlF8
+ WNxSqQtUl48LczfSxTe/Pp0XWwHBWgpSPGi5MAXG3UClu3S1KohuO+G4+K48QY1UNsUUHHV3hhw
+ Zkd8ejy3ex7JKIo8IJyxGsgLNP+lRen5idFgBK25o9+te1sbpDT2hMeUZSQDg37dznTKxoek4jP
+ AOfdjqBv4JOcytGpfIhyrNfcdxHyltq4gpAnrkrBBpCuQwIc3A9SELVAo3ilK5Kz5zSqbE+s/FX
+ Yx/6byzYWrxT4kJ4IQwVvvrhsmCnd7Vec9qxo1hoYXwMr+RqFoimgn78qwvo8YhrtvxwObK8dUV
+ OK02Ks+MfKjA66qkAm4fGPfWuChi1uCr8xYnfgQk758Hg0B4xCgBPNWzrDYL/AkdMT3k1MkJitw
+ k6W5WiTxDPzVCihFqVG6QseCOLhc3esmahUr/G/IOtEiBX/BDhzTEggUZ60biHyLCQb9yv/Z4aA
+ GDw1Lw8lIWZTKvQdbZL6pCHq1Sil8dngoAHpiYkB76EYm4Oq3EC34ZVe7YdYglOPEz7VpL+1AeZ
+ FPCh2ipd7uH0Qhg==
+X-Developer-Key: i=jai.luthra@ideasonboard.com; a=openpgp;
+ fpr=4DE0D818E5D575E8D45AAFC543DE91F9249A7145
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_124336_931243_A3B09046 
-X-CRM114-Status: GOOD (  20.29  )
+X-CRM114-CacheID: sfid-20250429_125138_012209_7BFA0A43 
+X-CRM114-Status: GOOD (  12.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,113 +106,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We keep setting and clearing these bits depending on the role of
-the host kernel, mimicking what we do for nVHE. But that's actually
-pretty pointless, as we always want physical interrupts to make it
-to the host, at EL2.
+Add support for Wide Dynamic Range and Auto White Balance 64 modules of
+the ISP.
 
-This has also two problems:
+This series is in continuation of the v2 posted earlier that enabled
+only AWB64. We add a new patch enabling WDR, and rebase the AWB64
+patch on top of it, as WDR is a simpler module which is present across
+different variants of the ISP.
 
-- it prevents IRQs from being taken when these bits are cleared
-  if the implementation has chosen to implement these bits as
-  masks when HCR_EL2.{TGE,xMO}=={0,0}
-
-- it triggers a bad erratum on the AmpereOne HW, which catches
-  fire on clearing these bits while an interrupt is being taken
-  (AC03_CPU_36).
-
-Let's kill these two birds with a single stone, and permanently
-set the xMO bits when running VHE. This involves a bit of surgery
-on code paths that rely on flipping these bits on and off for
-other purposes.
-
-Note that the earliest setting of hcr_el2 (in the init_hcr_el2
-macro) is left untouched as is runs extremely early, with interrupts
-disabled, and soon enough overwritten with the final value containing
-the xMO bits.
-
-Reported-by: D Scott Phillips <scott@os.amperecomputing.com>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
 ---
- arch/arm64/include/asm/kvm_arm.h |  2 +-
- arch/arm64/kvm/hyp/vgic-v3-sr.c  | 36 +++++++++++++++++++-------------
- 2 files changed, 22 insertions(+), 16 deletions(-)
+Changes in v5:
+- Ensure WDR_USE_IREF is unset before reading params from user
+- Fix spacing and alignment issues in WDR patch
+- Drop reset value information from doxygen comments for WDR tone curve
+- Link to v4: https://lore.kernel.org/r/20250414-awb64-v4-0-bfaea506cbd0@ideasonboard.com
 
-diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
-index 974d72b5905b8..bba4b0e930915 100644
---- a/arch/arm64/include/asm/kvm_arm.h
-+++ b/arch/arm64/include/asm/kvm_arm.h
-@@ -100,7 +100,7 @@
- 			 HCR_FMO | HCR_IMO | HCR_PTW | HCR_TID3 | HCR_TID1)
- #define HCR_HOST_NVHE_FLAGS (HCR_RW | HCR_API | HCR_APK | HCR_ATA)
- #define HCR_HOST_NVHE_PROTECTED_FLAGS (HCR_HOST_NVHE_FLAGS | HCR_TSC)
--#define HCR_HOST_VHE_FLAGS (HCR_RW | HCR_TGE | HCR_E2H)
-+#define HCR_HOST_VHE_FLAGS (HCR_RW | HCR_TGE | HCR_E2H | HCR_AMO | HCR_IMO | HCR_FMO)
- 
- #define HCRX_HOST_FLAGS (HCRX_EL2_MSCEn | HCRX_EL2_TCR2En | HCRX_EL2_EnFPM)
- #define MPAMHCR_HOST_FLAGS	0
-diff --git a/arch/arm64/kvm/hyp/vgic-v3-sr.c b/arch/arm64/kvm/hyp/vgic-v3-sr.c
-index ed363aa3027e5..50aa8dbcae75b 100644
---- a/arch/arm64/kvm/hyp/vgic-v3-sr.c
-+++ b/arch/arm64/kvm/hyp/vgic-v3-sr.c
-@@ -429,23 +429,27 @@ u64 __vgic_v3_get_gic_config(void)
- 	/*
- 	 * To check whether we have a MMIO-based (GICv2 compatible)
- 	 * CPU interface, we need to disable the system register
--	 * view. To do that safely, we have to prevent any interrupt
--	 * from firing (which would be deadly).
-+	 * view.
- 	 *
--	 * Note that this only makes sense on VHE, as interrupts are
--	 * already masked for nVHE as part of the exception entry to
--	 * EL2.
--	 */
--	if (has_vhe())
--		flags = local_daif_save();
--
--	/*
- 	 * Table 11-2 "Permitted ICC_SRE_ELx.SRE settings" indicates
- 	 * that to be able to set ICC_SRE_EL1.SRE to 0, all the
- 	 * interrupt overrides must be set. You've got to love this.
-+	 *
-+	 * As we always run VHE with HCR_xMO set, no extra xMO
-+	 * manipulation is required in that case.
-+	 *
-+	 * To safely disable SRE, we have to prevent any interrupt
-+	 * from firing (which would be deadly). This only makes sense
-+	 * on VHE, as interrupts are already masked for nVHE as part
-+	 * of the exception entry to EL2.
- 	 */
--	sysreg_clear_set(hcr_el2, 0, HCR_AMO | HCR_FMO | HCR_IMO);
--	isb();
-+	if (has_vhe()) {
-+		flags = local_daif_save();
-+	} else {
-+		sysreg_clear_set(hcr_el2, 0, HCR_AMO | HCR_FMO | HCR_IMO);
-+		isb();
-+	}
-+
- 	write_gicreg(0, ICC_SRE_EL1);
- 	isb();
- 
-@@ -453,11 +457,13 @@ u64 __vgic_v3_get_gic_config(void)
- 
- 	write_gicreg(sre, ICC_SRE_EL1);
- 	isb();
--	sysreg_clear_set(hcr_el2, HCR_AMO | HCR_FMO | HCR_IMO, 0);
--	isb();
- 
--	if (has_vhe())
-+	if (has_vhe()) {
- 		local_daif_restore(flags);
-+	} else {
-+		sysreg_clear_set(hcr_el2, HCR_AMO | HCR_FMO | HCR_IMO, 0);
-+		isb();
-+	}
- 
- 	val  = (val & ICC_SRE_EL1_SRE) ? 0 : (1ULL << 63);
- 	val |= read_gicreg(ICH_VTR_EL2);
+Changes in v4:
+- Rebase on v6.15-rc1
+- Address Laurent's review comments on WDR patch
+- Link to v3: https://lore.kernel.org/r/20250225-awb64-v3-0-af29b1201e48@ideasonboard.com
+
+Changes in v3:
+- Add a new patch that enables support for WDR module, and rebase AWB64
+  support on top of it
+- Document the fractional bits used for AWB64 configuration parameters
+- Link to v2: https://lore.kernel.org/r/20250110-awb64-v2-1-01b7fb471465@ideasonboard.com
+
+Changes in v2:
+- Fix register offsets
+- Drop the _v10 suffix from awb64 functions
+- Combine the min and max for R, G, B components into a single value in
+  the struct
+- Move all the configuration except IRQ and module enable in the
+  meas_config() routine, making sure the bool bits are cleared if
+  userspace updates the struct
+- Fix documentation and indent at various places
+- Create a single function for getting both AWB and AWB64 stats for
+  IMX8MP
+- Rename accumulator fields to only specify RGB and not YUV, as AWB64
+  block does not operate on YUV colorspace
+- Link to v1: https://lore.kernel.org/r/20241230-awb64-v1-1-27b0ee65f551@ideasonboard.com
+
+---
+Jai Luthra (2):
+      media: rockchip: rkisp1: Add support for Wide Dynamic Range
+      media: rockchip: rkisp1: Add support for AWB64
+
+ .../media/platform/rockchip/rkisp1/rkisp1-common.h |   2 +
+ .../media/platform/rockchip/rkisp1/rkisp1-dev.c    |   3 +-
+ .../media/platform/rockchip/rkisp1/rkisp1-params.c | 216 +++++++++++++++++++++
+ .../media/platform/rockchip/rkisp1/rkisp1-regs.h   | 140 +++++++------
+ .../media/platform/rockchip/rkisp1/rkisp1-stats.c  |  40 ++++
+ include/uapi/linux/rkisp1-config.h                 | 199 +++++++++++++++++++
+ 6 files changed, 525 insertions(+), 75 deletions(-)
+---
+base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
+change-id: 20241230-awb64-79270098e15e
+
+Best regards,
 -- 
-2.39.2
+Jai Luthra <jai.luthra@ideasonboard.com>
 
 
