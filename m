@@ -4,178 +4,224 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B47FC3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 10:31:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86408C3ABA9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 10:45:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ntwleF0FJ9CC762cUGTggs8PS8FomkuxI5oL0NEGw1s=; b=EgRnFc5oP9xS3wdxlIN70khpGH
-	fc5HKIUvHcpGeXjUqwLNMjukRgvHJj0FUF51aO4tfaTzImSFP7ILetywQbxdoRFF6AzOrwqrjX14o
-	8bof4lhTbpXx8CvmC1X+mAt4VUNyYi96y6An7mFg4AJhvxsbioieddEz1xttPv3m3NivBBrxJvT9m
-	Gr5ytx6N+a0kLLec7tae7vgGHiw7Mr/11lm5AAuUoIau0gty7CmueNur2RxnpXm57um2BcEKfGePB
-	TZuzcIQ0vkIk1lJLO/SKsaZLvrkTHI3SQ0Q9l4A8vbClBlenDmrBFTrehGi+fC9S0P3ojTkhORFyx
-	WmWT9LOQ==;
+	bh=TYVQKje5AIXMkYo19ZrZZx3zggxpbcCq/xtZdHbU2PE=; b=r4CMXE6GgsMKeRWaLINlDHl6kN
+	JKVvBOMNaRaTMagCUUELi7HuH8rDEDFrsI23s1HWynxWDh6bdIyb3apDWxsrwCUPdISmrZDzuNX9v
+	PhiA3P99TzIyN2ZEgDZ5H98spmSqkJJ0/0edMU050vyTv5BSIq+Xcaqj1Yh7bVVE2fH0vFAqZxHtu
+	7QQzzcx8E9nfpsPfFFmTz9q8cyOgppNtR20m2UxCMYk+Qt3b46WkeRLYdFJOgIZmc+RsF3NnB3ChU
+	ZbVtTlpk6fYRKEYMY8wk0hNeVWQPvQ5hMXOJdifnrielhIWZ/kKiB5teyZhUXn9LIz8RY7NqfeeTg
+	UCxDJDAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9iF5-00000009Jy7-0KSB;
-	Tue, 29 Apr 2025 10:31:11 +0000
+	id 1u9iSZ-00000009LjV-2169;
+	Tue, 29 Apr 2025 10:45:07 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9h7u-0000000964M-2Lwf
+	id 1u9iQf-00000009LU3-1DoY
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Apr 2025 09:19:42 +0000
+	Tue, 29 Apr 2025 10:43:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=ntwleF0FJ9CC762cUGTggs8PS8FomkuxI5oL0NEGw1s=; b=BByZBZNEbImU2zStu+3SiSKo+L
-	OwZbUXd6kJiADP5J/+S11Zs9SNJTU38pHQnB4klO/Ifw6cV3qsEqOi7bwbvcnb1coDZqPnMqBjWC1
-	MUaLJCaiGq/K0WuOVaSi9h035uVT9oENLv2buo1CkZ7oMERivkaaxogK1B6/X9ZgyaUVUBk0evDXM
-	HKEI+BuvNc6UAFsPQkp2hjt38wwbX/JTngprpQci9MPSjkWA06ujsi7CnN9+jnDiDXCjGayqglwnU
-	n0j1renlQRusCfbnarmftBJop7l+hTZleWVpePzsHEd8XBPNxWFtYSeMJkoXFyQ1BEHeeWH5uxGXa
-	A/IONmkA==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Sender:Reply-To:Content-ID:Content-Description;
+	bh=TYVQKje5AIXMkYo19ZrZZx3zggxpbcCq/xtZdHbU2PE=; b=DBeI3Ha9fK7xzaxIbYCCbxGiwM
+	pYLkc1hCHD5QsIuPQPHVFD7PWNhSt61iTgwrUF6trR8N9vZ1fQqE1mdWqSYnTWkwgMzRnU4hoazx8
+	nRTxdhd/U42xnjvL5wy+HOoJ1cLCQoqyT7mYEHuVhUZEK38XczMNgxQpxqTenP+9idoJiP56qsASS
+	wDcpVmA/kAed2hKdyQBBJY5qjNb5+m7AJnFV3PP6c7nmhgCESiYuvMhqyBHo0mwXSkouMHbOZgezu
+	cUTCoil3aq1pGHUrsTk4Y+BX3CT3rqP2TcQmoGaBUUau0tXu0Az0sUuI50AEe9cKby1uwNp2Ju7PU
+	GERj5G2Q==;
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9h7r-0000000DFK3-2D7A
+	id 1u9iQc-0000000DGhs-0dlq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 09:19:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1745918377;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=ntwleF0FJ9CC762cUGTggs8PS8FomkuxI5oL0NEGw1s=;
-	b=Ga/60cBO93E4uf/GuRilA7NgrMdjk563fBl11yuB8hi5O5WX9cLFTT3URmfYUAJ5TE2cxk
-	aiQL8jmbO9OroQRDgaakmCT5SG1um16AxjYYwVEwxevtk3YOUy9kGWMO+dvr85K6Kw5p2L
-	Rj9E6sQUR7aa+udcqMCrWrMGGp0f5tc=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1745918377;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=ntwleF0FJ9CC762cUGTggs8PS8FomkuxI5oL0NEGw1s=;
-	b=Ga/60cBO93E4uf/GuRilA7NgrMdjk563fBl11yuB8hi5O5WX9cLFTT3URmfYUAJ5TE2cxk
-	aiQL8jmbO9OroQRDgaakmCT5SG1um16AxjYYwVEwxevtk3YOUy9kGWMO+dvr85K6Kw5p2L
-	Rj9E6sQUR7aa+udcqMCrWrMGGp0f5tc=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-225-9FTsEp1rNrCvE0C2zyuKLA-1; Tue, 29 Apr 2025 05:19:33 -0400
-X-MC-Unique: 9FTsEp1rNrCvE0C2zyuKLA-1
-X-Mimecast-MFC-AGG-ID: 9FTsEp1rNrCvE0C2zyuKLA_1745918372
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-3a07a7b4298so1579929f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 02:19:33 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745918372; x=1746523172;
-        h=content-transfer-encoding:in-reply-to:organization:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
-         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=ntwleF0FJ9CC762cUGTggs8PS8FomkuxI5oL0NEGw1s=;
-        b=FRTqs7KfE5dfVo53CwKCnYUWnNR4w+067ONr3o5DP3hzofOZ/q1QjPYl3u5l85a7Zp
-         7XVa8cm7t2QqU2WZiJHZQMdf+hUNIwIhgHcrkV9Wthud+PgK6KiznaZI3oJrCqHcvGfy
-         a/MS0mqCa53JuiMvxEDvpGG9NqlApkBPkSYj4fItvyRi031/KMh/wp3sK8XGMIK9LYan
-         OELjei2whkqpP1pYEon65ujQiRmMc/6TALWgBapqI2pHta1ByuCte1Q2fx3ofBVFLMqk
-         DHmkUKLnwyFHPulZy2Wddl2cPwIiYZs92Teqrr+WukstgndHwDKzA1x16E3d+2arZMHa
-         xwpQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXthMcLPT9AWFyB/S0WOXALJWi0qvyhx1AozAhCAv9OJ8kD5IOdLq1phik3GXfw6Btw5vr4obDj+VYdDDH51zzE@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYwyjTaywC2LHy+RyKKkMaxiun8H2dFm8ZMPTaCOQZstD0dejU
-	iuxRayGifGzT7Z3pXzz5hXFpuUL5u2Gduccs1cUHf15n/lnmTXiSFgaRJmlLC/RlHmp/ST4foKO
-	v0c+xutGW21FgJv4K71vxO3By66o5My5tNTjyNYtygyJe7alTKJb79UF9ivizyidaF5ron3X6
-X-Gm-Gg: ASbGncteMWAtQaZ8rU3GPHErc1C733EZaEL83pkebDsXGMJHZpso39WMWFnMvP2VzpL
-	h55wrZDH1RIPCXcqzlyJ9YrLdSDEA+dFkQ7jYCRPZDCnF7e9zINhHoPXDvhMEurbm5M7J7Ydbcg
-	j8Fcre8YTYGMJbteB0xXELsUpKK/yK0hHzTg9NBFdF2tkJy9BkwuuREur7UZsFJH2QU6sYhOnbC
-	yu6O72JMzj42bZiY+5+4gP8Wl0meQsQXzJBYBY2bNbK15Tn6uO8rAxW6QWWZsAdnfP1Rxcui/6b
-	JPZ7dBRaZIj3YU/iooysD0E+YYuO/gS2rRAk8RYX/6MyMyh62CB4/HH9rGBve/Fkxr3vm38Qp3/
-	H+KelUrMsCLGJkEQjW395U93F62f1qsVy0C5xbh4=
-X-Received: by 2002:a5d:5888:0:b0:39f:4591:32bd with SMTP id ffacd0b85a97d-3a08ad46e8emr1499761f8f.34.1745918372368;
-        Tue, 29 Apr 2025 02:19:32 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEJXM/BXGCU8UpZr4p6oVQgqq+V2FSJ/lkBP36jdCgXf4fmHFinYxCqBefOh3t374kwrG7LcQ==
-X-Received: by 2002:a5d:5888:0:b0:39f:4591:32bd with SMTP id ffacd0b85a97d-3a08ad46e8emr1499730f8f.34.1745918372002;
-        Tue, 29 Apr 2025 02:19:32 -0700 (PDT)
-Received: from ?IPV6:2003:cb:c73b:fa00:8909:2d07:8909:6a5a? (p200300cbc73bfa0089092d0789096a5a.dip0.t-ipconnect.de. [2003:cb:c73b:fa00:8909:2d07:8909:6a5a])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a073e460b2sm13560519f8f.70.2025.04.29.02.19.30
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 29 Apr 2025 02:19:31 -0700 (PDT)
-Message-ID: <25dcf969-e479-4d4a-a95c-0e83706af99e@redhat.com>
-Date: Tue, 29 Apr 2025 11:19:30 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 6/7] mm: Batch around can_change_pte_writable()
-To: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org
-Cc: ryan.roberts@arm.com, willy@infradead.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org,
- Liam.Howlett@oracle.com, lorenzo.stoakes@oracle.com, vbabka@suse.cz,
- jannh@google.com, anshuman.khandual@arm.com, peterx@redhat.com,
- joey.gouly@arm.com, ioworker0@gmail.com, baohua@kernel.org,
- kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
- christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
- linux-arm-kernel@lists.infradead.org, namit@vmware.com, hughd@google.com,
- yang@os.amperecomputing.com, ziy@nvidia.com
+	Tue, 29 Apr 2025 10:43:08 +0000
+Received: from pps.filterd (m0246627.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53T9XGvg008212;
+	Tue, 29 Apr 2025 10:41:24 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	corp-2023-11-20; bh=TYVQKje5AIXMkYo19ZrZZx3zggxpbcCq/xtZdHbU2PE=; b=
+	ATaEDM5XaIQ4uUC64F4J03Hk5Em++fLQKs13QbNGJq/Zjji45MAzxTD6xL9EOF5G
+	Fw7kB1Rr3gA/L8nBtY8RXt6WD0EOYeb2WKfvLXE8HbLSxazFnRDqE0MqYK7pkCk0
+	p02RxnBRxVwHQqWcYCwn/FfWkISvH1GaXp3wL+uOnLwB9VtOeV75499o/pOtmbdb
+	ybu6lLuSeeyRJOfCtjqgAYj2zrhp2ZojZvoAqIgx7Sz8u6hkue3B7JRg/ZGIf9qB
+	atWRzFM+S9CJp7jpHWkOrIOGbpuFQO8RGsDGxzqn8XS6zxtdVrYSBgzSgKnI37HP
+	YfSjXhroi4evVkGIDpSNlg==
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 46av7hr3u2-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 29 Apr 2025 10:41:24 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 53T9TjnD035406;
+	Tue, 29 Apr 2025 10:41:22 GMT
+Received: from sj2pr03cu001.outbound.protection.outlook.com (mail-westusazlp17012032.outbound.protection.outlook.com [40.93.1.32])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 468nx9dj1j-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 29 Apr 2025 10:41:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PSK3XHZ6xwebI7U2LMklCBYm8HFEFWGGgPCgYtNvXZdP8b9aJZP4U0odBjVl3QXNi5qrXn6xPcjn0rKRJ/OZNocJY5FgM1KvyTpqxjzOZE5CJzZNdJD1REwTA83rHOAgC32uIvDVbIdagDL7zenRGOPvZvAVbnntI0qnh32RzWXwdjnT58wIqrUe8SwlmZfZH5GNLia7z6N/ZaPEhLSDe1ggyqt4rlGT6HXNmiTqR5ZVqFkqX6v6sUJlMDwc8B6mBvxbUVqyvJozormfb5h0BXJs0eENhVf0v0DbvLDemavfh38bikoEaunKwcCsOgtCH3etleVczvwF41uMVoucFg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TYVQKje5AIXMkYo19ZrZZx3zggxpbcCq/xtZdHbU2PE=;
+ b=pYfa1lfKEmibU08MR1z5Z4K8DAJ50oNBAXat5RthzHDf2zhM9QH0wEnNbftgppDEyBB/LRMh5mmJQT53J9p9VSBQq4X3ka3v/n6DJ9GjN/IffwZO9zhx3ktZpUeByMSLGsuB3OWRCVJwRFLbY7Q0tEdT9QPWEJFk8J9sNj7gy401rkMcyuarRG30m4h9a78wWMrh0gagE+G1CNu/QRgigoTPNqjcpGZ/JscWVuBlk8N3t7l7Njh7pzIloOukGskSQkSxJflu6NDlaNfYyeZfnN5w4owPPiSOgfb485zgMhFjXbJ1eaaVqHd+SMYaxc+0MzT3ElxxDBAuBvg09mqZVQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TYVQKje5AIXMkYo19ZrZZx3zggxpbcCq/xtZdHbU2PE=;
+ b=kPSMIIjioXcWiCY2qrilP1KiYQ0/1B5hJindAcM25cVXDFPChwETQ9JlX9qdt9dcciTk3ofs6y8Uv0FC+PhsSHUhcbHPpKdLB6iz/dcwpTh0KsxDrE81bb9lFZ5LTZfXKub+X8CwRwl60p3aaGwzz7qIqfG17LVb6Sg5yOr8us0=
+Received: from DM4PR10MB8218.namprd10.prod.outlook.com (2603:10b6:8:1cc::16)
+ by DS7PR10MB7228.namprd10.prod.outlook.com (2603:10b6:8:e3::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.31; Tue, 29 Apr
+ 2025 10:41:19 +0000
+Received: from DM4PR10MB8218.namprd10.prod.outlook.com
+ ([fe80::2650:55cf:2816:5f2]) by DM4PR10MB8218.namprd10.prod.outlook.com
+ ([fe80::2650:55cf:2816:5f2%5]) with mapi id 15.20.8678.028; Tue, 29 Apr 2025
+ 10:41:19 +0000
+Date: Tue, 29 Apr 2025 11:41:15 +0100
+From: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+To: Dev Jain <dev.jain@arm.com>
+Cc: Lance Yang <lance.yang@linux.dev>, akpm@linux-foundation.org,
+        ryan.roberts@arm.com, david@redhat.com, willy@infradead.org,
+        linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+        catalin.marinas@arm.com, will@kernel.org, Liam.Howlett@oracle.com,
+        vbabka@suse.cz, jannh@google.com, anshuman.khandual@arm.com,
+        peterx@redhat.com, joey.gouly@arm.com, ioworker0@gmail.com,
+        baohua@kernel.org, kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
+        christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
+        linux-arm-kernel@lists.infradead.org, namit@vmware.com,
+        hughd@google.com, yang@os.amperecomputing.com, ziy@nvidia.com
+Subject: Re: [PATCH v2 0/7] Optimize mprotect for large folios
+Message-ID: <9d995850-d0c4-4e02-8547-74a9723e0405@lucifer.local>
 References: <20250429052336.18912-1-dev.jain@arm.com>
- <20250429052336.18912-7-dev.jain@arm.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- WNyWQQ==
-Organization: Red Hat
-In-Reply-To: <20250429052336.18912-7-dev.jain@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: pIkf6YqcHYFt3qVThh2v-47Z-G_AKZX0RCXAOHwz2dk_1745918372
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+ <ba73873b-1b26-44cd-ac0f-76e33e8fc2cf@linux.dev>
+ <05c3cd68-0d75-4682-a51c-59307e2b2e78@arm.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <05c3cd68-0d75-4682-a51c-59307e2b2e78@arm.com>
+X-ClientProxiedBy: LO4P302CA0044.GBRP302.PROD.OUTLOOK.COM
+ (2603:10a6:600:317::10) To DM4PR10MB8218.namprd10.prod.outlook.com
+ (2603:10b6:8:1cc::16)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM4PR10MB8218:EE_|DS7PR10MB7228:EE_
+X-MS-Office365-Filtering-Correlation-Id: 155021c6-1706-4a05-be76-08dd870a604e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?L0R4RUNQS0JaK3JLR2dwdzVta2pnUWNDZ2daNHQ5TG9DNEVVb0ZWRDFad2gw?=
+ =?utf-8?B?SE5OMi8xR0pMSlVFM1RHZHQzdmFEa1hoZFhGTTY4amZsYUw2MkJHN0gzN0Zm?=
+ =?utf-8?B?WU9CakhwdXJrZFlJVXlCVFI1anBFdjRxQmxoUHNzV3dGeExMRk5sT2VOU2Fl?=
+ =?utf-8?B?a0pBMzFGK2hEUFhvWVZPaVI0aXMxYmt1Tm1jKzNENXRwNzVxTVR6K29TYlF1?=
+ =?utf-8?B?L2dwWm5Fd3BtT3V0cFVPMXRIQndLa2lwMlJHTHI1UzFHSlU1d2F3cFJVR01D?=
+ =?utf-8?B?ZFphOGNmM0FFVkw0eEdEcXQzS09rNk5kTHlQUFlTY3JBTXRBYmhSM0VEdDNH?=
+ =?utf-8?B?SHNEWU0za2lFOVdyUnYwaVhhYUhlWjRXVnRjazdYMTR0VGhEQVR1M1B0bCtV?=
+ =?utf-8?B?KytZbEF6T2JYZlNMVmU5c04vRVloYndDVXdIbEtmTmFOeTFuUlhucWhvcXRD?=
+ =?utf-8?B?eGkzQmVHUGIwK29rUXBqV3crdkJvNHpFbEo0OTFhWll2ckkzUlRBUHZmZzdW?=
+ =?utf-8?B?MVduK3FzbXRwTzZqb2padFJIWGthWEx4QVlsd2lqb3FZc1VSUDYxclh2Wk1h?=
+ =?utf-8?B?ckZyTExnNk1ScTRyaEJSZURJSVA0VjBLeWxTNlh5UDhBekFvSzgyajYxeEpK?=
+ =?utf-8?B?anc5dmhIalRBMm1td0FweVhSdVhXakJGN3RYQkR0Y2Y3MmRqVWpWTnVlSHlh?=
+ =?utf-8?B?RXpKQWx0Y09HOTYvSkpzU3RGRmo1NENzM0ZvVnBTRFhyVnYwOWlMTUtaWlNn?=
+ =?utf-8?B?dWxiWldIeDFHai9YZnViN3psY1puMEtYWWN4OFd6WjRuanQ4ZDgyMC82MXR4?=
+ =?utf-8?B?OVI3Yk9URlZLWWJpWHk1cGlFcUJ5Rkh0Ry9XWGRGQ0MrL0ZMMnlTbWdZSTha?=
+ =?utf-8?B?cElOMVVTYXlyc0ZkMVhZYloxNDdGVHMyV3dwVTd5V3Nna2krcEhJMmxJZm8z?=
+ =?utf-8?B?aTE0N081K1ZVdnluRmNNTkk0Z0tTYmxjQk5JN21PWEc1aUVjZndTZjlpUWxE?=
+ =?utf-8?B?c0pRUGRtN2xsQS9rK3VWRzEyYW5WODNkZEgyTXZHbEljSmtyNnYzalZQOWUr?=
+ =?utf-8?B?eEwvNnRTWWxJL21NdkU0eEEvZERGTE9sTkswdGpOYnRhTzhrSVFHcTBGcDQy?=
+ =?utf-8?B?WUI0d0VpQWtEcDFZVmJ1cUMwNWs3ampUeFZMNlg4UGxGOVNzYXZvV3BXd3o2?=
+ =?utf-8?B?bm8yc1ZRdE81bmlzTXpwamVBMzRja2w3WnRFRkhCOS9WaFVHRHVFTUJIa3FJ?=
+ =?utf-8?B?Y0xUdlViTytMNDRRM0VPOVFnUm5yUlFEQ1ZvVTV2c3NKQ3Fka21TN1d0dEcw?=
+ =?utf-8?B?VWl4WER2cVkyMlhocXEvTjFqT0UveHU0T3BycHJTcXIvZEg2V0FFTGVmTHFX?=
+ =?utf-8?B?aUVvRFVkZEV6SjA5Zk51eW1SM3krOUlCYkp4Wkp1bC9pWHpsaFhsRzh2S3lo?=
+ =?utf-8?B?b25uR0tZUko5T1FXTkJTb2poTG5xZVVSdHY2NVhIaTVMZXppOTNTUVhTNzI1?=
+ =?utf-8?B?Q2VpempDSnNTd2tya2xoTnRHRnh4T1V2elBKTDRhWEREVzZqczVacklqdVBx?=
+ =?utf-8?B?YUNYa2xMUzE3c3ZmUEFBOXlpVHk3SDl6Z1Fzc0RUODYrMisyQ3g3WGJhNmlB?=
+ =?utf-8?B?c0pVMTdOemJ6UGtlNWludlZFYlFUeE5xOFJKN3B5cXBGOElnQzFzTWJpdDBK?=
+ =?utf-8?B?bVU1eHZYR0lvOVpHY054aUR0c1RUMFc3aHBKeEM2MVNMQnFZNElSQ292Z3JP?=
+ =?utf-8?B?R1JBbXdZcG9teHFPTTNSRTNuYkVTQ1FuZE13a3BTMnZrS25mSzJPZ3Axa0dY?=
+ =?utf-8?B?Umo4QUtwdS9OOWRTQWt1NjhsSEp2NGU3aWhVMEpNc2o3S2hGRndDdFdJNUlD?=
+ =?utf-8?B?TFdGL0xnaGpGaVhOZUs1cEZ4eDl3T3dlcU85c1U3QTkrVVE9PQ==?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR10MB8218.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MHRYaTlHWElMZzBMZG5UYitRaWQ5Q1VsSVFFUWdwV2lqUWdtQlFoeXNzS0pM?=
+ =?utf-8?B?d1orUGRjL1FQbUdGY08wS3ozeDZHMVNrcWRMaXRWQUE0N0JibUR3RWhWdHhZ?=
+ =?utf-8?B?VGY0SUk0Q2ZUbHRENDhTczJjZ3c0UjZocGc5VlF6YmFQVUp5ZE16QUVGcXpW?=
+ =?utf-8?B?emFoc2d5OTRMcFhoNkF0U1Q0RkVOTG94cHVhc0dBRFZGWlB4NG1iMjlpMEtT?=
+ =?utf-8?B?RGVIWHhzZWdXYmcwRVdpUFJmay9lU1RNRTF5MnlXNFZYOXYycFhySlovTnJp?=
+ =?utf-8?B?bWRFeE0wT200K3M4TzhOZDZ4Z2loRFVIakNraVN2ODhQODhPMVBteWVxYy9U?=
+ =?utf-8?B?N3g1bUVvcVFMc3dZeXJmS3pFMXN5RjEvZEduanRqVExxdXJGdjZyYWtNY2pG?=
+ =?utf-8?B?QzlxK3dWQjdpSVRBNE5kVFFEUWRQcTUwcmRWS0lHVGdQbkVuenVya21RY3FP?=
+ =?utf-8?B?djJXd2RHQXNUaFNHNU53cDRnazh1bmV2Z0VLY1RWVHVZdTZaQ0Ewam8yYTBy?=
+ =?utf-8?B?VFpoSUJEbXhuc1JyTTFDcEFrRi9pSHQvYWFOSEk0NSszZ0ppczhjdXZrbDVw?=
+ =?utf-8?B?ZXBmOE5YU3FqOHN1eDFTM1lxTGJCVUpvWTFRd2YyaS8rSVc4djdIaGFYUmZW?=
+ =?utf-8?B?U1Zia2JVeFlXQk5DUVFLdElHQjA4bjJoZkgwMy9VMUdmc0tsNlRMQWl3RGcw?=
+ =?utf-8?B?VVAwS1lXKzVVa2poN0NBWTlXL3crZnFWL3gvdGs4endhbkxSU2VHemFCV2p5?=
+ =?utf-8?B?SUhieHhIUVQxVUJ1UEE5aGNyanVrYS9jRzBadWNjNU03ak1kbVdwM0Vpa2xt?=
+ =?utf-8?B?OUZ6QVNzMVV3VWc1MlVOK1k3cEtRSU5qK0NuMWp6ZHJuWmVRR3kxYWE3RWhH?=
+ =?utf-8?B?OFBlMkN1ZkZUUFJYREtjN09IMENlYUdxREF4K3JhT3BvV2p2NGpNNFZRT05R?=
+ =?utf-8?B?elNHaExHd1c4VkkyQVh3djFVMmJWeUk5UGN6RUk0NU9IVHFaQm9WTmgvaFVn?=
+ =?utf-8?B?WnJ1QWl3RUd4dWlyRWhhVEF2b1lsQXl3NmNiKzVrMVNBSHBRVzBWOW1aUTl1?=
+ =?utf-8?B?Z2llQURSUGJXdlZjcGVVTXlPdVBELzJrbDdhL3hJc3c3c2daMThFUnhTRGg2?=
+ =?utf-8?B?MTc5NXBySnBybFlLM0l2Q2JrVUY0dVF0NnRFUzdzT3BXNHFlT25JZFhKOEoy?=
+ =?utf-8?B?M255R3RoSGJ6dzRmQk8rNDF5T0JaeGkwdU9QRzNlamNabW0rQm9YaDJJS1Y0?=
+ =?utf-8?B?K093TnppMEI4eUZ4K1ByV0FFZmg5ZEV1ekhZdlF3YnJhMzJCeURzSnlySTNX?=
+ =?utf-8?B?Q1dIZFFlWTZrejArU1pza09nRmk5VG5SdHBQVWVpMW9tbFNzaHBYMTRuMExZ?=
+ =?utf-8?B?bng5c2xOU0t2d203bzM0QnI0K0RwWmwyd1Q2cm5URERWRW1CWThackNqVjFk?=
+ =?utf-8?B?ZERRQWdyVWZyRHVMaHpJUms4c2diK1B1RWZFWFc2eDNidGh2dExXVVhacnFQ?=
+ =?utf-8?B?cFd0L281TXp0Unk2ak1QcEhvMFVmelhndGhrOEx4UWVRdmFwVEIvelFLYjI1?=
+ =?utf-8?B?b0RoVWZWSnU5QkR6aEE5cDVqZkpQaDROUXdqaFhVNzFweXNHcHFYeDNCMWh4?=
+ =?utf-8?B?MjBHaFpzVDBCcS82YWJJKzVIejVRcCs4eU9XbFE1Z3hXZ3ZZelFEVHY1ZzRK?=
+ =?utf-8?B?dzdUREU5QUpaK0FobjhuYlhESjdjN29ZSC96ZWk3T2tEdzNDVUJ4YUF3ZnpS?=
+ =?utf-8?B?SmRiV1RsY0ZoV05EV2R0L1ZRRmI0VTRwOXcvZ0ptMXowSnJkS0RMT0J2NWoy?=
+ =?utf-8?B?bmVBRkNwbzA0dHlpWDROOWNTWmFWeDYwSHlHTHlybWs3VWIyVHdSNi9WaUgz?=
+ =?utf-8?B?UHJVTzN1amMzT3JhZXZWRi9FZ3FoT3grSWxTRm5tcXprY0d1MzFvNzMyQ0hh?=
+ =?utf-8?B?RGlOUGZQeWFJSkQ4RzZmS05pRnA5ekZtRXlnVWJCZGMzSUdheHVXVG11S3Vk?=
+ =?utf-8?B?Z2RNZHFleXNnWE5ZNm1zK3pVR1RWdmF1WVBzbEp2QVRQdW1oRHRCVlFSaHNQ?=
+ =?utf-8?B?c2xPck9ScnRHdjVoMUxkaUtRQVFuUitGUVhjaTM3RXN4aFUyLzg5bWZZa2Rh?=
+ =?utf-8?B?eWMwOU9UTmRTQ2ZvSHFVNlVYdVNOYkE3Y1U1cUxkSEdOZHZ4VTkrUDBQTlpG?=
+ =?utf-8?B?OEE9PQ==?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: 7dZt8I8z7MJ5jf9nL2ou2XWBAF5o++uuHeo1fVuJglXS0suVVkjgVsKLUV9U1hl4cOO1JEsRvtEcfwztS3/fAB4EDQ9zhd+MVRPozIUEBkBpMd9dG6/Nrcz7xaNFXemT2/a8WrPMOowOCHhO7jJFaEpdE6/fVeu/aaVX/maYB6yqOe7JosOasoUWQBxjVfTzuZstnE+Y7sfz05cCysblwX3p7pRR+oUe3QFZSXtt8Bczx2T4TRYTO0meWuCSfyvz7zzlL3mu9bscfDQwQ8fNFbJThjFkVC2xCtPd0Bc4byrhUDwOyfohPkJIVkYfAn8yqIt938gduqBWqQTxZ7wC8j9kis4lGKt5gvI90oLAWY/xbmfoF+KhjvjhS7gtos8hJlBhGZaOd+oOJJ8a7ANccsA7NQN91YKlc5/9e2f2F4paEDuKgpshin0ipSZdNalwfMnPVoPDupM10dwsu8N3P/v2z1t6/DFLiFNU99sgZaH3I7cgpHGbJEkTu1THHOtpkhYiuxWDSDuJR2+GZpz7rfndZJMNXs/jyz0SVqMikco0k8AJL//7Anu3CVoGCjbFkE1Crj3AINdjsv+TjXZMMhcABcUzDYicu4B9cWj02XM=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 155021c6-1706-4a05-be76-08dd870a604e
+X-MS-Exchange-CrossTenant-AuthSource: DM4PR10MB8218.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Apr 2025 10:41:19.2382
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qw+RYKSof82/WxHqcQB2wIXInUAZxy/jI7J2brQM+dczigsSRL61WY5lB5HrJh0J0kYgU+AGiLkI93JVdKI5aYmVj8UFk0potK5nyqRnUbI=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR10MB7228
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-04-29_03,2025-04-24_02,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxlogscore=440 phishscore=0
+ suspectscore=0 mlxscore=0 malwarescore=0 adultscore=0 spamscore=0
+ bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2504070000 definitions=main-2504290079
+X-Proofpoint-ORIG-GUID: xGO80eKmnO_vUIcuyzSj4ZiOz8-7CzQ1
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI5MDA3OSBTYWx0ZWRfX91/hMo6gFZdD g5u7MFnRHTaa8iFxpp7zTpnGv2N4SWEw/VJ8/zDd9aP4vm6KPwPAnJ8ll7hHU44A88S/CQTJlnf 8tWrx2MajytgF1A6W3eTcwzco8CvU/SNZ0/NvKunkQ5XiibGhfOxNxNa0li4E7WwhNhvqWmA7Tw
+ uQlSWap3EDei6g1ANyM9Q7T/7+YEcnX2bvr58AOcbI2nJyd/nulvUqYt9k2weS56kQwUvKlnn2G CJbtYE2ZepKuBMgNJ9v20zrb0nmyhCsRlasZC2QMwQCjp3CIVFVfRCa3ZZVgxEBM9QUPaRZ8ko3 AZ1mesmOtygFBEacxXWws7RQCavl3cqf/lwrqD1CA6BL5xx5CgG3oJaeG8ZL9ckAE1IpTj/NS5l sCHqLqQO
+X-Authority-Analysis: v=2.4 cv=R+UDGcRX c=1 sm=1 tr=0 ts=6810acd4 b=1 cx=c_pps a=e1sVV491RgrpLwSTMOnk8w==:117 a=e1sVV491RgrpLwSTMOnk8w==:17 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19
+ a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=GoEa3M9JfhUA:10 a=t3vCF23Z_XOjuHxQfpAA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 cc=ntf awl=host:14638
+X-Proofpoint-GUID: xGO80eKmnO_vUIcuyzSj4ZiOz8-7CzQ1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_101939_834724_61F43CCD 
-X-CRM114-Status: UNSURE (   9.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250429_114306_632111_68D06D9D 
+X-CRM114-Status: GOOD (  13.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,33 +236,259 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+FWIW can confirm the same thing. Lance's fixes sort most of it out, but I also
+get this error:
 
->   #include "internal.h"
->   
-> -bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
-> -			     pte_t pte)
-> +bool can_change_ptes_writable(struct vm_area_struct *vma, unsigned long addr,
-> +			      pte_t pte, struct folio *folio, unsigned int nr)
->   {
->   	struct page *page;
->   
-> @@ -67,8 +67,9 @@ bool can_change_pte_writable(struct vm_area_struct *vma, unsigned long addr,
->   		 * write-fault handler similarly would map them writable without
->   		 * any additional checks while holding the PT lock.
->   		 */
-> -		page = vm_normal_page(vma, addr, pte);
-> -		return page && PageAnon(page) && PageAnonExclusive(page);
-> +		if (!folio)
-> +			folio = vm_normal_folio(vma, addr, pte);
-> +		return folio_test_anon(folio) && !folio_maybe_mapped_shared(folio);
+mm/mprotect.c: In function ‘can_change_ptes_writable’:
+mm/mprotect.c:46:22: error: unused variable ‘page’ [-Werror=unused-variable]
+   46 |         struct page *page;
+      |                      ^~~~
 
-Oh no, now I spot it. That is horribly wrong.
+So you also need to remove this unused variable at the stop of
+can_change_ptes_writable().
 
-Please understand first what you are doing.
+Cheers, Lorenzo
 
--- 
-Cheers,
-
-David / dhildenb
-
+On Tue, Apr 29, 2025 at 02:32:59PM +0530, Dev Jain wrote:
+>
+>
+> On 29/04/25 12:36 pm, Lance Yang wrote:
+> > Hey Dev,
+> >
+> > Hmm... I also hit the same compilation errors:
+> >
+> > In file included from ./include/linux/kasan.h:37,
+> >                   from ./include/linux/slab.h:260,
+> >                   from ./include/linux/crypto.h:19,
+> >                   from arch/x86/kernel/asm-offsets.c:9:
+> > ./include/linux/pgtable.h: In function ‘modify_prot_start_ptes’:
+> > ./include/linux/pgtable.h:905:15: error: implicit declaration of
+> > function ‘ptep_modify_prot_start’
+> > [-Werror=implicit-function-declaration]
+> >    905 |         pte = ptep_modify_prot_start(vma, addr, ptep);
+> >        |               ^~~~~~~~~~~~~~~~~~~~~~
+> > ./include/linux/pgtable.h:905:15: error: incompatible types when
+> > assigning to type ‘pte_t’ from type ‘int’
+> > ./include/linux/pgtable.h:909:27: error: incompatible types when
+> > assigning to type ‘pte_t’ from type ‘int’
+> >    909 |                 tmp_pte = ptep_modify_prot_start(vma, addr, ptep);
+> >        |                           ^~~~~~~~~~~~~~~~~~~~~~
+> > ./include/linux/pgtable.h: In function ‘modify_prot_commit_ptes’:
+> > ./include/linux/pgtable.h:925:17: error: implicit declaration of
+> > function ‘ptep_modify_prot_commit’
+> > [-Werror=implicit-function-declaration]
+> >    925 |                 ptep_modify_prot_commit(vma, addr, ptep,
+> > old_pte, pte);
+> >        |                 ^~~~~~~~~~~~~~~~~~~~~~~
+> > ./include/linux/pgtable.h: At top level:
+> > ./include/linux/pgtable.h:1360:21: error: conflicting types for
+> > ‘ptep_modify_prot_start’; have ‘pte_t(struct vm_area_struct *, long
+> > unsigned int,  pte_t *)’
+> >   1360 | static inline pte_t ptep_modify_prot_start(struct
+> > vm_area_struct *vma,
+> >        |                     ^~~~~~~~~~~~~~~~~~~~~~
+> > ./include/linux/pgtable.h:905:15: note: previous implicit declaration of
+> > ‘ptep_modify_prot_start’ with type ‘int()’
+> >    905 |         pte = ptep_modify_prot_start(vma, addr, ptep);
+> >        |               ^~~~~~~~~~~~~~~~~~~~~~
+> > ./include/linux/pgtable.h:1371:20: warning: conflicting types for
+> > ‘ptep_modify_prot_commit’; have ‘void(struct vm_area_struct *, long
+> > unsigned int,  pte_t *, pte_t,  pte_t)’
+> >   1371 | static inline void ptep_modify_prot_commit(struct
+> > vm_area_struct *vma,
+> >        |                    ^~~~~~~~~~~~~~~~~~~~~~~
+> > ./include/linux/pgtable.h:1371:20: error: static declaration of
+> > ‘ptep_modify_prot_commit’ follows non-static declaration
+> > ./include/linux/pgtable.h:925:17: note: previous implicit declaration of
+> > ‘ptep_modify_prot_commit’ with type ‘void(struct vm_area_struct *, long
+> > unsigned int,  pte_t *, pte_t,  pte_t)’
+> >    925 |                 ptep_modify_prot_commit(vma, addr, ptep,
+> > old_pte, pte);
+> >        |                 ^~~~~~~~~~~~~~~~~~~~~~~
+> >    CC /home/runner/work/mm-test-robot/mm-test-robot/linux/tools/objtool/
+> > libstring.o
+> >    CC /home/runner/work/mm-test-robot/mm-test-robot/linux/tools/objtool/
+> > libctype.o
+> >    CC /home/runner/work/mm-test-robot/mm-test-robot/linux/tools/objtool/
+> > str_error_r.o
+> >    CC /home/runner/work/mm-test-robot/mm-test-robot/linux/tools/objtool/
+> > librbtree.o
+> > cc1: some warnings being treated as errors
+> > make[2]: *** [scripts/Makefile.build:98: arch/x86/kernel/asm-offsets.s]
+> > Error 1
+> > make[1]: *** [/home/runner/work/mm-test-robot/mm-test-robot/linux/
+> > Makefile:1280: prepare0] Error 2
+> > make[1]: *** Waiting for unfinished jobs....
+> >    LD /home/runner/work/mm-test-robot/mm-test-robot/linux/tools/objtool/
+> > objtool-in.o
+> >    LINK /home/runner/work/mm-test-robot/mm-test-robot/linux/tools/
+> > objtool/objtool
+> > make: *** [Makefile:248: __sub-make] Error 2
+> >
+> > Well, modify_prot_start_ptes() calls ptep_modify_prot_start(), but x86
+> > does not define __HAVE_ARCH_PTEP_MODIFY_PROT_TRANSACTION. To avoid
+> > implicit declaration errors, the architecture-independent
+> > ptep_modify_prot_start() must be defined before modify_prot_start_ptes().
+> >
+> > With the changes below, things work correctly now ;)
+>
+> Ah thanks! My bad :(
+>
+> >
+> > diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> > index 10cdb87ccecf..d9d6c49bb914 100644
+> > --- a/include/linux/pgtable.h
+> > +++ b/include/linux/pgtable.h
+> > @@ -895,44 +895,6 @@ static inline void wrprotect_ptes(struct mm_struct
+> > *mm, unsigned long addr,
+> >   }
+> >   #endif
+> >
+> > -/* See the comment for ptep_modify_prot_start */
+> > -#ifndef modify_prot_start_ptes
+> > -static inline pte_t modify_prot_start_ptes(struct vm_area_struct *vma,
+> > -        unsigned long addr, pte_t *ptep, unsigned int nr)
+> > -{
+> > -    pte_t pte, tmp_pte;
+> > -
+> > -    pte = ptep_modify_prot_start(vma, addr, ptep);
+> > -    while (--nr) {
+> > -        ptep++;
+> > -        addr += PAGE_SIZE;
+> > -        tmp_pte = ptep_modify_prot_start(vma, addr, ptep);
+> > -        if (pte_dirty(tmp_pte))
+> > -            pte = pte_mkdirty(pte);
+> > -        if (pte_young(tmp_pte))
+> > -            pte = pte_mkyoung(pte);
+> > -    }
+> > -    return pte;
+> > -}
+> > -#endif
+> > -
+> > -/* See the comment for ptep_modify_prot_commit */
+> > -#ifndef modify_prot_commit_ptes
+> > -static inline void modify_prot_commit_ptes(struct vm_area_struct *vma,
+> > unsigned long addr,
+> > -        pte_t *ptep, pte_t old_pte, pte_t pte, unsigned int nr)
+> > -{
+> > -    for (;;) {
+> > -        ptep_modify_prot_commit(vma, addr, ptep, old_pte, pte);
+> > -        if (--nr == 0)
+> > -            break;
+> > -        ptep++;
+> > -        addr += PAGE_SIZE;
+> > -        old_pte = pte_next_pfn(old_pte);
+> > -        pte = pte_next_pfn(pte);
+> > -    }
+> > -}
+> > -#endif
+> > -
+> >   /*
+> >    * On some architectures hardware does not set page access bit when
+> > accessing
+> >    * memory page, it is responsibility of software setting this bit. It
+> > brings
+> > @@ -1375,6 +1337,45 @@ static inline void ptep_modify_prot_commit(struct
+> > vm_area_struct *vma,
+> >       __ptep_modify_prot_commit(vma, addr, ptep, pte);
+> >   }
+> >   #endif /* __HAVE_ARCH_PTEP_MODIFY_PROT_TRANSACTION */
+> > +
+> > +/* See the comment for ptep_modify_prot_start */
+> > +#ifndef modify_prot_start_ptes
+> > +static inline pte_t modify_prot_start_ptes(struct vm_area_struct *vma,
+> > +        unsigned long addr, pte_t *ptep, unsigned int nr)
+> > +{
+> > +    pte_t pte, tmp_pte;
+> > +
+> > +    pte = ptep_modify_prot_start(vma, addr, ptep);
+> > +    while (--nr) {
+> > +        ptep++;
+> > +        addr += PAGE_SIZE;
+> > +        tmp_pte = ptep_modify_prot_start(vma, addr, ptep);
+> > +        if (pte_dirty(tmp_pte))
+> > +            pte = pte_mkdirty(pte);
+> > +        if (pte_young(tmp_pte))
+> > +            pte = pte_mkyoung(pte);
+> > +    }
+> > +    return pte;
+> > +}
+> > +#endif
+> > +
+> > +/* See the comment for ptep_modify_prot_commit */
+> > +#ifndef modify_prot_commit_ptes
+> > +static inline void modify_prot_commit_ptes(struct vm_area_struct *vma,
+> > unsigned long addr,
+> > +        pte_t *ptep, pte_t old_pte, pte_t pte, unsigned int nr)
+> > +{
+> > +    for (;;) {
+> > +        ptep_modify_prot_commit(vma, addr, ptep, old_pte, pte);
+> > +        if (--nr == 0)
+> > +            break;
+> > +        ptep++;
+> > +        addr += PAGE_SIZE;
+> > +        old_pte = pte_next_pfn(old_pte);
+> > +        pte = pte_next_pfn(pte);
+> > +    }
+> > +}
+> > +#endif
+> > +
+> >   #endif /* CONFIG_MMU */
+> >
+> >   /*
+> > --
+> >
+> > Thanks,
+> > Lance
+> >
+> > On 2025/4/29 13:23, Dev Jain wrote:
+> > > This patchset optimizes the mprotect() system call for large folios
+> > > by PTE-batching.
+> > >
+> > > We use the following test cases to measure performance, mprotect()'ing
+> > > the mapped memory to read-only then read-write 40 times:
+> > >
+> > > Test case 1: Mapping 1G of memory, touching it to get PMD-THPs, then
+> > > pte-mapping those THPs
+> > > Test case 2: Mapping 1G of memory with 64K mTHPs
+> > > Test case 3: Mapping 1G of memory with 4K pages
+> > >
+> > > Average execution time on arm64, Apple M3:
+> > > Before the patchset:
+> > > T1: 7.9 seconds   T2: 7.9 seconds   T3: 4.2 seconds
+> > >
+> > > After the patchset:
+> > > T1: 2.1 seconds   T2: 2.2 seconds   T3: 4.2 seconds
+> > >
+> > > Observing T1/T2 and T3 before the patchset, we also remove the regression
+> > > introduced by ptep_get() on a contpte block. And, for large folios we get
+> > > an almost 74% performance improvement.
+> > >
+> > > v1->v2:
+> > >   - Rebase onto mm-unstable (6ebffe676fcf: util_macros.h: make the
+> > > header more resilient)
+> > >   - Abridge the anon-exclusive condition (Lance Yang)
+> > >
+> > > Dev Jain (7):
+> > >    mm: Refactor code in mprotect
+> > >    mm: Optimize mprotect() by batch-skipping PTEs
+> > >    mm: Add batched versions of ptep_modify_prot_start/commit
+> > >    arm64: Add batched version of ptep_modify_prot_start
+> > >    arm64: Add batched version of ptep_modify_prot_commit
+> > >    mm: Batch around can_change_pte_writable()
+> > >    mm: Optimize mprotect() through PTE-batching
+> > >
+> > >   arch/arm64/include/asm/pgtable.h |  10 ++
+> > >   arch/arm64/mm/mmu.c              |  21 +++-
+> > >   include/linux/mm.h               |   4 +-
+> > >   include/linux/pgtable.h          |  42 ++++++++
+> > >   mm/gup.c                         |   2 +-
+> > >   mm/huge_memory.c                 |   4 +-
+> > >   mm/memory.c                      |   6 +-
+> > >   mm/mprotect.c                    | 165 ++++++++++++++++++++-----------
+> > >   mm/pgtable-generic.c             |  16 ++-
+> > >   9 files changed, 198 insertions(+), 72 deletions(-)
+> > >
+> >
+>
 
