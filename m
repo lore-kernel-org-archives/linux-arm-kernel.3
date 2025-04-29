@@ -4,81 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 794EAC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 23:19:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76C21C3ABA9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 23:54:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H5jsaexJJdkxvjPU7Sdj2kvtz8W8nkPeoHdR3jNANOg=; b=lwNKFhxehiB0gm8yaNyQkhALXT
-	uolvrOS+zaNcHVtbvFhb10SQM7y97uXTCMfg3tvgxcKv32+TrWHfJOOL/IVPpmK2golXcThZnWB3U
-	0EXhd4w7/f+JeI7ghzQDXE/Kikf9bbB1y0zz5JSppqcBidrh4ncvPyHbqw6aA81nScrm2NpRFt4r+
-	E0PbCyJmmDgxVGBpkv4PiptDjK09R5fIdYwykMKo8Li+31dqxY98KaOILJeJxfEZAxFs+YinBkK2c
-	gmjwMZG/38es/97sBCfBelmf9Li3BzyVF5IqzYlAdGOGTCsdPODUUS2WtdjQ9BJRs0NarYTk+nXKc
-	Rrn44Tdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ahmKMUiQa1s/jeKV+5Z7HO4AGEJWpmnH+KapcHbixYU=; b=ex9mSfD1HbKKiTUC/jz0XwINwY
+	J1UyKclys9NHY6aYRGhWK6FqlumhF/O6fxpqymkiotsaobCJIFMm1X3ewXkvPtiDN+647HsVfb9M8
+	jYcvakAzs61tfHYzuA5OOo4V5TTZlRI98h3FNK6TyTYhSxQg4KQeJWwtGUtcxGnprT9CVRjGQuI/T
+	6ivGwbblL2PEsVq2ik/7hWYOXnKc6JSavnxBJG15UCg1KuC+ZMAK4fGOK4toDLeM/E1YRXbE1GT+Y
+	wNeBXibW01soF8FYjCohT3XkiufTXBduP0GV1REFyu9exKd1+vC7u+c8P2FR93Wck/pNLm+lfMJIi
+	6O5OLs6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9uEH-0000000B3f9-0mdH;
-	Tue, 29 Apr 2025 23:19:09 +0000
-Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
+	id 1u9umF-0000000BAgR-0k9E;
+	Tue, 29 Apr 2025 23:54:15 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9u8h-0000000B2tz-0h6Z
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 23:13:24 +0000
-Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-b16f5365310so3355784a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 16:13:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1745968402; x=1746573202; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=H5jsaexJJdkxvjPU7Sdj2kvtz8W8nkPeoHdR3jNANOg=;
-        b=s+uBbuvjoEwBycyx5ocYsTz264SWGGgc2krIvthERrEPLAc7JKtJ1OIz1+H7UB2VsA
-         4uUJR53eXBsJ5mS1ITdUGF5zRZa+j7H8Ox6JfzLbAPvzaMcecTmDOiuV0ra6pnyLbc3O
-         0ngwKkeV4+oE1+MdoUg/Bm/ikTTkXNAd5lXXgYYpMSYR2ITsmlOXOt1vpn9wK5o4ERNL
-         UFAZuDcgWv/052agxGHZjE46jAGSactM2zXT1LBB2Vcg2KD077i+QNMjlPjcW1YZIH6r
-         BHOIrwKv+RJ4Dwwk4gSN38tllqPCu3aircTFETDZrN6sfMUug2s4RD4faPLWsI+2syFP
-         Wnzw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745968402; x=1746573202;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=H5jsaexJJdkxvjPU7Sdj2kvtz8W8nkPeoHdR3jNANOg=;
-        b=YHBg+J5L6OlFhE/IPjrXRXyI6j98EpR3ScRNrB+wF8SuNrM88cZjBDlh0vaqMXjcSE
-         IxlbVbVL2aTOLKxDBp2loMDrK4Zq61lH96bXmAC+gGebglH5tEv7q/XYeGGl5tyS5oAG
-         5cVMJLIjw7NmkkvTagU8GbnriRNIRHYSPqmkhk7NW7m9Kadp/Th+XSVsNpsexQ7QrsyI
-         QgM7T4szSRNaBC/Hqdr/VANW6a05ssOgikEM/gV/drpGRgPYoDgkRZN5l2NMBPuYp2hw
-         pwt+fakP9pcEKOx2cUUxprsL6Cviena/ZiDO+ep37KVfJdOo9XATomLF1hY57CNqHhZK
-         aC5Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXF4Vdf0pGVJI+vSdFPltlWv1xQObvOtHk5qKX8XpIm0r1Ocd9f0chOYlyDIElAbJxBW4TgyG5JgmMgMavppeWf@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHaK4kXAFQbT50IdDYubDsbmVPvOIScaw1/UaCDyte6HETT7+a
-	rADviLivWP3j2JSSXGiturexnGOR/vs08wNmGiTSGOjFQ/Jzu4JMaXLSK8sJD4ReEBJg79gUJXy
-	a
-X-Google-Smtp-Source: AGHT+IH50STJWtK1MCML9Q9BF1hzSCklojd5KzXO4ucJvZeFgv98Tbj7wq5WAu3vJGIOixVPU9Xw+SqETqA=
-X-Received: from pjbnd12.prod.google.com ([2002:a17:90b:4ccc:b0:2ef:78ff:bc3b])
- (user=yabinc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:db0b:b0:21f:2ded:76ea
- with SMTP id d9443c01a7336-22df5839f4bmr4572335ad.36.1745968401836; Tue, 29
- Apr 2025 16:13:21 -0700 (PDT)
-Date: Tue, 29 Apr 2025 16:13:00 -0700
-In-Reply-To: <20250429231301.1952246-1-yabinc@google.com>
-Mime-Version: 1.0
-References: <20250429231301.1952246-1-yabinc@google.com>
-X-Mailer: git-send-email 2.49.0.967.g6a0df3ecc3-goog
-Message-ID: <20250429231301.1952246-3-yabinc@google.com>
-Subject: [PATCH v5 2/2] coresight: core: Disable helpers for devices that fail
- to enable
-From: Yabin Cui <yabinc@google.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@linaro.org>, 
-	James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>, 
-	Jie Gan <quic_jiegan@quicinc.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Yabin Cui <yabinc@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	id 1u9uiP-0000000B9kj-3r1H;
+	Tue, 29 Apr 2025 23:50:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id DE6FCA4C354;
+	Tue, 29 Apr 2025 23:44:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B846C4CEED;
+	Tue, 29 Apr 2025 23:50:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745970616;
+	bh=0thmh35gHKznLtBJJ5aw6yD6qUAMVfJjzOHdFZiBDRg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=gncdQYjBoCOnhr3ihOauSMJ1KLR9F33cyxgD+v8ldSeFgscPiU2F0MTy0xJnlsbIL
+	 Va4mzkdUSz/U6IG0UfMFdzMWZqsM7tusfmPM+qM8Cl6Gfyhill2MhwydDFlVmI9lKe
+	 JFaAUqboe5IA2TIhZWvKeRDucUM3hU4Ta3cmI388nuMq2gKql02MP4BHurtTSy+32B
+	 maOiXAyqQ1kXneESJQW4MClBzjHuuXcr6axnHbHVxaPrunxtxg7x4jYz5c9ugJQaAM
+	 QbZ+idbxKmdfiBNLiJQR7QhL3uhLi9efyNDVnfzA178j3fVnzKm30Osjz3Utw6ox4W
+	 qx+ESsRJ4VOJQ==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Sasha Levin <sashal@kernel.org>,
+	srini@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.14 04/39] nvmem: rockchip-otp: add rk3576 variant data
+Date: Tue, 29 Apr 2025 19:49:31 -0400
+Message-Id: <20250429235006.536648-4-sashal@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250429235006.536648-1-sashal@kernel.org>
+References: <20250429235006.536648-1-sashal@kernel.org>
+MIME-Version: 1.0
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.14.4
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_161323_207855_89421D29 
-X-CRM114-Status: GOOD (  13.05  )
+X-CRM114-CacheID: sfid-20250429_165018_032163_C0B16F69 
+X-CRM114-Status: GOOD (  10.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,66 +80,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When enabling a SINK or LINK type coresight device fails, the
-associated helpers should be disabled.
+From: Heiko Stuebner <heiko@sntech.de>
 
-Signed-off-by: Yabin Cui <yabinc@google.com>
-Suggested-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-Reviewed-by: James Clark <james.clark@linaro.org>
-Reviewed-by: Mike Leach <mike.leach@linaro.org>
+[ Upstream commit 50d75a13a9ce880a5ef07a4ccc63ba561cc2e69a ]
+
+The variant works very similar to the rk3588, just with a different
+read-offset and size.
+
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+Tested-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Signed-off-by: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>
+Link: https://lore.kernel.org/r/20250411112251.68002-5-srinivas.kandagatla@linaro.org
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/hwtracing/coresight/coresight-core.c | 15 ++++++++++-----
- 1 file changed, 10 insertions(+), 5 deletions(-)
+ drivers/nvmem/rockchip-otp.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index dabec7073aed..d3523f0262af 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -465,7 +465,7 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
- 		/* Enable all helpers adjacent to the path first */
- 		ret = coresight_enable_helpers(csdev, mode, path);
- 		if (ret)
--			goto err;
-+			goto err_disable_path;
- 		/*
- 		 * ETF devices are tricky... They can be a link or a sink,
- 		 * depending on how they are configured.  If an ETF has been
-@@ -486,8 +486,10 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
- 			 * that need disabling. Disabling the path here
- 			 * would mean we could disrupt an existing session.
- 			 */
--			if (ret)
-+			if (ret) {
-+				coresight_disable_helpers(csdev, path);
- 				goto out;
-+			}
- 			break;
- 		case CORESIGHT_DEV_TYPE_SOURCE:
- 			/* sources are enabled from either sysFS or Perf */
-@@ -497,16 +499,19 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
- 			child = list_next_entry(nd, link)->csdev;
- 			ret = coresight_enable_link(csdev, parent, child, source);
- 			if (ret)
--				goto err;
-+				goto err_disable_helpers;
- 			break;
- 		default:
--			goto err;
-+			ret = -EINVAL;
-+			goto err_disable_helpers;
- 		}
- 	}
+diff --git a/drivers/nvmem/rockchip-otp.c b/drivers/nvmem/rockchip-otp.c
+index 3edfbfc2d7220..d88f12c532426 100644
+--- a/drivers/nvmem/rockchip-otp.c
++++ b/drivers/nvmem/rockchip-otp.c
+@@ -274,6 +274,14 @@ static const struct rockchip_data px30_data = {
+ 	.reg_read = px30_otp_read,
+ };
  
- out:
- 	return ret;
--err:
-+err_disable_helpers:
-+	coresight_disable_helpers(csdev, path);
-+err_disable_path:
- 	coresight_disable_path_from(path, nd);
- 	goto out;
- }
++static const struct rockchip_data rk3576_data = {
++	.size = 0x100,
++	.read_offset = 0x700,
++	.clks = px30_otp_clocks,
++	.num_clks = ARRAY_SIZE(px30_otp_clocks),
++	.reg_read = rk3588_otp_read,
++};
++
+ static const char * const rk3588_otp_clocks[] = {
+ 	"otp", "apb_pclk", "phy", "arb",
+ };
+@@ -295,6 +303,10 @@ static const struct of_device_id rockchip_otp_match[] = {
+ 		.compatible = "rockchip,rk3308-otp",
+ 		.data = &px30_data,
+ 	},
++	{
++		.compatible = "rockchip,rk3576-otp",
++		.data = &rk3576_data,
++	},
+ 	{
+ 		.compatible = "rockchip,rk3588-otp",
+ 		.data = &rk3588_data,
 -- 
-2.49.0.967.g6a0df3ecc3-goog
+2.39.5
 
 
