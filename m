@@ -4,92 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1F22C3ABA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 16:09:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1DEBC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 16:12:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AeBJMhQyyG1RQnNgel+KZd/M8odIiZqEzCYJ3l+mOj0=; b=oyLjbo4noGLb1idgiC10hoGQgE
-	8a7pORpJlWrECcTjppYxjrVmNW4egjyCyaeYTRZ+vgGPC1AGsoU6OR0ReV3AjoajmUBm7phgJZ6r9
-	SRSoyBXpV6SPz55v5VBvckPO07QDD2TDIUhfyHZfW/pxAvrGDZDbSYO30lMXPksOkBP79oZmcN/kK
-	dpugAR8QwagB8uJGJofukVF8V3eZuyhhq8AmApMPa17gHocKirxoHs8My+Gd7wo3oAB3nAme6Zsx2
-	J8bF/sR5h57AzKei1TQXF5eXdMB3fcUyRYD2aMDAAnZDg3JO2cjGWOtbyiIvzDr9dqO5sFO273XpE
-	Z+Biu7PQ==;
+	bh=8xZF0fCVJ/DOQqNhoX6uI9qtKjJAMwNhaOgH0CA8ZdM=; b=zWtQg054Qf1qRYEz0ZW+BAGVhg
+	ppJwiWwkL6OXkQTwnYaOca8WyekLrubqAd/Ty+MKQp+dLSeAftU41Earpw/qkGvh4SqiTBR5DDwhh
+	z7WK+pwl1QT1jn+tlU6KnJf8kJ/MPwTHzYdMuYlk/L66NP2b3CSEryCscapoWEn5WkXjShhD8+PLT
+	lItw5UqmO9kWyl7zwmi3biPCdeHOFotEL90NPJ6OIN6EeTeefNkf3lb8cC0Gf3NQxaoolUI24TdAG
+	tMkykgxI5vHNSr86cyKXYkuU8Absq0f1Ly3vk3N7tBaoVGOcOr/oFvUrj+EBMRVWwD+49LsnZRW0K
+	yHQhAi8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9nWo-0000000ADJv-0mXA;
-	Tue, 29 Apr 2025 16:09:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u9nYi-0000000ADZs-3rzY;
+	Tue, 29 Apr 2025 16:11:48 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9n67-0000000A9xS-092d
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Apr 2025 15:42:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=AeBJMhQyyG1RQnNgel+KZd/M8odIiZqEzCYJ3l+mOj0=; b=ir+y+STXaA+djexoWHB92QoJ2c
-	NKqN1N4D5D73FfXdtYxjvaVaeiTRS5MZ4CP4knrWrhTEzQbqUCG3TnILr5qdWVosQhdrY7NyIsdvh
-	oTBhgk8Qo66mZpPOAxdUj3inu3UovO4EHWjLkvI/9YdKRxyIGdHx9CgmWd3LllXFY8Zm0GwdairXh
-	RBmVefoyRfi3Hdp+/sCqIbc0cZEP/6CuZopta4slRdblPscL1BAhX5KFsEasXC33GndlJnenhwrp4
-	xler54Wx9Y5bzwQDoSOZPK1Iohr6lCY83UBZgZeoVNNFI2WBRK9z8GfqxfspdMXADZF/t9ih0q6fM
-	FOIvScZA==;
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9n63-0000000DS9M-3p0o
+	id 1u9n7Z-0000000AABD-1b3F
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 15:42:13 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53TFfxoa3121174
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 29 Apr 2025 10:41:59 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745941319;
-	bh=AeBJMhQyyG1RQnNgel+KZd/M8odIiZqEzCYJ3l+mOj0=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=dFjFeWwT8n8D+AQy5+HHmmwHtTWtyg40LpqESMRGetHT4ygBj5ok4w0csjEsPIBHq
-	 Kkq/rOgUHfwH68R+IwFvK1biV2QeOijpYv0Cb9QXHW42RQfIkH8F+2qxGhX4pbq4WV
-	 d+qcYH0+5GqxBGZvP1NnhdP/Tl61qfTz4P+pH43s=
-Received: from DLEE115.ent.ti.com (dlee115.ent.ti.com [157.170.170.26])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53TFfxpR049671
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 29 Apr 2025 10:41:59 -0500
-Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE115.ent.ti.com
- (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 29
- Apr 2025 10:41:59 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 29 Apr 2025 10:41:59 -0500
-Received: from ws.dhcp.ti.com (ws.dhcp.ti.com [10.24.69.232])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53TFfXVt030051;
-	Tue, 29 Apr 2025 10:41:54 -0500
-From: Rishikesh Donadkar <r-donadkar@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>
-CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <vaishnav.a@ti.com>, <devarsht@ti.com>,
-        <y-abhilashchandra@ti.com>, <s-jain1@ti.com>, <jai.luthra@linux.dev>,
-        <jai.luthra@ideasonboard.com>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <imx@lists.linux.dev>, <r-donadkar@ti.com>
-Subject: [PATCH v1 4/4] arm64: dts: ti: k3-am62x: Add required voltage supplies for TEVI-OV5640
-Date: Tue, 29 Apr 2025 21:11:33 +0530
-Message-ID: <20250429154133.3377962-5-r-donadkar@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250429154133.3377962-1-r-donadkar@ti.com>
-References: <20250429154133.3377962-1-r-donadkar@ti.com>
+	Tue, 29 Apr 2025 15:43:46 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[IPv6:::1])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <l.stach@pengutronix.de>)
+	id 1u9n7I-0006Jb-0X; Tue, 29 Apr 2025 17:43:28 +0200
+Message-ID: <aca3addbe510c58524af8d3fd069fe2ae4b1cd24.camel@pengutronix.de>
+Subject: Re: [PATCH 0/6] arm64: dts: imx: Move Ethernet aliases out of SoC
+ DTSI
+From: Lucas Stach <l.stach@pengutronix.de>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Krzysztof
+ Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn
+ Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
+ <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, Francesco Dolcini <francesco@dolcini.it>, 
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com
+Date: Tue, 29 Apr 2025 17:43:26 +0200
+In-Reply-To: <c2d8374b-b623-447d-a695-3f2ead068265@linaro.org>
+References: <20250425-dts-imx-aliases-ethernet-v1-0-15b9d5cca611@linaro.org>
+	 <e97d3388a5b4272d70d7379b020843a47874a104.camel@pengutronix.de>
+	 <c5538590-efe4-4b90-b291-6c429d8fa3fe@kernel.org>
+	 <06efb082c24176e6401265b4349b677468850f7d.camel@pengutronix.de>
+	 <c2d8374b-b623-447d-a695-3f2ead068265@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.4 (3.52.4-2.fc40) 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: l.stach@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_164212_261415_6839DE82 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250429_084345_418984_434A9D64 
+X-CRM114-Status: GOOD (  36.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,71 +77,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The device tree overlay for TEVI-OV5640 requires following voltage
-supplies:
+Am Dienstag, dem 29.04.2025 um 17:17 +0200 schrieb Krzysztof Kozlowski:
+> On 29/04/2025 17:13, Lucas Stach wrote:
+> > Am Dienstag, dem 29.04.2025 um 16:30 +0200 schrieb Krzysztof Kozlowski:
+> > > On 29/04/2025 11:39, Lucas Stach wrote:
+> > > > Hi Krzysztof,
+> > > >=20
+> > > > Am Freitag, dem 25.04.2025 um 21:48 +0200 schrieb Krzysztof Kozlows=
+ki:
+> > > > > Not tested on hardware.
+> > > > >=20
+> > > > > Ethernet interface, like other exposed interfaces, aliases depend=
+ on
+> > > > > actual board configuration, e.g. its labeling, thus aliases shoul=
+d be
+> > > > > defined per each board or each SoM.
+> > > > >=20
+> > > > > Some boards (e.g. Gateworks) follow this convention but many do n=
+ot.
+> > > > >=20
+> > > > > This is continuation of my comments from:
+> > > > > https://lore.kernel.org/r/16a98816-f43c-4f4d-940e-9da30cb1f73f@ke=
+rnel.org
+> > > > >=20
+> > > > The i.MX boards have traditionally listed aliases for many hardware
+> > > > peripherals with the same numbering that's used in the SoC referenc=
+e
+> > >=20
+> > > ... which is not correct. Aliases should represent how boards are rea=
+lly
+> > > labeled, not how reference manual labels them.
+> > >=20
+> > While that is the commonly agreed interpretation today, I do not see
+> > any language in the DT spec itself or kernel Documentation/devicetree
+> > that would mandate aliases to be used in this way.
+> >=20
+> > In fact there are examples to the contrary like
+> > Documentation/devicetree/bindings/serial/samsung_uart.yaml which says:
+> > "Each Samsung UART should have an alias [...] as specified by User's
+> > Manual of respective SoC."
+>=20
+> And that is an ABI. Did I affect ABI here?
+>=20
+> >=20
+> > So I would argue that there is no hard line between correct/incorrect
+> > for the historical usage of the alias nodes on the i.MX platform.
+>=20
+> There is. ABI is documented. There are things which turn out ABI, even
+> though they are not documented, like node names. Was there a problem
+> with refactoring these in NXP?
+>=20
+> No.
+>=20
+In fact there was significant fallout from the node name changes, as
+assumptions in bootloader code on how to fix up DTs passed to the
+kernel were invalidated. We did not make a fuzz about those cases and
+just fixed the breakage in the bootloader, because we agreed with the
+overall benefit of those changes to the i.MX ecosystem.
+>=20
+> >=20
+> > > > manual. Boards always have the option to override those aliases if =
+they
+> > > > have a good reason to do so, e.g. labeling on the physical device.
+> > > >=20
+> > > > Other users besides Linux rely on fixed numbering provided by the
+> > > > aliases. Both barebox and U-Boot number their ethernet interfaces
+> > > > according to the alias.
+> > >=20
+> > > And?
+> > >=20
+> > Some usecases depend on the aliases being the same between kernel and
+> > bootloader. Historically that has been guaranteed on the i.MX platform
+> > by the aliases in the SoC DTSI, when the board didn't have a need to
+>=20
+> I know.
+>=20
+> > change them. With this series applied some other users may now end up
+> > with missing aliases if the only include the DTSI.
+>=20
+> Bring actual case, what is broken by this changeset.
+>=20
+> >=20
+> > > >=20
+> > > > While you seem to add back aliases for in-tree boards, this breaks =
+the
+> > > > majority of boards that include the kernel DTSI from an out-of-tree
+> > > > board. I can understand that we can't always accommodate these user=
+s,
+> > >=20
+> > > This is not ABI, so every out of tree user is on their own.
+> >=20
+> > I am not too sympathetic about out-of-tree users myself, but I don't
+> > think we should make their life harder deliberately.
+>=20
+> We are making our life easier by maintaining and improving source code:
+> e.g. not creating fake aliases for devices which do not exist on given
+> board.
 
-AVDD-supply: Analog voltage supply, 2.8 volts
-DOVDD-supply: Digital I/O voltage supply, 1.8 volts
-DVDD-supply: Digital core voltage supply, 1.5 volts
+Sorry, I disagree with this sweeping statement when looking at the
+specific changes in this patchset. I simply do not see how this change
+significantly improves future maintenance of existing DTs for the i.MX
+platform to justify the breakage inflicted upon existing OOT users.
 
-Add them in the DT overlay.
+I'm not the one to decide whether or not to take those patches, but
+IMHO the overall benefit of those patches to the i.MX ecosystem is not
+a net positive.
 
-Signed-off-by: Rishikesh Donadkar <r-donadkar@ti.com>
----
- .../dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso  | 32 +++++++++++++++++++
- 1 file changed, 32 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso b/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso
-index b6bfdfbbdd984..123ab0e5e8dfa 100644
---- a/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso
-+++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso
-@@ -15,6 +15,33 @@ clk_ov5640_fixed: ov5640-xclk {
- 		#clock-cells = <0>;
- 		clock-frequency = <24000000>;
- 	};
-+
-+	reg_2p8v: regulator-2p8v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "2P8V";
-+		regulator-min-microvolt = <2800000>;
-+		regulator-max-microvolt = <2800000>;
-+		vin-supply = <&vcc_3v3_sys>;
-+		regulator-always-on;
-+	};
-+
-+	reg_1p8v: regulator-1p8v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "1P8V";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		vin-supply = <&vcc_3v3_sys>;
-+		regulator-always-on;
-+	};
-+
-+	reg_1p5v: regulator-1p5v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "1P5V";
-+		regulator-min-microvolt = <1500000>;
-+		regulator-max-microvolt = <1500000>;
-+		vin-supply = <&vcc_3v3_sys>;
-+		regulator-always-on;
-+	};
- };
- 
- &main_i2c2 {
-@@ -40,6 +67,11 @@ ov5640: camera@3c {
- 
- 				clocks = <&clk_ov5640_fixed>;
- 				clock-names = "xclk";
-+
-+				AVDD-supply = <&reg_2p8v>;
-+				DOVDD-supply = <&reg_1p8v>;
-+				DVDD-supply = <&reg_1p5v>;
-+
- 				powerdown-gpios = <&exp1 13 GPIO_ACTIVE_LOW>;
- 
- 				port {
--- 
-2.34.1
-
+Regards,
+Lucas
 
