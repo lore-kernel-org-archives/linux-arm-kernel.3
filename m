@@ -4,86 +4,189 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E41BCC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 16:00:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21CACC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 16:01:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V4nfCleZM/rZB6hBq0fVvrE61jggjUIhZu5M7gK6ilo=; b=3s6KyQnfk9fE298CYklFNMReio
-	zAvS+9UEoNQjVjQeSRyqgdyOAO1bu652ps6ozefwLfTqoNRJ21RLp80zvbFSWC7XSwIL/a2Nv+54k
-	vJZb4mfISTLet8132du3XZfaoLYGzUcJ70sYB21PB4I2jqcEuebH9ZZu8+q/+ORmhLFdRUIE/ZOxq
-	ChjUN1dTEnsFfaXJDOgfWBw9bcmTC+h4Wy+PuKA+YLiIHFCMymwfaSU4iEOiIGF7O96jkwrKDGkcS
-	nz9QzWtQE3XUfPVS0GMU9XL9b5NikjjE3pD2v4egZDx0JSQL1LVl6kENcd899wS8T+R/6qV+C2Urh
-	J9/tOOPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DrCTNjnwenGVMOVRAb51QVMbkhQ7EWMKLvlrn8cUGGs=; b=EC6vReuMeeHD60fCXZuYDh6DkS
+	09k/SF9/fuHxoJxjHYSrpwc2R7v0eex7XeQWeSBLr4l8M7zUXY0qQMbnsP9KNl5w5nwipVcaa+AfB
+	jCn9m3Qtzw0zoXCCYm+CwAymnyOJNO/TBkFybw09AKQ+t+zHlcW1HkfDmdqyuuY1tyNDVctj5VLSb
+	MgDjAgAu4Q5DkLxTEZD90hMtQaRZ0qjAQwrLPYOB0uT0DbTpBFJb12T9cnQf8UXi/5ZXlJjt+Ag8S
+	spwg3cbY1Qwt+x6csioZS217HPpoJMoRJoref/vOJJeSnwTvTdhXvYvhb9J+wkwj0c1GSp/4xEZx4
+	X3jV64mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9nNI-0000000ABzU-3hA0;
-	Tue, 29 Apr 2025 16:00:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u9nOU-0000000AC7h-3OX3;
+	Tue, 29 Apr 2025 16:01:14 +0000
+Received: from mail-mw2nam10on2060e.outbound.protection.outlook.com ([2a01:111:f403:2412::60e] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9n27-0000000A9TO-0War
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 15:38:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7EAB24392C;
-	Tue, 29 Apr 2025 15:38:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FC4CC4CEE3;
-	Tue, 29 Apr 2025 15:38:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745941086;
-	bh=59601Ig09d04Qy4EQZj0MsYCMTZuBRq5iNyIeqGERhk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=eJLh/JrqbeVQZlZMi5bJIO0i3HWaOK1fMNCoN83s6Yd0id+LvMGcAk52UavDHEXXV
-	 PIflSN2oH5u+NbKlLjMtcEchK96FGvjDAW3iPk5vEXf5v1F+kNZIALEsHcswlmoC84
-	 +Ld/BCpSxjtJS9EE3+HLD12pmUCcvJhxDqFRYrJLRLT+LbnGWzJEll9lrxlxdXZVQo
-	 YJw70CLQxSHkqPb4AIPWHIqnlpLf6Nn0z+N+VabiLsjYHjY9GCfdccdNS+S3TjIKrp
-	 74s22EkvkDLnIl37BYSgk4xK772UCeNJkq5Qfn8XM+EG1N9F+WHL+ygw8/UpdGr59Q
-	 2VWsANknxjVdg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1u9n23-009xzs-5Y;
-	Tue, 29 Apr 2025 16:38:04 +0100
-Date: Tue, 29 Apr 2025 16:38:02 +0100
-Message-ID: <86cycvhtb9.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Mark Rutland <mark.rutland@arm.com>,
+	id 1u9m2Y-00000009yNY-2a2x;
+	Tue, 29 Apr 2025 14:34:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DFijk4iV+GzPqNOnE4FpE5RU8IGU2oTBKrmC/BdIKkJiVHaAsJS3IbjtfN0lLt0kuITnrI2J1VRdE2OTHETQkq3eQnOMLedv3DPZ+NXTpU8N1zJYpQrEOZQoF4zNjaNvQB7s0GA7gsI+eI+B38r2IG6unufrWHFIR+r3K5ZQpcXlJAfD8kUfu0ns8QykshwP6Oh8TslwrD7IIMJwVKo9vq5/0pW6VRJMPwLm+zBZN8BI1OCIHVerAVC2zBUBATukc0q9a/iSOuee+PKgEepltARnavr00Fm4aAjjiLH5LOLrat4O01H1bfkhxXdDH5yvkXj9qI6VcuE6RrE/l88Gyw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DrCTNjnwenGVMOVRAb51QVMbkhQ7EWMKLvlrn8cUGGs=;
+ b=LUlL6z4SCUH8fsvDenhr5uIQMsWQNNLnQgzOvm2kvZpiOPE+k8SIL5jsvIQZfWBJg0XBChSrTFOpjRg5mgwptk1+xrwxTQo6UyaqvAw7doWarY/u3HjoVwESXo3JT91WPuuofwXcogmdnJVCf9d5ZTCAnBfZdlbMWHFDtaTYK0f+Q3Z1bEN2n0rWFDjaLTXjkt1B9eUHAQKRVQDcTKfhDtvB0Jyrq/urJKQ6mIpT1D6gbbYXudMBpyqpBPwn6E8U46joUynkgbYBSoSGMs969YfFLla5cK8YGH97fjwZ9rSNpjapqQmpWLdH0jwv5CDQKiHDIs4ZTHoUgjsavKkASA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DrCTNjnwenGVMOVRAb51QVMbkhQ7EWMKLvlrn8cUGGs=;
+ b=FyCPnuxAa4j7ydtj3OsQgSL/x1gshbCvg2LMI7g+cTKkvyjN4VGOM43vJCVtVfbNUaUSNf8ElWj/y+zvYwHFtlV+Kiv2gKETttamBR/h8vQFHmqstHBnqfAmr8Y+EfTuagvPHMHqh6d0pybAZKQAuWp5FRVyyJw11CW0WlMqWnNZ2DiKdB5FgVgJzJpiggo1dcEGC/eE2lMJjZRsc4joTnKLkZmAWdQZXaDzfla2lC2u1LH14ob2fVWKmDEDOVcB62MCj99FVDYyXMcxyErS/dOj05zW/Wi7Bg8waVsc+8TzepyR3iMwPPb0tuemPLuqQmWRVzTE90xOQiGP3kgLZg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by DS7PR12MB5982.namprd12.prod.outlook.com (2603:10b6:8:7d::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.31; Tue, 29 Apr
+ 2025 14:34:23 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8678.028; Tue, 29 Apr 2025
+ 14:34:23 +0000
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Alexandre Ghiti <alex@ghiti.fr>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	asahi@lists.linux.dev,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	iommu@lists.linux.dev,
+	Janne Grunau <j@jannau.net>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Kevin Tian <kevin.tian@intel.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 19/22] irqchip/gic-v5: Add GICv5 CPU interface/IRS support
-In-Reply-To: <aBDoD1orGbYqAmda@lpieralisi>
-References: <20250424-gicv5-host-v2-0-545edcaf012b@kernel.org>
-	<20250424-gicv5-host-v2-19-545edcaf012b@kernel.org>
-	<868qnkjngi.wl-maz@kernel.org>
-	<aBDoD1orGbYqAmda@lpieralisi>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, tglx@linutronix.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, sascha.bischoff@arm.com, timothy.hayes@arm.com, Liam.Howlett@oracle.com, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-arm-msm@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	linux-tegra@vger.kernel.org,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Matthew Rosato <mjrosato@linux.ibm.com>,
+	Neal Gompa <neal@gompa.dev>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Rob Clark <robdclark@gmail.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Niklas Schnelle <schnelle@linux.ibm.com>,
+	Sven Peter <sven@svenpeter.dev>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Tomasz Jeznach <tjeznach@rivosinc.com>,
+	Krishna Reddy <vdumpa@nvidia.com>,
+	virtualization@lists.linux.dev,
+	Chen-Yu Tsai <wens@csie.org>,
+	Will Deacon <will@kernel.org>,
+	Yong Wu <yong.wu@mediatek.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>
+Cc: patches@lists.linux.dev
+Subject: [PATCH 6/7] iommu/qcom: Remove iommu_ops pgsize_bitmap
+Date: Tue, 29 Apr 2025 11:34:16 -0300
+Message-ID: <6-v1-7c5282b0c334+2db-iommu_rm_ops_pgsize_jgg@nvidia.com>
+In-Reply-To: <0-v1-7c5282b0c334+2db-iommu_rm_ops_pgsize_jgg@nvidia.com>
+References: 
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: BL0PR02CA0076.namprd02.prod.outlook.com
+ (2603:10b6:208:51::17) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|DS7PR12MB5982:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9446ac25-faa4-4aea-03ea-08dd872aec62
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ttvPD65fJ76bWUO/LL6PfdkLQkhMvrkJ6XRsZsetKOQPnb0WE7cp2zza1v1v?=
+ =?us-ascii?Q?toBKSUTcFCYSmmhplggL1PK7kmz109fvgnpzPBwhindJsr1xthHostgE7AnF?=
+ =?us-ascii?Q?yP49RlsAeyPjDgFrXFiOuEXQlOiRMn7CJvDXaww+FpBiqGipJPUlsmPr0rS2?=
+ =?us-ascii?Q?9NrKFAeExDzc59C0pwrM+nfwOQFB14R1dVDV63C5MSeqZR/pPZYtH5ApH/je?=
+ =?us-ascii?Q?ExJDYHbP9x3Lxeg8kIW80dC2CiFOnR/XMZm2/TSPaivql60gr7Kw1w3a2xBi?=
+ =?us-ascii?Q?XbjzIH3diVkskgOhsTHBoWDNfDalIxGOGIY7ZFRi4HcrzPWRjSYPT3Z+hVz2?=
+ =?us-ascii?Q?PaPnuDwgAgSPDPrXDZ7QVcoy7baO5sXxSK1NNbU9DK9DwNLvWkCHyyCtFmPk?=
+ =?us-ascii?Q?swl/68kaqIrGJOrzxqYOAwF/Q1KDt2RmLF6YcPCSYUwVqdTaKSGEpADk1/44?=
+ =?us-ascii?Q?qeogCQCo76X1kFUWHzrMt+ZRkvxSdQ4E2lco8ZKRlCfIVe9bBxOKzpAxiVVG?=
+ =?us-ascii?Q?NAC6i0LXLWs2AVr59z/Y0teRryt3ll9J3hQ5+b9Uk0ywRQHfRejWuhB6MTYu?=
+ =?us-ascii?Q?AMJSX3Vq1twuoRDfIyMJuuwOtBYUO7EwUNQpZnWadAEIiiaH6Jn+KUQ6C4+Q?=
+ =?us-ascii?Q?fMOttf8HlYoO8y6ZVZm0LTmQ8WyuAlTAvuvLV+fnk5DWdwod8LRStjAuEKKi?=
+ =?us-ascii?Q?rRK3MJNh2caBIt6FTu3drt/8bg+S26k3pt1VKGuiJI+h8cKXsho5Gt19VKFr?=
+ =?us-ascii?Q?e7utzoIUF1fxKrfDmv5Rd1gUjEZzdBp39o7fisXQRzU49CrnF9JCw3TO5TBh?=
+ =?us-ascii?Q?mX2wPAvP0GvozkG/NDKen0DT1vtV6tWA3cIjjylPR3FemeGk3S7Mt2KlS4i9?=
+ =?us-ascii?Q?3apDuV6ICaLX10OYAeQcIgkPIamoCHDWgXuvD5j/fH41VBEwJjHqK68gMDcA?=
+ =?us-ascii?Q?xJ50/H1p4Kas1plM2u08w2HGlY9nqv5mMoh40p3CI2UcRjBda27aG5ZJZg+t?=
+ =?us-ascii?Q?OZLOO6xbGT94SHkizmodBBnzsymU9U5F/0Uxknhl57uhjNz8L8BpPZpdjkmZ?=
+ =?us-ascii?Q?VBbGL3t87Tt5kVDfoJ4hmb9kjkcpXMkE1Dy7sxpqWt1AMKDHt6VBdAZJlb+V?=
+ =?us-ascii?Q?uezW+MwnVobexdA1RbBtADXIQ2nh/V7ubDrhDLmqzmVJ4JB/ag264o1+00yM?=
+ =?us-ascii?Q?aGGB3ud/N3NmgYOi5h0Tkb5fKMw3pLdZVTlik+DFcbJHwfmlcfNWLGO6Zbr/?=
+ =?us-ascii?Q?DAVtq+Pyv039WzJ5HGH5iDO85TDcTM8VOSjkro5xVZ3QwUFD24EHXgBERVvR?=
+ =?us-ascii?Q?LroS4R2nBkChFC3A1a/1OaS4hukF5LIbqypXxhItA4BCVigxWEqZLTUEM49K?=
+ =?us-ascii?Q?fvONrEBYg6/gSRzujbUoRU0SjJVWJ/x+vYoqqk5T1JSAoj4dKrvYtKFEBJfd?=
+ =?us-ascii?Q?+vSrRkTOA+jgnNV5NhNcDtywAWr03SqWw4xU/VjJmUpavpnwoxkNWg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?40eBm1SOE9rSi1Bq4T2XoCCQ3dEcrV0h4oipwFedsxoO0F/j0szXzLDrfwxB?=
+ =?us-ascii?Q?8IzEmcgfzO0S1NA8/3uKDkcknz+w8RXdgJaSLwemQ4LSGRyeNb6yH70OVpdN?=
+ =?us-ascii?Q?N5oKphuwY3/+DoiYRgN8eoH6PXQqJ/la123DWnpO+zN94A65thIyzHNAh/98?=
+ =?us-ascii?Q?xl0nEcFrt5BlNjp6qBvPip0Ng2s77iUT8cPkzt5iXHwYFfeg4crffucUWqRK?=
+ =?us-ascii?Q?e9LwlkALbUc/fzRyr3J7dU4k/Cl5pxEHgy6eIVePQ3iOX/RxBIjit9do3Fig?=
+ =?us-ascii?Q?5Xbzx7weoBamazW5Pg3NvmDWGcIg3lp7xK0OtNMpsxFses4F0w8A8qjhTHQq?=
+ =?us-ascii?Q?eLBiYBMw3sOA3jDXWQX3qSrNkCfH1u89lmOPg7enzNBv80P/D7U89qLPUJ4G?=
+ =?us-ascii?Q?wLCz92cV2KsgQcrtam3j4T2DyHVSXri9PhOnSluK2fHk/8yKAlpHQUXBm98i?=
+ =?us-ascii?Q?bjw+kkwlXm0fNcnLDRtvP5W51T1DuSlkQ8ewVap2lgJcKEx4qQXmH8XsF9T+?=
+ =?us-ascii?Q?9z0zW9xSKR5G3HntF02GJ63TV9+Pt7qXHjXLmJuEf55h7r00O2jltsCqSK1m?=
+ =?us-ascii?Q?iGTNJZX1lw1tPRwYrbWrqjZJaDFCHrJHkmGtDiHKLIux9bV0rhe7q5Dt/AZS?=
+ =?us-ascii?Q?dLn+BKLPpVkagNf8K6GyeDE7jxpNqy0G6ODMRa7qM2fswN2wHZCytefjCqSR?=
+ =?us-ascii?Q?TbkVAZz0ZHOpb7W7Jqt5QHVhw/TNtMhYigv+ofosAmS6xEbZseQVg+Q7iIdS?=
+ =?us-ascii?Q?Jagrn9YcyZTXV3y4q1b0Idypoq7duIJVRyFk1k5i/7J2Xs5KZ12pf2F3PwYu?=
+ =?us-ascii?Q?SnKqXvtWP2Dq4V6vUOgtkH0xEH3hlhXWQR5hRFH30lGKzvibdt9NAwrvSToS?=
+ =?us-ascii?Q?mbYWx068z8rCpDVuuSWVMo4vkIp5X6Fv4rgFI6QhdYcG7jIbVmLThtll2GgO?=
+ =?us-ascii?Q?5WakgbWdQs5GJWxRLJF0G1rThl9MZrAa8R/0UMm3XsrAO0As/F994S1TVa7q?=
+ =?us-ascii?Q?Hx7Qdh5/lJ8fHdy8+oDMgLxml1uh5NJrCVD2CKlGGZBjxePyiGrpmswWCxJU?=
+ =?us-ascii?Q?cHvxUKxkQkJQnMEvGAJYXUSlHF7MPCcfyDeoE/vAsVEyIaTHNyZdJRYJlU5k?=
+ =?us-ascii?Q?HNnfwSRBXD5/Opu1GjUcOfXCMFZDf9JhxJHW1UPL8N71DJjTTZim5nlgpyn5?=
+ =?us-ascii?Q?NtntIe91/sNq2e3yJ04gzgYIFb7OHj4RFBh1nvzkEjopVcEFjvaYvIKs6xNt?=
+ =?us-ascii?Q?k/LBkoeT3R6Rv7kmU3YKfOklyWcsdmWTvKobvrxCojJ+UIRJatUrEhEfyhUN?=
+ =?us-ascii?Q?Ki4cbti2oVzVidfivBf/RtQS29qDLILP35lA1ZGkssWhTaNumV9FxImnpIgS?=
+ =?us-ascii?Q?IO9hF1ZjA0YmCx/hicB8NVt0m8si1v7R6cadjOf0Np5K+Q05mGzTulScp4u/?=
+ =?us-ascii?Q?qfVseBDHDKS//ni/8maEmc/nQSFDhEtGSPdGlG2viT4redzjPw2wMiPaG2k/?=
+ =?us-ascii?Q?BTtVBPsMhbX/nWkf4U4IbdQFh/EYMn4+Jly1/ENk7+n9eRacnaDq1LJIgl0m?=
+ =?us-ascii?Q?udQiaSaQNfMkww5mM1xVJzp16JsRH/j063m/C5tt?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9446ac25-faa4-4aea-03ea-08dd872aec62
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Apr 2025 14:34:20.4398
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: uazW8z0PqXODIAeWFdwFN9S5EL6pktTf3MbT5O1BU30f7EgErhiWL9aK3+AvIbI0
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB5982
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_083807_210530_D6986081 
-X-CRM114-Status: GOOD (  81.04  )
+X-CRM114-CacheID: sfid-20250429_073430_652279_411F7AEB 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,342 +201,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 29 Apr 2025 15:54:07 +0100,
-Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
-> 
-> On Mon, Apr 28, 2025 at 04:49:17PM +0100, Marc Zyngier wrote:
-> > On Thu, 24 Apr 2025 11:25:30 +0100,
-> > Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
-> > > 
-> > > Implement GICv5 CPU interface and IRS support, to manage interrupt
-> > > state, priority and routing for all GICv5 interrupt types.
-> > > 
-> > > The GICv5 CPU interface implements support for PE-Private Peripheral
-> > > Interrupts (PPI), that are handled (enabled/prioritized/delivered)
-> > > entirely within the CPU interface hardware.
-> > > 
-> > > To enable PPI interrupts, implement the baseline GICv5 host kernel
-> > > driver infrastructure required to handle interrupts on a GICv5 system.
-> > > 
-> > > Add the exception handling code path and definitions for GICv5
-> > > instructions.
-> > > 
-> > > Add GICv5 PPI handling code as a specific IRQ domain to:
-> > > 
-> > > - Set-up PPI priority
-> > > - Manage PPI configuration and state
-> > > - Manage IRQ flow handler
-> > > - IRQs allocation/free
-> > > - Hook-up a PPI specific IRQchip to provide the relevant methods
-> > > 
-> > > PPI IRQ priority is chosen as the minimum allowed priority by the
-> > > system design (after probing the number of priority bits implemented
-> > > by the CPU interface).
-> > > 
-> > > The GICv5 Interrupt Routing Service (IRS) component implements
-> > > interrupt management and routing in the GICv5 architecture.
-> > > 
-> > > A GICv5 system comprises one or more IRSes, that together
-> > > handle the interrupt routing and state for the system.
-> > > 
-> > > An IRS supports Shared Peripheral Interrupts (SPIs), that are
-> > > interrupt sources directly connected to the IRS; they do not
-> > > rely on memory for storage. The number of supported SPIs is
-> > > fixed for a given implementation and can be probed through IRS
-> > > IDR registers.
-> > > 
-> > > SPI interrupt state and routing are managed through GICv5
-> > > instructions.
-> > > 
-> > > Each core (PE in GICv5 terms) in a GICv5 system is identified with
-> > > an Interrupt AFFinity ID (IAFFID).
-> > > 
-> > > An IRS manages a set of cores that are connected to it.
-> > > 
-> > > Firmware provides a topology description that the driver uses
-> > > to detect to which IRS a CPU (ie an IAFFID) is associated with.
-> > > 
-> > > Use probeable information and firmware description to initialize
-> > > the IRSes and implement GICv5 IRS SPIs support through an
-> > > SPI-specific IRQ domain.
-> > > 
-> > > The GICv5 IRS driver:
-> > > 
-> > > - Probes IRSes in the system to detect SPI ranges
-> > > - Associates an IRS with a set of cores connected to it
-> > > - Adds an IRQchip structure for SPI handling
-> > > 
-> > > SPIs priority is set to a value corresponding to the lowest
-> > > permissible priority in the system (taking into account the
-> > > implemented priority bits of the IRS and CPU interface).
-> > > 
-> > > Since all IRQs are set to the same priority value, the value
-> > > itself does not matter as long as it is a valid one.
-> > > 
-> > > An IRS supports Logical Peripheral Interrupts (LPIs) and implement
-> > > Linux IPIs on top of it.
-> > > 
-> > > LPIs are used for interrupt signals that are translated by a
-> > > GICv5 ITS (Interrupt Translation Service) but also for software
-> > > generated IRQs - namely interrupts that are not driven by a HW
-> > > signal, ie IPIs.
-> > > 
-> > > LPIs rely on memory storage for interrupt routing and state.
-> > > 
-> > > Memory storage is handled by the IRS - that is configured
-> > > at probe time by the driver with the required memory.
-> > > 
-> > > LPIs state and routing information is kept in the Interrupt
-> > > State Table (IST).
-> > > 
-> > > IRSes provide support for 1- or 2-level IST tables configured
-> > > to support a maximum number of interrupts that depend on the
-> > > OS configuration and the HW capabilities.
-> > > 
-> > > On systems that provide 2-level IST support, always allow
-> > > the maximum number of LPIs; On systems with only 1-level
-> > > support, limit the number of LPIs to 2^12 to prevent
-> > > wasting memory (presumably a system that supports a 1-level
-> > > only IST is not expecting a large number of interrupts).
-> > > 
-> > > On a 2-level IST system, L2 entries are allocated on
-> > > demand.
-> > > 
-> > > The IST table memory is allocated using the kmalloc() interface;
-> > > the allocation required may be smaller than a page and must be
-> > > made up of contiguous physical pages if larger than a page.
-> > > 
-> > > On systems where the IRS is not cache-coherent with the CPUs,
-> > > cache mainteinance operations are executed to clean and
-> > > invalidate the allocated memory to the point of coherency
-> > > making it visible to the IRS components.
-> > > 
-> > > Add an LPI IRQ domain to:
-> > > 
-> > > - Manage LPI state and routing
-> > > - Add LPI IRQchip structure and callbacks
-> > > - LPI domain allocation/de-allocation
-> > > 
-> > > On GICv5 systems, IPIs are implemented using LPIs.
-> > > 
-> > > Implement an IPI-specific IRQ domain created as a child/subdomain
-> > > of the LPI domain to allocate the required number of LPIs needed
-> > > to implement the IPIs.
-> > > 
-> > > Move the arm64 IPI enum declaration to a header file so that the
-> > > GICv5 driver code can detect how many IPIs are required by arch code.
-> > > 
-> > > IPIs are backed by LPIs, add LPIs allocation/de-allocation
-> > > functions.
-> > > 
-> > > The LPI INTID namespace is managed using an IDA to alloc/free LPI
-> > > INTIDs.
-> > > 
-> > > Associate an IPI irqchip with IPI IRQ descriptors to provide
-> > > core code with the irqchip.ipi_send_single() method required
-> > > to raise an IPI.
-> > > 
-> > > Co-developed-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> > > Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> > > Co-developed-by: Timothy Hayes <timothy.hayes@arm.com>
-> > > Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
-> > > Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> > > Cc: Will Deacon <will@kernel.org>
-> > > Cc: Thomas Gleixner <tglx@linutronix.de>
-> > > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > > Cc: Marc Zyngier <maz@kernel.org>
-> > > ---
-> > >  MAINTAINERS                         |    2 +
-> > >  arch/arm64/include/asm/arch_gicv5.h |   91 +++
-> > >  arch/arm64/include/asm/smp.h        |   17 +
-> > >  arch/arm64/kernel/smp.c             |   17 -
-> > >  drivers/irqchip/Kconfig             |    5 +
-> > >  drivers/irqchip/Makefile            |    1 +
-> > >  drivers/irqchip/irq-gic-v5-irs.c    |  841 ++++++++++++++++++++++++++++
-> > >  drivers/irqchip/irq-gic-v5.c        | 1058 +++++++++++++++++++++++++++++++++++
-> > >  drivers/irqchip/irq-gic-v5.h        |  184 ++++++
-> > 
-> > Nit: the split between include/asm/arch_gicv5.h and
-> > drivers/irqchip/irq-gic-v5.h is pretty pointless (this is obviously
-> > inherited from the GICv3 on 32bit setup). Given that GICv5 is strictly
-> > arm64, this split is no longer necessary.
-> 
-> That's true but I thought I would leave sys instructions and barriers
-> in arm64 arch code headers rather than moving them out. I am up for
-> whatever you folks think it is best.
+This driver just uses a constant, put it in domain_alloc_paging
+and use the domain's value instead of ops during init_domain.
 
-I can see two options:
+Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+---
+ drivers/iommu/arm/arm-smmu/qcom_iommu.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
-- either you unify the two and place the result in
-  include/linux/irqchip/arm-gic-v5.h
-
-- or you move the system stuff and the barriers to
-  arch/arm64/include/asm/sysreg.h together with the rest of the pile,
-  *and* move the other include file as above
-
-> > > +#define GSB_ACK				__emit_inst(0xd5000000 | sys_insn(1, 0, 12, 0, 1) | 31)
-> > > +#define GSB_SYS				__emit_inst(0xd5000000 | sys_insn(1, 0, 12, 0, 0) | 31)
-> > 
-> > Can you please express this in terms of __SYS_BARRIER_INSN(), with a
-> > slight rework of the SB definition? It would limit the propagation of
-> > the 0xd5 constant and make it clear what 31 stands for.
-> 
-> I tried but the __SYS_BARRIER_INSN() is a different class (GICv5
-> barriers are sys instructions the SB barrier has a slightly different
-> encoding), so maybe something like this ?
-> 
-> #define GSB_ACK __msr_s(sys_insn(1, 0, 12, 0, 1), "xzr")
-
-Why a different encoding? It looks completely similar to me. What I
-was expecting to see is something along the lines of (completely
-untested):
-
-diff --git a/arch/arm64/include/asm/barrier.h b/arch/arm64/include/asm/barrier.h
-index 1ca947d5c9396..7a00781d1d788 100644
---- a/arch/arm64/include/asm/barrier.h
-+++ b/arch/arm64/include/asm/barrier.h
-@@ -44,6 +44,8 @@
- 						 SB_BARRIER_INSN"nop\n",	\
- 						 ARM64_HAS_SB))
+diff --git a/drivers/iommu/arm/arm-smmu/qcom_iommu.c b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
+index 3907924646a20c..d599f778e9f47b 100644
+--- a/drivers/iommu/arm/arm-smmu/qcom_iommu.c
++++ b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
+@@ -229,7 +229,7 @@ static int qcom_iommu_init_domain(struct iommu_domain *domain,
+ 		goto out_unlock;
  
-+#define gsb_ack()	asm volatile("GSC_ACK_BARRIER_INSN\n" : : : "memory")
-+
- #ifdef CONFIG_ARM64_PSEUDO_NMI
- #define pmr_sync()						\
- 	do {							\
-diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-index 690b6ebd118f4..a84993c3d117b 100644
---- a/arch/arm64/include/asm/sysreg.h
-+++ b/arch/arm64/include/asm/sysreg.h
-@@ -112,10 +112,13 @@
- /* Register-based PAN access, for save/restore purposes */
- #define SYS_PSTATE_PAN			sys_reg(3, 0, 4, 2, 3)
+ 	pgtbl_cfg = (struct io_pgtable_cfg) {
+-		.pgsize_bitmap	= qcom_iommu_ops.pgsize_bitmap,
++		.pgsize_bitmap	= domain->pgsize_bitmap,
+ 		.ias		= 32,
+ 		.oas		= 40,
+ 		.tlb		= &qcom_flush_ops,
+@@ -246,8 +246,6 @@ static int qcom_iommu_init_domain(struct iommu_domain *domain,
+ 		goto out_clear_iommu;
+ 	}
  
--#define __SYS_BARRIER_INSN(CRm, op2, Rt) \
--	__emit_inst(0xd5000000 | sys_insn(0, 3, 3, (CRm), (op2)) | ((Rt) & 0x1f))
-+#define __SYS_BARRIER_INSN(op0, op1, CRn, CRm, op2, Rt)			\
-+	__emit_inst(0xd5000000 |					\
-+		    sys_insn((op0), (op1), (CRn), (CRm), (op2)) |	\
-+		    ((Rt) & 0x1f))
+-	/* Update the domain's page sizes to reflect the page table format */
+-	domain->pgsize_bitmap = pgtbl_cfg.pgsize_bitmap;
+ 	domain->geometry.aperture_end = (1ULL << pgtbl_cfg.ias) - 1;
+ 	domain->geometry.force_aperture = true;
  
--#define SB_BARRIER_INSN			__SYS_BARRIER_INSN(0, 7, 31)
-+#define SB_BARRIER_INSN			__SYS_BARRIER_INSN(0, 3, 3, 0, 7, 31)
-+#define GSB_ACK_BARRIER_INSN		__SYS_BARRIER_INSN(1, 0, 12, 0, 1, 31)
+@@ -337,6 +335,7 @@ static struct iommu_domain *qcom_iommu_domain_alloc_paging(struct device *dev)
  
- /* Data cache zero operations */
- #define SYS_DC_ISW			sys_insn(1, 0, 7, 6, 2)
-
-and the same thing for GSB SYS.
-
-> > > +#include "irq-gic-v5.h"
-> > 
-> > Why the ""? The normal include path (linux/irqchip) should work.
-> 
-> irq-gic-v5.h lives in drivers/irqchip, should I move it into
-> include/linux/irqchip (or I am missing something, likely) ?
-> 
-> I did not do it because it is only consumed by files in that directory.
-
-I full intend for KVM to consume all of this pretty much directly, and
-the KVM code will definitely not live in drivers/irqchip.
-
-> > > +	ret = readl_poll_timeout_atomic(reg, tmp, tmp & mask, 1, 10 * USEC_PER_MSEC);
-> > > +
-> > > +	if (val)
-> > > +		*val = tmp;
-> > 
-> > Updating the result value on error is rather odd. Do you rely on this
-> > anywhere? If not, consider avoiding the write-back on timeout.
-> 
-> I do rely on it to avoid reading the register once again on return if
-> the wait succeeded (but we don't know unless for some registers we
-> check another bit in the returned value).
-
-That's a bit annoying. But hey...
-
-> > > +	/*
-> > > +	 * The polling wait (in gicv5_wait_for_op()) on a GIC register
-> > > +	 * provides the memory barriers (through MMIO accessors)
-> > > +	 * required to synchronize CPU and GIC access to IST memory.
-> > > +	 */
-> > 
-> > This comment would be better placed with the helper itself, and avoid
-> > the repeats that I can see in the rest of the code.
-> 
-> On this, I thought about that. The problem is, the comment would be
-> buried in a helper function whereas it is in this function that we
-> are actually handing over memory to the GIC so in a way I thought
-> it was more appropriate to add it where the explanation is needed
-> and possibly clearer.
-
-It's not clearer. If you want it to be clearer, name the helper in a
-way that makes it actions explicit (gicv5_irs_ist_synchronise() ?),
-and let the comment explain how the synchronisation is enforced next
-to the helper.
-
-Using explicit names is far better than duplicating comments, IMHO.
-
-> > > +	list_for_each_entry(irs_data, &irs_nodes, entry) {
-> > > +		if (!irs_data->spi_range)
-> > > +			continue;
-> > > +
-> > > +		min = irs_data->spi_min;
-> > > +		max = irs_data->spi_min + irs_data->spi_range - 1;
-> > > +		if (spi_id >= min && spi_id <= max)
-> > > +			return irs_data;
-> > > +	}
-> > 
-> > Funnily enough, this is exactly the sort of iterative searches the
-> > maple tree could have avoided, by storing INTID (and range) specific
-> > data. Never mind.
-> 
-> I did it with a range store with an Xarray but then removed it because
-> I thought it was overkill, one of those things I am not sure what's
-> best.
-
-Probably not an issue for now. Time will tell as we get larger
-machines with multiple IRSes.
-
-> > Just a passing comment: consider splitting this patch in two (IRS on
-> > one side, CPUif on the other). I'm only half-way through, and it's
-> > quite tiring... :-/
-> 
-> Well, on this I am having a hard time as I replied to Thomas as well.
-> 
-> We do need CPUIF + IRS (LPI so IPIs) to make this a functional
-> patch.
-
-We don't need things to be functional. We need things to not break the
-build. So as long as things are split in a logical way and, this
-should be fine.
-
-> If I split per component, this might simplify review (and that's what
-> I did in v1 but Thomas complained that could not find SMP
-> initialization).
-
-Well, you could have one patch clearly labelled as "SMP init", which
-would both satisfy tglx's requirements *and* my tired brain.
-
-> 
-> What I could do to reduce the number of lines is moving SPI support
-> in a separate patch but I don't think there is a way to split CPUIF
-> and IRS and have a patch series that is bisectable and works at every
-> stage (by the way the last patch should be merged with this one because
-> technically with this patch we have a working GICv5).
-
-The trivial way to make it bisectable is to avoid compiling it until
-it is sufficiently feature-complete. Any sizeable amount of new code
-relies on this to a degree or another.
-
-Also, think of the commit messages: what you have here is a massive
-wall of text that would be more appropriate for a cover letter, and
-could be much smaller on a per-patch basis without losing any
-meaningful content.
-
-Thanks,
-
-	M.
-
+ 	mutex_init(&qcom_domain->init_mutex);
+ 	spin_lock_init(&qcom_domain->pgtbl_lock);
++	qcom_domain->domain.pgsize_bitmap = SZ_4K | SZ_64K | SZ_1M | SZ_16M;
+ 
+ 	return &qcom_domain->domain;
+ }
+@@ -598,7 +597,6 @@ static const struct iommu_ops qcom_iommu_ops = {
+ 	.probe_device	= qcom_iommu_probe_device,
+ 	.device_group	= generic_device_group,
+ 	.of_xlate	= qcom_iommu_of_xlate,
+-	.pgsize_bitmap	= SZ_4K | SZ_64K | SZ_1M | SZ_16M,
+ 	.default_domain_ops = &(const struct iommu_domain_ops) {
+ 		.attach_dev	= qcom_iommu_attach_dev,
+ 		.map_pages	= qcom_iommu_map,
 -- 
-Without deviation from the norm, progress is not possible.
+2.43.0
+
 
