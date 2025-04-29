@@ -4,59 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D47EC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 07:40:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B1F4C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 07:42:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+fvOOmEvP1cb8+JJZcp3GBleprhtwTLG57KvT1lkgEM=; b=ifWoF+VZWQNfPXX0D+r8HW4ycM
-	erNUGp5R0JlpnRyP/O16z+JCm3zpmxXt9NXaJSYkd0FDmSx33ny9pZo4NYWvYdkXpGanYGTgBsWuM
-	ErTTt/RvQcd17XIyrmm8vTYjNMTqWwfWC6WjXemzf+JLPYbfRkeYy3KeCv1wNgGWfQJ/MvozsYn+e
-	+zOwmGSnPkgs1NPa+hKzslQ1yf6paWVeCOckq0XPHy+lD5HBaUpUVkqrMyDXs8DJnuhGxx5NUsWoe
-	GDHCT6wkN1oWvR27mXISsemSDegXlVa3Qbz82u6fiXZ4jCsfA8XNQGzLvJB5U0z2+8nkZNYuMTcCG
-	w0qYucyQ==;
+	bh=NAu2WNUCHXUCUgePNj4lFNl/2NVDFwvO6ERCQ6DYrFg=; b=vaLcw/TiUWGwRluOGkwkXXxRX4
+	jAqXdmiXWU/tE+KORg2fT3Z/hIGXd2ZRANbxje055cH7qP5HCnShBCA4glBujTq//ce+pIrGINGcV
+	JJ2aY0AoT4TBDWeI2+k6+tEVh8WpFM2GvtZN9puupCM/Zw9M1VENmdKPuFT4Nab8y/TSUzeTR3xXS
+	A2DqPuh47fdqiKEC7ao6cFO6R+VelV5aFyCPKKJ3zjAEnyvoHpbdG/Vh8nO7Mt0XX/usfyzV8WXZf
+	IHJ26PZBsy/gjJvRSw1PdYGlja86SRryqm95OlK9iYAn2SCY8wOvPLLns4FwFa3ih0ijyMJchCqxU
+	Cn9ydNHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9fa0-00000008n57-0agI;
-	Tue, 29 Apr 2025 07:40:36 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u9fbt-00000008nT1-0Fq2;
+	Tue, 29 Apr 2025 07:42:33 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9fSn-00000008leH-2DiW;
-	Tue, 29 Apr 2025 07:33:10 +0000
+	id 1u9fTg-00000008loq-0FVP;
+	Tue, 29 Apr 2025 07:34:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 10CE2A4BE20;
-	Tue, 29 Apr 2025 07:27:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF8B1C4CEE3;
-	Tue, 29 Apr 2025 07:33:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CC838615EF;
+	Tue, 29 Apr 2025 07:33:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2EEEC4CEE3;
+	Tue, 29 Apr 2025 07:33:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745911988;
-	bh=p1WOe7kS+PZWvOjJflDb82c0iQuw9KLgoHqXeFhI1UQ=;
+	s=k20201202; t=1745912043;
+	bh=AWHwOkxPLCPVcRAn+OvCKLaXrFu45lDYY/h0fhMkB/k=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cgZrKHHhOy+cwqUzXlMijgOS4aLIi5Iej33ZSqtMLmcnd0fsh0aowpi1v2TkelVow
-	 eOyGrioCjadVuI7snvdOKlJgbBVa9tZPzVpOJuTKbcYmQdK8YjZfzZCxQUz8YK63jj
-	 uEGjAY/SM0wGUFCT/up4xieg+05TZ48E8KLeaKzLX0+97+PTRhQUhVEMWCmeG0k9ad
-	 AyKhx2bIuBq2z3GcHEAAfffwtVqQ3RxhJEJ3gdKRg855YZaIZ9GkuZCR5tHa4czG0F
-	 1DBPvCguYsQoHXeSCG0seCPxUQ+m3aUgLEhUkgq735jH0A/xl3VhI53vUZeVUk8m79
-	 spgsQ+rYm74KQ==
-Message-ID: <91d5c505-3fa6-42e3-be24-3b35c366d007@kernel.org>
-Date: Tue, 29 Apr 2025 09:33:02 +0200
+	b=nNYPd70yujGIFFK0ZVi+gz/MfJtlpbQCqt2pgzNxvgzQkcStedybJfBBuMa3R18Zb
+	 roLeGn3Jvqt2e6p5v0AIFy+8oXRonJMnoFUwbCnYRB+pn9T9YEgM7qCXazZxfKUsjM
+	 Evwzk3sFaN6nrO2gF5bW9OYc8LiVMCEwkv2VJ7sYxUu3VfeOvCDKhGZ2QO1N7wqsYb
+	 y5svy7oTBQnQVSxuM8tfKhCHjgXrPCOKho6PysWh11q6Tn2jFPpV7s8x10EKoMyQw4
+	 /RacTzllwUc0BNRnqGX9k+/DkQ/qhIzyPWe75tnAGA8JYqaBgnb2KWfSLr1ejIFFrq
+	 LU+a2oHhgrxTg==
+Message-ID: <2044b305-8786-49b9-82e2-aa294434c24e@kernel.org>
+Date: Tue, 29 Apr 2025 09:33:58 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: phy: imx8mq-usb: improve some tuning
- properties
-To: Xu Yang <xu.yang_2@nxp.com>
-Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
- kernel@pengutronix.de, festevam@gmail.com, jun.li@nxp.com,
- alexander.stein@ew.tq-group.com, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20250423094607.1029429-1-xu.yang_2@nxp.com>
- <20250428-thankful-observant-trogon-a5a003@kuoka>
- <20250428082002.gd275e2rqollatcj@hippo>
+Subject: Re: [PATCH v3 01/12] dt-bindings: media: mediatek,jpeg: Add mediatek,
+ mt8196-jpgdec compatible
+To: =?UTF-8?B?S3lyaWUgV3UgKOWQtOaZlyk=?= <Kyrie.Wu@mediatek.com>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "kyrie.wu@mediatek.corp-partner.google.com"
+ <kyrie.wu@mediatek.corp-partner.google.com>,
+ "mchehab@kernel.org" <mchehab@kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "robh@kernel.org" <robh@kernel.org>,
+ "hverkuil-cisco@xs4all.nl" <hverkuil-cisco@xs4all.nl>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+References: <20250425085328.16929-1-kyrie.wu@mediatek.com>
+ <20250425085328.16929-2-kyrie.wu@mediatek.com>
+ <20250428-ambitious-deer-of-plenty-2a553a@kuoka>
+ <5b6e70181b417f1b25df6fc1838b0ad600e29e9c.camel@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,13 +112,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250428082002.gd275e2rqollatcj@hippo>
+In-Reply-To: <5b6e70181b417f1b25df6fc1838b0ad600e29e9c.camel@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_003309_704347_3613108A 
-X-CRM114-Status: UNSURE (   6.19  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,29 +129,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/04/2025 10:20, Xu Yang wrote:
->>>  
->>> +  - if:
->>> +      properties:
->>> +        compatible:
->>> +          enum:
->>> +            - fsl,imx8mq-usb-phy
->>> +            - fsl,imx8mp-usb-phy
->>> +    then:
->>> +      properties:
->>> +        fsl,phy-tx-vref-tune-percent:
->>> +          minimum: -6
->>> +          maximum: 24
+On 28/04/2025 10:19, Kyrie Wu (吴晗) wrote:
+> On Mon, 2025-04-28 at 09:04 +0200, Krzysztof Kozlowski wrote:
+>> External email : Please do not click links or open attachments until
+>> you have verified the sender or the content.
 >>
->> That's ABI break with vague reason "some pain".
+>>
+>> On Fri, Apr 25, 2025 at 04:53:17PM GMT, Kyrie Wu wrote:
+>>> Compared to the previous generation IC, the MT8196 uses SMMU
+>>> instead of IOMMU and supports features such as dynamic voltage
+>>> and frequency scaling. Therefore, add "mediatek,mt8196-jpgdec"
+>>> compatible to the binding document.
+>>>
+>>> Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
+>>
+>> I gave you a link to the exact part of documentation about prefixes
+>> to
+>> read. I do not see improvements, so I do not believe you read it. I
+>> could
+>> imagine people skip reading entire doc (who would listen to the
+>> reviewer, right?), but if I give direct link to specific chapter and
+>> still not following it, makes me feel quite dissapointed.
+>>
+>> Best regards,
+>> Krzysztof
+>>
+> Dear Krzysztof,
 > 
-> For these four properties, no DTS files use them now. So that's why I'm
-> going to improve them. I think no ABI break here.
+> I would like to apologize to you again here. I am very sorry for
+> wasting your precious time. I changed the subject from "dt-bindings:
+> mediatek: XXX" to "dt-bindings: media: mediatek,jpeg: XXX" in V3. This
+> change is based on your previous suggestion. Use this command, git log
+> --oneline --
+> Documentation/devicetree/bindings/media/, obtained. But this
+> modification does not meet your requirements. Should I change the
+> subject to "media: dt-bindings: mediatek,jpeg: XXX"?
+> 
+> Another question I need to ask you:
+> MT8195 and MT8196 both have multi-core hardware architectures. Do we
+> need to change the yaml file name from 'mediatek,mt8195-jpegenc.yaml'
+> to 'mediatek,multi-core-jpegenc.yaml'? In my opinion, this is more
+> appropriate. What is your suggestion?
+I asked above about link to documentation. You ignored that part, so
+let's be specific:
 
-And which out of tree users did you investigate? Read what is ABI before
-you keep insisting that it is not an ABI break.
-
-You change already approved and released interface, right? Or not?
+Did you or did you not read the doc I linked last time?
 
 Best regards,
 Krzysztof
