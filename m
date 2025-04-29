@@ -4,224 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86408C3ABA9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 10:45:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1835C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 10:46:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TYVQKje5AIXMkYo19ZrZZx3zggxpbcCq/xtZdHbU2PE=; b=r4CMXE6GgsMKeRWaLINlDHl6kN
-	JKVvBOMNaRaTMagCUUELi7HuH8rDEDFrsI23s1HWynxWDh6bdIyb3apDWxsrwCUPdISmrZDzuNX9v
-	PhiA3P99TzIyN2ZEgDZ5H98spmSqkJJ0/0edMU050vyTv5BSIq+Xcaqj1Yh7bVVE2fH0vFAqZxHtu
-	7QQzzcx8E9nfpsPfFFmTz9q8cyOgppNtR20m2UxCMYk+Qt3b46WkeRLYdFJOgIZmc+RsF3NnB3ChU
-	ZbVtTlpk6fYRKEYMY8wk0hNeVWQPvQ5hMXOJdifnrielhIWZ/kKiB5teyZhUXn9LIz8RY7NqfeeTg
-	UCxDJDAg==;
+	bh=Pi/iyF0IplJUPA7d0Z7gKsd7OHUodqqvbGsperI0axM=; b=IhRZhh5VQ10/Zz3NenoGQ2f+HG
+	Ya/MbjbRkCHHSZDrfHV77yTOgph/QeRcB0iDbm3qNbKL6BEf/RHfHXn0Hc1GhZGNSNOBknb6iONQl
+	NGDi5Zrx7ZQVGXieKb9IL8vmxEzAIaqJqIu0ESwV1D3qnAFEXodgImb6yE0tSa/B39vk7pdDmK7Up
+	WTttfxJ68SRJViU2qzzk/Kpoc3p3bpKGayjW6bjHT1RgFB1EHhytVUc0bmzhL1mH31dWgBIQpfbmT
+	WVefWG37fvYHJCfwiijxm3QviG5JXN2eehfr7qIlVwzcAtLoOdIyoSDus0CtT2u9MJ4jlq/o72SvP
+	6Byt+wyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9iSZ-00000009LjV-2169;
-	Tue, 29 Apr 2025 10:45:07 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u9iTb-00000009Ls7-0FtP;
+	Tue, 29 Apr 2025 10:46:11 +0000
+Received: from mailout1.samsung.com ([203.254.224.24])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9iQf-00000009LU3-1DoY
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Apr 2025 10:43:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Sender:Reply-To:Content-ID:Content-Description;
-	bh=TYVQKje5AIXMkYo19ZrZZx3zggxpbcCq/xtZdHbU2PE=; b=DBeI3Ha9fK7xzaxIbYCCbxGiwM
-	pYLkc1hCHD5QsIuPQPHVFD7PWNhSt61iTgwrUF6trR8N9vZ1fQqE1mdWqSYnTWkwgMzRnU4hoazx8
-	nRTxdhd/U42xnjvL5wy+HOoJ1cLCQoqyT7mYEHuVhUZEK38XczMNgxQpxqTenP+9idoJiP56qsASS
-	wDcpVmA/kAed2hKdyQBBJY5qjNb5+m7AJnFV3PP6c7nmhgCESiYuvMhqyBHo0mwXSkouMHbOZgezu
-	cUTCoil3aq1pGHUrsTk4Y+BX3CT3rqP2TcQmoGaBUUau0tXu0Az0sUuI50AEe9cKby1uwNp2Ju7PU
-	GERj5G2Q==;
-Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9iQc-0000000DGhs-0dlq
+	id 1u9hMm-00000009AHe-39rV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 10:43:08 +0000
-Received: from pps.filterd (m0246627.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53T9XGvg008212;
-	Tue, 29 Apr 2025 10:41:24 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	corp-2023-11-20; bh=TYVQKje5AIXMkYo19ZrZZx3zggxpbcCq/xtZdHbU2PE=; b=
-	ATaEDM5XaIQ4uUC64F4J03Hk5Em++fLQKs13QbNGJq/Zjji45MAzxTD6xL9EOF5G
-	Fw7kB1Rr3gA/L8nBtY8RXt6WD0EOYeb2WKfvLXE8HbLSxazFnRDqE0MqYK7pkCk0
-	p02RxnBRxVwHQqWcYCwn/FfWkISvH1GaXp3wL+uOnLwB9VtOeV75499o/pOtmbdb
-	ybu6lLuSeeyRJOfCtjqgAYj2zrhp2ZojZvoAqIgx7Sz8u6hkue3B7JRg/ZGIf9qB
-	atWRzFM+S9CJp7jpHWkOrIOGbpuFQO8RGsDGxzqn8XS6zxtdVrYSBgzSgKnI37HP
-	YfSjXhroi4evVkGIDpSNlg==
-Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 46av7hr3u2-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 29 Apr 2025 10:41:24 +0000 (GMT)
-Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 53T9TjnD035406;
-	Tue, 29 Apr 2025 10:41:22 GMT
-Received: from sj2pr03cu001.outbound.protection.outlook.com (mail-westusazlp17012032.outbound.protection.outlook.com [40.93.1.32])
-	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 468nx9dj1j-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 29 Apr 2025 10:41:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PSK3XHZ6xwebI7U2LMklCBYm8HFEFWGGgPCgYtNvXZdP8b9aJZP4U0odBjVl3QXNi5qrXn6xPcjn0rKRJ/OZNocJY5FgM1KvyTpqxjzOZE5CJzZNdJD1REwTA83rHOAgC32uIvDVbIdagDL7zenRGOPvZvAVbnntI0qnh32RzWXwdjnT58wIqrUe8SwlmZfZH5GNLia7z6N/ZaPEhLSDe1ggyqt4rlGT6HXNmiTqR5ZVqFkqX6v6sUJlMDwc8B6mBvxbUVqyvJozormfb5h0BXJs0eENhVf0v0DbvLDemavfh38bikoEaunKwcCsOgtCH3etleVczvwF41uMVoucFg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TYVQKje5AIXMkYo19ZrZZx3zggxpbcCq/xtZdHbU2PE=;
- b=pYfa1lfKEmibU08MR1z5Z4K8DAJ50oNBAXat5RthzHDf2zhM9QH0wEnNbftgppDEyBB/LRMh5mmJQT53J9p9VSBQq4X3ka3v/n6DJ9GjN/IffwZO9zhx3ktZpUeByMSLGsuB3OWRCVJwRFLbY7Q0tEdT9QPWEJFk8J9sNj7gy401rkMcyuarRG30m4h9a78wWMrh0gagE+G1CNu/QRgigoTPNqjcpGZ/JscWVuBlk8N3t7l7Njh7pzIloOukGskSQkSxJflu6NDlaNfYyeZfnN5w4owPPiSOgfb485zgMhFjXbJ1eaaVqHd+SMYaxc+0MzT3ElxxDBAuBvg09mqZVQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TYVQKje5AIXMkYo19ZrZZx3zggxpbcCq/xtZdHbU2PE=;
- b=kPSMIIjioXcWiCY2qrilP1KiYQ0/1B5hJindAcM25cVXDFPChwETQ9JlX9qdt9dcciTk3ofs6y8Uv0FC+PhsSHUhcbHPpKdLB6iz/dcwpTh0KsxDrE81bb9lFZ5LTZfXKub+X8CwRwl60p3aaGwzz7qIqfG17LVb6Sg5yOr8us0=
-Received: from DM4PR10MB8218.namprd10.prod.outlook.com (2603:10b6:8:1cc::16)
- by DS7PR10MB7228.namprd10.prod.outlook.com (2603:10b6:8:e3::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.31; Tue, 29 Apr
- 2025 10:41:19 +0000
-Received: from DM4PR10MB8218.namprd10.prod.outlook.com
- ([fe80::2650:55cf:2816:5f2]) by DM4PR10MB8218.namprd10.prod.outlook.com
- ([fe80::2650:55cf:2816:5f2%5]) with mapi id 15.20.8678.028; Tue, 29 Apr 2025
- 10:41:19 +0000
-Date: Tue, 29 Apr 2025 11:41:15 +0100
-From: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-To: Dev Jain <dev.jain@arm.com>
-Cc: Lance Yang <lance.yang@linux.dev>, akpm@linux-foundation.org,
-        ryan.roberts@arm.com, david@redhat.com, willy@infradead.org,
-        linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-        catalin.marinas@arm.com, will@kernel.org, Liam.Howlett@oracle.com,
-        vbabka@suse.cz, jannh@google.com, anshuman.khandual@arm.com,
-        peterx@redhat.com, joey.gouly@arm.com, ioworker0@gmail.com,
-        baohua@kernel.org, kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
-        christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
-        linux-arm-kernel@lists.infradead.org, namit@vmware.com,
-        hughd@google.com, yang@os.amperecomputing.com, ziy@nvidia.com
-Subject: Re: [PATCH v2 0/7] Optimize mprotect for large folios
-Message-ID: <9d995850-d0c4-4e02-8547-74a9723e0405@lucifer.local>
-References: <20250429052336.18912-1-dev.jain@arm.com>
- <ba73873b-1b26-44cd-ac0f-76e33e8fc2cf@linux.dev>
- <05c3cd68-0d75-4682-a51c-59307e2b2e78@arm.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <05c3cd68-0d75-4682-a51c-59307e2b2e78@arm.com>
-X-ClientProxiedBy: LO4P302CA0044.GBRP302.PROD.OUTLOOK.COM
- (2603:10a6:600:317::10) To DM4PR10MB8218.namprd10.prod.outlook.com
- (2603:10b6:8:1cc::16)
+	Tue, 29 Apr 2025 09:35:07 +0000
+Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250429093458epoutp01639726b70a22aef0d096ffa9b4c9f20e~6wFoL4xvZ0611606116epoutp01N
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 09:34:58 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250429093458epoutp01639726b70a22aef0d096ffa9b4c9f20e~6wFoL4xvZ0611606116epoutp01N
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1745919298;
+	bh=Pi/iyF0IplJUPA7d0Z7gKsd7OHUodqqvbGsperI0axM=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=dKdk1vTnFVWqBAR2SqLxsvkR24HZJehguH3rUbBAEJbVDuU068FhhwprcjuoWmYVD
+	 +QxiUfdPiLYwIKGECzqtXUifHOs/dwfFmc+0I/Biz153MLGw2my1Xp+dMw74C36bFL
+	 xPFKnHHjVFszrH1obIRaxQsXlhBd7RNLs5FtKlsw=
+Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
+	20250429093457epcas5p2b0fbeb86b8e679376761a83858e6041e~6wFneFqts1952619526epcas5p26;
+	Tue, 29 Apr 2025 09:34:57 +0000 (GMT)
+Received: from epcas5p3.samsung.com (unknown [182.195.38.183]) by
+	epsnrtp01.localdomain (Postfix) with ESMTP id 4ZmwC41Dxcz6B9mH; Tue, 29 Apr
+	2025 09:34:56 +0000 (GMT)
+Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250429092957epcas5p264b0dfae6bae9179df57e520fc59f8b5~6wBQCY4K62748727487epcas5p2B;
+	Tue, 29 Apr 2025 09:29:57 +0000 (GMT)
+Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
+	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250429092957epsmtrp1a2a35e256eff10acc70d75b9a28f6bdb~6wBQBc9JQ2444424444epsmtrp1v;
+	Tue, 29 Apr 2025 09:29:57 +0000 (GMT)
+X-AuditID: b6c32a52-41dfa70000004c16-e5-68109c1514f7
+Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
+	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
+	FD.FD.19478.51C90186; Tue, 29 Apr 2025 18:29:57 +0900 (KST)
+Received: from INBRO002053 (unknown [107.122.2.234]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250429092955epsmtip192a33218257ecbc1e6673c37e238d0e8~6wBOVcwOw0967309673epsmtip1z;
+	Tue, 29 Apr 2025 09:29:55 +0000 (GMT)
+From: "Yashwant Varur" <yashwant.v@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <alim.akhtar@samsung.com>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-samsung-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Cc: <cs0617.lee@samsung.com>, <g.naidu@samsung.com>,
+	<niyas.ahmed@samsung.com>
+In-Reply-To: <73a5d0a6-ceb0-4c47-9992-260828f074d0@kernel.org>
+Subject: RE: [PATCH] arm64: dts: exynos: Added the ethernet pin
+ configuration
+Date: Tue, 29 Apr 2025 14:59:54 +0530
+Message-ID: <0ed501dbb8e9$45aa96e0$d0ffc4a0$@samsung.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR10MB8218:EE_|DS7PR10MB7228:EE_
-X-MS-Office365-Filtering-Correlation-Id: 155021c6-1706-4a05-be76-08dd870a604e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?L0R4RUNQS0JaK3JLR2dwdzVta2pnUWNDZ2daNHQ5TG9DNEVVb0ZWRDFad2gw?=
- =?utf-8?B?SE5OMi8xR0pMSlVFM1RHZHQzdmFEa1hoZFhGTTY4amZsYUw2MkJHN0gzN0Zm?=
- =?utf-8?B?WU9CakhwdXJrZFlJVXlCVFI1anBFdjRxQmxoUHNzV3dGeExMRk5sT2VOU2Fl?=
- =?utf-8?B?a0pBMzFGK2hEUFhvWVZPaVI0aXMxYmt1Tm1jKzNENXRwNzVxTVR6K29TYlF1?=
- =?utf-8?B?L2dwWm5Fd3BtT3V0cFVPMXRIQndLa2lwMlJHTHI1UzFHSlU1d2F3cFJVR01D?=
- =?utf-8?B?ZFphOGNmM0FFVkw0eEdEcXQzS09rNk5kTHlQUFlTY3JBTXRBYmhSM0VEdDNH?=
- =?utf-8?B?SHNEWU0za2lFOVdyUnYwaVhhYUhlWjRXVnRjazdYMTR0VGhEQVR1M1B0bCtV?=
- =?utf-8?B?KytZbEF6T2JYZlNMVmU5c04vRVloYndDVXdIbEtmTmFOeTFuUlhucWhvcXRD?=
- =?utf-8?B?eGkzQmVHUGIwK29rUXBqV3crdkJvNHpFbEo0OTFhWll2ckkzUlRBUHZmZzdW?=
- =?utf-8?B?MVduK3FzbXRwTzZqb2padFJIWGthWEx4QVlsd2lqb3FZc1VSUDYxclh2Wk1h?=
- =?utf-8?B?ckZyTExnNk1ScTRyaEJSZURJSVA0VjBLeWxTNlh5UDhBekFvSzgyajYxeEpK?=
- =?utf-8?B?anc5dmhIalRBMm1td0FweVhSdVhXakJGN3RYQkR0Y2Y3MmRqVWpWTnVlSHlh?=
- =?utf-8?B?RXpKQWx0Y09HOTYvSkpzU3RGRmo1NENzM0ZvVnBTRFhyVnYwOWlMTUtaWlNn?=
- =?utf-8?B?dWxiWldIeDFHai9YZnViN3psY1puMEtYWWN4OFd6WjRuanQ4ZDgyMC82MXR4?=
- =?utf-8?B?OVI3Yk9URlZLWWJpWHk1cGlFcUJ5Rkh0Ry9XWGRGQ0MrL0ZMMnlTbWdZSTha?=
- =?utf-8?B?cElOMVVTYXlyc0ZkMVhZYloxNDdGVHMyV3dwVTd5V3Nna2krcEhJMmxJZm8z?=
- =?utf-8?B?aTE0N081K1ZVdnluRmNNTkk0Z0tTYmxjQk5JN21PWEc1aUVjZndTZjlpUWxE?=
- =?utf-8?B?c0pRUGRtN2xsQS9rK3VWRzEyYW5WODNkZEgyTXZHbEljSmtyNnYzalZQOWUr?=
- =?utf-8?B?eEwvNnRTWWxJL21NdkU0eEEvZERGTE9sTkswdGpOYnRhTzhrSVFHcTBGcDQy?=
- =?utf-8?B?WUI0d0VpQWtEcDFZVmJ1cUMwNWs3ampUeFZMNlg4UGxGOVNzYXZvV3BXd3o2?=
- =?utf-8?B?bm8yc1ZRdE81bmlzTXpwamVBMzRja2w3WnRFRkhCOS9WaFVHRHVFTUJIa3FJ?=
- =?utf-8?B?Y0xUdlViTytMNDRRM0VPOVFnUm5yUlFEQ1ZvVTV2c3NKQ3Fka21TN1d0dEcw?=
- =?utf-8?B?VWl4WER2cVkyMlhocXEvTjFqT0UveHU0T3BycHJTcXIvZEg2V0FFTGVmTHFX?=
- =?utf-8?B?aUVvRFVkZEV6SjA5Zk51eW1SM3krOUlCYkp4Wkp1bC9pWHpsaFhsRzh2S3lo?=
- =?utf-8?B?b25uR0tZUko5T1FXTkJTb2poTG5xZVVSdHY2NVhIaTVMZXppOTNTUVhTNzI1?=
- =?utf-8?B?Q2VpempDSnNTd2tya2xoTnRHRnh4T1V2elBKTDRhWEREVzZqczVacklqdVBx?=
- =?utf-8?B?YUNYa2xMUzE3c3ZmUEFBOXlpVHk3SDl6Z1Fzc0RUODYrMisyQ3g3WGJhNmlB?=
- =?utf-8?B?c0pVMTdOemJ6UGtlNWludlZFYlFUeE5xOFJKN3B5cXBGOElnQzFzTWJpdDBK?=
- =?utf-8?B?bVU1eHZYR0lvOVpHY054aUR0c1RUMFc3aHBKeEM2MVNMQnFZNElSQ292Z3JP?=
- =?utf-8?B?R1JBbXdZcG9teHFPTTNSRTNuYkVTQ1FuZE13a3BTMnZrS25mSzJPZ3Axa0dY?=
- =?utf-8?B?Umo4QUtwdS9OOWRTQWt1NjhsSEp2NGU3aWhVMEpNc2o3S2hGRndDdFdJNUlD?=
- =?utf-8?B?TFdGL0xnaGpGaVhOZUs1cEZ4eDl3T3dlcU85c1U3QTkrVVE9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR10MB8218.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MHRYaTlHWElMZzBMZG5UYitRaWQ5Q1VsSVFFUWdwV2lqUWdtQlFoeXNzS0pM?=
- =?utf-8?B?d1orUGRjL1FQbUdGY08wS3ozeDZHMVNrcWRMaXRWQUE0N0JibUR3RWhWdHhZ?=
- =?utf-8?B?VGY0SUk0Q2ZUbHRENDhTczJjZ3c0UjZocGc5VlF6YmFQVUp5ZE16QUVGcXpW?=
- =?utf-8?B?emFoc2d5OTRMcFhoNkF0U1Q0RkVOTG94cHVhc0dBRFZGWlB4NG1iMjlpMEtT?=
- =?utf-8?B?RGVIWHhzZWdXYmcwRVdpUFJmay9lU1RNRTF5MnlXNFZYOXYycFhySlovTnJp?=
- =?utf-8?B?bWRFeE0wT200K3M4TzhOZDZ4Z2loRFVIakNraVN2ODhQODhPMVBteWVxYy9U?=
- =?utf-8?B?N3g1bUVvcVFMc3dZeXJmS3pFMXN5RjEvZEduanRqVExxdXJGdjZyYWtNY2pG?=
- =?utf-8?B?QzlxK3dWQjdpSVRBNE5kVFFEUWRQcTUwcmRWS0lHVGdQbkVuenVya21RY3FP?=
- =?utf-8?B?djJXd2RHQXNUaFNHNU53cDRnazh1bmV2Z0VLY1RWVHVZdTZaQ0Ewam8yYTBy?=
- =?utf-8?B?VFpoSUJEbXhuc1JyTTFDcEFrRi9pSHQvYWFOSEk0NSszZ0ppczhjdXZrbDVw?=
- =?utf-8?B?ZXBmOE5YU3FqOHN1eDFTM1lxTGJCVUpvWTFRd2YyaS8rSVc4djdIaGFYUmZW?=
- =?utf-8?B?U1Zia2JVeFlXQk5DUVFLdElHQjA4bjJoZkgwMy9VMUdmc0tsNlRMQWl3RGcw?=
- =?utf-8?B?VVAwS1lXKzVVa2poN0NBWTlXL3crZnFWL3gvdGs4endhbkxSU2VHemFCV2p5?=
- =?utf-8?B?SUhieHhIUVQxVUJ1UEE5aGNyanVrYS9jRzBadWNjNU03ak1kbVdwM0Vpa2xt?=
- =?utf-8?B?OUZ6QVNzMVV3VWc1MlVOK1k3cEtRSU5qK0NuMWp6ZHJuWmVRR3kxYWE3RWhH?=
- =?utf-8?B?OFBlMkN1ZkZUUFJYREtjN09IMENlYUdxREF4K3JhT3BvV2p2NGpNNFZRT05R?=
- =?utf-8?B?elNHaExHd1c4VkkyQVh3djFVMmJWeUk5UGN6RUk0NU9IVHFaQm9WTmgvaFVn?=
- =?utf-8?B?WnJ1QWl3RUd4dWlyRWhhVEF2b1lsQXl3NmNiKzVrMVNBSHBRVzBWOW1aUTl1?=
- =?utf-8?B?Z2llQURSUGJXdlZjcGVVTXlPdVBELzJrbDdhL3hJc3c3c2daMThFUnhTRGg2?=
- =?utf-8?B?MTc5NXBySnBybFlLM0l2Q2JrVUY0dVF0NnRFUzdzT3BXNHFlT25JZFhKOEoy?=
- =?utf-8?B?M255R3RoSGJ6dzRmQk8rNDF5T0JaeGkwdU9QRzNlamNabW0rQm9YaDJJS1Y0?=
- =?utf-8?B?K093TnppMEI4eUZ4K1ByV0FFZmg5ZEV1ekhZdlF3YnJhMzJCeURzSnlySTNX?=
- =?utf-8?B?Q1dIZFFlWTZrejArU1pza09nRmk5VG5SdHBQVWVpMW9tbFNzaHBYMTRuMExZ?=
- =?utf-8?B?bng5c2xOU0t2d203bzM0QnI0K0RwWmwyd1Q2cm5URERWRW1CWThackNqVjFk?=
- =?utf-8?B?ZERRQWdyVWZyRHVMaHpJUms4c2diK1B1RWZFWFc2eDNidGh2dExXVVhacnFQ?=
- =?utf-8?B?cFd0L281TXp0Unk2ak1QcEhvMFVmelhndGhrOEx4UWVRdmFwVEIvelFLYjI1?=
- =?utf-8?B?b0RoVWZWSnU5QkR6aEE5cDVqZkpQaDROUXdqaFhVNzFweXNHcHFYeDNCMWh4?=
- =?utf-8?B?MjBHaFpzVDBCcS82YWJJKzVIejVRcCs4eU9XbFE1Z3hXZ3ZZelFEVHY1ZzRK?=
- =?utf-8?B?dzdUREU5QUpaK0FobjhuYlhESjdjN29ZSC96ZWk3T2tEdzNDVUJ4YUF3ZnpS?=
- =?utf-8?B?SmRiV1RsY0ZoV05EV2R0L1ZRRmI0VTRwOXcvZ0ptMXowSnJkS0RMT0J2NWoy?=
- =?utf-8?B?bmVBRkNwbzA0dHlpWDROOWNTWmFWeDYwSHlHTHlybWs3VWIyVHdSNi9WaUgz?=
- =?utf-8?B?UHJVTzN1amMzT3JhZXZWRi9FZ3FoT3grSWxTRm5tcXprY0d1MzFvNzMyQ0hh?=
- =?utf-8?B?RGlOUGZQeWFJSkQ4RzZmS05pRnA5ekZtRXlnVWJCZGMzSUdheHVXVG11S3Vk?=
- =?utf-8?B?Z2RNZHFleXNnWE5ZNm1zK3pVR1RWdmF1WVBzbEp2QVRQdW1oRHRCVlFSaHNQ?=
- =?utf-8?B?c2xPck9ScnRHdjVoMUxkaUtRQVFuUitGUVhjaTM3RXN4aFUyLzg5bWZZa2Rh?=
- =?utf-8?B?eWMwOU9UTmRTQ2ZvSHFVNlVYdVNOYkE3Y1U1cUxkSEdOZHZ4VTkrUDBQTlpG?=
- =?utf-8?B?OEE9PQ==?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: 7dZt8I8z7MJ5jf9nL2ou2XWBAF5o++uuHeo1fVuJglXS0suVVkjgVsKLUV9U1hl4cOO1JEsRvtEcfwztS3/fAB4EDQ9zhd+MVRPozIUEBkBpMd9dG6/Nrcz7xaNFXemT2/a8WrPMOowOCHhO7jJFaEpdE6/fVeu/aaVX/maYB6yqOe7JosOasoUWQBxjVfTzuZstnE+Y7sfz05cCysblwX3p7pRR+oUe3QFZSXtt8Bczx2T4TRYTO0meWuCSfyvz7zzlL3mu9bscfDQwQ8fNFbJThjFkVC2xCtPd0Bc4byrhUDwOyfohPkJIVkYfAn8yqIt938gduqBWqQTxZ7wC8j9kis4lGKt5gvI90oLAWY/xbmfoF+KhjvjhS7gtos8hJlBhGZaOd+oOJJ8a7ANccsA7NQN91YKlc5/9e2f2F4paEDuKgpshin0ipSZdNalwfMnPVoPDupM10dwsu8N3P/v2z1t6/DFLiFNU99sgZaH3I7cgpHGbJEkTu1THHOtpkhYiuxWDSDuJR2+GZpz7rfndZJMNXs/jyz0SVqMikco0k8AJL//7Anu3CVoGCjbFkE1Crj3AINdjsv+TjXZMMhcABcUzDYicu4B9cWj02XM=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 155021c6-1706-4a05-be76-08dd870a604e
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR10MB8218.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Apr 2025 10:41:19.2382
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qw+RYKSof82/WxHqcQB2wIXInUAZxy/jI7J2brQM+dczigsSRL61WY5lB5HrJh0J0kYgU+AGiLkI93JVdKI5aYmVj8UFk0potK5nyqRnUbI=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR10MB7228
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-04-29_03,2025-04-24_02,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxlogscore=440 phishscore=0
- suspectscore=0 mlxscore=0 malwarescore=0 adultscore=0 spamscore=0
- bulkscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2504070000 definitions=main-2504290079
-X-Proofpoint-ORIG-GUID: xGO80eKmnO_vUIcuyzSj4ZiOz8-7CzQ1
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI5MDA3OSBTYWx0ZWRfX91/hMo6gFZdD g5u7MFnRHTaa8iFxpp7zTpnGv2N4SWEw/VJ8/zDd9aP4vm6KPwPAnJ8ll7hHU44A88S/CQTJlnf 8tWrx2MajytgF1A6W3eTcwzco8CvU/SNZ0/NvKunkQ5XiibGhfOxNxNa0li4E7WwhNhvqWmA7Tw
- uQlSWap3EDei6g1ANyM9Q7T/7+YEcnX2bvr58AOcbI2nJyd/nulvUqYt9k2weS56kQwUvKlnn2G CJbtYE2ZepKuBMgNJ9v20zrb0nmyhCsRlasZC2QMwQCjp3CIVFVfRCa3ZZVgxEBM9QUPaRZ8ko3 AZ1mesmOtygFBEacxXWws7RQCavl3cqf/lwrqD1CA6BL5xx5CgG3oJaeG8ZL9ckAE1IpTj/NS5l sCHqLqQO
-X-Authority-Analysis: v=2.4 cv=R+UDGcRX c=1 sm=1 tr=0 ts=6810acd4 b=1 cx=c_pps a=e1sVV491RgrpLwSTMOnk8w==:117 a=e1sVV491RgrpLwSTMOnk8w==:17 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19
- a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=GoEa3M9JfhUA:10 a=t3vCF23Z_XOjuHxQfpAA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 cc=ntf awl=host:14638
-X-Proofpoint-GUID: xGO80eKmnO_vUIcuyzSj4ZiOz8-7CzQ1
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQI+tP5AvR0g22A5T67WLyfPVk3CYgKkYErqAxsAxq2yxm0V4A==
+Content-Language: en-us
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFupnkeLIzCtJLcpLzFFi42LZdlhJTld0jkCGwfVnKhYP5m1js1iz9xyT
+	xap3vBbzj5xjtdgy8zKzxctZ99gszp/fwG6x6fE1VovLu+awWcw4v4/J4smUR6wW//fsYHfg
+	8di0qpPNY/OSeo++LasYPT5vkgtgieKySUnNySxLLdK3S+DKePyvnbngJF/F31+32BsYF/N0
+	MXJySAiYSBz/+Jixi5GLQ0hgO6PE+Xsn2boYOYASUhINb8IhaoQlVv57zg5iCwk8Z5ToOSsG
+	YrMJ6Es833yNCaRXRGAxk8SXpoNgvcwCQRJfdgdCzNzLKDGvdzcLSAOngJ3E2a6HYIOEBXwl
+	dnecAbNZBFQlzk8+wgLSyytgKTHhqRpImFdAUOLkzCdgrcwC2hJPbz6Fs5ctfM0McZuCxM+n
+	y1hBbBEBJ4n9J9cyQtSIS7w8eoR9AqPwLCSjZiEZNQvJqFlIWhYwsqxiFE0tKM5Nz00uMNQr
+	TswtLs1L10vOz93ECI4zraAdjMvW/9U7xMjEwXiIUYKDWUmEt8qAP0OINyWxsiq1KD++qDQn
+	tfgQozQHi5I4r3JOZ4qQQHpiSWp2ampBahFMlomDU6qByTVe5u5+psuu9/VLDx8zV2Dd06M2
+	U/5eTdOpFhcWkyLO2j2MTFOv5Ksrsz76ZMC6Oe7E3uhFD6Ye5qo/+4/Fe2K99PLWjVbZVbOm
+	XjWt2R1u8Wzvb9m3ofMsExJ+9BpLcTItVY95vK2IiftEqvSLxvxdzuec7OI+OU6cZhUjMa23
+	2O76hv64q5esbufqpO/PVy7mVjdx9l5TN7uzK6FfPErf80bWfkeLHTU3JhxmWM5UpLBw0pTq
+	l3bJ3dcmyS/u4269orir5Dpv9KSC8iVhZa8O/Vqx/dY8rfS7zt8MGpo59/K6euTeZff64JOh
+	zi7mEff6f/1GXSvDF9slUtrunRCe+C15mlO3UMWj3/+UWIozEg21mIuKEwEo7Tz1IgMAAA==
+X-CMS-MailID: 20250429092957epcas5p264b0dfae6bae9179df57e520fc59f8b5
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-543,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250423060042epcas5p2c04be779e21089f33b8a9a7785bb151a
+References: <CGME20250423060042epcas5p2c04be779e21089f33b8a9a7785bb151a@epcas5p2.samsung.com>
+	<20250423060034.973-1-yashwant.v@samsung.com>
+	<73a5d0a6-ceb0-4c47-9992-260828f074d0@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_114306_632111_68D06D9D 
-X-CRM114-Status: GOOD (  13.50  )
+X-CRM114-CacheID: sfid-20250429_023505_105531_375AE8BB 
+X-CRM114-Status: GOOD (  17.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -236,259 +120,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FWIW can confirm the same thing. Lance's fixes sort most of it out, but I also
-get this error:
 
-mm/mprotect.c: In function ‘can_change_ptes_writable’:
-mm/mprotect.c:46:22: error: unused variable ‘page’ [-Werror=unused-variable]
-   46 |         struct page *page;
-      |                      ^~~~
 
-So you also need to remove this unused variable at the stop of
-can_change_ptes_writable().
+-----Original Message-----
+From: Krzysztof Kozlowski <krzk=40kernel.org>=20
+Sent: Wednesday, April 23, 2025 8:41 PM
+To: Yashwant Varur <yashwant.v=40samsung.com>; robh=40kernel.org; krzk+dt=
+=40kernel.org; conor+dt=40kernel.org; alim.akhtar=40samsung.com; devicetree=
+=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org; linux-samsung-s=
+oc=40vger.kernel.org; linux-kernel=40vger.kernel.org
+Cc: cs0617.lee=40samsung.com; g.naidu=40samsung.com; niyas.ahmed=40samsung.=
+com
+Subject: Re: =5BPATCH=5D arm64: dts: exynos: Added the ethernet pin configu=
+ration
 
-Cheers, Lorenzo
+On 23/04/2025 08:00, Yashwant Varur wrote:
+> This patch adds the ethernet pin configuration.
 
-On Tue, Apr 29, 2025 at 02:32:59PM +0530, Dev Jain wrote:
+
+>=20
+> Signed-off-by: Yashwant Varur <yashwant.v=40samsung.com>
+> Signed-off-by: Changsub Lee <cs0617.lee=40samsung.com>
+
+Incorrect chain or confusing. Who was the author? What is the meaning of th=
+e last SoB?
 >
+Sorry will correct the order.
+
+
+> ---
+>  .../dts/exynos/exynosautov920-pinctrl.dtsi    =7C 41 +++++++++++++++++++
+>  1 file changed, 41 insertions(+)
+>=20
+> diff --git a/arch/arm64/boot/dts/exynos/exynosautov920-pinctrl.dtsi=20
+> b/arch/arm64/boot/dts/exynos/exynosautov920-pinctrl.dtsi
+> index 663e8265cbf5..778584d339d5 100644
+> --- a/arch/arm64/boot/dts/exynos/exynosautov920-pinctrl.dtsi
+> +++ b/arch/arm64/boot/dts/exynos/exynosautov920-pinctrl.dtsi
+> =40=40 -166,6 +166,24 =40=40 gph6: gph6-gpio-bank =7B
+>  		interrupt-controller;
+>  		=23interrupt-cells =3D <2>;
+>  	=7D;
+> +
+> +	eth0_pps_out: eth0_pps_out =7B
+
+Please follow DTS coding style carefully. This applies to all commits you t=
+ry to send from your downstream/vendor code.
 >
-> On 29/04/25 12:36 pm, Lance Yang wrote:
-> > Hey Dev,
-> >
-> > Hmm... I also hit the same compilation errors:
-> >
-> > In file included from ./include/linux/kasan.h:37,
-> >                   from ./include/linux/slab.h:260,
-> >                   from ./include/linux/crypto.h:19,
-> >                   from arch/x86/kernel/asm-offsets.c:9:
-> > ./include/linux/pgtable.h: In function ‘modify_prot_start_ptes’:
-> > ./include/linux/pgtable.h:905:15: error: implicit declaration of
-> > function ‘ptep_modify_prot_start’
-> > [-Werror=implicit-function-declaration]
-> >    905 |         pte = ptep_modify_prot_start(vma, addr, ptep);
-> >        |               ^~~~~~~~~~~~~~~~~~~~~~
-> > ./include/linux/pgtable.h:905:15: error: incompatible types when
-> > assigning to type ‘pte_t’ from type ‘int’
-> > ./include/linux/pgtable.h:909:27: error: incompatible types when
-> > assigning to type ‘pte_t’ from type ‘int’
-> >    909 |                 tmp_pte = ptep_modify_prot_start(vma, addr, ptep);
-> >        |                           ^~~~~~~~~~~~~~~~~~~~~~
-> > ./include/linux/pgtable.h: In function ‘modify_prot_commit_ptes’:
-> > ./include/linux/pgtable.h:925:17: error: implicit declaration of
-> > function ‘ptep_modify_prot_commit’
-> > [-Werror=implicit-function-declaration]
-> >    925 |                 ptep_modify_prot_commit(vma, addr, ptep,
-> > old_pte, pte);
-> >        |                 ^~~~~~~~~~~~~~~~~~~~~~~
-> > ./include/linux/pgtable.h: At top level:
-> > ./include/linux/pgtable.h:1360:21: error: conflicting types for
-> > ‘ptep_modify_prot_start’; have ‘pte_t(struct vm_area_struct *, long
-> > unsigned int,  pte_t *)’
-> >   1360 | static inline pte_t ptep_modify_prot_start(struct
-> > vm_area_struct *vma,
-> >        |                     ^~~~~~~~~~~~~~~~~~~~~~
-> > ./include/linux/pgtable.h:905:15: note: previous implicit declaration of
-> > ‘ptep_modify_prot_start’ with type ‘int()’
-> >    905 |         pte = ptep_modify_prot_start(vma, addr, ptep);
-> >        |               ^~~~~~~~~~~~~~~~~~~~~~
-> > ./include/linux/pgtable.h:1371:20: warning: conflicting types for
-> > ‘ptep_modify_prot_commit’; have ‘void(struct vm_area_struct *, long
-> > unsigned int,  pte_t *, pte_t,  pte_t)’
-> >   1371 | static inline void ptep_modify_prot_commit(struct
-> > vm_area_struct *vma,
-> >        |                    ^~~~~~~~~~~~~~~~~~~~~~~
-> > ./include/linux/pgtable.h:1371:20: error: static declaration of
-> > ‘ptep_modify_prot_commit’ follows non-static declaration
-> > ./include/linux/pgtable.h:925:17: note: previous implicit declaration of
-> > ‘ptep_modify_prot_commit’ with type ‘void(struct vm_area_struct *, long
-> > unsigned int,  pte_t *, pte_t,  pte_t)’
-> >    925 |                 ptep_modify_prot_commit(vma, addr, ptep,
-> > old_pte, pte);
-> >        |                 ^~~~~~~~~~~~~~~~~~~~~~~
-> >    CC /home/runner/work/mm-test-robot/mm-test-robot/linux/tools/objtool/
-> > libstring.o
-> >    CC /home/runner/work/mm-test-robot/mm-test-robot/linux/tools/objtool/
-> > libctype.o
-> >    CC /home/runner/work/mm-test-robot/mm-test-robot/linux/tools/objtool/
-> > str_error_r.o
-> >    CC /home/runner/work/mm-test-robot/mm-test-robot/linux/tools/objtool/
-> > librbtree.o
-> > cc1: some warnings being treated as errors
-> > make[2]: *** [scripts/Makefile.build:98: arch/x86/kernel/asm-offsets.s]
-> > Error 1
-> > make[1]: *** [/home/runner/work/mm-test-robot/mm-test-robot/linux/
-> > Makefile:1280: prepare0] Error 2
-> > make[1]: *** Waiting for unfinished jobs....
-> >    LD /home/runner/work/mm-test-robot/mm-test-robot/linux/tools/objtool/
-> > objtool-in.o
-> >    LINK /home/runner/work/mm-test-robot/mm-test-robot/linux/tools/
-> > objtool/objtool
-> > make: *** [Makefile:248: __sub-make] Error 2
-> >
-> > Well, modify_prot_start_ptes() calls ptep_modify_prot_start(), but x86
-> > does not define __HAVE_ARCH_PTEP_MODIFY_PROT_TRANSACTION. To avoid
-> > implicit declaration errors, the architecture-independent
-> > ptep_modify_prot_start() must be defined before modify_prot_start_ptes().
-> >
-> > With the changes below, things work correctly now ;)
+Sure, thanks
+
+What is more important, I don't really understand why you are doing this
+- there is no user of these entries - and commit msg does not help here.
 >
-> Ah thanks! My bad :(
->
-> >
-> > diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> > index 10cdb87ccecf..d9d6c49bb914 100644
-> > --- a/include/linux/pgtable.h
-> > +++ b/include/linux/pgtable.h
-> > @@ -895,44 +895,6 @@ static inline void wrprotect_ptes(struct mm_struct
-> > *mm, unsigned long addr,
-> >   }
-> >   #endif
-> >
-> > -/* See the comment for ptep_modify_prot_start */
-> > -#ifndef modify_prot_start_ptes
-> > -static inline pte_t modify_prot_start_ptes(struct vm_area_struct *vma,
-> > -        unsigned long addr, pte_t *ptep, unsigned int nr)
-> > -{
-> > -    pte_t pte, tmp_pte;
-> > -
-> > -    pte = ptep_modify_prot_start(vma, addr, ptep);
-> > -    while (--nr) {
-> > -        ptep++;
-> > -        addr += PAGE_SIZE;
-> > -        tmp_pte = ptep_modify_prot_start(vma, addr, ptep);
-> > -        if (pte_dirty(tmp_pte))
-> > -            pte = pte_mkdirty(pte);
-> > -        if (pte_young(tmp_pte))
-> > -            pte = pte_mkyoung(pte);
-> > -    }
-> > -    return pte;
-> > -}
-> > -#endif
-> > -
-> > -/* See the comment for ptep_modify_prot_commit */
-> > -#ifndef modify_prot_commit_ptes
-> > -static inline void modify_prot_commit_ptes(struct vm_area_struct *vma,
-> > unsigned long addr,
-> > -        pte_t *ptep, pte_t old_pte, pte_t pte, unsigned int nr)
-> > -{
-> > -    for (;;) {
-> > -        ptep_modify_prot_commit(vma, addr, ptep, old_pte, pte);
-> > -        if (--nr == 0)
-> > -            break;
-> > -        ptep++;
-> > -        addr += PAGE_SIZE;
-> > -        old_pte = pte_next_pfn(old_pte);
-> > -        pte = pte_next_pfn(pte);
-> > -    }
-> > -}
-> > -#endif
-> > -
-> >   /*
-> >    * On some architectures hardware does not set page access bit when
-> > accessing
-> >    * memory page, it is responsibility of software setting this bit. It
-> > brings
-> > @@ -1375,6 +1337,45 @@ static inline void ptep_modify_prot_commit(struct
-> > vm_area_struct *vma,
-> >       __ptep_modify_prot_commit(vma, addr, ptep, pte);
-> >   }
-> >   #endif /* __HAVE_ARCH_PTEP_MODIFY_PROT_TRANSACTION */
-> > +
-> > +/* See the comment for ptep_modify_prot_start */
-> > +#ifndef modify_prot_start_ptes
-> > +static inline pte_t modify_prot_start_ptes(struct vm_area_struct *vma,
-> > +        unsigned long addr, pte_t *ptep, unsigned int nr)
-> > +{
-> > +    pte_t pte, tmp_pte;
-> > +
-> > +    pte = ptep_modify_prot_start(vma, addr, ptep);
-> > +    while (--nr) {
-> > +        ptep++;
-> > +        addr += PAGE_SIZE;
-> > +        tmp_pte = ptep_modify_prot_start(vma, addr, ptep);
-> > +        if (pte_dirty(tmp_pte))
-> > +            pte = pte_mkdirty(pte);
-> > +        if (pte_young(tmp_pte))
-> > +            pte = pte_mkyoung(pte);
-> > +    }
-> > +    return pte;
-> > +}
-> > +#endif
-> > +
-> > +/* See the comment for ptep_modify_prot_commit */
-> > +#ifndef modify_prot_commit_ptes
-> > +static inline void modify_prot_commit_ptes(struct vm_area_struct *vma,
-> > unsigned long addr,
-> > +        pte_t *ptep, pte_t old_pte, pte_t pte, unsigned int nr)
-> > +{
-> > +    for (;;) {
-> > +        ptep_modify_prot_commit(vma, addr, ptep, old_pte, pte);
-> > +        if (--nr == 0)
-> > +            break;
-> > +        ptep++;
-> > +        addr += PAGE_SIZE;
-> > +        old_pte = pte_next_pfn(old_pte);
-> > +        pte = pte_next_pfn(pte);
-> > +    }
-> > +}
-> > +#endif
-> > +
-> >   #endif /* CONFIG_MMU */
-> >
-> >   /*
-> > --
-> >
-> > Thanks,
-> > Lance
-> >
-> > On 2025/4/29 13:23, Dev Jain wrote:
-> > > This patchset optimizes the mprotect() system call for large folios
-> > > by PTE-batching.
-> > >
-> > > We use the following test cases to measure performance, mprotect()'ing
-> > > the mapped memory to read-only then read-write 40 times:
-> > >
-> > > Test case 1: Mapping 1G of memory, touching it to get PMD-THPs, then
-> > > pte-mapping those THPs
-> > > Test case 2: Mapping 1G of memory with 64K mTHPs
-> > > Test case 3: Mapping 1G of memory with 4K pages
-> > >
-> > > Average execution time on arm64, Apple M3:
-> > > Before the patchset:
-> > > T1: 7.9 seconds   T2: 7.9 seconds   T3: 4.2 seconds
-> > >
-> > > After the patchset:
-> > > T1: 2.1 seconds   T2: 2.2 seconds   T3: 4.2 seconds
-> > >
-> > > Observing T1/T2 and T3 before the patchset, we also remove the regression
-> > > introduced by ptep_get() on a contpte block. And, for large folios we get
-> > > an almost 74% performance improvement.
-> > >
-> > > v1->v2:
-> > >   - Rebase onto mm-unstable (6ebffe676fcf: util_macros.h: make the
-> > > header more resilient)
-> > >   - Abridge the anon-exclusive condition (Lance Yang)
-> > >
-> > > Dev Jain (7):
-> > >    mm: Refactor code in mprotect
-> > >    mm: Optimize mprotect() by batch-skipping PTEs
-> > >    mm: Add batched versions of ptep_modify_prot_start/commit
-> > >    arm64: Add batched version of ptep_modify_prot_start
-> > >    arm64: Add batched version of ptep_modify_prot_commit
-> > >    mm: Batch around can_change_pte_writable()
-> > >    mm: Optimize mprotect() through PTE-batching
-> > >
-> > >   arch/arm64/include/asm/pgtable.h |  10 ++
-> > >   arch/arm64/mm/mmu.c              |  21 +++-
-> > >   include/linux/mm.h               |   4 +-
-> > >   include/linux/pgtable.h          |  42 ++++++++
-> > >   mm/gup.c                         |   2 +-
-> > >   mm/huge_memory.c                 |   4 +-
-> > >   mm/memory.c                      |   6 +-
-> > >   mm/mprotect.c                    | 165 ++++++++++++++++++++-----------
-> > >   mm/pgtable-generic.c             |  16 ++-
-> > >   9 files changed, 198 insertions(+), 72 deletions(-)
-> > >
-> >
->
+Understood, in v2 will add the Ethernet node as well.
+
+
+
+Best regards,
+Krzysztof
+
 
