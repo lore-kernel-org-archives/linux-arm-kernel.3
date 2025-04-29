@@ -4,89 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 570E8C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 18:38:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B52DC3ABAB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 18:46:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5np/oOs1XRUBoFOxmCZiqOi6wfyrbfsGfKYIkl7k7kY=; b=kwZSuLfrQikuznRGBg27SaLnwS
-	JBnu8g4uCnN5900/2WOq7DeRYLI97rGeR61y8QCuzE5Li85Ww3Eze89MRkWDfDeMuqjH2PJxVpdkW
-	xy77p+qodLfslZWJWz6JikoPvI9uTxacm3zPqqCKlURT/XKjOrB59MLTBuEbXWdxQZtz1Ux488651
-	hC1gjeAtUeIaF8c6bWUTG6q8DfpN3XT4kV5OJoYZc4Jva7CuPUluzObHcUrcx63fSgsKFjwyd9okN
-	i5nkOekuDo2MTBJFXPahvBapZ5yileQ/8DJUUkWTfB4v4cbOiulLeD2Wne546fditiCD7jepew0IK
-	K9o962jg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Nw+GjNesG8s0iltbii8IAJcU7EUcXcVq8Kt/tU/6fC4=; b=bu+5qZhRq5Q1cvMpztj6Djz3pW
+	sxXq6PuVo4VpufSCFRSvc+0K2UYhqt1V1dJxoSQWQ9A9RFkja22I7+5gSAAMyS37tsnt0h3b2WPfb
+	mQ1yKKTyLQAVucVWdJ+3I15bCBCcuhBUAqjDKtAMWjGfvj2CuL+8+pvqU0+fXJ5iy/SlezDVNCKFc
+	VGhsP3FURSnVqfglUF1L1H5K/Ik6h3xTvNAPf2NkbeBFo4NFhCFxVByd7M2HDlUIpcJexfP4WykWX
+	5fssEHlwqnr72F/jvbEkV6Ych96PgnHkEyhFQPGcs6FgtZCSk++OZQ63RYf3w4nlMJVQQCmjwYnh3
+	RFCK9yqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9pqp-0000000AZl8-3ZiZ;
-	Tue, 29 Apr 2025 18:38:39 +0000
-Received: from mail-qv1-xf35.google.com ([2607:f8b0:4864:20::f35])
+	id 1u9pyC-0000000Aah7-3tR0;
+	Tue, 29 Apr 2025 18:46:16 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9pot-0000000AZeN-3BwB
+	id 1u9omb-0000000APf3-3xTw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 18:36:40 +0000
-Received: by mail-qv1-xf35.google.com with SMTP id 6a1803df08f44-6f0ad74483fso72251196d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 11:36:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1745951798; x=1746556598; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=5np/oOs1XRUBoFOxmCZiqOi6wfyrbfsGfKYIkl7k7kY=;
-        b=3pMRn/RGkI9NU2ywsiBdBMU9KcMwElLv2f/xrmr18srEak4jKe3vlcuy+/yAZv9yyX
-         XAFzWR0NCRJRAAy+hWUas6hV03MLJk1KcwcPevYiixYdHABCue5D2tQHWNn6qdBqpcCE
-         8ndmZUWJB9HxnS+ut0Ea7wxVJ7xoYgonp7Ncgi6lfXFWp3Arr+tvQRxcYefwvMMqXFJD
-         iRBZLrgJGT2DD9x4jw3jLqW+OGtis+kPmCRRoXE4PiUMt4VsBFNaqxPNPtqunqHcNp3h
-         Z2jqZabs7n3OWjoPMtWJrJ6uPCY5YY7z/daeLmx/Qbx4bSSZC3W7+6eOii2Y4Vw5eMxs
-         4BjA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745951798; x=1746556598;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=5np/oOs1XRUBoFOxmCZiqOi6wfyrbfsGfKYIkl7k7kY=;
-        b=dLRl3YNG0BIfinje1SkQSbRZZMgUtdIM8wCKPgYc1pMUVoaM/wBhtYH38Y4IMEPMb0
-         M1UTcxXt3nH33erO57hKD4hg+CKwnXGLU2+ANwbaOMOnebG+hICg4fpo+TaeR3Mf81Gz
-         9vt6oZeg6ddiXdR47AipAH7C2huEjVNeA8GnWfTp4DQknAJ/T+ErWgE5uM4dGYR55Qoa
-         mFeAZMGagQhOececw9CLXBtsQnThi7GW5pYwYC0VK+DXQ0I+ITiEAawbJi2WVx2VFfup
-         zNFOjexgAizmXX9RobHQQAxAl1SdbYHJr9OGTTSxNstm/f+XkslvZ1V6+2bs3nXn+Sps
-         90Yg==
-X-Forwarded-Encrypted: i=1; AJvYcCW39IRrVxBZv/apXuKhrGjkiOXbrGfMbPFuvU2JU011DW4ZAczchLwmGeb7/3o/oSjoxJ9l64QQI8YkTExGGpaG@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyj5fanx2U06xvZK/JkP+M/gTqA0SRw9ZdxqXI7InSesjeO/xTe
-	mw50+YwKZBNXRWkC4ecdM48T5S/3Ndhi/gqGPprJUE4sSjbMO166JcYwQBg7fM9s+mEm9wiUF8H
-	MauYVDVvnPdbxBf5VUiHngf7bHNVV4tCfFY8=
-X-Gm-Gg: ASbGncvCtaUhb4+HiOmYuu3ftoKlrfWjcM4OdJ4ijC6tMwfv6OB3ZFfRbAnCuVASLsm
-	CHC6soCYOYsW1Lrg85kID9DEMnhmTXpdK7SwlshcvAvvO73JhkX1nI3eq5W3qRVag06HqVa13ub
-	LZsclQ0+d9nlMYKjngMe+06ZhaZNPBX7vwl6J1eP5A3cYzpwJFqfY=
-X-Google-Smtp-Source: AGHT+IFF8swP72nG4lQKBlVM5Y1RrJO2sYDULWr9zVQIckdm/edCPUl1Vq4zoRVK9wLWUikcBCkZ3nC58jTFPJYlu/o=
-X-Received: by 2002:ad4:5f4a:0:b0:6f2:b094:430e with SMTP id
- 6a1803df08f44-6f4fce9ecc5mr8329996d6.25.1745951797459; Tue, 29 Apr 2025
- 11:36:37 -0700 (PDT)
+	Tue, 29 Apr 2025 17:30:15 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53THU95m3729841
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 29 Apr 2025 12:30:09 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1745947809;
+	bh=Nw+GjNesG8s0iltbii8IAJcU7EUcXcVq8Kt/tU/6fC4=;
+	h=From:To:CC:Subject:Date;
+	b=x4fWfTrm6ytx2le62u2Rq9AESEwjV5uANyePOkMqLln+5FAxyFtDnH8ZYfzOtHKf8
+	 Dh1XvghYDFqjQDKC7MrIlJ2Ij9q7fvevUqQUxMbSeeIS6WNDh/IdjTtl27AsZy84Xi
+	 A1k1ot7NdkYZ/MIF/Y3JeGVpl+dCClYg1rZcEwaw=
+Received: from DLEE115.ent.ti.com (dlee115.ent.ti.com [157.170.170.26])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53THU9Ds054054
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 29 Apr 2025 12:30:09 -0500
+Received: from DLEE104.ent.ti.com (157.170.170.34) by DLEE115.ent.ti.com
+ (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 29
+ Apr 2025 12:30:09 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE104.ent.ti.com
+ (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 29 Apr 2025 12:30:09 -0500
+Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53THU9x3032163;
+	Tue, 29 Apr 2025 12:30:09 -0500
+From: Judith Mendez <jm@ti.com>
+To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>
+CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Moteen Shah <m-shah@ti.com>
+Subject: [PATCH v2] arm64: dts: ti: k3-am65-main: Add missing taps to sdhci0
+Date: Tue, 29 Apr 2025 12:30:08 -0500
+Message-ID: <20250429173009.33994-1-jm@ti.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-References: <20250423230046.1134389-1-yabinc@google.com> <731dbb1d-e804-4678-9b8c-40f6395e94a7@arm.com>
- <CALJ9ZPNExud7ZQ-ZgpVtPJHUsAyJv_O-CH8mCa6gUyu1E1T8zg@mail.gmail.com>
- <CAJ9a7VhMJDMbowRuB5zgjQw+UfxP7eumZX1SKF2MJQ2_2NebHA@mail.gmail.com>
- <20250428122408.GD551819@e132581.arm.com> <CAJ9a7VjhCRk9BxGvE3ZyyZzq__+A1PpD=oRtFQOcD8BwXKa27Q@mail.gmail.com>
- <20250428130519.GF551819@e132581.arm.com>
-In-Reply-To: <20250428130519.GF551819@e132581.arm.com>
-From: Yabin Cui <yabinc@google.com>
-Date: Tue, 29 Apr 2025 11:36:25 -0700
-X-Gm-Features: ATxdqUHUwAMc9N8ZrnHzAyj9aeZXCcCnhFu4COUKOCLn1Fy0uWz79ytMhmxAXzA
-Message-ID: <CALJ9ZPPKozzci07i7cqHckBA47gUodH0gymDwFPpW_MJdKWSbA@mail.gmail.com>
-Subject: Re: [PATCH] coresight: trbe: Save/restore state across CPU low power state
-To: Leo Yan <leo.yan@arm.com>
-Cc: Mike Leach <mike.leach@linaro.org>, Anshuman Khandual <anshuman.khandual@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
-	Jie Gan <quic_jiegan@quicinc.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_113639_797997_EF50407D 
-X-CRM114-Status: GOOD (  27.13  )
+X-CRM114-CacheID: sfid-20250429_103014_042988_BAB811E6 
+X-CRM114-Status: GOOD (  10.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,57 +88,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 28, 2025 at 6:05=E2=80=AFAM Leo Yan <leo.yan@arm.com> wrote:
->
-> On Mon, Apr 28, 2025 at 01:55:29PM +0100, Mike Leach wrote:
->
-> [...]
->
-> > > > The TRBE PM can follow the model of the ETE / ETMv4 and save and
-> > > > restore if currently in use.
-> > >
-> > > If TRBE PM is registered as a seperate PM notifier, a prominent issue=
- is
-> > > it cannot promise the depedency between ETE and TRBE when execute CPU
-> > > power management.  E.g., when entering CPU idle states, ETE should be
-> > > disabled prior to switch off TRBE, otherwise, it might cause lockup
-> > > issue in hardware.  If ETE and TRBE register PM notifier separately,
-> > > we cannot ensure the sequence between ETE and TRBE, this is why we ne=
-ed
-> > > to do the operations based on CoreSight paths.
-> > >
-> >
-> > I believe that the architecture requires that if the disabled TRBE
-> > cannot receive trace then the ETE should regard the trace as having
-> > been output (A1.4 ETE spec). Incorrect sequencing should only result
-> > in missing trace, not a core lockup - unless the implementation is not
-> > compliant.
->
-I tried registering a separate CPU PM notifier for TRBE, but CPU hangs
-persisted on Pixel 9, albeit less frequently. After switching to the curren=
-t
-patch, CPU hangs are no longer observed.
+For am65x, add missing ITAPDLYSEL values for Default Speed and High
+Speed SDR modes to sdhci0 node according to the device datasheet [0].
 
-I see the line in ETE spec: While all trace outputs are disabled, the trace
-unit considers any generated trace data as having been output.
-Maybe the enable/disable order issue only happens on some CPU models
-or SOCs?  From Android, I hope the coresight driver can solve this issue.
-But I'm not sure if ARM has other suggestions.
+[0] https://www.ti.com/lit/gpn/am6548
 
-> Thanks for clarification, Mike.
->
-> I would prefer to stick with the CoreSight path approach, as this will
-> help us to resolve the issue in a general way - not just for ETE / TRBE
-> case, this would be applicable for other types of links and sinks.
->
-In my experience, coresight funnels, ETFs, and ETRs don't lose context
-with CPU low power state. So probably don't need to disable the whole
-coresight path when entering CPU low power state. In Android, I have
-a tight project schedule. So I hope this patch is not blocked by refactors.
-And I want to backport the patch to previous Android kernel versions. A
-fix before refactor is easier to backport.
+Fixes: eac99d38f861 ("arm64: dts: ti: k3-am654-main: Update otap-del-sel values")
+Cc: stable@vger.kernel.org
+Signed-off-by: Judith Mendez <jm@ti.com>
+Reviewed-by: Moteen Shah <m-shah@ti.com>
+---
+This patch was split from "Misc MMC updates" patch series [1] to help
+with backporting.
+[1] https://lore.kernel.org/linux-devicetree/20250417233040.3658761-1-jm@ti.com/
 
+Changes since v1:
+- Add stable tag and move fixes tag
+---
+ arch/arm64/boot/dts/ti/k3-am65-main.dtsi | 2 ++
+ 1 file changed, 2 insertions(+)
 
-> Thanks,
-> Leo
+diff --git a/arch/arm64/boot/dts/ti/k3-am65-main.dtsi b/arch/arm64/boot/dts/ti/k3-am65-main.dtsi
+index 6d3c467d7038..b085e7361116 100644
+--- a/arch/arm64/boot/dts/ti/k3-am65-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am65-main.dtsi
+@@ -449,6 +449,8 @@ sdhci0: mmc@4f80000 {
+ 		ti,otap-del-sel-mmc-hs = <0x0>;
+ 		ti,otap-del-sel-ddr52 = <0x5>;
+ 		ti,otap-del-sel-hs200 = <0x5>;
++		ti,itap-del-sel-legacy = <0xa>;
++		ti,itap-del-sel-mmc-hs = <0x1>;
+ 		ti,itap-del-sel-ddr52 = <0x0>;
+ 		dma-coherent;
+ 		status = "disabled";
+
+base-commit: d864bb528a6725e775d564fd4430762acbb9dd0d
+-- 
+2.49.0
+
 
