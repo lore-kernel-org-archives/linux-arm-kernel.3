@@ -4,71 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 635A3C3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 17:01:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0374AC3ABA5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 17:02:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G6LW1NrIxGLJduEFddRpZH7InIjCHizcMbxCxVt9go0=; b=uBHbSytRaTM8GPQUgEdSi+RciN
-	PLh8KxJRT7m7kHiT4Ez7UfjhXGcAxsv7TlyOvR4IdJP5r9sK1OGhSenNdvIuZdyxKjiRr6WkoYzmm
-	uuPWtTxX1ADdPaCwxvthX/MJvZlmKPFtikp2r8c9RDL3BQczCyu0l60LpghC5q+KCOcc40EbREqXH
-	O8d9E1ISrOLsyJqXJFU/3tXXIDVX5EMvcrzwgONWtwqhcnJFpCNuOZVt/nG3r0FxprOrfDFQ4G9ah
-	Ca7wuwQ7RrOSVTNiBkEHTM6QxhwIcOjyXHQj90nNK6+WnM/7KQdXdex7qeZUyalBrJBhvP1Kho15t
-	LkOKq6ww==;
+	bh=r5rlUDCcvbNorSSfBxhY0Uo2Pju4LLTw7V0kTzWGnw0=; b=nQGGcs1N9cMEKas2P9Va3HlSeL
+	DI1SDjsyo52G5SIrudJCUwFh/KuOUiibKQ3JkhjbpCKY6vqbfy+zZywAelZT8qVCxLMbudggV1eyN
+	2+L8veV5abloo2s2vRe6itIyXqJuvKe/h45DjfH38ZsbqtWk/cZ3YtxS7cNJk+ZJ8vz5w8JaUeWWN
+	vsdBwCSJq1kZRSNb6kwN+7/0Ghn9a0PTRi4DGlfx7Uo9nfP873ZZ8RUH5n51ciwve9fZmmF6MBnuj
+	3SyLSygMDZiiEn/aiufCWrjLoZlho53hkkyUukcCJMOWWUyAHVLELUV4kFymLWHTggFLvF31wa2y1
+	KRdhCTQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9oKd-0000000ALTv-01Rq;
-	Tue, 29 Apr 2025 17:01:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u9oLl-0000000ALuC-3rib;
+	Tue, 29 Apr 2025 17:02:29 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9ms0-0000000A80O-2rNe
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Apr 2025 15:27:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=G6LW1NrIxGLJduEFddRpZH7InIjCHizcMbxCxVt9go0=; b=rDRik+o6lOLL4h3ASxEw/zSCgT
-	3AZLqqX4Yir4IF+jMQFvFSNrLqSNW1AgwUfaHIdojulB2crc7bhU6CZa767MPvy3DaIUQNdrD3pDD
-	/yF65P2M7RvOF1abuERcnIJERFiq5aH5TsBQdd+nuUSNMUzZ+cCwmScXOqvtdU18TM3cP5i1wwHh+
-	80T8tSr37neZaJh3uYHTOgarSvOtUetTKDSM+MN089ViVfofj7rFUQQmcja43pvtUGO2buFO66Bkt
-	Lfgul+oQInWz9VjlAXbnCRKcS7nmDZxBTTGXhrLwGxhY2jepKsNn3yqC3Arcl8VtZjkovV99OHj08
-	dTl/B5/g==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9mrx-0000000DRUy-1F2L
+	id 1u9oFl-0000000AKhs-2R8C
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 15:27:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D05CC1515;
-	Tue, 29 Apr 2025 08:27:27 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1ADB83F673;
-	Tue, 29 Apr 2025 08:27:32 -0700 (PDT)
-Date: Tue, 29 Apr 2025 16:27:27 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Subject: Re: [PATCH] KVM: selftests: add test for SVE host corruption
-Message-ID: <aBDv39FD7eDYoplg@J2N7QTR9R3.cambridge.arm.com>
-References: <20250417-kvm-selftest-sve-signal-v1-1-6330c2f3da0c@kernel.org>
+	Tue, 29 Apr 2025 16:56:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=r5rlUDCcvbNorSSfBxhY0Uo2Pju4LLTw7V0kTzWGnw0=; b=Ho9e5JmdTFW+pLmFUi4wNow9wm
+	VXlhmjwcdIcVeswarlOATW52sNWISJ24fB8EbnhqWkVPq5rWXCKE4XW6CCvksmzSNXGu6Rjho0bq/
+	E09xKIHdsgcp/D40bvZt6p8bdcgD1GU2aPoc/q59R6QMlkz38uxPZV9YB6ACDKlDfR3Q=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1u9oFc-00AxlT-0j; Tue, 29 Apr 2025 18:56:08 +0200
+Date: Tue, 29 Apr 2025 18:56:08 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Chen-Yu Tsai <wens@csie.org>
+Cc: Jernej =?utf-8?Q?=C5=A0krabec?= <jernej.skrabec@gmail.com>,
+	Andre Przywara <andre.przywara@arm.com>, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, samuel@sholland.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] arm64: dts: allwinner: h6: Add OrangePi 3 LTS DTS
+Message-ID: <b98d6bab-d3bb-44d2-9dbf-623dfb673671@lunn.ch>
+References: <20250413134318.66681-1-jernej.skrabec@gmail.com>
+ <6a056bf8-9f39-4204-9378-8cc39be60038@lunn.ch>
+ <4645060.LvFx2qVVIh@jernej-laptop>
+ <4975791.GXAFRqVoOG@jernej-laptop>
+ <2486dae4-c5a5-4df2-8048-87b4b2d46d54@lunn.ch>
+ <CAGb2v66dF8hMmjjJMnpVxM+092q=ZYZ+kT316roZuty6i+rcXQ@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250417-kvm-selftest-sve-signal-v1-1-6330c2f3da0c@kernel.org>
+In-Reply-To: <CAGb2v66dF8hMmjjJMnpVxM+092q=ZYZ+kT316roZuty6i+rcXQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_162737_642081_71067096 
-X-CRM114-Status: GOOD (  31.60  )
+X-CRM114-CacheID: sfid-20250429_095617_627856_44C46BEC 
+X-CRM114-Status: GOOD (  23.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,210 +75,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 17, 2025 at 12:32:49AM +0100, Mark Brown wrote:
-> This test program, originally written by Mark Rutland and lightly modified
-> by me for upstream,
-
-For context, I had originally pushed this as a WIP to:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/mark/linux.git/commit/?h=arm64/kvm/fpsimd-tests&id=a2f7319f5b13f5f5354e6186925b3bb8f2d2966e
-
-> verifies that we do not have the issues with host SVE
-> state being discarded which were fixed in
+> > The RX path looks O.K. RGMII-RXID means the PHY should be adding the
+> > 2ns delay. The allwinner,rx-delay-ps = <0> should be redundant, that
+> > should be the driver default. And there are no properties in the PHY
+> > node about RX. All good.
 > 
->    fbc7e61195e2 ("KVM: arm64: Unconditionally save+flush host FPSIMD/SVE/SME state")
+> The default action when the property is missing is to leave the hardware
+> settings alone. I admit this doesn't match the bindings.
+
+Please submit a patch fix the binding.
+
+> > TX is the problem. The allwinner,tx-delay-ps = <700> causes the MAC to
+> > add 700ps delay, and 'rgmii-rxid' means the PHY should not add any
+> > delay. But 700ps is too low. It should be around 2000ps. So something
+> > else is adding a delay, or the 700ps is not really 700ps.
 > 
-> by running a simple VM while checking the SVE register state for
-> corruption.
+> Anything is possible. As was raised in a previous reply, it's possible
+> instead of extending the delay range, the decreased the step size and
+> added more steps. The problem is we don't really know.
 
-Minor nit, but this doesn't verify the absence of the issue, as that can
-be masked by preemption. I would suggest:
+By poking around with other configuration knobs, i hope we can
+determine if this 700ps actually is 700ps.
 
-| Until recently, the kernel could unexpectedly discard SVE state for a
-| period after a KVM_RUN ioctl, when the guest did not execute any
-| FPSIMD/SVE/SME instructions. We fixed that issue in commit:
-|
-|   fbc7e61195e2 ("KVM: arm64: Unconditionally save+flush host FPSIMD/SVE/SME state")
-|
-| Add a test which tries to provoke that issue by manipulating SVE state
-| before/after running a guest which does not execute any FPSIMD/SVE/SME
-| instructions. The test executes a handful of iterations to miminize
-| the risk that the issue is masked by preemption.
-
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-
-Looks like my Signed-off-by got dropped by accident; it should be above
-yours here.
-
-Aside from that, and the initial feature test, this looks pretty much
-identical to my original WIP.
-
-I'm not sure if it's worth keeping all the printf() calls, which were
-only there to help me check the UDF trap was being handled correctly.
-
-Either way, with the commit message updated and SoB restored:
-
-Acked-by: Mark Rutland <mark.rutland@arm.com>
-
-Mark.
-
-> ---
->  tools/testing/selftests/kvm/Makefile.kvm     |   1 +
->  tools/testing/selftests/kvm/arm64/host_sve.c | 127 +++++++++++++++++++++++++++
->  2 files changed, 128 insertions(+)
+> > You say the PHY is a YT8531C. These PHYs also accept
+> > rx-internal-delay-ps and tx-internal-delay-ps properties in their DT
+> > node.
+> >
+> > Try setting 'rgmii-id', allwinner,tx-delay-ps = <0>, and both
+> > rx-internal-delay-ps and tx-internal-delay-ps in the PHY node to 1950.
+> > If that does not work, try other values in the PHY node.
 > 
-> diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-> index f62b0a5aba35..d37072054a3d 100644
-> --- a/tools/testing/selftests/kvm/Makefile.kvm
-> +++ b/tools/testing/selftests/kvm/Makefile.kvm
-> @@ -147,6 +147,7 @@ TEST_GEN_PROGS_arm64 = $(TEST_GEN_PROGS_COMMON)
->  TEST_GEN_PROGS_arm64 += arm64/aarch32_id_regs
->  TEST_GEN_PROGS_arm64 += arm64/arch_timer_edge_cases
->  TEST_GEN_PROGS_arm64 += arm64/debug-exceptions
-> +TEST_GEN_PROGS_arm64 += arm64/host_sve
->  TEST_GEN_PROGS_arm64 += arm64/hypercalls
->  TEST_GEN_PROGS_arm64 += arm64/mmio_abort
->  TEST_GEN_PROGS_arm64 += arm64/page_fault_test
-> diff --git a/tools/testing/selftests/kvm/arm64/host_sve.c b/tools/testing/selftests/kvm/arm64/host_sve.c
-> new file mode 100644
-> index 000000000000..3826772fd470
-> --- /dev/null
-> +++ b/tools/testing/selftests/kvm/arm64/host_sve.c
-> @@ -0,0 +1,127 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +
-> +/*
-> + * Host SVE: Check FPSIMD/SVE/SME save/restore over KVM_RUN ioctls.
-> + *
-> + * Copyright 2025 Arm, Ltd
-> + */
-> +
-> +#include <errno.h>
-> +#include <signal.h>
-> +#include <sys/auxv.h>
-> +#include <asm/kvm.h>
-> +#include <kvm_util.h>
-> +
-> +#include "ucall_common.h"
-> +
-> +static void guest_code(void)
-> +{
-> +	for (int i = 0; i < 10; i++) {
-> +		GUEST_UCALL_NONE();
-> +	}
-> +
-> +	GUEST_DONE();
-> +}
-> +
-> +void handle_sigill(int sig, siginfo_t *info, void *ctx)
-> +{
-> +	ucontext_t *uctx = ctx;
-> +
-> +	printf("  < host signal %d >\n", sig);
-> +
-> +	/*
-> +	 * Skip the UDF
-> +	 */
-> +	uctx->uc_mcontext.pc += 4;
-> +}
-> +
-> +void register_sigill_handler(void)
-> +{
-> +	struct sigaction sa = {
-> +		.sa_sigaction = handle_sigill,
-> +		.sa_flags = SA_SIGINFO,
-> +	};
-> +	sigaction(SIGILL, &sa, NULL);
-> +}
-> +
-> +static void do_sve_roundtrip(void)
-> +{
-> +	unsigned long before, after;
-> +
-> +	/*
-> +	 * Set all bits in a predicate register, force a save/restore via a
-> +	 * SIGILL (which handle_sigill() will recover from), then report
-> +	 * whether the value has changed.
-> +	 */
-> +	asm volatile(
-> +	"	.arch_extension sve\n"
-> +	"	ptrue	p0.B\n"
-> +	"	cntp	%[before], p0, p0.B\n"
-> +	"	udf #0\n"
-> +	"	cntp	%[after], p0, p0.B\n"
-> +	: [before] "=r" (before),
-> +	  [after] "=r" (after)
-> +	:
-> +	: "p0"
-> +	);
-> +
-> +	if (before != after) {
-> +		TEST_FAIL("Signal roundtrip discarded predicate bits (%ld => %ld)\n",
-> +			  before, after);
-> +	} else {
-> +		printf("Signal roundtrip preserved predicate bits (%ld => %ld)\n",
-> +		       before, after);
-> +	}
-> +}
-> +
-> +static void test_run(void)
-> +{
-> +	struct kvm_vcpu *vcpu;
-> +	struct kvm_vm *vm;
-> +	struct ucall uc;
-> +	bool guest_done = false;
-> +
-> +	register_sigill_handler();
-> +
-> +	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
-> +
-> +	do_sve_roundtrip();
-> +
-> +	while (!guest_done) {
-> +
-> +		printf("Running VCPU...\n");
-> +		vcpu_run(vcpu);
-> +
-> +		switch (get_ucall(vcpu, &uc)) {
-> +		case UCALL_NONE:
-> +			do_sve_roundtrip();
-> +			do_sve_roundtrip();
-> +			break;
-> +		case UCALL_DONE:
-> +			guest_done = true;
-> +			break;
-> +		case UCALL_ABORT:
-> +			REPORT_GUEST_ASSERT(uc);
-> +			break;
-> +		default:
-> +			TEST_FAIL("Unexpected guest exit");
-> +		}
-> +	}
-> +
-> +	kvm_vm_free(vm);
-> +}
-> +
-> +int main(void)
-> +{
-> +	/*
-> +	 * This is testing the host environment, we don't care about
-> +	 * guest SVE support.
-> +	 */
-> +	if (!(getauxval(AT_HWCAP) & HWCAP_SVE)) {
-> +		printf("SVE not supported\n");
-> +		return KSFT_SKIP;
-> +	}
-> +
-> +	test_run();
-> +	return 0;
-> +}
-> 
-> ---
-> base-commit: 8ffd015db85fea3e15a77027fda6c02ced4d2444
-> change-id: 20250226-kvm-selftest-sve-signal-1add0d9d716c
-> 
-> Best regards,
-> -- 
-> Mark Brown <broonie@kernel.org>
-> 
+> I don't get why we should ignore the strappings instead of using them
+> as reference or even truth.
+
+If you don't want the PHY to be reprogrammed pass:
+
+* @PHY_INTERFACE_MODE_NA: Not Applicable - don't touch
+
+rather than one of
+
+ * @PHY_INTERFACE_MODE_RGMII: Reduced gigabit media-independent interface
+ * @PHY_INTERFACE_MODE_RGMII_ID: RGMII with Internal RX+TX delay
+ * @PHY_INTERFACE_MODE_RGMII_RXID: RGMII with Internal RX delay
+ * @PHY_INTERFACE_MODE_RGMII_TXID: RGMII with Internal TX delay
+
+However, if we do pass one of these RGMII modes, i expect the PHY to
+follow them.
+
+> If the strappings worked correctly w/ the
+> generic PHY driver (that doesn't know how to configure the delay mode
+> on the PHY side), isn't it working as intended?
+
+The generic PHY driver is there as a fallback, for when the real PHY
+driver is missing. It is nice if it works, but it often does not in
+current systems.  What we really care about is that the real PHY
+driver works, and the system as a whole follows the DT bindings.
+
+	Andrew
 
