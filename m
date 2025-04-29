@@ -4,74 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A0FEC3ABA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 05:39:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39278C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 05:41:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pzkZjylbLLAHjpwW0NmKdLwDoLrTrms8xV7X98/S9fs=; b=Dq0AqSO0oLnotjj1qzqJDrCUUp
-	KMEFY7W8i81Ev10oeWrjYgGp9q/w0xfJL+jc2ppCLdewgGn+6Oo8fJLs9LOsqk/WxuWs0PhsN7nuM
-	uUXQe67hAN3MXybF3onTMJG4/GavwMX1OwE0pt5c7zEsHKGACHBZ3iXxBRzKAWfdrnUww1MjfIVcf
-	iwjQF8rjYGhwPzrfMTInbrERkkghZRE7LUi3k7gbKfRR5BpYgId+3DNjX1zjjeaMovzuI0PeVukAD
-	UtBSqh7sDMii8RSXK3bhFI6JwZf6HEfZjywCC4B2hoV375qifcaS31xylgQVXY04ZMzQf9tEz7V1G
-	qaiJUMqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jcXeFCJONENngrk/2rs7ObHW+W/WZF7lIqyvwOCXLRU=; b=m/XRs0sK6Lsiox8ANnKP8mLjon
+	8dNjl3OqhdCONhqKjvLMVHX4egmpL7tdbYBU8Tp+fHaKsSLreBYoE6CU3dRQTXDxTY6jI3TzsSEd+
+	n1QLlMlgaNDkxJRUupk4mAojYhG1qo+iYI9SfLiv+YA3mfXl+dlOkNjP/81yOhP/RDHqfxZrj4yDA
+	3GUvzVMM+n6uRyUHxfVgBUimiWGqHAQbkbrjopUeMA41zKrD18LWGgwoNVKqU2HQN1a6aYDJKjyeS
+	dRQr6w0v/Qd3iDsuTqmVeebvUnMOaNXIkabZa7AaDqSTTXHc+VcerEe7z1+idvj0Zo+R0kqfhbK6g
+	EVi0mUuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9dgp-00000008PTm-1dpC;
-	Tue, 29 Apr 2025 05:39:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9dSo-00000008Nl0-3mKk
+	id 1u9dij-00000008Pk1-25tf;
+	Tue, 29 Apr 2025 05:41:29 +0000
+Received: from mail-dm6nam11on2060f.outbound.protection.outlook.com ([2a01:111:f403:2415::60f] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u9dby-00000008Our-2DAe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 05:25:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A65EB1515;
-	Mon, 28 Apr 2025 22:24:55 -0700 (PDT)
-Received: from K4MQJ0H1H2.arm.com (unknown [10.163.78.253])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D2B4A3F5A1;
-	Mon, 28 Apr 2025 22:24:52 -0700 (PDT)
-From: Dev Jain <dev.jain@arm.com>
-To: akpm@linux-foundation.org
-Cc: ryan.roberts@arm.com,
-	david@redhat.com,
-	willy@infradead.org,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	Liam.Howlett@oracle.com,
-	lorenzo.stoakes@oracle.com,
-	vbabka@suse.cz,
-	jannh@google.com,
-	anshuman.khandual@arm.com,
-	peterx@redhat.com,
-	joey.gouly@arm.com,
-	ioworker0@gmail.com,
-	baohua@kernel.org,
-	kevin.brodsky@arm.com,
-	quic_zhenhuah@quicinc.com,
-	christophe.leroy@csgroup.eu,
-	yangyicong@hisilicon.com,
-	linux-arm-kernel@lists.infradead.org,
-	namit@vmware.com,
-	hughd@google.com,
-	yang@os.amperecomputing.com,
-	ziy@nvidia.com,
-	Dev Jain <dev.jain@arm.com>
-Subject: [PATCH v2 7/7] mm: Optimize mprotect() through PTE-batching
-Date: Tue, 29 Apr 2025 10:53:36 +0530
-Message-Id: <20250429052336.18912-8-dev.jain@arm.com>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
-In-Reply-To: <20250429052336.18912-1-dev.jain@arm.com>
-References: <20250429052336.18912-1-dev.jain@arm.com>
-MIME-Version: 1.0
+	Tue, 29 Apr 2025 05:34:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZmpGirKq/vfRSPjSIL68uqB664sO6SISNm5kie8dxif7Hf0LnWeZFFf3Ri4C3BOoje6WHfNStflFTPEXwuVrzUBq00RuF+H8EF4v+v4W9eDxhs2l9DU4TbDywELT+G6DUEt0A1EmVUtUZjAIFfbb8q//0YgzVK4rakhZWQ4qUktauRqKArGubBu5b2j2xlX1tNxTMuigZQYfGlqcs1ia74VRl50zk4diQaPO9tQFrR35mG7L3X/aX2VfXnZmAlosuVKu0sqNly2717B2XiiBx7/O0775xuSFyCThK5tFJNMJpb1+rvZ2X3UU//78lmcUpH66Utr4YDx83ngFS8tfGg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jcXeFCJONENngrk/2rs7ObHW+W/WZF7lIqyvwOCXLRU=;
+ b=rAdDfgd3b7P3s+WTudud2WFzuKx3EYJP3XMgueLqfTLM/cAg6obdnaPKxUixmJmRcMS+QZVFhWajpGpRBfVlBKKllxnMPvHtulJ7FI8xf2JCJS8HBI+WfqrCypkVvavrdOtFUsU4OYb2kkjjwLBdFt1o5YF/G1Vqr4FaoL+NZ08Qq7FwZa2kMkoYZDtprswLHRDy+hiajfUuiTznfvm2JA28OpuVY1AakUm3Hp8Xjp6SixGzvRIAj1kvIcW/r2lp9oL4lK9i9PtO1yUt3CNRQGsBSHuU1GR7gjd95LMQxTZw9iKZEZafh/BLKA3nPDilk/tbGtU017x0wC8DcGGJ6A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jcXeFCJONENngrk/2rs7ObHW+W/WZF7lIqyvwOCXLRU=;
+ b=jMv9MsxEHzQtBcxMUMHIUHy3GMt6eBY/1h1gob/+VyZFCvCziAHQBibJJrqMUYyVGNp8M+e4ZiX5PQ0ELILqDyVmAgDRKaJu27chHSjc1JEsUAV2sQv4PqpdPn/UdUz8WZnB2JcqXNqAEPl4RKV5cRO2UpfRa7NvOSjTE6smZkI=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from DS7PR12MB6048.namprd12.prod.outlook.com (2603:10b6:8:9f::5) by
+ PH8PR12MB6937.namprd12.prod.outlook.com (2603:10b6:510:1bc::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.31; Tue, 29 Apr
+ 2025 05:34:19 +0000
+Received: from DS7PR12MB6048.namprd12.prod.outlook.com
+ ([fe80::6318:26e5:357a:74a5]) by DS7PR12MB6048.namprd12.prod.outlook.com
+ ([fe80::6318:26e5:357a:74a5%5]) with mapi id 15.20.8678.028; Tue, 29 Apr 2025
+ 05:34:19 +0000
+Message-ID: <b8338b47-6fbf-44ac-9b99-3555997c9f36@amd.com>
+Date: Tue, 29 Apr 2025 11:04:06 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 10/22] iommufd/viommmu: Add IOMMUFD_CMD_VCMDQ_ALLOC
+ ioctl
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
+ bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
+ thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
+ shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
+ peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
+ praan@google.com, zhangzekun11@huawei.com, iommu@lists.linux.dev,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, patches@lists.linux.dev, mochs@nvidia.com,
+ alok.a.tiwari@oracle.com,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>
+References: <cover.1745646960.git.nicolinc@nvidia.com>
+ <094992b874190ffdcf6012104b419c8649b5e4b4.1745646960.git.nicolinc@nvidia.com>
+ <b0d01609-bdda-49a3-af0c-ca828a9c4cea@amd.com>
+ <aA/exylmYJhIhEVL@Asurada-Nvidia>
+Content-Language: en-US
+From: Vasant Hegde <vasant.hegde@amd.com>
+In-Reply-To: <aA/exylmYJhIhEVL@Asurada-Nvidia>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: PN2PR01CA0086.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:23::31) To DS7PR12MB6048.namprd12.prod.outlook.com
+ (2603:10b6:8:9f::5)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS7PR12MB6048:EE_|PH8PR12MB6937:EE_
+X-MS-Office365-Filtering-Correlation-Id: c4dd6f30-de15-4bdf-3ac2-08dd86df7d00
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Q2ViODhwbEk5ZnVtZHNlMkhUQkpGMDBlUlFwcFp1OXFsRGdHL295aW9pTVBX?=
+ =?utf-8?B?RGFtK3VKaGNKakx2WTkrbkorM0NBVlRla0IxQUFScDgzRkZxdFhJM0xNaW5I?=
+ =?utf-8?B?MHRPVzFESXhqV0NaS0g1Ym9kLzJZczRBS29HMFBqRmJQTVFHMkVZVFRoM0tY?=
+ =?utf-8?B?Z3RpdHIya255Vm9SMTJmRVRoOVpEdVRxbTh1am9Nc2oyRGptQWhVTmtOMU5D?=
+ =?utf-8?B?VEsva3dqek9YVmZIMFZaNVBnUmM2RytvNG5hSHE0ZWt5Yk1CdGY4d0w4RFRk?=
+ =?utf-8?B?MUgxeXhHLzNKUXV3K3JaVmMvYUE0MU5tTGJGSFFTUmVKZnhhMmFVQkdyZ2Mv?=
+ =?utf-8?B?RGdHSCt5dGtaTFhVNzBDN1ZRQkt5UTU4MnVjVXMyN1I3T2wxZHZ4cUZnOHdo?=
+ =?utf-8?B?TjdIYnJhcnVXTlp4blJHaUhHRVRkcEk4emgyb24zaWlGSGxWZmpRcmFXVkxQ?=
+ =?utf-8?B?UlN3TjNWcmlpSEtFQW9kQ01ZOERMbmNpaUJJOVNsdVJPbllBOVNEdXJEVHpN?=
+ =?utf-8?B?RXBubkQ1U3NJN1NDUG80RTczWHAvSXRoOVdMQ3JpT1VhamxaYzdiZG56M2N4?=
+ =?utf-8?B?MFN6Q0g2c3B4djhOaEh3YW5xTHNVU21Pa1B3UUloSHBmVFk0UTVvYktHVDY0?=
+ =?utf-8?B?d0c4TWNKYjNjam56VjdiVUFTVkhoendUTldHRG9YQzgyMWI0anI1ZGF0cDRO?=
+ =?utf-8?B?SWU2enpoSGtOSmUwdW9Kc0NnckVMeDhreHBITTNtcjRrU1d1YkM5VEZoNUMx?=
+ =?utf-8?B?UDBUWlpJMU90RVQ0RnhvUWpKUEJMajk1QXFXck5GMUlkRjNUbzM5cGxNdndE?=
+ =?utf-8?B?d3NRQ2x6aTUyWGd2RU52SU1rQU82NjNLc0xreDZLQ0dlOVZwa3F5QVBxdWE5?=
+ =?utf-8?B?WWp1MmNnZW5wTWRJL2lzWm5ISGZqSDhLZGdBbStrN0ZoWnA1U2NlZjJ2YkZw?=
+ =?utf-8?B?MUpEaTlXcnhpUzZOMVZLU0lURksvSWsrZGZ3Vnp0M2tkalVaN2xoZW83V3dk?=
+ =?utf-8?B?bVIveFRPZ1dKLy9GMHMzOVQrdVFUYzBZTjhUemViRld1Yk41QjJxYUxTNi9K?=
+ =?utf-8?B?aDhjalk0Sit4NmNRdFR2NnlCSHE0WjNhSWtDOTVsODU0ejFPUFg2S0dreFUz?=
+ =?utf-8?B?dW5IaVRNTWVucVRaTFZiWVRKdUxRSHREajA5NEdJazRLTEErMGxBWW44amJn?=
+ =?utf-8?B?QTBaYk1kSThnemoycWtWdkhheXJ1UUJxZkk5RTZ6dVpWcmhOazdTL0NWQkVI?=
+ =?utf-8?B?b2xFdklwMUpsRVhVUTMwZlVzTGdWUEhzZUdkWFlKdmlSU2N3M2wxenlsZzE5?=
+ =?utf-8?B?MitiaUQ3VjRCR1ZOQ2REUzZkYmJyVDJWdXpxdzNBdHZTSnE5bDF5enhkS0dO?=
+ =?utf-8?B?ZkYwc2JPbXBsSHJqeUVwbUowa0ZxWlUvaXNqVkFjcUpHaDBWc1NocFhCMUZF?=
+ =?utf-8?B?dGRObFJaR0JKNkxoT29USUh0QUh6bGxEZFUvY0dsRGxKRmxFd2RQaGVHSVlo?=
+ =?utf-8?B?aU40U0w2ZTJUa3lqL0Y5Q2NRN3hDNmRIM2hVcGN6K0haaXdrT2VLTHRKV0Z6?=
+ =?utf-8?B?Tm9wZHQ1YVlTYXZMQTlvTjlVdmgwMDdFOXl6d0tOZExrdUdQUVd0MlhtL2xK?=
+ =?utf-8?B?Q0hLWEdBZ2ZRcDBMVENrb3ZKZkwzUmxlbGRvTEZxQXBZaWRKVThHamlGK1Vw?=
+ =?utf-8?B?b0dQSHQ0aDBFdkdTTEtjeVo2MWJCMUhsTWU4clY2NFR5Q21kU0lHRXF3T2U0?=
+ =?utf-8?B?cDBvQnMzN3JFc1lPLy9JVlVmdHZXZUdhZ3lDTXppZjgrSEt4VkF3YUdldVJz?=
+ =?utf-8?B?by90RFRrNis5MkZXVGpCc0dLdHZpNTNzd2NtNHQ3TGgvUkFRZGU3UHVsY0hz?=
+ =?utf-8?B?ckN6dHFIbDdwa2VnWTFZUVZLR3ZmRmZCTzFDN3QvTm5zaEkxSTc1dnBOdWxi?=
+ =?utf-8?Q?mYXjhTri7Xw=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB6048.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d09rMjFLc0poWnh2aE8zTGZZOG40SVJONmpXQklBbHVHVFRjTXRxeFFXWGdB?=
+ =?utf-8?B?V3ZyT0puQmFRc2MrNGlPWDZGWjdTdXdOM3YxUm1zMms3RFp1a1lvRnpJaTBN?=
+ =?utf-8?B?YnI1eHBXcXlDK1hIeE1Yak9qVG5rc3c4R0IxRlVoa1VpeitrbHlEVnhnNlln?=
+ =?utf-8?B?REY2M2pvc3hidUNsZWJySlU4a2ZIRStRWUs1L3AxazIyek9rdDd0eWNTYkh0?=
+ =?utf-8?B?YktSNHlTRUF3SEk2SHNnUkhPblBlZVJ0bzZJZG1UL3cwalpPU1hLWDB2Qjhq?=
+ =?utf-8?B?b2VUTDNtUGNWN2hBc3ZqSXgwU3Z6NWRDSTlwclovdVp2MkJocTMxUG4wSzg1?=
+ =?utf-8?B?VDhadUdyVG9ETGNYWmh2N0pCSWNpQnliNS91VXp4QWdLdFRRaEt6WjdHbTc2?=
+ =?utf-8?B?bW5iM2MwU1A2SlNPbUdkQVRDcDNJY0NHUW56blJQOG5LdEM0RnNtb29YWWcv?=
+ =?utf-8?B?THJnaG1NZEFJWnFPaTM4R3U5U3F1Z1h4T2hJMEFldlpMWWg2L1daQmtpVm9q?=
+ =?utf-8?B?TytZYmwyc2lDRk10OHkyQnVuQXRiT0FDdlFRN2dRK1ZYODBMZTAvVDgvbXZI?=
+ =?utf-8?B?YmxjQmdOc2ZxdzkyV0tLbEZrZHdmbTk1RUs4eXU5d3JsTUgvZldyWlFIbFdQ?=
+ =?utf-8?B?UDZVbjhlREtkS3dqOVhHZGQwZ3JMMlNtM08xZUtxTlRRcmlrOUVISG4rS1dl?=
+ =?utf-8?B?MzNUeXlVYk5xYVF4QjJNT1ZvSTlteHVLR3Q4b0VBdENWUGhFemIxYWFlTTJ3?=
+ =?utf-8?B?WXk5MXpKQWpBYzgzWnZEWXpmODlTMVkycjk3ZEMya3ZBbGRmcG1WWUJkK1ds?=
+ =?utf-8?B?Vk1lTlVTallaOEx4OE5uNS9kV0FMT1JpUTBweVRvNUMyMFJXRTdhZWVTRGpx?=
+ =?utf-8?B?YnBqVzg4SXVOYXNSRklXS3ZoditmYXcxbnhOOHBtRWdjS1ZhbHVBT3htbTNa?=
+ =?utf-8?B?cjEyV29tSjQ2UHgxdENuMlBiM3l4TVhMWU1uV0RKekFBV1pQYkYzUjZ4WlFq?=
+ =?utf-8?B?b252TGtoWjE2dTN3NFduRlM5Zm14TTV2bFZEaDJUOVNCNGc2TTg5dlhoZzBm?=
+ =?utf-8?B?Q0xsRWI2OU9ESjMrRndVbnl1a1ZXUVNYSm9Bd2JKbFBGeDBLUzBkeFFjOWhZ?=
+ =?utf-8?B?VmMyRDJkcmowaVdmdlUrRmRWZzVucWpDS0lWMUVWL1A0Mjl0dHM5aDdJaTdy?=
+ =?utf-8?B?Q09VVzdXM2FoOS9NWGgvTjBtb3pYKzdMU1B0OVp0N3NjYm5MV3NaajFuWnlj?=
+ =?utf-8?B?QVJaTXNHWStLRVVKTFg1RkF3bUpPN1ZTYkphdzNkRVpjYzRMbU5xbFplUUZI?=
+ =?utf-8?B?UUFiY3AvTkY2UU8yZGRwdTU0Y1kzQUVpY1p1dlhQSktpZmNXbUxVZHdHNUh6?=
+ =?utf-8?B?R3pnNE9FY3BKVFNIVGEwUzV3Q2h6QStJSEVySjB6UjFScE1oZHp0KzR3QTNK?=
+ =?utf-8?B?dUh2SDlvbGtFT2M2ODdJMGZSVWwwS0RVeVJCdEpyT2lVeFZLTnBpTnFIVm91?=
+ =?utf-8?B?V2xOVFQxUkVQWDd2bkxGS2dwZnF3NWlaMXFjcEE4V2tLK3g3VjZZWVdYMGtH?=
+ =?utf-8?B?cjMrSm42dUgrUWZ2dTIxQnRIaWc2d2NoOW02VjZSRVZGMTFwLzVLNFEvU1Ir?=
+ =?utf-8?B?OVdUUFJWZllvR2wzRWE2THIwak1KUUc0bU9IbThQTTZoM1IzTDhGQVllUnVv?=
+ =?utf-8?B?WlhmczFkR05LMnZJUlpRYm05MnNvUmRiUnR1ZXhSckZ6ckJJQksvb3lzc1R5?=
+ =?utf-8?B?ZGpzV0g4RTcrbndRS2FIenRXUkU2TXNHZC9zQXhQUTEwM1FobmRIOHh3ZTRH?=
+ =?utf-8?B?d2FyMmF6WDF4V1BIRkk0NjdqWDNjV1dSUnJ4Y0dOekhIRHMxQkF0YUlFQ3pt?=
+ =?utf-8?B?L1M0VFJreWVkZUFyK2dPcmdnSHpsOWZUcWNuZjdVS29xVU5SY1VtZjZuNlJZ?=
+ =?utf-8?B?RmhwN2U5b2Q2ekIwZGxjeEJ0QVVoYktPUGYxQ01BRmI5eVlwaC8zOWRtdjB5?=
+ =?utf-8?B?M3Z1ZVpvWWtpWUxuckFoUHd0T1BVRFJlQVdjR0tQN0VMWUZWRFBxZk93aXI0?=
+ =?utf-8?B?Wi9TNmxPa2tSMjhUVTRSZzhOOVJseXlTZ0w1QjZkL0s3WUZ3eFRCMWtqOXI4?=
+ =?utf-8?Q?Ms+LqQP7r4ayWaoOZlTqBkfQZ?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c4dd6f30-de15-4bdf-3ac2-08dd86df7d00
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB6048.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Apr 2025 05:34:19.3773
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: pfHOmLUdbuCjjweFfAKOphiMfrIwebVG/JyiAZgRpwaFz/toca7OvHmps8TMxFMqJiIQg4/9yxczmYnhZPisPw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB6937
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_222503_042122_7AA85E22 
-X-CRM114-Status: GOOD (  13.49  )
+X-CRM114-CacheID: sfid-20250428_223430_621293_7D0A53FE 
+X-CRM114-Status: GOOD (  31.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,128 +187,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The common pte_present case does not require the folio. Elide the overhead of
-vm_normal_folio() for the small folio case, by making an approximation:
-for arm64, pte_batch_hint() is conclusive. For other arches, if the pfns
-pointed to by the current and the next PTE are contiguous, check whether
-a large folio is actually mapped, and only then make the batch optimization.
-Reuse the folio from prot_numa case if possible. Since modify_prot_start_ptes()
-gathers access/dirty bits, it lets us batch around pte_needs_flush()
-(for parisc, the definition includes the access bit).
+Hi Nicolin,
 
-Signed-off-by: Dev Jain <dev.jain@arm.com>
----
- mm/mprotect.c | 49 +++++++++++++++++++++++++++++++++++--------------
- 1 file changed, 35 insertions(+), 14 deletions(-)
 
-diff --git a/mm/mprotect.c b/mm/mprotect.c
-index baff009fc981..f8382806611f 100644
---- a/mm/mprotect.c
-+++ b/mm/mprotect.c
-@@ -129,7 +129,7 @@ static bool prot_numa_skip(struct vm_area_struct *vma, struct folio *folio,
- 	return false;
- }
- 
--static bool prot_numa_avoid_fault(struct vm_area_struct *vma,
-+static struct folio *prot_numa_avoid_fault(struct vm_area_struct *vma,
- 		unsigned long addr, pte_t *pte, pte_t oldpte, int target_node,
- 		int max_nr, int *nr)
- {
-@@ -139,25 +139,37 @@ static bool prot_numa_avoid_fault(struct vm_area_struct *vma,
- 
- 	/* Avoid TLB flush if possible */
- 	if (pte_protnone(oldpte))
--		return true;
-+		return NULL;
- 
- 	folio = vm_normal_folio(vma, addr, oldpte);
- 	if (!folio)
--		return true;
-+		return NULL;
- 
- 	ret = prot_numa_skip(vma, folio, target_node);
- 	if (ret) {
- 		if (folio_test_large(folio) && max_nr != 1)
- 			*nr = folio_pte_batch(folio, addr, pte, oldpte,
- 					      max_nr, flags, NULL, NULL, NULL);
--		return ret;
-+		return NULL;
- 	}
- 	if (folio_use_access_time(folio))
- 		folio_xchg_access_time(folio,
- 			jiffies_to_msecs(jiffies));
--	return false;
-+	return folio;
- }
- 
-+static bool maybe_contiguous_pte_pfns(pte_t *ptep, pte_t pte)
-+{
-+	pte_t *next_ptep, next_pte;
-+
-+	if (pte_batch_hint(ptep, pte) != 1)
-+		return true;
-+
-+	next_ptep = ptep + 1;
-+	next_pte = ptep_get(next_ptep);
-+
-+	return unlikely(pte_pfn(next_pte) - pte_pfn(pte) == PAGE_SIZE);
-+}
- static long change_pte_range(struct mmu_gather *tlb,
- 		struct vm_area_struct *vma, pmd_t *pmd, unsigned long addr,
- 		unsigned long end, pgprot_t newprot, unsigned long cp_flags)
-@@ -188,19 +200,28 @@ static long change_pte_range(struct mmu_gather *tlb,
- 		oldpte = ptep_get(pte);
- 		if (pte_present(oldpte)) {
- 			int max_nr = (end - addr) >> PAGE_SHIFT;
-+			const fpb_t flags = FPB_IGNORE_DIRTY;
-+			struct folio *folio = NULL;
- 			pte_t ptent;
- 
- 			/*
- 			 * Avoid trapping faults against the zero or KSM
- 			 * pages. See similar comment in change_huge_pmd.
- 			 */
--			if (prot_numa &&
--			    prot_numa_avoid_fault(vma, addr, pte,
--						  oldpte, target_node,
--							  max_nr, &nr))
-+			if (prot_numa) {
-+				folio = prot_numa_avoid_fault(vma, addr, pte,
-+					oldpte, target_node, max_nr, &nr);
-+				if (!folio)
- 					continue;
-+			}
- 
--			oldpte = ptep_modify_prot_start(vma, addr, pte);
-+			if (!folio && (max_nr != 1) && maybe_contiguous_pte_pfns(pte, oldpte)) {
-+				folio = vm_normal_folio(vma, addr, oldpte);
-+				if (folio_test_large(folio))
-+					nr = folio_pte_batch(folio, addr, pte,
-+					oldpte, max_nr, flags, NULL, NULL, NULL);
-+			}
-+			oldpte = modify_prot_start_ptes(vma, addr, pte, nr);
- 			ptent = pte_modify(oldpte, newprot);
- 
- 			if (uffd_wp)
-@@ -223,13 +244,13 @@ static long change_pte_range(struct mmu_gather *tlb,
- 			 */
- 			if ((cp_flags & MM_CP_TRY_CHANGE_WRITABLE) &&
- 			    !pte_write(ptent) &&
--			    can_change_ptes_writable(vma, addr, ptent, folio, 1))
-+			    can_change_ptes_writable(vma, addr, ptent, folio, nr))
- 				ptent = pte_mkwrite(ptent, vma);
- 
--			ptep_modify_prot_commit(vma, addr, pte, oldpte, ptent);
-+			modify_prot_commit_ptes(vma, addr, pte, oldpte, ptent, nr);
- 			if (pte_needs_flush(oldpte, ptent))
--				tlb_flush_pte_range(tlb, addr, PAGE_SIZE);
--			pages++;
-+				tlb_flush_pte_range(tlb, addr, nr * PAGE_SIZE);
-+			pages += nr;
- 		} else if (is_swap_pte(oldpte)) {
- 			swp_entry_t entry = pte_to_swp_entry(oldpte);
- 			pte_t newpte;
--- 
-2.30.2
+On 4/29/2025 1:32 AM, Nicolin Chen wrote:
+> On Mon, Apr 28, 2025 at 05:42:27PM +0530, Vasant Hegde wrote:
+>>> +/**
+>>> + * struct iommu_vcmdq_alloc - ioctl(IOMMU_VCMDQ_ALLOC)
+>>> + * @size: sizeof(struct iommu_vcmdq_alloc)
+>>> + * @flags: Must be 0
+>>> + * @viommu_id: Virtual IOMMU ID to associate the virtual command queue with
+>>> + * @type: One of enum iommu_vcmdq_type
+>>> + * @index: The logical index to the virtual command queue per virtual IOMMU, for
+>>> + *         a multi-queue model
+>>> + * @out_vcmdq_id: The ID of the new virtual command queue
+>>> + * @addr: Base address of the queue memory in the guest physical address space
+>>
+>> Sorry. I didn't get this part.
+>>
+>> So here `addr` is command queue base address like
+>>  - NVIDIA's virtual command queue
+>>  - AMD vIOMMU's command buffer
+>>
+>> .. and it will allocate vcmdq for each buffer type. Is that the correct
+>> understanding?
+> 
+> Yes. For AMD "vIOMMU", it needs a new type for iommufd vIOMMU:
+> 	IOMMU_VIOMMU_TYPE_AMD_VIOMMU,
+> 
+> For AMD "vIOMMU" command buffer, it needs a new type too:
+> 	IOMMU_VCMDQ_TYPE_AMD_VIOMMU, /* Kdoc it to be Command Buffer */
+
+You are suggesting we define one type for AMD and use it for all buffers like
+command buffer, event log, PPR buffet etc? and use iommu_vcmdq_alloc->index to
+identity different buffer type?
+
+
+> 
+> Then, use IOMMUFD_CMD_VIOMMU_ALLOC ioctl to allocate an vIOMMU
+> obj, and use IOMMUFD_CMD_VCMDQ_ALLOC ioctl(s) to allocate vCMDQ
+> objs.
+> 
+>> In case of AMD vIOMMU, buffer base address is programmed in different register
+>> (ex: MMIO Offset 0008h Command Buffer Base Address Register) and buffer
+>> enable/disable is done via different register (ex: MMIO Offset 0018h IOMMU
+>> Control Register). And we need to communicate both to hypervisor. Not sure this
+>> API can accommodate this as addr seems to be mandatory.
+> 
+> NVIDIA's CMDQV has all three of them too. What we do here is to
+> let VMM trap the buffer base address (in guest physical address
+> space) and forward it to kernel using this @addr. Then, kernel
+> will translate this @addr to host physical address space, and
+> program the physical address and size to the register.
+
+Right. For AMD IOMMU 1st 4K of MMIO space (which contains all buffer base
+address registers) is not accelerated. So we can trap it and pass GPA, size to
+iommufd.
+
+.. but programming base register (like Command buffer base addr) is not
+sufficient. We have to enable the command buffer by setting particular bit in
+Control register.  So at high level flow is something like below (@Suravee,
+correct me if I missed something here).
+
+From guest side :
+  Write command bufer base addr, size (MMIO offset 0x08)
+  Set MMIO Offset 0x18[bit 12]
+    Also we need to program few other bits that are not related to these buffers
+    like `Completion wait interrupt enable`.
+
+
+From VMM side:
+  We need to trap both register and pass it to iommufd
+
+From Host AMD IOMMU driver:
+  We have to program VFCntlMMIO Offset {16’b[GuestID], 6’b10_0000}
+
+
+We need a way to pass Control register details to iommufd -> AMD driver so that
+we can program the VF control MMIO register.
+
+Since iommu_vcmdq_alloc structure doesn't have user_data, how do we communicate
+control register?
+
+
+
+
+> 
+>> [1]
+>> https://www.amd.com/content/dam/amd/en/documents/processor-tech-docs/specifications/48882_IOMMU.pdf
+> 
+> Thanks for the doc. So, AMD has:
+> 
+> Command Buffer Base Address Register [MMIO Offset 0008h]
+> "used to program the system physical base address and size of the
+>  command buffer. The command buffer occupies contiguous physical
+>  memory starting at the programmed base address, up to the
+>  programmed size."
+> Command Buffer Head Pointer Register [MMIO Offset 2000h]
+> Command Buffer Tail Pointer Register [MMIO Offset 2008h]
+> 
+> IIUIC, AMD should do the same: VMM traps VM's Command Buffer Base
+> Address register when the guest kernel allocates a command buffer
+> by programming the VM's Command Buffer Base Address register, to
+> capture the guest PA and size. Then, VMM allocates a vCMDQ object
+> (for this command buffer) forwarding its buffer address and size
+> via @addr and @length to the host kernel. Then, the kernel should
+> translate the guest PA to host PA to program the HW.
+> 
+> We can see that the Head/Tail registers are in a different MMIO
+> page (offset by two 4K pages), which is very like NVIDIA CMDQV
+> that allows VMM to mmap that MMIO page of the Head/Tail registers
+> for guest OS to directly control the HW (i.e. VMM doesn't trap
+> these two registers.
+> 
+> When guest OS wants to issue a new command, the guest kernel can
+> just fill the guest command buffer at the entry that the Head
+> register points to, and program the Tail register (backed by an
+> mmap'd MMIO page), then the HW will read the programmed physical
+> address from the entry (Head) till the entry (Tail) in the guest
+> command buffer.
+
+
+Right.
+
+
+> 
+>>> @@ -170,3 +170,97 @@ int iommufd_vdevice_alloc_ioctl(struct iommufd_ucmd *ucmd)
+>>>  	iommufd_put_object(ucmd->ictx, &viommu->obj);
+>>>  	return rc;
+>>>  }
+>>> +
+>>> +void iommufd_vcmdq_destroy(struct iommufd_object *obj)
+>>> +{
+>>
+>> I didn't understood destroy flow in general. Can you please help me to understand:
+>>
+>> VMM is expected to track all buffers and call this interface?  OR iommufd will
+>> take care of it? What happens if VM crashes ?
+> 
+> In a normal routine, VMM gets a vCMDQ object ID for each vCMDQ
+> object it allocated. So, it should track all the IDs and release
+> them when VM shuts down.
+> 
+> The iommufd core does track all the objects that belong to an
+> iommufd context (ictx), and automatically release them. But, it
+> can't resolve certain dependency on other FD, e.g. vEVENTQ and
+> FAULT QUEUE would return another FD that user space listens to
+> and must be closed properly to destroy the QUEUE object.
+
+Got it.
+
+> 
+>>> +	/* The underlying physical pages must be pinned in the IOAS */
+>>> +	rc = iopt_pin_pages(&viommu->hwpt->ioas->iopt, cmd->addr, cmd->length,
+>>> +			    pages, 0);
+>>
+>> Why do we need this? is it not pinned already as part of vfio binding?
+> 
+> I think this could be clearer:
+> 	/*
+> 	 * The underlying physical pages must be pinned to prevent them from
+> 	 * being unmapped (via IOMMUFD_CMD_IOAS_UNMAP) during the life cycle
+> 	 * of the vCMDQ object.
+> 	 */
+
+Understood.
+
+Thanks
+-Vasant
 
 
