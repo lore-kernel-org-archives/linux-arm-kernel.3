@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B74DC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 07:09:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2348C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 07:12:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M1HJrQJGWIT9AFf/jcCjNDbRZ0ry2drXdhiftJCR3bw=; b=RGhfoHXLZPwgSNMK4Pr6FxRE1c
-	bpOtOEay/vKAbp1geyi/4zaAFo7DHTRTAN66zP/nkc0YZGz6x92nDigyUW5tNT+HWAGjKh0rdae6X
-	Z1aNePVAzrKsRKMEqNhEjdpb1Uik3uJAX985XPekcu4vWkOMDYZ6oz1WV3MRpq5mcQo/Nyk8k87wl
-	ryVK0CcFl53J67qQQquJuvFX9M6db6ZC3B6jfn//pkJTBVaC6fkcHY9wv/K3zvOgZnRrhoGfvL/u4
-	0yMjdxzS58DGTrCa5jcDkjUTdJ+Fc/jcgdAkK2auod9uPBCEnLvky7iCTgw80LA1r+u9MV1S/nsCc
-	jlID32Hg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GCz4gNNOJMOL9Ry6Flvs6eAOzrBxsQGCeyPmORxEByI=; b=dkLfZVlVs8VTFvYXavL1ijOKM9
+	yIh33vsgcjEruK9CdWZ+24KPvkB6oQR2xRx0JnlQIzLK7FR+NA/6dfJDSajbku9MR6O9+ULSWra5x
+	8cBNGKRs1ooERVj5wwKN1OHBianjyegYIKcZ7nhp+oueUdU9H30+CGmIHJPl4fNyaFLQMi7sdOTYw
+	FB916J0smjYa2aA6CuGgHLK0TiiHxKDP/qLHVTyI2E/gYlsgVqNRp1Iij0ceqiLT2YPvxfXpmhlkX
+	whr/lM1WdMpNmiHIZYSOt3XnYlznUYmrgxIUFzyNa1ENay9noNu2I5tj9zbr8t4+p8Ch+z66nptSv
+	D2loPAhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9f5I-00000008hT1-2x2f;
-	Tue, 29 Apr 2025 07:08:52 +0000
-Received: from out-189.mta0.migadu.com ([2001:41d0:1004:224b::bd])
+	id 1u9f8I-00000008i09-1oOI;
+	Tue, 29 Apr 2025 07:11:58 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9f3K-00000008h54-3gFe
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 07:06:53 +0000
-Message-ID: <ba73873b-1b26-44cd-ac0f-76e33e8fc2cf@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1745910407;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=M1HJrQJGWIT9AFf/jcCjNDbRZ0ry2drXdhiftJCR3bw=;
-	b=fVDMhRWNp7xitc5a/aioHm5KvwDVTcs6s0xsh7qTE0whrr/+wD0frft+l6OumMnKYiexUe
-	rTXh6TDb3pL9NMCXnx05kZQq0liV5JyWH8SSE2u22wjLZbbODECgHiSQx3AjUYs0hE48jo
-	aizdjveLyaM61eZSFJEEeDl0jtKZkgk=
-Date: Tue, 29 Apr 2025 15:06:33 +0800
+	id 1u9f6M-00000008hkf-44HX;
+	Tue, 29 Apr 2025 07:10:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 079FA5C4D8E;
+	Tue, 29 Apr 2025 07:07:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 782F9C4CEE3;
+	Tue, 29 Apr 2025 07:09:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745910596;
+	bh=XYz3g2B0rvs9Ov2YUd2o2zmJrspxC64MWa2M4SH/gUM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TLzBkn7vxR3ao/EIan1Ff3uh7sQpmsEwhTyvp5IWbiNtqN50Zz/Xyge++kELaJN0q
+	 kMFpD/jygnIMW5irfCRHI1/OVghY9TyguwAoG6JGFRuLB12fPTTndhMsERnLtxJVI+
+	 wrdDiskFcX7rprpqyAD5jb78XXPmEjOP4woZg3f8UV4ahjmC8sga4B3fg+JZGGbSsz
+	 8VmTcfeSdQfDPyV/QYga3rL+W+deyMnR0DXK8PsAVfjFfbba+7pehYP3BREI1aPGXl
+	 eLCkMiD9L+6FQVeWWGCGc7G102jR3mGdcoBf1JnDrEjP48Wz5un/kPBYmstcawhD9D
+	 ln9Dj+vJkBQ6A==
+Date: Tue, 29 Apr 2025 09:09:54 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Sean Wang <sean.wang@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH 1/5] pinctrl: mediatek: airoha: use new GPIO line value
+ setter callbacks
+Message-ID: <aBB7QkazpVxlUCJc@lore-desk>
+References: <20250425-gpiochip-set-rv-pinctrl-mediatek-v1-0-93e6a01855e7@linaro.org>
+ <20250425-gpiochip-set-rv-pinctrl-mediatek-v1-1-93e6a01855e7@linaro.org>
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 0/7] Optimize mprotect for large folios
-To: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org
-Cc: ryan.roberts@arm.com, david@redhat.com, willy@infradead.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com,
- will@kernel.org, Liam.Howlett@oracle.com, lorenzo.stoakes@oracle.com,
- vbabka@suse.cz, jannh@google.com, anshuman.khandual@arm.com,
- peterx@redhat.com, joey.gouly@arm.com, ioworker0@gmail.com,
- baohua@kernel.org, kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
- christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
- linux-arm-kernel@lists.infradead.org, namit@vmware.com, hughd@google.com,
- yang@os.amperecomputing.com, ziy@nvidia.com
-References: <20250429052336.18912-1-dev.jain@arm.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Lance Yang <lance.yang@linux.dev>
-In-Reply-To: <20250429052336.18912-1-dev.jain@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="SzPC/w3b/xBP/t6u"
+Content-Disposition: inline
+In-Reply-To: <20250425-gpiochip-set-rv-pinctrl-mediatek-v1-1-93e6a01855e7@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_000651_472924_19841C19 
-X-CRM114-Status: GOOD (  23.52  )
+X-CRM114-CacheID: sfid-20250429_000959_085312_92C0BFB4 
+X-CRM114-Status: GOOD (  18.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,236 +78,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Dev,
 
-Hmm... I also hit the same compilation errors:
+--SzPC/w3b/xBP/t6u
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-In file included from ./include/linux/kasan.h:37,
-                  from ./include/linux/slab.h:260,
-                  from ./include/linux/crypto.h:19,
-                  from arch/x86/kernel/asm-offsets.c:9:
-./include/linux/pgtable.h: In function ‘modify_prot_start_ptes’:
-./include/linux/pgtable.h:905:15: error: implicit declaration of 
-function ‘ptep_modify_prot_start’ [-Werror=implicit-function-declaration]
-   905 |         pte = ptep_modify_prot_start(vma, addr, ptep);
-       |               ^~~~~~~~~~~~~~~~~~~~~~
-./include/linux/pgtable.h:905:15: error: incompatible types when 
-assigning to type ‘pte_t’ from type ‘int’
-./include/linux/pgtable.h:909:27: error: incompatible types when 
-assigning to type ‘pte_t’ from type ‘int’
-   909 |                 tmp_pte = ptep_modify_prot_start(vma, addr, ptep);
-       |                           ^~~~~~~~~~~~~~~~~~~~~~
-./include/linux/pgtable.h: In function ‘modify_prot_commit_ptes’:
-./include/linux/pgtable.h:925:17: error: implicit declaration of 
-function ‘ptep_modify_prot_commit’ [-Werror=implicit-function-declaration]
-   925 |                 ptep_modify_prot_commit(vma, addr, ptep, 
-old_pte, pte);
-       |                 ^~~~~~~~~~~~~~~~~~~~~~~
-./include/linux/pgtable.h: At top level:
-./include/linux/pgtable.h:1360:21: error: conflicting types for 
-‘ptep_modify_prot_start’; have ‘pte_t(struct vm_area_struct *, long 
-unsigned int,  pte_t *)’
-  1360 | static inline pte_t ptep_modify_prot_start(struct 
-vm_area_struct *vma,
-       |                     ^~~~~~~~~~~~~~~~~~~~~~
-./include/linux/pgtable.h:905:15: note: previous implicit declaration of 
-‘ptep_modify_prot_start’ with type ‘int()’
-   905 |         pte = ptep_modify_prot_start(vma, addr, ptep);
-       |               ^~~~~~~~~~~~~~~~~~~~~~
-./include/linux/pgtable.h:1371:20: warning: conflicting types for 
-‘ptep_modify_prot_commit’; have ‘void(struct vm_area_struct *, long 
-unsigned int,  pte_t *, pte_t,  pte_t)’
-  1371 | static inline void ptep_modify_prot_commit(struct 
-vm_area_struct *vma,
-       |                    ^~~~~~~~~~~~~~~~~~~~~~~
-./include/linux/pgtable.h:1371:20: error: static declaration of 
-‘ptep_modify_prot_commit’ follows non-static declaration
-./include/linux/pgtable.h:925:17: note: previous implicit declaration of 
-‘ptep_modify_prot_commit’ with type ‘void(struct vm_area_struct *, long 
-unsigned int,  pte_t *, pte_t,  pte_t)’
-   925 |                 ptep_modify_prot_commit(vma, addr, ptep, 
-old_pte, pte);
-       |                 ^~~~~~~~~~~~~~~~~~~~~~~
-   CC 
-/home/runner/work/mm-test-robot/mm-test-robot/linux/tools/objtool/libstring.o
-   CC 
-/home/runner/work/mm-test-robot/mm-test-robot/linux/tools/objtool/libctype.o
-   CC 
-/home/runner/work/mm-test-robot/mm-test-robot/linux/tools/objtool/str_error_r.o
-   CC 
-/home/runner/work/mm-test-robot/mm-test-robot/linux/tools/objtool/librbtree.o
-cc1: some warnings being treated as errors
-make[2]: *** [scripts/Makefile.build:98: arch/x86/kernel/asm-offsets.s] 
-Error 1
-make[1]: *** 
-[/home/runner/work/mm-test-robot/mm-test-robot/linux/Makefile:1280: 
-prepare0] Error 2
-make[1]: *** Waiting for unfinished jobs....
-   LD 
-/home/runner/work/mm-test-robot/mm-test-robot/linux/tools/objtool/objtool-in.o
-   LINK 
-/home/runner/work/mm-test-robot/mm-test-robot/linux/tools/objtool/objtool
-make: *** [Makefile:248: __sub-make] Error 2
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+>=20
+> struct gpio_chip now has callbacks for setting line values that return
+> an integer, allowing to indicate failures. Convert the driver to using
+> them.
+>=20
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-Well, modify_prot_start_ptes() calls ptep_modify_prot_start(), but x86
-does not define __HAVE_ARCH_PTEP_MODIFY_PROT_TRANSACTION. To avoid
-implicit declaration errors, the architecture-independent
-ptep_modify_prot_start() must be defined before modify_prot_start_ptes().
+Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
-With the changes below, things work correctly now ;)
+> ---
+>  drivers/pinctrl/mediatek/pinctrl-airoha.c | 19 ++++++++-----------
+>  1 file changed, 8 insertions(+), 11 deletions(-)
+>=20
+> diff --git a/drivers/pinctrl/mediatek/pinctrl-airoha.c b/drivers/pinctrl/=
+mediatek/pinctrl-airoha.c
+> index 5d84a778683d..b97b28ebb37a 100644
+> --- a/drivers/pinctrl/mediatek/pinctrl-airoha.c
+> +++ b/drivers/pinctrl/mediatek/pinctrl-airoha.c
+> @@ -2247,15 +2247,16 @@ static int airoha_convert_pin_to_reg_offset(struc=
+t pinctrl_dev *pctrl_dev,
+>  }
+> =20
+>  /* gpio callbacks */
+> -static void airoha_gpio_set(struct gpio_chip *chip, unsigned int gpio,
+> -			    int value)
+> +static int airoha_gpio_set(struct gpio_chip *chip, unsigned int gpio,
+> +			   int value)
+>  {
+>  	struct airoha_pinctrl *pinctrl =3D gpiochip_get_data(chip);
+>  	u32 offset =3D gpio % AIROHA_PIN_BANK_SIZE;
+>  	u8 index =3D gpio / AIROHA_PIN_BANK_SIZE;
+> =20
+> -	regmap_update_bits(pinctrl->regmap, pinctrl->gpiochip.data[index],
+> -			   BIT(offset), value ? BIT(offset) : 0);
+> +	return regmap_update_bits(pinctrl->regmap,
+> +				  pinctrl->gpiochip.data[index],
+> +				  BIT(offset), value ? BIT(offset) : 0);
+>  }
+> =20
+>  static int airoha_gpio_get(struct gpio_chip *chip, unsigned int gpio)
+> @@ -2280,9 +2281,7 @@ static int airoha_gpio_direction_output(struct gpio=
+_chip *chip,
+>  	if (err)
+>  		return err;
+> =20
+> -	airoha_gpio_set(chip, gpio, value);
+> -
+> -	return 0;
+> +	return airoha_gpio_set(chip, gpio, value);
+>  }
+> =20
+>  /* irq callbacks */
+> @@ -2419,7 +2418,7 @@ static int airoha_pinctrl_add_gpiochip(struct airoh=
+a_pinctrl *pinctrl,
+>  	gc->free =3D gpiochip_generic_free;
+>  	gc->direction_input =3D pinctrl_gpio_direction_input;
+>  	gc->direction_output =3D airoha_gpio_direction_output;
+> -	gc->set =3D airoha_gpio_set;
+> +	gc->set_rv =3D airoha_gpio_set;
+>  	gc->get =3D airoha_gpio_get;
+>  	gc->base =3D -1;
+>  	gc->ngpio =3D AIROHA_NUM_PINS;
+> @@ -2715,9 +2714,7 @@ static int airoha_pinconf_set_pin_value(struct pinc=
+trl_dev *pctrl_dev,
+>  	if (pin < 0)
+>  		return pin;
+> =20
+> -	airoha_gpio_set(&pinctrl->gpiochip.chip, pin, value);
+> -
+> -	return 0;
+> +	return airoha_gpio_set(&pinctrl->gpiochip.chip, pin, value);
+>  }
+> =20
+>  static int airoha_pinconf_set(struct pinctrl_dev *pctrl_dev,
+>=20
+> --=20
+> 2.45.2
+>=20
 
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index 10cdb87ccecf..d9d6c49bb914 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -895,44 +895,6 @@ static inline void wrprotect_ptes(struct mm_struct 
-*mm, unsigned long addr,
-  }
-  #endif
+--SzPC/w3b/xBP/t6u
+Content-Type: application/pgp-signature; name=signature.asc
 
--/* See the comment for ptep_modify_prot_start */
--#ifndef modify_prot_start_ptes
--static inline pte_t modify_prot_start_ptes(struct vm_area_struct *vma,
--		unsigned long addr, pte_t *ptep, unsigned int nr)
--{
--	pte_t pte, tmp_pte;
--
--	pte = ptep_modify_prot_start(vma, addr, ptep);
--	while (--nr) {
--		ptep++;
--		addr += PAGE_SIZE;
--		tmp_pte = ptep_modify_prot_start(vma, addr, ptep);
--		if (pte_dirty(tmp_pte))
--			pte = pte_mkdirty(pte);
--		if (pte_young(tmp_pte))
--			pte = pte_mkyoung(pte);
--	}
--	return pte;
--}
--#endif
--
--/* See the comment for ptep_modify_prot_commit */
--#ifndef modify_prot_commit_ptes
--static inline void modify_prot_commit_ptes(struct vm_area_struct *vma, 
-unsigned long addr,
--		pte_t *ptep, pte_t old_pte, pte_t pte, unsigned int nr)
--{
--	for (;;) {
--		ptep_modify_prot_commit(vma, addr, ptep, old_pte, pte);
--		if (--nr == 0)
--			break;
--		ptep++;
--		addr += PAGE_SIZE;
--		old_pte = pte_next_pfn(old_pte);
--		pte = pte_next_pfn(pte);
--	}
--}
--#endif
--
-  /*
-   * On some architectures hardware does not set page access bit when 
-accessing
-   * memory page, it is responsibility of software setting this bit. It 
-brings
-@@ -1375,6 +1337,45 @@ static inline void ptep_modify_prot_commit(struct 
-vm_area_struct *vma,
-  	__ptep_modify_prot_commit(vma, addr, ptep, pte);
-  }
-  #endif /* __HAVE_ARCH_PTEP_MODIFY_PROT_TRANSACTION */
-+
-+/* See the comment for ptep_modify_prot_start */
-+#ifndef modify_prot_start_ptes
-+static inline pte_t modify_prot_start_ptes(struct vm_area_struct *vma,
-+		unsigned long addr, pte_t *ptep, unsigned int nr)
-+{
-+	pte_t pte, tmp_pte;
-+
-+	pte = ptep_modify_prot_start(vma, addr, ptep);
-+	while (--nr) {
-+		ptep++;
-+		addr += PAGE_SIZE;
-+		tmp_pte = ptep_modify_prot_start(vma, addr, ptep);
-+		if (pte_dirty(tmp_pte))
-+			pte = pte_mkdirty(pte);
-+		if (pte_young(tmp_pte))
-+			pte = pte_mkyoung(pte);
-+	}
-+	return pte;
-+}
-+#endif
-+
-+/* See the comment for ptep_modify_prot_commit */
-+#ifndef modify_prot_commit_ptes
-+static inline void modify_prot_commit_ptes(struct vm_area_struct *vma, 
-unsigned long addr,
-+		pte_t *ptep, pte_t old_pte, pte_t pte, unsigned int nr)
-+{
-+	for (;;) {
-+		ptep_modify_prot_commit(vma, addr, ptep, old_pte, pte);
-+		if (--nr == 0)
-+			break;
-+		ptep++;
-+		addr += PAGE_SIZE;
-+		old_pte = pte_next_pfn(old_pte);
-+		pte = pte_next_pfn(pte);
-+	}
-+}
-+#endif
-+
-  #endif /* CONFIG_MMU */
+-----BEGIN PGP SIGNATURE-----
 
-  /*
---
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaBB7QgAKCRA6cBh0uS2t
+rH+7AP9aAxct76GnQDHEVxQpxzo251BHKc2c0P+HYX1/qSMfZQD/bQxwhnZGiu8p
+hKaJ4RR5BS1SvzR7LL64CT3ArjhR5A4=
+=KZkz
+-----END PGP SIGNATURE-----
 
-Thanks,
-Lance
-
-On 2025/4/29 13:23, Dev Jain wrote:
-> This patchset optimizes the mprotect() system call for large folios
-> by PTE-batching.
-> 
-> We use the following test cases to measure performance, mprotect()'ing
-> the mapped memory to read-only then read-write 40 times:
-> 
-> Test case 1: Mapping 1G of memory, touching it to get PMD-THPs, then
-> pte-mapping those THPs
-> Test case 2: Mapping 1G of memory with 64K mTHPs
-> Test case 3: Mapping 1G of memory with 4K pages
-> 
-> Average execution time on arm64, Apple M3:
-> Before the patchset:
-> T1: 7.9 seconds   T2: 7.9 seconds   T3: 4.2 seconds
-> 
-> After the patchset:
-> T1: 2.1 seconds   T2: 2.2 seconds   T3: 4.2 seconds
-> 
-> Observing T1/T2 and T3 before the patchset, we also remove the regression
-> introduced by ptep_get() on a contpte block. And, for large folios we get
-> an almost 74% performance improvement.
-> 
-> v1->v2:
->   - Rebase onto mm-unstable (6ebffe676fcf: util_macros.h: make the header more resilient)
->   - Abridge the anon-exclusive condition (Lance Yang)
-> 
-> Dev Jain (7):
->    mm: Refactor code in mprotect
->    mm: Optimize mprotect() by batch-skipping PTEs
->    mm: Add batched versions of ptep_modify_prot_start/commit
->    arm64: Add batched version of ptep_modify_prot_start
->    arm64: Add batched version of ptep_modify_prot_commit
->    mm: Batch around can_change_pte_writable()
->    mm: Optimize mprotect() through PTE-batching
-> 
->   arch/arm64/include/asm/pgtable.h |  10 ++
->   arch/arm64/mm/mmu.c              |  21 +++-
->   include/linux/mm.h               |   4 +-
->   include/linux/pgtable.h          |  42 ++++++++
->   mm/gup.c                         |   2 +-
->   mm/huge_memory.c                 |   4 +-
->   mm/memory.c                      |   6 +-
->   mm/mprotect.c                    | 165 ++++++++++++++++++++-----------
->   mm/pgtable-generic.c             |  16 ++-
->   9 files changed, 198 insertions(+), 72 deletions(-)
-> 
-
+--SzPC/w3b/xBP/t6u--
 
