@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CA21C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 08:03:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB354C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 08:05:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pgzPv1C3occXuVL/w4Jgb3UPJ3haT1nkHRHiFKA5F+Y=; b=1F1IjbP+/MfeXofIFrudP31ZRr
-	Utg1C+UlfvxxDbuZTskW6c/TPRnAgoBg8lvxgdoxISg5vipmbl5Qg6OmO1TVwXZcC5R8k0JY+bMRN
-	blFmeKLx545Or2ON0CIbbY85CRH8AnBYpqXlYVH5lIQ0ZEonvgqQc46woKyj2GK1N7+KyrLoBWHFu
-	8780KYs2dL+LIqSDuiYb0kC7i05BozhQUN4DGJYXUzqegtQDCG5hGFIIKhKBKHT4lBdWz1RozVdaf
-	x6dAXrA4jDtm/Io++fgialTNUvhHxIc084eEAjPw4IK3W/wMoL1k6hJLIrylP4V7nAHxWGByfSVne
-	2VKKwubQ==;
+	bh=jTpwhyeLZw/LiUa5cFTAKz2Ck0hhu95u8EopfQy0nVA=; b=fZCNXn83P78MCbYqMrCwNucXyw
+	9i4OKwtu1NbggE6LPU5GaWTsMuXzA52NXkoszArcUhrFSlclS3/92wKwdaxc3EvKqjwd0XSNaXeYp
+	8hJAl+4Sr5bTkzqlYLYuyNZJTti40hxjAZc7gt8KZKWEl1MXuwwkr91Stxj5VwKR9Ri05eoZobJkC
+	S+5/19mB/EcwJSia93zw9YXURdA/sN3m9goByt5+YvDJ6mHnZJTtR2N2sQ4BGBgZLkMQRGRk/t7+j
+	g457IUAIrHd37h0mUyvNuVdJ9qeNrgT2PjqqkYmag7JS76t035G4e7jX+/RHXWV1wdZsJ912a7drs
+	8Cau7eQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9fw4-00000008qtc-1kw2;
-	Tue, 29 Apr 2025 08:03:24 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u9fxz-00000008rAV-0FCD;
+	Tue, 29 Apr 2025 08:05:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9fu9-00000008qcp-0KLx
+	id 1u9fuG-00000008qdi-0VIF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 08:01:26 +0000
+	Tue, 29 Apr 2025 08:01:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6EC704381A;
-	Tue, 29 Apr 2025 08:01:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D633AC4CEE3;
-	Tue, 29 Apr 2025 08:01:23 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B0A4B4381A;
+	Tue, 29 Apr 2025 08:01:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F4A2C4CEE3;
+	Tue, 29 Apr 2025 08:01:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745913684;
-	bh=DZa3T3b4vAqSDABkH+cRjLnDd7YvrAb15Rd26zzgywA=;
+	s=k20201202; t=1745913691;
+	bh=49svtWM+2GeOt+mimbaMb6SDg+mNR+ZgQRqnV3/67CE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MnsuiDp+lzuDisqX3K/PeFS7IaRrr7kxMPv89NciMhfqgR51dtIs7h/hbgRH9XkbN
-	 mfVXEqlceXIJCdR7bi7EqNjVNoJomSYS0myF8xFTrMRYY3uWBAOql+h4ipIC+KrEEz
-	 2Xruxqob2qPJZIi2detPfIw4graWbTCquJFyE5/bh14/t1ACMSIt51HqV+gwnPFUq5
-	 auYvlV52DSPGVZjjvybTDfqtsFkUG+EX4VqSssMst74qpx1LJUGs1FLsmLUKboBC1Y
-	 RMDkEay4sBz5aPVl7Ui0uYqZ84pWzCZ6Y/QM474cqkqZvO07MX9pCfyH01RXKkMHld
-	 ENvx79CA28eJQ==
-Date: Tue, 29 Apr 2025 10:01:21 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Peter Griffin <peter.griffin@linaro.org>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, tudor.ambarus@linaro.org, 
-	andre.draszik@linaro.org, willmcvicker@google.com, kernel-team@android.com
-Subject: Re: [PATCH v3 1/5] dt-bindings: soc: google: Add gs101-pmu-intr-gen
- binding documentation
-Message-ID: <20250429-scrupulous-aquatic-toucanet-1aa9df@kuoka>
-References: <20250429-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v3-0-1bcc44fb1d55@linaro.org>
- <20250429-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v3-1-1bcc44fb1d55@linaro.org>
+	b=FvUVuPtxmt/mfErMJF541vpOKveOI7HD+7wWkMP+fH1HS9XJX/eugU1TXt9zxbE5g
+	 D90PH3yLExF91XqvbvpKqLWqQVY4QcMzGi5C9pKvdzkjcE/8CaUkaI4Xlvq2jGTp7O
+	 zyi7og9KJ30uEeL2Zyua1egy75nVGl7ZqlCC7x6+09gK8Tjo1y/6cBDTHbFdpYkUA4
+	 QdH8rotxb6aXpotf0PKObw6CXIaqcyIVmhBev5Oj1AfYxz5RZk0zj2C9ZihOlXbYjF
+	 4gii7N0uda7o0M5lPeOnP/Wtr6AeuApalcy6jBiTdci5WDDEGGam6w5UJiD4U4C0MF
+	 A1dy3m0ZmB0Aw==
+Date: Tue, 29 Apr 2025 10:01:27 +0200
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Carlos Song <carlos.song@nxp.com>
+Cc: Aisheng Dong <aisheng.dong@nxp.com>, Frank Li <frank.li@nxp.com>, 
+	"shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, 
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
+	"linux-i2c@vger.kernel.org" <linux-i2c@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] i2c: imx-lpi2c: Fix clock count when probe defers
+Message-ID: <yk4jxzsraqacrzinn34bvpalmnqxfyxrxch7buz62olt6allcx@rqda6tysnbhh>
+References: <20250421062341.2471922-1-carlos.song@nxp.com>
+ <34ally74jbpae6etevqskr4zmcv5xyac46n4hl2j5ybihwtezn@jd2gvr762gs7>
+ <VI2PR04MB111474EAC1B4DB8EB6DD32628E8862@VI2PR04MB11147.eurprd04.prod.outlook.com>
+ <l7meopd4ny4lbux64w5jgyugza3idt4sabwzojmvrafw67fhsw@uf4xbbajzfrj>
+ <VI2PR04MB11147FAC0E3941F672ACCA47CE8802@VI2PR04MB11147.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250429-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v3-1-1bcc44fb1d55@linaro.org>
+In-Reply-To: <VI2PR04MB11147FAC0E3941F672ACCA47CE8802@VI2PR04MB11147.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_010125_138882_9B487CD6 
-X-CRM114-Status: UNSURE (   8.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250429_010132_176536_9C516905 
+X-CRM114-Status: GOOD (  20.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,21 +78,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 29, 2025 at 07:19:37AM GMT, Peter Griffin wrote:
-> Add bindings documentation for the Power Management Unit (PMU) interrupt
-> generator.
+Hi Carlos,
+
+...
+
+> > > > > Signed-off-by: Carlos Song <carlos.song@nxp.com>
+> > > > > Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
+> > > > > Signed-off-by: Jun Li <jun.li@nxp.com>
+> > > > > Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
+> > > >
+> > > > Carlo's SoB should be at the end of the chain. Should be nice to
+> > > > know what these are, though, are they co-developed-by? tested-by?
+> > > > Why so many SoB's?
+> > > >
+> > >
+> > > This patch author is not me and they meet similar issue at some
+> > > boards(Vague history), now I meet this issue at new SOC again. I think this local
+> > patch is helpful and looks reasonable.
+> > > So I send the patch to community adding my SoB.
+> > 
+> > So Clark has authored the patch and you have sent it. And your SoB makes sense
+> > (even though, your SoB shoud be placed at the end, because you sent the
+> > patch).
+> > 
+> > Juan and Haibo have tested it? Reported it?
+> > 
 > 
-> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
-> ---
-> Changes since v2:
->  - Fix dtschema error "relative path/filename doesn't match actual path or filename" (Robs patch bot)
-> ---
->  .../soc/google/google,gs101-pmu-intr-gen.yaml      | 35 ++++++++++++++++++++++
->  1 file changed, 35 insertions(+)
+> They are local reviewer. So I change their Reviewed-by: to Signed-off-by:.
+> Simply you can remove Jun and Haibo tags only keep two tags:
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+I see. Jun and Haibo are welcome to review in this list, if they
+want.
 
-Best regards,
-Krzysztof
+> Signed-off-by: Carlos Song <carlos.song@nxp.com>
+> Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
 
+Following the chronological order concept, it would be:
+
+Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
+Signed-off-by: Carlos Song <carlos.song@nxp.com>
+
+:-)
+
+I'll take care of it.
+
+Thanks,
+Andi
 
