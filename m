@@ -4,81 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3932EC369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 08:09:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C7DEC369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 08:11:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NY6M0pHpOs66HH+o0BygipveSkDOaOzYRmFGJJFR2CM=; b=aJEZpJGFqq4P1JacG8uJjOxsaA
-	M8K9yBky8jRw6jY8gYwEozw2u2iLs8/m1pneoD54pnTkDc3w9/V7MLm7TZ6RgIvqXeXiwssgDWGE6
-	T5b2xKzCWZmvKzhUmrepazvdOfIK2eQA46AjkdJqPALX5Gfkr6impN8Rr8CiOcA0BWk4yvMLhCGs+
-	p2vjVUoz5ZjNHztbqwUxGFKQg6UZN0+eoBBD4IiZYyzY4AGw9hQA8pmTQI0mhz+b7W3V7q9j5QS/e
-	ZPzpe5x7fyuvKYGpVUuKk1UJP6IZxjeT7w0SmPRMfm6Dr3LSo6SjuFPY5yLSkuUV8wTX5sxd47odL
-	aGQUoHRQ==;
+	bh=97/XTbBVa/VhLqAzcVmPdfXdxwWdIcyYHBaxl2j9mtY=; b=Iv27Y38LKI1xyCu0i8ThJ6b14p
+	dRNRzsDqJJLDaXIb5YUDLeAyj1GmwsBU1HwhgcJlLeCciBN4z6LtZzmPbUXUGzm/3CYhJmQLnViRr
+	0bEQ1r5YDpgQwTuGuJwI3cHzAwYg8ZWu3BLyzgHcT4YVQBFcMOQ5aawYuCxrqRNJwDNnjPZO/cbvR
+	wNoWFCSpnGKKUMZRojNqKXPzvNhT19J3cAz8UgxfdxKExbpk65rcXxGetSXwSuon2/7KPSPzm2Smv
+	AVZvJKqgn/lJcSdpCKBMmubxZiFzTKS8XdK+7lB8WrmY8Cb14elIZmzUxH5z518uRIsUGjcgcfrXg
+	sXcQS9kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9g1n-00000008rtf-3u9i;
-	Tue, 29 Apr 2025 08:09:20 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1u9g3h-00000008sK1-0pyZ;
+	Tue, 29 Apr 2025 08:11:17 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9fyc-00000008rFn-3L3q
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 08:06:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1745913963; x=1777449963;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=XJbOu8oe6MHnFoBGQc7cHTHtXhGx4hB36GKy8vSOICk=;
-  b=ALrIyn2XgBnISQqTbCKffwnG+qvRrvwjVTo+onQViivTVSoH7hmf4HpT
-   laXvH8WvMspTtnCgGEUXe0OVYgogukp69ZOr6H/AsPex0ZKZNsHiSJIs6
-   ydq8gmCs6KLIlhRpRPqZqFekhJTad4074zCnLk+tFg0qL49K33SD5czVp
-   PoO10fXsHm1l1XkcxvaMvMyaK8HC5+TKV3tkzkG6M1mPVI6PurqLtT0gJ
-   jXlfnb28i8P+5dM+MwpIpM9BnNhz/3TuTB5SB5GxsobCnU/Snvh9vdGRk
-   GBHt+A/3xygPLlMXrYMUhmHOJxDAgxNN+1cXQ5fiv6pv8OmztTKg18bry
-   Q==;
-X-CSE-ConnectionGUID: qd+ZSEOjTCyRSN739DosuA==
-X-CSE-MsgGUID: aQ7QHT2HReuzHmOT61DyQA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11417"; a="47537530"
-X-IronPort-AV: E=Sophos;i="6.15,248,1739865600"; 
-   d="scan'208";a="47537530"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Apr 2025 01:05:48 -0700
-X-CSE-ConnectionGUID: 98GuK9QCRYSrVo/7tNEo5g==
-X-CSE-MsgGUID: WIUxjBp3S2eSXWSWqrFQiw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,248,1739865600"; 
-   d="scan'208";a="164699249"
-Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
-  by orviesa002.jf.intel.com with ESMTP; 29 Apr 2025 01:05:44 -0700
-Received: from kbuild by 1992f890471c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1u9fyI-0000ZP-08;
-	Tue, 29 Apr 2025 08:05:42 +0000
-Date: Tue, 29 Apr 2025 16:05:15 +0800
-From: kernel test robot <lkp@intel.com>
-To: Sai Sree Kartheek Adivi <s-adivi@ti.com>, peter.ujfalusi@gmail.com,
-	vkoul@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, nm@ti.com, ssantosh@kernel.org,
-	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	praneeth@ti.com, vigneshr@ti.com, u-kumar1@ti.com, a-chavda@ti.com
-Cc: Paul Gazzillo <paul@pgazz.com>,
-	Necip Fazil Yildiran <fazilyildiran@gmail.com>,
-	oe-kbuild-all@lists.linux.dev
-Subject: Re: [PATCH 6/8] dmaengine: ti: New driver for K3 BCDMA_V2
-Message-ID: <202504291527.tCMC8UGh-lkp@intel.com>
-References: <20250428072032.946008-7-s-adivi@ti.com>
+	id 1u9fzI-00000008rPN-4C25;
+	Tue, 29 Apr 2025 08:06:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id C797F5C4D8E;
+	Tue, 29 Apr 2025 08:04:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D988C4CEE3;
+	Tue, 29 Apr 2025 08:06:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745914003;
+	bh=T+OFZKl+3KvYwlqOnSAJknFTlFAGkXBm4R7faZdxC7g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=g4MP1qWhXsNl/uB3rPYca9oL1jVE0ekWEV6gfciWYbB1+dqLQ9mMLhKCeQ4kEML3r
+	 bJyb0LeyWTmqcsUmRVfFDi6VMDW5WBeVc88je0PluGWeRS97AYRHNXEXRaWe2ZBNUR
+	 h2P24d0Nb3ya3adWViA9y0dL9GADK0WkUOludE9eaO59e5mCjZo+20Kkb33rkTCZ3T
+	 joUB021ZBtmCwCwJ8IZUTlrvA217Wsdkv6riqQodhqkESfxv93/qyLqVSaXCE995Qd
+	 adxuArH/4q+RMu7lWE/6XP1SpcSbdgr9HJnDqYvJZCKjQED2Lf6yl72MdWWvLKHiTL
+	 2/8qg6TYlg6Ig==
+Date: Tue, 29 Apr 2025 11:06:29 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Dave Hansen <dave.hansen@intel.com>
+Cc: Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org,
+	akpm@linux-foundation.org, anthony.yznaga@oracle.com, arnd@arndb.de,
+	ashish.kalra@amd.com, benh@kernel.crashing.org, bp@alien8.de,
+	catalin.marinas@arm.com, corbet@lwn.net,
+	dave.hansen@linux.intel.com, devicetree@vger.kernel.org,
+	dwmw2@infradead.org, ebiederm@xmission.com, graf@amazon.com,
+	hpa@zytor.com, jgowans@amazon.com, kexec@lists.infradead.org,
+	krzk@kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-mm@kvack.org, luto@kernel.org,
+	mark.rutland@arm.com, mingo@redhat.com, pasha.tatashin@soleen.com,
+	pbonzini@redhat.com, peterz@infradead.org, ptyadav@amazon.de,
+	robh@kernel.org, rostedt@goodmis.org, saravanak@google.com,
+	skinsburskii@linux.microsoft.com, tglx@linutronix.de,
+	thomas.lendacky@amd.com, will@kernel.org, x86@kernel.org
+Subject: Re: [PATCH v6 11/14] x86: add KHO support
+Message-ID: <aBCIhQjKKyaAuvC9@kernel.org>
+References: <20250411053745.1817356-1-changyuanl@google.com>
+ <20250411053745.1817356-12-changyuanl@google.com>
+ <35c58191-f774-40cf-8d66-d1e2aaf11a62@intel.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250428072032.946008-7-s-adivi@ti.com>
+In-Reply-To: <35c58191-f774-40cf-8d66-d1e2aaf11a62@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_010602_870077_82C5E96E 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20250429_010645_136956_794CBF6A 
+X-CRM114-Status: GOOD (  24.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,37 +84,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sai,
+On Mon, Apr 28, 2025 at 03:05:55PM -0700, Dave Hansen wrote:
+> On 4/10/25 22:37, Changyuan Lyu wrote:
+> > From: Alexander Graf <graf@amazon.com>
+> > 
+> > +/*
+> > + * If KHO is active, only process its scratch areas to ensure we are not
+> > + * stepping onto preserved memory.
+> > + */
+> 
+> Same thing on the imperative voice here.
+> 
+> I'm also not fully understanding the comment. Do these "scratch" regions
+> basically represent all the memory that's not being handed over? It's
+> not obvious.
 
-kernel test robot noticed the following build warnings:
+Scratch memory represents areas created at the boot of the first kernel and
+it's known that scratch areas won't contain any memory that's being handed
+over.
+ 
+> > diff --git a/arch/x86/kernel/e820.c b/arch/x86/kernel/e820.c
+> > index 57120f0749cc3..c314212a5ecd5 100644
+> > --- a/arch/x86/kernel/e820.c
+> > +++ b/arch/x86/kernel/e820.c
+> > @@ -1300,6 +1300,24 @@ void __init e820__memblock_setup(void)
+> >  		memblock_add(entry->addr, entry->size);
+> >  	}
+> >  
+> > +	/*
+> > +	 * At this point with KHO we only allocate from scratch memory.
+> > +	 * At the same time, we configure memblock to only allow
+> > +	 * allocations from memory below ISA_END_ADDRESS which is not
+> > +	 * a natural scratch region, because Linux ignores memory below
+> > +	 * ISA_END_ADDRESS at runtime. Beside very few (if any) early
+> > +	 * allocations, we must allocate real-mode trapoline below
+> 
+> 						trampoline ^
+> 
+> > +	 * ISA_END_ADDRESS.
+> > +	 *
+> > +	 * To make sure that we can actually perform allocations during
+> > +	 * this phase, let's mark memory below ISA_END_ADDRESS as scratch
+> > +	 * so we can allocate from there in a scratch-only world.
+> > +	 *
+> > +	 * After real mode trampoline is allocated, we clear scratch
+> > +	 * marking from the memory below ISA_END_ADDRESS
+> > +	 */
+> > +	memblock_mark_kho_scratch(0, ISA_END_ADDRESS);
+> 
+> This isn't making a whole ton of sense to me.
+> 
+> Is this *only* to facilitate possible users that need <ISA_END_ADDRESS
+> allocations? If so, please say that.
+> 
+> I _think_ this is trying to say that KHO kernels are special and are
+> trying to only allocate from scratch areas. But <ISA_END_ADDRESS
+> allocations are both necessary and not marked by KHO _as_ a scratch area
+> which causes a problem.
 
-[auto build test WARNING on vkoul-dmaengine/next]
-[also build test WARNING on linus/master v6.15-rc4]
-[cannot apply to next-20250428]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Sai-Sree-Kartheek-Adivi/dt-bindings-dma-ti-Add-document-for-K3-BCDMA-V2/20250428-152616
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/vkoul/dmaengine.git next
-patch link:    https://lore.kernel.org/r/20250428072032.946008-7-s-adivi%40ti.com
-patch subject: [PATCH 6/8] dmaengine: ti: New driver for K3 BCDMA_V2
-config: arm64-kismet-CONFIG_TI_K3_RINGACC-CONFIG_TI_K3_UDMA_V2-0-0 (https://download.01.org/0day-ci/archive/20250429/202504291527.tCMC8UGh-lkp@intel.com/config)
-reproduce: (https://download.01.org/0day-ci/archive/20250429/202504291527.tCMC8UGh-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202504291527.tCMC8UGh-lkp@intel.com/
-
-kismet warnings: (new ones prefixed by >>)
->> kismet: WARNING: unmet direct dependencies detected for TI_K3_RINGACC when selected by TI_K3_UDMA_V2
-   WARNING: unmet direct dependencies detected for TI_K3_RINGACC
-     Depends on [n]: SOC_TI [=y] && (ARCH_K3 [=y] || COMPILE_TEST [=y]) && TI_SCI_INTA_IRQCHIP [=n]
-     Selected by [y]:
-     - TI_K3_UDMA_V2 [=y] && DMADEVICES [=y] && ARCH_K3 [=y]
+Yes :)
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Sincerely yours,
+Mike.
 
