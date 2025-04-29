@@ -4,94 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41EA3C3ABAB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 14:13:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B9F9C3ABB2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 14:13:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=5uRh7v+3Xppszuxd+O9qGTEWq0rsPe8cIDG/eMajO7k=; b=3boDm1KX2ZajOD
-	GTKlYTV2kehazmDUpn3lpeOpzE+fs6UsZQ1uOLE0Pym6iX6KWxue/71LdNaOFxndeT8dFQaQmUMW1
-	0c34eAu6TbXCJRIToIKa6sbdEM2RBDA+TG3p3COR3xwEspNHoDxQlE5YuaGiiCejoxsQ9gKtHmqaE
-	DDESH6ArJmOiARxL4RRPWQVA1tz9ssTRnX5Q4MDw3sGD7USNH0fPNE4Jkos+j6b7m6hlnbs+yHVY9
-	FAfzGn7Tb/MEkFCLFJRgg6rXemKv6P34WtEsP9ld9o093L0+Yfp0z6SwOgJtpMA0xY5ea1Tr6Gzji
-	/A/IuVQgunr+NaiQupWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KBTM9WY09lm/gGdZhulr7/dP5G3uqnfHYWiy8iUJ1N4=; b=XlZjNjRnkQBfMC4lxYAeYMloOV
+	cuB4RKFT+jxyGuyNelqHUBDjAWV0CoBGx3uOn9OuIxEp/6XC9wGg2oq8tUJVymT1WBX0//D6/KZVa
+	M5Um0ITy/N7Yc75Um1kkKDDM+4ejXZoLxLf8ii+0xP1Isn9b20kVSI3RzKE4hvSWLlsgTmViUJaY7
+	Ofgm7yk+Kjg2H/UrNYwY2V8wFr8bSLKEHiUw/2PkWfqNZvol96p0yQFNk0XEK2kxHJOg7/C5S29uE
+	jCTIl/L8E6aSLVXF0aiMkebUJ93RQ4X/4HYB0fyPHg/RieQC/HdIhexYR7w28MQGnEcQ/EmthNBk+
+	N7ceU5ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9lhn-00000009ruC-0Ikx;
-	Tue, 29 Apr 2025 14:13:03 +0000
+	id 1u9lhq-00000009rwK-027n;
+	Tue, 29 Apr 2025 14:13:06 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9jUy-00000009ZEq-3TAC;
-	Tue, 29 Apr 2025 11:51:40 +0000
+	id 1u9jlG-00000009byf-2fST
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 29 Apr 2025 12:08:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=5uRh7v+3Xppszuxd+O9qGTEWq0rsPe8cIDG/eMajO7k=; b=j4WYKktM3k/nP0t3PymhaBbDfS
-	yyr9mMHEe7WfbvCAvl72KpBCumxmGjYvy0gJUTEoHkJSn1G4iV7gLMJy2aPsvEiVFV+hSrbnlHKim
-	3iwXBL+5FDm/Gbqt3/aE2oiEhMjVOl11PPwEzoTVQnq8GeofSq0CFKdxQXp027KjPqHFPOWSfHgGO
-	S9TL8KuEQBrkjzzjWpVe9aSBI31XOBmh/+9KtK9dr+WJq0HrNFnRJyrmonVpExIGJww8G46q7Eo0d
-	O45SsExnwKpJfTZVi/kVa47s2vT+ZZqIkjy+jpnS2ayN/tH9UrBTiSt2sFUVs22/UXvFxWh1StFrE
-	0eg2M1uw==;
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=KBTM9WY09lm/gGdZhulr7/dP5G3uqnfHYWiy8iUJ1N4=; b=QFX4yuvX1zRa4CIYmRWU/cmmEz
+	WTDbw2LKPt2P+RVmTFBKHTj7IrZ9XS7N8NuL9wGewWpOKE5G35gi9qQ/zyZr3rSsYLB7e+hXTaVQe
+	B6ubsQxEpj+qvBt69NhacSsIOLBKntsVdx1fBLc0Na2P26UcFGFGdMxtC4PdqkBIHLto+CTLYHv+y
+	M8wNiMcu3OWhEd+FfHTTeRyAF7qdoOI3OqmrXxzs8Xpf9kpFeFuL5vgXJrZlBDbIAFuL34C3Tl1v4
+	XEFRfayuJlLo1EFq1FOJhGJ02/qxCv/naF1Q+k5sg9PyUz5vx8SA/XF3F+WTvI+qwWnMNE8Ri7HIz
+	OpJN0qOA==;
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9jUv-0000000DIRv-3dmW;
-	Tue, 29 Apr 2025 11:51:39 +0000
-Received: from mail.ideasonboard.com (unknown [IPv6:2401:4900:1c31:2dc0:c767:bd08:cc70:b57a])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 9DCE5669;
-	Tue, 29 Apr 2025 13:42:10 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1745926931;
-	bh=AZ2eZQaNSO0yCaJCJF7YZMQJ3yiP1EQgrAq27CE+3bs=;
-	h=From:Subject:Date:To:Cc:From;
-	b=vs5679kzWwlXTQjwm0t3PP0k+sNKF0MlobQS8j/WP5SamnqE92G6/TJJJrRzOSaKD
-	 qz/Q7wSes6oeUmgWbcfFzOWL9+rXMf9QRoTOPwz3qOQ9QI46dthTT0ZNWSJu02h/EY
-	 s+7vv5Q6VULBKFu15SAmrhpXHEyXwum2TV1+3YN4=
-From: Jai Luthra <jai.luthra@ideasonboard.com>
-Subject: [PATCH v5 0/2] media: rockchip: rkisp1: Add support for WDR and
- AWB64
-Date: Tue, 29 Apr 2025 17:11:52 +0530
-Message-Id: <20250429-awb64-v5-0-2dc3163a8cfc@ideasonboard.com>
+	id 1u9jlD-0000000DJZm-3uHX
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 29 Apr 2025 12:08:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=KBTM9WY09lm/gGdZhulr7/dP5G3uqnfHYWiy8iUJ1N4=; b=SkZtFKRBDYSjtCqVbzOhcQEuRj
+	DWyy1aTiVIPrrCWaBx6JUhx9WKbn3kEKxrlq7I9x/KVZ1HuLvhkN1sL/+Z0ziDpGobC1e/avHvFAC
+	psMCCdKOBLmsghcs3mywZeA3U6QJA7FBD12XTQa0tvtrNQ3osLdKcoOXs9/Fv47Zw9+E=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1u9jkn-00Avy8-8E; Tue, 29 Apr 2025 14:08:01 +0200
+Date: Tue, 29 Apr 2025 14:08:01 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andy Whitcroft <apw@canonical.com>,
+	Dwaipayan Ray <dwaipayanray1@gmail.com>,
+	Lukas Bulwahn <lukas.bulwahn@gmail.com>,
+	Joe Perches <joe@perches.com>, Jonathan Corbet <corbet@lwn.net>,
+	Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>,
+	Roger Quadros <rogerq@kernel.org>, Tero Kristo <kristo@kernel.org>,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com
+Subject: Re: [PATCH net-next 1/4] dt-bindings: net: ethernet-controller:
+ update descriptions of RGMII modes
+Message-ID: <d00838cc-5035-463b-9932-491c708dc7ac@lunn.ch>
+References: <cover.1744710099.git.matthias.schiffer@ew.tq-group.com>
+ <218a27ae2b2ef2db53fdb3573b58229659db65f9.1744710099.git.matthias.schiffer@ew.tq-group.com>
+ <aAaafd8LZ3Ks-AoT@shell.armlinux.org.uk>
+ <a53b5f22-d603-4b7d-9765-a1fc8571614d@lunn.ch>
+ <aAe2NFFrcXDice2Z@shell.armlinux.org.uk>
+ <fdc02e46e4906ba92b562f8d2516901adc85659b.camel@ew.tq-group.com>
+ <9b9fc5d0-e973-4f4f-8dd5-d3896bf29093@lunn.ch>
+ <b75c6a2cf10e2acf878c38f8ca2ff46708a2c0a1.camel@ew.tq-group.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAC7EGgC/3XMwU7DMAzG8VeZcibIdu1m5cR7TByS1mE50EwJK
- kNT351sUpmE2PGz/PtfTNWStJqX3cUUXVJNeW5DnnZmPPr5XW2a2jYExEgdWP8VerZuIAcw7BV
- FTfs9FY3pfOsc3to+pvqZy/ctu+D1+rewoEVLLoBqL1EEX9OkvuY5ZF+m5zF/mGtooQ0LIP5ia
- hgwuBjYIffyAHd3TCQb7mzrRBoCEqDy/gHmO2bkDXPDIXr1Av0YJvgHr+v6A/IMClZYAQAA
-X-Change-ID: 20241230-awb64-79270098e15e
-To: Dafna Hirschfeld <dafna@fastmail.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Heiko Stuebner <heiko@sntech.de>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Stefan Klug <stefan.klug@ideasonboard.com>, 
- Jai Luthra <jai.luthra@ideasonboard.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2602;
- i=jai.luthra@ideasonboard.com; h=from:subject:message-id;
- bh=AZ2eZQaNSO0yCaJCJF7YZMQJ3yiP1EQgrAq27CE+3bs=;
- b=owEBbQKS/ZANAwAIAUPekfkkmnFFAcsmYgBoELsTxQIT+DLzaFo7pNmFfkrO1SlM1rs5Gzm65
- e0PQH3xivKJAjMEAAEIAB0WIQRN4NgY5dV16NRar8VD3pH5JJpxRQUCaBC7EwAKCRBD3pH5JJpx
- RZSFEAC4Y9wFnZTWtjTeeGVI+ve4I/72zodwegFHDyzcxqnS/CUg8KIcE6U1F6n8BCsrGEds4RW
- Dioiv3/1cYZ1VebIWBhDlHsaquPRLQMbeIxOwd5+9oixJIvZ7UJfqrZxEVTm7ANxcF+QISdIlF8
- WNxSqQtUl48LczfSxTe/Pp0XWwHBWgpSPGi5MAXG3UClu3S1KohuO+G4+K48QY1UNsUUHHV3hhw
- Zkd8ejy3ex7JKIo8IJyxGsgLNP+lRen5idFgBK25o9+te1sbpDT2hMeUZSQDg37dznTKxoek4jP
- AOfdjqBv4JOcytGpfIhyrNfcdxHyltq4gpAnrkrBBpCuQwIc3A9SELVAo3ilK5Kz5zSqbE+s/FX
- Yx/6byzYWrxT4kJ4IQwVvvrhsmCnd7Vec9qxo1hoYXwMr+RqFoimgn78qwvo8YhrtvxwObK8dUV
- OK02Ks+MfKjA66qkAm4fGPfWuChi1uCr8xYnfgQk758Hg0B4xCgBPNWzrDYL/AkdMT3k1MkJitw
- k6W5WiTxDPzVCihFqVG6QseCOLhc3esmahUr/G/IOtEiBX/BDhzTEggUZ60biHyLCQb9yv/Z4aA
- GDw1Lw8lIWZTKvQdbZL6pCHq1Sil8dngoAHpiYkB76EYm4Oq3EC34ZVe7YdYglOPEz7VpL+1AeZ
- FPCh2ipd7uH0Qhg==
-X-Developer-Key: i=jai.luthra@ideasonboard.com; a=openpgp;
- fpr=4DE0D818E5D575E8D45AAFC543DE91F9249A7145
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <b75c6a2cf10e2acf878c38f8ca2ff46708a2c0a1.camel@ew.tq-group.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_125138_012209_7BFA0A43 
-X-CRM114-Status: GOOD (  12.45  )
+X-CRM114-CacheID: sfid-20250429_130828_101151_C4FB1748 
+X-CRM114-Status: GOOD (  21.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,66 +105,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for Wide Dynamic Range and Auto White Balance 64 modules of
-the ISP.
+On Tue, Apr 29, 2025 at 09:24:49AM +0200, Matthias Schiffer wrote:
+> On Mon, 2025-04-28 at 16:08 +0200, Andrew Lunn wrote:
+> > 
+> > > > However, with the yaml stuff, if that is basically becoming "DT
+> > > > specification" then it needs to be clearly defined what each value
+> > > > actually means for the system, and not this vague airy-fairy thing
+> > > > we have now.
+> > 
+> >  
+> > > I agree with Russell that it seems preferable to make it unambiguous whether
+> > > delays are added on the MAC or PHY side, in particular for fine-tuning. If
+> > > anything is left to the implementation, we should make the range of acceptable
+> > > driver behavior very clear in the documentation.
+> > 
+> > I think we should try the "Informative" route first, see what the DT
+> > Maintainers think when we describe in detail how Linux interprets
+> > these values.
+> 
+> Oh, we should not be Linux-specific. We should describe in detail how *any OS*
+> must interpret values.
 
-This series is in continuation of the v2 posted earlier that enabled
-only AWB64. We add a new patch enabling WDR, and rebase the AWB64
-patch on top of it, as WDR is a simpler module which is present across
-different variants of the ISP.
+There is two things here. One is related to delays on the PCB. Those
+are OS agnostic and clearly you are describing hardware. But once you
+get to implementing the delay in the MAC or the PHY, it is policy if
+the PHY does it, or the MAC does it. Different OSes can have different
+policy. We cannot force other OSes to do the same as Linux.
+ 
+I drafted some text last night. I need to review it because i often
+make typos, and then i will post it.
 
-Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
----
-Changes in v5:
-- Ensure WDR_USE_IREF is unset before reading params from user
-- Fix spacing and alignment issues in WDR patch
-- Drop reset value information from doxygen comments for WDR tone curve
-- Link to v4: https://lore.kernel.org/r/20250414-awb64-v4-0-bfaea506cbd0@ideasonboard.com
-
-Changes in v4:
-- Rebase on v6.15-rc1
-- Address Laurent's review comments on WDR patch
-- Link to v3: https://lore.kernel.org/r/20250225-awb64-v3-0-af29b1201e48@ideasonboard.com
-
-Changes in v3:
-- Add a new patch that enables support for WDR module, and rebase AWB64
-  support on top of it
-- Document the fractional bits used for AWB64 configuration parameters
-- Link to v2: https://lore.kernel.org/r/20250110-awb64-v2-1-01b7fb471465@ideasonboard.com
-
-Changes in v2:
-- Fix register offsets
-- Drop the _v10 suffix from awb64 functions
-- Combine the min and max for R, G, B components into a single value in
-  the struct
-- Move all the configuration except IRQ and module enable in the
-  meas_config() routine, making sure the bool bits are cleared if
-  userspace updates the struct
-- Fix documentation and indent at various places
-- Create a single function for getting both AWB and AWB64 stats for
-  IMX8MP
-- Rename accumulator fields to only specify RGB and not YUV, as AWB64
-  block does not operate on YUV colorspace
-- Link to v1: https://lore.kernel.org/r/20241230-awb64-v1-1-27b0ee65f551@ideasonboard.com
-
----
-Jai Luthra (2):
-      media: rockchip: rkisp1: Add support for Wide Dynamic Range
-      media: rockchip: rkisp1: Add support for AWB64
-
- .../media/platform/rockchip/rkisp1/rkisp1-common.h |   2 +
- .../media/platform/rockchip/rkisp1/rkisp1-dev.c    |   3 +-
- .../media/platform/rockchip/rkisp1/rkisp1-params.c | 216 +++++++++++++++++++++
- .../media/platform/rockchip/rkisp1/rkisp1-regs.h   | 140 +++++++------
- .../media/platform/rockchip/rkisp1/rkisp1-stats.c  |  40 ++++
- include/uapi/linux/rkisp1-config.h                 | 199 +++++++++++++++++++
- 6 files changed, 525 insertions(+), 75 deletions(-)
----
-base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
-change-id: 20241230-awb64-79270098e15e
-
-Best regards,
--- 
-Jai Luthra <jai.luthra@ideasonboard.com>
-
+	Andrew
 
