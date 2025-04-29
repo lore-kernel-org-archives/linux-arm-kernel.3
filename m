@@ -4,123 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F371C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 06:33:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD204C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 06:35:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AvSL5A3NEbhnwLKxo5uX4gVOmn//DTx9o8Z+/6mMK9I=; b=w3gYtI+guN7J/Ow7M4lQ2JL7LB
-	r022ekxpvPb/yKS+2g9fELZe93Pp/xc/onsq+65M9WbPJoUlFupfcHfPlb56JHOtc9lHZ9gIG2mUE
-	sHki4c5RPTEK6o42cvF4betzQgB92/d9OHzzlFruSjdsSL/8h8hj0cKOtidwAQ6vO3s2BwPx+90Oj
-	okz+BDhBljQr/YH+i+t95Gy6ssBb6WRBc3JM5SQFV6lcaKNFXwTo5+0AZYJ6flGPDge0vvD1GI9/8
-	215H4Woalfoi+kVGeuXrmUwAFTUBkZD6xRzoDPclgYRu4RUJu2BtvrzUEzSoVnQhCzdQ97Gg8NRos
-	kt+ADNfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vwgako3mQ+3UGHOHVxy3N782KDLSRHEJVh0LtNWCah0=; b=UWRsYu617J+PLUKKG4JznlfQcS
+	gVgnwStn7u2WKZK3mbxiwbrL006NF/xm/lW2Bg1kWgBX9nFrqe3QJsopzjSQN/aCtJ2xHWwVTiNxl
+	6AOyxZQSA5DFSd5CydpSXgKAHX+YVq5cHtDxhW11aGnPmsGhV6xBdV/gA4SAHCNCAfzRrerRv/I2h
+	nRWc0eyNZ2joO6fJz+MGZypSLQlVivZusj7Urw+usyEVdG5k+oR9y+rLGcU1cqez/aPLR5vg9zfYW
+	upvcPjZrReZAM7CyrTcjySfH/qpPd3r3LYzI3j95qUdgcO9TIHqVW0yuSh4gLHSOBfljK2a2HRYFv
+	HvcZ1yPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9eWO-00000008aMJ-38u0;
-	Tue, 29 Apr 2025 06:32:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u9eYJ-00000008b4b-2lbu;
+	Tue, 29 Apr 2025 06:34:47 +0000
+Received: from mail-dbaeur03on20629.outbound.protection.outlook.com ([2a01:111:f403:260d::629] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9eJw-00000008XUW-3EEn
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Apr 2025 06:19:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=AvSL5A3NEbhnwLKxo5uX4gVOmn//DTx9o8Z+/6mMK9I=; b=VX/xi1BLV7EgSw+AG0HN6HBRC4
-	6erVh25BRK0J+jLP6FnbzvmC95vxP/oJDivW3TI/+R2G9bLP1mMUQg1SiHH32V3oQspG6al0EAxai
-	bayWaSUlpXl9WHD2H/QRBCVq7l2QGKDlQB+d95NXLYYS7L6H8AxhQGXK4WTxl2ifp4hjN0z7QhrW6
-	jyj1sdDkNtsH5HtArvu38jOKGK1Ksc4gj33SSt5mbVXTd68FXhgkhXDEYsvoFK9nNg2dCzHdkbjLI
-	kru7U+kS89KTdsRaBI1Dk7HPfXqJhOdrn/bDyf/aAKWRx38oqzM7ww6eN5Geac1iNYf/vmyBFbaX7
-	NJzpp2Rg==;
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9eJr-0000000DD6G-3BX1
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 06:19:54 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3a07a7b4ac7so1551433f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 28 Apr 2025 23:19:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745907588; x=1746512388; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=AvSL5A3NEbhnwLKxo5uX4gVOmn//DTx9o8Z+/6mMK9I=;
-        b=m2/KFJ0zfYJq3EoRFF0cH0qbd6ygVuA9LlzdpSDAEwpDwiqAHL2pIu4dHWR6ylZ/e3
-         2OOa5VZaTSTyUsNlruaEUXJKW/4ha3mX3sZ7Dui+QZjBnv77gt8RZJQlKm75UrGZqfqL
-         xsaLEeMwS5j8B8/z0KakLjJbWK12T6IpEUg3At8qAl/ShLq1Gn1rCNN61OyeF2aKsq+4
-         pweKF2Hc3X1FCkjKDU+yxJHWsoq0sXS/+XadGi8Bk/AJrRFBoNZz/U4my9WMIgr6PqLr
-         Uz/SyNDBpKgJb8duWj+9TXI/ReC0KdiMaQRXi9Veu250sRaNJ6ceIZJ3LH+sjzW4NPrd
-         vvyQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745907588; x=1746512388;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=AvSL5A3NEbhnwLKxo5uX4gVOmn//DTx9o8Z+/6mMK9I=;
-        b=ciRIOhcqjKOPs1ZuRtHztt7am+zFdYMaREvvZQC6DEKyI4jQo8kQMvNt+bozaALWaJ
-         TsVDLAqsDb1Ub5fRv4Ruw2Y6yEiznj4vdv+Ohy85JJOAMSxwq1zc3poiuAh8sbpelX6m
-         SxmRHYwLY6KeuisZc43i06Mu0K/1dL65yyfbD+kF2W9k4ns+TPQVOTC5jgTq1nFon8NN
-         lwDC9zYQGv7SOfqoqZb1YFuwYGqzKpyZzXUo+HTnTDzUvjuw53q5s071rf80NzYkhJ+D
-         bX0yXCJ16QwY+KLyNg1wcj+Hw2VWy/uXiAPI6PkGojOsfVMGrHxowKazdVbJ3Sz/fOwW
-         mQvw==
-X-Forwarded-Encrypted: i=1; AJvYcCXVclh+Ad2DHC8RtdqoiP25ljN0UPXFfAelimj9hFia0Q5XB5B0BPEHkT0KW8B2cnDhmOp9+5he1Emz3ONfC4cA@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywq1kR+bzANY+QOTC8x6xh+fRI03+q900BjEmzqRMKhUNaHdAwt
-	f7CGpfLTy3c+uEyBcSr31jtEIwjIvBisuudJ9I24rX6/PGd1QLDLq/AGIPU4K6c=
-X-Gm-Gg: ASbGncsKoRswOmnMlW5H3yty6TsXiPiakodMyhN2JTA9z0Q5zQnqNjr7deahc925FIn
-	2HI8RadfR18NzZM0AqhUSER3RZCPMWSBcvvRG0u+g+H25jvPWXxQiwKTqQq6AYOAza7Z1A3GgDt
-	J8rKjvRAKDx6pX9G+GV+xbfBhWYf76t0IwLOKMgwA6r4nBcsMVxhZtoRZhkZuO9kq2V01dX3+6A
-	oakeXdKKRYfkqn4TMlRnAsrcgvaRy8mNaymkFSplVfNTld2BkqY8lD5+y16Stq2Mk2o71RcWtYN
-	gTBCzuqt6PFeWlSjQBdWkmsJe3Bskz6RNaS2MclxlwUmZ5aO9aGd8AiwvCDTcx3ODQCzT1P5NL4
-	Axdh7qA==
-X-Google-Smtp-Source: AGHT+IEcKdG2wRSBuyM964cxTaQZshEIOKScbmwqkmDiGlGNlBV7TvAlb1MWRX0R+pVT/zg3VHmYyg==
-X-Received: by 2002:a05:6000:b08:b0:391:253b:405d with SMTP id ffacd0b85a97d-3a08949feeamr1569115f8f.41.1745907587765;
-        Mon, 28 Apr 2025 23:19:47 -0700 (PDT)
-Received: from gpeter-l.roam.corp.google.com ([145.224.90.246])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a073ca4e50sm13302616f8f.30.2025.04.28.23.19.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Apr 2025 23:19:47 -0700 (PDT)
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Tue, 29 Apr 2025 07:19:41 +0100
-Subject: [PATCH v3 5/5] soc: samsung: exynos-pmu: enable CPU hotplug
- support for gs101
+	id 1u9eUP-00000008Zxy-1QHF;
+	Tue, 29 Apr 2025 06:30:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=G4F1whirCmdyshM/KHOgl8p3vJc3aFI0CXfqNQaDDs361/XacYTpjo2i+ArkDAYeYHuXOtJx+B+/5iwFqNZ4P6kJwNXvrP9dOxf0fuQzO/zYwvWIRL4uLn1g9R+IqvfJdaI66NSq6+r7CaviDqn5ChPaWN0MSnaj3sWIOzEUm9zME/Qui4+S1YfJb6FX2mQMmI84cOm8DgUkiCY30tZrNrlWrnyhihMMEm2FKi9wzn8KdIH/EZos9AQ5uTtayPYrHbohZoo0bTkSL+neSiA3M7MHPLKRQ09PvZaXWpz+HsLIAe8asFC0XC25/8cpDQlVckRxnsTWp2LgeuOQMMUKHA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vwgako3mQ+3UGHOHVxy3N782KDLSRHEJVh0LtNWCah0=;
+ b=pH82GhWyTbhTje75+Pjey3mpHstE0SJY5UINvmH1DuRcpPpHAae+qdm/UEuiixUsQbCzE4Pel7MvNhBIfItkEm/TtWD8SSUaA+S4ArNZ3P7hRrEDR4DCcPfqoolXARy42JEtYWaG5zRCuCelbG13t5P+thB9ACA0YO4y16fO8RUBvTC4S4fXx9xPCEfQAoE20q90YIJyxyHa1M0Psld+0MlgwoPXH0zkFyk3eDdKjjnN3OsjqOhysm9Q4SNx1iUIJjGaHPXDk3pTpJck7DPaE3n9QePDUE5CZM8PMZomeFei5cU6rsjKUDJNQBwh2IlKg9pmzus4J1JJhlQtACOTFA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vwgako3mQ+3UGHOHVxy3N782KDLSRHEJVh0LtNWCah0=;
+ b=YGPOhCcS4CUwZXG633njIYEKeTiO5rtULKoy3ZVM18tA2+RPGQQZtss5z/V054qH9kNfwOqQ6PBM1lWmgjPSo7CIhOPtAAb+WpQRH8ICPg0lG4GqWj8fEvGgFpVA1VamBjpOFOTO+hLLZy0j07+lqTeTROSwpxEMi1RvxhRqXvIKjQCCfXmCko5ajKcyDhjgIna0O/rf0Q744yroS9qP0cwoX+yvkS9e/UJXpOPtZmSiYPPOMZycjfhDqZ69Rs68lw49asKQE314OK5AVEq2Vf/+1tDBTmusdYGMbrR4fQDnUnKbvaK5uehFvsJevXEduzsEKeuQQIYdhOWj3wYJzQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
+ by DU4PR04MB11079.eurprd04.prod.outlook.com (2603:10a6:10:589::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.33; Tue, 29 Apr
+ 2025 06:30:37 +0000
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::4e24:c2c7:bd58:c5c7]) by DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::4e24:c2c7:bd58:c5c7%5]) with mapi id 15.20.8678.028; Tue, 29 Apr 2025
+ 06:30:37 +0000
+Date: Tue, 29 Apr 2025 14:26:40 +0800
+From: Xu Yang <xu.yang_2@nxp.com>
+To: Frank Li <Frank.li@nxp.com>
+Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	jun.li@nxp.com, alexander.stein@ew.tq-group.com,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: phy: imx8mq-usb: improve some tuning
+ properties
+Message-ID: <20250429062640.cqqtkp3vwkd5a2gp@hippo>
+References: <20250429033009.2388291-1-xu.yang_2@nxp.com>
+ <aBBpzljSQEnQwlvU@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aBBpzljSQEnQwlvU@lizhi-Precision-Tower-5810>
+X-ClientProxiedBy: SI2PR01CA0011.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:191::6) To DU2PR04MB8822.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e1::11)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250429-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v3-5-1bcc44fb1d55@linaro.org>
-References: <20250429-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v3-0-1bcc44fb1d55@linaro.org>
-In-Reply-To: <20250429-contrib-pg-cpu-hotplug-suspend2ram-fixes-v1-v3-0-1bcc44fb1d55@linaro.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- tudor.ambarus@linaro.org, andre.draszik@linaro.org, willmcvicker@google.com, 
- kernel-team@android.com, Peter Griffin <peter.griffin@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6366;
- i=peter.griffin@linaro.org; h=from:subject:message-id;
- bh=4lERTfOpiwQeYax1gfqq6qrY9EVnhKNheexOA0mzRzo=;
- b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBoEG99ncYW10Ircah1ax1HNpv/FjFikU/IRkMln
- bdyQiFvafyJAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCaBBvfQAKCRDO6LjWAjRy
- uos1D/9jmKnhe3CYlNEwh7yXAxDCImGNlTw6cTUunZUPcN2wZ9DIWuCRcKxKGuTnksOPcoFTWmp
- pyfIEO6irv/DPj8EqRwVINYRAOB+Nbfiei59d5xIQ5JbxszVSBtxLPWB48cLWxz51YX5MQvKggu
- oq3O5a+MvfdjJq7ziTwEPKNSZWDvWzFIdBqdzFZkZmrZR8hYqIIcKfogCbGr1Z8Z89ZJXZUAtJd
- felfmEdAieo/8ANqYyfbUNWiyOB9ltmmeE9a6vN+eJlkTMTCb4EAzPgT0RigCUWZcYe3Mx3OLDY
- IOVUADKvkmy5Lspe+5NloAfOMk6ykXiGkie35xyOMp1B2sg21ofViavTs4X3JCZqdlu7hnKwlcs
- WIh/MZCYkHPgK5LCowAq6aKlpr7VFfHcEZcuGQAYAMNP+s6VsdN7qVjt127tC9JYzpjg7TYBlEo
- DRPr4MHdfogDykdyxKDNsxvUxb8/xLhKHgNyZeWdPDeMH+k7y1XeAyZvSREaEzWbw/m5Ysh0C2w
- 7go/XpGglUAF3wO6z7LJIhH9xsvlsR3B3uOQM8r++XIfTPbelascCioSbygRRIWezYPYa/aIGeS
- /DEppxx6uaDGQU9oLl1qw+KfEeoBqYC5xMyjaiNp3TLFsBSVPdX2zcA0zpWzOo/TUaNq31eSqXB
- on5R1JS4J634ycA==
-X-Developer-Key: i=peter.griffin@linaro.org; a=openpgp;
- fpr=0EFC8E6F5578750D56B549FCCEE8B8D6023472BA
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|DU4PR04MB11079:EE_
+X-MS-Office365-Filtering-Correlation-Id: ef7cb111-c779-47d8-9c98-08dd86e75a37
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1R4lmWaPmWri8krgL6E0MxdkdMCauvOzy3rg9fM2KFb4GI1vt65kMn75PB07?=
+ =?us-ascii?Q?9CvsEI2d2pA7tQ89gOdfcROb25cgpm3edzbKGIh+5gTmlnRQFqyjGcNIBoza?=
+ =?us-ascii?Q?zBNX/AkJIkYVFm0LXjr4RB2BlctXc2qzcaDLBtOvvIv96LkoGeY9rUL8Rv3T?=
+ =?us-ascii?Q?7TYJAh5FAcHh3K52xiI3XFt4YbFOU2d8v2rFNuzoZT7jsMJs+6x8iGLzLwsw?=
+ =?us-ascii?Q?1Di3Lp3EeyF3nirNXTw1E5EfA/bRDmVhJW7qauMz6uAqGxZ5XgW5z3rDN1x1?=
+ =?us-ascii?Q?/f+oNA/kl0MkFXHIOYOa9HFMHkG4tWw8mtC49NicY2Zom3x/BGwNEBtGJ9oA?=
+ =?us-ascii?Q?jLpRZeWQmAPfKt+JCn/xzevbYYLGO6TSxWSV/kkv7uKbDFKMWD/Y2rLisFK7?=
+ =?us-ascii?Q?1d8db9vNM1CV5ZyAW3z3zY5JLv5Dz0x4nkGfXVUwrMlvNomuzppzyeajWnK6?=
+ =?us-ascii?Q?Ack5zVSCw+F89kqs2w/vlQGjo+C5EM/Pdosp0ZNhO1442jLuacur8K3X8Ej6?=
+ =?us-ascii?Q?pLnfl06WD331gXBr+7KICKZU40FW7JvziYjV+09VjpWzoqiFzfyqiAtfLUqg?=
+ =?us-ascii?Q?oFj5UzUoPFNZjYtb/s/5aCxZ7SUwNt5IKAokxAzXNl5qXmsxLX0OWJ3/lL3q?=
+ =?us-ascii?Q?JkW8PutgIEBykQt8mMB8Chs169XwR0wUR+cAt7/UDDJBe2s90bRRoBh7IRug?=
+ =?us-ascii?Q?etfrS3sW7PwsimurCCM1+sHEJp/efjUzBR/7ekJ6WXaX6PTambmqk+Q4WfBC?=
+ =?us-ascii?Q?rLfVFNSXege59WFgwfDXKWC4UMKB03FvKuP82Tnx42qAY5r8pRDaROQ8NifA?=
+ =?us-ascii?Q?AhQqJr/2d4GXhVTAwmmCF+Go/txQQxn3ETnXOSmbMrxUpg1nUNo21872XCGb?=
+ =?us-ascii?Q?ahUh6RBKC7OQBZAEE9AAoB1ocDuzraqhX/nObHETS0Nk8LLTQElr9Xh/Q+U1?=
+ =?us-ascii?Q?VfnGTinXWkzospZkKQBBILtlWlJ9dOj6Ug0eCEj4UbtziHQVJaw0KZLfO7ed?=
+ =?us-ascii?Q?aI+jWPW2qDNHOx+tLtzr9huOkzaiTm7LUk08CQeg5BrpvTBPmhQZegvrClP1?=
+ =?us-ascii?Q?Z8muh5P6Ih9Iqz3VYB+RD1wbvSe4qG8xhIHmVl4gXIlyI/hMQfnfE5gQAf+K?=
+ =?us-ascii?Q?62uo8sjLeuxRSagGPRiBp3UFzQXycsbI9bG9rjDgE2flX6TKNEjZ0Z0Kf3WW?=
+ =?us-ascii?Q?KgHtomSvVG0IxLQp0g4SDZkNx8lXThFIL46zKlD/EUPvg+p2aSLYiALAH6BC?=
+ =?us-ascii?Q?k5RkLSWPzFmXq/kpUE7Ul8rBcYbE0SUQqzko/r0gF0fstv6ZDv0716gR5+XD?=
+ =?us-ascii?Q?TdyZy43t0wNXemPv7VqqR74nw29q2xUux09cm2ErvyseTs/Ymm3rNkR6XrQw?=
+ =?us-ascii?Q?5JdN3wCySPxKig4TFy5C4aeyVb96/KGHU7jCT+U/AEhzFl6dkI4vKV+bFfn4?=
+ =?us-ascii?Q?aWKIQTVgmba84t8kqJ2zWqpZY7o7clbMgx2c7H0RyHNDkoG7/yOj2A=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Zfq4b9KGkab6fbTuHUvF82uWY+3gcJNbpFtA3BUrRDzSdIM9cjwlXW+mXY9A?=
+ =?us-ascii?Q?ZrBjz0kPcAkH/bLLrU0BRIwgRVAnOvkXJO79z4cpiClxClgwipLavWFpNDjA?=
+ =?us-ascii?Q?lxspgRb4TfthNDj9EGwlnYDPUegvzkQrz+aAQD19qeq1hayojNOQrGiSIx5Z?=
+ =?us-ascii?Q?5pa5CTCKbhO9PVrja1ttbKSH/MzhD2CApNjdNbfDv7u7PO3KViDKr0JVDi07?=
+ =?us-ascii?Q?RXsbsdkNI+zZmhhmBQY0+WITNPcZQ+n9nV2DI8zzyZ9wmM2ZngFtCrjIZLs0?=
+ =?us-ascii?Q?FPRoBRt/cWw2hdHWmagWC3NdbcxzVIbAm9HdsGtlzHMy9JZ6uzSu4xjYqJu8?=
+ =?us-ascii?Q?RGcQzDzc3sG1XpgFjKatcV2VcNgWOfzkHOdnYRanE28T+lqYxJfGd7Y0kz/G?=
+ =?us-ascii?Q?1CqeA0rm4drlLppS7aq9MZgBbxuB33GeDb/W3g9oR8K0lh8DTeTyKRtqjH20?=
+ =?us-ascii?Q?+tVPplm3RocWTp5J0v35JC8cM6IoSFnTW20Ts+bG/QaFVdgfV43hyKVQ5fQc?=
+ =?us-ascii?Q?17dkwJARbTt7YINOJS77rccwQwOEfU7wikp1jRwcLHj1jqvnY6NVakkzlduk?=
+ =?us-ascii?Q?wclOIUccKEWH5y9b0RJ3mNKqVmKKNxXARcfInoXbbb5RPH3hVjy4w3gk76U9?=
+ =?us-ascii?Q?wHNUzhfSOBT53tm8RkSlhx8da0kMxwOqYmooTWgDpYjzNXvKJb/jZ2x9n0bV?=
+ =?us-ascii?Q?qK9uo/DSbzGrQwLXZZHRp4lhJOJRq0fIDX1UMBvgZjElJw/qSnhauQf82Xzi?=
+ =?us-ascii?Q?/OmDz/0E3fJ3hkRmjywWu5Onop4hJcGOC44/4tvP7Pg2jsBczE7PbNQwvhUf?=
+ =?us-ascii?Q?2aDCvA3FsEKRjhQbNpwilrNu3EcDgAatlTXwFHZ0xKuuP3WAonKnKVQ+alvQ?=
+ =?us-ascii?Q?tIF7Qgjx39jVzJqn8uJfLkp1gfVfva6kF7pVNbBmi/ovTxcPXef5H+fGt8ff?=
+ =?us-ascii?Q?j7FmOkb6nESJPstOm0StbwaQjIUNmnQZ47HOxRb4GkrDiSywLSOg7LubpiyH?=
+ =?us-ascii?Q?eSwYVEJym8XzupPGWlxZvth919dxUUis0MSHnLa61otpsqHLulFZ4EsqzwBE?=
+ =?us-ascii?Q?0crIcoI7lOxeng6naNgSnf4f0PzWo/7/S3NCx3fa4X3lUNRhiHj3/B3mqi5A?=
+ =?us-ascii?Q?Ea54xys/oInizCVEsmxyhVMscvEUyJjtsUbhCwn4YnpKVjVN783CLctZxQ+v?=
+ =?us-ascii?Q?3qZyUDSURKZ405rM1rPTD8MmGkGBR0tZZiV/TfJV4x9Irz8VYe4ho9MHCekT?=
+ =?us-ascii?Q?5ni3Jp8ahqZydO79tEGWAfAxi6CHnDx+fChZGW1vl9OaU82BoonYyc0L/ID1?=
+ =?us-ascii?Q?wf4r5ZwZ9y0uIeCX9LDhJC/SfECbHExqRkVfma/Dp67Ohm2z7Y6YOkQ39jEO?=
+ =?us-ascii?Q?p/VGp7w7jjepysDxhg92BQVZUR0EYt63EMglGbVSBszmF/zMrox4dc1XpU/Y?=
+ =?us-ascii?Q?dGnhJLjwE8KurxqB0MxG4Wa/7Tveo2Bt0R62zXV2ZykyB2w0SmyUh8HfroME?=
+ =?us-ascii?Q?opAeFxrmlX6KApLOO4BZYWpxu+GE/uT+I4mcXUzfwZlAIstF+QURGbRL43ue?=
+ =?us-ascii?Q?4W+qfJuIsUsAmLdXwr6HkUkQ6wCgi/76UNkQqXwn?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ef7cb111-c779-47d8-9c98-08dd86e75a37
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Apr 2025 06:30:36.8448
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XTKxrv5y+oSc1MDTFXoc+dG3HodqRbLhR0yfsc9z0d0W4QE6t/ghJaNwDropOlj6WKKx4qDAnLfhl0TwriWKNw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11079
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_071952_051471_4FC2267D 
-X-CRM114-Status: GOOD (  22.81  )
+X-CRM114-CacheID: sfid-20250428_233045_382896_81105CE3 
+X-CRM114-Status: GOOD (  30.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,196 +160,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some additional register writes are required when hotplugging CPUs
-on gs101, without these the system hangs when hotplugging.
+Hi Frank,
 
-Specifically a CPU_INFORM register needs to be programmed with
-a hint value which is used by the EL3 firmware (el3mon) and the
-pmu-intr-gen registers need to be programmed.
+On Tue, Apr 29, 2025 at 01:55:26AM -0400, Frank Li wrote:
+> On Tue, Apr 29, 2025 at 11:30:07AM +0800, Xu Yang wrote:
+> > Commit b2e75563dc39 ("dt-bindings: phy: imx8mq-usb: add phy tuning
+> > properties") add many tuning properties, but some parameter value doesn't
+> > match the register description. It made some changes based on the original
+> > value: add offset to a negative number so turn it to a non-negative number.
+> > However, it's not easy to find an exact tuning value from register field
+> > with such conversion.
+> >
+> > Because device-tree supports negative parameter number, this will improve
+> > some propertie's parameter.
+> >
+> > Mainly include below properties:
+> >  - fsl,phy-tx-vref-tune-percent
+> >  - fsl,phy-tx-rise-tune-percent
+> >  - fsl,phy-comp-dis-tune-percent
+> 
+> It should be standard unit. for example 0% to 100%. DT don't prefer you
+> direct use register value.
 
-With this patch applied, and corresponding DT update CPU hotplug
-now works as expected. e.g.
+Yes. The dtschema and driver already use standard unit.
+This patch is going to correct the unintuitive expression.
 
-echo 0 > /sys/devices/system/cpu/cpu6/online
-echo 1 > /sys/devices/system/cpu/cpu6/online
+Take tx-rise-tune as example, register field as below:
 
-Note: to maintain compatibility with older DTs that didn't specify
-pmu-intr-gen phandle only a warning is issued if the syscon can't
-be obtained.
+		00b - + 3%
+ [21:20]	01b - 0 (default)
+TXRISETUNE	10b - - 1%
+		11b - - 3%
 
-Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
----
+The valid value of tx-rise-tune is [-3%, +3%]. However, the current dtschema
+add an offset which caused the valid value to [97%, 103%].
 
-Changes since v1:
-* Use BIT macro (Kryzstof)
-* Use gs101_ prefix for cpuhp functions (Kryzstof)
-* Model pmuintrgen SFR region as it's own syscon (Kryzstof)
-* Use regmap_update_bits() API (Kryzstof)
-* Program hint on current processor number (Peter)
----
- drivers/soc/samsung/exynos-pmu.c            | 80 ++++++++++++++++++++++++++++-
- drivers/soc/samsung/exynos-pmu.h            |  1 +
- include/linux/soc/samsung/exynos-regs-pmu.h | 11 ++++
- 3 files changed, 91 insertions(+), 1 deletion(-)
+fsl,phy-tx-rise-tune-percent:
+  minimum: 97
+  maximum: 103
 
-diff --git a/drivers/soc/samsung/exynos-pmu.c b/drivers/soc/samsung/exynos-pmu.c
-index c40313886a012304b3f345d5d7369f15713eb857..41955ec2ccdb955b2d0b969651fad1a344628f1b 100644
---- a/drivers/soc/samsung/exynos-pmu.c
-+++ b/drivers/soc/samsung/exynos-pmu.c
-@@ -7,6 +7,7 @@
- 
- #include <linux/array_size.h>
- #include <linux/arm-smccc.h>
-+#include <linux/cpuhotplug.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
- #include <linux/mfd/core.h>
-@@ -33,6 +34,7 @@ struct exynos_pmu_context {
- 	struct device *dev;
- 	const struct exynos_pmu_data *pmu_data;
- 	struct regmap *pmureg;
-+	struct regmap *pmuintrgen;
- };
- 
- void __iomem *pmu_base_addr;
-@@ -222,7 +224,8 @@ static const struct regmap_config regmap_smccfg = {
- };
- 
- static const struct exynos_pmu_data gs101_pmu_data = {
--	.pmu_secure = true
-+	.pmu_secure = true,
-+	.pmu_cpuhp = true,
- };
- 
- /*
-@@ -326,6 +329,60 @@ struct regmap *exynos_get_pmu_regmap_by_phandle(struct device_node *np,
- }
- EXPORT_SYMBOL_GPL(exynos_get_pmu_regmap_by_phandle);
- 
-+/*
-+ * CPU_INFORM register hint values which are used by
-+ * EL3 firmware (el3mon).
-+ */
-+#define CPU_INFORM_CLEAR	0
-+#define CPU_INFORM_C2		1
-+
-+static int gs101_cpuhp_pmu_online(unsigned int cpu)
-+{
-+
-+	unsigned int cpuhint = smp_processor_id();
-+	u32 reg, mask;
-+
-+	/* clear cpu inform hint */
-+	regmap_write(pmu_context->pmureg, GS101_CPU_INFORM(cpuhint),
-+		     CPU_INFORM_CLEAR);
-+
-+	mask = BIT(cpu);
-+
-+	regmap_update_bits(pmu_context->pmuintrgen, GS101_GRP2_INTR_BID_ENABLE,
-+			   mask, (0 << cpu));
-+
-+	regmap_read(pmu_context->pmuintrgen, GS101_GRP2_INTR_BID_UPEND, &reg);
-+
-+	regmap_write(pmu_context->pmuintrgen, GS101_GRP2_INTR_BID_CLEAR,
-+		     reg & mask);
-+
-+	return 0;
-+}
-+
-+static int gs101_cpuhp_pmu_offline(unsigned int cpu)
-+{
-+	u32 reg, mask;
-+	unsigned int cpuhint = smp_processor_id();
-+
-+	/* set cpu inform hint */
-+	regmap_write(pmu_context->pmureg, GS101_CPU_INFORM(cpuhint),
-+		     CPU_INFORM_C2);
-+
-+	mask = BIT(cpu);
-+	regmap_update_bits(pmu_context->pmuintrgen, GS101_GRP2_INTR_BID_ENABLE,
-+			   mask, BIT(cpu));
-+
-+	regmap_read(pmu_context->pmuintrgen, GS101_GRP1_INTR_BID_UPEND, &reg);
-+	regmap_write(pmu_context->pmuintrgen, GS101_GRP2_INTR_BID_CLEAR,
-+		     reg & mask);
-+
-+	mask = (BIT(cpu+8));
-+	regmap_read(pmu_context->pmuintrgen, GS101_GRP1_INTR_BID_UPEND, &reg);
-+	regmap_write(pmu_context->pmuintrgen, GS101_GRP2_INTR_BID_CLEAR,
-+		     reg & mask);
-+	return 0;
-+}
-+
- static int exynos_pmu_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-@@ -378,6 +435,27 @@ static int exynos_pmu_probe(struct platform_device *pdev)
- 	pmu_context->pmureg = regmap;
- 	pmu_context->dev = dev;
- 
-+	if (pmu_context->pmu_data && pmu_context->pmu_data->pmu_cpuhp) {
-+
-+		pmu_context->pmuintrgen = syscon_regmap_lookup_by_phandle(dev->of_node,
-+							"google,pmu-intr-gen-syscon");
-+		if (IS_ERR(pmu_context->pmuintrgen)) {
-+			/*
-+			 * To maintain support for older DTs that didn't specify syscon phandle
-+			 * just issue a warning rather than fail to probe.
-+			 */
-+			dev_warn(&pdev->dev, "pmu-intr-gen syscon unavailable\n");
-+		} else {
-+			cpuhp_setup_state(CPUHP_BP_PREPARE_DYN,
-+					"soc/exynos-pmu:prepare",
-+					gs101_cpuhp_pmu_online, NULL);
-+
-+			cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
-+					"soc/exynos-pmu:online",
-+					NULL, gs101_cpuhp_pmu_offline);
-+		}
-+	}
-+
- 	if (pmu_context->pmu_data && pmu_context->pmu_data->pmu_init)
- 		pmu_context->pmu_data->pmu_init();
- 
-diff --git a/drivers/soc/samsung/exynos-pmu.h b/drivers/soc/samsung/exynos-pmu.h
-index 0a49a2c9a08ef5bc75670551bdbf6d0a2d3e8ae9..0938bb4fe15f439e2d8bddeec51b6077e79a7e84 100644
---- a/drivers/soc/samsung/exynos-pmu.h
-+++ b/drivers/soc/samsung/exynos-pmu.h
-@@ -22,6 +22,7 @@ struct exynos_pmu_data {
- 	const struct exynos_pmu_conf *pmu_config;
- 	const struct exynos_pmu_conf *pmu_config_extra;
- 	bool pmu_secure;
-+	bool pmu_cpuhp;
- 
- 	void (*pmu_init)(void);
- 	void (*powerdown_conf)(enum sys_powerdown);
-diff --git a/include/linux/soc/samsung/exynos-regs-pmu.h b/include/linux/soc/samsung/exynos-regs-pmu.h
-index cde299a85384a70d04dae49ee9a4e2daa88fbbf6..c82b40035e9fa8fe6a673b829a75a50a707afb1b 100644
---- a/include/linux/soc/samsung/exynos-regs-pmu.h
-+++ b/include/linux/soc/samsung/exynos-regs-pmu.h
-@@ -660,9 +660,20 @@
- #define EXYNOS5433_PAD_RETENTION_FSYSGENIO_OPTION		(0x32A8)
- 
- /* For Tensor GS101 */
-+/* PMU ALIVE */
- #define GS101_SYSIP_DAT0					(0x810)
-+#define GS101_CPU0_INFORM					(0x860)
-+#define GS101_CPU_INFORM(cpu)	\
-+			(GS101_CPU0_INFORM + (cpu*4))
- #define GS101_SYSTEM_CONFIGURATION				(0x3A00)
- #define GS101_PHY_CTRL_USB20					(0x3EB0)
- #define GS101_PHY_CTRL_USBDP					(0x3EB4)
- 
-+/* PMU INTR GEN */
-+#define GS101_GRP1_INTR_BID_UPEND				(0x0108)
-+#define GS101_GRP1_INTR_BID_CLEAR				(0x010c)
-+#define GS101_GRP2_INTR_BID_ENABLE				(0x0200)
-+#define GS101_GRP2_INTR_BID_UPEND				(0x0208)
-+#define GS101_GRP2_INTR_BID_CLEAR				(0x020c)
-+
- #endif /* __LINUX_SOC_EXYNOS_REGS_PMU_H */
+When I first added tuning property to DTS, I thought I was reading the wrong
+dtschema. Other users may meet such confuse too. 
 
--- 
-2.49.0.901.g37484f566f-goog
+Thanks,
+Xu Yang
 
+> 
+> Frank
+> 
+> >
+> > The parameter value of above 3 properties are USB PHY specific. i.MX8MP
+> > and i.MX95 USB PHY has different meanings. So this add restrictions for
+> > them.
+> >
+> >  - fsl,phy-tx-vboost-level-microvolt
+> >
+> > For this property, the parameter value is wrong in register description.
+> > This will correct it according to true value.
+> >
+> > For detailed info, please refer to i.MX8MP and i.MX95 latest reference
+> > manual.
+> >
+> > Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+> >
+> > ---
+> > Changes in v2:
+> >  - keep widest constraints
+> >  - use multipleOf for some properties
+> > ---
+> >  .../bindings/phy/fsl,imx8mq-usb-phy.yaml      | 60 +++++++++++++++----
+> >  1 file changed, 49 insertions(+), 11 deletions(-)
+> >
+> > diff --git a/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml b/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
+> > index daee0c0fc915..71e5940ef4b8 100644
+> > --- a/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
+> > +++ b/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
+> > @@ -42,16 +42,17 @@ properties:
+> >
+> >    fsl,phy-tx-vref-tune-percent:
+> >      description:
+> > -      Tunes the HS DC level relative to the nominal level
+> > -    minimum: 94
+> > -    maximum: 124
+> > +      Tunes the HS DC level relative to the nominal level. It varies
+> > +      between different PHY versions
+> > +    minimum: -1000
+> > +    maximum: 875
+> >
+> >    fsl,phy-tx-rise-tune-percent:
+> >      description:
+> >        Adjusts the rise/fall time duration of the HS waveform relative to
+> > -      its nominal value
+> > -    minimum: 97
+> > -    maximum: 103
+> > +      its nominal value. It varies between different PHY versions
+> > +    minimum: -10
+> > +    maximum: 20
+> >
+> >    fsl,phy-tx-preemp-amp-tune-microamp:
+> >      description:
+> > @@ -63,15 +64,14 @@ properties:
+> >    fsl,phy-tx-vboost-level-microvolt:
+> >      description:
+> >        Adjust the boosted transmit launch pk-pk differential amplitude
+> > -    minimum: 880
+> > -    maximum: 1120
+> > +    enum: [844, 1008, 1156]
+> >
+> >    fsl,phy-comp-dis-tune-percent:
+> >      description:
+> >        Adjust the voltage level used to detect a disconnect event at the host
+> > -      relative to the nominal value
+> > -    minimum: 91
+> > -    maximum: 115
+> > +      relative to the nominal value. It varies between different PHY versions
+> > +    minimum: -60
+> > +    maximum: 45
+> >
+> >    fsl,phy-pcs-tx-deemph-3p5db-attenuation-db:
+> >      description:
+> > @@ -112,6 +112,44 @@ allOf:
+> >          reg:
+> >            maxItems: 1
+> >
+> > +  - if:
+> > +      properties:
+> > +        compatible:
+> > +          enum:
+> > +            - fsl,imx8mq-usb-phy
+> > +            - fsl,imx8mp-usb-phy
+> > +    then:
+> > +      properties:
+> > +        fsl,phy-tx-vref-tune-percent:
+> > +          minimum: -6
+> > +          maximum: 24
+> > +          multipleOf: 2
+> > +        fsl,phy-tx-rise-tune-percent:
+> > +          enum: [-3, -1, 0, 3]
+> > +        fsl,phy-comp-dis-tune-percent:
+> > +          enum: [-9, -6, -3, 0, 4, 7, 11, 15]
+> > +
+> > +  - if:
+> > +      properties:
+> > +        compatible:
+> > +          contains:
+> > +            enum:
+> > +              - fsl,imx95-usb-phy
+> > +    then:
+> > +      properties:
+> > +        fsl,phy-tx-vref-tune-percent:
+> > +          description: 100x the original
+> > +          minimum: -1000
+> > +          maximum: 875
+> > +          multipleOf: 125
+> > +        fsl,phy-tx-rise-tune-percent:
+> > +          enum: [-10, 0, 15, 20]
+> > +        fsl,phy-comp-dis-tune-percent:
+> > +          description: 10x the original
+> > +          minimum: -60
+> > +          maximum: 45
+> > +          multipleOf: 15
+> > +
+> >    - if:
+> >        required:
+> >          - orientation-switch
+> > --
+> > 2.34.1
+> >
 
