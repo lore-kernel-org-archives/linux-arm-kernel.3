@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0FA3C369CB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 07:32:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A932C369CB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 07:34:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RyhhKHcQn/OtgTmNOO+AF/jrAuW0rpCyeN4utPF33Kc=; b=oEeHoMbr3R/ENY/RZnkbsKb9gR
-	qZMOuAlol0aaiWXooP04N3KgPyYSh7jr06QUanqcusbpHeaqqsxisbYqMr6m2mSRJeygsytfPR19e
-	bprg2us5N9CkV+bmKtlvdl88WHXGQMI/vAvWuNb/+sHd7vkRoQQDy1tgrs4ShGVwGI3bJ0gYo8r0A
-	e7uzNs4Yx/JefNTw/HevwxdrFqhboQ/8xnZKgaHsgdYBMb0agK6BurOAGZ/los4Z4Tq1pv0ZJ8KnV
-	bE+n5Kuw5e3rhfhubO0ZfFsYzPUDGB24DwonaC/1nvH4XK4r1X+WWzG6JUYl3TIw0MN7Jz8UoGgq6
-	nIM0Z+sQ==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XeEI2ayz6HXeCX1dYLeNcJMnZ05OOrKubgDL3zN4gAw=; b=ySD9Al8iKcrfr+vv7s7Lugp2pe
+	YepPKSGbfUCxXgFBWCohl+NuR03p0m6teEeJ/U4CAZS1lLuivKLZPeBiC/9FQUfKBPg080d5Ifi66
+	6DNaXdHyQHCoxu0ZnF+WmwW6eC8i2/C/BznMnL0EpWqWt8JraYJ080mO/TRhG9nQqKOMrNdpQ3HLf
+	yDzGtsJTlTKX7RPK//h3pJXU5mxDrX10SbbUb4tLZ3tCoteXLBwgvl/omTVc3pGbHy78Ct55hfYu3
+	bB7Wtus92foF7StHCACWG74XUSZX1RYYYBSlG9Pi4//c0mIqh3UWtl2lCWxBWPokWAVZiXHbs0zVz
+	VtSZP3fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9fSQ-00000008laF-1ZHy;
-	Tue, 29 Apr 2025 07:32:46 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1u9fUK-00000008lz9-0VH7;
+	Tue, 29 Apr 2025 07:34:44 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9fMq-00000008kVK-1M8i
+	id 1u9fMq-00000008kVV-2E4W
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 07:27:01 +0000
+	Tue, 29 Apr 2025 07:27:02 +0000
 Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53T7QlpD3785291
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53T7QnXs3027166
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 29 Apr 2025 02:26:47 -0500
+	Tue, 29 Apr 2025 02:26:50 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745911607;
-	bh=RyhhKHcQn/OtgTmNOO+AF/jrAuW0rpCyeN4utPF33Kc=;
-	h=From:To:CC:Subject:Date;
-	b=deKrmW0CpxxomB5UltntmFvpnqIFK7vxG9so3tJrwKj3hGGJN8Ld/vxMr3n/aEZT2
-	 vktX/z50+bfRE7UUFpkGBrE+IjvGT0xnz/IiS6wNnp7zIaAynmeEXXCW2esskFYDv0
-	 NehrjlZrn5ddm+QmxIU5fcdKihJHgBRGpkFirKRU=
-Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53T7QlEE026072
+	s=ti-com-17Q1; t=1745911610;
+	bh=XeEI2ayz6HXeCX1dYLeNcJMnZ05OOrKubgDL3zN4gAw=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=BUt4QfPOc/NfHXSwKhdnFVVTpIKl2vS4Rt/53vYZIFzXCJWhV+QAcjQMlOhZolVuO
+	 xOiRMrpxq4IDb0IB6zEDvmvWmQN/ZIuOPA4u2aulya0576CJT/zNpbTKVEYNSA4rx4
+	 Z+h7+lLuQexz4zr6X8RK/PMCevaYlhz3WiyqP4lQ=
+Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53T7QnSh026086
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 29 Apr 2025 02:26:47 -0500
-Received: from DLEE104.ent.ti.com (157.170.170.34) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+	Tue, 29 Apr 2025 02:26:49 -0500
+Received: from DFLE100.ent.ti.com (10.64.6.21) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 29
- Apr 2025 02:26:46 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE104.ent.ti.com
- (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
+ Apr 2025 02:26:49 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE100.ent.ti.com
+ (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 29 Apr 2025 02:26:46 -0500
+ Frontend Transport; Tue, 29 Apr 2025 02:26:49 -0500
 Received: from localhost (chintan-thinkstation-p360-tower.dhcp.ti.com [172.24.227.220])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53T7QjXR088302;
-	Tue, 29 Apr 2025 02:26:46 -0500
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53T7Qmcl109121;
+	Tue, 29 Apr 2025 02:26:49 -0500
 From: Chintan Vankar <c-vankar@ti.com>
 To: Conor Dooley <conor+dt@kernel.org>,
         Krzysztof Kozlowski
@@ -63,19 +63,22 @@ To: Conor Dooley <conor+dt@kernel.org>,
 	<nm@ti.com>
 CC: <srk@ti.com>, <s-vadapalli@ti.com>, <danishanwar@ti.com>,
         <c-vankar@ti.com>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v4 0/2] Add bootph-all property to necessary nodes to enable ethernet boot for AM68-SK, J722s and AM62p-SK
-Date: Tue, 29 Apr 2025 12:56:42 +0530
-Message-ID: <20250429072644.2400295-1-c-vankar@ti.com>
+        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        Roger
+ Quadros <rogerq@kernel.org>
+Subject: [PATCH v4 2/2] arm64: dts: ti: k3-am62p*/k3-j722s: Add bootph-all property to enable Ethernet boot
+Date: Tue, 29 Apr 2025 12:56:44 +0530
+Message-ID: <20250429072644.2400295-3-c-vankar@ti.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250429072644.2400295-1-c-vankar@ti.com>
+References: <20250429072644.2400295-1-c-vankar@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_002700_461751_45B0E0AF 
-X-CRM114-Status: UNSURE (   9.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250429_002700_677444_3508822E 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,30 +93,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds bootph-all property to necessary nodes to enable
-ethernet boot support for AM68-SK, J722s and AM62p-SK.
+Ethernet boot requires CPSW nodes to be present starting from R5 SPL
+stage. Add bootph-all property to required nodes to enable Ethernet boot
+for AM62P5-SK and J722S-EVM.
 
-This series is based on linux-next tagged next-20250428.
+Reviewed-by: Roger Quadros <rogerq@kernel.org>
+Signed-off-by: Chintan Vankar <c-vankar@ti.com>
+---
 
 Link to v3:
-https://lore.kernel.org/r/20250425051055.2393301-1-c-vankar@ti.com/
+https://lore.kernel.org/r/20250425051055.2393301-3-c-vankar@ti.com/
 
 Changes from v3 to v4:
-- As per Nishanth's suggestion, moved nodes which require "bootph-all"
-  property into board specific file for AM68-SK.
+- No changes.
 
-Chintan Vankar (2):
-  arm64: dts: ti: k3-am68-sk-base-board: Add bootph-all property to
-    enable Ethernet boot
-  arm64: dts: ti: k3-am62p*/k3-j722s: Add bootph-all property to enable
-    Ethernet boot
+ arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 3 +++
+ arch/arm64/boot/dts/ti/k3-am62p5-sk.dts                | 2 ++
+ arch/arm64/boot/dts/ti/k3-j722s-evm.dts                | 3 +++
+ 3 files changed, 8 insertions(+)
 
- .../boot/dts/ti/k3-am62p-j722s-common-main.dtsi      |  3 +++
- arch/arm64/boot/dts/ti/k3-am62p5-sk.dts              |  2 ++
- arch/arm64/boot/dts/ti/k3-am68-sk-base-board.dts     | 12 ++++++++++++
- arch/arm64/boot/dts/ti/k3-j722s-evm.dts              |  3 +++
- 4 files changed, 20 insertions(+)
-
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+index 7b65538110e8..11f484f88603 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+@@ -50,6 +50,7 @@ phy_gmii_sel: phy@4044 {
+ 			compatible = "ti,am654-phy-gmii-sel";
+ 			reg = <0x4044 0x8>;
+ 			#phy-cells = <1>;
++			bootph-all;
+ 		};
+ 
+ 		epwm_tbclk: clock-controller@4130 {
+@@ -730,6 +731,7 @@ cpsw_port1: port@1 {
+ 				mac-address = [00 00 00 00 00 00];
+ 				ti,syscon-efuse = <&cpsw_mac_syscon 0x0>;
+ 				status = "disabled";
++				bootph-all;
+ 			};
+ 
+ 			cpsw_port2: port@2 {
+@@ -751,6 +753,7 @@ cpsw3g_mdio: mdio@f00 {
+ 			clock-names = "fck";
+ 			bus_freq = <1000000>;
+ 			status = "disabled";
++			bootph-all;
+ 		};
+ 
+ 		cpts@3d000 {
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+index d29f524600af..5b2f0945a9eb 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+@@ -227,6 +227,7 @@ main_mdio1_pins_default: main-mdio1-default-pins {
+ 			AM62PX_IOPAD(0x0160, PIN_OUTPUT, 0) /* (F17) MDIO0_MDC */
+ 			AM62PX_IOPAD(0x015c, PIN_INPUT, 0) /* (F16) MDIO0_MDIO */
+ 		>;
++		bootph-all;
+ 	};
+ 
+ 	main_mmc1_pins_default: main-mmc1-default-pins {
+@@ -496,6 +497,7 @@ &cpsw3g_mdio {
+ 
+ 	cpsw3g_phy0: ethernet-phy@0 {
+ 		reg = <0>;
++		bootph-all;
+ 		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
+ 		ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
+ 		ti,min-output-impedance;
+diff --git a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+index 34b9d190800e..93d770c5792e 100644
+--- a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
++++ b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+@@ -310,6 +310,7 @@ mdio_pins_default: mdio-default-pins {
+ 			J722S_IOPAD(0x0160, PIN_OUTPUT, 0) /* (AC24) MDIO0_MDC */
+ 			J722S_IOPAD(0x015c, PIN_INPUT, 0) /* (AD25) MDIO0_MDIO */
+ 		>;
++		bootph-all;
+ 	};
+ 
+ 	ospi0_pins_default: ospi0-default-pins {
+@@ -344,6 +345,7 @@ J722S_IOPAD(0x0140, PIN_OUTPUT, 0) /* (AF24) RGMII1_TD3 */
+ 			J722S_IOPAD(0x0130, PIN_OUTPUT, 0) /* (AG26) RGMII1_TXC */
+ 			J722S_IOPAD(0x012c, PIN_OUTPUT, 0) /* (AF25) RGMII1_TX_CTL */
+ 		>;
++		bootph-all;
+ 	};
+ 
+ 	main_usb1_pins_default: main-usb1-default-pins {
+@@ -388,6 +390,7 @@ &cpsw3g_mdio {
+ 
+ 	cpsw3g_phy0: ethernet-phy@0 {
+ 		reg = <0>;
++		bootph-all;
+ 		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
+ 		ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
+ 		ti,min-output-impedance;
 -- 
 2.34.1
 
