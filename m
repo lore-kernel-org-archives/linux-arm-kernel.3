@@ -4,79 +4,187 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60AD5C369D5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 01:21:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F2A2C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 01:23:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Date:References:Message-ID:In-Reply-To:From:Subject:Cc:To:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lPNsFcUYhv82KSowqlG7eWMjT5EQftUTzDLZ/eIlBJ8=; b=WZnPCn1TD8JxZLFTTW7M5zuHVZ
-	jSygxEZAKRNAsij3hIEYUQu39LV3TBIX/zqJ7zKmEeES42WYO6uq7At+SFL2qyviX7sJfBGuj51tn
-	1BWSJChAj0yXeTrf+PSWlPqtnoArBH7S7Z/phT8i/qIxdQpkAJk8VyuTU5WdsSmf4XoQ9IWeuVpTh
-	Njfwt3FY/kUrssD5Ox+oOadcdHJcl6/5dbU3WfQ+d6GoZpC1yI0MC1nLPZP764XqIjvvAawqq17qP
-	+poO+Gj1QXVrXL/LEeDkIlo+KAZ4edGpm3OEHnrvZj6r3e+1g9RTFcqXklPOTXWsRPc4YI5/IbTTg
-	l36EoVXg==;
+	bh=cAsXdxPLMmJ0aGMAuhT/v/ahVv9wYavSTwDSr1tvyQ8=; b=JlbsphBezHSsEWniz38s3FbAmn
+	lOhIOaME/mU8erAzTWYYyodd1iRG5rn3VXqZektPNMqlNkVQoPykTnGPjjdW+iPvVEHKdx04apTC4
+	NSfYBxh2/AO4WSDyKyzltbIlgyEJW8F9F9mi81mh5W4wuTG+awIwErpQU33P1YYn87v8HDO7qyAbV
+	3wuuoejwPPG8ZzxniVd+0aqpIg82IcJOhiCR8Ff60WA/+JZViStnZ7q3nPAhVGBeW2hh3PCSImAy+
+	e8LTkOQi5l/DM/z8aOnshqWhPp9X/hETFLZHK9krYXI1+UMy7X4e80t5ZMdNFgm8lQXEdg2OErojY
+	TCSLuJHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9ZfL-00000007z2K-3zmh;
-	Tue, 29 Apr 2025 01:21:43 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1u9ZhE-00000007zHo-2YIN;
+	Tue, 29 Apr 2025 01:23:40 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9ZdP-00000007yiX-2uHF
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 01:19:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1745889583; x=1777425583;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=R3UAhkpOPCmKmxNTzkcTSJ8pqpaUKXLkVbgY8NNMnek=;
-  b=lRraj1R+ehvFb3Au8U5K/nfXd6G5tWEY8wiy2yh91DIj+PeWIlJImIzA
-   ZicndxjSJtl/5Q3vC4vLkh05qyV72wJD4Fo60OLrlEGuHovxNU9AEwLs1
-   ykC/o/0FZ5sadgbEfBjay2zFWyTpunkj5lkJ0suvbWSPMZCNO1HH7NM0Q
-   p003/scP9xsF/NyfMmLb/0CxaexABEH1bW3mchEEwdxLrG7zpr2I+OUj7
-   kgxtwKMZTV9a44t+fgsb3kykT2phk9LmYh2CW28pmrCnGcXsO+ZyYwDQG
-   HGUkE6baXyGQGwO58cxCf8be+eepJx76gO0t+kahJjcqPyMG8eW23xTAZ
-   Q==;
-X-CSE-ConnectionGUID: yR4VFsZfT+aU/SttomWyCA==
-X-CSE-MsgGUID: 1phUDBbMSCi4qQ0T6XQyGg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11417"; a="51165275"
-X-IronPort-AV: E=Sophos;i="6.15,247,1739865600"; 
-   d="scan'208";a="51165275"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Apr 2025 18:19:35 -0700
-X-CSE-ConnectionGUID: NL+2JPk/QSatszxG4Hf86A==
-X-CSE-MsgGUID: SgVXDWYzSQ2Krf65Z8hqvw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,247,1739865600"; 
-   d="scan'208";a="164775790"
-Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
-  by fmviesa001.fm.intel.com with ESMTP; 28 Apr 2025 18:19:28 -0700
-Received: from kbuild by 1992f890471c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1u9Zd7-00001R-1V;
-	Tue, 29 Apr 2025 01:19:25 +0000
-Date: Tue, 29 Apr 2025 02:45:46 +0800
-From: kernel test robot <lkp@intel.com>
-To: Sai Sree Kartheek Adivi <s-adivi@ti.com>, peter.ujfalusi@gmail.com,
-	vkoul@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, nm@ti.com, ssantosh@kernel.org,
-	dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	praneeth@ti.com, vigneshr@ti.com, u-kumar1@ti.com, a-chavda@ti.com
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev
-Subject: Re: [PATCH 5/8] drivers: soc: ti: k3-ringacc: handle absence of tisci
-Message-ID: <202504290207.ct0tnV56-lkp@intel.com>
-References: <20250428072032.946008-6-s-adivi@ti.com>
+	id 1u9Zdx-00000007ypc-35bL;
+	Tue, 29 Apr 2025 01:20:19 +0000
+Received: from pps.filterd (m0246631.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53T17JaI015479;
+	Tue, 29 Apr 2025 01:19:56 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=corp-2023-11-20; bh=cAsXdxPLMmJ0aGMAuh
+	T/v/ahVv9wYavSTwDSr1tvyQ8=; b=C/lXMstJ3DR5Qqgnk5PYiIOXZgWyTvSVvH
+	P7Qzswn8V3jeIOaRTSuD9M8ZOTnlpkJvuvlvR5OfJKqRuA3gWXNICfsEf6QfPrd3
+	QNvO9cQn4fcw7YQauA+d5H9EO2Xr7h0W+RAWLj78O3trOIsoaw+JP8xrM4S+OA5c
+	X0VNjZWfhyHNw1s94t4oHvWXPuP74SG2Lyihttn66FOYoFyycO/v2aXAiBGNitih
+	2l1ex+o0qFxsvQL4ZaF/rXJcl+N39XisHomtk5v7+9WH27ISd01A2yqeEIzJjz9n
+	M7H+/44xENU6Zx32+t3X046+OPGCNIBWMPkJEcoWGQQ9UccqfmKg==
+Received: from phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta01.appoci.oracle.com [138.1.114.2])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 46amtpg0g5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 29 Apr 2025 01:19:56 +0000 (GMT)
+Received: from pps.filterd (phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 53T09NAx011323;
+	Tue, 29 Apr 2025 01:19:55 GMT
+Received: from nam10-bn7-obe.outbound.protection.outlook.com (mail-bn7nam10lp2047.outbound.protection.outlook.com [104.47.70.47])
+	by phxpaimrmta01.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 468nx9ppjm-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 29 Apr 2025 01:19:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OmX7/+bXQ2m1avh3y6Ng6KtJLQV7FesVQrvv0s39HhafIRGj1mOozUxrj7jmthpI32MwgQrZzfzeYS6KY7MpfRw2q8z2YYTpIToIjR69uJ0BNvTzYmRMpO0K+d1zxrbgtEtvxXd0v+pxIy6/Mj3QR7NzZ/EJ4SZ5k9j6HmW+YCVFGaJWvkhp3zJduTR6PLzdBhEpY6lDsvL1IWvJr5+cgVwMTP3rU0VktWvoWhW+illSasHo9Sw0kSHDnpNfXjIuNh3eA0mTBJIQzT6INQaaK3VAVmRaSljKw3GigO/UhKLKUsfhEJ/AKTfSm51F5lFyGNnbnrd0dVEtGtzyOJrGvQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cAsXdxPLMmJ0aGMAuhT/v/ahVv9wYavSTwDSr1tvyQ8=;
+ b=ZYgPxq5P3eKosZjGNH8zuUpHC5Vee2TCM8pg10qNE586JfpEG3M+OSU5YLR+fa4w4qsogrkdj0dFesJD0pV07vR+Za32YZkKP2JWaGe4CNtMr447FFcxKgfKiNAu0MDz2NAQrMbMBG7oQ+uMLECh1sCh5glByJ71QfOGB9GUmmHgit3qEWtpd7bya/ZAuabxJUTu5nmaFLhePwApshDP3EBjn+Ce1mlM71rLrLm9Y0dJLtajAEHMjk1ZAGXDbAeRB/HcXYt8ptw55lALd+n4ZMuft2DbzLD1KfRFLLvM1N8JfaE+bqRGDvsO83LJmmbQOwKQNDzar3LCAFbwhkc73w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cAsXdxPLMmJ0aGMAuhT/v/ahVv9wYavSTwDSr1tvyQ8=;
+ b=wILVmufUhgZ9pfYl9kRmMc4Pm+0DjAX90sazHFNfEgqGy7IyY9r2Z/wAbmEiI+PuiYFPLglhi4PkkN7yPA2vH9PgmNoBrqcmJ/dKU/873ZwjNWpOqr2+N97LkuSeF5pXN0CSVhu1mHbDvTw6rT+gU77YEG1KKKE4tm4/jagmldg=
+Received: from DS7PR10MB5344.namprd10.prod.outlook.com (2603:10b6:5:3ab::6) by
+ BN0PR10MB4997.namprd10.prod.outlook.com (2603:10b6:408:12b::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.30; Tue, 29 Apr
+ 2025 01:19:39 +0000
+Received: from DS7PR10MB5344.namprd10.prod.outlook.com
+ ([fe80::b527:ca1f:1129:a680]) by DS7PR10MB5344.namprd10.prod.outlook.com
+ ([fe80::b527:ca1f:1129:a680%5]) with mapi id 15.20.8678.028; Tue, 29 Apr 2025
+ 01:19:39 +0000
+To: Huan Tang <tanghuan@vivo.com>
+Cc: alim.akhtar@samsung.com, avri.altman@wdc.com, bvanassche@acm.org,
+        James.Bottomley@HansenPartnership.com, martin.petersen@oracle.com,
+        matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+        peter.wang@mediatek.com, manivannan.sadhasivam@linaro.org,
+        quic_nguyenb@quicinc.com, luhongfei@vivo.com,
+        linux-scsi@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        linux-mediatek@lists.infradead.org, opensource.kernel@vivo.com
+Subject: Re: [PATCH] ufs: core: fix WB resize use wrong offset
+From: "Martin K. Petersen" <martin.petersen@oracle.com>
+In-Reply-To: <20250423092917.1031-1-tanghuan@vivo.com> (Huan Tang's message of
+	"Wed, 23 Apr 2025 17:29:17 +0800")
+Organization: Oracle Corporation
+Message-ID: <yq14iy74vdq.fsf@ca-mkp.ca.oracle.com>
+References: <20250423092917.1031-1-tanghuan@vivo.com>
+Date: Mon, 28 Apr 2025 21:19:37 -0400
+Content-Type: text/plain
+X-ClientProxiedBy: BL0PR0102CA0017.prod.exchangelabs.com
+ (2603:10b6:207:18::30) To DS7PR10MB5344.namprd10.prod.outlook.com
+ (2603:10b6:5:3ab::6)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250428072032.946008-6-s-adivi@ti.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS7PR10MB5344:EE_|BN0PR10MB4997:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1b18d94e-f1b5-46a4-d77e-08dd86bbe9a3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?47dKrR1JshJpR1iFZsSjd1nk3xTXDxKcxChKT1NUHyDnrUPCvZ185jfdXLHn?=
+ =?us-ascii?Q?8mhBG6qHN6wxIRjngJ9tFLGN7b569/fl4CWWvUrgIfmHwYTOsd1knj1qBlCH?=
+ =?us-ascii?Q?MbHxHgzZCtTn56KOG3lgxo1LE1pcM+sX70PKTYTg+Iq7qXOiAmgDDt/pPiuC?=
+ =?us-ascii?Q?aA9Y0GovCULaaOwYvb79+PTvChHGvIRrwSb9d8SR0KgDIqbTp8w3YOd4pb6v?=
+ =?us-ascii?Q?A1CKDqQIQ3EfpV9MewEFG+AOes+WI96Wa0WrOcu/KSsPM2xWOqfU72cJ4JW9?=
+ =?us-ascii?Q?j0fy3b7KglzECL31Fss2L5M2Bid+ysSVr89YyR7HAVEiWbwOT4uiYcb3+H9Y?=
+ =?us-ascii?Q?5h1d/8ECgyZQYjsKgUqVAVvSoZgEgr0azmqRSbNpYKE72fG5nMHxc9m69wHW?=
+ =?us-ascii?Q?WOMzeNiL6s3TzVznL+YMmdrvMHtdQRwx0DvHFaaLeTBWZyXfDiHc8qE7BRue?=
+ =?us-ascii?Q?JIrTfUzpFMa9OZAXjPZFY65RVE67ZcHINGkL1lsP/ESyUrkoCBzoaqFtCqdl?=
+ =?us-ascii?Q?tucQYiq8TFcOvEvnUnyIbXjWQCNXfayshgA539gDF6TpF2zlRnn0UtJwoJRP?=
+ =?us-ascii?Q?ZQyQzQyeIkI52Lzcid3J6cJqAso++Q5UjJlED3FEPUfaXivkZfnfkG2gTYcc?=
+ =?us-ascii?Q?tccitvp6obifpwffGHLkgZdb1FAthl3k1s1eSWwvk8Lm+yMrPKsn8weaz2R+?=
+ =?us-ascii?Q?NWmE5dq5vcnw6vUxUtmIryHAiD2V7mpMpihn4XyleG/OIPTIZq0Km1roqGaa?=
+ =?us-ascii?Q?zJ0o3PHNmIcuQLXX0jQBSqQ8zNEingJ+8zwQNL0AB17VKN6BpfWwrl0K1XiU?=
+ =?us-ascii?Q?/24BBcbEFMPG9y+cpj/guBNvA59B0u5JUizyU8ka201LTx1em3/1Mcrn41oE?=
+ =?us-ascii?Q?RVrFw82AYDcdzwya3KBuKfgiCRwXDmEKar4MdHF+RnfKS5GOpO2aSJ4izw00?=
+ =?us-ascii?Q?5zy7S5dhkQ8QdzuD7BDGkqD1gP704DJyi61BsH+oRUqHuiMhhNlmcac53OhF?=
+ =?us-ascii?Q?0+4eC0i/5FiYvXf6tno/MWXaf8Bc0JZxppNj/wk2xNah7ZfIMMkqCcd0Oooz?=
+ =?us-ascii?Q?GDUA2h8Afne3vE1iYG/4MPpkHsV7K1xxrw0/cO8Tt3N8ZGwcEYIuq9kQsv57?=
+ =?us-ascii?Q?msNn2qK3ohrgfmPi6p6Zl0ftnSshydtIKHg1L13woavCgSaySRO7XMv89kkI?=
+ =?us-ascii?Q?blW9GMdnbDTovKiMZOUPucpId4kO6AsDE2uj3p6TJbXG0WfHPC/hlvd3ssSW?=
+ =?us-ascii?Q?8hTjmBxzMo+zQcgYJ/E1fO/yuXPXOl05qVF1JfNw93pLm8KqFPetOUSLxmVY?=
+ =?us-ascii?Q?RigtMzVAka3V3Ht/c8Lu4u+U5sCJ4BPGFgG2+N/7kjY0QuiBFrXBBOjuTlM7?=
+ =?us-ascii?Q?uEmBSBjulaUXdamXVenq4jKjGet5HDena+GFVyEbn6UWXLQTtw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR10MB5344.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?v5OKvQzpS9MjmTrYjOR/QbSnO2lT+fXLJ6gxxbWDm3BaBUmCFNuFCfBWTo8P?=
+ =?us-ascii?Q?lfdhOvTRs8M1hmleh2vJgZ/RIQxAEHKQP/UVxCuK8y1nIEI6y+4H9xTLCdyn?=
+ =?us-ascii?Q?ARS2o7k0LR7J+RlgN3R1/VUuIWf64jTPQ3OV9JD8PXZozWLtsFhH2D8394A9?=
+ =?us-ascii?Q?ErE9k0SqNlhjoNCcGwgKSi2VDp9gXjqXl6xF/uMknaAcooWvtIUwrU/Qgpmo?=
+ =?us-ascii?Q?AXlZbyf1KKcKa8FMtO515vLeWksX646Tqf3d6t+vthNDONZYEfmKtOyRJZvj?=
+ =?us-ascii?Q?N9ewACrDKwWifFFVVVpEX1lX3CPeLzghXO5QlQiVgphxsI0MXv8ThsL2hsdn?=
+ =?us-ascii?Q?sAw/Hf19F37bBBRRBHKEkGZscn5H4ZpriBWgv1hghXnHHRis+A/D4jMHRrsA?=
+ =?us-ascii?Q?ptBHwvEIa3PQFUfI9FXC09OoY3EQBeopL5/lZVlAHmCIhhlh4smGndMukNLY?=
+ =?us-ascii?Q?5eYyvHeZAa6AdiH3Z5KKApExpq01Yz9H19LHW6Hr2tRhdGAEtNof5Klul45g?=
+ =?us-ascii?Q?3eqdnwRE3tVd5UlB9dIVcAPnmrCiYyX0tBBQGdvogtG9qzbDgxfzLERbffU7?=
+ =?us-ascii?Q?42XL2htSk22FIFsR6ig+zwspFlOnegNSn0GOGiW1NL2kTh/pQW6CKubifqH3?=
+ =?us-ascii?Q?NHox6fLaiKjKOgTxeYm94TKIUEZpBns4riSCYbcNX1AFq3xPmaTo0mbwGQwz?=
+ =?us-ascii?Q?qoFfIOMi05+HxrwEbH9VV49FTmFMCbZJI1yM1x2FXS0Tr9l499mTWWyLubVM?=
+ =?us-ascii?Q?Z1tkVtg9ZzU2tMRDtd0z4Tmq1Jx2lhIOYbWnaw0ZRhc+JIzi/0+Fel8UzfdK?=
+ =?us-ascii?Q?0Ha5BAO4PssQ9oFmfJ1IScevcwzKGkaFyXxAv4SG4xCbmRcQhh5d/qp7tXum?=
+ =?us-ascii?Q?/6xn4i7nH3AGQ6xJGQiagan3Z4sN92Lfc947gKmJls6moRYbahTdv/CF6wNI?=
+ =?us-ascii?Q?xzco9neBd0ZD5pOk053K27Zr5v6xUN7Jb0/1ZrPb3PXXU93AewlilPgWmeEm?=
+ =?us-ascii?Q?7SzvZt4K2VfthGuTaJr4q1oEQI0+kS7AIhmwb9GxCCMMkMdBvbixuKtB72rb?=
+ =?us-ascii?Q?pGlCfCs+dQhjcoC7T+DJrNDJ2ax/vtVr9GABqLF3pRybtQEzNdRI2wp6MTry?=
+ =?us-ascii?Q?Bbpynp7A05dHLYGbNJnk0nE0KXTSnZzKWD3mD33GMSyAWjczqQhaqEKDvblT?=
+ =?us-ascii?Q?u2S2tF4CRQd2OwByPTE7F/oMX1GO4PtIaKAYdENQwVSJynbG2h8eZWD8ACrf?=
+ =?us-ascii?Q?LdhUadR9jji27kb9QnfXpcUh/WQK+jNzibB6V9490wi77E891ZdsbEAos1DO?=
+ =?us-ascii?Q?FglibqfV7uHResBXGeXFUZ3RG2sODQyDxRrcwDxAyUnQ3KENbdQ+KeLpXAXw?=
+ =?us-ascii?Q?w5E5J8lesLl1mG6ifQMQaUKyOa8M5EoAsgMVqwHSl/o3UaUrTJX7Sxqdy4cd?=
+ =?us-ascii?Q?m12M3cE4bXIiO6iV2lGVpmh535oVfp9sGI7aDo2FJN/KppBzjqS5uJa9tmeh?=
+ =?us-ascii?Q?Ysiu9YU8JBjpImFU2zqmiQ/hL2LyN5ONXNv0+fD7cAQ4E6woEeV6JlGeRVMZ?=
+ =?us-ascii?Q?nJRxe38kuBZD/kOuL7jsIA68wwLThsXhUEnWUWK8RQmBJJsvDSQlbAjzX0uZ?=
+ =?us-ascii?Q?uA=3D=3D?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: huD3xeFjmRaolJtsHbPCdazX0sWRPcVJ+wWNELFxXUiCy/Rx3A+Jpazakfy9+t2bKNTpt2ZmZoaBTwfhwkTQ4aEM1zj+ap4cbsFSmkWeYcUp4GrGixchfzqlXcR2QKD0QvHy8UTxVYnyn/+Bxl+xTcT1Pz1I2R1iyErG53RS5o3QoXS8WD95UhNx4DgnYCoMpZlUFXzu1MUuKG/yQzEIFXp9YTAm+MxxTljRv5hPCfuIn+XkJejrSg5B4zWkhQLNsBrn5PUrpP+oIYdA/jLYXEXVoT5kM1nl4HfbVAg36hhkhBHN+k2VHIhqg1X9NfFGLvuLJu2alMry9CFCMT7gFOoeBW2u9kW1V5JQVLksV2gwa5CHr9FCYoe4/oBgHyKNbJy1zpaLM+b4YRDFArGjqGUdZG90QNn6+kc1/92755Y54wlbBjp82f2vQTbf0KPjxm0gLOt/ZJ9Y510AJ9wELsoetaBD2Thm1tnvEvOIJ2Iree+YWFXpFkRQbF/BrTuvySFpHkLt5c65bcJ56V8kZo4bW5KrKbXxQYMzI5IZ1s3UIjay0JB+mUHK+v2I8OuB2L6a1kxqDzyv1HhAo1Dek0eyn3NX+DxpqKd90EtPmfY=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1b18d94e-f1b5-46a4-d77e-08dd86bbe9a3
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR10MB5344.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Apr 2025 01:19:39.4388
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: pD3Z2euLvvSlbY5QlWxyAn43elxcKFTVGNZmYQ/f94yumiGvlFsNIzqAwLRWMJWp0APrhQ4GmPMOedxeOXbT+SlHLcO1wjNh0YSH3uYriCY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN0PR10MB4997
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-04-29_01,2025-04-24_02,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxlogscore=999 malwarescore=0
+ suspectscore=0 adultscore=0 phishscore=0 mlxscore=0 bulkscore=0
+ spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2504070000 definitions=main-2504290008
+X-Proofpoint-GUID: JEsOm2CwCFtVxkh_p46nfn7lB4xk9EO2
+X-Proofpoint-ORIG-GUID: JEsOm2CwCFtVxkh_p46nfn7lB4xk9EO2
+X-Authority-Analysis: v=2.4 cv=cK7gskeN c=1 sm=1 tr=0 ts=6810293c cx=c_pps a=XiAAW1AwiKB2Y8Wsi+sD2Q==:117 a=XiAAW1AwiKB2Y8Wsi+sD2Q==:17 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10
+ a=XR8D0OoHHMoA:10 a=GoEa3M9JfhUA:10 a=q32mctcrirO_PcNCel4A:9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI5MDAwOCBTYWx0ZWRfX47rPKKySEOV4 Ia45pjqeLZ14q3lb2WTikhpgXqb3pota5hkm8sxdPUcbAUNjLU754Ndyr9BmS0hFHYw95TtBrzK bL5uFdOcaGNmtgYJ/cnLIpFLcBQDit/xmtfg2QT4FAxDP0+f72dbltu76Jy6s+Pfb7jXqSkPfDf
+ VnfSwlDtxH0dYoLbhbUA9XLKx70AaS5sNTXj+EMyARmNxNvDPM5PIXkQcWl7JUcMNUlztKDBHE0 PYmKu+TOZA3hyT1499iMoNCYO7/b6OLW4UKjwTOHYTEcpJ+JjzpH8n9wW2cKntlTlq1af1VpsT8 1Vs+KfIitE8BMxqJoxnqFXXeynX+hHdWOfzxIjhSmuMFHXpiDMppkixqVY75H2aCIw2hNdKmbOH kLHzpN1K
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_181943_776171_E732A0FF 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20250428_182017_905251_634BB5BF 
+X-CRM114-Status: UNSURE (   7.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,88 +199,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sai,
 
-kernel test robot noticed the following build warnings:
+Huan,
 
-[auto build test WARNING on vkoul-dmaengine/next]
-[also build test WARNING on linus/master v6.15-rc4]
-[cannot apply to next-20250428]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> 'Commit 500d4b742e0c ("scsi: ufs: core: Add WB buffer resize
+> support")' incorrectly reads the value of offset
+> "DEVICE_DESC_PARAM_EXT_UFS_FEATURE_SUP" to determine whether WB resize
+> is supported.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Sai-Sree-Kartheek-Adivi/dt-bindings-dma-ti-Add-document-for-K3-BCDMA-V2/20250428-152616
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/vkoul/dmaengine.git next
-patch link:    https://lore.kernel.org/r/20250428072032.946008-6-s-adivi%40ti.com
-patch subject: [PATCH 5/8] drivers: soc: ti: k3-ringacc: handle absence of tisci
-config: arm64-randconfig-001-20250428 (https://download.01.org/0day-ci/archive/20250429/202504290207.ct0tnV56-lkp@intel.com/config)
-compiler: clang version 20.1.2 (https://github.com/llvm/llvm-project 58df0ef89dd64126512e4ee27b4ac3fd8ddf6247)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250429/202504290207.ct0tnV56-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202504290207.ct0tnV56-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> drivers/soc/ti/k3-ringacc.c:214: warning: Function parameter or struct member 'cfg' not described in 'k3_ring'
->> drivers/soc/ti/k3-ringacc.c:214: warning: Function parameter or struct member 'intr' not described in 'k3_ring'
-
-
-vim +214 drivers/soc/ti/k3-ringacc.c
-
-6b3da0b475b877 Peter Ujfalusi          2020-07-24  168  
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  169  /**
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  170   * struct k3_ring - RA Ring descriptor
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  171   *
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  172   * @rt: Ring control/status registers
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  173   * @fifos: Ring queues registers
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  174   * @proxy: Ring Proxy Datapath registers
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  175   * @ring_mem_dma: Ring buffer dma address
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  176   * @ring_mem_virt: Ring buffer virt address
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  177   * @ops: Ring operations
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  178   * @size: Ring size in elements
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  179   * @elm_size: Size of the ring element
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  180   * @mode: Ring mode
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  181   * @flags: flags
-50883affe17e11 Lee Jones               2020-11-21  182   * @state: Ring state
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  183   * @ring_id: Ring Id
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  184   * @parent: Pointer on struct @k3_ringacc
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  185   * @use_count: Use count for shared rings
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  186   * @proxy_id: RA Ring Proxy Id (only if @K3_RINGACC_RING_USE_PROXY)
-8c42379e40e2db Peter Ujfalusi          2020-10-25  187   * @dma_dev: device to be used for DMA API (allocation, mapping)
-d782298c6f6b85 Grygorii Strashko       2020-12-08  188   * @asel: Address Space Select value for physical addresses
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  189   */
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  190  struct k3_ring {
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  191  	struct k3_ring_rt_regs __iomem *rt;
-babdc2c3524293 Sai Sree Kartheek Adivi 2025-04-28  192  	struct k3_ring_cfg_regs __iomem *cfg;
-babdc2c3524293 Sai Sree Kartheek Adivi 2025-04-28  193  	struct k3_ring_intr_regs __iomem *intr;
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  194  	struct k3_ring_fifo_regs __iomem *fifos;
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  195  	struct k3_ringacc_proxy_target_regs  __iomem *proxy;
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  196  	dma_addr_t	ring_mem_dma;
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  197  	void		*ring_mem_virt;
-d9483b44c94eba Christophe JAILLET      2024-07-09  198  	const struct k3_ring_ops *ops;
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  199  	u32		size;
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  200  	enum k3_ring_size elm_size;
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  201  	enum k3_ring_mode mode;
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  202  	u32		flags;
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  203  #define K3_RING_FLAG_BUSY	BIT(1)
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  204  #define K3_RING_FLAG_SHARED	BIT(2)
-d782298c6f6b85 Grygorii Strashko       2020-12-08  205  #define K3_RING_FLAG_REVERSE	BIT(3)
-6b3da0b475b877 Peter Ujfalusi          2020-07-24  206  	struct k3_ring_state state;
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  207  	u32		ring_id;
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  208  	struct k3_ringacc	*parent;
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  209  	u32		use_count;
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  210  	int		proxy_id;
-8c42379e40e2db Peter Ujfalusi          2020-10-25  211  	struct device	*dma_dev;
-d782298c6f6b85 Grygorii Strashko       2020-12-08  212  	u32		asel;
-d782298c6f6b85 Grygorii Strashko       2020-12-08  213  #define K3_ADDRESS_ASEL_SHIFT	48
-3277e8aa2504d9 Grygorii Strashko       2020-01-15 @214  };
-3277e8aa2504d9 Grygorii Strashko       2020-01-15  215  
+Applied to 6.16/scsi-staging, thanks!
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Martin K. Petersen
 
