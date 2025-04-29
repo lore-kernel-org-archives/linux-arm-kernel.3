@@ -4,84 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BD14C3ABA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 21:33:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A9CCC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 21:37:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SSyPGzRmH+p29W/zOgc1ak7tYCQVhV0niieNsI3F3T0=; b=0DNd9Sgz7CxI8jY7UPo4ICaUEw
-	PGl9u8v22h1JhMYVtigXwIQcdJF9NLy0bnH8rhbRQnQgAkgpCpap/HD8FGP0wseDY0cMXojnfIEJP
-	fdilJrcbq30BDJhPn68nC9i3vwdVh7Gz3WQGzbedEy7Vs+a+4g23vdDNVJAXh2pmH8LE99NDdfMKo
-	MECywEg8jM/21DwdOr7YADMMhdA7oXAvz/a1KthMYG5oR5vHa0EdIkEfZTvn5hVtOuGHtYJDcB+/1
-	gnKv3y1d332XSz8j7EJoJpjZ10GqQu9dwbbp0wkefCMzbs6U69UX4jHD07+B3lBVjoJcXNitDoET2
-	9jPI1pgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y1nuu73zjClx2psq7xdas0e4BatM4ucgjTEBi/N9T8k=; b=t9NFA9CuUKcPKPECGJy6PWTZmB
+	JUWZyAMPFpuobnp+qPfe8allaOi9li9SILVJsP9H38athsaI1jLl56de6BId43XMaGpwIPIssfbUV
+	Vg73f/pThkbZlbJQq6LIMuAgaFySOw6vogxRsFw1nvi2IixmdPiJWv4Ors0NaYSBoQfqthV1hTU2t
+	8OYZilY1eJYBNO5vYbugSrhbm9xzVi8j3ryP/TG5Ii3fSggbyoDeycydLInF0wy0wvqPncqWxeP8H
+	EFTs/vR9mzPqh/cWlNW8OwXjou58/TvrImDR21V4+meCb/ss7Bnup2ahlBRmepeZbAUTthEAW9RBt
+	Vz+EY8cQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9saA-0000000Arne-15v1;
-	Tue, 29 Apr 2025 21:33:38 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	id 1u9sde-0000000AsVr-0MUU;
+	Tue, 29 Apr 2025 21:37:14 +0000
+Received: from mail-qv1-xf34.google.com ([2607:f8b0:4864:20::f34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9sYD-0000000ArUD-47Eh
+	id 1u9sbi-0000000AsC6-1aCI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 21:31:39 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-73720b253fcso5212998b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 14:31:36 -0700 (PDT)
+	Tue, 29 Apr 2025 21:35:15 +0000
+Received: by mail-qv1-xf34.google.com with SMTP id 6a1803df08f44-6f2b04a6169so71724036d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 14:35:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1745962296; x=1746567096; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=SSyPGzRmH+p29W/zOgc1ak7tYCQVhV0niieNsI3F3T0=;
-        b=P5g3BJLf9dojPciaWRcF8LRDh8my+WlwILG8LpK6AY9H8YuS4PE68lEFny5qbKIjKG
-         nX/ZfdcHKED1OdvsBAX/S16SFV8Dgn8mo1dhbhisU+Mf+O15ISA3/nomnLlKASyMkSl7
-         zwtNU3d/k7gRcMCZ9i26DwsoNU0W9hSRJ36WFF+aBbvLJdGpPJFCsr1RqDCTxceeaPXF
-         ULUN54s9o6B+M63v4EwgyB/LuQXtJv8GLnQ2+sw27Vc43jbTkBzqzo9sZVq7N+gb5UiJ
-         h/WnuXnT3zdva+ZRC2j30hQWpbd8ns67iJyglOD4lnvI6lJ7w+rFqUSsExJZynRstuN/
-         KvbA==
+        d=google.com; s=20230601; t=1745962513; x=1746567313; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=y1nuu73zjClx2psq7xdas0e4BatM4ucgjTEBi/N9T8k=;
+        b=fbDFwyBG85aW6ibHwTbM6jyO8fmEIao2sBHMhOzLd1Qf+ZC4wZ9qsNx/xAULJjcVu2
+         B3AhgplB8qGV4wllMw5naytA3lkXa3vU+ZKhLolss5jRfh5h8D1AegtwYi3sMzvP85I/
+         VFRufGgIypbwua7rKiJcQQM+f9MRPWRXRc0uD9tYn9QPzQPxkMlxA4k1ew/Du2cqaLt9
+         tUaDIXaXsQifudB6rFp5kJm8AAfC6UpeQ3d7fy9LH/b/tYD3xDLrPTKz20P5aj/kqAYR
+         lWcTIqBn+yDVDJGsxepaGnIw0DpY+uIDZsvtnDz9gP9DhckhcK2voW3eYE0y3XjLfgYG
+         fn9A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745962296; x=1746567096;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=SSyPGzRmH+p29W/zOgc1ak7tYCQVhV0niieNsI3F3T0=;
-        b=ELQrrMsmpkTZ/fiBxddIpybDoWaXHKqRflMp8zdfz/MGH69DNr9ThXSpCtuTmIALJs
-         Aq94txqtQnymVI6ZIzBPD9vyDboXl7sfBjb9QR9O2+/kCdML7CR+Ny+ezzxn6fD0gWxW
-         Mdinp3rhf8b58WD/7NxJ3IRCfFoVzWUwiPx3ehk2kqz1Dt3itDP3yEU5jsv32jqQGjmn
-         daPZKiAJtK6+f+SeCT0fcATtugw3lSJE97WSUsPJJ4DWTFzR1fQ2zw6wHPT55YGubLeE
-         CX7JCAlzWXQB4LOFtTo3JJEFO+wd8JGDgAS16ViiPiIsUfXInfaBLjmBfVebgoEFtUZQ
-         sg+A==
-X-Forwarded-Encrypted: i=1; AJvYcCUdBAk/l/RCDlbEo3EZgmQFWLpm0GXP7/eVRb8fX8KiYsCGfkW2C05yH/VKkUnVnz6W5lv8DgXgq5akxrwJeUUc@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz07lCNwVx3sPkj1mCpvTpFyav/c36Xmxn0NRB6+J1SXhOWGCph
-	aekXarhwf7/16JwFJ35SGhg1ZO0mwI3YJehLTWu2si7PWHU2wAIkFn9H2yY0GEQemJsYJZgEmRR
-	7
-X-Google-Smtp-Source: AGHT+IHOSDOIqpZpmYQaY3Yz/7hu12LY8GBmRluDIfh5RN3+pVvh6Z7iPpXYxLligqfOYM9sLtdxd65Na1g=
-X-Received: from pfble20.prod.google.com ([2002:a05:6a00:4fd4:b0:73d:65cb:b18b])
- (user=yabinc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:3e03:b0:73d:fa54:afb9
- with SMTP id d2e1a72fcca58-7403899f538mr1059841b3a.7.1745962296306; Tue, 29
- Apr 2025 14:31:36 -0700 (PDT)
-Date: Tue, 29 Apr 2025 14:31:33 -0700
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.49.0.967.g6a0df3ecc3-goog
-Message-ID: <20250429213133.922495-1-yabinc@google.com>
-Subject: [PATCH v2] perf: Allocate non-contiguous AUX pages by default
+        d=1e100.net; s=20230601; t=1745962513; x=1746567313;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=y1nuu73zjClx2psq7xdas0e4BatM4ucgjTEBi/N9T8k=;
+        b=TO+bqSYhzIGkPawHuBdyaMvzBEFFa6D3kSQnEUoqGVNb74zgRz3d690Y/ruffovPzy
+         BzxAhtZ7n1Y6ND4JwK2CDkiC2JdwZfQ1RxOyJD7jNQ6xRTEdyvxolpW4H7f9MmbZ5kJr
+         mTJXyUI4RfzeNHwCynpS72gBWG6wkeUdIx7Eg/ditiqEcIwYG6Q4BNx1EUPePlsSTAj2
+         qSOa6H0il0yk8z24n0973+onwTpkAlzYlHQL5ZvgJhjI3oW+/TMjwp87vBTa+G32ONWD
+         jM/HXRpiPuaGFS8i2QjO4k8wgSHXkDezpuXvv3DsWw31tAKubZkqo0EEcLW+NDqvYt0e
+         zaPg==
+X-Forwarded-Encrypted: i=1; AJvYcCV1e6uawJsIU3yzwAET9ng/u209C3DDLSbc3m4LwWT8Tb+Nbv5H445IXmTxrYp6feuluU4d9WV/gBzITEraRXDl@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1F2ZeUb28ClnKR8bOhTtPTV4+x7zO+8dYEpeefD7dLTGQVkSb
+	6l+nPLi7F1Yau3WJ2HBbdFCaIJaYSfZH5Wztv+CRD0noLRHb+K6hEg7lgzOIJgyPvC+ccUCpLYa
+	BcZdjDC3qCW99SPlAnFY5+6uKakIOe7uw8GU=
+X-Gm-Gg: ASbGnctUnCyvrs8ogdFG2myM3Z+OnA45xxIMnr5AfxOBrVw3tgEcKi2ZqYlLR2LNGaD
+	6uZfrWVC0Oo2iO/y7uMCefgYfxX5sXxiBTg236LheaRrFsUvT403lBJPRorVtc8s6jZfba3PKHT
+	6Is7OZHWOOW2KlX9X2YEaHhK90Mw64ml1f/IpQCmDOSxIAxO6XgA0=
+X-Google-Smtp-Source: AGHT+IHdGBlsyLmHS0F3JdjDWgppCwC6kObHYfd9Irsj3QIg9RtclmbdpOnv6QueauuKbKvJEGgnE7theqdRIDiBF68=
+X-Received: by 2002:a05:6214:2525:b0:6f2:d25e:8cfc with SMTP id
+ 6a1803df08f44-6f4fe03cfccmr6404496d6.9.1745962512631; Tue, 29 Apr 2025
+ 14:35:12 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250421215818.3800081-1-yabinc@google.com> <20250421215818.3800081-2-yabinc@google.com>
+ <48640298-effa-42d4-9137-a18a51637f03@linaro.org> <aAeQcgmL-iqGbG_g@gmail.com>
+ <20250422141026.GH28953@e132581.arm.com> <CALJ9ZPNLgEBxOmDim-vztUknEETwdL-Z2gJ8K9s44TiPgKZgHg@mail.gmail.com>
+ <f03715ac-a4ac-415d-8daa-1914384319fb@linaro.org> <CALJ9ZPMiJ4oZerKWb4TL8swh8K3tfj70LTL+WibTRN-vB8rqvw@mail.gmail.com>
+In-Reply-To: <CALJ9ZPMiJ4oZerKWb4TL8swh8K3tfj70LTL+WibTRN-vB8rqvw@mail.gmail.com>
 From: Yabin Cui <yabinc@google.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@linaro.org>, 
-	James Clark <james.clark@linaro.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Liang Kan <kan.liang@linux.intel.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+Date: Tue, 29 Apr 2025 14:35:00 -0700
+X-Gm-Features: ATxdqUH8QFOp7_4_6WS0YFJZ66Ou2QkaCWdN15e__QKEKbCxBuIPL53duQQlwB8
+Message-ID: <CALJ9ZPNPDtSy2rSeZ04bzXp+OFDTDJ5_he5e9raBbd022Hr5ig@mail.gmail.com>
+Subject: Re: [PATCH 1/2] perf: Allow non-contiguous AUX buffer pages via PMU capability
+To: James Clark <james.clark@linaro.org>
+Cc: Leo Yan <leo.yan@arm.com>, Ingo Molnar <mingo@redhat.com>, Ingo Molnar <mingo@kernel.org>, 
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
 	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
-	Yabin Cui <yabinc@google.com>
+	Mike Leach <mike.leach@linaro.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Liang Kan <kan.liang@linux.intel.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_143138_021273_E6C19398 
-X-CRM114-Status: GOOD (  18.73  )
+X-CRM114-CacheID: sfid-20250429_143514_415646_C8970725 
+X-CRM114-Status: GOOD (  41.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,125 +103,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-perf always allocates contiguous AUX pages based on aux_watermark.
-However, this contiguous allocation doesn't benefit all PMUs. For
-instance, ARM SPE and TRBE operate with virtual pages, and Coresight
-ETR allocates a separate buffer. For these PMUs, allocating contiguous
-AUX pages unnecessarily exacerbates memory fragmentation. This
-fragmentation can prevent their use on long-running devices.
+On Tue, Apr 29, 2025 at 10:02=E2=80=AFAM Yabin Cui <yabinc@google.com> wrot=
+e:
+>
+> On Mon, Apr 28, 2025 at 1:56=E2=80=AFAM James Clark <james.clark@linaro.o=
+rg> wrote:
+> >
+> >
+> >
+> > On 23/04/2025 8:52 pm, Yabin Cui wrote:
+> > > On Tue, Apr 22, 2025 at 7:10=E2=80=AFAM Leo Yan <leo.yan@arm.com> wro=
+te:
+> > >>
+> > >> On Tue, Apr 22, 2025 at 02:49:54PM +0200, Ingo Molnar wrote:
+> > >>
+> > >> [...]
+> > >>
+> > >>>> Hi Yabin,
+> > >>>>
+> > >>>> I was wondering if this is just the opposite of
+> > >>>> PERF_PMU_CAP_AUX_NO_SG, and that order 0 should be used by default
+> > >>>> for all devices to solve the issue you describe. Because we alread=
+y
+> > >>>> have PERF_PMU_CAP_AUX_NO_SG for devices that need contiguous pages=
+.
+> > >>>> Then I found commit 5768402fd9c6 ("perf/ring_buffer: Use high orde=
+r
+> > >>>> allocations for AUX buffers optimistically") that explains that th=
+e
+> > >>>> current allocation strategy is an optimization.
+> > >>>>
+> > >>>> Your change seems to decide that for certain devices we want to
+> > >>>> optimize for fragmentation rather than performance. If these are
+> > >>>> rarely used features specifically when looking at performance shou=
+ld
+> > >>>> we not continue to optimize for performance? Or at least make it u=
+ser
+> > >>>> configurable?
+> > >>>
+> > >>> So there seems to be 3 categories:
+> > >>>
+> > >>>   - 1) Must have physically contiguous AUX buffers, it's a hardware=
+ ABI.
+> > >>>        (PERF_PMU_CAP_AUX_NO_SG for Intel BTS and PT.)
+> > >>>
+> > >>>   - 2) Would be nice to have continguous AUX buffers, for a bit mor=
+e
+> > >>>        performance.
+> > >>>
+> > >>>   - 3) Doesn't really care.
+> > >>>
+> > >>> So we do have #1, and it appears Yabin's usecase is #3?
+> > >
+> > > Yes, in my usecase, I care much more about MM-friendly than a little =
+potential
+> > > performance when using PMU. It's not a rarely used feature. On Androi=
+d, we
+> > > collect ETM data periodically on internal user devices for AutoFDO op=
+timization
+> > > (for both userspace libraries and the kernel). Allocating a large
+> > > chunk of contiguous
+> > > AUX pages (4M for each CPU) periodically is almost unbearable. The ke=
+rnel may
+> > > need to kill many processes to fulfill the request. It affects user
+> > > experience even
+> > > after using PMU.
+> > >
+> > > I am totally fine to reuse PERF_PMU_CAP_AUX_NO_SG. If PMUs don't want=
+ to
+> > > sacrifice performance for MM-friendly, why support scatter gather mod=
+e? If there
+> > > are strong performance reasons to allocate contiguous AUX pages in
+> > > scatter gather
+> > > mode, I hope max_order is configurable in userspace.
+> > >
+> > > Currently, max_order is affected by aux_watermark. But aux_watermark
+> > > also affects
+> > > how frequently the PMU overflows AUX buffer and notifies userspace.
+> > > It's not ideal
+> > > to set aux_watermark to 1 page size. So if we want to make max_order =
+user
+> > > configurable, maybe we can add a one bit field in perf_event_attr?
+> > >
+> > >>
+> > >> In Yabin's case, the AUX buffer work as a bounce buffer.  The hardwa=
+re
+> > >> trace data is copied by a driver from low level's contiguous buffer =
+to
+> > >> the AUX buffer.
+> > >>
+> > >> In this case we cannot benefit much from continguous AUX buffers.
+> > >>
+> > >> Thanks,
+> > >> Leo
+> >
+> > Hi Yabin,
+> >
+> > So after doing some testing it looks like there is 0 difference in
+> > overhead for max_order=3D0 vs ensuring the buffer is one contiguous
+> > allocation for Arm SPE, and TRBE would be exactly the same. This makes
+> > sense because we're vmapping pages individually anyway regardless of th=
+e
+> > base allocation.
+> >
+> > Seems like the performance optimization of the optimistically large
+> > mappings is only for devices that require extra buffer management stuff
+> > other than normal virtual memory. Can we add a new capability
+> > PERF_PMU_CAP_AUX_PREFER_LARGE and apply it to Intel PT and BTS? Then th=
+e
+> > old (before the optimistic large allocs change) max_order=3D0 behavior
+> > becomes the default again, and PREFER_LARGE is just for those two
+> > devices. Other and new devices would get the more memory friendly
+> > allocations by default, as it's unlikely they'll benefit from anything
+> > different.
+> >
+> Good suggestion! I will upload a v2 patch for that.
 
-This patch modifies the perf driver to allocate non-contiguous AUX
-pages by default. For PMUs that can benefit from contiguous pages (
-Intel PT and BTS), a new PMU capability, PERF_PMU_CAP_AUX_PREFER_LARGE
-is introduced to maintain their existing behavior.
+Hi everyone,
+I have sent the v2 patch for review, with the title
+"[PATCH v2] perf: Allocate non-contiguous AUX pages by default".
+Please help review it. Thanks!
 
-Signed-off-by: Yabin Cui <yabinc@google.com>
----
-Changes since v1:
-In v1, default is preferring contiguous pages, and add a flag to
-allocate non-contiguous pages. In v2, default is allocating
-non-contiguous pages, and add a flag to prefer contiguous pages.
-
-v1 patchset:
-perf,coresight: Reduce fragmentation with non-contiguous AUX pages for
-cs_etm
-
- arch/x86/events/intel/bts.c |  3 ++-
- arch/x86/events/intel/pt.c  |  3 ++-
- include/linux/perf_event.h  |  1 +
- kernel/events/ring_buffer.c | 18 +++++++++++-------
- 4 files changed, 16 insertions(+), 9 deletions(-)
-
-diff --git a/arch/x86/events/intel/bts.c b/arch/x86/events/intel/bts.c
-index a95e6c91c4d7..9129f00e4b9f 100644
---- a/arch/x86/events/intel/bts.c
-+++ b/arch/x86/events/intel/bts.c
-@@ -625,7 +625,8 @@ static __init int bts_init(void)
- 		return -ENOMEM;
- 
- 	bts_pmu.capabilities	= PERF_PMU_CAP_AUX_NO_SG | PERF_PMU_CAP_ITRACE |
--				  PERF_PMU_CAP_EXCLUSIVE;
-+				  PERF_PMU_CAP_EXCLUSIVE |
-+				  PERF_PMU_CAP_AUX_PREFER_LARGE;
- 	bts_pmu.task_ctx_nr	= perf_sw_context;
- 	bts_pmu.event_init	= bts_event_init;
- 	bts_pmu.add		= bts_event_add;
-diff --git a/arch/x86/events/intel/pt.c b/arch/x86/events/intel/pt.c
-index fa37565f6418..37179e813b8c 100644
---- a/arch/x86/events/intel/pt.c
-+++ b/arch/x86/events/intel/pt.c
-@@ -1866,7 +1866,8 @@ static __init int pt_init(void)
- 
- 	pt_pmu.pmu.capabilities		|= PERF_PMU_CAP_EXCLUSIVE |
- 					   PERF_PMU_CAP_ITRACE |
--					   PERF_PMU_CAP_AUX_PAUSE;
-+					   PERF_PMU_CAP_AUX_PAUSE |
-+					   PERF_PMU_CAP_AUX_PREFER_LARGE;
- 	pt_pmu.pmu.attr_groups		 = pt_attr_groups;
- 	pt_pmu.pmu.task_ctx_nr		 = perf_sw_context;
- 	pt_pmu.pmu.event_init		 = pt_event_init;
-diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
-index 0069ba6866a4..56d77348c511 100644
---- a/include/linux/perf_event.h
-+++ b/include/linux/perf_event.h
-@@ -301,6 +301,7 @@ struct perf_event_pmu_context;
- #define PERF_PMU_CAP_AUX_OUTPUT			0x0080
- #define PERF_PMU_CAP_EXTENDED_HW_TYPE		0x0100
- #define PERF_PMU_CAP_AUX_PAUSE			0x0200
-+#define PERF_PMU_CAP_AUX_PREFER_LARGE		0x0400
- 
- /**
-  * pmu::scope
-diff --git a/kernel/events/ring_buffer.c b/kernel/events/ring_buffer.c
-index 5130b119d0ae..d76249ce4f17 100644
---- a/kernel/events/ring_buffer.c
-+++ b/kernel/events/ring_buffer.c
-@@ -679,7 +679,7 @@ int rb_alloc_aux(struct perf_buffer *rb, struct perf_event *event,
- {
- 	bool overwrite = !(flags & RING_BUFFER_WRITABLE);
- 	int node = (event->cpu == -1) ? -1 : cpu_to_node(event->cpu);
--	int ret = -ENOMEM, max_order;
-+	int ret = -ENOMEM, max_order = 0;
- 
- 	if (!has_aux(event))
- 		return -EOPNOTSUPP;
-@@ -689,8 +689,8 @@ int rb_alloc_aux(struct perf_buffer *rb, struct perf_event *event,
- 
- 	if (!overwrite) {
- 		/*
--		 * Watermark defaults to half the buffer, and so does the
--		 * max_order, to aid PMU drivers in double buffering.
-+		 * Watermark defaults to half the buffer, to aid PMU drivers
-+		 * in double buffering.
- 		 */
- 		if (!watermark)
- 			watermark = min_t(unsigned long,
-@@ -698,16 +698,20 @@ int rb_alloc_aux(struct perf_buffer *rb, struct perf_event *event,
- 					  (unsigned long)nr_pages << (PAGE_SHIFT - 1));
- 
- 		/*
--		 * Use aux_watermark as the basis for chunking to
-+		 * For PMUs that prefer large contiguous buffers,
-+		 * use aux_watermark as the basis for chunking to
- 		 * help PMU drivers honor the watermark.
- 		 */
--		max_order = get_order(watermark);
-+		if (event->pmu->capabilities & PERF_PMU_CAP_AUX_PREFER_LARGE)
-+			max_order = get_order(watermark);
- 	} else {
- 		/*
--		 * We need to start with the max_order that fits in nr_pages,
-+		 * For PMUs that prefer large contiguous buffers,
-+		 * we need to start with the max_order that fits in nr_pages,
- 		 * not the other way around, hence ilog2() and not get_order.
- 		 */
--		max_order = ilog2(nr_pages);
-+		if (event->pmu->capabilities & PERF_PMU_CAP_AUX_PREFER_LARGE)
-+			max_order = ilog2(nr_pages);
- 		watermark = 0;
- 	}
- 
--- 
-2.49.0.967.g6a0df3ecc3-goog
-
+> >
+> > Thanks
+> > James
+> >
 
