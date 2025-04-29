@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1DEBC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 16:12:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AACB8C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 16:13:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8xZF0fCVJ/DOQqNhoX6uI9qtKjJAMwNhaOgH0CA8ZdM=; b=zWtQg054Qf1qRYEz0ZW+BAGVhg
-	ppJwiWwkL6OXkQTwnYaOca8WyekLrubqAd/Ty+MKQp+dLSeAftU41Earpw/qkGvh4SqiTBR5DDwhh
-	z7WK+pwl1QT1jn+tlU6KnJf8kJ/MPwTHzYdMuYlk/L66NP2b3CSEryCscapoWEn5WkXjShhD8+PLT
-	lItw5UqmO9kWyl7zwmi3biPCdeHOFotEL90NPJ6OIN6EeTeefNkf3lb8cC0Gf3NQxaoolUI24TdAG
-	tMkykgxI5vHNSr86cyKXYkuU8Absq0f1Ly3vk3N7tBaoVGOcOr/oFvUrj+EBMRVWwD+49LsnZRW0K
-	yHQhAi8g==;
+	bh=hiDUcEAvkqAct7DYr49674W2ZeDjMHFKnQgfifte+sw=; b=IrbJGZ+t/pHbKVqPvwvh0BrbBb
+	G1uhbuDs4BxXhEsC8/VOarv/S/j8OO8V6AqnDbRZGXnXawltrc+QLQViXOYBPUYJFP/Oa7pAJjOip
+	T8ewbJbYgqxyii1iG2Gbo2EBqW73ovENwcuhyCXOoe9w76QB6k66LJhBE8JQmp3KMXED9bmOB7d+X
+	vDWhKFoi6IpIVDCdXaWcwQVmSYM3ZScJKfZbGmN+zUM80BgdoNdI0y9S4uTrQqekE7yxE0uOyFKKq
+	fabHu5vrhwMPCC9WFPeF3UCnEJZ4TmUvlr8kRAN9ypzOqWcJsF6Jp4YZsnCg1MFrl0YIzt2Gq7obp
+	hYSl1NHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9nYi-0000000ADZs-3rzY;
-	Tue, 29 Apr 2025 16:11:48 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1u9nac-0000000ADuL-2nny;
+	Tue, 29 Apr 2025 16:13:46 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9n7Z-0000000AABD-1b3F
+	id 1u9n9H-0000000AAM6-2Mb5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 15:43:46 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[IPv6:::1])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <l.stach@pengutronix.de>)
-	id 1u9n7I-0006Jb-0X; Tue, 29 Apr 2025 17:43:28 +0200
-Message-ID: <aca3addbe510c58524af8d3fd069fe2ae4b1cd24.camel@pengutronix.de>
-Subject: Re: [PATCH 0/6] arm64: dts: imx: Move Ethernet aliases out of SoC
- DTSI
-From: Lucas Stach <l.stach@pengutronix.de>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, Krzysztof
- Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn
- Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
- <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, Francesco Dolcini <francesco@dolcini.it>, 
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com
-Date: Tue, 29 Apr 2025 17:43:26 +0200
-In-Reply-To: <c2d8374b-b623-447d-a695-3f2ead068265@linaro.org>
-References: <20250425-dts-imx-aliases-ethernet-v1-0-15b9d5cca611@linaro.org>
-	 <e97d3388a5b4272d70d7379b020843a47874a104.camel@pengutronix.de>
-	 <c5538590-efe4-4b90-b291-6c429d8fa3fe@kernel.org>
-	 <06efb082c24176e6401265b4349b677468850f7d.camel@pengutronix.de>
-	 <c2d8374b-b623-447d-a695-3f2ead068265@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.52.4 (3.52.4-2.fc40) 
+	Tue, 29 Apr 2025 15:45:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=hiDUcEAvkqAct7DYr49674W2ZeDjMHFKnQgfifte+sw=; b=w/q8z4H6p3pxP0VMQ72dJ7iUHL
+	8UVYbXmdNTuoRKXbqStlm2tzHb2LciDe/oBZIkn7p4Ob8ZQ+sfjRIoJl/qMoNYZUvAA9YKde0eZSE
+	UdVoZcoI80DDmP3u4+/fOiT6YJNq9N5emUKcO8yB+nRAMD5JqNYUcQeDIhjffjHmzVgQ=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1u9n9A-00AxJU-AE; Tue, 29 Apr 2025 17:45:24 +0200
+Date: Tue, 29 Apr 2025 17:45:24 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Jernej =?utf-8?Q?=C5=A0krabec?= <jernej.skrabec@gmail.com>
+Cc: Andre Przywara <andre.przywara@arm.com>, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, wens@csie.org,
+	samuel@sholland.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] arm64: dts: allwinner: h6: Add OrangePi 3 LTS DTS
+Message-ID: <2486dae4-c5a5-4df2-8048-87b4b2d46d54@lunn.ch>
+References: <20250413134318.66681-1-jernej.skrabec@gmail.com>
+ <6a056bf8-9f39-4204-9378-8cc39be60038@lunn.ch>
+ <4645060.LvFx2qVVIh@jernej-laptop>
+ <4975791.GXAFRqVoOG@jernej-laptop>
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: l.stach@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <4975791.GXAFRqVoOG@jernej-laptop>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_084345_418984_434A9D64 
-X-CRM114-Status: GOOD (  36.93  )
+X-CRM114-CacheID: sfid-20250429_084531_598554_A3ED3E3E 
+X-CRM114-Status: UNSURE (   9.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,112 +74,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, dem 29.04.2025 um 17:17 +0200 schrieb Krzysztof Kozlowski:
-> On 29/04/2025 17:13, Lucas Stach wrote:
-> > Am Dienstag, dem 29.04.2025 um 16:30 +0200 schrieb Krzysztof Kozlowski:
-> > > On 29/04/2025 11:39, Lucas Stach wrote:
-> > > > Hi Krzysztof,
-> > > >=20
-> > > > Am Freitag, dem 25.04.2025 um 21:48 +0200 schrieb Krzysztof Kozlows=
-ki:
-> > > > > Not tested on hardware.
-> > > > >=20
-> > > > > Ethernet interface, like other exposed interfaces, aliases depend=
- on
-> > > > > actual board configuration, e.g. its labeling, thus aliases shoul=
-d be
-> > > > > defined per each board or each SoM.
-> > > > >=20
-> > > > > Some boards (e.g. Gateworks) follow this convention but many do n=
-ot.
-> > > > >=20
-> > > > > This is continuation of my comments from:
-> > > > > https://lore.kernel.org/r/16a98816-f43c-4f4d-940e-9da30cb1f73f@ke=
-rnel.org
-> > > > >=20
-> > > > The i.MX boards have traditionally listed aliases for many hardware
-> > > > peripherals with the same numbering that's used in the SoC referenc=
-e
-> > >=20
-> > > ... which is not correct. Aliases should represent how boards are rea=
-lly
-> > > labeled, not how reference manual labels them.
-> > >=20
-> > While that is the commonly agreed interpretation today, I do not see
-> > any language in the DT spec itself or kernel Documentation/devicetree
-> > that would mandate aliases to be used in this way.
-> >=20
-> > In fact there are examples to the contrary like
-> > Documentation/devicetree/bindings/serial/samsung_uart.yaml which says:
-> > "Each Samsung UART should have an alias [...] as specified by User's
-> > Manual of respective SoC."
->=20
-> And that is an ABI. Did I affect ABI here?
->=20
-> >=20
-> > So I would argue that there is no hard line between correct/incorrect
-> > for the historical usage of the alias nodes on the i.MX platform.
->=20
-> There is. ABI is documented. There are things which turn out ABI, even
-> though they are not documented, like node names. Was there a problem
-> with refactoring these in NXP?
->=20
-> No.
->=20
-In fact there was significant fallout from the node name changes, as
-assumptions in bootloader code on how to fix up DTs passed to the
-kernel were invalidated. We did not make a fuzz about those cases and
-just fixed the breakage in the bootloader, because we agreed with the
-overall benefit of those changes to the i.MX ecosystem.
->=20
-> >=20
-> > > > manual. Boards always have the option to override those aliases if =
-they
-> > > > have a good reason to do so, e.g. labeling on the physical device.
-> > > >=20
-> > > > Other users besides Linux rely on fixed numbering provided by the
-> > > > aliases. Both barebox and U-Boot number their ethernet interfaces
-> > > > according to the alias.
-> > >=20
-> > > And?
-> > >=20
-> > Some usecases depend on the aliases being the same between kernel and
-> > bootloader. Historically that has been guaranteed on the i.MX platform
-> > by the aliases in the SoC DTSI, when the board didn't have a need to
->=20
-> I know.
->=20
-> > change them. With this series applied some other users may now end up
-> > with missing aliases if the only include the DTSI.
->=20
-> Bring actual case, what is broken by this changeset.
->=20
-> >=20
-> > > >=20
-> > > > While you seem to add back aliases for in-tree boards, this breaks =
-the
-> > > > majority of boards that include the kernel DTSI from an out-of-tree
-> > > > board. I can understand that we can't always accommodate these user=
-s,
-> > >=20
-> > > This is not ABI, so every out of tree user is on their own.
-> >=20
-> > I am not too sympathetic about out-of-tree users myself, but I don't
-> > think we should make their life harder deliberately.
->=20
-> We are making our life easier by maintaining and improving source code:
-> e.g. not creating fake aliases for devices which do not exist on given
-> board.
+> I just to be clear, I tested various combinations, including rgmii-id, and it
+> didn't work, except rgmii-rxid, which matches strapping. Of course Motorcomm
+> PHY driver took that into account and set registers accordingly.
 
-Sorry, I disagree with this sweeping statement when looking at the
-specific changes in this patchset. I simply do not see how this change
-significantly improves future maintenance of existing DTs for the i.MX
-platform to justify the breakage inflicted upon existing OOT users.
+So we have:
 
-I'm not the one to decide whether or not to take those patches, but
-IMHO the overall benefit of those patches to the i.MX ecosystem is not
-a net positive.
+&emac {
+	pinctrl-names = "default";
+	pinctrl-0 = <&ext_rgmii_pins>;
+	phy-mode = "rgmii-rxid";
+	phy-handle = <&ext_rgmii_phy>;
+	phy-supply = <&reg_gmac_3v3>;
+	allwinner,rx-delay-ps = <0>;
+	allwinner,tx-delay-ps = <700>;
+	status = "okay";
+};
 
-Regards,
-Lucas
+and
+
+&mdio {
+	ext_rgmii_phy: ethernet-phy@1 {
+		compatible = "ethernet-phy-ieee802.3-c22";
+		reg = <1>;
+
+		motorcomm,clk-out-frequency-hz = <125000000>;
+
+		reset-gpios = <&pio 3 14 GPIO_ACTIVE_LOW>; /* PD14 */
+		reset-assert-us = <15000>;
+		reset-deassert-us = <100000>;
+	};
+};
+
+The RX path looks O.K. RGMII-RXID means the PHY should be adding the
+2ns delay. The allwinner,rx-delay-ps = <0> should be redundant, that
+should be the driver default. And there are no properties in the PHY
+node about RX. All good.
+
+TX is the problem. The allwinner,tx-delay-ps = <700> causes the MAC to
+add 700ps delay, and 'rgmii-rxid' means the PHY should not add any
+delay. But 700ps is too low. It should be around 2000ps. So something
+else is adding a delay, or the 700ps is not really 700ps.
+
+You say the PHY is a YT8531C. These PHYs also accept
+rx-internal-delay-ps and tx-internal-delay-ps properties in their DT
+node.
+
+Try setting 'rgmii-id', allwinner,tx-delay-ps = <0>, and both
+rx-internal-delay-ps and tx-internal-delay-ps in the PHY node to 1950.
+If that does not work, try other values in the PHY node.
+
+	Andrew
 
