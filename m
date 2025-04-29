@@ -4,70 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2719DC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 11:22:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9B07C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 11:29:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uZLzXH4c7jsLwPwilTWhs/liNutisVYx9hkNNioDC+g=; b=joIl2BoXza5QGmF9WKqxJSX2YD
-	NJFYVxP08KUDNgIP3enQeAT/4q+vdw0r6pmsM0WJJCDtDMSTl3oiOY4e988eJp5pwIpUw57WazEoG
-	+kdN1bYlK5GbzPA1iMO+aWqTKQb4Dm8tsvoghEtNldbQy4QVx+XDbQiOS7TjZIxBdSWFAY2+K3eKF
-	9mY8CqzgBGfW5HoBiU5QFm2F6F2qENmZzAWwGjtb9YV2EixL5vFNYtfMaPgVAr7kxzTSVoU3aUI8Q
-	n+jDk5wG5pypk8fzvoAIH7Rhh6Rzb/v9/fygdicvIydKqlysS+ZiNXuWp0hgFu++gLCg4x11anTfO
-	CYe+vilQ==;
+	bh=fYILNg4WIRKyhv/B0NgJdd1oZgHZ6sNzsFfbdFRVaKM=; b=he7BwKtc3JUVvi7x6ogTc9qZ7E
+	1FeC/CHG9MT6EHY2JXqxlS/GNBmwfht/eBzCTO5H/L4UAsMQnXW8sSNor92IIGZnwbHYmKo0vHP5t
+	y24CMUyaM8Whiqt68RRG4ENmEwADR0+M7qkRMCH11HSsA+BSRAFvuZ0wfqMva93iGOW9zJFuARrOS
+	0SCpfCr7m61c6hPJCyzpM/YXrZRsm+dyuXvmiCIe/m/z2IHirEnXj8hAwaBAFkCOvpRFd56Gi9WaN
+	Hfpgu8dwXUpgUeG+QdR3k91dXZkGyDVfOit6YWqJNVqlWVSPQy4OoilUxDf7E4pSUziQBwis5ZM/b
+	RQZ2Gljg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9j2P-00000009QyG-18XS;
-	Tue, 29 Apr 2025 11:22:09 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u9j9h-00000009RwF-1XrK;
+	Tue, 29 Apr 2025 11:29:41 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9j0S-00000009QlU-0IoQ
+	id 1u9j7j-00000009Rbj-1YxB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 11:20:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id ABFCE5C5967;
-	Tue, 29 Apr 2025 11:17:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74BABC4CEE3;
-	Tue, 29 Apr 2025 11:20:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745925606;
-	bh=u+0gdMWMSYuRtMYk3VUjuG61dFzk1pC1LDJTnsyEa3s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aoKIaDwY/xb45oY72JY/BRGb+W+OWRF7/1r/YrOz0KE6LAFRMfU0HgJgfg1QfNXdM
-	 I5a+6oi6V3WKBi5gH0WcU+TP9amgRQe5C8k0uCwS4tHU6M3zTdibURGvIjJ6k+0R8x
-	 gQQVUrKmDJLI6mVtvCaJSFFLaW0KZqnyVAxerqbt0UnxwaYorUbTWtsYxMqAt49yzT
-	 SINuoXkOTasyRABSb0bUKGBIm/EX8kU23KJbJfZ7E+DNGCHBh6nwdU9WDPOF7IFYYf
-	 /q2lIslPP6bGsJM5FDHlT0PSQDzX0iD9Q+aviNIM2BS2Djgtwtmw/SnroxVVRu5Tci
-	 ZKBbQ2Is03m7Q==
-Received: from johan by xi.lan with local (Exim 4.97.1)
-	(envelope-from <johan@kernel.org>)
-	id 1u9j0S-000000003cC-08Pc;
-	Tue, 29 Apr 2025 13:20:08 +0200
-Date: Tue, 29 Apr 2025 13:20:08 +0200
-From: Johan Hovold <johan@kernel.org>
-To: Cristian Marussi <cristian.marussi@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org, sudeep.holla@arm.com,
-	james.quinlan@broadcom.com, f.fainelli@gmail.com,
-	vincent.guittot@linaro.org, peng.fan@oss.nxp.com,
-	michal.simek@amd.com, quic_sibis@quicinc.com,
-	dan.carpenter@linaro.org, maz@kernel.org
-Subject: Re: [PATCH v2 2/4] firmware: arm_scmi: Add Quirks framework
-Message-ID: <aBC16CGDhZ_XO3Xr@hovoldconsulting.com>
-References: <20250425125250.1847711-1-cristian.marussi@arm.com>
- <20250425125250.1847711-3-cristian.marussi@arm.com>
- <aA5BeONpC3CJE5-Z@hovoldconsulting.com>
- <aBCuSpToEklg340R@pluto>
+	Tue, 29 Apr 2025 11:27:42 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53TBRSFG3068604
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 29 Apr 2025 06:27:28 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1745926048;
+	bh=fYILNg4WIRKyhv/B0NgJdd1oZgHZ6sNzsFfbdFRVaKM=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=N3Mg26CbDdAQgxUfKzbrBQxMCQaTlKCIGRmJ65ID+W8UFNFAOpN33dLQE+NMRJEiT
+	 JJGE3w3aQAJw/oRS6A3GizkS5V5kXHFV8gtv7PDbzWfLpf23rz/CVFDdwSowD2E+nI
+	 0RQlNxcHfA6u/U4OflAwo7l92nX4kjKsd1khlOs8=
+Received: from DFLE111.ent.ti.com (dfle111.ent.ti.com [10.64.6.32])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53TBRSZ3004875
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 29 Apr 2025 06:27:28 -0500
+Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE111.ent.ti.com
+ (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 29
+ Apr 2025 06:27:28 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE107.ent.ti.com
+ (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 29 Apr 2025 06:27:28 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53TBRSnS115300;
+	Tue, 29 Apr 2025 06:27:28 -0500
+Date: Tue, 29 Apr 2025 06:27:28 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Chintan Vankar <c-vankar@ti.com>
+CC: Conor Dooley <conor+dt@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Rob Herring <robh@kernel.org>, Tero Kristo
+	<kristo@kernel.org>,
+        Vignesh Raghavendra <vigneshr@ti.com>, <srk@ti.com>,
+        <s-vadapalli@ti.com>, <danishanwar@ti.com>,
+        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Roger
+ Quadros <rogerq@kernel.org>
+Subject: Re: [PATCH v4 2/2] arm64: dts: ti: k3-am62p*/k3-j722s: Add
+ bootph-all property to enable Ethernet boot
+Message-ID: <20250429112728.m54x2jwyjykcuus7@unzip>
+References: <20250429072644.2400295-1-c-vankar@ti.com>
+ <20250429072644.2400295-3-c-vankar@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <aBCuSpToEklg340R@pluto>
+In-Reply-To: <20250429072644.2400295-3-c-vankar@ti.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_042008_215824_98202C9F 
-X-CRM114-Status: GOOD (  39.58  )
+X-CRM114-CacheID: sfid-20250429_042739_517470_FD438E62 
+X-CRM114-Status: GOOD (  16.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,116 +94,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 29, 2025 at 11:47:54AM +0100, Cristian Marussi wrote:
-> On Sun, Apr 27, 2025 at 04:38:48PM +0200, Johan Hovold wrote:
-> > On Fri, Apr 25, 2025 at 01:52:48PM +0100, Cristian Marussi wrote:
-> > > Add a common framework to describe SCMI quirks and associate them with a
-> > > specific platform or a specific set of SCMI firmware versions.
-> > > 
-> > > All the matching SCMI quirks will be enabled when the SCMI core stack
-> > > probes and after all the needed SCMI firmware versioning information was
-> > > retrieved using Base protocol.
-
-> > > +static void scmi_enable_matching_quirks(struct scmi_info *info)
-> > > +{
-> > > +	struct scmi_revision_info *rev = &info->version;
-> > > +	const char *compatible = NULL;
-> > > +	struct device_node *root;
-> > > +
-> > > +	root = of_find_node_by_path("/");
-> > > +	if (root) {
-> > > +		of_property_read_string(root, "compatible", &compatible);
-> > > +		of_node_put(root);
-> > > +	}
-> > > +
-> > > +	dev_dbg(info->dev, "Looking for quirks matching: %s/%s/%s/0x%08X\n",
-> > > +		compatible, rev->vendor_id, rev->sub_vendor_id, rev->impl_ver);
-> > 
-> > You're now just looking up the most specific compatible string in order
-> > to include it in this dev_dbg(). Since you're now matching on all
-> > compatible strings, perhaps you can consider just dropping it.
-> > 
+On 12:56-20250429, Chintan Vankar wrote:
+> Ethernet boot requires CPSW nodes to be present starting from R5 SPL
+> stage. Add bootph-all property to required nodes to enable Ethernet boot
+> for AM62P5-SK and J722S-EVM.
 > 
-> Yes indeed I was not sure to keep all of this machinery just to print
-> the machine compatible that is used to try to match against the
-> (possible) list of compats....on the other side seemed useful to know
-> exactly what you are trying to match against....but maybe we can simply
-> assume that the machine compatible is well-known....
-
-Perhaps it would have been more useful if you printed all the compatible
-strings here and not just the most specific one, but yeah, there are
-other ways to read this strings through sysfs.
-
-Keeping as-is should be fine too.
-
-> > > +		/*
-> > > +		 * Note that there could be multiple matches so we
-> > > +		 * will enable multiple quirk part of an hash collision
-> > 
-> > nit: "quirks that are part of a"?
-> > 
+> Reviewed-by: Roger Quadros <rogerq@kernel.org>
+> Signed-off-by: Chintan Vankar <c-vankar@ti.com>
+> ---
 > 
-> mmm...as a non-native and poor English speaker I am, though, reasonably
-> confident that a/an is chosen based on the vowel/consonant SOUND of the
-> next word NOT on the effective letter...am I wrong ?
-> (then we could digress about which is the sound of a[n] 'hash' :P ...)
-
-That's my understanding as well, but 'hash' begins with a consonant
-sound so I'm pretty sure it's "a hash".
-
-> > > +		 * domain...BUT we cannot assume that ALL quirks on the
-> > > +		 * same collision domain are a full match.
-> > > +		 */
-> > > +		hash_for_each_possible(scmi_quirks_ht, quirk, hash, hkey) {
-> > > +			if (quirk->enabled || quirk->hkey != hkey ||
-> > > +			    impl < quirk->start_range ||
-> > > +			    impl > quirk->end_range)
-> > > +				continue;
-> > > +
-> > > +			if (quirk->compats[0] &&
-> > > +			    !of_machine_compatible_match(quirk->compats))
-> > > +				continue;
-> > > +
-> > > +			dev_info(dev, "Enabling SCMI Quirk [%s]\n",
-> > > +				 quirk->name);
-> > > +
-> > > +			dev_dbg(dev,
-> > > +				"Quirk matched on: %s/%s/%s/[0x%08X-0x%08X]\n",
-> > > +				quirk->compats[0], quirk->vendor,
-> > 
-> > You can now match on more than one compats string, but I guess printing
-> > just the first one is fine.
-> > 
+> Link to v3:
+> https://lore.kernel.org/r/20250425051055.2393301-3-c-vankar@ti.com/
 > 
-> Yes, same as above dev_dbg...not sure if it was meaningful really to
-> dump all the list and overload the log with all such info...
-
-Right, indicating there is some compatible string that's being used is
-still useful to know.
-
-> > > +				quirk->sub_vendor_id,
-> > > +				quirk->start_range, quirk->end_range);
-> > > +
-> > > +			static_branch_enable(quirk->key);
-> > > +			quirk->enabled = true;
-> > > +		}
-> > > +	}
-> > > +}
-> > 
-> > This seems to work as intended and I've tried matching on machine and
-> > SoC compatible strings and/or vendor and protocol version:
-> > 
-> > Tested-by: Johan Hovold <johan+linaro@kernel.org>
-> > 
+> Changes from v3 to v4:
+> - No changes.
 > 
-> Thanks for the review Johan.
+>  arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 3 +++
+
+Please notice that we have the same problem[1] here as well.
+
+[1] https://lore.kernel.org/all/20250425212427.vvyocc4mmne5g3vq@vividly/
+
+>  arch/arm64/boot/dts/ti/k3-am62p5-sk.dts                | 2 ++
+>  arch/arm64/boot/dts/ti/k3-j722s-evm.dts                | 3 +++
+>  3 files changed, 8 insertions(+)
 > 
-> Since you have tested the effective final quirk patch, may I ask you to
-> post straight away your final tested quirk patch on top of my next V3
-> (with your authorship of course..)...I will drop the [NOT FOR UPSTREAM]
-> example patch so that Sudeep can easily pick-up your patch.
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+> index 7b65538110e8..11f484f88603 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
+> @@ -50,6 +50,7 @@ phy_gmii_sel: phy@4044 {
+>  			compatible = "ti,am654-phy-gmii-sel";
+>  			reg = <0x4044 0x8>;
+>  			#phy-cells = <1>;
+> +			bootph-all;
+>  		};
+>  
+>  		epwm_tbclk: clock-controller@4130 {
+> @@ -730,6 +731,7 @@ cpsw_port1: port@1 {
+>  				mac-address = [00 00 00 00 00 00];
+>  				ti,syscon-efuse = <&cpsw_mac_syscon 0x0>;
+>  				status = "disabled";
+> +				bootph-all;
+>  			};
+>  
+>  			cpsw_port2: port@2 {
+> @@ -751,6 +753,7 @@ cpsw3g_mdio: mdio@f00 {
+>  			clock-names = "fck";
+>  			bus_freq = <1000000>;
+>  			status = "disabled";
+> +			bootph-all;
+>  		};
+>  
+>  		cpts@3d000 {
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+> index d29f524600af..5b2f0945a9eb 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+> @@ -227,6 +227,7 @@ main_mdio1_pins_default: main-mdio1-default-pins {
+>  			AM62PX_IOPAD(0x0160, PIN_OUTPUT, 0) /* (F17) MDIO0_MDC */
+>  			AM62PX_IOPAD(0x015c, PIN_INPUT, 0) /* (F16) MDIO0_MDIO */
+>  		>;
+> +		bootph-all;
+>  	};
+>  
+>  	main_mmc1_pins_default: main-mmc1-default-pins {
+> @@ -496,6 +497,7 @@ &cpsw3g_mdio {
+>  
+>  	cpsw3g_phy0: ethernet-phy@0 {
+>  		reg = <0>;
+> +		bootph-all;
+>  		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
+>  		ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
+>  		ti,min-output-impedance;
+> diff --git a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+> index 34b9d190800e..93d770c5792e 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
+> @@ -310,6 +310,7 @@ mdio_pins_default: mdio-default-pins {
+>  			J722S_IOPAD(0x0160, PIN_OUTPUT, 0) /* (AC24) MDIO0_MDC */
+>  			J722S_IOPAD(0x015c, PIN_INPUT, 0) /* (AD25) MDIO0_MDIO */
+>  		>;
+> +		bootph-all;
+>  	};
+>  
+>  	ospi0_pins_default: ospi0-default-pins {
+> @@ -344,6 +345,7 @@ J722S_IOPAD(0x0140, PIN_OUTPUT, 0) /* (AF24) RGMII1_TD3 */
+>  			J722S_IOPAD(0x0130, PIN_OUTPUT, 0) /* (AG26) RGMII1_TXC */
+>  			J722S_IOPAD(0x012c, PIN_OUTPUT, 0) /* (AF25) RGMII1_TX_CTL */
+>  		>;
+> +		bootph-all;
+>  	};
+>  
+>  	main_usb1_pins_default: main-usb1-default-pins {
+> @@ -388,6 +390,7 @@ &cpsw3g_mdio {
+>  
+>  	cpsw3g_phy0: ethernet-phy@0 {
+>  		reg = <0>;
+> +		bootph-all;
+>  		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
+>  		ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
+>  		ti,min-output-impedance;
+> -- 
+> 2.34.1
+> 
 
-Sure, I'll do so. Thanks for your help with getting this sorted!
-
-Johan
+-- 
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
 
