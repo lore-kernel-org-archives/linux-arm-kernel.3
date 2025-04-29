@@ -4,94 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E064EC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 21:41:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7955C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 21:43:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VFHhD4L18F4DbheB1ANr+oLMK0ky8CpJtw12v2WCTVo=; b=HjFzAsOx64Um4CYTfLgUvxCBm+
-	SCAU0zWsQe296w3krhcHy2MxTl9Vf+nmByDyKGHNeOUQv3A0FNn1FeChPV4jSTjw/BilN6COIxqGY
-	IXgpqTW985xFUOI51PN/p49wUtE7XW8SaRPbzVx6YLoq4yDPKceWXXYMmE8Yobu0pGSvKUDajrIAf
-	yOfuKVOG/2pto97HcR2iCvElgMVtlapv861ZOCf3MdEcnPZ4hA5YKO0mPnFeLQHoPCGCMZZz6REvz
-	TY7UO6SWnaeNbmDj5KReGjcF7J0b4GAt5oEZlytwV6EC4j1IadRcA1KNHgTfJN85r58QV96hmx5Ri
-	M6xvEkqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6pWS6UFOhe9i4/+rtYoRtmh+LDBHour1WcHut23/qrU=; b=UHiBm+PQpSHw+MDcxk8TMX4oLp
+	xMvGYvLoX+pc9xrdCNG64g8AqIW6LJcTG/qd6SlDZYaxOLfuVouvWSNowG/FEKLdV4+DL8+N9g45e
+	Z8Nazo4sfOZTEqrTwedk3ZoXBBrvKKnFsGuGQr8ou99yyCNfy7+Tcj9qXoaP28Q+rE72WhJKh25Mb
+	uUxRDG7d2dAx+W0LylFOK5CZbXJ6CyjSRtXoscosbIRO3JneV3FsRo7zy4tca1RLSHmocZf5/Q2Lq
+	qMk0NZPpVJawdhg/U0rr2EIEd/U5GbI3z/SOZA6fhb/iXuaQD+D3O84l7uY4X/zkw3VAeYuaPQy1j
+	vs+Flxjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9shQ-0000000At0f-2WOk;
-	Tue, 29 Apr 2025 21:41:08 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1u9sjJ-0000000AtDd-12dI;
+	Tue, 29 Apr 2025 21:43:05 +0000
+Received: from smtp-fw-52004.amazon.com ([52.119.213.154])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9scn-0000000AsNy-1KRg
+	id 1u9sfI-0000000Asd9-29pj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 21:36:22 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2263428c8baso80845ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 14:36:20 -0700 (PDT)
+	Tue, 29 Apr 2025 21:38:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1745962580; x=1746567380; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=VFHhD4L18F4DbheB1ANr+oLMK0ky8CpJtw12v2WCTVo=;
-        b=AldOlRmzdMsxfxSs7dhcC2Mp/4RkE66BMDyu9GUyS1Kq7RNXKjZHuHmw/2aNBSvYq+
-         y2jg89Z+F8EEFpisDmqYiIwKjFJTJfLjfnIdHEv2XyA157gZYPNDPkLMEJdhTiv/+bav
-         O/2XITrpNg1JM8dnCbzwZLhdWBdhKefR9W0Mbc/9SKgZbaUL2BK/NIVKqxSggUSb8IVM
-         DvD3IZk1tokz9CyYqf2Oq6tw8TWyXSZxo4takt3xmHzpOI+e7m3lnojiO2ECYURaT0jp
-         IM5R/jPwG1s0UQJxFyCIxvIFxs6A7PICk3yrRlsBhs37VbSCgzG9OHBUo5jQuEoIAdcY
-         GnWg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745962580; x=1746567380;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VFHhD4L18F4DbheB1ANr+oLMK0ky8CpJtw12v2WCTVo=;
-        b=l2rEPz6Xbo0gcJaXDtReJ006lMxTwprLXtTqS0lyxJP0kd99bIV+rMSHyjOcPvh/9b
-         azaCV+omNtsHdIn78u+EOqy2yp4deakfBTvd47qpllFvZ4giL5mCbBizZIrSm7Cvo6MZ
-         /3ci5RkmRYz5xcTReeFGA+Qi9Ny5dqWf1j6s6gIwB46DkzrIhJ03Xo9uhqmUR1d0aIzc
-         ssaCvwiO1Sexts22L8Ue8HcSSx1l8b1qZ0k/yQlwkqGxpbBeuszVasoFt2CFO1aonCa7
-         /O5JsqrJgnNin1POuTf2t13RxQMVyIbfjhr0RKYz5zBZVtp4v+4uKCN07z2ljGHM7+wE
-         BrWg==
-X-Forwarded-Encrypted: i=1; AJvYcCXJ+8PPGDJkzqPU1+ry+eOrNMfN8pCcq7zVJ+Y7yPqpXY5cc/HkkHtajN4TOOjqxjKoQqisSwOaOZVYp54OHLbo@lists.infradead.org
-X-Gm-Message-State: AOJu0YxssIk+QmIt+5I+hM0xx8F/O+2aP4PXgEV4CEp0mU3LdJ0Qog2A
-	rFuk2tOwoy6EYlbLPglyJBvEaveiAn5HQ2GbasqdODr0Sk86YQOtfIkCbSDTLg==
-X-Gm-Gg: ASbGncumvKn5aqEwN7RyNZsfibkSKVIB6r04boDA8fFEdq0eOUwgqi6MstANv/Fyvc0
-	veNIFoHkdKoaXvLbUZ0DMLWKLcvj79JcfLYgCto3ddYciUaAd8ZifB9bmeisx0bDzzZ6o7njP7R
-	NiO2Ds0Rn2xG600jIj4u4/f8BZb0sWwh+eODrIV1BhbrkdkNjP8gIzuXj0913V8UI/fykkFEY5W
-	ur4VH3Y5T2qc3Hn7c36dUR0ovgFtHl6Fee9wFJOCsiZ2CPfG/K9+jIsZQdJxGJ2UnVMd3nvJZvq
-	shf2HNBJPVZseS0O8aCBpNIKoNnmQKyXkidPSA8xOYqLKDU1BmLbnfMw3s6wNt1R/tv1IRk9
-X-Google-Smtp-Source: AGHT+IHMqNgjircjCmAkmKl5VbBskPIbU47nTYxADS2hK6tD9L6Ge4YAR4USLtbPpDWqfiuVVAQ0lQ==
-X-Received: by 2002:a17:903:144f:b0:21f:3f5c:d24c with SMTP id d9443c01a7336-22df3dda537mr1044155ad.0.1745962580224;
-        Tue, 29 Apr 2025 14:36:20 -0700 (PDT)
-Received: from google.com (2.210.143.34.bc.googleusercontent.com. [34.143.210.2])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22db4d76d34sm108297185ad.39.2025.04.29.14.36.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Apr 2025 14:36:19 -0700 (PDT)
-Date: Tue, 29 Apr 2025 21:36:09 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
-	bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
-	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
-	shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
-	peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
-	zhangzekun11@huawei.com, iommu@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
-	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com
-Subject: Re: [PATCH v2 16/22] iommu/arm-smmu-v3-iommufd: Add vsmmu_alloc impl
- op
-Message-ID: <aBFGSRGcIsCDU1Zj@google.com>
-References: <cover.1745646960.git.nicolinc@nvidia.com>
- <73b1fc34b07f2ac42d542dd996c7119ae5f8939c.1745646960.git.nicolinc@nvidia.com>
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
+  t=1745962737; x=1777498737;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=6pWS6UFOhe9i4/+rtYoRtmh+LDBHour1WcHut23/qrU=;
+  b=V5n0dDb+iKAWi1yR2+vVDIm1GNGvAVyAqE20CzGLwQnOlggecFcCW2uM
+   GKn+auM9N55NASuujW+AdXstEIATtbCfKO5JWkjtw5HbTr4zgkKFq/91s
+   XOESHvPdnOWca/iv+b/j9Qo7204r1QEy9QkVL+7EiEFg7risoKCPdZyZN
+   A=;
+X-IronPort-AV: E=Sophos;i="6.15,250,1739836800"; 
+   d="scan'208";a="292876582"
+Received: from iad12-co-svc-p1-lb1-vlan2.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.43.8.2])
+  by smtp-border-fw-52004.iad7.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Apr 2025 21:38:52 +0000
+Received: from EX19MTAUWA001.ant.amazon.com [10.0.38.20:37204]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.21.68:2525] with esmtp (Farcaster)
+ id 9febca8e-c496-45a3-a44b-1c2b580bfebb; Tue, 29 Apr 2025 21:38:51 +0000 (UTC)
+X-Farcaster-Flow-ID: 9febca8e-c496-45a3-a44b-1c2b580bfebb
+Received: from EX19D016UWA004.ant.amazon.com (10.13.139.119) by
+ EX19MTAUWA001.ant.amazon.com (10.250.64.204) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
+ Tue, 29 Apr 2025 21:38:51 +0000
+Received: from 88665a51a6b2.amazon.com (10.106.178.54) by
+ EX19D016UWA004.ant.amazon.com (10.13.139.119) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
+ Tue, 29 Apr 2025 21:38:48 +0000
+From: Cristian Prundeanu <cpru@amazon.com>
+To: Peter Zijlstra <peterz@infradead.org>
+CC: Cristian Prundeanu <cpru@amazon.com>, K Prateek Nayak
+	<kprateek.nayak@amd.com>, Hazem Mohamed Abuelfotoh <abuehaze@amazon.com>,
+	"Ali Saidi" <alisaidi@amazon.com>, Benjamin Herrenschmidt
+	<benh@kernel.crashing.org>, Geoff Blake <blakgeof@amazon.com>, Csaba Csoma
+	<csabac@amazon.com>, Bjoern Doebel <doebel@amazon.com>, Gautham Shenoy
+	<gautham.shenoy@amd.com>, Swapnil Sapkal <swapnil.sapkal@amd.com>, "Joseph
+ Salisbury" <joseph.salisbury@oracle.com>, Dietmar Eggemann
+	<dietmar.eggemann@arm.com>, Ingo Molnar <mingo@redhat.com>, Linus Torvalds
+	<torvalds@linux-foundation.org>, Borislav Petkov <bp@alien8.de>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-tip-commits@vger.kernel.org>, <x86@kernel.org>
+Subject: EEVDF regression still exists
+Date: Tue, 29 Apr 2025 16:38:17 -0500
+Message-ID: <20250429213817.65651-1-cpru@amazon.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <73b1fc34b07f2ac42d542dd996c7119ae5f8939c.1745646960.git.nicolinc@nvidia.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.106.178.54]
+X-ClientProxiedBy: EX19D043UWC004.ant.amazon.com (10.13.139.206) To
+ EX19D016UWA004.ant.amazon.com (10.13.139.119)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_143621_347436_33DAB3D9 
-X-CRM114-Status: GOOD (  21.36  )
+X-CRM114-CacheID: sfid-20250429_143856_705623_D343E966 
+X-CRM114-Status: GOOD (  12.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,82 +93,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 25, 2025 at 10:58:11PM -0700, Nicolin Chen wrote:
-> An impl driver might support its own vIOMMU object, as tegra241-cmdqv will
-> add IOMMU_VIOMMU_TYPE_TEGRA241_CMDQV.
-> 
-> Add a vsmmu_alloc op to give impl a try, upon failure fallback to standard
-> vsmmu allocation for IOMMU_VIOMMU_TYPE_ARM_SMMUV3.
-> 
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+Peter,
 
-Reviewd-by: Pranjal Shrivastava <praan@google.com>
+Here are the latest results for the EEVDF impact on database workloads. 
+The regression introduced in kernel 6.6 still persists and doesn't look 
+like it is improving.
 
-> ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h     |  6 ++++++
->  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c | 17 +++++++++++------
->  2 files changed, 17 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> index 6b8f0d20dac3..a5835af72417 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> @@ -16,6 +16,7 @@
->  #include <linux/sizes.h>
->  
->  struct arm_smmu_device;
-> +struct arm_smmu_domain;
->  
->  /* MMIO registers */
->  #define ARM_SMMU_IDR0			0x0
-> @@ -720,6 +721,11 @@ struct arm_smmu_impl_ops {
->  	int (*init_structures)(struct arm_smmu_device *smmu);
->  	struct arm_smmu_cmdq *(*get_secondary_cmdq)(
->  		struct arm_smmu_device *smmu, struct arm_smmu_cmdq_ent *ent);
-> +	struct arm_vsmmu *(*vsmmu_alloc)(
-> +		struct arm_smmu_device *smmu,
-> +		struct arm_smmu_domain *smmu_domain, struct iommufd_ctx *ictx,
-> +		unsigned int viommu_type,
-> +		const struct iommu_user_data *user_data);
->  };
->  
->  /* An SMMUv3 instance */
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-> index 66855cae775e..a8a78131702d 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-> @@ -392,10 +392,7 @@ struct iommufd_viommu *arm_vsmmu_alloc(struct device *dev,
->  		iommu_get_iommu_dev(dev, struct arm_smmu_device, iommu);
->  	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
->  	struct arm_smmu_domain *s2_parent = to_smmu_domain(parent);
-> -	struct arm_vsmmu *vsmmu;
-> -
-> -	if (viommu_type != IOMMU_VIOMMU_TYPE_ARM_SMMUV3)
-> -		return ERR_PTR(-EOPNOTSUPP);
-> +	struct arm_vsmmu *vsmmu = ERR_PTR(-EOPNOTSUPP);
->  
->  	if (!(smmu->features & ARM_SMMU_FEAT_NESTING))
->  		return ERR_PTR(-EOPNOTSUPP);
-> @@ -423,8 +420,16 @@ struct iommufd_viommu *arm_vsmmu_alloc(struct device *dev,
->  	    !(smmu->features & ARM_SMMU_FEAT_S2FWB))
->  		return ERR_PTR(-EOPNOTSUPP);
->  
-> -	vsmmu = iommufd_viommu_alloc(ictx, struct arm_vsmmu, core,
-> -				     &arm_vsmmu_ops);
-> +	if (master->smmu->impl_ops && master->smmu->impl_ops->vsmmu_alloc)
-> +		vsmmu = master->smmu->impl_ops->vsmmu_alloc(
-> +			master->smmu, s2_parent, ictx, viommu_type, user_data);
-> +	if (PTR_ERR(vsmmu) == -EOPNOTSUPP) {
-> +		if (viommu_type != IOMMU_VIOMMU_TYPE_ARM_SMMUV3)
-> +			return ERR_PTR(-EOPNOTSUPP);
-> +		/* Fallback to standard SMMUv3 type if viommu_type matches */
-> +		vsmmu = iommufd_viommu_alloc(ictx, struct arm_vsmmu, core,
-> +					     &arm_vsmmu_ops);
-> +	}
->  	if (IS_ERR(vsmmu))
->  		return ERR_CAST(vsmmu);
->  
-> -- 
-> 2.43.0
-> 
+This time I've compared apples to apples - default 6.5 vs default 6.12+ 
+and SCHED_BATCH on 6.5 vs SCHED_BATCH on 6.12+. The results are below.
+
+Kernel   | Runtime     | Throughput | P50 latency
+aarm64   | parameters  | (NOPM)     | (larger is worse)
+---------+-------------+------------+------------------
+6.5.13   | default     |  baseline  |  baseline
+---------+-------------+------------+------------------
+6.12.25  | default     |  -5.1%     |  +7.8%
+---------+-------------+------------+------------------
+6.14.4   | default     |  -7.4%     |  +9.6%
+---------+-------------+------------+------------------
+6.15-rc4 | default     |  -7.4%     |  +10.2%
+======================================================
+6.5.13   | SCHED_BATCH |  baseline  |  baseline
+---------+-------------+------------+------------------
+6.12.25  | SCHED_BATCH |  -8.1%     |  +8.7%
+---------+-------------+------------+------------------
+6.14.4   | SCHED_BATCH |  -7.9%     |  +8.3%
+---------+-------------+------------+------------------
+6.15-rc4 | SCHED_BATCH |  -10.6%    |  +11.8%
+---------+-------------+------------+------------------
+
+The tests were run with the mysql reproducer published before (link and 
+instructions below), using two networked machines running hammerdb and 
+mysql respectively. The full test details and reports from "perf sched 
+stats" are also posted [1], not included here for brevity.
+
+[1] https://github.com/aws/repro-collection/blob/main/repros/repro-mysql-EEVDF-regression/results/20250428/README.md
+
+
+At this time, we have accumulated numerous data points and many hours of 
+testing exhibiting this regression. The only counter arguments I've seen 
+are relying on either synthetic test cases or unrealistic simplified tests 
+(e.g. SUT and loadgen on the same machine, or severely limited thread 
+count). It's becoming painfully obvious that EEVDF replaced CFS before it 
+was ready to be released; yet most of what we've been debating is whether 
+SCHED_BATCH is a good enough workaround.
+
+Please let's take a fresh approach at what's happening, and find out why 
+the scheduler is underperforming. I'm happy to provide additional data if 
+it helps debug this. I've backported and forward ported Swapnil's "perf 
+sched stats" command [2] so it is ready to run on any kernel from 6.5 up 
+to 6.15, and the reproducer already runs it automatically for convenience.
+
+[2] https://lore.kernel.org/lkml/20250311120230.61774-1-swapnil.sapkal@amd.com/
+
+
+Instructions for reproducing the above tests (same as before):
+
+1. Code: The reproducer scenario and framework can be found here: 
+https://github.com/aws/repro-collection
+
+2. Setup: I used a 16 vCPU / 32G RAM / 1TB RAID0 SSD instance as SUT, 
+running Ubuntu 22.04 with the latest updates. All kernels were compiled 
+from source, preserving the same config across versions (as much as 
+possible) to minimize noise - in particular, CONFIG_HZ=250 was used 
+everywhere.
+
+3. Running: To run the repro, set up a SUT machine and a LDG (loadgen) 
+machine on the same network, clone the git repo on both, and run:
+
+(on the SUT) ./repro.sh repro-mysql-EEVDF-regression SUT --ldg=<loadgen_IP> 
+
+(on the LDG) ./repro.sh repro-mysql-EEVDF-regression LDG --sut=<SUT_IP>
+
+The repro will build and test multiple combinations of kernel versions and 
+scheduler settings, and will prompt you when to reboot the SUT and rerun 
+the same above command to continue the process.
+
+More instructions can be found both in the repo's README and by running 
+'repro.sh --help'.
 
