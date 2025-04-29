@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65857C369DC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0650C3ABAB
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 16:31:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,79 +12,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0bnROaWvCcaygqjX5kuN3Xy7PkaB0JzSWi3o0PEyWIQ=; b=yV8yuOhMX5qECoZOTaqFL+Kis0
-	R8Flq/cx1p/o1kkx8QFyNZzIz3mO6oDY7qq1aJYoy+qzVoga9Rp6SjcmHNatrvCrE4vMpgNN4/9kO
-	L9wdxsJvKj3W3ADhGQVq4K9KGAuLp6wZyOiQ4DluLTurjyy1b2uWlLgp3H0aI/2clsTxw9v7FdoI+
-	FwKYbeBpHqTWvF2tdcECc+DYJLDC/UPsqYOHOKYhiVqaM6SoPZfrq2prLsJVbtjRHyQS08ihUotJV
-	wWLktnjRUD/EHbwf1I1WCUPYrWy59pD+Uv352AWcOwOD0BensJYv3t6RdEnJdB0gGqQL2wVD7q/3B
-	Mk5mbYPQ==;
+	bh=OduaXqO0vpWQkm2nTVR92WsTV4Q+eJ6nrxylSonj7oQ=; b=IgXKYJpphcj7CkUTbsSlNboD1y
+	tXqfM4iizSop+b/iOFeaeYZj5MBm8Qzy/D4tRtgAZ6L31sJ2AwbKyU/Zu87WcQ5nl9Grgs5Kh2MdS
+	g8A4ajCH1vI2Q1hEu7iJMyGH5e0peVzERlDhPC/mY0UnI6Q115ZVR12/wsa1E74tiA2gA8nSwfAu8
+	3lPFyXblJet5hwNlUgWRPkJDW/ldNRBREHcZWjFT+crafy746fYWmdwuS2Q7KTMpsRfZENlDxntmN
+	z/09cy086p9KZJT+8QHVmibnlJu6sIJ89DSiuAFPZOEVJbb7CbAfg9+1HegqUkWsgUr+fcfbuiemS
+	VSIQXsXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9nrX-0000000AG3c-2GbZ;
-	Tue, 29 Apr 2025 16:31:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u9nrY-0000000AG4C-0XBs;
+	Tue, 29 Apr 2025 16:31:16 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9mFW-0000000A0SO-2h50
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Apr 2025 14:47:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=0bnROaWvCcaygqjX5kuN3Xy7PkaB0JzSWi3o0PEyWIQ=; b=n4b0RKLJdumk9kbGDqKBoR57nu
-	RzvDB2SwwgWaQILKhwREDITy/abiKa+0ei18FTbqTH8hmFBp77Fbpy2mPSX+VxNrSOm4r13jeBH0R
-	8EcUHPBzpVoq2y2hhFpvBJ5dAkBs4CRPN8cgRu0bMSu0xeatcJSPFLNgzBnLQLl0qvwmCrsAxDfbI
-	vNmvT6UlAgvHygvQxG7KumpOqHhJNSNJKVHC0JeJBoMm/pdVo37lueb3jwPFi7R7ijI4PUK0Lkxqs
-	2af4rNObA55SK8Fgl5RqnMazRnw0HbEzIV2qXZPRhT+levWvn97rxgQ15ZKVU6BYCRdjwO0Xt+Gnc
-	i+KaNBeg==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9mFT-0000000DPIJ-0F6L
+	id 1u9maY-0000000A49R-2UDs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 14:47:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7469944D59;
-	Tue, 29 Apr 2025 14:47:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 260D3C4CEE9;
-	Tue, 29 Apr 2025 14:47:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745938067;
-	bh=MkI4ziZBimRv816hWldVx0OhLFYQifsD85oE9/WnLRo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WounUNd0eulkbpb9nJFmNARDRgOJTxWgeMgzH+GDzDf531FCG9u/sJRkf8STQXOoL
-	 83QzAImFpqMM1G17D15FJtTsD5R2wn2IrUxESFrKXDJbgRag1YixTQUbloDXDL9vKP
-	 7G03r2CI8E4gKGRiQ2KUj7OqbcnX67iSeTmYaeXJnCIRD6WXVycSpTGOnKf9z7zxW7
-	 0ki19ufPc6GaekIxi0XTBarycL659yJyvh5/dyGEXVjOretV0Lvgt4QVrAkrJLFZjY
-	 K9ViELGkkrG+xpkBX8ccC4JkJra8R3/p33ncT5agcM8OUBX+ecboK5AhAil73NpKrg
-	 N8zBNzVv/l9YA==
-Date: Tue, 29 Apr 2025 15:47:40 +0100
-From: Will Deacon <will@kernel.org>
-To: Yicong Yang <yangyicong@huawei.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, catalin.marinas@arm.com,
-	maz@kernel.org, oliver.upton@linux.dev, corbet@lwn.net,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
-	yangyicong@hisilicon.com, joey.gouly@arm.com, yuzenghui@huawei.com,
-	shuah@kernel.org, jonathan.cameron@huawei.com,
-	shameerali.kolothum.thodi@huawei.com, linuxarm@huawei.com,
-	prime.zeng@hisilicon.com, xuwei5@huawei.com,
-	tangchengchang@huawei.com
-Subject: Re: [PATCH v2 1/6] arm64: Provide basic EL2 setup for FEAT_{LS64,
- LS64_V} usage at EL0/1
-Message-ID: <20250429144739.GB26174@willie-the-truck>
-References: <20250331094320.35226-1-yangyicong@huawei.com>
- <20250331094320.35226-2-yangyicong@huawei.com>
- <957ccba4-2ae1-4358-b62d-3b5c44d7f1ca@arm.com>
- <a520bb9c-839d-fd96-7ecf-365371e65e44@huawei.com>
+	Tue, 29 Apr 2025 15:09:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
+	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
+	In-Reply-To:References; bh=OduaXqO0vpWQkm2nTVR92WsTV4Q+eJ6nrxylSonj7oQ=; b=XL
+	fMdKhhooPPpr7PglDfv/395KTHmc33skhhEu3pHQ8o3hzgpAyhN4ZI6NnVsCWyMyJWIzM/TZqp+5U
+	njOmiFSDSiQjslO/jdmfKlJV8RRXoFHKrgY26MgyEsLM9F3NkY5QxCr1tRxO0p7xdrsOjhszVymot
+	TIKFQDB196BQykY=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1u9maI-00Ax53-Aq; Tue, 29 Apr 2025 17:09:22 +0200
+Date: Tue, 29 Apr 2025 17:09:22 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Jernej =?utf-8?Q?=C5=A0krabec?= <jernej.skrabec@gmail.com>
+Cc: Andre Przywara <andre.przywara@arm.com>, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, wens@csie.org,
+	samuel@sholland.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] arm64: dts: allwinner: h6: Add OrangePi 3 LTS DTS
+Message-ID: <6a056bf8-9f39-4204-9378-8cc39be60038@lunn.ch>
+References: <20250413134318.66681-1-jernej.skrabec@gmail.com>
+ <2219754.irdbgypaU6@jernej-laptop>
+ <34e30bf2-6f80-4c43-9e52-c1ebe0521c43@lunn.ch>
+ <5880182.DvuYhMxLoT@jernej-laptop>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <a520bb9c-839d-fd96-7ecf-365371e65e44@huawei.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <5880182.DvuYhMxLoT@jernej-laptop>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_154751_330471_A4428AEF 
-X-CRM114-Status: GOOD (  19.82  )
+X-CRM114-CacheID: sfid-20250429_080938_629590_93C730A7 
+X-CRM114-Status: GOOD (  21.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,46 +75,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 07, 2025 at 11:50:45AM +0800, Yicong Yang wrote:
-> On 2025/4/3 17:04, Suzuki K Poulose wrote:
-> > On 31/03/2025 10:43, Yicong Yang wrote:
-> >> From: Yicong Yang <yangyicong@hisilicon.com>
-> >>
-> >> Instructions introduced by FEAT_{LS64, LS64_V} is controlled by
-> >> HCRX_EL2.{EnALS, EnASR}. Configure all of these to allow usage
-> >> at EL0/1.
-> >>
-> >> This doesn't mean these instructions are always available in
-> >> EL0/1 if provided. The hypervisor still have the control at
-> >> runtime.
-> >>
-> >> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-> >> ---
-> >>   arch/arm64/include/asm/el2_setup.h | 12 +++++++++++-
-> >>   1 file changed, 11 insertions(+), 1 deletion(-)
-> >>
-> >> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
-> >> index ebceaae3c749..0259941602c4 100644
-> >> --- a/arch/arm64/include/asm/el2_setup.h
-> >> +++ b/arch/arm64/include/asm/el2_setup.h
-> >> @@ -57,9 +57,19 @@
-> >>           /* Enable GCS if supported */
-> >>       mrs_s    x1, SYS_ID_AA64PFR1_EL1
-> >>       ubfx    x1, x1, #ID_AA64PFR1_EL1_GCS_SHIFT, #4
-> >> -    cbz    x1, .Lset_hcrx_\@
-> >> +    cbz    x1, .Lskip_gcs_hcrx_\@
-> >>       orr    x0, x0, #HCRX_EL2_GCSEn
-> >>   +.Lskip_gcs_hcrx_\@:
+On Tue, Apr 29, 2025 at 04:51:59PM +0200, Jernej Å krabec wrote:
+> Dne ponedeljek, 28. april 2025 ob 14:37:48 Srednjeevropski poletni Äas je Andrew Lunn napisal(a):
+> > On Sat, Apr 26, 2025 at 08:00:49PM +0200, Jernej Å krabec wrote:
+> > > Dne petek, 25. april 2025 ob 17:34:14 Srednjeevropski poletni Äas je Andrew Lunn napisal(a):
+> > > > > > +&emac {
+> > > > > > +	pinctrl-names = "default";
+> > > > > > +	pinctrl-0 = <&ext_rgmii_pins>;
+> > > > > > +	phy-mode = "rgmii-rxid";
+> > > > > 
+> > > > > So relating to what Andrew said earlier today, should this read rgmii-id
+> > > > > instead? Since the strap resistors just set some boot-up value, but we
+> > > > > want the PHY driver to enable both RX and TX delay programmatically?
+> > > > 
+> > > > Yes.
+> > > > 
+> > > > There is a checkpatch.pl patch working its way through the system
+> > > > which will add warning about any rgmii value other than rgmii-id. Such
+> > > > values need a comment that the PCB has extra long clock
+> > > > lines. Hopefully that will make people actually stop and think about
+> > > > this, rather than just copy broken vendor code.
+> > > 
+> > > I spent quite some time working on ethernet support for this board. Once
+> > > I've found PHY datasheet, I confirmed that there is added delay. So this
+> > > particular board needs "rgmii-rxid" mode.
 > > 
-> > minor nit: For consistency, could we rename this "set_ls64", similar to "set_hcrx" ?
+> > There have been numerous discussions about what these rgmii modes
+> > mean, because DT developers frequently get them wrong.
 > > 
+> > Does the PCB have an extra long clock line in the TX direction? That
+> > is what rgmii-rxid means, the PCB is providing the TX delay, the
+> > MAC/PHY pair needs to add the RX delay.
 > 
-> IIUC, set_xxx really touches the registers and skip_xxx should just check and prepare
-> the feature bits. so here using .Lskip_gcs_hrcx_\@ should be more proper and consistent
-> with other places in el2_setup.h, like __init_el2_debug/__init_el2_fgt which also use
-> .Lskip_xxx for skipping an unsupported feature?
+> While schematic is accessible, AFAIK PCB/gerbers are not, so I can't really
+> tell how long it is. But without this extra delay, ethernet doesn't work.
 
-fwiw, I think the label names are fine as you have them.
+You are not adding an extra delay, you are subtracting a
+delay. 'rgmii-rxid' says the TX delay is implemented by the PCB, hence
+the PHY does not need to add the delay.
 
-Will
+What is normal is that the PCB adds no delays, and the PHY adds the
+delay for both the RX and the TX. And you represent this with
+'rgmii-id'.
+
+So what you need to find out is, where does the TX delay come from?
+
+	Andrew
 
