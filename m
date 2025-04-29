@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D762EC3ABA5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAC73C369DC
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 12:46:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,41 +12,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AXYhJv9QurGI954q1kSCFNaSa9/5t0vZZozJo6/Wkes=; b=pkFE3HlScBx67MlfT7os1nO52l
-	TP4mHbxQ02mpU/eauq+LBHuLdFs/uG/kTVz4jP+uEIrtpff6y+NecT6qN3jp4kJrqZtZrJHqNFDr7
-	993ydlCfW9sKnz90WPitS/PhfZ93C5oHEcTcgyVkqbYlTOzaQ+eGD7XuNn2g55kCliWuKr+PvcN65
-	ZKNyaazpOwiCQgsIawo6GnLXIjsstbi6iD6ZWp6ywOX/Hc7N26nSVg2ICUYkWJK24djNViJwijoPR
-	csDwelAfIvvIWxaEhkt299UBNB1eXRj76RcTwN8UrzpCBIj/j6AzNDVtnyvEaYbqh/iCsXCVN/ia8
-	0vH2MZcw==;
+	bh=UThPrMzMDq9JgFM8Y+iLXnSXR1YTh+p+5BnVVZ4Q1eA=; b=oqFP2YOtubN8QdMdj5NOq0Edqe
+	tp3ShfsVXcnm4zW5Z53dGLCRtN8uONeoxyf3LsP31fguXQmNOja6MdOH1gnnnG/+na0hEjcoK3gB6
+	yEMzpI2mGnXWbzGNCYlyOF8rCOTil6KC4YdMK0ZjKhrws2Lp9/pcjQuh4+38EulDUj4nONhlgfDBi
+	I+w3nQDjWmno11rFWxlp1czej/tfg4Pu/49Z+i31ZYrfwJe47LIzmx2FCZ1LjCY8gzaDPvEUyYmgI
+	Sdwd6+JDikl2X6PXXA6vWzRfFYCppBfLmIA5p5BnMsWOrpX2ukz5hQL/iXpyYP0IeDSVkPAjE+UXb
+	AFuExJrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9kLk-00000009g5V-02qL;
+	id 1u9kLk-00000009g5v-2H2n;
 	Tue, 29 Apr 2025 12:46:12 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9jL2-00000009VZH-1ahb
+	id 1u9jL2-00000009VZF-1aqB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 11:41:25 +0000
+	Tue, 29 Apr 2025 11:41:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id ADCE05C5A08;
+	by dfw.source.kernel.org (Postfix) with ESMTP id A9F3C5C59EB;
 	Tue, 29 Apr 2025 11:39:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EAB5C4CEEF;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AF25C4CEEE;
 	Tue, 29 Apr 2025 11:41:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1745926883;
-	bh=Pk4WX/VQ6r0BfN7MRXOMFVphZW9NidsGpywyMc+Scuk=;
+	bh=2HEnGlPElkgsLKXGKvLy6ekptJpv7P8BwQN9VPBjyxo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=DR+k33+jqAvaz9y6c+cN7D9lqRgJHjrPPeWPerRAI2F8O/omz5u4CxIe+hDKfCQC1
-	 HtS9mOt7owGCJ184IMosP+DN31siHnl9ULRTElzSkV1VNEFjGY7YkfJQXO1iLOhZhG
-	 BWVqbu9MQiRfFeD+tKM6iDr8OMLRkAeHqYrjJZgO/1PItL0sNEJ2MHfIEDbs36PF+/
-	 SAUWrm4FXWACGZDA9Y+8hk7aJqpc3RusUuEAWaErCGwwSFdarXDmUVIcWJNVl5uTAi
-	 JoH+YdO+7QBciOH2nIgluvj1SfQLVbTmhNWkDUEK0BgVEBAInCRM3QPUgoPY/u5dq0
-	 /Q0ze7z3pl55Q==
+	b=cSFwB/iU2t2wTHB9C1BvKZIzah5go59h8uDufW/ul/dj1G0HBEMKweAIR1XKlopZR
+	 5idzU1df8gJm3Vhq5XI43eqnWxnlCzh1HMh0wzZjmnY4BNYwnY7QBujGbREvn472MF
+	 Ug6v3u/4kreiFggmAntim3Lrb+ojfxIaXE9ZzQ30er1/5Hap/CqkDE/enrDnQLPfU0
+	 ygfwsl6FoNnTnlsQ6iKELtMTLo8bJwe7pKFFMIz7WxfHmlliQxbviFuYzEWPsCbAtY
+	 9/1cDakFJ/3dAbznOxBCupvjyix7W/DGKzG5xpW2tODVv9h+UgHcStJHiH2zqAOgzG
+	 hOia6t4ArqYUA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1u9jKz-009t0f-Ki;
+	id 1u9jKz-009t0f-F6;
 	Tue, 29 Apr 2025 12:41:21 +0100
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -57,9 +57,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Oliver Upton <oliver.upton@linux.dev>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
-Subject: [PATCH 2/2] KVM: arm64: selftest: Don't try to disable AArch64 support
-Date: Tue, 29 Apr 2025 12:41:17 +0100
-Message-Id: <20250429114117.3618800-3-maz@kernel.org>
+Subject: [PATCH 1/2] KVM: arm64: Prevent userspace from disabling AArch64 support at any virtualisable EL
+Date: Tue, 29 Apr 2025 12:41:16 +0100
+Message-Id: <20250429114117.3618800-2-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250429114117.3618800-1-maz@kernel.org>
 References: <20250429114117.3618800-1-maz@kernel.org>
@@ -70,8 +70,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_044124_473692_F082F45D 
-X-CRM114-Status: GOOD (  11.32  )
+X-CRM114-CacheID: sfid-20250429_044124_473898_0A13C811 
+X-CRM114-Status: GOOD (  11.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,32 +86,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Trying to cut the branch you are sat on is pretty dumb. And so is
-trying to disable the instruction set you are executing on.
+A sorry excuse for a selftest is trying to disable AArch64 support.
+And yes, this goes as well as you can imagine.
+
+Let's forbid this sort of things. Normal userspace shouldn't get
+caught doing that.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- tools/testing/selftests/kvm/arm64/set_id_regs.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ arch/arm64/kvm/sys_regs.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-index 322b9d3b01255..57708de2075df 100644
---- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
-+++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-@@ -129,10 +129,10 @@ static const struct reg_ftr_bits ftr_id_aa64pfr0_el1[] = {
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR0_EL1, DIT, 0),
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR0_EL1, SEL2, 0),
- 	REG_FTR_BITS(FTR_EXACT, ID_AA64PFR0_EL1, GIC, 0),
--	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR0_EL1, EL3, 0),
--	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR0_EL1, EL2, 0),
--	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR0_EL1, EL1, 0),
--	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR0_EL1, EL0, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR0_EL1, EL3, 1),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR0_EL1, EL2, 1),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR0_EL1, EL1, 1),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64PFR0_EL1, EL0, 1),
- 	REG_FTR_END,
- };
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 157de0ace6e7e..28dc778d0d9bb 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -1946,6 +1946,12 @@ static int set_id_aa64pfr0_el1(struct kvm_vcpu *vcpu,
+ 	if ((hw_val & mpam_mask) == (user_val & mpam_mask))
+ 		user_val &= ~ID_AA64PFR0_EL1_MPAM_MASK;
+ 
++	/* Fail the guest's request to disable the AA64 ISA at EL{0,1,2} */
++	if (!FIELD_GET(ID_AA64PFR0_EL1_EL0, user_val) ||
++	    !FIELD_GET(ID_AA64PFR0_EL1_EL1, user_val) ||
++	    (vcpu_has_nv(vcpu) && !FIELD_GET(ID_AA64PFR0_EL1_EL2, user_val)))
++		return -EINVAL;
++
+ 	return set_id_reg(vcpu, rd, user_val);
+ }
  
 -- 
 2.39.2
