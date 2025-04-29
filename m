@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5B6AC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 20:45:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE32CC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 20:47:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XYN2Bke3VREHxmieFqP1r5nOcD97yErLgzUz8SxXVYo=; b=lbnxPBRA7k9rzxKbzoaGP0odb0
-	0ozqY6DYwF0OPf3VpVTa7h2t8y7id04fW2u39hn1epNUVtnLBpbyMhCbVCFUa6sWlcEnaa0RzG1Rz
-	3+Wl51igROQgPv2o+jCt1jFwwAbqYan6l3VxRbzHEkc+aWAw58R1iyRFdDlJJsHr7THu3Umqumziw
-	+SJk0CLrWEe9jgR3L00k1v3nhrCZ5bh11zc2Fot6AM6lJs3h3sAfyqzTIHR07QrdbOcjt2A478M/Z
-	kocYWsdQaVAn1Hfp3n9vXhQ+/ar+RkM4GtfnIJJWS9UVJd/OxVqsSq5MtlXhdkviA9W89SjvU+WkU
-	/nHK0FRg==;
+	bh=PAw2mrLc4CtBwBWchbqYHpR1Dru7LqeQjl+J9umVBSY=; b=kfPAr7c4IbJbzfd9Q1/3nFtq++
+	nvYTc5pv7cfETj34ullQBiP8o+lpU6LGFOdJT/v1Qp3hpTxk15JEXy+g5FOi0OZWmPes56OliTA4G
+	/xDK/keYtTy5fh6Xrz6gP/c9vS4rm38kteUhvoBdrYRXfp/fIRg0oGu1MY9McZ7ANo91A+V7Da7+B
+	dJBrlUlQn8c5TXkj5KjmTqHscWUe9tFFmV4DRFwUJUyB2WSVTELPx/kuj4jBGhLNfULuL/Wv4QJWy
+	v7k9e/FZNFt3f+QyLCMNpOz8jKL1paym/hmnjrdDvtScSDerSoX7ynrzzNO2jTBeQQDuNkERWXBA+
+	xYfZnMpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9rpj-0000000Ami4-2O4h;
-	Tue, 29 Apr 2025 20:45:39 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u9rrc-0000000Amwx-0uWo;
+	Tue, 29 Apr 2025 20:47:36 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9rYw-0000000AkWj-0g3O
+	id 1u9rYx-0000000AkXY-3EHf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 20:28:19 +0000
+	Tue, 29 Apr 2025 20:28:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id AFF5BA4B4E2;
-	Tue, 29 Apr 2025 20:22:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B92CC4CEE3;
-	Tue, 29 Apr 2025 20:28:15 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 152415C02BC;
+	Tue, 29 Apr 2025 20:26:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A25B3C4CEEA;
+	Tue, 29 Apr 2025 20:28:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745958497;
-	bh=j6cRsnJcuJGGzquyyvJ5hVFHCEDkziQIJdUywXnkqdc=;
+	s=k20201202; t=1745958499;
+	bh=UcHVSdsNl83YVYs97yxyIXsnWeVius4kIYuiTanaakY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=EklBAx+Sk8O4MDypA+nM92eodqBUZf0kdoLrsXb+d2WOK1BU58bLd3a5sXIc62A6X
-	 er/oXBPQw2TWvWNyWIuXZt2mK82LBRX+7xXyQV17jPEGkuPJXDuyK0O2f//Bd3hdNV
-	 ZeJg1YvouKFQoecBZHnExac9vvKbsKVZ8ko3mnofvs6yPuAOUta+8QqrzqmMENxPAn
-	 /SdsjlE/DGEhU1XKnrIsGv0KgIVzpdYBhbrMxrItAEjSoS57ga4wqh0KHUhFhJxLG+
-	 eTzpLa6MbPkGYk1NoTQ3X+kKHz9gq0wM2S1HG4QOUGPl0Df0PCP8J488BT+AfNblFF
-	 L3WmnVM6fUT2g==
+	b=dmHse4nzSC0xWNL4u/4jmwhwqNq4C+kaqNKOcH9vNXevTJgqxMCmNecz6kK0J3B4K
+	 7CYa89bITs71Mr/XFTpgTv6hoaL9apAO/QImvekdvtC8otfrsaZIzMKBUDdHVpdv5f
+	 Sr1UCApB4gUlIxA85rYbPbhsK48P3ergbjlupCyu0/gDt6iEgKljJXBpeu8NU7PRNc
+	 HEcgL/oAVQ0V44ZoSjXAVno8S7IrX7LY+qYU6l7Q4Tu0faTpm73M/FilDOLqKIJiXy
+	 hxY0GldFfrAELs4wk04hazBONREJGTC9jwfNSXwsDFuUNRJEjJvIcXN7q03oz+c/8G
+	 w0uDwvsIGGjjw==
 From: Will Deacon <will@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Miaoqian Lin <linmq006@gmail.com>
-Cc: kernel-team@android.com,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH] firmware: psci: Fix refcount leak in psci_dt_init
-Date: Tue, 29 Apr 2025 21:27:50 +0100
-Message-Id: <174592994212.427921.17461621351639066667.b4-ty@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	Oliver Upton <oliver.upton@linux.dev>
+Cc: catalin.marinas@arm.com,
+	kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	kvmarm@lists.linux.dev,
+	Marc Zyngier <maz@kernel.org>
+Subject: Re: [PATCH] arm64: Expose AIDR_EL1 via sysfs
+Date: Tue, 29 Apr 2025 21:27:51 +0100
+Message-Id: <174593179853.437254.7295109441381830803.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20250318151712.28763-1-linmq006@gmail.com>
-References: <20250318151712.28763-1-linmq006@gmail.com>
+In-Reply-To: <20250403231626.3181116-1-oliver.upton@linux.dev>
+References: <20250403231626.3181116-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_132818_259730_FF347021 
-X-CRM114-Status: UNSURE (   6.78  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250429_132819_864298_538ED066 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,16 +76,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 18 Mar 2025 23:17:12 +0800, Miaoqian Lin wrote:
-> Fix a reference counter leak in psci_dt_init() where of_node_put(np) was
-> missing after of_find_matching_node_and_match() when np is unavailable.
+On Thu, 03 Apr 2025 16:16:26 -0700, Oliver Upton wrote:
+> The KVM PV ABI recently added a feature that allows the VM to discover
+> the set of physical CPU implementations, identified by a tuple of
+> {MIDR_EL1, REVIDR_EL1, AIDR_EL1}. Unlike other KVM PV features, the
+> expectation is that the VMM implements the hypercall instead of KVM as
+> it has the authoritative view of where the VM gets scheduled.
 > 
+> To do this the VMM needs to know the values of these registers on any
+> CPU in the system. While MIDR_EL1 and REVIDR_EL1 are already exposed,
+> AIDR_EL1 is not. Provide it in sysfs along with the other identification
+> registers.
 > 
+> [...]
 
-Applied to arm64 (for-next/psci), thanks!
+Applied to arm64 (for-next/cpufeature), thanks!
 
-[1/1] firmware: psci: Fix refcount leak in psci_dt_init
-      https://git.kernel.org/arm64/c/7ff37d29fd5c
+[1/1] arm64: Expose AIDR_EL1 via sysfs
+      https://git.kernel.org/arm64/c/17efc1acee62
 
 Cheers,
 -- 
