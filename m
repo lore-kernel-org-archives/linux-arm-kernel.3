@@ -4,96 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D05FC3ABA5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 15:42:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF950C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 29 Apr 2025 15:44:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iNL6a0GWxA2dkZ05LdtJm5Jez0Oqtf8Q3PSdPHB/Smo=; b=YZuUp0veVwhiSWK91vPcYTkYJ1
-	sDmmByUNYrb2SZmgBDQ0Bhcp2C4XkY/AosqIx/b5nPglQ7J1ogHid8zkLP+jFialKfRNcjruEDiVR
-	zdLwxpxHCruFqzYEvrrC8M06EdB/SIpcyEOKo8dLO1zdHN0mieCcBs2qhg/d9X5QD1snCNU3XyuK+
-	kArCDXBVkMYh8VIyR44RlRFTvCpSefWddw51p9k+R1s6ZQZ7GDXxseA261LBy7pOW6cuc+tOMhhR1
-	YWQBHO1/YRnwuVrKQEiB5LOzCCjXN5dT0NfQeLwI4j4exGwh1Yq3D/g0sdHaodqcOUO//G/KEtnJF
-	0SYq+60A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BokEIJpAcKb2binz16NzuPQ4I7I+6I7p32b1cJZhi5A=; b=x9m/tAbktHEDHOKUF8IP+51nPp
+	aGbyQDiVOFtEMd3UAdFtOMjuTVSpBaHq4lntJEznbF5xgpRoLTCCme9gAmlZOsomcF9r76aNs4uLR
+	oj/1eqA1LxVSB0Fcr9dk8AwiGjk8O33HO88UsFirCiHmnzxGuRTqejlRa/CSDgUnmP2cmzj+UPAuT
+	mcvjCvI/1Z0JVEvpHM35wtiB1NRicnKWL/0W7RHsrtZ84kK7aUsmmtfJ49OBY0J/DWu7xxgsN2bzg
+	W6HMOXFRTbCyE3Jh5cN7uvamdRmHIq+MBUM20nIVkSjMbmz6vZxAE3dH9uiTYYXII2xshYAdSzFfm
+	buhzLwWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9n6J-0000000A9yb-3v29;
-	Tue, 29 Apr 2025 15:42:27 +0000
+	id 1u9n8C-0000000AAE6-2SKl;
+	Tue, 29 Apr 2025 15:44:24 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9mfp-0000000A4hW-1Jh8
+	id 1u9miO-0000000A63g-3Nbs
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 29 Apr 2025 15:15:05 +0000
+	Tue, 29 Apr 2025 15:17:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=iNL6a0GWxA2dkZ05LdtJm5Jez0Oqtf8Q3PSdPHB/Smo=; b=pOqxzanAcmuDyFXIWWU4oifnrI
-	gdKE2N/ZYr0uRZcQlv5PSyi8hWIT/hgpIiQnT3YWVB8moLjMDwRQNvuAwjRYxom8auoWwqwnn3UGW
-	LO2dvoYDIug0qFuXAzsJhzwh3Bf0Hy/TfRhkwyPUCX7tHFncBVmV5W34JldFvoFOhvrVY//r047hA
-	dgBRREz3L47HChn6gu+ngrsU7U5l0xy8GqZria2dv1wWgYO11D0fr+/LcW7w2f4lkcBYC4FSeQjt1
-	7vsCCxcibDvJZ5j4uItq+57szQy2B9RoiNvXOkLJNN6iqPlO+Hthe87LKIQROIwH60Qo0jwySr/fR
-	P3dJX2tw==;
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	bh=BokEIJpAcKb2binz16NzuPQ4I7I+6I7p32b1cJZhi5A=; b=oMPXA6hqNzkmbtvrGNqxfUwyiP
+	cFrqenarPfDxUFJ7aOfuJ2F3PL2EkXm6Er/YtrMd5VRG08OxY42voAy2gMCqCbW1JythdS/Siu0Ju
+	dzJbuVmsr8wYXFXP4cZNivhSWrgZ2NggvX9z4Ny3tfbG33tBKDOkbd/AXy7r1F+NGPtUpSJWcou7R
+	hGl33H8DjNaEVmRiV0sZC8GzHXQB+QeeCCQf0lFATypYqk1JZk604xB5XqjgD13SCfw2FBpM2Rssk
+	uh9nVOXzIK/dgzo8yHzY9ZY3/GBy45UgIZ3Fjm3Wz4ZFeQdxZMVeVb6mP3s7Uk01D+dr7MEB1g7a/
+	rN4IFn0A==;
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9mfm-0000000DQsH-04MA
+	id 1u9miK-0000000DR5e-1DUu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 29 Apr 2025 15:15:04 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 53TFEtm03706313
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 29 Apr 2025 10:14:55 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1745939695;
-	bh=iNL6a0GWxA2dkZ05LdtJm5Jez0Oqtf8Q3PSdPHB/Smo=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=PFHfczJPj/469KbpDRdHpsMI2zj224SZxVNFCic9ZdaXJd7FRW4qIGrzrJHyShNPW
-	 YcJaovFi+bR0IBHSj9kIgyOpQqGJxYv3rUS7PiDvTE87+t18DVA9S7lQ7Dcb1hN4XA
-	 ECVIvWwn+yll723eEkws47RzMmEsAQGx34G535MQ=
-Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 53TFEtDR032994
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 29 Apr 2025 10:14:55 -0500
-Received: from DFLE103.ent.ti.com (10.64.6.24) by DFLE115.ent.ti.com
- (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 29
- Apr 2025 10:14:54 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE103.ent.ti.com
- (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 29 Apr 2025 10:14:55 -0500
-Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 53TFEslx129369;
-	Tue, 29 Apr 2025 10:14:54 -0500
-From: Judith Mendez <jm@ti.com>
-To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>
-CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Moteen Shah <m-shah@ti.com>,
-        Udit Kumar
-	<u-kumar1@ti.com>
-Subject: [PATCH v3 3/3] arm64: dts: ti: k3-am6*: Remove disable-wp for eMMC
-Date: Tue, 29 Apr 2025 10:14:54 -0500
-Message-ID: <20250429151454.4160506-4-jm@ti.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250429151454.4160506-1-jm@ti.com>
-References: <20250429151454.4160506-1-jm@ti.com>
+	Tue, 29 Apr 2025 15:17:43 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-43cf89f81c5so6007685e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 08:17:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1745939857; x=1746544657; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=BokEIJpAcKb2binz16NzuPQ4I7I+6I7p32b1cJZhi5A=;
+        b=DcvM72jrSoWWkbTunpq7anNrmqg1yOjSNJNm7VAg+pXzPk8cxfdsNT5wFMjuQ47KDf
+         dyGmcQaHYOiCSmfpmpHwz8aHMVKC1eyc3uuLsOyrazqE4XwXMBcYzZdEYLU4mrcLlKgx
+         XvoR8jMgsLDpYFQhAKln0HaXvPwO/pNfMu7FJCATHxJW+Igm3MStEp2cPdjD+CaMozeC
+         K8AmiMVjnuDKek0UFVwtvhRFbmJRoAQQ/TaSwqbY5hI8R4lPhhxC3RBvLFTRQi5vvkGp
+         o3bfInME9z290JOJ2PJOt1L8KOegc2cHkfEWyCGiAOVokHBB8Hk7+Of/wEkjPMEWezU2
+         //sw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745939857; x=1746544657;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=BokEIJpAcKb2binz16NzuPQ4I7I+6I7p32b1cJZhi5A=;
+        b=r/nc0G0k0rzZmDNiYu1MKRld9g/6Da69NfkZeIHoHZxsMwhnbffJH2GhNWGzxy2rSk
+         P7GUa+y+pFMsVWRmASaGjC0oIe0SlUP5Aw9Mpw1qfYB9P/dRGj0yBgiBRNs5Ilo6L7VD
+         o2koJd1Xbzp7OUtX0TUPgwizreVLIOOjwGb/lgjV7DutTzO5OMyzs3uiCs7sNUKVbVno
+         0l6fD1MPqHJRDMm+wTWG2Ie/E9A2fsvNSO7rpKk8XHnJNk8mgUARxwgWOZRzOmICpXr0
+         M+k+yOE6YifEHRIkPXskE5Jmmwui6SDZ6JfwmzKuQYLpnvp18A0U13BfkGiSYMOmw15/
+         SFRg==
+X-Forwarded-Encrypted: i=1; AJvYcCVPu75hoNVPghKgiqP7UvgBjM2+3ruUbly6g161XxMoUc3eH/7qfRqdmlC9Z4aaUCKKamzn5G9RAjLI9m5b7YvW@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+WwcoiBMxfyD8yWfACHqiIH2J4Ym2W2aJrw+EYqClUAIWVqj5
+	EVX9LHeYkMKow4G85QZ6/EgUnYAwskpDN9wC3qR9u31xfPPEQRfv0GEFLFUcAws=
+X-Gm-Gg: ASbGncsOPPqgDrssSU6boe5qnmra3MDlhdo06P9YW8HjaLyYVu2N2vn6/nAhUvJgX/R
+	nwvo95pCuZJyR2OZmH17J3kVtgHZngDfuPmp1+//qFcLyKoP2Y/A3NYNxkZ2h1Y0CPfqBrddo8Q
+	pjyJv7YXHGlLz0RhLNvN8vTwTkcPlS4QCvuHGAup2gTBqHkotBHeshpBezQtquydjWqMWdDxbYI
+	wRvwNnIRcuDbGd/q1cUww5XI0soLgUrOnbfIiaKVR6VdtY69ZNyxaDERdCgzDs5E20+v+2H2/XR
+	zQ2ArndAd69MEl/JjIb2ptUxBnapo6v5zaJ2ZrIvDfPzKbDTDS4Mrjpxy1k=
+X-Google-Smtp-Source: AGHT+IHwONa+JhNx4dio96T0pi5jX7gQn7L+kUedgzrY/88DyPg1TeMpxysV+irX79Ls6/3y0GlTjA==
+X-Received: by 2002:a05:600c:ccc:b0:439:a1ce:5669 with SMTP id 5b1f17b1804b1-441ac890828mr11476225e9.5.1745939857335;
+        Tue, 29 Apr 2025 08:17:37 -0700 (PDT)
+Received: from [192.168.1.28] ([178.197.207.88])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-440a52f8909sm167238875e9.2.2025.04.29.08.17.34
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 29 Apr 2025 08:17:35 -0700 (PDT)
+Message-ID: <c2d8374b-b623-447d-a695-3f2ead068265@linaro.org>
+Date: Tue, 29 Apr 2025 17:17:33 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/6] arm64: dts: imx: Move Ethernet aliases out of SoC
+ DTSI
+To: Lucas Stach <l.stach@pengutronix.de>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, Francesco Dolcini <francesco@dolcini.it>,
+ imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com
+References: <20250425-dts-imx-aliases-ethernet-v1-0-15b9d5cca611@linaro.org>
+ <e97d3388a5b4272d70d7379b020843a47874a104.camel@pengutronix.de>
+ <c5538590-efe4-4b90-b291-6c429d8fa3fe@kernel.org>
+ <06efb082c24176e6401265b4349b677468850f7d.camel@pengutronix.de>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Language: en-US
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ D2GYIS41Kv4Isx2dEFh+/Q==
+In-Reply-To: <06efb082c24176e6401265b4349b677468850f7d.camel@pengutronix.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_161502_395256_2084C5FC 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250429_161740_524112_0D2D3925 
+X-CRM114-Status: GOOD (  23.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,147 +170,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove disable-wp flag for eMMC nodes since this flag is
-only applicable to SD according to the binding doc
-(mmc/mmc-controller-common.yaml).
+On 29/04/2025 17:13, Lucas Stach wrote:
+> Am Dienstag, dem 29.04.2025 um 16:30 +0200 schrieb Krzysztof Kozlowski:
+>> On 29/04/2025 11:39, Lucas Stach wrote:
+>>> Hi Krzysztof,
+>>>
+>>> Am Freitag, dem 25.04.2025 um 21:48 +0200 schrieb Krzysztof Kozlowski:
+>>>> Not tested on hardware.
+>>>>
+>>>> Ethernet interface, like other exposed interfaces, aliases depend on
+>>>> actual board configuration, e.g. its labeling, thus aliases should be
+>>>> defined per each board or each SoM.
+>>>>
+>>>> Some boards (e.g. Gateworks) follow this convention but many do not.
+>>>>
+>>>> This is continuation of my comments from:
+>>>> https://lore.kernel.org/r/16a98816-f43c-4f4d-940e-9da30cb1f73f@kernel.org
+>>>>
+>>> The i.MX boards have traditionally listed aliases for many hardware
+>>> peripherals with the same numbering that's used in the SoC reference
+>>
+>> ... which is not correct. Aliases should represent how boards are really
+>> labeled, not how reference manual labels them.
+>>
+> While that is the commonly agreed interpretation today, I do not see
+> any language in the DT spec itself or kernel Documentation/devicetree
+> that would mandate aliases to be used in this way.
+> 
+> In fact there are examples to the contrary like
+> Documentation/devicetree/bindings/serial/samsung_uart.yaml which says:
+> "Each Samsung UART should have an alias [...] as specified by User's
+> Manual of respective SoC."
 
-For eMMC, this flag should be ignored but lets remove
-anyways to cleanup sdhci nodes.
+And that is an ABI. Did I affect ABI here?
 
-Signed-off-by: Judith Mendez <jm@ti.com>
-Reviewed-by: Moteen Shah <m-shah@ti.com>
----
- arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi               | 1 -
- arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts                | 1 -
- arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi              | 1 -
- arch/arm64/boot/dts/ti/k3-am62a7-sk.dts                       | 1 -
- arch/arm64/boot/dts/ti/k3-am62p5-sk.dts                       | 1 -
- arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi                | 1 -
- arch/arm64/boot/dts/ti/k3-am642-evm.dts                       | 1 -
- arch/arm64/boot/dts/ti/k3-am654-base-board.dts                | 1 -
- arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-common.dtsi | 1 -
- arch/arm64/boot/dts/ti/k3-am69-sk.dts                         | 1 -
- 10 files changed, 10 deletions(-)
+> 
+> So I would argue that there is no hard line between correct/incorrect
+> for the historical usage of the alias nodes on the i.MX platform.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
-index 55ed418c023b..e5be92aa1218 100644
---- a/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
-@@ -381,7 +381,6 @@ serial_flash: flash@0 {
- &sdhci0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_mmc0_pins_default>;
--	disable-wp;
- 	non-removable;
- 	bootph-all;
- 	status = "okay";
-diff --git a/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts b/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
-index 1c8b4d13fb49..72b09f9c69d8 100644
---- a/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts
-@@ -835,7 +835,6 @@ &sdhci0 {
- 	non-removable;
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&emmc_pins_default>;
--	disable-wp;
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
-index 147d56b87984..0d4115590b9c 100644
---- a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
-@@ -338,7 +338,6 @@ serial_flash: flash@0 {
- &sdhci0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_mmc0_pins_default>;
--	disable-wp;
- 	non-removable;
- 	bootph-all;
- 	status = "okay";
-diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-index 22be41d46eb5..c65ada5a22ab 100644
---- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-@@ -634,7 +634,6 @@ &sdhci0 {
- 	non-removable;
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_mmc0_pins_default>;
--	disable-wp;
- 	bootph-all;
- };
- 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-index ab06cc42b4f2..b89b7a779bcc 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-@@ -482,7 +482,6 @@ &sdhci0 {
- 	status = "okay";
- 	non-removable;
- 	ti,driver-strength-ohm = <50>;
--	disable-wp;
- 	bootph-all;
- };
- 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-index 7d249fd04561..c6c8a9d17fb5 100644
---- a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-@@ -456,7 +456,6 @@ &sdhci0 {
- 	non-removable;
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_mmc0_pins_default>;
--	disable-wp;
- };
- 
- &sdhci1 {
-diff --git a/arch/arm64/boot/dts/ti/k3-am642-evm.dts b/arch/arm64/boot/dts/ti/k3-am642-evm.dts
-index f8ec40523254..5c6197ba842e 100644
---- a/arch/arm64/boot/dts/ti/k3-am642-evm.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am642-evm.dts
-@@ -597,7 +597,6 @@ &sdhci0 {
- 	status = "okay";
- 	non-removable;
- 	ti,driver-strength-ohm = <50>;
--	disable-wp;
- 	bootph-all;
- };
- 
-diff --git a/arch/arm64/boot/dts/ti/k3-am654-base-board.dts b/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
-index aa7139cc8a92..c30425960398 100644
---- a/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am654-base-board.dts
-@@ -456,7 +456,6 @@ &sdhci0 {
- 	bus-width = <8>;
- 	non-removable;
- 	ti,driver-strength-ohm = <50>;
--	disable-wp;
- };
- 
- /*
-diff --git a/arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-common.dtsi b/arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-common.dtsi
-index ae842b85b70d..12af6cb7f65c 100644
---- a/arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-common.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am6548-iot2050-advanced-common.dtsi
-@@ -50,5 +50,4 @@ &sdhci0 {
- 	bus-width = <8>;
- 	non-removable;
- 	ti,driver-strength-ohm = <50>;
--	disable-wp;
- };
-diff --git a/arch/arm64/boot/dts/ti/k3-am69-sk.dts b/arch/arm64/boot/dts/ti/k3-am69-sk.dts
-index b85227052f97..f28375629739 100644
---- a/arch/arm64/boot/dts/ti/k3-am69-sk.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am69-sk.dts
-@@ -940,7 +940,6 @@ &main_sdhci0 {
- 	status = "okay";
- 	non-removable;
- 	ti,driver-strength-ohm = <50>;
--	disable-wp;
- };
- 
- &main_sdhci1 {
--- 
-2.49.0
+There is. ABI is documented. There are things which turn out ABI, even
+though they are not documented, like node names. Was there a problem
+with refactoring these in NXP?
 
+No.
+
+
+> 
+>>> manual. Boards always have the option to override those aliases if they
+>>> have a good reason to do so, e.g. labeling on the physical device.
+>>>
+>>> Other users besides Linux rely on fixed numbering provided by the
+>>> aliases. Both barebox and U-Boot number their ethernet interfaces
+>>> according to the alias.
+>>
+>> And?
+>>
+> Some usecases depend on the aliases being the same between kernel and
+> bootloader. Historically that has been guaranteed on the i.MX platform
+> by the aliases in the SoC DTSI, when the board didn't have a need to
+
+I know.
+
+> change them. With this series applied some other users may now end up
+> with missing aliases if the only include the DTSI.
+
+Bring actual case, what is broken by this changeset.
+
+> 
+>>>
+>>> While you seem to add back aliases for in-tree boards, this breaks the
+>>> majority of boards that include the kernel DTSI from an out-of-tree
+>>> board. I can understand that we can't always accommodate these users,
+>>
+>> This is not ABI, so every out of tree user is on their own.
+> 
+> I am not too sympathetic about out-of-tree users myself, but I don't
+> think we should make their life harder deliberately.
+
+We are making our life easier by maintaining and improving source code:
+e.g. not creating fake aliases for devices which do not exist on given
+board.
+
+
+Best regards,
+Krzysztof
 
