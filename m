@@ -4,172 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18063C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 08:19:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E08DC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 08:21:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=grf77TLB/dtmnhrt7yNZcC7yXgJ65g6nJf0TU3AzOVI=; b=p3JebVxNc62oiknc7KzECDT0Fa
-	9FbTcyokakrB3Txw00ql5pTn1L55VATGBtm+xkbZKhAmZsNGsAUtshFEgJZEy0ylJUIC7N81PLdyx
-	wJntyWR8b2uMSLFYiXtCccqz4h2DUkpg+eqBLr7zdwsGPGUo0aDlAD2YjXnbiL950jly7VQwYR4L6
-	1TzxjRJrhK6zNvTY5paW7F5OCAxFg90W+2mL6oul5Is+WgIyuiqGQzII/EOuZZ8PiMVlHZsacR9nv
-	mMLtYNae0xrfy4fXsQb+B1yLUoEyFTEdHBYanY32Gkl0m5pRa5n4bbdUjjNVULfBTIXCLHj5AFyta
-	ohKK0XXA==;
+	bh=toytAj/veEzmRd9jRr6xKEUHjrwAvubS2ClIjN5hiKs=; b=smom+j44qFiP6dBK+rfPJopOSK
+	P59f6nvvwuEikg7vBxF4Zhwbt3Crkug92q+wzpHUXFJbotvjxdpcVQu6+yFkUgc8vixlJQW5LksrB
+	Sk9JTs7XHdXsjrdKrEf42IyA/knRJm2Y8fRVwSy0hQURXAl2ESir09XLMlOFvf2PIrQ06IOeNRVvt
+	UBNFyP0D97gn2vbRNHFJ9/Q/L4AdTO5NflyB03tY5mMdGIqKpBE8YaI+2FYTKEI6SQWnCDOArviaw
+	KkIotzq5pcB46keGuo/CaFGoEItKm3AogxfnpjWW7qm+lU6KAvg6ZhLC5YC3/CsOz0oHbx4bwiLPc
+	fQnUeT6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA2ep-0000000C7id-0mWl;
-	Wed, 30 Apr 2025 08:19:07 +0000
-Received: from mail-bn8nam12on20601.outbound.protection.outlook.com ([2a01:111:f403:2418::601] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1uA2gj-0000000C84p-17It;
+	Wed, 30 Apr 2025 08:21:05 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA2Hg-0000000C3ke-06qb
+	id 1uA2JX-0000000C439-42dj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 07:55:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PARqKZ8Vcw44QT9KZ2norJJNWKaYnoYo7TJGVY00VAq/fRiAfCF+SU1yGGFxWX8+qKOguOSWgzh5pUoFD2dtcZW+X/LebKRrtdwBUhvNiAJRQTlOcfLF24DxyjV1zkOw918MAHpLo8ergGw+410HNa0vkncaWhi2kIcAI03VEoKiAiOKctyssaXM797NkmHfTO5Vm6bQRK+Q7RZ5TrGd5fJwfWZx50nIjnK4bhGhGz49USjejsB7ymjHY0+Tb8AzenDG9r55NIPT6S4YKueUlSlw1MoqaHTIqTnAogwfgOf7kyvDkg0Elae+duV3/UJ7DWsz0yA5y7O32TPB+oh35g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=grf77TLB/dtmnhrt7yNZcC7yXgJ65g6nJf0TU3AzOVI=;
- b=ybmDre0A6++xWH7q1tAqwOVobdRugESlzZ2xbkN0fodj0u2fHsigFLogx0HEgBxyRu9aP3jUXQo40CG2bx4pcVRHfGASH0n3X3mYtlAaW4pZnn1SgI0nAO8BMxF9I7Q7O9GNHnFL/AiV2ZcqE5YjieFXtmBEL+5WyMywvx6Wo8/HQPrx1N7HL1uDMlYvCeiaDmXiYGMuRYAXjaT+bqoOo6b3R3i0D4w80KLXuLTPTFBvohew2LY0IbX4NzCzhdXUbxtjx1Fp3Ck26fIwu+UwDtR8SO1MG7e0JRiyUEAbY1sip5hAHyua+LxQTFMahNMOH9flCYvuOfvfyYZt0sgdPg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=grf77TLB/dtmnhrt7yNZcC7yXgJ65g6nJf0TU3AzOVI=;
- b=YV4H0ZWCDdRmDcM2tTR+Vf363LWVi6lWfqRG3G7bY7XvyEvkAdZAnkyszOEwZjKAYK/4GD63eYT7ia2vg9qqFpnWsCVMrWqI5fzyd6spkTNG2l654eRdpAj/2/glvzWj94t4/B6dV6eZLOhA8e78u+v2cYodBIu4HJRQ1XN1szE=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from CH3PR12MB9194.namprd12.prod.outlook.com (2603:10b6:610:19f::7)
- by SA3PR12MB8762.namprd12.prod.outlook.com (2603:10b6:806:31f::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.33; Wed, 30 Apr
- 2025 07:55:04 +0000
-Received: from CH3PR12MB9194.namprd12.prod.outlook.com
- ([fe80::53fb:bf76:727f:d00f]) by CH3PR12MB9194.namprd12.prod.outlook.com
- ([fe80::53fb:bf76:727f:d00f%4]) with mapi id 15.20.8699.012; Wed, 30 Apr 2025
- 07:55:02 +0000
-Message-ID: <95ab62fa-bb1c-4e4a-a210-b0bdba0d4ad2@amd.com>
-Date: Wed, 30 Apr 2025 17:54:53 +1000
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH v2 06/19] iommufd/viommu: Add
- IOMMU_VIOMMU_SET/UNSET_VDEV_ID ioctl
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, kevin.tian@intel.com,
- will@kernel.org, joro@8bytes.org, suravee.suthikulpanit@amd.com,
- robin.murphy@arm.com, dwmw2@infradead.org, baolu.lu@linux.intel.com,
- shuah@kernel.org, linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kselftest@vger.kernel.org,
- eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org,
- mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
- smostafa@google.com, yi.l.liu@intel.com
-References: <cover.1724776335.git.nicolinc@nvidia.com>
- <6348cc7a72ce9f2ac0e9caf9737e70177a01eb74.1724776335.git.nicolinc@nvidia.com>
- <35701c5e-030a-4f52-b6f6-ed18368fb2cd@amd.com>
- <20241004114147.GF1365916@nvidia.com>
-Content-Language: en-US
-From: Alexey Kardashevskiy <aik@amd.com>
-In-Reply-To: <20241004114147.GF1365916@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SYBPR01CA0078.ausprd01.prod.outlook.com
- (2603:10c6:10:3::18) To CH3PR12MB9194.namprd12.prod.outlook.com
- (2603:10b6:610:19f::7)
+	Wed, 30 Apr 2025 07:57:09 +0000
+Date: Wed, 30 Apr 2025 09:57:02 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1745999826;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=toytAj/veEzmRd9jRr6xKEUHjrwAvubS2ClIjN5hiKs=;
+	b=aEW4C+QL3uo/km3pzlB8vPJmANLKGQ+YtVoDtMBqsb3Q0r0Zzx7+cLwOW3kRFZYIUotj29
+	6rrVv5QCL174zj7glivk4VcVQGXsUHYJ4u51dBCYt2tiP5HnZr+QYX4TUi+uXlsPo/VYiT
+	Pgfuv6qWbM2loAKJ6/7zvGOy0krafwTjkHSGkeC2mp6aRzgqG8oPVeMDWEV6vp1MXLrUjs
+	WjrJPR3X7fHKRB7h0E0wwjhmjG06nAUBKk2q0y6rdNuxi+FrBtuejPYJIOITfPTGt+Qi2v
+	M8ev5kgBS1XStwAQoIP/stX4qIDBguscGb0Bw3XqVHMVIsX7CHgJKcosXwKZpg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1745999826;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=toytAj/veEzmRd9jRr6xKEUHjrwAvubS2ClIjN5hiKs=;
+	b=fVSOgbcYSHklMfNonKJENAOqA39ELXq+KIAkzOI6Xnm4pUVizxgUk0R+UT/KFQ3pq0kuY0
+	oqkJLRsZVuJ5kBBw==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: Jan Stancek <jstancek@redhat.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Nam Cao <namcao@linutronix.de>, 
+	Anna-Maria Behnsen <anna-maria@linutronix.de>, Andy Lutomirski <luto@kernel.org>, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] vdso: Reject absolute relocations during build
+Message-ID: <20250430095411-349b13bf-a3c7-4968-9f97-551a1ded1696@linutronix.de>
+References: <20250429-vdso-absolute-reloc-v1-0-987a0afd10b5@linutronix.de>
+ <20250429-vdso-absolute-reloc-v1-2-987a0afd10b5@linutronix.de>
+ <CAASaF6yGT0pDythQ9nTcn5=MHmLYD=gCNVc6dFXhWUO_iXJXqA@mail.gmail.com>
+ <87selqp0j8.ffs@tglx>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB9194:EE_|SA3PR12MB8762:EE_
-X-MS-Office365-Filtering-Correlation-Id: 56e26ecf-3f4c-4292-1064-08dd87bc503e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?UnhJV3RtK1hUMXZHeEE4ZS9SeDcxSTcwRUxrNWJFUmIyZ0ZFbDhucEtDUmRM?=
- =?utf-8?B?T0dtV3FSYzRMMjlCaUJhWTFkdDhIVklvOGZ2cUlZazVPY0E2NUk1VWIrYnlE?=
- =?utf-8?B?UW44VUlyWTVsY2piYmJxdTNrRWY2eUQ2cVliZDBFc1JoTTE3NWYwU05SZ1BI?=
- =?utf-8?B?NHp6alhmYy9iYzJNczR1ZlBKcEQ2Q0d4YkZVbzM1aGZqb3h4WFRkYTdQUHlw?=
- =?utf-8?B?Vkp6Um9IV1VTMy9OT3l2QmJYZWVJTWVaR3g1SWErd2oxMkdqTVZkS1J4OGNP?=
- =?utf-8?B?Snlwa1RyK216VGR2UTE2RzdreG5lbnM2Q01XT1g0T2x6T2dSeTFYRFVEWmQw?=
- =?utf-8?B?dVAwZVJQbkh1TWdWZFZZR2QzelFaYlJUVlFaSE91c0VXa1djbzZDK0hScEtM?=
- =?utf-8?B?YU5KaXF5bFN4dm9nczc2cjBwUDFrRXNzVU9jNVgyMEtDRytJWE9hT2VnajY4?=
- =?utf-8?B?a3cvb0lLdGdNaDhmK3Y5Y3BxZk9yTldzeFZBNUYwdFZhUnc5eXoyaklhR2RV?=
- =?utf-8?B?ZCtGd0grVlVzWkJ4UUZLMUtrQ2MyYk54QWZrbkthR1NkM29EZVh6ZUkraEJ5?=
- =?utf-8?B?bUx3WnB3cU1ReUZQWnFkYW1ISTJNSzBRSnZ6aEtDaUJ6aE9kY0tFaVNXSmQ1?=
- =?utf-8?B?WVQ0NE5BbnY5NnRleVo2MG5aMllNTzI4QzIxd3pjdTA4SDIxdTBHOS9TNlps?=
- =?utf-8?B?STNHRm4vc3U3QldFd1d5VkR4akZ3Ykcvc2h4MDNkQzhydzNsdmFoSnlMNFhl?=
- =?utf-8?B?REFxR2ZqbU1YSWgwSmNMWVZrYTRxS3BXa2wwYVdvMVZWbnliclM4RW9NSXJl?=
- =?utf-8?B?MFdLOUJ0d3JQN2dvT0cxL052bFhFRGJnT3ZpYmlyeUZxOERucEtlVkU5Qnh1?=
- =?utf-8?B?NUprNEozdk8rT01Jc2JaL1VTU3l5NWo5NERNRDFFM1lSRjRaNUZmUDZHZVp6?=
- =?utf-8?B?T3BZeDBBbXc2WXc1em5BZHV3WnprVW5lWkRyV3V0WjNQRlZsZmFGWVpMT2w4?=
- =?utf-8?B?YU1WbmUyNC9aT09rYU9iYXg5UHRXd2J2clBaL1VmTEFxNjgzNmlGQVNRRUxm?=
- =?utf-8?B?TjM5Q3ZQZlM1dzcwaEVwY29xMm8zWGQvekluUld5SHN0SWxBcDB0ZHh4bmN3?=
- =?utf-8?B?eCtIczFvRFF6SkhvNHp2T09IOVRocGQvL3c2N1pnUTNwd1haZzB6a2tFY1Br?=
- =?utf-8?B?SmtNQm1FR3ZjRkNjZmlLVFdxYnIyTXZFemJrWUtIOUE5bzgrUXpRbFhyMGtj?=
- =?utf-8?B?TWJGU1JxRFlGeHdoR3ErbDVVL1NQdklia2VtYWprVk5pOXhGVWU3YU53bVl4?=
- =?utf-8?B?ZzFPTGJrRklrbU00eUNKUGJacEx3akdMdE5sU2JlbDlCZXdQN1BPdUtLZlFD?=
- =?utf-8?B?UCtNNW4xLzJ4L3JWSC84TWhuR1dMOTZMbHllTjE0VmN2Skhaa1ZGYWVGcjJq?=
- =?utf-8?B?dk1oRjJubGp4WTROZVlTenVjNTdnUXpGYThtVWpZZTB6VFJYMzIyVEo0dVcv?=
- =?utf-8?B?UGlkVW45YjFyUWt0a3l6N2ZzeGtpc1lJcy92VXpoZTFYRWtpWHdvSGloK1Yx?=
- =?utf-8?B?Q0FhNnpwOGRTNFJwb1o0SElEbCt5c2dSUzZaa2NkWUptZElWdFpGUTN3Y2Mv?=
- =?utf-8?B?RE5ueUp1R0liZHNkMmJyS2Q2ZU5DdVlNY2Q4dDZqdTFKeVpZWUtyMDJ2UEkx?=
- =?utf-8?B?cXoyNjlOTFJCay9XN1lmbHJtWmN1SWtabVhJOVJJeXE1VmRzZEkwejY5WEd2?=
- =?utf-8?B?TG1uSTRJU0FaUTRMSEF6MHQwL2IwS0I4N3pqWmNXYm1mQW5wRVZPWHR1MGZl?=
- =?utf-8?B?VWhwNGNGZmJjZk54anQvRVRIdHI3dHZQeXJYV0l4dUZsU256R1hpWlNyT3JT?=
- =?utf-8?B?NjZwWjZXY1pQQ1F2azhlbmhFaXdJeTRUbkpIVHgvWGFrQlB0NjNSeWZCUW1J?=
- =?utf-8?Q?4ez4+AHMRTo=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB9194.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MmJiYmp4bTZXYUhoQUtJY0tkSndkSjFFc0hsYkhiL2tMcGUxUkFaYllpeGVE?=
- =?utf-8?B?ZFd4OFFyemdDWVpwa3dNMHc5VnR6YlB4TGhHL3hyRnQvSi8yR055RndCYU9w?=
- =?utf-8?B?d0g5WWdOSkdFeHZpa3lmMHVkaFNHdkI5SGZWeGZTbFRlTnNWZG9lekxGZEJl?=
- =?utf-8?B?eCtMblN1RStUeTdtMXh2Z0x6UWdsMWdKOE81M2NOZlhYeUVKcWE4YWUvVWFa?=
- =?utf-8?B?Y056WHovT2tOcXVCZmdHS1FlYTB5VUNyWDF1UkhqbzJ3TjhpZC85Q25od1hs?=
- =?utf-8?B?b3dwaUlrTklLQTUvRzc0M1JjZTI5Wm1VbER2MTEvWmFIbldXOW9nc2VCZHA5?=
- =?utf-8?B?aHYvbVVxTnZhNmR0Q2pEVlJ6VktHMTVqVHExMlZaMmM0eTFzNEc1MGJiWERh?=
- =?utf-8?B?MmJBZ1BpRkRETk1QV043RWk3a2NVZnRrZmxqOWVtV3pHVzR0cXhETjB1NXB0?=
- =?utf-8?B?c3pMRjQ3cmphU21qNjdRSno0UkNmY0wxLzZCdjBLZEUyQjZFeG4xUnNJNjBo?=
- =?utf-8?B?NEZJazlhYnNOTzA2Rm1vazFldWcwMUx0QVZNdnNhMlZzYlJqNWt3TmFmdVAz?=
- =?utf-8?B?MmNoZHZXNDFhd3VoNStwT1dodytrTnZMWGtiYk5ZekI3eW9FRmg0YmtTYktV?=
- =?utf-8?B?RzIydUNBS0xCMzR1N2VKM3d1T0pRK2gyM0RWUHhXZnlvdy9nT0FJc0lBaklw?=
- =?utf-8?B?KzRvWFozbHpXeVM5Z2swVmtrVHp1a3J5NHRkc1FmNGZ4bHlLTHpYS1pYN01B?=
- =?utf-8?B?ZmpINVNXNFl5Q04zcWtTeWViVUpFcTd0Z1B5RU92OW1zMk1zUmcxaUd3NCt1?=
- =?utf-8?B?ZDR1cUhwUTJ6QUFjaDg4OUgxV3AzT25HOStKbjBmYnZiTkVNZklGYVVRQ3Ar?=
- =?utf-8?B?c244OUQ5eWkxWGt2c3gyb2RzcGhSN0F5VktlcWgyNzJ2ajJ5dnJwbjhrVit2?=
- =?utf-8?B?VFdMQU41MTJmM3ZkU2E5MDJwTmJCMFNiaFZKU3h0Z0JxVFF6SUJYWjlVR0Jz?=
- =?utf-8?B?a1JBWXhUd09IZ0piTy9XdnRPM1FyVnlqTGZtOWNFNlgvSTVBOVRMWXhSYWdZ?=
- =?utf-8?B?b0tRVUhzRENORy95WjZwcDVCT3BSZlRxVWxzS1RDVlBJK1hNTmRTS0tLNGRI?=
- =?utf-8?B?MzJGY1JHV1o0anZYUG5KakJsRDEvR2NTZHFSTXQ0Z3ozWHFUVGMrSm4xM29o?=
- =?utf-8?B?QXplY1NXclQ2RFVIUThISCtBT084TWFyY01HWnRnY1pmZHk5TWYxRTBQaHRs?=
- =?utf-8?B?TmVYajlPMlQwQ2IwL0l5Zk43eWpwZDV3V3NHUDhTeXUzOGF2MDdrbVY2K3J0?=
- =?utf-8?B?cjNoOVhVenlERlpWTkJRTDgreXlRNU5vSzRMWVVHRDlhWmVOcHVGUEZGZkh5?=
- =?utf-8?B?T1dTZmFEcjNMa2EwZnIxeDdlLzBhRllyNW9rdUJJVktUbUJtOERVUmJueEhZ?=
- =?utf-8?B?bjVxcGNvS0p5WUQzZGpjSDgxMzgyWnJFNll4QTluRUp1VWVVNFkxelhuYlJW?=
- =?utf-8?B?S0xLV2YyRWhPNlFzU2o5aFdXRE5jRkI5S1VtaTQ1YmJRbXZRNm9hSUtlTVNi?=
- =?utf-8?B?bkxEWkNjUVhla2hxM0Rac1NxVlpLeEE5SUdTSjdWc2FqMjRydURKU2JnWlk0?=
- =?utf-8?B?REJHS3U3RVVLLzkraG9uOCtzZG1qY1pNYUdwM0NDYXBIOGpKaW8za0pWYlhO?=
- =?utf-8?B?eFhpSmRBN2g4L0R4SUtuemtNOGo1VEhXaHh1dWRESTltZDQwUEJWVEVmdnJJ?=
- =?utf-8?B?aUg3cTNWQ0R2cDJ6YWFqZVQzMGd4RWQ0WkRtZWFhNTdHbUwvTjB5QWxlaFM3?=
- =?utf-8?B?clJDUUlXSjIyOGU3RGRrVmwxcEFRamJqeGZSeGpjR1NLMjd1dFVoK1NOOXpK?=
- =?utf-8?B?bE4zZHA4cjVJZkpVb1R1V0xRYzB5VUg3a1JBd2M1Y2NoU1NFMXVmUzVRZURt?=
- =?utf-8?B?NmU4R0o0cXVUeThDNHUzeHRZWHZ6VzFFakR0RzFEM0w2Z3BybXdjMHhTY3Zx?=
- =?utf-8?B?UkZKdnJqaDZCaHFObWQzNFZTN0VyRXZSaXlKZnV6K1JRZVJseU95VWRISnZB?=
- =?utf-8?B?eXRBNXB2d3lQTEM4UURQeFpWZllkMHd0aHZUQXVYMjJ0bkNlK0JncnN2UXRw?=
- =?utf-8?Q?DWHf2IxdseFUc5lndRj8xKIqx?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 56e26ecf-3f4c-4292-1064-08dd87bc503e
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB9194.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2025 07:55:02.7839
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: AOINNu0Q+UPzmIvxB64+kLQBuUTG3VTbUpMNUPvqwi5fNIwFDrr8bHBkDw8fllw6bvc1ioYbRP0Sm6iih6hAWw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB8762
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <87selqp0j8.ffs@tglx>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_005512_060915_DE5EC5DD 
-X-CRM114-Status: GOOD (  22.39  )
+X-CRM114-CacheID: sfid-20250430_005708_140194_B1553F58 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,53 +84,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 4/10/24 21:41, Jason Gunthorpe wrote:
-> On Fri, Oct 04, 2024 at 02:32:28PM +1000, Alexey Kardashevskiy wrote:
+On Wed, Apr 30, 2025 at 09:32:27AM +0200, Thomas Gleixner wrote:
+> On Tue, Apr 29 2025 at 17:17, Jan Stancek wrote:
+> > On Tue, Apr 29, 2025 at 2:56 PM Thomas Weißschuh
+> > <thomas.weissschuh@linutronix.de> wrote:
+> >>
+> >> +# Also validate that no absolute relocations are present in the object files themselves.
+> >>  quiet_cmd_vdso_check = VDSOCHK $@
+> >>        cmd_vdso_check = if $(READELF) -rW $@ | grep -v _NONE | grep -q " R_\w*_"; \
+> >>                        then (echo >&2 "$@: dynamic relocations are not supported"; \
+> >> +                            rm -f $@; /bin/false); fi && \
+> >> +                      if $(READELF) -rW $(filter %.o, $(real-prereqs)) | grep -q " R_\w*_ABS"; \
+> >> +                      then (echo >&2 "$@: absolute relocations are not supported"; \
+> >>                              rm -f $@; /bin/false); fi
+> >
+> > Should this check only some sections? I'm getting lot of matches on
+> > debuginfo related sections:
 > 
->>> +	__u32 __reserved;
->>> +	__aligned_u64 vdev_id;
+> Hmm. All architecture VDSO Makefiles have -fPIC in CFLAGS except for
+> arm64, which only adds it in arm64/kernel/vdso32/Makefile but not in
+> arm64/kernel/vdso/Makefile. Confused.
 
-I believe this ended up being "virt_id"...
+Unfortunately -fPIC does not help. It generates code that is sufficiently
+position independent for regular DSOs, but not the vDSO.
 
->>
->> What is the nature of this id?
-> 
-> It should be the vIOMMU's HW representation for the virtual device.
-> 
-> On ARM it is the stream id, the index into the Stream Table
-> 
-> On AMD it would be the "DeviceID" the index in the Device Table
-
-
-... and I just hit a problem with it - this is basically guest BDFn and it works as long as I'm hotplugging the TEE-IO VF into an SNP VM but does not when I pass through via the QEMU cmdline - bus numbers are not assigned yet. So I have to postpone the vdevice allocation till run time, did I miss something here? Thanks,
-
-
-> On Intel it is an index into the context table
-> 
-> The primary usage is to transform virtual invalidations from the guest
-> into physical invalidations.
-> 
->> For my SEV-TIO exercise ("trusted IO"), I am looking for a kernel interface
->> to pass the guest's BDFs for a specific host device (which is passed
->> through) and nothing in the kernel has any knowledge of it atm, is this the
->> right place, or another ioctl() is needed here?
-> 
-> We probably need to add the vRID as well to this struct for that
-> reason.
-> 
-> The vdev_id is the iommu handle, and there is a platform specific
-> transformation between Bus/Device/Function and the iommu handle. In
-> some cases this is math, in some cases it is ACPI/DT tables or
-> something.
-> 
-> So I think the kernel should not make an assumption about the
-> relationship.
-> 
-> Jason
-
--- 
-Alexey
-
+See also https://gcc.gnu.org/bugzilla/show_bug.cgi?id=120002#c5
 
