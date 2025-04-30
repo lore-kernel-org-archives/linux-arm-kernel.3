@@ -4,78 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEE76C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 20:43:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63CE4C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 20:45:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Content-Type:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=aQUxr5K3/pNESmWjaoZBUh7F903MIT8w03jcc9M9AYg=; b=bQoY8M8iB0ox+lOIOaI8LNMlKx
-	s8m4ea6L9B2uWoZ4QFULfMurVIun/e5llB+h/Dj/K+LcK5YbAsiEC+3DEhTyrEcB0t+nKsEO99Zf7
-	V6xEGUuuat5avRfhcSr1jeIKG1/t9LQBCRYfO2vMIVR+fF/8Wfp0KNP2p2KgSIwyrtdc8lRNhrtqF
-	C+tQYLb005cOKCVWiKD5+25v31UbqH9MWLMEYy+cxML9ekETrli9ny4qinfbLqXf9ytVcszQPBNOR
-	Sa+P7IvatEQ6cdmIki+ToSieX8yggolRfIyL06EgI56SWEEDqxVfB+HYWOzEGrK0g9WvHLGflV/TF
-	IWyONt/g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BS8KXzrmvGXfGPLTK0QPoSu9Lo1T2ypTVK/CISvD5is=; b=CZUGZhRK5vBbwVVlrXzsuzY2ti
+	MdLO7Fq/tjU7sNyhXneV5Ag60Yb63LMUk6V8gK8MEDZBq6CSsZWjud3Qdj4WEhADJBKbGHxv7gdEP
+	laf03RlsyG4l7DVBxutSpiNkTQgNQ+YvP/X4ThoCR8fFygqywNElFRI7TYvAXzDj81lFioYJWeWB4
+	ya2gaQlxcaov9yPjSi4Pg8DlPRsq/H9NLQMS2S8EQg34xheC4KfiiocIWOnfkdItgasvQH+EtEv/6
+	jlBnYrVXL+VOEdc6izu7Zd5bN/8TojRuuMHi9AwltY3dZg49D4829pskZq/V2fCY/oX0bAbA43VlY
+	btIMe80A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAEHC-0000000DxWt-1O83;
-	Wed, 30 Apr 2025 20:43:30 +0000
+	id 1uAEJ7-0000000Dxx7-0kkn;
+	Wed, 30 Apr 2025 20:45:29 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAE5A-0000000DvMT-1U8J
+	id 1uAE5B-0000000DvMk-1UeJ
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Apr 2025 20:31:04 +0000
+	Wed, 30 Apr 2025 20:31:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Content-Type:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=aQUxr5K3/pNESmWjaoZBUh7F903MIT8w03jcc9M9AYg=; b=Ob2odvZxPeUceeTHBFlp1EIIUU
-	sOrdAHjwf9KUo7IrNOrrD5OK0clXefpVBefUiB+LgtZo61G/4j8hKzNfJ16F3/bw4cI79mZF5RAU6
-	CoMsdJ12nXVYXfZJY+Fk5Xz/L2qCt5CLSoFIgwfnFejoZHMP1oJ3GbbVgzEsIYEk3hNUeZwJ5UBqT
-	l0KKrj61JW/roMtzuMix2g27FPIkfD/O/jmgnky8fHchrEd4VvwQzkGNJuWEOdlkN4MtPw8fYOJeY
-	8SknY5Q8LieNkbHxTGRuedAnwcUF5y2OW7FhYph1ceJfzjRVhPb1SCjEw82QMg28crMLgZWXUwVM8
-	jxnca1NQ==;
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=BS8KXzrmvGXfGPLTK0QPoSu9Lo1T2ypTVK/CISvD5is=; b=Ytu2B78xKA3wll5w22QBuhSlnp
+	7wBQF9XiHHs/GgKFx35zLineuD8rBGlmeS09s3YM4QO4YCSVYal/ZanrNHPZxRbCHZ+/hCaT/o48d
+	qIvTr4BXyoSHBlUrqRLIphVo3Q8hPfHVqp65BeOga5kJ0rdnYAUjFkHY7F4DgWqm1I4Q2vWfVDIyw
+	/iz+MI2HstMhWpAQF073ib8QqiQUB9AYIe/eDUdUqJ7DHnShtobXVd/MrecmqWsYNLWVGMz1QIwmg
+	iIMIlCYM5xZaWCaPaVcaUJMETAgQV4tOOHB1/sWpAyJbLxDHjGNxK0mO5BgzF+4bu1D/jk9F8onjn
+	WKzGhZ7A==;
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uAE4k-0000000Dpoo-2udV
+	id 1uAE54-0000000Dprq-1RRB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 20:31:02 +0000
+	Wed, 30 Apr 2025 20:31:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1746045032;
+	s=mimecast20190719; t=1746045056;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=aQUxr5K3/pNESmWjaoZBUh7F903MIT8w03jcc9M9AYg=;
-	b=YcQugx6drzaR3o1wHOT0drbJryb+5WJc+alcd3HAKpGfULDFJXVdvvuVlWo+Knoi30eU1q
-	5Di4TIGhM2TD45vNAk9GuAkQy6K8/KqUV4hGAm2TRLKPxZtDV2TWFW9zBrWNAPvwpQW5Jv
-	0CuJeS91Xh68anuJ3v1a+pol5woX5pU=
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BS8KXzrmvGXfGPLTK0QPoSu9Lo1T2ypTVK/CISvD5is=;
+	b=ZSO6uDelc4Vr5SaBFPnUOlaO8ycRpLz3ZlLPHeCf9WQPing+kv7hLLzA7z4Q41MH80G47P
+	1vT9h0FMsrcch3vYb85aPVZZevssVD3W5Ky9mYbzbnyc+HtNWd0e+w43fyXCHNAmtNVmDL
+	TK991Mg/MYU3HfaSy2kjzn/8wA6qhbc=
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1746045032;
+	s=mimecast20190719; t=1746045056;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=aQUxr5K3/pNESmWjaoZBUh7F903MIT8w03jcc9M9AYg=;
-	b=YcQugx6drzaR3o1wHOT0drbJryb+5WJc+alcd3HAKpGfULDFJXVdvvuVlWo+Knoi30eU1q
-	5Di4TIGhM2TD45vNAk9GuAkQy6K8/KqUV4hGAm2TRLKPxZtDV2TWFW9zBrWNAPvwpQW5Jv
-	0CuJeS91Xh68anuJ3v1a+pol5woX5pU=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BS8KXzrmvGXfGPLTK0QPoSu9Lo1T2ypTVK/CISvD5is=;
+	b=ZSO6uDelc4Vr5SaBFPnUOlaO8ycRpLz3ZlLPHeCf9WQPing+kv7hLLzA7z4Q41MH80G47P
+	1vT9h0FMsrcch3vYb85aPVZZevssVD3W5Ky9mYbzbnyc+HtNWd0e+w43fyXCHNAmtNVmDL
+	TK991Mg/MYU3HfaSy2kjzn/8wA6qhbc=
+Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-177-TqW5oqXPPQS0_3qrbhafRw-1; Wed,
- 30 Apr 2025 16:30:27 -0400
-X-MC-Unique: TqW5oqXPPQS0_3qrbhafRw-1
-X-Mimecast-MFC-AGG-ID: TqW5oqXPPQS0_3qrbhafRw_1746045022
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-371-uaF8ZElZOHusuDgZaCMQ3A-1; Wed,
+ 30 Apr 2025 16:30:52 -0400
+X-MC-Unique: uaF8ZElZOHusuDgZaCMQ3A-1
+X-Mimecast-MFC-AGG-ID: uaF8ZElZOHusuDgZaCMQ3A_1746045041
 Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 72CF7180098F;
-	Wed, 30 Apr 2025 20:30:21 +0000 (UTC)
+	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 7A6F119560A7;
+	Wed, 30 Apr 2025 20:30:41 +0000 (UTC)
 Received: from intellaptop.lan (unknown [10.22.80.5])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 99F381800871;
-	Wed, 30 Apr 2025 20:30:14 +0000 (UTC)
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 95A291800365;
+	Wed, 30 Apr 2025 20:30:35 +0000 (UTC)
 From: Maxim Levitsky <mlevitsk@redhat.com>
 To: kvm@vger.kernel.org
 Cc: linux-riscv@lists.infradead.org,
@@ -117,16 +119,17 @@ Cc: linux-riscv@lists.infradead.org,
 	Maxim Levitsky <mlevitsk@redhat.com>,
 	Sean Christopherson <seanjc@google.com>,
 	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v4 0/5] KVM: lockdep improvements
-Date: Wed, 30 Apr 2025 16:30:08 -0400
-Message-ID: <20250430203013.366479-1-mlevitsk@redhat.com>
-Content-Type: text/plain; charset="utf-8"
+Subject: [PATCH v4 3/5] RISC-V: KVM: switch to kvm_trylock/unlock_all_vcpus
+Date: Wed, 30 Apr 2025 16:30:11 -0400
+Message-ID: <20250430203013.366479-4-mlevitsk@redhat.com>
+In-Reply-To: <20250430203013.366479-1-mlevitsk@redhat.com>
+References: <20250430203013.366479-1-mlevitsk@redhat.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_213100_434884_9F591F3A 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20250430_213100_565467_7827967E 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,50 +144,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is	a continuation of my 'extract lock_all_vcpus/unlock_all_vcpus'=0D
-patch series.=0D
-=0D
-Implement the suggestion of using lockdep's "nest_lock" feature=0D
-when locking all KVM vCPUs by adding mutex_trylock_nest_lock() and=0D
-mutex_lock_killable_nest_lock() and use these functions	in the=0D
-implementation of the=0D
-kvm_trylock_all_vcpus()/kvm_lock_all_vcpus()/kvm_unlock_all_vcpus().=0D
-=0D
-Those changes allow removal of a custom workaround that was needed to=0D
-silence the lockdep warning in the SEV code and also stop lockdep from=0D
-complaining in case of ARM and RISC-V code which doesn't include the above=
-=0D
-mentioned workaround.=0D
-=0D
-Finally, it's worth noting that this patch series removes a fair=0D
-amount of duplicate code by implementing the logic in one place.=0D
-=0D
-Best regards,=0D
-	Maxim Levitsky=0D
-=0D
-Maxim Levitsky (5):=0D
-  locking/mutex: implement mutex_trylock_nested=0D
-  arm64: KVM: use mutex_trylock_nest_lock when locking all vCPUs=0D
-  RISC-V: KVM: switch to kvm_trylock/unlock_all_vcpus=0D
-  locking/mutex: implement mutex_lock_killable_nest_lock=0D
-  x86: KVM: SEV: implement kvm_lock_all_vcpus and use it=0D
-=0D
- arch/arm64/include/asm/kvm_host.h     |  3 --=0D
- arch/arm64/kvm/arch_timer.c           |  4 +-=0D
- arch/arm64/kvm/arm.c                  | 43 ----------------=0D
- arch/arm64/kvm/vgic/vgic-init.c       |  4 +-=0D
- arch/arm64/kvm/vgic/vgic-its.c        |  8 +--=0D
- arch/arm64/kvm/vgic/vgic-kvm-device.c | 12 ++---=0D
- arch/riscv/kvm/aia_device.c           | 34 +------------=0D
- arch/x86/kvm/svm/sev.c                | 72 ++-------------------------=0D
- include/linux/kvm_host.h              |  4 ++=0D
- include/linux/mutex.h                 | 32 ++++++++++--=0D
- kernel/locking/mutex.c                | 21 +++++---=0D
- virt/kvm/kvm_main.c                   | 59 ++++++++++++++++++++++=0D
- 12 files changed, 126 insertions(+), 170 deletions(-)=0D
-=0D
--- =0D
-2.46.0=0D
-=0D
+Use the kvm_trylock_all_vcpus()/unlock_all_vcpus() instead of riscv's own
+implementation, to avoid triggering a lockdep warning,
+if the VM is configured to have more than MAX_LOCK_DEPTH vCPUs.
+
+Compile tested only.
+
+Suggested-by: Paolo Bonzini <pbonzini@redhat.com>
+Signed-off-by: Maxim Levitsky <mlevitsk@redhat.com>
+---
+ arch/riscv/kvm/aia_device.c | 34 ++--------------------------------
+ 1 file changed, 2 insertions(+), 32 deletions(-)
+
+diff --git a/arch/riscv/kvm/aia_device.c b/arch/riscv/kvm/aia_device.c
+index 39cd26af5a69..6315821f0d69 100644
+--- a/arch/riscv/kvm/aia_device.c
++++ b/arch/riscv/kvm/aia_device.c
+@@ -12,36 +12,6 @@
+ #include <linux/kvm_host.h>
+ #include <linux/uaccess.h>
+ 
+-static void unlock_vcpus(struct kvm *kvm, int vcpu_lock_idx)
+-{
+-	struct kvm_vcpu *tmp_vcpu;
+-
+-	for (; vcpu_lock_idx >= 0; vcpu_lock_idx--) {
+-		tmp_vcpu = kvm_get_vcpu(kvm, vcpu_lock_idx);
+-		mutex_unlock(&tmp_vcpu->mutex);
+-	}
+-}
+-
+-static void unlock_all_vcpus(struct kvm *kvm)
+-{
+-	unlock_vcpus(kvm, atomic_read(&kvm->online_vcpus) - 1);
+-}
+-
+-static bool lock_all_vcpus(struct kvm *kvm)
+-{
+-	struct kvm_vcpu *tmp_vcpu;
+-	unsigned long c;
+-
+-	kvm_for_each_vcpu(c, tmp_vcpu, kvm) {
+-		if (!mutex_trylock(&tmp_vcpu->mutex)) {
+-			unlock_vcpus(kvm, c - 1);
+-			return false;
+-		}
+-	}
+-
+-	return true;
+-}
+-
+ static int aia_create(struct kvm_device *dev, u32 type)
+ {
+ 	int ret;
+@@ -53,7 +23,7 @@ static int aia_create(struct kvm_device *dev, u32 type)
+ 		return -EEXIST;
+ 
+ 	ret = -EBUSY;
+-	if (!lock_all_vcpus(kvm))
++	if (kvm_trylock_all_vcpus(kvm))
+ 		return ret;
+ 
+ 	kvm_for_each_vcpu(i, vcpu, kvm) {
+@@ -65,7 +35,7 @@ static int aia_create(struct kvm_device *dev, u32 type)
+ 	kvm->arch.aia.in_kernel = true;
+ 
+ out_unlock:
+-	unlock_all_vcpus(kvm);
++	kvm_unlock_all_vcpus(kvm);
+ 	return ret;
+ }
+ 
+-- 
+2.46.0
 
 
