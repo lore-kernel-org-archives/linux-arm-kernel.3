@@ -4,87 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29D5CC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 09:53:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 851D2C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 09:55:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2OzPyycrHdBOFNYlaedmLd2bDrUmkg8qhEXCLfUTANg=; b=1YqmPxlhXghLQrFM+AbB4Mksgt
-	vhLDVRk4Bl4QbGqBdycoWeur5upqcpgzSH9/1TI8n5tW3sp06oQViOvrcSPLi3P86vrv4KLM6tnLN
-	dfwsy5/nfZnJgT3IBpaZAGnrZs97SBwj7HXUCNR9p0NuVcM5x/F06+FnQm3tExtPlFVlD36ohKYe1
-	CJCKNLe0QfshOkyhZOO9TfqVVWOoyVmWckqJ7Bxa54FAv1FL3gWGt84TMQMCHQ58hi8CB1Lb/Cjc6
-	PrgMaPSV24azlqP/75cjOJxdJz1lOmtNhXMX65l8n96Cki9+KE6/QkIUOl7cIV2vz5HJSe/RjmCk1
-	uU6gVEwQ==;
+	bh=33rcVSIWBeI23W5yG7YQKTKCMAPmbqYwpTG/W6SxmUo=; b=XKzMwDjR2MRgADfk54PNXBEX6/
+	0cucrhStPMyqm2PNpiSYmG8Tn09oWxsG9dIAfkYzFIkpvTql3/tMIxmd4HsjuUSJsqtKznEFyuXjo
+	SlfuAmaMOZQMeDtg/0Cb4hHq2jwOmKhSWtasCxbYdZ17D5Dbj7lvpfOdAzrp6AISthTwVZya+d1M3
+	M9fQsymke0gFiasrTu/QAiAZPIbhHhKNpbMCBi1mxY4hiZFBeuN6QUSWM37yUryVAH7XVkVnx/CW8
+	bu1gHXAX/k6SerPsoqrOUjeOds6CZHXagTcBa4t9WpCysCGyp8IVJs27qN4MVsqXHyaJQw+aJOvhi
+	eN8goYHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA47h-0000000CRPL-2esX;
-	Wed, 30 Apr 2025 09:53:01 +0000
-Received: from relay2-d.mail.gandi.net ([217.70.183.194])
+	id 1uA49b-0000000CRpZ-19YU;
+	Wed, 30 Apr 2025 09:54:59 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA3lM-0000000CMpg-3PDB;
-	Wed, 30 Apr 2025 09:29:58 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 960FF43181;
-	Wed, 30 Apr 2025 09:29:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1746005390;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2OzPyycrHdBOFNYlaedmLd2bDrUmkg8qhEXCLfUTANg=;
-	b=KDDKM6cWxY7JZnVAYB2Fe3yny9Ai6C/bj2+8pZ79gBRIscyJX9q9/yxRPRMz7jDbDiCK19
-	LBw4sl41yaYp4vJvsFJLkqBBLb4Wvgr4pWnnuVi3NP1NI1muVlKtaI7KGn5DvsJ9wHfxCG
-	JOe6Io0gNCwYu/IgfJrsBcVWExhWe2WEiYnd9XVp/9nC1fVunvLSleF51EWyO5GhF6Miom
-	FkzHk/vmdWl8AsmX9ofhuCEM5VQswUKDevi6PScwlD4A2RoCCYkQ6xrbpkobZ39eyxfLbH
-	rKLfZff+JNJkiILxnoR0IF6QCQsvwFbUr9SKw1dIjdPIJI/6hrPhPWoXC2y1TQ==
-Date: Wed, 30 Apr 2025 11:29:44 +0200
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Liu Ying <victor.liu@nxp.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
- <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
- <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Andrzej Hajda
- <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>,
- Robert Foss <rfoss@kernel.org>, Laurent Pinchart
- <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Jagan Teki
- <jagan@amarulasolutions.com>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Douglas Anderson
- <dianders@chromium.org>, Chun-Kuang Hu <chunkuang.hu@kernel.org>, Krzysztof
- Kozlowski <krzk@kernel.org>, Anusha Srivatsa <asrivats@redhat.com>, Paul
- Kocialkowski <paulk@sys-base.io>, Dmitry Baryshkov <lumag@kernel.org>, Hui
- Pu <Hui.Pu@gehealthcare.com>, Thomas Petazzoni
- <thomas.petazzoni@bootlin.com>, dri-devel@lists.freedesktop.org,
- asahi@lists.linux.dev, linux-kernel@vger.kernel.org,
- chrome-platform@lists.linux.dev, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-renesas-soc@vger.kernel.org,
- platform-driver-x86@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
- linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v2 30/34] drm/bridge: imx8qxp-pixel-combiner: convert to
- devm_drm_bridge_alloc() API
-Message-ID: <20250430112944.1b39caab@booty>
-In-Reply-To: <553d62ed-976a-4e17-9678-cdc3d40ce4a7@nxp.com>
-References: <20250424-drm-bridge-convert-to-alloc-api-v2-0-8f91a404d86b@bootlin.com>
-	<20250424-drm-bridge-convert-to-alloc-api-v2-30-8f91a404d86b@bootlin.com>
-	<553d62ed-976a-4e17-9678-cdc3d40ce4a7@nxp.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	id 1uA3jP-0000000CMQh-11kw;
+	Wed, 30 Apr 2025 09:27:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Content-ID:Content-Description;
+	bh=33rcVSIWBeI23W5yG7YQKTKCMAPmbqYwpTG/W6SxmUo=; b=LQ6vkhCHtZx7scxYJc/MY/Wsw9
+	euqC8jVFKjDrgHRDYI/9r3g101yHh+0ijQ/NYSbQ0kdHLc2nvF5UjlY4vh5RtbMdvndIilHT3b+jY
+	2VppyAnQRkEbDMmA5N/RxPp4q6cke2nFVxkEq4HQq/ioexh3ck+CHlLn1U64+qYMfTIWLIGmfk8K+
+	qPVnadBstnslzj6OsDgPANJuK5R7Asnn861j0QRP+6D1troKbq0P5QHeOs0zmDbhCPkMKjIUhcLE3
+	lgp+YwMG3gjC+qhFaH2W9h6BM0WZ6NEVyAj+pV2ot/mVQSe6N5k4Kz4TmQxI1rBooYoOr11Z0ePu/
+	Dy+aMxNQ==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uA3jJ-0000000Dl3E-1sTe;
+	Wed, 30 Apr 2025 09:27:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3985D4AC3B;
+	Wed, 30 Apr 2025 09:27:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 3629EC4CEF9;
+	Wed, 30 Apr 2025 09:27:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746005265;
+	bh=B5XjYTfglp+Es1h3q+EiooNvXOUXKpsC93FJIsCIIVE=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=Xi92GO4OBS3RutLW0R7/EJBE22y8o+R1kO7QrI6PMZcH84fnVfYbvTgGo0m41SrOL
+	 1TNSaFBMMniSgldToHF9zn0oU8h8SAXVlJIlvRQFbcV9dU1loABVPrf4M1j7hN2txX
+	 Wx6gxLyk8zu/9tDU1M6xG9UI/h74cWx7r2h2hQR620r8L3EDzXaPmoTNRzyl+XowSD
+	 dPhsRflaUf+7HhcpZiIB/aRnEDXmmz/4onjt3LwqLt9RS6nWBrQwkAlm9c2wtp7YuJ
+	 ygp+kIT0LxBOg+V9DgckAp/GrvQF4jle+4jdD8Dvp9+P8BIoUt2dE8DTsqRVVg9mur
+	 BAEy7sAkiNQKA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2C145C369D9;
+	Wed, 30 Apr 2025 09:27:45 +0000 (UTC)
+From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
+Date: Wed, 30 Apr 2025 11:15:58 +0200
+Subject: [PATCH v6 09/13] arm64: defconfig: enable rockchip camera
+ interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvieeifeegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeelffefgfehhfdtvdefueefieevkefggfelkeeiudetkeektedvhedukefgvddvnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgdphhgvlhhopegsohhothihpdhmrghilhhfrhhomheplhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepfeelpdhrtghpthhtohepvhhitghtohhrrdhlihhusehngihprdgtohhmpdhrtghpthhtohepmhgrrghrthgvnhdrlhgrnhhkhhhorhhstheslhhinhhugidrihhnthgvlhdrtghomhdprhgtphhtthhopehmrhhiphgrrhgusehkv
- ghrnhgvlhdrohhrghdprhgtphhtthhopehtiihimhhmvghrmhgrnhhnsehsuhhsvgdruggvpdhrtghpthhtoheprghirhhlihgvugesghhmrghilhdrtghomhdprhgtphhtthhopehsihhmohhnrgesfhhffihllhdrtghhpdhrtghpthhtoheprghnughriigvjhdrhhgrjhgurgesihhnthgvlhdrtghomhdprhgtphhtthhopehnvghilhdrrghrmhhsthhrohhngheslhhinhgrrhhordhorhhg
-X-GND-Sasl: luca.ceresoli@bootlin.com
+Message-Id: <20240220-rk3568-vicap-v6-9-d2f5fbee1551@collabora.com>
+References: <20240220-rk3568-vicap-v6-0-d2f5fbee1551@collabora.com>
+In-Reply-To: <20240220-rk3568-vicap-v6-0-d2f5fbee1551@collabora.com>
+To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
+ Gerald Loacker <gerald.loacker@wolfvision.net>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Kever Yang <kever.yang@rock-chips.com>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Collabora Kernel Team <kernel@collabora.com>, 
+ Paul Kocialkowski <paulk@sys-base.io>, 
+ Alexander Shiyan <eagle.alexander923@gmail.com>, 
+ Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, 
+ Michael Riesch <michael.riesch@wolfvision.net>, 
+ Michael Riesch <michael.riesch@collabora.com>
+X-Mailer: b4 0.12.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1746004564; l=764;
+ i=michael.riesch@collabora.com; s=20250410; h=from:subject:message-id;
+ bh=YywfWp66Y4vQTxzH3S912ReMsygZed8gsGkdLcdgxgY=;
+ b=SOdhNT9BlY2fUd/dPSaj3UF/shCzwOoeaA8W402+CmaOdLhOQFiOMrJyElpFIq3h6bD877lhr
+ rAjgMJvGS2xDMl0EUZrO+kARa05Gimvs+XsLlTdLTzdYvdfKMZ5sAaM
+X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
+ pk=+MWX1fffLFZtTPG/I6XdYm/+OSvpRE8D9evQaWbiN04=
+X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20250410
+ with auth_id=371
+X-Original-From: Michael Riesch <michael.riesch@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_022957_156888_E905DA14 
-X-CRM114-Status: GOOD (  26.41  )
+X-CRM114-CacheID: sfid-20250430_102750_195069_D164C0EB 
+X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,127 +117,36 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: michael.riesch@collabora.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Liu,
+From: Michael Riesch <michael.riesch@collabora.com>
 
-On Tue, 29 Apr 2025 10:10:55 +0800
-Liu Ying <victor.liu@nxp.com> wrote:
+The Rockchip Camera Interface (CIF) is featured in many Rockchip SoCs
+in different variations. Enable the driver for it in the default
+configuration.
 
-> Hi,
-> 
-> On 04/25/2025, Luca Ceresoli wrote:
-> > This is the new API for allocating DRM bridges.
-> > 
-> > This driver embeds an array of channels in the main struct, and each
-> > channel embeds a drm_bridge. This prevents dynamic, refcount-based
-> > deallocation of the bridges.
-> > 
-> > To make the new, dynamic bridge allocation possible:
-> > 
-> >  * change the array of channels into an array of channel pointers
-> >  * allocate each channel using devm_drm_bridge_alloc()
-> >  * adapt the code wherever using the channels
-> > 
-> > Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+---
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-[...]
-
-> > @@ -345,8 +351,8 @@ static int imx8qxp_pc_bridge_probe(struct platform_device *pdev)
-> >  free_child:
-> >  	of_node_put(child);
-> >  
-> > -	if (i == 1 && pc->ch[0].next_bridge)
-> > -		drm_bridge_remove(&pc->ch[0].bridge);
-> > +	if (i == 1 && pc->ch[0]->next_bridge)  
-> 
-> Since this patch makes pc->ch[0] and pc->ch[1] be allocated separately,
-> pc->ch[0] could be NULL if channel0 is not available, hence a NULL pointer
-> dereference here...
-
-See below for this.
-
-> > +		drm_bridge_remove(&pc->ch[0]->bridge);
-> >  
-> >  	pm_runtime_disable(dev);
-> >  	return ret;
-> > @@ -359,7 +365,7 @@ static void imx8qxp_pc_bridge_remove(struct platform_device *pdev)
-> >  	int i;
-> >  
-> >  	for (i = 0; i < 2; i++) {
-> > -		ch = &pc->ch[i];
-> > +		ch = pc->ch[i];
-> >  
-> >  		if (!ch->is_available)  
-> 
-> ...and here too.
-
-This is indeed a bug, I should have checked the pointer for being
-non-NULL.
-
-Looking at that more closely, I think the is_available flag can be
-entirely removed now. The allocation itself (ch != NULL) now is
-equivalent. Do you think my reasoning is correct?
-
-Ouch! After writing the previous paragraph I realized you proposed this
-a few lines below! OK, removing is_available. :)
-
-[...]
-
-> On top of this patch series, this issue doesn't happen if I apply the below
-> change:
-
-[...]
-
-> @@ -351,7 +349,7 @@ static int imx8qxp_pc_bridge_probe(struct platform_device *pdev)
->  free_child:
->         of_node_put(child);
->  
-> -       if (i == 1 && pc->ch[0]->next_bridge)
-> +       if (i == 1 && pc->ch[0])
->                 drm_bridge_remove(&pc->ch[0]->bridge);
-
-Unrelated to this patch, but as I looked at it more in depth now, I'm
-not sure this whole logic is robust, even in the original code.
-
-The 'i == 1' check here seems to mean "if some error happened when
-handling channel@1, that means channel@0 was successfully initialized,
-so let's clean up channel 0".
-
-However my understanding of the bindings is that device tree is allowed
-to have the channel@1 node before the channel@0 node (or even channel@1
-without channel@0, but that's less problematic here).
-
-In such case (channel@1 before channel@0), this would happen:
-
- 1. alloc and init ch[1], all OK
- 2. alloc and init ch[0], an error happens
-    (e.g. of_graph_get_remote_node() fails)
-
-So we'd reach the free_child: label, and we should call
-drm_bridge_remove() for ch[1]->bridge, but there's no code to do that.
-
-To be robust in such a case, I think both channels need to be checked
-independently, as the status of one does not imply the status of the
-other. E.g.:
-
-  for (i = 0; i < 2; i++)
-      if (pc->ch[i] && pc->ch[i]->next_bridge)
-          drm_bridge_remove(&pc->ch[i]->bridge);
-
-(which is similar to what .remove() does after the changes discussed in
-this thread, and which I have queued for v3)
-
-What's your opinion? Do you think I missed anything?
-
-Thanks for taking the time to dig into this!
-
-Best regards,
-Luca
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 5bb8f09422a2..110ff52195a6 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -858,6 +858,7 @@ CONFIG_VIDEO_RENESAS_FCP=m
+ CONFIG_VIDEO_RENESAS_FDP1=m
+ CONFIG_VIDEO_RENESAS_VSP1=m
+ CONFIG_VIDEO_RCAR_DRIF=m
++CONFIG_VIDEO_ROCKCHIP_CIF=m
+ CONFIG_VIDEO_SAMSUNG_EXYNOS_GSC=m
+ CONFIG_VIDEO_SAMSUNG_S5P_JPEG=m
+ CONFIG_VIDEO_SAMSUNG_S5P_MFC=m
 
 -- 
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+2.39.5
+
+
 
