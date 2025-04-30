@@ -4,88 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DEB0C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 06:55:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9851C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 07:01:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jVtPCT8eFXzdGwPm+U66fdp54fvnuu1A/lJQ6a7bhyc=; b=bXVld4fSTXKpOaiiOyib2htX2m
-	NxISFcFo+fsVJ9dKE+9HKI+cDyACOwYgv1wvFKIbWOSVzW8pSPBk6IOAW5ovCoRdO4wZkKHHCzcnS
-	Q36zEACgj6MJsE4b9g0nC9ifhfoy6pk5fL3RivNXucguN5VQeMvRNRGIJEfTZf6Uktxi4Ykq63gG9
-	nn6LfP/YlBZ+gdUXWPJyYrw30qK/3tTC2rmJLh8BzsB6aszokwsd65CH+HutleSFsMhsNlCXRSS13
-	wDEAksB2yeU+/I8ot+oTTGctYMB8Bjg3dBGZXr78mE1/tBkquHXzVRvubx49446CDSy1enuYOqAQi
-	it3feVHA==;
+	bh=zVCkZcq4W2ul19Ksyh9bgX6b4WBpBTYFnXA9H5yQHDc=; b=4OKYVSFfSoYlv7AhQjJOEXpGi7
+	IvPfFV4gFwebAaSEeSNQzwOHREVDspzHWiq1+7gP8VQTnjFhgnL6jQ9JLm4qZ11qOfqAKj7mrHPyh
+	sBEwQMmHsG4XS62Qf3EGbKWrcfpIAzE7bGXb2RoiAmHJzxi2o4TLkfoMi3F6fgjn5qAxGkptMybgj
+	476jNRK3sTI5ZEyI47iXQz1ST/2xyv+p7XetLWvBvw8Oa7gapNpWRcIrF5KGWHmYsGTFcaJNTmJt3
+	ghtcfLgRiANNIWfbE3SXAkDSnKZpcqb7XQ/zsuhZvk0gGuOpjpxQnBgw78HWmnUOW+O+Cld/4br7H
+	7Zunvh7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA1Lz-0000000BvHi-22pu;
-	Wed, 30 Apr 2025 06:55:35 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	id 1uA1Ra-0000000Bvqo-2Ega;
+	Wed, 30 Apr 2025 07:01:22 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA1K2-0000000Bv3H-3Vd5
+	id 1uA0Ax-0000000BmPB-3mQA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 06:53:36 +0000
-Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53TLZHAV026546;
-	Wed, 30 Apr 2025 08:53:27 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	jVtPCT8eFXzdGwPm+U66fdp54fvnuu1A/lJQ6a7bhyc=; b=c02ZtOQh0CQXnY1M
-	OFcSI0bmyVs6qG0ukA+stuYLuYZ+Lazp63j4EhxhA47fiNBBjp5HBij8OhIVNyh4
-	EABfJDKC1xweRhaLYlD2HQ8N7dCb+RRego3/enjR0QoyMY1q5RRU1cIZWnlgEtVi
-	AHT82Zd6htsghgMxS6jrNJWypb5wUvhptpzYCyFSEUm+YuBj6zwAkq2En+ah+eM8
-	4/wE/JHKbRFJrfMP2YU3ywqyabMe7EzlrbtmJU8hF4GxNe3TCobsHPSaV2QVk7l+
-	vL4K8iPM9wrD4RLBh/t2Tv+x40uLwr3NSVzTBl7HGa4M3TX3WdgbnEtZ8ddO3DGa
-	wpm0/w==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46b6tmsfk7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 30 Apr 2025 08:53:26 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id DD8FE4002D;
-	Wed, 30 Apr 2025 08:52:29 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 79DF9A476FF;
-	Wed, 30 Apr 2025 08:51:48 +0200 (CEST)
-Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 30 Apr
- 2025 08:51:47 +0200
-Message-ID: <ffbd7b0f-1de1-4c3b-8381-05257f69c059@foss.st.com>
-Date: Wed, 30 Apr 2025 08:51:47 +0200
+	Wed, 30 Apr 2025 05:40:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1745991605;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zVCkZcq4W2ul19Ksyh9bgX6b4WBpBTYFnXA9H5yQHDc=;
+	b=U9fczRUIEW5W8Eaq11nxEJkah6sHNfdQaZhqW0/KH6An1GQpNdlczODBUMAQjEc8z76Yot
+	lubD7PUbZvspqmShyhLSfgkiwC8/WhQBs+7X1ltdo4rk0RgekUcoUjYOjupC0foc+/0kMA
+	2Z6A1qZ/tphoBB7sGNYVf8eQxO3ngAg=
+Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com
+ [209.85.215.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-267-y9oGGF_wM3OJxnw5sCrrXA-1; Wed, 30 Apr 2025 01:40:04 -0400
+X-MC-Unique: y9oGGF_wM3OJxnw5sCrrXA-1
+X-Mimecast-MFC-AGG-ID: y9oGGF_wM3OJxnw5sCrrXA_1745991603
+Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-afd3f1adff7so431939a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 22:40:03 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745991603; x=1746596403;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=zVCkZcq4W2ul19Ksyh9bgX6b4WBpBTYFnXA9H5yQHDc=;
+        b=LdrOAgVSzHxMu4kort35Z4WQxHhGI4b5OESYmpBpqijyxduM9dH3Hypl+e7hhL5baG
+         TbteRtebhr2BQrz8El3Zir5NoIpkNq/Wa2/4vRSIwqaBfOPaKPU1TDgB5+APoU7uXSmn
+         bglejFv+q3DXRi8d43H7SCJNwir76GjahYUwl/AJLNXdrgxkXd0dkpZUYuvn8H6+dfze
+         eE28fCA26Wr2sPMINt+IbXXlORJS78b20ecv0Ns1QM+d0HhjXMo+Ju9y2cltVvEqG6ya
+         UChKcDrwpoRVPMjClRK9UYl4PZjLRuTtUIN01j1PEfI7tPur0BCG7k/2wd7j/s/TAkK9
+         HeNg==
+X-Forwarded-Encrypted: i=1; AJvYcCVRx9ObovukG7Zv1yeUUBA4NDBovEsnmYRZ238z5+sisZVssulOlyxOW2sS7jn3NLTE2bj7ZkFkaoSx3KHURW9i@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7HXkdvbLaA6b2cqsklbsK0zwN+2r70p3qSCs0NusMhU9krQW0
+	Izr2ZaawS1a8ClkzZmd1e8BWyODjerSovWgFBhScPJ0JPNLL7OgXfNzpkDtOz1n8Lf8TAJlDewP
+	495+Tx9Dul9PfcCircmPbBuRCvyrXH/4LHy8ddHFu08F/EcQpLSZv9qmplczQnENXjnwaBG2v
+X-Gm-Gg: ASbGncuRT1ysHG80FCQ2oGZFOntEmTv92Thmh36zwCBbO6tYgetkopZjyV/W9MSMVGt
+	Gbnr6YQWZyPoIa/WDkP0mUuqqNgw0zOOC511VmRTvuFdF1QUiK22/Xjxk84bdIuf6AbhMVeGYmG
+	45VwsEoaLWe4TMWwzYDawts7aiaur2JwQjSvcA12ywEZMV2Zuwg3onC2TiEbyl6aJPD/xGxufP9
+	0IStSkb28gcSYQqYuA6VMz4WetqmBoFsjnavG9Hcj7ms95oT1R7fZBtsZHjaG4npMGpnIxYMYAy
+	iCJrv3vmeVGy
+X-Received: by 2002:a05:6a20:7f88:b0:1ee:ab52:b8cc with SMTP id adf61e73a8af0-20a915f164amr2378383637.21.1745991602762;
+        Tue, 29 Apr 2025 22:40:02 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHdwByPhzYXp+S8Y6x/vmCL8M+UXiqBvRqA0xKJ3OpwWpUfMpKnj3ruZKm4F1zTZtrrmYx6zQ==
+X-Received: by 2002:a05:6a20:7f88:b0:1ee:ab52:b8cc with SMTP id adf61e73a8af0-20a915f164amr2378332637.21.1745991602253;
+        Tue, 29 Apr 2025 22:40:02 -0700 (PDT)
+Received: from [192.168.68.51] ([180.233.125.65])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b15f76f4219sm9892611a12.6.2025.04.29.22.39.54
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 29 Apr 2025 22:40:01 -0700 (PDT)
+Message-ID: <1802ffb9-798a-4c48-8420-c046f86c548c@redhat.com>
+Date: Wed, 30 Apr 2025 15:39:52 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/3] ARM: dts: stm32: add initial support for
- stm32mp157-ultra-fly-sbc board
-To: Goran Radenovic <goran.radni@gmail.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        =?UTF-8?B?QsO2cmdlIFN0csO8bXBmZWw=?= <boerge.struempfel@gmail.com>,
-        Maxime
- Coquelin <mcoquelin.stm32@gmail.com>
-CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250326094429.2397365-1-goran.radni@gmail.com>
- <20250326094429.2397365-4-goran.radni@gmail.com>
- <f975ce82-51e9-4931-ba58-4d8557b2994a@gmail.com>
+Subject: Re: [PATCH v8 07/43] arm64: RME: ioctls to create and configure
+ realms
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+References: <20250416134208.383984-1-steven.price@arm.com>
+ <20250416134208.383984-8-steven.price@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20250416134208.383984-8-steven.price@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: CHAh5aMxkfWJVU4MOakCnPy75d9ajz5F2e58z7IgXcI_1745991603
+X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <f975ce82-51e9-4931-ba58-4d8557b2994a@gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-04-30_02,2025-04-24_02,2025-02-21_01
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_235335_442523_FC2352CD 
-X-CRM114-Status: GOOD (  20.29  )
+X-CRM114-CacheID: sfid-20250429_224008_140884_5389427D 
+X-CRM114-Status: GOOD (  44.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,1236 +122,584 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Goran,
-
-On 4/7/25 11:14, Goran Radenovic wrote:
-> Hi,
+On 4/16/25 11:41 PM, Steven Price wrote:
+> Add the KVM_CAP_ARM_RME_CREATE_RD ioctl to create a realm. This involves
+> delegating pages to the RMM to hold the Realm Descriptor (RD) and for
+> the base level of the Realm Translation Tables (RTT). A VMID also need
+> to be picked, since the RMM has a separate VMID address space a
+> dedicated allocator is added for this purpose.
 > 
-> thank You very much for the feedback so far. Do You have any update for me?
+> KVM_CAP_ARM_RME_CONFIG_REALM is provided to allow configuring the realm
+> before it is created. Configuration options can be classified as:
 > 
-
-Series is correct and I'm close to merge it. Can you please resend and 
-split this patch to get the MAINTAINER update in a separate patch ?
-
-Thanks in advance
-alex
-
-> Best regards
-> Goran
+>   1. Parameters specific to the Realm stage2 (e.g. IPA Size, vmid, stage2
+>      entry level, entry level RTTs, number of RTTs in start level, LPA2)
+>      Most of these are not measured by RMM and comes from KVM book
+>      keeping.
 > 
-> On 26.03.25 10:44, Goran Rađenović wrote:
->> Add support for Ultratronik's stm32mp157c fly board. This board embeds
->> a STM32MP157c SOC and 1GB of DDR3. Several connections are available on
->> this boards: 2*USB2.0, 1*USB2.0 MiniUSB, Debug UART, 1*UART, 1*USART,
->> SDcard, RJ45, ...
->>
->> This patch enables basic support for a kernel boot - SD-card or eMMC.
->>
->> Signed-off-by: Goran Rađenović <goran.radni@gmail.com>
->> ---
->>   MAINTAINERS                                   |    6 +
->>   arch/arm/boot/dts/st/Makefile                 |    3 +-
->>   .../boot/dts/st/stm32mp157c-ultra-fly-sbc.dts | 1155 +++++++++++++++++
->>   3 files changed, 1163 insertions(+), 1 deletion(-)
->>   create mode 100644 arch/arm/boot/dts/st/stm32mp157c-ultra-fly-sbc.dts
->>
->> diff --git a/MAINTAINERS b/MAINTAINERS
->> index 3b5fa8436987..11fa9f2f9f55 100644
->> --- a/MAINTAINERS
->> +++ b/MAINTAINERS
->> @@ -24341,6 +24341,12 @@ S:    Maintained
->>   F:    drivers/usb/common/ulpi.c
->>   F:    include/linux/ulpi/
->> +ULTRATRONIK BOARD SUPPORT
->> +M:    Goran Rađenović <goran.radni@gmail.com>
->> +M:    Börge Strümpfel <boerge.struempfel@gmail.com>
->> +S:    Maintained
->> +F:    arch/arm/boot/dts/st/stm32mp157c-ultra-fly-sbc.dts
->> +
->>   UNICODE SUBSYSTEM
->>   M:    Gabriel Krisman Bertazi <krisman@kernel.org>
->>   L:    linux-fsdevel@vger.kernel.org
->> diff --git a/arch/arm/boot/dts/st/Makefile 
->> b/arch/arm/boot/dts/st/Makefile
->> index b7d5d305cbbe..270d1c699e1a 100644
->> --- a/arch/arm/boot/dts/st/Makefile
->> +++ b/arch/arm/boot/dts/st/Makefile
->> @@ -66,7 +66,8 @@ dtb-$(CONFIG_ARCH_STM32) += \
->>       stm32mp157c-lxa-tac-gen2.dtb \
->>       stm32mp157c-odyssey.dtb \
->>       stm32mp157c-osd32mp1-red.dtb \
->> -    stm32mp157c-phycore-stm32mp1-3.dtb
->> +    stm32mp157c-phycore-stm32mp1-3.dtb \
->> +    stm32mp157c-ultra-fly-sbc.dtb
->>   dtb-$(CONFIG_ARCH_U8500) += \
->>       ste-snowball.dtb \
->>       ste-hrefprev60-stuib.dtb \
->> diff --git a/arch/arm/boot/dts/st/stm32mp157c-ultra-fly-sbc.dts 
->> b/arch/arm/boot/dts/st/stm32mp157c-ultra-fly-sbc.dts
->> new file mode 100644
->> index 000000000000..1778f5a527ba
->> --- /dev/null
->> +++ b/arch/arm/boot/dts/st/stm32mp157c-ultra-fly-sbc.dts
->> @@ -0,0 +1,1155 @@
->> +// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
->> +/*
->> + * Copyright (C) Ultratronik GmbH 2024-2025 - All Rights Reserved
->> + */
->> +
->> +/dts-v1/;
->> +#include "stm32mp157.dtsi"
->> +#include "stm32mp15xc.dtsi"
->> +#include "stm32mp15-pinctrl.dtsi"
->> +#include "stm32mp15xxac-pinctrl.dtsi"
->> +#include <dt-bindings/pinctrl/stm32-pinfunc.h>
->> +#include <dt-bindings/mfd/st,stpmic1.h>
->> +#include <dt-bindings/gpio/gpio.h>
->> +
->> +/ {
->> +    model = "STM STM32MP15x Ultratronik MMI_A7 board";
->> +    compatible = "ultratronik,stm32mp157c-ultra-fly-sbc", 
->> "st,stm32mp157";
->> +
->> +    aliases {
->> +        ethernet0 = &ethernet0;
->> +        serial0 = &uart4;
->> +        serial1 = &uart5;
->> +        serial2 = &uart7;
->> +        serial3 = &usart1;
->> +    };
->> +
->> +    chosen {
->> +        stdout-path = "serial0:115200n8";
->> +    };
->> +
->> +    memory@c0000000 {
->> +        device_type = "memory";
->> +        reg = <0xC0000000 0x40000000>;
->> +    };
->> +
->> +    usb_otg_vbus: regulator-0 {
->> +        compatible = "regulator-fixed";
->> +        regulator-name = "usb_otg_vbus";
->> +        regulator-min-microvolt = <5000000>;
->> +        regulator-max-microvolt = <5000000>;
->> +        gpio = <&gpioh 3 GPIO_ACTIVE_HIGH>;
->> +        enable-active-high;
->> +    };
->> +
->> +    reserved-memory {
->> +        #address-cells = <1>;
->> +        #size-cells = <1>;
->> +        ranges;
->> +
->> +        retram: retram@38000000 {
->> +            compatible = "shared-dma-pool";
->> +            reg = <0x38000000 0x10000>;
->> +            no-map;
->> +        };
->> +
->> +        mcuram: mcuram@30000000 {
->> +            compatible = "shared-dma-pool";
->> +            reg = <0x30000000 0x40000>;
->> +            no-map;
->> +        };
->> +
->> +        mcuram2: mcuram2@10000000 {
->> +            compatible = "shared-dma-pool";
->> +            reg = <0x10000000 0x40000>;
->> +            no-map;
->> +        };
->> +
->> +        vdev0vring0: vdev0vring0@10040000 {
->> +            compatible = "shared-dma-pool";
->> +            reg = <0x10040000 0x2000>;
->> +            no-map;
->> +        };
->> +
->> +        vdev0vring1: vdev0vring1@10042000 {
->> +            compatible = "shared-dma-pool";
->> +            reg = <0x10042000 0x2000>;
->> +            no-map;
->> +        };
->> +
->> +        vdev0buffer: vdev0buffer@10044000 {
->> +            compatible = "shared-dma-pool";
->> +            reg = <0x10044000 0x4000>;
->> +            no-map;
->> +        };
->> +
->> +        gpu_reserved: gpu@f8000000 {
->> +            reg = <0xf8000000 0x8000000>;
->> +            no-map;
->> +        };
->> +    };
->> +
->> +    leds: leds {
->> +        compatible = "gpio-leds";
->> +
->> +        led0{
->> +            label = "buzzer";
->> +            gpios = <&gpiof 2 GPIO_ACTIVE_HIGH>;
->> +            default-state = "off";
->> +            linux,default-trigger = "none";
->> +        };
->> +
->> +        led1 {
->> +            label = "led1";
->> +            gpios = <&gpioa 12 GPIO_ACTIVE_LOW>;
->> +            default-state = "off";
->> +        };
->> +
->> +        led2 {
->> +            label = "led2";
->> +            gpios = <&gpioa 13 GPIO_ACTIVE_LOW>;
->> +            default-state = "off";
->> +        };
->> +
->> +        led3 {
->> +            label = "led3";
->> +            gpios = <&gpioa 14 GPIO_ACTIVE_LOW>;
->> +            default-state = "off";
->> +        };
->> +    };
->> +
->> +    gpio_keys: gpio-keys {
->> +        compatible = "gpio-keys";
->> +
->> +        key-1 {
->> +            label = "KEY1";
->> +            gpios = <&gpiod 1 GPIO_ACTIVE_HIGH>;
->> +            wakeup-source;
->> +            linux,code = <2>;
->> +        };
->> +
->> +        key-2 {
->> +            label = "KEY2";
->> +            gpios = <&gpiod 7 GPIO_ACTIVE_HIGH>;
->> +            wakeup-source;
->> +            linux,code = <3>;
->> +        };
->> +    };
->> +};
->> +
->> +&adc {
->> +    pinctrl-names = "default";
->> +    pinctrl-0 = <&adc1_ux_ain_pins_a>;
->> +    vdd-supply = <&vdd>;
->> +    vdda-supply = <&vdd>;
->> +    vref-supply = <&vrefbuf>;
->> +    status = "okay";
->> +
->> +    adc1: adc@0 {
->> +        st,min-sample-time-nsecs = <5000>;
->> +        st,adc-channels = <0 1 6 13>; /* ANA0 ANA1 PF12 PC3 */
->> +        status = "okay";
->> +    };
->> +
->> +    adc2: adc@100 {
->> +        st,adc-channels = <0 1 12>; /* ANA0 ANA1 INT_TEMP*/
->> +        st,min-sample-time-nsecs = <10000>;
->> +        status = "okay";
->> +
->> +        channel@12 {
->> +            reg = <12>;  /* Channel 12 = internal temperature sensor */
->> +            label = "internal_temp";
->> +        };
->> +    };
->> +};
->> +
->> +&dac {
->> +    pinctrl-names = "default";
->> +    pinctrl-0 = <&dac_ux_ch1_pins_a &dac_ux_ch2_pins_a>;
->> +    vref-supply = <&vrefbuf>;
->> +    status = "okay";
->> +
->> +    dac1: dac@1 {
->> +        status = "okay";
->> +    };
->> +
->> +    dac2: dac@2 {
->> +        status = "okay";
->> +    };
->> +};
->> +
->> +&dts {
->> +    compatible = "st,stm32-thermal";
->> +    status = "okay";
->> +};
->> +
->> +&ethernet0 {
->> +    status = "okay";
->> +    pinctrl-0 = <&ethernet0_ux_rgmii_pins_a>;
->> +    pinctrl-1 = <&ethernet0_ux_rgmii_pins_sleep_a>;
->> +    pinctrl-names = "default", "sleep";
->> +    phy-mode = "rgmii-id";
->> +    max-speed = <1000>;
->> +    phy-handle = <&phy1>;
->> +
->> +    mdio {
->> +        #address-cells = <1>;
->> +        #size-cells = <0>;
->> +        compatible = "snps,dwmac-mdio";
->> +        phy1: ethernet-phy@1 {
->> +            reg = <1>;
->> +            interrupt-parent = <&gpiod>;
->> +            interrupts = <0 IRQ_TYPE_EDGE_FALLING>;
->> +        };
->> +    };
->> +};
->> +
->> +&gpioa {
->> +    gpio-line-names =
->> +    "#PMIC_IRQ", "", "", "", "DAC1", "DAC2", "", "",
->> +    "", "", "OTG_ID", "TIM1_4", "#LED1", "#LED2", "#LED3", "";
->> +};
->> +
->> +&gpiob {
->> +    gpio-line-names =
->> +    "", "", "", "", "", "", "", "",
->> +    "", "", "", "", "", "", "", "";
->> +};
->> +
->> +&gpioc {
->> +    gpio-line-names =
->> +    "#AMP_SD", "", "", "ANA5", "", "", "", "",
->> +    "", "", "", "", "", "PMIC_WAKEUP", "", "";
->> +};
->> +
->> +&gpiod {
->> +    gpio-line-names =
->> +    "#G_INT", "#TASTER1", "", "", "GPIO1", "GPIO2", "", "#TASTER2",
->> +    "", "", "", "", "", "", "TIM4_3", "TIM4_4";
->> +};
->> +
->> +&gpioe {
->> +    gpio-line-names =
->> +    "", "", "", "", "", "", "", "",
->> +    "", "", "PWM2", "", "", "", "", "";
->> +};
->> +
->> +&gpiof {
->> +    gpio-line-names =
->> +    "#SD1_CD", "SD1_WP", "BUZZER", "#DISP_POW", "BKL_POW", 
->> "#CAM_RES", "", "",
->> +    "", "TIM17_1N", "", "CAM_PWDN", "ANA6", "ENA_USB", "", "";
->> +};
->> +
->> +&gpiog {
->> +    gpio-line-names =
->> +    "#ESP_RES", "#ESP_BOOT", "GPIO3", "GPIO4", "", "", "", "",
->> +    "", "#TOUCH_IRQ", "", "", "", "", "", "#PCAP_RES";
->> +};
->> +
->> +&gpioh {
->> +    gpio-line-names =
->> +    "", "CAM_LED", "", "USB_OTG_PWR", "", "USB_OTG_OC", "", "",
->> +    "", "", "", "", "", "", "", "";
->> +};
->> +
->> +&gpioi {
->> +    gpio-line-names =
->> +    "BKL_PWM", "", "", "", "", "", "", "",
->> +    "#SPI_CS0", "", "", "#SPI_CS1", "", "", "", "";
->> +};
->> +
->> +&gpioj {
->> +    gpio-line-names =
->> +    "", "", "", "", "", "", "", "",
->> +    "", "", "", "", "", "", "", "";
->> +};
->> +
->> +&gpiok {
->> +    gpio-line-names =
->> +    "", "", "", "", "", "", "", "",
->> +    "", "", "", "", "", "", "", "";
->> +};
->> +
->> +&gpioz {
->> +    gpio-line-names =
->> +    "", "", "", "#SPI_CS2", "", "", "", "",
->> +    "", "", "", "", "", "", "", "";
->> +};
->> +
->> +&gpu {
->> +    status = "okay";
->> +};
->> +
->> +&i2c1 {
->> +    pinctrl-names = "default", "sleep";
->> +    pinctrl-0 = <&i2c1_ux_pins_a>;
->> +    pinctrl-1 = <&i2c1_ux_pins_sleep_a>;
->> +    i2c-scl-rising-time-ns = <100>;
->> +    i2c-scl-falling-time-ns = <7>;
->> +    status = "okay";
->> +    /delete-property/dmas;
->> +    /delete-property/dma-names;
->> +
->> +    rtc@32 {
->> +        compatible = "epson,rx8900";
->> +        reg = <0x32>;
->> +        epson,vdet-disable;
->> +        trickle-diode-disable;
->> +    };
->> +};
->> +
->> +&i2c4 {
->> +    pinctrl-names = "default", "sleep";
->> +    pinctrl-0 = <&i2c4_ux_pins_a>;
->> +    pinctrl-1 = <&i2c4_ux_pins_sleep_a>;
->> +    i2c-scl-rising-time-ns = <185>;
->> +    i2c-scl-falling-time-ns = <20>;
->> +    status = "okay";
->> +    /delete-property/dmas;
->> +    /delete-property/dma-names;
->> +
->> +    pmic: pmic@33 {
->> +        compatible = "st,stpmic1";
->> +        reg = <0x33>;
->> +        interrupts-extended = <&exti 0 IRQ_TYPE_EDGE_FALLING>;
->> +        interrupt-controller;
->> +        #interrupt-cells = <2>;
->> +
->> +        regulators {
->> +            compatible = "st,stpmic1-regulators";
->> +
->> +            ldo1-supply = <&v3v3>;
->> +            ldo3-supply = <&vdd_ddr>;
->> +            ldo6-supply = <&v3v3>;
->> +            pwr_sw1-supply = <&bst_out>;
->> +            pwr_sw2-supply = <&bst_out>;
->> +
->> +            vddcore: buck1 {
->> +                regulator-name = "vddcore";
->> +                regulator-min-microvolt = <1250000>;
->> +                regulator-max-microvolt = <1350000>;
->> +                regulator-always-on;
->> +                regulator-initial-mode = <0>;
->> +                regulator-over-current-protection;
->> +            };
->> +
->> +            vdd_ddr: buck2 {
->> +                regulator-name = "vdd_ddr";
->> +                regulator-min-microvolt = <1350000>;
->> +                regulator-max-microvolt = <1350000>;
->> +                regulator-always-on;
->> +                regulator-initial-mode = <0>;
->> +                regulator-over-current-protection;
->> +            };
->> +
->> +            vdd: buck3 {
->> +                regulator-name = "vdd";
->> +                regulator-min-microvolt = <3300000>;
->> +                regulator-max-microvolt = <3300000>;
->> +                regulator-always-on;
->> +                st,mask-reset;
->> +                regulator-initial-mode = <0>;
->> +                regulator-over-current-protection;
->> +            };
->> +
->> +            v3v3: buck4 {
->> +                regulator-name = "v3v3";
->> +                regulator-min-microvolt = <3300000>;
->> +                regulator-max-microvolt = <3300000>;
->> +                regulator-always-on;
->> +                regulator-over-current-protection;
->> +                regulator-initial-mode = <0>;
->> +            };
->> +
->> +            vtt_ddr: ldo3 {
->> +                regulator-name = "vtt_ddr";
->> +                regulator-min-microvolt = <500000>;
->> +                regulator-max-microvolt = <750000>;
->> +                regulator-always-on;
->> +                regulator-over-current-protection;
->> +            };
->> +
->> +            vdd_usb: ldo4 {
->> +                regulator-name = "vdd_usb";
->> +                regulator-min-microvolt = <3300000>;
->> +                regulator-max-microvolt = <3300000>;
->> +                regulator-always-on;
->> +                interrupts = <IT_CURLIM_LDO4 0>;
->> +            };
->> +
->> +            v1v8: ldo6 {
->> +                regulator-name = "v1v8";
->> +                regulator-min-microvolt = <1600000>;/* offset +200 mv 
->> ??? */
->> +                regulator-max-microvolt = <1600000>;/* real 1800000 */
->> +                regulator-always-on;
->> +                interrupts = <IT_CURLIM_LDO6 0>;
->> +            };
->> +
->> +            vref_ddr: vref_ddr {
->> +                regulator-name = "vref_ddr";
->> +                regulator-always-on;
->> +            };
->> +
->> +            bst_out: boost {
->> +                regulator-name = "bst_out";
->> +                interrupts = <IT_OCP_BOOST 0>;
->> +            };
->> +
->> +            vbus_otg: pwr_sw1 {
->> +                regulator-name = "vbus_otg";
->> +                interrupts = <IT_OCP_OTG 0>;
->> +                regulator-active-discharge = <1>;
->> +             };
->> +
->> +             vbus_sw: pwr_sw2 {
->> +                regulator-name = "vbus_sw";
->> +                interrupts = <IT_OCP_SWOUT 0>;
->> +                regulator-active-discharge = <1>;
->> +             };
->> +        };
->> +    };
->> +};
->> +
->> +&iwdg2 {
->> +    timeout-sec = <32>;
->> +    status = "okay";
->> +};
->> +
->> +&m_can2 {
->> +    pinctrl-names = "default", "sleep";
->> +    pinctrl-0 = <&m_can2_ux_pins_a>;
->> +    pinctrl-1 = <&m_can2_ux_sleep_pins_a>;
->> +    status = "okay";
->> +};
->> +
->> +&pinctrl {
->> +
->> +    adc1_ux_ain_pins_a: adc1-ux-ain-0 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('F',12, ANALOG)>, /* ADC1 in6 */
->> +                 <STM32_PINMUX('C', 3, ANALOG)>; /* ADC2 in13 */
->> +        };
->> +    };
->> +
->> +    dac_ux_ch1_pins_a: dac-ux-ch1-0 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('A', 4, ANALOG)>;
->> +        };
->> +    };
->> +
->> +    dac_ux_ch2_pins_a: dac-ux-ch2-0 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('A', 5, ANALOG)>;
->> +        };
->> +    };
->> +
->> +    ethernet0_ux_rgmii_pins_a: rgmii-ux-0 {
->> +        pins1 {
->> +            pinmux = <STM32_PINMUX('G', 5, AF11)>, /* 
->> ETH_RGMII_CLK125 */
->> +                 <STM32_PINMUX('G', 4, AF11)>, /* ETH_RGMII_GTX_CLK */
->> +                 <STM32_PINMUX('G', 13, AF11)>, /* ETH_RGMII_TXD0 */
->> +                 <STM32_PINMUX('G', 14, AF11)>, /* ETH_RGMII_TXD1 */
->> +                 <STM32_PINMUX('C', 2, AF11)>, /* ETH_RGMII_TXD2 */
->> +                 <STM32_PINMUX('E', 2, AF11)>, /* ETH_RGMII_TXD3 */
->> +                 <STM32_PINMUX('B', 11, AF11)>; /* ETH_RGMII_TX_CTL */
->> +            bias-disable;
->> +            drive-push-pull;
->> +            slew-rate = <2>;
->> +        };
->> +        pins2 {
->> +            pinmux = <STM32_PINMUX('C', 4, AF11)>, /* ETH_RGMII_RXD0 */
->> +                 <STM32_PINMUX('C', 5, AF11)>, /* ETH_RGMII_RXD1 */
->> +                 <STM32_PINMUX('B', 0, AF11)>, /* ETH_RGMII_RXD2 */
->> +                 <STM32_PINMUX('H', 7, AF11)>, /* ETH_RGMII_RXD3 */
->> +                 <STM32_PINMUX('A', 1, AF11)>, /* ETH_RGMII_RX_CLK */
->> +                 <STM32_PINMUX('A', 7, AF11)>; /* ETH_RGMII_RX_CTL */
->> +            bias-disable;
->> +        };
->> +        pins3 {
->> +            pinmux = <STM32_PINMUX('C', 1, AF11)>; /* ETH_MDC */
->> +            bias-disable;
->> +            drive-push-pull;
->> +            slew-rate = <0>;
->> +        };
->> +        pins4 {
->> +            pinmux = <STM32_PINMUX('A', 2, AF11)>; /* ETH_MDIO */
->> +            bias-disable;
->> +            drive-open-drain;
->> +            slew-rate = <0>;
->> +        };
->> +    };
->> +
->> +    ethernet0_ux_rgmii_pins_sleep_a: rgmii-ux-sleep-0 {
->> +        pins1 {
->> +            pinmux = <STM32_PINMUX('G', 5, ANALOG)>, /* 
->> ETH_RGMII_CLK125 */
->> +                 <STM32_PINMUX('G', 4, ANALOG)>, /* ETH_RGMII_GTX_CLK */
->> +                 <STM32_PINMUX('G', 13, ANALOG)>, /* ETH_RGMII_TXD0 */
->> +                 <STM32_PINMUX('G', 14, ANALOG)>, /* ETH_RGMII_TXD1 */
->> +                 <STM32_PINMUX('C', 2, ANALOG)>, /* ETH_RGMII_TXD2 */
->> +                 <STM32_PINMUX('E', 2, ANALOG)>, /* ETH_RGMII_TXD3 */
->> +                 <STM32_PINMUX('B', 11, ANALOG)>, /* ETH_RGMII_TX_CTL */
->> +                 <STM32_PINMUX('A', 2, ANALOG)>, /* ETH_MDIO */
->> +                 <STM32_PINMUX('C', 1, ANALOG)>, /* ETH_MDC */
->> +                 <STM32_PINMUX('C', 4, ANALOG)>, /* ETH_RGMII_RXD0 */
->> +                 <STM32_PINMUX('C', 5, ANALOG)>, /* ETH_RGMII_RXD1 */
->> +                 <STM32_PINMUX('B', 0, ANALOG)>, /* ETH_RGMII_RXD2 */
->> +                 <STM32_PINMUX('B', 1, ANALOG)>, /* ETH_RGMII_RXD3 */
->> +                 <STM32_PINMUX('A', 1, ANALOG)>, /* ETH_RGMII_RX_CLK */
->> +                 <STM32_PINMUX('A', 7, ANALOG)>; /* ETH_RGMII_RX_CTL */
->> +        };
->> +    };
->> +
->> +    i2c1_ux_pins_a: i2c1-0 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('F', 14, AF5)>, /* I2C1_SCL */
->> +                 <STM32_PINMUX('F', 15, AF5)>; /* I2C1_SDA */
->> +            bias-disable;
->> +            drive-open-drain;
->> +            slew-rate = <0>;
->> +        };
->> +    };
->> +
->> +    i2c1_ux_pins_sleep_a: i2c1-1 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('F', 14, ANALOG)>, /* I2C1_SCL */
->> +                 <STM32_PINMUX('F', 15, ANALOG)>; /* I2C1_SDA */
->> +        };
->> +    };
->> +
->> +    m_can2_ux_pins_a: m-can2-ux-0 {
->> +        pins1 {
->> +            pinmux = <STM32_PINMUX('B', 6, AF9)>; /* CAN1_TX */
->> +            slew-rate = <0>;
->> +            drive-push-pull;
->> +            bias-disable;
->> +        };
->> +
->> +        pins2 {
->> +            pinmux = <STM32_PINMUX('B', 5, AF9)>; /* CAN1_RX */
->> +            bias-disable;
->> +        };
->> +    };
->> +
->> +    m_can2_ux_sleep_pins_a: m-can2-ux-sleep-0 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('B', 6, ANALOG)>, /* CAN1_TX */
->> +                 <STM32_PINMUX('B', 5, ANALOG)>; /* CAN1_RX */
->> +        };
->> +    };
->> +    pwm1_ux_pins_a: pwm1-0 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('A',11, AF1)>, /* TIM1_CH4 */
->> +                 <STM32_PINMUX('E',10, AF1)>; /* TIM1_CH2N */
->> +            bias-pull-down;
->> +            drive-push-pull;
->> +            slew-rate = <0>;
->> +        };
->> +    };
->> +
->> +    pwm1_ux_sleep_pins_a: pwm1-sleep-0 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('A',11, ANALOG)>, /* TIM1_CH4 */
->> +                 <STM32_PINMUX('E',10, ANALOG)>; /* TIM1_CH2N */
->> +        };
->> +    };
->> +
->> +    pwm4_ux_pins_a: pwm4-0 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('D', 14, AF2)>, /* TIM4_CH3 */
->> +                 <STM32_PINMUX('D', 15, AF2)>; /* TIM4_CH4 */
->> +            bias-disable;
->> +        };
->> +    };
->> +
->> +    pwm4_ux_sleep_pins_a: pwm4-sleep-0 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('D', 14, ANALOG)>, /* TIM4_CH3 */
->> +                 <STM32_PINMUX('D', 15, ANALOG)>; /* TIM4_CH4 */
->> +        };
->> +    };
->> +
->> +    pwm5_ux_pins_a: pwm5-0 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('I', 0, AF2)>; /* TIM5_CH4 */
->> +            bias-pull-down;
->> +            drive-push-pull;
->> +            slew-rate = <0>;
->> +        };
->> +    };
->> +
->> +    pwm5_ux_sleep_pins_a: pwm5-sleep-0 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('I', 0, ANALOG)>; /* TIM5_CH4 */
->> +        };
->> +    };
->> +
->> +    pwm17_ux_pins_a: pwm17-0 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('F', 9, AF1)>; /* TIM17_CH1N */
->> +            bias-pull-down;
->> +            drive-push-pull;
->> +            slew-rate = <0>;
->> +        };
->> +    };
->> +
->> +    pwm17_ux_sleep_pins_a: pwm17-sleep-0 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('F', 9, ANALOG)>; /* TIM17_CH1N */
->> +        };
->> +    };
->> +
->> +    qspi_bk1_ux_pins_a: qspi-bk1-ux-0 {
->> +        pins1 {
->> +            pinmux = <STM32_PINMUX('F', 8, AF10)>, /* QSPI_BK1_IO0 */
->> +                 <STM32_PINMUX('D',12, AF9)>, /* QSPI_BK1_IO1 */
->> +                 <STM32_PINMUX('F', 7, AF9)>, /* QSPI_BK1_IO2 */
->> +                 <STM32_PINMUX('F', 6, AF9)>; /* QSPI_BK1_IO3 */
->> +            bias-disable;
->> +            drive-push-pull;
->> +            slew-rate = <1>;
->> +        };
->> +
->> +        pins2 {
->> +            pinmux = <STM32_PINMUX('B',10, AF9)>; /* QSPI_BK1_NCS */
->> +            bias-pull-up;
->> +            drive-push-pull;
->> +            slew-rate = <1>;
->> +        };
->> +    };
->> +
->> +    qspi_bk1_ux_sleep_pins_a: qspi-bk1-ux-sleep-0 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('F', 8, ANALOG)>, /* QSPI_BK1_IO0 */
->> +                 <STM32_PINMUX('D',12, ANALOG)>, /* QSPI_BK1_IO1 */
->> +                 <STM32_PINMUX('F', 7, ANALOG)>, /* QSPI_BK1_IO2 */
->> +                 <STM32_PINMUX('F', 6, ANALOG)>, /* QSPI_BK1_IO3 */
->> +                 <STM32_PINMUX('B',10, ANALOG)>; /* QSPI_BK1_NCS */
->> +        };
->> +    };
->> +
->> +    qspi_clk_ux_pins_a: qspi-clk_ux-0 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('G', 7, AF9)>; /* QSPI_CLK */
->> +            bias-disable;
->> +            drive-push-pull;
->> +            slew-rate = <3>;
->> +        };
->> +    };
->> +
->> +    qspi_clk_ux_sleep_pins_a: qspi-clk-ux-sleep-0 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('G', 7, ANALOG)>; /* QSPI_CLK */
->> +        };
->> +    };
->> +
->> +    sai2a_ux_pins_a: sai2a-0 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('I', 5, AF10)>, /* SAI2_SCK_A */
->> +                 <STM32_PINMUX('D',11, AF10)>, /* SAI2_SD_A */
->> +                 <STM32_PINMUX('I', 7, AF10)>, /* SAI2_FS_A */
->> +                 <STM32_PINMUX('E', 0, AF10)>; /* SAI2_MCLK_A */
->> +            slew-rate = <0>;
->> +            drive-push-pull;
->> +            bias-disable;
->> +        };
->> +    };
->> +
->> +    sai2a_ux_sleep_pins_a: sai2a-1 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('I', 5, ANALOG)>, /* SAI2_SCK_A */
->> +                 <STM32_PINMUX('D',11, ANALOG)>, /* SAI2_SD_A */
->> +                 <STM32_PINMUX('I', 7, ANALOG)>, /* SAI2_FS_A */
->> +                 <STM32_PINMUX('E', 0, ANALOG)>; /* SAI2_MCLK_A */
->> +        };
->> +    };
->> +
->> +    sdmmc1_ux_b4_pins_a: sdmmc1-ux-b4-0 {
->> +        pins1 {
->> +            pinmux = <STM32_PINMUX('C', 8, AF12)>, /* SDMMC1_D0 */
->> +                 <STM32_PINMUX('C', 9, AF12)>, /* SDMMC1_D1 */
->> +                 <STM32_PINMUX('C',10, AF12)>, /* SDMMC1_D2 */
->> +                 <STM32_PINMUX('C',11, AF12)>, /* SDMMC1_D3 */
->> +                 <STM32_PINMUX('D', 2, AF12)>; /* SDMMC1_CMD */
->> +            slew-rate = <1>;
->> +            drive-push-pull;
->> +            bias-disable;
->> +        };
->> +        pins2 {
->> +            pinmux = <STM32_PINMUX('C', 12, AF12)>; /* SDMMC1_CK */
->> +            slew-rate = <2>;
->> +            drive-push-pull;
->> +            bias-disable;
->> +        };
->> +    };
->> +
->> +    sdmmc1_ux_b4_od_pins_a: sdmmc1-b4-od-0 {
->> +        pins1 {
->> +            pinmux = <STM32_PINMUX('C', 8, AF12)>, /* SDMMC1_D0 */
->> +                 <STM32_PINMUX('C', 9, AF12)>, /* SDMMC1_D1 */
->> +                 <STM32_PINMUX('C', 10, AF12)>, /* SDMMC1_D2 */
->> +                 <STM32_PINMUX('C', 11, AF12)>; /* SDMMC1_D3 */
->> +            slew-rate = <1>;
->> +            drive-push-pull;
->> +            bias-disable;
->> +        };
->> +        pins2 {
->> +            pinmux = <STM32_PINMUX('C', 12, AF12)>; /* SDMMC1_CK */
->> +            slew-rate = <2>;
->> +            drive-push-pull;
->> +            bias-disable;
->> +        };
->> +        pins3 {
->> +            pinmux = <STM32_PINMUX('D', 2, AF12)>; /* SDMMC1_CMD */
->> +            slew-rate = <1>;
->> +            drive-open-drain;
->> +            bias-disable;
->> +        };
->> +    };
->> +
->> +    sdmmc1_ux_b4_sleep_pins_a: sdmmc1-b4-sleep-0 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('C', 8, ANALOG)>, /* SDMMC1_D0 */
->> +                 <STM32_PINMUX('C', 9, ANALOG)>, /* SDMMC1_D1 */
->> +                 <STM32_PINMUX('C', 10, ANALOG)>, /* SDMMC1_D2 */
->> +                 <STM32_PINMUX('C', 11, ANALOG)>, /* SDMMC1_D3 */
->> +                 <STM32_PINMUX('C', 12, ANALOG)>, /* SDMMC1_CK */
->> +                 <STM32_PINMUX('D', 2, ANALOG)>; /* SDMMC1_CMD */
->> +        };
->> +    };
->> +
->> +    sdmmc2_ux_b4_pins_a: sdmmc2-ux-b4-0 {
->> +        pins1 {
->> +            pinmux = <STM32_PINMUX('B', 14, AF9)>, /* SDMMC2_D0 */
->> +                <STM32_PINMUX('B', 15, AF9)>, /* SDMMC2_D1 */
->> +                <STM32_PINMUX('B', 3, AF9)>, /* SDMMC2_D2 */
->> +                <STM32_PINMUX('B', 4, AF9)>, /* SDMMC2_D3 */
->> +                <STM32_PINMUX('G', 6, AF10)>; /* SDMMC2_CMD */
->> +            slew-rate = <1>;
->> +            drive-push-pull;
->> +            bias-pull-up;
->> +        };
->> +        pins2 {
->> +            pinmux = <STM32_PINMUX('E', 3, AF9)>; /* SDMMC2_CK */
->> +            slew-rate = <2>;
->> +            drive-push-pull;
->> +            bias-pull-up;
->> +        };
->> +    };
->> +
->> +    sdmmc2_ux_b4_od_pins_a: sdmmc2-ux-b4-od-0 {
->> +        pins1 {
->> +            pinmux = <STM32_PINMUX('B', 14, AF9)>, /* SDMMC2_D0 */
->> +                <STM32_PINMUX('B', 15, AF9)>, /* SDMMC2_D1 */
->> +                <STM32_PINMUX('B', 3, AF9)>, /* SDMMC2_D2 */
->> +                <STM32_PINMUX('B', 4, AF9)>; /* SDMMC2_D3 */
->> +            slew-rate = <1>;
->> +            drive-push-pull;
->> +            bias-pull-up;
->> +        };
->> +        pins2 {
->> +            pinmux = <STM32_PINMUX('E', 3, AF9)>; /* SDMMC2_CK */
->> +            slew-rate = <2>;
->> +            drive-push-pull;
->> +            bias-pull-up;
->> +        };
->> +        pins3 {
->> +            pinmux = <STM32_PINMUX('G', 6, AF10)>; /* SDMMC2_CMD */
->> +            slew-rate = <1>;
->> +            drive-open-drain;
->> +            bias-pull-up;
->> +        };
->> +    };
->> +
->> +    sdmmc2_ux_b4_sleep_pins_a: sdmmc2-ux-b4-sleep-0 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('B', 14, ANALOG)>, /* SDMMC2_D0 */
->> +                <STM32_PINMUX('B', 15, ANALOG)>, /* SDMMC2_D1 */
->> +                <STM32_PINMUX('B', 3, ANALOG)>, /* SDMMC2_D2 */
->> +                <STM32_PINMUX('B', 4, ANALOG)>, /* SDMMC2_D3 */
->> +                <STM32_PINMUX('E', 3, ANALOG)>, /* SDMMC2_CK */
->> +                <STM32_PINMUX('G', 6, ANALOG)>; /* SDMMC2_CMD */
->> +        };
->> +    };
->> +
->> +    sdmmc2_ux_d47_pins_a: sdmmc2-ux-d47-0 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('A', 8, AF9)>, /* SDMMC2_D4 */
->> +                <STM32_PINMUX('A', 9, AF10)>, /* SDMMC2_D5 */
->> +                <STM32_PINMUX('E', 5, AF9)>, /* SDMMC2_D6 */
->> +                <STM32_PINMUX('D', 3, AF9)>; /* SDMMC2_D7 */
->> +            slew-rate = <1>;
->> +            drive-push-pull;
->> +            bias-pull-up;
->> +        };
->> +    };
->> +
->> +    sdmmc2_ux_d47_sleep_pins_a: sdmmc2-ux-d47-sleep-0 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('A', 8, ANALOG)>, /* SDMMC2_D4 */
->> +                <STM32_PINMUX('A', 9, ANALOG)>, /* SDMMC2_D5 */
->> +                <STM32_PINMUX('E', 5, ANALOG)>, /* SDMMC2_D6 */
->> +                <STM32_PINMUX('D', 3, ANALOG)>; /* SDMMC2_D7 */
->> +        };
->> +    };
->> +
->> +    uart4_ux_pins_a: uart4-ux-0 {
->> +        pins1 {
->> +            pinmux = <STM32_PINMUX('G', 11, AF6)>; /* UART4_TX */
->> +            bias-disable;
->> +            drive-push-pull;
->> +            slew-rate = <0>;
->> +        };
->> +        pins2 {
->> +            pinmux = <STM32_PINMUX('B', 2, AF8)>; /* UART4_RX */
->> +            bias-disable;
->> +        };
->> +    };
->> +
->> +    uart4_ux_idle_pins_a: uart4-ux-idle-0 {
->> +        pins1 {
->> +            pinmux = <STM32_PINMUX('G', 11, ANALOG)>; /* UART4_TX */
->> +        };
->> +        pins2 {
->> +            pinmux = <STM32_PINMUX('B', 2, AF8)>; /* UART4_RX */
->> +            bias-disable;
->> +        };
->> +        };
->> +
->> +    uart4_ux_sleep_pins_a: uart4-ux-sleep-0 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('G', 11, ANALOG)>, /* UART4_TX */
->> +                <STM32_PINMUX('B', 2, ANALOG)>; /* UART4_RX */
->> +        };
->> +    };
->> +
->> +    uart5_ux_pins_a: uart5-0 {
->> +        pins1 {
->> +            pinmux = <STM32_PINMUX('B', 13, AF14)>; /* UART5_TX */
->> +            bias-disable;
->> +            drive-push-pull;
->> +            slew-rate = <0>;
->> +        };
->> +        pins2 {
->> +            pinmux = <STM32_PINMUX('B', 12, AF14)>; /* UART5_RX */
->> +            bias-disable;
->> +        };
->> +    };
->> +
->> +    uart5_ux_idle_pins_a: uart5-idle-0 {
->> +        pins1 {
->> +            pinmux = <STM32_PINMUX('B', 13, ANALOG)>; /* UART5_TX */
->> +        };
->> +        pins2 {
->> +            pinmux = <STM32_PINMUX('B', 12, AF14)>; /* UART5_RX*/
->> +            bias-disable;
->> +        };
->> +    };
->> +
->> +    uart5_ux_sleep_pins_a: uart5-sleep-0 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('B', 13, ANALOG)>, /* UART5_TX */
->> +                 <STM32_PINMUX('B', 12, ANALOG)>; /* UART5_RX */
->> +        };
->> +    };
->> +
->> +    uart7_ux_pins_a: uart7-0 {
->> +        pins1 {
->> +            pinmux = <STM32_PINMUX('E', 8, AF7)>; /* USART7_TX */
->> +            bias-pull-up;
->> +            drive-push-pull;
->> +            slew-rate = <0>;
->> +        };
->> +
->> +        pins2 {
->> +            pinmux = <STM32_PINMUX('E', 7, AF7)>; /* USART7_RX */
->> +            bias-pull-up;
->> +        };
->> +        pins3 {
->> +            pinmux = <STM32_PINMUX('E', 9, AF7)>; /* USART7_RTS/DE */
->> +        };
->> +    };
->> +
->> +    uart7_ux_idle_pins_a: uart7-idle-0 {
->> +        pins1 {
->> +            pinmux = <STM32_PINMUX('E', 8, ANALOG)>, /* USART7_TX */
->> +                 <STM32_PINMUX('E', 9, AF7)>; /* USART7_RTS/DE */
->> +        };
->> +        pins2 {
->> +            pinmux = <STM32_PINMUX('E', 7, AF7)>; /* USART7_RX */
->> +            bias-disable;
->> +        };
->> +    };
->> +
->> +    uart7_ux_sleep_pins_a: uart7-sleep-0 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('E', 8, ANALOG)>, /* USART7_TX */
->> +                 <STM32_PINMUX('E', 9, AF7)>, /* USART7_RTS/DE */
->> +                 <STM32_PINMUX('E', 7, ANALOG)>; /* USART7_RX */
->> +        };
->> +    };
->> +};
->> +
->> +&pinctrl_z {
->> +
->> +    i2c4_ux_pins_a: i2c4-ux-0 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('Z', 4, AF6)>, /* I2C4_SCL */
->> +                <STM32_PINMUX('Z', 5, AF6)>; /* I2C4_SDA */
->> +            bias-disable;
->> +            drive-open-drain;
->> +            slew-rate = <0>;
->> +        };
->> +    };
->> +
->> +    i2c4_ux_pins_sleep_a: i2c4-1 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('Z', 4, ANALOG)>, /* I2C4_SCL */
->> +                <STM32_PINMUX('Z', 5, ANALOG)>; /* I2C4_SDA */
->> +        };
->> +    };
->> +
->> +    spi1_ux_pins_a: spi1-ux-0 {
->> +        pins1 {
->> +            pinmux = <STM32_PINMUX('Z', 0, AF5)>, /* SPI1_SCK */
->> +                <STM32_PINMUX('Z', 2, AF5)>; /* SPI1_MOSI */
->> +            bias-disable;
->> +            drive-push-pull;
->> +            slew-rate = <1>;
->> +        };
->> +
->> +        pins2 {
->> +            pinmux = <STM32_PINMUX('Z', 1, AF5)>; /* SPI1_MISO */
->> +            bias-disable;
->> +        };
->> +    };
->> +
->> +    spi1_ux_sleep_pins_a: spi1-ux-sleep-0 {
->> +        pins {
->> +            pinmux = <STM32_PINMUX('Z', 0, ANALOG)>, /* SPI1_SCK */
->> +                <STM32_PINMUX('Z', 1, ANALOG)>, /* SPI1_MISO */
->> +                <STM32_PINMUX('Z', 2, ANALOG)>; /* SPI1_MOSI */
->> +        };
->> +    };
->> +};
->> +
->> +&pwr_regulators {
->> +    vdd-supply = <&vdd>;
->> +    vdd_3v3_usbfs-supply = <&vdd_usb>;
->> +};
->> +
->> +&qspi {
->> +    pinctrl-names = "default", "sleep";
->> +    pinctrl-0 = <&qspi_clk_ux_pins_a &qspi_bk1_ux_pins_a>;
->> +    pinctrl-1 = <&qspi_clk_ux_sleep_pins_a &qspi_bk1_ux_sleep_pins_a>;
->> +    reg = <0x58003000 0x1000>, <0x70000000 0x1000000>;
->> +    #address-cells = <1>;
->> +    #size-cells = <0>;
->> +    status = "okay";
->> +
->> +    flash0: flash@0 {
->> +        compatible = "jedec,spi-nor";
->> +        reg = <0>;
->> +        spi-rx-bus-width = <4>;
->> +        spi-max-frequency = <133000000>;
->> +        #address-cells = <1>;
->> +        #size-cells = <1>;
->> +    };
->> +};
->> +
->> +&sdmmc1 {
->> +    pinctrl-names = "default", "opendrain", "sleep";
->> +    pinctrl-0 = <&sdmmc1_ux_b4_pins_a>;
->> +    pinctrl-1 = <&sdmmc1_ux_b4_od_pins_a>;
->> +    pinctrl-2 = <&sdmmc1_ux_b4_sleep_pins_a>;
->> +    broken-cd;
->> +    st,neg-edge;
->> +    bus-width = <4>;
->> +    vmmc-supply = <&v3v3>;
->> +    no-1-8-v;
->> +    status = "okay";
->> +};
->> +
->> +&sdmmc2 {
->> +    pinctrl-names = "default", "opendrain", "sleep";
->> +    pinctrl-0 = <&sdmmc2_ux_b4_pins_a &sdmmc2_ux_d47_pins_a>;
->> +    pinctrl-1 = <&sdmmc2_ux_b4_od_pins_a &sdmmc2_ux_d47_pins_a>;
->> +    pinctrl-2 = <&sdmmc2_ux_b4_sleep_pins_a 
->> &sdmmc2_ux_d47_sleep_pins_a>;
->> +    non-removable;
->> +    no-sd;
->> +    no-sdio;
->> +    st,neg-edge;
->> +    bus-width = <8>;
->> +    vmmc-supply = <&v3v3>;
->> +    vqmmc-supply = <&v3v3>;
->> +    mmc-ddr-3_3v;
->> +    status = "okay";
->> +};
->> +
->> +&spi1 {
->> +    pinctrl-names = "default", "sleep";
->> +    pinctrl-0 = <&spi1_ux_pins_a>;
->> +    pinctrl-1 = <&spi1_ux_sleep_pins_a>;
->> +    status = "okay";
->> +    cs-gpios = <&gpioi 8 0>, <&gpioi 11 0>, <&gpioz 3 0>;
->> +
->> +    flash: flash@0 {
->> +        #address-cells = <1>;
->> +        #size-cells = <1>;
->> +        compatible = "jedec,spi-nor";
->> +        spi-max-frequency = <20000000>;
->> +        reg = <0>;
->> +    };
->> +};
->> +
->> +&timers1 {
->> +    /* spare dmas for other usage */
->> +    /delete-property/dmas;
->> +    /delete-property/dma-names;
->> +    status = "okay";
->> +
->> +    pwm {
->> +        pinctrl-0 = <&pwm1_ux_pins_a>;
->> +        pinctrl-1 = <&pwm1_ux_sleep_pins_a>;
->> +        pinctrl-names = "default", "sleep";
->> +        status = "okay";
->> +    };
->> +
->> +    timer@0 {
->> +        status = "okay";
->> +    };
->> +};
->> +
->> +&timers4 {
->> +    dmas = <&dmamux1 31 0x400 0x5>;
->> +    dma-names = "ch3";
->> +    status = "okay";
->> +
->> +    pwm4_4: pwm {
->> +        pinctrl-0 = <&pwm4_ux_pins_a>;
->> +        pinctrl-1 = <&pwm4_ux_sleep_pins_a>;
->> +        pinctrl-names = "default", "sleep";
->> +        status = "okay";
->> +    };
->> +};
->> +
->> +&timers5 {
->> +    /delete-property/dmas;
->> +    /delete-property/dma-names;
->> +    status = "okay";
->> +
->> +    pwm5_4: pwm {
->> +        pinctrl-0 = <&pwm5_ux_pins_a>;
->> +        pinctrl-1 = <&pwm5_ux_sleep_pins_a>;
->> +        pinctrl-names = "default", "sleep";
->> +        status = "okay";
->> +    };
->> +
->> +    timer@4 {
->> +        status = "okay";
->> +    };
->> +};
->> +
->> +&timers17 {
->> +    /delete-property/dmas;
->> +    /delete-property/dma-names;
->> +    status = "okay";
->> +
->> +    pwm17_4: pwm {
->> +        pinctrl-0 = <&pwm17_ux_pins_a>;
->> +        pinctrl-1 = <&pwm17_ux_sleep_pins_a>;
->> +        pinctrl-names = "default", "sleep";
->> +        status = "okay";
->> +    };
->> +
->> +    timer@16 {
->> +        status = "okay";
->> +    };
->> +};
->> +
->> +&uart4 {
->> +    /delete-property/dmas;
->> +    /delete-property/dma-names;
->> +    pinctrl-names = "default", "sleep", "idle", "no_console_suspend";
->> +    pinctrl-0 = <&uart4_ux_pins_a>;
->> +    pinctrl-1 = <&uart4_ux_sleep_pins_a>;
->> +    pinctrl-2 = <&uart4_ux_idle_pins_a>;
->> +    pinctrl-3 = <&uart4_ux_pins_a>;
->> +    status = "okay";
->> +};
->> +
->> +&uart5 {
->> +    pinctrl-names = "default", "sleep", "idle";
->> +    pinctrl-0 = <&uart5_ux_pins_a>;
->> +    pinctrl-1 = <&uart5_ux_sleep_pins_a>;
->> +    pinctrl-2 = <&uart5_ux_idle_pins_a>;
->> +    status = "okay";
->> +};
->> +
->> +&uart7 {
->> +    /delete-property/dmas;
->> +    /delete-property/dma-names;
->> +    pinctrl-names = "default", "sleep", "idle";
->> +    pinctrl-0 = <&uart7_ux_pins_a>;
->> +    pinctrl-1 = <&uart7_ux_sleep_pins_a>;
->> +    pinctrl-2 = <&uart7_ux_idle_pins_a>;
->> +    status = "okay";
->> +};
->> +
->> +&usart1 {
->> +    /*Muxing happens in uboot*/
->> +    status = "okay";
->> +};
->> +
->> +&usbh_ehci {
->> +    phys = <&usbphyc_port0>;
->> +    phy-names = "usb";
->> +    status = "okay";
->> +};
->> +
->> +&usbh_ohci {
->> +    phys = <&usbphyc_port0>;
->> +    phy-names = "usb";
->> +    status = "okay";
->> +};
->> +
->> +&usbotg_hs {
->> +    phys = <&usbphyc_port1 0>;
->> +    phy-names = "usb2-phy";
->> +    vbus-supply = <&usb_otg_vbus>;
->> +    status = "okay";
->> +};
->> +
->> +&usbphyc {
->> +    status = "okay";
->> +};
->> +
->> +&usbphyc_port0 {
->> +    phy-supply = <&vdd_usb>;
->> +    st,tune-hs-dc-level = <2>;
->> +    st,enable-fs-rftime-tuning;
->> +    st,enable-hs-rftime-reduction;
->> +    st,trim-hs-current = <15>;
->> +    st,trim-hs-impedance = <1>;
->> +    st,tune-squelch-level = <3>;
->> +    st,tune-hs-rx-offset = <2>;
->> +    st,no-lsfs-sc;
->> +};
->> +
->> +&usbphyc_port1 {
->> +    phy-supply = <&vdd_usb>;
->> +    st,tune-hs-dc-level = <2>;
->> +    st,enable-fs-rftime-tuning;
->> +    st,enable-hs-rftime-reduction;
->> +    st,trim-hs-current = <15>;
->> +    st,trim-hs-impedance = <1>;
->> +    st,tune-squelch-level = <3>;
->> +    st,tune-hs-rx-offset = <2>;
->> +    st,no-lsfs-sc;
->> +};
->> +
->> +&vrefbuf {
->> +    regulator-min-microvolt = <2500000>;
->> +    regulator-max-microvolt = <2500000>;
->> +    vdda-supply = <&vdd>;
->> +    status = "okay";
->> +};
+>   2. Parameters controlling "Arm Architecture features for the VM". (e.g.
+>      SVE VL, PMU counters, number of HW BRPs/WPs), configured by the VMM
+>      using the "user ID register write" mechanism. These will be
+>      supported in the later patches.
+> 
+>   3. Parameters are not part of the core Arm architecture but defined
+>      by the RMM spec (e.g. Hash algorithm for measurement,
+>      Personalisation value). These are programmed via
+>      KVM_CAP_ARM_RME_CONFIG_REALM.
+> 
+> For the IPA size there is the possibility that the RMM supports a
+> different size to the IPA size supported by KVM for normal guests. At
+> the moment the 'normal limit' is exposed by KVM_CAP_ARM_VM_IPA_SIZE and
+> the IPA size is configured by the bottom bits of vm_type in
+> KVM_CREATE_VM. This means that it isn't easy for the VMM to discover
+> what IPA sizes are supported for Realm guests. Since the IPA is part of
+> the measurement of the realm guest the current expectation is that the
+> VMM will be required to pick the IPA size demanded by attestation and
+> therefore simply failing if this isn't available is fine. An option
+> would be to expose a new capability ioctl to obtain the RMM's maximum
+> IPA size if this is needed in the future.
+> 
+> Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> ---
+> Changes since v7:
+>   * Minor code cleanup following Gavin's review.
+> Changes since v6:
+>   * Separate RMM RTT calculations from host PAGE_SIZE. This allows the
+>     host page size to be larger than 4k while still communicating with an
+>     RMM which uses 4k granules.
+> Changes since v5:
+>   * Introduce free_delegated_granule() to replace many
+>     undelegate/free_page() instances and centralise the comment on
+>     leaking when the undelegate fails.
+>   * Several other minor improvements suggested by reviews - thanks for
+>     the feedback!
+> Changes since v2:
+>   * Improved commit description.
+>   * Improved return failures for rmi_check_version().
+>   * Clear contents of PGD after it has been undelegated in case the RMM
+>     left stale data.
+>   * Minor changes to reflect changes in previous patches.
+> ---
+>   arch/arm64/include/asm/kvm_emulate.h |   5 +
+>   arch/arm64/include/asm/kvm_rme.h     |  19 ++
+>   arch/arm64/kvm/arm.c                 |  16 ++
+>   arch/arm64/kvm/mmu.c                 |  22 +-
+>   arch/arm64/kvm/rme.c                 | 319 +++++++++++++++++++++++++++
+>   5 files changed, 379 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+> index 1c43a4fc25dd..4ee6c215da82 100644
+> --- a/arch/arm64/include/asm/kvm_emulate.h
+> +++ b/arch/arm64/include/asm/kvm_emulate.h
+> @@ -699,6 +699,11 @@ static inline enum realm_state kvm_realm_state(struct kvm *kvm)
+>   	return READ_ONCE(kvm->arch.realm.state);
+>   }
+>   
+> +static inline bool kvm_realm_is_created(struct kvm *kvm)
+> +{
+> +	return kvm_is_realm(kvm) && kvm_realm_state(kvm) != REALM_STATE_NONE;
+> +}
+> +
+>   static inline bool vcpu_is_rec(struct kvm_vcpu *vcpu)
+>   {
+>   	return false;
+> diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/asm/kvm_rme.h
+> index 9c8a0b23e0e4..5dc1915de891 100644
+> --- a/arch/arm64/include/asm/kvm_rme.h
+> +++ b/arch/arm64/include/asm/kvm_rme.h
+> @@ -6,6 +6,8 @@
+>   #ifndef __ASM_KVM_RME_H
+>   #define __ASM_KVM_RME_H
+>   
+> +#include <uapi/linux/kvm.h>
+> +
+>   /**
+>    * enum realm_state - State of a Realm
+>    */
+> @@ -46,11 +48,28 @@ enum realm_state {
+>    * struct realm - Additional per VM data for a Realm
+>    *
+>    * @state: The lifetime state machine for the realm
+> + * @rd: Kernel mapping of the Realm Descriptor (RD)
+> + * @params: Parameters for the RMI_REALM_CREATE command
+> + * @num_aux: The number of auxiliary pages required by the RMM
+> + * @vmid: VMID to be used by the RMM for the realm
+> + * @ia_bits: Number of valid Input Address bits in the IPA
+>    */
+>   struct realm {
+>   	enum realm_state state;
+> +
+> +	void *rd;
+> +	struct realm_params *params;
+> +
+> +	unsigned long num_aux;
+> +	unsigned int vmid;
+> +	unsigned int ia_bits;
+>   };
+>   
+>   void kvm_init_rme(void);
+> +u32 kvm_realm_ipa_limit(void);
+> +
+> +int kvm_realm_enable_cap(struct kvm *kvm, struct kvm_enable_cap *cap);
+> +int kvm_init_realm_vm(struct kvm *kvm);
+> +void kvm_destroy_realm(struct kvm *kvm);
+>   
+>   #endif /* __ASM_KVM_RME_H */
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 856a721d41ac..0e8482fdc4d3 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -136,6 +136,11 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
+>   		}
+>   		mutex_unlock(&kvm->lock);
+>   		break;
+> +	case KVM_CAP_ARM_RME:
+> +		mutex_lock(&kvm->lock);
+> +		r = kvm_realm_enable_cap(kvm, cap);
+> +		mutex_unlock(&kvm->lock);
+> +		break;
+>   	default:
+>   		break;
+>   	}
+> @@ -198,6 +203,13 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
+>   
+>   	bitmap_zero(kvm->arch.vcpu_features, KVM_VCPU_MAX_FEATURES);
+>   
+> +	/* Initialise the realm bits after the generic bits are enabled */
+> +	if (kvm_is_realm(kvm)) {
+> +		ret = kvm_init_realm_vm(kvm);
+> +		if (ret)
+> +			goto err_free_cpumask;
+> +	}
+> +
+>   	return 0;
+>   
+>   err_free_cpumask:
+> @@ -257,6 +269,7 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
+>   	kvm_unshare_hyp(kvm, kvm + 1);
+>   
+>   	kvm_arm_teardown_hypercalls(kvm);
+> +	kvm_destroy_realm(kvm);
+>   }
+>   
+>   static bool kvm_has_full_ptr_auth(void)
+> @@ -405,6 +418,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+>   	case KVM_CAP_ARM_SUPPORTED_REG_MASK_RANGES:
+>   		r = BIT(0);
+>   		break;
+> +	case KVM_CAP_ARM_RME:
+> +		r = static_key_enabled(&kvm_rme_is_available);
+> +		break;
+>   	default:
+>   		r = 0;
+>   	}
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 2feb6c6b63af..5957a07de86d 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -876,12 +876,16 @@ static struct kvm_pgtable_mm_ops kvm_s2_mm_ops = {
+>   	.icache_inval_pou	= invalidate_icache_guest_page,
+>   };
+>   
+> -static int kvm_init_ipa_range(struct kvm_s2_mmu *mmu, unsigned long type)
+> +static int kvm_init_ipa_range(struct kvm *kvm,
+> +			      struct kvm_s2_mmu *mmu, unsigned long type)
+>   {
+>   	u32 kvm_ipa_limit = get_kvm_ipa_limit();
+>   	u64 mmfr0, mmfr1;
+>   	u32 phys_shift;
+>   
+> +	if (kvm_is_realm(kvm))
+> +		kvm_ipa_limit = kvm_realm_ipa_limit();
+> +
+>   	if (type & ~KVM_VM_TYPE_ARM_IPA_SIZE_MASK)
+>   		return -EINVAL;
+>   
+> @@ -946,7 +950,7 @@ int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long t
+>   		return -EINVAL;
+>   	}
+>   
+> -	err = kvm_init_ipa_range(mmu, type);
+> +	err = kvm_init_ipa_range(kvm, mmu, type);
+>   	if (err)
+>   		return err;
+>   
+> @@ -1072,6 +1076,20 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
+>   	struct kvm_pgtable *pgt = NULL;
+>   
+>   	write_lock(&kvm->mmu_lock);
+> +	if (kvm_is_realm(kvm) &&
+> +	    (kvm_realm_state(kvm) != REALM_STATE_DEAD &&
+> +	     kvm_realm_state(kvm) != REALM_STATE_NONE)) {
+> +		/* Tearing down RTTs will be added in a later patch */
+> +		write_unlock(&kvm->mmu_lock);
+> +
+> +		/*
+> +		 * The physical PGD pages are delegated to the RMM, so cannot
+> +		 * be freed at this point. This function will be called again
+> +		 * from kvm_destroy_realm() after the physical pages have been
+> +		 * returned at which point the memory can be freed.
+> +		 */
+> +		return;
+> +	}
+>   	pgt = mmu->pgt;
+>   	if (pgt) {
+>   		mmu->pgd_phys = 0;
+> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
+> index 67cf2d94cb2d..dbb6521fe380 100644
+> --- a/arch/arm64/kvm/rme.c
+> +++ b/arch/arm64/kvm/rme.c
+> @@ -5,9 +5,23 @@
+>   
+>   #include <linux/kvm_host.h>
+>   
+> +#include <asm/kvm_emulate.h>
+> +#include <asm/kvm_mmu.h>
+>   #include <asm/rmi_cmds.h>
+>   #include <asm/virt.h>
+>   
+> +#include <asm/kvm_pgtable.h>
+> +
+> +static unsigned long rmm_feat_reg0;
+> +
+> +#define RMM_PAGE_SHIFT		12
+> +#define RMM_PAGE_SIZE		BIT(RMM_PAGE_SHIFT)
+> +
+> +static bool rme_has_feature(unsigned long feature)
+> +{
+> +	return !!u64_get_bits(rmm_feat_reg0, feature);
+> +}
+> +
+>   static int rmi_check_version(void)
+>   {
+>   	struct arm_smccc_res res;
+> @@ -42,6 +56,305 @@ static int rmi_check_version(void)
+>   	return 0;
+>   }
+>   
+> +u32 kvm_realm_ipa_limit(void)
+> +{
+> +	return u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_S2SZ);
+> +}
+> +
+> +static int get_start_level(struct realm *realm)
+> +{
+> +	return 4 - ((realm->ia_bits - 8) / (RMM_PAGE_SHIFT - 3));
+> +}
+> +
+> +static void free_delegated_granule(phys_addr_t phys)
+> +{
+> +	if (WARN_ON(rmi_granule_undelegate(phys))) {
+> +		/* Undelegate failed: leak the page */
+> +		return;
+> +	}
+> +
+> +	kvm_account_pgtable_pages(phys_to_virt(phys), -1);
+> +
+> +	free_page((unsigned long)phys_to_virt(phys));
+> +}
+> +
+> +/* Calculate the number of s2 root rtts needed */
+> +static int realm_num_root_rtts(struct realm *realm)
+> +{
+> +	unsigned int ipa_bits = realm->ia_bits;
+> +	unsigned int levels = 3 - get_start_level(realm);
+> +	unsigned int sl_ipa_bits = (levels + 1) * (RMM_PAGE_SHIFT - 3) +
+> +				   RMM_PAGE_SHIFT;
+> +
+> +	if (sl_ipa_bits >= ipa_bits)
+> +		return 1;
+> +
+> +	return 1 << (ipa_bits - sl_ipa_bits);
+> +}
+> +
+> +static int realm_create_rd(struct kvm *kvm)
+> +{
+> +	struct realm *realm = &kvm->arch.realm;
+> +	struct realm_params *params = realm->params;
+> +	void *rd = NULL;
+> +	phys_addr_t rd_phys, params_phys;
+> +	size_t pgd_size = kvm_pgtable_stage2_pgd_size(kvm->arch.mmu.vtcr);
+> +	int i, r;
+> +	int rtt_num_start;
+> +
+> +	realm->ia_bits = VTCR_EL2_IPA(kvm->arch.mmu.vtcr);
+> +	rtt_num_start = realm_num_root_rtts(realm);
+> +
+> +	if (WARN_ON(realm->rd || !realm->params))
+> +		return -EEXIST;
+> +
+> +	if (pgd_size / RMM_PAGE_SIZE < rtt_num_start)
+> +		return -EINVAL;
+> +
+> +	rd = (void *)__get_free_page(GFP_KERNEL);
+> +	if (!rd)
+> +		return -ENOMEM;
+> +
+> +	rd_phys = virt_to_phys(rd);
+> +	if (rmi_granule_delegate(rd_phys)) {
+> +		r = -ENXIO;
+> +		goto free_rd;
+> +	}
+> +
+> +	for (i = 0; i < pgd_size; i += RMM_PAGE_SIZE) {
+> +		phys_addr_t pgd_phys = kvm->arch.mmu.pgd_phys + i;
+> +
+> +		if (rmi_granule_delegate(pgd_phys)) {
+> +			r = -ENXIO;
+> +			goto out_undelegate_tables;
+> +		}
+> +	}
+> +
+> +	params->s2sz = VTCR_EL2_IPA(kvm->arch.mmu.vtcr);
+> +	params->rtt_level_start = get_start_level(realm);
+> +	params->rtt_num_start = rtt_num_start;
+> +	params->rtt_base = kvm->arch.mmu.pgd_phys;
+> +	params->vmid = realm->vmid;
+> +
+> +	params_phys = virt_to_phys(params);
+> +
+> +	if (rmi_realm_create(rd_phys, params_phys)) {
+> +		r = -ENXIO;
+> +		goto out_undelegate_tables;
+> +	}
+> +
+> +	if (WARN_ON(rmi_rec_aux_count(rd_phys, &realm->num_aux))) {
+> +		WARN_ON(rmi_realm_destroy(rd_phys));
+> +		goto out_undelegate_tables;
+> +	}
+> +
+> +	realm->rd = rd;
+> +
+> +	return 0;
+> +
+> +out_undelegate_tables:
+> +	while (i > 0) {
+> +		i -= RMM_PAGE_SIZE;
+> +
+> +		phys_addr_t pgd_phys = kvm->arch.mmu.pgd_phys + i;
+> +
+> +		if (WARN_ON(rmi_granule_undelegate(pgd_phys))) {
+> +			/* Leak the pages if they cannot be returned */
+> +			kvm->arch.mmu.pgt = NULL;
+> +			break;
+> +		}
+> +	}
+> +	if (WARN_ON(rmi_granule_undelegate(rd_phys))) {
+> +		/* Leak the page if it isn't returned */
+> +		return r;
+> +	}
+> +free_rd:
+> +	free_page((unsigned long)rd);
+> +	return r;
+> +}
+> +
+> +/* Protects access to rme_vmid_bitmap */
+> +static DEFINE_SPINLOCK(rme_vmid_lock);
+> +static unsigned long *rme_vmid_bitmap;
+> +
+> +static int rme_vmid_init(void)
+> +{
+> +	unsigned int vmid_count = 1 << kvm_get_vmid_bits();
+> +
+> +	rme_vmid_bitmap = bitmap_zalloc(vmid_count, GFP_KERNEL);
+> +	if (!rme_vmid_bitmap) {
+> +		kvm_err("%s: Couldn't allocate rme vmid bitmap\n", __func__);
+> +		return -ENOMEM;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int rme_vmid_reserve(void)
+> +{
+> +	int ret;
+> +	unsigned int vmid_count = 1 << kvm_get_vmid_bits();
+> +
+> +	spin_lock(&rme_vmid_lock);
+> +	ret = bitmap_find_free_region(rme_vmid_bitmap, vmid_count, 0);
+> +	spin_unlock(&rme_vmid_lock);
+> +
+> +	return ret;
+> +}
+> +
+> +static void rme_vmid_release(unsigned int vmid)
+> +{
+> +	spin_lock(&rme_vmid_lock);
+> +	bitmap_release_region(rme_vmid_bitmap, vmid, 0);
+> +	spin_unlock(&rme_vmid_lock);
+> +}
+> +
+> +static int kvm_create_realm(struct kvm *kvm)
+> +{
+> +	struct realm *realm = &kvm->arch.realm;
+> +	int ret;
+> +
+> +	if (!kvm_is_realm(kvm))
+> +		return -EINVAL;
+
+This check is duplicate because the only caller kvm_realm_enable_cap() already
+has the check. So it can be dropped.
+
+> +	if (kvm_realm_is_created(kvm))
+> +		return -EEXIST;
+> +
+> +	ret = rme_vmid_reserve();
+> +	if (ret < 0)
+> +		return ret;
+> +	realm->vmid = ret;
+> +
+> +	ret = realm_create_rd(kvm);
+> +	if (ret) {
+> +		rme_vmid_release(realm->vmid);
+> +		return ret;
+> +	}
+> +
+> +	WRITE_ONCE(realm->state, REALM_STATE_NEW);
+> +
+> +	/* The realm is up, free the parameters.  */
+> +	free_page((unsigned long)realm->params);
+> +	realm->params = NULL;
+> +
+> +	return 0;
+> +}
+> +
+> +static int config_realm_hash_algo(struct realm *realm,
+> +				  struct arm_rme_config *cfg)
+> +{
+> +	switch (cfg->hash_algo) {
+> +	case ARM_RME_CONFIG_MEASUREMENT_ALGO_SHA256:
+> +		if (!rme_has_feature(RMI_FEATURE_REGISTER_0_HASH_SHA_256))
+> +			return -EINVAL;
+> +		break;
+> +	case ARM_RME_CONFIG_MEASUREMENT_ALGO_SHA512:
+> +		if (!rme_has_feature(RMI_FEATURE_REGISTER_0_HASH_SHA_512))
+> +			return -EINVAL;
+> +		break;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +	realm->params->hash_algo = cfg->hash_algo;
+> +	return 0;
+> +}
+> +
+> +static int kvm_rme_config_realm(struct kvm *kvm, struct kvm_enable_cap *cap)
+> +{
+> +	struct arm_rme_config cfg;
+> +	struct realm *realm = &kvm->arch.realm;
+> +	int r = 0;
+> +
+> +	if (kvm_realm_is_created(kvm))
+> +		return -EBUSY;
+> +
+> +	if (copy_from_user(&cfg, (void __user *)cap->args[1], sizeof(cfg)))
+> +		return -EFAULT;
+> +
+> +	switch (cfg.cfg) {
+> +	case ARM_RME_CONFIG_RPV:
+> +		memcpy(&realm->params->rpv, &cfg.rpv, sizeof(cfg.rpv));
+> +		break;
+> +	case ARM_RME_CONFIG_HASH_ALGO:
+> +		r = config_realm_hash_algo(realm, &cfg);
+> +		break;
+> +	default:
+> +		r = -EINVAL;
+> +	}
+> +
+> +	return r;
+> +}
+> +
+> +int kvm_realm_enable_cap(struct kvm *kvm, struct kvm_enable_cap *cap)
+> +{
+> +	int r = 0;
+> +
+> +	if (!kvm_is_realm(kvm))
+> +		return -EINVAL;
+> +
+> +	switch (cap->args[0]) {
+> +	case KVM_CAP_ARM_RME_CONFIG_REALM:
+> +		r = kvm_rme_config_realm(kvm, cap);
+> +		break;
+> +	case KVM_CAP_ARM_RME_CREATE_REALM:
+> +		r = kvm_create_realm(kvm);
+> +		break;
+> +	default:
+> +		r = -EINVAL;
+> +		break;
+> +	}
+> +
+> +	return r;
+> +}
+> +
+> +void kvm_destroy_realm(struct kvm *kvm)
+> +{
+> +	struct realm *realm = &kvm->arch.realm;
+> +	size_t pgd_size = kvm_pgtable_stage2_pgd_size(kvm->arch.mmu.vtcr);
+> +	int i;
+> +
+> +	if (realm->params) {
+> +		free_page((unsigned long)realm->params);
+> +		realm->params = NULL;
+> +	}
+> +
+> +	if (!kvm_realm_is_created(kvm))
+> +		return;
+> +
+> +	WRITE_ONCE(realm->state, REALM_STATE_DYING);
+> +
+> +	if (realm->rd) {
+> +		phys_addr_t rd_phys = virt_to_phys(realm->rd);
+> +
+> +		if (WARN_ON(rmi_realm_destroy(rd_phys)))
+> +			return;
+> +		free_delegated_granule(rd_phys);
+> +		realm->rd = NULL;
+> +	}
+> +
+> +	rme_vmid_release(realm->vmid);
+> +
+> +	for (i = 0; i < pgd_size; i += RMM_PAGE_SIZE) {
+> +		phys_addr_t pgd_phys = kvm->arch.mmu.pgd_phys + i;
+> +
+> +		if (WARN_ON(rmi_granule_undelegate(pgd_phys)))
+> +			return;
+> +	}
+> +
+> +	WRITE_ONCE(realm->state, REALM_STATE_DEAD);
+> +
+> +	/* Now that the Realm is destroyed, free the entry level RTTs */
+> +	kvm_free_stage2_pgd(&kvm->arch.mmu);
+> +}
+> +
+> +int kvm_init_realm_vm(struct kvm *kvm)
+> +{
+> +	kvm->arch.realm.params = (void *)get_zeroed_page(GFP_KERNEL);
+> +
+> +	if (!kvm->arch.realm.params)
+> +		return -ENOMEM;
+> +	return 0;
+> +}
+> +
+>   void kvm_init_rme(void)
+>   {
+>   	if (PAGE_SIZE != SZ_4K)
+> @@ -52,5 +365,11 @@ void kvm_init_rme(void)
+>   		/* Continue without realm support */
+>   		return;
+>   
+> +	if (WARN_ON(rmi_features(0, &rmm_feat_reg0)))
+> +		return;
+> +
+> +	if (rme_vmid_init())
+> +		return;
+> +
+>   	/* Future patch will enable static branch kvm_rme_is_available */
+>   }
+
+Thanks,
+Gavin
+
 
