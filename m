@@ -4,45 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9174FC369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 06:25:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE43AC369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 06:27:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TicTVOmEB3gnVmsnSxlET08PtUTAw7ExU8QRHiIKy9o=; b=soqkRwRKyp48mbvvMFmYps2eYr
-	Maan4yFLncoCE3ebftVtIalH3l9+lE9aa3LB3G8/PJGZaxSGl1WYYXxSSJESLhmO3GTGUIzItnwM+
-	u60tb3Qj85HNlEsxz6TxErtrG0o13k2TeSFXQI+k/yNgFwPHza7TLzFD4sD/gRJ6SdFrHKorwSSTt
-	j75mZH9lXHXi+urQ5zuqltv8/4B+XtSWgPiLsrr9Ydqwcae+quioJn0I3QD8O9qFcHORulcxO1h/m
-	8sYmTGpvmmWuAxCxo1wSSN5RJLVi65QxD40OiJpmakvGR5s0c8cvshHBqK8XL+7gthjbMRm/lhg3A
-	HXD5a7jw==;
+	bh=rHLDjy6xZh51j4ykpPn2hi6fp3uAit0XD1dneySpwj8=; b=pHybqoXJkh89BGE4QBoW42VMPF
+	Ahg0vt8RkPo+1Fi16NWBIQ8kM6EUhxd6R49iQLQm9D41k39p4XmD8Zp0hZ7FyErtlU7e81gnACVjw
+	/87+vpwHNAQwy+laAC7XsezGi5eattydGixYL1/5fydI+JgRjQwJd3a1iAY/hiX/NczHgjtR72vZP
+	Tk5e3d+4l2d+nXlNc6lM2Vr9BQAkteyGaQgYWysS0FIQy5E/1vZMDuqAudCR4vxAesHP9aM0yOqNH
+	LiCQZPGMvxkZmMir0kX+O0g2MCqbK8hWmrdAIINwe6QA2bdzUHFe24nGSfs/r1nL1Lt7AXdmevXAs
+	gZInmIzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA0sV-0000000BrMa-36dQ;
-	Wed, 30 Apr 2025 06:25:07 +0000
-Received: from out-189.mta0.migadu.com ([91.218.175.189])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA0qY-0000000Br9x-40s3
+	id 1uA0uk-0000000BrgT-1iGa;
+	Wed, 30 Apr 2025 06:27:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uA0so-0000000BrQN-27rN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 06:23:09 +0000
-Message-ID: <c65c0aa0-1eb9-4ff1-ab81-87e63a3fa89a@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1745994182;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=TicTVOmEB3gnVmsnSxlET08PtUTAw7ExU8QRHiIKy9o=;
-	b=Ai9ipa+swlvk6wp6hyZxKB+55UqBgEJPAgarn6r/UgjhhL+D5PngZJkXGwJI+d4l3phYyh
-	PE71HTKiS0ULVsUSSILir4g4HXTlBXhMsV0zKCvEm23t2+10PfvU1orBDbXD5Hw/A+QULH
-	ZWFyjRt0qmGuGPq+Cy6yfNTp3R+0i7k=
-Date: Wed, 30 Apr 2025 14:22:46 +0800
+	Wed, 30 Apr 2025 06:25:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8B8C7106F;
+	Tue, 29 Apr 2025 23:25:18 -0700 (PDT)
+Received: from [10.163.79.251] (unknown [10.163.79.251])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3FA0F3F66E;
+	Tue, 29 Apr 2025 23:25:15 -0700 (PDT)
+Message-ID: <f52746e9-f57a-4e65-af48-f5de3c5887c6@arm.com>
+Date: Wed, 30 Apr 2025 11:55:12 +0530
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 0/7] Optimize mprotect for large folios
-Content-Language: en-US
-To: Dev Jain <dev.jain@arm.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/7] mm: Add batched versions of
+ ptep_modify_prot_start/commit
+To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
 Cc: akpm@linux-foundation.org, ryan.roberts@arm.com, david@redhat.com,
  willy@infradead.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  catalin.marinas@arm.com, will@kernel.org, Liam.Howlett@oracle.com,
@@ -53,19 +50,16 @@ Cc: akpm@linux-foundation.org, ryan.roberts@arm.com, david@redhat.com,
  linux-arm-kernel@lists.infradead.org, namit@vmware.com, hughd@google.com,
  yang@os.amperecomputing.com, ziy@nvidia.com
 References: <20250429052336.18912-1-dev.jain@arm.com>
- <ba73873b-1b26-44cd-ac0f-76e33e8fc2cf@linux.dev>
- <05c3cd68-0d75-4682-a51c-59307e2b2e78@arm.com>
- <9d995850-d0c4-4e02-8547-74a9723e0405@lucifer.local>
- <11f86b1c-a12e-4cd3-8b4e-a8a34c64fbf1@arm.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Lance Yang <lance.yang@linux.dev>
-In-Reply-To: <11f86b1c-a12e-4cd3-8b4e-a8a34c64fbf1@arm.com>
+ <20250429052336.18912-4-dev.jain@arm.com>
+ <8780e63d-22c1-4133-a800-dec50fd1b5fa@lucifer.local>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <8780e63d-22c1-4133-a800-dec50fd1b5fa@lucifer.local>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_232307_760596_4424D0A0 
-X-CRM114-Status: GOOD (  23.12  )
+X-CRM114-CacheID: sfid-20250429_232526_638670_9140D1D6 
+X-CRM114-Status: GOOD (  44.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,299 +76,215 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 2025/4/30 13:42, Dev Jain wrote:
-> 
-> 
-> On 29/04/25 4:11 pm, Lorenzo Stoakes wrote:
->> FWIW can confirm the same thing. Lance's fixes sort most of it out, 
->> but I also
->> get this error:
-
-Good catch!
-
+On 29/04/25 7:22 pm, Lorenzo Stoakes wrote:
+> On Tue, Apr 29, 2025 at 10:53:32AM +0530, Dev Jain wrote:
+>> Batch ptep_modify_prot_start/commit in preparation for optimizing mprotect.
+>> Architecture can override these helpers.
 >>
->> mm/mprotect.c: In function ‘can_change_ptes_writable’:
->> mm/mprotect.c:46:22: error: unused variable ‘page’ [-Werror=unused- 
->> variable]
->>     46 |         struct page *page;
->>        |                      ^~~~
+>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+>> ---
+>>   include/linux/pgtable.h | 38 ++++++++++++++++++++++++++++++++++++++
+>>   1 file changed, 38 insertions(+)
 >>
->> So you also need to remove this unused variable at the stop of
->> can_change_ptes_writable().
-> 
-> Strange that my build didn't catch this.
-
-Well, to catch unused variable warnings with GCC, enable stricter
-checks by passing -Wunused-variable via KCFLAGS, and use 
--Werror=unused-variable
-to force the build to fail if any variable is declared but unused:
-
-make -j$(nproc) KCFLAGS="-Wunused-variable -Werror=unused-variable"
-
-Thanks,
-Lance
-
-
-> 
+>> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+>> index b50447ef1c92..ed287289335f 100644
+>> --- a/include/linux/pgtable.h
+>> +++ b/include/linux/pgtable.h
+>> @@ -891,6 +891,44 @@ static inline void wrprotect_ptes(struct mm_struct *mm, unsigned long addr,
+>>   }
+>>   #endif
 >>
->> Cheers, Lorenzo
->>
->> On Tue, Apr 29, 2025 at 02:32:59PM +0530, Dev Jain wrote:
->>>
->>>
->>> On 29/04/25 12:36 pm, Lance Yang wrote:
->>>> Hey Dev,
->>>>
->>>> Hmm... I also hit the same compilation errors:
->>>>
->>>> In file included from ./include/linux/kasan.h:37,
->>>>                    from ./include/linux/slab.h:260,
->>>>                    from ./include/linux/crypto.h:19,
->>>>                    from arch/x86/kernel/asm-offsets.c:9:
->>>> ./include/linux/pgtable.h: In function ‘modify_prot_start_ptes’:
->>>> ./include/linux/pgtable.h:905:15: error: implicit declaration of
->>>> function ‘ptep_modify_prot_start’
->>>> [-Werror=implicit-function-declaration]
->>>>     905 |         pte = ptep_modify_prot_start(vma, addr, ptep);
->>>>         |               ^~~~~~~~~~~~~~~~~~~~~~
->>>> ./include/linux/pgtable.h:905:15: error: incompatible types when
->>>> assigning to type ‘pte_t’ from type ‘int’
->>>> ./include/linux/pgtable.h:909:27: error: incompatible types when
->>>> assigning to type ‘pte_t’ from type ‘int’
->>>>     909 |                 tmp_pte = ptep_modify_prot_start(vma, 
->>>> addr, ptep);
->>>>         |                           ^~~~~~~~~~~~~~~~~~~~~~
->>>> ./include/linux/pgtable.h: In function ‘modify_prot_commit_ptes’:
->>>> ./include/linux/pgtable.h:925:17: error: implicit declaration of
->>>> function ‘ptep_modify_prot_commit’
->>>> [-Werror=implicit-function-declaration]
->>>>     925 |                 ptep_modify_prot_commit(vma, addr, ptep,
->>>> old_pte, pte);
->>>>         |                 ^~~~~~~~~~~~~~~~~~~~~~~
->>>> ./include/linux/pgtable.h: At top level:
->>>> ./include/linux/pgtable.h:1360:21: error: conflicting types for
->>>> ‘ptep_modify_prot_start’; have ‘pte_t(struct vm_area_struct *, long
->>>> unsigned int,  pte_t *)’
->>>>    1360 | static inline pte_t ptep_modify_prot_start(struct
->>>> vm_area_struct *vma,
->>>>         |                     ^~~~~~~~~~~~~~~~~~~~~~
->>>> ./include/linux/pgtable.h:905:15: note: previous implicit 
->>>> declaration of
->>>> ‘ptep_modify_prot_start’ with type ‘int()’
->>>>     905 |         pte = ptep_modify_prot_start(vma, addr, ptep);
->>>>         |               ^~~~~~~~~~~~~~~~~~~~~~
->>>> ./include/linux/pgtable.h:1371:20: warning: conflicting types for
->>>> ‘ptep_modify_prot_commit’; have ‘void(struct vm_area_struct *, long
->>>> unsigned int,  pte_t *, pte_t,  pte_t)’
->>>>    1371 | static inline void ptep_modify_prot_commit(struct
->>>> vm_area_struct *vma,
->>>>         |                    ^~~~~~~~~~~~~~~~~~~~~~~
->>>> ./include/linux/pgtable.h:1371:20: error: static declaration of
->>>> ‘ptep_modify_prot_commit’ follows non-static declaration
->>>> ./include/linux/pgtable.h:925:17: note: previous implicit 
->>>> declaration of
->>>> ‘ptep_modify_prot_commit’ with type ‘void(struct vm_area_struct *, long
->>>> unsigned int,  pte_t *, pte_t,  pte_t)’
->>>>     925 |                 ptep_modify_prot_commit(vma, addr, ptep,
->>>> old_pte, pte);
->>>>         |                 ^~~~~~~~~~~~~~~~~~~~~~~
->>>>     CC /home/runner/work/mm-test-robot/mm-test-robot/linux/tools/ 
->>>> objtool/
->>>> libstring.o
->>>>     CC /home/runner/work/mm-test-robot/mm-test-robot/linux/tools/ 
->>>> objtool/
->>>> libctype.o
->>>>     CC /home/runner/work/mm-test-robot/mm-test-robot/linux/tools/ 
->>>> objtool/
->>>> str_error_r.o
->>>>     CC /home/runner/work/mm-test-robot/mm-test-robot/linux/tools/ 
->>>> objtool/
->>>> librbtree.o
->>>> cc1: some warnings being treated as errors
->>>> make[2]: *** [scripts/Makefile.build:98: arch/x86/kernel/asm-offsets.s]
->>>> Error 1
->>>> make[1]: *** [/home/runner/work/mm-test-robot/mm-test-robot/linux/
->>>> Makefile:1280: prepare0] Error 2
->>>> make[1]: *** Waiting for unfinished jobs....
->>>>     LD /home/runner/work/mm-test-robot/mm-test-robot/linux/tools/ 
->>>> objtool/
->>>> objtool-in.o
->>>>     LINK /home/runner/work/mm-test-robot/mm-test-robot/linux/tools/
->>>> objtool/objtool
->>>> make: *** [Makefile:248: __sub-make] Error 2
->>>>
->>>> Well, modify_prot_start_ptes() calls ptep_modify_prot_start(), but x86
->>>> does not define __HAVE_ARCH_PTEP_MODIFY_PROT_TRANSACTION. To avoid
->>>> implicit declaration errors, the architecture-independent
->>>> ptep_modify_prot_start() must be defined before 
->>>> modify_prot_start_ptes().
->>>>
->>>> With the changes below, things work correctly now ;)
->>>
->>> Ah thanks! My bad :(
->>>
->>>>
->>>> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
->>>> index 10cdb87ccecf..d9d6c49bb914 100644
->>>> --- a/include/linux/pgtable.h
->>>> +++ b/include/linux/pgtable.h
->>>> @@ -895,44 +895,6 @@ static inline void wrprotect_ptes(struct mm_struct
->>>> *mm, unsigned long addr,
->>>>    }
->>>>    #endif
->>>>
->>>> -/* See the comment for ptep_modify_prot_start */
->>>> -#ifndef modify_prot_start_ptes
->>>> -static inline pte_t modify_prot_start_ptes(struct vm_area_struct *vma,
->>>> -        unsigned long addr, pte_t *ptep, unsigned int nr)
->>>> -{
->>>> -    pte_t pte, tmp_pte;
->>>> -
->>>> -    pte = ptep_modify_prot_start(vma, addr, ptep);
->>>> -    while (--nr) {
->>>> -        ptep++;
->>>> -        addr += PAGE_SIZE;
->>>> -        tmp_pte = ptep_modify_prot_start(vma, addr, ptep);
->>>> -        if (pte_dirty(tmp_pte))
->>>> -            pte = pte_mkdirty(pte);
->>>> -        if (pte_young(tmp_pte))
->>>> -            pte = pte_mkyoung(pte);
->>>> -    }
->>>> -    return pte;
->>>> -}
->>>> -#endif
->>>> -
->>>> -/* See the comment for ptep_modify_prot_commit */
->>>> -#ifndef modify_prot_commit_ptes
->>>> -static inline void modify_prot_commit_ptes(struct vm_area_struct *vma,
->>>> unsigned long addr,
->>>> -        pte_t *ptep, pte_t old_pte, pte_t pte, unsigned int nr)
->>>> -{
->>>> -    for (;;) {
->>>> -        ptep_modify_prot_commit(vma, addr, ptep, old_pte, pte);
->>>> -        if (--nr == 0)
->>>> -            break;
->>>> -        ptep++;
->>>> -        addr += PAGE_SIZE;
->>>> -        old_pte = pte_next_pfn(old_pte);
->>>> -        pte = pte_next_pfn(pte);
->>>> -    }
->>>> -}
->>>> -#endif
->>>> -
->>>>    /*
->>>>     * On some architectures hardware does not set page access bit when
->>>> accessing
->>>>     * memory page, it is responsibility of software setting this 
->>>> bit. It
->>>> brings
->>>> @@ -1375,6 +1337,45 @@ static inline void 
->>>> ptep_modify_prot_commit(struct
->>>> vm_area_struct *vma,
->>>>        __ptep_modify_prot_commit(vma, addr, ptep, pte);
->>>>    }
->>>>    #endif /* __HAVE_ARCH_PTEP_MODIFY_PROT_TRANSACTION */
->>>> +
->>>> +/* See the comment for ptep_modify_prot_start */
->>>> +#ifndef modify_prot_start_ptes
->>>> +static inline pte_t modify_prot_start_ptes(struct vm_area_struct *vma,
->>>> +        unsigned long addr, pte_t *ptep, unsigned int nr)
->>>> +{
->>>> +    pte_t pte, tmp_pte;
->>>> +
->>>> +    pte = ptep_modify_prot_start(vma, addr, ptep);
->>>> +    while (--nr) {
->>>> +        ptep++;
->>>> +        addr += PAGE_SIZE;
->>>> +        tmp_pte = ptep_modify_prot_start(vma, addr, ptep);
->>>> +        if (pte_dirty(tmp_pte))
->>>> +            pte = pte_mkdirty(pte);
->>>> +        if (pte_young(tmp_pte))
->>>> +            pte = pte_mkyoung(pte);
->>>> +    }
->>>> +    return pte;
->>>> +}
->>>> +#endif
->>>> +
->>>> +/* See the comment for ptep_modify_prot_commit */
->>>> +#ifndef modify_prot_commit_ptes
->>>> +static inline void modify_prot_commit_ptes(struct vm_area_struct *vma,
->>>> unsigned long addr,
->>>> +        pte_t *ptep, pte_t old_pte, pte_t pte, unsigned int nr)
->>>> +{
->>>> +    for (;;) {
->>>> +        ptep_modify_prot_commit(vma, addr, ptep, old_pte, pte);
->>>> +        if (--nr == 0)
->>>> +            break;
->>>> +        ptep++;
->>>> +        addr += PAGE_SIZE;
->>>> +        old_pte = pte_next_pfn(old_pte);
->>>> +        pte = pte_next_pfn(pte);
->>>> +    }
->>>> +}
->>>> +#endif
->>>> +
->>>>    #endif /* CONFIG_MMU */
->>>>
->>>>    /*
->>>> -- 
->>>>
->>>> Thanks,
->>>> Lance
->>>>
->>>> On 2025/4/29 13:23, Dev Jain wrote:
->>>>> This patchset optimizes the mprotect() system call for large folios
->>>>> by PTE-batching.
->>>>>
->>>>> We use the following test cases to measure performance, mprotect()'ing
->>>>> the mapped memory to read-only then read-write 40 times:
->>>>>
->>>>> Test case 1: Mapping 1G of memory, touching it to get PMD-THPs, then
->>>>> pte-mapping those THPs
->>>>> Test case 2: Mapping 1G of memory with 64K mTHPs
->>>>> Test case 3: Mapping 1G of memory with 4K pages
->>>>>
->>>>> Average execution time on arm64, Apple M3:
->>>>> Before the patchset:
->>>>> T1: 7.9 seconds   T2: 7.9 seconds   T3: 4.2 seconds
->>>>>
->>>>> After the patchset:
->>>>> T1: 2.1 seconds   T2: 2.2 seconds   T3: 4.2 seconds
->>>>>
->>>>> Observing T1/T2 and T3 before the patchset, we also remove the 
->>>>> regression
->>>>> introduced by ptep_get() on a contpte block. And, for large folios 
->>>>> we get
->>>>> an almost 74% performance improvement.
->>>>>
->>>>> v1->v2:
->>>>>    - Rebase onto mm-unstable (6ebffe676fcf: util_macros.h: make the
->>>>> header more resilient)
->>>>>    - Abridge the anon-exclusive condition (Lance Yang)
->>>>>
->>>>> Dev Jain (7):
->>>>>     mm: Refactor code in mprotect
->>>>>     mm: Optimize mprotect() by batch-skipping PTEs
->>>>>     mm: Add batched versions of ptep_modify_prot_start/commit
->>>>>     arm64: Add batched version of ptep_modify_prot_start
->>>>>     arm64: Add batched version of ptep_modify_prot_commit
->>>>>     mm: Batch around can_change_pte_writable()
->>>>>     mm: Optimize mprotect() through PTE-batching
->>>>>
->>>>>    arch/arm64/include/asm/pgtable.h |  10 ++
->>>>>    arch/arm64/mm/mmu.c              |  21 +++-
->>>>>    include/linux/mm.h               |   4 +-
->>>>>    include/linux/pgtable.h          |  42 ++++++++
->>>>>    mm/gup.c                         |   2 +-
->>>>>    mm/huge_memory.c                 |   4 +-
->>>>>    mm/memory.c                      |   6 +-
->>>>>    mm/mprotect.c                    | 165 +++++++++++++++++++ 
->>>>> +-----------
->>>>>    mm/pgtable-generic.c             |  16 ++-
->>>>>    9 files changed, 198 insertions(+), 72 deletions(-)
->>>>>
->>>>
->>>
+>> +/* See the comment for ptep_modify_prot_start */
 > 
+> I feel like you really should add a little more here, perhaps point out
+> that it's batched etc.
+
+Sure. I couldn't easily figure out a way to write the documentation 
+nicely, I'll do it this time.
+
+> 
+>> +#ifndef modify_prot_start_ptes
+>> +static inline pte_t modify_prot_start_ptes(struct vm_area_struct *vma,
+>> +		unsigned long addr, pte_t *ptep, unsigned int nr)
+> 
+> This name is a bit confusing, it's not any ptes, it's those pte entries
+> belonging to a large folio capped to the PTE table right that you are
+> batching right?
+
+yes, but I am just following the convention. See wrprotect_ptes(), etc. 
+I don't have a strong preference anyways.
+
+> 
+> Perhaps modify_prot_start_large_folio() ? Or something with 'batched' in
+> the name?
+
+How about modify_prot_start_batched_ptes()?
+
+> 
+> We definitely need to mention in comment or name or _somewhere_ the intent
+> and motivation for this.
+> 
+>> +{
+>> +	pte_t pte, tmp_pte;
+>> +
+> 
+> are we not validating what 'nr' is? Even with debug asserts? I'm not sure I
+> love this interface, where you require the user to know the number of
+> remaining PTE entries in a PTE table.
+
+Shall I write in the comments that the range is supposed to be within a 
+PTE table?
+
+> 
+>> +	pte = ptep_modify_prot_start(vma, addr, ptep);
+>> +	while (--nr) {
+> 
+> This loop is a bit horrible. It seems needlessly confusing and you're in
+> _dire_ need of comments to explain what's going on.
+
+Again, following the pattern of get_and_clear_full_ptes :)
+> 
+> So my understanding is, you have the user figure out:
+> 
+> nr = min(nr_pte_entries_in_pte, nr_pgs_in_folio)
+> 
+> Then, you want to return the pte entry belonging to the start of the large
+> folio batch, but you want to adjust that pte value to propagate dirty and
+> young page table flags if any page table entries within the range contain
+> those page table flags, having called ptep_modify_prot_start() on all of
+> them?
+> 
+> This is quite a bit to a. put in a header like this and b. not
+> comment/explain.
+> 
+> So maybe something like:
+> 
+> pte = ptep_modify_prot_start(vma, addr, ptep);
+> 
+> /* Iterate through large folio tail PTEs. */
+> for (pg = 1; pg < nr; pg++) {
+> 	pte_t inner_pte;
+> 
+> 	ptep++;
+> 	addr += PAGE_SIZE;
+> 
+> 	inner_pte = ptep_modify_prot_start(vma, addr, ptep);
+> 
+> 	/* We must propagate A/D state from tail PTEs. */
+> 	if (pte_dirty(inner_pte))
+> 		pte = pte_mkdirty(pte);
+> 	if (pte_young(inner_pte))
+> 		pte = pte_mkyoung(pte);
+> }
+> 
+> Would work better?
+
+No preference, I'll do this then.
+
+> 
+> 
+> 
+>> +		ptep++;
+>> +		addr += PAGE_SIZE;
+>> +		tmp_pte = ptep_modify_prot_start(vma, addr, ptep);
+> 
+> 
+> 
+>> +		if (pte_dirty(tmp_pte))
+>> +			pte = pte_mkdirty(pte);
+>> +		if (pte_young(tmp_pte))
+>> +			pte = pte_mkyoung(pte);
+> 
+> Why are you propagating these?
+
+Because the a/d bits are per-folio; and, this will help us batch around 
+can_change_pte_writable (return pte_dirty(pte)) and, batch around 
+pte_needs_flush() for parisc.
+
+> 
+>> +	}
+>> +	return pte;
+>> +}
+>> +#endif
+>> +
+>> +/* See the comment for ptep_modify_prot_commit */
+> 
+> Same comments as above, needs more meat on the bones!
+> 
+>> +#ifndef modify_prot_commit_ptes
+>> +static inline void modify_prot_commit_ptes(struct vm_area_struct *vma, unsigned long addr,
+> 
+> Again need to reference large folio, batched or something relevant here,
+> 'ptes' is super vague.
+> 
+>> +		pte_t *ptep, pte_t old_pte, pte_t pte, unsigned int nr)
+> 
+> Nit, but you put 'p' suffix on ptep but not on 'old_pte'?
+
+Because ptep is a pointer, and old_pte isn't.
+
+> 
+> I'm even more concerned about the 'nr' API here now.
+> 
+> So this is now a user-calculated:
+> 
+> min3(large_folio_pages, number of pte entries left in ptep,
+> 	number of pte entries left in old_pte)
+> 
+> It really feels like something that should be calculated here, or at least
+> be broken out more clearly.
+> 
+> You definitely _at the very least_ need to document it in a comment.
+> 
+>> +{
+>> +	for (;;) {
+>> +		ptep_modify_prot_commit(vma, addr, ptep, old_pte, pte);
+>> +		if (--nr == 0)
+>> +			break;
+> 
+> Why are you doing an infinite loop here with a break like this? Again feels
+> needlessly confusing.
+
+Following wrprotect_ptes().
+I agree that this is confusing, which is why I thought why it was done 
+in the first place :) but I just followed what already is.
+I'll change this to a simple for loop if that is your inclination.
+
+> 
+> I think it's ok to duplicate this single line for the sake of clarity,
+> also.
+> 
+> Which gives us:
+> 
+> unsigned long pg;
+> 
+> ptep_modify_prot_commit(vma, addr, ptep, old_pte, pte);
+> for (pg = 1; pg < nr; pg++) {
+> 	ptep++;
+> 	addr += PAGE_SIZE;
+> 	old_pte = pte_next_pfn(old_pte);
+> 	pte = pte_next_pfn(pte);
+> 
+> 	ptep_modify_prot_commit(vma, addr, ptep, old_pte, pte);
+> }
+> 
+> There are alternative approaches, but I think doing an infinite loop that
+> breaks and especially the confusing 'if (--foo) break;' stuff is much
+> harder to parse than a super simple ranged loop.
+> 
+>> +		ptep++;
+>> +		addr += PAGE_SIZE;
+>> +		old_pte = pte_next_pfn(old_pte);
+>> +		pte = pte_next_pfn(pte);
+>> +	}
+>> +}
+>> +#endif
+>> +
+>>   /*
+>>    * On some architectures hardware does not set page access bit when accessing
+>>    * memory page, it is responsibility of software setting this bit. It brings
+>> --
+>> 2.30.2
+>>
 
 
