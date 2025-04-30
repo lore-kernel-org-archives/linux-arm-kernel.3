@@ -4,57 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58CFBC369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 13:03:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE7CBC3ABA9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 13:05:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ar68uvTix/lfsdToR0EYdxD0l7SmB05UiJBlAsCxGTQ=; b=N5tHr77n+YdeRxAehdXE+XT4XK
-	JCOGkupuufdLp6aTDvof+dimyHbc+Oe6SjTJsHGHugDLAUK6l7s7JMSK85XFQQ230RnPWal/LTCtW
-	QYjyC3f1b/0bYyWxBLB5+sFPwfYZ4JExgki5cxdLR+ECqSPyyt0ySnuA5GypIhjtk8pdmVFlLjkA7
-	+LNfHJsdzFrk8KCaTse6U8B15XGxoDHzsg9SekW04B4g7OLdUF+EZl6MHzh3NPsI+VZXYEhnThBnH
-	2VX5bbxDJ1x3opU42B3q6bAOLoOc82Q8APBlJRHGNhfMDSYR0rXYbq2Uok0BE6AO+HWG1FX68qFqR
-	R4HQCo/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rW1MhyT91saKVAFuqB6OQab7qD4mL9UWcfPujvEtR98=; b=FEgutDUBsMuLwpQU/iGebg8b9/
+	DAXeS6lZWOjIydtFJZsMmWDTu+l9j7+ZR9BiN9JsEBMcghj3ViNl/eDOa9wD/DFcrK9t9oYax44WK
+	8mTSqlT63MiFxCMyLVcBK/X9KsIqHB8mEu9f6dfcNGU/ZmffdFj/tl0gz79jal+qUayrOpmfX3yzG
+	RYdYDVsHwfm/P2O+NnJv4kcA8FRX9T1leoumZP4//HxX93os2PJqSroA1DnqVcautstteo4s/vYOp
+	v1JSoTvf2LmRI+S9bxCQVfYr5enZ/sM52nSGcBzzuHspv3E6aEqIYLq9HyGmIu1sDvyGAWlun61H1
+	7cOU9Ypw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA75Y-0000000CvA1-40Jf;
-	Wed, 30 Apr 2025 13:03:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA70i-0000000Cu7m-0klb
+	id 1uA77v-0000000Cvfs-2iBU;
+	Wed, 30 Apr 2025 13:05:27 +0000
+Received: from mail-qk1-f176.google.com ([209.85.222.176])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uA75x-0000000CvFE-3shK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 12:58:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 001CC106F;
-	Wed, 30 Apr 2025 05:57:52 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ADBDD3F5A1;
-	Wed, 30 Apr 2025 05:57:58 -0700 (PDT)
-Date: Wed, 30 Apr 2025 13:57:56 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Yabin Cui <yabinc@google.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Jie Gan <quic_jiegan@quicinc.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 2/2] coresight: core: Disable helpers for devices that
- fail to enable
-Message-ID: <20250430125756.GK551819@e132581.arm.com>
-References: <20250429231301.1952246-1-yabinc@google.com>
- <20250429231301.1952246-3-yabinc@google.com>
+	Wed, 30 Apr 2025 13:03:27 +0000
+Received: by mail-qk1-f176.google.com with SMTP id af79cd13be357-7c922734cc2so113481785a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 06:03:24 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746018204; x=1746623004;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=rW1MhyT91saKVAFuqB6OQab7qD4mL9UWcfPujvEtR98=;
+        b=nmKqPrKwccXKZCO+ZBeKNkukEchgA0AgSqKvRHopsGH0qxX+KlKUQZT8CIVYQRlRxB
+         V2D1XlUadNZLfXkYuKLNCmsy1qu1s97X3622gxiFsam+mnOwDS8rlNyL7kxmVwFuX+wC
+         sTY7/r+Yu8U5+aVeY0ibOwuMmjR9zTFq+34xe2JM0Abu5OkEoX1qISqk/fZBcW9wJG5c
+         0ohEnI8N8FT5a1xoa8znArZdFmGLpMA7HPBZLhksK90jTca3/ICK52D8niRXMFv8BI1C
+         5CWAomcClFkDdtCV/W8aRYAGDXUTzzoCJ2M/YUWTA/JHuVZAFIWdqrk5EA+ikQJq7mOV
+         zgFw==
+X-Forwarded-Encrypted: i=1; AJvYcCX1CHpskidm94xPOmh2Sx7FjAtVt9iTjyGxy1oocMX7Jn6zPJr+zn8LNHcun9jIVOoGmAq5Pf/igYyBHzv36ZS+@lists.infradead.org
+X-Gm-Message-State: AOJu0YwUsVOnLVtV42GVuqDaPBkNKnwI7CkOl/TuB7789QSYQXVYR2oS
+	Uz0EpwkX7SU6Gw13ZH3lQ3XiDZ+N1oZR72C9XtlSGhYnZ7ukqH7u+PE0Df/7
+X-Gm-Gg: ASbGncuEGyYkOp1y+B8Ymn2frxTEY8ssJZXUaOG58A+EQY+jgzIhr1UN1PFtaxwzUlm
+	r/rqHeu4jxUKuuXQRL0PGJWOZ20/0KmA7hFbpBsO6Zjo9TnDW8+2OO4xsw9zRLkU4pjp617gPZN
+	G9MxGHGkAjdUpi17ChJm2zD9+0NGqF81e8/eLgjRo+zlHtjRBUtuz9c9FzifEraTPnPf27ENCKN
+	kvoLvEHgZ9llDMoKPYy7510jyGirMAnVShqalQi28x2jeMl5LbX/yHIK+ZhWrPflocR9muEOcqH
+	uOO6M8HQIReby+UA33pizmvzkk7E5bPeKWmT8lODBcEKuV4QQarkBLtDWV0cXHU9ysNwy/ue0q8
+	n9posIiE=
+X-Google-Smtp-Source: AGHT+IEzMmANgZXnBM2tlH4q60y7ld/JXj40gHqRGEtlWbYnPS61WfTz/38ehSY2ukIOpNIw3ur5Kg==
+X-Received: by 2002:a05:620a:1793:b0:7c5:95e6:62c9 with SMTP id af79cd13be357-7cac7b5c420mr455757285a.29.1746018203489;
+        Wed, 30 Apr 2025 06:03:23 -0700 (PDT)
+Received: from mail-qk1-f178.google.com (mail-qk1-f178.google.com. [209.85.222.178])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c958e9f4c6sm851825085a.92.2025.04.30.06.03.23
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 30 Apr 2025 06:03:23 -0700 (PDT)
+Received: by mail-qk1-f178.google.com with SMTP id af79cd13be357-7c9376c4dbaso110825685a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 06:03:23 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWRAWa16EL9P1H1ylPDwnYVODTKlDdBk4TMcrTaOOOTCvyjDsjEabE1iuq/59jL2Jxpjb/RNg/h2h6PNYItTheh@lists.infradead.org
+X-Received: by 2002:a05:620a:2890:b0:7c9:574d:a344 with SMTP id
+ af79cd13be357-7cac7b5c591mr351112885a.25.1746018203056; Wed, 30 Apr 2025
+ 06:03:23 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250429231301.1952246-3-yabinc@google.com>
+References: <20250430125322.2808528-1-niklas.soderlund+renesas@ragnatech.se>
+In-Reply-To: <20250430125322.2808528-1-niklas.soderlund+renesas@ragnatech.se>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Wed, 30 Apr 2025 15:03:10 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVXrHVugCMoWkCRVGotOEeTuuJJ6rC7CC7Kf_seo3J5og@mail.gmail.com>
+X-Gm-Features: ATxdqUF5SmUHR6IS83F_BlSTuqKqxW8yJEwc4_Me4L0hReYlvlJOP5xqk2h4aew
+Message-ID: <CAMuHMdVXrHVugCMoWkCRVGotOEeTuuJJ6rC7CC7Kf_seo3J5og@mail.gmail.com>
+Subject: Re: [PATCH] media: dt-bindings: sony,imx290: Update usage example
+To: =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>
+Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+	Dave Stevenson <dave.stevenson@raspberrypi.com>, linux-media@vger.kernel.org, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_055800_259979_812E94D3 
-X-CRM114-Status: GOOD (  19.11  )
+X-CRM114-CacheID: sfid-20250430_060325_964168_CC3BD82E 
+X-CRM114-Status: GOOD (  22.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,70 +102,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 29, 2025 at 04:13:00PM -0700, Yabin Cui wrote:
-> When enabling a SINK or LINK type coresight device fails, the
-> associated helpers should be disabled.
-> 
-> Signed-off-by: Yabin Cui <yabinc@google.com>
-> Suggested-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Reviewed-by: James Clark <james.clark@linaro.org>
-> Reviewed-by: Mike Leach <mike.leach@linaro.org>
+Hi Niklas,
 
-Reviewed-by: Leo Yan <leo.yan@arm.com>
+On Wed, 30 Apr 2025 at 14:58, Niklas S=C3=B6derlund
+<niklas.soderlund+renesas@ragnatech.se> wrote:
+> Since commit 98e0500eadb7 ("media: i2c: imx290: Add configurable link
+> frequency and pixel rate") the driver expects two specific
+> link-frequency settings 2-lane (445500000, 297000000) and 4-lane
+> (222750000, 148500000) operation. The driver fails to probe without
+> these exact settings.
+>
+> Update the example in the bindings to match this to make it easier for
+> users to incorporate this sensor in their device tree descriptions
+> without having to read the driver sources when the driver fails to
+> probe.
+>
+> Signed-off-by: Niklas S=C3=B6derlund <niklas.soderlund+renesas@ragnatech.=
+se>
 
-> ---
->  drivers/hwtracing/coresight/coresight-core.c | 15 ++++++++++-----
->  1 file changed, 10 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-> index dabec7073aed..d3523f0262af 100644
-> --- a/drivers/hwtracing/coresight/coresight-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-core.c
-> @@ -465,7 +465,7 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
->  		/* Enable all helpers adjacent to the path first */
->  		ret = coresight_enable_helpers(csdev, mode, path);
->  		if (ret)
-> -			goto err;
-> +			goto err_disable_path;
->  		/*
->  		 * ETF devices are tricky... They can be a link or a sink,
->  		 * depending on how they are configured.  If an ETF has been
-> @@ -486,8 +486,10 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
->  			 * that need disabling. Disabling the path here
->  			 * would mean we could disrupt an existing session.
->  			 */
-> -			if (ret)
-> +			if (ret) {
-> +				coresight_disable_helpers(csdev, path);
->  				goto out;
-> +			}
->  			break;
->  		case CORESIGHT_DEV_TYPE_SOURCE:
->  			/* sources are enabled from either sysFS or Perf */
-> @@ -497,16 +499,19 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
->  			child = list_next_entry(nd, link)->csdev;
->  			ret = coresight_enable_link(csdev, parent, child, source);
->  			if (ret)
-> -				goto err;
-> +				goto err_disable_helpers;
->  			break;
->  		default:
-> -			goto err;
-> +			ret = -EINVAL;
-> +			goto err_disable_helpers;
->  		}
->  	}
->  
->  out:
->  	return ret;
-> -err:
-> +err_disable_helpers:
-> +	coresight_disable_helpers(csdev, path);
-> +err_disable_path:
->  	coresight_disable_path_from(path, nd);
->  	goto out;
->  }
-> -- 
-> 2.49.0.967.g6a0df3ecc3-goog
-> 
+Thanks for your patch!
+
+> --- a/Documentation/devicetree/bindings/media/i2c/sony,imx290.yaml
+> +++ b/Documentation/devicetree/bindings/media/i2c/sony,imx290.yaml
+> @@ -136,7 +136,7 @@ examples:
+>              port {
+>                  imx290_ep: endpoint {
+>                      data-lanes =3D <1 2 3 4>;
+> -                    link-frequencies =3D /bits/ 64 <445500000>;
+> +                    link-frequencies =3D /bits/ 64 <222750000 148500000>=
+;
+>                      remote-endpoint =3D <&csiphy0_ep>;
+>                  };
+>              };
+
+I guess the link-frequencies property should gain a rule that it
+needs two values, too?
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
+
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
