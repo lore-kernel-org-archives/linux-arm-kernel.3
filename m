@@ -4,107 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D739C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 21:46:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B189C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 21:53:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I7SnvbxN813odoTR96udwnhW9eUh5grZic2/nYbCNXE=; b=05pkp+yq48Kk9/L5vzyCR+kBou
-	WR10CpopBoGP+UslBrmq7vh0OJi3PqCB5ms7snhQQyuqpZ046GvU8KaK7McJ0DMdmY5jDhVKR1ZvH
-	WuvHIZ6OT7TevNIZFUJIPB8avleShN9DCn2BuP8Mhkkv+EMs2XrZTa7ZBy8id8/gi8uyyHRPJIp41
-	175rXXEEMphmrxHAMX85mkXE7A8lH2jzNwunuU1irhjOhm+VjhVTQJN4im61yoXe+OPADN1d+H/5l
-	VFEh1kjj1YNbDJv2/qDG1ccchk0JX/fDRaR9Sk8fsWjVaNVtcJYRgv9eHOX1U3zIlUwehjew2+5Ch
-	L9PaYumA==;
+	bh=OZIFhyha4G5i8WRLJMw6/zI37vSJCnSLVsLqNxDj5gU=; b=lijceewnz0/rnWYTxowkxpgGb4
+	J97oi2KZo6l883dsNG5Z2lCmPwcybwtLpr9Stu+6riqOWF/OlRT4dg5EA5m+9v9KFlP5M4EvIa+lF
+	syyAshLrwKvxMKYwS3SYv40yAu1rX0+cuAZCw6g4F74nfkGCL1piQUb2EO4xOD+Aa1d/Q4suKBzXS
+	G0sdX8F9cKwArscPWaLipGFKOTdCGKE7Bw6gHhhgBsXMGR9gY0ITxwaudklssGoCQEhASA3Dwn7RK
+	gGb0awtNEMxKtsvqg2UX5kaw/O+FM8wve8VfzZZH2spu9IE4UaVUqbALKQY728S9lzY3CL2cTXq3Q
+	NmH8MZkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAFG7-0000000E6wo-2ocl;
-	Wed, 30 Apr 2025 21:46:27 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uAFMa-0000000E7UA-3DM1;
+	Wed, 30 Apr 2025 21:53:08 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uADyD-0000000Du7P-3Yhv
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 20:23:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1746044633;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=I7SnvbxN813odoTR96udwnhW9eUh5grZic2/nYbCNXE=;
-	b=iBC9dhUfp/Ox3aoA3PHyPnRuxlonB8FCmGguynSdDIxWUSY5dmy342J++3qBXydaO2AoSJ
-	s1zbmrPe3w96RSnlhU7+yuTLS+zwKWWd2AC1EM96dkfKDFg35JxNhf2VTqMz00dlAxAtbs
-	5GfNCb3OJrmUJJX56xmhKO5kfWJSuXY=
-Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-515-AsCnrzbvNoSiIqmGAR377g-1; Wed,
- 30 Apr 2025 16:23:47 -0400
-X-MC-Unique: AsCnrzbvNoSiIqmGAR377g-1
-X-Mimecast-MFC-AGG-ID: AsCnrzbvNoSiIqmGAR377g_1746044624
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 215A71956089;
-	Wed, 30 Apr 2025 20:23:43 +0000 (UTC)
-Received: from intellaptop.lan (unknown [10.22.80.5])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 9EB201800365;
-	Wed, 30 Apr 2025 20:23:36 +0000 (UTC)
-From: Maxim Levitsky <mlevitsk@redhat.com>
-To: kvm@vger.kernel.org
-Cc: "H. Peter Anvin" <hpa@zytor.com>,
-	x86@kernel.org,
-	Maxim Levitsky <mlevitsk@redhat.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Will Deacon <will@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Kunkun Jiang <jiangkunkun@huawei.com>,
-	Jing Zhang <jingzhangos@google.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Keisuke Nishimura <keisuke.nishimura@inria.fr>,
-	Anup Patel <anup@brainfault.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	kvmarm@lists.linux.dev,
-	Waiman Long <longman@redhat.com>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Peter Zijlstra <peterz@infradead.org>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Sebastian Ott <sebott@redhat.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Sean Christopherson <seanjc@google.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Alexander Potapenko <glider@google.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Shusen Li <lishusen2@huawei.com>,
-	kvm-riscv@lists.infradead.org
-Subject: [PATCH v3 3/4] locking/mutex: implement mutex_lock_killable_nest_lock
-Date: Wed, 30 Apr 2025 16:23:10 -0400
-Message-ID: <20250430202311.364641-4-mlevitsk@redhat.com>
-In-Reply-To: <20250430202311.364641-1-mlevitsk@redhat.com>
-References: <20250430202311.364641-1-mlevitsk@redhat.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+	id 1uAFKf-0000000E7NK-07ta;
+	Wed, 30 Apr 2025 21:51:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 54423A4B7E8;
+	Wed, 30 Apr 2025 21:45:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07C5EC4CEE7;
+	Wed, 30 Apr 2025 21:51:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
+	s=korg; t=1746049867;
+	bh=5u/M4235ZhIaoydVPyaBH4cYCvqZf2avpMDKQWTlaWo=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=RndfgxAr+7rzrSzhRqUo3Hdh8cOk1RR+5tdnl4wEyYYGeBTuUq2adD0CtwrTvKC8+
+	 dCPYZldY4E2o0iBRPOHrpSYjq8fGDoceEbNX1cS2VvMPrZM1ARHA6ddt6i14worw86
+	 Ftug5mszCLdfxUuQBPRg3hOiMYU/LpCr0zRhkqrk=
+Date: Wed, 30 Apr 2025 14:51:06 -0700
+From: Andrew Morton <akpm@linux-foundation.org>
+To: Qun-Wei Lin <qun-wei.lin@mediatek.com>
+Cc: Mike Rapoport <rppt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, Nhat Pham <nphamcs@gmail.com>,
+ Sergey Senozhatsky <senozhatsky@chromium.org>, Minchan Kim
+ <minchan@kernel.org>, <linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-mediatek@lists.infradead.org>, Casper Li <casper.li@mediatek.com>,
+ Chinwen Chang <chinwen.chang@mediatek.com>, Andrew Yang
+ <andrew.yang@mediatek.com>, James Hsu <james.hsu@mediatek.com>, Barry Song
+ <21cnbao@gmail.com>
+Subject: Re: [PATCH] mm: Add Kcompressd for accelerated memory compression
+Message-Id: <20250430145106.8ce79a05d35cec72aa02baa6@linux-foundation.org>
+In-Reply-To: <20250430082651.3152444-1-qun-wei.lin@mediatek.com>
+References: <20250430082651.3152444-1-qun-wei.lin@mediatek.com>
+X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_132353_959569_BDB4DB25 
-X-CRM114-Status: GOOD (  16.46  )
+X-CRM114-CacheID: sfid-20250430_145109_148109_78B38078 
+X-CRM114-Status: GOOD (  19.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,96 +76,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-KVM's SEV intra-host migration code needs to lock all vCPUs
-of the source and the target VM, before it proceeds with the migration.
+On Wed, 30 Apr 2025 16:26:41 +0800 Qun-Wei Lin <qun-wei.lin@mediatek.com> wrote:
 
-The number of vCPUs that belong to each VM is not bounded by anything
-except a self-imposed KVM limit of CONFIG_KVM_MAX_NR_VCPUS vCPUs which is
-significantly larger than the depth of lockdep's lock stack.
+> This patch series introduces a new mechanism called kcompressd to
+> improve the efficiency of memory reclaiming in the operating system.
+> 
+> Problem:
+>   In the current system, the kswapd thread is responsible for both scanning
+>   the LRU pages and handling memory compression tasks (such as those
+>   involving ZSWAP/ZRAM, if enabled). This combined responsibility can lead
+>   to significant performance bottlenecks, especially under high memory
+>   pressure. The kswapd thread becomes a single point of contention, causing
+>   delays in memory reclaiming and overall system performance degradation.
+> 
+> Solution:
+>   Introduced kcompressd to handle asynchronous compression during memory
+>   reclaim, improving efficiency by offloading compression tasks from
+>   kswapd. This allows kswapd to focus on its primary task of page reclaim
+>   without being burdened by the additional overhead of compression.
+> 
+> In our handheld devices, we found that applying this mechanism under high
+> memory pressure scenarios can increase the rate of pgsteal_anon per second
+> by over 260% compared to the situation with only kswapd. Additionally, we
+> observed a reduction of over 50% in page allocation stall occurrences,
+> further demonstrating the effectiveness of kcompressd in alleviating memory
+> pressure and improving system responsiveness.
 
-Luckily, the locks in both of the cases mentioned above, are held under
-the 'kvm->lock' of each VM, which means that we can use the little
-known lockdep feature called a "nest_lock" to support this use case in
-a cleaner way, compared to the way it's currently done.
+It's a significant change and I'm thinking that broader performance
+testing across a broader range of machines is needed before we can
+confidently upstream such a change.
 
-Implement and expose 'mutex_lock_killable_nest_lock' for this
-purpose.
+Also, it's presumably a small net loss on single-CPU machines (do these
+exist any more?).  Is it hard to disable this feature on such machines?
 
-Signed-off-by: Maxim Levitsky <mlevitsk@redhat.com>
----
- include/linux/mutex.h  | 17 +++++++++++++----
- kernel/locking/mutex.c |  7 ++++---
- 2 files changed, 17 insertions(+), 7 deletions(-)
+>  
+> +static bool swap_sched_async_compress(struct folio *folio)
+> +{
+> +	struct swap_info_struct *sis = swp_swap_info(folio->swap);
+> +	int nid = numa_node_id();
+> +	pg_data_t *pgdat = NODE_DATA(nid);
+> +
+> +	if (unlikely(!pgdat->kcompressd))
+> +		return false;
+> +
+> +	if (!current_is_kswapd())
+> +		return false;
+> +
+> +	if (!folio_test_anon(folio))
+> +		return false;
 
-diff --git a/include/linux/mutex.h b/include/linux/mutex.h
-index da4518cfd59c..a039fa8c1780 100644
---- a/include/linux/mutex.h
-+++ b/include/linux/mutex.h
-@@ -156,16 +156,15 @@ static inline int __devm_mutex_init(struct device *dev, struct mutex *lock)
- #ifdef CONFIG_DEBUG_LOCK_ALLOC
- extern void mutex_lock_nested(struct mutex *lock, unsigned int subclass);
- extern void _mutex_lock_nest_lock(struct mutex *lock, struct lockdep_map *nest_lock);
--
- extern int __must_check mutex_lock_interruptible_nested(struct mutex *lock,
- 					unsigned int subclass);
--extern int __must_check mutex_lock_killable_nested(struct mutex *lock,
--					unsigned int subclass);
-+extern int __must_check _mutex_lock_killable(struct mutex *lock,
-+		unsigned int subclass, struct lockdep_map *nest_lock);
- extern void mutex_lock_io_nested(struct mutex *lock, unsigned int subclass);
- 
- #define mutex_lock(lock) mutex_lock_nested(lock, 0)
- #define mutex_lock_interruptible(lock) mutex_lock_interruptible_nested(lock, 0)
--#define mutex_lock_killable(lock) mutex_lock_killable_nested(lock, 0)
-+#define mutex_lock_killable(lock) _mutex_lock_killable(lock, 0, NULL)
- #define mutex_lock_io(lock) mutex_lock_io_nested(lock, 0)
- 
- #define mutex_lock_nest_lock(lock, nest_lock)				\
-@@ -174,6 +173,15 @@ do {									\
- 	_mutex_lock_nest_lock(lock, &(nest_lock)->dep_map);		\
- } while (0)
- 
-+#define mutex_lock_killable_nest_lock(lock, nest_lock)			\
-+(									\
-+	typecheck(struct lockdep_map *, &(nest_lock)->dep_map),		\
-+	_mutex_lock_killable(lock, 0, &(nest_lock)->dep_map)		\
-+)
-+
-+#define mutex_lock_killable_nested(lock, subclass) \
-+	_mutex_lock_killable(lock, subclass, NULL)
-+
- #else
- extern void mutex_lock(struct mutex *lock);
- extern int __must_check mutex_lock_interruptible(struct mutex *lock);
-@@ -183,6 +191,7 @@ extern void mutex_lock_io(struct mutex *lock);
- # define mutex_lock_nested(lock, subclass) mutex_lock(lock)
- # define mutex_lock_interruptible_nested(lock, subclass) mutex_lock_interruptible(lock)
- # define mutex_lock_killable_nested(lock, subclass) mutex_lock_killable(lock)
-+# define mutex_lock_killable_nest_lock(lock, nest_lock) mutex_lock_killable(lock)
- # define mutex_lock_nest_lock(lock, nest_lock) mutex_lock(lock)
- # define mutex_lock_io_nested(lock, subclass) mutex_lock_io(lock)
- #endif
-diff --git a/kernel/locking/mutex.c b/kernel/locking/mutex.c
-index c75a838d3bae..234923121ff0 100644
---- a/kernel/locking/mutex.c
-+++ b/kernel/locking/mutex.c
-@@ -808,11 +808,12 @@ _mutex_lock_nest_lock(struct mutex *lock, struct lockdep_map *nest)
- EXPORT_SYMBOL_GPL(_mutex_lock_nest_lock);
- 
- int __sched
--mutex_lock_killable_nested(struct mutex *lock, unsigned int subclass)
-+_mutex_lock_killable(struct mutex *lock, unsigned int subclass,
-+				      struct lockdep_map *nest)
- {
--	return __mutex_lock(lock, TASK_KILLABLE, subclass, NULL, _RET_IP_);
-+	return __mutex_lock(lock, TASK_KILLABLE, subclass, nest, _RET_IP_);
- }
--EXPORT_SYMBOL_GPL(mutex_lock_killable_nested);
-+EXPORT_SYMBOL_GPL(_mutex_lock_killable);
- 
- int __sched
- mutex_lock_interruptible_nested(struct mutex *lock, unsigned int subclass)
--- 
-2.46.0
+Are you sure the above three tests are really needed?
+
 
 
