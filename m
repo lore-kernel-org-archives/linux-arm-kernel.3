@@ -4,142 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C40DBC369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 20:47:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7C1AC369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 20:58:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+MZvmRfCtI61m/XdI87EqyqLvZ2yGHt28AUm8pnJCIE=; b=2Y0M2eKyWDb+960YIQwW2RnkUj
-	3iu2n1X60FmmIX1f/eXn8fBSOlswSN6/q9K1VlDHTCr1/7azztlKSkRvU770u/bXE5rM971x1nmoI
-	WVvuzTyOTGh9LyZ8FHKPK5b0894Ykw44Rr9saO1CNgMK8eYAHxSCsJ2+cj5uV1WqONmmKRmtdeHwk
-	fX4gL4ZZZxNMCpTraGtCldZLeNEo3bjJGBqn11ziMK8xvwzlSbbKIhv/cbK4o2kCLlRO3PYy7BdF+
-	MXqhC9HZ0VLSTeBFszBpOFE7/5aA9+N1obCKeo89EXKYms+jfkZu/Z9mxsNYRoWpetcAPRtIqSDYE
-	pU+nJoSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jQcI2g32ZLZ2iWDeDA25ObhpNqBL5Xu7aLJ2zYUd4dU=; b=mo9AvQwBaJXitlPFOIkSibVd+p
+	Pl+pK40/ygcocJifqdLYjpokxhke3j4l91XCGojsiIhjx7lopKJbNbUiLTqYLpUlKNjAzFCEnI340
+	Sb/MmRluzmTFBTi3b57vPJxZAzYJWVRs7slcBucwjVGXJqS3T/90/GrJ19NRKN0m3zdTvCT7Qliad
+	9W99g8Nzk7pKry2JE5CiNgoYurWaZMUZtDtxGLrVmxvFzjcdTRiLI9TiQFedt9K0RmIQfpSe1nwN7
+	0PmYTW53ytET63iVsqlmPHr9UJ875O1p7dz9NlMOyxmnXClxkLHX/LLFl4VALH1nGm0yzM2ceJgRf
+	EeasbSBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAEL1-0000000DyCi-0cow;
-	Wed, 30 Apr 2025 20:47:27 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1uAEVp-0000000DzqY-2Ct7;
+	Wed, 30 Apr 2025 20:58:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAE5C-0000000DvNI-1nZy
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Apr 2025 20:31:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=+MZvmRfCtI61m/XdI87EqyqLvZ2yGHt28AUm8pnJCIE=; b=t+4eB4GrXN2wEqls9jOi+VlTSg
-	q7mKZsg9DxLHaNz/IE9MCcgXvQ3lt+U1NEQo4I5F/03ju2phyu8gDJq4SMFeAkWOOgDttlwnWvsRz
-	qE8JMbDe22hm1yYCjWsJcKJwr/UqiXA+bP4w6nQu4ri/ycBra6vj7qYoXmMaTC4PajY5bvjrnZt0V
-	fj17wBg6/QcVmRQRKUB8r9EJMceOYw/qt7Rh/jijZ2jP5ydRk8DZWPC9XzZGrmpr6ASMZ2+FLmzpn
-	x/KdXVGo+y8leL2x6cL6zLhWkVL9rxYP+DLsO773PmFGcBPaha+UFY+3lsblpaDUcrXllhBAC7CRi
-	LDeIClUg==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAE59-0000000DrNr-0cre
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 20:31:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1746045061;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+MZvmRfCtI61m/XdI87EqyqLvZ2yGHt28AUm8pnJCIE=;
-	b=P31Gyby2bTLXo8CtWGGUy3y2ZhfCuvc5ooCk0PEvIdDs9lTbxzbE0cK4CVd3/a89pIphKq
-	S2l8Uoxhz0nSLD/pl4K29dLZJJtJ8SVMieB8vUiy8Ix1xqocFDN6xxVZ/zbY555ZFUfKTq
-	ePtO7cdPR6NnMyl4+p8NZr/fd0Iqwgg=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1746045061;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+MZvmRfCtI61m/XdI87EqyqLvZ2yGHt28AUm8pnJCIE=;
-	b=P31Gyby2bTLXo8CtWGGUy3y2ZhfCuvc5ooCk0PEvIdDs9lTbxzbE0cK4CVd3/a89pIphKq
-	S2l8Uoxhz0nSLD/pl4K29dLZJJtJ8SVMieB8vUiy8Ix1xqocFDN6xxVZ/zbY555ZFUfKTq
-	ePtO7cdPR6NnMyl4+p8NZr/fd0Iqwgg=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1746045062;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+MZvmRfCtI61m/XdI87EqyqLvZ2yGHt28AUm8pnJCIE=;
-	b=IZh5SiW0XbgKTnYpy2aFGIF9aVla9PeHJzEiswpsP/OcvRHIWpP+18OvE0ahwK6FRctdBW
-	PuumUv96L1N6lwp8cp3TY9XCQkozM3SpZI27vbjC5d80xdpWp/L43/3iC7O2cyG3OQrI+3
-	Pz7arrUVgu8vxDeNdIhiakuFDp42ZFY=
-Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-44-gYJXFO_UNeOIXNgOfeawgA-1; Wed,
- 30 Apr 2025 16:30:57 -0400
-X-MC-Unique: gYJXFO_UNeOIXNgOfeawgA-1
-X-Mimecast-MFC-AGG-ID: gYJXFO_UNeOIXNgOfeawgA_1746045053
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 9DC291956094;
-	Wed, 30 Apr 2025 20:30:52 +0000 (UTC)
-Received: from intellaptop.lan (unknown [10.22.80.5])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 61B781800365;
-	Wed, 30 Apr 2025 20:30:47 +0000 (UTC)
-From: Maxim Levitsky <mlevitsk@redhat.com>
-To: kvm@vger.kernel.org
-Cc: linux-riscv@lists.infradead.org,
-	Kunkun Jiang <jiangkunkun@huawei.com>,
-	Waiman Long <longman@redhat.com>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Alexander Potapenko <glider@google.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Andre Przywara <andre.przywara@arm.com>,
-	x86@kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	kvm-riscv@lists.infradead.org,
-	Atish Patra <atishp@atishpatra.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Jing Zhang <jingzhangos@google.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	kvmarm@lists.linux.dev,
-	Will Deacon <will@kernel.org>,
-	Keisuke Nishimura <keisuke.nishimura@inria.fr>,
-	Sebastian Ott <sebott@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Shusen Li <lishusen2@huawei.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Maxim Levitsky <mlevitsk@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v4 5/5] x86: KVM: SEV: implement kvm_lock_all_vcpus and use it
-Date: Wed, 30 Apr 2025 16:30:13 -0400
-Message-ID: <20250430203013.366479-6-mlevitsk@redhat.com>
-In-Reply-To: <20250430203013.366479-1-mlevitsk@redhat.com>
-References: <20250430203013.366479-1-mlevitsk@redhat.com>
+	id 1uAETt-0000000DzYF-32eH;
+	Wed, 30 Apr 2025 20:56:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 30FA144B28;
+	Wed, 30 Apr 2025 20:56:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 192B2C4CEE7;
+	Wed, 30 Apr 2025 20:56:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746046597;
+	bh=CNFQzBWHud68EqtwfCS0lqVaovyNeZ1bIh+mHiCp5Wk=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=GzvUg+LP7Yc5dkGuRgqSnc1qQyDhipGHfgFamgs68QhRFQ0d6OUlR4pTvQarTDpWL
+	 cRTT+7d7yAx4qAdtY+Tg334E6WGqE1Qejom1WTQf+n0KES6r6WRABfqet41mMdhqEI
+	 WLDh2h+KmCksDFtap6Ln7XRcxKXrfrSl5l2SIV0ca8rYnGehc4JaTS8HB+5TgHR6Zc
+	 F7LGINCm9rqPy999uHDVkbT0LbIgcLGjkdHqrJRqhRu44/vcwJvclF8ZBsIy5eF4Vm
+	 p0DVbhwFrBzGpfnIpnKF/Rs5MnZmldqhEgbEzaDOi3JZvCS2IkDzQwW6+tmGPcpVoG
+	 CH+Pw+HUusPrg==
+Date: Wed, 30 Apr 2025 15:56:35 -0500
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
+ FUKAUMI Naoki <naoki@radxa.com>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Alexey Charkov <alchark@gmail.com>, linux-kernel@vger.kernel.org, 
+ Heiko Stuebner <heiko@sntech.de>, Kever Yang <kever.yang@rock-chips.com>, 
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>, Dragan Simic <dsimic@manjaro.org>, 
+ linux-rockchip@lists.infradead.org, Jimmy Hon <honyuenkwun@gmail.com>, 
+ Quentin Schulz <quentin.schulz@cherry.de>, 
+ Jianfeng Liu <liujianfeng1994@gmail.com>, Jonas Karlman <jonas@kwiboo.se>, 
+ devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>
+To: Chaoyi Chen <kernel@airkyi.com>
+In-Reply-To: <20250430074848.539-1-kernel@airkyi.com>
+References: <20250430074848.539-1-kernel@airkyi.com>
+Message-Id: <174604649749.180857.9703877984884077664.robh@kernel.org>
+Subject: Re: [PATCH v2 0/2] Add support for rk3399 industry evaluation
+ board
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_213103_396997_C707C0D3 
-X-CRM114-Status: GOOD (  16.92  )
+X-CRM114-CacheID: sfid-20250430_135637_806932_AC451499 
+X-CRM114-Status: GOOD (  17.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,166 +82,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement kvm_lock_all_vcpus() and use it instead of
-sev own sev_{lock|unlock}_vcpus_for_migration().
 
-Suggested-by: Paolo Bonzini <pbonzini@redhat.com>
-Signed-off-by: Maxim Levitsky <mlevitsk@redhat.com>
----
- arch/x86/kvm/svm/sev.c   | 72 +++-------------------------------------
- include/linux/kvm_host.h |  1 +
- virt/kvm/kvm_main.c      | 25 ++++++++++++++
- 3 files changed, 30 insertions(+), 68 deletions(-)
+On Wed, 30 Apr 2025 15:48:46 +0800, Chaoyi Chen wrote:
+> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> 
+> General feature for rk3399 industry evaluation board:
+> - Rockchip RK3399
+> - 4GB LPDDR4
+> - emmc5.1
+> - SDIO3.0 compatible TF card
+> - 1x HDMI2.0a TX
+> - 1x HDMI1.4b RX with TC358749XBG HDMI to MIPI CSI2 bridge chip
+> - 1x type-c DisplayPort
+> - 3x USB3.0 Host
+> - 1x USB2.0 Host
+> - 1x Ethernet / USB3.0 to Ethernet
+> 
+> Tested with HDMI/GPU/USB2.0/USB3.0/TF card/emmc.
+> 
+> Changes in v2:
+> - Link to V1: https://lore.kernel.org/all/20250427094211.246-1-kernel@airkyi.com/
+> - Remove gmac
+> - Add rk809 PMIC
+> - Add CPU supply
+> - Fix io-domain for sdmmc
+> - Enable vopl
+> 
+> Chaoyi Chen (2):
+>   dt-bindings: arm: rockchip: Add rk3399 industry evaluation board
+>   arm64: dts: rockchip: Add rk3399-evb-ind board
+> 
+>  .../devicetree/bindings/arm/rockchip.yaml     |   5 +
+>  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+>  .../boot/dts/rockchip/rk3399-evb-ind.dts      | 466 ++++++++++++++++++
+>  3 files changed, 472 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts
+> 
+> --
+> 2.49.0
+> 
+> 
+> 
 
-diff --git a/arch/x86/kvm/svm/sev.c b/arch/x86/kvm/svm/sev.c
-index 0bc708ee2788..16db6179013d 100644
---- a/arch/x86/kvm/svm/sev.c
-+++ b/arch/x86/kvm/svm/sev.c
-@@ -1882,70 +1882,6 @@ static void sev_unlock_two_vms(struct kvm *dst_kvm, struct kvm *src_kvm)
- 	atomic_set_release(&src_sev->migration_in_progress, 0);
- }
- 
--/* vCPU mutex subclasses.  */
--enum sev_migration_role {
--	SEV_MIGRATION_SOURCE = 0,
--	SEV_MIGRATION_TARGET,
--	SEV_NR_MIGRATION_ROLES,
--};
--
--static int sev_lock_vcpus_for_migration(struct kvm *kvm,
--					enum sev_migration_role role)
--{
--	struct kvm_vcpu *vcpu;
--	unsigned long i, j;
--
--	kvm_for_each_vcpu(i, vcpu, kvm) {
--		if (mutex_lock_killable_nested(&vcpu->mutex, role))
--			goto out_unlock;
--
--#ifdef CONFIG_PROVE_LOCKING
--		if (!i)
--			/*
--			 * Reset the role to one that avoids colliding with
--			 * the role used for the first vcpu mutex.
--			 */
--			role = SEV_NR_MIGRATION_ROLES;
--		else
--			mutex_release(&vcpu->mutex.dep_map, _THIS_IP_);
--#endif
--	}
--
--	return 0;
--
--out_unlock:
--
--	kvm_for_each_vcpu(j, vcpu, kvm) {
--		if (i == j)
--			break;
--
--#ifdef CONFIG_PROVE_LOCKING
--		if (j)
--			mutex_acquire(&vcpu->mutex.dep_map, role, 0, _THIS_IP_);
--#endif
--
--		mutex_unlock(&vcpu->mutex);
--	}
--	return -EINTR;
--}
--
--static void sev_unlock_vcpus_for_migration(struct kvm *kvm)
--{
--	struct kvm_vcpu *vcpu;
--	unsigned long i;
--	bool first = true;
--
--	kvm_for_each_vcpu(i, vcpu, kvm) {
--		if (first)
--			first = false;
--		else
--			mutex_acquire(&vcpu->mutex.dep_map,
--				      SEV_NR_MIGRATION_ROLES, 0, _THIS_IP_);
--
--		mutex_unlock(&vcpu->mutex);
--	}
--}
--
- static void sev_migrate_from(struct kvm *dst_kvm, struct kvm *src_kvm)
- {
- 	struct kvm_sev_info *dst = to_kvm_sev_info(dst_kvm);
-@@ -2083,10 +2019,10 @@ int sev_vm_move_enc_context_from(struct kvm *kvm, unsigned int source_fd)
- 		charged = true;
- 	}
- 
--	ret = sev_lock_vcpus_for_migration(kvm, SEV_MIGRATION_SOURCE);
-+	ret = kvm_lock_all_vcpus(kvm);
- 	if (ret)
- 		goto out_dst_cgroup;
--	ret = sev_lock_vcpus_for_migration(source_kvm, SEV_MIGRATION_TARGET);
-+	ret = kvm_lock_all_vcpus(source_kvm);
- 	if (ret)
- 		goto out_dst_vcpu;
- 
-@@ -2100,9 +2036,9 @@ int sev_vm_move_enc_context_from(struct kvm *kvm, unsigned int source_fd)
- 	ret = 0;
- 
- out_source_vcpu:
--	sev_unlock_vcpus_for_migration(source_kvm);
-+	kvm_unlock_all_vcpus(source_kvm);
- out_dst_vcpu:
--	sev_unlock_vcpus_for_migration(kvm);
-+	kvm_unlock_all_vcpus(kvm);
- out_dst_cgroup:
- 	/* Operates on the source on success, on the destination on failure.  */
- 	if (charged)
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index 10d6652c7aa0..a6140415c693 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -1016,6 +1016,7 @@ static inline struct kvm_vcpu *kvm_get_vcpu_by_id(struct kvm *kvm, int id)
- void kvm_destroy_vcpus(struct kvm *kvm);
- 
- int kvm_trylock_all_vcpus(struct kvm *kvm);
-+int kvm_lock_all_vcpus(struct kvm *kvm);
- void kvm_unlock_all_vcpus(struct kvm *kvm);
- 
- void vcpu_load(struct kvm_vcpu *vcpu);
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index 834f08dfa24c..9211b07b0565 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -1392,6 +1392,31 @@ int kvm_trylock_all_vcpus(struct kvm *kvm)
- }
- EXPORT_SYMBOL_GPL(kvm_trylock_all_vcpus);
- 
-+/*
-+ * Lock all of the VM's vCPUs.
-+ * Assumes that the kvm->lock is held.
-+ * Returns -EINTR if the process is killed.
-+ */
-+int kvm_lock_all_vcpus(struct kvm *kvm)
-+{
-+	struct kvm_vcpu *vcpu;
-+	unsigned long i, j;
-+
-+	kvm_for_each_vcpu(i, vcpu, kvm)
-+		if (mutex_lock_killable_nest_lock(&vcpu->mutex, &kvm->lock))
-+			goto out_unlock;
-+	return 0;
-+
-+out_unlock:
-+	kvm_for_each_vcpu(j, vcpu, kvm) {
-+		if (i == j)
-+			break;
-+		mutex_unlock(&vcpu->mutex);
-+	}
-+	return -EINTR;
-+}
-+EXPORT_SYMBOL_GPL(kvm_lock_all_vcpus);
-+
- void kvm_unlock_all_vcpus(struct kvm *kvm)
- {
- 	struct kvm_vcpu *vcpu;
--- 
-2.46.0
+
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: attempting to guess base-commit...
+ Base: tags/v6.15-rc1-23-g0d0947766d87 (exact match)
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for 20250430074848.539-1-kernel@airkyi.com:
+
+arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dtb: /dp@fec00000: failed to match any schema with compatible: ['rockchip,rk3399-cdn-dp']
+arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dtb: pmic@20 (rockchip,rk809): 'pmic-reset-func' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/mfd/rockchip,rk817.yaml#
+arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dtb: tcs4525@1c (tcs,tcs4525): Unevaluated properties are not allowed ('regulator-compatible', 'regulator-initial-state' were unexpected)
+	from schema $id: http://devicetree.org/schemas/regulator/fcs,fan53555.yaml#
+arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dtb: tcs4526@10 (tcs,tcs4525): Unevaluated properties are not allowed ('regulator-compatible', 'regulator-initial-state' were unexpected)
+	from schema $id: http://devicetree.org/schemas/regulator/fcs,fan53555.yaml#
+arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dtb: /syscon@ff770000/pcie-phy: failed to match any schema with compatible: ['rockchip,rk3399-pcie-phy']
+arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dtb: /phy@ff7c0000: failed to match any schema with compatible: ['rockchip,rk3399-typec-phy']
+arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dtb: /phy@ff800000: failed to match any schema with compatible: ['rockchip,rk3399-typec-phy']
+arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dtb: pmic: vsel1-gpio: {'rockchip,pins': [[1, 17, 0, 169]], 'phandle': 117} is not of type 'array'
+	from schema $id: http://devicetree.org/schemas/gpio/gpio-consumer.yaml#
+arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dtb: pmic: vsel2-gpio: {'rockchip,pins': [[1, 14, 0, 169]], 'phandle': 118} is not of type 'array'
+	from schema $id: http://devicetree.org/schemas/gpio/gpio-consumer.yaml#
+
+
+
+
 
 
