@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 525C5C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 16:04:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F75AC3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 16:04:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J9mUzm0OMaK26vcTcId8UypTlcCR4Q4d++0Ws1yzE8Q=; b=okwLw5kel2Y+f1QeqXz+r4PODy
-	AmQHxR11HUB+N7pQKRvaGmDzfifHXThl9Xsn/q4Qm5KPXrLC1sbv5yPkmc0VE30lVt4laInSLmxqG
-	rC8KKP/NAymC2sJPxEfc6JIy8b/yWRyLRaoP+ADTVYlOZ30jC9ekEO0+mVdkfmOke3VNZ3SyaTyMg
-	Ujg3KrKR2/JEfaabDQoafB7y5NmOVCz2cNKrPuTlJ9dhFoerlQvMfKH4gTtu4WBZ/dvk2gr6b18tP
-	QrCq/j7F1ZXP7noe0/+aXnleL/A1OYPNfqpTKaHtcLtkPOa9fIIR916BtBkZI+oOFW9tNSBxkjvoP
-	S6tbHveQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Yi48UEdrlYG1MKx6ek9lxCC8DQd1piRBM7J6gtIu36U=; b=Fi6kD583OOdSmix+wcTTotGrBe
+	Dh7cTmABk91WkbRt0I9fLKwTM54l1kUYBs1q4n/+s/ie0xae7oUYtu+qMsMXDyb42riUgogTa5iJr
+	PaADwe1ZoSzZav2O5ll5vNtclOO/6X1BWty+MDG7Uvvs6ltxnTxpe2YPw1eP8b9g8spRr9q7Oi0DQ
+	1rS39pQCZJ0qW+PnyOLOfcBra8ZWugceqJQAoB4AgQmwc63+q4biFTP4XQVRt990h/1hRVaQN4Nc+
+	jiDko74qd6aaI7b/jaWbFoufdYsxu6RFvCoiALOyhRzXHUyiSqmnrw9aHJUzgBziuGNdU78TcEy/o
+	tQygDENg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA9ue-0000000DMZX-121b;
-	Wed, 30 Apr 2025 16:03:56 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA9ZE-0000000DJuV-3MPP
+	id 1uA9ug-0000000DMbR-0Nzv;
+	Wed, 30 Apr 2025 16:03:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uA9ff-0000000DKlN-1uIT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 15:41:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2BEF8A4AA41;
-	Wed, 30 Apr 2025 15:36:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B85AC4CEE7;
-	Wed, 30 Apr 2025 15:41:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746027707;
-	bh=t3Uy1BtGwRmWTleefFwzwLEd+DTXVI1qrt1CFuU5vhY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sYMmM/96Ea5WB/UvivqqMgPKi50QLTkUGDOlUIy8mwSv8AYlnTHcebGdMJlGrm5I6
-	 poHKYrdkKnHyAYuUBE7nu1gKhpcHTZbAs1Y1YVsulkzKbrBRtnijB/6VXXw1PYtAzA
-	 VnhHz91fh02nYKhlA7IAwQGMLluYkCOJunjViNaP/RcSDb8vEV+RwQcZKG56FgPGwL
-	 ZO+FnTUv8Zu59RED36Xj/HRIUw+0S2GL8BAJqk0CO/XglbIgvlCPGyvepALRhEMi01
-	 A29hzM7jzpG0WVStsQYbvZtWvcFXpsm9Wes9S3rIStawxDCGKm+Jx+IyXowYzzzPAL
-	 yt4MFdxt2J5WA==
-Date: Wed, 30 Apr 2025 18:41:43 +0300
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: Stefano Garzarella <sgarzare@redhat.com>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Peter Huewe <peterhuewe@gmx.de>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Jens Wiklander <jens.wiklander@linaro.org>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Naveen N Rao <naveen@kernel.org>,
-	Nicholas Piggin <npiggin@gmail.com>, linuxppc-dev@lists.ozlabs.org,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	James Bottomley <James.Bottomley@hansenpartnership.com>,
-	linux-integrity@vger.kernel.org,
+	Wed, 30 Apr 2025 15:48:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 38DB01063;
+	Wed, 30 Apr 2025 08:48:17 -0700 (PDT)
+Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C61703F5A1;
+	Wed, 30 Apr 2025 08:48:22 -0700 (PDT)
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: Mike Leach <mike.leach@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Suzuki.Poulose@arm.com,
+	leo.yan@arm.com,
+	James Clark <james.clark@linaro.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org,
-	Sumit Garg <sumit.garg@kernel.org>, linux-kernel@vger.kernel.org,
-	Jason Gunthorpe <jgg@ziepe.ca>
-Subject: Re: [PATCH v3 2/4] tpm: support devices with synchronous send()
-Message-ID: <aBJEt41g_T7Thm6s@kernel.org>
-References: <20250414145653.239081-1-sgarzare@redhat.com>
- <20250414145653.239081-3-sgarzare@redhat.com>
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: Re: [PATCH v4 0/7] coresight: Clear self hosted claim tag on probe
+Date: Wed, 30 Apr 2025 16:48:14 +0100
+Message-ID: <174602806438.102450.17012321873232714214.b4-ty@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250325-james-coresight-claim-tags-v4-0-dfbd3822b2e5@linaro.org>
+References: <20250325-james-coresight-claim-tags-v4-0-dfbd3822b2e5@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250414145653.239081-3-sgarzare@redhat.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_084148_966304_2697E6CE 
-X-CRM114-Status: GOOD (  27.77  )
+X-CRM114-CacheID: sfid-20250430_084827_537018_C88C1D63 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,90 +74,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 14, 2025 at 04:56:51PM +0200, Stefano Garzarella wrote:
-> From: Stefano Garzarella <sgarzare@redhat.com>
-> 
-> Some devices do not support interrupts and provide a single synchronous
-> operation to send the command and receive the response on the same buffer.
-> 
-> Currently, these types of drivers must use an internal buffer where they
-> temporarily store the response between .send() and recv() calls.
-> 
-> Introduce a new flag (TPM_CHIP_FLAG_SYNC) to support synchronous send().
-> If that flag is set by the driver, tpm_try_transmit() will use the send()
-> callback to send the command and receive the response on the same buffer
-> synchronously. In that case send() return the number of bytes of the
-> response on success, or -errno on failure.
-> 
-> Suggested-by: Jason Gunthorpe <jgg@ziepe.ca>
-> Suggested-by: Jarkko Sakkinen <jarkko@kernel.org>
-> Signed-off-by: Stefano Garzarella <sgarzare@redhat.com>
-> ---
-> v3:
-> - fixed comment style [Jarkko]
-> - renamend `out_send_sync` label to `out_sync` [Jarkko]
-> ---
->  include/linux/tpm.h              |  1 +
->  drivers/char/tpm/tpm-interface.c | 20 +++++++++++++++++---
->  2 files changed, 18 insertions(+), 3 deletions(-)
-> 
-> diff --git a/include/linux/tpm.h b/include/linux/tpm.h
-> index 2e38edd5838c..0e9746dc9d30 100644
-> --- a/include/linux/tpm.h
-> +++ b/include/linux/tpm.h
-> @@ -350,6 +350,7 @@ enum tpm_chip_flags {
->  	TPM_CHIP_FLAG_SUSPENDED			= BIT(8),
->  	TPM_CHIP_FLAG_HWRNG_DISABLED		= BIT(9),
->  	TPM_CHIP_FLAG_DISABLE			= BIT(10),
-> +	TPM_CHIP_FLAG_SYNC			= BIT(11),
->  };
->  
->  #define to_tpm_chip(d) container_of(d, struct tpm_chip, dev)
-> diff --git a/drivers/char/tpm/tpm-interface.c b/drivers/char/tpm/tpm-interface.c
-> index 3b6ddcdb4051..3dc06836f932 100644
-> --- a/drivers/char/tpm/tpm-interface.c
-> +++ b/drivers/char/tpm/tpm-interface.c
-> @@ -114,8 +114,19 @@ static ssize_t tpm_try_transmit(struct tpm_chip *chip, void *buf, size_t bufsiz)
->  		return rc;
->  	}
->  
-> -	/* A sanity check. send() should just return zero on success e.g.
-> -	 * not the command length.
-> +	/*
-> +	 * Synchronous devices return the response directly during the send()
-> +	 * call in the same buffer.
-> +	 */
-> +	if (chip->flags & TPM_CHIP_FLAG_SYNC) {
-> +		len = rc;
-> +		rc = 0;
-> +		goto out_sync;
-> +	}
-> +
-> +	/*
-> +	 * A sanity check. send() of asynchronous devices should just return
-> +	 * zero on success e.g. not the command length.
->  	 */
->  	if (rc > 0) {
->  		dev_warn(&chip->dev,
-> @@ -151,7 +162,10 @@ static ssize_t tpm_try_transmit(struct tpm_chip *chip, void *buf, size_t bufsiz)
->  	if (len < 0) {
->  		rc = len;
->  		dev_err(&chip->dev, "tpm_transmit: tpm_recv: error %d\n", rc);
-> -	} else if (len < TPM_HEADER_SIZE || len != be32_to_cpu(header->length))
-> +		return rc;
-> +	}
-> +out_sync:
-> +	if (len < TPM_HEADER_SIZE || len != be32_to_cpu(header->length))
->  		rc = -EFAULT;
->  
->  	return rc ? rc : len;
-> -- 
-> 2.49.0
-> 
 
-I think this is ok.
+On Tue, 25 Mar 2025 11:58:45 +0000, James Clark wrote:
+> I've gotten stuck a few times with unusable Coresight after a warm boot
+> due to lingering claim tags, especially when testing the Coresight
+> panic patchsets.
+> 
+> This change does some tidy ups, adds some debug messages and clears the
+> self hosted claim tag on probe. The last two commits are unrelated
+> tidyups but they touch some of the same functions so to avoid extra
+> conflicts I'm including them here.
+> 
+> [...]
 
-Reviewed-by: Jarkko Sakkinen <jarkko@kernel.org>
+Applied, thanks!
 
-BR, Jarkko
+[1/7] coresight: Convert tag clear function to take a struct csdev_access
+      https://git.kernel.org/coresight/c/fc7fed6f
+[2/7] coresight: Only check bottom two claim bits
+      https://git.kernel.org/coresight/c/a4e65842
+[3/7] coresight: Add claim tag warnings and debug messages
+      https://git.kernel.org/coresight/c/a244a18c
+[4/7] coresight: etm3x: Convert raw base pointer to struct coresight access
+      https://git.kernel.org/coresight/c/a1b0e77c
+[5/7] coresight: Clear self hosted claim tag on probe
+      https://git.kernel.org/coresight/c/7cd63686
+[6/7] coresight: Remove inlines from static function definitions
+      https://git.kernel.org/coresight/c/48a5126b
+[7/7] coresight: Remove extern from function declarations
+      https://git.kernel.org/coresight/c/e6e6b692
+
+Best regards,
+-- 
+Suzuki K Poulose <suzuki.poulose@arm.com>
 
