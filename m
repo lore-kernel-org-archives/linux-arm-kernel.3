@@ -4,84 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3C74C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 06:20:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9174FC369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 06:25:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tx2RU4mYzFpV71SR5xjVuK8naKNCoMEJ8PxcPvgudp4=; b=EORh7jtRbUdLqnOxxc1IdrJTeP
-	KHQcCSlLTPvu8auxG1f3qrFYzjvfBwp/IcBCGco8Rqf5IVe122mJDeEeQchb1p5bgkXazaM8Lej2C
-	xh5+eNr1h9k6/XuiHZkoq1XXQXLmjHZDQO220BsPu9O/Xy5kqhuus6SpJatlcSWdOEuepr5g7asGr
-	Irhw4aAkW5JYk7R9fJ9E/1uOJUYgwImpkgmzEfoo9Ei+6IP3nGHKwc7c1zIlRExHyRQJh5mWvadGP
-	o2azCYgwTOUipmpS+duuLpMTAMRP09rw1//9m1dc+QFA7SiRRzshrJ6y2TkVKJOfjs9uRPj5rd6i7
-	RF2HzL3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TicTVOmEB3gnVmsnSxlET08PtUTAw7ExU8QRHiIKy9o=; b=soqkRwRKyp48mbvvMFmYps2eYr
+	Maan4yFLncoCE3ebftVtIalH3l9+lE9aa3LB3G8/PJGZaxSGl1WYYXxSSJESLhmO3GTGUIzItnwM+
+	u60tb3Qj85HNlEsxz6TxErtrG0o13k2TeSFXQI+k/yNgFwPHza7TLzFD4sD/gRJ6SdFrHKorwSSTt
+	j75mZH9lXHXi+urQ5zuqltv8/4B+XtSWgPiLsrr9Ydqwcae+quioJn0I3QD8O9qFcHORulcxO1h/m
+	8sYmTGpvmmWuAxCxo1wSSN5RJLVi65QxD40OiJpmakvGR5s0c8cvshHBqK8XL+7gthjbMRm/lhg3A
+	HXD5a7jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA0ns-0000000BqyB-3JgL;
-	Wed, 30 Apr 2025 06:20:20 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1uA0sV-0000000BrMa-36dQ;
+	Wed, 30 Apr 2025 06:25:07 +0000
+Received: from out-189.mta0.migadu.com ([91.218.175.189])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA0lw-0000000Bqln-3gVv
+	id 1uA0qY-0000000Br9x-40s3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 06:18:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1745993901; x=1777529901;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=PYkZX74d10lvPGrseB5FE9s3+bTtnF0aDOcSfLFSv0w=;
-  b=e9g9fz2rvJJQVwFQma6mHkmrz1PnzcuTnS6nDoFp1y/88OjIU5+9f7hR
-   tmAllqCy6i9SHpyWP/68kE1fZwKfkxpGURLaOckwPL/RiqgieiyxiO5Xj
-   Bvu9hdgP85uJytHPdguyWGBZ/3bkDEf/Ms2MYv38AmaNZstgk6vilisVu
-   2jL6FOUWUrK0ML8IjhEq558T0cU8Qw6ztL1nBFSQo6/nwp5j1scIEh6qa
-   okdS04iugaEUS10C7aW2BQfao00It+GYazsXrMbrpyLW2jdGliW5sT90J
-   TTgPEVLvcgKqqKMSdSqIi3IMSzf1fK8yTo1owqFqD3C+paUEWS2PgjOZK
-   A==;
-X-CSE-ConnectionGUID: FKvDvKKpQmOIzWFscAGE7w==
-X-CSE-MsgGUID: MPeV+4dqQRSlLenTZFn7Yg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11418"; a="47521362"
-X-IronPort-AV: E=Sophos;i="6.15,251,1739865600"; 
-   d="scan'208";a="47521362"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Apr 2025 23:18:20 -0700
-X-CSE-ConnectionGUID: JZDNPxd7Si6aYG0rC+r71w==
-X-CSE-MsgGUID: v1JASB2zTtuddJoWKG34Iw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,251,1739865600"; 
-   d="scan'208";a="133929263"
-Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
-  by orviesa006.jf.intel.com with ESMTP; 29 Apr 2025 23:18:12 -0700
-Received: from kbuild by 1992f890471c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uA0lm-0003Dv-0B;
-	Wed, 30 Apr 2025 06:18:10 +0000
-Date: Wed, 30 Apr 2025 14:17:42 +0800
-From: kernel test robot <lkp@intel.com>
-To: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	ryan.roberts@arm.com, david@redhat.com, willy@infradead.org,
-	linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-	catalin.marinas@arm.com, will@kernel.org, Liam.Howlett@oracle.com,
-	lorenzo.stoakes@oracle.com, vbabka@suse.cz, jannh@google.com,
-	anshuman.khandual@arm.com, peterx@redhat.com, joey.gouly@arm.com,
-	ioworker0@gmail.com, baohua@kernel.org, kevin.brodsky@arm.com,
-	quic_zhenhuah@quicinc.com, christophe.leroy@csgroup.eu,
-	yangyicong@hisilicon.com, linux-arm-kernel@lists.infradead.org,
-	namit@vmware.com, hughd@google.com, yang@os.amperecomputing.com,
-	ziy@nvidia.com, Dev Jain <dev.jain@arm.com>
-Subject: Re: [PATCH v2 6/7] mm: Batch around can_change_pte_writable()
-Message-ID: <202504301306.AU2G1yvg-lkp@intel.com>
-References: <20250429052336.18912-7-dev.jain@arm.com>
+	Wed, 30 Apr 2025 06:23:09 +0000
+Message-ID: <c65c0aa0-1eb9-4ff1-ab81-87e63a3fa89a@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1745994182;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=TicTVOmEB3gnVmsnSxlET08PtUTAw7ExU8QRHiIKy9o=;
+	b=Ai9ipa+swlvk6wp6hyZxKB+55UqBgEJPAgarn6r/UgjhhL+D5PngZJkXGwJI+d4l3phYyh
+	PE71HTKiS0ULVsUSSILir4g4HXTlBXhMsV0zKCvEm23t2+10PfvU1orBDbXD5Hw/A+QULH
+	ZWFyjRt0qmGuGPq+Cy6yfNTp3R+0i7k=
+Date: Wed, 30 Apr 2025 14:22:46 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250429052336.18912-7-dev.jain@arm.com>
+Subject: Re: [PATCH v2 0/7] Optimize mprotect for large folios
+Content-Language: en-US
+To: Dev Jain <dev.jain@arm.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: akpm@linux-foundation.org, ryan.roberts@arm.com, david@redhat.com,
+ willy@infradead.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ catalin.marinas@arm.com, will@kernel.org, Liam.Howlett@oracle.com,
+ vbabka@suse.cz, jannh@google.com, anshuman.khandual@arm.com,
+ peterx@redhat.com, joey.gouly@arm.com, ioworker0@gmail.com,
+ baohua@kernel.org, kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
+ christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
+ linux-arm-kernel@lists.infradead.org, namit@vmware.com, hughd@google.com,
+ yang@os.amperecomputing.com, ziy@nvidia.com
+References: <20250429052336.18912-1-dev.jain@arm.com>
+ <ba73873b-1b26-44cd-ac0f-76e33e8fc2cf@linux.dev>
+ <05c3cd68-0d75-4682-a51c-59307e2b2e78@arm.com>
+ <9d995850-d0c4-4e02-8547-74a9723e0405@lucifer.local>
+ <11f86b1c-a12e-4cd3-8b4e-a8a34c64fbf1@arm.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Lance Yang <lance.yang@linux.dev>
+In-Reply-To: <11f86b1c-a12e-4cd3-8b4e-a8a34c64fbf1@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_231821_021059_47DE81CA 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20250429_232307_760596_4424D0A0 
+X-CRM114-Status: GOOD (  23.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,89 +80,301 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dev,
-
-kernel test robot noticed the following build warnings:
-
-[auto build test WARNING on akpm-mm/mm-everything]
-[also build test WARNING on arm64/for-next/core linus/master v6.15-rc4 next-20250429]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Dev-Jain/mm-Refactor-code-in-mprotect/20250429-133151
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm.git mm-everything
-patch link:    https://lore.kernel.org/r/20250429052336.18912-7-dev.jain%40arm.com
-patch subject: [PATCH v2 6/7] mm: Batch around can_change_pte_writable()
-config: arm64-randconfig-002-20250430 (https://download.01.org/0day-ci/archive/20250430/202504301306.AU2G1yvg-lkp@intel.com/config)
-compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project f819f46284f2a79790038e1f6649172789734ae8)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250430/202504301306.AU2G1yvg-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202504301306.AU2G1yvg-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> mm/mprotect.c:46:15: warning: unused variable 'page' [-Wunused-variable]
-      46 |         struct page *page;
-         |                      ^~~~
-   mm/mprotect.c:226:51: error: use of undeclared identifier 'folio'
-     226 |                             can_change_ptes_writable(vma, addr, ptent, folio, 1))
-         |                                                                        ^
-   1 warning and 1 error generated.
 
 
-vim +/page +46 mm/mprotect.c
+On 2025/4/30 13:42, Dev Jain wrote:
+> 
+> 
+> On 29/04/25 4:11 pm, Lorenzo Stoakes wrote:
+>> FWIW can confirm the same thing. Lance's fixes sort most of it out, 
+>> but I also
+>> get this error:
 
-36f881883c5794 Kirill A. Shutemov 2015-06-24  42  
-695112a1385b39 Dev Jain           2025-04-29  43  bool can_change_ptes_writable(struct vm_area_struct *vma, unsigned long addr,
-695112a1385b39 Dev Jain           2025-04-29  44  			      pte_t pte, struct folio *folio, unsigned int nr)
-64fe24a3e05e5f David Hildenbrand  2022-06-14  45  {
-64fe24a3e05e5f David Hildenbrand  2022-06-14 @46  	struct page *page;
-64fe24a3e05e5f David Hildenbrand  2022-06-14  47  
-7ea7e333842ed5 David Hildenbrand  2022-11-08  48  	if (WARN_ON_ONCE(!(vma->vm_flags & VM_WRITE)))
-7ea7e333842ed5 David Hildenbrand  2022-11-08  49  		return false;
-64fe24a3e05e5f David Hildenbrand  2022-06-14  50  
-7ea7e333842ed5 David Hildenbrand  2022-11-08  51  	/* Don't touch entries that are not even readable. */
-d84887739d5c98 Nadav Amit         2022-11-08  52  	if (pte_protnone(pte))
-64fe24a3e05e5f David Hildenbrand  2022-06-14  53  		return false;
-64fe24a3e05e5f David Hildenbrand  2022-06-14  54  
-64fe24a3e05e5f David Hildenbrand  2022-06-14  55  	/* Do we need write faults for softdirty tracking? */
-f38ee285191813 Barry Song         2024-06-08  56  	if (pte_needs_soft_dirty_wp(vma, pte))
-64fe24a3e05e5f David Hildenbrand  2022-06-14  57  		return false;
-64fe24a3e05e5f David Hildenbrand  2022-06-14  58  
-64fe24a3e05e5f David Hildenbrand  2022-06-14  59  	/* Do we need write faults for uffd-wp tracking? */
-64fe24a3e05e5f David Hildenbrand  2022-06-14  60  	if (userfaultfd_pte_wp(vma, pte))
-64fe24a3e05e5f David Hildenbrand  2022-06-14  61  		return false;
-64fe24a3e05e5f David Hildenbrand  2022-06-14  62  
-64fe24a3e05e5f David Hildenbrand  2022-06-14  63  	if (!(vma->vm_flags & VM_SHARED)) {
-64fe24a3e05e5f David Hildenbrand  2022-06-14  64  		/*
-7ea7e333842ed5 David Hildenbrand  2022-11-08  65  		 * Writable MAP_PRIVATE mapping: We can only special-case on
-7ea7e333842ed5 David Hildenbrand  2022-11-08  66  		 * exclusive anonymous pages, because we know that our
-7ea7e333842ed5 David Hildenbrand  2022-11-08  67  		 * write-fault handler similarly would map them writable without
-7ea7e333842ed5 David Hildenbrand  2022-11-08  68  		 * any additional checks while holding the PT lock.
-64fe24a3e05e5f David Hildenbrand  2022-06-14  69  		 */
-695112a1385b39 Dev Jain           2025-04-29  70  		if (!folio)
-695112a1385b39 Dev Jain           2025-04-29  71  			folio = vm_normal_folio(vma, addr, pte);
-695112a1385b39 Dev Jain           2025-04-29  72  		return folio_test_anon(folio) && !folio_maybe_mapped_shared(folio);
-64fe24a3e05e5f David Hildenbrand  2022-06-14  73  	}
-64fe24a3e05e5f David Hildenbrand  2022-06-14  74  
-fce831c92092ad David Hildenbrand  2024-05-22  75  	VM_WARN_ON_ONCE(is_zero_pfn(pte_pfn(pte)) && pte_dirty(pte));
-fce831c92092ad David Hildenbrand  2024-05-22  76  
-7ea7e333842ed5 David Hildenbrand  2022-11-08  77  	/*
-7ea7e333842ed5 David Hildenbrand  2022-11-08  78  	 * Writable MAP_SHARED mapping: "clean" might indicate that the FS still
-7ea7e333842ed5 David Hildenbrand  2022-11-08  79  	 * needs a real write-fault for writenotify
-7ea7e333842ed5 David Hildenbrand  2022-11-08  80  	 * (see vma_wants_writenotify()). If "dirty", the assumption is that the
-7ea7e333842ed5 David Hildenbrand  2022-11-08  81  	 * FS was already notified and we can simply mark the PTE writable
-7ea7e333842ed5 David Hildenbrand  2022-11-08  82  	 * just like the write-fault handler would do.
-7ea7e333842ed5 David Hildenbrand  2022-11-08  83  	 */
-d84887739d5c98 Nadav Amit         2022-11-08  84  	return pte_dirty(pte);
-64fe24a3e05e5f David Hildenbrand  2022-06-14  85  }
-64fe24a3e05e5f David Hildenbrand  2022-06-14  86  
+Good catch!
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+>>
+>> mm/mprotect.c: In function ‘can_change_ptes_writable’:
+>> mm/mprotect.c:46:22: error: unused variable ‘page’ [-Werror=unused- 
+>> variable]
+>>     46 |         struct page *page;
+>>        |                      ^~~~
+>>
+>> So you also need to remove this unused variable at the stop of
+>> can_change_ptes_writable().
+> 
+> Strange that my build didn't catch this.
+
+Well, to catch unused variable warnings with GCC, enable stricter
+checks by passing -Wunused-variable via KCFLAGS, and use 
+-Werror=unused-variable
+to force the build to fail if any variable is declared but unused:
+
+make -j$(nproc) KCFLAGS="-Wunused-variable -Werror=unused-variable"
+
+Thanks,
+Lance
+
+
+> 
+>>
+>> Cheers, Lorenzo
+>>
+>> On Tue, Apr 29, 2025 at 02:32:59PM +0530, Dev Jain wrote:
+>>>
+>>>
+>>> On 29/04/25 12:36 pm, Lance Yang wrote:
+>>>> Hey Dev,
+>>>>
+>>>> Hmm... I also hit the same compilation errors:
+>>>>
+>>>> In file included from ./include/linux/kasan.h:37,
+>>>>                    from ./include/linux/slab.h:260,
+>>>>                    from ./include/linux/crypto.h:19,
+>>>>                    from arch/x86/kernel/asm-offsets.c:9:
+>>>> ./include/linux/pgtable.h: In function ‘modify_prot_start_ptes’:
+>>>> ./include/linux/pgtable.h:905:15: error: implicit declaration of
+>>>> function ‘ptep_modify_prot_start’
+>>>> [-Werror=implicit-function-declaration]
+>>>>     905 |         pte = ptep_modify_prot_start(vma, addr, ptep);
+>>>>         |               ^~~~~~~~~~~~~~~~~~~~~~
+>>>> ./include/linux/pgtable.h:905:15: error: incompatible types when
+>>>> assigning to type ‘pte_t’ from type ‘int’
+>>>> ./include/linux/pgtable.h:909:27: error: incompatible types when
+>>>> assigning to type ‘pte_t’ from type ‘int’
+>>>>     909 |                 tmp_pte = ptep_modify_prot_start(vma, 
+>>>> addr, ptep);
+>>>>         |                           ^~~~~~~~~~~~~~~~~~~~~~
+>>>> ./include/linux/pgtable.h: In function ‘modify_prot_commit_ptes’:
+>>>> ./include/linux/pgtable.h:925:17: error: implicit declaration of
+>>>> function ‘ptep_modify_prot_commit’
+>>>> [-Werror=implicit-function-declaration]
+>>>>     925 |                 ptep_modify_prot_commit(vma, addr, ptep,
+>>>> old_pte, pte);
+>>>>         |                 ^~~~~~~~~~~~~~~~~~~~~~~
+>>>> ./include/linux/pgtable.h: At top level:
+>>>> ./include/linux/pgtable.h:1360:21: error: conflicting types for
+>>>> ‘ptep_modify_prot_start’; have ‘pte_t(struct vm_area_struct *, long
+>>>> unsigned int,  pte_t *)’
+>>>>    1360 | static inline pte_t ptep_modify_prot_start(struct
+>>>> vm_area_struct *vma,
+>>>>         |                     ^~~~~~~~~~~~~~~~~~~~~~
+>>>> ./include/linux/pgtable.h:905:15: note: previous implicit 
+>>>> declaration of
+>>>> ‘ptep_modify_prot_start’ with type ‘int()’
+>>>>     905 |         pte = ptep_modify_prot_start(vma, addr, ptep);
+>>>>         |               ^~~~~~~~~~~~~~~~~~~~~~
+>>>> ./include/linux/pgtable.h:1371:20: warning: conflicting types for
+>>>> ‘ptep_modify_prot_commit’; have ‘void(struct vm_area_struct *, long
+>>>> unsigned int,  pte_t *, pte_t,  pte_t)’
+>>>>    1371 | static inline void ptep_modify_prot_commit(struct
+>>>> vm_area_struct *vma,
+>>>>         |                    ^~~~~~~~~~~~~~~~~~~~~~~
+>>>> ./include/linux/pgtable.h:1371:20: error: static declaration of
+>>>> ‘ptep_modify_prot_commit’ follows non-static declaration
+>>>> ./include/linux/pgtable.h:925:17: note: previous implicit 
+>>>> declaration of
+>>>> ‘ptep_modify_prot_commit’ with type ‘void(struct vm_area_struct *, long
+>>>> unsigned int,  pte_t *, pte_t,  pte_t)’
+>>>>     925 |                 ptep_modify_prot_commit(vma, addr, ptep,
+>>>> old_pte, pte);
+>>>>         |                 ^~~~~~~~~~~~~~~~~~~~~~~
+>>>>     CC /home/runner/work/mm-test-robot/mm-test-robot/linux/tools/ 
+>>>> objtool/
+>>>> libstring.o
+>>>>     CC /home/runner/work/mm-test-robot/mm-test-robot/linux/tools/ 
+>>>> objtool/
+>>>> libctype.o
+>>>>     CC /home/runner/work/mm-test-robot/mm-test-robot/linux/tools/ 
+>>>> objtool/
+>>>> str_error_r.o
+>>>>     CC /home/runner/work/mm-test-robot/mm-test-robot/linux/tools/ 
+>>>> objtool/
+>>>> librbtree.o
+>>>> cc1: some warnings being treated as errors
+>>>> make[2]: *** [scripts/Makefile.build:98: arch/x86/kernel/asm-offsets.s]
+>>>> Error 1
+>>>> make[1]: *** [/home/runner/work/mm-test-robot/mm-test-robot/linux/
+>>>> Makefile:1280: prepare0] Error 2
+>>>> make[1]: *** Waiting for unfinished jobs....
+>>>>     LD /home/runner/work/mm-test-robot/mm-test-robot/linux/tools/ 
+>>>> objtool/
+>>>> objtool-in.o
+>>>>     LINK /home/runner/work/mm-test-robot/mm-test-robot/linux/tools/
+>>>> objtool/objtool
+>>>> make: *** [Makefile:248: __sub-make] Error 2
+>>>>
+>>>> Well, modify_prot_start_ptes() calls ptep_modify_prot_start(), but x86
+>>>> does not define __HAVE_ARCH_PTEP_MODIFY_PROT_TRANSACTION. To avoid
+>>>> implicit declaration errors, the architecture-independent
+>>>> ptep_modify_prot_start() must be defined before 
+>>>> modify_prot_start_ptes().
+>>>>
+>>>> With the changes below, things work correctly now ;)
+>>>
+>>> Ah thanks! My bad :(
+>>>
+>>>>
+>>>> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+>>>> index 10cdb87ccecf..d9d6c49bb914 100644
+>>>> --- a/include/linux/pgtable.h
+>>>> +++ b/include/linux/pgtable.h
+>>>> @@ -895,44 +895,6 @@ static inline void wrprotect_ptes(struct mm_struct
+>>>> *mm, unsigned long addr,
+>>>>    }
+>>>>    #endif
+>>>>
+>>>> -/* See the comment for ptep_modify_prot_start */
+>>>> -#ifndef modify_prot_start_ptes
+>>>> -static inline pte_t modify_prot_start_ptes(struct vm_area_struct *vma,
+>>>> -        unsigned long addr, pte_t *ptep, unsigned int nr)
+>>>> -{
+>>>> -    pte_t pte, tmp_pte;
+>>>> -
+>>>> -    pte = ptep_modify_prot_start(vma, addr, ptep);
+>>>> -    while (--nr) {
+>>>> -        ptep++;
+>>>> -        addr += PAGE_SIZE;
+>>>> -        tmp_pte = ptep_modify_prot_start(vma, addr, ptep);
+>>>> -        if (pte_dirty(tmp_pte))
+>>>> -            pte = pte_mkdirty(pte);
+>>>> -        if (pte_young(tmp_pte))
+>>>> -            pte = pte_mkyoung(pte);
+>>>> -    }
+>>>> -    return pte;
+>>>> -}
+>>>> -#endif
+>>>> -
+>>>> -/* See the comment for ptep_modify_prot_commit */
+>>>> -#ifndef modify_prot_commit_ptes
+>>>> -static inline void modify_prot_commit_ptes(struct vm_area_struct *vma,
+>>>> unsigned long addr,
+>>>> -        pte_t *ptep, pte_t old_pte, pte_t pte, unsigned int nr)
+>>>> -{
+>>>> -    for (;;) {
+>>>> -        ptep_modify_prot_commit(vma, addr, ptep, old_pte, pte);
+>>>> -        if (--nr == 0)
+>>>> -            break;
+>>>> -        ptep++;
+>>>> -        addr += PAGE_SIZE;
+>>>> -        old_pte = pte_next_pfn(old_pte);
+>>>> -        pte = pte_next_pfn(pte);
+>>>> -    }
+>>>> -}
+>>>> -#endif
+>>>> -
+>>>>    /*
+>>>>     * On some architectures hardware does not set page access bit when
+>>>> accessing
+>>>>     * memory page, it is responsibility of software setting this 
+>>>> bit. It
+>>>> brings
+>>>> @@ -1375,6 +1337,45 @@ static inline void 
+>>>> ptep_modify_prot_commit(struct
+>>>> vm_area_struct *vma,
+>>>>        __ptep_modify_prot_commit(vma, addr, ptep, pte);
+>>>>    }
+>>>>    #endif /* __HAVE_ARCH_PTEP_MODIFY_PROT_TRANSACTION */
+>>>> +
+>>>> +/* See the comment for ptep_modify_prot_start */
+>>>> +#ifndef modify_prot_start_ptes
+>>>> +static inline pte_t modify_prot_start_ptes(struct vm_area_struct *vma,
+>>>> +        unsigned long addr, pte_t *ptep, unsigned int nr)
+>>>> +{
+>>>> +    pte_t pte, tmp_pte;
+>>>> +
+>>>> +    pte = ptep_modify_prot_start(vma, addr, ptep);
+>>>> +    while (--nr) {
+>>>> +        ptep++;
+>>>> +        addr += PAGE_SIZE;
+>>>> +        tmp_pte = ptep_modify_prot_start(vma, addr, ptep);
+>>>> +        if (pte_dirty(tmp_pte))
+>>>> +            pte = pte_mkdirty(pte);
+>>>> +        if (pte_young(tmp_pte))
+>>>> +            pte = pte_mkyoung(pte);
+>>>> +    }
+>>>> +    return pte;
+>>>> +}
+>>>> +#endif
+>>>> +
+>>>> +/* See the comment for ptep_modify_prot_commit */
+>>>> +#ifndef modify_prot_commit_ptes
+>>>> +static inline void modify_prot_commit_ptes(struct vm_area_struct *vma,
+>>>> unsigned long addr,
+>>>> +        pte_t *ptep, pte_t old_pte, pte_t pte, unsigned int nr)
+>>>> +{
+>>>> +    for (;;) {
+>>>> +        ptep_modify_prot_commit(vma, addr, ptep, old_pte, pte);
+>>>> +        if (--nr == 0)
+>>>> +            break;
+>>>> +        ptep++;
+>>>> +        addr += PAGE_SIZE;
+>>>> +        old_pte = pte_next_pfn(old_pte);
+>>>> +        pte = pte_next_pfn(pte);
+>>>> +    }
+>>>> +}
+>>>> +#endif
+>>>> +
+>>>>    #endif /* CONFIG_MMU */
+>>>>
+>>>>    /*
+>>>> -- 
+>>>>
+>>>> Thanks,
+>>>> Lance
+>>>>
+>>>> On 2025/4/29 13:23, Dev Jain wrote:
+>>>>> This patchset optimizes the mprotect() system call for large folios
+>>>>> by PTE-batching.
+>>>>>
+>>>>> We use the following test cases to measure performance, mprotect()'ing
+>>>>> the mapped memory to read-only then read-write 40 times:
+>>>>>
+>>>>> Test case 1: Mapping 1G of memory, touching it to get PMD-THPs, then
+>>>>> pte-mapping those THPs
+>>>>> Test case 2: Mapping 1G of memory with 64K mTHPs
+>>>>> Test case 3: Mapping 1G of memory with 4K pages
+>>>>>
+>>>>> Average execution time on arm64, Apple M3:
+>>>>> Before the patchset:
+>>>>> T1: 7.9 seconds   T2: 7.9 seconds   T3: 4.2 seconds
+>>>>>
+>>>>> After the patchset:
+>>>>> T1: 2.1 seconds   T2: 2.2 seconds   T3: 4.2 seconds
+>>>>>
+>>>>> Observing T1/T2 and T3 before the patchset, we also remove the 
+>>>>> regression
+>>>>> introduced by ptep_get() on a contpte block. And, for large folios 
+>>>>> we get
+>>>>> an almost 74% performance improvement.
+>>>>>
+>>>>> v1->v2:
+>>>>>    - Rebase onto mm-unstable (6ebffe676fcf: util_macros.h: make the
+>>>>> header more resilient)
+>>>>>    - Abridge the anon-exclusive condition (Lance Yang)
+>>>>>
+>>>>> Dev Jain (7):
+>>>>>     mm: Refactor code in mprotect
+>>>>>     mm: Optimize mprotect() by batch-skipping PTEs
+>>>>>     mm: Add batched versions of ptep_modify_prot_start/commit
+>>>>>     arm64: Add batched version of ptep_modify_prot_start
+>>>>>     arm64: Add batched version of ptep_modify_prot_commit
+>>>>>     mm: Batch around can_change_pte_writable()
+>>>>>     mm: Optimize mprotect() through PTE-batching
+>>>>>
+>>>>>    arch/arm64/include/asm/pgtable.h |  10 ++
+>>>>>    arch/arm64/mm/mmu.c              |  21 +++-
+>>>>>    include/linux/mm.h               |   4 +-
+>>>>>    include/linux/pgtable.h          |  42 ++++++++
+>>>>>    mm/gup.c                         |   2 +-
+>>>>>    mm/huge_memory.c                 |   4 +-
+>>>>>    mm/memory.c                      |   6 +-
+>>>>>    mm/mprotect.c                    | 165 +++++++++++++++++++ 
+>>>>> +-----------
+>>>>>    mm/pgtable-generic.c             |  16 ++-
+>>>>>    9 files changed, 198 insertions(+), 72 deletions(-)
+>>>>>
+>>>>
+>>>
+> 
+
 
