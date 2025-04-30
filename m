@@ -4,84 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7A60C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 12:00:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB3B9C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 12:02:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3UcOPYI5xHA81+MeKx8vYqOh/8fRohoWSLXQKfxiwQ8=; b=vHSrONU0w8HJ0VNmL04A8xTTN/
-	nalwmmUfFCTrnoRoHW+oMSRUZL4CdgeU9kjO/fyzJn6nejFcIFxhiPe/6YQqpvXOd6mdVQAYie1sf
-	xSc56c/PUygTIU8F+dF8bRU4LYXGsWkrREj+gwFB8Vwi7RBE8gXd41fCRjgWSzGYjz3BwMS6bXnYb
-	fy1ulTD6uv5nbg/8dBeopSxcENS4Wp/EAlpULyhVBSQol0rqKl1Tqkt4LyubSF9gopIqDEfSuVvIr
-	E3zEFtHYMf/xHNjk5gQ+M1EX2TKbGVO0UYlq6e/kMI9jk157bInvoasOj640m1g8Ii0Julqu85sEx
-	maa9XqYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3nXT58VHalIdvKTI4hECTuKccLjpU6kV+MXUBSaB5Ok=; b=aThOnh3RpUJCk+c/oaK+Nh12ZK
+	HUbDzpPwWSuwN799iPAfzE8Hd0Fx4pMk3W5fjdCEM7t/aEvQNhRL4JcLQ0xVdk+yuk+zEm9Imig03
+	5/NAgbRfAzDReYo5hNoJjHY+K/oCswbKDwFpPFP1ONfG9sqxW6QYwHcF/ApNrME1yxPzcpiUOetCG
+	SzlgsnBQIYNLnqjSdX4+9+sojoRA/TcaZKJwEYzXTiuwunZgZjnBjh/leONZfyRLk6fMP+oiTXpb9
+	kWL+UdrPdaC9dQB81Y5KDc42hoxQ5g7q9d1BGqsRw8iBVrk4xKSMyV2u8HMtrNQOfAnpshib5njs0
+	L+xsEy1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA66n-0000000ClYh-35Ih;
-	Wed, 30 Apr 2025 12:00:13 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA63l-0000000Ckwo-20fn
+	id 1uA68h-0000000Clm6-34d4;
+	Wed, 30 Apr 2025 12:02:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uA64S-0000000Cl3b-0YVO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 11:57:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CED2BA49DA0;
-	Wed, 30 Apr 2025 11:51:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44B75C4CEE9;
-	Wed, 30 Apr 2025 11:57:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746014224;
-	bh=P9vCVdJ7R9/tU4GWA/qWyC0kfWGOp24aFi3CXt4X9qU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=qEIHR8NRDYw4Q1xD58T1jd8uLkCvW0ZH7FN0+OeIi5/br/luL4krHvTqbbZKF8BAY
-	 U7+lNcgsiCQA5QMNa/ZeV4bz0zedu9vkGWeZ3eb4fm0QDiNKIsjlRf5w3K6Sw0IusQ
-	 e+1wtgdsQOd0fyOR8PpGhAeYXIDP5sZkSvUPNG/19qx9mL1r51p5owu6vYvmLAhBY7
-	 lXdL0XE0PizkZ1H8YV6K4Ij1eGu2eCMNnn2iXAipZ/vpCg7qYGe1VOkbJXg/QxS17a
-	 P+XaSZASgElxjnfn/xiq2IbWhu6eMktH9YCasVQBpJhoVCCV7lDB0MRxjIV8n6R+MP
-	 kjeirhZSiVpOw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uA63i-00AGFs-8s;
-	Wed, 30 Apr 2025 12:57:02 +0100
-Date: Wed, 30 Apr 2025 12:57:01 +0100
-Message-ID: <867c31j20i.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 21/22] irqchip/gic-v5: Add GICv5 IWB support
-In-Reply-To: <20250424-gicv5-host-v2-21-545edcaf012b@kernel.org>
-References: <20250424-gicv5-host-v2-0-545edcaf012b@kernel.org>
-	<20250424-gicv5-host-v2-21-545edcaf012b@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, tglx@linutronix.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, sascha.bischoff@arm.com, timothy.hayes@arm.com, Liam.Howlett@oracle.com, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Wed, 30 Apr 2025 11:57:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A6281106F;
+	Wed, 30 Apr 2025 04:57:37 -0700 (PDT)
+Received: from [10.1.33.69] (Suzukis-MBP.cambridge.arm.com [10.1.33.69])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E63E53F673;
+	Wed, 30 Apr 2025 04:57:42 -0700 (PDT)
+Message-ID: <8c1af968-0e96-42d5-a5a6-c5581eda9f3d@arm.com>
+Date: Wed, 30 Apr 2025 12:57:42 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/7] Arm CoreSight: Support AUX pause and resume
+Content-Language: en-GB
+To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@linaro.org>,
+ James Clark <james.clark@linaro.org>, Jonathan Corbet <corbet@lwn.net>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250401180708.385396-1-leo.yan@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20250401180708.385396-1-leo.yan@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_045705_651934_B5599F8F 
-X-CRM114-Status: GOOD (  31.77  )
+X-CRM114-CacheID: sfid-20250430_045748_220835_A285B028 
+X-CRM114-Status: GOOD (  18.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,109 +66,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 24 Apr 2025 11:25:32 +0100,
-Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+On 01/04/2025 19:07, Leo Yan wrote:
+> This series is to enable AUX pause and resume on Arm CoreSight.
 > 
-> The GICv5 architecture implements the Interrupt Wire Bridge (IWB) in
-> order to support wired interrupts that cannot be connected directly
-> to an IRS and instead uses the ITS to translate a wire event into
-> an IRQ signal.
+> The first patch extracts the trace unit controlling operations to two
+> functions.  These two functions will be used by AUX pause and resume.
 > 
-> An IWB is a special ITS device with its own deviceID; upon probe,
-> an IWB calls into the ITS driver to allocate DT/ITT tables for its
-> events (ie wires).
+> Patches 02 and 03 change the ETMv4 driver to prepare callback functions
+> for AUX pause and resume.
 > 
-> An IWB is always associated with a single ITS in the system.
+> Patch 04 changes the ETM perf layer to support AUX pause and resume in a
+> perf session.  The patch 05 re-enables sinks after buffer update, based
+> on it, the patch 06 updates buffer on AUX pause occasion, which can
+> mitigate the trace data lose issue.
 > 
-> An IWB is connected to an ITS and it has its own deviceID for all
-> interrupt wires that it manages; the IWB input wire number is
-> exposed to the ITS as an eventID. This eventID is not programmable
-> and therefore requires special handling in the ITS driver.
+> Patch 07 documents the AUX pause usages with Arm CoreSight.
 > 
-> Add an IWB driver in order to:
+> This patch set has been verified on the Hikey960 board.
 > 
-> - Probe IWBs in the system and allocate ITS tables
-> - Manage IWB IRQ domains
-> - Handle IWB input wires state (enable/disable)
-> - Add the required IWB IRQchip representation
-> - Handle firmware representation to Linux IRQ translation
+> It is suggested to disable CPUIdle (add `nohlt` option in Linux command
+> line) when verifying this series.  ETM and funnel drivers are found
+> issues during CPU suspend and resume which will be addressed separately.
 > 
-> Co-developed-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> Co-developed-by: Timothy Hayes <timothy.hayes@arm.com>
-> Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
-> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Marc Zyngier <maz@kernel.org>
-> ---
->  drivers/irqchip/Makefile         |   2 +-
->  drivers/irqchip/irq-gic-v5-its.c |  68 ++++++--
->  drivers/irqchip/irq-gic-v5-iwb.c | 356 +++++++++++++++++++++++++++++++++++++++
->  drivers/irqchip/irq-gic-v5.c     |   2 +
->  drivers/irqchip/irq-gic-v5.h     |  28 +++
->  5 files changed, 437 insertions(+), 19 deletions(-)
-> 
-> diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
-> index 4280395e3bdff7858102f0b4eaaea1121cace52f..7bfb2369fbe494a64b72308d95ae33de93c6b8c6 100644
-> --- a/drivers/irqchip/Makefile
-> +++ b/drivers/irqchip/Makefile
-> @@ -37,7 +37,7 @@ obj-$(CONFIG_ARM_GIC_V3_ITS)		+= irq-gic-v3-its.o irq-gic-v4.o
->  obj-$(CONFIG_ARM_GIC_V3_ITS_FSL_MC)	+= irq-gic-v3-its-fsl-mc-msi.o
->  obj-$(CONFIG_PARTITION_PERCPU)		+= irq-partition-percpu.o
->  obj-$(CONFIG_ARM_GIC_V5)		+= irq-gic-v5.o irq-gic-v5-irs.o
-> -obj-$(CONFIG_ARM_GIC_V5_ITS)		+= irq-gic-v5-its.o
-> +obj-$(CONFIG_ARM_GIC_V5_ITS)		+= irq-gic-v5-its.o irq-gic-v5-iwb.o
->  obj-$(CONFIG_HISILICON_IRQ_MBIGEN)	+= irq-mbigen.o
->  obj-$(CONFIG_ARM_NVIC)			+= irq-nvic.o
->  obj-$(CONFIG_ARM_VIC)			+= irq-vic.o
-> diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
-> index da349b4709cc5ec8978859237838f039389ca4a1..b5eb4dbfe2296dc6620889eb9291b542cae4aeb6 100644
-> --- a/drivers/irqchip/irq-gic-v5-its.c
-> +++ b/drivers/irqchip/irq-gic-v5-its.c
-> @@ -786,9 +786,8 @@ static struct gicv5_its_dev *gicv5_its_find_device(struct gicv5_its_chip_data *i
->  	return dev ? dev : ERR_PTR(-ENODEV);
->  }
->  
-> -static struct gicv5_its_dev *gicv5_its_alloc_device(
-> -				struct gicv5_its_chip_data *its, int nvec,
-> -				u32 dev_id)
-> +struct gicv5_its_dev *gicv5_its_alloc_device(struct gicv5_its_chip_data *its,
-> +					     int nvec, u32 dev_id, bool is_iwb)
->  {
->  	struct gicv5_its_dev *its_dev;
->  	int ret;
-> @@ -815,6 +814,7 @@ static struct gicv5_its_dev *gicv5_its_alloc_device(
->  	its_dev->device_id = dev_id;
->  	its_dev->num_events = nvec;
->  	its_dev->num_mapped_events = 0;
-> +	its_dev->is_iwb = is_iwb;
->  
->  	ret = gicv5_its_device_register(its, its_dev);
->  	if (ret) {
-> @@ -827,9 +827,11 @@ static struct gicv5_its_dev *gicv5_its_alloc_device(
->  
->  	/*
->  	 * This is the first time we have seen this device. Hence, it is not
-> -	 * shared.
-> +	 * shared, unless it is an IWB that is a shared ITS device by
-> +	 * definition, its eventids are hardcoded and never change - we allocate
-> +	 * it once for all and never free it.
 
-I'm not convinced the IWB should be treated differently from any other
-device. Its lifetime is not tied to its inputs, so all that's needed
-is to probe it, get a bunch of interrupts, and that's about it.
+The series looks good to me, except for the comment on the Patch 1.
 
-The other thing is that the IWB really is a standalone thing. It
-shouldn't have its fingers in the ITS code, and should only rely on
-the core infrastructure to get its interrupts.
+I would like to get an Ack from James as he has looked at in the past.
 
-As much as I dislike it, the MBIGEN actually provides a decent example
-of how this could be structured.
+Suzuki
 
-Thanks,
 
-	M.
+> Changes from v3:
+> - Re-enabled sink in buffer update callbacks (Suzuki).
+> 
+> Changes from v2:
+> - Rebased on CoreSight next branch.
+> - Dropped the uAPI 'update_buf_on_pause' and updated document
+>    respectively (Suzuki).
+> - Renamed ETM callbacks to .pause_perf() and .resume_perf() (Suzuki).
+> - Minor improvement for error handling in the AUX resume flow.
+> 
+> Changes from v1:
+> - Added validation function pointers in pause and resume APIs (Mike).
+> 
+> 
+> Leo Yan (7):
+>    coresight: etm4x: Extract the trace unit controlling
+>    coresight: Introduce pause and resume APIs for source
+>    coresight: etm4x: Hook pause and resume callbacks
+>    coresight: perf: Support AUX trace pause and resume
+>    coresight: tmc: Re-enable sink after buffer update
+>    coresight: perf: Update buffer on AUX pause
+>    Documentation: coresight: Document AUX pause and resume
+> 
+>   Documentation/trace/coresight/coresight-perf.rst   |  31 +++++++++
+>   drivers/hwtracing/coresight/coresight-core.c       |  22 +++++++
+>   drivers/hwtracing/coresight/coresight-etm-perf.c   |  84 +++++++++++++++++++++++-
+>   drivers/hwtracing/coresight/coresight-etm4x-core.c | 143 +++++++++++++++++++++++++++++------------
+>   drivers/hwtracing/coresight/coresight-etm4x.h      |   2 +
+>   drivers/hwtracing/coresight/coresight-priv.h       |   2 +
+>   drivers/hwtracing/coresight/coresight-tmc-etf.c    |   9 +++
+>   drivers/hwtracing/coresight/coresight-tmc-etr.c    |  10 +++
+>   include/linux/coresight.h                          |   4 ++
+>   9 files changed, 265 insertions(+), 42 deletions(-)
+> 
 
--- 
-Without deviation from the norm, progress is not possible.
 
