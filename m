@@ -4,86 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F45C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 06:32:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09482C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 06:34:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DKGs8pWqRz5fgySPRSKxsWNGQtApl7x88mhEfyirBMg=; b=WqaCc5QzpvjhiWQIp161uQUGps
-	C+5XpYL3vvhg6+VuEOeFQybIIidpdCEWEhK8T32DEJxZTQ/fnm/dgxSa6B5tvvfHUDG4QKSJIYYh2
-	DblZUA4UHDFCfCaLqET9grTmyTPc4e0g7sRzLKae8uBajBeORRa120Sj30WmhdpXOAXNtC7ysCQVw
-	2H5vdPkGSa+8NjKmHQ4Xfu5yPVFKGGj5F6uOt7L9JudzTbbYfGwlY9eQe7DQDxDnhDE7jqk48kE+c
-	hAmH6uIW/hKukyHw1iOsJZzoTF2uJiHu1tyKXIUflcGLNKiSWaSsv5N7MI8ti3e9T3vZvpJoLaa+6
-	zxlNUiiw==;
+	bh=rMct6rwV0rkF1WxtEmv6iyMd03nGjUcSuxSQDfiZZro=; b=AMV9zCssNwBbvsg7KYMO8QEuI5
+	NDsDCRkuedKnw7nRq/Vyb233mAFf+zFpjNvkgMQCdcrFTMjNTs+rbDd7CJQ62nI5NQNYBGeUEknSB
+	5DxSOPGU5cpu74ZIVohlmXUe1isffgEbqKzCJTFTTo9DFH9P/gHD81H4SSb8EsGsD47MBQlrlPEf1
+	IySLyqBDxKBOUMbcAxmllXgX+rcQbCCtQFsFFl1ErUhQjPWqC57f6gGTf+iBDhnOBEx16qaYISV9c
+	8gHCJNdlfxL6HMTGJjRFnE38Xp4cVKsBNbkv0XwkXhxVLTLTpGewOElw6r0UaQmBf4WcniScmaqij
+	SPNvoh/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA0z4-0000000BsC7-1Iho;
-	Wed, 30 Apr 2025 06:31:54 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	id 1uA11Z-0000000Bsg5-0FgR;
+	Wed, 30 Apr 2025 06:34:29 +0000
+Received: from relay1-d.mail.gandi.net ([217.70.183.193])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA0x7-0000000BrwX-0WuO
+	id 1uA0zd-0000000BsJB-07qL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 06:29:54 +0000
-Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53TLZhZ4026649;
-	Wed, 30 Apr 2025 08:29:43 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	DKGs8pWqRz5fgySPRSKxsWNGQtApl7x88mhEfyirBMg=; b=R/ezM1GKkmn93rcW
-	MUTPTqXaoWuIQ+tKQkB+bLfr314SkR3E5wJWFGIdOwexGCo0QYXvJaj/087D8ix1
-	MdcW6985sCHesT8DrQdltTR08K4AEvw0A8wxrKKQutvt6p62Up+6Jr1RZ+W6zlQB
-	yqXbdNraO9Z6TkEupEHC/ypr+W7dQqkZSECPXhvjc5A66JbgoNzXYY8hL4VjLYUi
-	Okdn6fwB31sYFa8uQD2N3kyPOutDmdzLtw/81xWLLmM4VtC+4ztS6/ub2GLAPdY+
-	ffJaL3XPMWU7RLfWh8y0dYSAwTlmGgOhctuqUH53Dp0F3d5VvR45cdmb4mWgQdNp
-	Z1GJBg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46b6tmscqc-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 30 Apr 2025 08:29:43 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 191C640044;
-	Wed, 30 Apr 2025 08:28:52 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 315E2A398DD;
-	Wed, 30 Apr 2025 08:28:20 +0200 (CEST)
-Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 30 Apr
- 2025 08:28:19 +0200
-Message-ID: <9d95a3eb-f656-4037-8412-1967660b6430@foss.st.com>
-Date: Wed, 30 Apr 2025 08:28:19 +0200
+	Wed, 30 Apr 2025 06:32:31 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id DAD2A43A4D;
+	Wed, 30 Apr 2025 06:32:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1745994743;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rMct6rwV0rkF1WxtEmv6iyMd03nGjUcSuxSQDfiZZro=;
+	b=j+nHDkymH+VHC8ASsobpg86S7/LM6pz/wDmJpz5NHLogTzM4DxHssAVCu6eNLKJ6f0woEW
+	VPF6vcSEeFLF62mBBqOd/DlkTW5Bu6Z+VSYw9Fv5iucaML1bvARt5v1tQDQO3xOkN63D7M
+	BZiTcxRpWekbC5YMnBdnvAQmlfjJcS5ARP41ATuWKHePDUjHdLPA6YeX5ADbcnUxk07Uid
+	WBum957d6HADCt8av5O0ZpgB2XgvQi/yjfk1Ipd1BkKKbuSqdzeCmvoVQYvMcReu2abixF
+	1uT06f/MQtVYS3EqoLgrwfOx8O3bIHH6ROLfH10HWr793ImwUW5f466aR6xt3g==
+Date: Wed, 30 Apr 2025 08:32:20 +0200
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Eric Dumazet
+ <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Heiner Kallweit
+ <hkallweit1@gmail.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
+ linux-arm-kernel@lists.infradead.org, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
+ Florian Fainelli <f.fainelli@gmail.com>, Russell King
+ <linux@armlinux.org.uk>, Vladimir Oltean <vladimir.oltean@nxp.com>,
+ =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>, Oleksij Rempel
+ <o.rempel@pengutronix.de>, Simon Horman <horms@kernel.org>, Romain Gantois
+ <romain.gantois@bootlin.com>, Piergiorgio Beruto
+ <piergiorgio.beruto@gmail.com>
+Subject: Re: [PATCH net-next v7 1/3] net: ethtool: Introduce per-PHY DUMP
+ operations
+Message-ID: <20250430083220.5fba6c32@device-130.home>
+In-Reply-To: <20250424180333.035ff7d3@kernel.org>
+References: <20250422161717.164440-1-maxime.chevallier@bootlin.com>
+	<20250422161717.164440-2-maxime.chevallier@bootlin.com>
+	<20250424180333.035ff7d3@kernel.org>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] ARM: dts: stm32: add vrefint calibration on stm32mp13
-To: Olivier Moysan <olivier.moysan@foss.st.com>, <fabrice.gasnier@foss.st.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime
- Coquelin <mcoquelin.stm32@gmail.com>
-CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20250403115954.1061528-1-olivier.moysan@foss.st.com>
-Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <20250403115954.1061528-1-olivier.moysan@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-04-30_01,2025-04-24_02,2025-02-21_01
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvieehleelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopeguvghvihgtvgdqudeftddrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvddtpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhto
+ hepvgguuhhmrgiivghtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtohephhhkrghllhifvghithdusehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_232953_649367_3E86B9E5 
-X-CRM114-Status: UNSURE (   8.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250429_233229_692124_B2221659 
+X-CRM114-Status: GOOD (  16.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,25 +90,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Olivier
+Hi Jakub,
 
-On 4/3/25 13:59, Olivier Moysan wrote:
-> Add vrefint calibration data in STM32MP13 device tree to support
-> STM32 ADC internal channel VREFINT.
-> 
-> Olivier Moysan (2):
->    ARM: dts: stm32: add vrefint calibration on stm32mp13
->    ARM: dts: stm32: add vrefint support to adc on stm32mp13
-> 
->   arch/arm/boot/dts/st/stm32mp131.dtsi | 5 +++++
->   arch/arm/boot/dts/st/stm32mp133.dtsi | 2 ++
->   2 files changed, 7 insertions(+)
-> 
-> 
-> base-commit: 65954899a157832f68536b488194cf698248a26e
+On Thu, 24 Apr 2025 18:03:33 -0700
+Jakub Kicinski <kuba@kernel.org> wrote:
 
-Series applied on stm32-next.
 
-thanks
-Alex
+> > +
+> > +/* perphy ->dumpit() handler for GET requests. */
+> > +static int ethnl_perphy_dumpit(struct sk_buff *skb,
+> > +			       struct netlink_callback *cb)
+> > +{
+> > +	struct ethnl_perphy_dump_ctx *ctx = ethnl_perphy_dump_context(cb);
+> > +	struct ethnl_dump_ctx *ethnl_ctx = &ctx->ethnl_ctx;
+> > +	int ret = 0;
+> > +
+> > +	if (ethnl_ctx->req_info->dev) {
+> > +		ret = ethnl_perphy_dump_one_dev(skb, ethnl_ctx->req_info->dev,
+> > +						ctx, genl_info_dump(cb));
+> > +		if (ret < 0 && ret != -EOPNOTSUPP && likely(skb->len))
+> > +			ret = skb->len;
+> > +
+> > +		netdev_put(ethnl_ctx->req_info->dev,
+> > +			   &ethnl_ctx->req_info->dev_tracker);  
+> 
+> You have to release this in .done
+> dumpit gets called multiple times until we run out of objects to dump.
+> OTOH user may close the socket without finishing the dump operation.
+> So all .dumpit implementations must be "balanced". The only state we
+> should touch in them is the dump context to know where to pick up from
+> next time.
+
+Sorry for the delayed answer, I'm still wrapping my head around all
+this. calling netdev_put in dumpit() is not correct, but won't moving
+this into .done() make us subject to the scenario you described to me
+in another mail where userspace would stall the dump operation by not
+calling recv() ?
+
+Maybe the safest path, as you mention in the other thread, would be to
+store the requesting ifindex in .start(), call netdev_put() in start()
+as well, and hold/dump/put in each .dumpit() then.
+
+Maxime
+
 
