@@ -4,62 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F75AC3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 16:04:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CC09C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 16:04:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yi48UEdrlYG1MKx6ek9lxCC8DQd1piRBM7J6gtIu36U=; b=Fi6kD583OOdSmix+wcTTotGrBe
-	Dh7cTmABk91WkbRt0I9fLKwTM54l1kUYBs1q4n/+s/ie0xae7oUYtu+qMsMXDyb42riUgogTa5iJr
-	PaADwe1ZoSzZav2O5ll5vNtclOO/6X1BWty+MDG7Uvvs6ltxnTxpe2YPw1eP8b9g8spRr9q7Oi0DQ
-	1rS39pQCZJ0qW+PnyOLOfcBra8ZWugceqJQAoB4AgQmwc63+q4biFTP4XQVRt990h/1hRVaQN4Nc+
-	jiDko74qd6aaI7b/jaWbFoufdYsxu6RFvCoiALOyhRzXHUyiSqmnrw9aHJUzgBziuGNdU78TcEy/o
-	tQygDENg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8tK7SHP/c1I7roY2+0j71tw68MoD2UzdDSMztAfMWwg=; b=CSToRSYgEd/SXPAom2UzvwY9oR
+	oNuGGJfxeLuO2a3FI7d0ZsTIo59NrL16DFoUZEpYfzyfc2qytzpwZlnPWeO59yv3RR8a1tk+8aI0v
+	QDzE3aQdTVG5JUrnmrEDVxndRZKnlbywqqKJ3hdqd3L6jIJt/zI0HnLkfY9nARwTp9Fm5yMwxLaGd
+	jGQqRJjdJaIp2O0a1AiVLwI/HAl+BQjoxMk3XXzX5gRcnoZo69/QGJfBNsH92vv+I8bFPJTJC7eCV
+	dFnYgN4JEE0s1qe6U1UV+hUgsPPOmSskXROk6Ckz8r6sd/05Tb0nc+LHVywq9dBWo5ndleF/fZT2u
+	ziBtSVbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA9ug-0000000DMbR-0Nzv;
-	Wed, 30 Apr 2025 16:03:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA9ff-0000000DKlN-1uIT
+	id 1uA9ui-0000000DMea-4Arn;
+	Wed, 30 Apr 2025 16:04:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uA9kD-0000000DLO9-1sOh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 15:48:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 38DB01063;
-	Wed, 30 Apr 2025 08:48:17 -0700 (PDT)
-Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C61703F5A1;
-	Wed, 30 Apr 2025 08:48:22 -0700 (PDT)
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: Mike Leach <mike.leach@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Suzuki.Poulose@arm.com,
-	leo.yan@arm.com,
-	James Clark <james.clark@linaro.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	coresight@lists.linaro.org,
+	Wed, 30 Apr 2025 15:53:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E534749C48;
+	Wed, 30 Apr 2025 15:53:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B25AC4CEE7;
+	Wed, 30 Apr 2025 15:53:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746028388;
+	bh=m0UugMtWCbzfPWtuy2ts8556YUjy07o4bV0mVOb9sq8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=e1g+2OmvuZOGcznUQ5tILgNY9GEUShEVzqZwoFHgpSeRPpz+49sIXbBOwEtBm/cAJ
+	 8AD3KZDARms4UDFekzvsmu0tO50mzOFsD6UkZEMExNYTSnvj1Hxd+mOH1AlPirN2XS
+	 PKOGK8XXJMVmHqjRfsw3esfbyOoL7m063jMZh1kpy2g48W2kEdra0/F1/Il8EWsRBU
+	 t43/UXhKohzxEILsWIIWy3jfDxHhDVUIxErgzdbCmfCv0q6zsjLIX1ov/D6y2DabXO
+	 Mt8LUmI+UW8QafEdNolGovNdR44Bb5KSxhj7v6J7lmjHLgV3KFZU9H2iy9NuXvMWxP
+	 dMsH+XX3Q9pfQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uA9k9-00AKWb-I4;
+	Wed, 30 Apr 2025 16:53:05 +0100
+Date: Wed, 30 Apr 2025 16:53:04 +0100
+Message-ID: <865xilir33.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: D Scott Phillips <scott@os.amperecomputing.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	James Morse <james.morse@arm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	"Rob Herring  (Arm)" <robh@kernel.org>,
+	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
+	Shiqi Liu <shiqiliu@hust.edu.cn>,
+	Will Deacon <will@kernel.org>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: Re: [PATCH v4 0/7] coresight: Clear self hosted claim tag on probe
-Date: Wed, 30 Apr 2025 16:48:14 +0100
-Message-ID: <174602806438.102450.17012321873232714214.b4-ty@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250325-james-coresight-claim-tags-v4-0-dfbd3822b2e5@linaro.org>
-References: <20250325-james-coresight-claim-tags-v4-0-dfbd3822b2e5@linaro.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: errata: Work around AmpereOne's erratum AC04_CPU_23
+In-Reply-To: <20250425024741.1309893-1-scott@os.amperecomputing.com>
+References: <20250425024741.1309893-1-scott@os.amperecomputing.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: scott@os.amperecomputing.com, catalin.marinas@arm.com, james.clark@linaro.org, james.morse@arm.com, joey.gouly@arm.com, kevin.brodsky@arm.com, broonie@kernel.org, mark.rutland@arm.com, oliver.upton@linux.dev, robh@kernel.org, shameerali.kolothum.thodi@huawei.com, shiqiliu@hust.edu.cn, will@kernel.org, yangyicong@hisilicon.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_084827_537018_C88C1D63 
-X-CRM114-Status: UNSURE (   9.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250430_085309_526747_0407211F 
+X-CRM114-Status: GOOD (  35.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,37 +97,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 25 Mar 2025 11:58:45 +0000, James Clark wrote:
-> I've gotten stuck a few times with unusable Coresight after a warm boot
-> due to lingering claim tags, especially when testing the Coresight
-> panic patchsets.
+On Fri, 25 Apr 2025 03:47:41 +0100,
+D Scott Phillips <scott@os.amperecomputing.com> wrote:
 > 
-> This change does some tidy ups, adds some debug messages and clears the
-> self hosted claim tag on probe. The last two commits are unrelated
-> tidyups but they touch some of the same functions so to avoid extra
-> conflicts I'm including them here.
+> Updates to HCR_EL2 can rarely corrupt simultaneous translations for data
+> addresses initiated by load/store instructions. Only instruction
+> initiated translations are vulnerable, not translations from prefetches
+> for example. A DSB before the store to HCR_EL2 is sufficient to prevent older
+> instructions from hitting the window for corruption, and an ISB after
+> is sufficient to prevent younger instructions from hitting the window
+> for corruption.
 > 
-> [...]
+> Signed-off-by: D Scott Phillips <scott@os.amperecomputing.com>
+> ---
+> v1: https://lore.kernel.org/kvmarm/20250415154711.1698544-2-scott@os.amperecomputing.com/
+> Changes since v1:
+>  - Add a write_sysreg_hcr() helper (Oliver)
+>  - Add more specific wording in the errata description (Oliver & Marc)
+> 
+>  arch/arm64/Kconfig                      | 17 +++++++++++++++++
+>  arch/arm64/include/asm/hardirq.h        |  4 ++--
+>  arch/arm64/include/asm/sysreg.h         | 10 ++++++++++
+>  arch/arm64/kernel/cpu_errata.c          | 14 ++++++++++++++
+>  arch/arm64/kvm/at.c                     |  8 ++++----
+>  arch/arm64/kvm/hyp/include/hyp/switch.h |  2 +-
+>  arch/arm64/kvm/hyp/nvhe/mem_protect.c   |  2 +-
+>  arch/arm64/kvm/hyp/nvhe/switch.c        |  2 +-
+>  arch/arm64/kvm/hyp/vhe/switch.c         |  2 +-
+>  arch/arm64/kvm/hyp/vhe/tlb.c            |  4 ++--
+>  arch/arm64/tools/cpucaps                |  1 +
+>  11 files changed, 54 insertions(+), 12 deletions(-)
+> 
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index a182295e6f08b..3ae4e80e3002b 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -464,6 +464,23 @@ config AMPERE_ERRATUM_AC03_CPU_38
+>  
+>  	  If unsure, say Y.
+>  
+> +config AMPERE_ERRATUM_AC04_CPU_23
+> +        bool "AmpereOne: AC04_CPU_23:  Failure to synchronize writes to HCR_EL2 may corrupt address translations."
+> +	default y
+> +	help
+> +	  This option adds an alternative code sequence to work around Ampere
+> +	  errata AC04_CPU_23 on AmpereOne.
+> +
+> +	  Updates to HCR_EL2 can rarely corrupt simultaneous translations for
+> +	  data addresses initiated by load/store instructions. Only
+> +	  instruction initiated translations are vulnerable, not translations
+> +	  from prefetches for example. A DSB before the store to HCR_EL2 is
+> +	  sufficient to prevent older instructions from hitting the window
+> +	  for corruption, and an ISB after is sufficient to prevent younger
+> +	  instructions from hitting the window for corruption.
+> +
+> +	  If unsure, say Y.
+> +
+>  config ARM64_WORKAROUND_CLEAN_CACHE
+>  	bool
+>  
+> diff --git a/arch/arm64/include/asm/hardirq.h b/arch/arm64/include/asm/hardirq.h
+> index cbfa7b6f2e098..77d6b8c63d4e6 100644
+> --- a/arch/arm64/include/asm/hardirq.h
+> +++ b/arch/arm64/include/asm/hardirq.h
+> @@ -41,7 +41,7 @@ do {									\
+>  									\
+>  	___hcr = read_sysreg(hcr_el2);					\
+>  	if (!(___hcr & HCR_TGE)) {					\
+> -		write_sysreg(___hcr | HCR_TGE, hcr_el2);		\
+> +		write_sysreg_hcr(___hcr | HCR_TGE);			\
+>  		isb();							\
+>  	}								\
+>  	/*								\
+> @@ -82,7 +82,7 @@ do {									\
+>  	 */								\
+>  	barrier();							\
+>  	if (!___ctx->cnt && !(___hcr & HCR_TGE))			\
+> -		write_sysreg(___hcr, hcr_el2);				\
+> +		write_sysreg_hcr(___hcr);				\
+>  } while (0)
+>  
+>  static inline void ack_bad_irq(unsigned int irq)
+> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+> index 2639d3633073d..d41eeba7f8201 100644
+> --- a/arch/arm64/include/asm/sysreg.h
+> +++ b/arch/arm64/include/asm/sysreg.h
+> @@ -1185,6 +1185,16 @@
+>  		write_sysreg_s(__scs_new, sysreg);			\
+>  } while (0)
+>  
+> +#define write_sysreg_hcr(__val) do {					\
+> +	if(IS_ENABLED(CONFIG_AMPERE_ERRATUM_AC04_CPU_23) &&		\
+> +	   alternative_has_cap_unlikely(ARM64_WORKAROUND_AMPERE_AC04_CPU_23)) \
+> +		asm volatile("dsb nsh; msr hcr_el2, %x0; isb"		\
+> +			     : : "rZ" (__val));				\
+> +	else								\
+> +		asm volatile("msr hcr_el2, %x0"				\
+> +			     : : "rZ" (__val));				\
+> +} while (0)
+> +
 
-Applied, thanks!
+I'm worried that some of these accesses may occur before we compute
+the capabilities. I'd be more confident if the default was to have the
+workaround, and only to relax it once we know we're not on a broken
+system.
 
-[1/7] coresight: Convert tag clear function to take a struct csdev_access
-      https://git.kernel.org/coresight/c/fc7fed6f
-[2/7] coresight: Only check bottom two claim bits
-      https://git.kernel.org/coresight/c/a4e65842
-[3/7] coresight: Add claim tag warnings and debug messages
-      https://git.kernel.org/coresight/c/a244a18c
-[4/7] coresight: etm3x: Convert raw base pointer to struct coresight access
-      https://git.kernel.org/coresight/c/a1b0e77c
-[5/7] coresight: Clear self hosted claim tag on probe
-      https://git.kernel.org/coresight/c/7cd63686
-[6/7] coresight: Remove inlines from static function definitions
-      https://git.kernel.org/coresight/c/48a5126b
-[7/7] coresight: Remove extern from function declarations
-      https://git.kernel.org/coresight/c/e6e6b692
+But that leaves the question of the early stuff that runs before we
+get to C code. Are you sure this isn't affected by this issue (for
+example, the code in head.S, hyp-stub.S, and el2-setup.h)?
 
-Best regards,
+>  #define read_sysreg_par() ({						\
+>  	u64 par;							\
+>  	asm(ALTERNATIVE("nop", "dmb sy", ARM64_WORKAROUND_1508412));	\
+> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+> index b55f5f7057502..60f1b70fc0845 100644
+> --- a/arch/arm64/kernel/cpu_errata.c
+> +++ b/arch/arm64/kernel/cpu_errata.c
+> @@ -557,6 +557,13 @@ static const struct midr_range erratum_ac03_cpu_38_list[] = {
+>  };
+>  #endif
+>  
+> +#ifdef CONFIG_AMPERE_ERRATUM_AC04_CPU_23
+> +static const struct midr_range erratum_ac04_cpu_23_list[] = {
+> +	MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
+> +	{},
+> +};
+> +#endif
+> +
+>  const struct arm64_cpu_capabilities arm64_errata[] = {
+>  #ifdef CONFIG_ARM64_WORKAROUND_CLEAN_CACHE
+>  	{
+> @@ -875,6 +882,13 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
+>  		.capability = ARM64_WORKAROUND_AMPERE_AC03_CPU_38,
+>  		ERRATA_MIDR_RANGE_LIST(erratum_ac03_cpu_38_list),
+>  	},
+> +#endif
+> +#ifdef CONFIG_AMPERE_ERRATUM_AC04_CPU_23
+> +	{
+> +		.desc = "AmpereOne erratum AC04_CPU_23",
+> +		.capability = ARM64_WORKAROUND_AMPERE_AC04_CPU_23,
+> +		ERRATA_MIDR_RANGE_LIST(erratum_ac04_cpu_23_list),
+> +	},
+>  #endif
+
+This needs to be captured in Documentation/arch/arm64/silicon-errata.rst.
+
+Thanks,
+
+	M.
+
 -- 
-Suzuki K Poulose <suzuki.poulose@arm.com>
+Without deviation from the norm, progress is not possible.
 
