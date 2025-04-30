@@ -4,111 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBD8DC369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 10:50:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C816C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 10:52:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UyRogJQCKF4dzNdKeUnXZgi87K+PLm5TUetHnPxcySQ=; b=vBUqHuIkCNqRI1vgE1/2tUD9se
-	3Ca8ajNBGPv6rLEsV1kBuBLY6gKrnUhhKWXtXQVXAbx1pMSboWnyA3Z4m8HDWzI42Dtq/dzP6ovlY
-	WuV0mBgBvgkr6GHa8kQvVYlyH+qxCmtjTttVN/TAsuJlm4iaAG4Sj5P7KzO6WfivRbko2XSs7Q0T2
-	7eNqHIceZFzgZathJajuQpk1bEnyKuMUW266WE2P75CA/4xQGbKr0Kk4HdF592tQjwVu8k/y2qFBz
-	WP+1LWX5eS4y8L66EWuP+XviiKHEbdnG+ca3fPKgb9ckz7GskphYG4py/jGDkdjOd/YWt6jI04A5A
-	/ZG7Ub9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5zbGxdPPM0Q4u9tQCImRBz8/sSpy8dLQEfEEPOAifNk=; b=i1vX9osAYaG3FIE+myMGScENX1
+	C4iao5MXJBnk5elBSQgbWl7fZEOgrtPRmsHeImd5mpJ+2cgUqa4LQnlGOAvWkOOIsPmDvQ6+sPi41
+	SrUt6ksHkoyOB6Rw2KUxfePvR2ZteQkQjMR81oU9LDc6Lkh2WqhE4H8nZ03eIJCYcgUNk1E5xvXpZ
+	9EJMRAPoX1geXqoeRdbawR37zav5J+u4CHA/e5CH/YkoFcBOHmeAYx5SWTP9ToKwaPWoEFOqKIGL0
+	FZZv3xwZ8spUr67sKGusrajxlthIPpk9EZQ2g1TYKi8LtW7FCaadjzaSkRrfIJK9iKzEZ2F4Vohvw
+	VqkF+n5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA50v-0000000Cau8-29w3;
-	Wed, 30 Apr 2025 10:50:05 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1uA52m-0000000Cb8y-2D5G;
+	Wed, 30 Apr 2025 10:52:00 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA4dI-0000000CWHU-1m4e
+	id 1uA4dj-0000000CWK8-1bAn
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 10:25:42 +0000
-Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250430102531epoutp042a5fae3f3a8d3936b2061e5d127bfbfc~7EbDZpu6C1429614296epoutp04S
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 10:25:31 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250430102531epoutp042a5fae3f3a8d3936b2061e5d127bfbfc~7EbDZpu6C1429614296epoutp04S
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1746008731;
-	bh=UyRogJQCKF4dzNdKeUnXZgi87K+PLm5TUetHnPxcySQ=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=ikkomal01DyzcBrUu3dssZgfy3oW6rzhxSQtcj84EOHtyo/KD7d0537vyv5/493f2
-	 DnRNWoMeLfOCxIXyMBTDjCHOKpQr9TpgBr32Znxo3iK5zjN/6SFGiEmbrSVBe3UjPV
-	 2tfRVqKrGkjcofc4ZN96ZVjCmJBcGDotR2mxqVxw=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
-	20250430102531epcas5p159f5edae7b9d6649b91ba016fd8580cf~7EbDDY--c1745817458epcas5p1B;
-	Wed, 30 Apr 2025 10:25:31 +0000 (GMT)
-Received: from epcas5p4.samsung.com (unknown [182.195.38.180]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4ZnYGy28rYz6B9m9; Wed, 30 Apr
-	2025 10:25:30 +0000 (GMT)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250430092538epcas5p1b6aee888ecfa27c04e01ca16a0a93d19~7DmwiV8Qt0647906479epcas5p1S;
-	Wed, 30 Apr 2025 09:25:38 +0000 (GMT)
-Received: from epsmgms1p2new.samsung.com (unknown [182.195.42.42]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250430092538epsmtrp1e08dff0c1eac600a72115669d75dc488~7Dmwhcsq62304923049epsmtrp1Z;
-	Wed, 30 Apr 2025 09:25:38 +0000 (GMT)
-X-AuditID: b6c32a2a-d57fe70000002265-56-6811ec9127c4
-Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
-	epsmgms1p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	C5.75.08805.19CE1186; Wed, 30 Apr 2025 18:25:37 +0900 (KST)
-Received: from INBRO002053 (unknown [107.122.2.234]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250430092535epsmtip23755164dfc0ad1aef32e04bca5476327~7DmueEaSD2671426714epsmtip25;
-	Wed, 30 Apr 2025 09:25:35 +0000 (GMT)
-From: "Yashwant Varur" <yashwant.v@samsung.com>
-To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <alim.akhtar@samsung.com>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Cc: <cs0617.lee@samsung.com>, <g.naidu@samsung.com>,
-	<niyas.ahmed@samsung.com>
-In-Reply-To: <b00514f2-55ca-49f0-aefb-ec1e784545d6@kernel.org>
-Subject: RE: [PATCH] arm64: dts: exynos: Added the ethernet pin
- configuration
-Date: Wed, 30 Apr 2025 14:55:34 +0530
-Message-ID: <0f6e01dbb9b1$d52519d0$7f6f4d70$@samsung.com>
+	Wed, 30 Apr 2025 10:26:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2B3826111C;
+	Wed, 30 Apr 2025 10:25:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A074C4CEEA;
+	Wed, 30 Apr 2025 10:26:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746008765;
+	bh=U83C1fx4RiCnbON4J3BLjckTisNNBrWzMaUOSyTeN0g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DKNx2/KNqd+nIiX4NgFYdjgXQ3RpDGD4sxrkCgK2xt3GfgNMkmBZZN+VNcOa4SSG9
+	 SfgTPNdYVW9SX4QG71IdLI4kqaEHXn9OCgIEKA2PfIwLzx3FufqMnyqJ4ETIGqFupY
+	 03zFpqIr/+nDjrLyHYhKWIpzgfJgnzGykS5glGuoE0WwercwS5QWCWWqfLIyxpAse+
+	 kNgclIfc0SEVVCtKaW7DCZiK41oQEknEEV7/oOMqzLWc1K842QffIu5A2LzKw0F8Iz
+	 Lp7nGHhBw0fVRIU0cJ0Q4I4BpQIzHgdkRKOYywgrUDctamkiURw8mD4L4c1ZlvRuWD
+	 ZyWJZzq1bH/Fg==
+Date: Wed, 30 Apr 2025 12:26:02 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+Cc: peter.ujfalusi@gmail.com, vkoul@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com, ssantosh@kernel.org, 
+	dmaengine@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, praneeth@ti.com, vigneshr@ti.com, u-kumar1@ti.com, 
+	a-chavda@ti.com
+Subject: Re: [PATCH 1/8] dt-bindings: dma: ti: Add document for K3 BCDMA V2
+Message-ID: <20250430-energetic-hippo-from-tartarus-bf4b65@kuoka>
+References: <20250428072032.946008-1-s-adivi@ti.com>
+ <20250428072032.946008-2-s-adivi@ti.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQI+tP5AvR0g22A5T67WLyfPVk3CYgKkYErqAxsAxq0DRO6qzAIlGw2ospyhojA=
-Content-Language: en-us
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprKIsWRmVeSWpSXmKPExsWy7bCSvO7EN4IZBt1vrCwezNvGZrFm7zkm
-	i1XveC3mHznHarFl5mVmi5ez7rFZnD+/gd1i0+NrrBaXd81hs5hxfh+TxZMpj1gt/u/Zwe7A
-	47FpVSebx+Yl9R59W1YxenzeJBfAEsVlk5Kak1mWWqRvl8CV8bWpm7lgHX/F1EuzGRsYd/J0
-	MXJySAiYSFz9v4eli5GLQ0hgN6PEnkdL2LsYOYASUhINb8IhaoQlVv57zg5R85xRYvOuY6wg
-	CTYBfYnnm68xgSREBBYzSXxpOsgG0swsECTxZXcgRMNcJon9xzewgTRwCthJfOp+CNYsLOAr
-	sbvjDDuIzSKgKjH71HFmEJtXwFJi9+p+KFtQ4uTMJywgNrOAtsTTm0/h7GULXzNDXKcg8fPp
-	MrCZIgJ+Epf+zmeFqBGXeHn0CPsERuFZSEbNQjJqFpJRs5C0LGBkWcUomVpQnJueW2xYYJSX
-	Wq5XnJhbXJqXrpecn7uJERxzWlo7GPes+qB3iJGJg/EQowQHs5II76RbghlCvCmJlVWpRfnx
-	RaU5qcWHGKU5WJTEeb+97k0REkhPLEnNTk0tSC2CyTJxcEo1MHHvsVtVs3H+JFVlKfE9cezl
-	UiffhOy5+PfKqTmeuuyWB/N4yrhT3tzL4i3PPdm6L8v/q+7+a2wfTW2q9kpvYzz+qDjCSiJr
-	elDSXW3mjdyW278/vbVsa627kQXDgifWcr8fxu9YOmP+Y9O3ko/uRzj4HJ8gt0lQPsT80AWT
-	vo9bHHae3uS0pjC3/I+Z5ypOeRNtrX7O4wZP+aX0P9+/x1JRVvCMr1VV9FC09nXdbclfu9NO
-	OEenB2qtidm3XfBJ4LlusxNMjsIrXPo1shWyNcJucUs1Td2ztf7azZczbpz75fPfd9fdv60C
-	hYvY/kdm/5eUFOGVfpIuKCn07UmgQeCz0wudVnw84aQ27x+LvBJLcUaioRZzUXEiAE0w33oo
-	AwAA
-X-CMS-MailID: 20250430092538epcas5p1b6aee888ecfa27c04e01ca16a0a93d19
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-543,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250423060042epcas5p2c04be779e21089f33b8a9a7785bb151a
-References: <CGME20250423060042epcas5p2c04be779e21089f33b8a9a7785bb151a@epcas5p2.samsung.com>
-	<20250423060034.973-1-yashwant.v@samsung.com>
-	<73a5d0a6-ceb0-4c47-9992-260828f074d0@kernel.org>
-	<0ed501dbb8e9$45aa96e0$d0ffc4a0$@samsung.com>
-	<b00514f2-55ca-49f0-aefb-ec1e784545d6@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_032541_087315_41A3CE83 
-X-CRM114-Status: GOOD (  20.66  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250428072032.946008-2-s-adivi@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,63 +72,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof
+On Mon, Apr 28, 2025 at 12:50:25PM GMT, Sai Sree Kartheek Adivi wrote:
+> New binding document for
+> Texas Instruments K3 Block Copy DMA (BCDMA) V2.
+> 
+> BCDMA V2 is introduced as part of AM62L.
+> 
+> Signed-off-by: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+> ---
+>  .../bindings/dma/ti/k3-bcdma-v2.yaml          | 97 +++++++++++++++++++
+>  1 file changed, 97 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/dma/ti/k3-bcdma-v2.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/dma/ti/k3-bcdma-v2.yaml b/Documentation/devicetree/bindings/dma/ti/k3-bcdma-v2.yaml
+> new file mode 100644
+> index 0000000000000..af4aa3839fd66
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/dma/ti/k3-bcdma-v2.yaml
+> @@ -0,0 +1,97 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +# Copyright (C) 2024-2025 Texas Instruments Incorporated
+> +# Author: Sai Sree Kartheek Adivi <s-adivi@ti.com>
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/dma/ti/k3-bcdma-v2.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Texas Instruments K3 DMSS BCDMA V2
+> +
+> +maintainers:
+> +  - Sai Sree Kartheek Adivi <s-adivi@ti.com>
+> +
+> +description: |
+> +  The BCDMA V2 is intended to perform similar functions as the TR
+> +  mode channels of K3 UDMA-P.
+> +  BCDMA V2 includes block copy channels and Split channels.
+> +
+> +  Block copy channels mainly used for memory to memory transfers, but with
+> +  optional triggers a block copy channel can service peripherals by accessing
+> +  directly to memory mapped registers or area.
+> +
+> +  Split channels can be used to service PSI-L based peripherals.
+> +  The peripherals can be PSI-L native or legacy, non PSI-L native peripherals
+> +  with PDMAs. PDMA is tasked to act as a bridge between the PSI-L fabric and the
+> +  legacy peripheral.
+> +
+> +allOf:
+> +  - $ref: /schemas/dma/dma-controller.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    const: ti,dmss-bcdma-v2
 
-> -----Original Message-----
-> From: Krzysztof Kozlowski <krzk=40kernel.org>
-> Sent: Tuesday, April 29, 2025 6:37 PM
-> To: Yashwant Varur <yashwant.v=40samsung.com>; robh=40kernel.org;
-> krzk+dt=40kernel.org; conor+dt=40kernel.org; alim.akhtar=40samsung.com;
-> devicetree=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org; lin=
-ux-
-> samsung-soc=40vger.kernel.org; linux-kernel=40vger.kernel.org
-> Cc: cs0617.lee=40samsung.com; g.naidu=40samsung.com;
-> niyas.ahmed=40samsung.com
-> Subject: Re: =5BPATCH=5D arm64: dts: exynos: Added the ethernet pin confi=
-guration
->=20
-> On 29/04/2025 11:29, Yashwant Varur wrote:
-> >
-> > Please follow DTS coding style carefully. This applies to all commits y=
-ou try to
-> send from your downstream/vendor code.
->=20
->=20
-> hm?
->=20
-Got the issue, coding style says
-Node and property names can use only the following characters:
-Lowercase characters: =5Ba-z=5D
-Digits: =5B0-9=5D
-Dash: -
-I was using underscore for node name.
-> >>
-> > Sure, thanks
-> >
-> > What is more important, I don't really understand why you are doing
-> > this
-> > - there is no user of these entries - and commit msg does not help here=
-.
-> >>
-> > Understood, in v2 will add the Ethernet node as well.
->=20
-> I don't understand what is your reply here and what is quote. Use standar=
-d email
-> style, not some mySingle or Outlook output. I suggest reading typical gui=
-delines
-> how to use email based workflows (kernel also has one).
->=20
+SoC compatibles instead.
 
-Looks like mailer was not configured properly, hope this time it is fine.
-I am working on upstreaming Ethernet driver for exynosauto (which has a var=
-iant of STMMAC controller)
-What I wanted to reply previously was, will add pin control, along with Eth=
-ernet node(which will consume the pincontrol) and
-I realize that first dt-binding should go for this IP.
-My plan is to send Ethernet driver along with Ethernet dtsi node as well.
+> +
+> +  reg:
+> +    items:
+> +      - description: BCDMA Control /Status Registers region
 
->=20
-> Best regards,
-> Krzysztof
+s/Registers region//
+
+> +      - description: Block Copy Channel Realtime Registers region
+> +      - description: Channel Realtime Registers region
+> +      - description: Ring Realtime Registers region
+> +
+> +  reg-names:
+> +    items:
+> +      - const: gcfg
+> +      - const: bchanrt
+> +      - const: chanrt
+> +      - const: ringrt
+> +
+> +  "#dma-cells":
+> +    const: 4
+> +    description: |
+> +      cell 1: Trigger type for the channel
+> +        0 - disable / no trigger
+> +        1 - internal channel event
+> +        2 - external signal
+> +        3 - timer manager event
+> +
+> +      cell 2: parameter for the trigger:
+> +        if cell 1 is 0 (disable / no trigger):
+> +          Unused, ignored
+> +        if cell 1 is 1 (internal channel event):
+> +          channel number whose TR event should trigger the current channel.
+> +        if cell 1 is 2 or 3 (external signal or timer manager event):
+> +          index of global interfaces that come into the DMA.
+> +
+> +          Please refer to the device documentation for global interface indexes.
+> +
+> +      cell 3: Channel number for the peripheral
+> +
+> +        Please refer to the device documentation for the channel map.
+> +
+> +      cell 4: ASEL value for the channel
+> +
+> +required:
+> +  - compatible
+> +  - "#dma-cells"
+> +  - reg
+> +  - reg-names
+
+Keep same order as in properties: block.
+
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |+
+
+Drop +
+
+> +    cbass_main {
+
+Follow DTS coding style... or just make it like all other SoC bindings.
+
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +
+> +      main_bcdma: dma-controller@485c4000 {
+
+Messed indentation.
+
+
+Best regards,
+Krzysztof
 
 
