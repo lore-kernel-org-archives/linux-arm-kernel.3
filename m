@@ -4,109 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 838C9C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 12:13:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1CA1C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 12:19:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:MIME-Version:References:In-Reply-To:Date:Cc:To:From:Subject:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7tFgFXzqc2ivrCQjcqTMjWCPkQCLYsEDRrk0U+aYhgw=; b=gBWzxmbN+wtBarjNUbBnLK1tGJ
-	XuCMDHExVdAdVc+1NggXj+beec2pQmn1l0rK6tMQZ41F57jW5sBdEKwBRf7y4dPpCTY4m/IwUguXa
-	pBJ5OxSsTAW8JdZ9IVFPc2Vs9jmMytJ5Y4wJlTYV5mDGlsLm+IHnfOcdOHu+xY1N31aUzgKCRmmEl
-	Y0lOmTnZBn0grGB78k574XU/K04DBoNvXyjzi6YJbawZMwfPUuE5SY3I5Bx4GDIWz/z7eC8QlVnbW
-	6WUIeKvKY23cqdx/gR5eIChvMVoTczauqxAG6OpKwK5uMi3CbDU/eYmPnD9fQ54z/Xj5B6kkoqtoH
-	tkb9uVsg==;
+	bh=lN3XXhvZkEzmXtYd28YKRe70tCct3jaUfGTuQGGD+g0=; b=euVlrGXv64F+aZiTzKV/ybHO/2
+	QR2Q682KGxfpbd0ZSnZA9JjqtfZFjyyr0eUj3QraaW5KoSOx+rPTxTKI0sYgU58wurZrDaupl1ypv
+	xcd0K0h3YZ2IGKiOV15xPzsVanJ3wqY1wDmHRhsUGNsx20GMSteXm6p1/UsNCZddYeFS/236bl42s
+	IZpRMetikVJzjZgimz1sqz13GRMxTIr+GbLC0zv2Wf/2XKAZSFjEx036d2tCVSsUGQ+INzxuyMAXI
+	b7tN7B16evZyDSS1k1QHGejlNOJGQcuza00KLke+rbcmR9Wf3qZ2C8HKCN6RNu8ec6tzLfKsOgARf
+	nDMQw41Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA6JW-0000000CnTl-3tbp;
-	Wed, 30 Apr 2025 12:13:22 +0000
+	id 1uA6Pb-0000000CoUS-2YkI;
+	Wed, 30 Apr 2025 12:19:39 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA6Ha-0000000Cn7C-0Wt3
+	id 1uA6Ne-0000000Co3t-2U5p
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 12:11:23 +0000
+	Wed, 30 Apr 2025 12:17:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1746015081;
+	s=mimecast20190719; t=1746015457;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7tFgFXzqc2ivrCQjcqTMjWCPkQCLYsEDRrk0U+aYhgw=;
-	b=GL18b2IC2gkkQb65yB8bclS/XWPzzpx6rrq4QXIRPCjsUPl03/qSGrz6SgIkNjhRc9pMp2
-	YHuAmBzzUgLZs/EyATlXwNy4LcfEpT3j4BsZn6EJWN6LgemUGZLItx6uNkfVcVzjvNelUo
-	npGRxmrJFiW+2ief4NdvMSa+yNZnJLE=
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com
- [209.85.214.199]) by relay.mimecast.com with ESMTP with STARTTLS
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=lN3XXhvZkEzmXtYd28YKRe70tCct3jaUfGTuQGGD+g0=;
+	b=jKTzSMH4UmYanCWsF4vLQkgVWNbav8gb6HbeBFdzNB+wAtv6QcILP2WLfTGseGj82/jSwW
+	sZGD1pH1gKGVnbrdC0ZHs/F7epbUoEL9fUZFkOxsN2iQOEYsqA37kxXjXMDlHqgdtDHJ5n
+	8DXGzJJ3CAhMXVhfJqZfEdqrhsU6fbo=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-618-E2Mhv3oOODu1S9BBDViQng-1; Wed, 30 Apr 2025 08:11:19 -0400
-X-MC-Unique: E2Mhv3oOODu1S9BBDViQng-1
-X-Mimecast-MFC-AGG-ID: E2Mhv3oOODu1S9BBDViQng_1746015079
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-224364f2492so52275225ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 05:11:19 -0700 (PDT)
+ us-mta-470-atAfpLw0MaC6pPE0BRTcmA-1; Wed, 30 Apr 2025 08:17:35 -0400
+X-MC-Unique: atAfpLw0MaC6pPE0BRTcmA-1
+X-Mimecast-MFC-AGG-ID: atAfpLw0MaC6pPE0BRTcmA_1746015454
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-43efa869b0aso43999545e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 05:17:35 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746015078; x=1746619878;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
+        d=1e100.net; s=20230601; t=1746015454; x=1746620254;
+        h=mime-version:user-agent:content-transfer-encoding:autocrypt
+         :references:in-reply-to:date:cc:to:from:subject:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=7tFgFXzqc2ivrCQjcqTMjWCPkQCLYsEDRrk0U+aYhgw=;
-        b=k97rz5piCcGsf89IrcyAwjxzGY2rnx8Nttf4lhmNEpTWAERtwzR7+sssENAHvNod33
-         xTZ7/9KoOUZxfP9MgzmnI4z4calyZ7HAwQbIGTvMXPjWMm33RF/sL6VMHu/ztQ7hH4Qb
-         ccHGYg900V19vuPwMOnyCxVslGKQBTHETIxaF5v3K8XrrmSCdboK5ZjPg5AoVcrY2nZu
-         iFRMHILDRn+t85GUPJioikHZUnEYLVqaU12QC6Vi8dCmdyhKRGLyxGIZO4U0t40LpB1y
-         7Z+ISwRb4+d1+N+BNjlxd49O5Ija6JCC2yX+oCydAv113Xe2ryPMQIs33X2nc7bRni3b
-         gmpQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXzpFH/i93cNPVsBHGFtsdedIwYZV2Von6mf6n0EYixhDcfSgVoJZzMYvpgTWTvokVAP5Kk4TfxJFDfgWWhUoTY@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhPPj8ZUwGKdad4RdiSL1PEDgsxHzn/pJWp1mKec0/kdnuBA2p
-	TQUOrDWMBP+YMfpe2n6i+qXA/2g8KieOwTY8hyttlXgDepbObA13te1cjHtngEOoEvLZ3J8VV3c
-	HUuGvHpLLjdnjPAgUHBsT/ChRwBPtnF3RPgrzc1T32HwmiTSXoLp75uE5weOOOno/5W2heZql
-X-Gm-Gg: ASbGnct5eOE4VEVK/b/Ip2S0sTr0y+EqxCWjtqxlhYt1A1YnqhMMfj1UT0nzBJAu5u2
-	u/EQ6gUL4F777YpBBnjeNHU5Dd0CwISx4EJfiJjzl6P3q28Cv5Z3m4QhSq+IYQUI9R87gaBACxI
-	gt0agV479n/w8Y+dHtnC0ie2fOI4tCo7GUdDNoj7whnTfbgT138fWjH3ImvVY1W9TP7ybVaLyy+
-	BkxMwger+3t9NN2QbYhP7XpAlTfMyDX1YaZc8C0R9COPoO3GhVdWOmRfihhdM/q40WzEVmCbVIv
-	ahlyjarrfRcn
-X-Received: by 2002:a17:902:ebcc:b0:223:f408:c3f8 with SMTP id d9443c01a7336-22df578bcebmr38849565ad.14.1746015078600;
-        Wed, 30 Apr 2025 05:11:18 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHL6LT3h1gUo31SZA1COwvt+3Fy8+QNcJQ2pDlfoosU3yDt8W0PlDXI1jufTia5Y9HcVnFrHw==
-X-Received: by 2002:a17:902:ebcc:b0:223:f408:c3f8 with SMTP id d9443c01a7336-22df578bcebmr38849145ad.14.1746015078260;
-        Wed, 30 Apr 2025 05:11:18 -0700 (PDT)
-Received: from [192.168.68.51] ([180.233.125.65])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22db50e89acsm120641205ad.113.2025.04.30.05.11.10
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 30 Apr 2025 05:11:17 -0700 (PDT)
-Message-ID: <b5770d9b-4f17-4be8-95a7-1549322debb2@redhat.com>
-Date: Wed, 30 Apr 2025 22:11:09 +1000
+        bh=lN3XXhvZkEzmXtYd28YKRe70tCct3jaUfGTuQGGD+g0=;
+        b=D2EfFjciWACl3tqF/3asGOAdEMPcSydFiQFzcfMp0IBDthxfeyF0i0A7GQqDHwX/Ob
+         n0WZvFlLKo+fZfq86zPevPzzX5apzVBL534F2Toq5e++gZuEiZgnNCa019lPj4/9hPmQ
+         mLiCAJMSQzthSpXh3MDsCjtPUvSAMP5LGtHhjdadkarwisBxmd7j5syWbnUWy4Gzp5VZ
+         GPqP/Vdja126bTFaCglS8eCPdb0l0xLew41enL/oLvtwYhxjunc/M3/HYPFELbxdIASE
+         v0cqg05ZZk3tVrbJ5BItakEJrE6hLa1hvoXQOEB58L1nTFjZTO/ZtJZBW7VsezxsP9kJ
+         fvJA==
+X-Forwarded-Encrypted: i=1; AJvYcCXz10N6xlE96jp4j307J4LFaQeqWzaQ8MOuLH42jFXHASiU1f0HJwd/SWLCqr4QQ5mPSnXsmVAaYRYo7oyGCehY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+L7IIPEHYIfdO3XgEFlO+RBdXNVZzdoy7ncZbbqoq/ycIiiXQ
+	PS2VXmDRdTHRBx6GRFAZG6EQyCFKTHuyqY3CZH7jRFVsBkamnBqDkUbE6dzwh15I8/K98EEoB/Z
+	eSWzcX++yOuKnViBc5mSofe1+11T5SQFHJcHiy7SwM7KNZ8nd5ULDy1xyoH0uXfw6q9lRiA13
+X-Gm-Gg: ASbGncvE+orh7Fw/hpYztIRKQ0zmxSa+lXnHaNst4eQ1eFpjfTDJpiyII7VIi9zu0td
+	Fw/OGgoL9x/uaaM2IJnHwHFQgCFzfU0iX84R1BlFDdpd5SaCnkGiIYoMnZ+PbjhfXDRzb7f3qX7
+	PCP7q23nhYbOy0mB9zNMu0Mu2+oUovgG5qN2sVuKC+EUb74jJWr0nr/y+nt+2MR9Vj6LwpuG33X
+	taNcdCZvPrUIsXzGwpiXZczEjy3qddonvf23Tm9ydDJ1O7NpYhOfCuuw18nl1aEPRFiQtUZjZFP
+	9s+xoiHEhxtR4NsoyXl2/jpglL3kbGmFyGtokg==
+X-Received: by 2002:a05:600c:3b08:b0:43c:fda5:41e9 with SMTP id 5b1f17b1804b1-441b43a6849mr12659185e9.31.1746015454192;
+        Wed, 30 Apr 2025 05:17:34 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEeDRQpH85Tjf5lCeTC38YV5zFGOEEWEJ15Q43zpvFHsUBUREIV9t8rFVVspwP+av3krGaKQA==
+X-Received: by 2002:a05:600c:3b08:b0:43c:fda5:41e9 with SMTP id 5b1f17b1804b1-441b43a6849mr12658865e9.31.1746015453815;
+        Wed, 30 Apr 2025 05:17:33 -0700 (PDT)
+Received: from gmonaco-thinkpadt14gen3.rmtit.csb ([185.107.56.30])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-441b2af2a9dsm23611265e9.19.2025.04.30.05.17.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Apr 2025 05:17:33 -0700 (PDT)
+Message-ID: <cbcefdb80d5e10b8fed80de17bb97bf61df81386.camel@redhat.com>
+Subject: Re: [PATCH v6 00/22] RV: Linear temporal logic monitors for RT
+ application
+From: Gabriele Monaco <gmonaco@redhat.com>
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: Nam Cao <namcao@linutronix.de>, john.ogness@linutronix.de, Petr Mladek	
+ <pmladek@suse.com>, Sergey Senozhatsky <senozhatsky@chromium.org>, Ingo
+ Molnar	 <mingo@redhat.com>, Thomas Gleixner <tglx@linutronix.de>, Borislav
+ Petkov	 <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H . Peter Anvin"	 <hpa@zytor.com>, Andy Lutomirski
+ <luto@kernel.org>, Peter Zijlstra	 <peterz@infradead.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, 	linux-arm-kernel@lists.infradead.org, Paul
+ Walmsley <paul.walmsley@sifive.com>,  Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	linux-riscv@lists.infradead.org, linux-trace-kernel@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Date: Wed, 30 Apr 2025 14:17:30 +0200
+In-Reply-To: <cover.1745999587.git.namcao@linutronix.de>
+References: <cover.1745999587.git.namcao@linutronix.de>
+Autocrypt: addr=gmonaco@redhat.com; prefer-encrypt=mutual;
+ keydata=mDMEZuK5YxYJKwYBBAHaRw8BAQdAmJ3dM9Sz6/Hodu33Qrf8QH2bNeNbOikqYtxWFLVm0
+ 1a0JEdhYnJpZWxlIE1vbmFjbyA8Z21vbmFjb0ByZWRoYXQuY29tPoiZBBMWCgBBFiEEysoR+AuB3R
+ Zwp6j270psSVh4TfIFAmbiuWMCGwMFCQWjmoAFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgk
+ Q70psSVh4TfJzZgD/TXjnqCyqaZH/Y2w+YVbvm93WX2eqBqiVZ6VEjTuGNs8A/iPrKbzdWC7AicnK
+ xyhmqeUWOzFx5P43S1E1dhsrLWgP
+User-Agent: Evolution 3.56.1 (3.56.1-1.fc42)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 17/43] arm64: RME: Handle RMI_EXIT_RIPAS_CHANGE
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-References: <20250416134208.383984-1-steven.price@arm.com>
- <20250416134208.383984-18-steven.price@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20250416134208.383984-18-steven.price@arm.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: qFqClQa4S6qckHUg7DbAmfoX1i0gKNepnYIDPeCwzNc_1746015079
+X-Mimecast-MFC-PROC-ID: GccL428kudjYGbr0IqiiAPUvmW_K1cLgREvPdAFrpxc_1746015454
 X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_051122_243143_95825B2C 
-X-CRM114-Status: GOOD (  32.99  )
+X-CRM114-CacheID: sfid-20250430_051738_705456_378D5911 
+X-CRM114-Status: GOOD (  35.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,161 +124,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/16/25 11:41 PM, Steven Price wrote:
-> The guest can request that a region of it's protected address space is
-> switched between RIPAS_RAM and RIPAS_EMPTY (and back) using
-> RSI_IPA_STATE_SET. This causes a guest exit with the
-> RMI_EXIT_RIPAS_CHANGE code. We treat this as a request to convert a
-> protected region to unprotected (or back), exiting to the VMM to make
-> the necessary changes to the guest_memfd and memslot mappings. On the
-> next entry the RIPAS changes are committed by making RMI_RTT_SET_RIPAS
-> calls.
-> 
-> The VMM may wish to reject the RIPAS change requested by the guest. For
-> now it can only do with by no longer scheduling the VCPU as we don't
-> currently have a usecase for returning that rejection to the guest, but
-> by postponing the RMI_RTT_SET_RIPAS changes to entry we leave the door
-> open for adding a new ioctl in the future for this purpose.
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> Changes since v7:
->   * Rework the loop in realm_set_ipa_state() to make it clear when the
->     'next' output value of rmi_rtt_set_ripas() is used.
-> New patch for v7: The code was previously split awkwardly between two
-> other patches.
-> ---
->   arch/arm64/kvm/rme.c | 88 ++++++++++++++++++++++++++++++++++++++++++++
->   1 file changed, 88 insertions(+)
-> 
+On Wed, 2025-04-30 at 13:02 +0200, Nam Cao wrote:
+> Real-time applications may have design flaws causing them to have
+> unexpected latency. For example, the applications may raise page
+> faults, or
+> may be blocked trying to take a mutex without priority inheritance.
+>=20
+> However, while attempting to implement DA monitors for these real-
+> time
+> rules, deterministic automaton is found to be inappropriate as the
+> specification language. The automaton is complicated, hard to
+> understand,
+> and error-prone.
+>=20
+> For these cases, linear temporal logic is found to be more suitable.
+> The
+> LTL is more concise and intuitive.
+>=20
+> This series adds support for LTL RV monitor, and use it to implement
+> two
+> monitors for reporting problems with real-time tasks.
+>=20
 
-One nitpick below, either way:
+Steve,
 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+From my point of view this series is ready for inclusion, what do you
+think?
 
-> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
-> index bee9dfe12e03..fe0d5b8703d2 100644
-> --- a/arch/arm64/kvm/rme.c
-> +++ b/arch/arm64/kvm/rme.c
-> @@ -624,6 +624,65 @@ void kvm_realm_unmap_range(struct kvm *kvm, unsigned long start,
->   		realm_unmap_private_range(kvm, start, end);
->   }
->   
-> +static int realm_set_ipa_state(struct kvm_vcpu *vcpu,
-> +			       unsigned long start,
-> +			       unsigned long end,
-> +			       unsigned long ripas,
-> +			       unsigned long *top_ipa)
-> +{
-> +	struct kvm *kvm = vcpu->kvm;
-> +	struct realm *realm = &kvm->arch.realm;
-> +	struct realm_rec *rec = &vcpu->arch.rec;
-> +	phys_addr_t rd_phys = virt_to_phys(realm->rd);
-> +	phys_addr_t rec_phys = virt_to_phys(rec->rec_page);
-> +	struct kvm_mmu_memory_cache *memcache = &vcpu->arch.mmu_page_cache;
-> +	unsigned long ipa = start;
-> +	int ret = 0;
-> +
-> +	while (ipa < end) {
-> +		unsigned long next;
-> +
-> +		ret = rmi_rtt_set_ripas(rd_phys, rec_phys, ipa, end, &next);
-> +
-> +		if (RMI_RETURN_STATUS(ret) == RMI_SUCCESS) {
-> +			ipa = next;
-> +		} else if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
-
---->
-
-> +			int walk_level = RMI_RETURN_INDEX(ret);
-> +			int level = find_map_level(realm, ipa, end);
-> +
-> +			/*
-> +			 * If the RMM walk ended early then more tables are
-> +			 * needed to reach the required depth to set the RIPAS.
-> +			 */
-> +			if (walk_level < level) {
-> +				ret = realm_create_rtt_levels(realm, ipa,
-> +							      walk_level,
-> +							      level,
-> +							      memcache);
-> +				/* Retry with RTTs created */
-> +				if (!ret)
-> +					continue;
-> +			} else {
-> +				ret = -EINVAL;
-> +			}
-> +
-
-<--- This block of code have been existing in multiple functions. I guess
-it would be worthy to introduce a helper for it if you agree. Alternatively,
-it's definitely something to do in the future, after this series is merged :)
-
-> +			break;
-> +		} else {
-> +			WARN(1, "Unexpected error in %s: %#x\n", __func__,
-> +			     ret);
-> +			ret = -ENXIO;
-> +			break;
-> +		}
-> +	}
-> +
-> +	*top_ipa = ipa;
-> +
-> +	if (ripas == RMI_EMPTY && ipa != start)
-> +		realm_unmap_private_range(kvm, start, ipa);
-> +
-> +	return ret;
-> +}
-> +
->   static int realm_init_ipa_state(struct realm *realm,
->   				unsigned long ipa,
->   				unsigned long end)
-> @@ -863,6 +922,32 @@ void kvm_destroy_realm(struct kvm *kvm)
->   	kvm_free_stage2_pgd(&kvm->arch.mmu);
->   }
->   
-> +static void kvm_complete_ripas_change(struct kvm_vcpu *vcpu)
-> +{
-> +	struct kvm *kvm = vcpu->kvm;
-> +	struct realm_rec *rec = &vcpu->arch.rec;
-> +	unsigned long base = rec->run->exit.ripas_base;
-> +	unsigned long top = rec->run->exit.ripas_top;
-> +	unsigned long ripas = rec->run->exit.ripas_value;
-> +	unsigned long top_ipa;
-> +	int ret;
-> +
-> +	do {
-> +		kvm_mmu_topup_memory_cache(&vcpu->arch.mmu_page_cache,
-> +					   kvm_mmu_cache_min_pages(vcpu->arch.hw_mmu));
-> +		write_lock(&kvm->mmu_lock);
-> +		ret = realm_set_ipa_state(vcpu, base, top, ripas, &top_ipa);
-> +		write_unlock(&kvm->mmu_lock);
-> +
-> +		if (WARN_RATELIMIT(ret && ret != -ENOMEM,
-> +				   "Unable to satisfy RIPAS_CHANGE for %#lx - %#lx, ripas: %#lx\n",
-> +				   base, top, ripas))
-> +			break;
-> +
-> +		base = top_ipa;
-> +	} while (top_ipa < top);
-> +}
-> +
->   int kvm_rec_enter(struct kvm_vcpu *vcpu)
->   {
->   	struct realm_rec *rec = &vcpu->arch.rec;
-> @@ -873,6 +958,9 @@ int kvm_rec_enter(struct kvm_vcpu *vcpu)
->   		for (int i = 0; i < REC_RUN_GPRS; i++)
->   			rec->run->enter.gprs[i] = vcpu_get_reg(vcpu, i);
->   		break;
-> +	case RMI_EXIT_RIPAS_CHANGE:
-> +		kvm_complete_ripas_change(vcpu);
-> +		break;
->   	}
->   
->   	if (kvm_realm_state(vcpu->kvm) != REALM_STATE_ACTIVE)
+We may still need Acks from the x86 and arm64 maintainers regarding the
+tracepoints changes, though.
 
 Thanks,
-Gavin
+Gabriele
+
+> Patch 1-12 cleanup and prepare the RV code for the integration of LTL
+> monitors.
+>=20
+> Patch 13 adds support for LTL monitors.
+>=20
+> Patch 14 adds the container monitor "rtapp". This encapsulates the
+> sub-monitors for real-time.
+>=20
+> Patch 15-18 prepares the pagefault tracepoints, so that patch 19 can
+> add
+> the monitor which watches real-time tasks doing page faults.
+>=20
+> Patch 20 adds the "sleep" monitor: it detects potential undesirable
+> latency
+> with real-time threads.
+>=20
+> Patch 21 adds documentation on the new monitors.
+>=20
+> Patch 22 allows the number of per-task monitors to be configurable,
+> so that
+> the two new monitors can be enabled simultaneously.
+>=20
+> v5->v6
+> https://lore.kernel.org/lkml/cover.1745926331.git.namcao@linutronix.de
+> =C2=A0 - sleep monitor: Drop the block_on_rt_mutex tracepoints. The
+> contention
+> =C2=A0=C2=A0=C2=A0 tracepoints are sufficient.
+>=20
+> v4->v5
+> https://lore.kernel.org/lkml/cover.1745390829.git.namcao@linutronix.de
+> =C2=A0 - sleep monitor: Fix a false positive due to a race with waking an=
+d
+> =C2=A0=C2=A0=C2=A0 scheduling.
+> =C2=A0 - sleep monitor: Add block_on_rt_mutex tracepoints and use them fo=
+r
+> =C2=A0=C2=A0=C2=A0 BLOCK_ON_RT_MUTEX, instead of trace_sched_pi_setprio
+> =C2=A0 - sleep monitor: tighten the rule on nanosleep: only
+> clock_nanosleep()
+> =C2=A0=C2=A0=C2=A0 with TIMER_ABSTIME and CLOCK_MONOTONIC is allowed
+> =C2=A0 - add comments explaining why it is correct to treat PI-boosted
+> tasks as
+> =C2=A0=C2=A0=C2=A0 real-time tasks.
+>=20
+> =C2=A0=C2=A0=C2=A0 It should be noted that due to the changes in v5, 'per=
+f' does not
+> work
+> =C2=A0=C2=A0=C2=A0 as well as before, because sometimes the errors happen=
+ out of the
+> =C2=A0=C2=A0=C2=A0 real-time tasks' contexts. Fixing this is left for fut=
+ure work.
+>=20
+> =C2=A0=C2=A0=C2=A0 stress-ng is also far noisier in v5, because the rule =
+on
+> nanosleep is
+> =C2=A0=C2=A0=C2=A0 tightened.
+>=20
+> v3->v4
+> https://lore.kernel.org/lkml/cover.1744785335.git.namcao@linutronix.de
+> =C2=A0 - support deadline tasks
+> =C2=A0 - rtapp_sleep: use sched_pi_setprio tracepoint instead of
+> contention
+> =C2=A0=C2=A0=C2=A0 tracepoints for BLOCK_ON_RT_MUTEX, so that proxy lock =
+is covered.
+> =C2=A0 - fix the scripts generating an "slightly" incorrect verification
+> automaton
+> =C2=A0 - makes rtapp monitor depends on RV_PER_TASK_MONITORS >=3D 2
+> =C2=A0 - make the event tracepoint output a bit more readable
+> =C2=A0 - some documentation's format fixes
+>=20
+> v2->v3
+> https://lore.kernel.org/lkml/cover.1744355018.git.namcao@linutronix.de/
+> =C2=A0 - fix a problem with sleep monitor's specification (around
+> =C2=A0=C2=A0=C2=A0 KTHREAD_SHOULD_STOP)
+> =C2=A0 - merge the patches that move the dot2k/rvgen scripts around
+> =C2=A0 - pull panic/printk changes into separate patches
+> =C2=A0 - fixup some build errors
+> =C2=A0 - fixup monitor's init function return code
+> =C2=A0 - fix some flake8 warnings with the scripts
+> =C2=A0 - add some references to LTL documentation
+> =C2=A0 - fixup some mistakes with rtapp documentation
+> =C2=A0 - fixup capitalization mistake with monitor_synthesis.rst
+> =C2=A0 - remove the now-redundant macro RV_PER_TASK_MONITORS
+>=20
+> v1->v2
+> https://lore.kernel.org/lkml/cover.1741708239.git.namcao@linutronix.de/
+> =C2=A0 - Integrate the LTL scripts into the existing dot2k tool, taking
+> =C2=A0=C2=A0=C2=A0 advantage of the existing monitor generation scripts.
+> =C2=A0 - Switch the struct ltl_monitor to use bitmap instead of an array,
+> to
+> =C2=A0=C2=A0=C2=A0 optimize memory usage.
+> =C2=A0 - Correct the generated code to be non-deterministic state machine=
+,
+> =C2=A0=C2=A0=C2=A0 instead of deterministic state machine
+> =C2=A0 - Put common code for all LTL monitors into a single file
+> =C2=A0=C2=A0=C2=A0 (include/rv/ltl_monitor.h), reducing code duplication
+> =C2=A0 - Change the LTL monitors to make user of container. Add a bug fix
+> to
+> =C2=A0=C2=A0=C2=A0 container while at it.
+> =C2=A0 - Make the number of per-task monitor configurable
 
 
