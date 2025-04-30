@@ -4,110 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9851C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 07:01:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F0CFC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 07:09:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zVCkZcq4W2ul19Ksyh9bgX6b4WBpBTYFnXA9H5yQHDc=; b=4OKYVSFfSoYlv7AhQjJOEXpGi7
-	IvPfFV4gFwebAaSEeSNQzwOHREVDspzHWiq1+7gP8VQTnjFhgnL6jQ9JLm4qZ11qOfqAKj7mrHPyh
-	sBEwQMmHsG4XS62Qf3EGbKWrcfpIAzE7bGXb2RoiAmHJzxi2o4TLkfoMi3F6fgjn5qAxGkptMybgj
-	476jNRK3sTI5ZEyI47iXQz1ST/2xyv+p7XetLWvBvw8Oa7gapNpWRcIrF5KGWHmYsGTFcaJNTmJt3
-	ghtcfLgRiANNIWfbE3SXAkDSnKZpcqb7XQ/zsuhZvk0gGuOpjpxQnBgw78HWmnUOW+O+Cld/4br7H
-	7Zunvh7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=yCZezkL1GW+eHlpdTmG892fGlIjWcoTOGCzL3tZBGt8=; b=ypDF5M4aa0Ybsh
+	sq1x4JKN0P6yx+/E2oW1dFuds8QBiE3fwfM1lsu8NayWBoxEjOqkx77GGflvDIuPhEWHebmBwaPd5
+	NQJJn+vS024s72mqyYOF+rqeAFAS6N7ZxBdivG0Cpj9VDEdSmSC2mKZ+43CWOEJ5nCfRT5dHyvmGa
+	q6BvsKQ5UiC+6nGghimT1Xqfl0rhJzeunNcBa4lp19HZ7Pp67XN1r7E01E5zZQZ6NrjV135N9LNgD
+	6n6e143hoAseN5v53gkbKpts+h7FrL//59fu5usMJ/KFOm3jBjwfRHdJIrmyzAgBw+SBBQCkxtULF
+	6YgNpS8ZfH2CkQ3kVKng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA1Ra-0000000Bvqo-2Ega;
-	Wed, 30 Apr 2025 07:01:22 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uA1ZK-0000000BwpB-2Rlp;
+	Wed, 30 Apr 2025 07:09:22 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA0Ax-0000000BmPB-3mQA
+	id 1uA1XP-0000000BwSL-1QZP
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 30 Apr 2025 07:07:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=yCZezkL1GW+eHlpdTmG892fGlIjWcoTOGCzL3tZBGt8=; b=F/ULbVUxErwOZMnITjDewr9eLJ
+	Sfpd4J7TrHTU9Gqhot1Jsod6Z1X/Lgod4vZlbhjMmlI92ZuYLzbCWrVItT7PlHNSKtMV25/hZyJVw
+	ZBgH5l6QCFR8aW/GiJf2SUb+3yuXcv37rQcXtvuEBSBO/39DVnePMOGjKAJmXylptYYFOa6LqlWrU
+	ABYX9FHYj0IG8SZcUykNFAB0E/Vy6ia2EzuzExFhFcXtoy9tsst4qkV6AQtuQW1QOL6w4jJplOA4S
+	M603WgOKgp/2pp2lV6Sn4hlDPt8s3Ot4qKyHi+iS+I7ykWXManixF34hcYCS5ynkEGrDA2iuhBnlf
+	lwnjRXOg==;
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uA1XJ-0000000DiNm-0yXI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 05:40:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1745991605;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zVCkZcq4W2ul19Ksyh9bgX6b4WBpBTYFnXA9H5yQHDc=;
-	b=U9fczRUIEW5W8Eaq11nxEJkah6sHNfdQaZhqW0/KH6An1GQpNdlczODBUMAQjEc8z76Yot
-	lubD7PUbZvspqmShyhLSfgkiwC8/WhQBs+7X1ltdo4rk0RgekUcoUjYOjupC0foc+/0kMA
-	2Z6A1qZ/tphoBB7sGNYVf8eQxO3ngAg=
-Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com
- [209.85.215.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-267-y9oGGF_wM3OJxnw5sCrrXA-1; Wed, 30 Apr 2025 01:40:04 -0400
-X-MC-Unique: y9oGGF_wM3OJxnw5sCrrXA-1
-X-Mimecast-MFC-AGG-ID: y9oGGF_wM3OJxnw5sCrrXA_1745991603
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-afd3f1adff7so431939a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 22:40:03 -0700 (PDT)
+	Wed, 30 Apr 2025 07:07:19 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-5e5dce099f4so8905491a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 00:07:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1745996834; x=1746601634; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=yCZezkL1GW+eHlpdTmG892fGlIjWcoTOGCzL3tZBGt8=;
+        b=C3V4VgshbZv02T5P4tTV9pe1gdzK7D6c9f6AhKr9qwVwSqqeRTY7eaOXITBs+/iYvw
+         QZSJhqKp0nP5cvwmm7kGe5Z9uKdtn/wI+DNFsFinFmDcNDmPPLdfRV3s3Z0Wm8GhvcyU
+         1cvAOMcT/m5dQj9Qk2XZrkMhFcXJe9bWgoxh1DsNZVgq3NJwbeuMC0BViVWbsLP794Jz
+         xuDo45pGtvr5dPeRHkCN3vmxjUCFLBcvL+TtQPtRbT2k6oHr6fU+sYPx3wwZWy5kx25G
+         6/XOEOXJ+ne4fOGXD6dysoWRg6tIMBDp6BrrilI3RfB4V4/Q548eDi2r2LztGcZjnF2e
+         RqeQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745991603; x=1746596403;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zVCkZcq4W2ul19Ksyh9bgX6b4WBpBTYFnXA9H5yQHDc=;
-        b=LdrOAgVSzHxMu4kort35Z4WQxHhGI4b5OESYmpBpqijyxduM9dH3Hypl+e7hhL5baG
-         TbteRtebhr2BQrz8El3Zir5NoIpkNq/Wa2/4vRSIwqaBfOPaKPU1TDgB5+APoU7uXSmn
-         bglejFv+q3DXRi8d43H7SCJNwir76GjahYUwl/AJLNXdrgxkXd0dkpZUYuvn8H6+dfze
-         eE28fCA26Wr2sPMINt+IbXXlORJS78b20ecv0Ns1QM+d0HhjXMo+Ju9y2cltVvEqG6ya
-         UChKcDrwpoRVPMjClRK9UYl4PZjLRuTtUIN01j1PEfI7tPur0BCG7k/2wd7j/s/TAkK9
-         HeNg==
-X-Forwarded-Encrypted: i=1; AJvYcCVRx9ObovukG7Zv1yeUUBA4NDBovEsnmYRZ238z5+sisZVssulOlyxOW2sS7jn3NLTE2bj7ZkFkaoSx3KHURW9i@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7HXkdvbLaA6b2cqsklbsK0zwN+2r70p3qSCs0NusMhU9krQW0
-	Izr2ZaawS1a8ClkzZmd1e8BWyODjerSovWgFBhScPJ0JPNLL7OgXfNzpkDtOz1n8Lf8TAJlDewP
-	495+Tx9Dul9PfcCircmPbBuRCvyrXH/4LHy8ddHFu08F/EcQpLSZv9qmplczQnENXjnwaBG2v
-X-Gm-Gg: ASbGncuRT1ysHG80FCQ2oGZFOntEmTv92Thmh36zwCBbO6tYgetkopZjyV/W9MSMVGt
-	Gbnr6YQWZyPoIa/WDkP0mUuqqNgw0zOOC511VmRTvuFdF1QUiK22/Xjxk84bdIuf6AbhMVeGYmG
-	45VwsEoaLWe4TMWwzYDawts7aiaur2JwQjSvcA12ywEZMV2Zuwg3onC2TiEbyl6aJPD/xGxufP9
-	0IStSkb28gcSYQqYuA6VMz4WetqmBoFsjnavG9Hcj7ms95oT1R7fZBtsZHjaG4npMGpnIxYMYAy
-	iCJrv3vmeVGy
-X-Received: by 2002:a05:6a20:7f88:b0:1ee:ab52:b8cc with SMTP id adf61e73a8af0-20a915f164amr2378383637.21.1745991602762;
-        Tue, 29 Apr 2025 22:40:02 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHdwByPhzYXp+S8Y6x/vmCL8M+UXiqBvRqA0xKJ3OpwWpUfMpKnj3ruZKm4F1zTZtrrmYx6zQ==
-X-Received: by 2002:a05:6a20:7f88:b0:1ee:ab52:b8cc with SMTP id adf61e73a8af0-20a915f164amr2378332637.21.1745991602253;
-        Tue, 29 Apr 2025 22:40:02 -0700 (PDT)
-Received: from [192.168.68.51] ([180.233.125.65])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b15f76f4219sm9892611a12.6.2025.04.29.22.39.54
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 29 Apr 2025 22:40:01 -0700 (PDT)
-Message-ID: <1802ffb9-798a-4c48-8420-c046f86c548c@redhat.com>
-Date: Wed, 30 Apr 2025 15:39:52 +1000
+        d=1e100.net; s=20230601; t=1745996834; x=1746601634;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=yCZezkL1GW+eHlpdTmG892fGlIjWcoTOGCzL3tZBGt8=;
+        b=h1ZQOaAsG6geJNvj+4hLAhzBrrhZFCveRMgcO6MI1Fhg+GzPF0XskQV0PDpraCNa8q
+         R9pg4uAWFdQEl0GIU/9ffF5xV3NsMmUdN8tXV0FwsUWZcRmbV9TAq0O/9fwrIvxgENrE
+         JpzNgI1MnKMkzUcmpsJ8tTqWuVC2+krnDI9JWe2/dDPoKGWnt2ObxSE1SMkQFsVMmPHx
+         EpI9B3v/h0qeGg7eJ4VUgdNr2TosxIJKGH6kzbOh+PsjeP+4Rf9l9C4TWa8WESR63mBP
+         bStV6whRIYjqMi+xk/DU0n2Zx5mABXCm8cynydJc+BRqqVFmUFq1WqQFZAexbdTW7CJ/
+         pu+Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXwxNpnQCb0QGDdS5MLwIoiuIa569+JnEUqdoE2A8PI5dMYEcbFCfe58N3II+Uphy9wIctzG9g+H28dohVEW+G3@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzob0I3mzU6eIc7MhyPUgQJzhGVm8jYS7/0A6mh9ZS70AGGMQpI
+	fYkWN8LiUQvNf3iLzPYprnj9Yqb3eTjmqk03r/wZSwXYrNCadU/V
+X-Gm-Gg: ASbGncv/J3GW5w8LzDY8aUKKrHF8JtyuHoAmgwZAc1BxMuKhd3VsyFwjABjxH/84Cxo
+	Pg81qfpCe1Z9lvWgVojB7qdyo46ijz6qYesmdCURNft1AzYSRDQx+POoS19arDeELQlbrwv/WRy
+	tvcewOFGghYECoX3oVhn3ZHdtMfLRgiEpCkV+n/v2p+m7qeDYwGnZQIY8QxTnmU1VKClh7ccjvP
+	MQqLTrCT0umx42OTmWGsGVdiXIbqsO/mb16eJusdcWAqq1aK17kyTd3CV/OSHM9M/MG8rm40LKF
+	TIkwusvwUnM54r1FYZjta1SqaTKbMYJY8UIRwcCz08iEPdCK7RVZ2eLUt3ihSh9XllEzsSnIxom
+	y7ELuQwUjFng=
+X-Google-Smtp-Source: AGHT+IH8AWzlzZJPAMnz09jAaWWKRGsufLNtWVCf7t2a9gB25c8aE/jh3Th5ts6tU+ILFI5+KiZnnA==
+X-Received: by 2002:a05:6402:3509:b0:5f6:218d:34f3 with SMTP id 4fb4d7f45d1cf-5f89c116d3cmr1744138a12.28.1745996833764;
+        Wed, 30 Apr 2025 00:07:13 -0700 (PDT)
+Received: from hex.my.domain (83.8.121.197.ipv4.supernova.orange.pl. [83.8.121.197])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f7013fec3csm8334314a12.19.2025.04.30.00.07.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Apr 2025 00:07:12 -0700 (PDT)
+From: Artur Weber <aweber.kernel@gmail.com>
+Subject: [PATCH v8 0/9] mfd: bcm590xx: Add support for BCM59054
+Date: Wed, 30 Apr 2025 09:07:04 +0200
+Message-Id: <20250430-bcm59054-v8-0-e4cf638169a4@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 07/43] arm64: RME: ioctls to create and configure
- realms
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-References: <20250416134208.383984-1-steven.price@arm.com>
- <20250416134208.383984-8-steven.price@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20250416134208.383984-8-steven.price@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: CHAh5aMxkfWJVU4MOakCnPy75d9ajz5F2e58z7IgXcI_1745991603
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIABjMEWgC/3XRwWrDMAwG4FcpPi9DsiVH2WnvMXaQE6c1LE1JR
+ tgoefc5hRGTseNv/P3C8t3McUpxNi+nu5nikuY0XnOQp5NpL3o9xyp1ORsLlkDQV6EduAGmSkX
+ ANxwJo5h8/TbFPn09qt7ec76k+XOcvh/NC26nW4lDcLCXLFhB5RjrvhFoMbrX86Dp47kdB7OVL
+ PY/aDPkXgkQVTnoEbpfyIAOC+gyDEFbtipUS32EtEOLXEDKsAt9sF3tVZiPkAtoy4mcIXjuGb0
+ 2QPYI/Q4dUAF9hhrF5dezEP1ZTl3A8muWOkOygmh9iBikhOu6/gD13TWT9gEAAA==
+X-Change-ID: 20240816-bcm59054-a880695e41e8
+To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: Stanislav Jakubek <stano.jakubek@gmail.com>, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ ~postmarketos/upstreaming@lists.sr.ht, 
+ Artur Weber <aweber.kernel@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1745996831; l=4550;
+ i=aweber.kernel@gmail.com; s=20231030; h=from:subject:message-id;
+ bh=VS+xlrw9Zg+0emm6wlTPjAFokaDbaMcRgsU4cs4QxcQ=;
+ b=LkPJJme0CeOuWGxdl/UEmer7IN2WIrREelfrgk/qqB8Aqo25JGhq61RDghEGRU+wxQe99lPE+
+ 2YWhvsAq3rfCEo1yh+b1fyLAfOg1dZEEEivrVYPlerUUQYX+Xpjt5A2
+X-Developer-Key: i=aweber.kernel@gmail.com; a=ed25519;
+ pk=RhDBfWbJEHqDibXbhNEBAnc9FMkyznGxX/hwfhL8bv8=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_224008_140884_5389427D 
-X-CRM114-Status: GOOD (  44.04  )
+X-CRM114-CacheID: sfid-20250430_080717_517082_8BAF2534 
+X-CRM114-Status: GOOD (  18.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,584 +132,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/16/25 11:41 PM, Steven Price wrote:
-> Add the KVM_CAP_ARM_RME_CREATE_RD ioctl to create a realm. This involves
-> delegating pages to the RMM to hold the Realm Descriptor (RD) and for
-> the base level of the Realm Translation Tables (RTT). A VMID also need
-> to be picked, since the RMM has a separate VMID address space a
-> dedicated allocator is added for this purpose.
-> 
-> KVM_CAP_ARM_RME_CONFIG_REALM is provided to allow configuring the realm
-> before it is created. Configuration options can be classified as:
-> 
->   1. Parameters specific to the Realm stage2 (e.g. IPA Size, vmid, stage2
->      entry level, entry level RTTs, number of RTTs in start level, LPA2)
->      Most of these are not measured by RMM and comes from KVM book
->      keeping.
-> 
->   2. Parameters controlling "Arm Architecture features for the VM". (e.g.
->      SVE VL, PMU counters, number of HW BRPs/WPs), configured by the VMM
->      using the "user ID register write" mechanism. These will be
->      supported in the later patches.
-> 
->   3. Parameters are not part of the core Arm architecture but defined
->      by the RMM spec (e.g. Hash algorithm for measurement,
->      Personalisation value). These are programmed via
->      KVM_CAP_ARM_RME_CONFIG_REALM.
-> 
-> For the IPA size there is the possibility that the RMM supports a
-> different size to the IPA size supported by KVM for normal guests. At
-> the moment the 'normal limit' is exposed by KVM_CAP_ARM_VM_IPA_SIZE and
-> the IPA size is configured by the bottom bits of vm_type in
-> KVM_CREATE_VM. This means that it isn't easy for the VMM to discover
-> what IPA sizes are supported for Realm guests. Since the IPA is part of
-> the measurement of the realm guest the current expectation is that the
-> VMM will be required to pick the IPA size demanded by attestation and
-> therefore simply failing if this isn't available is fine. An option
-> would be to expose a new capability ioctl to obtain the RMM's maximum
-> IPA size if this is needed in the future.
-> 
-> Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> ---
-> Changes since v7:
->   * Minor code cleanup following Gavin's review.
-> Changes since v6:
->   * Separate RMM RTT calculations from host PAGE_SIZE. This allows the
->     host page size to be larger than 4k while still communicating with an
->     RMM which uses 4k granules.
-> Changes since v5:
->   * Introduce free_delegated_granule() to replace many
->     undelegate/free_page() instances and centralise the comment on
->     leaking when the undelegate fails.
->   * Several other minor improvements suggested by reviews - thanks for
->     the feedback!
-> Changes since v2:
->   * Improved commit description.
->   * Improved return failures for rmi_check_version().
->   * Clear contents of PGD after it has been undelegated in case the RMM
->     left stale data.
->   * Minor changes to reflect changes in previous patches.
-> ---
->   arch/arm64/include/asm/kvm_emulate.h |   5 +
->   arch/arm64/include/asm/kvm_rme.h     |  19 ++
->   arch/arm64/kvm/arm.c                 |  16 ++
->   arch/arm64/kvm/mmu.c                 |  22 +-
->   arch/arm64/kvm/rme.c                 | 319 +++++++++++++++++++++++++++
->   5 files changed, 379 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-> index 1c43a4fc25dd..4ee6c215da82 100644
-> --- a/arch/arm64/include/asm/kvm_emulate.h
-> +++ b/arch/arm64/include/asm/kvm_emulate.h
-> @@ -699,6 +699,11 @@ static inline enum realm_state kvm_realm_state(struct kvm *kvm)
->   	return READ_ONCE(kvm->arch.realm.state);
->   }
->   
-> +static inline bool kvm_realm_is_created(struct kvm *kvm)
-> +{
-> +	return kvm_is_realm(kvm) && kvm_realm_state(kvm) != REALM_STATE_NONE;
-> +}
-> +
->   static inline bool vcpu_is_rec(struct kvm_vcpu *vcpu)
->   {
->   	return false;
-> diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/asm/kvm_rme.h
-> index 9c8a0b23e0e4..5dc1915de891 100644
-> --- a/arch/arm64/include/asm/kvm_rme.h
-> +++ b/arch/arm64/include/asm/kvm_rme.h
-> @@ -6,6 +6,8 @@
->   #ifndef __ASM_KVM_RME_H
->   #define __ASM_KVM_RME_H
->   
-> +#include <uapi/linux/kvm.h>
-> +
->   /**
->    * enum realm_state - State of a Realm
->    */
-> @@ -46,11 +48,28 @@ enum realm_state {
->    * struct realm - Additional per VM data for a Realm
->    *
->    * @state: The lifetime state machine for the realm
-> + * @rd: Kernel mapping of the Realm Descriptor (RD)
-> + * @params: Parameters for the RMI_REALM_CREATE command
-> + * @num_aux: The number of auxiliary pages required by the RMM
-> + * @vmid: VMID to be used by the RMM for the realm
-> + * @ia_bits: Number of valid Input Address bits in the IPA
->    */
->   struct realm {
->   	enum realm_state state;
-> +
-> +	void *rd;
-> +	struct realm_params *params;
-> +
-> +	unsigned long num_aux;
-> +	unsigned int vmid;
-> +	unsigned int ia_bits;
->   };
->   
->   void kvm_init_rme(void);
-> +u32 kvm_realm_ipa_limit(void);
-> +
-> +int kvm_realm_enable_cap(struct kvm *kvm, struct kvm_enable_cap *cap);
-> +int kvm_init_realm_vm(struct kvm *kvm);
-> +void kvm_destroy_realm(struct kvm *kvm);
->   
->   #endif /* __ASM_KVM_RME_H */
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 856a721d41ac..0e8482fdc4d3 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -136,6 +136,11 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
->   		}
->   		mutex_unlock(&kvm->lock);
->   		break;
-> +	case KVM_CAP_ARM_RME:
-> +		mutex_lock(&kvm->lock);
-> +		r = kvm_realm_enable_cap(kvm, cap);
-> +		mutex_unlock(&kvm->lock);
-> +		break;
->   	default:
->   		break;
->   	}
-> @@ -198,6 +203,13 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
->   
->   	bitmap_zero(kvm->arch.vcpu_features, KVM_VCPU_MAX_FEATURES);
->   
-> +	/* Initialise the realm bits after the generic bits are enabled */
-> +	if (kvm_is_realm(kvm)) {
-> +		ret = kvm_init_realm_vm(kvm);
-> +		if (ret)
-> +			goto err_free_cpumask;
-> +	}
-> +
->   	return 0;
->   
->   err_free_cpumask:
-> @@ -257,6 +269,7 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
->   	kvm_unshare_hyp(kvm, kvm + 1);
->   
->   	kvm_arm_teardown_hypercalls(kvm);
-> +	kvm_destroy_realm(kvm);
->   }
->   
->   static bool kvm_has_full_ptr_auth(void)
-> @@ -405,6 +418,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->   	case KVM_CAP_ARM_SUPPORTED_REG_MASK_RANGES:
->   		r = BIT(0);
->   		break;
-> +	case KVM_CAP_ARM_RME:
-> +		r = static_key_enabled(&kvm_rme_is_available);
-> +		break;
->   	default:
->   		r = 0;
->   	}
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 2feb6c6b63af..5957a07de86d 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -876,12 +876,16 @@ static struct kvm_pgtable_mm_ops kvm_s2_mm_ops = {
->   	.icache_inval_pou	= invalidate_icache_guest_page,
->   };
->   
-> -static int kvm_init_ipa_range(struct kvm_s2_mmu *mmu, unsigned long type)
-> +static int kvm_init_ipa_range(struct kvm *kvm,
-> +			      struct kvm_s2_mmu *mmu, unsigned long type)
->   {
->   	u32 kvm_ipa_limit = get_kvm_ipa_limit();
->   	u64 mmfr0, mmfr1;
->   	u32 phys_shift;
->   
-> +	if (kvm_is_realm(kvm))
-> +		kvm_ipa_limit = kvm_realm_ipa_limit();
-> +
->   	if (type & ~KVM_VM_TYPE_ARM_IPA_SIZE_MASK)
->   		return -EINVAL;
->   
-> @@ -946,7 +950,7 @@ int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long t
->   		return -EINVAL;
->   	}
->   
-> -	err = kvm_init_ipa_range(mmu, type);
-> +	err = kvm_init_ipa_range(kvm, mmu, type);
->   	if (err)
->   		return err;
->   
-> @@ -1072,6 +1076,20 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
->   	struct kvm_pgtable *pgt = NULL;
->   
->   	write_lock(&kvm->mmu_lock);
-> +	if (kvm_is_realm(kvm) &&
-> +	    (kvm_realm_state(kvm) != REALM_STATE_DEAD &&
-> +	     kvm_realm_state(kvm) != REALM_STATE_NONE)) {
-> +		/* Tearing down RTTs will be added in a later patch */
-> +		write_unlock(&kvm->mmu_lock);
-> +
-> +		/*
-> +		 * The physical PGD pages are delegated to the RMM, so cannot
-> +		 * be freed at this point. This function will be called again
-> +		 * from kvm_destroy_realm() after the physical pages have been
-> +		 * returned at which point the memory can be freed.
-> +		 */
-> +		return;
-> +	}
->   	pgt = mmu->pgt;
->   	if (pgt) {
->   		mmu->pgd_phys = 0;
-> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
-> index 67cf2d94cb2d..dbb6521fe380 100644
-> --- a/arch/arm64/kvm/rme.c
-> +++ b/arch/arm64/kvm/rme.c
-> @@ -5,9 +5,23 @@
->   
->   #include <linux/kvm_host.h>
->   
-> +#include <asm/kvm_emulate.h>
-> +#include <asm/kvm_mmu.h>
->   #include <asm/rmi_cmds.h>
->   #include <asm/virt.h>
->   
-> +#include <asm/kvm_pgtable.h>
-> +
-> +static unsigned long rmm_feat_reg0;
-> +
-> +#define RMM_PAGE_SHIFT		12
-> +#define RMM_PAGE_SIZE		BIT(RMM_PAGE_SHIFT)
-> +
-> +static bool rme_has_feature(unsigned long feature)
-> +{
-> +	return !!u64_get_bits(rmm_feat_reg0, feature);
-> +}
-> +
->   static int rmi_check_version(void)
->   {
->   	struct arm_smccc_res res;
-> @@ -42,6 +56,305 @@ static int rmi_check_version(void)
->   	return 0;
->   }
->   
-> +u32 kvm_realm_ipa_limit(void)
-> +{
-> +	return u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_S2SZ);
-> +}
-> +
-> +static int get_start_level(struct realm *realm)
-> +{
-> +	return 4 - ((realm->ia_bits - 8) / (RMM_PAGE_SHIFT - 3));
-> +}
-> +
-> +static void free_delegated_granule(phys_addr_t phys)
-> +{
-> +	if (WARN_ON(rmi_granule_undelegate(phys))) {
-> +		/* Undelegate failed: leak the page */
-> +		return;
-> +	}
-> +
-> +	kvm_account_pgtable_pages(phys_to_virt(phys), -1);
-> +
-> +	free_page((unsigned long)phys_to_virt(phys));
-> +}
-> +
-> +/* Calculate the number of s2 root rtts needed */
-> +static int realm_num_root_rtts(struct realm *realm)
-> +{
-> +	unsigned int ipa_bits = realm->ia_bits;
-> +	unsigned int levels = 3 - get_start_level(realm);
-> +	unsigned int sl_ipa_bits = (levels + 1) * (RMM_PAGE_SHIFT - 3) +
-> +				   RMM_PAGE_SHIFT;
-> +
-> +	if (sl_ipa_bits >= ipa_bits)
-> +		return 1;
-> +
-> +	return 1 << (ipa_bits - sl_ipa_bits);
-> +}
-> +
-> +static int realm_create_rd(struct kvm *kvm)
-> +{
-> +	struct realm *realm = &kvm->arch.realm;
-> +	struct realm_params *params = realm->params;
-> +	void *rd = NULL;
-> +	phys_addr_t rd_phys, params_phys;
-> +	size_t pgd_size = kvm_pgtable_stage2_pgd_size(kvm->arch.mmu.vtcr);
-> +	int i, r;
-> +	int rtt_num_start;
-> +
-> +	realm->ia_bits = VTCR_EL2_IPA(kvm->arch.mmu.vtcr);
-> +	rtt_num_start = realm_num_root_rtts(realm);
-> +
-> +	if (WARN_ON(realm->rd || !realm->params))
-> +		return -EEXIST;
-> +
-> +	if (pgd_size / RMM_PAGE_SIZE < rtt_num_start)
-> +		return -EINVAL;
-> +
-> +	rd = (void *)__get_free_page(GFP_KERNEL);
-> +	if (!rd)
-> +		return -ENOMEM;
-> +
-> +	rd_phys = virt_to_phys(rd);
-> +	if (rmi_granule_delegate(rd_phys)) {
-> +		r = -ENXIO;
-> +		goto free_rd;
-> +	}
-> +
-> +	for (i = 0; i < pgd_size; i += RMM_PAGE_SIZE) {
-> +		phys_addr_t pgd_phys = kvm->arch.mmu.pgd_phys + i;
-> +
-> +		if (rmi_granule_delegate(pgd_phys)) {
-> +			r = -ENXIO;
-> +			goto out_undelegate_tables;
-> +		}
-> +	}
-> +
-> +	params->s2sz = VTCR_EL2_IPA(kvm->arch.mmu.vtcr);
-> +	params->rtt_level_start = get_start_level(realm);
-> +	params->rtt_num_start = rtt_num_start;
-> +	params->rtt_base = kvm->arch.mmu.pgd_phys;
-> +	params->vmid = realm->vmid;
-> +
-> +	params_phys = virt_to_phys(params);
-> +
-> +	if (rmi_realm_create(rd_phys, params_phys)) {
-> +		r = -ENXIO;
-> +		goto out_undelegate_tables;
-> +	}
-> +
-> +	if (WARN_ON(rmi_rec_aux_count(rd_phys, &realm->num_aux))) {
-> +		WARN_ON(rmi_realm_destroy(rd_phys));
-> +		goto out_undelegate_tables;
-> +	}
-> +
-> +	realm->rd = rd;
-> +
-> +	return 0;
-> +
-> +out_undelegate_tables:
-> +	while (i > 0) {
-> +		i -= RMM_PAGE_SIZE;
-> +
-> +		phys_addr_t pgd_phys = kvm->arch.mmu.pgd_phys + i;
-> +
-> +		if (WARN_ON(rmi_granule_undelegate(pgd_phys))) {
-> +			/* Leak the pages if they cannot be returned */
-> +			kvm->arch.mmu.pgt = NULL;
-> +			break;
-> +		}
-> +	}
-> +	if (WARN_ON(rmi_granule_undelegate(rd_phys))) {
-> +		/* Leak the page if it isn't returned */
-> +		return r;
-> +	}
-> +free_rd:
-> +	free_page((unsigned long)rd);
-> +	return r;
-> +}
-> +
-> +/* Protects access to rme_vmid_bitmap */
-> +static DEFINE_SPINLOCK(rme_vmid_lock);
-> +static unsigned long *rme_vmid_bitmap;
-> +
-> +static int rme_vmid_init(void)
-> +{
-> +	unsigned int vmid_count = 1 << kvm_get_vmid_bits();
-> +
-> +	rme_vmid_bitmap = bitmap_zalloc(vmid_count, GFP_KERNEL);
-> +	if (!rme_vmid_bitmap) {
-> +		kvm_err("%s: Couldn't allocate rme vmid bitmap\n", __func__);
-> +		return -ENOMEM;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int rme_vmid_reserve(void)
-> +{
-> +	int ret;
-> +	unsigned int vmid_count = 1 << kvm_get_vmid_bits();
-> +
-> +	spin_lock(&rme_vmid_lock);
-> +	ret = bitmap_find_free_region(rme_vmid_bitmap, vmid_count, 0);
-> +	spin_unlock(&rme_vmid_lock);
-> +
-> +	return ret;
-> +}
-> +
-> +static void rme_vmid_release(unsigned int vmid)
-> +{
-> +	spin_lock(&rme_vmid_lock);
-> +	bitmap_release_region(rme_vmid_bitmap, vmid, 0);
-> +	spin_unlock(&rme_vmid_lock);
-> +}
-> +
-> +static int kvm_create_realm(struct kvm *kvm)
-> +{
-> +	struct realm *realm = &kvm->arch.realm;
-> +	int ret;
-> +
-> +	if (!kvm_is_realm(kvm))
-> +		return -EINVAL;
+Add support for the BCM59054 MFD to the bcm590xx driver (mfd and
+regulator) and fix a couple of small bugs in it that also affected
+the already supported BCM59056.
 
-This check is duplicate because the only caller kvm_realm_enable_cap() already
-has the check. So it can be dropped.
+While we're at it - convert the devicetree bindings to YAML format
+and drop the bcm59056 DTS in favor of describing the PMU in users'
+DTS files, as is done for most other MFDs.
 
-> +	if (kvm_realm_is_created(kvm))
-> +		return -EEXIST;
-> +
-> +	ret = rme_vmid_reserve();
-> +	if (ret < 0)
-> +		return ret;
-> +	realm->vmid = ret;
-> +
-> +	ret = realm_create_rd(kvm);
-> +	if (ret) {
-> +		rme_vmid_release(realm->vmid);
-> +		return ret;
-> +	}
-> +
-> +	WRITE_ONCE(realm->state, REALM_STATE_NEW);
-> +
-> +	/* The realm is up, free the parameters.  */
-> +	free_page((unsigned long)realm->params);
-> +	realm->params = NULL;
-> +
-> +	return 0;
-> +}
-> +
-> +static int config_realm_hash_algo(struct realm *realm,
-> +				  struct arm_rme_config *cfg)
-> +{
-> +	switch (cfg->hash_algo) {
-> +	case ARM_RME_CONFIG_MEASUREMENT_ALGO_SHA256:
-> +		if (!rme_has_feature(RMI_FEATURE_REGISTER_0_HASH_SHA_256))
-> +			return -EINVAL;
-> +		break;
-> +	case ARM_RME_CONFIG_MEASUREMENT_ALGO_SHA512:
-> +		if (!rme_has_feature(RMI_FEATURE_REGISTER_0_HASH_SHA_512))
-> +			return -EINVAL;
-> +		break;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +	realm->params->hash_algo = cfg->hash_algo;
-> +	return 0;
-> +}
-> +
-> +static int kvm_rme_config_realm(struct kvm *kvm, struct kvm_enable_cap *cap)
-> +{
-> +	struct arm_rme_config cfg;
-> +	struct realm *realm = &kvm->arch.realm;
-> +	int r = 0;
-> +
-> +	if (kvm_realm_is_created(kvm))
-> +		return -EBUSY;
-> +
-> +	if (copy_from_user(&cfg, (void __user *)cap->args[1], sizeof(cfg)))
-> +		return -EFAULT;
-> +
-> +	switch (cfg.cfg) {
-> +	case ARM_RME_CONFIG_RPV:
-> +		memcpy(&realm->params->rpv, &cfg.rpv, sizeof(cfg.rpv));
-> +		break;
-> +	case ARM_RME_CONFIG_HASH_ALGO:
-> +		r = config_realm_hash_algo(realm, &cfg);
-> +		break;
-> +	default:
-> +		r = -EINVAL;
-> +	}
-> +
-> +	return r;
-> +}
-> +
-> +int kvm_realm_enable_cap(struct kvm *kvm, struct kvm_enable_cap *cap)
-> +{
-> +	int r = 0;
-> +
-> +	if (!kvm_is_realm(kvm))
-> +		return -EINVAL;
-> +
-> +	switch (cap->args[0]) {
-> +	case KVM_CAP_ARM_RME_CONFIG_REALM:
-> +		r = kvm_rme_config_realm(kvm, cap);
-> +		break;
-> +	case KVM_CAP_ARM_RME_CREATE_REALM:
-> +		r = kvm_create_realm(kvm);
-> +		break;
-> +	default:
-> +		r = -EINVAL;
-> +		break;
-> +	}
-> +
-> +	return r;
-> +}
-> +
-> +void kvm_destroy_realm(struct kvm *kvm)
-> +{
-> +	struct realm *realm = &kvm->arch.realm;
-> +	size_t pgd_size = kvm_pgtable_stage2_pgd_size(kvm->arch.mmu.vtcr);
-> +	int i;
-> +
-> +	if (realm->params) {
-> +		free_page((unsigned long)realm->params);
-> +		realm->params = NULL;
-> +	}
-> +
-> +	if (!kvm_realm_is_created(kvm))
-> +		return;
-> +
-> +	WRITE_ONCE(realm->state, REALM_STATE_DYING);
-> +
-> +	if (realm->rd) {
-> +		phys_addr_t rd_phys = virt_to_phys(realm->rd);
-> +
-> +		if (WARN_ON(rmi_realm_destroy(rd_phys)))
-> +			return;
-> +		free_delegated_granule(rd_phys);
-> +		realm->rd = NULL;
-> +	}
-> +
-> +	rme_vmid_release(realm->vmid);
-> +
-> +	for (i = 0; i < pgd_size; i += RMM_PAGE_SIZE) {
-> +		phys_addr_t pgd_phys = kvm->arch.mmu.pgd_phys + i;
-> +
-> +		if (WARN_ON(rmi_granule_undelegate(pgd_phys)))
-> +			return;
-> +	}
-> +
-> +	WRITE_ONCE(realm->state, REALM_STATE_DEAD);
-> +
-> +	/* Now that the Realm is destroyed, free the entry level RTTs */
-> +	kvm_free_stage2_pgd(&kvm->arch.mmu);
-> +}
-> +
-> +int kvm_init_realm_vm(struct kvm *kvm)
-> +{
-> +	kvm->arch.realm.params = (void *)get_zeroed_page(GFP_KERNEL);
-> +
-> +	if (!kvm->arch.realm.params)
-> +		return -ENOMEM;
-> +	return 0;
-> +}
-> +
->   void kvm_init_rme(void)
->   {
->   	if (PAGE_SIZE != SZ_4K)
-> @@ -52,5 +365,11 @@ void kvm_init_rme(void)
->   		/* Continue without realm support */
->   		return;
->   
-> +	if (WARN_ON(rmi_features(0, &rmm_feat_reg0)))
-> +		return;
-> +
-> +	if (rme_vmid_init())
-> +		return;
-> +
->   	/* Future patch will enable static branch kvm_rme_is_available */
->   }
+The BCM59054 is fairly similar to the BCM59056, with the primary
+difference being the different number and layout of regulators.
+It is primarily used in devices using the BCM21664 and BCM23550
+chipsets.
 
-Thanks,
-Gavin
+This patchset has been tested on a Samsung Galaxy Grand Neo
+(baffinlite rev02; DTS not in mainline yet) with a BCM59054 PMIC.
+Testing on a BCM59056 would be appreciated.
+
+Signed-off-by: Artur Weber <aweber.kernel@gmail.com>
+---
+Changes in v8:
+- Rebase on mfd/for-mfd-next
+- Drop "mfd: bcm590xx: Drop unused "id" member of bcm590xx MFD struct"
+  as it has been applied
+- Address style nitpicks on "mfd: bcm590xx: Add PMU ID/revision parsing function"
+- Link to v7: https://lore.kernel.org/r/20250316-bcm59054-v7-0-4281126be1b8@gmail.com
+
+Changes in v7:
+- Return -ENODEV on PMU ID mismatch
+- Drop "Check your DT compatible" from ID mismatch error message
+- Pick up Reviewed-by trailers from Rob on DT bindings
+- Link to v6: https://lore.kernel.org/r/20250304-bcm59054-v6-0-ae8302358443@gmail.com
+
+Changes in v6:
+- Rename mfd/brcm,bcm590xx.yaml to mfd/brcm,bcm59056.yaml again
+- Use PMU ID value as device type
+- Rename rev_dig and rev_ana to rev_digital and rev_analog
+- Link to v5: https://lore.kernel.org/r/20250221-bcm59054-v5-0-065f516a9042@gmail.com
+
+Changes in v5:
+- Make regulator binding descriptions reference mfd/brcm,bcm590xx.yaml
+  instead of mfd/brcm,bcm59056.yaml
+- Move regmap type enum to common MFD header
+- Link to v4: https://lore.kernel.org/r/20250215-bcm59054-v4-0-dbfb2d76a855@gmail.com
+
+Changes in v4:
+- Fix yamllint warnings in DT bindings
+- Address miscelaneous review comments related to DT bindings
+  - Note that I did not end up moving the regulator refs from
+    allOf compatible matches; I explained my reasoning in [1].
+    [1] https://lore.kernel.org/lkml/ab853605-859d-44c6-8cbd-44391cd677e6@gmail.com/
+- Add PMU ID/revision parsing to MFD driver
+- Fix instances of regulator data not matching vendor kernel for
+  BCM59054
+- Use different voltage table for BCM59054 VSR reg based on PMU
+  revision
+- Link to v3: https://lore.kernel.org/r/20250131-bcm59054-v3-0-bbac52a84787@gmail.com
+
+Changes in v3:
+- Split out regulator DT bindings into separate YAML
+- Use tables of regulator info instead of get_XXX_register, reg_is_XXX
+  functions
+- Drop "regulator: bcm590xx: Add proper handling for PMMODE registers";
+  it adds unnecessary noise to the series and will be submitted separately
+- Link to v2: https://lore.kernel.org/r/20231030-bcm59054-v2-0-5fa4011aa5ba@gmail.com
+
+Changes in v2:
+- Fixed BCM59054 ID being passed to BCM59056 function in the
+  regulator driver
+- Dropped linux-rpi-kernel from the CC list
+- Link to v1: https://lore.kernel.org/r/20231030-bcm59054-v1-0-3517f980c1e3@gmail.com
+
+---
+Artur Weber (9):
+      dt-bindings: mfd: brcm,bcm59056: Convert to YAML
+      dt-bindings: mfd: brcm,bcm59056: Add compatible for BCM59054
+      ARM: dts: Drop DTS for BCM59056 PMU
+      mfd: bcm590xx: Add support for multiple device types + BCM59054 compatible
+      mfd: bcm590xx: Add PMU ID/revision parsing function
+      regulator: bcm590xx: Use dev_err_probe for regulator register error
+      regulator: bcm590xx: Store regulator descriptions in table
+      regulator: bcm590xx: Rename BCM59056-specific data as such
+      regulator: bcm590xx: Add support for BCM59054 regulators
+
+ .../devicetree/bindings/mfd/brcm,bcm59056.txt      |   39 -
+ .../devicetree/bindings/mfd/brcm,bcm59056.yaml     |   76 ++
+ .../bindings/regulator/brcm,bcm59054.yaml          |   56 +
+ .../bindings/regulator/brcm,bcm59056.yaml          |   51 +
+ arch/arm/boot/dts/broadcom/bcm28155-ap.dts         |   68 +-
+ arch/arm/boot/dts/broadcom/bcm59056.dtsi           |   91 --
+ drivers/mfd/bcm590xx.c                             |   67 +-
+ drivers/regulator/bcm590xx-regulator.c             | 1289 ++++++++++++++++----
+ include/linux/mfd/bcm590xx.h                       |   27 +
+ 9 files changed, 1358 insertions(+), 406 deletions(-)
+---
+base-commit: d0eceba4d13341a1d2d52a1ffc31b6987174dfd0
+change-id: 20240816-bcm59054-a880695e41e8
+
+Best regards,
+-- 
+Artur Weber <aweber.kernel@gmail.com>
 
 
