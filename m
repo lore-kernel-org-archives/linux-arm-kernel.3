@@ -4,100 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4B43C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 06:02:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADD4CC369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 06:04:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C54stjkP4fHiWQBeN/EhA0A+2uiXFXbC/RSjFs9mYXw=; b=tC/55sa27Yvx1kBlTEp7rx4eB+
-	kktHXTaLpRYJVCsAbb9GD8Pi4kny1OZTHmUBSovf8hx/E+7rTa70CdvOa2kGsf/pG/iwXfSocOBH7
-	Nf+uEglEvMrr1hWbkXiClmZC3/gYbKCkDsRY764RVBcytb1RiH3MZzQkLOM18coU8xlWVYIrUvJDI
-	AhPPN4vNtV2C2Nv2kR6CVFgy+OLg+mEurVejJb0wYtGdbnu0XEnC6fu4ECXKUyI9LNJZNwKqI1W0K
-	beXGj0wWzyVDPly4hUwLYry/YzwEHaR7RP/DCKLiz2dbhe45qRQfA5ene7Wb3cwylwxn1gLDdvhp+
-	MY+W7Zpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=979akrJcal7eXFEBBeKgkEGR2Z+cXNr2mNqqWnT1LPM=; b=xEbn6PhMBuGeB7cAEfLf2421dX
+	1wD6Z7AzAzMuGEdUr6AnwiSIb0CtzGmJhbIntFBqGDZYIAICqXHLPGOXEVGGpoPhuDg6T+0fdJT1h
+	gKNbX1rm8Q/3AqbR1+ieTbcj2o5ZxC3NY21qVb03st8zrfsw4BksHcLzWS4FpTXSil51dseD4oD2I
+	H0ONZ3k+aSbuy5g9fl4ETapOu6r7LtFcxBuxEa8SgkSdaiXr8W0t6bqZCZ9kxF3oKl/WgYtZiHx35
+	omWd8NgPLc1BaFbyvsS7G5LUnj9tUhydEMYuNPGdPUWrA0katzp0MEj5iBdr7Fx+fZ1vVXHYwlfpb
+	79+6/n3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA0W0-0000000BoiN-04Hw;
-	Wed, 30 Apr 2025 06:01:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uA0Xu-0000000Bou3-08ot;
+	Wed, 30 Apr 2025 06:03:50 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA0H2-0000000Bn7H-1a82
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Apr 2025 05:46:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=C54stjkP4fHiWQBeN/EhA0A+2uiXFXbC/RSjFs9mYXw=; b=dfQGEg0BPPIUcbN2GFDuVUB4Ne
-	XZu79RkbzHV5FZ+9jhM9TZpVm8joKvQZiGEZKwGvQNNCz+aiv3UcEucvZPvn5kvXedGN2dqpuSodY
-	+ZwYRUFdvQwjvKkqp0KoK5j0fzbqVMhLiT4FIDOpff+alopzhfHBSA4TZrZbEhyM+3BfHxrJzkUfd
-	6ND34S4knkuvNbeR078jGLe0RKPS8nsS4yBD+0sB9bYkFJiznJSBq3Tgw5SP/dGUQaBie7YaW4uYw
-	/IpE67jbBzFPAJDC8M25/NBBWM8i4U/kZm6yNChv1cxcFIGCUDynu0UXwgxtPFf/x2gHSbzNP0OIc
-	VCRuDi+g==;
-Received: from mgamail.intel.com ([192.198.163.7])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uA0Gx-0000000DhgK-1VoK
+	id 1uA0IM-0000000BnE4-0QbM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 05:46:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1745991980; x=1777527980;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=B59v+IvNsmnaorjIyh3dZ9NgCQZ2KF+vHvFz0KbpMgE=;
-  b=PBK08U6siGprTZgR5DgzoaSuHouUGyIsmWeZ/rQzG7KxOwX9bHcCsXy+
-   Oellzp/AKufeOehZEsJiH5NZ+sknOvNII23VL6wbGCq8SunFw9dIIfMkg
-   Sgszm8S4qI0uVpveEHjgYJEg53nuriyrDvsuIvRo6/1H7uQOWcm5cERC1
-   5DTVZU0z3ZqpqPvIzowEIqmDm4UDzQ41LmD19BZYGUtryONVAkbV6gGgm
-   dfGTKqFxnekhQIw0X8TGr6iz1/4Ew8fUuOgKYJoD0ofU7gk+lrvc30S9V
-   vNzbgc3qvKaBMwnqnumxs/QFOwXcmbdCc2wwz5GWwoYDeEG41iafhXUAh
-   Q==;
-X-CSE-ConnectionGUID: jCCJ9VGFQFCpp4NK0nlIRQ==
-X-CSE-MsgGUID: 9MHv0WniRdiS9f2Mdue2MQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11418"; a="73023721"
-X-IronPort-AV: E=Sophos;i="6.15,251,1739865600"; 
-   d="scan'208";a="73023721"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Apr 2025 22:46:16 -0700
-X-CSE-ConnectionGUID: mv+A/y/RQrCyY35Lon7BEA==
-X-CSE-MsgGUID: e4thOnXNQpWq2L2samo24A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,251,1739865600"; 
-   d="scan'208";a="133931527"
-Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
-  by orviesa010.jf.intel.com with ESMTP; 29 Apr 2025 22:46:07 -0700
-Received: from kbuild by 1992f890471c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uA0Gj-0003CH-0W;
-	Wed, 30 Apr 2025 05:46:05 +0000
-Date: Wed, 30 Apr 2025 13:45:46 +0800
-From: kernel test robot <lkp@intel.com>
-To: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	ryan.roberts@arm.com, david@redhat.com, willy@infradead.org,
-	linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-	catalin.marinas@arm.com, will@kernel.org, Liam.Howlett@oracle.com,
-	lorenzo.stoakes@oracle.com, vbabka@suse.cz, jannh@google.com,
-	anshuman.khandual@arm.com, peterx@redhat.com, joey.gouly@arm.com,
-	ioworker0@gmail.com, baohua@kernel.org, kevin.brodsky@arm.com,
-	quic_zhenhuah@quicinc.com, christophe.leroy@csgroup.eu,
-	yangyicong@hisilicon.com, linux-arm-kernel@lists.infradead.org,
-	namit@vmware.com, hughd@google.com, yang@os.amperecomputing.com,
-	ziy@nvidia.com, Dev Jain <dev.jain@arm.com>
-Subject: Re: [PATCH v2 3/7] mm: Add batched versions of
- ptep_modify_prot_start/commit
-Message-ID: <202504301328.ltLGuTxD-lkp@intel.com>
-References: <20250429052336.18912-4-dev.jain@arm.com>
+	Wed, 30 Apr 2025 05:47:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1745992065;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=979akrJcal7eXFEBBeKgkEGR2Z+cXNr2mNqqWnT1LPM=;
+	b=Jx6aVOCIXa0B01cJDxU4ZLcQTdhCZXkoYdm+ohunwj3YZeKU3kq0d6SCZRGEdZgPdcO3dz
+	2rSXbZivZVPCI7sI0saXmgE8C47E874hxxxiV94h8eiPCjGBbbR9nSNhrTFQrgxEnXI8KK
+	TyivIbvlbqTDgTdN+zzBAdGdrPdAIy4=
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com
+ [209.85.215.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-614-___wSoKVM4q0y6rMZwnYRA-1; Wed, 30 Apr 2025 01:47:43 -0400
+X-MC-Unique: ___wSoKVM4q0y6rMZwnYRA-1
+X-Mimecast-MFC-AGG-ID: ___wSoKVM4q0y6rMZwnYRA_1745992062
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-b16837f1874so3588507a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 22:47:43 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745992062; x=1746596862;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=979akrJcal7eXFEBBeKgkEGR2Z+cXNr2mNqqWnT1LPM=;
+        b=it+aRGVKl5lzN526w7ZOl0RsWdLi2MxFSJxD9Wim+ynbax5dvLgHLX6ugnkKdGYJHQ
+         SlYg4iNPSgsQ2fzfj4SLHmlHI4Z8qo0NkIA+8pkMAgn8xA/bIy8BiKU/5t9txkX0TECN
+         +aMVxs2oYO5sXE1U7V31zpSWbswl7VURTbzXHxBAThV2XAHgBe9sJCEPWnvnJQiC5hQi
+         EuEgfhPN8rdyy5l0n5dz7qenj4z9ewVEaEqbRh1y/JZkmKJVRyrxw7ECdjEfhANSV9QN
+         QGseq4Dl4iuq1nRQd6DQb+marLUG6ZjXfLkwXpKON+N9u6b1F73xsblRMe24o8eA6L5E
+         Veag==
+X-Forwarded-Encrypted: i=1; AJvYcCXmGGHmfRVacXp2WLd9wnL4PbCP91DTzruQiyVoEuWUyFfqlM2rA6S3oMI3AOyQ3Hxtl3aAF/nz4esr3gYaog7r@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRGFF5m6p6O6wkHOvR68UuhzLfwcOrY0H8S5ZLMAmtV1hdTvfG
+	n+m1rce/VCyxivNfKB8e+Z/NMOM7OM8IN43PKEnZ83mWE3bVvEXznbj9ZemO1A1xU9SST59hta/
+	Omq0CSEJWCw64DkdXj5fZ6eI+PuX8+Ws1trk7V0dE/q6xGti+NnfH7aQBm34X2HeB++Wx+qeV
+X-Gm-Gg: ASbGncsp3ab/evFSKP/7OaOeuDM64Y+5Q1e+dq06cP9cW6qJ/blOHw53ij+Fvt0L8n0
+	zETWkYYia+b6mDvmx2/zIDg9GmcRNapw9fcpgfMm2h5RtHoq1ZHveW9PjW1JAMk01JQxqDsi3s+
+	FdtVpmwErld2qYvOROMsFhmDG8W/kHiGaiTN1woazArdKw/MGeCY531TN+r6F7KI/9hnFI3+KEL
+	ECg0Ux4OcshWpKVVj2i+Ti6v6HoA1B1MUzn1AupDVuVjMUojjWXcdcrGp7CAwmqRh8VWBt1yCKu
+	sq0g+atfErkR
+X-Received: by 2002:a05:6a20:6f0a:b0:203:de5e:798c with SMTP id adf61e73a8af0-20a87758d04mr2491512637.18.1745992062586;
+        Tue, 29 Apr 2025 22:47:42 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IE2yvTT56xhp4nevnnTnhdd5Vxurc2bkepUSfMbuUK1rX9UIiG+hWa401GgVAzKuOXYEii5qQ==
+X-Received: by 2002:a05:6a20:6f0a:b0:203:de5e:798c with SMTP id adf61e73a8af0-20a87758d04mr2491475637.18.1745992062247;
+        Tue, 29 Apr 2025 22:47:42 -0700 (PDT)
+Received: from [192.168.68.51] ([180.233.125.65])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74039a3100dsm787733b3a.90.2025.04.29.22.47.34
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 29 Apr 2025 22:47:41 -0700 (PDT)
+Message-ID: <9c998d71-0368-4f93-ab37-7933bec9b419@redhat.com>
+Date: Wed, 30 Apr 2025 15:47:33 +1000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250429052336.18912-4-dev.jain@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 09/43] KVM: arm64: Allow passing machine type in KVM
+ creation
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+References: <20250416134208.383984-1-steven.price@arm.com>
+ <20250416134208.383984-10-steven.price@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20250416134208.383984-10-steven.price@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: lbCPiYLPz9gE9HXUiQ8nVD0topZsbnNlJUqx6WtstU4_1745992062
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_064621_243760_4E212470 
-X-CRM114-Status: GOOD (  14.31  )
+X-CRM114-CacheID: sfid-20250429_224746_215966_9B52C224 
+X-CRM114-Status: GOOD (  14.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,185 +122,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dev,
+On 4/16/25 11:41 PM, Steven Price wrote:
+> Previously machine type was used purely for specifying the physical
+> address size of the guest. Reserve the higher bits to specify an ARM
+> specific machine type and declare a new type 'KVM_VM_TYPE_ARM_REALM'
+> used to create a realm guest.
+> 
+> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> Changes since v7:
+>   * Add some documentation explaining the new machine type.
+> Changes since v6:
+>   * Make the check for kvm_rme_is_available more visible and report an
+>     error code of -EPERM (instead of -EINVAL) to make it explicit that
+>     the kernel supports RME, but the platform doesn't.
+> ---
+>   Documentation/virt/kvm/api.rst | 16 ++++++++++++++--
+>   arch/arm64/kvm/arm.c           | 15 +++++++++++++++
+>   arch/arm64/kvm/mmu.c           |  3 ---
+>   include/uapi/linux/kvm.h       | 19 +++++++++++++++----
+>   4 files changed, 44 insertions(+), 9 deletions(-)
+> 
 
-kernel test robot noticed the following build errors:
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 
-[auto build test ERROR on akpm-mm/mm-everything]
-[also build test ERROR on arm64/for-next/core linus/master v6.15-rc4 next-20250429]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Dev-Jain/mm-Refactor-code-in-mprotect/20250429-133151
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/akpm/mm.git mm-everything
-patch link:    https://lore.kernel.org/r/20250429052336.18912-4-dev.jain%40arm.com
-patch subject: [PATCH v2 3/7] mm: Add batched versions of ptep_modify_prot_start/commit
-config: arm-randconfig-003-20250430 (https://download.01.org/0day-ci/archive/20250430/202504301328.ltLGuTxD-lkp@intel.com/config)
-compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project f819f46284f2a79790038e1f6649172789734ae8)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250430/202504301328.ltLGuTxD-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202504301328.ltLGuTxD-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from arch/arm/kernel/asm-offsets.c:12:
-   In file included from include/linux/mm.h:31:
->> include/linux/pgtable.h:901:8: error: call to undeclared function 'ptep_modify_prot_start'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     901 |         pte = ptep_modify_prot_start(vma, addr, ptep);
-         |               ^
->> include/linux/pgtable.h:921:3: error: call to undeclared function 'ptep_modify_prot_commit'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     921 |                 ptep_modify_prot_commit(vma, addr, ptep, old_pte, pte);
-         |                 ^
->> include/linux/pgtable.h:1356:21: error: static declaration of 'ptep_modify_prot_start' follows non-static declaration
-    1356 | static inline pte_t ptep_modify_prot_start(struct vm_area_struct *vma,
-         |                     ^
-   include/linux/pgtable.h:901:8: note: previous implicit declaration is here
-     901 |         pte = ptep_modify_prot_start(vma, addr, ptep);
-         |               ^
-   include/linux/pgtable.h:1367:20: error: static declaration of 'ptep_modify_prot_commit' follows non-static declaration
-    1367 | static inline void ptep_modify_prot_commit(struct vm_area_struct *vma,
-         |                    ^
-   include/linux/pgtable.h:921:3: note: previous implicit declaration is here
-     921 |                 ptep_modify_prot_commit(vma, addr, ptep, old_pte, pte);
-         |                 ^
-   In file included from arch/arm/kernel/asm-offsets.c:12:
-   In file included from include/linux/mm.h:36:
-   In file included from include/linux/rcuwait.h:6:
-   In file included from include/linux/sched/signal.h:6:
-   include/linux/signal.h:98:11: warning: array index 3 is past the end of the array (that has type 'unsigned long[2]') [-Warray-bounds]
-      98 |                 return (set->sig[3] | set->sig[2] |
-         |                         ^        ~
-   arch/arm/include/asm/signal.h:17:2: note: array 'sig' declared here
-      17 |         unsigned long sig[_NSIG_WORDS];
-         |         ^
-   In file included from arch/arm/kernel/asm-offsets.c:12:
-   In file included from include/linux/mm.h:36:
-   In file included from include/linux/rcuwait.h:6:
-   In file included from include/linux/sched/signal.h:6:
-   include/linux/signal.h:98:25: warning: array index 2 is past the end of the array (that has type 'unsigned long[2]') [-Warray-bounds]
-      98 |                 return (set->sig[3] | set->sig[2] |
-         |                                       ^        ~
-   arch/arm/include/asm/signal.h:17:2: note: array 'sig' declared here
-      17 |         unsigned long sig[_NSIG_WORDS];
-         |         ^
-   In file included from arch/arm/kernel/asm-offsets.c:12:
-   In file included from include/linux/mm.h:36:
-   In file included from include/linux/rcuwait.h:6:
-   In file included from include/linux/sched/signal.h:6:
-   include/linux/signal.h:114:11: warning: array index 3 is past the end of the array (that has type 'const unsigned long[2]') [-Warray-bounds]
-     114 |                 return  (set1->sig[3] == set2->sig[3]) &&
-         |                          ^         ~
-   arch/arm/include/asm/signal.h:17:2: note: array 'sig' declared here
-      17 |         unsigned long sig[_NSIG_WORDS];
-         |         ^
-   In file included from arch/arm/kernel/asm-offsets.c:12:
-   In file included from include/linux/mm.h:36:
-   In file included from include/linux/rcuwait.h:6:
-   In file included from include/linux/sched/signal.h:6:
-   include/linux/signal.h:114:27: warning: array index 3 is past the end of the array (that has type 'const unsigned long[2]') [-Warray-bounds]
-     114 |                 return  (set1->sig[3] == set2->sig[3]) &&
-         |                                          ^         ~
-   arch/arm/include/asm/signal.h:17:2: note: array 'sig' declared here
-      17 |         unsigned long sig[_NSIG_WORDS];
-         |         ^
-   In file included from arch/arm/kernel/asm-offsets.c:12:
-   In file included from include/linux/mm.h:36:
-   In file included from include/linux/rcuwait.h:6:
-   In file included from include/linux/sched/signal.h:6:
-   include/linux/signal.h:115:5: warning: array index 2 is past the end of the array (that has type 'const unsigned long[2]') [-Warray-bounds]
-     115 |                         (set1->sig[2] == set2->sig[2]) &&
-         |                          ^         ~
-   arch/arm/include/asm/signal.h:17:2: note: array 'sig' declared here
-      17 |         unsigned long sig[_NSIG_WORDS];
-         |         ^
-   In file included from arch/arm/kernel/asm-offsets.c:12:
-   In file included from include/linux/mm.h:36:
-   In file included from include/linux/rcuwait.h:6:
-   In file included from include/linux/sched/signal.h:6:
-   include/linux/signal.h:115:21: warning: array index 2 is past the end of the array (that has type 'const unsigned long[2]') [-Warray-bounds]
-     115 |                         (set1->sig[2] == set2->sig[2]) &&
-         |                                          ^         ~
-   arch/arm/include/asm/signal.h:17:2: note: array 'sig' declared here
-      17 |         unsigned long sig[_NSIG_WORDS];
-         |         ^
-   In file included from arch/arm/kernel/asm-offsets.c:12:
-   In file included from include/linux/mm.h:36:
-   In file included from include/linux/rcuwait.h:6:
-   In file included from include/linux/sched/signal.h:6:
-   include/linux/signal.h:157:1: warning: array index 3 is past the end of the array (that has type 'const unsigned long[2]') [-Warray-bounds]
-     157 | _SIG_SET_BINOP(sigorsets, _sig_or)
-         | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/signal.h:138:8: note: expanded from macro '_SIG_SET_BINOP'
-     138 |                 a3 = a->sig[3]; a2 = a->sig[2];                         \
-         |                      ^      ~
-   arch/arm/include/asm/signal.h:17:2: note: array 'sig' declared here
-      17 |         unsigned long sig[_NSIG_WORDS];
-         |         ^
-   In file included from arch/arm/kernel/asm-offsets.c:12:
-   In file included from include/linux/mm.h:36:
-   In file included from include/linux/rcuwait.h:6:
-   In file included from include/linux/sched/signal.h:6:
-   include/linux/signal.h:157:1: warning: array index 2 is past the end of the array (that has type 'const unsigned long[2]') [-Warray-bounds]
-     157 | _SIG_SET_BINOP(sigorsets, _sig_or)
-         | ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/signal.h:138:24: note: expanded from macro '_SIG_SET_BINOP'
-     138 |                 a3 = a->sig[3]; a2 = a->sig[2];                         \
-         |                                      ^      ~
-   arch/arm/include/asm/signal.h:17:2: note: array 'sig' declared here
-      17 |         unsigned long sig[_NSIG_WORDS];
-         |         ^
-   In file included from arch/arm/kernel/asm-offsets.c:12:
-   In file included from include/linux/mm.h:36:
-   In file included from include/linux/rcuwait.h:6:
-
-
-vim +/ptep_modify_prot_start +901 include/linux/pgtable.h
-
-   893	
-   894	/* See the comment for ptep_modify_prot_start */
-   895	#ifndef modify_prot_start_ptes
-   896	static inline pte_t modify_prot_start_ptes(struct vm_area_struct *vma,
-   897			unsigned long addr, pte_t *ptep, unsigned int nr)
-   898	{
-   899		pte_t pte, tmp_pte;
-   900	
- > 901		pte = ptep_modify_prot_start(vma, addr, ptep);
-   902		while (--nr) {
-   903			ptep++;
-   904			addr += PAGE_SIZE;
-   905			tmp_pte = ptep_modify_prot_start(vma, addr, ptep);
-   906			if (pte_dirty(tmp_pte))
-   907				pte = pte_mkdirty(pte);
-   908			if (pte_young(tmp_pte))
-   909				pte = pte_mkyoung(pte);
-   910		}
-   911		return pte;
-   912	}
-   913	#endif
-   914	
-   915	/* See the comment for ptep_modify_prot_commit */
-   916	#ifndef modify_prot_commit_ptes
-   917	static inline void modify_prot_commit_ptes(struct vm_area_struct *vma, unsigned long addr,
-   918			pte_t *ptep, pte_t old_pte, pte_t pte, unsigned int nr)
-   919	{
-   920		for (;;) {
- > 921			ptep_modify_prot_commit(vma, addr, ptep, old_pte, pte);
-   922			if (--nr == 0)
-   923				break;
-   924			ptep++;
-   925			addr += PAGE_SIZE;
-   926			old_pte = pte_next_pfn(old_pte);
-   927			pte = pte_next_pfn(pte);
-   928		}
-   929	}
-   930	#endif
-   931	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
