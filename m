@@ -4,68 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEF0BC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 03:52:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BCADC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 04:18:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fD6zxRFFdRFmxzaf4tcfULngb0ghBzMFzuAhq3mvYqE=; b=X8r+fTco/CeUdUYUJIhdcWtcXZ
-	65QMm9csmVKREDTJ3TbpS0JtxVVQ6q00ysQc+rjMwmBPk5I3ouytd4by6xScp92VN1Bz8RRPRat2y
-	s2ZAm6IgSprsCLhDUOb6PAAeooL49UwXi0U4l/kbwc4AaXgfoeHnFE3w2g8Jg3g8heX1nfweVwu2j
-	Fws1Iw5l87GCLG6PMq8WbKv/rLwh+wu267BFXdv3y9oW37AXzTQ8OhRsrdwAPnSKwEZeTqliiV6fm
-	WDQUY05DW/Bu0SwY/3VIn5kkKvTR3OrX7DCVetvBXsZeP3bpsk8f8HtqPKSNlnF5NqbACc9wC0qWV
-	KsWSNrbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gKdKlIhY6/W1FIhEQGzmhk4YCJUHej8Qbon8wISTw40=; b=1cz0C56eSF3H4nTNObWSOpiauZ
+	/1rnC7gKvEi31q6FF3eMxoRz5lh1aybcJFNIxotJxEIBy/z3Ywmrtt2rKnbEYARUlTbI4e6yIyoKK
+	sKO5V+z3FbaJTDisaivqbR+JT7miEA5bE2DXvTlzysGazK1Lr89vu5K1ARbvLYlKBueFwPHI8tc0c
+	0stK5syXubf4tFmn2l4cwinAHQBqoy/pe45p/ACYrmMCf0T99wj7ZK/atqwieOaVCPzLm67HIL0V3
+	QNvQBWul9sSTyPRt5u94GB3Gi833injgI2937JNBvRNEq/r5FGcel46IVTLRgyu70o2swkErsftyE
+	Y7357lLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9yUG-0000000Bcbk-1hXJ;
-	Wed, 30 Apr 2025 03:51:56 +0000
-Received: from abb.hmeau.com ([144.6.53.87])
+	id 1u9ytg-0000000BeTR-0nZb;
+	Wed, 30 Apr 2025 04:18:12 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9yQy-0000000BcFa-3ITH;
-	Wed, 30 Apr 2025 03:48:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=fD6zxRFFdRFmxzaf4tcfULngb0ghBzMFzuAhq3mvYqE=; b=hWW2WGSUC7/9y1k66lTSv8t0NB
-	86jMa18oP8xVKrRy2pet+kyNDfDkiWXnkDiHusEJqsOTzP0cP/0PkMigOPIuo+87s9Z9XPVpskRro
-	dS1WOUUbPQ1jKfi/lWH17yj4Q/Wuok27nYeCDky8E3CU7xBge8BSa1jutA53iZWzZm+x6tU6XvwXb
-	Gp6LoZ5J7KqxmrS/+M/LV41C4ymxNHH/0Ilke/dwwr4I6LwfkqKV6LfmlgSYX1Fx8Big8f8hBVE9M
-	/BAxCuYpNOUBD5NdkedVJypqafu3Mghqtyq1NxuuZtmuXUh+9ajklKb+hq0UBQv8VBgh17AwRRM4p
-	3wjeCrog==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1u9yQs-0029Ri-24;
-	Wed, 30 Apr 2025 11:48:27 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Wed, 30 Apr 2025 11:48:26 +0800
-Date: Wed, 30 Apr 2025 11:48:26 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org,
-	linux-s390@vger.kernel.org, x86@kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: Re: [PATCH v4 01/13] crypto: sha256 - support arch-optimized lib and
- expose through shash
-Message-ID: <aBGdiv17ztQnhAps@gondor.apana.org.au>
-References: <20250428170040.423825-1-ebiggers@kernel.org>
- <20250428170040.423825-2-ebiggers@kernel.org>
+	id 1u9yrm-0000000BeNA-0j1G
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 30 Apr 2025 04:16:15 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53TLahDi001224;
+	Wed, 30 Apr 2025 04:16:06 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	gKdKlIhY6/W1FIhEQGzmhk4YCJUHej8Qbon8wISTw40=; b=GEbOdS6pbE7ZjPhw
+	tSYVh8m7fNi9mae7F/UfV9Cmn4YLvf2ivtgqdxe9Dsls9b1cf7WWBrm5nHqgimIr
+	mjVzj1ZayiAQqokdZAPlHGaQy1hHrcIC3qDOj+5OFVb9aLiIFKnbWm6yfl1oKGUM
+	0KSJHyy+SzCsXb3qmM08porcdP2xVEJwxBTdMmNG9ue/b3H+w9H8MxmhiQm3/Yvt
+	eL6yscYQYZefk9gmG+aGLotpRJReWr9DbvF95V3B3TDhyo+NdUOL63jZ3lZVd4wp
+	jigX7Kz0wOIYtPhPSLBsrYJpXWKK2wpObds0ZIkF5qb25E54H7Ykov0zAin9mJvP
+	llfNHw==
+Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46b6u9rr4d-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 30 Apr 2025 04:16:05 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53U4G3Ru000636
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 30 Apr 2025 04:16:03 GMT
+Received: from [10.239.29.178] (10.80.80.8) by nasanex01b.na.qualcomm.com
+ (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Tue, 29 Apr
+ 2025 21:15:59 -0700
+Message-ID: <c4115bbc-e120-4a20-b6ad-a0d5266319d3@quicinc.com>
+Date: Wed, 30 Apr 2025 12:15:56 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250428170040.423825-2-ebiggers@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/4] arm64: dts: qcom: x1e80100-qcp: Add qref supply
+ for PCIe PHYs
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Johan Hovold
+	<johan@kernel.org>
+CC: Wenbin Yao <quic_wenbyao@quicinc.com>, <catalin.marinas@arm.com>,
+        <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <andersson@kernel.org>, <konradybcio@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <krishna.chundru@oss.qualcomm.com>,
+        <quic_vbadigan@quicinc.com>, <quic_mrana@quicinc.com>,
+        <quic_cang@quicinc.com>
+References: <20250425092955.4099677-1-quic_wenbyao@quicinc.com>
+ <20250425092955.4099677-5-quic_wenbyao@quicinc.com>
+ <aAtbFQIQMJO-BYe_@hovoldconsulting.com>
+ <e82eda3b-b27f-4584-ad23-562ca4b22847@oss.qualcomm.com>
+ <aAt54vikoREWZyGY@hovoldconsulting.com>
+ <17a1a4d9-fdc5-477a-bf4e-91cae5a62479@oss.qualcomm.com>
+Content-Language: en-US
+From: Qiang Yu <quic_qianyu@quicinc.com>
+In-Reply-To: <17a1a4d9-fdc5-477a-bf4e-91cae5a62479@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: dZ6RngitfF5yqOr-NcEeqcvDSriSJvWS
+X-Proofpoint-ORIG-GUID: dZ6RngitfF5yqOr-NcEeqcvDSriSJvWS
+X-Authority-Analysis: v=2.4 cv=UZZRSLSN c=1 sm=1 tr=0 ts=6811a405 cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=QfwDM738abGcK5AhbMgA:9 a=QEXdDO2ut3YA:10
+ a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDMwMDAyNyBTYWx0ZWRfX7PU6gY+sSafB URMQZNSKS5x9HxZyd4daAzpQAI6z1/sVyHuZ348Wqe38CehIz10DwSw9xpDKU2p0xj4FecOw9ZZ DR3cKAEgfwwbtnC31RoFjTQNaSVaYxhT1ue5Yce5zTROacD0sB1/f52NBN6/Pu3cz7a0rBT6kXR
+ 6jmw1CfruPlks39Y2R13keu54t0d8Du6lckK3HaS5npnxw80q5Z+4x+B4BFwvEQhUdwAc3R8xXj lH8kQrun2xJEbdLIPlOqBPB4CRzocSRXSTPz7RU2PYMtAIY8oZOmVoZgkdad9ba8xMLdFIiUacO waUyZiWzCdq7amG2vNlPpQw0hK29nxuIUEvjM1H3e4g7h7BNbhIst7MpXjnxVqs19kpastv/yrr
+ qKoUUUZ8IPSlFvYNZu0WdbC9tSf3JP5CbV1/pjzZ3NE5aqDF33xOPKrEOw4qcrfdvD0hrrUo
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-04-30_01,2025-04-24_02,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1011 adultscore=0
+ mlxlogscore=999 spamscore=0 priorityscore=1501 impostorscore=0 mlxscore=0
+ malwarescore=0 suspectscore=0 bulkscore=0 lowpriorityscore=0 phishscore=0
+ classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2504070000
+ definitions=main-2504300027
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_204832_824313_837AC305 
-X-CRM114-Status: GOOD (  22.36  )
+X-CRM114-CacheID: sfid-20250429_211614_361995_1DD864BE 
+X-CRM114-Status: GOOD (  17.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,130 +118,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 28, 2025 at 10:00:26AM -0700, Eric Biggers wrote:
-> From: Eric Biggers <ebiggers@google.com>
-> 
-> As has been done for various other algorithms, rework the design of the
-> SHA-256 library to support arch-optimized implementations, and make
-> crypto/sha256.c expose both generic and arch-optimized shash algorithms
-> that wrap the library functions.
-> 
-> This allows users of the SHA-256 library functions to take advantage of
-> the arch-optimized code, and this makes it much simpler to integrate
-> SHA-256 for each architecture.
-> 
-> Note that sha256_base.h is not used in the new design.  It will be
-> removed once all the architecture-specific code has been updated.
-> 
-> Move the generic block function into its own module to avoid a circular
-> dependency from libsha256.ko => sha256-$ARCH.ko => libsha256.ko.
-> 
-> Signed-off-by: Eric Biggers <ebiggers@google.com>
-> ---
->  crypto/Kconfig                 |   1 +
->  crypto/Makefile                |   3 +-
->  crypto/sha256.c                | 201 +++++++++++++++++++++++++++++++++
->  crypto/sha256_generic.c        | 102 -----------------
->  include/crypto/internal/sha2.h |  28 +++++
->  include/crypto/sha2.h          |  15 +--
->  include/crypto/sha256_base.h   |   9 +-
->  lib/crypto/Kconfig             |  19 ++++
->  lib/crypto/Makefile            |   3 +
->  lib/crypto/sha256-generic.c    | 137 ++++++++++++++++++++++
->  lib/crypto/sha256.c            | 196 ++++++++++++++------------------
->  11 files changed, 487 insertions(+), 227 deletions(-)
->  create mode 100644 crypto/sha256.c
->  delete mode 100644 crypto/sha256_generic.c
->  create mode 100644 include/crypto/internal/sha2.h
->  create mode 100644 lib/crypto/sha256-generic.c
 
-This is the patch that I will fold in here to maintain the existing
-export format:
+On 4/26/2025 6:48 PM, Konrad Dybcio wrote:
+> On 4/25/25 2:02 PM, Johan Hovold wrote:
+>> On Fri, Apr 25, 2025 at 12:03:06PM +0200, Konrad Dybcio wrote:
+>>> On 4/25/25 11:51 AM, Johan Hovold wrote:
+>>>> On Fri, Apr 25, 2025 at 05:29:55PM +0800, Wenbin Yao wrote:
+>>>>> From: Qiang Yu <quic_qianyu@quicinc.com>
+>>>>>
+>>>>> All PCIe PHYs on X1E80100 require vdda-qref power supplies, but this is
+>>>>> missing in the current PHY device tree node. The PCIe port can still
+>>>>> function because the regulator L3J, which vdda-qref consumes, is voted by
+>>>>> other components.
+>>>>>
+>>>>> Since the device tree should accurately describe the hardware, add the
+>>>>> vdda-qref power supply explicitly in all PCIe PHY device nodes.
+>>>> AFAIU the PHYs do not use this qref supply directly so it does not
+>>>> belong in the PHY node (but possibly in the tcsr node that provides the
+>>>> refclk).
+>>>>
+>>>> Since commit 031b46b4729b ("phy: qcom: qmp-pcie: drop bogus x1e80100
+>>>> qref supplies") it also won't have any effect for pcie4 and pcie6.
+>>> QREF is a separate hw block distributing the reference clocks across
+>>> certain on-SoC peripherals
+>>>
+>>> If its power goes out, I don't think much of the platform would be
+>>> functional anyway, so it's redundant here..
+>>>
+>>> It doesn't have its own single register region and it's frankly
+>>> one-shot-configured way before Linux starts up, so there should be
+>>> no need of describing it at all.
+>> Then it sounds like the qref supplies should be marked as always-on. Can
+>> they be disabled at all?
+> The best answer I can say is "maybe". I would (without knowing any better)
+> assume RPMh wouldn't let you turn them off. QREF predictably takes VDD_CX/MX
+> and some additional lines
+>
+> Konrad
+The vdda-qref power supply feeds the QREF clocks, which are consumed by 
+PCIe, UFS, USB and display on X1e80100.
+For PCIe, QREF clks are provided by the TCSR device with the following 
+bindings on X1E80100:
+#define TCSR_PCIE_2L_4_CLKREF_EN
+#define TCSR_PCIE_2L_5_CLKREF_EN
+#define TCSR_PCIE_8L_CLKREF_EN
+#define TCSR_PCIE_4L_CLKREF_EN
 
-diff --git a/crypto/sha256.c b/crypto/sha256.c
-index 1c2edcf9453d..c2588d08ee3e 100644
---- a/crypto/sha256.c
-+++ b/crypto/sha256.c
-@@ -116,6 +116,32 @@ static int crypto_sha224_final_arch(struct shash_desc *desc, u8 *out)
- 	return 0;
- }
- 
-+static int crypto_sha256_import_lib(struct shash_desc *desc, const void *in)
-+{
-+	struct sha256_state *sctx = shash_desc_ctx(desc);
-+	const u8 *p = in;
-+
-+	memcpy(sctx, p, sizeof(*sctx));
-+	p += sizeof(*sctx);
-+	sctx->count += *p;
-+	return 0;
-+}
-+
-+static int crypto_sha256_export_lib(struct shash_desc *desc, void *out)
-+{
-+	struct sha256_state *sctx0 = shash_desc_ctx(desc);
-+	struct sha256_state sctx = *sctx0;
-+	unsigned int partial;
-+	u8 *p = out;
-+
-+	partial = sctx.count % SHA256_BLOCK_SIZE;
-+	sctx.count -= partial;
-+	memcpy(p, &sctx, sizeof(sctx));
-+	p += sizeof(sctx);
-+	*p = partial;
-+	return 0;
-+}
-+
- static struct shash_alg algs[] = {
- 	{
- 		.base.cra_name		= "sha256",
-@@ -130,6 +156,10 @@ static struct shash_alg algs[] = {
- 		.finup			= crypto_sha256_finup_generic,
- 		.digest			= crypto_sha256_digest_generic,
- 		.descsize		= sizeof(struct sha256_state),
-+		.statesize		= sizeof(struct crypto_sha256_state) +
-+					  SHA256_BLOCK_SIZE + 1,
-+		.import			= crypto_sha256_import_lib,
-+		.export			= crypto_sha256_export_lib,
- 	},
- 	{
- 		.base.cra_name		= "sha224",
-@@ -142,6 +172,10 @@ static struct shash_alg algs[] = {
- 		.update			= crypto_sha256_update_generic,
- 		.final			= crypto_sha224_final_generic,
- 		.descsize		= sizeof(struct sha256_state),
-+		.statesize		= sizeof(struct crypto_sha256_state) +
-+					  SHA256_BLOCK_SIZE + 1,
-+		.import			= crypto_sha256_import_lib,
-+		.export			= crypto_sha256_export_lib,
- 	},
- 	{
- 		.base.cra_name		= "sha256",
-@@ -156,6 +190,10 @@ static struct shash_alg algs[] = {
- 		.finup			= crypto_sha256_finup_arch,
- 		.digest			= crypto_sha256_digest_arch,
- 		.descsize		= sizeof(struct sha256_state),
-+		.statesize		= sizeof(struct crypto_sha256_state) +
-+					  SHA256_BLOCK_SIZE + 1,
-+		.import			= crypto_sha256_import_lib,
-+		.export			= crypto_sha256_export_lib,
- 	},
- 	{
- 		.base.cra_name		= "sha224",
-@@ -168,6 +206,10 @@ static struct shash_alg algs[] = {
- 		.update			= crypto_sha256_update_arch,
- 		.final			= crypto_sha224_final_arch,
- 		.descsize		= sizeof(struct sha256_state),
-+		.statesize		= sizeof(struct crypto_sha256_state) +
-+					  SHA256_BLOCK_SIZE + 1,
-+		.import			= crypto_sha256_import_lib,
-+		.export			= crypto_sha256_export_lib,
- 	},
- };
+These QREF clocks are not enabled all the time and are disabled during 
+PHY deinit. Hence, vdda-qref should not be an always-on power supply. It 
+should be turned off when the QREF clocks are disabled.
 
-Cheers,
+Describing vdda-qref in the PHY device tree node is reasonable, as it 
+allows the vdda-qref power supply to be enabled or disabled along with 
+the QREF clocks during PHY init/deinit.
+
 -- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+With best wishes
+Qiang Yu
+
 
