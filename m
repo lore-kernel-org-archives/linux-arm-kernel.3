@@ -4,79 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3659C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 11:35:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C086C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 11:37:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O/SnrIciZBTNIgg+rhy3dd/SL9/GoccMNMU/e4AZlSA=; b=juCgUjX6zGyMu5h0XuWmj9vheF
-	4W9G18vyP/hngyM7RWIZ6UDGNWTJYKotOdDDtoUZ7srzHppMi3UKPR2tVE4lP4q/ZWp5hqlkDFxbq
-	GQQQO5InDmchZk0UbB2g0fZSAkM2Aw5HuiRGu1ZhZmxVLXvMdbNYta9Bf/EQCtYvinLMT2sDFRN3j
-	nWH2No195dPYD2ZSu0gQYAIHHq3HeKjEIdMMnXjaAibMIutMjdQExDASnGyTxzP8ex9Z4z9QD/81L
-	9BeQwa8dAHmsw2wjPXgEsgAw19Rslvi+oHyTLLtilos99KgHIlYBpp9VJr2geDlC79dezXz+uyfep
-	Wzfm8rFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nOYuQatwUoKOdneKkZwsHXH7XGXgHS/zUBIe0guUEhE=; b=HlWhK4+Qq8KQoRqJV1AcjkYofF
+	VTdQkchNGVaaSA+SVWuARg0sDu42jn+6/Q5nlMOn+xL4d4jEo5UJwcHf2cuGj5HTNl4fojX0S0WpW
+	wmyFLvA6Tzt1YLYFrSM0J5vedzVsgs1m7rcNzrbK1MfRq8BiPOKYD+VKxcERq8SUDtxgi6ijq1hw8
+	eoeRiHQsjIyRZQTh6rWOYJIpec7YpDYR64xlsQ8fMm3cZy8TTq4foSgbKZHI2dBXpOkf4QiyjN+PQ
+	DYt6DIn9LhVOjmgsFo6kRkGYx1ikLV++kS1J1Is1Ltm3xFt5IDbDmP4PCwJBgMuMD2s+5khOTZTdH
+	yyAtdpFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA5ie-0000000ChvN-3oGj;
-	Wed, 30 Apr 2025 11:35:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uA5kZ-0000000CiO4-2VAX;
+	Wed, 30 Apr 2025 11:37:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA51k-0000000CazR-1b2v;
-	Wed, 30 Apr 2025 10:50:57 +0000
+	id 1uA5A4-0000000CbsK-1SIn
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 30 Apr 2025 10:59:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B32124A8E3;
-	Wed, 30 Apr 2025 10:50:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 992C5C4CEE9;
-	Wed, 30 Apr 2025 10:50:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CFEF36111C;
+	Wed, 30 Apr 2025 10:59:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3710FC4CEEA;
+	Wed, 30 Apr 2025 10:59:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746010254;
-	bh=ZjzGktDuEXTVBXBesmsZddLH/eT94AqUPytgvMpqg0c=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=YtkmVCYFSPPq2DvJRioYCjMT4Mcl+xYmUXng0aOdlomNdNeWz8b8HJViDUOJgRPFm
-	 8lC/lPz0VG88pfupxMhOdV/9oSILxHmHUZhRg3p7/0xusNYlaMnBCYFHVMa3cF+kyd
-	 L0XTdoHYdJn6NCNkM7vAcIowqqsD7p4v0mvJaKUkUGXqEzDXQ6ZDWg1RZD9X/iKnur
-	 qrG26wIJWCVtB2mn0SV8wG4W/yC+FaIIjzjNDLsDB7hpw6e7NJiNrnowiY4SwctCRp
-	 cMkBd+tRK2LuuCi+nd0FwnjvSpcFwS2grCCVQy8AFs70mm9qA+jkx0j0ZsKhnKudAL
-	 +P0fabQTwSeRw==
-Date: Wed, 30 Apr 2025 05:50:53 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20201202; t=1746010771;
+	bh=Gf0bCDz5S9cCsCORXQdBpRMQaop0LeWmIkddCqh70K4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=W0Wtf3k49S2t8o89mCdewJkS1VjicLI/LCBqEUFRRkIrj8k8zgkKFIY3BFP0Eg8oL
+	 CVVkOuk2GgZaDfWDTm46Mw+xXCmzdnpj+E9Bak7u+BJo5PR4XFRWqeZrgMZlptRmqK
+	 WJTiZ4tBg1u8HZzz0X+Xlo3tx4rRyaIDL20RFwCsqLFNG33IK/gsiHuc6zU2eUurf4
+	 wHDPCT3u37RmX8ZLex3kYwky+AAcp9p8Engfnd68Zratb7WiOPCWgzv3KwmjLpIRFk
+	 riOcg9VYka/OoGUvmQ2CqFFMcSahL4kNnKibuCu8M1ZlSs/y/zAARo7LC4jDOBtX7M
+	 Wnhyo05A1kP3Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uA5A1-00AFD9-2M;
+	Wed, 30 Apr 2025 11:59:29 +0100
+From: Marc Zyngier <maz@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Brown <broonie@kernel.org>
+Subject: [PATCH 0/2] KVM: arm64: Fix HCRX_EL2.GCSEn handling
+Date: Wed, 30 Apr 2025 11:59:14 +0100
+Message-Id: <20250430105916.3815157-1-maz@kernel.org>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- linux-media@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- devicetree@vger.kernel.org, 
- Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Alexander Shiyan <eagle.alexander923@gmail.com>, 
- linux-rockchip@lists.infradead.org, 
- Collabora Kernel Team <kernel@collabora.com>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Gerald Loacker <gerald.loacker@wolfvision.net>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Kever Yang <kever.yang@rock-chips.com>, 
- =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
- linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
- linux-kernel@vger.kernel.org, Philipp Zabel <p.zabel@pengutronix.de>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>, Val Packett <val@packett.cool>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Heiko Stuebner <heiko@sntech.de>, 
- Michael Riesch <michael.riesch@wolfvision.net>, 
- Mehdi Djait <mehdi.djait@linux.intel.com>, 
- Paul Kocialkowski <paulk@sys-base.io>, Rob Herring <robh+dt@kernel.org>
-To: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <20240220-rk3568-vicap-v6-5-d2f5fbee1551@collabora.com>
-References: <20240220-rk3568-vicap-v6-0-d2f5fbee1551@collabora.com>
- <20240220-rk3568-vicap-v6-5-d2f5fbee1551@collabora.com>
-Message-Id: <174601024955.2105633.4770841218138986246.robh@kernel.org>
-Subject: Re: [PATCH v6 05/13] media: dt-bindings: add rockchip rk3568 mipi
- csi receiver
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_035056_458973_AE32C90F 
-X-CRM114-Status: GOOD (  11.30  )
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com, broonie@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,43 +82,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Will points out[1] that GCS is completely busted on the host if we
+ever run a guest, as HCRX_EL2 gets set to a fixed value on vcpu exit,
+value that doesn't include the GCSEn bit. This is likely to kaboom on
+a nVHE/hVHE setup.
 
-On Wed, 30 Apr 2025 11:15:54 +0200, Michael Riesch wrote:
-> From: Michael Riesch <michael.riesch@wolfvision.net>
-> 
-> Add documentation for the Rockchip RK3568 MIPI CSI-2 Receiver.
-> 
-> Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
-> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
-> ---
->  .../bindings/media/rockchip,rk3568-mipi-csi.yaml   | 113 +++++++++++++++++++++
->  MAINTAINERS                                        |   1 +
->  2 files changed, 114 insertions(+)
-> 
+Obviously, nobody ever tested this.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+This series moves the handling of HCRX_EL2 to being correctly
+saved/restored, which should address the problem. I say "should", as
+in keeping with the tradition, I haven't tested it either. Or at least
+not with GCS, as I don't have the correct SW setup (I don't even know
+what you need to enable GCS).
 
-yamllint warnings/errors:
+I'd very much appreciate some help in testing this.
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.example.dtb: csi@fdfb0000 (rockchip,rk3568-mipi-csi): 'phy-names' is a required property
-	from schema $id: http://devicetree.org/schemas/media/rockchip,rk3568-mipi-csi.yaml#
+Marc Zyngier (2):
+  KVM: arm64: Properly save/restore HCRX_EL2
+  KVM: arm64: Kill HCRX_HOST_FLAGS
 
-doc reference errors (make refcheckdocs):
+ arch/arm64/include/asm/el2_setup.h      |  2 +-
+ arch/arm64/include/asm/kvm_arm.h        |  1 -
+ arch/arm64/kvm/hyp/include/hyp/switch.h | 13 ++++++-------
+ 3 files changed, 7 insertions(+), 9 deletions(-)
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20240220-rk3568-vicap-v6-5-d2f5fbee1551@collabora.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+-- 
+2.39.2
 
 
