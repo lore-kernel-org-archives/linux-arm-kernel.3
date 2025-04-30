@@ -4,72 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB73AC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 02:45:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A08AC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 02:47:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0FJhicPF+hWRWejH7RyqOiY5ikceE9sh4sFVuMDaobw=; b=kRen3btnAdqrY0Jy0+xePbUp4P
-	02DsAYqvLgxYRTpdvlb20gk5c/MD4/QunqdduHAFdjrsLTzGq8PpM4Vucp45ZEcdJOKzmNRgzX15Y
-	WU2eWgHKjYIzfORrhEou0XGOH+j7FxWkkFzBhkQvCx6ZjpMLHrZozF4JoWDoiTh3WpLktD0GK4ezR
-	GtFwlDKKCqH+G+nz2KWhvnlRXB5SU/PsUn6gk93XzE6EypXS0PbHADWlNWb0Mcmce/wmQumRfDzo6
-	bPnF+0cMJMGQ5zikPg3L4cg7MKQDzMwoBcX8NvEtD/0U/zeEfcEoN8WX+PXB18s54YgMs7nPJUYQE
-	DJxJh3eQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m9QkBZZevuauHxVFsy3Xp8pLr99dnXjzdN0XHxuFEuE=; b=WuxzeZgTlxbORjt2q6b4iGqp0I
+	/NoBy4phyiMAFIFb5xEv4owgzH3tiTwXu1j1JYSOazHlSq7T7RbpJFE0DGFrPNO4C+UUBBvBfBj+Y
+	e6/zf+eTxE5cx/ZmMG1LEcAwkqI0PpQRDb6cIDtcOy4QaXFIFVx/F+hxemAcEMdqubvaRUqGx++Gx
+	G9K5wTXfYpT+CNINBl6a89WADd1nCLU0M/Ug9ougOoK7Uf3OoFp2FtbinEauISy1r/II79DjCyT2d
+	l4GAf+oCkTgGbYc2OEkhQIWJVTjIsFkDVi5a1vIiDRwqbRIMeUfoYj/TRAimJLHd1ZBTLzsk8ppoN
+	ejwhI4Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9xRj-0000000BXUc-3Fmk;
-	Wed, 30 Apr 2025 02:45:15 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1u9xTc-0000000BXwF-0gy8;
+	Wed, 30 Apr 2025 02:47:12 +0000
+Received: from abb.hmeau.com ([144.6.53.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9xPk-0000000BXC2-1XUH
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 02:43:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1745980990;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=0FJhicPF+hWRWejH7RyqOiY5ikceE9sh4sFVuMDaobw=;
-	b=QGxpTz30VbNdP4T3/C0K8GPMTgA1nvJJ6ruBPnZoY6CXEoME/kplgEnqIYxai70FiuYrHs
-	8TIGaOUCw75JItsDoKGHhCW/6GqlJIf/kgPJmGP6OsihNaIDf17iY5N3QnwF5/z1wiYZe1
-	vzXkci3FbqaMxHd8tgXLZjm7y2wfXzk=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-643--Wa6V4w3MzqeFIS_fSCvsw-1; Tue,
- 29 Apr 2025 22:43:04 -0400
-X-MC-Unique: -Wa6V4w3MzqeFIS_fSCvsw-1
-X-Mimecast-MFC-AGG-ID: -Wa6V4w3MzqeFIS_fSCvsw_1745980983
-Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id BE0121800368;
-	Wed, 30 Apr 2025 02:43:02 +0000 (UTC)
-Received: from [172.20.251.156] (unknown [10.30.44.99])
-	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 0CE861956094;
-	Wed, 30 Apr 2025 02:43:01 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.15.0-rc4,
- upstream-arm-next, e0f4c8dd)
-Date: Wed, 30 Apr 2025 02:43:01 -0000
-To: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
- will@kernel.org
+	id 1u9xQY-0000000BXJc-1LDh;
+	Wed, 30 Apr 2025 02:44:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
+	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=m9QkBZZevuauHxVFsy3Xp8pLr99dnXjzdN0XHxuFEuE=; b=slhfLJxHOtOfQ65Qhl8JSbPCcb
+	XqkmyPT58SSpWJ7pD9KS7SxPajdJZ4dHGDlXKtXsR8gTS6XQAFgAP6ZYpFU3rKnoW0/9byyYAwJ/R
+	GD8f4Zg1TqF0P+e9AlHd9q6ggqDu+W9ZGp/7BGKVyH2/DYezWwEWFFHvPjZcG89v4s+4o/5l4DTdz
+	uzFd2vqfrtvbZbuCXjHrgZ39HSV2EJU71upABqo3N09RZ1o6SSudTUB2KoCSfytn0eM8ufQZC7TW2
+	SvSbDJ9gOEk9vkgraa8eIcRuXVysE5xkBgpzhM8QKW8NjaqdOEP80zLQHXmMTMUbtTJecf2EHL+D6
+	4WxmKkyA==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1u9xQU-0028z1-2i;
+	Wed, 30 Apr 2025 10:43:59 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Wed, 30 Apr 2025 10:43:58 +0800
+Date: Wed, 30 Apr 2025 10:43:58 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	sparclinux@vger.kernel.org, linux-s390@vger.kernel.org,
+	x86@kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld " <Jason@zx2c4.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: Re: [v3 PATCH 00/13] Architecture-optimized SHA-256 library API
+Message-ID: <aBGObifCORhrBXz1@gondor.apana.org.au>
+References: <cover.1745816372.git.herbert@gondor.apana.org.au>
+ <20250429165749.GC1743@sol.localdomain>
+ <aBGKg5bq0zLkhy3-@gondor.apana.org.au>
+ <20250430023849.GA275186@sol.localdomain>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
-Message-Id: <24043.125042922430400139@us-mta-643.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: hJ7qUR3KHPnZLZg-Gp-6AM1hC5k0XPdznyCq_t9tB3k_1745980983
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250430023849.GA275186@sol.localdomain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_194312_482890_15A9B689 
-X-CRM114-Status: UNSURE (   6.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250429_194402_356233_0735B6D4 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,38 +81,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+On Tue, Apr 29, 2025 at 07:38:49PM -0700, Eric Biggers wrote:
+>
+> Nothing requires that the export formats be consistent, but also the fact that
+> padlock-sha uses a weird format in the first place is an artificial problem that
+> you introduced just a couple weeks ago.  And even if we *must* use the same
+> format as padlock-sha, that can be done by using your crypto_sha256_export_lib
+> and crypto_sha256_import_lib, without all your other changes.
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
+That was just the reason of why I can't take your first patch as
+is and then add my changes as incremental patches.
 
-Tested-by: CKI Project <cki-project@redhat.com>
+I do still want to bypass the partial block handling in lib/crypto.
 
-Kernel information:
-    Commit message: Merge branch 'for-next/core' into for-kernelci
+But alright I will do it like this:
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1792937257
+Patch 1 is just your existing patch + my export/import functions.
 
+Then I will add the rest of my changes as incremental patches.
 
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
+Cheers,
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
