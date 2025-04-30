@@ -4,85 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDEC5C3ABA5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 03:05:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AC62C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 03:16:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FtsFXATNoShqTVkbay8QH27/CZbtOqHUZhXlCbT05hw=; b=LV2fGBgJkwgUZphxX5NB//+eOn
-	XZAsahvF8snXSyxLy3rdV/XffRqQuCMMZpYsxjY7P+dNn1d4MkMvcUZKxUrnT8D92xN8vlif8C7Ul
-	TYNhyNWo8LC9Gs50ofwP/RnlA+/fsOq4MOKllJwplJr+ywW8um3DGfYph9dl5MKDTfyYQC1U26Ziy
-	D49XeaUxjnxvdi32/ycr5aszvXfqS4IU7QV2yOdZdZC8sjjlvdScD8mydmcGwp+YRkOEHPFrnxUH5
-	2mSe1MLYUsvq51M3sJFInttzZLzNQ7MruTNV8hbzetUX6oLTCEJJcuqg15OIZIZ7DavPzcpvC/xoD
-	xFrRF9lg==;
+	bh=hxQSNWJIpgLL0K345+9EHCJtfozXJ2Yu+qkzD2t1E54=; b=MQR/wSveBOaFbCdJFryH3FqYn6
+	Xzt+4zV9pUiGY3Lp10uchhLP1OjwU3gizx3Qu15jyNu0WBziGwAvTSzJzUxOiwn/xqs5aSizWpLkz
+	O9HgD2PVQQ3hHFCVOAZNhfRbgmaDiB9NqKD0f2iCpR7lnqRcr8um4Vu64GIiOtICp6HY1bKjV3SR6
+	IiKVRQitCg7Q0VdxFjdNDzs4IQHNUhEJ7YrDhMLsWF2e/nHE7XOM/zeLvePLvR0FbaoZTPgaqm+Ex
+	qd55hqLiWSbs+IPtFMelw9s55FyR4N9GHjTaMZZ0D96jAnmfIeL3Z3gQXLdF0JtQp4xmZXgL62qhN
+	4XYiJF1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9xlL-0000000BZ1s-2CPT;
-	Wed, 30 Apr 2025 03:05:31 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u9xvq-0000000BZZf-0BD1;
+	Wed, 30 Apr 2025 03:16:22 +0000
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9xjO-0000000BYt7-2baD
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Apr 2025 03:03:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=FtsFXATNoShqTVkbay8QH27/CZbtOqHUZhXlCbT05hw=; b=M4KWY0dwxIMQNCgwRub36T+yRP
-	JPVHnkzcYFgB1IWAXu8KUip49s4lLsIkucAGvMXgIKSdOyuI4uzT9+YvlN9AceCQDA7viEXSCpjMs
-	tOjpcxRf8ldbSb8B6pgBzdTSV8MjgMs/ux7lr1qlFnqMvuWuZ/ZRDFsSkMvRCtaR4cMT/XX0Gt6N3
-	ol05TudfnuyOGqlNMbzww16vOeY+Dt4MUDoO7++/HTBZH2vhO+kJrLXlvSbDnmpzn0WZOh8HFNPMc
-	P8tV3yHyUjaBaOjpeaOnFWWs9om1pmL5NyJsRhuEH1GGavJ4Kc0ZUD+RnNeS+Rk0y5B/6kYjje2tY
-	2TugXjJQ==;
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9xjI-0000000DedV-31vM
+	id 1u9wx1-0000000BVDl-02nL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 03:03:28 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-22438c356c8so74124905ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 20:03:21 -0700 (PDT)
+	Wed, 30 Apr 2025 02:13:32 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-309f3bf23b8so7603142a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 19:13:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=lessconfused.com; s=lessconfused; t=1745982200; x=1746587000; darn=lists.infradead.org;
+        d=lessconfused.com; s=lessconfused; t=1745979210; x=1746584010; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=FtsFXATNoShqTVkbay8QH27/CZbtOqHUZhXlCbT05hw=;
-        b=VEtJhOwRjw3mzv8Z6UCuJwp/ihZHkqs46ieaWW434WjUchJ6wxaOlgSCf2DnPojOtA
-         lKMBwkcf+JYhhO4xC5Sc+NELsbwdpzmxmsgTPIqTcqZKfyRHwlbBKyhcXO4PwpAdmJ5O
-         75nrfakJxT5a4VFeSA7tsyI6DazDTVaJPoug4=
+        bh=hxQSNWJIpgLL0K345+9EHCJtfozXJ2Yu+qkzD2t1E54=;
+        b=UjuHxI8kgOR0dQMQeNICLsWHi5VF7+o3CiIYIQcLUqX7mcFkfv3N+VD/UnCbW2erO1
+         2lTXjMCxN5TjXKMY57nsNnUE1wjTRP2Nknw9T0cr4NboPc6hM0KkGIXoWcXBouEF49iV
+         2qq0btdFjA2d++J5ORGJkE9/mcXB6Ob9YaOvY=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745982200; x=1746587000;
+        d=1e100.net; s=20230601; t=1745979210; x=1746584010;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=FtsFXATNoShqTVkbay8QH27/CZbtOqHUZhXlCbT05hw=;
-        b=Zdh8rj14kzakoUFbzKTBFKDTCYWClTTzAXKI/A06K5fhh3ka3xPDYzrgIgjz4QIeDf
-         7kEXXdPmfhStCxkHi2iB9FuUZGucfAYP8rYX+YNoTe5/FC7IoB5vM3mW5Lm/9C9ZuG9G
-         24IU2Ff1Z16ebetX5e8ndcnVREoDdSTvLYMy0BZorEM2QaFZav8/o2yN08FBAANLoKVH
-         TY0TdnzHZrq9iBPKynG7sbbRQA38LxE+e9cYJ1T2C3Ep9TwcB2P4NPNEYffTs/CxOeIc
-         eYkhr/bUSyuhzXUdR0RdlUsdK/p9mJeSR8rvYMFX9bJLNFo3DPBVdKSzJJBxDDZbZtSt
-         8lqQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV5l0/0pQibiti++Xk6kt3wfsnU20Js2hio3m/q3kstf5IZ7QwReXTVS3h3lIkOOpUIM+0bKcDxh42gEcZUFAEu@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVyOdAblXjwQi+kreIGrwyJ9PoyDKaTeEDg1fllvNSiw6UNFEH
-	2ZngS5BUlFos8D+1fHFvU+ntBSQLoyvULZGpXXuuinElW5/Tlhi1tK5XFggbPiJJbC8YinU5Pco
-	Cb9b8+R5ArUONMWi9oBbLyCr4PDAh2sPpuo34cg==
-X-Gm-Gg: ASbGncv24tVK05OP/nBeP0br6Jia47lIpZ0pLydnsblYh22ju8XeNvv5f0ipNZvEjjW
-	t+v/3iBe/oCRMZxUOaVk0aW4wrc33O/myQRKcUNdlswClM2/n1azUNxHo6ygnxpo6RP3I3bcXi8
-	Gl42o16WGXuG/7E6sGt2spdjrlphUBKYmZJzvbse4LOP+hbFmMBXoTeZU=
-X-Google-Smtp-Source: AGHT+IHWYkcIquDI14ZP8nSc+0ia5OdshYR2d5iL7cj8Ucq5COtov48MTjtXrFOaO18tlx5e/iPOZ1TfkjF00Ry6HrM=
-X-Received: by 2002:a17:902:e80c:b0:21f:85af:4bbf with SMTP id
- d9443c01a7336-22df34d60ebmr23401035ad.20.1745982200362; Tue, 29 Apr 2025
- 20:03:20 -0700 (PDT)
+        bh=hxQSNWJIpgLL0K345+9EHCJtfozXJ2Yu+qkzD2t1E54=;
+        b=XNWqWipFEYPB1DRiImwBGIn0G807T3GgzWivPfjP/sDXVmPeFXpHzIeQK6OJ1LbX8x
+         8Zqf0UPfDYe+NQ58GUpDbVo9XvxC8gsGP45PIe0L4sN1O2xlw7n0iF73+S4TmvH8XYPq
+         52GfkUT4L23HDUR/gQIY6JlWhctWroOJF55HBV1HZsPgGC6YRU3iSr1XMmT09HG5vHX3
+         DPu/i8HMh8JQyuOPaP5koiXjOdvLLC8i01Xhr93CRMtKjCsCQiICy3JAEEiByCxd2Emu
+         sex1Ory9KdNgerD+jt1YpIz5OXO1wNPjFOqOk/KU+BOEqhDDKHSCuH0To8q0iYnUn7Uf
+         2FfQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXeLawKVfWDBJ2hXnRvLcQss6inxrW70NCsAtHyc6+8zed1dWIVlYsaOxy16Nl9WkmIelBk1AJyb5Ogggd7mcBM@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPlR1OcAJ/54Hff8dBEA1RPN8TahhxMD8prrtu3s4cxoiNa34M
+	LutplONk+wXLZ+vtmcDhvk2N1ewBivtk6/q2MgrUr+lDqnUL9h6ky+HgUOa/snxhii1/9slj52P
+	hvLtzKAFVJConARBwykKIRpWVpXG6fmVmWimicA==
+X-Gm-Gg: ASbGnctIWRJODbIrzeUDyVWDrfGeMsggMdxavEpRPPrSkT03+KrM8nlWC1UadHS8bkH
+	TdP7eTgyIXjh+NzO5gfSAEhx2g2AxxrjNPfnXRZC04FgQcfo5MW/YOl98MPkMsDxqXl48n7Qs8i
+	VqWLktbKufwsQ5Y130UWS88BmxtnBXJcvYwXaBnqnZ589kNb82EbEcB0E=
+X-Google-Smtp-Source: AGHT+IFWh6po6oeHM9w2N/xbVzQ8pllPfaIp/ocjh5/n+lZ05a6r7QzsR9e8d0QT+TpFdsiXtNRkoEQTcLTUuUwJQ44=
+X-Received: by 2002:a17:90a:bd97:b0:2ff:6167:e92d with SMTP id
+ 98e67ed59e1d1-30a34489514mr915586a91.32.1745979209448; Tue, 29 Apr 2025
+ 19:13:29 -0700 (PDT)
 MIME-Version: 1.0
 References: <20250414-spi-dma-v2-1-84bbd92fa469@amlogic.com>
 In-Reply-To: <20250414-spi-dma-v2-1-84bbd92fa469@amlogic.com>
 From: Da Xue <da@lessconfused.com>
-Date: Tue, 29 Apr 2025 23:03:09 -0400
-X-Gm-Features: ATxdqUHPbISbrbEOxVf_PPZYjEH_HG4hR4i1yA1A-Bal6nglQ_Jfu1FJL1hoW6U
-Message-ID: <CACdvmAheh-nV=nevH6sodZFOwxJzbsPnQJvvEprAd27BaCsSYA@mail.gmail.com>
+Date: Tue, 29 Apr 2025 22:13:18 -0400
+X-Gm-Features: ATxdqUF1uePmGqw_DHzosv8XmIVsTIOhJnSFRlSHFpTZiilbCy-M7TFAp_71R8M
+Message-ID: <CACdvmAhEXstEBdaiktU4n-R6M6mYiBnSx15ZJfb1FOKGD7Zfaw@mail.gmail.com>
 Subject: Re: [PATCH v2] spi: meson-spicc: add DMA support
 To: xianwei.zhao@amlogic.com
 Cc: Mark Brown <broonie@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
@@ -93,8 +78,8 @@ Cc: Mark Brown <broonie@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_040326_676504_EDE3C446 
-X-CRM114-Status: GOOD (  42.34  )
+X-CRM114-CacheID: sfid-20250429_191331_062499_F63811AD 
+X-CRM114-Status: GOOD (  43.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,6 +169,11 @@ the
 > + * preset number of words from RXFIFO, then write them into RX buffer.
 > + * DMA works if the transfer meets the following conditions,
 > + * - 64 bits per word
+
+Just for clarification, DMA can only send 64-bit words due to hardware
+design, right?
+The bit-per-word in spi control register (CONREG) has no effect?
+
 > + * - The transfer length in word must be multiples of the dma_burst_len,=
  and
 > + *   the dma_burst_len should be one of 8,7...2, otherwise, it will be s=
@@ -213,10 +203,12 @@ plit
 > +#define DMA_BURST_COUNT_MAX            0xffff
 > +#define SPI_BURST_LEN_MAX      (DMA_BURST_LEN_DEFAULT * DMA_BURST_COUNT_=
 MAX)
-
-The controller should also specify host->max_transfer_size.
-
 > +
+
+LD_CNTL0 and LD_CNTL1 are not in this datasheet for GXL
+(S805X/S905X/S905D). Do they exist on these SoCs and are not
+documented?
+
 >  #define SPICC_ENH_CTL0 0x38    /* Enhanced Feature */
 >  #define SPICC_ENH_CLK_CS_DELAY_MASK    GENMASK(15, 0)
 >  #define SPICC_ENH_DATARATE_MASK                GENMASK(23, 16)
@@ -488,6 +480,13 @@ imeout)))
 > -                                  SPI_BPW_MASK(24) |
 > -                                  SPI_BPW_MASK(16) |
 > -                                  SPI_BPW_MASK(8);
+
+This should not be removed. SPI_BPW_MASK(64) needs to be added.
+Removing bits_per_word_mask causes other code to assume this is an
+8-bit only controller.
+
+
+
 >         host->flags =3D (SPI_CONTROLLER_MUST_RX | SPI_CONTROLLER_MUST_TX)=
 ;
 >         host->min_speed_hz =3D spicc->data->min_speed_hz;
