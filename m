@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58A3FC369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 10:06:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD44FC3ABA9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 10:08:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ntln+YOGpHmhFRt+vk8RW2Ng5oNX6WD2cK51HZdX7ck=; b=jkE9bLdYwUBxRQeZakgKSznBSi
-	oe1ImuZnJdfGiMe2Ss21YT3ja+5rxhxysf6Hq7ziopV7yEnKK6Sp7wcn/jqIjeQqVjP6UQXCgmjWJ
-	7UYGT4oX8+eJ7FyOf0EAJKdzLWfQDf+NlDf/A5HGHDQ/42Zw7atPvSF51JVetjIbRXXBq4oKXfNcK
-	DmrszFbTy4IPy9l81ZC2qjWRqzdfwUjI1pA6vvhHlV2yO23oxOQmucLOuHXoaxtQ5kPQyXePo23h/
-	xTZ5Q5MsQ//oJ9wmgu/yJewVcGF+xPxlXz6QMOTjGwKLjcbTl095uV3PnvLeeEjkTfsd3NYUTyV1r
-	aNhrGq4g==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Kt+PJysEfOP7r2Wg4l8xcp//IqyeBTg9yDxzQtKWL+g=; b=s1xLy6pabvAdL2MtrdXVk9MsPB
+	ZZ9mUOVfLIX4jSxSCkG/2m6aVTCU+M5JXxsditLnVY306KH1E9RKUxqF8OjtMGzVyOd1a8GUxiXBJ
+	2QHgEwQ7jIbjyYoAXKQrKxjmQz0oskB4WD3lSzk0OneI8xGBiodvcXrF3sbnisTW3upwZ4/0fCA85
+	PlvX4k87SfDukWtK/pzNN2Ld82x2FekQ4uyQs1XZEXndadr3kt4i2QvxH4Xqb7MdQ5y1d+NiCjgbE
+	zkSxvqEpRKqWFMUw59FLJC6G13jfhsIQauk+dNpK9EijDLrsAalO6VgMIFpBLPPoJLOaPGtUnVSL3
+	zlR99Xlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA4L0-0000000CTU1-3sLo;
-	Wed, 30 Apr 2025 10:06:46 +0000
+	id 1uA4Mt-0000000CTcK-2xtJ;
+	Wed, 30 Apr 2025 10:08:43 +0000
 Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA3x2-0000000CPIx-37BH
+	id 1uA3x2-0000000CPIw-36VH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 09:42:01 +0000
+	Wed, 30 Apr 2025 09:42:02 +0000
 Received: from francesco-nb.pivistrello.it (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id A2F231FC2D;
+	by mail11.truemail.it (Postfix) with ESMTPA id 0D6F81FA38;
 	Wed, 30 Apr 2025 11:41:58 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1746006119;
-	bh=ntln+YOGpHmhFRt+vk8RW2Ng5oNX6WD2cK51HZdX7ck=; h=From:To:Subject;
-	b=GD4bpCivljCnPyud/dxbHRcmv3iRa5N2NOk5X+AZ0/LAgNHPPDTQO0+u/u5ZQAUUj
-	 X8ySqMlB7gJWLQ26lFyOWLzSuV/wQFPnOPnYY6E2lXCZiUzW6sThDOHuW8gNIPQ834
-	 9Xn5zoRMjnN3EsVcKQO+TjzaYwU+kWQQOao3SFMc11O8DEXjV6EVjKKxn0A66wL9tT
-	 ar8JqaN5iaLjuMEoj3sluzqPfwRVa/MHOBL/pc88ekepxGahCOSjmb0KEpAfca2JXI
-	 bEO6C2c1SbD+jlOpXmXwzNiA6TE0SxvmrVjloPgcg8ReNSKDvgBNWw2Jombmta9EKu
-	 dPyMWUR2EZMsA==
+	s=default; t=1746006118;
+	bh=Kt+PJysEfOP7r2Wg4l8xcp//IqyeBTg9yDxzQtKWL+g=; h=From:To:Subject;
+	b=iKnUWzP1eoXD9trFYsk54XxIcT1NqnIAKw60ytYeX4YKPTsXjSfPd6dzWlU/sX9yn
+	 Y5kkx4u02RVNSQDlXN7saZqJz1uc7IuSWPTORvBg1c0cWP++QZIprYE08WUfS0451J
+	 hy3enqHpdNCPXbXK68u6wz1/VrICJ5mtHIMIZiiBwaxmf9E+oy++pOiE9j9AWKtTgc
+	 Uf9rFtKvzIEhoGCPNMnBAvM43ewAdLaKwOADpNGjghe73/PqjIcAxRpf/VecZJlMbi
+	 HgAWoAAXpG+pJfY83Qi9bB0SgS0bMW2khvd4nZ2I5tAjQhwKCK1RNGc5XBvf5NNmVG
+	 l5eIWoJttW2LA==
 From: Francesco Dolcini <francesco@dolcini.it>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -53,19 +53,16 @@ Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
 	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: [PATCH v2 1/5] arm64: dts: freescale: imx8mp-toradex-smarc: add fan PWM configuration
-Date: Wed, 30 Apr 2025 11:41:47 +0200
-Message-Id: <20250430094151.98079-2-francesco@dolcini.it>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/5] arm64: dts: freescale: imx8mp-toradex-smarc: add fan, ec, gpio
+Date: Wed, 30 Apr 2025 11:41:46 +0200
+Message-Id: <20250430094151.98079-1-francesco@dolcini.it>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250430094151.98079-1-francesco@dolcini.it>
-References: <20250430094151.98079-1-francesco@dolcini.it>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_024200_937603_14294C7E 
-X-CRM114-Status: UNSURE (   8.87  )
+X-CRM114-CacheID: sfid-20250430_024200_935993_3DDD3093 
+X-CRM114-Status: UNSURE (   6.78  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,45 +80,29 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-Configure correctly the FAN pwm output (inverted).
+Add fan, gpio expander and embedded-controller to the Toradex SMARC iMX8MP
+device tree file.
 
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
-Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
----
-v2: add r-b peng
----
- .../boot/dts/freescale/imx8mp-toradex-smarc-dev.dts      | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+All the required DT bindings and drivers are now in next:
+ - https://lore.kernel.org/all/20250331072644.17921-1-francesco@dolcini.it/
+ - https://lore.kernel.org/all/20250414171455.155155-1-francesco@dolcini.it/
+ - https://lore.kernel.org/all/20250402102146.65406-1-francesco@dolcini.it/
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-dev.dts b/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-dev.dts
-index 581f221323b7..55b8c5c14fb4 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-dev.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-toradex-smarc-dev.dts
-@@ -3,6 +3,8 @@
- 
- /dts-v1/;
- 
-+#include <dt-bindings/pwm/pwm.h>
-+
- #include "imx8mp-toradex-smarc.dtsi"
- 
- / {
-@@ -205,9 +207,14 @@ &i2c6 {
- 	status = "okay";
- 
- 	/* Fan controller */
--	fan@18 {
-+	fan_controller: fan@18 {
- 		compatible = "ti,amc6821";
- 		reg = <0x18>;
-+		#pwm-cells = <2>;
-+
-+		fan {
-+			pwms = <&fan_controller 40000 PWM_POLARITY_INVERTED>;
-+		};
- 	};
- 
- 	/* Current measurement into module VDD */
+Emanuele Ghidoli (2):
+  arm64: dts: freescale: imx8mp-toradex-smarc: add embedded controller
+  arm64: dts: freescale: imx8mp-toradex-smarc: add gpio expander
+
+Francesco Dolcini (3):
+  arm64: dts: freescale: imx8mp-toradex-smarc: add fan PWM configuration
+  arm64: dts: freescale: imx8mp-toradex-smarc: use generic gpio node
+    name
+  arm64: defconfig: Add Toradex Embedded Controller config
+
+ .../freescale/imx8mp-toradex-smarc-dev.dts    |  9 +++++-
+ .../dts/freescale/imx8mp-toradex-smarc.dtsi   | 32 ++++++++++++++++++-
+ arch/arm64/configs/defconfig                  |  1 +
+ 3 files changed, 40 insertions(+), 2 deletions(-)
+
 -- 
 2.39.5
 
