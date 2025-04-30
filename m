@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A517C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 13:22:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E043C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 13:24:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=61ZlA0pXt7G9VdCqH0CQ6UugGOUKOrCJgv71u7T31m4=; b=xOsfkS6QxaFyZzj76vLxOcvIsH
-	eyRGXUcHM4m4no9yNrZV6+3aJauGwsusaSbkWJuPwZll/Oxy+HKouskQ2kKtKAsylNT0SMM2emKcL
-	zSDnYixhPF0iRFJel2USO+CWo4DAaBsNgQpJGOmsU3Cv1Eq3JQC0KFnVhPHbV9dcx5ghTeXxNmAN2
-	1N/4J4qtuSA5b0KCmUFt8kg4ct3gv1TKcpqMjmb29v21KTMKF5hynvoI1wi5IM4b5XFtl9mnYjyyz
-	wcTZszDsUPci24Xha2fYnN7xYalfkuu6lYqRz+aybL6363dEbSu9o+wJZpSjSl1P3Ah5IXmNziOkS
-	/X47U6hw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qCTmPr0jzKHoZl86DcvtgrtrgnH2xMGSk1hygEEwuEQ=; b=4DEWdkmRFKZ4VyvjE2a83pPxej
+	4nmTNuiWrTFkMAfSxODmW2SyIhEg0dkV87nq8pXxohiswW/LJKCtxY2k5afDSUsvzcHE9R5709oZ5
+	5qsJo0pDQciE6Q/2FtZ7XEZgvxUKQsBn4iOrMORfUFUwHXWkl/Te0i9THlWC6XmEZCrRqtB5xPNYw
+	ViZseex2NOsuXpTCRON4K1slchHyy8ctUqKmZyfLpxk0ZgBE5nFPY5LeIfUXHvb+UYY9Yo0oqjrMJ
+	OZ++gjPy95Xv5Vnenr+G9kiolR1OUcAHb/9XWYustIuVkBarDl5LB4Viht7RLCihVgg6kIcRPYazL
+	fnsgeIXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA7Nr-0000000Cz1u-1VgU;
-	Wed, 30 Apr 2025 13:21:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA7KV-0000000CyMq-1458
+	id 1uA7Q1-0000000CzGN-3EiM;
+	Wed, 30 Apr 2025 13:24:09 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uA7L7-0000000CyXX-2vWe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 13:18:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5979B106F;
-	Wed, 30 Apr 2025 06:18:19 -0700 (PDT)
-Received: from [10.57.84.121] (unknown [10.57.84.121])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A46223F5A1;
-	Wed, 30 Apr 2025 06:18:21 -0700 (PDT)
-Message-ID: <40826f42-07d2-4c00-8173-a5eb19d2335c@arm.com>
-Date: Wed, 30 Apr 2025 14:18:20 +0100
+	Wed, 30 Apr 2025 13:19:06 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id EB74B725;
+	Wed, 30 Apr 2025 15:18:57 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1746019138;
+	bh=+KDMROeZ7s2Cm69JjTcB0iiwQi3LCIays5wrt+DL+54=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EPgxb5rNDjCja/gJ/JzZAhyFLTOSdfvLt5dsGvPcqtK3GSuXLyAWVGTiVBVaJmyhF
+	 dn78rUIFB7tfNKFwmkIq/a4deEGgyuafznT9K9TJtGUPPpscw0h3Qi1+fbFTP3v+mF
+	 GZ752b/wV8H4awC207Yfs7s+iI3JPkFABM2DRBNw=
+Date: Wed, 30 Apr 2025 16:18:56 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH] media: dt-bindings: sony,imx290: Update usage example
+Message-ID: <20250430131856.GB25516@pendragon.ideasonboard.com>
+References: <20250430125322.2808528-1-niklas.soderlund+renesas@ragnatech.se>
+ <CAMuHMdVXrHVugCMoWkCRVGotOEeTuuJJ6rC7CC7Kf_seo3J5og@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/7] mm: Optimize mprotect() by batch-skipping PTEs
-Content-Language: en-GB
-To: Dev Jain <dev.jain@arm.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: akpm@linux-foundation.org, david@redhat.com, willy@infradead.org,
- linux-mm@kvack.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com,
- will@kernel.org, Liam.Howlett@oracle.com, vbabka@suse.cz, jannh@google.com,
- anshuman.khandual@arm.com, peterx@redhat.com, joey.gouly@arm.com,
- ioworker0@gmail.com, baohua@kernel.org, kevin.brodsky@arm.com,
- quic_zhenhuah@quicinc.com, christophe.leroy@csgroup.eu,
- yangyicong@hisilicon.com, linux-arm-kernel@lists.infradead.org,
- namit@vmware.com, hughd@google.com, yang@os.amperecomputing.com,
- ziy@nvidia.com
-References: <20250429052336.18912-1-dev.jain@arm.com>
- <20250429052336.18912-3-dev.jain@arm.com>
- <f4a90024-3cc7-4536-84b0-665021d96125@lucifer.local>
- <9687592f-ec04-410f-9fb2-9777edfe1178@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <9687592f-ec04-410f-9fb2-9777edfe1178@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMuHMdVXrHVugCMoWkCRVGotOEeTuuJJ6rC7CC7Kf_seo3J5og@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_061827_381941_DCE31099 
-X-CRM114-Status: GOOD (  27.60  )
+X-CRM114-CacheID: sfid-20250430_061905_872399_06F2713A 
+X-CRM114-Status: GOOD (  20.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,187 +79,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/04/2025 07:37, Dev Jain wrote:
+On Wed, Apr 30, 2025 at 03:03:10PM +0200, Geert Uytterhoeven wrote:
+> On Wed, 30 Apr 2025 at 14:58, Niklas Söderlund wrote:
+> > Since commit 98e0500eadb7 ("media: i2c: imx290: Add configurable link
+> > frequency and pixel rate") the driver expects two specific
+> > link-frequency settings 2-lane (445500000, 297000000) and 4-lane
+> > (222750000, 148500000) operation. The driver fails to probe without
+> > these exact settings.
+> >
+> > Update the example in the bindings to match this to make it easier for
+> > users to incorporate this sensor in their device tree descriptions
+> > without having to read the driver sources when the driver fails to
+> > probe.
+> >
+> > Signed-off-by: Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
 > 
+> Thanks for your patch!
 > 
-> On 29/04/25 6:49 pm, Lorenzo Stoakes wrote:
->> Very very very nitty on subject (sorry I realise this is annoying :P) -
->> generally don't need to capitalise 'Optimize' here :>)
->>
->> Generally I like the idea here. But some issues on impl.
->>
->> On Tue, Apr 29, 2025 at 10:53:31AM +0530, Dev Jain wrote:
->>> In case of prot_numa, there are various cases in which we can skip to the
->>> next iteration. Since the skip condition is based on the folio and not
->>> the PTEs, we can skip a PTE batch.
->>>
->>> Signed-off-by: Dev Jain <dev.jain@arm.com>
->>> ---
->>>   mm/mprotect.c | 27 ++++++++++++++++++++-------
->>>   1 file changed, 20 insertions(+), 7 deletions(-)
->>>
->>> diff --git a/mm/mprotect.c b/mm/mprotect.c
->>> index 70f59aa8c2a8..ec5d17af7650 100644
->>> --- a/mm/mprotect.c
->>> +++ b/mm/mprotect.c
->>> @@ -91,6 +91,9 @@ static bool prot_numa_skip(struct vm_area_struct *vma,
->>> struct folio *folio,
->>>       bool toptier;
->>>       int nid;
->>>
->>> +    if (folio_is_zone_device(folio) || folio_test_ksm(folio))
->>> +        return true;
->>> +
->>
->> Hm why not just put this here from the start? I think you should put this back
->> in the prior commit.
->>
->>>       /* Also skip shared copy-on-write pages */
->>>       if (is_cow_mapping(vma->vm_flags) &&
->>>           (folio_maybe_dma_pinned(folio) ||
->>> @@ -126,8 +129,10 @@ static bool prot_numa_skip(struct vm_area_struct *vma,
->>> struct folio *folio,
->>>   }
->>>
->>>   static bool prot_numa_avoid_fault(struct vm_area_struct *vma,
->>> -        unsigned long addr, pte_t oldpte, int target_node)
->>> +        unsigned long addr, pte_t *pte, pte_t oldpte, int target_node,
->>> +        int max_nr, int *nr)
->>
->> Hate this ptr to nr.
->>
->> Why not just return nr, if it's 0 then skip? Simple!
->>
->>>   {
->>> +    const fpb_t flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
->>>       struct folio *folio;
->>>       int ret;
->>>
->>> @@ -136,12 +141,16 @@ static bool prot_numa_avoid_fault(struct vm_area_struct
->>> *vma,
->>>           return true;
->>>
->>>       folio = vm_normal_folio(vma, addr, oldpte);
->>> -    if (!folio || folio_is_zone_device(folio) ||
->>> -        folio_test_ksm(folio))
->>> +    if (!folio)
->>>           return true;
->>> +
->>
->> Very nitty, but stray extra line unless intended...
->>
->> Not sure why we can't just put this !folio check in prot_numa_skip()?
+> > --- a/Documentation/devicetree/bindings/media/i2c/sony,imx290.yaml
+> > +++ b/Documentation/devicetree/bindings/media/i2c/sony,imx290.yaml
+> > @@ -136,7 +136,7 @@ examples:
+> >              port {
+> >                  imx290_ep: endpoint {
+> >                      data-lanes = <1 2 3 4>;
+> > -                    link-frequencies = /bits/ 64 <445500000>;
+> > +                    link-frequencies = /bits/ 64 <222750000 148500000>;
+> >                      remote-endpoint = <&csiphy0_ep>;
+> >                  };
+> >              };
 > 
-> Because we won't be able to batch if the folio is NULL.
-> 
-> I think I really messed up by having separate patch 1 and 2. The real intent of
-> patch 1 was to do batching in patch 2 *and* not have insane indentation. Perhaps
-> I should merge them, or completely separate them logically, I'll figure this out.
+> I guess the link-frequencies property should gain a rule that it
+> needs two values, too?
 
-I'd be inclined to just merge into single patch...
+The driver doesn't require two frequencies (unless I'm mistaken), it
+could operate with a single one (albeit not in all resolutions), so I
+don't think we should require two frequencies in the bindings.
 
-> 
->>
->>>       ret = prot_numa_skip(vma, folio, target_node);
->>> -    if (ret)
->>> +    if (ret) {
->>> +        if (folio_test_large(folio) && max_nr != 1)
->>> +            *nr = folio_pte_batch(folio, addr, pte, oldpte,
->>> +                          max_nr, flags, NULL, NULL, NULL);
->>
->> So max_nr can <= 0 too? Shouldn't this be max_nr > 1?
->>
->>>           return ret;
->>
->> Again x = fn_return_bool(); if (x) { return x; } is a bit silly, just do if
->> (fn_return_bool()) { return true; }.
->>
->> If we return the number of pages, then this can become really simple, like:
->>
->> I feel like maybe we should abstract the folio large handling here, though it'd
->> be a tiny function so hm.
->>
->> Anyway assuming we leave it in place, and return number of pages processed, this
->> can become:
->>
->> if (prot_numa_skip(vma, folio, target_node)) {
->>     if (folio_test_large(folio) && max_nr > 1)
->>         return folio_pte_batch(folio, addr, pte, oldpte, max_nr, flags,
->>                 NULL, NULL, NULL);
->>     return 1;
->> }
->>
->> Which is neater I think!
->>
->>
->>> +    }
->>>       if (folio_use_access_time(folio))
->>>           folio_xchg_access_time(folio,
->>>               jiffies_to_msecs(jiffies));
->>> @@ -159,6 +168,7 @@ static long change_pte_range(struct mmu_gather *tlb,
->>>       bool prot_numa = cp_flags & MM_CP_PROT_NUMA;
->>>       bool uffd_wp = cp_flags & MM_CP_UFFD_WP;
->>>       bool uffd_wp_resolve = cp_flags & MM_CP_UFFD_WP_RESOLVE;
->>> +    int nr;
->>>
->>>       tlb_change_page_size(tlb, PAGE_SIZE);
->>>       pte = pte_offset_map_lock(vma->vm_mm, pmd, addr, &ptl);
->>> @@ -173,8 +183,10 @@ static long change_pte_range(struct mmu_gather *tlb,
->>>       flush_tlb_batched_pending(vma->vm_mm);
->>>       arch_enter_lazy_mmu_mode();
->>>       do {
->>> +        nr = 1;
->>>           oldpte = ptep_get(pte);
->>>           if (pte_present(oldpte)) {
->>> +            int max_nr = (end - addr) >> PAGE_SHIFT;
->>
->> Not a fan of open-coding this. Since we already provide addr, why not just
->> provide end as well and have prot_numa_avoid_fault() calculate it?
->>
->>>               pte_t ptent;
->>>
->>>               /*
->>> @@ -182,8 +194,9 @@ static long change_pte_range(struct mmu_gather *tlb,
->>>                * pages. See similar comment in change_huge_pmd.
->>>                */
->>>               if (prot_numa &&
->>> -                prot_numa_avoid_fault(vma, addr,
->>> -                          oldpte, target_node))
->>> +                prot_numa_avoid_fault(vma, addr, pte,
->>> +                          oldpte, target_node,
->>> +                              max_nr, &nr))
->>>                       continue;
->>>
->>>               oldpte = ptep_modify_prot_start(vma, addr, pte);
->>> @@ -300,7 +313,7 @@ static long change_pte_range(struct mmu_gather *tlb,
->>>                   pages++;
->>>               }
->>>           }
->>> -    } while (pte++, addr += PAGE_SIZE, addr != end);
->>> +    } while (pte += nr, addr += nr * PAGE_SIZE, addr != end);
->>
->> This is icky, having 'nr' here like this.
+-- 
+Regards,
 
-For better or worse, this is the pattern we have already established in other
-loops that are batching-aware. See zap_pte_range(), copy_pte_range(), etc. So
-I'd prefer to follow that pattern here, as Dev has done.
-
-Thanks.
-Ryan
-
->>
->> But alternatives might be _even more_ icky (that is advancing both on
->> prot_numa_avoid_fault() so probably we need to keep it like this.
->>
->> Maybe more a moan at the C programming language tbh haha!
->>
->>
->>>       arch_leave_lazy_mmu_mode();
->>>       pte_unmap_unlock(pte - 1, ptl);
->>>
->>> -- 
->>> 2.30.2
->>>
-> 
-
+Laurent Pinchart
 
