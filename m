@@ -4,54 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35D40C3ABA9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 13:01:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58CFBC369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 13:03:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N6NbxkgJwSpz8OS3sV20Kt0uXRR9XFEj7Tcmx/PecEc=; b=szN0lLGRc63OZuiw8gCJizz6xV
-	dKA3VexHAcroSjfdaWriMFaVIcrpNBo7zw624gOl/4e8y53jN8SlZBQMSYsvHxKRB+tBt0ck/D/kW
-	Ofq0wNSI8BH6BF1RPYtd2xvq/48x9xTFrb4q8cyTLN7GiJZLE8fbK0VzlbVS9FME5qHGf3Rlc2PRX
-	NzVp7/VZKKJyAXlKnUAoXMPlzfxOjUHDIt5JKYsTTPJ/ynziuMl/GPc3bYSpaeQtow74Du/eGaINg
-	5p0W8rxpY390LtMJawQvexpLjI+Yovgx1nEw4mLR9Vilk0kcsSMkiOKCJ21Tgw9U51KkKHnPavlgl
-	6GCYIr3w==;
+	bh=ar68uvTix/lfsdToR0EYdxD0l7SmB05UiJBlAsCxGTQ=; b=N5tHr77n+YdeRxAehdXE+XT4XK
+	JCOGkupuufdLp6aTDvof+dimyHbc+Oe6SjTJsHGHugDLAUK6l7s7JMSK85XFQQ230RnPWal/LTCtW
+	QYjyC3f1b/0bYyWxBLB5+sFPwfYZ4JExgki5cxdLR+ECqSPyyt0ySnuA5GypIhjtk8pdmVFlLjkA7
+	+LNfHJsdzFrk8KCaTse6U8B15XGxoDHzsg9SekW04B4g7OLdUF+EZl6MHzh3NPsI+VZXYEhnThBnH
+	2VX5bbxDJ1x3opU42B3q6bAOLoOc82Q8APBlJRHGNhfMDSYR0rXYbq2Uok0BE6AO+HWG1FX68qFqR
+	R4HQCo/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA73e-0000000CufH-0v2f;
-	Wed, 30 Apr 2025 13:01:02 +0000
+	id 1uA75Y-0000000CvA1-40Jf;
+	Wed, 30 Apr 2025 13:03:00 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA6yc-0000000Ctet-092A
+	id 1uA70i-0000000Cu7m-0klb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 12:55:51 +0000
+	Wed, 30 Apr 2025 12:58:01 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A10FB106F;
-	Wed, 30 Apr 2025 05:55:39 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 001CC106F;
+	Wed, 30 Apr 2025 05:57:52 -0700 (PDT)
 Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 599C23F5A1;
-	Wed, 30 Apr 2025 05:55:46 -0700 (PDT)
-Date: Wed, 30 Apr 2025 13:55:41 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ADBDD3F5A1;
+	Wed, 30 Apr 2025 05:57:58 -0700 (PDT)
+Date: Wed, 30 Apr 2025 13:57:56 +0100
 From: Leo Yan <leo.yan@arm.com>
-To: Mao Jinlong <quic_jinlmao@quicinc.com>
+To: Yabin Cui <yabinc@google.com>
 Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Mike Leach <mike.leach@linaro.org>,
 	James Clark <james.clark@linaro.org>,
+	Jie Gan <quic_jiegan@quicinc.com>,
 	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
 	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH] coresight: Disable MMIO logging for coresight stm driver
-Message-ID: <20250430125541.GJ551819@e132581.arm.com>
-References: <20250430110347.2091013-1-quic_jinlmao@quicinc.com>
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 2/2] coresight: core: Disable helpers for devices that
+ fail to enable
+Message-ID: <20250430125756.GK551819@e132581.arm.com>
+References: <20250429231301.1952246-1-yabinc@google.com>
+ <20250429231301.1952246-3-yabinc@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250430110347.2091013-1-quic_jinlmao@quicinc.com>
+In-Reply-To: <20250429231301.1952246-3-yabinc@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_055550_116918_2D3ECC40 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20250430_055800_259979_812E94D3 
+X-CRM114-Status: GOOD (  19.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,57 +69,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 30, 2025 at 04:03:47AM -0700, Mao Jinlong wrote:
-> When read/write registers with readl_relaxed and writel_relaxed,
-> log_read_mmio and log_write_mmio will be called. If mmio trace
-> is enabled to STM, STM driver will write the register to send the
-> trace and writel_relaxed will be called again. The circular call
-> like callstack below will happen. Disable mmio logging for stm
-> driver to avoid this issue.
+On Tue, Apr 29, 2025 at 04:13:00PM -0700, Yabin Cui wrote:
+> When enabling a SINK or LINK type coresight device fails, the
+> associated helpers should be disabled.
 > 
-> [] stm_source_write[stm_core]+0xc4
-> [] stm_ftrace_write[stm_ftrace]+0x40
-> [] trace_event_buffer_commit+0x238
-> [] trace_event_raw_event_rwmmio_rw_template+0x8c
-> [] log_post_write_mmio+0xb4
-> [] writel_relaxed[coresight_stm]+0x80
-> [] stm_generic_packet[coresight_stm]+0x1a8
-> [] stm_data_write[stm_core]+0x78
-> [] ost_write[stm_p_ost]+0xc8
-> [] stm_source_write[stm_core]+0x7c
-> [] stm_ftrace_write[stm_ftrace]+0x40
-> [] trace_event_buffer_commit+0x238
-> [] trace_event_raw_event_rwmmio_read+0x84
-> [] log_read_mmio+0xac
-> [] readl_relaxed[coresight_tmc]+0x50
-> 
-> Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
-
-LGTM:
+> Signed-off-by: Yabin Cui <yabinc@google.com>
+> Suggested-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Reviewed-by: James Clark <james.clark@linaro.org>
+> Reviewed-by: Mike Leach <mike.leach@linaro.org>
 
 Reviewed-by: Leo Yan <leo.yan@arm.com>
 
 > ---
->  drivers/hwtracing/coresight/Makefile | 2 ++
->  1 file changed, 2 insertions(+)
+>  drivers/hwtracing/coresight/coresight-core.c | 15 ++++++++++-----
+>  1 file changed, 10 insertions(+), 5 deletions(-)
 > 
-> diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
-> index 4ba478211b31..f3158266f75e 100644
-> --- a/drivers/hwtracing/coresight/Makefile
-> +++ b/drivers/hwtracing/coresight/Makefile
-> @@ -22,6 +22,8 @@ condflags := \
->  	$(call cc-option, -Wstringop-truncation)
->  subdir-ccflags-y += $(condflags)
+> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+> index dabec7073aed..d3523f0262af 100644
+> --- a/drivers/hwtracing/coresight/coresight-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-core.c
+> @@ -465,7 +465,7 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+>  		/* Enable all helpers adjacent to the path first */
+>  		ret = coresight_enable_helpers(csdev, mode, path);
+>  		if (ret)
+> -			goto err;
+> +			goto err_disable_path;
+>  		/*
+>  		 * ETF devices are tricky... They can be a link or a sink,
+>  		 * depending on how they are configured.  If an ETF has been
+> @@ -486,8 +486,10 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+>  			 * that need disabling. Disabling the path here
+>  			 * would mean we could disrupt an existing session.
+>  			 */
+> -			if (ret)
+> +			if (ret) {
+> +				coresight_disable_helpers(csdev, path);
+>  				goto out;
+> +			}
+>  			break;
+>  		case CORESIGHT_DEV_TYPE_SOURCE:
+>  			/* sources are enabled from either sysFS or Perf */
+> @@ -497,16 +499,19 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+>  			child = list_next_entry(nd, link)->csdev;
+>  			ret = coresight_enable_link(csdev, parent, child, source);
+>  			if (ret)
+> -				goto err;
+> +				goto err_disable_helpers;
+>  			break;
+>  		default:
+> -			goto err;
+> +			ret = -EINVAL;
+> +			goto err_disable_helpers;
+>  		}
+>  	}
 >  
-> +CFLAGS_coresight-stm.o := -D__DISABLE_TRACE_MMIO__
-> +
->  obj-$(CONFIG_CORESIGHT) += coresight.o
->  coresight-y := coresight-core.o  coresight-etm-perf.o coresight-platform.o \
->  		coresight-sysfs.o coresight-syscfg.o coresight-config.o \
+>  out:
+>  	return ret;
+> -err:
+> +err_disable_helpers:
+> +	coresight_disable_helpers(csdev, path);
+> +err_disable_path:
+>  	coresight_disable_path_from(path, nd);
+>  	goto out;
+>  }
 > -- 
-> 2.25.1
+> 2.49.0.967.g6a0df3ecc3-goog
 > 
-> _______________________________________________
-> CoreSight mailing list -- coresight@lists.linaro.org
-> To unsubscribe send an email to coresight-leave@lists.linaro.org
 
