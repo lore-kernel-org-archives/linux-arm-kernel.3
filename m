@@ -4,158 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66382C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 05:52:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52B48C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 05:54:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NxYvAGv/5J5LDGAfs0pAOf0IvJfk6ntNN5UN6kj+ZW8=; b=VNoHtGeL9Vm+lwmRyiNhoye8xy
-	fzlCv9B9ODkIszu36srG+CvxVM/dztPQFBkrB+uQL6Bxhkq7hqGg8bMHLUEs2NmDRbB3pAyr3qDVu
-	teEYSP6L08xDoHepv5BdWiPB/1Kn90iukQyIkuBEUDYQ2GV0buK3uoMlJTVPh24E9ulJKzZh/fZgA
-	7WS1hyFEMcrYIyC6+8yEaHpJ9yjdBWgOwF+kJZsQxmktBexjG87ZWBPhCcUBgkRtTCOYMnHpmI4mi
-	UxgfK7tz7fdnTJQ26pU5UZ8kB7UHhfm2QawLsDY89i82GQj+3YgwCQB6oLO1smJR0n+8l6gDPT7S4
-	tE9ZuaVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7I5yDc+vjNEcqE9R+YmZ5CGoORcg69x/77QunGRnchU=; b=aN+RfdmDvQzn0iDkR8KMpmnwM4
+	sqpBP5blUwixNq64m2SfSHtC5CBaDBnGPXU5MXOvXus1bPN0GbDuqHmiAMzXLYhsJhAVcyNyo1248
+	kGx2iIptif1m2MVjJ8eOlkHw0XgwEHygJj7cx56ZuXdTOpzrP8lQKb5ekU/a+GKHczj1hgoOmGkk3
+	idKrBdTw+L8JoMCOQynYpQQH/LvBE8ufFZKSyIiSpSnClVErR/6Kcpw77amdLrFYzN95ugZ1R8sYS
+	R7Q6hAuZaNP0BMnHZxip9FwNlXz3hCC0I+RoFTrih8YBppL61PC2De5tS4wzsnuPwMANP5f5DD/xg
+	rdSxLakg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA0MV-0000000Bnao-0iQH;
-	Wed, 30 Apr 2025 05:52:03 +0000
-Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
+	id 1uA0ON-0000000BnnQ-3VIa;
+	Wed, 30 Apr 2025 05:53:59 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA0B6-0000000BmPe-0E42
+	id 1uA0DA-0000000BmeX-3oUZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 05:40:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=S83i1H9AZLvxlJ8+vtO61hqkJbueg35aU8EvmhPuuB01+N14q+dg/c/fS1+nD0oU/BlWWXLHjKa0S+mr2WkL9uV17ExbqEqEVWm/uHQM+0Jx8IkZrZYKdZlTYs28WYJgqA9qjcMWeSiZQHmA5I+r8YVJxUa5f26j9y/ffH7zj2vsc/pU3LDqSxkM0P18zh3aYwGeBqefu9Jt331AViQDg25gj8rFxflayO74Q5HYWOSTFwyGVh1eracb9LHexObUSXpOg2O+z6ZON3dS1wBHkwofG2qb3EQLRjPWdzBk4vA30/SKKS11LYD7aNw2/XuGTYTLMv4IlSQCHKMAh/qgvQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NxYvAGv/5J5LDGAfs0pAOf0IvJfk6ntNN5UN6kj+ZW8=;
- b=aTowmfLlCJA3LHBXQWe0n+1Smog0vecHBoimTDESs9ZhmCOpOIRnYsfMYa4E1GrdttsQ626U1ejNOhJbHlSLH1Wc1Hp/K4LGPjGSh29l16e6xjFmTjhqwG1KkbA42zctwTAOZIyglI679rkt/bwIIqSuyTh56AMSp9LO0wFa0zrkj2mmb71t1hbhG81Pml8Oi1Ily1XhlOqraM4zzx48ZpOHwt+eWXnWxuSo3RiNsRHeH67tOFzlbrmakoluyGBUaLHGUvDUsfy908y6SK63u+C6J26UOvCY0XVyMVuEDC+4LSzJvwvd6BqZu4zwX6EpO1Q38R/+klNHlsqJL8Hjag==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NxYvAGv/5J5LDGAfs0pAOf0IvJfk6ntNN5UN6kj+ZW8=;
- b=xI5AgwFku2bCzk7fm1mGNd9prduEIq+U28Uard+AQeARNYb09Hl095Kmx/JrfVs+MZcAZkfWWKbOMpxkPkOVripJhcwmZhF+i4MJQfQeaIQnhWPEXDfenfjcHTVGnUjN+kYjj2QZvTQIF+dP0slthO7xjtci45P2/rb4jjAR8XMJVRKILuCW2XvR8yRR1GSyiDiIXgBh4kYN0rFpQ1i3Bj9ikEjU45PqNKkorSD3lUPQWvF4FBrpDPNU8GVXRhojweg93leuevXI97JogyJo+vnYSCo9I4nnr1gP5ng1uvG3gR0O4Li90kbCOej8JUfkW+9yz50UkxXxZUg/lq4wSw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
- by AS5PR04MB9855.eurprd04.prod.outlook.com (2603:10a6:20b:652::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.31; Wed, 30 Apr
- 2025 05:40:05 +0000
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87%3]) with mapi id 15.20.8678.028; Wed, 30 Apr 2025
- 05:40:05 +0000
-From: ming.qian@oss.nxp.com
-To: mchehab@kernel.org,
-	hverkuil-cisco@xs4all.nl,
-	mirela.rabulea@oss.nxp.com
-Cc: nicolas@ndufresne.ca,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	xiahong.bao@nxp.com,
-	eagle.zhou@nxp.com,
-	linux-imx@nxp.com,
-	imx@lists.linux.dev,
-	linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] media: imx-jpeg: Account for data_offset when getting image address
-Date: Wed, 30 Apr 2025 13:39:26 +0800
-Message-ID: <20250430053928.214-1-ming.qian@oss.nxp.com>
-X-Mailer: git-send-email 2.48.1.windows.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0026.apcprd02.prod.outlook.com
- (2603:1096:4:1f4::11) To PAXPR04MB8254.eurprd04.prod.outlook.com
- (2603:10a6:102:1cd::24)
+	Wed, 30 Apr 2025 05:42:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1745991743;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=7I5yDc+vjNEcqE9R+YmZ5CGoORcg69x/77QunGRnchU=;
+	b=NWxczcFleEqLWof7rKJwd1S26k05poN15hlRTRwnQiAlhjU2uFGQcUTGu9fVcgZ6390Dyp
+	yTmB5LAlOPY93NJfp9EgEjN8WARE/Rvk7NgJOOpCr4UdOrC9V9sl3gKR5weMmQmxnU1Qmt
+	uwVCCQ1V6D3Ksa5mKeBbWkjubLFRCtA=
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com
+ [209.85.216.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-588-xubEDDLbNdeAcMo0pxygSw-1; Wed, 30 Apr 2025 01:42:20 -0400
+X-MC-Unique: xubEDDLbNdeAcMo0pxygSw-1
+X-Mimecast-MFC-AGG-ID: xubEDDLbNdeAcMo0pxygSw_1745991739
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-2ff8340d547so5755972a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 22:42:19 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745991739; x=1746596539;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=7I5yDc+vjNEcqE9R+YmZ5CGoORcg69x/77QunGRnchU=;
+        b=RsNhbObV1zD4RsVnAIoTxvEiHwn81liuRLJHpLjp5G/F88hidIPZTTpJjBiXj9fxJ6
+         C86U4PW5QagT/DgxxFoa+1ra1ElH/HBEY+buDYuiGKoZfv/x2Q+W3r+2hu6QbLbD/bpI
+         YREyn85bnMDQKcmheJ8kuHDhI7ad2c8mph+cM2UXnjMOoE3I8eNTjmmB2e9oR6I07BPp
+         oYmfxXotykxV2CHXLxPvmdiWryOTV8VBth93ljSYeIxZz2V64McmVHbdnsf3tWKzq+kP
+         CihsEj9FWLfSW5sisEVy5nCIKxiwCg9g8dLZSDYJx8weXvcUmMn4UpJrHfn2jPPlQfms
+         nGuw==
+X-Forwarded-Encrypted: i=1; AJvYcCWpFVv675xBD7Opa36oSFnuGho6+04T86XaFRXNfbb8GvCggTb7dD6lznvq59cmvIT/zQf+jdjX6/4qxCbthVOo@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx+g8su7LJUnzh5+D1nvLz9FSNJqpG90xNef7+asznm2tbIM2Td
+	kbL2BTew4oTKDASg3A8Du8v7ANu7FCOeVHrNtSblzVH+6a/Om2cjHFrCx+4olE6SNH2yCLWSKgO
+	/azU9JwB5YhE65NJPg7G7TOwC/N/la7QdoINnf8koIKlBsW2StWvg5ItyTeGxX9PjHCDfhs6j
+X-Gm-Gg: ASbGncsNTRtTwOXHQBMXGW/4vdZPkssgXoH1U2OXhdem48xj4wQHGnig5rLM0O7n5ij
+	SM4ayr9eOSmAvovoZepO0RgBGpA+lxOulAvFjNv4x8EqxonuvEWBYC5LU8HHO4GY1z+gmeeeiII
+	Q8DQxN2vmSBg1efAbRSlsBGi86/F5xeHkAHv+rnZxbjd0Kpho5pmlCPg3GdsYbC4zWcDHVBgJgs
+	UgnpknSBO+6IrB1srX6zQmZZx0avqzskFCc+IKQOq8CDhOX1ZKYEM5nO3bvgF6RlRfqlRpGPFVq
+	V/+mgfOmehWY
+X-Received: by 2002:a17:90b:3d84:b0:309:f5c6:4c5c with SMTP id 98e67ed59e1d1-30a34450c14mr2039774a91.25.1745991739016;
+        Tue, 29 Apr 2025 22:42:19 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IG/2rRziMqV7exhtrwhKlwQtmufkCV9nFsAwejZ6czk2oG8bIJh878e13vez0tndZIUCamZFg==
+X-Received: by 2002:a17:90b:3d84:b0:309:f5c6:4c5c with SMTP id 98e67ed59e1d1-30a34450c14mr2039752a91.25.1745991738750;
+        Tue, 29 Apr 2025 22:42:18 -0700 (PDT)
+Received: from [192.168.68.51] ([180.233.125.65])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-30a34a60882sm624669a91.45.2025.04.29.22.42.11
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 29 Apr 2025 22:42:18 -0700 (PDT)
+Message-ID: <a045f5a3-d637-45b0-b109-394e8ad0f409@redhat.com>
+Date: Wed, 30 Apr 2025 15:42:09 +1000
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|AS5PR04MB9855:EE_
-X-MS-Office365-Filtering-Correlation-Id: ad909514-fb5b-4af8-8d5e-08dd87a97552
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1z+Xjw5JnSGMitt3icUOB4u7Fa1JuZaUCpD9sgB/dOaP+mdpVUjUNUFGGy/3?=
- =?us-ascii?Q?DUZ/KFQZbvc0ktAgBSYEdiOv7Cw0zIaNe2fwMebHUnB5f6In/bIcXowJCNUk?=
- =?us-ascii?Q?kM7QeSms0WcPWlLWUmWlBkDosasigT7fhr3LfEY59ctM6Mgc0swtuF/32hMs?=
- =?us-ascii?Q?HBltDDUzFTvPBQ7WkHa8hOZL7xoRxD/mIU0StNFNzksMV57JrGicf4ckir5T?=
- =?us-ascii?Q?9fVZVhKFkR+IuVcAcWrlHfqIRgxI2J9o3IG0uESeCpkuh/NIfTcLlEkHLBxr?=
- =?us-ascii?Q?XwTi+l9wltOCKo+9sASWr76Hd/nkSZ8J8j6ie9CYT604nfh8wOnUwAlVQ6z8?=
- =?us-ascii?Q?HVJlJS1qxHeRs2KoZIxw3RoHbKew6u0nKtihhIkoJwVmLqoWkO0w0mqFHrEu?=
- =?us-ascii?Q?2v06WPL2VZAlkRLQ7/GGaItt2PPG4uM6NArn5d7PRyA5jyqMyT8h8RSy5yLA?=
- =?us-ascii?Q?z+JwQDMgbN4N9jCJyuklxGrCq1luNn11PavzF0OvpLx19qOd7y9pzp0ZJNFj?=
- =?us-ascii?Q?DimzMYUcnHvJSvL8I3Z4MqDeY7XnD5VSMwxQG8QaqTbdVmTtAX5ZyDCwj8l4?=
- =?us-ascii?Q?gmLkQ6hfac0M+0p2tdgzXYv2O9GyYkaMT+X+EgRNuUuDKINbXf8uP74TjsxX?=
- =?us-ascii?Q?8Uu2g80I3WIu9xnQVzFm1fVtJq1pDa2O1TsoCOchXO75O53GFfuMmTyqAQJA?=
- =?us-ascii?Q?yAWgOszDv+kpoD3ED1k4yflVUPBbiZozR33tG/gdpxQNceecyKUZr8Zj/nqP?=
- =?us-ascii?Q?MxhI6NnkH19csPMAUGd64x9KvgOUbZAVFOMxP1NQg79oCB+E9FIIs1ZCRGsD?=
- =?us-ascii?Q?oW7tYiwAOaZuBW+s2psGoFRchhPbDFz1/Pj+x1qutWNnw9SGb8XCAPUyiorn?=
- =?us-ascii?Q?3PxJSbnb2VNYJ6QaU+qNa6OUppgMrH1Cy70qcYk1AW0RgJtQzVs+oDjoS8IW?=
- =?us-ascii?Q?md96/09XWb11Fff4C+HT9VxioyRag0D6f49IePC4klZKkfPJ5/sXoTJmtjk8?=
- =?us-ascii?Q?rWd+ra1XKSZJcDcIyrT9W81ZZRtvPqYETPy2cHs9i8K52Pdk3R8m6zRza6LJ?=
- =?us-ascii?Q?dXGRe6cDI+ImO/N0rT8PlJ2pDloVtJ0OuWJ9yauYhsDOr7kI4vy8hl0LSnau?=
- =?us-ascii?Q?K0KLAG7OQTOSTKaMuIJeNA3ebTe7J9owYpwHEuCXISFJyudi5bCQOHWBMUhy?=
- =?us-ascii?Q?6QkmbNzx/S2ipcFejtUY7pW6C2bT1xMjii6ucb+x5dIPrdtKuoEd2POR0MiM?=
- =?us-ascii?Q?RD8t8D5ZCz3cGZmGZUR+sb2iJznyNIPaj042vAJgYWBB1ztanLlyglCcUebm?=
- =?us-ascii?Q?p67pk+ShpYrEvDxei9PK4Np5ok7asiv42YM592eHfHCXXQ6aiYDIiRZGZTqF?=
- =?us-ascii?Q?2MA9qzok6PDj/1wfFkWpvJbug4vVMlJL0isce3+GSA14jJBuxiH5MS30hJ9+?=
- =?us-ascii?Q?dmfzaG6PoCQzjpT1Q3HanmsuMuk8CV46yz05vXmo3eYv9U22seJYLQYqhkBz?=
- =?us-ascii?Q?dXyEKdbw9wEqb3E=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fchtjCnwhQyvj9obsi6AI5i5DQvfUwCxRh4jo31jGul9rVDEX3dKXqmgpcCI?=
- =?us-ascii?Q?NjKyraF1hc+dnl0SHj6+QVZYqyMqs5GiGLbe/gRB3cluGDXXeN9PqpixACTB?=
- =?us-ascii?Q?QCG0CD7lKxbo3NK3Jdbz9Ue3BkQ7iDBtkfOO6cfF7Vshhkvh02dW22AbLein?=
- =?us-ascii?Q?22eosha2NJF53xqCzH4X77TX49eqpDAnpVIwPBNXuMoaZb7/W8WHvcskFOv/?=
- =?us-ascii?Q?bxbjiHzvfRnrBcONzTOMVZJgM3ZURu8mHU9ePnKnewnN42lknz4lUtdGo+Es?=
- =?us-ascii?Q?jnZkDTjA5FA8tWTPEP1OCGaaW34Lf5lqve1VUGJNaMAT1PFyO89hUwAPI83F?=
- =?us-ascii?Q?26BLyFpoJefF3xDtKNLR7WjmUYqoMgcC6jd0TCealusPrJskuQdKIenoAjPH?=
- =?us-ascii?Q?QCc/TIjUUUivTl36K1L5YERIXiRkD1h4zb0sBqs7CZvwNEY5BDLUctQhTdLp?=
- =?us-ascii?Q?cSTAyDVsE82UfbC3xB4LU07e6JRNuGy3vyYXsjr//7JZ5x9VULlZ3fRIKb5j?=
- =?us-ascii?Q?HMea8kylCm39NQGktKxl+kigqDshJ7J7Pz+F7i0KSL/45YSw955u1M9yaZ9I?=
- =?us-ascii?Q?lLsopm2oRABCXt3mfq6xlR4oNYIpZX/PV7Elp8fQ3hXmZSodhVPSKUKOabQt?=
- =?us-ascii?Q?w/DZZrAJI2kZwtzG2LCoNhxp8AWl+4NjiFtMUf13lLpZIjB8OcyXH6rQ9R2x?=
- =?us-ascii?Q?1GLHmYYyWf32J58JDWkIQzICVeR417zfV+jszXbDMjp+7oRxfi+EdBTJZj6t?=
- =?us-ascii?Q?njgiSeqKjkdFw1zk0uRQd/62C3lwHEtXAVBFa3KJoZ/r/IZYb4N93Es+JFgo?=
- =?us-ascii?Q?bHZPmVWlDkpJxvwyUfRV/QCc5KTCWw0NLWsJcGR8m+6s21HR7RZJyMfKCSVG?=
- =?us-ascii?Q?LFSHuqp8Po4mB/HWXs+kv/o5WuKJk9eZb4pjpFF63hKPcVh07iXt0Ayfp4Zu?=
- =?us-ascii?Q?23JzbioiO4gn8YK7yk1VFNbGY/CyJaIUiW1thn6vQAi+sRu/qCDlnFvpjPRn?=
- =?us-ascii?Q?xrrxBx1xB4r1DpYeI/lPAu5fjv9dLCty6zMUGsES9aLkNKkO1w2xZYCAaZlo?=
- =?us-ascii?Q?n2cBxiXQSgT9nZSGk8tE/5fJ+imFBxld4S+M7aEmmpCmDL0jnqame9tB+7qn?=
- =?us-ascii?Q?InRbnvrCzJ0JxqDePgHTVVtphmIw8BPbkmbFe5tXNz0QxIH16YoehDBJ6K1o?=
- =?us-ascii?Q?xRUTQTcW3OUmYmX4frBrmI2waZoHMF73SgewDGpXxgK3TTT+mgPq7uqjIw71?=
- =?us-ascii?Q?zmL3NZtVbektDoSeN3vTv8k6q1XRYQmZB0WaA2qIs+6i1z0Ommr7M4eQr9Jk?=
- =?us-ascii?Q?tYDd/XeqkLycjbM14ZJgWAtPhjPXBCsUjx/MiTP+be4XgxlQYufYRS+gaJ1r?=
- =?us-ascii?Q?IiH7wswjBKWYJ8LlZ6ebw0WuuZ1418jr27TXZb5nRYifLevzFdt15o/0xQcM?=
- =?us-ascii?Q?wqoufi9EfV9gsc/K//kvTCCijQupf36Gq8HvJl987iTDIskFl3ti8GxiWVfQ?=
- =?us-ascii?Q?l48hFtyjPc6oT8Q/zCYSeMqx/p2LuCCdavc8dluZB6FnvvFYn66jgV9wT0QS?=
- =?us-ascii?Q?J+/OkkU3UdO0rqTU2mjXKHcqAkb2RY6vnbegym61?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ad909514-fb5b-4af8-8d5e-08dd87a97552
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2025 05:40:05.0561
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: O8YJsQ/7L8i5tuWG9AOJo9rFQ37U+uevqzXoP0WDTpoCpT+3jyi5AelH43KNXBtCJWMGggqr/aUlgO0kOvBcJg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB9855
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 08/43] kvm: arm64: Don't expose debug capabilities for
+ realm guests
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+References: <20250416134208.383984-1-steven.price@arm.com>
+ <20250416134208.383984-9-steven.price@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20250416134208.383984-9-steven.price@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: TTLuPN_h9IiSWTimHApyXCjvH7QBczMdq5aMGgtJ4fA_1745991739
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_224016_087010_E5C69C3C 
-X-CRM114-Status: GOOD (  16.30  )
+X-CRM114-CacheID: sfid-20250429_224225_028964_72DEB1F8 
+X-CRM114-Status: GOOD (  11.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,113 +121,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ming Qian <ming.qian@nxp.com>
+On 4/16/25 11:41 PM, Steven Price wrote:
+> From: Suzuki K Poulose <suzuki.poulose@arm.com>
+> 
+> RMM v1.0 provides no mechanism for the host to perform debug operations
+> on the guest. So don't expose KVM_CAP_SET_GUEST_DEBUG and report 0
+> breakpoints and 0 watch points.
+> 
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> Changes since v7:
+>   * Remove the helper functions and inline the kvm_is_realm() check with
+>     a ternary operator.
+>   * Rewrite the commit message to explain this patch.
+> ---
+>   arch/arm64/kvm/arm.c | 8 +++++---
+>   1 file changed, 5 insertions(+), 3 deletions(-)
+> 
 
-Applications may set data_offset when it refers to an output queue. So
-driver need to account for it when getting the start address of input
-image in the plane.
-
-Meanwhile data_offset is included in bytesused. So the data_offset
-should be subtracted from the payload of input image.
-
-Signed-off-by: Ming Qian <ming.qian@nxp.com>
----
- .../media/platform/nxp/imx-jpeg/mxc-jpeg.c    | 42 ++++++++++++++-----
- 1 file changed, 31 insertions(+), 11 deletions(-)
-
-diff --git a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-index 1221b309a916..035368d65913 100644
---- a/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-+++ b/drivers/media/platform/nxp/imx-jpeg/mxc-jpeg.c
-@@ -587,6 +587,27 @@ static void _bswap16(u16 *a)
- 	*a = ((*a & 0x00FF) << 8) | ((*a & 0xFF00) >> 8);
- }
- 
-+static dma_addr_t mxc_jpeg_get_plane_dma_addr(struct vb2_buffer *buf, unsigned int plane_no)
-+{
-+	if (plane_no >= buf->num_planes)
-+		return 0;
-+	return vb2_dma_contig_plane_dma_addr(buf, plane_no) + buf->planes[plane_no].data_offset;
-+}
-+
-+static void *mxc_jpeg_get_plane_vaddr(struct vb2_buffer *buf, unsigned int plane_no)
-+{
-+	if (plane_no >= buf->num_planes)
-+		return NULL;
-+	return vb2_plane_vaddr(buf, plane_no) + buf->planes[plane_no].data_offset;
-+}
-+
-+static unsigned long mxc_jpeg_get_plane_payload(struct vb2_buffer *buf, unsigned int plane_no)
-+{
-+	if (plane_no >= buf->num_planes)
-+		return 0;
-+	return vb2_get_plane_payload(buf, plane_no) - buf->planes[plane_no].data_offset;
-+}
-+
- static void print_mxc_buf(struct mxc_jpeg_dev *jpeg, struct vb2_buffer *buf,
- 			  unsigned long len)
- {
-@@ -599,11 +620,11 @@ static void print_mxc_buf(struct mxc_jpeg_dev *jpeg, struct vb2_buffer *buf,
- 		return;
- 
- 	for (plane_no = 0; plane_no < buf->num_planes; plane_no++) {
--		payload = vb2_get_plane_payload(buf, plane_no);
-+		payload = mxc_jpeg_get_plane_payload(buf, plane_no);
- 		if (len == 0)
- 			len = payload;
--		dma_addr = vb2_dma_contig_plane_dma_addr(buf, plane_no);
--		vaddr = vb2_plane_vaddr(buf, plane_no);
-+		dma_addr = mxc_jpeg_get_plane_dma_addr(buf, plane_no);
-+		vaddr = mxc_jpeg_get_plane_vaddr(buf, plane_no);
- 		v4l2_dbg(3, debug, &jpeg->v4l2_dev,
- 			 "plane %d (vaddr=%p dma_addr=%x payload=%ld):",
- 			  plane_no, vaddr, dma_addr, payload);
-@@ -701,16 +722,15 @@ static void mxc_jpeg_addrs(struct mxc_jpeg_desc *desc,
- 	struct mxc_jpeg_q_data *q_data;
- 
- 	q_data = mxc_jpeg_get_q_data(ctx, raw_buf->type);
--	desc->buf_base0 = vb2_dma_contig_plane_dma_addr(raw_buf, 0);
-+	desc->buf_base0 = mxc_jpeg_get_plane_dma_addr(raw_buf, 0);
- 	desc->buf_base1 = 0;
- 	if (img_fmt == STM_CTRL_IMAGE_FORMAT(MXC_JPEG_YUV420)) {
- 		if (raw_buf->num_planes == 2)
--			desc->buf_base1 = vb2_dma_contig_plane_dma_addr(raw_buf, 1);
-+			desc->buf_base1 = mxc_jpeg_get_plane_dma_addr(raw_buf, 1);
- 		else
- 			desc->buf_base1 = desc->buf_base0 + q_data->sizeimage[0];
- 	}
--	desc->stm_bufbase = vb2_dma_contig_plane_dma_addr(jpeg_buf, 0) +
--		offset;
-+	desc->stm_bufbase = mxc_jpeg_get_plane_dma_addr(jpeg_buf, 0) + offset;
- }
- 
- static bool mxc_jpeg_is_extended_sequential(const struct mxc_jpeg_fmt *fmt)
-@@ -967,8 +987,8 @@ static irqreturn_t mxc_jpeg_dec_irq(int irq, void *priv)
- 			vb2_set_plane_payload(&dst_buf->vb2_buf, 1, payload);
- 		}
- 		dev_dbg(dev, "Decoding finished, payload size: %ld + %ld\n",
--			vb2_get_plane_payload(&dst_buf->vb2_buf, 0),
--			vb2_get_plane_payload(&dst_buf->vb2_buf, 1));
-+			mxc_jpeg_get_plane_payload(&dst_buf->vb2_buf, 0),
-+			mxc_jpeg_get_plane_payload(&dst_buf->vb2_buf, 1));
- 	}
- 
- 	/* short preview of the results */
-@@ -1827,8 +1847,8 @@ static int mxc_jpeg_parse(struct mxc_jpeg_ctx *ctx, struct vb2_buffer *vb)
- 	struct mxc_jpeg_sof *psof = NULL;
- 	struct mxc_jpeg_sos *psos = NULL;
- 	struct mxc_jpeg_src_buf *jpeg_src_buf = vb2_to_mxc_buf(vb);
--	u8 *src_addr = (u8 *)vb2_plane_vaddr(vb, 0);
--	u32 size = vb2_get_plane_payload(vb, 0);
-+	u8 *src_addr = (u8 *)mxc_jpeg_get_plane_vaddr(vb, 0);
-+	u32 size = mxc_jpeg_get_plane_payload(vb, 0);
- 	int ret;
- 
- 	memset(&header, 0, sizeof(header));
-
-base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
-prerequisite-patch-id: 0000000000000000000000000000000000000000
--- 
-2.43.0-rc1
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 
 
