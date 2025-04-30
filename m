@@ -4,148 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27C39C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 06:11:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1E44C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 06:17:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1mQ5CNOweMNDOfHXhXWKk7JbACFuxo4pdYrB/F+fjEk=; b=1vzbuyskWqGuOYmhueC/dDOK1E
-	LJbgD8p4Qo7CcnBJkY14723dvRYP1pE18bq4OPalArZceBmLiJhF3jrazbQ36awhRvNNJeRrgIpYZ
-	JH8XiethpJ+m9SiwtgZdysCvQr/cwd9JwvH68VlWecO61VxjueQ09jYMV8GG+UBWM0bldYX5reMD7
-	K1P3rTwX7vWkFtVrzrsd4U8n+H5jD0WmDZsR44h7cmvwXXMp6PCiD4ZWUGMHo5XIPGVaqKTNSBojt
-	yjB/e4Jj7RTms5pDupu0hPMESJyyrR90Cx8sJThBq+P6I/itTmIun4bV51Xunk3/UEmYcozmQOscp
-	rNIGBzoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o4NnMZ1fKCyCV8YDxQpz5AEvrBaezT3z9X9jj4mmo54=; b=fvEysvarqa51t0akQuJYbF9CA9
+	TkLXzXdPqkyKJnU3LKyKffn5jTH0oNj4+zayNNkLngLUEan0aO5lNrfkcgXCFYHM+YnLcpeyIqte4
+	f7lUAdsS7rJyPMbGJQo/FkuCsesfZbyfzffj5U8b5AX1t6q1/qRkM3Rp7mShOAvf7OBcz+h1/3wjy
+	yXIwkKXeCgoFgd6X1lFUqDiXg0XL5r+kfvAtrvuUH9O8SILv1gd+gfTiUa+6RiPJyUHwWF8VgX2YS
+	UHkp47SHBwlMC5Jiik1I98JZMnySVZrCVAR+rOHKmei76vynmz2792Wq/KLc+TdWRazR/gHrIc7y0
+	Mmglb+bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA0fU-0000000Bpjy-0D0T;
-	Wed, 30 Apr 2025 06:11:40 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA0Vy-0000000Bohi-0LLL;
-	Wed, 30 Apr 2025 06:01:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aR6IFKPEvdXKWnw2ge7bWAqJofM0AlO+NGMGe+TDRNVbD/PWMrl0rXjLe0hbeFURyF8y4oPneeIrAydsbEWfLqGeRyvUqP223qDu5B6nmACg6CoX/PzGvS7ys/fPqb3MBamLm3CqbqaYqpBf1y7QwVL5x9VjGIt0kPOqGiwXfXKZX1QMsQGeemXrR5czOnijURYFn1bi1Vsnn+OGaySV5+K/ugzWj7rqzWr4+IidIo9xAhHgFekJDWuvwnVpYiafwbk0KQimT7YJ3H8iD5gnalj9hzLt7FlYStbzLqHQ2YGeA5hKtS+42+FTqUZtnqeHQQhpA6ezMdmqkwLnelcY5A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1mQ5CNOweMNDOfHXhXWKk7JbACFuxo4pdYrB/F+fjEk=;
- b=FoZrZxqn/yaOvbW0CNe7rBXpTC5zzhjcD15tqJo7+TgAETzTv27rG7LjYVcgCneJMStVF1UCgm4UjlHjwDfCHuuaD7/MsV17l+wMF2BRQGdq/oigC8q9oQOvn5B3AwBM3UfDDvupo2a4B31vhVwE/Noxa3CE2DCBL1M2cChF4pBFP6VOfLYdtSLiJcLOcszSmydSOh4cNlRJD7wXdxa57IjKQWTWCInxZ89OC5aG9SdA9notjaMWhrhHPtVSx6UDURoosIKkiGRnRRz5ROzRouqDpdNBE4euNHOJpuRpRjPumts2FpaF6q/Z+btbiXsl28nVcpKwWWbma5vTRIwk5w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1mQ5CNOweMNDOfHXhXWKk7JbACFuxo4pdYrB/F+fjEk=;
- b=dPbAhoOfi+yDpPD13BQoPw8cSS9nRM22k9sS0Fpc9hktRRIwTP3Ba3RjQYEHKmyi/exqMSEAD3lY3kPuSwAoOTl/VyuwVLBjXWiMtIFGyR7gh5WKKpcOyZARLB0GvPCLq9TH+upUHTQhWqlxNJJtTJgpb8Cn01QUmLNznXYP3WhjHr13bNLAK1L6Q3oHkR0LaP7r6CtIgfkH8e6JRNwo2IW1BcdBqSGe/ZXC1zfBHJF5Y2Cwx8V8yJKqUpDAv4OE1pUOroxdI++xH4VUqU6AYiXeU3OL7XvTOCCfgUdZ98gXO9E4HpqNXcVI6p4YJAmfbr9jyaAj8j0UY+Nx9X0O0A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
- by DB9PR04MB9702.eurprd04.prod.outlook.com (2603:10a6:10:301::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.19; Wed, 30 Apr
- 2025 06:01:44 +0000
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::4e24:c2c7:bd58:c5c7]) by DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::4e24:c2c7:bd58:c5c7%5]) with mapi id 15.20.8678.028; Wed, 30 Apr 2025
- 06:01:44 +0000
-Date: Wed, 30 Apr 2025 13:57:47 +0800
-From: Xu Yang <xu.yang_2@nxp.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	jun.li@nxp.com, alexander.stein@ew.tq-group.com,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 1/3] dt-bindings: phy: imx8mq-usb: improve some tuning
- properties
-Message-ID: <20250430055747.q4udrsd7z77jj3xo@hippo>
-References: <20250429033009.2388291-1-xu.yang_2@nxp.com>
- <20250429-charbroil-easing-04f579c68a2d@spud>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250429-charbroil-easing-04f579c68a2d@spud>
-X-ClientProxiedBy: SI2PR06CA0001.apcprd06.prod.outlook.com
- (2603:1096:4:186::21) To DU2PR04MB8822.eurprd04.prod.outlook.com
- (2603:10a6:10:2e1::11)
+	id 1uA0l4-0000000BqgD-08Xj;
+	Wed, 30 Apr 2025 06:17:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uA0j8-0000000BqSs-0ymq
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 30 Apr 2025 06:15:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5A1CA106F;
+	Tue, 29 Apr 2025 23:15:18 -0700 (PDT)
+Received: from [10.163.50.23] (unknown [10.163.50.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8AEF73F66E;
+	Tue, 29 Apr 2025 23:15:08 -0700 (PDT)
+Message-ID: <1c0fd43d-8de9-4bd8-af05-83a4d9c8d9e6@arm.com>
+Date: Wed, 30 Apr 2025 11:44:58 +0530
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|DB9PR04MB9702:EE_
-X-MS-Office365-Filtering-Correlation-Id: 676a9c18-17f3-4218-9cf6-08dd87ac7c2e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|52116014|7416014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?kFvpGM0ITotJnS5dYSer6KX0yKlw/SYLxtzu8XoyvE2y48rarIzF+1nLU4W2?=
- =?us-ascii?Q?n0MH37ANhg+ZAGjZL2IPlfV/qGYLTiB84FLx+Fv0AuCRCMPglwjVZCuvAwPu?=
- =?us-ascii?Q?3GihDlh0FzfBzj0CZbt4dwpCrxQwkbivsaUZzTrx1dNvjc5ZbiGmJFSgYFJ1?=
- =?us-ascii?Q?s7gJadyiEylZ/zHem2JL48NVCoWJCzd8z1lH4DlV70ejqaBH6RaFdnX2r3cx?=
- =?us-ascii?Q?jQbnlIuERUoqcbLIceMll0PnU8lFMHFZcpRlTPo/K41L2tVCRgsmj2u5SfKH?=
- =?us-ascii?Q?hq9KjYIEcMyOMKQ95gMT0dM7w/LYA5PrrGvoJDgV0zlgXuEfifeBRZBgCy3h?=
- =?us-ascii?Q?hsNRb1MMdcvIGhv4s8a29t67fGt2gTq8z1ADlU6/OzCBbovLP3v/FEbU3hnh?=
- =?us-ascii?Q?aA6HYUQgwKiARwNc+cSR//L1w+Czq1n+brCNyfvIokffqXMGfudtaiv806MJ?=
- =?us-ascii?Q?Co8jQWbIMHHXHWBs2nh4fpS+xq6rgh01VD+vKlZNkumCCDaPiOwk/NrDOQSe?=
- =?us-ascii?Q?XFMe8FspsUesd3GzhM1Zggmime04gxumobm/oly2L6/fUEjhQmhReq7i8Gxl?=
- =?us-ascii?Q?Gip5JwGddyrlQ5hKqDPWKyDl0hw1mjH7Hf3rckyp+ntj1E5QxwxmAljLVvDn?=
- =?us-ascii?Q?4K7oYyK+cJqa7lujWgyG77l6yvyKg5C0bToYKTBVyDWsvmgguW7uMM5I/pDH?=
- =?us-ascii?Q?DcHwESXvbpH5kleOjypFeVevufQEYb4vxmmumhYuzMdOGs7xDAbd9E9t9VtB?=
- =?us-ascii?Q?o92GShQWNAEGw0CTrF9s3DYjQY86jzfhGvTcCJWqVE5NenlnBxNhkN9ybKCb?=
- =?us-ascii?Q?TuawhmHKqJx8ohgQ0aMxB1Hg1x+e8IoT8inNLEMb9wHFbGUG/e26APTBhqPt?=
- =?us-ascii?Q?70VW/c4MGRpOfMcFZf6wk32iQdZxJv3uNX41shCiQXzWx6Nazj8kuEomMXOL?=
- =?us-ascii?Q?+sbXyW3AKGnYW2sSBH7eTumIG53qibm+/Dn2E/A/HgdTMgS9+IruV3nx/ABh?=
- =?us-ascii?Q?hmmxcFSIgksw1PAyb/gcMjOTrvMO0IjNNJ61VO8+bv9nwEgo5Mfbyboxwqqq?=
- =?us-ascii?Q?vhHiilLzXHMFGb5fBFdYyQSotWvL1zhthAecaE0EnREji9vcrw/2zP3PMtv1?=
- =?us-ascii?Q?mUH6BnfDfDdsY+ZBCdDit8NY6P8ENnL/+1yx3FNueA1k2I0pyN/mNyDtJw2r?=
- =?us-ascii?Q?FQDkOac/29qCShUE3JK45HP8QfxIOkDIF8rF3KPqeSg4hpPWGIrU+Q27gFYw?=
- =?us-ascii?Q?U8wKuvyN2j13bLmYB24piF19Vad5xRRuJli6T9pW/jkpLV/zNoMozmibDIdf?=
- =?us-ascii?Q?w9ekvR5UL3zaN7z/2MkagkzZMhBkcoF2Zfs0GIVeeAbomwpgyYuS9fanciBb?=
- =?us-ascii?Q?PqGvn9Iy2ERDsytc8RVCzqvLBcrXUkBHbEisulz4kgAl2elvOCGsgtvVthGs?=
- =?us-ascii?Q?0w84nU6OvN06SdmzfHZYNzchy56WqBnzMcv25f1J/gEm4TF/3y0BGQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(52116014)(7416014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?G0Vtysq5Rfy5Fpi4ZO8pSEUna5yhExMgGIVRMqn8SFvowNQlUcaVuOIYTPZn?=
- =?us-ascii?Q?MUKko7XdJPGKlX6F0NrnAalkoYFG0OCdbIuS0fqHhzf3o55NHj1JNExcVb0E?=
- =?us-ascii?Q?RFoUyXYDEj4dfaPKNWiO7eP/fieutg4XmjdCZw7aTrBkh3XYV1PUPp1gH5U2?=
- =?us-ascii?Q?HHv7AAki4yZH0yI+udv5W5NuuhS98pIOr01n+tZU5WHYg9S0ZA/2oeBuaPcp?=
- =?us-ascii?Q?lCygRBJmTqg0BLHwex1x75fr7En81HEDe3TBK2TtX5zun5zeh0edIs+H9pbT?=
- =?us-ascii?Q?enC4Pna7ww9PkG4bJ2yDG2Vl8ksw1A/Ecn0S1z6sS9QsLjbPn/UC/c+V2B1M?=
- =?us-ascii?Q?+0X3/INEkdzAXVhxv69qh3OFFlDQg2NU0Gq/4w441hR3ouDU29kzXXNV9XIV?=
- =?us-ascii?Q?vviE7cpm7pIRp1Oj7UXqPvkMnHUuGvWrSQPWl02y/PXt5YuHCP/eNkqZGNTd?=
- =?us-ascii?Q?syfj3sda+riooFLT8NLP9i1WMNRD98B8zW+pH332QToxyu/JWbEMCeyKvWVF?=
- =?us-ascii?Q?k92MOeLXVNFicDrBMI2nKU5wg5/FeOTr4v0RZXVvVE8laYG3kaHDba57IoW0?=
- =?us-ascii?Q?Q7gHpUD1YWvMrHGotXYMYEY0pLFQ/fnBUlgTqVzHnjVMbgwXKLN5U2eYhNdY?=
- =?us-ascii?Q?EwlMu5eK+U56UzRA2lVaKVgn0LZ5CZeVXDF36VmiND62OBLgkuLDRmZnWL8D?=
- =?us-ascii?Q?wkEokeWXTlaHHshnQk/Rbp1T2q20tCpVABRiECf6ahtssz1UnE4d65j9XVRD?=
- =?us-ascii?Q?jFgONnbJEkgjBUXt5bVrXqQh4gnazbWA9IQ2ftPpavGbc0KDLbR30MrNynfA?=
- =?us-ascii?Q?zM4NQzqbP3fFMvqCu8W1QZhdVtib3ZOQbkBpjz4XbMclWjJdAwU23+dSICEG?=
- =?us-ascii?Q?FtALb05Sj9kI8oDCmNPzIoTLHACu2Y5lAIK+HwYoQo4Fnj0yIJoRrr98P1vB?=
- =?us-ascii?Q?Grds/89Nsh26ou874B5tDmDkx1/QMVhBFqC2wT3RHdz3ecZWl4ArOvoIFscb?=
- =?us-ascii?Q?b7OBgBsH1/wC8Es+us6qTj4MTYdo1t8LJAt6+mXWmhMquX/KmlCvSga4bXJk?=
- =?us-ascii?Q?CJMWTXTgSbggGIeeL8bsuoVpjJXElRv9MDhLMWMKfOaZp03AZNcVPvdmDzg1?=
- =?us-ascii?Q?MWjObjzDlL6j318bFdoFQPNylvmWEY/MD2Mu21rNl2lfv3TKRtchKdcgOzWW?=
- =?us-ascii?Q?GMs1sK1XbgNB3VfHjQSJLJd+kpBZUac7htb2H817KrN7cea82jLoJnth/iXt?=
- =?us-ascii?Q?tIEYcthP+7fOi1NhgV5hzQghlkbErEocDUFl1ZkT+nsvPGrxGbkAFPXLNzcj?=
- =?us-ascii?Q?ZslN9Fi+dfjp2b8G+gpj7LmjmOwxv6TigsuX7D8V0sGwzZpOc9LDiQfcU0qj?=
- =?us-ascii?Q?5PZvg2UN+lIGTIbEBkYGNtJx35J7PZ4keXxgbzC1nvWeHfvn97S/Ds6tPTzI?=
- =?us-ascii?Q?6eHGC3KaqSzb2SIF24SE6b9uVDtVoi9ZfvNl4dw+wp1vCbqLclODRLqcoK6x?=
- =?us-ascii?Q?A4gn6jFEyNjzJPmn4llkkCA2+kbtc0VaHNfsCzbV/t7d47us2J0zFHe2dyzy?=
- =?us-ascii?Q?4pezjHKiwgMtdpSqBLa1VHYoI0NxyhOREj7A3haO?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 676a9c18-17f3-4218-9cf6-08dd87ac7c2e
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2025 06:01:44.6229
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JWgFylyhzbUjiOApUOlUw6t/QW2YvRW5N+gpNDQe8m/FA3mejXSBTGyMxVFNWNGUrHA/SYZzOx6+td9CA46qoQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9702
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/7] arm64: Add batched version of
+ ptep_modify_prot_start
+To: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org
+Cc: ryan.roberts@arm.com, david@redhat.com, willy@infradead.org,
+ linux-mm@kvack.org, linux-kernel@vger.kernel.org, catalin.marinas@arm.com,
+ will@kernel.org, Liam.Howlett@oracle.com, lorenzo.stoakes@oracle.com,
+ vbabka@suse.cz, jannh@google.com, peterx@redhat.com, joey.gouly@arm.com,
+ ioworker0@gmail.com, baohua@kernel.org, kevin.brodsky@arm.com,
+ quic_zhenhuah@quicinc.com, christophe.leroy@csgroup.eu,
+ yangyicong@hisilicon.com, linux-arm-kernel@lists.infradead.org,
+ namit@vmware.com, hughd@google.com, yang@os.amperecomputing.com,
+ ziy@nvidia.com
+References: <20250429052336.18912-1-dev.jain@arm.com>
+ <20250429052336.18912-5-dev.jain@arm.com>
+ <e2c10562-2504-434f-9239-32d67955a9af@arm.com>
+ <5eebef24-6c98-4407-a4f1-5a97f08b76a4@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <5eebef24-6c98-4407-a4f1-5a97f08b76a4@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_230150_181913_1B3D11EE 
-X-CRM114-Status: GOOD (  29.70  )
+X-CRM114-CacheID: sfid-20250429_231526_361633_D3EB2AE3 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,153 +75,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 29, 2025 at 04:10:13PM +0100, Conor Dooley wrote:
-> On Tue, Apr 29, 2025 at 11:30:07AM +0800, Xu Yang wrote:
-> > Commit b2e75563dc39 ("dt-bindings: phy: imx8mq-usb: add phy tuning
-> > properties") add many tuning properties, but some parameter value doesn't
-> > match the register description. It made some changes based on the original
-> > value: add offset to a negative number so turn it to a non-negative number.
-> > However, it's not easy to find an exact tuning value from register field
-> > with such conversion.
-> > 
-> > Because device-tree supports negative parameter number, this will improve
-> > some propertie's parameter.
-> > 
-> > Mainly include below properties:
-> >  - fsl,phy-tx-vref-tune-percent
-> >  - fsl,phy-tx-rise-tune-percent
-> >  - fsl,phy-comp-dis-tune-percent
-> > 
-> > The parameter value of above 3 properties are USB PHY specific. i.MX8MP
-> > and i.MX95 USB PHY has different meanings. So this add restrictions for
-> > them.
+
+
+On 4/30/25 11:19, Dev Jain wrote:
 > 
-> It's hard for me to understand from this if you're actually changing the
-> meaning of the property. Will the current/old values continue to
-> function as they have been?
-
-Unfortunately no. I am going to rework it according to KK's comments.
-Sorry to bother you.
-
-Thanks,
-Xu Yang
-
 > 
-> > 
-> >  - fsl,phy-tx-vboost-level-microvolt
-> > 
-> > For this property, the parameter value is wrong in register description.
-> > This will correct it according to true value.
-> > 
-> > For detailed info, please refer to i.MX8MP and i.MX95 latest reference
-> > manual.
-> > 
-> > Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
-> > 
-> > ---
-> > Changes in v2:
-> >  - keep widest constraints
-> >  - use multipleOf for some properties
-> > ---
-> >  .../bindings/phy/fsl,imx8mq-usb-phy.yaml      | 60 +++++++++++++++----
-> >  1 file changed, 49 insertions(+), 11 deletions(-)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml b/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
-> > index daee0c0fc915..71e5940ef4b8 100644
-> > --- a/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
-> > +++ b/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
-> > @@ -42,16 +42,17 @@ properties:
-> >  
-> >    fsl,phy-tx-vref-tune-percent:
-> >      description:
-> > -      Tunes the HS DC level relative to the nominal level
-> > -    minimum: 94
-> > -    maximum: 124
-> > +      Tunes the HS DC level relative to the nominal level. It varies
-> > +      between different PHY versions
-> > +    minimum: -1000
-> > +    maximum: 875
-> >  
-> >    fsl,phy-tx-rise-tune-percent:
-> >      description:
-> >        Adjusts the rise/fall time duration of the HS waveform relative to
-> > -      its nominal value
-> > -    minimum: 97
-> > -    maximum: 103
-> > +      its nominal value. It varies between different PHY versions
-> > +    minimum: -10
-> > +    maximum: 20
-> >  
-> >    fsl,phy-tx-preemp-amp-tune-microamp:
-> >      description:
-> > @@ -63,15 +64,14 @@ properties:
-> >    fsl,phy-tx-vboost-level-microvolt:
-> >      description:
-> >        Adjust the boosted transmit launch pk-pk differential amplitude
-> > -    minimum: 880
-> > -    maximum: 1120
-> > +    enum: [844, 1008, 1156]
-> >  
-> >    fsl,phy-comp-dis-tune-percent:
-> >      description:
-> >        Adjust the voltage level used to detect a disconnect event at the host
-> > -      relative to the nominal value
-> > -    minimum: 91
-> > -    maximum: 115
-> > +      relative to the nominal value. It varies between different PHY versions
-> > +    minimum: -60
-> > +    maximum: 45
-> >  
-> >    fsl,phy-pcs-tx-deemph-3p5db-attenuation-db:
-> >      description:
-> > @@ -112,6 +112,44 @@ allOf:
-> >          reg:
-> >            maxItems: 1
-> >  
-> > +  - if:
-> > +      properties:
-> > +        compatible:
-> > +          enum:
-> > +            - fsl,imx8mq-usb-phy
-> > +            - fsl,imx8mp-usb-phy
-> > +    then:
-> > +      properties:
-> > +        fsl,phy-tx-vref-tune-percent:
-> > +          minimum: -6
-> > +          maximum: 24
-> > +          multipleOf: 2
-> > +        fsl,phy-tx-rise-tune-percent:
-> > +          enum: [-3, -1, 0, 3]
-> > +        fsl,phy-comp-dis-tune-percent:
-> > +          enum: [-9, -6, -3, 0, 4, 7, 11, 15]
-> > +
-> > +  - if:
-> > +      properties:
-> > +        compatible:
-> > +          contains:
-> > +            enum:
-> > +              - fsl,imx95-usb-phy
-> > +    then:
-> > +      properties:
-> > +        fsl,phy-tx-vref-tune-percent:
-> > +          description: 100x the original
-> > +          minimum: -1000
-> > +          maximum: 875
-> > +          multipleOf: 125
-> > +        fsl,phy-tx-rise-tune-percent:
-> > +          enum: [-10, 0, 15, 20]
-> > +        fsl,phy-comp-dis-tune-percent:
-> > +          description: 10x the original
-> > +          minimum: -60
-> > +          maximum: 45
-> > +          multipleOf: 15
-> > +
-> >    - if:
-> >        required:
-> >          - orientation-switch
-> > -- 
-> > 2.34.1
-> > 
+> On 30/04/25 11:13 am, Anshuman Khandual wrote:
+>> On 4/29/25 10:53, Dev Jain wrote:
+>>> Override the generic definition to use get_and_clear_full_ptes(), so that
+>>> we do a TLBI possibly only on the "contpte-edges" of the large PTE block,
+>>> instead of doing it for every contpte block, which happens for ptep_get_and_clear().
+>>
+>> Could you please explain what does "contpte-edges" really signify in the
+>> context of large PTE blocks ? Also how TLBI operation only on these edges
+>> will never run into the risk of missing TLB invalidation of some other
+>> mapped areas ?
+> 
+> We are doing a TLBI over the whole range already, in the mprotect code:
+> see tlb_flush_pte_range. What the arm64 internal API does, irrespective of the caller, is to do a TLBI for every contpte block in case of unfolding. We don't need that for the intermediate blocks because the caller does that. We do need a TLBI for the start and end contpte block,
+> because in case the range we are invalidating partially covers them, then the caller will not do a TLBI for the non-overlapped PTEs of the block.
 
+But is not splitting the TLBI flush responsibility between the callers
+(intermediate blocks) and the platform API (contpte-edges) - some what
+problematic from a semantics perspective, and will be more susceptible
+for missing TLB flushes etc ?
 
+> I'll explain some more in the changelog next version.
+> 
+>>
+>>>
+>>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+>>> ---
+>>>   arch/arm64/include/asm/pgtable.h |  5 +++++
+>>>   arch/arm64/mm/mmu.c              | 12 +++++++++---
+>>>   include/linux/pgtable.h          |  4 ++++
+>>>   mm/pgtable-generic.c             | 16 +++++++++++-----
+>>>   4 files changed, 29 insertions(+), 8 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+>>> index 2a77f11b78d5..8872ea5f0642 100644
+>>> --- a/arch/arm64/include/asm/pgtable.h
+>>> +++ b/arch/arm64/include/asm/pgtable.h
+>>> @@ -1553,6 +1553,11 @@ extern void ptep_modify_prot_commit(struct vm_area_struct *vma,
+>>>                       unsigned long addr, pte_t *ptep,
+>>>                       pte_t old_pte, pte_t new_pte);
+>>>   +#define modify_prot_start_ptes modify_prot_start_ptes
+>>> +extern pte_t modify_prot_start_ptes(struct vm_area_struct *vma,
+>>> +                    unsigned long addr, pte_t *ptep,
+>>> +                    unsigned int nr);
+>>> +
+>>>   #ifdef CONFIG_ARM64_CONTPTE
+>>>     /*
+>>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+>>> index 8fcf59ba39db..fe60be8774f4 100644
+>>> --- a/arch/arm64/mm/mmu.c
+>>> +++ b/arch/arm64/mm/mmu.c
+>>> @@ -1523,7 +1523,8 @@ static int __init prevent_bootmem_remove_init(void)
+>>>   early_initcall(prevent_bootmem_remove_init);
+>>>   #endif
+>>>   -pte_t ptep_modify_prot_start(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep)
+>>> +pte_t modify_prot_start_ptes(struct vm_area_struct *vma, unsigned long addr,
+>>> +                 pte_t *ptep, unsigned int nr)
+>>>   {
+>>>       if (alternative_has_cap_unlikely(ARM64_WORKAROUND_2645198)) {
+>>>           /*
+>>> @@ -1532,9 +1533,14 @@ pte_t ptep_modify_prot_start(struct vm_area_struct *vma, unsigned long addr, pte
+>>>            * in cases where cpu is affected with errata #2645198.
+>>>            */
+>>>           if (pte_user_exec(ptep_get(ptep)))
+>>> -            return ptep_clear_flush(vma, addr, ptep);
+>>> +            return clear_flush_ptes(vma, addr, ptep, nr);
+>>>       }
+>>> -    return ptep_get_and_clear(vma->vm_mm, addr, ptep);
+>>> +    return get_and_clear_full_ptes(vma->vm_mm, addr, ptep, nr, 0);
+>>> +}
+>>> +
+>>> +pte_t ptep_modify_prot_start(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep)
+>>> +{
+>>> +    return modify_prot_start_ptes(vma, addr, ptep, 1);
+>>>   }
+>>>     void ptep_modify_prot_commit(struct vm_area_struct *vma, unsigned long addr, pte_t *ptep,
+>>> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+>>> index ed287289335f..10cdb87ccecf 100644
+>>> --- a/include/linux/pgtable.h
+>>> +++ b/include/linux/pgtable.h
+>>> @@ -828,6 +828,10 @@ extern pte_t ptep_clear_flush(struct vm_area_struct *vma,
+>>>                     pte_t *ptep);
+>>>   #endif
+>>>   +extern pte_t clear_flush_ptes(struct vm_area_struct *vma,
+>>> +                  unsigned long address,
+>>> +                  pte_t *ptep, unsigned int nr);
+>>> +
+>>>   #ifndef __HAVE_ARCH_PMDP_HUGE_CLEAR_FLUSH
+>>>   extern pmd_t pmdp_huge_clear_flush(struct vm_area_struct *vma,
+>>>                     unsigned long address,
+>>> diff --git a/mm/pgtable-generic.c b/mm/pgtable-generic.c
+>>> index 5a882f2b10f9..e238f88c3cac 100644
+>>> --- a/mm/pgtable-generic.c
+>>> +++ b/mm/pgtable-generic.c
+>>> @@ -90,17 +90,23 @@ int ptep_clear_flush_young(struct vm_area_struct *vma,
+>>>   }
+>>>   #endif
+>>>   -#ifndef __HAVE_ARCH_PTEP_CLEAR_FLUSH
+>>> -pte_t ptep_clear_flush(struct vm_area_struct *vma, unsigned long address,
+>>> -               pte_t *ptep)
+>>> +pte_t clear_flush_ptes(struct vm_area_struct *vma, unsigned long address,
+>>> +               pte_t *ptep, unsigned int nr)
+>>>   {
+>>>       struct mm_struct *mm = (vma)->vm_mm;
+>>>       pte_t pte;
+>>> -    pte = ptep_get_and_clear(mm, address, ptep);
+>>> +    pte = get_and_clear_full_ptes(mm, address, ptep, nr, 0);
+>>>       if (pte_accessible(mm, pte))
+>>> -        flush_tlb_page(vma, address);
+>>> +        flush_tlb_range(vma, address, address + nr * PAGE_SIZE);
+>>>       return pte;
+>>>   }
+>>> +
+>>> +#ifndef __HAVE_ARCH_PTEP_CLEAR_FLUSH
+>>> +pte_t ptep_clear_flush(struct vm_area_struct *vma, unsigned long address,
+>>> +               pte_t *ptep)
+>>> +{
+>>> +    return clear_flush_ptes(vma, address, ptep, 1);
+>>> +}
+>>>   #endif
+>>>     #ifdef CONFIG_TRANSPARENT_HUGEPAGE
+> 
 
