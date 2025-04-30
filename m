@@ -4,106 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BCADC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 04:18:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2192C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 04:24:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gKdKlIhY6/W1FIhEQGzmhk4YCJUHej8Qbon8wISTw40=; b=1cz0C56eSF3H4nTNObWSOpiauZ
-	/1rnC7gKvEi31q6FF3eMxoRz5lh1aybcJFNIxotJxEIBy/z3Ywmrtt2rKnbEYARUlTbI4e6yIyoKK
-	sKO5V+z3FbaJTDisaivqbR+JT7miEA5bE2DXvTlzysGazK1Lr89vu5K1ARbvLYlKBueFwPHI8tc0c
-	0stK5syXubf4tFmn2l4cwinAHQBqoy/pe45p/ACYrmMCf0T99wj7ZK/atqwieOaVCPzLm67HIL0V3
-	QNvQBWul9sSTyPRt5u94GB3Gi833injgI2937JNBvRNEq/r5FGcel46IVTLRgyu70o2swkErsftyE
-	Y7357lLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O5tJxQ+evYjVMmpPmqBdQCCwzS2gwUGZ22Y1x8Hvga0=; b=eGTIThVji5aJ/+hacrqoFtUkud
+	h5VUnG/jOOxkr1xL3aIosAoubXU/F+3DvAvgw7kN8OUGbixesYsuaqDGaPOgBSARkO0IOfo7H8oib
+	rdotEiZw8jbSsgzSjKoG8yBChHTQH4SgjhmIa4DA9DLPUxebBcwsj6ZnOLarqBX7P3lbk+8cg+RRf
+	I55aXNtTgCJBarb1rpCkOC6fcGmuP1OOccustqwz5OQlarDL4s7NDACkh9xudar0cl5cmMP7jwDAn
+	awR2FrqIvG2uqigqg3zqiJ5N3vcDpww6ZOESHEiPKuIT4p9X4t3M1JCtBm1VyWrNbWPAz+4/E1XQV
+	W1UrYk+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9ytg-0000000BeTR-0nZb;
-	Wed, 30 Apr 2025 04:18:12 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1u9yzl-0000000Bezc-0urM;
+	Wed, 30 Apr 2025 04:24:29 +0000
+Received: from mail-bn8nam12on2060f.outbound.protection.outlook.com ([2a01:111:f403:2418::60f] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9yrm-0000000BeNA-0j1G
+	id 1u9yxr-0000000BemS-0W5O
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 04:16:15 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53TLahDi001224;
-	Wed, 30 Apr 2025 04:16:06 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	gKdKlIhY6/W1FIhEQGzmhk4YCJUHej8Qbon8wISTw40=; b=GEbOdS6pbE7ZjPhw
-	tSYVh8m7fNi9mae7F/UfV9Cmn4YLvf2ivtgqdxe9Dsls9b1cf7WWBrm5nHqgimIr
-	mjVzj1ZayiAQqokdZAPlHGaQy1hHrcIC3qDOj+5OFVb9aLiIFKnbWm6yfl1oKGUM
-	0KSJHyy+SzCsXb3qmM08porcdP2xVEJwxBTdMmNG9ue/b3H+w9H8MxmhiQm3/Yvt
-	eL6yscYQYZefk9gmG+aGLotpRJReWr9DbvF95V3B3TDhyo+NdUOL63jZ3lZVd4wp
-	jigX7Kz0wOIYtPhPSLBsrYJpXWKK2wpObds0ZIkF5qb25E54H7Ykov0zAin9mJvP
-	llfNHw==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46b6u9rr4d-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 30 Apr 2025 04:16:05 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 53U4G3Ru000636
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 30 Apr 2025 04:16:03 GMT
-Received: from [10.239.29.178] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Tue, 29 Apr
- 2025 21:15:59 -0700
-Message-ID: <c4115bbc-e120-4a20-b6ad-a0d5266319d3@quicinc.com>
-Date: Wed, 30 Apr 2025 12:15:56 +0800
-MIME-Version: 1.0
+	Wed, 30 Apr 2025 04:22:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vRjF8Z8s7B0B5y6etUhhcUaUArTloGAU46xv1TE2a44Jimp2w4Hg71E0Qx1MkJAB+H+e9zN8GpmI1e1YjnN4/HaxJsqU3muhBRgyjMSRBHb313trGO5II9FlrygzIZ2JCu8ct6P6Fu6AsmLv52OGM00ufuYrEfk41bemVBLpA6akOhlgh/zmS/oVf6tea8XxSCo7UIHEalfecDgd7kgZhVsjwUbN9wyh4ovnMXWkVpCQROB/TNELX3hAtVqyZywDLUZIKaCIpaRljgw71dDRRMA9T7yzJ9h9KtgW8Yzwk273HJtyclFPt+cZEtNIEOrsy6jGfMlxxByuCwBrcPE8CA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=O5tJxQ+evYjVMmpPmqBdQCCwzS2gwUGZ22Y1x8Hvga0=;
+ b=iZ2h5YRso0mznvN7pC+cq61++BgCDcidLFJr4E8Wb+UZEuKy3uV/pyZ9qR2uVgXGvdEfBVsY+pJn4X54MpXEEwmJXbno5oW6SRKxbVKiG3y8XccaTABK5yHnwU8QAk7SN+6Za/Y8Xy7DzSUN3xC+kUd55SjK5H/GqU1OoGC/1/atkFDbWgvqCuufo+tnAZ0asNGWKWW151n18oQjVfcJ69kXC0qcmQ+cg54xtAsO6IOIYaNHmR94wM7SV6liAJByBDA2L0bgmNefJuvaMycVL+SL/Xe6F50K/65DEXgSUpzSNPd9rs+OHn34yzaH8XH51f2Usvc1HUJ8HicgM3CWUg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=O5tJxQ+evYjVMmpPmqBdQCCwzS2gwUGZ22Y1x8Hvga0=;
+ b=mW/7C5v0DompPEJMyHLJB2WRM+l9KlatO28znwOgpZhjwM8FPkReqxdcd8W/rhax0sJsdFNfy4Ew2cIGg95vxQEbyM2Ec652xdR4ikbwpa/VPXQBTtwVhmtJ26/IKxKLsxoJsLJW6Jdrm6+y2KrnJFSbh1LxhFvIo75cr6luBvc=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from DS7PR12MB6048.namprd12.prod.outlook.com (2603:10b6:8:9f::5) by
+ DM3PR12MB9390.namprd12.prod.outlook.com (2603:10b6:0:42::19) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8678.34; Wed, 30 Apr 2025 04:22:21 +0000
+Received: from DS7PR12MB6048.namprd12.prod.outlook.com
+ ([fe80::6318:26e5:357a:74a5]) by DS7PR12MB6048.namprd12.prod.outlook.com
+ ([fe80::6318:26e5:357a:74a5%5]) with mapi id 15.20.8678.028; Wed, 30 Apr 2025
+ 04:22:21 +0000
+Message-ID: <7c813df6-e37d-47ae-9b5a-b8735c865626@amd.com>
+Date: Wed, 30 Apr 2025 09:52:09 +0530
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/4] arm64: dts: qcom: x1e80100-qcp: Add qref supply
- for PCIe PHYs
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Johan Hovold
-	<johan@kernel.org>
-CC: Wenbin Yao <quic_wenbyao@quicinc.com>, <catalin.marinas@arm.com>,
-        <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <andersson@kernel.org>, <konradybcio@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <krishna.chundru@oss.qualcomm.com>,
-        <quic_vbadigan@quicinc.com>, <quic_mrana@quicinc.com>,
-        <quic_cang@quicinc.com>
-References: <20250425092955.4099677-1-quic_wenbyao@quicinc.com>
- <20250425092955.4099677-5-quic_wenbyao@quicinc.com>
- <aAtbFQIQMJO-BYe_@hovoldconsulting.com>
- <e82eda3b-b27f-4584-ad23-562ca4b22847@oss.qualcomm.com>
- <aAt54vikoREWZyGY@hovoldconsulting.com>
- <17a1a4d9-fdc5-477a-bf4e-91cae5a62479@oss.qualcomm.com>
+Subject: Re: [PATCH v2 10/22] iommufd/viommmu: Add IOMMUFD_CMD_VCMDQ_ALLOC
+ ioctl
+To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com, kevin.tian@intel.com
+Cc: corbet@lwn.net, will@kernel.org, bagasdotme@gmail.com,
+ robin.murphy@arm.com, joro@8bytes.org, thierry.reding@gmail.com,
+ vdumpa@nvidia.com, jonathanh@nvidia.com, shuah@kernel.org,
+ jsnitsel@redhat.com, nathan@kernel.org, peterz@infradead.org,
+ yi.l.liu@intel.com, mshavit@google.com, praan@google.com,
+ zhangzekun11@huawei.com, iommu@lists.linux.dev, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-tegra@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ patches@lists.linux.dev, mochs@nvidia.com, alok.a.tiwari@oracle.com,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>
+References: <cover.1745646960.git.nicolinc@nvidia.com>
+ <094992b874190ffdcf6012104b419c8649b5e4b4.1745646960.git.nicolinc@nvidia.com>
+ <b0d01609-bdda-49a3-af0c-ca828a9c4cea@amd.com>
+ <aA/exylmYJhIhEVL@Asurada-Nvidia>
+ <b8338b47-6fbf-44ac-9b99-3555997c9f36@amd.com>
+ <aBB1gLfahnLmn0N1@Asurada-Nvidia>
+ <a3860aed-5b6b-4e68-a8fd-1a6ee28ba022@amd.com>
+ <aBEI+T7P+hV8Y6tU@Asurada-Nvidia>
 Content-Language: en-US
-From: Qiang Yu <quic_qianyu@quicinc.com>
-In-Reply-To: <17a1a4d9-fdc5-477a-bf4e-91cae5a62479@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+From: Vasant Hegde <vasant.hegde@amd.com>
+In-Reply-To: <aBEI+T7P+hV8Y6tU@Asurada-Nvidia>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: dZ6RngitfF5yqOr-NcEeqcvDSriSJvWS
-X-Proofpoint-ORIG-GUID: dZ6RngitfF5yqOr-NcEeqcvDSriSJvWS
-X-Authority-Analysis: v=2.4 cv=UZZRSLSN c=1 sm=1 tr=0 ts=6811a405 cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=COk6AnOGAAAA:8 a=QfwDM738abGcK5AhbMgA:9 a=QEXdDO2ut3YA:10
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDMwMDAyNyBTYWx0ZWRfX7PU6gY+sSafB URMQZNSKS5x9HxZyd4daAzpQAI6z1/sVyHuZ348Wqe38CehIz10DwSw9xpDKU2p0xj4FecOw9ZZ DR3cKAEgfwwbtnC31RoFjTQNaSVaYxhT1ue5Yce5zTROacD0sB1/f52NBN6/Pu3cz7a0rBT6kXR
- 6jmw1CfruPlks39Y2R13keu54t0d8Du6lckK3HaS5npnxw80q5Z+4x+B4BFwvEQhUdwAc3R8xXj lH8kQrun2xJEbdLIPlOqBPB4CRzocSRXSTPz7RU2PYMtAIY8oZOmVoZgkdad9ba8xMLdFIiUacO waUyZiWzCdq7amG2vNlPpQw0hK29nxuIUEvjM1H3e4g7h7BNbhIst7MpXjnxVqs19kpastv/yrr
- qKoUUUZ8IPSlFvYNZu0WdbC9tSf3JP5CbV1/pjzZ3NE5aqDF33xOPKrEOw4qcrfdvD0hrrUo
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-04-30_01,2025-04-24_02,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1011 adultscore=0
- mlxlogscore=999 spamscore=0 priorityscore=1501 impostorscore=0 mlxscore=0
- malwarescore=0 suspectscore=0 bulkscore=0 lowpriorityscore=0 phishscore=0
- classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2504070000
- definitions=main-2504300027
+X-ClientProxiedBy: PN4PR01CA0059.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:274::9) To DS7PR12MB6048.namprd12.prod.outlook.com
+ (2603:10b6:8:9f::5)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS7PR12MB6048:EE_|DM3PR12MB9390:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3f8fae7f-392f-4c63-1e44-08dd879e999b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?SnZ1ckp3NXFIUGsrQyt0anF4S1llVWNZcWtJeTB1Q3F3L2tHblJGdWFGM09r?=
+ =?utf-8?B?Z1JKL3J3SVRudVdFYU1USHNMMDNaMHFsVE9nQkZ2SWtkbkFsWG5jZ1o1L2VR?=
+ =?utf-8?B?QnUyYlNtcVJodkJrWVZ2WWxVMmN6Ky9RZmNoTjhBQ3RWS0FmSTFzNjZWbGtK?=
+ =?utf-8?B?TU43QTY1aThtUURia2dzeUJqbkdEQ1IwT3pLRmRXQ2dhbjlnT0tlZUNFRzRm?=
+ =?utf-8?B?TWljcnltTkgxR0ZrMTEvOEhBUHJYT29tdmxxSkJndmcyaEhjNzlXSkc5Unlu?=
+ =?utf-8?B?cGpYeHVNT2FEbG1ZallBTncrMGJlNjdUYWlLWE5YVlRLY1Q1c2hWSGFBWVJB?=
+ =?utf-8?B?SGNzQU56NWxzTDc4YlJrK1FySVFwRmFnbDYvcUk3R3N1OTNVaUFrblMrQnd6?=
+ =?utf-8?B?dmRLTWZ4QnROMzE2RUZCVERUWU5lTUh2MXZLSjA2bjg1Q0lXNzRRSzBDQjBG?=
+ =?utf-8?B?QjhFek5mdWNFSG9ENmtnempRMzBLM09nL2djNnhtSEJmMisyZWR2K0kvYitF?=
+ =?utf-8?B?RytvZVJFREZZZjljbW9tdG5qdzZQTXhFcWRzR0o2blVhM3J4MUxmbTBGSW0x?=
+ =?utf-8?B?MHlKNXdoendqQmorSFRFTFpRemdpRktjNUd2ZG5OVUxXTDJTR1Q0NWNWS3Zx?=
+ =?utf-8?B?a054N0hCamk0UW94TlZIYXBkYzdIL010V25NYnlGSGJtbnFwNWJ2UGtQWmdi?=
+ =?utf-8?B?bnNXR2lnNGR1U2dUUEc1ZGhwa2ZPWVk5dmUzYVhBeHJXRzFGeTU0bVFnUW9z?=
+ =?utf-8?B?MUZFMEN6Y1VwK0lzcEp2MXh0RzI3U0xWUmNmUXBXa2o3WVlwb1JDb09aR0RV?=
+ =?utf-8?B?OU1uODJRNUZSNllqa3dyRDBMTHN3STFSc1lFaEVuL005RXA3eTdORU9EQzAz?=
+ =?utf-8?B?SVZqSDhEeU14aDF6LzZHMWF3eU9SQmhJTWo4RFVyMFg3bUV2VTNyUkF3b3V4?=
+ =?utf-8?B?NmtpY0thd2NhNkhMTDlqemZlbEdQcFNFUisyWk9VUDRodXNSdWdRWlpSbjVD?=
+ =?utf-8?B?cGNjSS9UVGJPK3pOZ2o5bXBQNTFjUU5ZU3A2QXc5NU5EQUl0K2NUTEJZZ0Jj?=
+ =?utf-8?B?clZkU3NuNitMOTNnNWhrdG1ES2t0dUZkc1F3bVN6TUJBRHZFdjRtUHhwRkVG?=
+ =?utf-8?B?NzI1L2VraHI1bjZtN1l5SXJSYWVZeGxXd3ArU2xSWW94KzBjU1RxVzE2cTVK?=
+ =?utf-8?B?WkU3VkszRkhCWk1RaFZvZHdVeGZiaEE1L1krU0JtamNyZnQzZzF5S1cyRE1u?=
+ =?utf-8?B?QUp1NllCM1JrWjN2MlpxQVBpdUp4YVBTN3ZQcDNoRzhVNzNwaStlMGE1cHk0?=
+ =?utf-8?B?MmF2ZEc1VWpqU3VlRDdONUh3TkdSaXRQT25JSDZJL3RUWkoyVE5yMmdyc0Qv?=
+ =?utf-8?B?VGdGeVFSa1U3NUpta0xYTTdpYTI4d3dyc0Y1cStmQVB4dTRHL0tMUXVUdnlO?=
+ =?utf-8?B?UUgyR2lSTjNDTjljemxCT0RuQmJ4YVJCc21rNnREZ012WWZxcVBVTzE0c2VL?=
+ =?utf-8?B?STBBR0VqY0hmOUJBQjBoWU51RmVMNnN4cVpNNk5lVmZ4UzIyYnpMQWF5NlAx?=
+ =?utf-8?B?aTVUYlFUc0MxTjd6T1pMWkQvRHVNNjdPc3puK0cvZkVmYVNQMzRoM0JMUHps?=
+ =?utf-8?B?N0VUeW1sL0dKNzVsalR0STZheURBOXA1ZUJOS0FDcDMvU2ZZcERRVmpkVXhF?=
+ =?utf-8?B?OWpjejZJUHBYZ2RFTlJnM2NSSU0vdzF4dUdDT0dOb2dvdUg0WFI0RWNTQVhT?=
+ =?utf-8?B?OUY5SWdkRkF4b2h3TEEwTGRXRmpjcVlvUXVYOFZYMHV4MU1RRjRtcjIya0xr?=
+ =?utf-8?B?em5GcFpwZkxWbXhGNjdPMSthMXNyT3lZMmZNUlNvTTYwTzR2OE8wU2hrNnpI?=
+ =?utf-8?B?K1lsNGJwWGRrNEJpSWtqOUR6NzJ1M3NrMG1iaWJzU2xhRkNIeVlkT002MmhY?=
+ =?utf-8?Q?NI/621Sfj6s=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB6048.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bERSM2RmTm12MkJFSStidHdLaWNpakt6UkhGVFRwczNoTkxrb3pnSzBDZUt6?=
+ =?utf-8?B?aGlGN1VWeUR5dHN3d2dLUXAzcTZCM1NjaThyS29Tbnd6QUxsMVJsMmxidHg5?=
+ =?utf-8?B?QjhzSlFab3Rwa2hwSE00RHg0dFJIbkEvTVVQNnNXTEx1RjM5bXBoS1AzUGd4?=
+ =?utf-8?B?RUxUYy82aSt3ZXA2SGxrcWNPa0RybHpQMWtyN1F5S2M2OTZsNER5dC8rN0VJ?=
+ =?utf-8?B?cjFkZ1hTV3ZuS2hYK3hlMUpONTN0RGk3Vy81OXZaYkZDUnNSRGNQbnZKREJQ?=
+ =?utf-8?B?c0VMVk5QRlJuQUhFSWgrMytWVXo1K2w2b2ppL0hNNnlWVUFZN3dPOFZRbkxI?=
+ =?utf-8?B?WThLeS94U3luWEpNeFg4OVJteCsrOTZyQkNaeVdMY0M5cnpzakhQSmswYXNv?=
+ =?utf-8?B?cXlIUlYvY0ZPbVpaSThNMnB2eDBqZFBLUnFsWnZuSldtelUvZEp4STNSeDhG?=
+ =?utf-8?B?ZWdoU0diSUYxanEvNnovNTFnb0dIelYwTWI1eXNUODM0R1BzeUtPaU9zeGNr?=
+ =?utf-8?B?MkdoeHM2bkp3TVBtYUpSc0VEUmNsNEcrMVpiRlArS2NkUHFueHRNUXpNWDZI?=
+ =?utf-8?B?eURVTjRsbkduWkpFd0tBK0I2ZzF2TkJnVTlUZGxwSzMvK0JQRURFeEFPQStw?=
+ =?utf-8?B?UjQxcE9vTHdoS1ZGTFJHVzF0QkNidVVpZ0dIdVJhZnpodDhiYXg5Q3d3NXU3?=
+ =?utf-8?B?WW1IU1FIczJybWRkV3Q0UGhqdE9WQjgzbXJnYUdEK3BsZzVtZzNBcUtnVmRY?=
+ =?utf-8?B?Z0Rob210Q1V4bCtQSFU4UVFZaStuYnFjSHpCR2tsM1dNcFo1M3RPeHhmNWhT?=
+ =?utf-8?B?QktEelJodlQ4M05GNzUwM2ZyOXBqN0ducmZHK0YwdFZUc3crUmZCTzBwZUxX?=
+ =?utf-8?B?Mlh1T2piRnY3dVAxbGVLQzZkU2lmbG00T0NmcG5LMSttQVBFUDA4cldIVUUx?=
+ =?utf-8?B?ZE1mYVRSZU0vbHptTUVjcHlQVEI4bllpT1ZKSk41a1JxZU9KNDhENmJTWDVB?=
+ =?utf-8?B?aE5vVVR3SDQvRlA4VTZOWHgwY3V2b013VzNUU3A1WWZIaVV3elNGV2w0Q2Ez?=
+ =?utf-8?B?QjZ1UmQwdUM2Yk5VS0Zmd1Q1Tk5TZk01eWVXSHM5ZUtKSFFpL0xGNXhGUk9o?=
+ =?utf-8?B?RWVuUzdBVWVjemh1WndKMXRIRFpRUUdYSVB6N0xKU3lnWFVlWFYwZEdqN2lh?=
+ =?utf-8?B?ZHdvclZneGlIWnF3QVFiMjJNT09VYmo3VFpLUm5pZkRNcHhwOWRTUUpEUVBH?=
+ =?utf-8?B?aHRTNUd0ak0xb2ErMXYrSGpTTFFzby9FV2YvYXJQd3cvV1Y4emZ2SzI5TlVI?=
+ =?utf-8?B?ODBiZ1ZjNXRhMlV2aFhXdTl1SE5tbkExbnZCTUxLWlRoc1FWcThqb2xmYnpt?=
+ =?utf-8?B?WGhISGxqTzYxU1JZZXVNTlNQanZVaWpyNVhlTVpHWFhwNkwyRVFRZFhzV05o?=
+ =?utf-8?B?OG4xZmRIdHNpdU5RcWRaTWlGeVYzaEVCYnZDVkF4b1dITU1uM1lVT2JweE1X?=
+ =?utf-8?B?SVlqMGVHYVp3eDFwN09YbmdDeXhTbnVUNHdFVHRVRjhlcG0wa1dISDY2OXlX?=
+ =?utf-8?B?VjIzNlhrUmNxS0J0dm9xK1lZbjYyaXZYRDNoOXJTNFBqc0pZM2Z2bGVoZkM1?=
+ =?utf-8?B?K25mLzViNUE0L1U0bFllUEhNR2ZqSmw1RnpmMzdEL3NORHpmbUd3TkYvMXdW?=
+ =?utf-8?B?alFaZnBOYzBvcm5IYWJpb0N2YWJxa2ZCRHJRRVV0NER2UEdDVWNmWk1qVG9W?=
+ =?utf-8?B?ekxjUUcybXA2QWFZMHh5VG0wK0FqMlFVS0dtNWUxYUR5V2dNSjNKR1N5djZ2?=
+ =?utf-8?B?bU5ZU2hNWlZ3U1ZFRXFPWUtsOVcvMkZGYTk3UzQzcUdvT0lCNkIyQ1huMmpk?=
+ =?utf-8?B?d01VWnB2SnVodHk1NEh6UzdQcUJYYUpkQXNtM01rdTFRTVFNQ3dSMnJmMmU0?=
+ =?utf-8?B?ME0zSUZieUlya0ltZnRuREd4V3lLL2VsWFc5MS9vSkVZNkhFQ2N0WWhYTlhZ?=
+ =?utf-8?B?ZjY2M2g4a2NKRG9XZnRUcHJET05CamtLVityaUVIRUJrNys0eDNzL1lMNS95?=
+ =?utf-8?B?NVpGOXoyemNNNWVMK1lUNkYzU082dExPOTBUeG03VGQ2Q2pPYzJWbkthR3Qz?=
+ =?utf-8?Q?oF9lu/FyxcoOsYec/YPIR3ejb?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3f8fae7f-392f-4c63-1e44-08dd879e999b
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB6048.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2025 04:22:21.1750
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tU/2rJTFBQ8okASRhqCWPAH99o72rK7YlxhveVPwEfUSuUAiLSD3KdfkgockGQvNL5tKrnMpmysZcFY32U2WeA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PR12MB9390
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_211614_361995_1DD864BE 
-X-CRM114-Status: GOOD (  17.80  )
+X-CRM114-CacheID: sfid-20250429_212231_324869_4F17BDB2 
+X-CRM114-Status: GOOD (  15.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,62 +189,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Nicolin,
 
-On 4/26/2025 6:48 PM, Konrad Dybcio wrote:
-> On 4/25/25 2:02 PM, Johan Hovold wrote:
->> On Fri, Apr 25, 2025 at 12:03:06PM +0200, Konrad Dybcio wrote:
->>> On 4/25/25 11:51 AM, Johan Hovold wrote:
->>>> On Fri, Apr 25, 2025 at 05:29:55PM +0800, Wenbin Yao wrote:
->>>>> From: Qiang Yu <quic_qianyu@quicinc.com>
+
+On 4/29/2025 10:44 PM, Nicolin Chen wrote:
+> On Tue, Apr 29, 2025 at 03:52:48PM +0530, Vasant Hegde wrote:
+>> On 4/29/2025 12:15 PM, Nicolin Chen wrote:
+>>> On Tue, Apr 29, 2025 at 11:04:06AM +0530, Vasant Hegde wrote:
+>>>> On 4/29/2025 1:32 AM, Nicolin Chen wrote:
+>>>>> On Mon, Apr 28, 2025 at 05:42:27PM +0530, Vasant Hegde wrote:
+>>>>> Yes. For AMD "vIOMMU", it needs a new type for iommufd vIOMMU:
+>>>>> 	IOMMU_VIOMMU_TYPE_AMD_VIOMMU,
 >>>>>
->>>>> All PCIe PHYs on X1E80100 require vdda-qref power supplies, but this is
->>>>> missing in the current PHY device tree node. The PCIe port can still
->>>>> function because the regulator L3J, which vdda-qref consumes, is voted by
->>>>> other components.
->>>>>
->>>>> Since the device tree should accurately describe the hardware, add the
->>>>> vdda-qref power supply explicitly in all PCIe PHY device nodes.
->>>> AFAIU the PHYs do not use this qref supply directly so it does not
->>>> belong in the PHY node (but possibly in the tcsr node that provides the
->>>> refclk).
+>>>>> For AMD "vIOMMU" command buffer, it needs a new type too:
+>>>>> 	IOMMU_VCMDQ_TYPE_AMD_VIOMMU, /* Kdoc it to be Command Buffer */
 >>>>
->>>> Since commit 031b46b4729b ("phy: qcom: qmp-pcie: drop bogus x1e80100
->>>> qref supplies") it also won't have any effect for pcie4 and pcie6.
->>> QREF is a separate hw block distributing the reference clocks across
->>> certain on-SoC peripherals
+>>>> You are suggesting we define one type for AMD and use it for all buffers like
+>>>> command buffer, event log, PPR buffet etc? and use iommu_vcmdq_alloc->index to
+>>>> identity different buffer type?
 >>>
->>> If its power goes out, I don't think much of the platform would be
->>> functional anyway, so it's redundant here..
+>>> We have vEVENTQ for event logging and FAULT_QUEUE for PRI, but both
+>>> are not for hardware accelerated use cases.
 >>>
->>> It doesn't have its own single register region and it's frankly
->>> one-shot-configured way before Linux starts up, so there should be
->>> no need of describing it at all.
->> Then it sounds like the qref supplies should be marked as always-on. Can
->> they be disabled at all?
-> The best answer I can say is "maybe". I would (without knowing any better)
-> assume RPMh wouldn't let you turn them off. QREF predictably takes VDD_CX/MX
-> and some additional lines
->
-> Konrad
-The vdda-qref power supply feeds the QREF clocks, which are consumed by 
-PCIe, UFS, USB and display on X1e80100.
-For PCIe, QREF clks are provided by the TCSR device with the following 
-bindings on X1E80100:
-#define TCSR_PCIE_2L_4_CLKREF_EN
-#define TCSR_PCIE_2L_5_CLKREF_EN
-#define TCSR_PCIE_8L_CLKREF_EN
-#define TCSR_PCIE_4L_CLKREF_EN
+>>> I didn't check the details of AMD's event log and PPR buffers. But
+>>> they seem to be the same ring buffers and can be consumed by guest
+>>> kernel directly?
+>>
+>> Right. Event log is accelerated and consumed by guest directly. Also we have
+>> Event Log B !
+>>
+>>>
+>>> Will the hardware replace the physical device ID in the event with
+>>> the virtual device ID when injecting the event to a guest event/PPR
+>>> queue? 
+>>> If so, yea, I think you can define them separately using the> vCMDQ
+>> infrastructures:
+>>>  - IOMMU_VCMDQ_TYPE_AMD_VIOMMU_CMDBUF
+>>>  - IOMMU_VCMDQ_TYPE_AMD_VIOMMU_EVENTLOG
+>>>  - IOMMU_VCMDQ_TYPE_AMD_VIOMMU_PPRLOG
+>>> (@Kevin @Jason Hmm, in this case we might want to revert the naming
+>>>  "vCMDQ" back to "vQEUEUE", once Vasant confirms.)
+> 
+> I think I should rename IOMMUFD_OBJ_VCMDQ back to IOMMUFD_OBJ_VQUEUE
+> since the same object fits three types of queue now in the AMD case.
 
-These QREF clocks are not enabled all the time and are disabled during 
-PHY deinit. Hence, vdda-qref should not be an always-on power supply. It 
-should be turned off when the QREF clocks are disabled.
+Makes sense.
 
-Describing vdda-qref in the PHY device tree node is reasonable, as it 
-allows the vdda-qref power supply to be enabled or disabled along with 
-the QREF clocks during PHY init/deinit.
+AMD architecture supports 5 buffers. In practice we have not implemented event
+log  B / PPR Log B in Linux.
+  Command buffer
+  Event Log A / B
+  PPR Log A / B
 
--- 
-With best wishes
-Qiang Yu
 
+-Vasant
 
