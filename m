@@ -4,62 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE43AC369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 06:27:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F45C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 06:32:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rHLDjy6xZh51j4ykpPn2hi6fp3uAit0XD1dneySpwj8=; b=pHybqoXJkh89BGE4QBoW42VMPF
-	Ahg0vt8RkPo+1Fi16NWBIQ8kM6EUhxd6R49iQLQm9D41k39p4XmD8Zp0hZ7FyErtlU7e81gnACVjw
-	/87+vpwHNAQwy+laAC7XsezGi5eattydGixYL1/5fydI+JgRjQwJd3a1iAY/hiX/NczHgjtR72vZP
-	Tk5e3d+4l2d+nXlNc6lM2Vr9BQAkteyGaQgYWysS0FIQy5E/1vZMDuqAudCR4vxAesHP9aM0yOqNH
-	LiCQZPGMvxkZmMir0kX+O0g2MCqbK8hWmrdAIINwe6QA2bdzUHFe24nGSfs/r1nL1Lt7AXdmevXAs
-	gZInmIzw==;
+	bh=DKGs8pWqRz5fgySPRSKxsWNGQtApl7x88mhEfyirBMg=; b=WqaCc5QzpvjhiWQIp161uQUGps
+	C+5XpYL3vvhg6+VuEOeFQybIIidpdCEWEhK8T32DEJxZTQ/fnm/dgxSa6B5tvvfHUDG4QKSJIYYh2
+	DblZUA4UHDFCfCaLqET9grTmyTPc4e0g7sRzLKae8uBajBeORRa120Sj30WmhdpXOAXNtC7ysCQVw
+	2H5vdPkGSa+8NjKmHQ4Xfu5yPVFKGGj5F6uOt7L9JudzTbbYfGwlY9eQe7DQDxDnhDE7jqk48kE+c
+	hAmH6uIW/hKukyHw1iOsJZzoTF2uJiHu1tyKXIUflcGLNKiSWaSsv5N7MI8ti3e9T3vZvpJoLaa+6
+	zxlNUiiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA0uk-0000000BrgT-1iGa;
-	Wed, 30 Apr 2025 06:27:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA0so-0000000BrQN-27rN
+	id 1uA0z4-0000000BsC7-1Iho;
+	Wed, 30 Apr 2025 06:31:54 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uA0x7-0000000BrwX-0WuO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 06:25:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8B8C7106F;
-	Tue, 29 Apr 2025 23:25:18 -0700 (PDT)
-Received: from [10.163.79.251] (unknown [10.163.79.251])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3FA0F3F66E;
-	Tue, 29 Apr 2025 23:25:15 -0700 (PDT)
-Message-ID: <f52746e9-f57a-4e65-af48-f5de3c5887c6@arm.com>
-Date: Wed, 30 Apr 2025 11:55:12 +0530
+	Wed, 30 Apr 2025 06:29:54 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53TLZhZ4026649;
+	Wed, 30 Apr 2025 08:29:43 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	DKGs8pWqRz5fgySPRSKxsWNGQtApl7x88mhEfyirBMg=; b=R/ezM1GKkmn93rcW
+	MUTPTqXaoWuIQ+tKQkB+bLfr314SkR3E5wJWFGIdOwexGCo0QYXvJaj/087D8ix1
+	MdcW6985sCHesT8DrQdltTR08K4AEvw0A8wxrKKQutvt6p62Up+6Jr1RZ+W6zlQB
+	yqXbdNraO9Z6TkEupEHC/ypr+W7dQqkZSECPXhvjc5A66JbgoNzXYY8hL4VjLYUi
+	Okdn6fwB31sYFa8uQD2N3kyPOutDmdzLtw/81xWLLmM4VtC+4ztS6/ub2GLAPdY+
+	ffJaL3XPMWU7RLfWh8y0dYSAwTlmGgOhctuqUH53Dp0F3d5VvR45cdmb4mWgQdNp
+	Z1GJBg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46b6tmscqc-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 30 Apr 2025 08:29:43 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 191C640044;
+	Wed, 30 Apr 2025 08:28:52 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 315E2A398DD;
+	Wed, 30 Apr 2025 08:28:20 +0200 (CEST)
+Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 30 Apr
+ 2025 08:28:19 +0200
+Message-ID: <9d95a3eb-f656-4037-8412-1967660b6430@foss.st.com>
+Date: Wed, 30 Apr 2025 08:28:19 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/7] mm: Add batched versions of
- ptep_modify_prot_start/commit
-To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: akpm@linux-foundation.org, ryan.roberts@arm.com, david@redhat.com,
- willy@infradead.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- catalin.marinas@arm.com, will@kernel.org, Liam.Howlett@oracle.com,
- vbabka@suse.cz, jannh@google.com, anshuman.khandual@arm.com,
- peterx@redhat.com, joey.gouly@arm.com, ioworker0@gmail.com,
- baohua@kernel.org, kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
- christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
- linux-arm-kernel@lists.infradead.org, namit@vmware.com, hughd@google.com,
- yang@os.amperecomputing.com, ziy@nvidia.com
-References: <20250429052336.18912-1-dev.jain@arm.com>
- <20250429052336.18912-4-dev.jain@arm.com>
- <8780e63d-22c1-4133-a800-dec50fd1b5fa@lucifer.local>
+Subject: Re: [PATCH 0/2] ARM: dts: stm32: add vrefint calibration on stm32mp13
+To: Olivier Moysan <olivier.moysan@foss.st.com>, <fabrice.gasnier@foss.st.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>
+CC: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20250403115954.1061528-1-olivier.moysan@foss.st.com>
 Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <8780e63d-22c1-4133-a800-dec50fd1b5fa@lucifer.local>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+In-Reply-To: <20250403115954.1061528-1-olivier.moysan@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.86.79]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-04-30_01,2025-04-24_02,2025-02-21_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_232526_638670_9140D1D6 
-X-CRM114-Status: GOOD (  44.72  )
+X-CRM114-CacheID: sfid-20250429_232953_649367_3E86B9E5 
+X-CRM114-Status: UNSURE (   8.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,217 +98,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Olivier
 
+On 4/3/25 13:59, Olivier Moysan wrote:
+> Add vrefint calibration data in STM32MP13 device tree to support
+> STM32 ADC internal channel VREFINT.
+> 
+> Olivier Moysan (2):
+>    ARM: dts: stm32: add vrefint calibration on stm32mp13
+>    ARM: dts: stm32: add vrefint support to adc on stm32mp13
+> 
+>   arch/arm/boot/dts/st/stm32mp131.dtsi | 5 +++++
+>   arch/arm/boot/dts/st/stm32mp133.dtsi | 2 ++
+>   2 files changed, 7 insertions(+)
+> 
+> 
+> base-commit: 65954899a157832f68536b488194cf698248a26e
 
-On 29/04/25 7:22 pm, Lorenzo Stoakes wrote:
-> On Tue, Apr 29, 2025 at 10:53:32AM +0530, Dev Jain wrote:
->> Batch ptep_modify_prot_start/commit in preparation for optimizing mprotect.
->> Architecture can override these helpers.
->>
->> Signed-off-by: Dev Jain <dev.jain@arm.com>
->> ---
->>   include/linux/pgtable.h | 38 ++++++++++++++++++++++++++++++++++++++
->>   1 file changed, 38 insertions(+)
->>
->> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
->> index b50447ef1c92..ed287289335f 100644
->> --- a/include/linux/pgtable.h
->> +++ b/include/linux/pgtable.h
->> @@ -891,6 +891,44 @@ static inline void wrprotect_ptes(struct mm_struct *mm, unsigned long addr,
->>   }
->>   #endif
->>
->> +/* See the comment for ptep_modify_prot_start */
-> 
-> I feel like you really should add a little more here, perhaps point out
-> that it's batched etc.
+Series applied on stm32-next.
 
-Sure. I couldn't easily figure out a way to write the documentation 
-nicely, I'll do it this time.
-
-> 
->> +#ifndef modify_prot_start_ptes
->> +static inline pte_t modify_prot_start_ptes(struct vm_area_struct *vma,
->> +		unsigned long addr, pte_t *ptep, unsigned int nr)
-> 
-> This name is a bit confusing, it's not any ptes, it's those pte entries
-> belonging to a large folio capped to the PTE table right that you are
-> batching right?
-
-yes, but I am just following the convention. See wrprotect_ptes(), etc. 
-I don't have a strong preference anyways.
-
-> 
-> Perhaps modify_prot_start_large_folio() ? Or something with 'batched' in
-> the name?
-
-How about modify_prot_start_batched_ptes()?
-
-> 
-> We definitely need to mention in comment or name or _somewhere_ the intent
-> and motivation for this.
-> 
->> +{
->> +	pte_t pte, tmp_pte;
->> +
-> 
-> are we not validating what 'nr' is? Even with debug asserts? I'm not sure I
-> love this interface, where you require the user to know the number of
-> remaining PTE entries in a PTE table.
-
-Shall I write in the comments that the range is supposed to be within a 
-PTE table?
-
-> 
->> +	pte = ptep_modify_prot_start(vma, addr, ptep);
->> +	while (--nr) {
-> 
-> This loop is a bit horrible. It seems needlessly confusing and you're in
-> _dire_ need of comments to explain what's going on.
-
-Again, following the pattern of get_and_clear_full_ptes :)
-> 
-> So my understanding is, you have the user figure out:
-> 
-> nr = min(nr_pte_entries_in_pte, nr_pgs_in_folio)
-> 
-> Then, you want to return the pte entry belonging to the start of the large
-> folio batch, but you want to adjust that pte value to propagate dirty and
-> young page table flags if any page table entries within the range contain
-> those page table flags, having called ptep_modify_prot_start() on all of
-> them?
-> 
-> This is quite a bit to a. put in a header like this and b. not
-> comment/explain.
-> 
-> So maybe something like:
-> 
-> pte = ptep_modify_prot_start(vma, addr, ptep);
-> 
-> /* Iterate through large folio tail PTEs. */
-> for (pg = 1; pg < nr; pg++) {
-> 	pte_t inner_pte;
-> 
-> 	ptep++;
-> 	addr += PAGE_SIZE;
-> 
-> 	inner_pte = ptep_modify_prot_start(vma, addr, ptep);
-> 
-> 	/* We must propagate A/D state from tail PTEs. */
-> 	if (pte_dirty(inner_pte))
-> 		pte = pte_mkdirty(pte);
-> 	if (pte_young(inner_pte))
-> 		pte = pte_mkyoung(pte);
-> }
-> 
-> Would work better?
-
-No preference, I'll do this then.
-
-> 
-> 
-> 
->> +		ptep++;
->> +		addr += PAGE_SIZE;
->> +		tmp_pte = ptep_modify_prot_start(vma, addr, ptep);
-> 
-> 
-> 
->> +		if (pte_dirty(tmp_pte))
->> +			pte = pte_mkdirty(pte);
->> +		if (pte_young(tmp_pte))
->> +			pte = pte_mkyoung(pte);
-> 
-> Why are you propagating these?
-
-Because the a/d bits are per-folio; and, this will help us batch around 
-can_change_pte_writable (return pte_dirty(pte)) and, batch around 
-pte_needs_flush() for parisc.
-
-> 
->> +	}
->> +	return pte;
->> +}
->> +#endif
->> +
->> +/* See the comment for ptep_modify_prot_commit */
-> 
-> Same comments as above, needs more meat on the bones!
-> 
->> +#ifndef modify_prot_commit_ptes
->> +static inline void modify_prot_commit_ptes(struct vm_area_struct *vma, unsigned long addr,
-> 
-> Again need to reference large folio, batched or something relevant here,
-> 'ptes' is super vague.
-> 
->> +		pte_t *ptep, pte_t old_pte, pte_t pte, unsigned int nr)
-> 
-> Nit, but you put 'p' suffix on ptep but not on 'old_pte'?
-
-Because ptep is a pointer, and old_pte isn't.
-
-> 
-> I'm even more concerned about the 'nr' API here now.
-> 
-> So this is now a user-calculated:
-> 
-> min3(large_folio_pages, number of pte entries left in ptep,
-> 	number of pte entries left in old_pte)
-> 
-> It really feels like something that should be calculated here, or at least
-> be broken out more clearly.
-> 
-> You definitely _at the very least_ need to document it in a comment.
-> 
->> +{
->> +	for (;;) {
->> +		ptep_modify_prot_commit(vma, addr, ptep, old_pte, pte);
->> +		if (--nr == 0)
->> +			break;
-> 
-> Why are you doing an infinite loop here with a break like this? Again feels
-> needlessly confusing.
-
-Following wrprotect_ptes().
-I agree that this is confusing, which is why I thought why it was done 
-in the first place :) but I just followed what already is.
-I'll change this to a simple for loop if that is your inclination.
-
-> 
-> I think it's ok to duplicate this single line for the sake of clarity,
-> also.
-> 
-> Which gives us:
-> 
-> unsigned long pg;
-> 
-> ptep_modify_prot_commit(vma, addr, ptep, old_pte, pte);
-> for (pg = 1; pg < nr; pg++) {
-> 	ptep++;
-> 	addr += PAGE_SIZE;
-> 	old_pte = pte_next_pfn(old_pte);
-> 	pte = pte_next_pfn(pte);
-> 
-> 	ptep_modify_prot_commit(vma, addr, ptep, old_pte, pte);
-> }
-> 
-> There are alternative approaches, but I think doing an infinite loop that
-> breaks and especially the confusing 'if (--foo) break;' stuff is much
-> harder to parse than a super simple ranged loop.
-> 
->> +		ptep++;
->> +		addr += PAGE_SIZE;
->> +		old_pte = pte_next_pfn(old_pte);
->> +		pte = pte_next_pfn(pte);
->> +	}
->> +}
->> +#endif
->> +
->>   /*
->>    * On some architectures hardware does not set page access bit when accessing
->>    * memory page, it is responsibility of software setting this bit. It brings
->> --
->> 2.30.2
->>
-
+thanks
+Alex
 
