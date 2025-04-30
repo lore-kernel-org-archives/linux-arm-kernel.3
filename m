@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADF46C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 11:29:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF29FC3ABB5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 11:31:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XLzaKZV14Vn6EMb9E2bHvEtZk0V2ql8+6m7239vNBfc=; b=tvfIYcPMoO2AC1w5uvUDeTh4OY
-	E4B5kM68CixDLMq6/xUzmAEsQII7p9nlG2cx1NOfEfnmpmyduROU1DVvXlGgToa7bpNWvDlHvtIfN
-	4RdyoiOB3eK0IMF0NCuqSUMuDg6gmOJJchMGkG28YYp04pGpnWnAdNhbbYscZ1sMehjevtFz8YJSa
-	msXBTmj4oDJRe0Plcv/zvspz55lBtME5rEQNu4h83uwAa6ZGm14DU5c1PuAGfnjT56wcAZormrJRA
-	jV5r4A6av5lH3FCFPXWJolZFemm/7FyPPK84gr1TKa8SDauO9QwAzn3tIzLEBxgu0xe6X3KRYVJf+
-	KKX7wKIQ==;
+	bh=5/1UiigIwXR8rjSUy1c3Sx5vxGn2/huSophWGwjW0Zc=; b=1w710hYFinT4UnRFTvxy7jkLon
+	YsqrN5UEAW7MqRYu7fBO3XvI+dwg4d9JdpmyyMFfttvEXJpMusiJtBEmWqf+BTf2RccFZJQFU9KAZ
+	6T6AR8RBXLK6SsV4Lcccui/KmgqgNrpigCpg7RDTgP1BsKXtVbFvz7m7AnuQBrGHHYCYVGmtGq7b/
+	NGlloB1ANQZlokRAzlBOEkULjof6um1e1+fGfCicYpgxQ88O/C7yTSG71zue9n8Vxlpl173S8X70G
+	939w+nrVdcg5e9KIQ+NsyDEPZafKpn+wy2g/2Wa2sguTKzg5wY7YTzIBgMNxO+tb+fXu0KjSTJXe9
+	25J48+wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA5ct-0000000CgYs-1ETY;
-	Wed, 30 Apr 2025 11:29:19 +0000
-Received: from mail-ed1-f52.google.com ([209.85.208.52])
+	id 1uA5eo-0000000Cgwn-06lJ;
+	Wed, 30 Apr 2025 11:31:18 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA4kf-0000000CXmW-3RS7
+	id 1uA4kh-0000000CXnM-2cZz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 10:33:19 +0000
-Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-5e5e8274a74so11241947a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 03:33:17 -0700 (PDT)
+	Wed, 30 Apr 2025 10:33:20 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-ac28e66c0e1so822266566b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 03:33:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1746009196; x=1746613996; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1746009198; x=1746613998; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=XLzaKZV14Vn6EMb9E2bHvEtZk0V2ql8+6m7239vNBfc=;
-        b=A2ejnvMOs+FN9CKMAgR8igKUTZIKa4WRHEKdUvTQnjMNxmAh5DYXAnRxC5Wru5qoF3
-         ddNPCeG9BNNB7QnUVFrHKhlj0vEAun85aeJVMi9lDRmqff4nZd870YoghKI4lZz/polt
-         55nWv2f5KTwxVrjCxQyQrL+rqfHtrK1REJqZhE+xCWhbAGNcYv5ZdnQ4ZepsWxd1Vmjg
-         S3D8QaS3UIdg1Cx3XD4vrrzAnrASMfMBollFbKEYUNqWn3wUAFJAgdvYJgBAwncLe6wV
-         z0gIzvgOW7H+KG6hKgEdfSUHQug1qXdagilLHOgTePIXkFtVvgOFHDmvJ1u0iAreZkqJ
-         HPkQ==
+        bh=5/1UiigIwXR8rjSUy1c3Sx5vxGn2/huSophWGwjW0Zc=;
+        b=XewtvbdG0bemMB6pUz9PMxujR/ARZ9lrU+NDBZpexH8hTRAF103uG0efm4EMKyK9/M
+         QRwWve78Dh0JF5syJD6wrXwQ7S+k8eia1acrJ35mPyoxwGHfj9QRzivszgcSp6zi+HNO
+         lR2gXtajOpcM128Q0aeytEGPth4sQV6O32yp8sUFAUslxuX1Vouj5biBF6m2v6XQwiqc
+         F2G2OaGiVdsn/EDMvT2yvBQRvOFngySZwCS1fXelQ4AaT0Pe9nC+MKpaOsBl8V+T8zgs
+         JTrmYBIe99wQgmlQl6BfxvKwyrY2+aJTcVrD8fEjsQUjI3DDSVyhoJGZ7w5+Jmknp+uM
+         NbPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746009196; x=1746613996;
+        d=1e100.net; s=20230601; t=1746009198; x=1746613998;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=XLzaKZV14Vn6EMb9E2bHvEtZk0V2ql8+6m7239vNBfc=;
-        b=sHhu6FW2LbZOWZmZ917M5W3QF75woE3dKCR23gUzddJZFMkp3urbvrpHjmcrUvQ5FA
-         2AuB1NSjVnGtY++DoQBbjABZN044LyKRvjDSgaQWU08IOXVqwBkfbV55IyNxUBnCQZSR
-         QmpVxs/Dl0DpVRm3RnV4J+qOduw9Y4DcNhp7YByOtUMiofVifiLkj2s/V/JC2Wp6SUy4
-         MfCYNIz7P15WHjQLaK7lBAolZ+kFv2mYfurxPACSAPy2ee9PyJj0oVItuBa5zr/2aJ0D
-         nuvUOrF1wEO3/p0HvrHUbtFQFFQp+jlIWoGOFopZASem0tQT3Nrq1aLYh25HR4IK9QFR
-         fDPA==
-X-Forwarded-Encrypted: i=1; AJvYcCWMS8BODFlo51hxVOAgSxUDZ1xuqHtcoOleDdes2PK2KP/Ip1+8I1NOK2B5owOVBtO6IfdUrx5Q19EGPXh0lSd+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0fLiG73px5B4BQRmPqaG7LT7nLRzCJof7R2EZfEnULZuV5+nU
-	PBtqRpCqbn/6hKRyYxufOFZ6oSq0Uu//54cmosZwxpXr2+5IDOmlmXbYlK/VRvw=
-X-Gm-Gg: ASbGncukJez2CImcTp0UuRpBoOAgguwljH4QSd6QZsAKHhIVJuuBxFVfPQx0U8ZZiSw
-	rmeKnjDjXzbgkjbdOStGo5Vc71UM4wFBPvdEpArXoC2ikODqYdt7zyfZlNVbxtjB6AO1yf41byB
-	3UQcLyw7J6Gb6/+h7HfKIxZIkpd1GaoPWPZDf9UGNpRGqaqzo6XAXq4+1sr6aFNyfrIt72CMJpO
-	b/qewsKa9OMFNCfkNDyTR7xiM7dplL+Af0OyZbPB3qbYuafRAvsh55E51FEblM+8VOaf2pv5mcA
-	XhhBSdApQVZFM9DSNyowcqN8mV/i21Zk5NbqIStERChDENdhPJ1gsYLtBgdIHFr+F99+uBA=
-X-Google-Smtp-Source: AGHT+IEKSM0IXh8jKv5O+IVSv4mJ6z4oh82fv68+fLwY5atxsSRsGcvPXRiQe2VBDa9mA8yPM7H+KQ==
-X-Received: by 2002:a17:907:3f0f:b0:abf:6aa4:924c with SMTP id a640c23a62f3a-acee21ae83amr165748366b.17.1746009195599;
-        Wed, 30 Apr 2025 03:33:15 -0700 (PDT)
+        bh=5/1UiigIwXR8rjSUy1c3Sx5vxGn2/huSophWGwjW0Zc=;
+        b=K7u8br3XwDiBX/bInbyOOQ6lS3cLl4xy5Tka+675yS0zYYwS3ZTaYH8zjsOpJBIYlk
+         JnQ5rjQVHRU808tl10SpvF2zOCGtRRqyPKKHzylWPEWRxb1pQ/d0XzbsQNBwsNy9WOcX
+         yIDN7HFt04WanaZ/yWMu823rMAMjTfTHqP2oUlgte9u+TWmaovWj114wAxT44NAw1yQV
+         AnJNb7PbIkLrsF62He1kh1O3Jo6AZCbqWjQo+apqH/uDc+QFToxWQg2sSeq82L0YHV4S
+         jeGbeYGCSlRAgGfNtT2BzN370GwpCX1Aarv4XByFx4CEhdg6PRUHUdYXOpM3sPjJ2yQZ
+         pjkg==
+X-Forwarded-Encrypted: i=1; AJvYcCXPAP7ZFcWPIjq7Ydag1nSBciv4b3B/Zj1ezY6xWyugC3LbOmYgfMZhZs9yjzfH76QIvB1ZB8o6LmtrqbydejWX@lists.infradead.org
+X-Gm-Message-State: AOJu0YyIlfyBRcMHWX0MiANDYsG3FHQff8PIvcTrTjUvRMhDB3MxhHW1
+	VUjuR/J25hCBCaUtqLhg/ggj84eWWjExVX8xuES0DhDrEIe3dc5vICutz0sRk5g=
+X-Gm-Gg: ASbGncsQByeljERF24OPDWEx9q2XedytTKl5ItvgHvt2pWm6hzQv9X8kBxsBfVXYrUb
+	oUe5pPS1mSD0xyadfnZQ2Fv45uYr/LXJvQyZzbIgyp9WkklRxUwqM3VvH5rSAqztnfmt68sbU1r
+	HZQy2rDGHHQDCSbulJhIlPV6gkveHVG1rFgdpODjICts5AfIHa1hO46bXeuKcHaN51ae5b6S8VB
+	Q5kZhsIlTGNK2b+Y4LVLN919cKpgLGlxiH9mAIJNUpvGXAwadKt0E6o45tBZo04R3BUnx6yIgWh
+	iiszWEVYLkfDDEM8YZEQuNFBnUvYzQBK3neQwgl+bDteE2/Nb9rNPzJBdpUwNIwyrJAtneI=
+X-Google-Smtp-Source: AGHT+IHBcCruFD2Sx7wtL0cb9Uodi9fNatKRjptTZekaQF3eLuwGTgjpuo5/jbKcvNzZcB+Y1bBY1g==
+X-Received: by 2002:a17:907:3ea2:b0:ace:da39:7170 with SMTP id a640c23a62f3a-acedc768b2fmr307149666b.55.1746009197623;
+        Wed, 30 Apr 2025 03:33:17 -0700 (PDT)
 Received: from claudiu-X670E-Pro-RS.. ([82.78.167.166])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ace6ed6af86sm909390366b.133.2025.04.30.03.33.13
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ace6ed6af86sm909390366b.133.2025.04.30.03.33.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Apr 2025 03:33:14 -0700 (PDT)
+        Wed, 30 Apr 2025 03:33:16 -0700 (PDT)
 From: Claudiu <claudiu.beznea@tuxon.dev>
 X-Google-Original-From: Claudiu <claudiu.beznea.uj@bp.renesas.com>
 To: bhelgaas@google.com,
@@ -91,17 +91,18 @@ Cc: claudiu.beznea@tuxon.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-clk@vger.kernel.org,
 	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-Subject: [PATCH 7/8] arm64: dts: renesas: rzg3s-smarc: Enable PCIe
-Date: Wed, 30 Apr 2025 13:32:35 +0300
-Message-ID: <20250430103236.3511989-8-claudiu.beznea.uj@bp.renesas.com>
+Subject: [PATCH 8/8] arm64: defconfig: Enable PCIe for the Renesas RZ/G3S SoC
+Date: Wed, 30 Apr 2025 13:32:36 +0300
+Message-ID: <20250430103236.3511989-9-claudiu.beznea.uj@bp.renesas.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250430103236.3511989-1-claudiu.beznea.uj@bp.renesas.com>
 References: <20250430103236.3511989-1-claudiu.beznea.uj@bp.renesas.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_033317_857426_7EA1F28B 
-X-CRM114-Status: GOOD (  10.15  )
+X-CRM114-CacheID: sfid-20250430_033319_670769_6FA1FF07 
+X-CRM114-Status: UNSURE (   8.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,43 +119,25 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 
-The RZ Smarc Carrier-II board has PCIe headers mounted on it. Enable PCIe
-support.
+Enable PCIe for the Renesas RZ/G3S SoC.
 
 Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 ---
- arch/arm64/boot/dts/renesas/rzg3s-smarc.dtsi | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/boot/dts/renesas/rzg3s-smarc.dtsi b/arch/arm64/boot/dts/renesas/rzg3s-smarc.dtsi
-index 5e044a4d0234..6e9e78aca0b0 100644
---- a/arch/arm64/boot/dts/renesas/rzg3s-smarc.dtsi
-+++ b/arch/arm64/boot/dts/renesas/rzg3s-smarc.dtsi
-@@ -132,6 +132,12 @@ power-monitor@44 {
- 	};
- };
- 
-+&pcie {
-+	pinctrl-0 = <&pcie_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
- &pinctrl {
- 	audio_clock_pins: audio-clock {
- 		pins = "AUDIO_CLK1", "AUDIO_CLK2";
-@@ -159,6 +165,11 @@ key-3-gpio-hog {
- 		line-name = "key-3-gpio-irq";
- 	};
- 
-+	pcie_pins: pcie {
-+		pinmux = <RZG2L_PORT_PINMUX(13, 2, 2)>, /* PCIE_RST_OUT_B */
-+			 <RZG2L_PORT_PINMUX(13, 3, 2)>; /* PCIE_CLKREQ_B */
-+	};
-+
- 	scif0_pins: scif0 {
- 		pinmux = <RZG2L_PORT_PINMUX(6, 3, 1)>, /* RXD */
- 			 <RZG2L_PORT_PINMUX(6, 4, 1)>; /* TXD */
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index a92c4122a8b9..b36a96777018 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -226,6 +226,7 @@ CONFIG_PCIE_MEDIATEK_GEN3=m
+ CONFIG_PCI_TEGRA=y
+ CONFIG_PCIE_RCAR_HOST=y
+ CONFIG_PCIE_RCAR_EP=y
++CONFIG_PCIE_RENESAS_RZG3S_HOST=m
+ CONFIG_PCIE_ROCKCHIP_HOST=m
+ CONFIG_PCI_XGENE=y
+ CONFIG_PCI_IMX6_HOST=y
 -- 
 2.43.0
 
