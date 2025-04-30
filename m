@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 566A5C3ABA9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 18:34:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 452A8C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 18:36:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fl7g83EJcOWH5FHBku4zjmzjCnfMb9T61oBNbl3E4mA=; b=MIzO8R+n98L0T9tKAn7CaMsSaS
-	Axe5Lv+3wK3w89SZsxqaD4Z0oyjsdTtbBqsUQ4ymHfy60An3Fd6ZtJp+uiZDE4cnWtKUaadMydYQG
-	tyO87tGB/0oDfbfm3vE1Vty8dKRo/EnffEfWn7tl894m5pIK7MUuKX6NBaC3u2+VqjSdtHAuhzHBp
-	39MCcjqwraHyfS/ydQ0iq14cWENA23kuVJF+/3Ciah5i1krZK5Q21UPZeZQM8mBU4CECLDcV49IJT
-	+O59+G4ZM5bEA6zeNAA7alK8ep/rE8Voxer/RV7y6tYKkCGtNBiChZXqOoj1T7cpq0DVr0VTVSlUK
-	/KNJmPnw==;
+	bh=ECWK0nN3GpkTgqSmGsP1qzkrOrQDOh0oY5fSTP+e/mo=; b=FvFJ2EfhyGkELDMMzuOqOLZtBi
+	SJl7QvBdkl6PWrqjkNGrvJvwNGKdYKq3rnSFmJbhMF/VMjsMd7u+4dFw/qaknOTbFf8tzcdOY6OkI
+	UcsWm7O/AIxWhngWJ7BQ+MuZlqpyzHYiwlgbEFyHax8AStxmJwchFkO7mZTWO7dsLgsgpdTZ3FFny
+	RwpgdVU6rqRq/RFbo37xiOwKErClHhNWaAnyEDGTSKaRvtiEb02oGkTUbqL2XGD+pxKvxfXi2XMLO
+	vpv9DtgG+OhhsVi3QeiI/wlnZN6TQ9OivQ2D5Pzb0b5i7kHibaV+XZR/X1NdzOCwhQLPYH6wM5NPf
+	5INJ53Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uACGD-0000000Dhf4-1cyj;
-	Wed, 30 Apr 2025 18:34:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uACI8-0000000Dhux-0VpY;
+	Wed, 30 Apr 2025 18:36:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uACCf-0000000Dh79-48Rx
+	id 1uACDD-0000000DhBa-330E
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 18:30:43 +0000
+	Wed, 30 Apr 2025 18:31:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 18FE74A14B;
-	Wed, 30 Apr 2025 18:30:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F53DC4CEE7;
-	Wed, 30 Apr 2025 18:30:41 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 23436444C1;
+	Wed, 30 Apr 2025 18:31:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36EA1C4CEE7;
+	Wed, 30 Apr 2025 18:31:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746037841;
-	bh=T4eePFbM5LSrE/2KS+Bqr4adCBt8knMhqfA8OjbYrTw=;
+	s=k20201202; t=1746037875;
+	bh=N7kzsYx3AEB32SD0UVxEAdO7TZ8Bqk0u7UpHiyEytCw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qop5rON8lnLTAy0Dbg56VCAOI7RIIuxOiV8MxIrqC/2X45QRWrAXHobrr5JdmCqaW
-	 UEHoYYd4ydI0Cbyd8mY2FVUBnesQglBpYOI9UrOgT8tQo6CZmW6WIcjtgr50MaYprh
-	 mnQByuCFdBvoms8CI9ayxMitQ/PTS62hptOLj90TStt+iSQcaIk5lAT3GgLkQgJXss
-	 aJkNYgMjgNE5mXwFywXgJ8ObyxRBW5a3atOi0vffbxvJET5gF0WrMZ2cAeLIi/3Wge
-	 ivkUJIrqKEG0aIoarLZkmqcUdc6k3L26vA7d4N+6EtsPWrTXnsLLuGr9oG/GED3Z2a
-	 BTyoubY1Uqosw==
-Date: Wed, 30 Apr 2025 11:30:38 -0700
+	b=T4k78qbE83Dce+JSd9LBXTExzJug4J4G5+/w+bpMy/5PVnmqOJSO6GZ3DGpNqAUQy
+	 zzrUzdYCvyCDLfww71KMdZeSonZAMH1Lx8mv6U/HiYsNKLba9n2nCoJ0n5dbmJGFUQ
+	 HPOKfX1EOHPRrg+Lx7sZzc3Mrj1Oi+ZjW9yw/D+or494Zq2OYt/FBkQXHO5YjFxZ1S
+	 qx/NMxy2JTZ3RuONBS+pxgJzbOnLDWSPnuwUqAJvAZ69O5l6XMQI8hSx/fqs/Ni7Lx
+	 Y59hfMPpb52g7aZ8ofQ895PW1/WlwXxGHdncs47XQS9pkZXtWOv7jQaYmt0wSLKde+
+	 7B+AWN7bmo3Wg==
+Date: Wed, 30 Apr 2025 11:31:12 -0700
 From: Kees Cook <kees@kernel.org>
 To: Mostafa Saleh <smostafa@google.com>
 Cc: kvmarm@lists.linux.dev, kasan-dev@googlegroups.com,
@@ -56,17 +56,18 @@ Cc: kvmarm@lists.linux.dev, kasan-dev@googlegroups.com,
 	akpm@linux-foundation.org, yuzenghui@huawei.com,
 	suzuki.poulose@arm.com, joey.gouly@arm.com, masahiroy@kernel.org,
 	nathan@kernel.org, nicolas.schier@linux.dev
-Subject: Re: [PATCH v2 3/4] KVM: arm64: Introduce CONFIG_UBSAN_KVM_EL2
-Message-ID: <202504301130.3AACEB0@keescook>
+Subject: Re: [PATCH v2 4/4] KVM: arm64: Handle UBSAN faults
+Message-ID: <202504301131.E58BEF14@keescook>
 References: <20250430162713.1997569-1-smostafa@google.com>
- <20250430162713.1997569-4-smostafa@google.com>
+ <20250430162713.1997569-5-smostafa@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250430162713.1997569-4-smostafa@google.com>
+In-Reply-To: <20250430162713.1997569-5-smostafa@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_113042_079719_19ED9155 
-X-CRM114-Status: GOOD (  13.86  )
+X-CRM114-CacheID: sfid-20250430_113115_782134_081916D8 
+X-CRM114-Status: UNSURE (   8.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,21 +82,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 30, 2025 at 04:27:10PM +0000, Mostafa Saleh wrote:
-> Add a new Kconfig CONFIG_UBSAN_KVM_EL2 for KVM which enables
-> UBSAN for EL2 code (in protected/nvhe/hvhe) modes.
-> This will re-use the same checks enabled for the kernel for
-> the hypervisor. The only difference is that for EL2 it always
-> emits a "brk" instead of implementing hooks as the hypervisor
-> can't print reports.
-> 
-> The KVM code will re-use the same code for the kernel
-> "report_ubsan_failure()" so #ifdefs are changed to also have this
-> code for CONFIG_UBSAN_KVM_EL2
+On Wed, Apr 30, 2025 at 04:27:11PM +0000, Mostafa Saleh wrote:
+> As now UBSAN can be enabled, handle brk64 exits from UBSAN.
+> Re-use the decoding code from the kernel, and panic with
+> UBSAN message.
 > 
 > Signed-off-by: Mostafa Saleh <smostafa@google.com>
 
-Thanks for the rename, this looks good!
+Looks correct to me.
 
 Reviewed-by: Kees Cook <kees@kernel.org>
 
