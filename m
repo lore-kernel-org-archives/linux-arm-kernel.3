@@ -4,51 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5866C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 17:35:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF5B1C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 17:47:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=i7R8z0fWfdikUJKaL78mjsRuSRfEyFZMi03wrinp9mw=; b=cNAZne4YZipV7AyAbe/kRi54SI
-	mrfFg7nyUHM2yAD+NxQO95OV69SxdLIEVYjJp1qDaC9c5RAoXfA5romTtQ1FYO6gKMjOa7tkWMdIE
-	QpTwXZVdsRP4bd+vwf8gkwp8g0pMf6KyDkqIJVYxAuQn1R6DnpWWtzkLGGaF8jhErcTm4y958aEsW
-	zRfQqsoLThBEZ8PAFDXnUa++tS9pj1A888MbBEtVl6v8gEz4VXv2b0onnEiLrHtjThKTczjcWfghO
-	3XjNKMJw5tQjgFlflkMP8hCcPMwd9h4Ox7A5LGiA1cggUdHxSS/RsFad/jLckQ0JBGmtFJD+LNs3F
-	AK5n2bxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3LIy8RjJcHA6kmS230+26y/VusUu4oONIC/b+zJtksg=; b=FG6JxfeYjSyRJqKOIh0ct0xkuP
+	+SAhgtcaW7hBFn/USIp1nl8oDMHqAL65cMFtT6UVPba6sBLhaRxb+K5ehEwmj/ApGUzVvUtPF5aWx
+	jOBLiIfqxE3SHwX/0NEAQpZfOwiwsLdjwmV/fa5+AY6rBOmhp2osYXNCDh4Uy9SmG6JqVZloVuc02
+	HYk+DF+96p40LauUaAsrxOn3tR/FMMcZc4BSzvF63Na8e5DElIL2zjKr5RvNWUYStEXy2klRCk3rT
+	CA4EfuXwwKgqHZAjVGmitHuuZDRl979s4xHBE8JjB/yQViCR3KrQo31bgCtoqFwxrB/KjTenZNyeW
+	JCW/8HoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uABKi-0000000DYqz-2g78;
-	Wed, 30 Apr 2025 17:34:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uABIm-0000000DYl8-0sxX
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 17:32:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1B0061063;
-	Wed, 30 Apr 2025 10:32:45 -0700 (PDT)
-Received: from lakrids.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3B4073F5A1;
-	Wed, 30 Apr 2025 10:32:51 -0700 (PDT)
-From: Mark Rutland <mark.rutland@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: broonie@kernel.org,
-	catalin.marinas@arm.com,
-	mark.rutland@arm.com,
-	maz@kernel.org,
-	will@kernel.org
-Subject: [PATCH] arm64/fpsimd: Avoid warning when sve_to_fpsimd() is unused
-Date: Wed, 30 Apr 2025 18:32:40 +0100
-Message-Id: <20250430173240.4023627-1-mark.rutland@arm.com>
-X-Mailer: git-send-email 2.30.2
+	id 1uABX7-0000000DZxG-0R4A;
+	Wed, 30 Apr 2025 17:47:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uABVC-0000000DZnF-3gYB;
+	Wed, 30 Apr 2025 17:45:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 39BE86842A;
+	Wed, 30 Apr 2025 17:45:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7027EC4CEE7;
+	Wed, 30 Apr 2025 17:45:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746035146;
+	bh=KRq3ObS+7bPSh5npZvFvh2C1vvjoanHB8ALoJ0Lw5oY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=b5Ki7ZeoUb9ZN4LPaDEoM1o1bvfVz7fD1oztts7rOpVhwqg4oS5OvcmfJCGu3gxUH
+	 fT26UoXeSWagXlFQb3TkXpFnlFx9pI6CdXses/373TH68nkQ5m1XnkeCZyjTB3pjL8
+	 hB2unDN1O+ZToSdOpBH6aVt6DnPXIiit23u0m97zhbqweH/oPbGvmEvxIZXP3/PGuI
+	 fXfOoMh+QT2xdYboklbx8EcmahcftGMdK+N5ysjtRDWRo5qH2CA9yak25NsdYdhKlS
+	 5Unk+mvpoO/hy1QMjlUYCjybEmTkDQ2xbgxYdXD5WmCQ7eiojk/2fQ1VOdLNWLhrd4
+	 FfCKW0EMC7VFg==
+Date: Wed, 30 Apr 2025 10:45:43 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Herbert Xu <herbert@gondor.apana.org.au>
+Cc: Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	sparclinux@vger.kernel.org, linux-s390@vger.kernel.org,
+	x86@kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: Re: [PATCH 00/12] crypto: sha256 - Use partial block API
+Message-ID: <20250430174543.GB1958@sol.localdomain>
+References: <cover.1745992998.git.herbert@gondor.apana.org.au>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_103256_297125_2B43031F 
-X-CRM114-Status: GOOD (  12.49  )
+In-Reply-To: <cover.1745992998.git.herbert@gondor.apana.org.au>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,75 +74,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Historically fpsimd_to_sve() and sve_to_fpsimd() were (conditionally)
-called by functions which were defined regardless of CONFIG_ARM64_SVE.
-Hence it was necessary that both fpsimd_to_sve() and sve_to_fpsimd()
-were always defined and not guarded by ifdeffery.
+[Added back Cc's that were dropped]
 
-As a result of the removal of fpsimd_signal_preserve_current_state() in
-commit:
+On Wed, Apr 30, 2025 at 02:06:15PM +0800, Herbert Xu wrote:
+> This is based on
+> 
+> 	https://patchwork.kernel.org/project/linux-crypto/list/?series=957785
 
-  929fa99b1215966f ("arm64/fpsimd: signal: Always save+flush state early")
+I'm assuming that you mean that with your diff
+https://lore.kernel.org/r/aBGdiv17ztQnhAps@gondor.apana.org.au folded into my
+first patch, since otherwise your patch series doesn't apply.  But even with
+that done, your patch series doesn't build:
 
-... sve_to_fpsimd() has no callers when CONFIG_ARM64_SVE=n, resulting in
-a build-time warnign that it is unused:
+    In file included from ./include/crypto/hash_info.h:12,
+                     from crypto/hash_info.c:9:
+    ./include/crypto/sha2.h: In function ‘sha256_init’:
+    ./include/crypto/sha2.h:101:32: error: ‘struct sha256_state’ has no member named ‘ctx’
+      101 |         sha256_block_init(&sctx->ctx);
+          |                                ^~
 
-| arch/arm64/kernel/fpsimd.c:676:13: warning: unused function 'sve_to_fpsimd' [-Wunused-function]
-|   676 | static void sve_to_fpsimd(struct task_struct *task)
-|       |             ^~~~~~~~~~~~~
-| 1 warning generated.
+> Rather than going through the lib/sha256 partial block handling,
+> use the native shash partial block API.  Add two extra shash
+> algorithms to provide testing coverage for lib/sha256.
+> 
+> Herbert Xu (12):
+>   crypto: lib/sha256 - Restore lib_sha256 finup code
+>   crypto: sha256 - Use the partial block API for generic
+>   crypto: arm/sha256 - Add simd block function
+>   crypto: arm64/sha256 - Add simd block function
+>   crypto: mips/sha256 - Export block functions as GPL only
+>   crypto: powerpc/sha256 - Export block functions as GPL only
+>   crypto: riscv/sha256 - Add simd block function
+>   crypto: s390/sha256 - Export block functions as GPL only
+>   crypto: sparc/sha256 - Export block functions as GPL only
+>   crypto: x86/sha256 - Add simd block function
+>   crypto: lib/sha256 - Use generic block helper
+>   crypto: sha256 - Use the partial block API
+>
+>  arch/arm/lib/crypto/Kconfig                   |   1 +
+>  arch/arm/lib/crypto/sha256-armv4.pl           |  20 +--
+>  arch/arm/lib/crypto/sha256.c                  |  16 +--
+>  arch/arm64/crypto/sha512-glue.c               |   6 +-
+>  arch/arm64/lib/crypto/Kconfig                 |   1 +
+>  arch/arm64/lib/crypto/sha2-armv8.pl           |   2 +-
+>  arch/arm64/lib/crypto/sha256.c                |  16 +--
+>  .../mips/cavium-octeon/crypto/octeon-sha256.c |   4 +-
+>  arch/powerpc/lib/crypto/sha256.c              |   4 +-
+>  arch/riscv/lib/crypto/Kconfig                 |   1 +
+>  arch/riscv/lib/crypto/sha256.c                |  17 ++-
+>  arch/s390/lib/crypto/sha256.c                 |   4 +-
+>  arch/sparc/lib/crypto/sha256.c                |   4 +-
+>  arch/x86/lib/crypto/Kconfig                   |   1 +
+>  arch/x86/lib/crypto/sha256.c                  |  16 ++-
+>  crypto/sha256.c                               | 134 +++++++++++-------
+>  include/crypto/internal/sha2.h                |  46 ++++++
+>  include/crypto/sha2.h                         |  14 +-
+>  lib/crypto/Kconfig                            |   8 ++
+>  lib/crypto/sha256.c                           | 100 +++----------
+>  20 files changed, 232 insertions(+), 183 deletions(-)
 
-In contrast, fpsimd_to_sve() still has callers which are defined when
-CONFIG_ARM64_SVE=n, and it would be awkward to hide this behind
-ifdeffery and/or to use stub functions.
+The EXPORT_SYMBOL => EXPORT_SYMBOL_GPL changes are fine and should just be one
+patch.  I was just trying to be consistent with lib/crypto/sha256.c which uses
+EXPORT_SYMBOL, but EXPORT_SYMBOL_GPL is fine too.
 
-For now, suppress the warning by marking both fpsimd_to_sve() and
-sve_to_fpsimd() as 'static inline', as we usually do for stub functions.
-The compiler will no longer warn if either function is unused.
+Everything else in this series is harmful, IMO.
 
-Aside from suppressing the warning, there should be no functional change
-as a result of this patch.
+I already covered why crypto_shash should simply use the library and not do
+anything special.
 
-Link: https://lore.kernel.org/linux-arm-kernel/20250429194600.GA26883@willie-the-truck/
-Reported-by: Will Deacon <will@kernel.org>
-Fixes: 929fa99b1215966f ("arm64/fpsimd: signal: Always save+flush state early")
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>
-Cc: Will Deacon <will@kernel.org>
----
- arch/arm64/kernel/fpsimd.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+As for your sha256_finup "optimization", it's an interesting idea, but
+unfortunately it slightly slows down the common case which is count % 64 < 56,
+due to the unnecessary copy to the stack and the following zeroization.  In the
+uncommon case where count % 64 >= 56 you do get to pass nblocks=2 to
+sha256_blocks_*(), but ultimately SHA-256 is serialized block-by-block anyway,
+so it ends up being only slightly faster in that case, which again is the
+uncommon case.  So while it's an interesting idea, it doesn't seem to actually
+be better.  And the fact that that patch is also being used to submit unrelated,
+more dubious changes isn't very helpful, of course.
 
-Catalin, this is a fix for a patch currently queued up in the arm64
-for-next/sme-fixes branch. Are you happy to apply it atop?
-
-Mark.
-
-diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index b0874402f7ecc..422b9d43b1e64 100644
---- a/arch/arm64/kernel/fpsimd.c
-+++ b/arch/arm64/kernel/fpsimd.c
-@@ -649,7 +649,7 @@ static void __fpsimd_to_sve(void *sst, struct user_fpsimd_state const *fst,
-  * task->thread.uw.fpsimd_state must be up to date before calling this
-  * function.
-  */
--static void fpsimd_to_sve(struct task_struct *task)
-+static inline void fpsimd_to_sve(struct task_struct *task)
- {
- 	unsigned int vq;
- 	void *sst = task->thread.sve_state;
-@@ -673,7 +673,7 @@ static void fpsimd_to_sve(struct task_struct *task)
-  * bytes of allocated kernel memory.
-  * task->thread.sve_state must be up to date before calling this function.
-  */
--static void sve_to_fpsimd(struct task_struct *task)
-+static inline void sve_to_fpsimd(struct task_struct *task)
- {
- 	unsigned int vq, vl;
- 	void const *sst = task->thread.sve_state;
--- 
-2.30.2
-
+- Eric
 
