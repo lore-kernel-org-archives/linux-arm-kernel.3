@@ -4,107 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D47CAC3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 21:31:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 663C2C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 21:33:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eSDMr6CrswXgqByQYff1QxuCHlV9bXTUySTX4ETsg9o=; b=HnzuZ/U6WIhkx9YlmkKud8w4UG
-	S5fkZerrVp3njokfXtstofofpSC45boR9bUsOGkDTP8um3J1uMubqB+8qzifuRe1fmXZat4fYNbZT
-	Y7jhBN1l02eL4WYqmqxuPRlbSyjpiBjCGnz+1EgdEk/X/LtFkIQ9pqx0PMxKrpFK/AWWmFn/zJmuv
-	UMUJZ82Aij5J7b5yydUuKPpcINJhFHvuU4a08TEOEXBP2KUgBCM6gUTq4G9Uwqt3kIw6vLYng25wd
-	sdR0DKCDhsdZcz/ABYkc+G/XeJStxIqNDo5MGmvZG/BtNVZxA9i5Cu4Gvn3qBawgBY0k1CXQGcyFK
-	rpSL8x3A==;
+	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
+	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xuwtCmee8bUCMaCxATpebgMybOMoD89ZAK9YtlS2GJU=; b=KUV0oUv/N9lENd70ccJZT+V54s
+	vstX+zktebWCw8r5Eq5YJkh+o0tVQ+d27TUTYH8kiT4QAbcio/hpJZSS7Iw83jf3aWNSywB3m4TUD
+	vbPy/gXLWrxN9uaaSYEAwHSOV9ymIF0ZXT2h9LQ90NVguDr30WHNwWExGl0Oyl+s+s+JJ0iD0Vw0r
+	zXUGkbpUsdP1YK1i+FCIunGSRvqsh9NJpQzYBBj2Lj4wVs1BG+dbIBQyQsjlOTU8FJEvDvpAGVbcV
+	zLeiB0S88AK/MCvHdvYoctuPR7JF+DLVSaBihZCHaRz205keekhGrnCjbeD/0W2SeXGQJToLvkRMo
+	h+kUaIPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAF1b-0000000E4iz-0WgR;
-	Wed, 30 Apr 2025 21:31:27 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uAF3F-0000000E5Li-3dSR;
+	Wed, 30 Apr 2025 21:33:09 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uADy1-0000000DtzV-0oVY
+	id 1uAF1I-0000000E4dr-0iky
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 20:23:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1746044619;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eSDMr6CrswXgqByQYff1QxuCHlV9bXTUySTX4ETsg9o=;
-	b=Zp50p+fqsj8B5+Gb8uht3Q6GvBQBWAoWU6ndgSFonD8pYdLmOpnklxkK3ixt0rc2FJj6fo
-	OY/Kh+0kKR9lioBR8lah9ZfIFJbNmWRRL5ZUh68OykdNMcyYE79lz/8B7SMFSJKM8r28Hi
-	VwLwQuWOg33NRe2JNXxjXG2uRgEjilk=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-311-Ajtwh_PZMfWmHP00FkIbkg-1; Wed,
- 30 Apr 2025 16:23:35 -0400
-X-MC-Unique: Ajtwh_PZMfWmHP00FkIbkg-1
-X-Mimecast-MFC-AGG-ID: Ajtwh_PZMfWmHP00FkIbkg_1746044611
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id C079F18001D5;
-	Wed, 30 Apr 2025 20:23:29 +0000 (UTC)
-Received: from intellaptop.lan (unknown [10.22.80.5])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 9BF0218001EF;
-	Wed, 30 Apr 2025 20:23:22 +0000 (UTC)
-From: Maxim Levitsky <mlevitsk@redhat.com>
-To: kvm@vger.kernel.org
-Cc: "H. Peter Anvin" <hpa@zytor.com>,
-	x86@kernel.org,
-	Maxim Levitsky <mlevitsk@redhat.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Will Deacon <will@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Kunkun Jiang <jiangkunkun@huawei.com>,
-	Jing Zhang <jingzhangos@google.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Keisuke Nishimura <keisuke.nishimura@inria.fr>,
-	Anup Patel <anup@brainfault.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	kvmarm@lists.linux.dev,
-	Waiman Long <longman@redhat.com>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Peter Zijlstra <peterz@infradead.org>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Sebastian Ott <sebott@redhat.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Sean Christopherson <seanjc@google.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Alexander Potapenko <glider@google.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Shusen Li <lishusen2@huawei.com>,
-	kvm-riscv@lists.infradead.org
-Subject: [PATCH v3 1/4] arm64: KVM: use mutex_trylock_nest_lock when locking all vCPUs
-Date: Wed, 30 Apr 2025 16:23:08 -0400
-Message-ID: <20250430202311.364641-2-mlevitsk@redhat.com>
-In-Reply-To: <20250430202311.364641-1-mlevitsk@redhat.com>
-References: <20250430202311.364641-1-mlevitsk@redhat.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+	Wed, 30 Apr 2025 21:31:09 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-3011bee1751so278917a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 14:31:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1746048666; x=1746653466; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xuwtCmee8bUCMaCxATpebgMybOMoD89ZAK9YtlS2GJU=;
+        b=YswCFDk+XwEj2cXH5DCPbDCHl4edNaGAop9vP0mGPz14f2jrzcahLFIsAUZfTiLGqd
+         nY4vNZ60bQh290JaIlzIYED365cQiOVyrAUcIFqMjuGuXiZB9745nTH6Efl4zaX/Fj5s
+         /NI4ZL0qtgKN3IGYq8yllz+HGePkmwG4JeDymLYOU4E8GzYrtZyhq2sz7Ki9MXDpoOLm
+         ZZaJqNkFR4Dseh4oLHcuIrMJrPIzxOl6uVALbPG9bABSHq600/Tr0KR/p+z6MOAeAM8M
+         RPWgisKn28xcb/083mkAab3bFhaHFhkL5jYsLzysL2oAq5Z2KY7F9ecFfdVc83PiFPO2
+         ATFg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746048666; x=1746653466;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=xuwtCmee8bUCMaCxATpebgMybOMoD89ZAK9YtlS2GJU=;
+        b=pDmw0jjbcwTJDHuzLuJx3ZNUVg1U6yltHzUfqmAa2TzNp++1bDDhpPVQevHBNx6OM2
+         ZzpSLoQmzr5zqEvHxwA/DsZuizmKRP5Y/xRR6sjtRTveAv+TSlOI3tz2Yb3U9N4Ugelr
+         eL9Hsxpe4YnCum/NU2g53g90GSHra5sTGcp2lEqGQAakV7mB5xL6CHbuwvRCQ2r292u2
+         xf2b/Mxr2O2Gs0Rx+GxT/cjahF6P3OEgzH2Wspdxt9+6eeLWxg9v1nM/kuVJR1vRlnRy
+         CqQtZW2T645VKOF0XGigmaCLBZzvPJL/ERVyIsvQdO14BAn/9PL2s0vOXZqFl4jbq1C+
+         EJlw==
+X-Forwarded-Encrypted: i=1; AJvYcCXdeyhUq+FSu/bU45cn9ANYj0kus2s9EaQIM/d0omS1arWONvqajiEMAq3tiCUlSiSdskEBfH1SHtzBIThtouKt@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy6sD0ACmPZx/cm4ZcrIOs819/2zhCPwMkR1Mf2YGkfwoynFpqJ
+	0YA7CRMGYyHZ/1QxLasVeCBuk6+SJr8vd+C2Rav462753XJu5qTcJLzrNy1X2Kg+LlymB1XBxfu
+	/lg==
+X-Google-Smtp-Source: AGHT+IF7u1ROE1txYWgvgQtIPyo8p3omIkgPpGClJtR2AwQs8qcKywBRQB3ypqTRcMHct1VgXw598olvhbg=
+X-Received: from pjbsn16.prod.google.com ([2002:a17:90b:2e90:b0:2fc:2f33:e07d])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:da8e:b0:2ff:7b28:a51a
+ with SMTP id 98e67ed59e1d1-30a34409defmr7144925a91.17.1746048666708; Wed, 30
+ Apr 2025 14:31:06 -0700 (PDT)
+Date: Wed, 30 Apr 2025 14:31:05 -0700
+In-Reply-To: <20250222005943.3348627-3-vipinsh@google.com>
+Mime-Version: 1.0
+References: <20250222005943.3348627-1-vipinsh@google.com> <20250222005943.3348627-3-vipinsh@google.com>
+Message-ID: <aBKWmRDBrjeZhAW0@google.com>
+Subject: Re: [PATCH 2/2] KVM: selftests: Create KVM selftest runner
+From: Sean Christopherson <seanjc@google.com>
+To: Vipin Sharma <vipinsh@google.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, pbonzini@redhat.com, 
+	anup@brainfault.org, borntraeger@linux.ibm.com, frankja@linux.ibm.com, 
+	imbrenda@linux.ibm.com, maz@kernel.org, oliver.upton@linux.dev
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_132341_314515_479314B1 
-X-CRM114-Status: GOOD (  24.87  )
+X-CRM114-CacheID: sfid-20250430_143108_212534_9142C9B2 
+X-CRM114-Status: GOOD (  35.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,311 +93,262 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use mutex_trylock_nest_lock instead of mutex_trylock when locking all vCPUs
-of a VM, to avoid triggering a lockdep warning, if the VM is configured to
-have more than MAX_LOCK_DEPTH vCPUs.
+This is awesome!
 
-This fixes the following false lockdep warning:
+I have lots of idea, but not all of them need to be address for the initial
+commit.  Some of them I would consider blockers, but I also don't want to e=
+nd up
+with massive scope creep that causes this to stall out for (more) months on=
+ end.
 
-[  328.171264] BUG: MAX_LOCK_DEPTH too low!
-[  328.175227] turning off the locking correctness validator.
-[  328.180726] Please attach the output of /proc/lock_stat to the bug report
-[  328.187531] depth: 48  max: 48!
-[  328.190678] 48 locks held by qemu-kvm/11664:
-[  328.194957]  #0: ffff800086de5ba0 (&kvm->lock){+.+.}-{3:3}, at: kvm_ioctl_create_device+0x174/0x5b0
-[  328.204048]  #1: ffff0800e78800b8 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
-[  328.212521]  #2: ffff07ffeee51e98 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
-[  328.220991]  #3: ffff0800dc7d80b8 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
-[  328.229463]  #4: ffff07ffe0c980b8 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
-[  328.237934]  #5: ffff0800a3883c78 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
-[  328.246405]  #6: ffff07fffbe480b8 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
+On Fri, Feb 21, 2025, Vipin Sharma wrote:
+> Create KVM selftest runner to run selftests and provide various options
+> for execution.
+>=20
+> Provide following features in the runner:
+> 1. --timeout/-t: Max time each test should finish in before killing it.
 
-Since the locking of all vCPUs is a primitive that can be useful in other
-architectures that are supported by KVM, also move the code to kvm_main.c
+The help for this needs to specify the units.  I assume it's seconds?
 
-Suggested-by: Paolo Bonzini <pbonzini@redhat.com>
-Signed-off-by: Maxim Levitsky <mlevitsk@redhat.com>
----
- arch/arm64/include/asm/kvm_host.h     |  3 --
- arch/arm64/kvm/arch_timer.c           |  4 +--
- arch/arm64/kvm/arm.c                  | 43 ---------------------------
- arch/arm64/kvm/vgic/vgic-init.c       |  4 +--
- arch/arm64/kvm/vgic/vgic-its.c        |  8 ++---
- arch/arm64/kvm/vgic/vgic-kvm-device.c | 12 ++++----
- include/linux/kvm_host.h              |  3 ++
- virt/kvm/kvm_main.c                   | 34 +++++++++++++++++++++
- 8 files changed, 51 insertions(+), 60 deletions(-)
+> 2. --jobs/-j: Run these many tests in parallel.
+> 3. --tests: Provide space separated path of tests to execute.
+> 4. --test_dirs: Directories to search for test files and run them.
+> 5. --output/-o: Create the folder with given name and dump output of
+>    each test in a hierarchical way.
+> 6. Add summary at the end.
+>=20
+> Runner needs testcase files which are provided in the previous patch.
+> Following are the examples to start the runner (cwd is
+> tools/testing/selftests/kvm)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index e98cfe7855a6..96ce0b01a61e 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1263,9 +1263,6 @@ int __init populate_sysreg_config(const struct sys_reg_desc *sr,
- 				  unsigned int idx);
- int __init populate_nv_trap_config(void);
- 
--bool lock_all_vcpus(struct kvm *kvm);
--void unlock_all_vcpus(struct kvm *kvm);
--
- void kvm_calculate_traps(struct kvm_vcpu *vcpu);
- 
- /* MMIO helpers */
-diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-index 5133dcbfe9f7..fdbc8beec930 100644
---- a/arch/arm64/kvm/arch_timer.c
-+++ b/arch/arm64/kvm/arch_timer.c
-@@ -1766,7 +1766,7 @@ int kvm_vm_ioctl_set_counter_offset(struct kvm *kvm,
- 
- 	mutex_lock(&kvm->lock);
- 
--	if (lock_all_vcpus(kvm)) {
-+	if (!kvm_trylock_all_vcpus(kvm)) {
- 		set_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &kvm->arch.flags);
- 
- 		/*
-@@ -1778,7 +1778,7 @@ int kvm_vm_ioctl_set_counter_offset(struct kvm *kvm,
- 		kvm->arch.timer_data.voffset = offset->counter_offset;
- 		kvm->arch.timer_data.poffset = offset->counter_offset;
- 
--		unlock_all_vcpus(kvm);
-+		kvm_unlock_all_vcpus(kvm);
- 	} else {
- 		ret = -EBUSY;
- 	}
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 68fec8c95fee..d31f42a71bdc 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -1914,49 +1914,6 @@ int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
- 	}
- }
- 
--/* unlocks vcpus from @vcpu_lock_idx and smaller */
--static void unlock_vcpus(struct kvm *kvm, int vcpu_lock_idx)
--{
--	struct kvm_vcpu *tmp_vcpu;
--
--	for (; vcpu_lock_idx >= 0; vcpu_lock_idx--) {
--		tmp_vcpu = kvm_get_vcpu(kvm, vcpu_lock_idx);
--		mutex_unlock(&tmp_vcpu->mutex);
--	}
--}
--
--void unlock_all_vcpus(struct kvm *kvm)
--{
--	lockdep_assert_held(&kvm->lock);
--
--	unlock_vcpus(kvm, atomic_read(&kvm->online_vcpus) - 1);
--}
--
--/* Returns true if all vcpus were locked, false otherwise */
--bool lock_all_vcpus(struct kvm *kvm)
--{
--	struct kvm_vcpu *tmp_vcpu;
--	unsigned long c;
--
--	lockdep_assert_held(&kvm->lock);
--
--	/*
--	 * Any time a vcpu is in an ioctl (including running), the
--	 * core KVM code tries to grab the vcpu->mutex.
--	 *
--	 * By grabbing the vcpu->mutex of all VCPUs we ensure that no
--	 * other VCPUs can fiddle with the state while we access it.
--	 */
--	kvm_for_each_vcpu(c, tmp_vcpu, kvm) {
--		if (!mutex_trylock(&tmp_vcpu->mutex)) {
--			unlock_vcpus(kvm, c - 1);
--			return false;
--		}
--	}
--
--	return true;
--}
--
- static unsigned long nvhe_percpu_size(void)
- {
- 	return (unsigned long)CHOOSE_NVHE_SYM(__per_cpu_end) -
-diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
-index 1f33e71c2a73..6a426d403a6b 100644
---- a/arch/arm64/kvm/vgic/vgic-init.c
-+++ b/arch/arm64/kvm/vgic/vgic-init.c
-@@ -88,7 +88,7 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
- 	lockdep_assert_held(&kvm->lock);
- 
- 	ret = -EBUSY;
--	if (!lock_all_vcpus(kvm))
-+	if (kvm_trylock_all_vcpus(kvm))
- 		return ret;
- 
- 	mutex_lock(&kvm->arch.config_lock);
-@@ -142,7 +142,7 @@ int kvm_vgic_create(struct kvm *kvm, u32 type)
- 
- out_unlock:
- 	mutex_unlock(&kvm->arch.config_lock);
--	unlock_all_vcpus(kvm);
-+	kvm_unlock_all_vcpus(kvm);
- 	return ret;
- }
- 
-diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-index fb96802799c6..7454388e3646 100644
---- a/arch/arm64/kvm/vgic/vgic-its.c
-+++ b/arch/arm64/kvm/vgic/vgic-its.c
-@@ -1999,7 +1999,7 @@ static int vgic_its_attr_regs_access(struct kvm_device *dev,
- 
- 	mutex_lock(&dev->kvm->lock);
- 
--	if (!lock_all_vcpus(dev->kvm)) {
-+	if (kvm_trylock_all_vcpus(dev->kvm)) {
- 		mutex_unlock(&dev->kvm->lock);
- 		return -EBUSY;
- 	}
-@@ -2034,7 +2034,7 @@ static int vgic_its_attr_regs_access(struct kvm_device *dev,
- 	}
- out:
- 	mutex_unlock(&dev->kvm->arch.config_lock);
--	unlock_all_vcpus(dev->kvm);
-+	kvm_unlock_all_vcpus(dev->kvm);
- 	mutex_unlock(&dev->kvm->lock);
- 	return ret;
- }
-@@ -2704,7 +2704,7 @@ static int vgic_its_ctrl(struct kvm *kvm, struct vgic_its *its, u64 attr)
- 
- 	mutex_lock(&kvm->lock);
- 
--	if (!lock_all_vcpus(kvm)) {
-+	if (kvm_trylock_all_vcpus(kvm)) {
- 		mutex_unlock(&kvm->lock);
- 		return -EBUSY;
- 	}
-@@ -2726,7 +2726,7 @@ static int vgic_its_ctrl(struct kvm *kvm, struct vgic_its *its, u64 attr)
- 
- 	mutex_unlock(&its->its_lock);
- 	mutex_unlock(&kvm->arch.config_lock);
--	unlock_all_vcpus(kvm);
-+	kvm_unlock_all_vcpus(kvm);
- 	mutex_unlock(&kvm->lock);
- 	return ret;
- }
-diff --git a/arch/arm64/kvm/vgic/vgic-kvm-device.c b/arch/arm64/kvm/vgic/vgic-kvm-device.c
-index 359094f68c23..f9ae790163fb 100644
---- a/arch/arm64/kvm/vgic/vgic-kvm-device.c
-+++ b/arch/arm64/kvm/vgic/vgic-kvm-device.c
-@@ -268,7 +268,7 @@ static int vgic_set_common_attr(struct kvm_device *dev,
- 				return -ENXIO;
- 			mutex_lock(&dev->kvm->lock);
- 
--			if (!lock_all_vcpus(dev->kvm)) {
-+			if (kvm_trylock_all_vcpus(dev->kvm)) {
- 				mutex_unlock(&dev->kvm->lock);
- 				return -EBUSY;
- 			}
-@@ -276,7 +276,7 @@ static int vgic_set_common_attr(struct kvm_device *dev,
- 			mutex_lock(&dev->kvm->arch.config_lock);
- 			r = vgic_v3_save_pending_tables(dev->kvm);
- 			mutex_unlock(&dev->kvm->arch.config_lock);
--			unlock_all_vcpus(dev->kvm);
-+			kvm_unlock_all_vcpus(dev->kvm);
- 			mutex_unlock(&dev->kvm->lock);
- 			return r;
- 		}
-@@ -390,7 +390,7 @@ static int vgic_v2_attr_regs_access(struct kvm_device *dev,
- 
- 	mutex_lock(&dev->kvm->lock);
- 
--	if (!lock_all_vcpus(dev->kvm)) {
-+	if (kvm_trylock_all_vcpus(dev->kvm)) {
- 		mutex_unlock(&dev->kvm->lock);
- 		return -EBUSY;
- 	}
-@@ -415,7 +415,7 @@ static int vgic_v2_attr_regs_access(struct kvm_device *dev,
- 
- out:
- 	mutex_unlock(&dev->kvm->arch.config_lock);
--	unlock_all_vcpus(dev->kvm);
-+	kvm_unlock_all_vcpus(dev->kvm);
- 	mutex_unlock(&dev->kvm->lock);
- 
- 	if (!ret && !is_write)
-@@ -554,7 +554,7 @@ static int vgic_v3_attr_regs_access(struct kvm_device *dev,
- 
- 	mutex_lock(&dev->kvm->lock);
- 
--	if (!lock_all_vcpus(dev->kvm)) {
-+	if (kvm_trylock_all_vcpus(dev->kvm)) {
- 		mutex_unlock(&dev->kvm->lock);
- 		return -EBUSY;
- 	}
-@@ -611,7 +611,7 @@ static int vgic_v3_attr_regs_access(struct kvm_device *dev,
- 
- out:
- 	mutex_unlock(&dev->kvm->arch.config_lock);
--	unlock_all_vcpus(dev->kvm);
-+	kvm_unlock_all_vcpus(dev->kvm);
- 	mutex_unlock(&dev->kvm->lock);
- 
- 	if (!ret && uaccess && !is_write) {
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index 1dedc421b3e3..10d6652c7aa0 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -1015,6 +1015,9 @@ static inline struct kvm_vcpu *kvm_get_vcpu_by_id(struct kvm *kvm, int id)
- 
- void kvm_destroy_vcpus(struct kvm *kvm);
- 
-+int kvm_trylock_all_vcpus(struct kvm *kvm);
-+void kvm_unlock_all_vcpus(struct kvm *kvm);
-+
- void vcpu_load(struct kvm_vcpu *vcpu);
- void vcpu_put(struct kvm_vcpu *vcpu);
- 
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index 69782df3617f..834f08dfa24c 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -1368,6 +1368,40 @@ static int kvm_vm_release(struct inode *inode, struct file *filp)
- 	return 0;
- }
- 
-+/*
-+ * Try to lock all of the VM's vCPUs.
-+ * Assumes that the kvm->lock is held.
-+ */
-+int kvm_trylock_all_vcpus(struct kvm *kvm)
-+{
-+	struct kvm_vcpu *vcpu;
-+	unsigned long i, j;
-+
-+	kvm_for_each_vcpu(i, vcpu, kvm)
-+		if (!mutex_trylock_nest_lock(&vcpu->mutex, &kvm->lock))
-+			goto out_unlock;
-+	return 0;
-+
-+out_unlock:
-+	kvm_for_each_vcpu(j, vcpu, kvm) {
-+		if (i == j)
-+			break;
-+		mutex_unlock(&vcpu->mutex);
-+	}
-+	return -EINTR;
-+}
-+EXPORT_SYMBOL_GPL(kvm_trylock_all_vcpus);
-+
-+void kvm_unlock_all_vcpus(struct kvm *kvm)
-+{
-+	struct kvm_vcpu *vcpu;
-+	unsigned long i;
-+
-+	kvm_for_each_vcpu(i, vcpu, kvm)
-+		mutex_unlock(&vcpu->mutex);
-+}
-+EXPORT_SYMBOL_GPL(kvm_unlock_all_vcpus);
-+
- /*
-  * Allocation size is twice as large as the actual dirty bitmap size.
-  * See kvm_vm_ioctl_get_dirty_log() why this is needed.
--- 
-2.46.0
+The runner definitely needs a command line option to specify the path to th=
+e
+test executables.  Defaulting to in-tree builds is totally fine, but we sho=
+uld
+also support out-of-tree builds (or copying to a remote host, etc.).
 
+The default testcases will have relative paths, e.g. $arch/$test, so the us=
+er
+will still need to maintain the same directory structure as in-tree builds,=
+ but
+IMO that's totally fine.
+
+> - Basic run:
+>   python3 runner --test_dirs testcases
+>=20
+> - Run specific test
+>   python3 runner --tests ./testcases/dirty_log_perf_test/default.test
+>=20
+> - Run tests parallel
+>   python3 runner --test_dirs testcases -j 10
+>=20
+> - Run 5 tests parallely at a time, with the timeout of 10 seconds and
+>   dump output in "result" directory
+>   python3 runner --test_dirs testcases -j 5 -t 10 --output result
+>=20
+> Sample output from the above command:
+>=20
+> python3_binary runner --test_dirs testcases -j 5 -t 10 --output result
+>=20
+> 2025-02-21 16:45:46,774 | 16809 |     INFO | [Passed] testcases/guest_pri=
+nt_test/default.test
+> 2025-02-21 16:45:47,040 | 16809 |     INFO | [Passed] testcases/kvm_creat=
+e_max_vcpus/default.test
+> 2025-02-21 16:45:49,244 | 16809 |     INFO | [Passed] testcases/dirty_log=
+_perf_test/default.test
+
+
+Printing the timestamps to the console isn't terrible interesting, and IMO =
+isn't
+at all worth the noise.
+
+The PID is nice, but it needs to be printed _before_ the test finishes, and=
+ it
+needs to track the PID of the test.  If getting that working is non-trivial=
+,
+definitely punt it for the initial commit.
+
+And presumably INFO is the level of logging.  That needs to go.
+
+> ...
+> 2025-02-21 16:46:07,225 | 16809 |     INFO | [Passed] testcases/x86_64/pm=
+u_event_filter_test/default.test
+> 2025-02-21 16:46:08,020 | 16809 |     INFO | [Passed] testcases/x86_64/vm=
+x_preemption_timer_test/default.test
+> 2025-02-21 16:46:09,734 | 16809 |     INFO | [Timed out] testcases/x86_64=
+/pmu_counters_test/default.test
+
+I would really like to have terminal colored+bolded output for tests that f=
+ail
+(or timeout) or are skipped.
+
+I think we should also provide controls for the verbosity of the output.  E=
+.g. to
+skip printing tests that pass entirely.  My vote would be for a collection =
+of
+boolean knobs, i.e. not a log_level or whatever, because inevitably we'll e=
+nd up
+with output that isn't strictly "increasing".
+
+Adding a param to disable printing of passed tests is presumably trivial, s=
+o maybe
+do that for the initial commit, and then we can work on the fancier stuff?
+
+> 2025-02-21 16:46:10,202 | 16809 |     INFO | [Passed] testcases/hardware_=
+disable_test/default.test
+> 2025-02-21 16:46:10,203 | 16809 |     INFO | Tests ran: 85 tests
+
+It would be very nice to have a summary of things printed out periodically.=
+  E.g.
+if my normal run has a few failures, but the current run has already failed=
+ a
+decent number of tests, then I'd probably kill the run and start debugging.
+
+Alternatively, and maybe even better, would be to make the runner mildly in=
+teractive,
+i.e. to accept rudimentary commands while tests are running.  Then the user=
+ can
+query the state of things while the runner is still doing its thing.  E.g. =
+bind
+a few keys to print the various statuses.
+
+> 2025-02-21 16:46:10,204 | 16809 |     INFO | Passed: 61
+> 2025-02-21 16:46:10,204 | 16809 |     INFO | Failed: 4
+> 2025-02-21 16:46:10,204 | 16809 |     INFO | Skipped: 17
+> 2025-02-21 16:46:10,204 | 16809 |     INFO | Timed out: 3
+> 2025-02-21 16:46:10,204 | 16809 |     INFO | No run: 0
+
+A not-quite-mandatory, but very-nice-to-have feature would be the ability t=
+o
+display which tests Passed/Failed/Skipped/Timed Out/Incomplete, with comman=
+d line
+knobs for each.  My vote is for everything but Passed on-by-default, though=
+ it's
+easy enough to put a light wrapper around this (which I'll do no matter wha=
+t), so
+my preference for the default doesn't matter all that much.
+
+That could tie into the above idea of grabbing keys to print such informati=
+on on-demand.
+
+Also CTRL-C handling needs much more graceful output.  Ideally, no stack tr=
+aces
+whatsover, and instead a summary like the above, but with information about=
+ which
+tests didn't complete.
+
+> Output dumped in result directory
+>=20
+> $ tree result/
+> result/
+
+The runner should have an (on-by-default?) option to abort if the output di=
+rectory
+already exists, e.g. so that users don't clobber previous runs.  And/or an =
+option
+to append a timestamp, e.g. $result.yyyy.mm.dd.MM.SS, so that all users don=
+'t end
+up writing the same wrapper to generate a timestamp.
+
+Having a no-timestamp + overwrite mode is also useful, e.g. when I'm runnin=
+g in
+a more "interactive" mode where I'm doing initial testing of something, and=
+ I
+don't care about
+
+> =E2=94=9C=E2=94=80=E2=94=80 log
+> =E2=94=94=E2=94=80=E2=94=80 testcases
+>     =E2=94=9C=E2=94=80=E2=94=80 access_tracking_perf_test
+>     =E2=94=82=C2=A0=C2=A0 =E2=94=94=E2=94=80=E2=94=80 default.test
+>     =E2=94=82=C2=A0=C2=A0     =E2=94=9C=E2=94=80=E2=94=80 stderr
+>     =E2=94=82=C2=A0=C2=A0     =E2=94=94=E2=94=80=E2=94=80 stdout
+>     =E2=94=9C=E2=94=80=E2=94=80 coalesced_io_test
+>     =E2=94=82=C2=A0=C2=A0 =E2=94=94=E2=94=80=E2=94=80 default.test
+>     =E2=94=82=C2=A0=C2=A0     =E2=94=9C=E2=94=80=E2=94=80 stderr
+>     =E2=94=82=C2=A0=C2=A0     =E2=94=94=E2=94=80=E2=94=80 stdout
+> ...
+>=20
+> results/log file will have the status of each test like the one printed
+> on console. Each stderr and stdout will have data based on the
+> execution.
+>=20
+> Runner is implemented in python and needs at least 3.6 version.
+>=20
+> Signed-off-by: Vipin Sharma <vipinsh@google.com>
+> ---
+
+...
+
+> diff --git a/tools/testing/selftests/kvm/.gitignore b/tools/testing/selft=
+ests/kvm/.gitignore
+> index 550b7c2b4a0c..a23fd4b2cb5f 100644
+> --- a/tools/testing/selftests/kvm/.gitignore
+> +++ b/tools/testing/selftests/kvm/.gitignore
+> @@ -11,3 +11,4 @@
+>  !Makefile
+>  !Makefile.kvm
+>  !*.test
+> +!*.py
+
+Sort this alphabetically as well.
+
+> +def fetch_test_files(args):
+> +    exclude_dirs =3D ["aarch64", "x86_64", "riscv", "s390x"]
+
+These are now:
+
+arm64, x86, riscv, s390
+
+> +    def __init__(self, test_path, output_dir=3DNone, timeout=3DNone,):
+> +        test_command =3D pathlib.Path(test_path).read_text().strip()
+> +        if not test_command:
+> +            raise ValueError("Empty test command in " + test_path)
+> +
+> +        if output_dir is not None:
+> +            output_dir =3D os.path.join(output_dir, test_path)
+
+This doesn't do the right thing if test_path is absolute (or maybe it's if =
+the
+output_dir is in a completely different hierarchy?)
+
+I was able to fudge around this with=20
+
+diff --git a/tools/testing/selftests/kvm/runner/selftest.py b/tools/testing=
+/selftests/kvm/runner/selftest.py
+index cdf5d1085c08..3bce023693cb 100644
+--- a/tools/testing/selftests/kvm/runner/selftest.py
++++ b/tools/testing/selftests/kvm/runner/selftest.py
+@@ -30,7 +30,8 @@ class Selftest:
+             raise ValueError("Empty test command in " + test_path)
+=20
+         if output_dir is not None:
+-            output_dir =3D os.path.join(output_dir, test_path)
++            dirpath, filename =3D os.path.split(test_path)
++            output_dir =3D os.path.join(output_dir, os.path.basename(dirpa=
+th), filename)
+         self.test_path =3D test_path
+         self.command =3D command.Command(test_command, timeout, output_dir=
+)
+         self.status =3D SelftestStatus.NO_RUN
+
+Lastly, please don't wrap agressively (off-list, you mentioned it was due t=
+o a
+formatter?).  E.g.
+
+diff --git a/tools/testing/selftests/kvm/runner/test_runner.py b/tools/test=
+ing/selftests/kvm/runner/test_runner.py
+index b9d34c20bf88..5a568e155477 100644
+--- a/tools/testing/selftests/kvm/runner/test_runner.py
++++ b/tools/testing/selftests/kvm/runner/test_runner.py
+@@ -12,8 +12,7 @@ class TestRunner:
+         self.tests =3D []
+=20
+         for test_file in test_files:
+-            self.tests.append(selftest.Selftest(
+-                test_file, output_dir, timeout))
++            self.tests.append(selftest.Selftest(test_file, output_dir, tim=
+eout))
+=20
+     def _run(self, test):
+         test.run()
 
