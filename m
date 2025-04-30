@@ -4,83 +4,206 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 285F1C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 13:36:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81F33C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 13:39:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ajhOxA0iLtPGZthYkQtI8A6lcJYtYBFoJkVbhPTNhMI=; b=HLDcGFpL0Pbig6mO+0DPO/rZcO
-	h4UX1zn7WHG5NndJwbUtGknjdtAiT+uSh5n73RqZCMmD96py7YKE1IDPYJ4wztwiScyBFcgjgiBGY
-	HRtsli0p8MDDHq8pPry1p6BWAtGvwKAPjdwhwIR6OO4RhivjG7VZqBScoWmWtOYihxBcGbDUFhWs+
-	AVe2HcNhUVklP8p+LK1tyr4AHPXthP+DJQ3uZAGMcJKEU7D1t5yk3HZEJaiogM8ILKVUlZ878GBPK
-	XG9xAzLbpYhQPnHAMO7YykL3x5+91NRsN4xY7r49WtFlBdaxvHXEiWDBHGkZwQpJau6TChplTMM2Y
-	xy3BIyMg==;
+	bh=nvybNxceKOJmU7CwTHY9exM49vl8rDxE48LZYHBeurI=; b=GDA1ub5BUQ8t1kYlfxNwssmivj
+	tPcln083b/9w5hFQnWJa00pBZKBSQvRUQ/iYaJVnW05Qz3DqW1jRqskJbnbhQky8q4WRfp54RlpXr
+	o7FSuohtgPfzoR9Oay0dIwTKvP+nUmkcrJRwZPBD4N6o46gEbL4qFF7w7TBwh7ET5PHliCmTi4Xf9
+	aMPgMXw7qwt9s3rcjrWroZTzXdEn+ZlN0sb/pAr42sR9ui2kAOoBDR94Dxeioohod0BzXt7ZGDBbr
+	x8zxkWVouhMEf3nUuPwm8DZwHljIb6gwP+pYrQZjmgTqoflTbCrr+gvk51sS/cTra2cy/oVISy5uw
+	VVCiZGHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA7c9-0000000D1Dn-0xIp;
-	Wed, 30 Apr 2025 13:36:41 +0000
-Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
+	id 1uA7eF-0000000D1XD-0z9z;
+	Wed, 30 Apr 2025 13:38:51 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA7ZW-0000000D0ni-2KXw
+	id 1uA7cG-0000000D1LB-1Xez
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 13:33:59 +0000
-Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-301a4d5156aso9984281a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 06:33:58 -0700 (PDT)
+	Wed, 30 Apr 2025 13:36:49 +0000
+Received: from pps.filterd (m0246632.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53UDWpRL013713;
+	Wed, 30 Apr 2025 13:36:27 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	corp-2025-04-25; bh=nvybNxceKOJmU7CwTHY9exM49vl8rDxE48LZYHBeurI=; b=
+	ekTxxby5Efv0HYL97GKTmLX0kmyKOxexQkL3Zn8SVNjUu37qS0k3Hl04Ngrckyez
+	kUPPYPtYX2oRteOk/68H+9rVGmIQU/+E1RcS25TV1Y8WXG2vkU4ecbXcIavipqBn
+	fHPAfCGYOaIYf3OsNzvvVSCMjYMdIsVnTf2jqufkMvcu2j+2Bhvbya1bJUF2Bo6y
+	x8JNfJLYG1zdFCWNmiInMtkeKkQ8Bz0j1hPmZzuGW173Z8De33lgQCVvX2+m4vzL
+	HL5yDNO+o1/toejR2oxz+2mWa1KI0BUjjWxC03HibK0e1Kk9wt19cCpCot7N5Y7E
+	iPAJ/epfD0hTi6IVb/zPVQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	corp-2023-11-20; bh=nvybNxceKOJmU7CwTHY9exM49vl8rDxE48LZYHBeurI=; b=
+	BrFDZUar1PzwQWXmovxL3onbu7VOwacYWWHB3J+2eG+RwR27/IfHl7nQEjrunBK4
+	hyOH5ltppYzMa3VOLUG9AXIkKYx5+iddwcJnSC1Yhw7GLvzT4YC/lqLAFz+gulTv
+	nGIRjMzbTrap29smcUr+j4JyhsuLMYiyVl/qT6uziWDfS5tOnZGBmum7ych/N5q/
+	aAcjnbKpaHLG5SKN16FD9VNTYmLKdt1DwPN//6TghnnGZL1Rb7X2/pPxhP5HA8cW
+	04XA85mwU5tbQKqNuhVIR6dGnCEyoIwYpUiYkNVDMEpjk5zpxyvYZ694NzZHNS7K
+	pha4f0W6IH6o2KkyxTLPSg==
+Received: from phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta02.appoci.oracle.com [147.154.114.232])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 46b6ukh615-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 30 Apr 2025 13:36:26 +0000 (GMT)
+Received: from pps.filterd (phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 53UDEST4033502;
+	Wed, 30 Apr 2025 13:36:25 GMT
+Received: from nam12-mw2-obe.outbound.protection.outlook.com (mail-mw2nam12lp2048.outbound.protection.outlook.com [104.47.66.48])
+	by phxpaimrmta02.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 468nxbat2t-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 30 Apr 2025 13:36:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BiBVtJdpdwyipGpNzYW+pOQIW7+nHV5HxjKbU5/AqbqsaihbJnWul6e8g3AHRZM2YGlsezWmyRR+7ltt9njmJ1h1hDtS1CzihZQwUj6L4gJ+6xFm0hOzGbZqfWs/e7zJ6CL2TXw8ShHi3dhQDshZD7FMGQseTL/i1pRRBS3uQziJpJaN6XlXt/X0K5JhXLPpf1ear4qzRKzQFFhorTiEznpshKmwMlDJAwXS4n4QU4O6XX0yoTO24jnDZL6gV0y2JMJkUnld8KvyDeY4RXWHEaKGpU7biyZnSL7HjbDM8pSMi1OGqa5P7wn1xCXtW45zndrDoB4giIB8Fftj1NA2bQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GKKaP5u8xja2bFEHW4S1EnaeAx8ZRvSvRs3eAdvFdl8=;
+ b=kNKiPwBDqF4l1+r68SNiRBM9+nd80aniTJeVLfnPV71gd3gzhyy3p5vOaeSU90DyzBB+lp8CSscSbl45O5KdaC841M6zYFWRF7rBTXNg5/cUzmctdhf9JLUFUKmtHeY902so0I2Qb8ngC8bbEcEA091nWPUCZWQANHqoL7vrYmhI+gh28UN3ARi6wtX7Rj0L8Z8roR7vKkc3OWvJ3snQw1BQ4POHyDkb2dj0etltVJRtqy3HrVx6l/RUwGxBpFzsTfDchsJsOYsRz1pT5YroqSDhywWjz3oUOZsTlxiIsrZdassvCkUvWxZZJC+JBF6Ba2lHF7akLklvrARVRHW8BA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=lessconfused.com; s=lessconfused; t=1746020038; x=1746624838; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ajhOxA0iLtPGZthYkQtI8A6lcJYtYBFoJkVbhPTNhMI=;
-        b=Vr1OZzl79sd9EjTsLG8RhpxXoDVD/J71SkLc6SaDSUD74IjSJ+mMUYOBSV71CyZlRv
-         j5NXF4v1RwXO/awg5K02/mmG3BeMYX16JBLTIgtREHF+X/Te6VDFfyQXaIrzzigb1DnN
-         +fHjpgLM9srUGyDn2IZzlEFmbG2dm07Wkojgw=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746020038; x=1746624838;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ajhOxA0iLtPGZthYkQtI8A6lcJYtYBFoJkVbhPTNhMI=;
-        b=uxojek0b8vOrn8pfukAxtOKQI0xbn4evESJcwPRkcG4mKgYyLs6HSpjQSps3PJUSur
-         /mDCfGUE+24o/acIPZc2ptf1vnox1D9yI5YRyEn0JHAJeGw+PGhvU125gT2jH/5bB5o/
-         +TYwKbp/dYuVyMxFjWnjRkgQz+e8JdRJhYOrYiaWcQHy1nwWKvMqrKedSWSMuuYU5CY3
-         5lydnf4dmwpIsRhfxV9Ao/VyrdxW45z5pajJBAzEQe0PqfVopebi9f7cExmDcewO8g1n
-         twGO5fdZlQak+kGIDsRlvAqZWaBZAQRezQRDqtzHtpY9vu4hLSFPQ7z6IavD0pnCf3jy
-         g8ew==
-X-Forwarded-Encrypted: i=1; AJvYcCW7Mhtk9EtzQG8DYTIlw10tFzShThPtF8im7nyfnIQkAKflP428MIJA/umbUV1Hd1X0Lje8//nqwKmY9zUx1N4v@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLfV8qqeMtPlOVOWagz+tj+34+EE98h2sNtnckQdFRE1ludfsA
-	jeIBivEe+XyAR5znVJx/BxIXblujm1fGMhIgvRdh4RvxOqdrEugY6hge2wFMHTb3Zya4MtsEgqy
-	6q1yzJfxmMSBdBrXfrSJ4TXYvmoJZLBwbMiEsFg==
-X-Gm-Gg: ASbGncsT19Xb3Ibhzoo8Rtf/Ae7FV39RO2hmDWJs+5dZtQrNFvEJ0bdTlZgKyvQqul+
-	rv651tUbSbCpmSD9vqcSG4W7X+YloavN3PYxi6n1Q2T91Mxe/pnw4yEUfB7rwdggm7t7EuTWJ0F
-	wSRI1fnVLaGs+MZE2l644G4piRc8M/O/h23+Rt+LtIwRQbXL5J1D+LdjA=
-X-Google-Smtp-Source: AGHT+IHbzPeyJtSRyKZO2Vl0Bhsgs4DAx2IroFrsEz3RFT0nCQ9OG827L6aMMdnhNikRttLwYZXOzLzgBnKVihMBAyY=
-X-Received: by 2002:a17:90b:584f:b0:2ee:e945:5355 with SMTP id
- 98e67ed59e1d1-30a333020b2mr4073447a91.19.1746020037617; Wed, 30 Apr 2025
- 06:33:57 -0700 (PDT)
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GKKaP5u8xja2bFEHW4S1EnaeAx8ZRvSvRs3eAdvFdl8=;
+ b=HfUWmxgzA015I7GjcKH7pOayY8WFIXB6iqvw/FyVGJ5w3Du+UC6wVvzluYN8+kWfTOLn3kFAXaSqDDOUUUCZch2LA9Q8ubBwNk1HR2loJqZ1AhOmJVQ24aQ3r8jocz9VbqLBcGynl/BHFH/qUCp6KBv7FZiQnyLDrFOHLivv3cA=
+Received: from DM4PR10MB8218.namprd10.prod.outlook.com (2603:10b6:8:1cc::16)
+ by DS7PR10MB7131.namprd10.prod.outlook.com (2603:10b6:8:e4::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.31; Wed, 30 Apr
+ 2025 13:36:22 +0000
+Received: from DM4PR10MB8218.namprd10.prod.outlook.com
+ ([fe80::2650:55cf:2816:5f2]) by DM4PR10MB8218.namprd10.prod.outlook.com
+ ([fe80::2650:55cf:2816:5f2%5]) with mapi id 15.20.8678.028; Wed, 30 Apr 2025
+ 13:36:22 +0000
+Date: Wed, 30 Apr 2025 14:36:19 +0100
+From: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Dev Jain <dev.jain@arm.com>, akpm@linux-foundation.org, david@redhat.com,
+        willy@infradead.org, linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+        catalin.marinas@arm.com, will@kernel.org, Liam.Howlett@oracle.com,
+        vbabka@suse.cz, jannh@google.com, anshuman.khandual@arm.com,
+        peterx@redhat.com, joey.gouly@arm.com, ioworker0@gmail.com,
+        baohua@kernel.org, kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
+        christophe.leroy@csgroup.eu, yangyicong@hisilicon.com,
+        linux-arm-kernel@lists.infradead.org, namit@vmware.com,
+        hughd@google.com, yang@os.amperecomputing.com, ziy@nvidia.com
+Subject: Re: [PATCH v2 2/7] mm: Optimize mprotect() by batch-skipping PTEs
+Message-ID: <99697544-54fd-46e6-a519-f5bdcc2e01a5@lucifer.local>
+References: <20250429052336.18912-1-dev.jain@arm.com>
+ <20250429052336.18912-3-dev.jain@arm.com>
+ <f4a90024-3cc7-4536-84b0-665021d96125@lucifer.local>
+ <9687592f-ec04-410f-9fb2-9777edfe1178@arm.com>
+ <40826f42-07d2-4c00-8173-a5eb19d2335c@arm.com>
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <40826f42-07d2-4c00-8173-a5eb19d2335c@arm.com>
+X-ClientProxiedBy: LO2P265CA0185.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:a::29) To DM4PR10MB8218.namprd10.prod.outlook.com
+ (2603:10b6:8:1cc::16)
 MIME-Version: 1.0
-References: <20250414-spi-dma-v2-1-84bbd92fa469@amlogic.com>
- <CACdvmAhEXstEBdaiktU4n-R6M6mYiBnSx15ZJfb1FOKGD7Zfaw@mail.gmail.com> <b202538e-5520-48ce-a957-034c0ce7beb1@linaro.org>
-In-Reply-To: <b202538e-5520-48ce-a957-034c0ce7beb1@linaro.org>
-From: Da Xue <da@lessconfused.com>
-Date: Wed, 30 Apr 2025 09:33:46 -0400
-X-Gm-Features: ATxdqUFHYK_nvBUpmd79vpJx2UJLfO_GZ6NdPKb9rFzoLu69sqOWtWG7sM5p8mU
-Message-ID: <CACdvmAhcCUTFBrMkgrnt03iY4=siSiYKU9Ss4M-+HT-h6wphWA@mail.gmail.com>
-Subject: Re: [PATCH v2] spi: meson-spicc: add DMA support
-To: neil.armstrong@linaro.org
-Cc: xianwei.zhao@amlogic.com, Mark Brown <broonie@kernel.org>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-spi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Sunny Luo <sunny.luo@amlogic.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM4PR10MB8218:EE_|DS7PR10MB7131:EE_
+X-MS-Office365-Filtering-Correlation-Id: f31005da-e2db-4e68-44a3-08dd87ebff07
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?CiEDhuvET8/lXo0BuV1jwZaSf2bds3sUkhjEN9aMgYbG3LDD+I3IthFT6A?=
+ =?iso-8859-1?Q?GPIAQI1FlYGOpAXqD3AdsrQKr0jXHXCdzN8NcPjdhj3TaN7FvOGkrWRta7?=
+ =?iso-8859-1?Q?XAPyoqaeyjvHQ0aozldheimC4AyFkXqIQSiolT1lArD90086+sPE6KkSRc?=
+ =?iso-8859-1?Q?YI1tR4ON0LN2o7+b6Nf7aWNuYyl1jiygNw3Wn8Qti8I0gDHrrlfg0wvwTZ?=
+ =?iso-8859-1?Q?djlMod1K1mk2bvOPLh1GknestoKZv2GNzlBxcQHjU0ZahIv+afEtOTYHtP?=
+ =?iso-8859-1?Q?HJpanIvEG1QVafTj5UeoVy+IaD9GhHtec7Y4metxknRdz6VPgeF/LXgd0B?=
+ =?iso-8859-1?Q?jHQZELefCg+OTgEyYPYueMHpU9FpsLVL+Jq+Qu3gIYhZ6BxCPwyOPCc/iJ?=
+ =?iso-8859-1?Q?/mc8trlObC/T+U6oPSn30HgVnzpf/zwkDV/w18ogkNhVSKImbAipc5VZHW?=
+ =?iso-8859-1?Q?VOe5TCShMtBTfzc4CjySUuJBvovq6Vptd0l+U6YMrAR8ZteeP55Ai6++Bb?=
+ =?iso-8859-1?Q?7eCPke7zJywriBfvi0sG0/kt9l5Mm53Oc/U/Kl/MYUa802dtFSZOPMsirh?=
+ =?iso-8859-1?Q?UKiWP5PnojxWdBNjW+kh7hy5Anhzkdhtv/w+8Kug26X3J6dSnwgXe11rSP?=
+ =?iso-8859-1?Q?YKYiAg+5A+mv4uEHBQgSkVE618Ls1ObTqsQpH3d3S9ldEOF6dInqQDBIzs?=
+ =?iso-8859-1?Q?D/NOcxJ1wMWchVUG/KiOyF2OU5ua8HL0+0J+oapY/A7+N8RO8PKl9J0ZDa?=
+ =?iso-8859-1?Q?lHjr24xaSYQj1fSNRriExFJefEhRUv1Pjmesmte87bxwX+RqaE/6Cfi7+/?=
+ =?iso-8859-1?Q?B9TXM60zp/RNmCEVOi4ZBN+qKPZJJ+yFgQgwWnEGrGUcN+SlXHOPkWN28T?=
+ =?iso-8859-1?Q?JyKieo19ph4gf7B/t+fNC1Qr6PdR37RTdyJrZTVAZwo6AskBbvJFwsa0Xc?=
+ =?iso-8859-1?Q?M4tVJEMopf0pX8QdWwvvW9ZvEtJwWY5aj5jAnS4KESRHWOy8Nkem5ow1uv?=
+ =?iso-8859-1?Q?MTmFzbQnWcEixAFeiQDRx96ZyQzhRmFa+ZD0NAZzfYe2aBA23qaaFB6Avp?=
+ =?iso-8859-1?Q?CNmUqjn31/I5aFBPuy26P20IRkje9FtQludElflkVy40LwvWGeorRWOVln?=
+ =?iso-8859-1?Q?vkQh6SkYqbFs0i1h08f/luDuF15yef6PPUnVK/wCvxoz+Een9tCCzRYp2C?=
+ =?iso-8859-1?Q?RHGg5/ppAURWsK15LJwK1nJE1LciF+zsX3xOclHIxd8srqmDeQKyShOZb2?=
+ =?iso-8859-1?Q?zNLV06g/78qE0chYyTxpGioVNYCVO0d7ocjNM44VYeb46Q7ET720MShbeB?=
+ =?iso-8859-1?Q?8XTxPrFQI/oCqleLPJUuyE0XpRr23xoHLibYVzL3aMsFrrwh9X+rbUdYLV?=
+ =?iso-8859-1?Q?B7nss8QqzDWq/cYaEW2d3WQemw+UidIX2Ddf2qBnL4cztOmAPRwAKSSF9o?=
+ =?iso-8859-1?Q?+JBqSZJRupL71nvxo6aIkzRcpuhcfNX5WR6QEw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR10MB8218.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?x+sZcedIX7rXPslzj0SRah6c4iSh68HcdM0dQa3H6mT3Nw36+hBce5Sr1K?=
+ =?iso-8859-1?Q?nctcBpphWaqtB8B7KqY2urXjeBxNU/ZQFavnU3SiVkv9oZLz+SX6gYPB6A?=
+ =?iso-8859-1?Q?LMiR4a/zA+6Lxou3rOUE3697cylZqRa5gVxVGCFfYWuenXhOZoCtySSGh8?=
+ =?iso-8859-1?Q?SWJgl5OZLKXuSB42LURpl2J85pFgBxJIyWuIvlZggLNjfnmTcfdqZGS0Av?=
+ =?iso-8859-1?Q?3h6rM7z6t26HIklKkbIQaTVDsU3W4pDWBIkhgtrPQBBByF0bzwY1xIBWMa?=
+ =?iso-8859-1?Q?t8rrCpblwJ5WVwB8sV+080XnQ43FFkwkjkVwp3s84+HioUliBKJ+V0ItvB?=
+ =?iso-8859-1?Q?+eHVAid3tnzea/58yRzalBEIrgUidm1l33z/F0+Zh9VE5L7DjYwN1vA6iJ?=
+ =?iso-8859-1?Q?vF2mMCMq8cGkjeGFmyNXPZ7tnJn670/Rb6wTX18SGeqsGEcevMtKTSGBGr?=
+ =?iso-8859-1?Q?5p/4uE/zXUchl5PpVtMlGSFvJxGpp/wbwB7gUQBmerwwl/69lSv82qyN5S?=
+ =?iso-8859-1?Q?zEU3CLJSN3Dg7BOL/fELyVFtstnTnGoTERnBfmGog+5bH0HF4nTCFeCMU1?=
+ =?iso-8859-1?Q?McV3CEHmLj7WBTDrB1bDXmMWlmszp9tgqPai8ZpRgRIenLKajLDsJd6Bin?=
+ =?iso-8859-1?Q?RBrLO4L/T9JrbZuo90SBk5hJoy1T+lddBDSSOtXLmyr81EDZg1OIMp+Ycp?=
+ =?iso-8859-1?Q?bH6XOJVx8y7ZlT7Mku9xFChY5x9XDThupSeQxHfszpe43B0hai7JoKK5Gc?=
+ =?iso-8859-1?Q?pgQcdzpULuuzGZHQbEYbeEffFSlezHL8cIktJeJr6FFjEWXZCJqXDEsxvw?=
+ =?iso-8859-1?Q?scnL5dMY/5kk6RP8ZtIWyyBs204L6l5xMt0lwAwnkcs651FghfLxDdxWbw?=
+ =?iso-8859-1?Q?ZedIjKo3zSb8czeXNUkVbxcoiW+d+b1N++nazaZgls/M3SyS7+IJAJEt0Z?=
+ =?iso-8859-1?Q?3RmixzzDgZW8zTShnEYw9Jk+fN2C1qDLLgZGdQM/P693g0YD595q2juUCv?=
+ =?iso-8859-1?Q?RPeGI6nnNOXWmwptYVq2eVUKEYxXkaYIjAdakLNENMp63byVmnQA4Ixkv9?=
+ =?iso-8859-1?Q?SwWZ/7OQ59KEQ9y4WiLPvCTbK2u/xf2qz/VhNNtFh97qQf3ZB1IYxrG5Dw?=
+ =?iso-8859-1?Q?8oH5BKhUEZgyzgdNOYCAG7S2kgK8uIN0h1u2ZBIc/Zx5oDRSSBsX7umc5Z?=
+ =?iso-8859-1?Q?+70d8ifDXs/EHpzZ+vczxhaOKlX/hPbcTbpZtzzB4S897TYi9PNAIMQdNK?=
+ =?iso-8859-1?Q?zgsxDPVxKA+j18E54Yy/fKqZ3K/P1gxYfwYtKKF1xtu7q8YByityaVUa/c?=
+ =?iso-8859-1?Q?7rhIgtViIyALvbgYkmdLJ/bkSknw0Qlo23g91n568ra/rwpJvILoXotyel?=
+ =?iso-8859-1?Q?2ukti+lzBE8Um5f8HcIShRtSYNgJWk/o+25whZcO6zMi/LqxRmi62RzkKq?=
+ =?iso-8859-1?Q?tVv7dFJhhGuSfHaH2MmlJi4dAPudnyCJFGyfGlUjSGAznvoU+pcnkDRpui?=
+ =?iso-8859-1?Q?c1CYzQadmT+E1ef+EL+/cOKiDEqoTmGTGBFkpACqox6O6JxbwA8j6C89BY?=
+ =?iso-8859-1?Q?stv2U6Aajpkz5cKv/WVnK+Qn7Exf+7lzXjRL9N6PIwrveNcB59fO0il0Ed?=
+ =?iso-8859-1?Q?4oJKl8PlmS5ocx36GC7dctLHm//6/GJxKakr9NenxVUEuiAO6e42Be+g?=
+ =?iso-8859-1?Q?=3D=3D?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: jYc6EBEp+t3KlEMYYEV1KSAsoqHWuT/k9iqvWtF8yBkYNLa11Re4W9F3QFAChS6mhUxxd8+zdT/TIluJkqsTkO3chezE0yhh6eMp39D1wYhzZqt344y3S+HmRVzBKMqMwJ9QjPgGq5sOGD+ZVd4cVKP18jcnHSWvCp9y0XliX7jHNmEw4fDv6TmjFvpbDHdqge5ySMx+4tR55BOwrOonulwcapJFK8KQ20JROpQqEcAXh68mrmwLUw/dZYKMijzWHs38ACH1VDf14lyxwFGVl2YJ4XG2iGsAbeCm9zUmpDOVf7myEs4oHWqFvj7/Aj16aKWOAzsC454A8bBQOZ+hDO8uv1+UTZdDy702YRSyp/T5OoQf5RrCsts/TwhZdM+RR3rQ/yS7BoZnJOqQ6aD1UJiQdPFV67h44wCcphQ4yXXsCh57BQc6CuuVboElPFMNLjGr4JUyk+cge6yKKts7/7RiPCob6joDbNkU9Bt64vlQ0Vf/hKAJxFhTiGy/dBENOzPqRxEAoh/ZCw11ZOLwKR25T0tJ1dguILe7MRnqHfhLIy4yArFIYPEEeksjiI4RNZz6ttWn+eW/p8Z03E3LtfMUx5/DY71Z/1LHUb5RfyY=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f31005da-e2db-4e68-44a3-08dd87ebff07
+X-MS-Exchange-CrossTenant-AuthSource: DM4PR10MB8218.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2025 13:36:22.3969
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: BXAqDN5ZF7egfxaLFbr+R4WgaGwmEwQLrTWbePikKoCYoPlCFSz+9mRjaH2ZLCtcLK/uAyZ17OCBQn1nsN0L2lC+FW3EO6My1LEfbb2T3MM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR10MB7131
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-04-30_04,2025-04-24_02,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxlogscore=999 adultscore=0
+ malwarescore=0 mlxscore=0 bulkscore=0 phishscore=0 spamscore=0
+ suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2504070000 definitions=main-2504300096
+X-Authority-Analysis: v=2.4 cv=MIZgmNZl c=1 sm=1 tr=0 ts=6812275a cx=c_pps a=OOZaFjgC48PWsiFpTAqLcw==:117 a=OOZaFjgC48PWsiFpTAqLcw==:17 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10
+ a=8nJEP1OIZ-IA:10 a=XR8D0OoHHMoA:10 a=GoEa3M9JfhUA:10 a=7CQSdrXTAAAA:8 a=xO1GI6CabQeYKh9xovgA:9 a=3ZKOabzyN94A:10 a=wPNLvfGTeEIA:10 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-GUID: UkRJA028wV2EUzPh15RmskwQ7ZM0huW0
+X-Proofpoint-ORIG-GUID: UkRJA028wV2EUzPh15RmskwQ7ZM0huW0
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDMwMDA5NiBTYWx0ZWRfX0wcaaRW069Bh CEldq2jmJ3Syoptuv6GWem1i16TSmKbNhVvFTgkGbaTl8vt67UrVxqUzLfWY3c9E6Xat8nAdO5B EOIkckmwW6yaeilvp7C/XnHOKBZqg5gWNynv7EnU8atXAN/mTbgQuDm+L8RM/PA+p9oQtdgxFpA
+ 43EojO1mwBvyfuTZ3veeZ/IAHNM1SilVK10VefrRQZTv6/veMLdSqWeWKDHFQGJP8iVFU4tnt/n zqNajrGf4bvrvuDwD2FUvj3CTbmNqAjiFwM0WIIKlzam651AxQu/RaAs5evf005oB8sr1x/xQt1 OYeHXLGZkdjdRh8M4YVpGWLQiKifZ9+OEmHziESLRVGWbg78y16zcn9+r6GpiSVKy40VvcpHlKr
+ INfKQCnkNOw7VbDF+lgeoY4BmmEoeBbYuuWC5pwwLxDEc1iWN/uwUevFyUyGV8TqQ3YzaUym
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_063358_606700_70CDEBF1 
-X-CRM114-Status: GOOD (  44.72  )
+X-CRM114-CacheID: sfid-20250430_063648_533837_8BFBE9B4 
+X-CRM114-Status: GOOD (  22.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,446 +218,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 30, 2025 at 3:43=E2=80=AFAM Neil Armstrong
-<neil.armstrong@linaro.org> wrote:
+On Wed, Apr 30, 2025 at 02:18:20PM +0100, Ryan Roberts wrote:
+> On 30/04/2025 07:37, Dev Jain wrote:
+> >
+> >
+> > On 29/04/25 6:49 pm, Lorenzo Stoakes wrote:
+> >> Very very very nitty on subject (sorry I realise this is annoying :P) -
+> >> generally don't need to capitalise 'Optimize' here :>)
+> >>
+> >> Generally I like the idea here. But some issues on impl.
+> >>
+> >> On Tue, Apr 29, 2025 at 10:53:31AM +0530, Dev Jain wrote:
+> >>> In case of prot_numa, there are various cases in which we can skip to the
+> >>> next iteration. Since the skip condition is based on the folio and not
+> >>> the PTEs, we can skip a PTE batch.
+> >>>
+> >>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+> >>> ---
+> >>>   mm/mprotect.c | 27 ++++++++++++++++++++-------
+> >>>   1 file changed, 20 insertions(+), 7 deletions(-)
+> >>>
+> >>> diff --git a/mm/mprotect.c b/mm/mprotect.c
+> >>> index 70f59aa8c2a8..ec5d17af7650 100644
+> >>> --- a/mm/mprotect.c
+> >>> +++ b/mm/mprotect.c
+> >>> @@ -91,6 +91,9 @@ static bool prot_numa_skip(struct vm_area_struct *vma,
+> >>> struct folio *folio,
+> >>>       bool toptier;
+> >>>       int nid;
+> >>>
+> >>> +    if (folio_is_zone_device(folio) || folio_test_ksm(folio))
+> >>> +        return true;
+> >>> +
+> >>
+> >> Hm why not just put this here from the start? I think you should put this back
+> >> in the prior commit.
+> >>
+> >>>       /* Also skip shared copy-on-write pages */
+> >>>       if (is_cow_mapping(vma->vm_flags) &&
+> >>>           (folio_maybe_dma_pinned(folio) ||
+> >>> @@ -126,8 +129,10 @@ static bool prot_numa_skip(struct vm_area_struct *vma,
+> >>> struct folio *folio,
+> >>>   }
+> >>>
+> >>>   static bool prot_numa_avoid_fault(struct vm_area_struct *vma,
+> >>> -        unsigned long addr, pte_t oldpte, int target_node)
+> >>> +        unsigned long addr, pte_t *pte, pte_t oldpte, int target_node,
+> >>> +        int max_nr, int *nr)
+> >>
+> >> Hate this ptr to nr.
+> >>
+> >> Why not just return nr, if it's 0 then skip? Simple!
+> >>
+> >>>   {
+> >>> +    const fpb_t flags = FPB_IGNORE_DIRTY | FPB_IGNORE_SOFT_DIRTY;
+> >>>       struct folio *folio;
+> >>>       int ret;
+> >>>
+> >>> @@ -136,12 +141,16 @@ static bool prot_numa_avoid_fault(struct vm_area_struct
+> >>> *vma,
+> >>>           return true;
+> >>>
+> >>>       folio = vm_normal_folio(vma, addr, oldpte);
+> >>> -    if (!folio || folio_is_zone_device(folio) ||
+> >>> -        folio_test_ksm(folio))
+> >>> +    if (!folio)
+> >>>           return true;
+> >>> +
+> >>
+> >> Very nitty, but stray extra line unless intended...
+> >>
+> >> Not sure why we can't just put this !folio check in prot_numa_skip()?
+> >
+> > Because we won't be able to batch if the folio is NULL.
+> >
+> > I think I really messed up by having separate patch 1 and 2. The real intent of
+> > patch 1 was to do batching in patch 2 *and* not have insane indentation. Perhaps
+> > I should merge them, or completely separate them logically, I'll figure this out.
 >
-> On 30/04/2025 04:13, Da Xue wrote:
-> > On Mon, Apr 14, 2025 at 2:30=E2=80=AFAM Xianwei Zhao via B4 Relay
-> > <devnull+xianwei.zhao.amlogic.com@kernel.org> wrote:
-> >>
-> >> From: Xianwei Zhao <xianwei.zhao@amlogic.com>
-> >>
-> >> Add DMA support for spicc driver.
-> >>
-> >> DMA works if the transfer meets the following conditions:
-> >> 1. 64 bits per word;
-> >> 2. The transfer length must be multiples of the dma_burst_len,
-> >>     and the dma_burst_len should be one of 8,7...2,
-> >>     otherwise, it will be split into several SPI bursts.
-> >>
-> >> Signed-off-by: Sunny Luo <sunny.luo@amlogic.com>
-> >> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
-> >> ---
-> >> Changes in v2:
-> >> - Make formatting adjustments and code optimizations according to Neil=
-'s suggestions.
-> >> - Remove two special DMA trigger modes that are not fully implemented.
-> >> - Link to v1: https://lore.kernel.org/r/20250408-spi-dma-v1-1-3c38be62=
-c09c@amlogic.com
-> >> ---
-> >>   drivers/spi/spi-meson-spicc.c | 241 ++++++++++++++++++++++++++++++++=
-++++++----
-> >>   1 file changed, 220 insertions(+), 21 deletions(-)
-> >>
-> >> diff --git a/drivers/spi/spi-meson-spicc.c b/drivers/spi/spi-meson-spi=
-cc.c
-> >> index df74ad5060f8..6b9137307533 100644
-> >> --- a/drivers/spi/spi-meson-spicc.c
-> >> +++ b/drivers/spi/spi-meson-spicc.c
-> >> @@ -21,18 +21,26 @@
-> >>   #include <linux/interrupt.h>
-> >>   #include <linux/reset.h>
-> >>   #include <linux/pinctrl/consumer.h>
-> >> +#include <linux/dma-mapping.h>
-> >>
-> >>   /*
-> >> - * The Meson SPICC controller could support DMA based transfers, but =
-is not
-> >> - * implemented by the vendor code, and while having the registers doc=
-umentation
-> >> - * it has never worked on the GXL Hardware.
-> >> - * The PIO mode is the only mode implemented, and due to badly design=
-ed HW :
-> >> - * - all transfers are cutted in 16 words burst because the FIFO hang=
-s on
-> >> - *   TX underflow, and there is no TX "Half-Empty" interrupt, so we g=
-o by
-> >> - *   FIFO max size chunk only
-> >> - * - CS management is dumb, and goes UP between every burst, so is re=
-ally a
-> >> - *   "Data Valid" signal than a Chip Select, GPIO link should be used=
- instead
-> >> - *   to have a CS go down over the full transfer
-> >> + * There are two modes for data transmission: PIO and DMA.
-> >> + * When bits_per_word is 8, 16, 24, or 32, data is transferred using =
-PIO mode.
-> >> + * When bits_per_word is 64, DMA mode is used by default.
-> >> + *
-> >> + * DMA achieves a transfer with one or more SPI bursts, each SPI burs=
-t is made
-> >> + * up of one or more DMA bursts. The DMA burst implementation mechani=
-sm is,
-> >> + * For TX, when the number of words in TXFIFO is less than the preset
-> >> + * reading threshold, SPICC starts a reading DMA burst, which reads t=
-he preset
-> >> + * number of words from TX buffer, then writes them into TXFIFO.
-> >> + * For RX, when the number of words in RXFIFO is greater than the pre=
-set
-> >> + * writing threshold, SPICC starts a writing request burst, which rea=
-ds the
-> >> + * preset number of words from RXFIFO, then write them into RX buffer=
-.
-> >> + * DMA works if the transfer meets the following conditions,
-> >> + * - 64 bits per word
-> >
-> > Just for clarification, DMA can only send 64-bit words due to hardware
-> > design, right?
-> > The bit-per-word in spi control register (CONREG) has no effect?
-> >
-> >> + * - The transfer length in word must be multiples of the dma_burst_l=
-en, and
-> >> + *   the dma_burst_len should be one of 8,7...2, otherwise, it will b=
-e split
-> >> + *   into several SPI bursts by this driver
-> >>    */
-> >>
-> >>   #define SPICC_MAX_BURST        128
-> >> @@ -128,6 +136,23 @@
-> >>
-> >>   #define SPICC_DWADDR   0x24    /* Write Address of DMA */
-> >>
-> >> +#define SPICC_LD_CNTL0 0x28
-> >> +#define VSYNC_IRQ_SRC_SELECT           BIT(0)
-> >> +#define DMA_EN_SET_BY_VSYNC            BIT(2)
-> >> +#define XCH_EN_SET_BY_VSYNC            BIT(3)
-> >> +#define DMA_READ_COUNTER_EN            BIT(4)
-> >> +#define DMA_WRITE_COUNTER_EN           BIT(5)
-> >> +#define DMA_RADDR_LOAD_BY_VSYNC                BIT(6)
-> >> +#define DMA_WADDR_LOAD_BY_VSYNC                BIT(7)
-> >> +#define DMA_ADDR_LOAD_FROM_LD_ADDR     BIT(8)
-> >> +
-> >> +#define SPICC_LD_CNTL1 0x2c
-> >> +#define DMA_READ_COUNTER               GENMASK(15, 0)
-> >> +#define DMA_WRITE_COUNTER              GENMASK(31, 16)
-> >> +#define DMA_BURST_LEN_DEFAULT          8
-> >> +#define DMA_BURST_COUNT_MAX            0xffff
-> >> +#define SPI_BURST_LEN_MAX      (DMA_BURST_LEN_DEFAULT * DMA_BURST_COU=
-NT_MAX)
-> >> +
-> >
-> > LD_CNTL0 and LD_CNTL1 are not in this datasheet for GXL
-> > (S805X/S905X/S905D). Do they exist on these SoCs and are not
-> > documented?
-> >
-> >>   #define SPICC_ENH_CTL0 0x38    /* Enhanced Feature */
-> >>   #define SPICC_ENH_CLK_CS_DELAY_MASK    GENMASK(15, 0)
-> >>   #define SPICC_ENH_DATARATE_MASK                GENMASK(23, 16)
-> >> @@ -171,6 +196,9 @@ struct meson_spicc_device {
-> >>          struct pinctrl                  *pinctrl;
-> >>          struct pinctrl_state            *pins_idle_high;
-> >>          struct pinctrl_state            *pins_idle_low;
-> >> +       dma_addr_t                      tx_dma;
-> >> +       dma_addr_t                      rx_dma;
-> >> +       bool                            using_dma;
-> >>   };
-> >>
-> >>   #define pow2_clk_to_spicc(_div) container_of(_div, struct meson_spic=
-c_device, pow2_div)
-> >> @@ -202,6 +230,148 @@ static void meson_spicc_oen_enable(struct meson_=
-spicc_device *spicc)
-> >>          writel_relaxed(conf, spicc->base + SPICC_ENH_CTL0);
-> >>   }
-> >>
-> >> +static int meson_spicc_dma_map(struct meson_spicc_device *spicc,
-> >> +                              struct spi_transfer *t)
-> >> +{
-> >> +       struct device *dev =3D spicc->host->dev.parent;
-> >> +
-> >> +       if (!(t->tx_buf && t->rx_buf))
-> >> +               return -EINVAL;
-> >> +
-> >> +       t->tx_dma =3D dma_map_single(dev, (void *)t->tx_buf, t->len, D=
-MA_TO_DEVICE);
-> >> +       if (dma_mapping_error(dev, t->tx_dma))
-> >> +               return -ENOMEM;
-> >> +
-> >> +       t->rx_dma =3D dma_map_single(dev, t->rx_buf, t->len, DMA_FROM_=
-DEVICE);
-> >> +       if (dma_mapping_error(dev, t->rx_dma))
-> >> +               return -ENOMEM;
-> >> +
-> >> +       spicc->tx_dma =3D t->tx_dma;
-> >> +       spicc->rx_dma =3D t->rx_dma;
-> >> +
-> >> +       return 0;
-> >> +}
-> >> +
-> >> +static void meson_spicc_dma_unmap(struct meson_spicc_device *spicc,
-> >> +                                 struct spi_transfer *t)
-> >> +{
-> >> +       struct device *dev =3D spicc->host->dev.parent;
-> >> +
-> >> +       if (t->tx_dma)
-> >> +               dma_unmap_single(dev, t->tx_dma, t->len, DMA_TO_DEVICE=
-);
-> >> +       if (t->rx_dma)
-> >> +               dma_unmap_single(dev, t->rx_dma, t->len, DMA_FROM_DEVI=
-CE);
-> >> +}
-> >> +
-> >> +/*
-> >> + * According to the remain words length, calculate a suitable spi bur=
-st length
-> >> + * and a dma burst length for current spi burst
-> >> + */
-> >> +static u32 meson_spicc_calc_dma_len(struct meson_spicc_device *spicc,
-> >> +                                   u32 len, u32 *dma_burst_len)
-> >> +{
-> >> +       u32 i;
-> >> +
-> >> +       if (len <=3D spicc->data->fifo_size) {
-> >> +               *dma_burst_len =3D len;
-> >> +               return len;
-> >> +       }
-> >> +
-> >> +       *dma_burst_len =3D DMA_BURST_LEN_DEFAULT;
-> >> +
-> >> +       if (len =3D=3D (SPI_BURST_LEN_MAX + 1))
-> >> +               return SPI_BURST_LEN_MAX - DMA_BURST_LEN_DEFAULT;
-> >> +
-> >> +       if (len >=3D SPI_BURST_LEN_MAX)
-> >> +               return SPI_BURST_LEN_MAX;
-> >> +
-> >> +       for (i =3D DMA_BURST_LEN_DEFAULT; i > 1; i--)
-> >> +               if ((len % i) =3D=3D 0) {
-> >> +                       *dma_burst_len =3D i;
-> >> +                       return len;
-> >> +               }
-> >> +
-> >> +       i =3D len % DMA_BURST_LEN_DEFAULT;
-> >> +       len -=3D i;
-> >> +
-> >> +       if (i =3D=3D 1)
-> >> +               len -=3D DMA_BURST_LEN_DEFAULT;
-> >> +
-> >> +       return len;
-> >> +}
-> >> +
-> >> +static void meson_spicc_setup_dma(struct meson_spicc_device *spicc)
-> >> +{
-> >> +       unsigned int len;
-> >> +       unsigned int dma_burst_len, dma_burst_count;
-> >> +       unsigned int count_en =3D 0;
-> >> +       unsigned int txfifo_thres =3D 0;
-> >> +       unsigned int read_req =3D 0;
-> >> +       unsigned int rxfifo_thres =3D 31;
-> >> +       unsigned int write_req =3D 0;
-> >> +       unsigned int ld_ctr1 =3D 0;
-> >> +
-> >> +       writel_relaxed(spicc->tx_dma, spicc->base + SPICC_DRADDR);
-> >> +       writel_relaxed(spicc->rx_dma, spicc->base + SPICC_DWADDR);
-> >> +
-> >> +       /* Set the max burst length to support a transmission with len=
-gth of
-> >> +        * no more than 1024 bytes(128 words), which must use the CS m=
-anagement
-> >> +        * because of some strict timing requirements
-> >> +        */
-> >> +       writel_bits_relaxed(SPICC_BURSTLENGTH_MASK, SPICC_BURSTLENGTH_=
-MASK,
-> >> +                           spicc->base + SPICC_CONREG);
-> >> +
-> >> +       len =3D meson_spicc_calc_dma_len(spicc, spicc->xfer_remain,
-> >> +                                      &dma_burst_len);
-> >> +       spicc->xfer_remain -=3D len;
-> >> +       dma_burst_count =3D DIV_ROUND_UP(len, dma_burst_len);
-> >> +       dma_burst_len--;
-> >> +
-> >> +       if (spicc->tx_dma) {
-> >> +               spicc->tx_dma +=3D len;
-> >> +               count_en |=3D DMA_READ_COUNTER_EN;
-> >> +               txfifo_thres =3D spicc->data->fifo_size - dma_burst_le=
-n;
-> >> +               read_req =3D dma_burst_len;
-> >> +               ld_ctr1 |=3D FIELD_PREP(DMA_READ_COUNTER, dma_burst_co=
-unt);
-> >> +       }
-> >> +
-> >> +       if (spicc->rx_dma) {
-> >> +               spicc->rx_dma +=3D len;
-> >> +               count_en |=3D DMA_WRITE_COUNTER_EN;
-> >> +               rxfifo_thres =3D dma_burst_len;
-> >> +               write_req =3D dma_burst_len;
-> >> +               ld_ctr1 |=3D FIELD_PREP(DMA_WRITE_COUNTER, dma_burst_c=
-ount);
-> >> +       }
-> >> +
-> >> +       writel_relaxed(count_en, spicc->base + SPICC_LD_CNTL0);
-> >> +       writel_relaxed(ld_ctr1, spicc->base + SPICC_LD_CNTL1);
-> >> +       writel_relaxed(SPICC_DMA_ENABLE
-> >> +                   | SPICC_DMA_URGENT
-> >> +                   | FIELD_PREP(SPICC_TXFIFO_THRESHOLD_MASK, txfifo_t=
-hres)
-> >> +                   | FIELD_PREP(SPICC_READ_BURST_MASK, read_req)
-> >> +                   | FIELD_PREP(SPICC_RXFIFO_THRESHOLD_MASK, rxfifo_t=
-hres)
-> >> +                   | FIELD_PREP(SPICC_WRITE_BURST_MASK, write_req),
-> >> +                   spicc->base + SPICC_DMAREG);
-> >> +}
-> >> +
-> >> +static irqreturn_t meson_spicc_dma_irq(struct meson_spicc_device *spi=
-cc)
-> >> +{
-> >> +       if (readl_relaxed(spicc->base + SPICC_DMAREG) & SPICC_DMA_ENAB=
-LE)
-> >> +               return IRQ_HANDLED;
-> >> +
-> >> +       if (spicc->xfer_remain) {
-> >> +               meson_spicc_setup_dma(spicc);
-> >> +       } else {
-> >> +               writel_bits_relaxed(SPICC_SMC, 0, spicc->base + SPICC_=
-CONREG);
-> >> +               writel_relaxed(0, spicc->base + SPICC_INTREG);
-> >> +               writel_relaxed(0, spicc->base + SPICC_DMAREG);
-> >> +               meson_spicc_dma_unmap(spicc, spicc->xfer);
-> >> +               complete(&spicc->done);
-> >> +       }
-> >> +
-> >> +       return IRQ_HANDLED;
-> >> +}
-> >> +
-> >>   static inline bool meson_spicc_txfull(struct meson_spicc_device *spi=
-cc)
-> >>   {
-> >>          return !!FIELD_GET(SPICC_TF,
-> >> @@ -293,6 +463,9 @@ static irqreturn_t meson_spicc_irq(int irq, void *=
-data)
-> >>
-> >>          writel_bits_relaxed(SPICC_TC, SPICC_TC, spicc->base + SPICC_S=
-TATREG);
-> >>
-> >> +       if (spicc->using_dma)
-> >> +               return meson_spicc_dma_irq(spicc);
-> >> +
-> >>          /* Empty RX FIFO */
-> >>          meson_spicc_rx(spicc);
-> >>
-> >> @@ -426,9 +599,6 @@ static int meson_spicc_transfer_one(struct spi_con=
-troller *host,
-> >>
-> >>          meson_spicc_reset_fifo(spicc);
-> >>
-> >> -       /* Setup burst */
-> >> -       meson_spicc_setup_burst(spicc);
-> >> -
-> >>          /* Setup wait for completion */
-> >>          reinit_completion(&spicc->done);
-> >>
-> >> @@ -442,11 +612,36 @@ static int meson_spicc_transfer_one(struct spi_c=
-ontroller *host,
-> >>          /* Increase it twice and add 200 ms tolerance */
-> >>          timeout +=3D timeout + 200;
-> >>
-> >> -       /* Start burst */
-> >> -       writel_bits_relaxed(SPICC_XCH, SPICC_XCH, spicc->base + SPICC_=
-CONREG);
-> >> +       if (xfer->bits_per_word =3D=3D 64) {
-> >> +               int ret;
-> >> +
-> >> +               /* dma_burst_len 1 can't trigger a dma burst */
-> >> +               if (xfer->len < 16)
-> >> +                       return -EINVAL;
-> >> +
-> >> +               ret =3D meson_spicc_dma_map(spicc, xfer);
-> >> +               if (ret) {
-> >> +                       meson_spicc_dma_unmap(spicc, xfer);
-> >> +                       dev_err(host->dev.parent, "dma map failed\n");
-> >> +                       return ret;
-> >> +               }
-> >> +
-> >> +               spicc->using_dma =3D true;
-> >> +               spicc->xfer_remain =3D DIV_ROUND_UP(xfer->len, spicc->=
-bytes_per_word);
-> >> +               meson_spicc_setup_dma(spicc);
-> >> +               writel_relaxed(SPICC_TE_EN, spicc->base + SPICC_INTREG=
-);
-> >> +               writel_bits_relaxed(SPICC_SMC, SPICC_SMC, spicc->base =
-+ SPICC_CONREG);
-> >> +       } else {
-> >> +               spicc->using_dma =3D false;
-> >> +               /* Setup burst */
-> >> +               meson_spicc_setup_burst(spicc);
-> >>
-> >> -       /* Enable interrupts */
-> >> -       writel_relaxed(SPICC_TC_EN, spicc->base + SPICC_INTREG);
-> >> +               /* Start burst */
-> >> +               writel_bits_relaxed(SPICC_XCH, SPICC_XCH, spicc->base =
-+ SPICC_CONREG);
-> >> +
-> >> +               /* Enable interrupts */
-> >> +               writel_relaxed(SPICC_TC_EN, spicc->base + SPICC_INTREG=
-);
-> >> +       }
-> >>
-> >>          if (!wait_for_completion_timeout(&spicc->done, msecs_to_jiffi=
-es(timeout)))
-> >>                  return -ETIMEDOUT;
-> >> @@ -545,6 +740,14 @@ static int meson_spicc_setup(struct spi_device *s=
-pi)
-> >>          if (!spi->controller_state)
-> >>                  spi->controller_state =3D spi_controller_get_devdata(=
-spi->controller);
-> >>
-> >> +       /* DMA works at 64 bits, the rest works on PIO */
-> >> +       if (spi->bits_per_word !=3D 8 &&
-> >> +           spi->bits_per_word !=3D 16 &&
-> >> +           spi->bits_per_word !=3D 24 &&
-> >> +           spi->bits_per_word !=3D 32 &&
-> >> +           spi->bits_per_word !=3D 64)
-> >> +               return -EINVAL;
-> >> +
-> >>          return 0;
-> >>   }
-> >>
-> >> @@ -853,10 +1056,6 @@ static int meson_spicc_probe(struct platform_dev=
-ice *pdev)
-> >>          host->num_chipselect =3D 4;
-> >>          host->dev.of_node =3D pdev->dev.of_node;
-> >>          host->mode_bits =3D SPI_CPHA | SPI_CPOL | SPI_CS_HIGH | SPI_L=
-OOP;
-> >> -       host->bits_per_word_mask =3D SPI_BPW_MASK(32) |
-> >> -                                  SPI_BPW_MASK(24) |
-> >> -                                  SPI_BPW_MASK(16) |
-> >> -                                  SPI_BPW_MASK(8);
-> >
-> > This should not be removed. SPI_BPW_MASK(64) needs to be added.
-> > Removing bits_per_word_mask causes other code to assume this is an
-> > 8-bit only controller.
->
-> SPI_BPW_MASK(64) doesn't not exist, it's only a 32bit field, removing it =
-is fine,
-> the check is done later.
+> I'd be inclined to just merge into single patch...
 
-The spi_is_bpw_supported function in include/linux/spi/spi.h checks
-bits_per_word_mask.
-Without this set, drm_mipi_dbi behavior is changed to 8-bit transfers.
-
-Yeah, the 64 won't work. I didn't check the macro.
+Agreed!
 
 >
-> Neil
+> >
+> >>
+> >>>       ret = prot_numa_skip(vma, folio, target_node);
+> >>> -    if (ret)
+> >>> +    if (ret) {
+> >>> +        if (folio_test_large(folio) && max_nr != 1)
+> >>> +            *nr = folio_pte_batch(folio, addr, pte, oldpte,
+> >>> +                          max_nr, flags, NULL, NULL, NULL);
+> >>
+> >> So max_nr can <= 0 too? Shouldn't this be max_nr > 1?
+> >>
+> >>>           return ret;
+> >>
+> >> Again x = fn_return_bool(); if (x) { return x; } is a bit silly, just do if
+> >> (fn_return_bool()) { return true; }.
+> >>
+> >> If we return the number of pages, then this can become really simple, like:
+> >>
+> >> I feel like maybe we should abstract the folio large handling here, though it'd
+> >> be a tiny function so hm.
+> >>
+> >> Anyway assuming we leave it in place, and return number of pages processed, this
+> >> can become:
+> >>
+> >> if (prot_numa_skip(vma, folio, target_node)) {
+> >>     if (folio_test_large(folio) && max_nr > 1)
+> >>         return folio_pte_batch(folio, addr, pte, oldpte, max_nr, flags,
+> >>                 NULL, NULL, NULL);
+> >>     return 1;
+> >> }
+> >>
+> >> Which is neater I think!
+> >>
+> >>
+> >>> +    }
+> >>>       if (folio_use_access_time(folio))
+> >>>           folio_xchg_access_time(folio,
+> >>>               jiffies_to_msecs(jiffies));
+> >>> @@ -159,6 +168,7 @@ static long change_pte_range(struct mmu_gather *tlb,
+> >>>       bool prot_numa = cp_flags & MM_CP_PROT_NUMA;
+> >>>       bool uffd_wp = cp_flags & MM_CP_UFFD_WP;
+> >>>       bool uffd_wp_resolve = cp_flags & MM_CP_UFFD_WP_RESOLVE;
+> >>> +    int nr;
+> >>>
+> >>>       tlb_change_page_size(tlb, PAGE_SIZE);
+> >>>       pte = pte_offset_map_lock(vma->vm_mm, pmd, addr, &ptl);
+> >>> @@ -173,8 +183,10 @@ static long change_pte_range(struct mmu_gather *tlb,
+> >>>       flush_tlb_batched_pending(vma->vm_mm);
+> >>>       arch_enter_lazy_mmu_mode();
+> >>>       do {
+> >>> +        nr = 1;
+> >>>           oldpte = ptep_get(pte);
+> >>>           if (pte_present(oldpte)) {
+> >>> +            int max_nr = (end - addr) >> PAGE_SHIFT;
+> >>
+> >> Not a fan of open-coding this. Since we already provide addr, why not just
+> >> provide end as well and have prot_numa_avoid_fault() calculate it?
+> >>
+> >>>               pte_t ptent;
+> >>>
+> >>>               /*
+> >>> @@ -182,8 +194,9 @@ static long change_pte_range(struct mmu_gather *tlb,
+> >>>                * pages. See similar comment in change_huge_pmd.
+> >>>                */
+> >>>               if (prot_numa &&
+> >>> -                prot_numa_avoid_fault(vma, addr,
+> >>> -                          oldpte, target_node))
+> >>> +                prot_numa_avoid_fault(vma, addr, pte,
+> >>> +                          oldpte, target_node,
+> >>> +                              max_nr, &nr))
+> >>>                       continue;
+> >>>
+> >>>               oldpte = ptep_modify_prot_start(vma, addr, pte);
+> >>> @@ -300,7 +313,7 @@ static long change_pte_range(struct mmu_gather *tlb,
+> >>>                   pages++;
+> >>>               }
+> >>>           }
+> >>> -    } while (pte++, addr += PAGE_SIZE, addr != end);
+> >>> +    } while (pte += nr, addr += nr * PAGE_SIZE, addr != end);
+> >>
+> >> This is icky, having 'nr' here like this.
 >
+> For better or worse, this is the pattern we have already established in other
+> loops that are batching-aware. See zap_pte_range(), copy_pte_range(), etc. So
+> I'd prefer to follow that pattern here, as Dev has done.
+
+Yeah I'm fine with keeping this 'nr' stuff, I don't think there's a great
+alternative.
+
+>
+> Thanks.
+> Ryan
+
+Cheers, Lorenzo
+
+>
+> >>
+> >> But alternatives might be _even more_ icky (that is advancing both on
+> >> prot_numa_avoid_fault() so probably we need to keep it like this.
+> >>
+> >> Maybe more a moan at the C programming language tbh haha!
+> >>
+> >>
+> >>>       arch_leave_lazy_mmu_mode();
+> >>>       pte_unmap_unlock(pte - 1, ptl);
+> >>>
+> >>> --
+> >>> 2.30.2
+> >>>
 > >
-> >
-> >
-> >>          host->flags =3D (SPI_CONTROLLER_MUST_RX | SPI_CONTROLLER_MUST=
-_TX);
-> >>          host->min_speed_hz =3D spicc->data->min_speed_hz;
-> >>          host->max_speed_hz =3D spicc->data->max_speed_hz;
-> >>
-> >> ---
-> >> base-commit: 49807ed87851916ef655f72e9562f96355183090
-> >> change-id: 20250408-spi-dma-c499f560d295
-> >>
-> >> Best regards,
-> >> --
-> >> Xianwei Zhao <xianwei.zhao@amlogic.com>
-> >>
-> >>
-> >>
-> >> _______________________________________________
-> >> linux-amlogic mailing list
-> >> linux-amlogic@lists.infradead.org
-> >> http://lists.infradead.org/mailman/listinfo/linux-amlogic
 >
 
