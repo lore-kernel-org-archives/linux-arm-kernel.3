@@ -4,155 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73444C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 10:26:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FF78C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 10:28:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iEwOlbILnZOZpZ5ezt+IXg26cvioW6A+yIXxPJUbdag=; b=fvIh7pyNcpD0O7qwDcydt/TeNO
-	Ub+IPEljxrv9O6pdzrw0Iys0KMi6OD42vrzFonejhg23yB/HNdirdQZ7Snod31hg9sEYBkrKw3AkF
-	mjD+19qWOLMlhFb56rk9KKncxk0Qj9Eiq1y+OVZQpbn9sw4Ul0NsGoJW+7sNeHvSqBo+Q86Tr9QGW
-	aIrhneF+HnS+CCpjrxJXVg4SkdfokJWFYKrkWf9TCg/Frd9CYzxdbDydv/9BTCP03ezMN4Qi/CkJO
-	6IwUVlt0DjqJ+V4jn0hhftvvww49wLSGjvu7W8+IA+KixvHWoDnLECOj9s2sdHFAOvNnsdmGid8Cf
-	wS58T3kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oETm/pYIYSrsCUZOG9P0GWCOTnaCfqB/rOTt5dgFQow=; b=4CxL4ccFQY16/UyUxSK7pPNaQB
+	Fw8ej/UXo9F+x+HTatOd4WFVUvhm+KazdOhyUro8bEifchhg2rt0AXlmaihMJ4Ig2XnfjWkz/gz+d
+	QJ21WSEIpjoax5+YBuNnNKCpwWRZMcWqhJqTclXorvJpBIZnjr6PAiU2Y/7QV2qudOHzKot0aGOuQ
+	qvNAXXTPU1Iaalpdn+d9QUrhG6PBxgpiYy71YPrPovMNR6xYyyd+88YEhChoRs85ADwNr1lv0jDYW
+	YZCWzuqTasuXtokLzpUVCni1Y5vNgvcdZYcldpCKcNp0GplXX9t0hwwe0b5QivIQya/bO4aFaMmgv
+	PKdXL50A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA4e1-0000000CWMj-1zTD;
-	Wed, 30 Apr 2025 10:26:25 +0000
-Received: from mail-northeuropeazlp170130004.outbound.protection.outlook.com ([2a01:111:f403:c200::4] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1uA4fv-0000000CWgU-0jQ1;
+	Wed, 30 Apr 2025 10:28:23 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA3yR-0000000CPo6-1x0Y;
-	Wed, 30 Apr 2025 09:43:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HQOHxH6yPSaP3+Hz8ODE/BFOg0vWUCn57LXJYyJVL/UY+8MqXmeoeltmzJG5CHt0wBl/E7RCBNIeM9sb8V0gn5kG21u/oCsHWDgFW3xszvNctCeslQQTZcvKLW/KXXkXR/Q79rt35CqxWSTAobyIG40cvIsmaGN0wdQZKB/frcGJPHvu0/0x9ue/kSF99oqa0aNzADeOcRea9tSoEnEH5Xobzj3hCCCATSUxePtZpCha7X2oIdIFENCH/+yIkmckJUkw2LNrD4hGSaKbx6qz6i52cFhVHR/e7hoOSUEjnZf+3VVPg8/tQ0/HJ2mDhLHJFzIxQsJMATzX3s+EBzH0fQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iEwOlbILnZOZpZ5ezt+IXg26cvioW6A+yIXxPJUbdag=;
- b=QLpZkMLFLQO2Jt6NRTMbI1ZLNpnyqmOLwE+q13ARU1gE6wG7J3E6rrmhX62hn25a4spnfqeasijOfDPnaSaUjWjyQ2/1joTc9vT3CL4getpcphMYso1zL1jzUsgBll8xCTAnaqYq0sfI3/YIcQ/AiD72cRcU2B+52ste/N0vcHB5WgKZfg5HjWXTktDktCzBs9fYx0/nAXHvnwYrd0L8ncd47k149jghe53XdV54WHnJhfeqRQxPEGMmMaoLJ/OQ1pxjg0QfUjcfQd3bfGNmgdnRPPZiLzTOZJIy10hvXFTwn18E7bChZlt9lznhhraIfwdYI1cGCPmvvOT4zjUL9w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iEwOlbILnZOZpZ5ezt+IXg26cvioW6A+yIXxPJUbdag=;
- b=EP3GpBsMlja3XKpL60R0OGYUemHU/ArEk/9L66xELutpzqzPxGGVE7ponyGnHxH1ajIdh3+YK6JsdAbUm6yY33J+IA9PlygyTobk9GKoQow7eLOONrkmag8zqhxaLRiirx8qWj+icpkcxEUVaOrePt8SAW08TZkKXLiwR11xroiO018LMbcd/0txPLkjkYlgJ4aoagKgz7Oup1FCm36EjQMsMigbgpye+I0a2b7TWw4Hxl2W77QHzC6ob7DtHI+eZNv7vnRKv7sLWy+13pYWhp6BOqQb7nPnRTg8WMvYYCEju5zLkZ6aaXDJI2gtBsIsvphU+vgEbTmRpro5PZA6yA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
- by VE1PR04MB7246.eurprd04.prod.outlook.com (2603:10a6:800:1ae::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.25; Wed, 30 Apr
- 2025 09:43:24 +0000
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::4e24:c2c7:bd58:c5c7]) by DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::4e24:c2c7:bd58:c5c7%5]) with mapi id 15.20.8678.028; Wed, 30 Apr 2025
- 09:43:24 +0000
-From: Xu Yang <xu.yang_2@nxp.com>
-To: vkoul@kernel.org,
-	kishon@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: jun.li@nxp.com,
-	alexander.stein@ew.tq-group.com,
-	linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v3 4/4] phy: fsl-imx8mq-usb: add i.MX95 tuning support
-Date: Wed, 30 Apr 2025 17:45:02 +0800
-Message-Id: <20250430094502.2723983-4-xu.yang_2@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250430094502.2723983-1-xu.yang_2@nxp.com>
-References: <20250430094502.2723983-1-xu.yang_2@nxp.com>
+	id 1uA40q-0000000CQAg-4AIz;
+	Wed, 30 Apr 2025 09:45:59 +0000
+X-UUID: e78d6dc225a711f0bed96b30c12bc3d6-20250430
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=oETm/pYIYSrsCUZOG9P0GWCOTnaCfqB/rOTt5dgFQow=;
+	b=m/I2eGehfaSpL20sGaZo6zlNW+MLYMmZQ2sWPHMYRbq1ztsY3U4CLWwD77qCMM6pSRbSXp1+KJ9OjL5EHyUgbotwOHQ5i4MuVRN/2eYOHiWMq3Z/wNN8SvdQn5aNWXU9KYufhzL/eK3Cu3ribmcw6QKSzPWgHG0s5u8fhJ/IZr0=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.1,REQID:5f3af85c-6d53-4abb-821c-bb93c4cb3bfc,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:0ef645f,CLOUDID:5d39c57f-99e0-42db-8543-075f2c30d73f,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
+	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: e78d6dc225a711f0bed96b30c12bc3d6-20250430
+Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
+	(envelope-from <friday.yang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 2127751523; Wed, 30 Apr 2025 02:45:52 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Wed, 30 Apr 2025 17:45:49 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.39 via Frontend Transport; Wed, 30 Apr 2025 17:45:48 +0800
+From: Friday Yang <friday.yang@mediatek.com>
+To: Yong Wu <yong.wu@mediatek.com>, Krzysztof Kozlowski <krzk@kernel.org>,
+	"Rob Herring" <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	"Matthias Brugger" <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Philipp Zabel
+	<p.zabel@pengutronix.de>
+CC: Friday Yang <friday.yang@mediatek.com>,
+	<linux-mediatek@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>
+Subject: [PATCH v7 1/2] dt-bindings: memory: mediatek: Add SMI reset and clamp for MT8188
+Date: Wed, 30 Apr 2025 17:45:30 +0800
+Message-ID: <20250430094545.23932-2-friday.yang@mediatek.com>
+X-Mailer: git-send-email 2.46.0
+In-Reply-To: <20250430094545.23932-1-friday.yang@mediatek.com>
+References: <20250430094545.23932-1-friday.yang@mediatek.com>
+MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: SG2PR02CA0039.apcprd02.prod.outlook.com
- (2603:1096:3:18::27) To DU2PR04MB8822.eurprd04.prod.outlook.com
- (2603:10a6:10:2e1::11)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|VE1PR04MB7246:EE_
-X-MS-Office365-Filtering-Correlation-Id: 74e02840-33bc-463a-2ab2-08dd87cb73bd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|7416014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?PHRCwA/xTH6AXCwYuV1H2jlyNqqn8PDJ/aAsaB9OQGsw7TAxZpF3Eq0hr/Bt?=
- =?us-ascii?Q?2LUVkgLuvpw3DHK3J1hmlJ1MWC3a7XTe7FICEUZUt9AcA3PogMb/FO7XwofW?=
- =?us-ascii?Q?M2JjMlg+s8c3P3PG5v4nXuECSJfx9jDrJsKxv6Zo11GK1oWmy8x8NnnUGk80?=
- =?us-ascii?Q?XWSmFk3IsOMTYeNuHQ5x/FO+f7wydbk3/AdRO1kmZJOEoaAO3wle8fquz3ka?=
- =?us-ascii?Q?j5hB1WFbEcyPoug13mOKe970A3vu3QiKuiZ+7FzxyzUbvr8XQLxx+QJKycHM?=
- =?us-ascii?Q?5kv00kzHqBhS78msWaK13xfm/0n/mg8py1VGM7jbyZMS8fnOM5eQMjw45kVz?=
- =?us-ascii?Q?kgz6lnzWNnZ7t69O83YbKy/tKj9JQyA90dlz+Es3/aPxUykBDnwVpgwEOjxW?=
- =?us-ascii?Q?fMg/XE0CJC/afoQWL6IPC8yKUQDIqURg55/3vPLH5zODtIx3s8k1U9KKzGwF?=
- =?us-ascii?Q?YHDGuTLqW063Xg1wmrTpJ77g9/HHjeiHYUR8Z9nkdS6vxZl94dr7p85vqHx/?=
- =?us-ascii?Q?qzy/hWNKQbVoR44kB6tnUPdzM1VZIabsh1ExrSQi8FwmFTrLj7A8c0RFvIQN?=
- =?us-ascii?Q?BKnUqfek11DKpUWlfTIGNP6s58xuMNlIKWRiT3hhX+PL0tyYuCBqCd+PmGMW?=
- =?us-ascii?Q?f1kMuOd1/vcV8fOI5xlFR03aITAVnpevnWVN5xoPf1x07GFvlzahZas6BuER?=
- =?us-ascii?Q?/St8LFo+AHr6370sA5gPdTCPxCLdlXbKgZhpeN8nKX0LgXWonjUoFnDcTeuW?=
- =?us-ascii?Q?i8n+gfIjdC7qCmYIuWHPFN3ehmX4IomdnRqjO/5v0N5MwxoPDHhqO46uYJQd?=
- =?us-ascii?Q?lpHCC3FeR0YK51BF1JcQgpA6YgNnSz2LLIKyMuyXtRmoR8gq4qfRqstE1ka9?=
- =?us-ascii?Q?5N67HYjGkRDBWhECQdwCa4TYwHAxyiA6Dj6tp3Asssb+NusrUSrMXu1TX3ww?=
- =?us-ascii?Q?XxJoUCa0YeNki2niauTNLIJVtd0hOdcLFztBTuwmCIBfFhywO6z4ML96lIQA?=
- =?us-ascii?Q?lgM47HOpN0cB+/6+42M4hyexUYeyrz3HmtcozmzYAsMw1evjlknmKvMcDFmR?=
- =?us-ascii?Q?HIavO7VVJ2OEISh3j/xIzRCe4oNOR/mnbWhclWAMf1GKoWXHYhenoxhw3+RG?=
- =?us-ascii?Q?f2jdwt+wWBZmmccaPFgWVu9EhrCM2pTFXgCTTxd14Jog4YEg10cJ5yEcsu63?=
- =?us-ascii?Q?pY2fC6bgC3K+JvYyty5HftJ1V5cVk5n9mkNvQuK1XeD3bryEB0AEo8raCjQs?=
- =?us-ascii?Q?j7SZ5LEtunmD7ic5kJRqGrF5uiO8jd/ttm/m1ZyKDm5Xue2Zo5vlqn+r36hA?=
- =?us-ascii?Q?ByFxWppC3gUPN2Z091r4MBzP7a6V5S1c2jACrowtzBLpZts1qsXWEJ1JKwbk?=
- =?us-ascii?Q?GTs2Wp6dSp7XNAGfYWG7t87JRggAahFQMUxQy8X4oy9e+E7adxLA9UwMcnmw?=
- =?us-ascii?Q?zJx75NfTVk9zgjCz8be0qIRt/LMkCJt9lEL1pJEafkOE+leYqKx5tw=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(7416014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qE3I5ZYsMgmfJq3bd1RjKVCHDhFH2gUXUNHHLKzdmOPt0mi53ZXqgSz5VaWg?=
- =?us-ascii?Q?60YX6VtzaNx3wk76PqiKy7Z48/JDe3cqjGUbfqW+Gr5Uim4RpTWLWP6D6FQU?=
- =?us-ascii?Q?skwUB59dOhx2X9AofMaFzuAN0H2mCxd/9+ciE1z9iyy4/md9HKAjc4Yijm65?=
- =?us-ascii?Q?DI1sCfXrqxLclHCi8aJ1OJBv9g+Jdwul2clv5nwsU4SYxeOugG4KvBEMMz0K?=
- =?us-ascii?Q?9SplhLTLHu5GFWSfGC1Yc5tbAf7Xg5y53rmuZFWMz2iRN5gX5w3mTzZYc0GV?=
- =?us-ascii?Q?vGSErfStVGF3zQyTZRqAWUhs/JfKh8F9gAKwtOGmTX+IuzuC9R09GaaZB7+y?=
- =?us-ascii?Q?0fIeNh3uoBMRIhpCxyGaW+CbzgFPU4l+2S6DQGYlWMfN9TPp6YmXmQIeyjbR?=
- =?us-ascii?Q?RuoJ+o4sZ0dqZBTRab+TLWVGc0zIg4bYa70+9Oaqf3FeHf1Fm0obS0xnwhIg?=
- =?us-ascii?Q?rteGSafOpfeSOu12/N0JhET9GoviRAoUW/cAFWGEDkFS0T+8yphihqJ5GVck?=
- =?us-ascii?Q?4qd9AeDrEQeyHsuRWGUR+VkGGSSgOob+650YZGfIfxHd5u20PeAOcGrBSiEc?=
- =?us-ascii?Q?f1/pr+7dHLJUB0d0LwnzrYQouZ8in9ny/o5FtoyDO231TjH5F8SqafDEPBa3?=
- =?us-ascii?Q?ICX9ySUucyfzMPcvfJR3HyBpi2plFv2XKfOBTYsjZISOIuYBaAb/s6sNQo/2?=
- =?us-ascii?Q?78FvLK80bwMcK+BOABdjpLm16zppCFPpvDyGtuW4fxuYVkgs61H07ctMC0wW?=
- =?us-ascii?Q?6sgLhqOkU+2+NgTVkxxDZgUH7vqJJ93BCrnJT766vH4cbL1LGGE/BsWku05L?=
- =?us-ascii?Q?dZbubc7dVP0KRUnYTwnYt4Va5+gwnQHxKR6icLEZePYt+r/iABKk02mZsm1E?=
- =?us-ascii?Q?NA2biHiY9//uIelMtRdG2QGRj9Cihxs11uMzPoToV9TA1i1x0pK5nuDzqzyR?=
- =?us-ascii?Q?sWM8NaFG/SBqr32a/siss75G6VqHm8yvqRhhvWy27ZtQdAjxQH4l6GOcBQ4X?=
- =?us-ascii?Q?QsVLF2Wo5Thv5fosMrG1YBMvl6sFPSviA3k36vxqMgZUl+0friHn2YwqqusU?=
- =?us-ascii?Q?E9VOo6Z1+WXbgBjFdRN9NJ6mE7yWozh94z5UOuPfFmaJOZRy/Djyn/j9irFH?=
- =?us-ascii?Q?3dr+EiQ5KOXrCNjHB57jUZrLy+jhOhspUM8SjrnoB2K+ZU1cpCVMZF8GhJiF?=
- =?us-ascii?Q?bKYyygaPKQq06JMTSRPAmSPSuA0vMrRDn9z83+R4/4Fj0kV2nLV6MCOny83u?=
- =?us-ascii?Q?Vm9QB7VQrRBPURKyBpdfZYWayQ0t6+u2+k1M5OkRwtvY5mQEEvCJeQKxYl2z?=
- =?us-ascii?Q?3+JSEps+I6O41pzGQIg3+C+zcJx+ov10JsOPDukxQs2Y7tASLrJvm5MJDR1r?=
- =?us-ascii?Q?SCR0fl0Q94yc102cMITxIkukliF+DBHeHOQbRr0LKm0QgMVx/Tszur/lKsyu?=
- =?us-ascii?Q?C5jT+AnmSQ0M7SfVUk+vFbBHKprZ11mBAYeHR/ZvExNTvbqAo2rhiaE65AUA?=
- =?us-ascii?Q?aKFVK85ClO9FFjLtDbD1K1ZqOgLCamz14xvyWIuFYmRfYXUy4hXohC5A2efa?=
- =?us-ascii?Q?WA/CyTngytwVrkJSqwaDA7r+tArpmA9O49/TIIh2?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 74e02840-33bc-463a-2ab2-08dd87cb73bd
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2025 09:43:24.8061
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: zkca9+7qu0fnmHrN+odeJpLGfeyJBzr23ZtDX5gKz3fiuey34KF12AIUEOOnrP6Uo7xDWko8nlVzC66mfpBMsA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7246
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_024327_507070_F0E35041 
-X-CRM114-Status: GOOD (  13.77  )
+X-CRM114-CacheID: sfid-20250430_024557_042345_4D405DE3 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,145 +89,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The i.MX8MP and i.MX95 USB3 PHY have different tuning parameter for same
-tuning field, this will add i.MX95 tuning support.
+From: "Friday Yang" <friday.yang@mediatek.com>
 
-Reviewed-by: Jun Li <jun.li@nxp.com>
-Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+Add 'resets' and 'reset-names' properties for SMI LARBs to support
+SMI reset operations.
+On the MediaTek platform, some SMI LARBs are directly connected to
+the SMI Common, while others are connected to the SMI Sub-Common,
+which in turn is connected to the SMI Common. The hardware block
+diagram can be described as follows.
+
+             SMI-Common(Smart Multimedia Interface Common)
+                 |
+         +----------------+------------------+
+         |                |                  |
+         |                |                  |
+         |                |                  |
+         |                |                  |
+         |                |                  |
+       larb0       SMI-Sub-Common0     SMI-Sub-Common1
+                   |      |     |      |             |
+                  larb1  larb2 larb3  larb7       larb9
+
+Signed-off-by: Friday Yang <friday.yang@mediatek.com>
+Tested-by: Friday Yang <friday.yang@mediatek.com>
+Reviewed-by: Yong Wu <yong.wu@mediatek.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Acked-by: Rob Herring <robh@kernel.org>
 
 ---
-Changes in v3:
- - not use negative number
- - follow the scope of dtbindings
----
- drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 74 ++++++++++++++++++++++
- 1 file changed, 74 insertions(+)
+ .../mediatek,smi-common.yaml                  |  2 ++
+ .../memory-controllers/mediatek,smi-larb.yaml | 19 +++++++++++++++++++
+ 2 files changed, 21 insertions(+)
 
-diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-index 9598a8073991..b94f242420fc 100644
---- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-+++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-@@ -293,6 +293,28 @@ static u32 phy_tx_vref_tune_from_property(u32 percent)
- 	return DIV_ROUND_CLOSEST(percent - 94U, 2);
- }
- 
-+static u32 imx95_phy_tx_vref_tune_from_property(u32 percent)
-+{
-+	percent = clamp(percent, 90U, 108U);
+diff --git a/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml
+index 0762e0ff66ef..3d98c08b2149 100644
+--- a/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml
++++ b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-common.yaml
+@@ -40,6 +40,7 @@ properties:
+           - mediatek,mt8186-smi-common
+           - mediatek,mt8188-smi-common-vdo
+           - mediatek,mt8188-smi-common-vpp
++          - mediatek,mt8188-smi-sub-common
+           - mediatek,mt8192-smi-common
+           - mediatek,mt8195-smi-common-vdo
+           - mediatek,mt8195-smi-common-vpp
+@@ -108,6 +109,7 @@ allOf:
+         compatible:
+           contains:
+             enum:
++              - mediatek,mt8188-smi-sub-common
+               - mediatek,mt8195-smi-sub-common
+     then:
+       required:
+diff --git a/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-larb.yaml b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-larb.yaml
+index 2e7fac4b5094..fc5feb2eac1f 100644
+--- a/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-larb.yaml
++++ b/Documentation/devicetree/bindings/memory-controllers/mediatek,smi-larb.yaml
+@@ -70,6 +70,12 @@ properties:
+     description: the hardware id of this larb. It's only required when this
+       hardware id is not consecutive from its M4U point of view.
+
++  resets:
++    maxItems: 1
 +
-+	switch (percent) {
-+	case 90 ... 91:
-+		percent = 0;
-+		break;
-+	case 92 ... 96:
-+		percent -= 91;
-+		break;
-+	case 97 ... 104:
-+		percent -= 92;
-+		break;
-+	case 105 ... 108:
-+		percent -= 93;
-+		break;
-+	}
++  reset-names:
++    const: larb
 +
-+	return percent;
-+}
+ required:
+   - compatible
+   - reg
+@@ -126,6 +132,19 @@ allOf:
+       required:
+         - mediatek,larb-id
+
++  - if:  # only for image, camera and ipe subsys
++      properties:
++        compatible:
++          const: mediatek,mt8188-smi-larb
++        mediatek,larb-id:
++          enum:
++            [ 9, 10, 11, 12, 13, 16, 17, 18, 19, 20 ]
 +
- static u32 phy_tx_rise_tune_from_property(u32 percent)
- {
- 	switch (percent) {
-@@ -307,6 +329,22 @@ static u32 phy_tx_rise_tune_from_property(u32 percent)
- 	}
- }
- 
-+static u32 imx95_phy_tx_rise_tune_from_property(u32 percent)
-+{
-+	percent = clamp(percent, 90U, 120U);
++    then:
++      required:
++        - resets
++        - reset-names
 +
-+	switch (percent) {
-+	case 90 ... 99:
-+		return 3;
-+	case 101 ... 115:
-+		return 1;
-+	case 116 ... 120:
-+		return 0;
-+	default:
-+		return 2;
-+	}
-+}
-+
- static u32 phy_tx_preemp_amp_tune_from_property(u32 microamp)
- {
- 	microamp = min(microamp, 1800U);
-@@ -352,6 +390,29 @@ static u32 phy_comp_dis_tune_from_property(u32 percent)
- 		return 7;
- 	}
- }
-+
-+static u32 imx95_phy_comp_dis_tune_from_property(u32 percent)
-+{
-+	percent = clamp(percent, 94, 104);
-+
-+	switch (percent) {
-+	case 94 ... 95:
-+		percent = 0;
-+		break;
-+	case 96 ... 98:
-+		percent -= 95;
-+		break;
-+	case 99 ... 102:
-+		percent -= 96;
-+		break;
-+	case 103 ... 104:
-+		percent -= 97;
-+		break;
-+	}
-+
-+	return percent;
-+}
-+
- static u32 phy_pcs_tx_swing_full_from_property(u32 percent)
- {
- 	percent = min(percent, 100U);
-@@ -362,10 +423,17 @@ static u32 phy_pcs_tx_swing_full_from_property(u32 percent)
- static void imx8m_get_phy_tuning_data(struct imx8mq_usb_phy *imx_phy)
- {
- 	struct device *dev = imx_phy->phy->dev.parent;
-+	bool is_imx95 = false;
-+
-+	if (device_is_compatible(dev, "fsl,imx95-usb-phy"))
-+		is_imx95 = true;
- 
- 	if (device_property_read_u32(dev, "fsl,phy-tx-vref-tune-percent",
- 				     &imx_phy->tx_vref_tune))
- 		imx_phy->tx_vref_tune = PHY_TUNE_DEFAULT;
-+	else if (is_imx95)
-+		imx_phy->tx_vref_tune =
-+			imx95_phy_tx_vref_tune_from_property(imx_phy->tx_vref_tune);
- 	else
- 		imx_phy->tx_vref_tune =
- 			phy_tx_vref_tune_from_property(imx_phy->tx_vref_tune);
-@@ -373,6 +441,9 @@ static void imx8m_get_phy_tuning_data(struct imx8mq_usb_phy *imx_phy)
- 	if (device_property_read_u32(dev, "fsl,phy-tx-rise-tune-percent",
- 				     &imx_phy->tx_rise_tune))
- 		imx_phy->tx_rise_tune = PHY_TUNE_DEFAULT;
-+	else if (is_imx95)
-+		imx_phy->tx_rise_tune =
-+			imx95_phy_tx_rise_tune_from_property(imx_phy->tx_rise_tune);
- 	else
- 		imx_phy->tx_rise_tune =
- 			phy_tx_rise_tune_from_property(imx_phy->tx_rise_tune);
-@@ -394,6 +465,9 @@ static void imx8m_get_phy_tuning_data(struct imx8mq_usb_phy *imx_phy)
- 	if (device_property_read_u32(dev, "fsl,phy-comp-dis-tune-percent",
- 				     &imx_phy->comp_dis_tune))
- 		imx_phy->comp_dis_tune = PHY_TUNE_DEFAULT;
-+	else if (is_imx95)
-+		imx_phy->comp_dis_tune =
-+			imx95_phy_comp_dis_tune_from_property(imx_phy->comp_dis_tune);
- 	else
- 		imx_phy->comp_dis_tune =
- 			phy_comp_dis_tune_from_property(imx_phy->comp_dis_tune);
--- 
-2.34.1
+ additionalProperties: false
+
+ examples:
+--
+2.46.0
 
 
