@@ -4,79 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3888AC369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 07:21:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDFE3C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 07:23:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y0K6UVLuw68YjijDGDb9esqM0Bo7S4QeSoh8RnRa+xc=; b=QJkugzFc6Hp3wgIt2leuFoOKb2
-	dIRn3bAWogknHPGWl/C6os8MsBiUbkDJp+b56VOApwmPF+Lam2juzE9xyn5F/uu0HwTmY74+frtcj
-	hzc8rAGMBM4pFsnrBY5Ebt/lQOg8HzPMqq5880EYUbnVl4g1Apcy3Rz30fBFnht/tqmwp0jqX4nr0
-	KgPAEEYh2nTvUIeoxMVg15MXvABMTE1U8RThJlYPx2h6M0Ep8hXspEFtEP1YAVlvvbfxFCzQ03Vtt
-	cOZqycAIBuVpXAisi4urquw0WiKSxQS+PLDMP6SKwMkRhMpEXq6+EK7keaEWoU1dLi7yZRaL9ZhDO
-	FMrUdUsQ==;
+	bh=bjD6o/anWPJqHcfWOgZVCotzX69raOWCDkK+7Q297NU=; b=IjCgkaWQZoHA1qYxrjcE8caAhg
+	SLCtuGxH0heNwQQ6d9jZxCPq+iaiTOl/uiFn8dsh6VEJlMNVoEiPzMAJCeCMIb5c/yP+tNiUq1GAz
+	zh70P2pJ+k0HNnOd5aVRVefbedd8opvqX5vFZ+aKnZ009m2y23NpvOe2qMZI6Jq2ITMoRqR48QCJN
+	Bs1eWuHsIBTls8n+PYg9vJsteTYqX/1WiN5m/yqtVi3Opzg/acxNIq2B58cA2VxzSNTQ0jqGDSaGg
+	zJO534M+3jtYo2XQ5BCjftgTgYlAIrOmrD/3ojiRuk9+943Y2tfSPlkYtOb+eo5JLHxlgvxlKVk7S
+	yOcH4tSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA1kh-0000000ByAR-3PQ8;
-	Wed, 30 Apr 2025 07:21:07 +0000
-Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
+	id 1uA1mb-0000000ByaO-27hA;
+	Wed, 30 Apr 2025 07:23:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA1XU-0000000BwTR-1Y4J
+	id 1uA1XV-0000000BwU3-3ufc
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 30 Apr 2025 07:07:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=bjD6o/anWPJqHcfWOgZVCotzX69raOWCDkK+7Q297NU=; b=Uf+E4kirNCR+7F9cXVNRY8yY8q
+	3HmH2Hf/gtPTFB0ua5n/vroPgPMKBqMFN+Vaogu0SnszgUPi0dtpuyMQlTIcwVmsXso1mhNT+duPn
+	is+k4uZDjOPauQwxIbViJiE8Wj76AKcTntOOpwMBI47TvwW+isN7vcIIUcZazBMGXKRjH1LvfSMyV
+	N7dVHbNN0GO26952S8HbLd0toG7JPeYR0Lac2Oz2VqKqNg4OLYFgqGSc3+CCKYwo2AAiNvaAPTUSg
+	4zv6zC3EwTSIXDyZVC8KcSk3HKkvP6ndcnfXRNOQj5fmEgNttNZwDRcJR0Ug2vfKkhd3javHniwp4
+	Pf4FIzGQ==;
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uA1XT-0000000DiP0-0PHI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 07:07:29 +0000
-Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-5e5c7d6b96fso1817002a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 00:07:27 -0700 (PDT)
+	Wed, 30 Apr 2025 07:07:28 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-5f62ef3c383so12600687a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 00:07:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745996846; x=1746601646; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1745996844; x=1746601644; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=y0K6UVLuw68YjijDGDb9esqM0Bo7S4QeSoh8RnRa+xc=;
-        b=FzC5vyr+KR82UTmHnIy4r4cJjacwydJbFcYkseV1lgWqcxHNEkBbtyPZJ9fYe3sbS5
-         Wx7uahN1xIxFNQOFauOAjRMvHlEQZYDZ84IbSgkLlDCfIqqIpFK53W8uih1dhK/gMH4Z
-         nM/pXClfQu6iTagVOrWoMgipaPgofJNEV9TitTloupJ0/h2GHycYXss2OY+LkOZ43XEI
-         0grT2Znwa7gaOaKS6LlMGVkN2P5L44ndWlawjI5FKU9jKsCGIHvdzAaun/SJZd+bmyu8
-         bpEyE7W1nue54u2cbtNJVhVJqVo1pdV1mqX0MKNy9tX87w0nDo27yo2rWH5Ct8dJFciC
-         vIVQ==
+        bh=bjD6o/anWPJqHcfWOgZVCotzX69raOWCDkK+7Q297NU=;
+        b=a5zltYQKCbxiBdpD693Tdgg0TgBiWIdP8MNHemj+F0UtQGKwLssTAIehzMuO0pd7pj
+         d2lPwNfJhnwAVl3WQ5aBZZ0UTCWT/aJRJsHz2rbr/5TydMaCNGGwQZKyxhQQjuzNzr+S
+         rNoKdNq2kGqGL4Y0N8PcDJcF2E6U/gjJWureUlyI6/8gARpPYwsdUys1EqS5+yu2XtYI
+         sAmPUbVA8Hb9OCOrNY/lgB1gItNZwZ+GNFG76Yy0jUSZVDrLgTgF6D2ezTBHlka9rcxq
+         qupUJNpjnP59khGBG3c6XIehwmRdIAgpAp3CCykFCYchyj1cOncNRBfKthTz+tpebHbi
+         2eng==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745996846; x=1746601646;
+        d=1e100.net; s=20230601; t=1745996844; x=1746601644;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=y0K6UVLuw68YjijDGDb9esqM0Bo7S4QeSoh8RnRa+xc=;
-        b=ixjmBar6+KLMbvluhn33obnOg8LSjc6SPr2VmWu86ZvHZ+mWFtqij+UiSm8tZhrF/E
-         t+oACAFcyFUFO/Xukp07s7d02d4KU3SppSp20NKwMtTfhrPG6k7FBZ3/9odDinQWLNaW
-         rbNcKFzYKgoiRQVkwgGq9IwsTPRkQdRpzvV1cSBtigxycr9sWIoIBy03Gz0L0wWj6GCP
-         80ODOZ0sAURZC0204vY89gKaa3OUs3qnGLFvsZpfOjJKZJa9US5ZCeS8mEjjEO5C62Vj
-         V7ECxL0ZsclecDPw6Ze3IVts1jl7E0LP10O9YEHu9bXCaiXvl2FgOB1nkW0VN7bMmCyY
-         P2Hg==
-X-Forwarded-Encrypted: i=1; AJvYcCVt6fne2oGGVIFCL8nyorjIod56IgOVC/8yJnColUGZbUD7VUqo0jQ8mqDQn9a/w4eXVG8zGo0uXDCFqT3dJDgs@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1ukcpRjBcmntNb3VKJtufGuC1pka0s5wawYjQADDJ4Mw7GuJ8
-	maz5fOMVndHI/dapP2YKbf3OT2SYiDWUTxcl/gBB3/9hWj4nEw4I
-X-Gm-Gg: ASbGncuC41O+ipJx8wWo6g1dnx8ci+jaS6VPGq3esDekoaAAMsrN7HXvWTsQgHFr4/3
-	YMlVl9R5JENLQilvSvE/+GlGF3BzqlcBlI7PwyUjkAjZwxpPcCaPYDdxrAoNteKn4M7B5M86DU6
-	U6hiL2v7b9mB35V6udtCNWT/8i8l+7EYHnUPj/GavJPM3l2K9gLfwC3tqve7nOVoFgAo9NbkoCk
-	gO1C1z3QYjAtCX6II6VjSfZILYlcNHGbEMi4Eqn2CbSwjDtX+CSTxMWKJquwpqgZHAYzX4X1WLu
-	75g+tINwS5xbeIWYZsS5tBSyp3uikEKNW5TZBVxqo9f7Ud6i5wCZChluJd5v8JFd0tNnlE5Gn1K
-	EKs8FSL98mI9lAI4kh7er5A==
-X-Google-Smtp-Source: AGHT+IFoUHVlIIaOjOsnbrvYC50AFoNPx+nSXJNxxI2Dyv0Ch0Y8S8mvP4fiX7q7arbQLL6kdSdaNA==
-X-Received: by 2002:a05:6402:3549:b0:5ed:1d8d:c6d8 with SMTP id 4fb4d7f45d1cf-5f89ae5b4f5mr1454961a12.9.1745996846347;
-        Wed, 30 Apr 2025 00:07:26 -0700 (PDT)
+        bh=bjD6o/anWPJqHcfWOgZVCotzX69raOWCDkK+7Q297NU=;
+        b=b0bDtDz6drVubq/mL3160Ln7vOzg6ibc4IPumgs3JHX5DhmjNZ6zyhbuScOkUvKMZs
+         kUqpIO4czpCCUDaaMh7I07PUgE46KGMMH6SsJkuJGUsJBLKLII+411PBrY/bUJy9fzrc
+         en7YNWXaIyKMh+5KD2aKwNqIr8xGBitZbOJuvR0rBgaF6M68Ym5ZTtAhGyWkg8gm+p8m
+         n6g8MsA8gcP732HKagns2GLqRi7Zlx2vaQkU7AUiHeYQcYv7FQeRdMT7AXivtBrR1zcr
+         LREkw4MKen9kjqXocg8eSdpUoeBQAHNFbZLNTdXOfXMrArKYmeqR25DWSLtCFNg/9773
+         kxDw==
+X-Forwarded-Encrypted: i=1; AJvYcCXA6M5dsQ9UxPRR4kVQBHoEFl+9Ye9nVhsB+iOuX/FiCdqq3rmIeKche0c3fXpiPXZnxrpoZJS7pj0NLlZtTnq3@lists.infradead.org
+X-Gm-Message-State: AOJu0YxqcG7G/wFiYwBxp7TXHw03QsSwyrItufujC4Z80guzK9X0HAXH
+	Z/7PF8iWFjVvBiciQEdfwrHuR96mTN9kyf2NX49Op2mx7sXkV7l4
+X-Gm-Gg: ASbGnctpQaPMnmA2EZaBz+dIQMGdGvQU9DsKC/fS0D+HsxE1c/acOqyv+7FXdo3SkCP
+	yc65vfigDqZQCZV29nIqehv5X4Ha7A2Etborark7htkKalZpOhG5FqS08A8V7gjAcpfYe/m86/Y
+	534nG4KFWt++nvJ9ylq4hOpv5mprKvIQfNCHxgjtrqDRgrhwoXr2fQn1geXNZFCt2R3ALBGIjoW
+	RQVD1Zh8JuEFjos3Ond6KJFbxHyfuS6e9Tu0xh0OmqfV6XdTf1y1DdbjCHDVPoA2E3cnySYaHZM
+	TCYeiLYcK3xcMKPW43QNws0wdYniFSXjKmjy8RRWM0TnI6x6oaiYOa7R2ZiASn3TZeTHRHqWUqi
+	uaN2iOubmWLE=
+X-Google-Smtp-Source: AGHT+IGy8lPaSG6g3uyt1tMJXqadrwwZjz+zmAhTL9j+tzHaJW6EPVja61ZR7mlmlOOJA5VlbLXZkQ==
+X-Received: by 2002:a05:6402:2345:b0:5ed:2762:727a with SMTP id 4fb4d7f45d1cf-5f8aef7ef1cmr1055997a12.11.1745996844210;
+        Wed, 30 Apr 2025 00:07:24 -0700 (PDT)
 Received: from hex.my.domain (83.8.121.197.ipv4.supernova.orange.pl. [83.8.121.197])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f7013fec3csm8334314a12.19.2025.04.30.00.07.24
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f7013fec3csm8334314a12.19.2025.04.30.00.07.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Apr 2025 00:07:26 -0700 (PDT)
+        Wed, 30 Apr 2025 00:07:23 -0700 (PDT)
 From: Artur Weber <aweber.kernel@gmail.com>
-Date: Wed, 30 Apr 2025 09:07:11 +0200
-Subject: [PATCH v8 7/9] regulator: bcm590xx: Store regulator descriptions
- in table
+Date: Wed, 30 Apr 2025 09:07:10 +0200
+Subject: [PATCH v8 6/9] regulator: bcm590xx: Use dev_err_probe for
+ regulator register error
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250430-bcm59054-v8-7-e4cf638169a4@gmail.com>
+Message-Id: <20250430-bcm59054-v8-6-e4cf638169a4@gmail.com>
 References: <20250430-bcm59054-v8-0-e4cf638169a4@gmail.com>
 In-Reply-To: <20250430-bcm59054-v8-0-e4cf638169a4@gmail.com>
 To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -91,16 +106,16 @@ Cc: Stanislav Jakubek <stano.jakubek@gmail.com>, devicetree@vger.kernel.org,
  ~postmarketos/upstreaming@lists.sr.ht, 
  Artur Weber <aweber.kernel@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1745996831; l=16568;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1745996831; l=1115;
  i=aweber.kernel@gmail.com; s=20231030; h=from:subject:message-id;
- bh=/Q91RirYuDa4CyGsT2dDmowKYblY20IPto+sIcETrxQ=;
- b=ouui3SM3dIBczGPZWL6ZJPBdYCq3WxASLe3Y4BAtLyP3bZrrzSEMaXoZ6Od/zggCDY/qL+ANO
- R8pkw1hqqeVBEAlMCc7PqJNIUJy4N/QQ5iAt5w9BtlHh5LBV6r3fUwv
+ bh=3p4uTNZuJCVCY04RngL3HijVPVoeTTwZHmaA3AfSjYs=;
+ b=MOZ5SfrNp5aZLJw/b/aGeXsAUTZ17aBm26czPcfPC/rsnP9lCtVIG2WEwzAz/UKJZKJW8a77j
+ sUmuysLSACwAV/xddDwZIeLUK4T10EpC+ayGvk4hardmmeSUtchMS2j
 X-Developer-Key: i=aweber.kernel@gmail.com; a=ed25519;
  pk=RhDBfWbJEHqDibXbhNEBAnc9FMkyznGxX/hwfhL8bv8=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_000728_432923_156D91B4 
-X-CRM114-Status: GOOD (  18.97  )
+X-CRM114-CacheID: sfid-20250430_080727_248573_40644EA0 
+X-CRM114-Status: GOOD (  13.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,600 +130,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Instead of filling in the regulator description programatically,
-store the data in a struct. This will make it a bit nicer to
-introduce support for other BCM590xx chips besides the BCM59056.
-
-To do this, add a new struct type, bcm590xx_reg_data, to store
-all of the necessary information. Drop the old IS_LDO, IS_GPLDO...
-macros in favor of the "type" field in this struct. Adapt the
-old bcm590xx_reg struct to the new types.
+Instead of calling dev_err() and returning PTR_ERR(...) separately, use
+a single "return dev_err_probe" statement.
 
 Signed-off-by: Artur Weber <aweber.kernel@gmail.com>
 ---
-Changes in v6:
-- Adapt to changes in MFD header
-
-Changes in v5:
-- Move the bcm590xx_regmap_type enum to the bcm590xx.h header
-- Rename bcm590xx_reg_info to bcm590xx_reg_data
-
 Changes in v4:
-- Replace incorrect return in regmap selection error handling
-- Use switch statement for regmap selection
-
-Changes in v3:
 - Added this commit
 ---
- drivers/regulator/bcm590xx-regulator.c | 473 ++++++++++++++++++++++-----------
- include/linux/mfd/bcm590xx.h           |   6 +
- 2 files changed, 322 insertions(+), 157 deletions(-)
+ drivers/regulator/bcm590xx-regulator.c | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/regulator/bcm590xx-regulator.c b/drivers/regulator/bcm590xx-regulator.c
-index a17311fa30e4d48c0a4925778d7bed486ac7a982..c2427ea166626bdc1eb7cfb99997d95e5125ed91 100644
+index 9f0cda46b01506080ae5fa709104a8df4d174a8d..a17311fa30e4d48c0a4925778d7bed486ac7a982 100644
 --- a/drivers/regulator/bcm590xx-regulator.c
 +++ b/drivers/regulator/bcm590xx-regulator.c
-@@ -20,6 +20,18 @@
+@@ -340,12 +340,10 @@ static int bcm590xx_probe(struct platform_device *pdev)
  
- /* I2C slave 0 registers */
- #define BCM590XX_RFLDOPMCTRL1	0x60
-+#define BCM590XX_CAMLDO1PMCTRL1	0x62
-+#define BCM590XX_CAMLDO2PMCTRL1	0x64
-+#define BCM590XX_SIMLDO1PMCTRL1	0x66
-+#define BCM590XX_SIMLDO2PMCTRL1	0x68
-+#define BCM590XX_SDLDOPMCTRL1	0x6a
-+#define BCM590XX_SDXLDOPMCTRL1	0x6c
-+#define BCM590XX_MMCLDO1PMCTRL1	0x6e
-+#define BCM590XX_MMCLDO2PMCTRL1	0x70
-+#define BCM590XX_AUDLDOPMCTRL1	0x72
-+#define BCM590XX_MICLDOPMCTRL1	0x74
-+#define BCM590XX_USBLDOPMCTRL1	0x76
-+#define BCM590XX_VIBLDOPMCTRL1	0x78
- #define BCM590XX_IOSR1PMCTRL1	0x7a
- #define BCM590XX_IOSR2PMCTRL1	0x7c
- #define BCM590XX_CSRPMCTRL1	0x7e
-@@ -28,7 +40,25 @@
- #define BCM590XX_MSRPMCTRL1	0x8a
- #define BCM590XX_VSRPMCTRL1	0x8e
- #define BCM590XX_RFLDOCTRL	0x96
-+#define BCM590XX_CAMLDO1CTRL	0x97
-+#define BCM590XX_CAMLDO2CTRL	0x98
-+#define BCM590XX_SIMLDO1CTRL	0x99
-+#define BCM590XX_SIMLDO2CTRL	0x9a
-+#define BCM590XX_SDLDOCTRL	0x9b
-+#define BCM590XX_SDXLDOCTRL	0x9c
-+#define BCM590XX_MMCLDO1CTRL	0x9d
-+#define BCM590XX_MMCLDO2CTRL	0x9e
-+#define BCM590XX_AUDLDOCTRL	0x9f
-+#define BCM590XX_MICLDOCTRL	0xa0
-+#define BCM590XX_USBLDOCTRL	0xa1
-+#define BCM590XX_VIBLDOCTRL	0xa2
- #define BCM590XX_CSRVOUT1	0xc0
-+#define BCM590XX_IOSR1VOUT1	0xc3
-+#define BCM590XX_IOSR2VOUT1	0xc6
-+#define BCM590XX_MSRVOUT1	0xc9
-+#define BCM590XX_SDSR1VOUT1	0xcc
-+#define BCM590XX_SDSR2VOUT1	0xcf
-+#define BCM590XX_VSRVOUT1	0xd2
- 
- /* I2C slave 1 registers */
- #define BCM590XX_GPLDO5PMCTRL1	0x16
-@@ -94,11 +124,6 @@
- 
- #define BCM590XX_NUM_REGS	27
- 
--#define BCM590XX_REG_IS_LDO(n)	(n < BCM590XX_REG_CSR)
--#define BCM590XX_REG_IS_GPLDO(n) \
--	((n > BCM590XX_REG_VSR) && (n < BCM590XX_REG_VBUS))
--#define BCM590XX_REG_IS_VBUS(n)	(n == BCM590XX_REG_VBUS)
--
- /* LDO group A: supported voltages in microvolts */
- static const unsigned int ldo_a_table[] = {
- 	1200000, 1800000, 2500000, 2700000, 2800000,
-@@ -111,10 +136,6 @@ static const unsigned int ldo_c_table[] = {
- 	2900000, 3000000, 3300000,
- };
- 
--static const unsigned int ldo_vbus[] = {
--	5000000,
--};
--
- /* DCDC group CSR: supported voltages in microvolts */
- static const struct linear_range dcdc_csr_ranges[] = {
- 	REGULATOR_LINEAR_RANGE(860000, 2, 50, 10000),
-@@ -137,115 +158,25 @@ static const struct linear_range dcdc_sdsr1_ranges[] = {
- 	REGULATOR_LINEAR_RANGE(900000, 52, 63, 0),
- };
- 
--struct bcm590xx_info {
--	const char *name;
--	const char *vin_name;
--	u8 n_voltages;
--	const unsigned int *volt_table;
--	u8 n_linear_ranges;
--	const struct linear_range *linear_ranges;
-+enum bcm590xx_reg_type {
-+	BCM590XX_REG_TYPE_LDO,
-+	BCM590XX_REG_TYPE_GPLDO,
-+	BCM590XX_REG_TYPE_SR,
-+	BCM590XX_REG_TYPE_VBUS
- };
- 
--#define BCM590XX_REG_TABLE(_name, _table) \
--	{ \
--		.name = #_name, \
--		.n_voltages = ARRAY_SIZE(_table), \
--		.volt_table = _table, \
--	}
--
--#define BCM590XX_REG_RANGES(_name, _ranges) \
--	{ \
--		.name = #_name, \
--		.n_voltages = 64, \
--		.n_linear_ranges = ARRAY_SIZE(_ranges), \
--		.linear_ranges = _ranges, \
--	}
--
--static struct bcm590xx_info bcm590xx_regs[] = {
--	BCM590XX_REG_TABLE(rfldo, ldo_a_table),
--	BCM590XX_REG_TABLE(camldo1, ldo_c_table),
--	BCM590XX_REG_TABLE(camldo2, ldo_c_table),
--	BCM590XX_REG_TABLE(simldo1, ldo_a_table),
--	BCM590XX_REG_TABLE(simldo2, ldo_a_table),
--	BCM590XX_REG_TABLE(sdldo, ldo_c_table),
--	BCM590XX_REG_TABLE(sdxldo, ldo_a_table),
--	BCM590XX_REG_TABLE(mmcldo1, ldo_a_table),
--	BCM590XX_REG_TABLE(mmcldo2, ldo_a_table),
--	BCM590XX_REG_TABLE(audldo, ldo_a_table),
--	BCM590XX_REG_TABLE(micldo, ldo_a_table),
--	BCM590XX_REG_TABLE(usbldo, ldo_a_table),
--	BCM590XX_REG_TABLE(vibldo, ldo_c_table),
--	BCM590XX_REG_RANGES(csr, dcdc_csr_ranges),
--	BCM590XX_REG_RANGES(iosr1, dcdc_iosr1_ranges),
--	BCM590XX_REG_RANGES(iosr2, dcdc_iosr1_ranges),
--	BCM590XX_REG_RANGES(msr, dcdc_iosr1_ranges),
--	BCM590XX_REG_RANGES(sdsr1, dcdc_sdsr1_ranges),
--	BCM590XX_REG_RANGES(sdsr2, dcdc_iosr1_ranges),
--	BCM590XX_REG_RANGES(vsr, dcdc_iosr1_ranges),
--	BCM590XX_REG_TABLE(gpldo1, ldo_a_table),
--	BCM590XX_REG_TABLE(gpldo2, ldo_a_table),
--	BCM590XX_REG_TABLE(gpldo3, ldo_a_table),
--	BCM590XX_REG_TABLE(gpldo4, ldo_a_table),
--	BCM590XX_REG_TABLE(gpldo5, ldo_a_table),
--	BCM590XX_REG_TABLE(gpldo6, ldo_a_table),
--	BCM590XX_REG_TABLE(vbus, ldo_vbus),
-+struct bcm590xx_reg_data {
-+	enum bcm590xx_reg_type type;
-+	enum bcm590xx_regmap_type regmap;
-+	const struct regulator_desc desc;
- };
- 
- struct bcm590xx_reg {
--	struct regulator_desc *desc;
- 	struct bcm590xx *mfd;
-+	unsigned int n_regulators;
-+	const struct bcm590xx_reg_data *regs;
- };
- 
--static int bcm590xx_get_vsel_register(int id)
--{
--	if (BCM590XX_REG_IS_LDO(id))
--		return BCM590XX_RFLDOCTRL + id;
--	else if (BCM590XX_REG_IS_GPLDO(id))
--		return BCM590XX_GPLDO1CTRL + id;
--	else
--		return BCM590XX_CSRVOUT1 + (id - BCM590XX_REG_CSR) * 3;
--}
--
--static int bcm590xx_get_enable_register(int id)
--{
--	int reg = 0;
--
--	if (BCM590XX_REG_IS_LDO(id))
--		reg = BCM590XX_RFLDOPMCTRL1 + id * 2;
--	else if (BCM590XX_REG_IS_GPLDO(id))
--		reg = BCM590XX_GPLDO1PMCTRL1 + id * 2;
--	else
--		switch (id) {
--		case BCM590XX_REG_CSR:
--			reg = BCM590XX_CSRPMCTRL1;
--			break;
--		case BCM590XX_REG_IOSR1:
--			reg = BCM590XX_IOSR1PMCTRL1;
--			break;
--		case BCM590XX_REG_IOSR2:
--			reg = BCM590XX_IOSR2PMCTRL1;
--			break;
--		case BCM590XX_REG_MSR:
--			reg = BCM590XX_MSRPMCTRL1;
--			break;
--		case BCM590XX_REG_SDSR1:
--			reg = BCM590XX_SDSR1PMCTRL1;
--			break;
--		case BCM590XX_REG_SDSR2:
--			reg = BCM590XX_SDSR2PMCTRL1;
--			break;
--		case BCM590XX_REG_VSR:
--			reg = BCM590XX_VSRPMCTRL1;
--			break;
--		case BCM590XX_REG_VBUS:
--			reg = BCM590XX_OTG_CTRL;
--			break;
--		}
--
--
--	return reg;
--}
--
- static const struct regulator_ops bcm590xx_ops_ldo = {
- 	.is_enabled		= regulator_is_enabled_regmap,
- 	.enable			= regulator_enable_regmap,
-@@ -272,73 +203,301 @@ static const struct regulator_ops bcm590xx_ops_vbus = {
- 	.disable		= regulator_disable_regmap,
- };
- 
-+#define BCM590XX_REG_DESC(_name, _name_lower)				\
-+	.id = BCM590XX_REG_##_name,					\
-+	.name = #_name_lower,						\
-+	.of_match = of_match_ptr(#_name_lower),				\
-+	.regulators_node = of_match_ptr("regulators"),			\
-+	.type = REGULATOR_VOLTAGE,					\
-+	.owner = THIS_MODULE						\
-+
-+#define BCM590XX_LDO_DESC(_name, _name_lower, _table)			\
-+	BCM590XX_REG_DESC(_name, _name_lower),				\
-+	.ops = &bcm590xx_ops_ldo,					\
-+	.n_voltages = ARRAY_SIZE(_table),				\
-+	.volt_table = _table,						\
-+	.vsel_reg = BCM590XX_##_name##CTRL,				\
-+	.vsel_mask = BCM590XX_LDO_VSEL_MASK,				\
-+	.enable_reg = BCM590XX_##_name##PMCTRL1,			\
-+	.enable_mask = BCM590XX_REG_ENABLE,				\
-+	.enable_is_inverted = true
-+
-+#define BCM590XX_SR_DESC(_name, _name_lower, _ranges)			\
-+	BCM590XX_REG_DESC(_name, _name_lower),				\
-+	.ops = &bcm590xx_ops_dcdc,					\
-+	.n_voltages = 64,						\
-+	.linear_ranges = _ranges,					\
-+	.n_linear_ranges = ARRAY_SIZE(_ranges),				\
-+	.vsel_reg = BCM590XX_##_name##VOUT1,				\
-+	.vsel_mask = BCM590XX_SR_VSEL_MASK,				\
-+	.enable_reg = BCM590XX_##_name##PMCTRL1,			\
-+	.enable_mask = BCM590XX_REG_ENABLE,				\
-+	.enable_is_inverted = true
-+
-+static const struct bcm590xx_reg_data bcm590xx_regs[BCM590XX_NUM_REGS] = {
-+	{
-+		.type = BCM590XX_REG_TYPE_LDO,
-+		.regmap = BCM590XX_REGMAP_PRI,
-+		.desc = {
-+			BCM590XX_LDO_DESC(RFLDO, rfldo, ldo_a_table),
-+		},
-+	},
-+
-+	{
-+		.type = BCM590XX_REG_TYPE_LDO,
-+		.regmap = BCM590XX_REGMAP_PRI,
-+		.desc = {
-+			BCM590XX_LDO_DESC(CAMLDO1, camldo1, ldo_c_table),
-+		},
-+	},
-+
-+	{
-+		.type = BCM590XX_REG_TYPE_LDO,
-+		.regmap = BCM590XX_REGMAP_PRI,
-+		.desc = {
-+			BCM590XX_LDO_DESC(CAMLDO2, camldo2, ldo_c_table),
-+		},
-+	},
-+
-+	{
-+		.type = BCM590XX_REG_TYPE_LDO,
-+		.regmap = BCM590XX_REGMAP_PRI,
-+		.desc = {
-+			BCM590XX_LDO_DESC(SIMLDO1, simldo1, ldo_a_table),
-+		},
-+	},
-+
-+	{
-+		.type = BCM590XX_REG_TYPE_LDO,
-+		.regmap = BCM590XX_REGMAP_PRI,
-+		.desc = {
-+			BCM590XX_LDO_DESC(SIMLDO2, simldo2, ldo_a_table),
-+		},
-+	},
-+
-+	{
-+		.type = BCM590XX_REG_TYPE_LDO,
-+		.regmap = BCM590XX_REGMAP_PRI,
-+		.desc = {
-+			BCM590XX_LDO_DESC(SDLDO, sdldo, ldo_c_table),
-+		},
-+	},
-+
-+	{
-+		.type = BCM590XX_REG_TYPE_LDO,
-+		.regmap = BCM590XX_REGMAP_PRI,
-+		.desc = {
-+			BCM590XX_LDO_DESC(SDXLDO, sdxldo, ldo_a_table),
-+		},
-+	},
-+
-+	{
-+		.type = BCM590XX_REG_TYPE_LDO,
-+		.regmap = BCM590XX_REGMAP_PRI,
-+		.desc = {
-+			BCM590XX_LDO_DESC(MMCLDO1, mmcldo1, ldo_a_table),
-+		},
-+	},
-+
-+	{
-+		.type = BCM590XX_REG_TYPE_LDO,
-+		.regmap = BCM590XX_REGMAP_PRI,
-+		.desc = {
-+			BCM590XX_LDO_DESC(MMCLDO2, mmcldo2, ldo_a_table),
-+		},
-+	},
-+
-+	{
-+		.type = BCM590XX_REG_TYPE_LDO,
-+		.regmap = BCM590XX_REGMAP_PRI,
-+		.desc = {
-+			BCM590XX_LDO_DESC(AUDLDO, audldo, ldo_a_table),
-+		},
-+	},
-+
-+	{
-+		.type = BCM590XX_REG_TYPE_LDO,
-+		.regmap = BCM590XX_REGMAP_PRI,
-+		.desc = {
-+			BCM590XX_LDO_DESC(MICLDO, micldo, ldo_a_table),
-+		},
-+	},
-+
-+	{
-+		.type = BCM590XX_REG_TYPE_LDO,
-+		.regmap = BCM590XX_REGMAP_PRI,
-+		.desc = {
-+			BCM590XX_LDO_DESC(USBLDO, usbldo, ldo_a_table),
-+		},
-+	},
-+
-+	{
-+		.type = BCM590XX_REG_TYPE_LDO,
-+		.regmap = BCM590XX_REGMAP_PRI,
-+		.desc = {
-+			BCM590XX_LDO_DESC(VIBLDO, vibldo, ldo_c_table),
-+		},
-+	},
-+
-+	{
-+		.type = BCM590XX_REG_TYPE_SR,
-+		.regmap = BCM590XX_REGMAP_PRI,
-+		.desc = {
-+			BCM590XX_SR_DESC(CSR, csr, dcdc_csr_ranges),
-+		},
-+	},
-+
-+	{
-+		.type = BCM590XX_REG_TYPE_SR,
-+		.regmap = BCM590XX_REGMAP_PRI,
-+		.desc = {
-+			BCM590XX_SR_DESC(IOSR1, iosr1, dcdc_iosr1_ranges),
-+		},
-+	},
-+
-+	{
-+		.type = BCM590XX_REG_TYPE_SR,
-+		.regmap = BCM590XX_REGMAP_PRI,
-+		.desc = {
-+			BCM590XX_SR_DESC(IOSR2, iosr2, dcdc_iosr1_ranges),
-+		},
-+	},
-+
-+	{
-+		.type = BCM590XX_REG_TYPE_SR,
-+		.regmap = BCM590XX_REGMAP_PRI,
-+		.desc = {
-+			BCM590XX_SR_DESC(MSR, msr, dcdc_iosr1_ranges),
-+		},
-+	},
-+
-+	{
-+		.type = BCM590XX_REG_TYPE_SR,
-+		.regmap = BCM590XX_REGMAP_PRI,
-+		.desc = {
-+			BCM590XX_SR_DESC(SDSR1, sdsr1, dcdc_sdsr1_ranges),
-+		},
-+	},
-+
-+	{
-+		.type = BCM590XX_REG_TYPE_SR,
-+		.regmap = BCM590XX_REGMAP_PRI,
-+		.desc = {
-+			BCM590XX_SR_DESC(SDSR2, sdsr2, dcdc_iosr1_ranges),
-+		},
-+	},
-+
-+	{
-+		.type = BCM590XX_REG_TYPE_SR,
-+		.regmap = BCM590XX_REGMAP_PRI,
-+		.desc = {
-+			BCM590XX_SR_DESC(VSR, vsr, dcdc_iosr1_ranges),
-+		},
-+	},
-+
-+	{
-+		.type = BCM590XX_REG_TYPE_GPLDO,
-+		.regmap = BCM590XX_REGMAP_SEC,
-+		.desc = {
-+			BCM590XX_LDO_DESC(GPLDO1, gpldo1, ldo_a_table),
-+		},
-+	},
-+
-+	{
-+		.type = BCM590XX_REG_TYPE_GPLDO,
-+		.regmap = BCM590XX_REGMAP_SEC,
-+		.desc = {
-+			BCM590XX_LDO_DESC(GPLDO2, gpldo2, ldo_a_table),
-+		},
-+	},
-+
-+	{
-+		.type = BCM590XX_REG_TYPE_GPLDO,
-+		.regmap = BCM590XX_REGMAP_SEC,
-+		.desc = {
-+			BCM590XX_LDO_DESC(GPLDO3, gpldo3, ldo_a_table),
-+		},
-+	},
-+
-+	{
-+		.type = BCM590XX_REG_TYPE_GPLDO,
-+		.regmap = BCM590XX_REGMAP_SEC,
-+		.desc = {
-+			BCM590XX_LDO_DESC(GPLDO4, gpldo4, ldo_a_table),
-+		},
-+	},
-+
-+	{
-+		.type = BCM590XX_REG_TYPE_GPLDO,
-+		.regmap = BCM590XX_REGMAP_SEC,
-+		.desc = {
-+			BCM590XX_LDO_DESC(GPLDO5, gpldo5, ldo_a_table),
-+		},
-+	},
-+
-+	{
-+		.type = BCM590XX_REG_TYPE_GPLDO,
-+		.regmap = BCM590XX_REGMAP_SEC,
-+		.desc = {
-+			BCM590XX_LDO_DESC(GPLDO6, gpldo6, ldo_a_table),
-+		},
-+	},
-+
-+	{
-+		.type = BCM590XX_REG_TYPE_VBUS,
-+		.regmap = BCM590XX_REGMAP_SEC,
-+		.desc = {
-+			BCM590XX_REG_DESC(VBUS, vbus),
-+			.ops = &bcm590xx_ops_vbus,
-+			.n_voltages = 1,
-+			.fixed_uV = 5000000,
-+			.enable_reg = BCM590XX_OTG_CTRL,
-+			.enable_mask = BCM590XX_VBUS_ENABLE,
-+		},
-+	},
-+};
-+
- static int bcm590xx_probe(struct platform_device *pdev)
- {
- 	struct bcm590xx *bcm590xx = dev_get_drvdata(pdev->dev.parent);
- 	struct bcm590xx_reg *pmu;
-+	const struct bcm590xx_reg_data *info;
- 	struct regulator_config config = { };
--	struct bcm590xx_info *info;
- 	struct regulator_dev *rdev;
--	int i;
-+	unsigned int i;
- 
- 	pmu = devm_kzalloc(&pdev->dev, sizeof(*pmu), GFP_KERNEL);
- 	if (!pmu)
- 		return -ENOMEM;
- 
- 	pmu->mfd = bcm590xx;
-+	pmu->n_regulators = BCM590XX_NUM_REGS;
-+	pmu->regs = bcm590xx_regs;
- 
- 	platform_set_drvdata(pdev, pmu);
- 
--	pmu->desc = devm_kcalloc(&pdev->dev,
--				 BCM590XX_NUM_REGS,
--				 sizeof(struct regulator_desc),
--				 GFP_KERNEL);
--	if (!pmu->desc)
--		return -ENOMEM;
--
--	info = bcm590xx_regs;
--
--	for (i = 0; i < BCM590XX_NUM_REGS; i++, info++) {
--		/* Register the regulators */
--		pmu->desc[i].name = info->name;
--		pmu->desc[i].of_match = of_match_ptr(info->name);
--		pmu->desc[i].regulators_node = of_match_ptr("regulators");
--		pmu->desc[i].supply_name = info->vin_name;
--		pmu->desc[i].id = i;
--		pmu->desc[i].volt_table = info->volt_table;
--		pmu->desc[i].n_voltages = info->n_voltages;
--		pmu->desc[i].linear_ranges = info->linear_ranges;
--		pmu->desc[i].n_linear_ranges = info->n_linear_ranges;
--
--		if ((BCM590XX_REG_IS_LDO(i)) || (BCM590XX_REG_IS_GPLDO(i))) {
--			pmu->desc[i].ops = &bcm590xx_ops_ldo;
--			pmu->desc[i].vsel_mask = BCM590XX_LDO_VSEL_MASK;
--		} else if (BCM590XX_REG_IS_VBUS(i))
--			pmu->desc[i].ops = &bcm590xx_ops_vbus;
--		else {
--			pmu->desc[i].ops = &bcm590xx_ops_dcdc;
--			pmu->desc[i].vsel_mask = BCM590XX_SR_VSEL_MASK;
--		}
--
--		if (BCM590XX_REG_IS_VBUS(i))
--			pmu->desc[i].enable_mask = BCM590XX_VBUS_ENABLE;
--		else {
--			pmu->desc[i].vsel_reg = bcm590xx_get_vsel_register(i);
--			pmu->desc[i].enable_is_inverted = true;
--			pmu->desc[i].enable_mask = BCM590XX_REG_ENABLE;
--		}
--		pmu->desc[i].enable_reg = bcm590xx_get_enable_register(i);
--		pmu->desc[i].type = REGULATOR_VOLTAGE;
--		pmu->desc[i].owner = THIS_MODULE;
-+	/* Register the regulators */
-+	for (i = 0; i < pmu->n_regulators; i++) {
-+		info = &pmu->regs[i];
- 
- 		config.dev = bcm590xx->dev;
- 		config.driver_data = pmu;
--		if (BCM590XX_REG_IS_GPLDO(i) || BCM590XX_REG_IS_VBUS(i))
--			config.regmap = bcm590xx->regmap_sec;
--		else
-+
-+		switch (info->regmap) {
-+		case BCM590XX_REGMAP_PRI:
- 			config.regmap = bcm590xx->regmap_pri;
-+			break;
-+		case BCM590XX_REGMAP_SEC:
-+			config.regmap = bcm590xx->regmap_sec;
-+			break;
-+		default:
-+			dev_err(bcm590xx->dev,
-+				"invalid regmap for %s regulator; this is a driver bug\n",
-+				pdev->name);
-+			return -EINVAL;
-+		}
- 
--		rdev = devm_regulator_register(&pdev->dev, &pmu->desc[i],
-+		rdev = devm_regulator_register(&pdev->dev, &info->desc,
+ 		rdev = devm_regulator_register(&pdev->dev, &pmu->desc[i],
  					       &config);
- 		if (IS_ERR(rdev))
- 			return dev_err_probe(bcm590xx->dev, PTR_ERR(rdev),
-diff --git a/include/linux/mfd/bcm590xx.h b/include/linux/mfd/bcm590xx.h
-index fbc458e94bef923ca1b69afe2cac944adf6fedf8..5a5783abd47b9a6bb6f9bb3a8cafddbd01aa7fcc 100644
---- a/include/linux/mfd/bcm590xx.h
-+++ b/include/linux/mfd/bcm590xx.h
-@@ -27,6 +27,12 @@
- #define BCM59056_REV_DIGITAL_B0		2
- #define BCM59056_REV_ANALOG_B0		2
+-		if (IS_ERR(rdev)) {
+-			dev_err(bcm590xx->dev,
+-				"failed to register %s regulator\n",
+-				pdev->name);
+-			return PTR_ERR(rdev);
+-		}
++		if (IS_ERR(rdev))
++			return dev_err_probe(bcm590xx->dev, PTR_ERR(rdev),
++					     "failed to register %s regulator\n",
++					     pdev->name);
+ 	}
  
-+/* regmap types */
-+enum bcm590xx_regmap_type {
-+	BCM590XX_REGMAP_PRI,
-+	BCM590XX_REGMAP_SEC,
-+};
-+
- /* max register address */
- #define BCM590XX_MAX_REGISTER_PRI	0xe7
- #define BCM590XX_MAX_REGISTER_SEC	0xf0
+ 	return 0;
 
 -- 
 2.49.0
