@@ -4,78 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3767BC3ABA5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 02:06:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A8D5C3ABA5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 02:29:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DKR60j4UMg5PnXkIvOcvtrX6NGX6zXBYsWyUwoAwfA8=; b=PN6btDzZ74RusWs3XeM+2UPevg
-	vYT9NcnWG1NHUn9k0BV+/C4YLveRz8Ayw9naw7TCmE4SabD6xs2QClMjExxn5KT07rnsXmiTx44kd
-	SXD3fvauaQUkGv5FoUMSWkd2ajTU/AsFHjNJX8ypPuKaL5304ElLlASJHHzts1dCKdlR9QnI7+RqR
-	Sg2ACMsarTW7guUnbM50HKPiBM/maFCAPemRZCTK17E4jPW3w9R2EXBeF7jVziCUtDif2+uPMVZV1
-	9lu6/FdycfxtCMQjijEJxaiKDxBe5CSclq7lD7TUTs30WY9cm3dQ5/Colg/cLtWzIZbl2DobpW8q5
-	fJ05D2Kg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k4QjAmh83yMZNLzUuAj1J5f4WZGw3kbBWCArSRYks8c=; b=AskaqCw4/b0F7WdjESPwp7zjD8
+	DJm/ZvzoBJlHQBa0W/rPrup56LiuxGs/l3chw2UXuI22EKt3TNk/hRaK5XH4PUgk0ZjV5BV6IAz7Z
+	OKZG2SiCdDF+4SMLfVg2iA9QHdlKoCJKjI9ei20/MRtR+6EpyiYMT0TVZ2DjxKldwbKPIKF3UFDPg
+	jKjDQMNBTIhiVwkB6P7Wq9vYBRO3KS+SDAmOn+bGzQACGM9B4Jgz/AGsmboXbrzgLvpz7OFhIyLnk
+	V++xLAN+LhrdcCzQG4Cm+BXmp1qXh2ldEVDAmNuYcS5gg2U2YatU/aqTqngsFXo4BS+TPW1GPavCl
+	VcOBFeag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9wpt-0000000BUaz-043v;
-	Wed, 30 Apr 2025 02:06:09 +0000
-Received: from mail-m8259.xmail.ntesmail.com ([156.224.82.59])
+	id 1u9xCP-0000000BW9F-22nT;
+	Wed, 30 Apr 2025 02:29:25 +0000
+Received: from abb.hmeau.com ([144.6.53.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9wnw-0000000BUSu-2nll;
-	Wed, 30 Apr 2025 02:04:12 +0000
-Received: from [127.0.0.1] (gy-adaptive-ssl-proxy-4-entmail-virt151.gy.ntes [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 1398a2eb4;
-	Wed, 30 Apr 2025 10:03:55 +0800 (GMT+08:00)
-Message-ID: <3c66f508-6192-4dd5-8561-d746665952b5@rock-chips.com>
-Date: Wed, 30 Apr 2025 10:03:53 +0800
+	id 1u9xAV-0000000BVx7-2BuY;
+	Wed, 30 Apr 2025 02:27:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
+	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=k4QjAmh83yMZNLzUuAj1J5f4WZGw3kbBWCArSRYks8c=; b=Vieyc26VLhqz4zWnYRj3rYoyQj
+	H0zpuIjmCDGV04Csn9F7DAzFr4VMNjSPrC0ttYmpV9ePC4GcLW04Gh2LQ1DfIxlqp8R2aL3ipQgqS
+	Hoxj4/7XIQ9SP8MYTw9J6YxFRkgAmoixnyakr025Cu5UwmrQd+FkzC7jHq9Sv7Lbup88SHAX/kJOO
+	gCZMT32Dh2FRvOwZvUtHvMWVDl4ZzRtgK+7mmLDbkUAE5fgD6/s5zMPyYWMNXS2Dyy648liRupOcp
+	RncktiF2kCxxXhDi4UksWk66YNHf90reaqkRJHJIrq0moVeglYppY4Tl1LsVfkb0I0T9xlkGgF+Dz
+	KZjeX6Og==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1u9xAJ-0028rg-2e;
+	Wed, 30 Apr 2025 10:27:16 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Wed, 30 Apr 2025 10:27:15 +0800
+Date: Wed, 30 Apr 2025 10:27:15 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	sparclinux@vger.kernel.org, linux-s390@vger.kernel.org,
+	x86@kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld " <Jason@zx2c4.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: Re: [v3 PATCH 00/13] Architecture-optimized SHA-256 library API
+Message-ID: <aBGKg5bq0zLkhy3-@gondor.apana.org.au>
+References: <cover.1745816372.git.herbert@gondor.apana.org.au>
+ <20250429165749.GC1743@sol.localdomain>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Add rk3399-evb-ind board
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Chaoyi Chen <kernel@airkyi.com>, Heiko Stuebner <heiko@sntech.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
- Kever Yang <kever.yang@rock-chips.com>,
- Jianfeng Liu <liujianfeng1994@gmail.com>, Dragan Simic <dsimic@manjaro.org>,
- Jimmy Hon <honyuenkwun@gmail.com>, Quentin Schulz
- <quentin.schulz@cherry.de>, FUKAUMI Naoki <naoki@radxa.com>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Alexey Charkov <alchark@gmail.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250427094211.246-1-kernel@airkyi.com>
- <20250427094211.246-3-kernel@airkyi.com>
- <6291f6b8-75d3-4243-9935-9b64450e2b7f@lunn.ch>
- <c583c59a-d5b7-4e20-9a1f-96f51bd7b4f3@rock-chips.com>
- <15ee1a6b-55ba-41e9-b8a0-6e0bf62cabf0@lunn.ch>
- <027de192-4227-4010-a759-5283b6af1531@rock-chips.com>
- <c9b46d09-f1ed-4549-8267-9a38ceca6461@lunn.ch>
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <c9b46d09-f1ed-4549-8267-9a38ceca6461@lunn.ch>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ05MTVYZSBlDSk4ZQktISR9WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-X-HM-Tid: 0a96846fb72b03abkunm1398a2eb4
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Ok06Njo4GDJKNy1MCA1DCgsp
-	TgIaFDZVSlVKTE9OQkxDTU9ISUxDVTMWGhIXVRgTGhQCElUYEx4VOwkUGBBWGBMSCwhVGBQWRVlX
-	WRILWUFZTkNVSUlVTFVKSk9ZV1kIAVlBSUtDTzcG
-DKIM-Signature: a=rsa-sha256;
-	b=Qi9o/yJnFnGDgKs0UMtWAB+KmxAU1cggUCmbwwZZvSgaw9HgdNIBQbnVSDAYivJSgWn5fEJyOWxU3NDN0AtKDtfizNo1gcFjpl8ZnNRIhBx/cn/Tf18qUuybJbdYIETC9Sqvm2L0hi5+QChG3fQVg13Prv4pe6D8izTHZUjdeQE=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=DKR60j4UMg5PnXkIvOcvtrX6NGX6zXBYsWyUwoAwfA8=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250429165749.GC1743@sol.localdomain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_190409_270037_F8FA4A78 
-X-CRM114-Status: UNSURE (   8.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250429_192727_559688_5E126435 
+X-CRM114-Status: GOOD (  15.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,15 +79,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+On Tue, Apr 29, 2025 at 09:57:49AM -0700, Eric Biggers wrote:
+>
+> To be clear, the objections I have on your v2 patchset still hold.  Your
+> unsolicited changes to my patches add unnecessary complexity and redundancy,
+> make the crypto_shash API even harder to use correctly, and also break the build
+> for several architectures.  If you're going to again use your maintainer
+> privileges to push these out anyway over my objections, I'd appreciate it if you
+> at least made your dubious changes as incremental patches using your own
+> authorship so that they can be properly reviewed/blamed.
 
-On 2025/4/29 20:22, Andrew Lunn wrote:
-> Please consider how you can fix the MAC driver without breaking all
-> the boards using the wrong rgmii value. There are a few discussion
-> about this on the mailing list if you go searching.
+Well the main problem is that your patch introduces a regression
+in the shash sha256 code by making its export format differ from
+other shash sha256 implementations (e.g., padlock-sha).
 
-Thanks for the clarification. I'll fix the problems in the RK3399 gmac 
-driver in a separate patch series. In v2 of this patch, I'll remove the 
-ethernet device tree content for now.
+So your first patch cannot stand as is.  What I could do is split up
+the first patch so that the lib/crypto sha stuff goes in by itself
+followed by a separate patch replacing the crypto/sha256 code.
 
+> Please also note that I've sent a v4 which fixes the one real issue that my v1
+> patchset had: https://lore.kernel.org/r/20250428170040.423825-1-ebiggers@kernel.org
+
+Yes I've seen it but it still has the same issue of changing the
+shash sha256 export format.
+
+Cheers,
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
