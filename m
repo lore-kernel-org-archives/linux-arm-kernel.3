@@ -4,83 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07DC1C3ABA5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 02:01:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3767BC3ABA5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 02:06:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VVFZTctHxV0J4BThDv/Rh1bu5X7V1E/RSG49b70KuFk=; b=j/yhQnAyeT6R7ZBFgkXPgE5StC
-	/qHKJq8gEV5oYWHLsG57jJCQUdb1YRdj2nYEmSBxZ6wsSlwRItZZkc0fPoofWEF7SqtG/o8QDrLGQ
-	pLupCVtkJY/GiWWeoXZ/SEzgk92cAgYmsVI9k5RsvuGMh1sJ6ISt8heCVfR8pknNdmTnpbk7t8lID
-	DROv+1IPUveshoNbTh9HnGcq63TpL7aoM3C0h8+vW3ToC8f4XMBWPb37H0Cr24poNfcLPj39RyJx/
-	IVV65Joi6XIWm+44FdD/rvFM45ioD9coywg9nVcc6YIMezDZ4F4etalPIfMyVt/M2tXoKJxyaYfvK
-	tFck/PYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DKR60j4UMg5PnXkIvOcvtrX6NGX6zXBYsWyUwoAwfA8=; b=PN6btDzZ74RusWs3XeM+2UPevg
+	vYT9NcnWG1NHUn9k0BV+/C4YLveRz8Ayw9naw7TCmE4SabD6xs2QClMjExxn5KT07rnsXmiTx44kd
+	SXD3fvauaQUkGv5FoUMSWkd2ajTU/AsFHjNJX8ypPuKaL5304ElLlASJHHzts1dCKdlR9QnI7+RqR
+	Sg2ACMsarTW7guUnbM50HKPiBM/maFCAPemRZCTK17E4jPW3w9R2EXBeF7jVziCUtDif2+uPMVZV1
+	9lu6/FdycfxtCMQjijEJxaiKDxBe5CSclq7lD7TUTs30WY9cm3dQ5/Colg/cLtWzIZbl2DobpW8q5
+	fJ05D2Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9wlD-0000000BTnr-1zXJ;
-	Wed, 30 Apr 2025 02:01:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u9wpt-0000000BUaz-043v;
+	Wed, 30 Apr 2025 02:06:09 +0000
+Received: from mail-m8259.xmail.ntesmail.com ([156.224.82.59])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9vcw-0000000BNKE-2TrA
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Apr 2025 00:48:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=VVFZTctHxV0J4BThDv/Rh1bu5X7V1E/RSG49b70KuFk=; b=gS+tZ5aLEwFAL0N9aGAPMLPBzD
-	DnB0wh0Zoyb8Q5/Gob/RNv+OjTLb2xHBPJh5UYJGXZElpbKw2eD0t2/KJJOum/YHDFY/MWFmc+Y9z
-	IQEnNWTZ4lF49Xx2bxECUvQIJbjyFSrXbPRwa43IulD84PMQJXLcr/bzzRBGv9O3ow+POmgQfBdGj
-	poeDIuM0S3uEiNE+aW/YLK2CxhwNPNXMuXDKWM4BhPcQPXXsJx728daJSWYr/KiFwq1/lrrDNHeX7
-	X4IrN0FvKFv1c/mAb8FqUG6RvRt+hcOMFx74SZcCp0gKokflTqvwAG4AxXiPvqXMCsJ67JF3zMDp5
-	pH7/2+5Q==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9vct-0000000DbPz-2pqt
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 00:48:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1FEDA5C0F9C;
-	Wed, 30 Apr 2025 00:46:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CD11C4CEE3;
-	Wed, 30 Apr 2025 00:48:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745974115;
-	bh=VVFZTctHxV0J4BThDv/Rh1bu5X7V1E/RSG49b70KuFk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NW+eklPwrSa6qc0ANGDyz5ecCRQIwS8PesnSG7ZB0CPRIM67IQ+chPQENuKAi8zd0
-	 Zm0R4pyyTFAJ92d2wvYK8KPthnCFMB4BchhmNBtnzWe8xgtVMFWUGiyoWKvSGNE2Fw
-	 ENRTIbvu37efEZw9Qc9JXc3kQFVt9iN7UUm1kJrvcFFzdq6cNsGSE7nkA+c7mr4XpO
-	 1Lzs6pVxugKDBfktLfW4aEWSQIThcWbYpdZvOE+/EEUrwFtNI6r3Tq0J9zcYco04Ao
-	 uuPddb65DCIMCvzEIGz8vbggqDjU6uZxMsTS6t7v1flq7FdDn5fM4GFDvj9xs+TbRA
-	 /7/jj5o1gfZ/A==
-Date: Wed, 30 Apr 2025 09:48:31 +0900
-From: Mark Brown <broonie@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Subject: Re: [PATCH] KVM: selftests: add test for SVE host corruption
-Message-ID: <aBFzXw-ASk1bXQvx@finisterre.sirena.org.uk>
-References: <20250417-kvm-selftest-sve-signal-v1-1-6330c2f3da0c@kernel.org>
- <aBDv39FD7eDYoplg@J2N7QTR9R3.cambridge.arm.com>
+	id 1u9wnw-0000000BUSu-2nll;
+	Wed, 30 Apr 2025 02:04:12 +0000
+Received: from [127.0.0.1] (gy-adaptive-ssl-proxy-4-entmail-virt151.gy.ntes [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 1398a2eb4;
+	Wed, 30 Apr 2025 10:03:55 +0800 (GMT+08:00)
+Message-ID: <3c66f508-6192-4dd5-8561-d746665952b5@rock-chips.com>
+Date: Wed, 30 Apr 2025 10:03:53 +0800
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="C+U9jvApfUFUi2KB"
-Content-Disposition: inline
-In-Reply-To: <aBDv39FD7eDYoplg@J2N7QTR9R3.cambridge.arm.com>
-X-Cookie: Well begun is half done.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Add rk3399-evb-ind board
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Chaoyi Chen <kernel@airkyi.com>, Heiko Stuebner <heiko@sntech.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
+ Kever Yang <kever.yang@rock-chips.com>,
+ Jianfeng Liu <liujianfeng1994@gmail.com>, Dragan Simic <dsimic@manjaro.org>,
+ Jimmy Hon <honyuenkwun@gmail.com>, Quentin Schulz
+ <quentin.schulz@cherry.de>, FUKAUMI Naoki <naoki@radxa.com>,
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Alexey Charkov <alchark@gmail.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250427094211.246-1-kernel@airkyi.com>
+ <20250427094211.246-3-kernel@airkyi.com>
+ <6291f6b8-75d3-4243-9935-9b64450e2b7f@lunn.ch>
+ <c583c59a-d5b7-4e20-9a1f-96f51bd7b4f3@rock-chips.com>
+ <15ee1a6b-55ba-41e9-b8a0-6e0bf62cabf0@lunn.ch>
+ <027de192-4227-4010-a759-5283b6af1531@rock-chips.com>
+ <c9b46d09-f1ed-4549-8267-9a38ceca6461@lunn.ch>
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <c9b46d09-f1ed-4549-8267-9a38ceca6461@lunn.ch>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ05MTVYZSBlDSk4ZQktISR9WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+X-HM-Tid: 0a96846fb72b03abkunm1398a2eb4
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Ok06Njo4GDJKNy1MCA1DCgsp
+	TgIaFDZVSlVKTE9OQkxDTU9ISUxDVTMWGhIXVRgTGhQCElUYEx4VOwkUGBBWGBMSCwhVGBQWRVlX
+	WRILWUFZTkNVSUlVTFVKSk9ZV1kIAVlBSUtDTzcG
+DKIM-Signature: a=rsa-sha256;
+	b=Qi9o/yJnFnGDgKs0UMtWAB+KmxAU1cggUCmbwwZZvSgaw9HgdNIBQbnVSDAYivJSgWn5fEJyOWxU3NDN0AtKDtfizNo1gcFjpl8ZnNRIhBx/cn/Tf18qUuybJbdYIETC9Sqvm2L0hi5+QChG3fQVg13Prv4pe6D8izTHZUjdeQE=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=DKR60j4UMg5PnXkIvOcvtrX6NGX6zXBYsWyUwoAwfA8=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_014839_929940_A28AD523 
-X-CRM114-Status: GOOD (  16.29  )
+X-CRM114-CacheID: sfid-20250429_190409_270037_F8FA4A78 
+X-CRM114-Status: UNSURE (   8.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,48 +90,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Andrew,
 
---C+U9jvApfUFUi2KB
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On 2025/4/29 20:22, Andrew Lunn wrote:
+> Please consider how you can fix the MAC driver without breaking all
+> the boards using the wrong rgmii value. There are a few discussion
+> about this on the mailing list if you go searching.
 
-On Tue, Apr 29, 2025 at 04:27:27PM +0100, Mark Rutland wrote:
-> On Thu, Apr 17, 2025 at 12:32:49AM +0100, Mark Brown wrote:
+Thanks for the clarification. I'll fix the problems in the RK3399 gmac 
+driver in a separate patch series. In v2 of this patch, I'll remove the 
+ethernet device tree content for now.
 
-> > Signed-off-by: Mark Brown <broonie@kernel.org>
-
-> Looks like my Signed-off-by got dropped by accident; it should be above
-> yours here.
-
-> Aside from that, and the initial feature test, this looks pretty much
-> identical to my original WIP.
-
-Sorry, for a while I had a version of the program that was a lot more
-modified (I was trying to make it work with a wider range of supervised
-programs) so it didn't feel right to carry your SoB forward, but those
-didn't actually go all the way to working enough to enable any of the
-additional programs I was looking at so I ended up unwinding them and
-didn't also unwind that change.
-
-> I'm not sure if it's worth keeping all the printf() calls, which were
-> only there to help me check the UDF trap was being handled correctly.
-
-I've found them handy when using it.
-
---C+U9jvApfUFUi2KB
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmgRc10ACgkQJNaLcl1U
-h9AtJAf+MbIe0znLqzLeaZE59FpZ7imkJVYN6BNayn6dR6KSH0ba5TR2bJ6BOB+F
-420HSoFS7860BB8M5gF1SYpt0BfhiwjXrCFEBjh/CI4n7XhIJKgWodPjFsSN4hIA
-scNzDwbQ8TSF6N2BV/Wqa1y6SX2qE6HcSEsS3kiIn8dcPFXWKwxMAypCXPJpVF6p
-SfQKTaqgkOkQBHW4TrPMbA20jdgLgGnYfGtB77/1VgTWfqaULkOc16bYSPVTYvu7
-DXXhpzMrMwzCLSPIS9t9c3IZDSQKyeyk5SM2O17y5moR2ymnTSBRtR9aA1IQh+AJ
-D/dD4tw21AQDTCp5d5zWoqSLzmIeyg==
-=V8X6
------END PGP SIGNATURE-----
-
---C+U9jvApfUFUi2KB--
 
