@@ -4,71 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCC49C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 09:34:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9AE2C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 09:36:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F03UWiz9sqyE/lLERqq+zEVb3woV/j4XoPFqk23mX8E=; b=LIERcSWB9VCXEok6UaQkSQ/TCQ
-	ubN5J3XOJI5ACXUb9vViG/5XLl4aGxA0rUdLdjsSNzlXl7D+yScicRw23HwFW8nNln7BnJTTbyrIn
-	0ImSUjCsCRjZ4Pv/3t5KW8aD3TkBZe6arvbw66VgCaZl1LISaLlSPdaJkSxjDiTaIxb6X01sknAOv
-	YIexzOXTfHE6kIXPuDuH1DWjhen1yljAWxOaeiSbAT663y0yoVJ50SGiqC/Ta5W6n8iVmviBeNUq0
-	E1UuzrQW+3DkzEYclSDFT3TiKJmhjY0wPmDzGFfetOek+zCNSfyau5MaivcUhqB06D2Ap/9OGbjc0
-	Lk8ZUITQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4kd/yId7sB4ubP6q68x1EiHO92z5lCybpmYIurSgUhY=; b=QpPm3XvxYRXDtH7drjRqBavzK/
+	P4sxWWhy5iqEuE9MikK9YwTK8PVIbRa2b2m1vLmT/ON9OzmENJYnRylC0I8pj2ypiPXYiSu8p8U7r
+	fSk44104rZy5mjzNjHel4B3XDLnOh87nxyzFMv/R/U7VPMhjPp5bPIcuwZWB6Kt2NUEfrY7rvdTre
+	AOecHlvfaK1oGBr7MXaaCY+2CUER2B2Rkjf7H1WLtOrnp1lqa2eySXdn8N9QJXFzzT7P/X6PpAuf8
+	a6/JQ6ArBQ4ZI8UJby8OM4LjsyZ002FpECo5VSZaOquRrWOWRu+zwGlT1W0qOUkNg0vWbW7G/gghN
+	JbCpnaiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA3pN-0000000CNgy-0MLM;
-	Wed, 30 Apr 2025 09:34:05 +0000
+	id 1uA3rI-0000000CODh-01I9;
+	Wed, 30 Apr 2025 09:36:04 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA3d5-0000000CLIC-1o6F
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 30 Apr 2025 09:21:23 +0000
+	id 1uA3jM-0000000CMPB-110u;
+	Wed, 30 Apr 2025 09:27:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:To:Subject:MIME-Version:Date:Message-ID:Sender:
-	Reply-To:Cc:Content-ID:Content-Description;
-	bh=F03UWiz9sqyE/lLERqq+zEVb3woV/j4XoPFqk23mX8E=; b=Xv2PNwzyUIAlzQ6qDQSueOLWnW
-	p/E91U0jynJ3YvQLfQtzZFRv29HMY8AvRv5wUf2CNngR6dGO9qBJ8kDf8ITx4TR4OkLM87H6yzt8E
-	0cZnEnmcYPbWI0khOglq1usoVTnJ/X8cMwe1rdMn5rNk91rmyqRkqpSCdP0bteuZn0InuwPEQUqtl
-	zdp4jMMqLtWjXrUwpP4xIZ233CgRpwE+6fT9SwPqaLXI52PLisZLXcAX0X8lsI2NyNxDjRp8ivgS6
-	l/BM/lcUZ26k0aBrkFgTocagh1vei7vsFdn1KDDbkNePzGR+kGfsfkxxaN7tcJNAR/RVMk7JCudjI
-	qkPIrTfA==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uA3d1-0000000DkwN-1p7L
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 09:21:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 125CE106F;
-	Wed, 30 Apr 2025 02:21:09 -0700 (PDT)
-Received: from [10.1.33.69] (Suzukis-MBP.cambridge.arm.com [10.1.33.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B45673F5A1;
-	Wed, 30 Apr 2025 02:21:14 -0700 (PDT)
-Message-ID: <e99c390f-229f-41cf-8646-b1400331605e@arm.com>
-Date: Wed, 30 Apr 2025 10:21:13 +0100
+	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Content-ID:Content-Description;
+	bh=4kd/yId7sB4ubP6q68x1EiHO92z5lCybpmYIurSgUhY=; b=gutpv/ooPTxG71Ttr6DdZc5p3Z
+	N5Y+Xzi009XGGdhtb9tGXLW2n3PAD13FqiJuKoOhOdKrszCHwqhNTS8D/bgiWybW4D5Vo56nhrMWY
+	h2+MzsggYlnIwLYf52nT7RpFTbGJx81eOp62QzaONUvG+PUERClK2tBNini3caHm+JJv08fn44rJi
+	n2VoLWEQRyz4+vqAYly6JM5VzcFwroCJvkHd0rwBERYdzU28wgumvNFwbgtyx86rqpVP5riG7EWit
+	nAQFilfnoJ3kUwAIYz8oJquwyRveRzAckMC1/y5A9aMYDqeevX8gYPVsZb38CzDh0awdve8XgwX55
+	1p7fXcig==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uA3jI-0000000Dl31-3RNS;
+	Wed, 30 Apr 2025 09:27:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D30094AC47;
+	Wed, 30 Apr 2025 09:27:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id CC95CC4CEF1;
+	Wed, 30 Apr 2025 09:27:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746005264;
+	bh=DekLBelCh6fLAeleQSyfWpljaHPSqs05c9605Bt+B5k=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=oCGhQ6gVP5hc8DhJIp8zKFEfGxtpoi9a9alhaihVZorygW0/bvO9E7VVv0m7BbDuW
+	 KVTsCHPYRTkvADrYdT3hGfGPLhe0PVZMCmKUpNv6MkooYrUq/g5diRRvI3TBIaC9A3
+	 DeX/IvzUJoL1B7Py7mB+fvws52tdfut+b2+gYSPYuJRn2rBbMql3p+BU7UbyHdsdKG
+	 a2+8QFdiewmlFhWHyUEBp2KCMOP/I8iGrInKdML620ahj4yZMdnes1Pg1ZhCduFyQ6
+	 qi5tz8IH2d1XYwL+tSvHPQVFQUvDhEzngTlCoJDBapURI3YLBrha25qG54ipRBzsVL
+	 d8DXkFilI3MEw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BFD7FC369DC;
+	Wed, 30 Apr 2025 09:27:44 +0000 (UTC)
+From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
+Date: Wed, 30 Apr 2025 11:15:52 +0200
+Subject: [PATCH v6 03/13] media: dt-bindings: add rockchip px30 vip
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/7] coresight: etm4x: Extract the trace unit
- controlling
-Content-Language: en-GB
-To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@linaro.org>,
- James Clark <james.clark@linaro.org>, Jonathan Corbet <corbet@lwn.net>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250401180708.385396-1-leo.yan@arm.com>
- <20250401180708.385396-2-leo.yan@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20250401180708.385396-2-leo.yan@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20240220-rk3568-vicap-v6-3-d2f5fbee1551@collabora.com>
+References: <20240220-rk3568-vicap-v6-0-d2f5fbee1551@collabora.com>
+In-Reply-To: <20240220-rk3568-vicap-v6-0-d2f5fbee1551@collabora.com>
+To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
+ Gerald Loacker <gerald.loacker@wolfvision.net>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Kever Yang <kever.yang@rock-chips.com>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Collabora Kernel Team <kernel@collabora.com>, 
+ Paul Kocialkowski <paulk@sys-base.io>, 
+ Alexander Shiyan <eagle.alexander923@gmail.com>, 
+ Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, 
+ Michael Riesch <michael.riesch@wolfvision.net>, 
+ Michael Riesch <michael.riesch@collabora.com>, 
+ Mehdi Djait <mehdi.djait@bootlin.com>
+X-Mailer: b4 0.12.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1746004564; l=4307;
+ i=michael.riesch@collabora.com; s=20250410; h=from:subject:message-id;
+ bh=cdNCDiikxDg+nnKV95yyl25F/lYucHK1XCALzDX+u5s=;
+ b=wpGgnLYFoRqLm1BJIu89K6+u9ZCNwTzn2Ei+s50y/YkQknyZvR4AE91tG5rQ3Si1sK/fh3l/m
+ XE1Ceml9OH8CNx/IVLynD6NQHpI5FQ96AsDNoaQX7oviSDp4Q56Y2NP
+X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
+ pk=+MWX1fffLFZtTPG/I6XdYm/+OSvpRE8D9evQaWbiN04=
+X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20250410
+ with auth_id=371
+X-Original-From: Michael Riesch <michael.riesch@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_102120_161708_B320C404 
-X-CRM114-Status: GOOD (  29.49  )
+X-CRM114-CacheID: sfid-20250430_102749_296366_F6C165FF 
+X-CRM114-Status: GOOD (  14.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,179 +116,167 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: michael.riesch@collabora.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/04/2025 19:07, Leo Yan wrote:
-> The trace unit is controlled in the ETM hardware enabling and disabling.
-> The sequential changes for support AUX pause and resume will reuse the
-> same operations.
-> 
-> Extract the operations in the etm4_{enable|disable}_trace_unit()
-> functions.  A minor improvement in etm4_enable_trace_unit() is for
-> returning the timeout error to callers.
-> 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> Reviewed-by: Mike Leach <mike.leach@linaro.org>
+From: Mehdi Djait <mehdi.djait@bootlin.com>
 
-The patch looks good to me. One comment below, nothing with your patch 
-though.
+Add documentation for the Rockchip PX30 Video Input Processor (VIP).
 
+Signed-off-by: Mehdi Djait <mehdi.djait@bootlin.com>
+[revised description]
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
+Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+---
+ .../bindings/media/rockchip,px30-vip.yaml          | 122 +++++++++++++++++++++
+ MAINTAINERS                                        |   1 +
+ 2 files changed, 123 insertions(+)
 
-> ---
->   drivers/hwtracing/coresight/coresight-etm4x-core.c | 103 +++++++++++++++++++++++++----------------
->   1 file changed, 62 insertions(+), 41 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index e5972f16abff..53cb0569dbbf 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -431,6 +431,44 @@ static int etm4x_wait_status(struct csdev_access *csa, int pos, int val)
->   	return coresight_timeout(csa, TRCSTATR, pos, val);
->   }
->   
-> +static int etm4_enable_trace_unit(struct etmv4_drvdata *drvdata)
-> +{
-> +	struct coresight_device *csdev = drvdata->csdev;
-> +	struct device *etm_dev = &csdev->dev;
-> +	struct csdev_access *csa = &csdev->access;
-> +
-> +	/*
-> +	 * ETE mandates that the TRCRSR is written to before
-> +	 * enabling it.
-> +	 */
-> +	if (etm4x_is_ete(drvdata))
-> +		etm4x_relaxed_write32(csa, TRCRSR_TA, TRCRSR);
-> +
-> +	etm4x_allow_trace(drvdata);
-> +	/* Enable the trace unit */
-> +	etm4x_relaxed_write32(csa, 1, TRCPRGCTLR);
-> +
-> +	/* Synchronize the register updates for sysreg access */
-> +	if (!csa->io_mem)
-> +		isb();
-> +
-> +	/* wait for TRCSTATR.IDLE to go back down to '0' */
-> +	if (etm4x_wait_status(csa, TRCSTATR_IDLE_BIT, 0)) {
-> +		dev_err(etm_dev,
-> +			"timeout while waiting for Idle Trace Status\n");
-> +		return -ETIME;
-> +	}
-> +
-> +	/*
-> +	 * As recommended by section 4.3.7 ("Synchronization when using the
-> +	 * memory-mapped interface") of ARM IHI 0064D
-> +	 */
-> +	dsb(sy);
-> +	isb();
-> +
-> +	return 0;
-> +}
-> +
->   static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
->   {
->   	int i, rc;
-> @@ -539,33 +577,7 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
->   		etm4x_relaxed_write32(csa, trcpdcr | TRCPDCR_PU, TRCPDCR);
->   	}
->   
-> -	/*
-> -	 * ETE mandates that the TRCRSR is written to before
-> -	 * enabling it.
-> -	 */
-> -	if (etm4x_is_ete(drvdata))
-> -		etm4x_relaxed_write32(csa, TRCRSR_TA, TRCRSR);
-> -
-> -	etm4x_allow_trace(drvdata);
-> -	/* Enable the trace unit */
-> -	etm4x_relaxed_write32(csa, 1, TRCPRGCTLR);
-> -
-> -	/* Synchronize the register updates for sysreg access */
-> -	if (!csa->io_mem)
-> -		isb();
-> -
-> -	/* wait for TRCSTATR.IDLE to go back down to '0' */
-> -	if (etm4x_wait_status(csa, TRCSTATR_IDLE_BIT, 0))
-> -		dev_err(etm_dev,
-> -			"timeout while waiting for Idle Trace Status\n");
-> -
-> -	/*
-> -	 * As recommended by section 4.3.7 ("Synchronization when using the
-> -	 * memory-mapped interface") of ARM IHI 0064D
-> -	 */
-> -	dsb(sy);
-> -	isb();
-> -
-> +	rc = etm4_enable_trace_unit(drvdata);
->   done:
->   	etm4_cs_lock(drvdata, csa);
->   
-> @@ -884,25 +896,12 @@ static int etm4_enable(struct coresight_device *csdev, struct perf_event *event,
->   	return ret;
->   }
->   
-> -static void etm4_disable_hw(void *info)
-> +static void etm4_disable_trace_unit(struct etmv4_drvdata *drvdata)
->   {
->   	u32 control;
-> -	struct etmv4_drvdata *drvdata = info;
-> -	struct etmv4_config *config = &drvdata->config;
->   	struct coresight_device *csdev = drvdata->csdev;
->   	struct device *etm_dev = &csdev->dev;
->   	struct csdev_access *csa = &csdev->access;
-> -	int i;
-> -
-> -	etm4_cs_unlock(drvdata, csa);
-> -	etm4_disable_arch_specific(drvdata);
-> -
-> -	if (!drvdata->skip_power_up) {
-> -		/* power can be removed from the trace unit now */
-> -		control = etm4x_relaxed_read32(csa, TRCPDCR);
-> -		control &= ~TRCPDCR_PU;
-> -		etm4x_relaxed_write32(csa, control, TRCPDCR);
-> -	}
->   
->   	control = etm4x_relaxed_read32(csa, TRCPRGCTLR);
->   
-> @@ -943,6 +942,28 @@ static void etm4_disable_hw(void *info)
->   	 * of ARM IHI 0064H.b.
->   	 */
->   	isb();
-> +}
-> +
-> +static void etm4_disable_hw(void *info)
-> +{
-> +	u32 control;
-> +	struct etmv4_drvdata *drvdata = info;
-> +	struct etmv4_config *config = &drvdata->config;
-> +	struct coresight_device *csdev = drvdata->csdev;
-> +	struct csdev_access *csa = &csdev->access;
-> +	int i;
-> +
-> +	etm4_cs_unlock(drvdata, csa);
-> +	etm4_disable_arch_specific(drvdata);
-> +
-> +	if (!drvdata->skip_power_up) {
-> +		/* power can be removed from the trace unit now */
-> +		control = etm4x_relaxed_read32(csa, TRCPDCR);
-> +		control &= ~TRCPDCR_PU;
-> +		etm4x_relaxed_write32(csa, control, TRCPDCR);
-> +	}
+diff --git a/Documentation/devicetree/bindings/media/rockchip,px30-vip.yaml b/Documentation/devicetree/bindings/media/rockchip,px30-vip.yaml
+new file mode 100644
+index 000000000000..9f7ab6965636
+--- /dev/null
++++ b/Documentation/devicetree/bindings/media/rockchip,px30-vip.yaml
+@@ -0,0 +1,122 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/media/rockchip,px30-vip.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Rockchip PX30 Video Input Processor (VIP)
++
++maintainers:
++  - Mehdi Djait <mehdi.djait@linux.intel.com>
++  - Michael Riesch <michael.riesch@collabora.com>
++
++description:
++  The Rockchip PX30 Video Input Processor (VIP) receives the data from a camera
++  sensor or CCIR656 encoder and transfers it into system main memory by AXI bus.
++
++properties:
++  compatible:
++    const: rockchip,px30-vip
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: ACLK
++      - description: HCLK
++      - description: PCLK
++
++  clock-names:
++    items:
++      - const: aclk
++      - const: hclk
++      - const: pclk
++
++  resets:
++    items:
++      - description: AXI
++      - description: AHB
++      - description: PCLK IN
++
++  reset-names:
++    items:
++      - const: axi
++      - const: ahb
++      - const: pclkin
++
++  power-domains:
++    maxItems: 1
++
++  ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++
++    properties:
++      port@0:
++        $ref: /schemas/graph.yaml#/$defs/port-base
++        unevaluatedProperties: false
++        description: input port on the parallel interface
++
++        properties:
++          endpoint:
++            $ref: video-interfaces.yaml#
++            unevaluatedProperties: false
++
++            properties:
++              bus-type:
++                enum: [5, 6]
++
++            required:
++              - bus-type
++
++    required:
++      - port@0
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - ports
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/px30-cru.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/media/video-interfaces.h>
++    #include <dt-bindings/power/px30-power.h>
++
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        video-capture@ff490000 {
++            compatible = "rockchip,px30-vip";
++            reg = <0x0 0xff490000 0x0 0x200>;
++            interrupts = <GIC_SPI 69 IRQ_TYPE_LEVEL_HIGH>;
++            clocks = <&cru ACLK_CIF>, <&cru HCLK_CIF>, <&cru PCLK_CIF>;
++            clock-names = "aclk", "hclk", "pclk";
++            power-domains = <&power PX30_PD_VI>;
++            resets = <&cru SRST_CIF_A>, <&cru SRST_CIF_H>, <&cru SRST_CIF_PCLKIN>;
++            reset-names = "axi", "ahb", "pclkin";
++
++            ports {
++                #address-cells = <1>;
++                #size-cells = <0>;
++
++                port@0 {
++                    reg = <0>;
++
++                    cif_in: endpoint {
++                        remote-endpoint = <&tw9900_out>;
++                        bus-type = <MEDIA_BUS_TYPE_BT656>;
++                    };
++                };
++            };
++        };
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index d1184d571b64..2e24210f4e60 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -20865,6 +20865,7 @@ M:	Michael Riesch <michael.riesch@collabora.com>
+ L:	linux-media@vger.kernel.org
+ S:	Maintained
+ F:	Documentation/admin-guide/media/rkcif*
++F:	Documentation/devicetree/bindings/media/rockchip,px30-vip.yaml
+ 
+ ROCKCHIP CRYPTO DRIVERS
+ M:	Corentin Labbe <clabbe@baylibre.com>
 
-Shouldn't we delay ^^ until we have read all the registers back and 
-disabled the trace ? As I said, this is an existing problem and may need
-to be fixed. It would be good to move it after we have done everything 
-with the accesses. If we start with that patch, we could easily backport
-it to stable.
+-- 
+2.39.5
 
-
-Suzuki
-
-
-> +
-> +	etm4_disable_trace_unit(drvdata);
->   
->   	/* read the status of the single shot comparators */
->   	for (i = 0; i < drvdata->nr_ss_cmp; i++) {
 
 
