@@ -4,177 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2192C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 04:24:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 805A2C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 04:29:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O5tJxQ+evYjVMmpPmqBdQCCwzS2gwUGZ22Y1x8Hvga0=; b=eGTIThVji5aJ/+hacrqoFtUkud
-	h5VUnG/jOOxkr1xL3aIosAoubXU/F+3DvAvgw7kN8OUGbixesYsuaqDGaPOgBSARkO0IOfo7H8oib
-	rdotEiZw8jbSsgzSjKoG8yBChHTQH4SgjhmIa4DA9DLPUxebBcwsj6ZnOLarqBX7P3lbk+8cg+RRf
-	I55aXNtTgCJBarb1rpCkOC6fcGmuP1OOccustqwz5OQlarDL4s7NDACkh9xudar0cl5cmMP7jwDAn
-	awR2FrqIvG2uqigqg3zqiJ5N3vcDpww6ZOESHEiPKuIT4p9X4t3M1JCtBm1VyWrNbWPAz+4/E1XQV
-	W1UrYk+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5/9ZIpgit3K5HEouvbiwaznyb2ZT+dyMuQHH+dHlTBs=; b=34rfHFf8lU6ApUPtzfKQgh62Vm
+	AylqGCmZ6K76JZW70VpuF6bo+3/QzqvUVKQ0sdCwn4eQBn/kQ6E9jpwFH4lIB9doRB0stvdPqRNzT
+	yt+5eVVQrnuYJCvfqkHzNqyc2hE8Rkqb4WxRpqPrHQJCXEZfJAT3CtnXSK86bzBmx1aZS4Z0R18t8
+	6VH81vS+tRP+eQDGSl7RLNbOicN5lDL1bKYnkVso2xCe+Uyqm8hZdrn+MB0mIvR6uYHnkaLjjepLV
+	U5dojuig2Y6pC5IklqNasyXW4LNRmMhOlrUl5LUR+bzzFmb6LKVkEgCyt1YhjVMrrlMgeid9oXCpU
+	rGk447Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9yzl-0000000Bezc-0urM;
-	Wed, 30 Apr 2025 04:24:29 +0000
-Received: from mail-bn8nam12on2060f.outbound.protection.outlook.com ([2a01:111:f403:2418::60f] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1u9z49-0000000BffC-3o2a;
+	Wed, 30 Apr 2025 04:29:01 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9yxr-0000000BemS-0W5O
+	id 1u9z2F-0000000BfM4-1vuK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 04:22:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vRjF8Z8s7B0B5y6etUhhcUaUArTloGAU46xv1TE2a44Jimp2w4Hg71E0Qx1MkJAB+H+e9zN8GpmI1e1YjnN4/HaxJsqU3muhBRgyjMSRBHb313trGO5II9FlrygzIZ2JCu8ct6P6Fu6AsmLv52OGM00ufuYrEfk41bemVBLpA6akOhlgh/zmS/oVf6tea8XxSCo7UIHEalfecDgd7kgZhVsjwUbN9wyh4ovnMXWkVpCQROB/TNELX3hAtVqyZywDLUZIKaCIpaRljgw71dDRRMA9T7yzJ9h9KtgW8Yzwk273HJtyclFPt+cZEtNIEOrsy6jGfMlxxByuCwBrcPE8CA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=O5tJxQ+evYjVMmpPmqBdQCCwzS2gwUGZ22Y1x8Hvga0=;
- b=iZ2h5YRso0mznvN7pC+cq61++BgCDcidLFJr4E8Wb+UZEuKy3uV/pyZ9qR2uVgXGvdEfBVsY+pJn4X54MpXEEwmJXbno5oW6SRKxbVKiG3y8XccaTABK5yHnwU8QAk7SN+6Za/Y8Xy7DzSUN3xC+kUd55SjK5H/GqU1OoGC/1/atkFDbWgvqCuufo+tnAZ0asNGWKWW151n18oQjVfcJ69kXC0qcmQ+cg54xtAsO6IOIYaNHmR94wM7SV6liAJByBDA2L0bgmNefJuvaMycVL+SL/Xe6F50K/65DEXgSUpzSNPd9rs+OHn34yzaH8XH51f2Usvc1HUJ8HicgM3CWUg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=O5tJxQ+evYjVMmpPmqBdQCCwzS2gwUGZ22Y1x8Hvga0=;
- b=mW/7C5v0DompPEJMyHLJB2WRM+l9KlatO28znwOgpZhjwM8FPkReqxdcd8W/rhax0sJsdFNfy4Ew2cIGg95vxQEbyM2Ec652xdR4ikbwpa/VPXQBTtwVhmtJ26/IKxKLsxoJsLJW6Jdrm6+y2KrnJFSbh1LxhFvIo75cr6luBvc=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from DS7PR12MB6048.namprd12.prod.outlook.com (2603:10b6:8:9f::5) by
- DM3PR12MB9390.namprd12.prod.outlook.com (2603:10b6:0:42::19) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8678.34; Wed, 30 Apr 2025 04:22:21 +0000
-Received: from DS7PR12MB6048.namprd12.prod.outlook.com
- ([fe80::6318:26e5:357a:74a5]) by DS7PR12MB6048.namprd12.prod.outlook.com
- ([fe80::6318:26e5:357a:74a5%5]) with mapi id 15.20.8678.028; Wed, 30 Apr 2025
- 04:22:21 +0000
-Message-ID: <7c813df6-e37d-47ae-9b5a-b8735c865626@amd.com>
-Date: Wed, 30 Apr 2025 09:52:09 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 10/22] iommufd/viommmu: Add IOMMUFD_CMD_VCMDQ_ALLOC
- ioctl
-To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com, kevin.tian@intel.com
-Cc: corbet@lwn.net, will@kernel.org, bagasdotme@gmail.com,
- robin.murphy@arm.com, joro@8bytes.org, thierry.reding@gmail.com,
- vdumpa@nvidia.com, jonathanh@nvidia.com, shuah@kernel.org,
- jsnitsel@redhat.com, nathan@kernel.org, peterz@infradead.org,
- yi.l.liu@intel.com, mshavit@google.com, praan@google.com,
- zhangzekun11@huawei.com, iommu@lists.linux.dev, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-tegra@vger.kernel.org, linux-kselftest@vger.kernel.org,
- patches@lists.linux.dev, mochs@nvidia.com, alok.a.tiwari@oracle.com,
- Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>
-References: <cover.1745646960.git.nicolinc@nvidia.com>
- <094992b874190ffdcf6012104b419c8649b5e4b4.1745646960.git.nicolinc@nvidia.com>
- <b0d01609-bdda-49a3-af0c-ca828a9c4cea@amd.com>
- <aA/exylmYJhIhEVL@Asurada-Nvidia>
- <b8338b47-6fbf-44ac-9b99-3555997c9f36@amd.com>
- <aBB1gLfahnLmn0N1@Asurada-Nvidia>
- <a3860aed-5b6b-4e68-a8fd-1a6ee28ba022@amd.com>
- <aBEI+T7P+hV8Y6tU@Asurada-Nvidia>
-Content-Language: en-US
-From: Vasant Hegde <vasant.hegde@amd.com>
-In-Reply-To: <aBEI+T7P+hV8Y6tU@Asurada-Nvidia>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PN4PR01CA0059.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:c01:274::9) To DS7PR12MB6048.namprd12.prod.outlook.com
- (2603:10b6:8:9f::5)
+	Wed, 30 Apr 2025 04:27:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1745987221;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=5/9ZIpgit3K5HEouvbiwaznyb2ZT+dyMuQHH+dHlTBs=;
+	b=DAQyZtRVfnw6rgQ+VO6Eo0vnBDe50/0Ezv/cmHQek5rG567dupS8915norX8U1V/TUdAkc
+	RJVpg9OysMhMkxUYm9W1Amih0SMaqWq9u8ZewTMuJzIS7e+frv6Srf9Sy+rlGihAG3353a
+	5ZFn1gBIfePy0VszjttF+WuMKD2wbaI=
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com
+ [209.85.214.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-638-AvRXOoYEM4CSJVvBIn4CwA-1; Wed, 30 Apr 2025 00:25:18 -0400
+X-MC-Unique: AvRXOoYEM4CSJVvBIn4CwA-1
+X-Mimecast-MFC-AGG-ID: AvRXOoYEM4CSJVvBIn4CwA_1745987117
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-227ed471999so58160735ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 29 Apr 2025 21:25:18 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745987112; x=1746591912;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=5/9ZIpgit3K5HEouvbiwaznyb2ZT+dyMuQHH+dHlTBs=;
+        b=QXyrSpEp6D4mYubylHrkH54wqUUWN+ADwuXnNF5MUo7a4DzaQMzt+OLKEmSSYyZpGs
+         tSKhsHqiWesq/QXTETa2zTrKMJAP8MNn5fjJ3ZxoxdaAKsaQv8OKSdTwL3kTXRmF59Q9
+         MWuRLAdjjEyQiBChVQrI0hNVB0eqRtOxbQfLEzbrThuCGg7+kI3rReFU0lnk+Hb7Ro3n
+         wz+ARdthESaS0JymL8cWo48WGrOpXm4T3+AMqkmr3z4gTo0NfqT4OUWpPOoJwGgkZsQ3
+         rt7FMSC40lR291xgO104agFTAssnzIP7mgnX1++zyop0Rscmz2LOsg4D38RRJThDwIjd
+         D2/A==
+X-Forwarded-Encrypted: i=1; AJvYcCXO+ZPXtaKzJbFvsqkm5+exKjmEUQyZgtnQGBzbcv87pIQGDViDunMGZk88VwmNMj2V1GYDoXl6gZncAhZs9oTp@lists.infradead.org
+X-Gm-Message-State: AOJu0YylU1oHHN67tC1nEYi5CPF4HqEIJ0vi3+/2r117inTDeW6serrL
+	XylsrUApy+rke35bKDNfU2w+RX3TH3CQYmvTjcewFcw2int+j8GDsrQMxApLkEB4lfgz14+zYph
+	1pzWMZqXgUvEP+uBiBGhh4HuJzVUvdTzEaTefU7BOXkFZ7HFWYQda0beRpo7+hnUjyWsYLS4J
+X-Gm-Gg: ASbGncvMbyNZ0NU3XOGV03KWb//RPWH5LdxXDVPisLJR5FIGgqSTAXjzH7w/gMY9JR+
+	KASDg6XC+rxeUfmyo8FwuxTqtl1dBRHjq2ZT2xCSJlXLMq6K1UhKtBDgaGQEZNvUgjnDk8JRXOm
+	49fyCVA5gxcWWx/orHRDgu35LL2b6dUnWSpqTccrfhXGJIBzoiYHnGv/LKc2Rh8Sb2pOr+JOEac
+	MRnqXDuqpqjySQ3QwDxZUrR3QWAETqBSjiR9tEe+Uz8AAW6/SAOrTr0eNkGywBXhoRQIaNAA5Rj
+	eSmSgzxW7vro
+X-Received: by 2002:a17:903:1a6f:b0:223:517c:bfa1 with SMTP id d9443c01a7336-22df3590ef6mr30860875ad.38.1745987112431;
+        Tue, 29 Apr 2025 21:25:12 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEyXj2p77AmMx3N+ITVW1jQFy+1LPquQePsvvxXex3oWiwLfzusXWyW1Gs0Qv4M8sW36jIdYA==
+X-Received: by 2002:a17:903:1a6f:b0:223:517c:bfa1 with SMTP id d9443c01a7336-22df3590ef6mr30860675ad.38.1745987112018;
+        Tue, 29 Apr 2025 21:25:12 -0700 (PDT)
+Received: from [192.168.68.51] ([180.233.125.65])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22db5100c13sm112249685ad.162.2025.04.29.21.25.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 29 Apr 2025 21:25:11 -0700 (PDT)
+Message-ID: <dac9f2c6-d46e-4232-abbd-8aa097f012a5@redhat.com>
+Date: Wed, 30 Apr 2025 14:25:02 +1000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS7PR12MB6048:EE_|DM3PR12MB9390:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3f8fae7f-392f-4c63-1e44-08dd879e999b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?SnZ1ckp3NXFIUGsrQyt0anF4S1llVWNZcWtJeTB1Q3F3L2tHblJGdWFGM09r?=
- =?utf-8?B?Z1JKL3J3SVRudVdFYU1USHNMMDNaMHFsVE9nQkZ2SWtkbkFsWG5jZ1o1L2VR?=
- =?utf-8?B?QnUyYlNtcVJodkJrWVZ2WWxVMmN6Ky9RZmNoTjhBQ3RWS0FmSTFzNjZWbGtK?=
- =?utf-8?B?TU43QTY1aThtUURia2dzeUJqbkdEQ1IwT3pLRmRXQ2dhbjlnT0tlZUNFRzRm?=
- =?utf-8?B?TWljcnltTkgxR0ZrMTEvOEhBUHJYT29tdmxxSkJndmcyaEhjNzlXSkc5Unlu?=
- =?utf-8?B?cGpYeHVNT2FEbG1ZallBTncrMGJlNjdUYWlLWE5YVlRLY1Q1c2hWSGFBWVJB?=
- =?utf-8?B?SGNzQU56NWxzTDc4YlJrK1FySVFwRmFnbDYvcUk3R3N1OTNVaUFrblMrQnd6?=
- =?utf-8?B?dmRLTWZ4QnROMzE2RUZCVERUWU5lTUh2MXZLSjA2bjg1Q0lXNzRRSzBDQjBG?=
- =?utf-8?B?QjhFek5mdWNFSG9ENmtnempRMzBLM09nL2djNnhtSEJmMisyZWR2K0kvYitF?=
- =?utf-8?B?RytvZVJFREZZZjljbW9tdG5qdzZQTXhFcWRzR0o2blVhM3J4MUxmbTBGSW0x?=
- =?utf-8?B?MHlKNXdoendqQmorSFRFTFpRemdpRktjNUd2ZG5OVUxXTDJTR1Q0NWNWS3Zx?=
- =?utf-8?B?a054N0hCamk0UW94TlZIYXBkYzdIL010V25NYnlGSGJtbnFwNWJ2UGtQWmdi?=
- =?utf-8?B?bnNXR2lnNGR1U2dUUEc1ZGhwa2ZPWVk5dmUzYVhBeHJXRzFGeTU0bVFnUW9z?=
- =?utf-8?B?MUZFMEN6Y1VwK0lzcEp2MXh0RzI3U0xWUmNmUXBXa2o3WVlwb1JDb09aR0RV?=
- =?utf-8?B?OU1uODJRNUZSNllqa3dyRDBMTHN3STFSc1lFaEVuL005RXA3eTdORU9EQzAz?=
- =?utf-8?B?SVZqSDhEeU14aDF6LzZHMWF3eU9SQmhJTWo4RFVyMFg3bUV2VTNyUkF3b3V4?=
- =?utf-8?B?NmtpY0thd2NhNkhMTDlqemZlbEdQcFNFUisyWk9VUDRodXNSdWdRWlpSbjVD?=
- =?utf-8?B?cGNjSS9UVGJPK3pOZ2o5bXBQNTFjUU5ZU3A2QXc5NU5EQUl0K2NUTEJZZ0Jj?=
- =?utf-8?B?clZkU3NuNitMOTNnNWhrdG1ES2t0dUZkc1F3bVN6TUJBRHZFdjRtUHhwRkVG?=
- =?utf-8?B?NzI1L2VraHI1bjZtN1l5SXJSYWVZeGxXd3ArU2xSWW94KzBjU1RxVzE2cTVK?=
- =?utf-8?B?WkU3VkszRkhCWk1RaFZvZHdVeGZiaEE1L1krU0JtamNyZnQzZzF5S1cyRE1u?=
- =?utf-8?B?QUp1NllCM1JrWjN2MlpxQVBpdUp4YVBTN3ZQcDNoRzhVNzNwaStlMGE1cHk0?=
- =?utf-8?B?MmF2ZEc1VWpqU3VlRDdONUh3TkdSaXRQT25JSDZJL3RUWkoyVE5yMmdyc0Qv?=
- =?utf-8?B?VGdGeVFSa1U3NUpta0xYTTdpYTI4d3dyc0Y1cStmQVB4dTRHL0tMUXVUdnlO?=
- =?utf-8?B?UUgyR2lSTjNDTjljemxCT0RuQmJ4YVJCc21rNnREZ012WWZxcVBVTzE0c2VL?=
- =?utf-8?B?STBBR0VqY0hmOUJBQjBoWU51RmVMNnN4cVpNNk5lVmZ4UzIyYnpMQWF5NlAx?=
- =?utf-8?B?aTVUYlFUc0MxTjd6T1pMWkQvRHVNNjdPc3puK0cvZkVmYVNQMzRoM0JMUHps?=
- =?utf-8?B?N0VUeW1sL0dKNzVsalR0STZheURBOXA1ZUJOS0FDcDMvU2ZZcERRVmpkVXhF?=
- =?utf-8?B?OWpjejZJUHBYZ2RFTlJnM2NSSU0vdzF4dUdDT0dOb2dvdUg0WFI0RWNTQVhT?=
- =?utf-8?B?OUY5SWdkRkF4b2h3TEEwTGRXRmpjcVlvUXVYOFZYMHV4MU1RRjRtcjIya0xr?=
- =?utf-8?B?em5GcFpwZkxWbXhGNjdPMSthMXNyT3lZMmZNUlNvTTYwTzR2OE8wU2hrNnpI?=
- =?utf-8?B?K1lsNGJwWGRrNEJpSWtqOUR6NzJ1M3NrMG1iaWJzU2xhRkNIeVlkT002MmhY?=
- =?utf-8?Q?NI/621Sfj6s=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB6048.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bERSM2RmTm12MkJFSStidHdLaWNpakt6UkhGVFRwczNoTkxrb3pnSzBDZUt6?=
- =?utf-8?B?aGlGN1VWeUR5dHN3d2dLUXAzcTZCM1NjaThyS29Tbnd6QUxsMVJsMmxidHg5?=
- =?utf-8?B?QjhzSlFab3Rwa2hwSE00RHg0dFJIbkEvTVVQNnNXTEx1RjM5bXBoS1AzUGd4?=
- =?utf-8?B?RUxUYy82aSt3ZXA2SGxrcWNPa0RybHpQMWtyN1F5S2M2OTZsNER5dC8rN0VJ?=
- =?utf-8?B?cjFkZ1hTV3ZuS2hYK3hlMUpONTN0RGk3Vy81OXZaYkZDUnNSRGNQbnZKREJQ?=
- =?utf-8?B?c0VMVk5QRlJuQUhFSWgrMytWVXo1K2w2b2ppL0hNNnlWVUFZN3dPOFZRbkxI?=
- =?utf-8?B?WThLeS94U3luWEpNeFg4OVJteCsrOTZyQkNaeVdMY0M5cnpzakhQSmswYXNv?=
- =?utf-8?B?cXlIUlYvY0ZPbVpaSThNMnB2eDBqZFBLUnFsWnZuSldtelUvZEp4STNSeDhG?=
- =?utf-8?B?ZWdoU0diSUYxanEvNnovNTFnb0dIelYwTWI1eXNUODM0R1BzeUtPaU9zeGNr?=
- =?utf-8?B?MkdoeHM2bkp3TVBtYUpSc0VEUmNsNEcrMVpiRlArS2NkUHFueHRNUXpNWDZI?=
- =?utf-8?B?eURVTjRsbkduWkpFd0tBK0I2ZzF2TkJnVTlUZGxwSzMvK0JQRURFeEFPQStw?=
- =?utf-8?B?UjQxcE9vTHdoS1ZGTFJHVzF0QkNidVVpZ0dIdVJhZnpodDhiYXg5Q3d3NXU3?=
- =?utf-8?B?WW1IU1FIczJybWRkV3Q0UGhqdE9WQjgzbXJnYUdEK3BsZzVtZzNBcUtnVmRY?=
- =?utf-8?B?Z0Rob210Q1V4bCtQSFU4UVFZaStuYnFjSHpCR2tsM1dNcFo1M3RPeHhmNWhT?=
- =?utf-8?B?QktEelJodlQ4M05GNzUwM2ZyOXBqN0ducmZHK0YwdFZUc3crUmZCTzBwZUxX?=
- =?utf-8?B?Mlh1T2piRnY3dVAxbGVLQzZkU2lmbG00T0NmcG5LMSttQVBFUDA4cldIVUUx?=
- =?utf-8?B?ZE1mYVRSZU0vbHptTUVjcHlQVEI4bllpT1ZKSk41a1JxZU9KNDhENmJTWDVB?=
- =?utf-8?B?aE5vVVR3SDQvRlA4VTZOWHgwY3V2b013VzNUU3A1WWZIaVV3elNGV2w0Q2Ez?=
- =?utf-8?B?QjZ1UmQwdUM2Yk5VS0Zmd1Q1Tk5TZk01eWVXSHM5ZUtKSFFpL0xGNXhGUk9o?=
- =?utf-8?B?RWVuUzdBVWVjemh1WndKMXRIRFpRUUdYSVB6N0xKU3lnWFVlWFYwZEdqN2lh?=
- =?utf-8?B?ZHdvclZneGlIWnF3QVFiMjJNT09VYmo3VFpLUm5pZkRNcHhwOWRTUUpEUVBH?=
- =?utf-8?B?aHRTNUd0ak0xb2ErMXYrSGpTTFFzby9FV2YvYXJQd3cvV1Y4emZ2SzI5TlVI?=
- =?utf-8?B?ODBiZ1ZjNXRhMlV2aFhXdTl1SE5tbkExbnZCTUxLWlRoc1FWcThqb2xmYnpt?=
- =?utf-8?B?WGhISGxqTzYxU1JZZXVNTlNQanZVaWpyNVhlTVpHWFhwNkwyRVFRZFhzV05o?=
- =?utf-8?B?OG4xZmRIdHNpdU5RcWRaTWlGeVYzaEVCYnZDVkF4b1dITU1uM1lVT2JweE1X?=
- =?utf-8?B?SVlqMGVHYVp3eDFwN09YbmdDeXhTbnVUNHdFVHRVRjhlcG0wa1dISDY2OXlX?=
- =?utf-8?B?VjIzNlhrUmNxS0J0dm9xK1lZbjYyaXZYRDNoOXJTNFBqc0pZM2Z2bGVoZkM1?=
- =?utf-8?B?K25mLzViNUE0L1U0bFllUEhNR2ZqSmw1RnpmMzdEL3NORHpmbUd3TkYvMXdW?=
- =?utf-8?B?alFaZnBOYzBvcm5IYWJpb0N2YWJxa2ZCRHJRRVV0NER2UEdDVWNmWk1qVG9W?=
- =?utf-8?B?ekxjUUcybXA2QWFZMHh5VG0wK0FqMlFVS0dtNWUxYUR5V2dNSjNKR1N5djZ2?=
- =?utf-8?B?bU5ZU2hNWlZ3U1ZFRXFPWUtsOVcvMkZGYTk3UzQzcUdvT0lCNkIyQ1huMmpk?=
- =?utf-8?B?d01VWnB2SnVodHk1NEh6UzdQcUJYYUpkQXNtM01rdTFRTVFNQ3dSMnJmMmU0?=
- =?utf-8?B?ME0zSUZieUlya0ltZnRuREd4V3lLL2VsWFc5MS9vSkVZNkhFQ2N0WWhYTlhZ?=
- =?utf-8?B?ZjY2M2g4a2NKRG9XZnRUcHJET05CamtLVityaUVIRUJrNys0eDNzL1lMNS95?=
- =?utf-8?B?NVpGOXoyemNNNWVMK1lUNkYzU082dExPOTBUeG03VGQ2Q2pPYzJWbkthR3Qz?=
- =?utf-8?Q?oF9lu/FyxcoOsYec/YPIR3ejb?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3f8fae7f-392f-4c63-1e44-08dd879e999b
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB6048.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2025 04:22:21.1750
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: tU/2rJTFBQ8okASRhqCWPAH99o72rK7YlxhveVPwEfUSuUAiLSD3KdfkgockGQvNL5tKrnMpmysZcFY32U2WeA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PR12MB9390
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 06/43] arm64: RME: Define the user ABI
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+References: <20250416134208.383984-1-steven.price@arm.com>
+ <20250416134208.383984-7-steven.price@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20250416134208.383984-7-steven.price@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: YM3xfa4_bprWKS6ShVgtk9sJaEOLEW89RsS_PQ-6nXs_1745987117
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_212231_324869_4F17BDB2 
-X-CRM114-Status: GOOD (  15.25  )
+X-CRM114-CacheID: sfid-20250429_212703_583861_338154BA 
+X-CRM114-Status: GOOD (  37.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,58 +121,239 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolin,
-
-
-On 4/29/2025 10:44 PM, Nicolin Chen wrote:
-> On Tue, Apr 29, 2025 at 03:52:48PM +0530, Vasant Hegde wrote:
->> On 4/29/2025 12:15 PM, Nicolin Chen wrote:
->>> On Tue, Apr 29, 2025 at 11:04:06AM +0530, Vasant Hegde wrote:
->>>> On 4/29/2025 1:32 AM, Nicolin Chen wrote:
->>>>> On Mon, Apr 28, 2025 at 05:42:27PM +0530, Vasant Hegde wrote:
->>>>> Yes. For AMD "vIOMMU", it needs a new type for iommufd vIOMMU:
->>>>> 	IOMMU_VIOMMU_TYPE_AMD_VIOMMU,
->>>>>
->>>>> For AMD "vIOMMU" command buffer, it needs a new type too:
->>>>> 	IOMMU_VCMDQ_TYPE_AMD_VIOMMU, /* Kdoc it to be Command Buffer */
->>>>
->>>> You are suggesting we define one type for AMD and use it for all buffers like
->>>> command buffer, event log, PPR buffet etc? and use iommu_vcmdq_alloc->index to
->>>> identity different buffer type?
->>>
->>> We have vEVENTQ for event logging and FAULT_QUEUE for PRI, but both
->>> are not for hardware accelerated use cases.
->>>
->>> I didn't check the details of AMD's event log and PPR buffers. But
->>> they seem to be the same ring buffers and can be consumed by guest
->>> kernel directly?
->>
->> Right. Event log is accelerated and consumed by guest directly. Also we have
->> Event Log B !
->>
->>>
->>> Will the hardware replace the physical device ID in the event with
->>> the virtual device ID when injecting the event to a guest event/PPR
->>> queue? 
->>> If so, yea, I think you can define them separately using the> vCMDQ
->> infrastructures:
->>>  - IOMMU_VCMDQ_TYPE_AMD_VIOMMU_CMDBUF
->>>  - IOMMU_VCMDQ_TYPE_AMD_VIOMMU_EVENTLOG
->>>  - IOMMU_VCMDQ_TYPE_AMD_VIOMMU_PPRLOG
->>> (@Kevin @Jason Hmm, in this case we might want to revert the naming
->>>  "vCMDQ" back to "vQEUEUE", once Vasant confirms.)
+On 4/16/25 11:41 PM, Steven Price wrote:
+> There is one (multiplexed) CAP which can be used to create, populate and
+> then activate the realm.
 > 
-> I think I should rename IOMMUFD_OBJ_VCMDQ back to IOMMUFD_OBJ_VQUEUE
-> since the same object fits three types of queue now in the AMD case.
+> Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> Changes since v7:
+>   * Add documentation of new ioctls
+>   * Bump the magic numbers to avoid conflicts
+> Changes since v6:
+>   * Rename some of the symbols to make their usage clearer and avoid
+>     repetition.
+> Changes from v5:
+>   * Actually expose the new VCPU capability (KVM_ARM_VCPU_REC) by bumping
+>     KVM_VCPU_MAX_FEATURES - note this also exposes KVM_ARM_VCPU_HAS_EL2!
+> ---
+>   Documentation/virt/kvm/api.rst    | 70 +++++++++++++++++++++++++++++++
+>   arch/arm64/include/uapi/asm/kvm.h | 49 ++++++++++++++++++++++
+>   include/uapi/linux/kvm.h          | 10 +++++
+>   3 files changed, 129 insertions(+)
+> 
 
-Makes sense.
+With below comment addressed:
 
-AMD architecture supports 5 buffers. In practice we have not implemented event
-log  B / PPR Log B in Linux.
-  Command buffer
-  Event Log A / B
-  PPR Log A / B
+Reviewed-by: Gavin Shan <gshan@redhat.com>
+
+> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+> index 1f8625b7646a..99ba6c82cf37 100644
+> --- a/Documentation/virt/kvm/api.rst
+> +++ b/Documentation/virt/kvm/api.rst
+> @@ -3527,6 +3527,11 @@ Possible features:
+>   	      - the KVM_REG_ARM64_SVE_VLS pseudo-register is immutable, and can
+>   	        no longer be written using KVM_SET_ONE_REG.
+>   
+> +	- KVM_ARM_VCPU_REC: Allocate a REC (Realm Execution Context) for this
+> +	  VCPU. This must be specified on all VCPUs created in a Realm VM.
+> +	  Depends on KVM_CAP_ARM_RME.
+> +	  Requires KVM_ARM_VCPU_FINALIZE(KVM_ARM_VCPU_REC).
+> +
+>   4.83 KVM_ARM_PREFERRED_TARGET
+>   -----------------------------
+>   
+> @@ -5098,6 +5103,7 @@ Recognised values for feature:
+>   
+>     =====      ===========================================
+>     arm64      KVM_ARM_VCPU_SVE (requires KVM_CAP_ARM_SVE)
+> +  arm64      KVM_ARM_VCPU_REC (requires KVM_CAP_ARM_RME)
+>     =====      ===========================================
+>   
+>   Finalizes the configuration of the specified vcpu feature.
+> @@ -6452,6 +6458,30 @@ the capability to be present.
+>   
+>   `flags` must currently be zero.
+>   
+> +4.144 KVM_ARM_VCPU_RMM_PSCI_COMPLETE
+> +------------------------------------
+> +
+> +:Capability: KVM_CAP_ARM_RME
+> +:Architectures: arm64
+> +:Type: vcpu ioctl
+> +:Parameters: struct kvm_arm_rmm_psci_complete (in)
+> +:Returns: 0 if successful, < 0 on error
+> +
+> +::
+> +
+> +  struct kvm_arm_rmm_psci_complete {
+> +	__u64 target_mpidr;
+> +	__u32 psci_status;
+> +	__u32 padding[3];
+> +  };
+> +
+> +Where PSCI functions are handled by user space, the RMM needs to be informed of
+> +the target of the operation using `target_mpidr`, along with the status
+> +(`psci_status`). The RMM v1.0 specification defines two functions that require
+> +this call: PSCI_CPU_ON and PSCI_AFFINITY_INFO.
+> +
+> +If the kernel is handling PSCI then this is done automatically and the VMM
+> +doesn't need to call this ioctl.
+>   
+>   .. _kvm_run:
+>   
+> @@ -8280,6 +8310,46 @@ aforementioned registers before the first KVM_RUN. These registers are VM
+>   scoped, meaning that the same set of values are presented on all vCPUs in a
+>   given VM.
+>   
+> +7.38 KVM_CAP_ARM_RME
+> +--------------------
+> +
+> +:Architectures: arm64
+> +:Target: VM
+> +:Parameters: args[0] provides an action, args[1] points to a structure in
+> +	     memory for some actions.
+> +:Returns: 0 on success, negative value on error
+> +
+> +Used to configure and set up the memory for a Realm. The available actions are:
+> +
+> +================================= =============================================
+> + KVM_CAP_ARM_RME_CONFIG_REALM     Takes struct arm_rme_config as args[1] and
+> +                                  configures realm parameters prior to it being
+> +                                  created.
+> +
+> +                                  Options are ARM_RME_CONFIG_RPV to set the
+> +                                  "Realm Personalization Value" and
+> +                                  ARM_RME_CONFIG_HASH_ALGO to set the hash
+> +                                  algorithm.
+> +
+> + KVM_CAP_ARM_RME_CREATE_REALM     Request the RMM create the realm. The realm's
+> +                                  configuration parameters must be set first.
+> +
+> + KVM_CAP_ARM_RME_INIT_RIPAS_REALM Takes struct arm_rme_init_ripas as args[1]
+> +                                  and sets the RIPAS (Realm IPA State) to
+> +                                  RIPAS_RAM of a specified area of the realm's
+> +                                  IPA.
+> +
+> + KVM_CAP_ARM_RME_POPULATE_REALM   Takes struct arm_rme_init_ripas as args[1]
+> +                                  and populates a region of protected address
+> +                                  space by copying the data from the shared
+> +                                  alias.
+> +
+> + KVM_CAP_ARM_RME_ACTIVATE_REALM   Request the RMM activate the realm. No
+> +                                  further changes can be made to the realm's
+> +                                  configuration, and VCPUs are not permitted to
+> +                                  enter the realm until it has been activated.
+                                                               ^^^^^^^^^^^^^^^^^^
+s/has been activated/is deactivated
+
+I don't see where the guard is applied to prevent vCPU is added after realm
+has been activated. I may missed that. Otherwise, it's something to be improved
+n the subsequent patch where a vCPU is created and added to the realm.
 
 
--Vasant
+> +================================= =============================================
+> +
+>   8. Other capabilities.
+>   ======================
+>   
+> diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
+> index af9d9acaf997..b57712880605 100644
+> --- a/arch/arm64/include/uapi/asm/kvm.h
+> +++ b/arch/arm64/include/uapi/asm/kvm.h
+> @@ -106,6 +106,7 @@ struct kvm_regs {
+>   #define KVM_ARM_VCPU_PTRAUTH_GENERIC	6 /* VCPU uses generic authentication */
+>   #define KVM_ARM_VCPU_HAS_EL2		7 /* Support nested virtualization */
+>   #define KVM_ARM_VCPU_HAS_EL2_E2H0	8 /* Limit NV support to E2H RES0 */
+> +#define KVM_ARM_VCPU_REC		9 /* VCPU REC state as part of Realm */
+>   
+>   struct kvm_vcpu_init {
+>   	__u32 target;
+> @@ -429,6 +430,54 @@ enum {
+>   #define   KVM_DEV_ARM_VGIC_SAVE_PENDING_TABLES	3
+>   #define   KVM_DEV_ARM_ITS_CTRL_RESET		4
+>   
+> +/* KVM_CAP_ARM_RME on VM fd */
+> +#define KVM_CAP_ARM_RME_CONFIG_REALM		0
+> +#define KVM_CAP_ARM_RME_CREATE_REALM		1
+> +#define KVM_CAP_ARM_RME_INIT_RIPAS_REALM	2
+> +#define KVM_CAP_ARM_RME_POPULATE_REALM		3
+> +#define KVM_CAP_ARM_RME_ACTIVATE_REALM		4
+> +
+> +/* List of configuration items accepted for KVM_CAP_ARM_RME_CONFIG_REALM */
+> +#define ARM_RME_CONFIG_RPV			0
+> +#define ARM_RME_CONFIG_HASH_ALGO		1
+> +
+> +#define ARM_RME_CONFIG_MEASUREMENT_ALGO_SHA256		0
+> +#define ARM_RME_CONFIG_MEASUREMENT_ALGO_SHA512		1
+> +
+> +#define ARM_RME_CONFIG_RPV_SIZE 64
+> +
+> +struct arm_rme_config {
+> +	__u32 cfg;
+> +	union {
+> +		/* cfg == ARM_RME_CONFIG_RPV */
+> +		struct {
+> +			__u8	rpv[ARM_RME_CONFIG_RPV_SIZE];
+> +		};
+> +
+> +		/* cfg == ARM_RME_CONFIG_HASH_ALGO */
+> +		struct {
+> +			__u32	hash_algo;
+> +		};
+> +
+> +		/* Fix the size of the union */
+> +		__u8	reserved[256];
+> +	};
+> +};
+> +
+> +#define KVM_ARM_RME_POPULATE_FLAGS_MEASURE	(1 << 0)
+> +struct arm_rme_populate_realm {
+> +	__u64 base;
+> +	__u64 size;
+> +	__u32 flags;
+> +	__u32 reserved[3];
+> +};
+> +
+> +struct arm_rme_init_ripas {
+> +	__u64 base;
+> +	__u64 size;
+> +	__u64 reserved[2];
+> +};
+> +
+>   /* Device Control API on vcpu fd */
+>   #define KVM_ARM_VCPU_PMU_V3_CTRL	0
+>   #define   KVM_ARM_VCPU_PMU_V3_IRQ	0
+> diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+> index b6ae8ad8934b..0b8479985581 100644
+> --- a/include/uapi/linux/kvm.h
+> +++ b/include/uapi/linux/kvm.h
+> @@ -930,6 +930,7 @@ struct kvm_enable_cap {
+>   #define KVM_CAP_X86_APIC_BUS_CYCLES_NS 237
+>   #define KVM_CAP_X86_GUEST_MODE 238
+>   #define KVM_CAP_ARM_WRITABLE_IMP_ID_REGS 239
+> +#define KVM_CAP_ARM_RME 240
+>   
+>   struct kvm_irq_routing_irqchip {
+>   	__u32 irqchip;
+> @@ -1582,4 +1583,13 @@ struct kvm_pre_fault_memory {
+>   	__u64 padding[5];
+>   };
+>   
+> +/* Available with KVM_CAP_ARM_RME, only for VMs with KVM_VM_TYPE_ARM_REALM  */
+> +struct kvm_arm_rmm_psci_complete {
+> +	__u64 target_mpidr;
+> +	__u32 psci_status;
+> +	__u32 padding[3];
+> +};
+> +
+> +#define KVM_ARM_VCPU_RMM_PSCI_COMPLETE	_IOW(KVMIO, 0xd6, struct kvm_arm_rmm_psci_complete)
+> +
+>   #endif /* __LINUX_KVM_H */
+
+Thanks,
+Gavin
+
 
