@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB958C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 16:36:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC8FAC369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 16:38:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=003i/GX+SMhbEk8JM6zOLdGB+5OhPHak3AuWaDpYHh0=; b=qXmhnPZ1cU6ZVFLJm8sTgmmpj/
-	BCIwN5F3cYYdrcu5y2/eblGnX8/P3mNy7SzT9vxytNl7UX0dtwa7/yMTE8nQXhoTR3q1i1DUIWsp3
-	8N7Brz6bfv7giNkygNw+WDE9IBqhZta1TIEQP0jLkKmTf0a/8betQJtb/Jq8dyviSmMDqDm0JeaUS
-	tC/Huzcajo88jlmRNfVt+HzdosbN9Lf26XAUWHMkw3YIqt1bQZXjqafxV4hWNXtsUoJ1JZ5G8a1fS
-	Y0S9/GzcDpN88Z7UPYzr3hr6bUSxKIQlalLZ8IrhHEBxbmiiTlbrLFNKI9blHUttZLgcUkQtOY2pw
-	Z2tg8WAw==;
+	bh=ZqTf0w984hWi5llfvtlyawmZ56xQei2ohDzGa9Ujg2A=; b=v5ExjZQZ2O7PbbynSqMSM9SZlC
+	X8SS88HIBjZadZuhuYxQ3PiiiHueW0+4or5j78hfJlBGshvkdqc1X2EM+cABQh2FwVljQ4cCnppIC
+	HSWFxaOc2DHljq9Me6ak0BJYHoAdBILqEYucRt0CcpGkT2domKxvufF628Q8gfxi5rQJbO6cXupG/
+	vMDQ55PrcG6R+axSBrxr5wi7iKZ2BMgO/NJJ61PxEhtejtrbSDNgOD36pO4aLkvKCykIy4Th4sUbs
+	AE7FoPqYTWfqOqBy4kOc5OYk4LnpxiJtbQ7ytU8fNGiooYFMjRr9KkPK/oG4y6A38PID3O7Ua/rpK
+	sx5GQLEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAAPo-0000000DSAf-3Bzj;
-	Wed, 30 Apr 2025 16:36:08 +0000
-Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
+	id 1uAARh-0000000DSOk-22lJ;
+	Wed, 30 Apr 2025 16:38:05 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAAHS-0000000DR4X-1nOh
+	id 1uAAHW-0000000DR61-0Ibm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 16:27:31 +0000
-Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-3912b54611dso3842727f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 09:27:29 -0700 (PDT)
+	Wed, 30 Apr 2025 16:27:35 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43d08915f61so38923875e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 09:27:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1746030448; x=1746635248; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1746030452; x=1746635252; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=003i/GX+SMhbEk8JM6zOLdGB+5OhPHak3AuWaDpYHh0=;
-        b=H3a7RA/TJXEzE2qN8nRr2SuZjHZzBRnXXIw0+sw7gIg38lSMSz2+mxhXRCqVQi1Vo6
-         Zc9eNycpTSyoBG67drAEascTVaVE1nJ398sPxql0qr8NyUXXjTwKHWcZBSupYi6yLqeS
-         tMCU5Ltav/Vx2HsCJJ8mEC/Y28BP6IRd9gHknCrtSfJtok6bFzAXxsdvHgdGTwGV4dTM
-         5dZ+U0QSbxvW6WsPnJuI+YUyqQXD/NOMqEFPrL0bN4Dd7iBdbgDT3F/bd9dO8IS2hAr3
-         4+kmWN4TBTgTi2YIL5k9yXuba36IrIuff9rnOBvElsW5w66OVzMpigfArzXLxTZ5V+SQ
-         UCgg==
+        bh=ZqTf0w984hWi5llfvtlyawmZ56xQei2ohDzGa9Ujg2A=;
+        b=JC6Kq9YSnWQFTg57fvMbejxKtPw1R6Z/OASExxwZFaBtqXes42kS9xRCDb/8UiOioN
+         uHXptb6zl0STo+6z/REEL7anwO1qNDvxcUqc0y0wkjH8YGJrb5bST2sPi8iV3bLGF6Vt
+         8U77oS15Lbt9yqwTNNlZLb1xNYZK7unQuYdag+a0ZvbWUHLKj0k+HPUCl593g1ybpiAc
+         9d+jzIfJPwwdqG5fJcyJgNX+XlQGsy1JZq0BJyvKoBtz0OUdQ2jRFlpej5AKKtfNr2fy
+         R3f3GBsVoYJ0e+RZUC8QnqPIqMgrfyRLtvC2ErQrj7zzfQ97y80swcsytMnyzOOUbIWG
+         r6pQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746030448; x=1746635248;
+        d=1e100.net; s=20230601; t=1746030452; x=1746635252;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=003i/GX+SMhbEk8JM6zOLdGB+5OhPHak3AuWaDpYHh0=;
-        b=qfS8mrDHMw5Krb68YUc/pcwkw8y8lz5fByxC74NhKYkniuQZTew9EldX0EHm3LN0ll
-         kd2Oe/KZQ5Sy9iDg3/izGyUujlbwdYCVlv2pvm/Wd4qDKXVmy1U5Em/8o80PuQsrK97/
-         lLVmRnUHw0eROwWlpiIWcUwceaebyL/WJVK6rlYfGCGe3jO0jPUuw55TQVQzzopfUKQ2
-         N0Hg8idWtbc5VWacGglcGDqijZ0F9TbgY73gy+RHnwm3qOkyZcNfuhzn4G8AI7u9FKu/
-         EOgjeLicG/VAB5lVkm7CDcrjvh40uKpWfIJGjwkJcr6PrY+yQqiVYk8+LIZxiqAn8LwG
-         tMuA==
-X-Forwarded-Encrypted: i=1; AJvYcCUTVOKFZQt2jKnFdmaOGovDSvGVF0KLD/XXTcDNWCFLa6qkFhfcOhFYss/YeB9NG+RUdpbHlhGrShKC+k3ccrsV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3tH+Hn1sOfvkWObvPQUPvb//A6aD9iRYJCcbXe9JJmWKYGr4W
-	YzE1mJNbrKiBOzCNoOvtltQBlry22CNEHBaNO8VFtyXnftWDZD0eirA33pUOTl3b7YSsgxI8anS
-	IO9QFqIfmXg==
-X-Google-Smtp-Source: AGHT+IFmvlkwLxNmZ9CSFJVW5lMLHM9FQhYVBrEhGonj9gK38XYoJ6Wzk9kIHfgZWiH30GqYlq6Z8FTj6W6gdg==
-X-Received: from wryv6.prod.google.com ([2002:a5d:59c6:0:b0:391:4999:778e])
+        bh=ZqTf0w984hWi5llfvtlyawmZ56xQei2ohDzGa9Ujg2A=;
+        b=K2kRVkVIHh9rR0OTF0QZRcdInhIiAYUy7USRr0FPIUeErKXZnsooJ2lpOTu3FN+LIa
+         XzvpiRX0KX9nmvS6f/nFekr4RaWOIgBN90+6HtiRo4pFYmC4DapbX9blTGCFIEKAcZqJ
+         lhwQ6zJmrgv8kPmE3x+6DUQcePP3GH9ns9shDmxAx4hq5nItlrNqbziKo0NO8jGKpcRY
+         Dtw8H7hzQdrLFAQ2h1UAgfJMhAg47nAFU6TvJy+x9tmDCM+neoeLbe6VCLZVZ7jYVNJw
+         2STyAp5ZXKp25MBsAmuqVQoRE5TIyf7xA2H1Ji2hj3P4elOI9qWY8cWRto9NKaekCDrX
+         spWw==
+X-Forwarded-Encrypted: i=1; AJvYcCWe5a7XTVuN/iq0GEH7QMx0UM3BPlXu9Fm+9w9jUTPf1KkdU985tPrwtWV8ST4xxHGCXyYX1+f5YMuCIcYsTAq2@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywv1ai5WjTfQJPwh7PtJDIl+80TW7UONkLFm1BUiNonv6ls5Z8B
+	iMzCpMX5NW04PuChrTlVoeT8eRerpIGluhUSbtSl2DVz6APSN5uCtDQfcFxkVDU5cKpW2wOMNxu
+	HZkF7C+2e+w==
+X-Google-Smtp-Source: AGHT+IElx2K4Ydzexiq6oj60bHV5vV1dfYGpgIOCHldmU1tuiZbYiGFH3YyV8uq6opoqtz/pcuka5AJ5zvQ7LQ==
+X-Received: from wrp29.prod.google.com ([2002:a05:6000:41fd:b0:399:71d8:5e84])
  (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:3107:b0:3a0:7af3:843f with SMTP id ffacd0b85a97d-3a08f761185mr3815578f8f.19.1746030448153;
- Wed, 30 Apr 2025 09:27:28 -0700 (PDT)
-Date: Wed, 30 Apr 2025 16:27:09 +0000
+ 2002:a5d:5f4e:0:b0:3a0:8712:5983 with SMTP id ffacd0b85a97d-3a08f7d1a1bmr3354676f8f.51.1746030452526;
+ Wed, 30 Apr 2025 09:27:32 -0700 (PDT)
+Date: Wed, 30 Apr 2025 16:27:11 +0000
 In-Reply-To: <20250430162713.1997569-1-smostafa@google.com>
 Mime-Version: 1.0
 References: <20250430162713.1997569-1-smostafa@google.com>
 X-Mailer: git-send-email 2.49.0.967.g6a0df3ecc3-goog
-Message-ID: <20250430162713.1997569-3-smostafa@google.com>
-Subject: [PATCH v2 2/4] ubsan: Remove regs from report_ubsan_failure()
+Message-ID: <20250430162713.1997569-5-smostafa@google.com>
+Subject: [PATCH v2 4/4] KVM: arm64: Handle UBSAN faults
 From: Mostafa Saleh <smostafa@google.com>
 To: kvmarm@lists.linux.dev, kasan-dev@googlegroups.com, 
 	linux-hardening@vger.kernel.org, linux-kbuild@vger.kernel.org, 
@@ -81,8 +81,8 @@ Cc: will@kernel.org, maz@kernel.org, oliver.upton@linux.dev,
 	Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_092730_465871_2876DCDC 
-X-CRM114-Status: GOOD (  13.43  )
+X-CRM114-CacheID: sfid-20250430_092734_106245_D5A8033B 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,74 +97,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-report_ubsan_failure() doesn't use argument regs, and soon it will
-be called from the hypervisor context were regs are not available.
-So, remove the unused argument.
+As now UBSAN can be enabled, handle brk64 exits from UBSAN.
+Re-use the decoding code from the kernel, and panic with
+UBSAN message.
 
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
-Acked-by: Kees Cook <kees@kernel.org>
 ---
- arch/arm64/kernel/traps.c | 2 +-
- arch/x86/kernel/traps.c   | 2 +-
- include/linux/ubsan.h     | 4 ++--
- lib/ubsan.c               | 2 +-
- 4 files changed, 5 insertions(+), 5 deletions(-)
+ arch/arm64/kvm/handle_exit.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
-index 224f927ac8af..9bfa5c944379 100644
---- a/arch/arm64/kernel/traps.c
-+++ b/arch/arm64/kernel/traps.c
-@@ -1118,7 +1118,7 @@ static struct break_hook kasan_break_hook = {
- #ifdef CONFIG_UBSAN_TRAP
- static int ubsan_handler(struct pt_regs *regs, unsigned long esr)
- {
--	die(report_ubsan_failure(regs, esr & UBSAN_BRK_MASK), regs, esr);
-+	die(report_ubsan_failure(esr & UBSAN_BRK_MASK), regs, esr);
- 	return DBG_HOOK_HANDLED;
- }
+diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
+index b73dc26bc44b..5c49540883e3 100644
+--- a/arch/arm64/kvm/handle_exit.c
++++ b/arch/arm64/kvm/handle_exit.c
+@@ -10,6 +10,7 @@
  
-diff --git a/arch/x86/kernel/traps.c b/arch/x86/kernel/traps.c
-index 9f88b8a78e50..4b5a7a1a8dde 100644
---- a/arch/x86/kernel/traps.c
-+++ b/arch/x86/kernel/traps.c
-@@ -351,7 +351,7 @@ static noinstr bool handle_bug(struct pt_regs *regs)
- 	case BUG_UD1_UBSAN:
- 		if (IS_ENABLED(CONFIG_UBSAN_TRAP)) {
- 			pr_crit("%s at %pS\n",
--				report_ubsan_failure(regs, ud_imm),
-+				report_ubsan_failure(ud_imm),
- 				(void *)regs->ip);
- 		}
- 		break;
-diff --git a/include/linux/ubsan.h b/include/linux/ubsan.h
-index d8219cbe09ff..c843816f5f68 100644
---- a/include/linux/ubsan.h
-+++ b/include/linux/ubsan.h
-@@ -3,9 +3,9 @@
- #define _LINUX_UBSAN_H
+ #include <linux/kvm.h>
+ #include <linux/kvm_host.h>
++#include <linux/ubsan.h>
  
- #ifdef CONFIG_UBSAN_TRAP
--const char *report_ubsan_failure(struct pt_regs *regs, u32 check_type);
-+const char *report_ubsan_failure(u32 check_type);
- #else
--static inline const char *report_ubsan_failure(struct pt_regs *regs, u32 check_type)
-+static inline const char *report_ubsan_failure(u32 check_type)
- {
- 	return NULL;
- }
-diff --git a/lib/ubsan.c b/lib/ubsan.c
-index cdc1d31c3821..17993727fc96 100644
---- a/lib/ubsan.c
-+++ b/lib/ubsan.c
-@@ -25,7 +25,7 @@
-  * The mappings of struct SanitizerKind (the -fsanitize=xxx args) to
-  * enum SanitizerHandler (the traps) in Clang is in clang/lib/CodeGen/.
-  */
--const char *report_ubsan_failure(struct pt_regs *regs, u32 check_type)
-+const char *report_ubsan_failure(u32 check_type)
- {
- 	switch (check_type) {
- #ifdef CONFIG_UBSAN_BOUNDS
+ #include <asm/esr.h>
+ #include <asm/exception.h>
+@@ -474,6 +475,11 @@ void __noreturn __cold nvhe_hyp_panic_handler(u64 esr, u64 spsr,
+ 			print_nvhe_hyp_panic("BUG", panic_addr);
+ 	} else if (IS_ENABLED(CONFIG_CFI_CLANG) && esr_is_cfi_brk(esr)) {
+ 		kvm_nvhe_report_cfi_failure(panic_addr);
++	} else if (IS_ENABLED(CONFIG_UBSAN_KVM_EL2) &&
++		   ESR_ELx_EC(esr) == ESR_ELx_EC_BRK64 &&
++		   esr_is_ubsan_brk(esr)) {
++		print_nvhe_hyp_panic(report_ubsan_failure(esr & UBSAN_BRK_MASK),
++				     panic_addr);
+ 	} else {
+ 		print_nvhe_hyp_panic("panic", panic_addr);
+ 	}
 -- 
 2.49.0.967.g6a0df3ecc3-goog
 
