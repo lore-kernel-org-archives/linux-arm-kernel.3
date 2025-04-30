@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8A9AC369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 05:30:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0671C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 05:32:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Pf/nkqA0SULv06cZ0E+jJZ7O5patIvpCkeSbwI2yaY=; b=T4vmW4pJd9mYcZMY4ZadTaX2q2
-	CKGVUHqej1b1BcVb4dsx2Qx36H4FcYoTHDu1aPMPUknpn3rxWGLLtle/RdLZ7SONRnA0j+cjEsLND
-	UrYi33xpezvqHGx0QoUwu5WycLeZMT+gTbllckuIlLoU1QJRXluXzx1+GjTbzirA9zaLKOol2JqQV
-	Z20a+uoUNt+tQELZ7JVBhxg2c6efzG/Xn1fRpV3LzOM7uYm7cuYmjv8sX3aE9x0Y6JrT+b2RZy31g
-	GIRYlimHboRvd2RNRWDHK9VmQIPBrySiNkFGTVF7EMQmpt2ecWziffId+bLhKPH2W9u9nv0CkCcCe
-	LngBBSZQ==;
+	bh=KRTdfeEkhk9GKJcFVAyeZt9lecxsoqPn9xU90KsNqhU=; b=DsI4kpLVzpbETW0pERF995oHup
+	1zxwU0GCUDEVctWUy2g7BoTJcV/sfEn7G61snR6XgrCb0OYpcQzdYJYjEWQhAmujSynO27YxysbVD
+	wQpcCwf+40YPVYqSyxICzpHZlWbPCAnMgKs60iIKnb1H/sCYjkhLtFOC5nwzDSRV5bBKaaJOwKQJN
+	QsVUygV4tQsexbMde+Dat0/tDFpffzDzMCIUsjcouLCeiflRtW0qrWIVeZZpmNvi8ORdu093GXYvm
+	iUA42gJ0aiX6zKty7VutqhrodktRVOTl98C+yVdw2yv8gxQNwKl+omVrZxadsFodtz08OCaGT4+wd
+	Ymxe69+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA01F-0000000Bl57-0Ag1;
-	Wed, 30 Apr 2025 05:30:05 +0000
+	id 1uA034-0000000BlHN-2wLV;
+	Wed, 30 Apr 2025 05:31:58 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9zqS-0000000Bjb3-314Y
+	id 1u9zqS-0000000Bjb4-33np
 	for linux-arm-kernel@bombadil.infradead.org;
 	Wed, 30 Apr 2025 05:18:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=4Pf/nkqA0SULv06cZ0E+jJZ7O5patIvpCkeSbwI2yaY=; b=mprmh7C8jKPSP+gEUjGQv3ivMd
-	YaOmBOk9dsCIuAHQUlnALYkCqrk34Fabc6Un+QAhAHIsdV0y9d5O8qzx9nVKq04psd9DCgVfgY4f7
-	G8RVhrtRcByujVym30lD9PgJ2YagFoSkjke2xyR6vZ2LAbBBng49nqRoILPqyNJ+5MzkpR6LouTBV
-	DSR9G7jevEMkOAhavQCtxa6k7ZDkRqrIJ7TjMVM/ViFZXYWCmvWX97/2vQB8C/39THb5hipyYpVv0
-	x+vtKwwQG2hLyskw0S97KHRDc2+z6mgHGgoEQ4tKQNscpSGc3Vym/OLO4teG+hh+jvs3pWsHKD+I8
-	nvZF4NhQ==;
-Received: from mx.denx.de ([89.58.32.78])
+	bh=KRTdfeEkhk9GKJcFVAyeZt9lecxsoqPn9xU90KsNqhU=; b=DFrmkNmrmWbdRqTutRRiQwRf4z
+	LCD2fGOEC23n3bWo7uLvGv/JW1ITxYLv26pgyqQaHwm6Mg1RA9kSbLVmw9cZn25SKdRV6QlmGEedM
+	CCwLBcD8CZtL5r9mv61mHxcyMyELqMTGwX5r/8+baJtYqQPunsxtyYUvLvX5W3WuyAhEcnJpt7345
+	jKdxRAoEAFkeN+dPsuvXuc8rYvNDKIyXf0jjTmfguL4/+OrmJ7/JAwWck9f3/6M379LJgqAFzVgLr
+	L3DAqt/Win3oe3ZGA/k3i2LipTnhco6xyYc+LhyV0fFtlDsKvRrh5E/M2MqftYV9r3p0jwFV3MRLw
+	lrfwzX3g==;
+Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9zqE-0000000Dh4L-2EBx
+	id 1u9zqC-0000000Dh0t-092r
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 30 Apr 2025 05:18:54 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id AA49310269590;
-	Wed, 30 Apr 2025 07:18:36 +0200 (CEST)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6EF1E10269586;
+	Wed, 30 Apr 2025 07:18:27 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1745990318; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1745990308; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=4Pf/nkqA0SULv06cZ0E+jJZ7O5patIvpCkeSbwI2yaY=;
-	b=LQWQTiLouaOojUD+6bj/4JKim7kkNm+q133XFFLc9DEZd6lRYDEzi0cMImb+c9KvL5b5S4
-	hsFsjN6AxGSKzDBSOwKa3oHwRaaxV4+q6KdexNPI7efWHmVrsBW1/0hyVdVgejKrRnxVbL
-	sWXflrOQJO6g2pc8EtNVVrUNjO9YbiObGuJsjL8gQQ+ktQ2FZ4mEDVOU1HAosEIp4QjKqC
-	Xonr7KZSkLdL91qroLIVOc2I/krqNwQ5EfQQuZUqz1WHzeESvmjQsp0IaTGQTz1hazjou5
-	0VbQibsyKX6JtLj7ZN6ySIAnHDoXXSnnElfMuLfCIppULpWNB62rdpUdNcIbnw==
+	bh=KRTdfeEkhk9GKJcFVAyeZt9lecxsoqPn9xU90KsNqhU=;
+	b=hPW331TwwNGEtmFb1EVAXT3I1ENK/bqWU4dNn6kz6uIStMQ7KUIcre/Pa0FiDVB5pY/Hm0
+	TnhQBSdHHFXAe5XHjAxRZ1nRaThMAeBT/sp+G99DhkoEJOu+iJJxmkxVnmweoqz+FoE6Kd
+	xVNQ8MfhNlnVX7nzVl3Z9u+njKXtdn6arl0asw0d6o5MbQHUtyHzcS8hzlZbf8qDcaaRPO
+	Nzc88IFPlXWHAksiSYKiTdMl2mCAbVZ4JIOwA2dNxZECq5OvMZEod31e6Bk3MInB1cB4oq
+	kiZiyVumm07/JvqNHHmaOQgB71ilhEaHhlXq9xaOKyMhSsFaJfUWPC3he/HztQ==
 From: Lukasz Majewski <lukma@denx.de>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	davem@davemloft.net,
@@ -74,10 +74,11 @@ Cc: Sascha Hauer <s.hauer@pengutronix.de>,
 	linux-arm-kernel@lists.infradead.org,
 	Stefan Wahren <wahrenst@gmx.net>,
 	Simon Horman <horms@kernel.org>,
-	Lukasz Majewski <lukma@denx.de>
-Subject: [net-next v9 7/7] ARM: mxs_defconfig: Enable CONFIG_FEC_MTIP_L2SW to support MTIP L2 switch
-Date: Wed, 30 Apr 2025 07:17:56 +0200
-Message-Id: <20250430051756.574067-8-lukma@denx.de>
+	Lukasz Majewski <lukma@denx.de>,
+	Andrew Lunn <andrew@lunn.ch>
+Subject: [net-next v9 2/7] ARM: dts: nxp: mxs: Adjust the imx28.dtsi L2 switch description
+Date: Wed, 30 Apr 2025 07:17:51 +0200
+Message-Id: <20250430051756.574067-3-lukma@denx.de>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250430051756.574067-1-lukma@denx.de>
 References: <20250430051756.574067-1-lukma@denx.de>
@@ -85,8 +86,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_061844_960470_BD3873BB 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20250430_061840_508372_CA68FB6E 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,29 +102,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch enables support for More Than IP L2 switch available on some
-imx28[7] devices.
+The current range of 'reg' property is too small to allow full control
+of the L2 switch on imx287.
 
-Moreover, it also enables CONFIG_SWITCHDEV and CONFIG_BRIDGE required
-by this driver for correct operation.
+As this IP block also uses ENET-MAC blocks for its operation, the address
+range for it must be included as well.
+
+Moreover, some SoC common properties (like compatible, clocks, interrupts
+numbers) have been moved to this node.
 
 Signed-off-by: Lukasz Majewski <lukma@denx.de>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
+
 ---
+Changes for v2:
+- adding extra properties (like compatible, clocks, interupts)
+
+Changes for v3:
+- None
+
 Changes for v4:
-- New patch
+- Rename imx287 with imx28 (as the former is not used in kernel anymore)
 
 Changes for v5:
-- Apply this patch on top of patch, which updates mxs_defconfig to
-  v6.15-rc1
-- Add more verbose commit message with explanation why SWITCHDEV and
-  BRIDGE must be enabled as well
+- None
 
 Changes for v6:
-- None
+- Add interrupt-names property
 
 Changes for v7:
-- None
+- Change switch interrupt name from 'mtipl2sw' to 'enet_switch'
 
 Changes for v8:
 - None
@@ -131,30 +140,29 @@ Changes for v8:
 Changes for v9:
 - None
 ---
- arch/arm/configs/mxs_defconfig | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/arm/boot/dts/nxp/mxs/imx28.dtsi | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm/configs/mxs_defconfig b/arch/arm/configs/mxs_defconfig
-index b1a31cb914c8..ef4556222274 100644
---- a/arch/arm/configs/mxs_defconfig
-+++ b/arch/arm/configs/mxs_defconfig
-@@ -34,6 +34,8 @@ CONFIG_IP_PNP_DHCP=y
- CONFIG_SYN_COOKIES=y
- # CONFIG_INET_DIAG is not set
- # CONFIG_IPV6 is not set
-+CONFIG_BRIDGE=y
-+CONFIG_NET_SWITCHDEV=y
- CONFIG_CAN=m
- # CONFIG_WIRELESS is not set
- CONFIG_DEVTMPFS=y
-@@ -52,6 +54,7 @@ CONFIG_EEPROM_AT24=y
- CONFIG_SCSI=y
- CONFIG_BLK_DEV_SD=y
- CONFIG_NETDEVICES=y
-+CONFIG_FEC_MTIP_L2SW=y
- CONFIG_ENC28J60=y
- CONFIG_ICPLUS_PHY=y
- CONFIG_MICREL_PHY=y
+diff --git a/arch/arm/boot/dts/nxp/mxs/imx28.dtsi b/arch/arm/boot/dts/nxp/mxs/imx28.dtsi
+index bbea8b77386f..8aff2e87980e 100644
+--- a/arch/arm/boot/dts/nxp/mxs/imx28.dtsi
++++ b/arch/arm/boot/dts/nxp/mxs/imx28.dtsi
+@@ -1321,8 +1321,13 @@ mac1: ethernet@800f4000 {
+ 			status = "disabled";
+ 		};
+ 
+-		eth_switch: switch@800f8000 {
+-			reg = <0x800f8000 0x8000>;
++		eth_switch: switch@800f0000 {
++			compatible = "nxp,imx28-mtip-switch";
++			reg = <0x800f0000 0x20000>;
++			interrupts = <100>, <101>, <102>;
++			interrupt-names = "enet_switch", "enet0", "enet1";
++			clocks = <&clks 57>, <&clks 57>, <&clks 64>, <&clks 35>;
++			clock-names = "ipg", "ahb", "enet_out", "ptp";
+ 			status = "disabled";
+ 		};
+ 	};
 -- 
 2.39.5
 
