@@ -4,175 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF9B5C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 09:46:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A1E7C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 09:47:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0NksyC24933ZqzHGbrZUdaKIhylr3iNaKWWtZyli3x4=; b=DO8lsbaN/skAxXEUOyDn0yoBVq
-	MxHymcZ5NDlhysKO7cr3RXOm2TalmssJdF0A9J3rIjrev3N9mwxy6Ub/d1AeTlnFVLyHTW02eq/i8
-	Z4DK0IYcguDS1kFsqupz3uwj76i/wvDgDPuwQGvwqVfLcqIVTww8LycCG51elCqP5vApKujF8n8ai
-	2bfKQpuX/8sIAbZUk4X7z7EKstmjxF3TAuIZUukhQHSu3RDhdQtBYBnMP4hXk0DP/DNZzos+1r74a
-	VYTrmBJaqW/j1pWnHtA1x9yGKSjUgmSmN5sOsC681xIEExvX404LYiirfprUeiLugXIQ1Ra1aadCm
-	4onaA8DA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i69FELjgr+ab/eV1MDDKoV2q9oRFwK8PtVXvz7sDWlk=; b=uVU4/Q/1hN0MnfsqXKjstRzp3h
+	+jwWZk5bIBecHdvc6V8zqiEYcn/tVqslV5cfehD7831dgdOp0wclcg5MAxcdU+kOw667ujyq31EB+
+	xCNXoDPaIjpJxApBNppLNtfHHNSKRziYBiypqVjYZvtAaLEWx/p19HKmb0mykNvfpOrc6/rNds2o/
+	ce82Uj5oTp9pjD9yfozyymaw+3J/kNAewFPKQhQ0WS7B9IccQSHi1cwgokCURL8NuZiMq0M3EEv4I
+	hbk6bDw+/rQQ+zAw3Bb6f0y1s+tkrUR3U0A8T1SoFGmjh8beDY/Dsox+fyMSNP9XBtWmobr8bcUxi
+	v+FGt5FQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA41L-0000000CQJ0-3fVD;
-	Wed, 30 Apr 2025 09:46:27 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1uA421-0000000CQdO-0n28;
+	Wed, 30 Apr 2025 09:47:09 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA2yQ-0000000CBUq-2gVE;
-	Wed, 30 Apr 2025 08:39:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uWaYG4SExK6oReLRuNgbUMI3F1RTugI5OwZ4hvJs0sFn9lb/VrezvYMEfFejx1NFOu9kRTuuS8SDMR2u+ziuCAn7UVByaFZQFnBCz5jIeNCUqBB/eh0/G3j6+kja6XAWqZEyY45j4BJ0RiAR5yzDjIqu0zDW4rvKQ/wBFVBrRUAK/A8Y+1En+eU/GfhcRTF+PDb1mLhW8n2TW6V2JIMGkvjPxTx+X91t8ldEzXg/ctXduTonNWPS8Yp3D3XnykpFlauFBCqOYEpTZBjBIz000FbjDtmUMml6f2g9ohyCaCQzmvw5I9dLTtemx41rYDU7VzyXi9KaZuxdO8B58x4LVg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0NksyC24933ZqzHGbrZUdaKIhylr3iNaKWWtZyli3x4=;
- b=pAdM/tlf8sHb3d/6l60wG0OR+esYuEQB7Eh75IenaFoMIWsAIWgpSJMeT+Nc3oHknfUUd+Q1/aPTtB2vrlzk6rwS7w3bGqZ+JGkB7T8AM7TgvPOMgVG8eYE4Qq1bcm45S+OOC/fwgh6UER5anUMKHRiU/gQTeKA4/5dktFJCglK22Zc2PfdxvznTTkh4tOs5lwQ91XN9ZZWABaEvD+jGKfdPHrGgm3BNBYyubhlzLGAyWW0e+XuessaU6Vc31L4G2LJvph+09HZVBFl0Kwb0w5LPF9nn73vkz9S6bTDUX6twjBF2TCaqYuBfWOlEdcl5UM5l0r+aCGYcvNZUSZXECA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0NksyC24933ZqzHGbrZUdaKIhylr3iNaKWWtZyli3x4=;
- b=XSghEL7Kj+CBqYNe/bVQRl6EaIE7EfswgMjgX4B6j5CARCXEH33c0M8bvK4v4Ft35nVajs4KE9otDZuYLFGyh5p6J6uRgXMvEUytyh86bG6hVVVgzXPRgAqlOqLk97wYpE0P64SlU+I6RYRUdtaP6udyvqr5mLEvrVcZlCbwFrQ=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
- by VI1PR04MB7023.eurprd04.prod.outlook.com (2603:10a6:800:12f::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.21; Wed, 30 Apr
- 2025 08:39:11 +0000
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a%5]) with mapi id 15.20.8699.019; Wed, 30 Apr 2025
- 08:39:10 +0000
-Message-ID: <31f5c9dc-d6cc-4fca-82ad-7be0da62d10c@cherry.de>
-Date: Wed, 30 Apr 2025 10:39:09 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64: dts: rockchip: Add rk3399-evb-ind board
-To: Chaoyi Chen <kernel@airkyi.com>, Heiko Stuebner <heiko@sntech.de>
-Cc: Andrew Lunn <andrew@lunn.ch>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
- Kever Yang <kever.yang@rock-chips.com>,
- Jianfeng Liu <liujianfeng1994@gmail.com>, Dragan Simic <dsimic@manjaro.org>,
- Jimmy Hon <honyuenkwun@gmail.com>, FUKAUMI Naoki <naoki@radxa.com>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Alexey Charkov <alchark@gmail.com>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Chaoyi Chen <chaoyi.chen@rock-chips.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250430074848.539-1-kernel@airkyi.com>
- <20250430074848.539-3-kernel@airkyi.com>
-Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <20250430074848.539-3-kernel@airkyi.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR0P281CA0195.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:ab::6) To AS8PR04MB8897.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::20)
+	id 1uA3jQ-0000000CMSC-3gVU;
+	Wed, 30 Apr 2025 09:27:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Content-ID:Content-Description;
+	bh=i69FELjgr+ab/eV1MDDKoV2q9oRFwK8PtVXvz7sDWlk=; b=OlgHCOvAYsBEvB7wAzNcJ3SLF/
+	07zhGs3YLB4KY3sAsCTcJ0EPt+SaPcoKjjVrLs5m9iPcVfI8XTkOswWqP6k/4s9rULqPOpS84dYCD
+	MzkX3PzPpNctCeUXiBholJq6USHCriOvXewAd+p1Jpa34tmXujCms0DCnSutT8TNezuE/vi2eFQH9
+	oafJzwhcQTm5iwNMGFT1/cRAAbCkIBIr3NFwVft7rYNRLs8mPFiD9En3X/vYNI6q6sTvf0IFnCOFP
+	rtTsg3rResTZPeKch32O0avkbyZ8qkuAp/z8Yz18e2EFMtOQFnvGRogz1C1kCtVkp/F/q4Sr3O9DI
+	wbf6d5YQ==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uA3jJ-0000000Dl38-42gG;
+	Wed, 30 Apr 2025 09:27:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id DB2B64AC48;
+	Wed, 30 Apr 2025 09:27:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id D5FE1C4CEF3;
+	Wed, 30 Apr 2025 09:27:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746005264;
+	bh=QaaYHwHO2ORqFSi4X3MvljMGvYnDOmWvPEoECMI+reY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=D/OOE0PAw7MXK0RlB3Vs0JBlJnmHue8G+cO2pB7WenShuGnIJqV+0HaQcMQ9rSn2a
+	 BKrM1WjiuMGaciUZtzCbQELNW/st5ZaHUSkQQ6z+MgpME/HZBZkKfQUsos8hMCxOz8
+	 CILRloOsLxSDov5QZjli70ytItqFr0LyA99iYvrsRQYwtUukAWXzDLuLNHKIZ1dmoz
+	 ejMCbZrwl+tNErhEXRXH7JWuXBB+ffHNVR1oQ9tPZu5dBjXaMSU8M7e4ycRWvhluZh
+	 m+CoTo+LOwkGbHk6JtqnZ2XHhzL4clRV6m+0ccb3DoWVNJkWjQwH/dJFsHigqMew/5
+	 rQaVz5lTSKOow==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CD8D0C369D9;
+	Wed, 30 Apr 2025 09:27:44 +0000 (UTC)
+From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
+Date: Wed, 30 Apr 2025 11:15:53 +0200
+Subject: [PATCH v6 04/13] media: dt-bindings: add rockchip rk3568 vicap
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|VI1PR04MB7023:EE_
-X-MS-Office365-Filtering-Correlation-Id: 46710fe4-34f2-494e-14e7-08dd87c27a86
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|13003099007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?V2NHZWljeGh1bURTRzB0SjJTM2hJOU02Z0E5Nk1Ra3JNOTRIZWgrMk5UVjIy?=
- =?utf-8?B?M2UzWUlGZHFaK1VaUmMxejdEbzZTbUNxMWFKRHZzOUNNVkpXckVycVJHUXlM?=
- =?utf-8?B?ZEJyUXlGUldpM1JlOUVNVm4vTE9leUROY2l4UWhJNHpWNHNtWjJudFJqNUc5?=
- =?utf-8?B?QXNxWTdpeHpVVXRQWEFvdGxYUmpEZys1MjRHTDVuUTBzUWdmbXowVVBhZjhs?=
- =?utf-8?B?OGNXZGY2OU9WVmU0REF2M01JU0t1TGJnZmxjc2Z5R2xXbzBhMWlsQmd1ZVBM?=
- =?utf-8?B?MHovS3dHY0tFOTM3S2Vrc1NxdmRjK3FPZk5qSnpMNXVKVDlvYUUzZytFZjhY?=
- =?utf-8?B?RURicTEzbGlvM1l1bTVjTHIvMlYzSENtQ2ltOUNVU2NPTTN0dlZYdGZ3czly?=
- =?utf-8?B?T244aWQ2RXh4bW1YZXErdE1ldG5jWTFDemZZTmVJZWpiVWRnUEJTYWlPZ1Q4?=
- =?utf-8?B?blM3T0ZCK1F1UU5NcVZVZVUrVUI2MDZhZ1hWUHZYc0pWRUVZeTNHYXlxWVNu?=
- =?utf-8?B?WkdmRXBYRjJrTlppZjQ0ZktlZU9UNHVSMnp5YzBVMnJDamJKVWxIQi93MDh6?=
- =?utf-8?B?YjZlb2RjdG5xc1pxQTg4VWFyeXZzUXVDN0VpbmZYSVlNRjh5RGZmQlNHMjlC?=
- =?utf-8?B?bTBJQ2tHaFRVUllYb0hTRnVTZHNaRXdJR0dCK3BnK3pNeHVEakxxWmVCb1Z5?=
- =?utf-8?B?TGw0RWlqVXVNY21iaGsrUmtJKzNONkw1S3RNT3l4bzdyME9kb3l1YlVOUFpU?=
- =?utf-8?B?YlJEYmMwTTJtRWJLU0F5TXRWWGNpYnBMZlU4bDhSMW9iRVdDL0F2RjdpTGhO?=
- =?utf-8?B?OXB5Zi9iVjF1YXZ4bUJUUldWWTNHNWJQOHA4Z1VScGtXZjE1cDVocm1XOFdp?=
- =?utf-8?B?WXV1REEydnljditWeDBhNmQxZ0hRMlZHK0dOTDhmOEM0WXRQazJ6M0I3R2lX?=
- =?utf-8?B?bk1iSHBkNDVMV3VWM205eHRETDZOeHpqUjBqbnJDWVhDZ280L3FjVDhTdXhK?=
- =?utf-8?B?K2FYSW5GckFtNjJGbkFJclloRSsrcEZYdVNFU1ltTnVIUThBRXlHQjZzT0cx?=
- =?utf-8?B?V3hBeVlDWWhyN1JyYmg4cXE0VGxTY21KS0krWU43WGlvbkwrZUdQQk43Qk9p?=
- =?utf-8?B?QTRXRHFuQUhxeERxWW5sSVJwZms3WFczS3RuQ25zMmUzNFhrazJmRE9ZU1hs?=
- =?utf-8?B?ZVVyYm1FeHUvRlhnTFZwQUd0dDJGZjZKVmNSQ0lRU0w4VW90TWxIOGZPSjVs?=
- =?utf-8?B?Y01BK0p6c0tRV0x4RkNkK0I5U0Rpa3ZuMkM1d1NRVjJoVXorbm85VHFpK2Ir?=
- =?utf-8?B?RVAwOG9zbzk0UzZFRFFRck83dzZGNHpLVTRrTFB4ZTlWTDl0ekw3cmk3QnE1?=
- =?utf-8?B?UlRGLzZ5MTRJaUk3QXJGRjhxbklaTnV0YTdRbDR3cWRpa1pMcEtMVExZd2Nx?=
- =?utf-8?B?b2pqanpHN015Sm9ZWFU1KzZlMGlTNkVQWnhaWm5kdCtFdHRWRFo2LzBVQmhn?=
- =?utf-8?B?QnBwd3BtaW96cHRsN3k2T2VPem9EQnh4S2pDTjhHWTZaYWEwdEdrSE9aZHJQ?=
- =?utf-8?B?VU9xNzE2U2ZCbU1aQmlwcUtkUDU1d1BzZGdXME1jRTQrMDJBWGdqaUNzQ3B2?=
- =?utf-8?B?a0ZGTFdpekVTdnQ1TlBTQmRtOTkzWmlpT2RRelZmb1VMWEU1S2UxcTl6M2Rn?=
- =?utf-8?B?VjZuNEZySmJ5cHRncVRNbEtVQUM3YjlsWjh0ZCs1anpUaXBoRk5FUzl5SHhP?=
- =?utf-8?B?bVhoTXZjTFNNR2JXV0x6UmhvUnFNU0YzYm1GVkdna1l4c0s0SzRmS3RJR0tP?=
- =?utf-8?B?eTd6V3NDbEN3VDR0OHUzVDRKdGY5dGxYTndwdGMyZ1Foc3ltU3ZuN2dEUFM2?=
- =?utf-8?B?YkExam5aMDBPU0FyMitOSmw1NTd4YWVUdVlJM0VZSGFsZDVGbnVjOWp6RDRM?=
- =?utf-8?Q?gWEGofc2AfE=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eFRQblpqd1R2d3pMTForZ1MyaUFvSG5Ndmcvc2JRRDdkN1hpbGJ2NEJLcXBG?=
- =?utf-8?B?UWZjSE5kNEFuMDVoNmF3WFFzaVRPc1MraC9vQUNsSjdLbHkwa1FFZitGdWI0?=
- =?utf-8?B?amlXVCtoeVlmdnhrbXV6WFZLTUV3NEJlMGhqL0Y5NkxTbzE5amVBSkZneUc3?=
- =?utf-8?B?R2UrNVBUUU1kUEZnRWdNMWtjZkdZNEVmQzdrNE1zaWpESDV1WkNUMTNyK0Iy?=
- =?utf-8?B?dkdsVTl5MDJ4MTI5SEhuRk50LzVvTU41UzgzbDhML3c2VzZGeG1mUFFZOEt6?=
- =?utf-8?B?OXlDYlNLOVRuRHYwcmFXeWNZMTF2VHFPRFhQM3dWODZaWjdkd0FxWkZDYUZr?=
- =?utf-8?B?Zm52TXlHTkpYUzdiTXdoTmtEVWdGYlF5bWczaThzNzRFM21ZZ3NSZFV5blEr?=
- =?utf-8?B?Q0tSU3grVjA3bTlWaHlzNWFLbGVLcXhRWGxYTnNzVmFnTS9HZ2JhaHVXTXE5?=
- =?utf-8?B?Z1dNOFRSdTlBTnNsTHhZZTZjdkU5Rm8rSnRsdlZFeDhxMHUyVitiSFM1V1ov?=
- =?utf-8?B?NmpNVGFnNnphdnRwQjVJdERNTVF0Q04zVmc1ZUxtV3RCMERRUk94endmMGpn?=
- =?utf-8?B?dENkVjI0VU0raTF2RnpwL2FvZDlTMWlLR0JXazI0V0VqL0pYUlRCbEs1M0dK?=
- =?utf-8?B?S2JLVGxCeUZaWm5qY0dMSHhUY3VaZ0lGYy9UK0EvMlB1Q2JrSFN6RDdaQjZN?=
- =?utf-8?B?NjI1LzBpeEtxR2UzbEZTZzlNMHZhdHJaVTl5UVIxcVNrQ01kOFNIQm1WSktn?=
- =?utf-8?B?RnY2VEdJOVFxZzRuc3VWZ0J4eGY2dVVlZDBUNHpWNndsanBpK2xCVVN6OXpp?=
- =?utf-8?B?T3dZdGplTzlkSlJzS2k4a216TjV5c0o5YUVPZlQ0NDVaR2FuekhEeEdZVDFU?=
- =?utf-8?B?djJwaU5OUVlndmRWYWFyRGlBTkVsbVNSaXIweFNwcVlvVE9odS9DY3pNdmVZ?=
- =?utf-8?B?SUpPaERLb01ZQUhCbUVORXFuZWg3UXU1YWVlYXpuVk5WY2p4MG8yVmR1Y0gz?=
- =?utf-8?B?bVJOYUFkTkpaVURCYVZyUXV6YjQrd0FFSnpzRk1scDU5SnJFVUM2eXhhRnha?=
- =?utf-8?B?R3d1aWRMcGFOSlJYRHRvekd4blJKdlhsVG9rZy9KNXRPSldlZHZIbEhxeXc3?=
- =?utf-8?B?aW95anZ4RVRvUkw4V2EyaXpUaktuM1RuNG9TNTI0ZW84aURDVjZwMkRnUTdQ?=
- =?utf-8?B?V2wyNmFZQjhVZ1Iwa0lKMTlxYVRUdXZma2VPSUpYTS9WeDJKKy9CUjFYcFhU?=
- =?utf-8?B?d0k5dEtOM2hjMGhzMXFyVVJNQUw5ZDRxV0E5U1VQWTYvRnNzMTQ1aTZFaXdj?=
- =?utf-8?B?SnV1b0prSmJGb1ltampxeks3eUFZQ09RbjU1RzhVUDdLdWRsVFIwY294UmFD?=
- =?utf-8?B?Q0tLRFYxYU9KV0dHbXJIem1JQkdDNEZRQk4wTUdxdGlkSHFyendVR1R1enVz?=
- =?utf-8?B?ZEpXRGFNQ2Q3Mk5XTVlFOERZM0dYZEI4aEo2TXVkZFZXZ09ITzRqR1RPQTFY?=
- =?utf-8?B?SHAxdTBmMDF1bVg3cVZBUWxjNkIzeWRWQk12alp3VTNzancyNnZaMUgxWFAr?=
- =?utf-8?B?Vkcvb3hNSGUrNU9WWGJxY0VRS1ZXSXJydGgxUXEzWWh4U0ZPVXZQWVdOYUov?=
- =?utf-8?B?U3h3dTY5Y0JCOU9mVmpMcXY5emtYRTRRbkZGRmJyTUZ3dUY4bUJ6Rll3QlM0?=
- =?utf-8?B?U3dDZzlBWGlxRENndG9LK0pqVER0eDNvYkxhQngwb29GNWpmb1ZmenZRalUz?=
- =?utf-8?B?UjZ1WnpZSi9pd0FCVXVDdGNZY25kc1F2eEN2czJNcDhkSDYzeDVMMktCS0xX?=
- =?utf-8?B?c1BWUU5iRm83aFE3NUdOOFlJejB2dFRKL3hxZ2JNLy9LUmZucnVYQ2w5Vk9Y?=
- =?utf-8?B?d1NvMnhnZCtjMms0YnkwV2U3Mm0xdDc5bWFnOGllbTB1cGljQ2F1NmlwKzZB?=
- =?utf-8?B?QzFLdUNOcDZ6Z2VOZ2VVaWdjUzlOWGs2UCtqcTZvYUxmOE1BbkM2NTVObUhQ?=
- =?utf-8?B?UEYrNk95aDR0ODIyYXdhcmZ5TkpxaGxDd1RRdVpFbHc2czgyVUhUUytYL3Ni?=
- =?utf-8?B?L3gzdnVvaW1mMk96MFN3ZTBGc3I0L25YeXpURVF6YmF1Nzd2NlpjWDVQdWpn?=
- =?utf-8?B?Tk9QK2xueFdsblkrMEV1SDk2LzJLcFlkT0NXM21FL0xXTFNWRnpCNksvSUNo?=
- =?utf-8?B?V0E9PQ==?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 46710fe4-34f2-494e-14e7-08dd87c27a86
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2025 08:39:10.7778
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: WNEu3rWv0UI8+Gs5wweHMBD6GOMwpyfEUFASiCFJILUyMwJxD6GgzpSKhMmuTSYcIuYv77ZtL9vFnscs4w6wtzPGtot6JC3MIWaOcb6112A=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7023
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20240220-rk3568-vicap-v6-4-d2f5fbee1551@collabora.com>
+References: <20240220-rk3568-vicap-v6-0-d2f5fbee1551@collabora.com>
+In-Reply-To: <20240220-rk3568-vicap-v6-0-d2f5fbee1551@collabora.com>
+To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
+ Gerald Loacker <gerald.loacker@wolfvision.net>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Kever Yang <kever.yang@rock-chips.com>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Collabora Kernel Team <kernel@collabora.com>, 
+ Paul Kocialkowski <paulk@sys-base.io>, 
+ Alexander Shiyan <eagle.alexander923@gmail.com>, 
+ Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, 
+ Michael Riesch <michael.riesch@wolfvision.net>, 
+ Michael Riesch <michael.riesch@collabora.com>
+X-Mailer: b4 0.12.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1746004564; l=6124;
+ i=michael.riesch@collabora.com; s=20250410; h=from:subject:message-id;
+ bh=vaCGwkc/S8lWY9FNh8xSi1TWIebW3O3ma9bvl/LOpIU=;
+ b=9CteTKYyZi0E/DfaeA1fIpojYgbD4uFqMoANOwyduGrg1TITh0Mi1ZyMd2V2a5LJUb5cbMaES
+ qikGY32HS+8AKKnUyKepzcURV7XZSwSPPxUfWtWCWhPfpql0pgR7AZS
+X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
+ pk=+MWX1fffLFZtTPG/I6XdYm/+OSvpRE8D9evQaWbiN04=
+X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20250410
+ with auth_id=371
+X-Original-From: Michael Riesch <michael.riesch@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_013922_864829_77856140 
-X-CRM114-Status: GOOD (  25.63  )
+X-CRM114-CacheID: sfid-20250430_102750_433112_B4AF5C23 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,581 +115,212 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: michael.riesch@collabora.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chaoyi Chen,
+From: Michael Riesch <michael.riesch@wolfvision.net>
 
-On 4/30/25 9:48 AM, Chaoyi Chen wrote:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> 
-> General feature for rk3399 industry evaluation board:
-> - Rockchip RK3399
+Add documentation for the Rockchip RK3568 Video Capture (VICAP) unit.
 
-Quick question, is this really an RK3399 or rather an RK3399K (the 
-industrial grade)? If it's a K variant, then we need a new rk3399-k.dtsi 
-with the appropriate OPPs and include that instead.
+Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
+Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+---
+ .../bindings/media/rockchip,rk3568-vicap.yaml      | 170 +++++++++++++++++++++
+ MAINTAINERS                                        |   1 +
+ 2 files changed, 171 insertions(+)
 
-> - 4GB LPDDR4
-> - emmc5.1
-> - SDIO3.0 compatible TF card
-> - 1x HDMI2.0a TX
-> - 1x HDMI1.4b RX with TC358749XBG HDMI to MIPI CSI2 bridge chip
-> - 1x type-c DisplayPort
-> - 3x USB3.0 Host
-> - 1x USB2.0 Host
-> - 1x Ethernet / USB3.0 to Ethernet
-> 
-> Tested with HDMI/GPU/USB2.0/USB3.0/TF card/emmc.
-> 
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> ---
-> 
-> Changes in v2:
-> - Remove gmac
-> - Add rk809 PMIC
-> - Add CPU supply
-> - Fix io-domain for sdmmc
-> - Enable vopl
-> 
->   arch/arm64/boot/dts/rockchip/Makefile         |   1 +
->   .../boot/dts/rockchip/rk3399-evb-ind.dts      | 466 ++++++++++++++++++
->   2 files changed, 467 insertions(+)
->   create mode 100644 arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-> index 3e8771ef69ba..8a3adb7482ca 100644
-> --- a/arch/arm64/boot/dts/rockchip/Makefile
-> +++ b/arch/arm64/boot/dts/rockchip/Makefile
-> @@ -40,6 +40,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3368-px5-evb.dtb
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3368-r88.dtb
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-eaidk-610.dtb
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-evb.dtb
-> +dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-evb-ind.dtb
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-ficus.dtb
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-firefly.dtb
->   dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-gru-bob.dtb
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts b/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts
-> new file mode 100644
-> index 000000000000..ebfe7e56b3f5
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dts
-> @@ -0,0 +1,466 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +/*
-> + * Copyright (c) 2025 Rockchip Electronics Co., Ltd.
-> + */
-> +
-> +/dts-v1/;
-> +#include "rk3399-base.dtsi"
-> +
+diff --git a/Documentation/devicetree/bindings/media/rockchip,rk3568-vicap.yaml b/Documentation/devicetree/bindings/media/rockchip,rk3568-vicap.yaml
+new file mode 100644
+index 000000000000..99861d236f5e
+--- /dev/null
++++ b/Documentation/devicetree/bindings/media/rockchip,rk3568-vicap.yaml
+@@ -0,0 +1,170 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/media/rockchip,rk3568-vicap.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Rockchip RK3568 Video Capture (VICAP)
++
++maintainers:
++  - Michael Riesch <michael.riesch@collabora.com>
++
++description:
++  The Rockchip RK3568 Video Capture (VICAP) block features a digital video
++  port (DVP, a parallel video interface) and a MIPI CSI-2 port. It receives
++  the data from camera sensors, video decoders, or other companion ICs and
++  transfers it into system main memory by AXI bus.
++
++properties:
++  compatible:
++    const: rockchip,rk3568-vicap
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: ACLK
++      - description: HCLK
++      - description: DCLK
++      - description: ICLK
++
++  clock-names:
++    items:
++      - const: aclk
++      - const: hclk
++      - const: dclk
++      - const: iclk
++
++  iommus:
++    maxItems: 1
++
++  resets:
++    items:
++      - description: ARST
++      - description: HRST
++      - description: DRST
++      - description: PRST
++      - description: IRST
++
++  reset-names:
++    items:
++      - const: arst
++      - const: hrst
++      - const: drst
++      - const: prst
++      - const: irst
++
++  rockchip,grf:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: Phandle to general register file used for video input block control.
++
++  power-domains:
++    maxItems: 1
++
++  ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++
++    properties:
++      port@0:
++        $ref: /schemas/graph.yaml#/$defs/port-base
++        unevaluatedProperties: false
++        description: The digital video port (DVP, a parallel video interface).
++
++        properties:
++          endpoint:
++            $ref: video-interfaces.yaml#
++            unevaluatedProperties: false
++
++            properties:
++              bus-type:
++                enum: [5, 6]
++
++              rockchip,dvp-clk-delay:
++                $ref: /schemas/types.yaml#/definitions/uint32
++                default: 0
++                minimum: 0
++                maximum: 127
++                description:
++                  Delay the DVP path clock input to align the sampling phase,
++                  only valid in dual edge sampling mode. Delay is zero by
++                  default and can be adjusted optionally.
++
++            required:
++              - bus-type
++
++      port@1:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: Port connected to the MIPI CSI-2 receiver output.
++
++        properties:
++          endpoint:
++            $ref: video-interfaces.yaml#
++            unevaluatedProperties: false
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - ports
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/rk3568-cru.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
++    #include <dt-bindings/power/rk3568-power.h>
++    #include <dt-bindings/media/video-interfaces.h>
++
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        vicap: video-capture@fdfe0000 {
++            compatible = "rockchip,rk3568-vicap";
++            reg = <0x0 0xfdfe0000 0x0 0x200>;
++            interrupts = <GIC_SPI 146 IRQ_TYPE_LEVEL_HIGH>;
++            assigned-clocks = <&cru DCLK_VICAP>;
++            assigned-clock-rates = <300000000>;
++            clocks = <&cru ACLK_VICAP>, <&cru HCLK_VICAP>,
++                     <&cru DCLK_VICAP>, <&cru ICLK_VICAP_G>;
++            clock-names = "aclk", "hclk", "dclk", "iclk";
++            iommus = <&vicap_mmu>;
++            power-domains = <&power RK3568_PD_VI>;
++            resets = <&cru SRST_A_VICAP>, <&cru SRST_H_VICAP>,
++                     <&cru SRST_D_VICAP>, <&cru SRST_P_VICAP>,
++                     <&cru SRST_I_VICAP>;
++            reset-names = "arst", "hrst", "drst", "prst", "irst";
++            rockchip,grf = <&grf>;
++
++            ports {
++                #address-cells = <1>;
++                #size-cells = <0>;
++
++                vicap_dvp: port@0 {
++                    reg = <0>;
++
++                    vicap_dvp_input: endpoint {
++                        bus-type = <MEDIA_BUS_TYPE_BT656>;
++                        bus-width = <16>;
++                        pclk-sample = <MEDIA_PCLK_SAMPLE_DUAL_EDGE>;
++                        remote-endpoint = <&it6801_output>;
++                    };
++                };
++
++                vicap_mipi: port@1 {
++                    reg = <1>;
++
++                    vicap_mipi_input: endpoint {
++                        remote-endpoint = <&csi_output>;
++                    };
++                };
++            };
++        };
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 2e24210f4e60..99a29a905cae 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -20866,6 +20866,7 @@ L:	linux-media@vger.kernel.org
+ S:	Maintained
+ F:	Documentation/admin-guide/media/rkcif*
+ F:	Documentation/devicetree/bindings/media/rockchip,px30-vip.yaml
++F:	Documentation/devicetree/bindings/media/rockchip,rk3568-vicap.yaml
+ 
+ ROCKCHIP CRYPTO DRIVERS
+ M:	Corentin Labbe <clabbe@baylibre.com>
 
-You're supposed to include one device tree include with OPPs. I see that 
-the rk3399-evb is the only one that does that.
-
-According to 296602b8e5f7 ("arm64: dts: rockchip: Move RK3399 OPPs to 
-dtsi files for SoC variants"), this was done because:
-
-     The only exception to the "include only a SoC variant dtsi" is found in
-     rk3399-evb.dts, which includes rk3399-base.dtsi instead of rk3399.dtsi.
-     This is intentional, because this board dts file doesn't enable the 
-TSADC,
-     so including rk3399.dtsi would enable the SoC to go into higher 
-OPPs with
-     no thermal throttling in place.  Let's hope that people interested 
-in this
-     board will fix this in the future.
-
-Soooo, maybe you could fix that now? At the very least for the 
-industrial variant (but it would also be most welcomed for the "normal" 
-EVB).
-
-> +/ {
-> +	model = "Rockchip RK3399 EVB IND LPDDR4 Board";
-> +	compatible = "rockchip,rk3399-evb-ind", "rockchip,rk3399";
-> +
-> +	aliases {
-> +		ethernet0 = &gmac;
-
-Considering gmac is gone from the DT, maybe you want to have that one in 
-the patch that will add Ethernet support?
-
-> +		mmc0 = &sdhci;
-> +		mmc1 = &sdmmc;
-> +	};
-> +
-> +	chosen {
-> +		stdout-path = "serial2:1500000n8";
-> +	};
-> +
-> +	vcc5v0_sys: regulator-vcc5v0-sys {
-> +		compatible = "regulator-fixed";
-> +		enable-active-high;
-> +		gpio = <&gpio4 RK_PD2 GPIO_ACTIVE_HIGH>;
-> +		regulator-name = "vcc5v0_sys";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-max-microvolt = <5000000>;
-> +		regulator-min-microvolt = <5000000>;
-> +	};
-> +};
-> +
-> +&cpu_l0 {
-> +	cpu-supply = <&vdd_cpu_l>;
-> +};
-> +
-> +&cpu_l1 {
-> +	cpu-supply = <&vdd_cpu_l>;
-> +};
-> +
-> +&cpu_l2 {
-> +	cpu-supply = <&vdd_cpu_l>;
-> +};
-> +
-> +&cpu_l3 {
-> +	cpu-supply = <&vdd_cpu_l>;
-> +};
-> +
-> +&cpu_b0 {
-> +	cpu-supply = <&vdd_cpu_b>;
-> +};
-> +
-> +&cpu_b1 {
-> +	cpu-supply = <&vdd_cpu_b>;
-> +};
-> +
-
-Please order the nodes alphabetically, so cpu_bX before cpu_lX. See 
-https://www.kernel.org/doc/html/latest/devicetree/bindings/dts-coding-style.html
-
-> +&emmc_phy {
-> +	status = "okay";
-> +};
-> +
-> +&gpu {
-> +	mali-supply = <&vdd_gpu>;
-> +	status = "okay";
-> +};
-> +
-> +&hdmi {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&hdmi_i2c_xfer>, <&hdmi_cec>;
-> +	status = "okay";
-> +};
-> +
-> +&hdmi_sound {
-> +	status = "okay";
-> +};
-> +
-
-hdmi_sound requires i2s2 controller to be enabled too, but I don't see 
-it in this device tree?
-
-> +&i2c0 {
-> +	clock-frequency = <400000>;
-> +	i2c-scl-falling-time-ns = <4>;
-> +	i2c-scl-rising-time-ns = <168>;
-> +	status = "okay";
-> +
-> +	rk809: pmic@20 {
-> +		compatible = "rockchip,rk809";
-> +		reg = <0x20>;
-> +		interrupt-parent = <&gpio1>;
-> +		interrupts = <RK_PC5 IRQ_TYPE_LEVEL_LOW>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&pmic_int_l>;
-> +		rockchip,system-power-controller;
-> +		#clock-cells = <1>;
-> +		pmic-reset-func = <0>;
-> +		wakeup-source;
-> +		clock-output-names = "xin32k", "rk808-clkout2";
-> +
-
-Please order properties correctly, see 
-https://www.kernel.org/doc/html/latest/devicetree/bindings/dts-coding-style.html
-
-> +		vcc1-supply = <&vcc5v0_sys>;
-> +		vcc2-supply = <&vcc5v0_sys>;
-> +		vcc3-supply = <&vcc5v0_sys>;
-> +		vcc4-supply = <&vcc5v0_sys>;
-> +		vcc5-supply = <&vcc_buck5>;
-> +		vcc6-supply = <&vcc_buck5>;
-> +		vcc7-supply = <&vcc5v0_sys>;
-> +		vcc8-supply = <&vcc3v3_sys>;
-> +		vcc9-supply = <&vcc5v0_sys>;
-> +
-> +		regulators {
-> +			vdd_center: DCDC_REG1 {
-> +				regulator-always-on;
-> +				regulator-boot-on;
-> +				regulator-initial-mode = <0x2>;
-> +				regulator-max-microvolt = <1350000>;
-> +				regulator-min-microvolt = <750000>;
-> +				regulator-ramp-delay = <6001>;
-> +				regulator-name = "vdd_center";
-
-Missing blank line between last property and first child node, see 
-https://www.kernel.org/doc/html/latest/devicetree/bindings/dts-coding-style.html. 
-Same remark for all other regulators.
-
-> +				regulator-state-mem {
-> +					regulator-off-in-suspend;
-> +				};
-> +			};
-> +
-> +			vdd_cpu_l: DCDC_REG2 {
-> +				regulator-always-on;
-> +				regulator-boot-on;
-> +				regulator-initial-mode = <0x2>;
-> +				regulator-max-microvolt = <1350000>;
-> +				regulator-min-microvolt = <750000>;
-> +				regulator-ramp-delay = <6001>;
-> +				regulator-name = "vdd_cpu_l";
-> +				regulator-state-mem {
-> +					regulator-off-in-suspend;
-> +				};
-> +			};
-> +
-> +			vcc_ddr: DCDC_REG3 {
-> +				regulator-always-on;
-> +				regulator-boot-on;
-> +				regulator-initial-mode = <0x2>;
-> +				regulator-name = "vcc_ddr";
-> +				regulator-state-mem {
-> +					regulator-on-in-suspend;
-> +				};
-> +			};
-> +
-> +			vcc3v3_sys: DCDC_REG4 {
-> +				regulator-always-on;
-> +				regulator-boot-on;
-> +				regulator-initial-mode = <0x2>;
-> +				regulator-max-microvolt = <3300000>;
-> +				regulator-min-microvolt = <3300000>;
-> +				regulator-name = "vcc3v3_sys";
-> +				regulator-state-mem {
-> +					regulator-on-in-suspend;
-> +					regulator-suspend-microvolt = <3300000>;
-> +				};
-> +			};
-> +
-> +			vcc_buck5: DCDC_REG5 {
-> +				regulator-always-on;
-> +				regulator-boot-on;
-> +				regulator-max-microvolt = <2200000>;
-> +				regulator-min-microvolt = <2200000>;
-> +				regulator-name = "vcc_buck5";
-> +				regulator-state-mem {
-> +					regulator-on-in-suspend;
-> +					regulator-suspend-microvolt = <2200000>;
-> +				};
-> +			};
-> +
-> +			vcca_0v9: LDO_REG1 {
-> +				regulator-always-on;
-> +				regulator-boot-on;
-> +				regulator-max-microvolt = <900000>;
-> +				regulator-min-microvolt = <900000>;
-> +				regulator-name = "vcca_0v9";
-> +				regulator-state-mem {
-> +					regulator-off-in-suspend;
-> +				};
-> +			};
-> +
-> +			vcc_1v8: LDO_REG2 {
-> +				regulator-always-on;
-> +				regulator-boot-on;
-> +				regulator-max-microvolt = <1800000>;
-> +				regulator-min-microvolt = <1800000>;
-> +				regulator-name = "vcc_1v8";
-> +				regulator-state-mem {
-> +					regulator-on-in-suspend;
-> +					regulator-suspend-microvolt = <1800000>;
-> +				};
-> +			};
-> +
-> +			vcc0v9_soc: LDO_REG3 {
-> +				regulator-always-on;
-> +				regulator-boot-on;
-> +				regulator-max-microvolt = <900000>;
-> +				regulator-min-microvolt = <900000>;
-> +				regulator-name = "vcc0v9_soc";
-> +				regulator-state-mem {
-> +					regulator-on-in-suspend;
-> +					regulator-suspend-microvolt = <900000>;
-> +				};
-> +			};
-> +
-> +			vcca_1v8: LDO_REG4 {
-> +				regulator-always-on;
-> +				regulator-boot-on;
-> +				regulator-max-microvolt = <1800000>;
-> +				regulator-min-microvolt = <1800000>;
-> +				regulator-name = "vcca_1v8";
-> +				regulator-state-mem {
-> +					regulator-off-in-suspend;
-> +				};
-> +			};
-> +
-> +			vdd1v5_dvp: LDO_REG5 {
-> +				regulator-always-on;
-> +				regulator-boot-on;
-> +				regulator-max-microvolt = <1500000>;
-> +				regulator-min-microvolt = <1500000>;
-> +				regulator-name = "vdd1v5_dvp";
-> +				regulator-state-mem {
-> +					regulator-off-in-suspend;
-> +				};
-> +			};
-> +
-> +			vcc_1v5: LDO_REG6 {
-> +				regulator-always-on;
-> +				regulator-boot-on;
-> +				regulator-max-microvolt = <1500000>;
-> +				regulator-min-microvolt = <1500000>;
-> +				regulator-name = "vcc_1v5";
-> +				regulator-state-mem {
-> +					regulator-off-in-suspend;
-> +				};
-> +			};
-> +
-> +			vcc_3v0: LDO_REG7 {
-> +				regulator-always-on;
-> +				regulator-boot-on;
-> +				regulator-max-microvolt = <3000000>;
-> +				regulator-min-microvolt = <3000000>;
-> +				regulator-name = "vcc_3v0";
-> +				regulator-state-mem {
-> +					regulator-off-in-suspend;
-> +				};
-> +			};
-> +
-> +			vccio_sd: LDO_REG8 {
-> +				regulator-always-on;
-> +				regulator-boot-on;
-> +				regulator-max-microvolt = <3300000>;
-> +				regulator-min-microvolt = <1800000>;
-> +				regulator-name = "vccio_sd";
-> +				regulator-state-mem {
-> +					regulator-off-in-suspend;
-> +				};
-> +			};
-> +
-> +			vcc_sd: LDO_REG9 {
-> +				regulator-always-on;
-> +				regulator-boot-on;
-> +				regulator-max-microvolt = <3300000>;
-> +				regulator-min-microvolt = <3300000>;
-> +				regulator-name = "vcc_sd";
-> +				regulator-state-mem {
-> +					regulator-off-in-suspend;
-> +				};
-> +			};
-> +
-> +			vcc5v0_usb: SWITCH_REG1 {
-> +				regulator-always-on;
-> +				regulator-boot-on;
-> +				regulator-name = "vcc5v0_usb";
-> +				regulator-state-mem {
-> +					regulator-on-in-suspend;
-> +				};
-> +			};
-> +
-> +			vccio_3v3: SWITCH_REG2 {
-> +				regulator-always-on;
-> +				regulator-boot-on;
-> +				regulator-name = "vccio_3v3";
-> +				regulator-state-mem {
-> +					regulator-off-in-suspend;
-> +				};
-> +			};
-> +		};
-> +	};
-> +
-> +	vdd_cpu_b: tcs4525@1c {
-
-Please set the node name to regulator@1c.
-
-> +		compatible = "tcs,tcs4525";
-> +		reg = <0x1c>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&vsel1_gpio>;
-> +		fcs,suspend-voltage-selector = <1>;
-> +		vin-supply = <&vcc5v0_sys>;
-> +		vsel-gpios = <&gpio1 RK_PC1 GPIO_ACTIVE_HIGH>;
-> +		regulator-compatible = "fan53555-reg";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-initial-state = <3>;
-> +		regulator-max-microvolt = <1500000>;
-> +		regulator-min-microvolt = <712500>;
-> +		regulator-name = "vdd_cpu_b";
-> +		regulator-ramp-delay = <1000>;
-> +		regulator-state-mem {
-> +			regulator-off-in-suspend;
-> +		};
-
-Properties order and blank line before child node, see 
-https://www.kernel.org/doc/html/latest/devicetree/bindings/dts-coding-style.html
-
-> +	};
-> +
-> +	vdd_gpu: tcs4526@10 {
-
-Please set node name to regulator@10.
-
-Please order child nodes in busses based on their address, i.e.:
-
-vdd_gpu
-vdd_cpu_b
-rk809
-
-in this case.
+-- 
+2.39.5
 
 
-> +		compatible = "tcs,tcs4525";
-> +		reg = <0x10>;
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&vsel2_gpio>;
-> +		fcs,suspend-voltage-selector = <1>;
-> +		vin-supply = <&vcc5v0_sys>;
-> +		vsel-gpios = <&gpio1 RK_PB6 GPIO_ACTIVE_HIGH>;
-> +		regulator-compatible = "fan53555-reg";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-initial-state = <3>;
-> +		regulator-max-microvolt = <1500000>;
-> +		regulator-min-microvolt = <712500>;
-> +		regulator-name = "vdd_gpu";
-> +		regulator-ramp-delay = <1000>;
-> +		regulator-state-mem {
-> +			regulator-off-in-suspend;
-> +		};
-
-Properties order and blank line before child node, see 
-https://www.kernel.org/doc/html/latest/devicetree/bindings/dts-coding-style.html
-
-> +	};
-> +};
-> +
-> +&io_domains {
-> +	audio-supply = <&vcca_1v8>;
-> +	bt656-supply = <&vcc_3v0>;
-> +	gpio1830-supply = <&vcc_3v0>;
-> +	sdmmc-supply = <&vccio_sd>;
-> +	status = "okay";
-> +};
-
-What about pmu_io_domains too?
-
-> +
-> +&sdmmc {
-> +	bus-width = <4>;
-> +	cap-mmc-highspeed;
-> +	cap-sd-highspeed;
-> +	disable-wp;
-> +	no-sdio;
-> +	no-mmc;
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&sdmmc_clk &sdmmc_cmd &sdmmc_bus4>;
-> +	sd-uhs-sdr104;
-> +	vmmc-supply = <&vcc_sd>;
-> +	vqmmc-supply = <&vccio_sd>;
-> +	status = "okay";
-> +};
-> +
-> +&sdhci {
-
-This should be before sdmmc
-
-> +	bus-width = <8>;
-> +	keep-power-in-suspend;
-> +	mmc-hs400-1_8v;
-> +	mmc-hs400-enhanced-strobe;
-> +	no-sdio;
-> +	no-sd;
-> +	non-removable;
-> +	status = "okay";
-> +};
-> +
-> +&tcphy0 {
-> +	status = "okay";
-> +};
-> +
-> +&tcphy1 {
-> +	status = "okay";
-> +};
-> +
-
-What about tsadc?
-
-> +&u2phy0 {
-> +	status = "okay";
-> +};
-> +
-> +&u2phy0_host {
-> +	status = "okay";
-> +};
-> +
-> +&u2phy0_otg {
-> +	status = "okay";
-> +};
-> +
-> +&u2phy1 {
-> +	status = "okay";
-> +};
-> +
-> +&u2phy1_host {
-> +	status = "okay";
-> +};
-> +
-> +&u2phy1_otg {
-> +	status = "okay";
-> +};
-> +
-> +&uart2 {
-> +	status = "okay";
-> +};
-> +
-> +&usbdrd_dwc3_0 {
-> +	status = "okay";
-> +};
-> +
-> +&usbdrd3_0 {
-> +	status = "okay";
-> +};
-> +
-> +&usbdrd3_1 {
-> +	status = "okay";
-> +};
-> +
-> +&usbdrd_dwc3_1 {
-> +	dr_mode = "host";
-> +	status = "okay";
-> +};
-> +
-> +&usb_host0_ehci {
-> +	status = "okay";
-> +};
-> +
-> +&usb_host0_ohci {
-> +	status = "okay";
-> +};
-> +
-> +&usb_host1_ehci {
-> +	status = "okay";
-> +};
-> +
-> +&usb_host1_ohci {
-> +	status = "okay";
-> +};
-> +
-> +&pinctrl {
-
-This needs to be ordered alphabetically, see 
-https://www.kernel.org/doc/html/latest/devicetree/bindings/dts-coding-style.html 
-(so before sdhci here).
-
-Cheers,
-Quentin
 
