@@ -4,79 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF821C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 08:54:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3963C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 09:01:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pb4Mg6dXq8Zc8cfV2oGYuVgjq1Oqsvp9m5ILjN9M048=; b=eQBLltPkI98UdvqBJ6ObmMHGwP
-	BEIoTOIbfEmRGty1L1s+kZIYo+UWKINP7+mbrrsR6m4RkLjHCbIaxYXZrWHqrNpmPvQmi17rBoeFH
-	ElNqZXgKGnKxq415JxPu+tTij4gRW6z3rxPpSDLt7F+TcuM9180sEVzvIR4vmPhqKlXXxWcr4W/xD
-	sykqTYyq6bmPNiNEXCnWjfWZmO3UAIrrqUSyIYduKsCDt+RxqHGL/o3YFxXV61PrbmkdKcEkUa6Lr
-	atJzIsRiqspmZeNWLGO1pjrHPRQwqsdRM0U/CDyimFsDU2EBLS5BnNBR12UuJITISrE+KLG6Ns5QR
-	YTsdBTZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=07WxlVOIaTyluGdh8BRRgEGy/WFU+aaBchjV13UhNQk=; b=X7FG5sbKk419eOJdzfTqTu023Q
+	OEs1e2SuAbjU3MXX9KHIl4sqko45LZTQLqyghVog911DIOFEGCEZEyvqMXcQGJPz4Rts3cgw7K93K
+	RzmW9QEMSo5RZ7i4egBab2vKPd4AZ97wJkWNQBrepCexQTtsxgQb10MpGYJqEXWKA7PvyCRAmzZIE
+	LzDJ4rC0TQVzkqLOll2aR8SPkydtSuYcS8W8ZEwundt+9rH/Ur9RvGv87Y6zTYjA7CNGHjjYJJa6g
+	P3Hq5bzb1cQLiE+3lDxqpVySEFF8KYLVMqW47DdKYp2HClM8h0jFwutJJEZoYd78fsXUCelhxqpS5
+	f1rHqbAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA3D3-0000000CDv7-01SQ;
-	Wed, 30 Apr 2025 08:54:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uA3Ji-0000000CGzY-2VIB;
+	Wed, 30 Apr 2025 09:01:22 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA3B8-0000000CDk2-2MqY
+	id 1uA1s1-0000000BzPY-2UTI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 08:52:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A799A615F0;
-	Wed, 30 Apr 2025 08:52:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 941A3C4CEE9;
-	Wed, 30 Apr 2025 08:52:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746003148;
-	bh=7Cul/zndrL+/IVYzqfi6IU1dEFCIVPUdV6j259m69G4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=m1lJ8wzZTPM8DhfyWr4/2HegX1ltD3jb9oyGwEsxQnggTzFu4BmhN+FDUo2zeu1RN
-	 giDLlf5a2a05M1NTM0TyNM+3EdxGFIjko0NcwuH8tmM4waxKh+taOw9pETLP/OGysx
-	 y6q41rNWMiXvecfuO5utnba6X+/RrlRRRG0Zyp779JD4OXsp8BT5vKLho9xhVLhP01
-	 L3pek8e8yF1Kz3U+jqQ8zO6NCEaQ1htsGbDQh30QnW28U8lUEpb18UeDTpFssre9i9
-	 UMhCihDPn7fYp+FgDTScyGj9IhAcqbLQNWIY9xOmFsozHxD0z0V8xLXR1vNNBZ07+D
-	 pBH9xsh9vL2PA==
-Date: Wed, 30 Apr 2025 09:52:20 +0100
-From: Simon Horman <horms@kernel.org>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: davem@davemloft.net, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?utf-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>,
-	Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	=?utf-8?Q?Nicol=C3=B2?= Veronese <nicveronese@gmail.com>,
-	mwojtas@chromium.org, Antoine Tenart <atenart@kernel.org>,
-	devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Dimitri Fedrau <dimitri.fedrau@liebherr.com>
-Subject: Re: [PATCH net-next v5 04/14] net: phy: dp83822: Add support for
- phy_port representation
-Message-ID: <20250430085220.GS3339421@horms.kernel.org>
-References: <20250425141511.182537-1-maxime.chevallier@bootlin.com>
- <20250425141511.182537-5-maxime.chevallier@bootlin.com>
+	Wed, 30 Apr 2025 07:28:42 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43e9ccaa1ebso8007695e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 00:28:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1745998119; x=1746602919; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=07WxlVOIaTyluGdh8BRRgEGy/WFU+aaBchjV13UhNQk=;
+        b=CYFPKxbkac2AoFD/rzz9/jWwy9Z7jIXvhst4gKaRcE447OIZPiNXmOWCV9D9afei9M
+         7YGvyccGfyDuNagB84PLplKYtYX9mVTmextE8+PnpnIkWg/2Dtdn1MParLbhI6QnKtlO
+         1Or4pajlYYscqsg+xoDgjPzsrsC7yKRboANEdB8HQaGx2GFqrjZHn0YxIX4YkKQiV7aL
+         AUZ0QLIhxCeipfyl8i0elhCgHo/QjMmVl8DnJWBvR0r+P4c8sf0TY3SUIAwkYZNgFEKk
+         BTbM8I0lD1tQ8s+OQr033Y/5ahprpk/osK5EVQZTMosvdiAsFOiHRJWvBhyampCT+u6t
+         I+Mw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745998119; x=1746602919;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=07WxlVOIaTyluGdh8BRRgEGy/WFU+aaBchjV13UhNQk=;
+        b=YUDBXNdWHgG8e4GwnvljxGXY7mcAMImcFS8x+K7txh33yectoYw4TFKGvqbCNKJGX+
+         hZb0UbiU7SB/KJXM3nXZjjsbWtCdmOlooyd4PEVjbo1pYD+vra6p8F8er0ugPrcroH0V
+         HOiK24apmc27E8RAeyoimteEZhOqM6WTK6J0uBax4TJPMMd3SOZZRAyA0hSsR+YO9cZI
+         HTE2f+5mJ1H7TpBU28TQvWfmN1Q3mXUPX9DKJQIA58AfnskFNor1FEnt0rZMHkV7mZAA
+         KzjplaFo4nWqjIbdzdmp2+HtOXKtVcJrneMgbo1YskQLe81+dCdGFyy+IcCqqMnLGY4F
+         cYjA==
+X-Forwarded-Encrypted: i=1; AJvYcCUgUdGCpgj7VRIyqUh5v0RJugpXZLAofQbvoV9r47zFqzArDwkwJhTki2Wjx5+OMnHQn8WLJOjJY7HEKZPY/hQN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxiy4NCbTP9w55YQf7joHtg5OKQM7G5Vr07Kvo68iQljQqkXYrA
+	1qumLYd7ZDAez3n38CY51JkGNyhMNCzLjNKEez/9Yhj5UZFn9VTkGF75RfVsE5s=
+X-Gm-Gg: ASbGncs3wOEEWEzhfcJ1blc1NMS/OYo6oKVkrV4342oE6tcTp/uAa1RdgwfzndKzQuL
+	UsY89rjZMPKNSz/s+ap4+zygU+TnAPWfikGd+IsBGXWPkqk1cxFwGgALHdpupSY5CVc4VqylGbn
+	Lk+WnbFpMayxJiHNP7E5oKuhh1bmpHnZH6o0FViDOv1jlUdSH6jOHC3Em+TFb8Bn4hEDBZ08dcA
+	cymFDRso/82Eq8uNIQ10i4zjaw9QSqPXTL/KANij40aMoeb/Zh2UBxRdCVdlv+IYax1zu8GE2c2
+	QWn1kuiEo+SSxX1ld/qZ5qVw270rgwBU/hjAxKQjnTjmXRun2hEG6FK9b6Y=
+X-Google-Smtp-Source: AGHT+IH6V25XvncoZLZe0TycQ29EnlwaWMEky41C5N2edT8KzWHciHnrPjPlKJj3kIRZ+fXKOUOaNw==
+X-Received: by 2002:a05:6000:2dc3:b0:3a0:7a00:61e9 with SMTP id ffacd0b85a97d-3a08ff35f51mr414041f8f.0.1745998119358;
+        Wed, 30 Apr 2025 00:28:39 -0700 (PDT)
+Received: from [192.168.1.28] ([178.197.207.88])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-441b2ba4a6asm13905525e9.11.2025.04.30.00.28.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Apr 2025 00:28:38 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Sunyeal Hong <sunyeal.hong@samsung.com>, 
+ Shin Son <shin.son@samsung.com>
+Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20250428113517.426987-5-shin.son@samsung.com>
+References: <20250428113517.426987-1-shin.son@samsung.com>
+ <CGME20250428113601epcas2p11d09d84944957018da75aa548d3ecb2c@epcas2p1.samsung.com>
+ <20250428113517.426987-5-shin.son@samsung.com>
+Subject: Re: (subset) [PATCH v2 4/4] arm64: dts: exynosautov920: add
+ cpucl1/2 clock DT nodes
+Message-Id: <174599811787.45412.1841327377938630305.b4-ty@linaro.org>
+Date: Wed, 30 Apr 2025 09:28:37 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250425141511.182537-5-maxime.chevallier@bootlin.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250430_002841_634147_312CC628 
+X-CRM114-Status: UNSURE (   6.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,106 +109,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 25, 2025 at 04:14:57PM +0200, Maxime Chevallier wrote:
-> With the phy_port representation intrduced, we can use .attach_port to
-> populate the port information based on either the straps or the
-> ti,fiber-mode property. This allows simplifying the probe function and
-> allow users to override the strapping configuration.
+
+On Mon, 28 Apr 2025 20:35:17 +0900, Shin Son wrote:
+> Add cmu_cpucl1/2(CPU Cluster 1 and CPU Cluster 2) clocks
+> for switch, cluster domains respectively.
 > 
-> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> ---
->  drivers/net/phy/dp83822.c | 70 ++++++++++++++++++++++++---------------
->  1 file changed, 44 insertions(+), 26 deletions(-)
 > 
-> diff --git a/drivers/net/phy/dp83822.c b/drivers/net/phy/dp83822.c
-> index 490c9f4e5d4e..bbbe509f3bd9 100644
-> --- a/drivers/net/phy/dp83822.c
-> +++ b/drivers/net/phy/dp83822.c
-> @@ -11,6 +11,7 @@
->  #include <linux/module.h>
->  #include <linux/of.h>
->  #include <linux/phy.h>
-> +#include <linux/phy_port.h>
->  #include <linux/netdevice.h>
->  #include <linux/bitfield.h>
->  
-> @@ -814,17 +815,6 @@ static int dp83822_of_init(struct phy_device *phydev)
->  	int i, ret;
->  	u32 val;
->  
-> -	/* Signal detection for the PHY is only enabled if the FX_EN and the
-> -	 * SD_EN pins are strapped. Signal detection can only enabled if FX_EN
-> -	 * is strapped otherwise signal detection is disabled for the PHY.
-> -	 */
-> -	if (dp83822->fx_enabled && dp83822->fx_sd_enable)
-> -		dp83822->fx_signal_det_low = device_property_present(dev,
-> -								     "ti,link-loss-low");
-> -	if (!dp83822->fx_enabled)
-> -		dp83822->fx_enabled = device_property_present(dev,
-> -							      "ti,fiber-mode");
-> -
->  	if (!device_property_read_string(dev, "ti,gpio2-clk-out", &of_val)) {
->  		if (strcmp(of_val, "mac-if") == 0) {
->  			dp83822->gpio2_clk_out = DP83822_CLK_SRC_MAC_IF;
-> @@ -953,6 +943,47 @@ static int dp83822_read_straps(struct phy_device *phydev)
->  	return 0;
->  }
->  
-> +static int dp83822_attach_port(struct phy_device *phydev, struct phy_port *port)
-> +{
-> +	struct dp83822_private *dp83822 = phydev->priv;
-> +	struct device *dev = &phydev->mdio.dev;
 
-Hi Maxime,
+Applied, thanks!
 
-A nit from my side:
+[4/4] arm64: dts: exynosautov920: add cpucl1/2 clock DT nodes
+      https://git.kernel.org/krzk/linux/c/aa833db4b82205275f4a4c08554b3dde99dae0c7
 
-dev is unused if CONFIG_OF_MDIO is not defined.
+Best regards,
+-- 
+Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Perhaps it's scope can be reduced somehow.
-Or &phydev->mdio.dev can be used directly?
-Or the code guarded by CONFIG_OF_MDIO could be moved into a separate
-function that makes use if IS_ENABLED to return early if there is nothing
-to do (maybe the best option if possible, as it would increase compile
-coverage).
-Or ...
-
-> +	int ret;
-> +
-> +	if (port->mediums) {
-> +		if (phy_port_is_fiber(port))
-> +			dp83822->fx_enabled = true;
-> +	} else {
-> +		ret = dp83822_read_straps(phydev);
-> +		if (ret)
-> +			return ret;
-> +
-> +#ifdef CONFIG_OF_MDIO
-> +		if (dp83822->fx_enabled && dp83822->fx_sd_enable)
-> +			dp83822->fx_signal_det_low =
-> +				device_property_present(dev, "ti,link-loss-low");
-> +
-> +		/* ti,fiber-mode is still used for backwards compatibility, but
-> +		 * has been replaced with the mdi node definition, see
-> +		 * ethernet-port.yaml
-> +		 */
-> +		if (!dp83822->fx_enabled)
-> +			dp83822->fx_enabled =
-> +				device_property_present(dev, "ti,fiber-mode");
-> +#endif
-> +
-> +		if (dp83822->fx_enabled) {
-> +			port->lanes = 1;
-> +			port->mediums = BIT(ETHTOOL_LINK_MEDIUM_BASEF);
-> +		} else {
-> +			/* This PHY can only to 100BaseTX max, so on 2 lanes */
-> +			port->lanes = 2;
-> +			port->mediums = BIT(ETHTOOL_LINK_MEDIUM_BASET);
-> +		}
-> +	}
-> +
-> +	return 0;
-> +}
-
-...
 
