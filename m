@@ -4,112 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1CA1C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 12:19:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6A0FC369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 12:35:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Date:Cc:To:From:Subject:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lN3XXhvZkEzmXtYd28YKRe70tCct3jaUfGTuQGGD+g0=; b=euVlrGXv64F+aZiTzKV/ybHO/2
-	QR2Q682KGxfpbd0ZSnZA9JjqtfZFjyyr0eUj3QraaW5KoSOx+rPTxTKI0sYgU58wurZrDaupl1ypv
-	xcd0K0h3YZ2IGKiOV15xPzsVanJ3wqY1wDmHRhsUGNsx20GMSteXm6p1/UsNCZddYeFS/236bl42s
-	IZpRMetikVJzjZgimz1sqz13GRMxTIr+GbLC0zv2Wf/2XKAZSFjEx036d2tCVSsUGQ+INzxuyMAXI
-	b7tN7B16evZyDSS1k1QHGejlNOJGQcuza00KLke+rbcmR9Wf3qZ2C8HKCN6RNu8ec6tzLfKsOgARf
-	nDMQw41Q==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wdSQcajlIK6tpma2Sr4n3i15ecfXz4VYvl04vQPW1MA=; b=kCraZD5npcxhEDwhxruKg2LEfS
+	/MWMH+THT/0yUklQjcE7SNMedzphayrvZxgWBEFIlhuSC1nrZs35tVMXQHUqh6boDTV5l5qFoSXt3
+	qHYesEsYPbxr4Umw+oCg4Tm3ZI9t5eWXkMwhMzBcfmwJDxNmA+Ect1nWVyFuoBnaMY+NSqtmsfMsy
+	ZKQxaNSLP+Y2ni7//1K6u6R8M26/foy2IMp8a8zO0z9THNbeEK+0H0NcOkeANgJmWOiBJ/o6MjT3x
+	i/GYo3g0xXUP9A01z5BPhnZkcDW0sxlynABELBtYmSkVgA3Ce/0SBHjLnKhQXpos+g/9By/DkQ0kH
+	o5edyyzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA6Pb-0000000CoUS-2YkI;
-	Wed, 30 Apr 2025 12:19:39 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uA6er-0000000CqK2-01Mo;
+	Wed, 30 Apr 2025 12:35:25 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA6Ne-0000000Co3t-2U5p
+	id 1uA6cu-0000000Cpz3-1GUY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 12:17:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1746015457;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=lN3XXhvZkEzmXtYd28YKRe70tCct3jaUfGTuQGGD+g0=;
-	b=jKTzSMH4UmYanCWsF4vLQkgVWNbav8gb6HbeBFdzNB+wAtv6QcILP2WLfTGseGj82/jSwW
-	sZGD1pH1gKGVnbrdC0ZHs/F7epbUoEL9fUZFkOxsN2iQOEYsqA37kxXjXMDlHqgdtDHJ5n
-	8DXGzJJ3CAhMXVhfJqZfEdqrhsU6fbo=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-470-atAfpLw0MaC6pPE0BRTcmA-1; Wed, 30 Apr 2025 08:17:35 -0400
-X-MC-Unique: atAfpLw0MaC6pPE0BRTcmA-1
-X-Mimecast-MFC-AGG-ID: atAfpLw0MaC6pPE0BRTcmA_1746015454
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-43efa869b0aso43999545e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 05:17:35 -0700 (PDT)
+	Wed, 30 Apr 2025 12:33:25 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-736a72220edso7297801b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 05:33:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746016403; x=1746621203; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=wdSQcajlIK6tpma2Sr4n3i15ecfXz4VYvl04vQPW1MA=;
+        b=gUGc4QMXH6snZ+cpwFzXUDhLqKEhph261DaAbigIiSvrcDapBP5yyJcNDtr0j0HE3X
+         1B5P1rKcBWr74bhGYNj3tcM41c7DALER4a6iQn77ztQeGmI6x9VdX285R3E8ZTGMSgbF
+         6Wl3fcDkaDoJlBSk5fCBQOYDhmXx5cb5gTXjCFkWjFFgxWMDz44E8om5GZL7k3RmgnSL
+         E628vfhFRYGxEkGqLtiV89fW/jnTyZqqvlLp0U5F10IjECnIv5ChvF+7AnG1qSl9jwNJ
+         qR9HvD81C0PGEhQtvjDzT2yHONKDgHFB08sFNbTqv5a5UDCCIoiuF0k4WM5flRr5Hq9v
+         xYqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746015454; x=1746620254;
-        h=mime-version:user-agent:content-transfer-encoding:autocrypt
-         :references:in-reply-to:date:cc:to:from:subject:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=lN3XXhvZkEzmXtYd28YKRe70tCct3jaUfGTuQGGD+g0=;
-        b=D2EfFjciWACl3tqF/3asGOAdEMPcSydFiQFzcfMp0IBDthxfeyF0i0A7GQqDHwX/Ob
-         n0WZvFlLKo+fZfq86zPevPzzX5apzVBL534F2Toq5e++gZuEiZgnNCa019lPj4/9hPmQ
-         mLiCAJMSQzthSpXh3MDsCjtPUvSAMP5LGtHhjdadkarwisBxmd7j5syWbnUWy4Gzp5VZ
-         GPqP/Vdja126bTFaCglS8eCPdb0l0xLew41enL/oLvtwYhxjunc/M3/HYPFELbxdIASE
-         v0cqg05ZZk3tVrbJ5BItakEJrE6hLa1hvoXQOEB58L1nTFjZTO/ZtJZBW7VsezxsP9kJ
-         fvJA==
-X-Forwarded-Encrypted: i=1; AJvYcCXz10N6xlE96jp4j307J4LFaQeqWzaQ8MOuLH42jFXHASiU1f0HJwd/SWLCqr4QQ5mPSnXsmVAaYRYo7oyGCehY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+L7IIPEHYIfdO3XgEFlO+RBdXNVZzdoy7ncZbbqoq/ycIiiXQ
-	PS2VXmDRdTHRBx6GRFAZG6EQyCFKTHuyqY3CZH7jRFVsBkamnBqDkUbE6dzwh15I8/K98EEoB/Z
-	eSWzcX++yOuKnViBc5mSofe1+11T5SQFHJcHiy7SwM7KNZ8nd5ULDy1xyoH0uXfw6q9lRiA13
-X-Gm-Gg: ASbGncvE+orh7Fw/hpYztIRKQ0zmxSa+lXnHaNst4eQ1eFpjfTDJpiyII7VIi9zu0td
-	Fw/OGgoL9x/uaaM2IJnHwHFQgCFzfU0iX84R1BlFDdpd5SaCnkGiIYoMnZ+PbjhfXDRzb7f3qX7
-	PCP7q23nhYbOy0mB9zNMu0Mu2+oUovgG5qN2sVuKC+EUb74jJWr0nr/y+nt+2MR9Vj6LwpuG33X
-	taNcdCZvPrUIsXzGwpiXZczEjy3qddonvf23Tm9ydDJ1O7NpYhOfCuuw18nl1aEPRFiQtUZjZFP
-	9s+xoiHEhxtR4NsoyXl2/jpglL3kbGmFyGtokg==
-X-Received: by 2002:a05:600c:3b08:b0:43c:fda5:41e9 with SMTP id 5b1f17b1804b1-441b43a6849mr12659185e9.31.1746015454192;
-        Wed, 30 Apr 2025 05:17:34 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEeDRQpH85Tjf5lCeTC38YV5zFGOEEWEJ15Q43zpvFHsUBUREIV9t8rFVVspwP+av3krGaKQA==
-X-Received: by 2002:a05:600c:3b08:b0:43c:fda5:41e9 with SMTP id 5b1f17b1804b1-441b43a6849mr12658865e9.31.1746015453815;
-        Wed, 30 Apr 2025 05:17:33 -0700 (PDT)
-Received: from gmonaco-thinkpadt14gen3.rmtit.csb ([185.107.56.30])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-441b2af2a9dsm23611265e9.19.2025.04.30.05.17.31
+        d=1e100.net; s=20230601; t=1746016403; x=1746621203;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=wdSQcajlIK6tpma2Sr4n3i15ecfXz4VYvl04vQPW1MA=;
+        b=HTJN7LE/ZJc6Unksrxju6WFgLjUDPM7bPJHB8VNz/SVpnTpBSZdnzkxUmCBZNXEBUU
+         mIMTM2+f4FIb+ruZy5+3oQvGZTbkJjYjVr0fPkKX/6H2UX2kbFp5wVB/RrKj/1D2pGu2
+         2v3ACAZXlZ4zzGNaPgixdWiT+IFF+wYT3mkNwmmN6EvCImu3EQM0fas4MdHoO5YAcDz1
+         vAiAoam2LEg8Zo8XjtbSK865wa5Ef4e3Mt/pDSNNU4ZbyiphamB2AvISXpMoFblLm7kE
+         eWZKIJ4oo/Se1StG4M5zSrVoGSkbgQoMOZvbQYCafWZdYyQeaw0DtJamW4A9AhU/Jv5r
+         Q4Ug==
+X-Forwarded-Encrypted: i=1; AJvYcCVGwzTgsb6+mMgFhXtl2gk7AR9HeP6SAxTCFGjwG5wmpO/rv/TVxncEHOku7yBh3FZFocNaK5ODZ0/hTKqVyEHk@lists.infradead.org
+X-Gm-Message-State: AOJu0YyB3urfo2qEaXh2k5/83axPgaEAXtj3ut+VdsueXO1Kt/A/vvxb
+	lueuYaUZC1wnaGuPuX1jd4ISUKyHC2vqFchpFb0lgi+ogPGPhnRp
+X-Gm-Gg: ASbGncvfye3H3L2KZMR8jTlz3E1j+SlLhbY6gRzEG5oi2iKTo4n8jDbk0UEQgYvaLjU
+	fauWNZ0jEBxebQRZCkiePTZhdFKsvM0TipT/RwppeIeyoDwe5+sQvbMwbwp3MAuJUkogWQlng5k
+	lUV9YvpVzAPj/bNkvw/e5VnHDCwPDphcZqOIucg8v0ZcCa02XeCasCL5dQKsksB89sxZexgj7+3
+	dIKG/3q3Q//n2JxFSdlFXwJlo8a2DkvlVGymKlDD0tWEezhoHDvTHmc58BnFIxKWgUv3q439nVJ
+	f+Q/FV+SKBw+zeQP4W0qVlWrmDKl4//IfjC6V2GCRc1TlqLEAZ64Ig==
+X-Google-Smtp-Source: AGHT+IHnOJsQBzhcQ9TpiZPoszqGigEVNYSAiSPMVGDgh4sokgxfVZhCYJ5Y/qEVZ0ImZ9OkSIKYNg==
+X-Received: by 2002:aa7:88cb:0:b0:730:97a6:f04 with SMTP id d2e1a72fcca58-7403899a55bmr4461719b3a.7.1746016403161;
+        Wed, 30 Apr 2025 05:33:23 -0700 (PDT)
+Received: from localhost.localdomain ([110.44.101.8])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74039a62e23sm1522627b3a.147.2025.04.30.05.33.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Apr 2025 05:17:33 -0700 (PDT)
-Message-ID: <cbcefdb80d5e10b8fed80de17bb97bf61df81386.camel@redhat.com>
-Subject: Re: [PATCH v6 00/22] RV: Linear temporal logic monitors for RT
- application
-From: Gabriele Monaco <gmonaco@redhat.com>
-To: Steven Rostedt <rostedt@goodmis.org>
-Cc: Nam Cao <namcao@linutronix.de>, john.ogness@linutronix.de, Petr Mladek	
- <pmladek@suse.com>, Sergey Senozhatsky <senozhatsky@chromium.org>, Ingo
- Molnar	 <mingo@redhat.com>, Thomas Gleixner <tglx@linutronix.de>, Borislav
- Petkov	 <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- x86@kernel.org, "H . Peter Anvin"	 <hpa@zytor.com>, Andy Lutomirski
- <luto@kernel.org>, Peter Zijlstra	 <peterz@infradead.org>, Catalin Marinas
- <catalin.marinas@arm.com>, 	linux-arm-kernel@lists.infradead.org, Paul
- Walmsley <paul.walmsley@sifive.com>,  Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	linux-riscv@lists.infradead.org, linux-trace-kernel@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Date: Wed, 30 Apr 2025 14:17:30 +0200
-In-Reply-To: <cover.1745999587.git.namcao@linutronix.de>
-References: <cover.1745999587.git.namcao@linutronix.de>
-Autocrypt: addr=gmonaco@redhat.com; prefer-encrypt=mutual;
- keydata=mDMEZuK5YxYJKwYBBAHaRw8BAQdAmJ3dM9Sz6/Hodu33Qrf8QH2bNeNbOikqYtxWFLVm0
- 1a0JEdhYnJpZWxlIE1vbmFjbyA8Z21vbmFjb0ByZWRoYXQuY29tPoiZBBMWCgBBFiEEysoR+AuB3R
- Zwp6j270psSVh4TfIFAmbiuWMCGwMFCQWjmoAFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgk
- Q70psSVh4TfJzZgD/TXjnqCyqaZH/Y2w+YVbvm93WX2eqBqiVZ6VEjTuGNs8A/iPrKbzdWC7AicnK
- xyhmqeUWOzFx5P43S1E1dhsrLWgP
-User-Agent: Evolution 3.56.1 (3.56.1-1.fc42)
+        Wed, 30 Apr 2025 05:33:22 -0700 (PDT)
+From: Anand Moon <linux.amoon@gmail.com>
+To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Zhang Rui <rui.zhang@intel.com>,
+	Lukasz Luba <lukasz.luba@arm.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	linux-pm@vger.kernel.org (open list:SAMSUNG THERMAL DRIVER),
+	linux-samsung-soc@vger.kernel.org (open list:SAMSUNG THERMAL DRIVER),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES),
+	linux-kernel@vger.kernel.org (open list),
+	llvm@lists.linux.dev (open list:CLANG/LLVM BUILD SUPPORT:Keyword:\b(?i:clang|llvm)\b)
+Cc: Anand Moon <linux.amoon@gmail.com>
+Subject: [PATCH v6 0/4] Exynos Thermal code improvement
+Date: Wed, 30 Apr 2025 18:02:56 +0530
+Message-ID: <20250430123306.15072-1-linux.amoon@gmail.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: GccL428kudjYGbr0IqiiAPUvmW_K1cLgREvPdAFrpxc_1746015454
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_051738_705456_378D5911 
-X-CRM114-Status: GOOD (  35.66  )
+X-CRM114-CacheID: sfid-20250430_053324_338399_8EC81E94 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,137 +108,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2025-04-30 at 13:02 +0200, Nam Cao wrote:
-> Real-time applications may have design flaws causing them to have
-> unexpected latency. For example, the applications may raise page
-> faults, or
-> may be blocked trying to take a mutex without priority inheritance.
->=20
-> However, while attempting to implement DA monitors for these real-
-> time
-> rules, deterministic automaton is found to be inappropriate as the
-> specification language. The automaton is complicated, hard to
-> understand,
-> and error-prone.
->=20
-> For these cases, linear temporal logic is found to be more suitable.
-> The
-> LTL is more concise and intuitive.
->=20
-> This series adds support for LTL RV monitor, and use it to implement
-> two
-> monitors for reporting problems with real-time tasks.
->=20
+Hi All,
 
-Steve,
+This patch series is a rework of my previous patch series [1],
+where the code changes were not adequately justified.
 
-From my point of view this series is ready for inclusion, what do you
-think?
+In this new series, I have improved the commit subject
+and commit message to better explain the changes.
 
-We may still need Acks from the x86 and arm64 maintainers regarding the
-tracepoints changes, though.
+v6: Add new patch to use devm_clk_get_enabled
+    and Fix few typo in subject as suggested by Daniel.
+v5: Drop the guard mutex patch
+v4: Tried to address Lukasz review comments.
 
-Thanks,
-Gabriele
+Tested on Odroid U3 amd XU4 SoC boards.
+Build with clang with W=1 enable.
 
-> Patch 1-12 cleanup and prepare the RV code for the integration of LTL
-> monitors.
->=20
-> Patch 13 adds support for LTL monitors.
->=20
-> Patch 14 adds the container monitor "rtapp". This encapsulates the
-> sub-monitors for real-time.
->=20
-> Patch 15-18 prepares the pagefault tracepoints, so that patch 19 can
-> add
-> the monitor which watches real-time tasks doing page faults.
->=20
-> Patch 20 adds the "sleep" monitor: it detects potential undesirable
-> latency
-> with real-time threads.
->=20
-> Patch 21 adds documentation on the new monitors.
->=20
-> Patch 22 allows the number of per-task monitors to be configurable,
-> so that
-> the two new monitors can be enabled simultaneously.
->=20
-> v5->v6
-> https://lore.kernel.org/lkml/cover.1745926331.git.namcao@linutronix.de
-> =C2=A0 - sleep monitor: Drop the block_on_rt_mutex tracepoints. The
-> contention
-> =C2=A0=C2=A0=C2=A0 tracepoints are sufficient.
->=20
-> v4->v5
-> https://lore.kernel.org/lkml/cover.1745390829.git.namcao@linutronix.de
-> =C2=A0 - sleep monitor: Fix a false positive due to a race with waking an=
-d
-> =C2=A0=C2=A0=C2=A0 scheduling.
-> =C2=A0 - sleep monitor: Add block_on_rt_mutex tracepoints and use them fo=
-r
-> =C2=A0=C2=A0=C2=A0 BLOCK_ON_RT_MUTEX, instead of trace_sched_pi_setprio
-> =C2=A0 - sleep monitor: tighten the rule on nanosleep: only
-> clock_nanosleep()
-> =C2=A0=C2=A0=C2=A0 with TIMER_ABSTIME and CLOCK_MONOTONIC is allowed
-> =C2=A0 - add comments explaining why it is correct to treat PI-boosted
-> tasks as
-> =C2=A0=C2=A0=C2=A0 real-time tasks.
->=20
-> =C2=A0=C2=A0=C2=A0 It should be noted that due to the changes in v5, 'per=
-f' does not
-> work
-> =C2=A0=C2=A0=C2=A0 as well as before, because sometimes the errors happen=
- out of the
-> =C2=A0=C2=A0=C2=A0 real-time tasks' contexts. Fixing this is left for fut=
-ure work.
->=20
-> =C2=A0=C2=A0=C2=A0 stress-ng is also far noisier in v5, because the rule =
-on
-> nanosleep is
-> =C2=A0=C2=A0=C2=A0 tightened.
->=20
-> v3->v4
-> https://lore.kernel.org/lkml/cover.1744785335.git.namcao@linutronix.de
-> =C2=A0 - support deadline tasks
-> =C2=A0 - rtapp_sleep: use sched_pi_setprio tracepoint instead of
-> contention
-> =C2=A0=C2=A0=C2=A0 tracepoints for BLOCK_ON_RT_MUTEX, so that proxy lock =
-is covered.
-> =C2=A0 - fix the scripts generating an "slightly" incorrect verification
-> automaton
-> =C2=A0 - makes rtapp monitor depends on RV_PER_TASK_MONITORS >=3D 2
-> =C2=A0 - make the event tracepoint output a bit more readable
-> =C2=A0 - some documentation's format fixes
->=20
-> v2->v3
-> https://lore.kernel.org/lkml/cover.1744355018.git.namcao@linutronix.de/
-> =C2=A0 - fix a problem with sleep monitor's specification (around
-> =C2=A0=C2=A0=C2=A0 KTHREAD_SHOULD_STOP)
-> =C2=A0 - merge the patches that move the dot2k/rvgen scripts around
-> =C2=A0 - pull panic/printk changes into separate patches
-> =C2=A0 - fixup some build errors
-> =C2=A0 - fixup monitor's init function return code
-> =C2=A0 - fix some flake8 warnings with the scripts
-> =C2=A0 - add some references to LTL documentation
-> =C2=A0 - fixup some mistakes with rtapp documentation
-> =C2=A0 - fixup capitalization mistake with monitor_synthesis.rst
-> =C2=A0 - remove the now-redundant macro RV_PER_TASK_MONITORS
->=20
-> v1->v2
-> https://lore.kernel.org/lkml/cover.1741708239.git.namcao@linutronix.de/
-> =C2=A0 - Integrate the LTL scripts into the existing dot2k tool, taking
-> =C2=A0=C2=A0=C2=A0 advantage of the existing monitor generation scripts.
-> =C2=A0 - Switch the struct ltl_monitor to use bitmap instead of an array,
-> to
-> =C2=A0=C2=A0=C2=A0 optimize memory usage.
-> =C2=A0 - Correct the generated code to be non-deterministic state machine=
-,
-> =C2=A0=C2=A0=C2=A0 instead of deterministic state machine
-> =C2=A0 - Put common code for all LTL monitors into a single file
-> =C2=A0=C2=A0=C2=A0 (include/rv/ltl_monitor.h), reducing code duplication
-> =C2=A0 - Change the LTL monitors to make user of container. Add a bug fix
-> to
-> =C2=A0=C2=A0=C2=A0 container while at it.
-> =C2=A0 - Make the number of per-task monitor configurable
+[4] https://lore.kernel.org/all/20250410063754.5483-2-linux.amoon@gmail.com/
+[3] https://lore.kernel.org/all/20250310143450.8276-2-linux.amoon@gmail.com/
+[2] https://lore.kernel.org/all/20250216195850.5352-2-linux.amoon@gmail.com/
+[1] https://lore.kernel.org/all/20220515064126.1424-1-linux.amoon@gmail.com/
+[0] https://lore.kernel.org/lkml/CANAwSgS=08fVsqn95WHzSF71WTTyD2-=K2C6-BEz0tY0t6A1-g@mail.gmail.com/T/#m77e57120d230d57f34c29e1422d7fc5f5587ac30
+
+Thanks
+-Anand
+
+Anand Moon (4):
+  thermal/drivers/exynos: Refactor clk_sec initialization inside
+    SOC-specific case
+  thermal/drivers/exynos: Use devm_clk_get_enabled() helpers
+  thermal/drivers/exynos: Remove redundant IS_ERR() checks for clk_sec
+    clock
+  thermal/drivers/exynos: Fixed the efuse min max value for exynos5422
+
+ drivers/thermal/samsung/exynos_tmu.c | 100 ++++++++++-----------------
+ 1 file changed, 35 insertions(+), 65 deletions(-)
+
+
+base-commit: b6ea1680d0ac0e45157a819c41b46565f4616186
+-- 
+2.49.0
 
 
