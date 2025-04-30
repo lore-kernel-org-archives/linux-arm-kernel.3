@@ -4,85 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CC09C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 16:04:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F695C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 16:07:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8tK7SHP/c1I7roY2+0j71tw68MoD2UzdDSMztAfMWwg=; b=CSToRSYgEd/SXPAom2UzvwY9oR
-	oNuGGJfxeLuO2a3FI7d0ZsTIo59NrL16DFoUZEpYfzyfc2qytzpwZlnPWeO59yv3RR8a1tk+8aI0v
-	QDzE3aQdTVG5JUrnmrEDVxndRZKnlbywqqKJ3hdqd3L6jIJt/zI0HnLkfY9nARwTp9Fm5yMwxLaGd
-	jGQqRJjdJaIp2O0a1AiVLwI/HAl+BQjoxMk3XXzX5gRcnoZo69/QGJfBNsH92vv+I8bFPJTJC7eCV
-	dFnYgN4JEE0s1qe6U1UV+hUgsPPOmSskXROk6Ckz8r6sd/05Tb0nc+LHVywq9dBWo5ndleF/fZT2u
-	ziBtSVbg==;
+	bh=C8ogG/47F4IqO7pbsdC95YUGxWpwo2h49Z+Cc9K66nA=; b=x0diulqPxYnlvX6tEEQIRXKNux
+	e/t5n6IumZMzGUWlpiFnLnaDM+JCTxlcr+e356u65ioY+uWa477ruzHvNT7+hPu+sdljO5SeGW/dJ
+	f8j/HvJlDUjFAgO8ziEpxXHZ3YAM+fptINg+br0u9k9LdO4F8UGE+DnOloZU2eXh7r0CE0aRXKYHr
+	J4DWFH6QuI3OT+UTfL7xx2n0xc2+M7d3wM7iR4o4SKRlQd6z0U6/IuvRG+CkT+Lj3MUMvQnYyFB1h
+	WEDA4XbppmJxdu7KHbR6KNCpG+mhwYGjTuP79hCY5xfyB1ZPDJ7tcuyPDkZg7XxmRgisVcWJClVKy
+	1eaJuEHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA9ui-0000000DMea-4Arn;
-	Wed, 30 Apr 2025 16:04:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uA9xa-0000000DNkQ-48ob;
+	Wed, 30 Apr 2025 16:06:58 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA9kD-0000000DLO9-1sOh
+	id 1uA9vb-0000000DNM9-0TwW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 15:53:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E534749C48;
-	Wed, 30 Apr 2025 15:53:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B25AC4CEE7;
-	Wed, 30 Apr 2025 15:53:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746028388;
-	bh=m0UugMtWCbzfPWtuy2ts8556YUjy07o4bV0mVOb9sq8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=e1g+2OmvuZOGcznUQ5tILgNY9GEUShEVzqZwoFHgpSeRPpz+49sIXbBOwEtBm/cAJ
-	 8AD3KZDARms4UDFekzvsmu0tO50mzOFsD6UkZEMExNYTSnvj1Hxd+mOH1AlPirN2XS
-	 PKOGK8XXJMVmHqjRfsw3esfbyOoL7m063jMZh1kpy2g48W2kEdra0/F1/Il8EWsRBU
-	 t43/UXhKohzxEILsWIIWy3jfDxHhDVUIxErgzdbCmfCv0q6zsjLIX1ov/D6y2DabXO
-	 Mt8LUmI+UW8QafEdNolGovNdR44Bb5KSxhj7v6J7lmjHLgV3KFZU9H2iy9NuXvMWxP
-	 dMsH+XX3Q9pfQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uA9k9-00AKWb-I4;
-	Wed, 30 Apr 2025 16:53:05 +0100
-Date: Wed, 30 Apr 2025 16:53:04 +0100
-Message-ID: <865xilir33.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: D Scott Phillips <scott@os.amperecomputing.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	James Morse <james.morse@arm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Mark Brown <broonie@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	"Rob Herring  (Arm)" <robh@kernel.org>,
-	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
-	Shiqi Liu <shiqiliu@hust.edu.cn>,
-	Will Deacon <will@kernel.org>,
-	Yicong Yang <yangyicong@hisilicon.com>,
-	kvmarm@lists.linux.dev,
+	Wed, 30 Apr 2025 16:04:56 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id C4372564;
+	Wed, 30 Apr 2025 18:04:46 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1746029087;
+	bh=2o8KjSOQ0kCQc1hrZro78LxSpcqLmTAbM8i12O3bEpU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kNiibFZrKRe1wSBLrpTTP3Fe6bNB44rXCsWBXHfcWudkFx6OE4F9cVVAsjIcZqwXL
+	 JS1LLfV9gIxTjWH0XMtl32ITUIeHt2olyVtU/XrYHgfwbbilKQ4It2oItrYfr6wMJT
+	 2N5qg8xiYa6fl/XxBSSfEssYsqGocb5DpnCEZaEQ=
+Date: Wed, 30 Apr 2025 19:04:45 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>,
+	Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: errata: Work around AmpereOne's erratum AC04_CPU_23
-In-Reply-To: <20250425024741.1309893-1-scott@os.amperecomputing.com>
-References: <20250425024741.1309893-1-scott@os.amperecomputing.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: scott@os.amperecomputing.com, catalin.marinas@arm.com, james.clark@linaro.org, james.morse@arm.com, joey.gouly@arm.com, kevin.brodsky@arm.com, broonie@kernel.org, mark.rutland@arm.com, oliver.upton@linux.dev, robh@kernel.org, shameerali.kolothum.thodi@huawei.com, shiqiliu@hust.edu.cn, will@kernel.org, yangyicong@hisilicon.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH] media: dt-bindings: sony,imx290: Update usage example
+Message-ID: <20250430160445.GB31516@pendragon.ideasonboard.com>
+References: <20250430125322.2808528-1-niklas.soderlund+renesas@ragnatech.se>
+ <CAMuHMdVXrHVugCMoWkCRVGotOEeTuuJJ6rC7CC7Kf_seo3J5og@mail.gmail.com>
+ <20250430131856.GB25516@pendragon.ideasonboard.com>
+ <CAPY8ntBPSC6KZcBVt35QWx_ZPYwkSJSVzhhaXokbjkWJDVJRqA@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAPY8ntBPSC6KZcBVt35QWx_ZPYwkSJSVzhhaXokbjkWJDVJRqA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_085309_526747_0407211F 
-X-CRM114-Status: GOOD (  35.44  )
+X-CRM114-CacheID: sfid-20250430_090455_735196_55B88EE3 
+X-CRM114-Status: GOOD (  33.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,155 +81,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 25 Apr 2025 03:47:41 +0100,
-D Scott Phillips <scott@os.amperecomputing.com> wrote:
+On Wed, Apr 30, 2025 at 02:52:01PM +0100, Dave Stevenson wrote:
+> On Wed, 30 Apr 2025 at 14:19, Laurent Pinchart wrote:
+> > On Wed, Apr 30, 2025 at 03:03:10PM +0200, Geert Uytterhoeven wrote:
+> > > On Wed, 30 Apr 2025 at 14:58, Niklas Söderlund wrote:
+> > > > Since commit 98e0500eadb7 ("media: i2c: imx290: Add configurable link
+> > > > frequency and pixel rate") the driver expects two specific
+> > > > link-frequency settings 2-lane (445500000, 297000000) and 4-lane
+> > > > (222750000, 148500000) operation. The driver fails to probe without
+> > > > these exact settings.
+> > > >
+> > > > Update the example in the bindings to match this to make it easier for
+> > > > users to incorporate this sensor in their device tree descriptions
+> > > > without having to read the driver sources when the driver fails to
+> > > > probe.
+> > > >
+> > > > Signed-off-by: Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
+> > >
+> > > Thanks for your patch!
+> > >
+> > > > --- a/Documentation/devicetree/bindings/media/i2c/sony,imx290.yaml
+> > > > +++ b/Documentation/devicetree/bindings/media/i2c/sony,imx290.yaml
+> > > > @@ -136,7 +136,7 @@ examples:
+> > > >              port {
+> > > >                  imx290_ep: endpoint {
+> > > >                      data-lanes = <1 2 3 4>;
+> > > > -                    link-frequencies = /bits/ 64 <445500000>;
+> > > > +                    link-frequencies = /bits/ 64 <222750000 148500000>;
+> > > >                      remote-endpoint = <&csiphy0_ep>;
+> > > >                  };
+> > > >              };
+> > >
+> > > I guess the link-frequencies property should gain a rule that it
+> > > needs two values, too?
+> >
+> > The driver doesn't require two frequencies (unless I'm mistaken), it
+> > could operate with a single one (albeit not in all resolutions), so I
+> > don't think we should require two frequencies in the bindings.
 > 
-> Updates to HCR_EL2 can rarely corrupt simultaneous translations for data
-> addresses initiated by load/store instructions. Only instruction
-> initiated translations are vulnerable, not translations from prefetches
-> for example. A DSB before the store to HCR_EL2 is sufficient to prevent older
-> instructions from hitting the window for corruption, and an ISB after
-> is sufficient to prevent younger instructions from hitting the window
-> for corruption.
-> 
-> Signed-off-by: D Scott Phillips <scott@os.amperecomputing.com>
-> ---
-> v1: https://lore.kernel.org/kvmarm/20250415154711.1698544-2-scott@os.amperecomputing.com/
-> Changes since v1:
->  - Add a write_sysreg_hcr() helper (Oliver)
->  - Add more specific wording in the errata description (Oliver & Marc)
-> 
->  arch/arm64/Kconfig                      | 17 +++++++++++++++++
->  arch/arm64/include/asm/hardirq.h        |  4 ++--
->  arch/arm64/include/asm/sysreg.h         | 10 ++++++++++
->  arch/arm64/kernel/cpu_errata.c          | 14 ++++++++++++++
->  arch/arm64/kvm/at.c                     |  8 ++++----
->  arch/arm64/kvm/hyp/include/hyp/switch.h |  2 +-
->  arch/arm64/kvm/hyp/nvhe/mem_protect.c   |  2 +-
->  arch/arm64/kvm/hyp/nvhe/switch.c        |  2 +-
->  arch/arm64/kvm/hyp/vhe/switch.c         |  2 +-
->  arch/arm64/kvm/hyp/vhe/tlb.c            |  4 ++--
->  arch/arm64/tools/cpucaps                |  1 +
->  11 files changed, 54 insertions(+), 12 deletions(-)
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index a182295e6f08b..3ae4e80e3002b 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -464,6 +464,23 @@ config AMPERE_ERRATUM_AC03_CPU_38
->  
->  	  If unsure, say Y.
->  
-> +config AMPERE_ERRATUM_AC04_CPU_23
-> +        bool "AmpereOne: AC04_CPU_23:  Failure to synchronize writes to HCR_EL2 may corrupt address translations."
-> +	default y
-> +	help
-> +	  This option adds an alternative code sequence to work around Ampere
-> +	  errata AC04_CPU_23 on AmpereOne.
-> +
-> +	  Updates to HCR_EL2 can rarely corrupt simultaneous translations for
-> +	  data addresses initiated by load/store instructions. Only
-> +	  instruction initiated translations are vulnerable, not translations
-> +	  from prefetches for example. A DSB before the store to HCR_EL2 is
-> +	  sufficient to prevent older instructions from hitting the window
-> +	  for corruption, and an ISB after is sufficient to prevent younger
-> +	  instructions from hitting the window for corruption.
-> +
-> +	  If unsure, say Y.
-> +
->  config ARM64_WORKAROUND_CLEAN_CACHE
->  	bool
->  
-> diff --git a/arch/arm64/include/asm/hardirq.h b/arch/arm64/include/asm/hardirq.h
-> index cbfa7b6f2e098..77d6b8c63d4e6 100644
-> --- a/arch/arm64/include/asm/hardirq.h
-> +++ b/arch/arm64/include/asm/hardirq.h
-> @@ -41,7 +41,7 @@ do {									\
->  									\
->  	___hcr = read_sysreg(hcr_el2);					\
->  	if (!(___hcr & HCR_TGE)) {					\
-> -		write_sysreg(___hcr | HCR_TGE, hcr_el2);		\
-> +		write_sysreg_hcr(___hcr | HCR_TGE);			\
->  		isb();							\
->  	}								\
->  	/*								\
-> @@ -82,7 +82,7 @@ do {									\
->  	 */								\
->  	barrier();							\
->  	if (!___ctx->cnt && !(___hcr & HCR_TGE))			\
-> -		write_sysreg(___hcr, hcr_el2);				\
-> +		write_sysreg_hcr(___hcr);				\
->  } while (0)
->  
->  static inline void ack_bad_irq(unsigned int irq)
-> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-> index 2639d3633073d..d41eeba7f8201 100644
-> --- a/arch/arm64/include/asm/sysreg.h
-> +++ b/arch/arm64/include/asm/sysreg.h
-> @@ -1185,6 +1185,16 @@
->  		write_sysreg_s(__scs_new, sysreg);			\
->  } while (0)
->  
-> +#define write_sysreg_hcr(__val) do {					\
-> +	if(IS_ENABLED(CONFIG_AMPERE_ERRATUM_AC04_CPU_23) &&		\
-> +	   alternative_has_cap_unlikely(ARM64_WORKAROUND_AMPERE_AC04_CPU_23)) \
-> +		asm volatile("dsb nsh; msr hcr_el2, %x0; isb"		\
-> +			     : : "rZ" (__val));				\
-> +	else								\
-> +		asm volatile("msr hcr_el2, %x0"				\
-> +			     : : "rZ" (__val));				\
-> +} while (0)
-> +
+> The driver does require both due to 98e0500eadb7 ("media: i2c: imx290:
+> Add configurable link frequency and pixel rate") and
+> imx290_check_link_freqs()
 
-I'm worried that some of these accesses may occur before we compute
-the capabilities. I'd be more confident if the default was to have the
-workaround, and only to relax it once we know we're not on a broken
-system.
+I realized after sending the previous e-mail that I was indeed mistaken.
+I thought the driver iterated over the DT link frequencies to check if
+they're supported, but it goes the other way around.
 
-But that leaves the question of the early stuff that runs before we
-get to C code. Are you sure this isn't affected by this issue (for
-example, the code in head.S, hyp-stub.S, and el2-setup.h)?
+> However I'd agree that it'd be better to make the driver accept just
+> the one and make any compensations, rather than amend the binding. I'm
+> happy to try and find a few minutes to make a patch for that.
 
->  #define read_sysreg_par() ({						\
->  	u64 par;							\
->  	asm(ALTERNATIVE("nop", "dmb sy", ARM64_WORKAROUND_1508412));	\
-> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-> index b55f5f7057502..60f1b70fc0845 100644
-> --- a/arch/arm64/kernel/cpu_errata.c
-> +++ b/arch/arm64/kernel/cpu_errata.c
-> @@ -557,6 +557,13 @@ static const struct midr_range erratum_ac03_cpu_38_list[] = {
->  };
->  #endif
->  
-> +#ifdef CONFIG_AMPERE_ERRATUM_AC04_CPU_23
-> +static const struct midr_range erratum_ac04_cpu_23_list[] = {
-> +	MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
-> +	{},
-> +};
-> +#endif
-> +
->  const struct arm64_cpu_capabilities arm64_errata[] = {
->  #ifdef CONFIG_ARM64_WORKAROUND_CLEAN_CACHE
->  	{
-> @@ -875,6 +882,13 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
->  		.capability = ARM64_WORKAROUND_AMPERE_AC03_CPU_38,
->  		ERRATA_MIDR_RANGE_LIST(erratum_ac03_cpu_38_list),
->  	},
-> +#endif
-> +#ifdef CONFIG_AMPERE_ERRATUM_AC04_CPU_23
-> +	{
-> +		.desc = "AmpereOne erratum AC04_CPU_23",
-> +		.capability = ARM64_WORKAROUND_AMPERE_AC04_CPU_23,
-> +		ERRATA_MIDR_RANGE_LIST(erratum_ac04_cpu_23_list),
-> +	},
->  #endif
+That would be nice, thanks.
 
-This needs to be captured in Documentation/arch/arm64/silicon-errata.rst.
+> My experience of this family of sensors says that we should be able to
+> run any resolution at any link frequency, but it needs changes to
+> HBLANK to ensure there is sufficient time per line.
+> Dropping to the lower link freq for the 720p mode is only because that
+> is what the datasheet describes for the precanned HD720p. The window
+> cropping mode lists no such requirement, and yet could produce exactly
+> that same 720p output.
 
-Thanks,
-
-	M.
+And with more information about the INCKSEL registers we could possibly
+even support other frequencies.
 
 -- 
-Without deviation from the norm, progress is not possible.
+Regards,
+
+Laurent Pinchart
 
