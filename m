@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 452A8C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 18:36:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F15B1C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 18:38:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ECWK0nN3GpkTgqSmGsP1qzkrOrQDOh0oY5fSTP+e/mo=; b=FvFJ2EfhyGkELDMMzuOqOLZtBi
-	SJl7QvBdkl6PWrqjkNGrvJvwNGKdYKq3rnSFmJbhMF/VMjsMd7u+4dFw/qaknOTbFf8tzcdOY6OkI
-	UcsWm7O/AIxWhngWJ7BQ+MuZlqpyzHYiwlgbEFyHax8AStxmJwchFkO7mZTWO7dsLgsgpdTZ3FFny
-	RwpgdVU6rqRq/RFbo37xiOwKErClHhNWaAnyEDGTSKaRvtiEb02oGkTUbqL2XGD+pxKvxfXi2XMLO
-	vpv9DtgG+OhhsVi3QeiI/wlnZN6TQ9OivQ2D5Pzb0b5i7kHibaV+XZR/X1NdzOCwhQLPYH6wM5NPf
-	5INJ53Lg==;
+	bh=oq+eCJc0gw3GIz/xcLSjgk7dmNoEtZGEP0Cyk65cVQM=; b=HWGn8pLY2fdUMOmBWuzMO2UibC
+	jBQyLEDUMt40PiaEIMT3AliDM4IQ4O6diMhrUZn4jvNmCREuGrvycAx9j33rKfYN03eRX3rl0kw9v
+	SX4LGKDurybQr2ZaPyGi3KMnkbEl+mDDhzgIZHCkDZe9OJirM3frO2Mv++7PatTo9DC5stsdaEBcV
+	zvib1ufImnqO5vYhrzf7hY2LcGUCRGi1B4ek8OCalxiCEnmUXlhHCU8p/MrUkASrhOQugyec34iW9
+	jkBO+uf/RDvzt2ot3a0znRXcgm8dMpaixdaupuG14M/V9EGzj8XFV9y3sQFQ/1WOoiinWha5AZx1T
+	8AEHmsHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uACI8-0000000Dhux-0VpY;
-	Wed, 30 Apr 2025 18:36:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uACK2-0000000DiA9-3V64;
+	Wed, 30 Apr 2025 18:38:18 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uACDD-0000000DhBa-330E
+	id 1uACEN-0000000DhLt-2kr2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 18:31:16 +0000
+	Wed, 30 Apr 2025 18:32:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 23436444C1;
-	Wed, 30 Apr 2025 18:31:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36EA1C4CEE7;
-	Wed, 30 Apr 2025 18:31:15 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id E7CE1A4B6ED;
+	Wed, 30 Apr 2025 18:26:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A331C4CEE7;
+	Wed, 30 Apr 2025 18:32:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746037875;
-	bh=N7kzsYx3AEB32SD0UVxEAdO7TZ8Bqk0u7UpHiyEytCw=;
+	s=k20201202; t=1746037946;
+	bh=TYhgix12dGzxcZC8EV8jdnO88G/BhDWgXBe6jHhLI8M=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=T4k78qbE83Dce+JSd9LBXTExzJug4J4G5+/w+bpMy/5PVnmqOJSO6GZ3DGpNqAUQy
-	 zzrUzdYCvyCDLfww71KMdZeSonZAMH1Lx8mv6U/HiYsNKLba9n2nCoJ0n5dbmJGFUQ
-	 HPOKfX1EOHPRrg+Lx7sZzc3Mrj1Oi+ZjW9yw/D+or494Zq2OYt/FBkQXHO5YjFxZ1S
-	 qx/NMxy2JTZ3RuONBS+pxgJzbOnLDWSPnuwUqAJvAZ69O5l6XMQI8hSx/fqs/Ni7Lx
-	 Y59hfMPpb52g7aZ8ofQ895PW1/WlwXxGHdncs47XQS9pkZXtWOv7jQaYmt0wSLKde+
-	 7B+AWN7bmo3Wg==
-Date: Wed, 30 Apr 2025 11:31:12 -0700
+	b=IB2X2j/TomWE4MnvUk8n5a4msFY5rPtItY31T/FdMJyQc/vE7POD5ctE1hHyWVhBo
+	 xgmxVKXZHEuJZfiEeimc8LhMhbpqHzzt1fgnySSyw76jxjchTvd1WoRVqQ2mVhiX/k
+	 FnGCRet0XJwNjHQfgwDWVpRTpFpmWLpLjxvvtp5khqq5F4dLBO82E4bXdpsyocoUBW
+	 5lGBWvGntuH2bJX3xAmp/gBXg3tj09DHNTw48bp/Ct/Mf53GMb2yFzEfV8JtPd8gHD
+	 EXeohERnPfRCUtSvD2k+f7GJpzZqY0acWyBcjPUhjA6JbcRFRGmGV4xWGWrlrxzseK
+	 ok32P1l0oUmcA==
+Date: Wed, 30 Apr 2025 11:32:23 -0700
 From: Kees Cook <kees@kernel.org>
 To: Mostafa Saleh <smostafa@google.com>
 Cc: kvmarm@lists.linux.dev, kasan-dev@googlegroups.com,
@@ -56,18 +56,16 @@ Cc: kvmarm@lists.linux.dev, kasan-dev@googlegroups.com,
 	akpm@linux-foundation.org, yuzenghui@huawei.com,
 	suzuki.poulose@arm.com, joey.gouly@arm.com, masahiroy@kernel.org,
 	nathan@kernel.org, nicolas.schier@linux.dev
-Subject: Re: [PATCH v2 4/4] KVM: arm64: Handle UBSAN faults
-Message-ID: <202504301131.E58BEF14@keescook>
+Subject: Re: [PATCH v2 0/4] KVM: arm64: UBSAN at EL2
+Message-ID: <202504301131.3C1CBCA8@keescook>
 References: <20250430162713.1997569-1-smostafa@google.com>
- <20250430162713.1997569-5-smostafa@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250430162713.1997569-5-smostafa@google.com>
+In-Reply-To: <20250430162713.1997569-1-smostafa@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_113115_782134_081916D8 
-X-CRM114-Status: UNSURE (   8.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250430_113227_756104_1D450A6E 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,16 +80,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 30, 2025 at 04:27:11PM +0000, Mostafa Saleh wrote:
-> As now UBSAN can be enabled, handle brk64 exits from UBSAN.
-> Re-use the decoding code from the kernel, and panic with
-> UBSAN message.
+On Wed, Apr 30, 2025 at 04:27:07PM +0000, Mostafa Saleh wrote:
+> Many of the sanitizers the kernel supports are disabled when running
+> in EL2 with nvhe/hvhe/proctected modes, some of those are easier
+> (and makes more sense) to integrate than others.
+> Last year, kCFI support was added in [1]
 > 
-> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> This patchset adds support for UBSAN in EL2.
 
-Looks correct to me.
+This touches both UBSAN and arm64 -- I'm happy to land this via the
+hardening tree, but I expect the arm64 folks would rather take it via
+their tree. What would people like to have happen?
 
-Reviewed-by: Kees Cook <kees@kernel.org>
+-Kees
 
 -- 
 Kees Cook
