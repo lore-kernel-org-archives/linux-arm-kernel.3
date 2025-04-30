@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E8EDC369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 12:41:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF6F5C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 12:43:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t3SNFYqaM9t1VFZcOe3OuDknXKerjgLDw3YgF3gLBg0=; b=WgENwapDGLkQZl6KTHbZPSS4SF
-	1EU70ng0mnZM1oEbHMiLl+pEONr+05AH5/IwGvPxo0Lh3bTEidO8bQwszQEq+WSzgWHtPUYnux5kC
-	xfL1uelSf0oepdJPx85ilN6wsOM4SKwtjDOLK1E/RgPW+GGXzy8o8hyFSNS76FiAbpA9bv18AvkrB
-	PslpFLhkQrh4UZFTYa+06ygW+uGxXnzAmuNuVRgnLxW/AqjK6T03Xp38Ye89Fmi45HuTfXCtQe3Gj
-	zWPyliTt6Qb3FXI818ESQzrdwyv8mVaK7PUbkzhvcxAgkhSuKUdR/EG8c4YGCPYKpg++4IXXoGRL8
-	3jNoSnSQ==;
+	bh=VjF1aak/Vxutzt5SCKZiyBKrPP8O+zRq73MMdmerku4=; b=pR1935wwODdh6zSlLSemUygD1Y
+	4oy/U0LHd8GLPlnRFqhK3Xm9w8j+VvQc0zufT4IIhHAFtsOYtN1pSU3bfKmw1OsDrrrLSKwFaGjt1
+	S/zrP4bKebz7bl8/rPXfbnTc1U6IXn5zIowC8/siNKESedW6s4viwWEYY92BV6qAPEQldGFARG2xK
+	YoMnqRBHPOuvYckj/u/WT80i9I79xaPQQlrJmEEBDc4hNFWPB6TaHTGZH+HKWdw/bTXt23xvQOA8J
+	EmnzvbSLxTA2L4vptKXw+1Gtpxo2TLMy9aQCOEfrvVEZ2s0kbvcPRKcbk2Yu0CCsKBcQWOH+62Drc
+	01OFL8lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA6ka-0000000Cr0W-0TVb;
-	Wed, 30 Apr 2025 12:41:20 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1uA6mT-0000000CrGV-3SKO;
+	Wed, 30 Apr 2025 12:43:17 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA6dG-0000000Cq22-3ik1
+	id 1uA6dO-0000000Cq3j-0zpa
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 12:33:47 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-7396f13b750so7939545b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 05:33:46 -0700 (PDT)
+	Wed, 30 Apr 2025 12:33:55 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-74019695377so2846818b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 05:33:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746016426; x=1746621226; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1746016433; x=1746621233; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=t3SNFYqaM9t1VFZcOe3OuDknXKerjgLDw3YgF3gLBg0=;
-        b=h1EelaOgKfgk6SfJVySvFKXiE2IM8F2D15csQ2K2r2C6/8Ja6Wzz9iybScVOim2zDH
-         iXxz28JZRYoCCn7EWSJA7RT0ROml/K0Kflbe2Vs04vqknGND2dXeAgDyULlEb9KK32vs
-         h+8tM3Aal1iq9pUD0tPBOqbVlZmSJadC//7JXVq2cRU6naPqIeGFr8MOEPxq46bJlaze
-         Z2gMElc773mm+iywegfKE90ud1iX87AGXap3w86E5zgo1TOVMOcNUycr/g1yDw0Xbd75
-         bW4WXRN6Xi5weefz1SXyBpBmzVysQ46L7w/r6O4ASvSdGlolNYYWcWe4VDdDc8LgiKf2
-         39Hw==
+        bh=VjF1aak/Vxutzt5SCKZiyBKrPP8O+zRq73MMdmerku4=;
+        b=Xw0fpuRMlTsB5jisSxdZyEAgQrDEH5St6MFXVpUaHLrTao5VEjViQWD1wHm6u9bgd/
+         TgE5LMmW4lNKswOSLUC3r4hW/bujTwWCXzxi9M2uEjLInoc5cLpyzwknEZa7YBYIUAXM
+         gUlFPn0X8TFAL3Of2H5fhVCkZ6AIkBabhKrQ0EVgI7Ym+KYGDXESe3+UUkKT6nhTC9zx
+         abWRTdRQnQXJX4I2M95YAUGDSJEMwM/rAp9KPmjAyhHUTGcmC3yG/3f9Y2cTs8Ujsl5u
+         v58W8tdM2totoq1J2vCneZ4Nw94VLxfQiAWrCV8/Woje2NRYH1Bm+wudu2HkZPYveEt5
+         m9gw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746016426; x=1746621226;
+        d=1e100.net; s=20230601; t=1746016433; x=1746621233;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=t3SNFYqaM9t1VFZcOe3OuDknXKerjgLDw3YgF3gLBg0=;
-        b=XkD/BXKFGqA23nWq6asbvRB9p8dppN728n/r+SEaSNdeTbU+rGYIgPa9dnTjOdagVn
-         BwL1dLiMCStoUJk8nMiiYsreVkdR6nMBXwPSpinAul/W06wWILl/E0ledBvWY7SEhy5r
-         O+8+AfceRswQTEBtOHhTk0yvIveCxHmwucSi5kbfLmzJo5YUlskt+ibudxMv13/sKO8M
-         fKiorSyZ/Ug9b5HA2HI9mgzFb2rySVIy5/JjC1bnLG1ZsknIIUD3dw5h2pW2yW6deUO1
-         BeX1zYqa5Tz8b8KN5IX8W9VtAjjvcggZKBo6qC7UkszH3SljFspzL8j2KehbB5S0Ji5v
-         Hp8w==
-X-Forwarded-Encrypted: i=1; AJvYcCVU1eAJys2D3YmOlhdwiW6RD6tQ5DEQ3vYIR5hD6T3RMDIqvItel/yrcYlF/Nm7S/0rQaXw2D34tYt9CJ3Evqot@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQAFrmRg7zY6oXCMI0Pr5YAJLJ0AfkRyZuvJ6IDDKc1tFh8RAG
-	IBK9Jxf/uT/TE+qTe0urhv36vm7BGyzHGRAbO8IfR+0F2GT+fWaY
-X-Gm-Gg: ASbGncu4lchsL+e8zApxcnjcfQVVOxTv2izX6IiPv24Gv1FKXQUwvvmOnupvHZ+58HB
-	QPfBZ/KkacYaq3LEZtH9adCD/iSsCI0SyuWtHpxzwouqT1L/DNkd8FajG334LpEv31SVLeNh7QN
-	DamgMxzlw5QriQAN1oxMEYsXoASjgjnzi5ZLUVxpnhn56OAX+NqokdPiQ1+mnJlAfeq+f3/8E/u
-	ONxpoji5aKCQZl72KnxU5TMgHJWajXdvTKVQvyB5hWaIjzYLBVlPw+mmJ/KEQq/ZcjFPnNWEdOJ
-	8a2IHHuWkjqjcvNc5sHGHBmeAL0LZnisA1Ghfc3vQ0f/Fb/CdyUxCg==
-X-Google-Smtp-Source: AGHT+IF2qnBTKenZ1AypOYLHMpucMP9SRa5u9iFuGqy1ut0HTtqxttm3kMbnkZczvm/vAv3TieOZ8g==
-X-Received: by 2002:a05:6a20:d50b:b0:1f5:709d:e0cb with SMTP id adf61e73a8af0-20a8980fb29mr4306826637.39.1746016426310;
-        Wed, 30 Apr 2025 05:33:46 -0700 (PDT)
+        bh=VjF1aak/Vxutzt5SCKZiyBKrPP8O+zRq73MMdmerku4=;
+        b=ZLauWuhyY2T0gPo36osR4NVx6yLi/DlgQ0PxQC2Br+vvS1bvZdHUf9KV9NCBlXJGMq
+         uHaQ27wQ8BiBf9tFWw82dscZ34gmhEjDYW+inIK8dBTGPkTZxVNkisfeWjsMLAMyJk0v
+         dEvPIBDLmtuisZBsX/tJDLn6PpVedFjpnq46KYUcKdAKzIkrIO3IdUwuk1GZKiRR5S4+
+         sWqZmBygRz4CZcWoLzibh9OmFJIFwhfBMh+nDGnBb0SCL24i+0SzHWNk0yDrDXT+ifKM
+         eoRUk0e4Q+zJKOa+4NgKbZVEWtbiK9ylan0QPgZrkcVZTLktPEbYLB+R0aMX8pCMmb2u
+         XkXA==
+X-Forwarded-Encrypted: i=1; AJvYcCVF2mNA6CyLuNI5QanQ3beFxmBgkuz6G+ZkWQ4rFmtfsxdm3FXYrPaNlJ4T99wd7X+j41pi93zspPRb8JJykjIX@lists.infradead.org
+X-Gm-Message-State: AOJu0YyNcc4sSEjqYQ0Neh3qgMXTadwJic8iCJW54kzJwo6MBdgW88D3
+	ezctJfBfoNtitiC3s/kkmnZh/mUPlp62aT6gQZU8fmoHsqLtac48
+X-Gm-Gg: ASbGncu/zhv6QjwjrN8ZQ2qKrXphaqpVtWX++B5pbn4NkYeVYFesAq3bCa3mX2Ny1Q4
+	8uZ/A/Uj20KvhN7MceEfZdAVodtSjzzWAN5Oe8yGQuenzPKUj5UY43G6839slka/z9jKPEdWimJ
+	UFlDb/6jhM8uI7Q6RoqRh6yWy66OEcs3HDbWyeGzXn02SZ2odd1f20cbn+4vdnRCoxASVGL08BU
+	DszU9UGfvjfLO/NIV0ePlp+8hT7fCyne9IJPYuqNhAFMksp4Q5XLg6lIqFzX/raNZdWijT5lL68
+	YG8ZqB91mW3lgaaekwaM2om4lujutOcFsrzWirHPUmKJz6+yDQ0Qnw==
+X-Google-Smtp-Source: AGHT+IHJKBDe80VIu8qKthsvPbjAJ96qR6Xh6rsf0+iAijz4bJVrcEqmDWrR6oeCmx91YoLYuQSEJQ==
+X-Received: by 2002:a05:6a00:3a29:b0:736:69aa:112c with SMTP id d2e1a72fcca58-74038989dc9mr3923336b3a.9.1746016432889;
+        Wed, 30 Apr 2025 05:33:52 -0700 (PDT)
 Received: from localhost.localdomain ([110.44.101.8])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74039a62e23sm1522627b3a.147.2025.04.30.05.33.41
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74039a62e23sm1522627b3a.147.2025.04.30.05.33.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Apr 2025 05:33:45 -0700 (PDT)
+        Wed, 30 Apr 2025 05:33:52 -0700 (PDT)
 From: Anand Moon <linux.amoon@gmail.com>
 To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
 	Krzysztof Kozlowski <krzk@kernel.org>,
@@ -86,17 +86,17 @@ To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
 	linux-kernel@vger.kernel.org (open list),
 	llvm@lists.linux.dev (open list:CLANG/LLVM BUILD SUPPORT:Keyword:\b(?i:clang|llvm)\b)
 Cc: Anand Moon <linux.amoon@gmail.com>
-Subject: [PATCH v6 3/4] thermal/drivers/exynos: Remove redundant IS_ERR() checks for clk_sec clock
-Date: Wed, 30 Apr 2025 18:02:59 +0530
-Message-ID: <20250430123306.15072-4-linux.amoon@gmail.com>
+Subject: [PATCH v6 4/4] thermal/drivers/exynos: Fixed the efuse min max value for exynos5422
+Date: Wed, 30 Apr 2025 18:03:00 +0530
+Message-ID: <20250430123306.15072-5-linux.amoon@gmail.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250430123306.15072-1-linux.amoon@gmail.com>
 References: <20250430123306.15072-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_053346_923629_0AC49997 
-X-CRM114-Status: GOOD (  15.53  )
+X-CRM114-CacheID: sfid-20250430_053354_275010_6FB50B91 
+X-CRM114-Status: GOOD (  15.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,46 +111,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove unnecessary IS_ERR() checks for the clk_sec clock,
-the clk_enable() and clk_disable() functions can handle NULL clock
-pointers, so the additional checks are redundant and have been removed
-to simplify the code.
+As per Exynos5422 user manual e-Fuse range min~max range is 16~76.
+if e-Fuse value is out of this range, then thermal sensor may not
+sense thermal data properly. Refactors the efuse value
+initialization logic within exynos_map_dt_data function by
+replacing the nested if-else statements with a switch statement.
+Ensures proper initialization of efuse values based on the SOC type.
 
 Reviewed-by: Lukasz Luba <lukasz.luba@arm.com>
 Signed-off-by: Anand Moon <linux.amoon@gmail.com>
 ---
-v6: Add Rb - Lukasz and Fix the typo in the subject
+v6: Add Rb Lukasz and fix typo in subject
 v5: None
-v4: drop IE_ERR() for clk_unprepare() as its handle in earlier code.
-v3: improve the commit message.
+V4: None
 ---
- drivers/thermal/samsung/exynos_tmu.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ drivers/thermal/samsung/exynos_tmu.c | 19 +++++++++++++++----
+ 1 file changed, 15 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/thermal/samsung/exynos_tmu.c b/drivers/thermal/samsung/exynos_tmu.c
-index aa0726b33c84..5f017a78f437 100644
+index 5f017a78f437..ef216aac13ee 100644
 --- a/drivers/thermal/samsung/exynos_tmu.c
 +++ b/drivers/thermal/samsung/exynos_tmu.c
-@@ -258,8 +258,7 @@ static int exynos_tmu_initialize(struct platform_device *pdev)
- 
- 	mutex_lock(&data->lock);
- 	clk_enable(data->clk);
--	if (!IS_ERR(data->clk_sec))
--		clk_enable(data->clk_sec);
-+	clk_enable(data->clk_sec);
- 
- 	status = readb(data->base + EXYNOS_TMU_REG_STATUS);
- 	if (!status) {
-@@ -269,8 +268,7 @@ static int exynos_tmu_initialize(struct platform_device *pdev)
- 		data->tmu_clear_irqs(data);
- 	}
- 
--	if (!IS_ERR(data->clk_sec))
--		clk_disable(data->clk_sec);
-+	clk_disable(data->clk_sec);
- 	clk_disable(data->clk);
- 	mutex_unlock(&data->lock);
- 
+@@ -899,12 +899,23 @@ static int exynos_map_dt_data(struct platform_device *pdev)
+ 		data->gain = 8;
+ 		data->reference_voltage = 16;
+ 		data->efuse_value = 55;
+-		if (data->soc != SOC_ARCH_EXYNOS5420 &&
+-		    data->soc != SOC_ARCH_EXYNOS5420_TRIMINFO)
++		data->max_efuse_value = 100;
++		switch (data->soc) {
++		case SOC_ARCH_EXYNOS3250:
++		case SOC_ARCH_EXYNOS4412:
++		case SOC_ARCH_EXYNOS5250:
++		case SOC_ARCH_EXYNOS5260:
+ 			data->min_efuse_value = 40;
+-		else
++			break;
++		case SOC_ARCH_EXYNOS5420:
++		case SOC_ARCH_EXYNOS5420_TRIMINFO:
++			data->min_efuse_value = 16;
++			data->max_efuse_value = 76;
++			break;
++		default:
+ 			data->min_efuse_value = 0;
+-		data->max_efuse_value = 100;
++			break;
++		}
+ 		break;
+ 	case SOC_ARCH_EXYNOS5433:
+ 		data->tmu_set_low_temp = exynos5433_tmu_set_low_temp;
 -- 
 2.49.0
 
