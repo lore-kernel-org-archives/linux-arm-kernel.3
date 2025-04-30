@@ -4,94 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74EACC369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 12:10:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 838C9C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 12:13:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xa3mNEfdhrIDOlxo7TVXevfB9pnUglXcunIlDPViRFQ=; b=OX+QEos0acAeJtWyNa2Ab3jPgr
-	Z+rrNO5OSbBnqvpkhkifBCnh7/G+CN1ddglxNQjIM8TcX7vJYusSUDdi+cDm00uOAnp6CCS2M2BvZ
-	saQ1mr0ZGBXmD4YTlBZB2FtBLmPfqSHOAVLAYShAPmz8zGZsVe6IUm9UfrM6YhwTSdR1QOAb3KAIs
-	FAuf2WTNAoVNrZ5uZRyhXRlh0G9VQZaw0qFI05Q0Xhi2qO4qaHwChLePxzuqJP3ARwIwjkg1tUaia
-	KC9ZrOYff5xAidGovJhH2x80IgmfSd3znN+h3O9AdMiKjJPPOppkxtLkVCo9D0En5WePwOsBof/hp
-	T+LsyONA==;
+	bh=7tFgFXzqc2ivrCQjcqTMjWCPkQCLYsEDRrk0U+aYhgw=; b=gBWzxmbN+wtBarjNUbBnLK1tGJ
+	XuCMDHExVdAdVc+1NggXj+beec2pQmn1l0rK6tMQZ41F57jW5sBdEKwBRf7y4dPpCTY4m/IwUguXa
+	pBJ5OxSsTAW8JdZ9IVFPc2Vs9jmMytJ5Y4wJlTYV5mDGlsLm+IHnfOcdOHu+xY1N31aUzgKCRmmEl
+	Y0lOmTnZBn0grGB78k574XU/K04DBoNvXyjzi6YJbawZMwfPUuE5SY3I5Bx4GDIWz/z7eC8QlVnbW
+	6WUIeKvKY23cqdx/gR5eIChvMVoTczauqxAG6OpKwK5uMi3CbDU/eYmPnD9fQ54z/Xj5B6kkoqtoH
+	tkb9uVsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA6Gh-0000000Cmrj-3OOt;
-	Wed, 30 Apr 2025 12:10:27 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1uA6JW-0000000CnTl-3tbp;
+	Wed, 30 Apr 2025 12:13:22 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA6Ct-0000000Cm9W-3Tfc
+	id 1uA6Ha-0000000Cn7C-0Wt3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 12:06:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1746014791; x=1777550791;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=Xa3mNEfdhrIDOlxo7TVXevfB9pnUglXcunIlDPViRFQ=;
-  b=anxZM7g20RCahTdMZMl9Ay85wog7c3nh8GU09v14HvIRGSZ0rQ9UDTyb
-   rY9dhFYIs3jvvKGzjHUU8iR4N2WdpwDOSqN7UNU/ENzjfZUFmkNbBlt7U
-   H1voU+Vf7/66xc0BrtR9yMAiZBTE2st0M7YQmo2hbYRY0T3bSItrUTTXd
-   ng6nPCsDBRwQs6IreTaXuD2SQeR4Td/1gBAPhSO6G/Td0+KMouacXpDyO
-   qCsQnVwMoyp7JNCq7K7NGEed+wsaNSJSTtbkQ2p/SPWgJNoTQo9my0lfw
-   4krptj4nE0DIIw/IZ3gFA8Fc5ZnD9vJyn3BVdk1ksJIU9RTt+HHT+1ya6
-   w==;
-X-CSE-ConnectionGUID: b8CHd4I3STOBD7Z2EViVTQ==
-X-CSE-MsgGUID: y4pJW1tYR4mIp2PMliHZyA==
-X-IronPort-AV: E=Sophos;i="6.15,251,1739833200"; 
-   d="scan'208";a="43809745"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 30 Apr 2025 14:06:30 +0200
-X-CheckPoint: {68121246-2E-BF62DDF1-CB8BF55F}
-X-MAIL-CPID: 49C9A6B57520DDF90CE7DD2646D8985E_1
-X-Control-Analysis: str=0001.0A006398.68121253.0066,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 34550168F21;
-	Wed, 30 Apr 2025 14:06:26 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1746014786;
+	Wed, 30 Apr 2025 12:11:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1746015081;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Xa3mNEfdhrIDOlxo7TVXevfB9pnUglXcunIlDPViRFQ=;
-	b=T0LOk/CInLTFG0ltpa8iyTWHKIda8dEXfX/MklxH+aH6NJOXu2d1patAplzSHE329bRmoa
-	r6gHrcxIPcLh+hYqEH7VYamb0yavToPWJqCgye5jL2tAv5aiEhdNcLf4XYxL+/6t2gt20t
-	9iXRjmlM3RvDa9RAq7dlb7wiVy/USu4VggVaKuUcUGAv6kynjELBOX1BJO01JAH3cPIzkd
-	q34dVvw9IePBA6zrwKcKnXuP0famOMPkm89v4cCXNYENTNp6xarxBhHsuThZmBlSqV76tG
-	Hvscl7xlgmdKllIWHgg8pIMBQaej6Z3guLjbD26H6MWvsELQCKwRGug7GhRkzA==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Matthias Schiffer <matthias.schiffer@tq-group.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux@ew.tq-group.com,
-	Max Merchel <Max.Merchel@tq-group.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>
-Subject: [PATCH v2 2/2] arm64: dts: ls1012a: add DTS for TQMLS1012al module with MBLS1012AL board
-Date: Wed, 30 Apr 2025 14:06:01 +0200
-Message-ID: <20250430120605.2068102-2-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250430120605.2068102-1-alexander.stein@ew.tq-group.com>
-References: <20250430120605.2068102-1-alexander.stein@ew.tq-group.com>
+	bh=7tFgFXzqc2ivrCQjcqTMjWCPkQCLYsEDRrk0U+aYhgw=;
+	b=GL18b2IC2gkkQb65yB8bclS/XWPzzpx6rrq4QXIRPCjsUPl03/qSGrz6SgIkNjhRc9pMp2
+	YHuAmBzzUgLZs/EyATlXwNy4LcfEpT3j4BsZn6EJWN6LgemUGZLItx6uNkfVcVzjvNelUo
+	npGRxmrJFiW+2ief4NdvMSa+yNZnJLE=
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com
+ [209.85.214.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-618-E2Mhv3oOODu1S9BBDViQng-1; Wed, 30 Apr 2025 08:11:19 -0400
+X-MC-Unique: E2Mhv3oOODu1S9BBDViQng-1
+X-Mimecast-MFC-AGG-ID: E2Mhv3oOODu1S9BBDViQng_1746015079
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-224364f2492so52275225ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 05:11:19 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746015078; x=1746619878;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=7tFgFXzqc2ivrCQjcqTMjWCPkQCLYsEDRrk0U+aYhgw=;
+        b=k97rz5piCcGsf89IrcyAwjxzGY2rnx8Nttf4lhmNEpTWAERtwzR7+sssENAHvNod33
+         xTZ7/9KoOUZxfP9MgzmnI4z4calyZ7HAwQbIGTvMXPjWMm33RF/sL6VMHu/ztQ7hH4Qb
+         ccHGYg900V19vuPwMOnyCxVslGKQBTHETIxaF5v3K8XrrmSCdboK5ZjPg5AoVcrY2nZu
+         iFRMHILDRn+t85GUPJioikHZUnEYLVqaU12QC6Vi8dCmdyhKRGLyxGIZO4U0t40LpB1y
+         7Z+ISwRb4+d1+N+BNjlxd49O5Ija6JCC2yX+oCydAv113Xe2ryPMQIs33X2nc7bRni3b
+         gmpQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXzpFH/i93cNPVsBHGFtsdedIwYZV2Von6mf6n0EYixhDcfSgVoJZzMYvpgTWTvokVAP5Kk4TfxJFDfgWWhUoTY@lists.infradead.org
+X-Gm-Message-State: AOJu0YwhPPj8ZUwGKdad4RdiSL1PEDgsxHzn/pJWp1mKec0/kdnuBA2p
+	TQUOrDWMBP+YMfpe2n6i+qXA/2g8KieOwTY8hyttlXgDepbObA13te1cjHtngEOoEvLZ3J8VV3c
+	HUuGvHpLLjdnjPAgUHBsT/ChRwBPtnF3RPgrzc1T32HwmiTSXoLp75uE5weOOOno/5W2heZql
+X-Gm-Gg: ASbGnct5eOE4VEVK/b/Ip2S0sTr0y+EqxCWjtqxlhYt1A1YnqhMMfj1UT0nzBJAu5u2
+	u/EQ6gUL4F777YpBBnjeNHU5Dd0CwISx4EJfiJjzl6P3q28Cv5Z3m4QhSq+IYQUI9R87gaBACxI
+	gt0agV479n/w8Y+dHtnC0ie2fOI4tCo7GUdDNoj7whnTfbgT138fWjH3ImvVY1W9TP7ybVaLyy+
+	BkxMwger+3t9NN2QbYhP7XpAlTfMyDX1YaZc8C0R9COPoO3GhVdWOmRfihhdM/q40WzEVmCbVIv
+	ahlyjarrfRcn
+X-Received: by 2002:a17:902:ebcc:b0:223:f408:c3f8 with SMTP id d9443c01a7336-22df578bcebmr38849565ad.14.1746015078600;
+        Wed, 30 Apr 2025 05:11:18 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHL6LT3h1gUo31SZA1COwvt+3Fy8+QNcJQ2pDlfoosU3yDt8W0PlDXI1jufTia5Y9HcVnFrHw==
+X-Received: by 2002:a17:902:ebcc:b0:223:f408:c3f8 with SMTP id d9443c01a7336-22df578bcebmr38849145ad.14.1746015078260;
+        Wed, 30 Apr 2025 05:11:18 -0700 (PDT)
+Received: from [192.168.68.51] ([180.233.125.65])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22db50e89acsm120641205ad.113.2025.04.30.05.11.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 30 Apr 2025 05:11:17 -0700 (PDT)
+Message-ID: <b5770d9b-4f17-4be8-95a7-1549322debb2@redhat.com>
+Date: Wed, 30 Apr 2025 22:11:09 +1000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 17/43] arm64: RME: Handle RMI_EXIT_RIPAS_CHANGE
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+References: <20250416134208.383984-1-steven.price@arm.com>
+ <20250416134208.383984-18-steven.price@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20250416134208.383984-18-steven.price@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: qFqClQa4S6qckHUg7DbAmfoX1i0gKNepnYIDPeCwzNc_1746015079
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_050632_173288_68C81359 
-X-CRM114-Status: GOOD (  15.79  )
+X-CRM114-CacheID: sfid-20250430_051122_243143_95825B2C 
+X-CRM114-Status: GOOD (  32.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,505 +121,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Matthias Schiffer <matthias.schiffer@tq-group.com>
+On 4/16/25 11:41 PM, Steven Price wrote:
+> The guest can request that a region of it's protected address space is
+> switched between RIPAS_RAM and RIPAS_EMPTY (and back) using
+> RSI_IPA_STATE_SET. This causes a guest exit with the
+> RMI_EXIT_RIPAS_CHANGE code. We treat this as a request to convert a
+> protected region to unprotected (or back), exiting to the VMM to make
+> the necessary changes to the guest_memfd and memslot mappings. On the
+> next entry the RIPAS changes are committed by making RMI_RTT_SET_RIPAS
+> calls.
+> 
+> The VMM may wish to reject the RIPAS change requested by the guest. For
+> now it can only do with by no longer scheduling the VCPU as we don't
+> currently have a usecase for returning that rejection to the guest, but
+> by postponing the RMI_RTT_SET_RIPAS changes to entry we leave the door
+> open for adding a new ioctl in the future for this purpose.
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> Changes since v7:
+>   * Rework the loop in realm_set_ipa_state() to make it clear when the
+>     'next' output value of rmi_rtt_set_ripas() is used.
+> New patch for v7: The code was previously split awkwardly between two
+> other patches.
+> ---
+>   arch/arm64/kvm/rme.c | 88 ++++++++++++++++++++++++++++++++++++++++++++
+>   1 file changed, 88 insertions(+)
+> 
 
-Add initial support for TQMLS1012AL module mounted on MBLS1012AL.
-It supports UART1 for console, PCIe, I2C, USB, µSD card (default), SATA
-and QSPI.
-There is an alternative ordering option which provides an eMMC instead of
-an SD card. This uses a different DT instead.
-Due missing Packet Forwarding Engine (PFE) driver support, there is no
-support for Ethernet so far.
+One nitpick below, either way:
 
-Signed-off-by: Max Merchel <Max.Merchel@tq-group.com>
-Signed-off-by: Matthias Schiffer <matthias.schiffer@tq-group.com>
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
-Changes in v2:
-* Be a bit more specific with lm75 compatible
-* Remove m25p,fast-read from spi-nor flash
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 
- arch/arm64/boot/dts/freescale/Makefile        |   2 +
- ...sl-ls1012a-tqmls1012al-mbls1012al-emmc.dts |  21 ++
- .../fsl-ls1012a-tqmls1012al-mbls1012al.dts    | 346 ++++++++++++++++++
- .../freescale/fsl-ls1012a-tqmls1012al.dtsi    |  73 ++++
- 4 files changed, 442 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/fsl-ls1012a-tqmls1012al-mbls1012al-emmc.dts
- create mode 100644 arch/arm64/boot/dts/freescale/fsl-ls1012a-tqmls1012al-mbls1012al.dts
- create mode 100644 arch/arm64/boot/dts/freescale/fsl-ls1012a-tqmls1012al.dtsi
+> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
+> index bee9dfe12e03..fe0d5b8703d2 100644
+> --- a/arch/arm64/kvm/rme.c
+> +++ b/arch/arm64/kvm/rme.c
+> @@ -624,6 +624,65 @@ void kvm_realm_unmap_range(struct kvm *kvm, unsigned long start,
+>   		realm_unmap_private_range(kvm, start, end);
+>   }
+>   
+> +static int realm_set_ipa_state(struct kvm_vcpu *vcpu,
+> +			       unsigned long start,
+> +			       unsigned long end,
+> +			       unsigned long ripas,
+> +			       unsigned long *top_ipa)
+> +{
+> +	struct kvm *kvm = vcpu->kvm;
+> +	struct realm *realm = &kvm->arch.realm;
+> +	struct realm_rec *rec = &vcpu->arch.rec;
+> +	phys_addr_t rd_phys = virt_to_phys(realm->rd);
+> +	phys_addr_t rec_phys = virt_to_phys(rec->rec_page);
+> +	struct kvm_mmu_memory_cache *memcache = &vcpu->arch.mmu_page_cache;
+> +	unsigned long ipa = start;
+> +	int ret = 0;
+> +
+> +	while (ipa < end) {
+> +		unsigned long next;
+> +
+> +		ret = rmi_rtt_set_ripas(rd_phys, rec_phys, ipa, end, &next);
+> +
+> +		if (RMI_RETURN_STATUS(ret) == RMI_SUCCESS) {
+> +			ipa = next;
+> +		} else if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index bf575395d7d5b..f6b8686ed3cfe 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -5,6 +5,8 @@ dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1012a-frwy.dtb
- dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1012a-oxalis.dtb
- dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1012a-qds.dtb
- dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1012a-rdb.dtb
-+dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1012a-tqmls1012al-mbls1012al.dtb
-+dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1012a-tqmls1012al-mbls1012al-emmc.dtb
- dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1028a-kontron-kbox-a-230-ls.dtb
- dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1028a-kontron-sl28.dtb
- dtb-$(CONFIG_ARCH_LAYERSCAPE) += fsl-ls1028a-kontron-sl28-var1.dtb
-diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1012a-tqmls1012al-mbls1012al-emmc.dts b/arch/arm64/boot/dts/freescale/fsl-ls1012a-tqmls1012al-mbls1012al-emmc.dts
-new file mode 100644
-index 0000000000000..82dc0a7c7d535
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/fsl-ls1012a-tqmls1012al-mbls1012al-emmc.dts
-@@ -0,0 +1,21 @@
-+// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
-+/*
-+ * Copyright (c) 2018-2025 TQ-Systems GmbH <linux@ew.tq-group.com>,
-+ * D-82229 Seefeld, Germany.
-+ * Author: Matthias Schiffer
-+ * Author: Max Merchel
-+ */
-+
-+#include "fsl-ls1012a-tqmls1012al-mbls1012al.dts"
-+
-+&esdhc0 {
-+	vqmmc-supply = <&reg_1p8v>;
-+	/delete-property/ no-mmc;
-+	disable-wp;
-+	mmc-ddr-1_8v;
-+	mmc-hs200-1_8v;
-+	no-sdio;
-+	no-sd;
-+	voltage-ranges = <1800 1800>;
-+	non-removable;
-+};
-diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1012a-tqmls1012al-mbls1012al.dts b/arch/arm64/boot/dts/freescale/fsl-ls1012a-tqmls1012al-mbls1012al.dts
-new file mode 100644
-index 0000000000000..147c7ca130c44
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/fsl-ls1012a-tqmls1012al-mbls1012al.dts
-@@ -0,0 +1,346 @@
-+// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
-+/*
-+ * Copyright (c) 2018-2025 TQ-Systems GmbH <linux@ew.tq-group.com>,
-+ * D-82229 Seefeld, Germany.
-+ * Author: Matthias Schiffer
-+ * Author: Max Merchel
-+ */
-+
-+/dts-v1/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/net/ti-dp83867.h>
-+#include "fsl-ls1012a-tqmls1012al.dtsi"
-+
-+/ {
-+	model = "TQ-Systems TQMLS1012AL on MBLS1012AL";
-+	compatible = "tq,ls1012a-tqmls1012al-mbls1012al", "tq,ls1012a-tqmls1012al", "fsl,ls1012a";
-+	chassis-type = "embedded";
-+
-+	aliases {
-+		serial0 = &duart0;
-+		/* use MAC from U-Boot environment */
-+		/* TODO: PFE */
-+		ethernet2 = &swport0;
-+		ethernet3 = &swport1;
-+		ethernet4 = &swport2;
-+		ethernet5 = &swport3;
-+		spi0 = &qspi;
-+	};
-+
-+	chosen {
-+		stdout-path = &duart0;
-+	};
-+
-+	gpio-keys {
-+		compatible = "gpio-keys";
-+		autorepeat;
-+
-+		switch-1 {
-+			label = "S2";
-+			linux,code = <BTN_0>;
-+			gpios = <&gpio_exp_3p3v 13 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		switch-2 {
-+			label = "X15";
-+			linux,code = <BTN_1>;
-+			gpios = <&gpio_exp_1p8v 5 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		switch-3 {
-+			label = "X16";
-+			linux,code = <BTN_2>;
-+			gpios = <&gpio_exp_1p8v 4 GPIO_ACTIVE_LOW>;
-+		};
-+	};
-+
-+	gpio-leds {
-+		compatible = "gpio-leds";
-+
-+		led-0 {
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_HEARTBEAT;
-+			gpios = <&gpio_exp_3p3v 14 GPIO_ACTIVE_LOW>;
-+			linux,default-trigger = "heartbeat";
-+		};
-+
-+		led-1 {
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_STATUS;
-+			gpios = <&gpio_exp_3p3v 15 GPIO_ACTIVE_LOW>;
-+			linux,default-trigger = "default-on";
-+		};
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		/* global autoconfigured region for contiguous allocations */
-+		linux,cma {
-+			compatible = "shared-dma-pool";
-+			reusable;
-+			/* 64 MiB */
-+			size = <0 0x04000000>;
-+			/*  512 - 128 MiB, our minimum RAM config will be 512 MiB */
-+			alloc-ranges = <0 0x80000000 0 0x98000000>;
-+			linux,cma-default;
-+		};
-+	};
-+
-+	reg_1p5v: regulator-1p5v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "1P5V";
-+		regulator-min-microvolt = <1500000>;
-+		regulator-max-microvolt = <1500000>;
-+		regulator-always-on;
-+	};
-+
-+	reg_1p8v: regulator-1p8v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "1P8V";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		regulator-always-on;
-+	};
-+
-+	reg_3p3v: regulator-3p3v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "3P3V";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-always-on;
-+	};
-+};
-+
-+&duart0 {
-+	status = "okay";
-+};
-+
-+&esdhc0 {
-+	vmmc-supply = <&reg_3p3v>;
-+	no-mmc;
-+	no-sdio;
-+	disable-wp;
-+	sd-uhs-sdr104;
-+	sd-uhs-sdr50;
-+	sd-uhs-sdr25;
-+	sd-uhs-sdr12;
-+	status = "okay";
-+};
-+
-+&i2c0 {
-+	lm75_48: temperature-sensor@48 {
-+		compatible = "national,lm75a";
-+		reg = <0x48>;
-+		vs-supply = <&reg_3p3v>;
-+	};
-+
-+	gpio_exp_3p3v: gpio-expander@20 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x20>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		vcc-supply = <&reg_3p3v>;
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <24 IRQ_TYPE_EDGE_FALLING>;
-+		interrupt-controller;
-+		#interrupt-cells = <2>;
-+		gpio-line-names = "", "", "GPIO_3V3_3", "",
-+				  "", "", "", "",
-+				  "", "GPIO_3V3_1", "GPIO_3V3_2", "",
-+				  "", "", "", "";
-+
-+		wlan-disable-hog {
-+			gpio-hog;
-+			gpios = <0 GPIO_ACTIVE_HIGH>;
-+			output-high;
-+			line-name = "WLAN_DISABLE#";
-+		};
-+
-+		vcc-pcie-en-3v3-hog {
-+			gpio-hog;
-+			gpios = <1 GPIO_ACTIVE_HIGH>;
-+			output-high;
-+			line-name = "VCC_PCIE_EN_3V3";
-+		};
-+
-+		vcc-wlan-en-3v3-hog {
-+			gpio-hog;
-+			gpios = <3 GPIO_ACTIVE_HIGH>;
-+			output-high;
-+			line-name = "VCC_WLAN_EN_3V3";
-+		};
-+
-+		pcie-rst-hog {
-+			gpio-hog;
-+			gpios = <4 GPIO_ACTIVE_HIGH>;
-+			output-high;
-+			line-name = "PCIE_RST#";
-+		};
-+
-+		wlan-rst-hog {
-+			gpio-hog;
-+			gpios = <5 GPIO_ACTIVE_HIGH>;
-+			output-high;
-+			line-name = "WLAN_RST#";
-+		};
-+
-+		pcie-dis-hog {
-+			gpio-hog;
-+			gpios = <11 GPIO_ACTIVE_HIGH>;
-+			output-high;
-+			line-name = "PCIE_DIS#";
-+		};
-+
-+		pcie-wake-hog {
-+			gpio-hog;
-+			gpios = <12 GPIO_ACTIVE_HIGH>;
-+			input;
-+			line-name = "PCIE_WAKE#";
-+		};
-+	};
-+
-+	gpio_exp_1p8v: gpio-expander@70 {
-+		compatible = "nxp,pca9538";
-+		reg = <0x70>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		vcc-supply = <&reg_1p8v>;
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <27 IRQ_TYPE_EDGE_FALLING>;
-+		interrupt-controller;
-+		#interrupt-cells = <2>;
-+		gpio-line-names = "PCIE_CLK_PD#", "PMIC_INT#", "ETH_SW_INT#", "",
-+				  "", "", "", "",
-+				  "", "GPIO_3V3_1", "GPIO_3V3_2", "",
-+				  "", "", "", "";
-+
-+		/* do not change PCIE_CLK_PD */
-+		pcie-clk-pd-hog {
-+			gpio-hog;
-+			gpios = <0 GPIO_ACTIVE_HIGH>;
-+			output-high;
-+			line-name = "PCIE_CLK_PD#";
-+		};
-+
-+		pmic-int-hog {
-+			gpio-hog;
-+			gpios = <1 GPIO_ACTIVE_HIGH>;
-+			input;
-+			line-name = "PMIC_INT#";
-+		};
-+
-+		eth-sw-int-hog {
-+			gpio-hog;
-+			gpios = <2 GPIO_ACTIVE_HIGH>;
-+			input;
-+			line-name = "ETH_SW_INT#";
-+		};
-+
-+		eth-link-pwrdwn-hog {
-+			gpio-hog;
-+			gpios = <3 GPIO_ACTIVE_HIGH>;
-+			input;
-+			line-name = "ETH_LINK_PWRDWN#";
-+		};
-+
-+		vcc-wlan-en-1v5-hog {
-+			gpio-hog;
-+			gpios = <6 GPIO_ACTIVE_HIGH>;
-+			output-high;
-+			line-name = "VCC_WLAN_EN_1V5";
-+		};
-+
-+		vcc-pcie-en-1v5-hog {
-+			gpio-hog;
-+			gpios = <7 GPIO_ACTIVE_HIGH>;
-+			output-high;
-+			line-name = "VCC_PCIE_EN_1V5";
-+		};
-+	};
-+
-+	switch@5f {
-+		compatible = "microchip,ksz9897";
-+		reg = <0x5f>;
-+		reset-gpios = <&gpio_exp_3p3v 7 GPIO_ACTIVE_LOW>;
-+
-+		ports {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			swport0: port@0 {
-+				reg = <0>;
-+				label = "swp0";
-+				phy-mode = "internal";
-+			};
-+
-+			swport1: port@1 {
-+				reg = <1>;
-+				label = "swp1";
-+				phy-mode = "internal";
-+			};
-+
-+			swport2: port@2 {
-+				reg = <2>;
-+				label = "swp2";
-+				phy-mode = "internal";
-+			};
-+
-+			swport3: port@3 {
-+				reg = <3>;
-+				label = "swp3";
-+				phy-mode = "internal";
-+			};
-+
-+			port@6 {
-+				reg = <6>;
-+				label = "cpu";
-+				/* TODO: PFE */
-+				phy-mode = "rgmii-id";
-+				rx-internal-delay-ps = <1500>;
-+				tx-internal-delay-ps = <1500>;
-+
-+				fixed-link {
-+					speed = <1000>;
-+					full-duplex;
-+				};
-+			};
-+		};
-+	};
-+};
-+
-+&pcie1 {
-+	status = "okay";
-+};
-+
-+/* TODO: PFE */
-+
-+&sata {
-+	status = "okay";
-+};
-+
-+&usb0 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	hub_2_0: hub@1 {
-+		compatible = "usb451,8142";
-+		reg = <1>;
-+		peer-hub = <&hub_3_0>;
-+		reset-gpios = <&gpio_exp_3p3v 6 GPIO_ACTIVE_LOW>;
-+		vdd-supply = <&reg_vcc_3v3>;
-+	};
-+
-+	hub_3_0: hub@2 {
-+		compatible = "usb451,8140";
-+		reg = <2>;
-+		peer-hub = <&hub_2_0>;
-+		reset-gpios = <&gpio_exp_3p3v 6 GPIO_ACTIVE_LOW>;
-+		vdd-supply = <&reg_vcc_3v3>;
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1012a-tqmls1012al.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1012a-tqmls1012al.dtsi
-new file mode 100644
-index 0000000000000..5f6ee8fd4094b
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/fsl-ls1012a-tqmls1012al.dtsi
-@@ -0,0 +1,73 @@
-+// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
-+/*
-+ * Copyright (c) 2018-2025 TQ-Systems GmbH <linux@ew.tq-group.com>,
-+ * D-82229 Seefeld, Germany.
-+ * Author: Matthias Schiffer
-+ * Author: Max Merchel
-+ */
-+
-+#include "fsl-ls1012a.dtsi"
-+
-+/ {
-+	compatible = "tq,ls1012a-tqmls1012al", "fsl,ls1012a";
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		/*  our minimum RAM config will be 512 MiB */
-+		reg = <0x00000000 0x80000000 0 0x20000000>;
-+	};
-+
-+	reg_vcc_3v3: regulator-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "VCC_3V3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+	};
-+};
-+
-+&i2c0 {
-+	status = "okay";
-+
-+	jc42_19: temperature-sensor@19 {
-+		compatible = "nxp,se97b", "jedec,jc-42.4-temp";
-+		reg = <0x19>;
-+	};
-+
-+	m24c64_50: eeprom@50 {
-+		compatible = "atmel,24c64";
-+		reg = <0x50>;
-+		pagesize = <32>;
-+		vcc-supply = <&reg_vcc_3v3>;
-+	};
-+
-+	m24c02_51: eeprom@51 {
-+		compatible = "nxp,se97b", "atmel,24c02";
-+		reg = <0x51>;
-+		pagesize = <16>;
-+		read-only;
-+		vcc-supply = <&reg_vcc_3v3>;
-+	};
-+
-+	rtc1: rtc@68 {
-+		compatible = "dallas,ds1339";
-+		reg = <0x68>;
-+	};
-+};
-+
-+&qspi {
-+	status = "okay";
-+
-+	flash@0 {
-+		compatible = "jedec,spi-nor";
-+		reg = <0>;
-+		spi-max-frequency = <39000000>;
-+		spi-rx-bus-width = <4>;
-+		spi-tx-bus-width = <1>;
-+
-+		partitions {
-+			compatible = "fixed-partitions";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+		};
-+	};
-+};
--- 
-2.43.0
+--->
+
+> +			int walk_level = RMI_RETURN_INDEX(ret);
+> +			int level = find_map_level(realm, ipa, end);
+> +
+> +			/*
+> +			 * If the RMM walk ended early then more tables are
+> +			 * needed to reach the required depth to set the RIPAS.
+> +			 */
+> +			if (walk_level < level) {
+> +				ret = realm_create_rtt_levels(realm, ipa,
+> +							      walk_level,
+> +							      level,
+> +							      memcache);
+> +				/* Retry with RTTs created */
+> +				if (!ret)
+> +					continue;
+> +			} else {
+> +				ret = -EINVAL;
+> +			}
+> +
+
+<--- This block of code have been existing in multiple functions. I guess
+it would be worthy to introduce a helper for it if you agree. Alternatively,
+it's definitely something to do in the future, after this series is merged :)
+
+> +			break;
+> +		} else {
+> +			WARN(1, "Unexpected error in %s: %#x\n", __func__,
+> +			     ret);
+> +			ret = -ENXIO;
+> +			break;
+> +		}
+> +	}
+> +
+> +	*top_ipa = ipa;
+> +
+> +	if (ripas == RMI_EMPTY && ipa != start)
+> +		realm_unmap_private_range(kvm, start, ipa);
+> +
+> +	return ret;
+> +}
+> +
+>   static int realm_init_ipa_state(struct realm *realm,
+>   				unsigned long ipa,
+>   				unsigned long end)
+> @@ -863,6 +922,32 @@ void kvm_destroy_realm(struct kvm *kvm)
+>   	kvm_free_stage2_pgd(&kvm->arch.mmu);
+>   }
+>   
+> +static void kvm_complete_ripas_change(struct kvm_vcpu *vcpu)
+> +{
+> +	struct kvm *kvm = vcpu->kvm;
+> +	struct realm_rec *rec = &vcpu->arch.rec;
+> +	unsigned long base = rec->run->exit.ripas_base;
+> +	unsigned long top = rec->run->exit.ripas_top;
+> +	unsigned long ripas = rec->run->exit.ripas_value;
+> +	unsigned long top_ipa;
+> +	int ret;
+> +
+> +	do {
+> +		kvm_mmu_topup_memory_cache(&vcpu->arch.mmu_page_cache,
+> +					   kvm_mmu_cache_min_pages(vcpu->arch.hw_mmu));
+> +		write_lock(&kvm->mmu_lock);
+> +		ret = realm_set_ipa_state(vcpu, base, top, ripas, &top_ipa);
+> +		write_unlock(&kvm->mmu_lock);
+> +
+> +		if (WARN_RATELIMIT(ret && ret != -ENOMEM,
+> +				   "Unable to satisfy RIPAS_CHANGE for %#lx - %#lx, ripas: %#lx\n",
+> +				   base, top, ripas))
+> +			break;
+> +
+> +		base = top_ipa;
+> +	} while (top_ipa < top);
+> +}
+> +
+>   int kvm_rec_enter(struct kvm_vcpu *vcpu)
+>   {
+>   	struct realm_rec *rec = &vcpu->arch.rec;
+> @@ -873,6 +958,9 @@ int kvm_rec_enter(struct kvm_vcpu *vcpu)
+>   		for (int i = 0; i < REC_RUN_GPRS; i++)
+>   			rec->run->enter.gprs[i] = vcpu_get_reg(vcpu, i);
+>   		break;
+> +	case RMI_EXIT_RIPAS_CHANGE:
+> +		kvm_complete_ripas_change(vcpu);
+> +		break;
+>   	}
+>   
+>   	if (kvm_realm_state(vcpu->kvm) != REALM_STATE_ACTIVE)
+
+Thanks,
+Gavin
 
 
