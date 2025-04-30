@@ -4,114 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E68A8C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 03:46:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D245C3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 03:50:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0MUPcI9cmqC3aUypbZqtXOEO2f8CqTwiFzHdEbsgWe4=; b=dqi7GVfJ/tOrK3IzfSDgeADh1V
-	J/WUQTZZcsR7XoF0baEMgaKefl1E4zziwZtwrErNr52LbndVEolQ6BxtwntannKQkSg2U+YLhxIsB
-	MWaTVLfmrPQAWLkGK7lfiUs9ENVNsNsTQzblBJlg+0jZDqS1N+grNuoU+/PC2XA7RediBVkiBeQ3M
-	tb0bUbLyE/AkqZJuyRRvCOsEfn+lerA38NHubVG23AYvY9460CDAH//kI9ChtJHjuF6qk46dV0kn3
-	qIgChiXJbnvX80Bl3OInNxyjY+6OzpJefzOGgE+JTpzH6RZS+OFLj2vTZPZgJyiBNH95uOwkqNmoV
-	dM1S4sFA==;
+	bh=G/OZzCk7dQ2jPkJZhpKzWLihV1PDsLsOPWK0bne7TXw=; b=uhKoHq+76Yn1gYoM6E8YrQjPtN
+	kCVOdFyDuNQ3Cucn6llQXd9gbpWeEC/BizlzD76+kTl9qPxJFM5t3G3D/+FgXVKyNBNGusuCm7dFl
+	xA9zhQP1iRbVc3GvviZzAqOWL9gmJ1msrBYaWN5DJ1wxnNVSUxngoCt8GtOjweUu9fHfOnkr21DL7
+	Kbbhcq3hSCuMPd4+te2GmKBlzgYUbg6ha4D1tRX95RYDwQFoOQSZkC4icX51rY0WOblnlMpCfsTYP
+	z+xKcZyL+Feh8fsIQofYt5lYhcmOZ3fLE9s9+AjQsVoUvu06mWwX6dIg0oa45+TNiq/bC71S/IQHJ
+	zFoKbJrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9yOr-0000000BbyE-0Txf;
-	Wed, 30 Apr 2025 03:46:21 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u9ySP-0000000BcPl-0SVu;
+	Wed, 30 Apr 2025 03:50:01 +0000
+Received: from mail-dm6nam10on20630.outbound.protection.outlook.com ([2a01:111:f403:2413::630] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9xK2-0000000BWdb-1WfQ;
-	Wed, 30 Apr 2025 02:37:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=0MUPcI9cmqC3aUypbZqtXOEO2f8CqTwiFzHdEbsgWe4=; b=CH560dFcfvsSzCjcwDUUnutBwU
-	rSNBPbO77t0wdN4iqKCw71y7gKWhWrB2+UBX+LOAJe+toQiK2myALsUROjEIz6GR1aiJvLFXpqC7J
-	gcBhb5Thn8qpXn3shfDCSfsiZGvh6Pdu/QL9+PwdaikZeVHm7iV+7r//mA82mUI2BEJhWKQ/D3cqk
-	MIrBovuQbuPflMEcUF7VilPyI+UETppH13mUa5x4H3Rh9j8oAMhoi3A40TxjQzeO+AnZVjiwDp2LA
-	aJ8mrgL43mh03FCVcFKv+roPdhrUp2/XtLruABXXdIt6l4ncsp3Vc544NY390nhpXGSOeeVyD0SNL
-	3XisVGSw==;
-Received: from mgamail.intel.com ([198.175.65.14])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9xJy-0000000De8r-3fI6;
-	Wed, 30 Apr 2025 02:37:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1745980635; x=1777516635;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=UeVWVQMtCSgoY6I17XEsqNEXKT0TWbHaFTIMLOeTnTs=;
-  b=kQPC8tLSmMmROAf3PSFKKgM88usvOiueYDPvESnp+ogBfLU63eybnHh8
-   RtMUTsJcPbUWIf3r0iSMCbw6QeEQRJ41KnLaGmt8UeeL+mzClM8LzFUd2
-   qYjxFRoAWp3lCVQQ0Oq7pGn6ZWx816gSxHw8reLo6MfR6yoqH5RsT/xAK
-   rxWy0flmFAXoUj7nQYcNtVBMjlpo7WXpbfWq9WzBoMejYe9lyS0q77NYL
-   dDbtM8nbcKcnhRMheUQL8Tx0Rva5Vm/V3Qye0UzpKkHbUt1LWA18i9wcb
-   UENU6ZQhdM4utDpLkw6YcKX17QP4RTmZUkq3EKN3yQCUiNmZAkL8DHTbx
-   w==;
-X-CSE-ConnectionGUID: fb4fMSmqQ86HmlySG60Kiw==
-X-CSE-MsgGUID: lueR3U/hQXaGuKjVieY/Xg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11418"; a="51445222"
-X-IronPort-AV: E=Sophos;i="6.15,250,1739865600"; 
-   d="scan'208";a="51445222"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Apr 2025 19:37:10 -0700
-X-CSE-ConnectionGUID: rPKpQb86Qv+hi9Gbn/bOCw==
-X-CSE-MsgGUID: eN7Ab3jZTbWZDraScrUmnA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,250,1739865600"; 
-   d="scan'208";a="134508430"
-Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
-  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Apr 2025 19:37:00 -0700
-Message-ID: <0a5f2f46-f474-49d3-baee-59f2ad0a6f0a@linux.intel.com>
-Date: Wed, 30 Apr 2025 10:32:46 +0800
+	id 1u9yQV-0000000BcDv-1dN9
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 30 Apr 2025 03:48:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gvv7rbrslAseoQcD42CIOSGcElrGVyguGJpx3yl3pKMWSx9TyFnimsGTsjkMoTOD46KNe63au+x6KwL+9JdxOJ9/XkjPSdEQ0t/Z24Nica1ytO+OeL78P5oHKiJouRlzUurkpQJuoda3+wUO+LxizOObXQtfKaYMzfgkAL6cZRyte/BzjSYNIoHTbFmTA3qAKmoNdynJhrr2KWzrL22xBeY5KmUJ7SS1Fe+eUchEOBMQwlv2YE39Vr+Eh86GnVJtwK6GTPSjihpqPrmeESPpv6SDU6D+2oadjBQH2P2RCs4Uk4PXj/LgiT9MA8HwFRunzWC0vuNFwyR1x6T/sJH5Iw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=G/OZzCk7dQ2jPkJZhpKzWLihV1PDsLsOPWK0bne7TXw=;
+ b=j/6o4caZhqNKrDmqtoYC2J/8vsA/iLVPwGwUZ5YoKZLXLQqreido5j1UocMDGgG6xfmZGukjlIBTC+SGoga3ojELHTdcd0uCVpSzwem/yHbGDXhzCWa4Ku7TVOCNBCz2Z179YlPiTvQCKZmPNZLdXb9HWvWCWsYmOF53EzxPS5nWvxbkanrEJrlZAOi/Y7InFRzjBO1H8iv0nY8xtkqH2/AlkCGoaXckadvKp4KdNJghwqupjQWHt3Se0pp7ZlwJykE+W1AIeZbiCGKXMBNikZI/nL1CU73e+XocKcoWsz1GkQRBjBDwEfvIPsfnFM08ge0C5o+3ZxJf/maAh1AFGA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=amazon.com smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=G/OZzCk7dQ2jPkJZhpKzWLihV1PDsLsOPWK0bne7TXw=;
+ b=CPs27M+308gEnqtJVD3e1g4Z8hUD9pk0obdDCXCY/vAFUbKJmA7NuY0dUxH9usXKsOtHObxnrGsrSCIDM0uggyimVVZKYrxg8yKLnwxiBvpJDRXMSDgoxTnFFUhmDt0wzegRTjAsBKjn/hMfzSFWuUSMbRs94mWade/EDJYQ6jg=
+Received: from BN9PR03CA0418.namprd03.prod.outlook.com (2603:10b6:408:111::33)
+ by CYYPR12MB8701.namprd12.prod.outlook.com (2603:10b6:930:bf::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.19; Wed, 30 Apr
+ 2025 03:33:34 +0000
+Received: from BN2PEPF00004FBF.namprd04.prod.outlook.com
+ (2603:10b6:408:111:cafe::10) by BN9PR03CA0418.outlook.office365.com
+ (2603:10b6:408:111::33) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.37 via Frontend Transport; Wed,
+ 30 Apr 2025 03:33:34 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
+Received: from SATLEXMB04.amd.com (165.204.84.17) by
+ BN2PEPF00004FBF.mail.protection.outlook.com (10.167.243.185) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.8699.20 via Frontend Transport; Wed, 30 Apr 2025 03:33:34 +0000
+Received: from [10.85.37.104] (10.180.168.240) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Tue, 29 Apr
+ 2025 22:33:29 -0500
+Message-ID: <f241b773-fca8-4be2-8a84-5d3a6903d837@amd.com>
+Date: Wed, 30 Apr 2025 09:03:26 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/7] iommu: Remove ops.pgsize_bitmap from drivers that
- don't use it
-To: Jason Gunthorpe <jgg@nvidia.com>, Alexandre Ghiti <alex@ghiti.fr>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Alyssa Rosenzweig <alyssa@rosenzweig.io>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- David Woodhouse <dwmw2@infradead.org>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
- Janne Grunau <j@jannau.net>, Jean-Philippe Brucker
- <jean-philippe@linaro.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
- Kevin Tian <kevin.tian@intel.com>, Krzysztof Kozlowski <krzk@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
- linux-tegra@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Matthew Rosato <mjrosato@linux.ibm.com>, Neal Gompa <neal@gompa.dev>,
- Orson Zhai <orsonzhai@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Rob Clark <robdclark@gmail.com>,
- Robin Murphy <robin.murphy@arm.com>, Samuel Holland <samuel@sholland.org>,
- Niklas Schnelle <schnelle@linux.ibm.com>, Sven Peter <sven@svenpeter.dev>,
- Thierry Reding <thierry.reding@gmail.com>,
- Tomasz Jeznach <tjeznach@rivosinc.com>, Krishna Reddy <vdumpa@nvidia.com>,
- virtualization@lists.linux.dev, Chen-Yu Tsai <wens@csie.org>,
- Will Deacon <will@kernel.org>, Yong Wu <yong.wu@mediatek.com>,
- Chunyan Zhang <zhang.lyra@gmail.com>
-Cc: patches@lists.linux.dev
-References: <3-v1-7c5282b0c334+2db-iommu_rm_ops_pgsize_jgg@nvidia.com>
+Subject: Re: EEVDF regression still exists
+To: "Prundeanu, Cristian" <cpru@amazon.com>, Peter Zijlstra
+	<peterz@infradead.org>
+CC: "Mohamed Abuelfotoh, Hazem" <abuehaze@amazon.com>, "Saidi, Ali"
+	<alisaidi@amazon.com>, Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	"Blake, Geoff" <blakgeof@amazon.com>, "Csoma, Csaba" <csabac@amazon.com>,
+	"Doebel, Bjoern" <doebel@amazon.de>, Gautham Shenoy <gautham.shenoy@amd.com>,
+	Swapnil Sapkal <swapnil.sapkal@amd.com>, Joseph Salisbury
+	<joseph.salisbury@oracle.com>, Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Ingo Molnar <mingo@redhat.com>, Linus Torvalds
+	<torvalds@linux-foundation.org>, Borislav Petkov <bp@alien8.de>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-tip-commits@vger.kernel.org"
+	<linux-tip-commits@vger.kernel.org>, "x86@kernel.org" <x86@kernel.org>
+References: <20250429213817.65651-1-cpru@amazon.com>
+ <20250429215604.GE4439@noisy.programming.kicks-ass.net>
+ <82DC7187-7CED-4285-85FC-7181688CD873@amazon.com>
 Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <3-v1-7c5282b0c334+2db-iommu_rm_ops_pgsize_jgg@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: K Prateek Nayak <kprateek.nayak@amd.com>
+In-Reply-To: <82DC7187-7CED-4285-85FC-7181688CD873@amazon.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.180.168.240]
+X-ClientProxiedBy: SATLEXMB03.amd.com (10.181.40.144) To SATLEXMB04.amd.com
+ (10.181.40.145)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN2PEPF00004FBF:EE_|CYYPR12MB8701:EE_
+X-MS-Office365-Filtering-Correlation-Id: cb1f224d-3af6-43af-b353-08dd8797c95d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|36860700013|82310400026|13003099007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?YThEVXZNMzUwdWlpRWI3Q2U1VW1PTDIzTVZOSC9aUFB4dEtiV0dxYmFmbXk0?=
+ =?utf-8?B?ZnI5SVc5MlNoQVd4Qk5GczcwZzhqY0xZR3pVU0FaYTNCRGxYd01zMjd3WUty?=
+ =?utf-8?B?Y2p0OVdXenNyL1NRQkZFZ0RONmFQMVhtZ1BhUytaYU1QZlhORmt5OXg1U0Yr?=
+ =?utf-8?B?OUlRWWNMOWkvUmVsNXRaTURWNzdpVk0vLytpRzNtMUtHbXZPT0pIYzcxQnQ5?=
+ =?utf-8?B?VFBoMHAzK1YwTTVYV0J6bnFnaVVGMjhYWlZKVDhXeHJqQWZ3M3lselNRdjVL?=
+ =?utf-8?B?UjlmMGlESG5ycHZmeWNaYWRkaExtelNHZlZwTzd2TkJhbFVxajdtblJTdUdF?=
+ =?utf-8?B?czIxb3N4WnN1V3V2NlYvQnJoU1VObm5oY05rU0EvMFZoVDZoanVNTEwwZHlF?=
+ =?utf-8?B?ZWJVT01hSXJUVmI5ZzkvVFlETVhkZS9aSm1Bdm1qMk1IN1U2SHc0T1B0S3Q5?=
+ =?utf-8?B?Q2FBTC9yR284SXNqbHNibzNPbG9OSGtrM3NTSy9uR3NxU1NEbFFLaXM4c2Z5?=
+ =?utf-8?B?Z2plL1FQMjlSNThQcjYxSWMvaUpPVG4rUG1EcFdtbHAzQVBJaDVxZGtxRlV5?=
+ =?utf-8?B?c1V4MC9QenpNNVR4WEFUdGxRK0JxOGNrZ0Vsb2ZudGN0T2QvODk2STMyZy9l?=
+ =?utf-8?B?dCt6d0E5WER0amNVQjRWaUJUY2NGSXNWVUtlU3F0V210ZnJVc3ViZ2ZmV24w?=
+ =?utf-8?B?MVM4MFFTSmt2MTJldmRTSldwb3FhTVp6anFQUTBpODk5b2RkLzJGUTgvTVJ6?=
+ =?utf-8?B?enQrL3NOSmU5WkxVMnFXOEpSTUFhZnhpTEZjV1diZ2RUUXpjdnMzZXdXWW5W?=
+ =?utf-8?B?VllOS1FkelJ5cURMUXBWZ09IWVBZTEJWSzNjNTRXR3JLNWFJL1VjS1hGckgx?=
+ =?utf-8?B?dVpWaTIwZDZ6OWVwZ0k1SjJwSU9JSEhhK0dWTm9wQ0xiR24xNENyMlBRNzF4?=
+ =?utf-8?B?VnRERDVDUVlucFh1WHRhUGJ3bXZ1dHh6Y3RKaThlOWpoM1ZyMWcyZHlBZGd1?=
+ =?utf-8?B?ekE3UHhzTVU2SWJRaTB6ZmpTZzVHRytMeWJyUUYzSHVKYWc5YmY5aFlXUlo2?=
+ =?utf-8?B?SWdoZmkvL21aS2RDOC9EckxWQnphbTBOWnFIZHJWRndJbDhwM3I3MnRJWHBa?=
+ =?utf-8?B?TVprQ2MwNnFLZjYwenY2NlRXcWdjb25hSm93OG41aVRLWngyZnlMbXVMN3dE?=
+ =?utf-8?B?aWJuR1hGbng5OGtSNFI1d0JibXdWRTNIZG1ySDAvTlJ6Z0gwTjZyaWp1bWN4?=
+ =?utf-8?B?RytzNGI2RDdUcTFGS1FkYXRtNUxwbGlKdFhCQkkzbzdQZW9wcHA1Yktmc0lw?=
+ =?utf-8?B?NStQT1ZlWFR1ZmR3UVNZeUJMK1NyV1dxMzlqUjhyMWlQdTg1cWduWDdNMy9H?=
+ =?utf-8?B?dWdjWnVNV05KSTdMaFhDcEJZakVJeVlzV2I4TFRVeTF5amxzZC83V1h0TVZm?=
+ =?utf-8?B?M25Cc1B0a1ora0wzazJZN2tXVmxWRFdWbHFGVHdsSUZnZXlFWXVMOUdNRzA2?=
+ =?utf-8?B?STlsMnpJaTdCdGtCeEZxQUhHaysrSlh3Zjd2S21LMjRZemNFaEo1V0xSMjJW?=
+ =?utf-8?B?K0M3L0RrWU9sZmtvOEZJZkFhNkJZTllnb1p1UVhqT2xhNk9XOE9iZGVSdjJF?=
+ =?utf-8?B?YmE5Tm9MMWUvQlNEM0N4b0pFSFlyZ3A0bWhuREpZaU9qeiszMjcrczhiRnFF?=
+ =?utf-8?B?UUxzM3F6aXp1aHR6ck9MWlJTd0NWSGl3MUxCaHIvZk1YWTg1Q1hQZU5EV1VK?=
+ =?utf-8?B?MXZZSHVGdEF6Vkw4bUl4cDBlTW9ES3dVKzVDL2RIMVhkV1JXZ3FBb0lFelg5?=
+ =?utf-8?B?T3Y4Q2hSVTV0cksydUM1MldyTXJaaFpQVHhIZE9WeDhXakFlMXlSckdrMVN2?=
+ =?utf-8?B?ajNxdGxEamNmNDNpa3BGQVVGLzVkQ2I4dVZsVFBITElCY21pRUdVVDNqOTB5?=
+ =?utf-8?B?Y0l4SmJ5STE1dlQ2WXppcG1wT2dxZDYvMTNyS2xueUpEYXhkc2pNU254bG82?=
+ =?utf-8?B?THNSdlB4T2FiVlp0R1BCQk1XeDFSU2FXM2hiWkpQaWx5WkYycWQyYUV0VTRF?=
+ =?utf-8?B?SGkvNUFQZExJNHgyQ1g1WlhZOHJSU2xiRE9LQT09?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(36860700013)(82310400026)(13003099007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Apr 2025 03:33:34.4221
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: cb1f224d-3af6-43af-b353-08dd8797c95d
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF00004FBF.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR12MB8701
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_033715_447465_9734B9EF 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20250429_204803_432647_79A23667 
+X-CRM114-Status: GOOD (  17.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,21 +166,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/29/25 22:34, Jason Gunthorpe wrote:
-> These drivers all set the domain->pgsize_bitmap in their
-> domain_alloc_paging() functions, so the ops value is never used. Delete
-> it.
+Hello Cristian,
+
+On 4/30/2025 3:36 AM, Prundeanu, Cristian wrote:
+> On 2025-04-29, 16:57, "Peter Zijlstra" <peterz@infradead.org <mailto:peterz@infradead.org>> wrote:
 > 
-> Signed-off-by: Jason Gunthorpe<jgg@nvidia.com>
-> ---
->   drivers/iommu/apple-dart.c       | 1 -
->   drivers/iommu/intel/iommu.c      | 1 -
->   drivers/iommu/iommufd/selftest.c | 1 -
->   drivers/iommu/riscv/iommu.c      | 1 -
->   drivers/iommu/virtio-iommu.c     | 6 ++----
->   5 files changed, 2 insertions(+), 8 deletions(-)
+>>> Here are the latest results for the EEVDF impact on database workloads.
+>>> The regression introduced in kernel 6.6 still persists and doesn't look
+>>> like it is improving.
+>>
+>> Well, I was under the impression it had actually been solved :-(
+>>
+>> My understanding from the last round was that Prateek and co had it
+>> sorted -- with the caveat being that you had to stick SCHED_BATCH in at
+>> the right place in MySQL start scripts or somesuch.
+> 
+> The statement in the previous thread [1] was that using SCHED_BATCH improves
+> performance over default. While that still holds true, it is also equally true
+> about using SCHED_BATCH on kernel 6.5.
+> 
+> So, when we compare 6.5 with recent kernels, both using SCHED_BATCH, the
+> regression is still visible. (Previously, we only compared SCHED_BATCH with
+> 6.5 default, leading to the wrong conclusion that it's a fix).
 
-For intel vt-d driver,
+So I never tried comparing SCHED_BATCH on both old vs new kernel for
+the HammerDB benchmark since SCHED_BATCH had not led to a great
+improvement in the baseline numbers on v6.5 in my previous debugs and
+I was mostly looking at context-switch data, trying to match the EEVDF
+case to baseline numbers.
 
-Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
+I'll try to setup the reproducer you have posted on my end and reach
+out if I run into any issues. Hopefully the exact setup reveals
+something I've overlooked.
+
+P.S. Are the numbers for v6.15-rc4 + SCHED_BATCH comparable to v6.5
+default?
+
+One more curious question: Does changing the base slice to a larger
+value (say 6ms) in conjunction with setting SCHED_BATCH on v6.15-rc4
+affect the benchmark result in any way?
+
+> 
+> [1] https://lore.kernel.org/all/feb31b6e-6457-454c-a4f3-ce8ad96bf8de@amd.com/
+> 
+
+-- 
+Thanks and Regards,
+Prateek
+
 
