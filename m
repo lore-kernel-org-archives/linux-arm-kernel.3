@@ -4,63 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 625ACC369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 13:58:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5CE2C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 14:00:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QlA0vDaPKeclOPJ7FtRUlOTmr6DtJm3UtUjzHSmGgXk=; b=AxF8UmsMCDLRQ4w8LcrYS36W0v
-	JQWMovko4ovPe+rTkWeGGJHca6T/hMCEAqGkvkC0FjvKPdzB3B0h+cCwHTnPpChvaHT/1XmR+OaLL
-	UgZ7jxGJxRdhThBLNALACMUFXUvdNdFMQ14LXf4D4KjieIqwFH2sciQ4Yo7AbfQyzoUaRTgjA9MMU
-	J6Gf218lHGQtmluYBZEoklzniuKBn4mwOWAIirxQkfD8LxhkU/p8O3XaHuhyks5xrItGnkIK9JYoz
-	GpHE5dMEoj2Aud5kZE+/h1zTrbgvtmnzsVQswrRE0c4/nbbxUmbo0+bfVSTsuSLH5taV2IDT/V2vH
-	/TQX5kMQ==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bptR6X2FP6mphoSdJsDeJ0Nvu/lMa4Cwig/lOeyZQNU=; b=r0RHo91XvnmpH0nXzn6K6n7IO5
+	ZRE5VM2EwwgC8xEc/Kfe/aYOwJAZ+A+GcT//F0dfi9HCOuMqqqNn4ANGfkjRB0F00I7Zw18N/rEaN
+	BT5zsJK4Zhime6h+7TaulsVULyQ3AeiF1i4YTt84BpT8g37wWvrrZEwF48hu0c2qz7jEahBrWLGeU
+	GEKCrfDzPRqja0/eSL5jPuFia4+bqernaK9ij0kE+41I54iPOvBdDCU+Q1jfOEZDTJZvtxzBGYoMk
+	kFKXx7FywaEO1HUNS1em4t2dSvyyYLT8XTmwxmtUpEFy2X9ZIokFN02tcO7zF5CyA6h37N3BcWXFd
+	g9yHsFqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA7wj-0000000D3pC-1U9m;
-	Wed, 30 Apr 2025 13:57:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uA7yd-0000000D3y0-0OHM;
+	Wed, 30 Apr 2025 13:59:55 +0000
+Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA7r1-0000000D36j-1PiE
+	id 1uA7rO-0000000D3CM-2uuM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 13:52:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 85E5468409;
-	Wed, 30 Apr 2025 13:51:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 260B7C4CEEB;
-	Wed, 30 Apr 2025 13:52:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746021122;
-	bh=xf1uFp/EVSDzohAXpVq0ni+m7CYH2QXJJpG3H9J9ivg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=FDrZ5ylVhgyEL2WIZLvXJRJH+61d9KI0jJI03lZum2EuNfKXzS610Xq0f4/u/gMe2
-	 tXMBZVomy6mEmBEVXIqOqEOzWIMTe/2H6/a+LyMNU5AhW7nFAZmy9ySN1zPH8Dcuy+
-	 OQD0dHPHIBDEwvoBkK5XtFLiqoGGHg9jhw5NsKPK9sa9SVLy7MBHY7lTuR17JwVpZn
-	 4XTUoYBCv7QIZ3NfWdaQ9+J6G9MTXPz17fZoZzuRKXUEZyQuD7e63xuaiE026fk38w
-	 dYU7Idi8aZMUIfUxLu8CoMAwOKCMiIWtrPupaMCobbh7HHOxNNtNw7ZYcuxSusjUil
-	 y7qhhXi7Oci4g==
-Received: from johan by xi.lan with local (Exim 4.97.1)
-	(envelope-from <johan+linaro@kernel.org>)
-	id 1uA7r3-000000001Lh-2fnM;
-	Wed, 30 Apr 2025 15:52:05 +0200
-From: Johan Hovold <johan+linaro@kernel.org>
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Sibi Sankar <quic_sibis@quicinc.com>,
-	Marc Zyngier <maz@kernel.org>,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Johan Hovold <johan+linaro@kernel.org>
-Subject: [PATCH] firmware: arm_scmi: quirk: force perf level get fastchannel
-Date: Wed, 30 Apr 2025 15:51:46 +0200
-Message-ID: <20250430135146.5154-1-johan+linaro@kernel.org>
-X-Mailer: git-send-email 2.49.0
+	Wed, 30 Apr 2025 13:52:28 +0000
+Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-5499614d3d2so7875672e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 06:52:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=raspberrypi.com; s=google; t=1746021144; x=1746625944; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bptR6X2FP6mphoSdJsDeJ0Nvu/lMa4Cwig/lOeyZQNU=;
+        b=CXf7iYMT69GPFCJTCpxxv1Krmp3P/j7LaZ5SH4Y+8fdeBP1fM2TWlqYam16kkFzA/P
+         NC1ZhHD+IB1dxAJ65sgynfg8DXXGubjpoqZDJTrBJdoxxQolqkCdk1F/m+WcXCgXl081
+         LT+xQPdD0PshY0H3MpZMTdCHzBAV5MPgXCPTmdxOFgdVDW/FVegQCKb0abbvLe6fKcJ2
+         2IQWJV/Yjq1la7b0+Wrcx7rwPHM7bLqlW9UUCAtrDSsjCzbeYpAn3acpoJvBtdAo8CNg
+         FhFwCew7eV7xZ87fouQQiefYUwCefTQCh9CzXKUoH7DCdpLvh+NjmhmRcRtCyhQlAVLO
+         gSuA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746021144; x=1746625944;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=bptR6X2FP6mphoSdJsDeJ0Nvu/lMa4Cwig/lOeyZQNU=;
+        b=YVk8R92E0XlB3GIa0jOGwUCy0vDIKdKpMhY8a+9jlZPQg0DEoANY+Xi3XTelHHcouC
+         SWzPdQjD0ZHHufbQF3YhLDEWqkuknmBWDDzeY07Ggzn2CsAB3aKwuEmajsWEeSWgJDM3
+         ZPtB8OJVDACotHEB02aMIqpRFU7cWd0fBSxfxsxoHLLoKrWzxrtNNKGd2dOL+M/MHzW4
+         k80eMnNQoCgJopuDEiSO0AqQUMSyV8OtI4dsYLhpZ2yPzNbrEgwyIZ25zqInBwJ6A0M7
+         P4wTE67kuD6lWVqQ59XMesHriA5YLuzdVuRTw7c7ixuqqG0NE1TPCL5Rt/QX3vjfs3Zw
+         dzmw==
+X-Forwarded-Encrypted: i=1; AJvYcCXYm8HI9MHyZJt62RaDNPLpoBFU0y1bAF8kXA4MwAzQw9te3bf0iswXtcgyZommWR+XHGozwto0rZV22qfMhPeK@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywt91olBSpYFfdVIvZUdFOg8oIJsDmRMB+drtVS2ZXqZ37IkCrT
+	q8EU4yDfZ2tbw8g38V++/pA3tp4IIOE62amw/SsZZeE/Y4qy9WZEOKtkkhabV1oFp0vUA0Dzhgf
+	/CAjQFAdBv7Gw9vAB3WreXkk4OErDxtyy8TB5ow==
+X-Gm-Gg: ASbGncuK7MxuadevWy3Otok/wJrRZDUhs/EatF/gfofS4D7Vimai+z/3x70+kDDj2AS
+	ue7V7XZu4WLklw3yfKkJkkJoVbNCMGou7XxavzYhpMEBbKrwJm7ZqgW9lC2CpFNm61jQ4JWYwct
+	eOx40dSZMxWiFW4mXhrGMzFJM1piQ2+bizUFhvSJYmHYgaiAr0oUeGwWjzg6380+RR
+X-Google-Smtp-Source: AGHT+IGyQiHIWhF80eEOC+6pgdTTn9cHOWztzyXKd7Hn1hMJ1sGS1ScFK8hKa7Xzn645fZbc6UnZ2HhOztB0rWXCHbU=
+X-Received: by 2002:a05:6512:681:b0:54a:c4af:29 with SMTP id
+ 2adb3069b0e04-54ea33bc380mr1250594e87.52.1746021144067; Wed, 30 Apr 2025
+ 06:52:24 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250430125322.2808528-1-niklas.soderlund+renesas@ragnatech.se>
+ <CAMuHMdVXrHVugCMoWkCRVGotOEeTuuJJ6rC7CC7Kf_seo3J5og@mail.gmail.com> <20250430131856.GB25516@pendragon.ideasonboard.com>
+In-Reply-To: <20250430131856.GB25516@pendragon.ideasonboard.com>
+From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+Date: Wed, 30 Apr 2025 14:52:01 +0100
+X-Gm-Features: ATxdqUEUJPqT02hhE_crNuAPw-JTMhsKXzp2oVf3n9xmpn33eFhhZ5g7KLGMb_A
+Message-ID: <CAPY8ntBPSC6KZcBVt35QWx_ZPYwkSJSVzhhaXokbjkWJDVJRqA@mail.gmail.com>
+Subject: Re: [PATCH] media: dt-bindings: sony,imx290: Update usage example
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>, 
+	=?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>, 
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250430_065226_901056_583B30AE 
+X-CRM114-Status: GOOD (  28.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,92 +102,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Qualcomm SCP firmware in X1E machines like the Lenovo ThinkPad T14s
-does not set the FastChannel supported attribute bit for PERF_LEVEL_GET
-but crashes when falling back to regular messaging.
+Hi Laurent & Niklas
 
-Use the new SCMI quirk framework to force FastChannel initialisation for
-this implementation.
+On Wed, 30 Apr 2025 at 14:19, Laurent Pinchart
+<laurent.pinchart@ideasonboard.com> wrote:
+>
+> On Wed, Apr 30, 2025 at 03:03:10PM +0200, Geert Uytterhoeven wrote:
+> > On Wed, 30 Apr 2025 at 14:58, Niklas S=C3=B6derlund wrote:
+> > > Since commit 98e0500eadb7 ("media: i2c: imx290: Add configurable link
+> > > frequency and pixel rate") the driver expects two specific
+> > > link-frequency settings 2-lane (445500000, 297000000) and 4-lane
+> > > (222750000, 148500000) operation. The driver fails to probe without
+> > > these exact settings.
+> > >
+> > > Update the example in the bindings to match this to make it easier fo=
+r
+> > > users to incorporate this sensor in their device tree descriptions
+> > > without having to read the driver sources when the driver fails to
+> > > probe.
+> > >
+> > > Signed-off-by: Niklas S=C3=B6derlund <niklas.soderlund+renesas@ragnat=
+ech.se>
+> >
+> > Thanks for your patch!
+> >
+> > > --- a/Documentation/devicetree/bindings/media/i2c/sony,imx290.yaml
+> > > +++ b/Documentation/devicetree/bindings/media/i2c/sony,imx290.yaml
+> > > @@ -136,7 +136,7 @@ examples:
+> > >              port {
+> > >                  imx290_ep: endpoint {
+> > >                      data-lanes =3D <1 2 3 4>;
+> > > -                    link-frequencies =3D /bits/ 64 <445500000>;
+> > > +                    link-frequencies =3D /bits/ 64 <222750000 148500=
+000>;
+> > >                      remote-endpoint =3D <&csiphy0_ep>;
+> > >                  };
+> > >              };
+> >
+> > I guess the link-frequencies property should gain a rule that it
+> > needs two values, too?
+>
+> The driver doesn't require two frequencies (unless I'm mistaken), it
+> could operate with a single one (albeit not in all resolutions), so I
+> don't think we should require two frequencies in the bindings.
 
-Note that we can add an upper bound on the version matching when we
-learn which version has a fix (or limit matching using a SoC compatible
-string in the unlikely event that always enabling FC causes trouble
-somewhere).
+The driver does require both due to 98e0500eadb7 ("media: i2c: imx290:
+Add configurable link frequency and pixel rate") and
+imx290_check_link_freqs()
 
-Link: https://lore.kernel.org/lkml/Z4Dt8E7C6upVtEGV@hovoldconsulting.com/
-Signed-off-by: Johan Hovold <johan+linaro@kernel.org>
----
+However I'd agree that it'd be better to make the driver accept just
+the one and make any compensations, rather than amend the binding. I'm
+happy to try and find a few minutes to make a patch for that.
 
-This one depends on the new SCMI quirk framework:
+My experience of this family of sensors says that we should be able to
+run any resolution at any link frequency, but it needs changes to
+HBLANK to ensure there is sufficient time per line.
+Dropping to the lower link freq for the 720p mode is only because that
+is what the datasheet describes for the precanned HD720p. The window
+cropping mode lists no such requirement, and yet could produce exactly
+that same 720p output.
 
-	https://lore.kernel.org/lkml/20250429141108.406045-1-cristian.marussi@arm.com/	
+  Dave
 
-Johan
-
-
- drivers/firmware/arm_scmi/driver.c | 8 ++++++++
- drivers/firmware/arm_scmi/quirks.c | 2 ++
- drivers/firmware/arm_scmi/quirks.h | 1 +
- 3 files changed, 11 insertions(+)
-
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 6a18670ea261..eb6bec39c02d 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -1900,6 +1900,13 @@ struct scmi_msg_resp_desc_fc {
- 	__le32 db_preserve_hmask;
- };
- 
-+#define QUIRK_PERF_FC_FORCE						\
-+	({								\
-+		if (pi->proto->id == SCMI_PROTOCOL_PERF &&		\
-+		    message_id == 0x8 /* PERF_LEVEL_GET */)		\
-+			attributes |= BIT(0);				\
-+	})
-+
- static void
- scmi_common_fastchannel_init(const struct scmi_protocol_handle *ph,
- 			     u8 describe_id, u32 message_id, u32 valid_size,
-@@ -1920,6 +1927,7 @@ scmi_common_fastchannel_init(const struct scmi_protocol_handle *ph,
- 
- 	/* Check if the MSG_ID supports fastchannel */
- 	ret = scmi_protocol_msg_check(ph, message_id, &attributes);
-+	SCMI_QUIRK(perf_level_get_fc_force, QUIRK_PERF_FC_FORCE);
- 	if (ret || !MSG_SUPPORTS_FASTCHANNEL(attributes)) {
- 		dev_dbg(ph->dev,
- 			"Skip FC init for 0x%02X/%d  domain:%d - ret:%d\n",
-diff --git a/drivers/firmware/arm_scmi/quirks.c b/drivers/firmware/arm_scmi/quirks.c
-index 120ac933ed2e..48bf45b8bcf9 100644
---- a/drivers/firmware/arm_scmi/quirks.c
-+++ b/drivers/firmware/arm_scmi/quirks.c
-@@ -168,6 +168,7 @@ struct scmi_quirk {
- 
- /* Global Quirks Definitions */
- DEFINE_SCMI_QUIRK(clock_rates_triplet_out_of_spec, NULL, NULL, NULL);
-+DEFINE_SCMI_QUIRK(perf_level_get_fc_force, "Qualcomm", NULL, "0x20000-");
- 
- /*
-  * Quirks Pointers Array
-@@ -177,6 +178,7 @@ DEFINE_SCMI_QUIRK(clock_rates_triplet_out_of_spec, NULL, NULL, NULL);
-  */
- static struct scmi_quirk *scmi_quirks_table[] = {
- 	__DECLARE_SCMI_QUIRK_ENTRY(clock_rates_triplet_out_of_spec),
-+	__DECLARE_SCMI_QUIRK_ENTRY(perf_level_get_fc_force),
- 	NULL
- };
- 
-diff --git a/drivers/firmware/arm_scmi/quirks.h b/drivers/firmware/arm_scmi/quirks.h
-index 7fdc496c94c7..a71fde85a527 100644
---- a/drivers/firmware/arm_scmi/quirks.h
-+++ b/drivers/firmware/arm_scmi/quirks.h
-@@ -47,5 +47,6 @@ static inline void scmi_quirks_enable(struct device *dev, const char *vend,
- 
- /* Quirk delarations */
- DECLARE_SCMI_QUIRK(clock_rates_triplet_out_of_spec);
-+DECLARE_SCMI_QUIRK(perf_level_get_fc_force);
- 
- #endif /* _SCMI_QUIRKS_H */
--- 
-2.49.0
-
+> --
+> Regards,
+>
+> Laurent Pinchart
 
