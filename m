@@ -4,87 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30ABFC369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 17:01:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02275C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 17:03:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iKq3Hl0BrIcuMMTCUIpmWVs6NCKyQQcOHdChQ0yRkYc=; b=C/tIWkYSc8WNd1FeuzshQsQe1c
-	i8zW5KZD18l72+Xi4svl3iSAMM3aXYIkzeJhmozs9qPofEPTRpIE9iKMKotoQSh6YAfx++JzbGN8Y
-	pYPLlXaSczmW2WeaB6GdSaIV8bJWnIdC+UdvjBGiT6Rd65QM6nxkB3f3UYfsokP7LWGbawcagV3vn
-	PZoPREnXZw6odQ5PUMRnatjUrKPv3jN/Ac/R+aIoGISC0IGFxijq82HtE2EcAq0jxMJ/mfe8J367+
-	qaOlgn4/U3Ng5iidUXJPlxrqET7X7p8qu/NjvtAL7/nIKa9dpvfyb0ZCjhw7Wk8zBkxhpBRlU9Fjv
-	jAp7WfIw==;
+	bh=URk21pnT/XOSFzAg25G44Je9n7xhg0j0WDExK+T2XSo=; b=w7PrfN8hV7XBYqvM0tXXKz0kVA
+	6ZFuoZ0f0USufnUJm2kw10ELxtO7X2n9h7W3cPbIGkSa/TUhw0tkOfkgk7ZxzIaWwuh/z9vCgQt/4
+	rcRgkKLmtsBj8mqedpDwE/eT+x5aZL4gkOewI/vsdOWLQ18d1az0HfJlt2kK4rGiqJH2bHlk+Fi8r
+	Y/BQgXT1HVe2at64taKDpLz96GzvaZ3JKnRzrg8gW5FQCSFd/h1zcJtq1OmxUSr8SBHz1bX4I5FJG
+	fyOTbL5s1gKq29H/lCy1i8hba1iVXM5n8eyfzdYf+K7vwP0tthCW3c11SmZwSdckCScdariXnkG/D
+	u/q3T9Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAAoD-0000000DVgt-3eat;
-	Wed, 30 Apr 2025 17:01:21 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1uAAqO-0000000DVtA-0RCf;
+	Wed, 30 Apr 2025 17:03:36 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAAiR-0000000DUUd-2pgk
+	id 1uAAoP-0000000DViv-0rAH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 16:55:26 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53UCTNne004579;
-	Wed, 30 Apr 2025 18:55:14 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	iKq3Hl0BrIcuMMTCUIpmWVs6NCKyQQcOHdChQ0yRkYc=; b=eMYfExz/m4143DkQ
-	BKXwK1tP2QdWw06akhjwl+6K6BisWJZaY2k7gFM8yttwy0kRfYZQVkIbI5u1ZnV5
-	Shf8jMi3fOEYuMBAlkC3PfkqXpk2JsiOBR8Y1V8pCtGQKmaJJvJHfyO/iyrVXzyX
-	7VEZ9Gx3d+Jps9z7uP4WlO20VfS11DNy4dstDzTnTWEbZkjuKL41Rek+LuRDeBEH
-	L4iFMXLHVnFwvVoX1VblH1hEExiBz7zVJb3x9cdnekm0KsWv7SyvmvdlrhvINpOw
-	lrsXYXFsjwaDSuA4qqIyHl4QSfBXaFVmfq4KlIYwpMhOR9GINl84Uo85Fq2cXEGH
-	etSydw==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46b6tf483u-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 30 Apr 2025 18:55:14 +0200 (MEST)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id C38C74004C;
-	Wed, 30 Apr 2025 18:54:09 +0200 (CEST)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 362E6A47ACC;
-	Wed, 30 Apr 2025 18:53:31 +0200 (CEST)
-Received: from localhost (10.252.20.195) by SHFDAG1NODE1.st.com (10.75.129.69)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 30 Apr
- 2025 18:53:30 +0200
-From: Olivier Moysan <olivier.moysan@foss.st.com>
-To: Olivier Moysan <olivier.moysan@foss.st.com>,
-        Arnaud Pouliquen
-	<arnaud.pouliquen@foss.st.com>,
-        Liam Girdwood <lgirdwood@gmail.com>, Mark
- Brown <broonie@kernel.org>,
-        Jaroslav Kysela <perex@perex.cz>, Takashi Iwai
-	<tiwai@suse.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre
- Torgue <alexandre.torgue@foss.st.com>
-CC: <linux-sound@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH 2/2] ASoC: stm32: sai: add a check on minimal kernel frequency
-Date: Wed, 30 Apr 2025 18:52:09 +0200
-Message-ID: <20250430165210.321273-3-olivier.moysan@foss.st.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250430165210.321273-1-olivier.moysan@foss.st.com>
-References: <20250430165210.321273-1-olivier.moysan@foss.st.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.252.20.195]
-X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-04-30_05,2025-04-24_02,2025-02-21_01
+	Wed, 30 Apr 2025 17:01:34 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2ff7cf599beso123755a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 10:01:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1746032491; x=1746637291; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=URk21pnT/XOSFzAg25G44Je9n7xhg0j0WDExK+T2XSo=;
+        b=CMEjrzVqzadMihXa1+1Z/x+Azm9AVdaO20gQP0TaGd0JDvijZU5xnr9ennxY2hn6BU
+         twWz9T8tRH9jOEVzLVU1Styj4NPAngkocG4ODILqW67+06peWNnMxeIpcchi+30nBtLv
+         5zp6A/dEpc+Rz3om3jT/G17eE7qPgMascytuBL+6UdL0aB8XGgJ2Uw3mFiyxCYixxgTj
+         Rw4KgecoM936LsY4A9xHEBQGXuQ+M29Wr0sA//Dqku6l49rKvCf6V0nuvOQkpoaoAxu1
+         fITZSi5JpGtNw3+D32ZsctfoIVDSz2JQCNFO7fkMHNO0qI+x8HnVmAZ0zXBwJOpAvfzn
+         hFHA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746032491; x=1746637291;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=URk21pnT/XOSFzAg25G44Je9n7xhg0j0WDExK+T2XSo=;
+        b=ITDh+nJRbNjlOAc2d0QZqvvkzRzo3m4LBRI2vAjDIC79Ib3MSUJdxCz+yKwB8WkHP4
+         FxeAfeud3TXOssBDHXaZgqFoZAbYQovOXTBuGT8Jdv0fo9CXifWnjIYNf4SHFMHiEACY
+         UFFZIJMwy1Kpfz+5B19Bja20p6O42ox6wFvVUsiZJfqiUJ34bWx4Fmsq3uc3KvPSH9aC
+         BT7va+qSjG7Rahsv1qHf93Bsx5ocvpcZmfpJ6H2dwYwth2/8hTSU79RQ/kImtV1HkJNN
+         LsDd7AHGa6w1UqcBBgHGnggvECSKkJPLKg/sgunaWsx8slHaxKQPUBbS0ZOnraQvckZO
+         PV/A==
+X-Forwarded-Encrypted: i=1; AJvYcCVZGBLYxLsL+FdybWvMZm0SrPQlRgecnqhWkD81hzBz5A8aIg9UrWZel/M9XXZWT77z5CQmyJqH8BbJLswxRA4q@lists.infradead.org
+X-Gm-Message-State: AOJu0YzCEHQ0gmiC6BlZ0F+mqQy6W2PhtLh/UlpXE4L8TVzDjmJtRjVx
+	a9YDUbBBvshNheUqEd676gLJoCPHVNWcbAIA+xL3CgLjdRLCSzH8qXcWTs2PmmTSY9nTKOZmF1k
+	fYw==
+X-Google-Smtp-Source: AGHT+IESEXuF+9+pwH1wKZ+9NbO7EwNOG2NYsEaw3R2SqqKDBeSnQYLSAYuo2qganDUT53HrDY6m/tsSN3o=
+X-Received: from pjbsk13.prod.google.com ([2002:a17:90b:2dcd:b0:2ea:9d23:79a0])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:1c02:b0:2ff:4e90:3c55
+ with SMTP id 98e67ed59e1d1-30a3335eeb7mr5473897a91.27.1746032491582; Wed, 30
+ Apr 2025 10:01:31 -0700 (PDT)
+Date: Wed, 30 Apr 2025 10:01:29 -0700
+In-Reply-To: <20250222005943.3348627-2-vipinsh@google.com>
+Mime-Version: 1.0
+References: <20250222005943.3348627-1-vipinsh@google.com> <20250222005943.3348627-2-vipinsh@google.com>
+Message-ID: <aBJXabTuiJyRZb-O@google.com>
+Subject: Re: [PATCH 1/2] KVM: selftests: Add default testfiles for KVM
+ selftests runner
+From: Sean Christopherson <seanjc@google.com>
+To: Vipin Sharma <vipinsh@google.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, pbonzini@redhat.com, 
+	anup@brainfault.org, borntraeger@linux.ibm.com, frankja@linux.ibm.com, 
+	imbrenda@linux.ibm.com, maz@kernel.org, oliver.upton@linux.dev
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_095524_228995_D2AD1185 
-X-CRM114-Status: GOOD (  14.47  )
+X-CRM114-CacheID: sfid-20250430_100133_236611_DED115BF 
+X-CRM114-Status: GOOD (  31.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,38 +91,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On MP2 SoCs SAI kernel clock rate is managed through
-stm32_sai_set_parent_rate() function.
-If the kernel clock rate was set previously to a low frequency, this
-frequency may be too low to support the newly requested audio stream rate.
-However the stm32_sai_rate_accurate() will only check accuracy against
-the maximum kernel clock rate. The function will return leaving the kernel
-clock rate unchanged.
-Add a check on minimal frequency requirement, to avoid this.
+On Fri, Feb 21, 2025, Vipin Sharma wrote:
+> Create a root "testcases" folder in KVM selftests directory. Add test
+> files for all of the KVM selftests across all of the supported
+> platforms.  Write only default test execution command in the test files.
+> Commands written in the test files will be ran by KVM selftest runner.
+> 
+> Test files are organized based following rules:
+> 1. All test files resides in "testcases" directory.
+> 2. Test files should have .test extension. This is needed so that
+>    git doesn't ignore the test file changes.
+> 3. Each KVM selftest resides in a folder in "testcases" directory.
+>    It follows the path of KVM selftests directory. For example,
+>    kvm/x86_64/vmx_msrs_test.c will be in
+>    kvm/testcases/x86_64/vmx_msrs_tests directory.
+> 4. default.test name is reserved for the default command to execute the
+>    test.
+> 5. Different configuration of the tests should reside in their own test
+>    files under the same test directory. For example dirty_log_perf_test
+>    can have:
+>    - testcases/dirty_log_perf_test/default.test
+>    - testcases/dirty_log_perf_test/hugetlb1g.test
+>    - testcases/dirty_log_perf_test/disable_dirty_log_manual.test
+> 6. If there is an arch specific option of a common test then it should
+>    be specified under an arch name directory in the test directory. This
+>    will avoid test runner to execute the common test or its option on
+>    unsupported machine. For example:
+>    testcases/memslot_modification_stress_test/x86_64/disable_slot_zap_quirk.test
+> 
+> Signed-off-by: Vipin Sharma <vipinsh@google.com>
+> ---
+>  tools/testing/selftests/kvm/.gitignore                         | 3 ++-
 
-Fixes: b1d2e4067dc6 ("ASoC: stm32: sai: add stm32mp25 support")
-Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
----
- sound/soc/stm/stm32_sai_sub.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+After spending a comical amount of time fiddling with the default testcases, I
+think I have a final opinion.
 
-diff --git a/sound/soc/stm/stm32_sai_sub.c b/sound/soc/stm/stm32_sai_sub.c
-index 4d018b4bc3f0..bf5299ba11c3 100644
---- a/sound/soc/stm/stm32_sai_sub.c
-+++ b/sound/soc/stm/stm32_sai_sub.c
-@@ -447,7 +447,10 @@ static int stm32_sai_set_parent_rate(struct stm32_sai_sub_data *sai,
- 	 * return immediately.
- 	 */
- 	sai_curr_rate = clk_get_rate(sai->sai_ck);
--	if (stm32_sai_rate_accurate(sai_ck_max_rate, sai_curr_rate))
-+	dev_dbg(&pdev->dev, "kernel clock rate: min [%u], max [%u], current [%u]",
-+		sai_ck_min_rate, sai_ck_max_rate, sai_curr_rate);
-+	if (stm32_sai_rate_accurate(sai_ck_max_rate, sai_curr_rate) &&
-+	    sai_curr_rate >= sai_ck_min_rate)
- 		return 0;
+We definitely auto-generate the default testcases.  Relying on the user to remember
+to add a testcase, and on the maintainer to remember to check for that, isn't a
+winning strategy.
+
+But, I do think we should commit the default.test files to the repository.  If
+they're ephemeral, then several problems arise:
+
+ 1. For out-of-tree builds, the default.test files should arguably be placed in
+    the OUTPUT directory.  But if/when we add curated testcases/, then we'll either
+    end up with multiple testcases/ directories (source and output), or we'll have
+    to copy testcases/ from the source to the output on a normal build, which is
+    rather gross.  Or we'd need e.g. "make testcases", which is also gross, e.g.
+    I don't want to have to run yet more commands just to execute tests.
+
+ 2. Generating default.test could overwrite a user-defined file.  That's firmly
+    a user error, but at least if they default.test files are commited, the user
+    will get a hint or three that they're doing things wrong.
+
+ 3. If the files aren't committed, then they probably should removed on "clean",
+    which isn't the end of the world since they're trivially easy to generate,
+    but it's kinda funky. 
+
+So, what if we add this to auto-generate the files?  It's obviously wasteful since
+the files will exist 99.9999999% of the time, but the overhead is completely
+negligible.  The only concern I have is if this will do the wrong thing for some
+build environments, i.e. shove the files in the wrong location.
+
+diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
+index f62b0a5aba35..d94bb8330ad1 100644
+--- a/tools/testing/selftests/kvm/Makefile.kvm
++++ b/tools/testing/selftests/kvm/Makefile.kvm
+@@ -198,6 +198,13 @@ TEST_GEN_PROGS += $(TEST_GEN_PROGS_$(ARCH))
+ TEST_GEN_PROGS_EXTENDED += $(TEST_GEN_PROGS_EXTENDED_$(ARCH))
+ LIBKVM += $(LIBKVM_$(ARCH))
  
- 	/*
--- 
-2.25.1
++$(foreach tc, $(TEST_PROGS), $(shell mkdir -p testcases/$(patsubst %.sh,%,$(tc))))
++$(foreach tc, $(TEST_GEN_PROGS), $(shell mkdir -p testcases/$(tc)))
++$(foreach tc, $(TEST_PROGS), \
++  $(shell echo $(tc) > $(patsubst %.sh,testcases/%/default.test,$(tc))))
++$(foreach tc, $(TEST_GEN_PROGS), \
++  $(shell echo $(tc) > $(patsubst %,testcases/%/default.test,$(tc))))
++
+ OVERRIDE_TARGETS = 1
+ 
+ # lib.mak defines $(OUTPUT), prepends $(OUTPUT)/ to $(TEST_GEN_PROGS), and most
 
+> diff --git a/tools/testing/selftests/kvm/.gitignore b/tools/testing/selftests/kvm/.gitignore
+> index 1d41a046a7bf..550b7c2b4a0c 100644
+> --- a/tools/testing/selftests/kvm/.gitignore
+> +++ b/tools/testing/selftests/kvm/.gitignore
+> @@ -9,4 +9,5 @@
+>  !config
+>  !settings
+>  !Makefile
+> -!Makefile.kvm
+> \ No newline at end of file
+> +!Makefile.kvm
+> +!*.test
+
+Let's keep the extension wildcards sorted alphabetically, i.e.:
+
+# SPDX-License-Identifier: GPL-2.0-only
+*
+!/**/
+!*.c
+!*.h
+!*.py
+!*.S
+!*.sh
+!*.test
+!.gitignore
+!config
+!settings
+!Makefile
+!Makefile.kvm
+
+> diff --git a/tools/testing/selftests/kvm/testcases/aarch64/aarch32_id_regs/default.test b/tools/testing/selftests/kvm/testcases/aarch64/aarch32_id_regs/default.test
+> new file mode 100644
+> index 000000000000..5db8723f554f
+> --- /dev/null
+> +++ b/tools/testing/selftests/kvm/testcases/aarch64/aarch32_id_regs/default.test
+> @@ -0,0 +1 @@
+> +./aarch64/aarch32_id_regs
+
+I don't see any reason to make the paths directly consumable with a leading "./".
+Spoiler alert from the next patch: the location of the test executables needs to
+explicitly resolved by the test runner.
 
