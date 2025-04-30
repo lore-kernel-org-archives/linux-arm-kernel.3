@@ -4,97 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3963C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 09:01:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 637B4C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 09:09:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=07WxlVOIaTyluGdh8BRRgEGy/WFU+aaBchjV13UhNQk=; b=X7FG5sbKk419eOJdzfTqTu023Q
-	OEs1e2SuAbjU3MXX9KHIl4sqko45LZTQLqyghVog911DIOFEGCEZEyvqMXcQGJPz4Rts3cgw7K93K
-	RzmW9QEMSo5RZ7i4egBab2vKPd4AZ97wJkWNQBrepCexQTtsxgQb10MpGYJqEXWKA7PvyCRAmzZIE
-	LzDJ4rC0TQVzkqLOll2aR8SPkydtSuYcS8W8ZEwundt+9rH/Ur9RvGv87Y6zTYjA7CNGHjjYJJa6g
-	P3Hq5bzb1cQLiE+3lDxqpVySEFF8KYLVMqW47DdKYp2HClM8h0jFwutJJEZoYd78fsXUCelhxqpS5
-	f1rHqbAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5vBWpgQqKwUlmQIuqHMYPCCLQj75FAd4GeZ2jp+pj0E=; b=HDuJnWk+w3bHaHVnRdh4UrtcjJ
+	udTaLYGqyPMxwsI2UL/7IazVEXj6AyN1wnThLcHJAFutFfDvdW969I9vlgZXc6aQ09v+SCjVOMKjQ
+	kSKtnAae8vbVKXoGMmM7N1Jf+ZNXCzDRkzf651mATcsalTP6yZj2+UmAOCKHG1P1X3/vCp6i4Ghms
+	KM6kRkGW1s8N1JjtBr2uLVR9loZt+SJeUPyCL9ba2u4/2GkCWqVfbFf1M2krWi97zHRwcoWPOVqkn
+	aQYRt+zKiX2hkr3+5uOHkDwr42Q4+/CKFkAuonP6sf5nIf/OWyNHq/lPZTvfMohPhyJ6uo0Bpgi28
+	OmGWGt8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA3Ji-0000000CGzY-2VIB;
-	Wed, 30 Apr 2025 09:01:22 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1uA3Rp-0000000CIsS-2WUG;
+	Wed, 30 Apr 2025 09:09:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA1s1-0000000BzPY-2UTI
+	id 1uA3Pu-0000000CIaR-3Aar
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 07:28:42 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43e9ccaa1ebso8007695e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 00:28:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745998119; x=1746602919; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=07WxlVOIaTyluGdh8BRRgEGy/WFU+aaBchjV13UhNQk=;
-        b=CYFPKxbkac2AoFD/rzz9/jWwy9Z7jIXvhst4gKaRcE447OIZPiNXmOWCV9D9afei9M
-         7YGvyccGfyDuNagB84PLplKYtYX9mVTmextE8+PnpnIkWg/2Dtdn1MParLbhI6QnKtlO
-         1Or4pajlYYscqsg+xoDgjPzsrsC7yKRboANEdB8HQaGx2GFqrjZHn0YxIX4YkKQiV7aL
-         AUZ0QLIhxCeipfyl8i0elhCgHo/QjMmVl8DnJWBvR0r+P4c8sf0TY3SUIAwkYZNgFEKk
-         BTbM8I0lD1tQ8s+OQr033Y/5ahprpk/osK5EVQZTMosvdiAsFOiHRJWvBhyampCT+u6t
-         I+Mw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745998119; x=1746602919;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=07WxlVOIaTyluGdh8BRRgEGy/WFU+aaBchjV13UhNQk=;
-        b=YUDBXNdWHgG8e4GwnvljxGXY7mcAMImcFS8x+K7txh33yectoYw4TFKGvqbCNKJGX+
-         hZb0UbiU7SB/KJXM3nXZjjsbWtCdmOlooyd4PEVjbo1pYD+vra6p8F8er0ugPrcroH0V
-         HOiK24apmc27E8RAeyoimteEZhOqM6WTK6J0uBax4TJPMMd3SOZZRAyA0hSsR+YO9cZI
-         HTE2f+5mJ1H7TpBU28TQvWfmN1Q3mXUPX9DKJQIA58AfnskFNor1FEnt0rZMHkV7mZAA
-         KzjplaFo4nWqjIbdzdmp2+HtOXKtVcJrneMgbo1YskQLe81+dCdGFyy+IcCqqMnLGY4F
-         cYjA==
-X-Forwarded-Encrypted: i=1; AJvYcCUgUdGCpgj7VRIyqUh5v0RJugpXZLAofQbvoV9r47zFqzArDwkwJhTki2Wjx5+OMnHQn8WLJOjJY7HEKZPY/hQN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxiy4NCbTP9w55YQf7joHtg5OKQM7G5Vr07Kvo68iQljQqkXYrA
-	1qumLYd7ZDAez3n38CY51JkGNyhMNCzLjNKEez/9Yhj5UZFn9VTkGF75RfVsE5s=
-X-Gm-Gg: ASbGncs3wOEEWEzhfcJ1blc1NMS/OYo6oKVkrV4342oE6tcTp/uAa1RdgwfzndKzQuL
-	UsY89rjZMPKNSz/s+ap4+zygU+TnAPWfikGd+IsBGXWPkqk1cxFwGgALHdpupSY5CVc4VqylGbn
-	Lk+WnbFpMayxJiHNP7E5oKuhh1bmpHnZH6o0FViDOv1jlUdSH6jOHC3Em+TFb8Bn4hEDBZ08dcA
-	cymFDRso/82Eq8uNIQ10i4zjaw9QSqPXTL/KANij40aMoeb/Zh2UBxRdCVdlv+IYax1zu8GE2c2
-	QWn1kuiEo+SSxX1ld/qZ5qVw270rgwBU/hjAxKQjnTjmXRun2hEG6FK9b6Y=
-X-Google-Smtp-Source: AGHT+IH6V25XvncoZLZe0TycQ29EnlwaWMEky41C5N2edT8KzWHciHnrPjPlKJj3kIRZ+fXKOUOaNw==
-X-Received: by 2002:a05:6000:2dc3:b0:3a0:7a00:61e9 with SMTP id ffacd0b85a97d-3a08ff35f51mr414041f8f.0.1745998119358;
-        Wed, 30 Apr 2025 00:28:39 -0700 (PDT)
-Received: from [192.168.1.28] ([178.197.207.88])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-441b2ba4a6asm13905525e9.11.2025.04.30.00.28.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Apr 2025 00:28:38 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Sunyeal Hong <sunyeal.hong@samsung.com>, 
- Shin Son <shin.son@samsung.com>
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20250428113517.426987-5-shin.son@samsung.com>
-References: <20250428113517.426987-1-shin.son@samsung.com>
- <CGME20250428113601epcas2p11d09d84944957018da75aa548d3ecb2c@epcas2p1.samsung.com>
- <20250428113517.426987-5-shin.son@samsung.com>
-Subject: Re: (subset) [PATCH v2 4/4] arm64: dts: exynosautov920: add
- cpucl1/2 clock DT nodes
-Message-Id: <174599811787.45412.1841327377938630305.b4-ty@linaro.org>
-Date: Wed, 30 Apr 2025 09:28:37 +0200
+	Wed, 30 Apr 2025 09:07:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 835D96111C;
+	Wed, 30 Apr 2025 09:07:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73E02C4CEE9;
+	Wed, 30 Apr 2025 09:07:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746004065;
+	bh=JTFm4bna49JCkHZqj/tyafzK8uqLqlQp4ByNOAyKIx0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AjjGTNbErxWGCzhEbbOuEOlUu5zqXJuNMw/05gI1660HBi1a31QLPK7BIJ8hxUO8o
+	 ploriJYljhQqnr2B+QsvmcXgWlFEneGl4+NfEdHev/LWoNMVayw5YiQOAqKTAoY3dN
+	 XteJ9zb30s8qSRBuaUbXHU54xyez0vni90ByktrS+Tm3ZLw4CGxe4yijNpP9IiZMF6
+	 NAW62V1NU8VJ4a+Rii0DWNVcJisTp30uleC71K9kb0keYDEOthBLc+SztpC8Q/7kkm
+	 wQQqQJv+l3UGh9GhjHxEFY/ITALVAayIM6STJUCyErKOK0qAV8iw6wUNVlEUmY4bqL
+	 vEWHKXtmnF1xg==
+Date: Wed, 30 Apr 2025 10:07:38 +0100
+From: Lee Jones <lee@kernel.org>
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Georgi Djakov <djakov@kernel.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Leo Yan <leo.yan@linux.dev>, David Heidelberg <david@ixit.cz>,
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 01/11] Revert "dt-bindings: mfd: syscon: Add
+ qcom,apq8064-mmss-sfpb"
+Message-ID: <20250430090738.GE1567507@google.com>
+References: <20250425-fix-nexus-4-v3-0-da4e39e86d41@oss.qualcomm.com>
+ <20250425-fix-nexus-4-v3-1-da4e39e86d41@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_002841_634147_312CC628 
-X-CRM114-Status: UNSURE (   6.44  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250425-fix-nexus-4-v3-1-da4e39e86d41@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,20 +83,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, 25 Apr 2025, Dmitry Baryshkov wrote:
 
-On Mon, 28 Apr 2025 20:35:17 +0900, Shin Son wrote:
-> Add cmu_cpucl1/2(CPU Cluster 1 and CPU Cluster 2) clocks
-> for switch, cluster domains respectively.
+> For some reason Lee has mis-squashed two commits, picking up one chunk
+> from the first patch and one chunk from the second one. Rather than
+> trying to fix it, revert commit 2c8de7df7418 ("dt-bindings: mfd: syscon:
+> Add qcom,apq8064-mmss-sfpb").
+
+Ah yes.  Looks like I took patch 5 before patch 4, then fudged the
+conflict resolution.  No need to submit a revert, I have removed the
+patch.
+
+> Fixes: 2c8de7df7418 ("dt-bindings: mfd: syscon: Add qcom,apq8064-mmss-sfpb")
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> ---
+>  Documentation/devicetree/bindings/mfd/syscon.yaml | 2 --
+>  1 file changed, 2 deletions(-)
 > 
+> diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
+> index 71741f06d2fddd2d4fb6b69c1cfd2d449ce73f64..c6bbb19c3e3e2245b4a823df06e7f361da311000 100644
+> --- a/Documentation/devicetree/bindings/mfd/syscon.yaml
+> +++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
+> @@ -98,7 +98,6 @@ select:
+>            - mstar,msc313-pmsleep
+>            - nuvoton,ma35d1-sys
+>            - nuvoton,wpcm450-shm
+> -          - qcom,apq8064-mmss-sfpb
+>            - rockchip,px30-qos
+>            - rockchip,rk3036-qos
+>            - rockchip,rk3066-qos
+> @@ -202,7 +201,6 @@ properties:
+>            - mstar,msc313-pmsleep
+>            - nuvoton,ma35d1-sys
+>            - nuvoton,wpcm450-shm
+> -          - qcom,apq8064-sps-sic
+>            - rockchip,px30-qos
+>            - rockchip,rk3036-qos
+>            - rockchip,rk3066-qos
+> 
+> -- 
+> 2.39.5
 > 
 
-Applied, thanks!
-
-[4/4] arm64: dts: exynosautov920: add cpucl1/2 clock DT nodes
-      https://git.kernel.org/krzk/linux/c/aa833db4b82205275f4a4c08554b3dde99dae0c7
-
-Best regards,
 -- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
+Lee Jones [李琼斯]
 
