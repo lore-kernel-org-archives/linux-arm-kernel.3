@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE876C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 11:17:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEA39C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 11:19:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9nn4Lhwi6wj905Yh1K+BGwOU5DNtShR8+dwNym0HIX8=; b=B7UItcuVxtfdlKFIgBy31yB5Wf
-	jroKFzw5hK+yAHDmjDA8gXwfYSwsHrLiNEto4IPgxB0iEqEjIf0u84vb9hL5xInbL4seWDqX/T/QD
-	6GwX/2DOU33OMNhwflqEJxvRu3myhv/VhFbgaMpBuCENm6osgwNV++nw3NpcgBL9elSoaN6iySkjb
-	q9NXl2D7V0BSapljkOgo/NvTs8Z8ks8aiNBa3ExxlfrWKE9puWxdmWwLLuIOp/kk7Nsurwd3VeyS1
-	f7On+ycp9lfyI07FlK4DyobCcgvQkKALkWXBvLxMUq57oiyV+dFvNsOicsT+SlpVBzONcexBNUQrL
-	OU1WIZnA==;
+	bh=5Xu0lwXfHypam6aFf6MDeNeMIOVtEqILdYrrYMjhy+Y=; b=jKhVenEV6LlIKcSmpRaO7zNLeV
+	PlrPDiwxwHfBQKbzANd8YNbCExf6aTfj/yB/Hftz9+H48MXEEeMezEYRPzedKr15HeD25uhqFRqWu
+	7uFP1QfbsXzH+uq2se+rVYOrqfCTT5+JWeUcaMTMeNPrkxxPSndRQ8m4JfGNJ+NH0hOfIl0DzaWxA
+	DPZ6N/yogycuXXoyMDkCVze1aAvjJgbbeKuQkiQuX5aviKdXb/ZwNcx5mIMgHfWRpTWVDmei7AVYh
+	VfYe5eA4eNPfGrRET2AltmusGIyuXIQ3ltiDfmDGcPzcIay0mk55PYi7OnVekONJ0T1Brtaud7dLM
+	O8a7p8mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA5RT-0000000CemZ-0Ocj;
-	Wed, 30 Apr 2025 11:17:31 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1uA5TM-0000000Cf0J-3YYA;
+	Wed, 30 Apr 2025 11:19:28 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA4kS-0000000CXhp-2Twb
+	id 1uA4kT-0000000CXiY-2ElG
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 10:33:05 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-ace333d5f7bso1162443466b.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 03:33:04 -0700 (PDT)
+	Wed, 30 Apr 2025 10:33:06 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-ac29fd22163so1062720266b.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 03:33:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1746009183; x=1746613983; darn=lists.infradead.org;
+        d=tuxon.dev; s=google; t=1746009184; x=1746613984; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=9nn4Lhwi6wj905Yh1K+BGwOU5DNtShR8+dwNym0HIX8=;
-        b=n+m3ZUncC7Iv+YE/oxfdVLj8vfDPuSoS8Wpjci2sh97c5piIFhZl4ub4EOwLzustTt
-         NidnFW65HkMFVa9JwgXTeIkUhor/Cb0f9SVl47l7McT8M+Y3JWRjTj8b8mw6doQw4L4v
-         a3Dd3SbVvTAx8Yf2S1IcUgEcJ5UTv54Kj2hwYdlK3Bum/DYwdqMrdJU//Y4h16Huh4/t
-         14sXasBbxZz1IuUEPiKd/Uf0kAdJAzXV/p7tD3YcIzzaaUkp03VmQdJtc1AgXMwy0hBV
-         vKklGiTFJxQ+o/iPgnBY34JsQWcDMAvKUrFzp6W01gqVXf1UCsb6+yUBuCIZzJcWl/XI
-         CHaw==
+        bh=5Xu0lwXfHypam6aFf6MDeNeMIOVtEqILdYrrYMjhy+Y=;
+        b=bjB93u9pn99q6l3WBauIw8qVVSFw+7iAKzQRWiyp3bxgW/hXvccOEorARoYAxkbcLd
+         EQVG4yImLEsL/7rYL5TKqdePbUgMjKFf3JdNNEfZ4LXSnwLYSyfHOHEJuhr4MSbXN/3X
+         /T8fKVA7mfpl5R2J1lRtRL5Xr1jcxfxDGot7CsODsNgLad0PvLQEMaYR4dY+3yATAq49
+         ADCJlbJt60RpYvZpWXx10M0JUkKN3h+Swggdsr1LDopdK/ddGit5IyPElCQzxyzbgtUR
+         bllBzPlKFunIX4dzkD/sVQJgeeksUplbQAli4doiGLPmxcvWc+/48jh4673c8kjfD0bJ
+         k47g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746009183; x=1746613983;
+        d=1e100.net; s=20230601; t=1746009184; x=1746613984;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=9nn4Lhwi6wj905Yh1K+BGwOU5DNtShR8+dwNym0HIX8=;
-        b=sviqK4aMq50GnNqQsX6CPMbjT01hBdXueSjBshg9Pp7cxj1xxMDhA0K8MzT9mjIfXS
-         +ma1xvPa9qaCnTIIvj0hF9Wp9S9U7V/H9FqA59XxWtRqxypTW997A8a8DSY3t4HJkkS8
-         EypfmGMlaYlZ0kfl1hV6A1gP8JOWPRX1GyxzeCj/Nkkz/ZJN/Ab6wo8/x7rjwl9ICQQv
-         nWmjPmviSQwxJtGGRtwj9Uv8rfQfPHAdgFPuxkgSBWGDXUphsoE2yhPFbbHfEhHpkswm
-         ZPA7SeaoRhxceAgupdLNNz+z4xTm8mImEGyfFYij/C2qoU4PYUVWwp6RPSAOXkUWJ7tQ
-         fYwQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVp6cwfbCXDXHDc2XjCojlkz1/hlwKXLp/C9gryK/3waT/rC9kSWS4oR9j8eFUpK9W7kpJhIZYGK3JLdyy5KW6i@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZjwf3tR7a1j3Moje1tkyP6hi23V2tqiRfCtI1jWPN8JC31pqb
-	Q/deHrLEJtfYEoXM0JTUCuOQtiI1eU+PGfyF03g6mf6aS3cGBpFy4XmBVBNZzik=
-X-Gm-Gg: ASbGncuD3B7Hq4iqlfH2BjI8lIs91+nu5HS2trHIm/mhLHV+kzZsg9WAATsn+8M4wIK
-	AhBp9CjnYW3xFZgU00yWWW7isWPncU1RYGhvQfolfKQKGPBYcaeEbvkinX/8tkPaxQkKvYaBE2p
-	yYcIwwV9nNGXfLb5Z1sn7I6zB5pXZaQM6bfaNyrMy3QfrllAtoAAOiJ03YW/T/+N28FOYdjmazg
-	SUisjKuZtxld33jlCrikVXbNNUVRnuVUBu22lZU03/Tx7SrjGEj5UoSF69p9E1Y8EWvlvhiqixJ
-	UxfV3u+gweRzP+CVIxxTYrZb1YMruEIxhnI06MtOHu9M2dLfvGV4k9dWfITNGLEZ1nteYe0=
-X-Google-Smtp-Source: AGHT+IH2N+37bdEAp6umDXJ/Tn+PS9iQBAS/tLfvtmUbmUfhbibyBqoqYkGkCT5w9FYdpi9e+fyJqg==
-X-Received: by 2002:a17:906:c10d:b0:ace:6f8e:e857 with SMTP id a640c23a62f3a-acee1f240cfmr179989866b.0.1746009166269;
-        Wed, 30 Apr 2025 03:32:46 -0700 (PDT)
+        bh=5Xu0lwXfHypam6aFf6MDeNeMIOVtEqILdYrrYMjhy+Y=;
+        b=SLemwMeUrHQg5BmWqvODw2ECqF8JPseO++g4144DzG0IM7lIxwI++gL+g5y1dkJWrU
+         N/QL3aPKL6SQKjQitydmSWw0n5xbpVxRn4Aw31aks1twVzB5auq75VEM8Xob/Sd2QwwP
+         H4onGmTZsxvZXc80a6EuDI7CrNwSGiRNx3TVE0SuRhFrVoreUpyHCCHyeglPe6HjFyHG
+         EFx/hHEvbh81nQrxjntWupDF1amc1D19IWKb+GJlySqcxcATtOtYPUvxyLyQ8+mO5EcE
+         Dz1H16mXi95t+DNh4Tevft8UIGCgjjenIUziZ26swXpipI+CkZtKTkgkyMbySOD3CsPd
+         D9Dg==
+X-Forwarded-Encrypted: i=1; AJvYcCWr7L8p+ftKT2TQIXL6iW16ET8nDqKCepkU1Cjojvs38zuCcJqGKcouXHVTEihC0Xwx/FfevGwLVWhAijPosf6k@lists.infradead.org
+X-Gm-Message-State: AOJu0YyeNQ9aD56SWYED5GjF8HzQHn7lGr7RyGjmoMDl2r1TOQKJC5LA
+	OtieRei8pmUKEoiijrtNOHKB6MNXNcN1yYH47Jc2HkLNrMnJAIaseDbngLXAgG8=
+X-Gm-Gg: ASbGncvGM/49eXUy0HTbO+04K99PxouOka5dCnmkszve3xJrWgG/7HK/+34fqTOeJMx
+	G77CUkSlzEI7bPQKLhFwsd6FCJZDenjyL/unXWbSSOv8tvUkr9xgsP3/KshwIWeokdKPYYDa7tE
+	9uAVdluU78EV7vJFJutzM7cPX2OIUJIMe68TD/wAjRD+RUv67XU/euQk/VzFH4htXfWhpAK5wst
+	8UjOZ/h9dSfelk13Qpb9szvYNQYMW38H2jzkrreVz6SU0iJcn1op0TtsmhexBQJ7OTArLH+NgL7
+	gAA8ohu7ggZkH1Yf4dmKbzF5PQQ0ov4A/QZRRPvu9FqLbCINUT/BWetbhaf9NBQraW5GzcI=
+X-Google-Smtp-Source: AGHT+IEiP6Vgn86q0Y+9iOsEDH1SApC/mbVRMzQBBXjANsWv64cM9/IPsj3x7m/5obY5CmIm9XqGUw==
+X-Received: by 2002:a17:907:9805:b0:ac3:422a:76dc with SMTP id a640c23a62f3a-acedc65297fmr255856866b.34.1746009184102;
+        Wed, 30 Apr 2025 03:33:04 -0700 (PDT)
 Received: from claudiu-X670E-Pro-RS.. ([82.78.167.166])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ace6ed6af86sm909390366b.133.2025.04.30.03.32.44
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ace6ed6af86sm909390366b.133.2025.04.30.03.33.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Apr 2025 03:32:45 -0700 (PDT)
+        Wed, 30 Apr 2025 03:33:03 -0700 (PDT)
 From: Claudiu <claudiu.beznea@tuxon.dev>
 X-Google-Original-From: Claudiu <claudiu.beznea.uj@bp.renesas.com>
 To: bhelgaas@google.com,
@@ -91,18 +91,17 @@ Cc: claudiu.beznea@tuxon.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-clk@vger.kernel.org,
 	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-Subject: [PATCH 1/8] soc: renesas: r9a08g045-sysc: Add max reg offset
-Date: Wed, 30 Apr 2025 13:32:29 +0300
-Message-ID: <20250430103236.3511989-2-claudiu.beznea.uj@bp.renesas.com>
+Subject: [PATCH 2/8] clk: renesas: r9a08g045: Add clocks, resets and power domain support for the PCIe
+Date: Wed, 30 Apr 2025 13:32:30 +0300
+Message-ID: <20250430103236.3511989-3-claudiu.beznea.uj@bp.renesas.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250430103236.3511989-1-claudiu.beznea.uj@bp.renesas.com>
 References: <20250430103236.3511989-1-claudiu.beznea.uj@bp.renesas.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_033304_655080_0B6BF2D7 
-X-CRM114-Status: UNSURE (   9.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250430_033305_574930_F4A4E759 
+X-CRM114-Status: GOOD (  13.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,27 +118,75 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 
-Add max register offset.
+Add clocks, resets and power domains for the PCIe IP available on the
+Renesas RZ/G3S SoC. The clkl1pm clock is required for PCIe link power
+management (PM) control and should be enabled based on the state of the
+CLKREQ# pin. Therefore, mark it as a no_pm clock to allow the PCIe driver
+to manage it during link PM transitions.
 
 Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
 ---
+ drivers/clk/renesas/r9a08g045-cpg.c | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
-This patch depends on https://lore.kernel.org/all/20250330214945.185725-2-john.madieu.xa@bp.renesas.com/
-
-
- drivers/soc/renesas/r9a08g045-sysc.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/soc/renesas/r9a08g045-sysc.c b/drivers/soc/renesas/r9a08g045-sysc.c
-index f4db1431e036..2eea95531290 100644
---- a/drivers/soc/renesas/r9a08g045-sysc.c
-+++ b/drivers/soc/renesas/r9a08g045-sysc.c
-@@ -20,4 +20,5 @@ static const struct rz_sysc_soc_id_init_data rzg3s_sysc_soc_id_init_data __initc
- 
- const struct rz_sysc_init_data rzg3s_sysc_init_data __initconst = {
- 	.soc_id_init_data = &rzg3s_sysc_soc_id_init_data,
-+	.max_register_offset = 0xe28,
+diff --git a/drivers/clk/renesas/r9a08g045-cpg.c b/drivers/clk/renesas/r9a08g045-cpg.c
+index 4035f3443598..33219164a19a 100644
+--- a/drivers/clk/renesas/r9a08g045-cpg.c
++++ b/drivers/clk/renesas/r9a08g045-cpg.c
+@@ -243,6 +243,8 @@ static const struct rzg2l_mod_clk r9a08g045_mod_clks[] = {
+ 	DEF_MOD("adc_adclk",		R9A08G045_ADC_ADCLK, R9A08G045_CLK_TSU, 0x5a8, 0),
+ 	DEF_MOD("adc_pclk",		R9A08G045_ADC_PCLK, R9A08G045_CLK_TSU, 0x5a8, 1),
+ 	DEF_MOD("tsu_pclk",		R9A08G045_TSU_PCLK, R9A08G045_CLK_TSU, 0x5ac, 0),
++	DEF_MOD("pci_aclk",		R9A08G045_PCI_ACLK, R9A08G045_CLK_M0, 0x608, 0),
++	DEF_MOD("pci_clk1pm",		R9A08G045_PCI_CLKL1PM, R9A08G045_CLK_ZT, 0x608, 1),
+ 	DEF_MOD("vbat_bclk",		R9A08G045_VBAT_BCLK, R9A08G045_OSCCLK, 0x614, 0),
  };
+ 
+@@ -282,6 +284,13 @@ static const struct rzg2l_reset r9a08g045_resets[] = {
+ 	DEF_RST(R9A08G045_ADC_PRESETN, 0x8a8, 0),
+ 	DEF_RST(R9A08G045_ADC_ADRST_N, 0x8a8, 1),
+ 	DEF_RST(R9A08G045_TSU_PRESETN, 0x8ac, 0),
++	DEF_RST(R9A08G045_PCI_ARESETN, 0x908, 0),
++	DEF_RST(R9A08G045_PCI_RST_B, 0x908, 1),
++	DEF_RST(R9A08G045_PCI_RST_GP_B, 0x908, 2),
++	DEF_RST(R9A08G045_PCI_RST_PS_B, 0x908, 3),
++	DEF_RST(R9A08G045_PCI_RST_RSM_B, 0x908, 4),
++	DEF_RST(R9A08G045_PCI_RST_CFG_B, 0x908, 5),
++	DEF_RST(R9A08G045_PCI_RST_LOAD_B, 0x908, 6),
+ 	DEF_RST(R9A08G045_VBAT_BRESETN, 0x914, 0),
+ };
+ 
+@@ -358,6 +367,8 @@ static const struct rzg2l_cpg_pm_domain_init_data r9a08g045_pm_domains[] = {
+ 				DEF_REG_CONF(CPG_BUS_MCPU2_MSTOP, BIT(14)), 0),
+ 	DEF_PD("tsu",		R9A08G045_PD_TSU,
+ 				DEF_REG_CONF(CPG_BUS_MCPU2_MSTOP, BIT(15)), 0),
++	DEF_PD("pci",		R9A08G045_PD_PCI,
++				DEF_REG_CONF(CPG_BUS_PERI_COM_MSTOP, BIT(10)), 0),
+ 	DEF_PD("vbat",		R9A08G045_PD_VBAT,
+ 				DEF_REG_CONF(CPG_BUS_MCPU3_MSTOP, BIT(8)),
+ 				GENPD_FLAG_ALWAYS_ON),
+@@ -365,6 +376,10 @@ static const struct rzg2l_cpg_pm_domain_init_data r9a08g045_pm_domains[] = {
+ 				DEF_REG_CONF(CPG_BUS_MCPU3_MSTOP, BIT(7)), 0),
+ };
+ 
++static const unsigned int r9a08g045_no_pm_mod_clks[] = {
++	MOD_CLK_BASE + R9A08G045_PCI_CLKL1PM,
++};
++
+ const struct rzg2l_cpg_info r9a08g045_cpg_info = {
+ 	/* Core Clocks */
+ 	.core_clks = r9a08g045_core_clks,
+@@ -381,6 +396,10 @@ const struct rzg2l_cpg_info r9a08g045_cpg_info = {
+ 	.num_mod_clks = ARRAY_SIZE(r9a08g045_mod_clks),
+ 	.num_hw_mod_clks = R9A08G045_VBAT_BCLK + 1,
+ 
++	/* No PM modules Clocks */
++	.no_pm_mod_clks = r9a08g045_no_pm_mod_clks,
++	.num_no_pm_mod_clks = ARRAY_SIZE(r9a08g045_no_pm_mod_clks),
++
+ 	/* Resets */
+ 	.resets = r9a08g045_resets,
+ 	.num_resets = R9A08G045_VBAT_BRESETN + 1, /* Last reset ID + 1 */
 -- 
 2.43.0
 
