@@ -4,92 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B177C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 16:30:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74351C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 30 Apr 2025 16:32:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pYuvroTINkfC6xAaXcm4PuIm1ax6xcO4Y50Rb3BmvI0=; b=vcB31156+tigmHFLvLwZaZoXGY
-	ZX12R3MPIy42KDbWIZnJLvv4Yi5mAMBT7a+nR9/Or9GkFhIRbtO6FgV4Ts56p6itrKsMlXaxOGjwp
-	Ou1kMbGg3fW1U3MPSkIUQw8orm/22y0pteRkfDD3uWDiljo5K5Qwj+CZnYNhTX2zkTHAosFIrtAIw
-	0opM5eJ9ILpysFNuDWvjP3oXhszcvkOiQG2M2P7oBz/zlHQcau8n1BOHzvov3SffXN3D4IaDjFLSj
-	MCCp7ajm8Abab/kmRaZEuQ5qTrIY7/zdEgu6Uorsb0vOGraGMBcUw9JPGky3gnwq32b15IPFCUosI
-	uDotJW1Q==;
+	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=son2TtAYXWFKHIb+qv3GEJQE2heH3nn7VYU4EbNQqf8=; b=qmqednJTh1ss5FvOY8oG80PdGi
+	iCa8Mu9qNK53Q8D2cKtp59puCefKjTsjY/sPN3tJ1yZXYTku0Ki8vxPkN/SLpCBSWpfVrAzy2zHaF
+	DmITXqOVGgVPNHfV116G7+FwM5oaLSgieMpQLv+dl423FzehPkb3raR4ioirZPOysL6yK8NN/JANX
+	94Jww88l1lIx0v5xafQ1XwvO6gk3mZGfz4NU+McOFkp8onHslctsY+LvIZL0Vn+Gm7Tt1yyG0cb6n
+	aZLgJlrsFwB7knEj+imWM52ZmyrJB+wI97VUU/FzgRwEDO/W/FQNH9hcJabgiLGEquyfFvzxCIfow
+	7Ttze65Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAAK6-0000000DRcL-2wMS;
-	Wed, 30 Apr 2025 16:30:14 +0000
-Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
+	id 1uAAM0-0000000DRnr-1lG6;
+	Wed, 30 Apr 2025 16:32:12 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAAFd-0000000DQfR-46e9
+	id 1uAAHO-0000000DR2Y-16Ek
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 30 Apr 2025 16:25:39 +0000
-Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-6ef60e500d7so801847b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 09:25:37 -0700 (PDT)
+	Wed, 30 Apr 2025 16:27:27 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43ced8c2eb7so54119535e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 09:27:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1746030337; x=1746635137; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pYuvroTINkfC6xAaXcm4PuIm1ax6xcO4Y50Rb3BmvI0=;
-        b=RpQerAFrBIQXiUmJJ+x9bwYUlMmpdxXoZHMgBL9IsHWh+mY+WDOt1z0pR0NckMqQ/Z
-         8Pr5hGr9YF5RlLafZom/RnJB3AMY6ShfDR0BM4hpxXDFiL7R+8/+w/xMQrBRlUTCvPXj
-         jCSKCTyzX0DSzSZvB2u9q9VrTdv7o6Gn9wmW4v6xTac7WiLE6KN7/VDd6IuM3qemmuHy
-         4Afd+l3loPgcUwtXMJp0pDX+QGiXpET2boJohZ6MfddgVvh5sFWkTdsosC/UPw+hcpke
-         rCg0jW7XPf2Td7CjSOhsJcTLdwunrfBPn73HXVVDFu8ohAU76X43Wsnjodm/ef2lUvUs
-         QWUA==
+        d=google.com; s=20230601; t=1746030443; x=1746635243; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=son2TtAYXWFKHIb+qv3GEJQE2heH3nn7VYU4EbNQqf8=;
+        b=rZDPdKq570jSyjFBKsRdLxzC4NC/0AvIMXICwhSrs79gpJLpEsP29RLOL1buxc843q
+         1Oj4NYgMJ1ODlQ/kH5g20U8wONEdQb5kN11jT+xdbn1g+tGamh4Q9LD1MnF/W2WxJ3f0
+         e5n0hTNOmTxo/6NyFhRgU8n8oxtKTDgTWWmq8/JdEQsdJEH0Y/nwAGBooVTsdrp/bZok
+         byTDTdfHox7mOIXdbCP1ZagQWBrobDOC5E9hD3RGgk97eZsIGOW73q0dMnKQN4kO5nV3
+         vQgm7cgdMajCFdCx2ZK874DefzOU4t66JNQgVhuzaj6nxmU3gufY6Bu5zj3rAiIal3i9
+         3Szg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746030337; x=1746635137;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=pYuvroTINkfC6xAaXcm4PuIm1ax6xcO4Y50Rb3BmvI0=;
-        b=GKbklJeiXka8oF5ROlefD1WGwoGUdoSjJa53l2C8Acitw+L36RhspGT9/IULnHsWOg
-         0isGCyvDEOL3C8qkWpzE/2btkO0eHpLT1+HmYB8jSog0pSm9Q9qpiXRmLnwZSxCMO68Q
-         OGMqV2QvZbnzKjW98SPcu/q6ijKjA/WSKBzOHDJdwg8xRnt1kkYkXzjJjPhK3TNn89xJ
-         zHfGKAkyCeebL9YTwkaH1wE6RhbewQVCDemtwsDzWhe/eLcPRxKISxyzPQBFji/Qqi4Q
-         BQZrqsnjOs4ECQaA9dvEc6m6sSgLvHHV9urmPzX2cwoXC5qhVwgb7EGZLH4oWgbaQeyX
-         j8mA==
-X-Forwarded-Encrypted: i=1; AJvYcCXNr5GbbfVCBkRXm+EejwNS8CE7/dJevjb56OmjyC7Shyy7G3tvOSgjQXT7H9OPLWYybm7uxMM+9Ra5jyv57CCw@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywe3CGt+0CCdFlGtrV85XhiTHLGK4NHDkIvXF5qQUfZ9Wo8TizQ
-	hSfp6q8punENQTZyw1HowMPZQSfbTYaIfL182X0PoNn8w417pBClBaGTf81aq/sL5wHZ0h7k3ew
-	8esni+Ao/cVaHVD5p5W/GFPi5CcjOIq/V/Pg+/Q==
-X-Gm-Gg: ASbGncsFMjW2Bh6PvreS8jmPdOQFwPJAqzs+hAbeDHCxEDj7tYvbYQyt+KUQ47GcVOp
-	yvquTEWvWJCzk9MHiXpo/VQ0rh4O2fVtWUP6lErNS/Ns8+tM1LPu2dF3IrADVY9K+zuVmuE/XcX
-	q8qZhzQsxuKOe+5tTSpEgB/hs03fEE0YtE1M7sF3XfhW88xjCQLMEEyA==
-X-Google-Smtp-Source: AGHT+IHd+mzxsbQHzg2KdqaE0D0IMCI4DPD74nxHKEsYaPw4wosN4rVl4mhlvOGDdXpSNiN3p5emIlAjRcnS9XKmP/Y=
-X-Received: by 2002:a05:690c:700b:b0:708:73bc:abdc with SMTP id
- 00721157ae682-708abdac21fmr56602207b3.22.1746030336612; Wed, 30 Apr 2025
- 09:25:36 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250430125322.2808528-1-niklas.soderlund+renesas@ragnatech.se>
- <CAMuHMdVXrHVugCMoWkCRVGotOEeTuuJJ6rC7CC7Kf_seo3J5og@mail.gmail.com>
- <20250430131856.GB25516@pendragon.ideasonboard.com> <CAPY8ntBPSC6KZcBVt35QWx_ZPYwkSJSVzhhaXokbjkWJDVJRqA@mail.gmail.com>
- <20250430160445.GB31516@pendragon.ideasonboard.com>
-In-Reply-To: <20250430160445.GB31516@pendragon.ideasonboard.com>
-From: Dave Stevenson <dave.stevenson@raspberrypi.com>
-Date: Wed, 30 Apr 2025 17:25:14 +0100
-X-Gm-Features: ATxdqUFmSnHhLyB4xlaoBz0z3J5u5ayEJkVVl-qFWx18SUxO7BsGgktwlOcreUk
-Message-ID: <CAPY8ntBb5x+F=xj=KVrkfq=JqdshgCS548YjRt4OuhhyVJNkVw@mail.gmail.com>
-Subject: Re: [PATCH] media: dt-bindings: sony,imx290: Update usage example
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>, 
-	=?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>, 
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org
+        d=1e100.net; s=20230601; t=1746030443; x=1746635243;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=son2TtAYXWFKHIb+qv3GEJQE2heH3nn7VYU4EbNQqf8=;
+        b=mXz2tyFibFwnOV4IIimDt69a5/V5mqzSFY4nj79iwOfvyNmi7yRllVhuvKtaTD8bJr
+         n69gKDmRcoZAg2CkSk5dNAnBGNEFrqm+gZFuygDxvCyiudwowBSOI7YtVRFOTWPRDlTK
+         2ULx2JUwEvIQdleHITobM3rir/mr5pWOhgGvAwxhNWgcZqsSpLclTBpLwpJ5SkM9DElV
+         HyR00nURKm/82xG7IYAEv8mYoTMVWdeDdcxfVJTSIRm37sEtpt9BVoV/bV4gHKIK127s
+         XNY7fkI+vkRmzdimx9FY3q4B4MkuYcXCsUklFDxa9GSUmDT9mEGdVHIAbA9H3qBYEjHg
+         Avqw==
+X-Forwarded-Encrypted: i=1; AJvYcCWMCZxlPJ9L+x6lHAQrsntxtkukEakXqHNgYyKP0ftI+GRFLX1R+kAptx0QH1cwEobJd+PGRa3JJvlJ+mdZcH4P@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywyw1x5h2ANqQyKt+w2ZBmlVFgJFh9a9r6MLJY2Gy13TiM0m13L
+	2IfVwheGJag1Ek4EW85G+ddFEg+ExoeVPU186YrbwI5gyfGkxpN1RTdbwpOcy60G9DqgMvrqOFh
+	VvDVU0tSniA==
+X-Google-Smtp-Source: AGHT+IFQ2Mdes0eRtKfnxWeLvHYhOcWYODGlYYFwAfRst9gZKnEGAYllVA7JEZatII5sz3zXBjKQtfWJvzFPDQ==
+X-Received: from wmqb17.prod.google.com ([2002:a05:600c:4e11:b0:440:5e10:a596])
+ (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:1f0c:b0:43d:b51:46fb with SMTP id 5b1f17b1804b1-441b1f31004mr39397195e9.2.1746030443778;
+ Wed, 30 Apr 2025 09:27:23 -0700 (PDT)
+Date: Wed, 30 Apr 2025 16:27:07 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.49.0.967.g6a0df3ecc3-goog
+Message-ID: <20250430162713.1997569-1-smostafa@google.com>
+Subject: [PATCH v2 0/4] KVM: arm64: UBSAN at EL2
+From: Mostafa Saleh <smostafa@google.com>
+To: kvmarm@lists.linux.dev, kasan-dev@googlegroups.com, 
+	linux-hardening@vger.kernel.org, linux-kbuild@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: will@kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
+	broonie@kernel.org, catalin.marinas@arm.com, tglx@linutronix.de, 
+	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com, x86@kernel.org, 
+	hpa@zytor.com, kees@kernel.org, elver@google.com, andreyknvl@gmail.com, 
+	ryabinin.a.a@gmail.com, akpm@linux-foundation.org, yuzenghui@huawei.com, 
+	suzuki.poulose@arm.com, joey.gouly@arm.com, masahiroy@kernel.org, 
+	nathan@kernel.org, nicolas.schier@linux.dev, 
+	Mostafa Saleh <smostafa@google.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_092538_188463_5518859B 
-X-CRM114-Status: GOOD (  39.72  )
+X-CRM114-CacheID: sfid-20250430_092726_304347_CCF8D19A 
+X-CRM114-Status: GOOD (  16.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,86 +97,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 30 Apr 2025 at 17:04, Laurent Pinchart
-<laurent.pinchart@ideasonboard.com> wrote:
->
-> On Wed, Apr 30, 2025 at 02:52:01PM +0100, Dave Stevenson wrote:
-> > On Wed, 30 Apr 2025 at 14:19, Laurent Pinchart wrote:
-> > > On Wed, Apr 30, 2025 at 03:03:10PM +0200, Geert Uytterhoeven wrote:
-> > > > On Wed, 30 Apr 2025 at 14:58, Niklas S=C3=B6derlund wrote:
-> > > > > Since commit 98e0500eadb7 ("media: i2c: imx290: Add configurable =
-link
-> > > > > frequency and pixel rate") the driver expects two specific
-> > > > > link-frequency settings 2-lane (445500000, 297000000) and 4-lane
-> > > > > (222750000, 148500000) operation. The driver fails to probe witho=
-ut
-> > > > > these exact settings.
-> > > > >
-> > > > > Update the example in the bindings to match this to make it easie=
-r for
-> > > > > users to incorporate this sensor in their device tree description=
-s
-> > > > > without having to read the driver sources when the driver fails t=
-o
-> > > > > probe.
-> > > > >
-> > > > > Signed-off-by: Niklas S=C3=B6derlund <niklas.soderlund+renesas@ra=
-gnatech.se>
-> > > >
-> > > > Thanks for your patch!
-> > > >
-> > > > > --- a/Documentation/devicetree/bindings/media/i2c/sony,imx290.yam=
-l
-> > > > > +++ b/Documentation/devicetree/bindings/media/i2c/sony,imx290.yam=
-l
-> > > > > @@ -136,7 +136,7 @@ examples:
-> > > > >              port {
-> > > > >                  imx290_ep: endpoint {
-> > > > >                      data-lanes =3D <1 2 3 4>;
-> > > > > -                    link-frequencies =3D /bits/ 64 <445500000>;
-> > > > > +                    link-frequencies =3D /bits/ 64 <222750000 14=
-8500000>;
-> > > > >                      remote-endpoint =3D <&csiphy0_ep>;
-> > > > >                  };
-> > > > >              };
-> > > >
-> > > > I guess the link-frequencies property should gain a rule that it
-> > > > needs two values, too?
-> > >
-> > > The driver doesn't require two frequencies (unless I'm mistaken), it
-> > > could operate with a single one (albeit not in all resolutions), so I
-> > > don't think we should require two frequencies in the bindings.
-> >
-> > The driver does require both due to 98e0500eadb7 ("media: i2c: imx290:
-> > Add configurable link frequency and pixel rate") and
-> > imx290_check_link_freqs()
->
-> I realized after sending the previous e-mail that I was indeed mistaken.
-> I thought the driver iterated over the DT link frequencies to check if
-> they're supported, but it goes the other way around.
->
-> > However I'd agree that it'd be better to make the driver accept just
-> > the one and make any compensations, rather than amend the binding. I'm
-> > happy to try and find a few minutes to make a patch for that.
->
-> That would be nice, thanks.
->
-> > My experience of this family of sensors says that we should be able to
-> > run any resolution at any link frequency, but it needs changes to
-> > HBLANK to ensure there is sufficient time per line.
-> > Dropping to the lower link freq for the 720p mode is only because that
-> > is what the datasheet describes for the precanned HD720p. The window
-> > cropping mode lists no such requirement, and yet could produce exactly
-> > that same 720p output.
->
-> And with more information about the INCKSEL registers we could possibly
-> even support other frequencies.
+Many of the sanitizers the kernel supports are disabled when running
+in EL2 with nvhe/hvhe/proctected modes, some of those are easier
+(and makes more sense) to integrate than others.
+Last year, kCFI support was added in [1]
 
-I have no extra information there.
-The minimal changes that are made to INCKSEL 1 & 2 to switch between
-the two link frequencies makes it look pretty fixed rather than
-flexible PLLs, and I haven't got the time to go randomly poking to
-reverse engineer it.
+This patchset adds support for UBSAN in EL2.
+UBSAN can run in 2 modes:
+  1) =E2=80=9CNormal=E2=80=9D (CONFIG_UBSAN_TRAP=3Dn): In this mode the com=
+piler will
+  do the UBSAN checks and insert some function calls in case of
+  failures, it can provide more information(ex: what is the value of
+  the out of bound) about the failures through those function arguments,
+  and those functions(implemented in lib/ubsan.c) will print a report with
+  such errors.
 
-  Dave
+  2) Trap (CONFIG_UBSAN_TRAP=3Dy): This is a minimal mode, where similarly,
+  the compiler will do the checks, but instead of doing function calls,
+  it would do a =E2=80=9Cbrk #imm=E2=80=9D (for ARM64) with a unique code w=
+ith the failure
+  type, but without any extra information (ex: only print the out-bound lin=
+e
+  but not the index)
+
+For nvhe/hvhe/proctected modes, #2 would be suitable, as there is no way to
+print reports from EL2, so similarly to kCFI(even with permissive) it would
+cause the hypervisor to panic.
+
+But that means that for EL2 we need to compile the code with the same optio=
+ns
+as used by =E2=80=9CCONFIG_UBSAN_TRAP=E2=80=9D independently from the kerne=
+l config.
+
+This patch series adds a new KCONFIG for ARM64 to choose to enable UBSAN
+separately for the modes mentioned.
+
+The same logic decoding the kernel UBSAN is reused, so the messages from
+the hypervisor will look similar as:
+[   29.215332] kvm [190]: nVHE hyp UBSAN: array index out of bounds at: [<f=
+fff8000811f2344>] __kvm_nvhe_handle___pkvm_init_vm+0xa8/0xac!
+
+In this patch set, the same UBSAN options(for check types) are used for bot=
+h
+EL1/EL2, although a case can be made to have separate options (leading to
+totally separate CFLAGS) if we want EL2 to be compiled with stricter checks
+for something as protected mode.
+However, re-using the current flags, makes code re-use easier for
+report_ubsan_failure() and  Makefile.ubsan
+
+[1] https://lore.kernel.org/all/20240610063244.2828978-1-ptosi@google.com/
+
+Changes from v1:
+- https://lore.kernel.org/all/20250416180440.231949-1-smostafa@google.com/
+- Collected Kees Acked-By
+- Rename CFLAGS flag to CFLAGS_UBSAN_TRAP
+- Small comment fix
+
+Mostafa Saleh (4):
+  arm64: Introduce esr_is_ubsan_brk()
+  ubsan: Remove regs from report_ubsan_failure()
+  KVM: arm64: Introduce CONFIG_UBSAN_KVM_EL2
+  KVM: arm64: Handle UBSAN faults
+
+ arch/arm64/include/asm/esr.h     | 5 +++++
+ arch/arm64/kernel/traps.c        | 4 ++--
+ arch/arm64/kvm/handle_exit.c     | 6 ++++++
+ arch/arm64/kvm/hyp/nvhe/Makefile | 6 ++++++
+ arch/x86/kernel/traps.c          | 2 +-
+ include/linux/ubsan.h            | 6 +++---
+ lib/Kconfig.ubsan                | 9 +++++++++
+ lib/ubsan.c                      | 8 +++++---
+ scripts/Makefile.ubsan           | 5 ++++-
+ 9 files changed, 41 insertions(+), 10 deletions(-)
+
+--=20
+2.49.0.967.g6a0df3ecc3-goog
+
 
