@@ -4,166 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D295EC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 18:56:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9786BC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 19:09:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LatOSNnxxkryEsvBRI/66HabOiRW4kQiOFbVbM7SRlo=; b=Rk523bHQQDlFCHNxcoFy950bJQ
-	0SZDr/Ng2aDb1uZZa6vNNcPsHzJaacJV81m4D3UOqinUJ3l/qar2nWzcQ9DGUXD2mi+AftIPcxYO7
-	V4IyzEJwUgPlqFt+p/3g5P179GuVR3CQiHnhJNmxLGIJNgKbVjc3vJyx74bUVwn/l4r/BSGNWUU9O
-	BajgOgVOvgEFr/Eke6hwPDVnFEC5QVxqKzDw5YOP7bMkU8g1K15tCcCEPOerzcYmPSoEE608mlu+R
-	rneAj/1x6fp1J679poUKOm1lo4tN96uBEl/QizQ9cnZ1kzxqxTYq0+8K4PA0pKmJbqQpZ8WOAR48K
-	FcfWvpQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xYcnJfHyu9Qya9nm0+iaohPyzIhpcE4qtAIXaJuOv9M=; b=QB1nvrIURZvVu21qqd47yDszC5
+	BaPMCuyPOvtuGqua6Kp6cKDF5ncia188Ud89LypQZSPIHzyFyBlfPwYyIjijO24fKr2zcRIBGyu25
+	rKehyVCdcI7UYCnbwW6uV9KMVGMY06yeviwqlvjtYZBM4/5zNi3ZPLNIVlrvuVTmk7QmyDZTBLFdW
+	LfUm0yXqRY8rpOSmmupcn9Gz+q5ic0p1CUiWrKEpv9Hb4bsN4MozWzPkVJ2MrKoNTvuAJ7w0y8LII
+	nKknmqO6bPtvHcuVp2SoBAJN65eXJr29z2DpERXzedQIh6h4a44hnxXZRD8ZBO0Pch1whaEjzzNK3
+	TQmEFh2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAZ5O-0000000GR0a-00Mb;
-	Thu, 01 May 2025 18:56:42 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uAZHu-0000000GSIs-25zR;
+	Thu, 01 May 2025 19:09:38 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAYyg-0000000GPxM-43Tt
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 01 May 2025 18:49:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:References:
-	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=LatOSNnxxkryEsvBRI/66HabOiRW4kQiOFbVbM7SRlo=; b=fxaoyNgKJhUPTuz5VuhaKFsFKN
-	j7O7+LBypC65xBQ6p5yHw5igxZTulCttEzwmazT7rtSkoDE3J7PntlXuCcccHu14210efSu0EZV3z
-	9LWZwWmDmtT4Wj5xVo1oHIeLdRVL+W8nr6z5LWnKSdwTTD3b30bJe5SfEEdgoR6qXWmx4N0EITy8U
-	DDzFboiy1oaIcfQNGwJORANM5/O2n3SUaCg2oPnDxE1e3YuxK1iDolw4jnXHr7vs/2Ix+dAot9NyA
-	PhVCoctWMAu9tb+SUU7dA2Uef+FVZYsrv9SrNr6VcmnZ9/t4zpSNHmSyCz+Z9f1AXX2C9eRIx0Igm
-	xiu16OAQ==;
-Received: from mail-dm6nam10on2060a.outbound.protection.outlook.com ([2a01:111:f403:2413::60a] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uAYyc-0000000E6C3-36Cq
+	id 1uAZG0-0000000GS7c-23T6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 18:49:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NLCMlpTvwnEWBW/MsICzZGsBGwEkqQ7NtJVtSF08acSk5M+MyGvwxkA87J4g6NjJhyCDC8rYmLK9kqPy/RB/d7yUua6XhXniMnG1/jG4XQ/T/nj1RCxSuNpnYh+GNiE6SlYEveHdUTivo69pICe1+fC5ymF/5Vu7HI5WXIUyQ6ioPTzaHxZBlk0Qc0uTSS4RLkyfy/hOmw88VuQJ4QtIszuZJPGe3LPhOO8sZL8KsonL3c8D/k/tq53d8LUO6naMxUcCyTOAN/GOzIh2vkUAkEr+1KHUhYj+DAOJhZSVYaUBIPTfrcwXZq+ARkf/DNiUISqftnbM9Lu2tERncsLuIw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LatOSNnxxkryEsvBRI/66HabOiRW4kQiOFbVbM7SRlo=;
- b=aV5WQk3p+4jJpRj8M9FYWpsuzB/JgZm6IdmoCzktFfnCj7GAu+wpw8SIwOYY5rViWBbdlrTMOjA2sXtH16fIGryWkdwE7inejBCIBF8+U4TG7ymq/nBPBNILymHHOZ6zfRCybGmWp0pdT/lqsGgUG6P16OJvU+D7XgfiyaTulxleviphyb8ybFEMVAqSQDaiPqNemxzSloWRuAv+ZvPvlZlHnd2+ew2PSYjVnVqcqsD8t+QK6l0Yx7dKCdHwpX6Qmd3wG6Xo9D0th5rUya/M253cjahF9mB35+LO5NAL2nnPKRco/Xu0sCYd66p0fSCkQ/e9brkOw8gqKjUyb9/L9g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LatOSNnxxkryEsvBRI/66HabOiRW4kQiOFbVbM7SRlo=;
- b=sP3EXgNCKqhDNoFWWlzQnXa6kJ8UFvPvlEJq9asX3P8SLKjh4s55URa0Cch6b4ku0hVhs+yTZomu0ROwZHQiv7cOH8d828xTNlNm0Z9S7zTZsd0JDQEgoaF0WdushAFKiTAm3EuKO4FVJdLXD1MSKIzV/BvEsRtcKC9RLQGPBMb/RdeQfpNs1o68HRrj8EHzHmKKERwaP/bp8nyvkRATWhS3mQ/8rOaBSsRHOU13OKHvBRibc8sQHsrYIl4BGlacUpJAg2AoCepYWUdYSNKzIWSESjZKK4s/U636TtyVBkIIEch6GU4eNmo9nboaH1vsvfr9ey9ksCSBEI+KUoxGrQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DS7PR12MB9473.namprd12.prod.outlook.com (2603:10b6:8:252::5) by
- MN0PR12MB5932.namprd12.prod.outlook.com (2603:10b6:208:37f::9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8699.19; Thu, 1 May 2025 18:49:23 +0000
-Received: from DS7PR12MB9473.namprd12.prod.outlook.com
- ([fe80::5189:ecec:d84a:133a]) by DS7PR12MB9473.namprd12.prod.outlook.com
- ([fe80::5189:ecec:d84a:133a%5]) with mapi id 15.20.8678.028; Thu, 1 May 2025
- 18:49:23 +0000
-From: Zi Yan <ziy@nvidia.com>
-To: Juan Yescas <jyescas@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, tjmercier@google.com, isaacmanjarres@google.com,
- surenb@google.com, kaleshsingh@google.com, Vlastimil Babka <vbabka@suse.cz>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- David Hildenbrand <david@redhat.com>, Mike Rapoport <rppt@kernel.org>,
- Minchan Kim <minchan@kernel.org>
-Subject: Re: [PATCH] mm: Add ARCH_FORCE_PAGE_BLOCK_ORDER to select page block
- order
-Date: Thu, 01 May 2025 14:49:21 -0400
-X-Mailer: MailMate (2.0r6249)
-Message-ID: <15428BF6-A7DD-44ED-B225-AECD7866394C@nvidia.com>
-In-Reply-To: <20250501052532.1903125-1-jyescas@google.com>
-References: <20250501052532.1903125-1-jyescas@google.com>
-Content-Type: text/plain
-X-ClientProxiedBy: BN1PR13CA0013.namprd13.prod.outlook.com
- (2603:10b6:408:e2::18) To DS7PR12MB9473.namprd12.prod.outlook.com
- (2603:10b6:8:252::5)
+	Thu, 01 May 2025 19:07:41 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-ac2af2f15d1so150513466b.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 May 2025 12:07:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746126458; x=1746731258; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=xYcnJfHyu9Qya9nm0+iaohPyzIhpcE4qtAIXaJuOv9M=;
+        b=iIe/O9VDr/gofw7s6Qxt2VrjWh8BHcZMtEL6GmYzfprQf50uPs3VptZSMUE8+sbW/n
+         46HDPYzbMK1m7Lz6ci6FJsb8H9955blPMLdwgLwQU6FPDqLTLF1IInxGH1Tp58ntjW9D
+         R3Lr57FJqKf+crjE1cT4qdC/ETr29IpoKBL0ANokvPPzt5fPVEV566Bg6q2/PdCtGCBV
+         T42AgNhnjNTz0uGbtWTUmR6qN+suHn9MYefxcE9QSDvBCUaWaV19pmORE8M2LIjIGTpd
+         j9COhOGwxbyjK3ory4JIwQYl+0AmVqtAeV68aEI/oYRWPG0d6pULL7CFv5Lw99jCCtZH
+         ehRw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746126458; x=1746731258;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xYcnJfHyu9Qya9nm0+iaohPyzIhpcE4qtAIXaJuOv9M=;
+        b=EVD2O0H178Jf/WoWqlZLq+MEOMVC2OiyqN55VumLtWELhyN3VwpqIfWfIthtys2Y+n
+         MWzuP9BQVlqJv669ikC4PFzV2eavOnT55RCuB/RJBuvXgtj7h3GZ0dKtHLTH+NU+dKTQ
+         zFwrQHUeNFeVQVJZV+V9GsF3CIekdwQD7eax2QmMRTzJaEJHVKbn3zxUy9znTNKkB0HE
+         k1cqBnjAa3NBWygQXmkU/z1vzkAdH6p7eRMMTPm7MOOR8GCLGINTLAQSQSDq4vrSqrbU
+         VvkLvdmVrOS0/dmhfRtAQbSwWKPmDmOM4AeaKuyQsUddwwrYxMBEWACW6MqHhRqTJjx8
+         Z3nw==
+X-Forwarded-Encrypted: i=1; AJvYcCXwBytzUx5WNoxyMmn/9DQS+EXV968jhq8BQHEbDHTdPdUOb91bs8X2030ZDglBtGC91M2hW3v5AjptnjS25UQ2@lists.infradead.org
+X-Gm-Message-State: AOJu0YydTjGyrJz3yPYAn8xSsA5lLEHjbueAmrVea7OsboGDoNnQFaDE
+	TT7+t+o0IH9gGQEdJ47+Zq8zoRP6UEffhF04/L4VlY66SAU5lWTy
+X-Gm-Gg: ASbGnctDEIJZgXvL+u8ToE0nA20JNgFwiQy25N04k7KlyaLNv96aZB+PrhVKefGr719
+	+u4sL8pLq90j4fHkRtJfVCMPdG1cdeOH0HQQWGu9z+DdPoU69Z7qjgClin9nb1ql7iZFum4RY4S
+	PLfXeODSEKx4gjzktVQxwcEq2PU+Fu87lh3ZZC1brssEOuJjv3r2cou/ug079jwuWdULXMeTfNi
+	+/ssKKtqKRuXI5aDhgo4acSB60jnAvwMYk5GinrupJxDoSkV1hc3YVg8vzp5xuMqnm8gi6Yytgo
+	6Fafpbqx9gQh+HcTozvV7T4e+WaK9dMbDtI1q4Y0COLAPGARIhpKavpzsQ2vSuKcn7rm
+X-Google-Smtp-Source: AGHT+IHfDMVIQ26ycHG3NCY+1odFkBcAwHTLJ2hCKHMBoEhxiuT8ZDLFmo0kkKjR+EXlLecp/8T5kw==
+X-Received: by 2002:a17:907:1b17:b0:ace:37d6:a5ce with SMTP id a640c23a62f3a-ad17ad819e2mr39669966b.19.1746126458067;
+        Thu, 01 May 2025 12:07:38 -0700 (PDT)
+Received: from localhost.localdomain ([2a02:2f0e:c50a:8800:cf9e:ee0b:4a01:37f6])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad0c70c6917sm80349266b.4.2025.05.01.12.07.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 01 May 2025 12:07:37 -0700 (PDT)
+From: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+To: clabbe.montjoie@gmail.com,
+	herbert@gondor.apana.org.au,
+	davem@davemloft.net,
+	linux-crypto@vger.kernel.org
+Cc: wens@csie.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+Subject: [PATCH 1/2] crypto: sun8i-ce: undo runtime PM changes during driver removal
+Date: Thu,  1 May 2025 22:06:50 +0300
+Message-ID: <20250501190651.3863582-1-ovidiu.panait.oss@gmail.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS7PR12MB9473:EE_|MN0PR12MB5932:EE_
-X-MS-Office365-Filtering-Correlation-Id: 51878c6f-5e4f-4807-ebe6-08dd88e0e40d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?uynssQ3pvhQLEVC9Hr/RroOxtkLslPsbGfQAbwKSTxFbdiIesnuMek6UMiYF?=
- =?us-ascii?Q?AOxTXR5x/VQZ6eleQKde6Xu1x3FZvodu15vkVAyOYgs9KZCoTdrQ3bi8qXFT?=
- =?us-ascii?Q?AbEvEMbWLkRet46O+jocC1/cIcCA4L3eLoOm3Omkch/BePHB1h+PuBazmTNK?=
- =?us-ascii?Q?tPOl3YNFOZ6hBsx+8NtZUQwZkAGpl2Iv+1AfTJVCGlmxbBI83oGjOhhQAk7w?=
- =?us-ascii?Q?9nKTMOwqmGkyeFNS50HWO4q844ZPZJSi+wDHlSoMeyGuwiTxKA/NSGKc/p4U?=
- =?us-ascii?Q?0/RY6Dsszqkbg45QKmBFv8gaHHvLbPjE0XtbgReahUfkoCis7BtPNJMymPa+?=
- =?us-ascii?Q?YfVZxGEWbYXcNoWdPXfC9gQWNzYHLxFcbyuXDvMT6HBGkn1eFpyJ0jMDGHv2?=
- =?us-ascii?Q?NNnR+65vVvHRIDyS6E1A0cYlrkTUVY9cGrlCzWSMd1BgJBKMzibMTEcR+zWn?=
- =?us-ascii?Q?Wzw4V9yl046oV91irRYFLdJNGJ3mu/1cYJyWkeXGvnP1fz1/W72U6T/vr3w7?=
- =?us-ascii?Q?omqkZWvgVkDnttQl3Mfiv5XIrVHcMuM95jEw3g58dv239bMFSrsHA0d19B5Y?=
- =?us-ascii?Q?KmoikjULHgGdZ6rCSvR/4Xc9KwgTTJ6RT4Sv1qFo41WV3nV+pKji9RDTmr1D?=
- =?us-ascii?Q?W5Q39ieRzsO7TFbtjcHK1O0MNmEo8VsdCPrKY5jWjtEHoiMR/Bjg3yaO8o8J?=
- =?us-ascii?Q?+CkHmz6qGQ6QgVd7KI5Nqu1NxXOKAekcH4zlZVq0eIQmUBIknVGCuQyqW88B?=
- =?us-ascii?Q?vh0SEoETOmSi6Wsrs3MgGkEFAlhq09kT8E5lxpS7o4AEzVzP3mgEFgIPTKZT?=
- =?us-ascii?Q?GWDmryWOpAM4iNZLuGuFfVqNgSiJD03CIfImkKF9nMoQCRNcg24T8AvWAwpA?=
- =?us-ascii?Q?a/r/q403votPN8Ho/+ZBstdIF8LbuA4tRGAyb6FVjVsG8wZYCeBoeQ0ixDpX?=
- =?us-ascii?Q?fwpHYV3YGoG6EzdeGplUswEFH1Px8uiaCsncnuJu8FN69lG328iIHT0B4DoX?=
- =?us-ascii?Q?l6b7wLY38LJ7mAqv4DqRPKQO/P2vcuKGv4e2OVow2rDtAEz6tKX4auKEHRmS?=
- =?us-ascii?Q?3wTzRj1oIdMLlJveIh0QojWj3leTAv0FVNE0TpEmWWCrOBKB8K44QPEaELjY?=
- =?us-ascii?Q?Q2PYKeDSNAGsfd3O6MuzRJQbkkw+PqSpqUTuVpub1I4Ul50J/R8jN4xUCDLa?=
- =?us-ascii?Q?l0211so934Ya0eJEn+ZWxBaXW4kFDvSR5vsrBnR0WTcfPP/bztDedsPH/yo1?=
- =?us-ascii?Q?aghwNvD+sBHmn5XFLtkTfUvf0iNzIKbB66EhdKI0xi/YIjPQ26WiQcyS3b1O?=
- =?us-ascii?Q?1ZwMJ/gz5rKddA9O/hhKb78GXneulV9ciadNuyN4VnuLCVlLNCAek3NhGV2p?=
- =?us-ascii?Q?G/KV81YTCxNF1JhyvvBEm41rZ/Bb0kCdODO/67f9Iqzl1ZZaIMEweBg3wing?=
- =?us-ascii?Q?t7pzbC6KLCQ=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB9473.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?yz55waXDhT38D00/2Zu5DWjLv0oEuFbgC2Fq1COLcyCXojP1l9tkAUnTXK7l?=
- =?us-ascii?Q?NdS3q1lGjo0azX7bdVictalqt6zNgnqifMOpNq5BogB4umXAKJqDWNUdQCN0?=
- =?us-ascii?Q?dYqN94Vm98cpvnjpAgR35+egiripTGJf3C0bMOLfD4vPPu2ACBbY2iOicMif?=
- =?us-ascii?Q?tpnX3AVBVR/IrwJI5OlkVL1ErD3DPOkuiFJUqAURnGHt2x0WpUqP7z2WpKTv?=
- =?us-ascii?Q?g37MSspTb1RbsJcMpEwTVd4Qxb4PaYqm7kf0G1t/cwzezNnAJ3M6PRSdGomG?=
- =?us-ascii?Q?II+GggfcVf4YSR+WxR84mXJPzjoL4VDLQlzatr1+X4vfxQx/C1+InHfFoKL1?=
- =?us-ascii?Q?DBRsfer6bmjZ/+76LVV8bDHTEbSqwByM5gGU4kgd2Uh7apMmjyoJOaS3AvUd?=
- =?us-ascii?Q?EdksUWqbprhNbiIAOfDsLW9TcxHGOuw4qyfLrF6T/adcemxcDOUimRCcCC7t?=
- =?us-ascii?Q?ixeNk2xf+gfna0UyhkPQxWCMPt+5kPz+y4ewG8nwAX/A6Cd5YcZ6oQyrDtUU?=
- =?us-ascii?Q?rkfT+LkQoafINZaKPBiRCiNVQb6TKdhf2ckyeKdJd5CpwMJoowdKYQ0Sj4vL?=
- =?us-ascii?Q?woB1Hih6xtAFqXxbSffcBhq1zC+1DB8P40thIA/2P6HzxT5UtpSvg9IeiUO8?=
- =?us-ascii?Q?L0gBhaMQ0ejneLARqlDs31bhR1kosBy0u18jgg8YUbv+K8LxhEXTdg+Vmbsa?=
- =?us-ascii?Q?cHLXyi/WQNZVinfp69ZHshWdoVuAB1LCqER1aMRI4/Ehrflkq74GD9Jtx5bx?=
- =?us-ascii?Q?l7qjVWJlI48m4TTkyg9IP5qiNInCox3p20b/SXU13175Gf4xKhVlefs2pPVO?=
- =?us-ascii?Q?qylNsvO5S3xShUqz+8BwvlLIWLVBZl8Ij6jChpVizqpWNtc6Ms0fr9gwRnC/?=
- =?us-ascii?Q?WyKxR03dW8G/+4jfOkbM/OegivGfg53fC93eHXjRuSeyJEcGjLAokvNVuYMA?=
- =?us-ascii?Q?AE9HXGkbAr/DX7Cvsl62bwRKaNruqdtpxa0mHt/2j87aH/xutJATTLbcjCx2?=
- =?us-ascii?Q?o4GEealcYzPdv6p3AnSLMwjhfe6P1xe6YcyHTgnk6nAiLSR9jcdHIh+3Ywaq?=
- =?us-ascii?Q?doCWuzNQjwZbriYJM3F26ofM57H1Nm5zLWgGzCDKwi7Hjc0Tr3rKHv0tN5mi?=
- =?us-ascii?Q?4+X/yRYRL9kO/WzWroiPsC25V5mmdO4Ndb9826nLykZ3OTlZFy7bPRMH+iYO?=
- =?us-ascii?Q?md8/+93+OideTBUDdDWo1Qwp3NC3l+xg3HggKCKkC3rEqtF5l0+ZXFI5bHCv?=
- =?us-ascii?Q?3SCQ+Y82JMeF2t5vWJaffBlxZvS7pNy5tCQtec0zm2C0+WUQycgd/yOa3LxV?=
- =?us-ascii?Q?suDCuzSf2ZO2xa5QG3MDiKKOv7csD+sDhFDH41PHJgawYEmjbyUB0mkLkTVG?=
- =?us-ascii?Q?moUlxgMEKu1zNddnG0mWwS/wogbymKRTQogVqkCgGMihQISEKypEcyWkdj9l?=
- =?us-ascii?Q?ON3d3oQ2jCAU/XySyeemFZLvPHG/rEuPOP7njE4NxlbI5N5Tf+q7zzl5tTf0?=
- =?us-ascii?Q?nsVpDs4Bs81r5JU0Yf4MjqdFro27HL8Cx3+1G5sH+d/AfEnnkjx64QHBg2Lu?=
- =?us-ascii?Q?T2kumLaz9DwnYOjNzYpnJJYJ3RDVV7GrN6i/soso?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 51878c6f-5e4f-4807-ebe6-08dd88e0e40d
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB9473.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 May 2025 18:49:23.7917
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: E/zoQnIKW1ewwHn3xleyumwZ1ajYBwlWBxpNGeCk7U80z8JK+IcIcStuLQCQWDKk
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB5932
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_194943_482732_B5810392 
-X-CRM114-Status: GOOD (  34.45  )
+X-CRM114-CacheID: sfid-20250501_120740_531122_CA4871DD 
+X-CRM114-Status: GOOD (  14.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,238 +102,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1 May 2025, at 1:25, Juan Yescas wrote:
+The pm_runtime_use_autosuspend() call must be undone with
+pm_runtime_dont_use_autosuspend() at driver exit, but this is not
+currently handled in the driver.
 
-> Problem: On large page size configurations (16KiB, 64KiB), the CMA
-> alignment requirement (CMA_MIN_ALIGNMENT_BYTES) increases considerably,
-> and this causes the CMA reservations to be larger than necessary.
-> This means that system will have less available MIGRATE_UNMOVABLE and
-> MIGRATE_RECLAIMABLE page blocks since MIGRATE_CMA can't fallback to them.
->
-> The CMA_MIN_ALIGNMENT_BYTES increases because it depends on
-> MAX_PAGE_ORDER which depends on ARCH_FORCE_MAX_ORDER. The value of
-> ARCH_FORCE_MAX_ORDER increases on 16k and 64k kernels.
->
-> For example, the CMA alignment requirement when:
->
-> - CONFIG_ARCH_FORCE_MAX_ORDER default value is used
-> - CONFIG_TRANSPARENT_HUGEPAGE is set:
->
-> PAGE_SIZE | MAX_PAGE_ORDER | pageblock_order | CMA_MIN_ALIGNMENT_BYTES
-> -----------------------------------------------------------------------
->    4KiB   |      10        |      10         |  4KiB * (2 ^ 10)  =  4MiB
->   16Kib   |      11        |      11         | 16KiB * (2 ^ 11) =  32MiB
->   64KiB   |      13        |      13         | 64KiB * (2 ^ 13) = 512MiB
->
-> There are some extreme cases for the CMA alignment requirement when:
->
-> - CONFIG_ARCH_FORCE_MAX_ORDER maximum value is set
-> - CONFIG_TRANSPARENT_HUGEPAGE is NOT set:
-> - CONFIG_HUGETLB_PAGE is NOT set
->
-> PAGE_SIZE | MAX_PAGE_ORDER | pageblock_order |  CMA_MIN_ALIGNMENT_BYTES
-> ------------------------------------------------------------------------
->    4KiB   |      15        |      15         |  4KiB * (2 ^ 15) = 128MiB
->   16Kib   |      13        |      13         | 16KiB * (2 ^ 13) = 128MiB
->   64KiB   |      13        |      13         | 64KiB * (2 ^ 13) = 512MiB
->
-> This affects the CMA reservations for the drivers. If a driver in a
-> 4KiB kernel needs 4MiB of CMA memory, in a 16KiB kernel, the minimal
-> reservation has to be 32MiB due to the alignment requirements:
->
-> reserved-memory {
->     ...
->     cma_test_reserve: cma_test_reserve {
->         compatible = "shared-dma-pool";
->         size = <0x0 0x400000>; /* 4 MiB */
->         ...
->     };
-> };
->
-> reserved-memory {
->     ...
->     cma_test_reserve: cma_test_reserve {
->         compatible = "shared-dma-pool";
->         size = <0x0 0x2000000>; /* 32 MiB */
->         ...
->     };
-> };
->
-> Solution: Add a new config ARCH_FORCE_PAGE_BLOCK_ORDER that
-> allows to set the page block order. The maximum page block
-> order will be given by ARCH_FORCE_MAX_ORDER.
->
-> By default, ARCH_FORCE_PAGE_BLOCK_ORDER will have the same
-> value that ARCH_FORCE_MAX_ORDER. This will make sure that
-> current kernel configurations won't be affected by this
-> change. It is a opt-in change.
->
-> This patch will allow to have the same CMA alignment
-> requirements for large page sizes (16KiB, 64KiB) as that
-> in 4kb kernels by setting a lower pageblock_order.
->
-> Tests:
->
-> - Verified that HugeTLB pages work when pageblock_order is 1, 7, 10
-> on 4k and 16k kernels.
->
-> - Verified that Transparent Huge Pages work when pageblock_order
-> is 1, 7, 10 on 4k and 16k kernels.
->
-> - Verified that dma-buf heaps allocations work when pageblock_order
-> is 1, 7, 10 on 4k and 16k kernels.
->
-> Benchmarks:
->
-> The benchmarks compare 16kb kernels with pageblock_order 10 and 7. The
-> reason for the pageblock_order 7 is because this value makes the min
-> CMA alignment requirement the same as that in 4kb kernels (2MB).
->
-> - Perform 100K dma-buf heaps (/dev/dma_heap/system) allocations of
-> SZ_8M, SZ_4M, SZ_2M, SZ_1M, SZ_64, SZ_8, SZ_4. Use simpleperf
-> (https://developer.android.com/ndk/guides/simpleperf) to measure
-> the # of instructions and page-faults on 16k kernels.
-> The benchmark was executed 10 times. The averages are below:
->
->            # instructions         |     #page-faults
->     order 10     |  order 7       | order 10 | order 7
-> --------------------------------------------------------
->  13,891,765,770	 | 11,425,777,314 |    220   |   217
->  14,456,293,487	 | 12,660,819,302 |    224   |   219
->  13,924,261,018	 | 13,243,970,736 |    217   |   221
->  13,910,886,504	 | 13,845,519,630 |    217   |   221
->  14,388,071,190	 | 13,498,583,098 |    223   |   224
->  13,656,442,167	 | 12,915,831,681 |    216   |   218
->  13,300,268,343	 | 12,930,484,776 |    222   |   218
->  13,625,470,223	 | 14,234,092,777 |    219   |   218
->  13,508,964,965	 | 13,432,689,094 |    225   |   219
->  13,368,950,667	 | 13,683,587,37  |    219   |   225
-> -------------------------------------------------------------------
->  13,803,137,433  | 13,131,974,268 |    220   |   220    Averages
->
-> There were 4.85% #instructions when order was 7, in comparison
-> with order 10.
->
->      13,803,137,433 - 13,131,974,268 = -671,163,166 (-4.86%)
->
-> The number of page faults in order 7 and 10 were the same.
->
-> These results didn't show any significant regression when the
-> pageblock_order is set to 7 on 16kb kernels.
->
-> - Run speedometer 3.1 (https://browserbench.org/Speedometer3.1/) 5 times
->  on the 16k kernels with pageblock_order 7 and 10.
->
-> order 10 | order 7  | order 7 - order 10 | (order 7 - order 10) %
-> -------------------------------------------------------------------
->   15.8	 |  16.4    |         0.6        |     3.80%
->   16.4	 |  16.2    |        -0.2        |    -1.22%
->   16.6	 |  16.3    |        -0.3        |    -1.81%
->   16.8	 |  16.3    |        -0.5        |    -2.98%
->   16.6	 |  16.8    |         0.2        |     1.20%
-> -------------------------------------------------------------------
->   16.44     16.4            -0.04	          -0.24%   Averages
->
-> The results didn't show any significant regression when the
-> pageblock_order is set to 7 on 16kb kernels.
->
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: Vlastimil Babka <vbabka@suse.cz>
-> Cc: Liam R. Howlett <Liam.Howlett@oracle.com>
-> Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-> Cc: David Hildenbrand <david@redhat.com>
-> CC: Mike Rapoport <rppt@kernel.org>
-> Cc: Zi Yan <ziy@nvidia.com>
-> Cc: Suren Baghdasaryan <surenb@google.com>
-> Cc: Minchan Kim <minchan@kernel.org>
-> Signed-off-by: Juan Yescas <jyescas@google.com>
-> ---
->  arch/arm64/Kconfig              | 14 ++++++++++++++
->  include/linux/pageblock-flags.h | 12 +++++++++---
->  2 files changed, 23 insertions(+), 3 deletions(-)
->
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index a182295e6f08..d784049e1e01 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -1658,6 +1658,20 @@ config ARCH_FORCE_MAX_ORDER
->
->  	  Don't change if unsure.
->
-> +config ARCH_FORCE_PAGE_BLOCK_ORDER
-> +	int "Page Block Order"
-> +	range 1 ARCH_FORCE_MAX_ORDER
-> +	default ARCH_FORCE_MAX_ORDER
-> +	help
-> +	  The page block order refers to the power of two number of pages that
-> +	  are physically contiguous and can have a migrate type associated to them.
-> +	  The maximum size of the page block order is limited by ARCH_FORCE_MAX_ORDER.
+To fix this issue and at the same time simplify error handling, switch
+to devm_pm_runtime_enable(). It will call both pm_runtime_disable() and
+pm_runtime_dont_use_autosuspend() during driver removal.
 
-Since memory compaction operates at pageblock granularity and pageblock size
-usually matches THP size, a smaller pageblock size degrades kernel
-anti-fragmentation mechanism for THP significantly. Can you add something like
-the text below to the help section?
+Fixes: 06f751b61329 ("crypto: allwinner - Add sun8i-ce Crypto Engine")
+Signed-off-by: Ovidiu Panait <ovidiu.panait.oss@gmail.com>
+---
+ .../crypto/allwinner/sun8i-ce/sun8i-ce-core.c   | 17 ++++++-----------
+ 1 file changed, 6 insertions(+), 11 deletions(-)
 
-"Reducing pageblock order can negatively impact THP generation successful rate.
-If your workloads uses THP heavily, please use this option with caution."
+diff --git a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-core.c b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-core.c
+index ec1ffda9ea32..658f520cee0c 100644
+--- a/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-core.c
++++ b/drivers/crypto/allwinner/sun8i-ce/sun8i-ce-core.c
+@@ -832,13 +832,12 @@ static int sun8i_ce_pm_init(struct sun8i_ce_dev *ce)
+ 	err = pm_runtime_set_suspended(ce->dev);
+ 	if (err)
+ 		return err;
+-	pm_runtime_enable(ce->dev);
+-	return err;
+-}
+ 
+-static void sun8i_ce_pm_exit(struct sun8i_ce_dev *ce)
+-{
+-	pm_runtime_disable(ce->dev);
++	err = devm_pm_runtime_enable(ce->dev);
++	if (err)
++		return err;
++
++	return 0;
+ }
+ 
+ static int sun8i_ce_get_clks(struct sun8i_ce_dev *ce)
+@@ -1041,7 +1040,7 @@ static int sun8i_ce_probe(struct platform_device *pdev)
+ 			       "sun8i-ce-ns", ce);
+ 	if (err) {
+ 		dev_err(ce->dev, "Cannot request CryptoEngine Non-secure IRQ (err=%d)\n", err);
+-		goto error_irq;
++		goto error_pm;
+ 	}
+ 
+ 	err = sun8i_ce_register_algs(ce);
+@@ -1082,8 +1081,6 @@ static int sun8i_ce_probe(struct platform_device *pdev)
+ 	return 0;
+ error_alg:
+ 	sun8i_ce_unregister_algs(ce);
+-error_irq:
+-	sun8i_ce_pm_exit(ce);
+ error_pm:
+ 	sun8i_ce_free_chanlist(ce, MAXFLOW - 1);
+ 	return err;
+@@ -1104,8 +1101,6 @@ static void sun8i_ce_remove(struct platform_device *pdev)
+ #endif
+ 
+ 	sun8i_ce_free_chanlist(ce, MAXFLOW - 1);
+-
+-	sun8i_ce_pm_exit(ce);
+ }
+ 
+ static const struct of_device_id sun8i_ce_crypto_of_match_table[] = {
+-- 
+2.48.1
 
-Otherwise, Acked-by: Zi Yan <ziy@nvidia.com>
-
-I am also OK if you move this to mm/Kconfig.
-
-> +
-> +	  This option allows overriding the default setting when the page
-> +	  block order requires to be smaller than ARCH_FORCE_MAX_ORDER.
-> +
-> +	  Don't change if unsure.
-> +
->  config UNMAP_KERNEL_AT_EL0
->  	bool "Unmap kernel when running in userspace (KPTI)" if EXPERT
->  	default y
-> diff --git a/include/linux/pageblock-flags.h b/include/linux/pageblock-flags.h
-> index fc6b9c87cb0a..ab3de96bb50c 100644
-> --- a/include/linux/pageblock-flags.h
-> +++ b/include/linux/pageblock-flags.h
-> @@ -28,6 +28,12 @@ enum pageblock_bits {
->  	NR_PAGEBLOCK_BITS
->  };
->
-> +#if defined(CONFIG_ARCH_FORCE_PAGE_BLOCK_ORDER)
-> +#define PAGE_BLOCK_ORDER CONFIG_ARCH_FORCE_PAGE_BLOCK_ORDER
-> +#else
-> +#define PAGE_BLOCK_ORDER MAX_PAGE_ORDER
-> +#endif /* CONFIG_ARCH_FORCE_PAGE_BLOCK_ORDER */
-> +
->  #if defined(CONFIG_HUGETLB_PAGE)
->
->  #ifdef CONFIG_HUGETLB_PAGE_SIZE_VARIABLE
-> @@ -41,18 +47,18 @@ extern unsigned int pageblock_order;
->   * Huge pages are a constant size, but don't exceed the maximum allocation
->   * granularity.
->   */
-> -#define pageblock_order		MIN_T(unsigned int, HUGETLB_PAGE_ORDER, MAX_PAGE_ORDER)
-> +#define pageblock_order		MIN_T(unsigned int, HUGETLB_PAGE_ORDER, PAGE_BLOCK_ORDER)
->
->  #endif /* CONFIG_HUGETLB_PAGE_SIZE_VARIABLE */
->
->  #elif defined(CONFIG_TRANSPARENT_HUGEPAGE)
->
-> -#define pageblock_order		MIN_T(unsigned int, HPAGE_PMD_ORDER, MAX_PAGE_ORDER)
-> +#define pageblock_order		MIN_T(unsigned int, HPAGE_PMD_ORDER, PAGE_BLOCK_ORDER)
->
->  #else /* CONFIG_TRANSPARENT_HUGEPAGE */
->
->  /* If huge pages are not used, group by MAX_ORDER_NR_PAGES */
-> -#define pageblock_order		MAX_PAGE_ORDER
-> +#define pageblock_order		PAGE_BLOCK_ORDER
->
->  #endif /* CONFIG_HUGETLB_PAGE */
->
-> -- 
-> 2.49.0.906.g1f30a19c02-goog
-
-
---
-Best Regards,
-Yan, Zi
 
