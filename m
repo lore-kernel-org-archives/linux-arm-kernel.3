@@ -4,72 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A39EC3ABA3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 07:32:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81D5BC3ABA9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 07:33:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pz6DuHsBQP2Lu67I6tzYBvTySwyfcVWJmFrJgbkPkr8=; b=aS6X8B23C9BdI7Gi7uPOCIm13d
-	d66BJ66v+7rno5TF+8vvlKxkN+ZSnOX1JL56RGZWsV/ddoMgmoMfLsiTFK+2r3bLFOkd5b9dsvApy
-	3pHDP6h37WN662G4MQet6xKBAxyAwNB46X35NEids0nCiIFG4DslYPBQZ6M8x6PRkF7CUvBzKRpuq
-	lNSYHfDmv11BXkwutA+85rx58CRf/piopt9oxkGCB/pxW4SOmYSnqF/zZ/BGxiIgdrKIckTqIkHEv
-	LEOxb8doNE1m28Nxp3r0r8CGZo3rJ47c3rNlMZhCYvXXDsYGo85GjaZK4ImypZD+nQT0oA42RdlcR
-	qyqRtcEw==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Du7fmxFaT2Dho3YcT2SozYDlmnXc97lplTOiOtsjxW4=; b=Cj431S9ttGzKsuKyfNVp6xADxU
+	NPoVQ00jo00h1TXq88pyZQm3t8bFKhqwHDINi/8JaPJdqnTzEp9Azo4elB+NW+qAQX+3Mr6L20vvF
+	fwbhtKEciEJ2p6L7ZbN2UOfMpw3c0Qnq/DQ4kiI5yEGLkTmbBNspaHmqLBGa0JavfTqXzGbDtpEsx
+	Ir04/zCVLL/nePg3GhG+Imzbq98Lba3m91eG8rwKbCKDiqIn+KJKggE4kw9L2mqEZQlENXTf0Fhtp
+	5yee5JinjyLFxkKYaBpqOcmI6iRAIQXkyGMCuZG8592FxuvaGIp7lifb0CgHrV0vVXayHZtwSADYS
+	KySeZwSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAOOg-0000000Ewir-08Xq;
-	Thu, 01 May 2025 07:31:54 +0000
+	id 1uAOQX-0000000Ewpc-3ft5;
+	Thu, 01 May 2025 07:33:49 +0000
 Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAOMl-0000000EwSQ-1tGH
+	id 1uAOMq-0000000EwTC-25Xo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 07:29:56 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5417TohX4160577
+	Thu, 01 May 2025 07:30:01 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5417TviN4160581
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 1 May 2025 02:29:50 -0500
+	Thu, 1 May 2025 02:29:57 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1746084590;
-	bh=pz6DuHsBQP2Lu67I6tzYBvTySwyfcVWJmFrJgbkPkr8=;
-	h=From:To:CC:Subject:Date;
-	b=CA+R8Ie4csJpihIAOecGuNRzdbeHeRspUM2iW5rQH2mfeayYPGHw8dgt6JNLDh9yS
-	 DI1rnsGbhDL8I2Y4t1Rz5ZPOORGfVbVQmhWzSuY6BtvsgCaay0pEbvFyrAEyOHlJEn
-	 adK/UXBZtYLzpKdS1kXnff0Q0fykY8XccFQiczJA=
-Received: from DFLE107.ent.ti.com (dfle107.ent.ti.com [10.64.6.28])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5417Tobc059010
+	s=ti-com-17Q1; t=1746084597;
+	bh=Du7fmxFaT2Dho3YcT2SozYDlmnXc97lplTOiOtsjxW4=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=wXc/nkaJB+jSltMUiiT6YwAkhWrjXnRGMqAQG7WiY2e2BkdpWCVWMi1ixG5TR9qHE
+	 SsRuNepqFoH/ChO90c1xVAgbH5iWM6Nxan26f4G5gH/i7GgsQdkxWIFkNBUxuzLkk7
+	 i7njFak3BI+iCP3haFfzWvLwiXtZpPKUIXT3Blpk=
+Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5417TvLA119713
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 1 May 2025 02:29:50 -0500
-Received: from DFLE102.ent.ti.com (10.64.6.23) by DFLE107.ent.ti.com
- (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
+	Thu, 1 May 2025 02:29:57 -0500
+Received: from DLEE115.ent.ti.com (157.170.170.26) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 1
- May 2025 02:29:49 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE102.ent.ti.com
- (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
+ May 2025 02:29:57 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE115.ent.ti.com
+ (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 1 May 2025 02:29:49 -0500
+ Frontend Transport; Thu, 1 May 2025 02:29:56 -0500
 Received: from localhost (ula0502350.dhcp.ti.com [172.24.227.38])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5417TnA4007282;
-	Thu, 1 May 2025 02:29:49 -0500
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5417TuHa102658;
+	Thu, 1 May 2025 02:29:56 -0500
 From: Paresh Bhagat <p-bhagat@ti.com>
 To: <nm@ti.com>, <vigneshr@ti.com>, <praneeth@ti.com>
 CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
         <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
         <khasim@ti.com>, <v-singh1@ti.com>, <afd@ti.com>
-Subject: [PATCH 0/3] Add support for AM62D2 SoC and EVM
-Date: Thu, 1 May 2025 12:59:20 +0530
-Message-ID: <20250501072923.1262414-1-p-bhagat@ti.com>
+Subject: [PATCH 1/3] dt-bindings: arm: ti: Add bindings for AM62D2 SoC
+Date: Thu, 1 May 2025 12:59:21 +0530
+Message-ID: <20250501072923.1262414-2-p-bhagat@ti.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250501072923.1262414-1-p-bhagat@ti.com>
+References: <20250501072923.1262414-1-p-bhagat@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_002955_578501_9AA14993 
-X-CRM114-Status: GOOD (  11.86  )
+X-CRM114-CacheID: sfid-20250501_003000_628259_8E6A4736 
+X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,37 +87,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series adds support for the AM62D2 SoC and its evaluation
-module (EVM) board. The AM62D2 SoC is a high-performance Digital
-Signal Processing (DSP) device with a quad-core Cortex-A53 cluster,
-dual Cortex-R5F cores, and a Cx7 DSP core with Matrix Multiplication
-Accelerator (MMA). It features a range of peripherals, including
-multichannel audio serial ports, Ethernet, UARTs, SPI, I2C, USB, and
-more.
+The AM62D2 SoC belongs to the K3 Multicore SoC architecture with DSP core
+targeted for applications needing high-performance Digital Signal
+Processing. It is used in applications like automotive audio systems,
+professional sound equipment, radar and radio for aerospace, sonar in
+marine devices, and ultrasound in medical imaging. It also supports
+precise signal analysis in test and measurement tools.
 
-The EVM board is a low-cost, expandable platform designed for the AM62D2
-SoC, having 4GB LPDDR4 RAM, Gigabit Ethernet expansion connectors, audio
-jacks, USB ports, and more.
+Some highlights of AM62D2 SoC are:
 
-This patch series includes a new device tree source (DTS) file, updates
-in device tree bindings and pin control header file.
+* Quad-Cortex-A53s (running up to 1.4GHz) in a single cluster.
+  Dual/Single core variants are provided in the same package to allow
+  HW compatible designs.
+* One Device manager Cortex-R5F for system power and resource management,
+  and one Cortex-R5F for Functional Safety or general-purpose usage.
+* DSP with Matrix Multiplication Accelerator(MMA) (up to 2 TOPS) based on
+  single core C7x.
+* 3x Multichannel Audio Serial Ports (McASP) Up to 4/6/16 Serial Data Pins
+  which can Transmit and Receive Clocks up to 50MHz, with multi-channel I2S
+  and TDM Audio inputs and outputs.
+* Integrated Giga-bit Ethernet switch supporting up to a total of two
+  external ports with TSN capable to enable audio networking features such
+  as, Ethernet Audio Video Bridging (eAVB) and Dante.
+* 9xUARTs, 5xSPI, 6xI2C, 2xUSB2, 3xCAN-FD, 3x eMMC and SD, OSPI memory
+  controller, 1x CSI-RX-4L for Camera, eCAP/eQEP, ePWM, among other
+  peripherals.
+* Dedicated Centralized Hardware Security Module with support for secure
+  boot, debug security and crypto acceleration and trusted execution
+  environment.
+* One 32 bit DDR Subsystem that supports LPDDR4, DDR4 memory types.
+* Low power mode support: Partial IO support for CAN/GPIO/UART wakeup.
 
-Bootlog: https://gist.github.com/paresh-bhagat12/1757cc54a39f1baf883341af2a383db6
-Tech Ref Manual: https://www.ti.com/lit/pdf/sprujd4
-Schematics: https://www.ti.com/lit/zip/sprcal5
+This adds dt bindings for TI's AM62D2 family of devices.
 
-Paresh Bhagat (3):
-  dt-bindings: arm: ti: Add bindings for AM62D2 SoC
-  arm64: dts: ti: Add pinctrl entries for AM62D2 family of SoCs
-  arm64: dts: ti: Add support for AM62D2-EVM
+More details about the SoCs can be found in the Technical Reference Manual:
+https://www.ti.com/lit/pdf/sprujd4
 
- .../devicetree/bindings/arm/ti/k3.yaml        |   6 +
- arch/arm64/boot/dts/ti/Makefile               |   3 +
- arch/arm64/boot/dts/ti/k3-am62d2-evm.dts      | 449 ++++++++++++++++++
- arch/arm64/boot/dts/ti/k3-pinctrl.h           |   3 +
- 4 files changed, 461 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
+---
+ Documentation/devicetree/bindings/arm/ti/k3.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
+diff --git a/Documentation/devicetree/bindings/arm/ti/k3.yaml b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+index 18f155cd06c8..3183089dcfbf 100644
+--- a/Documentation/devicetree/bindings/arm/ti/k3.yaml
++++ b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+@@ -31,6 +31,12 @@ properties:
+           - const: phytec,am62a-phycore-som
+           - const: ti,am62a7
+ 
++      - description: K3 AM62D2 SoC and Boards
++        items:
++          - enum:
++            - ti,am62d2-evm
++          - const: ti,am62d2
++
+       - description: K3 AM62P5 SoC and Boards
+         items:
+           - enum:
 -- 
 2.34.1
 
