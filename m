@@ -4,110 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFCBFC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 00:24:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1A2DC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 00:26:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CyhZBVISRQ5clAuU8+PvOudE8wxZ8XRmw30nrERw5/M=; b=q5jascwBERqaxlxXKPtvrs4Xag
-	AVeyJeDWgjtzy3srN2NdWNGcoruqpS5N2tHYabtPbEu6EkWWO6odmSammyOrAUUiV4SobXiUETC9B
-	l+9Ys5iht0ESlxIGoFPbkWmXB+E/yop475V1+7yiqc9i8zHU1R6EN93xyW1Q1PHOiOzna/gj9oWUo
-	TDVX0bhrn9a6Iiki0OtkHi9DzmV7NFYd1gdzjk01mzTaQaZTEGLQMYBB5KsXOYw9IRpnaasuCoarf
-	tWoGOAufERqLp7/vAb91TQE3sT5iWBQs6Ft1nVJwq/N1i9EVeWWK4UirmiUXGuHGOVK/3XYjK+SJE
-	pmpGwwMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IpqcdB5HKLcvCClWag1YAOoCR5dOaM4sia0jSQ91WTc=; b=khRx+G7z+f3uks+jqemwbtxu4L
+	5lzXJs1/0bTvL2r6IbqOAvshSJ4n5W0b/dterbIapn7r6vxR0G5rFUZhPAde2waVXe0XqUk4X56fq
+	8dnIjl7On7px7UrhAE90t26cpQGulwIZIbfr5QiKVAtGvzHkA9bKnyW/oOjyfVK34fSrdc+pmS8rn
+	NJGS4T2v1Ox+WFm3PZ2yH3xmQD2Ar6Zk8gxzvi50VfMpYBEo0HdkfQRgtc/4XOQnEyK/uFLAx2+Fh
+	K0jM1430utngtuZy7MNlKbqEDySDJrQWuYsnve4N2yRVv0tpqWKGtDCM+3uGDqK6eHaj4OyTUj8Tm
+	u77rOwfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAeCo-00000000Olv-0mBu;
-	Fri, 02 May 2025 00:24:42 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uAeEh-00000000PA4-3mU7;
+	Fri, 02 May 2025 00:26:39 +0000
+Received: from mail-ej1-x644.google.com ([2a00:1450:4864:20::644])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAdX8-00000000IDg-31QF
+	id 1uAdlZ-00000000JZF-1dbz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 23:41:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1746142897;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=CyhZBVISRQ5clAuU8+PvOudE8wxZ8XRmw30nrERw5/M=;
-	b=ZxumGNuXL26QRK8xIv6IqKgY0abgD+mbSSgebhG+r36EYz/JvNPS7he9eCrRCMioCTdBBm
-	IsrMOav+bL4W3/hXLaCmG55MCtMaN+znnUApWiGHXkYgrNA52catkdyOFFhuB6yW7Yqc1J
-	OoDBsOcb2mofqrO6RAGQzRUTfhqyMfA=
-Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com
- [209.85.215.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-338-BIsutraJM3Gr23Yjnt0nCw-1; Thu, 01 May 2025 19:41:35 -0400
-X-MC-Unique: BIsutraJM3Gr23Yjnt0nCw-1
-X-Mimecast-MFC-AGG-ID: BIsutraJM3Gr23Yjnt0nCw_1746142894
-Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-b078af4b07dso868690a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 May 2025 16:41:35 -0700 (PDT)
+	Thu, 01 May 2025 23:56:34 +0000
+Received: by mail-ej1-x644.google.com with SMTP id a640c23a62f3a-ac29fd22163so247246966b.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 May 2025 16:56:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746143791; x=1746748591; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=IpqcdB5HKLcvCClWag1YAOoCR5dOaM4sia0jSQ91WTc=;
+        b=AbTwkNtrRDtnGVYir9k58jWGHgcLi5J3I0rqdaYMEVD6Aw3hQD42Jt2F/d5P0u1lwS
+         4OuNd2RXC3yJ84Kw9aw6OevsnMbG2hRVl1f3o9ZMmEwZs1TA0Dqvxl+kFD1evUNMdaZn
+         I7ZnJC0VJhW2K7uCXTp+p2qD0ZDxQDtDVt+2DNADxbXBC6Kiop+zYhiC7i1y1m2K4nCI
+         lPkbyDCtMntFVAPr8B340C4rARvNT4u0rnhNA7i469rddLx4Q9D4uotBDp4Ta3rOyMW5
+         UzE7QrcSGGyf3n9WE5HV+0aoozjaVfeeQ3bDhDuvQbTVktF7/YwfovLGevof/RqZZpIc
+         UBUg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746142894; x=1746747694;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=CyhZBVISRQ5clAuU8+PvOudE8wxZ8XRmw30nrERw5/M=;
-        b=I7sizqrFHf2WbuIJ7KvwAv55foFgkNMMRjMbWWgz8zXTTLQnO1ibQNIGaj2Ij7VpU6
-         7ovFOUtEdMLXEJlAYWizNknnu0lE8L43JhGZTECEWgtI7tf/h7h9i7EvRhNoUwAqDeXA
-         aKqJGUlv3HykJLWhKCyPZhQ07iEcTin4zS4LXQxbfVnqp3O5TdL39VVTRXfHkIcr4Xi7
-         9lx4VdO79D3kdS0ycF5tAG9qihLfQuHPhDTJrd3Wnz/HVJLINQXYIzdXx6/dQ0FUAfDB
-         Kbb3Bn7sGl/rHq0T4z3QgL+GECbQtLw3pbzblhX4q4ltERtfIvgqo6nZtg7wqKe+yqcw
-         uZyQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVOwB6aKfimPMlOmWUm4d2JYmJll0evAFDLlK3RWGrAsu01mgFFNUdowL0JfNdG3YJjkbknC5XUHz1zu4HEop/F@lists.infradead.org
-X-Gm-Message-State: AOJu0YxDfms3guhdv6ymN55xqgFqEpClRhLzL0DiD9NihGSy3h28Y8+x
-	gTD0h8efeJM9jd0xH9o8MBYB8Ldt9mgE2CGORPsF8w9WqhSjPIUJTyyjSgZir+czpuCrl/7bGJU
-	wJuAWSgConZrLNLmsPnDVYzAwrp4ZdQgjUKd4HoCUt+Xsqf4LVP06iA2e4gXnWW3K3SW/yKSZ
-X-Gm-Gg: ASbGncta8t7Xmm7dah9opVVxqEfqDiaD5DUaL8j/N5u0BTxEgYWoT1GpOB90pPSod6S
-	2W8vKTr79WWFTQdFNfpRcFnWwQj7RZW6KbI4/AHCY+EnI0cgmWZPfMjXZ6IJgbqm9UHGrY9qC1R
-	oFD7cB2siQMjGsB/1um0GClAqjnc3lT8n8D3UxlTR9ZOgMDUH+GdYqPBTSdlKxUCDbu3WkjnLpD
-	ZhLfgWvwe+KR7TsVSxftwBRRRUjfGXIGuktc3CMVHFuAM/3Lbtrc8aBMuqxVa5fhm5OroBY++bp
-	U8Zv9sYeqxmp
-X-Received: by 2002:a05:6a21:33a3:b0:1f5:852a:dd81 with SMTP id adf61e73a8af0-20cdfdf1dc5mr1087262637.34.1746142894155;
-        Thu, 01 May 2025 16:41:34 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGq3VtO1vtLmO8E/fnCTC9w5B6F4cawG5lkrIFMIOrYDpU+7Qf+p2E6KFN4AlFzZpxvWi44og==
-X-Received: by 2002:a05:6a21:33a3:b0:1f5:852a:dd81 with SMTP id adf61e73a8af0-20cdfdf1dc5mr1087223637.34.1746142893729;
-        Thu, 01 May 2025 16:41:33 -0700 (PDT)
-Received: from [192.168.68.51] ([180.233.125.65])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b1fa8285817sm170886a12.30.2025.05.01.16.41.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 01 May 2025 16:41:33 -0700 (PDT)
-Message-ID: <377a678c-16e4-4e85-8831-421e59e9bf6e@redhat.com>
-Date: Fri, 2 May 2025 09:41:25 +1000
+        d=1e100.net; s=20230601; t=1746143791; x=1746748591;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=IpqcdB5HKLcvCClWag1YAOoCR5dOaM4sia0jSQ91WTc=;
+        b=GEJG6at168JuI0HcUvQSBTDAenDTkPuX0S1PHTNEp3owu+oFwGpQK/anE7jqtyohdm
+         1zzwogicl/5wgBdDOufGCZKJUi2DfXsuj0PmgXSVcGcBmsiwQpvnGMRFFLyBszzoXRyo
+         o2KcIqFmgIpMjst5pIhahQm9guOsU1z4adfyinWF6psEMmft7GvAN2oJzhragz5a2fCn
+         5daIgPS4qW96WFzzjnED0d/Mktu9utXcJSa4Y0bC+3lV+/bAoxnMoK/NJxEXDcTM/whH
+         VHmNyJBWnFzXqqSVD0954XgQemLrkMLQFBMxVpEz69ew7qwrtSuH1Qquns0jBmKdjUpD
+         DYYw==
+X-Forwarded-Encrypted: i=1; AJvYcCU3vLuLWjffMN7aYTiSql5uZbboo+GAGtMzGleF2GYez26DWuL8uGGe0DFQctxmLpfU30E4NsL8MHGiJuc07TR6@lists.infradead.org
+X-Gm-Message-State: AOJu0YwjXUT10bDUe0m0CBby08bGLZic96IVVO4SdNGIkyl3rBlLfSQt
+	BqYLbvxrWXIfCcq67Hy54+3ZiLnE2pT9pp4DPaRl75P+LO/xLUu6gYZhImd5V8IqnmmyyG4NFsl
+	JR/Saqgpoc5HaWdyT5w83xP0TA7I=
+X-Gm-Gg: ASbGncsNkIgy/fNY3ji9G4lBnuTCXlFyidsa26b6mIL7PQaunATYeA1QjtdzS11YT46
+	/aKvqgEzlwtiwznHx6mPq5SP5eEBTDDNJgSIG5rCFOLZZH6jTTf+Pjzl+F5hnKGcsol/9VWFw3T
+	uL+EXSt7UrUqlfW3ayR83fvx1P/VvgQGkmlSaLNPjG+vHP1zdit4c5MQ==
+X-Google-Smtp-Source: AGHT+IE8rFYVy5AEV69cNgB7LjR9j9JDMd63wN3Vtcz9MvmQSCvUFlM2VwRHa8i1gy3jD9Ei18VDPKGcCjJ/nJCaAQ0=
+X-Received: by 2002:a17:907:a587:b0:ac7:3912:5ea5 with SMTP id
+ a640c23a62f3a-ad17af80715mr93822666b.58.1746143791303; Thu, 01 May 2025
+ 16:56:31 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 40/43] arm64: RME: Provide accurate register list
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-References: <20250416134208.383984-1-steven.price@arm.com>
- <20250416134208.383984-41-steven.price@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20250416134208.383984-41-steven.price@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: bdiklErF8HG_zo4_op-n5o2DNYR_kUngEN5wt1jOexY_1746142894
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20250501073603.1402960-1-luis.gerhorst@fau.de> <20250501073603.1402960-9-luis.gerhorst@fau.de>
+In-Reply-To: <20250501073603.1402960-9-luis.gerhorst@fau.de>
+From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Date: Fri, 2 May 2025 01:55:54 +0200
+X-Gm-Features: ATxdqUGuoTBKs9l0zhe3Yzsic4wyHg46bSXEHmrxNhmAcDg2gPFfcMFHEjWXEc4
+Message-ID: <CAP01T76kOixPct5cOPHGKubFWSbSS7ztEnZc02v2wWGPOUYRCQ@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v3 08/11] bpf: Fall back to nospec for Spectre v1
+To: Luis Gerhorst <luis.gerhorst@fau.de>
+Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
+	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
+	Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
+	Xu Kuohai <xukuohai@huaweicloud.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Hari Bathini <hbathini@linux.ibm.com>, 
+	Christophe Leroy <christophe.leroy@csgroup.eu>, Naveen N Rao <naveen@kernel.org>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>, 
+	Henriette Herzog <henriette.herzog@rub.de>, Saket Kumar Bhaskar <skb99@linux.ibm.com>, 
+	Cupertino Miranda <cupertino.miranda@oracle.com>, Jiayuan Chen <mrpre@163.com>, 
+	Matan Shachnai <m.shachnai@gmail.com>, Dimitar Kanaliev <dimitar.kanaliev@siteground.com>, 
+	Shung-Hsi Yu <shung-hsi.yu@suse.com>, Daniel Xu <dxu@dxuuu.xyz>, bpf@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-kselftest@vger.kernel.org, 
+	Maximilian Ott <ott@cs.fau.de>, Milan Stephan <milan.stephan@fau.de>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_164138_833980_50A9EDBD 
-X-CRM114-Status: GOOD (  24.75  )
+X-CRM114-CacheID: sfid-20250501_165633_437897_B80D68BE 
+X-CRM114-Status: GOOD (  49.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,204 +108,194 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/16/25 11:42 PM, Steven Price wrote:
-> From: Jean-Philippe Brucker <jean-philippe@linaro.org>
-> 
-> Userspace can set a few registers with KVM_SET_ONE_REG (9 GP registers
-> at runtime, and 3 system registers during initialization). Update the
-> register list returned by KVM_GET_REG_LIST.
-> 
-> Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
-> Signed-off-by: Steven Price <steven.price@arm.com>
+On Thu, 1 May 2025 at 10:00, Luis Gerhorst <luis.gerhorst@fau.de> wrote:
+>
+> This implements the core of the series and causes the verifier to fall
+> back to mitigating Spectre v1 using speculation barriers. The approach
+> was presented at LPC'24 [1] and RAID'24 [2].
+>
+> If we find any forbidden behavior on a speculative path, we insert a
+> nospec (e.g., lfence speculation barrier on x86) before the instruction
+> and stop verifying the path. While verifying a speculative path, we can
+> furthermore stop verification of that path whenever we encounter a
+> nospec instruction.
+>
+> A minimal example program would look as follows:
+>
+>         A = true
+>         B = true
+>         if A goto e
+>         f()
+>         if B goto e
+>         unsafe()
+> e:      exit
+>
+> There are the following speculative and non-speculative paths
+> (`cur->speculative` and `speculative` referring to the value of the
+> push_stack() parameters):
+>
+> - A = true
+> - B = true
+> - if A goto e
+>   - A && !cur->speculative && !speculative
+>     - exit
+>   - !A && !cur->speculative && speculative
+>     - f()
+>     - if B goto e
+>       - B && cur->speculative && !speculative
+>         - exit
+>       - !B && cur->speculative && speculative
+>         - unsafe()
+>
+> If f() contains any unsafe behavior under Spectre v1 and the unsafe
+> behavior matches `state->speculative &&
+> error_recoverable_with_nospec(err)`, do_check() will now add a nospec
+> before f() instead of rejecting the program:
+>
+>         A = true
+>         B = true
+>         if A goto e
+>         nospec
+>         f()
+>         if B goto e
+>         unsafe()
+> e:      exit
+>
+> Alternatively, the algorithm also takes advantage of nospec instructions
+> inserted for other reasons (e.g., Spectre v4). Taking the program above
+> as an example, speculative path exploration can stop before f() if a
+> nospec was inserted there because of Spectre v4 sanitization.
+>
+> In this example, all instructions after the nospec are dead code (and
+> with the nospec they are also dead code speculatively).
+>
+> On x86_64, this depends on the following property of lfence [3]:
+>
+>         An LFENCE instruction or a serializing instruction will ensure that no
+>         later instructions execute, even speculatively, until all prior
+>         instructions complete locally. [...] Inserting an LFENCE instruction
+>         after a bounds check prevents later operations from executing before
+>         the bound check completes.
+>
+> Regarding the example, this implies that `if B goto e` will not execute
+> before `if A goto e` completes. Once `if A goto e` completes, the CPU
+> should find that the speculation was wrong and continue with `exit`.
+>
+> If there is any other path that leads to `if B goto e` (and therefore
+> `unsafe()`) without going through `if A goto e`, then a nospec will
+> still be needed there. However, this patch assumes this other path will
+> be explored separately and therefore be discovered by the verifier even
+> if the exploration discussed here stops at the nospec.
+>
+> This patch furthermore has the unfortunate consequence that Spectre v1
+> mitigations now only support architectures which implement BPF_NOSPEC.
+> Before this commit, Spectre v1 mitigations prevented exploits by
+> rejecting the programs on all architectures. Because some JITs do not
+> implement BPF_NOSPEC, this patch therefore may regress unpriv BPF's
+> security to a limited extent:
+>
+> * The regression is limited to systems vulnerable to Spectre v1, have
+>   unprivileged BPF enabled, and do NOT emit insns for BPF_NOSPEC. The
+>   latter is not the case for x86 64- and 32-bit, arm64, and powerpc
+>   64-bit and they are therefore not affected by the regression.
+>   According to commit a6f6a95f2580 ("LoongArch, bpf: Fix jit to skip
+>   speculation barrier opcode"), LoongArch is not vulnerable to Spectre
+>   v1 and therefore also not affected by the regression.
+>
+> * To the best of my knowledge this regression may therefore only affect
+>   MIPS. This is deemed acceptable because unpriv BPF is still disabled
+>   there by default. As stated in a previous commit, BPF_NOSPEC could be
+>   implemented for MIPS based on GCC's speculation_barrier
+>   implementation.
+>
+> * It is unclear which other architectures (besides x86 64- and 32-bit,
+>   ARM64, PowerPC 64-bit, LoongArch, and MIPS) supported by the kernel
+>   are vulnerable to Spectre v1. Also, it is not clear if barriers are
+>   available on these architectures. Implementing BPF_NOSPEC on these
+>   architectures therefore is non-trivial. Searching GCC and the kernel
+>   for speculation barrier implementations for these architectures
+>   yielded no result.
+>
+> * If any of those regressed systems is also vulnerable to Spectre v4,
+>   the system was already vulnerable to Spectre v4 attacks based on
+>   unpriv BPF before this patch and the impact is therefore further
+>   limited.
+>
+> As an alternative to regressing security, one could still reject
+> programs if the architecture does not emit BPF_NOSPEC (e.g., by removing
+> the empty BPF_NOSPEC-case from all JITs except for LoongArch where it
+> appears justified). However, this will cause rejections on these archs
+> that are likely unfounded in the vast majority of cases.
+>
+> In the tests, some are now successful where we previously had a
+> false-positive (i.e., rejection). Change them to reflect where the
+> nospec should be inserted (using __xlated_unpriv) and modify the error
+> message if the nospec is able to mitigate a problem that previously
+> shadowed another problem (in that case __xlated_unpriv does not work,
+> therefore just add a comment).
+>
+> Define SPEC_V1 to avoid duplicating this ifdef whenever we check for
+> nospec insns using __xlated_unpriv, define it here once. This also
+> improves readability. PowerPC can probably also be added here. However,
+> omit it for now because the BPF CI currently does not include a test.
+>
+> Briefly went through all the occurrences of EPERM, EINVAL, and EACCESS
+> in the verifier in order to validate that catching them like this makes
+> sense.
+>
+> [1] https://lpc.events/event/18/contributions/1954/ ("Mitigating
+>     Spectre-PHT using Speculation Barriers in Linux eBPF")
+> [2] https://arxiv.org/pdf/2405.00078 ("VeriFence: Lightweight and
+>     Precise Spectre Defenses for Untrusted Linux Kernel Extensions")
+> [3] https://www.intel.com/content/www/us/en/developer/articles/technical/software-security-guidance/technical-documentation/runtime-speculative-side-channel-mitigations.html
+>     ("Managed Runtime Speculative Execution Side Channel Mitigations")
+>
+> Signed-off-by: Luis Gerhorst <luis.gerhorst@fau.de>
+> Acked-by: Henriette Herzog <henriette.herzog@rub.de>
+> Cc: Maximilian Ott <ott@cs.fau.de>
+> Cc: Milan Stephan <milan.stephan@fau.de>
 > ---
-> Changes since v7:
->   * Reworked on upstream changes.
-> ---
->   arch/arm64/kvm/guest.c      | 19 ++++++++++++++-----
->   arch/arm64/kvm/hypercalls.c |  4 ++--
->   arch/arm64/kvm/sys_regs.c   | 28 ++++++++++++++++++++++------
->   3 files changed, 38 insertions(+), 13 deletions(-)
-> 
 
-With below nitpicks addressed:
+The patches from here on look good in general, I will ack after taking
+another look later.
 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
+I had a more high-level question though.
+Back when all of this surfaced, compiler folks came up with another
+solution, to rely on Intel's guarantee that conditional moves are not
+predicted.
 
-> diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-> index 1288920fc73d..e9bb7647aa65 100644
-> --- a/arch/arm64/kvm/guest.c
-> +++ b/arch/arm64/kvm/guest.c
-> @@ -618,8 +618,6 @@ static const u64 timer_reg_list[] = {
->   	KVM_REG_ARM_PTIMER_CVAL,
->   };
->   
-> -#define NUM_TIMER_REGS ARRAY_SIZE(timer_reg_list)
-> -
->   static bool is_timer_reg(u64 index)
->   {
->   	switch (index) {
-> @@ -634,9 +632,14 @@ static bool is_timer_reg(u64 index)
->   	return false;
->   }
->   
-> +static unsigned long num_timer_regs(struct kvm_vcpu *vcpu)
-> +{
-> +	return kvm_is_realm(vcpu->kvm) ? 0 : ARRAY_SIZE(timer_reg_list);
-> +}
-> +
+if (condition) {
+   mask = !condition ? 0UL : ~0UL; // CMOVcc
+   ptr &= mask;
+   x = *ptr;
+}
 
-static inline unsigned long num_timer_regs(struct kvm_vcpu *vcpu)
+In case the condition being true in the speculative domain leads to
+problems, the speculative domain will just read from NULL and not leak
+sensitive data.
+The assumption is that cost of instrumentation in speculative domain <
+completely stalling it until prior instructions are done using lfence.
+So speculation is still helpful when the branch is not mispredicted.
+Now I imagine it's not fun to do such analysis in the verifier (I've
+tried), but theoretically we could break it down into emitting
+bytecode from the compiler side, and lifting the compiler to do it for
+us, and ensuring the end result produced is sane (by still following
+speculative paths) from the verifier.
 
->   static int copy_timer_indices(struct kvm_vcpu *vcpu, u64 __user *uindices)
->   {
-> -	for (int i = 0; i < NUM_TIMER_REGS; i++) {
-> +	for (int i = 0; i < num_timer_regs(vcpu); i++) {
->   		if (put_user(timer_reg_list[i], uindices))
->   			return -EFAULT;
->   		uindices++;
+You talk about this in the paper and in the presentation as future work.
+My question is mainly whether you considered implementing this, if
+yes, what made you choose a nospec barrier over something like above?
+Was it the complexity of realizing this during verification?
+Are there any implications of reading from NULL that would cause problems?
+Also, did you characterize how much difference it could make?
+The drop in SCTP throughput seems to suggest so, since CPU-bound
+computation was moved into the program.
+Otherwise most programs mostly defer to helpers for heavy lifting.
+Not that it was as fast as a helper would be, even without nospec, but still.
 
-	for (unsigned long i = 0; ...)
+Also a bit sad we don't split the program into BBs already, which
+could help reduce your mitigation's cost + plus also reduce cost of
+instruction patching (unrelated).
 
-> @@ -674,6 +677,9 @@ static unsigned long num_sve_regs(const struct kvm_vcpu *vcpu)
->   	if (!vcpu_has_sve(vcpu) || !kvm_arm_vcpu_sve_finalized(vcpu))
->   		return 0;
->   
-> +	if (kvm_is_realm(vcpu->kvm))
-> +		return 1; /* KVM_REG_ARM64_SVE_VLS */
-> +
->   	return slices * (SVE_NUM_PREGS + SVE_NUM_ZREGS + 1 /* FFR */)
->   		+ 1; /* KVM_REG_ARM64_SVE_VLS */
->   }
-> @@ -701,6 +707,9 @@ static int copy_sve_reg_indices(const struct kvm_vcpu *vcpu,
->   		return -EFAULT;
->   	++num_regs;
->   
-> +	if (kvm_is_realm(vcpu->kvm))
-> +		return num_regs;
-> +
->   	for (i = 0; i < slices; i++) {
->   		for (n = 0; n < SVE_NUM_ZREGS; n++) {
->   			reg = KVM_REG_ARM64_SVE_ZREG(n, i);
-> @@ -739,7 +748,7 @@ unsigned long kvm_arm_num_regs(struct kvm_vcpu *vcpu)
->   	res += num_sve_regs(vcpu);
->   	res += kvm_arm_num_sys_reg_descs(vcpu);
->   	res += kvm_arm_get_fw_num_regs(vcpu);
-> -	res += NUM_TIMER_REGS;
-> +	res += num_timer_regs(vcpu);
->   
->   	return res;
->   }
-> @@ -773,7 +782,7 @@ int kvm_arm_copy_reg_indices(struct kvm_vcpu *vcpu, u64 __user *uindices)
->   	ret = copy_timer_indices(vcpu, uindices);
->   	if (ret < 0)
->   		return ret;
-> -	uindices += NUM_TIMER_REGS;
-> +	uindices += num_timer_regs(vcpu);
->   
->   	return kvm_arm_copy_sys_reg_indices(vcpu, uindices);
->   }
-> diff --git a/arch/arm64/kvm/hypercalls.c b/arch/arm64/kvm/hypercalls.c
-> index 569941eeb3fe..fb2bba0c7e86 100644
-> --- a/arch/arm64/kvm/hypercalls.c
-> +++ b/arch/arm64/kvm/hypercalls.c
-> @@ -412,14 +412,14 @@ void kvm_arm_teardown_hypercalls(struct kvm *kvm)
->   
->   int kvm_arm_get_fw_num_regs(struct kvm_vcpu *vcpu)
->   {
-> -	return ARRAY_SIZE(kvm_arm_fw_reg_ids);
-> +	return kvm_is_realm(vcpu->kvm) ? 0 : ARRAY_SIZE(kvm_arm_fw_reg_ids);
->   }
->   
->   int kvm_arm_copy_fw_reg_indices(struct kvm_vcpu *vcpu, u64 __user *uindices)
->   {
->   	int i;
->   
-> -	for (i = 0; i < ARRAY_SIZE(kvm_arm_fw_reg_ids); i++) {
-> +	for (i = 0; i < kvm_arm_get_fw_num_regs(vcpu); i++) {
->   		if (put_user(kvm_arm_fw_reg_ids[i], uindices++))
->   			return -EFAULT;
->   	}
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index a53a06700867..7d384016d1ba 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -4960,18 +4960,18 @@ int kvm_arm_sys_reg_set_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg
->   				    sys_reg_descs, ARRAY_SIZE(sys_reg_descs));
->   }
->   
-> -static unsigned int num_demux_regs(void)
-> +static unsigned int num_demux_regs(struct kvm_vcpu *vcpu)
->   {
-> -	return CSSELR_MAX;
-> +	return kvm_is_realm(vcpu->kvm) ? 0 : CSSELR_MAX;
->   }
->   
-
-static inline unsigned int num_demux_regs(struct kvm_vcpu *vcpu)
-
-> -static int write_demux_regids(u64 __user *uindices)
-> +static int write_demux_regids(struct kvm_vcpu *vcpu, u64 __user *uindices)
->   {
->   	u64 val = KVM_REG_ARM64 | KVM_REG_SIZE_U32 | KVM_REG_ARM_DEMUX;
->   	unsigned int i;
->   
->   	val |= KVM_REG_ARM_DEMUX_ID_CCSIDR;
-> -	for (i = 0; i < CSSELR_MAX; i++) {
-> +	for (i = 0; i < num_demux_regs(vcpu); i++) {
->   		if (put_user(val | i, uindices))
->   			return -EFAULT;
->   		uindices++;
-> @@ -5002,11 +5002,27 @@ static bool copy_reg_to_user(const struct sys_reg_desc *reg, u64 __user **uind)
->   	return true;
->   }
->   
-> +static bool kvm_realm_sys_reg_hidden_user(const struct kvm_vcpu *vcpu, u64 reg)
-> +{
-> +	if (!kvm_is_realm(vcpu->kvm))
-> +		return false;
-> +
-> +	switch (reg) {
-> +	case SYS_ID_AA64DFR0_EL1:
-> +	case SYS_PMCR_EL0:
-> +		return false;
-> +	}
-> +	return true;
-> +}
-> +
-
-static inline bool kvm_realm_sys_reg_hidden_user(const struct kvm_vcpu *vcpu, u64 reg)
-
->   static int walk_one_sys_reg(const struct kvm_vcpu *vcpu,
->   			    const struct sys_reg_desc *rd,
->   			    u64 __user **uind,
->   			    unsigned int *total)
->   {
-> +	if (kvm_realm_sys_reg_hidden_user(vcpu, reg_to_encoding(rd)))
-> +		return 0;
-> +
->   	/*
->   	 * Ignore registers we trap but don't save,
->   	 * and for which no custom user accessor is provided.
-> @@ -5044,7 +5060,7 @@ static int walk_sys_regs(struct kvm_vcpu *vcpu, u64 __user *uind)
->   
->   unsigned long kvm_arm_num_sys_reg_descs(struct kvm_vcpu *vcpu)
->   {
-> -	return num_demux_regs()
-> +	return num_demux_regs(vcpu)
->   		+ walk_sys_regs(vcpu, (u64 __user *)NULL);
->   }
->   
-> @@ -5057,7 +5073,7 @@ int kvm_arm_copy_sys_reg_indices(struct kvm_vcpu *vcpu, u64 __user *uindices)
->   		return err;
->   	uindices += err;
->   
-> -	return write_demux_regids(uindices);
-> +	return write_demux_regids(vcpu, uindices);
->   }
->   
->   #define KVM_ARM_FEATURE_ID_RANGE_INDEX(r)			\
-
-Thanks,
-Gavin
-
+Anyway, all that said, this is valuable stuff, so I was just curious.
 
