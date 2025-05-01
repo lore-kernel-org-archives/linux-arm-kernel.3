@@ -4,68 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0D40C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 12:31:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4758DC3ABA3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 12:31:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aTNwb4rImB7g18TxsqHFcDnqMMLrX8555tm+zk++cj8=; b=nGv1W07fGhLSUCcneM12bdh02V
-	ZB8bScN640PIXzZfv8QNVbfrZhKK/iiym8DGkIxcNje9tCUxnDMothKRsSBHYMQrOyDOtz0dwSlDs
-	StFOtjxDv/9LTlz2EIWV5NqMMh8c3HyjK+m96d6TjesNdIHEh3t06bK+qiI3bht68Til+J6bH6boK
-	nsH3bjlry/p1qe8FZ4tYEqvXCNut5qqqzGhETfDtP5qUNRMeI7rnA829BtTifQyTzfVhCCA7UrAzI
-	kOwMRAaIoWZ4tDXZC5abzjnM7JdQXBpP9vZx81+npVARUietHgQ7rR7isRt78ez7wceFqx9n+rpKc
-	xdzZfk7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3LSSgAVnxemyLKnDHH2XvGz1hoE8mivtd7FyCCesj/k=; b=zrzWuB8VMV2kbBPp6RcClmalzh
+	bkNbZ7Z/tE/RX1A51XB7dMgX5Bh0eDKAPFVyOENmDKEy3bh0UY26Owk1/pZ27TLPjVhNwpQQX0KtQ
+	v9+UAntlg9+uRkBCkQy+dyWQ1rOa9IciFMntPmqBmRf9fVv5zkBYg0Df1eDOzh09cgAdGoND/6q1R
+	f2MA1Wxm2JCsu7Mc8LL9mZFcdAyFgUfqyeTd+0z6keM1LZrCDzRCZF4R2lYE128FxrnFGE00OXjQx
+	qwiY94yx+/NgImA5DHmvgBnoxe3MpjSs7YMgWXBCXVOa/y/rrHJyDLn1EaomdNdWe/eA2m6WEt4sb
+	5eG8ezTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAT4P-0000000Fg5x-3sm3;
-	Thu, 01 May 2025 12:31:17 +0000
+	id 1uAT4R-0000000Fg7D-0UPg;
+	Thu, 01 May 2025 12:31:19 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uASaK-0000000FKoA-1BJ9;
-	Thu, 01 May 2025 12:00:12 +0000
+	id 1uASbZ-0000000FLUt-0Gzw;
+	Thu, 01 May 2025 12:01:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 586B768468;
-	Thu,  1 May 2025 11:59:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DA6CC4CEE4;
-	Thu,  1 May 2025 12:00:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C4EAF68468;
+	Thu,  1 May 2025 12:01:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94CC3C4CEE3;
+	Thu,  1 May 2025 12:01:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746100810;
-	bh=z2F6Iq0+hrQEpIkV1fcg1WaUZezRhDU2gz0ArU4vrno=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=FYsGrvFLffhiha4aqHkEGShXosDNpziWGUHgvmVDigxpuGtwUNOvtBoSTZDyYxdep
-	 SZSx8/9SSh3vE39cBtXXqVDlyjm3+eLy+BoqTf+h5cIVkcJkwYfx+odlikVY+hgyfd
-	 wXoOc71APf3R7yHeCOFcur+WgJq4lOF3LZIBavk2ngkmdxUc/SKG5eqgG6h+nzYTlo
-	 VqREdJ/WFQXkkV52JcMGsj5+dtEAGoQIlh0H0KiDq0T3jqgCco3uXMTwXpQHb86Pth
-	 l5ggML4+v6nvlahSCh2YLw99hh04tQdqnqOHwAQt+adta+U2bLYP38Bj0IsBvj7s4t
-	 +bTbCajpFU7aQ==
-From: Lee Jones <lee@kernel.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
- Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Frank Wunderlich <linux@fw-web.de>
-Cc: Frank Wunderlich <frank-w@public-files.de>, 
- =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
- Daniel Golle <daniel@makrotopia.org>, Sean Wang <sean.wang@mediatek.com>, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-phy@lists.infradead.org
-In-Reply-To: <20250422132438.15735-6-linux@fw-web.de>
-References: <20250422132438.15735-1-linux@fw-web.de>
- <20250422132438.15735-6-linux@fw-web.de>
-Subject: Re: (subset) [PATCH v4 5/8] dt-bindings: mfd: syscon: Add
- mt7988-topmisc
-Message-Id: <174610080698.3792828.16129247055603832189.b4-ty@kernel.org>
-Date: Thu, 01 May 2025 13:00:06 +0100
+	s=k20201202; t=1746100888;
+	bh=wO38hj0kH5wwFVV788X9fXlS0WBLehhmfHhlpKQsYvg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=r91DJqwzqLwYugfxG2pb0c35WvYMJaYiQSAzcjSB9ovMk/EnuGFWt2MzM/ytGRGdC
+	 wAZKGYA+vz/s77fg7aQPZpAlRKcIT/igILGZ14jGoQZRtnvMqHOqkLkJwPy7JSpIpu
+	 XDcukosA/Y5OgnMQVJEm1UnxIJQM61jiR71p9iyLgVv43hbMZ2gAbN2M6b5oOH8MEX
+	 eADFKDx06fKC+QJCJEL2g+i88z65RYvJRGtPFmWl9dLMhjXRqk6a3+1YKebnYI0UTa
+	 HUNw7+7h0Z7T1NnKcVsO1ulcz0ucQy6ZlItp/CCK3/P4KLZaEHM+QCaMeinOSEse5R
+	 h5ur5t/0ba74w==
+Date: Thu, 1 May 2025 14:01:25 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Xu Yang <xu.yang_2@nxp.com>
+Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, jun.li@nxp.com, 
+	alexander.stein@ew.tq-group.com, linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 2/4] dt-bindings: phy: imx8mq-usb: add imx95 tuning
+ support
+Message-ID: <20250501-incredible-skylark-of-awe-e0c2cc@kuoka>
+References: <20250430094502.2723983-1-xu.yang_2@nxp.com>
+ <20250430094502.2723983-2-xu.yang_2@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.15-dev-39345
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250430094502.2723983-2-xu.yang_2@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,23 +72,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 22 Apr 2025 15:24:28 +0200, Frank Wunderlich wrote:
-> Add compatible for Mediatek mt7988 topmisc syscon.
-> This hardware block contains 2 functional blocks
+On Wed, Apr 30, 2025 at 05:45:00PM GMT, Xu Yang wrote:
+> The parameter value of below 3 properties are USB PHY specific. i.MX8MP
+> and i.MX95 USB PHY has different meanings. This will enlarge parameters
+> value and add constraints for them.
 > 
-> - a powercontroller which is not needed (switched by atf)
-> - a multiplexer for high-speed Combo-Phy
+>  - fsl,phy-tx-vref-tune-percent
+>  - fsl,phy-tx-rise-tune-percent
+>  - fsl,phy-comp-dis-tune-percent
 > 
-> This compatible is only for the multiplexer part.
+> Reviewed-by: Jun Li <jun.li@nxp.com>
+> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
 > 
-> [...]
+> ---
+> Changes in v3:
+>  - keep original unchanged
+>  - enlarge value for some properties of i.MX95
+> Changes in v2:
+>  - keep widest constraints
 
-Applied, thanks!
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-[5/8] dt-bindings: mfd: syscon: Add mt7988-topmisc
-      commit: 4d54ce40400c215127ce24aa3a684a20e7d8493a
-
---
-Lee Jones [李琼斯]
+Best regards,
+Krzysztof
 
 
