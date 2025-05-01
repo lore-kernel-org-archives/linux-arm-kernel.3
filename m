@@ -4,179 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CDE5C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 00:28:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71C5FC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 00:30:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc:To:From:
-	Subject:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3vWecc5xVBpX6ngVzLO6G4scdsjbC6dmV9eULon0zJg=; b=eRCTTaVQUztnuxp8zjSQW61rw8
-	Ymb6VdD17a/DrHFZ79NWcXc/LAmluHP7A+DJsfzGa/HnJp7gW8jtWYYqhtXsmEh5AHesu+tva/Giy
-	Z/MEoUYPYP+hvX3ISkZck8vIYkNIj2AHRDtjZT2aE+5+jiGwxEZfpEETjgZd5qTh91v33tpADCT49
-	Swti57TjYc51B9KOKz4uh7HWP9g+hrTkX3PeiwivSuBvr3QtEFLMbWLB5f5EOpY7qFYnWEka173qe
-	7uD8de/RwhPUc60s7sO5lOy5+rDqQAk23Fli32g0rrxlB6hhG2V0TLGYR/gtZX2zGyu9woNCbfCE2
-	b2G4/i9A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cBANZxuf9Ewcq9UHI1RdTA5tF6P0Odc/vpt5hBmkkMY=; b=M8uP5i1qxBhdpwUKoDhXGiybUp
+	sfEXF8UTgIB3vQb4HvdL4D8Hso03htdlMLRTwwwofk7tD92Dg2zZi1VnH+gByERBy9YfsPbybApUc
+	vgUrd5xUV5MgdqvRlF1YxUHuCLkXrk7s2+U6RaqZLu6DeYsDXssmGyBYCEZetswVGevH0AyNB5R6s
+	bLWNdY7oY5QrPCjTBraeBudCxqsqBc3P6z291JxFFw1/3wazWe6fS7smSqkmeEaCuYLgLecUFLTx+
+	RrqhvzkA6TRbA1nPnJxXLsK0zm7k/4CRCgKjfggkVkSi+5pj39LFUvLcmHCeUWzPaoOzwsn5IAXNf
+	w9vQH1Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAeGa-00000000PYH-2Qwt;
-	Fri, 02 May 2025 00:28:36 +0000
-Received: from mail-dm3nam02on20606.outbound.protection.outlook.com ([2a01:111:f403:2405::606] helo=NAM02-DM3-obe.outbound.protection.outlook.com)
+	id 1uAeIT-00000000PvJ-2fGq;
+	Fri, 02 May 2025 00:30:33 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAdmH-00000000JdP-0QwN
+	id 1uAdoX-00000000Jtw-2VTN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 23:57:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=puq/t9eQsXD5NUE5uc3PxkZK+eoztO/wGwTUl34FCBRXXlEhxVqxRBvgQn/rFxgh2JXKeFn9q4rIwukbPTOCsegdIFSRiG1VcJ25WKjSYlje77gX3nrldXWYy69XllrbsTUyGZkjjniW6VV05qKVGaymTytOlo6uNXBIJjkb+DlIflSgknreln8mm7EiAQckkI1yS8w0Mstbt+eUx+9udLHlPATQ6YxbHhZYSxhSxV0EtDxeURQvtP2DCVGzU5xn8fjVFl6DqM7mCBiWxzq6aKeVkkDB8uRXdGBXo2v/hCe7vGTZPTmTa/sy/stjQZJ2a/Nak5c90EcZyDaGhy8oKA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3vWecc5xVBpX6ngVzLO6G4scdsjbC6dmV9eULon0zJg=;
- b=AwfI9+CAisyeyammHrekCGHE0vWQTGf+YOXeUGrzFUokLxAvQWkCnt4Rk81Pt6YTVPoJVE70UeTFZKRDGrLjhfxMXS8FUzSWl8uNTnDVlvg7kgq+yfviNbimFx0HUsgHmcWbgcr1G/HZiAT18pVJVfbbyikmPrtPy8MU+dNmN05MQkiU2CxNot2cYZ5LHFkB3RsnmkAlXIOVoxMetxNKYtouDrTVb2G3okJ7FHkuBOYZJ7lWtCUi3TUMoFaB2nXEcsseSyxhvcw/x9rjfbqiq/v/+VitdqLcJWPqvKnL0dBZfOszZ1GBdwvZPaH9jBjfCOZ+WiGDt5HIWVnDmO9mqw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3vWecc5xVBpX6ngVzLO6G4scdsjbC6dmV9eULon0zJg=;
- b=1Iz0nfdPhLJNqKZhyfUyPVQ8sYzRGkkOI1jo1U55HDSKSZSegKTt0//QUIZN30NU8DNyuvGfzdL1U6yL0qe3RUR/c08Tkdo+FMr05bE8pLcTea3++xVgKnXPV6E3omnZVAq21ibtEYNLxDI7EiXGwKcr2FMPe21V+H6lvO8F2n4=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from CH2PR12MB4956.namprd12.prod.outlook.com (2603:10b6:610:69::11)
- by CH1PPFF5B95D789.namprd12.prod.outlook.com (2603:10b6:61f:fc00::62a) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.31; Thu, 1 May
- 2025 23:56:58 +0000
-Received: from CH2PR12MB4956.namprd12.prod.outlook.com
- ([fe80::fa2c:c4d3:e069:248d]) by CH2PR12MB4956.namprd12.prod.outlook.com
- ([fe80::fa2c:c4d3:e069:248d%3]) with mapi id 15.20.8699.019; Thu, 1 May 2025
- 23:56:58 +0000
-Message-ID: <ab09cbdb-8e30-4720-8ca5-66488922db33@amd.com>
-Date: Thu, 1 May 2025 18:56:54 -0500
+	Thu, 01 May 2025 23:59:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1746143976;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cBANZxuf9Ewcq9UHI1RdTA5tF6P0Odc/vpt5hBmkkMY=;
+	b=Jgw66BxQO/FGWTLR5ausNpI4SOr085EvZnh+qkDq0cg/rggXnl0q+tVeN4LOGj/pgFpuwQ
+	xGQ+pN3zSyx48IAcJ1jbldz8TMgb0J1VbwKf3L1KRPjJX7CkfYODhUqrlGbiVNJSMq28ug
+	xzDTHMSZgppOS82X/GCriioAFBPFzHc=
+Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com
+ [209.85.210.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-315-NPQeDCQFMKy-5wyZHXdugw-1; Thu, 01 May 2025 19:59:35 -0400
+X-MC-Unique: NPQeDCQFMKy-5wyZHXdugw-1
+X-Mimecast-MFC-AGG-ID: NPQeDCQFMKy-5wyZHXdugw_1746143974
+Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-7391d68617cso2444366b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 May 2025 16:59:34 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746143974; x=1746748774;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=cBANZxuf9Ewcq9UHI1RdTA5tF6P0Odc/vpt5hBmkkMY=;
+        b=TT1CzTXRIywD6NS4RkC0ExVDCs7yFn4w+7XsF+wiZn2hEHLbF8lS/iS5fgxFlu6rNq
+         /O9x3L68Qr18nBCC3yirW2OX+TqrUPbpmkoFZnLxzevHT3eRZpjwiAoVB2YehNkjun7D
+         eMOzXTt7vjXzhHxjc6AWRyqTxcIHXX/SrNCBFIx2LkypMFcTAtTpQg0Cd0qUvgMhklLG
+         AR8QwXMaHS8Bk3tJhyPhg0+T9aEbEijISle2H2XHgZd0oSYwkcRQbPNgFB/lHBT4MRDQ
+         5tqnx+RmWTOUkBCubdRhAu1JMfWYacB3yEI1EOYxCL99XXzE4huapeoWxVwVUqfg595D
+         GEyg==
+X-Forwarded-Encrypted: i=1; AJvYcCVsfBwCF4gSGTJbYPSNfSZfcTURPaNnnb2bwpaFhrsVLHrS0/cUnt+M2CgQM5XgdsxJpluQcGKnOr0wUDwedMF9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7B29M93smnNLPo2MOz9juqiHgq+pYMv7utatb5StMVpYsy9jg
+	XFXphRk/q9im/a+91QftDc4jkIhCOMSEOJ4MtdNYsHGYp7C3OtMoPMKiSy0NFyD0yhyYGTU2emQ
+	tCtep1XdVSlvcT9BLf/cZDlej6c6enfjvKvwoZm+xPqjto07ozP/Dfpu7r6NFiObBqZfmfZLK
+X-Gm-Gg: ASbGncucLeodckpctESQZvOUDdKBaT20LP4rllV39cbPJz5lJ7m5deD4lDP3XCMzgva
+	vGzCBob1EOpBiZhsskRt1fPhc+uB8LMfWa1QYYDh6Nl3ArKf4crAC9Vem40ipderYmLLFeq2POe
+	F8PotO0SiBg00+8Ej13iclOTS+UCOkaTi/XfZs+Yn6erTif44OhKo7FXQNMmotpwwpkKVb6y7N/
+	TjX7oPTWfIE3UmyuLHiYlxSp5KJEqxxp1JHBMgmxKzcDv0wU1D1xob01Ns+MabXS2UH9wf1sAJJ
+	nkyEUv2vEEhD
+X-Received: by 2002:a05:6a21:3a95:b0:1ee:a410:4aa5 with SMTP id adf61e73a8af0-20ccd77ed42mr1244493637.17.1746143973962;
+        Thu, 01 May 2025 16:59:33 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEMpgyoNeMNenmpM+HSomoVyyuNDLKcDkubN3MpNbx1DHID/acstvVT2f8CfagoMMSqLqN1+A==
+X-Received: by 2002:a05:6a21:3a95:b0:1ee:a410:4aa5 with SMTP id adf61e73a8af0-20ccd77ed42mr1244475637.17.1746143973557;
+        Thu, 01 May 2025 16:59:33 -0700 (PDT)
+Received: from [192.168.68.51] ([180.233.125.65])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74058d7a497sm279346b3a.33.2025.05.01.16.59.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 01 May 2025 16:59:32 -0700 (PDT)
+Message-ID: <15b37ee8-2aeb-442e-b683-705e30f3b0ca@redhat.com>
+Date: Fri, 2 May 2025 09:59:24 +1000
+MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/4] of: Common "memory-region" parsing
-From: Tanmay Shah <tanmay.shah@amd.com>
-To: Mathieu Poirier <mathieu.poirier@linaro.org>,
- "Rob Herring (Arm)" <robh@kernel.org>,
- Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
- Daniel Baluta <daniel.baluta@nxp.com>,
- Iuliana Prodan <iuliana.prodan@nxp.com>, "Andrew F. Davis" <afd@ti.com>
-Cc: Saravana Kannan <saravanak@google.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Patrice Chotard <patrice.chotard@foss.st.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Chen-Yu Tsai <wens@kernel.org>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-remoteproc@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-arm-msm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
-References: <20250423-dt-memory-region-v2-v2-0-2fbd6ebd3c88@kernel.org>
- <CANLsYkxKHhCHYrbAGzQ48QGpL_DbuLnX3=ppmpyu0vjuuvvODg@mail.gmail.com>
- <8c8e9362-c116-4a80-bcb7-a44df68e0bfc@amd.com>
+Subject: Re: [PATCH v8 15/43] arm64: RME: Allow VMM to set RIPAS
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+References: <20250416134208.383984-1-steven.price@arm.com>
+ <20250416134208.383984-16-steven.price@arm.com>
+ <cc2c5834-c942-4454-903d-11b53f8f5451@redhat.com>
+ <d2caa472-01da-4dc2-8c38-bf0cd4524bcd@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <d2caa472-01da-4dc2-8c38-bf0cd4524bcd@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: gHROXIeJB62GgWWAdPD6Ngx_QA-fpniD_d-9FUniX7U_1746143974
+X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-In-Reply-To: <8c8e9362-c116-4a80-bcb7-a44df68e0bfc@amd.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SN7P222CA0018.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:806:124::27) To CH2PR12MB4956.namprd12.prod.outlook.com
- (2603:10b6:610:69::11)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PR12MB4956:EE_|CH1PPFF5B95D789:EE_
-X-MS-Office365-Filtering-Correlation-Id: f17d7588-4623-42a6-6ac5-08dd890bdb70
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?b1MzR2VRWUVwNExtdyt6ZjVtUWhYRFhxNzQvY2pPUjlhYm9JS2l0S3RZMmRm?=
- =?utf-8?B?bUhTdGs5Mm5WVUpkRElEWmxHY3ZqUzMyMzlreDBmQ3ptRlNnUU1ncE5udnps?=
- =?utf-8?B?Nk9pekQzNnJzTXhyRldSVGtqM0tEZ3laVXQvdXJuMit5c3RENFIvV3lDRUJE?=
- =?utf-8?B?OVRhMWRaTUcwNWNjL0NLd3IzRVFBL2x2a2lNc1BoWHdpNlZQQTBRejZJR3JR?=
- =?utf-8?B?M2w1ckxCRGw1eU5LclNMWWFsWGlZKzEzaWZZMjNWeTM2NUVhcWt1WHhUTnBU?=
- =?utf-8?B?Nzg5ZERIcnB3Yno3clEwRmYzd0M4enRaanJtVFZpRkNQZ2ZTcitkdkFtNnJn?=
- =?utf-8?B?Sjc4R2xMNUREcXZOUzBrSllUK1VOaSt2Z0pkMVFhcFFSeEh3bDB5N0FySFNJ?=
- =?utf-8?B?RHpFUFZpaVA3aVlJbitWK0ZSdVpvUjVacTIvcEFvMHFOZXR6em1valZUKzVr?=
- =?utf-8?B?SjhJWnpDeXR5bTdiV1IzTnlmTUdDOEdSeEE4ejcwc3FrekZTd05HNktLb2tt?=
- =?utf-8?B?MVRSNmdPeitUY2lnVUxkc3FYbmFiL056dlBieG00RHJTc1IraGZGVE13UldB?=
- =?utf-8?B?dkJIMlBGZVVIYkV5MHhNWVBrZElkcjFPbXNvOS9zY3pWY3pEKzBraG1YSnVu?=
- =?utf-8?B?S3hlTzBJUS90dDdqdXlhM0d4VjlTZTRUYzUwU0ppbnJNRkREUUZYMGJWNFZu?=
- =?utf-8?B?bWVHY21rZHd6a1FDNUpzQ1BqQy9CVjBxMFltc1MyTTJmL0RzVGFjN3M4T3pM?=
- =?utf-8?B?VUhRTXU0dWVUQndGY01FUGxCVVZUaTFGOUM2ZU9UdWlOR2p2QzQyZGtmVU1w?=
- =?utf-8?B?NkRPcHBFNDdYYXNSRTVSV2Y5N3pSRnowNThPcFE4UGlQWWp4dElXV2szK1dP?=
- =?utf-8?B?ZytEY3l5cFhiVmFYQm1hZDZveTNqdG83ZktNUXNmMGFjRWVNOGZ1dTJBTkxs?=
- =?utf-8?B?YmQyRHpUNUpUbzduT1lQL25Ga2RicVpQYjYwRVpRT0RhczdXVk1Nc2l0ZTBj?=
- =?utf-8?B?WnZQTmdEYW5yU3kxY1diOXJMRWo2bnJhTE9IMFZmbFRzc0Z2aGRlcU1kY1Vv?=
- =?utf-8?B?Y0YwY1htVVNONEwyRmNMYTZoUWs5ZEVjdWlUTTBqL1BSWEFEMWwwWDNqSmRh?=
- =?utf-8?B?ZEUzSjNrK1EwSGIyU3RYQ3lWbVJVUzllM1B0ci9ueWdDR3lmaVlEVzNpY2JL?=
- =?utf-8?B?TkZCdUtNbCt3RnZoWWs2UjczV01pUHR1LzFERVFhV2trRW9NTEkzSUhaUlMr?=
- =?utf-8?B?TFpDait2YTAwQ0xMdzVuMjBmMm5MT1E4dTVtWE9qOFI5SzN3eTZwQ3N4YzEv?=
- =?utf-8?B?VXd0Q1FGRGFUaXpEN3BwT3RWbFdZUW5HZDRyRUpNeTdvT2VWNkJId1U2ZTQ1?=
- =?utf-8?B?K1FrZDJLT0h1dUVGbGtTNWNsR3hhcFYxMTRaY3pBK1FqVmp5dHlmNWQ1d0FY?=
- =?utf-8?B?ZmFHQXppdGRuVWxpT1NKMVhhSzF3WG1ZbHROM3BIdXBNUHBuYXVFU2dvMDFF?=
- =?utf-8?B?eEFoTkRnWkpUU0Y1Y1BaV1RNOXFIdzNHaDJpNjJFWXpLdzVRYUFRS2V2RzNH?=
- =?utf-8?B?eFdWQTlXWWY3empvTHlOdGVHUlU1TkQzMUEzSVMvUXMyaHJZbXFUT3pmVVFQ?=
- =?utf-8?B?Q2libm5UamszdzNYSUJLbDZiSEUydExvNGxxQmt1MkhmWGV5enJxakhIMWJH?=
- =?utf-8?B?bWQ1c1RQVEpuT1RlZjZXTzRjOXQxbjdCSzBCME5Tb2lXQU82YzMwai8zZmtu?=
- =?utf-8?B?N3VUdjlHZVNtV2xSSWo5SVZiQ05UMjQ2bFBEMnFCR1NFc0xrazlaR2dwZkR1?=
- =?utf-8?B?Y2o1b04yYXRvLzJzZUxETHA2SDRsWkJpK3hjSVlkNmJyV3h2eFh3ZTQ5QitG?=
- =?utf-8?B?NHNVQ1JQa1h2cW5Xd08zRTF1dG55SHBHOHQ3TWZVc3BOeTdOUGF6R01RdHRX?=
- =?utf-8?Q?TtRCP60T5KQ=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH2PR12MB4956.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TUFiYk84cXJTTTVjbXJ0NVRXeDM2aFV0ZjJiVnNtNjZZb2h5TDRuZVRzeTVr?=
- =?utf-8?B?LzNySXUwK2JTam5VNHJLOG9GZmI2VHRkbnROUDZEQ0NpL1JOcE5yMUxueWZs?=
- =?utf-8?B?QUx3WFNMclY0S3RiaGJPWnlOajVrR1JzUDgvdVdJMC8xZGNJd3E5OUZEcjEx?=
- =?utf-8?B?NEdSd1NkRTNXdVpOdWFpSjlyVzlYOEtET04xWnFQcXkwT0U3RlB5TVgyREhJ?=
- =?utf-8?B?TytjL1F4aTNIdCtad1dmemRuWjJtL1gxTFpnbklWZHZIRUp2RFNhTy9aQTNX?=
- =?utf-8?B?cVVleFhNUmtOZmhVVzIwVTNzcCt4ckM1UmlWN2I1OWJEUW51TVZYK2RMamMr?=
- =?utf-8?B?REZDL09tcSt5ZVZMUjBCY1dGNEc1Vm1rTXdCbnJlcEQ3MWd1QUd1ZmdvQ1Zk?=
- =?utf-8?B?L1BKNFExMDkxUkYzOGc1WWk2SFcwbjVQMU5WeU8wZFVkcGFQZDc1aE81bFVw?=
- =?utf-8?B?MkxvTHV0aDh0bk5nL0s5aXZ6ZkNISkNvVDlQT1ViRWJ1cTBpVFJDUlhjQ0dU?=
- =?utf-8?B?ZDFvV2F6ZFdRUE0wVlhIZ0x5em8yV05IaXhYa0xQYndBcWx0cllLYlF5bkcv?=
- =?utf-8?B?MHRQK3J5STRHNytUeEhsUnNaOGFQd29scmhzbkRwS3VWMXFvZk93ODNhSE1a?=
- =?utf-8?B?eXZQbnpqQVpXUmo4UnhyeS8ySVlzbGp6bTNoQ1dqTzJCUkRrdnRzbTZ6NXRF?=
- =?utf-8?B?TmFqZGxhd2dRdUFVRHlMbVJBTFkzbm5wenhyMkNDT0oyME5PcnpadTVuejQ1?=
- =?utf-8?B?ZGw4S2ZxaTIxRWF2dkYrNGZhVGhyMWZDTnpuVllYdW9vcTNrN0drQnpsd29k?=
- =?utf-8?B?SVdMUjA0YXl3Qi9PaktIY0NIcnd2dG5hWUQvbVlycFhDb0VEdGNYUjNETGc2?=
- =?utf-8?B?aFdBUUFVRkFFUkRxY1JXZFRFbG9Gc2dhM2g0Q3BOdnNreUMwemZTcmVTOGNp?=
- =?utf-8?B?ZWNRMEtSRTJKZzZzSUZrTjN6NEtZczFKMUtMdVZQdHZEdXBNdzlYbENjYy9p?=
- =?utf-8?B?aUFJYUhJbGF2Nmo3Snk1dTVoUDRYM215YThJb3BWaXFVRlB5eGIrMHVXTzZF?=
- =?utf-8?B?cHppeUxuQ1Y5Q1V2NE9yTUJyM1owbnc4Skx1cE1OWHVuK0FqWEZwZWwrVkV4?=
- =?utf-8?B?SUVGcFlDZFVaa0FqZUVaNURzcU8rV0xxQVQrakFwNXptcCtTZVFObGFHSENQ?=
- =?utf-8?B?bmw0Y2UzZzRXdUpzV0x6Yk1vc1NxaDY1RnkxaEZ0TzQ2d3hmNHYwVEx6MU5K?=
- =?utf-8?B?eGtWY0IxNUN2cGV1a0Y0TENjTjZsNnJHd3JVVWpaNXdCWGFwampxUVFIUXhm?=
- =?utf-8?B?MnBkTE0vYnpLbWp4ZTd0Mk9BMFZvbS9OVmtJemJVK2wvT2I1cUxVWUNaNmtk?=
- =?utf-8?B?RnF1Rm1JTTY5d243Yi84N3NFYk1HMUd3ZXBsYWxINGlCOVZtRUwrMEpudTFX?=
- =?utf-8?B?azQ1R2R4TmRCc0hPWDRQUXR5MEdyNHFjTVNmNUc0Y1NWYVVhMGErLy9UY1dD?=
- =?utf-8?B?dkNnWjd0anQzRFVVY283bHlhTXM3eEJxVGUrWjFyd3FvdDRKSGhSWDZYUTgx?=
- =?utf-8?B?YkRDeS9LbGUvWlc3eG9iNjZ0bkF3ZCtoemVDazRIbWVJMSs3RTcveWJXZm5E?=
- =?utf-8?B?blhKaVl3b1M5cm1iR1dqN3AwMEFocVpDSGc4MldYYkhINFRQVEF4T3NqQXlM?=
- =?utf-8?B?cTd6WXRjQUZqK0ZBTUc3NHpkQ2tlRWtzN1RWN2FJZkFTS2d3N0V2TGl2TWly?=
- =?utf-8?B?NzZIV0tRQU5XYitSSkpFbFRBcGpQTGY3dWoyUThNRlBseGRPa1A3dXJEdG5p?=
- =?utf-8?B?dVkyZ1JtVWtweFVZYnY5dVlJejdlNjRUOTBNTGJvdlJXck9tMVhDNElwQjBk?=
- =?utf-8?B?b1hCWGxMZXE2bXJqdUhvR2lEeUlWUE55ME11VEtrczlxVVlLd3pwL0RxRmVq?=
- =?utf-8?B?WU5CUjFuU2hWZDQ0QUVuT0Z6QmVwSW1wM1B5VTF6MFhXZFRwMHBwN0FYVHl5?=
- =?utf-8?B?UmQ1dnRuSC8wd09yQVU3M1JOYjNkclBMa3E3TTMwZ0JEM3RnYmVCeE5odmlQ?=
- =?utf-8?B?aVdmOUxSa1A2MTJrUlZleDFKV1ZjVHU3N0NTTnBCdGJUR2ZzcVJzZHJsRlNr?=
- =?utf-8?Q?uURVfDPbSGE3eIA8OYokk5eNc?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f17d7588-4623-42a6-6ac5-08dd890bdb70
-X-MS-Exchange-CrossTenant-AuthSource: CH2PR12MB4956.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 May 2025 23:56:57.8250
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: uwNpcm27+iXMVbZ1LXLosPFvnJP//CiBZWpmvskof6c6ZFS4sBs4tYxAEk/kclCf
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH1PPFF5B95D789
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_165717_189451_43EA7D1C 
-X-CRM114-Status: GOOD (  15.96  )
+X-CRM114-CacheID: sfid-20250501_165937_749132_5F0C8F21 
+X-CRM114-Status: GOOD (  30.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,105 +120,117 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: tanmay.shah@amd.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 5/2/25 2:00 AM, Steven Price wrote:
+> On 30/04/2025 12:38, Gavin Shan wrote:
+>> On 4/16/25 11:41 PM, Steven Price wrote:
+>>> Each page within the protected region of the realm guest can be marked
+>>> as either RAM or EMPTY. Allow the VMM to control this before the guest
+>>> has started and provide the equivalent functions to change this (with
+>>> the guest's approval) at runtime.
+>>>
+>>> When transitioning from RIPAS RAM (1) to RIPAS EMPTY (0) the memory is
+>>> unmapped from the guest and undelegated allowing the memory to be reused
+>>> by the host. When transitioning to RIPAS RAM the actual population of
+>>> the leaf RTTs is done later on stage 2 fault, however it may be
+>>> necessary to allocate additional RTTs to allow the RMM track the RIPAS
+>>> for the requested range.
+>>>
+>>> When freeing a block mapping it is necessary to temporarily unfold the
+>>> RTT which requires delegating an extra page to the RMM, this page can
+>>> then be recovered once the contents of the block mapping have been
+>>> freed.
+>>>
+>>> Signed-off-by: Steven Price <steven.price@arm.com>
+>>> ---
+>>> Changes from v7:
+>>>    * Replace use of "only_shared" with the upstream "attr_filter" field
+>>>      of struct kvm_gfn_range.
+>>>    * Clean up the logic in alloc_delegated_granule() for when to call
+>>>      kvm_account_pgtable_pages().
+>>>    * Rename realm_destroy_protected_granule() to
+>>>      realm_destroy_private_granule() to match the naming elsewhere. Also
+>>>      fix the return codes in the function to be descriptive.
+>>>    * Several other minor changes to names/return codes.
+>>> Changes from v6:
+>>>    * Split the code dealing with the guest triggering a RIPAS change into
+>>>      a separate patch, so this patch is purely for the VMM setting up the
+>>>      RIPAS before the guest first runs.
+>>>    * Drop the useless flags argument from alloc_delegated_granule().
+>>>    * Account RTTs allocated for a guest using kvm_account_pgtable_pages().
+>>>    * Deal with the RMM granule size potentially being smaller than the
+>>>      host's PAGE_SIZE. Although note alloc_delegated_granule() currently
+>>>      still allocates an entire host page for every RMM granule (so wasting
+>>>      memory when PAGE_SIZE>4k).
+>>> Changes from v5:
+>>>    * Adapt to rebasing.
+>>>    * Introduce find_map_level()
+>>>    * Rename some functions to be clearer.
+>>>    * Drop the "spare page" functionality.
+>>> Changes from v2:
+>>>    * {alloc,free}_delegated_page() moved from previous patch to this one.
+>>>    * alloc_delegated_page() now takes a gfp_t flags parameter.
+>>>    * Fix the reference counting of guestmem pages to avoid leaking memory.
+>>>    * Several misc code improvements and extra comments.
+>>> ---
+>>>    arch/arm64/include/asm/kvm_rme.h |   5 +
+>>>    arch/arm64/kvm/mmu.c             |   8 +-
+>>>    arch/arm64/kvm/rme.c             | 384 +++++++++++++++++++++++++++++++
+>>>    3 files changed, 394 insertions(+), 3 deletions(-)
+>>>
 
+.../...
 
-On 5/1/25 10:44 AM, Tanmay Shah wrote:
-> Hi Mathieu,
+>>> +static int kvm_init_ipa_range_realm(struct kvm *kvm,
+>>> +                    struct arm_rme_init_ripas *args)
+>>> +{
+>>> +    gpa_t addr, end;
+>>> +    struct realm *realm = &kvm->arch.realm;
+>>> +
+>>> +    addr = args->base;
+>>> +    end = addr + args->size;
+>>> +
+>>> +    if (end < addr)
+>>> +        return -EINVAL;
+>>
+>> The check needs to cover 'end <= addr'. RMI_ERROR_INPUT is returned from
+>> RMM::smc_rtt_init_ripas()
+>> if 'end' is equal to 'addr', but we're returning 0, inconsistent to that.
 > 
-> I tested this patchset on top of recent for-next branch. I don't see 
-> issue on AMD-xlnx ZynqMP platform. With this:
+> I agree we're different to smc_rtt_init_ripas(), but I don't really see
+> why we should prevent args->size==0. Calling the low level SMC in that
+> case would clearly be wrong (the kernel should be validating and that
+> would show a lack of validation), but we handle that with the while loop
+> in realm_init_ipa_state().
 > 
-> Tested-by: Tanmay Shah <tanmay.shah@amd.com>
+> Do you think it's important to define this uAPI to disallow size==0?
 > 
 
-Hi Mathieu,
+No, it's not a big deal since it's just a nitpick. The current implementation
+isn't wrong because 0 will be returned when size is 0, meaning it succeeds
+but no work to do there. Please leave the code as of being :)
 
-Looks like I said it too soon. Firmware loading works with this series, 
-but RPMsg doesn't work. I am debugging further and will provide inputs 
-once I find bug on xlnx_r5_remoteproc driver.
+>>      if (end <= addr)
+>>          return -EINVAL;
+>>
+>>> +
+>>> +    if (kvm_realm_state(kvm) != REALM_STATE_NEW)
+>>> +        return -EPERM;
+>>
+>> To keep the consistency, kvm_realm_is_created() can be used here.
+>>
+>>      if (kvm_realm_is_created(kvm))
+>>          return -EPERM;
+> 
+> This isn't the same - kvm_realm_is_create() is checking for
+> REALM_STATE_NONE, but we want to check for REALM_STATE_NEW.
+> 
 
-Please ignore above TB for now.
+Hmm, sorry for the noise. The current code is good enough then :)
 
 Thanks,
-Tanmay
-
-> On 4/24/25 9:14 AM, Mathieu Poirier wrote:
->> Arnaud, Daniel, Iuliana, Andrew and Tanmay - please test this patchset
->> on the platforms you are working on.
->>
->> Thanks,
->> Mathieu
->>
->> On Wed, 23 Apr 2025 at 13:42, Rob Herring (Arm) <robh@kernel.org> wrote:
->>>
->>> While there's a common function to parse "memory-region" properties for
->>> DMA pool regions, there's not anything for driver private regions. As a
->>> result, drivers have resorted to parsing "memory-region" properties
->>> themselves repeating the same pattern over and over. To fix this, this
->>> series adds 2 functions to handle those cases:
->>> of_reserved_mem_region_to_resource() and of_reserved_mem_region_count().
->>>
->>> I've converted the whole tree, but just including remoteproc here as
->>> it has the most cases. I intend to apply the first 3 patches for 6.16
->>> so the driver conversions can be applied for 6.17.
->>>
->>> A git tree with all the drivers converted is here[1].
->>>
->>> v2:
->>> - Fix of_dma_set_restricted_buffer() to maintain behavior on warning msg
->>> - Export devm_ioremap_resource_wc()
->>> - Rework handling of resource name to drop unit-address from name as it
->>>    was before.
->>> - Link to v1:
->>>    https://lore.kernel.org/all/20250317232426.952188-1-robh@kernel.org
->>>
->>> [1] git://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git dt/ 
->>> memory-region
->>>
->>> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
->>> ---
->>> Rob Herring (Arm) (4):
->>>        of: reserved_mem: Add functions to parse "memory-region"
->>>        of: Simplify of_dma_set_restricted_buffer() to use 
->>> of_for_each_phandle()
->>>        devres: Export devm_ioremap_resource_wc()
->>>        remoteproc: Use of_reserved_mem_region_* functions for 
->>> "memory-region"
->>>
->>>   drivers/of/device.c                       | 31 +++++-------
->>>   drivers/of/of_reserved_mem.c              | 80 ++++++++++++++++++++ 
->>> +++++++++++
->>>   drivers/remoteproc/imx_dsp_rproc.c        | 45 +++++++----------
->>>   drivers/remoteproc/imx_rproc.c            | 68 ++++++++++ 
->>> +---------------
->>>   drivers/remoteproc/qcom_q6v5_adsp.c       | 24 ++++------
->>>   drivers/remoteproc/qcom_q6v5_mss.c        | 60 ++++++++---------------
->>>   drivers/remoteproc/qcom_q6v5_pas.c        | 69 +++++++++ 
->>> +----------------
->>>   drivers/remoteproc/qcom_q6v5_wcss.c       | 25 ++++------
->>>   drivers/remoteproc/qcom_wcnss.c           | 23 ++++-----
->>>   drivers/remoteproc/rcar_rproc.c           | 36 ++++++--------
->>>   drivers/remoteproc/st_remoteproc.c        | 41 ++++++++--------
->>>   drivers/remoteproc/stm32_rproc.c          | 44 ++++++++---------
->>>   drivers/remoteproc/ti_k3_dsp_remoteproc.c | 28 +++++------
->>>   drivers/remoteproc/ti_k3_m4_remoteproc.c  | 28 +++++------
->>>   drivers/remoteproc/ti_k3_r5_remoteproc.c  | 28 +++++------
->>>   drivers/remoteproc/xlnx_r5_remoteproc.c   | 51 ++++++++------------
->>>   include/linux/of_reserved_mem.h           | 26 ++++++++++
->>>   lib/devres.c                              |  1 +
->>>   18 files changed, 339 insertions(+), 369 deletions(-)
->>> ---
->>> base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
->>> change-id: 20250423-dt-memory-region-v2-a2b15caacc63
->>>
->>> Best regards,
->>> -- 
->>> Rob Herring (Arm) <robh@kernel.org>
->>>
-> 
+Gavin
 
 
