@@ -4,58 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88230C3ABA3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 04:17:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23AE9C3ABA3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 05:07:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xNe3miHcpLcnSMR5z6VKMwa3fx7HOMBvo3VIxFdilv8=; b=udzTftJMXDBOwFvbmrLnorkzC/
-	ssAjREWIbnzDojw0iIAp1ihoZWhqn+KptLW6uh4KlKSXCquzRrITZg8N7XT82DOt0QSLkgsnZ9SOj
-	YuchlJPm8C1y+SCkUCZwIzN2hQldmlVFC75kz+q3Qe472PC49QgFrBd4D/EWwJl+g2v1l1FXJJ5Bb
-	YNRJud9PcE/oIkp6B1gmGsbDQ4AWBveOQURAmeuJ7jLMPJ9W+de4taeJq6LWIHlYmugPadm9832oy
-	g97/Zb86hELur2SQPmMo8qA0+4ai02HtKcIw55JLQNDBUEE0+melpGGMWOSrA1krS3W7hHO5Ths4P
-	MNQ4Hc4Q==;
+	bh=89ehVUbqomSF6K0l4N5MZoUjSBvF5esyiUm5mG5feyA=; b=P1+s4s9IrNomBDyydl6aFEd6hl
+	SIgfTb4AJ2hni+S+Lswq08QVX1SaegMV+9cMkz1U8d0MBO7NkqOK8QbjIO+q6Gd0UWAVrvpn7wuVV
+	qfCyUl2RjOcyE9gs3hR/XJ7wLMpEGyAAsA16sb1Gs/zbaNTJE647e5GR7uBSM8HXFnkwVT14cTURB
+	y8b1DtcfQTzB8CbFCWysgYDQUjz2Gr63lA4898bAjGqb7xACkPDV+XGbThj3u1XiHM/MfGHBPmZv/
+	kGur1nOOWXVmw76oTm08Yq+EcAABfXTITeVjlri8NHbsdAwPVoUer8H2TCpbk47xeOfkoV74eFn6v
+	H4rW/TmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uALMY-0000000EfcP-3Dqm;
-	Thu, 01 May 2025 04:17:30 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uAM8n-0000000Ejrj-32Dt;
+	Thu, 01 May 2025 05:07:21 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uALKe-0000000EfJQ-44zE
+	id 1uAM6t-0000000Ejf6-1nsg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 04:15:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2C4E568499;
-	Thu,  1 May 2025 04:15:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B70EC4CEE3;
-	Thu,  1 May 2025 04:15:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746072930;
-	bh=buPxZBousmKo9OStYdQccta50qsdElaO21GDRbmAvRM=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=JBZCO0Epyf9CUJvXNT6QWXd3n4pi9p3rcEMdewXPrnqGzzklEUGcnDXzZRV7L1HeL
-	 8FIDuSgNsvI6QpztWAGvRmuBXo2TWuHKRSlbkmQ3ku4rvvH+Sl8Ufx2kK7enAyt5CR
-	 7RzyuMg0UnjjggKqkFVr6oXALWcz6OKu199mtGEf5GimXR6WWvpkkG7sOaL1TwHHWx
-	 J8K4RIWfE7siz/n3gZv8zlV4qPLjFKKKvl8X3p5WzaauD73TOaULb6vMGJNMqjBt2Q
-	 qGms6AITyQmABxeHM4tH/KEEm+praYVNqavldOYi0EOSdqDwwZMiPrQPiOpzVFskvc
-	 LnPVTKF0Df0iQ==
-Date: Wed, 30 Apr 2025 23:15:28 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Thu, 01 May 2025 05:05:24 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5e5e8274a74so923937a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 22:05:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746075921; x=1746680721; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=89ehVUbqomSF6K0l4N5MZoUjSBvF5esyiUm5mG5feyA=;
+        b=WNVzTKn3ox13itonG27LbbO5IugrO9hrhadWnG1nVb1alMVT/N1uGYPUhIsusZI4P0
+         99SHNorAA5QrxTiP274EQqxLDFxIZfaGEKP6pOCdO0sEaXFRiZyDxoqdMTeNOORsqS1H
+         6OpT0QHugVNjCrkhdUH8cvrW0ka1nd8DSHBYVVKTuEtqdDiJ/24/EQmAoTcLCklvKyea
+         WAfSpVjcO4w3p8QBFzXH2B5BaFA8//ftU52csJQdLd+fZ7D/Hr5ztdtKCdGydaUjJzwf
+         OaLRGvOCY49XKqx5igmYEDjaANP3GrLEVziZDGheWdgJJnrQEjqAlqzs4ot7kVFMbmc1
+         Rrgw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746075921; x=1746680721;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=89ehVUbqomSF6K0l4N5MZoUjSBvF5esyiUm5mG5feyA=;
+        b=IRg+tXWT79hGm3eF7TFSERYpboJS+z425yDVXDGqNqv7tFKGawZDDfDTUQUSxVaOZD
+         iPjLKMGIJ0yaQDyT08IuABOR+wCMn9cFMvTHgfYW7VBFJQty0s/3OZeF8ZFIX4C8iuCS
+         bMBjS/UbJNGuRpS3utI7g7nFQQrN8p57bKFlVbhm79qNktVMj+1czGgCp1NYkUhsjiF1
+         SiWLhMnPuw7qtEBBDVOwXwwIhrtL29DY/nrMqz5YnLLafDBqeZZgTm/NJHk7HzJR5JdF
+         Im1LECzAFRVqAEcmhAnr4TvmtwM41m3zwwFscDzD2cxKMFyD4j96OJ+3k6ZHxJghuBig
+         HuYQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXLGYaFMP8PIxoobhsPk/XyAyJy+KGnNCq3dTYA/4d0Dd4+5VIqJ+PGaorsZolMj2aym110XpuD9w4zTdwYZJol@lists.infradead.org
+X-Gm-Message-State: AOJu0YyG9uLac8Zy5a2laiOIVWdNUWxlOUa9yTR0edzHXV2HLoZEe36k
+	BIDWJ0lKpcy+8bfWudlj7V9X3L4rf9It1IvTh0UGlIks91ycLtEG
+X-Gm-Gg: ASbGncvcuIOgLA+x0gSiGt2iVbLsEXUg5adS163614osrugjBX8fhrilqAxTKgD+EyR
+	4sehLoDthcjUrPQcZf1CNYoZ5JDQB4A/zgI3Aud8U8SnVfSQy4l/6IlQN1PSpzrRG+sdv46Bumc
+	nX00ehMN98rvnqfPtmbGd3IJrb2jB6cuss6AuysoBmimiRCmOfwZSqCM+s54MNsDH589H5Llq9V
+	KGaRNwb4nlvTAkjSxbyspZUynsvvsKaY9p85dV1h1+q1XwQJ2yMFkBKKSkmGhdC+vrvilXytMzt
+	wSu4Di062bVpu/r30waUOCBsI647L07/h3ZhMwe80n2hfKxJAN4kHkff+g8IFFIp9/ArszQ5uE/
+	frlrSNmgazePxtb/f
+X-Google-Smtp-Source: AGHT+IFslrSBgwP2oKjTyz3yJ6G0zEWqRhVwWhyXN+S+K5UzJwFMqvffPBISy6dAiekefanLK4YUUA==
+X-Received: by 2002:a05:6402:3494:b0:5e5:b53:fd49 with SMTP id 4fb4d7f45d1cf-5f8aef17766mr5400131a12.3.1746075920933;
+        Wed, 30 Apr 2025 22:05:20 -0700 (PDT)
+Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f7011fc361sm9510920a12.16.2025.04.30.22.05.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Apr 2025 22:05:20 -0700 (PDT)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Samuel Holland <samuel@sholland.org>, Andre Przywara <andre.przywara@arm.com>
+Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] clk: sunxi-ng: fix order of arguments in clock macro
+Date: Thu, 01 May 2025 07:05:19 +0200
+Message-ID: <2220249.irdbgypaU6@jernej-laptop>
+In-Reply-To: <20250430095325.477311-1-andre.przywara@arm.com>
+References: <20250430095325.477311-1-andre.przywara@arm.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- Shawn Guo <shawnguo@kernel.org>, linux-kernel@vger.kernel.org, 
- Conor Dooley <conor+dt@kernel.org>
-To: Ioana Ciornei <ioana.ciornei@nxp.com>
-In-Reply-To: <20250430153634.2971736-1-ioana.ciornei@nxp.com>
-References: <20250430153634.2971736-1-ioana.ciornei@nxp.com>
-Message-Id: <174607289976.949416.5265834490992116431.robh@kernel.org>
-Subject: Re: [PATCH 0/6] mfd: simple-mfd-i2c: add QIXIS CPLD support
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250430_220523_463999_4E1FD358 
+X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,85 +101,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Dne sreda, 30. april 2025 ob 11:53:25 Srednjeevropski poletni =C4=8Das je A=
+ndre Przywara napisal(a):
+> When introducing the SUNXI_CCU_MP_DATA_WITH_MUX_GATE_FEAT macro, the order
+> of the last two arguments was different between the users and the
+> definition: features became flags and flags became features.
+>=20
+> This just didn't end up in a desaster yet because most users ended up
+> passing 0 for both arguments, and other clocks (for the new A523 SoC) are
+> not yet used.
+>=20
+> Swap the order of the arguments in the definition, so that users stay
+> untouched.
+>=20
+> Fixes: cdbb9d0d09db ("clk: sunxi-ng: mp: provide wrappers for setting fea=
+ture flags")
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 
-On Wed, 30 Apr 2025 18:36:28 +0300, Ioana Ciornei wrote:
-> The MDIO mux on the LX2160AQDS, LX2162AQDS and LS1028AQDS boards never
-> worked in mainline. The DT files were submitted initially as-is, and
-> there is a downstream driver for the QIXIS CPLD device:
-> https://github.com/nxp-qoriq/linux/blob/lf-6.12.y/drivers/soc/fsl/qixis_ctrl.c
-> 
-> Since the HW works with the already existing
-> driver/mfd/similar-mfd-i2c.c driver, extend the list of compatible
-> strings to also cover these 3 new boards, instead of trying to upstream
-> a duplicate driver.
-> 
-> This patch set also adapts the DT nodes for each of the affected boards
-> so that we match on the new compatible strings.
-> 
-> The last patch describes the two on-board RGMII PHYs found on the
-> LX2160AQDS boards which make use of the MDIO bus found behind the CPLD
-> driven MDIO mux.
-> 
-> Ioana Ciornei (5):
->   dt-bindings: mfd: add bindings for QIXIS CPLD
->   mfd: simple-mfd-i2c: add compatible string for Layerscape QIXIS CPLD
->   arm64: dts: lx2160a-qds: make the QIXIS CPLD use the simple-mfd-i2c.c
->     driver
->   arm64: dts: lx2162a-qds: make the QIXIS CPLD use the simple-mfd-i2c.c
->     driver
->   arm64: dts: lx2160a-qds: add the two on-board RGMII PHYs
-> 
-> Vladimir Oltean (1):
->   arm64: dts: ls1028a-qds: make the QIXIS CPLD use the simple-mfd-i2c.c
->     driver
-> 
->  .../bindings/mfd/fsl,qixis-i2c.yaml           | 65 +++++++++++++++++++
->  .../boot/dts/freescale/fsl-ls1028a-qds.dts    |  9 +--
->  .../boot/dts/freescale/fsl-lx2160a-qds.dts    | 28 +++++++-
->  .../boot/dts/freescale/fsl-lx2162a-qds.dts    |  8 ++-
->  drivers/mfd/simple-mfd-i2c.c                  |  3 +
->  5 files changed, 103 insertions(+), 10 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/mfd/fsl,qixis-i2c.yaml
-> 
-> --
-> 2.25.1
-> 
-> 
-> 
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: tags/next-20250429 (exact match)
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20250430153634.2971736-1-ioana.ciornei@nxp.com:
-
-arch/arm64/boot/dts/freescale/fsl-lx2160a-qds.dtb: fpga@66 (fsl,lx2160a-qds-qixis-i2c): 'mux-controller@54' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/mfd/fsl,qixis-i2c.yaml#
-arch/arm64/boot/dts/freescale/fsl-ls1028a-qds.dtb: fpga@66 (fsl,ls1028a-qds-qixis-i2c): 'mux-controller@54' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/mfd/fsl,qixis-i2c.yaml#
-arch/arm64/boot/dts/freescale/fsl-lx2162a-qds.dtb: fpga@66 (fsl,lx2162a-qds-qixis-i2c): 'mux-controller@54' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/mfd/fsl,qixis-i2c.yaml#
-
-
-
+Best regards,
+Jernej
 
 
 
