@@ -4,65 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93D52C3ABA9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 12:31:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0153CC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 12:31:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JU11OE3E4SpdQOCjc1Ybedk8Pd2S1eUpQyPM5IxVvTc=; b=JDLkuUDTDWAYP7Nk9bKVwK/Y6R
-	W2VeB3c1B8ylplX9JYxbygKLfZwHzQxHnjmA7uPmii3Q3bE+Yr9fH4ZzCvk+Y1CJH6DU+F85iWd+X
-	7+poK45vB8tF8lT4rvERzxokOrd86sXSQ0uw7wwbfb/GFLOIxZNtbvMQXsWLwy+DT6IgnmnPZdFWx
-	8mxpqbBRGMG0fJ2bWW4erQLzpoHYUsUpRTFepQo0v326fMHYIbt6n4cFKdqW7fh7yONJA4shuuEH2
-	8u0kRPSrLd/Oue0lx5nbzDsNiWtOSwNMzO/z90nnniuX8Yq/QHMdDV2do1JC0NvuWIlDKOnrAA7RB
-	HHJqlgjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kvUOgeDlmz6z2Nd/jY2QrMAFNOkwaZpJzQJX6XQ2i14=; b=f6dL5h3Vd7K9dwaz3oiXwqgF7R
+	YWoTYXeBtU3hx5Via1STkfx9oU5pnFRbsgz/LEMtJJp0rnMvDaZ542uMKi6UAIit4TROrxSEUAeGC
+	GRy7BhbbUPkOWQMDetrxW+m+/nRRiif1c2Q5/7ErDbddHR2ldoUk6cZlRbK2NRYt5IBY0bqQbNkXR
+	AJM8hAK+lKnBtYDf901FLKtMAP7fd8fvjBPHMpX2NPW4I+Wx5JcAj6nh3fgqG5KlWgB932ZxwLStp
+	019n6iA853CF6JhPvno3zVjWOg5QVhhj8TK04bTBhYj66bFxjwcvLRQdMGfsEn3syj5S2nUdRfiMa
+	L0JlA7Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAT4S-0000000Fg9u-3VzS;
+	id 1uAT4S-0000000Fg91-0egc;
 	Thu, 01 May 2025 12:31:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uASiC-0000000FPt5-2lAG
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uASgq-0000000FOvW-2Z90
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 12:08:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 148FE44C7E;
-	Thu,  1 May 2025 12:08:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01E2DC4CEE3;
-	Thu,  1 May 2025 12:08:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746101300;
-	bh=8D5TRtC5TmDQclk37a04XUySA9DOJFZV97XArHUgb1g=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=m6ZIIYnpnbH7GFwBoxMZ62dxGFIacdbrkIcdm4+VQ7CGdee5vu4z++rwdCTG5i/mc
-	 p4I4moI6xTq8l0NUjHUDMr/giz6dmhV5SGQJqav3ZcCLdCYZJz4i2cMgtwOXJMjsm1
-	 qHhYLwaolHV8hEH0TnMvdFEkBQJ6NZm+n1UdN0aQH37F17gkbQEkSzoLui7EDCTzBg
-	 EJYt+dQOcjT/NFw4sNWj7lvTPqxN2ygLyAqYWJ9AOnNhPmtlNzyMd2qwb2caLTRfZ+
-	 8K0JZn93sS995fr5xyMeIKhjCVw76zOekqVJocE+pIxB/W1ezoXMcSSkd3OYbuKSdh
-	 EZ8p6CYd0IJOw==
-Date: Thu, 01 May 2025 07:08:18 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Thu, 01 May 2025 12:07:01 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4E3B71D14;
+	Thu,  1 May 2025 05:06:46 -0700 (PDT)
+Received: from donnerap.arm.com (donnerap.manchester.arm.com [10.32.100.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4690A3F673;
+	Thu,  1 May 2025 05:06:52 -0700 (PDT)
+From: Andre Przywara <andre.przywara@arm.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] clk: sunxi-ng: d1: Add missing divider for MMC mod clocks
+Date: Thu,  1 May 2025 13:06:31 +0100
+Message-Id: <20250501120631.837186-1-andre.przywara@arm.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: imx@lists.linux.dev, Sascha Hauer <s.hauer@pengutronix.de>, 
- krzk+dt@kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, tarang.raval@siliconsignals.io, 
- linux-kernel@vger.kernel.org, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
- Conor Dooley <conor+dt@kernel.org>
-To: Himanshu Bhavani <himanshu.bhavani@siliconsignals.io>
-In-Reply-To: <20250501054604.23368-1-himanshu.bhavani@siliconsignals.io>
-References: <20250501054604.23368-1-himanshu.bhavani@siliconsignals.io>
-Message-Id: <174610123214.1957273.17506465011735193373.robh@kernel.org>
-Subject: Re: [PATCH] arm64: dts: imx8mp-var-som: Fix LDO5 shutdown causing
- SD card timeout
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_050820_740403_8A8983EA 
-X-CRM114-Status: GOOD (  16.21  )
+X-CRM114-CacheID: sfid-20250501_050656_744956_E456BCDF 
+X-CRM114-Status: GOOD (  16.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,90 +67,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The D1/R528/T113 SoCs have a hidden divider of 2 in the MMC mod clocks,
+just as other recent SoCs. So far we did not describe that, which led
+to the resulting MMC clock rate to be only half of its intended value.
 
-On Thu, 01 May 2025 11:16:03 +0530, Himanshu Bhavani wrote:
-> Fix SD card timeout issue caused by LDO5 regulator getting disabled
-> after boot.
-> 
-> The kernel log shows LDO5 being disabled, which leads to a timeout
-> on USDHC2:
-> [   33.760561] LDO5: disabling
-> [   81.119861] mmc1: Timeout waiting for hardware interrupt.
-> 
-> To prevent this, set regulator-boot-on and regulator-always-on for
-> LDO5. Also add the vqmmc regulator to properly support 1.8V/3.3V
-> signaling for USDHC2 using a GPIO-controlled regulator.
-> 
-> Fixes: 6c2a1f4f71258 ("arm64: dts: imx8mp-var-som-symphony: Add Variscite Symphony board and VAR-SOM-MX8MP SoM")
-> Signed-off-by: Himanshu Bhavani <himanshu.bhavani@siliconsignals.io>
-> ---
-> 
-> kernel hangs during boot with the following logs:
-> 
-> [   33.760561] LDO5: disabling
-> [   81.119861] mmc1: Timeout waiting for hardware interrupt.
-> [   81.119872] mmc1: sdhci: ============ SDHCI REGISTER DUMP ===========
-> [   81.119876] mmc1: sdhci: Sys addr:  0x00000010 | Version:  0x00000002
-> [   81.119882] mmc1: sdhci: Blk size:  0x00000200 | Blk cnt:  0x00000010
-> [   81.119886] mmc1: sdhci: Argument:  0x00844358 | Trn mode: 0x0000002b
-> [   81.119891] mmc1: sdhci: Present:   0x01f88009 | Host ctl: 0x00000012
-> [   81.119896] mmc1: sdhci: Power:     0x00000002 | Blk gap:  0x00000080
-> [   81.119900] mmc1: sdhci: Wake-up:   0x00000008 | Clock:    0x0000003f
-> [   81.119904] mmc1: sdhci: Timeout:   0x0000008f | Int stat: 0x00000000
-> [   81.119908] mmc1: sdhci: Int enab:  0x117f100b | Sig enab: 0x117f100b
-> [   81.119912] mmc1: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000502
-> [   81.119917] mmc1: sdhci: Caps:      0x07eb0000 | Caps_1:   0x0000b407
-> [   81.119921] mmc1: sdhci: Cmd:       0x0000193a | Max curr: 0x00ffffff
-> [   81.119925] mmc1: sdhci: Resp[0]:   0x00000900 | Resp[1]:  0x0076b27f
-> [   81.119929] mmc1: sdhci: Resp[2]:   0x325b5900 | Resp[3]:  0x00000900
-> [   81.119933] mmc1: sdhci: Host ctl2: 0x00000008
-> [   81.119937] mmc1: sdhci: ADMA Err:  0x00000003 | ADMA Ptr: 0x4003f204
-> [   81.119941] mmc1: sdhci-esdhc-imx: ========= ESDHC IMX DEBUG STATUS DUMP =========
-> [   81.119944] mmc1: sdhci-esdhc-imx: cmd debug status:  0x21b0
-> [   81.119949] mmc1: sdhci-esdhc-imx: data debug status:  0x2200
-> [   81.119954] mmc1: sdhci-esdhc-imx: trans debug status:  0x2300
-> [   81.119959] mmc1: sdhci-esdhc-imx: dma debug status:  0x2400
-> [   81.119964] mmc1: sdhci-esdhc-imx: adma debug status:  0x2594
-> [   81.119970] mmc1: sdhci-esdhc-imx: fifo debug status:  0x2608
-> [   81.119976] mmc1: sdhci-esdhc-imx: async fifo debug status:  0x2798
-> [   81.119981] mmc1: sdhci: ===========================================
-> 
-> ---
->  arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi | 14 +++++++++++++-
->  1 file changed, 13 insertions(+), 1 deletion(-)
-> 
+Use a macro that allows to describe a fixed post-divider, to compensate
+for that divisor.
 
+This brings the MMC performance on those SoCs to its expected level,
+so about 23 MB/s for SD cards, instead of the 11 MB/s measured so far.
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+Fixes: 35b97bb94111 ("clk: sunxi-ng: Add support for the D1 SoC clocks")
+Reported-by: Kuba Szczodrzyński <kuba@szczodrzynski.pl>
+Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+---
+Hi,
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+this v2 does away with the extra patch to introduce a generic wrapper,
+instead just introduce its own special wrapper just for the MMC clocks.
+Rebased on top of v6.15.
+Tested on an T113-s3 board and shown to double SD card read performance.
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
+Cheers,
+Andre
 
-  pip3 install dtschema --upgrade
+Changelog v1 .. v2:
+- rebased on v6.15-rc1
+- drop extra wrapper patch (somewhat obsoleted by A523 clock changes)
+- add specific wrapper for just those clocks (postdiv + parent_data)
 
+ drivers/clk/sunxi-ng/ccu-sun20i-d1.c | 44 ++++++++++++++++------------
+ drivers/clk/sunxi-ng/ccu_mp.h        | 22 ++++++++++++++
+ 2 files changed, 47 insertions(+), 19 deletions(-)
 
-This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: tags/next-20250501 (exact match)
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20250501054604.23368-1-himanshu.bhavani@siliconsignals.io:
-
-arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dtb: regulator-usdhc2-vqmmc (regulator-gpio): 'gpios' is a required property
-	from schema $id: http://devicetree.org/schemas/regulator/gpio-regulator.yaml#
-arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dtb: regulator-usdhc2-vqmmc (regulator-gpio): Unevaluated properties are not allowed ('gpio' was unexpected)
-	from schema $id: http://devicetree.org/schemas/regulator/gpio-regulator.yaml#
-
-
-
-
+diff --git a/drivers/clk/sunxi-ng/ccu-sun20i-d1.c b/drivers/clk/sunxi-ng/ccu-sun20i-d1.c
+index bb66c906ebbb6..e83d4fd40240f 100644
+--- a/drivers/clk/sunxi-ng/ccu-sun20i-d1.c
++++ b/drivers/clk/sunxi-ng/ccu-sun20i-d1.c
+@@ -412,19 +412,23 @@ static const struct clk_parent_data mmc0_mmc1_parents[] = {
+ 	{ .hw = &pll_periph0_2x_clk.common.hw },
+ 	{ .hw = &pll_audio1_div2_clk.common.hw },
+ };
+-static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(mmc0_clk, "mmc0", mmc0_mmc1_parents, 0x830,
+-				       0, 4,	/* M */
+-				       8, 2,	/* P */
+-				       24, 3,	/* mux */
+-				       BIT(31),	/* gate */
+-				       0);
+-
+-static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(mmc1_clk, "mmc1", mmc0_mmc1_parents, 0x834,
+-				       0, 4,	/* M */
+-				       8, 2,	/* P */
+-				       24, 3,	/* mux */
+-				       BIT(31),	/* gate */
+-				       0);
++static SUNXI_CCU_MP_DATA_WITH_MUX_GATE_POSTDIV(mmc0_clk, "mmc0",
++					       mmc0_mmc1_parents, 0x830,
++					       0, 4,		/* M */
++					       8, 2,		/* P */
++					       24, 3,		/* mux */
++					       BIT(31),		/* gate */
++					       2,		/* post-div */
++					       0);
++
++static SUNXI_CCU_MP_DATA_WITH_MUX_GATE_POSTDIV(mmc1_clk, "mmc1",
++					       mmc0_mmc1_parents, 0x834,
++					       0, 4,		/* M */
++					       8, 2,		/* P */
++					       24, 3,		/* mux */
++					       BIT(31),		/* gate */
++					       2,		/* post-div */
++					       0);
+ 
+ static const struct clk_parent_data mmc2_parents[] = {
+ 	{ .fw_name = "hosc" },
+@@ -433,12 +437,14 @@ static const struct clk_parent_data mmc2_parents[] = {
+ 	{ .hw = &pll_periph0_800M_clk.common.hw },
+ 	{ .hw = &pll_audio1_div2_clk.common.hw },
+ };
+-static SUNXI_CCU_MP_DATA_WITH_MUX_GATE(mmc2_clk, "mmc2", mmc2_parents, 0x838,
+-				       0, 4,	/* M */
+-				       8, 2,	/* P */
+-				       24, 3,	/* mux */
+-				       BIT(31),	/* gate */
+-				       0);
++static SUNXI_CCU_MP_DATA_WITH_MUX_GATE_POSTDIV(mmc2_clk, "mmc2", mmc2_parents,
++					       0x838,
++					       0, 4,		/* M */
++					       8, 2,		/* P */
++					       24, 3,		/* mux */
++					       BIT(31),		/* gate */
++					       2,		/* post-div */
++					       0);
+ 
+ static SUNXI_CCU_GATE_HWS(bus_mmc0_clk, "bus-mmc0", psi_ahb_hws,
+ 			  0x84c, BIT(0), 0);
+diff --git a/drivers/clk/sunxi-ng/ccu_mp.h b/drivers/clk/sunxi-ng/ccu_mp.h
+index 8fc7fdb7ef494..90cf876855eea 100644
+--- a/drivers/clk/sunxi-ng/ccu_mp.h
++++ b/drivers/clk/sunxi-ng/ccu_mp.h
+@@ -52,6 +52,28 @@ struct ccu_mp {
+ 		}							\
+ 	}
+ 
++#define SUNXI_CCU_MP_DATA_WITH_MUX_GATE_POSTDIV(_struct, _name, _parents, \
++						_reg,			\
++						_mshift, _mwidth,	\
++						_pshift, _pwidth,	\
++						_muxshift, _muxwidth,	\
++						_gate, _postdiv, _flags)\
++	struct ccu_mp _struct = {					\
++		.enable	= _gate,					\
++		.m	= _SUNXI_CCU_DIV(_mshift, _mwidth),		\
++		.p	= _SUNXI_CCU_DIV(_pshift, _pwidth),		\
++		.mux	= _SUNXI_CCU_MUX(_muxshift, _muxwidth),		\
++		.fixed_post_div	= _postdiv,				\
++		.common	= {						\
++			.reg		= _reg,				\
++			.features	= CCU_FEATURE_FIXED_POSTDIV,	\
++			.hw.init	= CLK_HW_INIT_PARENTS_DATA(_name, \
++							_parents,	\
++							&ccu_mp_ops,	\
++							_flags),	\
++		}							\
++	}
++
+ #define SUNXI_CCU_MP_WITH_MUX_GATE(_struct, _name, _parents, _reg,	\
+ 				   _mshift, _mwidth,			\
+ 				   _pshift, _pwidth,			\
+-- 
+2.25.1
 
 
