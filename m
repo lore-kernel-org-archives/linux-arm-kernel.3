@@ -4,67 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4DA1C3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 01:23:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C8E0C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 01:40:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NW5f/6zfXSJgSFBDpq9nG7FU/uxSqKRQHQ8TMd0Poy8=; b=BVOZmIDBrwahVxwpLf8ZnXyoh+
-	B0MuI8y5T981HAWpNaQloRyQod+TBatQ7IXVgTL4/ek5KcCWbqgZOwhWLCaTlGXKTVqq1XDfVceCT
-	qDXG1JJVEF8Aq9YSqKOv/1g3sSUqLy39Ah4vRU4WaeJ1Uztp3NTMHSfQjtB4ub3hq+YkltCpMRdc9
-	5OeT6v1Qfc9lZ3Ez78jFfEl01gsWKdh5R06IQSsaeSPEIp+9x7iPqCBVXSCAS0+QUsbIhePhyRHzb
-	2/7oPQSB9xkN6VUbSnXVDNYDD398H1GaKYsEjpHaBc7RplpjMqqx2frE0DEsmgM4NIfVpcOvTz6I6
-	ffm/kOLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lzyhLmg/ziMLt4yRoZGb0hv19iiAWHl/1qxkgQ+5AS8=; b=foe5Y64AMJ64PdojK8r3eQgRac
+	oBCZqsRq1/m7aizGNi9wFPMIP3/bU9OzmMeKNEd9eB6X3/5+wETZ0r61RrhzgCvewsoVm3Kz+apE3
+	6UdABUXZtwiXVg9E8j4+D1ZmdOVKPgGEMeD8oqFLTariltNGcUFNiOU/1dGgroNPgWYAF3W1ZYzph
+	vAxcCEPRxDNWJVEEk29ppN62p1mLEI6JsAdIPLMVZA1op9tCLyozPSmcw6BlLPxLEYBCY2jmc66b9
+	wUS6n1Khhdi7WaXmGjcEleVwWj31k/T5GVKfW6HpmCy7Z6ZNay7STpe5RX6Aj12FNNJMeGcdWcZTS
+	dCZemZRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAIe4-0000000ENDf-2BSJ;
-	Thu, 01 May 2025 01:23:24 +0000
-Received: from abb.hmeau.com ([144.6.53.87])
+	id 1uAIuC-0000000EOeH-2muh;
+	Thu, 01 May 2025 01:40:04 +0000
+Received: from gandalf.ozlabs.org ([150.107.74.76] helo=mail.ozlabs.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAIc7-0000000EMzJ-2cQB;
-	Thu, 01 May 2025 01:21:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=NW5f/6zfXSJgSFBDpq9nG7FU/uxSqKRQHQ8TMd0Poy8=; b=a/NlvQqOeoRlesedjZn7kxOnFw
-	uv4a9xzHl7D1VZeIL93rjMMAkhe5hxqE4x0m2n/FWDvbWRvtAX99hxnOhhW6vCIjzXO0BHZ3lqJM5
-	RB9c0EnDFbkQGKZre/Y99u6FTj0aU0AbJGl20o5hnmiDJvj7wFkXsXvZtugU3t3vxsaSBA7xX9NFz
-	wK8MiCgvwE6zOyaFZ4PnOSV/LXOZB/7xN/Nq+7ZCdajE/MnuryS2PJCBO8luW8qV3BFecbN+Fs9Ot
-	Cw+tw3zJmJw9KzUB2KECxEtcp23uuxyS5Q/PBLXt9Z81aTgSodFT60Fy0hM+6eWtxA0rVUI0j3R7q
-	BRzxY+2w==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1uAIbz-002Qsc-2M;
-	Thu, 01 May 2025 09:21:16 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Thu, 01 May 2025 09:21:15 +0800
-Date: Thu, 1 May 2025 09:21:15 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	sparclinux@vger.kernel.org, linux-s390@vger.kernel.org,
-	x86@kernel.org, Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: Re: [PATCH 00/12] crypto: sha256 - Use partial block API
-Message-ID: <aBLMi5XOQKJyJGu-@gondor.apana.org.au>
-References: <cover.1745992998.git.herbert@gondor.apana.org.au>
- <20250430174543.GB1958@sol.localdomain>
+	id 1uAIsG-0000000EOUA-0w2M
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 01 May 2025 01:38:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canb.auug.org.au;
+	s=202503; t=1746063475;
+	bh=lzyhLmg/ziMLt4yRoZGb0hv19iiAWHl/1qxkgQ+5AS8=;
+	h=Date:From:To:Cc:Subject:From;
+	b=Hc7emitz9ZsUWYPpVllHGyplXQ/xhdmxbvF7vBt/NwHRylQ12oesZ7lw2Z1kYMNxC
+	 suh5n8cDBmvL07bBbq/1svOPrU8T08PDB6AGkpbtpoGRYOSE6OI2j9awiiYwiNTLpy
+	 ET53guqPtaHlE8trhKjWt5PFfSekPhfWlVMT6Ppd9XncwvEsddM8kSGDzwktKZcnaU
+	 QoitBJUNEY3S/YUeTEekqtKBsyjKQtmvh5FEarA33/XC0XVjWNGnPcqWZeKMFS7nvi
+	 zwM8eey7Nu4OUek5WCncCYao7FikNL9sXw3t0UunCG2wRtMrxdcGo/jBItjDdsL+Bp
+	 558jsXQrv1PwQ==
+Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	by mail.ozlabs.org (Postfix) with ESMTPSA id 4ZnxWk6bcZz4xQW;
+	Thu,  1 May 2025 11:37:54 +1000 (AEST)
+Date: Thu, 1 May 2025 11:37:53 +1000
+From: Stephen Rothwell <sfr@canb.auug.org.au>
+To: Alexandre Torgue <alexandre.torgue@st.com>, Arnd Bergmann
+ <arnd@arndb.de>
+Cc: ARM <linux-arm-kernel@lists.infradead.org>, Linux Kernel Mailing List
+ <linux-kernel@vger.kernel.org>, Linux Next Mailing List
+ <linux-next@vger.kernel.org>
+Subject: linux-next: duplicate patches in the stm32 tree
+Message-ID: <20250501113753.53f6fc88@canb.auug.org.au>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250430174543.GB1958@sol.localdomain>
+Content-Type: multipart/signed; boundary="Sig_/UFLoNUn3bPfxHBrObqHN=+p";
+ protocol="application/pgp-signature"; micalg=pgp-sha256
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_182123_659921_276E4696 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20250430_183804_529230_83A5B995 
+X-CRM114-Status: UNSURE (   8.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,24 +73,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 30, 2025 at 10:45:43AM -0700, Eric Biggers wrote:
->
-> As for your sha256_finup "optimization", it's an interesting idea, but
-> unfortunately it slightly slows down the common case which is count % 64 < 56,
-> due to the unnecessary copy to the stack and the following zeroization.  In the
-> uncommon case where count % 64 >= 56 you do get to pass nblocks=2 to
-> sha256_blocks_*(), but ultimately SHA-256 is serialized block-by-block anyway,
-> so it ends up being only slightly faster in that case, which again is the
-> uncommon case.  So while it's an interesting idea, it doesn't seem to actually
-> be better.  And the fact that that patch is also being used to submit unrelated,
-> more dubious changes isn't very helpful, of course.
+--Sig_/UFLoNUn3bPfxHBrObqHN=+p
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-I'm more than willing to change sha256_finup if you can prove it
-with real numbers that it is worse than the single-block version.
+Hi all,
 
+The following commits are also in the arm-soc-fixes tree as different
+commits (but the same patches):
+
+  0530a74f3f43 ("arm64: dts: st: Use 128kB size for aliased GIC400 register=
+ access on stm32mp23 SoCs")
+  6485975d7832 ("arm64: dts: st: Adjust interrupt-controller for stm32mp23 =
+SoCs")
+  635ff238ff7b ("arm64: dts: st: Use 128kB size for aliased GIC400 register=
+ access on stm32mp21 SoCs")
+  2ae67a2e7e4f ("arm64: dts: st: Adjust interrupt-controller for stm32mp21 =
+SoCs")
+  97d0a619e248 ("arm64: dts: st: Use 128kB size for aliased GIC400 register=
+ access on stm32mp25 SoCs")
+  e5694384b07d ("arm64: dts: st: Adjust interrupt-controller for stm32mp25 =
+SoCs")
+
+These are commits
+
+  2ef5c66cba61 ("arm64: dts: st: Use 128kB size for aliased GIC400 register=
+ access on stm32mp23 SoCs")
+  3a1e1082097b ("arm64: dts: st: Adjust interrupt-controller for stm32mp23 =
+SoCs")
+  1bc229e9bb9c ("arm64: dts: st: Use 128kB size for aliased GIC400 register=
+ access on stm32mp21 SoCs")
+  02dc83f09c72 ("arm64: dts: st: Adjust interrupt-controller for stm32mp21 =
+SoCs")
+  06c231fe953a ("arm64: dts: st: Use 128kB size for aliased GIC400 register=
+ access on stm32mp25 SoCs")
+  de2b2107d5a4 ("arm64: dts: st: Adjust interrupt-controller for stm32mp25 =
+SoCs")
+
+in the arm-soc-fixes tree.
+
+--=20
 Cheers,
--- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+Stephen Rothwell
+
+--Sig_/UFLoNUn3bPfxHBrObqHN=+p
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAmgS0HEACgkQAVBC80lX
+0GyGngf7BksM6WgqDKipL3efzeWF/g/vQMzKp09JHYlUeES3sn6la4Z3EjVmSQfi
+/7ydJcDAA388x7uYvKL+IAworDIDNlUZdWtmby9VQXbnTe9z8Zh+YmROQAKdcytz
+Q9u8+Qo5EpJiM45n9Vzd5t6CdPuXHViJqsvREwC6VXqz6gdsgimuRZc8Epqgp4mj
+Li5KprrP82L2nZotU1GfSPLVHjUG+v9u43tkxB1zUY/6gyZQeFYcIUzHWnNunkFl
+1hBDcmDtNn8jQ4xnfDAYTFqTX+cYs+u6F1kiYYFuyeAPhzj/9ewOufedv8ppIvnu
+zaHTvGI3WEmmg01ddtgAemrzTUiROw==
+=E9wg
+-----END PGP SIGNATURE-----
+
+--Sig_/UFLoNUn3bPfxHBrObqHN=+p--
 
