@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EBC9C3ABA3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 08:07:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3425CC3ABA3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 08:09:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=comqgaUQOxn93ZxQu1EvnNHU0RsO6P+D6nZ/mcIInMw=; b=j8xqaOWtxjbDakLtske14hL1S2
-	KveR7VmOvQOzWAuWfGY1CsWbhkZr+BinTIHkOR5EXFRXQWlU6HN/5YFvpANENLPTXNVIfNX5Pfdwk
-	R2yewuIsmkWfeVKR/Jfnf2V9GYZJuu70gntlFCh6B1uc9XqrzGnwYgN75iw5RPCIERS+I+0+B3N+P
-	GgekSESmFHVFmzsS7em9S5kAZ9pdq/V1JyoOeM6lNr8mx2RgEKD0FC8sy6WuYbz6ZSCv15xzzlGxx
-	m+dCEIqIsx1CRiw5WjTJF/3S4RoQM1xBb57nNBev+DcnKvDPHyGrkYwewc4ZEInecQK0ouoPjprOM
-	KogEgE5Q==;
+	bh=+7lgfLWLXsNQsRRZmoBhOWuV7UpGg1q0waf+EMxc2Ls=; b=xG4mvHGEXFEg0PjxX8Y59SGGvP
+	WOUmY3uQrLp70zyLCiIFnVFYxsl3EzhROIQUgbFQoTdZpus6jq8q5hnsQ7fhnCmHlFOesJq8B2FDe
+	l6zTXC3F+dqOMm3T47f20rQMbGgpDktDCeK6CeDwXocgt7KXHuvaHzZkljm7MsG4FmW5NioogNNII
+	UxVMnpRHOlM04rFcERFLtVriF4rIQB5x4wE9WeP59v5p3l1UKZvZULpEqh6egAvK1zxzL+KnVJc9M
+	tpesYd9xK1SWD/Bq5V0znypyfse0cq3i1YIWxtNWohVjXYfxpTJLs1LgNVXlK3ei6Tb55URg/pwDz
+	JO7n43og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAOx8-0000000F0Z3-2LwU;
-	Thu, 01 May 2025 08:07:30 +0000
-Received: from mx-rz-1.rrze.uni-erlangen.de ([2001:638:a000:1025::14])
+	id 1uAOz0-0000000F0ww-0y0S;
+	Thu, 01 May 2025 08:09:26 +0000
+Received: from mx-rz-2.rrze.uni-erlangen.de ([2001:638:a000:1025::15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAOtY-0000000Ezzl-1aFM
+	id 1uAOwX-0000000F0Py-29za
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 08:03:51 +0000
+	Thu, 01 May 2025 08:06:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fau.de; s=fau-2021;
-	t=1746086626; bh=comqgaUQOxn93ZxQu1EvnNHU0RsO6P+D6nZ/mcIInMw=;
-	h=From:To:Subject:Date:In-Reply-To:References:From:To:CC:Subject;
-	b=gWbT9+wrMh+BUdg4ZnOZY0mSr2cUtj6Z8ZocBb7DWOxuwLwvdHihDnR2ttewnrGDh
-	 k8HHeOw0vbuhqHkTlENIEK82v36G7XJnwlPZXSw+1z5k5CeUaGbDk/0YznzhjNaqkQ
-	 dbI4UzG6r7BYCudym66d1pN34Nbed8F8Z8d/4MrDD9X0h0fAAjx31+dwj4DHFJ7lHd
-	 wUA5iYkbJ6MMTpRK+VQ5x5CmT4vMAsaws4e55mSinrT92WgGHEtebEthVgKgJql4lf
-	 aWdgGrLbuOVmKP3JDenaH5oJfNAQ/h3jmU2JmmBNgzP/5Kr6+cZFHk3D/CnMcNY8+T
-	 zxv6cmzBylVXw==
+	t=1746086810; bh=+7lgfLWLXsNQsRRZmoBhOWuV7UpGg1q0waf+EMxc2Ls=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From:To:CC:
+	 Subject;
+	b=Lqd2L4ldlMmQ2gYtXZSlS/Y77iMiRck+x3bM/dJ6ZkzW3oV4kFaLBOfTQiQkOFEts
+	 DjWT2k5qkUYPm9ILbCG4gQl1Cp3woNOruD7qo0LZTWvbEmXmzwXjz/MTrP+yvwWBLR
+	 yu8DyNeORk6O4VHW6yei05nuITwD3nmHHPp2Aq5iu7EndY5TBH4Xm779zVyZqcUHNh
+	 am2c93hN34xXs49lcmkZXvIjvgqibeQuj9cJBC5Xb2rAwyqUz0wxdfwa8NVyDg11WP
+	 jfbOXs3mHR4ViA+2BliT+xoNH9+NcnEpF5+k3U5bLEVbnBN6hNPeKFA6GYPAdXluMp
+	 m7bSbtjZHJt3w==
 Received: from mx-rz-smart.rrze.uni-erlangen.de (mx-rz-smart.rrze.uni-erlangen.de [IPv6:2001:638:a000:1025::1e])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-rz-1.rrze.uni-erlangen.de (Postfix) with ESMTPS id 4Zp64y4Fw9z8sb2;
-	Thu,  1 May 2025 10:03:46 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at boeck4.rrze.uni-erlangen.de (RRZE)
+	by mx-rz-2.rrze.uni-erlangen.de (Postfix) with ESMTPS id 4Zp68V2PYfzPll2;
+	Thu,  1 May 2025 10:06:50 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at boeck1.rrze.uni-erlangen.de (RRZE)
 X-RRZE-Flag: Not-Spam
 X-RRZE-Submit-IP: 2001:9e8:3636:a700:12b2:e53f:6cbc:f48c
 Received: from luis-tp.fritz.box (unknown [IPv6:2001:9e8:3636:a700:12b2:e53f:6cbc:f48c])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	(Authenticated sender: U2FsdGVkX1/VyCT2/hi5OQfWV2DB4gtoSsGC7vYH9bs=)
-	by smtp-auth.uni-erlangen.de (Postfix) with ESMTPSA id 4Zp64v0sdWz8srN;
-	Thu,  1 May 2025 10:03:43 +0200 (CEST)
+	(Authenticated sender: U2FsdGVkX1+e9ts1dicdnWz1vSIwCnh46LNHnyIP/DE=)
+	by smtp-auth.uni-erlangen.de (Postfix) with ESMTPSA id 4Zp68Q6NQ2zPkQk;
+	Thu,  1 May 2025 10:06:46 +0200 (CEST)
 From: Luis Gerhorst <luis.gerhorst@fau.de>
 To: Alexei Starovoitov <ast@kernel.org>,
 	Daniel Borkmann <daniel@iogearbox.net>,
@@ -91,18 +92,19 @@ To: Alexei Starovoitov <ast@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linuxppc-dev@lists.ozlabs.org,
 	linux-kselftest@vger.kernel.org
-Subject: [PATCH bpf-next v3 09/11] selftests/bpf: Add test for Spectre v1 mitigation
-Date: Thu,  1 May 2025 09:36:00 +0200
-Message-ID: <20250501073603.1402960-10-luis.gerhorst@fau.de>
+Cc: Maximilian Ott <ott@cs.fau.de>,
+	Milan Stephan <milan.stephan@fau.de>
+Subject: [PATCH bpf-next v3 10/11] bpf: Allow nospec-protected var-offset stack access
+Date: Thu,  1 May 2025 09:36:01 +0200
+Message-ID: <20250501073603.1402960-11-luis.gerhorst@fau.de>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250501073603.1402960-1-luis.gerhorst@fau.de>
 References: <20250501073603.1402960-1-luis.gerhorst@fau.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_010348_562457_51798D94 
-X-CRM114-Status: GOOD (  11.78  )
+X-CRM114-CacheID: sfid-20250501_010653_705948_00F4F069 
+X-CRM114-Status: GOOD (  16.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,80 +119,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is based on the gadget from the description of commit 9183671af6db
-("bpf: Fix leakage under speculation on mispredicted branches").
+Insert a nospec before the access to prevent it from ever using an index
+that is subject to speculative scalar-confusion.
+
+The access itself can either happen directly in the BPF program (reads
+only, check_stack_read_var_off()) or in a helper (read/write,
+check_helper_mem_access()).
+
+This relies on the fact that the speculative scalar confusion that leads
+to the variable-stack access going OOBs must stem from a prior
+speculative store or branch bypass. Adding a nospec before the
+variable-stack access will force all previously bypassed stores/branches
+to complete and cause the stack access to only ever go to the stack slot
+that is accessed architecturally.
+
+Alternatively, the variable-offset stack access might be a write that
+can itself be subject to speculative store bypass (this can happen in
+theory even if this code adds a nospec /before/ the variable-offset
+write). Only indirect writes by helpers might be affected here (e.g.,
+those taking ARG_PTR_TO_MAP_VALUE). (Because check_stack_write_var_off()
+does not use check_stack_range_initialized(), in-program variable-offset
+writes are not affected.) If the in-helper write can be subject to
+Spectre v4 and the helper writes/overwrites pointers on the BPF stack,
+they are already a problem for fixed-offset stack accesses and should be
+subject to Spectre v4 sanitization.
 
 Signed-off-by: Luis Gerhorst <luis.gerhorst@fau.de>
+Acked-by: Henriette Herzog <henriette.herzog@rub.de>
+Cc: Maximilian Ott <ott@cs.fau.de>
+Cc: Milan Stephan <milan.stephan@fau.de>
 ---
- .../selftests/bpf/progs/verifier_unpriv.c     | 57 +++++++++++++++++++
- 1 file changed, 57 insertions(+)
+ kernel/bpf/verifier.c | 24 ++++++++++++------------
+ 1 file changed, 12 insertions(+), 12 deletions(-)
 
-diff --git a/tools/testing/selftests/bpf/progs/verifier_unpriv.c b/tools/testing/selftests/bpf/progs/verifier_unpriv.c
-index c42c3839b30c..43236b93ebb5 100644
---- a/tools/testing/selftests/bpf/progs/verifier_unpriv.c
-+++ b/tools/testing/selftests/bpf/progs/verifier_unpriv.c
-@@ -729,4 +729,61 @@ l0_%=:	r0 = 0;						\
- "	::: __clobber_all);
+diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+index db26b477dd45..1fbafea3ed69 100644
+--- a/kernel/bpf/verifier.c
++++ b/kernel/bpf/verifier.c
+@@ -7894,6 +7894,11 @@ static int check_atomic(struct bpf_verifier_env *env, struct bpf_insn *insn)
+ 	}
  }
  
-+SEC("socket")
-+__description("unpriv: Spectre v1 path-based type confusion of scalar as stack-ptr")
-+__success __success_unpriv __retval(0)
-+#ifdef SPEC_V1
-+__xlated_unpriv("if r0 != 0x1 goto pc+2")
-+/* This nospec prevents the exploit because it forces the mispredicted (not
-+ * taken) `if r0 != 0x0 goto l0_%=` to resolve before using r6 as a pointer.
-+ * This causes the CPU to realize that `r6 = r9` should have never executed. It
-+ * ensures that r6 always contains a readable stack slot ptr when the insn after
-+ * the nospec executes.
-+ */
-+__xlated_unpriv("nospec")
-+__xlated_unpriv("r9 = *(u8 *)(r6 +0)")
-+#endif
-+__naked void unpriv_spec_v1_type_confusion(void)
++static struct bpf_insn_aux_data *cur_aux(const struct bpf_verifier_env *env)
 +{
-+	asm volatile ("					\
-+	r1 = 0;						\
-+	*(u64*)(r10 - 8) = r1;				\
-+	r2 = r10;					\
-+	r2 += -8;					\
-+	r1 = %[map_hash_8b] ll;				\
-+	call %[bpf_map_lookup_elem];			\
-+	if r0 == 0 goto l2_%=;				\
-+	/* r0: pointer to a map array entry */		\
-+	r2 = r10;					\
-+	r2 += -8;					\
-+	r1 = %[map_hash_8b] ll;				\
-+	/* r1, r2: prepared call args */		\
-+	r6 = r10;					\
-+	r6 += -8;					\
-+	/* r6: pointer to readable stack slot */	\
-+	r9 = 0xffffc900;				\
-+	r9 <<= 32;					\
-+	/* r9: scalar controlled by attacker */		\
-+	r0 = *(u64 *)(r0 + 0); /* cache miss */		\
-+	if r0 != 0x0 goto l0_%=;			\
-+	r6 = r9;					\
-+l0_%=:	if r0 != 0x1 goto l1_%=;			\
-+	r9 = *(u8 *)(r6 + 0);				\
-+l1_%=:  /* leak r9 */					\
-+	r9 &= 1;					\
-+	r9 <<= 9;					\
-+	*(u64*)(r10 - 8) = r9;				\
-+	call %[bpf_map_lookup_elem];			\
-+	if r0 == 0 goto l2_%=;				\
-+	/* leak secret into is_cached(map[0|512]): */	\
-+	r0 = *(u64 *)(r0 + 0);				\
-+l2_%=:							\
-+	r0 = 0;						\
-+	exit;						\
-+"	:
-+	: __imm(bpf_map_lookup_elem),
-+	  __imm_addr(map_hash_8b)
-+	: __clobber_all);
++	return &env->insn_aux_data[env->insn_idx];
 +}
 +
- char _license[] SEC("license") = "GPL";
+ /* When register 'regno' is used to read the stack (either directly or through
+  * a helper function) make sure that it's within stack boundary and, depending
+  * on the access type and privileges, that all elements of the stack are
+@@ -7933,18 +7938,18 @@ static int check_stack_range_initialized(
+ 	if (tnum_is_const(reg->var_off)) {
+ 		min_off = max_off = reg->var_off.value + off;
+ 	} else {
+-		/* Variable offset is prohibited for unprivileged mode for
++		/* Variable offset requires a nospec for unprivileged mode for
+ 		 * simplicity since it requires corresponding support in
+ 		 * Spectre masking for stack ALU.
+ 		 * See also retrieve_ptr_limit().
+ 		 */
+ 		if (!env->bypass_spec_v1) {
+-			char tn_buf[48];
+-
+-			tnum_strn(tn_buf, sizeof(tn_buf), reg->var_off);
+-			verbose(env, "R%d variable offset stack access prohibited for !root, var_off=%s\n",
+-				regno, tn_buf);
+-			return -EACCES;
++			/* Allow the access, but prevent it from using a
++			 * speculative offset using a nospec before the
++			 * dereference op.
++			 */
++			cur_aux(env)->nospec = true;
++			WARN_ON_ONCE(cur_aux(env)->alu_state);
+ 		}
+ 		/* Only initialized buffer on stack is allowed to be accessed
+ 		 * with variable offset. With uninitialized buffer it's hard to
+@@ -11172,11 +11177,6 @@ static int check_get_func_ip(struct bpf_verifier_env *env)
+ 	return -ENOTSUPP;
+ }
+ 
+-static struct bpf_insn_aux_data *cur_aux(const struct bpf_verifier_env *env)
+-{
+-	return &env->insn_aux_data[env->insn_idx];
+-}
+-
+ static bool loop_flag_is_zero(struct bpf_verifier_env *env)
+ {
+ 	struct bpf_reg_state *regs = cur_regs(env);
 -- 
 2.49.0
 
