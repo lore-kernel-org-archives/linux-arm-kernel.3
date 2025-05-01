@@ -4,154 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D644C3ABA3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 15:23:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99F36C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 15:34:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2ixq1fsxLDyCVegWJrvCa8Ua4CJ/PDy6cRN9kOMClm0=; b=lQE4Vr0IpEDh0dW/PpdNg/Iht+
-	e/B0FEToYlyc2J4H0qe0LDMBFMDXTBITspOPllkiE5g5YGsJkUeV12d3xr7Ibxhzhde/d6/e0w+pv
-	hPCBF3wQf9bJgY/RkMfth6LgSe8cB2rV2xepKXnhSEYivLma4EB4IvIQ052PzdIwsOLRLYoGkmHV9
-	NA2a0Uf6j5EKIOfPxjIpjl7OV9RVaEwl/hIWeyKqV5ETQaz74FTSZzBkukv4M63THzoc/0bLdYvY0
-	hiF91HTYVaP/Uei9GMFqmScHEdKZdLinDJO2JGfAKGoiQ5he1ul7JpziVc77qAbFf098Y7Ku/b4z6
-	dOm+VX9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Avx9tdK85l3d/nVpozm+EccWjdAmRqwmN4UjN0biPaQ=; b=c3+cOvyCd1DZdXOuWMxG98wsQL
+	AFAU6CUL2klG/Jz1Pjrc9JyF9Ej2P3e1GzSlKeVxJohPm5TgFzt5fbmyEb5fa0ETpsItqIdv2I4Nk
+	7kskp9hyT00+Ne9ikpBV/sKOqdqBN7bhasVbYjDagb8wluvUcBnYjZsMeaUWXkzGLvzRIY4/MJZQs
+	i7RJtaGJ6/z1LINx7bt2T6vXkcgKdBvIvM+Zu2rcZ7lcBNNZGwG8jSgAcwB6Ba57XB1LQIWSOWJyl
+	JhXvDwGTSQlGPQDIPBZWxt3ixAwm0Vu8V5KZAa2cz1laYwH/rk7LJQg81YpFljns1B8tXW1FQH//M
+	2IYAtyYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAVkT-0000000G4jQ-3ueS;
-	Thu, 01 May 2025 15:22:53 +0000
-Received: from mail-dm6nam10on2070f.outbound.protection.outlook.com ([2a01:111:f403:2413::70f] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1uAVvo-0000000G5nZ-0EaN;
+	Thu, 01 May 2025 15:34:36 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAVg9-0000000G4Cr-2gTB
+	id 1uAVts-0000000G5dd-3rLR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 15:18:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=U2lGWqlOTnxhCJYpZXKkEtlj7jT3a/9VgpbpmqcgUv1N01cDVRUtKnLI8mJdhwshRkmOt9/OxcP7nnITZTyqVxv8M1ARV290TCZBvNBPC4SqoXBhEheUa6eMNhY+2/73e86TsxjjYtvNiJxxAi4C/220jWWuEWko/hcL08f2cpBsvcWoyU8u3qhvDZdYKmoYiqXcpfvk16sOSwf3YNgcIIRBp9zH733QKStocGYPrn1UB0YG/Z73Ez3uUk+LyuOFPZL5zOSdz+KkSzxAZSRiYsU7nUM26KwfacEk5IJk94GCtW/KpHEERh+8xqsmOyzuOUQQ812rDyMn1ZoglZZLGg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2ixq1fsxLDyCVegWJrvCa8Ua4CJ/PDy6cRN9kOMClm0=;
- b=p5UIe7T9/lVc3lJZL5ZTPqe1v48Zpuo4KrvaFKW1MH+rIk2x0TjKq5sBcEihD/KI9FPyCMzgdTPkmoxnh0U8Y8T0j1uixl0ABKkTW74LmnXE2vGvtY+Xoo3ATsEdMHwNo6/D6NsTOMZtLlbP6S96rgf2bDbFnX0f/gtLiW1h+iB64cNpt1jgHYRAs69vprrrQu/1/W8FnyEXvVJeJ4EFv4thpVrZC5YZXrDUl8h120mw/SaIFMsyquYeGL5PUeYtY9fkRAccRYgIO3ELEno6oTTyqAeALZyeRET1YDnEp5BxHt6IV2nElIK12jJVqJFzhULQNYh2H8sQbNow7LGbGw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2ixq1fsxLDyCVegWJrvCa8Ua4CJ/PDy6cRN9kOMClm0=;
- b=Cybod6Fzek6ue0aNJb/ghADGpV5Hq3Ry9zNUFbt/evpGUPkYaP8RChZEI6jGwC6Wysu+yntFmtthdI5+tNUE21E/tkmWmhQIfz4quuV23juTwsb+E96jJTLyK+o7yu2mwzOmR0a4pFWut1Z2se7vnGs/tFdYy+niEOR+GPUMj1I=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from LV2PR01MB7792.prod.exchangelabs.com (2603:10b6:408:14f::10) by
- MW4PR01MB6212.prod.exchangelabs.com (2603:10b6:303:71::17) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8699.24; Thu, 1 May 2025 15:18:16 +0000
-Received: from LV2PR01MB7792.prod.exchangelabs.com
- ([fe80::2349:ebe6:2948:adb9]) by LV2PR01MB7792.prod.exchangelabs.com
- ([fe80::2349:ebe6:2948:adb9%5]) with mapi id 15.20.8699.012; Thu, 1 May 2025
- 15:18:16 +0000
-From: D Scott Phillips <scott@os.amperecomputing.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, James Clark
- <james.clark@linaro.org>, James Morse <james.morse@arm.com>, Joey Gouly
- <joey.gouly@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>, Mark Brown
- <broonie@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Oliver Upton
- <oliver.upton@linux.dev>, "Rob Herring  (Arm)" <robh@kernel.org>, Shameer
- Kolothum <shameerali.kolothum.thodi@huawei.com>, Shiqi Liu
- <shiqiliu@hust.edu.cn>, Will Deacon <will@kernel.org>, Yicong Yang
- <yangyicong@hisilicon.com>, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: errata: Work around AmpereOne's erratum
- AC04_CPU_23
-In-Reply-To: <865xilir33.wl-maz@kernel.org>
-References: <20250425024741.1309893-1-scott@os.amperecomputing.com>
- <865xilir33.wl-maz@kernel.org>
-Date: Thu, 01 May 2025 08:17:53 -0700
-Message-ID: <86a57w9x7i.fsf@scott-ph-mail.amperecomputing.com>
-Content-Type: text/plain
-X-ClientProxiedBy: MW4PR03CA0125.namprd03.prod.outlook.com
- (2603:10b6:303:8c::10) To LV2PR01MB7792.prod.exchangelabs.com
- (2603:10b6:408:14f::10)
+	Thu, 01 May 2025 15:32:38 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 541FWDb4030130
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 1 May 2025 10:32:13 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1746113533;
+	bh=Avx9tdK85l3d/nVpozm+EccWjdAmRqwmN4UjN0biPaQ=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=V9jgnpewHDIsQyhE5/cdnlw/0vRRYASnMCSFBjujTDZN/d3iJKByTWOnhaF+uTO9J
+	 9KVDiQnd5Vo4HuqNr8uOluLPNMR1A/+jd3gw/LKhIH1ovbRmyHb9ftN+0iOVh9n3g+
+	 U/kKT0xK48cjKq1yF6vHaefbpwG9gAgkmjJhYSS4=
+Received: from DLEE101.ent.ti.com (dlee101.ent.ti.com [157.170.170.31])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 541FWDY2112900
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 1 May 2025 10:32:13 -0500
+Received: from DLEE104.ent.ti.com (157.170.170.34) by DLEE101.ent.ti.com
+ (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 1
+ May 2025 10:32:12 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE104.ent.ti.com
+ (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 1 May 2025 10:32:12 -0500
+Received: from [128.247.29.251] (dmz007xyy.dhcp.ti.com [128.247.29.251])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 541FWC3n116896;
+	Thu, 1 May 2025 10:32:12 -0500
+Message-ID: <23eeda43-a938-4c15-aee3-b1b9df217ff8@ti.com>
+Date: Thu, 1 May 2025 10:32:12 -0500
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV2PR01MB7792:EE_|MW4PR01MB6212:EE_
-X-MS-Office365-Filtering-Correlation-Id: cfa1e48e-20c3-48a7-9863-08dd88c365ad
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?dVv0cSyqVlx/wi/Iv5I0O+GbPxS35f8yyOWLeHN7zLYsOXSmgXHNRHKT3wLH?=
- =?us-ascii?Q?HDeELWxXY4d8Y/4OO5vjgQn5C1k827HipmerphdA/dpHNIhwE4nwBZUt/FOF?=
- =?us-ascii?Q?e5ON098i7CJTBOIKnRW+GkPld6OEPnFf262HCRieMqDWULcau6l5yPvIJHMc?=
- =?us-ascii?Q?86kHGmBKmppFoZFJEzWHL07yVZcBmf4lZwR7nvW0iVbFTPtgMbJgshpyPu5U?=
- =?us-ascii?Q?WRueTfskdAHDQnlXG//wzy92vVI8EfeBOi3gO+10yKED1nPqLZsIYlAcX5ha?=
- =?us-ascii?Q?CR2t/hRo4p+SellPzX2gJcNfC/fVp7fJNjLwkGkrsiNFu6FoQPezzi6rtYEI?=
- =?us-ascii?Q?wp5olID9BXhkE3lj0ELM1MzdGXfwhQ+VJxLrJDWcOuyH1DxYVtfUoctDavwG?=
- =?us-ascii?Q?GHMSZTxoBYhNhnBWAZ3n+s2hAKYm2avhZPSXwrbK3/yDcUkhURuJAF+ioZc9?=
- =?us-ascii?Q?sBmlbkE3+t4S1LVynDkHnSP3c4JjOsamSnDRHWD+5u8O3kmSsCc1sR7h7yij?=
- =?us-ascii?Q?WO/tBypf/VOZFnaXGT6SLWqvt1h5Esu+J73Y0zynudymMupGDoukw/m4fh3C?=
- =?us-ascii?Q?0+sBq7/XeVEic7S/9wf5PyQ+irOF3qT+y28H/zVxnHLhRNQfguO4h3cbsI6n?=
- =?us-ascii?Q?z4HZXI4Fm3LzkeSYToCpn1x+E8KrgZ+Q8iUB+LYpQ46GvEVVWymJZJ6ldtwR?=
- =?us-ascii?Q?V8d+JOJuOqu9wr3nZAANTfvdiIkGWY0YzO2g3ZyLQdS/oY4lRZxsjdBk8iQz?=
- =?us-ascii?Q?EXd1N3ElAW/Tw2urCkD5/ZfwnIfvPEFHkz4VcP8NIOeVORxUy0HQPc1Dn48f?=
- =?us-ascii?Q?UcULate1SEsiuGu/6P5bQs0NtsN7a3XfcszbeWONEQcTNpIskd6+yRkcaBba?=
- =?us-ascii?Q?cEtE7J54EjVyrcN0zOxb6FbVvBDMX84Wb2UDzKH5Acxh9fwcar43iFVCzPNg?=
- =?us-ascii?Q?3tB23Ij/yeahzn5JIrCvMZ2lAAD/MZB8hkOx2K/JSw3Qxt2ys4BTtWAny3/q?=
- =?us-ascii?Q?JOnsSQVsHP4JSdMT/N2KOA1rbLqmijtJ7php6R9yOqfAb6EJsb0FKfprmhYo?=
- =?us-ascii?Q?pINdeja0wJZ12Hr9lT59PpxBOmf5gf4PwZzwZk9CYoPekn2Bq5rmrJw6ljNN?=
- =?us-ascii?Q?V7h/wq5nriFO1f2E512AnfUWw9GZftarFm59tM52jxi7D14zu1/EUGtIhshd?=
- =?us-ascii?Q?xlstJSUOQhuScUYP4y60afMIbdirqp52izsLVLxI7ExsOClRsvZP2USxpALy?=
- =?us-ascii?Q?59rC8OzBpKECejpkSL10VFjRAXNl/uXE3VKhUOQ9l/N3UDA9Z03KoRxUn8dS?=
- =?us-ascii?Q?6mUx2d6JVU3YDwsf8F/rV7puhDLmGUjSrspDGB2x2tgBG1AdQm6WAwKoV9Qs?=
- =?us-ascii?Q?8EzYbELy+6UzcrLaYKAn35PC8oT+wCSd36i4/ABTQb25G5jYIVfVJo6u6Bs0?=
- =?us-ascii?Q?6oWx9X7X2s0fNj6wPy4lRKGLnIQ04sS06bfm3DVa3qpB3FdaSSHE2iypU15T?=
- =?us-ascii?Q?7WJ1cEIlWgOm9QE=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV2PR01MB7792.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(38350700014)(7053199007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sje22o6nWEZLgj6GW+Uq37lQVmcV+x+YLQtDS/agDb3OfEg/ObYh0S0fo2LB?=
- =?us-ascii?Q?whj/pDQzuzZJJ4Wr7toSh/3rV4vf+IKBd4k82OpbUZQhP+jhKhKzKlIeVTNP?=
- =?us-ascii?Q?mHvsKzPTfCMjZdOtcoCof1LhncG4AA3Yo8m2xYNAEL/Q9AYoVPt9GmfdwR6O?=
- =?us-ascii?Q?Ls7YhYlhMuxV7mz3ccRRGcpGvOzBMgKDs3HTEEAUEG1cNDH0UOUw9W/uFk12?=
- =?us-ascii?Q?/E2Mxks9ffAX/IhiVc327BqqW51YXgD1DHlmKMXLKMvQC3G7ZmyVfnl++r7b?=
- =?us-ascii?Q?oRSlvNbYVkMMFgWmBGKTLNl1ksdFsDYU9K2wb3ziuKoPI6l8+yiw9Z29NJ60?=
- =?us-ascii?Q?LY4c+KraOpFjsOQcRrz4jcDBcJwXuyT8ZdTxoA92e4nNpaejSOytj/57Rn0I?=
- =?us-ascii?Q?KIod/CFOO636hq1jjlKGGYLIpwz0fW1NTBmI0VpslGh1R70rshFzt9RCVcnI?=
- =?us-ascii?Q?/1TXgWoddp3R1S7hw3A1D0CSv4BG2cUAt9Os955MhOgNMM+r4cFiCvdPe36z?=
- =?us-ascii?Q?kZpoCkYYcPfP3weKRUHwJisyLfSJbJ0QG/pVmY972ozc/IexkeX3NkDn/20z?=
- =?us-ascii?Q?VuhWOBb/kQRMaePLq6NRDG9CWKMIELQdVOUWiLMTVPQGgesJQtMj+jCEstQl?=
- =?us-ascii?Q?AUPW4Q5+qz0eE/9Ck6DzMZ4YMatFzz8fCUQqjHWL9yl6U0SzoBGuJTI56+6B?=
- =?us-ascii?Q?PLgquOYcq5lGZm5wblAK9T91/Z4W/d+BXijW6q3yjVL5c5ePC0kSLlaaguHm?=
- =?us-ascii?Q?zuUZSMsOZoWWXhMyuKDHXxVPb/XuLrxOo2K8gHXPjYCq7LF7evVwmYGHfwN3?=
- =?us-ascii?Q?Lk5Z/xKfKuF8TqQoLuyOYrHBO2lE3MrSMeSbG0icJPitF4yYr+6Ae4pWnvnh?=
- =?us-ascii?Q?gMxa/UeuMnVv3Dy9ZkohyLoOoDaWlYdsBuzqFj2ycOjttL3onSlBc1WLwYjx?=
- =?us-ascii?Q?XVAX18Yje7WujrJsVuu3McYya1w6M0VuExhrT7q4Vzs4e7AMYMjEcXl8yQG8?=
- =?us-ascii?Q?wu7RIiBrHg1HeXumryeeP0qqnkZIka1XWsh/CRd7NJaZkSlo/pYmo2h7cyUY?=
- =?us-ascii?Q?D11HxpBYIvtBmjdpvCAEw9XH+JS7BZ9nw5rf4Oea4Thnnutu9a6BnGwOdsYX?=
- =?us-ascii?Q?msYyj2N2H6dVgA9Pg+0Rv5jjXZGWfYfgdk0wiuJDkjXY+EEqEB5xUsmZKM6L?=
- =?us-ascii?Q?BjfM8gvYXHmhLQ+NUDiLlBcGnde9jgJeCjm9c8ygC1tMF3F5kYGfiw7ZtnI/?=
- =?us-ascii?Q?0LEdGEYjCrWOlqGPTUythsZE2HmVVDb0NI37AwxH6/skWt+HwLYypECx9SCF?=
- =?us-ascii?Q?v4vJtneIobngfN4IreNaapvFnoZgS30IgkLEapsSGRtYfl98uh5URXDI9m0j?=
- =?us-ascii?Q?D/avOFkzCG6/bRq2f7rhzukApwE5oJhQR3HiOi5QKiDTtddX4cxCVrzCNkEh?=
- =?us-ascii?Q?xvJ9l7Z0WbtpDP0nXGedzfsWD5N+DPZfCAyZrtTQHNET6f3M3D1GMvGBO9gm?=
- =?us-ascii?Q?Gh7IeIXJ+vfV74AgBPFQhBqdXyChJUbiyyg4v+Gl5LtQHDoX9oAFTECqmKZW?=
- =?us-ascii?Q?rl+LfqYIFE6QN/Huc4iQmpSHYlbHjNKdSGQ71g48t4aYjFpFoaqtkVRHSLOp?=
- =?us-ascii?Q?8ZUNWc1kStAAaQc0nhfNBPk=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cfa1e48e-20c3-48a7-9863-08dd88c365ad
-X-MS-Exchange-CrossTenant-AuthSource: LV2PR01MB7792.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 May 2025 15:18:16.5328
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: tQuboGMWRt1Ro5EIyuyjk+Vm13/fDwd3ACG0e1htxh2B8Qaa3cCf1FYKSCdjz/phUuz249zysDlxzqAF9aNNB+GW3k1mYF7dLCQO0PmYh+Ir2WjQtbqholtdw/XPbNl6
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR01MB6212
+User-Agent: Mozilla Thunderbird
+Subject: Re: tps65219/am62p kernel oops
+To: Francesco Dolcini <francesco@dolcini.it>
+CC: Andreas Kemnade <andreas@kemnade.info>,
+        Jerome Neanne
+	<jneanne@baylibre.com>, Mark Brown <broonie@kernel.org>,
+        Nishanth Menon
+	<nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
+        Tero Kristo
+	<kristo@kernel.org>, Aaro Koskinen <aaro.koskinen@iki.fi>,
+        Kevin Hilman
+	<khilman@baylibre.com>,
+        Roger Quadros <rogerq@kernel.org>, Tony Lindgren
+	<tony@atomide.com>,
+        Liam Girdwood <lgirdwood@gmail.com>, <linux-omap@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <aBDSTxALaOc-PD7X@gaggiata.pivistrello.it>
+ <20250429185240.6a7644bf@akair> <20250430080109.GA65078@francesco-nb>
+ <aBH5s7p2RxLGjTQD@gaggiata.pivistrello.it>
+Content-Language: en-US
+From: Shree Ramamoorthy <s-ramamoorthy@ti.com>
+Organization: PMIC
+In-Reply-To: <aBH5s7p2RxLGjTQD@gaggiata.pivistrello.it>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_081825_744929_66D2AA6F 
-X-CRM114-Status: GOOD (  26.02  )
+X-CRM114-CacheID: sfid-20250501_083237_383991_2E168A89 
+X-CRM114-Status: GOOD (  20.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,158 +99,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Marc Zyngier <maz@kernel.org> writes:
+Hi,
 
-> On Fri, 25 Apr 2025 03:47:41 +0100,
-> D Scott Phillips <scott@os.amperecomputing.com> wrote:
->> 
->> Updates to HCR_EL2 can rarely corrupt simultaneous translations for data
->> addresses initiated by load/store instructions. Only instruction
->> initiated translations are vulnerable, not translations from prefetches
->> for example. A DSB before the store to HCR_EL2 is sufficient to prevent older
->> instructions from hitting the window for corruption, and an ISB after
->> is sufficient to prevent younger instructions from hitting the window
->> for corruption.
->> 
->> Signed-off-by: D Scott Phillips <scott@os.amperecomputing.com>
->> ---
->> v1: https://lore.kernel.org/kvmarm/20250415154711.1698544-2-scott@os.amperecomputing.com/
->> Changes since v1:
->>  - Add a write_sysreg_hcr() helper (Oliver)
->>  - Add more specific wording in the errata description (Oliver & Marc)
->> 
->>  arch/arm64/Kconfig                      | 17 +++++++++++++++++
->>  arch/arm64/include/asm/hardirq.h        |  4 ++--
->>  arch/arm64/include/asm/sysreg.h         | 10 ++++++++++
->>  arch/arm64/kernel/cpu_errata.c          | 14 ++++++++++++++
->>  arch/arm64/kvm/at.c                     |  8 ++++----
->>  arch/arm64/kvm/hyp/include/hyp/switch.h |  2 +-
->>  arch/arm64/kvm/hyp/nvhe/mem_protect.c   |  2 +-
->>  arch/arm64/kvm/hyp/nvhe/switch.c        |  2 +-
->>  arch/arm64/kvm/hyp/vhe/switch.c         |  2 +-
->>  arch/arm64/kvm/hyp/vhe/tlb.c            |  4 ++--
->>  arch/arm64/tools/cpucaps                |  1 +
->>  11 files changed, 54 insertions(+), 12 deletions(-)
->> 
->> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
->> index a182295e6f08b..3ae4e80e3002b 100644
->> --- a/arch/arm64/Kconfig
->> +++ b/arch/arm64/Kconfig
->> @@ -464,6 +464,23 @@ config AMPERE_ERRATUM_AC03_CPU_38
->>  
->>  	  If unsure, say Y.
->>  
->> +config AMPERE_ERRATUM_AC04_CPU_23
->> +        bool "AmpereOne: AC04_CPU_23:  Failure to synchronize writes to HCR_EL2 may corrupt address translations."
->> +	default y
->> +	help
->> +	  This option adds an alternative code sequence to work around Ampere
->> +	  errata AC04_CPU_23 on AmpereOne.
->> +
->> +	  Updates to HCR_EL2 can rarely corrupt simultaneous translations for
->> +	  data addresses initiated by load/store instructions. Only
->> +	  instruction initiated translations are vulnerable, not translations
->> +	  from prefetches for example. A DSB before the store to HCR_EL2 is
->> +	  sufficient to prevent older instructions from hitting the window
->> +	  for corruption, and an ISB after is sufficient to prevent younger
->> +	  instructions from hitting the window for corruption.
->> +
->> +	  If unsure, say Y.
->> +
->>  config ARM64_WORKAROUND_CLEAN_CACHE
->>  	bool
->>  
->> diff --git a/arch/arm64/include/asm/hardirq.h b/arch/arm64/include/asm/hardirq.h
->> index cbfa7b6f2e098..77d6b8c63d4e6 100644
->> --- a/arch/arm64/include/asm/hardirq.h
->> +++ b/arch/arm64/include/asm/hardirq.h
->> @@ -41,7 +41,7 @@ do {									\
->>  									\
->>  	___hcr = read_sysreg(hcr_el2);					\
->>  	if (!(___hcr & HCR_TGE)) {					\
->> -		write_sysreg(___hcr | HCR_TGE, hcr_el2);		\
->> +		write_sysreg_hcr(___hcr | HCR_TGE);			\
->>  		isb();							\
->>  	}								\
->>  	/*								\
->> @@ -82,7 +82,7 @@ do {									\
->>  	 */								\
->>  	barrier();							\
->>  	if (!___ctx->cnt && !(___hcr & HCR_TGE))			\
->> -		write_sysreg(___hcr, hcr_el2);				\
->> +		write_sysreg_hcr(___hcr);				\
->>  } while (0)
->>  
->>  static inline void ack_bad_irq(unsigned int irq)
->> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
->> index 2639d3633073d..d41eeba7f8201 100644
->> --- a/arch/arm64/include/asm/sysreg.h
->> +++ b/arch/arm64/include/asm/sysreg.h
->> @@ -1185,6 +1185,16 @@
->>  		write_sysreg_s(__scs_new, sysreg);			\
->>  } while (0)
->>  
->> +#define write_sysreg_hcr(__val) do {					\
->> +	if(IS_ENABLED(CONFIG_AMPERE_ERRATUM_AC04_CPU_23) &&		\
->> +	   alternative_has_cap_unlikely(ARM64_WORKAROUND_AMPERE_AC04_CPU_23)) \
->> +		asm volatile("dsb nsh; msr hcr_el2, %x0; isb"		\
->> +			     : : "rZ" (__val));				\
->> +	else								\
->> +		asm volatile("msr hcr_el2, %x0"				\
->> +			     : : "rZ" (__val));				\
->> +} while (0)
->> +
+On 4/30/25 5:21 AM, Francesco Dolcini wrote:
+> On Wed, Apr 30, 2025 at 10:01:14AM +0200, Francesco Dolcini wrote:
+>> On Tue, Apr 29, 2025 at 06:52:40PM +0200, Andreas Kemnade wrote:
+>>> Am Tue, 29 Apr 2025 15:21:19 +0200
+>>> schrieb Francesco Dolcini <francesco@dolcini.it>:
+>>>
+>>>> Hello all,
+>>>> while working on adding support in mainline for a new board based on TI
+>>>> AM62P SoC I noticed the following Kernel Oops.
+>>>>
+>>>> This oops was reproduced running current Linux
+>>>> master, 6.15.0-rc4+, ca91b9500108d4cf083a635c2e11c884d5dd20ea, but I was able
+>>>> to reproduce the same with 6.14.4.
+>>>>
+>>> [...]
+>>>> [  +0.000022] Call trace:
+>>>> [  +0.000011]  regulator_notifier_call_chain+0x20/0xa4 (P)
+>>>> [  +0.000018]  tps65219_regulator_irq_handler+0x34/0x80
+>>> wild guessing: maybe because irqdata->rdev is not initalized in
+>>> _probe()? At least I do not see where it would be initialized.
+>> your wild guess seems correct, I'll send a proper patch with your
+>> suggested-by after doing a couple of more tests, thanks.
+> so, the bug is clear, however the fix is not an obvious one liner as I was
+> wishing.
 >
-> I'm worried that some of these accesses may occur before we compute
-> the capabilities. I'd be more confident if the default was to have the
-> workaround, and only to relax it once we know we're not on a broken
-> system.
-
-OK, will do
-
-> But that leaves the question of the early stuff that runs before we
-> get to C code. Are you sure this isn't affected by this issue (for
-> example, the code in head.S, hyp-stub.S, and el2-setup.h)?
-
-Ya, that's a good point. The corrupted translations can happen
-speculatively, so there's every reason to think all those places also
-need to be considered. I'll take a look everywhere now, not just at C.
-
->>  #define read_sysreg_par() ({						\
->>  	u64 par;							\
->>  	asm(ALTERNATIVE("nop", "dmb sy", ARM64_WORKAROUND_1508412));	\
->> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
->> index b55f5f7057502..60f1b70fc0845 100644
->> --- a/arch/arm64/kernel/cpu_errata.c
->> +++ b/arch/arm64/kernel/cpu_errata.c
->> @@ -557,6 +557,13 @@ static const struct midr_range erratum_ac03_cpu_38_list[] = {
->>  };
->>  #endif
->>  
->> +#ifdef CONFIG_AMPERE_ERRATUM_AC04_CPU_23
->> +static const struct midr_range erratum_ac04_cpu_23_list[] = {
->> +	MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
->> +	{},
->> +};
->> +#endif
->> +
->>  const struct arm64_cpu_capabilities arm64_errata[] = {
->>  #ifdef CONFIG_ARM64_WORKAROUND_CLEAN_CACHE
->>  	{
->> @@ -875,6 +882,13 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
->>  		.capability = ARM64_WORKAROUND_AMPERE_AC03_CPU_38,
->>  		ERRATA_MIDR_RANGE_LIST(erratum_ac03_cpu_38_list),
->>  	},
->> +#endif
->> +#ifdef CONFIG_AMPERE_ERRATUM_AC04_CPU_23
->> +	{
->> +		.desc = "AmpereOne erratum AC04_CPU_23",
->> +		.capability = ARM64_WORKAROUND_AMPERE_AC04_CPU_23,
->> +		ERRATA_MIDR_RANGE_LIST(erratum_ac04_cpu_23_list),
->> +	},
->>  #endif
+> we would need to add a link from each of the interrupts to the specific
+> regulator. as of now such a connection is not existing in the code.
 >
-> This needs to be captured in Documentation/arch/arm64/silicon-errata.rst.
+> I would not have the time to fix the code in the next few days, if someone is
+> able to pick this up before, just let me know ...
+>
+> Francesco
+>
+I'll try out implementing and testing the solution, but will get to it early next week. Will email with any updates!
 
-OK, will do, thanks Marc.
+
+-- 
+Best,
+Shree Ramamoorthy
+PMIC Software Engineer
+
 
