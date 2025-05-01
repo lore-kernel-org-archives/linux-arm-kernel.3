@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 715ACC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 23:11:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E3BDC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 23:13:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KCC7bKa/se6mYg+6T9wGzMiASCuQ0cecrMrt+P8VCow=; b=Yka0OkrCGzJ4PsXyhuS2d0UM/A
-	wFdLV0T2fEsANAKk/+t1HToFaDBIpWo1zAxMgBjz+V8kdkJK9t2cB42/JzVR5zQt3/ygm1nsJd5o9
-	hQ3nUC2vN7NlJqOGD74FPV0JQN19NDu9LwjJ5UEtoOf/zRB4A6x+1V1ome4fl1dNh9R4VuzDRAhFc
-	Mk8MHyxlbMyOsQVzy+nDVHJoHW69i06yXXx6C7UtL8BHMbCd/nF2jtx8Zgjzo2W/KquyLDkrGRH6Z
-	pygUnzEtOYLD7NMcL4TVeJQkQITHOIp71288ihoiBuHmJ7ej7LBeD95lKLn7LxglDBPgqm1sMe5pr
-	udukDpSA==;
+	bh=GwWO2FOvlius8r+9F7qsaJRBJWjTTO3gcmkaNJYk24k=; b=Lo2M2Rj676rRsG359TMSpop+5x
+	84Xv9AMmuCcDvW8FsWzGXd65Vxf+17uHiX8+eeAj3elietAgxbh4vsi5wK6Lo+eseXOMpB1El3UFh
+	R8gyD3W+Ahfu4EzTLMrFfGxPiUqFgMZVdcLw/xmnibWOHO/Gvy74nFCYw8GlLEzJjloTGwWZiPgRZ
+	U59uzKE0hOisIhJqG1huaiMgD/YQR7rpRMzzb1wMVO17dkK/jjgebLo5RNSk8+Um63s8aag6tqvrA
+	0k9qmDJ7RXCVkzz+K2bKe6QPzY4MgzKXrmeaXg3H9UIAym6xzzltEe+6P3Yd8iLGX6BcebOsE939n
+	uhUN7kXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAd3O-00000000DKQ-0Cy7;
-	Thu, 01 May 2025 23:10:54 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1uAd5G-00000000DlH-3bql;
+	Thu, 01 May 2025 23:12:50 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAcoP-000000007FH-431x
+	id 1uAcoT-000000007KC-3Wpg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 22:55:27 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-736b431ee0dso1219907b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 May 2025 15:55:25 -0700 (PDT)
+	Thu, 01 May 2025 22:55:31 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-30a39fa0765so2174679a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 May 2025 15:55:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1746140124; x=1746744924; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1746140129; x=1746744929; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=KCC7bKa/se6mYg+6T9wGzMiASCuQ0cecrMrt+P8VCow=;
-        b=N1kbpx8vkwsHGBjhGbOcZz0EukLCv2+tviajXQGhca2w1Q3yl4qhyvIGsohxKZl8uS
-         RljXlNAWj+0Uq7coLw2tSyvIqzK7bHQb8OZ9ksTVfSWPqzvzXm1yhx8M1tKhl7eucxfE
-         mzV8Iwq0zuQQFsLlwjQ/DwhQTetjDSLtpmSahJ53RIYir/XjNdnbXACpGcze5Y8CiJ1b
-         LR2Kn07Saf2KK1Yhj1Ch9H0iDn9m8HCDDc5PpH+8FAooAJ4eM99AgOUIKZVPsdqylVEi
-         dmS0IngJDvJz6HDNP7ikjMAlhG7CyalNelU7oYaX7V7kwi+cITYV6OMnDnxwsyATOwNG
-         ATaw==
+        bh=GwWO2FOvlius8r+9F7qsaJRBJWjTTO3gcmkaNJYk24k=;
+        b=KZIRtUmwvQpmGBOHP1/ezqU7Xo1u52+4e875xU+ItPibC42EJJQ7oybW8Y/oN6oSgo
+         Wy6k7juhXAMpmng2zqxiubZK6EZSTVge+FPZYPVl+XbbtCEMJ8JYguBbpcdVRHVkgK2P
+         W+HoKhCcnF3KcooYvi+AFESsiThW/ugF58XWDye/61xstAl7MhoKc75JIqd5z7IKg19l
+         wRqU/atXhylT1Lj2JkXTNwQaXrRlI3dYTzZ7DMIqshozFsdtYN4cczW8vpuzMa7/i9HJ
+         A+kCFUznbb1o/lz6IbOZkKSWkhE5tfDc2qI3IWvmeyM9qaeX98p/kBriWp7PLcg4MvHf
+         9kIA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746140124; x=1746744924;
+        d=1e100.net; s=20230601; t=1746140129; x=1746744929;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=KCC7bKa/se6mYg+6T9wGzMiASCuQ0cecrMrt+P8VCow=;
-        b=eTSjC3wGVvqp7N9gTXSo7kW7JuOFsJ38DdDp8Ge+DX+bfLrVyqIOqQSWIJmBf13N6H
-         gAImg93rboko0OPIM9C683YZtEtj7xxcSrmOJkwwbRa9A/ZEzHZ4NWnPifkXZ2M05DXH
-         R90jX6F4y2ptPA3D6jjQTk+slO9n72c+rXHEhfbGhPpraFof9PY2kZLgxdBBtEIlQ4s1
-         TpdOHdrQjhZ1D7fONKVdgoJtOgzNIPQDP7byGkkqd2mshSRBOAXpcHfOqMlqkHoqKrsZ
-         AaWo9654VVPrrjqypWBD7NdZW9udaN7DCGL1DlsmJA+O19+2oe1K3s2//4WrBQ03yM8j
-         d7lw==
-X-Forwarded-Encrypted: i=1; AJvYcCW1ZvGz+icN/4ICQCdwZS+8WYMDAqud/hyuZ6rNX577IYRa0H0HT8sySejsyUhaJYCly3/GTqUZhdT9CPgIaLFl@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzk/xcUycwrQ8CLIWYcCKIpxOjwiV15AznupIIt9Ou0nKWB00TD
-	84vsz44DHIDhorf3lwO9bFRvHTTp/3YAan/sGGLhe8EvP7TzK+231RyDs14A4/PRfnaf7blv9a6
-	yNV7NWvwC2vSASgQ9Mw==
-X-Google-Smtp-Source: AGHT+IG+w15ETdCoK+fHMVjjNvznubiYgRmkIOBeTduHj1HNG9YRODcurbY+TyPTJCH95DRqbicgO/a5HkcDFdV/
-X-Received: from pgbd25.prod.google.com ([2002:a63:4f19:0:b0:b15:84fa:ff1f])
+        bh=GwWO2FOvlius8r+9F7qsaJRBJWjTTO3gcmkaNJYk24k=;
+        b=xU7Q1AjPa5QoedCE+3VY1mn+Rh+IToJppYB7Ph3SdVO9eg5Awv4z0wMrIF4LjXpOtg
+         b12aU7yQdlmV916qS+OyCiiZFYIGVA4z/IXzWGddsbDNx/CcP0Ymcx2bVgVa0Kd1PpX0
+         YONNSj7OpsqFpGRZtriPcM3kUnJaoI5Y+NPu5A8rM3onkhGNOVZz6YvDfeLdqDEQ7CTQ
+         AsgxEoL30gkdUEjAsYpRVOGcEOkOO+Tv6m0xrvwAEdEUjd0ZwD368nETTakaNJoDcXw3
+         XRQz3FdroQF/p+fXtAE5/DurRZ1y4s5Ri2Fk3h/jIP+wptEuMJkoaxJnDnPgSIyAP1cJ
+         0/YA==
+X-Forwarded-Encrypted: i=1; AJvYcCWt4+ZNLvjV4drRqDHwpySLFTW+Cgr6TraO+VnJGFqhqWZZ6Mt0R4sLNbOwr3Ab5FqD3U5+ztIHit6inMmFv5F8@lists.infradead.org
+X-Gm-Message-State: AOJu0YxTeOxWkDzlvUHAOikDX7GgbcIn5DyjiOENJdquLyVToAWoR7I+
+	M4/GIJ/j5WXCj1xlCoVUwfNjQbnA+iCVc7mm7Oirb9Kt7d/rKeXa+BHkqllI9Py2Sq38iBMwKkI
+	QgRaWkreLiePaJSLvUQ==
+X-Google-Smtp-Source: AGHT+IHGGHQFeww3ZBllpvF8B0U8eo8S2iJ4Fy1b4zOCDt+eKf19vVsihtqaMITfWT4NmEQ5ICMAL73coQmW9XO3
+X-Received: from pjee15.prod.google.com ([2002:a17:90b:578f:b0:308:65f7:9f24])
  (user=changyuanl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a20:d527:b0:1f5:82ae:69d1 with SMTP id adf61e73a8af0-20cded43612mr889605637.20.1746140124601;
- Thu, 01 May 2025 15:55:24 -0700 (PDT)
-Date: Thu,  1 May 2025 15:54:15 -0700
+ 2002:a17:90b:394d:b0:2fe:ba82:ca5 with SMTP id 98e67ed59e1d1-30a4e5a6761mr1350824a91.11.1746140128741;
+ Thu, 01 May 2025 15:55:28 -0700 (PDT)
+Date: Thu,  1 May 2025 15:54:17 -0700
 In-Reply-To: <20250501225425.635167-1-changyuanl@google.com>
 Mime-Version: 1.0
 References: <20250501225425.635167-1-changyuanl@google.com>
 X-Mailer: git-send-email 2.49.0.906.g1f30a19c02-goog
-Message-ID: <20250501225425.635167-9-changyuanl@google.com>
-Subject: [PATCH v7 08/18] kexec: add KHO support to kexec file loads
+Message-ID: <20250501225425.635167-11-changyuanl@google.com>
+Subject: [PATCH v7 10/18] arm64: add KHO support
 From: Changyuan Lyu <changyuanl@google.com>
 To: linux-kernel@vger.kernel.org
 Cc: changyuanl@google.com, akpm@linux-foundation.org, 
@@ -83,8 +83,8 @@ Cc: changyuanl@google.com, akpm@linux-foundation.org,
 	thomas.lendacky@amd.com, will@kernel.org, x86@kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_155526_082221_F8C97596 
-X-CRM114-Status: GOOD (  24.13  )
+X-CRM114-CacheID: sfid-20250501_155529_928398_288A338D 
+X-CRM114-Status: GOOD (  19.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,15 +101,13 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Alexander Graf <graf@amazon.com>
 
-Kexec has 2 modes: A user space driven mode and a kernel driven mode.
-For the kernel driven mode, kernel code determines the physical
-addresses of all target buffers that the payload gets copied into.
+We now have all bits in place to support KHO kexecs. Add awareness of
+KHO in the kexec file as well as boot path for arm64 and adds the
+respective kconfig option to the architecture so that it can use KHO
+successfully.
 
-With KHO, we can only safely copy payloads into the "scratch area".
-Teach the kexec file loader about it, so it only allocates for that
-area. In addition, enlighten it with support to ask the KHO subsystem
-for its respective payloads to copy into target memory. Also teach the
-KHO subsystem how to fill the images for file loads.
+Changes to the "chosen" node have been sent to
+https://github.com/devicetree-org/dt-schema/pull/158.
 
 Signed-off-by: Alexander Graf <graf@amazon.com>
 Co-developed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
@@ -117,166 +115,144 @@ Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 Co-developed-by: Changyuan Lyu <changyuanl@google.com>
 Signed-off-by: Changyuan Lyu <changyuanl@google.com>
 ---
- include/linux/kexec.h   |  5 +++
- kernel/kexec_file.c     | 13 ++++++++
- kernel/kexec_handover.c | 67 +++++++++++++++++++++++++++++++++++++++++
- kernel/kexec_internal.h | 16 ++++++++++
- 4 files changed, 101 insertions(+)
+ arch/arm64/Kconfig |  3 +++
+ drivers/of/fdt.c   | 34 ++++++++++++++++++++++++++++++++++
+ drivers/of/kexec.c | 42 ++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 79 insertions(+)
 
-diff --git a/include/linux/kexec.h b/include/linux/kexec.h
-index c8971861521a5..075255de81543 100644
---- a/include/linux/kexec.h
-+++ b/include/linux/kexec.h
-@@ -371,6 +371,11 @@ struct kimage {
- 	size_t ima_buffer_size;
- #endif
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index a182295e6f08b..34c79f4fee3f9 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1602,6 +1602,9 @@ config ARCH_SUPPORTS_KEXEC_IMAGE_VERIFY_SIG
+ config ARCH_DEFAULT_KEXEC_IMAGE_VERIFY_SIG
+ 	def_bool y
  
-+	struct {
-+		struct kexec_segment *scratch;
-+		phys_addr_t fdt;
-+	} kho;
++config ARCH_SUPPORTS_KEXEC_HANDOVER
++	def_bool y
 +
- 	/* Core ELF header buffer */
- 	void *elf_headers;
- 	unsigned long elf_headers_sz;
-diff --git a/kernel/kexec_file.c b/kernel/kexec_file.c
-index fba686487e3b5..77758c5331229 100644
---- a/kernel/kexec_file.c
-+++ b/kernel/kexec_file.c
-@@ -253,6 +253,11 @@ kimage_file_prepare_segments(struct kimage *image, int kernel_fd, int initrd_fd,
- 	/* IMA needs to pass the measurement list to the next kernel. */
- 	ima_add_kexec_buffer(image);
+ config ARCH_SUPPORTS_CRASH_DUMP
+ 	def_bool y
  
-+	/* If KHO is active, add its images to the list */
-+	ret = kho_fill_kimage(image);
-+	if (ret)
-+		goto out;
-+
- 	/* Call image load handler */
- 	ldata = kexec_image_load_default(image);
+diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
+index aedd0e2dcd890..0edd639898a63 100644
+--- a/drivers/of/fdt.c
++++ b/drivers/of/fdt.c
+@@ -25,6 +25,7 @@
+ #include <linux/serial_core.h>
+ #include <linux/sysfs.h>
+ #include <linux/random.h>
++#include <linux/kexec_handover.h>
  
-@@ -648,6 +653,14 @@ int kexec_locate_mem_hole(struct kexec_buf *kbuf)
- 	if (kbuf->mem != KEXEC_BUF_MEM_UNKNOWN)
- 		return 0;
- 
-+	/*
-+	 * If KHO is active, only use KHO scratch memory. All other memory
-+	 * could potentially be handed over.
-+	 */
-+	ret = kho_locate_mem_hole(kbuf, locate_mem_hole_callback);
-+	if (ret <= 0)
-+		return ret;
-+
- 	if (!IS_ENABLED(CONFIG_ARCH_KEEP_MEMBLOCK))
- 		ret = kexec_walk_resources(kbuf, locate_mem_hole_callback);
- 	else
-diff --git a/kernel/kexec_handover.c b/kernel/kexec_handover.c
-index 3bf74b4960f84..ef21db6c59d51 100644
---- a/kernel/kexec_handover.c
-+++ b/kernel/kexec_handover.c
-@@ -26,6 +26,7 @@
-  * internal APIs.
-  */
- #include "../mm/internal.h"
-+#include "kexec_internal.h"
- 
- #define KHO_FDT_COMPATIBLE "kho-v1"
- #define PROP_PRESERVED_MEMORY_MAP "preserved-memory-map"
-@@ -1192,3 +1193,69 @@ void __init kho_populate(phys_addr_t fdt_phys, u64 fdt_len,
- 	if (err)
- 		pr_warn("disabling KHO revival: %d\n", err);
+ #include <asm/setup.h>  /* for COMMAND_LINE_SIZE */
+ #include <asm/page.h>
+@@ -875,6 +876,36 @@ void __init early_init_dt_check_for_usable_mem_range(void)
+ 		memblock_add(rgn[i].base, rgn[i].size);
  }
-+
-+/* Helper functions for kexec_file_load */
-+
-+int kho_fill_kimage(struct kimage *image)
+ 
++/**
++ * early_init_dt_check_kho - Decode info required for kexec handover from DT
++ */
++static void __init early_init_dt_check_kho(void)
 +{
-+	ssize_t scratch_size;
-+	int err = 0;
-+	struct kexec_buf scratch;
++	unsigned long node = chosen_node_offset;
++	u64 fdt_start, fdt_size, scratch_start, scratch_size;
++	const __be32 *p;
++	int l;
 +
-+	if (!kho_enable)
-+		return 0;
++	if (!IS_ENABLED(CONFIG_KEXEC_HANDOVER) || (long)node < 0)
++		return;
 +
-+	image->kho.fdt = page_to_phys(kho_out.ser.fdt);
++	p = of_get_flat_dt_prop(node, "linux,kho-fdt", &l);
++	if (l != (dt_root_addr_cells + dt_root_size_cells) * sizeof(__be32))
++		return;
 +
-+	scratch_size = sizeof(*kho_scratch) * kho_scratch_cnt;
-+	scratch = (struct kexec_buf){
-+		.image = image,
-+		.buffer = kho_scratch,
-+		.bufsz = scratch_size,
-+		.mem = KEXEC_BUF_MEM_UNKNOWN,
-+		.memsz = scratch_size,
-+		.buf_align = SZ_64K, /* Makes it easier to map */
-+		.buf_max = ULONG_MAX,
-+		.top_down = true,
-+	};
-+	err = kexec_add_buffer(&scratch);
-+	if (err)
-+		return err;
-+	image->kho.scratch = &image->segment[image->nr_segments - 1];
++	fdt_start = dt_mem_next_cell(dt_root_addr_cells, &p);
++	fdt_size = dt_mem_next_cell(dt_root_addr_cells, &p);
 +
-+	return 0;
++	p = of_get_flat_dt_prop(node, "linux,kho-scratch", &l);
++	if (l != (dt_root_addr_cells + dt_root_size_cells) * sizeof(__be32))
++		return;
++
++	scratch_start = dt_mem_next_cell(dt_root_addr_cells, &p);
++	scratch_size = dt_mem_next_cell(dt_root_addr_cells, &p);
++
++	kho_populate(fdt_start, fdt_size, scratch_start, scratch_size);
 +}
 +
-+static int kho_walk_scratch(struct kexec_buf *kbuf,
-+			    int (*func)(struct resource *, void *))
+ #ifdef CONFIG_SERIAL_EARLYCON
+ 
+ int __init early_init_dt_scan_chosen_stdout(void)
+@@ -1169,6 +1200,9 @@ void __init early_init_dt_scan_nodes(void)
+ 
+ 	/* Handle linux,usable-memory-range property */
+ 	early_init_dt_check_for_usable_mem_range();
++
++	/* Handle kexec handover */
++	early_init_dt_check_kho();
+ }
+ 
+ bool __init early_init_dt_scan(void *dt_virt, phys_addr_t dt_phys)
+diff --git a/drivers/of/kexec.c b/drivers/of/kexec.c
+index 5b924597a4deb..1ee2d31816aeb 100644
+--- a/drivers/of/kexec.c
++++ b/drivers/of/kexec.c
+@@ -264,6 +264,43 @@ static inline int setup_ima_buffer(const struct kimage *image, void *fdt,
+ }
+ #endif /* CONFIG_IMA_KEXEC */
+ 
++static int kho_add_chosen(const struct kimage *image, void *fdt, int chosen_node)
 +{
 +	int ret = 0;
-+	int i;
++#ifdef CONFIG_KEXEC_HANDOVER
++	phys_addr_t fdt_mem = 0;
++	phys_addr_t fdt_len = 0;
++	phys_addr_t scratch_mem = 0;
++	phys_addr_t scratch_len = 0;
 +
-+	for (i = 0; i < kho_scratch_cnt; i++) {
-+		struct resource res = {
-+			.start = kho_scratch[i].addr,
-+			.end = kho_scratch[i].addr + kho_scratch[i].size - 1,
-+		};
++	ret = fdt_delprop(fdt, chosen_node, "linux,kho-fdt");
++	if (ret && ret != -FDT_ERR_NOTFOUND)
++		return ret;
++	ret = fdt_delprop(fdt, chosen_node, "linux,kho-scratch");
++	if (ret && ret != -FDT_ERR_NOTFOUND)
++		return ret;
 +
-+		/* Try to fit the kimage into our KHO scratch region */
-+		ret = func(&res, kbuf);
-+		if (ret)
-+			break;
-+	}
++	if (!image->kho.fdt || !image->kho.scratch)
++		return 0;
 +
++	fdt_mem = image->kho.fdt;
++	fdt_len = PAGE_SIZE;
++	scratch_mem = image->kho.scratch->mem;
++	scratch_len = image->kho.scratch->bufsz;
++
++	pr_debug("Adding kho metadata to DT");
++
++	ret = fdt_appendprop_addrrange(fdt, 0, chosen_node, "linux,kho-fdt",
++				       fdt_mem, fdt_len);
++	if (ret)
++		return ret;
++	ret = fdt_appendprop_addrrange(fdt, 0, chosen_node, "linux,kho-scratch",
++				       scratch_mem, scratch_len);
++
++#endif /* CONFIG_KEXEC_HANDOVER */
 +	return ret;
 +}
 +
-+int kho_locate_mem_hole(struct kexec_buf *kbuf,
-+			int (*func)(struct resource *, void *))
-+{
-+	int ret;
+ /*
+  * of_kexec_alloc_and_setup_fdt - Alloc and setup a new Flattened Device Tree
+  *
+@@ -414,6 +451,11 @@ void *of_kexec_alloc_and_setup_fdt(const struct kimage *image,
+ #endif
+ 	}
+ 
++	/* Add kho metadata if this is a KHO image */
++	ret = kho_add_chosen(image, fdt, chosen_node);
++	if (ret)
++		goto out;
 +
-+	if (!kho_enable || kbuf->image->type == KEXEC_TYPE_CRASH)
-+		return 1;
-+
-+	ret = kho_walk_scratch(kbuf, func);
-+
-+	return ret == 1 ? 0 : -EADDRNOTAVAIL;
-+}
-diff --git a/kernel/kexec_internal.h b/kernel/kexec_internal.h
-index d35d9792402d1..30a733a55a67b 100644
---- a/kernel/kexec_internal.h
-+++ b/kernel/kexec_internal.h
-@@ -39,4 +39,20 @@ extern size_t kexec_purgatory_size;
- #else /* CONFIG_KEXEC_FILE */
- static inline void kimage_file_post_load_cleanup(struct kimage *image) { }
- #endif /* CONFIG_KEXEC_FILE */
-+
-+struct kexec_buf;
-+
-+#ifdef CONFIG_KEXEC_HANDOVER
-+int kho_locate_mem_hole(struct kexec_buf *kbuf,
-+			int (*func)(struct resource *, void *));
-+int kho_fill_kimage(struct kimage *image);
-+#else
-+static inline int kho_locate_mem_hole(struct kexec_buf *kbuf,
-+				      int (*func)(struct resource *, void *))
-+{
-+	return 1;
-+}
-+
-+static inline int kho_fill_kimage(struct kimage *image) { return 0; }
-+#endif /* CONFIG_KEXEC_HANDOVER */
- #endif /* LINUX_KEXEC_INTERNAL_H */
+ 	/* add bootargs */
+ 	if (cmdline) {
+ 		ret = fdt_setprop_string(fdt, chosen_node, "bootargs", cmdline);
 -- 
 2.49.0.906.g1f30a19c02-goog
 
