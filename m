@@ -4,173 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21A23C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 18:54:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D295EC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 18:56:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dH0HSsEDwYUxuVzlYTIkL8n5RA0iiz/4oZhT8wu3V2k=; b=4m9dYT8SlNOyahaIlbUg1x7nx1
-	uvOQQu0qtg+OiRgWh6kydozjDm+yo1RfGDo8KLJ1vZlXIO/C5XaWr1O4gC8D8e7iQh7OUIgVHSRAv
-	R2cINqkHHNJTOvfs9kMPYvPGjJlkP2eJJHWvlsrdY60PCnXW3oti9ADBJB6SfIW4gphz7hwwDv2XA
-	ti0AIq5DX6IMDhz1KWINLQTxiplANM4g8Dn+kQMhij3915GpdAxK0MjhiSHgZ5F9AKolFNAbv0UTz
-	pI/ZDJY7tf5o/H7qnel8IvUkWW/IrXpOt7Wi23W2LIQcsojofzdMD8hIOxxuqFmXEd/702IAGUKgq
-	Acln8bTQ==;
+	bh=LatOSNnxxkryEsvBRI/66HabOiRW4kQiOFbVbM7SRlo=; b=Rk523bHQQDlFCHNxcoFy950bJQ
+	0SZDr/Ng2aDb1uZZa6vNNcPsHzJaacJV81m4D3UOqinUJ3l/qar2nWzcQ9DGUXD2mi+AftIPcxYO7
+	V4IyzEJwUgPlqFt+p/3g5P179GuVR3CQiHnhJNmxLGIJNgKbVjc3vJyx74bUVwn/l4r/BSGNWUU9O
+	BajgOgVOvgEFr/Eke6hwPDVnFEC5QVxqKzDw5YOP7bMkU8g1K15tCcCEPOerzcYmPSoEE608mlu+R
+	rneAj/1x6fp1J679poUKOm1lo4tN96uBEl/QizQ9cnZ1kzxqxTYq0+8K4PA0pKmJbqQpZ8WOAR48K
+	FcfWvpQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAZ3U-0000000GQg4-0mzE;
-	Thu, 01 May 2025 18:54:44 +0000
-Received: from mail-bn8nam12on20629.outbound.protection.outlook.com ([2a01:111:f403:2418::629] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1uAZ5O-0000000GR0a-00Mb;
+	Thu, 01 May 2025 18:56:42 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAYq4-0000000GOho-14u9
+	id 1uAYyg-0000000GPxM-43Tt
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 01 May 2025 18:49:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=LatOSNnxxkryEsvBRI/66HabOiRW4kQiOFbVbM7SRlo=; b=fxaoyNgKJhUPTuz5VuhaKFsFKN
+	j7O7+LBypC65xBQ6p5yHw5igxZTulCttEzwmazT7rtSkoDE3J7PntlXuCcccHu14210efSu0EZV3z
+	9LWZwWmDmtT4Wj5xVo1oHIeLdRVL+W8nr6z5LWnKSdwTTD3b30bJe5SfEEdgoR6qXWmx4N0EITy8U
+	DDzFboiy1oaIcfQNGwJORANM5/O2n3SUaCg2oPnDxE1e3YuxK1iDolw4jnXHr7vs/2Ix+dAot9NyA
+	PhVCoctWMAu9tb+SUU7dA2Uef+FVZYsrv9SrNr6VcmnZ9/t4zpSNHmSyCz+Z9f1AXX2C9eRIx0Igm
+	xiu16OAQ==;
+Received: from mail-dm6nam10on2060a.outbound.protection.outlook.com ([2a01:111:f403:2413::60a] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uAYyc-0000000E6C3-36Cq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 18:40:53 +0000
+	Thu, 01 May 2025 18:49:45 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wJUEj71B9FcR28wwlXyfYF6ZPHZRgZENcGSWt82BqrG3qIRmdFvRSiDQWesPoNKn5wIx/3CRuTgjzVuVi1nPtotlKk7BgR8TDywebO1TNsCNhlCJGwTe+bpC5Ujwt8xvRNaBBKmi2R4ZCnSRBLf9ZMyIGUlASArkRAwH09bXDK1jksJHOIAjBp7lWHFqzajce+29+uL4roAfbZVtdb14jz2UaTRz/dxx9Dq8hAp2zqlgRwGyPpSD7cQUpcD/U/DBanN9tpuj4Qo23Amm5teBLkDscwn2n4YKTw9IagNgLp+vuJ1IKept9jWYScNAH7H+qDoeb0Wm/wtmQXATKveAqA==
+ b=NLCMlpTvwnEWBW/MsICzZGsBGwEkqQ7NtJVtSF08acSk5M+MyGvwxkA87J4g6NjJhyCDC8rYmLK9kqPy/RB/d7yUua6XhXniMnG1/jG4XQ/T/nj1RCxSuNpnYh+GNiE6SlYEveHdUTivo69pICe1+fC5ymF/5Vu7HI5WXIUyQ6ioPTzaHxZBlk0Qc0uTSS4RLkyfy/hOmw88VuQJ4QtIszuZJPGe3LPhOO8sZL8KsonL3c8D/k/tq53d8LUO6naMxUcCyTOAN/GOzIh2vkUAkEr+1KHUhYj+DAOJhZSVYaUBIPTfrcwXZq+ARkf/DNiUISqftnbM9Lu2tERncsLuIw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dH0HSsEDwYUxuVzlYTIkL8n5RA0iiz/4oZhT8wu3V2k=;
- b=A7qCgtWv1Bh+JhbOyxVE1W/2n5NUhWtCsi7YK4nASLyOKx4jiLdbfLDyEgEHlQJeCNnI2uJkHPh0kIQ6q0ow0pO2/MNj3CNIhUA3wbE/boIajYbL6ZE+r8/5568e0M19JBU6AoAt3GieydOxuIcGv6wGPnHfVp5wDpR5hYjp1Wzwj/Xr5iS52WSOS87PbwN/Uj+UeWH/yukY4KEyZKJCiTw71BjYDzVqc6XsWlCaebJC7f2OTFszO6aGt/LQNcjHdT/MirLJ4bvtp/VRwMIVwzx8h37dlohwXbiA1BKMcsA01g2wcjOkPj7d4bw8TPnyktsR0rIQ6Hoiesdq9UiPEA==
+ bh=LatOSNnxxkryEsvBRI/66HabOiRW4kQiOFbVbM7SRlo=;
+ b=aV5WQk3p+4jJpRj8M9FYWpsuzB/JgZm6IdmoCzktFfnCj7GAu+wpw8SIwOYY5rViWBbdlrTMOjA2sXtH16fIGryWkdwE7inejBCIBF8+U4TG7ymq/nBPBNILymHHOZ6zfRCybGmWp0pdT/lqsGgUG6P16OJvU+D7XgfiyaTulxleviphyb8ybFEMVAqSQDaiPqNemxzSloWRuAv+ZvPvlZlHnd2+ew2PSYjVnVqcqsD8t+QK6l0Yx7dKCdHwpX6Qmd3wG6Xo9D0th5rUya/M253cjahF9mB35+LO5NAL2nnPKRco/Xu0sCYd66p0fSCkQ/e9brkOw8gqKjUyb9/L9g==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dH0HSsEDwYUxuVzlYTIkL8n5RA0iiz/4oZhT8wu3V2k=;
- b=MxdONLSikZXgIYe07wxGitDGOfGWCYx/94tphqnrY8vRKFnRbiFJzR4kprpja5F6oM0xvaUo1aJ/RLezQi8HjBZvgMHKf+XielSMTE1/AkG8+Q2BT+B/1TyzYf+g3jAQuE54JRmbNw9Y83cj2UrA9qCQvuX6PaZWeIxXdjJ7CsF0zYceAa0fuxJtP4M2V1s9Oaveulacz/DyHrsy4z9pqOChCxfKQnW/c8Me4QzY+ZTSiTbcquE38EsiqgRz6RmtYLTwjRmdPBrgcC5K+lC2e6YC/6rOSHVVsHl/vLSMgLQC28LfqJZ4U5VnyjNfADnIfLQdiqTbO9db7rnP0l57Dw==
+ bh=LatOSNnxxkryEsvBRI/66HabOiRW4kQiOFbVbM7SRlo=;
+ b=sP3EXgNCKqhDNoFWWlzQnXa6kJ8UFvPvlEJq9asX3P8SLKjh4s55URa0Cch6b4ku0hVhs+yTZomu0ROwZHQiv7cOH8d828xTNlNm0Z9S7zTZsd0JDQEgoaF0WdushAFKiTAm3EuKO4FVJdLXD1MSKIzV/BvEsRtcKC9RLQGPBMb/RdeQfpNs1o68HRrj8EHzHmKKERwaP/bp8nyvkRATWhS3mQ/8rOaBSsRHOU13OKHvBRibc8sQHsrYIl4BGlacUpJAg2AoCepYWUdYSNKzIWSESjZKK4s/U636TtyVBkIIEch6GU4eNmo9nboaH1vsvfr9ey9ksCSBEI+KUoxGrQ==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
 Received: from DS7PR12MB9473.namprd12.prod.outlook.com (2603:10b6:8:252::5) by
- DM6PR12MB4187.namprd12.prod.outlook.com (2603:10b6:5:212::11) with Microsoft
+ MN0PR12MB5932.namprd12.prod.outlook.com (2603:10b6:208:37f::9) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8699.23; Thu, 1 May 2025 18:40:28 +0000
+ 15.20.8699.19; Thu, 1 May 2025 18:49:23 +0000
 Received: from DS7PR12MB9473.namprd12.prod.outlook.com
  ([fe80::5189:ecec:d84a:133a]) by DS7PR12MB9473.namprd12.prod.outlook.com
  ([fe80::5189:ecec:d84a:133a%5]) with mapi id 15.20.8678.028; Thu, 1 May 2025
- 18:40:28 +0000
+ 18:49:23 +0000
 From: Zi Yan <ziy@nvidia.com>
-To: Kalesh Singh <kaleshsingh@google.com>
-Cc: Juan Yescas <jyescas@google.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+To: Juan Yescas <jyescas@google.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  Andrew Morton <akpm@linux-foundation.org>,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-mm@kvack.org, tjmercier@google.com, isaacmanjarres@google.com,
- surenb@google.com, Vlastimil Babka <vbabka@suse.cz>,
+ surenb@google.com, kaleshsingh@google.com, Vlastimil Babka <vbabka@suse.cz>,
  "Liam R. Howlett" <Liam.Howlett@oracle.com>,
  Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
  David Hildenbrand <david@redhat.com>, Mike Rapoport <rppt@kernel.org>,
  Minchan Kim <minchan@kernel.org>
 Subject: Re: [PATCH] mm: Add ARCH_FORCE_PAGE_BLOCK_ORDER to select page block
  order
-Date: Thu, 01 May 2025 14:40:26 -0400
+Date: Thu, 01 May 2025 14:49:21 -0400
 X-Mailer: MailMate (2.0r6249)
-Message-ID: <8DAFA811-9D2D-4344-A2E1-032946FB70C8@nvidia.com>
-In-Reply-To: <CAC_TJvf36Qr3r_LJ0Knf7WtozUZ_YVxLxF7bEAPC+87J-QEd6Q@mail.gmail.com>
+Message-ID: <15428BF6-A7DD-44ED-B225-AECD7866394C@nvidia.com>
+In-Reply-To: <20250501052532.1903125-1-jyescas@google.com>
 References: <20250501052532.1903125-1-jyescas@google.com>
- <3230A277-7D1D-4329-B871-5E43967E6A00@nvidia.com>
- <CAJDx_rgodAQXVrLjZBBGCqBkT82Oem1ACj7dk=G3qKMnyu_AZw@mail.gmail.com>
- <CAC_TJvf36Qr3r_LJ0Knf7WtozUZ_YVxLxF7bEAPC+87J-QEd6Q@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MN2PR22CA0017.namprd22.prod.outlook.com
- (2603:10b6:208:238::22) To DS7PR12MB9473.namprd12.prod.outlook.com
+Content-Type: text/plain
+X-ClientProxiedBy: BN1PR13CA0013.namprd13.prod.outlook.com
+ (2603:10b6:408:e2::18) To DS7PR12MB9473.namprd12.prod.outlook.com
  (2603:10b6:8:252::5)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS7PR12MB9473:EE_|DM6PR12MB4187:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1ab2e3ff-31ac-49cd-3517-08dd88dfa50d
+X-MS-TrafficTypeDiagnostic: DS7PR12MB9473:EE_|MN0PR12MB5932:EE_
+X-MS-Office365-Filtering-Correlation-Id: 51878c6f-5e4f-4807-ebe6-08dd88e0e40d
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?YWFJNGhKVm9JYkl4VTBVNDFpK3U4aGNmb2JpVzFOWnY0QmEyTE4vTjQ4UDJU?=
- =?utf-8?B?dkZUZjlXZmxQRVhaazB6Y1Q5TWNrZEJDWk5rWG83RVlka1JubVE4SHllMHJo?=
- =?utf-8?B?bXFKVHdkYkNyVFVBRG9YUjQ2eG5ITXVNNU8rWGRtOGdxQ0VQZXp5RVVkOXM1?=
- =?utf-8?B?eXF2eENZOHpVbE8wWkNDKytnSENnZFNtbVdHdjR0UjNLalhCbmgxMjcyMENy?=
- =?utf-8?B?QTZkak1QNjVrRzJLc0l0T1Q5bVFWMmNCQzhvWkM3NkpTcDc1SGJRQ2RWQ3pL?=
- =?utf-8?B?bnJTYVgvT3VUcWxUOUtlRzExUDA0bGtTeDZ0Snl0WlVvVlJoNG1teGNYNklT?=
- =?utf-8?B?R0MrSnhsWDlKK2JnVXZmRWlWMU1EZDdlOXQrbmVQSUQrc2poUlY1dVZHa3pt?=
- =?utf-8?B?ZlVWd1dzbVk2TXl2S2h6L2JqV0FVRENvMmhYOGJ6d3RmM3pzUEhKemFGOGli?=
- =?utf-8?B?RVBrNTAxNGJPL2tKd2xNekxSRGdGZitoblZGaXBKTVgwVjM4T0h1TWlRNGFx?=
- =?utf-8?B?TExnQ0FlbGxLNk9DdW4wME9JN1ZTSUZrZkhtRUlJU25KUnIzbDRNTEtrS25X?=
- =?utf-8?B?dmxVU3VFaXp3VDUvYzNWVFZRRktUcEtYRXJFRXZWbHNETlhUWXAxMEZndWUz?=
- =?utf-8?B?LzRLUlZaT2tlNkNXNHlwRkMyMUtDRERLdmxVNE9rYXY0RjdJZ3lzQkIxdlNy?=
- =?utf-8?B?VEVZUVVkZkVidk94Vll2bFpzUjZKRkV6aldHRVBiaG1rY3NETDlML3Y1L0d0?=
- =?utf-8?B?RTNuNGcyVEx0RG5ZdTZHOVd6THRhdGpKeXNZcXcvaDNPQ1hJcllmbVVCWTFo?=
- =?utf-8?B?VEQ5NHF3NGJ1SXQ1UkhlaElwSmh6c2NyV0tQaStOZWRFaTFrd0w2bEIzcFFw?=
- =?utf-8?B?aHgrM2lmaVkwdGpnSUlHL1pkR2NmRURzUENCT1I2RVBXS2VQMGwzTG9hV25j?=
- =?utf-8?B?b3g5UUkzaHdkajllcURDOWgwVFkrWkhyS293QW16UkZXb3ZtTU56QU1YQWJB?=
- =?utf-8?B?b0FZYjY5VVdJaVduWjR2d2E1SWdlNmYzS0F4czBYK2g2U1hvSVh6UmZkeEUr?=
- =?utf-8?B?V2NER3VPdUJJaGFLL1lZYmJjNHBmenBmMkVPTEdtck8zRGVROE1Cbk5XVGRU?=
- =?utf-8?B?eCtNcklXRmNyN1Z3S3lmSjd0aHBnZ2lJSUNGbjJVOVBaZkhFNkgzSGh4SWx5?=
- =?utf-8?B?bG8zeUNzVlJhSkwwTWVDdzNETSsrRW1HUjNVdjc5VUdJRFBWWXArRVowSGVQ?=
- =?utf-8?B?aWNMWHFNZUwvcXNmdnA0VGhWeTAyWHVnbS9qTHNiR2hQN3pUUE5tOFZFWCtL?=
- =?utf-8?B?V09kYUh6MTdUdjdUUU5jYXBDVjdtajd4THB6azBBcVJ2cTZhVythU0hjU0x0?=
- =?utf-8?B?ODZFbHpURjBXOVE4ZDd6Z0plUlVzVGYyUDYvVGZ3cW1UUWhCWFZtUmFMZmxG?=
- =?utf-8?B?RCtUVXJBOU9naDJqWFJCaG1CVlUxWVJoOUZuV3VqckxQYytkbTNYdFNGSFd4?=
- =?utf-8?B?d1VyQkU3eklzdU5PR3RuZG0rclpPNlJteHVVUndVR0VGb2RvWTFQV1dMSkY0?=
- =?utf-8?B?VUp4U015ckxoQ0kxUU9Da2x2V0Y4MkVUekFCSC9TcVAxMlFIZzJvWGxtckdu?=
- =?utf-8?B?SEQ0RVdLbjU2czFNa2NoZUdzOEE0VzhkZ2puZHFtV3k5UHgrd1FyTDNxa1Q4?=
- =?utf-8?B?RlNqWTlyMTR5MXJLM212ODlqaW9HRUd6YmRqdGJUblE5aStDOXl5dkdDN1FE?=
- =?utf-8?B?YVo4Nkhobm43UjdHdDM4WUJjYXVwdEw3MHFjQ2NIeDFpaGo1TDZMTEdmMURW?=
- =?utf-8?B?eEtYTnc1aVhwR08rYmFFaW1Zc3dWNG1tcFJOYktLaytiSHkwbDFYdUpGby9a?=
- =?utf-8?B?UTVQd3RxY2hIUTJKV05yZ2dMQXQzOWtWai9MQzV6bnoxeU5WRnZYNVpYWUN1?=
- =?utf-8?Q?Il2MMcGmha4=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB9473.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?uynssQ3pvhQLEVC9Hr/RroOxtkLslPsbGfQAbwKSTxFbdiIesnuMek6UMiYF?=
+ =?us-ascii?Q?AOxTXR5x/VQZ6eleQKde6Xu1x3FZvodu15vkVAyOYgs9KZCoTdrQ3bi8qXFT?=
+ =?us-ascii?Q?AbEvEMbWLkRet46O+jocC1/cIcCA4L3eLoOm3Omkch/BePHB1h+PuBazmTNK?=
+ =?us-ascii?Q?tPOl3YNFOZ6hBsx+8NtZUQwZkAGpl2Iv+1AfTJVCGlmxbBI83oGjOhhQAk7w?=
+ =?us-ascii?Q?9nKTMOwqmGkyeFNS50HWO4q844ZPZJSi+wDHlSoMeyGuwiTxKA/NSGKc/p4U?=
+ =?us-ascii?Q?0/RY6Dsszqkbg45QKmBFv8gaHHvLbPjE0XtbgReahUfkoCis7BtPNJMymPa+?=
+ =?us-ascii?Q?YfVZxGEWbYXcNoWdPXfC9gQWNzYHLxFcbyuXDvMT6HBGkn1eFpyJ0jMDGHv2?=
+ =?us-ascii?Q?NNnR+65vVvHRIDyS6E1A0cYlrkTUVY9cGrlCzWSMd1BgJBKMzibMTEcR+zWn?=
+ =?us-ascii?Q?Wzw4V9yl046oV91irRYFLdJNGJ3mu/1cYJyWkeXGvnP1fz1/W72U6T/vr3w7?=
+ =?us-ascii?Q?omqkZWvgVkDnttQl3Mfiv5XIrVHcMuM95jEw3g58dv239bMFSrsHA0d19B5Y?=
+ =?us-ascii?Q?KmoikjULHgGdZ6rCSvR/4Xc9KwgTTJ6RT4Sv1qFo41WV3nV+pKji9RDTmr1D?=
+ =?us-ascii?Q?W5Q39ieRzsO7TFbtjcHK1O0MNmEo8VsdCPrKY5jWjtEHoiMR/Bjg3yaO8o8J?=
+ =?us-ascii?Q?+CkHmz6qGQ6QgVd7KI5Nqu1NxXOKAekcH4zlZVq0eIQmUBIknVGCuQyqW88B?=
+ =?us-ascii?Q?vh0SEoETOmSi6Wsrs3MgGkEFAlhq09kT8E5lxpS7o4AEzVzP3mgEFgIPTKZT?=
+ =?us-ascii?Q?GWDmryWOpAM4iNZLuGuFfVqNgSiJD03CIfImkKF9nMoQCRNcg24T8AvWAwpA?=
+ =?us-ascii?Q?a/r/q403votPN8Ho/+ZBstdIF8LbuA4tRGAyb6FVjVsG8wZYCeBoeQ0ixDpX?=
+ =?us-ascii?Q?fwpHYV3YGoG6EzdeGplUswEFH1Px8uiaCsncnuJu8FN69lG328iIHT0B4DoX?=
+ =?us-ascii?Q?l6b7wLY38LJ7mAqv4DqRPKQO/P2vcuKGv4e2OVow2rDtAEz6tKX4auKEHRmS?=
+ =?us-ascii?Q?3wTzRj1oIdMLlJveIh0QojWj3leTAv0FVNE0TpEmWWCrOBKB8K44QPEaELjY?=
+ =?us-ascii?Q?Q2PYKeDSNAGsfd3O6MuzRJQbkkw+PqSpqUTuVpub1I4Ul50J/R8jN4xUCDLa?=
+ =?us-ascii?Q?l0211so934Ya0eJEn+ZWxBaXW4kFDvSR5vsrBnR0WTcfPP/bztDedsPH/yo1?=
+ =?us-ascii?Q?aghwNvD+sBHmn5XFLtkTfUvf0iNzIKbB66EhdKI0xi/YIjPQ26WiQcyS3b1O?=
+ =?us-ascii?Q?1ZwMJ/gz5rKddA9O/hhKb78GXneulV9ciadNuyN4VnuLCVlLNCAek3NhGV2p?=
+ =?us-ascii?Q?G/KV81YTCxNF1JhyvvBEm41rZ/Bb0kCdODO/67f9Iqzl1ZZaIMEweBg3wing?=
+ =?us-ascii?Q?t7pzbC6KLCQ=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB9473.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TkhjN1p1aDJldmxrWWV4S1g5Smw5dXdqMnVlcXNWUXVOcEwrYjM2ai9rR3NL?=
- =?utf-8?B?N20zanpXcGdkM09lc3l6eEdGOWFnNUNuTUxGcVBQalBES0FqYzMzZ3dsbnFt?=
- =?utf-8?B?MEJ0ZkxuZ3BBby8wajYwaFZJK0VhTGhlUkl1ZkJXdU9QYUZYOXgxTmc1VUJk?=
- =?utf-8?B?Sm5NcUtNNzFmc1ZlR0d2aWpQZ1dHM1pTZEhpM1RUT2Y0ZlFyR245QXpJVDBD?=
- =?utf-8?B?UXk4OGhpSFN5anNNT01QUzdod3lXQmxVc2ZuRm9kbjZWbHpUc21MTEFmSFBx?=
- =?utf-8?B?YWY0VU92bTN5UDJzbklES1lFS2xQNmxmT29lZndWd2hZK0hnS08vQm5ZcE5F?=
- =?utf-8?B?djBCMGJzL3o5N3NxSytkNCs0dHVIa2ZNTTFzanI2aWdGUjB3aFVJSGx0V0xx?=
- =?utf-8?B?b2VMWU5VYXljY0d5QVgzNloxbmlYcUpjaC9GSlNhVHBPVnJFcVp3Q21CWisw?=
- =?utf-8?B?Q1prMEV4dE5Fdy9tc1g3Z3NKb2dRa2dIenA2eS85SFJNU2dyNllTdy9zWjFj?=
- =?utf-8?B?YkkwMGhMdVpicGNhUStlU1J1MTZ2VUs1L2xnS0NDbWhidlRsYzlLU2xMYXNE?=
- =?utf-8?B?b0JVTzRiYWhxTEltaDNReDBsbXpMOWR0Y1pocFVIUldJNlh5b1BhOG9KUE1O?=
- =?utf-8?B?NU84dVd5by85VHlteDBySVo3Ym5UU3JDdWJIVS8wN0JwRnFRa21CTDIydnND?=
- =?utf-8?B?Z3k5QkZWUVpDNFZWeWdrSTFzbGJqUGdjU1BVcjhiVEhsRWFtUFFzdFlHaTBX?=
- =?utf-8?B?eFVESmFrLytaMXczaWlxbXFlNWcwMHU1Vm9HanFpSVNoekM0MlZNazdEU0wx?=
- =?utf-8?B?YTZOc2xUMDhiL2hMRDZXSitsWlY5UVZCVFpGc296bDF4eUt6aGlSQXVrdjEy?=
- =?utf-8?B?Zms2ZlMwZEZFcmNvOGtuVmM0bCtzT0FNeWpvYW5UanErcjVrSHo3SDJvNVRv?=
- =?utf-8?B?NE5NZGNoNXNsYnQ5ZmV0UWFIekt5Q1g3MHpNTENxNWFzVnAzdm1JNEhyTERW?=
- =?utf-8?B?bGJaLzZvODM3eXVVeGpCbkVpTWVPblAwMkpWc1E0ZitFbnhFSEltWGhaTnNR?=
- =?utf-8?B?TFZSS2dFeG9ob0ZpYUpPalF6cXZwR0xRUDVjL2hOTGU3QXErTmh4Z1ZqZHJN?=
- =?utf-8?B?ZnE4dmhNc1pqQkd2ekdicU9hVHBDQ2tXNUNMbXZZN0pOSmNYUFVPY05tdkFS?=
- =?utf-8?B?Y1ltcCt0eHVjK05GYlhWTGlaRjQ4VjFVVnYyRDM0VW83L2xwcVE5dWFxTEhh?=
- =?utf-8?B?dnVmdm1DUWtDZE1UL2Mra1NWd09ITEkxYTdUSHJlWnVIRzNGWHVibVBzdGVx?=
- =?utf-8?B?czEzZEhOVHFSY0JLbHVqaDBtUkhDN2hZRi9yaWg3bVdBeW5mM0FPTnhEcjFU?=
- =?utf-8?B?Q3ZoeVJFWmxXUTlwTnZlb1ZFUkJ4Nm9aazFvdXpWMHphWGRBVkNwNEV1VVRk?=
- =?utf-8?B?Y3o1RWlmZ3huSUhPUHFjRG1iR2k4UkNwUkhWRlUybVVLVFZtNEF2cllEdWVK?=
- =?utf-8?B?QlJXb04xNVZXN3dqSmFTT2FyRlN0YkNsSURicndadG1PNVJNV0kxY1VmWExS?=
- =?utf-8?B?Q2w5Y2dXTXZtRkhCTFdsaTlSL2pSSEVvZUlzdmxweDB2UklXV09iMGVMd3ov?=
- =?utf-8?B?V1g4MmtycWJhRVRobzVmTnYzWGJ6T2o1MWdHOGhnR2NBaTJWTzhIc0FlKyt5?=
- =?utf-8?B?bVZETzBUWEYzallTK3ZFcW9ncGozUlRrUGxLd3dCdDVUZFJFYUx4cnI3ZVJs?=
- =?utf-8?B?YzVlMDBzeTBqbkwvbXY2aGVUK3FDVFRDTzN6L0JxTExIN3dac0dORHdpblFl?=
- =?utf-8?B?S1lKRk5oeDc5MURGcVg2WFFiSWVPU2Mxb3M2dlBQcU1UZGxpSGJWVDExQXE5?=
- =?utf-8?B?WlZqS0g0M2hFaTY5WjdqZ3d3azhCbVdXa05iWFNqSmE1TW83clBBeFhTQmF5?=
- =?utf-8?B?cG5MNnhEV2hUWXJseitHLzcyeHFWaFNnL3NJc29memdxbWhQcDNVdE1NNUxa?=
- =?utf-8?B?YXpZTEY5cXB3bHNmNFg0dXVQUjlQaTZHRFp1ZXRBcnNueWk1aUFkek9KbVpq?=
- =?utf-8?B?aVVWeGc0Q1Bab2FONFZMZEcwajEzV1Z5L0JzVkFON2E2M2F6Q0xOem1LL2dX?=
- =?utf-8?Q?MCJd28Wmb5UFf39nkaznGY12I?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?yz55waXDhT38D00/2Zu5DWjLv0oEuFbgC2Fq1COLcyCXojP1l9tkAUnTXK7l?=
+ =?us-ascii?Q?NdS3q1lGjo0azX7bdVictalqt6zNgnqifMOpNq5BogB4umXAKJqDWNUdQCN0?=
+ =?us-ascii?Q?dYqN94Vm98cpvnjpAgR35+egiripTGJf3C0bMOLfD4vPPu2ACBbY2iOicMif?=
+ =?us-ascii?Q?tpnX3AVBVR/IrwJI5OlkVL1ErD3DPOkuiFJUqAURnGHt2x0WpUqP7z2WpKTv?=
+ =?us-ascii?Q?g37MSspTb1RbsJcMpEwTVd4Qxb4PaYqm7kf0G1t/cwzezNnAJ3M6PRSdGomG?=
+ =?us-ascii?Q?II+GggfcVf4YSR+WxR84mXJPzjoL4VDLQlzatr1+X4vfxQx/C1+InHfFoKL1?=
+ =?us-ascii?Q?DBRsfer6bmjZ/+76LVV8bDHTEbSqwByM5gGU4kgd2Uh7apMmjyoJOaS3AvUd?=
+ =?us-ascii?Q?EdksUWqbprhNbiIAOfDsLW9TcxHGOuw4qyfLrF6T/adcemxcDOUimRCcCC7t?=
+ =?us-ascii?Q?ixeNk2xf+gfna0UyhkPQxWCMPt+5kPz+y4ewG8nwAX/A6Cd5YcZ6oQyrDtUU?=
+ =?us-ascii?Q?rkfT+LkQoafINZaKPBiRCiNVQb6TKdhf2ckyeKdJd5CpwMJoowdKYQ0Sj4vL?=
+ =?us-ascii?Q?woB1Hih6xtAFqXxbSffcBhq1zC+1DB8P40thIA/2P6HzxT5UtpSvg9IeiUO8?=
+ =?us-ascii?Q?L0gBhaMQ0ejneLARqlDs31bhR1kosBy0u18jgg8YUbv+K8LxhEXTdg+Vmbsa?=
+ =?us-ascii?Q?cHLXyi/WQNZVinfp69ZHshWdoVuAB1LCqER1aMRI4/Ehrflkq74GD9Jtx5bx?=
+ =?us-ascii?Q?l7qjVWJlI48m4TTkyg9IP5qiNInCox3p20b/SXU13175Gf4xKhVlefs2pPVO?=
+ =?us-ascii?Q?qylNsvO5S3xShUqz+8BwvlLIWLVBZl8Ij6jChpVizqpWNtc6Ms0fr9gwRnC/?=
+ =?us-ascii?Q?WyKxR03dW8G/+4jfOkbM/OegivGfg53fC93eHXjRuSeyJEcGjLAokvNVuYMA?=
+ =?us-ascii?Q?AE9HXGkbAr/DX7Cvsl62bwRKaNruqdtpxa0mHt/2j87aH/xutJATTLbcjCx2?=
+ =?us-ascii?Q?o4GEealcYzPdv6p3AnSLMwjhfe6P1xe6YcyHTgnk6nAiLSR9jcdHIh+3Ywaq?=
+ =?us-ascii?Q?doCWuzNQjwZbriYJM3F26ofM57H1Nm5zLWgGzCDKwi7Hjc0Tr3rKHv0tN5mi?=
+ =?us-ascii?Q?4+X/yRYRL9kO/WzWroiPsC25V5mmdO4Ndb9826nLykZ3OTlZFy7bPRMH+iYO?=
+ =?us-ascii?Q?md8/+93+OideTBUDdDWo1Qwp3NC3l+xg3HggKCKkC3rEqtF5l0+ZXFI5bHCv?=
+ =?us-ascii?Q?3SCQ+Y82JMeF2t5vWJaffBlxZvS7pNy5tCQtec0zm2C0+WUQycgd/yOa3LxV?=
+ =?us-ascii?Q?suDCuzSf2ZO2xa5QG3MDiKKOv7csD+sDhFDH41PHJgawYEmjbyUB0mkLkTVG?=
+ =?us-ascii?Q?moUlxgMEKu1zNddnG0mWwS/wogbymKRTQogVqkCgGMihQISEKypEcyWkdj9l?=
+ =?us-ascii?Q?ON3d3oQ2jCAU/XySyeemFZLvPHG/rEuPOP7njE4NxlbI5N5Tf+q7zzl5tTf0?=
+ =?us-ascii?Q?nsVpDs4Bs81r5JU0Yf4MjqdFro27HL8Cx3+1G5sH+d/AfEnnkjx64QHBg2Lu?=
+ =?us-ascii?Q?T2kumLaz9DwnYOjNzYpnJJYJ3RDVV7GrN6i/soso?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1ab2e3ff-31ac-49cd-3517-08dd88dfa50d
+X-MS-Exchange-CrossTenant-Network-Message-Id: 51878c6f-5e4f-4807-ebe6-08dd88e0e40d
 X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB9473.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 May 2025 18:40:28.6133
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 May 2025 18:49:23.7917
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: UqmmLgMSErjbagofVzO0Nn53ddcGNwClWPcAkonD7uRhDY1VGpWqVPXyoq89EPj/
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4187
+X-MS-Exchange-CrossTenant-UserPrincipalName: E/zoQnIKW1ewwHn3xleyumwZ1ajYBwlWBxpNGeCk7U80z8JK+IcIcStuLQCQWDKk
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB5932
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_114052_296568_3C0FFE45 
-X-CRM114-Status: GOOD (  19.99  )
+X-CRM114-CacheID: sfid-20250501_194943_482732_B5810392 
+X-CRM114-Status: GOOD (  34.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,88 +178,236 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1 May 2025, at 14:21, Kalesh Singh wrote:
+On 1 May 2025, at 1:25, Juan Yescas wrote:
 
-> On Thu, May 1, 2025 at 10:11 AM Juan Yescas <jyescas@google.com> wrote:
->>
->> On Thu, May 1, 2025 at 7:24 AM Zi Yan <ziy@nvidia.com> wrote:
->>>
->>> On 1 May 2025, at 1:25, Juan Yescas wrote:
->>>
->>>> Problem: On large page size configurations (16KiB, 64KiB), the CMA
->>>> alignment requirement (CMA_MIN_ALIGNMENT_BYTES) increases considerably,
->>>> and this causes the CMA reservations to be larger than necessary.
->>>> This means that system will have less available MIGRATE_UNMOVABLE and
->>>> MIGRATE_RECLAIMABLE page blocks since MIGRATE_CMA can't fallback to them.
->>>>
->>>> The CMA_MIN_ALIGNMENT_BYTES increases because it depends on
->>>> MAX_PAGE_ORDER which depends on ARCH_FORCE_MAX_ORDER. The value of
->>>> ARCH_FORCE_MAX_ORDER increases on 16k and 64k kernels.
->>>>
->>>> For example, the CMA alignment requirement when:
->>>>
->>>> - CONFIG_ARCH_FORCE_MAX_ORDER default value is used
->>>> - CONFIG_TRANSPARENT_HUGEPAGE is set:
->>>>
->>>> PAGE_SIZE | MAX_PAGE_ORDER | pageblock_order | CMA_MIN_ALIGNMENT_BYTES
->>>> -----------------------------------------------------------------------
->>>>    4KiB   |      10        |      10         |  4KiB * (2 ^ 10)  =  4MiB
->>>>   16Kib   |      11        |      11         | 16KiB * (2 ^ 11) =  32MiB
->>>>   64KiB   |      13        |      13         | 64KiB * (2 ^ 13) = 512MiB
->>>>
->>>> There are some extreme cases for the CMA alignment requirement when:
->>>>
->>>> - CONFIG_ARCH_FORCE_MAX_ORDER maximum value is set
->>>> - CONFIG_TRANSPARENT_HUGEPAGE is NOT set:
->>>> - CONFIG_HUGETLB_PAGE is NOT set
->>>>
->>>> PAGE_SIZE | MAX_PAGE_ORDER | pageblock_order |  CMA_MIN_ALIGNMENT_BYTES
->>>> ------------------------------------------------------------------------
->>>>    4KiB   |      15        |      15         |  4KiB * (2 ^ 15) = 128MiB
->>>>   16Kib   |      13        |      13         | 16KiB * (2 ^ 13) = 128MiB
->>>>   64KiB   |      13        |      13         | 64KiB * (2 ^ 13) = 512MiB
->>>>
->>>> This affects the CMA reservations for the drivers. If a driver in a
->>>> 4KiB kernel needs 4MiB of CMA memory, in a 16KiB kernel, the minimal
->>>> reservation has to be 32MiB due to the alignment requirements:
->>>>
->>>> reserved-memory {
->>>>     ...
->>>>     cma_test_reserve: cma_test_reserve {
->>>>         compatible = "shared-dma-pool";
->>>>         size = <0x0 0x400000>; /* 4 MiB */
->>>>         ...
->>>>     };
->>>> };
->>>>
->>>> reserved-memory {
->>>>     ...
->>>>     cma_test_reserve: cma_test_reserve {
->>>>         compatible = "shared-dma-pool";
->>>>         size = <0x0 0x2000000>; /* 32 MiB */
->>>>         ...
->>>>     };
->>>> };
->>>>
->>>> Solution: Add a new config ARCH_FORCE_PAGE_BLOCK_ORDER that
->>>> allows to set the page block order. The maximum page block
->>>> order will be given by ARCH_FORCE_MAX_ORDER.
->>>
->>> Why not use a boot time parameter to change page block order?
->>
->> That is a good option. The main tradeoff is:
->>
->> - The bootloader would have to be updated on the devices to pass the right
->> pageblock_order value depending on the kernel page size. Currently,
->> We can boot 4k/16k kernels without any change in the bootloader.
+> Problem: On large page size configurations (16KiB, 64KiB), the CMA
+> alignment requirement (CMA_MIN_ALIGNMENT_BYTES) increases considerably,
+> and this causes the CMA reservations to be larger than necessary.
+> This means that system will have less available MIGRATE_UNMOVABLE and
+> MIGRATE_RECLAIMABLE page blocks since MIGRATE_CMA can't fallback to them.
 >
-> Once we change the page block order we likely need to update the CMA
-> reservations in the device tree to match the new min alignment, which
-> needs to be recompiled and flashed to the device. So there is likely
-> not a significant process saving by making the page block order a boot
-> parameter.
+> The CMA_MIN_ALIGNMENT_BYTES increases because it depends on
+> MAX_PAGE_ORDER which depends on ARCH_FORCE_MAX_ORDER. The value of
+> ARCH_FORCE_MAX_ORDER increases on 16k and 64k kernels.
+>
+> For example, the CMA alignment requirement when:
+>
+> - CONFIG_ARCH_FORCE_MAX_ORDER default value is used
+> - CONFIG_TRANSPARENT_HUGEPAGE is set:
+>
+> PAGE_SIZE | MAX_PAGE_ORDER | pageblock_order | CMA_MIN_ALIGNMENT_BYTES
+> -----------------------------------------------------------------------
+>    4KiB   |      10        |      10         |  4KiB * (2 ^ 10)  =  4MiB
+>   16Kib   |      11        |      11         | 16KiB * (2 ^ 11) =  32MiB
+>   64KiB   |      13        |      13         | 64KiB * (2 ^ 13) = 512MiB
+>
+> There are some extreme cases for the CMA alignment requirement when:
+>
+> - CONFIG_ARCH_FORCE_MAX_ORDER maximum value is set
+> - CONFIG_TRANSPARENT_HUGEPAGE is NOT set:
+> - CONFIG_HUGETLB_PAGE is NOT set
+>
+> PAGE_SIZE | MAX_PAGE_ORDER | pageblock_order |  CMA_MIN_ALIGNMENT_BYTES
+> ------------------------------------------------------------------------
+>    4KiB   |      15        |      15         |  4KiB * (2 ^ 15) = 128MiB
+>   16Kib   |      13        |      13         | 16KiB * (2 ^ 13) = 128MiB
+>   64KiB   |      13        |      13         | 64KiB * (2 ^ 13) = 512MiB
+>
+> This affects the CMA reservations for the drivers. If a driver in a
+> 4KiB kernel needs 4MiB of CMA memory, in a 16KiB kernel, the minimal
+> reservation has to be 32MiB due to the alignment requirements:
+>
+> reserved-memory {
+>     ...
+>     cma_test_reserve: cma_test_reserve {
+>         compatible = "shared-dma-pool";
+>         size = <0x0 0x400000>; /* 4 MiB */
+>         ...
+>     };
+> };
+>
+> reserved-memory {
+>     ...
+>     cma_test_reserve: cma_test_reserve {
+>         compatible = "shared-dma-pool";
+>         size = <0x0 0x2000000>; /* 32 MiB */
+>         ...
+>     };
+> };
+>
+> Solution: Add a new config ARCH_FORCE_PAGE_BLOCK_ORDER that
+> allows to set the page block order. The maximum page block
+> order will be given by ARCH_FORCE_MAX_ORDER.
+>
+> By default, ARCH_FORCE_PAGE_BLOCK_ORDER will have the same
+> value that ARCH_FORCE_MAX_ORDER. This will make sure that
+> current kernel configurations won't be affected by this
+> change. It is a opt-in change.
+>
+> This patch will allow to have the same CMA alignment
+> requirements for large page sizes (16KiB, 64KiB) as that
+> in 4kb kernels by setting a lower pageblock_order.
+>
+> Tests:
+>
+> - Verified that HugeTLB pages work when pageblock_order is 1, 7, 10
+> on 4k and 16k kernels.
+>
+> - Verified that Transparent Huge Pages work when pageblock_order
+> is 1, 7, 10 on 4k and 16k kernels.
+>
+> - Verified that dma-buf heaps allocations work when pageblock_order
+> is 1, 7, 10 on 4k and 16k kernels.
+>
+> Benchmarks:
+>
+> The benchmarks compare 16kb kernels with pageblock_order 10 and 7. The
+> reason for the pageblock_order 7 is because this value makes the min
+> CMA alignment requirement the same as that in 4kb kernels (2MB).
+>
+> - Perform 100K dma-buf heaps (/dev/dma_heap/system) allocations of
+> SZ_8M, SZ_4M, SZ_2M, SZ_1M, SZ_64, SZ_8, SZ_4. Use simpleperf
+> (https://developer.android.com/ndk/guides/simpleperf) to measure
+> the # of instructions and page-faults on 16k kernels.
+> The benchmark was executed 10 times. The averages are below:
+>
+>            # instructions         |     #page-faults
+>     order 10     |  order 7       | order 10 | order 7
+> --------------------------------------------------------
+>  13,891,765,770	 | 11,425,777,314 |    220   |   217
+>  14,456,293,487	 | 12,660,819,302 |    224   |   219
+>  13,924,261,018	 | 13,243,970,736 |    217   |   221
+>  13,910,886,504	 | 13,845,519,630 |    217   |   221
+>  14,388,071,190	 | 13,498,583,098 |    223   |   224
+>  13,656,442,167	 | 12,915,831,681 |    216   |   218
+>  13,300,268,343	 | 12,930,484,776 |    222   |   218
+>  13,625,470,223	 | 14,234,092,777 |    219   |   218
+>  13,508,964,965	 | 13,432,689,094 |    225   |   219
+>  13,368,950,667	 | 13,683,587,37  |    219   |   225
+> -------------------------------------------------------------------
+>  13,803,137,433  | 13,131,974,268 |    220   |   220    Averages
+>
+> There were 4.85% #instructions when order was 7, in comparison
+> with order 10.
+>
+>      13,803,137,433 - 13,131,974,268 = -671,163,166 (-4.86%)
+>
+> The number of page faults in order 7 and 10 were the same.
+>
+> These results didn't show any significant regression when the
+> pageblock_order is set to 7 on 16kb kernels.
+>
+> - Run speedometer 3.1 (https://browserbench.org/Speedometer3.1/) 5 times
+>  on the 16k kernels with pageblock_order 7 and 10.
+>
+> order 10 | order 7  | order 7 - order 10 | (order 7 - order 10) %
+> -------------------------------------------------------------------
+>   15.8	 |  16.4    |         0.6        |     3.80%
+>   16.4	 |  16.2    |        -0.2        |    -1.22%
+>   16.6	 |  16.3    |        -0.3        |    -1.81%
+>   16.8	 |  16.3    |        -0.5        |    -2.98%
+>   16.6	 |  16.8    |         0.2        |     1.20%
+> -------------------------------------------------------------------
+>   16.44     16.4            -0.04	          -0.24%   Averages
+>
+> The results didn't show any significant regression when the
+> pageblock_order is set to 7 on 16kb kernels.
+>
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: Vlastimil Babka <vbabka@suse.cz>
+> Cc: Liam R. Howlett <Liam.Howlett@oracle.com>
+> Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+> Cc: David Hildenbrand <david@redhat.com>
+> CC: Mike Rapoport <rppt@kernel.org>
+> Cc: Zi Yan <ziy@nvidia.com>
+> Cc: Suren Baghdasaryan <surenb@google.com>
+> Cc: Minchan Kim <minchan@kernel.org>
+> Signed-off-by: Juan Yescas <jyescas@google.com>
+> ---
+>  arch/arm64/Kconfig              | 14 ++++++++++++++
+>  include/linux/pageblock-flags.h | 12 +++++++++---
+>  2 files changed, 23 insertions(+), 3 deletions(-)
+>
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index a182295e6f08..d784049e1e01 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -1658,6 +1658,20 @@ config ARCH_FORCE_MAX_ORDER
+>
+>  	  Don't change if unsure.
+>
+> +config ARCH_FORCE_PAGE_BLOCK_ORDER
+> +	int "Page Block Order"
+> +	range 1 ARCH_FORCE_MAX_ORDER
+> +	default ARCH_FORCE_MAX_ORDER
+> +	help
+> +	  The page block order refers to the power of two number of pages that
+> +	  are physically contiguous and can have a migrate type associated to them.
+> +	  The maximum size of the page block order is limited by ARCH_FORCE_MAX_ORDER.
 
-Got it. Thank you for the explanation.
+Since memory compaction operates at pageblock granularity and pageblock size
+usually matches THP size, a smaller pageblock size degrades kernel
+anti-fragmentation mechanism for THP significantly. Can you add something like
+the text below to the help section?
+
+"Reducing pageblock order can negatively impact THP generation successful rate.
+If your workloads uses THP heavily, please use this option with caution."
+
+Otherwise, Acked-by: Zi Yan <ziy@nvidia.com>
+
+I am also OK if you move this to mm/Kconfig.
+
+> +
+> +	  This option allows overriding the default setting when the page
+> +	  block order requires to be smaller than ARCH_FORCE_MAX_ORDER.
+> +
+> +	  Don't change if unsure.
+> +
+>  config UNMAP_KERNEL_AT_EL0
+>  	bool "Unmap kernel when running in userspace (KPTI)" if EXPERT
+>  	default y
+> diff --git a/include/linux/pageblock-flags.h b/include/linux/pageblock-flags.h
+> index fc6b9c87cb0a..ab3de96bb50c 100644
+> --- a/include/linux/pageblock-flags.h
+> +++ b/include/linux/pageblock-flags.h
+> @@ -28,6 +28,12 @@ enum pageblock_bits {
+>  	NR_PAGEBLOCK_BITS
+>  };
+>
+> +#if defined(CONFIG_ARCH_FORCE_PAGE_BLOCK_ORDER)
+> +#define PAGE_BLOCK_ORDER CONFIG_ARCH_FORCE_PAGE_BLOCK_ORDER
+> +#else
+> +#define PAGE_BLOCK_ORDER MAX_PAGE_ORDER
+> +#endif /* CONFIG_ARCH_FORCE_PAGE_BLOCK_ORDER */
+> +
+>  #if defined(CONFIG_HUGETLB_PAGE)
+>
+>  #ifdef CONFIG_HUGETLB_PAGE_SIZE_VARIABLE
+> @@ -41,18 +47,18 @@ extern unsigned int pageblock_order;
+>   * Huge pages are a constant size, but don't exceed the maximum allocation
+>   * granularity.
+>   */
+> -#define pageblock_order		MIN_T(unsigned int, HUGETLB_PAGE_ORDER, MAX_PAGE_ORDER)
+> +#define pageblock_order		MIN_T(unsigned int, HUGETLB_PAGE_ORDER, PAGE_BLOCK_ORDER)
+>
+>  #endif /* CONFIG_HUGETLB_PAGE_SIZE_VARIABLE */
+>
+>  #elif defined(CONFIG_TRANSPARENT_HUGEPAGE)
+>
+> -#define pageblock_order		MIN_T(unsigned int, HPAGE_PMD_ORDER, MAX_PAGE_ORDER)
+> +#define pageblock_order		MIN_T(unsigned int, HPAGE_PMD_ORDER, PAGE_BLOCK_ORDER)
+>
+>  #else /* CONFIG_TRANSPARENT_HUGEPAGE */
+>
+>  /* If huge pages are not used, group by MAX_ORDER_NR_PAGES */
+> -#define pageblock_order		MAX_PAGE_ORDER
+> +#define pageblock_order		PAGE_BLOCK_ORDER
+>
+>  #endif /* CONFIG_HUGETLB_PAGE */
+>
+> -- 
+> 2.49.0.906.g1f30a19c02-goog
+
 
 --
 Best Regards,
