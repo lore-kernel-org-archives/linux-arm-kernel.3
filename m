@@ -4,106 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0CC0C3ABA3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 12:59:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04ED9C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 13:01:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4ltVDFYqpazO8RTMuOAAdUYiOALMX2H9LT9cUAfkWwU=; b=t2qPEYpPO8jMnJq8X8qmt+NIZ+
-	XD5OOW3MuhiHAAvQUPFXUsSKfWJp/Aoc0bue3Lj7PoeViFBM1v9gbBIDOvZWqTDIA6LWsAarRZaQj
-	fY3sNXrA9EA7N1aPgk5jfcw0Ac/InngNq5tgRhF9lCbeFp7BMrbVr4e0x3YO/SnlUur6OZeUF/of1
-	RsfZg+uMR2eUPILIPs58KoaA5ZJYo88x71Qp/ho3ADND3Xtb3zFQ0YwKaul/tPG/wN6K0EG/dPe1S
-	soVTtblZtScfb+8mDy4iK/ehKUARTMcCH6zbPBbY9sU28LyaqmwRelU/KRb81IGG6B0EHOoD1p6dW
-	mJzP+Muw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NnoUbMfttFzwRrbX8cLNmCp9Iqdu1NA79G+j70FEH9Y=; b=kMkT118u6A5nX+u6mqedfl26Hu
+	BqB19FvVZVaGv+lJQztjZuO0VBzB08c64xkuhXvs3/6rj9QOVXn3eWVWbsUfn2EHZV1IRP6rOm/pF
+	8VnKSnehO1kolW7F8sYBt35+JBRW87PKX2Pw/uoGSd6BA2WgLSNfprOFyxOMXvxGCuYQ7ACptL88F
+	S7DaLL/b1dSHa3rNNbxGIfJwAq26LoBaGVmO0tQuLPbSry3ex5I4uEOgLHbW9+zgYATL0zvDFFLSg
+	7kwu/29qB+qRkEbOkYKGrgJn2snY9yVlp+sdTSo2WyXFLtw9P+hmmtKsSKIN1EB+wa97v9x4Cw+rY
+	RBDZztvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uATVl-0000000Fkmj-0FZ6;
-	Thu, 01 May 2025 12:59:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uATXi-0000000FlSn-1GBW;
+	Thu, 01 May 2025 13:01:34 +0000
+Received: from mxout3.routing.net ([2a03:2900:1:a::8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uATHF-0000000FiqG-21ZP;
-	Thu, 01 May 2025 12:44:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B208261136;
-	Thu,  1 May 2025 12:44:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D40FC4CEE3;
-	Thu,  1 May 2025 12:44:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746103472;
-	bh=WPG4ItA0UQzz9G5Wed/nsDRuYNB8SmpWf7d7wvrM4Ig=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=QxDjMdGBaO7OILE121xxXL/ZOnOaqCLtEBXhMWqkB+3PJ/81e/MmSvY1wUToCrhj4
-	 o09UND4kIgR1FXBbOv/55FCd/OzVBwRgoBGOKRqd4tO9c5cjsRV1GlGty2ybIey98M
-	 Lg+nMO5pZgEPqvPhdAFXoifIaxQoyNf5AIQ+1z0cDZWJ9kRunCBuAPEBO/FXXum7lW
-	 W1LmcTN82A52L8g5iIa5Ucd/iUs8WO+yyP/I650zIl0luAwZDGv+aVLdfXY2xUanJs
-	 d03TuxAlnXfTT8Rtp+TeEMdJfupvUktoh6E1sLRqamQNoOxsDebivNk/cK+bAp+RnI
-	 Bf6br0mFislfA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uATHB-00AZcw-3q;
-	Thu, 01 May 2025 13:44:29 +0100
-Date: Thu, 01 May 2025 13:44:28 +0100
-Message-ID: <861pt8ijpv.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Maxim Levitsky <mlevitsk@redhat.com>,
-	kvm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Kunkun Jiang <jiangkunkun@huawei.com>,
-	Waiman Long <longman@redhat.com>,
+	id 1uATTh-0000000Fk9E-28PH;
+	Thu, 01 May 2025 12:57:27 +0000
+Received: from mxbox2.masterlogin.de (unknown [192.168.10.89])
+	by mxout3.routing.net (Postfix) with ESMTP id DDC836047C;
+	Thu,  1 May 2025 12:57:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
+	s=20200217; t=1746104242;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=NnoUbMfttFzwRrbX8cLNmCp9Iqdu1NA79G+j70FEH9Y=;
+	b=iWXRWv1eeaVcFFtQWWjrMohgOyUY6glLempu1AWxYbDqZ0zfcmH6k+H/xjEsKgFBTTKU8I
+	guqoMJkRD5pV/BrwkReJMVWQZjXfX9601Ngplj8RKXIgC8+7UEB6WjmV3rcNd/qXfyaPCK
+	Bw6hf2KJsL6csJxH9y+3ZijsFzA5gHw=
+Received: from frank-u24.. (fttx-pool-157.180.225.138.bambit.de [157.180.225.138])
+	by mxbox2.masterlogin.de (Postfix) with ESMTPSA id A245D10010F;
+	Thu,  1 May 2025 12:57:20 +0000 (UTC)
+From: Frank Wunderlich <linux@fw-web.de>
+To: Daniel Golle <daniel@makrotopia.org>,
+	Qingfang Deng <dqfext@gmail.com>,
+	SkyLake Huang <SkyLake.Huang@mediatek.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Frank Wunderlich <frank-w@public-files.de>,
+	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Alexander Potapenko <glider@google.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Andre Przywara <andre.przywara@arm.com>,
-	x86@kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	kvm-riscv@lists.infradead.org,
-	Atish Patra <atishp@atishpatra.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Jing Zhang <jingzhangos@google.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	kvmarm@lists.linux.dev,
-	Will Deacon <will@kernel.org>,
-	Keisuke Nishimura <keisuke.nishimura@inria.fr>,
-	Sebastian Ott <sebott@redhat.com>,
-	Shusen Li <lishusen2@huawei.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Sean Christopherson <seanjc@google.com>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v4 2/5] arm64: KVM: use mutex_trylock_nest_lock when locking all vCPUs
-In-Reply-To: <20250501111552.GO4198@noisy.programming.kicks-ass.net>
-References: <20250430203013.366479-1-mlevitsk@redhat.com>
-	<20250430203013.366479-3-mlevitsk@redhat.com>
-	<864iy4ivro.wl-maz@kernel.org>
-	<20250501111552.GO4198@noisy.programming.kicks-ass.net>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: peterz@infradead.org, mlevitsk@redhat.com, kvm@vger.kernel.org, linux-riscv@lists.infradead.org, jiangkunkun@huawei.com, longman@redhat.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com, bhelgaas@google.com, boqun.feng@gmail.com, bp@alien8.de, aou@eecs.berkeley.edu, anup@brainfault.org, paul.walmsley@sifive.com, suzuki.poulose@arm.com, palmer@dabbelt.com, alex@ghiti.fr, glider@google.com, oliver.upton@linux.dev, andre.przywara@arm.com, x86@kernel.org, joey.gouly@arm.com, tglx@linutronix.de, kvm-riscv@lists.infradead.org, atishp@atishpatra.org, mingo@redhat.com, jingzhangos@google.com, hpa@zytor.com, dave.hansen@linux.intel.com, kvmarm@lists.linux.dev, will@kernel.org, keisuke.nishimura@inria.fr, sebott@redhat.com, lishusen2@huawei.com, pbonzini@redhat.com, rdunlap@infradead.org, seanjc@google.com, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-mediatek@lists.infradead.org
+Subject: [RFC,net-next v1] net: phy: mediatek: do not require syscon compatible for pio property
+Date: Thu,  1 May 2025 14:57:02 +0200
+Message-ID: <20250501125703.55224-1-linux@fw-web.de>
+X-Mailer: git-send-email 2.43.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Mail-ID: 7d9196f7-2e8a-481a-ba32-0e3d88cab2b5
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250501_055725_705990_C462BC6C 
+X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,63 +83,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 01 May 2025 12:15:52 +0100,
-Peter Zijlstra <peterz@infradead.org> wrote:
-> 
-> > > + */
-> > > +int kvm_trylock_all_vcpus(struct kvm *kvm)
-> > > +{
-> > > +	struct kvm_vcpu *vcpu;
-> > > +	unsigned long i, j;
-> > > +
-> > > +	kvm_for_each_vcpu(i, vcpu, kvm)
-> > > +		if (!mutex_trylock_nest_lock(&vcpu->mutex, &kvm->lock))
-> 
-> This one includes an assertion that kvm->lock is actually held.
+From: Frank Wunderlich <frank-w@public-files.de>
 
-Ah, cunning. Thanks.
+Current implementation requires syscon compatible for pio property
+which is used for driving the switch leds on mt7988.
 
-> That said, I'm not at all sure what the purpose of all this trylock
-> stuff is here.
-> 
-> Can someone explain? Last time I asked someone said something about
-> multiple VMs, but I don't know enough about kvm to know what that means.
+Replace syscon_regmap_lookup_by_phandle with of_parse_phandle and
+device_node_to_regmap to get the regmap already assigned by pinctrl
+driver.
 
-Multiple VMs? That'd be real fun. Not.
+Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+---
+ drivers/net/phy/mediatek/mtk-ge-soc.c | 10 +++++++++-
+ 1 file changed, 9 insertions(+), 1 deletion(-)
 
-> Are those vcpu->mutex another class for other VMs? Or what gives?
-
-Nah. This is firmly single VM.
-
-The purpose of this contraption is that there are some rare cases
-where we need to make sure that if we update some global state, all
-the vcpus of a VM need to see, or none of them.
-
-For these cases, the guarantee comes from luserspace, and it gives the
-pinky promise that none of the vcpus are running at that point. But
-being of a suspicious nature, we assert that this is true by trying to
-take all the vcpu mutexes in one go. This will fail if a vcpu is
-running, as KVM itself takes the vcpu mutex before doing anything.
-
-Similar requirement exists if we need to synthesise some state for
-userspace from all the individual vcpu states.
-
-If the global locking fails, we return to userspace with a middle
-finger indication, and all is well. Of course, this is pretty
-expensive, which is why it is only done in setup phases, when the VMM
-configures the guest.
-
-The splat this is trying to address is that when you have more than 48
-vcpus in a single VM, lockdep gets upset seeing up to 512 locks of a
-similar class being taken.
-
-Disclaimer: all the above is completely arm64-specific, and I didn't
-even try to understand what other architectures are doing.
-
-HTH,
-
-	M.
-
+diff --git a/drivers/net/phy/mediatek/mtk-ge-soc.c b/drivers/net/phy/mediatek/mtk-ge-soc.c
+index 175cf5239bba..21975ef946d5 100644
+--- a/drivers/net/phy/mediatek/mtk-ge-soc.c
++++ b/drivers/net/phy/mediatek/mtk-ge-soc.c
+@@ -7,6 +7,7 @@
+ #include <linux/pinctrl/consumer.h>
+ #include <linux/phy.h>
+ #include <linux/regmap.h>
++#include <linux/of.h>
+ 
+ #include "../phylib.h"
+ #include "mtk.h"
+@@ -1319,6 +1320,7 @@ static int mt7988_phy_probe_shared(struct phy_device *phydev)
+ {
+ 	struct device_node *np = dev_of_node(&phydev->mdio.bus->dev);
+ 	struct mtk_socphy_shared *shared = phy_package_get_priv(phydev);
++	struct device_node *pio_np;
+ 	struct regmap *regmap;
+ 	u32 reg;
+ 	int ret;
+@@ -1336,7 +1338,13 @@ static int mt7988_phy_probe_shared(struct phy_device *phydev)
+ 	 * The 4 bits in TPBANK0 are kept as package shared data and are used to
+ 	 * set LED polarity for each of the LED0.
+ 	 */
+-	regmap = syscon_regmap_lookup_by_phandle(np, "mediatek,pio");
++	pio_np = of_parse_phandle(np, "mediatek,pio", 0);
++	if (!pio_np)
++		return -ENODEV;
++
++	regmap = device_node_to_regmap(pio_np);
++	of_node_put(pio_np);
++
+ 	if (IS_ERR(regmap))
+ 		return PTR_ERR(regmap);
+ 
 -- 
-Without deviation from the norm, progress is not possible.
+2.43.0
+
 
