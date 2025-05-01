@@ -4,63 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB6F8C3ABA3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 14:17:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7FC4C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 14:19:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9RB23hZVWmfW7dEWLdxiwSUVQ97nDs6C+WmIGSBZy4Y=; b=011ZXX8MjH+PgN8v6ra3qcm1LL
-	RSJLs0Bw0aTlKezXSneY5KOz4zXbmHI2ORHD7oRkC+3H67vUCMk6Jzv4PENBA186nk3PKGS/f2bJ9
-	LiBksqWIo69bmDZrlKwp1OLUcQ6ATfrNWRsYKzfahfYkQ4vVuGQpLqMcv5KuBA3uPyTg6J4mxKGKf
-	W+xvgEwb2jsk8tMwhGF6D4mIRrc2EGClTBk5x5l4gpdum6zqbFDoJnM/VPhoc0HBETQOCTYNdivbT
-	IX1Be9ybhGOQFkmQYUGfmufQrs5QgE0s0KZBFOZaxL2LgNp8jvleHlON3pKMAqROwHOnN3RJBFgZJ
-	duvZfZyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jVsVuUvq7aCUbEtHyfU4QPwvFCy5dq9hZ+vGroJie0o=; b=p4wH6b5DX9SU5QScp+55H1PpN+
+	WtwJDgN7h5lf52ZTORqxKYJogpq97sos3oh/m0MeXwk+TRR2zimduLvJOnOcoFuzFyXNA7SsQuERS
+	nzXaX8JULUPnCf/Kuy5eqH25HowgUAOOzFI/TXbxIPQUTIjbT6XwiGycO1ef+E0SfSEAEiePsY70Q
+	piAV2mv+ogvx/+9G6YquQfyWtGg5OsVTDB0mfAYEdDWU2UwH7aEs1xweMvEHB2LkTR0AbHkAvbIfC
+	26Bf9QcZ9yJ/JwGXkUFanGUXOUebdUvZGwtLgthlmZ1WXIrNS5rxn+tcMOoFAEprbOwYm7jIixf5X
+	CdQkNIJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAUj1-0000000FwDc-1JGF;
-	Thu, 01 May 2025 14:17:19 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uAUks-0000000Fwb0-1Tfc;
+	Thu, 01 May 2025 14:19:14 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAUh6-0000000FvnX-2eRI;
-	Thu, 01 May 2025 14:15:21 +0000
+	id 1uAUha-0000000Fvug-2QdJ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 01 May 2025 14:15:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D73F15C0651;
-	Thu,  1 May 2025 14:13:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AD36C4CEED;
-	Thu,  1 May 2025 14:15:19 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id AC5A05C58CF;
+	Thu,  1 May 2025 14:13:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79654C4CEE3;
+	Thu,  1 May 2025 14:15:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746108919;
-	bh=9RB23hZVWmfW7dEWLdxiwSUVQ97nDs6C+WmIGSBZy4Y=;
+	s=k20201202; t=1746108949;
+	bh=1nOlq6ghOjjU/aPiN73OkFKaq0mCidAfYeEyCm9Uf/c=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=V/ssFVqdk49GRBYhcetFY4I6sWyAdoddxjRPmVg0ojYMJWkzsBnDeFDtcYmW5Ko/s
-	 YTWWfno5dVEnnUY/dJFSWxmGDGbSDF92Ep1olgts5v4enUpN7O+Rts1OqjOERLSi/8
-	 4U9KGguVNdbcxZI0iyrNndvAUoNo/DVkyK+vkA6oJNrVFOvWV54qu/l85KQ+IGx/In
-	 B8IaDy/A+Fv+ZPB0gxfss9pOeufaG2ZW75g+YEIuLzp/d+hSeNZgAFawPmiQgL+LWV
-	 TImnJD39L/speGNK6ZSq4Fzud02QQP1gJm/Zjk8vXEXOjFu9U9E2lkXbaNNYH/t8Uz
-	 N7qKusmJETVbg==
-Date: Thu, 1 May 2025 07:15:18 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, Simon Horman
- <horms@kernel.org>, Jacob Keller <jacob.e.keller@intel.com>
-Subject: Re: [PATCH net v4] net: airoha: Add missing filed to ppe_mbox_data
- struct
-Message-ID: <20250501071518.50c92e8c@kernel.org>
-In-Reply-To: <20250429-airoha-en7581-fix-ppe_mbox_data-v4-1-d2a8b901dad0@kernel.org>
-References: <20250429-airoha-en7581-fix-ppe_mbox_data-v4-1-d2a8b901dad0@kernel.org>
-MIME-Version: 1.0
+	b=emkfsgyPoPoSWyMrc0hiZTuc1So10KqEGBTHeq7xiB7WyCR52Bjb99nHdHYFmr58K
+	 q/QOAVGPtSQ0ZdfKUsA/G0ZZXLo6E6TKWJzMfiC1WZcbfrCEDUmDq8h+aZEo8rU6/E
+	 fwNg0gXMatPTNKRTJrRWt6sWpfA4FTmDh5A0z/xTko3LvP8BjlLOT74HfMc88zOotk
+	 xZB5uIAejM0lzroKQdngOAcmH1XthTo4rdO9NfK9qZ2nYIDu6kxsTlSe5srk32MKVD
+	 +VIVfUJbS8KHjNpTVW7ZXI9hOdtb1y3IDNGGR8qf1IH2tpB2LuTAe6LESxiHv25nbV
+	 yW1cFqW67wW9Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uAUhX-00Ab1W-IH;
+	Thu, 01 May 2025 15:15:47 +0100
+Date: Thu, 01 May 2025 15:15:46 +0100
+Message-ID: <86tt64h0x9.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 21/22] irqchip/gic-v5: Add GICv5 IWB support
+In-Reply-To: <aBJO9GEyb+0t6W6u@lpieralisi>
+References: <20250424-gicv5-host-v2-0-545edcaf012b@kernel.org>
+	<20250424-gicv5-host-v2-21-545edcaf012b@kernel.org>
+	<867c31j20i.wl-maz@kernel.org>
+	<aBJO9GEyb+0t6W6u@lpieralisi>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, tglx@linutronix.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, sascha.bischoff@arm.com, timothy.hayes@arm.com, Liam.Howlett@oracle.com, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_071520_718170_D0937A04 
-X-CRM114-Status: UNSURE (   5.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250501_071550_730295_2DFDD552 
+X-CRM114-Status: GOOD (  28.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,12 +98,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 29 Apr 2025 16:17:41 +0200 Lorenzo Bianconi wrote:
-> Moreover, add __packed attribute to ppe_mbox_data struct definition and
-> make the fw layout padding explicit in init_info struct.
+On Wed, 30 Apr 2025 17:25:24 +0100,
+Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+> 
+> I wrote a diff against the heavily reworked series in progress I have,
+> (so it does not apply on v2 - headers moved) with what I came up with
+> for the IWB MBIgen like. It works - it removes lots of boilerplate code
+> but there is a hack we never really liked in:
+> 
+> gicv5_its_msi_prepare()
+> 
+> that is, using the OF compatible string to detect if we are an IWB or not.
 
-Why? everything looks naturally packed now :(
-__packed also forces the compiler to assume the data is unaligned AFAIU.
-The recommended way to ensure the compiler doesn't insert padding is
-to do a compile time assert.
+You shouldn't need that. The MSI_FLAG_USE_DEV_FWNODE should be a good
+enough indication that this is something of interest, and that ends-up
+in the .init_dev_msi_info() callback.
+
+> If we are, we use the msi_alloc_info_t->hwirq to define the LPI eventid,
+> basically the IWB wire, if not we just allocate an eventid available from
+> the device bitmap.
+> 
+> Other than that (and being forced to provide an IWB irqchip.irq_write_msi_msg()
+> pointer even if the IWB can't write anything otherwise we dereference
+> NULL) this works.
+
+Not even MBIGEN allows you to change the event. If you really want to
+ensure things are even tighter, invent a MSI_FLAG_HARDCODED_MSG flag,
+and pass that down the prepare path.
+
+> Is there a better way to implement this ? I would post this code with
+> v3 but instead of waiting I thought I could inline it here, feel free
+> to ignore it (or flame me if it is a solved problem I failed to spot,
+> we need to find a way for the IWB driver to pass the "fixed event" info
+> to the ITS - IWB eventIDs are hardwired it is not like the MBIgen where
+> the irq_write_msi_msg() callback programs the wire-to-eventid
+> translation in HW).
+
+It's *exactly* the same. And see above for a potential explicit
+solution. The empty irq_write_msi_msg() is not a problem. It's
+actually pretty clean, given how the whole thing works.
+
+Please fold this into your v3, and we'll take it from there.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
