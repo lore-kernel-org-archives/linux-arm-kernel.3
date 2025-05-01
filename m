@@ -4,56 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B602FC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 11:56:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2394DC3ABA3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 11:58:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mTdsx9WYxTvilKzP8Dwrp+Q26dH9L26n/SLG50nFh4k=; b=XpUSfNgzJgFNQAE18ZS9+mWsK1
-	XD6/9Kr7FiuPMvxUCqQjWfXZOz+eceF+Fw28X/pl8dr221Tptj7QWUTpsgKEZMlFvKA0nWf4TPoK0
-	ixvf89uT8NX7JC6ObJnbJT4rK2mgbuS4uL/Wo4K8am8wQcM2rs5A+OMQp2gAkzn9vgcjYRPGoAzPu
-	Gl6TieOs7pqVMFv7VCJdIcT3zdgSkH/g5LxK93iOItQwwP7asxyQXpAr6FXbuR+loU1rvnGA/gDjo
-	nknp0qwpHwnYG1/CzM52oT8d3njbtedrStak4D7dd+FwunXIt3GQTjnwBG34TX6+lZlDTdEqc0bFZ
-	4lOuAWpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jk5Z4QPc9J8CRieYaOp+Msl4krhLC3Zgsoyy7SV1l8k=; b=aqmMk0lBzuKvtyyvHHjRFPX47T
+	3l3zaKrZvRSPesbpEr3w9mNzPvfU26DU/Vq3KuPw3l6fsVFEw8/NgkDWm8UJNErkf5ct4UzBZvsm/
+	Dq26A8a+ABAA/DZ79jd55OsE3bVYlerk8FIUCuxEw5fV8agMJU3hxTKNIOPs9tAkzHTP67eOYYGzr
+	Vm0TbaCfi89LoJH1BuRpHh1aOl8dGYmV3VR/arfBex7j+KwNr5l6/S1FSxF3EckQvnCWI9BZLxCMQ
+	2HXbAiFahAuyypAxfpXCnfppx+F5DBpfmkhmgzs6jfal7ZPvEMYtDpu+P8kwi7KmH/CSxUTA1K0eH
+	4jAugxPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uASWa-0000000FKQ5-2xxY;
-	Thu, 01 May 2025 11:56:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uASKh-0000000FJCA-37YO
+	id 1uASYU-0000000FKZT-1vKc;
+	Thu, 01 May 2025 11:58:18 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uASMC-0000000FJM3-42v9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 11:44:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 75F4F106F;
-	Thu,  1 May 2025 04:43:55 -0700 (PDT)
-Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E710A3F5A1;
-	Thu,  1 May 2025 04:44:01 -0700 (PDT)
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: Mike Leach <mike.leach@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Leo Yan <leo.yan@arm.com>,
-	James Clark <james.clark@linaro.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	linux-kernel@vger.kernel.org,
-	coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4] coresight: Add a KUnit test for coresight_find_default_sink()
-Date: Thu,  1 May 2025 12:43:48 +0100
-Message-ID: <174609979621.109219.15114241709800994823.b4-ty@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250312-james-cs-kunit-test-v4-1-ae3dd718a26a@linaro.org>
-References: <20250312-james-cs-kunit-test-v4-1-ae3dd718a26a@linaro.org>
+	Thu, 01 May 2025 11:45:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=jk5Z4QPc9J8CRieYaOp+Msl4krhLC3Zgsoyy7SV1l8k=; b=hK1Y1QeCPApCKnF+ianQWZIXEC
+	IHN3gx2RJrK2jKbMQ+4C+nZBiIoR/TszssSm6C0daW1H/8pZjRYR+/4n46MDB3CpWtkr02lXmEJe+
+	C80HUytlH6LHmdjrMhtqNsNSAOWARB0rjVygCjLDJPcXxtcyP9TzMN/HkK7jHGp6AclCHlbgv8xHv
+	kfR7bIskJRsM1sVLxGc52m1FnpHT3yvVmc5E4ii314vcbHWbP08ogWVJHEGA+6oVUWTBs0Z+23jfk
+	OWnvEBtJMMKIajNtFCqtZU/l0ojlUPX1FWHsM2mW+wO69MrCLXhcHl/dswyqlxJLbTnqYukZZjcmr
+	l3Fb5Tug==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:58470)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1uASM1-0008WA-25;
+	Thu, 01 May 2025 12:45:25 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1uASLx-000865-3B;
+	Thu, 01 May 2025 12:45:22 +0100
+Date: Thu, 1 May 2025 12:45:21 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next 0/6] net: stmmac: replace speed_mode_2500() method
+Message-ID: <aBNe0Vt81vmqVCma@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_044403_830830_EDBCB243 
-X-CRM114-Status: UNSURE (   8.58  )
+X-CRM114-CacheID: sfid-20250501_044537_276854_102C24B8 
+X-CRM114-Status: UNSURE (   9.34  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -69,21 +84,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-On Wed, 12 Mar 2025 10:31:57 +0000, James Clark wrote:
-> Add a test to confirm that default sink selection skips over an ETF
-> and returns an ETR even if it's further away.
-> 
-> This also makes it easier to add new unit tests in the future.
-> 
-> 
+This series replaces the speed_mode_2500() method with a new method
+that is more flexible, allowing the platform glue driver to populate
+phylink's supported_interfaces and set the PHY-side interface mode.
 
-Applied, thanks!
+The only user of this method is currently dwmac-intel, which we
+update to use this new method.
 
-[1/1] coresight: Add a KUnit test for coresight_find_default_sink()
-      https://git.kernel.org/coresight/c/b104a941
+ drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c | 33 +++++++------
+ drivers/net/ethernet/stmicro/stmmac/dwmac-intel.h |  1 -
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 56 +++++++++++++----------
+ include/linux/stmmac.h                            |  3 +-
+ 4 files changed, 49 insertions(+), 44 deletions(-)
 
-Best regards,
 -- 
-Suzuki K Poulose <suzuki.poulose@arm.com>
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
