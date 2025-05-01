@@ -4,61 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85BC6C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 15:46:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26B46C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 15:48:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PInYG2cGKTJojTGsiRmfJaGq3NsiCZWYAC8o4iUUwh4=; b=I8aUA81Pt/Lq1thCV0oYkQhzWC
-	wiYLzs4mlSOMfH6CedljvWk7s8dSnwdCs6m8zCbbpHksSsJrpSqgMLlVrIeX62yum9TtjRHOWES8J
-	EvCr1UR6iRbeB8yuqXzH7/iG6I7YCG1GIsGkyRCidBHND48I3rM4tqhQ1C2ZvnjwLqLRNCSPu41/E
-	vNeiAEVjTSp9yycp/SYprjLkQv4inp5wA6cDf6zRwhaSMJJ5sDmuBBngJ+qySIsNw9+0TwEwK6/ox
-	i9czTw2eQJQkn+bkZ2lWdyG8ZSC2rlKgj8fCOhC14RPgy+s5PX7VN04BOoZSiVsCyW8fUnYHpZouR
-	L0tLgUYw==;
+	bh=aYEZLPKdUZISuZOI/rBHyqx5Uifx8MI0CIo/2MfshN4=; b=NE4ADaN7GvCkmXpZO2BqJPWzuO
+	346qOAKioQoJ9NTj5sBZWjT4z1BsNX6Xdlro+VliqQonpuEmVFiO8wxF5qaz9Rj19cucbFFRqkIAB
+	TUeX2CfnT05GSjeA8WOz0x+auQo19CyRZZLV5Ytl4frpEfP41il0bfcQb0cf1s+HlL6+LLDUfPtYC
+	0Yo2CXfYkZ5AlP8z7cmYuL3F7fmyGpHuN/T/8x344PNlH8OKOvocUSKxzv1UBK2XCbjNDZPiKn747
+	TPgKIrektDAfM31Qy/1oMA+IN2ZlHeEiZSUmKlZmtb39BN6AqYHRqVCDbXiPdvw2DCbC+as2AHkfl
+	FWleDbDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAW6j-0000000G6m3-48QF;
-	Thu, 01 May 2025 15:45:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uAW8d-0000000G6x7-1ZbZ;
+	Thu, 01 May 2025 15:47:51 +0000
+Received: from mail-bn8nam11on20620.outbound.protection.outlook.com ([2a01:111:f403:2414::620] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAW4p-0000000G6au-138u
+	id 1uAW5o-0000000G6e3-1PcX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 15:43:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 436C843863;
-	Thu,  1 May 2025 15:43:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01C95C4CEE3;
-	Thu,  1 May 2025 15:43:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1746114234;
-	bh=rclRLfb0mVFM6LGfRTiUi3L5pqq96BWlLwc0aM5tME4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=loRdlrGRvOISKZe5aEUj5ZBjO1efahNrNAiHrv0PuIfdOyXd4J9Z9N3fOguV9iyOU
-	 1qhvxpTq55XSRQntPQanNnWRECiujnA9Vb+gXnhtCDdaJ2H3BvQgOJNzRIFkSwUZu7
-	 mskNcNDe7uGp+g20GkRYrUiLeIznLK1KofEqOvXE=
-Date: Thu, 1 May 2025 17:43:46 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, Lee Jones <lee@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Doug Anderson <dianders@chromium.org>,
-	Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>
-Subject: Re: [PATCH] arm64: errata: Add missing sentinels to Spectre-BHB MIDR
- arrays
-Message-ID: <2025050129-iron-promotion-a69f@gregkh>
-References: <20250501104747.28431-1-will@kernel.org>
+	Thu, 01 May 2025 15:44:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=k9Z82Xgjo17xPY8pWEm6AA3noAaOBaZk01dahg004te6GdtQ9mtRKb41mMEJ4hxcpJNt7a/8vLl7l2Gt6jHMip1sBdgu0XimyooGo8lkYX/bUD2dMRmSi1P3C5jOu+QpRc8mp+vRQeS/bFC4qbIGCjwywoE//ksFp2FiRYpCXzUQSzu8CWU7dYCiBZR4Q5RzHFjnuBU+2HS5JlYj+Jrzo2yNG6lE512va4zEQ1FC1ckKnQPNWn7lk13nfTO1IH0zhoXEUyoWmIrZvPR4FxMfgtLVms180InypC4GeEBtbE0mSywGg6XtxY/GVBrCE3VxHRToLepPL2ON4iOvWi/o7A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=aYEZLPKdUZISuZOI/rBHyqx5Uifx8MI0CIo/2MfshN4=;
+ b=Dl7tFZpa9vFsBx9AYMGO/ePh5IkVMIyOV/cwEjP+YgCCS3OnDS+fslVJ2s2CelCW0mPHx91NKSbAFBuXNyiR/M/YFndXTRjDALHOyP7FUD+P932HXQE+3YQ8Vo7gryAEmdzVjYTjCR2ph00SsJn/IVi1J8ZDqUllKW4KkyWW5jFxV0vmjri4NCB6EcNNf9FYNXEvQVlph4Y0wSX2SjGl0k0juRLVUdkbId9eD1eO3CD0Ntx4IPZavbZ6rqPsjceqR7so+u0LxnZvGx83ia1qBjfL1dQKu+zDJwKRs+ds/j8N9in0zPuGvKGmY05gYQGPXArYEtRns43XNDDENiIDqg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=aYEZLPKdUZISuZOI/rBHyqx5Uifx8MI0CIo/2MfshN4=;
+ b=HmRMe8WEzS2YBKLkWBiWLhhuBv2mELtCKZ2MRmgAw2pDhhMALWnfjM6FYu+rzMuDyhWIopxMEveRRQ6KzHUeHKGfoeD3PH/9BEco5tbn4kXQK0ifdPqcYKcfLmHqnyxlTa7DhpQYtEOtnp1VtZtcWzrJLNScIRFKajI0ru0qKdA=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CH2PR12MB4956.namprd12.prod.outlook.com (2603:10b6:610:69::11)
+ by CH3PR12MB7596.namprd12.prod.outlook.com (2603:10b6:610:14b::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.20; Thu, 1 May
+ 2025 15:44:39 +0000
+Received: from CH2PR12MB4956.namprd12.prod.outlook.com
+ ([fe80::fa2c:c4d3:e069:248d]) by CH2PR12MB4956.namprd12.prod.outlook.com
+ ([fe80::fa2c:c4d3:e069:248d%3]) with mapi id 15.20.8699.019; Thu, 1 May 2025
+ 15:44:39 +0000
+Message-ID: <8c8e9362-c116-4a80-bcb7-a44df68e0bfc@amd.com>
+Date: Thu, 1 May 2025 10:44:36 -0500
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/4] of: Common "memory-region" parsing
+To: Mathieu Poirier <mathieu.poirier@linaro.org>,
+ "Rob Herring (Arm)" <robh@kernel.org>,
+ Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
+ Daniel Baluta <daniel.baluta@nxp.com>,
+ Iuliana Prodan <iuliana.prodan@nxp.com>, "Andrew F. Davis" <afd@ti.com>
+Cc: Saravana Kannan <saravanak@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Patrice Chotard <patrice.chotard@foss.st.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Chen-Yu Tsai <wens@kernel.org>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-remoteproc@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-arm-msm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
+References: <20250423-dt-memory-region-v2-v2-0-2fbd6ebd3c88@kernel.org>
+ <CANLsYkxKHhCHYrbAGzQ48QGpL_DbuLnX3=ppmpyu0vjuuvvODg@mail.gmail.com>
+Content-Language: en-US
+From: Tanmay Shah <tanmay.shah@amd.com>
+In-Reply-To: <CANLsYkxKHhCHYrbAGzQ48QGpL_DbuLnX3=ppmpyu0vjuuvvODg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SA0PR12CA0010.namprd12.prod.outlook.com
+ (2603:10b6:806:6f::15) To CH2PR12MB4956.namprd12.prod.outlook.com
+ (2603:10b6:610:69::11)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250501104747.28431-1-will@kernel.org>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PR12MB4956:EE_|CH3PR12MB7596:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6f6fa84f-2fd8-4267-5704-08dd88c71555
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?MDVHdEczQkVzZG56bmVpbmdSdTdJRkh6UUd4ZzdGTnZRcjFCV3hvZDNYSUwz?=
+ =?utf-8?B?UXBPMHJYUkc2ZEdqTmtVOE9lSGRRZlpwQUJEd2J1czNYS0ZVZElCWnluK0hC?=
+ =?utf-8?B?bGpMR0xncENNZi9mRkFibk9xTU5CTG53S2pnejNIVEpnRlBMMWFEL05FUWRI?=
+ =?utf-8?B?a1VDSkJuRWRDR21JSXJpQ1BwbGRkcjkvUk5zczZIWDVuWFdRczN0V0VZNTJ5?=
+ =?utf-8?B?MW15b2ZRTktLTHBnSldzOXVjdEFuS2t6RVZCa0lKYklaYXVuRkp6eTlJNytk?=
+ =?utf-8?B?S0F6bHBCeEZ0UXlReVR3OG1NMklwdXdQRFpwVDFVcm1aRXl6YTR2SFlLSEhL?=
+ =?utf-8?B?SFhNYnN5QWN4WXBBWXhpSDAxQkI0TS9iYkJHRFYyNUdQeHh3ZTI3bkdnaU5u?=
+ =?utf-8?B?eEwrcFpweVJ1T1NoMUlzL3RjUnhjRERkSUlDZHJxN0xyQzkyaU1aOWxYVElR?=
+ =?utf-8?B?MHFhcndubzNtZW8wY2YwdU9tY1F5dzJSRGs3NmJMUEpKN0JUL1RkOXAyNE9T?=
+ =?utf-8?B?dytwSG1sTS82cldwcXVaa1VtMllGQjVvL2s5aENCSnN2c0JpRHVwbFcvUWtM?=
+ =?utf-8?B?N3AwajNtY0F4ZFRPcU11cjhEQXNUYjl0dFhjMWxnVkh0YWZ4b0xKSmZSeGFk?=
+ =?utf-8?B?bitKbXdiUzE0UU1EcGh4QURiWkhWZi9kUHZDWWdiOW05Mk1jQ015VFJIK0x5?=
+ =?utf-8?B?a1B6amE1YXdReVNwK3BMbEVqb0xocXRzdnIyRXRLSEg1RkNUMGZwdDQ4cnNW?=
+ =?utf-8?B?TWIyUUQxdXBzL0kyQ3dyOWcvY0l0RkN5VEIrOE54azhKMzd4cklyUmcvMTB6?=
+ =?utf-8?B?WnpJY0t5ZkVjakpaZ3lWVlIvcVFMNXA2RVNibzlYMnV2NXR5Ly84SFRtMmV6?=
+ =?utf-8?B?NzhuY1lJOVU2WmZQMkxKSGh4ZVJBUFk2dytlWHU5RkZWWDVQaERxekVaNU1B?=
+ =?utf-8?B?dTAybldvRWp3ZTZIdHljTHZ5NjhMeWt0WU9pS0hRYldXZDh3dThaRjF3bi9K?=
+ =?utf-8?B?Yzl5dVVXMVlpVHlYaG9oTjI4M1d5NDF1VHRLNEdieFAya1M4N2cvTUxZYVBt?=
+ =?utf-8?B?WDBtcHF3U1BibXlMZjZYQ0F2VEZJZVNXTmFGN0JkV0dCTUs2MnNsaHdvQ2RT?=
+ =?utf-8?B?dTdzOHVGMEFqaVpnWGJmNDd1eW1MNnJEdTRUYS9wa3k5a2JLTGpRays5UE5U?=
+ =?utf-8?B?ekw4TDhLVm5RKzVLQnJyajc1THVKQjBPTUJOVFRaeDQvVlpZWXh5R0lDdDZs?=
+ =?utf-8?B?cGZ2MEduRjM4b2c3RWJ1T1pCaWg4WW9ReWpGNG9rTTYzNWNBeTFKb1hGclVF?=
+ =?utf-8?B?V3VGU0hFV3J4OUZvY0Uyb2o3TnBOVjJac1FiZHBzSFlSRnJlNFpCYlE1RHBj?=
+ =?utf-8?B?SDZnTWlsZlczb2lvSWxablh0RHVOSEkvb2QrVFM5c1UrL1lUUHhyOXVEbjdx?=
+ =?utf-8?B?Ti9aS1dIeFZjbVVOTjNLaFMrZnBxQlBBdVVtVjJjMnRCUnF0bWE3TzdydHFH?=
+ =?utf-8?B?b2tlZTl0UTVXNFQwaWE5NmxheDJNME1EbXRLVEZrV3kwK0J3QTNUK0NJU29M?=
+ =?utf-8?B?S2RLTFRlbUMxNXB5VFJaQmhqbzVkYk1SSnRlVWQ3SFM4cGs5NUdkV0Vaemll?=
+ =?utf-8?B?RmtUNEp4UUQwYnlFejBURHZFTGhYajZsR2pCK2c0RUNCVzJ3L0R4alNBaUp3?=
+ =?utf-8?B?cWlVYVZUbllnUnI4am52cWNVWVhPS0NTRHE0ckZGYlExeXlJSjlQNGtqS25i?=
+ =?utf-8?B?dkIzMU91TkpKTGhtZWR5eENJdEJLS2lBdnJpZEx5bzBEQWJMbWRMZ3hJMGlG?=
+ =?utf-8?B?K1dnaFdsK1NBTGtYcGpGWk1UcHNoVytGRnQrRlF2bDVjbTVSemhoN245QzB5?=
+ =?utf-8?B?ZkhSMFpaZ2Q2MG12UzN2d0NOK3ZBNWIwWU4vdWlIUDZpWjNwMkxPVnlmbWUr?=
+ =?utf-8?Q?7JYS4F3lhPw=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH2PR12MB4956.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VlJ6VWlIN25mUGxpUWljRmFlUzUvU3Iydm5kVERnWDd6L1BuV004VVNSYlpF?=
+ =?utf-8?B?V3dXOUo5Z1JLWFVPc3oxWmFoN3MrUm5nY1VTSU50QkJYZkI3cmZzY2c5V3Bw?=
+ =?utf-8?B?UHZoYm0wWmdTK0hsS3Q4RTVMam5pVmlEQ3poMm9xa3FybEVXcm5hWU45bHp0?=
+ =?utf-8?B?MUFkQ0VpQWpsbm5senlQQVc5cFFxaVBwTjRvTkJMN3NLck11cEVqTU11Z0I0?=
+ =?utf-8?B?V2VSdzR6SGJiRVZZQ0RPSDh2amJDajZJc29JbUZLdW5NL2xOZXdqRE9PenJz?=
+ =?utf-8?B?TUVnc2lqZTB3bTlqc2lWT21zRUhndFBrb1d4VmVETUhVVHB6cU1ZL21TYTE1?=
+ =?utf-8?B?bXRuV0JFblBYK2hEa2xzU1VXbTAwS3J2RXRPUW5DUXFVTXpSUEpYUEhhaHNl?=
+ =?utf-8?B?Vmp3OWptQ0x0Z0RmRDYwdDBFcVdsS2dIb3lwY29wckllYUpuSTYwcFJvRDl5?=
+ =?utf-8?B?a0tNOTk2Q01iT2xncGZyN0dxbGEvRnRZeS9hMHdQcCtSZXgzZkFWeGhKSDRP?=
+ =?utf-8?B?ZUlEQnZwSVZNVmMrSk5ESnR4d3RmUzJDQW1LSFBLVkFoU3M1ajZJVUI1NzRx?=
+ =?utf-8?B?aTZFS01tTHZxUHp0RStxU2ZvYlFSeW9nNDNqVVg3TXM0RXNidFR1QVJDbEZW?=
+ =?utf-8?B?N3BYSERMeVZQa0NndlZ5Y2ptV0c4LytqekU1TitmMGhOaVhpUU12U2REdHZO?=
+ =?utf-8?B?R1U4dnVNMnR5ZDZ3Ri8zTnBycERqNVE0OXQvZlZXeVFJUGRlbFJLeHpFVEVx?=
+ =?utf-8?B?WWpRblZiYXd3d1JOa2Vma3g2YXpDMEtqUUlZYnJ3RktzbENPcDdYNGVVaW9o?=
+ =?utf-8?B?N3owdEpuSTQ2djZGcGJ3TklXSk1PUVZ6eThvSkhYTDFxUUVCZVVFUUlUM2xO?=
+ =?utf-8?B?TWtmbXlhNWY2MHY5NDd3T0UvaVdPK3h5SHByTE9reFJ3K3hGUUk2M2hvZXVL?=
+ =?utf-8?B?bGNvdWhsdm9YZm9IT0kydThMalU4Y1VSRFFzd1lWeHJhaU9XWW1qRjZIOTZ3?=
+ =?utf-8?B?YmxsemVHanRxOGFLVGR0N29Kd3lpZXFVYWFGTFBndjNUUmRtNnJtdUxoN2NM?=
+ =?utf-8?B?QWJrTGFEVjNsNGZSK1AwMm1UY2NGREhxWS9JZGxVYStsZ1puV3JGMTgyTzFC?=
+ =?utf-8?B?UHpIdkJkdVdBMjF5VmRJVURJaFpqQmRDdVlNYzhGNUJVMlVlVTgwbmRQNXd6?=
+ =?utf-8?B?bEVOM2dDYmM1R0lhcTdWRm5sVmNsRkFhbkpYZXhlK0hKNHNoN3EzLzlPZHhJ?=
+ =?utf-8?B?Z1h1RVlkZkJ4bzMycXdUM091VHpCNXEzSGhBcC9kK3ZFYkJKK2VBaVpOM0oy?=
+ =?utf-8?B?TzhadlQ5WnBGZEREYzVQMkxIOEZnOVVTRnlpZkhGcGhCcXhOVk93bSt0VGMv?=
+ =?utf-8?B?NUI0OWZyRDhmUUdLUU0vOEJsRXRzUkRJaC9JWHVsWW5MN0ZVblA4QW5XV3Ar?=
+ =?utf-8?B?ekZFMkpzUU5McEhibjFDVHkxZk1zRkp3OUFlY3dRUVI3VUJmSXl1aGVXNk5V?=
+ =?utf-8?B?Rit0YzhIT2hscUI5bU9wRkQ3RXd4L0xlRk84T1BtV2I1QXlhemhsRStOU3Jw?=
+ =?utf-8?B?N20wT0JhQ0lLdW5rREluUXQzYTVENDRJa3Nacjc3TGd6M0J3dmhKZFVzZ0Rm?=
+ =?utf-8?B?bG1VN2FsZW5UWW81V2hlS1ZCRmtRcU81bXJOMFJaK0VQTU1ES1RhSUhsMUFs?=
+ =?utf-8?B?N0h5NndnSFowUUs4ZVBkMGFUQjZyOUs4SFB2elR4M0hBQWtmWXlOZ0VWUGpr?=
+ =?utf-8?B?cGt0YllTREpmay9wWjdLaVl6ZmZtRmJkRFI5YU4wMitZbDVxRjVUdkRIWjBG?=
+ =?utf-8?B?Rm5vTDZLR3IzMlBjQUZhUUg5amxsK3hoZFVMTXdaZloyd3ZGTTdUbXVpQllG?=
+ =?utf-8?B?QnR5czR5ajA0bG9adW04QmVaM01GZHlLTEpSSWpTMUhQaU5rcWdZbWF3U0p3?=
+ =?utf-8?B?eFRwVnBDMTRrNnlYTmtKa0x5ZmJXTVNnckI4V2UvK3FxekUzRnpGTGJvS1lR?=
+ =?utf-8?B?dldBRXFkRUkzVTA1cDRGOXQ1aHQ4OENSRXY5YlhLd1RYUk9GM29TQ3hRdlEw?=
+ =?utf-8?B?T2hqTGc3MHBFaWg0MG85K0V6Z0F1Z1BVSE1HMTRpVDMzSHltbSt4dm4rR01t?=
+ =?utf-8?Q?imdbMNUSUGzvb6Z+jr7PipF6C?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6f6fa84f-2fd8-4267-5704-08dd88c71555
+X-MS-Exchange-CrossTenant-AuthSource: CH2PR12MB4956.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 May 2025 15:44:39.5925
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: hjsSOWHwy1y2PCYOkd244Qjhr8fU1y43pZQMdiHvop9L3d2Ckcbv0r+CGGCBrJet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB7596
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_084355_319740_45EFF2DD 
-X-CRM114-Status: GOOD (  15.00  )
+X-CRM114-CacheID: sfid-20250501_084456_370226_72AF3F6E 
+X-CRM114-Status: GOOD (  17.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,54 +187,83 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: tanmay.shah@amd.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 01, 2025 at 11:47:47AM +0100, Will Deacon wrote:
-> Commit a5951389e58d ("arm64: errata: Add newer ARM cores to the
-> spectre_bhb_loop_affected() lists") added some additional CPUs to the
-> Spectre-BHB workaround, including some new arrays for designs that
-> require new 'k' values for the workaround to be effective.
-> 
-> Unfortunately, the new arrays omitted the sentinel entry and so
-> is_midr_in_range_list() will walk off the end when it doesn't find a
-> match. With UBSAN enabled, this leads to a crash during boot when
-> is_midr_in_range_list() is inlined (which was more common prior to
-> c8c2647e69be ("arm64: Make  _midr_in_range_list() an exported
-> function")):
-> 
->  |  Internal error: aarch64 BRK: 00000000f2000001 [#1] PREEMPT SMP
->  |  pstate: 804000c5 (Nzcv daIF +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
->  |  pc : spectre_bhb_loop_affected+0x28/0x30
->  |  lr : is_spectre_bhb_affected+0x170/0x190
->  | [...]
->  |  Call trace:
->  |   spectre_bhb_loop_affected+0x28/0x30
->  |   update_cpu_capabilities+0xc0/0x184
->  |   init_cpu_features+0x188/0x1a4
->  |   cpuinfo_store_boot_cpu+0x4c/0x60
->  |   smp_prepare_boot_cpu+0x38/0x54
->  |   start_kernel+0x8c/0x478
->  |   __primary_switched+0xc8/0xd4
->  |  Code: 6b09011f 54000061 52801080 d65f03c0 (d4200020)
->  |  ---[ end trace 0000000000000000 ]---
->  |  Kernel panic - not syncing: aarch64 BRK: Fatal exception
-> 
-> Add the missing sentinel entries.
-> 
-> Cc: Lee Jones <lee@kernel.org>
-> Cc: James Morse <james.morse@arm.com>
-> Cc: Doug Anderson <dianders@chromium.org>
-> Cc: Shameer Kolothum <shameerali.kolothum.thodi@huawei.com>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Reported-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> Fixes: a5951389e58d ("arm64: errata: Add newer ARM cores to the spectre_bhb_loop_affected() lists")
-> Signed-off-by: Will Deacon <will@kernel.org>
-> ---
->  arch/arm64/kernel/proton-pack.c | 2 ++
->  1 file changed, 2 insertions(+)
+Hi Mathieu,
 
+I tested this patchset on top of recent for-next branch. I don't see 
+issue on AMD-xlnx ZynqMP platform. With this:
 
-Cc: stable <stable@kernel.org>
-Reviewed-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Tested-by: Tanmay Shah <tanmay.shah@amd.com>
+
+On 4/24/25 9:14 AM, Mathieu Poirier wrote:
+> Arnaud, Daniel, Iuliana, Andrew and Tanmay - please test this patchset
+> on the platforms you are working on.
+> 
+> Thanks,
+> Mathieu
+> 
+> On Wed, 23 Apr 2025 at 13:42, Rob Herring (Arm) <robh@kernel.org> wrote:
+>>
+>> While there's a common function to parse "memory-region" properties for
+>> DMA pool regions, there's not anything for driver private regions. As a
+>> result, drivers have resorted to parsing "memory-region" properties
+>> themselves repeating the same pattern over and over. To fix this, this
+>> series adds 2 functions to handle those cases:
+>> of_reserved_mem_region_to_resource() and of_reserved_mem_region_count().
+>>
+>> I've converted the whole tree, but just including remoteproc here as
+>> it has the most cases. I intend to apply the first 3 patches for 6.16
+>> so the driver conversions can be applied for 6.17.
+>>
+>> A git tree with all the drivers converted is here[1].
+>>
+>> v2:
+>> - Fix of_dma_set_restricted_buffer() to maintain behavior on warning msg
+>> - Export devm_ioremap_resource_wc()
+>> - Rework handling of resource name to drop unit-address from name as it
+>>    was before.
+>> - Link to v1:
+>>    https://lore.kernel.org/all/20250317232426.952188-1-robh@kernel.org
+>>
+>> [1] git://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git dt/memory-region
+>>
+>> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+>> ---
+>> Rob Herring (Arm) (4):
+>>        of: reserved_mem: Add functions to parse "memory-region"
+>>        of: Simplify of_dma_set_restricted_buffer() to use of_for_each_phandle()
+>>        devres: Export devm_ioremap_resource_wc()
+>>        remoteproc: Use of_reserved_mem_region_* functions for "memory-region"
+>>
+>>   drivers/of/device.c                       | 31 +++++-------
+>>   drivers/of/of_reserved_mem.c              | 80 +++++++++++++++++++++++++++++++
+>>   drivers/remoteproc/imx_dsp_rproc.c        | 45 +++++++----------
+>>   drivers/remoteproc/imx_rproc.c            | 68 +++++++++++---------------
+>>   drivers/remoteproc/qcom_q6v5_adsp.c       | 24 ++++------
+>>   drivers/remoteproc/qcom_q6v5_mss.c        | 60 ++++++++---------------
+>>   drivers/remoteproc/qcom_q6v5_pas.c        | 69 ++++++++++----------------
+>>   drivers/remoteproc/qcom_q6v5_wcss.c       | 25 ++++------
+>>   drivers/remoteproc/qcom_wcnss.c           | 23 ++++-----
+>>   drivers/remoteproc/rcar_rproc.c           | 36 ++++++--------
+>>   drivers/remoteproc/st_remoteproc.c        | 41 ++++++++--------
+>>   drivers/remoteproc/stm32_rproc.c          | 44 ++++++++---------
+>>   drivers/remoteproc/ti_k3_dsp_remoteproc.c | 28 +++++------
+>>   drivers/remoteproc/ti_k3_m4_remoteproc.c  | 28 +++++------
+>>   drivers/remoteproc/ti_k3_r5_remoteproc.c  | 28 +++++------
+>>   drivers/remoteproc/xlnx_r5_remoteproc.c   | 51 ++++++++------------
+>>   include/linux/of_reserved_mem.h           | 26 ++++++++++
+>>   lib/devres.c                              |  1 +
+>>   18 files changed, 339 insertions(+), 369 deletions(-)
+>> ---
+>> base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
+>> change-id: 20250423-dt-memory-region-v2-a2b15caacc63
+>>
+>> Best regards,
+>> --
+>> Rob Herring (Arm) <robh@kernel.org>
+>>
+
 
