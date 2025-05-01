@@ -4,84 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B25CDC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 23:28:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 302E1C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 23:30:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PU6GtX2pwIoZ+oeXsFDcea4JO+KvjjzbgnTTu1rA7Xs=; b=fnb/duLbg5gHXa3jzBPTNqGM0y
-	lh2R6w/4k8o7PBi1dxutnJL+RZuPwMtGH6q1ZpVBbx9XGY1yUi6BZfLu6RpVbIdubqWAupT4rig30
-	oEvVqAROxqo+0Q/YfOLw6g6NTPW+OPKnqGkrCserfzosFhWgO/n2etFT5ABTlkQndCeWokmE9w4I+
-	bntXiRFjsRidSrkzEh7CYuS0INo+QMDCs7/Y1cafSAvtBJykiKfCKD6IsSwJUyg2rlG+AoJdY2mTp
-	W6zhNOJkSV2oORCCocbrAnvYbuzhoD9QB3Bno9Z7cQjif/Magrslh4N3NCXHtgpfJKK7d/yHztRIF
-	cD3VseLw==;
+	bh=NGO8byd0TkM2xA40/EGnrAlxr2Ydy4LQeG9Cn/PTvGw=; b=FtS0rJ1GuvMIUyWKY1+qqsHD+5
+	JPS50elq+Hh3MeKuen1m3peLj9VMG2tvpFZ8EzKcCOdxr8lzs+altCtN/IYRyMAlOKmPGGCws/rtf
+	eYpmG3Q91v+2ZXCpJEa9sv36Ufbl6sOTi0qz4vIFxxk1C7nW8/86HT/GoNORWHebYEj6t7OfNPdKP
+	r8/p/l1K3pFRFJCoePTe4ZHABTbImg96l3Tgp230wu7VUWCEkcjUkRRw1dU6Mf2uaPAFMncXexuGS
+	LQojiVFIPJ5rLzjn5kcMBFEGyYzTibGv6Up/sGYzJHGTXfA5gtgF8f0sCbWl06wL+OsquU+gMovMD
+	aFdb/hbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAdKL-00000000Gti-10lP;
-	Thu, 01 May 2025 23:28:25 +0000
+	id 1uAdMD-00000000HBr-40b3;
+	Thu, 01 May 2025 23:30:21 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAcp9-000000007oI-1gUc
+	id 1uAcpD-000000007qG-3NSP
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 01 May 2025 22:56:11 +0000
+	Thu, 01 May 2025 22:56:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=PU6GtX2pwIoZ+oeXsFDcea4JO+KvjjzbgnTTu1rA7Xs=; b=jVraPLx5gLSoLfn+xlKz9GrLMT
-	ROVZXZ9J0c9ahFPhFr6XuKVmqosRnEgg3AiXGWFJJS1LkJ/+CocGph5skyiMFwRYdVfxFAQJDNW44
-	xTRiPdWp7XMNExKVVwpBIQ+lx5n3/OsinzvZNTDbTAxgfEREWcHy8Nup40zeJazbzxO32Jjkntlh0
-	z3G3nGEW5Vp+MJeX5hOFwusTj9Aua0Bs/R9E1B4AFnjiFrxfXCbfjhMWvPw4BkZ5EZPzM5s4gW77R
-	BR9RLJhkr71dbP0LIzK1QsKB9nEa+efq3+byvxrNr1AJ2PAxMroNOO8Ra3Tq1gToYPPcaYBOfjO5c
-	RvO2yjtg==;
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	bh=NGO8byd0TkM2xA40/EGnrAlxr2Ydy4LQeG9Cn/PTvGw=; b=jczv2xHGLiL5iD3ExR3cpmH5p2
+	+utrLX1AtiaNnFxpBMjdHAMFkQzil0CY07eSK/u6bvE07Df/BW2lfh/jdxzpl+xZP2Z1pQ2LY10Gh
+	aW51dTi56DNtZKkjAapYkHpgBTnvaushL0MSDpdOavykRQ3z5LwUDSNjFfGJRwLWE7nwyolddPPu2
+	1yXQatIlzoMfCZfwzBbvkQDFrAzPSGp0LjUJUI+fxOixRb4XrIOrdEDRuy3TuZIQDaR9Tvjb7Rw5p
+	siUWcdfMd/9ajfi54G79VMh6ITWazYOEIamabg1IznxInKfbFlL8uGtkgL8xLOqn97MWKnsMcUb4h
+	MTNlZx+g==;
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uAcoI-0000000EC7D-2zgi
+	id 1uAcoT-0000000EC82-0zZY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 22:56:06 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-2264e5b2b7cso11972655ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 May 2025 15:55:15 -0700 (PDT)
+	Thu, 01 May 2025 22:56:14 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2241e7e3addso12843835ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 May 2025 15:55:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1746140114; x=1746744914; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1746140126; x=1746744926; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=PU6GtX2pwIoZ+oeXsFDcea4JO+KvjjzbgnTTu1rA7Xs=;
-        b=WJQoOSRcHNRmxLQIMhR8ADJNbtSdZMMjvg4qaASbwgfNXy7zn37Lx3H6NxhggSLlVL
-         7gjGdh/c/vQdm9nNaQq0mNTQLKYasy4VX3AarRcuAu1H7xubJhyUlWx/sU3DsSmzBifO
-         qP2AEx1rRQ1CGbBO9ExB0qkgre1f4rA5/jzoxjYsBp2m6a1mXULS1+Rc24oqKq6MSc9P
-         2e0V7FdHzEh7ar/CB/TTdlhGmIeej4r+naR9BnBEgt2p/e/flYrMNA5RkY0/zduCicWb
-         U9CGJbnQVaVWklZRbVURDxHYNfxdCCmyZBL5LO7LPJu8bRSFNnXgxrEA4o09QZPBqJe0
-         NDIg==
+        bh=NGO8byd0TkM2xA40/EGnrAlxr2Ydy4LQeG9Cn/PTvGw=;
+        b=mye2ft2TE+Z+HN8gsdjXi1SxosJYO5CGhTfJmjyk5aBLUiDXDeIP2PUhTboGkSuoE/
+         nzph2BRSHAESg8gEgmffIBoTzdz9DRYXFtDY9wWIMm1ZGq8XM3K43c/v7dapriPenD3O
+         pEk32zqR0vUNkE3UKuDATV9rbPMK+8Y6k+ycTdjvFIqZ/shQoUXlZw4I91mq9k2ZrIa1
+         6jczeEVcliJSqSPNPmx8mNcwyaTGS/lRhcgkv18RQ3/wQYh6ecklV+mUCPocm9saOQdQ
+         4aqjrY+B1Tg2vHej+baIzmH4kJg9NMfE7y0WWkBeqGw87cpTibRz+hWBLknnMUGMv+Pm
+         NYVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746140114; x=1746744914;
+        d=1e100.net; s=20230601; t=1746140126; x=1746744926;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=PU6GtX2pwIoZ+oeXsFDcea4JO+KvjjzbgnTTu1rA7Xs=;
-        b=a1d1XKFZfWEDwKIi0vqgu95wLI+V0Ve7tNx4iTpEn6SQmLOXUuzZMO8eFtU5F5QJ1l
-         plrmgJ4mYKUoxB1D6V6RwqBupSELqWDwV9hGmSDUNF6WPQhMO4Fnp1gT6tKnj7ijMCO0
-         5I75gTx2OWawf/nmm1yiorJcm66fYG4FAuDWOaWdSuJzMqomTSxEsdDd4e/svBqV0/1I
-         W14uogcb9slk1neI+WkczN+A0tkhIW0K+ORGOWhIMaSU+/HLQ5huSz42mgpPwDDCdXFd
-         q01D6jybSqmpFCQ34H+/mhv3Iun47kA6NS6IoZsQ1gJ2rTZtrNFCyQS3QcSMZlsepu2Q
-         aA7w==
-X-Forwarded-Encrypted: i=1; AJvYcCVNHud1wt4k/ynG0ycYimYBIHtPNYF9cnIKr4LclhL6ElPNgjlGsfWdsdGLf61B7oAErB1m9wI9eAsd4SsiOvxv@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQFUD8qpaFbP/9T4KojwNHAxmKMZIfhMjzw5PPP8Fyd3UDyel8
-	wj2RzjN6+HuXI4WrVaZQbWuG2NG4y+O71vlv1AGemD/CHT0u0XiT0irvRi5TMGOJnR330JDEs5d
-	2BosHTVm7OF/uiBzT3A==
-X-Google-Smtp-Source: AGHT+IFpAiNl+3FkGzd/ZjF3I8ZI1ZYYyAMk4qubhYhnEjGbgwWF72zcJID/AaxklWlETZc79qrz2DC4EU5jSuqH
-X-Received: from pjbqc3.prod.google.com ([2002:a17:90b:2883:b0:2fa:1481:81f5])
+        bh=NGO8byd0TkM2xA40/EGnrAlxr2Ydy4LQeG9Cn/PTvGw=;
+        b=cuuZEDVTU2J3iIPoZXTNBs0MGyQ1uxeyIwvkdeenmihmWrDidltuW3abDmusZEK1w5
+         BjP3XCsqxrCR8b2/YI7UUAPKJz2SI4HRkl3V/kTuOIL2mqBpanmoJG52q1ENai92bJFK
+         icoG3ZTftoCK/mPw8GakBx/ZPRTGgtIlMAmbpS3OECh4MxCL1+YvzC4g4hTG5PNlkxZD
+         RI/1TZukky/KUg1MIGq2xuRz2RDeZc4LhTmonz6c9Q/H7t3iMrtOX+5h87CGMYM1YSMu
+         JFy67VPbp07ise9h5Q5qubpVBuACSZKaPASALqk41Qop9I1pF43565xLRTxDipdcDFka
+         h0fw==
+X-Forwarded-Encrypted: i=1; AJvYcCVcvCGbD35eLWPOfsY4EiP8VytnYNeMV0670NvlQ5I6hlJocFA3jlmu1Wl+NK+7BLWZrTJB3V/0nm7NyY/ta4ot@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHzMWNzJcf3jGy6Wpw9rS85jh954K8Xd0HvXm8gsVGnFtutzQ9
+	Ss/SxfhuvyNb1IuAhyWcPKuOK3mPppaN3sX8P9mu9aZ8kuegRZGmwgr+hTNm0oEuWhgy84ezx15
+	G/2eckHQyE99wuTOXTw==
+X-Google-Smtp-Source: AGHT+IHJUmwT4tOhxLskkrWxieqEKxrv6qbe/rS4uJuA/C3JPb20dm7HBzJjo4+K34ocPx0/uIvvUYW+1UT+7DwM
+X-Received: from plac4.prod.google.com ([2002:a17:902:c2c4:b0:224:2ae9:b271])
  (user=changyuanl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:903:2450:b0:224:1935:fb7e with SMTP id d9443c01a7336-22e10342da4mr11671725ad.24.1746140114125;
- Thu, 01 May 2025 15:55:14 -0700 (PDT)
-Date: Thu,  1 May 2025 15:54:10 -0700
+ 2002:a17:903:3c25:b0:22c:3609:97ed with SMTP id d9443c01a7336-22e1031f6femr10317175ad.30.1746140126491;
+ Thu, 01 May 2025 15:55:26 -0700 (PDT)
+Date: Thu,  1 May 2025 15:54:16 -0700
 In-Reply-To: <20250501225425.635167-1-changyuanl@google.com>
 Mime-Version: 1.0
 References: <20250501225425.635167-1-changyuanl@google.com>
 X-Mailer: git-send-email 2.49.0.906.g1f30a19c02-goog
-Message-ID: <20250501225425.635167-4-changyuanl@google.com>
-Subject: [PATCH v7 03/18] memblock: introduce memmap_init_kho_scratch()
+Message-ID: <20250501225425.635167-10-changyuanl@google.com>
+Subject: [PATCH v7 09/18] kexec: add config option for KHO
 From: Changyuan Lyu <changyuanl@google.com>
 To: linux-kernel@vger.kernel.org
 Cc: changyuanl@google.com, akpm@linux-foundation.org, 
@@ -98,8 +98,8 @@ Cc: changyuanl@google.com, akpm@linux-foundation.org,
 	thomas.lendacky@amd.com, will@kernel.org, x86@kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_235556_723782_1EE5F78F 
-X-CRM114-Status: GOOD (  14.91  )
+X-CRM114-CacheID: sfid-20250501_235557_747455_68B9696A 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,125 +114,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+From: Alexander Graf <graf@amazon.com>
 
-With deferred initialization of struct page it will be necessary to
-initialize memory map for KHO scratch regions early.
+We have all generic code in place now to support Kexec with KHO. This
+patch adds a config option that depends on architecture support to
+enable KHO support.
 
-Add memmap_init_kho_scratch() method that will allow such initialization
-in upcoming patches.
-
+Signed-off-by: Alexander Graf <graf@amazon.com>
+Co-developed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 Signed-off-by: Changyuan Lyu <changyuanl@google.com>
 ---
- include/linux/memblock.h |  2 ++
- mm/internal.h            |  2 ++
- mm/memblock.c            | 22 ++++++++++++++++++++++
- mm/mm_init.c             | 11 ++++++++---
- 4 files changed, 34 insertions(+), 3 deletions(-)
+ kernel/Kconfig.kexec | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
 
-diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-index 993937a6b9620..bb19a25342246 100644
---- a/include/linux/memblock.h
-+++ b/include/linux/memblock.h
-@@ -635,9 +635,11 @@ static inline void memtest_report_meminfo(struct seq_file *m) { }
- #ifdef CONFIG_MEMBLOCK_KHO_SCRATCH
- void memblock_set_kho_scratch_only(void);
- void memblock_clear_kho_scratch_only(void);
-+void memmap_init_kho_scratch_pages(void);
- #else
- static inline void memblock_set_kho_scratch_only(void) { }
- static inline void memblock_clear_kho_scratch_only(void) { }
-+static inline void memmap_init_kho_scratch_pages(void) {}
- #endif
+diff --git a/kernel/Kconfig.kexec b/kernel/Kconfig.kexec
+index 4d111f8719516..4fa212909d699 100644
+--- a/kernel/Kconfig.kexec
++++ b/kernel/Kconfig.kexec
+@@ -95,6 +95,20 @@ config KEXEC_JUMP
+ 	  Jump between original kernel and kexeced kernel and invoke
+ 	  code in physical address mode via KEXEC
  
- #endif /* _LINUX_MEMBLOCK_H */
-diff --git a/mm/internal.h b/mm/internal.h
-index e9695baa59226..acfcefcbb6c03 100644
---- a/mm/internal.h
-+++ b/mm/internal.h
-@@ -1121,6 +1121,8 @@ DECLARE_STATIC_KEY_TRUE(deferred_pages);
- bool __init deferred_grow_zone(struct zone *zone, unsigned int order);
- #endif /* CONFIG_DEFERRED_STRUCT_PAGE_INIT */
- 
-+void init_deferred_page(unsigned long pfn, int nid);
++config KEXEC_HANDOVER
++	bool "kexec handover"
++	depends on ARCH_SUPPORTS_KEXEC_HANDOVER && ARCH_SUPPORTS_KEXEC_FILE
++	select MEMBLOCK_KHO_SCRATCH
++	select KEXEC_FILE
++	select DEBUG_FS
++	select LIBFDT
++	select CMA
++	help
++	  Allow kexec to hand over state across kernels by generating and
++	  passing additional metadata to the target kernel. This is useful
++	  to keep data or state alive across the kexec. For this to work,
++	  both source and target kernels need to have this option enabled.
 +
- enum mminit_level {
- 	MMINIT_WARNING,
- 	MMINIT_VERIFY,
-diff --git a/mm/memblock.c b/mm/memblock.c
-index 6eba0dfe87155..b9148822db7aa 100644
---- a/mm/memblock.c
-+++ b/mm/memblock.c
-@@ -946,6 +946,28 @@ __init void memblock_clear_kho_scratch_only(void)
- {
- 	kho_scratch_only = false;
- }
-+
-+__init void memmap_init_kho_scratch_pages(void)
-+{
-+	phys_addr_t start, end;
-+	unsigned long pfn;
-+	int nid;
-+	u64 i;
-+
-+	if (!IS_ENABLED(CONFIG_DEFERRED_STRUCT_PAGE_INIT))
-+		return;
-+
-+	/*
-+	 * Initialize struct pages for free scratch memory.
-+	 * The struct pages for reserved scratch memory will be set up in
-+	 * reserve_bootmem_region()
-+	 */
-+	__for_each_mem_range(i, &memblock.memory, NULL, NUMA_NO_NODE,
-+			     MEMBLOCK_KHO_SCRATCH, &start, &end, &nid) {
-+		for (pfn = PFN_UP(start); pfn < PFN_DOWN(end); pfn++)
-+			init_deferred_page(pfn, nid);
-+	}
-+}
- #endif
- 
- /**
-diff --git a/mm/mm_init.c b/mm/mm_init.c
-index 9659689b8ace0..128c100fdb977 100644
---- a/mm/mm_init.c
-+++ b/mm/mm_init.c
-@@ -743,7 +743,7 @@ defer_init(int nid, unsigned long pfn, unsigned long end_pfn)
- 	return false;
- }
- 
--static void __meminit init_deferred_page(unsigned long pfn, int nid)
-+static void __meminit __init_deferred_page(unsigned long pfn, int nid)
- {
- 	if (early_page_initialised(pfn, nid))
- 		return;
-@@ -763,11 +763,16 @@ static inline bool defer_init(int nid, unsigned long pfn, unsigned long end_pfn)
- 	return false;
- }
- 
--static inline void init_deferred_page(unsigned long pfn, int nid)
-+static inline void __init_deferred_page(unsigned long pfn, int nid)
- {
- }
- #endif /* CONFIG_DEFERRED_STRUCT_PAGE_INIT */
- 
-+void __meminit init_deferred_page(unsigned long pfn, int nid)
-+{
-+	__init_deferred_page(pfn, nid);
-+}
-+
- /*
-  * Initialised pages do not have PageReserved set. This function is
-  * called for each range allocated by the bootmem allocator and
-@@ -784,7 +789,7 @@ void __meminit reserve_bootmem_region(phys_addr_t start,
- 		if (pfn_valid(start_pfn)) {
- 			struct page *page = pfn_to_page(start_pfn);
- 
--			init_deferred_page(start_pfn, nid);
-+			__init_deferred_page(start_pfn, nid);
- 
- 			/*
- 			 * no need for atomic set_bit because the struct
+ config CRASH_DUMP
+ 	bool "kernel crash dumps"
+ 	default ARCH_DEFAULT_CRASH_DUMP
 -- 
 2.49.0.906.g1f30a19c02-goog
 
