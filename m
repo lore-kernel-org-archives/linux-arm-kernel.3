@@ -4,74 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0146C3ABA3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 07:37:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B025C3ABA9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 07:39:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AZeNmsECabU1Re7IS/fvy3fqmifS/ivFgzSSJC/EICs=; b=BwX2jf+yLHATahoKUM1jgPenDt
-	z/achO5hzFtDdWWQH/9T8wbLHdKtYsQjgOHNuhuBdn0iqAFGzhnq9nPX5x54BBFMoJyld7rydwoIc
-	oUa28fIEb4QBfTkoi5quZfRf90/HfOQzqhx1IxIEZW5YNjXrYSRacTaBkVJEts8QCmx730/TVOdHu
-	zULlW5UaAzriF8qaA4fJ49eDxAY5T04ngI2fA/aFDS6MWD/ymvA/cPXxKs5H9ZZ9Ism5XbMhVQy8K
-	u+NNxbZOUf8xoKIxrKQBkBC0TUVvONbZe37yiBVUYJ64rW2NT7MgT4AqDuqTeF6LKOKUROn8LzDZ3
-	eU+I6gTQ==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=K7OHVYuZmHwzYYcyOkPMzX9Wbq0G6D2Zkg8HtjOYyi8=; b=ERkbeBDApLAY/jU9t2RmHM09u4
+	SGst8f89MhSlMrBF7Vf9joN9XaY2ttR2OixUTdnwgG/bYOxxjTGy8p3MfRVZN7VtuS51yoRQhHHeD
+	G0bjn2xfZ6iQuMtPeitq3ILM3cNhQsW9HtcvnuIQKQYrLf9mFn2SnbhFb5Z9bFc2NFRGwhijM8KZL
+	y6ych7qNFAuY1M0FP/iVLbWeekwK2OgbVxn4+Cf4Ntjm8I5X2tjMXD2R3aKCzTY4wffn7rjCx9vYA
+	4W2aJzw2jf/YAYKl1+6AFJSd+rKXX4256Igf11g/J+ndNZZskkdb2kD3llxAyNLqkaZynmQt0guy9
+	x5jymNJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAOUI-0000000ExAQ-18aw;
-	Thu, 01 May 2025 07:37:42 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uAOWA-0000000ExKO-0Gw5;
+	Thu, 01 May 2025 07:39:38 +0000
+Received: from mx-rz-1.rrze.uni-erlangen.de ([2001:638:a000:1025::14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAONC-0000000EwXJ-09NU
+	id 1uAOT4-0000000Ex2o-0ouw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 07:30:24 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5417UIMu3571544
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 1 May 2025 02:30:18 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1746084618;
-	bh=AZeNmsECabU1Re7IS/fvy3fqmifS/ivFgzSSJC/EICs=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=SZ6trDkHepAIHEZEFGs1Dv6dWogVnDndSsFS4jIbby14LZF4MnvIQVHIzNFaSgXAC
-	 FfPbXSAJIh7/yB3lv8laI2lcTbemWqr8RmkpWlAyVhCas0k9GjupLH+6SZFPQlrg/r
-	 f/RK1Eb+A/EWOEhdjyVjoQqCktxiWoYASYGVYcFE=
-Received: from DLEE115.ent.ti.com (dlee115.ent.ti.com [157.170.170.26])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5417UIBf059927
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 1 May 2025 02:30:18 -0500
-Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE115.ent.ti.com
- (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 1
- May 2025 02:30:18 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 1 May 2025 02:30:18 -0500
-Received: from localhost (ula0502350.dhcp.ti.com [172.24.227.38])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5417UHu1104714;
-	Thu, 1 May 2025 02:30:18 -0500
-From: Paresh Bhagat <p-bhagat@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <praneeth@ti.com>
-CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <khasim@ti.com>, <v-singh1@ti.com>, <afd@ti.com>
-Subject: [PATCH 3/3] arm64: dts: ti: Add support for AM62D2-EVM
-Date: Thu, 1 May 2025 12:59:23 +0530
-Message-ID: <20250501072923.1262414-4-p-bhagat@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250501072923.1262414-1-p-bhagat@ti.com>
-References: <20250501072923.1262414-1-p-bhagat@ti.com>
+	Thu, 01 May 2025 07:36:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fau.de; s=fau-2021;
+	t=1746084968; bh=K7OHVYuZmHwzYYcyOkPMzX9Wbq0G6D2Zkg8HtjOYyi8=;
+	h=From:To:Subject:Date:From:To:CC:Subject;
+	b=ATedqVInRFreujHp4X2BHGTHkAKbtKurgYKV4vepneqBRNjUGLXDNJPPgcwaSf4YZ
+	 hbY08gJ2vjaoNjkuPiY1m3uwCZD0wE2dqRCV9/cwmMIyGuOCs83aJnOc7y0AauIe19
+	 03hNgRHKd/GbaN2np8Mx1NA6uHWVda7HlnctARMufcCwJFKtJLGazE1OOcrmUkHEel
+	 F2T0+KD94afn2c3I8Xq7zvNwKGuY6UpcrbGI3/4frfxU9g3rOMRDRoJH/jImee33ld
+	 68NtNNih5WHt8inQFfJhHk1BnnbKVBlbtbqeeNZF6/T0irnKiaEmdgfE9g7HZhzEWP
+	 buWFgfW1C5CWA==
+Received: from mx-rz-smart.rrze.uni-erlangen.de (mx-rz-smart.rrze.uni-erlangen.de [IPv6:2001:638:a000:1025::1e])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-rz-1.rrze.uni-erlangen.de (Postfix) with ESMTPS id 4Zp5T35jYlz8sls;
+	Thu,  1 May 2025 09:36:07 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at boeck4.rrze.uni-erlangen.de (RRZE)
+X-RRZE-Flag: Not-Spam
+X-RRZE-Submit-IP: 2001:9e8:3636:a700:12b2:e53f:6cbc:f48c
+Received: from luis-tp.fritz.box (unknown [IPv6:2001:9e8:3636:a700:12b2:e53f:6cbc:f48c])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: U2FsdGVkX19pL7WFieYRy5yG8NPdAYH8gSfQgMR0Cx4=)
+	by smtp-auth.uni-erlangen.de (Postfix) with ESMTPSA id 4Zp5Sz4y7kz8sqL;
+	Thu,  1 May 2025 09:36:03 +0200 (CEST)
+From: Luis Gerhorst <luis.gerhorst@fau.de>
+To: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Hao Luo <haoluo@google.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Xu Kuohai <xukuohai@huaweicloud.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Hari Bathini <hbathini@linux.ibm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Mykola Lysenko <mykolal@fb.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Luis Gerhorst <luis.gerhorst@fau.de>,
+	Henriette Herzog <henriette.herzog@rub.de>,
+	Saket Kumar Bhaskar <skb99@linux.ibm.com>,
+	Cupertino Miranda <cupertino.miranda@oracle.com>,
+	Jiayuan Chen <mrpre@163.com>,
+	Matan Shachnai <m.shachnai@gmail.com>,
+	Dimitar Kanaliev <dimitar.kanaliev@siteground.com>,
+	Shung-Hsi Yu <shung-hsi.yu@suse.com>,
+	Daniel Xu <dxu@dxuuu.xyz>,
+	bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-kselftest@vger.kernel.org
+Subject: [PATCH bpf-next v3 00/11] bpf: Mitigate Spectre v1 using barriers
+Date: Thu,  1 May 2025 09:35:51 +0200
+Message-ID: <20250501073603.1402960-1-luis.gerhorst@fau.de>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_003022_165472_398F58CE 
-X-CRM114-Status: GOOD (  18.08  )
+X-CRM114-CacheID: sfid-20250501_003626_681922_87C7DCC8 
+X-CRM114-Status: GOOD (  21.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,503 +115,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-AM62D EVM evaluation module (EVM) is a low-cost expandable platform board
-designed for TI’s AM62D2 SoC. It supports the following interfaces:
+This improves the expressiveness of unprivileged BPF by inserting
+speculation barriers instead of rejecting the programs.
 
-* 4 GB LPDDR4 RAM
-* x2 Gigabit Ethernet expansion connectors
-* x4 3.5mm TRS Audio Jack Line In
-* x4 3.5mm TRS Audio Jack Line Out
-* x2 Audio expansion connectors
-* x1 Type-A USB 2.0, x1 Type-C dual-role device (DRD) USB 2.0
-* x1 UHS-1 capable µSD card slot
-* 32 GB eMMC Flash
-* 512 Mb OSPI NOR flash
-* x4 UARTs via USB 2.0-B
-* XDS110 for onboard JTAG debug using USB
-* Temperature sensors, user push buttons and LEDs
+The approach was previously presented at LPC'24 [1] and RAID'24 [2].
 
-Add basic support for AM62D2-EVM.
+To mitigate the Spectre v1 (PHT) vulnerability, the kernel rejects
+potentially-dangerous unprivileged BPF programs as of
+commit 9183671af6db ("bpf: Fix leakage under speculation on mispredicted
+branches"). In [2], we have analyzed 364 object files from open source
+projects (Linux Samples and Selftests, BCC, Loxilb, Cilium, libbpf
+Examples, Parca, and Prevail) and found that this affects 31% to 54% of
+programs.
 
-Schematics: https://www.ti.com/lit/zip/sprcal5
+To resolve this in the majority of cases this patchset adds a fall-back
+for mitigating Spectre v1 using speculation barriers. The kernel still
+optimistically attempts to verify all speculative paths but uses
+speculation barriers against v1 when unsafe behavior is detected. This
+allows for more programs to be accepted without disabling the BPF
+Spectre mitigations (e.g., by setting cpu_mitigations_off()).
 
-Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
----
- arch/arm64/boot/dts/ti/Makefile          |   3 +
- arch/arm64/boot/dts/ti/k3-am62d2-evm.dts | 449 +++++++++++++++++++++++
- 2 files changed, 452 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+For this, it relies on the fact that speculation barriers prevent all
+later instructions if the speculation was not correct:
 
-diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-index 03d4cecfc001..80c6636a711d 100644
---- a/arch/arm64/boot/dts/ti/Makefile
-+++ b/arch/arm64/boot/dts/ti/Makefile
-@@ -32,6 +32,9 @@ dtb-$(CONFIG_ARCH_K3) += k3-am62-lp-sk-nand.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-am62a7-sk.dtb
- dtb-$(CONFIG_ARCH_K3) += k3-am62a7-phyboard-lyra-rdk.dtb
- 
-+# Boards with AM62Dx SoC
-+dtb-$(CONFIG_ARCH_K3) += k3-am62d2-evm.dtb
-+
- # Boards with AM62Px SoC
- dtb-$(CONFIG_ARCH_K3) += k3-am62p5-sk.dtb
- 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-new file mode 100644
-index 000000000000..7a12ebe72c16
---- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-@@ -0,0 +1,449 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * AM62D2 EVM: https://www.ti.com/lit/zip/sprcal5
-+ *
-+ * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
-+ */
-+
-+/dts-v1/;
-+
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/net/ti-dp83867.h>
-+#include "k3-am62a7.dtsi"
-+
-+#include "k3-timesync-router.h"
-+
-+/ {
-+	compatible = "ti,am62d2-evm", "ti,am62d2";
-+	model = "Texas Instruments AM62D2 EVM";
-+
-+	aliases {
-+		serial0 = &wkup_uart0;
-+		serial1 = &mcu_uart0;
-+		serial2 = &main_uart0;
-+		mmc1 = &sdhci1;
-+		rtc0 = &wkup_rtc0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial2:115200n8";
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		/* 4G RAM */
-+		reg = <0x00000000 0x80000000 0x00000000 0x80000000>,
-+		      <0x00000008 0x80000000 0x00000000 0x80000000>;
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		/* global cma region */
-+		linux,cma {
-+			compatible = "shared-dma-pool";
-+			reusable;
-+			size = <0x00 0x2000000>;
-+			alloc-ranges = <0x00 0xc0000000 0x00 0x2000000>;
-+			linux,cma-default;
-+		};
-+
-+		c7x_0_dma_memory_region: c7x-dma-memory@99800000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x99800000 0x00 0x100000>;
-+			no-map;
-+		};
-+
-+		c7x_0_memory_region: c7x-memory@99900000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x99900000 0x00 0xf00000>;
-+			no-map;
-+		};
-+
-+		mcu_r5fss0_core0_dma_memory_region: r5f-dma-memory@9b800000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9b800000 0x00 0x100000>;
-+			no-map;
-+		};
-+
-+		mcu_r5fss0_core0_memory_region: r5f-dma-memory@9b900000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9b900000 0x00 0xf00000>;
-+			no-map;
-+		};
-+
-+		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9c800000 0x00 0x100000>;
-+			no-map;
-+		};
-+
-+		wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9c900000 0x00 0xf00000>;
-+			no-map;
-+		};
-+
-+		secure_tfa_ddr: tfa@9e780000 {
-+			reg = <0x00 0x9e780000 0x00 0x80000>;
-+			alignment = <0x1000>;
-+			no-map;
-+		};
-+
-+		secure_ddr: optee@9e800000 {
-+			reg = <0x00 0x9e800000 0x00 0x01800000>; /* for OP-TEE */
-+			alignment = <0x1000>;
-+			no-map;
-+		};
-+	};
-+
-+	opp-table {
-+		/* Requires VDD_CORE at 0v85 */
-+		opp-1400000000 {
-+			opp-hz = /bits/ 64 <1400000000>;
-+			opp-supported-hw = <0x01 0x0004>;
-+			clock-latency-ns = <6000000>;
-+		};
-+	};
-+
-+	vout_pd: regulator-1 {
-+		/* TPS65988 PD CONTROLLER OUTPUT */
-+		compatible = "regulator-fixed";
-+		regulator-name = "vout_pd";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+	};
-+
-+	vmain_pd: load-switch {
-+		/* Output of TPS22811 */
-+		compatible = "regulator-fixed";
-+		regulator-name = "vmain_pd";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&vout_pd>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+	};
-+
-+	vcc_5v0: regulator-2 {
-+		/* Output of TPS630702RNMR */
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_5v0";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&vmain_pd>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+	};
-+
-+	vdd_mmc1: regulator-3 {
-+		/* TPS22918DBVR */
-+		compatible = "regulator-fixed";
-+		regulator-name = "vdd_mmc1";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-boot-on;
-+		enable-active-high;
-+		gpio = <&exp1 3 GPIO_ACTIVE_HIGH>;
-+	};
-+
-+	vddshv_sdio: regulator-4 {
-+		compatible = "regulator-gpio";
-+		regulator-name = "vddshv_sdio";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&vddshv_sdio_pins_default>;
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-boot-on;
-+		gpios = <&main_gpio1 31 GPIO_ACTIVE_HIGH>;
-+		states = <1800000 0x0>,
-+			 <3300000 0x1>;
-+	};
-+};
-+
-+&mcu_pmx0 {
-+	wkup_uart0_pins_default: wkup-uart0-default-pins {
-+		pinctrl-single,pins = <
-+			AM62DX_MCU_IOPAD(0x0024, PIN_INPUT, 0) /* (C9) WKUP_UART0_RXD */
-+			AM62DX_MCU_IOPAD(0x0028, PIN_OUTPUT, 0) /* (E9) WKUP_UART0_TXD */
-+			AM62DX_MCU_IOPAD(0x002c, PIN_INPUT, 0) /* (C10) WKUP_UART0_CTSn */
-+			AM62DX_MCU_IOPAD(0x0030, PIN_OUTPUT, 0) /* (C8) WKUP_UART0_RTSn */
-+		>;
-+	};
-+};
-+
-+/* WKUP UART0 is used for DM firmware logs */
-+&wkup_uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&wkup_uart0_pins_default>;
-+	status = "reserved";
-+};
-+
-+&main_pmx0 {
-+	main_uart0_pins_default: main-uart0-default-pins {
-+		pinctrl-single,pins = <
-+			AM62DX_IOPAD(0x01c8, PIN_INPUT, 0) /* (E14) UART0_RXD */
-+			AM62DX_IOPAD(0x01cc, PIN_OUTPUT, 0) /* (D15) UART0_TXD */
-+		>;
-+	};
-+
-+	main_i2c0_pins_default: main-i2c0-default-pins {
-+		pinctrl-single,pins = <
-+			AM62DX_IOPAD(0x01e0, PIN_INPUT_PULLUP, 0) /* (D17) I2C0_SCL */
-+			AM62DX_IOPAD(0x01e4, PIN_INPUT_PULLUP, 0) /* (E16) I2C0_SDA */
-+		>;
-+	};
-+
-+	main_i2c1_pins_default: main-i2c1-default-pins {
-+		pinctrl-single,pins = <
-+			AM62DX_IOPAD(0x01e8, PIN_INPUT_PULLUP, 0) /* (C17) I2C1_SCL */
-+			AM62DX_IOPAD(0x01ec, PIN_INPUT_PULLUP, 0) /* (E17) I2C1_SDA */
-+		>;
-+	};
-+
-+	main_i2c2_pins_default: main-i2c2-default-pins {
-+		pinctrl-single,pins = <
-+			AM62DX_IOPAD(0x00b0, PIN_INPUT_PULLUP, 1) /* (M22) GPMC0_CSn2.I2C2_SCL */
-+			AM62DX_IOPAD(0x00b4, PIN_INPUT_PULLUP, 1) /* (M20) GPMC0_CSn3.I2C2_SDA */
-+		>;
-+	};
-+
-+	main_mmc1_pins_default: main-mmc1-default-pins {
-+		pinctrl-single,pins = <
-+			AM62DX_IOPAD(0x023c, PIN_INPUT, 0) /* (C21) MMC1_CMD */
-+			AM62DX_IOPAD(0x0234, PIN_OUTPUT, 0) /* (E22) MMC1_CLK */
-+			AM62DX_IOPAD(0x0230, PIN_INPUT, 0) /* (B22) MMC1_DAT0 */
-+			AM62DX_IOPAD(0x022c, PIN_INPUT_PULLUP, 0) /* (D21) MMC1_DAT1 */
-+			AM62DX_IOPAD(0x0228, PIN_INPUT_PULLUP, 0) /* (C22) MMC1_DAT2 */
-+			AM62DX_IOPAD(0x0224, PIN_INPUT_PULLUP, 0) /* (D22) MMC1_DAT3 */
-+			AM62DX_IOPAD(0x0240, PIN_INPUT, 0) /* (E18) MMC1_SDCD */
-+			AM62DX_IOPAD(0x0244, PIN_INPUT, 0) /* (D18) MMC1_SDWP */
-+		>;
-+	};
-+
-+	main_mdio1_pins_default: main-mdio1-default-pins {
-+		pinctrl-single,pins = <
-+			AM62DX_IOPAD(0x160, PIN_OUTPUT, 0) /* (V12) MDIO0_MDC */
-+			AM62DX_IOPAD(0x15c, PIN_INPUT, 0) /* (V13) MDIO0_MDIO */
-+		>;
-+	};
-+
-+	main_gpio1_ioexp_intr_pins_default: main-gpio1-ioexp-intr-default-pins {
-+		pinctrl-single,pins = <
-+			AM62DX_IOPAD(0x01d4, PIN_INPUT, 7) /* (C15) UART0_RTSn.GPIO1_23 */
-+		>;
-+	};
-+
-+	vddshv_sdio_pins_default: vddshv-sdio-default-pins {
-+		pinctrl-single,pins = <
-+			AM62DX_IOPAD(0x1F4, PIN_OUTPUT, 7) /* (M19) GPMC0_CLK.GPIO1_31 */
-+		>;
-+	};
-+};
-+
-+&mcu_pmx0 {
-+	status = "okay";
-+
-+	pmic_irq_pins_default: pmic-irq-default-pins {
-+		pinctrl-single,pins = <
-+			AM62DX_MCU_IOPAD(0x000, PIN_INPUT, 7) /* (E11) MCU_GPIO0_0 */
-+		>;
-+	};
-+};
-+
-+&mcu_gpio0 {
-+	status = "okay";
-+};
-+
-+&main_i2c0 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_i2c0_pins_default>;
-+	clock-frequency = <400000>;
-+
-+	typec_pd0: usb-power-controller@3f {
-+		compatible = "ti,tps6598x";
-+		reg = <0x3f>;
-+
-+		connector {
-+			compatible = "usb-c-connector";
-+			label = "USB-C";
-+			self-powered;
-+			data-role = "dual";
-+			power-role = "sink";
-+			port {
-+				usb_con_hs: endpoint {
-+					remote-endpoint = <&usb0_hs_ep>;
-+				};
-+			};
-+		};
-+	};
-+
-+	exp1: gpio@22 {
-+		compatible = "ti,tca6424";
-+		reg = <0x22>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&main_gpio1>;
-+		interrupts = <23 IRQ_TYPE_EDGE_FALLING>;
-+		interrupt-controller;
-+		#interrupt-cells = <2>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&main_gpio1_ioexp_intr_pins_default>;
-+
-+		gpio-line-names = "GPIO_CPSW2_RST", "GPIO_CPSW1_RST",
-+			"MMC1_SD_EN", "VPP_EN",
-+			"GPIO_DIX_RST", "IO_EXP_OPT_EN",
-+			"DIX_INT", "GPIO_eMMC_RSTn",
-+			"CPLD2_DONE", "CPLD2_INTN",
-+			"CPLD1_DONE", "CPLD1_INTN",
-+			"USB_TYPEA_OC_INDICATION", "PCM1_INT",
-+			"PCM2_INT", "GPIO_PCM1_RST",
-+			"TEST_GPIO2", "GPIO_PCM2_RST",
-+			"IO_MCAN0_STB", "IO_MCAN1_STB",
-+			"PD_I2C_IRQ", "IO_EXP_TEST_LED";
-+	};
-+
-+	exp2: gpio@23 {
-+		compatible = "ti,tca6424";
-+		reg = <0x23>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+
-+		gpio-line-names = "", "DAC_LAT_CTRL",
-+			"CPLD1_JTAGENB", "CPLD1_PROGRAMN",
-+			"CPLD2_JTAGENB", "CPLD2_PROGRAMN",
-+			"", "",
-+			"", "",
-+			"", "",
-+			"", "",
-+			"", "",
-+			"", "",
-+			"SoC_I2C0_SCL", "SoC_I2C0_SDA";
-+	};
-+};
-+
-+&main_i2c1 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_i2c1_pins_default>;
-+	clock-frequency = <100000>;
-+	bootph-all;
-+};
-+
-+&main_i2c2 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_i2c2_pins_default>;
-+	clock-frequency = <400000>;
-+};
-+
-+&sdhci1 {
-+	/* SD/MMC */
-+	status = "okay";
-+	vmmc-supply = <&vdd_mmc1>;
-+	vqmmc-supply = <&vddshv_sdio>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_mmc1_pins_default>;
-+	disable-wp;
-+};
-+
-+&main_gpio0 {
-+	status = "okay";
-+};
-+
-+&main_gpio1 {
-+	status = "okay";
-+};
-+
-+&main_gpio_intr {
-+	status = "okay";
-+};
-+
-+&main_uart0 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&main_uart0_pins_default>;
-+	interrupts-extended = <&gic500 GIC_SPI 178 IRQ_TYPE_LEVEL_HIGH>,
-+			<&main_pmx0 0x1c8>; /* (D14) UART0_RXD PADCONFIG114 */
-+	interrupt-names = "irq", "wakeup";
-+};
-+
-+/* main_timer2 is used by C7x DSP */
-+&main_timer2 {
-+	status = "reserved";
-+};
-+
-+&usb0 {
-+	usb-role-switch;
-+
-+	port {
-+		usb0_hs_ep: endpoint {
-+			remote-endpoint = <&usb_con_hs>;
-+		};
-+	};
-+};
-+
-+&mailbox0_cluster0 {
-+	mbox_r5_0: mbox-r5-0 {
-+		ti,mbox-rx = <0 0 0>;
-+		ti,mbox-tx = <1 0 0>;
-+	};
-+};
-+
-+&mailbox0_cluster1 {
-+	mbox_c7x_0: mbox-c7x-0 {
-+		ti,mbox-rx = <0 0 0>;
-+		ti,mbox-tx = <1 0 0>;
-+	};
-+};
-+
-+&mailbox0_cluster2 {
-+	mbox_mcu_r5_0: mbox-mcu-r5-0 {
-+		ti,mbox-rx = <0 0 0>;
-+		ti,mbox-tx = <1 0 0>;
-+	};
-+};
-+
-+&wkup_r5fss0 {
-+	status = "okay";
-+};
-+
-+&wkup_r5fss0_core0 {
-+	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
-+	memory-region = <&wkup_r5fss0_core0_dma_memory_region &wkup_r5fss0_core0_memory_region>;
-+};
-+
-+&mcu_r5fss0 {
-+	status = "okay";
-+};
-+
-+&mcu_r5fss0_core0 {
-+	mboxes = <&mailbox0_cluster2 &mbox_mcu_r5_0>;
-+	memory-region = <&mcu_r5fss0_core0_dma_memory_region &mcu_r5fss0_core0_memory_region>;
-+};
-+
-+&c7x_0 {
-+	mboxes = <&mailbox0_cluster1 &mbox_c7x_0>;
-+	memory-region = <&c7x_0_dma_memory_region &c7x_0_memory_region>;
-+	status = "okay";
-+};
-+
-+/* main_rti4 is used by C7x DSP */
-+&main_rti4 {
-+	status = "reserved";
-+};
-+
-+&timesync_router {
-+	/* Use Time Sync Router to map GENF1 input to HW3_TS_PUSH output */
-+	mux-reg-masks-state = <
-+		/* pps [cpsw cpts genf1] in17 -> out12 [cpsw cpts hw3_push] */
-+		K3_TS_OFFSET(12, 0x0001ffff, 17)
-+		>;
-+	status = "okay";
-+};
+* On x86_64, lfence acts as full speculation barrier, not only as a
+  load fence [3]:
+
+    An LFENCE instruction or a serializing instruction will ensure that
+    no later instructions execute, even speculatively, until all prior
+    instructions complete locally. [...] Inserting an LFENCE instruction
+    after a bounds check prevents later operations from executing before
+    the bound check completes.
+
+  This was experimentally confirmed in [4].
+
+* ARM's SB speculation barrier instruction also affects "any instruction
+  that appears later in the program order than the barrier" [5].
+
+In [1] we have measured the overhead of this approach relative to having
+mitigations off and including the upstream Spectre v4 mitigations. For
+event tracing and stack-sampling profilers, we found that mitigations
+increase BPF program execution time by 0% to 62%. For the Loxilb network
+load balancer, we have measured a 14% slowdown in SCTP performance but
+no significant slowdown for TCP. This overhead only applies to programs
+that were previously rejected.
+
+I reran the expressiveness-evaluation with v6.14 and made sure the main
+results still match those from [1] and [2] (which used v6.5).
+
+Main design decisions are:
+
+* Do not use separate bytecode insns for v1 and v4 barriers (inspired by
+  Daniel Borkmann's question at LPC). This simplifies the verifier
+  significantly and has the only downside that performance on PowerPC is
+  not as high as it could be.
+
+* Allow archs to still disable v1/v4 mitigations separately by setting
+  bpf_jit_bypass_spec_v1/v4(). This has the benefit that archs can
+  benefit from improved BPF expressiveness / performance if they are not
+  vulnerable (e.g., ARM64 for v4 in the kernel).
+
+* Do not remove the empty BPF_NOSPEC implementation for backends for
+  which it is unknown whether they are vulnerable to Spectre v1.
+
+[1] https://lpc.events/event/18/contributions/1954/ ("Mitigating
+    Spectre-PHT using Speculation Barriers in Linux eBPF")
+[2] https://arxiv.org/pdf/2405.00078 ("VeriFence: Lightweight and
+    Precise Spectre Defenses for Untrusted Linux Kernel Extensions")
+[3] https://www.intel.com/content/www/us/en/developer/articles/technical/software-security-guidance/technical-documentation/runtime-speculative-side-channel-mitigations.html
+    ("Managed Runtime Speculative Execution Side Channel Mitigations")
+[4] https://dl.acm.org/doi/pdf/10.1145/3359789.3359837 ("Speculator: a
+    tool to analyze speculative execution attacks and mitigations" -
+    Section 4.6 "Stopping Speculative Execution")
+[5] https://developer.arm.com/documentation/ddi0597/2020-12/Base-Instructions/SB--Speculation-Barrier-
+    ("SB - Speculation Barrier - Arm Armv8-A A32/T32 Instruction Set Architecture (2020-12)")
+
+Changes:
+
+* v2 -> v3:
+  - Fix
+    https://lore.kernel.org/oe-kbuild-all/202504212030.IF1SLhz6-lkp@intel.com/
+    and similar by moving the bpf_jit_bypass_spec_v1/v4() prototypes out
+    of the #ifdef CONFIG_BPF_SYSCALL. Decided not to move them to
+    filter.h (where similar bpf_jit_*() prototypes live) as they would
+    still have to be duplicated in bpf.h to be usable to
+    bpf_bypass_spec_v1/v4() (unless including filter.h in bpf.h is an
+    option).
+  - Fix
+    https://lore.kernel.org/oe-kbuild-all/202504220035.SoGveGpj-lkp@intel.com/
+    by moving the variable declarations out of the switch-case.
+  - Build touched C files with W=2 and bpf config on x86 to check that
+    there are no other warnings introduced.
+  - Found 3 more checkpatch warnings that can be fixed without degrading
+    readability.
+  - Rebase to bpf-next 2025-05-01
+  - Link to v2: https://lore.kernel.org/bpf/20250421091802.3234859-1-luis.gerhorst@fau.de/
+
+* v1 -> v2:
+  - Drop former commits 9 ("bpf: Return PTR_ERR from push_stack()") and 11
+    ("bpf: Fall back to nospec for spec path verification") as suggested
+    by Alexei. This series therefore no longer changes push_stack() to
+    return PTR_ERR.
+  - Add detailed explanation of how lfence works internally and how it
+    affects the algorithm.
+  - Add tests checking that nospec instructions are inserted in expected
+    locations using __xlated_unpriv as suggested by Eduard (also,
+    include a fix for __xlated_unpriv)
+  - Add a test for the mitigations from the description of
+    commit 9183671af6db ("bpf: Fix leakage under speculation on
+    mispredicted branches")
+  - Remove unused variables from do_check[_insn]() as suggested by
+    Eduard.
+  - Remove INSN_IDX_MODIFIED to improve readability as suggested by
+    Eduard. This also causes the nospec_result-check to run (and fail)
+    for jumping-ops. Add a warning to assert that this check must never
+    succeed in that case.
+  - Add details on the safety of patch 10 ("bpf: Allow nospec-protected
+    var-offset stack access") based on the feedback on v1.
+  - Rebase to bpf-next-250420
+  - Link to v1: https://lore.kernel.org/all/20250313172127.1098195-1-luis.gerhorst@fau.de/
+
+* RFC -> v1:
+  - rebase to bpf-next-250313
+  - tests: mark expected successes/new errors
+  - add bpt_jit_bypass_spec_v1/v4() to avoid #ifdef in
+    bpf_bypass_spec_v1/v4()
+  - ensure that nospec with v1-support is implemented for archs for
+    which GCC supports speculation barriers, except for MIPS
+  - arm64: emit speculation barrier
+  - powerpc: change nospec to include v1 barrier
+  - discuss potential security (archs that do not impl. BPF nospec) and
+    performance (only PowerPC) regressions
+  - Link to RFC: https://lore.kernel.org/bpf/20250224203619.594724-1-luis.gerhorst@fau.de/
+
+Luis Gerhorst (11):
+  selftests/bpf: Fix caps for __xlated/jited_unpriv
+  bpf: Move insn if/else into do_check_insn()
+  bpf: Return -EFAULT on misconfigurations
+  bpf: Return -EFAULT on internal errors
+  bpf, arm64, powerpc: Add bpf_jit_bypass_spec_v1/v4()
+  bpf, arm64, powerpc: Change nospec to include v1 barrier
+  bpf: Rename sanitize_stack_spill to nospec_result
+  bpf: Fall back to nospec for Spectre v1
+  selftests/bpf: Add test for Spectre v1 mitigation
+  bpf: Allow nospec-protected var-offset stack access
+  bpf: Fall back to nospec for sanitization-failures
+
+ arch/arm64/net/bpf_jit.h                      |   5 +
+ arch/arm64/net/bpf_jit_comp.c                 |  28 +-
+ arch/powerpc/net/bpf_jit_comp64.c             |  80 ++-
+ include/linux/bpf.h                           |  11 +-
+ include/linux/bpf_verifier.h                  |   3 +-
+ include/linux/filter.h                        |   2 +-
+ kernel/bpf/core.c                             |  32 +-
+ kernel/bpf/verifier.c                         | 653 ++++++++++--------
+ tools/testing/selftests/bpf/progs/bpf_misc.h  |   4 +
+ .../selftests/bpf/progs/verifier_and.c        |   8 +-
+ .../selftests/bpf/progs/verifier_bounds.c     |  66 +-
+ .../bpf/progs/verifier_bounds_deduction.c     |  45 +-
+ .../selftests/bpf/progs/verifier_map_ptr.c    |  20 +-
+ .../selftests/bpf/progs/verifier_movsx.c      |  16 +-
+ .../selftests/bpf/progs/verifier_unpriv.c     |  65 +-
+ .../bpf/progs/verifier_value_ptr_arith.c      | 101 ++-
+ tools/testing/selftests/bpf/test_loader.c     |  14 +-
+ .../selftests/bpf/verifier/dead_code.c        |   3 +-
+ tools/testing/selftests/bpf/verifier/jmp32.c  |  33 +-
+ tools/testing/selftests/bpf/verifier/jset.c   |  10 +-
+ 20 files changed, 771 insertions(+), 428 deletions(-)
+
+
+base-commit: 358b1c0f56ebb6996fcec7dcdcf6bae5dcbc8b6c
 -- 
-2.34.1
+2.49.0
 
 
