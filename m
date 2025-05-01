@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B025C3ABA9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 07:39:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9816CC3ABA9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 07:41:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=K7OHVYuZmHwzYYcyOkPMzX9Wbq0G6D2Zkg8HtjOYyi8=; b=ERkbeBDApLAY/jU9t2RmHM09u4
-	SGst8f89MhSlMrBF7Vf9joN9XaY2ttR2OixUTdnwgG/bYOxxjTGy8p3MfRVZN7VtuS51yoRQhHHeD
-	G0bjn2xfZ6iQuMtPeitq3ILM3cNhQsW9HtcvnuIQKQYrLf9mFn2SnbhFb5Z9bFc2NFRGwhijM8KZL
-	y6ych7qNFAuY1M0FP/iVLbWeekwK2OgbVxn4+Cf4Ntjm8I5X2tjMXD2R3aKCzTY4wffn7rjCx9vYA
-	4W2aJzw2jf/YAYKl1+6AFJSd+rKXX4256Igf11g/J+ndNZZskkdb2kD3llxAyNLqkaZynmQt0guy9
-	x5jymNJg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x1254cGxcCub/kUQM5hyyDzmObtkQ9/oIwWSNnQPgK4=; b=e4Sbzo23WdFuguIto1HyUFQDHK
+	ISdsFP8uddCI+CLxOofC8jr4oMhefQXZCAOLF/ul+AdxE/CQ2VSsaTcPwwRgqwI0z2q0QQsqAxf0X
+	r5a5Ikm2NouipeFm8qk423Jl4IF6wkVCyy9J73GVSkBm5RbRyDLekHzwtyi1WCtt7OjbCmZxhgVJ3
+	chD1OMW1g0/yp7JBkBXXEO48Hq5IK05MjEA8+jj1iTGh5QIymLDS6dwzSXNJgxDH+vTwXnbvRh9iX
+	WxuWCr68UWHxlJN9Wjxnv/y394GSs9jti/poiT7nObEr93vGqkgAo3bNNvi0jJX8hro/xpIPwRvG4
+	pFqHoGiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAOWA-0000000ExKO-0Gw5;
-	Thu, 01 May 2025 07:39:38 +0000
-Received: from mx-rz-1.rrze.uni-erlangen.de ([2001:638:a000:1025::14])
+	id 1uAOY1-0000000ExVQ-37Q3;
+	Thu, 01 May 2025 07:41:33 +0000
+Received: from mx-rz-3.rrze.uni-erlangen.de ([2001:638:a000:1025::16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAOT4-0000000Ex2o-0ouw
+	id 1uAOVm-0000000ExHE-2Fcl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 07:36:28 +0000
+	Thu, 01 May 2025 07:39:15 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fau.de; s=fau-2021;
-	t=1746084968; bh=K7OHVYuZmHwzYYcyOkPMzX9Wbq0G6D2Zkg8HtjOYyi8=;
-	h=From:To:Subject:Date:From:To:CC:Subject;
-	b=ATedqVInRFreujHp4X2BHGTHkAKbtKurgYKV4vepneqBRNjUGLXDNJPPgcwaSf4YZ
-	 hbY08gJ2vjaoNjkuPiY1m3uwCZD0wE2dqRCV9/cwmMIyGuOCs83aJnOc7y0AauIe19
-	 03hNgRHKd/GbaN2np8Mx1NA6uHWVda7HlnctARMufcCwJFKtJLGazE1OOcrmUkHEel
-	 F2T0+KD94afn2c3I8Xq7zvNwKGuY6UpcrbGI3/4frfxU9g3rOMRDRoJH/jImee33ld
-	 68NtNNih5WHt8inQFfJhHk1BnnbKVBlbtbqeeNZF6/T0irnKiaEmdgfE9g7HZhzEWP
-	 buWFgfW1C5CWA==
+	t=1746085151; bh=x1254cGxcCub/kUQM5hyyDzmObtkQ9/oIwWSNnQPgK4=;
+	h=From:To:Subject:Date:In-Reply-To:References:From:To:CC:Subject;
+	b=FX3yLychYpnbM41rzVxjhzYjWpqFtMMfFl0/eHPmVM6vLil3mxlWlhfQqx1eMKq35
+	 PaBHRJM/523p3naZaSkiQH2f9O1BROVtxVYeVzFlpqc89WiFNhsXYR9ugMkUy2fBsh
+	 o0czQCiMH/Ba6T42kV8XUeCJEwW61yGWTkHFjpCoSoTfGB4W6R7Jr0M+ePJV7Oiftb
+	 fWxXiRp1K+gp1kRuTyfxfCf/oIsDmOy3bz2WbMxn9ADd+w8D/LyYYE+fhgJCc7QEhQ
+	 D0S5eOw0QV3kyVLh9iDNr6bLkPnUl4B6xmpHSeQgwCk5G7WL7ebqK3lceKS00XbzGW
+	 ad3HH/BixD9Cg==
 Received: from mx-rz-smart.rrze.uni-erlangen.de (mx-rz-smart.rrze.uni-erlangen.de [IPv6:2001:638:a000:1025::1e])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-rz-1.rrze.uni-erlangen.de (Postfix) with ESMTPS id 4Zp5T35jYlz8sls;
-	Thu,  1 May 2025 09:36:07 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at boeck4.rrze.uni-erlangen.de (RRZE)
+	by mx-rz-3.rrze.uni-erlangen.de (Postfix) with ESMTPS id 4Zp5Xb4D4Kz210D;
+	Thu,  1 May 2025 09:39:11 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at boeck1.rrze.uni-erlangen.de (RRZE)
 X-RRZE-Flag: Not-Spam
 X-RRZE-Submit-IP: 2001:9e8:3636:a700:12b2:e53f:6cbc:f48c
 Received: from luis-tp.fritz.box (unknown [IPv6:2001:9e8:3636:a700:12b2:e53f:6cbc:f48c])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	(Authenticated sender: U2FsdGVkX19pL7WFieYRy5yG8NPdAYH8gSfQgMR0Cx4=)
-	by smtp-auth.uni-erlangen.de (Postfix) with ESMTPSA id 4Zp5Sz4y7kz8sqL;
-	Thu,  1 May 2025 09:36:03 +0200 (CEST)
+	(Authenticated sender: U2FsdGVkX1+zpOyiwhLO6/w+KVc9wUxs9Zvj7+vbGvk=)
+	by smtp-auth.uni-erlangen.de (Postfix) with ESMTPSA id 4Zp5XX1rzQz1yR1;
+	Thu,  1 May 2025 09:39:08 +0200 (CEST)
 From: Luis Gerhorst <luis.gerhorst@fau.de>
 To: Alexei Starovoitov <ast@kernel.org>,
 	Daniel Borkmann <daniel@iogearbox.net>,
@@ -91,16 +91,17 @@ To: Alexei Starovoitov <ast@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linuxppc-dev@lists.ozlabs.org,
 	linux-kselftest@vger.kernel.org
-Subject: [PATCH bpf-next v3 00/11] bpf: Mitigate Spectre v1 using barriers
-Date: Thu,  1 May 2025 09:35:51 +0200
-Message-ID: <20250501073603.1402960-1-luis.gerhorst@fau.de>
+Subject: [PATCH bpf-next v3 01/11] selftests/bpf: Fix caps for __xlated/jited_unpriv
+Date: Thu,  1 May 2025 09:35:52 +0200
+Message-ID: <20250501073603.1402960-2-luis.gerhorst@fau.de>
 X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250501073603.1402960-1-luis.gerhorst@fau.de>
+References: <20250501073603.1402960-1-luis.gerhorst@fau.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_003626_681922_87C7DCC8 
-X-CRM114-Status: GOOD (  21.24  )
+X-CRM114-CacheID: sfid-20250501_003914_720118_33378E52 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,176 +116,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This improves the expressiveness of unprivileged BPF by inserting
-speculation barriers instead of rejecting the programs.
+Currently, __xlated_unpriv and __jited_unpriv do not work because the
+BPF syscall will overwrite info.jited_prog_len and info.xlated_prog_len
+with 0 if the process is not bpf_capable(). This bug was not noticed
+before, because there is no test that actually uses
+__xlated_unpriv/__jited_unpriv.
 
-The approach was previously presented at LPC'24 [1] and RAID'24 [2].
+To resolve this, simply restore the capabilities earlier (but still
+after loading the program). Adding this here unconditionally is fine
+because the function first checks that the capabilities were initialized
+before attempting to restore them.
 
-To mitigate the Spectre v1 (PHT) vulnerability, the kernel rejects
-potentially-dangerous unprivileged BPF programs as of
-commit 9183671af6db ("bpf: Fix leakage under speculation on mispredicted
-branches"). In [2], we have analyzed 364 object files from open source
-projects (Linux Samples and Selftests, BCC, Loxilb, Cilium, libbpf
-Examples, Parca, and Prevail) and found that this affects 31% to 54% of
-programs.
+This will be important later when we add tests that check whether a
+speculation barrier was inserted in the correct location.
 
-To resolve this in the majority of cases this patchset adds a fall-back
-for mitigating Spectre v1 using speculation barriers. The kernel still
-optimistically attempts to verify all speculative paths but uses
-speculation barriers against v1 when unsafe behavior is detected. This
-allows for more programs to be accepted without disabling the BPF
-Spectre mitigations (e.g., by setting cpu_mitigations_off()).
+Signed-off-by: Luis Gerhorst <luis.gerhorst@fau.de>
+Fixes: 9c9f73391310 ("selftests/bpf: allow checking xlated programs in verifier_* tests")
+Fixes: 7d743e4c759c ("selftests/bpf: __jited test tag to check disassembly after jit")
+---
+ tools/testing/selftests/bpf/test_loader.c | 14 ++++++++------
+ 1 file changed, 8 insertions(+), 6 deletions(-)
 
-For this, it relies on the fact that speculation barriers prevent all
-later instructions if the speculation was not correct:
-
-* On x86_64, lfence acts as full speculation barrier, not only as a
-  load fence [3]:
-
-    An LFENCE instruction or a serializing instruction will ensure that
-    no later instructions execute, even speculatively, until all prior
-    instructions complete locally. [...] Inserting an LFENCE instruction
-    after a bounds check prevents later operations from executing before
-    the bound check completes.
-
-  This was experimentally confirmed in [4].
-
-* ARM's SB speculation barrier instruction also affects "any instruction
-  that appears later in the program order than the barrier" [5].
-
-In [1] we have measured the overhead of this approach relative to having
-mitigations off and including the upstream Spectre v4 mitigations. For
-event tracing and stack-sampling profilers, we found that mitigations
-increase BPF program execution time by 0% to 62%. For the Loxilb network
-load balancer, we have measured a 14% slowdown in SCTP performance but
-no significant slowdown for TCP. This overhead only applies to programs
-that were previously rejected.
-
-I reran the expressiveness-evaluation with v6.14 and made sure the main
-results still match those from [1] and [2] (which used v6.5).
-
-Main design decisions are:
-
-* Do not use separate bytecode insns for v1 and v4 barriers (inspired by
-  Daniel Borkmann's question at LPC). This simplifies the verifier
-  significantly and has the only downside that performance on PowerPC is
-  not as high as it could be.
-
-* Allow archs to still disable v1/v4 mitigations separately by setting
-  bpf_jit_bypass_spec_v1/v4(). This has the benefit that archs can
-  benefit from improved BPF expressiveness / performance if they are not
-  vulnerable (e.g., ARM64 for v4 in the kernel).
-
-* Do not remove the empty BPF_NOSPEC implementation for backends for
-  which it is unknown whether they are vulnerable to Spectre v1.
-
-[1] https://lpc.events/event/18/contributions/1954/ ("Mitigating
-    Spectre-PHT using Speculation Barriers in Linux eBPF")
-[2] https://arxiv.org/pdf/2405.00078 ("VeriFence: Lightweight and
-    Precise Spectre Defenses for Untrusted Linux Kernel Extensions")
-[3] https://www.intel.com/content/www/us/en/developer/articles/technical/software-security-guidance/technical-documentation/runtime-speculative-side-channel-mitigations.html
-    ("Managed Runtime Speculative Execution Side Channel Mitigations")
-[4] https://dl.acm.org/doi/pdf/10.1145/3359789.3359837 ("Speculator: a
-    tool to analyze speculative execution attacks and mitigations" -
-    Section 4.6 "Stopping Speculative Execution")
-[5] https://developer.arm.com/documentation/ddi0597/2020-12/Base-Instructions/SB--Speculation-Barrier-
-    ("SB - Speculation Barrier - Arm Armv8-A A32/T32 Instruction Set Architecture (2020-12)")
-
-Changes:
-
-* v2 -> v3:
-  - Fix
-    https://lore.kernel.org/oe-kbuild-all/202504212030.IF1SLhz6-lkp@intel.com/
-    and similar by moving the bpf_jit_bypass_spec_v1/v4() prototypes out
-    of the #ifdef CONFIG_BPF_SYSCALL. Decided not to move them to
-    filter.h (where similar bpf_jit_*() prototypes live) as they would
-    still have to be duplicated in bpf.h to be usable to
-    bpf_bypass_spec_v1/v4() (unless including filter.h in bpf.h is an
-    option).
-  - Fix
-    https://lore.kernel.org/oe-kbuild-all/202504220035.SoGveGpj-lkp@intel.com/
-    by moving the variable declarations out of the switch-case.
-  - Build touched C files with W=2 and bpf config on x86 to check that
-    there are no other warnings introduced.
-  - Found 3 more checkpatch warnings that can be fixed without degrading
-    readability.
-  - Rebase to bpf-next 2025-05-01
-  - Link to v2: https://lore.kernel.org/bpf/20250421091802.3234859-1-luis.gerhorst@fau.de/
-
-* v1 -> v2:
-  - Drop former commits 9 ("bpf: Return PTR_ERR from push_stack()") and 11
-    ("bpf: Fall back to nospec for spec path verification") as suggested
-    by Alexei. This series therefore no longer changes push_stack() to
-    return PTR_ERR.
-  - Add detailed explanation of how lfence works internally and how it
-    affects the algorithm.
-  - Add tests checking that nospec instructions are inserted in expected
-    locations using __xlated_unpriv as suggested by Eduard (also,
-    include a fix for __xlated_unpriv)
-  - Add a test for the mitigations from the description of
-    commit 9183671af6db ("bpf: Fix leakage under speculation on
-    mispredicted branches")
-  - Remove unused variables from do_check[_insn]() as suggested by
-    Eduard.
-  - Remove INSN_IDX_MODIFIED to improve readability as suggested by
-    Eduard. This also causes the nospec_result-check to run (and fail)
-    for jumping-ops. Add a warning to assert that this check must never
-    succeed in that case.
-  - Add details on the safety of patch 10 ("bpf: Allow nospec-protected
-    var-offset stack access") based on the feedback on v1.
-  - Rebase to bpf-next-250420
-  - Link to v1: https://lore.kernel.org/all/20250313172127.1098195-1-luis.gerhorst@fau.de/
-
-* RFC -> v1:
-  - rebase to bpf-next-250313
-  - tests: mark expected successes/new errors
-  - add bpt_jit_bypass_spec_v1/v4() to avoid #ifdef in
-    bpf_bypass_spec_v1/v4()
-  - ensure that nospec with v1-support is implemented for archs for
-    which GCC supports speculation barriers, except for MIPS
-  - arm64: emit speculation barrier
-  - powerpc: change nospec to include v1 barrier
-  - discuss potential security (archs that do not impl. BPF nospec) and
-    performance (only PowerPC) regressions
-  - Link to RFC: https://lore.kernel.org/bpf/20250224203619.594724-1-luis.gerhorst@fau.de/
-
-Luis Gerhorst (11):
-  selftests/bpf: Fix caps for __xlated/jited_unpriv
-  bpf: Move insn if/else into do_check_insn()
-  bpf: Return -EFAULT on misconfigurations
-  bpf: Return -EFAULT on internal errors
-  bpf, arm64, powerpc: Add bpf_jit_bypass_spec_v1/v4()
-  bpf, arm64, powerpc: Change nospec to include v1 barrier
-  bpf: Rename sanitize_stack_spill to nospec_result
-  bpf: Fall back to nospec for Spectre v1
-  selftests/bpf: Add test for Spectre v1 mitigation
-  bpf: Allow nospec-protected var-offset stack access
-  bpf: Fall back to nospec for sanitization-failures
-
- arch/arm64/net/bpf_jit.h                      |   5 +
- arch/arm64/net/bpf_jit_comp.c                 |  28 +-
- arch/powerpc/net/bpf_jit_comp64.c             |  80 ++-
- include/linux/bpf.h                           |  11 +-
- include/linux/bpf_verifier.h                  |   3 +-
- include/linux/filter.h                        |   2 +-
- kernel/bpf/core.c                             |  32 +-
- kernel/bpf/verifier.c                         | 653 ++++++++++--------
- tools/testing/selftests/bpf/progs/bpf_misc.h  |   4 +
- .../selftests/bpf/progs/verifier_and.c        |   8 +-
- .../selftests/bpf/progs/verifier_bounds.c     |  66 +-
- .../bpf/progs/verifier_bounds_deduction.c     |  45 +-
- .../selftests/bpf/progs/verifier_map_ptr.c    |  20 +-
- .../selftests/bpf/progs/verifier_movsx.c      |  16 +-
- .../selftests/bpf/progs/verifier_unpriv.c     |  65 +-
- .../bpf/progs/verifier_value_ptr_arith.c      | 101 ++-
- tools/testing/selftests/bpf/test_loader.c     |  14 +-
- .../selftests/bpf/verifier/dead_code.c        |   3 +-
- tools/testing/selftests/bpf/verifier/jmp32.c  |  33 +-
- tools/testing/selftests/bpf/verifier/jset.c   |  10 +-
- 20 files changed, 771 insertions(+), 428 deletions(-)
-
-
-base-commit: 358b1c0f56ebb6996fcec7dcdcf6bae5dcbc8b6c
+diff --git a/tools/testing/selftests/bpf/test_loader.c b/tools/testing/selftests/bpf/test_loader.c
+index 49f2fc61061f..9551d8d5f8f9 100644
+--- a/tools/testing/selftests/bpf/test_loader.c
++++ b/tools/testing/selftests/bpf/test_loader.c
+@@ -1042,6 +1042,14 @@ void run_subtest(struct test_loader *tester,
+ 	emit_verifier_log(tester->log_buf, false /*force*/);
+ 	validate_msgs(tester->log_buf, &subspec->expect_msgs, emit_verifier_log);
+ 
++	/* Restore capabilities because the kernel will silently ignore requests
++	 * for program info (such as xlated program text) if we are not
++	 * bpf-capable. Also, for some reason test_verifier executes programs
++	 * with all capabilities restored. Do the same here.
++	 */
++	if (restore_capabilities(&caps))
++		goto tobj_cleanup;
++
+ 	if (subspec->expect_xlated.cnt) {
+ 		err = get_xlated_program_text(bpf_program__fd(tprog),
+ 					      tester->log_buf, tester->log_buf_sz);
+@@ -1067,12 +1075,6 @@ void run_subtest(struct test_loader *tester,
+ 	}
+ 
+ 	if (should_do_test_run(spec, subspec)) {
+-		/* For some reason test_verifier executes programs
+-		 * with all capabilities restored. Do the same here.
+-		 */
+-		if (restore_capabilities(&caps))
+-			goto tobj_cleanup;
+-
+ 		/* Do bpf_map__attach_struct_ops() for each struct_ops map.
+ 		 * This should trigger bpf_struct_ops->reg callback on kernel side.
+ 		 */
 -- 
 2.49.0
 
