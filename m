@@ -4,65 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E12BC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 09:11:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3141C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 09:29:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iW37dc4JV7FI/c08R26nIdXftSnWYFRMw9MuaYDFfGk=; b=XzSxg9bOKhgQOtMU4G2WYmUhFA
-	7uWJGuvpjYRcp95Cmw+4CtmTU9o93hLRYw9E9J2otVpiylsA/FNcfinfQfZ3QI1jtZeTJmOzRaFDU
-	J9bomGXrd6Ss7QtK2wvLKh/IakbidMjpslyFYH4WuiZKa4xtVDlm2OlShnJZEhft7qrIDDpX2RSv5
-	Jkx1LhNfVlnoVwAiQ4KgmKGBz/ZZIuqczFuL7ohp3TI6gdcnMHULnE8xCsSufjh6cSsKAn6gqGf77
-	8sO6ROzHPkp7RTh8IhYEH5jvuqGMrt8Ajev5Ijl0pu9hMrEUvrLRifTBKVI/ZNwFwkz7xc2RFwCuA
-	6KFNH/3g==;
+	bh=i2LHGKpZYLksBxm5tJNfmY+BBUVfKBD3DWOouB09Lhs=; b=hSFL+4tMfzLVqAH4THPy/qXbQo
+	xF/QKmWiS7clFkARfGpIvUGTGYLGtKK8LMG+Lr+ALU6dgNXNDzpMNwlVsChjhkp6UTqoAOLA/I/EV
+	6RUz4klyabQpJvlJrCJY9k7Qjx9cWHsO4LqcL7rjWBKYnXIc0AN52Js8P//w324iIITcJDC/ZM4k+
+	PXiJlmA3pEnCG5OsrJ7daT0C5BSLK3dfCBOf8hfurQWOIsWo5aHa/mP0cNpOiAqajJg34QYxowtH1
+	f7c1dkJUI365LuqQOqR/dU8UQphyb9bZ4yK8Hh2KBlPhTUiw7c6qUdOT8QHqT7sZhUlYFFdX7VjyN
+	gEcCcZdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAPwp-0000000F5tX-1ye9;
-	Thu, 01 May 2025 09:11:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uAQEI-0000000F7PE-0s6V;
+	Thu, 01 May 2025 09:29:18 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAPux-0000000F5lZ-45Vp
+	id 1uAQCO-0000000F7Fw-2Go1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 09:09:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A281568463;
-	Thu,  1 May 2025 09:08:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5ABDAC4CEE3;
-	Thu,  1 May 2025 09:09:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746090558;
-	bh=Ab2Fh2ilzC5IU7gqXpYNCm4x+QzBsCpAZEaO3S+BdKc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=c7nrNs3tbpCki4FheEGOTdohY/wkrwSqL6TUMrwd6jLLdStbV/3RqErns4Qty6Db+
-	 8ltaB7n1dTK76PYbri3Po9ZVUUWfxy7aVTcLD6pNP4nlsPJqrQf9+Uhvm4B/Y3yRS4
-	 joDuG+WxWAMiMrYsYpPhGtYhljYOvfAEynKiWFU7RTBgkIThwIQBd34M10YkrPLib5
-	 YDsy1DzajSoztuICNrtqPuSRT8HBbwV0Yrq10aKuV4jTQMM1aZBr9o18p7jRt6rA7F
-	 1rp9oCXCbkfoj4UAZe+0blotSyTjenvL2BroaVTd11+IDgRjowDAd5PKrrb4AdvPI0
-	 WJD0rkLb5QADQ==
-Date: Thu, 1 May 2025 10:09:13 +0100
-From: Lee Jones <lee@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
-	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 0/2] firmware: exynos-acpm: clients (PMIC, clocks, etc.)
- will become children
-Message-ID: <20250501090913.GA3627101@google.com>
-References: <20250327-acpm-children-v1-0-0afe15ee2ff7@linaro.org>
- <174530898122.9276.5071475909293812602.b4-ty@linaro.org>
+	Thu, 01 May 2025 09:27:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1746091640; x=1777627640;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Z3FUNBSpbmp7v3k/CJmY5lFbQ1TQFPplgNK+yntHNR8=;
+  b=YSYBLFa9CAOFq2NgOGgUtydC1LwrF9lUJobN7oVMEwG22EuUt7MpTQQ+
+   7GZasUNS0/3zI55kL2tw2q5VlFH7Ot7HyS2FcIPSvIJM/tiN31dmIfhU6
+   vYQ8vuC0zD6B/GjnepEYI777JyvhPL6rx77INFCfDJBZjM8Af7zolQ52B
+   t89w8lWC/Qf1GTLxrxidJ4yohT3n8t8z9m89DHKcPDBeU68gFZ+Sm7qqU
+   WFh2tZavde5KuEXS0cojjwGl4VXicmuE9140y96dnFm06l92XIilEGLe8
+   Drl7lWTGeRAv8s13vt9/88VRALe2VxHMBJHC7OlbN5gBi5lYbTTzBmqav
+   A==;
+X-CSE-ConnectionGUID: FbnFCC9mQpGmqI/S8KxXoQ==
+X-CSE-MsgGUID: TATUOebCRLiU0ZAK5PIamA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11419"; a="51584509"
+X-IronPort-AV: E=Sophos;i="6.15,253,1739865600"; 
+   d="scan'208";a="51584509"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 May 2025 02:27:18 -0700
+X-CSE-ConnectionGUID: I/qWFAg7SGqQ9mZHJC7ZZA==
+X-CSE-MsgGUID: o9QTmBoyRuqRtpnZz5bIJw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,254,1739865600"; 
+   d="scan'208";a="134088028"
+Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
+  by orviesa009.jf.intel.com with ESMTP; 01 May 2025 02:27:13 -0700
+Received: from kbuild by 1992f890471c with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uAQCE-000453-1I;
+	Thu, 01 May 2025 09:27:10 +0000
+Date: Thu, 1 May 2025 17:26:46 +0800
+From: kernel test robot <lkp@intel.com>
+To: Claudiu <claudiu.beznea@tuxon.dev>, bhelgaas@google.com,
+	lpieralisi@kernel.org, kw@linux.com,
+	manivannan.sadhasivam@linaro.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, geert+renesas@glider.be,
+	magnus.damm@gmail.com, mturquette@baylibre.com, sboyd@kernel.org,
+	saravanak@google.com, p.zabel@pengutronix.de
+Cc: oe-kbuild-all@lists.linux.dev, claudiu.beznea@tuxon.dev,
+	linux-pci@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+Subject: Re: [PATCH 1/8] soc: renesas: r9a08g045-sysc: Add max reg offset
+Message-ID: <202505011714.p63Hj7Fe-lkp@intel.com>
+References: <20250430103236.3511989-2-claudiu.beznea.uj@bp.renesas.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <174530898122.9276.5071475909293812602.b4-ty@linaro.org>
+In-Reply-To: <20250430103236.3511989-2-claudiu.beznea.uj@bp.renesas.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250501_022720_656740_11B78563 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,33 +95,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 22 Apr 2025, Krzysztof Kozlowski wrote:
+Hi Claudiu,
 
-> 
-> On Thu, 27 Mar 2025 12:54:26 +0000, André Draszik wrote:
-> > ACPM clients (PMIC, clocks, etc.) will be modeled as children of the
-> > ACPM interface.
-> > 
-> > This necessitates two changes in this driver:
-> > * child platform_devices from device tree need to be populated here
-> > * child drivers will need to be able to get the ACPM handle via a
-> >   struct device_node, not via a DT property name
-> > 
-> > [...]
-> 
-> Applied, thanks!
-> 
-> [1/2] firmware: exynos-acpm: populate devices from device tree data
->       https://git.kernel.org/krzk/linux/c/636baba9489a634c956d6f02076af6bc1725c132
-> [2/2] firmware: exynos-acpm: introduce devm_acpm_get_by_node()
->       https://git.kernel.org/krzk/linux/c/a8dc26a0ec43fd416ca781a8030807e65f71cfc5
+kernel test robot noticed the following build warnings:
 
-Can this be made available for other subsystems to pull from please?
+[auto build test WARNING on pci/next]
+[also build test WARNING on pci/for-linus geert-renesas-devel/next geert-renesas-drivers/renesas-clk robh/for-next arm64/for-next/core linus/master v6.15-rc4 next-20250430]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Without it MFD is currently broken.
+url:    https://github.com/intel-lab-lkp/linux/commits/Claudiu/soc-renesas-r9a08g045-sysc-Add-max-reg-offset/20250430-183951
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git next
+patch link:    https://lore.kernel.org/r/20250430103236.3511989-2-claudiu.beznea.uj%40bp.renesas.com
+patch subject: [PATCH 1/8] soc: renesas: r9a08g045-sysc: Add max reg offset
+config: arm64-randconfig-001-20250501 (https://download.01.org/0day-ci/archive/20250501/202505011714.p63Hj7Fe-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 9.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250501/202505011714.p63Hj7Fe-lkp@intel.com/reproduce)
 
-Ref: https://lore.kernel.org/all/fd11ee67a3d51aef6305c477b140d911da0b2af4.camel@linaro.org/
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202505011714.p63Hj7Fe-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   drivers/soc/renesas/r9a08g045-sysc.c:23:3: error: 'const struct rz_sysc_init_data' has no member named 'max_register_offset'
+      23 |  .max_register_offset = 0xe28,
+         |   ^~~~~~~~~~~~~~~~~~~
+>> drivers/soc/renesas/r9a08g045-sysc.c:23:25: warning: excess elements in struct initializer
+      23 |  .max_register_offset = 0xe28,
+         |                         ^~~~~
+   drivers/soc/renesas/r9a08g045-sysc.c:23:25: note: (near initialization for 'rzg3s_sysc_init_data')
+
+
+vim +23 drivers/soc/renesas/r9a08g045-sysc.c
+
+    20	
+    21	const struct rz_sysc_init_data rzg3s_sysc_init_data __initconst = {
+    22		.soc_id_init_data = &rzg3s_sysc_soc_id_init_data,
+  > 23		.max_register_offset = 0xe28,
 
 -- 
-Lee Jones [李琼斯]
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
