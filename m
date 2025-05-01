@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF9F3C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 11:48:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32D88C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 11:50:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PJBvI7wwkRxr1FTgwS3vma+04LX0qvGUwSfl21S1hMo=; b=qT0Av+KpgO887WrYaC7vixelPY
-	EL1NWzsmo5Y/Su2o/9sFOZ41nBMVBN6EXAZ++WhwY/cTeE148pRZIkFLz0VP+GK+tP+B7jv6lHiZZ
-	hpOCKGRGPVXZdfGv9ZkKL0wHu/vhqtpSCfVhxXvYuVJqFkyWc6YotUh4mg50Cqxqp71w/813r+kN9
-	se4mFL+3tmoFQxbhKqAch9m+AvMwCdsv2S394+DLFb1kniqLDvJtD9vxSjsW6WwewAIfReLM4Aqmv
-	RtyWM5IvxhzTEWUXqxgmyjuFEEJFqrxBwOWzLzpZamZb/QC8pTHqG0NXV+wyC9VlLAsUa9tNJ52f5
-	/EFW14WA==;
+	bh=3Qm1rnkV0q1YSY6YnMe1bQVxSr0y1kNItu+wVrDmfWw=; b=vhqd4LSZh1qWZBvFHl8Mlix7+M
+	Y7iphaBMUAYtqU93xjS9TR8U/gaUO8V5O8dVGiY00UoxkrgeVN9yGU95mKoDICgUHvOyVqpZWN8tA
+	6Q/4WuU/VWwZ2XGFk1c9cf8kpMlvKMIlqY27JZR9OIpHihoLHmkbXVifHwODioN5iMQji+FtiUQ5S
+	5IfIvCefLZd5BtyawwzrQRruoHc9ggTFYDTBf5G+UTLoj67k+IGEVIgdtymOOgOqbMP6fHbvR/JtC
+	946EyxYhGesMR5etfHcvkmgdONgatcpK6rw4vx6hh9uyv9PxptDNVz4krzbv9gHTYpndmpLQL6dhN
+	8EdoWBoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uASP1-0000000FJnr-46TJ;
-	Thu, 01 May 2025 11:48:31 +0000
+	id 1uASQv-0000000FJzB-2irV;
+	Thu, 01 May 2025 11:50:29 +0000
 Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uASBA-0000000FI6j-2eME
+	id 1uASBG-0000000FI7e-13Vb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 11:34:14 +0000
+	Thu, 01 May 2025 11:34:19 +0000
 Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 0DDE420240;
-	Thu,  1 May 2025 13:34:11 +0200 (CEST)
+	by disroot.org (Postfix) with ESMTP id E0EEF20240;
+	Thu,  1 May 2025 13:34:16 +0200 (CEST)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
  by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id s_0JlPuh4B2J; Thu,  1 May 2025 13:34:09 +0200 (CEST)
+ id rx7wPzFTh7b6; Thu,  1 May 2025 13:34:15 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1746099249; bh=1t6etv+yzq/k2swtasHTUgsqyK+5AZePSz8OK7woU+M=;
+	t=1746099255; bh=0xdQgWGpucEmNW6QHmfAFFGbYNB9SR/QOfkgqZm1ENk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=GERuw9N4J6u4OiwldyT2mWaeZD+OdBIi9HiS3yL6UkYu4RjxBEZL0XS8EopDNXOv/
-	 RICIyGvaJ2IxNd7Rc5B180g8FTU3ww6j1RflBTd5xCqVQHz6uu25Uz0mEznjvYe/rN
-	 QpQSKTQp8uG7ZNyaO6v1vdYBczLSLaaqwBbtaLWzW/UvmgeqiTWPdu6Ag3K6Z/HVHx
-	 FdOWCFky+xofzmzH7GbOauDbh8NePuAlrvqfs5yVx2fRvL2XsdPdMbB8UnPkzq/Byl
-	 urE9UiGTfy9kT77BWcwPFAWQzgheNTnAvOFXRfEcRDRhuF+nuMe3Vl8FTPz36saGoA
-	 iVjq7IHRw8A/g==
+	b=HwzfYKG/quUnjxTTB7pcDRdjgtud9FSruN4PU7I+ih64k2tExEIoECZFGRPlmieBS
+	 SWRQWATiqCkGtVN0RP7Wx2mFhgaYtvYnpiIVrjQzuX1kmI7HVW+8zWQIF/XZwntmHg
+	 fE6XA7rJpeClo3hVCGFNVUqtEB4TrSn1lD8exWiYs2fN6l44g3OT/fyIz/6JD0xxc0
+	 lC4N0hMueyrJY9m7Naybh5R5i8zA6HphAefYG33DBV24ngDVO1Lr+yNQNJrKCPlHdI
+	 kk7dZvpW6z+aNClKjWrXGn7RRZx/aa+z+o1gvOV2zSL8t0OMA6stBKg4Y4nGFwpkeX
+	 OPkZTB0/yCV2w==
 From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Date: Thu, 01 May 2025 17:03:00 +0530
-Subject: [PATCH v7 4/5] arm64: dts: exynos: add initial support for Samsung
- Galaxy A2 Core
+Date: Thu, 01 May 2025 17:03:01 +0530
+Subject: [PATCH v7 5/5] arm64: dts: exynos: add initial support for Samsung
+ Galaxy J6
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250501-exynos7870-v7-4-bb579a27e5eb@disroot.org>
+Message-Id: <20250501-exynos7870-v7-5-bb579a27e5eb@disroot.org>
 References: <20250501-exynos7870-v7-0-bb579a27e5eb@disroot.org>
 In-Reply-To: <20250501-exynos7870-v7-0-bb579a27e5eb@disroot.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -62,16 +62,16 @@ Cc: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
  Kaustabh Chakraborty <kauschluss@disroot.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1746099219; l=16662;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1746099219; l=16218;
  i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
- bh=1t6etv+yzq/k2swtasHTUgsqyK+5AZePSz8OK7woU+M=;
- b=EZ9pIqMQF1VoS0qVEy9M6uqdsOrI/aw4cqf3yZPPqArHUyR4NEjv003LRxzolzJKeC35eYjRN
- szo+Jhgkii+BfHehFynKWL/LpeDOtgSKwqIa+xSw2V+kLVdPxsQOiep
+ bh=0xdQgWGpucEmNW6QHmfAFFGbYNB9SR/QOfkgqZm1ENk=;
+ b=VllHM+/43jWy9BliO1fQogKW9xAVTY1QhOakZKccANZHUPax04HdPl5hUOf/OwgdXuDO01fZH
+ nAwu/5SJOKeBeP0QDVOWiHQLDdLXtKepvUr7RnJOZl6Cpp5ZFFilGn7
 X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
  pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_043412_946529_519A22FD 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20250501_043418_567879_34DEC3BF 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,36 +86,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add initial devicetree support for Samsung Galaxy A2 Core
-(codename: a2corelte), an Exynos7870 device.
+Add initial devicetree support for Samsung Galaxy J6 (codename: j6lte),
+an Exynos7870 device.
 
 Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
 ---
- arch/arm64/boot/dts/exynos/Makefile                |   1 +
- .../arm64/boot/dts/exynos/exynos7870-a2corelte.dts | 630 +++++++++++++++++++++
- 2 files changed, 631 insertions(+)
+ arch/arm64/boot/dts/exynos/Makefile             |   1 +
+ arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts | 614 ++++++++++++++++++++++++
+ 2 files changed, 615 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/exynos/Makefile b/arch/arm64/boot/dts/exynos/Makefile
-index a8d78d2add05ecf688ffa3a32aa5b8d1a48faf81..e0da4c4972c7344cf957e00ef701d6405a16bdcb 100644
+index e0da4c4972c7344cf957e00ef701d6405a16bdcb..89c90564c3d86a268ea46492b67d72fa69ad3e95 100644
 --- a/arch/arm64/boot/dts/exynos/Makefile
 +++ b/arch/arm64/boot/dts/exynos/Makefile
-@@ -5,6 +5,7 @@ dtb-$(CONFIG_ARCH_EXYNOS) += \
- 	exynos5433-tm2.dtb		\
+@@ -6,6 +6,7 @@ dtb-$(CONFIG_ARCH_EXYNOS) += \
  	exynos5433-tm2e.dtb		\
  	exynos7-espresso.dtb		\
-+	exynos7870-a2corelte.dtb	\
+ 	exynos7870-a2corelte.dtb	\
++	exynos7870-j6lte.dtb		\
  	exynos7870-on7xelte.dtb		\
  	exynos7885-jackpotlte.dtb	\
  	exynos850-e850-96.dtb		\
-diff --git a/arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dts b/arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dts
+diff --git a/arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts b/arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts
 new file mode 100644
-index 0000000000000000000000000000000000000000..eb7b48593187409ce6653b7d857b63f6946aa4f7
+index 0000000000000000000000000000000000000000..24c9722f7a596f320e19b615f6306e3c2a89d7a4
 --- /dev/null
-+++ b/arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dts
-@@ -0,0 +1,630 @@
++++ b/arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts
+@@ -0,0 +1,614 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
-+ * Samsung Galaxy A2 Core (a2corelte) device tree source
++ * Samsung Galaxy J6 (j6lte) device tree source
 + *
 + * Copyright (c) 2018 Samsung Electronics Co., Ltd.
 + * Copyright (c) 2025 Kaustabh Chakraborty <kauschluss@disroot.org>
@@ -128,8 +128,8 @@ index 0000000000000000000000000000000000000000..eb7b48593187409ce6653b7d857b63f6
 +#include <dt-bindings/interrupt-controller/irq.h>
 +
 +/ {
-+	model = "Samsung Galaxy A2 Core";
-+	compatible = "samsung,a2corelte", "samsung,exynos7870";
++	model = "Samsung Galaxy J6";
++	compatible = "samsung,j6lte", "samsung,exynos7870";
 +	chassis-type = "handset";
 +
 +	aliases {
@@ -150,11 +150,28 @@ index 0000000000000000000000000000000000000000..eb7b48593187409ce6653b7d857b63f6
 +
 +		framebuffer@67000000 {
 +			compatible = "simple-framebuffer";
-+			reg = <0x0 0x67000000 (540 * 960 * 4)>;
-+			width = <540>;
-+			height = <960>;
-+			stride = <(540 * 4)>;
++			reg = <0x0 0x67000000 (720 * 1480 * 4)>;
++			width = <720>;
++			height = <1480>;
++			stride = <(720 * 4)>;
 +			format = "a8r8g8b8";
++		};
++	};
++
++	gpio-hall-effect-sensor {
++		compatible = "gpio-keys";
++		label = "GPIO Hall Effect Sensor";
++
++		pinctrl-names = "default";
++		pinctrl-0 = <&hall_irq>;
++
++		event-hall-effect-sensor {
++			label = "Hall Effect Sensor";
++			gpios = <&gpa1 3 GPIO_ACTIVE_LOW>;
++			linux,input-type = <EV_SW>;
++			linux,code = <SW_LID>;
++			linux,can-disable;
++			wakeup-source;
 +		};
 +	};
 +
@@ -177,6 +194,7 @@ index 0000000000000000000000000000000000000000..eb7b48593187409ce6653b7d857b63f6
 +			linux,code = <KEY_VOLUMEDOWN>;
 +		};
 +
++
 +		key-volup {
 +			label = "Volume Up Key";
 +			gpios = <&gpa2 0 GPIO_ACTIVE_LOW>;
@@ -186,7 +204,8 @@ index 0000000000000000000000000000000000000000..eb7b48593187409ce6653b7d857b63f6
 +
 +	memory@40000000 {
 +		device_type = "memory";
-+		reg = <0x0 0x40000000 0x3f200000>;
++		reg = <0x0 0x40000000 0x3d800000>,
++		      <0x0 0x80000000 0x7d800000>;
 +	};
 +
 +	pwrseq_mmc1: pwrseq-mmc1 {
@@ -204,29 +223,20 @@ index 0000000000000000000000000000000000000000..eb7b48593187409ce6653b7d857b63f6
 +		enable-active-high;
 +	};
 +
-+	vdd_fixed_proxled: regulator-fixed-proxled {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vdd_fixed_proxled";
-+		regulator-boot-on;
-+		regulator-always-on;
-+		gpio = <&gpd4 3 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
 +	reserved-memory {
 +		#address-cells = <2>;
 +		#size-cells = <1>;
 +		ranges;
 +
-+		ramoops@46800000 {
++		ramoops@46e00000 {
 +			compatible = "ramoops";
-+			reg = <0x0 0x46800000 0x8000>;
++			reg = <0x0 0x46e00000 0x8000>;
 +			console-size = <0x4000>;
 +			pmsg-size = <0x4000>;
 +		};
 +
 +		framebuffer@67000000 {
-+			reg = <0x0 0x67000000 (540 * 960 * 4)>;
++			reg = <0x0 0x67000000 (720 * 1480 * 4)>;
 +			no-map;
 +		};
 +	};
@@ -419,8 +429,8 @@ index 0000000000000000000000000000000000000000..eb7b48593187409ce6653b7d857b63f6
 +
 +			vdd_ldo29: ldo29 {
 +				regulator-name = "vdd_ldo29";
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
++				regulator-min-microvolt = <3000000>;
++				regulator-max-microvolt = <3000000>;
 +				regulator-boot-on;
 +				regulator-always-on;
 +			};
@@ -452,28 +462,27 @@ index 0000000000000000000000000000000000000000..eb7b48593187409ce6653b7d857b63f6
 +
 +			vdd_ldo33: ldo33 {
 +				regulator-name = "vdd_ldo33";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-ramp-delay = <12000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vdd_ldo34: ldo34 {
-+				regulator-name = "vdd_ldo34";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
 +				regulator-ramp-delay = <12000>;
 +				regulator-boot-on;
 +				regulator-always-on;
 +			};
 +
 +			/* touchscreen: vdd */
++			vdd_ldo34: ldo34 {
++				regulator-name = "vdd_ldo34";
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++			};
++
 +			vdd_ldo35: ldo35 {
 +				regulator-name = "vdd_ldo35";
 +				regulator-min-microvolt = <2800000>;
 +				regulator-max-microvolt = <2800000>;
 +				regulator-ramp-delay = <12000>;
++				regulator-boot-on;
++				regulator-always-on;
 +			};
 +		};
 +	};
@@ -497,19 +506,11 @@ index 0000000000000000000000000000000000000000..eb7b48593187409ce6653b7d857b63f6
 +		pinctrl-names = "default";
 +		pinctrl-0 = <&accel_irq>;
 +
++		mount-matrix = "-1", "0",  "0",
++				"0", "1",  "0",
++				"0", "0", "-1";
++
 +		st,drdy-int-pin = <1>;
-+	};
-+
-+	proximity@48 {
-+		compatible = "sensortek,stk3013", "sensortek,stk3310";
-+		reg = <0x48>;
-+		interrupt-parent = <&gpa0>;
-+		interrupts = <5 IRQ_TYPE_EDGE_BOTH>;
-+
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&proxm_irq>;
-+
-+		proximity-near-level = <25>;
 +	};
 +};
 +
@@ -522,36 +523,19 @@ index 0000000000000000000000000000000000000000..eb7b48593187409ce6653b7d857b63f6
 +
 +	status = "okay";
 +
-+	touchscreen@4b {
-+		compatible = "syna,rmi4-i2c";
-+		reg = <0x4b>;
++	touchscreen@20 {
++		compatible = "zinitix,bt532";
++		reg = <0x20>;
 +		interrupt-parent = <&gpa0>;
 +		interrupts = <6 IRQ_TYPE_LEVEL_LOW>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
 +
 +		pinctrl-names = "default";
 +		pinctrl-0 = <&touch_irq>;
 +
-+		vdd-supply = <&vdd_ldo35>;
++		touchscreen-size-x = <720>;
++		touchscreen-size-y = <1480>;
 +
-+		syna,reset-delay-ms = <200>;
-+		syna,startup-delay-ms = <200>;
-+
-+		rmi4-f01@1 {
-+			reg = <0x01>;
-+			syna,nosleep-mode = <1>;
-+		};
-+
-+		rmi4-f12@12 {
-+			reg = <0x12>;
-+			syna,sensor-type = <1>;
-+			syna,rezero-wait-ms = <200>;
-+			syna,clip-x-high = <539>;
-+			syna,clip-y-high = <959>;
-+			touchscreen-x-mm = <62>;
-+			touchscreen-y-mm = <110>;
-+		};
++		vdd-supply = <&vdd_ldo34>;
 +	};
 +};
 +
@@ -644,6 +628,13 @@ index 0000000000000000000000000000000000000000..eb7b48593187409ce6653b7d857b63f6
 +
 +	fuel_irq: fuel-irq-pins {
 +		samsung,pins = "gpa0-3";
++		samsung,pin-function = <EXYNOS_PIN_FUNC_INPUT>;
++		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
++		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
++	};
++
++	hall_irq: hall-irq-pins {
++		samsung,pins = "gpa1-3";
 +		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
 +		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
 +		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
@@ -674,13 +665,6 @@ index 0000000000000000000000000000000000000000..eb7b48593187409ce6653b7d857b63f6
 +		samsung,pins = "gpa0-2";
 +		samsung,pin-pud = <EXYNOS_PIN_PULL_UP>;
 +		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR4>;
-+	};
-+
-+	proxm_irq: proxm-irq-pins {
-+		samsung,pins = "gpa0-5";
-+		samsung,pin-function = <EXYNOS_PIN_FUNC_EINT>;
-+		samsung,pin-pud = <EXYNOS_PIN_PULL_NONE>;
-+		samsung,pin-drv = <EXYNOS5433_PIN_DRV_FAST_SR1>;
 +	};
 +
 +	touch_irq: touch-irq-pins {
