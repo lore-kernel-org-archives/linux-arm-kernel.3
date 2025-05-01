@@ -4,60 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1F75C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 13:55:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D43CC3ABA3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 13:57:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xPN7G4hoFMwtYe5MguwHeBQSrvukpeunqcLVGRuNyjU=; b=rTXC/jB839jQAdZj/Pj2CbQBeP
-	9OVdUFq+u4lx7mxekPY+8KElhLdLoPbDrWMsACMswifCq0i62gShYxOFjN/xJeDe6CgBqiBxSqtti
-	4kVLgd1HAPXQmkAOQLU4jH8givDCIFZKHwWmyOtg/VHfPKxSmUwEMhZPCKFnGaBGJOCBqACdAAOVC
-	F2eTR/DeyDahhISGpKdJzeBhPqOYHAB2q2z8RsPbmWZHo4P+ibQYJEaeHRmo+eU9Eh9jCKHsVnwFb
-	+vbdcQ9ek0hyBQFqn4YlIcyBsuTi5hv0gEfI8Cf59TawFOseKjKLWwo5fsdYsep/RoPHdi404lAhj
-	NLbKLWTg==;
+	bh=aE111zmwmrBWhUfB76ogGIl9HmC+s4gYEjXcbE7tHCk=; b=OixJ95gropzJTQ9LKkFUwLyXt3
+	RCDUB0lOXu3h+Y4asV5/pJZqlotX/bdQnGo0/2yLwuadAiFeoJ8pEko/Ogu96o1YVcyPPKnUMsfQT
+	02SAM0i0vF3CjHh7YEMY5UYcZnbz+Xv0uCHqI3zumhei67Puk3ANyIbm4gdMFWysGm0hg+nFkTUus
+	G7xPE3Ekm0q+KJ9/6YRj3HbKiMB2Fjll6O9pTA/ionev3C3wxCG+nj6Udz2vg6LyJWAsWZaXKNrTG
+	dKDtzqoVTN2bbeGTN+r0oY/3Rtw+jge9HiKQOJFmq3x0e1JX8rYy7Qe6g44+sP8cgOwyI5GgBRlw9
+	l1RWSAjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAUNI-0000000FtAC-3dzh;
-	Thu, 01 May 2025 13:54:52 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAULP-0000000Ft0z-0UTs
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 13:52:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E6025168F;
-	Thu,  1 May 2025 06:52:46 -0700 (PDT)
-Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 88A463F673;
-	Thu,  1 May 2025 06:52:52 -0700 (PDT)
-Date: Thu, 1 May 2025 14:52:47 +0100
-From: Joey Gouly <joey.gouly@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org,
+	id 1uAUPX-0000000FtVd-0Ggp;
+	Thu, 01 May 2025 13:57:11 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uAUNd-0000000FtEa-3hkD;
+	Thu, 01 May 2025 13:55:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 11D4E68463;
+	Thu,  1 May 2025 13:54:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E48EC4CEE3;
+	Thu,  1 May 2025 13:55:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746107712;
+	bh=HP9qPQcXPFBaNtd0LbBqA0JNCPyQw698ggOHjYeim0Y=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Pfk1ZFoGFQBcJbn4eAazqmyuBJ6TkiGf2ekSQDgoa5Fjia9S2lMt5efsrXyzq1Vvm
+	 ULeuC83dmMDOduBWW3xv2ptavXQm1vdoGdMaOq6foW7rtSQf8ouqLVTIFegJWn1fzS
+	 EorN2jN0LePdF11Vpm6UW5UyEsjAfLLhsNMAJTWfxtw7S29pRommXhIjicwQXKd09K
+	 dja4faMd/aLvbeN4QKFNqUIDiiz0PK5zIlRXOlq9ONM7WY09BvtawseMmekfxpdUph
+	 231yeafldT6FquJnpqz72EltQ8Tb6TsqSFX9obyV9riRozvuNYg8YfhJH7B6vS3/oQ
+	 Lfve/zxbzhOzw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uAUNa-00AakJ-3R;
+	Thu, 01 May 2025 14:55:10 +0100
+Date: Thu, 01 May 2025 14:55:08 +0100
+Message-ID: <86v7qkh1vn.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: Maxim Levitsky <mlevitsk@redhat.com>,
+	kvm@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Kunkun Jiang <jiangkunkun@huawei.com>,
+	Waiman Long <longman@redhat.com>,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Alexander Potapenko <glider@google.com>,
 	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>, Fuad Tabba <tabba@google.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	x86@kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	kvm-riscv@lists.infradead.org,
+	Atish Patra <atishp@atishpatra.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Jing Zhang <jingzhangos@google.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	kvmarm@lists.linux.dev,
 	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>
-Subject: Re: [PATCH v3 08/42] arm64: sysreg: Add registers trapped by
- HFG{R,W}TR2_EL2
-Message-ID: <20250501135247.GA2195277@e124191.cambridge.arm.com>
-References: <20250426122836.3341523-1-maz@kernel.org>
- <20250426122836.3341523-9-maz@kernel.org>
- <20250501101136.GE1859293@e124191.cambridge.arm.com>
- <86wmb0h2ap.wl-maz@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86wmb0h2ap.wl-maz@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_065255_207118_9C31B96F 
-X-CRM114-Status: GOOD (  18.84  )
+	Keisuke Nishimura <keisuke.nishimura@inria.fr>,
+	Sebastian Ott <sebott@redhat.com>,
+	Shusen Li <lishusen2@huawei.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Sean Christopherson <seanjc@google.com>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v4 2/5] arm64: KVM: use mutex_trylock_nest_lock when locking all vCPUs
+In-Reply-To: <20250501134126.GT4439@noisy.programming.kicks-ass.net>
+References: <20250430203013.366479-1-mlevitsk@redhat.com>
+	<20250430203013.366479-3-mlevitsk@redhat.com>
+	<864iy4ivro.wl-maz@kernel.org>
+	<20250501111552.GO4198@noisy.programming.kicks-ass.net>
+	<861pt8ijpv.wl-maz@kernel.org>
+	<20250501134126.GT4439@noisy.programming.kicks-ass.net>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: peterz@infradead.org, mlevitsk@redhat.com, kvm@vger.kernel.org, linux-riscv@lists.infradead.org, jiangkunkun@huawei.com, longman@redhat.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com, bhelgaas@google.com, boqun.feng@gmail.com, bp@alien8.de, aou@eecs.berkeley.edu, anup@brainfault.org, paul.walmsley@sifive.com, suzuki.poulose@arm.com, palmer@dabbelt.com, alex@ghiti.fr, glider@google.com, oliver.upton@linux.dev, andre.przywara@arm.com, x86@kernel.org, joey.gouly@arm.com, tglx@linutronix.de, kvm-riscv@lists.infradead.org, atishp@atishpatra.org, mingo@redhat.com, jingzhangos@google.com, hpa@zytor.com, dave.hansen@linux.intel.com, kvmarm@lists.linux.dev, will@kernel.org, keisuke.nishimura@inria.fr, sebott@redhat.com, lishusen2@huawei.com, pbonzini@redhat.com, rdunlap@infradead.org, seanjc@google.com, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,65 +120,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 01, 2025 at 02:46:06PM +0100, Marc Zyngier wrote:
-> On Thu, 01 May 2025 11:11:36 +0100,
-> Joey Gouly <joey.gouly@arm.com> wrote:
+On Thu, 01 May 2025 14:41:26 +0100,
+Peter Zijlstra <peterz@infradead.org> wrote:
+> 
+> On Thu, May 01, 2025 at 01:44:28PM +0100, Marc Zyngier wrote:
+> > On Thu, 01 May 2025 12:15:52 +0100,
+> > Peter Zijlstra <peterz@infradead.org> wrote:
+> > > 
+> > > > > + */
+> > > > > +int kvm_trylock_all_vcpus(struct kvm *kvm)
+> > > > > +{
+> > > > > +	struct kvm_vcpu *vcpu;
+> > > > > +	unsigned long i, j;
+> > > > > +
+> > > > > +	kvm_for_each_vcpu(i, vcpu, kvm)
+> > > > > +		if (!mutex_trylock_nest_lock(&vcpu->mutex, &kvm->lock))
+> > > 
+> > > This one includes an assertion that kvm->lock is actually held.
 > > 
-> > On Sat, Apr 26, 2025 at 01:28:02PM +0100, Marc Zyngier wrote:
-> > > Bulk addition of all the system registers trapped by HFG{R,W}TR2_EL2.
-> > > 
-> > > The descriptions are extracted from the BSD-licenced JSON file part
-> > > of the 2025-03 drop from ARM.
-> > > 
-> > > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > > ---
-> > >  arch/arm64/tools/sysreg | 395 ++++++++++++++++++++++++++++++++++++++++
-> > >  1 file changed, 395 insertions(+)
-> > > 
-> > > diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-> > > index 6433a3ebcef49..7969e632492bb 100644
-> > > --- a/arch/arm64/tools/sysreg
-> > > +++ b/arch/arm64/tools/sysreg
-> > > @@ -2068,6 +2068,26 @@ Field	1	A
-> > >  Field	0	M
-> > >  EndSysreg
-> > >  
-> > > +Sysreg	SCTLR_EL12      3	5	1	0	0
-> > > +Mapping	SCTLR_EL1
-> > > +EndSysreg
-> > > +
-> > > +Sysreg	SCTLRALIAS_EL1  3	0	1	4	6
-> > > +Mapping	SCTLR_EL1
-> > > +EndSysreg
-> > > +
-> > > +Sysreg	ACTLR_EL1	3	0	1	0	1
-> > > +Field   63:0    IMPDEF
-> > > +EndSysreg
-> > > +
-> > > +Sysreg	ACTLR_EL12      3	5	1	0	1
-> > > +Mapping	ACTLR_EL1
-> > > +EndSysreg
-> > > +
-> > > +Sysreg	ACTLRALIAS_EL1  3	0	1	4	5
-> > > +Mapping	ACTLR_EL1
-> > > +EndSysreg
-> > > +
+> > Ah, cunning. Thanks.
 > > 
-> > Do you want to update CPACR_EL1 while you're at it, so that it matches
-> > CPACRMASK_EL1?
+> > > That said, I'm not at all sure what the purpose of all this trylock
+> > > stuff is here.
+> > > 
+> > > Can someone explain? Last time I asked someone said something about
+> > > multiple VMs, but I don't know enough about kvm to know what that means.
+> > 
+> > Multiple VMs? That'd be real fun. Not.
+> > 
+> > > Are those vcpu->mutex another class for other VMs? Or what gives?
+> > 
+> > Nah. This is firmly single VM.
+> > 
+> > The purpose of this contraption is that there are some rare cases
+> > where we need to make sure that if we update some global state, all
+> > the vcpus of a VM need to see, or none of them.
+> > 
+> > For these cases, the guarantee comes from luserspace, and it gives the
+> > pinky promise that none of the vcpus are running at that point. But
+> > being of a suspicious nature, we assert that this is true by trying to
+> > take all the vcpu mutexes in one go. This will fail if a vcpu is
+> > running, as KVM itself takes the vcpu mutex before doing anything.
+> > 
+> > Similar requirement exists if we need to synthesise some state for
+> > userspace from all the individual vcpu states.
 > 
-> Do you mean adding the TAM and TCPAC bits added by FEAT_NV2p1? Sure,
-> no problem. I'll probably add that as a separate patch though, as I
-> want this one to only be concerned with the FEAT_FGT2-controlled
-> accessors.
+> Ah, okay. Because x86 is simply doing mutex_lock() instead of
+> mutex_trylock() -- which would end up waiting for this activity to
+> subside I suppose.
+> 
+> Hence the use of the killable variant I suppose, for when they get tired
+> of waiting.
 
-Yep, sounds good.
+Yeah, I remember some debate around that when this refactoring was
+first posted. I quickly paged it out.
 
-> 
-> Thanks,
-> 
-> 	M.
-> 
-> -- 
-> Without deviation from the norm, progress is not possible.
+> If all the architectures are basically doing the same thing, it might
+> make sense to unify this particular behaviour. But what do I know.
+
+I don't know either. The trylock behaviour has been there since day-1
+on the arm side, and changing it would have userspace visible effects.
+So I'm pretty keen on preserving it, warts and all. The last thing I
+need is a VMM person hitting my inbox on the grounds that their toy is
+broken.
+
+On the other hand, we're talking about virtualisation, so everything
+is more or less broken by design...
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
