@@ -4,68 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AA93C3ABA3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 08:05:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EBC9C3ABA3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 08:07:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YQ5Ffb5t0gvM5vO+W+AtPI2aP5E2bpsXI//twSWFqEI=; b=pDw02ox2tLx4y1+w07ya2wH96B
-	IepfKSCoclY3c3mN4dPpKpNYx8d7OFwWMdQw3riRUN0u/nQjtKTNVVaiIu2/41xnl9EmK9m+rMyNk
-	6IFTl1gKu/qrjrRLV+f1wgjeBMd8mr68ScEjkuM151EIAN26VGsQaRLylMD/Wjt1b9Pca5t5xBgYH
-	A/ZWLjNThIXETklisSIEpgyHmmPEpLxulmY9K2TacLCnCj6Ns95fKmad+95jZu8oW+3GJVLsJQ/hR
-	JYT0RqZcO4v1p4iIW3EHgsdBYcfAkXj+kse9d18Uf3VVTVHC9noX8GZMWq8NPk9Kcj4IH/u/jfPtf
-	1P2Q5K4w==;
+	bh=comqgaUQOxn93ZxQu1EvnNHU0RsO6P+D6nZ/mcIInMw=; b=j8xqaOWtxjbDakLtske14hL1S2
+	KveR7VmOvQOzWAuWfGY1CsWbhkZr+BinTIHkOR5EXFRXQWlU6HN/5YFvpANENLPTXNVIfNX5Pfdwk
+	R2yewuIsmkWfeVKR/Jfnf2V9GYZJuu70gntlFCh6B1uc9XqrzGnwYgN75iw5RPCIERS+I+0+B3N+P
+	GgekSESmFHVFmzsS7em9S5kAZ9pdq/V1JyoOeM6lNr8mx2RgEKD0FC8sy6WuYbz6ZSCv15xzzlGxx
+	m+dCEIqIsx1CRiw5WjTJF/3S4RoQM1xBb57nNBev+DcnKvDPHyGrkYwewc4ZEInecQK0ouoPjprOM
+	KogEgE5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAOvG-0000000F09t-3F1n;
-	Thu, 01 May 2025 08:05:34 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1uAOx8-0000000F0Z3-2LwU;
+	Thu, 01 May 2025 08:07:30 +0000
+Received: from mx-rz-1.rrze.uni-erlangen.de ([2001:638:a000:1025::14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAOtM-0000000Ezyf-45DT
+	id 1uAOtY-0000000Ezzl-1aFM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 08:03:38 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 5D21B25CCA;
-	Thu,  1 May 2025 10:03:32 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id nN5rKr4dkGB7; Thu,  1 May 2025 10:03:31 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1746086611; bh=CapM8cFQ+34osfR/nGJn+yrSPaGS7Fi3qUNlij2E3TU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=TPMOVxPpnvJbac+WIRnf5SfCs7yLNJnJUK/nnthIjQNNa/4XOsyTvx032ly3BLwhO
-	 fXaXxSNf13jkS4M9YE+mDvAAYKCGp9mR7qK8/cQ71m5eNSmmIpFfGZDjerYbo5DwNf
-	 6Pu9oPhPyl0R8H4YBiU6p5LOsjAQrbSvd6F9hSV9IvFzBW8DPnDakpfsnd/BqVu9Ka
-	 8v+gMXaKuzLVeIaubS/8rfnU0goHq3/8BeGJDtdbSMmXAdSg7eHIR93jQ0WbrKGYUF
-	 CSpbi0vXckfih6HRa1sykUZMkvqtCJzx0EHctVaJAvxqQszfcMQADD777SVAYs8nYH
-	 nVAt/l5RRGgAw==
+	Thu, 01 May 2025 08:03:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fau.de; s=fau-2021;
+	t=1746086626; bh=comqgaUQOxn93ZxQu1EvnNHU0RsO6P+D6nZ/mcIInMw=;
+	h=From:To:Subject:Date:In-Reply-To:References:From:To:CC:Subject;
+	b=gWbT9+wrMh+BUdg4ZnOZY0mSr2cUtj6Z8ZocBb7DWOxuwLwvdHihDnR2ttewnrGDh
+	 k8HHeOw0vbuhqHkTlENIEK82v36G7XJnwlPZXSw+1z5k5CeUaGbDk/0YznzhjNaqkQ
+	 dbI4UzG6r7BYCudym66d1pN34Nbed8F8Z8d/4MrDD9X0h0fAAjx31+dwj4DHFJ7lHd
+	 wUA5iYkbJ6MMTpRK+VQ5x5CmT4vMAsaws4e55mSinrT92WgGHEtebEthVgKgJql4lf
+	 aWdgGrLbuOVmKP3JDenaH5oJfNAQ/h3jmU2JmmBNgzP/5Kr6+cZFHk3D/CnMcNY8+T
+	 zxv6cmzBylVXw==
+Received: from mx-rz-smart.rrze.uni-erlangen.de (mx-rz-smart.rrze.uni-erlangen.de [IPv6:2001:638:a000:1025::1e])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-rz-1.rrze.uni-erlangen.de (Postfix) with ESMTPS id 4Zp64y4Fw9z8sb2;
+	Thu,  1 May 2025 10:03:46 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at boeck4.rrze.uni-erlangen.de (RRZE)
+X-RRZE-Flag: Not-Spam
+X-RRZE-Submit-IP: 2001:9e8:3636:a700:12b2:e53f:6cbc:f48c
+Received: from luis-tp.fritz.box (unknown [IPv6:2001:9e8:3636:a700:12b2:e53f:6cbc:f48c])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: U2FsdGVkX1/VyCT2/hi5OQfWV2DB4gtoSsGC7vYH9bs=)
+	by smtp-auth.uni-erlangen.de (Postfix) with ESMTPSA id 4Zp64v0sdWz8srN;
+	Thu,  1 May 2025 10:03:43 +0200 (CEST)
+From: Luis Gerhorst <luis.gerhorst@fau.de>
+To: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Hao Luo <haoluo@google.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Puranjay Mohan <puranjay@kernel.org>,
+	Xu Kuohai <xukuohai@huaweicloud.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Hari Bathini <hbathini@linux.ibm.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Naveen N Rao <naveen@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Mykola Lysenko <mykolal@fb.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Luis Gerhorst <luis.gerhorst@fau.de>,
+	Henriette Herzog <henriette.herzog@rub.de>,
+	Saket Kumar Bhaskar <skb99@linux.ibm.com>,
+	Cupertino Miranda <cupertino.miranda@oracle.com>,
+	Jiayuan Chen <mrpre@163.com>,
+	Matan Shachnai <m.shachnai@gmail.com>,
+	Dimitar Kanaliev <dimitar.kanaliev@siteground.com>,
+	Shung-Hsi Yu <shung-hsi.yu@suse.com>,
+	Daniel Xu <dxu@dxuuu.xyz>,
+	bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-kselftest@vger.kernel.org
+Subject: [PATCH bpf-next v3 09/11] selftests/bpf: Add test for Spectre v1 mitigation
+Date: Thu,  1 May 2025 09:36:00 +0200
+Message-ID: <20250501073603.1402960-10-luis.gerhorst@fau.de>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250501073603.1402960-1-luis.gerhorst@fau.de>
+References: <20250501073603.1402960-1-luis.gerhorst@fau.de>
 MIME-Version: 1.0
-Date: Thu, 01 May 2025 08:03:31 +0000
-From: Kaustabh Chakraborty <kauschluss@disroot.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, "Guilherme G.
- Piccoli" <gpiccoli@igalia.com>, Ivaylo Ivanov
- <ivo.ivanov.ivanov1@gmail.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v6 0/5] Add support for the Exynos7870 SoC, along with
- three devices
-In-Reply-To: <9362d6b4-890a-4364-8e51-71ad6fc1e107@kernel.org>
-References: <20250414-exynos7870-v6-0-039bd5385411@disroot.org>
- <9362d6b4-890a-4364-8e51-71ad6fc1e107@kernel.org>
-Message-ID: <ef733cebf014ef3dff1a0d780d289784@disroot.org>
-X-Sender: kauschluss@disroot.org
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_010337_435083_FF80FFD0 
-X-CRM114-Status: GOOD (  12.07  )
+X-CRM114-CacheID: sfid-20250501_010348_562457_51798D94 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,41 +117,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-04-16 07:15, Krzysztof Kozlowski wrote:
-> On 13/04/2025 20:58, Kaustabh Chakraborty wrote:
->> Samsung Exynos 7870 (codename: Joshua) is an ARM-v8 system-on-chip that was
->> announced in 2016. The chipset was found in several popular mid-range to
->> low-end Samsung phones, released within 2016 to 2019.
->> 
->> This patch series aims to add support for Exynos 7870, starting with the
->> most basic yet essential components such as CPU, GPU, clock controllers,
->> PMIC, pin controllers, etc.
->> 
->> Moreover, the series also adds support for three Exynos 7870 devices via
->> devicetree. The devices are:
->>  * Samsung Galaxy J7 Prime	- released 2016, codename on7xelte
->>  * Samsung Galaxy J6		- released 2018, codename j6lte
->>  * Samsung Galaxy A2 Core	- released 2019, codename a2corelte
->> 
->> Additional features implemented in this series include:
->>  * I2C	- touchscreen, IIO sensors, etc.
->>  * UART	- bluetooth and serial debugging
->>  * MMC	- eMMC, Wi-Fi SDIO, SDCard
->>  * USB	- micro-USB 2.0 interface
->> 
->> Build dependencies are in these sub-series:
->>  * pmu-clocks		A https://lore.kernel.org/all/20250301-exynos7870-pmu-clocks-v5-0-715b646d5206@disroot.org/
-> 
-> So this patchset waits? Ping me or resend when your dependencies are
-> merged. If resending then of course explain why and update dependencies
-> list.
+This is based on the gadget from the description of commit 9183671af6db
+("bpf: Fix leakage under speculation on mispredicted branches").
 
-Hi, all dependencies are now available in next. I believe you should
-be able to merge it now.
+Signed-off-by: Luis Gerhorst <luis.gerhorst@fau.de>
+---
+ .../selftests/bpf/progs/verifier_unpriv.c     | 57 +++++++++++++++++++
+ 1 file changed, 57 insertions(+)
 
-Thanks a lot!
+diff --git a/tools/testing/selftests/bpf/progs/verifier_unpriv.c b/tools/testing/selftests/bpf/progs/verifier_unpriv.c
+index c42c3839b30c..43236b93ebb5 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_unpriv.c
++++ b/tools/testing/selftests/bpf/progs/verifier_unpriv.c
+@@ -729,4 +729,61 @@ l0_%=:	r0 = 0;						\
+ "	::: __clobber_all);
+ }
+ 
++SEC("socket")
++__description("unpriv: Spectre v1 path-based type confusion of scalar as stack-ptr")
++__success __success_unpriv __retval(0)
++#ifdef SPEC_V1
++__xlated_unpriv("if r0 != 0x1 goto pc+2")
++/* This nospec prevents the exploit because it forces the mispredicted (not
++ * taken) `if r0 != 0x0 goto l0_%=` to resolve before using r6 as a pointer.
++ * This causes the CPU to realize that `r6 = r9` should have never executed. It
++ * ensures that r6 always contains a readable stack slot ptr when the insn after
++ * the nospec executes.
++ */
++__xlated_unpriv("nospec")
++__xlated_unpriv("r9 = *(u8 *)(r6 +0)")
++#endif
++__naked void unpriv_spec_v1_type_confusion(void)
++{
++	asm volatile ("					\
++	r1 = 0;						\
++	*(u64*)(r10 - 8) = r1;				\
++	r2 = r10;					\
++	r2 += -8;					\
++	r1 = %[map_hash_8b] ll;				\
++	call %[bpf_map_lookup_elem];			\
++	if r0 == 0 goto l2_%=;				\
++	/* r0: pointer to a map array entry */		\
++	r2 = r10;					\
++	r2 += -8;					\
++	r1 = %[map_hash_8b] ll;				\
++	/* r1, r2: prepared call args */		\
++	r6 = r10;					\
++	r6 += -8;					\
++	/* r6: pointer to readable stack slot */	\
++	r9 = 0xffffc900;				\
++	r9 <<= 32;					\
++	/* r9: scalar controlled by attacker */		\
++	r0 = *(u64 *)(r0 + 0); /* cache miss */		\
++	if r0 != 0x0 goto l0_%=;			\
++	r6 = r9;					\
++l0_%=:	if r0 != 0x1 goto l1_%=;			\
++	r9 = *(u8 *)(r6 + 0);				\
++l1_%=:  /* leak r9 */					\
++	r9 &= 1;					\
++	r9 <<= 9;					\
++	*(u64*)(r10 - 8) = r9;				\
++	call %[bpf_map_lookup_elem];			\
++	if r0 == 0 goto l2_%=;				\
++	/* leak secret into is_cached(map[0|512]): */	\
++	r0 = *(u64 *)(r0 + 0);				\
++l2_%=:							\
++	r0 = 0;						\
++	exit;						\
++"	:
++	: __imm(bpf_map_lookup_elem),
++	  __imm_addr(map_hash_8b)
++	: __clobber_all);
++}
++
+ char _license[] SEC("license") = "GPL";
+-- 
+2.49.0
 
-> 
-> Best regards,
-> Krzysztof
 
