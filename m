@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EF35C3ABA9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 07:47:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4645AC3ABA9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 07:50:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jSSweTeGY0PDTlgRKS8IL70I8OtP9oy7O+06qOfqKTs=; b=QO1LkI3s89+y3BK2TdIn/10ghG
-	IvD018oG2WJvwPI4nVMnTjLbl84jX8mJ7KTjkt81l0vCR0IYnheeE0cTt6qopwh3nhOUqOeAzfXlT
-	/eX0ZVjvrejUpLla0Otk27ptcILOmxsMNDnsZcf9dGMmz0zmJOIfdABvq/8kzkUgnGao+iKx1RaMG
-	47YrhbSG6yzhYi6QoOJJhNRYwTcKbhMiIq8F8wp/aXutHFpnkdyRSN9KNUVOgIBJsrskLldFliW49
-	wFmox491Ukzth22AQuIwYk5fuSgFZyqNxmkVIyuBr8j9N/kxGJy74HePSmsgZe9xhh8ROzH/XmHhJ
-	TCa0Ob6w==;
+	bh=0Pu9rHLu+wQI/d+zKWBJoaB5ShQT0yttj33DmrGvKIY=; b=JU1RAfLmAIq3M7tbmD0EP4UcuF
+	1HCsKGKNKB5Vce1/amPC+DxHJrPzUvmaUnGMJkLP3ZnxL8Wbc+LQUzrEY1TbeT3hO1xU9LAlymRqf
+	ojYzWro6m1/3x6/lfhjiI/6nSOjEz+B/89Gz32ttzdgKnVhwkJABr7UHzwcERUFiNW4QmgvDfj8xg
+	oAZBapmnw6jNT7JmNVkTdDU2wLRrIKgrINAIx3T3xaN+NHcjac7SAMzav0LSoSuDfS2Qg6fhHEl6Z
+	86UO0Yf3wYvHDBlp0TsghXtGbWZKpsNK+mys/gRl/8cuLMYP9jri8JcBVul12YfR5XVIeUWNcadGX
+	X9nbAvJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAOdc-0000000ExxY-1FZg;
-	Thu, 01 May 2025 07:47:20 +0000
-Received: from mx-rz-3.rrze.uni-erlangen.de ([131.188.11.22])
+	id 1uAOgb-0000000EyI4-2bve;
+	Thu, 01 May 2025 07:50:25 +0000
+Received: from mx-rz-1.rrze.uni-erlangen.de ([131.188.11.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAObi-0000000Exmz-0J2C
+	id 1uAOeg-0000000Ey8E-2ueT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 07:45:23 +0000
+	Thu, 01 May 2025 07:48:28 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fau.de; s=fau-2021;
-	t=1746085520; bh=jSSweTeGY0PDTlgRKS8IL70I8OtP9oy7O+06qOfqKTs=;
+	t=1746085704; bh=0Pu9rHLu+wQI/d+zKWBJoaB5ShQT0yttj33DmrGvKIY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From:To:CC:
 	 Subject;
-	b=hpSKEpEJIBWab874oR1c5nEg2vtj2k/NvSmdVuUZJ1LjnR+Z05aObFKmVkbzYzIL0
-	 YFyNnncmSu36EIMGNrgaPcct+WA7yEQUy91DQtF0CGTvZ+l4q6T/xfktyiMfQjIwGB
-	 GlN5LpEFv0Wpzz2v4KNkkkF6H/dz2A1G//MEkj+Z1amewSLRpnJwePCL68y+arr91j
-	 RlT3c8xBPn3TyDg09NIPK6wGp9Y6DWIyeZcCn/CLeDpG7/ZhXrJ46hbZv2MuniWXd+
-	 +PexJem6oM4Kxzt9aMHaCO/F1FJroKnHltpXHrx2/7BeilukDthYnFrroRd6vVjwz6
-	 dinvhL5S8ZfwA==
+	b=GU6OaxPbrdxAiiihdkKp7RS+GqJhi3h1zwYaSEZ0zbWQ8c1423FfKYx77N4AuN0Wk
+	 MaEB0ckZH9eKutBKS3jgB3Ha4HKL/X7OHqyQvfHC5U8RNbfCsapOgR2zz2z1uv9Ig5
+	 N7R2rUq0YmY/g91HngbMWfuJAJ7ty9a9d1RD/CKLebw3iST/1MrV3v/lSRUiz5zGW3
+	 6xlOxfRkKewHuYSj7g7zoGWRxQxl2VNJ706A6IYlVkamtmzExQF6tmX1xQG3P9ik+W
+	 YW6jY3gNwika4C81cj5rO6rwsbS5IVo0KN391JrzKs0H9KqO3jIbHciWrzwyUZFjVL
+	 gJLdD5Iv0lT0Q==
 Received: from mx-rz-smart.rrze.uni-erlangen.de (mx-rz-smart.rrze.uni-erlangen.de [IPv6:2001:638:a000:1025::1e])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-rz-3.rrze.uni-erlangen.de (Postfix) with ESMTPS id 4Zp5gh2xdmz1xwh;
-	Thu,  1 May 2025 09:45:20 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at boeck1.rrze.uni-erlangen.de (RRZE)
+	by mx-rz-1.rrze.uni-erlangen.de (Postfix) with ESMTPS id 4Zp5lD2znrz8ssD;
+	Thu,  1 May 2025 09:48:24 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at boeck4.rrze.uni-erlangen.de (RRZE)
 X-RRZE-Flag: Not-Spam
 X-RRZE-Submit-IP: 2001:9e8:3636:a700:12b2:e53f:6cbc:f48c
 Received: from luis-tp.fritz.box (unknown [IPv6:2001:9e8:3636:a700:12b2:e53f:6cbc:f48c])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	(Authenticated sender: U2FsdGVkX19ZcaOmx2CISQxXHMRE/dHcjqNvzr5dbeo=)
-	by smtp-auth.uni-erlangen.de (Postfix) with ESMTPSA id 4Zp5gc429hz1y4t;
-	Thu,  1 May 2025 09:45:16 +0200 (CEST)
+	(Authenticated sender: U2FsdGVkX1/54KqmiSgcn6S5Oa0/ZGbqM5On5wTcHfI=)
+	by smtp-auth.uni-erlangen.de (Postfix) with ESMTPSA id 4Zp5l85rWJz8sjW;
+	Thu,  1 May 2025 09:48:20 +0200 (CEST)
 From: Luis Gerhorst <luis.gerhorst@fau.de>
 To: Alexei Starovoitov <ast@kernel.org>,
 	Daniel Borkmann <daniel@iogearbox.net>,
@@ -94,17 +94,17 @@ To: Alexei Starovoitov <ast@kernel.org>,
 	linux-kselftest@vger.kernel.org
 Cc: Maximilian Ott <ott@cs.fau.de>,
 	Milan Stephan <milan.stephan@fau.de>
-Subject: [PATCH bpf-next v3 03/11] bpf: Return -EFAULT on misconfigurations
-Date: Thu,  1 May 2025 09:35:54 +0200
-Message-ID: <20250501073603.1402960-4-luis.gerhorst@fau.de>
+Subject: [PATCH bpf-next v3 04/11] bpf: Return -EFAULT on internal errors
+Date: Thu,  1 May 2025 09:35:55 +0200
+Message-ID: <20250501073603.1402960-5-luis.gerhorst@fau.de>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250501073603.1402960-1-luis.gerhorst@fau.de>
 References: <20250501073603.1402960-1-luis.gerhorst@fau.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_004522_406238_E7DB4448 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20250501_004826_877227_C847E882 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,16 +119,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mark these cases as non-recoverable to later prevent them from being
-caught when they occur during speculative path verification.
-
-Eduard writes [1]:
-
-  The only pace I'm aware of that might act upon specific error code
-  from verifier syscall is libbpf. Looking through libbpf code, it seems
-  that this change does not interfere with libbpf.
-
-[1] https://lore.kernel.org/all/785b4531ce3b44a84059a4feb4ba458c68fce719.camel@gmail.com/
+This prevents us from trying to recover from these on speculative paths
+in the future.
 
 Signed-off-by: Luis Gerhorst <luis.gerhorst@fau.de>
 Reviewed-by: Eduard Zingerman <eddyz87@gmail.com>
@@ -136,173 +128,37 @@ Acked-by: Henriette Herzog <henriette.herzog@rub.de>
 Cc: Maximilian Ott <ott@cs.fau.de>
 Cc: Milan Stephan <milan.stephan@fau.de>
 ---
- kernel/bpf/verifier.c | 36 ++++++++++++++++++------------------
- 1 file changed, 18 insertions(+), 18 deletions(-)
+ kernel/bpf/verifier.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
-index 73475d7d7eca..d0975169134a 100644
+index d0975169134a..9c921867f77f 100644
 --- a/kernel/bpf/verifier.c
 +++ b/kernel/bpf/verifier.c
-@@ -8965,7 +8965,7 @@ static int resolve_map_arg_type(struct bpf_verifier_env *env,
- 	if (!meta->map_ptr) {
- 		/* kernel subsystem misconfigured verifier */
- 		verbose(env, "invalid map_ptr to access map->type\n");
--		return -EACCES;
-+		return -EFAULT;
- 	}
- 
- 	switch (meta->map_ptr->map_type) {
-@@ -9653,7 +9653,7 @@ static int check_func_arg(struct bpf_verifier_env *env, u32 arg,
- 			 * that kernel subsystem misconfigured verifier
- 			 */
- 			verbose(env, "invalid map_ptr to access map->key\n");
--			return -EACCES;
-+			return -EFAULT;
- 		}
- 		key_size = meta->map_ptr->key_size;
- 		err = check_helper_mem_access(env, regno, key_size, BPF_READ, false, NULL);
-@@ -9680,7 +9680,7 @@ static int check_func_arg(struct bpf_verifier_env *env, u32 arg,
- 		if (!meta->map_ptr) {
- 			/* kernel subsystem misconfigured verifier */
- 			verbose(env, "invalid map_ptr to access map->value\n");
--			return -EACCES;
-+			return -EFAULT;
- 		}
- 		meta->raw_mode = arg_type & MEM_UNINIT;
- 		err = check_helper_mem_access(env, regno, meta->map_ptr->value_size,
-@@ -10979,7 +10979,7 @@ record_func_map(struct bpf_verifier_env *env, struct bpf_call_arg_meta *meta,
- 
- 	if (map == NULL) {
- 		verbose(env, "kernel subsystem misconfigured verifier\n");
--		return -EINVAL;
-+		return -EFAULT;
- 	}
- 
- 	/* In case of read-only, some additional restrictions
-@@ -11018,7 +11018,7 @@ record_func_key(struct bpf_verifier_env *env, struct bpf_call_arg_meta *meta,
- 		return 0;
- 	if (!map || map->map_type != BPF_MAP_TYPE_PROG_ARRAY) {
- 		verbose(env, "kernel subsystem misconfigured verifier\n");
--		return -EINVAL;
-+		return -EFAULT;
- 	}
- 
- 	reg = &regs[BPF_REG_3];
-@@ -11272,7 +11272,7 @@ static int check_helper_call(struct bpf_verifier_env *env, struct bpf_insn *insn
- 	if (changes_data && fn->arg1_type != ARG_PTR_TO_CTX) {
- 		verbose(env, "kernel subsystem misconfigured func %s#%d: r1 != ctx\n",
- 			func_id_name(func_id), func_id);
--		return -EINVAL;
-+		return -EFAULT;
- 	}
- 
- 	memset(&meta, 0, sizeof(meta));
-@@ -11574,7 +11574,7 @@ static int check_helper_call(struct bpf_verifier_env *env, struct bpf_insn *insn
- 		if (meta.map_ptr == NULL) {
- 			verbose(env,
- 				"kernel subsystem misconfigured verifier\n");
--			return -EINVAL;
-+			return -EFAULT;
- 		}
- 
- 		if (func_id == BPF_FUNC_map_lookup_elem &&
-@@ -16697,7 +16697,7 @@ static int check_ld_imm(struct bpf_verifier_env *env, struct bpf_insn *insn)
- 		dst_reg->type = CONST_PTR_TO_MAP;
- 	} else {
- 		verbose(env, "bpf verifier is misconfigured\n");
--		return -EINVAL;
-+		return -EFAULT;
- 	}
- 
- 	return 0;
-@@ -16744,7 +16744,7 @@ static int check_ld_abs(struct bpf_verifier_env *env, struct bpf_insn *insn)
- 
- 	if (!env->ops->gen_ld_abs) {
- 		verbose(env, "bpf verifier is misconfigured\n");
--		return -EINVAL;
-+		return -EFAULT;
- 	}
- 
- 	if (insn->dst_reg != BPF_REG_0 || insn->off != 0 ||
-@@ -20782,7 +20782,7 @@ static int convert_ctx_accesses(struct bpf_verifier_env *env)
- 						 -(subprogs[0].stack_depth + 8));
- 		if (epilogue_cnt >= INSN_BUF_SIZE) {
- 			verbose(env, "bpf verifier is misconfigured\n");
--			return -EINVAL;
-+			return -EFAULT;
- 		} else if (epilogue_cnt) {
- 			/* Save the ARG_PTR_TO_CTX for the epilogue to use */
- 			cnt = 0;
-@@ -20805,13 +20805,13 @@ static int convert_ctx_accesses(struct bpf_verifier_env *env)
- 	if (ops->gen_prologue || env->seen_direct_write) {
- 		if (!ops->gen_prologue) {
- 			verbose(env, "bpf verifier is misconfigured\n");
--			return -EINVAL;
-+			return -EFAULT;
- 		}
- 		cnt = ops->gen_prologue(insn_buf, env->seen_direct_write,
- 					env->prog);
- 		if (cnt >= INSN_BUF_SIZE) {
- 			verbose(env, "bpf verifier is misconfigured\n");
--			return -EINVAL;
-+			return -EFAULT;
- 		} else if (cnt) {
- 			new_prog = bpf_patch_insn_data(env, 0, insn_buf, cnt);
- 			if (!new_prog)
-@@ -20968,7 +20968,7 @@ static int convert_ctx_accesses(struct bpf_verifier_env *env)
- 
- 			if (type == BPF_WRITE) {
- 				verbose(env, "bpf verifier narrow ctx access misconfigured\n");
+@@ -11667,7 +11667,7 @@ static int check_helper_call(struct bpf_verifier_env *env, struct bpf_insn *insn
+ 				verbose(env, "verifier internal error:");
+ 				verbose(env, "func %s has non-overwritten BPF_PTR_POISON return type\n",
+ 					func_id_name(func_id));
 -				return -EINVAL;
 +				return -EFAULT;
  			}
- 
- 			size_code = BPF_H;
-@@ -20987,7 +20987,7 @@ static int convert_ctx_accesses(struct bpf_verifier_env *env)
- 		if (cnt == 0 || cnt >= INSN_BUF_SIZE ||
- 		    (ctx_field_size && !target_size)) {
- 			verbose(env, "bpf verifier is misconfigured\n");
--			return -EINVAL;
-+			return -EFAULT;
- 		}
- 
- 		if (is_narrower_load && size < target_size) {
-@@ -20995,7 +20995,7 @@ static int convert_ctx_accesses(struct bpf_verifier_env *env)
- 				off, size, size_default) * 8;
- 			if (shift && cnt + 1 >= INSN_BUF_SIZE) {
- 				verbose(env, "bpf verifier narrow ctx load misconfigured\n");
--				return -EINVAL;
-+				return -EFAULT;
- 			}
- 			if (ctx_field_size <= 4) {
- 				if (shift)
-@@ -21758,7 +21758,7 @@ static int do_misc_fixups(struct bpf_verifier_env *env)
- 			cnt = env->ops->gen_ld_abs(insn, insn_buf);
- 			if (cnt == 0 || cnt >= INSN_BUF_SIZE) {
- 				verbose(env, "bpf verifier is misconfigured\n");
--				return -EINVAL;
-+				return -EFAULT;
- 			}
- 
- 			new_prog = bpf_patch_insn_data(env, i + delta, insn_buf, cnt);
-@@ -22094,7 +22094,7 @@ static int do_misc_fixups(struct bpf_verifier_env *env)
- 					goto patch_map_ops_generic;
- 				if (cnt <= 0 || cnt >= INSN_BUF_SIZE) {
- 					verbose(env, "bpf verifier is misconfigured\n");
--					return -EINVAL;
-+					return -EFAULT;
- 				}
- 
- 				new_prog = bpf_patch_insn_data(env, i + delta,
-@@ -22454,7 +22454,7 @@ static int do_misc_fixups(struct bpf_verifier_env *env)
- 		    !map_ptr->ops->map_poke_untrack ||
- 		    !map_ptr->ops->map_poke_run) {
- 			verbose(env, "bpf verifier is misconfigured\n");
--			return -EINVAL;
-+			return -EFAULT;
- 		}
- 
- 		ret = map_ptr->ops->map_poke_track(map_ptr, prog->aux);
+ 			ret_btf = btf_vmlinux;
+ 			ret_btf_id = *fn->ret_btf_id;
+@@ -15261,12 +15261,12 @@ static int adjust_reg_min_max_vals(struct bpf_verifier_env *env,
+ 	if (WARN_ON_ONCE(ptr_reg)) {
+ 		print_verifier_state(env, vstate, vstate->curframe, true);
+ 		verbose(env, "verifier internal error: unexpected ptr_reg\n");
+-		return -EINVAL;
++		return -EFAULT;
+ 	}
+ 	if (WARN_ON(!src_reg)) {
+ 		print_verifier_state(env, vstate, vstate->curframe, true);
+ 		verbose(env, "verifier internal error: no src_reg\n");
+-		return -EINVAL;
++		return -EFAULT;
+ 	}
+ 	err = adjust_scalar_min_max_vals(env, insn, dst_reg, *src_reg);
+ 	if (err)
 -- 
 2.49.0
 
