@@ -4,112 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E52EC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 15:11:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43386C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 15:13:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Z1CSMjo4bwXac777IKPq+E/WNf0vRomoDLRk/F823M=; b=iwBhzgceDXS/OG+PZ6SvjIKxWU
-	TV+3k3RPvxn4q3gIPreKKvpZUpt7/p2fj+/IJ/uZffEeyMiUhOchs7X70zVPRcbKS62HoETHXIb+w
-	t2ugYRhUY0mMGRMOBBW6DYUjWugQ8RM6mD0YRbdqKYESnYByTraDKuPVI8Bx220QACua2zWGFlvaf
-	F5TngGyCgWqqQ4zfyE+0QM+c/DtKhP2B9ecR/tU5SBnW/hQdE0DUCnFxHNNMDRaNfVWFcRlHRKR+w
-	RdQ5FHT06BVhJNZCLQL4cUzwYcQDLczskg8Xz5Eo66kBqnUfQS2/PwPmHvrX+VC2HXSCAifWeZDJR
-	ATlnLE8g==;
+	bh=NPH/S0mS43gUzRIrI/LiqfKEr0jk6kUfk124NanGTyg=; b=W0UNh6bvq3SyTsOrikRDK3la3u
+	EIPa8og1rTDPiWucalM1esfASQvagUYZRqer0q1o1vvxjwsC+A7ErNmcY5S4r1SpX466nhQRCIaZW
+	790S/fl6sxhEOh9OUlQLmzW47MA2VGX3CGRibuTKI6vu8Xn3W+uVqMfAAD2Pnl/Rq7n8ucCTtJ32H
+	G+UaIwnQCK8bxfLFqmaJR2XGw3XDU0jVJzgGb/brLtcAOl/YMDt0Lux+Uvn91fsl+etyTqitnvdgf
+	BJumSgnn8NSh4KLEaf7HStCvN0CKgmt/xxJ0yAmqCYni4tc0W2D0kgai6Tmnv73uCCZzDncfJb/iD
+	4+Vl0AtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAVZI-0000000G395-21Uu;
-	Thu, 01 May 2025 15:11:20 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAVQT-0000000G1iT-33cW
+	id 1uAVb9-0000000G3TM-2Srm;
+	Thu, 01 May 2025 15:13:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uAVXO-0000000G2pn-1t9Z
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 15:02:14 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43d4ff56136so1499785e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 May 2025 08:02:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1746111732; x=1746716532; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=0Z1CSMjo4bwXac777IKPq+E/WNf0vRomoDLRk/F823M=;
-        b=cyCDu91vM3sjMrq+VY2jZlVdXYcga8emXXbJo9KeEp++K5u0AMgyhUtoo4+yc5x7Nh
-         PvBpda07yfOld5iEpfxg01cEkP2xmfpOR+cnHzvEslToiPFGfKe79Z+tZYE6GtHOlPor
-         uVXFfZPa4ak0F6hh6Cfb26mxDTpad8wQhv0d2O/vLNczCqlrQdB6XAp/riSZX/JgUvGz
-         z10AZ0zeiBFddOSROAl+qix8qJn82Y1t88iCc7CaYoly+hX6qclJ0sr/dMVvkg7Gg+Vs
-         N0h8PRvO8kMS4RpXeGeGo1WWSXFS71X6DJPetxScNujDKj1QvNAisiV49Bzkl7EBjfQF
-         OhrQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746111732; x=1746716532;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0Z1CSMjo4bwXac777IKPq+E/WNf0vRomoDLRk/F823M=;
-        b=plDjDEcHLNrodw+F/tdiz/g76FDhuouFlG82pPQrcGYcVRswyObx2B9SpS2+/yAzJj
-         f9uVgU5kOZOmqSHrsz06/MjRCn62LVKXYEsvXD179hKrQXX7ygaQaC3YJ8a8yjZABGa6
-         h/Y47N4NS7APISupo68D2pHg1mOvfc2g7YYJ5QiD2yjBoCmD30uTFFD+CS1V0ffZiTKb
-         rnF0pcJst3p7bHwVvPvIzoItTen6bWx+4+i7cIDl2XYlan10AvQBYhzBN+65dT30EsH3
-         +Z/kezI9qmHNXuhj88Ork22tDBYaHfOzCbCH32U5M7/qRT6FoL9Dl+T5VqlBUtMHINYq
-         qkiA==
-X-Forwarded-Encrypted: i=1; AJvYcCVW1GznIEk3nBzGdNuKks532A6FtIjtBQUOcYU6N5B7Z2WBTgXMJSp7kSabprCDT76pAzI38mZBedMor2l4f86Y@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYyKeC04zow61IzOlYpcX2lY4eVWJvameEwY6kei439KsnDGM3
-	xF7Wd+MB7V2KkvyCkY5r6eBfaJo9/JXr4ufNiU/Zm1kDbCmQwOk1MDEtNrijoE0Kc90wWrpvElE
-	J
-X-Gm-Gg: ASbGncthpW4Jh7S9msHvvrhawLXznxz/GVvMcMPBwGg4AzoQy+9IPbl8stqmsfhSF8X
-	ec/1JEHThxi9uMJkQ0Vgj2XOc+/odKhvAc9tgvbUkWK5glHnFjGDuqyB6B9ZrBzoVUOhan6/+eP
-	0nsImY+1TA/TzKZJfTPWPNFQToA4feuqibsWUpnGIxtq/jSMtvsbu5uSDMUNi82HDK9pZvNWrjo
-	vb3YTOoL+hnsu78QZNW1BAWYO7PJsGJLwi2GpPCUf2rZVIE4SSE9qAxtnidIv4Dn9Q5xSSbJZw9
-	ndwWBkzWqgz2cDcNUjLIwTUxS6pClrMyebwbFYLQ5LR43PTm9FS7gGMDaFg=
-X-Google-Smtp-Source: AGHT+IE0ENZdHGkQvgGoH2mnDKlJJ809LkSCtAMhmB4rpgM9Z08EWOHgpBqjUop6OrvJ3Ac5c98Akg==
-X-Received: by 2002:a05:6000:1846:b0:3a0:75ff:261f with SMTP id ffacd0b85a97d-3a094178fb0mr816964f8f.11.1746111731899;
-        Thu, 01 May 2025 08:02:11 -0700 (PDT)
-Received: from [192.168.1.28] ([178.197.207.88])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a095a4702csm1033190f8f.40.2025.05.01.08.02.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 May 2025 08:02:11 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Date: Thu, 01 May 2025 17:02:01 +0200
-Subject: [PATCH v2 3/3] spi: cadence-quadspi: Assume device could match via
- platform
+	Thu, 01 May 2025 15:09:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E671E168F;
+	Thu,  1 May 2025 08:09:13 -0700 (PDT)
+Received: from [10.1.33.27] (e122027.cambridge.arm.com [10.1.33.27])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0D8153F5A1;
+	Thu,  1 May 2025 08:09:17 -0700 (PDT)
+Message-ID: <c14b3e33-59da-4b8c-8952-caf87126803d@arm.com>
+Date: Thu, 1 May 2025 16:09:16 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250501-n-smatch-fixes-v2-3-d2ad9c1f2e67@linaro.org>
-References: <20250501-n-smatch-fixes-v2-0-d2ad9c1f2e67@linaro.org>
-In-Reply-To: <20250501-n-smatch-fixes-v2-0-d2ad9c1f2e67@linaro.org>
-To: Mark Brown <broonie@kernel.org>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
- David Rhodes <david.rhodes@cirrus.com>, 
- Richard Fitzgerald <rf@opensource.cirrus.com>
-Cc: linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
- patches@opensource.cirrus.com, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1483;
- i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=B3v13NXCER5k3tKhwX7vqb0mye7ltzvO1U+oUASNdgU=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoE4zs9gNikiLaGr7Pqc78Xp2+VrLMMAjp88bwS
- hB6yBtxryWJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaBOM7AAKCRDBN2bmhouD
- 11VpD/wNiGdprHFBTqCt2CnLkmyOfWKabgzUmeNPQie00KzOgJVHUUjWU4fQaeI30mVt9rfpu10
- llp9+NafbiQoqC/9fHr8ckF1T8bTk0UxAAmqyeIoxupKtWuT8SpFRVhzfWUWaxuAzgzji3dPDHK
- ljhiroQ5K9bYLCIjJ3DMJe2ajG458Q2H7Hj2Pgm0oyGZP6zVIA7fnv4p26E2xOIBkGaZWo57pFe
- bjmmIUqrklHrbwgPT9JjxthHgNtY9wYmOEietCJq06B9o3ATCvBI8OsvrP2VaachROYBHaEKiM8
- 9kifoZWrIGLKbeMbGnJwami0uAWC1TckkzhDv7mVsqLKfToy9rFkSof7/756aD555PbJ9WQ55WJ
- ctyJMPc/lNwv7/qwagVd5gAb0lMZ3MWpgS+ZwEW4JQADcjC/B2Qvl2z8S05COKdPgBV8VaX7Y8p
- UuPfvFDlcmfyuy9ehhlRV3iO/nErNWoZK3M5rfTS/3jBgM2xcLy3CkdJ6+r6Ec2DJBVGtKG65Tu
- Tg87N0s6R+JDC6j2EAjrHOK2giHvXT23YzVbekBecuiJUBmydauJwxTtDQmzpDRFbWz0cB9v+ti
- 5xN+x7ArX5Zwm4w2++0vpqUKE32Jr1CVH3vNQcABVwPWPvo6bd0gkioWh9nKgr83W+A39JkCwYD
- 09YLX6LPBaP50/g==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
- fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 07/43] arm64: RME: ioctls to create and configure
+ realms
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>
+References: <20250416134208.383984-1-steven.price@arm.com>
+ <20250416134208.383984-8-steven.price@arm.com>
+ <bd53bafc-b66c-48c7-8380-06899469a546@arm.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <bd53bafc-b66c-48c7-8380-06899469a546@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_080213_770128_3BD59B96 
-X-CRM114-Status: GOOD (  13.91  )
+X-CRM114-CacheID: sfid-20250501_080922_582316_AE451CA9 
+X-CRM114-Status: GOOD (  34.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,39 +77,393 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Driver has only of_device_id table, however it also has MODULE_ALIAS()
-for platform name, thus assume there is a configuration where this can
-be loaded outside of OF system.  In such case of_device_get_match_data()
-will return NULL, which is already checked in one place of probe()
-function but not in the other, leading to Smatch warning:
+On 29/04/2025 10:45, Suzuki K Poulose wrote:
+> On 16/04/2025 14:41, Steven Price wrote:
+>> Add the KVM_CAP_ARM_RME_CREATE_RD ioctl to create a realm. This involves
+>> delegating pages to the RMM to hold the Realm Descriptor (RD) and for
+>> the base level of the Realm Translation Tables (RTT). A VMID also need
+>> to be picked, since the RMM has a separate VMID address space a
+>> dedicated allocator is added for this purpose.
+>>
+>> KVM_CAP_ARM_RME_CONFIG_REALM is provided to allow configuring the realm
+>> before it is created. Configuration options can be classified as:
+>>
+>>   1. Parameters specific to the Realm stage2 (e.g. IPA Size, vmid, stage2
+>>      entry level, entry level RTTs, number of RTTs in start level, LPA2)
+>>      Most of these are not measured by RMM and comes from KVM book
+>>      keeping.
+>>
+>>   2. Parameters controlling "Arm Architecture features for the VM". (e.g.
+>>      SVE VL, PMU counters, number of HW BRPs/WPs), configured by the VMM
+>>      using the "user ID register write" mechanism. These will be
+>>      supported in the later patches.
+>>
+>>   3. Parameters are not part of the core Arm architecture but defined
+>>      by the RMM spec (e.g. Hash algorithm for measurement,
+>>      Personalisation value). These are programmed via
+>>      KVM_CAP_ARM_RME_CONFIG_REALM.
+>>
+>> For the IPA size there is the possibility that the RMM supports a
+>> different size to the IPA size supported by KVM for normal guests. At
+>> the moment the 'normal limit' is exposed by KVM_CAP_ARM_VM_IPA_SIZE and
+>> the IPA size is configured by the bottom bits of vm_type in
+>> KVM_CREATE_VM. This means that it isn't easy for the VMM to discover
+>> what IPA sizes are supported for Realm guests. Since the IPA is part of
+>> the measurement of the realm guest the current expectation is that the
+>> VMM will be required to pick the IPA size demanded by attestation and
+>> therefore simply failing if this isn't available is fine. An option
+>> would be to expose a new capability ioctl to obtain the RMM's maximum
+>> IPA size if this is needed in the future.
+>>
+>> Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> Reviewed-by: Gavin Shan <gshan@redhat.com>
+>> ---
+>> Changes since v7:
+>>   * Minor code cleanup following Gavin's review.
+>> Changes since v6:
+>>   * Separate RMM RTT calculations from host PAGE_SIZE. This allows the
+>>     host page size to be larger than 4k while still communicating with an
+>>     RMM which uses 4k granules.
+>> Changes since v5:
+>>   * Introduce free_delegated_granule() to replace many
+>>     undelegate/free_page() instances and centralise the comment on
+>>     leaking when the undelegate fails.
+>>   * Several other minor improvements suggested by reviews - thanks for
+>>     the feedback!
+>> Changes since v2:
+>>   * Improved commit description.
+>>   * Improved return failures for rmi_check_version().
+>>   * Clear contents of PGD after it has been undelegated in case the RMM
+>>     left stale data.
+>>   * Minor changes to reflect changes in previous patches.
+>> ---
+>>   arch/arm64/include/asm/kvm_emulate.h |   5 +
+>>   arch/arm64/include/asm/kvm_rme.h     |  19 ++
+>>   arch/arm64/kvm/arm.c                 |  16 ++
+>>   arch/arm64/kvm/mmu.c                 |  22 +-
+>>   arch/arm64/kvm/rme.c                 | 319 +++++++++++++++++++++++++++
+>>   5 files changed, 379 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/
+>> include/asm/kvm_emulate.h
+>> index 1c43a4fc25dd..4ee6c215da82 100644
+>> --- a/arch/arm64/include/asm/kvm_emulate.h
+>> +++ b/arch/arm64/include/asm/kvm_emulate.h
+>> @@ -699,6 +699,11 @@ static inline enum realm_state
+>> kvm_realm_state(struct kvm *kvm)
+>>       return READ_ONCE(kvm->arch.realm.state);
+>>   }
+>>   +static inline bool kvm_realm_is_created(struct kvm *kvm)
+>> +{
+>> +    return kvm_is_realm(kvm) && kvm_realm_state(kvm) !=
+>> REALM_STATE_NONE;
+>> +}
+>> +
+>>   static inline bool vcpu_is_rec(struct kvm_vcpu *vcpu)
+>>   {
+>>       return false;
+>> diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/
+>> asm/kvm_rme.h
+>> index 9c8a0b23e0e4..5dc1915de891 100644
+>> --- a/arch/arm64/include/asm/kvm_rme.h
+>> +++ b/arch/arm64/include/asm/kvm_rme.h
+>> @@ -6,6 +6,8 @@
+>>   #ifndef __ASM_KVM_RME_H
+>>   #define __ASM_KVM_RME_H
+>>   +#include <uapi/linux/kvm.h>
+>> +
+>>   /**
+>>    * enum realm_state - State of a Realm
+>>    */
+>> @@ -46,11 +48,28 @@ enum realm_state {
+>>    * struct realm - Additional per VM data for a Realm
+>>    *
+>>    * @state: The lifetime state machine for the realm
+>> + * @rd: Kernel mapping of the Realm Descriptor (RD)
+>> + * @params: Parameters for the RMI_REALM_CREATE command
+>> + * @num_aux: The number of auxiliary pages required by the RMM
+>> + * @vmid: VMID to be used by the RMM for the realm
+>> + * @ia_bits: Number of valid Input Address bits in the IPA
+>>    */
+>>   struct realm {
+>>       enum realm_state state;
+>> +
+>> +    void *rd;
+>> +    struct realm_params *params;
+>> +
+>> +    unsigned long num_aux;
+>> +    unsigned int vmid;
+>> +    unsigned int ia_bits;
+>>   };
+>>     void kvm_init_rme(void);
+>> +u32 kvm_realm_ipa_limit(void);
+>> +
+>> +int kvm_realm_enable_cap(struct kvm *kvm, struct kvm_enable_cap *cap);
+>> +int kvm_init_realm_vm(struct kvm *kvm);
+>> +void kvm_destroy_realm(struct kvm *kvm);
+>>     #endif /* __ASM_KVM_RME_H */
+>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+>> index 856a721d41ac..0e8482fdc4d3 100644
+>> --- a/arch/arm64/kvm/arm.c
+>> +++ b/arch/arm64/kvm/arm.c
+>> @@ -136,6 +136,11 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
+>>           }
+>>           mutex_unlock(&kvm->lock);
+>>           break;
+>> +    case KVM_CAP_ARM_RME:
+>> +        mutex_lock(&kvm->lock);
+>> +        r = kvm_realm_enable_cap(kvm, cap);
+>> +        mutex_unlock(&kvm->lock);
+>> +        break;
+>>       default:
+>>           break;
+>>       }
+>> @@ -198,6 +203,13 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned
+>> long type)
+>>         bitmap_zero(kvm->arch.vcpu_features, KVM_VCPU_MAX_FEATURES);
+>>   +    /* Initialise the realm bits after the generic bits are enabled */
+>> +    if (kvm_is_realm(kvm)) {
+>> +        ret = kvm_init_realm_vm(kvm);
+>> +        if (ret)
+>> +            goto err_free_cpumask;
+>> +    }
+>> +
+>>       return 0;
+>>     err_free_cpumask:
+>> @@ -257,6 +269,7 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
+>>       kvm_unshare_hyp(kvm, kvm + 1);
+>>         kvm_arm_teardown_hypercalls(kvm);
+>> +    kvm_destroy_realm(kvm);
+>>   }
+>>     static bool kvm_has_full_ptr_auth(void)
+>> @@ -405,6 +418,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm,
+>> long ext)
+>>       case KVM_CAP_ARM_SUPPORTED_REG_MASK_RANGES:
+>>           r = BIT(0);
+>>           break;
+>> +    case KVM_CAP_ARM_RME:
+>> +        r = static_key_enabled(&kvm_rme_is_available);
+>> +        break;
+>>       default:
+>>           r = 0;
+>>       }
+>> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+>> index 2feb6c6b63af..5957a07de86d 100644
+>> --- a/arch/arm64/kvm/mmu.c
+>> +++ b/arch/arm64/kvm/mmu.c
+>> @@ -876,12 +876,16 @@ static struct kvm_pgtable_mm_ops kvm_s2_mm_ops = {
+>>       .icache_inval_pou    = invalidate_icache_guest_page,
+>>   };
+>>   -static int kvm_init_ipa_range(struct kvm_s2_mmu *mmu, unsigned long
+>> type)
+>> +static int kvm_init_ipa_range(struct kvm *kvm,
+>> +                  struct kvm_s2_mmu *mmu, unsigned long type)
+>>   {
+>>       u32 kvm_ipa_limit = get_kvm_ipa_limit();
+>>       u64 mmfr0, mmfr1;
+>>       u32 phys_shift;
+>>   +    if (kvm_is_realm(kvm))
+>> +        kvm_ipa_limit = kvm_realm_ipa_limit();
+>> +
+>>       if (type & ~KVM_VM_TYPE_ARM_IPA_SIZE_MASK)
+>>           return -EINVAL;
+>>   @@ -946,7 +950,7 @@ int kvm_init_stage2_mmu(struct kvm *kvm, struct
+>> kvm_s2_mmu *mmu, unsigned long t
+>>           return -EINVAL;
+>>       }
+>>   -    err = kvm_init_ipa_range(mmu, type);
+>> +    err = kvm_init_ipa_range(kvm, mmu, type);
+>>       if (err)
+>>           return err;
+>>   @@ -1072,6 +1076,20 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
+>>       struct kvm_pgtable *pgt = NULL;
+>>         write_lock(&kvm->mmu_lock);
+>> +    if (kvm_is_realm(kvm) &&
+>> +        (kvm_realm_state(kvm) != REALM_STATE_DEAD &&
+>> +         kvm_realm_state(kvm) != REALM_STATE_NONE)) {
+>> +        /* Tearing down RTTs will be added in a later patch */
+>> +        write_unlock(&kvm->mmu_lock);
+>> +
+>> +        /*
+>> +         * The physical PGD pages are delegated to the RMM, so cannot
+>> +         * be freed at this point. This function will be called again
+>> +         * from kvm_destroy_realm() after the physical pages have been
+>> +         * returned at which point the memory can be freed.
+>> +         */
+>> +        return;
+>> +    }
+>>       pgt = mmu->pgt;
+>>       if (pgt) {
+>>           mmu->pgd_phys = 0;
+>> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
+>> index 67cf2d94cb2d..dbb6521fe380 100644
+>> --- a/arch/arm64/kvm/rme.c
+>> +++ b/arch/arm64/kvm/rme.c
+>> @@ -5,9 +5,23 @@
+>>     #include <linux/kvm_host.h>
+>>   +#include <asm/kvm_emulate.h>
+>> +#include <asm/kvm_mmu.h>
+>>   #include <asm/rmi_cmds.h>
+>>   #include <asm/virt.h>
+>>   +#include <asm/kvm_pgtable.h>
+>> +
+>> +static unsigned long rmm_feat_reg0;
+>> +
+>> +#define RMM_PAGE_SHIFT        12
+>> +#define RMM_PAGE_SIZE        BIT(RMM_PAGE_SHIFT)
+>> +
+>> +static bool rme_has_feature(unsigned long feature)
+>> +{
+>> +    return !!u64_get_bits(rmm_feat_reg0, feature);
+>> +}
+>> +
+>>   static int rmi_check_version(void)
+>>   {
+>>       struct arm_smccc_res res;
+>> @@ -42,6 +56,305 @@ static int rmi_check_version(void)
+>>       return 0;
+>>   }
+>>   +u32 kvm_realm_ipa_limit(void)
+>> +{
+>> +    return u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_S2SZ);
+>> +}
+>> +
+>> +static int get_start_level(struct realm *realm)
+>> +{
+>> +    return 4 - ((realm->ia_bits - 8) / (RMM_PAGE_SHIFT - 3));
+> 
+> minor nit: It may be worth adding a comment here, how we got this magic
+> number 8. We could say:
+> 
+> Open coded version of ARM64_HW_PGTABLE_LEVELS(ia_bits - 4) (accounting
+> for the concatenation of upto 16 tables in entry level) for RMM Stage2.
+> 
 
-  drivers/spi/spi-cadence-quadspi.c:1942 cqspi_probe() error: we previously assumed 'ddata' could be null (see line 1885)
+Agreed a comment makes sense. This is actually an open coded version of
+"4 - stage2_pgtable_levels()" but using the RMM's page size (indeed
+previous versions of the series did exactly that). There's already a
+comment for stage2_pgtable_levels() explaining the concatenation.
 
-Driver should be consistent, so assume device can be matched via
-platform bus and of_device_get_match_data() can indeed return NULL.
-This is also possible with malformed DTS on OF-platform: no unit address
-and device node name matching driver name.
+>> +}
+>> +
+>> +static void free_delegated_granule(phys_addr_t phys)
+>> +{
+>> +    if (WARN_ON(rmi_granule_undelegate(phys))) {
+>> +        /* Undelegate failed: leak the page */
+>> +        return;
+>> +    }
+>> +
+>> +    kvm_account_pgtable_pages(phys_to_virt(phys), -1);
+>> +
+>> +    free_page((unsigned long)phys_to_virt(phys));
+>> +}
+>> +
+>> +/* Calculate the number of s2 root rtts needed */
+>> +static int realm_num_root_rtts(struct realm *realm)
+>> +{
+>> +    unsigned int ipa_bits = realm->ia_bits;
+>> +    unsigned int levels = 3 - get_start_level(realm);
+> 
+> nit: Why is this 3 - start_level and not 4 ? Though that is compensated
+> by the "levels + 1" below, hence the calculation is correct.
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- drivers/spi/spi-cadence-quadspi.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+I honestly can't remember - will change ;)
 
-diff --git a/drivers/spi/spi-cadence-quadspi.c b/drivers/spi/spi-cadence-quadspi.c
-index c90462783b3f9f05e477d337ab4187224992c0a0..fe0f122f07b0206e80cf89bd031106bf8051c789 100644
---- a/drivers/spi/spi-cadence-quadspi.c
-+++ b/drivers/spi/spi-cadence-quadspi.c
-@@ -1949,7 +1949,7 @@ static int cqspi_probe(struct platform_device *pdev)
- 
- 	host->num_chipselect = cqspi->num_chipselect;
- 
--	if (ddata->quirks & CQSPI_SUPPORT_DEVICE_RESET)
-+	if (ddata && (ddata->quirks & CQSPI_SUPPORT_DEVICE_RESET))
- 		cqspi_device_reset(cqspi);
- 
- 	if (cqspi->use_direct_mode) {
+>> +    unsigned int sl_ipa_bits = (levels + 1) * (RMM_PAGE_SHIFT - 3) +
+>> +                   RMM_PAGE_SHIFT;
+>> +
+>> +    if (sl_ipa_bits >= ipa_bits)
+>> +        return 1;
+>> +
+>> +    return 1 << (ipa_bits - sl_ipa_bits);
+>> +}
+>> +
+>> +static int realm_create_rd(struct kvm *kvm)
+>> +{
+>> +    struct realm *realm = &kvm->arch.realm;
+>> +    struct realm_params *params = realm->params;
+>> +    void *rd = NULL;
+>> +    phys_addr_t rd_phys, params_phys;
+>> +    size_t pgd_size = kvm_pgtable_stage2_pgd_size(kvm->arch.mmu.vtcr);
+>> +    int i, r;
+>> +    int rtt_num_start;
+>> +
+>> +    realm->ia_bits = VTCR_EL2_IPA(kvm->arch.mmu.vtcr);
+>> +    rtt_num_start = realm_num_root_rtts(realm);
+>> +
+>> +    if (WARN_ON(realm->rd || !realm->params))
+>> +        return -EEXIST;
+>> +
+>> +    if (pgd_size / RMM_PAGE_SIZE < rtt_num_start)
+>> +        return -EINVAL;
+>> +
+>> +    rd = (void *)__get_free_page(GFP_KERNEL);
+>> +    if (!rd)
+>> +        return -ENOMEM;
+>> +
+>> +    rd_phys = virt_to_phys(rd);
+>> +    if (rmi_granule_delegate(rd_phys)) {
+>> +        r = -ENXIO;
+>> +        goto free_rd;
+>> +    }
+>> +
+>> +    for (i = 0; i < pgd_size; i += RMM_PAGE_SIZE) {
+>> +        phys_addr_t pgd_phys = kvm->arch.mmu.pgd_phys + i;
+>> +
+>> +        if (rmi_granule_delegate(pgd_phys)) {
+>> +            r = -ENXIO;
+>> +            goto out_undelegate_tables;
+>> +        }
+>> +    }
+>> +
+>> +    params->s2sz = VTCR_EL2_IPA(kvm->arch.mmu.vtcr);
+>> +    params->rtt_level_start = get_start_level(realm);
+>> +    params->rtt_num_start = rtt_num_start;
+>> +    params->rtt_base = kvm->arch.mmu.pgd_phys;
+>> +    params->vmid = realm->vmid;
+>> +
+>> +    params_phys = virt_to_phys(params);
+>> +
+>> +    if (rmi_realm_create(rd_phys, params_phys)) {
+>> +        r = -ENXIO;
+>> +        goto out_undelegate_tables;
+>> +    }
+>> +
+>> +    if (WARN_ON(rmi_rec_aux_count(rd_phys, &realm->num_aux))) {
+>> +        WARN_ON(rmi_realm_destroy(rd_phys));
+>> +        goto out_undelegate_tables;
+>> +    }
+>> +
+>> +    realm->rd = rd;
+>> +
+>> +    return 0;
+>> +
+>> +out_undelegate_tables:
+>> +    while (i > 0) {
+>> +        i -= RMM_PAGE_SIZE;
+>> +
+>> +        phys_addr_t pgd_phys = kvm->arch.mmu.pgd_phys + i;
+>> +
+>> +        if (WARN_ON(rmi_granule_undelegate(pgd_phys))) {
+>> +            /* Leak the pages if they cannot be returned */
+>> +            kvm->arch.mmu.pgt = NULL;
+>> +            break;
+>> +        }
+> 
+> minor nit: Do we need to try undelegating the other pages ? We could
+> make that WARN_ON_ONCE() too.
 
--- 
-2.45.2
+We could do, but there's no real point unless we also deal with leaking
+only the pages which cannot be undelegated. Considering this is a
+"should never happen" case I felt it was better to keep the code simple
+and leak more than necessary. To me this feels like a "save everything
+and reboot as soon as possible" sort of error condition - the kernel (or
+RMM) has lost track of which pages are delegated and so a GPT fault
+could be coming at any point. So it's better to play safe and be
+pessimistic.
 
+Thanks,
+Steve
 
