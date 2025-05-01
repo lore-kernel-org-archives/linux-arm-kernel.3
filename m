@@ -4,114 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32505C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 10:12:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BEEDC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 10:14:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rSgcD6ZLjHSu9Hjz5ZIpaSW1p7NU8SDifL7N+PTVyEo=; b=GTeHJt2jCa5eZ8V9qk/0mK2LWO
-	O7zQXD6f2do06pX9cIj4QNiGET21EI/wcR6o/rCWJVx/r6xCSkUmbEQ6/maWPw0M9OJq3Nneu0gch
-	1X659XGdl4ZPdu6CVPZLEVyUG+G5eaymN2qeIXdelaAGxwBiSB0g+F+AI9ywGL4HwCP2IhxxSNrBR
-	yi4jNkJGRO592gEhx7aI5oOsGpTihdPXgTGaaYp//dHKYnsDHPbruvSK88Qpq/44a9jWI88YKXzDG
-	lvJBjqeibif3v0K2NyGo5YOSHf6Da4D8sLfAY1lXSGqH4w+vOicbc9KKv+1Ee+lFLb+xLZLnogtMO
-	T5R4whRw==;
+	bh=9V+xJJn9UsK/pVyATCRXO2AUd9gyP/u93ItX0cM/Mvo=; b=N4ipssvNrVkufUbQip3Kk/qdqB
+	YHWdAkDI56UBkAV0IZ0uJ+q1EU8JTWzhKI8i3XuIwE5aduBPOgZkrDykcn5Boc1I5RtWkHB/rlkLZ
+	1TZCheW8yK/Po5U5mmf1r8m17sayCwC+Im2vDQe3gbxXSkxzxNdteXujX3TQH3Y82mGPSFAEaqk7/
+	Ks0iAgdJ/q556BS7UyitAMmeLolMl2MRZyjkFINt8+bYsHY+qAylRTzANQLd4NMhgAF1pF9ETY0Ht
+	IUFc77/VNMgjTXK+SF0xzncPEZuxAiq/TvQibHtoN+jRIJ7FP/eX1NTgdEBSWUdJjGGY/MT5trMxN
+	/UUP4uxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAQtk-0000000FAOY-2pZO;
-	Thu, 01 May 2025 10:12:08 +0000
-Received: from fhigh-b5-smtp.messagingengine.com ([202.12.124.156])
+	id 1uAQvf-0000000FAdO-1m0B;
+	Thu, 01 May 2025 10:14:07 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAQrn-0000000FAAs-4Bg8
+	id 1uAQtI-0000000FAGy-3OFq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 10:10:09 +0000
-Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id B01D525402A7;
-	Thu,  1 May 2025 06:10:03 -0400 (EDT)
-Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-05.internal (MEProxy); Thu, 01 May 2025 06:10:04 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
-	 h=cc:cc:content-transfer-encoding:content-type:content-type
-	:date:date:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=fm1;
-	 t=1746094203; x=1746180603; bh=rSgcD6ZLjHSu9Hjz5ZIpaSW1p7NU8SDi
-	fL7N+PTVyEo=; b=e0Fd4erXhDz1mlWy5wYwG56lLX+hpnmRVdHvjZBR4OQfLGKD
-	NsvQ7p2gSfF/wZtR5y8RBw+6F3nDb9g3Vcp6OxkSUNW0embKpO4PVnAM802LEh/O
-	DzwCwbDrMRYUyqs5/+kGg17fc2JRzRNaSp608Wpv5qSr516zaXtid0MNFbR+Pks9
-	UrnEGZTX9JSZSvMU2LU6796XgDUNqGQcaCXvR7RbudnCLDpX8O2lyE+bUhd3Ccew
-	kdY81nAOanWcYgC8WUIyk8+DCXNBAQZhCt8p0rKXoVJvmzXCs2ysTvh2Rg4h7uOg
-	NCIg4feUtD45cHLla8Zmi6jV8djpbeBABAOAjw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1746094203; x=
-	1746180603; bh=rSgcD6ZLjHSu9Hjz5ZIpaSW1p7NU8SDifL7N+PTVyEo=; b=k
-	8qGmVkMd/OQEwdZUYMe1W0l1Cnyk00WNmrNVZfIGmy5UV65FTJiHCu67K4qXwUZ/
-	G9ZtpE/c5d3airW/8wraUJXW1IKYyXCaHKl4H3oICSsHU8mZYLG0yQOrg7OLdeeX
-	dojrNxprPz2/e3Xss5ZjrJxWhPv3zDCUYYtaxwR+YHSwI9IcwHreCEZVHitUZaTm
-	LmeRQUyDjmX/ToKjPPBZnfhlYZa14F9kMQylOnlBdzR1FNKxGUjHfFN8n5uwRLLa
-	c7L/DerJuE0WbY5w5F4xne98bftT94YDrd3EQ8kKuzSdEJwlV8M4a6FZ9o+U/yzR
-	o0C7sNwtzgCDEMyVB+new==
-X-ME-Sender: <xms:ekgTaKLGmPkCCZpF1zzJs5raJpd2THhHpaHxUhKxnUEyEJbI-H1hVA>
-    <xme:ekgTaCI70GlI4oyix02sXix7GHvc37ktuhy5MeT36ip-dv8wh_CE2HQxPxw1-fUNi
-    IwNhZgZc2jEiaIUI20>
-X-ME-Received: <xmr:ekgTaKsRghlelS6ylnXqHkzqKjH3Oqem96mRKqPuZ0NYPtprA_0KPqAVuGIfyOL3UmFxJPoAR-WMXq6269eW_tM_UTPkisWLLodDquOE78eCpXrfdg64zdcNcSC4bwA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvieelfedtucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhggtgfgsehtkeertder
-    tdejnecuhfhrohhmpefuvhgvnhcurfgvthgvrhcuoehsvhgvnhesshhvvghnphgvthgvrh
-    druggvvheqnecuggftrfgrthhtvghrnhepleetudehlefgteduffeijeehfeduudekhffg
-    fedvueekvedvveeuhefgieetgfegnecuffhomhgrihhnpehgihhthhhusgdrtghomhenuc
-    evlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehsvhgvnhes
-    shhvvghnphgvthgvrhdruggvvhdpnhgspghrtghpthhtohepudehpdhmohguvgepshhmth
-    hpohhuthdprhgtphhtthhopehjsehjrghnnhgruhdrnhgvthdprhgtphhtthhopegrlhih
-    shhsrgesrhhoshgvnhiifigvihhgrdhiohdprhgtphhtthhopehnvggrlhesghhomhhprg
-    druggvvhdprhgtphhtthhopehsrhhinhhivhgrshdrkhgrnhgurghgrghtlhgrsehlihhn
-    rghrohdrohhrghdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpth
-    htohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdo
-    ughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehfnhhklhdrkhgvrhhnvghlsehgmh
-    grihhlrdgtohhmpdhrtghpthhtohepshhvvghnsehsvhgvnhhpvghtvghrrdguvghv
-X-ME-Proxy: <xmx:ekgTaPaTyJC-BVZaiND3BRyFFwTMhdJLd9wD5F0amvQtv5gfjKVvwQ>
-    <xmx:ekgTaBbIYdG3hNe7dMD3Q4MRfJ1dbE5y2ONIJwfS1VSdzFLAS_ktZQ>
-    <xmx:ekgTaLCRlAnWh3H6eKexKkm-exDJ29PAP8WHjeH93UypQlU8_Jv5Cw>
-    <xmx:ekgTaHa5A_BrWF1-QS4ZQ68JPkm8AsG7G_NIholT9cS5FTk2Tc6mhg>
-    <xmx:e0gTaISTGBFTZDu6y690LuX9--NKQkLocgt9l64useMdlN0GHfAHQwqx>
-Feedback-ID: i51094778:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 1 May 2025 06:10:00 -0400 (EDT)
-From: Sven Peter <sven@svenpeter.dev>
-To: Janne Grunau <j@jannau.net>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Neal Gompa <neal@gompa.dev>,
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sasha Finkelstein <fnkl.kernel@gmail.com>
-Cc: Sven Peter <sven@svenpeter.dev>,
-	asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Hector Martin <marcan@marcan.st>,
-	Nick Chan <towinchenmi@gmail.com>
-Subject: Re: (subset) [PATCH v3 0/3] Apple PMIC NVMEM cell driver (Formerly: Generic SPMI NVMEM cell driver)
-Date: Thu,  1 May 2025 12:09:53 +0200
-Message-Id: <174609415563.2892.911410190691203446.b4-ty@svenpeter.dev>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
-In-Reply-To: <20250423-spmi-nvmem-v3-0-2985aa722ddc@gmail.com>
-References: <20250423-spmi-nvmem-v3-0-2985aa722ddc@gmail.com>
+	Thu, 01 May 2025 10:11:41 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-39c266c1389so559608f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 May 2025 03:11:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1746094298; x=1746699098; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:cc:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=9V+xJJn9UsK/pVyATCRXO2AUd9gyP/u93ItX0cM/Mvo=;
+        b=Sq/Us1hS5dkT+H6tpz8fBBGM4pBtRALiJIpwg5Yx0hBlpJ5fx/433vWAnufYCnbXuD
+         aWTQi0/yxqJnIJkzKYuRZGP6ZnurD/p9hxROnwRWjrdD/pyzenj8kjuYpETnmf8wlLa/
+         n6XJUDmtvitbQ/eICMBHfcYtgtmOC5POtkiiatZU/b30tehW9Lbp/196bdmI5pselFFH
+         FB1mD+mywQ3u3wIZXiGTOL/NN3T+HMb3rMjNFLrF55WUwtmPx27ctlWzpaT2tzc9WbIZ
+         u7PoSBnlS4lRd254TITBLSyhKecI2vshHcwmygB2opj4eWhWRRS8PbYRm/VT2kgabpCn
+         neqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746094298; x=1746699098;
+        h=content-transfer-encoding:in-reply-to:from:cc:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=9V+xJJn9UsK/pVyATCRXO2AUd9gyP/u93ItX0cM/Mvo=;
+        b=IFW2zhIgkgXFEMDeLpK1bjfqzeoVz9kpv6kcQ7P6f8r3Qi97CQHZ70bURJMw4PecWi
+         xVoaasaEUdDaNrNuNcOVI97o6njsHz2+7LkLS3sjMV+UC5H9n+Xa4Hao26CchiV96Q+p
+         5gAP0dSj0yG+xwu36Sbiqq1zFOMTVQWa4XIPGjLd4DerI/Xp/fP3YnHQvGtGWCdrur7f
+         yViQe6WbZ/AidOsE8UuUX3r5Kff8FJTgUPMmirvzVq6QZdduLCgCImIsyVh0SDNxKZcj
+         XI3RTSBJVETykgxEiDnJxh0qZ8SMEBk+7Qzv9UlS2MyqQMkOSQHN5N+Ogs1ktpT3vY8w
+         1DqQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXNzsdj1rTrPr08Pa02NW//KQnlTc4DFucyOpeBGRYU8nIxpyolnavn+9OFijGv3NbaVTRpzlmTAL2P2wc7HoYl@lists.infradead.org
+X-Gm-Message-State: AOJu0YxsOi2OaaLV87X+CvvcZguUkVtZ+1D4hYrBJzZrkhscrS2iyJsm
+	IzRrW6P+MYSM9aFrHIsFchsepJQcwpDyXdm1RlvvwbWHX3xE2pqW1eW7WvOYcKo=
+X-Gm-Gg: ASbGnctTVD0vELtshOlNPiuWiQn/ObdaJNvXbtGxK6rdXj0K5OzB9BzoapK5g5OqhNH
+	XEatbBZDmHNYC2CeM/l0XRdEOZpDARKnHt+1Mtz1ThVqKo5ny+UTuV4jC9n82ujuNRoPPo/YWET
+	W1jC9A8C7eRVvvgn38ILTUe2WjBxxS0UadCMMsxVuuUWY/aU32d3/KxSYpFYKSlzojbtIiFTk4d
+	Ddk7Y3Gzo2/l3E5NsIJiy6t/UxNLKd+qSu8K5Sc52fXhKeGKcEU+T3C7zcsrtx6yuqSv9MeZ9T/
+	Np+bauqONuBsPXLCh++wpZ8hKW0EsSRv5AgyysogKd8=
+X-Google-Smtp-Source: AGHT+IGdqR8qzjYLlpQD4/uFhernwMAGhF3KyzSPj/rMCAGy6rGk1PYMRuH4BRffLmFXhwB8a2kWkQ==
+X-Received: by 2002:a05:6000:2203:b0:390:f2f1:2a17 with SMTP id ffacd0b85a97d-3a09417d67dmr1700384f8f.53.1746094298398;
+        Thu, 01 May 2025 03:11:38 -0700 (PDT)
+Received: from [192.168.1.3] ([77.81.75.81])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a095a4b968sm440260f8f.45.2025.05.01.03.11.36
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 01 May 2025 03:11:37 -0700 (PDT)
+Message-ID: <2ef27237-e5b4-4c9c-9810-9d1800d96596@linaro.org>
+Date: Thu, 1 May 2025 11:11:35 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/7] Arm CoreSight: Support AUX pause and resume
+To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>
+References: <20250401180708.385396-1-leo.yan@arm.com>
+Content-Language: en-US
+Cc: Mike Leach <mike.leach@linaro.org>, Jonathan Corbet <corbet@lwn.net>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20250401180708.385396-1-leo.yan@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_031008_528631_E2F0A49F 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20250501_031140_868012_58E70BD8 
+X-CRM114-Status: GOOD (  19.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,23 +101,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 23 Apr 2025 19:55:12 +0200, Sasha Finkelstein wrote:
-> This patch series adds a driver for exposing a set of registers
-> as NVMEM cells on a SPMI-attached PMIC on Apple ARM platforms.
-> Those are used to store the RTC offset and to communicate platform
-> power state between the OS and boot firmware.
+
+
+On 01/04/2025 7:07 pm, Leo Yan wrote:
+> This series is to enable AUX pause and resume on Arm CoreSight.
 > 
-> The NVMEM cell consumer drivers will be sent in a further series.
+> The first patch extracts the trace unit controlling operations to two
+> functions.  These two functions will be used by AUX pause and resume.
 > 
-> [...]
+> Patches 02 and 03 change the ETMv4 driver to prepare callback functions
+> for AUX pause and resume.
+> 
+> Patch 04 changes the ETM perf layer to support AUX pause and resume in a
+> perf session.  The patch 05 re-enables sinks after buffer update, based
+> on it, the patch 06 updates buffer on AUX pause occasion, which can
+> mitigate the trace data lose issue.
+> 
+> Patch 07 documents the AUX pause usages with Arm CoreSight.
+> 
+> This patch set has been verified on the Hikey960 board.
+> 
+> It is suggested to disable CPUIdle (add `nohlt` option in Linux command
+> line) when verifying this series.  ETM and funnel drivers are found
+> issues during CPU suspend and resume which will be addressed separately.
+> 
+> Changes from v3:
+> - Re-enabled sink in buffer update callbacks (Suzuki).
+> 
+> Changes from v2:
+> - Rebased on CoreSight next branch.
+> - Dropped the uAPI 'update_buf_on_pause' and updated document
+>    respectively (Suzuki).
+> - Renamed ETM callbacks to .pause_perf() and .resume_perf() (Suzuki).
+> - Minor improvement for error handling in the AUX resume flow.
+> 
+> Changes from v1:
+> - Added validation function pointers in pause and resume APIs (Mike).
+> 
+> 
+> Leo Yan (7):
+>    coresight: etm4x: Extract the trace unit controlling
+>    coresight: Introduce pause and resume APIs for source
+>    coresight: etm4x: Hook pause and resume callbacks
+>    coresight: perf: Support AUX trace pause and resume
+>    coresight: tmc: Re-enable sink after buffer update
+>    coresight: perf: Update buffer on AUX pause
+>    Documentation: coresight: Document AUX pause and resume
+> 
+>   Documentation/trace/coresight/coresight-perf.rst   |  31 +++++++++
+>   drivers/hwtracing/coresight/coresight-core.c       |  22 +++++++
+>   drivers/hwtracing/coresight/coresight-etm-perf.c   |  84 +++++++++++++++++++++++-
+>   drivers/hwtracing/coresight/coresight-etm4x-core.c | 143 +++++++++++++++++++++++++++++------------
+>   drivers/hwtracing/coresight/coresight-etm4x.h      |   2 +
+>   drivers/hwtracing/coresight/coresight-priv.h       |   2 +
+>   drivers/hwtracing/coresight/coresight-tmc-etf.c    |   9 +++
+>   drivers/hwtracing/coresight/coresight-tmc-etr.c    |  10 +++
+>   include/linux/coresight.h                          |   4 ++
+>   9 files changed, 265 insertions(+), 42 deletions(-)
+> 
 
-Applied to git@github.com:AsahiLinux/linux.git (asahi-soc/dt), thanks!
-
-[3/3] arm64: dts: apple: Add PMIC NVMEM
-      https://github.com/AsahiLinux/linux/commit/d8bf82081c9e
-
-Best regards,
--- 
-Sven Peter <sven@svenpeter.dev>
+Reviewed-by: James Clark <james.clark@linaro.org>
 
 
