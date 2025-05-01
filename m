@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B9F4C3ABA9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 22:08:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97E2EC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 22:10:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tOjpypFIC1MFYfuSlXMzhrCrJGqjuZGfc32KsKpKFhQ=; b=PoJJkPtLB98+27xYxLqlkFT3W5
-	Uz0l2cLlj2w0bIY0HgqP4xDUsrHtshCNmzeTrE1ZbxQMcKJLqhWMTk7+0lcSgve1No/vrCaxGZJm3
-	hWKAyWBNt6+KVwLwT3mgl/lkfGDNWP0CbuqVhYF4T2D5YPL/iP7LT88ACo+kDpR04mffTEjfwnwrZ
-	iFv0I7zsBIcEUzoUyKeO4CTgu/iQHxYlP/4WmP5/URGyC5GsL1nG9Y94p6mOF3foa3nEuHXOnODTC
-	Ol1YwGMMu/ek0aQ4IXNsH0kHQ0VeqhLlgArkCF2G8VyUVVe+39+JbYQLTroE0HdPEKdnw304lfPAH
-	M+dT9EDw==;
+	bh=HvC11TDh5RWBWPLxa7ORV/+ShfE7ZB4C79Xpi2o9TqM=; b=EDxyGjBszu9Y8FRT0CTE+427hq
+	CbbZle+6rWwCuocj2wmcEtl6rQKfMerKGDezyEc0EXdCztQwBOqz2OhP9YI7TliLZTAqYjs7I6OmL
+	di5XojfPJFsOOvHFXdjXfIcaOFaqGYul1xlaFFpnn3JJgoBKkCq8FpXrfMRUGwJ33LQFBAQ5jzpbf
+	gQohw1LBP0ff0lu+1weh04XWNV0gaEDWTnwUup4d0BRs/4MO/Z/7W8u5N4vRtY+Vf7W3swMbPojBC
+	/p/okR6BpeWPiGsXBSUlB0HWP3oMOfgxLl8udoXMZDysRByOqY4LV2y1L0d6Gk6s02tw2sMA7qHnW
+	quiOIh+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAc5I-0000000HSD1-0TCg;
-	Thu, 01 May 2025 22:08:48 +0000
+	id 1uAc7B-0000000HTCR-3gUk;
+	Thu, 01 May 2025 22:10:45 +0000
 Received: from mail-ed1-x542.google.com ([2a00:1450:4864:20::542])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAc3N-0000000HR1c-26PK
+	id 1uAc40-0000000HRQy-0GtS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 22:06:50 +0000
-Received: by mail-ed1-x542.google.com with SMTP id 4fb4d7f45d1cf-5efe8d9eb12so2157725a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 May 2025 15:06:48 -0700 (PDT)
+	Thu, 01 May 2025 22:07:29 +0000
+Received: by mail-ed1-x542.google.com with SMTP id 4fb4d7f45d1cf-5e5c7d6b96fso2517556a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 May 2025 15:07:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746137207; x=1746742007; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1746137247; x=1746742047; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=tOjpypFIC1MFYfuSlXMzhrCrJGqjuZGfc32KsKpKFhQ=;
-        b=nNlbWJOdPTwMIxvalio9jhtafmDGlaEKLFZuQaOnaH5zSM7VRm6fb2PaOAT9Eqy6tb
-         +zd+UbGOkTnS8t7h8ei6wyYahhhr/yIwj61k/vqdK027nlSMDqtwm39Q74cGUHRaJBrz
-         niiKAusGYFsoMkqZDoVA2ZXD8fCEghRXz9RxZx3FF0+oZXY79vKLTV4FOa3xpvUKFGzA
-         RCGrTtCBLEhzTI5uEOcRHhuqh1CB7OzF86hVM5a6S7+oy39vCGuLLswOyl96JGwMU/cM
-         DtC6hxm2+P5q9fIgc2OtvKpa+eMGONtoyA5fD1Iwe7mUxwCSF14Hs40NJYufN5SUGWWT
-         sNrQ==
+        bh=HvC11TDh5RWBWPLxa7ORV/+ShfE7ZB4C79Xpi2o9TqM=;
+        b=DrJXP2cL/y77fXPKxY/J08GrXZ0Qxd2r/AQoJqkBDl21eCSMz2LAKk7fgg8RL0U/+o
+         THvNLHYrDIRNEMl8RGjT1lTmK6DMr+J6oWw5woL+n/tTFZDWeKo0gPAOuuekSwj2RbVd
+         C56kcHPaVlb8trkGkWKWY9SngSLUuKKK++BiiYca9OkYPYjFq+rB93S4cqVlenD2zvDT
+         Oi/P2nvNNwQ/YjaExxiTkTemqS+kQzOYcC7csb8SPSIwU3qwuFaOd1AIFLSFp3yP0u2U
+         4qxlPeLvBHTHoqcgpU0LhjF0LZtlkAxoh8m/NtT8zRuUxg6J2Aa34WNwKesMWtZ/TFSO
+         exvQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746137207; x=1746742007;
+        d=1e100.net; s=20230601; t=1746137247; x=1746742047;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=tOjpypFIC1MFYfuSlXMzhrCrJGqjuZGfc32KsKpKFhQ=;
-        b=hRhm7YrZjz8uCfB0Eduz8I/VJrqQ/mw5ZPArODgElhyV24K2M/wNQjSOlM8M/jFQ+b
-         zh6vBjqQ7qxgy/fVrw8I4MIFg7ZTai0QYYDolcz3jPWxReyoGSoGobUxEXeulOwNr7uJ
-         Swlh3lBcmmbDim04r8D21eHwOEAWehTSOmxLz2Kf08ZzlXLYNZGQpXAztNKough7S6l3
-         1HhhOssug7JnIJJRNegXnGSDlH8x1Ky5+KV7m4TsCjQYJWyTQKyKm8xGxcPkjl9UW3Mu
-         eLaLHuzhRsFRGDLGgkkCWwqaPJOkPmnpZV5k5PLGOhpAPnl1QMcOjHvZnAqld9VVw8YF
-         HBMw==
-X-Forwarded-Encrypted: i=1; AJvYcCWKEUy5wKrVwXpaDjFnomiXQRPpAp8g0RGwlOZRqwUIzY+Dq99mE+2gG8/a6fe97+OFtaT3YUo5QP50F6OiHCmn@lists.infradead.org
-X-Gm-Message-State: AOJu0YxEMWeMS7CWRpxBDjqfjQGIsrhHyr6OuUhm1KI+tdbSjIJ32uSX
-	iQzYAjbcPU/6bkIXYZbdvc0wLU2W3NxTKk8pHHtXzSHwfwq/X9hcIgLNiFaAMQRy071vywIjQvl
-	wtoENK74s/ZEwxp+oLw91mXw8OjQ=
-X-Gm-Gg: ASbGncvx4oyBM4qKJJ4l2E0pP5n6X+SahGeHUnVzyb5xrOFkPg+wRPerSClwlQ5GiIq
-	gHya8RkbMrfdpk6WNIGYxpiHTTV2ZmEuRsreo1RbzqWarXQL10m3+tRRiLaGS9ymohR9FnWw4kN
-	e0hPhyUHf9OjyOWUeErYjYsKfMNsD8iFFFa3jxeBWM7csHk/eKjM6qNQ==
-X-Google-Smtp-Source: AGHT+IFdlZgpJIIOZwmEjMJEBEmVCQHnSyA+ervJFsjlZ4P4vNdH66g4BiTBr5V5jAKGV/k1Wwx3ddRiGr22IKP7V9w=
-X-Received: by 2002:a05:6402:90a:b0:5f4:d572:68a with SMTP id
- 4fb4d7f45d1cf-5fa7801465dmr256726a12.12.1746137207142; Thu, 01 May 2025
- 15:06:47 -0700 (PDT)
+        bh=HvC11TDh5RWBWPLxa7ORV/+ShfE7ZB4C79Xpi2o9TqM=;
+        b=XVy11xRSunZD/4JITARTpGGmajnSTQYz8TwRFOP1T//4D82y+d8CB8Nu6pqq6gGuOw
+         75hpVmQKMtBbg1pSTUbf+Xfz3PutrKbdSrPNdtNRvqAharoqKS/VXOgZokAz4C7BsSJT
+         c2NMul8Zc0IR4ojoJ3G4Fil9h4PHQnFMZES1d3qEgUT4KeOiXokVLmUj5KECpq7ORkOz
+         M96lN58DNnq4nesJvAjeX/yPkDIG1gNILxOOvpN2XhcyX1O1FHcYXl77QO3DQMlzyWJU
+         E5Szq2q8dARPGlTWhs4DXo4vUDUlKnIsljxl2flP+NQ7hnvJmMZtuZ98erpnlPeN1khR
+         wuUQ==
+X-Forwarded-Encrypted: i=1; AJvYcCURiWDYxtPMkPEXTW6zJPzmbf3AyCa2bTQvU8I3nqatKSe1V30XPa/HVe+mIBwblvqx313u6OSxa8bqoQjiTwuZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwhtgCsYwP68L48aVF5I1Yg3TaA2AkBPnLEfRY4aitSvSf0Nn5+
+	OikERFuHK9eF00nzWNnakigfb0V3o9usStYTZTOUXYPmh1CrQDfRSjf3NGyG4gex3u7HPbB/Y0x
+	vuGiFCWmd9+2OvJdeH393uY13Mno=
+X-Gm-Gg: ASbGncuhtrnVVDoBVHI3vYcNrup+/AHHrWQTTlctE4+cebFizwn/U9N6pd6dHiXed2f
+	ZkO9LjrD229VfRKsXv+387QOFvBmOlSWDzb1z/XJyew9TBDdQ+dUoxzqQGX56LVvlannvdg1yVF
+	yZbbQzYhKjdCLmYycZ4bRs/aXTe2ehQpqnW8pBJ+KRkTM=
+X-Google-Smtp-Source: AGHT+IG1lU56iqWpifKIgMMmYrNdr1ioTH6+OP6AGYVsnjqNRlojuMU0G4Vpeu63oJvn/WKU5CN6RH1ZoN5Nh1W7fAQ=
+X-Received: by 2002:a05:6402:3589:b0:5f8:30c2:862d with SMTP id
+ 4fb4d7f45d1cf-5fa78040187mr334068a12.13.1746137246565; Thu, 01 May 2025
+ 15:07:26 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250501073603.1402960-1-luis.gerhorst@fau.de> <20250501073603.1402960-3-luis.gerhorst@fau.de>
-In-Reply-To: <20250501073603.1402960-3-luis.gerhorst@fau.de>
+References: <20250501073603.1402960-1-luis.gerhorst@fau.de> <20250501073603.1402960-4-luis.gerhorst@fau.de>
+In-Reply-To: <20250501073603.1402960-4-luis.gerhorst@fau.de>
 From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
-Date: Fri, 2 May 2025 00:06:10 +0200
-X-Gm-Features: ATxdqUE3JDqCne76-GBuIfwNJ48-dE9we8FlVLpDVL25L4gVtlMzRXX74KP1XKg
-Message-ID: <CAP01T75pdQCFuMpHq0tB6DLs0xdmS9nqMMp5hfq4z2o3-e1-5Q@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v3 02/11] bpf: Move insn if/else into do_check_insn()
+Date: Fri, 2 May 2025 00:06:50 +0200
+X-Gm-Features: ATxdqUGg7YCCKDNPYyxZKyCdlBGugnXkLd2V8xrmgc9OhDJov6fHaQiLQWWlX40
+Message-ID: <CAP01T76-_PadE-BViz4bQQYQHFCNJS0Txs065w99dEcxrP3kMA@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v3 03/11] bpf: Return -EFAULT on misconfigurations
 To: Luis Gerhorst <luis.gerhorst@fau.de>
 Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
 	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
@@ -92,8 +92,8 @@ Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
 	Maximilian Ott <ott@cs.fau.de>, Milan Stephan <milan.stephan@fau.de>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_150649_542373_C90F58C8 
-X-CRM114-Status: GOOD (  12.96  )
+X-CRM114-CacheID: sfid-20250501_150728_101687_B8D66FFD 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,26 +108,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 1 May 2025 at 09:43, Luis Gerhorst <luis.gerhorst@fau.de> wrote:
+On Thu, 1 May 2025 at 09:48, Luis Gerhorst <luis.gerhorst@fau.de> wrote:
 >
-> This is required to catch the errors later and fall back to a nospec if
-> on a speculative path.
+> Mark these cases as non-recoverable to later prevent them from being
+> caught when they occur during speculative path verification.
 >
-> Eliminate the regs variable as it is only used once and insn_idx is not
-> modified in-between the definition and usage.
+> Eduard writes [1]:
 >
-> Still pass insn simply to match the other check_*() functions. As Eduard
-> points out [1], insn is assumed to correspond to env->insn_idx in many
-> places (e.g, __check_reg_arg()).
+>   The only pace I'm aware of that might act upon specific error code
+>   from verifier syscall is libbpf. Looking through libbpf code, it seems
+>   that this change does not interfere with libbpf.
 >
-> Move code into do_check_insn(), replace
-> * "continue" with "return 0" after modifying insn_idx
-> * "goto process_bpf_exit" with "return PROCESS_BPF_EXIT"
-> * "do_print_state = " with "*do_print_state = "
->
-> [1] https://lore.kernel.org/all/293dbe3950a782b8eb3b87b71d7a967e120191fd.camel@gmail.com/
+> [1] https://lore.kernel.org/all/785b4531ce3b44a84059a4feb4ba458c68fce719.camel@gmail.com/
 >
 > Signed-off-by: Luis Gerhorst <luis.gerhorst@fau.de>
+> Reviewed-by: Eduard Zingerman <eddyz87@gmail.com>
 > Acked-by: Henriette Herzog <henriette.herzog@rub.de>
 > Cc: Maximilian Ott <ott@cs.fau.de>
 > Cc: Milan Stephan <milan.stephan@fau.de>
