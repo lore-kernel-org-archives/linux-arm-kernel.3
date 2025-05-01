@@ -4,73 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16949C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 13:21:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F798C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 13:22:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9A0yIeZx30AwTBUYnnlBoGICiFj17jotAKfE3CiQ46Q=; b=kSjaEgY/1lebDCsdIzqaeWRy9x
-	kCAAK7AdotBUKabvIBZRweu99wjEPzc21vLYUP5ckzWLeUnJ41WSpbCY7IUPO+rCujZcV1byrEkRz
-	+tnacWDOEnlElALlS2JimdZ0ZyrF4kjIBoiZlORJSC8LrIQIelqKofNddBOaWf1+WJ2LpZ2QfXLuq
-	+Y/5j2inErOnRtLXjHcJCicn/78G2ZVy8zacPWJHnf09yiqvl1QmJPzzAU9Avm8ODssqxYSetj70R
-	ZvL6Iuvm7JXh90F8LaOoc/UDmffPQrUZK6Oh8623mpAXwhKyKbPRJiurwWwqemLgsGX2ZNsqe/XLu
-	KcNgKUyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rY35XHnjZIl/V4ydkxCphqZv9AG2JKc3McYVhpnsPU8=; b=m1NAy1i+FUNb10ty0S7xTKl3By
+	eSLsR0QopJy3De/eyeGWFtfTHfSdlSUJLiw/qUjgagroVVO992IcXJw8Xu4HQH5zL/2xSCdS8Hxcr
+	/hpKcT6icpsGPRddrjUpg15vmeZuMcv3Y/TZEK0QECr8bC6pZXYELMbur0+sC/n0hYAbpmRo0rXI0
+	83YfpaPIivm6qnExBASKa4FgrXYMKoWUAg6YXh0XJcPEK3bE8lcvNSwPfEYTzRkHQit9p5MgXTij6
+	M/VmFsuql2BOS2pqsF3LQ/pyD9LaUEfFavMRTuDlJnMGgyak7d6y62zeNMvN2dHXvc6B/SwkTGXdN
+	LRZBNDSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uATqP-0000000Fo75-2z4P;
-	Thu, 01 May 2025 13:20:53 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uATsH-0000000FoPa-1WVP;
+	Thu, 01 May 2025 13:22:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uATnM-0000000FnfT-0Xbs
+	id 1uATqF-0000000Fo3d-0PWp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 13:17:45 +0000
+	Thu, 01 May 2025 13:20:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 53C9F5C5896;
-	Thu,  1 May 2025 13:15:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72118C4CEE3;
-	Thu,  1 May 2025 13:17:39 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 64D1161136;
+	Thu,  1 May 2025 13:20:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF271C4CEED;
+	Thu,  1 May 2025 13:20:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746105463;
-	bh=QtW8V05Ll5TgPFoRHUE1CblqZBs5rBw/y7zDbeCz2Ew=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=Wl4GnDnwJXGlIGZ8fC5LMt1nsQT92up9CfvAsDJqGX0AZ/pSez6UWnMczBPvGuoU+
-	 vJpRBXQawz0eZXmKgXOu2Tq/YZxgDuPeZmow79KAcR1JahN5qDmv/LuLKQbhMMfCS+
-	 LJTiuotSAnjKbzRYkrU25861E6pJu8d28cqTYFUlAC66b1uEeJYG/iN0+0Mq3kCgQZ
-	 2aapo/88irzFShq9xenYlP/GmqiMWYtnbkgsJb7ld6eWxYtIO694EfRe3zw2DtORNr
-	 XIpfeePuaPPGbdQwnrz+ALQLLNDqCaEQ0T3b3ko8/jMdCY1QV9ggBZ6xX1YEDlSQaA
-	 QBx3Syq6+lh4A==
-From: Lee Jones <lee@kernel.org>
-To: Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Georgi Djakov <djakov@kernel.org>, 
- Lee Jones <lee@kernel.org>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
- Mathieu Poirier <mathieu.poirier@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
- David Heidelberg <david@ixit.cz>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, coresight@lists.linaro.org, 
- linux-arm-kernel@lists.infradead.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20250425-fix-nexus-4-v3-0-da4e39e86d41@oss.qualcomm.com>
-References: <20250425-fix-nexus-4-v3-0-da4e39e86d41@oss.qualcomm.com>
-Subject: Re: (subset) [PATCH v3 00/11] ARM: qcom: fix APQ8064 schema
- warnings
-Message-Id: <174610545917.3855354.6995417813544260690.b4-ty@kernel.org>
-Date: Thu, 01 May 2025 14:17:39 +0100
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.15-dev-39345
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_061744_211478_335BC602 
-X-CRM114-Status: UNSURE (   7.13  )
-X-CRM114-Notice: Please train this message.
+	s=k20201202; t=1746105641;
+	bh=Os11/kUyL5V6AODv9qoGyyUIKSAfj1P38I2fDvunLJE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=n6JbTqUrpaLfHlfvu5L22w27yom1lrlLhx27ERqNuGM0RwQBmGiXiihE8ZdZpQPCv
+	 cS+xxrrKGfcs6qZi9wCQUTakiukkvlhs2pNokiQJGuA0ZXdDWEcpse5GAujKrViIwU
+	 VIfB43WSzt8Lrq8PnuyRJ8JP13EIzRbVKKi87rSaepGpfSR6DsfQMDCnkw0Er5C0kj
+	 jjhKL6ZqpYi2pkODlpPzsS4J1c3sCK5WzQw5khwBlLbFL3Xi7+sqr/YroLSr4ONXjb
+	 voajhkctUHnUgjmy8Uv42ahIQs3sS/kkHHqzsru69sxz0yYjQ/xAdoU0pK/SnI9hdX
+	 lrysXZF2RHFww==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uATqB-00Aa7U-MT;
+	Thu, 01 May 2025 14:20:39 +0100
+Date: Thu, 01 May 2025 14:20:39 +0100
+Message-ID: <86zffwh3h4.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Joey Gouly <joey.gouly@arm.com>
+Cc: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [PATCH v3 04/42] arm64: sysreg: Replace HGFxTR_EL2 with HFG{R,W}TR_EL2
+In-Reply-To: <20250429142656.GD1859293@e124191.cambridge.arm.com>
+References: <20250426122836.3341523-1-maz@kernel.org>
+	<20250426122836.3341523-5-maz@kernel.org>
+	<20250429142656.GD1859293@e124191.cambridge.arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: joey.gouly@arm.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, mark.rutland@arm.com, tabba@google.com, will@kernel.org, catalin.marinas@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,25 +90,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 25 Apr 2025 20:47:00 +0300, Dmitry Baryshkov wrote:
-> Rob's bot has reported [1] several warnings for Nexus 4 submisson,
-> however none of those warnings are specific to that device. Fix all
-> those warnings for all APQ8064 platforms by extending existing schemas,
-> adding missing schemas and making APQ8064 DT follow all the schema
-> files.
+On Tue, 29 Apr 2025 15:26:56 +0100,
+Joey Gouly <joey.gouly@arm.com> wrote:
 > 
-> [1]: https://lore.kernel.org/linux-arm-msm/174221818190.3957236.3364090534153729086.robh@kernel.org/
+> On Sat, Apr 26, 2025 at 01:27:58PM +0100, Marc Zyngier wrote:
+
+> > @@ -240,8 +240,8 @@
+> >  	cbz	x1, .Lset_fgt_\@
+> >  
+> >  	/* Disable traps of access to GCS registers at EL0 and EL1 */
+> > -	orr	x0, x0, #HFGxTR_EL2_nGCS_EL1_MASK
+> > -	orr	x0, x0, #HFGxTR_EL2_nGCS_EL0_MASK
+> > +	orr	x0, x0, #HFGRTR_EL2_nGCS_EL1_MASK
+> > +	orr	x0, x0, #HFGRTR_EL2_nGCS_EL0_MASK
+> >  
+> >  .Lset_fgt_\@:
+> >  	msr_s	SYS_HFGRTR_EL2, x0
 > 
-> [...]
+> We still treat them as the same here, funny that the diff cut off the next line:
+> 
+> 	msr_s   SYS_HFGWTR_EL2, x0
+> 
+> Not saying you should do anything about it, I think it's fine.
 
-Applied, thanks!
+Yeah, I had spotted these, but pointlessly duplicating these for R/W
+did seem over the top.
 
-[02/11] dt-bindings: mfd: syscon: add qcom,apq8064-mmss-sfpb
-        commit: 137d4ebdf6bd86ca6aa26ec4f9a1c5b579905c6c
-[03/11] dt-bindings: mfd: syscon: add qcom,apq8064-sps-sic
-        commit: 9f8af721495e04b6c3a3a5293fd8afa7e38bee1f
+Overall, What I am trying to achieve is to prevent that someone
+accidentally uses something such as HFGxTR_EL2.AIDR_EL1 to HFGWTR_EL2.
+I want to be able to catch those early (compile time) when they are
+used in macros that compose register and bit names.
 
---
-Lee Jones [李琼斯]
+> 
+> > diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+> > index f36d067967c33..43a630b940bfb 100644
+> > --- a/arch/arm64/include/asm/kvm_arm.h
+> > +++ b/arch/arm64/include/asm/kvm_arm.h
+> > @@ -325,7 +325,7 @@
+> >   * Once we get to a point where the two describe the same thing, we'll
+> >   * merge the definitions. One day.
+> >   */
+> > -#define __HFGRTR_EL2_RES0	HFGxTR_EL2_RES0
+> > +#define __HFGRTR_EL2_RES0	HFGRTR_EL2_RES0
+> >  #define __HFGRTR_EL2_MASK	GENMASK(49, 0)
+> >  #define __HFGRTR_EL2_nMASK	~(__HFGRTR_EL2_RES0 | __HFGRTR_EL2_MASK)
+> >  
+> > @@ -336,7 +336,7 @@
+> >  #define __HFGRTR_ONLY_MASK	(BIT(46) | BIT(42) | BIT(40) | BIT(28) | \
+> >  				 GENMASK(26, 25) | BIT(21) | BIT(18) | \
+> >  				 GENMASK(15, 14) | GENMASK(10, 9) | BIT(2))
+> > -#define __HFGWTR_EL2_RES0	(__HFGRTR_EL2_RES0 | __HFGRTR_ONLY_MASK)
+> > +#define __HFGWTR_EL2_RES0	HFGWTR_EL2_RES0
+> >  #define __HFGWTR_EL2_MASK	(__HFGRTR_EL2_MASK & ~__HFGRTR_ONLY_MASK)
+> >  #define __HFGWTR_EL2_nMASK	~(__HFGWTR_EL2_RES0 | __HFGWTR_EL2_MASK)
+> >  
+> > diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> > index e98cfe7855a62..7a1ef5be7efb2 100644
+> > --- a/arch/arm64/include/asm/kvm_host.h
+> > +++ b/arch/arm64/include/asm/kvm_host.h
+> > @@ -273,7 +273,8 @@ struct kvm_sysreg_masks;
+> >  
+> >  enum fgt_group_id {
+> >  	__NO_FGT_GROUP__,
+> > -	HFGxTR_GROUP,
+> > +	HFGRTR_GROUP,
+> > +	HFGWTR_GROUP = HFGRTR_GROUP,
+> 
+> I think this change makes most of the diffs using this enum more confusing, but
+> it also seems to algin the code more closely with HDFGWTR_EL2 and HDFGWTR_EL2.
 
+Indeed. And once you add FEAT_FGT2 to the mix, HFGxTR becomes really
+out of place. As for the confusing aspect, I agree that the notion of
+group is a bit jarring, and maybe some documentation would help. The
+idea is actually simple:
+
+A sysreg trap always tells us whether this is for read or write. The
+data stored for each sysreg tells us which FGT register is controlling
+that trap. But since we can have one FGT register for read, and
+another for write, we would have to store both. Trouble is, we only
+have 63 bits in that descriptor. To save some space, we encode only
+the group (covering both read and write), and use the WnR bit to pick
+the correct guy.
+
+This means we can encode 11 possible registers in 3 bits, with
+restrictions. We still have plenty of bits left, but I'm pretty sure
+the architecture will force us to eat into it pretty quickly.
+
+[...]
+
+> > diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> > index 005ad28f73068..6e01b06bedcae 100644
+> > --- a/arch/arm64/kvm/sys_regs.c
+> > +++ b/arch/arm64/kvm/sys_regs.c
+> > @@ -5147,12 +5147,12 @@ void kvm_calculate_traps(struct kvm_vcpu *vcpu)
+> >  	if (test_bit(KVM_ARCH_FLAG_FGU_INITIALIZED, &kvm->arch.flags))
+> >  		goto out;
+> >  
+> > -	kvm->arch.fgu[HFGxTR_GROUP] = (HFGxTR_EL2_nAMAIR2_EL1		|
+> > -				       HFGxTR_EL2_nMAIR2_EL1		|
+> > -				       HFGxTR_EL2_nS2POR_EL1		|
+> > -				       HFGxTR_EL2_nACCDATA_EL1		|
+> > -				       HFGxTR_EL2_nSMPRI_EL1_MASK	|
+> > -				       HFGxTR_EL2_nTPIDR2_EL0_MASK);
+> > +	kvm->arch.fgu[HFGRTR_GROUP] = (HFGRTR_EL2_nAMAIR2_EL1		|
+> > +				       HFGRTR_EL2_nMAIR2_EL1		|
+> > +				       HFGRTR_EL2_nS2POR_EL1		|
+> > +				       HFGRTR_EL2_nACCDATA_EL1		|
+> > +				       HFGRTR_EL2_nSMPRI_EL1_MASK	|
+> > +				       HFGRTR_EL2_nTPIDR2_EL0_MASK);
+> 
+> For example here you see HFGRTR_GROUP but it actually also applies to HFGWTR_GROUP.
+
+Because we use the same encoding trick. I don't see a good way to express
+that in a clean way, unfortunately. If you have an idea, I'm all ears!
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
