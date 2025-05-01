@@ -4,108 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02F03C3ABA3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 07:53:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC3B7C3ABA3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 07:55:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r/VsGQjKgOJEycGBnQoe+vJUng/jocRS2QfqjnExd6U=; b=xXoNkKripy3BPqBP8WTapJCSUk
-	HLhI3fu+NQlc8fDooRjG16rtNN7TyAexfenNSywR1rluFIOlVvp1yKMusjPnqE1kS3UvHyCDJB7WZ
-	Dw6Kt+aDWmK117Y+Ri3pYH7Mx49HbUU+cB7F3HPISZszxdXsEO/kr9hL6R4u3N1LmpjNrT2kvgTe0
-	yH5uphGshel3dM+GuNN8+YXbutD1k0ri9Z5PPT1hYxP1aM0de379ocbt5g81xMv4FxzTytq/P65h6
-	j3bzg2WFSlxhKd8Zk35xZBMiemkeVXNwKPdhlFJOx9SIBg6AjSlmtwyBycPKdU/UXG34vO26rcUfm
-	ovQ69KXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JgN7NGzrmZP3dgb+9XcRKG0bzM6MsbpkJF2AK42RKIs=; b=07xs5VdtK+dlKnJok5QkPcYo9p
+	RjiECBGkKhcZGDkkihttRQSbskSwGGEVA+UQo8YGcargxJOnvQEXO2riAlZvSlg4GRItVNDrfAAMy
+	B8T0hAl1zRyP2ENLY+Oxy936PDe+5c0AdSXHQvzjzI+oK1ihYiQQFQ/jNbDkv4n6ysoDPDSjfRd6+
+	t7cRZC7cD9eHQaChSpDUzzNfQUOttcxi7V99Fj03P7tr55FwQJ4IuAgmNGE8G9DC8vpZwrGJWix1r
+	gIKHPvHMZxuNKqvmH9vDxMx354pSC+4PFt6qgLK+csuJ/pwpJfESwHSQ9YqUsPpFQbPs/TUR20wAl
+	Fdfg6IxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAOjY-0000000Eyc1-1T4R;
-	Thu, 01 May 2025 07:53:28 +0000
-Received: from mx-rz-1.rrze.uni-erlangen.de ([2001:638:a000:1025::14])
+	id 1uAOlU-0000000Eyy3-0MNz;
+	Thu, 01 May 2025 07:55:28 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAOhe-0000000EyOE-1PLk
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 07:51:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fau.de; s=fau-2021;
-	t=1746085888; bh=r/VsGQjKgOJEycGBnQoe+vJUng/jocRS2QfqjnExd6U=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From:To:CC:
-	 Subject;
-	b=DH0fyMihLlmEMnI3IXvOpOztCgB79uAjFsF2WARFNyvfOpMYcAXtawK4UD3Rk6mUb
-	 KCAs/JxBMcYwaRYVB1H7TChsU6RxuGAFmT8DZYB/TxSu9hLYz3PlcT8EmMPbntJImE
-	 qemzXmhuhWlUZLLZDTHVT4fx2mD/8+yBhxbqXBHg85XbS9W+izqMjPCH9jEACz6vTK
-	 ARTKmjoHB5Ct31JU2WVkaql2vXSwaYjIoPOrT7IkY3i1T5KxyH5F419e8suHBtM6Lx
-	 S03abFtnC5+up4TzFp1k4UlPrvM+seBXHNE+xKm4VlslO2tP12Oblhx/tqUlTEEgBZ
-	 puIuSHdQ+U4wg==
-Received: from mx-rz-smart.rrze.uni-erlangen.de (mx-rz-smart.rrze.uni-erlangen.de [IPv6:2001:638:a000:1025::1e])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-rz-1.rrze.uni-erlangen.de (Postfix) with ESMTPS id 4Zp5pm4N53z8ssD;
-	Thu,  1 May 2025 09:51:28 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at boeck2.rrze.uni-erlangen.de (RRZE)
-X-RRZE-Flag: Not-Spam
-X-RRZE-Submit-IP: 2001:9e8:3636:a700:12b2:e53f:6cbc:f48c
-Received: from luis-tp.fritz.box (unknown [IPv6:2001:9e8:3636:a700:12b2:e53f:6cbc:f48c])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: U2FsdGVkX189w1TjNpH9HLNYN7WefZ1tXbPVZqQCL0Q=)
-	by smtp-auth.uni-erlangen.de (Postfix) with ESMTPSA id 4Zp5ph5Jtmz8srj;
-	Thu,  1 May 2025 09:51:24 +0200 (CEST)
-From: Luis Gerhorst <luis.gerhorst@fau.de>
-To: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Hao Luo <haoluo@google.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Hari Bathini <hbathini@linux.ibm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Naveen N Rao <naveen@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Mykola Lysenko <mykolal@fb.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Luis Gerhorst <luis.gerhorst@fau.de>,
-	Henriette Herzog <henriette.herzog@rub.de>,
-	Saket Kumar Bhaskar <skb99@linux.ibm.com>,
-	Cupertino Miranda <cupertino.miranda@oracle.com>,
-	Jiayuan Chen <mrpre@163.com>,
-	Matan Shachnai <m.shachnai@gmail.com>,
-	Dimitar Kanaliev <dimitar.kanaliev@siteground.com>,
-	Shung-Hsi Yu <shung-hsi.yu@suse.com>,
-	Daniel Xu <dxu@dxuuu.xyz>,
-	bpf@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-kselftest@vger.kernel.org
-Cc: Maximilian Ott <ott@cs.fau.de>,
-	Milan Stephan <milan.stephan@fau.de>
-Subject: [PATCH bpf-next v3 05/11] bpf, arm64, powerpc: Add bpf_jit_bypass_spec_v1/v4()
-Date: Thu,  1 May 2025 09:35:56 +0200
-Message-ID: <20250501073603.1402960-6-luis.gerhorst@fau.de>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250501073603.1402960-1-luis.gerhorst@fau.de>
-References: <20250501073603.1402960-1-luis.gerhorst@fau.de>
+	id 1uAOjZ-0000000Eybv-1jp9;
+	Thu, 01 May 2025 07:53:31 +0000
+Received: from ideasonboard.com (unknown [IPv6:2a00:6020:448c:6c00:9a2:b0dd:e301:2388])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id C9A8C667;
+	Thu,  1 May 2025 09:53:16 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1746085996;
+	bh=wAEwo/bY723UwoMjFIX3JMV/8BAB2tH2e90elCg4rIc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KNDudQcIAPS26mxLXZp1+mqOIVz9BgQZ3OpSezkxyBPO5CQ4tof1MLe/u75v+DcdE
+	 i8IYgqIh8Xzc1zreN2Pf84saH+Fxlz5kyJBSbQoowAIiQ1gWiI5MA4WChdc2gOp2vh
+	 3HmPBF01JkyULPdovQdMutYUd8mhC15niqae79V4=
+Date: Thu, 1 May 2025 09:53:21 +0200
+From: Stefan Klug <stefan.klug@ideasonboard.com>
+To: Jai Luthra <jai.luthra@ideasonboard.com>
+Cc: Dafna Hirschfeld <dafna@fastmail.com>, 
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 1/2] media: rockchip: rkisp1: Add support for Wide
+ Dynamic Range
+Message-ID: <xhcfkskuprbzeuek7xstlhpjiz7ks6qplehmrcrpuldnqdrwvf@lc5agieq22g4>
+References: <20250429-awb64-v5-0-2dc3163a8cfc@ideasonboard.com>
+ <20250429-awb64-v5-1-2dc3163a8cfc@ideasonboard.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250429-awb64-v5-1-2dc3163a8cfc@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_005130_520210_1058C5FC 
-X-CRM114-Status: GOOD (  24.32  )
+X-CRM114-CacheID: sfid-20250501_005329_918274_A971BC8D 
+X-CRM114-Status: GOOD (  26.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,201 +69,426 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-JITs can set bpf_jit_bypass_spec_v1/v4() if they want the verifier to
-skip analysis/patching for the respective vulnerability. For v4, this
-will reduce the number of barriers the verifier inserts. For v1, it
-allows more programs to be accepted.
+Hi Jai,
 
-The primary motivation for this is to not regress unpriv BPF's
-performance on ARM64 in a future commit where BPF_NOSPEC is also used
-against Spectre v1.
+Thank you for the patch.
 
-This has the user-visible change that v1-induced rejections on
-non-vulnerable PowerPC CPUs are avoided.
+On Tue, Apr 29, 2025 at 05:11:53PM +0530, Jai Luthra wrote:
+> RKISP supports a basic Wide Dynamic Range (WDR) module since the first
+> iteration (v1.0) of the ISP. Add support for enabling and configuring it
+> using extensible parameters.
+> 
+> Also, to ease programming, switch to using macro variables for defining
+> the tonemapping curve register addresses.
+> 
+> Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
 
-For now, this does not change the semantics of BPF_NOSPEC. It is still a
-v4-only barrier and must not be implemented if bypass_spec_v4 is always
-true for the arch. Changing it to a v1 AND v4-barrier is done in a
-future commit.
+I couldn't spot anything missing. I retested the v5 sucessfully on a
+Debix i.MX 8 M Plus Som.
 
-As an alternative to bypass_spec_v1/v4, one could introduce NOSPEC_V1
-AND NOSPEC_V4 instructions and allow backends to skip their lowering as
-suggested by commit f5e81d111750 ("bpf: Introduce BPF nospec instruction
-for mitigating Spectre v4"). Adding bpf_jit_bypass_spec_v1/v4() was
-found to be preferable for the following reason:
+So:
+Reviewed-by: Stefan Klug <stefan.klug@ideasonboard.com> 
+Tested-by: Stefan Klug <stefan.klug@ideasonboard.com>
 
-* bypass_spec_v1/v4 benefits non-vulnerable CPUs: Always performing the
-  same analysis (not taking into account whether the current CPU is
-  vulnerable), needlessly restricts users of CPUs that are not
-  vulnerable. The only use case for this would be portability-testing,
-  but this can later be added easily when needed by allowing users to
-  force bypass_spec_v1/v4 to false.
+Best regards,
+Stefan
 
-* Portability is still acceptable: Directly disabling the analysis
-  instead of skipping the lowering of BPF_NOSPEC(_V1/V4) might allow
-  programs on non-vulnerable CPUs to be accepted while the program will
-  be rejected on vulnerable CPUs. With the fallback to speculation
-  barriers for Spectre v1 implemented in a future commit, this will only
-  affect programs that do variable stack-accesses or are very complex.
-
-For PowerPC, the SEC_FTR checking in bpf_jit_bypass_spec_v4() is based
-on the check that was previously located in the BPF_NOSPEC case.
-
-For LoongArch, it would likely be safe to set both
-bpf_jit_bypass_spec_v1() and _v4() according to
-commit a6f6a95f2580 ("LoongArch, bpf: Fix jit to skip speculation
-barrier opcode"). This is omitted here as I am unable to do any testing
-for LoongArch.
-
-Signed-off-by: Luis Gerhorst <luis.gerhorst@fau.de>
-Cc: Henriette Herzog <henriette.herzog@rub.de>
-Cc: Maximilian Ott <ott@cs.fau.de>
-Cc: Milan Stephan <milan.stephan@fau.de>
----
- arch/arm64/net/bpf_jit_comp.c     | 21 ++++++++++++---------
- arch/powerpc/net/bpf_jit_comp64.c | 21 +++++++++++++++++----
- include/linux/bpf.h               | 11 +++++++++--
- kernel/bpf/core.c                 | 15 +++++++++++++++
- 4 files changed, 53 insertions(+), 15 deletions(-)
-
-diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-index 70d7c89d3ac9..0f617b55866e 100644
---- a/arch/arm64/net/bpf_jit_comp.c
-+++ b/arch/arm64/net/bpf_jit_comp.c
-@@ -1583,15 +1583,7 @@ static int build_insn(const struct bpf_insn *insn, struct jit_ctx *ctx,
- 
- 	/* speculation barrier */
- 	case BPF_ST | BPF_NOSPEC:
--		/*
--		 * Nothing required here.
--		 *
--		 * In case of arm64, we rely on the firmware mitigation of
--		 * Speculative Store Bypass as controlled via the ssbd kernel
--		 * parameter. Whenever the mitigation is enabled, it works
--		 * for all of the kernel code with no need to provide any
--		 * additional instructions.
--		 */
-+		/* See bpf_jit_bypass_spec_v4() */
- 		break;
- 
- 	/* ST: *(size *)(dst + off) = imm */
-@@ -2762,6 +2754,17 @@ bool bpf_jit_supports_percpu_insn(void)
- 	return true;
- }
- 
-+bool bpf_jit_bypass_spec_v4(void)
-+{
-+	/* In case of arm64, we rely on the firmware mitigation of Speculative
-+	 * Store Bypass as controlled via the ssbd kernel parameter. Whenever
-+	 * the mitigation is enabled, it works for all of the kernel code with
-+	 * no need to provide any additional instructions. Therefore, skip
-+	 * inserting nospec insns against Spectre v4.
-+	 */
-+	return true;
-+}
-+
- bool bpf_jit_inlines_helper_call(s32 imm)
- {
- 	switch (imm) {
-diff --git a/arch/powerpc/net/bpf_jit_comp64.c b/arch/powerpc/net/bpf_jit_comp64.c
-index 233703b06d7c..b5339c541283 100644
---- a/arch/powerpc/net/bpf_jit_comp64.c
-+++ b/arch/powerpc/net/bpf_jit_comp64.c
-@@ -363,6 +363,23 @@ static int bpf_jit_emit_tail_call(u32 *image, struct codegen_context *ctx, u32 o
- 	return 0;
- }
- 
-+bool bpf_jit_bypass_spec_v1(void)
-+{
-+#if defined(CONFIG_PPC_E500) || defined(CONFIG_PPC_BOOK3S_64)
-+	return !(security_ftr_enabled(SEC_FTR_FAVOUR_SECURITY) &&
-+		 security_ftr_enabled(SEC_FTR_BNDS_CHK_SPEC_BAR));
-+#else
-+	return true;
-+#endif
-+}
-+
-+bool bpf_jit_bypass_spec_v4(void)
-+{
-+	return !(security_ftr_enabled(SEC_FTR_FAVOUR_SECURITY) &&
-+		 security_ftr_enabled(SEC_FTR_STF_BARRIER) &&
-+		 stf_barrier_type_get() != STF_BARRIER_NONE);
-+}
-+
- /*
-  * We spill into the redzone always, even if the bpf program has its own stackframe.
-  * Offsets hardcoded based on BPF_PPC_STACK_SAVE -- see bpf_jit_stack_local()
-@@ -785,10 +802,6 @@ int bpf_jit_build_body(struct bpf_prog *fp, u32 *image, u32 *fimage, struct code
- 		 * BPF_ST NOSPEC (speculation barrier)
- 		 */
- 		case BPF_ST | BPF_NOSPEC:
--			if (!security_ftr_enabled(SEC_FTR_FAVOUR_SECURITY) ||
--					!security_ftr_enabled(SEC_FTR_STF_BARRIER))
--				break;
--
- 			switch (stf_barrier) {
- 			case STF_BARRIER_EIEIO:
- 				EMIT(PPC_RAW_EIEIO() | 0x02000000);
-diff --git a/include/linux/bpf.h b/include/linux/bpf.h
-index 3f0cc89c0622..6f5e54c680db 100644
---- a/include/linux/bpf.h
-+++ b/include/linux/bpf.h
-@@ -2268,6 +2268,9 @@ bpf_prog_run_array_uprobe(const struct bpf_prog_array *array,
- 	return ret;
- }
- 
-+bool bpf_jit_bypass_spec_v1(void);
-+bool bpf_jit_bypass_spec_v4(void);
-+
- #ifdef CONFIG_BPF_SYSCALL
- DECLARE_PER_CPU(int, bpf_prog_active);
- extern struct mutex bpf_stats_enabled_mutex;
-@@ -2455,12 +2458,16 @@ static inline bool bpf_allow_uninit_stack(const struct bpf_token *token)
- 
- static inline bool bpf_bypass_spec_v1(const struct bpf_token *token)
- {
--	return cpu_mitigations_off() || bpf_token_capable(token, CAP_PERFMON);
-+	return bpf_jit_bypass_spec_v1() ||
-+		cpu_mitigations_off() ||
-+		bpf_token_capable(token, CAP_PERFMON);
- }
- 
- static inline bool bpf_bypass_spec_v4(const struct bpf_token *token)
- {
--	return cpu_mitigations_off() || bpf_token_capable(token, CAP_PERFMON);
-+	return bpf_jit_bypass_spec_v4() ||
-+		cpu_mitigations_off() ||
-+		bpf_token_capable(token, CAP_PERFMON);
- }
- 
- int bpf_map_new_fd(struct bpf_map *map, int flags);
-diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
-index ba6b6118cf50..804f1e52bfa3 100644
---- a/kernel/bpf/core.c
-+++ b/kernel/bpf/core.c
-@@ -3029,6 +3029,21 @@ bool __weak bpf_jit_needs_zext(void)
- 	return false;
- }
- 
-+/* By default, enable the verifier's mitigations against Spectre v1 and v4 for
-+ * all archs. The value returned must not change at runtime as there is
-+ * currently no support for reloading programs that were loaded without
-+ * mitigations.
-+ */
-+bool __weak bpf_jit_bypass_spec_v1(void)
-+{
-+	return false;
-+}
-+
-+bool __weak bpf_jit_bypass_spec_v4(void)
-+{
-+	return false;
-+}
-+
- /* Return true if the JIT inlines the call to the helper corresponding to
-  * the imm.
-  *
--- 
-2.49.0
-
+> ---
+> Changes in v5:
+> - Ensure WDR_USE_IREF is unset before reading params from user
+> - Fix alignment issues in WDR patch
+> - Drop reset value information from doxygen comments for WDR tone curve
+> ---
+>  .../media/platform/rockchip/rkisp1/rkisp1-params.c | 93 ++++++++++++++++++++
+>  .../media/platform/rockchip/rkisp1/rkisp1-regs.h   | 99 ++++++----------------
+>  include/uapi/linux/rkisp1-config.h                 | 92 ++++++++++++++++++++
+>  3 files changed, 210 insertions(+), 74 deletions(-)
+> 
+> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
+> index b28f4140c8a309a3231d44d825c6461e3ecb2a44..dc8e827e9464117877afe679611c528b4126172f 100644
+> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
+> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
+> @@ -5,6 +5,7 @@
+>   * Copyright (C) 2017 Rockchip Electronics Co., Ltd.
+>   */
+>  
+> +#include <linux/bitfield.h>
+>  #include <linux/math.h>
+>  #include <linux/string.h>
+>  
+> @@ -60,6 +61,7 @@ union rkisp1_ext_params_config {
+>  	struct rkisp1_ext_params_afc_config afc;
+>  	struct rkisp1_ext_params_compand_bls_config compand_bls;
+>  	struct rkisp1_ext_params_compand_curve_config compand_curve;
+> +	struct rkisp1_ext_params_wdr_config wdr;
+>  };
+>  
+>  enum rkisp1_params_formats {
+> @@ -1348,6 +1350,73 @@ rkisp1_compand_compress_config(struct rkisp1_params *params,
+>  				       arg->x);
+>  }
+>  
+> +static void rkisp1_wdr_config(struct rkisp1_params *params,
+> +			      const struct rkisp1_cif_isp_wdr_config *arg)
+> +{
+> +	unsigned int i;
+> +	u32 value;
+> +
+> +	value = rkisp1_read(params->rkisp1, RKISP1_CIF_ISP_WDR_CTRL)
+> +	      & ~(RKISP1_CIF_ISP_WDR_USE_IREF |
+> +		  RKISP1_CIF_ISP_WDR_COLOR_SPACE_SELECT |
+> +		  RKISP1_CIF_ISP_WDR_CR_MAPPING_DISABLE |
+> +		  RKISP1_CIF_ISP_WDR_USE_Y9_8 |
+> +		  RKISP1_CIF_ISP_WDR_USE_RGB7_8 |
+> +		  RKISP1_CIF_ISP_WDR_DISABLE_TRANSIENT |
+> +		  RKISP1_CIF_ISP_WDR_RGB_FACTOR_MASK);
+> +
+> +	/* Colorspace and chrominance mapping */
+> +	if (arg->use_rgb_colorspace)
+> +		value |= RKISP1_CIF_ISP_WDR_COLOR_SPACE_SELECT;
+> +
+> +	if (!arg->use_rgb_colorspace && arg->bypass_chroma_mapping)
+> +		value |= RKISP1_CIF_ISP_WDR_CR_MAPPING_DISABLE;
+> +
+> +	/* Illumination reference */
+> +	if (arg->use_iref) {
+> +		value |= RKISP1_CIF_ISP_WDR_USE_IREF;
+> +
+> +		if (arg->iref_config.use_y9_8)
+> +			value |= RKISP1_CIF_ISP_WDR_USE_Y9_8;
+> +
+> +		if (arg->iref_config.use_rgb7_8)
+> +			value |= RKISP1_CIF_ISP_WDR_USE_RGB7_8;
+> +
+> +		if (arg->iref_config.disable_transient)
+> +			value |= RKISP1_CIF_ISP_WDR_DISABLE_TRANSIENT;
+> +
+> +		value |= FIELD_PREP(RKISP1_CIF_ISP_WDR_RGB_FACTOR_MASK,
+> +				    min(arg->iref_config.rgb_factor,
+> +					RKISP1_CIF_ISP_WDR_RGB_FACTOR_MAX));
+> +	}
+> +
+> +	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_WDR_CTRL, value);
+> +
+> +	/* RGB and Luminance offsets */
+> +	value = FIELD_PREP(RKISP1_CIF_ISP_WDR_RGB_OFFSET_MASK,
+> +			   arg->rgb_offset)
+> +	      | FIELD_PREP(RKISP1_CIF_ISP_WDR_LUM_OFFSET_MASK,
+> +			   arg->luma_offset);
+> +	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_WDR_OFFSET, value);
+> +
+> +	/* DeltaMin */
+> +	value = FIELD_PREP(RKISP1_CIF_ISP_WDR_DMIN_THRESH_MASK,
+> +			   arg->dmin_thresh)
+> +	      | FIELD_PREP(RKISP1_CIF_ISP_WDR_DMIN_STRENGTH_MASK,
+> +			   min(arg->dmin_strength,
+> +			       RKISP1_CIF_ISP_WDR_DMIN_STRENGTH_MAX));
+> +	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_WDR_DELTAMIN, value);
+> +
+> +	/* Tone curve */
+> +	for (i = 0; i < RKISP1_CIF_ISP_WDR_CURVE_NUM_DY_REGS; i++)
+> +		rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_WDR_TONECURVE(i),
+> +			     arg->tone_curve.dY[i]);
+> +	for (i = 0; i < RKISP1_CIF_ISP_WDR_CURVE_NUM_COEFF; i++)
+> +		rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_WDR_TONECURVE_YM(i),
+> +			     arg->tone_curve.ym[i] &
+> +				     RKISP1_CIF_ISP_WDR_TONE_CURVE_YM_MASK);
+> +}
+> +
+>  static void
+>  rkisp1_isp_isr_other_config(struct rkisp1_params *params,
+>  			    const struct rkisp1_params_cfg *new_params)
+> @@ -2005,6 +2074,25 @@ static void rkisp1_ext_params_compand_compress(struct rkisp1_params *params,
+>  				      RKISP1_CIF_ISP_COMPAND_CTRL_COMPRESS_ENABLE);
+>  }
+>  
+> +static void rkisp1_ext_params_wdr(struct rkisp1_params *params,
+> +				  const union rkisp1_ext_params_config *block)
+> +{
+> +	const struct rkisp1_ext_params_wdr_config *wdr = &block->wdr;
+> +
+> +	if (wdr->header.flags & RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE) {
+> +		rkisp1_param_clear_bits(params, RKISP1_CIF_ISP_WDR_CTRL,
+> +					RKISP1_CIF_ISP_WDR_CTRL_ENABLE);
+> +		return;
+> +	}
+> +
+> +	rkisp1_wdr_config(params, &wdr->config);
+> +
+> +	if ((wdr->header.flags & RKISP1_EXT_PARAMS_FL_BLOCK_ENABLE) &&
+> +	    !(params->enabled_blocks & BIT(wdr->header.type)))
+> +		rkisp1_param_set_bits(params, RKISP1_CIF_ISP_WDR_CTRL,
+> +				      RKISP1_CIF_ISP_WDR_CTRL_ENABLE);
+> +}
+> +
+>  typedef void (*rkisp1_block_handler)(struct rkisp1_params *params,
+>  			     const union rkisp1_ext_params_config *config);
+>  
+> @@ -2118,6 +2206,11 @@ static const struct rkisp1_ext_params_handler {
+>  		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
+>  		.features	= RKISP1_FEATURE_COMPAND,
+>  	},
+> +	[RKISP1_EXT_PARAMS_BLOCK_TYPE_WDR] = {
+> +		.size		= sizeof(struct rkisp1_ext_params_wdr_config),
+> +		.handler	= rkisp1_ext_params_wdr,
+> +		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
+> +	},
+>  };
+>  
+>  static void rkisp1_ext_params_config(struct rkisp1_params *params,
+> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-regs.h b/drivers/media/platform/rockchip/rkisp1/rkisp1-regs.h
+> index bf0260600a1923eebde6b5fe233daf7d427362dd..5b9de1a2c624f4ecaf451fa806bb4b1c24a2cb55 100644
+> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-regs.h
+> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-regs.h
+> @@ -710,6 +710,27 @@
+>  #define RKISP1_CIF_ISP_COMPAND_CTRL_SOFT_RESET_FLAG	BIT(2)
+>  #define RKISP1_CIF_ISP_COMPAND_CTRL_BLS_ENABLE		BIT(3)
+>  
+> +/* WDR */
+> +/* ISP_WDR_CTRL */
+> +#define RKISP1_CIF_ISP_WDR_CTRL_ENABLE			BIT(0)
+> +#define RKISP1_CIF_ISP_WDR_COLOR_SPACE_SELECT		BIT(1)
+> +#define RKISP1_CIF_ISP_WDR_CR_MAPPING_DISABLE		BIT(2)
+> +#define RKISP1_CIF_ISP_WDR_USE_IREF			BIT(3)
+> +#define RKISP1_CIF_ISP_WDR_USE_Y9_8			BIT(4)
+> +#define RKISP1_CIF_ISP_WDR_USE_RGB7_8			BIT(5)
+> +#define RKISP1_CIF_ISP_WDR_DISABLE_TRANSIENT		BIT(6)
+> +#define RKISP1_CIF_ISP_WDR_RGB_FACTOR_MASK		GENMASK(11, 8)
+> +#define RKISP1_CIF_ISP_WDR_RGB_FACTOR_MAX		8U
+> +/* ISP_WDR_TONE_CURVE_YM */
+> +#define RKISP1_CIF_ISP_WDR_TONE_CURVE_YM_MASK		GENMASK(12, 0)
+> +/* ISP_WDR_OFFSET */
+> +#define RKISP1_CIF_ISP_WDR_RGB_OFFSET_MASK		GENMASK(11, 0)
+> +#define RKISP1_CIF_ISP_WDR_LUM_OFFSET_MASK		GENMASK(27, 16)
+> +/* ISP_WDR_DELTAMIN */
+> +#define RKISP1_CIF_ISP_WDR_DMIN_THRESH_MASK		GENMASK(11, 0)
+> +#define RKISP1_CIF_ISP_WDR_DMIN_STRENGTH_MASK		GENMASK(20, 16)
+> +#define RKISP1_CIF_ISP_WDR_DMIN_STRENGTH_MAX		16U
+> +
+>  /* =================================================================== */
+>  /*                            CIF Registers                            */
+>  /* =================================================================== */
+> @@ -1302,82 +1323,12 @@
+>  
+>  #define RKISP1_CIF_ISP_WDR_BASE			0x00002a00
+>  #define RKISP1_CIF_ISP_WDR_CTRL			(RKISP1_CIF_ISP_WDR_BASE + 0x00000000)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_1		(RKISP1_CIF_ISP_WDR_BASE + 0x00000004)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_2		(RKISP1_CIF_ISP_WDR_BASE + 0x00000008)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_3		(RKISP1_CIF_ISP_WDR_BASE + 0x0000000c)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_4		(RKISP1_CIF_ISP_WDR_BASE + 0x00000010)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_0	(RKISP1_CIF_ISP_WDR_BASE + 0x00000014)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_1	(RKISP1_CIF_ISP_WDR_BASE + 0x00000018)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_2	(RKISP1_CIF_ISP_WDR_BASE + 0x0000001c)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_3	(RKISP1_CIF_ISP_WDR_BASE + 0x00000020)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_4	(RKISP1_CIF_ISP_WDR_BASE + 0x00000024)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_5	(RKISP1_CIF_ISP_WDR_BASE + 0x00000028)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_6	(RKISP1_CIF_ISP_WDR_BASE + 0x0000002c)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_7	(RKISP1_CIF_ISP_WDR_BASE + 0x00000030)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_8	(RKISP1_CIF_ISP_WDR_BASE + 0x00000034)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_9	(RKISP1_CIF_ISP_WDR_BASE + 0x00000038)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_10	(RKISP1_CIF_ISP_WDR_BASE + 0x0000003c)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_11	(RKISP1_CIF_ISP_WDR_BASE + 0x00000040)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_12	(RKISP1_CIF_ISP_WDR_BASE + 0x00000044)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_13	(RKISP1_CIF_ISP_WDR_BASE + 0x00000048)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_14	(RKISP1_CIF_ISP_WDR_BASE + 0x0000004c)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_15	(RKISP1_CIF_ISP_WDR_BASE + 0x00000050)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_16	(RKISP1_CIF_ISP_WDR_BASE + 0x00000054)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_17	(RKISP1_CIF_ISP_WDR_BASE + 0x00000058)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_18	(RKISP1_CIF_ISP_WDR_BASE + 0x0000005c)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_19	(RKISP1_CIF_ISP_WDR_BASE + 0x00000060)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_20	(RKISP1_CIF_ISP_WDR_BASE + 0x00000064)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_21	(RKISP1_CIF_ISP_WDR_BASE + 0x00000068)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_22	(RKISP1_CIF_ISP_WDR_BASE + 0x0000006c)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_23	(RKISP1_CIF_ISP_WDR_BASE + 0x00000070)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_24	(RKISP1_CIF_ISP_WDR_BASE + 0x00000074)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_25	(RKISP1_CIF_ISP_WDR_BASE + 0x00000078)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_26	(RKISP1_CIF_ISP_WDR_BASE + 0x0000007c)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_27	(RKISP1_CIF_ISP_WDR_BASE + 0x00000080)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_28	(RKISP1_CIF_ISP_WDR_BASE + 0x00000084)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_29	(RKISP1_CIF_ISP_WDR_BASE + 0x00000088)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_30	(RKISP1_CIF_ISP_WDR_BASE + 0x0000008c)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_31	(RKISP1_CIF_ISP_WDR_BASE + 0x00000090)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_32	(RKISP1_CIF_ISP_WDR_BASE + 0x00000094)
+> +#define RKISP1_CIF_ISP_WDR_TONECURVE(n)		(RKISP1_CIF_ISP_WDR_BASE + 0x00000004 + (n) * 4)
+> +#define RKISP1_CIF_ISP_WDR_TONECURVE_YM(n)	(RKISP1_CIF_ISP_WDR_BASE + 0x00000014 + (n) * 4)
+>  #define RKISP1_CIF_ISP_WDR_OFFSET		(RKISP1_CIF_ISP_WDR_BASE + 0x00000098)
+>  #define RKISP1_CIF_ISP_WDR_DELTAMIN		(RKISP1_CIF_ISP_WDR_BASE + 0x0000009c)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_1_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x000000a0)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_2_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x000000a4)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_3_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x000000a8)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_4_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x000000ac)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_0_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x000000b0)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_1_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x000000b4)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_2_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x000000b8)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_3_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x000000bc)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_4_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x000000c0)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_5_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x000000c4)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_6_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x000000c8)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_7_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x000000cc)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_8_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x000000d0)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_9_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x000000d4)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_10_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x000000d8)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_11_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x000000dc)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_12_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x000000e0)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_13_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x000000e4)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_14_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x000000e8)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_15_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x000000ec)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_16_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x000000f0)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_17_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x000000f4)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_18_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x000000f8)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_19_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x000000fc)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_20_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x00000100)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_21_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x00000104)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_22_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x00000108)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_23_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x0000010c)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_24_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x00000110)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_25_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x00000114)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_26_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x00000118)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_27_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x0000011c)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_28_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x00000120)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_29_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x00000124)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_30_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x00000128)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_31_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x0000012c)
+> -#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_32_SHD	(RKISP1_CIF_ISP_WDR_BASE + 0x00000130)
+> +#define RKISP1_CIF_ISP_WDR_TONECURVE_SHD(n)	(RKISP1_CIF_ISP_WDR_BASE + 0x000000a0 + (n) * 4)
+> +#define RKISP1_CIF_ISP_WDR_TONECURVE_YM_SHD(n)	(RKISP1_CIF_ISP_WDR_BASE + 0x000000b0 + (n) * 4)
+>  
+>  #define RKISP1_CIF_ISP_HIST_BASE_V12		0x00002c00
+>  #define RKISP1_CIF_ISP_HIST_CTRL_V12		(RKISP1_CIF_ISP_HIST_BASE_V12 + 0x00000000)
+> diff --git a/include/uapi/linux/rkisp1-config.h b/include/uapi/linux/rkisp1-config.h
+> index 2d995f3c1ca37820a381f1917a10bf08a304d992..59335097c01372252b296d960b39336dfb5ec197 100644
+> --- a/include/uapi/linux/rkisp1-config.h
+> +++ b/include/uapi/linux/rkisp1-config.h
+> @@ -169,6 +169,13 @@
+>   */
+>  #define RKISP1_CIF_ISP_COMPAND_NUM_POINTS	64
+>  
+> +/*
+> + * Wide Dynamic Range
+> + */
+> +#define RKISP1_CIF_ISP_WDR_CURVE_NUM_INTERV	32
+> +#define RKISP1_CIF_ISP_WDR_CURVE_NUM_COEFF	(RKISP1_CIF_ISP_WDR_CURVE_NUM_INTERV + 1)
+> +#define RKISP1_CIF_ISP_WDR_CURVE_NUM_DY_REGS	4
+> +
+>  /*
+>   * Measurement types
+>   */
+> @@ -889,6 +896,72 @@ struct rkisp1_cif_isp_compand_curve_config {
+>  	__u32 y[RKISP1_CIF_ISP_COMPAND_NUM_POINTS];
+>  };
+>  
+> +/**
+> + * struct rkisp1_cif_isp_wdr_tone_curve - Tone mapping curve definition for WDR.
+> + *
+> + * @dY: the dYn increments for horizontal (input) axis of the tone curve.
+> + *      each 3-bit dY value represents an increment of 2**(value+3).
+> + *      dY[0] bits 0:2 is increment dY1, bit 3 unused
+> + *      dY[0] bits 4:6 is increment dY2, bit 7 unused
+> + *      ...
+> + *      dY[0] bits 28:30 is increment dY8, bit 31 unused
+> + *      ... and so on till dY[3] bits 28:30 is increment dY32, bit 31 unused.
+> + * @ym: the Ym values for the vertical (output) axis of the tone curve.
+> + *      each value is 13 bit.
+> + */
+> +struct rkisp1_cif_isp_wdr_tone_curve {
+> +	__u32 dY[RKISP1_CIF_ISP_WDR_CURVE_NUM_DY_REGS];
+> +	__u16 ym[RKISP1_CIF_ISP_WDR_CURVE_NUM_COEFF];
+> +};
+> +
+> +/**
+> + * struct rkisp1_cif_isp_wdr_iref_config - Illumination reference config for WDR.
+> + *
+> + * Use illumination reference value as described below, instead of only the
+> + * luminance (Y) value for tone mapping and gain calculations:
+> + * IRef = (rgb_factor * RGBMax_tr + (8 - rgb_factor) * Y)/8
+> + *
+> + * @rgb_factor: defines how much influence the RGBmax approach has in
+> + *              comparison to Y (valid values are 0..8).
+> + * @use_y9_8: use Y*9/8 for maximum value calculation along with the
+> + *            default of R, G, B for noise reduction.
+> + * @use_rgb7_8: decrease RGBMax by 7/8 for noise reduction.
+> + * @disable_transient: disable transient calculation between Y and RGBY_max.
+> + */
+> +struct rkisp1_cif_isp_wdr_iref_config {
+> +	__u8 rgb_factor;
+> +	__u8 use_y9_8;
+> +	__u8 use_rgb7_8;
+> +	__u8 disable_transient;
+> +};
+> +
+> +/**
+> + * struct rkisp1_cif_isp_wdr_config - Configuration for wide dynamic range.
+> + *
+> + * @tone_curve: tone mapping curve.
+> + * @iref_config: illumination reference configuration. (when use_iref is true)
+> + * @rgb_offset: RGB offset value for RGB operation mode. (12 bits)
+> + * @luma_offset: luminance offset value for RGB operation mode. (12 bits)
+> + * @dmin_thresh: lower threshold for deltaMin value. (12 bits)
+> + * @dmin_strength: strength factor for deltaMin. (valid range is 0x00..0x10)
+> + * @use_rgb_colorspace: use RGB instead of luminance/chrominance colorspace.
+> + * @bypass_chroma_mapping: disable chrominance mapping (only valid if
+> + *                         use_rgb_colorspace = 0)
+> + * @use_iref: use illumination reference instead of Y for tone mapping
+> + *            and gain calculations.
+> + */
+> +struct rkisp1_cif_isp_wdr_config {
+> +	struct rkisp1_cif_isp_wdr_tone_curve tone_curve;
+> +	struct rkisp1_cif_isp_wdr_iref_config iref_config;
+> +	__u16 rgb_offset;
+> +	__u16 luma_offset;
+> +	__u16 dmin_thresh;
+> +	__u8 dmin_strength;
+> +	__u8 use_rgb_colorspace;
+> +	__u8 bypass_chroma_mapping;
+> +	__u8 use_iref;
+> +};
+> +
+>  /*---------- PART2: Measurement Statistics ------------*/
+>  
+>  /**
+> @@ -1059,6 +1132,7 @@ struct rkisp1_stat_buffer {
+>   * @RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_BLS: BLS in the compand block
+>   * @RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_EXPAND: Companding expand curve
+>   * @RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_COMPRESS: Companding compress curve
+> + * @RKISP1_EXT_PARAMS_BLOCK_TYPE_WDR: Wide dynamic range
+>   */
+>  enum rkisp1_ext_params_block_type {
+>  	RKISP1_EXT_PARAMS_BLOCK_TYPE_BLS,
+> @@ -1081,6 +1155,7 @@ enum rkisp1_ext_params_block_type {
+>  	RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_BLS,
+>  	RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_EXPAND,
+>  	RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_COMPRESS,
+> +	RKISP1_EXT_PARAMS_BLOCK_TYPE_WDR,
+>  };
+>  
+>  #define RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE	(1U << 0)
+> @@ -1460,6 +1535,23 @@ struct rkisp1_ext_params_compand_curve_config {
+>  	struct rkisp1_cif_isp_compand_curve_config config;
+>  } __attribute__((aligned(8)));
+>  
+> +/**
+> + * struct rkisp1_ext_params_wdr_config - RkISP1 extensible params
+> + *                                       Wide dynamic range config
+> + *
+> + * RkISP1 extensible parameters WDR block.
+> + * Identified by :c:type:`RKISP1_EXT_PARAMS_BLOCK_TYPE_WDR`
+> + *
+> + * @header: The RkISP1 extensible parameters header, see
+> + *	    :c:type:`rkisp1_ext_params_block_header`
+> + * @config: WDR configuration, see
+> + *	    :c:type:`rkisp1_cif_isp_wdr_config`
+> + */
+> +struct rkisp1_ext_params_wdr_config {
+> +	struct rkisp1_ext_params_block_header header;
+> +	struct rkisp1_cif_isp_wdr_config config;
+> +} __attribute__((aligned(8)));
+> +
+>  /*
+>   * The rkisp1_ext_params_compand_curve_config structure is counted twice as it
+>   * is used for both the COMPAND_EXPAND and COMPAND_COMPRESS block types.
+> 
+> -- 
+> 2.49.0
+> 
+> 
 
