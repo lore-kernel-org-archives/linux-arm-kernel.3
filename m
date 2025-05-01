@@ -4,64 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA849C3ABA3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 06:40:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBB32C3ABA3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 07:03:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U9bxSIjZcR3jzR4JBTTJtiTc40O2VHMHqkmE31E+j/E=; b=k3K6XzGQHsTOPtHunft1PgQJE7
-	RONS5LufhWhIcg3WlwdpFRChD183SRoVN53X/J/0vpZv51qRrMo22OBHF9oLaG0D6l20Z9rd743D2
-	zfcTP77CeL9C4JqEAqn+zxBHacccFhRPGA1muZmz0J2gNGXBV4P/Iyky2ktfIedQnBWXJU/Psu7Ua
-	9IXMG00A0QOw2JSFUnGKSm9cxxKNRrO6IpPUmZoUFD/MkvFtSlGLgZ+irfSEADoSq8er3i6p2NiPs
-	k4yyzGry736/PvkspFxrbvRO60V2uyH6LXbC1xhqMR7sixXFvHw6l7SLnrfqVKYlss7p4n6En8drh
-	jX6z+LZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HD0bjDZudLjLh9XR3iIC9M2RrNF16VDTvMEZ2MwcN8Y=; b=EU9StiTvRiYoNvVVqMFRABWvFN
+	n5Gk1ulvyKn0xbki5R9sJ+KdvBKQj62Rfq227xcPBFRvjm/XViAmCfcQRZ5igMV+yMiFykKiIc4gF
+	b34YXqVn0Law95Ufq6Ei5FLHDoCqW3lGRE/MDwO0XycJfkr2dA81nueHjbnt2Z3O6imGXze+APA+i
+	9yhe4V8r7qhSSyYFgPAKJTRmawnpSlwq65bbNS8RQkZx2lGUVP4aZxiqoondncWOksAhx6u6ahLc9
+	jpARNFvDgKpZvkbc/yOr2GQlIlOf2KbSOc75vaURfc6YfX8nnN+eYNnorj5H0XPSrKvw01hCjF4kD
+	SqZwJfNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uANaX-0000000EsII-3dhJ;
-	Thu, 01 May 2025 06:40:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uANxB-0000000EuYs-00qC;
+	Thu, 01 May 2025 07:03:29 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uANYd-0000000Es7m-2OGJ
+	id 1uANvH-0000000EuLp-1KlS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 06:38:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 75E134405D;
-	Thu,  1 May 2025 06:38:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFE5AC4CEE3;
-	Thu,  1 May 2025 06:38:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746081486;
-	bh=UAP2AV+qSbFSO/2/N++l3ypruXuDaFFIRSPyTIofkqg=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=nTK9N3wFBMkhJe08xeOfs0C9EN4ztFCTh7V3x7cbBbR0jT5Wd68xB2EcCgKupe7vj
-	 DMnGWRYowzYv7KdRIGvxdPra3V571FpD5SgH8wudI2jmNigkHtleguUE+3hymi62DU
-	 ZcE9DY186mYo9CyQGHEOOzs3DiVTx/VTfjCiBQzDjJVPbqICnlWzA+J37d/A9NYhHT
-	 lkBQwunLyYBoI+uT+Ge9aPReAx+9quY0zhLB/ZaJCj9Vy1rvPPrsnLU6ZHGuAYNfq0
-	 KVL3zmVq2VcijwmMSIIYIOnxBMZOUydXa6wZbr/pHZi9T5mp0RB25OswPcvHuiLF9k
-	 I5+ojStYAwv+g==
-From: Mark Brown <broonie@kernel.org>
-To: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>, 
- Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Olivier Moysan <olivier.moysan@foss.st.com>
-Cc: linux-sound@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20250430165210.321273-1-olivier.moysan@foss.st.com>
-References: <20250430165210.321273-1-olivier.moysan@foss.st.com>
-Subject: Re: [PATCH 0/2] ASoC: stm32: sai: fix kernel rate configuration
-Message-Id: <174608148419.4032397.674149169345577452.b4-ty@kernel.org>
-Date: Thu, 01 May 2025 15:38:04 +0900
+	Thu, 01 May 2025 07:01:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Bl1857Y1fXkPipcI4rZODsYM9i+n3/MLXu83qBXRJfZNEItKTDvH65Xu6yMwFj9vFFYsXOw4GDm0lSWJ/W4OY+P9Hh7qysKyHqqPMYTR2BTmwNno62nWxOIl62GJ2vitHPymGd4FRQD9R/6lxM3iZojrDkic4yatfkJ5PUtftl+S60hgap53G0Uu8AG6HifLXRY6Y3clkDfpezO9F0nUR332zZ3Ftl8bRFSh5mskkYVT86DD0Pdw+y/Eha3fPixweKaYwlH+R1lV+blLHrKR6yNE7jRIdt5Ps6j7cqfvdd5ESBv0gkjOWhVw1FwcaYbro5rvResIPG7+KbZ8Z3zxeQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HD0bjDZudLjLh9XR3iIC9M2RrNF16VDTvMEZ2MwcN8Y=;
+ b=cZ3nNkkCyIhdugKNN5xRjnBG1cWS2vgvXHV8Epxdw/K4vWrDcs6Vemrg+47h8SH18AJj1bt52AdMhBRF0bvh6lOD20keYMu0eWWYIAsUs7fA5hIlVwUlyIm1hEBxmnT3rc2hzGZKrJlSKN58Udb2J3Btd1kwwcRLKi5OjHDBQI/Rg5LvC9ixuEIuWVAIE6Rb0MhC85ASVO4B1G7P5f40YlZjZnzER1XpmD7e0TKx6Hn5kskQd42Bl+hcvxdalcDz0cUEBvKtylh/V5XcBjQE1g5BOJvr1Xs2ha20cxbl7rX0H1XFl3BOGwQw/aolLVKRvJJg4ULRsOt4C9zf10JAPA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HD0bjDZudLjLh9XR3iIC9M2RrNF16VDTvMEZ2MwcN8Y=;
+ b=J065EsS5Pqb3QbaQKyPcuWMF3ZAgBvQenH8QPTtH4IVslHa60Dj5fYyCNOREq04bsaz/OF91QAfYy8Vu2QJj0lfrS/5lcwqkL8/lGs08NWW2Q0k621lJrPiOaMKLqD99R48TXmmWFRRFAL397LdTBcePjU/SdZ0C10jLSOUHH03BHOVnX4GeeRglIEOuljcQASM1+A1jVDLKImPqQwd8JMrJXEa5OX2LPIpuUSqXAsc/h2A5nPio6sOjuSeDsNZY9P1Twqv/i/QXWbxvYcxIfw3QkSSacXQDxh4w+FhVxWexXaS2C1vUWDugCgeLnh7npYRsGJALs3KzbqV00QnpGg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8868.eurprd04.prod.outlook.com (2603:10a6:20b:42f::6)
+ by GVXPR04MB10921.eurprd04.prod.outlook.com (2603:10a6:150:227::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.20; Thu, 1 May
+ 2025 07:01:23 +0000
+Received: from AS8PR04MB8868.eurprd04.prod.outlook.com
+ ([fe80::b317:9c26:147f:c06e]) by AS8PR04MB8868.eurprd04.prod.outlook.com
+ ([fe80::b317:9c26:147f:c06e%3]) with mapi id 15.20.8699.019; Thu, 1 May 2025
+ 07:01:23 +0000
+Date: Thu, 1 May 2025 10:01:20 +0300
+From: Ioana Ciornei <ioana.ciornei@nxp.com>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>, 
+	linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>
+Subject: Re: [PATCH 0/6] mfd: simple-mfd-i2c: add QIXIS CPLD support
+Message-ID: <kjpv6qum4myjipq4opqsynnyycjxjdw3nl4eksp2gtoiryvvq5@2fs7joeenkde>
+References: <20250430153634.2971736-1-ioana.ciornei@nxp.com>
+ <174607289976.949416.5265834490992116431.robh@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <174607289976.949416.5265834490992116431.robh@kernel.org>
+X-ClientProxiedBy: AM0PR06CA0101.eurprd06.prod.outlook.com
+ (2603:10a6:208:fa::42) To AS8PR04MB8868.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42f::6)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-c25d1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8868:EE_|GVXPR04MB10921:EE_
+X-MS-Office365-Filtering-Correlation-Id: a3ae38bc-cae8-43d3-9898-08dd887dfb78
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|13003099007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?GmwxDOGZiYYww+MPYwbAnAxtVtKVmwGfB/9IrZaQ6OfbUMKbMj7LBILteaf0?=
+ =?us-ascii?Q?PL1rXLgt3MpzcXiSF4lk4qq6LCAKaFjI+uzggMqeYu5eV0EOnE29kCD8b2E1?=
+ =?us-ascii?Q?TSmjVu63u7ZAmLmnpZ+FuKonyHCj3FppfJmb8GmmKas4PBkUwqlBhrenVumX?=
+ =?us-ascii?Q?AK8S0IzJrQsIAP+7uvCPWcD2JYlMdqvHPjx0twPrEGftMV4ZegBkwocLnHHQ?=
+ =?us-ascii?Q?kggNbrdvbtqqVl89sp6QqiTwIJUiNz/OSuwqz/C4DdrqPGCsyzwO/Y3JUMB7?=
+ =?us-ascii?Q?2Oe+dk8BvmKNkxkjzDN5g9Vxdb07CSxoBNd9k90HHaluGBo4dgoT7FoGSael?=
+ =?us-ascii?Q?3tdlHr3pPadHUxdpcS2+6fcfUBr1z1g3n8Vulh25+zcmslJWP7h8NywDTFTQ?=
+ =?us-ascii?Q?bBTvgeb9nRtpcgNkqgnFIyG6eF6KH/3rELfI+Ol8E9Ee5eKdhr6/79yoFJFh?=
+ =?us-ascii?Q?e+S8024Oeb0P2h65VbBGjKRpFVQ2HMrsU1LOS14h3ixgvaONWvJ0Wd1vHump?=
+ =?us-ascii?Q?ujIqZtgveD+1TwNNZderbGTns4BGsZoG/P6Bh7Syg2KpLcX2Y2ihbNfuGEVo?=
+ =?us-ascii?Q?QzCc1TESgXiIOr706KNeAxaCKjkk4GcqOBoYo5RCflWufLuJU2Q7779YyJA+?=
+ =?us-ascii?Q?QbbgyaodwZVDqfTXrB+Qz91Ps27tVvk+IEZDc5OKC/b43u5Z3BTiLJNMR46E?=
+ =?us-ascii?Q?f/0GcSHFKR+FIewo2YuST+Fc2aAVMpRYlJ1G62Ya4tkDwcwG3jqSwGg6es2x?=
+ =?us-ascii?Q?eX+6EbRP3NcutOIg9J6vG0aRoa9iMEjhltMB5FLx1PlnKdv9DArmDduR985X?=
+ =?us-ascii?Q?4XHQo958Zfb0nKEQm53E2KChxAYtaZvn4u6nZpx2eQSDo4OizaC+Ga9lT5Vd?=
+ =?us-ascii?Q?AHpqILKYIT87OJrQkLmSbJ033ca1894ELDaZRL1TWx4tm8xevOXNYwkv6Xfi?=
+ =?us-ascii?Q?ruAOJCOSDJ1m8KyanSVui91kdGLxJJVtZdn9+7tuBSzHsVZwr4MCM3lQukZe?=
+ =?us-ascii?Q?jLLX+z1xZvj1gXqhO0hwc4GuylpXFf632cSBGmF60HbQOkFCZEpwUmujE3P5?=
+ =?us-ascii?Q?sZoONJ9Aagpt1pOGHcSRkEer6XGfV5v+/53dW/kuufrhI7P1CHIJtuDQmzjp?=
+ =?us-ascii?Q?Oj0EVOTGUl+ECswH1gBUSq4p2xwvB6KaFYzauAv+c1wiYD4jpSm+sHOJp3Ti?=
+ =?us-ascii?Q?UbFPrIx3b43jhFwumnO3L4YZwFbvrtaWmSPhmgX2l6K/UM29ZpPWFfTI9HIs?=
+ =?us-ascii?Q?bOO9l8ZtfN4gurBj8S5YbgjTysAJgA1S6OYVnubZjxN7cjbU34dEaUEkl8Vp?=
+ =?us-ascii?Q?WYqTsEPc0cXxZLv78F5jVlFY9m0vJSRG3EFpslTMU2CQG7p1Ff5O3Go2iR9f?=
+ =?us-ascii?Q?x2IDPTKfysHpEJDlwwJMudVyzW3Rnc6ZqVZXuDqA576RMJwNyDlwIhntcOg8?=
+ =?us-ascii?Q?FM3NQ+d8nxI=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8868.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Bq4+2wFJgqfYORCnu/WbL5cN6zLKnTBjOwhkr/5ERF/WVJE0fo2dZF7tch7F?=
+ =?us-ascii?Q?o6ZnzCkXBOkOOGa9VN0Gtdli/d0Lw5kktNywm5T35NS/pPH62LIVCsnk5JBh?=
+ =?us-ascii?Q?fL72HGtbsFPwaZpTB2trvThOHgiIZr1W4lbVRXyFhrtTTTjFiiy/oAglEc1w?=
+ =?us-ascii?Q?iqAljQ9LzLVxrcWBcQidwys8sXpzLTdj7brEcwElU9UDI2C3TSYM3QIwxAoD?=
+ =?us-ascii?Q?qaP6uY1fNchINhPoHm0URrfWnKX+OyGSM4297xB8/alsWZNxy64kLW1KvuPo?=
+ =?us-ascii?Q?eDZhzx/i1ansW+fHV8Eo/VmmT/c8l4K3Wf1r05ds3EGlQE6nllA7WXeICBQi?=
+ =?us-ascii?Q?U5hBk2kaAJo+rwo1GNozZ7dSrPCVHo24tTpHeCIyYu8WKlaO14tLTN1GXzAS?=
+ =?us-ascii?Q?hVmc9DkvExsYdx0LFfu1t/5uC0ZH+Uk5qtMDvgEmG1HwwUZ760GzDnvNoUGO?=
+ =?us-ascii?Q?mNdHoRGQ2lJ8xEhLEe0e2f/+pBHX3ldOQmXNlqajz2CRJOavuhdiWY7wx2S8?=
+ =?us-ascii?Q?fZGGhGLfe6zE1BQgDdQzGQHPpq/lDRvY3sGHoe0iAgCkAia08J3dKj7H6pX2?=
+ =?us-ascii?Q?PeyptZiLS3uLZ5iFEfGScVr2MWzGcoysc0edrscHUjlFAoqMeRrecTWyFCI/?=
+ =?us-ascii?Q?L328dqGW7tTnE6UdPDUb1ZLz6TcvPzKHyUcceywcYon9CcR+NIJcgGiir1Ph?=
+ =?us-ascii?Q?LltaOEKqSoCRRZqmbHK5t7/C043laKnMJCSXftJNeC5m7aQl63Ju/sRzHgXj?=
+ =?us-ascii?Q?YLYL+ESbCIAlTfafZBI5sK7d1VGkPMi1CtvkNt3lpjR5HPjlimw/MTHrIsan?=
+ =?us-ascii?Q?dpprLggjgmF1ASzNRUjFI6UEzLMX1tJuyvW2aj2tAwqVuTqRUGLTktLtkeUV?=
+ =?us-ascii?Q?i9SuzxPSdXJCjrjSQhLr162tm6RU9J9/PcBc63Nxp2DtG3G8mfvf29w7bR8y?=
+ =?us-ascii?Q?UL+CdzpgpxYEiSiOWT10017g2PNt/oWWLF0nHtefEp/uyUEZ7L6rdT26wesP?=
+ =?us-ascii?Q?Vggd4qyl83r5GKDD3iohyZLclGmD5PffXqw6Tz5tWKR46ePj9m7+jk5S2j8I?=
+ =?us-ascii?Q?IxEWoAZKnpNRwfRfzf+yPas1kqYsXtIb0y+apvAmQMSf9OS5ppY+WRescNCb?=
+ =?us-ascii?Q?rsvoYrJ74qydVT7T/RutA7WEECmng83h9Mk2twctc3+Z5Qed9WwoHN53UhdK?=
+ =?us-ascii?Q?3HyOcza+EgIvMeS+yvmsaCyKE+6YQNQCafyLCnhD4YnpWs45ZLkjARByfIQF?=
+ =?us-ascii?Q?kuej9zS4WAZP0ZDrX4RIo0MALdLBRX8s9pYQz0NerT4Lce4wJCwfjyxWbdPb?=
+ =?us-ascii?Q?QINaSEGiwm02oLQlqNpG13kflEGziVPAiBU8uvsO5WX8IQgtOdIhU6Bzl6EK?=
+ =?us-ascii?Q?wR2ZxegK3qoSEp/LhBjFEHZd64NNVhIVTwXbTO9guDlbK+vPSEVRu7VeHZzo?=
+ =?us-ascii?Q?PqPtdls5LmonM5CqTwhyqJNf3spOeMgrWJPRPaUSjofUy1+aIsgfaUMkG7Wq?=
+ =?us-ascii?Q?3Bxiqb83j9tYqsvUn885RvIQIcBkxOS61QvVdUsAXazdOG6TmQVxyabRxlbU?=
+ =?us-ascii?Q?NVkWuzALqkD9j35nyFryjIffh785LNYlsy6Dqhev?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a3ae38bc-cae8-43d3-9898-08dd887dfb78
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8868.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 May 2025 07:01:23.2313
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: OoQkR3RLUasOD0ksi8E7ErFWvGSuS6LDc7BdWhkJaYnoDP7bEyZrDVOgio5gUtt9GU0xUhlLSzKP/15lY5GIUg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10921
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_233807_633496_7D73DAC8 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20250501_000131_378543_FEE1A74F 
+X-CRM114-Status: GOOD (  32.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,45 +157,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 30 Apr 2025 18:52:07 +0200, Olivier Moysan wrote:
-> This patchset adds some checks on kernel minimum rate requirements.
-> This avoids potential clock rate misconfiguration, when setting the
-> kernel frequency on STM32MP2 SoCs.
+On Wed, Apr 30, 2025 at 11:15:28PM -0500, Rob Herring (Arm) wrote:
 > 
-> Olivier Moysan (2):
->   ASoC: stm32: sai: skip useless iterations on kernel rate loop
->   ASoC: stm32: sai: add a check on minimal kernel frequency
+> On Wed, 30 Apr 2025 18:36:28 +0300, Ioana Ciornei wrote:
+> > The MDIO mux on the LX2160AQDS, LX2162AQDS and LS1028AQDS boards never
+> > worked in mainline. The DT files were submitted initially as-is, and
+> > there is a downstream driver for the QIXIS CPLD device:
+> > https://github.com/nxp-qoriq/linux/blob/lf-6.12.y/drivers/soc/fsl/qixis_ctrl.c
+> > 
+> > Since the HW works with the already existing
+> > driver/mfd/similar-mfd-i2c.c driver, extend the list of compatible
+> > strings to also cover these 3 new boards, instead of trying to upstream
+> > a duplicate driver.
+> > 
+> > This patch set also adapts the DT nodes for each of the affected boards
+> > so that we match on the new compatible strings.
+> > 
+> > The last patch describes the two on-board RGMII PHYs found on the
+> > LX2160AQDS boards which make use of the MDIO bus found behind the CPLD
+> > driven MDIO mux.
+> > 
+> > Ioana Ciornei (5):
+> >   dt-bindings: mfd: add bindings for QIXIS CPLD
+> >   mfd: simple-mfd-i2c: add compatible string for Layerscape QIXIS CPLD
+> >   arm64: dts: lx2160a-qds: make the QIXIS CPLD use the simple-mfd-i2c.c
+> >     driver
+> >   arm64: dts: lx2162a-qds: make the QIXIS CPLD use the simple-mfd-i2c.c
+> >     driver
+> >   arm64: dts: lx2160a-qds: add the two on-board RGMII PHYs
+> > 
+> > Vladimir Oltean (1):
+> >   arm64: dts: ls1028a-qds: make the QIXIS CPLD use the simple-mfd-i2c.c
+> >     driver
+> > 
+> >  .../bindings/mfd/fsl,qixis-i2c.yaml           | 65 +++++++++++++++++++
+> >  .../boot/dts/freescale/fsl-ls1028a-qds.dts    |  9 +--
+> >  .../boot/dts/freescale/fsl-lx2160a-qds.dts    | 28 +++++++-
+> >  .../boot/dts/freescale/fsl-lx2162a-qds.dts    |  8 ++-
+> >  drivers/mfd/simple-mfd-i2c.c                  |  3 +
+> >  5 files changed, 103 insertions(+), 10 deletions(-)
+> >  create mode 100644 Documentation/devicetree/bindings/mfd/fsl,qixis-i2c.yaml
+> > 
+> > --
+> > 2.25.1
+> > 
+> > 
+> > 
 > 
-> [...]
+> 
+> My bot found new DTB warnings on the .dts files added or changed in this
+> series.
+> 
+> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+> are fixed by another series. Ultimately, it is up to the platform
+> maintainer whether these warnings are acceptable or not. No need to reply
+> unless the platform maintainer has comments.
+> 
+> If you already ran DT checks and didn't see these error(s), then
+> make sure dt-schema is up to date:
+> 
+>   pip3 install dtschema --upgrade
+> 
+> 
+> This patch series was applied (using b4) to base:
+>  Base: attempting to guess base-commit...
+>  Base: tags/next-20250429 (exact match)
+> 
+> If this is not the correct base, please add 'base-commit' tag
+> (or use b4 which does this automatically)
+> 
+> New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20250430153634.2971736-1-ioana.ciornei@nxp.com:
+> 
+> arch/arm64/boot/dts/freescale/fsl-lx2160a-qds.dtb: fpga@66 (fsl,lx2160a-qds-qixis-i2c): 'mux-controller@54' does not match any of the regexes: '^pinctrl-[0-9]+$'
+> 	from schema $id: http://devicetree.org/schemas/mfd/fsl,qixis-i2c.yaml
+> arch/arm64/boot/dts/freescale/fsl-ls1028a-qds.dtb: fpga@66 (fsl,ls1028a-qds-qixis-i2c): 'mux-controller@54' does not match any of the regexes: '^pinctrl-[0-9]+$'
+> 	from schema $id: http://devicetree.org/schemas/mfd/fsl,qixis-i2c.yaml
+> arch/arm64/boot/dts/freescale/fsl-lx2162a-qds.dtb: fpga@66 (fsl,lx2162a-qds-qixis-i2c): 'mux-controller@54' does not match any of the regexes: '^pinctrl-[0-9]+$'
+> 	from schema $id: http://devicetree.org/schemas/mfd/fsl,qixis-i2c.yaml
 
-Applied to
+Sorry for this, my bad. I only run dt_binding_check and didn't see any
+errors because the example was not the correct one.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+I will fix this in v2.
 
-Thanks!
-
-[1/2] ASoC: stm32: sai: skip useless iterations on kernel rate loop
-      commit: edea92770a3b6454dc796fc5436a3315bb402181
-[2/2] ASoC: stm32: sai: add a check on minimal kernel frequency
-      commit: cce34d113e2a592806abcdc02c7f8513775d8b20
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+Ioana
 
