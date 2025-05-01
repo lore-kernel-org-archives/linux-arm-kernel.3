@@ -4,107 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EFB5C3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 08:26:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F416C3ABA3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 08:30:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G7qS+gI0XZnjz79ADOoqcYjjhtageVKnZ8CT2Fcuyw4=; b=cdYXFa/DyuwdT35ztm380ULeA8
-	4gDKhbaiZnlK5fq7NLDECqaTgEjfi4ajK3z6maTCnhHrIzQV0d6hMs6xp4ghj6hs1UMwaCdWgnUTy
-	LQJmPoRszhwWesNwxYXO479ZAwzUiyz26n2+1PcNKgt3ZIDWxiyCO+zRA2yZCDzb3HyFSRGWl9F7j
-	ePfhcX49VSSbrdiJmsWhnhZYIG3OUOwCC6Y+DTp7J/GU5z17q6uOGgNDuhof3rAeBdP0gIsvyXf1u
-	jqt/H98V6BK3AHdgDe4oGde0yZphn2dtIfWegU1Lk89GhZx/VF/XB3dNZRGqCMry1CJd8qZQT/VJ3
-	0DE4X4yw==;
+	bh=cO3iykXBoqpJM6cX5Wn7kdtgNhFMtoZX+4Fz0CvhOA0=; b=VrjqNEA7HY/BTfCudEt4hS0fKF
+	tjyZ/mwg/jG3xq+RzfOxjyppyO1MC4yP5HUu2f1TV5BwjWoOBdX3PRfZpvEhkRipjAWwoq59v52GS
+	9egFmLZxR6hyE4gWl5EXcD+QRzVUNsShDgTTwMoOpJ5SQ1wStlBUdCGac9eycKuB7ELqxm4bCA/c8
+	RTRIDBtOTJv3h6X5fxZFbn/N3djT9Ur9XuOu9qFqpvaSdYE/mOz4oe2Th8pwJC3FAh764IVM4kHuN
+	489+maJ1dku95zDbCTMSG5VK11hKZ/SZo67gcMS5caxBxNxq+G1xK9IBG9uc/COz0G2zdMWmvJgoz
+	cReqD7RA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAPFG-0000000F2T5-3Vl7;
-	Thu, 01 May 2025 08:26:14 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uAPIo-0000000F2op-0jO8;
+	Thu, 01 May 2025 08:29:54 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAPDM-0000000F2Bq-2Wbn;
-	Thu, 01 May 2025 08:24:17 +0000
+	id 1uAPGu-0000000F2hL-2ZnQ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 01 May 2025 08:27:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 973215C1364;
-	Thu,  1 May 2025 08:21:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60251C4CEE3;
-	Thu,  1 May 2025 08:24:15 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id DBB885C41BA;
+	Thu,  1 May 2025 08:25:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 800E4C4CEE3;
+	Thu,  1 May 2025 08:27:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746087855;
-	bh=FUtw7sDZdVXOm9Nv2svOTgxrCByJlvpP+UTjvuTtS1I=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=O97L3cnMvunZjO/0b3AD7mX6YsWjOA1AairfrKios6nfa+PekJx8V9jm72WccaYLD
-	 MFg2U9+xORpdBstItLdTn2jDJ/KEsIRT04HWQvHyQCbyTtG0ClRI3D/X2CD6XM+FOj
-	 /tz1rvNkqLQslwyHEIsvRxeQEF7oPqOkIM7OE5yCyUmforniQ2Wdg+RNlnV8cmfd9X
-	 16HjICyqst700kZfBgn5lDQrvldBI/haW5J2/qj7rZP5/M2+H5tq4/MkVCxXr+bLok
-	 BPs+unjgpwBK9BDZKgsuXLVUjyyxhBLmEvRC18HDlHZbiqF5SS0uUSHzhHrhH/LVHG
-	 92LXRRsmolgow==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uAPDI-00AWZy-KR;
-	Thu, 01 May 2025 09:24:12 +0100
-Date: Thu, 01 May 2025 09:24:11 +0100
-Message-ID: <864iy4ivro.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Maxim Levitsky <mlevitsk@redhat.com>
-Cc: kvm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Kunkun Jiang <jiangkunkun@huawei.com>,
-	Waiman Long <longman@redhat.com>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Alexander Potapenko <glider@google.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Andre Przywara <andre.przywara@arm.com>,
-	x86@kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	kvm-riscv@lists.infradead.org,
-	Atish Patra <atishp@atishpatra.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Jing Zhang <jingzhangos@google.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	kvmarm@lists.linux.dev,
-	Will Deacon <will@kernel.org>,
-	Keisuke Nishimura <keisuke.nishimura@inria.fr>,
-	Sebastian Ott <sebott@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Shusen Li <lishusen2@huawei.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Sean Christopherson <seanjc@google.com>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v4 2/5] arm64: KVM: use mutex_trylock_nest_lock when locking all vCPUs
-In-Reply-To: <20250430203013.366479-3-mlevitsk@redhat.com>
-References: <20250430203013.366479-1-mlevitsk@redhat.com>
-	<20250430203013.366479-3-mlevitsk@redhat.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: mlevitsk@redhat.com, kvm@vger.kernel.org, linux-riscv@lists.infradead.org, jiangkunkun@huawei.com, longman@redhat.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com, bhelgaas@google.com, boqun.feng@gmail.com, bp@alien8.de, aou@eecs.berkeley.edu, anup@brainfault.org, paul.walmsley@sifive.com, suzuki.poulose@arm.com, palmer@dabbelt.com, alex@ghiti.fr, glider@google.com, oliver.upton@linux.dev, andre.przywara@arm.com, x86@kernel.org, joey.gouly@arm.com, tglx@linutronix.de, kvm-riscv@lists.infradead.org, atishp@atishpatra.org, mingo@redhat.com, jingzhangos@google.com, hpa@zytor.com, dave.hansen@linux.intel.com, kvmarm@lists.linux.dev, will@kernel.org, keisuke.nishimura@inria.fr, sebott@redhat.com, peterz@infradead.org, lishusen2@huawei.com, pbonzini@redhat.com, rdunlap@infradead.org, seanjc@google.com, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1746088075;
+	bh=DIRp7PCO2q81pcfAhNFooEuVcja7gndPQjMS3ZpawtY=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=kdlRCrUMmhE/tpd3yMnCUQ8nqFZey2KO2cjBF/eRRiX7S7tIBNUvPpONHiNjtp0Jw
+	 B3y0ddPIIL5h9wwXGQ9ORHG+J9rQeGilBbUOKKoX4iu/59rIZEAnup83l3Mdlrog0j
+	 haFWGO7+2NbfFDawZSIKTGd95wYawI4fdGk8jBEyL0uV4WZGwJ+AaI6gVLp51uq6Ce
+	 bswu/fX8jr/Uo+9LBf9DJs9mFhVah3+xuv5ho2wZzUDv9Ub1zudwGIgRfRV2p6sD3K
+	 IlzdE+73rrDDkwgXh3h0uxSA8vWF1/9iUXCzsxTfpmc+Rxhy7rUC2IHUKg0unU/7Gx
+	 KbLQJCgkOn/sg==
+Date: Thu, 01 May 2025 03:27:53 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: krzk+dt@kernel.org, linux-kernel@vger.kernel.org, v-singh1@ti.com, 
+ vigneshr@ti.com, linux-arm-kernel@lists.infradead.org, afd@ti.com, 
+ conor+dt@kernel.org, nm@ti.com, praneeth@ti.com, devicetree@vger.kernel.org, 
+ khasim@ti.com, kristo@kernel.org
+To: Paresh Bhagat <p-bhagat@ti.com>
+In-Reply-To: <20250501072923.1262414-2-p-bhagat@ti.com>
+References: <20250501072923.1262414-1-p-bhagat@ti.com>
+ <20250501072923.1262414-2-p-bhagat@ti.com>
+Message-Id: <174608807383.1458182.1498162135150593654.robh@kernel.org>
+Subject: Re: [PATCH 1/3] dt-bindings: arm: ti: Add bindings for AM62D2 SoC
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_012416_730089_EA7DABC5 
-X-CRM114-Status: GOOD (  28.81  )
+X-CRM114-CacheID: sfid-20250501_012756_737826_BDB3873C 
+X-CRM114-Status: GOOD (  16.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,137 +74,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-nit: in keeping with the existing arm64 patches, please write the
-subject as "KVM: arm64: Use ..."
 
-On Wed, 30 Apr 2025 21:30:10 +0100,
-Maxim Levitsky <mlevitsk@redhat.com> wrote:
-
-[...]
-
+On Thu, 01 May 2025 12:59:21 +0530, Paresh Bhagat wrote:
+> The AM62D2 SoC belongs to the K3 Multicore SoC architecture with DSP core
+> targeted for applications needing high-performance Digital Signal
+> Processing. It is used in applications like automotive audio systems,
+> professional sound equipment, radar and radio for aerospace, sonar in
+> marine devices, and ultrasound in medical imaging. It also supports
+> precise signal analysis in test and measurement tools.
 > 
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 68fec8c95fee..d31f42a71bdc 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -1914,49 +1914,6 @@ int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
->  	}
->  }
->  
-> -/* unlocks vcpus from @vcpu_lock_idx and smaller */
-> -static void unlock_vcpus(struct kvm *kvm, int vcpu_lock_idx)
-> -{
-> -	struct kvm_vcpu *tmp_vcpu;
-> -
-> -	for (; vcpu_lock_idx >= 0; vcpu_lock_idx--) {
-> -		tmp_vcpu = kvm_get_vcpu(kvm, vcpu_lock_idx);
-> -		mutex_unlock(&tmp_vcpu->mutex);
-> -	}
-> -}
-> -
-> -void unlock_all_vcpus(struct kvm *kvm)
-> -{
-> -	lockdep_assert_held(&kvm->lock);
+> Some highlights of AM62D2 SoC are:
+> 
+> * Quad-Cortex-A53s (running up to 1.4GHz) in a single cluster.
+>   Dual/Single core variants are provided in the same package to allow
+>   HW compatible designs.
+> * One Device manager Cortex-R5F for system power and resource management,
+>   and one Cortex-R5F for Functional Safety or general-purpose usage.
+> * DSP with Matrix Multiplication Accelerator(MMA) (up to 2 TOPS) based on
+>   single core C7x.
+> * 3x Multichannel Audio Serial Ports (McASP) Up to 4/6/16 Serial Data Pins
+>   which can Transmit and Receive Clocks up to 50MHz, with multi-channel I2S
+>   and TDM Audio inputs and outputs.
+> * Integrated Giga-bit Ethernet switch supporting up to a total of two
+>   external ports with TSN capable to enable audio networking features such
+>   as, Ethernet Audio Video Bridging (eAVB) and Dante.
+> * 9xUARTs, 5xSPI, 6xI2C, 2xUSB2, 3xCAN-FD, 3x eMMC and SD, OSPI memory
+>   controller, 1x CSI-RX-4L for Camera, eCAP/eQEP, ePWM, among other
+>   peripherals.
+> * Dedicated Centralized Hardware Security Module with support for secure
+>   boot, debug security and crypto acceleration and trusted execution
+>   environment.
+> * One 32 bit DDR Subsystem that supports LPDDR4, DDR4 memory types.
+> * Low power mode support: Partial IO support for CAN/GPIO/UART wakeup.
+> 
+> This adds dt bindings for TI's AM62D2 family of devices.
+> 
+> More details about the SoCs can be found in the Technical Reference Manual:
+> https://www.ti.com/lit/pdf/sprujd4
+> 
+> Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
+> ---
+>  Documentation/devicetree/bindings/arm/ti/k3.yaml | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
 
-Note this assertion...
+My bot found errors running 'make dt_binding_check' on your patch:
 
-> -
-> -	unlock_vcpus(kvm, atomic_read(&kvm->online_vcpus) - 1);
-> -}
-> -
-> -/* Returns true if all vcpus were locked, false otherwise */
-> -bool lock_all_vcpus(struct kvm *kvm)
-> -{
-> -	struct kvm_vcpu *tmp_vcpu;
-> -	unsigned long c;
-> -
-> -	lockdep_assert_held(&kvm->lock);
+yamllint warnings/errors:
+./Documentation/devicetree/bindings/arm/ti/k3.yaml:37:13: [warning] wrong indentation: expected 14 but found 12 (indentation)
 
-and this one...
+dtschema/dtc warnings/errors:
 
-> -
-> -	/*
-> -	 * Any time a vcpu is in an ioctl (including running), the
-> -	 * core KVM code tries to grab the vcpu->mutex.
-> -	 *
-> -	 * By grabbing the vcpu->mutex of all VCPUs we ensure that no
-> -	 * other VCPUs can fiddle with the state while we access it.
-> -	 */
-> -	kvm_for_each_vcpu(c, tmp_vcpu, kvm) {
-> -		if (!mutex_trylock(&tmp_vcpu->mutex)) {
-> -			unlock_vcpus(kvm, c - 1);
-> -			return false;
-> -		}
-> -	}
-> -
-> -	return true;
-> -}
-> -
->  static unsigned long nvhe_percpu_size(void)
->  {
->  	return (unsigned long)CHOOSE_NVHE_SYM(__per_cpu_end) -
+doc reference errors (make refcheckdocs):
 
-[...]
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250501072923.1262414-2-p-bhagat@ti.com
 
-> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> index 69782df3617f..834f08dfa24c 100644
-> --- a/virt/kvm/kvm_main.c
-> +++ b/virt/kvm/kvm_main.c
-> @@ -1368,6 +1368,40 @@ static int kvm_vm_release(struct inode *inode, struct file *filp)
->  	return 0;
->  }
->  
-> +/*
-> + * Try to lock all of the VM's vCPUs.
-> + * Assumes that the kvm->lock is held.
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-Assuming is not enough. These assertions have caught a number of bugs,
-and I'm not prepared to drop them.
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
-> + */
-> +int kvm_trylock_all_vcpus(struct kvm *kvm)
-> +{
-> +	struct kvm_vcpu *vcpu;
-> +	unsigned long i, j;
-> +
-> +	kvm_for_each_vcpu(i, vcpu, kvm)
-> +		if (!mutex_trylock_nest_lock(&vcpu->mutex, &kvm->lock))
-> +			goto out_unlock;
-> +	return 0;
-> +
-> +out_unlock:
-> +	kvm_for_each_vcpu(j, vcpu, kvm) {
-> +		if (i == j)
-> +			break;
-> +		mutex_unlock(&vcpu->mutex);
-> +	}
-> +	return -EINTR;
-> +}
-> +EXPORT_SYMBOL_GPL(kvm_trylock_all_vcpus);
-> +
-> +void kvm_unlock_all_vcpus(struct kvm *kvm)
-> +{
-> +	struct kvm_vcpu *vcpu;
-> +	unsigned long i;
-> +
-> +	kvm_for_each_vcpu(i, vcpu, kvm)
-> +		mutex_unlock(&vcpu->mutex);
-> +}
-> +EXPORT_SYMBOL_GPL(kvm_unlock_all_vcpus);
+pip3 install dtschema --upgrade
 
-I don't mind you not including the assertions in these helpers, but
-then the existing primitives have to stay and call into the new stuff.
-Which, from a simple patch volume, would be far preferable and help
-with managing backports.
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
-I'd also expect the introduction of these new helpers to be done in
-its own patch, so that we don't get cross architecture dependencies if
-something needs to be backported for a reason or another.
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
 
