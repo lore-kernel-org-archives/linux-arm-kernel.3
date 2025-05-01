@@ -4,99 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EA40C3ABA9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 22:05:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B9F4C3ABA9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 22:08:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4aQow7u8F41nYxZweuJnfSOxquTxQHS6OPqzJyCHngI=; b=XDfRvV9egHIJ/Wpk+8Apdfz3mP
-	tYfS29EPEEqMLdTJh+IDtHX8DkX2oz4iSXmBJ6xKOBGdKTpaGGjgEOeNxsmbWunUuN9AugXWTj8Vg
-	/q8lkiTziql7bapzHMb85kQCAACnWEb5MXPdGem81LcYUaYs2I3x0hJTAu8IaCLJk1T+VGr2+ltNi
-	uxiwzn/bKT1i8Fr0zWDFvof2Hco4Vo2ANwR+g9sbSNJGeD0J9liJ+LPwSXC3PUUvgiB6R37umOKw3
-	iGz5+oHLMQ6KMFrN6AMohmY7JCcD5F9ZIZYRT3FVuBKi+lPe3bferdmlm9YQ9SV3i8NyYEqaVZn7W
-	d2CFHWRQ==;
+	bh=tOjpypFIC1MFYfuSlXMzhrCrJGqjuZGfc32KsKpKFhQ=; b=PoJJkPtLB98+27xYxLqlkFT3W5
+	Uz0l2cLlj2w0bIY0HgqP4xDUsrHtshCNmzeTrE1ZbxQMcKJLqhWMTk7+0lcSgve1No/vrCaxGZJm3
+	hWKAyWBNt6+KVwLwT3mgl/lkfGDNWP0CbuqVhYF4T2D5YPL/iP7LT88ACo+kDpR04mffTEjfwnwrZ
+	iFv0I7zsBIcEUzoUyKeO4CTgu/iQHxYlP/4WmP5/URGyC5GsL1nG9Y94p6mOF3foa3nEuHXOnODTC
+	Ol1YwGMMu/ek0aQ4IXNsH0kHQ0VeqhLlgArkCF2G8VyUVVe+39+JbYQLTroE0HdPEKdnw304lfPAH
+	M+dT9EDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAc1w-0000000HQ7p-31nt;
-	Thu, 01 May 2025 22:05:20 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1uAc5I-0000000HSD1-0TCg;
+	Thu, 01 May 2025 22:08:48 +0000
+Received: from mail-ed1-x542.google.com ([2a00:1450:4864:20::542])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAc01-0000000HOss-1zlR;
-	Thu, 01 May 2025 22:03:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1746137001; x=1777673001;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=DPAjQ3tcmkEJv3Lg42rr0PDxLthYy4jnQbe2u0kwB4M=;
-  b=RApLwJeJk6ptJzI+/Bsu58pF7Og1dEi9aT2pM7kfMFe7wj3JuKGBqKS+
-   yWoNugWOiUoW2bBb91CP6F+FYFQZIRDv4ahpkQ9xWc+U1bjuaJcxBKzkQ
-   CU+3rN5OxENuR2yKQL/Vgyu0T4tb9I32vF4O0eo3i3Nn0t+D6fZYEPwZg
-   Zp9Y4Yw+mdee6cZOIUs+NLNv1I3o2exfi2cghDIqhhWP/rVZyYTIFdavq
-   hQWGGmHsSQqeSj6jxHwFqUl6Knk1SpxMtIWWTyPiO9jaFsn6rkMZdzwXE
-   fNBq1zJKK7Oxzn/MqpSW9jaL5co+GjCHOL3LdzBWXEkaPyiliN71dqqvb
-   Q==;
-X-CSE-ConnectionGUID: f3qcSXxeRFyo4flPbu9AQQ==
-X-CSE-MsgGUID: aRTtksJFQie8hZ5BUGKIUw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11420"; a="47707637"
-X-IronPort-AV: E=Sophos;i="6.15,254,1739865600"; 
-   d="scan'208";a="47707637"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 May 2025 15:03:19 -0700
-X-CSE-ConnectionGUID: x/h8zWSZSKGq/ivGo4f39A==
-X-CSE-MsgGUID: oZ/+2AXHTPKdy9kwJsTIpA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,254,1739865600"; 
-   d="scan'208";a="165547378"
-Received: from ettammin-desk.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.244.38])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 May 2025 15:03:13 -0700
-Received: from kekkonen.localdomain (localhost [127.0.0.1])
-	by kekkonen.fi.intel.com (Postfix) with SMTP id 1EC6011F96E;
-	Fri,  2 May 2025 01:03:10 +0300 (EEST)
-Date: Thu, 1 May 2025 22:03:10 +0000
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Michael Riesch <michael.riesch@collabora.com>
-Cc: Mehdi Djait <mehdi.djait@linux.intel.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	=?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>,
-	Gerald Loacker <gerald.loacker@wolfvision.net>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Sebastian Fricke <sebastian.fricke@collabora.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Paul Kocialkowski <paulk@sys-base.io>,
-	Alexander Shiyan <eagle.alexander923@gmail.com>,
-	Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Mehdi Djait <mehdi.djait@bootlin.com>
-Subject: Re: [PATCH v5 05/11] media: rockchip: add a driver for the rockchip
- camera interface
-Message-ID: <aBPvnkdakh9AtAjv@kekkonen.localdomain>
-References: <20250306-v6-8-topic-rk3568-vicap-v5-0-f02152534f3c@wolfvision.net>
- <20250306-v6-8-topic-rk3568-vicap-v5-5-f02152534f3c@wolfvision.net>
- <aA-hsrXa_bwiDVKS@kekkonen.localdomain>
- <43682906-f965-4e6e-8f60-22217c34fd39@collabora.com>
+	id 1uAc3N-0000000HR1c-26PK
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 01 May 2025 22:06:50 +0000
+Received: by mail-ed1-x542.google.com with SMTP id 4fb4d7f45d1cf-5efe8d9eb12so2157725a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 May 2025 15:06:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746137207; x=1746742007; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=tOjpypFIC1MFYfuSlXMzhrCrJGqjuZGfc32KsKpKFhQ=;
+        b=nNlbWJOdPTwMIxvalio9jhtafmDGlaEKLFZuQaOnaH5zSM7VRm6fb2PaOAT9Eqy6tb
+         +zd+UbGOkTnS8t7h8ei6wyYahhhr/yIwj61k/vqdK027nlSMDqtwm39Q74cGUHRaJBrz
+         niiKAusGYFsoMkqZDoVA2ZXD8fCEghRXz9RxZx3FF0+oZXY79vKLTV4FOa3xpvUKFGzA
+         RCGrTtCBLEhzTI5uEOcRHhuqh1CB7OzF86hVM5a6S7+oy39vCGuLLswOyl96JGwMU/cM
+         DtC6hxm2+P5q9fIgc2OtvKpa+eMGONtoyA5fD1Iwe7mUxwCSF14Hs40NJYufN5SUGWWT
+         sNrQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746137207; x=1746742007;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=tOjpypFIC1MFYfuSlXMzhrCrJGqjuZGfc32KsKpKFhQ=;
+        b=hRhm7YrZjz8uCfB0Eduz8I/VJrqQ/mw5ZPArODgElhyV24K2M/wNQjSOlM8M/jFQ+b
+         zh6vBjqQ7qxgy/fVrw8I4MIFg7ZTai0QYYDolcz3jPWxReyoGSoGobUxEXeulOwNr7uJ
+         Swlh3lBcmmbDim04r8D21eHwOEAWehTSOmxLz2Kf08ZzlXLYNZGQpXAztNKough7S6l3
+         1HhhOssug7JnIJJRNegXnGSDlH8x1Ky5+KV7m4TsCjQYJWyTQKyKm8xGxcPkjl9UW3Mu
+         eLaLHuzhRsFRGDLGgkkCWwqaPJOkPmnpZV5k5PLGOhpAPnl1QMcOjHvZnAqld9VVw8YF
+         HBMw==
+X-Forwarded-Encrypted: i=1; AJvYcCWKEUy5wKrVwXpaDjFnomiXQRPpAp8g0RGwlOZRqwUIzY+Dq99mE+2gG8/a6fe97+OFtaT3YUo5QP50F6OiHCmn@lists.infradead.org
+X-Gm-Message-State: AOJu0YxEMWeMS7CWRpxBDjqfjQGIsrhHyr6OuUhm1KI+tdbSjIJ32uSX
+	iQzYAjbcPU/6bkIXYZbdvc0wLU2W3NxTKk8pHHtXzSHwfwq/X9hcIgLNiFaAMQRy071vywIjQvl
+	wtoENK74s/ZEwxp+oLw91mXw8OjQ=
+X-Gm-Gg: ASbGncvx4oyBM4qKJJ4l2E0pP5n6X+SahGeHUnVzyb5xrOFkPg+wRPerSClwlQ5GiIq
+	gHya8RkbMrfdpk6WNIGYxpiHTTV2ZmEuRsreo1RbzqWarXQL10m3+tRRiLaGS9ymohR9FnWw4kN
+	e0hPhyUHf9OjyOWUeErYjYsKfMNsD8iFFFa3jxeBWM7csHk/eKjM6qNQ==
+X-Google-Smtp-Source: AGHT+IFdlZgpJIIOZwmEjMJEBEmVCQHnSyA+ervJFsjlZ4P4vNdH66g4BiTBr5V5jAKGV/k1Wwx3ddRiGr22IKP7V9w=
+X-Received: by 2002:a05:6402:90a:b0:5f4:d572:68a with SMTP id
+ 4fb4d7f45d1cf-5fa7801465dmr256726a12.12.1746137207142; Thu, 01 May 2025
+ 15:06:47 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <43682906-f965-4e6e-8f60-22217c34fd39@collabora.com>
+References: <20250501073603.1402960-1-luis.gerhorst@fau.de> <20250501073603.1402960-3-luis.gerhorst@fau.de>
+In-Reply-To: <20250501073603.1402960-3-luis.gerhorst@fau.de>
+From: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Date: Fri, 2 May 2025 00:06:10 +0200
+X-Gm-Features: ATxdqUE3JDqCne76-GBuIfwNJ48-dE9we8FlVLpDVL25L4gVtlMzRXX74KP1XKg
+Message-ID: <CAP01T75pdQCFuMpHq0tB6DLs0xdmS9nqMMp5hfq4z2o3-e1-5Q@mail.gmail.com>
+Subject: Re: [PATCH bpf-next v3 02/11] bpf: Move insn if/else into do_check_insn()
+To: Luis Gerhorst <luis.gerhorst@fau.de>
+Cc: Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, 
+	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
+	Jiri Olsa <jolsa@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
+	Xu Kuohai <xukuohai@huaweicloud.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Hari Bathini <hbathini@linux.ibm.com>, 
+	Christophe Leroy <christophe.leroy@csgroup.eu>, Naveen N Rao <naveen@kernel.org>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>, 
+	Henriette Herzog <henriette.herzog@rub.de>, Saket Kumar Bhaskar <skb99@linux.ibm.com>, 
+	Cupertino Miranda <cupertino.miranda@oracle.com>, Jiayuan Chen <mrpre@163.com>, 
+	Matan Shachnai <m.shachnai@gmail.com>, Dimitar Kanaliev <dimitar.kanaliev@siteground.com>, 
+	Shung-Hsi Yu <shung-hsi.yu@suse.com>, Daniel Xu <dxu@dxuuu.xyz>, bpf@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-kselftest@vger.kernel.org, 
+	Maximilian Ott <ott@cs.fau.de>, Milan Stephan <milan.stephan@fau.de>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_150321_533651_CA2FD003 
-X-CRM114-Status: GOOD (  29.36  )
+X-CRM114-CacheID: sfid-20250501_150649_542373_C90F58C8 
+X-CRM114-Status: GOOD (  12.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,108 +108,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michael,
+On Thu, 1 May 2025 at 09:43, Luis Gerhorst <luis.gerhorst@fau.de> wrote:
+>
+> This is required to catch the errors later and fall back to a nospec if
+> on a speculative path.
+>
+> Eliminate the regs variable as it is only used once and insn_idx is not
+> modified in-between the definition and usage.
+>
+> Still pass insn simply to match the other check_*() functions. As Eduard
+> points out [1], insn is assumed to correspond to env->insn_idx in many
+> places (e.g, __check_reg_arg()).
+>
+> Move code into do_check_insn(), replace
+> * "continue" with "return 0" after modifying insn_idx
+> * "goto process_bpf_exit" with "return PROCESS_BPF_EXIT"
+> * "do_print_state = " with "*do_print_state = "
+>
+> [1] https://lore.kernel.org/all/293dbe3950a782b8eb3b87b71d7a967e120191fd.camel@gmail.com/
+>
+> Signed-off-by: Luis Gerhorst <luis.gerhorst@fau.de>
+> Acked-by: Henriette Herzog <henriette.herzog@rub.de>
+> Cc: Maximilian Ott <ott@cs.fau.de>
+> Cc: Milan Stephan <milan.stephan@fau.de>
+> ---
 
-On Tue, Apr 29, 2025 at 06:08:51PM +0200, Michael Riesch wrote:
-> Hi Sakari,
-> 
-> Thanks for your review.
-> 
-> On 4/28/25 17:41, Sakari Ailus wrote:
-> > Hi Michael,
-> > 
-> > On Thu, Mar 06, 2025 at 05:56:06PM +0100, Michael Riesch wrote:
-> >> [...]
-> >> +
-> >> +const struct rkcif_dvp_match_data px30_vip_dvp_match_data = {
-> > 
-> > Can you prefix this with e.g. "rk_"? It's not static...
-> 
-> Will do. "rkcif_" is the prefix for the other global symbols, so I'll
-> use that here as well.
-
-Ack.
-
-> 
-> > [...]
-> >> +const struct rkcif_dvp_match_data rk3568_vicap_dvp_match_data = {
-> >> +	.in_fmts = rk3568_dvp_in_fmts,
-> >> +	.in_fmts_num = ARRAY_SIZE(rk3568_dvp_in_fmts),
-> >> +	.out_fmts = dvp_out_fmts,
-> >> +	.out_fmts_num = ARRAY_SIZE(dvp_out_fmts),
-> >> +	.setup = rk3568_dvp_grf_setup,
-> >> +	.has_scaler = false,
-> >> +	.regs = {
-> >> +		[RKCIF_DVP_CTRL] = 0x00,
-> >> +		[RKCIF_DVP_INTEN] = 0x04,
-> >> +		[RKCIF_DVP_INTSTAT] = 0x08,
-> >> +		[RKCIF_DVP_FOR] = 0x0c,
-> >> +		[RKCIF_DVP_LINE_NUM_ADDR] = 0x2c,
-> >> +		[RKCIF_DVP_FRM0_ADDR_Y] = 0x14,
-> >> +		[RKCIF_DVP_FRM0_ADDR_UV] = 0x18,
-> >> +		[RKCIF_DVP_FRM1_ADDR_Y] = 0x1c,
-> >> +		[RKCIF_DVP_FRM1_ADDR_UV] = 0x20,
-> >> +		[RKCIF_DVP_VIR_LINE_WIDTH] = 0x24,
-> >> +		[RKCIF_DVP_SET_SIZE] = 0x28,
-> >> +		[RKCIF_DVP_CROP] = 0x34,
-> >> +		[RKCIF_DVP_FRAME_STATUS] = 0x3c,
-> >> +		[RKCIF_DVP_LAST_LINE] = 0x44,
-> >> +		[RKCIF_DVP_LAST_PIX] = 0x48,
-> >> +	},
-> >> +};
-> > 
-> > Does this belong here? Or on the user's side?
-> 
-> Not sure I understand your question. The *_dvp_match_data structs are
-> mostly used by rkcif-capture-dvp.c, which would mean that they belong
-> here. rkcif-dev.c stores the pointer to it, but I think it can be
-> considered an opaque data structure.
-
-Ack.
-
-> 
-> > 
-> >> [...]
-> >> +err_streams_unregister:
-> >> +	for (; i >= 0; i--)
-> > 
-> > You can
-> 
-> ... use
-> 
->    for (i++; i--; )
-> 
-> as you pointed out in your other mail? I would rather not, actually. I
-> think this would require using "i - 1"...
-> 
-> > 
-> >> +		rkcif_stream_unregister(&interface->streams[i]);
-> 
-> ... here:
-> 
-> rkcif_stream_unregister(&interface->streams[i - 1]);
-> 
-> which I find less readable. Or I am wrong, but then I did not understand
-> the for loop definition above, which would mean that it is less readable
-> than my version.
-
-Would it? The values inside the loop are the same, it's just the loop that
-is different and does not require a signed counter variable.
-
-> 
-> OK for you if I leave this as is?
-
-Yours might be slightly easier to grasp but making the variable signed just
-for that is not very pretty.
-
-> 
-> Unfortunately, your mail seems to be cut off here. Any further comments
-> to the part below?
-
-No, that was all for now.
-
--- 
-Regards,
-
-Sakari Ailus
+Acked-by: Kumar Kartikeya Dwivedi <memxor@gmail.com>
 
