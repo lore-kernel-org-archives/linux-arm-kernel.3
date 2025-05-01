@@ -4,96 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFB20C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 21:49:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2946C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 21:59:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9r6A8pjeBdT9CIMooiOuLDzT6g9hy9vPLljDSfADzUo=; b=uuRYvYAIscjzkVqedQ3dyd3b37
-	2FNM+LUSu/ceQVHVncEw6M1LT6WFR/Vr17Oa5pl6gLvzQZU2WXubgcIv0CrBJ5OYldKsJV8Sps98d
-	L2R53A2zXIel+d84ymosjx31t/EQGJdgfaQ8fL3aO7rYcPSqatd/GUNUePktmj4N4QgT9ickW0LYt
-	UMwzbHTa8SYSyKZrW41Vu7KaTT+etlv7DjlvaOfPEJYegfoXNdYV3yhmOkA2Z2u1DC/EUEEmLOtym
-	Vzx90ITXI7T51mtn0omAckxmHXqn6kKR29WifBMErB6YM0TGr5xJdZLRwltjvuiMZdlytFz8P2UCJ
-	d4gUxtZQ==;
+	bh=VN5k51y2li1dFiSa/XiXB0RMZog90x+lHlEBgkLXKmo=; b=law2pgW+fli+7kbI6h6XIxw+75
+	9AVObEiKTJRb2/zXCbzEh2C/ItZkc351sGi2lXP4/ca62E0YweIZ4kc8SYcWgnXgmdIgueQ/JXkrk
+	gQhPlAW0hCm7F0jySqiIKekRMGs/vvjPwMq5DNprgJh4FJn5fMt8uWDPt+hCKRFXZXvB56VR9bjRs
+	Bo4eYlLkzr/6Q04bvnfEJZHV9NxmPwvphEx89Sahdxcb5nmUN5GK4lvIOaEx2xpd998TsJCMByxz+
+	yBzfk7jqSrgDtpAbfQRaPy1gyRM2rI5NwyXk1YjjHr4Q0vzJhTjt56Y/6mUpQZsxyS+UJZrJVXAF7
+	b+J3ogmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAbmM-0000000HH59-2AFo;
-	Thu, 01 May 2025 21:49:14 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1uAbwG-0000000HN9O-1UHS;
+	Thu, 01 May 2025 21:59:28 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAbjx-0000000HFNU-2nFn
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 21:46:47 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2240aad70f2so60805ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 May 2025 14:46:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1746136004; x=1746740804; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=9r6A8pjeBdT9CIMooiOuLDzT6g9hy9vPLljDSfADzUo=;
-        b=lAm7w0AgDmLM9GrXmRVJmEwtEE0LFjxbIC3PH5rLpXnAnv+GQ/iBnr8uK5tS2LkMfu
-         PKps8Zjl/9aR/F/tp5d4bU1VYIdSfMPQPLUJYlimHky4WVzCnZLvy8+kMd3OUT7GS0GV
-         Ua7p0YmWnfiKfhyXFFVFpVKaeSY8vHQxFGy/myn+cUHmc1aKkPQ0wmyIPt1QSYclYeJJ
-         2KRKh2ZXmpHOHAQKRW+guDyroiCiZuGY9XbjDnfY+VGDzYdVDQkSdjfIB+meQZT6uX/l
-         kW7XLxsX3eVtTQxxYQ+/T6CMUHBDcdYNvS3LMW3KYi++d5e80bUIX0BXmGwJ8vzBaviT
-         mbvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746136004; x=1746740804;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9r6A8pjeBdT9CIMooiOuLDzT6g9hy9vPLljDSfADzUo=;
-        b=LiomkeNc8Z5zDoe5DX99JO+f0roosbxc/zS2nnBHK3Xpy86Yr+8HMLAV+cOEgDcNPo
-         K5ONU3lu0ti081e+Yvg69J+AFkvm3osYj8E5Hyws9qebsZOitTC8yvBn3cu4R1vlMDpX
-         Kn7ree68BMhK0xqYW0DJqYjupz9OE0SXqeva1AaqGntEA5cLDTjD/YeuTuGkvrSZgtUg
-         kr5NTHsN7ybrEDbdmRKbxj8jmpmf91ZlsP9b3xOsbIof1OdNVf7FqXDrP+nSdmPqCrBk
-         ofILhMZ6hlh70pEfwL92LtN10gZStbSBVLNUsYeNcOpP5GpLRK8OZE0mpNU5PbSSmD8b
-         s5Nw==
-X-Forwarded-Encrypted: i=1; AJvYcCVnCap6ItYNHE2pb/rLhrKQZ+qxosKycOYBamYwV4cklZOOGI9Om3FPmsRtZWjK0jX0ekKK0eZBnykb0qoMxlua@lists.infradead.org
-X-Gm-Message-State: AOJu0YwPTJR6KdBJm13NE/R3wjQ+L7t+jKyTTbXLNz3xNarYeclU7BvR
-	3Nt1JtCNnSa6FUn3zArtyxBf3iHZryxDOyHvf4LN6ZCtlQEvj6TOTb+JpgroTQ==
-X-Gm-Gg: ASbGnctUMaVac4OgloyD8bGe0unQRbD8MBdmBPJGyQqM6yVJ9ECE9axHy+vAPMLsz+y
-	uPew1pPCk9wehU/BLgtVEA6Ln+ZxXRoOmDg8vlSNUQgfUp1eq2VtzGQnDam3FBp7gFY48JP5vto
-	BiSDvmX+fOsyVV99Pn+BIDAXHERw/v6u2NPR3AqNKK4WxdwJEOa9coiIUPaotK0UkdbzDTlGxU6
-	T3CwsMlWGkROvRvXiW3zAPHeKMeGXVWZWzBG6d8TlGitWCxIhamdmZGnQRzZE2w9Ryn7x1ClwCh
-	7nZZzZwHfWlRncVlmxPgkTaIF3/Va4qOUVnl69uA9XxFcloHdS7de9A1M1ZIUCUJCPvgAPg4
-X-Google-Smtp-Source: AGHT+IFwvKnjZtLoQ4bY59+1gUvZDTEb4mowMJ0K70YKwsiOKp0lgYtmDTG0AdFCxAuctUKRuXVbug==
-X-Received: by 2002:a17:902:db02:b0:21f:631c:7fc9 with SMTP id d9443c01a7336-22e03c81070mr3938175ad.0.1746136004118;
-        Thu, 01 May 2025 14:46:44 -0700 (PDT)
-Received: from google.com (2.210.143.34.bc.googleusercontent.com. [34.143.210.2])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b1fa8611424sm129648a12.73.2025.05.01.14.46.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 May 2025 14:46:43 -0700 (PDT)
-Date: Thu, 1 May 2025 21:46:32 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
-	bagasdotme@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
-	thierry.reding@gmail.com, vdumpa@nvidia.com, jonathanh@nvidia.com,
-	shuah@kernel.org, jsnitsel@redhat.com, nathan@kernel.org,
-	peterz@infradead.org, yi.l.liu@intel.com, mshavit@google.com,
-	zhangzekun11@huawei.com, iommu@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
-	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com
-Subject: Re: [PATCH v2 21/22] iommu/tegra241-cmdqv: Add user-space use support
-Message-ID: <aBPruHaehW4yU-ez@google.com>
-References: <cover.1745646960.git.nicolinc@nvidia.com>
- <b81b2332f793a9ffccc528d821f2ed3ac051f9e0.1745646960.git.nicolinc@nvidia.com>
- <aBKdMaFLPFJYegIS@google.com>
- <aBKmk6PNFreeyfLh@Asurada-Nvidia>
- <aBLGUby2dIiYCe7S@Asurada-Nvidia>
+	id 1uAbuK-0000000HM2Z-3T3h;
+	Thu, 01 May 2025 21:57:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1746136649; x=1777672649;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=zWcnDLE5VTMy5WKRBj0IgzuPoGG7eGMUv76ZlXgPRDg=;
+  b=i5ulbcVZgwSv/YujoyFZ05cf9At7IehOJUUE+HiCfk6sp3pnIQqs6NgY
+   iCQphNS3BcILsPOoKArPCMt9Wnev6aR46XSKsGh1JEkS4Vi34V7wGeXKD
+   hKIBMTOh9j93iZ4ySK8eycIXue4Wa7/Jatv9HGF/YPpQ0+4gssTomHcLm
+   MEZ+LgNzAZDtPTprLWdHffZV8klrnDStfFGhFeIy7/PCk+bU3u1lgaenU
+   YxK5qkyp62WphiPKU6OHCUu+tgLrikpW97cCjVOzt3p/29a4weLpIi6Q0
+   nwYXJABBn5U8Ya9NnjFrnGfkxycAVu0QtwtnHbwN+GbDufQyLRRVO6GkQ
+   Q==;
+X-CSE-ConnectionGUID: RV8wNcJTR62OhYdwE5y35g==
+X-CSE-MsgGUID: i6X0YeYdSBeylLqeHkG/8w==
+X-IronPort-AV: E=McAfee;i="6700,10204,11420"; a="47536276"
+X-IronPort-AV: E=Sophos;i="6.15,254,1739865600"; 
+   d="scan'208";a="47536276"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 May 2025 14:57:25 -0700
+X-CSE-ConnectionGUID: gQXAToqySNCoS87O/jrCWA==
+X-CSE-MsgGUID: uoquiMHcSzC+zHBill9Nqw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,254,1739865600"; 
+   d="scan'208";a="135015910"
+Received: from ettammin-desk.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.244.38])
+  by fmviesa010-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 May 2025 14:57:19 -0700
+Received: from kekkonen.localdomain (localhost [127.0.0.1])
+	by kekkonen.fi.intel.com (Postfix) with SMTP id 49E991201E4;
+	Fri,  2 May 2025 00:57:16 +0300 (EEST)
+Date: Thu, 1 May 2025 21:57:16 +0000
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+From: Sakari Ailus <sakari.ailus@linux.intel.com>
+To: michael.riesch@collabora.com
+Cc: Mehdi Djait <mehdi.djait@linux.intel.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	=?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>,
+	Gerald Loacker <gerald.loacker@wolfvision.net>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Collabora Kernel Team <kernel@collabora.com>,
+	Paul Kocialkowski <paulk@sys-base.io>,
+	Alexander Shiyan <eagle.alexander923@gmail.com>,
+	Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Michael Riesch <michael.riesch@wolfvision.net>
+Subject: Re: [PATCH v6 07/13] media: rockchip: rkcif: add driver for mipi
+ csi-2 receiver
+Message-ID: <aBPuPGM-YBZo5AbI@kekkonen.localdomain>
+References: <20240220-rk3568-vicap-v6-0-d2f5fbee1551@collabora.com>
+ <20240220-rk3568-vicap-v6-7-d2f5fbee1551@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aBLGUby2dIiYCe7S@Asurada-Nvidia>
+In-Reply-To: <20240220-rk3568-vicap-v6-7-d2f5fbee1551@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_144645_708283_82BE845A 
-X-CRM114-Status: GOOD (  29.72  )
+X-CRM114-CacheID: sfid-20250501_145728_905987_61F7697E 
+X-CRM114-Status: UNSURE (   8.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,69 +110,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 30, 2025 at 05:54:41PM -0700, Nicolin Chen wrote:
-> On Wed, Apr 30, 2025 at 03:39:22PM -0700, Nicolin Chen wrote:
-> > On Wed, Apr 30, 2025 at 09:59:13PM +0000, Pranjal Shrivastava wrote:
-> > > >  enum iommu_viommu_type {
-> > > >  	IOMMU_VIOMMU_TYPE_DEFAULT = 0,
-> > > >  	IOMMU_VIOMMU_TYPE_ARM_SMMUV3 = 1,
-> > > > +	IOMMU_VIOMMU_TYPE_TEGRA241_CMDQV = 2,
-> > > > +};
-> > > 
-> > > This is a little confusing.. I understand that we need a new viommu type
-> > > to copy the new struct iommu_viommu_tegra241_cmdqv b/w the user & kernel
-> > > 
-> > > But, in a previous patch (Add vsmmu_alloc impl op), we add a check to
-> > > fallback to the standard type SMMUv3, if the impl_ops->vsmmu_alloc 
-> > > returns -EOPNOTSUPP:
-> > > 
-> > > 	if (master->smmu->impl_ops && master->smmu->impl_ops->vsmmu_alloc)
-> > > 		vsmmu = master->smmu->impl_ops->vsmmu_alloc(
-> > > 			master->smmu, s2_parent, ictx, viommu_type, user_data);
-> > > 	if (PTR_ERR(vsmmu) == -EOPNOTSUPP) {
-> > > 		if (viommu_type != IOMMU_VIOMMU_TYPE_ARM_SMMUV3)
-> > > 			return ERR_PTR(-EOPNOTSUPP);
-> > > 		/* Fallback to standard SMMUv3 type if viommu_type matches */
-> > > 		vsmmu = iommufd_viommu_alloc(ictx, struct arm_vsmmu, core,
-> > > 					     &arm_vsmmu_ops);
-> > > 
-> > > Now, if we'll ALWAYS try to allocate an impl-specified vsmmu first, even
-> > > when the viommu_type == IOMMU_VIOMMU_TYPE_ARM_SMMUV3, we are anyways
-> > > going to return back from the impl_ops->vsmmu_alloc with -EOPNOTSUPP.
-> > 
-> > That's not necessarily true. An impl_ops->vsmmu_alloc can support
-> > IOMMU_VIOMMU_TYPE_ARM_SMMUV3 potentially, e.g. an impl could just
-> > toggle a few special bits in a register and return a valid vsmmu
-> > pointer.
-> > 
-> > It doesn't work like this with VCMDQ as it supports its own type,
-> > but for the long run I think we should pass in the standard type
-> > to impl_ops->vsmmu_alloc too.
-> > 
-> > > Then we'll again check if the retval was -EOPNOTSUPP and re-check the
-> > > viommu_type requested.. which seems a little counter intuitive.
-> > 
-> > It's just prioritizing the impl_ops->vsmmu_alloc. Similar to the
-> > probe, if VCMDQ is missing or encountering some initialization
-> > problem, give it a chance to fallback to the standard SMMU.
-> 
-> I changed to this and it should be clear now:
-> 
-> +       /* Prioritize the impl that may support IOMMU_VIOMMU_TYPE_ARM_SMMUV3 */
-> +       if (master->smmu->impl_ops && master->smmu->impl_ops->vsmmu_alloc)
-> +               vsmmu = master->smmu->impl_ops->vsmmu_alloc(
-> +                       master->smmu, s2_parent, ictx, viommu_type, user_data);
-> +       if (PTR_ERR(vsmmu) == -EOPNOTSUPP) {
-> +               /* Otherwise, allocate an IOMMU_VIOMMU_TYPE_ARM_SMMUV3 here */
-> +               if (viommu_type == IOMMU_VIOMMU_TYPE_ARM_SMMUV3)
-> +                       vsmmu = iommufd_viommu_alloc(ictx, struct arm_vsmmu,
-> +                                                    core, &arm_vsmmu_ops);
-> 
+Hi Michael,
 
-This looks good! Thanks!
+On Wed, Apr 30, 2025 at 11:15:56AM +0200, Michael Riesch via B4 Relay wrote:
+> +	link_freq = v4l2_get_link_freq(csi_dev->source_sd->ctrl_handler, 0, 0);
 
-> Thanks
-> Nicolin
+Use the source pad for this, the control handler is there just for
+compatibility and will be removed soon.
 
-Praan
+-- 
+Sakari Ailus
 
