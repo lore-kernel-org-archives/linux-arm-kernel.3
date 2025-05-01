@@ -4,86 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF2A5C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 09:03:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E12BC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 09:11:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UCEBeh07v+6+gO/OKdza6HaaTqWAjEk3rGA8oCx5Pi0=; b=DJx0+5gnqngP90DjfCjXmaWEuo
-	O17LgNhIuW2IQqzXT2pZQkicwCZi1MqBPexFTx4AdXaaY1A5kSf5O0zlIJvI0oW+mgdKHfxrMKLCH
-	zbiFJ/zGKu2dKSHU9FWzB1qtChZX7QdvZBDmN+iVSP/y0T92zfBla2MXS9x+UTbO8q5lKZkyLJchS
-	3RC/LnrsWXdBQG/eYhtOa8Pwkc6GGe247T8hjcGZ/JoP/KCa1Wg9Y6XZ8RUOJ/eaGomdNAaUgx1kN
-	InAgpQMgYSnht4sGQ4tsXNb7YQf+XL6IIz1WtryHKvhXJYlO4JyP0+2zysMdUZqiFGwvmMdOePDYk
-	f32jyMMw==;
+	bh=iW37dc4JV7FI/c08R26nIdXftSnWYFRMw9MuaYDFfGk=; b=XzSxg9bOKhgQOtMU4G2WYmUhFA
+	7uWJGuvpjYRcp95Cmw+4CtmTU9o93hLRYw9E9J2otVpiylsA/FNcfinfQfZ3QI1jtZeTJmOzRaFDU
+	J9bomGXrd6Ss7QtK2wvLKh/IakbidMjpslyFYH4WuiZKa4xtVDlm2OlShnJZEhft7qrIDDpX2RSv5
+	Jkx1LhNfVlnoVwAiQ4KgmKGBz/ZZIuqczFuL7ohp3TI6gdcnMHULnE8xCsSufjh6cSsKAn6gqGf77
+	8sO6ROzHPkp7RTh8IhYEH5jvuqGMrt8Ajev5Ijl0pu9hMrEUvrLRifTBKVI/ZNwFwkz7xc2RFwCuA
+	6KFNH/3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAPp5-0000000F5NN-2T30;
-	Thu, 01 May 2025 09:03:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uAPwp-0000000F5tX-1ye9;
+	Thu, 01 May 2025 09:11:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAPnB-0000000F5Bm-35x4
+	id 1uAPux-0000000F5lZ-45Vp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 09:01:18 +0000
+	Thu, 01 May 2025 09:09:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C1C25447E2;
-	Thu,  1 May 2025 09:01:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E1F59C4CEE3;
-	Thu,  1 May 2025 09:01:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A281568463;
+	Thu,  1 May 2025 09:08:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5ABDAC4CEE3;
+	Thu,  1 May 2025 09:09:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746090077;
-	bh=0ipCz+7spt358RxGlpu6/Gs/l2WCej4idcL1gnVdSJQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=cNQg6Cu+kQg5EPbQth2cRgzIBbVR1eku6Lz+MlysAKVS9AI+1KotmybKncV2WG2Xu
-	 ViX/+dmEmvRW7YqG7H2j609iGPMGEX52nxqFen23vLlu7FkQwXVxMbSoCnQP4D4PN3
-	 AxZ9o1IO9T8FXnJA9FLBbyuE6ofTjL35QPT8YZVHFsa9qJAv62F/apH/Bi8g7xMwuP
-	 zJ5YiWqBuXTKFBO1SRcyMNewVo+6SMSwDSIkdWtmg/CZ1NcGq9b1ngS/PYjdQ1vz+8
-	 P+VtYLG8329ixEwUOpwFKuJXFAADXYxEDdCJdcNVk8drtle2mFtnSu3/RDXi8Y0ljI
-	 Tvu0+MYnIJJsA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uAPn7-00AWwq-GZ;
-	Thu, 01 May 2025 10:01:14 +0100
-Date: Thu, 01 May 2025 10:01:13 +0100
-Message-ID: <8634doiu1y.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 20/22] irqchip/gic-v5: Add GICv5 ITS support
-In-Reply-To: <aBIjvPVe/SWzOyd9@lpieralisi>
-References: <20250424-gicv5-host-v2-0-545edcaf012b@kernel.org>
-	<20250424-gicv5-host-v2-20-545edcaf012b@kernel.org>
-	<86a57yhv1h.wl-maz@kernel.org>
-	<aBIjvPVe/SWzOyd9@lpieralisi>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, tglx@linutronix.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, sascha.bischoff@arm.com, timothy.hayes@arm.com, Liam.Howlett@oracle.com, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_020117_818295_4DB63F71 
-X-CRM114-Status: GOOD (  46.53  )
+	s=k20201202; t=1746090558;
+	bh=Ab2Fh2ilzC5IU7gqXpYNCm4x+QzBsCpAZEaO3S+BdKc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=c7nrNs3tbpCki4FheEGOTdohY/wkrwSqL6TUMrwd6jLLdStbV/3RqErns4Qty6Db+
+	 8ltaB7n1dTK76PYbri3Po9ZVUUWfxy7aVTcLD6pNP4nlsPJqrQf9+Uhvm4B/Y3yRS4
+	 joDuG+WxWAMiMrYsYpPhGtYhljYOvfAEynKiWFU7RTBgkIThwIQBd34M10YkrPLib5
+	 YDsy1DzajSoztuICNrtqPuSRT8HBbwV0Yrq10aKuV4jTQMM1aZBr9o18p7jRt6rA7F
+	 1rp9oCXCbkfoj4UAZe+0blotSyTjenvL2BroaVTd11+IDgRjowDAd5PKrrb4AdvPI0
+	 WJD0rkLb5QADQ==
+Date: Thu, 1 May 2025 10:09:13 +0100
+From: Lee Jones <lee@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
+	linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 0/2] firmware: exynos-acpm: clients (PMIC, clocks, etc.)
+ will become children
+Message-ID: <20250501090913.GA3627101@google.com>
+References: <20250327-acpm-children-v1-0-0afe15ee2ff7@linaro.org>
+ <174530898122.9276.5071475909293812602.b4-ty@linaro.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <174530898122.9276.5071475909293812602.b4-ty@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,165 +77,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 30 Apr 2025 14:21:00 +0100,
-Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+On Tue, 22 Apr 2025, Krzysztof Kozlowski wrote:
+
 > 
-> On Wed, Apr 30, 2025 at 10:12:58AM +0100, Marc Zyngier wrote:
-> > On Thu, 24 Apr 2025 11:25:31 +0100,
-> > Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
-
-[...]
-
-> > > 
-> > > +void gicv5_irs_syncr(void)
-> > > +{
-> > > +	struct gicv5_irs_chip_data *irs_data;
-> > > +	u32 syncr;
-> > > +
-> > > +	irs_data = list_first_entry_or_null(&irs_nodes,
-> > > +					    struct gicv5_irs_chip_data, entry);
-> > > +	if (WARN_ON(!irs_data))
-> > > +		return;
-> > > +
-> > > +	syncr = FIELD_PREP(GICV5_IRS_SYNCR_SYNC, 1);
-> > > +	irs_writel_relaxed(irs_data, syncr, GICV5_IRS_SYNCR);
-> > > +
-> > > +	gicv5_irs_wait_for_op(irs_data->irs_base, GICV5_IRS_SYNC_STATUSR,
-> > > +			      GICV5_IRS_SYNC_STATUSR_IDLE);
-> > > +}
-> > > +
+> On Thu, 27 Mar 2025 12:54:26 +0000, André Draszik wrote:
+> > ACPM clients (PMIC, clocks, etc.) will be modeled as children of the
+> > ACPM interface.
 > > 
-> > Only the ITS code is using this function. Why isn't it in the ITS code
-> > as a static helper?
-> 
-> I'd need to make irs_nodes global.
-
-You could simply have a helper returning the first IRS node. Not a big
-deal anyway.
-
-[...]
-
-> > > +	/*
-> > > +	 * Need to determine how many entries there are per L2 - this is based
-> > > +	 * on the number of bits in the table.
-> > > +	 */
-> > > +	events_per_l2_table = BIT(l2_bits);
-> > > +	complete_tables = num_events / events_per_l2_table;
-> > > +	final_span = order_base_2(num_events % events_per_l2_table);
-> > > +
-> > > +	for (i = 0; i < num_ents; i++) {
-> > > +		size_t l2sz;
-> > > +
-> > > +		span = i == complete_tables ? final_span : l2_bits;
-> > > +
-> > > +		itt_l2 = kcalloc(BIT(span), sizeof(*itt_l2), GFP_KERNEL);
-> > > +		if (!itt_l2) {
-> > > +			ret = -ENOMEM;
-> > > +			goto out_free;
-> > > +		}
+> > This necessitates two changes in this driver:
+> > * child platform_devices from device tree need to be populated here
+> > * child drivers will need to be able to get the ACPM handle via a
+> >   struct device_node, not via a DT property name
 > > 
-> > You are allocating a bunch of 64bit pointers. So the alignment is
-> > BIT(span + 3) or ARCH_KMALLOC_MINALIGN, whichever is the largest.
+> > [...]
 > 
-> Right, at least 8 bytes.
+> Applied, thanks!
 > 
-> > > +
-> > > +		its_dev->itt_cfg.l2.l2ptrs[i] = itt_l2;
-> > > +
-> > > +		l2sz = BIT(span) * sizeof(*itt_l2);
-> > > +
-> > > +		if (its->flags & ITS_FLAGS_NON_COHERENT)
-> > > +			dcache_clean_inval_poc((unsigned long)itt_l2,
-> > > +					       (unsigned long)itt_l2 + l2sz);
-> > > +
-> > > +		val = (virt_to_phys(itt_l2) & GICV5_ITTL1E_L2_ADDR_MASK) |
-> > > +		       FIELD_PREP(GICV5_ITTL1E_SPAN, span)		 |
-> > > +		       FIELD_PREP(GICV5_ITTL1E_VALID, 0x1);
-> > 
-> > GICV5_ITTL1E_L2_ADDR_MASK starts at bit 12.
-> 
-> No, it starts at bit 3.
+> [1/2] firmware: exynos-acpm: populate devices from device tree data
+>       https://git.kernel.org/krzk/linux/c/636baba9489a634c956d6f02076af6bc1725c132
+> [2/2] firmware: exynos-acpm: introduce devm_acpm_get_by_node()
+>       https://git.kernel.org/krzk/linux/c/a8dc26a0ec43fd416ca781a8030807e65f71cfc5
 
-Ah, you're absolutely right. I looked at the IST version...
+Can this be made available for other subsystems to pull from please?
 
-[...]
+Without it MFD is currently broken.
 
-> > > +{
-> > > +	struct gicv5_its_dev *its_dev;
-> > > +	int ret;
-> > > +
-> > > +	its_dev = gicv5_its_find_device(its, dev_id);
-> > > +	if (!IS_ERR(its_dev)) {
-> > > +		pr_debug("A device with this DeviceID (0x%x) has already been registered.\n",
-> > > +			 dev_id);
-> > > +
-> > > +		if (nvec > its_dev->num_events) {
-> > > +			pr_debug("Requesting more ITT entries than allocated\n");
-> > > +			return ERR_PTR(-ENXIO);
-> > > +		}
-> > > +
-> > > +		its_dev->shared = true;
-> > > +
-> > > +		return its_dev;
-> > 
-> > I really think we shouldn't even consider the silliness of
-> > non-transparent bridges this time around. That's a terrible system
-> > design, and it leads to all sorts of lifetime madness -- the GICv3
-> > driver is a testament to it. Modern systems with GICv5 should not have
-> > to deal with this nonsense.
-> 
-> I am not sure we can remove this path for the IWB - even if we model it
-> as an MBIgen.
-
-Why? The IWB is (or rather should be) seen as a device. The fact that
-it is itself an interrupt controller is am independent issue.
-
-> With Sascha and Tim we tested this code path, I am not sure it would
-> work if a driver with a wired IRQ connected to an IWB free an IRQ and
-> the ITS device representing the IWB is not shared.
-
-I don't think freeing the IRQ from the end-point perspective should
-have any effect on the IWB. At probe time, the IWB should grab all the
-LPIs it needs, publish them as part of the wired domain attached to
-its fwnode, and be done with it
-
-[...]
-
-> > > +static int gicv5_its_irq_domain_activate(struct irq_domain *domain,
-> > > +					 struct irq_data *d, bool reserve)
-> > > +{
-> > > +	struct gicv5_its_dev *its_dev = irq_data_get_irq_chip_data(d);
-> > > +	u16 event_id;
-> > > +	u32 lpi;
-> > > +
-> > > +	event_id = FIELD_GET(GICV5_ITS_HWIRQ_EVENT_ID, d->hwirq);
-> > > +	lpi = d->parent_data->hwirq;
-> > > +
-> > > +	return gicv5_its_alloc_event(its_dev, event_id, lpi);
-> > 
-> > Huh. This looks wrong. Allocating the event really should happen at
-> > alloc time, not at activate time, because the endpoint driver doesn't
-> > really expect this to fail for any reason other than a gross bug.
-> > 
-> > activate should allow the translation to take place, but not rely on
-> > allocating events. Compare with GICv3, which only issues the MAPTI
-> > command at activate time.
-> 
-> I am not "allocating an event" (well, then you would say "learn how to
-> name your functions" and you are right), I am writing the ITT table for
-> an eventid that was preallocated before, so basically, apart from
-> paranoia checks, this is the MAPTI equivalent.
-
-Feels like *a lot* of paranoia checks, most of which should not be
-possible by construction. You can also get rid of num_mapped_events,
-which is clearly some debug stuff.
-
-And yes, this function can do with a bit of renaming.
-
-Thanks,
-
-	M.
+Ref: https://lore.kernel.org/all/fd11ee67a3d51aef6305c477b140d911da0b2af4.camel@linaro.org/
 
 -- 
-Without deviation from the norm, progress is not possible.
+Lee Jones [李琼斯]
 
