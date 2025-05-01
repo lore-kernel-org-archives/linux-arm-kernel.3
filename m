@@ -4,68 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49784C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 13:17:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C18BC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 13:19:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HQdc39CNpfE5SklFj5Xz5fGlZqhAO1uTaTeD3Myk49U=; b=3wD5SboP6sfOuIqu6uKkYzU6+V
-	LOW3XFELnV/42Aez8yFfgim5NW2lXsq2V4R2van+Pd+S/dXHGztyOUgxTQ9UJtw43ZS16DTMD3+r0
-	3dxVnmCVboY4t2YnjmQkJxMVUI0SwsGUyYAcTvs9v5b5kyC9GGuIyONQ/TrY0WpYb+/T8G4NuMSy7
-	5Xv+2E1OtvJRPWM1yT44kCH+Do/Mxjqr0BNEmjHvqT0GDAjPT8gsXUGZ/laH833F/fg1rDxdWYqC7
-	+dCPs/wBQYYX6aperoR7MKCQUA2iuqhbKu0Tw31BdeH/VvgbTxeupApWbX6ZjZYTvRM7EH8E2+12B
-	9t9jfrSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HFp5ctPlBb31BUvVAyPbZSerujwWlHGL0EfB9AAi2ys=; b=imr/R0UvhE2/MvkpDyan70XlSc
+	TPFpNNC9R9pqHV6t+lqsHQ/ReeJCDbIc8vfMs3jGI3Hxdh2sDGWiTBoTscsUcK+yrmxOUg0CKmfE0
+	uizcPMY/Ob4Vg15ofaKKZf+sy1fsreUeSEJ+vP7R24HaFatJ6WsBZxhXwLvKu7XCB2ye/AWg86L4R
+	h13Sre+z/zCA4sdD3BORVW7VHPQIh6LU1ZiNSlDCxQdcEP9MsfP5YmhIQEsG9EDcYLnHw2xOqvUPa
+	5ef4Gl0Hma0H8ou5YAQz4KpcpuElk/LegM4qW+xlueRHn92wuROP+bN1N1Axmt4iM9qi0l3QX4RlV
+	YZrAEvWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uATme-0000000FnZt-1MFd;
-	Thu, 01 May 2025 13:17:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uAToX-0000000FnoH-0GVF;
+	Thu, 01 May 2025 13:18:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uATkk-0000000FnLc-03VX
+	id 1uATlX-0000000FnRZ-2vjI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 13:15:03 +0000
+	Thu, 01 May 2025 13:15:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8F76A49C7A;
-	Thu,  1 May 2025 13:14:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EA3CC4CEE4;
-	Thu,  1 May 2025 13:14:56 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7059B44C53;
+	Thu,  1 May 2025 13:15:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E936C4CEE3;
+	Thu,  1 May 2025 13:15:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746105300;
-	bh=6ptm9e4+N5Xyo1RCMVV1pfCM3SsY2ZQgu3Uh/K4ek1U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=J58UFm9gNYOlLCrcSO6OxX6RPkPjwASSoVPejxOPQtMgK6DVbO37HkxQPsLZz+kRv
-	 PAinzrv821hFUBbMok1HnTGoVqSxpm069Q2Pi2ZzbL4rtMQedEhK25DslHGQZtgGin
-	 Y/mhgOiRlU82tjDVUpLtpGYrufX6e1BP+38x2QYbY8P8rolHG4wcoVaToZxhb8iLSN
-	 mTm1I0OLFr4lrPW3fIz/8zYoGlqO5vAnzcqWkzgM/jmRZKCSPzxYs3JpX0fa7mEsPI
-	 ztfSGRgj3gDV7zwepeaIbQh78A2YmIr+AAS65Xo4LQ/btBt5PkjYrhB5GQLLzAOifi
-	 XOJ+FUPGOvwmg==
-Date: Thu, 1 May 2025 14:14:54 +0100
-From: Lee Jones <lee@kernel.org>
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Cc: daniel.lezcano@linaro.org, alexandre.torgue@foss.st.com,
-	tglx@linutronix.de, ukleinek@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, jic23@kernel.org, robh@kernel.org,
-	catalin.marinas@arm.com, will@kernel.org,
-	devicetree@vger.kernel.org, wbg@kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-iio@vger.kernel.org, linux-pwm@vger.kernel.org,
-	olivier.moysan@foss.st.com
-Subject: Re: [PATCH v6 0/7] Add STM32MP25 LPTIM support: MFD, PWM, IIO,
- counter, clocksource
-Message-ID: <20250501131454.GO1567507@google.com>
-References: <20250429125133.1574167-1-fabrice.gasnier@foss.st.com>
+	s=k20201202; t=1746105350;
+	bh=vG9RNDUsdMKUtcPNh3JTEqrqWWFL/iIruqjQNnXSe2Q=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ZE8dhfOB0DRQqBSkFEh7Qhc0AbapWsMOLtOEowe066a90UYLToaMHAjsN9EBiGjQ2
+	 K+vcftRYrPjRsbUO11ldjBXnn5Vz9fL1XUX6dTANVJTxH/ykYg9IuOc/gqIFONvcqh
+	 rcT/HkYnOzyOKQCIBXx34Z8f0iZLXDpFYlrXIWX2WHaDJypw2wCcc0v0C2CMJd9t1N
+	 QbEjslSC2xs3IHPb+uRHRJWtP/47463ZTvcYoO77bZokGZNyn10q0dcIrsifSXlwOr
+	 0OALCVuwygFsNMnIB0BE6dKtS4EP6AgUQj/YCpB6Uv8YpR/ReiutWFhC6ctxSQeyOU
+	 wtD5/K+TKjWZg==
+Date: Thu, 1 May 2025 06:15:48 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Eric Dumazet
+ <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Heiner Kallweit
+ <hkallweit1@gmail.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
+ linux-arm-kernel@lists.infradead.org, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Herve Codina <herve.codina@bootlin.com>,
+ Florian Fainelli <f.fainelli@gmail.com>, Russell King
+ <linux@armlinux.org.uk>, Vladimir Oltean <vladimir.oltean@nxp.com>,
+ =?UTF-8?B?S8O2cnk=?= Maincent <kory.maincent@bootlin.com>, Oleksij Rempel
+ <o.rempel@pengutronix.de>, Simon Horman <horms@kernel.org>, Romain Gantois
+ <romain.gantois@bootlin.com>, Piergiorgio Beruto
+ <piergiorgio.beruto@gmail.com>
+Subject: Re: [PATCH net-next v7 1/3] net: ethtool: Introduce per-PHY DUMP
+ operations
+Message-ID: <20250501061548.38f7479b@kernel.org>
+In-Reply-To: <20250430083220.5fba6c32@device-130.home>
+References: <20250422161717.164440-1-maxime.chevallier@bootlin.com>
+	<20250422161717.164440-2-maxime.chevallier@bootlin.com>
+	<20250424180333.035ff7d3@kernel.org>
+	<20250430083220.5fba6c32@device-130.home>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250429125133.1574167-1-fabrice.gasnier@foss.st.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_061502_092436_13D0D2E3 
-X-CRM114-Status: GOOD (  20.31  )
+X-CRM114-CacheID: sfid-20250501_061551_760174_862BC388 
+X-CRM114-Status: GOOD (  17.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,72 +85,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 29 Apr 2025, Fabrice Gasnier wrote:
+On Wed, 30 Apr 2025 08:32:20 +0200 Maxime Chevallier wrote:
+> > > +/* perphy ->dumpit() handler for GET requests. */
+> > > +static int ethnl_perphy_dumpit(struct sk_buff *skb,
+> > > +			       struct netlink_callback *cb)
+> > > +{
+> > > +	struct ethnl_perphy_dump_ctx *ctx = ethnl_perphy_dump_context(cb);
+> > > +	struct ethnl_dump_ctx *ethnl_ctx = &ctx->ethnl_ctx;
+> > > +	int ret = 0;
+> > > +
+> > > +	if (ethnl_ctx->req_info->dev) {
+> > > +		ret = ethnl_perphy_dump_one_dev(skb, ethnl_ctx->req_info->dev,
+> > > +						ctx, genl_info_dump(cb));
+> > > +		if (ret < 0 && ret != -EOPNOTSUPP && likely(skb->len))
+> > > +			ret = skb->len;
+> > > +
+> > > +		netdev_put(ethnl_ctx->req_info->dev,
+> > > +			   &ethnl_ctx->req_info->dev_tracker);    
+> > 
+> > You have to release this in .done
+> > dumpit gets called multiple times until we run out of objects to dump.
+> > OTOH user may close the socket without finishing the dump operation.
+> > So all .dumpit implementations must be "balanced". The only state we
+> > should touch in them is the dump context to know where to pick up from
+> > next time.  
+> 
+> Sorry for the delayed answer, I'm still wrapping my head around all
+> this. calling netdev_put in dumpit() is not correct, but won't moving
+> this into .done() make us subject to the scenario you described to me
+> in another mail where userspace would stall the dump operation by not
+> calling recv() ?
 
-> This series adds support for STM32MP25 to MFD PWM, IIO, counter and
-> clocksource low-power timer (LPTIM) drivers.
-> This new variant is managed by using a new DT compatible string, hardware
-> configuration and version registers.
-> It comes with a slightly updated register set, some new features and new
-> interconnect signals inside the SoC.
-> Same feature list as on STM32MP1x is supported currently.
-> The device tree files add all instances in stm32mp251 dtsi file.
-> 
-> Changes in V6
-> ---
-> - Fixed kernel test robot warning
->   https://lore.kernel.org/oe-kbuild-all/202504261456.aCATBoYN-lkp@intel.com/
-> 
-> Changes in V5
-> ---
-> - Add a necessary delay in clocksource driver, when enabling the timer.
-> - Add collected Acks
-> - Dropped IIO trigger patch as applied by Jonathan [1] (no dependency)
->   [1] https://lore.kernel.org/all/20250331110435.26157ebe@jic23-huawei/
-> 
-> Changes in V4
-> ---
-> - Simplify IIO trigger driver as per Jonathan's comments.
-> - Rework clocksource driver: encapsulate mp25 changes in separate function
->   after Daniel's suggestion.
-> - Add some definitions to MFD header.
-> 
-> Changes in V3
-> ---
-> - Yaml indentation issue fixed, reported by Rob's bot
-> 
-> Changes in V2
-> ---
-> - Review comments from Krzysztof
->   - Adopt compatible fallback in dt-bindings and driver
->   - drivers: drop "st,stm32mp25-..." compatibles when unused (e.g. no .data)
->   - counter driver: no update (patch dropped)
->   - defconfig: only enable the necessary config for upstream board
->   - add lptimer DT node in stm32mp257f-ev1 board
-> - Add missing management of IER access for stm32mp25
-> 
-> Fabrice Gasnier (7):
->   dt-bindings: mfd: stm32-lptimer: add support for stm32mp25
->   mfd: stm32-lptimer: add support for stm32mp25
->   clocksource: stm32-lptimer: add support for stm32mp25
->   pwm: stm32-lp: add support for stm32mp25
->   arm64: defconfig: enable STM32 LP timer clockevent driver
->   arm64: dts: st: add low-power timer nodes on stm32mp251
->   arm64: dts: st: use lptimer3 as tick broadcast source on
->     stm32mp257f-ev1
-> 
->  .../bindings/mfd/st,stm32-lptimer.yaml        |  40 +++-
->  arch/arm64/boot/dts/st/stm32mp251.dtsi        | 177 ++++++++++++++
->  arch/arm64/boot/dts/st/stm32mp257f-ev1.dts    |   8 +
->  arch/arm64/configs/defconfig                  |   2 +
->  drivers/clocksource/timer-stm32-lp.c          |  61 ++++-
->  drivers/mfd/stm32-lptimer.c                   |  33 ++-
->  drivers/pwm/pwm-stm32-lp.c                    | 219 +++++++++++++++---
->  include/linux/mfd/stm32-lptimer.h             |  37 ++-
->  8 files changed, 537 insertions(+), 40 deletions(-)
-
-Is it just the Clocksource Ack that we're waiting on now?
-
--- 
-Lee Jones [李琼斯]
+Good catch, for the filtered dump you'll need to look up the netdev
+on every dumpit call.
 
