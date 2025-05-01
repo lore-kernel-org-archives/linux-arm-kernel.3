@@ -4,108 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D43CC3ABA3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 13:57:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F9E7C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 14:03:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aE111zmwmrBWhUfB76ogGIl9HmC+s4gYEjXcbE7tHCk=; b=OixJ95gropzJTQ9LKkFUwLyXt3
-	RCDUB0lOXu3h+Y4asV5/pJZqlotX/bdQnGo0/2yLwuadAiFeoJ8pEko/Ogu96o1YVcyPPKnUMsfQT
-	02SAM0i0vF3CjHh7YEMY5UYcZnbz+Xv0uCHqI3zumhei67Puk3ANyIbm4gdMFWysGm0hg+nFkTUus
-	G7xPE3Ekm0q+KJ9/6YRj3HbKiMB2Fjll6O9pTA/ionev3C3wxCG+nj6Udz2vg6LyJWAsWZaXKNrTG
-	dKDtzqoVTN2bbeGTN+r0oY/3Rtw+jge9HiKQOJFmq3x0e1JX8rYy7Qe6g44+sP8cgOwyI5GgBRlw9
-	l1RWSAjg==;
+	bh=pGo/5QrDdfxiANvWb9SZU7IDsVaiyQTfgNBJvwQOBzI=; b=DdCHl9gn6HJq3yKLZ9eL3fQDM4
+	Rr85nntaVZ9IUFc99tcqDgesuqsizc1yxxHPcF01+PNYfpR+sOvG+FJQTlfxXnhwikSmEx/iVLZMS
+	2Rd8k/Qio1g0byWSpzXkoOjrcOq6pI79j9h/rksACP3sgu2pbDZt+4u5uVr3dPrPMc4Ape9q6un3E
+	307Tgp5a478b5Y9ZBkSHzVaJVJ0tSWFmeIE+iZYbzrqmYlpiru+X76n5WWYrNFoABYVcecFD/LlA0
+	p89PFFXI1XLYvimvHGnjynCunZAR9+Jz1TfQ0/ACCjSODOlnufBy7hu2vbD2jM4RdRpkgn/Ag6PPT
+	iELNKiwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAUPX-0000000FtVd-0Ggp;
-	Thu, 01 May 2025 13:57:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uAUVX-0000000FuEG-3moj;
+	Thu, 01 May 2025 14:03:23 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAUNd-0000000FtEa-3hkD;
-	Thu, 01 May 2025 13:55:13 +0000
+	id 1uAUTf-0000000Fu5q-2sV0
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 01 May 2025 14:01:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 11D4E68463;
-	Thu,  1 May 2025 13:54:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E48EC4CEE3;
-	Thu,  1 May 2025 13:55:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746107712;
-	bh=HP9qPQcXPFBaNtd0LbBqA0JNCPyQw698ggOHjYeim0Y=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Pfk1ZFoGFQBcJbn4eAazqmyuBJ6TkiGf2ekSQDgoa5Fjia9S2lMt5efsrXyzq1Vvm
-	 ULeuC83dmMDOduBWW3xv2ptavXQm1vdoGdMaOq6foW7rtSQf8ouqLVTIFegJWn1fzS
-	 EorN2jN0LePdF11Vpm6UW5UyEsjAfLLhsNMAJTWfxtw7S29pRommXhIjicwQXKd09K
-	 dja4faMd/aLvbeN4QKFNqUIDiiz0PK5zIlRXOlq9ONM7WY09BvtawseMmekfxpdUph
-	 231yeafldT6FquJnpqz72EltQ8Tb6TsqSFX9obyV9riRozvuNYg8YfhJH7B6vS3/oQ
-	 Lfve/zxbzhOzw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uAUNa-00AakJ-3R;
-	Thu, 01 May 2025 14:55:10 +0100
-Date: Thu, 01 May 2025 14:55:08 +0100
-Message-ID: <86v7qkh1vn.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Maxim Levitsky <mlevitsk@redhat.com>,
-	kvm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Kunkun Jiang <jiangkunkun@huawei.com>,
-	Waiman Long <longman@redhat.com>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Alexander Potapenko <glider@google.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Andre Przywara <andre.przywara@arm.com>,
-	x86@kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	kvm-riscv@lists.infradead.org,
-	Atish Patra <atishp@atishpatra.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Jing Zhang <jingzhangos@google.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	kvmarm@lists.linux.dev,
-	Will Deacon <will@kernel.org>,
-	Keisuke Nishimura <keisuke.nishimura@inria.fr>,
-	Sebastian Ott <sebott@redhat.com>,
-	Shusen Li <lishusen2@huawei.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Sean Christopherson <seanjc@google.com>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v4 2/5] arm64: KVM: use mutex_trylock_nest_lock when locking all vCPUs
-In-Reply-To: <20250501134126.GT4439@noisy.programming.kicks-ass.net>
-References: <20250430203013.366479-1-mlevitsk@redhat.com>
-	<20250430203013.366479-3-mlevitsk@redhat.com>
-	<864iy4ivro.wl-maz@kernel.org>
-	<20250501111552.GO4198@noisy.programming.kicks-ass.net>
-	<861pt8ijpv.wl-maz@kernel.org>
-	<20250501134126.GT4439@noisy.programming.kicks-ass.net>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: peterz@infradead.org, mlevitsk@redhat.com, kvm@vger.kernel.org, linux-riscv@lists.infradead.org, jiangkunkun@huawei.com, longman@redhat.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com, bhelgaas@google.com, boqun.feng@gmail.com, bp@alien8.de, aou@eecs.berkeley.edu, anup@brainfault.org, paul.walmsley@sifive.com, suzuki.poulose@arm.com, palmer@dabbelt.com, alex@ghiti.fr, glider@google.com, oliver.upton@linux.dev, andre.przywara@arm.com, x86@kernel.org, joey.gouly@arm.com, tglx@linutronix.de, kvm-riscv@lists.infradead.org, atishp@atishpatra.org, mingo@redhat.com, jingzhangos@google.com, hpa@zytor.com, dave.hansen@linux.intel.com, kvmarm@lists.linux.dev, will@kernel.org, keisuke.nishimura@inria.fr, sebott@redhat.com, lishusen2@huawei.com, pbonzini@redhat.com, rdunlap@infradead.org, seanjc@google.com, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	by dfw.source.kernel.org (Postfix) with ESMTP id 843F95C5466;
+	Thu,  1 May 2025 13:59:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6304BC4CEE3;
+	Thu,  1 May 2025 14:01:24 +0000 (UTC)
+Date: Thu, 1 May 2025 15:01:22 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Zorro Lang <zlang@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, Will Deacon <will@kernel.org>,
+	dianders@chromium.org
+Subject: Re: BUG: KASAN: global-out-of-bounds in
+ is_midr_in_range_list+0x29c/0x2e0
+Message-ID: <aBN-smRV0G5nVPlB@arm.com>
+References: <20250427141540.yyh4lht6tzg2l4is@dell-per750-06-vm-08.rhts.eng.pek2.redhat.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250427141540.yyh4lht6tzg2l4is@dell-per750-06-vm-08.rhts.eng.pek2.redhat.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250501_070127_772983_7D5273FE 
+X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,75 +63,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 01 May 2025 14:41:26 +0100,
-Peter Zijlstra <peterz@infradead.org> wrote:
+On Sun, Apr 27, 2025 at 10:15:40PM +0800, Zorro Lang wrote:
+> I'm from fstests@ maillist, my latest fstests [2] regression test on
+> mainline linux v6.15-rc3+ (HEAD=f1a3944c860b0615d0513110d8cf62bb94adbb41)
+> sometimes hit below KASAN bug [1] on aarch64 by running generic/650 [3].
+> So report this issue to arm64 list to get review :)
 > 
-> On Thu, May 01, 2025 at 01:44:28PM +0100, Marc Zyngier wrote:
-> > On Thu, 01 May 2025 12:15:52 +0100,
-> > Peter Zijlstra <peterz@infradead.org> wrote:
-> > > 
-> > > > > + */
-> > > > > +int kvm_trylock_all_vcpus(struct kvm *kvm)
-> > > > > +{
-> > > > > +	struct kvm_vcpu *vcpu;
-> > > > > +	unsigned long i, j;
-> > > > > +
-> > > > > +	kvm_for_each_vcpu(i, vcpu, kvm)
-> > > > > +		if (!mutex_trylock_nest_lock(&vcpu->mutex, &kvm->lock))
-> > > 
-> > > This one includes an assertion that kvm->lock is actually held.
-> > 
-> > Ah, cunning. Thanks.
-> > 
-> > > That said, I'm not at all sure what the purpose of all this trylock
-> > > stuff is here.
-> > > 
-> > > Can someone explain? Last time I asked someone said something about
-> > > multiple VMs, but I don't know enough about kvm to know what that means.
-> > 
-> > Multiple VMs? That'd be real fun. Not.
-> > 
-> > > Are those vcpu->mutex another class for other VMs? Or what gives?
-> > 
-> > Nah. This is firmly single VM.
-> > 
-> > The purpose of this contraption is that there are some rare cases
-> > where we need to make sure that if we update some global state, all
-> > the vcpus of a VM need to see, or none of them.
-> > 
-> > For these cases, the guarantee comes from luserspace, and it gives the
-> > pinky promise that none of the vcpus are running at that point. But
-> > being of a suspicious nature, we assert that this is true by trying to
-> > take all the vcpu mutexes in one go. This will fail if a vcpu is
-> > running, as KVM itself takes the vcpu mutex before doing anything.
-> > 
-> > Similar requirement exists if we need to synthesise some state for
-> > userspace from all the individual vcpu states.
+> Thanks,
+> Zorro
 > 
-> Ah, okay. Because x86 is simply doing mutex_lock() instead of
-> mutex_trylock() -- which would end up waiting for this activity to
-> subside I suppose.
 > 
-> Hence the use of the killable variant I suppose, for when they get tired
-> of waiting.
+> [1]
+> [16982.135841] run fstests generic/650 at 2025-04-26 15:57:03
+> [16983.655106] evm: overlay not supported
+> [16983.838316] psci: CPU114 killed (polled 0 ms)
+> [16984.610264] psci: CPU32 killed (polled 0 ms)
+> [16985.855711] psci: CPU19 killed (polled 0 ms)
+> [16986.578909] psci: CPU48 killed (polled 0 ms)
+> [16987.329376] psci: CPU1 killed (polled 0 ms)
+> [16988.071610] psci: CPU0 killed (polled 0 ms)
+> [16989.675527] XFS (sda5): Unmounting Filesystem 73595b5c-b0eb-4f47-9d60-41cba8eb626c
+> [16989.894868] XFS (sda5): Mounting V5 Filesystem 73595b5c-b0eb-4f47-9d60-41cba8eb626c
+> [16989.935608] XFS (sda5): Ending clean mount
+> [16990.913789] psci: CPU98 killed (polled 0 ms)
+> [16991.624018] psci: CPU94 killed (polled 0 ms)
+> [16992.334849] ==================================================================
+> [16992.334865] BUG: KASAN: global-out-of-bounds in is_midr_in_range_list+0x29c/0x2e0
+> [16992.334888] Read of size 4 at addr ffffd4ca56f8fb18 by task swapper/94/0
+> 
+> [16992.334905] CPU: 94 UID: 0 PID: 0 Comm: swapper/94 Kdump: loaded Tainted: G        W           6.15.0-rc3+ #1 PREEMPT(voluntary) 
+> [16992.334922] Tainted: [W]=WARN
+> [16992.334926] Hardware name: GIGABYTE R152-P31-00/MP32-AR1-00, BIOS F31n (SCP: 2.10.20220810) 09/30/2022
+> [16992.334932] Call trace:
+> [16992.334937]  show_stack+0x34/0x98 (C)
+> [16992.334952]  dump_stack_lvl+0xa8/0xe8
+> [16992.334965]  print_address_description.constprop.0+0x90/0x370
+> [16992.334983]  print_report+0x108/0x1f8
+> [16992.334996]  kasan_report+0x8c/0x1b0
+> [16992.335007]  __asan_report_load4_noabort+0x20/0x30
+> [16992.335019]  is_midr_in_range_list+0x29c/0x2e0
+> [16992.335034]  spectre_bhb_loop_affected+0x28/0xa0
+> [16992.335047]  is_spectre_bhb_affected+0x128/0x160
+> [16992.335060]  verify_local_cpu_caps+0x140/0x358
+> [16992.335070]  verify_local_cpu_capabilities+0x20/0x2a8
+> [16992.335081]  check_local_cpu_capabilities+0x28/0x58
+> [16992.335092]  secondary_start_kernel+0x80/0x180
+> [16992.335104]  __secondary_switched+0xc0/0xc8
+> 
+> [16992.335120] The buggy address belongs to the variable:
+> [16992.335124]  spectre_bhb_k132_list.10+0x18/0x40
+> 
+> [16992.335339] The buggy address belongs to the virtual mapping at
+>                 [ffffd4ca56f70000, ffffd4ca57df0000) created by:
+>                 paging_init+0x3b4/0x480
 
-Yeah, I remember some debate around that when this refactoring was
-first posted. I quickly paged it out.
+Hopefully this fixes it (found independently):
 
-> If all the architectures are basically doing the same thing, it might
-> make sense to unify this particular behaviour. But what do I know.
-
-I don't know either. The trylock behaviour has been there since day-1
-on the arm side, and changing it would have userspace visible effects.
-So I'm pretty keen on preserving it, warts and all. The last thing I
-need is a VMM person hitting my inbox on the grounds that their toy is
-broken.
-
-On the other hand, we're talking about virtualisation, so everything
-is more or less broken by design...
-
-	M.
+https://lore.kernel.org/all/20250501104747.28431-1-will@kernel.org/
 
 -- 
-Without deviation from the norm, progress is not possible.
+Catalin
 
