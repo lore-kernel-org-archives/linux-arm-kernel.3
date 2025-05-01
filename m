@@ -4,66 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 411CDC3ABA9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 02:28:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2E05C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 02:57:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fdKA7A/RFCud62iMEec2PYRd8Uh47erogmK/JyNaTdU=; b=cEreje8VL8pTjXGuohFBKCmPhd
-	Vy5p/+9GFz44h4eZMajsKzA93Px2fgKefFfmu1wVGHJfyoFXhOHTpFLO1W9xKpEYOgJ3shwK11Nvp
-	VoajDcZTVnc/+XCRVrSF+zUw2WvOGvlINgoF4rhNLzIoY99khQywrYw/TuPXjjqMN4I8hehfb2tRB
-	A+dYFsPlqr4zLfAcRyXE0xaVAYye3qRHar9AtqUUIlWmA1pHJe+MB2Q4mV+cg/iFqHG6a4/YHVCp6
-	Q6oSbgQv6Hm9W0+DnI7VZx9orA5whmIm9Zkr5W6R5MP67HiNDnJ4wsGtJh13SLupFchhHHmpwvFlI
-	E6/Kjc8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O0f0P0r46I4wQ1N14Wr4dQIPr/ky0+9o8c+Aikg6Uic=; b=ds0ipdAWDGMcsJoH7VsyLoXt1h
+	SbPCTYZQ5jy8uTqQhwLoSNU4jLfWEBgGUw/eC2SDEat3KKNN1VDpKd3tcQb9HetDEKbWd31pefA6C
+	VocdIoR0zxOOB8LsSwbu31L8batrTD1OIY8ZSodB95AkyTQmFUSnWJA5n63OOu4UiGC5Ky89/KSH2
+	0sbEqUD2u4Oqv+Rp1GuykuBo7DnKYS/v02AeeQ7IOB2q5q9Sg39d6sBc/PuD0sSjO68p4ZCUaLL2l
+	ollYoiuLmlblCs2UnU+QAbGsFE9EwAEvI01pLva2eb0CYiDMQcUmj6GtDFnxZ2/zuY/UUuAEEgUaJ
+	hrz9gu/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAJex-0000000EVjp-27Ua;
-	Thu, 01 May 2025 02:28:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uAK6s-0000000EZgG-2Quw;
+	Thu, 01 May 2025 02:57:14 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAJd0-0000000EVC3-4B9m;
-	Thu, 01 May 2025 02:26:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 70FF343E95;
-	Thu,  1 May 2025 02:26:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B4EBC4CEE7;
-	Thu,  1 May 2025 02:26:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746066381;
-	bh=xDvmI+RzBrsAPUkmwQMATcemiN1t9n0AYagyAz0GKD8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aVIMS6EX1bmdbZlCT4Ph9BQSkBsKo1ZZ8cv5kzE4w46J3KEcLVv9IU8J0N+zyXVDh
-	 AQh5znq8L73Eebkqo9Roe6Tl62Ut7eDfj7S+TgnQVbe0LlkF9QvY+5jRgMO/I58+Hd
-	 DUtTGnQiUls4Cq2vq1gOBHdJSYQrXrUnhN1ltHksGAwh2qLYZDOhdMQfyTqAL8258e
-	 EYaDBvVua06TCgkHQsRTxv7B27A5j+kEQQOkOjqMum92sfyZPD0dgF2MTTnz9pQXtS
-	 TW38MM3FRjMU3ZHSvSgrLnKmeDJzpKfSfPN84pKFsYNlM2D3IIZyiP174i14GcTTpv
-	 XkpcgDRMXkRMw==
-Date: Wed, 30 Apr 2025 19:26:17 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Herbert Xu <herbert@gondor.apana.org.au>
-Cc: Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	sparclinux@vger.kernel.org, linux-s390@vger.kernel.org,
-	x86@kernel.org, Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: Re: [PATCH 00/12] crypto: sha256 - Use partial block API
-Message-ID: <20250501022617.GA65059@sol.localdomain>
-References: <cover.1745992998.git.herbert@gondor.apana.org.au>
- <20250430174543.GB1958@sol.localdomain>
- <aBLMi5XOQKJyJGu-@gondor.apana.org.au>
+	id 1uAK4v-0000000EZYt-1OAO
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 01 May 2025 02:55:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1746068111;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=O0f0P0r46I4wQ1N14Wr4dQIPr/ky0+9o8c+Aikg6Uic=;
+	b=LgKxJBlVJEzOSMcyBt3gOG1eYBY3oWbjf9b55cBqgfly6gqec6XPDppZ8GOB62fA4i2i2j
+	maqRDc9tjcD/ejF8TI7KSUHD/J4ThTHpWrgogK/2AqEkBSc6FfRUtHgXARXXOqEHBd4f09
+	eQ4n6x+hLhw4218IbC9PWyAl4cf4h+A=
+Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com
+ [209.85.210.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-439-ztV0BxVWOD6BzQ-wS-_Zbw-1; Wed, 30 Apr 2025 22:55:09 -0400
+X-MC-Unique: ztV0BxVWOD6BzQ-wS-_Zbw-1
+X-Mimecast-MFC-AGG-ID: ztV0BxVWOD6BzQ-wS-_Zbw_1746068109
+Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-739764217ecso526337b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 19:55:09 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746068109; x=1746672909;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=O0f0P0r46I4wQ1N14Wr4dQIPr/ky0+9o8c+Aikg6Uic=;
+        b=NXuxf0iM3jGM4upAN49wbl4tU/BCS5k9QNgyxdRccqbQ69iRGBMNS3bVQU0GqyK3ZI
+         FQxgqL1ERfjLs5t6Y1BJ/BDGPVMU1ntxipAqeYEDHqRtzh2O6xn3ecroNH5MIi70Ug06
+         P+f8hYCAZnveEtSAirTebcRjwxaDVNRNYRAZLeFKzpgznOwkkFZwmZMqGo6nfe5Ys4RO
+         2ijWVWXlwBeyeb8jBvt/Z5vunk9iHQHHx22MDAdl9KMqz0584G8KOJpUTg7FZZLYUAt4
+         lVVnkquzs4v9yqNrhwipsftEaWWwki1KjOHYx6rXhBoA3a8wYOkIdYatU/ATQM+6O99/
+         eWhQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWXLCDG+YlX4lrwMEyfO98Mwkp1gdxQILEDs1PfGhb5dU1c7y2lQVWKF1gNYI366RX343d99tcHsChbt5xL/VWT@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPV1bk9LRVELE8+sNuLqxxVON0khFXXVc2A593SAaH0PHQcrna
+	QYpwm9aRiIlgY+MCN1+HS7cOVW0VoAtcVXuAIo1FrnT+MzWPSsPrC2dyHIsMmLEoL8dEHD9G2fC
+	QVZZLOFgfoklET9pwxcUnb3E40S/ByU5U1rpg8JUDtQ2sRJsJV6QB6JlICtxb7nKUi80QsyAA
+X-Gm-Gg: ASbGncvQEbgJZlODz055G80A0NRqOonfpdqRsrafnyk5v0WPELIzztVTkaQDo8BbNj/
+	nhD7HsuJqA3AHGC/4DA+LzIi1A8CyWhfPtA2wAUzsQTA8NVZBRDHQLc59LYE+lCpm2wILBcZGtK
+	lSQKXLJe0nSIXoZP2/e6gxgCDefyWN5npkO3GUv6GRau9rcRKjnEUpGsAmwhpJ8ltOBh1ZuNa3R
+	dX6Zq3IZn5sJk9LfUSPsln9iSPBLgxBIzFf3yty7XRR/xGWM6Di1FtMNtnZvZqO+VSiQ15iruwh
+	RIzzIqJwsY6d
+X-Received: by 2002:a05:6a00:35c8:b0:736:bced:f4cf with SMTP id d2e1a72fcca58-7404927930fmr1396639b3a.0.1746068108748;
+        Wed, 30 Apr 2025 19:55:08 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFylzKnp6diohi3udmCDZ47tP/kvpo9wyUKWLV/9Fl+cS6PnVhqYmglGK+RzeWLQDfWNo9YJQ==
+X-Received: by 2002:a05:6a00:35c8:b0:736:bced:f4cf with SMTP id d2e1a72fcca58-7404927930fmr1396611b3a.0.1746068108438;
+        Wed, 30 Apr 2025 19:55:08 -0700 (PDT)
+Received: from [192.168.68.51] ([180.233.125.65])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74039a60016sm2536538b3a.133.2025.04.30.19.55.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 30 Apr 2025 19:55:07 -0700 (PDT)
+Message-ID: <770205d5-8c08-497d-b862-1be4852ae665@redhat.com>
+Date: Thu, 1 May 2025 12:54:59 +1000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aBLMi5XOQKJyJGu-@gondor.apana.org.au>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 22/43] KVM: arm64: Validate register access for a Realm
+ VM
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+References: <20250416134208.383984-1-steven.price@arm.com>
+ <20250416134208.383984-23-steven.price@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20250416134208.383984-23-steven.price@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 6LNCCD3xZ26-lfvA04fKwHEYSDZgTCJb_YMtQ7_QrsY_1746068109
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_192623_076320_E21EFC21 
-X-CRM114-Status: GOOD (  18.78  )
+X-CRM114-CacheID: sfid-20250430_195513_465133_DB95AF60 
+X-CRM114-Status: GOOD (  14.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,169 +122,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 01, 2025 at 09:21:15AM +0800, Herbert Xu wrote:
-> On Wed, Apr 30, 2025 at 10:45:43AM -0700, Eric Biggers wrote:
-> >
-> > As for your sha256_finup "optimization", it's an interesting idea, but
-> > unfortunately it slightly slows down the common case which is count % 64 < 56,
-> > due to the unnecessary copy to the stack and the following zeroization.  In the
-> > uncommon case where count % 64 >= 56 you do get to pass nblocks=2 to
-> > sha256_blocks_*(), but ultimately SHA-256 is serialized block-by-block anyway,
-> > so it ends up being only slightly faster in that case, which again is the
-> > uncommon case.  So while it's an interesting idea, it doesn't seem to actually
-> > be better.  And the fact that that patch is also being used to submit unrelated,
-> > more dubious changes isn't very helpful, of course.
+On 4/16/25 11:41 PM, Steven Price wrote:
+> The RMM only allows setting the GPRS (x0-x30) and PC for a realm
+> guest. Check this in kvm_arm_set_reg() so that the VMM can receive a
+> suitable error return if other registers are written to.
 > 
-> I'm more than willing to change sha256_finup if you can prove it
-> with real numbers that it is worse than the single-block version.
+> The RMM makes similar restrictions for reading of the guest's registers
+> (this is *confidential* compute after all), however we don't impose the
+> restriction here. This allows the VMM to read (stale) values from the
+> registers which might be useful to read back the initial values even if
+> the RMM doesn't provide the latest version. For migration of a realm VM,
+> a new interface will be needed so that the VMM can receive an
+> (encrypted) blob of the VM's state.
+> 
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> Changes since v5:
+>   * Upper GPRS can be set as part of a HOST_CALL return, so fix up the
+>     test to allow them.
+> ---
+>   arch/arm64/kvm/guest.c | 40 ++++++++++++++++++++++++++++++++++++++++
+>   1 file changed, 40 insertions(+)
+> 
 
-Interesting approach -- pushing out misguided optimizations without data, then
-demanding data for them to be reverted.  It's obviously worse for
-len % 64 < 56 for the reason I gave, so this is a waste of time IMO.  But since
-you're insisting on data anyway, here are some quick benchmarks on AMD Zen 5
-(not going to bother formatting into a table):
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 
-Before your finup "optimization":
-
- sha256(len=0): 145 cycles
- sha256(len=1): 146 cycles
- sha256(len=2): 146 cycles
- sha256(len=3): 146 cycles
- sha256(len=4): 146 cycles
- sha256(len=5): 146 cycles
- sha256(len=6): 146 cycles
- sha256(len=7): 146 cycles
- sha256(len=8): 151 cycles
- sha256(len=9): 148 cycles
- sha256(len=10): 148 cycles
- sha256(len=11): 148 cycles
- sha256(len=12): 148 cycles
- sha256(len=13): 148 cycles
- sha256(len=14): 148 cycles
- sha256(len=15): 149 cycles
- sha256(len=16): 149 cycles
- sha256(len=17): 148 cycles
- sha256(len=18): 148 cycles
- sha256(len=19): 148 cycles
- sha256(len=20): 148 cycles
- sha256(len=21): 148 cycles
- sha256(len=22): 148 cycles
- sha256(len=23): 148 cycles
- sha256(len=24): 148 cycles
- sha256(len=25): 148 cycles
- sha256(len=26): 148 cycles
- sha256(len=27): 148 cycles
- sha256(len=28): 148 cycles
- sha256(len=29): 148 cycles
- sha256(len=30): 148 cycles
- sha256(len=31): 148 cycles
- sha256(len=32): 151 cycles
- sha256(len=33): 148 cycles
- sha256(len=34): 148 cycles
- sha256(len=35): 148 cycles
- sha256(len=36): 148 cycles
- sha256(len=37): 148 cycles
- sha256(len=38): 148 cycles
- sha256(len=39): 148 cycles
- sha256(len=40): 148 cycles
- sha256(len=41): 148 cycles
- sha256(len=42): 148 cycles
- sha256(len=43): 148 cycles
- sha256(len=44): 148 cycles
- sha256(len=45): 148 cycles
- sha256(len=46): 150 cycles
- sha256(len=47): 149 cycles
- sha256(len=48): 147 cycles
- sha256(len=49): 147 cycles
- sha256(len=50): 147 cycles
- sha256(len=51): 147 cycles
- sha256(len=52): 147 cycles
- sha256(len=53): 147 cycles
- sha256(len=54): 147 cycles
- sha256(len=55): 148 cycles
- sha256(len=56): 278 cycles
- sha256(len=57): 278 cycles
- sha256(len=58): 278 cycles
- sha256(len=59): 278 cycles
- sha256(len=60): 277 cycles
- sha256(len=61): 277 cycles
- sha256(len=62): 277 cycles
- sha256(len=63): 276 cycles
- sha256(len=64): 276 cycles
-
-After your finup "optimization":
-
- sha256(len=0): 188 cycles
- sha256(len=1): 190 cycles
- sha256(len=2): 190 cycles
- sha256(len=3): 190 cycles
- sha256(len=4): 189 cycles
- sha256(len=5): 189 cycles
- sha256(len=6): 189 cycles
- sha256(len=7): 190 cycles
- sha256(len=8): 187 cycles
- sha256(len=9): 188 cycles
- sha256(len=10): 188 cycles
- sha256(len=11): 188 cycles
- sha256(len=12): 189 cycles
- sha256(len=13): 189 cycles
- sha256(len=14): 188 cycles
- sha256(len=15): 189 cycles
- sha256(len=16): 189 cycles
- sha256(len=17): 190 cycles
- sha256(len=18): 190 cycles
- sha256(len=19): 190 cycles
- sha256(len=20): 190 cycles
- sha256(len=21): 190 cycles
- sha256(len=22): 190 cycles
- sha256(len=23): 190 cycles
- sha256(len=24): 191 cycles
- sha256(len=25): 191 cycles
- sha256(len=26): 191 cycles
- sha256(len=27): 191 cycles
- sha256(len=28): 191 cycles
- sha256(len=29): 192 cycles
- sha256(len=30): 191 cycles
- sha256(len=31): 191 cycles
- sha256(len=32): 191 cycles
- sha256(len=33): 191 cycles
- sha256(len=34): 191 cycles
- sha256(len=35): 191 cycles
- sha256(len=36): 192 cycles
- sha256(len=37): 192 cycles
- sha256(len=38): 192 cycles
- sha256(len=39): 191 cycles
- sha256(len=40): 191 cycles
- sha256(len=41): 194 cycles
- sha256(len=42): 193 cycles
- sha256(len=43): 193 cycles
- sha256(len=44): 193 cycles
- sha256(len=45): 193 cycles
- sha256(len=46): 194 cycles
- sha256(len=47): 194 cycles
- sha256(len=48): 193 cycles
- sha256(len=49): 195 cycles
- sha256(len=50): 195 cycles
- sha256(len=51): 196 cycles
- sha256(len=52): 196 cycles
- sha256(len=53): 195 cycles
- sha256(len=54): 195 cycles
- sha256(len=55): 195 cycles
- sha256(len=56): 297 cycles
- sha256(len=57): 297 cycles
- sha256(len=58): 297 cycles
- sha256(len=59): 297 cycles
- sha256(len=60): 297 cycles
- sha256(len=61): 297 cycles
- sha256(len=62): 297 cycles
- sha256(len=63): 297 cycles
- sha256(len=64): 292 cycles
-
-So your "optimization" made it ~43 cycles slower for len % 64 < 56, or ~19
-cycles slower for len % 64 >= 56.
-
-As I said, it's from the overhead of unnecessarily copying the data onto the
-stack and then having to zeroize it at the end.
-
-- Eric
 
