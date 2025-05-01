@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C777C3ABA3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 16:43:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0639C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 16:45:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9P1m7Y3z4d9rNoWAl6MknfdebV+lwfWdrXlwW8WNKhI=; b=bh8eqvpSJzt2DRNM2uGt4or5uJ
-	MTqrA5nQGkGuSmgfVlKcgglMxps6NLiqK/M+wRLi0P7zRS0FcgT7a9uCZA2hJ1hiYWUei+C1OrfmZ
-	rTaOGQIl0+40bcIhafeduLsCKWsI2lohgG2qlP13iNwAKeH89VipyLBK6K5gbBCUBzP37ZqtocBI1
-	y2uYBT4UX40Qn8gfCRh5/kkyukW2QC46mhaXdOD3lqwuAfI5xW43vZzso36Cr8OXk+z2gTwfmF2dR
-	o079G6+0etTqIcq3BE0xFuBoZxQmPJQzw4vKKVljz2asBWje0BYef15VHnltc3qAnVu6WhBEM6feM
-	g7D/nu1A==;
+	bh=+72BTk3p7hLtQaCti3cuxoq+C9cJepOLj5FSJpxepws=; b=c5yuwC8WbOuZd0dvIm2Ph6rYR/
+	BwAQOw53GP4Xhwop19zUFcU5ri+awnhpcBefMXJubfKTlSstQgNZ8G9TdK3qx7Lx3EBUW0Xo9jfDK
+	fYUBhAvjdon+sJ7PbdpR/eTps73ckD8ax/4hBNl1wuzgGN/KUZj2qTvTwf3viSXXYs8k2hcffdOc0
+	V+/YexTsrDCAGznNCCUM0p7eN40oaO+6KlgZFYjaouLHi37CE0L2VzZUK2fLCa4DswsdPF3q8Y/2p
+	wfqI2xRMzCepJ7mRlGe9gqn9Vn/M92Dd1RDpVBLuATi/yyWyaBQG17wPjo6C/XWGfflkRE2znTRxz
+	wCVy5fog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAX08-0000000GCqu-2Ypm;
-	Thu, 01 May 2025 16:43:08 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1uAX20-0000000GD6A-154t;
+	Thu, 01 May 2025 16:45:04 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAWuX-0000000GBwc-0oav
+	id 1uAWuY-0000000GBxI-340c
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 16:37:22 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43ce4e47a85so1641435e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 May 2025 09:37:20 -0700 (PDT)
+	Thu, 01 May 2025 16:37:23 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43eeb4e09b5so1546825e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 May 2025 09:37:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1746117440; x=1746722240; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1746117441; x=1746722241; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=9P1m7Y3z4d9rNoWAl6MknfdebV+lwfWdrXlwW8WNKhI=;
-        b=sKsHOdSLZhO1tuE8bGYBqY/CuISIbcptpNcBkISbuh0mbkP9MVwpDyFeR8aHoNyzkr
-         NDDzT1mf1zsk1+Pnt5KieydnyrHTt093fm+IyiBoaZGe8eC3i2mic01NnAu1tiC6wwKK
-         HnbERMj91xrRR6dM2uDy78zEt+LIydFCyTOO0ctfOAkjFazkwZEfoAHKeiI3qC3CBjBt
-         ff4SAeo2gcysgda5osojY44DCPOXgAKEPIZykvI0PubHLPRfC4sc0+3o/ZuagRVPxEcd
-         Lnfo0ITb4+rI1FU+1urPFXgJ0on1YyaDeNbVnsMP3l7JXnK0uRzQ5OA9osGhxFMc4oyZ
-         IoTA==
+        bh=+72BTk3p7hLtQaCti3cuxoq+C9cJepOLj5FSJpxepws=;
+        b=VUPt7GWVZQnpLigTK59TDhxzh6pnvxh9hGxVuNFkKoEW3nXWdUkoz1P76eq7B54Vyx
+         itC61uJydcEmnyXqoWkBS9P8rsKpy/lClKzhPuJfjBueZGgZwYZv+x9nj2X1esBVi0da
+         dDNL6H2dGveYtKYP1pfAgaZRtfoX68S6N94Ppzgtet1ie9N6ewU+pZnXCtY16k4EKsTy
+         /IAz0GwUL2zUHgGydb/qXeQ0GAnp3jkulv+fv/WFf/3HSer61dd1C6OqwKpfkqrnMXOs
+         aMAgLI4Lk16aEfujAsoQhvYqhOKsmo1v+nGwJKsNf7RA4ZKRA8FB4wUTIEjQ+WVyf7yu
+         F64Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746117440; x=1746722240;
+        d=1e100.net; s=20230601; t=1746117441; x=1746722241;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=9P1m7Y3z4d9rNoWAl6MknfdebV+lwfWdrXlwW8WNKhI=;
-        b=QMtfTfjAtQmj4vqVrgWJPcJkx6QH95bbhVBP0hBhw1YNzWs4LcC9/W5VQaWwycNuNx
-         h3FIcm0zDRAIJHH1nV5I21kgS/DlSZtz9KyQMAcgSIWzYrI8p3YELZNRpdYSE7sUOZtf
-         /8PNBd+u7U9JpEfcbr7wyXmd9yLbgLmnEwHMvuGo3HbBFZq7jR8qkH3VJlVyMBjmjcRq
-         6KJPhJFZZ3BL5IH8DH9RpTdz6zVe+V3FCH2dDVcEAJGyFiQ6JMwkevbnMWXU4prfi0AM
-         emwKXcYB0/HAWP7ENJIcrGLxQ8W7nMZ9bAoY/oHmQ74Eqdsvmob2lHz5so6A4d/LpFcC
-         sNYg==
-X-Forwarded-Encrypted: i=1; AJvYcCVK5vO+MI7pwbdK2DdMMt+XZT06OFyACgiFHxo/oE9mV25x/DoSO0Y96kDMUzYZ/lySN0gnzZaGXmrihhHoetFy@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYzapDpUpTbpAfG46cJlitJaUePcZbw5SChFj5lsDzo3+FwpyJ
-	zD2ZuMwoC2rHRnBQqEYfSJMn0tZsZ1I59njpPHDe/TkhVZ+gBstuCSr2vTzi5pU=
-X-Gm-Gg: ASbGnctFEMr+83Qr+xkQ/0Ej/pMMo/4Yrla93zuEJGSrZe8YifF8E3lqpWaJxiA5AsU
-	g42GJopN5q8CCeSwAuqNgfjx6NejKaLx4aIikng0BgD8TMM6qw5VVlS/fAXzBPiXlrXgY55OH1Z
-	1Sa2AobicZho37aHh9P0D3Eh3RYOyBLds2NUwG2ZjXZhhcF+cBTmHE3LWVsm9SGSqe2mCB6wTkv
-	zQ0kEqoaq2blyA6KMIrQjtd6f0EzyKjbpvU0qTaiXB/1XdC3PV6xXd6qR+n5/X4WMD7GB4LstMq
-	mYPB0gbZRhn6iCGSLfS02Q0//4sz+Du7a1zjY2VQ6zYKg3svGaHlmX9buOg=
-X-Google-Smtp-Source: AGHT+IGPpDqg1uqE8LFEWwLX435f56VDxCANn/R7sh63I65f2yRV/LXQryCMvr0tRZXQRAMZb4Q3cA==
-X-Received: by 2002:a05:600c:1da0:b0:43d:fa5e:50e6 with SMTP id 5b1f17b1804b1-441b2dfce81mr23814815e9.9.1746117439733;
-        Thu, 01 May 2025 09:37:19 -0700 (PDT)
+        bh=+72BTk3p7hLtQaCti3cuxoq+C9cJepOLj5FSJpxepws=;
+        b=xCMez1qxX0VGRWxXWmDGixZFekntPygYf+FWaF/+E9a19U+sbg9TR/hh6wLl7e3jAT
+         oY84PdbT9aluRgGwZKi4IcDG04lR3rv3xsGdQWi5ctCqn+MY1Fz2IcNTGGWLqJ23lRqt
+         0bAzST4sDX37o2+mdbuykQ174dReeDDOtb4bjm4BLYBN5pxMKfwpJOvodLrDv44cZAcJ
+         BG6RcfiRVAtS6seig5YjpqyrSmHL/Ne2jXIlY5MFfvjacscpLt6kEM43FKm69a7gmeTc
+         EghdaVfbAt3Aq835oUPvKpZnSa4JC75fQgW1CggUpW2FAkLVBGbmB7EyhQWqQ0gulT/Z
+         hHPw==
+X-Forwarded-Encrypted: i=1; AJvYcCWLuYl3FEuL504F77+VxtEOKbjy5g3Vsi4mbSjKso4YjTNhDosyRYhM28DT0CrsUq/dC8DZDLuRplBC3BOvQZjf@lists.infradead.org
+X-Gm-Message-State: AOJu0YwOAVdk/hQ+fXk+NS5+QvUy6Jkq5CX6mofTqb249EcETZsT6OjG
+	UCmZZ/1SR8NYrgcaIMfdZXKGQtZzqR+o033lvTJZAURyQ5jkbCXPYT0Wv4UXPYY=
+X-Gm-Gg: ASbGnctSICamL62XsHhpUKBiacm606wYFxx03go0QTcwGO4TSUd874V2X33OR6IjrM9
+	LgqcvddIUWCTQ99PmBIRMufgKZGVWuiPbBUMVdR783aYH8gSeSPi7nOlLDeZNjwmaVwRRTXO1ml
+	qnW4Uxf0E6SKh58Cybi89svqXrslLwKvBTrOOptmM5JanWD1ZhueSWlZTZqC00eRljLIeq5JDzo
+	RSdaQ5bDrEOiJo6Gvea8WsHKbSUVdfIRZ/IRAdzGphTbg6mF6KAcLnE1GtJnhOtTvK5PwjsB4+/
+	exKTt9bLFL0c+DtlZrMplNDMaJXQ0EkeV/Wp7U5A6BFF4FLLqUL4GdPEbALqy4cnRlvANg==
+X-Google-Smtp-Source: AGHT+IFZ4wq/YC5Z8Q1DORspcfBal0TXZZSb4qQ5i2LX5qoWo7ODXYSBY0H6naDeevzu7XX1zCwGJA==
+X-Received: by 2002:a05:600c:8712:b0:43b:c962:ad29 with SMTP id 5b1f17b1804b1-441b2c6fe2cmr22011025e9.1.1746117441032;
+        Thu, 01 May 2025 09:37:21 -0700 (PDT)
 Received: from [192.168.1.28] ([178.197.207.88])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-441b8a288f0sm17166175e9.27.2025.05.01.09.37.18
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-441b8a288f0sm17166175e9.27.2025.05.01.09.37.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 May 2025 09:37:19 -0700 (PDT)
+        Thu, 01 May 2025 09:37:20 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Date: Thu, 01 May 2025 18:36:56 +0200
-Subject: [PATCH RESEND v2 2/3] iommu: omap: Use
- syscon_regmap_lookup_by_phandle_args
+Date: Thu, 01 May 2025 18:36:57 +0200
+Subject: [PATCH RESEND v2 3/3] iommu: mtk_iommu_v1: Simplify by dropping
+ local 'mtk_mapping' variable
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250501-syscon-phandle-args-iommu-v2-2-5a3cab296972@linaro.org>
+Message-Id: <20250501-syscon-phandle-args-iommu-v2-3-5a3cab296972@linaro.org>
 References: <20250501-syscon-phandle-args-iommu-v2-0-5a3cab296972@linaro.org>
 In-Reply-To: <20250501-syscon-phandle-args-iommu-v2-0-5a3cab296972@linaro.org>
 To: Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
@@ -86,26 +86,26 @@ Cc: iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
  linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1817;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1469;
  i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=wSaZtA4bRYZs1G8waYvshbkAD9TzfZ9GbMZQt0pldJQ=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoE6M3dTz73g1hTqWpvm/RlUFFBhL88fh777FAU
- nRWt/u50OyJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaBOjNwAKCRDBN2bmhouD
- 14/1D/9qJJTAa6KNC4lnTB/UEBpK84vmumCpWTc11C3ByO2evXS29s7m1n4ZeLfrGzcrMmdIgev
- SlymAyZt1pL0HRWKb2lPzosqnhTpPMroFJltOQ9ZFiF89RGR+52847bWlrO2T3QhduCvBENWNcy
- gJucPsQ8IV8FsulSEYNSyk7wZwOD/zeCQrJg48ra6dJp5RBwKVfeVxMUKVb5BQ2U02MJZXCzvRO
- LJCgJhHs0cGBC8XRiTjCH0pc3PDZTlbUt7WyCDORjp1UzLrN7p3y2+rACVlW3Fr7gmGIDq/tRv7
- h6De2LgeQeZ/Jk4wRgQauPk+kOxC70aMXic7LzQ9zoe+FxBirV+x7veEsey+NsrDVCcUbNJQzlr
- w0FaKE6Tht0oesmD+iI4sETbNNt55JdQ8i0l3MkG0PAmKwSnFWT3sfCl7+ZBowY0j8b84fZQF/f
- P2fhWwsYBcxldooG/RmK9pSJYh0zCpTf7gRLFpoGELfB2PTRsXnjbqJFKDI2GfKxaRcNl4vPFcW
- 6T60C0sLDvFfESa810o+xYVTroMqojApfAcU661dCx5WcdE/EO2UtOnX1HVCENEXYpM6GxArbJS
- r1ta56HmrhLEoAqeIamYOzHSQIRL05dpIQPQJWm2Nlc3B4sySF5cuV6D30iUdELbH/fX2yQedfG
- 3ZTINBZ555xaPXw==
+ bh=br7GZJo/Y+jEEdWoRzjynfLSYE2qWMF71yGrpCFWlfM=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoE6M4CJameWdIEbaKrhQD0ut81+1BXWRWUnwFO
+ 97Wgb7lxumJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaBOjOAAKCRDBN2bmhouD
+ 14SOD/45uy0MY8VGk4ZvKE/H0R7CNE2ft3oLP9XOQRzm6XJHx2Z9QXmTT/RSuKn7rZ+bMTOw+Ir
+ GPQ0iGcxYbbvzawOd5YGQVIPk0Zb1+shoVoyBFJqmuoRll36W3jRmfIN3GL0YaUjZhpnA1jcZAy
+ TTuqnfYHXInALgDOecbSNWc79Uy8+ClQ3E4L+KOy4pdGjft7nSX7JXTtTXy37QxGkhpekH0JM5e
+ Ny0iwkeJTtgXi7Exa1K2spOHRlROyoBC4SbhIwSnR1ht7QkzuV/dDELMLU+rjhbANXDRvhLD3Vu
+ jzqfOzDuiChfqmVO8WAS80b7a7MORPmXVhl/foe3JeyXchF2/AdA0IG31LiCwkryPkD2k75l3rn
+ CEazjbiTy4jsN8ZLcGWs8/1s6FpePznAdTmg4Xwg85K+Un2AibmOI8+XJXVQYQflmXwe2cvAcxq
+ dYBhTZwXoJ+HdUEjmJpq+DC1veARGn0blUPddRTXMqveUNQP6ieZY53tCYDKJH3dsXH3cU+rmSn
+ 2touTUB0YumibIzZdFmfF4BKTwSMHWDE0A4ZrLuaeQ2PdEdjI39x0BCE2NLbYI+Ra1JtWEZ7mgq
+ vVTfWQER71C4Hc8d4JZLENH1I4xL8uQFlnxuZ0maHo0+4z4H03ObcnJNhOE7y1NWCKkOEVpBT7F
+ DmneETwpwZMjFiw==
 X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_093721_237626_65144527 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20250501_093722_765348_6083CF18 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,47 +120,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use syscon_regmap_lookup_by_phandle_args() which is a wrapper over
-syscon_regmap_lookup_by_phandle() combined with getting the syscon
-argument.  Except simpler code this annotates within one line that given
-phandle has arguments, so grepping for code would be easier.
+Storing 'data->mapping' in local variable in
+mtk_iommu_v1_probe_finalize() does not make the code easier to read.
+Use the 'data->mapping' directly.
 
-There is also no real benefit in printing errors on missing syscon
-argument, because this is done just too late: runtime check on
-static/build-time data.  Dtschema and Devicetree bindings offer the
-static/build-time check for this already.
+ARM64 W=1 builds also complain with:
 
-Reviewed-by: Robin Murphy <robin.murphy@arm.com>
+  mtk_iommu_v1.c:512:28: error: variable 'mtk_mapping' set but not used [-Werror,-Wunused-but-set-variable]
+
+but this is not being fixed here and 'data' still won't be used in such
+compile test.
+
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- drivers/iommu/omap-iommu.c | 10 ++--------
- 1 file changed, 2 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/iommu/omap-iommu.c b/drivers/iommu/omap-iommu.c
-index 4448c0a512137c79195112eea25d762266c77bc3..30fdbabbc9c652990e6cd31d3c0a1a06633df9e6 100644
---- a/drivers/iommu/omap-iommu.c
-+++ b/drivers/iommu/omap-iommu.c
-@@ -1127,18 +1127,12 @@ static int omap_iommu_dra7_get_dsp_system_cfg(struct platform_device *pdev,
- 	if (!of_device_is_compatible(np, "ti,dra7-dsp-iommu"))
- 		return 0;
+---
+
+Old warning is change now to:
+
+  error: variable 'data' set but not used [-Werror,-Wunused-but-set-variable]
+---
+ drivers/iommu/mtk_iommu_v1.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/drivers/iommu/mtk_iommu_v1.c b/drivers/iommu/mtk_iommu_v1.c
+index 66824982e05fbfdda224276ad41b90f9d5f9ca4e..bbe3e9d901c69ac6405d9549a4481fc80f1adb80 100644
+--- a/drivers/iommu/mtk_iommu_v1.c
++++ b/drivers/iommu/mtk_iommu_v1.c
+@@ -509,14 +509,12 @@ static struct iommu_device *mtk_iommu_v1_probe_device(struct device *dev)
  
--	obj->syscfg =
--		syscon_regmap_lookup_by_phandle(np, "ti,syscon-mmuconfig");
-+	obj->syscfg = syscon_regmap_lookup_by_phandle_args(np, "ti,syscon-mmuconfig",
-+							   1, &obj->id);
- 	if (IS_ERR(obj->syscfg))
- 		return dev_err_probe(&pdev->dev, PTR_ERR(obj->syscfg),
- 				     "ti,syscon-mmuconfig property is missing\n");
+ static void mtk_iommu_v1_probe_finalize(struct device *dev)
+ {
+-	struct dma_iommu_mapping *mtk_mapping;
+ 	struct mtk_iommu_v1_data *data;
+ 	int err;
  
--	if (of_property_read_u32_index(np, "ti,syscon-mmuconfig", 1,
--				       &obj->id)) {
--		dev_err(&pdev->dev, "couldn't get the IOMMU instance id within subsystem\n");
--		return -EINVAL;
--	}
--
- 	if (obj->id != 0 && obj->id != 1) {
- 		dev_err(&pdev->dev, "invalid IOMMU instance id\n");
- 		return -EINVAL;
+ 	data        = dev_iommu_priv_get(dev);
+-	mtk_mapping = data->mapping;
+ 
+-	err = arm_iommu_attach_device(dev, mtk_mapping);
++	err = arm_iommu_attach_device(dev, data->mapping);
+ 	if (err)
+ 		dev_err(dev, "Can't create IOMMU mapping - DMA-OPS will not work\n");
+ }
 
 -- 
 2.45.2
