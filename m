@@ -4,84 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D75BC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 14:35:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBC49C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 14:56:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4AcYJoaRiJXKv/q56HbsecVWENUgjraD3rzJ2HoxMmA=; b=V7JxBtiqJC8+U5G3u979IJdb+R
-	E/IbH6aCAmUTSLQcdocKgT9D5weW/2OxpbbhDi6usKPMEXPvxgi/N1VjEa5WPAZitH82zBAghy3ih
-	3o03175CN7cXPTvKSIX3M3epag5z/tGosHfDw0c9UbzqvfznNg9WnioG6k2J2MwLA3V9AP9mt/MdN
-	dvcFMUHzTQMpkzW1PrpaV0uvq62x3RkE5u/O89AX4jGzgFCNT8I9w/kVJbxg9mIcpcGnkhRb/EI8t
-	fRAOfzX15Sanel73WZMzYUBmmIJN2ztBh9gJM3dH6ejGBigE7cwWLs/wa1fL6zwRBam4aCjK9F7ZL
-	nOg2bWHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dS38MFXL5sWJafNWq6WBYpwV1s5XsZo3zdcDEvu97LA=; b=PSuu81m2rm0wG6Rv2csE+h5Zdf
+	ZmbRSLP7yfWCE+voHOV2wdpfDKyKyMoBsPQ+ePGiJO0eVg1I8VK6QEuye8vuaZaHs/fZLjeRVCg51
+	oH8f/ss9IU1Y6TRNuoVzi0t3ff/a+T/8TuF6ubl3XdkoQdhL3VbjAn3ei05vr63xFhgGWLep8/uUQ
+	EcJlAX8/VDcp6F53GZZSwDEWnHEjAuXruGJDC45xWedvA+i3T+w2yGG3Rb14Xi8pdtT7fHck/QeGV
+	CXjm6lh3bMdO455nj/SDuDhOpra0gr+JpTGpmcJ6p/kAjpQNBaASTzpGbviHCP05x5/IvhEkbQJtp
+	2NVMlUGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAV00-0000000Fz1v-0T9f;
-	Thu, 01 May 2025 14:34:52 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uAVKR-0000000G0na-0VGl;
+	Thu, 01 May 2025 14:55:59 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAUy5-0000000Fyjd-3XiA
+	id 1uAVIX-0000000G0ei-0oYe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 14:32:55 +0000
+	Thu, 01 May 2025 14:54:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 33BBF5C4B30;
-	Thu,  1 May 2025 14:30:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC572C4CEE3;
-	Thu,  1 May 2025 14:32:52 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5EF1D4A3BA;
+	Thu,  1 May 2025 14:53:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B347CC4CEE3;
+	Thu,  1 May 2025 14:53:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746109973;
-	bh=ChU0LnGye3/sKTfBYj0v3uZsJYxV4lwJzxdMPJHVNdw=;
+	s=k20201202; t=1746111239;
+	bh=xXdZzehmKpZnbsgOKXp7I1LKRUhGMB11Fu7G/0fw8sM=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=tzdD4tdWov6bTcHQjRH/3i/YplItQFfWojku1jIYAZEPAeyKWG/GlIwYUo0D3OmEn
-	 omyuAVWcjzTzM8/a3GEeToqhJkb2pUPjnOohvN5NHlrV+CWtW2EsfQzySMbqfH/E2M
-	 Ft0wYaR2a7NxL3Kw9kz6fYk8ArNGAuMMgEYJ6BKelaKjM8jGOYrqyoSH8EN+B/loLb
-	 vzLdYLMhlgPYuWkMAKbraZLtYbWhtiphlnphtBOCTdzas37rkhi2ZqB7/l1mfKh6sI
-	 qBS7FkmuwjN66QAbvL1s74uaz/tuOnKqbZ++h9f2klvBBncgNG7GrGWquGsGxfj5Vu
-	 q+0lsmAfC5/Qw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uAUy3-00AbJY-00;
-	Thu, 01 May 2025 15:32:51 +0100
-Date: Thu, 01 May 2025 15:32:49 +0100
-Message-ID: <86seloh04u.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 15/22] arm64: Disable GICv5 read/write/instruction traps
-In-Reply-To: <20250424-gicv5-host-v2-15-545edcaf012b@kernel.org>
-References: <20250424-gicv5-host-v2-0-545edcaf012b@kernel.org>
-	<20250424-gicv5-host-v2-15-545edcaf012b@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+	b=l6vwC7LJ/nVPMGGyFou6rLrkgDYrlUMFVtJy+41fHkxY+TBVNKs8bP5CzLPcCrofQ
+	 aSMfrxinRbO9SBF3NsyEyBWxPEMIp34femxxDtb43yYLSIa1fIK8U+AtdNAV6LXYSu
+	 HZlm9FWtOA8nXVd0i/nivLRH9hpDNky2RYh1JBl0gNqtTrYLINk92Z9TFpacI/Ah06
+	 5at7Z1ZvxaQbdETxwlK7IR7OIvq1Pvr/mdXrQkZut+Zj1yleBO60VU6p4hL7KY4lru
+	 rrqxxJiOmmHkmmkLnqCwmsdot5TWQWxbtD28lRwGGQZSpu15FWkzk01GGwStneRnr/
+	 HgaYaQuCvBvAA==
+Date: Thu, 1 May 2025 07:53:57 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Meghana Malladi <m-malladi@ti.com>
+Cc: <dan.carpenter@linaro.org>, <john.fastabend@gmail.com>,
+ <hawk@kernel.org>, <daniel@iogearbox.net>, <ast@kernel.org>,
+ <pabeni@redhat.com>, <edumazet@google.com>, <davem@davemloft.net>,
+ <andrew+netdev@lunn.ch>, <bpf@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>, Vignesh Raghavendra
+ <vigneshr@ti.com>, Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
+Subject: Re: [PATCH net 2/4] net: ti: icssg-prueth: Report BQL before
+ sending XDP packets
+Message-ID: <20250501075357.37f2dc4f@kernel.org>
+In-Reply-To: <20250428120459.244525-3-m-malladi@ti.com>
+References: <20250428120459.244525-1-m-malladi@ti.com>
+	<20250428120459.244525-3-m-malladi@ti.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, tglx@linutronix.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, sascha.bischoff@arm.com, timothy.hayes@arm.com, Liam.Howlett@oracle.com, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_073253_974877_01F1112E 
-X-CRM114-Status: GOOD (  19.49  )
+X-CRM114-CacheID: sfid-20250501_075401_261844_35E37AA6 
+X-CRM114-Status: GOOD (  10.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,70 +78,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 24 Apr 2025 11:25:26 +0100,
-Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
-> 
-> GICv5 trap configuration registers value is UNKNOWN at reset.
-> 
-> Initialize GICv5 EL2 trap configuration registers to prevent
-> trapping GICv5 instruction/register access upon entering the
-> kernel.
-> 
-> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Marc Zyngier <maz@kernel.org>
-> ---
->  arch/arm64/include/asm/el2_setup.h | 45 ++++++++++++++++++++++++++++++++++++++
->  1 file changed, 45 insertions(+)
-> 
-> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
-> index ebceaae3c749b84395c9c5eccf0caf874697ad11..1e362bb3b042d51fff15a7c2abc73842930b275a 100644
-> --- a/arch/arm64/include/asm/el2_setup.h
-> +++ b/arch/arm64/include/asm/el2_setup.h
-> @@ -165,6 +165,50 @@
->  .Lskip_gicv3_\@:
->  .endm
->  
-> +/* GICv5 system register access */
-> +.macro __init_el2_gicv5
-> +	mrs_s	x0, SYS_ID_AA64PFR2_EL1
-> +	ubfx	x0, x0, #ID_AA64PFR2_EL1_GCIE_SHIFT, #4
-> +	cbz	x0, .Lskip_gicv5_\@
-> +
-> +	mov	x0, #(1 << ICH_HFGITR_EL2_GICRCDNMIA_SHIFT	| \
-> +		      1 << ICH_HFGITR_EL2_GICRCDIA_SHIFT	| \
-> +		      1 << ICH_HFGITR_EL2_GICCDDI_SHIFT		| \
-> +		      1 << ICH_HFGITR_EL2_GICCDEOI_SHIFT	| \
-> +		      1 << ICH_HFGITR_EL2_GICCDHM_SHIFT		| \
-> +		      1 << ICH_HFGITR_EL2_GICCRDRCFG_SHIFT	| \
-> +		      1 << ICH_HFGITR_EL2_GICCDPEND_SHIFT	| \
-> +		      1 << ICH_HFGITR_EL2_GICCDAFF_SHIFT	| \
-> +		      1 << ICH_HFGITR_EL2_GICCDPRI_SHIFT	| \
-> +		      1 << ICH_HFGITR_EL2_GICCDDIS_SHIFT	| \
-> +		      1 << ICH_HFGITR_EL2_GICCDEN_SHIFT)
+On Mon, 28 Apr 2025 17:34:57 +0530 Meghana Malladi wrote:
+> When sending out any kind of traffic, it is essential that the driver
+> keeps reporting BQL of the number of bytes that have been sent so that
+> BQL can track the amount of data in the queue and prevents it from
+> overflowing. If BQL is not reported, the driver may continue sending
+> packets even when the queue is full, leading to packet loss, congestion
+> and decreased network performance. Currently this is missing in
+> emac_xmit_xdp_frame() and this patch fixes it.
 
-Please write this as:
+The ordering of patches in the series is a bit off.
+The order should be something like:
 
-	mov	x0, #(ICH_HFGITR_EL2_GICRCDNMIA	| \
-		      ICH_HFGITR_EL2_GICRCDIA	| \
-		      ICH_HFGITR_EL2_GICCDDI	| \
-		      ICH_HFGITR_EL2_GICCDEOI	| \
-		      ICH_HFGITR_EL2_GICCDHM	| \
-		      ICH_HFGITR_EL2_GICCRDRCFG	| \
-		      ICH_HFGITR_EL2_GICCDPEND	| \
-		      ICH_HFGITR_EL2_GICCDAFF	| \
-		      ICH_HFGITR_EL2_GICCDPRI	| \
-		      ICH_HFGITR_EL2_GICCDDIS	| \
-		      ICH_HFGITR_EL2_GICCDEN)
+  net: ti: icssg-prueth: Set XDP feature flags for ndev
+  net: ti: icssg-prueth: Fix kernel panic during concurrent Tx queue ...
+  net: ti: icssg-prueth: Fix race condition for traffic from different ...
+  net: ti: icssg-prueth: Report BQL before sending XDP packets
 
-which has the exact same effect, and is consistent with other uses in
-this file.
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+This patch is not correct without the extra locking in place.
 
