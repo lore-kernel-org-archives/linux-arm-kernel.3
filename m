@@ -4,64 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32454C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 10:44:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 669C5C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 10:46:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4cznTst+qMqAAsGv1y6jRbf7QjInPMGR/6V/AHkDLBc=; b=Uy9iA9am/156F6+dSKFOt6UO/p
-	vZSaccciV3Oi8uOvuMSHP52QUuz+q7sXMuJFQc0lBMyTjr82T9xpY2p0tPckqy2LYM7ACWzBYSAmE
-	pmsqN26O0gyIq0BoR/vktbjNmD37oQOjZGf61xi7fZyY0O/G5AtBkOxKPJ83CilioNPIBxLO0dO6s
-	A0BYO49OcqK/wi61p5maye1jyqKLAwjwVvxjYSk+4qk4dRvTCHnY/5xf3K3cTq8BEzmdg15YQ+dAI
-	i8GwYSGh0ryWnVudpfgkmnoucXpCnylkrxElkXHph6MeF2rRMSe3/UpKVlRyuwZLRvKaumlbERzFD
-	nR8P8lXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1tcIfZzSJ1m5xz9QqkgSOroaOrMXykRHCHc+lrq5Sus=; b=JQEvCvo7/eXEW/hi5r7+1ITivH
+	T8cIUU8VfeYkmGlVD+2Cy48AZ5rx5P9+OlbhyunpODxDdSQjrwVOynAzp5gnxikCpjM/YrVtLvZrJ
+	bNuuEMyJ5YrxlnBKvjAnQcB5iC8LE020Inh+cMLvYGF3zd6QNeFJ+hPPGPFX3Ydx2zcCSkSX/rbGe
+	Ma7Q7174YhQdDGwSMWwWNhm3py4Sw1lrY6tE6jolA9mLWgPRjI77M0d8FmjI/At9cKpH+35GKUwwV
+	vAnWe6YIcyuhIblinxJur2m9lwL3Z/t4e39RN/eCUp0p9t6d3+wjbAAQA03T8hXuOHSEYX5H90Yvm
+	MbRHtB/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAROw-0000000FDYh-1wiw;
-	Thu, 01 May 2025 10:44:22 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uARN1-0000000FDKX-2nYi;
-	Thu, 01 May 2025 10:42:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=4cznTst+qMqAAsGv1y6jRbf7QjInPMGR/6V/AHkDLBc=; b=wQf5hrLKogjFIn7iu54HIj9gVV
-	B8l6U698R3Z1PpmjNHnCOs7AHTHCUQU29vUSVT1KOK/4SLCNUvM8yFwuo+MRLwmVbNNZG/TkjB5MT
-	G8isND8Nw+40ArVtlNxt6e4DJYLxTTagx36EsSSIKtBbCG7aQH42uqyI115Y2my0QErlEeq38/Pyp
-	c8s5d8VYOLpN65Ohk64s17csO+DoGYaG5dm/EX4jKA7109NbUb9i5OqgbIfF+eJh9+FxqIyfSVDfv
-	1Md7ZCJc1guNuhA4XrirQWWs20UzOmpFMOhM+aUiGsLHSrTx13UR/BNtNnzNiR1X7DGkLj04kJ0/D
-	8mGK8paw==;
-Received: from i53875bbc.versanet.de ([83.135.91.188] helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uARMx-0007pM-5S; Thu, 01 May 2025 12:42:19 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org
-Subject: Re: [PATCH v2] dt-bindings: phy: rockchip: Convert RK3399 Type-C PHY to
- schema
-Date: Thu, 01 May 2025 12:42:17 +0200
-Message-ID: <3149284.mvXUDI8C0e@phil>
-In-Reply-To: <20250416202419.3836688-1-robh@kernel.org>
-References: <20250416202419.3836688-1-robh@kernel.org>
+	id 1uARQq-0000000FDgt-2IsV;
+	Thu, 01 May 2025 10:46:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uARN2-0000000FDKc-0opY
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 01 May 2025 10:42:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AA08B106F;
+	Thu,  1 May 2025 03:42:15 -0700 (PDT)
+Received: from e132581.cambridge.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E776B3F673;
+	Thu,  1 May 2025 03:42:21 -0700 (PDT)
+From: Leo Yan <leo.yan@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Leo Yan <leo.yan@arm.com>
+Subject: [PATCH] coresight: etm4x: Remove redundant claim register setting
+Date: Thu,  1 May 2025 11:42:16 +0100
+Message-Id: <20250501104216.2375126-1-leo.yan@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_034223_721945_F8521F3E 
-X-CRM114-Status: UNSURE (   8.03  )
+X-CRM114-CacheID: sfid-20250501_034224_273414_8B7840B8 
+X-CRM114-Status: UNSURE (   7.13  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,19 +66,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 16. April 2025, 22:24:17 Mitteleurop=C3=A4ische Sommerzeit sch=
-rieb Rob Herring (Arm):
-> Convert the Rockchip RK3399 Type-C PHY to DT schema format. Add the
-> missing "power-domains" property and "port" and "orientation-switch"
-> properties in the child nodes.
->=20
-> Omit the previously deprecated properties as they aren't used anywhere.
->=20
-> Drop the 2nd example which was pretty much identical to the 1st example.
->=20
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+The claim register is set twice in the restore flow; remove the
+duplicate operation.
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+---
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 2 --
+ 1 file changed, 2 deletions(-)
 
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+index 5c20ed4cf4ed..228317991ec2 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+@@ -1958,8 +1958,6 @@ static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
+ 	if (drvdata->numvmidc > 4)
+ 		etm4x_relaxed_write32(csa, state->trcvmidcctlr0, TRCVMIDCCTLR1);
+ 
+-	etm4x_relaxed_write32(csa, state->trcclaimset, TRCCLAIMSET);
+-
+ 	if (!drvdata->skip_power_up)
+ 		etm4x_relaxed_write32(csa, state->trcpdcr, TRCPDCR);
+ 
+-- 
+2.34.1
 
 
