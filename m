@@ -4,109 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1149BC369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 00:19:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04F15C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 00:31:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EZb7eMkJRyx/Lus2IgqKmamTgxXPWBKqlzSs8f4bCVI=; b=mIA2zcp4lE4P2cJKVFndgiwTdx
-	o2kSf2Y9JmWFDtHDJvOaa8UumS70XcNZliCFGu/yjLTBzZ4pek0Z2pd3eGj2OVmHlv1H0QklA3RC/
-	Ei6C64qTnxsBI8ErXvlDhE3Wff8FdqUdfWHk3hiq3cNcGSJBgus5pLLwzyeKDQ+NT8oWb/YaG/K5R
-	Do3/uG6l2WlY+nUrJztb+eevqCDns2mNhDfnK3nM2dsKdxK00WispaoNh7fCq/3VSuUT1f4eWZ0Jf
-	dZoAU1J1hKbgKlcFnxPogNyPVOYyb3NzRaoLnEEwtf9KRlReZjCXrO7BAeEcCBus834/0VodvNwXw
-	KdBdA2nQ==;
+	bh=TJc8wk6lPBjo6+59jxWMf4cN5u4iBq/8BElKSyx4bLg=; b=wgYMkg7CEU5RFtWz0T142cSAR4
+	dfCv+lzVguz2TlHtxRCq0eU6NXX7o1DjhBNgPZvfNn3yuLAf2SMX3eK67+rMQIVRbZVLdHXvgsxuz
+	iTBODY0/8YtY9UL7x4LAtalaHzZfA9KPRSFj3Z7v/x3rtjyuQzefJ4AOvd3G9hW1T0Tnq1+EZ4a8u
+	NVUIwMJhGvASgjNzAt/ZzleQGVJq8CPA2qqJpP00dWqsJ3ZHjishUkFOZ2ysIs+ZzLF7KvBDQ4PKj
+	qrK82KWBDCIGUufKJUhj7yS7BPrO4E98e6oYi/viCkQk5oH4M10xOiBZmguUuk7iqaL5rG9hTd0Ua
+	aEHmazAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAHdj-0000000EIb4-16km;
-	Thu, 01 May 2025 00:18:59 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uAHpT-0000000EJT0-17Ck;
+	Thu, 01 May 2025 00:31:07 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAHbn-0000000EITH-1SL1
+	id 1uAHnW-0000000EJFz-2vGD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 00:17:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1746058615;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=EZb7eMkJRyx/Lus2IgqKmamTgxXPWBKqlzSs8f4bCVI=;
-	b=XqaJKy3DRaF9pwN2f7oOzERmzPP0ljyQbb9n7ReMZJDmBExhSs/qKB83liINtTIliNaKg/
-	2HLa8zg5NZ/9R3qGi9wldfehGLRu8xC2NQ4o9lLAV0BnS1uYjVptJzE2sz8EVoiEFrne2s
-	peOaUB7wsrTSRlY8K0cjGvPKVkRMMTc=
-Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com
- [209.85.216.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-151-3Ts2B419P_OR_wd3ySNL2g-1; Wed, 30 Apr 2025 20:16:51 -0400
-X-MC-Unique: 3Ts2B419P_OR_wd3ySNL2g-1
-X-Mimecast-MFC-AGG-ID: 3Ts2B419P_OR_wd3ySNL2g_1746058608
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-3085f5855c4so418463a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 17:16:49 -0700 (PDT)
+	Thu, 01 May 2025 00:29:07 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-39c13fa05ebso256358f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 17:29:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1746059344; x=1746664144; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=TJc8wk6lPBjo6+59jxWMf4cN5u4iBq/8BElKSyx4bLg=;
+        b=h97M5AOc9REj3fyY5h1HkAeQ0VZnL7Iez9AAh4bft14l5GnJEIjlTAqspDo6K29phC
+         Ip7rfmi1T/2REtUC2a+DeLFthSYSz7JHkM8p47kUPJJZbLOTCrW6jbSFrNJzBOb/dvVt
+         JdfPxRQTIMtlg8BjO1LjOdY7WehkJVycnfTnafnZAw/immKY0BO8E3GoU+mPL/BFnuEu
+         S6M/zUT0XrZlbHrowSudqTcLI7qPth/tvT5eszOa2SVlmPKBMFuXw4xwnNfoHHPtQ9Rx
+         WCJ+xM8Kl8bllrHTo2qkpC2+NM0+FEunzrE8GKnZduVpdtpi8Ya9gJyNePDJJEeiElM7
+         Ql4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746058608; x=1746663408;
+        d=1e100.net; s=20230601; t=1746059344; x=1746664144;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=EZb7eMkJRyx/Lus2IgqKmamTgxXPWBKqlzSs8f4bCVI=;
-        b=dVzcgrUrJDPhtcj85vOz+8GBK1jMh5gy2MQYKYxqki7sxFNcZmtJVvJK2HtHxr+AZ9
-         l9b85GNyRdtnsVZs4wSgcEnX4IwahRXKltyw0QR4s+4QhOq5DIi92BhtwxJ03bV6ZkXI
-         3Ok77kEhCfmmB40Cvda36OeyuBrWJLx++NLwp4/JCWhWcBwY0lUNCP85zbdq74MyYRJL
-         2yJoqEfgqGDlV2swLZLmkTr22XTPtN5EgiGSlWt8MToyuSmdLWygYAZe7Nj4m7uF7g/t
-         DGwvQJH3P5pVjkSurQzO2CUAYMIHt9QNBE4MfaiPe5kJ3ta33pIL3hg3qBUxsErDY0X3
-         biyg==
-X-Forwarded-Encrypted: i=1; AJvYcCVvIuTLgRG4xKxYY1KwCukLMKCtITkHZEPqWEZqjbv8My6u8l84prflXTZXoI56XXef/cnFswI2BKjblqFOlo/2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7Hb7gcKaK6IjZJMwsd+yxMkrn84qq3jtEou5UbOmseEr0Quk/
-	fecn22LXwUjanYZ/Xhc+LZtpbvr0KhInZYjCeR1wD0RcEN6sgmFOfi1tWzJcYGBP3HqT/BrUX4f
-	zcohb/tNua7Uaj883uDrqDNf+rIq2urvflqI6KmNlDATs/b4WUeid9On8Jfj5Shsp7gFH8Nvl
-X-Gm-Gg: ASbGncv835fcHnzAnnrxPGTyOGDcGwd9xC3xKU6cqp7y1JDGHyEt1KW1DeF4iA4wl1Z
-	Wge07wa+sHv8/oqmERhCadDf1Q1WJCSuYoWDgNpbvKCBFhU90sI8IOp6DxJFrITZsHu28haPSXi
-	NtF92J7f0TZy2XoCqx9jvVxVRw7amL7h94lrmci8Y4tr/CMPoWjBd6/H3nLXq0vUtmqy8Ktl3Fc
-	Z3FyhRHsYJXoZ8KBmPiaAA8N1bJ4ZzKxzHqhK8Cl14scVBtpgAhHFsuYHHbow7O8vo+uxXv2Lxx
-	956aws4SNrxS
-X-Received: by 2002:a17:90b:544e:b0:2ff:5a9d:937f with SMTP id 98e67ed59e1d1-30a3335f521mr8269807a91.24.1746058607776;
-        Wed, 30 Apr 2025 17:16:47 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IH0+5LsVstlB0oWs/emtPEk9ieFB3kYXVq8522/16fp81LD4gGp0OBkwBulVxLtIQwxremaeQ==
-X-Received: by 2002:a17:90b:544e:b0:2ff:5a9d:937f with SMTP id 98e67ed59e1d1-30a3335f521mr8269777a91.24.1746058607287;
-        Wed, 30 Apr 2025 17:16:47 -0700 (PDT)
-Received: from [192.168.68.51] ([180.233.125.65])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-30a349ffe38sm2311087a91.12.2025.04.30.17.16.39
+        bh=TJc8wk6lPBjo6+59jxWMf4cN5u4iBq/8BElKSyx4bLg=;
+        b=EJj89ypqelV+llq1mUwQ2UFPkKiuYa6iUrTlfoqz4zq6fsLtjiM8ZWqN1TMuvHnXGX
+         prkxC1AvO1KbUDkkmgs5/+B2W59I1t2uE7pqgaM79xtxgB35A+AmQ4pDNPvlPrZxk3sC
+         Q2DSyJkwf5kXCIOwpXApITLz6tlLJoNVokMcTxhTbjZ0jGtvWF0a7pITcKJT8g6kzpwW
+         SPsvGYLP8hyyRnfNoahfTtJvpkSCee99xCgAhePMwXfzzXXgKZ043uZJzVTCUWJel3U2
+         U4uEQgjEVF5dTyVhuoZ/RSuQtUyEyny+1fzEM3N+PZyc3X7H1TFJPRUtQPwAgg7B+pL+
+         yQGQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUz/QfYRikR9PXwOMaB0LZ424jpkro/05ONmKTraechW5KEvdmDTEiUDS1u9NMv1xpVXM0ppqAOuyYyqykDIG7i@lists.infradead.org
+X-Gm-Message-State: AOJu0YzvR/6VUaOOvr1NcX9W6vSFxPBi7PSs5AtdW2Ewe+g0zFJRMMVI
+	n3mTNvWUROjeuHIog/hL78nNT0cwJlgiGMKKIQtdOoK101ySbkKNYfOC9MCSYg8=
+X-Gm-Gg: ASbGnctt5ImoWKdn2eocyIgc/cteCk1EkgUk0LYk8AkwoCALd253jk5Ac/ywa8/9pN6
+	DMsMBs3FBlvxwFnZYpq/zP+volXKhkBDBelLLxoFv+TXoQLK8fbpshV3Jq99cPJLz3TeB5FEoUj
+	jxswIak0cp2idfa8T4LE/vAGSwW9VrkDq+4QextnPJFR6IIsjToftblm9U++RbWyI+/XOrU4XKN
+	i/adqFE+hAp8k98xdYV2D/Izr4QnI9GmP4L5frfrglPBf0mQIS/jXtxVRgoMagJQX8rMi6DqaRH
+	oFW7nWMrnTkBsHOpN9mhGEKam7GwwL8IFHCDXQ/eDHg3UrH5mVJ1SjtfmJOtmyg1V8YbVJjtIA+
+	PTZK3uA==
+X-Google-Smtp-Source: AGHT+IGV43v6PKgClHNEbAnUR2nlwUDcjulifsVVSmzj4Snr2B+H5Nspob8WNOa4kEfXw260mnQAPg==
+X-Received: by 2002:a5d:64c5:0:b0:3a0:6f92:ef7c with SMTP id ffacd0b85a97d-3a08ff3815fmr3736455f8f.17.1746059344380;
+        Wed, 30 Apr 2025 17:29:04 -0700 (PDT)
+Received: from [192.168.0.35] (188-141-3-146.dynamic.upc.ie. [188.141.3.146])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a073e5da4dsm18545947f8f.99.2025.04.30.17.29.01
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 30 Apr 2025 17:16:46 -0700 (PDT)
-Message-ID: <c99b408c-3819-482a-a427-68045211e434@redhat.com>
-Date: Thu, 1 May 2025 10:16:36 +1000
+        Wed, 30 Apr 2025 17:29:03 -0700 (PDT)
+Message-ID: <89fa57bb-aeb7-4f1a-be13-157cf4539177@linaro.org>
+Date: Thu, 1 May 2025 01:29:00 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 20/43] arm64: RME: Runtime faulting of memory
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-References: <20250416134208.383984-1-steven.price@arm.com>
- <20250416134208.383984-21-steven.price@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20250416134208.383984-21-steven.price@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 5LPPOkQ3Qf7rJw1-2_sDZcRxK6DlVm502ZoQ6f_vaxk_1746058608
-X-Mimecast-Originator: redhat.com
+Subject: Re: [PATCH v6 07/13] media: rockchip: rkcif: add driver for mipi
+ csi-2 receiver
+To: michael.riesch@collabora.com, Mehdi Djait <mehdi.djait@linux.intel.com>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>,
+ Gerald Loacker <gerald.loacker@wolfvision.net>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
+ <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Kever Yang <kever.yang@rock-chips.com>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Collabora Kernel Team <kernel@collabora.com>,
+ Paul Kocialkowski <paulk@sys-base.io>,
+ Alexander Shiyan <eagle.alexander923@gmail.com>,
+ Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org,
+ Michael Riesch <michael.riesch@wolfvision.net>
+References: <20240220-rk3568-vicap-v6-0-d2f5fbee1551@collabora.com>
+ <G0LzzY6RKLbnObS22BxdwSsbQSjDJxRo7EnHWjPj4FU9_DWrSbFKO17oDvudhPomzVNKnyjtixiXblCUlBGhKA==@protonmail.internalid>
+ <20240220-rk3568-vicap-v6-7-d2f5fbee1551@collabora.com>
 Content-Language: en-US
+From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+In-Reply-To: <20240220-rk3568-vicap-v6-7-d2f5fbee1551@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_171659_562888_7EC8AAEB 
-X-CRM114-Status: GOOD (  43.17  )
+X-CRM114-CacheID: sfid-20250430_172906_767556_7F8392C9 
+X-CRM114-Status: GOOD (  30.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,549 +122,785 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/16/25 11:41 PM, Steven Price wrote:
-> At runtime if the realm guest accesses memory which hasn't yet been
-> mapped then KVM needs to either populate the region or fault the guest.
+On 30/04/2025 10:15, Michael Riesch via B4 Relay wrote:
+> From: Michael Riesch <michael.riesch@wolfvision.net>
 > 
-> For memory in the lower (protected) region of IPA a fresh page is
-> provided to the RMM which will zero the contents. For memory in the
-> upper (shared) region of IPA, the memory from the memslot is mapped
-> into the realm VM non secure.
+> The Rockchip RK3568 MIPI CSI-2 Receiver is a CSI-2 bridge with one
+> input port and one output port. It receives the data with the help
+> of an external MIPI PHY (C-PHY or D-PHY) and passes it to the
+> Rockchip RK3568 Video Capture (VICAP) block.
 > 
-> Signed-off-by: Steven Price <steven.price@arm.com>
+> Add a V4L2 subdevice driver for this unit.
+> 
+> Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
+> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
 > ---
-> Changes since v7:
->   * Remove redundant WARN_ONs for realm_create_rtt_levels() - it will
->     internally WARN when necessary.
-> Changes since v6:
->   * Handle PAGE_SIZE being larger than RMM granule size.
->   * Some minor renaming following review comments.
-> Changes since v5:
->   * Reduce use of struct page in preparation for supporting the RMM
->     having a different page size to the host.
->   * Handle a race when delegating a page where another CPU has faulted on
->     a the same page (and already delegated the physical page) but not yet
->     mapped it. In this case simply return to the guest to either use the
->     mapping from the other CPU (or refault if the race is lost).
->   * The changes to populate_par_region() are moved into the previous
->     patch where they belong.
-> Changes since v4:
->   * Code cleanup following review feedback.
->   * Drop the PTE_SHARED bit when creating unprotected page table entries.
->     This is now set by the RMM and the host has no control of it and the
->     spec requires the bit to be set to zero.
-> Changes since v2:
->   * Avoid leaking memory if failing to map it in the realm.
->   * Correctly mask RTT based on LPA2 flag (see rtt_get_phys()).
->   * Adapt to changes in previous patches.
-> ---
->   arch/arm64/include/asm/kvm_emulate.h |  10 ++
->   arch/arm64/include/asm/kvm_rme.h     |  10 ++
->   arch/arm64/kvm/mmu.c                 | 127 ++++++++++++++++++-
->   arch/arm64/kvm/rme.c                 | 180 +++++++++++++++++++++++++++
->   4 files changed, 321 insertions(+), 6 deletions(-)
+>   drivers/media/platform/rockchip/rkcif/Makefile     |   3 +
+>   .../rockchip/rkcif/rkcif-mipi-csi-receiver.c       | 731 +++++++++++++++++++++
+>   2 files changed, 734 insertions(+)
 > 
-> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-> index c803c8188d9c..def439d6d732 100644
-> --- a/arch/arm64/include/asm/kvm_emulate.h
-> +++ b/arch/arm64/include/asm/kvm_emulate.h
-> @@ -704,6 +704,16 @@ static inline bool kvm_realm_is_created(struct kvm *kvm)
->   	return kvm_is_realm(kvm) && kvm_realm_state(kvm) != REALM_STATE_NONE;
->   }
->   
-> +static inline gpa_t kvm_gpa_from_fault(struct kvm *kvm, phys_addr_t ipa)
-> +{
-> +	if (kvm_is_realm(kvm)) {
-> +		struct realm *realm = &kvm->arch.realm;
+> diff --git a/drivers/media/platform/rockchip/rkcif/Makefile b/drivers/media/platform/rockchip/rkcif/Makefile
+> index 818424972c7b..a5c18a45c213 100644
+> --- a/drivers/media/platform/rockchip/rkcif/Makefile
+> +++ b/drivers/media/platform/rockchip/rkcif/Makefile
+> @@ -5,3 +5,6 @@ rockchip-cif-objs += rkcif-dev.o \
+>   	rkcif-capture-mipi.o \
+>   	rkcif-interface.o \
+>   	rkcif-stream.o
 > +
-> +		return ipa & ~BIT(realm->ia_bits - 1);
-> +	}
-> +	return ipa;
+> +obj-$(CONFIG_VIDEO_ROCKCHIP_CIF) += rockchip-mipi-csi.o
+> +rockchip-mipi-csi-objs += rkcif-mipi-csi-receiver.o
+> diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-mipi-csi-receiver.c b/drivers/media/platform/rockchip/rkcif/rkcif-mipi-csi-receiver.c
+> new file mode 100644
+> index 000000000000..81489f70490f
+> --- /dev/null
+> +++ b/drivers/media/platform/rockchip/rkcif/rkcif-mipi-csi-receiver.c
+> @@ -0,0 +1,731 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Rockchip MIPI CSI-2 Receiver Driver
+> + *
+> + * Copyright (C) 2019 Rockchip Electronics Co., Ltd.
+> + * Copyright (C) 2025 Michael Riesch <michael.riesch@wolfvision.net>
+> + */
+> +
+> +#include <linux/clk.h>
+> +#include <linux/delay.h>
+> +#include <linux/io.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/of_graph.h>
+> +#include <linux/of_platform.h>
+> +#include <linux/phy/phy.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/pm_runtime.h>
+> +#include <linux/reset.h>
+> +
+> +#include <media/mipi-csi2.h>
+> +#include <media/v4l2-ctrls.h>
+> +#include <media/v4l2-fwnode.h>
+> +#include <media/v4l2-subdev.h>
+> +
+> +#define CSI2HOST_N_LANES     0x04
+> +#define CSI2HOST_CSI2_RESETN 0x10
+> +#define CSI2HOST_PHY_STATE   0x14
+> +#define CSI2HOST_ERR1	     0x20
+> +#define CSI2HOST_ERR2	     0x24
+> +#define CSI2HOST_MSK1	     0x28
+> +#define CSI2HOST_MSK2	     0x2c
+> +#define CSI2HOST_CONTROL     0x40
+> +
+> +#define SW_CPHY_EN(x)	     ((x) << 0)
+> +#define SW_DSI_EN(x)	     ((x) << 4)
+> +#define SW_DATATYPE_FS(x)    ((x) << 8)
+> +#define SW_DATATYPE_FE(x)    ((x) << 14)
+> +#define SW_DATATYPE_LS(x)    ((x) << 20)
+> +#define SW_DATATYPE_LE(x)    ((x) << 26)
+> +
+> +#define RKCIF_CSI_CLKS_MAX   1
+> +
+> +enum {
+> +	RKCIF_CSI_PAD_SINK,
+> +	RKCIF_CSI_PAD_SRC,
+> +	RKCIF_CSI_PAD_MAX,
+> +};
+> +
+> +struct rkcif_csi_format {
+> +	u32 code;
+> +	u8 depth;
+> +	u8 csi_dt;
+> +};
+> +
+> +struct rkcif_csi_device {
+> +	struct device *dev;
+> +
+> +	void __iomem *base_addr;
+> +	struct clk_bulk_data *clks;
+> +	unsigned int clks_num;
+> +	struct phy *phy;
+> +	struct reset_control *reset;
+> +
+> +	const struct rkcif_csi_format *formats;
+> +	unsigned int formats_num;
+> +
+> +	struct media_pad pads[RKCIF_CSI_PAD_MAX];
+> +	struct v4l2_async_notifier notifier;
+> +	struct v4l2_fwnode_endpoint vep;
+> +	struct v4l2_subdev sd;
+> +
+> +	struct v4l2_subdev *source_sd;
+> +	u32 source_pad;
+> +};
+> +
+> +static const struct v4l2_mbus_framefmt default_format = {
+> +	.width = 3840,
+> +	.height = 2160,
+> +	.code = MEDIA_BUS_FMT_SRGGB10_1X10,
+> +	.field = V4L2_FIELD_NONE,
+> +	.colorspace = V4L2_COLORSPACE_RAW,
+> +	.ycbcr_enc = V4L2_YCBCR_ENC_601,
+> +	.quantization = V4L2_QUANTIZATION_FULL_RANGE,
+> +	.xfer_func = V4L2_XFER_FUNC_NONE,
+> +};
+> +
+> +static const struct rkcif_csi_format formats[] = {
+> +	/* YUV formats */
+> +	{
+> +		.code = MEDIA_BUS_FMT_YUYV8_1X16,
+> +		.depth = 16,
+> +		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_UYVY8_1X16,
+> +		.depth = 16,
+> +		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_YVYU8_1X16,
+> +		.depth = 16,
+> +		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_VYUY8_1X16,
+> +		.depth = 16,
+> +		.csi_dt = MIPI_CSI2_DT_YUV422_8B,
+> +	},
+> +	/* RGB formats */
+> +	{
+> +		.code = MEDIA_BUS_FMT_RGB888_1X24,
+> +		.depth = 24,
+> +		.csi_dt = MIPI_CSI2_DT_RGB888,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_BGR888_1X24,
+> +		.depth = 24,
+> +		.csi_dt = MIPI_CSI2_DT_RGB888,
+> +	},
+> +	/* Bayer formats */
+> +	{
+> +		.code = MEDIA_BUS_FMT_SBGGR8_1X8,
+> +		.depth = 8,
+> +		.csi_dt = MIPI_CSI2_DT_RAW8,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SGBRG8_1X8,
+> +		.depth = 8,
+> +		.csi_dt = MIPI_CSI2_DT_RAW8,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SGRBG8_1X8,
+> +		.depth = 8,
+> +		.csi_dt = MIPI_CSI2_DT_RAW8,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SRGGB8_1X8,
+> +		.depth = 8,
+> +		.csi_dt = MIPI_CSI2_DT_RAW8,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SBGGR10_1X10,
+> +		.depth = 10,
+> +		.csi_dt = MIPI_CSI2_DT_RAW10,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SGBRG10_1X10,
+> +		.depth = 10,
+> +		.csi_dt = MIPI_CSI2_DT_RAW10,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SGRBG10_1X10,
+> +		.depth = 10,
+> +		.csi_dt = MIPI_CSI2_DT_RAW10,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SRGGB10_1X10,
+> +		.depth = 10,
+> +		.csi_dt = MIPI_CSI2_DT_RAW10,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SBGGR12_1X12,
+> +		.depth = 12,
+> +		.csi_dt = MIPI_CSI2_DT_RAW12,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SGBRG12_1X12,
+> +		.depth = 12,
+> +		.csi_dt = MIPI_CSI2_DT_RAW12,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SGRBG12_1X12,
+> +		.depth = 12,
+> +		.csi_dt = MIPI_CSI2_DT_RAW12,
+> +	},
+> +	{
+> +		.code = MEDIA_BUS_FMT_SRGGB12_1X12,
+> +		.depth = 12,
+> +		.csi_dt = MIPI_CSI2_DT_RAW12,
+> +	},
+> +};
+> +
+> +static inline struct rkcif_csi_device *to_rkcif_csi(struct v4l2_subdev *sd)
+> +{
+> +	return container_of(sd, struct rkcif_csi_device, sd);
 > +}
 > +
->   static inline bool vcpu_is_rec(struct kvm_vcpu *vcpu)
->   {
->   	if (static_branch_unlikely(&kvm_rme_is_available))
-> diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/asm/kvm_rme.h
-> index d86051ef0c5c..47aa6362c6c9 100644
-> --- a/arch/arm64/include/asm/kvm_rme.h
-> +++ b/arch/arm64/include/asm/kvm_rme.h
-> @@ -108,6 +108,16 @@ void kvm_realm_unmap_range(struct kvm *kvm,
->   			   unsigned long ipa,
->   			   unsigned long size,
->   			   bool unmap_private);
-> +int realm_map_protected(struct realm *realm,
-> +			unsigned long base_ipa,
-> +			kvm_pfn_t pfn,
-> +			unsigned long size,
-> +			struct kvm_mmu_memory_cache *memcache);
-> +int realm_map_non_secure(struct realm *realm,
-> +			 unsigned long ipa,
-> +			 kvm_pfn_t pfn,
-> +			 unsigned long size,
-> +			 struct kvm_mmu_memory_cache *memcache);
->   
->   static inline bool kvm_realm_is_private_address(struct realm *realm,
->   						unsigned long addr)
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 71c04259e39f..02b66ee35426 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -338,8 +338,13 @@ static void __unmap_stage2_range(struct kvm_s2_mmu *mmu, phys_addr_t start, u64
->   
->   	lockdep_assert_held_write(&kvm->mmu_lock);
->   	WARN_ON(size & ~PAGE_MASK);
-> -	WARN_ON(stage2_apply_range(mmu, start, end, KVM_PGT_FN(kvm_pgtable_stage2_unmap),
-> -				   may_block));
-> +
-> +	if (kvm_is_realm(kvm))
-> +		kvm_realm_unmap_range(kvm, start, size, !only_shared);
-> +	else
-> +		WARN_ON(stage2_apply_range(mmu, start, end,
-> +					   KVM_PGT_FN(kvm_pgtable_stage2_unmap),
-> +					   may_block));
->   }
->   
-
-As spotted previsouly, the parameter @may_block isn't handled by kvm_realm_unmap_range().
-
->   void kvm_stage2_unmap_range(struct kvm_s2_mmu *mmu, phys_addr_t start,
-> @@ -359,7 +364,10 @@ static void stage2_flush_memslot(struct kvm *kvm,
->   	phys_addr_t addr = memslot->base_gfn << PAGE_SHIFT;
->   	phys_addr_t end = addr + PAGE_SIZE * memslot->npages;
->   
-> -	kvm_stage2_flush_range(&kvm->arch.mmu, addr, end);
-> +	if (kvm_is_realm(kvm))
-> +		kvm_realm_unmap_range(kvm, addr, end - addr, false);
-> +	else
-> +		kvm_stage2_flush_range(&kvm->arch.mmu, addr, end);
->   }
->   
->   /**
-> @@ -1053,6 +1061,10 @@ void stage2_unmap_vm(struct kvm *kvm)
->   	struct kvm_memory_slot *memslot;
->   	int idx, bkt;
->   
-> +	/* For realms this is handled by the RMM so nothing to do here */
-> +	if (kvm_is_realm(kvm))
-> +		return;
-> +
->   	idx = srcu_read_lock(&kvm->srcu);
->   	mmap_read_lock(current->mm);
->   	write_lock(&kvm->mmu_lock);
-> @@ -1078,6 +1090,7 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
->   	if (kvm_is_realm(kvm) &&
->   	    (kvm_realm_state(kvm) != REALM_STATE_DEAD &&
->   	     kvm_realm_state(kvm) != REALM_STATE_NONE)) {
-> +		kvm_stage2_unmap_range(mmu, 0, (~0ULL) & PAGE_MASK, false);
->   		write_unlock(&kvm->mmu_lock);
->   		kvm_realm_destroy_rtts(kvm, pgt->ia_bits);
-
-(~0ULL & PAGE_MASK) wouldn't be a problem since the range will be limited to
-[0, BIT(realm->ia_bits) - 1] in kvm_realm_unmap_range(). I think it's reasonable
-to pass the maximal size here, something like:
-
-		kvm_stage2_unmap_range(mmu, 0, BIT(realm->ia_bits - 1), false);
-
->   
-> @@ -1482,6 +1495,82 @@ static bool kvm_vma_mte_allowed(struct vm_area_struct *vma)
->   	return vma->vm_flags & VM_MTE_ALLOWED;
->   }
->   
-> +static int realm_map_ipa(struct kvm *kvm, phys_addr_t ipa,
-> +			 kvm_pfn_t pfn, unsigned long map_size,
-> +			 enum kvm_pgtable_prot prot,
-> +			 struct kvm_mmu_memory_cache *memcache)
+> +static inline __maybe_unused void
+> +rkcif_csi_write(struct rkcif_csi_device *csi_dev, unsigned int addr, u32 val)
 > +{
-> +	struct realm *realm = &kvm->arch.realm;
-> +
-> +	if (WARN_ON(!(prot & KVM_PGTABLE_PROT_W)))
-> +		return -EFAULT;
-
-A comment to explain why KVM_PGTABLE_PROT_W is required would be nice, something like:
-
-	/*
-	 * Write permission is required for now even though it's possible to
-	 * map unprotected pages (granules) as read-only. It's impossible to
-	 * map protected pages (granules) as read-only.
-	 */
-
-> +
-> +	ipa = ALIGN_DOWN(ipa, PAGE_SIZE);
-> +
-> +	if (!kvm_realm_is_private_address(realm, ipa))
-> +		return realm_map_non_secure(realm, ipa, pfn, map_size,
-> +					    memcache);
-> +
-> +	return realm_map_protected(realm, ipa, pfn, map_size, memcache);
+> +	writel(val, csi_dev->base_addr + addr);
 > +}
 > +
-> +static int private_memslot_fault(struct kvm_vcpu *vcpu,
-> +				 phys_addr_t fault_ipa,
-> +				 struct kvm_memory_slot *memslot)
+> +static inline __maybe_unused u32
+> +rkcif_csi_read(struct rkcif_csi_device *csi_dev, unsigned int addr)
 > +{
-> +	struct kvm *kvm = vcpu->kvm;
-> +	gpa_t gpa = kvm_gpa_from_fault(kvm, fault_ipa);
-> +	gfn_t gfn = gpa >> PAGE_SHIFT;
-> +	bool is_priv_gfn = kvm_mem_is_private(kvm, gfn);
-> +	struct kvm_mmu_memory_cache *memcache = &vcpu->arch.mmu_page_cache;
-> +	struct page *page;
-> +	kvm_pfn_t pfn;
-> +	int ret;
-> +	/*
-> +	 * For Realms, the shared address is an alias of the private GPA with
-> +	 * the top bit set. Thus is the fault address matches the GPA then it
-> +	 * is the private alias.
-> +	 */
-> +	bool is_priv_fault = (gpa == fault_ipa);
+> +	return readl(csi_dev->base_addr + addr);
+> +}
 > +
-> +	if (is_priv_gfn != is_priv_fault) {
-> +		kvm_prepare_memory_fault_exit(vcpu,
-> +					      gpa,
-> +					      PAGE_SIZE,
-> +					      kvm_is_write_fault(vcpu),
-> +					      false, is_priv_fault);
-
-nit:
-
-		kvm_prepare_memory_fault_exit(vcpu, gpa, PAGE_SIZE,
-				kvm_is_write_fault(vcpu), false, is_priv_fault);
-
+> +static const struct rkcif_csi_format *
+> +rkcif_csi_find_format(struct rkcif_csi_device *csi_dev, u32 mbus_code)
+> +{
+> +	const struct rkcif_csi_format *format;
 > +
-> +		/*
-> +		 * KVM_EXIT_MEMORY_FAULT requires an return code of -EFAULT,
-> +		 * see the API documentation
-> +		 */
-> +		return -EFAULT;
+> +	WARN_ON(csi_dev->formats_num == 0);
+> +
+> +	for (int i = 0; i < csi_dev->formats_num; i++) {
+> +		format = &csi_dev->formats[i];
+> +		if (format->code == mbus_code)
+> +			return format;
 > +	}
 > +
-> +	if (!is_priv_fault) {
-> +		/* Not a private mapping, handling normally */
+> +	return NULL;
+> +}
+> +
+> +static int rkcif_csi_start(struct rkcif_csi_device *csi_dev)
+> +{
+> +	enum v4l2_mbus_type bus_type = csi_dev->vep.bus_type;
+> +	union phy_configure_opts opts;
+> +	s64 link_freq;
+> +	u32 lanes = csi_dev->vep.bus.mipi_csi2.num_data_lanes;
+> +	u32 control = 0;
+> +
+> +	if (lanes < 1 || lanes > 4)
+> +		return -EINVAL;
+> +
+> +	/* set mult and div to 0, thus completely rely on V4L2_CID_LINK_FREQ */
+> +	link_freq = v4l2_get_link_freq(csi_dev->source_sd->ctrl_handler, 0, 0);
+> +	if (link_freq <= 0)
+> +		return -EINVAL;
+> +
+> +	if (bus_type == V4L2_MBUS_CSI2_DPHY) {
+> +		struct phy_configure_opts_mipi_dphy *cfg = &opts.mipi_dphy;
+> +
+> +		phy_mipi_dphy_get_default_config_for_hsclk(link_freq * 2, lanes,
+> +							   cfg);
+> +		phy_set_mode(csi_dev->phy, PHY_MODE_MIPI_DPHY);
+> +		phy_configure(csi_dev->phy, &opts);
+> +
+> +		control |= SW_CPHY_EN(0);
+> +
+> +	} else if (bus_type == V4L2_MBUS_CSI2_CPHY) {
+> +		control |= SW_CPHY_EN(1);
+
+return -ENOTSUPP;
+
+> +		/* TODO: implement CPHY configuration */
+> +	} else {
 > +		return -EINVAL;
 > +	}
 > +
-> +	ret = kvm_mmu_topup_memory_cache(memcache,
-> +					 kvm_mmu_cache_min_pages(vcpu->arch.hw_mmu));
+> +	control |= SW_DATATYPE_FS(0x00) | SW_DATATYPE_FE(0x01) |
+> +		   SW_DATATYPE_LS(0x02) | SW_DATATYPE_LE(0x03);
+> +
+> +	rkcif_csi_write(csi_dev, CSI2HOST_N_LANES, lanes - 1);
+> +	rkcif_csi_write(csi_dev, CSI2HOST_CONTROL, control);
+> +	rkcif_csi_write(csi_dev, CSI2HOST_CSI2_RESETN, 1);
+> +
+> +	phy_power_on(csi_dev->phy);
+
+this can fail
+
+ret = phy_power_on();
+if (ret)
+	return ret;
+
+> +
+> +	return 0;
+> +}
+> +
+> +static void rkcif_csi_stop(struct rkcif_csi_device *csi_dev)
+> +{
+> +	phy_power_off(csi_dev->phy);
+> +
+> +	rkcif_csi_write(csi_dev, CSI2HOST_CSI2_RESETN, 0);
+> +	rkcif_csi_write(csi_dev, CSI2HOST_MSK1, ~0);
+> +	rkcif_csi_write(csi_dev, CSI2HOST_MSK2, ~0);
+> +}
+> +
+> +static const struct media_entity_operations rkcif_csi_media_ops = {
+> +	.link_validate = v4l2_subdev_link_validate,
+> +};
+> +
+> +static int rkcif_csi_enum_mbus_code(struct v4l2_subdev *sd,
+> +				    struct v4l2_subdev_state *sd_state,
+> +				    struct v4l2_subdev_mbus_code_enum *code)
+> +{
+> +	struct rkcif_csi_device *csi_dev = to_rkcif_csi(sd);
+> +
+> +	if (code->pad == RKCIF_CSI_PAD_SRC) {
+> +		const struct v4l2_mbus_framefmt *sink_fmt;
+> +
+> +		if (code->index)
+> +			return -EINVAL;
+> +
+> +		sink_fmt = v4l2_subdev_state_get_format(sd_state,
+> +							RKCIF_CSI_PAD_SINK);
+> +		code->code = sink_fmt->code;
+> +
+> +		return 0;
+> +	} else if (code->pad == RKCIF_CSI_PAD_SINK) {
+> +		if (code->index > csi_dev->formats_num)
+> +			return -EINVAL;
+> +
+> +		code->code = csi_dev->formats[code->index].code;
+> +		return 0;
+> +	}
+> +
+> +	return -EINVAL;
+> +}
+> +
+> +static int rkcif_csi_set_fmt(struct v4l2_subdev *sd,
+> +			     struct v4l2_subdev_state *state,
+> +			     struct v4l2_subdev_format *format)
+> +{
+> +	struct rkcif_csi_device *csi_dev = to_rkcif_csi(sd);
+> +	const struct rkcif_csi_format *fmt;
+> +	struct v4l2_mbus_framefmt *sink, *src;
+> +
+> +	/* the format on the source pad always matches the sink pad */
+> +	if (format->pad == RKCIF_CSI_PAD_SRC)
+> +		return v4l2_subdev_get_fmt(sd, state, format);
+> +
+> +	sink = v4l2_subdev_state_get_format(state, format->pad, format->stream);
+> +	if (!sink)
+> +		return -EINVAL;
+> +
+> +	fmt = rkcif_csi_find_format(csi_dev, format->format.code);
+> +	if (fmt)
+> +		*sink = format->format;
+> +	else
+> +		*sink = default_format;
+> +
+> +	/* propagate the format to the source pad */
+> +	src = v4l2_subdev_state_get_opposite_stream_format(state, format->pad,
+> +							   format->stream);
+> +	if (!src)
+> +		return -EINVAL;
+> +
+> +	*src = *sink;
+> +
+> +	return 0;
+> +}
+> +
+> +static int rkcif_csi_set_routing(struct v4l2_subdev *sd,
+> +				 struct v4l2_subdev_state *state,
+> +				 enum v4l2_subdev_format_whence which,
+> +				 struct v4l2_subdev_krouting *routing)
+> +{
+> +	int ret;
+> +
+> +	ret = v4l2_subdev_routing_validate(sd, routing,
+> +					   V4L2_SUBDEV_ROUTING_ONLY_1_TO_1);
 > +	if (ret)
 > +		return ret;
 > +
-> +	ret = kvm_gmem_get_pfn(kvm, memslot, gfn, &pfn, &page, NULL);
+> +	ret = v4l2_subdev_set_routing_with_fmt(sd, state, routing,
+> +					       &default_format);
 > +	if (ret)
 > +		return ret;
 > +
-> +	/* FIXME: Should be able to use bigger than PAGE_SIZE mappings */
-> +	ret = realm_map_ipa(kvm, fault_ipa, pfn, PAGE_SIZE, KVM_PGTABLE_PROT_W,
-> +			    memcache);
-> +	if (!ret)
-> +		return 1; /* Handled */
+> +	return 0;
+> +}
 > +
-> +	put_page(page);
+> +static int rkcif_csi_enable_streams(struct v4l2_subdev *sd,
+> +				    struct v4l2_subdev_state *state, u32 pad,
+> +				    u64 streams_mask)
+> +{
+> +	struct rkcif_csi_device *csi_dev = to_rkcif_csi(sd);
+> +	struct v4l2_subdev *remote_sd;
+> +	struct media_pad *sink_pad, *remote_pad;
+> +	struct device *dev = csi_dev->dev;
+> +	u64 mask;
+> +	int ret;
+> +
+> +	sink_pad = &sd->entity.pads[RKCIF_CSI_PAD_SINK];
+> +	remote_pad = media_pad_remote_pad_first(sink_pad);
+> +	remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
+> +
+> +	mask = v4l2_subdev_state_xlate_streams(state, RKCIF_CSI_PAD_SINK,
+> +					       RKCIF_CSI_PAD_SRC,
+> +					       &streams_mask);
+> +
+> +	ret = pm_runtime_resume_and_get(dev);
+> +	if (ret)
+> +		goto err;
+> +
+> +	ret = rkcif_csi_start(csi_dev);
+> +	if (ret) {
+> +		dev_err(dev, "failed to enable CSI hardware\n");
+> +		goto err_pm_runtime_put;
+> +	}
+> +
+> +	ret = v4l2_subdev_enable_streams(remote_sd, remote_pad->index, mask);
+> +	if (ret)
+> +		goto err_csi_stop;
+> +
+> +	return 0;
+> +
+> +err_csi_stop:
+> +	rkcif_csi_stop(csi_dev);
+> +err_pm_runtime_put:
+> +	pm_runtime_put_sync(dev);
+> +err:
 > +	return ret;
 > +}
 > +
->   static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->   			  struct kvm_s2_trans *nested,
->   			  struct kvm_memory_slot *memslot, unsigned long hva,
-> @@ -1509,6 +1598,14 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->   	if (fault_is_perm)
->   		fault_granule = kvm_vcpu_trap_get_perm_fault_granule(vcpu);
->   	write_fault = kvm_is_write_fault(vcpu);
-> +
-> +	/*
-> +	 * Realms cannot map protected pages read-only
-> +	 * FIXME: It should be possible to map unprotected pages read-only
-> +	 */
-> +	if (vcpu_is_rec(vcpu))
-> +		write_fault = true;
-> +
->   	exec_fault = kvm_vcpu_trap_is_exec_fault(vcpu);
->   	VM_BUG_ON(write_fault && exec_fault);
->   
-> @@ -1623,7 +1720,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->   		ipa &= ~(vma_pagesize - 1);
->   	}
->   
-> -	gfn = ipa >> PAGE_SHIFT;
-> +	gfn = kvm_gpa_from_fault(kvm, ipa) >> PAGE_SHIFT;
->   	mte_allowed = kvm_vma_mte_allowed(vma);
->   
->   	vfio_allow_any_uc = vma->vm_flags & VM_ALLOW_ANY_UNCACHED;
-> @@ -1756,6 +1853,9 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->   		 */
->   		prot &= ~KVM_NV_GUEST_MAP_SZ;
->   		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, fault_ipa, prot, flags);
-> +	} else if (kvm_is_realm(kvm)) {
-> +		ret = realm_map_ipa(kvm, fault_ipa, pfn, vma_pagesize,
-> +				    prot, memcache);
->   	} else {
->   		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, fault_ipa, vma_pagesize,
->   					     __pfn_to_phys(pfn), prot,
-> @@ -1897,8 +1997,15 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
->   		nested = &nested_trans;
->   	}
->   
-> -	gfn = ipa >> PAGE_SHIFT;
-> +	gfn = kvm_gpa_from_fault(vcpu->kvm, ipa) >> PAGE_SHIFT;
->   	memslot = gfn_to_memslot(vcpu->kvm, gfn);
-> +
-> +	if (kvm_slot_can_be_private(memslot)) {
-> +		ret = private_memslot_fault(vcpu, ipa, memslot);
-> +		if (ret != -EINVAL)
-> +			goto out;
-> +	}
-> +
->   	hva = gfn_to_hva_memslot_prot(memslot, gfn, &writable);
->   	write_fault = kvm_is_write_fault(vcpu);
->   	if (kvm_is_error_hva(hva) || (write_fault && !writable)) {
-> @@ -1942,7 +2049,7 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
->   		 * of the page size.
->   		 */
->   		ipa |= kvm_vcpu_get_hfar(vcpu) & GENMASK(11, 0);
-> -		ret = io_mem_abort(vcpu, ipa);
-> +		ret = io_mem_abort(vcpu, kvm_gpa_from_fault(vcpu->kvm, ipa));
->   		goto out_unlock;
->   	}
->   
-> @@ -1990,6 +2097,10 @@ bool kvm_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
->   	if (!kvm->arch.mmu.pgt)
->   		return false;
->   
-> +	/* We don't support aging for Realms */
-> +	if (kvm_is_realm(kvm))
-> +		return true;
-> +
->   	return KVM_PGT_FN(kvm_pgtable_stage2_test_clear_young)(kvm->arch.mmu.pgt,
->   						   range->start << PAGE_SHIFT,
->   						   size, true);
-> @@ -2006,6 +2117,10 @@ bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
->   	if (!kvm->arch.mmu.pgt)
->   		return false;
->   
-> +	/* We don't support aging for Realms */
-> +	if (kvm_is_realm(kvm))
-> +		return true;
-> +
->   	return KVM_PGT_FN(kvm_pgtable_stage2_test_clear_young)(kvm->arch.mmu.pgt,
->   						   range->start << PAGE_SHIFT,
->   						   size, false);
-> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
-> index f6af3ea6ea8a..b6959cd17a6c 100644
-> --- a/arch/arm64/kvm/rme.c
-> +++ b/arch/arm64/kvm/rme.c
-> @@ -714,6 +714,186 @@ static int realm_create_protected_data_page(struct realm *realm,
->   	return -ENXIO;
->   }
->   
-> +static int fold_rtt(struct realm *realm, unsigned long addr, int level)
+> +static int rkcif_csi_disable_streams(struct v4l2_subdev *sd,
+> +				     struct v4l2_subdev_state *state, u32 pad,
+> +				     u64 streams_mask)
 > +{
-> +	phys_addr_t rtt_addr;
+> +	struct rkcif_csi_device *csi_dev = to_rkcif_csi(sd);
+> +	struct v4l2_subdev *remote_sd;
+> +	struct media_pad *sink_pad, *remote_pad;
+> +	struct device *dev = csi_dev->dev;
+> +	u64 mask;
 > +	int ret;
 > +
-> +	ret = realm_rtt_fold(realm, addr, level, &rtt_addr);
+> +	sink_pad = &sd->entity.pads[RKCIF_CSI_PAD_SINK];
+> +	remote_pad = media_pad_remote_pad_first(sink_pad);
+> +	remote_sd = media_entity_to_v4l2_subdev(remote_pad->entity);
+> +
+> +	mask = v4l2_subdev_state_xlate_streams(state, RKCIF_CSI_PAD_SINK,
+> +					       RKCIF_CSI_PAD_SRC,
+> +					       &streams_mask);
+> +
+> +	ret = v4l2_subdev_disable_streams(remote_sd, remote_pad->index, mask);
+> +
+> +	rkcif_csi_stop(csi_dev);
+> +
+> +	pm_runtime_mark_last_busy(dev);
+> +	pm_runtime_put_autosuspend(dev);
+> +
+> +	return ret;
+> +}
+> +
+> +static const struct v4l2_subdev_pad_ops rkcif_csi_pad_ops = {
+> +	.enum_mbus_code = rkcif_csi_enum_mbus_code,
+> +	.get_fmt = v4l2_subdev_get_fmt,
+> +	.set_fmt = rkcif_csi_set_fmt,
+> +	.set_routing = rkcif_csi_set_routing,
+> +	.enable_streams = rkcif_csi_enable_streams,
+> +	.disable_streams = rkcif_csi_disable_streams,
+> +};
+> +
+> +static const struct v4l2_subdev_ops rkcif_csi_ops = {
+> +	.pad = &rkcif_csi_pad_ops,
+> +};
+> +
+> +static int rkcif_csi_init_state(struct v4l2_subdev *sd,
+> +				struct v4l2_subdev_state *state)
+> +{
+> +	struct v4l2_subdev_route routes[] = {
+> +		{
+> +			.sink_pad = RKCIF_CSI_PAD_SINK,
+> +			.sink_stream = 0,
+> +			.source_pad = RKCIF_CSI_PAD_SRC,
+> +			.source_stream = 0,
+> +			.flags = V4L2_SUBDEV_ROUTE_FL_ACTIVE,
+> +		},
+> +	};
+> +	struct v4l2_subdev_krouting routing = {
+> +		.len_routes = ARRAY_SIZE(routes),
+> +		.num_routes = ARRAY_SIZE(routes),
+> +		.routes = routes,
+> +	};
+> +	int ret;
+> +
+> +	ret = v4l2_subdev_set_routing_with_fmt(sd, state, &routing,
+> +					       &default_format);
+> +
+> +	return ret;
+> +}
+> +
+> +static const struct v4l2_subdev_internal_ops rkcif_csi_internal_ops = {
+> +	.init_state = rkcif_csi_init_state,
+> +};
+> +
+> +static int rkcif_csi_notifier_bound(struct v4l2_async_notifier *notifier,
+> +				    struct v4l2_subdev *sd,
+> +				    struct v4l2_async_connection *asd)
+> +{
+> +	struct rkcif_csi_device *csi_dev =
+> +		container_of(notifier, struct rkcif_csi_device, notifier);
+> +	int source_pad;
+> +
+> +	source_pad = media_entity_get_fwnode_pad(&sd->entity, sd->fwnode,
+> +						 MEDIA_PAD_FL_SOURCE);
+> +	if (source_pad < 0) {
+> +		dev_err(csi_dev->dev, "failed to find source pad for %s\n",
+> +			sd->name);
+> +		return source_pad;
+> +	}
+> +
+> +	csi_dev->source_sd = sd;
+> +	csi_dev->source_pad = source_pad;
+> +
+> +	return media_create_pad_link(&sd->entity, source_pad,
+> +				     &csi_dev->sd.entity, RKCIF_CSI_PAD_SINK,
+> +				     MEDIA_LNK_FL_ENABLED);
+> +}
+> +
+> +static const struct v4l2_async_notifier_operations rkcif_csi_notifier_ops = {
+> +	.bound = rkcif_csi_notifier_bound,
+> +};
+> +
+> +static int rkcif_csi_register_notifier(struct rkcif_csi_device *csi_dev)
+> +{
+> +	struct v4l2_async_connection *asd;
+> +	struct v4l2_async_notifier *ntf = &csi_dev->notifier;
+> +	struct v4l2_fwnode_endpoint *vep = &csi_dev->vep;
+> +	struct v4l2_subdev *sd = &csi_dev->sd;
+> +	struct device *dev = csi_dev->dev;
+> +	struct fwnode_handle *ep;
+> +	int ret = 0;
+> +
+> +	ep = fwnode_graph_get_endpoint_by_id(dev_fwnode(dev), 0, 0, 0);
+> +	if (!ep)
+> +		return dev_err_probe(dev, -ENODEV, "failed to get endpoint\n");
+> +
+> +	vep->bus_type = V4L2_MBUS_UNKNOWN;
+> +	ret = v4l2_fwnode_endpoint_parse(ep, vep);
+> +	if (ret) {
+> +		ret = dev_err_probe(dev, ret, "failed to parse endpoint\n");
+> +		goto out;
+> +	}
+> +
+> +	if (vep->bus_type != V4L2_MBUS_CSI2_DPHY &&
+> +	    vep->bus_type != V4L2_MBUS_CSI2_CPHY) {
+> +		ret = dev_err_probe(dev, -EINVAL,
+> +				    "invalid bus type of endpoint\n");
+> +		goto out;
+> +	}
+> +
+> +	v4l2_async_subdev_nf_init(ntf, sd);
+> +	ntf->ops = &rkcif_csi_notifier_ops;
+> +
+> +	asd = v4l2_async_nf_add_fwnode_remote(ntf, ep,
+> +					      struct v4l2_async_connection);
+> +	if (IS_ERR(asd)) {
+> +		ret = PTR_ERR(asd);
+> +		goto err_nf_cleanup;
+> +	}
+> +
+> +	ret = v4l2_async_nf_register(ntf);
+> +	if (ret) {
+> +		ret = dev_err_probe(dev, ret, "failed to register notifier\n");
+> +		goto err_nf_cleanup;
+> +	}
+> +
+> +	goto out;
+> +
+> +err_nf_cleanup:
+> +	v4l2_async_nf_cleanup(ntf);
+> +out:
+> +	fwnode_handle_put(ep);
+> +	return ret;
+> +}
+> +
+> +static int rkcif_csi_register(struct rkcif_csi_device *csi_dev)
+> +{
+> +	struct media_pad *pads = csi_dev->pads;
+> +	struct v4l2_subdev *sd = &csi_dev->sd;
+> +	int ret;
+> +
+> +	ret = rkcif_csi_register_notifier(csi_dev);
 > +	if (ret)
-> +		return ret;
+> +		goto err;
 > +
-> +	free_delegated_granule(rtt_addr);
+> +	v4l2_subdev_init(sd, &rkcif_csi_ops);
+> +	sd->dev = csi_dev->dev;
+> +	sd->entity.ops = &rkcif_csi_media_ops;
+> +	sd->entity.function = MEDIA_ENT_F_VID_IF_BRIDGE;
+> +	sd->flags |= V4L2_SUBDEV_FL_HAS_DEVNODE | V4L2_SUBDEV_FL_STREAMS;
+> +	sd->internal_ops = &rkcif_csi_internal_ops;
+> +	sd->owner = THIS_MODULE;
+> +	snprintf(sd->name, sizeof(sd->name), "rockchip-mipi-csi %s",
+> +		 dev_name(csi_dev->dev));
 > +
-> +	return 0;
-> +}
+> +	pads[RKCIF_CSI_PAD_SINK].flags = MEDIA_PAD_FL_SINK |
+> +					 MEDIA_PAD_FL_MUST_CONNECT;
+> +	pads[RKCIF_CSI_PAD_SRC].flags = MEDIA_PAD_FL_SOURCE;
+> +	ret = media_entity_pads_init(&sd->entity, RKCIF_CSI_PAD_MAX, pads);
+> +	if (ret)
+> +		goto err_notifier_unregister;
 > +
-> +int realm_map_protected(struct realm *realm,
-> +			unsigned long ipa,
-> +			kvm_pfn_t pfn,
-> +			unsigned long map_size,
-> +			struct kvm_mmu_memory_cache *memcache)
-> +{
-> +	phys_addr_t phys = __pfn_to_phys(pfn);
-> +	phys_addr_t rd = virt_to_phys(realm->rd);
-> +	unsigned long base_ipa = ipa;
-> +	unsigned long size;
-> +	int map_level;
-> +	int ret = 0;
+> +	ret = v4l2_subdev_init_finalize(sd);
+> +	if (ret)
+> +		goto err_entity_cleanup;
 > +
-> +	if (WARN_ON(!IS_ALIGNED(map_size, RMM_PAGE_SIZE)))
-> +		return -EINVAL;
-> +
-> +	if (WARN_ON(!IS_ALIGNED(ipa, map_size)))
-> +		return -EINVAL;
-> +
-> +	if (IS_ALIGNED(map_size, RMM_L2_BLOCK_SIZE))
-> +		map_level = 2;
-> +	else
-> +		map_level = 3;
-> +
-
-This block of code can be compacted a bit:
-
-	int map_level = IS_ALIGNED(map_size, RMM_L2_BLOCK_SIZE) ? 2 : 3;
-
-	if (WARN_ON(!IS_ALIGNED(map_size, RMM_PAGE_SIZE) || !IS_ALIGNED(ipa, map_size))
-		return -EINVAL;
-
-> +	if (map_level < RMM_RTT_MAX_LEVEL) {
-> +		/*
-> +		 * A temporary RTT is needed during the map, precreate it,
-> +		 * however if there is an error (e.g. missing parent tables)
-> +		 * this will be handled below.
-> +		 */
-> +		realm_create_rtt_levels(realm, ipa, map_level,
-> +					RMM_RTT_MAX_LEVEL, memcache);
-> +	}
-> +
-> +	for (size = 0; size < map_size; size += RMM_PAGE_SIZE) {
-> +		if (rmi_granule_delegate(phys)) {
-> +			/*
-> +			 * It's likely we raced with another VCPU on the same
-> +			 * fault. Assume the other VCPU has handled the fault
-> +			 * and return to the guest.
-> +			 */
-> +			return 0;
-> +		}
-> +
-> +		ret = rmi_data_create_unknown(rd, phys, ipa);
-> +
-> +		if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
-> +			/* Create missing RTTs and retry */
-> +			int level = RMI_RETURN_INDEX(ret);
-> +
-> +			WARN_ON(level == RMM_RTT_MAX_LEVEL);
-> +
-> +			ret = realm_create_rtt_levels(realm, ipa, level,
-> +						      RMM_RTT_MAX_LEVEL,
-> +						      memcache);
-> +			if (ret)
-> +				goto err_undelegate;
-> +
-> +			ret = rmi_data_create_unknown(rd, phys, ipa);
-> +		}
-> +
-> +		if (WARN_ON(ret))
-> +			goto err_undelegate;
-> +
-> +		phys += RMM_PAGE_SIZE;
-> +		ipa += RMM_PAGE_SIZE;
-> +	}
-> +
-> +	if (map_size == RMM_L2_BLOCK_SIZE) {
-> +		ret = fold_rtt(realm, base_ipa, map_level + 1);
-> +		if (WARN_ON(ret))
-> +			goto err;
+> +	ret = v4l2_async_register_subdev(sd);
+> +	if (ret) {
+> +		dev_err(sd->dev, "failed to register CSI subdev\n");
+> +		goto err_subdev_cleanup;
 > +	}
 > +
 > +	return 0;
 > +
-> +err_undelegate:
-> +	if (WARN_ON(rmi_granule_undelegate(phys))) {
-> +		/* Page can't be returned to NS world so is lost */
-> +		get_page(phys_to_page(phys));
-> +	}
+> +err_subdev_cleanup:
+> +	v4l2_subdev_cleanup(sd);
+> +err_entity_cleanup:
+> +	media_entity_cleanup(&sd->entity);
+> +err_notifier_unregister:
+> +	v4l2_async_nf_unregister(&csi_dev->notifier);
+> +	v4l2_async_nf_cleanup(&csi_dev->notifier);
 > +err:
-> +	while (size > 0) {
-> +		unsigned long data, top;
-> +
-> +		phys -= RMM_PAGE_SIZE;
-> +		size -= RMM_PAGE_SIZE;
-> +		ipa -= RMM_PAGE_SIZE;
-> +
-> +		WARN_ON(rmi_data_destroy(rd, ipa, &data, &top));
-> +
-> +		if (WARN_ON(rmi_granule_undelegate(phys))) {
-> +			/* Page can't be returned to NS world so is lost */
-> +			get_page(phys_to_page(phys));
-> +		}
-> +	}
-> +	return -ENXIO;
+> +	return ret;
 > +}
 > +
-> +int realm_map_non_secure(struct realm *realm,
-> +			 unsigned long ipa,
-> +			 kvm_pfn_t pfn,
-> +			 unsigned long size,
-> +			 struct kvm_mmu_memory_cache *memcache)
+> +static void rkcif_csi_unregister(struct rkcif_csi_device *csi_dev)
 > +{
-> +	phys_addr_t rd = virt_to_phys(realm->rd);
-> +	phys_addr_t phys = __pfn_to_phys(pfn);
-> +	unsigned long offset;
-> +	int map_size, map_level;
-> +	int ret = 0;
+> +	struct v4l2_subdev *sd = &csi_dev->sd;
 > +
-> +	if (WARN_ON(!IS_ALIGNED(size, RMM_PAGE_SIZE)))
-> +		return -EINVAL;
+> +	v4l2_async_unregister_subdev(sd);
+> +	v4l2_subdev_cleanup(sd);
+> +	media_entity_cleanup(&sd->entity);
+> +	v4l2_async_nf_unregister(&csi_dev->notifier);
+> +	v4l2_async_nf_cleanup(&csi_dev->notifier);
+> +}
 > +
-> +	if (WARN_ON(!IS_ALIGNED(ipa, size)))
-> +		return -EINVAL;
+> +static const struct of_device_id rkcif_csi_of_match[] = {
+> +	{
+> +		.compatible = "rockchip,rk3568-mipi-csi",
+> +	},
+> +	{}
+> +};
+> +MODULE_DEVICE_TABLE(of, rkcif_csi_of_match);
 > +
-> +	if (IS_ALIGNED(size, RMM_L2_BLOCK_SIZE)) {
-> +		map_level = 2;
-> +		map_size = RMM_L2_BLOCK_SIZE;
-> +	} else {
-> +		map_level = 3;
-> +		map_size = RMM_PAGE_SIZE;
+> +static int rkcif_csi_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct rkcif_csi_device *csi_dev;
+> +	int ret;
+> +
+> +	csi_dev = devm_kzalloc(dev, sizeof(*csi_dev), GFP_KERNEL);
+> +	if (!csi_dev)
+> +		return -ENOMEM;
+> +	csi_dev->dev = dev;
+> +	dev_set_drvdata(dev, csi_dev);
+> +
+> +	csi_dev->base_addr = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(csi_dev->base_addr))
+> +		return PTR_ERR(csi_dev->base_addr);
+> +
+> +	ret = devm_clk_bulk_get_all(dev, &csi_dev->clks);
+> +	if (ret != RKCIF_CSI_CLKS_MAX)
+> +		return dev_err_probe(dev, -ENODEV, "failed to get clocks\n");
+> +	csi_dev->clks_num = ret;
+> +
+> +	csi_dev->phy = devm_phy_get(dev, NULL);
+> +	if (IS_ERR(csi_dev->phy))
+> +		return dev_err_probe(dev, PTR_ERR(csi_dev->phy),
+> +				     "failed to get MIPI CSI PHY\n");
+> +
+> +	csi_dev->reset = devm_reset_control_array_get_exclusive(dev);
+> +	if (IS_ERR(csi_dev->reset))
+> +		return dev_err_probe(dev, PTR_ERR(csi_dev->reset),
+> +				     "failed to get reset\n");
+> +
+> +	csi_dev->formats = formats;
+> +	csi_dev->formats_num = ARRAY_SIZE(formats);
+> +
+> +	pm_runtime_enable(dev);
+> +
+> +	ret = phy_init(csi_dev->phy);
+> +	if (ret) {
+> +		ret = dev_err_probe(dev, ret,
+> +				    "failed to initialize MIPI CSI PHY\n");
+> +		goto err_pm_runtime_disable;
 > +	}
 > +
-
-Similiarly, it can be compacted a bit:
-
-	int map_size = IS_ALIGNED(size, RMM_L2_BLOCK_SIZE) ? RMM_L2_BLOCK_SIZE : RMM_PAGE_SIZE;
-	int map_level = IS_ALIGNED(map_size, RMM_L2_BLOCK_SIZE) ? 2 : 3;
-
-	if (WARN_ON(!IS_ALIGNED(size, RMM_PAGE_SIZE) || !IS_ALIGNED(ipa, size))
-		return -EINVAL;
-
-> +	for (offset = 0; offset < size; offset += map_size) {
-> +		/*
-> +		 * realm_map_ipa() enforces that the memory is writable,
-> +		 * so for now we permit both read and write.
-> +		 */
-> +		unsigned long desc = phys |
-> +				     PTE_S2_MEMATTR(MT_S2_FWB_NORMAL) |
-> +				     KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R |
-> +				     KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
-> +		ret = rmi_rtt_map_unprotected(rd, ipa, map_level, desc);
+> +	ret = rkcif_csi_register(csi_dev);
+> +	if (ret)
+> +		goto err_phy_exit;
 > +
-> +		if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
-> +			/* Create missing RTTs and retry */
-> +			int level = RMI_RETURN_INDEX(ret);
+> +	return 0;
 > +
-> +			ret = realm_create_rtt_levels(realm, ipa, level,
-> +						      map_level, memcache);
-> +			if (ret)
-> +				return -ENXIO;
+> +err_phy_exit:
+> +	phy_exit(csi_dev->phy);
+> +err_pm_runtime_disable:
+> +	pm_runtime_disable(dev);
+> +	return ret;
+> +}
 > +
-> +			ret = rmi_rtt_map_unprotected(rd, ipa, map_level, desc);
-> +		}
-> +		/*
-> +		 * RMI_ERROR_RTT can be reported for two reasons: either the
-> +		 * RTT tables are not there, or there is an RTTE already
-> +		 * present for the address.  The call to
-> +		 * realm_create_rtt_levels() above handles the first case, and
-> +		 * in the second case this indicates that another thread has
-> +		 * already populated the RTTE for us, so we can ignore the
-> +		 * error and continue.
-> +		 */
-> +		if (ret && RMI_RETURN_STATUS(ret) != RMI_ERROR_RTT)
-> +			return -ENXIO;
-
-The comments needs to be aligned in format :)
-
-If RMM returns RMI_ERROR_RTT for third case in the future, the assumption here
-is broken. I think it's worthy to double confirm by checking the RTT entry
-through RTT_READ_ENTRY interface. If the mapping doesn't exist, we probably
-still need to retry.
-
+> +static void rkcif_csi_remove(struct platform_device *pdev)
+> +{
+> +	struct rkcif_csi_device *csi_dev = platform_get_drvdata(pdev);
+> +	struct device *dev = &pdev->dev;
 > +
-> +		ipa += map_size;
-> +		phys += map_size;
+> +	rkcif_csi_unregister(csi_dev);
+> +	phy_exit(csi_dev->phy);
+> +	pm_runtime_disable(dev);
+> +}
+> +
+> +static int rkcif_csi_runtime_suspend(struct device *dev)
+> +{
+> +	struct rkcif_csi_device *csi_dev = dev_get_drvdata(dev);
+> +
+> +	clk_bulk_disable_unprepare(csi_dev->clks_num, csi_dev->clks);
+> +
+> +	return 0;
+> +}
+> +
+> +static int rkcif_csi_runtime_resume(struct device *dev)
+> +{
+> +	struct rkcif_csi_device *csi_dev = dev_get_drvdata(dev);
+> +	int ret;
+> +
+> +	reset_control_assert(csi_dev->reset);
+> +	udelay(5);
+> +	reset_control_deassert(csi_dev->reset);
+> +
+> +	ret = clk_bulk_prepare_enable(csi_dev->clks_num, csi_dev->clks);
+> +	if (ret) {
+> +		dev_err(dev, "failed to enable clocks\n");
+> +		return ret;
 > +	}
 > +
 > +	return 0;
 > +}
 > +
->   static int populate_region(struct kvm *kvm,
->   			   phys_addr_t ipa_base,
->   			   phys_addr_t ipa_end,
-
-Thanks,
-Gavin
+> +static const struct dev_pm_ops rkcif_csi_pm_ops = {
+> +	.runtime_suspend = rkcif_csi_runtime_suspend,
+> +	.runtime_resume = rkcif_csi_runtime_resume,
+> +};
+> +
+> +static struct platform_driver rkcif_csi_drv = {
+> +	.driver = {
+> +		   .name = "rockchip-mipi-csi",
+> +		   .of_match_table = rkcif_csi_of_match,
+> +		   .pm = &rkcif_csi_pm_ops,
+> +	},
+> +	.probe = rkcif_csi_probe,
+> +	.remove = rkcif_csi_remove,
+> +};
+> +module_platform_driver(rkcif_csi_drv);
+> +
+> +MODULE_DESCRIPTION("Rockchip MIPI CSI-2 Receiver platform driver");
+> +MODULE_LICENSE("GPL");
+> 
+> --
+> 2.39.5
+> 
+> 
+> 
 
 
