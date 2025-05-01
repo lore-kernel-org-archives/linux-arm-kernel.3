@@ -4,110 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C94C9C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 00:51:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB150C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 00:57:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pYvU8LGI/LvuV5/ZHSGbVwvOXcT9Aj8dP7lTePS1R6g=; b=zxGdkXvP7h4amZtPS2gkKl5WRm
-	8Mf44Py/Iy0fb0M65SgwB6gLV+W0RWXos2oS7VoVn6opjx32D7xsodoVFd5KSFLXm6gcd2eTRsJz1
-	8eY3FVw7TyC1AIjSS2h9We1WnapyZsQ2KWdEMNz+juf/CrDIUB1p5BldOyQ9b8hkfaTAVD3Qqq6D5
-	qDUEHoe6Tc9VP/HJZJKIVHB0OBRAsEFOBZnuqtejH4QcUC16rLePbLe6fDgEkeytgdqpEALH3au9X
-	gCib3FuJfbxMKj7Zqmw6KR/kbO7g+DqMHgqM4nrmuHoqi6txOiWD9DhdN62khXjGRlFUno366JGEF
-	lzrjd/Qw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hvilShwMKmOhEtxT64Icd0+dLsetgu0O5uyiJDBA1Kg=; b=tco2barIgi/MJXVEKSWNbSVQQ5
+	FQ//4BvCdIHQHZVbjtjb35+/Bq4pimg27Ogt03aEb1gtcP5v4ByUUESG7mwB+T030HXegSrF8edZ+
+	1X56b/EvIWxv6K+E5xPcY3mchuagMvCA07q1A0oB9yMES0JIVI/GUblDFq1caEMWbaD0JZJPEn+hB
+	Y7BHvUWy9tnD4Tkn4MGsY53YYxjG9ALGbtGIy+BHJf6XJ+igU9S9nwhMShjdAsXY2A3qrjfllcnaD
+	R8ddICfqA5r2n+NSeF8thzdYVSY4EenCtFKULBSoMfK0vXfrTvZLJdylFcUQ2auE/1o4qsF51Qjt9
+	d5ry+kyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAI8n-0000000EL6H-22iS;
-	Thu, 01 May 2025 00:51:05 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1uAIEV-0000000ELWf-2F6v;
+	Thu, 01 May 2025 00:56:59 +0000
+Received: from mail-mw2nam10on2060f.outbound.protection.outlook.com ([2a01:111:f403:2412::60f] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAI6n-0000000EKqE-1Vyd
+	id 1uAICW-0000000ELMR-3nkc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 00:49:05 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3913d129c1aso314496f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 17:49:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1746060539; x=1746665339; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=pYvU8LGI/LvuV5/ZHSGbVwvOXcT9Aj8dP7lTePS1R6g=;
-        b=eOmOniJ4nFcteCQ473E+9bwAZz46eX80ZSTmYBBdBsqDTxqc34yQDhyZGVSHD3QS8A
-         WguwBbkZ2csU1hUY7eP7pYIm6M/L6zjlmBnaYt1asGIhItr3ni+fWmxcDipJrpeTfSmo
-         3v9cz9LR8zcE0qF/bLkqTSV9tIGVJNq4McPCwWhG6MYnSkVemNdOxRnW7coglBv2eVD/
-         fO1q3Hxsf+Q1Ir/EUVL6NMAa9IEqEB0RhDrF6DcGYnn79XGfkaRqXhM1pgIUfz1KAHis
-         FOW1tC2ocyZjzRYbVUe89rsXujQCnxSBqwaY1sOHmQp2c7vdpjcBiz9Eo1tVRUbUysA7
-         h7cQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746060539; x=1746665339;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=pYvU8LGI/LvuV5/ZHSGbVwvOXcT9Aj8dP7lTePS1R6g=;
-        b=mUHEVK/2NoXgHfoWdenT1rAi0qCjX9wvWLgBe6B+ddkj+Ra6j6sqagr9xjc3HYiLxM
-         mI2D5irnYUR5E0qq7T18xtbzMFiVArxHNnmFLBon/et9WLSIpUoRNkJ7vwFGaARhOLt3
-         +hVKGIe/d1TLnNMWAAw987bz4a5a1kU142KD2NpiXyxIWBtEde3mkIZk4/m0NpHMP1Xb
-         sgeseqyLcm1kB/Xdt8WdblDq6b/uRqVE4A1UtQ+fIwySf5ssiEuxqpWw3aORGGfPkVqA
-         uuD5JIx4cE+ZmVsEhuV3iSbWOuggVLrEE38UdTsfhSElnv9U3YBQaulDu2nn2oIIn+nf
-         rtDw==
-X-Forwarded-Encrypted: i=1; AJvYcCX1AuzKvND0kmHOb4HF8XFt8uTbl0LKE2bY44cElaVUR75dgH6HSA5bDGToWqJpdcj2fbBYmkGmPswM0vnmsz4r@lists.infradead.org
-X-Gm-Message-State: AOJu0YzpJ5vU5vc739eIvY5yYs5EGdgDMd1cSZVGK8oTw+MR2R2l5Hih
-	/7dK0hcwt9EIujjYKrchx4bEhroKegakzC15jCV5SMxN+Iy+RU+6QsmbY50PV8g=
-X-Gm-Gg: ASbGnctTRs5GgkqEXLFrojYQFpFNP8Dzchj2HFB8FqRvCXChU+GYqrt9ofwMBCMYWwJ
-	+63QTLvNXfI/u37zqxcsGR/XxdEibkJtrP0aT6apbx45rs+j3zIuJjkMLBy/uX1VDu/PFmeAh9y
-	ImP63RPQt8RaOakmjnXLNCD0fUbWosnMe1e3HA3f7vPpE0p9rzUMwZpLJHT6lr+UXxpDHKgkSTn
-	cOSpOXm8mwR6t/GH30z8nmAljNauLHPHz6US18nv6mfK1njtr1Ee9jZxfIrHHXyMcUJT1rVrdQd
-	955BeKVbFRrxkK7y5Xm7ghxIj8UWKQx7Dl59D7EGsBJM7Kt0hWye+WZPPnpRLuR6hyuBmPponbi
-	zC0ShCA==
-X-Google-Smtp-Source: AGHT+IExm5QKDWTtBCtGiEApqcGxgGU3IZnUc5zsY5J466n61GIPpDfm8B+SHfKQgJR/mIvjcKs6Bg==
-X-Received: by 2002:a05:6000:2411:b0:3a0:7afd:cbfd with SMTP id ffacd0b85a97d-3a094034df4mr341931f8f.7.1746060539398;
-        Wed, 30 Apr 2025 17:48:59 -0700 (PDT)
-Received: from [192.168.0.35] (188-141-3-146.dynamic.upc.ie. [188.141.3.146])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a073c8cd7fsm18310368f8f.1.2025.04.30.17.48.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 30 Apr 2025 17:48:58 -0700 (PDT)
-Message-ID: <243932d3-65da-4934-8cea-bc0e41bf21b3@linaro.org>
-Date: Thu, 1 May 2025 01:48:56 +0100
+	Thu, 01 May 2025 00:55:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=K3PH9Mymxaq5XiM5njVsl+iZ7yTmrUsbm+AoUG0TMltXY89klAngIw9Ychj/Qxe/c9Cz8zIRR8ECddcdHU6UuNLAmz7rTWRwKE1AZdTI3T88zBRX86zq0jxbOCZpR1DWaTytlTVVN3Nagngf2hnWuSm7+l9uSyACjh8swB6JeIukg+LMNrgu6rQgIbU0UbBIHXc40//Sv3u1mGZkwswSjprUPd+PCC9L9/yvi/pVwoz/erXcuTyBpKrnRvAbU1L5NVjMK7OnEw8maL5oRBSq7kJcJm+zlqfLEY4E6bwCLn0DLp/btQl1JlT3y/rBDvAYu57XaXn7+E42cr3o9Yh0Ug==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hvilShwMKmOhEtxT64Icd0+dLsetgu0O5uyiJDBA1Kg=;
+ b=speXgSh3XJ9UoFwh2yv3WVeiNFujWrVLixHX5a54b3XQKU+VAH1WW8/2neFpv3iMT6QXNd10hjNoH83Sl5RZ5HcwGlWMhB5b6t6xZvOczKMzNcqyw6XmppKQEhFxZDa0Ykdm7l9tKkwqPPffYs+9YXpOBGXQi2wgBfmMYhVKbEoGmusNXHmNaJ8rYVtHB4f30nevEkhv5ntOGAcLxJgUc+BiGwakWg5m4TbeZRx0ZNyh2vsQpZMyqtF56/wrJ3vQn6TLsqBhcZ62d+x3L8EYFPaTuLtGey1R9lNTa/A40w2Xud3gXBDLY32R3y29YjouZOr+SbbxBljRVA4ANJlySA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hvilShwMKmOhEtxT64Icd0+dLsetgu0O5uyiJDBA1Kg=;
+ b=NZTwtEdIgc833u7B+tOx+Tcy0LyN+M5Qzr7fkGtYBTiAkYr9u0hG2ZYEPHLpqklmzbKjgbeUHGusxOc4BWeVRVbvnvjZqP9mWq9hBuSTWEVnXbGluLkTq4JDE3RAgPr5WOS9W36nbBSMXNvd6L9aeR6B4xAchcx9P1s5v+5zA0ZAZBMisKwCXVMnrz4gVMw53VrEqya7ZXHmmJ40jEOiPFmvRYwpcN/ORRDz2Df1vzl2iZEDmzaaNkJsPds5lm4VZleMM/9abOd/a6oq7mnrPNiPeFgr6fCFduA9GWA4VLpytj1GqUW+MLh3dFemPfM8axsnq2bc05jG3LapqYgMTw==
+Received: from SA9P223CA0006.NAMP223.PROD.OUTLOOK.COM (2603:10b6:806:26::11)
+ by PH7PR12MB6667.namprd12.prod.outlook.com (2603:10b6:510:1a9::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.19; Thu, 1 May
+ 2025 00:54:48 +0000
+Received: from SA2PEPF00001508.namprd04.prod.outlook.com
+ (2603:10b6:806:26:cafe::16) by SA9P223CA0006.outlook.office365.com
+ (2603:10b6:806:26::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.33 via Frontend Transport; Thu,
+ 1 May 2025 00:54:48 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ SA2PEPF00001508.mail.protection.outlook.com (10.167.242.40) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8699.20 via Frontend Transport; Thu, 1 May 2025 00:54:48 +0000
+Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 30 Apr
+ 2025 17:54:45 -0700
+Received: from drhqmail201.nvidia.com (10.126.190.180) by
+ drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Wed, 30 Apr 2025 17:54:45 -0700
+Received: from Asurada-Nvidia (10.127.8.14) by mail.nvidia.com
+ (10.126.190.180) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Wed, 30 Apr 2025 17:54:43 -0700
+Date: Wed, 30 Apr 2025 17:54:41 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Pranjal Shrivastava <praan@google.com>
+CC: <jgg@nvidia.com>, <kevin.tian@intel.com>, <corbet@lwn.net>,
+	<will@kernel.org>, <bagasdotme@gmail.com>, <robin.murphy@arm.com>,
+	<joro@8bytes.org>, <thierry.reding@gmail.com>, <vdumpa@nvidia.com>,
+	<jonathanh@nvidia.com>, <shuah@kernel.org>, <jsnitsel@redhat.com>,
+	<nathan@kernel.org>, <peterz@infradead.org>, <yi.l.liu@intel.com>,
+	<mshavit@google.com>, <zhangzekun11@huawei.com>, <iommu@lists.linux.dev>,
+	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
+	<mochs@nvidia.com>, <alok.a.tiwari@oracle.com>, <vasant.hegde@amd.com>
+Subject: Re: [PATCH v2 21/22] iommu/tegra241-cmdqv: Add user-space use support
+Message-ID: <aBLGUby2dIiYCe7S@Asurada-Nvidia>
+References: <cover.1745646960.git.nicolinc@nvidia.com>
+ <b81b2332f793a9ffccc528d821f2ed3ac051f9e0.1745646960.git.nicolinc@nvidia.com>
+ <aBKdMaFLPFJYegIS@google.com>
+ <aBKmk6PNFreeyfLh@Asurada-Nvidia>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 08/13] media: rockchip: rkcif: add support for mipi
- csi-2 capture
-To: michael.riesch@collabora.com, Mehdi Djait <mehdi.djait@linux.intel.com>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>,
- =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>,
- Gerald Loacker <gerald.loacker@wolfvision.net>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
- <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Kever Yang <kever.yang@rock-chips.com>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- Collabora Kernel Team <kernel@collabora.com>,
- Paul Kocialkowski <paulk@sys-base.io>,
- Alexander Shiyan <eagle.alexander923@gmail.com>,
- Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org,
- Michael Riesch <michael.riesch@wolfvision.net>
-References: <20240220-rk3568-vicap-v6-0-d2f5fbee1551@collabora.com>
- <qpAtcCdTUO51mtRFYYiYxon7FYS3Dgt_ZilDkimb2fBT7Kn9nLomBSqPbzEsvW1JpDqaucT-O7WCnv_i1u6_vQ==@protonmail.internalid>
- <20240220-rk3568-vicap-v6-8-d2f5fbee1551@collabora.com>
-Content-Language: en-US
-From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-In-Reply-To: <20240220-rk3568-vicap-v6-8-d2f5fbee1551@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <aBKmk6PNFreeyfLh@Asurada-Nvidia>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PEPF00001508:EE_|PH7PR12MB6667:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3b930f59-710a-474a-22b0-08dd884ac5e6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|1800799024|30052699003|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?jn6dCGp051Z8XcnHtzGRmDo376T+yPyqMZZD0PxCtRwXjmL9eR1UbYxcA2F5?=
+ =?us-ascii?Q?iVVWpk/6GZtwWdKJX5DdPzNx7pdiL1fUKL6MJP8aOS+brnB0RGrfEgpa0mod?=
+ =?us-ascii?Q?rpN1nAR7PtzHaNLalUGaHrnpUzThTVGCycrC7ksJvnEh7gVjF4MqQaFyjq1X?=
+ =?us-ascii?Q?WAxfnRAfr3yGUzapXT9UJeytVyMbOTSHBCYWnqLfgozTrW244pHbp9FjisIU?=
+ =?us-ascii?Q?uxbalxf449cvbBlhtT+uDWcYMxeiaQI+e3kAcEqHaff/SJKn5tXT85NSrCGt?=
+ =?us-ascii?Q?u66MrC8py3DlFiTnBcHrW/szkvYQa+41hEVA7WLI9jggY9JkDuNlphin5iBx?=
+ =?us-ascii?Q?kFBSkVuB1og6S5wlF4u12DZ88Q7JJqAJ7BQj1w9Kb23YWhsDikC/3wNnItFg?=
+ =?us-ascii?Q?Q2otdfpmm3I/30mj6/qcDCCJv4VRjlcHiYBbx3y1+U4jKQWEvruJxnG46fVW?=
+ =?us-ascii?Q?wJsimLrnZpQAh6kiSD2A3ahyfIU6DRijEYBeWGebexJxHcO4FL41CJiEhx7K?=
+ =?us-ascii?Q?7QDXe9WGTvc8gYcaiFHvx1QmD2PbFHGBZbKMEF+q9igOB0qaMDSOq/LPk8qr?=
+ =?us-ascii?Q?Mbp8nbEwAxkHyvWBsSBIHrrLS3lyCN5IPAMYocQ8DLCMNM/UP2hoz3dMw02g?=
+ =?us-ascii?Q?Ps7R32Tlj2Fjl1BG8ikhSUyRTqoLSwrXLSjush8LC3WOn2jLTkOorhDE7TD0?=
+ =?us-ascii?Q?Jjl0yQ7+L8tF2rukNN5n+SkYRVg3NGbyUEyNvm9Ut1UAZzIqxHi2XEIwGLq1?=
+ =?us-ascii?Q?wtmzi1rdJIEp2V15nbl4vUML7vcb7Qmqq50x5TOrDDIVqzVzHN0s7ZFb2XjU?=
+ =?us-ascii?Q?5uFXDRcuo7IAboTJLsOvn0TTQSCkXKpvyUeQcT0GWgEx/MpLoyemGCc7CnzG?=
+ =?us-ascii?Q?pOtHTfQgzmlLV9HHm8yK24Yh2m1n70DWnNgFnw0GK5ywg9ykUkFQ8cehvJPR?=
+ =?us-ascii?Q?99+oJuygiA0xeP35OfARsYJPNM5PnaH3yhlSXBh1N2bJGepuPEyLZxVSmQmX?=
+ =?us-ascii?Q?Jl27KUcdwteaqyhunPF4KKJsmcbX8O+0lGvlOvPYpb7jsqAnb3MytBqVDWSB?=
+ =?us-ascii?Q?RbO3SDYtxd4+QLq3QHGaEk3c6wS8AGZtckTW+2n7aS1fwVnMR2o8JiLWSGkn?=
+ =?us-ascii?Q?rnkcEhpeubWaW/jz7Q7jwmUBijk94swtOKD39eVPatMcaRUFR7SfcI/C2blH?=
+ =?us-ascii?Q?nIi79I22RZIUJQrNIV7luPMpxsLsFrDL5pjbi/0luMhgx0my7BWfHvjiNmlD?=
+ =?us-ascii?Q?f1boTtCDRctZBdQKk6+P9rEXzmiLDwzr4WhYcgmB7QK4vMpMLKFNxbQy0Q0Z?=
+ =?us-ascii?Q?6tqPaAEFzEmIjffNYt3EG7PeRgIVuExgMUJD8Y3ngKVHr1QeUgXXfC/lLv12?=
+ =?us-ascii?Q?LxjYrdnba7SVIa4PM/MHWpz6wPCPeKyy/k1kmJDOGA6pEOaMWXWoIWDf0TlG?=
+ =?us-ascii?Q?Ud2ih5YgSDqKUGcmlkMkkMda4/PLaNY7kn1hV1YeWMR5anaA7DszpP1delu+?=
+ =?us-ascii?Q?xIWLlgOV8NCIjvqWcgirlMAp4qz6mEcQC3X3?=
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(1800799024)(30052699003)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 May 2025 00:54:48.4660
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3b930f59-710a-474a-22b0-08dd884ac5e6
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00001508.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6667
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_174901_402632_B1FF810A 
-X-CRM114-Status: GOOD (  19.20  )
+X-CRM114-CacheID: sfid-20250430_175456_946856_C4DFAF78 
+X-CRM114-Status: GOOD (  25.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,874 +160,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/04/2025 10:15, Michael Riesch via B4 Relay wrote:
-> From: Michael Riesch <michael.riesch@wolfvision.net>
+On Wed, Apr 30, 2025 at 03:39:22PM -0700, Nicolin Chen wrote:
+> On Wed, Apr 30, 2025 at 09:59:13PM +0000, Pranjal Shrivastava wrote:
+> > >  enum iommu_viommu_type {
+> > >  	IOMMU_VIOMMU_TYPE_DEFAULT = 0,
+> > >  	IOMMU_VIOMMU_TYPE_ARM_SMMUV3 = 1,
+> > > +	IOMMU_VIOMMU_TYPE_TEGRA241_CMDQV = 2,
+> > > +};
+> > 
+> > This is a little confusing.. I understand that we need a new viommu type
+> > to copy the new struct iommu_viommu_tegra241_cmdqv b/w the user & kernel
+> > 
+> > But, in a previous patch (Add vsmmu_alloc impl op), we add a check to
+> > fallback to the standard type SMMUv3, if the impl_ops->vsmmu_alloc 
+> > returns -EOPNOTSUPP:
+> > 
+> > 	if (master->smmu->impl_ops && master->smmu->impl_ops->vsmmu_alloc)
+> > 		vsmmu = master->smmu->impl_ops->vsmmu_alloc(
+> > 			master->smmu, s2_parent, ictx, viommu_type, user_data);
+> > 	if (PTR_ERR(vsmmu) == -EOPNOTSUPP) {
+> > 		if (viommu_type != IOMMU_VIOMMU_TYPE_ARM_SMMUV3)
+> > 			return ERR_PTR(-EOPNOTSUPP);
+> > 		/* Fallback to standard SMMUv3 type if viommu_type matches */
+> > 		vsmmu = iommufd_viommu_alloc(ictx, struct arm_vsmmu, core,
+> > 					     &arm_vsmmu_ops);
+> > 
+> > Now, if we'll ALWAYS try to allocate an impl-specified vsmmu first, even
+> > when the viommu_type == IOMMU_VIOMMU_TYPE_ARM_SMMUV3, we are anyways
+> > going to return back from the impl_ops->vsmmu_alloc with -EOPNOTSUPP.
 > 
-> The RK3568 Video Capture (VICAP) unit features a MIPI CSI-2 capture
-> interface that can receive video data and write it into system memory
-> using the ping-pong scheme. Add support for it.
+> That's not necessarily true. An impl_ops->vsmmu_alloc can support
+> IOMMU_VIOMMU_TYPE_ARM_SMMUV3 potentially, e.g. an impl could just
+> toggle a few special bits in a register and return a valid vsmmu
+> pointer.
 > 
-> Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
-> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
-> ---
->   .../platform/rockchip/rkcif/rkcif-capture-mipi.c   | 695 +++++++++++++++++++++
->   .../platform/rockchip/rkcif/rkcif-capture-mipi.h   |   2 +
->   .../media/platform/rockchip/rkcif/rkcif-common.h   |  16 +
->   drivers/media/platform/rockchip/rkcif/rkcif-dev.c  |   1 +
->   .../platform/rockchip/rkcif/rkcif-interface.c      |   5 +-
->   drivers/media/platform/rockchip/rkcif/rkcif-regs.h |  24 +-
->   6 files changed, 741 insertions(+), 2 deletions(-)
+> It doesn't work like this with VCMDQ as it supports its own type,
+> but for the long run I think we should pass in the standard type
+> to impl_ops->vsmmu_alloc too.
 > 
-> diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c
-> index 0c3f7b8cfa18..5e1c624e17c6 100644
-> --- a/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c
-> +++ b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.c
-> @@ -6,22 +6,717 @@
->    * Copyright (C) 2025 Michael Riesch <michael.riesch@wolfvision.net>
->    */
+> > Then we'll again check if the retval was -EOPNOTSUPP and re-check the
+> > viommu_type requested.. which seems a little counter intuitive.
 > 
-> +#include <linux/interrupt.h>
-> +
-> +#include <media/mipi-csi2.h>
-> +#include <media/v4l2-common.h>
-> +#include <media/v4l2-event.h>
-> +#include <media/v4l2-fh.h>
-> +#include <media/v4l2-fwnode.h>
-> +#include <media/v4l2-ioctl.h>
-> +#include <media/v4l2-mc.h>
-> +#include <media/v4l2-subdev.h>
-> +
->   #include "rkcif-capture-mipi.h"
->   #include "rkcif-common.h"
-> +#include "rkcif-interface.h"
-> +#include "rkcif-regs.h"
->   #include "rkcif-stream.h"
-> 
-> +#define RKCIF_MIPI_CTRL0_COMPACT_EN    BIT(6)
-> +#define RKCIF_MIPI_CTRL0_CROP_EN       BIT(5)
-> +#define RKCIF_MIPI_CTRL0_TYPE(type)    ((type) << 1)
-> +#define RKCIF_MIPI_CTRL0_TYPE_RAW8     RKCIF_MIPI_CTRL0_TYPE(0x0)
-> +#define RKCIF_MIPI_CTRL0_TYPE_RAW10    RKCIF_MIPI_CTRL0_TYPE(0x1)
-> +#define RKCIF_MIPI_CTRL0_TYPE_RAW12    RKCIF_MIPI_CTRL0_TYPE(0x2)
-> +#define RKCIF_MIPI_CTRL0_TYPE_RGB888   RKCIF_MIPI_CTRL0_TYPE(0x3)
-> +#define RKCIF_MIPI_CTRL0_TYPE_YUV422SP RKCIF_MIPI_CTRL0_TYPE(0x4)
-> +#define RKCIF_MIPI_CTRL0_TYPE_YUV420SP RKCIF_MIPI_CTRL0_TYPE(0x5)
-> +#define RKCIF_MIPI_CTRL0_TYPE_YUV400   RKCIF_MIPI_CTRL0_TYPE(0x6)
-> +#define RKCIF_MIPI_CTRL0_CAP_EN	       BIT(0)
-> +
-> +#define RKCIF_MIPI_INT_FRAME0_END(id)  BIT(8 + (id) * 2 + 0)
-> +#define RKCIF_MIPI_INT_FRAME1_END(id)  BIT(8 + (id) * 2 + 1)
-> +
-> +static const struct rkcif_output_fmt mipi_out_fmts[] = {
-> +	/* YUV formats */
-> +	{
-> +		.fourcc = V4L2_PIX_FMT_YUYV,
-> +		.mbus_code = MEDIA_BUS_FMT_YUYV8_1X16,
-> +		.depth = 16,
-> +		.cplanes = 1,
-> +		.mipi = {
-> +			.dt = MIPI_CSI2_DT_YUV422_8B,
-> +			.ctrl0_val = RKCIF_MIPI_CTRL0_TYPE_RAW8,
-> +		},
-> +	},
-> +	{
-> +		.fourcc = V4L2_PIX_FMT_UYVY,
-> +		.mbus_code = MEDIA_BUS_FMT_UYVY8_1X16,
-> +		.depth = 16,
-> +		.cplanes = 1,
-> +		.mipi = {
-> +			.dt = MIPI_CSI2_DT_YUV422_8B,
-> +			.ctrl0_val = RKCIF_MIPI_CTRL0_TYPE_RAW8,
-> +		},
-> +	},
-> +	{
-> +		.fourcc = V4L2_PIX_FMT_YVYU,
-> +		.mbus_code = MEDIA_BUS_FMT_YVYU8_1X16,
-> +		.depth = 16,
-> +		.cplanes = 1,
-> +		.mipi = {
-> +			.dt = MIPI_CSI2_DT_YUV422_8B,
-> +			.ctrl0_val = RKCIF_MIPI_CTRL0_TYPE_RAW8,
-> +		},
-> +	},
-> +	{
-> +		.fourcc = V4L2_PIX_FMT_VYUY,
-> +		.mbus_code = MEDIA_BUS_FMT_VYUY8_1X16,
-> +		.depth = 16,
-> +		.cplanes = 1,
-> +		.mipi = {
-> +			.dt = MIPI_CSI2_DT_YUV422_8B,
-> +			.ctrl0_val = RKCIF_MIPI_CTRL0_TYPE_RAW8,
-> +		},
-> +	},
-> +	/* RGB formats */
-> +	{
-> +		.fourcc = V4L2_PIX_FMT_RGB24,
-> +		.mbus_code = MEDIA_BUS_FMT_RGB888_1X24,
-> +		.depth = 24,
-> +		.cplanes = 1,
-> +		.mipi = {
-> +			.dt = MIPI_CSI2_DT_RGB888,
-> +			.ctrl0_val = RKCIF_MIPI_CTRL0_TYPE_RGB888,
-> +		},
-> +	},
-> +	{
-> +		.fourcc = V4L2_PIX_FMT_BGR24,
-> +		.mbus_code = MEDIA_BUS_FMT_BGR888_1X24,
-> +		.depth = 24,
-> +		.cplanes = 1,
-> +		.mipi = {
-> +			.dt = MIPI_CSI2_DT_RGB888,
-> +			.ctrl0_val = RKCIF_MIPI_CTRL0_TYPE_RGB888,
-> +		},
-> +	},
-> +	/* Bayer formats */
-> +	{
-> +		.fourcc = V4L2_PIX_FMT_SBGGR8,
-> +		.mbus_code = MEDIA_BUS_FMT_SBGGR8_1X8,
-> +		.depth = 8,
-> +		.cplanes = 1,
-> +		.mipi = {
-> +			.dt = MIPI_CSI2_DT_RAW8,
-> +			.ctrl0_val = RKCIF_MIPI_CTRL0_TYPE_RAW8,
-> +		},
-> +	},
-> +	{
-> +		.fourcc = V4L2_PIX_FMT_SGBRG8,
-> +		.mbus_code = MEDIA_BUS_FMT_SGBRG8_1X8,
-> +		.depth = 8,
-> +		.cplanes = 1,
-> +		.mipi = {
-> +			.dt = MIPI_CSI2_DT_RAW8,
-> +			.ctrl0_val = RKCIF_MIPI_CTRL0_TYPE_RAW8,
-> +		},
-> +	},
-> +	{
-> +		.fourcc = V4L2_PIX_FMT_SGRBG8,
-> +		.mbus_code = MEDIA_BUS_FMT_SGRBG8_1X8,
-> +		.depth = 8,
-> +		.cplanes = 1,
-> +		.mipi = {
-> +			.dt = MIPI_CSI2_DT_RAW8,
-> +			.ctrl0_val = RKCIF_MIPI_CTRL0_TYPE_RAW8,
-> +		},
-> +	},
-> +	{
-> +		.fourcc = V4L2_PIX_FMT_SRGGB8,
-> +		.mbus_code = MEDIA_BUS_FMT_SRGGB8_1X8,
-> +		.depth = 8,
-> +		.cplanes = 1,
-> +		.mipi = {
-> +			.dt = MIPI_CSI2_DT_RAW8,
-> +			.ctrl0_val = RKCIF_MIPI_CTRL0_TYPE_RAW8,
-> +		},
-> +	},
-> +	{
-> +		.fourcc = V4L2_PIX_FMT_SBGGR10,
-> +		.mbus_code = MEDIA_BUS_FMT_SBGGR10_1X10,
-> +		.depth = 10,
-> +		.cplanes = 1,
-> +		.mipi = {
-> +			.dt = MIPI_CSI2_DT_RAW10,
-> +			.ctrl0_val = RKCIF_MIPI_CTRL0_TYPE_RAW10,
-> +		},
-> +	},
-> +	{
-> +		.fourcc = V4L2_PIX_FMT_SBGGR10P,
-> +		.mbus_code = MEDIA_BUS_FMT_SBGGR10_1X10,
-> +		.depth = 10,
-> +		.cplanes = 1,
-> +		.mipi = {
-> +			.dt = MIPI_CSI2_DT_RAW10,
-> +			.ctrl0_val = RKCIF_MIPI_CTRL0_TYPE_RAW10 | RKCIF_MIPI_CTRL0_COMPACT_EN,
-> +		},
-> +	},
-> +	{
-> +		.fourcc = V4L2_PIX_FMT_SGBRG10,
-> +		.mbus_code = MEDIA_BUS_FMT_SGBRG10_1X10,
-> +		.depth = 10,
-> +		.cplanes = 1,
-> +		.mipi = {
-> +			.dt = MIPI_CSI2_DT_RAW10,
-> +			.ctrl0_val = RKCIF_MIPI_CTRL0_TYPE_RAW10,
-> +		},
-> +	},
-> +	{
-> +		.fourcc = V4L2_PIX_FMT_SGBRG10P,
-> +		.mbus_code = MEDIA_BUS_FMT_SGBRG10_1X10,
-> +		.depth = 10,
-> +		.cplanes = 1,
-> +		.mipi = {
-> +			.dt = MIPI_CSI2_DT_RAW10,
-> +			.ctrl0_val = RKCIF_MIPI_CTRL0_TYPE_RAW10 | RKCIF_MIPI_CTRL0_COMPACT_EN,
-> +		},
-> +	},
-> +	{
-> +		.fourcc = V4L2_PIX_FMT_SGRBG10,
-> +		.mbus_code = MEDIA_BUS_FMT_SGRBG10_1X10,
-> +		.depth = 10,
-> +		.cplanes = 1,
-> +		.mipi = {
-> +			.dt = MIPI_CSI2_DT_RAW10,
-> +			.ctrl0_val = RKCIF_MIPI_CTRL0_TYPE_RAW10,
-> +		},
-> +	},
-> +	{
-> +		.fourcc = V4L2_PIX_FMT_SGRBG10P,
-> +		.mbus_code = MEDIA_BUS_FMT_SGRBG10_1X10,
-> +		.depth = 10,
-> +		.cplanes = 1,
-> +		.mipi = {
-> +			.dt = MIPI_CSI2_DT_RAW10,
-> +			.ctrl0_val = RKCIF_MIPI_CTRL0_TYPE_RAW10 | RKCIF_MIPI_CTRL0_COMPACT_EN,
-> +		},
-> +	},
-> +	{
-> +		.fourcc = V4L2_PIX_FMT_SRGGB10,
-> +		.mbus_code = MEDIA_BUS_FMT_SRGGB10_1X10,
-> +		.depth = 10,
-> +		.cplanes = 1,
-> +		.mipi = {
-> +			.dt = MIPI_CSI2_DT_RAW10,
-> +			.ctrl0_val = RKCIF_MIPI_CTRL0_TYPE_RAW10,
-> +		},
-> +	},
-> +	{
-> +		.fourcc = V4L2_PIX_FMT_SRGGB10P,
-> +		.mbus_code = MEDIA_BUS_FMT_SRGGB10_1X10,
-> +		.depth = 10,
-> +		.cplanes = 1,
-> +		.mipi = {
-> +			.dt = MIPI_CSI2_DT_RAW10,
-> +			.ctrl0_val = RKCIF_MIPI_CTRL0_TYPE_RAW10 | RKCIF_MIPI_CTRL0_COMPACT_EN,
-> +		},
-> +	},
-> +	{
-> +		.fourcc = V4L2_PIX_FMT_SBGGR12,
-> +		.mbus_code = MEDIA_BUS_FMT_SBGGR12_1X12,
-> +		.depth = 12,
-> +		.cplanes = 1,
-> +		.mipi = {
-> +			.dt = MIPI_CSI2_DT_RAW12,
-> +			.ctrl0_val = RKCIF_MIPI_CTRL0_TYPE_RAW12,
-> +		},
-> +	},
-> +	{
-> +		.fourcc = V4L2_PIX_FMT_SBGGR12P,
-> +		.mbus_code = MEDIA_BUS_FMT_SBGGR12_1X12,
-> +		.depth = 12,
-> +		.cplanes = 1,
-> +		.mipi = {
-> +			.dt = MIPI_CSI2_DT_RAW12,
-> +			.ctrl0_val = RKCIF_MIPI_CTRL0_TYPE_RAW12 | RKCIF_MIPI_CTRL0_COMPACT_EN,
-> +		},
-> +	},
-> +	{
-> +		.fourcc = V4L2_PIX_FMT_SGBRG12,
-> +		.mbus_code = MEDIA_BUS_FMT_SGBRG12_1X12,
-> +		.depth = 12,
-> +		.cplanes = 1,
-> +		.mipi = {
-> +			.dt = MIPI_CSI2_DT_RAW12,
-> +			.ctrl0_val = RKCIF_MIPI_CTRL0_TYPE_RAW12,
-> +		},
-> +	},
-> +	{
-> +		.fourcc = V4L2_PIX_FMT_SGBRG12P,
-> +		.mbus_code = MEDIA_BUS_FMT_SGBRG12_1X12,
-> +		.depth = 12,
-> +		.cplanes = 1,
-> +		.mipi = {
-> +			.dt = MIPI_CSI2_DT_RAW12,
-> +			.ctrl0_val = RKCIF_MIPI_CTRL0_TYPE_RAW12 | RKCIF_MIPI_CTRL0_COMPACT_EN,
-> +		},
-> +	},
-> +	{
-> +		.fourcc = V4L2_PIX_FMT_SGRBG12,
-> +		.mbus_code = MEDIA_BUS_FMT_SGRBG12_1X12,
-> +		.depth = 12,
-> +		.cplanes = 1,
-> +		.mipi = {
-> +			.dt = MIPI_CSI2_DT_RAW12,
-> +			.ctrl0_val = RKCIF_MIPI_CTRL0_TYPE_RAW12,
-> +		},
-> +	},
-> +	{
-> +		.fourcc = V4L2_PIX_FMT_SGRBG12P,
-> +		.mbus_code = MEDIA_BUS_FMT_SGRBG12_1X12,
-> +		.depth = 12,
-> +		.cplanes = 1,
-> +		.mipi = {
-> +			.dt = MIPI_CSI2_DT_RAW12,
-> +			.ctrl0_val = RKCIF_MIPI_CTRL0_TYPE_RAW12 | RKCIF_MIPI_CTRL0_COMPACT_EN,
-> +		},
-> +	},
-> +	{
-> +		.fourcc = V4L2_PIX_FMT_SRGGB12,
-> +		.mbus_code = MEDIA_BUS_FMT_SRGGB12_1X12,
-> +		.depth = 12,
-> +		.cplanes = 1,
-> +		.mipi = {
-> +			.dt = MIPI_CSI2_DT_RAW12,
-> +			.ctrl0_val = RKCIF_MIPI_CTRL0_TYPE_RAW12,
-> +		},
-> +	},
-> +	{
-> +		.fourcc = V4L2_PIX_FMT_SRGGB12P,
-> +		.mbus_code = MEDIA_BUS_FMT_SRGGB12_1X12,
-> +		.depth = 12,
-> +		.cplanes = 1,
-> +		.mipi = {
-> +			.dt = MIPI_CSI2_DT_RAW12,
-> +			.ctrl0_val = RKCIF_MIPI_CTRL0_TYPE_RAW12 | RKCIF_MIPI_CTRL0_COMPACT_EN,
-> +		},
-> +	},
-> +};
-> +
-> +static const struct rkcif_input_fmt mipi_in_fmts[] = {
-> +	/* YUV formats */
-> +	{
-> +		.mbus_code = MEDIA_BUS_FMT_YUYV8_1X16,
-> +	},
-> +	{
-> +		.mbus_code = MEDIA_BUS_FMT_UYVY8_1X16,
-> +	},
-> +	{
-> +		.mbus_code = MEDIA_BUS_FMT_YVYU8_1X16,
-> +	},
-> +	{
-> +		.mbus_code = MEDIA_BUS_FMT_VYUY8_1X16,
-> +	},
-> +	/* RGB formats */
-> +	{
-> +		.mbus_code = MEDIA_BUS_FMT_RGB888_1X24,
-> +	},
-> +	{
-> +		.mbus_code = MEDIA_BUS_FMT_BGR888_1X24,
-> +	},
-> +	/* Bayer formats */
-> +	{
-> +		.mbus_code = MEDIA_BUS_FMT_SBGGR8_1X8,
-> +	},
-> +	{
-> +		.mbus_code = MEDIA_BUS_FMT_SGBRG8_1X8,
-> +	},
-> +	{
-> +		.mbus_code = MEDIA_BUS_FMT_SGRBG8_1X8,
-> +	},
-> +	{
-> +		.mbus_code = MEDIA_BUS_FMT_SRGGB8_1X8,
-> +	},
-> +	{
-> +		.mbus_code = MEDIA_BUS_FMT_SBGGR10_1X10,
-> +	},
-> +	{
-> +		.mbus_code = MEDIA_BUS_FMT_SGBRG10_1X10,
-> +	},
-> +	{
-> +		.mbus_code = MEDIA_BUS_FMT_SGRBG10_1X10,
-> +	},
-> +	{
-> +		.mbus_code = MEDIA_BUS_FMT_SRGGB10_1X10,
-> +	},
-> +	{
-> +		.mbus_code = MEDIA_BUS_FMT_SBGGR12_1X12,
-> +	},
-> +	{
-> +		.mbus_code = MEDIA_BUS_FMT_SGBRG12_1X12,
-> +	},
-> +	{
-> +		.mbus_code = MEDIA_BUS_FMT_SGRBG12_1X12,
-> +	},
-> +	{
-> +		.mbus_code = MEDIA_BUS_FMT_SRGGB12_1X12,
-> +	},
-> +};
-> +
-> +const struct rkcif_mipi_match_data rkcif_rk3568_vicap_mipi_match_data = {
-> +	.mipi_num = 1,
-> +	.regs = {
-> +		[RKCIF_MIPI_CTRL] = 0x20,
-> +		[RKCIF_MIPI_INTEN] = 0xa4,
-> +		[RKCIF_MIPI_INTSTAT] = 0xa8,
-> +	},
-> +	.regs_id = {
-> +		[RKCIF_ID0] = {
-> +			[RKCIF_MIPI_CTRL0] = 0x00,
-> +			[RKCIF_MIPI_CTRL1] = 0x04,
-> +			[RKCIF_MIPI_FRAME0_ADDR_Y] = 0x24,
-> +			[RKCIF_MIPI_FRAME0_ADDR_UV] = 0x2c,
-> +			[RKCIF_MIPI_FRAME0_VLW_Y] = 0x34,
-> +			[RKCIF_MIPI_FRAME0_VLW_UV] = 0x3c,
-> +			[RKCIF_MIPI_FRAME1_ADDR_Y] = 0x28,
-> +			[RKCIF_MIPI_FRAME1_ADDR_UV] = 0x30,
-> +			[RKCIF_MIPI_FRAME1_VLW_Y] = 0x38,
-> +			[RKCIF_MIPI_FRAME1_VLW_UV] = 0x40,
-> +			[RKCIF_MIPI_CROP_START] = 0xbc,
-> +		},
-> +		[RKCIF_ID1] = {
-> +			[RKCIF_MIPI_CTRL0] = 0x08,
-> +			[RKCIF_MIPI_CTRL1] = 0x0c,
-> +			[RKCIF_MIPI_FRAME0_ADDR_Y] = 0x44,
-> +			[RKCIF_MIPI_FRAME0_ADDR_UV] = 0x4c,
-> +			[RKCIF_MIPI_FRAME0_VLW_Y] = 0x54,
-> +			[RKCIF_MIPI_FRAME0_VLW_UV] = 0x5c,
-> +			[RKCIF_MIPI_FRAME1_ADDR_Y] = 0x48,
-> +			[RKCIF_MIPI_FRAME1_ADDR_UV] = 0x50,
-> +			[RKCIF_MIPI_FRAME1_VLW_Y] = 0x58,
-> +			[RKCIF_MIPI_FRAME1_VLW_UV] = 0x60,
-> +			[RKCIF_MIPI_CROP_START] = 0xc0,
-> +		},
-> +		[RKCIF_ID2] = {
-> +			[RKCIF_MIPI_CTRL0] = 0x10,
-> +			[RKCIF_MIPI_CTRL1] = 0x14,
-> +			[RKCIF_MIPI_FRAME0_ADDR_Y] = 0x64,
-> +			[RKCIF_MIPI_FRAME0_ADDR_UV] = 0x6c,
-> +			[RKCIF_MIPI_FRAME0_VLW_Y] = 0x74,
-> +			[RKCIF_MIPI_FRAME0_VLW_UV] = 0x7c,
-> +			[RKCIF_MIPI_FRAME1_ADDR_Y] = 0x68,
-> +			[RKCIF_MIPI_FRAME1_ADDR_UV] = 0x70,
-> +			[RKCIF_MIPI_FRAME1_VLW_Y] = 0x78,
-> +			[RKCIF_MIPI_FRAME1_VLW_UV] = 0x80,
-> +			[RKCIF_MIPI_CROP_START] = 0xc4,
-> +		},
-> +		[RKCIF_ID3] = {
-> +			[RKCIF_MIPI_CTRL0] = 0x18,
-> +			[RKCIF_MIPI_CTRL1] = 0x1c,
-> +			[RKCIF_MIPI_FRAME0_ADDR_Y] = 0x84,
-> +			[RKCIF_MIPI_FRAME0_ADDR_UV] = 0x8c,
-> +			[RKCIF_MIPI_FRAME0_VLW_Y] = 0x94,
-> +			[RKCIF_MIPI_FRAME0_VLW_UV] = 0x9c,
-> +			[RKCIF_MIPI_FRAME1_ADDR_Y] = 0x88,
-> +			[RKCIF_MIPI_FRAME1_ADDR_UV] = 0x90,
-> +			[RKCIF_MIPI_FRAME1_VLW_Y] = 0x98,
-> +			[RKCIF_MIPI_FRAME1_VLW_UV] = 0xa0,
-> +			[RKCIF_MIPI_CROP_START] = 0xc8,
-> +		},
-> +	},
-> +	.blocks = {
-> +		{
-> +			.offset = 0x80,
-> +		},
-> +	},
-> +};
-> +
-> +static inline unsigned int rkcif_mipi_get_reg(struct rkcif_interface *interface,
-> +					      unsigned int index)
-> +{
-> +	struct rkcif_device *rkcif = interface->rkcif;
-> +	unsigned int block, offset, reg;
-> +
-> +	block = interface->index - RKCIF_MIPI_BASE;
-> +
-> +	if (WARN_ON_ONCE(block > RKCIF_MIPI_MAX - RKCIF_MIPI_BASE) ||
-> +	    WARN_ON_ONCE(index > RKCIF_MIPI_REGISTER_MAX))
-> +		return RKCIF_REGISTER_NOTSUPPORTED;
-> +
-> +	offset = rkcif->match_data->mipi->blocks[block].offset;
-> +	reg = rkcif->match_data->mipi->regs[index];
-> +	if (reg == RKCIF_REGISTER_NOTSUPPORTED)
-> +		return reg;
-> +
-> +	return offset + reg;
-> +}
-> +
-> +static inline unsigned int rkcif_mipi_id_get_reg(struct rkcif_stream *stream,
-> +						 unsigned int index)
-> +{
-> +	struct rkcif_device *rkcif = stream->rkcif;
-> +	unsigned int block, id, offset, reg;
-> +
-> +	block = stream->interface->index - RKCIF_MIPI_BASE;
-> +	id = stream->id;
-> +
-> +	if (WARN_ON_ONCE(block > RKCIF_MIPI_MAX - RKCIF_MIPI_BASE) ||
-> +	    WARN_ON_ONCE(id > RKCIF_ID_MAX) ||
-> +	    WARN_ON_ONCE(index > RKCIF_MIPI_ID_REGISTER_MAX))
-> +		return RKCIF_REGISTER_NOTSUPPORTED;
-> +
-> +	offset = rkcif->match_data->mipi->blocks[block].offset;
-> +	reg = rkcif->match_data->mipi->regs_id[id][index];
-> +	if (reg == RKCIF_REGISTER_NOTSUPPORTED)
-> +		return reg;
-> +
-> +	return offset + reg;
-> +}
-> +
-> +static inline __maybe_unused void
-> +rkcif_mipi_write(struct rkcif_interface *interface, unsigned int index, u32 val)
-> +{
-> +	unsigned int addr = rkcif_mipi_get_reg(interface, index);
-> +
-> +	if (addr == RKCIF_REGISTER_NOTSUPPORTED)
-> +		return;
-> +
-> +	writel(val, interface->rkcif->base_addr + addr);
-> +}
-> +
-> +static inline __maybe_unused void
-> +rkcif_mipi_stream_write(struct rkcif_stream *stream, unsigned int index,
-> +			u32 val)
-> +{
-> +	unsigned int addr = rkcif_mipi_id_get_reg(stream, index);
-> +
-> +	if (addr == RKCIF_REGISTER_NOTSUPPORTED)
-> +		return;
-> +
-> +	writel(val, stream->rkcif->base_addr + addr);
-> +}
-> +
-> +static inline __maybe_unused u32
-> +rkcif_mipi_read(struct rkcif_interface *interface, unsigned int index)
-> +{
-> +	unsigned int addr = rkcif_mipi_get_reg(interface, index);
-> +
-> +	if (addr == RKCIF_REGISTER_NOTSUPPORTED)
-> +		return 0;
-> +
-> +	return readl(interface->rkcif->base_addr + addr);
-> +}
-> +
-> +static inline __maybe_unused u32
-> +rkcif_mipi_stream_read(struct rkcif_stream *stream, unsigned int index)
-> +{
-> +	unsigned int addr = rkcif_mipi_id_get_reg(stream, index);
-> +
-> +	if (addr == RKCIF_REGISTER_NOTSUPPORTED)
-> +		return 0;
-> +
-> +	return readl(stream->rkcif->base_addr + addr);
-> +}
-> +
-> +static void rkcif_mipi_queue_buffer(struct rkcif_stream *stream,
-> +				    unsigned int index)
-> +{
-> +	struct rkcif_buffer *buffer = stream->buffers[index];
-> +	u32 frm_addr_y, frm_addr_uv;
-> +
-> +	frm_addr_y = index ? RKCIF_MIPI_FRAME1_ADDR_Y :
-> +			     RKCIF_MIPI_FRAME0_ADDR_Y;
-> +	frm_addr_uv = index ? RKCIF_MIPI_FRAME1_ADDR_UV :
-> +			      RKCIF_MIPI_FRAME0_ADDR_UV;
-> +
-> +	rkcif_mipi_stream_write(stream, frm_addr_y,
-> +				buffer->buff_addr[RKCIF_PLANE_Y]);
-> +	rkcif_mipi_stream_write(stream, frm_addr_uv,
-> +				buffer->buff_addr[RKCIF_PLANE_UV]);
-> +}
-> +
-> +static int rkcif_mipi_start_streaming(struct rkcif_stream *stream)
-> +{
-> +	struct rkcif_interface *interface = stream->interface;
-> +	const struct rkcif_output_fmt *active_out_fmt;
-> +	struct v4l2_subdev_state *state;
-> +	u32 ctrl0 = 0, ctrl1 = 0, int_temp = 0, int_mask = 0, vlw = 0;
-> +	u16 height, width;
-> +	int ret = -EINVAL;
-> +
-> +	state = v4l2_subdev_lock_and_get_active_state(&interface->sd);
-> +
-> +	active_out_fmt = rkcif_stream_find_output_fmt(stream, false,
-> +						      stream->pix.pixelformat);
-> +	if (!active_out_fmt)
-> +		goto out;
-> +
-> +	height = stream->pix.height;
-> +	width = stream->pix.width;
-> +	/* TODO there may be different factors and/or alignment constraints */
-> +	vlw = ALIGN(width * 2, 8);
-> +
-> +	ctrl0 |= active_out_fmt->mipi.dt << 10;
-> +	ctrl0 |= active_out_fmt->mipi.ctrl0_val;
-> +	ctrl0 |= RKCIF_MIPI_CTRL0_CROP_EN;
-> +	ctrl0 |= RKCIF_MIPI_CTRL0_CAP_EN;
-> +
-> +	ctrl1 = RKCIF_XY_COORD(width, height);
-> +
-> +	int_mask |= RKCIF_MIPI_INT_FRAME0_END(stream->id);
-> +	int_mask |= RKCIF_MIPI_INT_FRAME1_END(stream->id);
-> +
-> +	int_temp = rkcif_mipi_read(interface, RKCIF_MIPI_INTEN);
-> +	int_temp |= int_mask;
-> +	rkcif_mipi_write(interface, RKCIF_MIPI_INTEN, int_temp);
-> +
-> +	int_temp = rkcif_mipi_read(interface, RKCIF_MIPI_INTSTAT);
-> +	int_temp &= ~int_mask;
-> +	rkcif_mipi_write(interface, RKCIF_MIPI_INTSTAT, int_temp);
-> +
-> +	rkcif_mipi_stream_write(stream, RKCIF_MIPI_FRAME0_VLW_Y, vlw);
-> +	rkcif_mipi_stream_write(stream, RKCIF_MIPI_FRAME1_VLW_Y, vlw);
-> +	rkcif_mipi_stream_write(stream, RKCIF_MIPI_FRAME0_VLW_UV, vlw);
-> +	rkcif_mipi_stream_write(stream, RKCIF_MIPI_FRAME1_VLW_UV, vlw);
-> +	rkcif_mipi_stream_write(stream, RKCIF_MIPI_CROP_START, 0x0);
-> +	rkcif_mipi_stream_write(stream, RKCIF_MIPI_CTRL1, ctrl1);
-> +	rkcif_mipi_stream_write(stream, RKCIF_MIPI_CTRL0, ctrl0);
-> +
-> +	ret = 0;
-> +
-> +out:
-> +	v4l2_subdev_unlock_state(state);
-> +	return ret;
-> +}
-> +
-> +static void rkcif_mipi_stop_streaming(struct rkcif_stream *stream)
-> +{
-> +	struct rkcif_interface *interface = stream->interface;
-> +	struct v4l2_subdev_state *state;
-> +	u32 int_temp = 0, int_mask = 0;
-> +
-> +	state = v4l2_subdev_lock_and_get_active_state(&interface->sd);
-> +
-> +	rkcif_mipi_stream_write(stream, RKCIF_MIPI_CTRL0, 0);
-> +
-> +	int_mask |= RKCIF_MIPI_INT_FRAME0_END(stream->id);
-> +	int_mask |= RKCIF_MIPI_INT_FRAME1_END(stream->id);
-> +
-> +	int_temp = rkcif_mipi_read(interface, RKCIF_MIPI_INTEN);
-> +	int_temp &= ~int_mask;
-> +	rkcif_mipi_write(interface, RKCIF_MIPI_INTEN, int_temp);
-> +
-> +	int_temp = rkcif_mipi_read(interface, RKCIF_MIPI_INTSTAT);
-> +	int_temp &= ~int_mask;
-> +	rkcif_mipi_write(interface, RKCIF_MIPI_INTSTAT, int_temp);
-> +
-> +	stream->stopping = false;
-> +
-> +	v4l2_subdev_unlock_state(state);
-> +}
-> +
-> +static void rkcif_mipi_set_crop(struct rkcif_stream *stream, u16 left, u16 top)
-> +{
-> +	u32 val;
-> +
-> +	val = RKCIF_XY_COORD(left, top);
-> +	rkcif_mipi_stream_write(stream, RKCIF_MIPI_CROP_START, val);
-> +}
-> +
->   irqreturn_t rkcif_mipi_isr(int irq, void *ctx)
->   {
-> +	struct device *dev = ctx;
-> +	struct rkcif_device *rkcif = dev_get_drvdata(dev);
->   	irqreturn_t ret = IRQ_NONE;
-> +	u32 intstat;
-> +
-> +	for (int i = 0; i < rkcif->match_data->mipi->mipi_num; i++) {
-> +		enum rkcif_interface_index index = RKCIF_MIPI_BASE + i;
-> +		struct rkcif_interface *interface = &rkcif->interfaces[index];
-> +
-> +		intstat = rkcif_mipi_read(interface, RKCIF_MIPI_INTSTAT);
-> +		rkcif_mipi_write(interface, RKCIF_MIPI_INTSTAT, intstat);
-> +
-> +		for (int j = 0; j < interface->streams_num; j++) {
-> +			struct rkcif_stream *stream = &interface->streams[j];
-> +
-> +			if (intstat & RKCIF_MIPI_INT_FRAME0_END(stream->id) ||
-> +			    intstat & RKCIF_MIPI_INT_FRAME1_END(stream->id)) {
-> +				rkcif_stream_pingpong(stream);
-> +				ret = IRQ_HANDLED;
-> +			}
-> +		}
-> +	}
-> 
->   	return ret;
->   }
-> 
->   int rkcif_mipi_register(struct rkcif_device *rkcif)
->   {
-> +	int ret, i;
-> +
-> +	if (!rkcif->match_data->mipi)
-> +		return 0;
-> +
-> +	for (i = 0; i < rkcif->match_data->mipi->mipi_num; i++) {
-> +		enum rkcif_interface_index index = RKCIF_MIPI_BASE + i;
-> +		struct rkcif_interface *interface = &rkcif->interfaces[index];
-> +
-> +		interface->index = index;
-> +		interface->type = RKCIF_IF_MIPI;
-> +		interface->in_fmts = mipi_in_fmts;
-> +		interface->in_fmts_num = ARRAY_SIZE(mipi_in_fmts);
-> +		interface->set_crop = rkcif_mipi_set_crop;
-> +		interface->streams_num = 0;
-> +		ret = rkcif_interface_register(rkcif, interface);
-> +		if (ret)
-> +			continue;
-> +
-> +		for (int j = 0; j < RKCIF_ID_MAX; j++) {
-> +			struct rkcif_stream *stream = &interface->streams[j];
-> +
-> +			stream->id = j;
-> +			stream->interface = interface;
-> +			stream->out_fmts = mipi_out_fmts;
-> +			stream->out_fmts_num = ARRAY_SIZE(mipi_out_fmts);
-> +			stream->queue_buffer = rkcif_mipi_queue_buffer;
-> +			stream->start_streaming = rkcif_mipi_start_streaming;
-> +			stream->stop_streaming = rkcif_mipi_stop_streaming;
-> +			ret = rkcif_stream_register(rkcif, stream);
-> +			if (ret)
-> +				goto err;
-> +			interface->streams_num++;
-> +		}
-> +	}
-> +
->   	return 0;
-> +
-> +err:
-> +	for (; i >= 0; i--) {
-> +		enum rkcif_interface_index index = RKCIF_MIPI_BASE + i;
-> +		struct rkcif_interface *interface = &rkcif->interfaces[index];
-> +
-> +		for (int j = 0; j < interface->streams_num; j++)
-> +			rkcif_stream_unregister(&interface->streams[j]);
-> +
-> +		rkcif_interface_unregister(interface);
-> +	}
-> +	return ret;
->   }
-> 
->   void rkcif_mipi_unregister(struct rkcif_device *rkcif)
->   {
-> +	if (!rkcif->match_data->mipi)
-> +		return;
-> +
-> +	for (int i = 0; i < rkcif->match_data->mipi->mipi_num; i++) {
-> +		enum rkcif_interface_index index = RKCIF_MIPI_BASE + i;
-> +		struct rkcif_interface *interface = &rkcif->interfaces[index];
-> +
-> +		for (int j = 0; j < interface->streams_num; j++)
-> +			rkcif_stream_unregister(&interface->streams[j]);
-> +
-> +		rkcif_interface_unregister(interface);
-> +	}
->   }
-> diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.h b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.h
-> index ee1a50a59505..1248af70bdab 100644
-> --- a/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.h
-> +++ b/drivers/media/platform/rockchip/rkcif/rkcif-capture-mipi.h
-> @@ -11,6 +11,8 @@
-> 
->   #include "rkcif-common.h"
-> 
-> +extern const struct rkcif_mipi_match_data rkcif_rk3568_vicap_mipi_match_data;
-> +
->   int rkcif_mipi_register(struct rkcif_device *rkcif);
-> 
->   void rkcif_mipi_unregister(struct rkcif_device *rkcif);
-> diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-common.h b/drivers/media/platform/rockchip/rkcif/rkcif-common.h
-> index 62fb3580eec5..d0d929648f21 100644
-> --- a/drivers/media/platform/rockchip/rkcif/rkcif-common.h
-> +++ b/drivers/media/platform/rockchip/rkcif/rkcif-common.h
-> @@ -93,9 +93,14 @@ struct rkcif_output_fmt {
->   	u32 fourcc;
->   	u32 mbus_code;
->   	u8 cplanes;
-> +	u8 depth;
-> 
->   	union {
->   		u32 dvp_fmt_val;
-> +		struct {
-> +			u8 dt;
-> +			u32 ctrl0_val;
-> +		} mipi;
->   	};
->   };
-> 
-> @@ -183,6 +188,16 @@ struct rkcif_interface {
->   	void (*set_crop)(struct rkcif_stream *stream, u16 left, u16 top);
->   };
-> 
-> +struct rkcif_mipi_match_data {
-> +	unsigned int mipi_num;
-> +	unsigned int regs[RKCIF_MIPI_REGISTER_MAX];
-> +	unsigned int regs_id[RKCIF_ID_MAX][RKCIF_MIPI_ID_REGISTER_MAX];
-> +
-> +	struct {
-> +		unsigned int offset;
-> +	} blocks[RKCIF_MIPI_MAX - RKCIF_MIPI_BASE];
-> +};
-> +
->   struct rkcif_dvp_match_data {
->   	const struct rkcif_input_fmt *in_fmts;
->   	unsigned int in_fmts_num;
-> @@ -198,6 +213,7 @@ struct rkcif_match_data {
->   	const char *const *clks;
->   	unsigned int clks_num;
->   	const struct rkcif_dvp_match_data *dvp;
-> +	const struct rkcif_mipi_match_data *mipi;
->   };
-> 
->   struct rkcif_device {
-> diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-dev.c b/drivers/media/platform/rockchip/rkcif/rkcif-dev.c
-> index 2dcd35771fc9..1d8815156c46 100644
-> --- a/drivers/media/platform/rockchip/rkcif/rkcif-dev.c
-> +++ b/drivers/media/platform/rockchip/rkcif/rkcif-dev.c
-> @@ -49,6 +49,7 @@ static const struct rkcif_match_data rk3568_vicap_match_data = {
->   	.clks = rk3568_vicap_clks,
->   	.clks_num = ARRAY_SIZE(rk3568_vicap_clks),
->   	.dvp = &rkcif_rk3568_vicap_dvp_match_data,
-> +	.mipi = &rkcif_rk3568_vicap_mipi_match_data,
->   };
-> 
->   static const struct of_device_id rkcif_plat_of_match[] = {
-> diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-interface.c b/drivers/media/platform/rockchip/rkcif/rkcif-interface.c
-> index 0ec524586594..f598a62f9fbd 100644
-> --- a/drivers/media/platform/rockchip/rkcif/rkcif-interface.c
-> +++ b/drivers/media/platform/rockchip/rkcif/rkcif-interface.c
-> @@ -188,7 +188,10 @@ static int rkcif_interface_enable_streams(struct v4l2_subdev *sd,
->   		stream = &interface->streams[RKCIF_ID0];
->   		rkcif_interface_apply_crop(stream, state);
->   	} else {
-> -		/* TODO implement for MIPI */
-> +		for_each_active_route(&state->routing, route) {
-> +			stream = &interface->streams[route->sink_stream];
-> +			rkcif_interface_apply_crop(stream, state);
-> +		}
->   	}
-> 
->   	mask = v4l2_subdev_state_xlate_streams(state, RKCIF_IF_PAD_SINK,
-> diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-regs.h b/drivers/media/platform/rockchip/rkcif/rkcif-regs.h
-> index 07fd64174e80..3d1f0c45c638 100644
-> --- a/drivers/media/platform/rockchip/rkcif/rkcif-regs.h
-> +++ b/drivers/media/platform/rockchip/rkcif/rkcif-regs.h
-> @@ -30,7 +30,29 @@ enum rkcif_dvp_register_index {
->   	RKCIF_DVP_REGISTER_MAX
->   };
-> 
-> -#define RKCIF_REGISTER_NOTSUPPORTED           0x420000
-> +enum rkcif_mipi_register_index {
-> +	RKCIF_MIPI_CTRL,
-> +	RKCIF_MIPI_INTEN,
-> +	RKCIF_MIPI_INTSTAT,
-> +	RKCIF_MIPI_REGISTER_MAX
-> +};
-> +
-> +enum rkcif_mipi_id_register_index {
-> +	RKCIF_MIPI_CTRL0,
-> +	RKCIF_MIPI_CTRL1,
-> +	RKCIF_MIPI_FRAME0_ADDR_Y,
-> +	RKCIF_MIPI_FRAME0_ADDR_UV,
-> +	RKCIF_MIPI_FRAME0_VLW_Y,
-> +	RKCIF_MIPI_FRAME0_VLW_UV,
-> +	RKCIF_MIPI_FRAME1_ADDR_Y,
-> +	RKCIF_MIPI_FRAME1_ADDR_UV,
-> +	RKCIF_MIPI_FRAME1_VLW_Y,
-> +	RKCIF_MIPI_FRAME1_VLW_UV,
-> +	RKCIF_MIPI_CROP_START,
-> +	RKCIF_MIPI_ID_REGISTER_MAX
-> +};
-> +
-> +#define RKCIF_REGISTER_NOTSUPPORTED	       0x420000
-> 
->   #define RKCIF_FETCH_Y(VAL)		       ((VAL) & 0x1fff)
-> 
-> 
-> --
-> 2.39.5
-> 
-> 
-> 
+> It's just prioritizing the impl_ops->vsmmu_alloc. Similar to the
+> probe, if VCMDQ is missing or encountering some initialization
+> problem, give it a chance to fallback to the standard SMMU.
 
-This looks pretty clean to me.
+I changed to this and it should be clear now:
 
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
++       /* Prioritize the impl that may support IOMMU_VIOMMU_TYPE_ARM_SMMUV3 */
++       if (master->smmu->impl_ops && master->smmu->impl_ops->vsmmu_alloc)
++               vsmmu = master->smmu->impl_ops->vsmmu_alloc(
++                       master->smmu, s2_parent, ictx, viommu_type, user_data);
++       if (PTR_ERR(vsmmu) == -EOPNOTSUPP) {
++               /* Otherwise, allocate an IOMMU_VIOMMU_TYPE_ARM_SMMUV3 here */
++               if (viommu_type == IOMMU_VIOMMU_TYPE_ARM_SMMUV3)
++                       vsmmu = iommufd_viommu_alloc(ictx, struct arm_vsmmu,
++                                                    core, &arm_vsmmu_ops);
+
+Thanks
+Nicolin
 
