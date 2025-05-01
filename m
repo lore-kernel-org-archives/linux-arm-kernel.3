@@ -4,75 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45A42C3ABA9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 12:14:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37B08C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 12:31:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vuFYQlpiboXulQVdnqCW/1ad3TJohzHdDO8kExCfgss=; b=FxhrF3NL7dI0HcOoWSNBWqaTEV
-	FNJOybN9sqJiOlpsNdIJsMwzZfytBKLujTfggX+wrDAZk8gUyKA6LjTfa5HYrBRbsAgxQIiPTcOvJ
-	nhe2L6TNjEdiFJdX9mf4SvD2JFnzwVLplYcIo3BU8GJhOeWi65gYdfHbMVu2MzC/YEnbsZP8NEtUw
-	+QL3VdmJb7ZBYyo6g6nU0JZlnpgw6zMBHvwr+j51JIy1OdvYYlUgxlIWAQCtDcX6NM3dv68w3IEUC
-	6fFc+ZbQ7xfX2mkdG/QXH6Pz0QQO7sZdcf9S3F8UfoCqn+jupkNfmZUejGwSLeUv23N9v/upuCP8U
-	sJ0smmsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QqP05HvsyFHyXUhuzMh7hDySSp2mRJszppy9RSFsx/c=; b=MBPc1Yh2atFEOzHNDRlweiBwyl
+	RLtkZjPiyA6CwPFfkMzHHIvE8qc1KzIJiPINT1gwaPrF6VoMGYgvDg1hCiylpxbJ7YRd0yd9e+S/m
+	EUa0HGcwpPobfhwFtScl6i/ZQgjSWGwU0n94xyzwWmchH/uzA12H+zgmMXrAUKxIsVuQbbr5B2xZt
+	+rwzrX5uBik/fmPtNm4hMv4Z9WZF9DrVvlhJSrT0jU+XxztwCTot0pmbwBJqTX67QggmOQ+RDlIy9
+	q0UnU7Uz7twNRl2OWgp4SoXu7jvRQZd4jb14ZcTuh0312Xp5byX+kfxSt+YE6Xt0XBm6R6ksBfmMt
+	SXKGPL4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uASoC-0000000FTqm-0GkZ;
-	Thu, 01 May 2025 12:14:32 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1uAT4N-0000000Fg3d-2r3t;
+	Thu, 01 May 2025 12:31:15 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uASMk-0000000FJTD-3KuR
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 11:46:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=vuFYQlpiboXulQVdnqCW/1ad3TJohzHdDO8kExCfgss=; b=lKtWt8kXWhnA4/k3Y+/frnORrS
-	JOrP8BIAc7PoPCw7DvS2Rjlo2CNt5BGWoFoNtQHTY/jp7PhWWBJ5wP1JmLPVp8oKEbipGACerL2Ib
-	4d8sW0w+l7BWElR5d7ekXHCNEeSGHkEfClq69MVtIZPmAPWDJmNBqf386RI33UvbjcOZoCQsn1T3v
-	9CInpFHH9KjtxPaXsdWjmT1vbuht3oIf10nRj+SjmsHMR9rpkOqifREsm/YnPM1j8qA1zcfaCQZsR
-	ob1erFbwKvTRX0cn+TK3x6uFjCzjBzQ5ZmRPfzlJX6HCgXZvmYOhvEIeNtndm8pu+nD9m4lkQUuUf
-	3Q/CtabA==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:52288 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1uASMf-00005x-1P;
-	Thu, 01 May 2025 12:46:05 +0100
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1uASM3-0021R3-2B; Thu, 01 May 2025 12:45:27 +0100
-In-Reply-To: <aBNe0Vt81vmqVCma@shell.armlinux.org.uk>
-References: <aBNe0Vt81vmqVCma@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next 6/6] net: stmmac: remove speed_mode_2500() method
+	id 1uASQ6-0000000FJth-0dO9;
+	Thu, 01 May 2025 11:49:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 248A14A6C4;
+	Thu,  1 May 2025 11:49:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B567AC4CEE3;
+	Thu,  1 May 2025 11:49:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746100177;
+	bh=FTxRP/NnhPU5ICm8D7Ow5D8WYpEp0BGoUoIw9tq6zRE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=u7biSUC90d0iurJoQdGw/mhEIxzn2WC1jyuPfbexApRPFHI5LH1eKc+ylGYrFqkVQ
+	 e8NvnwS1/wNGEVkdiz/233X45/rQDBvZRbyE0arJTV0ZcI3Pa+KDgDeZUhfyQVEh4q
+	 HpF1fu9rfIxFwI/VioUSE+ouKAymUZhHrIflRk12fopd8edCxI1WqyzS4v6bKZ2A7+
+	 2FqH21nDu+x1MSqZwzpXoJj1w8l8eyUdAqHO+L3eMVshZpgfGkVN2VJEHbWCa186W+
+	 AxZXKYDAicejeRAsiIKHLS59+H7Rl45JCkGroI0PgEGkmteSIribnilTMYvCZ6RQNp
+	 8nWuKpsJZeA3g==
+Date: Thu, 1 May 2025 13:49:34 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Michael Riesch <michael.riesch@collabora.com>
+Cc: Mehdi Djait <mehdi.djait@linux.intel.com>, 
+	Maxime Chevallier <maxime.chevallier@bootlin.com>, =?utf-8?B?VGjDqW8=?= Lebrun <theo.lebrun@bootlin.com>, 
+	Gerald Loacker <gerald.loacker@wolfvision.net>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Kever Yang <kever.yang@rock-chips.com>, Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+	Sebastian Reichel <sebastian.reichel@collabora.com>, Collabora Kernel Team <kernel@collabora.com>, 
+	Paul Kocialkowski <paulk@sys-base.io>, Alexander Shiyan <eagle.alexander923@gmail.com>, 
+	Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	Michael Riesch <michael.riesch@wolfvision.net>
+Subject: Re: [PATCH v6 04/13] media: dt-bindings: add rockchip rk3568 vicap
+Message-ID: <20250501-tidy-bittern-of-genius-ed375e@kuoka>
+References: <20240220-rk3568-vicap-v6-0-d2f5fbee1551@collabora.com>
+ <20240220-rk3568-vicap-v6-4-d2f5fbee1551@collabora.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1uASM3-0021R3-2B@rmk-PC.armlinux.org.uk>
-Date: Thu, 01 May 2025 12:45:27 +0100
+In-Reply-To: <20240220-rk3568-vicap-v6-4-d2f5fbee1551@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_044610_832596_86897C49 
-X-CRM114-Status: UNSURE (   8.95  )
+X-CRM114-CacheID: sfid-20250501_044938_213598_59BB6234 
+X-CRM114-Status: UNSURE (   9.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,43 +84,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove the speed_mode_2500() platform method which is no longer used
-or necessary, being superseded by the more flexible get_interfaces()
-method.
+On Wed, Apr 30, 2025 at 11:15:53AM GMT, Michael Riesch wrote:
+> From: Michael Riesch <michael.riesch@wolfvision.net>
+> 
+> Add documentation for the Rockchip RK3568 Video Capture (VICAP) unit.
+> 
+> Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
+> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+> ---
+>  .../bindings/media/rockchip,rk3568-vicap.yaml      | 170 +++++++++++++++++++++
+>  MAINTAINERS                                        |   1 +
+>  2 files changed, 171 insertions(+)
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 3 ---
- include/linux/stmmac.h                            | 1 -
- 2 files changed, 4 deletions(-)
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 5f66f816a249..28b62bd73e23 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -7736,9 +7736,6 @@ int stmmac_dvr_probe(struct device *device,
- 		goto error_mdio_register;
- 	}
- 
--	if (priv->plat->speed_mode_2500)
--		priv->plat->speed_mode_2500(ndev, priv->plat->bsp_priv);
--
- 	ret = stmmac_pcs_setup(ndev);
- 	if (ret)
- 		goto error_pcs_setup;
-diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
-index 537bced69c46..26ddf95d23f9 100644
---- a/include/linux/stmmac.h
-+++ b/include/linux/stmmac.h
-@@ -241,7 +241,6 @@ struct plat_stmmacenet_data {
- 	int (*fix_soc_reset)(void *priv, void __iomem *ioaddr);
- 	int (*serdes_powerup)(struct net_device *ndev, void *priv);
- 	void (*serdes_powerdown)(struct net_device *ndev, void *priv);
--	void (*speed_mode_2500)(struct net_device *ndev, void *priv);
- 	int (*mac_finish)(struct net_device *ndev,
- 			  void *priv,
- 			  unsigned int mode,
--- 
-2.30.2
+Best regards,
+Krzysztof
 
 
