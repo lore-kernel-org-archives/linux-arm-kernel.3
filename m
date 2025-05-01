@@ -4,178 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26B46C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 15:48:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA42BC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 15:52:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aYEZLPKdUZISuZOI/rBHyqx5Uifx8MI0CIo/2MfshN4=; b=NE4ADaN7GvCkmXpZO2BqJPWzuO
-	346qOAKioQoJ9NTj5sBZWjT4z1BsNX6Xdlro+VliqQonpuEmVFiO8wxF5qaz9Rj19cucbFFRqkIAB
-	TUeX2CfnT05GSjeA8WOz0x+auQo19CyRZZLV5Ytl4frpEfP41il0bfcQb0cf1s+HlL6+LLDUfPtYC
-	0Yo2CXfYkZ5AlP8z7cmYuL3F7fmyGpHuN/T/8x344PNlH8OKOvocUSKxzv1UBK2XCbjNDZPiKn747
-	TPgKIrektDAfM31Qy/1oMA+IN2ZlHeEiZSUmKlZmtb39BN6AqYHRqVCDbXiPdvw2DCbC+as2AHkfl
-	FWleDbDw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e/gkyM3oFDnDmiC4diCmIxvY145pRyMQi2rIkFSJT9c=; b=ZwNyQeXDWNK7oo5TkxOYcuZxax
+	FnwUE2NBZDd1N866FjybjB6j2P+98mHDaX28xkQ/pbo67Wn1613uoXnlg25wRASGc/qr/tOdTRdev
+	TWXTnEXf7QAb3QvRTbBl9DMVkPsOVfRqZtIoAOGNmkQVSHJLUN1Kur0gMrNuiSU78+mULCmS/349o
+	/GEU2Jlkj6caClzLjRPsCpbWkFMtP3hea9PDuD4I3juVOn0Cb4Ja3pu9UeKBvmK0iDkPG52t5BmA5
+	RpxXFjPJI+l0xQjRPgFy0tZrnDrO7PW0Mr+4kS5osDOOb8pkps7vNJUhRyiltFsiCTziEWOkiJoXI
+	8SvbmGww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAW8d-0000000G6x7-1ZbZ;
-	Thu, 01 May 2025 15:47:51 +0000
-Received: from mail-bn8nam11on20620.outbound.protection.outlook.com ([2a01:111:f403:2414::620] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1uAWDC-0000000G7gi-1Nb3;
+	Thu, 01 May 2025 15:52:34 +0000
+Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAW5o-0000000G6e3-1PcX
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 15:44:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=k9Z82Xgjo17xPY8pWEm6AA3noAaOBaZk01dahg004te6GdtQ9mtRKb41mMEJ4hxcpJNt7a/8vLl7l2Gt6jHMip1sBdgu0XimyooGo8lkYX/bUD2dMRmSi1P3C5jOu+QpRc8mp+vRQeS/bFC4qbIGCjwywoE//ksFp2FiRYpCXzUQSzu8CWU7dYCiBZR4Q5RzHFjnuBU+2HS5JlYj+Jrzo2yNG6lE512va4zEQ1FC1ckKnQPNWn7lk13nfTO1IH0zhoXEUyoWmIrZvPR4FxMfgtLVms180InypC4GeEBtbE0mSywGg6XtxY/GVBrCE3VxHRToLepPL2ON4iOvWi/o7A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aYEZLPKdUZISuZOI/rBHyqx5Uifx8MI0CIo/2MfshN4=;
- b=Dl7tFZpa9vFsBx9AYMGO/ePh5IkVMIyOV/cwEjP+YgCCS3OnDS+fslVJ2s2CelCW0mPHx91NKSbAFBuXNyiR/M/YFndXTRjDALHOyP7FUD+P932HXQE+3YQ8Vo7gryAEmdzVjYTjCR2ph00SsJn/IVi1J8ZDqUllKW4KkyWW5jFxV0vmjri4NCB6EcNNf9FYNXEvQVlph4Y0wSX2SjGl0k0juRLVUdkbId9eD1eO3CD0Ntx4IPZavbZ6rqPsjceqR7so+u0LxnZvGx83ia1qBjfL1dQKu+zDJwKRs+ds/j8N9in0zPuGvKGmY05gYQGPXArYEtRns43XNDDENiIDqg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aYEZLPKdUZISuZOI/rBHyqx5Uifx8MI0CIo/2MfshN4=;
- b=HmRMe8WEzS2YBKLkWBiWLhhuBv2mELtCKZ2MRmgAw2pDhhMALWnfjM6FYu+rzMuDyhWIopxMEveRRQ6KzHUeHKGfoeD3PH/9BEco5tbn4kXQK0ifdPqcYKcfLmHqnyxlTa7DhpQYtEOtnp1VtZtcWzrJLNScIRFKajI0ru0qKdA=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from CH2PR12MB4956.namprd12.prod.outlook.com (2603:10b6:610:69::11)
- by CH3PR12MB7596.namprd12.prod.outlook.com (2603:10b6:610:14b::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.20; Thu, 1 May
- 2025 15:44:39 +0000
-Received: from CH2PR12MB4956.namprd12.prod.outlook.com
- ([fe80::fa2c:c4d3:e069:248d]) by CH2PR12MB4956.namprd12.prod.outlook.com
- ([fe80::fa2c:c4d3:e069:248d%3]) with mapi id 15.20.8699.019; Thu, 1 May 2025
- 15:44:39 +0000
-Message-ID: <8c8e9362-c116-4a80-bcb7-a44df68e0bfc@amd.com>
-Date: Thu, 1 May 2025 10:44:36 -0500
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/4] of: Common "memory-region" parsing
-To: Mathieu Poirier <mathieu.poirier@linaro.org>,
- "Rob Herring (Arm)" <robh@kernel.org>,
- Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
- Daniel Baluta <daniel.baluta@nxp.com>,
- Iuliana Prodan <iuliana.prodan@nxp.com>, "Andrew F. Davis" <afd@ti.com>
-Cc: Saravana Kannan <saravanak@google.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Patrice Chotard <patrice.chotard@foss.st.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Chen-Yu Tsai <wens@kernel.org>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-remoteproc@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-arm-msm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
-References: <20250423-dt-memory-region-v2-v2-0-2fbd6ebd3c88@kernel.org>
- <CANLsYkxKHhCHYrbAGzQ48QGpL_DbuLnX3=ppmpyu0vjuuvvODg@mail.gmail.com>
-Content-Language: en-US
-From: Tanmay Shah <tanmay.shah@amd.com>
-In-Reply-To: <CANLsYkxKHhCHYrbAGzQ48QGpL_DbuLnX3=ppmpyu0vjuuvvODg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SA0PR12CA0010.namprd12.prod.outlook.com
- (2603:10b6:806:6f::15) To CH2PR12MB4956.namprd12.prod.outlook.com
- (2603:10b6:610:69::11)
+	id 1uAWBI-0000000G7Sz-1n5W;
+	Thu, 01 May 2025 15:50:37 +0000
+Received: by mail-qv1-xf30.google.com with SMTP id 6a1803df08f44-6f0c30a1cf8so17661336d6.2;
+        Thu, 01 May 2025 08:50:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746114635; x=1746719435; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=e/gkyM3oFDnDmiC4diCmIxvY145pRyMQi2rIkFSJT9c=;
+        b=b3hKo8igwR+jRoPEBVP4umzG2qtBqt6apNZkQWAHtdT0x6FFiBUJnKqnShyUC7O8aJ
+         5sMPGvF7BjFfp03n/rTp3f4tKhzHQiEA8ARH/p9eIcxzSMh155AMdIiTK8hs6Y8jlNbO
+         OZQV6j79gGSzE5IGFsrri+YJ8VQBEt9ogGvXJshkTGs7/Gw/15dbuHgh9Qk0JnhIuLnk
+         TMooDB/O9aDs7tBhygyOYY/G+puEp6KOzzOE7jnGVpiPOVfbpx6PD+0qDb5Bs0fZPGA1
+         7PbWOfyUR4he3zRLWl50kOPqQaES6l+jUUxkPcI7P2bL5K/cnwurnNZhpjMnGf0LPjQg
+         V8rg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746114635; x=1746719435;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=e/gkyM3oFDnDmiC4diCmIxvY145pRyMQi2rIkFSJT9c=;
+        b=GfLec2fvO5tr8UhyDd1zn71My0n020rXnY22EqFsd8Mr0fzDzNj+OP2cwcCzzo5tMx
+         B4WS7bKpvu1up0nRCeDvxLBTmlyLAbyOIkabPbviXMfQz/iF09AjABqIiXC2kHv59kDv
+         VBljB+jaLe9gIAxKLjHTBk8Gpxa2ObfmY+nsmZU1EVpDFjXEB+dVK7OkSBYhOOmo/Qpm
+         XpOoxus3iBKdcKsBcm5nZHSRgA8AlSnyhH/ymPx4lZAFOrfiMy+kA0u5wvdYDzryVc5X
+         txzSqTYRrBjlpfIQ04LIO5szL/xyXvVrp5WvYqCJnahOfNnnbswAYjpJZbBKAE83mBfq
+         6FyA==
+X-Forwarded-Encrypted: i=1; AJvYcCWa3lUqdENmxy7vH9kgyTPUTRysQcXGbtIR79O2W+tBr0SY4tDZd0A7uwUHgehQQ9BN1Pw51bv5qAwfXH8dwAI=@lists.infradead.org, AJvYcCXqkxoN1ibpU3+fTKHtids97F67Ninrnv+8Nl8e0g6/mKbwJjqBEMfn8MWvnyl0PlEXtwfxRJMjE5PJf2sYefVn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyt99lDM0IS1zVSB9Rjf6PPH09K47doCnwwzpFaJ01MQzT8qdOH
+	ZmKV0iZYD/s2X5onqDhxhDHZphDoqlh7yIhvjwJzzL2tErkPbf8xtoayF4/TMA8jLgjdaXvPSkt
+	WIybEvFbpQGU58WUj2URN2eDILn8=
+X-Gm-Gg: ASbGnctiyKx+we4cA2E1ioP+kAgBirpnvD9YXcU83cQQFscs0vZO7p4R0ax0wBB75Hp
+	M02EIKO5bd3OIQEUO9p5Cak9RmIAxlhkT8IWqSKxsEOUWGTqEwiSpPjQp03iDEgQ+XoKO51xWxS
+	UqnruFGAJW4EtNI4KV7JJ2c6o=
+X-Google-Smtp-Source: AGHT+IHO/1JjpQlA3vZ2eRSDQvhzoweYMhYgCYf17uHdH7Vil20W5pGnhp9djE4FSIg3al8nnvRqCoV7aBjmQR5yuEs=
+X-Received: by 2002:a05:6214:d85:b0:6ed:122c:7da7 with SMTP id
+ 6a1803df08f44-6f50a8fa520mr51081636d6.5.1746114635123; Thu, 01 May 2025
+ 08:50:35 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PR12MB4956:EE_|CH3PR12MB7596:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6f6fa84f-2fd8-4267-5704-08dd88c71555
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MDVHdEczQkVzZG56bmVpbmdSdTdJRkh6UUd4ZzdGTnZRcjFCV3hvZDNYSUwz?=
- =?utf-8?B?UXBPMHJYUkc2ZEdqTmtVOE9lSGRRZlpwQUJEd2J1czNYS0ZVZElCWnluK0hC?=
- =?utf-8?B?bGpMR0xncENNZi9mRkFibk9xTU5CTG53S2pnejNIVEpnRlBMMWFEL05FUWRI?=
- =?utf-8?B?a1VDSkJuRWRDR21JSXJpQ1BwbGRkcjkvUk5zczZIWDVuWFdRczN0V0VZNTJ5?=
- =?utf-8?B?MW15b2ZRTktLTHBnSldzOXVjdEFuS2t6RVZCa0lKYklaYXVuRkp6eTlJNytk?=
- =?utf-8?B?S0F6bHBCeEZ0UXlReVR3OG1NMklwdXdQRFpwVDFVcm1aRXl6YTR2SFlLSEhL?=
- =?utf-8?B?SFhNYnN5QWN4WXBBWXhpSDAxQkI0TS9iYkJHRFYyNUdQeHh3ZTI3bkdnaU5u?=
- =?utf-8?B?eEwrcFpweVJ1T1NoMUlzL3RjUnhjRERkSUlDZHJxN0xyQzkyaU1aOWxYVElR?=
- =?utf-8?B?MHFhcndubzNtZW8wY2YwdU9tY1F5dzJSRGs3NmJMUEpKN0JUL1RkOXAyNE9T?=
- =?utf-8?B?dytwSG1sTS82cldwcXVaa1VtMllGQjVvL2s5aENCSnN2c0JpRHVwbFcvUWtM?=
- =?utf-8?B?N3AwajNtY0F4ZFRPcU11cjhEQXNUYjl0dFhjMWxnVkh0YWZ4b0xKSmZSeGFk?=
- =?utf-8?B?bitKbXdiUzE0UU1EcGh4QURiWkhWZi9kUHZDWWdiOW05Mk1jQ015VFJIK0x5?=
- =?utf-8?B?a1B6amE1YXdReVNwK3BMbEVqb0xocXRzdnIyRXRLSEg1RkNUMGZwdDQ4cnNW?=
- =?utf-8?B?TWIyUUQxdXBzL0kyQ3dyOWcvY0l0RkN5VEIrOE54azhKMzd4cklyUmcvMTB6?=
- =?utf-8?B?WnpJY0t5ZkVjakpaZ3lWVlIvcVFMNXA2RVNibzlYMnV2NXR5Ly84SFRtMmV6?=
- =?utf-8?B?NzhuY1lJOVU2WmZQMkxKSGh4ZVJBUFk2dytlWHU5RkZWWDVQaERxekVaNU1B?=
- =?utf-8?B?dTAybldvRWp3ZTZIdHljTHZ5NjhMeWt0WU9pS0hRYldXZDh3dThaRjF3bi9K?=
- =?utf-8?B?Yzl5dVVXMVlpVHlYaG9oTjI4M1d5NDF1VHRLNEdieFAya1M4N2cvTUxZYVBt?=
- =?utf-8?B?WDBtcHF3U1BibXlMZjZYQ0F2VEZJZVNXTmFGN0JkV0dCTUs2MnNsaHdvQ2RT?=
- =?utf-8?B?dTdzOHVGMEFqaVpnWGJmNDd1eW1MNnJEdTRUYS9wa3k5a2JLTGpRays5UE5U?=
- =?utf-8?B?ekw4TDhLVm5RKzVLQnJyajc1THVKQjBPTUJOVFRaeDQvVlpZWXh5R0lDdDZs?=
- =?utf-8?B?cGZ2MEduRjM4b2c3RWJ1T1pCaWg4WW9ReWpGNG9rTTYzNWNBeTFKb1hGclVF?=
- =?utf-8?B?V3VGU0hFV3J4OUZvY0Uyb2o3TnBOVjJac1FiZHBzSFlSRnJlNFpCYlE1RHBj?=
- =?utf-8?B?SDZnTWlsZlczb2lvSWxablh0RHVOSEkvb2QrVFM5c1UrL1lUUHhyOXVEbjdx?=
- =?utf-8?B?Ti9aS1dIeFZjbVVOTjNLaFMrZnBxQlBBdVVtVjJjMnRCUnF0bWE3TzdydHFH?=
- =?utf-8?B?b2tlZTl0UTVXNFQwaWE5NmxheDJNME1EbXRLVEZrV3kwK0J3QTNUK0NJU29M?=
- =?utf-8?B?S2RLTFRlbUMxNXB5VFJaQmhqbzVkYk1SSnRlVWQ3SFM4cGs5NUdkV0Vaemll?=
- =?utf-8?B?RmtUNEp4UUQwYnlFejBURHZFTGhYajZsR2pCK2c0RUNCVzJ3L0R4alNBaUp3?=
- =?utf-8?B?cWlVYVZUbllnUnI4am52cWNVWVhPS0NTRHE0ckZGYlExeXlJSjlQNGtqS25i?=
- =?utf-8?B?dkIzMU91TkpKTGhtZWR5eENJdEJLS2lBdnJpZEx5bzBEQWJMbWRMZ3hJMGlG?=
- =?utf-8?B?K1dnaFdsK1NBTGtYcGpGWk1UcHNoVytGRnQrRlF2bDVjbTVSemhoN245QzB5?=
- =?utf-8?B?ZkhSMFpaZ2Q2MG12UzN2d0NOK3ZBNWIwWU4vdWlIUDZpWjNwMkxPVnlmbWUr?=
- =?utf-8?Q?7JYS4F3lhPw=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH2PR12MB4956.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VlJ6VWlIN25mUGxpUWljRmFlUzUvU3Iydm5kVERnWDd6L1BuV004VVNSYlpF?=
- =?utf-8?B?V3dXOUo5Z1JLWFVPc3oxWmFoN3MrUm5nY1VTSU50QkJYZkI3cmZzY2c5V3Bw?=
- =?utf-8?B?UHZoYm0wWmdTK0hsS3Q4RTVMam5pVmlEQ3poMm9xa3FybEVXcm5hWU45bHp0?=
- =?utf-8?B?MUFkQ0VpQWpsbm5senlQQVc5cFFxaVBwTjRvTkJMN3NLck11cEVqTU11Z0I0?=
- =?utf-8?B?V2VSdzR6SGJiRVZZQ0RPSDh2amJDajZJc29JbUZLdW5NL2xOZXdqRE9PenJz?=
- =?utf-8?B?TUVnc2lqZTB3bTlqc2lWT21zRUhndFBrb1d4VmVETUhVVHB6cU1ZL21TYTE1?=
- =?utf-8?B?bXRuV0JFblBYK2hEa2xzU1VXbTAwS3J2RXRPUW5DUXFVTXpSUEpYUEhhaHNl?=
- =?utf-8?B?Vmp3OWptQ0x0Z0RmRDYwdDBFcVdsS2dIb3lwY29wckllYUpuSTYwcFJvRDl5?=
- =?utf-8?B?a0tNOTk2Q01iT2xncGZyN0dxbGEvRnRZeS9hMHdQcCtSZXgzZkFWeGhKSDRP?=
- =?utf-8?B?ZUlEQnZwSVZNVmMrSk5ESnR4d3RmUzJDQW1LSFBLVkFoU3M1ajZJVUI1NzRx?=
- =?utf-8?B?aTZFS01tTHZxUHp0RStxU2ZvYlFSeW9nNDNqVVg3TXM0RXNidFR1QVJDbEZW?=
- =?utf-8?B?N3BYSERMeVZQa0NndlZ5Y2ptV0c4LytqekU1TitmMGhOaVhpUU12U2REdHZO?=
- =?utf-8?B?R1U4dnVNMnR5ZDZ3Ri8zTnBycERqNVE0OXQvZlZXeVFJUGRlbFJLeHpFVEVx?=
- =?utf-8?B?WWpRblZiYXd3d1JOa2Vma3g2YXpDMEtqUUlZYnJ3RktzbENPcDdYNGVVaW9o?=
- =?utf-8?B?N3owdEpuSTQ2djZGcGJ3TklXSk1PUVZ6eThvSkhYTDFxUUVCZVVFUUlUM2xO?=
- =?utf-8?B?TWtmbXlhNWY2MHY5NDd3T0UvaVdPK3h5SHByTE9reFJ3K3hGUUk2M2hvZXVL?=
- =?utf-8?B?bGNvdWhsdm9YZm9IT0kydThMalU4Y1VSRFFzd1lWeHJhaU9XWW1qRjZIOTZ3?=
- =?utf-8?B?YmxsemVHanRxOGFLVGR0N29Kd3lpZXFVYWFGTFBndjNUUmRtNnJtdUxoN2NM?=
- =?utf-8?B?QWJrTGFEVjNsNGZSK1AwMm1UY2NGREhxWS9JZGxVYStsZ1puV3JGMTgyTzFC?=
- =?utf-8?B?UHpIdkJkdVdBMjF5VmRJVURJaFpqQmRDdVlNYzhGNUJVMlVlVTgwbmRQNXd6?=
- =?utf-8?B?bEVOM2dDYmM1R0lhcTdWRm5sVmNsRkFhbkpYZXhlK0hKNHNoN3EzLzlPZHhJ?=
- =?utf-8?B?Z1h1RVlkZkJ4bzMycXdUM091VHpCNXEzSGhBcC9kK3ZFYkJKK2VBaVpOM0oy?=
- =?utf-8?B?TzhadlQ5WnBGZEREYzVQMkxIOEZnOVVTRnlpZkhGcGhCcXhOVk93bSt0VGMv?=
- =?utf-8?B?NUI0OWZyRDhmUUdLUU0vOEJsRXRzUkRJaC9JWHVsWW5MN0ZVblA4QW5XV3Ar?=
- =?utf-8?B?ekZFMkpzUU5McEhibjFDVHkxZk1zRkp3OUFlY3dRUVI3VUJmSXl1aGVXNk5V?=
- =?utf-8?B?Rit0YzhIT2hscUI5bU9wRkQ3RXd4L0xlRk84T1BtV2I1QXlhemhsRStOU3Jw?=
- =?utf-8?B?N20wT0JhQ0lLdW5rREluUXQzYTVENDRJa3Nacjc3TGd6M0J3dmhKZFVzZ0Rm?=
- =?utf-8?B?bG1VN2FsZW5UWW81V2hlS1ZCRmtRcU81bXJOMFJaK0VQTU1ES1RhSUhsMUFs?=
- =?utf-8?B?N0h5NndnSFowUUs4ZVBkMGFUQjZyOUs4SFB2elR4M0hBQWtmWXlOZ0VWUGpr?=
- =?utf-8?B?cGt0YllTREpmay9wWjdLaVl6ZmZtRmJkRFI5YU4wMitZbDVxRjVUdkRIWjBG?=
- =?utf-8?B?Rm5vTDZLR3IzMlBjQUZhUUg5amxsK3hoZFVMTXdaZloyd3ZGTTdUbXVpQllG?=
- =?utf-8?B?QnR5czR5ajA0bG9adW04QmVaM01GZHlLTEpSSWpTMUhQaU5rcWdZbWF3U0p3?=
- =?utf-8?B?eFRwVnBDMTRrNnlYTmtKa0x5ZmJXTVNnckI4V2UvK3FxekUzRnpGTGJvS1lR?=
- =?utf-8?B?dldBRXFkRUkzVTA1cDRGOXQ1aHQ4OENSRXY5YlhLd1RYUk9GM29TQ3hRdlEw?=
- =?utf-8?B?T2hqTGc3MHBFaWg0MG85K0V6Z0F1Z1BVSE1HMTRpVDMzSHltbSt4dm4rR01t?=
- =?utf-8?Q?imdbMNUSUGzvb6Z+jr7PipF6C?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6f6fa84f-2fd8-4267-5704-08dd88c71555
-X-MS-Exchange-CrossTenant-AuthSource: CH2PR12MB4956.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 May 2025 15:44:39.5925
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hjsSOWHwy1y2PCYOkd244Qjhr8fU1y43pZQMdiHvop9L3d2Ckcbv0r+CGGCBrJet
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB7596
+References: <20250430082651.3152444-1-qun-wei.lin@mediatek.com>
+In-Reply-To: <20250430082651.3152444-1-qun-wei.lin@mediatek.com>
+From: Nhat Pham <nphamcs@gmail.com>
+Date: Thu, 1 May 2025 08:50:24 -0700
+X-Gm-Features: ATxdqUGn8eYuPIj4I1IzzOIEq-VCYnYbbowQLijhdEqfyu9by8KrA7NerQXniyA
+Message-ID: <CAKEwX=MNVwd_Z1PyBt7swd2VhUVivRN-5E+kHm-3XAPka0d84w@mail.gmail.com>
+Subject: Re: [PATCH] mm: Add Kcompressd for accelerated memory compression
+To: Qun-Wei Lin <qun-wei.lin@mediatek.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, Mike Rapoport <rppt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Sergey Senozhatsky <senozhatsky@chromium.org>, Minchan Kim <minchan@kernel.org>, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, Casper Li <casper.li@mediatek.com>, 
+	Chinwen Chang <chinwen.chang@mediatek.com>, Andrew Yang <andrew.yang@mediatek.com>, 
+	James Hsu <james.hsu@mediatek.com>, Barry Song <21cnbao@gmail.com>, 
+	Johannes Weiner <hannes@cmpxchg.org>, Yosry Ahmed <yosry.ahmed@linux.dev>, 
+	Chengming Zhou <chengming.zhou@linux.dev>, Shakeel Butt <shakeel.butt@linux.dev>, 
+	Kairui Song <ryncsn@gmail.com>, Joshua Hahn <joshua.hahnjy@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_084456_370226_72AF3F6E 
-X-CRM114-Status: GOOD (  17.42  )
+X-CRM114-CacheID: sfid-20250501_085036_471000_AECDDFD4 
+X-CRM114-Status: GOOD (  15.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,83 +99,114 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: tanmay.shah@amd.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mathieu,
+On Wed, Apr 30, 2025 at 1:27=E2=80=AFAM Qun-Wei Lin <qun-wei.lin@mediatek.c=
+om> wrote:
+>
+> This patch series introduces a new mechanism called kcompressd to
+> improve the efficiency of memory reclaiming in the operating system.
+>
+> Problem:
+>   In the current system, the kswapd thread is responsible for both scanni=
+ng
+>   the LRU pages and handling memory compression tasks (such as those
+>   involving ZSWAP/ZRAM, if enabled). This combined responsibility can lea=
+d
+>   to significant performance bottlenecks, especially under high memory
+>   pressure. The kswapd thread becomes a single point of contention, causi=
+ng
+>   delays in memory reclaiming and overall system performance degradation.
+>
+> Solution:
+>   Introduced kcompressd to handle asynchronous compression during memory
+>   reclaim, improving efficiency by offloading compression tasks from
+>   kswapd. This allows kswapd to focus on its primary task of page reclaim
+>   without being burdened by the additional overhead of compression.
+>
+> In our handheld devices, we found that applying this mechanism under high
+> memory pressure scenarios can increase the rate of pgsteal_anon per secon=
+d
+> by over 260% compared to the situation with only kswapd. Additionally, we
+> observed a reduction of over 50% in page allocation stall occurrences,
+> further demonstrating the effectiveness of kcompressd in alleviating memo=
+ry
+> pressure and improving system responsiveness.
+>
 
-I tested this patchset on top of recent for-next branch. I don't see 
-issue on AMD-xlnx ZynqMP platform. With this:
+Oh btw, testing this on a simple kernel building task triggers this:
 
-Tested-by: Tanmay Shah <tanmay.shah@amd.com>
+[  133.349908] WARNING: CPU: 0 PID: 50 at mm/memcontrol.c:5330
+obj_cgroup_charge_zswap+0x22e/0x250
+[  133.350505] Modules linked in: virtio_net pata_acpi net_failover
+failover virtio_rng rng_core ata_piix libata scsi_mod scsi_common
+[  133.351366] CPU: 0 UID: 0 PID: 50 Comm: kcompressd0 Not tainted
+6.14.0-ge65b549702a5 #218
+[  133.351940] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996),
+BIOS rel-1.16.0-0-gd239552ce722-prebuilt.qemu.org 04/01/2014
+[  133.352717] RIP: 0010:obj_cgroup_charge_zswap+0x22e/0x250
+[  133.353118] Code: d2 ff 85 c0 0f 85 7a fe ff ff be ff ff ff ff 48
+c7 c7 88 da f1 91 e8 a1 b4 a3 00 85 c0 0f 85 61 fe ff ff 0f 0b e9 5a
+fe ff ff <0f> 0b e9 f5 fd ff ff e8 36 ae a3 00 e9 78 fe ff ff e8 2c ae
+a3 00
+[  133.354372] RSP: 0018:ffff9f99803bbc00 EFLAGS: 00010246
+[  133.354782] RAX: ffff970f42a9a900 RBX: 000000000000013e RCX: 00000000000=
+00002
+[  133.355269] RDX: 0000000000000000 RSI: 000000000000013e RDI: ffff970f475=
+eab40
+[  133.355774] RBP: ffff970f475eab40 R08: 0000000000000000 R09: 00000000000=
+00000
+[  133.356269] R10: ffffffff90a21205 R11: ffffffff90a211ab R12: ffffffff90a=
+21205
+[  133.356782] R13: ffffc4984041ff40 R14: ffff970f42e66000 R15: 00000000000=
+0013e
+[  133.357279] FS:  0000000000000000(0000) GS:ffff970fbdc00000(0000)
+knlGS:0000000000000000
+[  133.357807] CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+[  133.358186] CR2: 00007f33950c5030 CR3: 00000000038ea000 CR4: 00000000000=
+006f0
+[  133.358656] DR0: 0000000000000000 DR1: 0000000000000000 DR2: 00000000000=
+00000
+[  133.359121] DR3: 0000000000000000 DR6: 00000000fffe0ff0 DR7: 00000000000=
+00400
+[  133.359597] Call Trace:
+[  133.359767]  <TASK>
+[  133.359914]  ? __warn+0x94/0x190
+[  133.360136]  ? obj_cgroup_charge_zswap+0x22e/0x250
+[  133.360476]  ? report_bug+0x168/0x170
+[  133.360742]  ? handle_bug+0x53/0x90
+[  133.360982]  ? exc_invalid_op+0x18/0x70
+[  133.361240]  ? asm_exc_invalid_op+0x1a/0x20
+[  133.361536]  ? zswap_store+0x755/0xf80
+[  133.361798]  ? zswap_store+0x6fb/0xf80
+[  133.362071]  ? zswap_store+0x755/0xf80
+[  133.362338]  ? obj_cgroup_charge_zswap+0x22e/0x250
+[  133.362661]  ? zswap_store+0x755/0xf80
+[  133.362943]  zswap_store+0x7e7/0xf80
+[  133.363203]  ? __pfx_kcompressd+0x10/0x10
+[  133.363472]  kcompressd+0xb1/0x180
+[  133.363724]  ? __pfx_autoremove_wake_function+0x10/0x10
+[  133.364082]  kthread+0xef/0x230
+[  133.364298]  ? __pfx_kthread+0x10/0x10
+[  133.364548]  ret_from_fork+0x34/0x50
+[  133.364810]  ? __pfx_kthread+0x10/0x10
+[  133.365063]  ret_from_fork_asm+0x1a/0x30
+[  133.365321]  </TASK>
+[  133.365471] irq event stamp: 18
+[  133.365680] hardirqs last  enabled at (17): [<ffffffff914bd0ef>]
+_raw_spin_unlock_irqrestore+0x4f/0x60
+[  133.366289] hardirqs last disabled at (18): [<ffffffff914b2031>]
+__schedule+0x6b1/0xe80
+[  133.366824] softirqs last  enabled at (0): [<ffffffff906b1caf>]
+copy_process+0x9af/0x2b50
+[  133.367366] softirqs last disabled at (0): [<0000000000000000>] 0x0
+[  133.367844] ---[ end trace 0000000000000000 ]---
 
-On 4/24/25 9:14 AM, Mathieu Poirier wrote:
-> Arnaud, Daniel, Iuliana, Andrew and Tanmay - please test this patchset
-> on the platforms you are working on.
-> 
-> Thanks,
-> Mathieu
-> 
-> On Wed, 23 Apr 2025 at 13:42, Rob Herring (Arm) <robh@kernel.org> wrote:
->>
->> While there's a common function to parse "memory-region" properties for
->> DMA pool regions, there's not anything for driver private regions. As a
->> result, drivers have resorted to parsing "memory-region" properties
->> themselves repeating the same pattern over and over. To fix this, this
->> series adds 2 functions to handle those cases:
->> of_reserved_mem_region_to_resource() and of_reserved_mem_region_count().
->>
->> I've converted the whole tree, but just including remoteproc here as
->> it has the most cases. I intend to apply the first 3 patches for 6.16
->> so the driver conversions can be applied for 6.17.
->>
->> A git tree with all the drivers converted is here[1].
->>
->> v2:
->> - Fix of_dma_set_restricted_buffer() to maintain behavior on warning msg
->> - Export devm_ioremap_resource_wc()
->> - Rework handling of resource name to drop unit-address from name as it
->>    was before.
->> - Link to v1:
->>    https://lore.kernel.org/all/20250317232426.952188-1-robh@kernel.org
->>
->> [1] git://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git dt/memory-region
->>
->> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
->> ---
->> Rob Herring (Arm) (4):
->>        of: reserved_mem: Add functions to parse "memory-region"
->>        of: Simplify of_dma_set_restricted_buffer() to use of_for_each_phandle()
->>        devres: Export devm_ioremap_resource_wc()
->>        remoteproc: Use of_reserved_mem_region_* functions for "memory-region"
->>
->>   drivers/of/device.c                       | 31 +++++-------
->>   drivers/of/of_reserved_mem.c              | 80 +++++++++++++++++++++++++++++++
->>   drivers/remoteproc/imx_dsp_rproc.c        | 45 +++++++----------
->>   drivers/remoteproc/imx_rproc.c            | 68 +++++++++++---------------
->>   drivers/remoteproc/qcom_q6v5_adsp.c       | 24 ++++------
->>   drivers/remoteproc/qcom_q6v5_mss.c        | 60 ++++++++---------------
->>   drivers/remoteproc/qcom_q6v5_pas.c        | 69 ++++++++++----------------
->>   drivers/remoteproc/qcom_q6v5_wcss.c       | 25 ++++------
->>   drivers/remoteproc/qcom_wcnss.c           | 23 ++++-----
->>   drivers/remoteproc/rcar_rproc.c           | 36 ++++++--------
->>   drivers/remoteproc/st_remoteproc.c        | 41 ++++++++--------
->>   drivers/remoteproc/stm32_rproc.c          | 44 ++++++++---------
->>   drivers/remoteproc/ti_k3_dsp_remoteproc.c | 28 +++++------
->>   drivers/remoteproc/ti_k3_m4_remoteproc.c  | 28 +++++------
->>   drivers/remoteproc/ti_k3_r5_remoteproc.c  | 28 +++++------
->>   drivers/remoteproc/xlnx_r5_remoteproc.c   | 51 ++++++++------------
->>   include/linux/of_reserved_mem.h           | 26 ++++++++++
->>   lib/devres.c                              |  1 +
->>   18 files changed, 339 insertions(+), 369 deletions(-)
->> ---
->> base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
->> change-id: 20250423-dt-memory-region-v2-a2b15caacc63
->>
->> Best regards,
->> --
->> Rob Herring (Arm) <robh@kernel.org>
->>
+Seems like we're trigger this warning in the zswap cgroup check (see
+obj_cgroup_may_zswap() in mm/memcontrol.c for more details):
 
+VM_WARN_ON_ONCE(!(current->flags & PF_MEMALLOC));
+
+Might wanna fix this...
 
