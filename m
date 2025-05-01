@@ -4,81 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F82BC3ABA3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 05:30:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE98DC3ABA9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 05:48:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WHj8Cwb8q2VjJ9Dtv2wOEvSjJNxf/JSEJossLrlxFWk=; b=zssdCaXvfX+yBPmr1HbVre+tRJ
-	Si1GqIOAf1EvsbOiErCDGfEUjDud1ublJhZ0YAD7JD7OOmYDyzVQCtt5tYEBZe3VAFWH1Xmh3Fwa2
-	3EqOzmil4oR6HxYqZZ7RPTiSEUQEqhQ2+tXMiL3/avCQ7TcBViqggRbfigizzmSkAznfVXlQIl2k0
-	m0EtJrpA6G/vXK3fk1+hVc3yzdzZzvx9ZFPCJkZL3ICL0beQAMXqgfJOninAAnKXu+hxLmJrCPL0C
-	T6SrFUoxzhMq4w1oL6wbmo5wDew2etM04XWGnQzxKcw+ZdmL6jgzDYZeHIlS1cXSEmzyc5WINEmZF
-	iUn6En1g==;
+	bh=FgzrLVaJB77MB0EBjdCKGzZJC/djdPOC9gp3eMYiPOE=; b=oJM03dfBOZmPSM3bgtkF4JcbYa
+	BA08goj43OM2zsFLOShff3M2vYs4YtmMxnGTimZFWg4F3FeZhyKmi2hWy3dZS/nK3YxkGu2b8l7Ks
+	v/wUgTMalVxRyM/yKXqTFjHll+/MNhPjAIGQCnsNQF1KHLKkkues38LlAwuWIWZfPKxeYb0C/1K/D
+	rX1gsB3uuhVIN4Htvt5vybtqJ/TsEVN5yf4qX1M2dZHKxzm5iDqW1BASAD5VUSKks2pfWgQSel3lG
+	POqcjeTAZu9+BesMhUcZIklsiuYQuV/i6IpzXIrPuXZ1HuLabZ1rk1WMlpUwfADIPW5dHCbcxEqcL
+	WvrwJjBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAMVH-0000000Elqf-2bhk;
-	Thu, 01 May 2025 05:30:35 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1uAMmh-0000000EnGx-1qKZ;
+	Thu, 01 May 2025 05:48:35 +0000
+Received: from mail-southindiaazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c409::1] helo=MA0PR01CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAMTM-0000000ElhK-1zdx
+	id 1uAMko-0000000En4A-1b7B
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 05:28:38 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2ff68033070so591588a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 22:28:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1746077315; x=1746682115; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=WHj8Cwb8q2VjJ9Dtv2wOEvSjJNxf/JSEJossLrlxFWk=;
-        b=RmJdAoiRqEPAAhsLsIWKNppK7W3pfZH6kKVKuNEGFe7BoT7Ne1ZZNfhIUzBXePhA0u
-         hYvpfgltLF3hwgB0twZfNTLNTCrexvxYEsxD0jxw6Qp/mxZt4fQXHsX7LbQR1hhlJcr6
-         m8MKJvAHGJfuRK/CsrLgcM50VORBTGmAIsaX6B59RAxPQH0e1lOw6V/uKN1OYLn9YQiW
-         YLbj6hjBqdEc9gcCzp8l1CbD3eoQQgwi7qU9m2kU5F+bkLhG36Tl+YkLWCvgUxir6hap
-         mMuCqrgIL5U1W8gd3kLyZ7UAK6ItMOAAryoq37huXNG0j5e/B9r2fg0RBzpyviP+hoKq
-         1MvA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746077315; x=1746682115;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=WHj8Cwb8q2VjJ9Dtv2wOEvSjJNxf/JSEJossLrlxFWk=;
-        b=W1Ugmf3vHW8u4EU4qT6U+Igt1QEL8GwiHPCZYg0bOZ7ZGRQTjrGk8b5F3TZuoriNST
-         Qrptr0OZbvD60SlK8+nCqEBu+0E7D7Q/YQ3Tvf+GXQuiQ5K+retGmb3DdiOzuUn+vW0g
-         vzEJF/IzDVJKdhEEaJ+PrBSD+A7SOoa8EnM2TmYtBZVPLK45qs9PTWmUwZRCt4Cc723y
-         1JMA5S4dQU429pV3oe5T7ODItBN7hj4eVG/SMk6eQTljLD9bCG0A7S/iVB3pmntc4l/x
-         qJPRZFC2g27S+MKnRN6bDmiAejkEFXpuSt00N4UZXHW8EVujeJwZ1VScCatVNfHV8jpz
-         TrVA==
-X-Forwarded-Encrypted: i=1; AJvYcCViLs0IUhgM/QCT603NtMDXoPLgnLQX+z4ZV1epniidzO/PmVTIXurYwXGZ1xIpTW+hX7GYJKWz5yqGOiFHMwxZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwcQtgPGNyggAxYEQyvqQImN+cg/LwxEoD5Q6CFFcj8OpmTH7af
-	uM7z+mbFCRrGQJmiv7aSzm26vqVpCwlze+abJQhOut/qmBsW/KhrjP5s9aNulK0+j7zRG77o9qH
-	sq2g92A==
-X-Google-Smtp-Source: AGHT+IEaXbmSVO/94V1Xc1oJJpIXquwO+RqB8A6EJq35zMnuc9249NpxOc3xG1uRj7oTqBDZbv2KgBoM5UKh
-X-Received: from pjbee8.prod.google.com ([2002:a17:90a:fc48:b0:2f4:465d:5c61])
- (user=jyescas job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:5290:b0:2ff:5e4e:861
- with SMTP id 98e67ed59e1d1-30a4335de2fmr1991820a91.24.1746077314864; Wed, 30
- Apr 2025 22:28:34 -0700 (PDT)
-Date: Wed, 30 Apr 2025 22:25:11 -0700
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.49.0.906.g1f30a19c02-goog
-Message-ID: <20250501052532.1903125-1-jyescas@google.com>
-Subject: [PATCH] mm: Add ARCH_FORCE_PAGE_BLOCK_ORDER to select page block order
-From: Juan Yescas <jyescas@google.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Juan Yescas <jyescas@google.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-mm@kvack.org
-Cc: tjmercier@google.com, isaacmanjarres@google.com, surenb@google.com, 
-	kaleshsingh@google.com, Vlastimil Babka <vbabka@suse.cz>, 
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
-	David Hildenbrand <david@redhat.com>, Mike Rapoport <rppt@kernel.org>, Zi Yan <ziy@nvidia.com>, 
-	Minchan Kim <minchan@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 01 May 2025 05:46:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KM9XxGuJK6iykPAOGuwzLwGzMl9i8fSXoQNd88wPbUxnW+mUM2sdP68Jnadwd1l9tVgLZOWIlqY15vUI/Yhre3YgVziRqZOesOj8CrlyA2mEOkBih1E+judFU6G5GF2DyLwwUchk7P9VVAFtPh6SRKveSDekz8nTiAjFhonmPBed+VbWqi9gRRSEs7XrbDyxiZmXEXYsUt6oUPMFFHERtT6L8DJC38hSNRPmkfPEkx7YtvSprpB4vRWd51GiyRmXzXJeFvOWhuAWiYUoZiWCTfHPJSAbf0W+vd5XcCSfINE/Qwov2CWVsM05wNjasZLCCUxGRnlLUwgO+hOabriLrA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FgzrLVaJB77MB0EBjdCKGzZJC/djdPOC9gp3eMYiPOE=;
+ b=hnsrmdil/cHzLnYHAZGMYvGKPcO5kcmVChzYUt66U+p9qpQpfnlKkNm0JaJTj+lhp01OqLCo8uxDaGKJunEOQ7isJnGqpdyjv3vaVIYdVIfmh7b72bXsqXB/Pi7Xz1fHFuvMSwxvvK7F4IY/MUZseCDfOo7UVjcTdYJaAS7FKjCIIYGeTdDTYVvR4ejlEpk7OAByYlskljGIr3+rQZK193Rat5nVgieDZvBY0SLvngrM9wazsK13WUpO4gVxJUoUNyJEfKvfbKlOe0LeFhgnK9touBAS25747KkhQuKXcTqiWE/+82z08wcQ3qtbuWCtorUbzXWrpdtCG6Ppww8bGg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=siliconsignals.io; dmarc=pass action=none
+ header.from=siliconsignals.io; dkim=pass header.d=siliconsignals.io; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=siliconsignals.io;
+Received: from PN0P287MB2019.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:1b8::9)
+ by MA0P287MB1090.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:e5::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.20; Thu, 1 May
+ 2025 05:46:23 +0000
+Received: from PN0P287MB2019.INDP287.PROD.OUTLOOK.COM
+ ([fe80::8f1d:511d:2d42:bf5c]) by PN0P287MB2019.INDP287.PROD.OUTLOOK.COM
+ ([fe80::8f1d:511d:2d42:bf5c%5]) with mapi id 15.20.8699.019; Thu, 1 May 2025
+ 05:46:23 +0000
+From: Himanshu Bhavani <himanshu.bhavani@siliconsignals.io>
+To: krzk+dt@kernel.org,
+	tarang.raval@siliconsignals.io
+Cc: Himanshu Bhavani <himanshu.bhavani@siliconsignals.io>,
+	Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: imx8mp-var-som: Fix LDO5 shutdown causing SD card timeout
+Date: Thu,  1 May 2025 11:16:03 +0530
+Message-Id: <20250501054604.23368-1-himanshu.bhavani@siliconsignals.io>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: PN4P287CA0122.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:c01:2b2::11) To PN0P287MB2019.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:c01:1b8::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PN0P287MB2019:EE_|MA0P287MB1090:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4d8f50d6-56ab-45ca-a2e3-08dd8873817f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|1800799024|52116014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?a/pVjV5w+e1yrnsjJWvrxKrxMA9Th2QILzt0sKoCjKioSr13oFSmJyB0ehGc?=
+ =?us-ascii?Q?/qRuqOC3hgKeQLD3UYGSa22JFYHydVQDOs4RZTzZqClAsrasndWmAb3Fi9jX?=
+ =?us-ascii?Q?zAJC+w7ZeJlDCzGsA0A93sv4vi8STMlMmJlV6ixXOWws2cV34/SP8H+9nKYR?=
+ =?us-ascii?Q?4JW+TKNTmt9m+WyiletW8sPCdPpBal2C4Ba2X9O4j6NHMJu+ngJDiK4RYN88?=
+ =?us-ascii?Q?BNx1o+9X/C/Cap0W75TJs8tj0pN2P9tOGhs2WxU3QzCeOihkFgoPzp4IgVXV?=
+ =?us-ascii?Q?mJ2Bjismuja+QQt/VHBEY3DUmrtg2fTsUGJuW+xrYSLulQESqKHzdqndiyaA?=
+ =?us-ascii?Q?qkfS1WZgSNUPlip0FCpD2btPNbxPhl8P1eYm9HBdokpQo9IfxEZUkPdJYkRM?=
+ =?us-ascii?Q?v5E33c1Foe36A1u5CPBBocbFgBTOce1QbC+m/xSvfajNYs4HGemKVKohO1At?=
+ =?us-ascii?Q?JEgIInL/zh//6QHf2LoACOVseAGlaHaxezETeHZHKV7iodIil8JHhL6/ihQG?=
+ =?us-ascii?Q?/qst5Jw5jjTT8lr0T8A9L65Ck3CRYNDBCy8Pj8qZ4vqJob04wpEMx34EoDOR?=
+ =?us-ascii?Q?qiU8jNIwQLENagQtaxczm/v8SxiIHHyksqkk6Rl/p/f4xr3AEvqhsrmEG+XP?=
+ =?us-ascii?Q?FaiQndSQf+0I65X/srJAGwJo8u2BIDq+2VTTUBY5Yt1W5gw7nbpJxs3K0EF1?=
+ =?us-ascii?Q?V2VWY5ljokr4a1hSjF+LHlTkIOWxCBhf3YuqUWJ6gvXsOnDRvrLlAdpvftgT?=
+ =?us-ascii?Q?smRkbCmqJCQViOfiZh2QyNla5vGjE/plNMhTGcNQaJlV9M7fXVEnWcAHzebF?=
+ =?us-ascii?Q?isjIabgO9X4lpNfVuwVZuaxc0VfzDcgPAaix3sij2XhFQ2+9pRAVk9JP1JoG?=
+ =?us-ascii?Q?y/GXGV4zyKeRVMA5+/Gbl9XtmoYVOcNFOk0JUbNrINkmUySCcT6jv6COAnEz?=
+ =?us-ascii?Q?6ninxyCh69dXjJ1HaYsDmj2R6Kd+WOgvmgMbcV/ULFpvfnV7k7Lp2svD9jP4?=
+ =?us-ascii?Q?l+YbJ2+1cS9933P9p3N0U2XwHFd0K7TkPCiO+XIrwSpEyne9feTaqtBF5kmv?=
+ =?us-ascii?Q?/8Yzq0qolG2kYZa7LuOpgTwAlkoYLh4zD5lAi1pK0bF0NA694jYc1c9b41Ut?=
+ =?us-ascii?Q?SajLNGJSoJPj9Ycs8NAZSPMWBm9DBXPACC4HVo4Kj7OSP0it0ev+CQrLbkrr?=
+ =?us-ascii?Q?KD8a03VIruc9EdNq1Fhpm6AlhD11Cl+5w4ndozQPoHuu2iKk90+oX9armwYK?=
+ =?us-ascii?Q?8XQ/I8vU0Olg8eB046AAvSYGwJTCE1zR45jj3kYcKSAWHnDFMkyf4sxvH3XY?=
+ =?us-ascii?Q?kjmRxOaGOvpB6arpZnX1BtupTVWwZM87Oo8evWSfjBvHpKJA1iC4o8mCDJQk?=
+ =?us-ascii?Q?kVajNbOKfIO34P4Rr77eXcfPwPQrUuIdCTbXDYCS9E9mr6HhSd7iNTtYkWR+?=
+ =?us-ascii?Q?HP9lYh/1ckPmkoic2UlKKJvPVIT2uNrds9chTkmt1Bem5bDojtQT/w=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PN0P287MB2019.INDP287.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(52116014)(376014)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LicdPpW8BEjA8+hW09r/AJBxQ+EKbyILLC6QRfwg6sxZ723J4x1xG8vAYfI4?=
+ =?us-ascii?Q?XTZ1Qocy535cfeXRmtgtXgq8y+40vcq4/u8X9rk2x4S34a2dr2c26S3f22+L?=
+ =?us-ascii?Q?5x3MJKIr8nMp7O4xG+Qbr/wm2GOHbpIkdqiZXCEvSsI2MNJjh/172komUMZg?=
+ =?us-ascii?Q?lyOK6POJutGLxNJt0XxZd4NV0pYyhJKVFIR8GoBI5/fWzogUmoRngGFQCyuR?=
+ =?us-ascii?Q?9QhTXKJDss7eqo1SE4Chu0/E0l+eJg1PPt3uj+Ru89CVMYJCJcY8PxLOpXBP?=
+ =?us-ascii?Q?XCs/UwimT6v1xK4ApkUv8NGV4ZAkoofu5P56d7HmxMNaQqnyMDLZNL9hV7mh?=
+ =?us-ascii?Q?P0BSXpLSub21UT4M2SXztpr7J5VanKY4Ew35peuFR92KmRUADyd4EapC6HcH?=
+ =?us-ascii?Q?J3HhiAZwHNbCRBTlE+IGnkj4Ck8+7v8CwF6RPT521cVbeWLKcNNRcs3DJ4aT?=
+ =?us-ascii?Q?lxybKtAbtPV2PERAilsKzS2rX0EqoVoqWobsOTHuzBmiMpTJSAy3yI5vNamC?=
+ =?us-ascii?Q?FKZ3ycz3+sYrxrw2R1GA4BZd8OdqfMqC7YFTcDKu24/UTzd2nxxb9NTsiSEo?=
+ =?us-ascii?Q?DgcdXF4MtJVK75lvQlrQlpJzkKqyI4xc00h72RHkWc+5SIisLnlV85PsKGQx?=
+ =?us-ascii?Q?4OPiRQzvRuqE0BgiNxKjhRdjEEKyBtmZAnPk3E3gmLaswbYuHTyXSpZkgCY9?=
+ =?us-ascii?Q?Dg7mlCFHHHVhMHpKBSFm0xEQVl4g/NxB5cQ6KtXEt3K59JFpaI+xs3M4T4WZ?=
+ =?us-ascii?Q?M3aC+b7rPAaH8TVYmV0orJWriQU/9VxvUdvupuFAPxeJuc4P6qhvG+7VvgEw?=
+ =?us-ascii?Q?ieULd9P4maRoAHXWnEFEVBnfvmSDpl5C9LjApcPVXfvyseKWLJ06OpWeiT/5?=
+ =?us-ascii?Q?4n7YeXu91Hq2Scs/249SVNtFHr/Cf90uDZZcmV7mEyfiFcE1kVMvZEatLyGR?=
+ =?us-ascii?Q?lbzDDY/8OoiQJo1mmXRRXq9aM/lL1NI2kuKcPRIDi2QCLA9UyFxU4+Al72SI?=
+ =?us-ascii?Q?dDnMG9Bwq7d4sIGwytwLnKrN/7tph0J8BuLJ1zVV5ETGYngBln3kvTILi8vS?=
+ =?us-ascii?Q?k0OHqWTXjJPoPH6+kps2pBDztucgseVBp+r918+Cs5LFRW3bQoRzWVoCezEP?=
+ =?us-ascii?Q?B1Y0P0OLpXOtyRHa1avAvvsS6fGrhFF26lMcjD2XtQmTKEj+iS83AzBkKCRj?=
+ =?us-ascii?Q?MsNGaLsu22DCFhbct9+sz63zHpW00mm48NUfEL1jqWva7FKfiMIOyWJnlPwK?=
+ =?us-ascii?Q?Tk/ntY2VYMTG5xiMDjRcROodVSrg9O0oADTiKBd7hgEmfZqZ17jzvas3ET9J?=
+ =?us-ascii?Q?HVqBXgSgoCmYcRIV+Y8Q3RtAi2ySZtU4xWOu8E2IDUl5GyUUmzjLXHhOTkLh?=
+ =?us-ascii?Q?JGMqzM3BcgJrRhGDhQlYc7EoDtnjBQ6qZ3B0jmp8MJk9HZmt3BdA6ulLnOaB?=
+ =?us-ascii?Q?7fWFeQt5Oane/nDZa3+kjDAgsrNfOYyQ/0xfl4eTzjExkIP0uxL7L4YJ9c6u?=
+ =?us-ascii?Q?iM0rNqn5mSEg1FtBNUkrjIbrCXorM+59nYDvzHQo/dUTuHwgd8uWl4Yw2lcb?=
+ =?us-ascii?Q?gZISEUXz+cP+ATzAf4iXfQUnPd0XvZwFdZRlPSTpB05MtjLzXAD9PMk47TWy?=
+ =?us-ascii?Q?glCqrUffXAGCJWVp17vJ5Lo=3D?=
+X-OriginatorOrg: siliconsignals.io
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4d8f50d6-56ab-45ca-a2e3-08dd8873817f
+X-MS-Exchange-CrossTenant-AuthSource: PN0P287MB2019.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 May 2025 05:46:23.3050
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 7ec5089e-a433-4bd1-a638-82ee62e21d37
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: YMBt8oX/8b4j8FBhGzvGwvs607mUMip71z5jQF/+18H/4I77TwF7P88Wex9gEw5qJmdiKrvsgCEkUrw/xUuFmnlWkeOkjf1VtMve8b21qcQ2i3GQ/R61yRbz8YUqSo0m
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA0P287MB1090
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_222836_518675_F05400B8 
-X-CRM114-Status: GOOD (  26.58  )
+X-CRM114-CacheID: sfid-20250430_224638_421893_8CF856C4 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,219 +161,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Problem: On large page size configurations (16KiB, 64KiB), the CMA
-alignment requirement (CMA_MIN_ALIGNMENT_BYTES) increases considerably,
-and this causes the CMA reservations to be larger than necessary.
-This means that system will have less available MIGRATE_UNMOVABLE and
-MIGRATE_RECLAIMABLE page blocks since MIGRATE_CMA can't fallback to them.
+Fix SD card timeout issue caused by LDO5 regulator getting disabled
+after boot.
 
-The CMA_MIN_ALIGNMENT_BYTES increases because it depends on
-MAX_PAGE_ORDER which depends on ARCH_FORCE_MAX_ORDER. The value of
-ARCH_FORCE_MAX_ORDER increases on 16k and 64k kernels.
+The kernel log shows LDO5 being disabled, which leads to a timeout
+on USDHC2:
+[   33.760561] LDO5: disabling
+[   81.119861] mmc1: Timeout waiting for hardware interrupt.
 
-For example, the CMA alignment requirement when:
+To prevent this, set regulator-boot-on and regulator-always-on for
+LDO5. Also add the vqmmc regulator to properly support 1.8V/3.3V
+signaling for USDHC2 using a GPIO-controlled regulator.
 
-- CONFIG_ARCH_FORCE_MAX_ORDER default value is used
-- CONFIG_TRANSPARENT_HUGEPAGE is set:
-
-PAGE_SIZE | MAX_PAGE_ORDER | pageblock_order | CMA_MIN_ALIGNMENT_BYTES
------------------------------------------------------------------------
-   4KiB   |      10        |      10         |  4KiB * (2 ^ 10)  =  4MiB
-  16Kib   |      11        |      11         | 16KiB * (2 ^ 11) =  32MiB
-  64KiB   |      13        |      13         | 64KiB * (2 ^ 13) = 512MiB
-
-There are some extreme cases for the CMA alignment requirement when:
-
-- CONFIG_ARCH_FORCE_MAX_ORDER maximum value is set
-- CONFIG_TRANSPARENT_HUGEPAGE is NOT set:
-- CONFIG_HUGETLB_PAGE is NOT set
-
-PAGE_SIZE | MAX_PAGE_ORDER | pageblock_order |  CMA_MIN_ALIGNMENT_BYTES
-------------------------------------------------------------------------
-   4KiB   |      15        |      15         |  4KiB * (2 ^ 15) = 128MiB
-  16Kib   |      13        |      13         | 16KiB * (2 ^ 13) = 128MiB
-  64KiB   |      13        |      13         | 64KiB * (2 ^ 13) = 512MiB
-
-This affects the CMA reservations for the drivers. If a driver in a
-4KiB kernel needs 4MiB of CMA memory, in a 16KiB kernel, the minimal
-reservation has to be 32MiB due to the alignment requirements:
-
-reserved-memory {
-    ...
-    cma_test_reserve: cma_test_reserve {
-        compatible = "shared-dma-pool";
-        size = <0x0 0x400000>; /* 4 MiB */
-        ...
-    };
-};
-
-reserved-memory {
-    ...
-    cma_test_reserve: cma_test_reserve {
-        compatible = "shared-dma-pool";
-        size = <0x0 0x2000000>; /* 32 MiB */
-        ...
-    };
-};
-
-Solution: Add a new config ARCH_FORCE_PAGE_BLOCK_ORDER that
-allows to set the page block order. The maximum page block
-order will be given by ARCH_FORCE_MAX_ORDER.
-
-By default, ARCH_FORCE_PAGE_BLOCK_ORDER will have the same
-value that ARCH_FORCE_MAX_ORDER. This will make sure that
-current kernel configurations won't be affected by this
-change. It is a opt-in change.
-
-This patch will allow to have the same CMA alignment
-requirements for large page sizes (16KiB, 64KiB) as that
-in 4kb kernels by setting a lower pageblock_order.
-
-Tests:
-
-- Verified that HugeTLB pages work when pageblock_order is 1, 7, 10
-on 4k and 16k kernels.
-
-- Verified that Transparent Huge Pages work when pageblock_order
-is 1, 7, 10 on 4k and 16k kernels.
-
-- Verified that dma-buf heaps allocations work when pageblock_order
-is 1, 7, 10 on 4k and 16k kernels.
-
-Benchmarks:
-
-The benchmarks compare 16kb kernels with pageblock_order 10 and 7. The
-reason for the pageblock_order 7 is because this value makes the min
-CMA alignment requirement the same as that in 4kb kernels (2MB).
-
-- Perform 100K dma-buf heaps (/dev/dma_heap/system) allocations of
-SZ_8M, SZ_4M, SZ_2M, SZ_1M, SZ_64, SZ_8, SZ_4. Use simpleperf
-(https://developer.android.com/ndk/guides/simpleperf) to measure
-the # of instructions and page-faults on 16k kernels.
-The benchmark was executed 10 times. The averages are below:
-
-           # instructions         |     #page-faults
-    order 10     |  order 7       | order 10 | order 7
---------------------------------------------------------
- 13,891,765,770	 | 11,425,777,314 |    220   |   217
- 14,456,293,487	 | 12,660,819,302 |    224   |   219
- 13,924,261,018	 | 13,243,970,736 |    217   |   221
- 13,910,886,504	 | 13,845,519,630 |    217   |   221
- 14,388,071,190	 | 13,498,583,098 |    223   |   224
- 13,656,442,167	 | 12,915,831,681 |    216   |   218
- 13,300,268,343	 | 12,930,484,776 |    222   |   218
- 13,625,470,223	 | 14,234,092,777 |    219   |   218
- 13,508,964,965	 | 13,432,689,094 |    225   |   219
- 13,368,950,667	 | 13,683,587,37  |    219   |   225
--------------------------------------------------------------------
- 13,803,137,433  | 13,131,974,268 |    220   |   220    Averages
-
-There were 4.85% #instructions when order was 7, in comparison
-with order 10.
-
-     13,803,137,433 - 13,131,974,268 = -671,163,166 (-4.86%)
-
-The number of page faults in order 7 and 10 were the same.
-
-These results didn't show any significant regression when the
-pageblock_order is set to 7 on 16kb kernels.
-
-- Run speedometer 3.1 (https://browserbench.org/Speedometer3.1/) 5 times
- on the 16k kernels with pageblock_order 7 and 10.
-
-order 10 | order 7  | order 7 - order 10 | (order 7 - order 10) %
--------------------------------------------------------------------
-  15.8	 |  16.4    |         0.6        |     3.80%
-  16.4	 |  16.2    |        -0.2        |    -1.22%
-  16.6	 |  16.3    |        -0.3        |    -1.81%
-  16.8	 |  16.3    |        -0.5        |    -2.98%
-  16.6	 |  16.8    |         0.2        |     1.20%
--------------------------------------------------------------------
-  16.44     16.4            -0.04	          -0.24%   Averages
-
-The results didn't show any significant regression when the
-pageblock_order is set to 7 on 16kb kernels.
-
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Vlastimil Babka <vbabka@suse.cz>
-Cc: Liam R. Howlett <Liam.Howlett@oracle.com>
-Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: David Hildenbrand <david@redhat.com>
-CC: Mike Rapoport <rppt@kernel.org>
-Cc: Zi Yan <ziy@nvidia.com>
-Cc: Suren Baghdasaryan <surenb@google.com>
-Cc: Minchan Kim <minchan@kernel.org>
-Signed-off-by: Juan Yescas <jyescas@google.com>
+Fixes: 6c2a1f4f71258 ("arm64: dts: imx8mp-var-som-symphony: Add Variscite Symphony board and VAR-SOM-MX8MP SoM")
+Signed-off-by: Himanshu Bhavani <himanshu.bhavani@siliconsignals.io>
 ---
- arch/arm64/Kconfig              | 14 ++++++++++++++
- include/linux/pageblock-flags.h | 12 +++++++++---
- 2 files changed, 23 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index a182295e6f08..d784049e1e01 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1658,6 +1658,20 @@ config ARCH_FORCE_MAX_ORDER
+kernel hangs during boot with the following logs:
+
+[   33.760561] LDO5: disabling
+[   81.119861] mmc1: Timeout waiting for hardware interrupt.
+[   81.119872] mmc1: sdhci: ============ SDHCI REGISTER DUMP ===========
+[   81.119876] mmc1: sdhci: Sys addr:  0x00000010 | Version:  0x00000002
+[   81.119882] mmc1: sdhci: Blk size:  0x00000200 | Blk cnt:  0x00000010
+[   81.119886] mmc1: sdhci: Argument:  0x00844358 | Trn mode: 0x0000002b
+[   81.119891] mmc1: sdhci: Present:   0x01f88009 | Host ctl: 0x00000012
+[   81.119896] mmc1: sdhci: Power:     0x00000002 | Blk gap:  0x00000080
+[   81.119900] mmc1: sdhci: Wake-up:   0x00000008 | Clock:    0x0000003f
+[   81.119904] mmc1: sdhci: Timeout:   0x0000008f | Int stat: 0x00000000
+[   81.119908] mmc1: sdhci: Int enab:  0x117f100b | Sig enab: 0x117f100b
+[   81.119912] mmc1: sdhci: ACmd stat: 0x00000000 | Slot int: 0x00000502
+[   81.119917] mmc1: sdhci: Caps:      0x07eb0000 | Caps_1:   0x0000b407
+[   81.119921] mmc1: sdhci: Cmd:       0x0000193a | Max curr: 0x00ffffff
+[   81.119925] mmc1: sdhci: Resp[0]:   0x00000900 | Resp[1]:  0x0076b27f
+[   81.119929] mmc1: sdhci: Resp[2]:   0x325b5900 | Resp[3]:  0x00000900
+[   81.119933] mmc1: sdhci: Host ctl2: 0x00000008
+[   81.119937] mmc1: sdhci: ADMA Err:  0x00000003 | ADMA Ptr: 0x4003f204
+[   81.119941] mmc1: sdhci-esdhc-imx: ========= ESDHC IMX DEBUG STATUS DUMP =========
+[   81.119944] mmc1: sdhci-esdhc-imx: cmd debug status:  0x21b0
+[   81.119949] mmc1: sdhci-esdhc-imx: data debug status:  0x2200
+[   81.119954] mmc1: sdhci-esdhc-imx: trans debug status:  0x2300
+[   81.119959] mmc1: sdhci-esdhc-imx: dma debug status:  0x2400
+[   81.119964] mmc1: sdhci-esdhc-imx: adma debug status:  0x2594
+[   81.119970] mmc1: sdhci-esdhc-imx: fifo debug status:  0x2608
+[   81.119976] mmc1: sdhci-esdhc-imx: async fifo debug status:  0x2798
+[   81.119981] mmc1: sdhci: ===========================================
+
+---
+ arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi | 14 +++++++++++++-
+ 1 file changed, 13 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi
+index b2ac2583a592..8d50e8382a1a 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi
+@@ -35,7 +35,6 @@ memory@40000000 {
+ 		      <0x1 0x00000000 0 0xc0000000>;
+ 	};
  
- 	  Don't change if unsure.
- 
-+config ARCH_FORCE_PAGE_BLOCK_ORDER
-+	int "Page Block Order"
-+	range 1 ARCH_FORCE_MAX_ORDER
-+	default ARCH_FORCE_MAX_ORDER
-+	help
-+	  The page block order refers to the power of two number of pages that
-+	  are physically contiguous and can have a migrate type associated to them.
-+	  The maximum size of the page block order is limited by ARCH_FORCE_MAX_ORDER.
+-
+ 	reg_usdhc2_vmmc: regulator-usdhc2-vmmc {
+ 	        compatible = "regulator-fixed";
+ 	        regulator-name = "VSD_3V3";
+@@ -46,6 +45,16 @@ reg_usdhc2_vmmc: regulator-usdhc2-vmmc {
+ 	        startup-delay-us = <100>;
+ 	        off-on-delay-us = <12000>;
+ 	};
 +
-+	  This option allows overriding the default setting when the page
-+	  block order requires to be smaller than ARCH_FORCE_MAX_ORDER.
-+
-+	  Don't change if unsure.
-+
- config UNMAP_KERNEL_AT_EL0
- 	bool "Unmap kernel when running in userspace (KPTI)" if EXPERT
- 	default y
-diff --git a/include/linux/pageblock-flags.h b/include/linux/pageblock-flags.h
-index fc6b9c87cb0a..ab3de96bb50c 100644
---- a/include/linux/pageblock-flags.h
-+++ b/include/linux/pageblock-flags.h
-@@ -28,6 +28,12 @@ enum pageblock_bits {
- 	NR_PAGEBLOCK_BITS
++	reg_usdhc2_vqmmc: regulator-usdhc2-vqmmc {
++		compatible = "regulator-gpio";
++		regulator-name = "VSD_VSEL";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <3300000>;
++		gpio = <&gpio2 12 GPIO_ACTIVE_HIGH>;
++		gpios-states = <1>;
++		states = <3300000 0x0 1800000 0x1>;
++	};
  };
  
-+#if defined(CONFIG_ARCH_FORCE_PAGE_BLOCK_ORDER)
-+#define PAGE_BLOCK_ORDER CONFIG_ARCH_FORCE_PAGE_BLOCK_ORDER
-+#else
-+#define PAGE_BLOCK_ORDER MAX_PAGE_ORDER
-+#endif /* CONFIG_ARCH_FORCE_PAGE_BLOCK_ORDER */
-+
- #if defined(CONFIG_HUGETLB_PAGE)
- 
- #ifdef CONFIG_HUGETLB_PAGE_SIZE_VARIABLE
-@@ -41,18 +47,18 @@ extern unsigned int pageblock_order;
-  * Huge pages are a constant size, but don't exceed the maximum allocation
-  * granularity.
-  */
--#define pageblock_order		MIN_T(unsigned int, HUGETLB_PAGE_ORDER, MAX_PAGE_ORDER)
-+#define pageblock_order		MIN_T(unsigned int, HUGETLB_PAGE_ORDER, PAGE_BLOCK_ORDER)
- 
- #endif /* CONFIG_HUGETLB_PAGE_SIZE_VARIABLE */
- 
- #elif defined(CONFIG_TRANSPARENT_HUGEPAGE)
- 
--#define pageblock_order		MIN_T(unsigned int, HPAGE_PMD_ORDER, MAX_PAGE_ORDER)
-+#define pageblock_order		MIN_T(unsigned int, HPAGE_PMD_ORDER, PAGE_BLOCK_ORDER)
- 
- #else /* CONFIG_TRANSPARENT_HUGEPAGE */
- 
- /* If huge pages are not used, group by MAX_ORDER_NR_PAGES */
--#define pageblock_order		MAX_PAGE_ORDER
-+#define pageblock_order		PAGE_BLOCK_ORDER
- 
- #endif /* CONFIG_HUGETLB_PAGE */
- 
+ &A53_0 {
+@@ -158,6 +167,8 @@ ldo5: LDO5 {
+ 				regulator-name = "LDO5";
+ 				regulator-min-microvolt = <1800000>;
+ 				regulator-max-microvolt = <3300000>;
++				regulator-boot-on;
++				regulator-always-on;
+ 			};
+ 		};
+ 	};
+@@ -205,6 +216,7 @@ &usdhc2 {
+         pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
+         cd-gpios = <&gpio1 14 GPIO_ACTIVE_LOW>;
+         vmmc-supply = <&reg_usdhc2_vmmc>;
++	vqmmc-supply = <&reg_usdhc2_vqmmc>;
+         bus-width = <4>;
+         status = "okay";
+ };
 -- 
-2.49.0.906.g1f30a19c02-goog
-
+2.34.1
 
