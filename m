@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F5B3C3ABAD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 12:31:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0D40C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 12:31:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aq135KQWpzNBlyp/plsJIqd7azKS3GZH+L2ojglW+eA=; b=AeJQ1vurzhFr6aU6npRmDgRbnJ
-	pkDVmrTCgRWo0zD0Mufp8ujLLrqrISLcSkqjrvelvQHnyX1rrp8rEwXhtl2Ki6EeU0bOqTL3HBESU
-	NSrm+lhL9NorRhSC568oTOxcNx6jK/84aHrp+gPivVlBpgZ2Qr0nJUJuHFtPZCABivoLkyVCRGQd9
-	zTmoFUS6Y3mYLJbPwvIVKN63Tb1n2xUnf9piOnbTQnvvUGO6BY6fDomfqVubmpGGtd2DSKUUmT1tL
-	LSNmrHdnT2RAP2Skl48IJtEkjBSBOowqv0OR+Jw9K7tVXFd0hINpX4cKpLIL+4auYwMSi3sANQ8es
-	FTmnPZ7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aTNwb4rImB7g18TxsqHFcDnqMMLrX8555tm+zk++cj8=; b=nGv1W07fGhLSUCcneM12bdh02V
+	ZB8bScN640PIXzZfv8QNVbfrZhKK/iiym8DGkIxcNje9tCUxnDMothKRsSBHYMQrOyDOtz0dwSlDs
+	StFOtjxDv/9LTlz2EIWV5NqMMh8c3HyjK+m96d6TjesNdIHEh3t06bK+qiI3bht68Til+J6bH6boK
+	nsH3bjlry/p1qe8FZ4tYEqvXCNut5qqqzGhETfDtP5qUNRMeI7rnA829BtTifQyTzfVhCCA7UrAzI
+	kOwMRAaIoWZ4tDXZC5abzjnM7JdQXBpP9vZx81+npVARUietHgQ7rR7isRt78ez7wceFqx9n+rpKc
+	xdzZfk7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAT4P-0000000Fg5G-1RnU;
+	id 1uAT4P-0000000Fg5x-3sm3;
 	Thu, 01 May 2025 12:31:17 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uASZ8-0000000FKdf-1MMZ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 11:58:59 +0000
+	id 1uASaK-0000000FKoA-1BJ9;
+	Thu, 01 May 2025 12:00:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 76E8E4A3DE;
-	Thu,  1 May 2025 11:58:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5BFBC4CEE3;
-	Thu,  1 May 2025 11:58:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 586B768468;
+	Thu,  1 May 2025 11:59:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DA6CC4CEE4;
+	Thu,  1 May 2025 12:00:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746100737;
-	bh=lumZpWP0OiXWgWPG1FqmM7YcJO8fszAqV2ndfUnzPdg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MXjj3YxK9S85YEhVJJKTb2B8BV+cKzezDlB8FsDcTEi9iX2+6c4rjR41jkMTADNc7
-	 jH6KBv1ay/EZ/OyppF/OAixPWZSXqxmI/h1a1vr8gXlYR5huqwSHTQ3DvZSklg/5LQ
-	 h3SHcamV2/opdbOJldoSCBVsDA9gTfhizE2R/XqxK7LVckYZSRkZTIqGoDoCMbw5eV
-	 cs4sJjo5H3kyNGNRRpZp3SrfdBm9R9RBwBWyF4YzI8a1J+NfTTyS7N2vp0hM70IN0f
-	 XVIxwBISDNquTEQBsdLzpphT2V7mzfZr+V9Vc8oYAuUhwy4Nq484EHIPoLs9lrU1tA
-	 LEyZFJHtSv6Jg==
-Date: Thu, 1 May 2025 12:58:53 +0100
+	s=k20201202; t=1746100810;
+	bh=z2F6Iq0+hrQEpIkV1fcg1WaUZezRhDU2gz0ArU4vrno=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=FYsGrvFLffhiha4aqHkEGShXosDNpziWGUHgvmVDigxpuGtwUNOvtBoSTZDyYxdep
+	 SZSx8/9SSh3vE39cBtXXqVDlyjm3+eLy+BoqTf+h5cIVkcJkwYfx+odlikVY+hgyfd
+	 wXoOc71APf3R7yHeCOFcur+WgJq4lOF3LZIBavk2ngkmdxUc/SKG5eqgG6h+nzYTlo
+	 VqREdJ/WFQXkkV52JcMGsj5+dtEAGoQIlh0H0KiDq0T3jqgCco3uXMTwXpQHb86Pth
+	 l5ggML4+v6nvlahSCh2YLw99hh04tQdqnqOHwAQt+adta+U2bLYP38Bj0IsBvj7s4t
+	 +bTbCajpFU7aQ==
 From: Lee Jones <lee@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, soc@lists.linux.dev,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: Re: [GIT PULL] samsung: drivers for v6.16
-Message-ID: <20250501115853.GI1567507@google.com>
-References: <20250501103541.13795-2-krzysztof.kozlowski@linaro.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
+ Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Frank Wunderlich <linux@fw-web.de>
+Cc: Frank Wunderlich <frank-w@public-files.de>, 
+ =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
+ Daniel Golle <daniel@makrotopia.org>, Sean Wang <sean.wang@mediatek.com>, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-phy@lists.infradead.org
+In-Reply-To: <20250422132438.15735-6-linux@fw-web.de>
+References: <20250422132438.15735-1-linux@fw-web.de>
+ <20250422132438.15735-6-linux@fw-web.de>
+Subject: Re: (subset) [PATCH v4 5/8] dt-bindings: mfd: syscon: Add
+ mt7988-topmisc
+Message-Id: <174610080698.3792828.16129247055603832189.b4-ty@kernel.org>
+Date: Thu, 01 May 2025 13:00:06 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250501103541.13795-2-krzysztof.kozlowski@linaro.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_045858_381631_39B0C589 
-X-CRM114-Status: GOOD (  10.75  )
+X-Mailer: b4 0.15-dev-39345
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,30 +80,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 01 May 2025, Krzysztof Kozlowski wrote:
+On Tue, 22 Apr 2025 15:24:28 +0200, Frank Wunderlich wrote:
+> Add compatible for Mediatek mt7988 topmisc syscon.
+> This hardware block contains 2 functional blocks
+> 
+> - a powercontroller which is not needed (switched by atf)
+> - a multiplexer for high-speed Combo-Phy
+> 
+> This compatible is only for the multiplexer part.
+> 
+> [...]
 
-> Hi Lee,
-> That's the stable tag for you to base MFD patches on top.
-> 
-> 
-> Hi Arnd,
-> Please pull it as regular drivers pull. Note this will be also shared with MFD
-> tree.
-> 
-> Best regards,
-> Krzysztof
-> 
-> 
-> The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
-> 
->   Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
-> 
-> are available in the Git repository at:
-> 
->   https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-drivers-6.16
+Applied, thanks!
 
-Pulled.  Thanks Krzysztof.
+[5/8] dt-bindings: mfd: syscon: Add mt7988-topmisc
+      commit: 4d54ce40400c215127ce24aa3a684a20e7d8493a
 
--- 
+--
 Lee Jones [李琼斯]
+
 
