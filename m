@@ -4,89 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A58EC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 18:51:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21A23C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 18:54:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xlx4tV6h33iC87PZJPQATc9y7zJNlmmrmJf6elpZSAw=; b=QfFMqChxaOZTAGKRaNiRoLKEDr
-	Wu7Px4Y8zBcEZXwMHpjOZV721EAMpi4soYVKciSvq6M105R8dzuKW4Qo3mNGG8L/fy5GiD0k9yMUY
-	EB8AKo+dSz80mZknEiTqOJokv/4ETzL7S4tBoHYDTQqc0GaFVhvzj80+MgBB4WpgRsZX0LjCBY71G
-	cCw4l2N2Nd208PyIfXSZ0HRqto3pvorOhdmKqdd+MIL1cnkm0Ls7CDjwz3yHv17iGcu0pOtIgbiZb
-	/pDttqV/AxUx7BPH3uozjO6XXX5DELeg1ycVJO3ByrdLhSCW2Kwd1edaOnDXgZ4qGGARcp2pKcUm7
-	pVAF7YeA==;
+	bh=dH0HSsEDwYUxuVzlYTIkL8n5RA0iiz/4oZhT8wu3V2k=; b=4m9dYT8SlNOyahaIlbUg1x7nx1
+	uvOQQu0qtg+OiRgWh6kydozjDm+yo1RfGDo8KLJ1vZlXIO/C5XaWr1O4gC8D8e7iQh7OUIgVHSRAv
+	R2cINqkHHNJTOvfs9kMPYvPGjJlkP2eJJHWvlsrdY60PCnXW3oti9ADBJB6SfIW4gphz7hwwDv2XA
+	ti0AIq5DX6IMDhz1KWINLQTxiplANM4g8Dn+kQMhij3915GpdAxK0MjhiSHgZ5F9AKolFNAbv0UTz
+	pI/ZDJY7tf5o/H7qnel8IvUkWW/IrXpOt7Wi23W2LIQcsojofzdMD8hIOxxuqFmXEd/702IAGUKgq
+	Acln8bTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAYzi-0000000GQ4A-2z6c;
-	Thu, 01 May 2025 18:50:50 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1uAZ3U-0000000GQg4-0mzE;
+	Thu, 01 May 2025 18:54:44 +0000
+Received: from mail-bn8nam12on20629.outbound.protection.outlook.com ([2a01:111:f403:2418::629] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAYiy-0000000GN5W-0pHH
+	id 1uAYq4-0000000GOho-14u9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 18:33:35 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-72f3b4c0305so1444595b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 May 2025 11:33:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1746124411; x=1746729211; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=xlx4tV6h33iC87PZJPQATc9y7zJNlmmrmJf6elpZSAw=;
-        b=FxQWShbYn+/UOzYbuY/0+A94FsMNcmo77nQCeY9f2KM5PbsvGZ2eaKQ77O1cYbUPn2
-         BZn7rnhBWPIo28jOVU7v91rbq+G67IK0/NlTKfSnB+/TekHaumSEhu0FlI8OIDgN+T/2
-         E1KlqTb22akXkg/kjFhHx9TqDSYTJpnLfO/ivptPJQBMoq8hYrAZQj1rErzM70aklGSn
-         uDKpq5R47YKxryq+e3vQhRUNBQ5IFyAQp6csptE58ukLGPBQtYBOGNg1foAvQ3vOdxnh
-         oluOnw7Ub/NgO/Tdk3oPflhvw/eNSZCMdSpKKXypYYlURUG0ha4z1V61wwCWWYpkCUpb
-         wrZw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746124411; x=1746729211;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xlx4tV6h33iC87PZJPQATc9y7zJNlmmrmJf6elpZSAw=;
-        b=bEOQPcQ3v7noxDzdGUwf+bRAHPPTE47BV37PHFZxoeBMGbMBCvaV6f7Z4/iuwHflKN
-         2QQmpE3wQ/ocV6hOg+Wv7WjiJeP7tiWgCXEA6n2Bw0zJeSZwuByPm191J0H1EgbvqYCM
-         EmiO69ewhpIeL8ZDA0omeJpZvPUkNI2RomnW5T1ailTHOC7KOK+uEiA7F7VDk0622Z+r
-         4SmfRyInmvebJzl+1ochadb9VuFKmfrcQFhDN/RN+yHheb/srxGyz/OP17XKyYYrkxx4
-         7AJIJKBupeeI9xUGtREjJG+2+Y9lJMcBDmwYjCL4RhjOO2XtXN+vCmeHBLJ2/H9BCZ9J
-         xcuQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXx4QuE2l2dwmttQpYPqz2aKIvKrZy/HMInygpkD81UaBjIOxP3kfS8cJFdNXcxO07RorWM4Msi6bHzrot3p4BB@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzPOaFAdUchNiGIUA26DkNAP9vVfo5eWdrZxaGABsfkL+HcQZk
-	qRTqu+uQxWj9gCVw2DA2NKhvHVZhbhtrnJqBrTNjdFi2XONJFGpQPaMsht6xMVmgJ9NmROIGQpX
-	VYsv4mjNXcA==
-X-Google-Smtp-Source: AGHT+IESw44bOvollCXHRWIMOqOhriygGcemnEccKJNHW6iOs3OJ4aCqVXw9VbGTtVmbRkfpoeS6ESpUu1c4rQ==
-X-Received: from pfgt3.prod.google.com ([2002:a05:6a00:1383:b0:736:3cd5:ba36])
- (user=dmatlack job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a00:1312:b0:736:6043:69f9 with SMTP id d2e1a72fcca58-7404790137cmr5244369b3a.19.1746124410653;
- Thu, 01 May 2025 11:33:30 -0700 (PDT)
-Date: Thu,  1 May 2025 11:33:04 -0700
-In-Reply-To: <20250501183304.2433192-1-dmatlack@google.com>
-Mime-Version: 1.0
-References: <20250501183304.2433192-1-dmatlack@google.com>
-X-Mailer: git-send-email 2.49.0.906.g1f30a19c02-goog
-Message-ID: <20250501183304.2433192-11-dmatlack@google.com>
-Subject: [PATCH 10/10] KVM: selftests: Use u8 instead of uint8_t
-From: David Matlack <dmatlack@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
-	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
-	David Hildenbrand <david@redhat.com>, Sean Christopherson <seanjc@google.com>, 
-	David Matlack <dmatlack@google.com>, Andrew Jones <ajones@ventanamicro.com>, 
-	Isaku Yamahata <isaku.yamahata@intel.com>, Reinette Chatre <reinette.chatre@intel.com>, 
-	Eric Auger <eric.auger@redhat.com>, James Houghton <jthoughton@google.com>, 
-	Colin Ian King <colin.i.king@gmail.com>, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 01 May 2025 18:40:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wJUEj71B9FcR28wwlXyfYF6ZPHZRgZENcGSWt82BqrG3qIRmdFvRSiDQWesPoNKn5wIx/3CRuTgjzVuVi1nPtotlKk7BgR8TDywebO1TNsCNhlCJGwTe+bpC5Ujwt8xvRNaBBKmi2R4ZCnSRBLf9ZMyIGUlASArkRAwH09bXDK1jksJHOIAjBp7lWHFqzajce+29+uL4roAfbZVtdb14jz2UaTRz/dxx9Dq8hAp2zqlgRwGyPpSD7cQUpcD/U/DBanN9tpuj4Qo23Amm5teBLkDscwn2n4YKTw9IagNgLp+vuJ1IKept9jWYScNAH7H+qDoeb0Wm/wtmQXATKveAqA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dH0HSsEDwYUxuVzlYTIkL8n5RA0iiz/4oZhT8wu3V2k=;
+ b=A7qCgtWv1Bh+JhbOyxVE1W/2n5NUhWtCsi7YK4nASLyOKx4jiLdbfLDyEgEHlQJeCNnI2uJkHPh0kIQ6q0ow0pO2/MNj3CNIhUA3wbE/boIajYbL6ZE+r8/5568e0M19JBU6AoAt3GieydOxuIcGv6wGPnHfVp5wDpR5hYjp1Wzwj/Xr5iS52WSOS87PbwN/Uj+UeWH/yukY4KEyZKJCiTw71BjYDzVqc6XsWlCaebJC7f2OTFszO6aGt/LQNcjHdT/MirLJ4bvtp/VRwMIVwzx8h37dlohwXbiA1BKMcsA01g2wcjOkPj7d4bw8TPnyktsR0rIQ6Hoiesdq9UiPEA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dH0HSsEDwYUxuVzlYTIkL8n5RA0iiz/4oZhT8wu3V2k=;
+ b=MxdONLSikZXgIYe07wxGitDGOfGWCYx/94tphqnrY8vRKFnRbiFJzR4kprpja5F6oM0xvaUo1aJ/RLezQi8HjBZvgMHKf+XielSMTE1/AkG8+Q2BT+B/1TyzYf+g3jAQuE54JRmbNw9Y83cj2UrA9qCQvuX6PaZWeIxXdjJ7CsF0zYceAa0fuxJtP4M2V1s9Oaveulacz/DyHrsy4z9pqOChCxfKQnW/c8Me4QzY+ZTSiTbcquE38EsiqgRz6RmtYLTwjRmdPBrgcC5K+lC2e6YC/6rOSHVVsHl/vLSMgLQC28LfqJZ4U5VnyjNfADnIfLQdiqTbO9db7rnP0l57Dw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS7PR12MB9473.namprd12.prod.outlook.com (2603:10b6:8:252::5) by
+ DM6PR12MB4187.namprd12.prod.outlook.com (2603:10b6:5:212::11) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8699.23; Thu, 1 May 2025 18:40:28 +0000
+Received: from DS7PR12MB9473.namprd12.prod.outlook.com
+ ([fe80::5189:ecec:d84a:133a]) by DS7PR12MB9473.namprd12.prod.outlook.com
+ ([fe80::5189:ecec:d84a:133a%5]) with mapi id 15.20.8678.028; Thu, 1 May 2025
+ 18:40:28 +0000
+From: Zi Yan <ziy@nvidia.com>
+To: Kalesh Singh <kaleshsingh@google.com>
+Cc: Juan Yescas <jyescas@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, tjmercier@google.com, isaacmanjarres@google.com,
+ surenb@google.com, Vlastimil Babka <vbabka@suse.cz>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ David Hildenbrand <david@redhat.com>, Mike Rapoport <rppt@kernel.org>,
+ Minchan Kim <minchan@kernel.org>
+Subject: Re: [PATCH] mm: Add ARCH_FORCE_PAGE_BLOCK_ORDER to select page block
+ order
+Date: Thu, 01 May 2025 14:40:26 -0400
+X-Mailer: MailMate (2.0r6249)
+Message-ID: <8DAFA811-9D2D-4344-A2E1-032946FB70C8@nvidia.com>
+In-Reply-To: <CAC_TJvf36Qr3r_LJ0Knf7WtozUZ_YVxLxF7bEAPC+87J-QEd6Q@mail.gmail.com>
+References: <20250501052532.1903125-1-jyescas@google.com>
+ <3230A277-7D1D-4329-B871-5E43967E6A00@nvidia.com>
+ <CAJDx_rgodAQXVrLjZBBGCqBkT82Oem1ACj7dk=G3qKMnyu_AZw@mail.gmail.com>
+ <CAC_TJvf36Qr3r_LJ0Knf7WtozUZ_YVxLxF7bEAPC+87J-QEd6Q@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MN2PR22CA0017.namprd22.prod.outlook.com
+ (2603:10b6:208:238::22) To DS7PR12MB9473.namprd12.prod.outlook.com
+ (2603:10b6:8:252::5)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS7PR12MB9473:EE_|DM6PR12MB4187:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1ab2e3ff-31ac-49cd-3517-08dd88dfa50d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?YWFJNGhKVm9JYkl4VTBVNDFpK3U4aGNmb2JpVzFOWnY0QmEyTE4vTjQ4UDJU?=
+ =?utf-8?B?dkZUZjlXZmxQRVhaazB6Y1Q5TWNrZEJDWk5rWG83RVlka1JubVE4SHllMHJo?=
+ =?utf-8?B?bXFKVHdkYkNyVFVBRG9YUjQ2eG5ITXVNNU8rWGRtOGdxQ0VQZXp5RVVkOXM1?=
+ =?utf-8?B?eXF2eENZOHpVbE8wWkNDKytnSENnZFNtbVdHdjR0UjNLalhCbmgxMjcyMENy?=
+ =?utf-8?B?QTZkak1QNjVrRzJLc0l0T1Q5bVFWMmNCQzhvWkM3NkpTcDc1SGJRQ2RWQ3pL?=
+ =?utf-8?B?bnJTYVgvT3VUcWxUOUtlRzExUDA0bGtTeDZ0Snl0WlVvVlJoNG1teGNYNklT?=
+ =?utf-8?B?R0MrSnhsWDlKK2JnVXZmRWlWMU1EZDdlOXQrbmVQSUQrc2poUlY1dVZHa3pt?=
+ =?utf-8?B?ZlVWd1dzbVk2TXl2S2h6L2JqV0FVRENvMmhYOGJ6d3RmM3pzUEhKemFGOGli?=
+ =?utf-8?B?RVBrNTAxNGJPL2tKd2xNekxSRGdGZitoblZGaXBKTVgwVjM4T0h1TWlRNGFx?=
+ =?utf-8?B?TExnQ0FlbGxLNk9DdW4wME9JN1ZTSUZrZkhtRUlJU25KUnIzbDRNTEtrS25X?=
+ =?utf-8?B?dmxVU3VFaXp3VDUvYzNWVFZRRktUcEtYRXJFRXZWbHNETlhUWXAxMEZndWUz?=
+ =?utf-8?B?LzRLUlZaT2tlNkNXNHlwRkMyMUtDRERLdmxVNE9rYXY0RjdJZ3lzQkIxdlNy?=
+ =?utf-8?B?VEVZUVVkZkVidk94Vll2bFpzUjZKRkV6aldHRVBiaG1rY3NETDlML3Y1L0d0?=
+ =?utf-8?B?RTNuNGcyVEx0RG5ZdTZHOVd6THRhdGpKeXNZcXcvaDNPQ1hJcllmbVVCWTFo?=
+ =?utf-8?B?VEQ5NHF3NGJ1SXQ1UkhlaElwSmh6c2NyV0tQaStOZWRFaTFrd0w2bEIzcFFw?=
+ =?utf-8?B?aHgrM2lmaVkwdGpnSUlHL1pkR2NmRURzUENCT1I2RVBXS2VQMGwzTG9hV25j?=
+ =?utf-8?B?b3g5UUkzaHdkajllcURDOWgwVFkrWkhyS293QW16UkZXb3ZtTU56QU1YQWJB?=
+ =?utf-8?B?b0FZYjY5VVdJaVduWjR2d2E1SWdlNmYzS0F4czBYK2g2U1hvSVh6UmZkeEUr?=
+ =?utf-8?B?V2NER3VPdUJJaGFLL1lZYmJjNHBmenBmMkVPTEdtck8zRGVROE1Cbk5XVGRU?=
+ =?utf-8?B?eCtNcklXRmNyN1Z3S3lmSjd0aHBnZ2lJSUNGbjJVOVBaZkhFNkgzSGh4SWx5?=
+ =?utf-8?B?bG8zeUNzVlJhSkwwTWVDdzNETSsrRW1HUjNVdjc5VUdJRFBWWXArRVowSGVQ?=
+ =?utf-8?B?aWNMWHFNZUwvcXNmdnA0VGhWeTAyWHVnbS9qTHNiR2hQN3pUUE5tOFZFWCtL?=
+ =?utf-8?B?V09kYUh6MTdUdjdUUU5jYXBDVjdtajd4THB6azBBcVJ2cTZhVythU0hjU0x0?=
+ =?utf-8?B?ODZFbHpURjBXOVE4ZDd6Z0plUlVzVGYyUDYvVGZ3cW1UUWhCWFZtUmFMZmxG?=
+ =?utf-8?B?RCtUVXJBOU9naDJqWFJCaG1CVlUxWVJoOUZuV3VqckxQYytkbTNYdFNGSFd4?=
+ =?utf-8?B?d1VyQkU3eklzdU5PR3RuZG0rclpPNlJteHVVUndVR0VGb2RvWTFQV1dMSkY0?=
+ =?utf-8?B?VUp4U015ckxoQ0kxUU9Da2x2V0Y4MkVUekFCSC9TcVAxMlFIZzJvWGxtckdu?=
+ =?utf-8?B?SEQ0RVdLbjU2czFNa2NoZUdzOEE0VzhkZ2puZHFtV3k5UHgrd1FyTDNxa1Q4?=
+ =?utf-8?B?RlNqWTlyMTR5MXJLM212ODlqaW9HRUd6YmRqdGJUblE5aStDOXl5dkdDN1FE?=
+ =?utf-8?B?YVo4Nkhobm43UjdHdDM4WUJjYXVwdEw3MHFjQ2NIeDFpaGo1TDZMTEdmMURW?=
+ =?utf-8?B?eEtYTnc1aVhwR08rYmFFaW1Zc3dWNG1tcFJOYktLaytiSHkwbDFYdUpGby9a?=
+ =?utf-8?B?UTVQd3RxY2hIUTJKV05yZ2dMQXQzOWtWai9MQzV6bnoxeU5WRnZYNVpYWUN1?=
+ =?utf-8?Q?Il2MMcGmha4=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB9473.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TkhjN1p1aDJldmxrWWV4S1g5Smw5dXdqMnVlcXNWUXVOcEwrYjM2ai9rR3NL?=
+ =?utf-8?B?N20zanpXcGdkM09lc3l6eEdGOWFnNUNuTUxGcVBQalBES0FqYzMzZ3dsbnFt?=
+ =?utf-8?B?MEJ0ZkxuZ3BBby8wajYwaFZJK0VhTGhlUkl1ZkJXdU9QYUZYOXgxTmc1VUJk?=
+ =?utf-8?B?Sm5NcUtNNzFmc1ZlR0d2aWpQZ1dHM1pTZEhpM1RUT2Y0ZlFyR245QXpJVDBD?=
+ =?utf-8?B?UXk4OGhpSFN5anNNT01QUzdod3lXQmxVc2ZuRm9kbjZWbHpUc21MTEFmSFBx?=
+ =?utf-8?B?YWY0VU92bTN5UDJzbklES1lFS2xQNmxmT29lZndWd2hZK0hnS08vQm5ZcE5F?=
+ =?utf-8?B?djBCMGJzL3o5N3NxSytkNCs0dHVIa2ZNTTFzanI2aWdGUjB3aFVJSGx0V0xx?=
+ =?utf-8?B?b2VMWU5VYXljY0d5QVgzNloxbmlYcUpjaC9GSlNhVHBPVnJFcVp3Q21CWisw?=
+ =?utf-8?B?Q1prMEV4dE5Fdy9tc1g3Z3NKb2dRa2dIenA2eS85SFJNU2dyNllTdy9zWjFj?=
+ =?utf-8?B?YkkwMGhMdVpicGNhUStlU1J1MTZ2VUs1L2xnS0NDbWhidlRsYzlLU2xMYXNE?=
+ =?utf-8?B?b0JVTzRiYWhxTEltaDNReDBsbXpMOWR0Y1pocFVIUldJNlh5b1BhOG9KUE1O?=
+ =?utf-8?B?NU84dVd5by85VHlteDBySVo3Ym5UU3JDdWJIVS8wN0JwRnFRa21CTDIydnND?=
+ =?utf-8?B?Z3k5QkZWUVpDNFZWeWdrSTFzbGJqUGdjU1BVcjhiVEhsRWFtUFFzdFlHaTBX?=
+ =?utf-8?B?eFVESmFrLytaMXczaWlxbXFlNWcwMHU1Vm9HanFpSVNoekM0MlZNazdEU0wx?=
+ =?utf-8?B?YTZOc2xUMDhiL2hMRDZXSitsWlY5UVZCVFpGc296bDF4eUt6aGlSQXVrdjEy?=
+ =?utf-8?B?Zms2ZlMwZEZFcmNvOGtuVmM0bCtzT0FNeWpvYW5UanErcjVrSHo3SDJvNVRv?=
+ =?utf-8?B?NE5NZGNoNXNsYnQ5ZmV0UWFIekt5Q1g3MHpNTENxNWFzVnAzdm1JNEhyTERW?=
+ =?utf-8?B?bGJaLzZvODM3eXVVeGpCbkVpTWVPblAwMkpWc1E0ZitFbnhFSEltWGhaTnNR?=
+ =?utf-8?B?TFZSS2dFeG9ob0ZpYUpPalF6cXZwR0xRUDVjL2hOTGU3QXErTmh4Z1ZqZHJN?=
+ =?utf-8?B?ZnE4dmhNc1pqQkd2ekdicU9hVHBDQ2tXNUNMbXZZN0pOSmNYUFVPY05tdkFS?=
+ =?utf-8?B?Y1ltcCt0eHVjK05GYlhWTGlaRjQ4VjFVVnYyRDM0VW83L2xwcVE5dWFxTEhh?=
+ =?utf-8?B?dnVmdm1DUWtDZE1UL2Mra1NWd09ITEkxYTdUSHJlWnVIRzNGWHVibVBzdGVx?=
+ =?utf-8?B?czEzZEhOVHFSY0JLbHVqaDBtUkhDN2hZRi9yaWg3bVdBeW5mM0FPTnhEcjFU?=
+ =?utf-8?B?Q3ZoeVJFWmxXUTlwTnZlb1ZFUkJ4Nm9aazFvdXpWMHphWGRBVkNwNEV1VVRk?=
+ =?utf-8?B?Y3o1RWlmZ3huSUhPUHFjRG1iR2k4UkNwUkhWRlUybVVLVFZtNEF2cllEdWVK?=
+ =?utf-8?B?QlJXb04xNVZXN3dqSmFTT2FyRlN0YkNsSURicndadG1PNVJNV0kxY1VmWExS?=
+ =?utf-8?B?Q2w5Y2dXTXZtRkhCTFdsaTlSL2pSSEVvZUlzdmxweDB2UklXV09iMGVMd3ov?=
+ =?utf-8?B?V1g4MmtycWJhRVRobzVmTnYzWGJ6T2o1MWdHOGhnR2NBaTJWTzhIc0FlKyt5?=
+ =?utf-8?B?bVZETzBUWEYzallTK3ZFcW9ncGozUlRrUGxLd3dCdDVUZFJFYUx4cnI3ZVJs?=
+ =?utf-8?B?YzVlMDBzeTBqbkwvbXY2aGVUK3FDVFRDTzN6L0JxTExIN3dac0dORHdpblFl?=
+ =?utf-8?B?S1lKRk5oeDc5MURGcVg2WFFiSWVPU2Mxb3M2dlBQcU1UZGxpSGJWVDExQXE5?=
+ =?utf-8?B?WlZqS0g0M2hFaTY5WjdqZ3d3azhCbVdXa05iWFNqSmE1TW83clBBeFhTQmF5?=
+ =?utf-8?B?cG5MNnhEV2hUWXJseitHLzcyeHFWaFNnL3NJc29memdxbWhQcDNVdE1NNUxa?=
+ =?utf-8?B?YXpZTEY5cXB3bHNmNFg0dXVQUjlQaTZHRFp1ZXRBcnNueWk1aUFkek9KbVpq?=
+ =?utf-8?B?aVVWeGc0Q1Bab2FONFZMZEcwajEzV1Z5L0JzVkFON2E2M2F6Q0xOem1LL2dX?=
+ =?utf-8?Q?MCJd28Wmb5UFf39nkaznGY12I?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1ab2e3ff-31ac-49cd-3517-08dd88dfa50d
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB9473.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 May 2025 18:40:28.6133
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: UqmmLgMSErjbagofVzO0Nn53ddcGNwClWPcAkonD7uRhDY1VGpWqVPXyoq89EPj/
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4187
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_113332_276478_D15E6EC2 
-X-CRM114-Status: GOOD (  20.05  )
+X-CRM114-CacheID: sfid-20250501_114052_296568_3C0FFE45 
+X-CRM114-Status: GOOD (  19.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,1560 +185,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use u8 instead of uint8_t to make the KVM selftests code more concise
-and more similar to the kernel (since selftests are primarily developed
-by kernel developers).
+On 1 May 2025, at 14:21, Kalesh Singh wrote:
 
-This commit was generated with the following command:
+> On Thu, May 1, 2025 at 10:11 AM Juan Yescas <jyescas@google.com> wrote:
+>>
+>> On Thu, May 1, 2025 at 7:24 AM Zi Yan <ziy@nvidia.com> wrote:
+>>>
+>>> On 1 May 2025, at 1:25, Juan Yescas wrote:
+>>>
+>>>> Problem: On large page size configurations (16KiB, 64KiB), the CMA
+>>>> alignment requirement (CMA_MIN_ALIGNMENT_BYTES) increases considerably,
+>>>> and this causes the CMA reservations to be larger than necessary.
+>>>> This means that system will have less available MIGRATE_UNMOVABLE and
+>>>> MIGRATE_RECLAIMABLE page blocks since MIGRATE_CMA can't fallback to them.
+>>>>
+>>>> The CMA_MIN_ALIGNMENT_BYTES increases because it depends on
+>>>> MAX_PAGE_ORDER which depends on ARCH_FORCE_MAX_ORDER. The value of
+>>>> ARCH_FORCE_MAX_ORDER increases on 16k and 64k kernels.
+>>>>
+>>>> For example, the CMA alignment requirement when:
+>>>>
+>>>> - CONFIG_ARCH_FORCE_MAX_ORDER default value is used
+>>>> - CONFIG_TRANSPARENT_HUGEPAGE is set:
+>>>>
+>>>> PAGE_SIZE | MAX_PAGE_ORDER | pageblock_order | CMA_MIN_ALIGNMENT_BYTES
+>>>> -----------------------------------------------------------------------
+>>>>    4KiB   |      10        |      10         |  4KiB * (2 ^ 10)  =  4MiB
+>>>>   16Kib   |      11        |      11         | 16KiB * (2 ^ 11) =  32MiB
+>>>>   64KiB   |      13        |      13         | 64KiB * (2 ^ 13) = 512MiB
+>>>>
+>>>> There are some extreme cases for the CMA alignment requirement when:
+>>>>
+>>>> - CONFIG_ARCH_FORCE_MAX_ORDER maximum value is set
+>>>> - CONFIG_TRANSPARENT_HUGEPAGE is NOT set:
+>>>> - CONFIG_HUGETLB_PAGE is NOT set
+>>>>
+>>>> PAGE_SIZE | MAX_PAGE_ORDER | pageblock_order |  CMA_MIN_ALIGNMENT_BYTES
+>>>> ------------------------------------------------------------------------
+>>>>    4KiB   |      15        |      15         |  4KiB * (2 ^ 15) = 128MiB
+>>>>   16Kib   |      13        |      13         | 16KiB * (2 ^ 13) = 128MiB
+>>>>   64KiB   |      13        |      13         | 64KiB * (2 ^ 13) = 512MiB
+>>>>
+>>>> This affects the CMA reservations for the drivers. If a driver in a
+>>>> 4KiB kernel needs 4MiB of CMA memory, in a 16KiB kernel, the minimal
+>>>> reservation has to be 32MiB due to the alignment requirements:
+>>>>
+>>>> reserved-memory {
+>>>>     ...
+>>>>     cma_test_reserve: cma_test_reserve {
+>>>>         compatible = "shared-dma-pool";
+>>>>         size = <0x0 0x400000>; /* 4 MiB */
+>>>>         ...
+>>>>     };
+>>>> };
+>>>>
+>>>> reserved-memory {
+>>>>     ...
+>>>>     cma_test_reserve: cma_test_reserve {
+>>>>         compatible = "shared-dma-pool";
+>>>>         size = <0x0 0x2000000>; /* 32 MiB */
+>>>>         ...
+>>>>     };
+>>>> };
+>>>>
+>>>> Solution: Add a new config ARCH_FORCE_PAGE_BLOCK_ORDER that
+>>>> allows to set the page block order. The maximum page block
+>>>> order will be given by ARCH_FORCE_MAX_ORDER.
+>>>
+>>> Why not use a boot time parameter to change page block order?
+>>
+>> That is a good option. The main tradeoff is:
+>>
+>> - The bootloader would have to be updated on the devices to pass the right
+>> pageblock_order value depending on the kernel page size. Currently,
+>> We can boot 4k/16k kernels without any change in the bootloader.
+>
+> Once we change the page block order we likely need to update the CMA
+> reservations in the device tree to match the new min alignment, which
+> needs to be recompiled and flashed to the device. So there is likely
+> not a significant process saving by making the page block order a boot
+> parameter.
 
-  git ls-files tools/testing/selftests/kvm | xargs sed -i 's/uint8_t/u8/g'
+Got it. Thank you for the explanation.
 
-Then by manually adjusting whitespace to make checkpatch.pl happy.
-
-No functional change intended.
-
-Signed-off-by: David Matlack <dmatlack@google.com>
----
- .../selftests/kvm/arm64/debug-exceptions.c    | 16 ++---
- .../testing/selftests/kvm/arm64/set_id_regs.c |  6 +-
- .../selftests/kvm/arm64/vpmu_counter_access.c |  2 +-
- .../testing/selftests/kvm/coalesced_io_test.c |  2 +-
- tools/testing/selftests/kvm/get-reg-list.c    |  2 +-
- .../testing/selftests/kvm/include/kvm_util.h  | 14 ++---
- .../testing/selftests/kvm/include/test_util.h |  2 +-
- .../testing/selftests/kvm/include/x86/apic.h  |  6 +-
- .../selftests/kvm/include/x86/hyperv.h        | 10 ++--
- .../selftests/kvm/include/x86/processor.h     | 20 +++----
- tools/testing/selftests/kvm/include/x86/sev.h |  4 +-
- tools/testing/selftests/kvm/include/x86/vmx.h | 12 ++--
- .../selftests/kvm/lib/arm64/processor.c       |  8 +--
- .../testing/selftests/kvm/lib/guest_sprintf.c |  2 +-
- tools/testing/selftests/kvm/lib/kvm_util.c    |  2 +-
- .../selftests/kvm/lib/riscv/processor.c       |  6 +-
- .../selftests/kvm/lib/s390/processor.c        |  8 +--
- tools/testing/selftests/kvm/lib/sparsebit.c   |  2 +-
- .../testing/selftests/kvm/lib/x86/processor.c | 16 ++---
- tools/testing/selftests/kvm/lib/x86/sev.c     |  4 +-
- .../testing/selftests/kvm/memslot_perf_test.c |  2 +-
- tools/testing/selftests/kvm/mmu_stress_test.c |  2 +-
- tools/testing/selftests/kvm/s390/memop.c      | 28 ++++-----
- tools/testing/selftests/kvm/s390/resets.c     |  2 +-
- .../selftests/kvm/s390/shared_zeropage_test.c |  2 +-
- tools/testing/selftests/kvm/s390/tprot.c      | 12 ++--
- .../selftests/kvm/set_memory_region_test.c    |  2 +-
- tools/testing/selftests/kvm/steal_time.c      |  4 +-
- .../selftests/kvm/x86/fix_hypercall_test.c    | 12 ++--
- .../selftests/kvm/x86/flds_emulation.h        |  2 +-
- .../selftests/kvm/x86/hyperv_features.c       |  4 +-
- tools/testing/selftests/kvm/x86/kvm_pv_test.c |  2 +-
- .../selftests/kvm/x86/nested_emulation_test.c |  8 +--
- .../selftests/kvm/x86/platform_info_test.c    |  2 +-
- .../selftests/kvm/x86/pmu_counters_test.c     | 60 +++++++++----------
- .../selftests/kvm/x86/pmu_event_filter_test.c | 12 ++--
- .../kvm/x86/private_mem_conversions_test.c    | 24 ++++----
- tools/testing/selftests/kvm/x86/smm_test.c    |  2 +-
- tools/testing/selftests/kvm/x86/state_test.c  |  4 +-
- .../selftests/kvm/x86/userspace_io_test.c     |  4 +-
- .../kvm/x86/userspace_msr_exit_test.c         | 14 ++---
- .../selftests/kvm/x86/vmx_pmu_caps_test.c     |  2 +-
- .../selftests/kvm/x86/xen_shinfo_test.c       |  4 +-
- 43 files changed, 177 insertions(+), 177 deletions(-)
-
-diff --git a/tools/testing/selftests/kvm/arm64/debug-exceptions.c b/tools/testing/selftests/kvm/arm64/debug-exceptions.c
-index 8576e707b05e..4b5de274584e 100644
---- a/tools/testing/selftests/kvm/arm64/debug-exceptions.c
-+++ b/tools/testing/selftests/kvm/arm64/debug-exceptions.c
-@@ -102,7 +102,7 @@ GEN_DEBUG_WRITE_REG(dbgwvr)
- 
- static void reset_debug_state(void)
- {
--	uint8_t brps, wrps, i;
-+	u8 brps, wrps, i;
- 	u64 dfr0;
- 
- 	asm volatile("msr daifset, #8");
-@@ -149,7 +149,7 @@ static void enable_monitor_debug_exceptions(void)
- 	isb();
- }
- 
--static void install_wp(uint8_t wpn, u64 addr)
-+static void install_wp(u8 wpn, u64 addr)
- {
- 	u32 wcr;
- 
-@@ -162,7 +162,7 @@ static void install_wp(uint8_t wpn, u64 addr)
- 	enable_monitor_debug_exceptions();
- }
- 
--static void install_hw_bp(uint8_t bpn, u64 addr)
-+static void install_hw_bp(u8 bpn, u64 addr)
- {
- 	u32 bcr;
- 
-@@ -174,7 +174,7 @@ static void install_hw_bp(uint8_t bpn, u64 addr)
- 	enable_monitor_debug_exceptions();
- }
- 
--static void install_wp_ctx(uint8_t addr_wp, uint8_t ctx_bp, u64 addr,
-+static void install_wp_ctx(u8 addr_wp, u8 ctx_bp, u64 addr,
- 			   u64 ctx)
- {
- 	u32 wcr;
-@@ -196,7 +196,7 @@ static void install_wp_ctx(uint8_t addr_wp, uint8_t ctx_bp, u64 addr,
- 	enable_monitor_debug_exceptions();
- }
- 
--void install_hw_bp_ctx(uint8_t addr_bp, uint8_t ctx_bp, u64 addr,
-+void install_hw_bp_ctx(u8 addr_bp, u8 ctx_bp, u64 addr,
- 		       u64 ctx)
- {
- 	u32 addr_bcr, ctx_bcr;
-@@ -234,7 +234,7 @@ static void install_ss(void)
- 
- static volatile char write_data;
- 
--static void guest_code(uint8_t bpn, uint8_t wpn, uint8_t ctx_bpn)
-+static void guest_code(u8 bpn, u8 wpn, u8 ctx_bpn)
- {
- 	u64 ctx = 0xabcdef;	/* a random context number */
- 
-@@ -421,7 +421,7 @@ static int debug_version(u64 id_aa64dfr0)
- 	return FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_DebugVer), id_aa64dfr0);
- }
- 
--static void test_guest_debug_exceptions(uint8_t bpn, uint8_t wpn, uint8_t ctx_bpn)
-+static void test_guest_debug_exceptions(u8 bpn, u8 wpn, u8 ctx_bpn)
- {
- 	struct kvm_vcpu *vcpu;
- 	struct kvm_vm *vm;
-@@ -534,7 +534,7 @@ void test_single_step_from_userspace(int test_cnt)
-  */
- void test_guest_debug_exceptions_all(u64 aa64dfr0)
- {
--	uint8_t brp_num, wrp_num, ctx_brp_num, normal_brp_num, ctx_brp_base;
-+	u8 brp_num, wrp_num, ctx_brp_num, normal_brp_num, ctx_brp_base;
- 	int b, w, c;
- 
- 	/* Number of breakpoints */
-diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-index 77c197ef4f4a..20fcebe90741 100644
---- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
-+++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-@@ -30,7 +30,7 @@ struct reg_ftr_bits {
- 	char *name;
- 	bool sign;
- 	enum ftr_type type;
--	uint8_t shift;
-+	u8 shift;
- 	u64 mask;
- 	/*
- 	 * For FTR_EXACT, safe_val is used as the exact safe value.
-@@ -347,7 +347,7 @@ u64 get_invalid_value(const struct reg_ftr_bits *ftr_bits, u64 ftr)
- static u64 test_reg_set_success(struct kvm_vcpu *vcpu, u64 reg,
- 				const struct reg_ftr_bits *ftr_bits)
- {
--	uint8_t shift = ftr_bits->shift;
-+	u8 shift = ftr_bits->shift;
- 	u64 mask = ftr_bits->mask;
- 	u64 val, new_val, ftr;
- 
-@@ -370,7 +370,7 @@ static u64 test_reg_set_success(struct kvm_vcpu *vcpu, u64 reg,
- static void test_reg_set_fail(struct kvm_vcpu *vcpu, u64 reg,
- 			      const struct reg_ftr_bits *ftr_bits)
- {
--	uint8_t shift = ftr_bits->shift;
-+	u8 shift = ftr_bits->shift;
- 	u64 mask = ftr_bits->mask;
- 	u64 val, old_val, ftr;
- 	int r;
-diff --git a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-index 986ff950a652..c2af221ca6ca 100644
---- a/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-+++ b/tools/testing/selftests/kvm/arm64/vpmu_counter_access.c
-@@ -408,7 +408,7 @@ static void guest_code(u64 expected_pmcr_n)
- static void create_vpmu_vm(void *guest_code)
- {
- 	struct kvm_vcpu_init init;
--	uint8_t pmuver, ec;
-+	u8 pmuver, ec;
- 	u64 dfr0, irq = 23;
- 	struct kvm_device_attr irq_attr = {
- 		.group = KVM_ARM_VCPU_PMU_V3_CTRL,
-diff --git a/tools/testing/selftests/kvm/coalesced_io_test.c b/tools/testing/selftests/kvm/coalesced_io_test.c
-index f5ab412d2042..df4ed5e3877c 100644
---- a/tools/testing/selftests/kvm/coalesced_io_test.c
-+++ b/tools/testing/selftests/kvm/coalesced_io_test.c
-@@ -23,7 +23,7 @@ struct kvm_coalesced_io {
- 	 * amount of #ifdeffery and complexity, without having to sacrifice
- 	 * verbose error messages.
- 	 */
--	uint8_t pio_port;
-+	u8 pio_port;
- };
- 
- static struct kvm_coalesced_io kvm_builtin_io_ring;
-diff --git a/tools/testing/selftests/kvm/get-reg-list.c b/tools/testing/selftests/kvm/get-reg-list.c
-index 91f05f78e824..9c791fdd7123 100644
---- a/tools/testing/selftests/kvm/get-reg-list.c
-+++ b/tools/testing/selftests/kvm/get-reg-list.c
-@@ -213,7 +213,7 @@ static void run_test(struct vcpu_reg_list *c)
- 	 * since we don't know the capabilities of any new registers.
- 	 */
- 	for_each_present_blessed_reg(i) {
--		uint8_t addr[2048 / 8];
-+		u8 addr[2048 / 8];
- 		struct kvm_one_reg reg = {
- 			.id = reg_list->reg[i],
- 			.addr = (__u64)&addr,
-diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
-index 271d7a434a4c..7edffa281c91 100644
---- a/tools/testing/selftests/kvm/include/kvm_util.h
-+++ b/tools/testing/selftests/kvm/include/kvm_util.h
-@@ -183,8 +183,8 @@ enum vm_guest_mode {
- 
- struct vm_shape {
- 	u32 type;
--	uint8_t  mode;
--	uint8_t  pad0;
-+	u8  mode;
-+	u8  pad0;
- 	u16 pad1;
- };
- 
-@@ -432,7 +432,7 @@ void kvm_vm_release(struct kvm_vm *vmp);
- void kvm_vm_elf_load(struct kvm_vm *vm, const char *filename);
- int kvm_memfd_alloc(size_t size, bool hugepages);
- 
--void vm_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent);
-+void vm_dump(FILE *stream, struct kvm_vm *vm, u8 indent);
- 
- static inline void kvm_vm_get_dirty_log(struct kvm_vm *vm, int slot, void *log)
- {
-@@ -1016,10 +1016,10 @@ vm_adjust_num_guest_pages(enum vm_guest_mode mode, unsigned int num_guest_pages)
- void assert_on_unhandled_exception(struct kvm_vcpu *vcpu);
- 
- void vcpu_arch_dump(FILE *stream, struct kvm_vcpu *vcpu,
--		    uint8_t indent);
-+		    u8 indent);
- 
- static inline void vcpu_dump(FILE *stream, struct kvm_vcpu *vcpu,
--			     uint8_t indent)
-+			     u8 indent)
- {
- 	vcpu_arch_dump(stream, vcpu, indent);
- }
-@@ -1123,9 +1123,9 @@ static inline gpa_t addr_gva2gpa(struct kvm_vm *vm, gva_t gva)
-  * Dumps to the FILE stream given by @stream, the contents of all the
-  * virtual translation tables for the VM given by @vm.
-  */
--void virt_arch_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent);
-+void virt_arch_dump(FILE *stream, struct kvm_vm *vm, u8 indent);
- 
--static inline void virt_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
-+static inline void virt_dump(FILE *stream, struct kvm_vm *vm, u8 indent)
- {
- 	virt_arch_dump(stream, vm, indent);
- }
-diff --git a/tools/testing/selftests/kvm/include/test_util.h b/tools/testing/selftests/kvm/include/test_util.h
-index 5608008cfe61..c7f6a3ee6793 100644
---- a/tools/testing/selftests/kvm/include/test_util.h
-+++ b/tools/testing/selftests/kvm/include/test_util.h
-@@ -100,7 +100,7 @@ struct guest_random_state new_guest_random_state(u32 seed);
- u32 guest_random_u32(struct guest_random_state *state);
- 
- static inline bool __guest_random_bool(struct guest_random_state *state,
--				       uint8_t percent)
-+				       u8 percent)
- {
- 	return (guest_random_u32(state) % 100) < percent;
- }
-diff --git a/tools/testing/selftests/kvm/include/x86/apic.h b/tools/testing/selftests/kvm/include/x86/apic.h
-index 2d164405e7f2..f86bd22f4c16 100644
---- a/tools/testing/selftests/kvm/include/x86/apic.h
-+++ b/tools/testing/selftests/kvm/include/x86/apic.h
-@@ -92,14 +92,14 @@ static inline u64 x2apic_read_reg(unsigned int reg)
- 	return rdmsr(APIC_BASE_MSR + (reg >> 4));
- }
- 
--static inline uint8_t x2apic_write_reg_safe(unsigned int reg, u64 value)
-+static inline u8 x2apic_write_reg_safe(unsigned int reg, u64 value)
- {
- 	return wrmsr_safe(APIC_BASE_MSR + (reg >> 4), value);
- }
- 
- static inline void x2apic_write_reg(unsigned int reg, u64 value)
- {
--	uint8_t fault = x2apic_write_reg_safe(reg, value);
-+	u8 fault = x2apic_write_reg_safe(reg, value);
- 
- 	__GUEST_ASSERT(!fault, "Unexpected fault 0x%x on WRMSR(%x) = %lx\n",
- 		       fault, APIC_BASE_MSR + (reg >> 4), value);
-@@ -107,7 +107,7 @@ static inline void x2apic_write_reg(unsigned int reg, u64 value)
- 
- static inline void x2apic_write_reg_fault(unsigned int reg, u64 value)
- {
--	uint8_t fault = x2apic_write_reg_safe(reg, value);
-+	u8 fault = x2apic_write_reg_safe(reg, value);
- 
- 	__GUEST_ASSERT(fault == GP_VECTOR,
- 		       "Wanted #GP on WRMSR(%x) = %lx, got 0x%x\n",
-diff --git a/tools/testing/selftests/kvm/include/x86/hyperv.h b/tools/testing/selftests/kvm/include/x86/hyperv.h
-index 2add2123e37b..78003f5a22f3 100644
---- a/tools/testing/selftests/kvm/include/x86/hyperv.h
-+++ b/tools/testing/selftests/kvm/include/x86/hyperv.h
-@@ -254,12 +254,12 @@
-  * Issue a Hyper-V hypercall. Returns exception vector raised or 0, 'hv_status'
-  * is set to the hypercall status (if no exception occurred).
-  */
--static inline uint8_t __hyperv_hypercall(u64 control, gva_t input_address,
--					 gva_t output_address,
--					 u64 *hv_status)
-+static inline u8 __hyperv_hypercall(u64 control, gva_t input_address,
-+				    gva_t output_address,
-+				    u64 *hv_status)
- {
- 	u64 error_code;
--	uint8_t vector;
-+	u8 vector;
- 
- 	/* Note both the hypercall and the "asm safe" clobber r9-r11. */
- 	asm volatile("mov %[output_address], %%r8\n\t"
-@@ -278,7 +278,7 @@ static inline void hyperv_hypercall(u64 control, gva_t input_address,
- 				    gva_t output_address)
- {
- 	u64 hv_status;
--	uint8_t vector;
-+	u8 vector;
- 
- 	vector = __hyperv_hypercall(control, input_address, output_address, &hv_status);
- 
-diff --git a/tools/testing/selftests/kvm/include/x86/processor.h b/tools/testing/selftests/kvm/include/x86/processor.h
-index 302836e276e0..5598ea6b86df 100644
---- a/tools/testing/selftests/kvm/include/x86/processor.h
-+++ b/tools/testing/selftests/kvm/include/x86/processor.h
-@@ -694,7 +694,7 @@ static inline bool this_cpu_is_amd(void)
- }
- 
- static inline u32 __this_cpu_has(u32 function, u32 index,
--				 uint8_t reg, uint8_t lo, uint8_t hi)
-+				 u8 reg, u8 lo, u8 hi)
- {
- 	u32 gprs[4];
- 
-@@ -1074,7 +1074,7 @@ static inline void vcpu_set_cpuid(struct kvm_vcpu *vcpu)
- void vcpu_set_cpuid_property(struct kvm_vcpu *vcpu,
- 			     struct kvm_x86_cpu_property property,
- 			     u32 value);
--void vcpu_set_cpuid_maxphyaddr(struct kvm_vcpu *vcpu, uint8_t maxphyaddr);
-+void vcpu_set_cpuid_maxphyaddr(struct kvm_vcpu *vcpu, u8 maxphyaddr);
- 
- void vcpu_clear_cpuid_entry(struct kvm_vcpu *vcpu, u32 function);
- 
-@@ -1227,7 +1227,7 @@ void vm_install_exception_handler(struct kvm_vm *vm, int vector,
- #define kvm_asm_safe(insn, inputs...)					\
- ({									\
- 	u64 ign_error_code;					\
--	uint8_t vector;							\
-+	u8 vector;							\
- 									\
- 	asm volatile(KVM_ASM_SAFE(insn)					\
- 		     : KVM_ASM_SAFE_OUTPUTS(vector, ign_error_code)	\
-@@ -1238,7 +1238,7 @@ void vm_install_exception_handler(struct kvm_vm *vm, int vector,
- 
- #define kvm_asm_safe_ec(insn, error_code, inputs...)			\
- ({									\
--	uint8_t vector;							\
-+	u8 vector;							\
- 									\
- 	asm volatile(KVM_ASM_SAFE(insn)					\
- 		     : KVM_ASM_SAFE_OUTPUTS(vector, error_code)		\
-@@ -1250,7 +1250,7 @@ void vm_install_exception_handler(struct kvm_vm *vm, int vector,
- #define kvm_asm_safe_fep(insn, inputs...)				\
- ({									\
- 	u64 ign_error_code;					\
--	uint8_t vector;							\
-+	u8 vector;							\
- 									\
- 	asm volatile(KVM_ASM_SAFE_FEP(insn)				\
- 		     : KVM_ASM_SAFE_OUTPUTS(vector, ign_error_code)	\
-@@ -1261,7 +1261,7 @@ void vm_install_exception_handler(struct kvm_vm *vm, int vector,
- 
- #define kvm_asm_safe_ec_fep(insn, error_code, inputs...)		\
- ({									\
--	uint8_t vector;							\
-+	u8 vector;							\
- 									\
- 	asm volatile(KVM_ASM_SAFE_FEP(insn)				\
- 		     : KVM_ASM_SAFE_OUTPUTS(vector, error_code)		\
-@@ -1271,10 +1271,10 @@ void vm_install_exception_handler(struct kvm_vm *vm, int vector,
- })
- 
- #define BUILD_READ_U64_SAFE_HELPER(insn, _fep, _FEP)			\
--static inline uint8_t insn##_safe ##_fep(u32 idx, u64 *val)	\
-+static inline u8 insn##_safe ##_fep(u32 idx, u64 *val)	\
- {									\
- 	u64 error_code;						\
--	uint8_t vector;							\
-+	u8 vector;							\
- 	u32 a, d;							\
- 									\
- 	asm volatile(KVM_ASM_SAFE##_FEP(#insn)				\
-@@ -1299,12 +1299,12 @@ BUILD_READ_U64_SAFE_HELPERS(rdmsr)
- BUILD_READ_U64_SAFE_HELPERS(rdpmc)
- BUILD_READ_U64_SAFE_HELPERS(xgetbv)
- 
--static inline uint8_t wrmsr_safe(u32 msr, u64 val)
-+static inline u8 wrmsr_safe(u32 msr, u64 val)
- {
- 	return kvm_asm_safe("wrmsr", "a"(val & -1u), "d"(val >> 32), "c"(msr));
- }
- 
--static inline uint8_t xsetbv_safe(u32 index, u64 value)
-+static inline u8 xsetbv_safe(u32 index, u64 value)
- {
- 	u32 eax = value;
- 	u32 edx = value >> 32;
-diff --git a/tools/testing/selftests/kvm/include/x86/sev.h b/tools/testing/selftests/kvm/include/x86/sev.h
-index fa056d2e1c7e..0eead22b248a 100644
---- a/tools/testing/selftests/kvm/include/x86/sev.h
-+++ b/tools/testing/selftests/kvm/include/x86/sev.h
-@@ -28,12 +28,12 @@ enum sev_guest_state {
- #define GHCB_MSR_TERM_REQ	0x100
- 
- void sev_vm_launch(struct kvm_vm *vm, u32 policy);
--void sev_vm_launch_measure(struct kvm_vm *vm, uint8_t *measurement);
-+void sev_vm_launch_measure(struct kvm_vm *vm, u8 *measurement);
- void sev_vm_launch_finish(struct kvm_vm *vm);
- 
- struct kvm_vm *vm_sev_create_with_one_vcpu(u32 type, void *guest_code,
- 					   struct kvm_vcpu **cpu);
--void vm_sev_launch(struct kvm_vm *vm, u32 policy, uint8_t *measurement);
-+void vm_sev_launch(struct kvm_vm *vm, u32 policy, u8 *measurement);
- 
- kvm_static_assert(SEV_RET_SUCCESS == 0);
- 
-diff --git a/tools/testing/selftests/kvm/include/x86/vmx.h b/tools/testing/selftests/kvm/include/x86/vmx.h
-index e1772fb66811..52bd89390b33 100644
---- a/tools/testing/selftests/kvm/include/x86/vmx.h
-+++ b/tools/testing/selftests/kvm/include/x86/vmx.h
-@@ -294,7 +294,7 @@ struct vmx_msr_entry {
- 
- static inline int vmxon(u64 phys)
- {
--	uint8_t ret;
-+	u8 ret;
- 
- 	__asm__ __volatile__ ("vmxon %[pa]; setna %[ret]"
- 		: [ret]"=rm"(ret)
-@@ -311,7 +311,7 @@ static inline void vmxoff(void)
- 
- static inline int vmclear(u64 vmcs_pa)
- {
--	uint8_t ret;
-+	u8 ret;
- 
- 	__asm__ __volatile__ ("vmclear %[pa]; setna %[ret]"
- 		: [ret]"=rm"(ret)
-@@ -323,7 +323,7 @@ static inline int vmclear(u64 vmcs_pa)
- 
- static inline int vmptrld(u64 vmcs_pa)
- {
--	uint8_t ret;
-+	u8 ret;
- 
- 	if (enable_evmcs)
- 		return -1;
-@@ -339,7 +339,7 @@ static inline int vmptrld(u64 vmcs_pa)
- static inline int vmptrst(u64 *value)
- {
- 	u64 tmp;
--	uint8_t ret;
-+	u8 ret;
- 
- 	if (enable_evmcs)
- 		return evmcs_vmptrst(value);
-@@ -450,7 +450,7 @@ static inline void vmcall(void)
- static inline int vmread(u64 encoding, u64 *value)
- {
- 	u64 tmp;
--	uint8_t ret;
-+	u8 ret;
- 
- 	if (enable_evmcs)
- 		return evmcs_vmread(encoding, value);
-@@ -477,7 +477,7 @@ static inline u64 vmreadz(u64 encoding)
- 
- static inline int vmwrite(u64 encoding, u64 value)
- {
--	uint8_t ret;
-+	u8 ret;
- 
- 	if (enable_evmcs)
- 		return evmcs_vmwrite(encoding, value);
-diff --git a/tools/testing/selftests/kvm/lib/arm64/processor.c b/tools/testing/selftests/kvm/lib/arm64/processor.c
-index 01c8ee96b8ec..8369119421e1 100644
---- a/tools/testing/selftests/kvm/lib/arm64/processor.c
-+++ b/tools/testing/selftests/kvm/lib/arm64/processor.c
-@@ -128,7 +128,7 @@ void virt_arch_pgd_alloc(struct kvm_vm *vm)
- static void _virt_pg_map(struct kvm_vm *vm, u64 vaddr, u64 paddr,
- 			 u64 flags)
- {
--	uint8_t attr_idx = flags & (PTE_ATTRINDX_MASK >> PTE_ATTRINDX_SHIFT);
-+	u8 attr_idx = flags & (PTE_ATTRINDX_MASK >> PTE_ATTRINDX_SHIFT);
- 	u64 pg_attr;
- 	u64 *ptep;
- 
-@@ -230,7 +230,7 @@ gpa_t addr_arch_gva2gpa(struct kvm_vm *vm, gva_t gva)
- 	return pte_addr(vm, *ptep) + (gva & (vm->page_size - 1));
- }
- 
--static void pte_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent, u64 page, int level)
-+static void pte_dump(FILE *stream, struct kvm_vm *vm, u8 indent, u64 page, int level)
- {
- #ifdef DEBUG
- 	static const char * const type[] = { "", "pud", "pmd", "pte" };
-@@ -249,7 +249,7 @@ static void pte_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent, u64 page,
- #endif
- }
- 
--void virt_arch_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
-+void virt_arch_dump(FILE *stream, struct kvm_vm *vm, u8 indent)
- {
- 	int level = 4 - (vm->pgtable_levels - 1);
- 	u64 pgd, *ptep;
-@@ -364,7 +364,7 @@ void aarch64_vcpu_setup(struct kvm_vcpu *vcpu, struct kvm_vcpu_init *init)
- 	vcpu_set_reg(vcpu, KVM_ARM64_SYS_REG(SYS_TPIDR_EL1), vcpu->id);
- }
- 
--void vcpu_arch_dump(FILE *stream, struct kvm_vcpu *vcpu, uint8_t indent)
-+void vcpu_arch_dump(FILE *stream, struct kvm_vcpu *vcpu, u8 indent)
- {
- 	u64 pstate, pc;
- 
-diff --git a/tools/testing/selftests/kvm/lib/guest_sprintf.c b/tools/testing/selftests/kvm/lib/guest_sprintf.c
-index 0f6d5c3e060c..e5fbc39a9312 100644
---- a/tools/testing/selftests/kvm/lib/guest_sprintf.c
-+++ b/tools/testing/selftests/kvm/lib/guest_sprintf.c
-@@ -216,7 +216,7 @@ int guest_vsnprintf(char *buf, int n, const char *fmt, va_list args)
- 				while (--field_width > 0)
- 					APPEND_BUFFER_SAFE(str, end, ' ');
- 			APPEND_BUFFER_SAFE(str, end,
--					    (uint8_t)va_arg(args, int));
-+					    (u8)va_arg(args, int));
- 			while (--field_width > 0)
- 				APPEND_BUFFER_SAFE(str, end, ' ');
- 			continue;
-diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
-index ade04f83485e..45c998b5be22 100644
---- a/tools/testing/selftests/kvm/lib/kvm_util.c
-+++ b/tools/testing/selftests/kvm/lib/kvm_util.c
-@@ -1935,7 +1935,7 @@ void kvm_gsi_routing_write(struct kvm_vm *vm, struct kvm_irq_routing *routing)
-  * Dumps the current state of the VM given by vm, to the FILE stream
-  * given by stream.
-  */
--void vm_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
-+void vm_dump(FILE *stream, struct kvm_vm *vm, u8 indent)
- {
- 	int ctr;
- 	struct userspace_mem_region *region;
-diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
-index 19db0671a390..645c9630a981 100644
---- a/tools/testing/selftests/kvm/lib/riscv/processor.c
-+++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
-@@ -152,7 +152,7 @@ gpa_t addr_arch_gva2gpa(struct kvm_vm *vm, gva_t gva)
- 	exit(1);
- }
- 
--static void pte_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent,
-+static void pte_dump(FILE *stream, struct kvm_vm *vm, u8 indent,
- 		     u64 page, int level)
- {
- #ifdef DEBUG
-@@ -174,7 +174,7 @@ static void pte_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent,
- #endif
- }
- 
--void virt_arch_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
-+void virt_arch_dump(FILE *stream, struct kvm_vm *vm, u8 indent)
- {
- 	int level = vm->pgtable_levels - 1;
- 	u64 pgd, *ptep;
-@@ -217,7 +217,7 @@ void riscv_vcpu_mmu_setup(struct kvm_vcpu *vcpu)
- 	vcpu_set_reg(vcpu, RISCV_GENERAL_CSR_REG(satp), satp);
- }
- 
--void vcpu_arch_dump(FILE *stream, struct kvm_vcpu *vcpu, uint8_t indent)
-+void vcpu_arch_dump(FILE *stream, struct kvm_vcpu *vcpu, u8 indent)
- {
- 	struct kvm_riscv_core core;
- 
-diff --git a/tools/testing/selftests/kvm/lib/s390/processor.c b/tools/testing/selftests/kvm/lib/s390/processor.c
-index 5445a54b44bb..4cc212396885 100644
---- a/tools/testing/selftests/kvm/lib/s390/processor.c
-+++ b/tools/testing/selftests/kvm/lib/s390/processor.c
-@@ -111,7 +111,7 @@ gpa_t addr_arch_gva2gpa(struct kvm_vm *vm, gva_t gva)
- 	return (entry[idx] & ~0xffful) + (gva & 0xffful);
- }
- 
--static void virt_dump_ptes(FILE *stream, struct kvm_vm *vm, uint8_t indent,
-+static void virt_dump_ptes(FILE *stream, struct kvm_vm *vm, u8 indent,
- 			   u64 ptea_start)
- {
- 	u64 *pte, ptea;
-@@ -125,7 +125,7 @@ static void virt_dump_ptes(FILE *stream, struct kvm_vm *vm, uint8_t indent,
- 	}
- }
- 
--static void virt_dump_region(FILE *stream, struct kvm_vm *vm, uint8_t indent,
-+static void virt_dump_region(FILE *stream, struct kvm_vm *vm, u8 indent,
- 			     u64 reg_tab_addr)
- {
- 	u64 addr, *entry;
-@@ -147,7 +147,7 @@ static void virt_dump_region(FILE *stream, struct kvm_vm *vm, uint8_t indent,
- 	}
- }
- 
--void virt_arch_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
-+void virt_arch_dump(FILE *stream, struct kvm_vm *vm, u8 indent)
- {
- 	if (!vm->pgd_created)
- 		return;
-@@ -212,7 +212,7 @@ void vcpu_args_set(struct kvm_vcpu *vcpu, unsigned int num, ...)
- 	va_end(ap);
- }
- 
--void vcpu_arch_dump(FILE *stream, struct kvm_vcpu *vcpu, uint8_t indent)
-+void vcpu_arch_dump(FILE *stream, struct kvm_vcpu *vcpu, u8 indent)
- {
- 	fprintf(stream, "%*spstate: psw: 0x%.16llx:0x%.16llx\n",
- 		indent, "", vcpu->run->psw_mask, vcpu->run->psw_addr);
-diff --git a/tools/testing/selftests/kvm/lib/sparsebit.c b/tools/testing/selftests/kvm/lib/sparsebit.c
-index 2789d34436e6..7572a5033c37 100644
---- a/tools/testing/selftests/kvm/lib/sparsebit.c
-+++ b/tools/testing/selftests/kvm/lib/sparsebit.c
-@@ -2074,7 +2074,7 @@ int main(void)
- {
- 	s = sparsebit_alloc();
- 	for (;;) {
--		uint8_t op = get8() & 0xf;
-+		u8 op = get8() & 0xf;
- 		u64 first = get64();
- 		u64 last = get64();
- 
-diff --git a/tools/testing/selftests/kvm/lib/x86/processor.c b/tools/testing/selftests/kvm/lib/x86/processor.c
-index 7258f9f8f0bf..dfbc1c7199c4 100644
---- a/tools/testing/selftests/kvm/lib/x86/processor.c
-+++ b/tools/testing/selftests/kvm/lib/x86/processor.c
-@@ -23,7 +23,7 @@ bool host_cpu_is_intel;
- bool is_forced_emulation_enabled;
- u64 guest_tsc_khz;
- 
--static void regs_dump(FILE *stream, struct kvm_regs *regs, uint8_t indent)
-+static void regs_dump(FILE *stream, struct kvm_regs *regs, u8 indent)
- {
- 	fprintf(stream, "%*srax: 0x%.16llx rbx: 0x%.16llx "
- 		"rcx: 0x%.16llx rdx: 0x%.16llx\n",
-@@ -47,7 +47,7 @@ static void regs_dump(FILE *stream, struct kvm_regs *regs, uint8_t indent)
- }
- 
- static void segment_dump(FILE *stream, struct kvm_segment *segment,
--			 uint8_t indent)
-+			 u8 indent)
- {
- 	fprintf(stream, "%*sbase: 0x%.16llx limit: 0x%.8x "
- 		"selector: 0x%.4x type: 0x%.2x\n",
-@@ -64,7 +64,7 @@ static void segment_dump(FILE *stream, struct kvm_segment *segment,
- }
- 
- static void dtable_dump(FILE *stream, struct kvm_dtable *dtable,
--			uint8_t indent)
-+			u8 indent)
- {
- 	fprintf(stream, "%*sbase: 0x%.16llx limit: 0x%.4x "
- 		"padding: 0x%.4x 0x%.4x 0x%.4x\n",
-@@ -72,7 +72,7 @@ static void dtable_dump(FILE *stream, struct kvm_dtable *dtable,
- 		dtable->padding[0], dtable->padding[1], dtable->padding[2]);
- }
- 
--static void sregs_dump(FILE *stream, struct kvm_sregs *sregs, uint8_t indent)
-+static void sregs_dump(FILE *stream, struct kvm_sregs *sregs, u8 indent)
- {
- 	unsigned int i;
- 
-@@ -318,7 +318,7 @@ u64 *vm_get_page_table_entry(struct kvm_vm *vm, u64 vaddr)
- 	return __vm_get_page_table_entry(vm, vaddr, &level);
- }
- 
--void virt_arch_dump(FILE *stream, struct kvm_vm *vm, uint8_t indent)
-+void virt_arch_dump(FILE *stream, struct kvm_vm *vm, u8 indent)
- {
- 	u64 *pml4e, *pml4e_start;
- 	u64 *pdpe, *pdpe_start;
-@@ -747,7 +747,7 @@ const struct kvm_cpuid2 *kvm_get_supported_cpuid(void)
- 
- static u32 __kvm_cpu_has(const struct kvm_cpuid2 *cpuid,
- 			 u32 function, u32 index,
--			 uint8_t reg, uint8_t lo, uint8_t hi)
-+			 u8 reg, u8 lo, u8 hi)
- {
- 	const struct kvm_cpuid_entry2 *entry;
- 	int i;
-@@ -965,7 +965,7 @@ void vcpu_args_set(struct kvm_vcpu *vcpu, unsigned int num, ...)
- 	va_end(ap);
- }
- 
--void vcpu_arch_dump(FILE *stream, struct kvm_vcpu *vcpu, uint8_t indent)
-+void vcpu_arch_dump(FILE *stream, struct kvm_vcpu *vcpu, u8 indent)
- {
- 	struct kvm_regs regs;
- 	struct kvm_sregs sregs;
-@@ -1215,7 +1215,7 @@ unsigned long vm_compute_max_gfn(struct kvm_vm *vm)
- {
- 	const unsigned long num_ht_pages = 12 << (30 - vm->page_shift); /* 12 GiB */
- 	unsigned long ht_gfn, max_gfn, max_pfn;
--	uint8_t maxphyaddr, guest_maxphyaddr;
-+	u8 maxphyaddr, guest_maxphyaddr;
- 
- 	/*
- 	 * Use "guest MAXPHYADDR" from KVM if it's available.  Guest MAXPHYADDR
-diff --git a/tools/testing/selftests/kvm/lib/x86/sev.c b/tools/testing/selftests/kvm/lib/x86/sev.c
-index dba0aa744561..572245abcdd8 100644
---- a/tools/testing/selftests/kvm/lib/x86/sev.c
-+++ b/tools/testing/selftests/kvm/lib/x86/sev.c
-@@ -84,7 +84,7 @@ void sev_vm_launch(struct kvm_vm *vm, u32 policy)
- 	vm->arch.is_pt_protected = true;
- }
- 
--void sev_vm_launch_measure(struct kvm_vm *vm, uint8_t *measurement)
-+void sev_vm_launch_measure(struct kvm_vm *vm, u8 *measurement)
- {
- 	struct kvm_sev_launch_measure launch_measure;
- 	struct kvm_sev_guest_status guest_status;
-@@ -128,7 +128,7 @@ struct kvm_vm *vm_sev_create_with_one_vcpu(u32 type, void *guest_code,
- 	return vm;
- }
- 
--void vm_sev_launch(struct kvm_vm *vm, u32 policy, uint8_t *measurement)
-+void vm_sev_launch(struct kvm_vm *vm, u32 policy, u8 *measurement)
- {
- 	sev_vm_launch(vm, policy);
- 
-diff --git a/tools/testing/selftests/kvm/memslot_perf_test.c b/tools/testing/selftests/kvm/memslot_perf_test.c
-index 29b2bb605ee6..0d369dbde88f 100644
---- a/tools/testing/selftests/kvm/memslot_perf_test.c
-+++ b/tools/testing/selftests/kvm/memslot_perf_test.c
-@@ -216,7 +216,7 @@ static void *vm_gpa2hva(struct vm_data *data, u64 gpa, u64 *rempages)
- 	}
- 
- 	base = data->hva_slots[slot];
--	return (uint8_t *)base + slotoffs * guest_page_size + pgoffs;
-+	return (u8 *)base + slotoffs * guest_page_size + pgoffs;
- }
- 
- static u64 vm_slot2gpa(struct vm_data *data, u32 slot)
-diff --git a/tools/testing/selftests/kvm/mmu_stress_test.c b/tools/testing/selftests/kvm/mmu_stress_test.c
-index 4c3b96dcab21..af8e97d36764 100644
---- a/tools/testing/selftests/kvm/mmu_stress_test.c
-+++ b/tools/testing/selftests/kvm/mmu_stress_test.c
-@@ -346,7 +346,7 @@ int main(int argc, char *argv[])
- 
- 	/* Pre-fault the memory to avoid taking mmap_sem on guest page faults. */
- 	for (i = 0; i < slot_size; i += vm->page_size)
--		((uint8_t *)mem)[i] = 0xaa;
-+		((u8 *)mem)[i] = 0xaa;
- 
- 	gpa = 0;
- 	for (slot = first_slot; slot < max_slots; slot++) {
-diff --git a/tools/testing/selftests/kvm/s390/memop.c b/tools/testing/selftests/kvm/s390/memop.c
-index 2283ad346746..4f63ff79ee46 100644
---- a/tools/testing/selftests/kvm/s390/memop.c
-+++ b/tools/testing/selftests/kvm/s390/memop.c
-@@ -48,13 +48,13 @@ struct mop_desc {
- 	void *buf;
- 	u32 sida_offset;
- 	void *old;
--	uint8_t old_value[16];
-+	u8 old_value[16];
- 	bool *cmpxchg_success;
--	uint8_t ar;
--	uint8_t key;
-+	u8 ar;
-+	u8 key;
- };
- 
--const uint8_t NO_KEY = 0xff;
-+const u8 NO_KEY = 0xff;
- 
- static struct kvm_s390_mem_op ksmo_from_desc(struct mop_desc *desc)
- {
-@@ -230,8 +230,8 @@ static void memop_ioctl(struct test_info info, struct kvm_s390_mem_op *ksmo,
- #define CR0_FETCH_PROTECTION_OVERRIDE	(1UL << (63 - 38))
- #define CR0_STORAGE_PROTECTION_OVERRIDE	(1UL << (63 - 39))
- 
--static uint8_t __aligned(PAGE_SIZE) mem1[65536];
--static uint8_t __aligned(PAGE_SIZE) mem2[65536];
-+static u8 __aligned(PAGE_SIZE) mem1[65536];
-+static u8 __aligned(PAGE_SIZE) mem2[65536];
- 
- struct test_default {
- 	struct kvm_vm *kvm_vm;
-@@ -296,7 +296,7 @@ static void prepare_mem12(void)
- 	TEST_ASSERT(!memcmp(p1, p2, size), "Memory contents do not match!")
- 
- static void default_write_read(struct test_info copy_cpu, struct test_info mop_cpu,
--			       enum mop_target mop_target, u32 size, uint8_t key)
-+			       enum mop_target mop_target, u32 size, u8 key)
- {
- 	prepare_mem12();
- 	CHECK_N_DO(MOP, mop_cpu, mop_target, WRITE, mem1, size,
-@@ -308,7 +308,7 @@ static void default_write_read(struct test_info copy_cpu, struct test_info mop_c
- }
- 
- static void default_read(struct test_info copy_cpu, struct test_info mop_cpu,
--			 enum mop_target mop_target, u32 size, uint8_t key)
-+			 enum mop_target mop_target, u32 size, u8 key)
- {
- 	prepare_mem12();
- 	CHECK_N_DO(MOP, mop_cpu, mop_target, WRITE, mem1, size, GADDR_V(mem1));
-@@ -318,12 +318,12 @@ static void default_read(struct test_info copy_cpu, struct test_info mop_cpu,
- 	ASSERT_MEM_EQ(mem1, mem2, size);
- }
- 
--static void default_cmpxchg(struct test_default *test, uint8_t key)
-+static void default_cmpxchg(struct test_default *test, u8 key)
- {
- 	for (int size = 1; size <= 16; size *= 2) {
- 		for (int offset = 0; offset < 16; offset += size) {
--			uint8_t __aligned(16) new[16] = {};
--			uint8_t __aligned(16) old[16];
-+			u8 __aligned(16) new[16] = {};
-+			u8 __aligned(16) old[16];
- 			bool succ;
- 
- 			prepare_mem12();
-@@ -400,7 +400,7 @@ static void test_copy_access_register(void)
- 	kvm_vm_free(t.kvm_vm);
- }
- 
--static void set_storage_key_range(void *addr, size_t len, uint8_t key)
-+static void set_storage_key_range(void *addr, size_t len, u8 key)
- {
- 	uintptr_t _addr, abs, i;
- 	int not_mapped = 0;
-@@ -483,7 +483,7 @@ static __uint128_t cut_to_size(int size, __uint128_t val)
- {
- 	switch (size) {
- 	case 1:
--		return (uint8_t)val;
-+		return (u8)val;
- 	case 2:
- 		return (u16)val;
- 	case 4:
-@@ -553,7 +553,7 @@ static __uint128_t permutate_bits(bool guest, int i, int size, __uint128_t old)
- 	if (swap) {
- 		int i, j;
- 		__uint128_t new;
--		uint8_t byte0, byte1;
-+		u8 byte0, byte1;
- 
- 		rand = rand * 3 + 1;
- 		i = rand % size;
-diff --git a/tools/testing/selftests/kvm/s390/resets.c b/tools/testing/selftests/kvm/s390/resets.c
-index 7a81d07500bd..e3c7a2f148f9 100644
---- a/tools/testing/selftests/kvm/s390/resets.c
-+++ b/tools/testing/selftests/kvm/s390/resets.c
-@@ -20,7 +20,7 @@
- 
- struct kvm_s390_irq buf[ARBITRARY_NON_ZERO_VCPU_ID + LOCAL_IRQS];
- 
--static uint8_t regs_null[512];
-+static u8 regs_null[512];
- 
- static void guest_code_initial(void)
- {
-diff --git a/tools/testing/selftests/kvm/s390/shared_zeropage_test.c b/tools/testing/selftests/kvm/s390/shared_zeropage_test.c
-index bba0d9a6dcc8..a9e5a01200b8 100644
---- a/tools/testing/selftests/kvm/s390/shared_zeropage_test.c
-+++ b/tools/testing/selftests/kvm/s390/shared_zeropage_test.c
-@@ -13,7 +13,7 @@
- #include "kselftest.h"
- #include "ucall_common.h"
- 
--static void set_storage_key(void *addr, uint8_t skey)
-+static void set_storage_key(void *addr, u8 skey)
- {
- 	asm volatile("sske %0,%1" : : "d" (skey), "a" (addr));
- }
-diff --git a/tools/testing/selftests/kvm/s390/tprot.c b/tools/testing/selftests/kvm/s390/tprot.c
-index ffd5d139082a..4c5d524915d1 100644
---- a/tools/testing/selftests/kvm/s390/tprot.c
-+++ b/tools/testing/selftests/kvm/s390/tprot.c
-@@ -14,12 +14,12 @@
- #define CR0_FETCH_PROTECTION_OVERRIDE	(1UL << (63 - 38))
- #define CR0_STORAGE_PROTECTION_OVERRIDE	(1UL << (63 - 39))
- 
--static __aligned(PAGE_SIZE) uint8_t pages[2][PAGE_SIZE];
--static uint8_t *const page_store_prot = pages[0];
--static uint8_t *const page_fetch_prot = pages[1];
-+static __aligned(PAGE_SIZE) u8 pages[2][PAGE_SIZE];
-+static u8 *const page_store_prot = pages[0];
-+static u8 *const page_fetch_prot = pages[1];
- 
- /* Nonzero return value indicates that address not mapped */
--static int set_storage_key(void *addr, uint8_t key)
-+static int set_storage_key(void *addr, u8 key)
- {
- 	int not_mapped = 0;
- 
-@@ -44,7 +44,7 @@ enum permission {
- 	TRANSL_UNAVAIL = 3,
- };
- 
--static enum permission test_protection(void *addr, uint8_t key)
-+static enum permission test_protection(void *addr, u8 key)
- {
- 	u64 mask;
- 
-@@ -72,7 +72,7 @@ enum stage {
- struct test {
- 	enum stage stage;
- 	void *addr;
--	uint8_t key;
-+	u8 key;
- 	enum permission expected;
- } tests[] = {
- 	/*
-diff --git a/tools/testing/selftests/kvm/set_memory_region_test.c b/tools/testing/selftests/kvm/set_memory_region_test.c
-index 730f94cb1e86..58855e5e0b29 100644
---- a/tools/testing/selftests/kvm/set_memory_region_test.c
-+++ b/tools/testing/selftests/kvm/set_memory_region_test.c
-@@ -564,7 +564,7 @@ static void guest_code_mmio_during_vectoring(void)
- 	set_idt(&idt_desc);
- 
- 	/* Generate a #GP by dereferencing a non-canonical address */
--	*((uint8_t *)NONCANONICAL) = 0x1;
-+	*((u8 *)NONCANONICAL) = 0x1;
- 
- 	GUEST_ASSERT(0);
- }
-diff --git a/tools/testing/selftests/kvm/steal_time.c b/tools/testing/selftests/kvm/steal_time.c
-index 369d6290dcdc..5bd587098c90 100644
---- a/tools/testing/selftests/kvm/steal_time.c
-+++ b/tools/testing/selftests/kvm/steal_time.c
-@@ -216,8 +216,8 @@ struct sta_struct {
- 	u32 sequence;
- 	u32 flags;
- 	u64 steal;
--	uint8_t preempted;
--	uint8_t pad[47];
-+	u8 preempted;
-+	u8 pad[47];
- } __packed;
- 
- static void sta_set_shmem(gpa_t gpa, unsigned long flags)
-diff --git a/tools/testing/selftests/kvm/x86/fix_hypercall_test.c b/tools/testing/selftests/kvm/x86/fix_hypercall_test.c
-index a2c8202cb80e..5ab8bd042397 100644
---- a/tools/testing/selftests/kvm/x86/fix_hypercall_test.c
-+++ b/tools/testing/selftests/kvm/x86/fix_hypercall_test.c
-@@ -26,11 +26,11 @@ static void guest_ud_handler(struct ex_regs *regs)
- 	regs->rip += HYPERCALL_INSN_SIZE;
- }
- 
--static const uint8_t vmx_vmcall[HYPERCALL_INSN_SIZE]  = { 0x0f, 0x01, 0xc1 };
--static const uint8_t svm_vmmcall[HYPERCALL_INSN_SIZE] = { 0x0f, 0x01, 0xd9 };
-+static const u8 vmx_vmcall[HYPERCALL_INSN_SIZE]  = { 0x0f, 0x01, 0xc1 };
-+static const u8 svm_vmmcall[HYPERCALL_INSN_SIZE] = { 0x0f, 0x01, 0xd9 };
- 
--extern uint8_t hypercall_insn[HYPERCALL_INSN_SIZE];
--static u64 do_sched_yield(uint8_t apic_id)
-+extern u8 hypercall_insn[HYPERCALL_INSN_SIZE];
-+static u64 do_sched_yield(u8 apic_id)
- {
- 	u64 ret;
- 
-@@ -45,8 +45,8 @@ static u64 do_sched_yield(uint8_t apic_id)
- 
- static void guest_main(void)
- {
--	const uint8_t *native_hypercall_insn;
--	const uint8_t *other_hypercall_insn;
-+	const u8 *native_hypercall_insn;
-+	const u8 *other_hypercall_insn;
- 	u64 ret;
- 
- 	if (host_cpu_is_intel) {
-diff --git a/tools/testing/selftests/kvm/x86/flds_emulation.h b/tools/testing/selftests/kvm/x86/flds_emulation.h
-index c7e4f08765fb..fd6b6c67199a 100644
---- a/tools/testing/selftests/kvm/x86/flds_emulation.h
-+++ b/tools/testing/selftests/kvm/x86/flds_emulation.h
-@@ -21,7 +21,7 @@ static inline void handle_flds_emulation_failure_exit(struct kvm_vcpu *vcpu)
- {
- 	struct kvm_run *run = vcpu->run;
- 	struct kvm_regs regs;
--	uint8_t *insn_bytes;
-+	u8 *insn_bytes;
- 	u64 flags;
- 
- 	TEST_ASSERT_KVM_EXIT_REASON(vcpu, KVM_EXIT_INTERNAL_ERROR);
-diff --git a/tools/testing/selftests/kvm/x86/hyperv_features.c b/tools/testing/selftests/kvm/x86/hyperv_features.c
-index 31e568150c98..47759619a879 100644
---- a/tools/testing/selftests/kvm/x86/hyperv_features.c
-+++ b/tools/testing/selftests/kvm/x86/hyperv_features.c
-@@ -41,7 +41,7 @@ static bool is_write_only_msr(u32 msr)
- 
- static void guest_msr(struct msr_data *msr)
- {
--	uint8_t vector = 0;
-+	u8 vector = 0;
- 	u64 msr_val = 0;
- 
- 	GUEST_ASSERT(msr->idx);
-@@ -85,7 +85,7 @@ static void guest_msr(struct msr_data *msr)
- static void guest_hcall(gpa_t pgs_gpa, struct hcall_data *hcall)
- {
- 	u64 res, input, output;
--	uint8_t vector;
-+	u8 vector;
- 
- 	GUEST_ASSERT_NE(hcall->control, 0);
- 
-diff --git a/tools/testing/selftests/kvm/x86/kvm_pv_test.c b/tools/testing/selftests/kvm/x86/kvm_pv_test.c
-index babf0f95165a..8ed5fa635021 100644
---- a/tools/testing/selftests/kvm/x86/kvm_pv_test.c
-+++ b/tools/testing/selftests/kvm/x86/kvm_pv_test.c
-@@ -41,7 +41,7 @@ static struct msr_data msrs_to_test[] = {
- static void test_msr(struct msr_data *msr)
- {
- 	u64 ignored;
--	uint8_t vector;
-+	u8 vector;
- 
- 	PR_MSR(msr);
- 
-diff --git a/tools/testing/selftests/kvm/x86/nested_emulation_test.c b/tools/testing/selftests/kvm/x86/nested_emulation_test.c
-index 42fd24567e26..fb7dcbe53ac7 100644
---- a/tools/testing/selftests/kvm/x86/nested_emulation_test.c
-+++ b/tools/testing/selftests/kvm/x86/nested_emulation_test.c
-@@ -13,7 +13,7 @@ enum {
- 
- struct emulated_instruction {
- 	const char name[32];
--	uint8_t opcode[15];
-+	u8 opcode[15];
- 	u32 exit_reason[NR_VIRTUALIZATION_FLAVORS];
- };
- 
-@@ -32,9 +32,9 @@ static struct emulated_instruction instructions[] = {
- 	},
- };
- 
--static uint8_t kvm_fep[] = { 0x0f, 0x0b, 0x6b, 0x76, 0x6d };	/* ud2 ; .ascii "kvm" */
--static uint8_t l2_guest_code[sizeof(kvm_fep) + 15];
--static uint8_t *l2_instruction = &l2_guest_code[sizeof(kvm_fep)];
-+static u8 kvm_fep[] = { 0x0f, 0x0b, 0x6b, 0x76, 0x6d };	/* ud2 ; .ascii "kvm" */
-+static u8 l2_guest_code[sizeof(kvm_fep) + 15];
-+static u8 *l2_instruction = &l2_guest_code[sizeof(kvm_fep)];
- 
- static u32 get_instruction_length(struct emulated_instruction *insn)
- {
-diff --git a/tools/testing/selftests/kvm/x86/platform_info_test.c b/tools/testing/selftests/kvm/x86/platform_info_test.c
-index 86d1ab0db1e8..80bb07e6531c 100644
---- a/tools/testing/selftests/kvm/x86/platform_info_test.c
-+++ b/tools/testing/selftests/kvm/x86/platform_info_test.c
-@@ -24,7 +24,7 @@
- static void guest_code(void)
- {
- 	u64 msr_platform_info;
--	uint8_t vector;
-+	u8 vector;
- 
- 	GUEST_SYNC(true);
- 	msr_platform_info = rdmsr(MSR_PLATFORM_INFO);
-diff --git a/tools/testing/selftests/kvm/x86/pmu_counters_test.c b/tools/testing/selftests/kvm/x86/pmu_counters_test.c
-index 16a2093b14eb..f7b1c15be748 100644
---- a/tools/testing/selftests/kvm/x86/pmu_counters_test.c
-+++ b/tools/testing/selftests/kvm/x86/pmu_counters_test.c
-@@ -32,7 +32,7 @@
- /* Track which architectural events are supported by hardware. */
- static u32 hardware_pmu_arch_events;
- 
--static uint8_t kvm_pmu_version;
-+static u8 kvm_pmu_version;
- static bool kvm_has_perf_caps;
- 
- #define X86_PMU_FEATURE_NULL						\
-@@ -57,7 +57,7 @@ struct kvm_intel_pmu_event {
-  * kvm_x86_pmu_feature use syntax that's only valid in function scope, and the
-  * compiler often thinks the feature definitions aren't compile-time constants.
-  */
--static struct kvm_intel_pmu_event intel_event_to_feature(uint8_t idx)
-+static struct kvm_intel_pmu_event intel_event_to_feature(u8 idx)
- {
- 	const struct kvm_intel_pmu_event __intel_event_to_feature[] = {
- 		[INTEL_ARCH_CPU_CYCLES_INDEX]		 = { X86_PMU_FEATURE_CPU_CYCLES, X86_PMU_FEATURE_CPU_CYCLES_FIXED },
-@@ -84,7 +84,7 @@ static struct kvm_intel_pmu_event intel_event_to_feature(uint8_t idx)
- 
- static struct kvm_vm *pmu_vm_create_with_one_vcpu(struct kvm_vcpu **vcpu,
- 						  void *guest_code,
--						  uint8_t pmu_version,
-+						  u8 pmu_version,
- 						  u64 perf_capabilities)
- {
- 	struct kvm_vm *vm;
-@@ -127,7 +127,7 @@ static void run_vcpu(struct kvm_vcpu *vcpu)
- 	} while (uc.cmd != UCALL_DONE);
- }
- 
--static uint8_t guest_get_pmu_version(void)
-+static u8 guest_get_pmu_version(void)
- {
- 	/*
- 	 * Return the effective PMU version, i.e. the minimum between what KVM
-@@ -136,7 +136,7 @@ static uint8_t guest_get_pmu_version(void)
- 	 * supported by KVM to verify KVM doesn't freak out and do something
- 	 * bizarre with an architecturally valid, but unsupported, version.
- 	 */
--	return min_t(uint8_t, kvm_pmu_version, this_cpu_property(X86_PROPERTY_PMU_VERSION));
-+	return min_t(u8, kvm_pmu_version, this_cpu_property(X86_PROPERTY_PMU_VERSION));
- }
- 
- /*
-@@ -148,7 +148,7 @@ static uint8_t guest_get_pmu_version(void)
-  * Sanity check that in all cases, the event doesn't count when it's disabled,
-  * and that KVM correctly emulates the write of an arbitrary value.
-  */
--static void guest_assert_event_count(uint8_t idx, u32 pmc, u32 pmc_msr)
-+static void guest_assert_event_count(u8 idx, u32 pmc, u32 pmc_msr)
- {
- 	u64 count;
- 
-@@ -237,7 +237,7 @@ do {										\
- 	guest_assert_event_count(_idx, _pmc, _pmc_msr);				\
- } while (0)
- 
--static void __guest_test_arch_event(uint8_t idx, u32 pmc, u32 pmc_msr,
-+static void __guest_test_arch_event(u8 idx, u32 pmc, u32 pmc_msr,
- 				    u32 ctrl_msr, u64 ctrl_msr_value)
- {
- 	GUEST_TEST_EVENT(idx, pmc, pmc_msr, ctrl_msr, ctrl_msr_value, "");
-@@ -246,7 +246,7 @@ static void __guest_test_arch_event(uint8_t idx, u32 pmc, u32 pmc_msr,
- 		GUEST_TEST_EVENT(idx, pmc, pmc_msr, ctrl_msr, ctrl_msr_value, KVM_FEP);
- }
- 
--static void guest_test_arch_event(uint8_t idx)
-+static void guest_test_arch_event(u8 idx)
- {
- 	u32 nr_gp_counters = this_cpu_property(X86_PROPERTY_PMU_NR_GP_COUNTERS);
- 	u32 pmu_version = guest_get_pmu_version();
-@@ -302,7 +302,7 @@ static void guest_test_arch_event(uint8_t idx)
- 
- static void guest_test_arch_events(void)
- {
--	uint8_t i;
-+	u8 i;
- 
- 	for (i = 0; i < NR_INTEL_ARCH_EVENTS; i++)
- 		guest_test_arch_event(i);
-@@ -310,8 +310,8 @@ static void guest_test_arch_events(void)
- 	GUEST_DONE();
- }
- 
--static void test_arch_events(uint8_t pmu_version, u64 perf_capabilities,
--			     uint8_t length, uint8_t unavailable_mask)
-+static void test_arch_events(u8 pmu_version, u64 perf_capabilities,
-+			     u8 length, u8 unavailable_mask)
- {
- 	struct kvm_vcpu *vcpu;
- 	struct kvm_vm *vm;
-@@ -355,7 +355,7 @@ __GUEST_ASSERT(expect_gp ? vector == GP_VECTOR : !vector,			\
- static void guest_test_rdpmc(u32 rdpmc_idx, bool expect_success,
- 			     u64 expected_val)
- {
--	uint8_t vector;
-+	u8 vector;
- 	u64 val;
- 
- 	vector = rdpmc_safe(rdpmc_idx, &val);
-@@ -372,11 +372,11 @@ static void guest_test_rdpmc(u32 rdpmc_idx, bool expect_success,
- 		GUEST_ASSERT_PMC_VALUE(RDPMC, rdpmc_idx, val, expected_val);
- }
- 
--static void guest_rd_wr_counters(u32 base_msr, uint8_t nr_possible_counters,
--				 uint8_t nr_counters, u32 or_mask)
-+static void guest_rd_wr_counters(u32 base_msr, u8 nr_possible_counters,
-+				 u8 nr_counters, u32 or_mask)
- {
- 	const bool pmu_has_fast_mode = !guest_get_pmu_version();
--	uint8_t i;
-+	u8 i;
- 
- 	for (i = 0; i < nr_possible_counters; i++) {
- 		/*
-@@ -401,7 +401,7 @@ static void guest_rd_wr_counters(u32 base_msr, uint8_t nr_possible_counters,
- 		const bool expect_gp = !expect_success && msr != MSR_P6_PERFCTR0 &&
- 				       msr != MSR_P6_PERFCTR1;
- 		u32 rdpmc_idx;
--		uint8_t vector;
-+		u8 vector;
- 		u64 val;
- 
- 		vector = wrmsr_safe(msr, test_val);
-@@ -440,8 +440,8 @@ static void guest_rd_wr_counters(u32 base_msr, uint8_t nr_possible_counters,
- 
- static void guest_test_gp_counters(void)
- {
--	uint8_t pmu_version = guest_get_pmu_version();
--	uint8_t nr_gp_counters = 0;
-+	u8 pmu_version = guest_get_pmu_version();
-+	u8 nr_gp_counters = 0;
- 	u32 base_msr;
- 
- 	if (pmu_version)
-@@ -474,8 +474,8 @@ static void guest_test_gp_counters(void)
- 	GUEST_DONE();
- }
- 
--static void test_gp_counters(uint8_t pmu_version, u64 perf_capabilities,
--			     uint8_t nr_gp_counters)
-+static void test_gp_counters(u8 pmu_version, u64 perf_capabilities,
-+			     u8 nr_gp_counters)
- {
- 	struct kvm_vcpu *vcpu;
- 	struct kvm_vm *vm;
-@@ -494,8 +494,8 @@ static void test_gp_counters(uint8_t pmu_version, u64 perf_capabilities,
- static void guest_test_fixed_counters(void)
- {
- 	u64 supported_bitmask = 0;
--	uint8_t nr_fixed_counters = 0;
--	uint8_t i;
-+	u8 nr_fixed_counters = 0;
-+	u8 i;
- 
- 	/* Fixed counters require Architectural vPMU Version 2+. */
- 	if (guest_get_pmu_version() >= 2)
-@@ -512,7 +512,7 @@ static void guest_test_fixed_counters(void)
- 			     nr_fixed_counters, supported_bitmask);
- 
- 	for (i = 0; i < MAX_NR_FIXED_COUNTERS; i++) {
--		uint8_t vector;
-+		u8 vector;
- 		u64 val;
- 
- 		if (i >= nr_fixed_counters && !(supported_bitmask & BIT_ULL(i))) {
-@@ -540,8 +540,8 @@ static void guest_test_fixed_counters(void)
- 	GUEST_DONE();
- }
- 
--static void test_fixed_counters(uint8_t pmu_version, u64 perf_capabilities,
--				uint8_t nr_fixed_counters,
-+static void test_fixed_counters(u8 pmu_version, u64 perf_capabilities,
-+				u8 nr_fixed_counters,
- 				u32 supported_bitmask)
- {
- 	struct kvm_vcpu *vcpu;
-@@ -562,11 +562,11 @@ static void test_fixed_counters(uint8_t pmu_version, u64 perf_capabilities,
- 
- static void test_intel_counters(void)
- {
--	uint8_t nr_fixed_counters = kvm_cpu_property(X86_PROPERTY_PMU_NR_FIXED_COUNTERS);
--	uint8_t nr_gp_counters = kvm_cpu_property(X86_PROPERTY_PMU_NR_GP_COUNTERS);
--	uint8_t pmu_version = kvm_cpu_property(X86_PROPERTY_PMU_VERSION);
-+	u8 nr_fixed_counters = kvm_cpu_property(X86_PROPERTY_PMU_NR_FIXED_COUNTERS);
-+	u8 nr_gp_counters = kvm_cpu_property(X86_PROPERTY_PMU_NR_GP_COUNTERS);
-+	u8 pmu_version = kvm_cpu_property(X86_PROPERTY_PMU_VERSION);
- 	unsigned int i;
--	uint8_t v, j;
-+	u8 v, j;
- 	u32 k;
- 
- 	const u64 perf_caps[] = {
-@@ -579,7 +579,7 @@ static void test_intel_counters(void)
- 	 * Intel, i.e. is the last version that is guaranteed to be backwards
- 	 * compatible with KVM's existing behavior.
- 	 */
--	uint8_t max_pmu_version = max_t(typeof(pmu_version), pmu_version, 5);
-+	u8 max_pmu_version = max_t(typeof(pmu_version), pmu_version, 5);
- 
- 	/*
- 	 * Detect the existence of events that aren't supported by selftests.
-diff --git a/tools/testing/selftests/kvm/x86/pmu_event_filter_test.c b/tools/testing/selftests/kvm/x86/pmu_event_filter_test.c
-index d140fd6b951e..df8d3f2c05f8 100644
---- a/tools/testing/selftests/kvm/x86/pmu_event_filter_test.c
-+++ b/tools/testing/selftests/kvm/x86/pmu_event_filter_test.c
-@@ -682,7 +682,7 @@ static int set_pmu_single_event_filter(struct kvm_vcpu *vcpu, u64 event,
- 
- static void test_filter_ioctl(struct kvm_vcpu *vcpu)
- {
--	uint8_t nr_fixed_counters = kvm_cpu_property(X86_PROPERTY_PMU_NR_FIXED_COUNTERS);
-+	u8 nr_fixed_counters = kvm_cpu_property(X86_PROPERTY_PMU_NR_FIXED_COUNTERS);
- 	struct __kvm_pmu_event_filter f;
- 	u64 e = ~0ul;
- 	int r;
-@@ -726,7 +726,7 @@ static void test_filter_ioctl(struct kvm_vcpu *vcpu)
- 	TEST_ASSERT(!r, "Masking non-existent fixed counters should be allowed");
- }
- 
--static void intel_run_fixed_counter_guest_code(uint8_t idx)
-+static void intel_run_fixed_counter_guest_code(u8 idx)
- {
- 	for (;;) {
- 		wrmsr(MSR_CORE_PERF_GLOBAL_CTRL, 0);
-@@ -767,8 +767,8 @@ static u64 test_set_gp_and_fixed_event_filter(struct kvm_vcpu *vcpu,
- 	return run_vcpu_to_sync(vcpu);
- }
- 
--static void __test_fixed_counter_bitmap(struct kvm_vcpu *vcpu, uint8_t idx,
--					uint8_t nr_fixed_counters)
-+static void __test_fixed_counter_bitmap(struct kvm_vcpu *vcpu, u8 idx,
-+					u8 nr_fixed_counters)
- {
- 	unsigned int i;
- 	u32 bitmap;
-@@ -812,10 +812,10 @@ static void __test_fixed_counter_bitmap(struct kvm_vcpu *vcpu, uint8_t idx,
- 
- static void test_fixed_counter_bitmap(void)
- {
--	uint8_t nr_fixed_counters = kvm_cpu_property(X86_PROPERTY_PMU_NR_FIXED_COUNTERS);
-+	u8 nr_fixed_counters = kvm_cpu_property(X86_PROPERTY_PMU_NR_FIXED_COUNTERS);
- 	struct kvm_vm *vm;
- 	struct kvm_vcpu *vcpu;
--	uint8_t idx;
-+	u8 idx;
- 
- 	/*
- 	 * Check that pmu_event_filter works as expected when it's applied to
-diff --git a/tools/testing/selftests/kvm/x86/private_mem_conversions_test.c b/tools/testing/selftests/kvm/x86/private_mem_conversions_test.c
-index 73f540894f06..c412c6ae8356 100644
---- a/tools/testing/selftests/kvm/x86/private_mem_conversions_test.c
-+++ b/tools/testing/selftests/kvm/x86/private_mem_conversions_test.c
-@@ -29,7 +29,7 @@
- /* Horrific macro so that the line info is captured accurately :-( */
- #define memcmp_g(gpa, pattern,  size)								\
- do {												\
--	uint8_t *mem = (uint8_t *)gpa;								\
-+	u8 *mem = (u8 *)gpa;								\
- 	size_t i;										\
- 												\
- 	for (i = 0; i < size; i++)								\
-@@ -38,7 +38,7 @@ do {												\
- 			       pattern, i, gpa + i, mem[i]);					\
- } while (0)
- 
--static void memcmp_h(uint8_t *mem, u64 gpa, uint8_t pattern, size_t size)
-+static void memcmp_h(u8 *mem, u64 gpa, u8 pattern, size_t size)
- {
- 	size_t i;
- 
-@@ -71,12 +71,12 @@ enum ucall_syncs {
- };
- 
- static void guest_sync_shared(u64 gpa, u64 size,
--			      uint8_t current_pattern, uint8_t new_pattern)
-+			      u8 current_pattern, u8 new_pattern)
- {
- 	GUEST_SYNC5(SYNC_SHARED, gpa, size, current_pattern, new_pattern);
- }
- 
--static void guest_sync_private(u64 gpa, u64 size, uint8_t pattern)
-+static void guest_sync_private(u64 gpa, u64 size, u8 pattern)
- {
- 	GUEST_SYNC4(SYNC_PRIVATE, gpa, size, pattern);
- }
-@@ -121,8 +121,8 @@ struct {
- 
- static void guest_test_explicit_conversion(u64 base_gpa, bool do_fallocate)
- {
--	const uint8_t def_p = 0xaa;
--	const uint8_t init_p = 0xcc;
-+	const u8 def_p = 0xaa;
-+	const u8 init_p = 0xcc;
- 	u64 j;
- 	int i;
- 
-@@ -136,10 +136,10 @@ static void guest_test_explicit_conversion(u64 base_gpa, bool do_fallocate)
- 	for (i = 0; i < ARRAY_SIZE(test_ranges); i++) {
- 		u64 gpa = base_gpa + test_ranges[i].offset;
- 		u64 size = test_ranges[i].size;
--		uint8_t p1 = 0x11;
--		uint8_t p2 = 0x22;
--		uint8_t p3 = 0x33;
--		uint8_t p4 = 0x44;
-+		u8 p1 = 0x11;
-+		u8 p2 = 0x22;
-+		u8 p3 = 0x33;
-+		u8 p4 = 0x44;
- 
- 		/*
- 		 * Set the test region to pattern one to differentiate it from
-@@ -229,7 +229,7 @@ static void guest_punch_hole(u64 gpa, u64 size)
-  */
- static void guest_test_punch_hole(u64 base_gpa, bool precise)
- {
--	const uint8_t init_p = 0xcc;
-+	const u8 init_p = 0xcc;
- 	int i;
- 
- 	/*
-@@ -347,7 +347,7 @@ static void *__test_mem_conversions(void *__vcpu)
- 
- 			for (i = 0; i < size; i += vm->page_size) {
- 				size_t nr_bytes = min_t(size_t, vm->page_size, size - i);
--				uint8_t *hva = addr_gpa2hva(vm, gpa + i);
-+				u8 *hva = addr_gpa2hva(vm, gpa + i);
- 
- 				/* In all cases, the host should observe the shared data. */
- 				memcmp_h(hva, gpa + i, uc.args[3], nr_bytes);
-diff --git a/tools/testing/selftests/kvm/x86/smm_test.c b/tools/testing/selftests/kvm/x86/smm_test.c
-index 32f2cdea4c4f..dd9d7944145e 100644
---- a/tools/testing/selftests/kvm/x86/smm_test.c
-+++ b/tools/testing/selftests/kvm/x86/smm_test.c
-@@ -36,7 +36,7 @@
-  * independent subset of asm here.
-  * SMI handler always report back fixed stage SMRAM_STAGE.
-  */
--uint8_t smi_handler[] = {
-+u8 smi_handler[] = {
- 	0xb0, SMRAM_STAGE,    /* mov $SMRAM_STAGE, %al */
- 	0xe4, SYNC_PORT,      /* in $SYNC_PORT, %al */
- 	0x0f, 0xaa,           /* rsm */
-diff --git a/tools/testing/selftests/kvm/x86/state_test.c b/tools/testing/selftests/kvm/x86/state_test.c
-index 151eead91baf..b4b3678c719a 100644
---- a/tools/testing/selftests/kvm/x86/state_test.c
-+++ b/tools/testing/selftests/kvm/x86/state_test.c
-@@ -141,7 +141,7 @@ static void __attribute__((__flatten__)) guest_code(void *arg)
- 
- 	if (this_cpu_has(X86_FEATURE_XSAVE)) {
- 		u64 supported_xcr0 = this_cpu_supported_xcr0();
--		uint8_t buffer[4096];
-+		u8 buffer[4096];
- 
- 		memset(buffer, 0xcc, sizeof(buffer));
- 
-@@ -296,7 +296,7 @@ int main(int argc, char *argv[])
- 		 * supported features, even if something goes awry in saving
- 		 * the original snapshot.
- 		 */
--		xstate_bv = (void *)&((uint8_t *)state->xsave->region)[512];
-+		xstate_bv = (void *)&((u8 *)state->xsave->region)[512];
- 		saved_xstate_bv = *xstate_bv;
- 
- 		vcpuN = __vm_vcpu_add(vm, vcpu->id + 1);
-diff --git a/tools/testing/selftests/kvm/x86/userspace_io_test.c b/tools/testing/selftests/kvm/x86/userspace_io_test.c
-index 9481cbcf284f..e0272ba73502 100644
---- a/tools/testing/selftests/kvm/x86/userspace_io_test.c
-+++ b/tools/testing/selftests/kvm/x86/userspace_io_test.c
-@@ -10,7 +10,7 @@
- #include "kvm_util.h"
- #include "processor.h"
- 
--static void guest_ins_port80(uint8_t *buffer, unsigned int count)
-+static void guest_ins_port80(u8 *buffer, unsigned int count)
- {
- 	unsigned long end;
- 
-@@ -26,7 +26,7 @@ static void guest_ins_port80(uint8_t *buffer, unsigned int count)
- 
- static void guest_code(void)
- {
--	uint8_t buffer[8192];
-+	u8 buffer[8192];
- 	int i;
- 
- 	/*
-diff --git a/tools/testing/selftests/kvm/x86/userspace_msr_exit_test.c b/tools/testing/selftests/kvm/x86/userspace_msr_exit_test.c
-index e87e2e8d9c38..920f775fe5eb 100644
---- a/tools/testing/selftests/kvm/x86/userspace_msr_exit_test.c
-+++ b/tools/testing/selftests/kvm/x86/userspace_msr_exit_test.c
-@@ -23,21 +23,21 @@ struct kvm_msr_filter filter_allow = {
- 			.nmsrs = 1,
- 			/* Test an MSR the kernel knows about. */
- 			.base = MSR_IA32_XSS,
--			.bitmap = (uint8_t*)&deny_bits,
-+			.bitmap = (u8 *)&deny_bits,
- 		}, {
- 			.flags = KVM_MSR_FILTER_READ |
- 				 KVM_MSR_FILTER_WRITE,
- 			.nmsrs = 1,
- 			/* Test an MSR the kernel doesn't know about. */
- 			.base = MSR_IA32_FLUSH_CMD,
--			.bitmap = (uint8_t*)&deny_bits,
-+			.bitmap = (u8 *)&deny_bits,
- 		}, {
- 			.flags = KVM_MSR_FILTER_READ |
- 				 KVM_MSR_FILTER_WRITE,
- 			.nmsrs = 1,
- 			/* Test a fabricated MSR that no one knows about. */
- 			.base = MSR_NON_EXISTENT,
--			.bitmap = (uint8_t*)&deny_bits,
-+			.bitmap = (u8 *)&deny_bits,
- 		},
- 	},
- };
-@@ -49,7 +49,7 @@ struct kvm_msr_filter filter_fs = {
- 			.flags = KVM_MSR_FILTER_READ,
- 			.nmsrs = 1,
- 			.base = MSR_FS_BASE,
--			.bitmap = (uint8_t*)&deny_bits,
-+			.bitmap = (u8 *)&deny_bits,
- 		},
- 	},
- };
-@@ -61,7 +61,7 @@ struct kvm_msr_filter filter_gs = {
- 			.flags = KVM_MSR_FILTER_READ,
- 			.nmsrs = 1,
- 			.base = MSR_GS_BASE,
--			.bitmap = (uint8_t*)&deny_bits,
-+			.bitmap = (u8 *)&deny_bits,
- 		},
- 	},
- };
-@@ -77,7 +77,7 @@ static u8 bitmap_c0000000[KVM_MSR_FILTER_MAX_BITMAP_SIZE];
- static u8 bitmap_c0000000_read[KVM_MSR_FILTER_MAX_BITMAP_SIZE];
- static u8 bitmap_deadbeef[1] = { 0x1 };
- 
--static void deny_msr(uint8_t *bitmap, u32 msr)
-+static void deny_msr(u8 *bitmap, u32 msr)
- {
- 	u32 idx = msr & (KVM_MSR_FILTER_MAX_BITMAP_SIZE - 1);
- 
-@@ -724,7 +724,7 @@ static void run_msr_filter_flag_test(struct kvm_vm *vm)
- 				.flags = KVM_MSR_FILTER_READ,
- 				.nmsrs = 1,
- 				.base = 0,
--				.bitmap = (uint8_t *)&deny_bits,
-+				.bitmap = (u8 *)&deny_bits,
- 			},
- 		},
- 	};
-diff --git a/tools/testing/selftests/kvm/x86/vmx_pmu_caps_test.c b/tools/testing/selftests/kvm/x86/vmx_pmu_caps_test.c
-index 0563bd20621b..d5f1eee6fa2e 100644
---- a/tools/testing/selftests/kvm/x86/vmx_pmu_caps_test.c
-+++ b/tools/testing/selftests/kvm/x86/vmx_pmu_caps_test.c
-@@ -53,7 +53,7 @@ static const union perf_capabilities format_caps = {
- 
- static void guest_test_perf_capabilities_gp(u64 val)
- {
--	uint8_t vector = wrmsr_safe(MSR_IA32_PERF_CAPABILITIES, val);
-+	u8 vector = wrmsr_safe(MSR_IA32_PERF_CAPABILITIES, val);
- 
- 	__GUEST_ASSERT(vector == GP_VECTOR,
- 		       "Expected #GP for value '0x%lx', got vector '0x%x'",
-diff --git a/tools/testing/selftests/kvm/x86/xen_shinfo_test.c b/tools/testing/selftests/kvm/x86/xen_shinfo_test.c
-index 974a6c5d3080..11ff5ee0782e 100644
---- a/tools/testing/selftests/kvm/x86/xen_shinfo_test.c
-+++ b/tools/testing/selftests/kvm/x86/xen_shinfo_test.c
-@@ -133,8 +133,8 @@ struct arch_vcpu_info {
- };
- 
- struct vcpu_info {
--	uint8_t evtchn_upcall_pending;
--	uint8_t evtchn_upcall_mask;
-+	u8 evtchn_upcall_pending;
-+	u8 evtchn_upcall_mask;
- 	unsigned long evtchn_pending_sel;
- 	struct arch_vcpu_info arch;
- 	struct pvclock_vcpu_time_info time;
--- 
-2.49.0.906.g1f30a19c02-goog
-
+--
+Best Regards,
+Yan, Zi
 
