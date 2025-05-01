@@ -4,82 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC67CC369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 03:01:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 205ADC369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 03:03:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yWDv7QgtWpFRbFd8EFQQNhSn0JvkvImiDgitgfxQfQw=; b=oYu/qPMr3Md9mi6gE2AiFTszIl
-	fl3BjEDpCxrKfk38f7gf29douYuKVD5xqgn1pk8l9QDZEXe7yydDyBJnfPpcUXyuGztSU511yH1Sp
-	K8V54DkEf6ZIFzXWaZB4cD+fL9AS1F9GLHG49pRVC7hoaDuCVhbHXokxIv3UFa6XcyBQ0blUTjvXq
-	PLmbWwsduuoLxOsr1FHuvBO9Ri7GoIfk0z11GHAWJyARmEo1QJ1DJEfurwcKO2lORoLlbp9+o5D6S
-	vnRuXVbMoOv1m5h+HWrP5xD4uqZF998/E12z2JBUOMScps3zGybylpI5Z6hXaizKXGCt7e70wlkQG
-	0Cds+qTg==;
+	bh=66PeGHTOpdnar+Qa0JWdL51yAJjG/0kQaEukyiMWp3k=; b=4XbIFSa6LfY6KpoVceeSDTbUaH
+	1Lqe4h6uDwWcDpkLjaGTf9+9ERkrcc+2qoAh0QaLemCJ1e1R+F2pb/XmTP/y5+YWB7b0WdrsWET6Q
+	Y8Bva79TKKgFXbEN37lojc+Io8h1ywgqNGA4tZ7skKMZ8jWaH/A9PQoMb3Ls9KlJqCllLfoVXfdwV
+	kuSLpzJB652zEfYUaCQsqKdsRBjdABfMXsayn/MJ2ZwGAnky43N83Ipk/D6+4BlR0LtFBkwh9NCfn
+	5C/fCTHqZ9shU1gyP4DJv3fSvlctpCYrHgAg8iAfSX8CUuRRaI/VZpgaztAUUD9JRn6+kPq0Cr8Dv
+	BaEFNN9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAKB5-0000000Ea9h-44yl;
-	Thu, 01 May 2025 03:01:35 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uAKCw-0000000EaJw-2zv6;
+	Thu, 01 May 2025 03:03:30 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAK8q-0000000EZr7-1Vqi
+	id 1uAKAq-0000000Ea78-20nZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 02:59:17 +0000
+	Thu, 01 May 2025 03:01:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1746068355;
+	s=mimecast20190719; t=1746068479;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=yWDv7QgtWpFRbFd8EFQQNhSn0JvkvImiDgitgfxQfQw=;
-	b=CemDA3RCJqzjnvq1R/Ye6HurinvNIG5G7yzcUTdfBiekUfwjq6jMmW8IdyBZYe59bDN2Gj
-	qm+A8FuPJXBgDNDNVuzLsa0ImVCmxWI/zSy45Xu1BwycZj1TUQkX63NNgg4d9BAcj9j8vv
-	77RmAVxexsMv2ufQR/zjbEaAZN0K37o=
-Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com
- [209.85.210.198]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=66PeGHTOpdnar+Qa0JWdL51yAJjG/0kQaEukyiMWp3k=;
+	b=eBlTkvzd4fSvfJwoJjEQEP9T2PzYlrwC+OBQhRsKRVYoX9zbWOZJgzCaqNTuf4uSv/ZI8r
+	yNOeX56lcYmqjAVZFPECdnjWvfkF9DJl368+j8S7ZkUhzrOKJ45m5ZPyE8pQ06MbkvlB6k
+	qNoUJqjQ9Mxufvv2SwVji/+R9WeksoY=
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com
+ [209.85.214.199]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-47-wzVr4R4KPpKGbpCjbvH7OA-1; Wed, 30 Apr 2025 22:59:13 -0400
-X-MC-Unique: wzVr4R4KPpKGbpCjbvH7OA-1
-X-Mimecast-MFC-AGG-ID: wzVr4R4KPpKGbpCjbvH7OA_1746068353
-Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-73917303082so397064b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 19:59:13 -0700 (PDT)
+ us-mta-596-iWPEgoQ7MDCcqwd9bEUHvA-1; Wed, 30 Apr 2025 23:01:16 -0400
+X-MC-Unique: iWPEgoQ7MDCcqwd9bEUHvA-1
+X-Mimecast-MFC-AGG-ID: iWPEgoQ7MDCcqwd9bEUHvA_1746068475
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-22c31b55ac6so7091115ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 30 Apr 2025 20:01:16 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746068353; x=1746673153;
+        d=1e100.net; s=20230601; t=1746068475; x=1746673275;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=yWDv7QgtWpFRbFd8EFQQNhSn0JvkvImiDgitgfxQfQw=;
-        b=UJBLmEhgbjyoAANP7TCyPNsYPhfWc280922PI+j7UOSx61jYvGIizOB4lKpTPVmGtR
-         E+ZLVUsJi6MfrZzJJOSUEYEZGZrvMQg+tutQ9tKIVLNARblDq8hX2zxWVfU6dSdHmDsX
-         vKzTzrMFksP3rd8Bxj7DQPodk3dzxhHCznC1jwfl/oWVeazA7Bd1zxFNEE4Pq28S1+D7
-         6SiVUV+om4dvicdRHpnjl6KauINteXQ/B2ECXkTQRzScaEwhDMbVx03pRcjroncxTDjj
-         2W3RxsmhahuMUCWYNojY8XkYF1D/TrceOkhgsywiA3SttHtJJSaEr9YFhDWd5qlEzFw+
-         J/LA==
-X-Forwarded-Encrypted: i=1; AJvYcCWtK3pITe/3IBFroF5UFNWLEtIgnN91R/A+xbYASHNddQc2ukjHISjNehuTPRxBp0xUyFD3lZ//TvkxPZziU4Q5@lists.infradead.org
-X-Gm-Message-State: AOJu0YzM0t9FHetc9KNjbS9V/+x9kph5rSMqFeorFCQMBZ/109cDg452
-	zgQ8cgy1DGmjFXhjJFKdeMjAsHQfT9ovNSS1cu8Re1B6LhktsUKTSpIAv4kosXGW9+v/HVAU3x6
-	9P1/au7/s+RbHzp2reRiJcYMILFV1rLblQZo2QwkRZdYGdN4tWOddoT1wDsNF7GorQg4Danne
-X-Gm-Gg: ASbGncsNIedZdVIQcZsjN6547IQ0HCjcMFmxQkx5uRKuk7CF8NSPyWTVVGQ3BEtRNGk
-	L47ql72gztATwlHQ5cLUJNgA8gVJ4uuCPvaEFHMpivwXtnMf/+19roIEFe/tSh10Osr1/0urATM
-	cPifdImLjyBr3OYxZl4C/+ApJ6MO8rZden0dz+q3aPQDWpSiroxY9pijujqUifvsFFgpDpU+zq6
-	Cf2g/H6fDJv1R5/Dj9np6tHKbTes/wEC9lc5J8Hb+9Aulpnvr2zNLK5232JtFxPLoFkBqh+ScOA
-	HzWQGDWnVwz/
-X-Received: by 2002:a05:6a00:3a25:b0:73e:10ea:1196 with SMTP id d2e1a72fcca58-7403a77bf00mr7642188b3a.8.1746068352828;
-        Wed, 30 Apr 2025 19:59:12 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IG0SD+HY6HsoDRs4fU8wKvcmnTLQD3iURrjVjXooMLHosKIAp3vt2EoNdzvtsz4Y2FqbqtOvg==
-X-Received: by 2002:a05:6a00:3a25:b0:73e:10ea:1196 with SMTP id d2e1a72fcca58-7403a77bf00mr7642161b3a.8.1746068352436;
-        Wed, 30 Apr 2025 19:59:12 -0700 (PDT)
+        bh=66PeGHTOpdnar+Qa0JWdL51yAJjG/0kQaEukyiMWp3k=;
+        b=I4SEWmC5WcfsBts23hVPqTRDGe3gUapOjYOE1ddhVqk4FSvptOLu7XmEPQtWst+FJt
+         +7UOau/bayrikvwqHnwAXXOkTQx5pU3SUvCFe/iFzOQJ1rcrnPmnsX7mVxrzjf1xqFFe
+         jDDiYV51LSxx5u3GVxBRWzLSR6wpoviJVRM8TohicI0dQ6hPhUvN+oDUwtO1yPDw5nKo
+         BzRQb/7S40kKBHJfxkXZehQB8fVNNAGTI1pQ7/p7jzxRPkgRVuBK/yFGIdYR2hj8Egxf
+         omung4wHFioq4F7XJ81U1k+9V3BY4kM8Iltq4pLw+DvdQb0YpEh0sINHbHCD7d3Sajr0
+         goUg==
+X-Forwarded-Encrypted: i=1; AJvYcCWPYt9NVO4ySSt+qQMqSM1pvEWEBdQ2NNaoAGr7/fi2tjv5TiOYwjtl7fh1DKIZPukZTS+smCFCuX37dcfCg4mQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+8IVQiFoAMH0/tfbFEoS0mQo8XSMLuIW06z2Ez1eod0AhNiXv
+	8G5KYxOYR8z1sqMaeildH8MVD1wRKyMKBclve9ITBE50VvK5OYnCeY7ztYH7fNDchyfw8J9dxTm
+	fI4VtViEgoIUZz6hWV/0gWkJPS9qKyW6MJ6/UnH+uBnpoyfjbu/FMEld042GVUUxe/9igF2J1
+X-Gm-Gg: ASbGnctCE8FWIu7vcPK6fYl0ZtH5hbMSAyT7cHBqEYi/OwP3M0BjuXfxSGY8MCbcOKi
+	Aq6pMVFF5uoY1pSB7WhPlL+6SBu9MiIpNKci1M4SyDni7AXJr+pd82G/uSL/Eb26Y+icCPGZHrG
+	7W4pBSqgKE2rv+257didmhMhdTXCy4OwyovTNJA4k5YEAHAOigQO35iBgWNSnpjlRyVxzbbOpwF
+	4zLer55f3H8OQWbQMfJRGma/A1GKETfhclNnMw7XTXYt3lvKrYtcXawqNBv4EGxbtx25gOPVwMA
+	zXpu7hwE7II9
+X-Received: by 2002:a17:903:3c4c:b0:224:256e:5e3f with SMTP id d9443c01a7336-22e040c6e79mr22293085ad.25.1746068475349;
+        Wed, 30 Apr 2025 20:01:15 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFZAaGsqWilNG9nKIQwO6WjMhMxoDtCPFtqO+KYQXEgWxu5s0tu5Q6Ot3OxM8Xca9EYb2dyqQ==
+X-Received: by 2002:a17:903:3c4c:b0:224:256e:5e3f with SMTP id d9443c01a7336-22e040c6e79mr22292615ad.25.1746068475064;
+        Wed, 30 Apr 2025 20:01:15 -0700 (PDT)
 Received: from [192.168.68.51] ([180.233.125.65])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7403991fcbfsm2480425b3a.49.2025.04.30.19.59.05
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22e0a243e82sm766515ad.2.2025.04.30.20.01.07
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 30 Apr 2025 19:59:11 -0700 (PDT)
-Message-ID: <0cd3d811-1e05-4cdc-aaea-b45fddfc9e2d@redhat.com>
-Date: Thu, 1 May 2025 12:59:03 +1000
+        Wed, 30 Apr 2025 20:01:14 -0700 (PDT)
+Message-ID: <fd1936c7-cc82-4dd9-9bc0-2b25a3bbbb91@redhat.com>
+Date: Thu, 1 May 2025 13:01:06 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 29/43] arm64: RME: Always use 4k pages for realms
+Subject: Re: [PATCH v8 33/43] arm64: RME: Hide KVM_CAP_READONLY_MEM for realm
+ guests
 To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
  kvmarm@lists.linux.dev
 Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
@@ -95,18 +96,18 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
  Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
  <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
 References: <20250416134208.383984-1-steven.price@arm.com>
- <20250416134208.383984-30-steven.price@arm.com>
+ <20250416134208.383984-34-steven.price@arm.com>
 From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20250416134208.383984-30-steven.price@arm.com>
+In-Reply-To: <20250416134208.383984-34-steven.price@arm.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: G54jxpSFB8BAgCfmC1ifUikONZcdXzmLLQR9dlThGcU_1746068353
+X-Mimecast-MFC-PROC-ID: c3thppn8oMEcD0jcn-o-cWlxB0VQJToKpJ9DBoqo1aM_1746068475
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_195916_496640_53D78256 
-X-CRM114-Status: GOOD (  22.45  )
+X-CRM114-CacheID: sfid-20250430_200120_595002_A98C7041 
+X-CRM114-Status: GOOD (  15.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,61 +123,28 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 4/16/25 11:41 PM, Steven Price wrote:
-> Guest_memfd doesn't yet natively support huge pages, and there are
-> currently difficulties for a VMM to manage huge pages efficiently so for
-> now always split up mappings to PTE (4k).
+> For protected memory read only isn't supported by the RMM. While it may
+> be possible to support read only for unprotected memory, this isn't
+> supported at the present time.
 > 
-> The two issues that need progressing before supporting huge pages for
-> realms are:
+> Note that this does mean that ROM (or flash) data cannot be emulated
+> correctly by the VMM as the stage 2 mappings are either always
+> read/write or are trapped as MMIO (so don't support operations where the
+> syndrome information doesn't allow emulation, e.g. load/store pair).
 > 
->   1. guest_memfd needs to be able to allocate from an appropriate
->      allocator which can provide huge pages.
-> 
->   2. The VMM needs to be able to repurpose private memory for a shared
->      mapping when the guest VM requests memory is transitioned. Because
->      this can happen at a 4k granularity it isn't possible to
->      free/reallocate while huge pages are in use. Allowing the VMM to
->      mmap() the shared portion of a huge page would allow the huge page
->      to be recreated when the memory is unshared and made protected again.
-> 
-> These two issues are not specific to realms and don't affect the realm
-> API, so for now just break everything down to 4k pages in the RMM
-> controlled stage 2. Future work can add huge page support without
-> changing the uAPI.
+> This restriction can be lifted in the future by allowing the stage 2
+> mappings to be made read only.
 > 
 > Signed-off-by: Steven Price <steven.price@arm.com>
 > ---
 > Changes since v7:
->   * Rewritten commit message
+>   * Updated commit message to spell out the impact on ROM/flash
+>     emulation.
 > ---
->   arch/arm64/kvm/mmu.c | 4 ++++
->   1 file changed, 4 insertions(+)
+>   arch/arm64/kvm/arm.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
 > 
 
-One nitpick below.
-
 Reviewed-by: Gavin Shan <gshan@redhat.com>
-
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 02b66ee35426..29bab7a46033 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -1653,6 +1653,10 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->   	if (logging_active || is_protected_kvm_enabled()) {
->   		force_pte = true;
->   		vma_shift = PAGE_SHIFT;
-> +	} else if (vcpu_is_rec(vcpu)) {
-> +		// Force PTE level mappings for realms
-> +		force_pte = true;
-> +		vma_shift = PAGE_SHIFT;
-
-		/* Force PTE level mappings for realms */
-
->   	} else {
->   		vma_shift = get_vma_page_shift(vma, hva);
->   	}
-
-Thanks,
-Gavin
 
 
