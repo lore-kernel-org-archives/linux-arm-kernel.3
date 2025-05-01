@@ -4,64 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E78D9C3ABA3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 13:39:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9131EC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 13:41:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fKtki28eIxFZX+Z+POSCLEAY2+yVfJreetWCcZWS10o=; b=f0x5Am8pmEfO7/GQUpidOuxRze
-	fqoljxjzIdRUPTrqXxuJ3lRG4XXaMPPlCGpURiTMNY42xWEAQruntgQkrLJQi/IWHv+GC7ED8D7j1
-	s/Y9/awpPUThwexzTvFvm33OpmDoBCuj0JmH6i/7g74nZT2Uh69INbDPqcf40cOvGkVIDqZYoeUhS
-	LpLtQRQvAiiVI1HuvNkeKEcfom1PJb7qGsLI0hdgFg/z7h8fphemVbArzio2B6qoc6DAFg0dGaS9W
-	UJuubT1mPcy82aB0QCaVKUrBPK47De6xP3asDA7lbv86Sj+D+LhXaNDzU18ORrrAVJUs+X8M3J4ip
-	E1GuJlXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O6ZmtmfH6GprzqPSKWpF5OUQG35Zx632PU0ogU2OisM=; b=h3Sv+brLK5IseBV5lcrVAE1iaZ
+	JhiE4uSpH8IfyiH6DLn2tkrcKCx5IFxL+90DewWWWKduSK4JARJDsBHpMg+OmAoR0c3P7Z2g+kVWW
+	mjqRiK5O0LVBBexGmmpNxop35RtPsmhNtNCkxsYOCU3ovBWSEQ/Tzs4T1UbrQrHmE5X/Ykne8KAm+
+	PCcEA51I5JCXfE+RXN4rl3MPJ6W18UMrYRbG1Wk1nPUEC8maRcTklyZWrD+TxKTEdiSTR0wLSymvs
+	Tct0/EsMbfwkE5R9ZPVkg5B5/cnwqn/8OXWPXTLLJ2s4y0ihgUNvxE3Y+AgpBRMN0bVmWoaAMvMtd
+	VsI6wV2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAU84-0000000FqgH-1NiK;
-	Thu, 01 May 2025 13:39:08 +0000
+	id 1uAU9w-0000000Fr3M-14j4;
+	Thu, 01 May 2025 13:41:04 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAU0a-0000000FpS2-1N4Y
+	id 1uAU2Z-0000000Fpmf-36JB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 13:31:25 +0000
+	Thu, 01 May 2025 13:33:29 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3F5911CC4;
-	Thu,  1 May 2025 06:31:16 -0700 (PDT)
-Received: from [10.1.33.27] (e122027.cambridge.arm.com [10.1.33.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6D5A23F5A1;
-	Thu,  1 May 2025 06:31:19 -0700 (PDT)
-Message-ID: <961bd6f8-2c0c-47d7-991d-aab7d247ffa8@arm.com>
-Date: Thu, 1 May 2025 14:31:14 +0100
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B891A168F;
+	Thu,  1 May 2025 06:33:19 -0700 (PDT)
+Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6DA993F5A1;
+	Thu,  1 May 2025 06:33:25 -0700 (PDT)
+Date: Thu, 1 May 2025 14:33:22 +0100
+From: Joey Gouly <joey.gouly@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>, Fuad Tabba <tabba@google.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [PATCH v3 28/42] KVM: arm64: Use KVM-specific HCRX_EL2 RES0 mask
+Message-ID: <20250501133322.GJ1859293@e124191.cambridge.arm.com>
+References: <20250426122836.3341523-1-maz@kernel.org>
+ <20250426122836.3341523-29-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 06/43] arm64: RME: Define the user ABI
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>
-References: <20250416134208.383984-1-steven.price@arm.com>
- <20250416134208.383984-7-steven.price@arm.com>
- <35a91f8c-cdf6-4595-9ed2-c792a8e9d679@arm.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <35a91f8c-cdf6-4595-9ed2-c792a8e9d679@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250426122836.3341523-29-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_063124_463406_5B52780A 
-X-CRM114-Status: GOOD (  33.53  )
+X-CRM114-CacheID: sfid-20250501_063327_907946_E604139E 
+X-CRM114-Status: GOOD (  22.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,300 +69,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/04/2025 09:58, Suzuki K Poulose wrote:
-> Hi Steven
+On Sat, Apr 26, 2025 at 01:28:22PM +0100, Marc Zyngier wrote:
+> We do not have a computed table for HCRX_EL2, so statically define
+> the bits we know about. A warning will fire if the architecture
+> grows bits that are not handled yet.
 > 
-> On 16/04/2025 14:41, Steven Price wrote:
->> There is one (multiplexed) CAP which can be used to create, populate and
->> then activate the realm.
->>
->> Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->> Changes since v7:
->>   * Add documentation of new ioctls
->>   * Bump the magic numbers to avoid conflicts
->> Changes since v6:
->>   * Rename some of the symbols to make their usage clearer and avoid
->>     repetition.
->> Changes from v5:
->>   * Actually expose the new VCPU capability (KVM_ARM_VCPU_REC) by bumping
->>     KVM_VCPU_MAX_FEATURES - note this also exposes KVM_ARM_VCPU_HAS_EL2!
->> ---
->>   Documentation/virt/kvm/api.rst    | 70 +++++++++++++++++++++++++++++++
->>   arch/arm64/include/uapi/asm/kvm.h | 49 ++++++++++++++++++++++
->>   include/uapi/linux/kvm.h          | 10 +++++
->>   3 files changed, 129 insertions(+)
->>
->> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/
->> api.rst
->> index 1f8625b7646a..99ba6c82cf37 100644
->> --- a/Documentation/virt/kvm/api.rst
->> +++ b/Documentation/virt/kvm/api.rst
->> @@ -3527,6 +3527,11 @@ Possible features:
->>             - the KVM_REG_ARM64_SVE_VLS pseudo-register is immutable,
->> and can
->>               no longer be written using KVM_SET_ONE_REG.
->>   +    - KVM_ARM_VCPU_REC: Allocate a REC (Realm Execution Context)
->> for this
->> +      VCPU. This must be specified on all VCPUs created in a Realm VM.
->> +      Depends on KVM_CAP_ARM_RME.
->> +      Requires KVM_ARM_VCPU_FINALIZE(KVM_ARM_VCPU_REC).
->> +
->>   4.83 KVM_ARM_PREFERRED_TARGET
->>   -----------------------------
->>   @@ -5098,6 +5103,7 @@ Recognised values for feature:
->>       =====      ===========================================
->>     arm64      KVM_ARM_VCPU_SVE (requires KVM_CAP_ARM_SVE)
->> +  arm64      KVM_ARM_VCPU_REC (requires KVM_CAP_ARM_RME)
->>     =====      ===========================================
->>     Finalizes the configuration of the specified vcpu feature.
->> @@ -6452,6 +6458,30 @@ the capability to be present.
->>     `flags` must currently be zero.
->>   +4.144 KVM_ARM_VCPU_RMM_PSCI_COMPLETE
->> +------------------------------------
->> +
->> +:Capability: KVM_CAP_ARM_RME
->> +:Architectures: arm64
->> +:Type: vcpu ioctl
->> +:Parameters: struct kvm_arm_rmm_psci_complete (in)
->> +:Returns: 0 if successful, < 0 on error
->> +
->> +::
->> +
->> +  struct kvm_arm_rmm_psci_complete {
->> +    __u64 target_mpidr;
->> +    __u32 psci_status;
->> +    __u32 padding[3];
->> +  };
->> +
->> +Where PSCI functions are handled by user space, the RMM needs to be
->> informed of
->> +the target of the operation using `target_mpidr`, along with the status
->> +(`psci_status`). The RMM v1.0 specification defines two functions
->> that require
->> +this call: PSCI_CPU_ON and PSCI_AFFINITY_INFO.
->> +
->> +If the kernel is handling PSCI then this is done automatically and
->> the VMM
->> +doesn't need to call this ioctl.
->>     .. _kvm_run:
->>   @@ -8280,6 +8310,46 @@ aforementioned registers before the first
->> KVM_RUN. These registers are VM
->>   scoped, meaning that the same set of values are presented on all
->> vCPUs in a
->>   given VM.
->>   +7.38 KVM_CAP_ARM_RME
->> +--------------------
->> +
->> +:Architectures: arm64
->> +:Target: VM
->> +:Parameters: args[0] provides an action, args[1] points to a
->> structure in
->> +         memory for some actions.
->> +:Returns: 0 on success, negative value on error
->> +
->> +Used to configure and set up the memory for a Realm. The available
->> actions are:
->> +
->> +=================================
->> =============================================
->> + KVM_CAP_ARM_RME_CONFIG_REALM     Takes struct arm_rme_config as
->> args[1] and
->> +                                  configures realm parameters prior
->> to it being
->> +                                  created.
->> +
->> +                                  Options are ARM_RME_CONFIG_RPV to
->> set the
->> +                                  "Realm Personalization Value" and
->> +                                  ARM_RME_CONFIG_HASH_ALGO to set the
->> hash
->> +                                  algorithm.
->> +
->> + KVM_CAP_ARM_RME_CREATE_REALM     Request the RMM create the realm.
->> The realm's
-> 
-> minor nit: s/RMM create/RMM to create/
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
 
-Ack
+Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 
-> Or may be rephrase it:
+> ---
+>  arch/arm64/include/asm/kvm_arm.h | 18 ++++++++++++++----
+>  arch/arm64/kvm/emulate-nested.c  |  5 +++++
+>  arch/arm64/kvm/nested.c          |  4 ++--
+>  3 files changed, 21 insertions(+), 6 deletions(-)
 > 
-> Request the RMM to create the Realm with the configured parameters.
-> 
-> 
->> +                                  configuration parameters must be
->> set first.
->> +
->> + KVM_CAP_ARM_RME_INIT_RIPAS_REALM Takes struct arm_rme_init_ripas as
->> args[1]
->> +                                  and sets the RIPAS (Realm IPA
->> State) to
->> +                                  RIPAS_RAM of a specified area of
->> the realm's
->> +                                  IPA.
->> +
->> + KVM_CAP_ARM_RME_POPULATE_REALM   Takes struct arm_rme_init_ripas as
->> args[1]
-> 
-> nit: struct arm_rme_populate_realm
+> diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+> index e7c73d16cd451..52b3aeb19efc6 100644
+> --- a/arch/arm64/include/asm/kvm_arm.h
+> +++ b/arch/arm64/include/asm/kvm_arm.h
+> @@ -315,10 +315,20 @@
+>  				 GENMASK(19, 18) |	\
+>  				 GENMASK(15, 0))
+>  
+> -/* Polarity masks for HCRX_EL2 */
+> -#define __HCRX_EL2_RES0         HCRX_EL2_RES0
+> -#define __HCRX_EL2_MASK		(BIT(6))
+> -#define __HCRX_EL2_nMASK	~(__HCRX_EL2_RES0 | __HCRX_EL2_MASK)
+> +/*
+> + * Polarity masks for HCRX_EL2, limited to the bits that we know about
+> + * at this point in time. It doesn't mean that we actually *handle*
+> + * them, but that at least those that are not advertised to a guest
+> + * will be RES0 for that guest.
+> + */
+> +#define __HCRX_EL2_MASK		(BIT_ULL(6))
+> +#define __HCRX_EL2_nMASK	(GENMASK_ULL(24, 14) | \
+> +				 GENMASK_ULL(11, 7)  | \
+> +				 GENMASK_ULL(5, 0))
+> +#define __HCRX_EL2_RES0		~(__HCRX_EL2_nMASK | __HCRX_EL2_MASK)
+> +#define __HCRX_EL2_RES1		~(__HCRX_EL2_nMASK | \
+> +				  __HCRX_EL2_MASK  | \
+> +				  __HCRX_EL2_RES0)
 
-Copy/paste error - thanks for spotting.
+Convoluted way of writing 0, but it makes sense!
 
->> +                                  and populates a region of protected
->> address
->> +                                  space by copying the data from the
->> shared
->> +                                  alias.
->> +
->> + KVM_CAP_ARM_RME_ACTIVATE_REALM   Request the RMM activate the realm. No
+>  
+>  /* Hyp Prefetch Fault Address Register (HPFAR/HDFAR) */
+>  #define HPFAR_MASK	(~UL(0xf))
+> diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+> index c30d970bf81cb..c581cf29bc59e 100644
+> --- a/arch/arm64/kvm/emulate-nested.c
+> +++ b/arch/arm64/kvm/emulate-nested.c
+> @@ -2157,6 +2157,7 @@ int __init populate_nv_trap_config(void)
+>  	BUILD_BUG_ON(__NR_CGT_GROUP_IDS__ > BIT(TC_CGT_BITS));
+>  	BUILD_BUG_ON(__NR_FGT_GROUP_IDS__ > BIT(TC_FGT_BITS));
+>  	BUILD_BUG_ON(__NR_FG_FILTER_IDS__ > BIT(TC_FGF_BITS));
+> +	BUILD_BUG_ON(__HCRX_EL2_MASK & __HCRX_EL2_nMASK);
+>  
+>  	for (int i = 0; i < ARRAY_SIZE(encoding_to_cgt); i++) {
+>  		const struct encoding_to_trap_config *cgt = &encoding_to_cgt[i];
+> @@ -2182,6 +2183,10 @@ int __init populate_nv_trap_config(void)
+>  		}
+>  	}
+>  
+> +	if (__HCRX_EL2_RES0 != HCRX_EL2_RES0)
+> +		kvm_info("Sanitised HCR_EL2_RES0 = %016llx, expecting %016llx\n",
+> +			 __HCRX_EL2_RES0, HCRX_EL2_RES0);
+> +
+>  	kvm_info("nv: %ld coarse grained trap handlers\n",
+>  		 ARRAY_SIZE(encoding_to_cgt));
+>  
+> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> index 479ffd25eea63..666df85230c9b 100644
+> --- a/arch/arm64/kvm/nested.c
+> +++ b/arch/arm64/kvm/nested.c
+> @@ -1058,8 +1058,8 @@ int kvm_init_nv_sysregs(struct kvm_vcpu *vcpu)
+>  	set_sysreg_masks(kvm, HCR_EL2, res0, res1);
+>  
+>  	/* HCRX_EL2 */
+> -	res0 = HCRX_EL2_RES0;
+> -	res1 = HCRX_EL2_RES1;
+> +	res0 = __HCRX_EL2_RES0;
+> +	res1 = __HCRX_EL2_RES1;
+>  	if (!kvm_has_feat(kvm, ID_AA64ISAR3_EL1, PACM, TRIVIAL_IMP))
+>  		res0 |= HCRX_EL2_PACMEn;
+>  	if (!kvm_has_feat(kvm, ID_AA64PFR2_EL1, FPMR, IMP))
+> -- 
+> 2.39.2
 > 
-> s/the RMM/the RMM to/
-
-Ack
-
->> +                                  further changes can be made to the
->> realm's
->> +                                  configuration, and VCPUs are not
->> permitted to
->> +                                  enter the realm until it has been
->> activated.
-> 
-> minor nit: this sounds as if "configurations" (of parameters)  are
-> possible after the CREATE_REALM and before ACTIVATE_REALM ? Could we
-> also make it clear that the VCPUs must have been created before ACTIVATE ?
-> 
-> 
-> May be rephrase it to:
-> 
-> No changes can be made to Realm's memory (including the IPA state). No
-> new VCPUs can be created after this step.
-
-I was attmepting to include that CONFIG_REALM cannot be called. How about:
-
-	Request the RMM to activate the realm. No
-	changes can be made to the Realm's memory,
-	IPA state or configuration parameters.  No
-	new VCPUs can be created after this step.
-
->> +=================================
->> =============================================
->> +
->>   8. Other capabilities.
->>   ======================
->>   diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/
->> uapi/asm/kvm.h
->> index af9d9acaf997..b57712880605 100644
->> --- a/arch/arm64/include/uapi/asm/kvm.h
->> +++ b/arch/arm64/include/uapi/asm/kvm.h
->> @@ -106,6 +106,7 @@ struct kvm_regs {
->>   #define KVM_ARM_VCPU_PTRAUTH_GENERIC    6 /* VCPU uses generic
->> authentication */
->>   #define KVM_ARM_VCPU_HAS_EL2        7 /* Support nested
->> virtualization */
->>   #define KVM_ARM_VCPU_HAS_EL2_E2H0    8 /* Limit NV support to E2H
->> RES0 */
->> +#define KVM_ARM_VCPU_REC        9 /* VCPU REC state as part of Realm */
->>     struct kvm_vcpu_init {
->>       __u32 target;
->> @@ -429,6 +430,54 @@ enum {
->>   #define   KVM_DEV_ARM_VGIC_SAVE_PENDING_TABLES    3
->>   #define   KVM_DEV_ARM_ITS_CTRL_RESET        4
->>   +/* KVM_CAP_ARM_RME on VM fd */
->> +#define KVM_CAP_ARM_RME_CONFIG_REALM        0
->> +#define KVM_CAP_ARM_RME_CREATE_REALM        1
->> +#define KVM_CAP_ARM_RME_INIT_RIPAS_REALM    2
->> +#define KVM_CAP_ARM_RME_POPULATE_REALM        3
->> +#define KVM_CAP_ARM_RME_ACTIVATE_REALM        4
->> +
->> +/* List of configuration items accepted for
->> KVM_CAP_ARM_RME_CONFIG_REALM */
->> +#define ARM_RME_CONFIG_RPV            0
->> +#define ARM_RME_CONFIG_HASH_ALGO        1
->> +
->> +#define ARM_RME_CONFIG_MEASUREMENT_ALGO_SHA256        0
->> +#define ARM_RME_CONFIG_MEASUREMENT_ALGO_SHA512        1
-> 
-> minor nit:
-> May be we could rename this to CONFIG_HASH_ALGO_* to align with the
-> RMM spec (btw which also moved from measurement to hash) and the
-> parameter.
-
-Ah, I must have missed that rename in the spec - yes that makes sense,
-I've generally tried to stick closely to the naming in the spec.
-
-Thanks,
-Steve
-
-> Suzuki
-> 
-> 
->> +
->> +#define ARM_RME_CONFIG_RPV_SIZE 64
->> +
->> +struct arm_rme_config {
->> +    __u32 cfg;
->> +    union {
->> +        /* cfg == ARM_RME_CONFIG_RPV */
->> +        struct {
->> +            __u8    rpv[ARM_RME_CONFIG_RPV_SIZE];
->> +        };
->> +
->> +        /* cfg == ARM_RME_CONFIG_HASH_ALGO */
->> +        struct {
->> +            __u32    hash_algo;
->> +        };
->> +
->> +        /* Fix the size of the union */
->> +        __u8    reserved[256];
->> +    };
->> +};
->> +
->> +#define KVM_ARM_RME_POPULATE_FLAGS_MEASURE    (1 << 0)
->> +struct arm_rme_populate_realm {
->> +    __u64 base;
->> +    __u64 size;
->> +    __u32 flags;
->> +    __u32 reserved[3];
->> +};
->> +
->> +struct arm_rme_init_ripas {
->> +    __u64 base;
->> +    __u64 size;
->> +    __u64 reserved[2];
->> +};
->> +
->>   /* Device Control API on vcpu fd */
->>   #define KVM_ARM_VCPU_PMU_V3_CTRL    0
->>   #define   KVM_ARM_VCPU_PMU_V3_IRQ    0
->> diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
->> index b6ae8ad8934b..0b8479985581 100644
->> --- a/include/uapi/linux/kvm.h
->> +++ b/include/uapi/linux/kvm.h
->> @@ -930,6 +930,7 @@ struct kvm_enable_cap {
->>   #define KVM_CAP_X86_APIC_BUS_CYCLES_NS 237
->>   #define KVM_CAP_X86_GUEST_MODE 238
->>   #define KVM_CAP_ARM_WRITABLE_IMP_ID_REGS 239
->> +#define KVM_CAP_ARM_RME 240
->>     struct kvm_irq_routing_irqchip {
->>       __u32 irqchip;
->> @@ -1582,4 +1583,13 @@ struct kvm_pre_fault_memory {
->>       __u64 padding[5];
->>   };
->>   +/* Available with KVM_CAP_ARM_RME, only for VMs with
->> KVM_VM_TYPE_ARM_REALM  */
->> +struct kvm_arm_rmm_psci_complete {
->> +    __u64 target_mpidr;
->> +    __u32 psci_status;
->> +    __u32 padding[3];
->> +};
->> +
->> +#define KVM_ARM_VCPU_RMM_PSCI_COMPLETE    _IOW(KVMIO, 0xd6, struct
->> kvm_arm_rmm_psci_complete)
->> +
->>   #endif /* __LINUX_KVM_H */
-> 
-
 
