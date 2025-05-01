@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4758DC3ABA3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9AE6C3ABAD
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 12:31:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3LSSgAVnxemyLKnDHH2XvGz1hoE8mivtd7FyCCesj/k=; b=zrzWuB8VMV2kbBPp6RcClmalzh
-	bkNbZ7Z/tE/RX1A51XB7dMgX5Bh0eDKAPFVyOENmDKEy3bh0UY26Owk1/pZ27TLPjVhNwpQQX0KtQ
-	v9+UAntlg9+uRkBCkQy+dyWQ1rOa9IciFMntPmqBmRf9fVv5zkBYg0Df1eDOzh09cgAdGoND/6q1R
-	f2MA1Wxm2JCsu7Mc8LL9mZFcdAyFgUfqyeTd+0z6keM1LZrCDzRCZF4R2lYE128FxrnFGE00OXjQx
-	qwiY94yx+/NgImA5DHmvgBnoxe3MpjSs7YMgWXBCXVOa/y/rrHJyDLn1EaomdNdWe/eA2m6WEt4sb
-	5eG8ezTg==;
+	bh=mpYcoCSmBf9k9o0P39jyqYiBWRrYK9C3ngdTq1mO0sE=; b=t0OE7+H+/GcTU9qXj/wWZ3h/5m
+	1Ybusk+jg/SD/uSYQoO5Y7knAlXxgOpohDIR8nyy/AREXCvgq8p3SR76JKcRePx9yghzNmozH71Vx
+	wSbs2FKzMUN6GU4zlT6uj8eqLNeLf1VY5q38tXgPE/7mGruY+ef+HJgijU8GETu92WOTUzz+PZmIW
+	MsX9L7Xh/dOYDw9zZbOnjXvzd9e/GxAuUK7zaDTt8LxAEim8Am23IqLrFPjMDNVD0qpACr7HCD8Oa
+	Kp/FP4+rut1uK+Kr4oBKrhH6jHzZ6VM72Pg+rG0+PPrgo/YHCt0SVBoUtqwonVdIndp91dRKsCN5s
+	T4pMwNjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAT4R-0000000Fg7D-0UPg;
-	Thu, 01 May 2025 12:31:19 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uAT4O-0000000Fg4J-29MJ;
+	Thu, 01 May 2025 12:31:16 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uASbZ-0000000FLUt-0Gzw;
-	Thu, 01 May 2025 12:01:29 +0000
+	id 1uASXi-0000000FKWp-2yVN;
+	Thu, 01 May 2025 11:57:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C4EAF68468;
-	Thu,  1 May 2025 12:01:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94CC3C4CEE3;
-	Thu,  1 May 2025 12:01:27 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id A6270A4B4CB;
+	Thu,  1 May 2025 11:52:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8558AC4CEE3;
+	Thu,  1 May 2025 11:57:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746100888;
-	bh=wO38hj0kH5wwFVV788X9fXlS0WBLehhmfHhlpKQsYvg=;
+	s=k20201202; t=1746100649;
+	bh=AaFZYNZaVoJdnT4CJkDiw+CwenfpvYlqV7aZGMXp690=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=r91DJqwzqLwYugfxG2pb0c35WvYMJaYiQSAzcjSB9ovMk/EnuGFWt2MzM/ytGRGdC
-	 wAZKGYA+vz/s77fg7aQPZpAlRKcIT/igILGZ14jGoQZRtnvMqHOqkLkJwPy7JSpIpu
-	 XDcukosA/Y5OgnMQVJEm1UnxIJQM61jiR71p9iyLgVv43hbMZ2gAbN2M6b5oOH8MEX
-	 eADFKDx06fKC+QJCJEL2g+i88z65RYvJRGtPFmWl9dLMhjXRqk6a3+1YKebnYI0UTa
-	 HUNw7+7h0Z7T1NnKcVsO1ulcz0ucQy6ZlItp/CCK3/P4KLZaEHM+QCaMeinOSEse5R
-	 h5ur5t/0ba74w==
-Date: Thu, 1 May 2025 14:01:25 +0200
+	b=HfPs0BOFLsZdNpTmh1FdTynzp23DXKkkIxax057Ff51k1w8vZZ+RKuJA7/JDu7Hph
+	 X4wHVGmBW2/sHPBNUDziYUc5m6jD17F2E/67GCMoqiDJJGF6L1vA6V1j/tTyt8sCi3
+	 gJjVE4wRNIMN35yYpLJF0Q0NehqftjQQ1GK8wBHSJ+RJqEaibETUTsrVE374flGRIe
+	 Ficrw/H4B/TOonZxIpIfTlGiLFpBEGh3ZbLt51fzEtCvA9hrTd73cJgAsPdh8+jZp9
+	 ZrU/YVHxyh7LRJJl0rb11iLes/8EgOHITgVbuvE7vTqzcA0BGCxU38v0S0VhJ91TfP
+	 T4C/pghSNIY/A==
+Date: Thu, 1 May 2025 13:57:26 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Xu Yang <xu.yang_2@nxp.com>
 Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org, 
@@ -49,15 +49,18 @@ Cc: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org,
 	kernel@pengutronix.de, festevam@gmail.com, jun.li@nxp.com, 
 	alexander.stein@ew.tq-group.com, linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
 	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 2/4] dt-bindings: phy: imx8mq-usb: add imx95 tuning
- support
-Message-ID: <20250501-incredible-skylark-of-awe-e0c2cc@kuoka>
+Subject: Re: [PATCH v3 1/4] dt-bindings: phy: imx8mq-usb: fix
+ fsl,phy-tx-vboost-level-microvolt property
+Message-ID: <20250501-jovial-sassy-rottweiler-9e416a@kuoka>
 References: <20250430094502.2723983-1-xu.yang_2@nxp.com>
- <20250430094502.2723983-2-xu.yang_2@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250430094502.2723983-2-xu.yang_2@nxp.com>
+In-Reply-To: <20250430094502.2723983-1-xu.yang_2@nxp.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250501_045730_810654_79895CC9 
+X-CRM114-Status: UNSURE (   8.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,24 +75,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 30, 2025 at 05:45:00PM GMT, Xu Yang wrote:
-> The parameter value of below 3 properties are USB PHY specific. i.MX8MP
-> and i.MX95 USB PHY has different meanings. This will enlarge parameters
-> value and add constraints for them.
+On Wed, Apr 30, 2025 at 05:44:59PM GMT, Xu Yang wrote:
+> The ticket TKT0676370 shows the description of TX_VBOOST_LVL is wrong in
+> register PHY_CTRL3 bit[31:29].
 > 
->  - fsl,phy-tx-vref-tune-percent
->  - fsl,phy-tx-rise-tune-percent
->  - fsl,phy-comp-dis-tune-percent
+>   011: Corresponds to a launch amplitude of 1.12 V.
+>   010: Corresponds to a launch amplitude of 1.04 V.
+>   000: Corresponds to a launch amplitude of 0.88 V.
 > 
+> After updated:
+> 
+>   011: Corresponds to a launch amplitude of 0.844 V.
+>   100: Corresponds to a launch amplitude of 1.008 V.
+>   101: Corresponds to a launch amplitude of 1.156 V.
+> 
+> This will correct it accordingly.
+> 
+> Fixes: b2e75563dc39 ("dt-bindings: phy: imx8mq-usb: add phy tuning properties")
+> Cc: stable@vger.kernel.org
 > Reviewed-by: Jun Li <jun.li@nxp.com>
 > Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
-> 
-> ---
-> Changes in v3:
->  - keep original unchanged
->  - enlarge value for some properties of i.MX95
-> Changes in v2:
->  - keep widest constraints
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
