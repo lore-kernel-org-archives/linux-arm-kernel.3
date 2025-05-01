@@ -4,58 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 091F1C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 10:48:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF327C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 10:50:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3gFP2AuzPMSGsSROm+0SSVBtRRQQgVlFC7bqVvtvAew=; b=AlGAwESuJJX6VqEtKaagUEw2Vb
-	oAc5Z1aVYbYw2iqyZeA4/1lO9o+DW9on0vBmqcnfPRA5jDP9k/J8M18/DDFuV1EIdagFB+B8XXp2h
-	d08sUg8bkF522qKjy/XRURpaerdPHwXYWsStEbgRRJm4JJwWikMRB3AJOdj/IXNEvSuUK5g906Fpl
-	w5SoUI7PMOnwGln5z7TLpNuIJ/F7G6Qc9z297mCrrRpl7By6SwCnOL32XWD9QxEFG8RndNykZf3K9
-	kP/G/y8W+kUA3e1dRY1c9vziXX9tMOMC5H3IFVaFzP2tcUrn5/stuNSn10dzGjc6ovNvEMS/wAhmq
-	Zl7Zf3PQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=si3fNE9GQSrIDtSL2LXUzl+e8wIwmtqlcMDREI82glc=; b=r1cMhc0+LBrDsrTF9q1TdtGxHE
+	8k5Sz8tGVDYZECZZ6fiUEHi7wn3Xhuof+YnhFaJ3oFi043QShoFkhL3suSGtZLQRmGmMyyQogt7bG
+	CSqVRzXucnteP+edeJ4ZmO5ZcF0exoEYzu1+GYjPkDwitF1JfjRqP3M0cBRVXhiAxszV+GYn4LFQK
+	3sugtTJg5LV8PkamY/ffCqIAVI3XjcW0SQ2u7NGsRMHB7YXUIh89xnfAsf35vOKL7PZ1ASpGomDpc
+	wYZb7nr3sXs3kBf8mVJxBON2OTjnmRKg1u1lyRe01vwWzCrgQ58UUZNy5EPeYSc9yscoqdx60I+St
+	UIyAIQXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uARSk-0000000FDqb-0xAJ;
-	Thu, 01 May 2025 10:48:18 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAROH-0000000FDVZ-1owd
+	id 1uARUd-0000000FDyO-3d2g;
+	Thu, 01 May 2025 10:50:15 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uARSQ-0000000FDnB-48oX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 10:43:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 62F62106F;
-	Thu,  1 May 2025 03:43:33 -0700 (PDT)
-Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0F6CC3F673;
-	Thu,  1 May 2025 03:43:38 -0700 (PDT)
-Date: Thu, 1 May 2025 11:43:36 +0100
-From: Joey Gouly <joey.gouly@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>, Fuad Tabba <tabba@google.com>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>
-Subject: Re: [PATCH v3 16/42] KVM: arm64: Simplify handling of negative FGT
- bits
-Message-ID: <20250501104336.GG1859293@e124191.cambridge.arm.com>
-References: <20250426122836.3341523-1-maz@kernel.org>
- <20250426122836.3341523-17-maz@kernel.org>
+	Thu, 01 May 2025 10:48:00 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-39c13fa05ebso460402f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 May 2025 03:47:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1746096477; x=1746701277; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=si3fNE9GQSrIDtSL2LXUzl+e8wIwmtqlcMDREI82glc=;
+        b=gLfywZS2117RF7vVYGAtiqufMCtGM/j1ENg4YvRT61RRg7jpvXEcsUYHckZSZLTzar
+         hXqewQNyFZtfsq3/ouGKXrm2HHKm3rxGWjQ6QLqH2I/sAsuQyQ27HA8bjP6Lkll0jYz5
+         5l5MClQx3GvAORfzSTSjazehublTlaO8CL7/vOMGp3zSHm5d9ByY/jsUPvdy2OE0LtbN
+         g2gYzQkOfjDjb/YPxRTOTFJBMWapM82DTGgglxodLG44LBX0VXtYp6Awi5c3Xk+Xm70/
+         nscs4hA8ugpbZzuSa0W5JrUehcdVDBtNZzXvh79NKRT4cxDMcaacC9w+5cjR8/Iejc5z
+         Ff/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746096477; x=1746701277;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=si3fNE9GQSrIDtSL2LXUzl+e8wIwmtqlcMDREI82glc=;
+        b=uq2XBKh7Ygy+gp+frGtXdeVoTlYC5Y7ZO8zGx04hA0cbbxcIzyzFDKQlAg7tTTeiy8
+         SrlkH9syhQHejdO3rxr/EaHsqnSTvuMMgrqdFppSHOpc+pthioDqlaTijWuLLH+OcKeT
+         cLVmr2stOseRMGiIWre+AYr0noeOd/oanjR7jET4GjmrnnB4lCBq0vcc2vO68ouwnUlq
+         N5OVqiFYHJr62DiluEkLIACa1sXCyyb9/bZjfxpV4zvtGQSdnY7+ajYewR03XZlBMzcl
+         M/0ZiuCTMMxg78WQ2ApUk88PCDjtShVyHHXK9V5aZexkm1ElZu9PNpzsXX0zYqAmm2/Y
+         7eGg==
+X-Forwarded-Encrypted: i=1; AJvYcCVUrduJt8UnDpF580CH7fxqfweDfh/QoV/BxyVFRPQE0iTJobQHaUXg7UYeIGPPtPP28vnuZvL8IRR1O43VzYAH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8lEd5sLZQ/gEcXznDkb3NYOzIt44qxfAJMes+nMzRU10KxAS+
+	XzrrMoJpJ1xe9z7NBN9EFboG501wSCjXONZ1xM55EDqAdrIT7GMJCixm3tO5gNw=
+X-Gm-Gg: ASbGncsVZ4d1SEsB6C0RAVb0ZC8meLdrC3mn3ourK8cK1B7pF4whBsf5jPQZtKJdmxH
+	BP7jGR/Y28Zg0tGJlSVbXsXzO2droqtq43f7chr7Fwc5FIdOo0GbbyciUBZ0fw4LaHcdRYVAddG
+	WpySL4tag/wlZSyx3f5+YGoQT6Q0FFX2s/spcHFn/8YtZbFOuswu9M3AkQIuBLKVBN4xrdS6bWH
+	A0de/sj1nCOOKrtP5Fvop5R8Wu54TUeX7KV6+WwXxSXhChIwkEls3UtT/SMD21kRGavlUKtVeXZ
+	2qPoitE1zyG6TCEmBJemG5n3MOCQaqYQdhQSBBqQ+6UpvIZh0ckSew==
+X-Google-Smtp-Source: AGHT+IHslO86ZF1CU2IPZPf6KTthtEvUGuil8yHuz65YUqPluNBK+P3P3sk3bArImylFI/g6oEQAvQ==
+X-Received: by 2002:a05:6000:1ac8:b0:391:3f4f:a169 with SMTP id ffacd0b85a97d-3a08ff3c000mr5090505f8f.32.1746096477139;
+        Thu, 01 May 2025 03:47:57 -0700 (PDT)
+Received: from [192.168.1.3] ([77.81.75.81])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a095a8f92fsm520512f8f.90.2025.05.01.03.47.55
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 01 May 2025 03:47:56 -0700 (PDT)
+Message-ID: <a7c2ff21-4399-4cff-83d9-2fb0da0b5a08@linaro.org>
+Date: Thu, 1 May 2025 11:47:55 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250426122836.3341523-17-maz@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] perf: Allocate non-contiguous AUX pages by default
+To: Yabin Cui <yabinc@google.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>,
+ Liang Kan <kan.liang@linux.intel.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>
+References: <20250429213133.922495-1-yabinc@google.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20250429213133.922495-1-yabinc@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_034341_556341_7E7B2D0F 
-X-CRM114-Status: GOOD (  20.73  )
+X-CRM114-CacheID: sfid-20250501_034759_049498_C3C56BFC 
+X-CRM114-Status: GOOD (  30.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,132 +110,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Apr 26, 2025 at 01:28:10PM +0100, Marc Zyngier wrote:
-> check_fgt_bit() and triage_sysreg_trap() implement the same thing
-> twice for no good reason. We have to lookup the FGT register twice,
-> as we don't communucate it. Similarly, we extract the register value
-> at the wrong spot.
-> 
-> Reorganise the code in a more logical way so that things are done
-> at the correct location, removing a lot of duplication.
 
-Reviewed-by: Joey Gouly <joey.gouly@arm.com>
 
+On 29/04/2025 10:31 pm, Yabin Cui wrote:
+> perf always allocates contiguous AUX pages based on aux_watermark.
+> However, this contiguous allocation doesn't benefit all PMUs. For
+> instance, ARM SPE and TRBE operate with virtual pages, and Coresight
+> ETR allocates a separate buffer. For these PMUs, allocating contiguous
+> AUX pages unnecessarily exacerbates memory fragmentation. This
+> fragmentation can prevent their use on long-running devices.
 > 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> This patch modifies the perf driver to allocate non-contiguous AUX
+> pages by default. For PMUs that can benefit from contiguous pages (
+> Intel PT and BTS), a new PMU capability, PERF_PMU_CAP_AUX_PREFER_LARGE
+> is introduced to maintain their existing behavior.
+> 
+> Signed-off-by: Yabin Cui <yabinc@google.com>
 > ---
->  arch/arm64/kvm/emulate-nested.c | 49 ++++++++-------------------------
->  1 file changed, 12 insertions(+), 37 deletions(-)
+> Changes since v1:
+> In v1, default is preferring contiguous pages, and add a flag to
+> allocate non-contiguous pages. In v2, default is allocating
+> non-contiguous pages, and add a flag to prefer contiguous pages.
 > 
-> diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-> index 1bcbddc88a9b7..52a2d63a667c9 100644
-> --- a/arch/arm64/kvm/emulate-nested.c
-> +++ b/arch/arm64/kvm/emulate-nested.c
-> @@ -2215,11 +2215,11 @@ static u64 kvm_get_sysreg_res0(struct kvm *kvm, enum vcpu_sysreg sr)
->  	return masks->mask[sr - __VNCR_START__].res0;
->  }
->  
-> -static bool check_fgt_bit(struct kvm_vcpu *vcpu, bool is_read,
-> -			  u64 val, const union trap_config tc)
-> +static bool check_fgt_bit(struct kvm_vcpu *vcpu, enum vcpu_sysreg sr,
-> +			  const union trap_config tc)
->  {
->  	struct kvm *kvm = vcpu->kvm;
-> -	enum vcpu_sysreg sr;
-> +	u64 val;
->  
->  	/*
->  	 * KVM doesn't know about any FGTs that apply to the host, and hopefully
-> @@ -2228,6 +2228,8 @@ static bool check_fgt_bit(struct kvm_vcpu *vcpu, bool is_read,
->  	if (is_hyp_ctxt(vcpu))
->  		return false;
->  
-> +	val = __vcpu_sys_reg(vcpu, sr);
-> +
->  	if (tc.pol)
->  		return (val & BIT(tc.bit));
->  
-> @@ -2242,38 +2244,17 @@ static bool check_fgt_bit(struct kvm_vcpu *vcpu, bool is_read,
->  	if (val & BIT(tc.bit))
->  		return false;
->  
-> -	switch ((enum fgt_group_id)tc.fgt) {
-> -	case HFGRTR_GROUP:
-> -		sr = is_read ? HFGRTR_EL2 : HFGWTR_EL2;
-> -		break;
-> -
-> -	case HDFGRTR_GROUP:
-> -		sr = is_read ? HDFGRTR_EL2 : HDFGWTR_EL2;
-> -		break;
-> -
-> -	case HAFGRTR_GROUP:
-> -		sr = HAFGRTR_EL2;
-> -		break;
-> -
-> -	case HFGITR_GROUP:
-> -		sr = HFGITR_EL2;
-> -		break;
-> -
-> -	default:
-> -		WARN_ONCE(1, "Unhandled FGT group");
-> -		return false;
-> -	}
-> -
->  	return !(kvm_get_sysreg_res0(kvm, sr) & BIT(tc.bit));
->  }
->  
->  bool triage_sysreg_trap(struct kvm_vcpu *vcpu, int *sr_index)
->  {
-> +	enum vcpu_sysreg fgtreg;
->  	union trap_config tc;
->  	enum trap_behaviour b;
->  	bool is_read;
->  	u32 sysreg;
-> -	u64 esr, val;
-> +	u64 esr;
->  
->  	esr = kvm_vcpu_get_esr(vcpu);
->  	sysreg = esr_sys64_to_sysreg(esr);
-> @@ -2320,25 +2301,19 @@ bool triage_sysreg_trap(struct kvm_vcpu *vcpu, int *sr_index)
->  		break;
->  
->  	case HFGRTR_GROUP:
-> -		if (is_read)
-> -			val = __vcpu_sys_reg(vcpu, HFGRTR_EL2);
-> -		else
-> -			val = __vcpu_sys_reg(vcpu, HFGWTR_EL2);
-> +		fgtreg = is_read ? HFGRTR_EL2 : HFGWTR_EL2;
->  		break;
->  
->  	case HDFGRTR_GROUP:
-> -		if (is_read)
-> -			val = __vcpu_sys_reg(vcpu, HDFGRTR_EL2);
-> -		else
-> -			val = __vcpu_sys_reg(vcpu, HDFGWTR_EL2);
-> +		fgtreg = is_read ? HDFGRTR_EL2 : HDFGWTR_EL2;
->  		break;
->  
->  	case HAFGRTR_GROUP:
-> -		val = __vcpu_sys_reg(vcpu, HAFGRTR_EL2);
-> +		fgtreg = HAFGRTR_EL2;
->  		break;
->  
->  	case HFGITR_GROUP:
-> -		val = __vcpu_sys_reg(vcpu, HFGITR_EL2);
-> +		fgtreg = HFGITR_EL2;
->  		switch (tc.fgf) {
->  			u64 tmp;
->  
-> @@ -2359,7 +2334,7 @@ bool triage_sysreg_trap(struct kvm_vcpu *vcpu, int *sr_index)
->  		goto local;
->  	}
->  
-> -	if (tc.fgt != __NO_FGT_GROUP__ && check_fgt_bit(vcpu, is_read, val, tc))
-> +	if (tc.fgt != __NO_FGT_GROUP__ && check_fgt_bit(vcpu, fgtreg, tc))
->  		goto inject;
->  
->  	b = compute_trap_behaviour(vcpu, tc);
-> -- 
-> 2.39.2
+> v1 patchset:
+> perf,coresight: Reduce fragmentation with non-contiguous AUX pages for
+> cs_etm
 > 
+>   arch/x86/events/intel/bts.c |  3 ++-
+>   arch/x86/events/intel/pt.c  |  3 ++-
+>   include/linux/perf_event.h  |  1 +
+>   kernel/events/ring_buffer.c | 18 +++++++++++-------
+>   4 files changed, 16 insertions(+), 9 deletions(-)
+> 
+> diff --git a/arch/x86/events/intel/bts.c b/arch/x86/events/intel/bts.c
+> index a95e6c91c4d7..9129f00e4b9f 100644
+> --- a/arch/x86/events/intel/bts.c
+> +++ b/arch/x86/events/intel/bts.c
+> @@ -625,7 +625,8 @@ static __init int bts_init(void)
+>   		return -ENOMEM;
+>   
+>   	bts_pmu.capabilities	= PERF_PMU_CAP_AUX_NO_SG | PERF_PMU_CAP_ITRACE |
+> -				  PERF_PMU_CAP_EXCLUSIVE;
+> +				  PERF_PMU_CAP_EXCLUSIVE |
+> +				  PERF_PMU_CAP_AUX_PREFER_LARGE;
+>   	bts_pmu.task_ctx_nr	= perf_sw_context;
+>   	bts_pmu.event_init	= bts_event_init;
+>   	bts_pmu.add		= bts_event_add;
+> diff --git a/arch/x86/events/intel/pt.c b/arch/x86/events/intel/pt.c
+> index fa37565f6418..37179e813b8c 100644
+> --- a/arch/x86/events/intel/pt.c
+> +++ b/arch/x86/events/intel/pt.c
+> @@ -1866,7 +1866,8 @@ static __init int pt_init(void)
+>   
+>   	pt_pmu.pmu.capabilities		|= PERF_PMU_CAP_EXCLUSIVE |
+>   					   PERF_PMU_CAP_ITRACE |
+> -					   PERF_PMU_CAP_AUX_PAUSE;
+> +					   PERF_PMU_CAP_AUX_PAUSE |
+> +					   PERF_PMU_CAP_AUX_PREFER_LARGE;
+>   	pt_pmu.pmu.attr_groups		 = pt_attr_groups;
+>   	pt_pmu.pmu.task_ctx_nr		 = perf_sw_context;
+>   	pt_pmu.pmu.event_init		 = pt_event_init;
+> diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+> index 0069ba6866a4..56d77348c511 100644
+> --- a/include/linux/perf_event.h
+> +++ b/include/linux/perf_event.h
+> @@ -301,6 +301,7 @@ struct perf_event_pmu_context;
+>   #define PERF_PMU_CAP_AUX_OUTPUT			0x0080
+>   #define PERF_PMU_CAP_EXTENDED_HW_TYPE		0x0100
+>   #define PERF_PMU_CAP_AUX_PAUSE			0x0200
+> +#define PERF_PMU_CAP_AUX_PREFER_LARGE		0x0400
+>   
+>   /**
+>    * pmu::scope
+> diff --git a/kernel/events/ring_buffer.c b/kernel/events/ring_buffer.c
+> index 5130b119d0ae..d76249ce4f17 100644
+> --- a/kernel/events/ring_buffer.c
+> +++ b/kernel/events/ring_buffer.c
+> @@ -679,7 +679,7 @@ int rb_alloc_aux(struct perf_buffer *rb, struct perf_event *event,
+>   {
+>   	bool overwrite = !(flags & RING_BUFFER_WRITABLE);
+>   	int node = (event->cpu == -1) ? -1 : cpu_to_node(event->cpu);
+> -	int ret = -ENOMEM, max_order;
+> +	int ret = -ENOMEM, max_order = 0;
+>   
+>   	if (!has_aux(event))
+>   		return -EOPNOTSUPP;
+> @@ -689,8 +689,8 @@ int rb_alloc_aux(struct perf_buffer *rb, struct perf_event *event,
+>   
+>   	if (!overwrite) {
+>   		/*
+> -		 * Watermark defaults to half the buffer, and so does the
+> -		 * max_order, to aid PMU drivers in double buffering.
+> +		 * Watermark defaults to half the buffer, to aid PMU drivers
+> +		 * in double buffering.
+>   		 */
+>   		if (!watermark)
+>   			watermark = min_t(unsigned long,
+> @@ -698,16 +698,20 @@ int rb_alloc_aux(struct perf_buffer *rb, struct perf_event *event,
+>   					  (unsigned long)nr_pages << (PAGE_SHIFT - 1));
+>   
+>   		/*
+> -		 * Use aux_watermark as the basis for chunking to
+> +		 * For PMUs that prefer large contiguous buffers,
+> +		 * use aux_watermark as the basis for chunking to
+>   		 * help PMU drivers honor the watermark.
+>   		 */
+> -		max_order = get_order(watermark);
+> +		if (event->pmu->capabilities & PERF_PMU_CAP_AUX_PREFER_LARGE)
+> +			max_order = get_order(watermark);
+>   	} else {
+>   		/*
+> -		 * We need to start with the max_order that fits in nr_pages,
+> +		 * For PMUs that prefer large contiguous buffers,
+> +		 * we need to start with the max_order that fits in nr_pages,
+>   		 * not the other way around, hence ilog2() and not get_order.
+>   		 */
+> -		max_order = ilog2(nr_pages);
+> +		if (event->pmu->capabilities & PERF_PMU_CAP_AUX_PREFER_LARGE)
+> +			max_order = ilog2(nr_pages);
+
+Doesn't this one need to be 'PERF_PMU_CAP_AUX_PREFER_LARGE | 
+PERF_PMU_CAP_AUX_NO_SG', otherwise the NO_SG test further down doesn't 
+work for devices that only have NO_SG and not PREFER_LARGE.
+
+NO_SG implies PREFER_LARGE behavior, except that NO_SG additionally hard 
+fails if it can't do it in one alloc. But I think you shouldn't have to 
+set them both to get the correct behavior.
+
 
