@@ -4,84 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 302E1C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 23:30:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3F29C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 23:32:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NGO8byd0TkM2xA40/EGnrAlxr2Ydy4LQeG9Cn/PTvGw=; b=FtS0rJ1GuvMIUyWKY1+qqsHD+5
-	JPS50elq+Hh3MeKuen1m3peLj9VMG2tvpFZ8EzKcCOdxr8lzs+altCtN/IYRyMAlOKmPGGCws/rtf
-	eYpmG3Q91v+2ZXCpJEa9sv36Ufbl6sOTi0qz4vIFxxk1C7nW8/86HT/GoNORWHebYEj6t7OfNPdKP
-	r8/p/l1K3pFRFJCoePTe4ZHABTbImg96l3Tgp230wu7VUWCEkcjUkRRw1dU6Mf2uaPAFMncXexuGS
-	LQojiVFIPJ5rLzjn5kcMBFEGyYzTibGv6Up/sGYzJHGTXfA5gtgF8f0sCbWl06wL+OsquU+gMovMD
-	aFdb/hbA==;
+	bh=VphvviRpGC2WLkYAjqaiyvIFs0ocuEHMIPdUSqAExnk=; b=IWLezF02x4O7Ql2r6WmwREE3et
+	qQaV7qxNKX4LPG/UDkTV9fYjOBbRsXJGXliVoADsLz341dXI+dbxmy5gVtarK+tC9B8yEv2tDVLsj
+	dEKA78tf111iw9ppOT7g7nzOWsOkbl4RURWK000eeO4y62E1mJDy7WJsdjkvQWmxoO8ZJL4IYfZSk
+	RPOKwDwVP3o3FIlTwMQehTqNG2mNyOa9UPjfk3tvi8mfhxMI8TuLTuGo2Mg7FWzDNCVt9NL8c+eyB
+	HP+uCNvvUhxZ5+uvNuHuKbnNQN2UUiZI1wRzugYAWkw92NZKHRQ92ktSK8Y30CgEJjifSwDZl9Wqh
+	cr0gN4Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAdMD-00000000HBr-40b3;
-	Thu, 01 May 2025 23:30:21 +0000
+	id 1uAdO6-00000000HSV-3ENn;
+	Thu, 01 May 2025 23:32:18 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAcpD-000000007qG-3NSP
+	id 1uAcq6-0000000088b-0KtN
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 01 May 2025 22:56:15 +0000
+	Thu, 01 May 2025 22:57:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=NGO8byd0TkM2xA40/EGnrAlxr2Ydy4LQeG9Cn/PTvGw=; b=jczv2xHGLiL5iD3ExR3cpmH5p2
-	+utrLX1AtiaNnFxpBMjdHAMFkQzil0CY07eSK/u6bvE07Df/BW2lfh/jdxzpl+xZP2Z1pQ2LY10Gh
-	aW51dTi56DNtZKkjAapYkHpgBTnvaushL0MSDpdOavykRQ3z5LwUDSNjFfGJRwLWE7nwyolddPPu2
-	1yXQatIlzoMfCZfwzBbvkQDFrAzPSGp0LjUJUI+fxOixRb4XrIOrdEDRuy3TuZIQDaR9Tvjb7Rw5p
-	siUWcdfMd/9ajfi54G79VMh6ITWazYOEIamabg1IznxInKfbFlL8uGtkgL8xLOqn97MWKnsMcUb4h
-	MTNlZx+g==;
+	bh=VphvviRpGC2WLkYAjqaiyvIFs0ocuEHMIPdUSqAExnk=; b=obkranV2qSF/EV2f8A2E7Mqa25
+	0NvPWEbX5Il3jCp47fLKI/p8y35Jey5G1WZwVJ6foE6ewKovoqoYi460kIJCz+Op7HgPWARKJOkOF
+	tFkfPad/wLk7rWvZ5UzFPJ6YM3RgA/NO9aDIwA9g0QnUksEcs7WKfKHBXuIrwfp+2dyXqdYESHhIy
+	dE+4gB2S3MU5jjL/xfflQpXZSXti4pFw/obEwhXyKdemF8FduhYG1fthnC6JE0C24DSE5jhYvHYMp
+	iUJfUaFGVJ0m03zoYR+dBwsPD4tmRyxaWuIa1QbzTJbLbYUR/jwCjtj68/LiTHYth2K4u6lec9UpD
+	WA0m6MSQ==;
 Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uAcoT-0000000EC82-0zZY
+	id 1uAcob-0000000EC8c-1C8F
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 22:56:14 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2241e7e3addso12843835ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 May 2025 15:55:27 -0700 (PDT)
+	Thu, 01 May 2025 22:57:08 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-227ed471999so12448735ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 May 2025 15:55:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1746140126; x=1746744926; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1746140135; x=1746744935; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=NGO8byd0TkM2xA40/EGnrAlxr2Ydy4LQeG9Cn/PTvGw=;
-        b=mye2ft2TE+Z+HN8gsdjXi1SxosJYO5CGhTfJmjyk5aBLUiDXDeIP2PUhTboGkSuoE/
-         nzph2BRSHAESg8gEgmffIBoTzdz9DRYXFtDY9wWIMm1ZGq8XM3K43c/v7dapriPenD3O
-         pEk32zqR0vUNkE3UKuDATV9rbPMK+8Y6k+ycTdjvFIqZ/shQoUXlZw4I91mq9k2ZrIa1
-         6jczeEVcliJSqSPNPmx8mNcwyaTGS/lRhcgkv18RQ3/wQYh6ecklV+mUCPocm9saOQdQ
-         4aqjrY+B1Tg2vHej+baIzmH4kJg9NMfE7y0WWkBeqGw87cpTibRz+hWBLknnMUGMv+Pm
-         NYVg==
+        bh=VphvviRpGC2WLkYAjqaiyvIFs0ocuEHMIPdUSqAExnk=;
+        b=iyO7uoF5dAoMAZNEjNXVfGsVFhM3Gg6scCxUpi3V7QE5ZHfxSwta3/uhZPmTaihAOb
+         eKKxIZo0R1s7+aEGqglR/jybF6kyHVmWBaqVUdgYTWMQkI0WXOZkgLMpy23vCXTaonif
+         r/wso2Nl1h3fKobeuPMywHzLtboObdUlx4dnFnwQYDZA1g2/4Ucb+v6HKVKHVcuxXXvs
+         x6EbDZrGpSQcuA8/LMV90ksOGxEXgdl25BfGl+FMioVjJq5oCsL63DjUHCcaZsds93eS
+         5yi/OECrbZ2Gi1VnUEho1PAYLs8MY7yEbw/pe42xF9rTmugD3ubpi+IMm5sJylzW75eX
+         q70Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746140126; x=1746744926;
+        d=1e100.net; s=20230601; t=1746140135; x=1746744935;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=NGO8byd0TkM2xA40/EGnrAlxr2Ydy4LQeG9Cn/PTvGw=;
-        b=cuuZEDVTU2J3iIPoZXTNBs0MGyQ1uxeyIwvkdeenmihmWrDidltuW3abDmusZEK1w5
-         BjP3XCsqxrCR8b2/YI7UUAPKJz2SI4HRkl3V/kTuOIL2mqBpanmoJG52q1ENai92bJFK
-         icoG3ZTftoCK/mPw8GakBx/ZPRTGgtIlMAmbpS3OECh4MxCL1+YvzC4g4hTG5PNlkxZD
-         RI/1TZukky/KUg1MIGq2xuRz2RDeZc4LhTmonz6c9Q/H7t3iMrtOX+5h87CGMYM1YSMu
-         JFy67VPbp07ise9h5Q5qubpVBuACSZKaPASALqk41Qop9I1pF43565xLRTxDipdcDFka
-         h0fw==
-X-Forwarded-Encrypted: i=1; AJvYcCVcvCGbD35eLWPOfsY4EiP8VytnYNeMV0670NvlQ5I6hlJocFA3jlmu1Wl+NK+7BLWZrTJB3V/0nm7NyY/ta4ot@lists.infradead.org
-X-Gm-Message-State: AOJu0YyHzMWNzJcf3jGy6Wpw9rS85jh954K8Xd0HvXm8gsVGnFtutzQ9
-	Ss/SxfhuvyNb1IuAhyWcPKuOK3mPppaN3sX8P9mu9aZ8kuegRZGmwgr+hTNm0oEuWhgy84ezx15
-	G/2eckHQyE99wuTOXTw==
-X-Google-Smtp-Source: AGHT+IHJUmwT4tOhxLskkrWxieqEKxrv6qbe/rS4uJuA/C3JPb20dm7HBzJjo4+K34ocPx0/uIvvUYW+1UT+7DwM
-X-Received: from plac4.prod.google.com ([2002:a17:902:c2c4:b0:224:2ae9:b271])
+        bh=VphvviRpGC2WLkYAjqaiyvIFs0ocuEHMIPdUSqAExnk=;
+        b=Ksc0tCE5yvLwgSTDl5Kr5HQTnf7L8vp0HjXifoFfXvIdwURYcOy8vi+YAUn5y9ea01
+         AN8Vh6oueOMCsk4gCj22Zx8iYPadVITzMF0VoW6e44cW7rRX9ts1xjI3GBoRcvGbAZGM
+         iKxVEJqAXJA1UqJpDE74O399jHln2bD8uHf8CTGCeVUu/w1/kfL2QspkVzBTxSx2Z2pK
+         reKTHLMUktHPXeMA8bbMJTmUDziA9qTLR8g1qVvFIZ/ub4P0d5VKf0B2ybn52PyVj+WZ
+         UNRX84oNxl3J4kmu7BiCaiHQub9i58sPOAAvHFAB6tSIcXGDhJuJk7unmuYcLVp8JxOH
+         xcSQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWw+XqRydWHfOcslBDHtJLpDCPNs9Wt02ZVf+gPV++h6ecmOujjTcro6Ql27qu6MCswel8CPnPulT7fHjhc7BcB@lists.infradead.org
+X-Gm-Message-State: AOJu0YznLHoSkyBbEZxzqRxZqAc8Fnvsg3RxT6NECdRmPG13Dav17tkM
+	UyolqGZEoWkvzgIdSbFTH0weKauEcPQ4SQmnNZsNiYjP+LmNmgxv8h7hMi79/yLT21Bukv46TvY
+	H2iQZgau8VwMVmCezZA==
+X-Google-Smtp-Source: AGHT+IEUBELohUIuBjZuX1t4KvZ63Sn972imtSEYrAK4n9xeHQS/vygxbNUhLnD35SKxrJi1vU9ISpeHFRO3BtsZ
+X-Received: from plou8.prod.google.com ([2002:a17:903:1ae8:b0:220:da6b:5d08])
  (user=changyuanl job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:903:3c25:b0:22c:3609:97ed with SMTP id d9443c01a7336-22e1031f6femr10317175ad.30.1746140126491;
- Thu, 01 May 2025 15:55:26 -0700 (PDT)
-Date: Thu,  1 May 2025 15:54:16 -0700
+ 2002:a17:903:1ab0:b0:224:24d3:60f4 with SMTP id d9443c01a7336-22e102d05f6mr12139545ad.15.1746140134934;
+ Thu, 01 May 2025 15:55:34 -0700 (PDT)
+Date: Thu,  1 May 2025 15:54:20 -0700
 In-Reply-To: <20250501225425.635167-1-changyuanl@google.com>
 Mime-Version: 1.0
 References: <20250501225425.635167-1-changyuanl@google.com>
 X-Mailer: git-send-email 2.49.0.906.g1f30a19c02-goog
-Message-ID: <20250501225425.635167-10-changyuanl@google.com>
-Subject: [PATCH v7 09/18] kexec: add config option for KHO
+Message-ID: <20250501225425.635167-14-changyuanl@google.com>
+Subject: [PATCH v7 13/18] x86/e820: temporarily enable KHO scratch for memory
+ below 1M
 From: Changyuan Lyu <changyuanl@google.com>
 To: linux-kernel@vger.kernel.org
 Cc: changyuanl@google.com, akpm@linux-foundation.org, 
@@ -98,8 +99,8 @@ Cc: changyuanl@google.com, akpm@linux-foundation.org,
 	thomas.lendacky@amd.com, will@kernel.org, x86@kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_235557_747455_68B9696A 
-X-CRM114-Status: GOOD (  12.14  )
+X-CRM114-CacheID: sfid-20250501_235556_779796_4A902A34 
+X-CRM114-Status: GOOD (  14.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,43 +117,68 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Alexander Graf <graf@amazon.com>
 
-We have all generic code in place now to support Kexec with KHO. This
-patch adds a config option that depends on architecture support to
-enable KHO support.
+KHO kernels are special and use only scratch memory for memblock
+allocations, but memory below 1M is ignored by kernel after early boot
+and cannot be naturally marked as scratch.
+
+To allow allocation of the real-mode trampoline and a few (if any) other
+very early allocations from below 1M forcibly mark the memory below 1M
+as scratch.
+
+After real mode trampoline is allocated, clear that scratch marking.
 
 Signed-off-by: Alexander Graf <graf@amazon.com>
 Co-developed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Co-developed-by: Changyuan Lyu <changyuanl@google.com>
 Signed-off-by: Changyuan Lyu <changyuanl@google.com>
 ---
- kernel/Kconfig.kexec | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+ arch/x86/kernel/e820.c   | 18 ++++++++++++++++++
+ arch/x86/realmode/init.c |  2 ++
+ 2 files changed, 20 insertions(+)
 
-diff --git a/kernel/Kconfig.kexec b/kernel/Kconfig.kexec
-index 4d111f8719516..4fa212909d699 100644
---- a/kernel/Kconfig.kexec
-+++ b/kernel/Kconfig.kexec
-@@ -95,6 +95,20 @@ config KEXEC_JUMP
- 	  Jump between original kernel and kexeced kernel and invoke
- 	  code in physical address mode via KEXEC
+diff --git a/arch/x86/kernel/e820.c b/arch/x86/kernel/e820.c
+index 9920122018a0b..c3acbd26408ba 100644
+--- a/arch/x86/kernel/e820.c
++++ b/arch/x86/kernel/e820.c
+@@ -1299,6 +1299,24 @@ void __init e820__memblock_setup(void)
+ 		memblock_add(entry->addr, entry->size);
+ 	}
  
-+config KEXEC_HANDOVER
-+	bool "kexec handover"
-+	depends on ARCH_SUPPORTS_KEXEC_HANDOVER && ARCH_SUPPORTS_KEXEC_FILE
-+	select MEMBLOCK_KHO_SCRATCH
-+	select KEXEC_FILE
-+	select DEBUG_FS
-+	select LIBFDT
-+	select CMA
-+	help
-+	  Allow kexec to hand over state across kernels by generating and
-+	  passing additional metadata to the target kernel. This is useful
-+	  to keep data or state alive across the kexec. For this to work,
-+	  both source and target kernels need to have this option enabled.
++	/*
++	 * At this point memblock is only allowed to allocate from memory
++	 * below 1M (aka ISA_END_ADDRESS) up until direct map is completely set
++	 * up in init_mem_mapping().
++	 *
++	 * KHO kernels are special and use only scratch memory for memblock
++	 * allocations, but memory below 1M is ignored by kernel after early
++	 * boot and cannot be naturally marked as scratch.
++	 *
++	 * To allow allocation of the real-mode trampoline and a few (if any)
++	 * other very early allocations from below 1M forcibly mark the memory
++	 * below 1M as scratch.
++	 *
++	 * After real mode trampoline is allocated, we clear that scratch
++	 * marking.
++	 */
++	memblock_mark_kho_scratch(0, SZ_1M);
 +
- config CRASH_DUMP
- 	bool "kernel crash dumps"
- 	default ARCH_DEFAULT_CRASH_DUMP
+ 	/*
+ 	 * 32-bit systems are limited to 4BG of memory even with HIGHMEM and
+ 	 * to even less without it.
+diff --git a/arch/x86/realmode/init.c b/arch/x86/realmode/init.c
+index f9bc444a3064d..9b9f4534086d2 100644
+--- a/arch/x86/realmode/init.c
++++ b/arch/x86/realmode/init.c
+@@ -65,6 +65,8 @@ void __init reserve_real_mode(void)
+ 	 * setup_arch().
+ 	 */
+ 	memblock_reserve(0, SZ_1M);
++
++	memblock_clear_kho_scratch(0, SZ_1M);
+ }
+ 
+ static void __init sme_sev_setup_real_mode(struct trampoline_header *th)
 -- 
 2.49.0.906.g1f30a19c02-goog
 
