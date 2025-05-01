@@ -4,66 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22689C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 13:50:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1F75C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 13:55:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=39oHwL/DRLv+JOvFxysou19dZQEjs4xH7WIspHC+dFg=; b=Cuu8piGko4mxHmP+hl64+N8pRX
-	Sk022TUHG3RhGLvo+nd3fAueFyBklphvQqNN4qHksDUHIc+mmRfCGcx8IpmmYoo7Ucfxg4XqG8/Tm
-	iK2pPqWQ5L2WGveKjiJwhWjYaS++HiuIYjATLXqjIvBRsm6EyaKGwainxK+Z1ThgGYlaAnyvvtZno
-	3stOobgFijRER6ZCtt+WnC/VN4pSp7iDSqcFDvi2Dh/rWjC+PjlBYmtIf8a/KSQn7WUMLSy1ys5cs
-	WeuzjHSUzh6m5j/ZfAmm7RLESeptxC/OmxkM10WJNG9m9A+zg3It4kSJOK28ZA1nGMQE89skMTMZO
-	m4qzuoJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xPN7G4hoFMwtYe5MguwHeBQSrvukpeunqcLVGRuNyjU=; b=rTXC/jB839jQAdZj/Pj2CbQBeP
+	9OVdUFq+u4lx7mxekPY+8KElhLdLoPbDrWMsACMswifCq0i62gShYxOFjN/xJeDe6CgBqiBxSqtti
+	4kVLgd1HAPXQmkAOQLU4jH8givDCIFZKHwWmyOtg/VHfPKxSmUwEMhZPCKFnGaBGJOCBqACdAAOVC
+	F2eTR/DeyDahhISGpKdJzeBhPqOYHAB2q2z8RsPbmWZHo4P+ibQYJEaeHRmo+eU9Eh9jCKHsVnwFb
+	+vbdcQ9ek0hyBQFqn4YlIcyBsuTi5hv0gEfI8Cf59TawFOseKjKLWwo5fsdYsep/RoPHdi404lAhj
+	NLbKLWTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAUJK-0000000Fsel-00kY;
-	Thu, 01 May 2025 13:50:46 +0000
+	id 1uAUNI-0000000FtAC-3dzh;
+	Thu, 01 May 2025 13:54:52 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAUFr-0000000FsK8-1cVE
+	id 1uAULP-0000000Ft0z-0UTs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 13:47:12 +0000
+	Thu, 01 May 2025 13:52:56 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3BC701CC4;
-	Thu,  1 May 2025 06:47:01 -0700 (PDT)
-Received: from [10.1.37.71] (Suzukis-MBP.cambridge.arm.com [10.1.37.71])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B0E5E3F5A1;
-	Thu,  1 May 2025 06:47:05 -0700 (PDT)
-Message-ID: <9efc4db0-4264-4e8f-881e-2656c22a8b3e@arm.com>
-Date: Thu, 1 May 2025 14:47:04 +0100
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E6025168F;
+	Thu,  1 May 2025 06:52:46 -0700 (PDT)
+Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 88A463F673;
+	Thu,  1 May 2025 06:52:52 -0700 (PDT)
+Date: Thu, 1 May 2025 14:52:47 +0100
+From: Joey Gouly <joey.gouly@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>, Fuad Tabba <tabba@google.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [PATCH v3 08/42] arm64: sysreg: Add registers trapped by
+ HFG{R,W}TR2_EL2
+Message-ID: <20250501135247.GA2195277@e124191.cambridge.arm.com>
+References: <20250426122836.3341523-1-maz@kernel.org>
+ <20250426122836.3341523-9-maz@kernel.org>
+ <20250501101136.GE1859293@e124191.cambridge.arm.com>
+ <86wmb0h2ap.wl-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 06/43] arm64: RME: Define the user ABI
-Content-Language: en-GB
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>
-References: <20250416134208.383984-1-steven.price@arm.com>
- <20250416134208.383984-7-steven.price@arm.com>
- <35a91f8c-cdf6-4595-9ed2-c792a8e9d679@arm.com>
- <961bd6f8-2c0c-47d7-991d-aab7d247ffa8@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <961bd6f8-2c0c-47d7-991d-aab7d247ffa8@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <86wmb0h2ap.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_064711_469661_8046202D 
-X-CRM114-Status: UNSURE (   9.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250501_065255_207118_9C31B96F 
+X-CRM114-Status: GOOD (  18.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,45 +72,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/05/2025 14:31, Steven Price wrote:
-> On 28/04/2025 09:58, Suzuki K Poulose wrote:
->> Hi Steven
->>
->> On 16/04/2025 14:41, Steven Price wrote:
->>> There is one (multiplexed) CAP which can be used to create, populate and
->>> then activate the realm.
->>>
->>> Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->>> Signed-off-by: Steven Price <steven.price@arm.com>
->>> ---
->>> Changes since v7:
->>>    * Add documentation of new ioctls
->>>    * Bump the magic numbers to avoid conflicts
->>> Changes since v6:
->>>    * Rename some of the symbols to make their usage clearer and avoid
->>>      repetition.
->>> Changes from v5:
->>>    * Actually expose the new VCPU capability (KVM_ARM_VCPU_REC) by bumping
->>>      KVM_VCPU_MAX_FEATURES - note this also exposes KVM_ARM_VCPU_HAS_EL2!
->>> ---
->>>    Documentation/virt/kvm/api.rst    | 70 +++++++++++++++++++++++++++++++
-
->>
->> May be rephrase it to:
->>
->> No changes can be made to Realm's memory (including the IPA state). No
->> new VCPUs can be created after this step.
+On Thu, May 01, 2025 at 02:46:06PM +0100, Marc Zyngier wrote:
+> On Thu, 01 May 2025 11:11:36 +0100,
+> Joey Gouly <joey.gouly@arm.com> wrote:
+> > 
+> > On Sat, Apr 26, 2025 at 01:28:02PM +0100, Marc Zyngier wrote:
+> > > Bulk addition of all the system registers trapped by HFG{R,W}TR2_EL2.
+> > > 
+> > > The descriptions are extracted from the BSD-licenced JSON file part
+> > > of the 2025-03 drop from ARM.
+> > > 
+> > > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > > ---
+> > >  arch/arm64/tools/sysreg | 395 ++++++++++++++++++++++++++++++++++++++++
+> > >  1 file changed, 395 insertions(+)
+> > > 
+> > > diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+> > > index 6433a3ebcef49..7969e632492bb 100644
+> > > --- a/arch/arm64/tools/sysreg
+> > > +++ b/arch/arm64/tools/sysreg
+> > > @@ -2068,6 +2068,26 @@ Field	1	A
+> > >  Field	0	M
+> > >  EndSysreg
+> > >  
+> > > +Sysreg	SCTLR_EL12      3	5	1	0	0
+> > > +Mapping	SCTLR_EL1
+> > > +EndSysreg
+> > > +
+> > > +Sysreg	SCTLRALIAS_EL1  3	0	1	4	6
+> > > +Mapping	SCTLR_EL1
+> > > +EndSysreg
+> > > +
+> > > +Sysreg	ACTLR_EL1	3	0	1	0	1
+> > > +Field   63:0    IMPDEF
+> > > +EndSysreg
+> > > +
+> > > +Sysreg	ACTLR_EL12      3	5	1	0	1
+> > > +Mapping	ACTLR_EL1
+> > > +EndSysreg
+> > > +
+> > > +Sysreg	ACTLRALIAS_EL1  3	0	1	4	5
+> > > +Mapping	ACTLR_EL1
+> > > +EndSysreg
+> > > +
+> > 
+> > Do you want to update CPACR_EL1 while you're at it, so that it matches
+> > CPACRMASK_EL1?
 > 
-> I was attmepting to include that CONFIG_REALM cannot be called. How about:
+> Do you mean adding the TAM and TCPAC bits added by FEAT_NV2p1? Sure,
+> no problem. I'll probably add that as a separate patch though, as I
+> want this one to only be concerned with the FEAT_FGT2-controlled
+> accessors.
+
+Yep, sounds good.
+
 > 
-> 	Request the RMM to activate the realm. No
-> 	changes can be made to the Realm's memory,
-> 	IPA state or configuration parameters.  No
-> 	new VCPUs can be created after this step.
-
-Looks good to me, cheers
-
-Suzuki
-
+> Thanks,
+> 
+> 	M.
+> 
+> -- 
+> Without deviation from the norm, progress is not possible.
 
