@@ -4,89 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BEEDC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 10:14:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 219C3C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 May 2025 10:16:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9V+xJJn9UsK/pVyATCRXO2AUd9gyP/u93ItX0cM/Mvo=; b=N4ipssvNrVkufUbQip3Kk/qdqB
-	YHWdAkDI56UBkAV0IZ0uJ+q1EU8JTWzhKI8i3XuIwE5aduBPOgZkrDykcn5Boc1I5RtWkHB/rlkLZ
-	1TZCheW8yK/Po5U5mmf1r8m17sayCwC+Im2vDQe3gbxXSkxzxNdteXujX3TQH3Y82mGPSFAEaqk7/
-	Ks0iAgdJ/q556BS7UyitAMmeLolMl2MRZyjkFINt8+bYsHY+qAylRTzANQLd4NMhgAF1pF9ETY0Ht
-	IUFc77/VNMgjTXK+SF0xzncPEZuxAiq/TvQibHtoN+jRIJ7FP/eX1NTgdEBSWUdJjGGY/MT5trMxN
-	/UUP4uxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LHbWfxb7riN/WtroGUK+VXjEfthZmcusFJtNgqNin+w=; b=XcPxONsB0Z6RUeRjXUsk0NQt+s
+	niPTjsQTxDJvBNDGC0nGXTPDGR50kSfNX+mK14RUo7bEQQN/7KCy70ZS5E/9rKsH5GbBmJ6NG1H44
+	fh+V6OXwxihrf0DonAnaQaqc9rT2eveIWZ/ol1dTEqWulePGRRhtXAw3yrSU2KIhh8qFXdZqgPrnz
+	j6HSPRivGDM7RyDcAO1nKhN72aB3lApXQ7hwfGqv9QxFY5QMNnoLBLOMAPNpluDgiZk4X6xUku73b
+	Y41qt5uRVZH4UA1eDvgxgBra4HH1uP0ASJlZak5J4sA6ncR/8b50FhDjAL5HIZmZ5N2jyMoJB6TqI
+	cwYoyVDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAQvf-0000000FAdO-1m0B;
-	Thu, 01 May 2025 10:14:07 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAQtI-0000000FAGy-3OFq
+	id 1uAQxa-0000000FAv9-1IXz;
+	Thu, 01 May 2025 10:16:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uAQtL-0000000FAHD-2xT7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 May 2025 10:11:41 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-39c266c1389so559608f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 May 2025 03:11:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1746094298; x=1746699098; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:cc:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=9V+xJJn9UsK/pVyATCRXO2AUd9gyP/u93ItX0cM/Mvo=;
-        b=Sq/Us1hS5dkT+H6tpz8fBBGM4pBtRALiJIpwg5Yx0hBlpJ5fx/433vWAnufYCnbXuD
-         aWTQi0/yxqJnIJkzKYuRZGP6ZnurD/p9hxROnwRWjrdD/pyzenj8kjuYpETnmf8wlLa/
-         n6XJUDmtvitbQ/eICMBHfcYtgtmOC5POtkiiatZU/b30tehW9Lbp/196bdmI5pselFFH
-         FB1mD+mywQ3u3wIZXiGTOL/NN3T+HMb3rMjNFLrF55WUwtmPx27ctlWzpaT2tzc9WbIZ
-         u7PoSBnlS4lRd254TITBLSyhKecI2vshHcwmygB2opj4eWhWRRS8PbYRm/VT2kgabpCn
-         neqQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746094298; x=1746699098;
-        h=content-transfer-encoding:in-reply-to:from:cc:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=9V+xJJn9UsK/pVyATCRXO2AUd9gyP/u93ItX0cM/Mvo=;
-        b=IFW2zhIgkgXFEMDeLpK1bjfqzeoVz9kpv6kcQ7P6f8r3Qi97CQHZ70bURJMw4PecWi
-         xVoaasaEUdDaNrNuNcOVI97o6njsHz2+7LkLS3sjMV+UC5H9n+Xa4Hao26CchiV96Q+p
-         5gAP0dSj0yG+xwu36Sbiqq1zFOMTVQWa4XIPGjLd4DerI/Xp/fP3YnHQvGtGWCdrur7f
-         yViQe6WbZ/AidOsE8UuUX3r5Kff8FJTgUPMmirvzVq6QZdduLCgCImIsyVh0SDNxKZcj
-         XI3RTSBJVETykgxEiDnJxh0qZ8SMEBk+7Qzv9UlS2MyqQMkOSQHN5N+Ogs1ktpT3vY8w
-         1DqQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXNzsdj1rTrPr08Pa02NW//KQnlTc4DFucyOpeBGRYU8nIxpyolnavn+9OFijGv3NbaVTRpzlmTAL2P2wc7HoYl@lists.infradead.org
-X-Gm-Message-State: AOJu0YxsOi2OaaLV87X+CvvcZguUkVtZ+1D4hYrBJzZrkhscrS2iyJsm
-	IzRrW6P+MYSM9aFrHIsFchsepJQcwpDyXdm1RlvvwbWHX3xE2pqW1eW7WvOYcKo=
-X-Gm-Gg: ASbGnctTVD0vELtshOlNPiuWiQn/ObdaJNvXbtGxK6rdXj0K5OzB9BzoapK5g5OqhNH
-	XEatbBZDmHNYC2CeM/l0XRdEOZpDARKnHt+1Mtz1ThVqKo5ny+UTuV4jC9n82ujuNRoPPo/YWET
-	W1jC9A8C7eRVvvgn38ILTUe2WjBxxS0UadCMMsxVuuUWY/aU32d3/KxSYpFYKSlzojbtIiFTk4d
-	Ddk7Y3Gzo2/l3E5NsIJiy6t/UxNLKd+qSu8K5Sc52fXhKeGKcEU+T3C7zcsrtx6yuqSv9MeZ9T/
-	Np+bauqONuBsPXLCh++wpZ8hKW0EsSRv5AgyysogKd8=
-X-Google-Smtp-Source: AGHT+IGdqR8qzjYLlpQD4/uFhernwMAGhF3KyzSPj/rMCAGy6rGk1PYMRuH4BRffLmFXhwB8a2kWkQ==
-X-Received: by 2002:a05:6000:2203:b0:390:f2f1:2a17 with SMTP id ffacd0b85a97d-3a09417d67dmr1700384f8f.53.1746094298398;
-        Thu, 01 May 2025 03:11:38 -0700 (PDT)
-Received: from [192.168.1.3] ([77.81.75.81])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a095a4b968sm440260f8f.45.2025.05.01.03.11.36
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 01 May 2025 03:11:37 -0700 (PDT)
-Message-ID: <2ef27237-e5b4-4c9c-9810-9d1800d96596@linaro.org>
-Date: Thu, 1 May 2025 11:11:35 +0100
+	Thu, 01 May 2025 10:11:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 06365106F;
+	Thu,  1 May 2025 03:11:33 -0700 (PDT)
+Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A25C13F673;
+	Thu,  1 May 2025 03:11:38 -0700 (PDT)
+Date: Thu, 1 May 2025 11:11:36 +0100
+From: Joey Gouly <joey.gouly@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>, Fuad Tabba <tabba@google.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [PATCH v3 08/42] arm64: sysreg: Add registers trapped by
+ HFG{R,W}TR2_EL2
+Message-ID: <20250501101136.GE1859293@e124191.cambridge.arm.com>
+References: <20250426122836.3341523-1-maz@kernel.org>
+ <20250426122836.3341523-9-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/7] Arm CoreSight: Support AUX pause and resume
-To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>
-References: <20250401180708.385396-1-leo.yan@arm.com>
-Content-Language: en-US
-Cc: Mike Leach <mike.leach@linaro.org>, Jonathan Corbet <corbet@lwn.net>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20250401180708.385396-1-leo.yan@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250426122836.3341523-9-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_031140_868012_58E70BD8 
-X-CRM114-Status: GOOD (  19.58  )
+X-CRM114-CacheID: sfid-20250501_031143_787506_D0438E55 
+X-CRM114-Status: GOOD (  14.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,65 +70,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sat, Apr 26, 2025 at 01:28:02PM +0100, Marc Zyngier wrote:
+> Bulk addition of all the system registers trapped by HFG{R,W}TR2_EL2.
+> 
+> The descriptions are extracted from the BSD-licenced JSON file part
+> of the 2025-03 drop from ARM.
+> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/tools/sysreg | 395 ++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 395 insertions(+)
+> 
+> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+> index 6433a3ebcef49..7969e632492bb 100644
+> --- a/arch/arm64/tools/sysreg
+> +++ b/arch/arm64/tools/sysreg
+> @@ -2068,6 +2068,26 @@ Field	1	A
+>  Field	0	M
+>  EndSysreg
+>  
+> +Sysreg	SCTLR_EL12      3	5	1	0	0
+> +Mapping	SCTLR_EL1
+> +EndSysreg
+> +
+> +Sysreg	SCTLRALIAS_EL1  3	0	1	4	6
+> +Mapping	SCTLR_EL1
+> +EndSysreg
+> +
+> +Sysreg	ACTLR_EL1	3	0	1	0	1
+> +Field   63:0    IMPDEF
+> +EndSysreg
+> +
+> +Sysreg	ACTLR_EL12      3	5	1	0	1
+> +Mapping	ACTLR_EL1
+> +EndSysreg
+> +
+> +Sysreg	ACTLRALIAS_EL1  3	0	1	4	5
+> +Mapping	ACTLR_EL1
+> +EndSysreg
+> +
 
+Do you want to update CPACR_EL1 while you're at it, so that it matches
+CPACRMASK_EL1?
 
-On 01/04/2025 7:07 pm, Leo Yan wrote:
-> This series is to enable AUX pause and resume on Arm CoreSight.
-> 
-> The first patch extracts the trace unit controlling operations to two
-> functions.  These two functions will be used by AUX pause and resume.
-> 
-> Patches 02 and 03 change the ETMv4 driver to prepare callback functions
-> for AUX pause and resume.
-> 
-> Patch 04 changes the ETM perf layer to support AUX pause and resume in a
-> perf session.  The patch 05 re-enables sinks after buffer update, based
-> on it, the patch 06 updates buffer on AUX pause occasion, which can
-> mitigate the trace data lose issue.
-> 
-> Patch 07 documents the AUX pause usages with Arm CoreSight.
-> 
-> This patch set has been verified on the Hikey960 board.
-> 
-> It is suggested to disable CPUIdle (add `nohlt` option in Linux command
-> line) when verifying this series.  ETM and funnel drivers are found
-> issues during CPU suspend and resume which will be addressed separately.
-> 
-> Changes from v3:
-> - Re-enabled sink in buffer update callbacks (Suzuki).
-> 
-> Changes from v2:
-> - Rebased on CoreSight next branch.
-> - Dropped the uAPI 'update_buf_on_pause' and updated document
->    respectively (Suzuki).
-> - Renamed ETM callbacks to .pause_perf() and .resume_perf() (Suzuki).
-> - Minor improvement for error handling in the AUX resume flow.
-> 
-> Changes from v1:
-> - Added validation function pointers in pause and resume APIs (Mike).
-> 
-> 
-> Leo Yan (7):
->    coresight: etm4x: Extract the trace unit controlling
->    coresight: Introduce pause and resume APIs for source
->    coresight: etm4x: Hook pause and resume callbacks
->    coresight: perf: Support AUX trace pause and resume
->    coresight: tmc: Re-enable sink after buffer update
->    coresight: perf: Update buffer on AUX pause
->    Documentation: coresight: Document AUX pause and resume
-> 
->   Documentation/trace/coresight/coresight-perf.rst   |  31 +++++++++
->   drivers/hwtracing/coresight/coresight-core.c       |  22 +++++++
->   drivers/hwtracing/coresight/coresight-etm-perf.c   |  84 +++++++++++++++++++++++-
->   drivers/hwtracing/coresight/coresight-etm4x-core.c | 143 +++++++++++++++++++++++++++++------------
->   drivers/hwtracing/coresight/coresight-etm4x.h      |   2 +
->   drivers/hwtracing/coresight/coresight-priv.h       |   2 +
->   drivers/hwtracing/coresight/coresight-tmc-etf.c    |   9 +++
->   drivers/hwtracing/coresight/coresight-tmc-etr.c    |  10 +++
->   include/linux/coresight.h                          |   4 ++
->   9 files changed, 265 insertions(+), 42 deletions(-)
-> 
+>  Sysreg	CPACR_EL1	3	0	1	0	2
+>  Res0	63:30
+>  Field	29	E0POE
+> @@ -2081,6 +2101,323 @@ Field	17:16	ZEN
+>  Res0	15:0
+>  EndSysreg
+>  
+> +Sysreg	CPACR_EL12      3	5	1	0	2
+> +Mapping	CPACR_EL1
+> +EndSysreg
+> +
+> +Sysreg	CPACRALIAS_EL1  3	0	1	4	4
+> +Mapping	CPACR_EL1
+> +EndSysreg
+> +
+> +Sysreg	ACTLRMASK_EL1	3	0	1	4	1
+> +Field	63:0	IMPDEF
+> +EndSysreg
+> +
+> +Sysreg	ACTLRMASK_EL12	3	5	1	4	1
+> +Mapping	ACTLRMASK_EL1
+> +EndSysreg
+> +
+> +Sysreg	CPACRMASK_EL1	3	0	1	4	2
+> +Res0	63:32
+> +Field	31	TCPAC
+> +Field	30	TAM
+> +Field	29	E0POE
+> +Field	28	TTA
+> +Res0	27:25	
+> +Field	24	SMEN
+> +Res0	23:21	
+> +Field	20	FPEN
+> +Res0	19:17	
+> +Field	16	ZEN
+> +Res0	15:0
+> +EndSysreg
+> +
+> +Sysreg	CPACRMASK_EL12	3	5	1	4	2
+> +Mapping CPACRMASK_EL1
+> +EndSysreg
+> +
 
-Reviewed-by: James Clark <james.clark@linaro.org>
+[..]
 
+Thanks,
+Joey
 
