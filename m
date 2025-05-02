@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2081CC3ABA3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 08:10:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9D67C3ABA3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 08:18:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XEy5kTWJrHiARXNw/DljkoPY++hyVEUVWZlPeTaseu8=; b=wSplFI81w1DV/M5SJpGd5zIwPO
-	GzyK4ApbuQPwzkHKQoS1hxZ04UlkWRuBD3glvVG518pQsfKc3T+CwGh+pHpO2Oa12dNN63Ph+Jthh
-	nlcJkvtiOjLLlzQ/felA/Ug2sfahJKpuQYKvkdqQTpELR8QVLb3gl/0HNA0+Ls9FQFEs/hxZVePnM
-	ic3Ix03lNSCSCem+CJiQFzWwCxSaoJfgfJcXK+RD9hvDswIq0RqDAD6gQaMg0FkTwoFaDIzvbHsaT
-	0EmEu79SDCVChEny0978+OKf5xqFrxp0lx2wxYKcCQn9wSkc1ta9op0lINbvRr7G77VJpNlarVdNL
-	8WviPTzw==;
+	bh=byzia56fERYQkK0LYd0FkTzh/NXmDn2U2tbEdsvg97A=; b=L2t/F/qh995a+yOoFgyQ100s9U
+	zA+oJfvVfd0EUhuUP+FBP/JhTr97LDsANS5MyQEKrgnhzyCNkFk094f+AaqWryKDKaShKEqkjZN6C
+	j4zOO/ebzyIAfDUUoRQE8dKoQXy8rksY8mb00utjHYGioGtf9maN3M11ixBv5KDOv5IXI/I+X334M
+	sckZCuulmqQETirpqiITkLtdlr/KVsE2l/lBWPJgQ6TG2YyYBPwiDVsM6t00ImdgmQMX/HQ3LAK+o
+	QBR74tRFkxur6+CkuzoMbxnM31v+95PCSmp2yJdwQfio/R9FaZhFZmFm2cZd7b0wrKGKsahRmhlX9
+	stlUeJdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAlTH-00000001B9L-17YM;
-	Fri, 02 May 2025 08:10:11 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1uAlbH-00000001Bfa-1nU0;
+	Fri, 02 May 2025 08:18:27 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAlRL-00000001AvQ-1Fd8
+	id 1uAlZL-00000001BYM-03Jf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 08:08:12 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 54287nYA365294
+	Fri, 02 May 2025 08:16:28 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5428Frxg196471
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 2 May 2025 03:07:49 -0500
+	Fri, 2 May 2025 03:15:53 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1746173269;
-	bh=XEy5kTWJrHiARXNw/DljkoPY++hyVEUVWZlPeTaseu8=;
+	s=ti-com-17Q1; t=1746173753;
+	bh=byzia56fERYQkK0LYd0FkTzh/NXmDn2U2tbEdsvg97A=;
 	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=X74JdYW/1OIfaBEK/7dZ95S6ToeGG9XqfzmYWzQPbUy+LDQCGFEBwwxmqRc8u8MFs
-	 BFdx4pEvb5qy7v1G/XF/HS00TbopFHTdLyThPXKdzY54uN90+rtTMxRA8gnjcsgg6r
-	 QBOjB8wdp0XpEVtThGbqz1sODbj1l7RSooghyIIg=
-Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 54287nBo002710
+	b=g4hn8mdPZWg14BlNDN48oJAVTlb/PdlH5jzwTq4uJni7UWSNS7vFYudQIHPV16Pdg
+	 b+M6iWMEXTbB7oqydodsbXNOMNk4/gfhNfliyi2G62t4hNEXf8mMFV5ekyQS/pug/J
+	 xjbGjLSLVMLiSpxWynYj6E8bTGNqVJLH/GNIOU00=
+Received: from DFLE108.ent.ti.com (dfle108.ent.ti.com [10.64.6.29])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5428Fr6V063765
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 2 May 2025 03:07:49 -0500
-Received: from DLEE109.ent.ti.com (157.170.170.41) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+	Fri, 2 May 2025 03:15:53 -0500
+Received: from DFLE106.ent.ti.com (10.64.6.27) by DFLE108.ent.ti.com
+ (10.64.6.29) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 2
- May 2025 03:07:49 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+ May 2025 03:15:52 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE106.ent.ti.com
+ (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 2 May 2025 03:07:49 -0500
+ Frontend Transport; Fri, 2 May 2025 03:15:52 -0500
 Received: from [172.24.227.193] (devarsh-precision-tower-3620.dhcp.ti.com [172.24.227.193])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 54287ia1107040;
-	Fri, 2 May 2025 03:07:44 -0500
-Message-ID: <e6533f02-b71f-41f5-bb8c-7d6e57f02b87@ti.com>
-Date: Fri, 2 May 2025 13:37:43 +0530
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5428FlR2117383;
+	Fri, 2 May 2025 03:15:48 -0500
+Message-ID: <f223d5ec-5549-414a-842d-b9aeb80915e5@ti.com>
+Date: Fri, 2 May 2025 13:45:47 +0530
 MIME-Version: 1.0
 User-Agent: Betterbird (Linux)
 Subject: Re: [PATCH v1 2/4] arm64: dts: ti: k3-am62x: Add required voltage
@@ -75,8 +75,8 @@ Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_010811_432149_53C6AF3D 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20250502_011627_150278_F1581EAA 
+X-CRM114-Status: GOOD (  15.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,12 +99,24 @@ On 29/04/25 21:11, Rishikesh Donadkar wrote:
 > Add the corresponding voltage supply definitions to avoid dtbs_check
 > warnings.
 > 
-> Signed-off-by: Rishikesh Donadkar <r-donadkar@ti.com>
+
+On a side-note device-tree overlay requiring these voltages is an
+implied reason, it's mainly because the schematics mention that and
+bindings want to capture same topography in device-tree too.
+
+So maybe good to mention that and share schematic link too in commit
+message :
+
+https://datasheets.raspberrypi.com/camera/camera-module-2-schematics.pdf
+
+With these changes, feel free to add,
 
 Reviewed-by: Devarsh Thakkar <devarsht@ti.com>
 
 Regards
 Devarsh
+
+> Signed-off-by: Rishikesh Donadkar <r-donadkar@ti.com>
 > ---
 >  .../boot/dts/ti/k3-am62x-sk-csi2-imx219.dtso  | 31 +++++++++++++++++++
 >  1 file changed, 31 insertions(+)
