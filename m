@@ -4,64 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F7DFC3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 14:23:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 575DCC3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 14:25:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sYrYrkNOortt4zG5RN2BZmwFtyXOovuTBoX7tmUX9BQ=; b=wQQBPJ16C7w6o+fyYUU1Es0LBo
-	E3sd1Dxuv/rUqFQZ8wYoQmQqFobZIlcxU2s80mOk6SaPdv1kohMB2K3X7mFEFKKgtpzw5FA2kw2kq
-	Bg/ZycCr3/r5AjtT19ZRv4/S3l+1kCEmTsytkZ+Kr6qlxzyvYPenu+C0/YD4Ge25wn1ZO9sKnI+n4
-	dbTNsXYKtJnAg4etc3DL4Sd8h41AwiIza2tvkSJPICHycu978EG/NUgeR0AL5aJXuG1Cbwi41+INw
-	jrKbFizeCpLnGmv51Qw+DLnGEKCpYM2ku/ir+gNk/ZmhLwKUYkw1XaW3njB4xZrH2+sTRPfnYmdcQ
-	H2vdQ/YQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=gXTTEWAtFTMQ0iA5dYLVpGQhlRU/B81pr0Tm5OFlHhs=; b=wbik2/288z/ioo
+	0ES6ZZLgi+wjRHxDZCtAUM0g3otoMzA9bO4xhRBead09xbYmCGRoMQvWlMWbF88BKdO21TpcDF4tz
+	6D5krR04MG8QYmu7O6iETK8UrPtW9/bhT6ivdgns3WlH8d+2kaji0Yswyys+P1843eQbDSVs56VBg
+	yni0USZX4BSGmW3xFsTMl67vR5zMSYSR/GyLPWxENQ149xzWMDqc7foqH8imdOZbZ0sP45RDbfWNX
+	uElzV0a3yMCXaWIB0kLHygFJeJd7UKt71ninRqAg27Ivr+jlQgRdZlav+/yQEm1Py96Na8H23ih9F
+	bXVDhylz6jh22FO37Lyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uArIo-00000002B4x-082v;
-	Fri, 02 May 2025 14:23:46 +0000
+	id 1uArKj-00000002BRG-30Sn;
+	Fri, 02 May 2025 14:25:45 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAr9O-000000029fR-20n3
+	id 1uAr9O-000000029fO-21tM
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 02 May 2025 14:14:04 +0000
 Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
 	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
 	(Exim 4.92)
 	(envelope-from <mkl@pengutronix.de>)
-	id 1uAr9K-0000s5-5s
-	for linux-arm-kernel@lists.infradead.org; Fri, 02 May 2025 16:13:58 +0200
+	id 1uAr9J-0000rn-US
+	for linux-arm-kernel@lists.infradead.org; Fri, 02 May 2025 16:13:57 +0200
 Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
 	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <mkl@pengutronix.de>)
-	id 1uAr9J-000lOy-31
+	id 1uAr9J-000lOg-2J
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 02 May 2025 16:13:57 +0200
 Received: from dspam.blackshift.org (localhost [127.0.0.1])
-	by bjornoya.blackshift.org (Postfix) with SMTP id A17484065AB
+	by bjornoya.blackshift.org (Postfix) with SMTP id 4ABD94065A6
 	for <linux-arm-kernel@lists.infradead.org>; Fri, 02 May 2025 14:13:57 +0000 (UTC)
 Received: from hardanger.blackshift.org (unknown [172.20.34.65])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(Client did not present a certificate)
-	by bjornoya.blackshift.org (Postfix) with ESMTPS id C8D7840659F;
+	by bjornoya.blackshift.org (Postfix) with ESMTPS id 8CF8340659C;
 	Fri, 02 May 2025 14:13:56 +0000 (UTC)
 Received: from hardanger.blackshift.org (localhost [::1])
-	by hardanger.blackshift.org (OpenSMTPD) with ESMTP id 2f2dab4b;
+	by hardanger.blackshift.org (OpenSMTPD) with ESMTP id 1e9aea9b;
 	Fri, 2 May 2025 14:13:56 +0000 (UTC)
 From: Marc Kleine-Budde <mkl@pengutronix.de>
-Date: Fri, 02 May 2025 16:13:45 +0200
-Subject: [PATCH 2/3] can: rockchip_canfd: m_can_class_unregister: fix order
- of unregistration calls
+Subject: [PATCH 0/3] can: rx-offload: fix order of unregistration calls
+Date: Fri, 02 May 2025 16:13:43 +0200
+Message-Id: <20250502-can-rx-offload-del-v1-0-59a9b131589d@pengutronix.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250502-can-rx-offload-del-v1-2-59a9b131589d@pengutronix.de>
-References: <20250502-can-rx-offload-del-v1-0-59a9b131589d@pengutronix.de>
-In-Reply-To: <20250502-can-rx-offload-del-v1-0-59a9b131589d@pengutronix.de>
+X-B4-Tracking: v=1; b=H4sIABfTFGgC/x3MQQqAIBBA0avErBswJaSuEi2sGWtANBQiCO+et
+ HyL/18onIULzN0LmW8pkmLD0Hewny4ejELNoJUe1ag07i5ifjB5H5IjJA7Im52MnawxRNDCK7O
+ X558ua60fshOVEmQAAAA=
+X-Change-ID: 20250502-can-rx-offload-del-eb79379733dd
 To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
  Thomas Kopp <thomas.kopp@microchip.com>, 
  Vincent Mailhol <mailhol.vincent@wanadoo.fr>, kernel@pengutronix.de, 
@@ -72,15 +73,15 @@ Cc: linux-can@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
  Marc Kleine-Budde <mkl@pengutronix.de>, stable@vger.kernel.org
 X-Mailer: b4 0.15-dev-048ad
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1452; i=mkl@pengutronix.de;
- h=from:subject:message-id; bh=5nFrpQd9CUa012/GckQTi/lhWF6yzNe/Y2s7EnVqJ/g=;
- b=owEBbQGS/pANAwAKAQx0Zd/5kJGcAcsmYgBoFNMeP4LWFCBDYcQbczXAXiVIxU95CWbmX7+W/
- wOU0gSWp1GJATMEAAEKAB0WIQSf+wzYr2eoX/wVbPMMdGXf+ZCRnAUCaBTTHgAKCRAMdGXf+ZCR
- nCn0B/0UMKR2GTxZ/k7J5SU8yW/Bhib/H3TGkg7426M95DLuHIPgf8B6VWddUWQAikF6m/DfuvL
- vLIy/2LqUeBT7O2b+aKjH7MOYKCGekmmtJLyJBIwNapj7kxahfmdkLIQlKjA5RR3WiHkW+as5+2
- 5ASOR93haIYNulqKd2CmRh072BXfZOMe+37ykvupQ/IKQMEQz67Vbc931Ht2Fuml4oZnY73g2LO
- WqAMfEpvrCeM1rLeWhCOS8O7hfLg2wAPsOl1MiukX8qwGyUyJWWiWmtSmy1dWfXqQ8pHT/wMlZr
- /AxjoZCWiNoN2t2DQCJhPd3pN1etMVw7k/Kis3xHfXZnpa4+
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1661; i=mkl@pengutronix.de;
+ h=from:subject:message-id; bh=wKNEquMMqRCDDxXwq44IRpJvSwnrG9pSA9GxTv2slhE=;
+ b=owEBbQGS/pANAwAKAQx0Zd/5kJGcAcsmYgBoFNMZ+DcELaBl0lz4gVEsR+oe731Z3vOvy7b2m
+ b2FTbj9YuWJATMEAAEKAB0WIQSf+wzYr2eoX/wVbPMMdGXf+ZCRnAUCaBTTGQAKCRAMdGXf+ZCR
+ nMwvB/9BEUC1dtYbDGi5TQBbvaBKY6YrVwI3NEpZhtUZWIIHSiOte6QcTtsFg97q+xbvSge7DqT
+ vE/jLpU74PHl1GpDIrvyuzUO2XEAywLHiPPudUsTmWYNuJtYvo3lvHzkbI/ejsCmUM/ZEjB2RpG
+ i62671TdSBAp57MN4J2M2H5POJlTqd2uLAfdVliGnOX6O+VSBax0gdtA7QqB+PtL8Bk2coH+b8u
+ hyx6ilTkOcCBa0p0GCY5Q/HkibJq8kStPIUnIDgj800Tb3BrmTNG3jDu/LZVBXzsmoqzqAmz62t
+ GzmcfQ1ZGb7WR4PwhLiDmUDBG/pAQHSyVcwqpEBnpkzFFvj3
 X-Developer-Key: i=mkl@pengutronix.de; a=openpgp;
  fpr=C1400BA0B3989E6FBC7D5B5C2B5EE211C58AEA54
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
@@ -88,8 +89,8 @@ X-SA-Exim-Mail-From: mkl@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_071402_538750_B247530C 
-X-CRM114-Status: GOOD (  17.16  )
+X-CRM114-CacheID: sfid-20250502_071402_525467_220C0326 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,38 +110,41 @@ remove callback. A CAN driver's remove function calls
 unregister_candev(), which calls net_device_ops::ndo_stop further down
 in the call stack for interfaces which are in the "up" state.
 
-The removal of the module causes the a warning, as
-can_rx_offload_del() deletes the NAPI, while it is still active,
+With the mcp251xfd driver the removal of the module causes the
+following warning:
+
+| WARNING: CPU: 0 PID: 352 at net/core/dev.c:7342 __netif_napi_del_locked+0xc8/0xd8
+
+as can_rx_offload_del() deletes the NAPI, while it is still active,
 because the interface is still up.
 
 To fix the warning, first unregister the network interface, which
 calls net_device_ops::ndo_stop, which disables the NAPI, and then call
 can_rx_offload_del().
 
-Fixes: ff60bfbaf67f ("can: rockchip_canfd: add driver for Rockchip CAN-FD controller")
-Cc: stable@vger.kernel.org
+All other driver using the rx-offload helper have been checked and the
+same issue has been found in the rockchip and m_can driver. These have
+been fixed, but only compile time tested. On the mcp251xfd the fix was
+tested on hardware.
+
 Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
 ---
+Marc Kleine-Budde (3):
+      can: mcp251xfd: mcp251xfd_remove(): fix order of unregistration calls
+      can: rockchip_canfd: m_can_class_unregister: fix order of unregistration calls
+      can: mcan: m_can_class_unregister: fix order of unregistration calls
+
+ drivers/net/can/m_can/m_can.c                  | 2 +-
  drivers/net/can/rockchip/rockchip_canfd-core.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/net/can/spi/mcp251xfd/mcp251xfd-core.c | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+---
+base-commit: ebd297a2affadb6f6f4d2e5d975c1eda18ac762d
+change-id: 20250502-can-rx-offload-del-eb79379733dd
 
-diff --git a/drivers/net/can/rockchip/rockchip_canfd-core.c b/drivers/net/can/rockchip/rockchip_canfd-core.c
-index 7107a37da36c..c3fb3176ce42 100644
---- a/drivers/net/can/rockchip/rockchip_canfd-core.c
-+++ b/drivers/net/can/rockchip/rockchip_canfd-core.c
-@@ -937,8 +937,8 @@ static void rkcanfd_remove(struct platform_device *pdev)
- 	struct rkcanfd_priv *priv = platform_get_drvdata(pdev);
- 	struct net_device *ndev = priv->ndev;
- 
--	can_rx_offload_del(&priv->offload);
- 	rkcanfd_unregister(priv);
-+	can_rx_offload_del(&priv->offload);
- 	free_candev(ndev);
- }
- 
-
+Best regards,
 -- 
-2.47.2
+Marc Kleine-Budde <mkl@pengutronix.de>
 
 
 
