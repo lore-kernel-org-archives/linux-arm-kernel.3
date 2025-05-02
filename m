@@ -4,85 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF924C3ABAD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 15:57:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B397C3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 15:59:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UCpDULwAOdHR9ShwAp58Y09Lp3L7ToFXqXB/men0mlQ=; b=Mn4tl3JoGvv9CvSycykDtTJn84
-	yLKPw/AiQ2AZOykyLTOnwc7OhBOjCQQTpG9hgnS8iWmpaz1v/AUemmCX1uJe3kFCa17bL9yhr6LD/
-	Imjfjruvv7jdzmlYHcaoi4fpcpPxLI2yneNgF35ZgILoAdQIikK9oqJ9K2Qu5iM6GXUS56g/ikJwc
-	a3sRdqRQPycP50AUrRWsix/P02todoXTCQeL1rLWJcbhCEZPFs3/wfnmzd057k568rzWy8uZmvE9k
-	vaBqjVFyt+HtgMoC8K8/fZmm9PnZ940gMG0JgfGTIsDEG1GfKK5NjWz0lshHEJpex3hpL/HGazjJh
-	ff9nt2Gg==;
+	bh=K0jr+LHQNre/wrdy9VEABPw/0lORCsFYauipHjWSmlQ=; b=ebhvTkgiaYc727XMmi0miRyRsq
+	SakvMyUWWKznU6jq1WsaDgfqXMljqFJf/CAzCBHiSjcKPCvzBkrJCk5nyCawAwiCN6eXv9cyB5tPO
+	7cZbhaSV/m+4HfrdLzcdvs3TjgVSwnREm9j6f8iM0pKmLG6iAxYF3/bvLLvXIrFPEfNDaitabctZV
+	EunnIp+vakmthdIxmyG1vlpYgLMmOEl+zGrEsY9iHnO7ZojI356yT1Jk9CuTLZ/rtW6Y+Ea3n3y0b
+	HgWCFqn1S6VxcVQMv6lUqs9Z90qKuRPCqea079dj4lvjunBBeIgD/YygrOBFXRWwwMk63LjTUVeuU
+	2VSwivZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAslb-00000002PSV-2cah;
-	Fri, 02 May 2025 15:57:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAsYq-00000002NNd-2HLF
+	id 1uAsnX-00000002Q2h-3cwN;
+	Fri, 02 May 2025 15:59:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uAses-00000002OWd-1bmF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 15:44:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 14C9E68443;
-	Fri,  2 May 2025 15:43:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6643AC4CEE4;
-	Fri,  2 May 2025 15:44:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746200663;
-	bh=TQyM6i2rFDdExVbBufTLR1CZrsEvfjOUC4sUoaRycew=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Se9QEeDW8KgYSQ9jDh6c7/wdzkusrTbzH6sGWkooZjLGlmZwX6y2dBEkMkxMghGjv
-	 OJgc+sJCic+7JYZAavKAu1uJKC3SYUUO7dolJK1e9z1/9Knlcznf6etOrZwIos18k7
-	 aZWE380riKN9qF10lZ8rxaUaXacz752yTalkacvbioGiI4wlTDUEd/5uqRe9USgwWK
-	 zwUn+4mf/O91DCWA0x9f8dm8QrAeNKow9tpTkORxX94nhKbfcEO+/UoVD9+6y8ZTJt
-	 C+KQR/OOReEaflFeT+UjNsyN8CxbY+OqSgOYKm212C5q/z97ky6wIWg8eVtx5VykCt
-	 AFwJkNWugMZcQ==
-Received: from [185.201.63.251] (helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uAsYi-00Ay9o-Uz;
-	Fri, 02 May 2025 16:44:21 +0100
-Date: Fri, 02 May 2025 16:43:57 +0100
-Message-ID: <87tt6310hu.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Timothy Hayes <timothy.hayes@arm.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 21/22] irqchip/gic-v5: Add GICv5 IWB support
-In-Reply-To: <aBR7bk62H3PEUbfi@lpieralisi>
-References: <20250424-gicv5-host-v2-0-545edcaf012b@kernel.org>
-	<20250424-gicv5-host-v2-21-545edcaf012b@kernel.org>
-	<867c31j20i.wl-maz@kernel.org>
-	<aBIlOrqLtbB5e7B/@lpieralisi>
-	<86y0vgh35t.wl-maz@kernel.org>
-	<aBR7bk62H3PEUbfi@lpieralisi>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.201.63.251
-X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, tglx@linutronix.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, sascha.bischoff@arm.com, timothy.hayes@arm.com, Liam.Howlett@oracle.com, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Fri, 02 May 2025 15:50:40 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CC9491688;
+	Fri,  2 May 2025 08:50:26 -0700 (PDT)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A770D3F66E;
+	Fri,  2 May 2025 08:50:33 -0700 (PDT)
+Date: Fri, 2 May 2025 16:50:30 +0100
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Jon Hunter <jonathanh@nvidia.com>
+Subject: Re: [PATCH] cpuidle: psci: Avoid initializing faux device if no DT
+ idle states are present
+Message-ID: <20250502-cherubic-persimmon-koala-f200cc@sudeepholla>
+References: <20250502140119.2578909-1-sudeep.holla@arm.com>
+ <CAPDyKFobCehWO2jo2H2wMx40NLggoFOnhWKCuqcMURTLgiK1ug@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAPDyKFobCehWO2jo2H2wMx40NLggoFOnhWKCuqcMURTLgiK1ug@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250502_085038_561431_F1F50698 
+X-CRM114-Status: GOOD (  22.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,86 +67,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 02 May 2025 08:59:42 +0100,
-Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+On Fri, May 02, 2025 at 05:16:48PM +0200, Ulf Hansson wrote:
+> On Fri, 2 May 2025 at 16:01, Sudeep Holla <sudeep.holla@arm.com> wrote:
+> >
+> > Commit af5376a77e87 ("cpuidle: psci: Transition to the faux device interface")
+> > transitioned the PSCI cpuidle driver from using a platform device to the
+> > faux device framework. However, unlike platform devices, the faux device
+> > infrastructure logs an error when the probe function fails, even if the
+> > failure is intentional or expected.
+> >
+> > To prevent unnecessary error logs, we can skip creating the faux device
+> > entirely if there are no PSCI idle states defined in the device tree.
+> > Introduce a check for DT idle states during initialization and avoid
+> > setting up the device if none are found.
+> >
+> > This ensures cleaner logs and avoids misleading probe failure messages
+> > when PSCI idle support is intentionally not described in DT.
+> >
+> > Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> > Cc: Ulf Hansson <ulf.hansson@linaro.org>
+> > Cc: "Rafael J. Wysocki" <rafael@kernel.org>
+> > Fixes: af5376a77e87 ("cpuidle: psci: Transition to the faux device interface")
+> > Reported-by: Jon Hunter <jonathanh@nvidia.com>
+> > Closes: https://lore.kernel.org/r/cf4e70e4-9fe5-4697-8744-8c12c41b5ff9@nvidia.com
+> > Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
 > 
-> It looks like the msi_prepare() ITS callback (ie where the its_device is
-> allocated) is called everytime an endpoint device driver requests a
-> wired IRQ through:
+> Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
 > 
-> gicv5_its_msi_prepare+0x68c/0x6f8
-> its_pmsi_prepare+0x16c/0x1b8
-> __msi_domain_alloc_irqs+0x70/0x448
-> __msi_domain_alloc_irq_at+0xf8/0x194
-> msi_device_domain_alloc_wired+0x88/0x10c
-> irq_create_fwspec_mapping+0x3a0/0x4c0
-> irq_create_of_mapping+0xc0/0xe8
-> of_irq_get+0xa0/0xe4
-> platform_get_irq_optional+0x54/0x1c4
-> platform_get_irq+0x1c/0x50
+> Rafael, please pick this one.
 > 
-> so it becomes "shared" if multiple IWB wires are requested by endpoint
-> drivers.
+> BTW, I was not cced the original offending commit and it was funneld
+> via Rafael's tree. No worries this time, but probably easier to stick
+> with my pmdomain tree future wise, to avoid any churns. This is also
+> reflected in MAINTAINERS.
+> 
 
-Right, I've reproduced on D05 with MBIGEN:
-
-[    5.505530] Reusing ITT for devID 40000
-[    5.505532] CPU: 36 UID: 0 PID: 557 Comm: (udev-worker) Not tainted 6.15.0-rc4-00079-geef147df4841-dirty #4403 PREEMPT 
-[    5.505535] Hardware name: Huawei Taishan 2280 /D05, BIOS Hisilicon D05 IT21 Nemo 2.0 RC0 04/18/2018
-[    5.505536] Call trace:
-[    5.505537]  show_stack+0x20/0x38 (C)
-[    5.505540]  dump_stack_lvl+0x80/0xf8
-[    5.505543]  dump_stack+0x18/0x28
-[    5.505546]  its_msi_prepare+0xe4/0x1d0
-[    5.505549]  its_pmsi_prepare+0x15c/0x1d0
-[    5.505552]  __msi_domain_alloc_irqs+0x80/0x398
-[    5.505556]  __msi_domain_alloc_irq_at+0x100/0x168
-[    5.505560]  msi_device_domain_alloc_wired+0x9c/0x128
-[    5.505564]  irq_create_fwspec_mapping+0x180/0x388
-[    5.505567]  acpi_irq_get+0xac/0xe8
-[    5.505570]  platform_get_irq_optional+0x1e8/0x208
-[    5.505574]  devm_platform_get_irqs_affinity+0x58/0x298
-[    5.505578]  hisi_sas_v2_interrupt_preinit+0x60/0xb0 [hisi_sas_v2_hw]
-[    5.505582]  hisi_sas_probe+0x164/0x278 [hisi_sas_main]
-[    5.505588]  hisi_sas_v2_probe+0x20/0x38 [hisi_sas_v2_hw]
-[    5.505591]  platform_probe+0x70/0xd0
-[    5.505595]  really_probe+0xc8/0x3a0
-[    5.505598]  __driver_probe_device+0x84/0x170
-[    5.505600]  driver_probe_device+0x44/0x120
-[    5.505603]  __driver_attach+0xfc/0x210
-[    5.505606]  bus_for_each_dev+0x7c/0xe8
-[    5.505608]  driver_attach+0x2c/0x40
-[    5.505611]  bus_add_driver+0x118/0x248
-[    5.505613]  driver_register+0x68/0x138
-[    5.505616]  __platform_driver_register+0x2c/0x40
-[    5.505619]  hisi_sas_v2_driver_init+0x28/0xff8 [hisi_sas_v2_hw]
-[    5.505623]  do_one_initcall+0x4c/0x2c0
-[    5.505626]  do_init_module+0x60/0x230
-[    5.505629]  load_module+0xa64/0xb30
-[    5.505631]  init_module_from_file+0x8c/0xd8
-[    5.505634]  idempotent_init_module+0x1c4/0x2b8
-[    5.505637]  __arm64_sys_finit_module+0x74/0xe8
-[    5.505640]  invoke_syscall+0x50/0x120
-[    5.505642]  el0_svc_common.constprop.0+0x48/0xf0
-[    5.505644]  do_el0_svc+0x24/0x38
-[    5.505646]  el0_svc+0x34/0xf0
-[    5.505650]  el0t_64_sync_handler+0x10c/0x138
-[    5.505654]  el0t_64_sync+0x1ac/0x1b0
-[    5.505681] ID:78 pID:8382 vID:143
-
-And that a few dozen times.
-
-I'll have a think at how to unfsck this. This was previously avoided
-by (IIRC) populating the domain upfront and letting the domain
-matching code do its job. That behaviour seems to have been lost. On
-the other hand, as long as you don't expect the ITT to *grow*, nothing
-horrible should happen.
-
-But I also get an interesting crash in msi_domain_debig_show(), so
-there is more than just this corner case that is screwed.
-
-	M.
+Understood. The original patch was part of the series and I seem to have
+missed you on it. Sorry for that.
 
 -- 
-Jazz isn't dead. It just smells funny.
+Regards,
+Sudeep
 
