@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3351C3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 22:25:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5B8EC3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 22:27:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HYwCu/rJ2m8WppnUG1eag8yAoXVOTvEvOBk/GugkqN0=; b=IqNt5MOJU8qP+ScAzahfDAhIg6
-	C/TjHaSAxMa3nvFLUUXkTw+R63TA/3I0y73Qw81AmH7TKOeQG3XWcFHS5VuXuPBhAgpuVo1b1Em13
-	HeDNi2zul5xaJWRwa36a7NMAH+Umo+SPmvPNus1vt7wKK7ffKFevGyetpEqMU/Ow++yC9SIzvQvY/
-	Kr+2AjnEpsfiPpDdlrXbMsqi7TmD7LJDJxw9AeYlh5Pw2L5Y745lrKeE/+ACKymXRI34e9YPR9jkW
-	6p+WamTr0esPk8VfGxClJPvIEpY8C+XXZuEvTzKy6UtQ8Pvds8ZnIT0I/DuuhJ+R0KmdPF3TIOOGt
-	4inH46qw==;
+	bh=0H8bxKDt3xxs+GwwIOm662M3ZGs3Da+aMqL17rxP3mE=; b=vnG17jZCX1U1bSnAWYZHjb+2t0
+	a+yhJHhYB29aQXNRd66klZ1tU75ddS5WsGr3ig01DX90IgpWBHTjsUgdvTcINWnTcwG358VcFE3DW
+	tjH2pY5s0VkXN8ThiL+GDEpB8Egw4dpUgiWQLfyFb9iJM8JEZlXMGVh6NNcMwmyvo5Gm7s29GPGYr
+	VkvgHc8IV3BflYvHqEBINgu5MxQ3HbH29KRBDE3cq94d6F0ohUXiiCNB1dS4N1JfatoWB5EpGE7mP
+	EzXU4MVjsu4sZ1KbOgsWj8CC31PC3/V6JBjcb7gBrNs2SGrwerji8YB4Q73PTtJqNG5j/kSV+E7zs
+	yqhKzp+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAyop-00000003A0p-33iv;
-	Fri, 02 May 2025 22:25:19 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1uAyqk-00000003ACH-1ceU;
+	Fri, 02 May 2025 22:27:18 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAyTo-000000037kt-1Yx8
+	id 1uAyTj-000000037jc-3qBC
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 02 May 2025 22:03:39 +0000
 Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 542M3QJb499995
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 542M3QtA3955085
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
 	Fri, 2 May 2025 17:03:26 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
 	s=ti-com-17Q1; t=1746223406;
-	bh=HYwCu/rJ2m8WppnUG1eag8yAoXVOTvEvOBk/GugkqN0=;
+	bh=0H8bxKDt3xxs+GwwIOm662M3ZGs3Da+aMqL17rxP3mE=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=Cjq5Vd5uOJ2YFEZONeXQQox2akngT1E+ueORiiU9lLBGC9NIDskPQ74U5Dti1Ttx3
-	 2WVh+71v798Cyrpm6sztfz1dAf5zyWQRc4XiMkJRKHKrQC2u8m264WgTrNIcC/WdI4
-	 pk6ZIVBDJCaMnLm7lCjCJr3zgpdiHErw6K7/0yfI=
-Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 542M3QDI054536
+	b=nSO0dvJ9Ea11m/dUABvlGUiZilR0/IT6aMFzkNDhARzmljLcKevNIkUB7Qy8tXyja
+	 E1MMNHzwshfdbXrxI4DRW4LqLHlTQMVKZnFPPKnLJuHTxp6oAQUhG9ArT/HiNIRoFH
+	 GkcLT1iqb3xbdSr0W23AN+X7DUQiXNVfVjySjUc8=
+Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 542M3Qsr054539
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
 	Fri, 2 May 2025 17:03:26 -0500
-Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
+Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 2
  May 2025 17:03:26 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE105.ent.ti.com
+ (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
  Frontend Transport; Fri, 2 May 2025 17:03:26 -0500
 Received: from judy-hp.dhcp.ti.com (judy-hp.dhcp.ti.com [128.247.81.105])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 542M3PC1006849;
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 542M3PC5006849;
 	Fri, 2 May 2025 17:03:26 -0500
 From: Judith Mendez <jm@ti.com>
 To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
@@ -69,9 +69,9 @@ CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
  Thakkar <devarsht@ti.com>,
         <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>
-Subject: [PATCH v8 07/11] arm64: dts: ti: k3-am62p5-sk: Enable IPC with remote processors
-Date: Fri, 2 May 2025 17:03:21 -0500
-Message-ID: <20250502220325.3230653-8-jm@ti.com>
+Subject: [PATCH v8 11/11] arm64: dts: ti: k3-am64: Reserve timers used by MCU FW
+Date: Fri, 2 May 2025 17:03:25 -0500
+Message-ID: <20250502220325.3230653-12-jm@ti.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250502220325.3230653-1-jm@ti.com>
 References: <20250502220325.3230653-1-jm@ti.com>
@@ -80,8 +80,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_150336_500122_725672DE 
-X-CRM114-Status: GOOD (  12.72  )
+X-CRM114-CacheID: sfid-20250502_150332_045176_99ADFBE3 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,97 +96,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Devarsh Thakkar <devarsht@ti.com>
+From: Hari Nagalla <hnagalla@ti.com>
 
-For each remote proc, reserve memory for IPC and bind the mailbox
-assignments. Two memory regions are reserved for each remote processor.
-The first region of 1MB of memory is used for Vring shared buffers
-and the second region is used as external memory to the remote processor
-for the resource table and for tracebuffer allocations.
+AM64x device has 4 R5F cores in the main domain. TI MCU firmware uses
+main domain timers as tick timers in these firmwares. Hence keep them
+as reserved in the Linux device tree.
 
-Signed-off-by: Devarsh Thakkar <devarsht@ti.com>
 Signed-off-by: Hari Nagalla <hnagalla@ti.com>
 Signed-off-by: Judith Mendez <jm@ti.com>
 Reviewed-by: Andrew Davis <afd@ti.com>
 ---
- arch/arm64/boot/dts/ti/k3-am62p5-sk.dts | 50 ++++++++++++++++++++++---
- 1 file changed, 44 insertions(+), 6 deletions(-)
+ arch/arm64/boot/dts/ti/k3-am642-evm.dts | 20 ++++++++++++++++++++
+ arch/arm64/boot/dts/ti/k3-am642-sk.dts  | 20 ++++++++++++++++++++
+ 2 files changed, 40 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-index c2f55cc5a8eb..df73b5a398a6 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-@@ -49,6 +49,30 @@ reserved-memory {
- 		#size-cells = <2>;
- 		ranges;
- 
-+		mcu_r5fss0_core0_dma_memory_region: mcu-r5fss-dma-memory-region@9b800000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9b800000 0x00 0x100000>;
-+			no-map;
-+		};
-+
-+		mcu_r5fss0_core0_memory_region: mcu-r5fss-memory-region@9b900000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9b900000 0x00 0xf00000>;
-+			no-map;
-+		};
-+
-+		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9c800000 0x00 0x100000>;
-+			no-map;
-+		};
-+
-+		wkup_r5fss0_core0_memory_region: r5f-memory@9c900000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x00 0x9c900000 0x00 0xf00000>;
-+			no-map;
-+		};
-+
- 		secure_tfa_ddr: tfa@9e780000 {
- 			reg = <0x00 0x9e780000 0x00 0x80000>;
- 			no-map;
-@@ -58,12 +82,6 @@ secure_ddr: optee@9e800000 {
- 			reg = <0x00 0x9e800000 0x00 0x01800000>; /* for OP-TEE */
- 			no-map;
- 		};
--
--		wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
--			compatible = "shared-dma-pool";
--			reg = <0x00 0x9c900000 0x00 0x01e00000>;
--			no-map;
--		};
- 	};
- 
- 	vmain_pd: regulator-0 {
-@@ -666,6 +684,26 @@ mbox_mcu_r5_0: mbox-mcu-r5-0 {
- 	};
+diff --git a/arch/arm64/boot/dts/ti/k3-am642-evm.dts b/arch/arm64/boot/dts/ti/k3-am642-evm.dts
+index f8ec40523254..5623ab354a1d 100644
+--- a/arch/arm64/boot/dts/ti/k3-am642-evm.dts
++++ b/arch/arm64/boot/dts/ti/k3-am642-evm.dts
+@@ -796,6 +796,26 @@ &mcu_m4fss {
+ 	status = "okay";
  };
  
-+&wkup_r5fss0 {
-+	status = "okay";
++/* main_timer8 is used by r5f0-0 */
++&main_timer8 {
++	status = "reserved";
 +};
 +
-+&wkup_r5fss0_core0 {
-+	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
-+	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
-+			<&wkup_r5fss0_core0_memory_region>;
++/* main_timer9 is used by r5f0-1 */
++&main_timer9 {
++	status = "reserved";
 +};
 +
-+&mcu_r5fss0 {
-+	status = "okay";
++/* main_timer10 is used by r5f1-0 */
++&main_timer10 {
++	status = "reserved";
 +};
 +
-+&mcu_r5fss0_core0 {
-+	mboxes = <&mailbox0_cluster1 &mbox_mcu_r5_0>;
-+	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
-+			<&mcu_r5fss0_core0_memory_region>;
++/* main_timer11 is used by r5f1-1 */
++&main_timer11 {
++	status = "reserved";
 +};
 +
- &main_uart0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_uart0_pins_default>;
+ &serdes_ln_ctrl {
+ 	idle-states = <AM64_SERDES0_LANE0_PCIE0>;
+ };
+diff --git a/arch/arm64/boot/dts/ti/k3-am642-sk.dts b/arch/arm64/boot/dts/ti/k3-am642-sk.dts
+index 33e421ec18ab..1deaa0be0085 100644
+--- a/arch/arm64/boot/dts/ti/k3-am642-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am642-sk.dts
+@@ -710,6 +710,26 @@ &mcu_m4fss {
+ 	status = "okay";
+ };
+ 
++/* main_timer8 is used by r5f0-0 */
++&main_timer8 {
++	status = "reserved";
++};
++
++/* main_timer9 is used by r5f0-1 */
++&main_timer9 {
++	status = "reserved";
++};
++
++/* main_timer10 is used by r5f1-0 */
++&main_timer10 {
++	status = "reserved";
++};
++
++/* main_timer11 is used by r5f1-1 */
++&main_timer11 {
++	status = "reserved";
++};
++
+ &ecap0 {
+ 	status = "okay";
+ 	/* PWM is available on Pin 1 of header J3 */
 -- 
 2.49.0
 
