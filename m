@@ -4,55 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B397C3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 15:59:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FA5AC3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 16:01:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K0jr+LHQNre/wrdy9VEABPw/0lORCsFYauipHjWSmlQ=; b=ebhvTkgiaYc727XMmi0miRyRsq
-	SakvMyUWWKznU6jq1WsaDgfqXMljqFJf/CAzCBHiSjcKPCvzBkrJCk5nyCawAwiCN6eXv9cyB5tPO
-	7cZbhaSV/m+4HfrdLzcdvs3TjgVSwnREm9j6f8iM0pKmLG6iAxYF3/bvLLvXIrFPEfNDaitabctZV
-	EunnIp+vakmthdIxmyG1vlpYgLMmOEl+zGrEsY9iHnO7ZojI356yT1Jk9CuTLZ/rtW6Y+Ea3n3y0b
-	HgWCFqn1S6VxcVQMv6lUqs9Z90qKuRPCqea079dj4lvjunBBeIgD/YygrOBFXRWwwMk63LjTUVeuU
-	2VSwivZQ==;
+	bh=77t87rE0+Ie/XOv1QrJlACmGkOIthRco+3O3xhyV8iE=; b=GT7XnCpRvhETLLiKKN5+6qfrjP
+	02GtjgI2xxlLo5yos5nYpRL4jMyssc0m2qBM1zlPhwaKqMBjIN/wgnfSVZvYxR35/IeoNkRFHBheu
+	zzl3Je5g0lcS49N2YZkWcjwGIJ78Xf9xmlU/bMM9UKUPhoj8GybaVyB/olObGbE0faQA6LOLNbGKx
+	kqA2BIlZAlyBu2rI3D5AILYCwLC7Vq+JYftS1UCpgC8P2VGaJcA3BdzxLOESFEYDo3M7qqTAejPfn
+	31zkG3Tyg7qm7EuIfed6pcczhTgNBtdN8MaoDk1Nk4tnX3fPtP0iATHHOp8nWNHxbmZdCVqg2VRqP
+	62GwBlOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAsnX-00000002Q2h-3cwN;
-	Fri, 02 May 2025 15:59:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAses-00000002OWd-1bmF
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 15:50:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CC9491688;
-	Fri,  2 May 2025 08:50:26 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A770D3F66E;
-	Fri,  2 May 2025 08:50:33 -0700 (PDT)
-Date: Fri, 2 May 2025 16:50:30 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Jon Hunter <jonathanh@nvidia.com>
-Subject: Re: [PATCH] cpuidle: psci: Avoid initializing faux device if no DT
- idle states are present
-Message-ID: <20250502-cherubic-persimmon-koala-f200cc@sudeepholla>
-References: <20250502140119.2578909-1-sudeep.holla@arm.com>
- <CAPDyKFobCehWO2jo2H2wMx40NLggoFOnhWKCuqcMURTLgiK1ug@mail.gmail.com>
+	id 1uAspS-00000002QS5-3LYw;
+	Fri, 02 May 2025 16:01:34 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uAsf2-00000002OYZ-22xG
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 02 May 2025 15:50:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=77t87rE0+Ie/XOv1QrJlACmGkOIthRco+3O3xhyV8iE=; b=JsZFhV8j/YfgQJyEiHmt/UjETm
+	13jmvuyG8AFsMfsbqorL7m3wpda5+otymSvyk+p0Frq6+IOGPJcDaUDvXJBSzmyNi7694XRNBYPR9
+	CtkZC1/TDTabiqNT55T/gWUYsB3wBv+Bmo4J2x86zgfHeMZSaxJO6XtS8Rd/3d+34+aK2Uv6wb3q1
+	piSXZx5MX3E3KXZ/0ewXMLSUPoLtdcNZuClTItm0j4oDStiJ3q20JRKRfn3trVSGKtxfpJd/CGio7
+	xJdJ9eghN1MVeI+PK1ep19Ka2tC16w5c7oKCy7B8zRCAsONjxe3AdadzOARCykn9eCKL5qvpt0p6y
+	um0hb+7Q==;
+Received: from willy by casper.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uAsdk-000000051JO-39jB;
+	Fri, 02 May 2025 15:49:28 +0000
+Date: Fri, 2 May 2025 16:49:28 +0100
+From: Matthew Wilcox <willy@infradead.org>
+To: Jens Wiklander <jens.wiklander@linaro.org>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
+	op-tee@lists.trustedfirmware.org,
+	linux-arm-kernel@lists.infradead.org,
+	Olivier Masse <olivier.masse@nxp.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Yong Wu <yong.wu@mediatek.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Brian Starkey <Brian.Starkey@arm.com>,
+	John Stultz <jstultz@google.com>,
+	"T . J . Mercier" <tjmercier@google.com>,
+	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
+	Sumit Garg <sumit.garg@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	azarrabi@qti.qualcomm.com, Simona Vetter <simona.vetter@ffwll.ch>,
+	Daniel Stone <daniel@fooishbar.org>,
+	Rouven Czerwinski <rouven.czerwinski@linaro.org>,
+	Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org
+Subject: Re: [PATCH v8 09/14] cma: export cma_alloc() and cma_release()
+Message-ID: <aBTpiMIevmAmp5vr@casper.infradead.org>
+References: <20250502100049.1746335-1-jens.wiklander@linaro.org>
+ <20250502100049.1746335-10-jens.wiklander@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAPDyKFobCehWO2jo2H2wMx40NLggoFOnhWKCuqcMURTLgiK1ug@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_085038_561431_F1F50698 
-X-CRM114-Status: GOOD (  22.49  )
+In-Reply-To: <20250502100049.1746335-10-jens.wiklander@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,45 +85,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 02, 2025 at 05:16:48PM +0200, Ulf Hansson wrote:
-> On Fri, 2 May 2025 at 16:01, Sudeep Holla <sudeep.holla@arm.com> wrote:
-> >
-> > Commit af5376a77e87 ("cpuidle: psci: Transition to the faux device interface")
-> > transitioned the PSCI cpuidle driver from using a platform device to the
-> > faux device framework. However, unlike platform devices, the faux device
-> > infrastructure logs an error when the probe function fails, even if the
-> > failure is intentional or expected.
-> >
-> > To prevent unnecessary error logs, we can skip creating the faux device
-> > entirely if there are no PSCI idle states defined in the device tree.
-> > Introduce a check for DT idle states during initialization and avoid
-> > setting up the device if none are found.
-> >
-> > This ensures cleaner logs and avoids misleading probe failure messages
-> > when PSCI idle support is intentionally not described in DT.
-> >
-> > Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> > Cc: Ulf Hansson <ulf.hansson@linaro.org>
-> > Cc: "Rafael J. Wysocki" <rafael@kernel.org>
-> > Fixes: af5376a77e87 ("cpuidle: psci: Transition to the faux device interface")
-> > Reported-by: Jon Hunter <jonathanh@nvidia.com>
-> > Closes: https://lore.kernel.org/r/cf4e70e4-9fe5-4697-8744-8c12c41b5ff9@nvidia.com
-> > Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
-> 
-> Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
-> 
-> Rafael, please pick this one.
-> 
-> BTW, I was not cced the original offending commit and it was funneld
-> via Rafael's tree. No worries this time, but probably easier to stick
-> with my pmdomain tree future wise, to avoid any churns. This is also
-> reflected in MAINTAINERS.
-> 
+On Fri, May 02, 2025 at 11:59:23AM +0200, Jens Wiklander wrote:
+> Export the two functions cma_alloc() and cma_release().
 
-Understood. The original patch was part of the series and I seem to have
-missed you on it. Sorry for that.
-
--- 
-Regards,
-Sudeep
+Why?  This is clearly part of a larger series, but you've given those of
+us who are subscribed to linux-mm absolutely no information about why
+you want to do this.
 
