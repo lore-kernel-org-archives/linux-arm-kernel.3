@@ -4,127 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8AD9C3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 18:51:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E96D7C3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 18:58:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YVXuaDGm9mFQcnaXKwAZwy5TIlR8MpYIKkP7qYRxe0Y=; b=NT5HNPESgbGxXtdEHveAaYWMaj
-	QrRnXNgPLCRmYj3OkMW7ojcE169z2bLHJdvyjYAbi9Y+Q4A7nhbC5wo1OpfEn7gkLFhzmlO1Vkxbb
-	Zyc0cD0bJHWoProwWQc+L6qsQhe2GTSQgvM5pPzwWp2ociCLbwqpm399iwqrG94IhseH5jw7DoZRu
-	NeOYRtHE8fHSnqT6uE3jUqrxTc5wLOJtvZ1m3HLSicHheR6zNcr0fQmGqqcRspisoAozxWRyqPg0k
-	BytkUpm+LMxuK6ZoT3hKONDDZCHWyNWZrQtUnA0ubqwTPnYQ1n4UWvyCaBNK7GsmHlmXxspMfMo+w
-	WYu9ymJA==;
+	bh=pAv9LHzPhDuEDnPtN4vBSHMXl+c54VL0gQuDxBYtkT0=; b=Z2tQPav6EKtoV5Ip7r1FEuYdzo
+	CcAAhe7+xSMpgIectBRlIkPqio8/X4vSskhpxw477QfvDBMnaTMYVZpY+e9kqn8IM/MKwr7GE2rwu
+	bW62NW7F9q3xQsTMhZ01eDC1RC8sOmK283JFkuGn/4E56U9sLy/rgBgcy+NkOZB9q1C2KQ194dmjh
+	urQZO10pKU/lNDoWOyHp/emtiV3FlzbxX2YYNLVx1AdKvYSZeSCQ5HwUMczS66/m25z79i/fKzKEK
+	izr9W111JsVdy2Ew/tQjRH5JsToGSb01EKGPNxeGEDjtYaNDDlcmojEHxcxzzZZ+UmwnauO8kmuCx
+	xaynN5ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAvTP-00000002nll-1gcK;
-	Fri, 02 May 2025 18:50:59 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1uAvb0-00000002oYE-233h;
+	Fri, 02 May 2025 18:58:50 +0000
+Received: from out-181.mta0.migadu.com ([91.218.175.181])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAvRS-00000002nZ2-4BRl;
-	Fri, 02 May 2025 18:49:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1746211739; x=1777747739;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=WMD/ZpJXQOOvEeURoC3nrQkO/gBhJRC+agPAI49lcNk=;
-  b=YoH20NMqL8UKmMQCNswzeZzJvjsE8mkKmptUZtLcTrzmRSy79cZ2DUqR
-   cqYe5Qxe3/TVXzp9CsftzlkbPGTK92Yn3TY097A7YQ1p3T7aBAM040eBa
-   t+72KRHgSzoJy9cmmUfZhOY/UKnIYBDKZDoFdF1FxxdrG2LyhBw4w3Nox
-   74wB42HkasMe4dEAm2Ve1nSjBlgcJVsj/SgTEU6fs+OGFRclVcsCg5cvL
-   LOTu8wOoW6L07WRLYjg5FdkxSr5Foxcu7AbexSPPizvktbTQySuwyB/tx
-   VpE5LjDIQ/ddne2CFh+pqfGS+R/R7NkkA6JCN0ngFa9qcvrssRsdHZk9C
-   w==;
-X-CSE-ConnectionGUID: 8E6vGGXYTdiurAG9JV4sEw==
-X-CSE-MsgGUID: JiyzGtpxRbOY1mvslo60jA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11421"; a="35519042"
-X-IronPort-AV: E=Sophos;i="6.15,257,1739865600"; 
-   d="scan'208";a="35519042"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 May 2025 11:48:58 -0700
-X-CSE-ConnectionGUID: mLsB7Ke5S/m3fnkWp6UCEw==
-X-CSE-MsgGUID: pwkXt0gzRcWUAVnMnw+7cg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,257,1739865600"; 
-   d="scan'208";a="134664791"
-Received: from bjrankin-mobl3.amr.corp.intel.com (HELO [10.124.220.153]) ([10.124.220.153])
-  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 May 2025 11:48:57 -0700
-Message-ID: <c348c507-c06b-4611-87f4-c498e144fa45@intel.com>
-Date: Fri, 2 May 2025 11:48:54 -0700
+	id 1uAvZ2-00000002o5s-1TLG
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 02 May 2025 18:56:50 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=postmarketos.org;
+	s=key1; t=1746212204;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=pAv9LHzPhDuEDnPtN4vBSHMXl+c54VL0gQuDxBYtkT0=;
+	b=Fq0JpV6Dz1DZX3LY2L5FoSzPdL26JnzXANesMQqrgN0ZRtV3Q4oXbMcVWbhfJkzO3DhOHX
+	/G4O/5l/0mVdINaSUK49Mg1H9mt9CSCagWRG6vk4BA5jdPYqczu9iFz8ZCmrqiMP+uSotO
+	l/NMQxF50SZrVJY2LST0QRJeixmPi5iNAsPFaNfHv8lYMbKYtb4fXXk0o9zm8qwdPpot6f
+	pQIwligPkrelrGKwMuHxBxKKbsBcLVPUt8pxmTrHPeaRbmo6h2FrqiuP67RXSXpXi/XXt0
+	LAvIyvpBTOLf1wRvzSc4rhY/6+xEYtcV8KCt8/c4F/UNgqXJE1kAC/6izxBORQ==
+From: Ferass El Hafidi <funderscore@postmarketos.org>
+Date: Fri, 02 May 2025 18:56:06 +0000
+Subject: [PATCH v6 2/2] arm64: dts: amlogic: add support for
+ xiaomi-aquaman/Mi TV Stick
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 14/18] x86/boot: make sure KASLR does not step over KHO
- preserved memory
-To: Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org
-Cc: akpm@linux-foundation.org, anthony.yznaga@oracle.com, arnd@arndb.de,
- ashish.kalra@amd.com, benh@kernel.crashing.org, bp@alien8.de,
- catalin.marinas@arm.com, corbet@lwn.net, dave.hansen@linux.intel.com,
- devicetree@vger.kernel.org, dwmw2@infradead.org, ebiederm@xmission.com,
- graf@amazon.com, hpa@zytor.com, jgowans@amazon.com,
- kexec@lists.infradead.org, krzk@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-mm@kvack.org, luto@kernel.org, mark.rutland@arm.com, mingo@redhat.com,
- pasha.tatashin@soleen.com, pbonzini@redhat.com, peterz@infradead.org,
- ptyadav@amazon.de, robh@kernel.org, rostedt@goodmis.org, rppt@kernel.org,
- saravanak@google.com, skinsburskii@linux.microsoft.com, tglx@linutronix.de,
- thomas.lendacky@amd.com, will@kernel.org, x86@kernel.org
-References: <20250501225425.635167-1-changyuanl@google.com>
- <20250501225425.635167-15-changyuanl@google.com>
-From: Dave Hansen <dave.hansen@intel.com>
-Content-Language: en-US
-Autocrypt: addr=dave.hansen@intel.com; keydata=
- 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
-In-Reply-To: <20250501225425.635167-15-changyuanl@google.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20250502-aquaman-v6-2-f1af347d9709@postmarketos.org>
+References: <20250502-aquaman-v6-0-f1af347d9709@postmarketos.org>
+In-Reply-To: <20250502-aquaman-v6-0-f1af347d9709@postmarketos.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ ~postmarketos/upstreaming@lists.sr.ht, 
+ Ferass El Hafidi <funderscore@postmarketos.org>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=8298;
+ i=funderscore@postmarketos.org; h=from:subject:message-id;
+ bh=okoZzeFXWvall2TucRORWIwb0RbaqeyVRbDXmyDqWno=;
+ b=owEBbQKS/ZANAwAIAYSvy9DXiZoDAcsmYgBoFRVR0fOv7YEmV0Bi7PIAMKJuDU+yswvGiTcPa
+ lEyQ2Hu1eqJAjMEAAEIAB0WIQQDAbw3+1VcrP15i+6Er8vQ14maAwUCaBUVUQAKCRCEr8vQ14ma
+ A97jD/0T23Mx6nmpCLVCyT9gNQMgLiAd9pdFbPQxN8a4kJ8J90BZxcTQgGiLsWmw9bepU/ESB5Q
+ MprBzeRqrp51ZXKoihasVCU/8MsPrjdsWfxE8sQ5RacT5sduV5WWJUyWmpXb2jLIcRs+VArQFKX
+ YMQQ29xRzVlqFyyUU2J9QHAbh5lZ53L+bqUQM7TffuJCNIhwkDqZhqpznWslimZVZgmz6VOHdTJ
+ caihELDPdZQbb0TC0T47iVzKuWD6sQ0IQlCGURmXlSo4Pd6Jhz7G+/a3Uj/PEGkQbzTksJkQ/KR
+ 6qSZuMG1VSm3wwDvqtdQ6r1ruUO2J9gnnQqDulCaTfT9qkvCbFsCO37L8E848iL3QIAXY2sGU0I
+ JXXQ+1n5pmKCwQ/aJb9OExj+2U4+0uWHEddnGoPkBweb0UCS4jWujqxPe6eNDV4Ph2UQI72N1eG
+ un+8VjrSyGvBKMrBf89wdaf+EettbUQzMhVftBqnR240GsAFhWCJ9rJ87j9v5ch/WOmawSW8HJX
+ iC7PAdu0R772hkrAtcuiBENM6pZatcUbR6mEFyMZQeyEw/SE2hM/EwvfFEJddUdDJdosZp+oVgm
+ ucxyUwImchkArfj35EjovatO3AqyWXXF4nNPdVsYOqok6k0lqqYdd5vCx/qDs0YqstKMMNrHus6
+ h7+5HDvUz/Xmv5w==
+X-Developer-Key: i=funderscore@postmarketos.org; a=openpgp;
+ fpr=0301BC37FB555CACFD798BEE84AFCBD0D7899A03
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_114859_055242_11C6FE5F 
-X-CRM114-Status: GOOD (  22.21  )
+X-CRM114-CacheID: sfid-20250502_115648_538609_31FDCAC6 
+X-CRM114-Status: GOOD (  15.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,101 +94,325 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/1/25 15:54, Changyuan Lyu wrote:
-> KHO uses "scratch regions" to bootstrap a kexec'ed kernel. These regions are
-> guaranteed to not have any memory that KHO would preserve.
+Xiaomi Mi TV Stick is a small Amlogic-based Android TV stick released in
+2020.  It is known as `xiaomi-aquaman` internally.  Specifications:
+ * Amlogic S805Y SoC
+ * Android TV 9, upgradable to Android TV 10
+ * 8 GB eMMC
+ * 1 GB of RAM
+ * Wi-Fi + Bluetooth
 
-I understand how these changelogs got written. They were written by
-someone thinking *only* about KHO and hacking it into the existing code.
-That's fine and understandable.
+The devicetree is based on p241's DT, with some changes to better match
+the Mi TV Stick:
+ * there is no Ethernet port, no IR, no CVBS connector on the stick
+ * a white LED is present
+ * adjust memory to have 1 GB of RAM available
 
-But everyone else is coming at this from the perspective of not knowing
-what scratch memory is.
+Signed-off-by: Ferass El Hafidi <funderscore@postmarketos.org>
+---
+ arch/arm64/boot/dts/amlogic/Makefile               |   1 +
+ .../dts/amlogic/meson-gxl-s805y-xiaomi-aquaman.dts | 262 +++++++++++++++++++++
+ arch/arm64/boot/dts/amlogic/meson-gxl-s805y.dtsi   |  10 +
+ 3 files changed, 273 insertions(+)
 
-"Scratch memory" in the KHO world is basically "normal kernel memory" to
-anybody else. So I think it's a disservice to everyone else reading
-these changelogs to act like it's something special.
+diff --git a/arch/arm64/boot/dts/amlogic/Makefile b/arch/arm64/boot/dts/amlogic/Makefile
+index 8c16c22c7b8ebc5b1884675fc93182591b394dc2..15e7901c126876964b858d2afaaaa5a5c86f1c22 100644
+--- a/arch/arm64/boot/dts/amlogic/Makefile
++++ b/arch/arm64/boot/dts/amlogic/Makefile
+@@ -52,6 +52,7 @@ dtb-$(CONFIG_ARCH_MESON) += meson-gxbb-wetek-hub.dtb
+ dtb-$(CONFIG_ARCH_MESON) += meson-gxbb-wetek-play2.dtb
+ dtb-$(CONFIG_ARCH_MESON) += meson-gxl-s805x-libretech-ac.dtb
+ dtb-$(CONFIG_ARCH_MESON) += meson-gxl-s805x-p241.dtb
++dtb-$(CONFIG_ARCH_MESON) += meson-gxl-s805y-xiaomi-aquaman.dtb
+ dtb-$(CONFIG_ARCH_MESON) += meson-gxl-s905d-libretech-pc.dtb
+ dtb-$(CONFIG_ARCH_MESON) += meson-gxl-s905d-mecool-kii-pro.dtb
+ dtb-$(CONFIG_ARCH_MESON) += meson-gxl-s905d-p230.dtb
+diff --git a/arch/arm64/boot/dts/amlogic/meson-gxl-s805y-xiaomi-aquaman.dts b/arch/arm64/boot/dts/amlogic/meson-gxl-s805y-xiaomi-aquaman.dts
+new file mode 100644
+index 0000000000000000000000000000000000000000..cac15b89c573924f84877deeb2c31b20b0c3cae6
+--- /dev/null
++++ b/arch/arm64/boot/dts/amlogic/meson-gxl-s805y-xiaomi-aquaman.dts
+@@ -0,0 +1,262 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright (c) 2025 Ferass El Hafidi <funderscore@postmarketos.org>
++ * Heavily based on meson-gxl-s805x-p241.dtb:
++ *  - Copyright (c) 2018 BayLibre, SAS.
++ *    Author: Neil Armstrong <narmstrong@baylibre.com>
++ *    Author: Jerome Brunet <jbrunet@baylibre.com>
++ */
++
++/dts-v1/;
++
++#include <dt-bindings/input/input.h>
++#include <dt-bindings/leds/common.h>
++#include <dt-bindings/sound/meson-aiu.h>
++
++#include "meson-gxl-s805y.dtsi"
++
++/ {
++	compatible = "xiaomi,aquaman", "amlogic,s805y", "amlogic,meson-gxl";
++	model = "Xiaomi Mi TV Stick (aquaman)";
++
++	aliases {
++		serial0 = &uart_AO;
++		serial1 = &uart_A;
++	};
++
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
++
++	emmc_pwrseq: emmc-pwrseq {
++		compatible = "mmc-pwrseq-emmc";
++		reset-gpios = <&gpio BOOT_9 GPIO_ACTIVE_LOW>;
++	};
++
++	hdmi-connector {
++		compatible = "hdmi-connector";
++		type = "a";
++
++		port {
++			hdmi_connector_in: endpoint {
++				remote-endpoint = <&hdmi_tx_tmds_out>;
++			};
++		};
++	};
++
++	leds {
++		compatible = "gpio-leds";
++
++		led-white {
++			color = <LED_COLOR_ID_WHITE>;
++			function = LED_FUNCTION_POWER;
++			gpios = <&gpio GPIODV_24 GPIO_ACTIVE_HIGH>;
++			default-state = "on";
++			panic-indicator;
++		};
++	};
++
++	memory@0 {
++		device_type = "memory";
++		reg = <0x0 0x0 0x0 0x40000000>;
++	};
++
++	vddio_boot: regulator-vddio-boot {
++		compatible = "regulator-fixed";
++		regulator-name = "VDDIO_BOOT";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++	};
++
++	vddao_3v3: regulator-vddao-3v3 {
++		compatible = "regulator-fixed";
++		regulator-name = "VDDAO_3V3";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++	};
++
++	vddio_ao18: regulator-vddio-ao18 {
++		compatible = "regulator-fixed";
++		regulator-name = "VDDIO_AO18";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++	};
++
++	vcc_3v3: regulator-vcc-3v3 {
++		compatible = "regulator-fixed";
++		regulator-name = "VCC_3V3";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++	};
++
++	vcc_5v: regulator-vcc-5v {
++		compatible = "regulator-fixed";
++		regulator-name = "VCC_5V";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++	};
++
++	emmc_pwrseq: emmc-pwrseq {
++		compatible = "mmc-pwrseq-emmc";
++		reset-gpios = <&gpio BOOT_9 GPIO_ACTIVE_LOW>;
++	};
++
++	wifi32k: wifi32k {
++		compatible = "pwm-clock";
++		#clock-cells = <0>;
++		clock-frequency = <32768>;
++		pwms = <&pwm_ef 0 30518 0>; /* PWM_E at 32.768KHz */
++	};
++
++	sdio_pwrseq: sdio-pwrseq {
++		compatible = "mmc-pwrseq-simple";
++		reset-gpios = <&gpio GPIOX_6 GPIO_ACTIVE_LOW>;
++		clocks = <&wifi32k>;
++		clock-names = "ext_clock";
++	};
++
++	sound {
++		compatible = "amlogic,gx-sound-card";
++		model = "XIAOMI-AQUAMAN";
++		clocks = <&clkc CLKID_MPLL0>,
++			 <&clkc CLKID_MPLL1>,
++			 <&clkc CLKID_MPLL2>;
++
++		assigned-clocks = <&clkc CLKID_MPLL0>,
++				  <&clkc CLKID_MPLL1>,
++				  <&clkc CLKID_MPLL2>;
++		assigned-clock-parents = <0>, <0>, <0>;
++		assigned-clock-rates = <294912000>,
++				       <270950400>,
++				       <393216000>;
++
++		dai-link-0 {
++			sound-dai = <&aiu AIU_CPU CPU_I2S_FIFO>;
++		};
++
++		dai-link-1 {
++			sound-dai = <&aiu AIU_CPU CPU_I2S_ENCODER>;
++			dai-format = "i2s";
++			mclk-fs = <256>;
++
++			codec-0 {
++				sound-dai = <&aiu AIU_HDMI CTRL_I2S>;
++			};
++		};
++
++		dai-link-2 {
++			sound-dai = <&aiu AIU_HDMI CTRL_OUT>;
++
++			codec-0 {
++				sound-dai = <&hdmi_tx>;
++			};
++		};
++	};
++};
++
++&aiu {
++	status = "okay";
++};
++
++&cec_AO {
++	status = "okay";
++	pinctrl-0 = <&ao_cec_pins>;
++	pinctrl-names = "default";
++	hdmi-phandle = <&hdmi_tx>;
++};
++
++&hdmi_tx {
++	status = "okay";
++	pinctrl-0 = <&hdmi_hpd_pins>, <&hdmi_i2c_pins>;
++	pinctrl-names = "default";
++	hdmi-supply = <&vcc_5v>;
++};
++
++&hdmi_tx_tmds_port {
++	hdmi_tx_tmds_out: endpoint {
++		remote-endpoint = <&hdmi_connector_in>;
++	};
++};
++
++&saradc {
++	status = "okay";
++	vref-supply = <&vddio_ao18>;
++};
++
++/* Wireless SDIO Module (Amlogic W155S1 / Realtek RTL8821CS) */
++&sd_emmc_b {
++	status = "okay";
++	pinctrl-0 = <&sdio_pins>;
++	pinctrl-1 = <&sdio_clk_gate_pins>;
++	pinctrl-names = "default", "clk-gate";
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	bus-width = <4>;
++	cap-sd-highspeed;
++	max-frequency = <50000000>;
++
++	non-removable;
++	disable-wp;
++
++	/* WiFi firmware requires power to be kept while in suspend */
++	keep-power-in-suspend;
++
++	mmc-pwrseq = <&sdio_pwrseq>;
++
++	vmmc-supply = <&vddao_3v3>;
++	vqmmc-supply = <&vddio_boot>;
++
++	sdio: wifi@1 {
++		reg = <1>;
++	};
++};
++
++/* eMMC */
++&sd_emmc_c {
++	status = "okay";
++	pinctrl-0 = <&emmc_pins>, <&emmc_ds_pins>;
++	pinctrl-1 = <&emmc_clk_gate_pins>;
++	pinctrl-names = "default", "clk-gate";
++
++	bus-width = <8>;
++	cap-mmc-highspeed;
++	max-frequency = <200000000>;
++	non-removable;
++	disable-wp;
++	mmc-ddr-1_8v;
++	mmc-hs200-1_8v;
++
++	mmc-pwrseq = <&emmc_pwrseq>;
++	vmmc-supply = <&vcc_3v3>;
++	vqmmc-supply = <&vddio_boot>;
++};
++
++&pwm_ef {
++	status = "okay";
++	pinctrl-0 = <&pwm_e_pins>;
++	pinctrl-names = "default";
++};
++
++/*
++ * This is connected to the Bluetooth module
++ * Note: There's no driver for the Bluetooth module of some variants yet.
++ */
++&uart_A {
++	status = "okay";
++	pinctrl-0 = <&uart_a_pins>, <&uart_a_cts_rts_pins>;
++	pinctrl-names = "default";
++	uart-has-rtscts;
++};
++
++&uart_AO {
++	status = "okay";
++	pinctrl-0 = <&uart_ao_a_pins>;
++	pinctrl-names = "default";
++};
++
++&usb {
++	status = "okay";
++	dr_mode = "otg";
++	vbus-supply = <&vcc_5v>;
++};
+diff --git a/arch/arm64/boot/dts/amlogic/meson-gxl-s805y.dtsi b/arch/arm64/boot/dts/amlogic/meson-gxl-s805y.dtsi
+new file mode 100644
+index 0000000000000000000000000000000000000000..49b29b71f732000070a0f67b2041c87db438475b
+--- /dev/null
++++ b/arch/arm64/boot/dts/amlogic/meson-gxl-s805y.dtsi
+@@ -0,0 +1,10 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright (c) 2025 Ferass El Hafidi <funderscore@postmarketos.org>
++ */
++
++#include "meson-gxl-s805x.dtsi"
++
++/ {
++	compatible = "amlogic,s805y", "amlogic,meson-gxl";
++};
 
-The thing that *is* special is that KHO kernels don't have a lot of
-"normal kernel memory". At least they're designed to tolerate lots of
-handed-off memory and little "scratch memory"
+-- 
+2.49.0
 
-When you run through these again, could you please try to write these
-changelogs and comments for folks that are not familiar with KHO?
-
-> +/*
-> + * If KHO is active, only process its scratch areas to ensure we are not
-> + * stepping onto preserved memory.
-> + */
-> +#ifdef CONFIG_KEXEC_HANDOVER
-> +static bool process_kho_entries(unsigned long minimum, unsigned long image_size)
-> +{
-
-I thought we agreed to rework this to unconditionally define the
-kho_scratch structures so the #ifdef can go away?
-
-> +	struct kho_scratch *kho_scratch;
-> +	struct setup_data *ptr;
-> +	int i, nr_areas = 0;
-> +
-> +	ptr = (struct setup_data *)boot_params_ptr->hdr.setup_data;
-> +	while (ptr) {
-> +		if (ptr->type == SETUP_KEXEC_KHO) {
-> +			struct kho_data *kho = (struct kho_data *)ptr->data;
-> +
-> +			kho_scratch = (void *)kho->scratch_addr;
-> +			nr_areas = kho->scratch_size / sizeof(*kho_scratch);
-> +
-> +			break;
-> +		}
-> +
-> +		ptr = (struct setup_data *)ptr->next;
-> +	}
-> +
-> +	if (!nr_areas)
-> +		return false;
-> +
-> +	for (i = 0; i < nr_areas; i++) {
-> +		struct kho_scratch *area = &kho_scratch[i];
-> +		struct mem_vector region = {
-> +			.start = area->addr,
-> +			.size = area->size,
-> +		};
-> +
-> +		if (process_mem_region(&region, minimum, image_size))
-> +			break;
-> +	}
-> +
-> +	return true;
-> +}
-> +#else
-> +static inline bool process_kho_entries(unsigned long minimum,
-> +				       unsigned long image_size)
-> +{
-> +	return false;
-> +}
-> +#endif
-> +
->  static unsigned long find_random_phys_addr(unsigned long minimum,
->  					   unsigned long image_size)
->  {
-> @@ -775,7 +824,8 @@ static unsigned long find_random_phys_addr(unsigned long minimum,
->  		return 0;
->  	}
->  
-> -	if (!process_efi_entries(minimum, image_size))
-> +	if (!process_kho_entries(minimum, image_size) &&
-> +	    !process_efi_entries(minimum, image_size))
->  		process_e820_entries(minimum, image_size);
->  
->  	phys_addr = slots_fetch_random();
-
-I made a comment about this in the last round, making this the second
-thing that I've noticed that was not addressed.
-
-Could you please go back through the last round of comments before you
-repost these?
-
-Just to be clear: these are making progress, but they're not OK from the
-x86 side yet.
 
