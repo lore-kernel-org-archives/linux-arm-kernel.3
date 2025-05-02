@@ -4,33 +4,33 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 451AFC3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 15:05:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90565C3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 15:08:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bx50Fxz6Nidvq0EFtAUUGatt3+dRx0iimrC/dfHIX2o=; b=QmZSC4zQ80nue0iYqYD2ZGREZE
-	8k2Dth8v0WHRzBhvQS6v/hOJWQSyJHiF5BI/4lzyKrFJ0D3OB5GJWkory7XExU9aQwhU2Ah9o3q3w
-	KWrmCIHpRpdqEnn9WSG7FtwjORfD81E09dIVBxxjYupuFIb5ARpxnsEHa/PilRGKQ1A6talmJY7oR
-	Cy9UOqsUghqa3+AMoYUNKtypAag1VpeAgMjSQMRJpdCnNoQR28Sv+uryMwgipl5Dp8clviMnQC//W
-	ckDaFuPeekBFClz45sZUXYkAVMGf9bR1R6HFkKTeOKeQvvJI5v/33W601ZcPnn8V3uEjy2irAhcHF
-	Luv7CzEg==;
+	bh=bx50Fxz6Nidvq0EFtAUUGatt3+dRx0iimrC/dfHIX2o=; b=1LSgPKHu9N83/1US5MJI9ofLOD
+	FoWL19yf4lyETXZbQ+kVYsVyTFmLcXX9emzGUKhAgccL4S13QrBOR9Lw8i8V5FrwiNv2kqLUD2bwj
+	1Em3oNNjojEYTvc1mnv7qtTgvx9gNL8LEeMekYz75drlx+TS3wo410If3Md4dZMykKMtjLkEYQ0qV
+	Fc/WC0atGpotQf+1WoEd1Vu/N55dI+uCdl4Q1G34ptW233603Y5xqjlPjoDoO/HTLrZmYL5+HhAo1
+	m/HVLr7g5bMohWoYDQBSlmKvTr5lL9y4NduNk1SzRuDT4xkJUi0D5sVROHB4YKU+fmgQj2i3pMVrV
+	UBUct/MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uArxG-00000002GzG-09Sn;
-	Fri, 02 May 2025 15:05:34 +0000
+	id 1uArzU-00000002I0P-02ON;
+	Fri, 02 May 2025 15:07:52 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uArtr-00000002GZ3-0FwN
+	id 1uArxU-00000002HEI-1Ycc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 15:02:04 +0000
+	Fri, 02 May 2025 15:05:50 +0000
 Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <m.felsch@pengutronix.de>)
-	id 1uArtR-0002iK-Ov; Fri, 02 May 2025 17:01:37 +0200
+	id 1uArx9-0004HG-02; Fri, 02 May 2025 17:05:27 +0200
 From: Marco Felsch <m.felsch@pengutronix.de>
 To: nicolas.dufresne@collabora.com,
 	benjamin.gaignard@collabora.com,
@@ -43,7 +43,7 @@ To: nicolas.dufresne@collabora.com,
 	robh@kernel.org,
 	krzk+dt@kernel.org,
 	conor+dt@kernel.org,
-	paul.kocialkowski@bootlin.com,
+	paulk@sys-base.io,
 	hverkuil@xs4all.nl,
 	laurent.pinchart@ideasonboard.com,
 	sebastian.fricke@collabora.com,
@@ -55,8 +55,8 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org
 Subject: [RFC PATCH 00/11] VC8000E H.264 V4L2 Stateless Encoder
-Date: Fri,  2 May 2025 17:00:53 +0200
-Message-Id: <20250502150105.4167289-1-m.felsch@pengutronix.de>
+Date: Fri,  2 May 2025 17:05:02 +0200
+Message-Id: <20250502150513.4169098-1-m.felsch@pengutronix.de>
 X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
@@ -65,7 +65,7 @@ X-SA-Exim-Mail-From: m.felsch@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_080203_091353_0237282A 
+X-CRM114-CacheID: sfid-20250502_080549_516348_ED20311F 
 X-CRM114-Status: UNSURE (   8.14  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
