@@ -4,81 +4,189 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12337C3ABA3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 09:04:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAA3EC3ABA3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 09:06:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kOUqjtwDfMZXxVhvCfWW+DU1FQMHXzTZN1t6HNu3js4=; b=gGpzc8IW+iqTxvJYXANXq0Pgbc
-	hDftSz4JQ5olpxgOYdY3M6jN0VI8Lk0W5MHphqubUKiieJdInnTHcqiyqsCBI1CqdvxZ+kTbZmENS
-	w6m8F0qQVFiqXJEzAnJ6qhzv94Ef8ueLDUZF/l5gFWwXspJDfJMb/edAmoUI45faSB51ehMaGhx7Z
-	h6eKlIuiLHEBTJ2VMcccGtkM4j6/JSJlBJajaRfrsTr0K6iUFtiSF9GGAepJzNzxEqRzUIZGZ9SAN
-	4AnN1dBjiEvMx7cw0ubaDQmgs+AvmkuZkOfSK+p0GVqHXcENYEddlKhQVjcYm0mZm1kstfgqNF2o8
-	ZH2sr/qA==;
+	bh=z9vkpqrTvVhUdBjros3lphzh/Pl8aizkj0hcMws3MaU=; b=4yha1GKVsi5oroSukjfQT6JIDI
+	xMrZCBpyfzod8Zg5bkBXb4JNaX8obcX7x0RTI9Ph6zREfzEJxH6OZSwdE7JnwoXIY51hJjBcOaC7f
+	pX4eR6/ebREOEd0WMYUw5zsIjqJnqYO2KCbojEtH019Y3eIA+VnhI49Thz5yKb4ix4X0Fp1jXBf22
+	ImzD9CVsZ6rpBQBLtIGD9GBUufOhqFTvhQ936bvyFbZN54WZCiff/kBHrjL4+hXcUxXqBzwcNgT6o
+	4mnkxc/VeQvYxfIeNbdgU0cvAS7B6L21nECSazU7o1KrMlrux5iu06E+6k+XxWYdnrrmBNzwntqPD
+	g0p4eGfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAmJF-00000001HMv-2Iav;
-	Fri, 02 May 2025 09:03:53 +0000
-Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
+	id 1uAmLB-00000001Hv4-0yEp;
+	Fri, 02 May 2025 09:05:53 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAm8a-00000001F1E-0pEi
+	id 1uAm8b-00000001F4L-1LvD
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 02 May 2025 08:52:55 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 84EAE43224;
-	Fri,  2 May 2025 08:52:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1746175968;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=kOUqjtwDfMZXxVhvCfWW+DU1FQMHXzTZN1t6HNu3js4=;
-	b=iAbStaz77cUuNmVGsHmFRMIFIgOsMm3UDqI51P/LvHTU+TKEs95EpsKEZQaxKC2XhirYdC
-	b0BF4InBISK1gWdeO1/Eqo1BtME/uRcSTdWjHF6SzcD5Rn2Ebtzl5KaauV0dFyvKw+Krkd
-	S9we5N8Lh+/f+FtARzT+3L2qrwx7J1H/Spo5mHLYudAlYhJSbYHem0nqLoB3XQS7FW8MPe
-	5yiZF4PHdPXoaJmF+t6nrkFQfPcKiSQESOUAjqdquya6z4TGbpb1ktkLwOmxDIqd/+hg9I
-	t02+x88vZrysK65IvzIRKwDXmO0U4rh3yYwMlTSjLkXyZVo1UvAXGu6uxkoQ8A==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: davem@davemloft.net,
-	Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	thomas.petazzoni@bootlin.com,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Simon Horman <horms@kernel.org>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Piergiorgio Beruto <piergiorgio.beruto@gmail.com>
-Subject: [PATCH net-next v8 2/3] net: ethtool: phy: Convert the PHY_GET command to generic phy dump
-Date: Fri,  2 May 2025 10:52:40 +0200
-Message-ID: <20250502085242.248645-3-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250502085242.248645-1-maxime.chevallier@bootlin.com>
-References: <20250502085242.248645-1-maxime.chevallier@bootlin.com>
-MIME-Version: 1.0
+Received: from pps.filterd (m0246632.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5425WAG5015417;
+	Fri, 2 May 2025 08:52:36 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	corp-2025-04-25; bh=z9vkpqrTvVhUdBjros3lphzh/Pl8aizkj0hcMws3MaU=; b=
+	Cx7Vq6oFqcwfvpz1SBrR+vqdRhdlbny0YMDtlkN+6XnWymHCiT21hmu0BlLZROOR
+	CfOWgrU16BVNwLfA38qydoCPPM5efO4fN77B11pK3CQJAj6pL68KhjbTpK09aBSG
+	nLLK9dGSgFfjKoGIiv9ZMN54ZAe3hyZZs/gV4BH2wUvRezilICsIAf5C2AiN+FUv
+	8SPa24C7E6leJ6eWCz0eHIgrQr/VCQi3d98jhnVOSxNTrkXIb07Hj6z0HBHXOVDu
+	NEolpV/AA63wdnZkecsvd6m0qDuXjmGHPa8lcaRQ5s6D6jxL0lgQm/fa8X/FG594
+	D1pYnRZ4OtFH1HHQIPUK2A==
+Received: from phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta03.appoci.oracle.com [138.1.37.129])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 46b6ukmxgh-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 02 May 2025 08:52:36 +0000 (GMT)
+Received: from pps.filterd (phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
+	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 5427Cp9Y013794;
+	Fri, 2 May 2025 08:52:35 GMT
+Received: from nam12-mw2-obe.outbound.protection.outlook.com (mail-mw2nam12lp2048.outbound.protection.outlook.com [104.47.66.48])
+	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 468nxdjncc-2
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 02 May 2025 08:52:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VMDC3qYEKy+urEz2Bg7h21Um3Gmv0cjXOR6oRoGVO/nzaYRcA1w6U9PZ5q16T0bZjkx2XNB1aACvzlaDAQTjizxZbVRLl0WMeWjm+SMGYiSmjtEtey08mizI7Cj3+/IyFNtn0HpCxgCKUWXOev43lHdWqnIBpA+/ksc7vUMejoK7rZp9a0bm0ai9TYh3kcee0j7KBEZnotAzILf+EDmdQV4iRJbFWF1zUSAOU/RZ9vRiNg0I1Y1BYH9c60Uv+i2oUg0t7USHVbcjF8DEyxfTyoxpJgsC8yqTUZE2nZbPxeFL82tGkyG4NCU2fE4Sfextpwsj5TCw/mMMLkPJm0OfGQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=z9vkpqrTvVhUdBjros3lphzh/Pl8aizkj0hcMws3MaU=;
+ b=vDRy4lgniUTkgoZtfmDCQS1sao9wp0oDg4s8I3BESHQUPmL88vRA24duiQuxxVwE0R4uqlRZZ+Bw6Mu+O/WsHyr4EZ0DRebNR9uCbZy0csG4rRCQrji7my6A44zdZZKID1JkgFXpVypOShJtmi0N3UuHFZJgiJEPu9YhjTqptrQN+KbnxkT/59t3HxDYdMZohjRufw1MIUzTtgKWQO1ECRVrkCcPec1VkUbXpn/FIusfPcP5GdPxJ/S2hVkaO+aHw3t+i/m6aQdFsLCzaDEbuCu9c3D5USxJUcKq3rEDWbhEGsARfGKW7AU1IZMBmwNNh0S2K3fPZ63AD7oZ4GInTw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=z9vkpqrTvVhUdBjros3lphzh/Pl8aizkj0hcMws3MaU=;
+ b=NE6fUzty2d42H5P5caiYUwJdR9EMnMIEjNegozAqEaKhKiTAiJ6Z4kVrqyFT2VYijwj4hYaKyhqoKKiZuJGvzFm2yLL6WsHkMn9YKYgYCXmY1k0fjHhA4R9lpjY213SZ8mNQD3rM0rFmVrx+4RiSxmE6JBoZyWyI8U8dqwQ7yP0=
+Received: from CO6PR10MB5409.namprd10.prod.outlook.com (2603:10b6:5:357::14)
+ by LV8PR10MB7726.namprd10.prod.outlook.com (2603:10b6:408:1e8::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.23; Fri, 2 May
+ 2025 08:52:33 +0000
+Received: from CO6PR10MB5409.namprd10.prod.outlook.com
+ ([fe80::25a9:32c2:a7b0:de9e]) by CO6PR10MB5409.namprd10.prod.outlook.com
+ ([fe80::25a9:32c2:a7b0:de9e%6]) with mapi id 15.20.8678.028; Fri, 2 May 2025
+ 08:52:33 +0000
+From: Ankur Arora <ankur.a.arora@oracle.com>
+To: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+Cc: arnd@arndb.de, catalin.marinas@arm.com, will@kernel.org,
+        peterz@infradead.org, akpm@linux-foundation.org, mark.rutland@arm.com,
+        harisokn@amazon.com, cl@gentwo.org, ast@kernel.org, memxor@gmail.com,
+        zhenglifeng1@huawei.com, xueshuai@linux.alibaba.com,
+        joao.m.martins@oracle.com, boris.ostrovsky@oracle.com,
+        konrad.wilk@oracle.com
+Subject: [PATCH v2 4/7] arm64: barrier: add coarse wait for smp_cond_load_relaxed_timewait()
+Date: Fri,  2 May 2025 01:52:20 -0700
+Message-Id: <20250502085223.1316925-5-ankur.a.arora@oracle.com>
+X-Mailer: git-send-email 2.31.1
+In-Reply-To: <20250502085223.1316925-1-ankur.a.arora@oracle.com>
+References: <20250502085223.1316925-1-ankur.a.arora@oracle.com>
 Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvjedvtddvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepvddtueefvdfhiefgieelfeeggeefiedvueevkedttddvffekleeujedtjeeuteehnecuffhomhgrihhnpegsrghsvgdruggvvhenucfkphepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvuddprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvl
- hdrohhrghdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomhdprhgtphhtthhopehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-GND-Sasl: maxime.chevallier@bootlin.com
+Content-Type: text/plain
+X-ClientProxiedBy: MW4PR03CA0038.namprd03.prod.outlook.com
+ (2603:10b6:303:8e::13) To CO6PR10MB5409.namprd10.prod.outlook.com
+ (2603:10b6:5:357::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO6PR10MB5409:EE_|LV8PR10MB7726:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2de0ec27-4e58-4d50-5105-08dd8956ad4d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?fiFPKgncQ/7ZDVFdwHp43RJubiCOVJrEnEvk2aNAVrfYPGzlUm5JptA3UChk?=
+ =?us-ascii?Q?27EPvzoDAE+Vkol0kYg/UJL1veL7zK2EBSmoNl+TuLD110f3OL3DwHywoNsq?=
+ =?us-ascii?Q?/0uU4Z+9RzOKtfGGapZeIYJH/CrqVZQ7V+4/1G/DNp6mzJrsFHokhFNmu0xl?=
+ =?us-ascii?Q?5vxqE3kfZSfudSEQoRzStWP7atVlpDBSE/35bsRqkxfWgyDPsJXiqKG0/p7g?=
+ =?us-ascii?Q?ESd6s1BCpUTrqLF1LxhSz0k5cAdlXlTywTRiqUa5El8NEvVDR5aDmeYMhMFD?=
+ =?us-ascii?Q?Tr+5ypHPYMWH837BifuG3fFWxg4NZ69kK1JAwqNG4xsMSKA+ffLsXmcjpx+F?=
+ =?us-ascii?Q?eHQRJ9grIV5v3QQCEyASxw9nATi3ld146Vaw4tf0NwL+EdZHnbzwBfClrse5?=
+ =?us-ascii?Q?HE7AB8jeohIDxwURMmEqP2Gxovy0YosLZR44G9/KdqWceHHZt6VVBgWvf+wQ?=
+ =?us-ascii?Q?+NameZ+rQOfXj1GL1tzADbxsWM+Tfnd+1P+WAmoll6AsiXVMOzcv/aUFWQ3D?=
+ =?us-ascii?Q?LT85lTxK1MYGA2OG1G+D4hor+2yaonx4Xvkh1fEnL/OAMMm78tTQBpY19IMk?=
+ =?us-ascii?Q?IZh5mz3BZKjnJriQ4zXzQH1lcpPAA8YRMCk9qya229zWuecvHvcACy21Z64/?=
+ =?us-ascii?Q?3h7CZer3dHyPRcAdq+LQ23FvTBbE4BPz5/B/NUTeipPyRXm4TdVAeUVJ0jMF?=
+ =?us-ascii?Q?5xuXkIbOMkAKyIe4MYlVKXsn0N2vPEO2h5KpaB4Nh3Ep0RiLn0Clh8CSkCzW?=
+ =?us-ascii?Q?pKB3zFpfRNZOk/MBquDRFa84MXyD3GRcrsdUMzrv5+wpRfOakmGW5uro1gTn?=
+ =?us-ascii?Q?1kcc3pAZNnBdCN2s7WDwvmsVDRjCbPBQOHOAmH+HhcXgJ361QHCwxYiT20jf?=
+ =?us-ascii?Q?EifQKpLbQsK3EXAtuVku9hUSWWewb4QeQMdYZi8DoVqybDWO1Wq+GyhycStX?=
+ =?us-ascii?Q?9z5dUxpDOaaDKczAoPt3sttsmMqR7Etl10qigBm2s5P4dmMDJWLHWkGyF/SR?=
+ =?us-ascii?Q?8ec/TG6/groFkkzMAs5/OTsgsNs2VW/9k4veOL92DtO6DuhdjmvoBUuqQXh/?=
+ =?us-ascii?Q?Bjl2nKdJGKdcFog/ftXLUbcY4SMvgmo4WWVFNum20vUb8K8JwWdr0aJSa6M5?=
+ =?us-ascii?Q?gOpOoDxBTHxR94YI/O88fDkw+fyO3eiRP+SWyVAowISCydU4OEEIBUwxdSAW?=
+ =?us-ascii?Q?mtgd8gkMYZxCW4EEGqltUkngu4S1J/gb3bRMUAJkQsQGrAwv45NUREx/woPh?=
+ =?us-ascii?Q?Ty3nhFdzcb15+A8TOaaKuMLaPVMhZtMfuzPuglEhAULsNqpKDlZpi70iZ4Ql?=
+ =?us-ascii?Q?qWN0g56cq/a/nttRhY9vdzZzDsXZdYizsOg3H3ZZP+2FEh16gIrrfyzUF1BB?=
+ =?us-ascii?Q?LiGgUlSKyPSCwKDIGOTE6vJgag0gvvjMY0F8kzP5V4mMslE+5UqT/mdwHlNK?=
+ =?us-ascii?Q?IIWDvErOY0s=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR10MB5409.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8U5jSeIC130o7pVjP5a5NjsCeFocq6wXZyXew7SbhvngmoRhosJ8b9YLvnvt?=
+ =?us-ascii?Q?w/6aAV6dA7e/aNC9Mg+p9PnGY4OLpY/8N0mJA9770Mrg1bW0AaT0/d0ks25u?=
+ =?us-ascii?Q?elZRFF3b2Vk/RphZyXUCwWwWV+rv13V/fQsjygHkVg7jhQZM5It38nFG7w6+?=
+ =?us-ascii?Q?gkojdiGexL+U0huxLTGyCuplOScGnQE7wRUGhPQJKitMgILN5auR7BCDMWcn?=
+ =?us-ascii?Q?tFgpjBonX2/YsTyzmO/Gp3+wzf8PdqgbdIKRIheqfwG07o9lCqOB8yzFME1T?=
+ =?us-ascii?Q?XUUDTXNu/UVywazJ8r90RpX4fqjwz9LF+HiAe7TpcRRU1w9NZx8PaAoc4OtI?=
+ =?us-ascii?Q?reM6ZKWCDDjczu5d3FLbDbHK2n3aEQBfnCBzQvgZY7g85Apxy0KGcH3p3bNn?=
+ =?us-ascii?Q?x4j7wAhD0G+l2V2g02iDNZ8mKV+qQBq+wD7QjZXEkIJ+3WD1CY2i8qIIDZvK?=
+ =?us-ascii?Q?rc/AywdvroPK10s79gVgm+7BPm8MZWWwjQgd13sqXLaYoMFjgukyIzEb1Dbd?=
+ =?us-ascii?Q?/bYqWqMjRzwt++pPTufiTvWT6GKOow6JfUocAhsU4fTciXyAsua+z3NDLrcR?=
+ =?us-ascii?Q?Y58IUdPdTAluh2QqPnbYj/o4/0muFIGWmdTI7bO2xaoi9wp2giWAOAr55toZ?=
+ =?us-ascii?Q?079lgdUeqM6zo0iUiZsCmzamWtHvUOqpx70+rWQZqHJCU73LZQUfanydEf6h?=
+ =?us-ascii?Q?11eawA+EMALmyV28pEIFUMQavXCRuokx5WW0GchcI6koexN+r4MmtYwg3AKf?=
+ =?us-ascii?Q?YSdtUaTvmQAsww+NjdddMu4yoBJBKlh69ZIdIQrgXiOecLdJMY7rqoiiSbv9?=
+ =?us-ascii?Q?soscP3TYgioY+WtVxhDqEUsiuh4dlKubc06NgCuoDlOdt4ukWJa8fgGgUzlq?=
+ =?us-ascii?Q?qcTlRGz0t+/SWMv5iYlu5/DLWXOkJue4BUxpxKMFGezrJ7tEdK5DucB2p59Z?=
+ =?us-ascii?Q?cqYetnl48VitChyNqqKJTuu7AzNV/TKh6rKEOcDDgTRzBh3RUzK/C2eROJJZ?=
+ =?us-ascii?Q?dC3lLq7p8svJJZRS+MoaQ1bAvaYuF+LIR62QpPpkQhbYE8yP8AJzw/OSycs/?=
+ =?us-ascii?Q?WaisWsQkCjj+bDqkvn8isFjj8c3qD5LCrJp70f2IY3yf1TNtZGFzJuRd6QL7?=
+ =?us-ascii?Q?QvFwnD4ZU+jHTfLtF+E1W0QiPMtGPuqF+Gw+VitPQdTVUYOkziX00haQ7hFu?=
+ =?us-ascii?Q?+OT8ZIQqp5/RyT8L/v36opB/n/l5RlwWa/AhVfh5Fhgg2Gjm6HDbozQfG0A3?=
+ =?us-ascii?Q?4N9s4FkW7+0JkLNz/0PXlz9V+8WWZSTu3uGkR5ssC+W3KkKRXozIQhpVqZfB?=
+ =?us-ascii?Q?nNcSdyVZj8Q5KyesrupzOG9IDG4mMTBbLWCl6C55nBU4nQ0HAHSmdM+fQAP6?=
+ =?us-ascii?Q?5VCanYcvhaf1AHrGtqtvRQOnKwPGlH9k3DeYDVXAHH5OjJyEc9hBzqyhzKXG?=
+ =?us-ascii?Q?iNQkd4FXMGLo4ao8ssc+sf471dEUgbOhZP1SDi/pDVbli8aCwqZ+JQuOH+cS?=
+ =?us-ascii?Q?Dqpl0yx34YDXj0TD/mAtIwWrTS9/+UoIBo7jzZ9XMiLFQBfCR6E5/dpOzk/D?=
+ =?us-ascii?Q?+k18HXt1vRYLgu8hns26GVRG/9P3Thss4EYyR6Hn/XBp9SV3MMamXbOQdKbY?=
+ =?us-ascii?Q?Dg=3D=3D?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: dDZlNXyOs3kFgCZ962tTyCSgWBfdZcIsf+QFUGTsIjLmWF2C2gibPmiLJX1HXiEQxalGVdoJ29MdFV/LTGxDzDwrVCm1yZgvBqOrNTtvs1zZSDIpYHqfPrPlDdlr75mkxIm0qPtPFNaSOb5Oq/aE9bdN6ZEsFE08cu30stMybt8HP0C/IqQbamNP99rZmJyF9VlrvEtIBy9LtujkkFdrZ0jQXaErTgJC1VAkZFWXTeB9tLqVi/RMYxS8qyUMQhoFL9Qoc6CkG1EgriqWnMRVd2aEvUZK57LxDhuYefTikdICzWALVa1b/WnGUq2ndleGd62uABhQowT9s5zlSDekbdECSBPGeZzPOFYC53VIkHKD/RLAMB4Ih0D7vv0kHymhmmDaSFYHXiM3t/65nVVTii1lWuDoDLEAmcu15ErXRgNKfSxDA0PPrKB5o/BXSfQzStm3PtvL1LOGufl1Yi/rStIyki8sbrs31OQ6mw64gsr++UccSXhuEFwbCs8JweUJXeDlIyyh5ISN3HPWwoqAZICFHDOztaJp0FxM2m+TkrHlR20Itj/HDoktTBcjikUdJkeqOr9LWC7U8e6fBuZu8fUgoV0E6hhzZFVnCzOB6x0=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2de0ec27-4e58-4d50-5105-08dd8956ad4d
+X-MS-Exchange-CrossTenant-AuthSource: CO6PR10MB5409.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 May 2025 08:52:33.1496
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: EEUUuXF4SeI7xPBqSiCP4dAcHBxHKogjbCzCkKDlWaXM6DK07YD4N84/w9Dp75pxpLOSs4oYtaxO5yN6M7f6l6hudN+L9kzOYaoghq4baY0=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR10MB7726
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-01_06,2025-04-30_01,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0 adultscore=0 phishscore=0
+ bulkscore=0 mlxlogscore=999 suspectscore=0 mlxscore=0 malwarescore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2504070000
+ definitions=main-2505020068
+X-Authority-Analysis: v=2.4 cv=MIZgmNZl c=1 sm=1 tr=0 ts=681487d4 b=1 cx=c_pps a=WeWmnZmh0fydH62SvGsd2A==:117 a=WeWmnZmh0fydH62SvGsd2A==:17 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19
+ a=xqWC_Br6kY4A:10 a=dt9VzEwgFbYA:10 a=GoEa3M9JfhUA:10 a=VwQbUJbxAAAA:8 a=7CQSdrXTAAAA:8 a=pGLkceISAAAA:8 a=yPCof4ZbAAAA:8 a=-n7TEV3Rdn1l6z5psJwA:9 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-GUID: p7GWg20cI4PhcWyxQkVC2r-exxPl_ba4
+X-Proofpoint-ORIG-GUID: p7GWg20cI4PhcWyxQkVC2r-exxPl_ba4
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTAyMDA2OSBTYWx0ZWRfXwdkKxiCMF8+1 gi1SQ4JQmzJW2fRAeUdhRRAEXfcmtk7XJlANI9SLxN9GieZtpwvmMONwf/r/G3DaOkY6SI3lMDP yz+tq7XZYLE5og9L183MvJhFb5vE9dPQ+GnsCOZfchk0zvyMqDV1/flUdnzhWVEcJQNuaWJnFW9
+ A/i+P07dspgfNXA1Qz7Lvhv2XEf4PJDOiTsMzvfKDDmNyNpnuFI9k85B0Qihoib37qMWg3D0yrc KP3SAklKoIHY1X0I3Azw1cLBtDuJTjtqkJqUQXVg2OP5NnZfefeac+4a7SDII0aJuWa3sJw06sz o1CoN8HULNeelTwW5/YnphyGxrzY68XkurI1eSr8RSvYr9FA0P1EOdcjm6Na074TfX5//ALYFNP
+ I78n5UwyADpm2uZzNhCny+bm9unST/0J12nxqQBBENN/e/a7/MmuQPxw5Rq3X6P2H3LOfXsi
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_015252_759560_2B4E7386 
-X-CRM114-Status: GOOD (  20.04  )
+X-CRM114-CacheID: sfid-20250502_015253_504161_D32D3FCF 
+X-CRM114-Status: GOOD (  20.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,467 +201,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that we have an infrastructure in ethnl for perphy DUMPs, we can get
-rid of the custom ->doit and ->dumpit to deal with PHY listing commands.
+smp_cond_load_relaxed_timewait() waits on a conditional variable
+until a timeout expires. This waiting is via some mix of looping
+around, dereferencing an address, or waiting in a WFE until the CPU
+gets an event due to a store to the address, or because of periodic
+events from the event-stream.
 
-As most of the code was custom, this basically means re-writing how we
-deal with PHY listing.
+Define __smp_cond_timewait_coarse() for usecases where the caller can
+tolerate a relatively large overshoot. This allows us to minimize the
+time spent spinning at the cost of spending extra time in the WFE
+state.
 
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+This would result in a worst case delay of ARCH_TIMER_EVT_STREAM_PERIOD_US
+and a spin period of no more than SMP_TIMEWAIT_CHECK_US.
+
+Cc: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Cc: Alexei Starovoitov <ast@kernel.org>
+Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
 ---
- net/ethtool/netlink.c |   9 +-
- net/ethtool/netlink.h |   4 -
- net/ethtool/phy.c     | 342 ++++++++++++------------------------------
- 3 files changed, 101 insertions(+), 254 deletions(-)
+ arch/arm64/include/asm/barrier.h | 66 ++++++++++++++++++++++++++++++++
+ 1 file changed, 66 insertions(+)
 
-diff --git a/net/ethtool/netlink.c b/net/ethtool/netlink.c
-index a58570c68db2..c8ed5a6f1e92 100644
---- a/net/ethtool/netlink.c
-+++ b/net/ethtool/netlink.c
-@@ -412,6 +412,7 @@ ethnl_default_requests[__ETHTOOL_MSG_USER_CNT] = {
- 	[ETHTOOL_MSG_MM_SET]		= &ethnl_mm_request_ops,
- 	[ETHTOOL_MSG_TSCONFIG_GET]	= &ethnl_tsconfig_request_ops,
- 	[ETHTOOL_MSG_TSCONFIG_SET]	= &ethnl_tsconfig_request_ops,
-+	[ETHTOOL_MSG_PHY_GET]		= &ethnl_phy_request_ops,
- };
+diff --git a/arch/arm64/include/asm/barrier.h b/arch/arm64/include/asm/barrier.h
+index eaeb78dd48c0..f4a184a96933 100644
+--- a/arch/arm64/include/asm/barrier.h
++++ b/arch/arm64/include/asm/barrier.h
+@@ -10,6 +10,7 @@
+ #ifndef __ASSEMBLY__
  
- static struct ethnl_dump_ctx *ethnl_dump_context(struct netlink_callback *cb)
-@@ -1456,10 +1457,10 @@ static const struct genl_ops ethtool_genl_ops[] = {
- 	},
- 	{
- 		.cmd	= ETHTOOL_MSG_PHY_GET,
--		.doit	= ethnl_phy_doit,
--		.start	= ethnl_phy_start,
--		.dumpit	= ethnl_phy_dumpit,
--		.done	= ethnl_phy_done,
-+		.doit	= ethnl_default_doit,
-+		.start	= ethnl_perphy_start,
-+		.dumpit	= ethnl_perphy_dumpit,
-+		.done	= ethnl_perphy_done,
- 		.policy = ethnl_phy_get_policy,
- 		.maxattr = ARRAY_SIZE(ethnl_phy_get_policy) - 1,
- 	},
-diff --git a/net/ethtool/netlink.h b/net/ethtool/netlink.h
-index ec6ab5443a6f..91b953924af3 100644
---- a/net/ethtool/netlink.h
-+++ b/net/ethtool/netlink.h
-@@ -499,10 +499,6 @@ int ethnl_tunnel_info_dumpit(struct sk_buff *skb, struct netlink_callback *cb);
- int ethnl_act_module_fw_flash(struct sk_buff *skb, struct genl_info *info);
- int ethnl_rss_dump_start(struct netlink_callback *cb);
- int ethnl_rss_dumpit(struct sk_buff *skb, struct netlink_callback *cb);
--int ethnl_phy_start(struct netlink_callback *cb);
--int ethnl_phy_doit(struct sk_buff *skb, struct genl_info *info);
--int ethnl_phy_dumpit(struct sk_buff *skb, struct netlink_callback *cb);
--int ethnl_phy_done(struct netlink_callback *cb);
- int ethnl_tsinfo_start(struct netlink_callback *cb);
- int ethnl_tsinfo_dumpit(struct sk_buff *skb, struct netlink_callback *cb);
- int ethnl_tsinfo_done(struct netlink_callback *cb);
-diff --git a/net/ethtool/phy.c b/net/ethtool/phy.c
-index 1f590e8d75ed..68372bef4b2f 100644
---- a/net/ethtool/phy.c
-+++ b/net/ethtool/phy.c
-@@ -12,304 +12,154 @@
- #include <net/netdev_lock.h>
+ #include <linux/kasan-checks.h>
++#include <linux/minmax.h>
  
- struct phy_req_info {
--	struct ethnl_req_info		base;
--	struct phy_device_node		*pdn;
-+	struct ethnl_req_info base;
- };
+ #include <asm/alternative-macros.h>
  
--#define PHY_REQINFO(__req_base) \
--	container_of(__req_base, struct phy_req_info, base)
-+struct phy_reply_data {
-+	struct ethnl_reply_data	base;
-+	u32 phyindex;
-+	char *drvname;
-+	char *name;
-+	unsigned int upstream_type;
-+	char *upstream_sfp_name;
-+	unsigned int upstream_index;
-+	char *downstream_sfp_name;
-+};
+@@ -219,6 +220,71 @@ do {									\
+ #define __smp_timewait_store(ptr, val)		\
+ 		__cmpwait_relaxed(ptr, val)
+ 
++/*
++ * Redefine ARCH_TIMER_EVT_STREAM_PERIOD_US locally to avoid include hell.
++ */
++#define __ARCH_TIMER_EVT_STREAM_PERIOD_US 100UL
++extern bool arch_timer_evtstrm_available(void);
 +
-+#define PHY_REPDATA(__reply_base) \
-+	container_of(__reply_base, struct phy_reply_data, base)
- 
- const struct nla_policy ethnl_phy_get_policy[ETHTOOL_A_PHY_HEADER + 1] = {
- 	[ETHTOOL_A_PHY_HEADER] = NLA_POLICY_NESTED(ethnl_header_policy),
- };
- 
--/* Caller holds rtnl */
--static ssize_t
--ethnl_phy_reply_size(const struct ethnl_req_info *req_base,
--		     struct netlink_ext_ack *extack)
-+static int phy_reply_size(const struct ethnl_req_info *req_info,
-+			  const struct ethnl_reply_data *reply_data)
- {
--	struct phy_req_info *req_info = PHY_REQINFO(req_base);
--	struct phy_device_node *pdn = req_info->pdn;
--	struct phy_device *phydev = pdn->phy;
-+	struct phy_reply_data *rep_data = PHY_REPDATA(reply_data);
- 	size_t size = 0;
- 
--	ASSERT_RTNL();
--
- 	/* ETHTOOL_A_PHY_INDEX */
- 	size += nla_total_size(sizeof(u32));
- 
- 	/* ETHTOOL_A_DRVNAME */
--	if (phydev->drv)
--		size += nla_total_size(strlen(phydev->drv->name) + 1);
-+	if (rep_data->drvname)
-+		size += nla_total_size(strlen(rep_data->drvname) + 1);
- 
- 	/* ETHTOOL_A_NAME */
--	size += nla_total_size(strlen(dev_name(&phydev->mdio.dev)) + 1);
-+	size += nla_total_size(strlen(rep_data->name) + 1);
- 
- 	/* ETHTOOL_A_PHY_UPSTREAM_TYPE */
- 	size += nla_total_size(sizeof(u32));
- 
--	if (phy_on_sfp(phydev)) {
--		const char *upstream_sfp_name = sfp_get_name(pdn->parent_sfp_bus);
--
--		/* ETHTOOL_A_PHY_UPSTREAM_SFP_NAME */
--		if (upstream_sfp_name)
--			size += nla_total_size(strlen(upstream_sfp_name) + 1);
-+	/* ETHTOOL_A_PHY_UPSTREAM_SFP_NAME */
-+	if (rep_data->upstream_sfp_name)
-+		size += nla_total_size(strlen(rep_data->upstream_sfp_name) + 1);
- 
--		/* ETHTOOL_A_PHY_UPSTREAM_INDEX */
-+	/* ETHTOOL_A_PHY_UPSTREAM_INDEX */
-+	if (rep_data->upstream_index)
- 		size += nla_total_size(sizeof(u32));
--	}
- 
- 	/* ETHTOOL_A_PHY_DOWNSTREAM_SFP_NAME */
--	if (phydev->sfp_bus) {
--		const char *sfp_name = sfp_get_name(phydev->sfp_bus);
--
--		if (sfp_name)
--			size += nla_total_size(strlen(sfp_name) + 1);
--	}
-+	if (rep_data->downstream_sfp_name)
-+		size += nla_total_size(strlen(rep_data->downstream_sfp_name) + 1);
- 
- 	return size;
- }
- 
--static int
--ethnl_phy_fill_reply(const struct ethnl_req_info *req_base, struct sk_buff *skb)
-+static int phy_prepare_data(const struct ethnl_req_info *req_info,
-+			    struct ethnl_reply_data *reply_data,
-+			    const struct genl_info *info)
- {
--	struct phy_req_info *req_info = PHY_REQINFO(req_base);
--	struct phy_device_node *pdn = req_info->pdn;
--	struct phy_device *phydev = pdn->phy;
--	enum phy_upstream ptype;
-+	struct phy_link_topology *topo = reply_data->dev->link_topo;
-+	struct phy_reply_data *rep_data = PHY_REPDATA(reply_data);
-+	struct nlattr **tb = info->attrs;
-+	struct phy_device_node *pdn;
-+	struct phy_device *phydev;
- 
--	ptype = pdn->upstream_type;
-+	/* RTNL is held by the caller */
-+	phydev = ethnl_req_get_phydev(req_info, tb, ETHTOOL_A_PHY_HEADER,
-+				      info->extack);
-+	if (IS_ERR_OR_NULL(phydev))
-+		return -EOPNOTSUPP;
- 
--	if (nla_put_u32(skb, ETHTOOL_A_PHY_INDEX, phydev->phyindex) ||
--	    nla_put_string(skb, ETHTOOL_A_PHY_NAME, dev_name(&phydev->mdio.dev)) ||
--	    nla_put_u32(skb, ETHTOOL_A_PHY_UPSTREAM_TYPE, ptype))
--		return -EMSGSIZE;
-+	pdn = xa_load(&topo->phys, phydev->phyindex);
-+	if (!pdn)
-+		return -EOPNOTSUPP;
- 
--	if (phydev->drv &&
--	    nla_put_string(skb, ETHTOOL_A_PHY_DRVNAME, phydev->drv->name))
--		return -EMSGSIZE;
-+	rep_data->phyindex = phydev->phyindex;
-+	rep_data->name = kstrdup(dev_name(&phydev->mdio.dev), GFP_KERNEL);
-+	rep_data->drvname = kstrdup(phydev->drv->name, GFP_KERNEL);
-+	rep_data->upstream_type = pdn->upstream_type;
- 
--	if (ptype == PHY_UPSTREAM_PHY) {
-+	if (pdn->upstream_type == PHY_UPSTREAM_PHY) {
- 		struct phy_device *upstream = pdn->upstream.phydev;
--		const char *sfp_upstream_name;
--
--		/* Parent index */
--		if (nla_put_u32(skb, ETHTOOL_A_PHY_UPSTREAM_INDEX, upstream->phyindex))
--			return -EMSGSIZE;
--
--		if (pdn->parent_sfp_bus) {
--			sfp_upstream_name = sfp_get_name(pdn->parent_sfp_bus);
--			if (sfp_upstream_name &&
--			    nla_put_string(skb, ETHTOOL_A_PHY_UPSTREAM_SFP_NAME,
--					   sfp_upstream_name))
--				return -EMSGSIZE;
--		}
--	}
--
--	if (phydev->sfp_bus) {
--		const char *sfp_name = sfp_get_name(phydev->sfp_bus);
--
--		if (sfp_name &&
--		    nla_put_string(skb, ETHTOOL_A_PHY_DOWNSTREAM_SFP_NAME,
--				   sfp_name))
--			return -EMSGSIZE;
-+		rep_data->upstream_index = upstream->phyindex;
- 	}
- 
--	return 0;
--}
--
--static int ethnl_phy_parse_request(struct ethnl_req_info *req_base,
--				   struct nlattr **tb,
--				   struct netlink_ext_ack *extack)
--{
--	struct phy_link_topology *topo = req_base->dev->link_topo;
--	struct phy_req_info *req_info = PHY_REQINFO(req_base);
--	struct phy_device *phydev;
-+	if (pdn->parent_sfp_bus)
-+		rep_data->upstream_sfp_name = kstrdup(sfp_get_name(pdn->parent_sfp_bus),
-+						      GFP_KERNEL);
- 
--	phydev = ethnl_req_get_phydev(req_base, tb, ETHTOOL_A_PHY_HEADER,
--				      extack);
--	if (!phydev)
--		return 0;
--
--	if (IS_ERR(phydev))
--		return PTR_ERR(phydev);
--
--	if (!topo)
--		return 0;
--
--	req_info->pdn = xa_load(&topo->phys, phydev->phyindex);
-+	if (phydev->sfp_bus)
-+		rep_data->downstream_sfp_name = kstrdup(sfp_get_name(phydev->sfp_bus),
-+							GFP_KERNEL);
- 
- 	return 0;
- }
- 
--int ethnl_phy_doit(struct sk_buff *skb, struct genl_info *info)
-+static int phy_fill_reply(struct sk_buff *skb,
-+			  const struct ethnl_req_info *req_info,
-+			  const struct ethnl_reply_data *reply_data)
- {
--	struct phy_req_info req_info = {};
--	struct nlattr **tb = info->attrs;
--	struct sk_buff *rskb;
--	void *reply_payload;
--	int reply_len;
--	int ret;
--
--	ret = ethnl_parse_header_dev_get(&req_info.base,
--					 tb[ETHTOOL_A_PHY_HEADER],
--					 genl_info_net(info), info->extack,
--					 true);
--	if (ret < 0)
--		return ret;
--
--	rtnl_lock();
--	netdev_lock_ops(req_info.base.dev);
--
--	ret = ethnl_phy_parse_request(&req_info.base, tb, info->extack);
--	if (ret < 0)
--		goto err_unlock;
--
--	/* No PHY, return early */
--	if (!req_info.pdn)
--		goto err_unlock;
--
--	ret = ethnl_phy_reply_size(&req_info.base, info->extack);
--	if (ret < 0)
--		goto err_unlock;
--	reply_len = ret + ethnl_reply_header_size();
--
--	rskb = ethnl_reply_init(reply_len, req_info.base.dev,
--				ETHTOOL_MSG_PHY_GET_REPLY,
--				ETHTOOL_A_PHY_HEADER,
--				info, &reply_payload);
--	if (!rskb) {
--		ret = -ENOMEM;
--		goto err_unlock;
--	}
--
--	ret = ethnl_phy_fill_reply(&req_info.base, rskb);
--	if (ret)
--		goto err_free_msg;
-+	struct phy_reply_data *rep_data = PHY_REPDATA(reply_data);
- 
--	netdev_unlock_ops(req_info.base.dev);
--	rtnl_unlock();
--	ethnl_parse_header_dev_put(&req_info.base);
--	genlmsg_end(rskb, reply_payload);
--
--	return genlmsg_reply(rskb, info);
--
--err_free_msg:
--	nlmsg_free(rskb);
--err_unlock:
--	netdev_unlock_ops(req_info.base.dev);
--	rtnl_unlock();
--	ethnl_parse_header_dev_put(&req_info.base);
--	return ret;
--}
--
--struct ethnl_phy_dump_ctx {
--	struct phy_req_info	*phy_req_info;
--	unsigned long ifindex;
--	unsigned long phy_index;
--};
--
--int ethnl_phy_start(struct netlink_callback *cb)
--{
--	const struct genl_info *info = genl_info_dump(cb);
--	struct ethnl_phy_dump_ctx *ctx = (void *)cb->ctx;
--	int ret;
--
--	BUILD_BUG_ON(sizeof(*ctx) > sizeof(cb->ctx));
--
--	ctx->phy_req_info = kzalloc(sizeof(*ctx->phy_req_info), GFP_KERNEL);
--	if (!ctx->phy_req_info)
--		return -ENOMEM;
--
--	ret = ethnl_parse_header_dev_get(&ctx->phy_req_info->base,
--					 info->attrs[ETHTOOL_A_PHY_HEADER],
--					 sock_net(cb->skb->sk), cb->extack,
--					 false);
--	ctx->ifindex = 0;
--	ctx->phy_index = 0;
--
--	if (ret)
--		kfree(ctx->phy_req_info);
-+	if (nla_put_u32(skb, ETHTOOL_A_PHY_INDEX, rep_data->phyindex) ||
-+	    nla_put_string(skb, ETHTOOL_A_PHY_NAME, rep_data->name) ||
-+	    nla_put_u32(skb, ETHTOOL_A_PHY_UPSTREAM_TYPE, rep_data->upstream_type))
-+		return -EMSGSIZE;
- 
--	return ret;
--}
-+	if (rep_data->drvname &&
-+	    nla_put_string(skb, ETHTOOL_A_PHY_DRVNAME, rep_data->drvname))
-+		return -EMSGSIZE;
- 
--int ethnl_phy_done(struct netlink_callback *cb)
--{
--	struct ethnl_phy_dump_ctx *ctx = (void *)cb->ctx;
-+	if (rep_data->upstream_index &&
-+	    nla_put_u32(skb, ETHTOOL_A_PHY_UPSTREAM_INDEX,
-+			rep_data->upstream_index))
-+		return -EMSGSIZE;
- 
--	if (ctx->phy_req_info->base.dev)
--		ethnl_parse_header_dev_put(&ctx->phy_req_info->base);
-+	if (rep_data->upstream_sfp_name &&
-+	    nla_put_string(skb, ETHTOOL_A_PHY_UPSTREAM_SFP_NAME,
-+			   rep_data->upstream_sfp_name))
-+		return -EMSGSIZE;
- 
--	kfree(ctx->phy_req_info);
-+	if (rep_data->downstream_sfp_name &&
-+	    nla_put_string(skb, ETHTOOL_A_PHY_DOWNSTREAM_SFP_NAME,
-+			   rep_data->downstream_sfp_name))
-+		return -EMSGSIZE;
- 
- 	return 0;
- }
- 
--static int ethnl_phy_dump_one_dev(struct sk_buff *skb, struct net_device *dev,
--				  struct netlink_callback *cb)
-+static void phy_cleanup_data(struct ethnl_reply_data *reply_data)
- {
--	struct ethnl_phy_dump_ctx *ctx = (void *)cb->ctx;
--	struct phy_req_info *pri = ctx->phy_req_info;
--	struct phy_device_node *pdn;
--	int ret = 0;
--	void *ehdr;
--
--	if (!dev->link_topo)
--		return 0;
--
--	xa_for_each_start(&dev->link_topo->phys, ctx->phy_index, pdn, ctx->phy_index) {
--		ehdr = ethnl_dump_put(skb, cb, ETHTOOL_MSG_PHY_GET_REPLY);
--		if (!ehdr) {
--			ret = -EMSGSIZE;
--			break;
--		}
--
--		ret = ethnl_fill_reply_header(skb, dev, ETHTOOL_A_PHY_HEADER);
--		if (ret < 0) {
--			genlmsg_cancel(skb, ehdr);
--			break;
--		}
--
--		pri->pdn = pdn;
--		ret = ethnl_phy_fill_reply(&pri->base, skb);
--		if (ret < 0) {
--			genlmsg_cancel(skb, ehdr);
--			break;
--		}
--
--		genlmsg_end(skb, ehdr);
--	}
-+	struct phy_reply_data *rep_data = PHY_REPDATA(reply_data);
- 
--	return ret;
-+	kfree(rep_data->drvname);
-+	kfree(rep_data->name);
-+	kfree(rep_data->upstream_sfp_name);
-+	kfree(rep_data->downstream_sfp_name);
- }
- 
--int ethnl_phy_dumpit(struct sk_buff *skb, struct netlink_callback *cb)
--{
--	struct ethnl_phy_dump_ctx *ctx = (void *)cb->ctx;
--	struct net *net = sock_net(skb->sk);
--	struct net_device *dev;
--	int ret = 0;
--
--	rtnl_lock();
--
--	if (ctx->phy_req_info->base.dev) {
--		dev = ctx->phy_req_info->base.dev;
--		netdev_lock_ops(dev);
--		ret = ethnl_phy_dump_one_dev(skb, dev, cb);
--		netdev_unlock_ops(dev);
--	} else {
--		for_each_netdev_dump(net, dev, ctx->ifindex) {
--			netdev_lock_ops(dev);
--			ret = ethnl_phy_dump_one_dev(skb, dev, cb);
--			netdev_unlock_ops(dev);
--			if (ret)
--				break;
--
--			ctx->phy_index = 0;
--		}
--	}
--	rtnl_unlock();
--
--	return ret;
--}
-+const struct ethnl_request_ops ethnl_phy_request_ops = {
-+	.request_cmd		= ETHTOOL_MSG_PHY_GET,
-+	.reply_cmd		= ETHTOOL_MSG_PHY_GET_REPLY,
-+	.hdr_attr		= ETHTOOL_A_PHY_HEADER,
-+	.req_info_size		= sizeof(struct phy_req_info),
-+	.reply_data_size	= sizeof(struct phy_reply_data),
++/*
++ * For coarse grained waits, allow overshoot by the event-stream period.
++ * Defined without reference to ARCH_TIMER_EVT_STREAM_PERIOD_US to avoid
++ * include hell.
++ */
++#define	SMP_TIMEWAIT_SLACK_COARSE_US	__ARCH_TIMER_EVT_STREAM_PERIOD_US
 +
-+	.prepare_data		= phy_prepare_data,
-+	.reply_size		= phy_reply_size,
-+	.fill_reply		= phy_fill_reply,
-+	.cleanup_data		= phy_cleanup_data,
-+};
++#define SMP_TIMEWAIT_SPIN_BASE		16
++#define SMP_TIMEWAIT_CHECK_US		2UL
++
++static inline u64 ___cond_timewait(u64 now, u64 prev, u64 end,
++				      u32 *spin, bool *wait, u64 slack)
++{
++	bool wfet = alternative_has_cap_unlikely(ARM64_HAS_WFXT);
++	bool wfe, ev = arch_timer_evtstrm_available();
++	u64 evt_period = __ARCH_TIMER_EVT_STREAM_PERIOD_US;
++	u64 remaining = end - now;
++
++	if (now >= end)
++		return 0;
++
++	/*
++	 * Use WFE if there's enough slack to get an event-stream wakeup even
++	 * if we don't come out of the WFE due to natural causes.
++	 */
++	wfe = ev && ((remaining + slack) > evt_period);
++
++	if (wfe || wfet) {
++		*wait = true;
++		*spin = 0;
++		return now;
++	}
++
++	/*
++	 * Our wait period is shorter than our best granularity. Spin.
++	 *
++	 * A time-check is expensive but not too expensive. Scale the
++	 * spin-count so we stay close to the fine-grained slack period.
++	 */
++	*wait = false;
++	if ((now - prev) < SMP_TIMEWAIT_CHECK_US)
++		*spin <<= 1;
++	else
++		*spin = max((*spin >> 1) + (*spin >> 2), SMP_TIMEWAIT_SPIN_BASE);
++	return now;
++}
++
++/*
++ * Coarse wait_policy: minimizes the duration spent spinning at the cost of
++ * potentially spending the available slack in a WFE wait state.
++ *
++ * The resultant worst case timeout delay is SMP_TIMEWAIT_SLACK_COARSE_US
++ * (same as ARCH_TIMER_EVT_STREAM_PERIOD_US) and a spin period of no more
++ * than SMP_TIMEWAIT_CHECK_US.
++ */
++#define __smp_cond_timewait_coarse(now, prev, end, spin, wait)		\
++	___cond_timewait(now, prev, end, spin, wait,			\
++			    SMP_TIMEWAIT_SLACK_COARSE_US)
++
+ #include <asm-generic/barrier.h>
+ 
+ #endif	/* __ASSEMBLY__ */
 -- 
-2.49.0
+2.43.5
 
 
