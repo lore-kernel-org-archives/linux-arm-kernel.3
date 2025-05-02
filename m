@@ -4,102 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47C36C3ABA3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 12:52:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 381BAC3ABA3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 13:13:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VyZ+eLudmHh2VnqIodF574m3pdc+SuHZ5uWsOFJLCKI=; b=efLXpC7Syex2CVSCHukMlMcaK0
-	M/3FA7vpAlaOrVQjGf2D8uKpwQHJpKHQcsshcQ2sKWBXkD28BhkcatyPcJx7G+ej+2I6jXCT1dsN2
-	Bfx0Ol5l4xt94JYzfxHXPiQu8Kd/4FWd5htarCKwGWTuqNIM6cRbbzRE5RUnur8+Y8NtU9vdNWHhq
-	UOyUfboNlOFQyu+a3bqnaEdCBM3HyvxsmGktAyXmgays1hlAQ96p9VnIFR4cVsvEdeZeBlDg6ADgH
-	jOHs+he5p/+r4lfu+0pMWTVd1ydhtj/erN4kYSYyzQVJ8GlDogGb0lbHnNXzewvvjpUB1mkp1xs8A
-	MLjMgn2Q==;
+	bh=urhCQsQe8eTfkJp1UT0pMIiPPoJG2XRADwwlaxMzk0U=; b=oPgmptHPfpMfI/XCYB8cIAgCSY
+	zvzrRhLnHIKp8Zgm9IyDL+qCMR4/EgWhRkKTFmV/tE/WGuwHqZHGSpR9M9FMOSriIQQ1q0Mx6Wutm
+	GnTJFWhgBxbzaKn/mSbl88qqqGznLkz/G6Zkggrx0eo7BLJ26DnnCAQ6X+7DznD93civvXCym5Gw5
+	bof5JqVJofFjYYtXozB0EDenkfegfZgHZsJKWhqwuys/8RhSVklX40rvnlMp0DiCG14fxKcCD9d5F
+	hrcFUeDJmldMniZ/3nwafIuOm4hju3QACovDdumdfjQBqgePURTDxbIUbpUidCG/cBp0WwqgN+Pr9
+	DPk4+e8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uApsW-00000001yBZ-18in;
-	Fri, 02 May 2025 12:52:32 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uApnJ-00000001xXW-2NDu
+	id 1uAqCu-000000020hH-0Yh1;
+	Fri, 02 May 2025 13:13:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uAqAw-000000020H9-1VF5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 12:47:11 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-39ee623fe64so1919137f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 May 2025 05:47:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746190028; x=1746794828; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VyZ+eLudmHh2VnqIodF574m3pdc+SuHZ5uWsOFJLCKI=;
-        b=RghYOUqv2STivwDC9VGM6qME7oQQMXbUXHUXPtGFT1i9ZubZfERceBG7/Ju/cFae6A
-         SRiRUr68LyB6n1j6FumoJxNM93xS9DJwQ6oXNhn7KT8/mEDTRct7jLNjOgTKutZWRPq1
-         d/OOhVOdPAIi8dj4PXk+Ze2t4es03DEmohYFtnedpbCxsGahsk9rsfTh8hMUIZOFfC59
-         UBmK8k/tThntRGBLEEXVXwSfZcDD8RxQilbOXV8Sh4OhKBgiJM+DX5lV6WyAFH98XyZo
-         t7VDS1Eu8tiq7EesX0z9BEtdvz5N7cInrUdJiQdh6uoDpo/wMokg2LlDvZ6kLL7A8r0h
-         wStg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746190028; x=1746794828;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=VyZ+eLudmHh2VnqIodF574m3pdc+SuHZ5uWsOFJLCKI=;
-        b=dTcy9N/rC+BhQDcIXsT0FagqX4SVAh+AuFA9I4zKCq9OJTzQ5mALDsyVedfNLKbXz+
-         s3PsXZsrv7BpS7dNQxNoFk5UHZ0wBO8nUKJBrllnvBlAf7QVorB7sXcu3nt/jhP8aq1i
-         LLMdtV1gKH5QV4DGUpFoosflEpLXpn53iOhMacIQJkWnEkqi4swVcnnWsNmpRJUpmJXI
-         DGtVcvPQRi8i6Nyw2YRLf5RgJBiHCYAPU/WwkcCQIgQ+JNyJI/IgESBhuLHNot8FZAHv
-         IegTIswJHpfm1djbr4Xlc/iAsLWHsXcaFczEUwxoJRuqQdbT8r3O9lD1DbxvqzOPBcDE
-         efgg==
-X-Forwarded-Encrypted: i=1; AJvYcCWJG0S2WxxJfGEFsEQfGOMtjZZ1P3RDzCvNo0Vr/vWPN7hunJ/NJ/1Mhycep8wbNQ76ArY83JAubPmahIsiIkXB@lists.infradead.org
-X-Gm-Message-State: AOJu0YwCRSXlVeq8I1VVWW5TVkpLuUT868vmyjJXYaGubHdTPg1wDSKt
-	2mluXNympUm41bNwTIKfX1IGvg0ML9WMtt20UMXAk77U06vndVQy
-X-Gm-Gg: ASbGncuKl87o3yo4kw4YcCHFmi7UvFWgqNE1qWkPiuHwBRc55Ra3h9Gp2b19ojj6x1V
-	gJ7NqQ6TwNmxNw+B0J8aZBU55AdFfXPzBRvq3+6M6jk4SMJ9W3t5IO5RMJRfa2aYQS7BXlJRYZH
-	MXXRnsQs+BE9pDGYATVbOxu+wTFqQ9dl9J5KZtK2CsiIMsDtgS1sd6C2SaTcPFFHp82n7mtvOMR
-	h4nbdhKhEB5IiLGd1IBtxyNBFafIIQ8lWcFU1v8+Xx6WiuC/Oksg0idDJY+/vzcxrQbhPY+ZGJJ
-	lBwdU1OlnzaXmhNHD8adqTorC9Do2sp46dWc95EMvI8spZ2iPSPmdvG26BqRaNKy
-X-Google-Smtp-Source: AGHT+IF6Cpj3okvDc4iC/5uUndp+JjODJdaRzI6e7QeAzCIjmBfAW7UuXi1BOJlw8WNGiV0/o+enjQ==
-X-Received: by 2002:a5d:64e6:0:b0:390:e62e:f31f with SMTP id ffacd0b85a97d-3a099ad2f9cmr2204754f8f.3.1746190027748;
-        Fri, 02 May 2025 05:47:07 -0700 (PDT)
-Received: from iku.Home ([2a06:5906:61b:2d00:10cf:e432:b2b:bf99])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a099b0f16fsm2059134f8f.77.2025.05.02.05.47.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 May 2025 05:47:06 -0700 (PDT)
-From: Prabhakar <prabhakar.csengg@gmail.com>
-X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-To: Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Chris Brandt <chris.brandt@renesas.com>
-Cc: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	Prabhakar <prabhakar.csengg@gmail.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Subject: [PATCH v2 2/2] clocksource/drivers/renesas-ostm: Enable reprobe for all ARM64 SoCs
-Date: Fri,  2 May 2025 13:46:27 +0100
-Message-ID: <20250502124627.69644-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250502124627.69644-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20250502124627.69644-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+	Fri, 02 May 2025 13:11:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 013131688;
+	Fri,  2 May 2025 06:11:22 -0700 (PDT)
+Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2A5333F66E;
+	Fri,  2 May 2025 06:11:25 -0700 (PDT)
+Message-ID: <43e85d6a-ef99-4d61-910e-1d62814fd9ed@arm.com>
+Date: Fri, 2 May 2025 14:11:02 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 10/14] dma-contiguous: export
+ dma_contiguous_default_area
+To: Jens Wiklander <jens.wiklander@linaro.org>, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linaro-mm-sig@lists.linaro.org, op-tee@lists.trustedfirmware.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: Olivier Masse <olivier.masse@nxp.com>,
+ Thierry Reding <thierry.reding@gmail.com>, Yong Wu <yong.wu@mediatek.com>,
+ Sumit Semwal <sumit.semwal@linaro.org>,
+ Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+ Brian Starkey <Brian.Starkey@arm.com>, John Stultz <jstultz@google.com>,
+ "T . J . Mercier" <tjmercier@google.com>,
+ =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
+ Sumit Garg <sumit.garg@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ azarrabi@qti.qualcomm.com, Simona Vetter <simona.vetter@ffwll.ch>,
+ Daniel Stone <daniel@fooishbar.org>,
+ Rouven Czerwinski <rouven.czerwinski@linaro.org>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, iommu@lists.linux.dev
+References: <20250502100049.1746335-1-jens.wiklander@linaro.org>
+ <20250502100049.1746335-11-jens.wiklander@linaro.org>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20250502100049.1746335-11-jens.wiklander@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_054710_530180_1D85E3E5 
-X-CRM114-Status: GOOD (  15.92  )
+X-CRM114-CacheID: sfid-20250502_061134_537139_1A0FF7AB 
+X-CRM114-Status: GOOD (  11.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,49 +81,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+On 02/05/2025 10:59 am, Jens Wiklander wrote:
+> Export the global variable dma_contiguous_default_area so
+> dev_get_cma_area() can be called a module.
 
-Change the OSTM driver's probe condition to `CONFIG_ARM64` so that the
-platform driver will defer and reprobe on any ARM64 Renesas SoC once its
-reset controller is available. Previously, only RZ/G2L and RZ/V2H(P)
-were covered.
+What dma_map_ops implementation is in a module? Without any other 
+context, I can't help thinking this smells of something sketchy.
 
-By matching on `CONFIG_ARM64`, this avoids adding a new config entry
-for each future ARM64 Renesas SoC with OSTM IP. RZ/A1 and RZ/A2 (ARM32)
-are unaffected-they still use OSTM but do not define a resets property,
-so the deferred reprobe mechanism is unnecessary.
+Thanks,
+Robin.
 
-Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
----
-Hi Geert,
-I've restored the Reviewed-by tag from v1 with your suggestions applied.
-I hope you're okay with this.
-Cheers, Prabhakar
- 
-v1->v2:
-- Instead of adding config for new SoC, changed the probe condition to
-  `CONFIG_ARM64`.
-- Updated commit message
-- Added a Reviewed-by tag from Geert.
----
- drivers/clocksource/renesas-ostm.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/clocksource/renesas-ostm.c b/drivers/clocksource/renesas-ostm.c
-index 3fcbd02b2483..6a5785f9c9c1 100644
---- a/drivers/clocksource/renesas-ostm.c
-+++ b/drivers/clocksource/renesas-ostm.c
-@@ -225,7 +225,7 @@ static int __init ostm_init(struct device_node *np)
- 
- TIMER_OF_DECLARE(ostm, "renesas,ostm", ostm_init);
- 
--#if defined(CONFIG_ARCH_RZG2L) || defined(CONFIG_ARCH_R9A09G057)
-+#if defined(CONFIG_ARM64)
- static int __init ostm_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
--- 
-2.49.0
-
+> Cc: Marek Szyprowski <m.szyprowski@samsung.com>
+> Cc: Robin Murphy <robin.murphy@arm.com>
+> Cc: iommu@lists.linux.dev
+> Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
+> ---
+>   kernel/dma/contiguous.c | 1 +
+>   1 file changed, 1 insertion(+)
+> 
+> diff --git a/kernel/dma/contiguous.c b/kernel/dma/contiguous.c
+> index 8df0dfaaca18..eb361794a9c5 100644
+> --- a/kernel/dma/contiguous.c
+> +++ b/kernel/dma/contiguous.c
+> @@ -53,6 +53,7 @@
+>   #endif
+>   
+>   struct cma *dma_contiguous_default_area;
+> +EXPORT_SYMBOL(dma_contiguous_default_area);
+>   
+>   /*
+>    * Default global CMA area size can be defined in kernel's .config.
 
