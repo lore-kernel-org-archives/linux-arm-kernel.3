@@ -4,150 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D601C3ABA9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 07:11:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CB71C3ABA9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 07:17:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A941FMKc4jIlmPhxDi9BbEnL+m+baDA1tUuTO7z7qvY=; b=0+eK39czqwy9+v5yZyuIiXdlaA
-	w+OSeFd5XtM8tQw6kR5iWZaoWod+PIWArkUtgJb5dJI8dmSAXcoXXguZbkix/Xi42ml0idykKzRAt
-	a4D6Ntunjsd30fOMhQCdIr8CEFdrrznqy1DXTo1+QaHnIH67SA596LAg7ryvSgtpiZz9G34g+6yPn
-	KjlwVba+/9GEd1gPni1g512VtJQk57MUYIs216gv+2rsqeqzqJXmvz+V3djaqYQzd6eW7arn/b6CN
-	tRax3QRYppI+H7XlRkYJRocWz8hyL6wYKnF3Ra34rGaorhCveo23sx0sh8UmStcl+WXawRu2F+cYy
-	XtLCNrKw==;
+	bh=UfSbHWDyusSaFZKr0dcTk0xSKATYzU4MTiJnOrUwtHY=; b=fxZXBpTTvH0yVSM94MwapQyeWi
+	mH03zMDUMDpDWBTzPduWPz01RqxaBBHKtvNqNKdxFdzeoM2/DIzyRgvZFfW4U5Fj0SMwRQmZTPwvb
+	Ah5dXRK1U5x8hmIVkWCtaPxIgx3ZtocWhaklDNG0sWJgMRgQdpjDC6mjGnAyeXXDnbrmwt+1ynwJD
+	cwkhi3Zi1zn5VIXv63LuVrPQvTp6UeeE3yQHkfc+DYaIe3NBZJai9j0Ivl1yfc7y8gweaFXjR+J25
+	au3hKK08hVPYYP9TUI1KjmvrkZ6gQbh5fkysTcjiAtZGyuLDzoVjplc89zP6ifq/k129TdO3tht84
+	7+/mq+GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAkYN-000000014H2-07UV;
-	Fri, 02 May 2025 07:11:23 +0000
-Received: from mail-mw2nam04on20609.outbound.protection.outlook.com ([2a01:111:f403:240a::609] helo=NAM04-MW2-obe.outbound.protection.outlook.com)
+	id 1uAkdi-000000014oG-07c4;
+	Fri, 02 May 2025 07:16:54 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAkWP-00000001450-3oqW
+	id 1uAkbk-000000014aM-39DQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 07:09:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NE9yD39kiSaftm4tSpe75Ns78q53sF5q+ixHezLiIbVvZ0I/2Re8FFgnZ3IMelgonPS0YxDtc7PdAn3hKTwdeRandl9TBCt7zux2Hmx49fG7MPkHeYJ6GXnYvp7aUh9rHgGLMvWUT3nkKD2qZ+aku6v1Z7yBbrMi0TBtDNJ2v19pGEVCjTZVTWZOJ6Q2VxSHTmqUPjlcscv4aTvQYbZhBbKz9T2iKj3daNFdjfJE5g8WyqSvwWsfa5cOvm8qh9C/1IE2ZaVgZXLiBJunxaWghqj3ngq2U8t7jG+5FAtpLKxl9jZRXV4srBYI+byNYq9ac55x58G5j6qMmVvFM8Wspw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=A941FMKc4jIlmPhxDi9BbEnL+m+baDA1tUuTO7z7qvY=;
- b=NVORBwypvrutGFZ9XU2+Mxo+4zA2Z6c8lIqAqCdYe+buIQ3wiKyLzarXnmxvjUrJsdjWlwzqAkjLfdtAjwAuBzLk+I3rZKFaHvSxzMVgNXc4ASxoUxXmvvgUQlJezGSaJiRO8hXzqMsXsZbEsUKp01FpmZNkbd4EC8WQTV3eRCI4+YoV+aeqZW2gOczSCWsEPivpd7dUHFj+MqHI2nrUDneiFnSYd5p9S+Jxm4NEYxqYE6ADMjsjXus19lMBR2XztDSdP85p9aKjv+kj4k24VgyZ0sGdOuzezJUp8ESLYkszc80Gewl43J8S3RADPfi1xGNUdhZH2oDHPTE115F9Kw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=infradead.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=A941FMKc4jIlmPhxDi9BbEnL+m+baDA1tUuTO7z7qvY=;
- b=Ntb7cd0UNRq1Zm+ftQapESfG4z7SS2jmwEEw3mPw4yCQkylmphFtPZFBLAjpovywkK2kPe5XBYr7VV2w8yWK6AmHTPpdJgsp8scUnI2z+ePAUIzRfRKeW1PORMiHtJZhOBQ9b5yCyujxuQFEi4JOxmZdtCHmRk/0UiU+eLVXXOU=
-Received: from BYAPR01CA0021.prod.exchangelabs.com (2603:10b6:a02:80::34) by
- CYYPR12MB8869.namprd12.prod.outlook.com (2603:10b6:930:bf::8) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8699.19; Fri, 2 May 2025 07:09:13 +0000
-Received: from SJ1PEPF000023DA.namprd21.prod.outlook.com
- (2603:10b6:a02:80:cafe::44) by BYAPR01CA0021.outlook.office365.com
- (2603:10b6:a02:80::34) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.42 via Frontend Transport; Fri,
- 2 May 2025 07:09:24 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
-Received: from SATLEXMB04.amd.com (165.204.84.17) by
- SJ1PEPF000023DA.mail.protection.outlook.com (10.167.244.75) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8722.2 via Frontend Transport; Fri, 2 May 2025 07:09:12 +0000
-Received: from [10.252.195.191] (10.180.168.240) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 2 May
- 2025 02:09:05 -0500
-Message-ID: <52515bfa-4520-4eb3-80c9-eb1ee0e64ba8@amd.com>
-Date: Fri, 2 May 2025 12:38:43 +0530
+	Fri, 02 May 2025 07:14:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5CB1B5C53E1;
+	Fri,  2 May 2025 07:12:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FBAEC4CEE4;
+	Fri,  2 May 2025 07:14:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746170091;
+	bh=WZMcB7IZq0pU+GD0KzLwmI2O89KEodLSHYG0SH/X1LM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=j/semb5nvJ6TikEwk5ZY1owF/dZjIMrvygoezgB9u7bzZXekMwUoqoggKKOQgI/bu
+	 DUVl5qePcZlEicoD9cB/dvNIjdCqyLVRemKoT1aBQcJNnUa4LoiQ2PXvJdkWWJU2zm
+	 Pg5oL1EcR3IxkOBLXYcKNwA5kWjRByIrtZvc2R9XQBHHm5B+YO/IGncBcHQpGH0Mta
+	 Ezz05Us9N3jjNpxOOS+WnNh/Xsd1K6Fft+DCCZpMQ5WZcfu053MYlSV0hUjjtL3ZMw
+	 ZoAgIduZ/aHhadHxsl20vpetMgE9EpymkQBLwHBQEyj3lw35ZN4jfNdAxNU84E0z1T
+	 92/L2POJBmvgg==
+Message-ID: <074a9a19-9050-44dd-a0bf-536ae8318da2@kernel.org>
+Date: Fri, 2 May 2025 09:14:43 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: EEVDF regression still exists
-To: Peter Zijlstra <peterz@infradead.org>, Cristian Prundeanu
-	<cpru@amazon.com>
-CC: K Prateek Nayak <kprateek.nayak@amd.com>, Hazem Mohamed Abuelfotoh
-	<abuehaze@amazon.com>, Ali Saidi <alisaidi@amazon.com>, "Benjamin
- Herrenschmidt" <benh@kernel.crashing.org>, Geoff Blake <blakgeof@amazon.com>,
-	Csaba Csoma <csabac@amazon.com>, Bjoern Doebel <doebel@amazon.com>, "Gautham
- Shenoy" <gautham.shenoy@amd.com>, Joseph Salisbury
-	<joseph.salisbury@oracle.com>, Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Ingo Molnar <mingo@redhat.com>, Linus Torvalds
-	<torvalds@linux-foundation.org>, Borislav Petkov <bp@alien8.de>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-tip-commits@vger.kernel.org>, <x86@kernel.org>
-References: <20250429213817.65651-1-cpru@amazon.com>
- <20250430100259.GK4439@noisy.programming.kicks-ass.net>
+Subject: Re: [PATCH net 4/4] net: ti: icssg-prueth: Fix kernel panic during
+ concurrent Tx queue access
+To: Meghana Malladi <m-malladi@ti.com>, dan.carpenter@linaro.org,
+ john.fastabend@gmail.com, daniel@iogearbox.net, ast@kernel.org,
+ pabeni@redhat.com, kuba@kernel.org, edumazet@google.com,
+ davem@davemloft.net, andrew+netdev@lunn.ch
+Cc: bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, srk@ti.com,
+ Vignesh Raghavendra <vigneshr@ti.com>, Roger Quadros <rogerq@kernel.org>,
+ danishanwar@ti.com
+References: <20250428120459.244525-1-m-malladi@ti.com>
+ <20250428120459.244525-5-m-malladi@ti.com>
 Content-Language: en-US
-From: "Sapkal, Swapnil" <swapnil.sapkal@amd.com>
-In-Reply-To: <20250430100259.GK4439@noisy.programming.kicks-ass.net>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+From: Jesper Dangaard Brouer <hawk@kernel.org>
+In-Reply-To: <20250428120459.244525-5-m-malladi@ti.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.180.168.240]
-X-ClientProxiedBy: SATLEXMB04.amd.com (10.181.40.145) To SATLEXMB04.amd.com
- (10.181.40.145)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF000023DA:EE_|CYYPR12MB8869:EE_
-X-MS-Office365-Filtering-Correlation-Id: 79ec678d-f6f3-4a51-69b5-08dd89483e39
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|82310400026|36860700013|7416014|13003099007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?VS8zSkdGdDVlbmxoWkVLSGdyNjRtZ3IxWWd5bEVobjhoZ1NKNUVKNHYyNmdC?=
- =?utf-8?B?OEpicm5wdVJEaUJod3BuWjNwcFJkNklFczJDSzNoeTExcXpyK2FVSWF0MGJu?=
- =?utf-8?B?MlF5a2NFUTBmTkcxSWR4MEZOVDBTOU1NdUVRMThwdlA2bHIyRjNwOE1BV2ZR?=
- =?utf-8?B?emJUaUNsWlY1T3luRk5DTW8wSFlJSWw4MHdveDU5QnJmU0xJMlk0SXJ2Q0hM?=
- =?utf-8?B?MmovNHZXS3dNK2FPQ3RVZERFdWxXek9xOFA5OWo1T1VaciswRFcrRHhMK25W?=
- =?utf-8?B?TXI4YmVKbzU0REJaMC82RCtYOWFrTGdTR2gwVzhGUzY5UDZLWkNDbDRsa3NV?=
- =?utf-8?B?VnZTWHpEdTA4RldEZit6RlMzajJBdFRmMzJiQlBSYUZMbml5ZWlPcGdUR1FZ?=
- =?utf-8?B?dS91aU00c0FCOFVXaEM5d0RNaDE5YTBIU0kyRk1yMDR3dTJFNGxZZmVVdjFp?=
- =?utf-8?B?bWpENTdkMlhpbFZwR0FOaVozT0FVWVR6a0tnZzJFTlN4eXltYlNFVGdCTnhX?=
- =?utf-8?B?d0NveFcyRVVTTU1NS1NJUkVYSEFEVWovZG9odHBZMlo1anZWWDhiZXZ0aW1X?=
- =?utf-8?B?TzZXUmlKMkFzbnVZdGgyeWNrMzhKR2JBWG5LVjVady8yVzkzUnhsKzZtTjJB?=
- =?utf-8?B?UmdGZmlIZzgwUHRISGdDRW10Q1dHQktXUithVURvaDdxMGZWckxPSm9BUit5?=
- =?utf-8?B?Q2k5cVc4YkhSS3hBU1hTQTF4bTRjSHg5ZStQWFhiV09BS3hDQVhmRldtODlF?=
- =?utf-8?B?VjZsSzZmM2pqU1R6cWVVWnFoTkhDWiszNEl0M0lWSGtTS0ZFWVR1bEYvS0V5?=
- =?utf-8?B?cUFnTVZtSkVneE1TaTIxbWFkdmZyTmc0bk1ZQjg4MmpkRTNrMlYvZUo5OWZR?=
- =?utf-8?B?Z3BQaGFleFBTKzZiK0VXYXQzY3hucDc4NFZzdmpFQVFGaE5EVkM0OFdKWkFF?=
- =?utf-8?B?TUxkb3p5UitLMWw0MjFMSlJyWitzQkszUThjZ3NGeEtuWkVRMTVYcGFCTks1?=
- =?utf-8?B?cWk4UGhEM1QyM21iend0L2RmVkpPc1NkNEhhbU9YMklYNHNNL1czQUpqOWJI?=
- =?utf-8?B?V0NZVmpCSEhLSDZzQkxiU1VEUG5WanhRUFp4Ukk5VjlOdDY3ajNNVFc5RjFP?=
- =?utf-8?B?OGtIR1RIQ2xwZm1GejNHbk0zVE5yc013MlZBTUZxMGRDM0lWZmhnQ2pvNGt6?=
- =?utf-8?B?ekY3b2dTaWJGTGRGSytwYnJ1WWY3cHFUUUVFRW1GTGQvcnBubldQalUreWpV?=
- =?utf-8?B?RnpTTENxai9zbkxsWVJEU2N3eURMMHliM1BuUU5EbGtad21JcUljN0RTbjJj?=
- =?utf-8?B?c1ZzSENCRWlMSG5SaVJoU3hVMk5ITFhvOTJtek00WFd1Qzd1VGJPYXlQOW40?=
- =?utf-8?B?bzYyK3dlUnpmL3VPejhDTDZmaENNSUd4QWhQVERBdkhlaUhGbHhMak9XdnN2?=
- =?utf-8?B?Kzk5cWNiWXJwNHpvWms2L0JRaHhjNTRIM0hGZGJyWGNEdXpwc3V0SXJ5SlFM?=
- =?utf-8?B?Mkk5ZlNkWkFVdG9BSjJXRktKN0RwZUxiWGNwQjJKS1dmcFZVeXBYa2RtYUZY?=
- =?utf-8?B?RjBLc3VTSjJyMnN2RGlaNXN6eUFzRmNxS3dZa2UrWFcySkdDNG8ydmxiUTM0?=
- =?utf-8?B?MG9SM2pTbFAyd0NhY2tnVmZLYStkY21CSHBSQk1oMmJkeW9jTk82Z1BoQ1or?=
- =?utf-8?B?enpYVlNlSFA1YWszNVVVUkVBQTd1a21BbjdaR2M5aVlHWVFwMFpEcDJxejVz?=
- =?utf-8?B?NC9Pb1lPOXk2alBtMFpPdG44NzRoc0lpR2dTM3N6MFBWVWk1ZTJlVk9wMUZH?=
- =?utf-8?B?Z09IYW9zYTR2SW9BcVVXVHkrTEM4ekd3cDg3V2l3S3VFRFQwTHI2U2hCd2Ni?=
- =?utf-8?B?SE5aS3ppQ0dJWkRQSjZIczFRblJ3bk5LU0pzM25qZzNQaEZDblpscUg1VDdJ?=
- =?utf-8?B?VUcwK3BTZ2N3eFJLTFNHeHBHa01xajNNS1BkVGUxZVhrMXdiRHJ3d2dvUEpE?=
- =?utf-8?B?RWh2N0Z0aUhTelp1NmpsYjg5LzRSZFRsSzBYZ01zblBhOGIrYklCbkMySlRq?=
- =?utf-8?Q?4Uvh/t?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(82310400026)(36860700013)(7416014)(13003099007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 May 2025 07:09:12.9571
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 79ec678d-f6f3-4a51-69b5-08dd89483e39
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023DA.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYYPR12MB8869
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_000921_942144_0EF99030 
-X-CRM114-Status: GOOD (  16.48  )
+X-CRM114-CacheID: sfid-20250502_001452_910057_738FD685 
+X-CRM114-Status: GOOD (  21.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,41 +80,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Peter,
 
-On 4/30/2025 3:32 PM, Peter Zijlstra wrote:
-> On Tue, Apr 29, 2025 at 04:38:17PM -0500, Cristian Prundeanu wrote:
-> 
->> [1] https://github.com/aws/repro-collection/blob/main/repros/repro-mysql-EEVDF-regression/results/20250428/README.md
-> 
-> That 'perf sched stats diff' output is completely broken -- probably
-> trying to diff two different schedstat versions isn't working.
-> 
 
-Yeah. Will add a check to bail out the diff command if schedstat versions
-are not identical.
+On 28/04/2025 14.04, Meghana Malladi wrote:
+> Add __netif_tx_lock() to ensure that only one packet is being
+> transmitted at a time to avoid race conditions in the netif_txq
+> struct and prevent packet data corruption. Failing to do so causes
+> kernel panic with the following error:
+> 
+> [ 2184.746764] ------------[ cut here ]------------
+> [ 2184.751412] kernel BUG at lib/dynamic_queue_limits.c:99!
+> [ 2184.756728] Internal error: Oops - BUG: 00000000f2000800 [#1] PREEMPT SMP
+> 
+> logs: https://gist.github.com/MeghanaMalladiTI/9c7aa5fc3b7fb03f87c74aad487956e9
+> 
+> The lock is acquired before calling emac_xmit_xdp_frame() and released after the
+> call returns. This ensures that the TX queue is protected from concurrent access
+> during the transmission of XDP frames.
+> 
+> Fixes: 62aa3246f462 ("net: ti: icssg-prueth: Add XDP support")
+> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
+> ---
+>   drivers/net/ethernet/ti/icssg/icssg_common.c | 7 ++++++-
+>   drivers/net/ethernet/ti/icssg/icssg_prueth.c | 7 ++++++-
+>   2 files changed, 12 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
+> index a120ff6fec8f..e509b6ff81e7 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_common.c
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
+> @@ -660,6 +660,8 @@ static u32 emac_run_xdp(struct prueth_emac *emac, struct xdp_buff *xdp,
+>   			struct page *page, u32 *len)
+>   {
+>   	struct net_device *ndev = emac->ndev;
+> +	struct netdev_queue *netif_txq;
+> +	int cpu = smp_processor_id();
+>   	struct bpf_prog *xdp_prog;
+>   	struct xdp_frame *xdpf;
+>   	u32 pkt_len = *len;
+> @@ -679,8 +681,11 @@ static u32 emac_run_xdp(struct prueth_emac *emac, struct xdp_buff *xdp,
+>   			goto drop;
+>   		}
+>   
+> -		q_idx = smp_processor_id() % emac->tx_ch_num;
+> +		q_idx = cpu % emac->tx_ch_num;
+> +		netif_txq = netdev_get_tx_queue(ndev, q_idx);
+> +		__netif_tx_lock(netif_txq, cpu);
+>   		result = emac_xmit_xdp_frame(emac, xdpf, page, q_idx);
+> +		__netif_tx_unlock(netif_txq);
+>   		if (result == ICSSG_XDP_CONSUMED) {
+>   			ndev->stats.tx_dropped++;
+>   			goto drop;
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+> index ee35fecf61e7..b31060e7f698 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+> @@ -1075,20 +1075,25 @@ static int emac_xdp_xmit(struct net_device *dev, int n, struct xdp_frame **frame
+>   {
+>   	struct prueth_emac *emac = netdev_priv(dev);
+>   	struct net_device *ndev = emac->ndev;
+> +	struct netdev_queue *netif_txq;
+> +	int cpu = smp_processor_id();
+>   	struct xdp_frame *xdpf;
+>   	unsigned int q_idx;
+>   	int nxmit = 0;
+>   	u32 err;
+>   	int i;
+>   
+> -	q_idx = smp_processor_id() % emac->tx_ch_num;
+> +	q_idx = cpu % emac->tx_ch_num;
+> +	netif_txq = netdev_get_tx_queue(ndev, q_idx);
+>   
+>   	if (unlikely(flags & ~XDP_XMIT_FLAGS_MASK))
+>   		return -EINVAL;
+>   
+>   	for (i = 0; i < n; i++) {
+>   		xdpf = frames[i];
+> +		__netif_tx_lock(netif_txq, cpu);
+>   		err = emac_xmit_xdp_frame(emac, xdpf, NULL, q_idx);
+> +		__netif_tx_unlock(netif_txq);
 
-> Anyway, looking at the two individual reports side by side:
-> 
->   - schedule() left the processor idle             -- is up
-> 
-> vs.
-> 
->   - pull_task() count on cpu newly idle            -- is down
->   - load_balance() success count on cpu newly idle -- is down
-> 
-> Which seem related and would suggest we look at newidle balance. One of
-> the things we've seen before is that newidle was affected by the shorter
-> slice of EEVDF. But it is also quite possible something changed in the
-> load-balancer here.
-> 
-> Also of note is that .15 seems to have a lower number of 'ttwu() was
-> called to wake up on the local cpu' -- which I'm not quite sure how to
-> rhyme with the previous observation. The newidle thing seems to suggest
-> not enough migrations, while this would suggest too many migrations.
-> 
-> 
---
-Thanks and Regards,
-Swapnil
+Why are you taking and releasing this lock in a loop?
+
+XDP gain performance by sending a batch of 'n' packets.
+This approach looks like a performance killer.
+
+
+>   		if (err != ICSSG_XDP_TX) {
+>   			ndev->stats.tx_dropped++;
+>   			break;
+
+
 
