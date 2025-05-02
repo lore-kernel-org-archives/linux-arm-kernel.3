@@ -4,64 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3ACF3C3ABB8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 17:23:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19088C3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 17:23:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6piJJDrPQoiiP51RDD1oPdFT3A94z8jRbC6H959HT3g=; b=4f0gIeC72hfX1Vz/y+sPJiNhz/
-	JE37kw1eYN7msXeTTa/3qgR+dMuTAMR1wX08fD5QJpc20Ky/zUMcSPE6a8Tbfeh9jcPkAwzj5dk80
-	QzuU976u2/DqGhpbm1njEdHTroVLGCK4YQOjGq5+YS/FXthzC+G/UAKQ0qS3mbENIixB8aqJNCei8
-	hcnEgvdGOsXI6WcNEXs1RyNhP1T6m0q/rd9zAqOpamxlSHiYFpzXRk4Q6LOnwh8eygSN20wjiVSWF
-	sptae2zcme/DwTlrQEljeFNfj8mERbnOgqVFVxXLTI1PWSDSvQJvsoAHs9h5evZoIFl7U4ya0rwO9
-	O1JdcAtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JgGRTDjgzyBASmXyqLVxIYbx3Q9UYKd/CzI0L2LV1d4=; b=t6jCam/RzT6UyYpaEwBwOt7dz3
+	vOiakcXZNl+SuJ4h6DhG0GcTQjdIhoLk//QLbF94NBDH9gI+ddXnOc3rRgqix2J+qyDN6Ll6Hphld
+	OQnu2TwWFlfPk9xeU3ZEa2I+1dKc+RtGMo5KA999OT6lue3M2NIIgVWvpFhOEzjmoLGIIdFlT6CmR
+	lcfoy42DSl1zZYgxzPjbRhHobXWlCP+e3J6kRl58juj/L4v5uwzDwWxxVkA4zZlEDVkLa096nOxC8
+	oC4pOnw2/Iw12GluldXRCJOrOuvXv8EevU55rbEyVdo025YvanbygJSC3Vv3zAKZq8KsJx/w8O3Tm
+	y/mWJ1sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAu6F-00000002dlg-2e2p;
-	Fri, 02 May 2025 17:22:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uAu6O-00000002dxZ-3dFX;
+	Fri, 02 May 2025 17:23:08 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAtCt-00000002VH3-3LVN
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 16:25:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 34CF668450;
-	Fri,  2 May 2025 16:25:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E031EC4CEE4;
-	Fri,  2 May 2025 16:25:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746203146;
-	bh=SoYH9fAelyV/OGDhVqF4z37NINCFU2ZaE+FhKzVeIgA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=m3aZWnUC7rLjBGOG9+KQzip5059CX5+9VT5bsv/KBfc4elrFh/gzXzTK3m2E2QQiz
-	 fbjvGUiHQay8r796UJYOfLqaIEbfmV+6ESJDNghy8HQbO2RYxTwyOk98ZDgDaCfUqq
-	 LZXftpF9Bq07uj9d7RLg4yrgtBfhSVyabZU0dW19Kw/+9rLizT5rGAXKj5rVyuyTfF
-	 JbNkDDj082obrn6ccHXC4ghILL+t7IHORhDnE3MK392SNO4IedGTxBgzBMyi3eIqBG
-	 n4E/Q2kn2FAYOvxOI7Oy6ez03U7rxWCbeb5Cu4pBgaivkDzLQYEYwdJQ7ttWIkHfb1
-	 2UDsTPggFuylQ==
-Date: Fri, 2 May 2025 09:25:40 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: catalin.marinas@arm.com, will@kernel.org,
-	nick.desaulniers+lkml@gmail.com, morbo@google.com,
-	justinstitt@google.com, broonie@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, frederic@kernel.org, joey.gouly@arm.com,
-	james.morse@arm.com, hardevsinh.palaniya@siliconsignals.io,
-	shameerali.kolothum.thodi@huawei.com, ardb@kernel.org,
-	ryan.roberts@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] arm64/cpufeature: annotate arm64_use_ng_mappings with
- ro_after_init to prevent wrong idmap generation
-Message-ID: <20250502162540.GB2850065@ax162>
-References: <20250502145755.3751405-1-yeoreum.yun@arm.com>
+	id 1uAtU3-00000002YPe-1Wlq;
+	Fri, 02 May 2025 16:43:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1746204210;
+	bh=ygx2bzlBgpHjz1t7Ya2NDxpOQ/Eveinyd42eds817pg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=q1B+zzkpLiAT/IBpIvW7htAZx20VHLTySJOBTzYHqwk+TH6dQ0Pe6AiPO20GtF+FO
+	 sgvYCFkgNFm1sCbT/KBekn5a2/oxtB6g/LDSOhGlFQ+fsG5IskGTEAs7MTE8hGDySt
+	 uCakBdm8dsU0mOu5xjcN16OIPtgGEMtpn5kP9S6WrlGhe34bzrLPXuNk3TKbfGFxR6
+	 yWcF+Q5HkbEVQ9c3doQW6RR62S2INKAa/O0SXSU3zD0JYST73UJf615bBRCR0XVbue
+	 ph8cvwttJlHntLirMQ9iEyNBO2eIj2vk7U2eifOxk+lFWDOdRGKAgTs5vWjJkitR7D
+	 EWqy+WTxvnQ5g==
+Received: from [192.168.1.63] (unknown [70.107.117.78])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EDDB817E125D;
+	Fri,  2 May 2025 18:43:27 +0200 (CEST)
+From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+Date: Fri, 02 May 2025 12:43:22 -0400
+Subject: [PATCH 2/2] arm64: dts: mediatek: mt8365: Describe infracfg-nao as
+ a pure syscon
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250502145755.3751405-1-yeoreum.yun@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250502-mt8365-infracfg-nao-compatible-v1-2-e40394573f98@collabora.com>
+References: <20250502-mt8365-infracfg-nao-compatible-v1-0-e40394573f98@collabora.com>
+In-Reply-To: <20250502-mt8365-infracfg-nao-compatible-v1-0-e40394573f98@collabora.com>
+To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Alexandre Mergnat <amergnat@baylibre.com>, 
+ Amjad Ouled-Ameur <aouledameur@baylibre.com>, 
+ =?utf-8?q?Bernhard_Rosenkr=C3=A4nzer?= <bero@baylibre.com>, 
+ Fabien Parent <fparent@baylibre.com>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+X-Mailer: b4 0.14.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250502_094331_551898_A2A8E72F 
+X-CRM114-Status: GOOD (  13.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,116 +84,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yeoreum,
+The infracfg-nao register space at 0x1020e000 has different registers
+than the infracfg space at 0x10001000, and most importantly, doesn't
+contain any clock controls. Therefore it shouldn't use the same
+compatible used for the mt8365 infracfg clocks driver:
+mediatek,mt8365-infracfg. Since it currently does, probe errors are
+reported in the kernel logs:
 
-On Fri, May 02, 2025 at 03:57:55PM +0100, Yeoreum Yun wrote:
-> create_init_idmap() could be called before .bss section initialization
-> which is done in early_map_kernel() since data/test_prot could be set
-> wrong for PTE_MAYBE_NG macro.
-> 
-> PTE_MAYBE_NG macro is set according to value of "arm64_use_ng_mappings".
-> and this variable is located in .bss section.
-> 
->    # llvm-objdump-21 --syms vmlinux-gcc | grep arm64_use_ng_mappings
->      ffff800082f242a8 g O .bss    0000000000000001 arm64_use_ng_mappings
-> 
-> If .bss section doesn't initialized, "arm64_use_ng_mappings" would be set
-> with garbage value ant then the text_prot or data_prot could be set
-> with garbgae value.
-> 
-> Here is what i saw with kernel compiled via llvm-21
-> 
->   // create_init_idmap()
->   ffff80008255c058: d10103ff     	sub	sp, sp, #0x40
->   ffff80008255c05c: a9017bfd     	stp	x29, x30, [sp, #0x10]
->   ffff80008255c060: a90257f6     	stp	x22, x21, [sp, #0x20]
->   ffff80008255c064: a9034ff4     	stp	x20, x19, [sp, #0x30]
->   ffff80008255c068: 910043fd     	add	x29, sp, #0x10
->   ffff80008255c06c: 90003fc8     	adrp	x8, 0xffff800082d54000
->   ffff80008255c070: d280e06a     	mov	x10, #0x703     // =1795
->   ffff80008255c074: 91400409     	add	x9, x0, #0x1, lsl #12 // =0x1000
->   ffff80008255c078: 394a4108     	ldrb	w8, [x8, #0x290] ------------- (1)
->   ffff80008255c07c: f2e00d0a     	movk	x10, #0x68, lsl #48
->   ffff80008255c080: f90007e9     	str	x9, [sp, #0x8]
->   ffff80008255c084: aa0103f3     	mov	x19, x1
->   ffff80008255c088: aa0003f4     	mov	x20, x0
->   ffff80008255c08c: 14000000     	b	0xffff80008255c08c <__pi_create_init_idmap+0x34>
->   ffff80008255c090: aa082d56     	orr	x22, x10, x8, lsl #11 -------- (2)
-> 
-> Note (1) is load the arm64_use_ng_mappings value in w8.
-> and (2) is set the text or data prot with the w8 value to set PTE_NG bit.
-> If .bss section doesn't initialized, x8 can include garbage value
-> -- In case of some platform, x8 loaded with 0xcf -- it could generate
-> wrong mapping. (i.e) text_prot is expected with
-> PAGE_KERNEL_ROX(0x0040000000000F83) but
-> with garbage x8 -- 0xcf, it sets with (0x0040000000067F83)
-> and This makes boot failure with translation fault.
-> 
-> This error cannot happen according to code generated by compiler.
-> here is the case of gcc:
-> 
->    ffff80008260a940 <__pi_create_init_idmap>:
->    ffff80008260a940: d100c3ff      sub     sp, sp, #0x30
->    ffff80008260a944: aa0003ed      mov     x13, x0
->    ffff80008260a948: 91400400      add     x0, x0, #0x1, lsl #12 // =0x1000
->    ffff80008260a94c: a9017bfd      stp     x29, x30, [sp, #0x10]
->    ffff80008260a950: 910043fd      add     x29, sp, #0x10
->    ffff80008260a954: f90017e0      str     x0, [sp, #0x28]
->    ffff80008260a958: d00048c0      adrp    x0, 0xffff800082f24000 <reset_devices>
->    ffff80008260a95c: 394aa000      ldrb    w0, [x0, #0x2a8]
->    ffff80008260a960: 37000640      tbnz    w0, #0x0, 0xffff80008260aa28 <__pi_create_init_idmap+0xe8> ---(3)
->    ffff80008260a964: d280f060      mov     x0, #0x783      // =1923
->    ffff80008260a968: d280e062      mov     x2, #0x703      // =1795
->    ffff80008260a96c: f2e00800      movk    x0, #0x40, lsl #48
->    ffff80008260a970: f2e00d02      movk    x2, #0x68, lsl #48
->    ffff80008260a974: aa2103e4      mvn     x4, x1
->    ffff80008260a978: 8a210049      bic     x9, x2, x1
->    ...
->    ffff80008260aa28: d281f060      mov     x0, #0xf83      // =3971
->    ffff80008260aa2c: d281e062      mov     x2, #0xf03      // =3843
->    ffff80008260aa30: f2e00800      movk    x0, #0x40, lsl #48
-> 
-> In case of gcc, according to value of arm64_use_ng_mappings (annoated as(3)),
-> it branches to each prot settup code.
+  [    0.245959] Failed to register clk ifr_pmic_tmr: -EEXIST
+  [    0.245998] clk-mt8365 1020e000.infracfg: probe with driver clk-mt8365 failed with error -17
 
-> However this is also problem since it branches according to garbage
-> value too -- idmapping with wrong pgprot.
-> 
-> To resolve this, annotate arm64_use_ng_mappings as ro_after_init.
-> 
-> Fixes: 84b04d3e6bdb ("arm64: kernel: Create initial ID map from C code")
-> Cc: <stable@vger.kernel.org> # 6.9.x
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> ---
+This register space is used only as a syscon for bus control by the
+power domain controller, so in order to properly describe it and fix the
+errors, set its compatible to a distinct compatible used exclusively as
+a syscon, drop the clock-cells, and while at it rename the node to
+'syscon' following the naming convention.
 
-This appears to resolve the issue that I reported to LLVM upstream:
+Fixes: 6ff945376556 ("arm64: dts: mediatek: Initial mt8365-evk support")
+Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+---
+ arch/arm64/boot/dts/mediatek/mt8365.dtsi | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-https://github.com/llvm/llvm-project/issues/138019
+diff --git a/arch/arm64/boot/dts/mediatek/mt8365.dtsi b/arch/arm64/boot/dts/mediatek/mt8365.dtsi
+index e6d2b3221a3b7a855129258b379ae4bc2fd05449..49ad4dee9c4cf563743dc55d5e0b055cfb69986a 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8365.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8365.dtsi
+@@ -495,10 +495,9 @@ iommu: iommu@10205000 {
+ 			#iommu-cells = <1>;
+ 		};
+ 
+-		infracfg_nao: infracfg@1020e000 {
+-			compatible = "mediatek,mt8365-infracfg", "syscon";
++		infracfg_nao: syscon@1020e000 {
++			compatible = "mediatek,mt8365-infracfg-nao", "syscon";
+ 			reg = <0 0x1020e000 0 0x1000>;
+-			#clock-cells = <1>;
+ 		};
+ 
+ 		rng: rng@1020f000 {
 
-Tested-by: Nathan Chancellor <nathan@kernel.org>
+-- 
+2.49.0
 
-It does not look like there is anything for the compiler to fix in this
-case, correct?
-
-> ---
->  arch/arm64/kernel/cpufeature.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> index d2104a1e7843..967ffb1cbd52 100644
-> --- a/arch/arm64/kernel/cpufeature.c
-> +++ b/arch/arm64/kernel/cpufeature.c
-> @@ -114,7 +114,7 @@ static struct arm64_cpu_capabilities const __ro_after_init *cpucap_ptrs[ARM64_NC
-> 
->  DECLARE_BITMAP(boot_cpucaps, ARM64_NCAPS);
-> 
-> -bool arm64_use_ng_mappings = false;
-> +bool arm64_use_ng_mappings __ro_after_init = false;
->  EXPORT_SYMBOL(arm64_use_ng_mappings);
-> 
->  DEFINE_PER_CPU_READ_MOSTLY(const char *, this_cpu_vector) = vectors;
-> --
-> LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
-> 
-> 
 
