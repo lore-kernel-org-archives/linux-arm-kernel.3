@@ -4,58 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EB7EC3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 08:48:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09391C3ABA3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 08:50:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xDy8bSLdgEwCg1LBSSBw86QXLomX57x8aF1LWmsm5p0=; b=aYl+yN3LahJHVlAQwFiBEAdMU2
-	2gThUXvvoY1qgrHpsNXOMjc7DZ/PUtgUpfdhT17r+bGSRJvQsx51PZ1lpI5hvsQs9rF0L4m0icQyD
-	MVbGrFyVvONE//T/I+1xVIOKNtTgNkhNDTWfqDBUn0vGEpyQeG4RqS8hRh35hiiJyjDnOB4fg00Y7
-	ljvZW9M7qy5y62Kx4e7TIAT8X2/iI2CeARGD/QQqx6QOTPpVjt8HYb7Mkj2jbn9038NqNPXBWrDs/
-	n6iALH/tdYX6mFHOSd3oojqlCp9OATcaCBpXqmzWJ2uNTO9A9TtI10jVL5HYJ3ikbQ2SOcOAvgK0H
-	s69alUow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bSoAYCYYgfHeLNA4UaKgtB62vuPa/P2HLJXmtvgWNsU=; b=vgsQOi8uppa90TMtelN2IgpXjE
+	fYCopCnRhARC03tzhAhOFCWYn2BDhYjFMaVH44hD/fcFw6HzJuO6sMUdfqiunWwAaS9UL6R9dBxkM
+	tH7GshRSrDEilTuCvexoxK+yExHwTOYVuro8AvNvbF8FXZo4Fm3PLWyT6NLcX79uOYcy2AU9rKvUN
+	8tM9r2EUbop275WKLa2a1K3lSSFu/ICjKyJynRwna6eGWqyDsGXD1h1AkIA5KB6mjWz+1H4ifsFVF
+	nwX7/zXz62Wq2yT+wlhxmKlA7OIXYjhGJHzV80XLqCNtr6Dt1XE+neOXdAueYd5WLzLrzWyyCwImO
+	30inVZjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAm3u-00000001EKf-3t0D;
-	Fri, 02 May 2025 08:48:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAm1u-00000001Drj-1hRm
+	id 1uAm5p-00000001Ebm-2VWG;
+	Fri, 02 May 2025 08:50:01 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uAm3h-00000001EGu-3QXZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 08:46:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 854211688;
-	Fri,  2 May 2025 01:45:49 -0700 (PDT)
-Received: from [10.163.80.122] (unknown [10.163.80.122])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 093013F66E;
-	Fri,  2 May 2025 01:45:52 -0700 (PDT)
-Message-ID: <0ebbc509-9e17-4b93-9a72-b9e7cc03637e@arm.com>
-Date: Fri, 2 May 2025 14:15:49 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 9/9] coresight: Refactor runtime PM
-To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20250423151726.372561-1-leo.yan@arm.com>
- <20250423151726.372561-10-leo.yan@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250423151726.372561-10-leo.yan@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Fri, 02 May 2025 08:47:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id EEBF25C4448;
+	Fri,  2 May 2025 08:45:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1CADC4CEE4;
+	Fri,  2 May 2025 08:47:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746175668;
+	bh=NCirDjbr0P+QIBLiB7dQOcgcs9vpxXzMLjZHxOXUKuc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=dDTH9KZOh1hEj5xVKE8c4rjCXx6+gYnRq4nmbWqx+h06O4kbsj8rs3Cjor4bsvuxy
+	 IGVhsrPI+9HG3K1KPCVrJLkQ3Kyirq8fgViGp0hv3zYpPjFmdxqCXAP69SStXn19Yc
+	 xZWCq1QmxZ0v7nWggAMIJEEYmbb3XqEW2L93TLA/wto4PyFRIW34manFUmZq4gqR1+
+	 vbspoZbhRI9zQSxguE6Omoh41tLkqsiCmh4u0le1Z66WjXGuVl8Is5qO1QBDnoWcYK
+	 EutwhLC4Zr2qRZPlZdambTEO6RkFZPV6w2KfF5SvNs1BJmunFL4TSduEEXhshF1N66
+	 qkplJtD0MN8lA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uAm3e-00Apre-AY;
+	Fri, 02 May 2025 09:47:46 +0100
+Date: Fri, 02 May 2025 09:47:45 +0100
+Message-ID: <86r017h00e.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Per Larsen <perl@immunant.com>
+Cc: linux-kernel@vger.kernel.org,
+	"qperret@google.com" <qperret@google.com>,
+	"sebastianene@google.com" <sebastianene@google.com>,
+	kernel-team@android.com,
+	"will@kernel.org" <will@kernel.org>,
+	"sudeep.holla@arm.com" <sudeep.holla@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	yuzenghui@huawei.com,
+	Armelle Laine <armellel@google.com>,
+	arve@android.org
+Subject: Re: [PATCH 1/3] KVM: arm64: Restrict FF-A host version renegotiation
+In-Reply-To: <CA+AY4XcaJa1_U3qXQUBj4wZJYc9hKmRX8FTNeDvV2auEnC_WrA@mail.gmail.com>
+References: <CA+AY4XcaJa1_U3qXQUBj4wZJYc9hKmRX8FTNeDvV2auEnC_WrA@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: perl@immunant.com, linux-kernel@vger.kernel.org, qperret@google.com, sebastianene@google.com, kernel-team@android.com, will@kernel.org, sudeep.holla@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, yuzenghui@huawei.com, armellel@google.com, arve@android.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_014558_591844_C602D393 
-X-CRM114-Status: GOOD (  18.48  )
+X-CRM114-CacheID: sfid-20250502_014749_939486_4CD382B4 
+X-CRM114-Status: GOOD (  30.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,299 +93,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 4/23/25 20:47, Leo Yan wrote:
-> The validation for driver data pointers and clock pointers are redundant
-> in the runtime PM callbacks.  After a driver's probing, its driver data
-> and clocks have been initialized successfully, this ensures it is safe
-> to access driver data and clocks in the runtime PM callbacks.  A corner
-> case is a clock pointer is NULL, in this case, the clock core layer can
-> handle it properly.  So remove these redundant checking.
+On Fri, 02 May 2025 04:52:39 +0100,
+Per Larsen <perl@immunant.com> wrote:
 > 
-> In runtime resume, respect values returned from clock function and add
-> error handling.
-
-Although not checking drvdata and drvdata->apb_clk does make sense, but
-why change the semantics on the resume paths as well, which now returns
-stored error value from clk_prepare_enable().
-
+> FF-A implementations with the same major version must interoperate with
+> earlier minor versions per DEN0077A 1.2 REL0 13.2.1 but FF-A version 1.1
+> broke the ABI on several structures and 1.2 relies on SMCCC 1.2 is not
+> backwards compatible with SMCCC 1.2 (see DEN0028 1.6 G BET0 Appendix F).
 > 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> If we return the negotiated hypervisor version when the host requests a
+> lesser minor version, the host will rely on the FF-A interoperability
+> rules. Since the hypervisor does not currently have the necessary
+> compatibility paths (e.g. to handle breaking changes to the SMC calling
+> convention), return NOT_SUPPORTED.
+> 
+> Signed-off-by: Per Larsen <perlarsen@google.com>
+> Signed-off-by: Per Larsen <perl@immunant.com>
 > ---
->  drivers/hwtracing/coresight/coresight-cpu-debug.c  |  8 +++-----
->  drivers/hwtracing/coresight/coresight-ctcu-core.c  |  8 ++------
->  drivers/hwtracing/coresight/coresight-etb10.c      |  8 ++------
->  drivers/hwtracing/coresight/coresight-etm3x-core.c |  8 ++------
->  drivers/hwtracing/coresight/coresight-funnel.c     | 21 +++++++++++----------
->  drivers/hwtracing/coresight/coresight-replicator.c | 20 +++++++++++---------
->  drivers/hwtracing/coresight/coresight-stm.c        | 20 +++++++++++---------
->  drivers/hwtracing/coresight/coresight-tpiu.c       | 20 +++++++++++---------
->  8 files changed, 53 insertions(+), 60 deletions(-)
+>  arch/arm64/kvm/hyp/nvhe/ffa.c | 19 ++++++++++++++++++-
+>  1 file changed, 18 insertions(+), 1 deletion(-)
 > 
-> diff --git a/drivers/hwtracing/coresight/coresight-cpu-debug.c b/drivers/hwtracing/coresight/coresight-cpu-debug.c
-> index 481ffcbed534..dff663ac7805 100644
-> --- a/drivers/hwtracing/coresight/coresight-cpu-debug.c
-> +++ b/drivers/hwtracing/coresight/coresight-cpu-debug.c
-> @@ -731,8 +731,8 @@ static int debug_runtime_suspend(struct device *dev)
->  {
->  	struct debug_drvdata *drvdata = dev_get_drvdata(dev);
->  
-> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
-> -		clk_disable_unprepare(drvdata->pclk);
-> +	clk_disable_unprepare(drvdata->pclk);
-> +
->  	return 0;
->  }
->  
-> @@ -740,9 +740,7 @@ static int debug_runtime_resume(struct device *dev)
->  {
->  	struct debug_drvdata *drvdata = dev_get_drvdata(dev);
->  
-> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
-> -		clk_prepare_enable(drvdata->pclk);
-> -	return 0;
-> +	return clk_prepare_enable(drvdata->pclk);
->  }
->  #endif
->  
-> diff --git a/drivers/hwtracing/coresight/coresight-ctcu-core.c b/drivers/hwtracing/coresight/coresight-ctcu-core.c
-> index 75b5114ef652..c586495e9a08 100644
-> --- a/drivers/hwtracing/coresight/coresight-ctcu-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-ctcu-core.c
-> @@ -278,8 +278,7 @@ static int ctcu_runtime_suspend(struct device *dev)
->  {
->  	struct ctcu_drvdata *drvdata = dev_get_drvdata(dev);
->  
-> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->apb_clk))
-> -		clk_disable_unprepare(drvdata->apb_clk);
-> +	clk_disable_unprepare(drvdata->apb_clk);
->  
->  	return 0;
->  }
-> @@ -288,10 +287,7 @@ static int ctcu_runtime_resume(struct device *dev)
->  {
->  	struct ctcu_drvdata *drvdata = dev_get_drvdata(dev);
->  
-> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->apb_clk))
-> -		clk_prepare_enable(drvdata->apb_clk);
-> -
-> -	return 0;
-> +	return clk_prepare_enable(drvdata->apb_clk);
->  }
->  #endif
->  
-> diff --git a/drivers/hwtracing/coresight/coresight-etb10.c b/drivers/hwtracing/coresight/coresight-etb10.c
-> index 45c2f8f50a3f..3f3b0eb48fdb 100644
-> --- a/drivers/hwtracing/coresight/coresight-etb10.c
-> +++ b/drivers/hwtracing/coresight/coresight-etb10.c
-> @@ -807,8 +807,7 @@ static int etb_runtime_suspend(struct device *dev)
->  {
->  	struct etb_drvdata *drvdata = dev_get_drvdata(dev);
->  
-> -	if (drvdata && !IS_ERR(drvdata->atclk))
-> -		clk_disable_unprepare(drvdata->atclk);
-> +	clk_disable_unprepare(drvdata->atclk);
->  
->  	return 0;
->  }
-> @@ -817,10 +816,7 @@ static int etb_runtime_resume(struct device *dev)
->  {
->  	struct etb_drvdata *drvdata = dev_get_drvdata(dev);
->  
-> -	if (drvdata && !IS_ERR(drvdata->atclk))
-> -		clk_prepare_enable(drvdata->atclk);
-> -
-> -	return 0;
-> +	return clk_prepare_enable(drvdata->atclk);
->  }
->  #endif
->  
-> diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-> index adbb134f80e6..615ff743eef0 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-> @@ -925,8 +925,7 @@ static int etm_runtime_suspend(struct device *dev)
->  {
->  	struct etm_drvdata *drvdata = dev_get_drvdata(dev);
->  
-> -	if (drvdata && !IS_ERR(drvdata->atclk))
-> -		clk_disable_unprepare(drvdata->atclk);
-> +	clk_disable_unprepare(drvdata->atclk);
->  
->  	return 0;
->  }
-> @@ -935,10 +934,7 @@ static int etm_runtime_resume(struct device *dev)
->  {
->  	struct etm_drvdata *drvdata = dev_get_drvdata(dev);
->  
-> -	if (drvdata && !IS_ERR(drvdata->atclk))
-> -		clk_prepare_enable(drvdata->atclk);
-> -
-> -	return 0;
-> +	return clk_prepare_enable(drvdata->atclk);
->  }
->  #endif
->  
-> diff --git a/drivers/hwtracing/coresight/coresight-funnel.c b/drivers/hwtracing/coresight/coresight-funnel.c
-> index 62e5125c37ad..6494a3b5d18e 100644
-> --- a/drivers/hwtracing/coresight/coresight-funnel.c
-> +++ b/drivers/hwtracing/coresight/coresight-funnel.c
-> @@ -283,11 +283,8 @@ static int funnel_runtime_suspend(struct device *dev)
->  {
->  	struct funnel_drvdata *drvdata = dev_get_drvdata(dev);
->  
-> -	if (drvdata && !IS_ERR(drvdata->atclk))
-> -		clk_disable_unprepare(drvdata->atclk);
-> -
-> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
-> -		clk_disable_unprepare(drvdata->pclk);
-> +	clk_disable_unprepare(drvdata->atclk);
-> +	clk_disable_unprepare(drvdata->pclk);
->  
->  	return 0;
->  }
-> @@ -295,13 +292,17 @@ static int funnel_runtime_suspend(struct device *dev)
->  static int funnel_runtime_resume(struct device *dev)
->  {
->  	struct funnel_drvdata *drvdata = dev_get_drvdata(dev);
-> +	int ret;
-> +
-> +	ret = clk_prepare_enable(drvdata->pclk);
-> +	if (ret)
-> +		return ret;
->  
-> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
-> -		clk_prepare_enable(drvdata->pclk);
-> +	ret = clk_prepare_enable(drvdata->atclk);
-> +	if (ret)
-> +		clk_disable_unprepare(drvdata->pclk);
->  
-> -	if (drvdata && !IS_ERR(drvdata->atclk))
-> -		clk_prepare_enable(drvdata->atclk);
-> -	return 0;
-> +	return ret;
->  }
->  #endif
->  
-> diff --git a/drivers/hwtracing/coresight/coresight-replicator.c b/drivers/hwtracing/coresight/coresight-replicator.c
-> index 56b03e6d8336..8595dc104795 100644
-> --- a/drivers/hwtracing/coresight/coresight-replicator.c
-> +++ b/drivers/hwtracing/coresight/coresight-replicator.c
-> @@ -322,24 +322,26 @@ static int replicator_runtime_suspend(struct device *dev)
->  {
->  	struct replicator_drvdata *drvdata = dev_get_drvdata(dev);
->  
-> -	if (drvdata && !IS_ERR(drvdata->atclk))
-> -		clk_disable_unprepare(drvdata->atclk);
-> +	clk_disable_unprepare(drvdata->atclk);
-> +	clk_disable_unprepare(drvdata->pclk);
->  
-> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
-> -		clk_disable_unprepare(drvdata->pclk);
->  	return 0;
->  }
->  
->  static int replicator_runtime_resume(struct device *dev)
->  {
->  	struct replicator_drvdata *drvdata = dev_get_drvdata(dev);
-> +	int ret;
->  
-> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
-> -		clk_prepare_enable(drvdata->pclk);
-> +	ret = clk_prepare_enable(drvdata->pclk);
-> +	if (ret)
-> +		return ret;
->  
-> -	if (drvdata && !IS_ERR(drvdata->atclk))
-> -		clk_prepare_enable(drvdata->atclk);
-> -	return 0;
-> +	ret = clk_prepare_enable(drvdata->atclk);
-> +	if (ret)
-> +		clk_disable_unprepare(drvdata->pclk);
-> +
-> +	return ret;
->  }
->  #endif
->  
-> diff --git a/drivers/hwtracing/coresight/coresight-stm.c b/drivers/hwtracing/coresight/coresight-stm.c
-> index f17986edac00..f859ab932d22 100644
-> --- a/drivers/hwtracing/coresight/coresight-stm.c
-> +++ b/drivers/hwtracing/coresight/coresight-stm.c
-> @@ -957,24 +957,26 @@ static int stm_runtime_suspend(struct device *dev)
->  {
->  	struct stm_drvdata *drvdata = dev_get_drvdata(dev);
->  
-> -	if (drvdata && !IS_ERR(drvdata->atclk))
-> -		clk_disable_unprepare(drvdata->atclk);
-> +	clk_disable_unprepare(drvdata->atclk);
-> +	clk_disable_unprepare(drvdata->pclk);
->  
-> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
-> -		clk_disable_unprepare(drvdata->pclk);
->  	return 0;
->  }
->  
->  static int stm_runtime_resume(struct device *dev)
->  {
->  	struct stm_drvdata *drvdata = dev_get_drvdata(dev);
-> +	int ret;
->  
-> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
-> -		clk_prepare_enable(drvdata->pclk);
-> +	ret = clk_prepare_enable(drvdata->pclk);
-> +	if (ret)
-> +		return ret;
->  
-> -	if (drvdata && !IS_ERR(drvdata->atclk))
-> -		clk_prepare_enable(drvdata->atclk);
-> -	return 0;
-> +	ret = clk_prepare_enable(drvdata->atclk);
-> +	if (ret)
-> +		clk_disable_unprepare(drvdata->pclk);
-> +
-> +	return ret;
->  }
->  #endif
->  
-> diff --git a/drivers/hwtracing/coresight/coresight-tpiu.c b/drivers/hwtracing/coresight/coresight-tpiu.c
-> index 4701b34778bd..a68ed6b97bf7 100644
-> --- a/drivers/hwtracing/coresight/coresight-tpiu.c
-> +++ b/drivers/hwtracing/coresight/coresight-tpiu.c
-> @@ -206,24 +206,26 @@ static int tpiu_runtime_suspend(struct device *dev)
->  {
->  	struct tpiu_drvdata *drvdata = dev_get_drvdata(dev);
->  
-> -	if (drvdata && !IS_ERR(drvdata->atclk))
-> -		clk_disable_unprepare(drvdata->atclk);
-> +	clk_disable_unprepare(drvdata->atclk);
-> +	clk_disable_unprepare(drvdata->pclk);
->  
-> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
-> -		clk_disable_unprepare(drvdata->pclk);
->  	return 0;
->  }
->  
->  static int tpiu_runtime_resume(struct device *dev)
->  {
->  	struct tpiu_drvdata *drvdata = dev_get_drvdata(dev);
-> +	int ret;
->  
-> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
-> -		clk_prepare_enable(drvdata->pclk);
-> +	ret = clk_prepare_enable(drvdata->pclk);
-> +	if (ret)
-> +		return ret;
->  
-> -	if (drvdata && !IS_ERR(drvdata->atclk))
-> -		clk_prepare_enable(drvdata->atclk);
-> -	return 0;
-> +	ret = clk_prepare_enable(drvdata->atclk);
-> +	if (ret)
-> +		clk_disable_unprepare(drvdata->pclk);
-> +
-> +	return ret;
->  }
->  #endif
->  
+> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> index 3369dd0c4009..10e88207b78e 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> @@ -712,7 +712,24 @@ static void do_ffa_version(struct arm_smccc_res *res,
+> 
+>   hyp_spin_lock(&version_lock);
+>   if (has_version_negotiated) {
+> - res->a0 = hyp_ffa_version;
+> + /*
+> + * FF-A implementations with the same major version must
+> + * interoperate with earlier minor versions per DEN0077A 1.2
+> + * REL0 13.2.1 but FF-A version 1.1 broke the ABI on several
+> + * structures and 1.2 relies on SMCCC 1.2 is not backwards
+> + * compatible with SMCCC 1.2 (see DEN0028 1.6 G BET0 Appendix F).
+
+I can't parse this sentence. Missing words?
+
+> + *
+> + * If we return the negotiated hypervisor version when the host
+> + * requests a lesser minor version, the host will rely on the
+> + * aforementioned FF-A interoperability rules. Since the
+> + * hypervisor does not currently have the necessary compatibility
+> + * paths (e.g. to paper over the above-mentioned calling
+> + * convention changes), return NOT_SUPPORTED.
+> + */
+> + if (FFA_MINOR_VERSION(ffa_req_version) < FFA_MINOR_VERSION(hyp_ffa_version))
+> + res->a0 = FFA_RET_NOT_SUPPORTED;
+> + else
+> + res->a0 = hyp_ffa_version;
+>   goto unlock;
+>   }
+> 
+
+Something has gone seriously wrong with your email, and the patches
+are badly mangled and unusable. They are also sent as individual
+patches and not as a thread, which is a sign that you didn't send them
+using git. Please fix this for your next posting.
+
+More to the meat of the patches: why should the hypervisor paper over
+anything if the spec is broken? Why can't the host just as well decide
+for itself what to do?
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
