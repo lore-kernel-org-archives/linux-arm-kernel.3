@@ -4,60 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2090C3ABB9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 17:23:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1C54C3ABB0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 17:23:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ysAEBRSwDyEXQZWyau7lTYH1QvtI2slNhlJvKDKIA3s=; b=n/6YJHQ+EEuhe5WFnAs4UIIbTi
-	2XPXgApXvZMrVq1qomeBevYvu73sAXM03ZFr+RjLQTSAcseU2XXjEYMuouu8VLrGUmepWvVo3L9vR
-	8r9EUryAUvTm0AqSkT281yaHVxzOjKVZv2VFkLMbqH6OFZ++x26IpxVwK2t9esYWVrmYLa6VTLWky
-	i3AFAItMU9EHC5YdKIwqwg+jc7xF0fzgI7Ua+FxA+QuP57JoK8eng44dMu8QPeSsofgb7N0BnhNSP
-	CijMVSR8slp7z1aB6WThSZvMWNSOKiS21OMhbyTB5ymh54CxGY4GEi6lFXYX3xp4ifRTgS7YbATrR
-	JFPAFCtQ==;
+	bh=Of8g9618ZH89TKBMPSTzOkja8KKZL8ustRn0kzQjYOk=; b=bc427L5Mq0eeQUSilnSSozvUfm
+	BvAKoJsWpJYohewFoJIssRFjdS1FXqdF25M8Vowklj/vTzAPUELAENwq0TDoGXRqfRXA19k9+4dKX
+	bGP6+bGvdu5NJRT4c1/QJkmSiEjufxAZkWIrOmOM1SHfPtCdP6omiTxmWoPLjgnSTLMWtGf10gcpN
+	2GhYLd0dB/aUHjyTf5/VT+ZspYROil+ADVVXDBA0Tw323FPr7dm5y+Bh8n8xfHnLpvYRX/PWFEK9H
+	jA8eOyqb1dgD76ZjFROZXtiffnIdsqm0PM1jdWu2PZ8EedhBt9rWBRQtvto1W4QXe8RSinmRAXR21
+	iqEOAmhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAu6D-00000002dlB-2oHk;
-	Fri, 02 May 2025 17:22:57 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uAu6H-00000002doN-3XIN;
+	Fri, 02 May 2025 17:23:01 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAt3s-00000002TcS-2BzO
+	id 1uAtDI-00000002VND-2FEq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 16:16:32 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Zpwst4H8jz6M4Wn;
-	Sat,  3 May 2025 00:12:02 +0800 (CST)
-Received: from frapeml500003.china.huawei.com (unknown [7.182.85.28])
-	by mail.maildlp.com (Postfix) with ESMTPS id CB5CE140370;
-	Sat,  3 May 2025 00:16:25 +0800 (CST)
-Received: from a2303103017.china.huawei.com (10.47.77.180) by
- frapeml500003.china.huawei.com (7.182.85.28) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Fri, 2 May 2025 18:16:24 +0200
-From: Alireza Sanaee <alireza.sanaee@huawei.com>
-To: <devicetree@vger.kernel.org>
-CC: <robh@kernel.org>, <jonathan.cameron@huawei.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linuxarm@huawei.com>, <mark.rutland@arm.com>,
-	<shameerali.kolothum.thodi@huawei.com>
-Subject: [PATCH v2 6/6] of: of_cpu_phandle_to_id to support SMT threads
-Date: Fri, 2 May 2025 17:13:00 +0100
-Message-ID: <20250502161300.1411-7-alireza.sanaee@huawei.com>
+	Fri, 02 May 2025 16:26:15 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 542GQ6C8448894
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 2 May 2025 11:26:06 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1746203166;
+	bh=Of8g9618ZH89TKBMPSTzOkja8KKZL8ustRn0kzQjYOk=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=wGI3abTR6DKUQtt4nY2aOSJN/ERwB1KBUFTS1GQ4km61wcjfW5Z+pY4OnQ5q+RHr5
+	 rFO2X68plwNxfMS1OHCOdr4s+X0xHeHlBuzh1yYjtJxEpLDDiB6NbzejFT3PPtblQb
+	 6K1PWJlN26uLLtEjXeF7GpqE+1l3rx7r16NPQAnc=
+Received: from DLEE106.ent.ti.com (dlee106.ent.ti.com [157.170.170.36])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 542GQ63b031257
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 2 May 2025 11:26:06 -0500
+Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE106.ent.ti.com
+ (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 2
+ May 2025 11:26:05 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 2 May 2025 11:26:05 -0500
+Received: from ws.dhcp.ti.com (ws.dhcp.ti.com [10.24.69.232])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 542GPexA028994;
+	Fri, 2 May 2025 11:26:01 -0500
+From: Rishikesh Donadkar <r-donadkar@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>
+CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <vaishnav.a@ti.com>, <devarsht@ti.com>,
+        <y-abhilashchandra@ti.com>, <s-jain1@ti.com>, <jai.luthra@linux.dev>,
+        <jai.luthra@ideasonboard.com>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <imx@lists.linux.dev>, <r-donadkar@ti.com>
+Subject: [PATCH v2 4/4] arm64: dts: ti: k3-am62x: Add required voltage supplies for TEVI-OV5640
+Date: Fri, 2 May 2025 21:55:39 +0530
+Message-ID: <20250502162539.322091-5-r-donadkar@ti.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250502161300.1411-1-alireza.sanaee@huawei.com>
-References: <20250502161300.1411-1-alireza.sanaee@huawei.com>
+In-Reply-To: <20250502162539.322091-1-r-donadkar@ti.com>
+References: <20250502162539.322091-1-r-donadkar@ti.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-Originating-IP: [10.47.77.180]
-X-ClientProxiedBy: lhrpeml100011.china.huawei.com (7.191.174.247) To
- frapeml500003.china.huawei.com (7.182.85.28)
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_091630_996843_18229F9A 
-X-CRM114-Status: GOOD (  15.21  )
+X-CRM114-CacheID: sfid-20250502_092612_663615_8A71D7D9 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,91 +88,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enhance the API to support SMT threads, this will allow sharing resources among
-multiple SMT threads.
+The device tree overlay for TEVI-OV5640 requires following voltage
+supplies as mentioned in the power section [1]
 
-Enabled the sharing of resources, such as L1 Cache and clocks, between SMT
-threads. It introduces a fix that uses thread IDs to match each CPU thread in
-the register array within the cpu-node. This ensures that the cpu-map or any
-driver relying on this API is fine even when SMT threads share resources.
+AVDD-supply: Analog voltage supply, 2.8 volts
+DOVDD-supply: Digital I/O voltage supply, 1.8 volts
+DVDD-supply: Digital core voltage supply, 3.3 volts
 
-Additionally, I have tested this for CPU based on the discussions in [1], I
-adopted the new cpu-map layout, where the first parameter is a phandle and the
-second is the local thread index, as shown below:
+Add them in the DT overlay.
 
-In the CPU map, there are two cases that only one occurs at at time.
-    1) "cpu" = <phandle>
-    2) "cpus" = <phandle> <index>
-
-The first case addresses non-SMTs and the second case addresses SMTs
-that the variable must be cpu(s) with an index where we later look up
-the reg array with that.
-
-    core0 {
-      thread0 {
-        cpus = <&cpu0 0>;
-      };
-      thread1 {
-        cpus = <&cpu0 1>;
-      };
-    };
-
-[1] https://lore.kernel.org/devicetree-spec/CAL_JsqK1yqRLD9B+G7UUp=D8K++mXHq0Rmv=1i6DL_jXyZwXAw@mail.gmail.com/
-
-Signed-off-by: Alireza Sanaee <alireza.sanaee@huawei.com>
+Link: https://www.technexion.com/wp-content/uploads/2023/09/product-brief_tevi-ov5640.pdf
+Signed-off-by: Rishikesh Donadkar <r-donadkar@ti.com>
 ---
- drivers/of/cpu.c | 33 ++++++++++++++++++++++++++++++---
- 1 file changed, 30 insertions(+), 3 deletions(-)
+ .../dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso  | 32 +++++++++++++++++++
+ 1 file changed, 32 insertions(+)
 
-diff --git a/drivers/of/cpu.c b/drivers/of/cpu.c
-index 1e8d1fa04d3c..fbd3f6d4a87f 100644
---- a/drivers/of/cpu.c
-+++ b/drivers/of/cpu.c
-@@ -186,14 +186,41 @@ EXPORT_SYMBOL(of_cpu_node_to_id);
- int of_cpu_phandle_to_id(const struct device_node *node,
- 			 struct device_node **cpu_np)
- {
-+	int cpu, ret;
-+	bool found = false;
-+	uint32_t local_thread, thread_index;
-+	struct device_node *np;
-+	struct of_phandle_args args;
+diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso b/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso
+index b6bfdfbbdd984..fe3bc29632fa9 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso
++++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso
+@@ -15,6 +15,33 @@ clk_ov5640_fixed: ov5640-xclk {
+ 		#clock-cells = <0>;
+ 		clock-frequency = <24000000>;
+ 	};
 +
- 	if (!node)
- 		return -1;
- 
-+	/*
-+	 * Two cases which only one occurs at a time:
-+	 * 1) cpu = <phandle>
-+	 * 2) cpus = <phandle> <thread_index>
-+	 */
- 	*cpu_np = of_parse_phandle(node, "cpu", 0);
--	if (!cpu_np)
--		return -ENODEV;
-+	if (!*cpu_np) {
-+		ret = of_parse_phandle_with_fixed_args(node, "cpus", 1, 0,
-+						       &args);
-+		if (ret < 0)
-+			return ret;
++	reg_2p8v: regulator-2p8v {
++		compatible = "regulator-fixed";
++		regulator-name = "2P8V";
++		regulator-min-microvolt = <2800000>;
++		regulator-max-microvolt = <2800000>;
++		vin-supply = <&vcc_3v3_sys>;
++		regulator-always-on;
++	};
 +
-+		*cpu_np = args.np;
-+		thread_index = args.args[0];
-+		for_each_possible_cpu(cpu) {
-+			np = of_get_cpu_node(cpu, &local_thread);
-+			found = (*cpu_np == np) && (local_thread == thread_index);
-+			of_node_put(np);
-+			if (found)
-+				return cpu;
-+		}
++	reg_1p8v: regulator-1p8v {
++		compatible = "regulator-fixed";
++		regulator-name = "1P8V";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++		vin-supply = <&vcc_3v3_sys>;
++		regulator-always-on;
++	};
++
++	reg_3p3v: regulator-3p3v {
++		compatible = "regulator-fixed";
++		regulator-name = "3P3V";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		vin-supply = <&vcc_3v3_sys>;
++		regulator-always-on;
++	};
+ };
  
--	return of_cpu_node_to_id(*cpu_np);
-+		return -ENODEV;
-+	} else {
-+		return of_cpu_node_to_id(*cpu_np);
-+	}
- }
- EXPORT_SYMBOL(of_cpu_phandle_to_id);
+ &main_i2c2 {
+@@ -40,6 +67,11 @@ ov5640: camera@3c {
  
+ 				clocks = <&clk_ov5640_fixed>;
+ 				clock-names = "xclk";
++
++				AVDD-supply = <&reg_2p8v>;
++				DOVDD-supply = <&reg_1p8v>;
++				DVDD-supply = <&reg_3p3v>;
++
+ 				powerdown-gpios = <&exp1 13 GPIO_ACTIVE_LOW>;
+ 
+ 				port {
 -- 
 2.34.1
 
