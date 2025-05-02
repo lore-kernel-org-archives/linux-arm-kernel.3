@@ -4,80 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7982C3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 11:16:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44AF0C3ABA3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 11:16:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=x/rmusHHaLusTdd7+fM9t0D0DHwPL9qRbBIoqcANwzk=; b=Th5eN6vnmbE6C4
-	k7uYZRFrj/DVmZv1Z5v0CDrtM98t5D+aXGBOfANQw4+zocOOMzojHCw3prMh/s1fpp6c3fKp6JU3r
-	FplJHY4Gb8r9z4bADk0lSOFyjSYRm4R9NbFaRiCQOX5xu09mEjFg4ZYxcGGRlS8DHvyhfoBRWZD7U
-	rtmfu1IjkJSFwFw00ea9ZlZAjCEzal8Nr+4UtuyxlWBc64BMCPYkrIJO87kgZXf6XoYBKuwjYkk4N
-	yCIVYzZoegnLACoWRN1vzqJxmUmjmAPq9TMVCwLDchL0J53xqKqPsVjjohmwLrLuSr/fg/cZX+IS0
-	dg0YEzZk/JHocDgToeDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5ItVLbwXh6klaFZ4DOTZKuJkyifurR/QGuqAr/eTlGU=; b=OznMM65/RrB4g+nRrJ/7sc5h2Z
+	p6lJZbsi3wQPMWu7bAWCNgZphRZ/TEW2iD1B65PqjGgHc6AL5Xg6Avbl3A/UWblGqLuuWhFnawjfe
+	CvsTfXblAQnI5Laq7pd+zgyTGzx9Y+bUX3tsfD1EIkejaEiI97dqUIbBCKcQVsHC6PSv6fzRZY1R/
+	8lTph7+Hqae7RBZPwxdlFA/UlS+nMFUVuTf65rdd8fHqVFTqFkA98WFYL59Bwn4Zfrro6O+YLh9HA
+	fGFYaYgU0auQE1MuscHxwYfAHfVXod0ZYixcfU2E+dSkWxL/z+v1Wr4YHIXK4eslKAmoFY/W1LKh3
+	7Qsz2Q5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAoMv-00000001l3c-4B3l;
-	Fri, 02 May 2025 11:15:50 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1uAoNj-00000001lAN-3zZS;
+	Fri, 02 May 2025 11:16:39 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAoBd-00000001ihs-33eW;
-	Fri, 02 May 2025 11:04:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1746183806; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=hqZQsz3qHpAQw9kbQ/VDExRHIS0uQ0GKxpszv/6YpryNiRVV8zyVa9XvhPXkzBGLekDZtUYFQYigjuJzUi5sN5bGZrfq339f7TtP7WMSq5e1+tBmF9Shjp4PBWwK2VoEOfVWfhrafBLtaqmwmcOKvnp1AaozL48dOoiCHk6oycs=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1746183806; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=x/rmusHHaLusTdd7+fM9t0D0DHwPL9qRbBIoqcANwzk=; 
-	b=hzm2jG3cDEcDv+X9Nb5v/P0FPC1GGoOxgCQMcvd/JXrkXKAQxd6pJu5QpltsydqjheCFktODgUGCUCw7JjB6DPwP094dTp0JnROg8wXeVe8/NSqZKQXCyUP9KeSl6JkDuvGADZdiSeMUvuCJcl3buT7E8wdlL5BzLA5+4A1wtxI=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1746183806;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
-	bh=x/rmusHHaLusTdd7+fM9t0D0DHwPL9qRbBIoqcANwzk=;
-	b=fuUWkhG6X8l9y8cc5kTVpYO/kvNQw6lMmLjCDz7t/ko5W3+brjovf1Y2i5Bw41M7
-	A+X3gmlw0odIdQKmbmGh8JqNJBPrUhTgopXWK2tEId54nkLUVAsW2OgLvIeh8ytquoV
-	j7ZDE8TAVdy9Oai8NNPr3ZX4snmsEUaeoLabI8uI=
-Received: by mx.zohomail.com with SMTPS id 1746183803976136.65023538001685;
-	Fri, 2 May 2025 04:03:23 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Subject: [PATCH v3 00/10] Add RK3576 SAI Audio Controller Support
-Date: Fri, 02 May 2025 13:03:06 +0200
-Message-Id: <20250502-rk3576-sai-v3-0-376cef19dd7c@collabora.com>
+	id 1uAnCS-00000001SeK-1QFy
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 02 May 2025 10:00:57 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-ac25d2b2354so276798966b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 May 2025 03:00:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1746180055; x=1746784855; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=5ItVLbwXh6klaFZ4DOTZKuJkyifurR/QGuqAr/eTlGU=;
+        b=rskpFxsemHmOtWtTubkL4wiXjHFnAJlZBsjZoLk8RLPC32djZdrohP44qn43OPuLj2
+         h0gsg0a7sSSCwnS1iq13JaiPGAzbGbeXtX7I9hiMVFGWogw4n8jYn0nwNoSAs7OOnQzF
+         i+aoanDZxjXAe+SIH8mY01bJclznN+nU6MM2Kz+KfZ5k/zcmkkzEX1Uaej+hd6jOCP3t
+         QTlyVeiPC5HzmOm9dEHpsBgBhARTHWQB8qDzyrLpDT/q/zC0L8DcTFPwV2l4k5rojhBC
+         9fNXs+DAdSXTq0PYmeHrKrIY2MevgKDoJgib4ZuGMTEVZ1U2lk12yZuAbANRAVgoBA8K
+         PnCQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746180055; x=1746784855;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=5ItVLbwXh6klaFZ4DOTZKuJkyifurR/QGuqAr/eTlGU=;
+        b=oyIEwR7aUgJQhCSBq1cw3WW7DHRmbnjACGafnMRivrxIn73sVnE75TxL6QkLTPA3qk
+         G+lc5zVVvT2mnfyLWWb7M+i3Q4EyekiHI4PzyUuO9IyGLFy3qVT2zMB/c0fK842RnOax
+         HkPuyHFyuvKuGYKrznDB2bcbqCEl5KpD4EL9xDziQ3LZ3mj94DOU/o6NNn2cwm2iyODB
+         PeiAWosBXGKM47yzX7EQfDs2gzV1n0ykUSgXea430Ks9nsELKQ3e9XIBGaNipU+8ZemO
+         GwhLi9Adu9O2GMaLjWP35Y96A0hRzr0STgt+gh/SG/c+p+W8F0Wm1hMjDz2a/feaRBXO
+         MwCg==
+X-Forwarded-Encrypted: i=1; AJvYcCVp7fc1n+im2ZYmXl2Y2kgippjgCP+AlYYCasvo2G/5xygzr3ov88bKWVOqsR4yVEwSEb7qBWw98EDKwX0Wj0lP@lists.infradead.org
+X-Gm-Message-State: AOJu0YxTbkiUEUr/pglId1EOqMR/3Rwo4m3IrSory9OWW7N+8QtVGF72
+	IDmsSdH+RXqcuv+LDwBbslMoW5l5uy/Mz6pVVUnFr4FmhECUf+9otLXz6/2UiKE=
+X-Gm-Gg: ASbGncsuHR9lwHBRHgC9a1/s8Rxf8wCrSeh1EVDQLBG8Xyrb/Xc/xYUDwTZy1kQ5KhW
+	hx22/gEsO6nf2Atps6lPrj5P6Dv5zf4FrGIRT3qcPaXky7yORHN4q9CiAHV/WZiacSmvY9clrPz
+	KsvLe0zW2ogyvIwMNvjkKnP4X6THtYjNAHd3IKTwgVEAFmzfyAKOE2JXaBAoBpsSY3+2XhXEfvt
+	KY36iwT8mufK4mqCh5SAcdtx0v8+J/j8KEHRqV8xw4xyppYGCLjDcTuFBqN0CYYBcIbtDtDtFSB
+	8rC7d2XSO2GSO0QRHE5BEprN3CNWey9jZf7QDvFO/RWyB28C8Guc7LHky0rxPfhXZpP05V2s/kF
+	nThd2OsX1BtiFTKnxlQ==
+X-Google-Smtp-Source: AGHT+IHsIhA3Bp5ORflZ8bo2wewMeJPgYiXyKbBXizljuVxA1br3p39Mij4FHprUjRbWMN7T6ANK8g==
+X-Received: by 2002:a17:907:3f0f:b0:ace:9d35:6987 with SMTP id a640c23a62f3a-ad17ad24ac3mr199033566b.3.1746180054591;
+        Fri, 02 May 2025 03:00:54 -0700 (PDT)
+Received: from rayden.urgonet (h-98-128-140-123.A175.priv.bahnhof.se. [98.128.140.123])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad1891473a1sm26030566b.4.2025.05.02.03.00.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 02 May 2025 03:00:53 -0700 (PDT)
+From: Jens Wiklander <jens.wiklander@linaro.org>
+To: linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linaro-mm-sig@lists.linaro.org,
+	op-tee@lists.trustedfirmware.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Olivier Masse <olivier.masse@nxp.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Yong Wu <yong.wu@mediatek.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Brian Starkey <Brian.Starkey@arm.com>,
+	John Stultz <jstultz@google.com>,
+	"T . J . Mercier" <tjmercier@google.com>,
+	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
+	Sumit Garg <sumit.garg@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	azarrabi@qti.qualcomm.com,
+	Simona Vetter <simona.vetter@ffwll.ch>,
+	Daniel Stone <daniel@fooishbar.org>,
+	Rouven Czerwinski <rouven.czerwinski@linaro.org>,
+	Jens Wiklander <jens.wiklander@linaro.org>
+Subject: [PATCH v8 01/14] tee: tee_device_alloc(): copy dma_mask from parent device
+Date: Fri,  2 May 2025 11:59:15 +0200
+Message-ID: <20250502100049.1746335-2-jens.wiklander@linaro.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250502100049.1746335-1-jens.wiklander@linaro.org>
+References: <20250502100049.1746335-1-jens.wiklander@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAGqmFGgC/23O0Q6CIBTG8VdxXEc7AiJ21Xu0LpCOyVIpMFdzv
- nuEF63W5cf2+x9mEtBbDGSXzcTjZIN1Qxx8kxHT6uGM1J7iJgxYARwK6i+8KCUN2lJTKgTBQVU
- KSQRXj419pNjhuG6Pt3tsjusjqXVAalzf23GXDfgYaeoWwMgbtDaMzj/TZ6Y8iX93p5wClQKla
- ZTkWOm9cV2na+f1NsZTamIfLnL44ixyI4UExYWskf/yZVleJbSQaBgBAAA=
-X-Change-ID: 20250305-rk3576-sai-c78e0430898e
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Sugar Zhang <sugar.zhang@rock-chips.com>
-Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, kernel@collabora.com, 
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_040409_876801_3476C7E4 
-X-CRM114-Status: GOOD (  33.37  )
+X-CRM114-CacheID: sfid-20250502_030056_378837_E04F7B15 
+X-CRM114-Status: GOOD (  10.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,150 +118,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support for Rockchip's Serial Audio Interface (SAI)
-controller, found on SoCs such as the RK3576. The SAI is a flexible
-controller IP that allows both transmitting and receiving digital audio
-in the I2S, TDM and PCM formats. Instances of this controller are used
-both for externally exposed audio interfaces, as well as for audio on
-video interfaces such as HDMI.
+If a parent device is supplied to tee_device_alloc(), copy the dma_mask
+field into the new device. This avoids future warnings when mapping a
+DMA-buf for the device.
 
-Patch 1, 2, 3 and 4 do some preparatory work in the clock bindings and
-clock controller. The RK3576 has the SAI0 through SAI4 output mclks as
-well as the FSPI0 and FSPI1 clocks gated behind some GRF register
-writes. The RK3588 had this for its I2S audio clocks as well, but got
-away with not caring about it in mainline because the clocks were
-ungated by default.  This is no longer the case with RK3576: the SAI
-mclks need to be ungated before they can be used. Note the absence of
-the FSPI clks: they're ungated by default, so we're in no hurry to deal
-with them in this series.
-
-To sum those up: we need to introduce a new clock branch type, and also
-rework the rockchip clock code to deal with multiple separate GRF
-regmaps.
-
-NB: checkpatch.pl seems to trip over patch 2 in some way that seems like
-a combination of the diff being too clever and at the same time too
-stupid.
-
-Patch 5 and 6 are boring devicetree changes to add the nodes, including
-an hdmi_sound node in the SoC tree which can be enabled by individual
-boards that enable HDMI.
-
-Patch 7 and 8 enable analog audio and HDMI audio respectively on the
-ArmSoM Sige5 board. Patch 8 goes into some schematic-derived knowledge
-about where the audio signal can actually be tapped into in order to
-test analog audio.
-
-Patch 9 enables the driver in the arm64 defconfig, as the RK3576 is
-supported in mainline, so its drivers should be enabled in the
-defconfig.
-
-Patch 10 does the same for the codec driver.
-
-To test analog audio on the Sige5, I both soldered to the output 2
-testpads, as well as fashioned a cable to plug into the headphone
-header. I do have the necessary materials to to make more such cables,
-so if you have a Sige5 and want to test this but don't happen to sit on
-a pile of 03SUR-32S cables, then you may contact me off-list to request
-I send you such a cable from Switzerland, and I'll see what I can do.
-
-HDMI audio is now enabled in this series.
-
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
+Reviewed-by: Sumit Garg <sumit.garg@kernel.org>
 ---
-Changes in v3:
-- Fix auxiliary GRF patch on RK3388 and RV1126, which were
-  unintentionally broken previously because I didn't build 32-bit ARM
-  platforms. Thanks to Heiko for noticing!
-- Drop "ASoC: dt-bindings: add schema for rockchip SAI controllers" as
-  it was applied already
-- Drop "ASoC: rockchip: add Serial Audio Interface (SAI) driver" as it
-  was applied already
-- Add codec driver defconfig patch
-- Link to v2: https://lore.kernel.org/r/20250410-rk3576-sai-v2-0-c64608346be3@collabora.com
+ drivers/tee/tee_core.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Changes in v2:
-- split rockchip clk changes into 3 separate patches, all of which
-  build on their own
-- driver: expand Kconfig symbol help text to make checkpatch shut up
-- driver: remove runtime PM debug messages, as they were redundant
-- driver: move of_defice_id table and MODULE_DEVICE_TABLE to be above
-  the platform_driver struct and below the probe function, as is done in
-  many other drivers
-- driver: drop of_match_ptr
-- driver: drop MODULE_ALIAS
-- driver: remove the confusing hclk disable comment in the probe
-  function
-- driver: remove quirks handling, which only existed for
-  rockchip,always-on purposes. Downstream does not appear to need this
-  quirk for any sai implementations. It can always be added back later
-  when the problem, if there is any, is better understood.
-- driver: fix hw_params when the number of requested channels is lower
-  than twice the number of lanes in non-TDM mode. Without this, playing
-  back stereo audio on an 8-channel SAI would fail to set the hw_params
-- driver: when in I2S TDM mode, set the XFER delay to 1 aka half a cycle
-  This makes the output waveform line up with both what RK3568 I2S-TDM
-  and the TI TAS6424 codec describe as correct TDM'd I2S in their
-  datasheets, namely that on the first rising SCLK pulse after LRCK is
-  high, there's audio data ready.
-- driver: treat set_tdm_slot with 0 slots as disabling TDM. This lines
-  up with what the function documentation for ASoC core's
-  snd_soc_dai_set_tdm_slot says it'll do if it's called with 0 slots,
-  but in practice that function seems broken because it'll just pass
-  the signed number of slots to the unsigned parameter of the mask
-  generation function, which treats 0 slots as an error, making the
-  caller snd_soc_dai_set_tdm_slot function bail out before ever
-  giving any driver set_tdm_slot callback the 0 slot number. If that
-  ever gets fixed (I hacked around it to test it), then our driver will
-  be able to turn off TDM mode at runtime.
-- ASoC bindings: rename bindings file from rockchip,sai.yaml to
-  rockchip,rk3576-sai.yaml
-- ASoC bindings: remove extraneous blank line
-- ASoC bindings: change resets property to use an items listing
-- ASoC bindings: fix rockchip,sai-(t|r)x-route property constraints
-- ASoC bindings: remove rockchip,always-on
-- RK3576 dts: add tx/rx-route to all internal SAI nodes. This is needed
-  because they all can do either 8CH TX, 8CH TXRX or 8CH RX, and an
-  absent route property is understood to be just 2CH if the direction is
-  present.
-- RK3576 dts: add hdmi_sound node
-- Sige5 dts: enable hdmi_sound
-- Now based on v6.15-rc1
-- Link to v1: https://lore.kernel.org/r/20250305-rk3576-sai-v1-0-64e6cf863e9a@collabora.com
-
----
-Nicolas Frattaroli (10):
-      dt-bindings: clock: rk3576: add IOC gated clocks
-      clk: rockchip: introduce auxiliary GRFs
-      clk: rockchip: introduce GRF gates
-      clk: rockchip: add GATE_GRFs for SAI MCLKOUT to rk3576
-      arm64: dts: rockchip: Add RK3576 SAI nodes
-      arm64: dts: rockchip: Add RK3576 HDMI audio
-      arm64: dts: rockchip: Add analog audio on RK3576 Sige5
-      arm64: dts: rockchip: Enable HDMI audio on Sige5
-      arm64: defconfig: Enable Rockchip SAI
-      arm64: defconfig: enable ES8328 and ES8328_I2C
-
- .../boot/dts/rockchip/rk3576-armsom-sige5.dts      |  64 ++++++
- arch/arm64/boot/dts/rockchip/rk3576.dtsi           | 217 +++++++++++++++++++++
- arch/arm64/configs/defconfig                       |   3 +
- drivers/clk/rockchip/Makefile                      |   1 +
- drivers/clk/rockchip/clk-rk3288.c                  |   2 +-
- drivers/clk/rockchip/clk-rk3328.c                  |   6 +-
- drivers/clk/rockchip/clk-rk3568.c                  |   2 +-
- drivers/clk/rockchip/clk-rk3576.c                  |  59 +++++-
- drivers/clk/rockchip/clk-rv1126.c                  |   2 +-
- drivers/clk/rockchip/clk.c                         |  24 ++-
- drivers/clk/rockchip/clk.h                         |  49 ++++-
- drivers/clk/rockchip/gate-grf.c                    | 105 ++++++++++
- include/dt-bindings/clock/rockchip,rk3576-cru.h    |  10 +
- 13 files changed, 526 insertions(+), 18 deletions(-)
----
-base-commit: 1c51b1ba38c07e4f999802eb708bf798dd5f5d1b
-change-id: 20250305-rk3576-sai-c78e0430898e
-
-Best regards,
+diff --git a/drivers/tee/tee_core.c b/drivers/tee/tee_core.c
+index d113679b1e2d..685afcaa3ea1 100644
+--- a/drivers/tee/tee_core.c
++++ b/drivers/tee/tee_core.c
+@@ -922,6 +922,8 @@ struct tee_device *tee_device_alloc(const struct tee_desc *teedesc,
+ 	teedev->dev.class = &tee_class;
+ 	teedev->dev.release = tee_release_device;
+ 	teedev->dev.parent = dev;
++	if (dev)
++		teedev->dev.dma_mask = dev->dma_mask;
+ 
+ 	teedev->dev.devt = MKDEV(MAJOR(tee_devt), teedev->id);
+ 
 -- 
-Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+2.43.0
 
 
