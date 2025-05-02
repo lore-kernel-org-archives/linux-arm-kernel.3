@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD650C3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 10:31:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 135D2C3ABB7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 10:31:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JHc/i2uVCttA+F6G/pvXVydhhQiLzwlzjcfTEmJaCtI=; b=1AMLaWpuQMrE7dqC4V1p2UP9G2
-	aPTkKhCR4ls8vU/t2DdnPRratFbGsDnVfEwJtJE4FoNGgs3Z7YmtIdyHS5//D8m3XgkaOm+reNWJT
-	1Xez1nEV0hglhkWhEYa5RkL/j9OQneEiiodrrF+OG+rKB8hfQ46lURaq1gOCL8Rw4/6DEnt5zmGEM
-	Vk194RgQ2mX8Y+bz14y9YBV7UN5WgZZQL/mjGuqWj6mkPCHncXm4+TobY1WoahTDsF5pXqD87lyer
-	lRjW6U8ECRNEjIlkFQG+uFlSa0gKV9Y9AaJYdFkJ6gnJP78zZDfoRY9wAE0LKXQM+5UkPH8JmpzmT
-	uM3p+mqw==;
+	bh=t+mAUVqOxIXjZijXnkHFZmAFDQtFJ4Kh5PO6PLUJhLU=; b=yoO07ci3sSO++N9jdKQHniak0X
+	+PQd9DhsaJXf7fAS8c+if/z8pR0iAmuQOK3qOWzpT8q4s4jHKXMQXwFp2VpE0oOmJH16aomZf696X
+	/yzMSOcsdGj1Ze0k9GOJVm13G49B8xasmWw8Y3kJW+7KsELYtauN9XY7fVrjznuOE7oeAAojwqYan
+	nk1rMhp9WvVOX/OCIzRX0aTgFcP4CtXjVxF4QZ9boMINyCdKQ5Q1TRZdiOuZVMZBtnFn2vjDHZgGe
+	geBTMgwiSw3Y4Es2WdMm7uM0E8qu20DY60mALSAVKT5XDbTCP73R5rtbfaIExsVsYNOXiZQzCX0Dx
+	7a4ijDIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAnfa-00000001a2T-3L9g;
-	Fri, 02 May 2025 10:31:02 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1uAnfX-00000001ZzV-1EJo;
+	Fri, 02 May 2025 10:30:59 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAnCl-00000001SrA-2dSK
+	id 1uAnCa-00000001SiQ-0nm9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 10:01:16 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-5f7ec0e4978so3558328a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 May 2025 03:01:15 -0700 (PDT)
+	Fri, 02 May 2025 10:01:05 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-ac3fcf5ab0dso289756266b.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 May 2025 03:01:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1746180074; x=1746784874; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1746180062; x=1746784862; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=JHc/i2uVCttA+F6G/pvXVydhhQiLzwlzjcfTEmJaCtI=;
-        b=EejpfvmVPRyUPa5WSLMUcwIWO3QfcjkI+TVP35SgN9O32e2oWK7yYl49VWQTIkNPLZ
-         xsm0fwMX9eAfk07jfg1MZ+vXvzI4AqbwgxJ4si/6Pul/OklqH6I0nbqUH2Qk29qWf9q8
-         olH4qVV4vBDqJvfG+39islrIWbxv7f20KD0dcit2tJLThmjbkjNQUvrs2MkUgwa5RBQT
-         BlQHh0kpKwXlvf0bYLr2SJDqWeQoEQrcEKeN5+hq/Sdv4nY3SuW5vDnkttdk5S/ClBle
-         +u+NiiCtlEkZ1Ig5g8Drjn6l4JLePwIDYe/Mq2aCPS1CX4cvkLf3RcC0b2gNNDd536LQ
-         Uj/Q==
+        bh=t+mAUVqOxIXjZijXnkHFZmAFDQtFJ4Kh5PO6PLUJhLU=;
+        b=d9D61ppJdn1ZE+4gWf0vxoc0DxVAqTjKtQdOFisy+o3kZxcG+mB+wJte0o96kGUcA/
+         RKw9Dqt0MuT9XmCPFc6dLhr19ND7ta//HSt1dJftheowJkQDLKw9DYrxX/9s8sd2dCH9
+         BzhFDbyuym4ecrJmSft8fk2ntO5eFWw3EZpThUpy7R284qJyaQV+uKKPNTikgkv0feU9
+         dB6R8XzrSUWmylNGdtRblGMhAmYCz68pLL0iNq/sTMYRCfM7fPB6+h8zAphd+NI0tFtN
+         3mg3RSzGdOAYSvxTyxWeS1GVcF5IKfMOlUZOka+VN7fBFJpQUUTQeGabCpOLcsiHKhxu
+         stPg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746180074; x=1746784874;
+        d=1e100.net; s=20230601; t=1746180062; x=1746784862;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=JHc/i2uVCttA+F6G/pvXVydhhQiLzwlzjcfTEmJaCtI=;
-        b=ZZTcYTK/8u+l5lmDcd4bps88GTmccdbY25hKNTNQmm0z7uheBusXzGZWxiLBaaHi0Q
-         pSemY/v6ql2YKSFeA1eSi2mxDOb1nzpqz4hJVg52fQGDdVJzWtdjNRqVd4UKASg3kcc4
-         Ec6zeD+pkSBhiya4DMjyHGi5Pq7F0ZQSBR6hbJC6fk+mRAO3PRNaOx6PqWKImdSTiHOC
-         pYFVNouUvd43ISd1NkYtOwCk7IY96UF/IofzZwXbyZv+iGpoEoGquBW8spci/GgWWPJ+
-         NpC68bP5u+o1PA60wxkY2p/AZ9bDqEHT4T8kjq3uMT6feF/S1mGPcAF0LhOwgVB/nKwa
-         dKKw==
-X-Forwarded-Encrypted: i=1; AJvYcCWs9QW9mthOtI4fDjOtJYvYy7q+jKUXNhV+Qw5X4LUiqf18hYUGG3SpvvT4q7PUqjvp0O29+qtTwvr3Vli2NSts@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywq4Pi5Snvlv1N57TWdKcDKyOaSUc3ooXK2F6Pb80H2Ne8GWgoc
-	Aj0YiJP2xHPOpJHzIvDesYSIpwWLlRH5m5Abq1kBE7qKz6685DuwVSp3x3yIJPmmuO+f0nEi7en
-	Y/BE=
-X-Gm-Gg: ASbGncs9zJwPyAokE2xFVRUW6UTchnotIMaR6NTZ4+7izoLFoBCI8vTVGK5/5A8ybN+
-	Zc4CAvDI7CnNO58Q6FGXAwWkCll4H65ycOMA+UPNb9cV2B19Nc0pusGUc1E8V+enIxk6S+VHpDg
-	i7yzcPlqjb1x8gr9OBCVxlgWzS+p6EVnXmjGPMMbM5Hpn1bN+Umz524ZZT4O5QPoVR0YjE2dQjD
-	U1Gi/g2pXzlzp+jUEsi+wv6opXdc1eOxHMsHwDm8+2QUrRT8m9xoeVXblFQGMDwRUwFt0nEYKRS
-	3keGUdGww9PTr/Bs9e5AVIxi8e+oSqz3NHsqZHlc/RaLO+rq+8H8X+8kTxsf0Nndt3C6il02Ubo
-	lHvFCjoD3PSf8a6TqFA==
-X-Google-Smtp-Source: AGHT+IFOsgLF6Acl3Dnu+kY+8WzAAhOB09Jk1srS30TZnn+BAtVaux5M4/L7RxPQOkhdypP2FHq2bw==
-X-Received: by 2002:a17:907:da7:b0:abf:749f:f719 with SMTP id a640c23a62f3a-ad17ad17aa7mr211271466b.7.1746180073795;
-        Fri, 02 May 2025 03:01:13 -0700 (PDT)
+        bh=t+mAUVqOxIXjZijXnkHFZmAFDQtFJ4Kh5PO6PLUJhLU=;
+        b=bdTI1Ukj2Clg+3WzpS6I7eO5VHNX4Po7IX0K1mDqWMAJb5vYeTVRtWcvK9E+RpGXiS
+         ymDcqxDszYP0ovEfMzc9MYfVUbWVawcq5ihHrVN+RFtVZePePh7227cBu2lpR6RMDIK1
+         y/9KD2Hpoxc2VKt8hfC0x/SZ130dsjmrbHfnholn6G7Ni5DDERMrF9YwBMod5XWJW7oT
+         ufv2F3VRQm52M5Z0U4ilosswsODLRe4BvFga5jwUEIvP1Z7Px8I/5qVMHdV3t//6Rcol
+         nKXBNB0/ALyRM7J81nXXMs/Hr6osCkM3fhSrGUwAtJhRMFowzNneaVTyzCNEGxsJDFVP
+         ZROQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVBkir9n7c6EfG3sThp3ZH787u6BKtoENpz05K0HriTf2CUwyUZu8/fg1kvWly1uFiaqQTnXygmYF89050SsILz@lists.infradead.org
+X-Gm-Message-State: AOJu0YyU9LxkQBHRJHQwLQXaROgxXG3eoYFd/TFJskrb48r+vbQKpXpg
+	bZhf3MIb1zCY/3bNrrqt9VJ90M5p1vhqU3nWtQQmfSGwFSrbTcY8NmYMR4Zqq+I=
+X-Gm-Gg: ASbGncv5gbzMy7M5t+KMgir2JOJ4x5yZ9MvS36bCjgL1l2Y8V301SqLobKebg8Fg9AX
+	uIE3z9uRkMjmYOpB+0C25xOgYdmRhgm2i1Zk/NyxXe/bJdNo/GKTNF6Paos8ascjUhy0DIQoDnW
+	xGXi+u0YtuB1XdWIyYPEykSZhc8QsYVWG9TcsS9v+jqwziD4PokfoZRlkZbi16FKBq402XFDTuv
+	EVTbAv2TwOd6nvbhjuXIgH8O1Cg5GB4Oe9eXD6CeQL8qVpbx1w11RSDs89o7KLVLPfytmKqJ3cu
+	4lAj4jhkkQtl0wOAa7lvLEQY/TMLflUxR0sGTxwGeyXwDLTGH+R+tsEIvjV1vPKuKaA6rcoWUwz
+	ylW4QZAYeJkk3BnQRxg==
+X-Google-Smtp-Source: AGHT+IF8JUCWliZjcbeUSHN6uSsFMCJc6NTPRM+5qGy9ZTGCC1yXzVdzLyehffDilJirBntp5oHCOw==
+X-Received: by 2002:a17:907:9411:b0:abf:fb78:673a with SMTP id a640c23a62f3a-ad17adaee50mr226144666b.29.1746180062402;
+        Fri, 02 May 2025 03:01:02 -0700 (PDT)
 Received: from rayden.urgonet (h-98-128-140-123.A175.priv.bahnhof.se. [98.128.140.123])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad1891473a1sm26030566b.4.2025.05.02.03.01.12
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad1891473a1sm26030566b.4.2025.05.02.03.01.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 May 2025 03:01:13 -0700 (PDT)
+        Fri, 02 May 2025 03:01:01 -0700 (PDT)
 From: Jens Wiklander <jens.wiklander@linaro.org>
 To: linux-kernel@vger.kernel.org,
 	linux-media@vger.kernel.org,
@@ -94,17 +93,18 @@ Cc: Olivier Masse <olivier.masse@nxp.com>,
 	Daniel Stone <daniel@fooishbar.org>,
 	Rouven Czerwinski <rouven.czerwinski@linaro.org>,
 	Jens Wiklander <jens.wiklander@linaro.org>
-Subject: [PATCH v8 11/14] tee: add tee_shm_alloc_cma_phys_mem()
-Date: Fri,  2 May 2025 11:59:25 +0200
-Message-ID: <20250502100049.1746335-12-jens.wiklander@linaro.org>
+Subject: [PATCH v8 05/14] dma-buf: dma-heap: export declared functions
+Date: Fri,  2 May 2025 11:59:19 +0200
+Message-ID: <20250502100049.1746335-6-jens.wiklander@linaro.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250502100049.1746335-1-jens.wiklander@linaro.org>
 References: <20250502100049.1746335-1-jens.wiklander@linaro.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_030115_669947_20F43678 
-X-CRM114-Status: GOOD (  19.16  )
+X-CRM114-CacheID: sfid-20250502_030104_231925_DFC74D73 
+X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,128 +119,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add tee_shm_alloc_cma_phys_mem() to allocate a physical memory using
-from the default CMA pool. The memory is represented by a tee_shm object
-using the new flag TEE_SHM_CMA_BUF to identify it as physical memory
-from CMA.
+Export the dma-buf heap functions declared in <linux/dma-heap.h>.
 
 Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
 ---
- drivers/tee/tee_shm.c    | 55 ++++++++++++++++++++++++++++++++++++++--
- include/linux/tee_core.h |  4 +++
- 2 files changed, 57 insertions(+), 2 deletions(-)
+ drivers/dma-buf/dma-heap.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/drivers/tee/tee_shm.c b/drivers/tee/tee_shm.c
-index e1ed52ee0a16..faaa0a87bb18 100644
---- a/drivers/tee/tee_shm.c
-+++ b/drivers/tee/tee_shm.c
-@@ -3,8 +3,11 @@
-  * Copyright (c) 2015-2017, 2019-2021 Linaro Limited
-  */
- #include <linux/anon_inodes.h>
-+#include <linux/cma.h>
- #include <linux/device.h>
- #include <linux/dma-buf.h>
-+#include <linux/dma-map-ops.h>
-+#include <linux/highmem.h>
- #include <linux/idr.h>
- #include <linux/io.h>
- #include <linux/mm.h>
-@@ -13,7 +16,6 @@
- #include <linux/tee_core.h>
- #include <linux/uaccess.h>
- #include <linux/uio.h>
--#include <linux/highmem.h>
- #include "tee_private.h"
- 
- static void shm_put_kernel_pages(struct page **pages, size_t page_count)
-@@ -49,7 +51,14 @@ static void tee_shm_release(struct tee_device *teedev, struct tee_shm *shm)
- 	struct tee_shm *parent_shm = NULL;
- 	void *p = shm;
- 
--	if (shm->flags & TEE_SHM_DMA_BUF) {
-+	if (shm->flags & TEE_SHM_CMA_BUF) {
-+#if IS_ENABLED(CONFIG_CMA)
-+		struct page *page = phys_to_page(shm->paddr);
-+		struct cma *cma = dev_get_cma_area(&shm->ctx->teedev->dev);
-+
-+		cma_release(cma, page, shm->size / PAGE_SIZE);
-+#endif
-+	} else if (shm->flags & TEE_SHM_DMA_BUF) {
- 		struct tee_shm_dmabuf_ref *ref;
- 
- 		ref = container_of(shm, struct tee_shm_dmabuf_ref, shm);
-@@ -306,6 +315,48 @@ struct tee_shm *tee_shm_alloc_priv_buf(struct tee_context *ctx, size_t size)
+diff --git a/drivers/dma-buf/dma-heap.c b/drivers/dma-buf/dma-heap.c
+index 3cbe87d4a464..cdddf0e24dce 100644
+--- a/drivers/dma-buf/dma-heap.c
++++ b/drivers/dma-buf/dma-heap.c
+@@ -202,6 +202,7 @@ void *dma_heap_get_drvdata(struct dma_heap *heap)
+ {
+ 	return heap->priv;
  }
- EXPORT_SYMBOL_GPL(tee_shm_alloc_priv_buf);
++EXPORT_SYMBOL(dma_heap_get_drvdata);
  
-+struct tee_shm *tee_shm_alloc_cma_phys_mem(struct tee_context *ctx,
-+					   size_t page_count, size_t align)
-+{
-+#if IS_ENABLED(CONFIG_CMA)
-+	struct tee_device *teedev = ctx->teedev;
-+	struct cma *cma = dev_get_cma_area(&teedev->dev);
-+	struct tee_shm *shm;
-+	struct page *page;
-+
-+	if (!tee_device_get(teedev))
-+		return ERR_PTR(-EINVAL);
-+
-+	page = cma_alloc(cma, page_count, align, true/*no_warn*/);
-+	if (!page)
-+		goto err_put_teedev;
-+
-+	shm = kzalloc(sizeof(*shm), GFP_KERNEL);
-+	if (!shm)
-+		goto err_cma_crelease;
-+
-+	refcount_set(&shm->refcount, 1);
-+	shm->ctx = ctx;
-+	shm->paddr = page_to_phys(page);
-+	shm->size = page_count * PAGE_SIZE;
-+	shm->flags = TEE_SHM_CMA_BUF;
-+
-+	teedev_ctx_get(ctx);
-+
-+	return shm;
-+
-+err_cma_crelease:
-+	cma_release(cma, page, page_count);
-+err_put_teedev:
-+	tee_device_put(teedev);
-+
-+	return ERR_PTR(-ENOMEM);
-+#else
-+	return ERR_PTR(-EINVAL);
-+#endif
-+}
-+EXPORT_SYMBOL_GPL(tee_shm_alloc_cma_phys_mem);
-+
- int tee_dyn_shm_alloc_helper(struct tee_shm *shm, size_t size, size_t align,
- 			     int (*shm_register)(struct tee_context *ctx,
- 						 struct tee_shm *shm,
-diff --git a/include/linux/tee_core.h b/include/linux/tee_core.h
-index 02c07f661349..3a4e1b00fcc7 100644
---- a/include/linux/tee_core.h
-+++ b/include/linux/tee_core.h
-@@ -29,6 +29,7 @@
- #define TEE_SHM_POOL		BIT(2)  /* Memory allocated from pool */
- #define TEE_SHM_PRIV		BIT(3)  /* Memory private to TEE driver */
- #define TEE_SHM_DMA_BUF		BIT(4)	/* Memory with dma-buf handle */
-+#define TEE_SHM_CMA_BUF		BIT(5)	/* CMA allocated memory */
+ /**
+  * dma_heap_get_name - get heap name
+@@ -214,6 +215,7 @@ const char *dma_heap_get_name(struct dma_heap *heap)
+ {
+ 	return heap->name;
+ }
++EXPORT_SYMBOL(dma_heap_get_name);
  
- #define TEE_DEVICE_FLAG_REGISTERED	0x1
- #define TEE_MAX_DEV_NAME_LEN		32
-@@ -310,6 +311,9 @@ void *tee_get_drvdata(struct tee_device *teedev);
-  */
- struct tee_shm *tee_shm_alloc_priv_buf(struct tee_context *ctx, size_t size);
+ /**
+  * dma_heap_add - adds a heap to dmabuf heaps
+@@ -303,6 +305,7 @@ struct dma_heap *dma_heap_add(const struct dma_heap_export_info *exp_info)
+ 	kfree(heap);
+ 	return err_ret;
+ }
++EXPORT_SYMBOL(dma_heap_add);
  
-+struct tee_shm *tee_shm_alloc_cma_phys_mem(struct tee_context *ctx,
-+					   size_t page_count, size_t align);
-+
- int tee_dyn_shm_alloc_helper(struct tee_shm *shm, size_t size, size_t align,
- 			     int (*shm_register)(struct tee_context *ctx,
- 						 struct tee_shm *shm,
+ static char *dma_heap_devnode(const struct device *dev, umode_t *mode)
+ {
 -- 
 2.43.0
 
