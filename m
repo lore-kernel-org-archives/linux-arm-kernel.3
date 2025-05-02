@@ -4,99 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F10CC3ABA3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 07:33:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3C05C3ABA9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 07:47:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WhyG+qPql1C6VOEStks/G335oAHhX6Klfc0SAJXR260=; b=r4LTAlMS618f8Muu5DbwvRwNUo
-	ExyG7vulH+J3tBSfLcz0HR32mAz2lNG4mH0Zst3AMW4DNrkXlDTXJ4csERzHwFaeqGZSlL6Ye9N2B
-	AWYXmEye6eMqhQBQYNPb/Ii38ZcIYPHzdOJWUgKe7bzbcTihem7IVkcru1K25uOTRkG9SjLZftIqL
-	RdPGqxuCwFf+nV9ZVZwWfFgwE6EK3WACITMu5JvXv9R+aKmMpPOXwzSnNF35x885wH1gaDcJFlzhD
-	zVoZ2V+pXNWtvk/HuzekGZMa5cqUxv88Iz5I9apK5nluHN4Mz9mxktMOrT3HynkjBSZxH6SYAtqlV
-	NBhaLhug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=yBdALXqrWNVVbnMhEgxjkDyYyalHlGBmfUhPvgsBxtw=; b=gRxcE+DZAlG5KRdoieS8IKl4a6
+	U2JSlQbLB1L+hGQLfUG0a547NHcPQy7oXaL1i2UGCNexTQ+1s2CBkZQuSTsazgLHkWAgy5JsE24Y3
+	Kkt3LXDBPtkMsUE3MJg83+FxHOPUFNecf+99p9hjmlu38+yfIco/lU8JW0Ua0K9iykQNoSHUt25s0
+	fWFs0NWTBWwkUMY8B+AMS8N1fxuBbFBJ/gYxSrdaJalMJV7BrKpowQ2SXPudfIYfyQP+qmJ0A1aRb
+	jb0cgx+sFpLCWH3d29no8vZlrtYsDM6Or3R6C/p6KSuChxAatPoFmWGQM3muu1vRTVfjgWtbs1Ezm
+	N6M5lmGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAktZ-000000016Wa-1xLS;
-	Fri, 02 May 2025 07:33:17 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1uAl77-0000000183C-44wu;
+	Fri, 02 May 2025 07:47:17 +0000
+Received: from mx.denx.de ([2a03:4000:64:cc:545d:19ff:fe05:8172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAkre-000000016Lg-0rIs
+	id 1uAl5A-000000017eO-3NoP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 07:31:19 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-225477548e1so19234985ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 May 2025 00:31:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746171077; x=1746775877; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=WhyG+qPql1C6VOEStks/G335oAHhX6Klfc0SAJXR260=;
-        b=OKxwr9ecuDs+3L7/boN3Qe8Yu6cL4TIOQKW+bNG45ii1ZfHf+Z8zBHWz5PKP3xIM/7
-         +eEFkwyOzOCRQOcWLMo8gPu0vYrDmGI16H6DS+jJVrr6niFOcwhI1/I2OhlZ7WpVoBLj
-         Cu4A/AhouoQUrPHIkVmwt0nDZDlrWCRKmVxYxqvQgDUZMvU+t4KizfBI7PsopEW+kx/b
-         P54mH5CBqgEH0VC9BVBQA7Thiy8daYsfB1xms2dbHR056PVKf6EWeqYL2EBeE+l3Am/D
-         HyP6JcjdG/XLNJhRYAS6w0p5U3A0LIlPvVIsCM6HD63sTA0BlGSJm97W8MR7lIoHaktd
-         WEVQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746171077; x=1746775877;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WhyG+qPql1C6VOEStks/G335oAHhX6Klfc0SAJXR260=;
-        b=Y7BfFgaVJFnx1pWRwaoeZAMunEdbSyJaucwW4IpYHAQR8m5b2PgNOv+MURd+35dkRo
-         9Qo9JI8byddB5B4IWAWGLl9MJsd9pYBPRG+c28JCiVXdOq1PbX7bvvA5M7Np/y9PwfHU
-         MNu7GNmxLIyEdtDET3XdHYcHArqs3Mbztt5geNCJ1TogdnfteM2gbjYgi6ECZG8/RCc2
-         idhuRwCzizkf4TcrCV8h4swvb3tg4Lj5+j64GjwrdfvOdXEJc0IfA9qpdHiy2BO2h+99
-         Of2hFu0e/Xox7oh4o0D8odD2HtGanG8v40xpHKQACM1g6HyOLzO1Hzy5TwfGulLZV/qA
-         K4DA==
-X-Forwarded-Encrypted: i=1; AJvYcCXv4KGtuBtj1B2BskDIK0xFdXHnUV0XyZEUgbDb12WtZaplwUHuXQN5qeTZSUD6jO/TiDXcNT2DDWpLZUCop7++@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1RMKH1aYQ2GwK/rd82XNXttbj7Yi6NPzkv7SDUW8jz0gFmMYl
-	SSWZU0Dd2AL7vIHklLh8RCByappnFbGv4PFYBqEQFrqB7NKvClTr
-X-Gm-Gg: ASbGncsn89P/7F2QsWEAXfc0BqqaliN5cxgV+EfibqvPFLqRYxUrhZc9cDGtGr/HBxH
-	dQOnSc35aVyYqH8T+gA+EcoUE53A5t+iQv0Mzvf97kls4HgLI2cnfJvgOaSUffS2dJaIgWhL692
-	FisC5Ih4P3MgpJ61fZnlHb+YbtOKlNx1ID0zC4Kz7Du70myydaAHa8Q9O8Tmx+9utBFs6QZbmWC
-	k71X/rXwafjMNl5ZRPWe6aejljJPI/9tG9OXOt9H7v1lRD/X/R2Qzzteb/Yq468o5UN5QRs3Oqe
-	l/PV5rS9g+DzuHMVlz6EuT41HUKBDwsAq+7CjMf2
-X-Google-Smtp-Source: AGHT+IH52a6BgPoPUu5N1D3Rb40EG6pjnTkV9nhRgxYGSZyv07U3fjSm8A6SXkBygATuXX2l4VA+sQ==
-X-Received: by 2002:a17:903:2f91:b0:224:191d:8a87 with SMTP id d9443c01a7336-22e1034418bmr27532815ad.26.1746171077036;
-        Fri, 02 May 2025 00:31:17 -0700 (PDT)
-Received: from archie.me ([103.124.138.155])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22e1522f7c8sm937775ad.228.2025.05.02.00.31.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 May 2025 00:31:15 -0700 (PDT)
-Received: by archie.me (Postfix, from userid 1000)
-	id B8C52420A6AB; Fri, 02 May 2025 14:31:13 +0700 (WIB)
-Date: Fri, 2 May 2025 14:31:13 +0700
-From: Bagas Sanjaya <bagasdotme@gmail.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net, will@kernel.org,
-	robin.murphy@arm.com, joro@8bytes.org, thierry.reding@gmail.com,
-	vdumpa@nvidia.com, jonathanh@nvidia.com, shuah@kernel.org,
-	jsnitsel@redhat.com, nathan@kernel.org, peterz@infradead.org,
-	yi.l.liu@intel.com, mshavit@google.com, praan@google.com,
-	zhangzekun11@huawei.com, iommu@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
-	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com
-Subject: Re: [PATCH v3 16/23] Documentation: userspace-api: iommufd: Update
- vQUEUE
-Message-ID: <aBR0wWzQablOklyW@archie.me>
-References: <cover.1746139811.git.nicolinc@nvidia.com>
- <0beddeaaa4a8a7a45ce93ff21c543ae58be64908.1746139811.git.nicolinc@nvidia.com>
- <aBRA75V9l9WlI2Q3@archie.me>
- <aBRYVkOKfFGMb5Y+@Asurada-Nvidia>
+	Fri, 02 May 2025 07:45:18 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C07B510267F94;
+	Fri,  2 May 2025 09:45:06 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
+	t=1746171911; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=yBdALXqrWNVVbnMhEgxjkDyYyalHlGBmfUhPvgsBxtw=;
+	b=EuUtNm5/z3XB//Pm3m+wcmJTCe70E3w7iTT0xY+mlMQN+Pc/YAqYaSq+kUW7xI9JguCFD6
+	M44n1Gr1Wc3Ih00n78boTq5K+fCtm/tNKSoBnTbJE3cISi4Z9uQurGfN77Ng8PazeoRwIQ
+	RW9igqrY8PH2X3LNeOHOWhseA/aPvNksfyWYR3zg+C+Bw4cPg7cuQuzSsU2J58vTOLath2
+	2j1QipS1M2HiWftzrm+4AQebXR2Bf5Cjb+dMu3JoOonHQFlG9vcM8GdQi7GarKk28q3wsd
+	msd7jTqgWfQeUKaoXQ2y4f4AUPnsn9FWrdFbpUM55z2Fyy87+pSTsyp/x8m1rg==
+From: Lukasz Majewski <lukma@denx.de>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Simon Horman <horms@kernel.org>,
+	Lukasz Majewski <lukma@denx.de>
+Subject: [net-next v10 0/7] net: mtip: Add support for MTIP imx287 L2 switch driver
+Date: Fri,  2 May 2025 09:44:40 +0200
+Message-Id: <20250502074447.2153837-1-lukma@denx.de>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="vde97DQHR/3Yogi4"
-Content-Disposition: inline
-In-Reply-To: <aBRYVkOKfFGMb5Y+@Asurada-Nvidia>
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_003118_247155_BF8CEC02 
-X-CRM114-Status: GOOD (  20.82  )
+X-CRM114-CacheID: sfid-20250502_004517_140149_563BA91E 
+X-CRM114-Status: GOOD (  19.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,67 +83,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This patch series adds support for More Than IP's L2 switch driver embedded
+in some NXP's SoCs. This one has been tested on imx287, but is also available
+in the vf610.
 
---vde97DQHR/3Yogi4
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+In the past there has been performed some attempts to upstream this driver:
 
-On Thu, May 01, 2025 at 10:29:58PM -0700, Nicolin Chen wrote:
-> On Fri, May 02, 2025 at 10:50:07AM +0700, Bagas Sanjaya wrote:
-> > On Thu, May 01, 2025 at 04:01:22PM -0700, Nicolin Chen wrote:
-> > > +- IOMMUFD_OBJ_VQUEUE, representing a hardware accelerated virtual qu=
-eue, as a
-> > > +  subset of IOMMU's virtualization features, for the IOMMU HW to dir=
-ectly read
-> > > +  or write the virtual queue memory owned by a guest OS. This HW-acc=
-eleration
-> > > +  allows VM to work with the IOMMU HW directly without a VM Exit, i.=
-e. reducing
-> > > +  overhead from the hypercalls. Along with this vQUEUE object, iommu=
-fd provides
-> > > +  user space an mmap interface for VMM to mmap a physical MMIO regio=
-n from the
-> > > +  host physical address space to the guest physical address space, a=
-llowing the
-> > > +  guest OS to control the allocated vQUEUE HW. Thus, when allocating=
- a vQUEUE,
-> > > +  the VMM must request a pair of VMA info (vm_pgoff/size) for an mma=
-p syscall.
-> > > +  The length argument of an mmap syscall can be smaller than the giv=
-en size for
-> > > +  a partial mmap, but the addr argument of the mmap syscall should n=
-ever offset
-> > > +  from the returned vm_pgoff, which implies that an mmap will always=
- start from
-> >=20
-> > Did you mean never be offset from returned vm_pgoff?
->=20
-> Yes. Will fix this.
->=20
-> > > +  the beginning of the physical MMIO region.
-> > > +
-> >=20
-> > Confused...
->=20
-> Meaning that VMM should just use the given vm_pgoff as is, without
-> adding any offset to the vm_pgoff.
+1. The 4.19-cip based one [1]
+2. DSA based one for 5.12 [2] - i.e. the switch itself was treat as a DSA switch
+   with NO tag appended.
+3. The extension for FEC driver for 5.12 [3] - the trick here was to fully reuse
+   FEC when the in-HW switching is disabled. When bridge offloading is enabled,
+   the driver uses already configured MAC and PHY to also configure PHY.
 
-Understood, thanks!
-=20
---=20
-An old man doll... just what I always wanted! - Clara
+All three approaches were not accepted as eligible for upstreaming.
 
---vde97DQHR/3Yogi4
-Content-Type: application/pgp-signature; name=signature.asc
+The driver from this series has floowing features:
 
------BEGIN PGP SIGNATURE-----
+1. It is fully separated from fec_main - i.e. can be used interchangeable
+   with it. To be more specific - one can build them as modules and
+   if required switch between them when e.g. bridge offloading is required.
 
-iHUEABYKAB0WIQSSYQ6Cy7oyFNCHrUH2uYlJVVFOowUCaBR0wQAKCRD2uYlJVVFO
-o2GmAQD6yTz+9Kdn/nHALYBCiSbtX+ewWJjZ0spXlFlQyWBmSgEA9HdlnssGmaCv
-oibhf/yiDjC4MkNfQVDV7Jw5qTjhagQ=
-=zmrU
------END PGP SIGNATURE-----
+   To be more specific:
+        - Use FEC_MAIN: When one needs support for two ETH ports with separate
+          uDMAs used for both and bridging can be realized in SW.
 
---vde97DQHR/3Yogi4--
+        - Use MTIPL2SW: When it is enough to support two ports with only uDMA0
+          attached to switch and bridging shall be offloaded to HW. 
+
+2. This driver uses MTIP's L2 switch internal VLAN feature to provide port
+   separation at boot time. Port separation is disabled when bridging is
+   required.
+
+3. Example usage:
+        Configuration:
+        ip link set lan0 up; sleep 1;
+        ip link set lan1 up; sleep 1;
+        ip link add name br0 type bridge;
+        ip link set br0 up; sleep 1;
+        ip link set lan0 master br0;
+        ip link set lan1 master br0;
+        bridge link;
+        ip addr add 192.168.2.17/24 dev br0;
+        ping -c 5 192.168.2.222
+
+        Removal:
+        ip link set br0 down;
+        ip link delete br0 type bridge;
+        ip link set dev lan1 down
+        ip link set dev lan0 down
+
+4. Limitations:
+        - Driver enables and disables switch operation with learning and ageing.
+        - Missing is the advanced configuration (e.g. adding entries to FBD). This is
+          on purpose, as up till now we didn't had consensus about how the driver
+          shall be added to Linux.
+
+5. Clang build:
+	make LLVM_SUFFIX=-19 LLVM=1 mrproper
+	cp ./arch/arm/configs/mxs_defconfig .config
+	make ARCH=arm LLVM_SUFFIX=-19 LLVM=1 W=1 menuconfig
+	make ARCH=arm LLVM_SUFFIX=-19 LLVM=1 W=1 -j8 LOADADDR=0x40008000 uImage dtbs
+
+Links:
+[1] - https://github.com/lmajewski/linux-imx28-l2switch/commits/master
+[2] - https://github.com/lmajewski/linux-imx28-l2switch/tree/imx28-v5.12-L2-upstream-RFC_v1
+[3] - https://source.denx.de/linux/linux-imx28-l2switch/-/tree/imx28-v5.12-L2-upstream-switchdev-RFC_v1?ref_type=heads
+
+
+Lukasz Majewski (7):
+  dt-bindings: net: Add MTIP L2 switch description
+  ARM: dts: nxp: mxs: Adjust the imx28.dtsi L2 switch description
+  ARM: dts: nxp: mxs: Adjust XEA board's DTS to support L2 switch
+  net: mtip: The L2 switch driver for imx287
+  ARM: mxs_defconfig: Enable CONFIG_NFS_FSCACHE
+  ARM: mxs_defconfig: Update mxs_defconfig to 6.15-rc1
+  ARM: mxs_defconfig: Enable CONFIG_FEC_MTIP_L2SW to support MTIP L2
+    switch
+
+ .../bindings/net/nxp,imx28-mtip-switch.yaml   |  149 ++
+ MAINTAINERS                                   |    7 +
+ arch/arm/boot/dts/nxp/mxs/imx28-xea.dts       |   56 +
+ arch/arm/boot/dts/nxp/mxs/imx28.dtsi          |    9 +-
+ arch/arm/configs/mxs_defconfig                |   13 +-
+ drivers/net/ethernet/freescale/Kconfig        |    1 +
+ drivers/net/ethernet/freescale/Makefile       |    1 +
+ drivers/net/ethernet/freescale/mtipsw/Kconfig |   13 +
+ .../net/ethernet/freescale/mtipsw/Makefile    |    4 +
+ .../net/ethernet/freescale/mtipsw/mtipl2sw.c  | 1978 +++++++++++++++++
+ .../net/ethernet/freescale/mtipsw/mtipl2sw.h  |  771 +++++++
+ .../ethernet/freescale/mtipsw/mtipl2sw_br.c   |  120 +
+ .../ethernet/freescale/mtipsw/mtipl2sw_mgnt.c |  436 ++++
+ 13 files changed, 3547 insertions(+), 11 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/nxp,imx28-mtip-switch.yaml
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/Kconfig
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/Makefile
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw.h
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw_br.c
+ create mode 100644 drivers/net/ethernet/freescale/mtipsw/mtipl2sw_mgnt.c
+
+-- 
+2.39.5
+
 
