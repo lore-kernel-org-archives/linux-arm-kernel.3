@@ -4,82 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74845C3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 09:37:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 711DEC3ABA3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 09:48:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PkqMSSAZ2mWgrwjBraBF0CvV/vcdXHZByR+N3CA5B7U=; b=gF4pbOmGfzknXurAPE6OMx0puy
-	463dJDq3kVkNlIOD9s6zDKs+iqNU7YN8tqIqbUSZ6KnNnae7/3EWmby/z4Y1lMbyXNwvQduM9ZkXk
-	yBq2gRKLDWbEecclBjaDDIVGyU3ovxcZyRvGsPbo4hvwjsirNjINtiJz73NR1Jf9HAFM1ijNkv+a0
-	C3qA7ju9os+jz1cG4MpmJRW9jLrYAynLyBSRu76NCAQZOcITWH/vPBj2fa6zkVcwRPeDjNEnI3KMZ
-	n4gxZwYmp5srNk4ffYv1hs26aVG67pfRH9Sj7vpE9G6VrrNXW1SrtqHxkNNGIfkrIC4TWDSfVCeLv
-	5IWcu96w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4pbJ3W6acVlDXwhP+g5301nbrsGq3ivMaM+7WgKEfvs=; b=sn6VRVXZQoYCqHw3IM2W/h9dtl
+	E69lTBFzr9gqT5PzSpCysQsVtlxoqRrwA9vmzzRI1bS3kiSnINDARlTsnpVYfA09/U27kOlyTlNwL
+	jt5zWwx42KrjbOFDIBhPBYg8VrXMbtEgQRCyPJh+ulBKgHY/6X+ZrW+8TJQJCPnxrIf8Usoq/ENvF
+	lN8Wuk6G0YMcWyEFt4KJXdwfX1oja8LZzU2d/dJpsbPFbjMarM8nNZ8APTIQrJ/WqNbBo7XxhPmKA
+	K9RsUQt5xMG9MGhKX+tSBeJlPRT8qwwz10WHzpWwF5B9q0SthO1PNP/xMTuHj1yv6VUWGtkKvwHO7
+	wPWFTMaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAmps-00000001MwL-2Uok;
-	Fri, 02 May 2025 09:37:36 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uAn0E-00000001PKO-47hu;
+	Fri, 02 May 2025 09:48:18 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAmkn-00000001MHN-1lZe
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 09:32:22 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5429W0Sr3831866
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 2 May 2025 04:32:00 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1746178320;
-	bh=PkqMSSAZ2mWgrwjBraBF0CvV/vcdXHZByR+N3CA5B7U=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=u1V8An0Eca85G1KbNdjiH+NJt7Acs5JHIvVkI1gWjzkKeg8SixvJFs/y8/1bgwUsF
-	 RIzz6Nwif+Ev2S72UjJn9g2moNYfSqAG5n4nyirydyjHo7Wv1zE+4xRWmDzILJS146
-	 GeTJPsn5gXUX+EznEjjSy+30ULGC4pY5XWlYu8kA=
-Received: from DLEE110.ent.ti.com (dlee110.ent.ti.com [157.170.170.21])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5429W05f003807
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 2 May 2025 04:32:00 -0500
-Received: from DLEE115.ent.ti.com (157.170.170.26) by DLEE110.ent.ti.com
- (157.170.170.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 2
- May 2025 04:32:00 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE115.ent.ti.com
- (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 2 May 2025 04:32:00 -0500
-Received: from [172.24.30.16] (lt9560gk3.dhcp.ti.com [172.24.30.16])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5429VssE080397;
-	Fri, 2 May 2025 04:31:55 -0500
-Message-ID: <7e91a1c1-237d-463d-8045-eb7ca9e8c8df@ti.com>
-Date: Fri, 2 May 2025 15:01:53 +0530
+	id 1uAmyG-00000001Odl-2SMn;
+	Fri, 02 May 2025 09:46:17 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2264aefc45dso29498225ad.0;
+        Fri, 02 May 2025 02:46:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746179175; x=1746783975; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=4pbJ3W6acVlDXwhP+g5301nbrsGq3ivMaM+7WgKEfvs=;
+        b=eFlqiSBFTJpA7UW43SLZbyGIAaJw141dSCw3juEuzlz+yAEKr7bdZptpArpLvmpx3X
+         yETjsREZwwdSGaWgMiFNkUTp8z2UqYgaNgGy5cXf3zXHRwmRHg9q4WuzXxrmiEIykFm7
+         cZcXdleRMARDluZCeuKKjBqNDo1tcufCsXqeJOmiZwbiN7oeQ8UuaW2VJu4lNOt+9vxy
+         /GJcJRgdvLHzCEdKIK0JVkyLAkoWH1HPwPC5+vRYigQlgcpetuejWo7E7X2GE5ETeBSP
+         RGPFmOoc9z4RcFRySEfOJb8xoLOCqMHc6GL+x/FfKEgbn6JoJCIj/BI2vssBIOwYkGGG
+         7WIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746179175; x=1746783975;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4pbJ3W6acVlDXwhP+g5301nbrsGq3ivMaM+7WgKEfvs=;
+        b=HQO5kA2GMX3BDDaJqqBG2QgfmYVCOwzmCPUZCC+l1AEMjul2iZVuIwiR5dZW+cvYdJ
+         RKZskR530CsADise50Dn6dRbdq7cokTWudRm2IKQcorpq2caHb56dlpjhlnbDoFZxz4Y
+         PBUeYaOR/S3BM2BzIOXQzDjKGZNgk/PG490w9XQw3hEgN9MZZB2GgWZxLnVu0RCzhqCx
+         tStgHGM/G5TloTviKyBToI6h1dzxY1R3sZQp869MbcyqfVp9XxPUvU3xnb0V9WwtCqu4
+         Hza+ODkonSI0Y1C9O4dc5KQcxAamdChKXDZ/Bdt1rN1TsTdLBGDsVg+2lXGv1oUMRgdX
+         rU5A==
+X-Forwarded-Encrypted: i=1; AJvYcCVGHNLojSZiZD2z45MO1Jovgf25TdeFjrmIPuCkGmvLhsglMCLnFK0l8rRwjCbWhUJn8h/KjmuHvNBZn0M7qVcK@lists.infradead.org, AJvYcCXVkHEVDTIT7k21zQGXQ6EF1if2OwAIRGqI2oIz/8yeK3TcMBymaDGzvujYwJdkuL7I7POB+u0ksCNCpfE=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2kWgUQljHHB1hrCEzmoXFD+Z7CgrKjlZ3eiWF2ejGZxfuMwAQ
+	Js8F/ryH3Vwd+L4szm8B2ArgorDIPh5i7tWKZJ+MLVmmStWNw8eO
+X-Gm-Gg: ASbGnctIudCXRBFwuxF+1hb9qyQAJoaSPS/NHasnjwpiFV11j5K9y/cxZpKZT37zBCY
+	TCsMvJ4t/oM4bFHvVxQsAvSEzODgBXROHVcwWtW3fT9iKrxU7bc3HR5LjU0nXWpH/dtRgceFV4z
+	BI+j5ti8aMBgJ7lVrfwWoKvD9anaBpCEACG9XxNmlBnwTSLlm+0sk2GNoqu+em11ruSy31m/FhL
+	IySmuG0YBgiMxITPLlzyoxA8lcomoYBXIRGwCHOoW61ytftTsWe3O9vRrJP4dlVd7oMRGT01lKv
+	8qWvtGGxPru3cyXWYIFAVRvjOGjZoHwmtLfBGn/j2tOVyF7g/Zj64nTM8l6yYnrUniOwR/ZuWWk
+	mlGqMyN54izfY6xQM9g==
+X-Google-Smtp-Source: AGHT+IFCrNB3SEcUQSA4UULBWiPKSjzAq293G3JdHTwJkUqWADHaR7n7tHS0qoEezDF6fogaeNgeTg==
+X-Received: by 2002:a17:903:2ec3:b0:224:f12:3734 with SMTP id d9443c01a7336-22e1030ba06mr31764015ad.30.1746179175181;
+        Fri, 02 May 2025 02:46:15 -0700 (PDT)
+Received: from mew.. (p4138183-ipxg22701hodogaya.kanagawa.ocn.ne.jp. [153.129.206.183])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22e151eb166sm3273565ad.96.2025.05.02.02.46.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 02 May 2025 02:46:14 -0700 (PDT)
+From: FUJITA Tomonori <fujita.tomonori@gmail.com>
+To: linux-kernel@vger.kernel.org,
+	rust-for-linux@vger.kernel.org
+Cc: x86@kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	tglx@linutronix.de,
+	mingo@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	peterz@infradead.org,
+	hpa@zytor.com,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	chenhuacai@kernel.org,
+	kernel@xen0n.name,
+	tangyouling@loongson.cn,
+	hejinyang@loongson.cn,
+	yangtiezhu@loongson.cn,
+	ojeda@kernel.org,
+	alex.gaynor@gmail.com,
+	boqun.feng@gmail.com,
+	gary@garyguo.net,
+	bjorn3_gh@protonmail.com,
+	benno.lossin@proton.me,
+	a.hindborg@kernel.org,
+	aliceryhl@google.com,
+	tmgross@umich.edu,
+	dakr@kernel.org
+Subject: [PATCH v6 0/4] rust: Add bug/warn abstractions
+Date: Fri,  2 May 2025 18:45:32 +0900
+Message-ID: <20250502094537.231725-1-fujita.tomonori@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 3/4] net: ti: icssg-prueth: Fix race condition for
- traffic from different network sockets
-To: Jakub Kicinski <kuba@kernel.org>
-CC: <dan.carpenter@linaro.org>, <john.fastabend@gmail.com>, <hawk@kernel.org>,
-        <daniel@iogearbox.net>, <ast@kernel.org>, <pabeni@redhat.com>,
-        <edumazet@google.com>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>,
-        <bpf@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <srk@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>,
-        Roger Quadros
-	<rogerq@kernel.org>, <danishanwar@ti.com>
-References: <20250428120459.244525-1-m-malladi@ti.com>
- <20250428120459.244525-4-m-malladi@ti.com>
- <20250501075615.34573158@kernel.org>
-Content-Language: en-US
-From: "Malladi, Meghana" <m-malladi@ti.com>
-In-Reply-To: <20250501075615.34573158@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_023221_558154_A1C99970 
-X-CRM114-Status: GOOD (  20.22  )
+X-CRM114-CacheID: sfid-20250502_024616_624486_5C91E351 
+X-CRM114-Status: GOOD (  19.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,92 +123,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jakub,
+This patchset adds warn_on macro with the bug/warn abstraction that
+utilizes the kernel's BUG/WARN feature via assembly.
 
-On 5/1/2025 8:26 PM, Jakub Kicinski wrote:
-> On Mon, 28 Apr 2025 17:34:58 +0530 Meghana Malladi wrote:
->> When dealing with transmitting traffic from different network
->> sockets to a single Tx channel, freeing the DMA descriptors can lead
->> to kernel panic with the following error:
->>
->> [  394.602494] ------------[ cut here ]------------
->> [  394.607134] kernel BUG at lib/genalloc.c:508!
->> [  394.611485] Internal error: Oops - BUG: 00000000f2000800 [#1] PREEMPT SMP
->>
->> logs: https://gist.github.com/MeghanaMalladiTI/ad1d1da3b6e966bc6962c105c0b1d0b6
->>
->> The above error was reproduced when sending XDP traffic from XSK
->> socket along with network traffic from BSD socket. This causes
->> a race condition leading to corrupted DMA descriptors. Fix this
->> by adding spinlock protection while accessing the DMA descriptors
->> of a Tx ring.
-> 
-> IDK how XSK vs normal sockets matters after what is now patch 4.
-> The only possible race you may be protecting against is pushing
-> work vs completion. Please double check this is even needed,
-> and if so fix the commit msg.
+Currently, Rust code simply wraps BUG() macro; however the approach
+doesn't provide the proper debug information. For example, I added
+bindings::BUG() to rnull's init method and got the following output:
 
-I can think of race conditions happening in the following cases:
-1. Multiport use cases where traffic is being handled on more than one 
-interface to a single Tx channel.
-2. Having emac_xmit_xdp_frame() and icssg_ndo_start_xmit(), two 
-different traffics being transmitted over a single interface to a single 
-tx channel.
+# insmod /root/rnull_mod.ko
+rnull_mod: Rust null_blk loaded
+------------[ cut here ]------------
+kernel BUG at rust/helpers/bug.c:7!
+Oops: invalid opcode: 0000 [#1] SMP CPU: 0 UID: 0 PID: 31 Comm: insmod Not tainted 6.14.0-rc1+ #103
+RIP: 0010:rust_helper_BUG+0x8/0x10
+(snip)
 
-In both of the above scenarios Tx channel is a common resource which 
-needs to be protected from any race conditions, which might happen 
-during Tx descriptor push/pop. As suggested by you, I am currently 
-excluding this patch and doing some stress testing. Regardless 
-conceptually I still think spinlock is needed, please do correct me if I 
-am wrong.
+The kernel's BUG/WARN feature (lib/bug.c) can only be used from
+assembly. Rust code needs to directly execute the same assembly code
+used on the C side. To avoid duplicating the assembly code, this
+approach follows the same strategy as the static branch code: it
+generates the assembly code for Rust using the C preprocessor at
+compile time.
 
-> 
->> Fixes: 62aa3246f462 ("net: ti: icssg-prueth: Add XDP support")
->> Signed-off-by: Meghana Malladi <m-malladi@ti.com>
->> ---
->>   drivers/net/ethernet/ti/icssg/icssg_common.c | 7 +++++++
->>   drivers/net/ethernet/ti/icssg/icssg_prueth.h | 1 +
->>   2 files changed, 8 insertions(+)
->>
->> diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
->> index 4f45f2b6b67f..a120ff6fec8f 100644
->> --- a/drivers/net/ethernet/ti/icssg/icssg_common.c
->> +++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
->> @@ -157,7 +157,9 @@ int emac_tx_complete_packets(struct prueth_emac *emac, int chn,
->>   	tx_chn = &emac->tx_chns[chn];
->>   
->>   	while (true) {
->> +		spin_lock(&tx_chn->lock);
->>   		res = k3_udma_glue_pop_tx_chn(tx_chn->tx_chn, &desc_dma);
->> +		spin_unlock(&tx_chn->lock);
->>   		if (res == -ENODATA)
->>   			break;
->>   
->> @@ -325,6 +327,7 @@ int prueth_init_tx_chns(struct prueth_emac *emac)
->>   		snprintf(tx_chn->name, sizeof(tx_chn->name),
->>   			 "tx%d-%d", slice, i);
->>   
->> +		spin_lock_init(&tx_chn->lock);
->>   		tx_chn->emac = emac;
->>   		tx_chn->id = i;
->>   		tx_chn->descs_num = PRUETH_MAX_TX_DESC;
->> @@ -627,7 +630,9 @@ u32 emac_xmit_xdp_frame(struct prueth_emac *emac,
->>   	cppi5_hdesc_set_pktlen(first_desc, xdpf->len);
->>   	desc_dma = k3_cppi_desc_pool_virt2dma(tx_chn->desc_pool, first_desc);
->>   
->> +	spin_lock_bh(&tx_chn->lock);
->>   	ret = k3_udma_glue_push_tx_chn(tx_chn->tx_chn, first_desc, desc_dma);
->> +	spin_unlock_bh(&tx_chn->lock);
-> 
-> I'm afraid this needs to be some form of spin_lock_irq
-> The completions may run from hard irq context when netpoll/netconsole
-> is used.
+The 1st to 3th patches export the BUG/WARN assembly code for Rust on
+x86, RISC-V, and ARM64 architecture, with no functional changes on the
+C side. They have already been acked by the maintainers of their
+respective architectures.
 
-Didn't know system can handle network interrupts in a hard IRQ context. 
-Ok I will update to spin_lock_irq() if this patch is necessary.
+No change for ARM and LoongArch; they still use the current approach;
+just wrapping C's macro.
 
+UML doesn't use the assembly BUG/WARN feature; just wrapping generic
+BUG/WARN functions implemented in C works.
+
+The last patch adds warn_on implementation on the top of the
+abstraction. To make the patchset easier to review, the remaining
+features such as bug() are not included in this patchset. These
+features will be added after this patchset is merged.
+
+This has been tested on x86, ARM64, and RISC-V (QEMU), with only a
+compile test performed for LoongArch, ARM, and UML.
+
+v6:
+- improved SAFETY comments
+v5: https://lore.kernel.org/lkml/20250409065802.136971-1-fujita.tomonori@gmail.com/
+- fix indentation in the macro
+- use $crate::ffi::c_char instead ::kernel::ffi::c_uchar
+- add support for building on arm32
+v4: https://lore.kernel.org/lkml/20250305110814.272792-1-fujita.tomonori@gmail.com/
+- added Acked-by tag to the RISC-V and ARM64 asm change
+- simplify the asm code
+- use the cfgs on the macro rather in its expansion
+- use a const fn for bugflag_taint over macro
+- dropped LoongArch assembly change
+- dropped warn_on_once; make the patch easier to review
+v3: https://lore.kernel.org/lkml/20250213135759.190006-1-fujita.tomonori@gmail.com/
+- rebased on rust-next
+- use ANNOTATE_REACHABLE macro (replaced ASM_REACHABLE)
+- added Acked-by tag to the x86 change
+v2: https://lore.kernel.org/lkml/20241218062009.2402650-1-fujita.tomonori@gmail.com/
+- remove target_arch cfg by using asm comment
+- clean up the changes to loongarch asm
+v1: https://lore.kernel.org/lkml/20241210001802.228725-1-fujita.tomonori@gmail.com/
+
+FUJITA Tomonori (4):
+  x86/bug: Add ARCH_WARN_ASM macro for BUG/WARN asm code sharing with
+    Rust
+  riscv/bug: Add ARCH_WARN_ASM macro for BUG/WARN asm code sharing with
+    Rust
+  arm64/bug: Add ARCH_WARN_ASM macro for BUG/WARN asm code sharing with
+    Rust
+  rust: Add warn_on macro
+
+ arch/arm64/include/asm/asm-bug.h              |  33 ++++-
+ arch/riscv/include/asm/bug.h                  |  37 +++---
+ arch/x86/include/asm/bug.h                    |  56 ++++----
+ rust/Makefile                                 |   8 ++
+ rust/helpers/bug.c                            |   5 +
+ rust/kernel/.gitignore                        |   2 +
+ rust/kernel/bug.rs                            | 125 ++++++++++++++++++
+ rust/kernel/generated_arch_reachable_asm.rs.S |   7 +
+ rust/kernel/generated_arch_warn_asm.rs.S      |   7 +
+ rust/kernel/lib.rs                            |   1 +
+ 10 files changed, 234 insertions(+), 47 deletions(-)
+ create mode 100644 rust/kernel/bug.rs
+ create mode 100644 rust/kernel/generated_arch_reachable_asm.rs.S
+ create mode 100644 rust/kernel/generated_arch_warn_asm.rs.S
+
+
+base-commit: 9d7a0577c9db35c4cc52db90bc415ea248446472
 -- 
-Thanks,
-Meghana Malladi
+2.43.0
 
 
