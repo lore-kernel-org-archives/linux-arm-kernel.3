@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09391C3ABA3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 08:50:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A58C1C3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 08:52:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bSoAYCYYgfHeLNA4UaKgtB62vuPa/P2HLJXmtvgWNsU=; b=vgsQOi8uppa90TMtelN2IgpXjE
-	fYCopCnRhARC03tzhAhOFCWYn2BDhYjFMaVH44hD/fcFw6HzJuO6sMUdfqiunWwAaS9UL6R9dBxkM
-	tH7GshRSrDEilTuCvexoxK+yExHwTOYVuro8AvNvbF8FXZo4Fm3PLWyT6NLcX79uOYcy2AU9rKvUN
-	8tM9r2EUbop275WKLa2a1K3lSSFu/ICjKyJynRwna6eGWqyDsGXD1h1AkIA5KB6mjWz+1H4ifsFVF
-	nwX7/zXz62Wq2yT+wlhxmKlA7OIXYjhGJHzV80XLqCNtr6Dt1XE+neOXdAueYd5WLzLrzWyyCwImO
-	30inVZjA==;
+	bh=bsolLWnwmq4V045xBLVsir/A29+evVh2PIFacdKsTbk=; b=UyoVaDFPwf91CV+zTsW3bdcGs8
+	TT40ic5b7CRUKaXPojCCsoP5xbQqsEgS8YmCMfBn6YH1JCV6kx/wxx+2dR+leTv31ee66ZSFImwl2
+	JwBwh+Z+WHnmuGwSOOlpZpgw6GhFrBH1bOGGUAkoN+D/6h3XtJdrM4vNMOnwOrhQrPfcAW2IXYR4o
+	EMGeENVQu5Md1ceht1u9nlJRKVXusArrsKm70oWPLd2LO4R/25i3ZIz/WPsgW50LJuBgf/2+8seZm
+	Tr/KBbvUOZqUpA8hK1BgOiUmhCz3ZtTrhQ0GpUVEsY9/LW+cLx8au4/NAVnm9GLNGRP/3+fiuYP27
+	LsrUGZ/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAm5p-00000001Ebm-2VWG;
-	Fri, 02 May 2025 08:50:01 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uAm7k-00000001Erw-1OcT;
+	Fri, 02 May 2025 08:52:00 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAm3h-00000001EGu-3QXZ
+	id 1uAm5O-00000001EYP-1OjK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 08:47:50 +0000
+	Fri, 02 May 2025 08:49:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EEBF25C4448;
-	Fri,  2 May 2025 08:45:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1CADC4CEE4;
-	Fri,  2 May 2025 08:47:48 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id D9FEAA49D14;
+	Fri,  2 May 2025 08:44:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 483B9C4CEE4;
+	Fri,  2 May 2025 08:49:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746175668;
-	bh=NCirDjbr0P+QIBLiB7dQOcgcs9vpxXzMLjZHxOXUKuc=;
+	s=k20201202; t=1746175773;
+	bh=IXj90t/coI1E4Vk2Kk10Crmulx42AP2WnydDTYguq94=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=dDTH9KZOh1hEj5xVKE8c4rjCXx6+gYnRq4nmbWqx+h06O4kbsj8rs3Cjor4bsvuxy
-	 IGVhsrPI+9HG3K1KPCVrJLkQ3Kyirq8fgViGp0hv3zYpPjFmdxqCXAP69SStXn19Yc
-	 xZWCq1QmxZ0v7nWggAMIJEEYmbb3XqEW2L93TLA/wto4PyFRIW34manFUmZq4gqR1+
-	 vbspoZbhRI9zQSxguE6Omoh41tLkqsiCmh4u0le1Z66WjXGuVl8Is5qO1QBDnoWcYK
-	 EutwhLC4Zr2qRZPlZdambTEO6RkFZPV6w2KfF5SvNs1BJmunFL4TSduEEXhshF1N66
-	 qkplJtD0MN8lA==
+	b=uXb/riDrmA8ILv3xURvq9XQ8m5gOYpwlRyUrhjqac2qm8e7MRYIYn8Ku2K5TwcxlB
+	 eajBlsBamob2bxIWWuasRpslRxeQXUriBZNLbIT81AE2T7/zy+VboPjxfp74DhxrgC
+	 1H63UMiRx+6wuvnwCTgxdpFnJYl8ZaK7CDMPSGLor4hAYL1Ao9G+eALZokG7iCh/n/
+	 DhvOdAEDjWt2EEYf4pmKmea7siQDA3zNZBNAIdeZi91m9ogqe2p0YF+CE/qF7NVzXn
+	 SARHVuoFMjLxQzmy56VrWIfHFuGwVA9hl2jOjJb1BuEiGKsd+TSgknWO2WorpldJuC
+	 /byBSNcueoLQw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1uAm3e-00Apre-AY;
-	Fri, 02 May 2025 09:47:46 +0100
-Date: Fri, 02 May 2025 09:47:45 +0100
-Message-ID: <86r017h00e.wl-maz@kernel.org>
+	id 1uAm5K-00ApuN-Mx;
+	Fri, 02 May 2025 09:49:30 +0100
+Date: Fri, 02 May 2025 09:49:30 +0100
+Message-ID: <86plgrgzxh.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Per Larsen <perl@immunant.com>
 Cc: linux-kernel@vger.kernel.org,
@@ -64,9 +64,9 @@ Cc: linux-kernel@vger.kernel.org,
 	yuzenghui@huawei.com,
 	Armelle Laine <armellel@google.com>,
 	arve@android.org
-Subject: Re: [PATCH 1/3] KVM: arm64: Restrict FF-A host version renegotiation
-In-Reply-To: <CA+AY4XcaJa1_U3qXQUBj4wZJYc9hKmRX8FTNeDvV2auEnC_WrA@mail.gmail.com>
-References: <CA+AY4XcaJa1_U3qXQUBj4wZJYc9hKmRX8FTNeDvV2auEnC_WrA@mail.gmail.com>
+Subject: Re: [PATCH 2/3] KVM: arm64: Bump the supported version of FF-A to 1.2
+In-Reply-To: <CA+AY4XfcDKiSpN-UbrfGdqshQvw+LhY59SSuUmB6XQRYh9m0sw@mail.gmail.com>
+References: <CA+AY4XfcDKiSpN-UbrfGdqshQvw+LhY59SSuUmB6XQRYh9m0sw@mail.gmail.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -77,8 +77,8 @@ X-SA-Exim-Rcpt-To: perl@immunant.com, linux-kernel@vger.kernel.org, qperret@goog
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_014749_939486_4CD382B4 
-X-CRM114-Status: GOOD (  30.00  )
+X-CRM114-CacheID: sfid-20250502_014934_433237_4074D608 
+X-CRM114-Status: GOOD (  15.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,70 +93,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 02 May 2025 04:52:39 +0100,
+On Fri, 02 May 2025 04:53:51 +0100,
 Per Larsen <perl@immunant.com> wrote:
 > 
-> FF-A implementations with the same major version must interoperate with
-> earlier minor versions per DEN0077A 1.2 REL0 13.2.1 but FF-A version 1.1
-> broke the ABI on several structures and 1.2 relies on SMCCC 1.2 is not
-> backwards compatible with SMCCC 1.2 (see DEN0028 1.6 G BET0 Appendix F).
+> FF-A version 1.2 introduces the DIRECT_REQ2 ABI. Bump the FF-A version
+> preferred by the hypervisor as a precursor to implementing the 1.2-only
+> FFA_MSG_SEND_DIRECT_REQ2 and FFA_MSG_SEND_RESP2 messaging interfaces.
 > 
-> If we return the negotiated hypervisor version when the host requests a
-> lesser minor version, the host will rely on the FF-A interoperability
-> rules. Since the hypervisor does not currently have the necessary
-> compatibility paths (e.g. to handle breaking changes to the SMC calling
-> convention), return NOT_SUPPORTED.
+> We must also use SMCCC 1.2 for 64-bit SMCs if hypervisor negotiated FF-A
+> 1.2, so ffa_set_retval is updated and a new function to call 64-bit smcs
+> using SMCCC 1.2 with fallback to SMCCC 1.1 is introduced.
 > 
+> Update deny-list in ffa_call_supported to mark FFA_NOTIFICATION_* and
+> interfaces added in FF-A 1.2 as unsupported lest they get forwarded.
+> 
+> Signed-off-by: Ayrton Munoz <ayrton@google.com>
 > Signed-off-by: Per Larsen <perlarsen@google.com>
 > Signed-off-by: Per Larsen <perl@immunant.com>
-> ---
->  arch/arm64/kvm/hyp/nvhe/ffa.c | 19 ++++++++++++++++++-
->  1 file changed, 18 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> index 3369dd0c4009..10e88207b78e 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-> @@ -712,7 +712,24 @@ static void do_ffa_version(struct arm_smccc_res *res,
-> 
->   hyp_spin_lock(&version_lock);
->   if (has_version_negotiated) {
-> - res->a0 = hyp_ffa_version;
-> + /*
-> + * FF-A implementations with the same major version must
-> + * interoperate with earlier minor versions per DEN0077A 1.2
-> + * REL0 13.2.1 but FF-A version 1.1 broke the ABI on several
-> + * structures and 1.2 relies on SMCCC 1.2 is not backwards
-> + * compatible with SMCCC 1.2 (see DEN0028 1.6 G BET0 Appendix F).
 
-I can't parse this sentence. Missing words?
-
-> + *
-> + * If we return the negotiated hypervisor version when the host
-> + * requests a lesser minor version, the host will rely on the
-> + * aforementioned FF-A interoperability rules. Since the
-> + * hypervisor does not currently have the necessary compatibility
-> + * paths (e.g. to paper over the above-mentioned calling
-> + * convention changes), return NOT_SUPPORTED.
-> + */
-> + if (FFA_MINOR_VERSION(ffa_req_version) < FFA_MINOR_VERSION(hyp_ffa_version))
-> + res->a0 = FFA_RET_NOT_SUPPORTED;
-> + else
-> + res->a0 = hyp_ffa_version;
->   goto unlock;
->   }
-> 
-
-Something has gone seriously wrong with your email, and the patches
-are badly mangled and unusable. They are also sent as individual
-patches and not as a thread, which is a sign that you didn't send them
-using git. Please fix this for your next posting.
-
-More to the meat of the patches: why should the hypervisor paper over
-anything if the spec is broken? Why can't the host just as well decide
-for itself what to do?
-
-Thanks,
+Who is the author of this patch? Please follow the documentation when
+it comes to patch attribution.
 
 	M.
 
