@@ -4,91 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C8CAC3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 17:23:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91613C3ABB8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 17:23:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=16Jtfa8zqRduD5bzBqBFlLax/AqYDVwaMHqP+NoVmxM=; b=Fj3Y8hNJB8VdlCOECPkrVzve/+
-	J9RFeV1xBABDFhXC3QO8FbFhIN8KuP94/Y3Zt5YLPhASbmQ+x8mOodlwWTHkjccMnLDvXwBCFwS/3
-	LSZmbJ/AVHfa0RofvgagL5M1Bypge9W9BI5t/EBg9LAs0MSSwWnwRP/YVF6/lo/aanooTwI5K78FW
-	j7Q37ngvtXlFyBxN3wLID49ZWxKY741i50H8xUwju4hreBUlkZ8tQXPiydVYFCy/8serICHOySK3B
-	m6oJ8E5zRLb9L3DRRmJ3dHI4uVAbm6vP/Ns4e3GIozQJLZtv2iL+MaYxnVUDsT0x/4PmhCdP8P7q2
-	TQaPSzSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tLgGDAzhbzi8zBfreiBGkw9+hq2PN6Kh7ZFPU4njLno=; b=YC4kjZHlTQm/UFVJpwkkzo1ntF
+	LxOIhoh42H01wIqYOMYTfLXkMI5f1S7U8dG7CjqSMApi54NIss+Yjrsf27yfZyejZRIlBsE+JRB/w
+	H5prU/SJbSD2jv5C+XXjsXqHN7e32+NDnx6zgC8a4Sm0ZgRITHYwAnMYmjkDcdBEU0VI0Jq0Mf7GQ
+	0Wmlbl2pY13g0cqaymhO8wyssPiYH+L7bSxIzafBxjUNS/X88GTkigAlE0jGChkcLlTZevSJTW9W+
+	x3MWUpoYp4h3cS6Zzkn2zaLcgt7IiRDdYoKQEDivByTqCFDu/bn2ylU7+eMJqyqGLPWHNSJ96HqDu
+	5AEffTug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAu6G-00000002dnX-3Ir0;
-	Fri, 02 May 2025 17:23:00 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uAu6J-00000002dpP-191x;
+	Fri, 02 May 2025 17:23:03 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAtDL-00000002VNZ-0mGu
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 02 May 2025 16:26:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=16Jtfa8zqRduD5bzBqBFlLax/AqYDVwaMHqP+NoVmxM=; b=YvlkeMCkiV2AA350L5MXtHGnia
-	5UE2/a/mAscAuYIIlgHANUXBsbNNhsadgUdmdMI2qfO1vzmuYSruubD246u3+6nQtr8OrTWtkY76z
-	FBanSuMU7psD7LzhSURoW/bXIf8TZSKQnOKhOrQsRtGPI+vRklJf9Zd3RaiVqq2dnT2C4VeGsIsVy
-	Sl6mgqiKwSr3mXQA1NxzptUT7bwG+RBgHQweNPB5bYzGOINIhA1f1yukeIF94vMfPLJIX48ag2Gkl
-	tKXPwi2mrZB3p7rJTAXg4ARxXgC9QTuOLer8+KlpCl/nkeEKkltJqdmjT9+t4gCYAxpaw+ZHXs4+q
-	q5DkrSNg==;
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uAtDF-0000000F3u8-1aRX
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 16:26:12 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 542GPpc3448858
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 2 May 2025 11:25:51 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1746203151;
-	bh=16Jtfa8zqRduD5bzBqBFlLax/AqYDVwaMHqP+NoVmxM=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=ekP8Ur6009k0t27DhpEprqwLOZOH4maSjgxyg+8tHFWGLaAa9cBBwdmaz3OqR9YHr
-	 5QyraGEHgtwlU0vdZ8X6NJEpgO7NNYtF5js0rR6xm8C16lTRK5VQ91nnx61+HhTvLU
-	 QilQlFDO+K47ho6Ts6YPobg2w6Vieddrs1aAdfTw=
-Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 542GPpxR067523
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 2 May 2025 11:25:51 -0500
-Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 2
- May 2025 11:25:50 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE111.ent.ti.com
- (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 2 May 2025 11:25:50 -0500
-Received: from ws.dhcp.ti.com (ws.dhcp.ti.com [10.24.69.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 542GPex7028994;
-	Fri, 2 May 2025 11:25:46 -0500
-From: Rishikesh Donadkar <r-donadkar@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>
-CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <vaishnav.a@ti.com>, <devarsht@ti.com>,
-        <y-abhilashchandra@ti.com>, <s-jain1@ti.com>, <jai.luthra@linux.dev>,
-        <jai.luthra@ideasonboard.com>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <imx@lists.linux.dev>, <r-donadkar@ti.com>
-Subject: [PATCH v2 1/4] arm64: dts: ti: k3-am62p5-sk: Add regulator nodes for AM62P
-Date: Fri, 2 May 2025 21:55:36 +0530
-Message-ID: <20250502162539.322091-2-r-donadkar@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250502162539.322091-1-r-donadkar@ti.com>
-References: <20250502162539.322091-1-r-donadkar@ti.com>
+	id 1uAtHe-00000002WBt-2exb;
+	Fri, 02 May 2025 16:30:43 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-309f3bf23b8so3066433a91.3;
+        Fri, 02 May 2025 09:30:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746203441; x=1746808241; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tLgGDAzhbzi8zBfreiBGkw9+hq2PN6Kh7ZFPU4njLno=;
+        b=ThVsHw1LKsSfrd5tPt0MHoB+OD5yLHu+UNBV8KIbjNPm/6Lh9f4jSt03ZamVcpxW08
+         Wc7JBaIHJtI0smgnwoz+wyrVrQPLS7cHcoWsGIRRsJMQVf+5x7WLQADYCwWNxu/Hf7fe
+         aaY7IQmvJS3gJmJPxxE3ILDBHaQ8YPPcx/Ab0qpTEvDvsVmUgv0GO5PVtTIPRoX00lH/
+         JD7Z60CcGGNHbCtAEYBPWKLhTMRJNrrblBzUSdN1D5NF/IA9fkjzFFLDmCrwKGVdkqLc
+         dWJ9oD1WHq3AxpVOo/2oE0A56JFwFcjoxe0nYu4+OaaCxsuXTjZJRXjNsDAV+2xAQSQJ
+         ZHCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746203441; x=1746808241;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=tLgGDAzhbzi8zBfreiBGkw9+hq2PN6Kh7ZFPU4njLno=;
+        b=JwezBfekyg1xNHc+4z1Y9IceDpzSXk+yftP6jCO6eCjPFUuRxHV0CEiJ6xGFyn8ziD
+         1t0FkwQXMMJZJ9T/w9F9l/g5N7lKJJLhq99X20f2cHredtytyn3d/KrCVZEcAbIjwBbv
+         d17ZSu76ewKnbN++/r3SumBKN2BvZPCd9zvkiF1E4NH3imSnTZlLgWfAV2UQ1fjEXcuP
+         pEzyq4IjiugAQvkgecDKUxH2ZLUjTV09aU29GKELuJWQxP8kZmUSsw5cBFGNx2s+z4u5
+         hCoZXdLzbRmGAEZdRPf86vDqcywmznqGOWN3TQrlVDpTJS4Ei0MNielx7u2sKlsOGzw5
+         tT8g==
+X-Forwarded-Encrypted: i=1; AJvYcCUFXj1CYfw52PTbk1he1Wpd2QWrvYuvAQ1Jfuu1YkosxhHHiocgkCBTuMjbsPbVRBFROwbcYF83EKLwpbfZgydn@lists.infradead.org, AJvYcCWE06+IzJR/Jz1y9+Y90tZpfazOt82Bvmca9OAuA6SkCo8s8Y8Atf6Suyah2XxdGw+zWtplpG6Rbf3mUW0y0vU=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2wAjEiFl9O6jH+6C/avP84g7OTXRdaM0Qz/Q4f6AfsXH30HJZ
+	mdss8FMlxHvxwzSUfvjTWgGXDqDsejGmiOv3wsXVVCAiwzqANfVX++GW2DKQuFNxgu2wLmc3HYN
+	hXWY2Exwp4yM9nG5zm/3rMj2tiGQ=
+X-Gm-Gg: ASbGnctDfRP/OLD1IIiyvrmRB4gZMl8e7OC6pVO4Lm6LnI1WBR1iX4zU2YALXPOXpqZ
+	L/koWmQFh8NG/H1eZEhBx+JwQ2vAplssDV1vn0Oe3XTqDZZ4CoueKbYlRnkI77fE4xZMmDHI0uz
+	LclTU21jofMZi0RBXCff4Qrw==
+X-Google-Smtp-Source: AGHT+IFD83mVdOJy5lpNuPlZVPmLooAoJbMjhC2ix2c3XVL7B+J+mwkKq3CJH7cJU97BTv0F3P0V/yqYXOccmyxktrA=
+X-Received: by 2002:a17:90b:582e:b0:2ff:6608:78cd with SMTP id
+ 98e67ed59e1d1-30a4e5a5e10mr6554332a91.9.1746203440962; Fri, 02 May 2025
+ 09:30:40 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+References: <20250502150513.4169098-1-m.felsch@pengutronix.de> <20250502150513.4169098-6-m.felsch@pengutronix.de>
+In-Reply-To: <20250502150513.4169098-6-m.felsch@pengutronix.de>
+From: Adam Ford <aford173@gmail.com>
+Date: Fri, 2 May 2025 11:30:29 -0500
+X-Gm-Features: ATxdqUGSLq9P6-CspNr6ECgbQeHdf383py-pp3cQ3WrpLLPzF-nJ74mtxVZrvag
+Message-ID: <CAHCN7xJ5p+dwJD7i7caqwhmrz8+gZDVeqfdWA_=He-H+aTJgRg@mail.gmail.com>
+Subject: Re: [RFC PATCH 05/11] arm64: dts: imx8mp: drop gpcv2 vpu
+ power-domains and clocks
+To: Marco Felsch <m.felsch@pengutronix.de>
+Cc: nicolas.dufresne@collabora.com, benjamin.gaignard@collabora.com, 
+	p.zabel@pengutronix.de, mchehab@kernel.org, shawnguo@kernel.org, 
+	Sascha Hauer <s.hauer@pengutronix.de>, kernel@pengutronix.de, festevam@gmail.com, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, paulk@sys-base.io, 
+	hverkuil@xs4all.nl, laurent.pinchart@ideasonboard.com, 
+	sebastian.fricke@collabora.com, ming.qian@nxp.com, 
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_172609_953090_5A6E1B04 
-X-CRM114-Status: GOOD (  11.53  )
+X-CRM114-CacheID: sfid-20250502_093042_668629_6AAC8265 
+X-CRM114-Status: GOOD (  15.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,54 +101,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add regulator node for AM62P-SK
+On Fri, May 2, 2025 at 10:10=E2=80=AFAM Marco Felsch <m.felsch@pengutronix.=
+de> wrote:
+>
+> The GPCv2 G1, G2 and VC8000E power-domain don't need to reference the
+> VPUMIX power-domain nor their module clocks since the power and reset
+> handling is done by the VPUMIX blkctrl driver.
+>
+It was my understanding that having this dependency ensures the order
+of the bring-up, but maybe I am wrong.  Do you know if the 8MP
+suspend-resume works properly?
 
-VCC_3V3_MAIN is the output of LM5141-Q1, and it serves as an input to
-TPS22965DSGT which produces VCC_3V3_SYS [1]
 
-VCC_3V3_SYS servers as vin-supply for peripherals like CSI [1].
+Should this get a fixes tag?
 
-Link: https://www.ti.com/lit/zip/sprr487 [1]
-Reviewed-by: Devarsh Thakkar <devarsht@ti.com>
-Signed-off-by: Rishikesh Donadkar <r-donadkar@ti.com>
----
- arch/arm64/boot/dts/ti/k3-am62p5-sk.dts | 22 ++++++++++++++++++++++
- 1 file changed, 22 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-index c2f55cc5a8ebc..0af33fccb96bf 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-@@ -115,6 +115,28 @@ vddshv_sdio: regulator-3 {
- 		bootph-all;
- 	};
- 
-+	vcc_3v3_main: regulator-4 {
-+		/* output of LM5141-Q1 */
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_3v3_main";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vmain_pd>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+	};
-+
-+	vcc_3v3_sys: regulator-5 {
-+		/* output of TPS222965DSGT */
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_3v3_sys";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vcc_3v3_main>;
-+		regulator-always-on;
-+		regulator-boot-on;
-+	};
-+
- 	leds {
- 		compatible = "gpio-leds";
- 		pinctrl-names = "default";
--- 
-2.34.1
-
+> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+> ---
+>  arch/arm64/boot/dts/freescale/imx8mp.dtsi | 7 -------
+>  1 file changed, 7 deletions(-)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/=
+dts/freescale/imx8mp.dtsi
+> index e0d3b8cba221..cf9b6c487bd5 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> @@ -879,24 +879,17 @@ pgc_mediamix: power-domain@10 {
+>
+>                                         pgc_vpu_g1: power-domain@11 {
+>                                                 #power-domain-cells =3D <=
+0>;
+> -                                               power-domains =3D <&pgc_v=
+pumix>;
+>                                                 reg =3D <IMX8MP_POWER_DOM=
+AIN_VPU_G1>;
+> -                                               clocks =3D <&clk IMX8MP_C=
+LK_VPU_G1_ROOT>;
+>                                         };
+>
+>                                         pgc_vpu_g2: power-domain@12 {
+>                                                 #power-domain-cells =3D <=
+0>;
+> -                                               power-domains =3D <&pgc_v=
+pumix>;
+>                                                 reg =3D <IMX8MP_POWER_DOM=
+AIN_VPU_G2>;
+> -                                               clocks =3D <&clk IMX8MP_C=
+LK_VPU_G2_ROOT>;
+> -
+>                                         };
+>
+>                                         pgc_vpu_vc8000e: power-domain@13 =
+{
+>                                                 #power-domain-cells =3D <=
+0>;
+> -                                               power-domains =3D <&pgc_v=
+pumix>;
+>                                                 reg =3D <IMX8MP_POWER_DOM=
+AIN_VPU_VC8000E>;
+> -                                               clocks =3D <&clk IMX8MP_C=
+LK_VPU_VC8KE_ROOT>;
+>                                         };
+>
+>                                         pgc_hdmimix: power-domain@14 {
+> --
+> 2.39.5
+>
+>
 
