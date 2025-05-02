@@ -4,65 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7813C3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 15:05:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FEDDC3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 15:05:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WjZ/X+9NMMif7OyiK71JbAQs+u2dkiGWcjzAyUuvLBE=; b=kUqmIb+69U02S/Zhw3ft8Ngjih
-	wKLpEoxy5zy8dX+/kaeDBPYzD2cxlMZKNDGl/ikfGQyxK3sAMIfe5rQpvbP/7MPmrwCiPyNHzWFar
-	gc4F2dvlYIg1D+4+oAt6bfGNuQa/aREqU0Afe5ApoLFsg57cfiyXhmuvv9XlxKHNGYkXsxsSIixj3
-	gHFdV2xAY5XHFwf1BsCjriqfEOPCbJ7s4I24j53xJv3WtevD7SAl0phFtWV+Fn4iS5D3Z1EHnEOV/
-	YCQnYzZMHA7YpH7ubm2qEzAYJuPh65gIebCFSi88i7M1uFBv1zNtMAZvMqzg2ofGKMJLXHMe4wQhj
-	JxeTdQSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mM76THgL8hwBdTPmeRf00oBmXPoIk732yXKDv/woi2M=; b=nEMHq76+trRY3hpS0KK396p4ew
+	h5P/qRf+cd3//VxfVrs832PsYm+7cBeIp+FtYVw+vzwnxkfAELWiCapxHqYI95AHk4TVtmE2lzvip
+	JY+Ph6sj0AmnrumOV8/+ij2gKWVaQfp3V/Htn01b6UAcBp32xhGjUaRG+yxZvbVoccSKRFi95TupP
+	M68wmOv61ssnoZkI5GG97/irj4+CgnqKhgMILwljoWTCsGCcHWoTgmVgPfrXCulzUbvU+an12knIH
+	0AKT4/J4JdCLrAXX9DLIRyv3oqHKUxD8AioJIvWsjsM07u2iQIQM5RQWDwRbW81z7q//8aZJdD24k
+	k5rBra2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uArx3-00000002Gqi-1BaZ;
-	Fri, 02 May 2025 15:05:21 +0000
-Received: from smtp-72.smtpout.orange.fr ([80.12.242.72] helo=smtp.smtpout.orange.fr)
+	id 1uArx1-00000002GqT-1O3A;
+	Fri, 02 May 2025 15:05:19 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uArjw-00000002FR3-1vLn;
-	Fri, 02 May 2025 14:51:51 +0000
-Received: from localhost.localdomain ([90.11.132.44])
-	by smtp.orange.fr with ESMTPA
-	id ArjhuI7RsSMUrArjkuJEbc; Fri, 02 May 2025 16:51:38 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1746197498;
-	bh=WjZ/X+9NMMif7OyiK71JbAQs+u2dkiGWcjzAyUuvLBE=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=sjMryabDPp3Mn5I/w6t+4ZGxjGnRvLA5GTEcOeCkqKLheOAxYapN5MAMkZERbzquh
-	 TkCOBHPRIJY0b0AdgrebihxkMK9OS5ca+C3UAruXgUiU8tyCtQIr5b/HqjiU5yOrvG
-	 096tcr91wUm/QjeEqQNG+V9DXmZiZX8DIaBeJkNYUg/PMGF6E1Nu5wT1tHKWfilj7B
-	 lX+LtLMti9wgy+KcXXg+PTOrfu/koKViCBjKbeeUzzAB9AEqIoEzqeQUvxifp6aXsf
-	 JixqSrCg5LUJA9LSqN4VgX3WQ78XEVSeRikJSXAOwLkzBgb7haJwUjNA5/WMDJYeNi
-	 snSrYBV9RGG9w==
-X-ME-Helo: localhost.localdomain
-X-ME-Auth: Y2hyaXN0b3BoZS5qYWlsbGV0QHdhbmFkb28uZnI=
-X-ME-Date: Fri, 02 May 2025 16:51:38 +0200
-X-ME-IP: 90.11.132.44
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-To: Lee Jones <lee@kernel.org>,
-	Pavel Machek <pavel@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-kernel@vger.kernel.org,
-	kernel-janitors@vger.kernel.org,
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
-	linux-leds@vger.kernel.org,
+	id 1uArjH-00000002FKx-0trK
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 02 May 2025 14:51:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1F3AD6116E;
+	Fri,  2 May 2025 14:50:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E1AAC4CEE4;
+	Fri,  2 May 2025 14:51:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746197463;
+	bh=wROx4eoHYvLsgLDBgrbUwkZ5Y0yAK3AR0szM8tP5Dkw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=c965NMeemuOE2tHUemIunFhXB5Q/oEmjrbHFqQFbllVIGIK4f8lrroqpVu7OI1oDK
+	 lub+yxE6XxlL4uVfVhZXxyazKe9kEi2XPuYMkNYcJDdBUSndqvzg8bWiNrjShiU7sw
+	 3zXE2Y3M65rS0GZv+jO2olzEaJdqFgrTzuPfVGhCTNhEmRPrtU2djOx60PWP7xx8ca
+	 scCzbXwDx76NGslljeFJrtaxflkdW5TkgPlTrJOJijBVWA1RMV9YVdY8Y/DNDQFYOu
+	 3B9PLlOjqoSUqNJbslsen+hP/tKTTcb4bbnuekDkSR/wXgeD3JrS9LofRMrH7m7OEg
+	 Wh20ZuSP1xPDw==
+Received: from [84.207.203.52] (helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uArjB-00AxAm-2F;
+	Fri, 02 May 2025 15:51:01 +0100
+Date: Fri, 02 May 2025 15:50:40 +0100
+Message-ID: <87v7qj12yn.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Timothy Hayes <timothy.hayes@arm.com>,
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
+	Mark Rutland <mark.rutland@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH] leds: rgb: leds-mt6370-rgb: Improve definition of some struct linear_range
-Date: Fri,  2 May 2025 16:51:22 +0200
-Message-ID: <1ce4245107e0a51dce502a007a69899bda018d5f.1746197460.git.christophe.jaillet@wanadoo.fr>
-X-Mailer: git-send-email 2.49.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_075148_626282_845A1685 
-X-CRM114-Status: GOOD (  10.58  )
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 21/22] irqchip/gic-v5: Add GICv5 IWB support
+In-Reply-To: <aBR7bk62H3PEUbfi@lpieralisi>
+References: <20250424-gicv5-host-v2-0-545edcaf012b@kernel.org>
+	<20250424-gicv5-host-v2-21-545edcaf012b@kernel.org>
+	<867c31j20i.wl-maz@kernel.org>
+	<aBIlOrqLtbB5e7B/@lpieralisi>
+	<86y0vgh35t.wl-maz@kernel.org>
+	<aBR7bk62H3PEUbfi@lpieralisi>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 84.207.203.52
+X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, tglx@linutronix.de, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, arnd@arndb.de, sascha.bischoff@arm.com, timothy.hayes@arm.com, Liam.Howlett@oracle.com, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,45 +97,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use LINEAR_RANGE() instead of hand-writing it. It is more robust, should
-the layout of the structure change one day.
+On Fri, 02 May 2025 08:59:42 +0100,
+Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+> 
+> On Thu, May 01, 2025 at 02:27:26PM +0100, Marc Zyngier wrote:
+> > On Wed, 30 Apr 2025 14:27:22 +0100,
+> > Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+> > > 
+> > > On Wed, Apr 30, 2025 at 12:57:01PM +0100, Marc Zyngier wrote:
+> > > > On Thu, 24 Apr 2025 11:25:32 +0100,
+> > > > Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+> > > > > 
+> > > > > The GICv5 architecture implements the Interrupt Wire Bridge (IWB) in
+> > > > > order to support wired interrupts that cannot be connected directly
+> > > > > to an IRS and instead uses the ITS to translate a wire event into
+> > > > > an IRQ signal.
+> > > > > 
+> > > > > An IWB is a special ITS device with its own deviceID; upon probe,
+> > > > > an IWB calls into the ITS driver to allocate DT/ITT tables for its
+> > > > > events (ie wires).
+> > > > > 
+> > > > > An IWB is always associated with a single ITS in the system.
+> > > > > 
+> > > > > An IWB is connected to an ITS and it has its own deviceID for all
+> > > > > interrupt wires that it manages; the IWB input wire number is
+> > > > > exposed to the ITS as an eventID. This eventID is not programmable
+> > > > > and therefore requires special handling in the ITS driver.
+> > > > > 
+> > > > > Add an IWB driver in order to:
+> > > > > 
+> > > > > - Probe IWBs in the system and allocate ITS tables
+> > > > > - Manage IWB IRQ domains
+> > > > > - Handle IWB input wires state (enable/disable)
+> > > > > - Add the required IWB IRQchip representation
+> > > > > - Handle firmware representation to Linux IRQ translation
+> > > > > 
+> > > > > Co-developed-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> > > > > Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> > > > > Co-developed-by: Timothy Hayes <timothy.hayes@arm.com>
+> > > > > Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
+> > > > > Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> > > > > Cc: Thomas Gleixner <tglx@linutronix.de>
+> > > > > Cc: Marc Zyngier <maz@kernel.org>
+> > > > > ---
+> > > > >  drivers/irqchip/Makefile         |   2 +-
+> > > > >  drivers/irqchip/irq-gic-v5-its.c |  68 ++++++--
+> > > > >  drivers/irqchip/irq-gic-v5-iwb.c | 356 +++++++++++++++++++++++++++++++++++++++
+> > > > >  drivers/irqchip/irq-gic-v5.c     |   2 +
+> > > > >  drivers/irqchip/irq-gic-v5.h     |  28 +++
+> > > > >  5 files changed, 437 insertions(+), 19 deletions(-)
+> > > > > 
+> > > > > diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
+> > > > > index 4280395e3bdff7858102f0b4eaaea1121cace52f..7bfb2369fbe494a64b72308d95ae33de93c6b8c6 100644
+> > > > > --- a/drivers/irqchip/Makefile
+> > > > > +++ b/drivers/irqchip/Makefile
+> > > > > @@ -37,7 +37,7 @@ obj-$(CONFIG_ARM_GIC_V3_ITS)		+= irq-gic-v3-its.o irq-gic-v4.o
+> > > > >  obj-$(CONFIG_ARM_GIC_V3_ITS_FSL_MC)	+= irq-gic-v3-its-fsl-mc-msi.o
+> > > > >  obj-$(CONFIG_PARTITION_PERCPU)		+= irq-partition-percpu.o
+> > > > >  obj-$(CONFIG_ARM_GIC_V5)		+= irq-gic-v5.o irq-gic-v5-irs.o
+> > > > > -obj-$(CONFIG_ARM_GIC_V5_ITS)		+= irq-gic-v5-its.o
+> > > > > +obj-$(CONFIG_ARM_GIC_V5_ITS)		+= irq-gic-v5-its.o irq-gic-v5-iwb.o
+> > > > >  obj-$(CONFIG_HISILICON_IRQ_MBIGEN)	+= irq-mbigen.o
+> > > > >  obj-$(CONFIG_ARM_NVIC)			+= irq-nvic.o
+> > > > >  obj-$(CONFIG_ARM_VIC)			+= irq-vic.o
+> > > > > diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
+> > > > > index da349b4709cc5ec8978859237838f039389ca4a1..b5eb4dbfe2296dc6620889eb9291b542cae4aeb6 100644
+> > > > > --- a/drivers/irqchip/irq-gic-v5-its.c
+> > > > > +++ b/drivers/irqchip/irq-gic-v5-its.c
+> > > > > @@ -786,9 +786,8 @@ static struct gicv5_its_dev *gicv5_its_find_device(struct gicv5_its_chip_data *i
+> > > > >  	return dev ? dev : ERR_PTR(-ENODEV);
+> > > > >  }
+> > > > >  
+> > > > > -static struct gicv5_its_dev *gicv5_its_alloc_device(
+> > > > > -				struct gicv5_its_chip_data *its, int nvec,
+> > > > > -				u32 dev_id)
+> > > > > +struct gicv5_its_dev *gicv5_its_alloc_device(struct gicv5_its_chip_data *its,
+> > > > > +					     int nvec, u32 dev_id, bool is_iwb)
+> > > > >  {
+> > > > >  	struct gicv5_its_dev *its_dev;
+> > > > >  	int ret;
+> > > > > @@ -815,6 +814,7 @@ static struct gicv5_its_dev *gicv5_its_alloc_device(
+> > > > >  	its_dev->device_id = dev_id;
+> > > > >  	its_dev->num_events = nvec;
+> > > > >  	its_dev->num_mapped_events = 0;
+> > > > > +	its_dev->is_iwb = is_iwb;
+> > > > >  
+> > > > >  	ret = gicv5_its_device_register(its, its_dev);
+> > > > >  	if (ret) {
+> > > > > @@ -827,9 +827,11 @@ static struct gicv5_its_dev *gicv5_its_alloc_device(
+> > > > >  
+> > > > >  	/*
+> > > > >  	 * This is the first time we have seen this device. Hence, it is not
+> > > > > -	 * shared.
+> > > > > +	 * shared, unless it is an IWB that is a shared ITS device by
+> > > > > +	 * definition, its eventids are hardcoded and never change - we allocate
+> > > > > +	 * it once for all and never free it.
+> > > > 
+> > > > I'm not convinced the IWB should be treated differently from any other
+> > > > device. Its lifetime is not tied to its inputs, so all that's needed
+> > > > is to probe it, get a bunch of interrupts, and that's about it.
+> > > 
+> > > I need to check again how this works for devices requesting wires
+> > > from an IWB if we don't allow ITS device sharing.
+> > 
+> > There is no sharing. Each IWB has its own devid, and the endpoint
+> > drivers don't have to know about anything ITS related.
+> 
+> I patched the IWB driver to work like an MBIgen.
+> 
+> It looks like the msi_prepare() ITS callback (ie where the its_device is
+> allocated) is called everytime an endpoint device driver requests a
+> wired IRQ through:
+> 
+> gicv5_its_msi_prepare+0x68c/0x6f8
+> its_pmsi_prepare+0x16c/0x1b8
+> __msi_domain_alloc_irqs+0x70/0x448
+> __msi_domain_alloc_irq_at+0xf8/0x194
+> msi_device_domain_alloc_wired+0x88/0x10c
+> irq_create_fwspec_mapping+0x3a0/0x4c0
+> irq_create_of_mapping+0xc0/0xe8
+> of_irq_get+0xa0/0xe4
+> platform_get_irq_optional+0x54/0x1c4
+> platform_get_irq+0x1c/0x50
+> 
+> so it becomes "shared" if multiple IWB wires are requested by endpoint
+> drivers.
 
-Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
----
- drivers/leds/rgb/leds-mt6370-rgb.c | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
+You shouldn't get into the allocation when the endpoint device probes.
+The assumption is that all the interrupts should be allocated only
+*once*.
 
-diff --git a/drivers/leds/rgb/leds-mt6370-rgb.c b/drivers/leds/rgb/leds-mt6370-rgb.c
-index ebd3ba878dd5..c5927d0eb830 100644
---- a/drivers/leds/rgb/leds-mt6370-rgb.c
-+++ b/drivers/leds/rgb/leds-mt6370-rgb.c
-@@ -199,17 +199,17 @@ static const struct reg_field mt6372_reg_fields[F_MAX_FIELDS] = {
- 
- /* Current unit: microamp, time unit: millisecond */
- static const struct linear_range common_led_ranges[R_MAX_RANGES] = {
--	[R_LED123_CURR]	= { 4000, 1, 6, 4000 },
--	[R_LED4_CURR]	= { 2000, 1, 3, 2000 },
--	[R_LED_TRFON]	= { 125, 0, 15, 200 },
--	[R_LED_TOFF]	= { 250, 0, 15, 400 },
-+	[R_LED123_CURR]	= LINEAR_RANGE(4000, 1, 6, 4000),
-+	[R_LED4_CURR]	= LINEAR_RANGE(2000, 1, 3, 2000),
-+	[R_LED_TRFON]	= LINEAR_RANGE(125, 0, 15, 200),
-+	[R_LED_TOFF]	= LINEAR_RANGE(250, 0, 15, 400),
- };
- 
- static const struct linear_range mt6372_led_ranges[R_MAX_RANGES] = {
--	[R_LED123_CURR]	= { 2000, 1, 14, 2000 },
--	[R_LED4_CURR]	= { 2000, 1, 14, 2000 },
--	[R_LED_TRFON]	= { 125, 0, 15, 250 },
--	[R_LED_TOFF]	= { 250, 0, 15, 500 },
-+	[R_LED123_CURR]	= LINEAR_RANGE(2000, 1, 14, 2000),
-+	[R_LED4_CURR]	= LINEAR_RANGE(2000, 1, 14, 2000),
-+	[R_LED_TRFON]	= LINEAR_RANGE(125, 0, 15, 250),
-+	[R_LED_TOFF]	= LINEAR_RANGE(250, 0, 15, 500),
- };
- 
- static const unsigned int common_tfreqs[] = {
+If that's not the case, it probably means that something has been
+subtly broken when this code was last massaged, and that it needs
+fixing.
+
+I'll resurrect my D05 shortly to collect some traces.
+
+> 
+> I don't have an MBIgen enabled platform but I don't see how it could
+> behave differently but it could be that I have stared at this code
+> path for too long.
+> 
+> > > > The other thing is that the IWB really is a standalone thing. It
+> > > > shouldn't have its fingers in the ITS code, and should only rely on
+> > > > the core infrastructure to get its interrupts.
+> > > > 
+> > > > As much as I dislike it, the MBIGEN actually provides a decent example
+> > > > of how this could be structured.
+> > > 
+> > > We wrote that code already, I should have posted it. An MBIgen can
+> > > programme the eventids it sents to the ITS, an IWB can't. So yes,
+> > > I can make an IWB MBIgen like but the ITS code has to know it is
+> > > allocating an IRQ for an IWB - one way or another, the eventids
+> > > are not programmable.
+> > 
+> > They are not programmable on the MBIGEN either, despite what the code
+> > does. Everything on this HW is hardcoded.
+> 
+> I don't understand then how in the GICv3 ITS we can guarantee that the
+> eventid we "allocate" for a wire matches the one sent on the MBIgen->ITS
+> bus. AFAICS, the ITS eventid is an offset from the LPI base that is
+> allocated dynamically.
+>
+> Let's say an endpoint driver requires wire X. The ITS, in
+> its_alloc_device_irq() grabs a bit from the lpi_map bitmap that has
+> nothing to do with X.
+>
+> I don't get how the two can be made to match unless we do something
+> like I am going to do with the IWB.
+
+The driver allocates n LPIs, which are mapped as events 0 to n-1. Just
+like with the IWB. When I say it is the same, it is *EXACTLY* the same.
+
+> This, unless mbigen_write_msi_msg() does something with the
+> X<->{msg->data} translation (if that function does nothing it should be
+> removed because it is really misleading).
+
+It doesn't do anything when it comes to the eventid. But misleading or
+not has nothing to do with your problem.
+
+	M.
+
 -- 
-2.49.0
-
+Jazz isn't dead. It just smells funny.
 
