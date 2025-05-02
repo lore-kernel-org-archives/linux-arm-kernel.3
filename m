@@ -4,130 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D485FC3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 21:38:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34D29C3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 21:54:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f+O3P77Dqp9BgDVNcymDQyVbwMHsKZYmEmFhWL+CGe0=; b=CyETewK14zs1fCvfbn9h84ENpe
-	4Nkb4CoYlCQUpiBK0t4ciOZd7Pii62a1MIVbBZBQqLQcmXQ5Axis/tNuztHHFWPOi5NKm7XCQsao+
-	51qJm0ccLj5Qd/QHb71c/ouup/JUDyTUVbm3y8PRVnvYbZ1jXzJEf8RfX1KXb95+yuo5PjbBq+dM2
-	yOBNoZmnI8lP39TZZMDBokLjdDPhG2E5CdxybLwarAR9aKmneGyf7JDYcoMT8TjDuHeLLiaf6OVoP
-	hOaqEFYFCazTuO3zogt9HiVLXKeclKrfzCtWBL27Gma0TsM9jBwSlIovHrrSRJ1qFpiuXOE/fmny6
-	GwB4p41w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V9SjiiEJ5CBwLN0Flq395P6nvTylfhJws1GFCWFkO+w=; b=nLbTTn2NYLiLd5gg72vaRotz9X
+	vp7TtN9OLt+kLI1QfMSSn+AvezYK7NuHqLXYOgvjTjJ2y6iu0lf+rLp1H0Jmc5ySqiFc3Lug5qUes
+	1nz3zhK6yUNCQw9Iwv9nxOOCGAhKwjpBfG+A6FVaa/b6jwR21UAVjQa7POKyB16vGUUlJX9GTA4vs
+	KkKIf6eYLSX8YupItDo1VLIYfnWgd9Qo4m7OgvV5gxQNN4FxhZhR8s4ZuOXYnmRxBQgzOh7hy5d4U
+	rTTDo/YS6XJPQO3ErxGN30PlbWQgcKFHz58Onh4KAP9V3eJ3xE6lzE2AEaXR9O163sWUC+h9h57I9
+	9tDBDDkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAy5a-0000000355N-0TeK;
-	Fri, 02 May 2025 21:38:34 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
+	id 1uAyKh-000000036cn-07xk;
+	Fri, 02 May 2025 21:54:11 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAy3d-000000034vD-2V1X;
-	Fri, 02 May 2025 21:36:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1746221793; x=1777757793;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=yGXalRNqfxRtXQ2JtLbUw9sW9Gy9K1M0ILzwPvTQPqE=;
-  b=dgMRPlK6cDPLxRu4oCtu5zQNo4pz67yo11kXC22SAqKZ51KXg8lcoz20
-   Lu5ZEpvzFyAJe6DYD9kQxkTt9Zhaigpuru6dRmzmFeTZLofTOzKpZKsTW
-   QY6H+JAiL5mjQlW0kyztCGRyxT4Uq3JacVTiMcrBNbQRNCgCi7Dx664Gc
-   YNeAuaN57ClSLnXJKGqkS2XJetSuSRLun6yJPIi/MeMiDRNpLjG/A8y3R
-   QEZl/MVr2SyOeVStJWmRTUyH4CUvH4RQdSSzHEOpilnX/1cSKA2/VJ0RV
-   VN+Pt7qammEeGAZp6YMvF2EWGipNR6+8oyY/zlwHQXHX/DY1z2R+Weae7
-   A==;
-X-CSE-ConnectionGUID: ukTQkRMNTXyeficGIykacw==
-X-CSE-MsgGUID: bXKWs0R4TcytbsYK6iEp3w==
-X-IronPort-AV: E=McAfee;i="6700,10204,11421"; a="47628487"
-X-IronPort-AV: E=Sophos;i="6.15,257,1739865600"; 
-   d="scan'208";a="47628487"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 May 2025 14:36:30 -0700
-X-CSE-ConnectionGUID: 0tv1uZKCRtiDDNTIFxekOA==
-X-CSE-MsgGUID: k8wn7LtvTyWv46JNpypiLg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,257,1739865600"; 
-   d="scan'208";a="171986956"
-Received: from bjrankin-mobl3.amr.corp.intel.com (HELO [10.124.220.153]) ([10.124.220.153])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 May 2025 14:36:28 -0700
-Message-ID: <d6c09132-05bb-481a-93dd-8e9d664981ae@intel.com>
-Date: Fri, 2 May 2025 14:36:25 -0700
+	id 1uAyIj-000000036FE-2ydK;
+	Fri, 02 May 2025 21:52:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=V9SjiiEJ5CBwLN0Flq395P6nvTylfhJws1GFCWFkO+w=; b=2bHeTLMWmrEKsZTabi9IKqJnaq
+	5rTdIhkvQosr2AG6CUNGOchjzNLxWtTfUSeyet/qYES8qLELeboaz/c3+CU6/QbP7GRlXicop3JzL
+	R5cK6DoVo14nhbpju3mvydkOucbj4eQXDN7yTIMoAB2kbX5m8rhQYpV8EO1g4zTPlEt8=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uAyIZ-00BRxh-Ba; Fri, 02 May 2025 23:51:59 +0200
+Date: Fri, 2 May 2025 23:51:59 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: John Clark <inindev@gmail.com>
+Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, nicolas.frattaroli@collabora.com,
+	detlev.casanova@collabora.com, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1 3/3] arm64: dts: rockchip: Add Luckfox Omni3576
+ Carrier Board with Core3576 Module
+Message-ID: <7c01712f-776d-4073-9829-f18a51df6d4c@lunn.ch>
+References: <20250502205533.51744-1-inindev@gmail.com>
+ <20250502205533.51744-4-inindev@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 14/18] x86/boot: make sure KASLR does not step over KHO
- preserved memory
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org,
- akpm@linux-foundation.org, anthony.yznaga@oracle.com, arnd@arndb.de,
- ashish.kalra@amd.com, benh@kernel.crashing.org, bp@alien8.de,
- catalin.marinas@arm.com, corbet@lwn.net, dave.hansen@linux.intel.com,
- devicetree@vger.kernel.org, dwmw2@infradead.org, ebiederm@xmission.com,
- graf@amazon.com, hpa@zytor.com, jgowans@amazon.com,
- kexec@lists.infradead.org, krzk@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-mm@kvack.org, luto@kernel.org, mark.rutland@arm.com, mingo@redhat.com,
- pasha.tatashin@soleen.com, pbonzini@redhat.com, peterz@infradead.org,
- ptyadav@amazon.de, robh@kernel.org, rostedt@goodmis.org,
- saravanak@google.com, skinsburskii@linux.microsoft.com, tglx@linutronix.de,
- thomas.lendacky@amd.com, will@kernel.org, x86@kernel.org
-References: <20250501225425.635167-1-changyuanl@google.com>
- <20250501225425.635167-15-changyuanl@google.com>
- <c348c507-c06b-4611-87f4-c498e144fa45@intel.com>
- <aBU2JQRKXjqoFClQ@kernel.org>
-From: Dave Hansen <dave.hansen@intel.com>
-Content-Language: en-US
-Autocrypt: addr=dave.hansen@intel.com; keydata=
- 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
-In-Reply-To: <aBU2JQRKXjqoFClQ@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250502205533.51744-4-inindev@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_143633_711825_6C6DA802 
-X-CRM114-Status: GOOD (  11.24  )
+X-CRM114-CacheID: sfid-20250502_145209_745117_E920F487 
+X-CRM114-Status: UNSURE (   8.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,33 +72,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/2/25 14:16, Mike Rapoport wrote:
->>> +/*
->>> + * If KHO is active, only process its scratch areas to ensure we are not
->>> + * stepping onto preserved memory.
->>> + */
->>> +#ifdef CONFIG_KEXEC_HANDOVER
->>> +static bool process_kho_entries(unsigned long minimum, unsigned long image_size)
->>> +{
->> I thought we agreed to rework this to unconditionally define the
->> kho_scratch structures so the #ifdef can go away?
-> It's either #ifdef or double casting and my understanding was that your
-> preference was to get rid of the double casting.
+> +&gmac1 {
+> +	clock_in_out = "output";
+> +	phy-handle = <&rgmii_phy1>;
+> +	phy-mode = "rgmii-rxid";
 
-Looking back at the other message... Sorry, you did make it clear there
-and it just didn't penetrate my thick skull.
+This is unlikely to be correct. It probably works, but that does not
+make it correct.
 
-The double cast is goofy, but it does seem to be the normal way of doing
-things. There are lots of examples of it. So, grudgingly, I prefer the
-double cast over the #ifdef.
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&eth1m0_miim
+> +		     &eth1m0_tx_bus2
+> +		     &eth1m0_rx_bus2
+> +		     &eth1m0_rgmii_clk
+> +		     &eth1m0_rgmii_bus
+> +		     &ethm0_clk1_25m_out>;
+> +	snps,reset-gpio = <&gpio2 RK_PB4 GPIO_ACTIVE_LOW>;
+> +	snps,reset-active-low;
+> +	snps,reset-delays-us = <0 20000 100000>;
+> +	tx_delay = <0x20>;
+> +	status = "disabled";
+> +};
 
-BTW, _please_ changelog this stuff. It would have saved this round of
-back-and-forth. The changelog is the perfect place to say something like:
+Please see the discussion about rgmii delays with other rockchip
+boards from the last week, and
 
-	This looks goofy out of context, but it is unfortunately the way
-	that this is handled across the tree. There are at least a dozen
-	instances of casting like this.
+https://patchwork.kernel.org/project/netdevbpf/patch/20250430-v6-15-rc3-net-rgmii-delays-v2-1-099ae651d5e5@lunn.ch/
 
-This series is generally a bit sparse in the changelog and comment
-departments.
+	Andrew
 
