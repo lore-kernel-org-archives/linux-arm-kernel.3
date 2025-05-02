@@ -4,73 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92238C3ABBC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A70DEC3ABBD
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 17:23:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vavMTR2D1KCOOD6m+5FBBXoIqxt2okFOaC8013/6GF0=; b=xLLJDjc5N36qrftCUM7TpLA0bk
-	Gpm0lewmjNh3n6uqHKXIMayDmY7suqzMXm3Ogt+eposR4m1B9w8hO4j7xN1V91jtS+IGtmb0SINF0
-	j05E4arXqYHt/IrQR+ll/OqBw3Xkkul5foKkOt/T1/Zt3PPht4mTNYv2Qpnb8NS2QHqNOXjfapqZy
-	LwZUY3s6C6jESN0Sz9nGufXWIthoTvBA+NwOsLk4wMY1dBN2c99Otio89t1AjDSDtJPRGlwxdo/s3
-	XVCE86DCR2YoeI3jh3hhJ2UGrF9A+sP3xQy2rov1YrO3jIyu06TO0mYpby5sdD+eEtqBDgxPVYvaQ
-	GMP48yrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r73OEXFrtU8T2eA2Y7h3rqhC3cOT5cBtBN6/J0Sdutg=; b=SqPQH7ASNN9wmO4L+YqOPaYUwL
+	xeyy9G3vojbaQ+7uYIY1eX9bgtyytYJ0sEZ2A3tvCvTL5w6vGpGR0vqqN9gii8pJo4Uj7Kq255Wld
+	MqcU7t+HxJ6LYezj9pStxpHFnThehdTSlEpWsdf8GHxXCUbshLuUbTf/nkc+2IPtu6ut+E+ycDxAi
+	emntazOug6ghmLDAfFJjyj77MFfS+b/Z+GXlm1X0zuJhqEy3z0/5Yh7sdl3BnnBA6x2ogxgprHZ2i
+	lBMnSIRYtpjmlIA8vrAYdPL+fekyF68DdpZ8Xw7U7X1KqrXWxs64tVIi2rkjASlzhGs8MGuMHpNR/
+	K5OxdcUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAu6N-00000002dvg-3OuM;
-	Fri, 02 May 2025 17:23:07 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uAu6L-00000002drM-470Y;
+	Fri, 02 May 2025 17:23:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAtU2-00000002YPJ-04od;
-	Fri, 02 May 2025 16:43:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1746204207;
-	bh=X2Ng3agimfiOa3XjrZaTTRUXoUq+StkbsTQYQSI5kBU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ZVqt8R7hTEtpyGw29k2ISovDQgjRLUBeIRsJtt7SHFM/kjQuWgidGNN9bxjosfC3u
-	 +GxffksQhGqNVVu8CSg3UZwAper72bRhraZcSy/b5Si4WGO66AgmqALFuEl9l+k112
-	 +DRfEVy9NwFmVV2VgArnldMYxm6O1k2FX8V9Y/0yLRjNWcP79kFV8JQChpmdt7L75P
-	 z/j3g8I4ec1Q20H1iqIqQuQGNkcUZ8QHpZ+1tPJgXk2bNCVQKIM6sjWndkuhf+AbyP
-	 2h3PwAOgqm1kGnfqdMsmZvRHS6SIRBTqLpAIHJhRJ21t40myHKqQ9egvHzySuYsndj
-	 JPNMn9wdHLJ6A==
-Received: from [192.168.1.63] (unknown [70.107.117.78])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6B05D17E1062;
-	Fri,  2 May 2025 18:43:25 +0200 (CEST)
-From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-Date: Fri, 02 May 2025 12:43:21 -0400
-Subject: [PATCH 1/2] dt-bindings: mfd: syscon: Add
- mediatek,mt8365-infracfg-nao
+	id 1uAtSN-00000002Y7m-3G9N
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 02 May 2025 16:41:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B01494A82E
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  2 May 2025 16:41:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDEE7C4CEED
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  2 May 2025 16:41:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746204106;
+	bh=GRGIrDCYRtPVvuRezChYCJbmtuoMfRngrDbwIPoiUbM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=QR62+ydKcjvwBAZW3RMk+X5v7N0PPsAIFEMNM6nOdr4RBrG6Je+gWkF21k/QwufPL
+	 4mDS4jkc5//Gigv29xVs6LiKl1GgFz901wtAAheN3M72fI/QU0kEW41ZT9/e/FL+jU
+	 s48yTrq2dvxwZoQBadYg64WpfhUFmLRIL/KF5ruQcjuRBrI69fUR0ErAncvr4ZUcSj
+	 0WcTE/y7Y1AkRBSvR6V/T6BDgwGTy0J+9gs1A7Ni+FgPEyd5Iy8i0boTyJs+1rVsta
+	 J+06V40Ej/8CKmqmLEfybKAn9s/CxxH0/Ax7g0/nTzkZz8sOKqUrPZcVwbBsYc5luk
+	 VxV3tjItErMqw==
+Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-54b10594812so561501e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 May 2025 09:41:45 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVb/nkTyPCUBPjW6N3mnMgj641awbOdfkq6Z+RjcrGWrFeyV0vYjFnTBjzNM807vEpO+vZZaqZFQmaBFplDoqa1@lists.infradead.org
+X-Gm-Message-State: AOJu0YzhgcwaP4ySwraw55TT0lJfvpZohE4dKGyXFujdYawiQN7NziyE
+	mieWcTDQplMkULaRMFUzsiGAinAv+G+94kmAvp8oIZcHBK+yrkhPTwj6BRjitMTDvM+yAuag84O
+	NpsF9mkAMQD3DvfPFqARZydN1ipg=
+X-Google-Smtp-Source: AGHT+IFql8yiS+S8ZvEUyN4XOnu/NgmX60V6UudNT1ej0ML8QEtJBeWJXqUe5OoWWbtDF9MfrdbaX6qUkozE4M6i4mk=
+X-Received: by 2002:a05:6512:39c9:b0:54d:662b:c8a9 with SMTP id
+ 2adb3069b0e04-54eac20eac2mr903287e87.25.1746204104257; Fri, 02 May 2025
+ 09:41:44 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250502-mt8365-infracfg-nao-compatible-v1-1-e40394573f98@collabora.com>
-References: <20250502-mt8365-infracfg-nao-compatible-v1-0-e40394573f98@collabora.com>
-In-Reply-To: <20250502-mt8365-infracfg-nao-compatible-v1-0-e40394573f98@collabora.com>
-To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Alexandre Mergnat <amergnat@baylibre.com>, 
- Amjad Ouled-Ameur <aouledameur@baylibre.com>, 
- =?utf-8?q?Bernhard_Rosenkr=C3=A4nzer?= <bero@baylibre.com>, 
- Fabien Parent <fparent@baylibre.com>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
- =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-X-Mailer: b4 0.14.2
+References: <20250502145755.3751405-1-yeoreum.yun@arm.com>
+In-Reply-To: <20250502145755.3751405-1-yeoreum.yun@arm.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Fri, 2 May 2025 18:41:33 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXEoYcS6YPU0mBdvijDRK6ZVB7mPYZsCVpz7sYotabrxtQ@mail.gmail.com>
+X-Gm-Features: ATxdqUGIUjt8rIT2Bx4U_ZCoipBsFGEQnmCAwz2P1XMTEvimmTj5hJidZsBb6ok
+Message-ID: <CAMj1kXEoYcS6YPU0mBdvijDRK6ZVB7mPYZsCVpz7sYotabrxtQ@mail.gmail.com>
+Subject: Re: [PATCH] arm64/cpufeature: annotate arm64_use_ng_mappings with
+ ro_after_init to prevent wrong idmap generation
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, nathan@kernel.org, 
+	nick.desaulniers+lkml@gmail.com, morbo@google.com, justinstitt@google.com, 
+	broonie@kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
+	frederic@kernel.org, joey.gouly@arm.com, james.morse@arm.com, 
+	hardevsinh.palaniya@siliconsignals.io, shameerali.kolothum.thodi@huawei.com, 
+	ryan.roberts@arm.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_094330_224304_82CF4420 
-X-CRM114-Status: UNSURE (   9.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250502_094147_855993_4FAD5719 
+X-CRM114-Status: GOOD (  18.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,32 +88,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The register space described by DT node of compatible
-mediatek,mt8365-infracfg-nao exposes a variety of unrelated registers,
-including registers for controlling bus protection on the MT8365 SoC,
-which is used by the power domain controller through a syscon.
+On Fri, 2 May 2025 at 16:58, Yeoreum Yun <yeoreum.yun@arm.com> wrote:
+>
+> create_init_idmap() could be called before .bss section initialization
+> which is done in early_map_kernel() since data/test_prot could be set
+> wrong for PTE_MAYBE_NG macro.
+>
+> PTE_MAYBE_NG macro is set according to value of "arm64_use_ng_mappings".
+> and this variable is located in .bss section.
+>
+>    # llvm-objdump-21 --syms vmlinux-gcc | grep arm64_use_ng_mappings
+>      ffff800082f242a8 g O .bss    0000000000000001 arm64_use_ng_mappings
+>
+> If .bss section doesn't initialized, "arm64_use_ng_mappings" would be set
+> with garbage value ant then the text_prot or data_prot could be set
+> with garbgae value.
+>
+> Here is what i saw with kernel compiled via llvm-21
+>
+>   // create_init_idmap()
+>   ffff80008255c058: d10103ff            sub     sp, sp, #0x40
+>   ffff80008255c05c: a9017bfd            stp     x29, x30, [sp, #0x10]
+>   ffff80008255c060: a90257f6            stp     x22, x21, [sp, #0x20]
+>   ffff80008255c064: a9034ff4            stp     x20, x19, [sp, #0x30]
+>   ffff80008255c068: 910043fd            add     x29, sp, #0x10
+>   ffff80008255c06c: 90003fc8            adrp    x8, 0xffff800082d54000
+>   ffff80008255c070: d280e06a            mov     x10, #0x703     // =1795
+>   ffff80008255c074: 91400409            add     x9, x0, #0x1, lsl #12 // =0x1000
+>   ffff80008255c078: 394a4108            ldrb    w8, [x8, #0x290] ------------- (1)
+>   ffff80008255c07c: f2e00d0a            movk    x10, #0x68, lsl #48
+>   ffff80008255c080: f90007e9            str     x9, [sp, #0x8]
+>   ffff80008255c084: aa0103f3            mov     x19, x1
+>   ffff80008255c088: aa0003f4            mov     x20, x0
+>   ffff80008255c08c: 14000000            b       0xffff80008255c08c <__pi_create_init_idmap+0x34>
+>   ffff80008255c090: aa082d56            orr     x22, x10, x8, lsl #11 -------- (2)
+>
 
-Add this compatible to the syscon binding.
+Interesting. So Clang just shifts the value of "arm64_use_ng_mappings"
+into bit #11, on the basis that 'bool' is a u8 that can only hold
+values 0 or 1.
 
-Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
----
- Documentation/devicetree/bindings/mfd/syscon.yaml | 1 +
- 1 file changed, 1 insertion(+)
+It is actually kind of nice that this happened, or we would likely
+have never found out - setting nG inadvertently on the initial ID map
+is not something one would ever notice in practice.
+...
+>
+> In case of gcc, according to value of arm64_use_ng_mappings (annoated as(3)),
+> it branches to each prot settup code.
+> However this is also problem since it branches according to garbage
+> value too -- idmapping with wrong pgprot.
+>
 
-diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
-index c6bbb19c3e3e2245b4a823df06e7f361da311000..f655ec18cc2d96028d17e19d704b62f6d898fea4 100644
---- a/Documentation/devicetree/bindings/mfd/syscon.yaml
-+++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
-@@ -190,6 +190,7 @@ properties:
-           - mediatek,mt8135-pctl-a-syscfg
-           - mediatek,mt8135-pctl-b-syscfg
-           - mediatek,mt8173-pctl-a-syscfg
-+          - mediatek,mt8365-infracfg-nao
-           - mediatek,mt8365-syscfg
-           - microchip,lan966x-cpu-syscon
-           - microchip,mpfs-sysreg-scb
+I think the only way to deal with this in a robust manner is to never
+call C code before clearing BSS. But this would mean clearing BSS
+before setting up the ID map, which means it will run with the caches
+disabled, making it slower and also making it necessary to perform
+cache invalidation afterwards.
 
--- 
-2.49.0
-
+Making arm64_use_ng_mappings __ro_after_init seems like a useful
+change by itself, so I am not objecting to that. But we don't solve it
+more fundamentally, please at least add a big fat comment why it is
+important that the variable remains there.
 
