@@ -4,84 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F58CC3ABA3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 12:03:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F471C3ABA3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 12:05:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I5AEfoX8egocTPO++2eMREVjlJDtW+Hj61LvDCDccGA=; b=Bh4VYe1M+qqPEg2rSbbq6kFXhh
-	PQYcSxEP72qvrtc5KNId9qDtUftJER2BVs6QV0ipmCnhxABlnrSbMDipwUdjHaG8sNUfVIyOk4/j/
-	J9EY0xN0zH0zcsbTqkViqAlGakrOxpiefhErt91O9/PZGelO+r1ML+ryVQ0yexFYmmM1pZzdEEKBA
-	INHoAR0teYowW9jMQwPJotMRbgZpqP+alfEn4DkxG+CoxVn9plLN/8uNfyzhot5h6fdQFGSEMPv3h
-	nMDqBJyQ01hzYmJRxBx2+veSMBZWjHGndhbNKmXvaIWJJxj2msC4RyY8qB4mLCMCW5k7hyUUFnBBR
-	u4qnD5Ag==;
+	bh=MY8XikeU0AVzM/KkOL4D4V6UOM1fbLtQGUrNKfsnaxY=; b=3Emazj0ezlr3wgYzQBdLHeJN0T
+	sc3zyyHcp3wKS/Nxa6Cks84VNlbOA5Db+t6J6I14T5lGIPV/9OmBcd6ApXPbuEnGNXP72JTWrI3sO
+	kg9R4qQ+i15N83DY0oxb3ujSlm7P7mAmF16LEBtjiK+SP5NDJ1qrXWlcyX9blkzToQ0xZKbVUJ8P0
+	yLDDmNfM0ShxBGmR+AnWCP9/6FMXKcXJ4/SRMlwU56UjML9nqbP7V0tfrX1EZ374BtJUC5994vMDv
+	YoIEFyr85gjcv/pymGxdAk2u8TXnH2nVMpTcmQltM5CbNyaUmw3LPsz1UmGrtNRtPLXXobsi5c9Xt
+	2uPpJH9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAp6c-00000001qIk-0SaM;
-	Fri, 02 May 2025 12:03:02 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1uAp8W-00000001qcb-3H5S;
+	Fri, 02 May 2025 12:05:00 +0000
+Received: from mail-ot1-f50.google.com ([209.85.210.50])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAp4c-00000001q0U-16cm
+	id 1uAp5g-00000001qBD-2rPU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 12:01:02 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 542C0sxq398062
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 2 May 2025 07:00:54 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1746187254;
-	bh=I5AEfoX8egocTPO++2eMREVjlJDtW+Hj61LvDCDccGA=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=MZuIJTKu64T471E1iFKTntrDzK1KknS29QHal0soQiWcyVkbpqDJGKJcHW+ROZdNU
-	 vboEA/u7QZkORUni2+Fm1Yu7mD0kxc/vOertf/hDVT3E5TGZJtrMinnlE6NFsHyS5r
-	 Ar9rnFpnBnRy8G7yQ3QFVeuzSn3JcJPw4/sh5/NE=
-Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 542C0sAr094309
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 2 May 2025 07:00:54 -0500
-Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 2
- May 2025 07:00:53 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 2 May 2025 07:00:53 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 542C0r7e112887;
-	Fri, 2 May 2025 07:00:53 -0500
-Date: Fri, 2 May 2025 07:00:53 -0500
-From: Nishanth Menon <nm@ti.com>
-To: "Vankar, Chintan" <c-vankar@ti.com>
-CC: Conor Dooley <conor+dt@kernel.org>,
-        Krzysztof Kozlowski
-	<krzk+dt@kernel.org>,
-        Rob Herring <robh@kernel.org>, Tero Kristo
-	<kristo@kernel.org>,
-        Vignesh Raghavendra <vigneshr@ti.com>, <srk@ti.com>,
-        <s-vadapalli@ti.com>, <danishanwar@ti.com>,
-        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Roger
- Quadros <rogerq@kernel.org>
-Subject: Re: [PATCH v4 2/2] arm64: dts: ti: k3-am62p*/k3-j722s: Add
- bootph-all property to enable Ethernet boot
-Message-ID: <20250502120053.zvtxmjuybetlk2er@manhood>
-References: <20250429072644.2400295-1-c-vankar@ti.com>
- <20250429072644.2400295-3-c-vankar@ti.com>
- <20250429112728.m54x2jwyjykcuus7@unzip>
- <511ef271-ed0b-40b6-9abc-9fce0081d25b@ti.com>
+	Fri, 02 May 2025 12:02:05 +0000
+Received: by mail-ot1-f50.google.com with SMTP id 46e09a7af769-72c3b863b8eso1384580a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 May 2025 05:02:04 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746187320; x=1746792120;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=MY8XikeU0AVzM/KkOL4D4V6UOM1fbLtQGUrNKfsnaxY=;
+        b=mCuSiSCb276bBH6X14Hd7EK1KiVeusuZfaitYmUNfXpu5EZrQwBXRes5nhW4bvlMXo
+         6ranMuovwexYXrGRqR7lyI1Wm3kR5hN7ecd+e95BXXOh0YLF4WwdNzN8dL0Uxa+kEZlj
+         me17Gi4ZZ66zoGWluSw3SggD8/IG70eK7k8k/QiMCJyz2Df1wtEQhGJGdU1H2rnMYSfs
+         AMaiS5xXIeMqcUAxj6UysgBn3EA1xKe05ahrW7F89RTSrZ2Tf1+xpn2VR0kvwGGaazil
+         TiPnndoN6i++4MCbGZhhlX7g2THB979Fmi3Jl696dPJsr7u6cawvahUJjrgGou+pSBgD
+         BS2w==
+X-Forwarded-Encrypted: i=1; AJvYcCWamm11u8grlrz1UVxHBJz16uy+pAodvWBoSC4NuGx4RZ5wONFiRx2cdYm0Kg2vCdOuNZQ5q86Tgu2ETYdFqjmD@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLPCJ2muLYJz+MHQgIvnvuuYqF/txtQ2h8W6CnSltIhFJIq42U
+	mbzyMH/uq6oPkyUR1f5DegbKbLe/E2lGRJl4/0FElXZjiHCDGav9/kXQ25p3
+X-Gm-Gg: ASbGnct9o7/F6zf500YUqMVFkc7cbzhTtEdwu+kr6/e3IgBtc8Y6biIpdY1oSg6FrsQ
+	+sGrfx/9LS4/zTqKPhvLg4CIc/ca9DZUqz31gi1vtwu9/w6KGe04pp/0CTMCRyCgHZHy/5frYHA
+	ORRCY7NDeCsF5u6o6NxWnIdpet23364wmAphjdEA0Xd4EizIkWbuWjs4X+Fb7x/31fM6c5K71Fh
+	SAXhbsZ/+mvUlkIDAW6aF1uyXgprqd97QUlpMW6a2C3xhH+kxQjhO0MYsGTYZrSBx6BVZgncwmw
+	etCN1ApibGHlgncpq6NrchjuQIPlD9UEdGgLS1XTvFBBHJkLHA7Iz5z9JygL7Jpi+lcsydsVw/A
+	BKliH7/5Ze7RKkkaISw==
+X-Google-Smtp-Source: AGHT+IE+jBsg+fltwgjkpEacnEKG5TqNnlh+rbCGX54c7CHvEGEDIGmP48WwyO6s50du65bdwIxFMg==
+X-Received: by 2002:a05:6830:418a:b0:72c:32a7:8830 with SMTP id 46e09a7af769-731da20b77cmr1322767a34.26.1746187319932;
+        Fri, 02 May 2025 05:01:59 -0700 (PDT)
+Received: from mail-oi1-f181.google.com (mail-oi1-f181.google.com. [209.85.167.181])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-731d31cb976sm458787a34.28.2025.05.02.05.01.58
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 02 May 2025 05:01:59 -0700 (PDT)
+Received: by mail-oi1-f181.google.com with SMTP id 5614622812f47-3f7f7b70aebso1422208b6e.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 May 2025 05:01:58 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWcIAY4mFtHMJZRBwHU/LDmmKemOfFw4N5eUFEUJRM0Q4BDULtuqAWaDvjwW3hLGwuIT2lIktuuPUFz6hTO3ZxV@lists.infradead.org
+X-Received: by 2002:a05:6808:182a:b0:401:f4e4:5e0e with SMTP id
+ 5614622812f47-403414b6397mr1305952b6e.33.1746187318706; Fri, 02 May 2025
+ 05:01:58 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <511ef271-ed0b-40b6-9abc-9fce0081d25b@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+References: <20250501123709.56513-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <20250501123709.56513-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+In-Reply-To: <20250501123709.56513-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 2 May 2025 14:01:45 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdUWCEgwQ39f8wN2FobZK+0BoyXNm=eKfmYs50sABwomvA@mail.gmail.com>
+X-Gm-Features: ATxdqUGawMLisO3F1rvM5sjYPkJMq15HZKLhxKiBy_fyPwGI47XSqoAGJERmrvE
+Message-ID: <CAMuHMdUWCEgwQ39f8wN2FobZK+0BoyXNm=eKfmYs50sABwomvA@mail.gmail.com>
+Subject: Re: [PATCH 2/2] clocksource/drivers/renesas-ostm: Enable OSTM reprobe
+ for RZ/V2N SoC
+To: Prabhakar <prabhakar.csengg@gmail.com>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Magnus Damm <magnus.damm@gmail.com>, Chris Brandt <chris.brandt@renesas.com>, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
+	Biju Das <biju.das.jz@bp.renesas.com>, 
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_050058_395151_238626E3 
-X-CRM114-Status: GOOD (  20.14  )
+X-CRM114-CacheID: sfid-20250502_050204_719490_91B99D34 
+X-CRM114-Status: GOOD (  25.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,45 +103,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11:18-20250430, Vankar, Chintan wrote:
-> Hello Nishanth,
-> 
-> On 4/29/2025 4:57 PM, Nishanth Menon wrote:
-> > On 12:56-20250429, Chintan Vankar wrote:
-> > > Ethernet boot requires CPSW nodes to be present starting from R5 SPL
-> > > stage. Add bootph-all property to required nodes to enable Ethernet boot
-> > > for AM62P5-SK and J722S-EVM.
-> > > 
-> > > Reviewed-by: Roger Quadros <rogerq@kernel.org>
-> > > Signed-off-by: Chintan Vankar <c-vankar@ti.com>
-> > > ---
-> > > 
-> > > Link to v3:
-> > > https://lore.kernel.org/r/20250425051055.2393301-3-c-vankar@ti.com/
-> > > 
-> > > Changes from v3 to v4:
-> > > - No changes.
-> > > 
-> > >   arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 3 +++
-> > 
-> > Please notice that we have the same problem[1] here as well.
-> > 
-> > [1] https://lore.kernel.org/all/20250425212427.vvyocc4mmne5g3vq@vividly/
-> 
-> I have added "bootph-all" property in the common file of J722S-EVM and
-> AM62P5-SK since we are enabling Ethernet boot for both the boards. Are
-> you referring to move the nodes I have added in
-> "k3-am62p-j722s-common-main.dtsi" to respective board files,
-> "k3-am62p5-sk.dts" and "k3-j722s-evm.dts".
+Hi Prabhakar,
 
-Yes, bootph properties should not be done in SoC dtsi files unless it is
-mandatory for all boot-modes and all boards. That is not the case here
-as well. This is the exact comment provided in the previous version for
-patch 1 with the expectation that you'd apply it to the rest of your
-series.
+On Thu, 1 May 2025 at 14:37, Prabhakar <prabhakar.csengg@gmail.com> wrote:
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+>
+> Add CONFIG_ARCH_R9A09G056 to the probe condition in renesas-ostm.c so that
+> the OSTM platform driver can reprobe for the RZ/V2N (R9A09G056) SoC. Like
+> RZ/G2L and RZ/V2H(P), the RZ/V2N contains the Generic Timer Module (OSTM)
+> which requires its reset to be deasserted before any register access.
+> Enabling the platform_device probe path ensures the driver defers until
+> resets are available.
+>
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+
+> --- a/drivers/clocksource/renesas-ostm.c
+> +++ b/drivers/clocksource/renesas-ostm.c
+> @@ -225,7 +225,7 @@ static int __init ostm_init(struct device_node *np)
+>
+>  TIMER_OF_DECLARE(ostm, "renesas,ostm", ostm_init);
+>
+> -#if defined(CONFIG_ARCH_RZG2L) || defined(CONFIG_ARCH_R9A09G057)
+> +#if defined(CONFIG_ARCH_RZG2L) || defined(CONFIG_ARCH_R9A09G057) || defined(CONFIG_ARCH_R9A09G056)
+
+What about simplifying this to a check for CONFIG_ARM64?
+The only SoCs which don't want this are RZ/A1 and RZ/A2, because they
+are Cortex-A9 and thus do not have the architectured timer, which is
+mandatory on ARM64.
+
+>  static int __init ostm_probe(struct platform_device *pdev)
+>  {
+>         struct device *dev = &pdev->dev;
+
+Gr{oetje,eeting}s,
+
+                        Geert
 
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
