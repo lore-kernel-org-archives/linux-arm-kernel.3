@@ -4,93 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 575DCC3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 14:25:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDB0FC3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 14:27:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=gXTTEWAtFTMQ0iA5dYLVpGQhlRU/B81pr0Tm5OFlHhs=; b=wbik2/288z/ioo
-	0ES6ZZLgi+wjRHxDZCtAUM0g3otoMzA9bO4xhRBead09xbYmCGRoMQvWlMWbF88BKdO21TpcDF4tz
-	6D5krR04MG8QYmu7O6iETK8UrPtW9/bhT6ivdgns3WlH8d+2kaji0Yswyys+P1843eQbDSVs56VBg
-	yni0USZX4BSGmW3xFsTMl67vR5zMSYSR/GyLPWxENQ149xzWMDqc7foqH8imdOZbZ0sP45RDbfWNX
-	uElzV0a3yMCXaWIB0kLHygFJeJd7UKt71ninRqAg27Ivr+jlQgRdZlav+/yQEm1Py96Na8H23ih9F
-	bXVDhylz6jh22FO37Lyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Qa8NpxSOGVmQu6T5ufF8oRUtfgmRs5iiG+n6O5i1XQQ=; b=Oxy6KG0GXrFoPcbguNOvmiJkNS
+	0JbczJn7D21OSl8jafEJTKyQh+F37k2GjSdYE6aEkoyeerxl4Ae5f+G6jp1l48yZSDqF3h7slHL9n
+	KRvdYJB9fTyJu8uhDondxJ/XqgEoxo4pWXPn2jKxJsZWXxPQK7oohd22vf0YDOQzjNybLZy1lwl/9
+	39kgWGSPJ4nt54pYLri3xzG9CE1Ei5ANVDFDfv1EkAX4oLWJZQWaVzSPSux3LZkIaD/dL9OGcRG/I
+	76+W1b/ZEnkHx3n/9K6cms2DNMOkNTrSOn9N+TM5GK6pipuQ2lV4pP8W+oR8MKV8uE6SSQuclL0Q6
+	upIA29gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uArKj-00000002BRG-30Sn;
-	Fri, 02 May 2025 14:25:45 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1uArMf-00000002Bwl-0gee;
+	Fri, 02 May 2025 14:27:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAr9O-000000029fO-21tM
+	id 1uArF7-00000002Adi-1bcT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 14:14:04 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1uAr9J-0000rn-US
-	for linux-arm-kernel@lists.infradead.org; Fri, 02 May 2025 16:13:57 +0200
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1uAr9J-000lOg-2J
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 16:13:57 +0200
-Received: from dspam.blackshift.org (localhost [127.0.0.1])
-	by bjornoya.blackshift.org (Postfix) with SMTP id 4ABD94065A6
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 02 May 2025 14:13:57 +0000 (UTC)
-Received: from hardanger.blackshift.org (unknown [172.20.34.65])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by bjornoya.blackshift.org (Postfix) with ESMTPS id 8CF8340659C;
-	Fri, 02 May 2025 14:13:56 +0000 (UTC)
-Received: from hardanger.blackshift.org (localhost [::1])
-	by hardanger.blackshift.org (OpenSMTPD) with ESMTP id 1e9aea9b;
-	Fri, 2 May 2025 14:13:56 +0000 (UTC)
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-Subject: [PATCH 0/3] can: rx-offload: fix order of unregistration calls
-Date: Fri, 02 May 2025 16:13:43 +0200
-Message-Id: <20250502-can-rx-offload-del-v1-0-59a9b131589d@pengutronix.de>
+	Fri, 02 May 2025 14:19:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C22B56116E;
+	Fri,  2 May 2025 14:19:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 496BFC4CEE4;
+	Fri,  2 May 2025 14:19:54 +0000 (UTC)
+Date: Fri, 2 May 2025 15:19:51 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Will Deacon <will@kernel.org>, Nam Cao <namcao@linutronix.de>,
+	Anna-Maria Behnsen <anna-maria@linutronix.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Andy Lutomirski <luto@kernel.org>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Jan Stancek <jstancek@redhat.com>
+Subject: Re: [PATCH v2 1/2] arm64: vdso: Work around invalid absolute
+ relocations from GCC
+Message-ID: <aBTUh6WwC0_jl5_e@arm.com>
+References: <20250430-vdso-absolute-reloc-v2-0-5efcc3bc4b26@linutronix.de>
+ <20250430-vdso-absolute-reloc-v2-1-5efcc3bc4b26@linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIABfTFGgC/x3MQQqAIBBA0avErBswJaSuEi2sGWtANBQiCO+et
- HyL/18onIULzN0LmW8pkmLD0Hewny4ejELNoJUe1ag07i5ifjB5H5IjJA7Im52MnawxRNDCK7O
- X558ua60fshOVEmQAAAA=
-X-Change-ID: 20250502-can-rx-offload-del-eb79379733dd
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
- Thomas Kopp <thomas.kopp@microchip.com>, 
- Vincent Mailhol <mailhol.vincent@wanadoo.fr>, kernel@pengutronix.de, 
- Heiko Stuebner <heiko@sntech.de>, 
- Chandrasekar Ramakrishnan <rcsekar@samsung.com>, 
- Markus Schneider-Pargmann <msp@baylibre.com>
-Cc: linux-can@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- Marc Kleine-Budde <mkl@pengutronix.de>, stable@vger.kernel.org
-X-Mailer: b4 0.15-dev-048ad
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1661; i=mkl@pengutronix.de;
- h=from:subject:message-id; bh=wKNEquMMqRCDDxXwq44IRpJvSwnrG9pSA9GxTv2slhE=;
- b=owEBbQGS/pANAwAKAQx0Zd/5kJGcAcsmYgBoFNMZ+DcELaBl0lz4gVEsR+oe731Z3vOvy7b2m
- b2FTbj9YuWJATMEAAEKAB0WIQSf+wzYr2eoX/wVbPMMdGXf+ZCRnAUCaBTTGQAKCRAMdGXf+ZCR
- nMwvB/9BEUC1dtYbDGi5TQBbvaBKY6YrVwI3NEpZhtUZWIIHSiOte6QcTtsFg97q+xbvSge7DqT
- vE/jLpU74PHl1GpDIrvyuzUO2XEAywLHiPPudUsTmWYNuJtYvo3lvHzkbI/ejsCmUM/ZEjB2RpG
- i62671TdSBAp57MN4J2M2H5POJlTqd2uLAfdVliGnOX6O+VSBax0gdtA7QqB+PtL8Bk2coH+b8u
- hyx6ilTkOcCBa0p0GCY5Q/HkibJq8kStPIUnIDgj800Tb3BrmTNG3jDu/LZVBXzsmoqzqAmz62t
- GzmcfQ1ZGb7WR4PwhLiDmUDBG/pAQHSyVcwqpEBnpkzFFvj3
-X-Developer-Key: i=mkl@pengutronix.de; a=openpgp;
- fpr=C1400BA0B3989E6FBC7D5B5C2B5EE211C58AEA54
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_071402_525467_220C0326 
-X-CRM114-Status: GOOD (  14.78  )
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250430-vdso-absolute-reloc-v2-1-5efcc3bc4b26@linutronix.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,46 +66,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If a driver is removed, the driver framework invokes the driver's
-remove callback. A CAN driver's remove function calls
-unregister_candev(), which calls net_device_ops::ndo_stop further down
-in the call stack for interfaces which are in the "up" state.
+Hi Thomas,
 
-With the mcp251xfd driver the removal of the module causes the
-following warning:
+On Wed, Apr 30, 2025 at 11:20:13AM +0200, Thomas Weiﬂschuh wrote:
+> All vDSO code needs to be completely position independent.
+> Symbol references are marked as hidden so the compiler emits
+> PC-relative relocations.
+> However GCC emits absolute relocations for symbol-relative references with
+> an offset >= 64KiB. After recent refactorings in the vDSO code this is the
+> case in __arch_get_vdso_u_timens_data() with a page size of 64KiB.
+> 
+> Work around the issue by preventing the optimizer from seeing the offsets.
+> 
+> Reported-by: Jan Stancek <jstancek@redhat.com>
+> Closes: https://lore.kernel.org/lkml/aApGPAoctq_eoE2g@t14ultra/
+> Link: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=120002
+> Fixes: 83a2a6b8cfc5 ("vdso/gettimeofday: Prepare do_hres_timens() for introduction of struct vdso_clock")
+> Signed-off-by: Thomas Weiﬂschuh <thomas.weissschuh@linutronix.de>
+> ---
+>  arch/arm64/include/asm/vdso/gettimeofday.h | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/vdso/gettimeofday.h b/arch/arm64/include/asm/vdso/gettimeofday.h
+> index 92a2b59a9f3df4d20feb483e6d8ebd1d813b7932..3322c7047d84fecae316a2904f1adec0cb458f6f 100644
+> --- a/arch/arm64/include/asm/vdso/gettimeofday.h
+> +++ b/arch/arm64/include/asm/vdso/gettimeofday.h
+> @@ -99,6 +99,19 @@ static __always_inline u64 __arch_get_hw_counter(s32 clock_mode,
+>  	return res;
+>  }
+>  
+> +#if IS_ENABLED(CONFIG_CC_IS_GCC) && IS_ENABLED(CONFIG_PAGE_SIZE_64KB)
+> +static __always_inline const struct vdso_time_data *__arch_get_vdso_u_time_data(void)
+> +{
+> +	const struct vdso_time_data *ret = &vdso_u_time_data;
+> +
+> +	/* Work around invalid absolute relocations */
+> +	OPTIMIZER_HIDE_VAR(ret);
+> +
+> +	return ret;
+> +}
+> +#define __arch_get_vdso_u_time_data __arch_get_vdso_u_time_data
+> +#endif /* IS_ENABLED(CONFIG_CC_IS_GCC) && IS_ENABLED(CONFIG_PAGE_SIZE_64KB) */
 
-| WARNING: CPU: 0 PID: 352 at net/core/dev.c:7342 __netif_napi_del_locked+0xc8/0xd8
+Thanks for the fix. We may have to chase other such cases in the future
+but I don't have any better suggestion.
 
-as can_rx_offload_del() deletes the NAPI, while it is still active,
-because the interface is still up.
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 
-To fix the warning, first unregister the network interface, which
-calls net_device_ops::ndo_stop, which disables the NAPI, and then call
-can_rx_offload_del().
+Question for the other Thomas (tglx): what's your preference, do you
+plan to take these through tip or shall I queue them via the arm64 tree?
 
-All other driver using the rx-offload helper have been checked and the
-same issue has been found in the rockchip and m_can driver. These have
-been fixed, but only compile time tested. On the mcp251xfd the fix was
-tested on hardware.
+Thanks.
 
-Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
----
-Marc Kleine-Budde (3):
-      can: mcp251xfd: mcp251xfd_remove(): fix order of unregistration calls
-      can: rockchip_canfd: m_can_class_unregister: fix order of unregistration calls
-      can: mcan: m_can_class_unregister: fix order of unregistration calls
-
- drivers/net/can/m_can/m_can.c                  | 2 +-
- drivers/net/can/rockchip/rockchip_canfd-core.c | 2 +-
- drivers/net/can/spi/mcp251xfd/mcp251xfd-core.c | 2 +-
- 3 files changed, 3 insertions(+), 3 deletions(-)
----
-base-commit: ebd297a2affadb6f6f4d2e5d975c1eda18ac762d
-change-id: 20250502-can-rx-offload-del-eb79379733dd
-
-Best regards,
 -- 
-Marc Kleine-Budde <mkl@pengutronix.de>
-
-
+Catalin
 
