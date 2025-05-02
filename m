@@ -4,89 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B207C3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 19:14:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E265C3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 19:16:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NG/rF3bvTsluKUSY/5qFQcGuNB6yJPMQ7BdMPhUhXd0=; b=URUcgqFhen9xZCk+drFdSo1XSa
-	ihz1y5z9MBTXJp07yuZZlkb5TmhF5c3YXvy1GshUovGu0WWjQd8BItRukbdCkEj1udymgKMAsu8ws
-	9DNEX9yghm+111W9ElUGEri2s8W8WUO3A+WcHVSeu+Wk2eZPRiOKdz7r16R0nNGIPvoEEW1gZlE3w
-	v/8cEu5YVX8qz3EcHq2SM93nxifMcxLZnhSZ7/ogoV+6ac+ehBhuZkWecjVV5cqGoyjay2TGl/I0q
-	t+dd+wzThW0XIPmAoj9h0GYvL7/27ZlcLLqSOdMw0HpZWIi5+MPWBWmE+m6oWgf90tEf845DVMBHI
-	SpngZhNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qIL8d+5n87mtFb/O0Y5E69DnqKIGpEnlsfPOdevCSxg=; b=JBvhh6zYfbXT/qpC7o80aWS2TV
+	VmeSZLY86dwwj8Qb8avX4ylRJoLEv1h8r32kgtK7PwZMV1mdvzKPmbu/2m+Dxyq98radcojxJXsSX
+	Z4eUluFnr/bI5vPWxOTNdtDgwoBu0rnqiYyGURV6unzhcLrlXdFGsvT/j7Hxj6T8U+MDStQYslOT8
+	LV1zRjfsxkHBBTJmLuyU+HYmcRoTt/mxqUlb5/llaHEtsBOiFzbI+3LX4nYNX3IsKxtT8UMD/zfRq
+	whRWLRDM/fm/EiLmMfE3ImZ7Rnku80wlVZITue1F1Ma1lQ01M3k1xwMMBl4hlRxXDavQERSLsPMAb
+	Sht7YgSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAvqM-00000002r8Y-2rv0;
-	Fri, 02 May 2025 19:14:42 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uAvsI-00000002rXm-3sPb;
+	Fri, 02 May 2025 19:16:42 +0000
+Received: from mail-vi1eur05on2070c.outbound.protection.outlook.com ([2a01:111:f403:2613::70c] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAvdo-00000002p9K-0PfV;
-	Fri, 02 May 2025 19:01:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=NG/rF3bvTsluKUSY/5qFQcGuNB6yJPMQ7BdMPhUhXd0=; b=Rm8DGulLsGaWG4nQkJoQHhjvPV
-	f2Ls5hgeTXcdAT2W1BF9F63tEaRAuBGWCbR6VF8vNj2oIVM5I1fFuIZDGMKg62YfgLI8lzCLJ4D2K
-	xMnrj9e3pAJEBM6fkBEuwvnHV6Zbb7RnLWc6P2MBbBo0Mku21vWjjEyXUcoEwiBYK2ZXOyrLrEVu+
-	fyRSdJ/wvEFBu7pC/R2OIBxp+Fq9ADbLl4xxufpFVYAMABPp6MDCS3n35xRPuZcQU3yPso8gFGKMe
-	Q47Yu8/P4MSKDAU0buL/zX3DaM3UrK5eIcjJnqLYxH9BmjVhJcZUtLZuwWxN8VVmaNgvVultv3A3J
-	AKm0RdzA==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uAvdj-0000000F5XH-0VDE;
-	Fri, 02 May 2025 19:01:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CA22E5C589A;
-	Fri,  2 May 2025 18:59:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 969D0C4CEE9;
-	Fri,  2 May 2025 19:01:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746212492;
-	bh=hbyQsZ/6y5+e9RQDQHbSQJPPcxxu+z1a8WXI/ozgaEE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=o2GJQzXKc02W5VxYdTVih/HORsTVpMq40WjhYb4fGX1HtjjO3pPvAbvObQNSCWxxZ
-	 Ng43uPC/KH7GiDZqjkrLtRmkg0M/gdsc7ksWcd/mIx6P9tkMzQUxXtBOvOZeTYrCpI
-	 xlhKSUdDYwITd66QUg7ejPlU/MqyMZfSC9OlRx4Q44hhVPguTSTBzbGQ9ZMlBgw+RQ
-	 kKBKyHknHENsZKCK3DOreaUYBw/ThIoa1s5a6Lf6tvcjuOp+LqoaSHyBpWyhF0lbHG
-	 uT63cmyhdmXSuQfg1NnuQx5HQqRqE8vmyB+YaCWUClZ27zNzmAAD9T2plvj5UgT/al
-	 U5TmLUcKLlxvw==
-From: Kees Cook <kees@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Kees Cook <kees@kernel.org>,
-	x86@kernel.org,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-doc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-efi@vger.kernel.org,
-	linux-hardening@vger.kernel.org,
-	linux-kbuild@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	kasan-dev@googlegroups.com,
-	llvm@lists.linux.dev
-Subject: [PATCH RFC 1/4] stackleak: Rename CONFIG_GCC_PLUGIN_STACKLEAK to CONFIG_STACKLEAK
-Date: Fri,  2 May 2025 12:01:24 -0700
-Message-Id: <20250502190129.246328-1-kees@kernel.org>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250502185834.work.560-kees@kernel.org>
-References: <20250502185834.work.560-kees@kernel.org>
-MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=17888; i=kees@kernel.org; h=from:subject; bh=hbyQsZ/6y5+e9RQDQHbSQJPPcxxu+z1a8WXI/ozgaEE=; b=owGbwMvMwCVmps19z/KJym7G02pJDBmiYq2+zXc+bn0vVlUVuWC6jfAv3vSSYvsZGZ7OepZW0 SWT10/oKGVhEONikBVTZAmyc49z8XjbHu4+VxFmDisTyBAGLk4BmIjqDkaGh5Yx4gdsp1ar3JI7 2r0vPm/Z15Yje1iY3N+GPNhzatOaAob/oV/bGjZ/3+t+u8b16/qJrN2WXmkCoa8XO5pbrbn28U4 IAwA=
-X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
+	id 1uAvnP-00000002qna-0ROJ
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 02 May 2025 19:11:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wMFGZcxobBimCafrs+JwV3wwoLfGUuSMkkDMsFqlvfz9B1vq5dIAdln51EFOZzCHkkR+Dw2XfHNp7ZwwABfidOjlXImCLZHNmG3XhviDbSXiouOq0gUMeHrJLWFXRJmt0h1GshLC5e777ZvzgBjzVIMptydmbB/kC0HkboSiK5S7/PXB9UCy+1cuQ1z52zqB6lud11GrchWRGBGU2MnTrBa5ZEuGgfvWRXq1k4jXoFQ/2GFw6NKlYLpF83wETh4PgKW0hbS2HPPw6XEnU+Pfk6IeEONWhqIlIplxzHv24FIWVBARacBzNdW4n11qINipWkKPmBU1yaMKJAVL+kRc9Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qIL8d+5n87mtFb/O0Y5E69DnqKIGpEnlsfPOdevCSxg=;
+ b=spiRDXk6Yj8VoVHr4YrK4hL9YMRk7Fj2h6h2MD4w3dnyUU8cCQQDk4pkVA80MqepkR0osUbQc3ZzSxFV1yY4lI56uResm7kJKgEGlpwhQPaSYHXUxzmwO9m5fYORAbN+E8zcjzoqRaxx5/c/BYYlPpigwiCNCp+nKaweQaJSbX+MlCv0HOEFU1tesJgkzqGm08mjiMk7hOPYNs6mn234PTNln82aLrpzfGJOcpmnPyrV9Kat1cBd2v8ZgTZPJTWUXMTXa4No91g+jDWeu0SikeJMRbkmB+ZAk8RV0CHOIq88lSVA/ZKL1PO+FPtnC4RMCBasWWRiduPBj3JtZ8+JVw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
+ dkim=pass header.d=phytec.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qIL8d+5n87mtFb/O0Y5E69DnqKIGpEnlsfPOdevCSxg=;
+ b=OA0iz9a6ehXZrvKhgNvNrkXEeBNCl/lvc12EeGTXepgbwG4qP4fB8h+16+Ytw/h04y5wG81/TylNfgsqG7nk7QQVMeQMFogsLcruonEbpPc3VKasS8qYdxfRbywn4otXwYQNnWXSh2L2EnvcdOJpBX9BNvcYZZlMKBkRaTqEzVakCsp6u7xFJvelwIMXCa3K1JqEukfynJPdXJd+HONRRha0k8DsImUwrOr1tilKSfsperrkxSet5wnVbbZbOmc492PiCH9XDUs71b7gvVEs4flmk1mmbDoD4vixrFGYgDqotM3hDT2e+kvzFti0pHxzE/7ZBwMOiFTeOFRRxKiylw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=phytec.de;
+Received: from VI0P195MB2484.EURP195.PROD.OUTLOOK.COM (2603:10a6:800:248::6)
+ by GV2P195MB2064.EURP195.PROD.OUTLOOK.COM (2603:10a6:150:b1::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.33; Fri, 2 May
+ 2025 19:11:26 +0000
+Received: from VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
+ ([fe80::24f:8371:2871:5981]) by VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
+ ([fe80::24f:8371:2871:5981%4]) with mapi id 15.20.8699.019; Fri, 2 May 2025
+ 19:11:26 +0000
+Message-ID: <9964aeaa-0169-4596-a33d-c56bdb6edae3@phytec.de>
+Date: Fri, 2 May 2025 21:11:16 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] arm64: dts: ti: k3-am62a: Set Critical Temp. to 105C
+To: Nishanth Menon <nm@ti.com>
+Cc: vigneshr@ti.com, kristo@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ upstream@lists.phytec.de
+References: <20250502142606.2840508-1-d.schultz@phytec.de>
+ <20250502142606.2840508-2-d.schultz@phytec.de>
+ <20250502144934.t6hjiwp2f64ovb34@deeply>
+Content-Language: en-US
+From: Daniel Schultz <d.schultz@phytec.de>
+In-Reply-To: <20250502144934.t6hjiwp2f64ovb34@deeply>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MW4PR03CA0332.namprd03.prod.outlook.com
+ (2603:10b6:303:dc::7) To VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
+ (2603:10a6:800:248::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI0P195MB2484:EE_|GV2P195MB2064:EE_
+X-MS-Office365-Filtering-Correlation-Id: bb870327-1554-4bd1-2176-08dd89ad229d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|10070799003;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VEdFRWZZMURXR1dEdEhvUEZTNjZST3U3aW5CQkpsUS9QK2M2SFZyUnF6UnR0?=
+ =?utf-8?B?bHNYa01ibmU5d3ZGSEFueTBkVFZxaVFmZG1IMjRsY3lnOVZZYVJKOEFHZWN0?=
+ =?utf-8?B?TVpnZUVZZjNNTENXWHF2REJVMkxxT01PTnd3SEpsVWlDditzNldDNjF6R3V4?=
+ =?utf-8?B?RklqWS8ybGlMc0toSXJBMm1RWWovQkFob1JGOXRqUmZ5YWpmaGphNE8yY05y?=
+ =?utf-8?B?Ymd0SWg0TmF3dDYwaGRSNTVFUFZlMEtaMFlOZW1neUVNR1Z6ZGMzbkNSU2NO?=
+ =?utf-8?B?UUdGYXBiQXBHa0pvUTUyVFhrVEs2NjV4NFhVUmZ0c0hMSThoT0t6c2NwNkhQ?=
+ =?utf-8?B?c1BaMnNKdW40M2psNFRVVXR5NldGeFg4WitSQUhmU2VHcVRxbTF3YlRZUHFQ?=
+ =?utf-8?B?NGZSYXBpd045Z2VQVXNGNUhwbzBaamxFU0VHZjdxNnVxYWdDSGtXSlZpZm9T?=
+ =?utf-8?B?djROLytsRnVWSWhEdjBhSU1BVW54bXZWZGhJalhWcDBTZldCRW41UGdXWEtV?=
+ =?utf-8?B?Z3lVYUFZZ1NtODNjVitSditIVFFvTkUwY1lQRWlac1JmSkhkSzhuZ0JIKzhl?=
+ =?utf-8?B?MmJWTm10MmZQN2ZreGlTYVJaYVl1dkxzTGd1Y0l0QzkrMkpIeWxENUhLbXV4?=
+ =?utf-8?B?b0h6RHZZNG5OL0wreWNSTy9TcXlUQklmTWJUNkFWdnEybHcvb05neklxdS9l?=
+ =?utf-8?B?NDYzeVdoVEFNeHFOUnlYZ0ZPZlkyejdrd1cvVXZ3VU8xdWorZm1vbGJFYURK?=
+ =?utf-8?B?Y3R6NSsxZXhZUnY1M1B4S3JKWUo5NjIyVC8xb2xWcmp6SWljVlRsYjVPSjdi?=
+ =?utf-8?B?L240RWcyZXdRNlY1VDVsOU56ZEtpWDJObTg2UXpLMURtQnZtZFJESmpTdkVx?=
+ =?utf-8?B?NC80WTcycS9LN3hpeHllN0t0dUozNFpmenZUTnRVdmZ6VTVkNTIvdGhTenkw?=
+ =?utf-8?B?RUV2cVdZeDI5MitzcG5iUUVKNGEzam05aW8vUUluTkxJMDVyalhEMlBQVndY?=
+ =?utf-8?B?UDdEZm45ZXh1clpDRmkwV05iN2YrbkJkZ0hJWmJPbEJqVzR2VE1ES2dVVmdL?=
+ =?utf-8?B?YnRBM2lpT0pOZ0lvYVJrZFJlanlGUWF6RElTdXNRWG1JUGZqYkRaeTRqUHJH?=
+ =?utf-8?B?SUYvTEtiMC9RNkdqZ1NXZ2RYQUpodjM0M3BHOHk0MUZZNHhDTXZIa0p2bWNM?=
+ =?utf-8?B?L3JiRVo1bmpvNjJjZitUOUhaeWRTSE81L3lKWW1qYXNCTlFIZnZNNzFraEZ4?=
+ =?utf-8?B?ZjRYekRueUdldGxsZzBUcjFqTytWY05Bcmx1YmhXWnZsV3VZVk0xUG9FUjVr?=
+ =?utf-8?B?SDJiYWtQTnY2NXRHY29wTUcwNWsydUJ3QTdCNW9oRXF1TTlaVHpyVmdVc1NS?=
+ =?utf-8?B?VWUxUEttYUgrSWkwdVg0ay81bTlscitZWmVGTEtveWZMU0hzaUZrUkM4ZzEr?=
+ =?utf-8?B?eXNCcXd2N1Rwa2kzYmR3QnFNOTRJVXNUWWZweGFFa3hvRTQ5MXQvbGQ2bHVF?=
+ =?utf-8?B?SkxpU0k0VVpoQ0Y5cEl0UE0rSGFOYktoM1FIY3pkVDROL25qaE5PVnpTdlpZ?=
+ =?utf-8?B?UndWYm82R0lFKzNvOWo3d3hRcllYSERFbWhmc2p2bFBZcm9rVWVGWjFOSEha?=
+ =?utf-8?B?UXVZMnNtdFhYazBtbWFwY1B6Q0NOZjAzdTFYcFJ6REc3TkZzRlZwMFNQeWk0?=
+ =?utf-8?B?N2g0WDhMNHdzUEorOWloVmRPL0t0Ujlqd1ozRFAyV1Q2TlVoTVNITVdIL1Ny?=
+ =?utf-8?B?eUg1bEllcm53S05sTzFFZGVYa1k4ZE5XanI1YjRxL3ZoV1ZGekh2bWxpeDg5?=
+ =?utf-8?B?bHdhRXYyb0diQndxM1ROSldOMExCYXdQT2h6UWNOVnJueE1GMytQaC9XWUZW?=
+ =?utf-8?B?YzhycE9PNVAydmZKWnl5K0l6VlRaMTM3Q3Y5cmZmd0YxL0FZcTdlRTVDeHBC?=
+ =?utf-8?Q?4dbb4b3iVvI=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0P195MB2484.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(10070799003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Znh4dDdrRnIwRUN0M2lBV1RLblllWHVQUGRvc1NmZHJXMjNTcXhwenpoWUlz?=
+ =?utf-8?B?YU44Y3dKNmFQVTJHcUd4NVluRzZramRieGpjMkhUek50T2FtMndCdm9sV24y?=
+ =?utf-8?B?ZnNVbmhYQ1NIU1crUkZNdWRIQ0JjdHNBTW95NWlrZG5lQjNka1VLclQ3S3pm?=
+ =?utf-8?B?ZzJ4c1ZJUEVpY0ZBdFgvTGpYK2hjY0VZMWdtTDh0WldmV3QreVluemZNdXFR?=
+ =?utf-8?B?QmJZN0dYY2xXTndaQ1N3RlN3azFVK0J2Ty9tbWJHK1l0NGM5Q2VUZkN1UVdw?=
+ =?utf-8?B?OFhoM3FKTWFibGRoM0pqcExUWmpncnR2RnVIUmx0aFZFS3hzZVJORFd5Qklv?=
+ =?utf-8?B?UzdBQ2dhK0c3Z0Izajh6czJLZFhsNDJRV3BaR3lWNHlNaDhtZlFuRCtjNHlv?=
+ =?utf-8?B?VldLdVhBaWZVSzNrcU9sNlRqTURXRGJHWXVpVitJSFJxVWZsOHdRZEZEV2FG?=
+ =?utf-8?B?RVpBdGRoTnpmZkV0cUk5OE1KVCtENW5EbUFDSm1vNGNid3A1SkZLNlkrZTR0?=
+ =?utf-8?B?UGQ4bW4rNVJYRnZpNFlFa2wzWlhYMFV0S0lpYlRzeGZhZnBYSFFPVFd1Sm5Q?=
+ =?utf-8?B?ZStQaW1zZFViSGVPbnptampTbXZhMEt2NWhZY2lPb3ovb2pkUURURVRwc09Z?=
+ =?utf-8?B?ZXd5OEdGUmJERDg3bWdSK0lVL0NSNEUzOTlrZTg5ZTlOc21JbzB1OU80YUx1?=
+ =?utf-8?B?Y24zNzk3cTd1T1o1NDhJTGs0elVXdW9acGNCYWFlZ1RKWUVCRi9UK0E4RTAz?=
+ =?utf-8?B?d283NkpjVEkxWXdDaS9RVXZhS0JIZGxoT0Y5ZXBaeUlCYXRLZW5xQzV2UGFI?=
+ =?utf-8?B?RXpUZUtFa1ZxYVh5bUZpR1RsSUl1bVNtT1RXSkxCOVJHMFQwd051TnM4L2k5?=
+ =?utf-8?B?K1hJUGd2c0hXakwwMm95RVZQam9MMU1OaW9wK0l4TDlTTmpLenV6MHNNZFgw?=
+ =?utf-8?B?dHVTM3R3eHpNajFJT1plcG5MS0dFMFhybDZFYk0xRDFUSE0ySi8yZHNJSzAr?=
+ =?utf-8?B?WVp3SUZuYUkvc1ZpUkc1RXNEWHl1dDJsUk9SeDFDY25ZejdJWDhIU1cxdlFj?=
+ =?utf-8?B?TTlpMkhsZXpLaTR4UEZaM0xaZkpwR0Nqb3pLQkxaSm5ocUp4L2hUMzRLZ2Fx?=
+ =?utf-8?B?TWdWdXdJSmdrUUphK2VzeHM0azdiY3BMSTR2bUdRSjFzK2MwUGNhQldyZlJ0?=
+ =?utf-8?B?ei90M2g4WWExcmgyWFJzTGtDTnpyYzVaRWsrRTh1WWZ4Rld3cXhFRGVRdUFk?=
+ =?utf-8?B?bFZ2cnNYSFRmQTFqNkJTQXJKaHRFWHEweTFqRUJYb2hPeVhsVUZkQ2orOEcw?=
+ =?utf-8?B?R2pzaHhIeVk5TUttUHExbmZiWTZ0Q2E1Vi9HeUJuVXkxZWgyWHlIRWVRdThm?=
+ =?utf-8?B?UmpGUmlEdy9iNG9EcEtWdXlCMHRwUjJlVVM3eWFnYzJBNVlVeDc1Tkx5b2d1?=
+ =?utf-8?B?KzlzUUlDelRhMGdKbFh3ejI5M09scGpKUTJxNXdtSGVUek9CNmtwOEEyNHdt?=
+ =?utf-8?B?WGJIbWZpcnNOdXVuVzVMSGs4M3lsVEpuV1A2VXovZXd5U1Q2UUhybFQzSzNo?=
+ =?utf-8?B?L2poeC9SMCs4c0RCcFpMYjVPOHhCZmhzWnZ5ajg1QW5RcVRjMWRJYlBsVkpO?=
+ =?utf-8?B?RVZ0bThJRWdvd3YxTFlreEt0NzdwYU9iaWRTRmIySlZsOUdxNFkwUldQajdM?=
+ =?utf-8?B?dmJXOGwwZVFtelZxVlNPai8vUEVoY2x5MlNLam9yT1J0bEtSWVVLUnZubHFM?=
+ =?utf-8?B?cTErR3UrY04vVVZtQWV2d1N5QXNkY1ZMeGlOZDhhc1hlZ1V0ZTY1Zlpvb3JH?=
+ =?utf-8?B?NEgzdSs0Z0hiYVFtaE0rclBtUmZJMXJjQ3JKY1ZJb3djL3Rhd0RSTHgwZURC?=
+ =?utf-8?B?VEpwOVNWR2k4dUtmU0IwNzJVRDJZZngxWTZNQmlGZnpVM3BxK0lPWElUbGhu?=
+ =?utf-8?B?QzJaRjRjUktkUnJRdmxhK1FKY01HdDRxUHQwWk84Zk42UVNMbUNlUS9Qd2pG?=
+ =?utf-8?B?UmxBOUNjOGFaS3pWRGVQTTdEN2EvOVEwb3I4akNnT2RET3ZxcFRBeHNHY3dR?=
+ =?utf-8?B?enVWQ0pEN2E1Y01Ba095eWFjTTNpWituQXBMclFjTGk4WVg1cEhBTWhuTjdK?=
+ =?utf-8?B?dDNnSTB3dWxWUDZyRlRnN25aVUJJRHlmYjBoWEhFbndFdCtSdmlTc2pSa3dV?=
+ =?utf-8?Q?xrisI8ch87u2obxtvFHbT5a9nP4un/vZ79b9zRJn1IKj?=
+X-OriginatorOrg: phytec.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: bb870327-1554-4bd1-2176-08dd89ad229d
+X-MS-Exchange-CrossTenant-AuthSource: VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 May 2025 19:11:26.2938
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: rw5Z6noalR3IihMqkLUL31t74g9+TH0jhAQfWdhgrOf9EDsiakScxJbC3GV8/iTGByZkuqWrgrJoje1zd7rCuQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2P195MB2064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_200139_530194_5E6FB8B2 
-X-CRM114-Status: GOOD (  20.76  )
+X-CRM114-CacheID: sfid-20250502_121139_448697_43B590DD 
+X-CRM114-Status: GOOD (  15.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,448 +180,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for adding Clang sanitizer coverage stack depth
-tracking that can support stack depth callbacks, remove "GCC_PLUGIN"
-from "CONFIG_GCC_PLUGIN_STACKLEAK" and remove "PLUGIN" from
-"DISABLE_STACKLEAK_PLUGIN". Rearrange the Kconfig to have a top-level
-CONFIG_STACKLEAK that will depend on either GCC plugins or Clang soon.
 
-While here, also split "prev_lowest_stack" into CONFIG_STACKLEAK_METRICS,
-since that's the only place it is referenced from.
+On 5/2/25 16:49, Nishanth Menon wrote:
+> On 07:26-20250502, Daniel Schultz wrote:
+>> The AM62Ax SoC supports two temperature ranges:
+>> * A: -40 to 105C - Extended Industrial
+>> * I: -40 to 125C - Automotive
+>>
+>> By default, use the lower limit (105 °C) so that any AM62A running
+>> in Extended Industrial mode will shut down safely before overheating.
+>>
+>> If the bootloader detects an Automotive-grade device, it should
+>> override this and raise the critical trip point to 125 °C.
+>>
+>> Signed-off-by: Daniel Schultz <d.schultz@phytec.de>
+>> ---
+>>   arch/arm64/boot/dts/ti/k3-am62a-thermal.dtsi | 6 +++---
+>>   1 file changed, 3 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/arch/arm64/boot/dts/ti/k3-am62a-thermal.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-thermal.dtsi
+>> index 39ff9118b6c4..40dcb9bab965 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-am62a-thermal.dtsi
+>> +++ b/arch/arm64/boot/dts/ti/k3-am62a-thermal.dtsi
+> Why not create a separate header for industrial grade and rename this as
+> automotive grade and let the board file pick the right grade used on the
+> board?
 
-Signed-off-by: Kees Cook <kees@kernel.org>
----
-Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: <x86@kernel.org>
-Cc: "Gustavo A. R. Silva" <gustavoars@kernel.org>
-Cc: <linux-doc@vger.kernel.org>
-Cc: <linux-arm-kernel@lists.infradead.org>
-Cc: <kvmarm@lists.linux.dev>
-Cc: <linux-riscv@lists.infradead.org>
-Cc: <linux-s390@vger.kernel.org>
-Cc: <linux-efi@vger.kernel.org>
-Cc: <linux-hardening@vger.kernel.org>
-Cc: <linux-kbuild@vger.kernel.org>
-Cc: <linux-security-module@vger.kernel.org>
-Cc: <linux-kselftest@vger.kernel.org>
----
- Documentation/admin-guide/sysctl/kernel.rst |  2 +-
- Documentation/security/self-protection.rst  |  2 +-
- arch/arm/boot/compressed/Makefile           |  2 +-
- arch/arm/kernel/entry-common.S              |  2 +-
- arch/arm64/kernel/entry.S                   |  2 +-
- arch/arm64/kernel/pi/Makefile               |  2 +-
- arch/arm64/kvm/hyp/nvhe/Makefile            |  2 +-
- arch/riscv/kernel/entry.S                   |  2 +-
- arch/riscv/kernel/pi/Makefile               |  2 +-
- arch/riscv/purgatory/Makefile               |  2 +-
- arch/s390/kernel/entry.S                    |  2 +-
- arch/x86/entry/calling.h                    |  4 ++--
- arch/x86/purgatory/Makefile                 |  2 +-
- drivers/firmware/efi/libstub/Makefile       |  6 +++---
- drivers/misc/lkdtm/stackleak.c              |  8 ++++----
- include/linux/sched.h                       |  4 +++-
- include/linux/stackleak.h                   |  4 ++--
- kernel/Makefile                             |  4 ++--
- lib/Makefile                                |  2 +-
- scripts/Makefile.gcc-plugins                |  4 ++--
- security/Kconfig.hardening                  | 18 +++++++++++-------
- tools/testing/selftests/lkdtm/config        |  2 +-
- 22 files changed, 43 insertions(+), 37 deletions(-)
+Mostly because I copied this from 10e7bfd8114c207ac and with the most 
+recent temperature fixups in U-Boot, we also have the missing bootloader 
+logic.
 
-diff --git a/Documentation/admin-guide/sysctl/kernel.rst b/Documentation/admin-guide/sysctl/kernel.rst
-index dd49a89a62d3..c94475661a80 100644
---- a/Documentation/admin-guide/sysctl/kernel.rst
-+++ b/Documentation/admin-guide/sysctl/kernel.rst
-@@ -1465,7 +1465,7 @@ stack_erasing
- =============
- 
- This parameter can be used to control kernel stack erasing at the end
--of syscalls for kernels built with ``CONFIG_GCC_PLUGIN_STACKLEAK``.
-+of syscalls for kernels built with ``CONFIG_STACKLEAK``.
- 
- That erasing reduces the information which kernel stack leak bugs
- can reveal and blocks some uninitialized stack variable attacks.
-diff --git a/Documentation/security/self-protection.rst b/Documentation/security/self-protection.rst
-index 910668e665cb..67a266d38172 100644
---- a/Documentation/security/self-protection.rst
-+++ b/Documentation/security/self-protection.rst
-@@ -303,7 +303,7 @@ Memory poisoning
- 
- When releasing memory, it is best to poison the contents, to avoid reuse
- attacks that rely on the old contents of memory. E.g., clear stack on a
--syscall return (``CONFIG_GCC_PLUGIN_STACKLEAK``), wipe heap memory on a
-+syscall return (``CONFIG_STACKLEAK``), wipe heap memory on a
- free. This frustrates many uninitialized variable attacks, stack content
- exposures, heap content exposures, and use-after-free attacks.
- 
-diff --git a/arch/arm/boot/compressed/Makefile b/arch/arm/boot/compressed/Makefile
-index 945b5975fce2..2da39e41e5c0 100644
---- a/arch/arm/boot/compressed/Makefile
-+++ b/arch/arm/boot/compressed/Makefile
-@@ -9,7 +9,7 @@ OBJS		=
- 
- HEAD	= head.o
- OBJS	+= misc.o decompress.o
--CFLAGS_decompress.o += $(DISABLE_STACKLEAK_PLUGIN)
-+CFLAGS_decompress.o += $(DISABLE_STACKLEAK)
- ifeq ($(CONFIG_DEBUG_UNCOMPRESS),y)
- OBJS	+= debug.o
- AFLAGS_head.o += -DDEBUG
-diff --git a/arch/arm/kernel/entry-common.S b/arch/arm/kernel/entry-common.S
-index f379c852dcb7..9921898d29a1 100644
---- a/arch/arm/kernel/entry-common.S
-+++ b/arch/arm/kernel/entry-common.S
-@@ -119,7 +119,7 @@ no_work_pending:
- 
- 	ct_user_enter save = 0
- 
--#ifdef CONFIG_GCC_PLUGIN_STACKLEAK
-+#ifdef CONFIG_STACKLEAK
- 	bl	stackleak_erase_on_task_stack
- #endif
- 	restore_user_regs fast = 0, offset = 0
-diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
-index 5ae2a34b50bd..c5456ff920d3 100644
---- a/arch/arm64/kernel/entry.S
-+++ b/arch/arm64/kernel/entry.S
-@@ -614,7 +614,7 @@ SYM_CODE_END(ret_to_kernel)
- SYM_CODE_START_LOCAL(ret_to_user)
- 	ldr	x19, [tsk, #TSK_TI_FLAGS]	// re-check for single-step
- 	enable_step_tsk x19, x2
--#ifdef CONFIG_GCC_PLUGIN_STACKLEAK
-+#ifdef CONFIG_STACKLEAK
- 	bl	stackleak_erase_on_task_stack
- #endif
- 	kernel_exit 0
-diff --git a/arch/arm64/kernel/pi/Makefile b/arch/arm64/kernel/pi/Makefile
-index 4d11a8c29181..77159298f3c6 100644
---- a/arch/arm64/kernel/pi/Makefile
-+++ b/arch/arm64/kernel/pi/Makefile
-@@ -2,7 +2,7 @@
- # Copyright 2022 Google LLC
- 
- KBUILD_CFLAGS	:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) -fpie \
--		   -Os -DDISABLE_BRANCH_PROFILING $(DISABLE_STACKLEAK_PLUGIN) \
-+		   -Os -DDISABLE_BRANCH_PROFILING $(DISABLE_STACKLEAK) \
- 		   $(DISABLE_LATENT_ENTROPY_PLUGIN) \
- 		   $(call cc-option,-mbranch-protection=none) \
- 		   -I$(srctree)/scripts/dtc/libfdt -fno-stack-protector \
-diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
-index b43426a493df..4e00a2a8ad0c 100644
---- a/arch/arm64/kvm/hyp/nvhe/Makefile
-+++ b/arch/arm64/kvm/hyp/nvhe/Makefile
-@@ -12,7 +12,7 @@ asflags-y := -D__KVM_NVHE_HYPERVISOR__ -D__DISABLE_EXPORTS
- ccflags-y := -D__KVM_NVHE_HYPERVISOR__ -D__DISABLE_EXPORTS -D__DISABLE_TRACE_MMIO__
- ccflags-y += -fno-stack-protector	\
- 	     -DDISABLE_BRANCH_PROFILING	\
--	     $(DISABLE_STACKLEAK_PLUGIN)
-+	     $(DISABLE_STACKLEAK)
- 
- hostprogs := gen-hyprel
- HOST_EXTRACFLAGS += -I$(objtree)/include
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 33a5a9f2a0d4..d6e9903817f7 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -220,7 +220,7 @@ SYM_CODE_START_NOALIGN(ret_from_exception)
- #endif
- 	bnez s0, 1f
- 
--#ifdef CONFIG_GCC_PLUGIN_STACKLEAK
-+#ifdef CONFIG_STACKLEAK
- 	call	stackleak_erase_on_task_stack
- #endif
- 
-diff --git a/arch/riscv/kernel/pi/Makefile b/arch/riscv/kernel/pi/Makefile
-index 81d69d45c06c..40238ed13ea1 100644
---- a/arch/riscv/kernel/pi/Makefile
-+++ b/arch/riscv/kernel/pi/Makefile
-@@ -2,7 +2,7 @@
- # This file was copied from arm64/kernel/pi/Makefile.
- 
- KBUILD_CFLAGS	:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) -fpie \
--		   -Os -DDISABLE_BRANCH_PROFILING $(DISABLE_STACKLEAK_PLUGIN) \
-+		   -Os -DDISABLE_BRANCH_PROFILING $(DISABLE_STACKLEAK) \
- 		   $(call cc-option,-mbranch-protection=none) \
- 		   -I$(srctree)/scripts/dtc/libfdt -fno-stack-protector \
- 		   -include $(srctree)/include/linux/hidden.h \
-diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
-index fb9c917c9b45..af8fa4aded5c 100644
---- a/arch/riscv/purgatory/Makefile
-+++ b/arch/riscv/purgatory/Makefile
-@@ -53,7 +53,7 @@ targets += purgatory.ro purgatory.chk
- 
- PURGATORY_CFLAGS_REMOVE := -mcmodel=kernel
- PURGATORY_CFLAGS := -mcmodel=medany -ffreestanding -fno-zero-initialized-in-bss
--PURGATORY_CFLAGS += $(DISABLE_STACKLEAK_PLUGIN) -DDISABLE_BRANCH_PROFILING
-+PURGATORY_CFLAGS += $(DISABLE_STACKLEAK) -DDISABLE_BRANCH_PROFILING
- PURGATORY_CFLAGS += -fno-stack-protector -g0
- 
- # Default KBUILD_CFLAGS can have -pg option set when FTRACE is enabled. That
-diff --git a/arch/s390/kernel/entry.S b/arch/s390/kernel/entry.S
-index dd291c9ad6a6..6b43318dc0cc 100644
---- a/arch/s390/kernel/entry.S
-+++ b/arch/s390/kernel/entry.S
-@@ -124,7 +124,7 @@ _LPP_OFFSET	= __LC_LPP
- #endif
- 
- 	.macro STACKLEAK_ERASE
--#ifdef CONFIG_GCC_PLUGIN_STACKLEAK
-+#ifdef CONFIG_STACKLEAK
- 	brasl	%r14,stackleak_erase_on_task_stack
- #endif
- 	.endm
-diff --git a/arch/x86/entry/calling.h b/arch/x86/entry/calling.h
-index d83236b96f22..790e63df94a2 100644
---- a/arch/x86/entry/calling.h
-+++ b/arch/x86/entry/calling.h
-@@ -369,7 +369,7 @@ For 32-bit we have the following conventions - kernel is built with
- .endm
- 
- .macro STACKLEAK_ERASE_NOCLOBBER
--#ifdef CONFIG_GCC_PLUGIN_STACKLEAK
-+#ifdef CONFIG_STACKLEAK
- 	PUSH_AND_CLEAR_REGS
- 	call stackleak_erase
- 	POP_REGS
-@@ -388,7 +388,7 @@ For 32-bit we have the following conventions - kernel is built with
- #endif /* !CONFIG_X86_64 */
- 
- .macro STACKLEAK_ERASE
--#ifdef CONFIG_GCC_PLUGIN_STACKLEAK
-+#ifdef CONFIG_STACKLEAK
- 	call stackleak_erase
- #endif
- .endm
-diff --git a/arch/x86/purgatory/Makefile b/arch/x86/purgatory/Makefile
-index ebdfd7b84feb..5450d5f7fd88 100644
---- a/arch/x86/purgatory/Makefile
-+++ b/arch/x86/purgatory/Makefile
-@@ -35,7 +35,7 @@ targets += purgatory.ro purgatory.chk
- PURGATORY_CFLAGS_REMOVE := -mcmodel=kernel
- PURGATORY_CFLAGS := -mcmodel=small -ffreestanding -fno-zero-initialized-in-bss -g0
- PURGATORY_CFLAGS += -fpic -fvisibility=hidden
--PURGATORY_CFLAGS += $(DISABLE_STACKLEAK_PLUGIN) -DDISABLE_BRANCH_PROFILING
-+PURGATORY_CFLAGS += $(DISABLE_STACKLEAK) -DDISABLE_BRANCH_PROFILING
- PURGATORY_CFLAGS += -fno-stack-protector
- 
- # Default KBUILD_CFLAGS can have -pg option set when FTRACE is enabled. That
-diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
-index d23a1b9fed75..1cfdde43da02 100644
---- a/drivers/firmware/efi/libstub/Makefile
-+++ b/drivers/firmware/efi/libstub/Makefile
-@@ -22,15 +22,15 @@ cflags-$(CONFIG_X86)		+= -m$(BITS) -D__KERNEL__ -std=gnu11 \
- 
- # arm64 uses the full KBUILD_CFLAGS so it's necessary to explicitly
- # disable the stackleak plugin
--cflags-$(CONFIG_ARM64)		+= -fpie $(DISABLE_STACKLEAK_PLUGIN) \
-+cflags-$(CONFIG_ARM64)		+= -fpie $(DISABLE_STACKLEAK) \
- 				   -fno-unwind-tables -fno-asynchronous-unwind-tables
- cflags-$(CONFIG_ARM)		+= -DEFI_HAVE_STRLEN -DEFI_HAVE_STRNLEN \
- 				   -DEFI_HAVE_MEMCHR -DEFI_HAVE_STRRCHR \
- 				   -DEFI_HAVE_STRCMP -fno-builtin -fpic \
- 				   $(call cc-option,-mno-single-pic-base) \
--				   $(DISABLE_STACKLEAK_PLUGIN)
-+				   $(DISABLE_STACKLEAK)
- cflags-$(CONFIG_RISCV)		+= -fpic -DNO_ALTERNATIVE -mno-relax \
--				   $(DISABLE_STACKLEAK_PLUGIN)
-+				   $(DISABLE_STACKLEAK)
- cflags-$(CONFIG_LOONGARCH)	+= -fpie
- 
- cflags-$(CONFIG_EFI_PARAMS_FROM_FDT)	+= -I$(srctree)/scripts/dtc/libfdt
-diff --git a/drivers/misc/lkdtm/stackleak.c b/drivers/misc/lkdtm/stackleak.c
-index f1d022160913..ab8c690a039a 100644
---- a/drivers/misc/lkdtm/stackleak.c
-+++ b/drivers/misc/lkdtm/stackleak.c
-@@ -11,7 +11,7 @@
- #include "lkdtm.h"
- #include <linux/stackleak.h>
- 
--#if defined(CONFIG_GCC_PLUGIN_STACKLEAK)
-+#if defined(CONFIG_STACKLEAK)
- /*
-  * Check that stackleak tracks the lowest stack pointer and erases the stack
-  * below this as expected.
-@@ -129,16 +129,16 @@ static void lkdtm_STACKLEAK_ERASING(void)
- 	check_stackleak_irqoff();
- 	local_irq_restore(flags);
- }
--#else /* defined(CONFIG_GCC_PLUGIN_STACKLEAK) */
-+#else /* defined(CONFIG_STACKLEAK) */
- static void lkdtm_STACKLEAK_ERASING(void)
- {
- 	if (IS_ENABLED(CONFIG_HAVE_ARCH_STACKLEAK)) {
--		pr_err("XFAIL: stackleak is not enabled (CONFIG_GCC_PLUGIN_STACKLEAK=n)\n");
-+		pr_err("XFAIL: stackleak is not enabled (CONFIG_STACKLEAK=n)\n");
- 	} else {
- 		pr_err("XFAIL: stackleak is not supported on this arch (HAVE_ARCH_STACKLEAK=n)\n");
- 	}
- }
--#endif /* defined(CONFIG_GCC_PLUGIN_STACKLEAK) */
-+#endif /* defined(CONFIG_STACKLEAK) */
- 
- static struct crashtype crashtypes[] = {
- 	CRASHTYPE(STACKLEAK_ERASING),
-diff --git a/include/linux/sched.h b/include/linux/sched.h
-index f96ac1982893..f323a4d9f0ef 100644
---- a/include/linux/sched.h
-+++ b/include/linux/sched.h
-@@ -1599,8 +1599,10 @@ struct task_struct {
- 	/* Used by BPF for per-TASK xdp storage */
- 	struct bpf_net_context		*bpf_net_context;
- 
--#ifdef CONFIG_GCC_PLUGIN_STACKLEAK
-+#ifdef CONFIG_STACKLEAK
- 	unsigned long			lowest_stack;
-+#endif
-+#ifdef CONFIG_STACKLEAK_METRICS
- 	unsigned long			prev_lowest_stack;
- #endif
- 
-diff --git a/include/linux/stackleak.h b/include/linux/stackleak.h
-index 3be2cb564710..71e8242fd8f2 100644
---- a/include/linux/stackleak.h
-+++ b/include/linux/stackleak.h
-@@ -12,7 +12,7 @@
- #define STACKLEAK_POISON -0xBEEF
- #define STACKLEAK_SEARCH_DEPTH 128
- 
--#ifdef CONFIG_GCC_PLUGIN_STACKLEAK
-+#ifdef CONFIG_STACKLEAK
- #include <asm/stacktrace.h>
- #include <linux/linkage.h>
- 
-@@ -82,7 +82,7 @@ asmlinkage void noinstr stackleak_erase_on_task_stack(void);
- asmlinkage void noinstr stackleak_erase_off_task_stack(void);
- void __no_caller_saved_registers noinstr stackleak_track_stack(void);
- 
--#else /* !CONFIG_GCC_PLUGIN_STACKLEAK */
-+#else /* !CONFIG_STACKLEAK */
- static inline void stackleak_task_init(struct task_struct *t) { }
- #endif
- 
-diff --git a/kernel/Makefile b/kernel/Makefile
-index 434929de17ef..79583e3501b4 100644
---- a/kernel/Makefile
-+++ b/kernel/Makefile
-@@ -137,8 +137,8 @@ obj-$(CONFIG_WATCH_QUEUE) += watch_queue.o
- obj-$(CONFIG_RESOURCE_KUNIT_TEST) += resource_kunit.o
- obj-$(CONFIG_SYSCTL_KUNIT_TEST) += sysctl-test.o
- 
--CFLAGS_stackleak.o += $(DISABLE_STACKLEAK_PLUGIN)
--obj-$(CONFIG_GCC_PLUGIN_STACKLEAK) += stackleak.o
-+CFLAGS_stackleak.o += $(DISABLE_STACKLEAK)
-+obj-$(CONFIG_STACKLEAK) += stackleak.o
- KASAN_SANITIZE_stackleak.o := n
- KCSAN_SANITIZE_stackleak.o := n
- KCOV_INSTRUMENT_stackleak.o := n
-diff --git a/lib/Makefile b/lib/Makefile
-index f07b24ce1b3f..720c4846d255 100644
---- a/lib/Makefile
-+++ b/lib/Makefile
-@@ -338,7 +338,7 @@ obj-$(CONFIG_UBSAN) += ubsan.o
- UBSAN_SANITIZE_ubsan.o := n
- KASAN_SANITIZE_ubsan.o := n
- KCSAN_SANITIZE_ubsan.o := n
--CFLAGS_ubsan.o := -fno-stack-protector $(DISABLE_STACKLEAK_PLUGIN)
-+CFLAGS_ubsan.o := -fno-stack-protector $(DISABLE_STACKLEAK)
- 
- obj-$(CONFIG_SBITMAP) += sbitmap.o
- 
-diff --git a/scripts/Makefile.gcc-plugins b/scripts/Makefile.gcc-plugins
-index e4deaf5fa571..e3ed92e20d16 100644
---- a/scripts/Makefile.gcc-plugins
-+++ b/scripts/Makefile.gcc-plugins
-@@ -32,9 +32,9 @@ gcc-plugin-cflags-$(CONFIG_GCC_PLUGIN_STACKLEAK)		\
- gcc-plugin-cflags-$(CONFIG_GCC_PLUGIN_STACKLEAK_VERBOSE)	\
- 		+= -fplugin-arg-stackleak_plugin-verbose
- ifdef CONFIG_GCC_PLUGIN_STACKLEAK
--    DISABLE_STACKLEAK_PLUGIN += -fplugin-arg-stackleak_plugin-disable
-+    DISABLE_STACKLEAK += -fplugin-arg-stackleak_plugin-disable
- endif
--export DISABLE_STACKLEAK_PLUGIN
-+export DISABLE_STACKLEAK
- 
- gcc-plugin-$(CONFIG_GCC_PLUGIN_ARM_SSP_PER_TASK) += arm_ssp_per_task_plugin.so
- ifdef CONFIG_GCC_PLUGIN_ARM_SSP_PER_TASK
-diff --git a/security/Kconfig.hardening b/security/Kconfig.hardening
-index 3fe9d7b945c4..8aa5c1d4794d 100644
---- a/security/Kconfig.hardening
-+++ b/security/Kconfig.hardening
-@@ -158,10 +158,10 @@ config GCC_PLUGIN_STRUCTLEAK_VERBOSE
- 	  initialized. Since not all existing initializers are detected
- 	  by the plugin, this can produce false positive warnings.
- 
--config GCC_PLUGIN_STACKLEAK
-+config STACKLEAK
- 	bool "Poison kernel stack before returning from syscalls"
--	depends on GCC_PLUGINS
- 	depends on HAVE_ARCH_STACKLEAK
-+	depends on GCC_PLUGINS
- 	help
- 	  This option makes the kernel erase the kernel stack before
- 	  returning from system calls. This has the effect of leaving
-@@ -179,6 +179,10 @@ config GCC_PLUGIN_STACKLEAK
- 	  are advised to test this feature on your expected workload before
- 	  deploying it.
- 
-+config GCC_PLUGIN_STACKLEAK
-+	def_bool STACKLEAK
-+	depends on GCC_PLUGINS
-+	help
- 	  This plugin was ported from grsecurity/PaX. More information at:
- 	   * https://grsecurity.net/
- 	   * https://pax.grsecurity.net/
-@@ -197,9 +201,9 @@ config STACKLEAK_TRACK_MIN_SIZE
- 	int "Minimum stack frame size of functions tracked by STACKLEAK"
- 	default 100
- 	range 0 4096
--	depends on GCC_PLUGIN_STACKLEAK
-+	depends on STACKLEAK
- 	help
--	  The STACKLEAK gcc plugin instruments the kernel code for tracking
-+	  The STACKLEAK options instruments the kernel code for tracking
- 	  the lowest border of the kernel stack (and for some other purposes).
- 	  It inserts the stackleak_track_stack() call for the functions with
- 	  a stack frame size greater than or equal to this parameter.
-@@ -207,7 +211,7 @@ config STACKLEAK_TRACK_MIN_SIZE
- 
- config STACKLEAK_METRICS
- 	bool "Show STACKLEAK metrics in the /proc file system"
--	depends on GCC_PLUGIN_STACKLEAK
-+	depends on STACKLEAK
- 	depends on PROC_FS
- 	help
- 	  If this is set, STACKLEAK metrics for every task are available in
-@@ -219,11 +223,11 @@ config STACKLEAK_METRICS
- 
- config STACKLEAK_RUNTIME_DISABLE
- 	bool "Allow runtime disabling of kernel stack erasing"
--	depends on GCC_PLUGIN_STACKLEAK
-+	depends on STACKLEAK
- 	help
- 	  This option provides 'stack_erasing' sysctl, which can be used in
- 	  runtime to control kernel stack erasing for kernels built with
--	  CONFIG_GCC_PLUGIN_STACKLEAK.
-+	  CONFIG_STACKLEAK.
- 
- config INIT_ON_ALLOC_DEFAULT_ON
- 	bool "Enable heap memory zeroing on allocation by default"
-diff --git a/tools/testing/selftests/lkdtm/config b/tools/testing/selftests/lkdtm/config
-index 7afe05e8c4d7..b9b1275c07e8 100644
---- a/tools/testing/selftests/lkdtm/config
-+++ b/tools/testing/selftests/lkdtm/config
-@@ -2,7 +2,7 @@ CONFIG_LKDTM=y
- CONFIG_DEBUG_LIST=y
- CONFIG_SLAB_FREELIST_HARDENED=y
- CONFIG_FORTIFY_SOURCE=y
--CONFIG_GCC_PLUGIN_STACKLEAK=y
-+CONFIG_STACKLEAK=y
- CONFIG_HARDENED_USERCOPY=y
- CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT=y
- CONFIG_INIT_ON_FREE_DEFAULT_ON=y
--- 
-2.34.1
+I would also prefer an out-of-the-box solution for that.
 
+- Daniel
+
+>
+>> @@ -19,7 +19,7 @@ main0_alert: main0-alert {
+>>   			};
+>>   
+>>   			main0_crit: main0-crit {
+>> -				temperature = <125000>;	/* milliCelsius */
+>> +				temperature = <105000>;	/* milliCelsius */
+>>   				hysteresis = <2000>;	/* milliCelsius */
+>>   				type = "critical";
+>>   			};
+>> @@ -50,7 +50,7 @@ main1_alert: main1-alert {
+>>   			};
+>>   
+>>   			main1_crit: main1-crit {
+>> -				temperature = <125000>;	/* milliCelsius */
+>> +				temperature = <105000>;	/* milliCelsius */
+>>   				hysteresis = <2000>;	/* milliCelsius */
+>>   				type = "critical";
+>>   			};
+>> @@ -81,7 +81,7 @@ main2_alert: main2-alert {
+>>   			};
+>>   
+>>   			main2_crit: main2-crit {
+>> -				temperature = <125000>;	/* milliCelsius */
+>> +				temperature = <105000>;	/* milliCelsius */
+>>   				hysteresis = <2000>;	/* milliCelsius */
+>>   				type = "critical";
+>>   			};
+>> -- 
+>> 2.25.1
+>>
 
