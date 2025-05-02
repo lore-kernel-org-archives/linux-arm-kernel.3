@@ -4,33 +4,33 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29811C3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 15:25:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A65BC3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 15:27:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZM2+/DNap2XvMBkXeZdVaL7WZiTVsmAQ4E3nLTBF/zY=; b=mrM5kfZbaagbAnp8KwIqPTL3Jv
-	0ROOJBviwHgZ3VIIthq1adkMKqUnY+zjJotxrzXUS9cQ+TCLssJcDYwQuCrzIaNs+uIKtDlTT5tKl
-	mSf7dHEg5/h43SrkP+BWnXDGNohWxEHbs6CfloKfODM3SWryxU9Oet6qIERvMVVF+0KNf3kSsVc9s
-	+64Umyo4PdbEMmo0VpB4VENU9q5e6xWq0+2L1zAuQtMbWFuUbEhbYiQ1K3jbYNoRuMAjrr2eGV3Di
-	7xqgI16Z/0LSppTOBDTU8zQhVoUEN/VCpqGYiM9nhWok+SJgHslMI609/8/IvOA8yhdSxuKwEH89i
-	Vnv4MuIg==;
+	bh=dzIsmxtf2Y14M98KRQg28FbV7mBXrUQtu5NhkqvgP/M=; b=VtEG2/wgGX+yTUy/YRRtR32HgV
+	BboH29627zSWJ177ou72tLHzt87pzPmGMB7ZvJjLKdlbYUzdK7L/52LVOUlggNwslTLh2Hr/2q4Nx
+	Jqykt9AlzfL0d2hw297utZvbADkyJ9MWEra+ZWtYw5rcC5kIAzB86o6PDIRVnscz/+AZuvUl9UoTK
+	P8soGsazFvPThBL2RT8bgVxcwdyfdLLeLFk8dWB7SC/P/2dH13bRnMevO/RG46E6PM4NzIVOJ219R
+	xDOha3w7LmxHI4plD29Z+28G6jg64M2r8Gcp5iT7xTAkZyH/qB5SZIzQZY1AgsLQZsORTzO3KUqh2
+	gEKDwjPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAsGo-00000002KNq-0lsn;
-	Fri, 02 May 2025 15:25:46 +0000
+	id 1uAsIi-00000002Kqx-3lqX;
+	Fri, 02 May 2025 15:27:44 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAryt-00000002HtW-3ftC
+	id 1uAryu-00000002Hu5-2Xu7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 15:07:16 +0000
+	Fri, 02 May 2025 15:07:17 +0000
 Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <m.felsch@pengutronix.de>)
-	id 1uAryc-0004HG-GP; Fri, 02 May 2025 17:06:58 +0200
+	id 1uArya-0004HG-D5; Fri, 02 May 2025 17:06:56 +0200
 From: Marco Felsch <m.felsch@pengutronix.de>
 To: nicolas.dufresne@collabora.com,
 	benjamin.gaignard@collabora.com,
@@ -54,9 +54,9 @@ Cc: linux-kernel@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org
-Subject: [RFC PATCH 10/11] media: verisilicon: split read/write debug
-Date: Fri,  2 May 2025 17:05:13 +0200
-Message-Id: <20250502150513.4169098-11-m.felsch@pengutronix.de>
+Subject: [RFC PATCH 08/11] media: hantro: use hantro_decoded_buffer only for dst_vq
+Date: Fri,  2 May 2025 17:05:11 +0200
+Message-Id: <20250502150513.4169098-9-m.felsch@pengutronix.de>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250502150513.4169098-1-m.felsch@pengutronix.de>
 References: <20250502150513.4169098-1-m.felsch@pengutronix.de>
@@ -67,9 +67,8 @@ X-SA-Exim-Mail-From: m.felsch@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_080715_904213_48EA1B70 
-X-CRM114-Status: UNSURE (   9.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250502_080716_634593_CAAC829A 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,80 +83,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow a more fine grain read/write debug control. This is very useful in
-case of hantro_reg_write() is used to not interfere the write debug
-prints with read debug prints.
-
-While on it, make the reg/swreg value clear for new developers.
+The dst_vq buffer size for encoders should not use the size of the
+'hantro_decoded_buffer'. Make use of 'v4l2_m2m_buffer' instead till some
+encoder requires pre buffer extra data.
 
 Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
 ---
- drivers/media/platform/verisilicon/hantro.h | 15 ++++++++-------
- 1 file changed, 8 insertions(+), 7 deletions(-)
+ drivers/media/platform/verisilicon/hantro_drv.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/media/platform/verisilicon/hantro.h b/drivers/media/platform/verisilicon/hantro.h
-index e464bec47b11..7b031df5b0a1 100644
---- a/drivers/media/platform/verisilicon/hantro.h
-+++ b/drivers/media/platform/verisilicon/hantro.h
-@@ -367,7 +367,8 @@ struct hantro_decoded_buffer {
-  * bit 3 - contents of big controls from userspace
-  * bit 4 - detail fmt, ctrl, buffer q/dq information
-  * bit 5 - detail function enter/leave trace information
-- * bit 6 - register write/read information
-+ * bit 6 - register write information
-+ * bit 7 - register read information
-  */
- extern int hantro_debug;
- 
-@@ -391,13 +392,13 @@ static __always_inline struct hantro_ctx *fh_to_ctx(struct v4l2_fh *fh)
- static __always_inline void vepu_write_relaxed(struct hantro_dev *vpu,
- 					       u32 val, u32 reg)
- {
--	vpu_debug(6, "0x%04x = 0x%08x\n", reg / 4, val);
-+	vpu_debug(6, "0x%04x (swreg%u) = 0x%08x\n", reg, reg / 4, val);
- 	writel_relaxed(val, vpu->enc_base + reg);
- }
- 
- static __always_inline void vepu_write(struct hantro_dev *vpu, u32 val, u32 reg)
- {
--	vpu_debug(6, "0x%04x = 0x%08x\n", reg / 4, val);
-+	vpu_debug(6, "0x%04x (swreg%u) = 0x%08x\n", reg, reg / 4, val);
- 	writel(val, vpu->enc_base + reg);
- }
- 
-@@ -405,20 +406,20 @@ static __always_inline u32 vepu_read(struct hantro_dev *vpu, u32 reg)
- {
- 	u32 val = readl(vpu->enc_base + reg);
- 
--	vpu_debug(6, "0x%04x = 0x%08x\n", reg / 4, val);
-+	vpu_debug(7, "0x%04x (swreg%u) = 0x%08x\n", reg, reg / 4, val);
- 	return val;
- }
- 
- static __always_inline void vdpu_write_relaxed(struct hantro_dev *vpu,
- 					       u32 val, u32 reg)
- {
--	vpu_debug(6, "0x%04x = 0x%08x\n", reg / 4, val);
-+	vpu_debug(6, "0x%04x (swreg%u) = 0x%08x\n", reg, reg / 4, val);
- 	writel_relaxed(val, vpu->dec_base + reg);
- }
- 
- static __always_inline void vdpu_write(struct hantro_dev *vpu, u32 val, u32 reg)
- {
--	vpu_debug(6, "0x%04x = 0x%08x\n", reg / 4, val);
-+	vpu_debug(6, "0x%04x (swreg%u) = 0x%08x\n", reg, reg / 4, val);
- 	writel(val, vpu->dec_base + reg);
- }
- 
-@@ -433,7 +434,7 @@ static __always_inline u32 vdpu_read(struct hantro_dev *vpu, u32 reg)
- {
- 	u32 val = readl(vpu->dec_base + reg);
- 
--	vpu_debug(6, "0x%04x = 0x%08x\n", reg / 4, val);
-+	vpu_debug(7, "0x%04x (swreg%u) = 0x%08x\n", reg, reg / 4, val);
- 	return val;
- }
- 
+diff --git a/drivers/media/platform/verisilicon/hantro_drv.c b/drivers/media/platform/verisilicon/hantro_drv.c
+index 8542238e0fb1..e4850ae4e8b8 100644
+--- a/drivers/media/platform/verisilicon/hantro_drv.c
++++ b/drivers/media/platform/verisilicon/hantro_drv.c
+@@ -244,7 +244,10 @@ queue_init(void *priv, struct vb2_queue *src_vq, struct vb2_queue *dst_vq)
+ 	dst_vq->io_modes = VB2_MMAP | VB2_DMABUF;
+ 	dst_vq->drv_priv = ctx;
+ 	dst_vq->ops = &hantro_queue_ops;
+-	dst_vq->buf_struct_size = sizeof(struct hantro_decoded_buffer);
++	if (ctx->is_encoder)
++		dst_vq->buf_struct_size = sizeof(struct v4l2_m2m_buffer);
++	else
++		dst_vq->buf_struct_size = sizeof(struct hantro_decoded_buffer);
+ 	dst_vq->timestamp_flags = V4L2_BUF_FLAG_TIMESTAMP_COPY;
+ 	dst_vq->lock = &ctx->dev->vpu_mutex;
+ 	dst_vq->dev = ctx->dev->v4l2_dev.dev;
 -- 
 2.39.5
 
