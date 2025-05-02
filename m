@@ -4,60 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0234C3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 17:23:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0FE5C3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 17:23:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nkN8UI9MTDoQPmfDG9QQthOuD0s0/NDLWl6EBndVAz4=; b=I4IvK4dtRJKt9kSungUjApF0pQ
-	m+87GuXGlLI+UXAb6/XADRXQNT3AHDWFPkN5QmNw5oUp7b4RGovg0Zi95/QpbUu6pjZLA1OUb+eGr
-	xvbBSUPMniYmnYE+/Wcy7+UjGTNTrPHjn1d9ofEjAWXVEwAUcPDz+G/Ewr1T8dYVXSOUJDhlsdvnx
-	ioP1ViUIvzN+JK87a9FqNxcM8zcs/qDJ6k55jfYpqOCjSfNIdeqRBajivdTy89hGDK956CVLvrk4a
-	4NtABbAymbttUzcDMk5f1G2TQrUMDyadL0jhN8NFrljNL/ZINxIiqvljJg99Sw+jJSx12iXxmgzFb
-	0n5bUsSw==;
+	bh=zwVDzOur7RIZgOEAv6FVzTh6NPuuDPam1fW7Dewd/Po=; b=NRd6vdnIjgNu8IE6oy83bcTsPI
+	LmO63HFVzxctuHp02b2jeYVo2XZwfjiYChwnoAyH7aFcYXvscAAQiZukRyUTZ2s4e7BARrSkB2LoL
+	GntKA2nvorBy9ygEDlmQcjI0eTNbdvARvd0T8MgVAQQRJVm139d5q8iT8O6anzMP/CGB56CHj4hWi
+	ErU+c+45/OoqiclNBCKEN16PwLhpwLOUP877TVHfeKEb4jl0b7W/tEIFGZymbrGnSueMxp4Z5jEDS
+	Q8lkgnHyLE+fvA1Ye8Jp9jCk7h+rnJMB0ZOBIFV3HQHBSA58F2jFZx0GTwBja/ygyjpFI+wxGw1ks
+	1giGrZhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAu6D-00000002dl6-0iQc;
-	Fri, 02 May 2025 17:22:57 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1uAu6S-00000002e4r-1EIt;
+	Fri, 02 May 2025 17:23:12 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAt3J-00000002TTC-0Dbk
+	id 1uAtcs-00000002ZyG-3SnW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 16:15:55 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.216])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ZpwrW6S1Mz6K9MY;
-	Sat,  3 May 2025 00:10:51 +0800 (CST)
-Received: from frapeml500003.china.huawei.com (unknown [7.182.85.28])
-	by mail.maildlp.com (Postfix) with ESMTPS id A3514140447;
-	Sat,  3 May 2025 00:15:51 +0800 (CST)
-Received: from a2303103017.china.huawei.com (10.47.77.180) by
- frapeml500003.china.huawei.com (7.182.85.28) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.39; Fri, 2 May 2025 18:15:51 +0200
-From: Alireza Sanaee <alireza.sanaee@huawei.com>
-To: <devicetree@vger.kernel.org>
-CC: <robh@kernel.org>, <jonathan.cameron@huawei.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linuxarm@huawei.com>, <mark.rutland@arm.com>,
-	<shameerali.kolothum.thodi@huawei.com>
-Subject: [PATCH v2 5/6] arm64: of: handle multiple threads in ARM cpu node
-Date: Fri, 2 May 2025 17:12:59 +0100
-Message-ID: <20250502161300.1411-6-alireza.sanaee@huawei.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250502161300.1411-1-alireza.sanaee@huawei.com>
-References: <20250502161300.1411-1-alireza.sanaee@huawei.com>
+	Fri, 02 May 2025 16:52:40 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-7376dd56f8fso3329850b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 May 2025 09:52:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1746204757; x=1746809557; darn=lists.infradead.org;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=zwVDzOur7RIZgOEAv6FVzTh6NPuuDPam1fW7Dewd/Po=;
+        b=bL7wyYgb/cUg1fc/D289k5Fq8XK+hXbSLgK5tv6wCFSl08bygT8JFcDYm5awU1UNTV
+         XzSO/kYjiBrp7hgZAuM1f39vbd65cuqyl/gej+nsYZ4Wc2P6aQDhgld80lhfhoJFbMC0
+         xlhWcNWX5Q7eh0LRSqWkHO6LMkh30TSFWu4d9sSwaJojSUJjeTLjRDRth7VV2RxmN3e6
+         /qXJ4bZizSlcNpyPteltQ1+i7XIjKJr+w0c++Thl2b34n6Yg0VR+R0r8EU6ngI2W8EO5
+         tU0R129LMSFhAkmKEe8WLvSTAd03h9J8xrcygAId4+TK0wh/+uJizzZDK5sQWYMGpbWS
+         GMng==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746204757; x=1746809557;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=zwVDzOur7RIZgOEAv6FVzTh6NPuuDPam1fW7Dewd/Po=;
+        b=kzm/Gakhwk+6UBtnRIEfJFOIaBrDDEPSdFZk7NuGOH4y8Ky915kcBKQaMfDivvhlL6
+         VrBCIsv6qhM/MvYbn7MaYtmW/9C7WiRKSD87zqvfJt+RLKLRNRZc3YSrYo2kqsPKgtjt
+         YLpmYPfVA8PHg2y06ekvxzJE6jhVqBsG1MZU0tEfcCd0B6yw+lGteX01k/L7ztO+ShfX
+         PqIOlstFP5VNoLB1tlqHU04aFgfoR6iqSuKSmw05LlYL5mtC1zQdLeAIMYL/OVW4sK15
+         zF7QRxiIeW9uIAspBa2avB1vF9hD6F93getE6RA39jFtHvHLK2HsipUwfhzxhexvh4sX
+         48IQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVziB7xtSH8WJkHetNzlJaa4jruhiJbuEXxWiHvkeaLMCyvWKivvPC53wG520xzmhMWlJZnWLv93H8SjSbq7sLo@lists.infradead.org
+X-Gm-Message-State: AOJu0YyI+7Etqk5bnepH/Me9ucrJGxJIQIyIygPCxUIn674h0wVWm7mL
+	9SgIx0b4yexWT+CTeb5U3BQLrxkCpkKnkfHDpuc3e2N9g0l+zt9EH+LvE/F+r9k=
+X-Gm-Gg: ASbGncvOAC6hKJQfNbT09uxG4JqTE0KC3YBYAsvA41NyjE3GKkMLtNyu9PZZKEd2VHc
+	CQ/vc86csycsXsRAKajDk/UrUN/YDLex6k1i/vMqWbMaQyJCqysMKCxuFqPwN9peTDn0g1+fTd3
+	jygyR6Mk3ywiW7A8I8ERYa3Nqp8+KALBLL6IMla6oITedsfTrTS5vPTvWfGnbJqPSRsyljxtZjY
+	WCg/iJCnEOzUXgOysUPGDDukVIwzAJ6z7g3xqd0vlFjKvE1Q4RM02t2v1SAGcJmrqdp1StpzrZ4
+	fUFZJ3Z1EAi1br/h16qMqB3mIwJc4pQBa1Y+7I8=
+X-Google-Smtp-Source: AGHT+IHL853QtPBvn6TRtsHQJ/I0TV+kdjSuCmTaYdabOIhgtftYO0dyIOU2uqAMhP2Xe4dVkYjrRw==
+X-Received: by 2002:aa7:9306:0:b0:73e:1e21:b653 with SMTP id d2e1a72fcca58-740672b165dmr5326b3a.5.1746204757544;
+        Fri, 02 May 2025 09:52:37 -0700 (PDT)
+Received: from localhost ([97.126.182.119])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b1fb3b56007sm1009841a12.17.2025.05.02.09.52.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 02 May 2025 09:52:37 -0700 (PDT)
+From: Kevin Hilman <khilman@baylibre.com>
+To: Ulf Hansson <ulf.hansson@linaro.org>, Sukrut Bellary
+ <sbellary@baylibre.com>
+Cc: Russell King <linux@armlinux.org.uk>, Rob Herring <robh@kernel.org>,
+ Tony Lindgren <tony@atomide.com>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Nishanth Menon <nm@ti.com>, Aaro Koskinen
+ <aaro.koskinen@iki.fi>, Andreas Kemnade <andreas@kemnade.info>, Roger
+ Quadros <rogerq@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Santosh
+ Shilimkar <ssantosh@kernel.org>, Bajjuri Praneeth <praneeth@ti.com>,
+ Raghavendra Vignesh <vigneshr@ti.com>, Bin Liu <b-liu@ti.com>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-omap@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-pm@vger.kernel.org
+Subject: Re: [PATCH 0/4] PM: TI: AM335x: PM STANDBY fixes
+In-Reply-To: <CAPDyKFrM7Qn2YtQKY+vCHP32Z_Ly-ECt=SU9EGojFu1ShktUpQ@mail.gmail.com>
+References: <20250318230042.3138542-1-sbellary@baylibre.com>
+ <7h34efy1yb.fsf@baylibre.com>
+ <CAPDyKFrM7Qn2YtQKY+vCHP32Z_Ly-ECt=SU9EGojFu1ShktUpQ@mail.gmail.com>
+Date: Fri, 02 May 2025 09:52:36 -0700
+Message-ID: <7hldrfuf8r.fsf@baylibre.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-Originating-IP: [10.47.77.180]
-X-ClientProxiedBy: lhrpeml100011.china.huawei.com (7.191.174.247) To
- frapeml500003.china.huawei.com (7.182.85.28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_091553_372660_8B327945 
-X-CRM114-Status: GOOD (  16.69  )
+X-CRM114-CacheID: sfid-20250502_095239_125589_8AABB202 
+X-CRM114-Status: GOOD (  19.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,163 +105,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update `of_parse_and_init_cpus` to parse reg property of CPU node as
-an array based as per spec for SMT threads.
+Ulf Hansson <ulf.hansson@linaro.org> writes:
 
-Spec v0.4 Section 3.8.1:
-The value of reg is a <prop-encoded-**array**> that defines a unique
-CPU/thread id for the CPU/threads represented by the CPU node.  **If a CPU
-supports more than one thread (i.e.  multiple streams of execution) the
-reg property is an array with 1 element per thread**.  The address-cells
-on the /cpus node specifies how many cells each element of the array
-takes. Software can determine the number of threads by dividing the size
-of reg by the parent node's address-cells.
+> On Fri, 11 Apr 2025 at 02:30, Kevin Hilman <khilman@baylibre.com> wrote:
+>>
+>> Sukrut Bellary <sbellary@baylibre.com> writes:
+>>
+>> > This patch series fixes the Power management issues on TI's am335x soc.
+>> >
+>> > on AM335x, the wakeup doesn't work in the case of STANDBY.
+>>
+>> This series is specifically targetted at the AM335x EVM (which I don't
+>> have to test), so I'd appreciate getting any test reports for this
+>> before I queue it up.
+>>
+>> For AM335x, I currently only have the ICEv2 and Beaglebone Black,
+>> neithor of which support suspend resume with RTC wake AFAICT.  If they
+>> do, please enlighten me. :)
+>>
+>> I was able to do a basic boot test on the 2 boards I have with this
+>> series applied on top of v6.15-rc1 and basic boot still works, but I was
+>> not able to test the PM path that's being changed here, so any tests on
+>> AM3 platforms that actually use this path are appreciated.
+>>
+>> Kevin
+>
+> Is the pmdomain patch(3) ready to be applied here? Please let me know
+> if you want me to pick it up.
 
-An accurate example of 1 core with 2 SMTs:
+Not yet, I have some concerns so I'd like to see more testing on the
+actual hardware, which I don't have (yet, but it's on the way).
 
-	cpus {
-		#size-cells = <0x00>;
-		#address-cells = <0x01>;
+Kevin
 
-		cpu@0 {
-			phandle = <0x8000>;
-			**reg = <0x00 0x01>;**
-			enable-method = "psci";
-			compatible = "arm,cortex-a57";
-			device_type = "cpu";
-		};
-	};
-
-Instead of:
-
-	cpus {
-		#size-cells = <0x00>;
-		#address-cells = <0x01>;
-
-		cpu@0 {
-			phandle = <0x8000>;
-			reg = <0x00>;
-			enable-method = "psci";
-			compatible = "arm,cortex-a57";
-			device_type = "cpu";
-		};
-
-		cpu@1 {
-			phandle = <0x8001>;
-			reg = <0x01>;
-			enable-method = "psci";
-			compatible = "arm,cortex-a57";
-			device_type = "cpu";
-		};
-	};
-
-which is **NOT** accurate.
-
-Signed-off-by: Alireza Sanaee <alireza.sanaee@huawei.com>
----
- arch/arm64/kernel/smp.c | 74 +++++++++++++++++++++++------------------
- 1 file changed, 41 insertions(+), 33 deletions(-)
-
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index 3b3f6b56e733..8dd3b3c82967 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -689,53 +689,61 @@ static void __init acpi_parse_and_init_cpus(void)
- static void __init of_parse_and_init_cpus(void)
- {
- 	struct device_node *dn;
-+	u64 hwid;
-+	u32 tid;
- 
- 	for_each_of_cpu_node(dn) {
--		u64 hwid = of_get_cpu_hwid(dn, 0);
-+		tid = 0;
- 
--		if (hwid & ~MPIDR_HWID_BITMASK)
--			goto next;
-+		while (1) {
-+			hwid = of_get_cpu_hwid(dn, tid++);
-+			if (hwid == ~0ULL)
-+				break;
- 
--		if (is_mpidr_duplicate(cpu_count, hwid)) {
--			pr_err("%pOF: duplicate cpu reg properties in the DT\n",
--				dn);
--			goto next;
--		}
-+			if (hwid & ~MPIDR_HWID_BITMASK)
-+				goto next;
- 
--		/*
--		 * The numbering scheme requires that the boot CPU
--		 * must be assigned logical id 0. Record it so that
--		 * the logical map built from DT is validated and can
--		 * be used.
--		 */
--		if (hwid == cpu_logical_map(0)) {
--			if (bootcpu_valid) {
--				pr_err("%pOF: duplicate boot cpu reg property in DT\n",
--					dn);
-+			if (is_mpidr_duplicate(cpu_count, hwid)) {
-+				pr_err("%pOF: duplicate cpu reg properties in the DT\n",
-+				       dn);
- 				goto next;
- 			}
- 
--			bootcpu_valid = true;
--			early_map_cpu_to_node(0, of_node_to_nid(dn));
--
- 			/*
--			 * cpu_logical_map has already been
--			 * initialized and the boot cpu doesn't need
--			 * the enable-method so continue without
--			 * incrementing cpu.
-+			 * The numbering scheme requires that the boot CPU
-+			 * must be assigned logical id 0. Record it so that
-+			 * the logical map built from DT is validated and can
-+			 * be used.
- 			 */
--			continue;
--		}
-+			if (hwid == cpu_logical_map(0)) {
-+				if (bootcpu_valid) {
-+					pr_err("%pOF: duplicate boot cpu reg property in DT\n",
-+					       dn);
-+					goto next;
-+				}
-+
-+				bootcpu_valid = true;
-+				early_map_cpu_to_node(0, of_node_to_nid(dn));
-+
-+				/*
-+				 * cpu_logical_map has already been
-+				 * initialized and the boot cpu doesn't need
-+				 * the enable-method so continue without
-+				 * incrementing cpu.
-+				 */
-+				continue;
-+			}
- 
--		if (cpu_count >= NR_CPUS)
--			goto next;
-+			if (cpu_count >= NR_CPUS)
-+				goto next;
- 
--		pr_debug("cpu logical map 0x%llx\n", hwid);
--		set_cpu_logical_map(cpu_count, hwid);
-+			pr_debug("cpu logical map 0x%llx\n", hwid);
-+			set_cpu_logical_map(cpu_count, hwid);
- 
--		early_map_cpu_to_node(cpu_count, of_node_to_nid(dn));
-+			early_map_cpu_to_node(cpu_count, of_node_to_nid(dn));
- next:
--		cpu_count++;
-+			cpu_count++;
-+		}
- 	}
- }
- 
--- 
-2.34.1
 
 
