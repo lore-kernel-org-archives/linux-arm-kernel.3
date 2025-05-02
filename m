@@ -4,100 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 644C7C3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 17:56:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BA5AC3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 17:58:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L+qzGYQVD+m8VMlSDDggqEimDlE2nd4dP5p1ek457P0=; b=s05VTuZoPDkx90LLjHx/bT0cxc
-	IveJF5DqgxBNhwlgXk7P+z7JsM6WefEa7oSDg5250vPZf6ADxwEZyk7KEst/ONMEXTAxw1D+YmDb4
-	ttgoth1SE7+Il7L6+MGbEC0k/kGMs+ytilHmkt9ufQzZS7LRClvs9EhLkYKhfqcJ7w93Vs2dYBG7y
-	ONblTeRhE3fcAfodxFg8NrBW65YQCuLG+a+uZXvXFRYlD245Q5h+uBZXeABVwLTJ6WnrS19Ba4Py2
-	EDNiavSqcr8cqzS+x3JHeWhX0KSrhxPNzRytECUBdrzHgrmXOiFVivUxJUdOs3oFrIvt+QTMdv0y4
-	5Ax8bMdw==;
+	bh=gXNNDPdZb2Mvvv9l4U0qnaw+JsmJmG680iJnfO61RQ0=; b=fkYL7Xv1MIhiK9QIJQhv31ZI0h
+	AxH/YqoZIeMtcwymutjB68SWL5w4i8G04hVU7iVtRWurVhn7/7NiXvh2zFlPC028fCvy0vOnnSZz4
+	IOH9lzDBSf1kFYHBZ3io4vUJ70DGMSHatesIow6801DuuiaNIYm1CfyYdqEdxGhV02DRXre8H6lNR
+	tRgd81uw4H182ArXLxOIOaYqm1kMGIslRQ2MhSux2goA7kPaQfntck9+jf2VGawlXjMT83DZIj5tJ
+	hNTB+E6DBFoBITVUrkW2My6yEQAtqH1ztH5t+UE9ivuZIyTqttSrEnysnU+4Kv02hUU0sblHxEry5
+	kJ2wp8Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAuco-00000002isG-18Wf;
-	Fri, 02 May 2025 17:56:38 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1uAuej-00000002j8l-0123;
+	Fri, 02 May 2025 17:58:37 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAuYz-00000002iPR-41kP
+	id 1uAubO-00000002ijJ-3Q81
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 17:52:43 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-acb415dd8faso344457266b.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 May 2025 10:52:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1746208360; x=1746813160; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=L+qzGYQVD+m8VMlSDDggqEimDlE2nd4dP5p1ek457P0=;
-        b=MZXz3/sOfgFieDLV7HOi3UEOylgaV4M0Qi7650H50VH5vGBvDxTVdSPmO9gTwEAZtt
-         VxtpZ4QDUPZCd8DvKgRnaQv88UUNCOS5ZZGF86IgqjU6R0eY3Vz3d52pgOMvw9hoP51p
-         F7IGw0r2vCGH7YKaVe7j+zfakynT6PZ3V8IUQ=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746208360; x=1746813160;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=L+qzGYQVD+m8VMlSDDggqEimDlE2nd4dP5p1ek457P0=;
-        b=e6Ij3kp8l0Opg1KUs/COcdKtoLYXG29qpSYS4av9OR73+qhM9LZY0GRVeg03CgJPje
-         xevvr0ZKW6IOdI/PAYmqt+YHKAt4XqDeB+qGg3dI5sftqTGb4bQLUg5JnWGOEkVDLgJ6
-         X0yKvEWHMKBbJpU4JJrWnAaHWyio0ZzEyo5CvO2+CaHa+FVe/v7OfFkLwyyiBavNog+R
-         Nk4HkmF8e/pPqCpBEEdrM91S5pGPwQpeDoP05avRSqu7uXqOBfmKzoLEHgCI628p+63O
-         LaobYDTFRC/3SoZpXnNrmGmLIVJbh+E2lSXGN8DYD5xEV74E24eFHWHS08fs03+graqz
-         AmHA==
-X-Forwarded-Encrypted: i=1; AJvYcCVLsH2Qy16hNTdy51B6EIIE0Mlermhxxo+FVGmNOXgMSSHRu7qAVrE4BHh+eA2+NPAdcvNhaYMxhNQNLXXSa+N6@lists.infradead.org
-X-Gm-Message-State: AOJu0YxNxlV/cZVUOdDykRrsIH/SDOrh9v7CmBFsQSF56bKNT7ztFbtc
-	D+v2BpnMn0EaZZF8E6VEJybmpZYB1W0jocC2+qr8a3hHkm+NYROm3AXl3m/uAkfJukLv2DtUgUW
-	sBa4=
-X-Gm-Gg: ASbGncv3omFtjUpTiLIBKSFfxLe6/N6xwGzfj0158Jyaork7pAWm1qWfm7I0KL92kYd
-	0p0PpKroHl239aWJBPFlL+j/ri9r6woCavEnVFlDYyrsMwTtiEEyCQ2Aoa0zh3KlXetRtCAanqW
-	vnlNU1Eqttun2ZoHVk9dt/6tzidzkKthAeCeMx5aaqPnM5vJLwP8hqQZJNRKOfJGLuXTqWpwYha
-	gqSyS69eC4pMXZN5A5Xe52V84l7O7vDtWivCoUmwL5kJZirMTPQwcGJs/suIFoJ4+aL2Pk/RSDS
-	hkrn3BJ1uyQ491tcJ80tqWefVoauIngAwVWlzsUhk0QieutF5vmTfzJKWOqNiFXrPyD3klsjXNn
-	s3f5fVtXzMXVEtRg=
-X-Google-Smtp-Source: AGHT+IHPrpQU4XBwx7zcGz2liRMOTMNnn5JdlLpzxBVxCFUAC/udZCK4VEH7ISrqeUfQPkjmlPpmuA==
-X-Received: by 2002:a17:906:6293:b0:abf:6d24:10bb with SMTP id a640c23a62f3a-ad17af23225mr291581366b.44.1746208359772;
-        Fri, 02 May 2025 10:52:39 -0700 (PDT)
-Received: from mail-ej1-f44.google.com (mail-ej1-f44.google.com. [209.85.218.44])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad1894c01c9sm79625166b.105.2025.05.02.10.52.37
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 02 May 2025 10:52:37 -0700 (PDT)
-Received: by mail-ej1-f44.google.com with SMTP id a640c23a62f3a-acb415dd8faso344445566b.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 May 2025 10:52:37 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXgtSsy1nXdTYYLqSfLeOvl6d1mH0iwo+SAErV/yEKhB9BNRyQ7PUVNZnW7ICo9IuLJ5hSerfhQLPXAW+E8Ctt5@lists.infradead.org
-X-Received: by 2002:a17:907:728a:b0:ac7:d7f3:86c6 with SMTP id
- a640c23a62f3a-ad17ad3a86cmr353817166b.9.1746208356936; Fri, 02 May 2025
- 10:52:36 -0700 (PDT)
+	Fri, 02 May 2025 17:55:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=gXNNDPdZb2Mvvv9l4U0qnaw+JsmJmG680iJnfO61RQ0=; b=drWIecNg8gz9iVU7R4SbsnNC4G
+	OT+gaz2JAollchQiDnxPvMENCLtRfCnY/KiSO97PdVcgLiMk7OCUoMLZbwQairLtNUWRytnnYcFrd
+	9/v7gYhCHD/48M8bSMa275bj70kY+oJe5NLjmfS1yrf9YAroP0dm7wuZa6zJLyJX2bX5TJFiYjYxQ
+	rm95uOLHeXAc7+LDiUYhyo8m1BWM53IZ5flM/iAtkFVBo6zEpNcvn5C/08Q+cMfcuvVVSFfTly0AZ
+	HvmokMsKGp0KPgpwV6MoB6FY+sewh4jj8ga1Y4dn8f+jDdulRkjDj1b7R0ZIpOinKe5dHIn/tWTGD
+	qOdbDESA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:43400)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1uAub8-0001h2-1h;
+	Fri, 02 May 2025 18:54:54 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1uAub4-0000s1-0M;
+	Fri, 02 May 2025 18:54:50 +0100
+Date: Fri, 2 May 2025 18:54:49 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, bpf@vger.kernel.org,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Jon Hunter <jonathanh@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Thierry Reding <treding@nvidia.com>
+Subject: Re: [PATCH net-next v2 2/4] net: stmmac: call phylink_carrier_*() in
+ XDP functions
+Message-ID: <aBUG6Z_Crs31W45x@shell.armlinux.org.uk>
+References: <aBTKOBKnhoz3rrlQ@shell.armlinux.org.uk>
+ <E1uAqYC-002D3p-UO@rmk-PC.armlinux.org.uk>
+ <ed54d4e5-ecc3-4327-8739-3d41ca41211e@lunn.ch>
 MIME-Version: 1.0
-References: <20250429213817.65651-1-cpru@amazon.com> <20250430100259.GK4439@noisy.programming.kicks-ass.net>
- <B27ECDA1-632D-44CD-AB99-B7A9C27393E4@amazon.com>
-In-Reply-To: <B27ECDA1-632D-44CD-AB99-B7A9C27393E4@amazon.com>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Fri, 2 May 2025 10:52:20 -0700
-X-Gmail-Original-Message-ID: <CAHk-=wgb5WcfMEgsOQg4wzVWuYNgCL-e17YX33ZET_G3-ZCo7g@mail.gmail.com>
-X-Gm-Features: ATxdqUHYMChzuFnxzpibzLtkTrwHUQOJbZWvS4aZuUPZ8wK3AkEbViB7psNkIbY
-Message-ID: <CAHk-=wgb5WcfMEgsOQg4wzVWuYNgCL-e17YX33ZET_G3-ZCo7g@mail.gmail.com>
-Subject: Re: EEVDF regression still exists
-To: "Prundeanu, Cristian" <cpru@amazon.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, K Prateek Nayak <kprateek.nayak@amd.com>, 
-	"Mohamed Abuelfotoh, Hazem" <abuehaze@amazon.com>, "Saidi, Ali" <alisaidi@amazon.com>, 
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>, "Blake, Geoff" <blakgeof@amazon.com>, 
-	"Csoma, Csaba" <csabac@amazon.com>, "Doebel, Bjoern" <doebel@amazon.de>, 
-	Gautham Shenoy <gautham.shenoy@amd.com>, Swapnil Sapkal <swapnil.sapkal@amd.com>, 
-	Joseph Salisbury <joseph.salisbury@oracle.com>, Dietmar Eggemann <dietmar.eggemann@arm.com>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-tip-commits@vger.kernel.org" <linux-tip-commits@vger.kernel.org>, "x86@kernel.org" <x86@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ed54d4e5-ecc3-4327-8739-3d41ca41211e@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_105242_072610_045E2C6E 
-X-CRM114-Status: GOOD (  12.92  )
+X-CRM114-CacheID: sfid-20250502_105510_996523_8F6147A0 
+X-CRM114-Status: GOOD (  36.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,34 +95,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2 May 2025 at 10:25, Prundeanu, Cristian <cpru@amazon.com> wrote:
->
-> Another, more recent observation is that 6.15-rc4 has worse performance than
-> rc3 and earlier kernels. Maybe that can help narrow down the cause?
-> I've added the perf reports for rc3 and rc2 in the same location as before.
+On Fri, May 02, 2025 at 05:29:21PM +0200, Andrew Lunn wrote:
+> On Fri, May 02, 2025 at 02:35:36PM +0100, Russell King (Oracle) wrote:
+> > Phylink does not permit drivers to mess with the netif carrier, as
+> > this will de-synchronise phylink with the MAC driver. Moreover,
+> > setting and clearing the TE and RE bits via stmmac_mac_set() in this
+> > path is also wrong as the link may not be up.
+> > 
+> > Replace the netif_carrier_on(), netif_carrier_off() and
+> > stmmac_mac_set() calls with the appropriate phylink_carrier_block() and
+> > phylink_carrier_unblock() calls, thereby allowing phylink to manage the
+> > netif carrier and TE/RE bits through the .mac_link_up() and
+> > .mac_link_down() methods.
+> > 
+> > This change will have the side effect of printing link messages to
+> > the kernel log, even though the physical link hasn't changed state.
+> > This matches the carrier state that userspace sees, which has always
+> > "bounced".
+> > 
+> > Note that RE should only be set after the DMA is ready to avoid the
+> > receive FIFO between the MAC and DMA blocks overflowing, so
+> > phylink_start() needs to be placed after DMA has been started.
+> > 
+> > Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> > ---
+> >  .../net/ethernet/stmicro/stmmac/stmmac_main.c | 20 +++++++++++--------
+> >  1 file changed, 12 insertions(+), 8 deletions(-)
+> > 
+> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > index f59a2363f150..ac27ea679b23 100644
+> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > @@ -6922,6 +6922,11 @@ void stmmac_xdp_release(struct net_device *dev)
+> >  	/* Ensure tx function is not running */
+> >  	netif_tx_disable(dev);
+> >  
+> > +	/* Take down the software link. stmmac_xdp_open() must be called after
+> > +	 * this function to release this block.
+> > +	 */
+> > +	phylink_carrier_block(priv->phylink);
+> > +
+> >  	/* Disable NAPI process */
+> >  	stmmac_disable_all_queues(priv);
+> >  
+> > @@ -6937,14 +6942,10 @@ void stmmac_xdp_release(struct net_device *dev)
+> >  	/* Release and free the Rx/Tx resources */
+> >  	free_dma_desc_resources(priv, &priv->dma_conf);
+> >  
+> > -	/* Disable the MAC Rx/Tx */
+> > -	stmmac_mac_set(priv, priv->ioaddr, false);
+> > -
+> >  	/* set trans_start so we don't get spurious
+> >  	 * watchdogs during reset
+> >  	 */
+> >  	netif_trans_update(dev);
+> > -	netif_carrier_off(dev);
+> >  }
+> >  
+> 
+> >  int stmmac_xdp_open(struct net_device *dev)
+> > @@ -7026,25 +7027,28 @@ int stmmac_xdp_open(struct net_device *dev)
+> >  		hrtimer_setup(&tx_q->txtimer, stmmac_tx_timer, CLOCK_MONOTONIC, HRTIMER_MODE_REL);
+> >  	}
+> >  
+> > -	/* Enable the MAC Rx/Tx */
+> > -	stmmac_mac_set(priv, priv->ioaddr, true);
+> > -
+> >  	/* Start Rx & Tx DMA Channels */
+> >  	stmmac_start_all_dma(priv);
+> >  
+> > +	/* Allow phylink to bring the software link back up.
+> > +	 * stmmac_xdp_release() must have been called prior to this.
+> > +	 */
+> 
+> This is counter intuitive. Why is release called before open?
 
-The only _scheduler_ change that looks relevant is commit bbce3de72be5
-("sched/eevdf: Fix se->slice being set to U64_MAX and resulting
-crash"). Which does affect the slice calculation, although supposedly
-only under special circumstances.
+Indeed - and that should've been caught in the review where XDP was
+being added.
 
-Of course, it could be something else.
+> Looking into stmmac_xdp_set_prog() i think i get it. Even if there is
+> not a running XDP prog, stmmac_xdp_release() is called, and then
+> stmmac_xdp_open().
 
-For example, we have a AMD performance regression in general due to
-_another_ CPU leak mitigation issue, but that predates rc3 (happened
-during the merge window), so that one isn't relevant, but maybe
-something else is..
+If there is a change of "do we have an XDP prog" state, then
+stmmac_xdp_release() is called to free all the current contexts to
+do with queue/descriptor management, and then stmmac_xdp_open() is
+called thereafter. These are doing a subset of .ndo_open/.ndo_release
+and I think that's where they're getting their naming from.
 
-Although honestly, that slice calculation still looks just plain odd.
-It defaults the slice to zero, so if none of the 'break' conditions in
-the first loop happens, it will reset the slice to that zero value and
-then the
+The only possible sequence is:
 
-        slice = cfs_rq_min_slice(cfs_rq);
+	stmmac_open()
+then, on each XDP prog addition or removal, but not replacement:
+		stmmac_xdp_release()
+		stmmac_xdp_open()
+finally,
+	stmmac_release()
 
-ion that second loop looks like it might just pick up that zero value again.
+> Maybe these two functions need better names? prepare and commit?
 
-I clearly don't understand the code.
+Yes, it's all counter intuitive, and there are various things about the
+XDP code that make it hard to follow.
 
-             Linus
+For example, stmmac_xdp_set_prog() leads you to think, because of the
+way the need_update variable is set, that looking for references to
+xdp_prog would show one where all the dependents are, but no, there's
+stmmac_xdp_is_enabled(), which is nice and readable, but could've
+been used in stmmac_xdp_set_prog() to make it more obvious what to
+grep for.
+
+Incidentally, if stmmac_xdp_open() fails to re-grab the interrupts,
+then it calls phylink_stop(), stmmac_hw_teardown(), and
+free_dma_desc_resources().
+
+If one then set the interface administratively down, stmmac_release()
+gets called, which again calls phylink_stop(), free_dma_desc_resources()
+and stmmac_release_ptp().
+
+stmmac_release_ptp() disables/unprepares clk_ptp_ref, and unregisters
+the PTP stuff. stmmac_hw_teardown() also disables/unprepares
+clk_ptp_ref, so we probably unbalance the clk API in this case...
+and probably much other stuff.
+
+Calling free_dma_desc_resources() twice calls functios such as 
+free_dma_tx_desc_resources() twice, and it looks like that's not going
+to be healthy, calling dma_free_coherent() with the same arguments,
+double-releasing memory. Same for kfree(). Probably same for the RX
+stuff.
+
+Basically, if one messes with XDP in this driver, expect things to go
+bang and kill the kernel if something goes wrong with the whole
+xdp_release+xdp_open dance.
+
+Honestly, this needs a rewrite, but I currently know nowt about XDP.
+
+So, I'd suggest that the names of these functions is the least of the
+problems here.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
