@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86A50C3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 15:05:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 451AFC3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 15:05:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0ims5xbWhYEq/+pQJDcGBO9Lb2xYL1GSJI+L4MIxVVg=; b=dKpOhF1cbij8C/hXlW7TTg/vcB
-	LabQwnV7LszfGCxemwaY8K7PCEtS4tN5MysQqYGo8umcE6+yWccUfND7QYzOBKvTY/O1rNbKfgFlt
-	3qxwY1Y5/JiN1SptG1TzK4P40qf+xUYaRgaVnaMgxXd8PNbFJUldxZLMxo50gtKFVZLJ2q0liXAWD
-	ZFv9jU/dO7CcwVeyEhqQR23sYgGFKpOGWT2QmskwVpR40HCBQXefveLSfGPMuK/xm9+MHT9Pdrfvw
-	YXoTh4EiYNFDW5jjrP0E2k8GwJxStRjJxIQdGyW4g1ufpNKIi+WEzNzAiF4RgkJxsFfBtpmO36bGz
-	AFFCImFw==;
+	bh=bx50Fxz6Nidvq0EFtAUUGatt3+dRx0iimrC/dfHIX2o=; b=QmZSC4zQ80nue0iYqYD2ZGREZE
+	8k2Dth8v0WHRzBhvQS6v/hOJWQSyJHiF5BI/4lzyKrFJ0D3OB5GJWkory7XExU9aQwhU2Ah9o3q3w
+	KWrmCIHpRpdqEnn9WSG7FtwjORfD81E09dIVBxxjYupuFIb5ARpxnsEHa/PilRGKQ1A6talmJY7oR
+	Cy9UOqsUghqa3+AMoYUNKtypAag1VpeAgMjSQMRJpdCnNoQR28Sv+uryMwgipl5Dp8clviMnQC//W
+	ckDaFuPeekBFClz45sZUXYkAVMGf9bR1R6HFkKTeOKeQvvJI5v/33W601ZcPnn8V3uEjy2irAhcHF
+	Luv7CzEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uArx4-00000002Grs-2wiM;
-	Fri, 02 May 2025 15:05:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uArq0-00000002GBn-1dJj
+	id 1uArxG-00000002GzG-09Sn;
+	Fri, 02 May 2025 15:05:34 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uArtr-00000002GZ3-0FwN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 14:58:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 66A701688;
-	Fri,  2 May 2025 07:57:52 -0700 (PDT)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 78B843F66E;
-	Fri,  2 May 2025 07:57:57 -0700 (PDT)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	nathan@kernel.org,
-	nick.desaulniers+lkml@gmail.com,
-	morbo@google.com,
-	justinstitt@google.com,
-	broonie@kernel.org,
-	maz@kernel.org,
-	oliver.upton@linux.dev,
-	frederic@kernel.org,
-	joey.gouly@arm.com,
-	james.morse@arm.com,
-	hardevsinh.palaniya@siliconsignals.io,
-	shameerali.kolothum.thodi@huawei.com,
-	ardb@kernel.org,
-	ryan.roberts@arm.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] arm64/cpufeature: annotate arm64_use_ng_mappings with ro_after_init to prevent wrong idmap generation
-Date: Fri,  2 May 2025 15:57:55 +0100
-Message-Id: <20250502145755.3751405-1-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
+	Fri, 02 May 2025 15:02:04 +0000
+Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <m.felsch@pengutronix.de>)
+	id 1uArtR-0002iK-Ov; Fri, 02 May 2025 17:01:37 +0200
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: nicolas.dufresne@collabora.com,
+	benjamin.gaignard@collabora.com,
+	p.zabel@pengutronix.de,
+	mchehab@kernel.org,
+	shawnguo@kernel.org,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	paul.kocialkowski@bootlin.com,
+	hverkuil@xs4all.nl,
+	laurent.pinchart@ideasonboard.com,
+	sebastian.fricke@collabora.com,
+	ming.qian@nxp.com
+Cc: linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org
+Subject: [RFC PATCH 00/11] VC8000E H.264 V4L2 Stateless Encoder
+Date: Fri,  2 May 2025 17:00:53 +0200
+Message-Id: <20250502150105.4167289-1-m.felsch@pengutronix.de>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::28
+X-SA-Exim-Mail-From: m.felsch@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_075804_688393_01F1AB52 
-X-CRM114-Status: GOOD (  15.08  )
+X-CRM114-CacheID: sfid-20250502_080203_091353_0237282A 
+X-CRM114-Status: UNSURE (   8.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,107 +82,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-create_init_idmap() could be called before .bss section initialization
-which is done in early_map_kernel() since data/test_prot could be set
-wrong for PTE_MAYBE_NG macro.
+Hi all,
 
-PTE_MAYBE_NG macro is set according to value of "arm64_use_ng_mappings".
-and this variable is located in .bss section.
+this RFC implements the kernel V4L2 stateless encoding counter part for
+the Verisilicon VC8000E encoder. The encoder is capable of H.264 and
+H.265 encoding and can be found on several SoCs e.g. NXP i.MX8MP.
 
-   # llvm-objdump-21 --syms vmlinux-gcc | grep arm64_use_ng_mappings
-     ffff800082f242a8 g O .bss    0000000000000001 arm64_use_ng_mappings
+The RFC is based on Pauls initial attempts [1].
 
-If .bss section doesn't initialized, "arm64_use_ng_mappings" would be set
-with garbage value ant then the text_prot or data_prot could be set
-with garbgae value.
+This patchset is still in a *very very* early state since the uAPI handling
+still needs to be figured out. It's clearly not for productive use yet!
+The only reason of publishing the driver in this early state is to align
+with other developers also working on V4L2 stateless H.264 encoding.
 
-Here is what i saw with kernel compiled via llvm-21
+That said, paired with the GStreamer userspace [2] the driver is capable
+of:
+ * H.264 encoding
+ * I/P frame handling
+ * Arbitrary frame sizes
+ * YUV420M input
 
-  // create_init_idmap()
-  ffff80008255c058: d10103ff     	sub	sp, sp, #0x40
-  ffff80008255c05c: a9017bfd     	stp	x29, x30, [sp, #0x10]
-  ffff80008255c060: a90257f6     	stp	x22, x21, [sp, #0x20]
-  ffff80008255c064: a9034ff4     	stp	x20, x19, [sp, #0x30]
-  ffff80008255c068: 910043fd     	add	x29, sp, #0x10
-  ffff80008255c06c: 90003fc8     	adrp	x8, 0xffff800082d54000
-  ffff80008255c070: d280e06a     	mov	x10, #0x703     // =1795
-  ffff80008255c074: 91400409     	add	x9, x0, #0x1, lsl #12 // =0x1000
-  ffff80008255c078: 394a4108     	ldrb	w8, [x8, #0x290] ------------- (1)
-  ffff80008255c07c: f2e00d0a     	movk	x10, #0x68, lsl #48
-  ffff80008255c080: f90007e9     	str	x9, [sp, #0x8]
-  ffff80008255c084: aa0103f3     	mov	x19, x1
-  ffff80008255c088: aa0003f4     	mov	x20, x0
-  ffff80008255c08c: 14000000     	b	0xffff80008255c08c <__pi_create_init_idmap+0x34>
-  ffff80008255c090: aa082d56     	orr	x22, x10, x8, lsl #11 -------- (2)
+Note: Be aware that the GStreamer element [2] is in a *very* early state
+too, so don't expect to much. There are limitations like: the element
+requires to work on its own buffers, so there is no fast-path and
+always a copy involved.
 
-Note (1) is load the arm64_use_ng_mappings value in w8.
-and (2) is set the text or data prot with the w8 value to set PTE_NG bit.
-If .bss section doesn't initialized, x8 can include garbage value
--- In case of some platform, x8 loaded with 0xcf -- it could generate
-wrong mapping. (i.e) text_prot is expected with
-PAGE_KERNEL_ROX(0x0040000000000F83) but
-with garbage x8 -- 0xcf, it sets with (0x0040000000067F83)
-and This makes boot failure with translation fault.
+@DT folks
+The dt-bindings are missing yet.
 
-This error cannot happen according to code generated by compiler.
-here is the case of gcc:
+[1] https://github.com/bootlin/linux/tree/hantro/h264-encoding-v5.11
+[2] https://gitlab.freedesktop.org/dude/gstreamer/-/tree/h264-stateless-encoder
 
-   ffff80008260a940 <__pi_create_init_idmap>:
-   ffff80008260a940: d100c3ff      sub     sp, sp, #0x30
-   ffff80008260a944: aa0003ed      mov     x13, x0
-   ffff80008260a948: 91400400      add     x0, x0, #0x1, lsl #12 // =0x1000
-   ffff80008260a94c: a9017bfd      stp     x29, x30, [sp, #0x10]
-   ffff80008260a950: 910043fd      add     x29, sp, #0x10
-   ffff80008260a954: f90017e0      str     x0, [sp, #0x28]
-   ffff80008260a958: d00048c0      adrp    x0, 0xffff800082f24000 <reset_devices>
-   ffff80008260a95c: 394aa000      ldrb    w0, [x0, #0x2a8]
-   ffff80008260a960: 37000640      tbnz    w0, #0x0, 0xffff80008260aa28 <__pi_create_init_idmap+0xe8> ---(3)
-   ffff80008260a964: d280f060      mov     x0, #0x783      // =1923
-   ffff80008260a968: d280e062      mov     x2, #0x703      // =1795
-   ffff80008260a96c: f2e00800      movk    x0, #0x40, lsl #48
-   ffff80008260a970: f2e00d02      movk    x2, #0x68, lsl #48
-   ffff80008260a974: aa2103e4      mvn     x4, x1
-   ffff80008260a978: 8a210049      bic     x9, x2, x1
-   ...
-   ffff80008260aa28: d281f060      mov     x0, #0xf83      // =3971
-   ffff80008260aa2c: d281e062      mov     x2, #0xf03      // =3843
-   ffff80008260aa30: f2e00800      movk    x0, #0x40, lsl #48
+Regards,
+  Marco
 
-In case of gcc, according to value of arm64_use_ng_mappings (annoated as(3)),
-it branches to each prot settup code.
-However this is also problem since it branches according to garbage
-value too -- idmapping with wrong pgprot.
+Marco Felsch (7):
+  arm64: dts: imx8mp: drop gpcv2 vpu power-domains and clocks
+  arm64: dts: imx8mp: add VC8000E encoder node
+  arm64: dts: imx8mp: fix VPU_BUS clock setting
+  media: hantro: use hantro_decoded_buffer only for dst_vq
+  media: verisilicon: add H264 encoder support
+  media: verisilicon: split read/write debug
+  media: hantro: add support for i.MX8MP VC8000E
 
-To resolve this, annotate arm64_use_ng_mappings as ro_after_init.
+Michael Tretter (3):
+  media: uapi: add documentation for the V4L2 H.264 stateless encoding
+    API
+  media: uapi: add nal unit header fields to encode_params
+  media: uapi: add more V4L2_H264_ENCODE_FLAGs
 
-Fixes: 84b04d3e6bdb ("arm64: kernel: Create initial ID map from C code")
-Cc: <stable@vger.kernel.org> # 6.9.x
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
----
-There is another way to solve this problem by setting
-test/data_prot with _PAGE_DEFAULT which doesn't include PTE_MAYBE_NG
-with constanst check in create_init_idmap() to be free from
-arm64_use_ng_mappings. but i think it would be better to change
-arm64_use_ng_mappings as ro_after_init because it doesn't change after
-init phase and solve this problem too.
----
- arch/arm64/kernel/cpufeature.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Paul Kocialkowski (1):
+  media: Introduce Hantro V4L2 H.264 stateless encoding API
 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index d2104a1e7843..967ffb1cbd52 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -114,7 +114,7 @@ static struct arm64_cpu_capabilities const __ro_after_init *cpucap_ptrs[ARM64_NC
-
- DECLARE_BITMAP(boot_cpucaps, ARM64_NCAPS);
-
--bool arm64_use_ng_mappings = false;
-+bool arm64_use_ng_mappings __ro_after_init = false;
- EXPORT_SYMBOL(arm64_use_ng_mappings);
-
- DEFINE_PER_CPU_READ_MOSTLY(const char *, this_cpu_vector) = vectors;
---
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+-- 
+2.39.5
 
 
