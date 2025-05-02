@@ -4,76 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A70DEC3ABBD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 17:23:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5281CC3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 17:23:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r73OEXFrtU8T2eA2Y7h3rqhC3cOT5cBtBN6/J0Sdutg=; b=SqPQH7ASNN9wmO4L+YqOPaYUwL
-	xeyy9G3vojbaQ+7uYIY1eX9bgtyytYJ0sEZ2A3tvCvTL5w6vGpGR0vqqN9gii8pJo4Uj7Kq255Wld
-	MqcU7t+HxJ6LYezj9pStxpHFnThehdTSlEpWsdf8GHxXCUbshLuUbTf/nkc+2IPtu6ut+E+ycDxAi
-	emntazOug6ghmLDAfFJjyj77MFfS+b/Z+GXlm1X0zuJhqEy3z0/5Yh7sdl3BnnBA6x2ogxgprHZ2i
-	lBMnSIRYtpjmlIA8vrAYdPL+fekyF68DdpZ8Xw7U7X1KqrXWxs64tVIi2rkjASlzhGs8MGuMHpNR/
-	K5OxdcUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=mIoGoh4sIDM3c+NpeCHr7wsQQg2d3tD2xjHc8WXc64Q=; b=4096FdUH63rxcn
+	ILPLxtsMEJVOzQmw0yCrWEKDx5NeuZ5kxrKByAFsOxoTZr8tZHQqiQxUKpDExkaRU+orPoNoGJbUr
+	wGdUAqunouKdyE/0WQCvG4FsAN8NHoAX7d8VJBGVb2LrCQCB5M8dL0v8rUagn16DfCGgiAzEpBL8N
+	zDDNWu/MeEoNIr2rGFoFoGTstO4IkAKCIDlqzWCV8bSG/YX984DTStGrsivunbBYjFqDBYR34JTOX
+	+0SMluTYQtLvgkYCRLRNYRkRltUgpfN5abnvqsiSjnALadHEIqOddYM5OedQK0QH5s4GjcTxKekTf
+	RDYtqQ1+QumDU05JDFow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAu6L-00000002drM-470Y;
-	Fri, 02 May 2025 17:23:05 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uAu6M-00000002dso-2ZjY;
+	Fri, 02 May 2025 17:23:06 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAtSN-00000002Y7m-3G9N
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 16:41:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B01494A82E
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  2 May 2025 16:41:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDEE7C4CEED
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  2 May 2025 16:41:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746204106;
-	bh=GRGIrDCYRtPVvuRezChYCJbmtuoMfRngrDbwIPoiUbM=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=QR62+ydKcjvwBAZW3RMk+X5v7N0PPsAIFEMNM6nOdr4RBrG6Je+gWkF21k/QwufPL
-	 4mDS4jkc5//Gigv29xVs6LiKl1GgFz901wtAAheN3M72fI/QU0kEW41ZT9/e/FL+jU
-	 s48yTrq2dvxwZoQBadYg64WpfhUFmLRIL/KF5ruQcjuRBrI69fUR0ErAncvr4ZUcSj
-	 0WcTE/y7Y1AkRBSvR6V/T6BDgwGTy0J+9gs1A7Ni+FgPEyd5Iy8i0boTyJs+1rVsta
-	 J+06V40Ej/8CKmqmLEfybKAn9s/CxxH0/Ax7g0/nTzkZz8sOKqUrPZcVwbBsYc5luk
-	 VxV3tjItErMqw==
-Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-54b10594812so561501e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 May 2025 09:41:45 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVb/nkTyPCUBPjW6N3mnMgj641awbOdfkq6Z+RjcrGWrFeyV0vYjFnTBjzNM807vEpO+vZZaqZFQmaBFplDoqa1@lists.infradead.org
-X-Gm-Message-State: AOJu0YzhgcwaP4ySwraw55TT0lJfvpZohE4dKGyXFujdYawiQN7NziyE
-	mieWcTDQplMkULaRMFUzsiGAinAv+G+94kmAvp8oIZcHBK+yrkhPTwj6BRjitMTDvM+yAuag84O
-	NpsF9mkAMQD3DvfPFqARZydN1ipg=
-X-Google-Smtp-Source: AGHT+IFql8yiS+S8ZvEUyN4XOnu/NgmX60V6UudNT1ej0ML8QEtJBeWJXqUe5OoWWbtDF9MfrdbaX6qUkozE4M6i4mk=
-X-Received: by 2002:a05:6512:39c9:b0:54d:662b:c8a9 with SMTP id
- 2adb3069b0e04-54eac20eac2mr903287e87.25.1746204104257; Fri, 02 May 2025
- 09:41:44 -0700 (PDT)
+	id 1uAtTz-00000002YOd-0BQN;
+	Fri, 02 May 2025 16:43:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1746204205;
+	bh=yw1w5T04gn1gvO0Eacj6I5K1Un/3y0OZ9jtnwYuxfQs=;
+	h=From:Subject:Date:To:Cc:From;
+	b=ZlhKchsbqYhfIVV4s70fGnYsp+E1osDveIH6MLobr/hdKC9sDWd1sDPYepOJ86Nvr
+	 A5zbLtspETWeaG9Rwnk6UGMnZHSrbVDnSZvsiOajp0nFU2y1u5Yv+J8+MI6qI3jcRl
+	 zg3+DK5SwEUk4cSVHzyxX/XQDZOgtrBo+YuBIo4WHXhUDduMWsu+VlHGE255GmU6uW
+	 HE/N5PgfrWAi6VM5foTbQqnioTobveP2kjZQ3uX1inOKNXZXNzUTjgbwR6Ahe7m/lo
+	 I/+vq99PmhPF97LS3r/tEEnCUb6yR53qB62yhaypSEKa3cARlwgyUR8FQSZQ3wc/pD
+	 1lnmAZs4SHhxQ==
+Received: from [192.168.1.63] (unknown [70.107.117.78])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 42A1517E0858;
+	Fri,  2 May 2025 18:43:23 +0200 (CEST)
+From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+Subject: [PATCH 0/2] Correct MT8365's infracfg-nao DT node description as a
+ pure syscon
+Date: Fri, 02 May 2025 12:43:20 -0400
+Message-Id: <20250502-mt8365-infracfg-nao-compatible-v1-0-e40394573f98@collabora.com>
 MIME-Version: 1.0
-References: <20250502145755.3751405-1-yeoreum.yun@arm.com>
-In-Reply-To: <20250502145755.3751405-1-yeoreum.yun@arm.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 2 May 2025 18:41:33 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXEoYcS6YPU0mBdvijDRK6ZVB7mPYZsCVpz7sYotabrxtQ@mail.gmail.com>
-X-Gm-Features: ATxdqUGIUjt8rIT2Bx4U_ZCoipBsFGEQnmCAwz2P1XMTEvimmTj5hJidZsBb6ok
-Message-ID: <CAMj1kXEoYcS6YPU0mBdvijDRK6ZVB7mPYZsCVpz7sYotabrxtQ@mail.gmail.com>
-Subject: Re: [PATCH] arm64/cpufeature: annotate arm64_use_ng_mappings with
- ro_after_init to prevent wrong idmap generation
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, nathan@kernel.org, 
-	nick.desaulniers+lkml@gmail.com, morbo@google.com, justinstitt@google.com, 
-	broonie@kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
-	frederic@kernel.org, joey.gouly@arm.com, james.morse@arm.com, 
-	hardevsinh.palaniya@siliconsignals.io, shameerali.kolothum.thodi@huawei.com, 
-	ryan.roberts@arm.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIACj2FGgC/x3NQQqDMBBA0avIrDsQ00SLVykuYjKjAzWRREQQ7
+ 97g8m3+v6BQFiowNBdkOqRIihXtqwG/uDgTSqgGrbRVVmlc98+7syiRs/M8Y3QJfVo3t8v0IzR
+ dMGHq2RruoUa2TCznM/iO9/0HdP/nXXAAAAA=
+X-Change-ID: 20250502-mt8365-infracfg-nao-compatible-46d4db7f54f7
+To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Alexandre Mergnat <amergnat@baylibre.com>, 
+ Amjad Ouled-Ameur <aouledameur@baylibre.com>, 
+ =?utf-8?q?Bernhard_Rosenkr=C3=A4nzer?= <bero@baylibre.com>, 
+ Fabien Parent <fparent@baylibre.com>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_094147_855993_4FAD5719 
-X-CRM114-Status: GOOD (  18.67  )
+X-CRM114-CacheID: sfid-20250502_094327_226485_73F1D8DE 
+X-CRM114-Status: UNSURE (   7.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,65 +87,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2 May 2025 at 16:58, Yeoreum Yun <yeoreum.yun@arm.com> wrote:
->
-> create_init_idmap() could be called before .bss section initialization
-> which is done in early_map_kernel() since data/test_prot could be set
-> wrong for PTE_MAYBE_NG macro.
->
-> PTE_MAYBE_NG macro is set according to value of "arm64_use_ng_mappings".
-> and this variable is located in .bss section.
->
->    # llvm-objdump-21 --syms vmlinux-gcc | grep arm64_use_ng_mappings
->      ffff800082f242a8 g O .bss    0000000000000001 arm64_use_ng_mappings
->
-> If .bss section doesn't initialized, "arm64_use_ng_mappings" would be set
-> with garbage value ant then the text_prot or data_prot could be set
-> with garbgae value.
->
-> Here is what i saw with kernel compiled via llvm-21
->
->   // create_init_idmap()
->   ffff80008255c058: d10103ff            sub     sp, sp, #0x40
->   ffff80008255c05c: a9017bfd            stp     x29, x30, [sp, #0x10]
->   ffff80008255c060: a90257f6            stp     x22, x21, [sp, #0x20]
->   ffff80008255c064: a9034ff4            stp     x20, x19, [sp, #0x30]
->   ffff80008255c068: 910043fd            add     x29, sp, #0x10
->   ffff80008255c06c: 90003fc8            adrp    x8, 0xffff800082d54000
->   ffff80008255c070: d280e06a            mov     x10, #0x703     // =1795
->   ffff80008255c074: 91400409            add     x9, x0, #0x1, lsl #12 // =0x1000
->   ffff80008255c078: 394a4108            ldrb    w8, [x8, #0x290] ------------- (1)
->   ffff80008255c07c: f2e00d0a            movk    x10, #0x68, lsl #48
->   ffff80008255c080: f90007e9            str     x9, [sp, #0x8]
->   ffff80008255c084: aa0103f3            mov     x19, x1
->   ffff80008255c088: aa0003f4            mov     x20, x0
->   ffff80008255c08c: 14000000            b       0xffff80008255c08c <__pi_create_init_idmap+0x34>
->   ffff80008255c090: aa082d56            orr     x22, x10, x8, lsl #11 -------- (2)
->
+Introduce a new compatible to the binding and use it in the infracfg-nao
+node in the mt8365.dtsi to correctly describe the node and prevent probe
+errors.
 
-Interesting. So Clang just shifts the value of "arm64_use_ng_mappings"
-into bit #11, on the basis that 'bool' is a u8 that can only hold
-values 0 or 1.
+Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+---
+Nícolas F. R. A. Prado (2):
+      dt-bindings: mfd: syscon: Add mediatek,mt8365-infracfg-nao
+      arm64: dts: mediatek: mt8365: Describe infracfg-nao as a pure syscon
 
-It is actually kind of nice that this happened, or we would likely
-have never found out - setting nG inadvertently on the initial ID map
-is not something one would ever notice in practice.
-...
->
-> In case of gcc, according to value of arm64_use_ng_mappings (annoated as(3)),
-> it branches to each prot settup code.
-> However this is also problem since it branches according to garbage
-> value too -- idmapping with wrong pgprot.
->
+ Documentation/devicetree/bindings/mfd/syscon.yaml | 1 +
+ arch/arm64/boot/dts/mediatek/mt8365.dtsi          | 5 ++---
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+---
+base-commit: 37ff6e9a2ce321b7932d3987701757fb4d87b0e6
+change-id: 20250502-mt8365-infracfg-nao-compatible-46d4db7f54f7
 
-I think the only way to deal with this in a robust manner is to never
-call C code before clearing BSS. But this would mean clearing BSS
-before setting up the ID map, which means it will run with the caches
-disabled, making it slower and also making it necessary to perform
-cache invalidation afterwards.
+Best regards,
+-- 
+Nícolas F. R. A. Prado <nfraprado@collabora.com>
 
-Making arm64_use_ng_mappings __ro_after_init seems like a useful
-change by itself, so I am not objecting to that. But we don't solve it
-more fundamentally, please at least add a big fat comment why it is
-important that the variable remains there.
 
