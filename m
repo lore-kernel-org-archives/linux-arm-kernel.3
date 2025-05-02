@@ -4,69 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50F59C3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 14:18:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6219BC3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 14:19:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hELQrWuXUM+aAj7DDR2P78YfqFJRmirAUm3QvQTWzQ0=; b=khAGNgIYZiWjF2arhZ4xupqcMO
-	OAyaXHhm0rhToeXzoWsdubGkiBVXK4yajshOnwWv6UcEDwb0Se6l5KhekpWaP8KbVRvXUW/w/nxp/
-	wu4lsAwMNlhNHN8B1puQsKuQY+AvgWQz1YX6ux2FkrPEDUWArbGvvhaINnYeGz+Iq4CNs+sCcLpGJ
-	8ED/BR5efplvnZxFjHgvjM9wJHKW493dZImIPN2y4c4w0QdKVugDkChFp0YlKPdZeKeQ+ggZgzZbv
-	P6UyIkAp95gTJWpgokLHnwQAU2R+Yv3N1mxzeAqS9mD4rIWJHLWHM6tDXRa849Gazw3Xl1nYFq6Lv
-	auO8juYQ==;
+	bh=/CCmG1GxGMYjK1pBoA+K9OycS51+5qtS5xym4iB2BW4=; b=mZHocuEvYlT2Ly4g7BtDFoungz
+	IhYoE88l8L7kHC6Lbrn4MCqMoNWHrzwLK6bNHEBW/oWrLqom1P0+2PxMgvHQRe/296QvejrhhzBjk
+	5/Ae0jhhQTVt1TeqH+QG9hhps30ovRdVohKTyy+02u3dMI6GNEaemI202u3YZfiWLQ3MgC612iZg4
+	92MFXDRypVM8A+EnuOzLpdE6PVoYNnxhHh0YbbIAgyo8PS4dRH0HODusdpwYyVq1WxS9dnYCCFyB/
+	DbSbCG/HmuT1wthVXyXM0qTMDMcNplDdkNDzW4DDVHVp4LZIav6Zm4+o5ZdGynSZ2aXi2S2j6n+7b
+	4Yp7rJQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uArD2-00000002AQ3-3yA4;
-	Fri, 02 May 2025 14:17:48 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uArEy-00000002AbS-1Daf;
+	Fri, 02 May 2025 14:19:48 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAr8t-000000029ZA-0Gp0
+	id 1uAr9O-000000029fS-0ytx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 14:13:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B2A405C5BA9;
-	Fri,  2 May 2025 14:11:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D86FFC4CEE4;
-	Fri,  2 May 2025 14:13:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746195209;
-	bh=yx8MFH01X2N39XwTWzq6+ATHZglg/J+RztBenNzgst4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=HEJCUjNAg/oXF9wvqym9vnorYBbBg6HAk8rKG4heSNpO90IPRIhdrchKRHxuV5Yia
-	 FDObzWatACdFKKIjNTGgziRG8XDnlbX3tTHP5pumonsFOuTe5HXLxvUDbpg8QKr1eU
-	 u1S3Qb29+tkYAE5kDYb7itLzsZNPRnFmJGqErxsK2DkTO6Eeg/pafXwJG1eV2fwAUO
-	 p4jQdZPZrqfAIhQLrsD3cQvilI+D/ngIya0x+i95Ynr2jv646qdUHjywWLzec/8oPk
-	 7znjw5WTNKwzxZBjNxCbspkFRExq+NZ7bz5DVg39YkN7nV/01JHWgffaeRdIuI1Cii
-	 QDzMKHL1LUpDQ==
-Date: Fri, 2 May 2025 07:13:28 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Lukasz Majewski <lukma@denx.de>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Richard Cochran
- <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
- <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>, Andrew Lunn
- <andrew@lunn.ch>
-Subject: Re: [net-next v10 4/7] net: mtip: The L2 switch driver for imx287
-Message-ID: <20250502071328.069d0933@kernel.org>
-In-Reply-To: <20250502074447.2153837-5-lukma@denx.de>
-References: <20250502074447.2153837-1-lukma@denx.de>
-	<20250502074447.2153837-5-lukma@denx.de>
+	Fri, 02 May 2025 14:14:04 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1uAr9K-0000sL-7p
+	for linux-arm-kernel@lists.infradead.org; Fri, 02 May 2025 16:13:58 +0200
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1uAr9K-000lP3-05
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 02 May 2025 16:13:58 +0200
+Received: from dspam.blackshift.org (localhost [127.0.0.1])
+	by bjornoya.blackshift.org (Postfix) with SMTP id B20ED4065AC
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 02 May 2025 14:13:57 +0000 (UTC)
+Received: from hardanger.blackshift.org (unknown [172.20.34.65])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	by bjornoya.blackshift.org (Postfix) with ESMTPS id E74FA4065A0;
+	Fri, 02 May 2025 14:13:56 +0000 (UTC)
+Received: from hardanger.blackshift.org (localhost [::1])
+	by hardanger.blackshift.org (OpenSMTPD) with ESMTP id de45ef16;
+	Fri, 2 May 2025 14:13:56 +0000 (UTC)
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+Date: Fri, 02 May 2025 16:13:46 +0200
+Subject: [PATCH 3/3] can: mcan: m_can_class_unregister: fix order of
+ unregistration calls
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20250502-can-rx-offload-del-v1-3-59a9b131589d@pengutronix.de>
+References: <20250502-can-rx-offload-del-v1-0-59a9b131589d@pengutronix.de>
+In-Reply-To: <20250502-can-rx-offload-del-v1-0-59a9b131589d@pengutronix.de>
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+ Thomas Kopp <thomas.kopp@microchip.com>, 
+ Vincent Mailhol <mailhol.vincent@wanadoo.fr>, kernel@pengutronix.de, 
+ Heiko Stuebner <heiko@sntech.de>, 
+ Chandrasekar Ramakrishnan <rcsekar@samsung.com>, 
+ Markus Schneider-Pargmann <msp@baylibre.com>
+Cc: linux-can@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ Marc Kleine-Budde <mkl@pengutronix.de>, stable@vger.kernel.org
+X-Mailer: b4 0.15-dev-048ad
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1395; i=mkl@pengutronix.de;
+ h=from:subject:message-id; bh=Q5aUEap/j8onzIWPM9KgOWl8xHnHPU8XimRr1awIUwI=;
+ b=owEBbQGS/pANAwAKAQx0Zd/5kJGcAcsmYgBoFNMh3UbqdYlr7CYNpBI0bFUBQXmQiPOeOyZrU
+ g8+euFtBeaJATMEAAEKAB0WIQSf+wzYr2eoX/wVbPMMdGXf+ZCRnAUCaBTTIQAKCRAMdGXf+ZCR
+ nPHaB/97GcHyND3HHSgiFPYIWFmO62VdzZbPx/n1WNPQt1+uqtw6LMICf3+QNpl8SOJVJJFj2SV
+ TRg60q5Yo8pEZWbfVp6/Buppex7/67VKXM7BBTd9Q2Htu6g0O8WNBLXU9yPeIn74/rju2WhuVvz
+ jJXwsVpuSCH98sk2UdAZVlyamEy2Gn3nwAbWZSmk8ansBmAlO4YCnWIqzraIuB1ChMseY/LsNyl
+ 6GauScLC3qQGpZV+OgcI11FsiBak3FQcC/2pjGqQLtWZ0gityXXQiOSbvJg40uCNnwN6N0kAnO7
+ pk4Oo43gTPDZyYIDfIGtkX3asiE4A5y8xEQvHwsrEYwmJOBW
+X-Developer-Key: i=mkl@pengutronix.de; a=openpgp;
+ fpr=C1400BA0B3989E6FBC7D5B5C2B5EE211C58AEA54
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_071331_146793_CD6A70B9 
-X-CRM114-Status: GOOD (  16.55  )
+X-CRM114-CacheID: sfid-20250502_071402_280954_DE69F741 
+X-CRM114-Status: GOOD (  16.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,30 +104,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri,  2 May 2025 09:44:44 +0200 Lukasz Majewski wrote:
-> This patch series provides support for More Than IP L2 switch embedded
-> in the imx287 SoC.
-> 
-> This is a two port switch (placed between uDMA[01] and MAC-NET[01]),
-> which can be used for offloading the network traffic.
-> 
-> It can be used interchangeably with current FEC driver - to be more
-> specific: one can use either of it, depending on the requirements.
-> 
-> The biggest difference is the usage of DMA - when FEC is used, separate
-> DMAs are available for each ENET-MAC block.
-> However, with switch enabled - only the DMA0 is used to send/receive data
-> to/form switch (and then switch sends them to respecitive ports).
-> 
-> Signed-off-by: Lukasz Majewski <lukma@denx.de>
-> Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+If a driver is removed, the driver framework invokes the driver's
+remove callback. A CAN driver's remove function calls
+unregister_candev(), which calls net_device_ops::ndo_stop further down
+in the call stack for interfaces which are in the "up" state.
 
-Now that basic build is green the series has advanced to full testing,
-where coccicheck says:
+The removal of the module causes the a warning, as
+can_rx_offload_del() deletes the NAPI, while it is still active,
+because the interface is still up.
 
-drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c:1961:1-6: WARNING: invalid free of devm_ allocated data
-drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c:1237:16-19: ERROR: bus is NULL but dereferenced.
+To fix the warning, first unregister the network interface, which
+calls net_device_ops::ndo_stop, which disables the NAPI, and then call
+can_rx_offload_del().
+
+Fixes: 1be37d3b0414 ("can: m_can: fix periph RX path: use rx-offload to ensure skbs are sent from softirq context")
+Cc: stable@vger.kernel.org
+Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
+---
+ drivers/net/can/m_can/m_can.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/net/can/m_can/m_can.c b/drivers/net/can/m_can/m_can.c
+index 884a6352c42b..7c430eaff5dd 100644
+--- a/drivers/net/can/m_can/m_can.c
++++ b/drivers/net/can/m_can/m_can.c
+@@ -2462,9 +2462,9 @@ EXPORT_SYMBOL_GPL(m_can_class_register);
+ 
+ void m_can_class_unregister(struct m_can_classdev *cdev)
+ {
++	unregister_candev(cdev->net);
+ 	if (cdev->is_peripheral)
+ 		can_rx_offload_del(&cdev->offload);
+-	unregister_candev(cdev->net);
+ }
+ EXPORT_SYMBOL_GPL(m_can_class_unregister);
+ 
+
 -- 
-pw-bot: cr
+2.47.2
+
+
 
