@@ -4,104 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 988CCC3ABA3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 12:29:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0A66C3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 12:31:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wIczffFaYHKPykcw3b0iM8vvrEkTn9lVPlgu8mIdn84=; b=xNoPfs72rp9LkU+35WN1SJLLVM
-	DP7XAHkvKYi5I2Fn/3F5g/Fo2LLBp3m0VZCmGXsHNk7YCJ5MiXkCB4cSPB5NXpC8BoxUhcy+zECZa
-	cx9ABoluhVSnS3mV1I3PUWU8Fsgf/te/QDaMViVH8JKJF2rL15ZoPOXs3uq1YiyZMLdv5S5oWykaa
-	ZPsPfisUsO3OWFg797P0I7+JjzeJJv5FOzcK7WFiAG34M02MgtvI6GIzTmVT9Bw4HWvvA6ceN6o9V
-	lPkg/wObD/nyTd3G/km6aQAlVq9rgyj6cpUohrvxlpLe8sc3OxELQ1JMDLty95aO1EMe+BTi8+ijV
-	EmpODl1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bsBaMgMVIV9pKDtfbcIi9RmwwVkkoMKgBlMiHOfLv1Y=; b=qoFaAWbZTHqRDFjwTjc4SqgBGl
+	KxChEOKtD3kWL4cmhshtNT6Yjfnz46HEnbsrYRhOlybMqiWk2oJaX+MEov2krWNvJep3RK6e2CDEu
+	s4xmMu50uUdfGbsUlDyPO6JoLQlAjsRYnn/GtPp0/hic99NAhwtn/Q3Lj/ata3loergysY6b5KCId
+	dvzowUtIO+we0KEurY1S/HMSFblkik2H1/D9KI2p5O95b6xBJhIOntDceaWtdTiy2f4OcJWIigjdb
+	xFzCdzt2Yar1SPEhAfpOtTQNmCOJExT7mm82HLI6yurtCdnyCU/a86C8IdvbUELhaKy3Ca7vL1gTG
+	Hta7vKeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uApWA-00000001uWV-1a9r;
-	Fri, 02 May 2025 12:29:26 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uApY4-00000001uvk-1LtF;
+	Fri, 02 May 2025 12:31:24 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uApQx-00000001tlJ-0JZu
+	id 1uApRL-00000001toQ-3p4s
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 12:24:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1746188640;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=wIczffFaYHKPykcw3b0iM8vvrEkTn9lVPlgu8mIdn84=;
-	b=ccDNO2HJY3TjKrByEsWF4GXzuXyFimECKibNL7nxp6/Tf4KRjwLyiiRxMU/JbNjax3iZtr
-	wN6ATDhc0nlw7U3vQGx5tLCwun7m+405tkYKB/Ov8L3n3cjhC2hc3wRZvNCbaObgyEaN36
-	vNpVnbhnJttLH66zV7QJZQf+o7fGzOE=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-516-AgQ8nvxBOjuAU6sbpkzOeQ-1; Fri, 02 May 2025 08:23:58 -0400
-X-MC-Unique: AgQ8nvxBOjuAU6sbpkzOeQ-1
-X-Mimecast-MFC-AGG-ID: AgQ8nvxBOjuAU6sbpkzOeQ_1746188637
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-44059976a1fso8917825e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 May 2025 05:23:58 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746188637; x=1746793437;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=wIczffFaYHKPykcw3b0iM8vvrEkTn9lVPlgu8mIdn84=;
-        b=UgNyTrZGp1ELc04fm1LRWBUjSOPz96qMxh/ouJ/Plt2p5DGsgYWw/Fqt2A3wMEtAbr
-         NPKgs1c6jyAP8rYmPHfAZqjE+Om/0kPIyrXUF4Hp4eoINe0I97Y2dIaJaJfS/7UVGKty
-         oGmVvN56yaS+JirRdcnxTKHdQzQEXUhl6VKuGIZAF0jjM+MzaUmiKzqMAQEjNIJm1b3Q
-         8LKkZUDIbOnU7ueV+ahvvwqmvd1k1ffX7W4hB/T0sax9P3PhzysUIPQS8/gFtTjRbosj
-         pTIZj/kBPmbNdVbhcBN5tGyDLVZLMDuCNLdrpeVIhhnwhpSWrHavXmVBQh8WlBFDZa8a
-         z+zA==
-X-Forwarded-Encrypted: i=1; AJvYcCUElmDD48ZInQHP+Xz1yaLAygSUuHUnUhNtU2o1iLT36yu7fLo7vDK4XkeVDICevED2ajnenQw7EL3RxulYjVb2@lists.infradead.org
-X-Gm-Message-State: AOJu0YyK+5uhMqsF3f49N0B1VSEGhp/pk0Jx2MTTGXhHYEJDOFee+9rZ
-	hiOM52tr7Alc5hV24giIp9Z8up7ig9UTrgvZgLTU2xnYkAt8oDkVyh2dAI37ViXWk7ZbacjZLfJ
-	vUIOrlc12osAyi/wsgedS+FerzwatuPxDoXtAIDX4ZWyPwlOcXL2I3D1bah4vF2bMJV4icx+8
-X-Gm-Gg: ASbGncvr0MBntauQVJQGgavnGdk/n89ac3qxnrus4ibtswajUV6Kt+iwowejJjUxU1l
-	8mFuPFaJeBvd4Hi/mt9NyuyHZYk0BPdRMZq4jyR7VE1FHvMxdK4ajLcMKB8jODswjumlrmzo4Zf
-	anFEzG6j0rL9yy1CB7x9jMlJxy6KvHHuBcwTjeRaCuEtdqhEwei975UVKaFeUb87dFE9lcj/W5u
-	r5pvHfhFa5TU1EdYQ+fshj381OajYmJ7ag+9yHRAu/XctgYK8zv+pREdofaYA6ITG/88/EFkRFN
-	e99Imaf9pKkO2007qm6ClO56G1nh2Y0LCU+dU42zJ7ZToVuobFc=
-X-Received: by 2002:a05:600c:5022:b0:43c:e6d1:efe7 with SMTP id 5b1f17b1804b1-441bbf34052mr18719515e9.26.1746188637014;
-        Fri, 02 May 2025 05:23:57 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHtBSWT/9rJ58YwwQsHRZD3aEJKNHkUCm3Vq3qVD5xLR8Kf9BbRNg4RYaf53PhVsYbqWhK/OA==
-X-Received: by 2002:a05:600c:5022:b0:43c:e6d1:efe7 with SMTP id 5b1f17b1804b1-441bbf34052mr18719135e9.26.1746188636561;
-        Fri, 02 May 2025 05:23:56 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:c:37e0:ced3:55bd:f454:e722? ([2a01:e0a:c:37e0:ced3:55bd:f454:e722])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-441b2b28718sm89479975e9.36.2025.05.02.05.23.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 02 May 2025 05:23:56 -0700 (PDT)
-Message-ID: <847a72c8-ea80-4aaa-b439-ab7649dcebd0@redhat.com>
-Date: Fri, 2 May 2025 14:23:54 +0200
+	Fri, 02 May 2025 12:24:29 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 542CONHa232051
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 2 May 2025 07:24:23 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1746188663;
+	bh=bsBaMgMVIV9pKDtfbcIi9RmwwVkkoMKgBlMiHOfLv1Y=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=vkO3agk7QcCFUTpwrspnqF8oDSO+Cal/siWBnUaqwoyqqczU1JamHNddCNatrrGNe
+	 UCBZDonb7rFCBKae4Tx0yfqCjXeiehMWwHY6oQw4WCc4iUhQXVpZzBvswdBxVUJY+A
+	 zUFHoVAH3QPOd4lBWjoYByMXs5zHuZU5aVTz4Y8g=
+Received: from DLEE111.ent.ti.com (dlee111.ent.ti.com [157.170.170.22])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 542CON7K007231
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 2 May 2025 07:24:23 -0500
+Received: from DLEE106.ent.ti.com (157.170.170.36) by DLEE111.ent.ti.com
+ (157.170.170.22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 2
+ May 2025 07:24:23 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE106.ent.ti.com
+ (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 2 May 2025 07:24:23 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 542CONdL009817;
+	Fri, 2 May 2025 07:24:23 -0500
+Date: Fri, 2 May 2025 07:24:23 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Judith Mendez <jm@ti.com>
+CC: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Hari Nagalla
+	<hnagalla@ti.com>,
+        Beleswar Padhi <b-padhi@ti.com>
+Subject: Re: [PATCH v2] arm64: dts: ti: k3-am62-main: Add PRUSS-M node
+Message-ID: <20250502122423.weyvgng4s4zcjdxh@document>
+References: <20250430144343.972234-1-jm@ti.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/panic: Use a decimal fifo to avoid u64 by u64 divide
-To: Miguel Ojeda <ojeda@kernel.org>,
- Christian Schrefl <chrisi.schrefl@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
- Russell King <linux@armlinux.org.uk>, Paolo Bonzini <pbonzini@redhat.com>,
- rust-for-linux <rust-for-linux@vger.kernel.org>,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- Thomas Zimmermann <tzimmermann@suse.de>,
- Javier Martinez Canillas <javierm@redhat.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, dri-devel@lists.freedesktop.org
-References: <20250418165059.560503-1-jfalempe@redhat.com>
-From: Jocelyn Falempe <jfalempe@redhat.com>
-In-Reply-To: <20250418165059.560503-1-jfalempe@redhat.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: xtd9YcJbY03j7IUId9HBIVOTgZm2V8HfbCy_bjNPswg_1746188637
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US, fr
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250430144343.972234-1-jm@ti.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_052403_188476_8CD01E5D 
-X-CRM114-Status: GOOD (  24.39  )
+X-CRM114-CacheID: sfid-20250502_052428_041019_DEA8C2C2 
+X-CRM114-Status: GOOD (  17.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,128 +89,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/04/2025 18:48, Jocelyn Falempe wrote:
-> On 32bits ARM, u64/u64 is not supported [1], so change the algorithm
-> to use a simple fifo with decimal digits as u8 instead.
-> This is slower but should compile on all architecture.
+On 09:43-20250430, Judith Mendez wrote:
+> From: Kishon Vijay Abraham I <kishon@ti.com>
+> 
+> Add the DT node for the PRUSS-M processor subsystem that is present
+> on the K3 AM62x SoCs. The K3 AM62x family of SoC has one PRUSS-M
+> instance and it has two Programmable Real-Time Units (PRU0 and PRU1).
+> 
+> Signed-off-by: Kishon Vijay Abraham I <kishon@ti.com>
+> [ Judith: Fix pruss_iclk id for pruss_coreclk_mux ]
+> Signed-off-by: Judith Mendez <jm@ti.com>
+> ---
+> Changelog:
+> - drop internal tags
+> - rebase against ti-k3-dts-next
+> - fix header
+> 
+> Link to v1:
+> https://lore.kernel.org/linux-devicetree/20250108222048.818835-1-jm@ti.com/
+> ---
+>  arch/arm64/boot/dts/ti/k3-am62-main.dtsi | 90 ++++++++++++++++++++++++
+>  1 file changed, 90 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
+> index 7d355aa73ea2..ee53e663b5bd 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
+> @@ -1079,6 +1079,96 @@ dphy0: phy@30110000 {
+>  		status = "disabled";
+>  	};
+>  
+> +	pruss: pruss@30040000 {
+> +		compatible = "ti,am625-pruss";
+> +		reg = <0x00 0x30040000 0x00 0x80000>;
+> +		power-domains = <&k3_pds 81 TI_SCI_PD_EXCLUSIVE>;
+> +		#address-cells = <1>;
+> +		#size-cells = <1>;
+> +		ranges = <0x0 0x00 0x30040000 0x80000>;
 
-I applied it to drm-misc/drm-misc-next.
+Should this not be default disabled? pruss needs pinmux to operate
+correctly, right?
 
-Thanks for the reviews.
+> +
+> +		pruss_mem: memories@0 {
+> +			reg = <0x0 0x2000>,
+> +			      <0x2000 0x2000>,
+> +			      <0x10000 0x10000>;
+> +			reg-names = "dram0", "dram1", "shrdram2";
+> +		};
+> +
+> +		pruss_cfg: cfg@26000 {
+> +			compatible = "ti,pruss-cfg", "syscon";
+> +			reg = <0x26000 0x200>;
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +			ranges = <0x0 0x26000 0x2000>;
+> +
+> +			clocks {
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +
+> +				pruss_coreclk_mux: coreclk-mux@3c {
+> +					reg = <0x3c>;
+> +					#clock-cells = <0>;
+> +					clocks = <&k3_clks 81 0>,  /* pruss_core_clk */
+> +						 <&k3_clks 81 14>; /* pruss_iclk */
+> +					assigned-clocks = <&pruss_coreclk_mux>;
+> +					assigned-clock-parents = <&k3_clks 81 14>;
+> +				};
+> +
+> +				pruss_iepclk_mux: iepclk-mux@30 {
+> +					reg = <0x30>;
+> +					#clock-cells = <0>;
+> +					clocks = <&k3_clks 81 3>,	/* pruss_iep_clk */
+> +						 <&pruss_coreclk_mux>;	/* pruss_coreclk_mux */
+> +					assigned-clocks = <&pruss_iepclk_mux>;
+> +					assigned-clock-parents = <&pruss_coreclk_mux>;
+> +				};
+> +			};
+> +		};
+> +
+> +		pruss_intc: interrupt-controller@20000 {
+> +			compatible = "ti,pruss-intc";
+> +			reg = <0x20000 0x2000>;
+> +			interrupt-controller;
+> +			#interrupt-cells = <3>;
+> +			interrupts = <GIC_SPI 88 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 89 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 90 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 91 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 92 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 93 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 94 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 95 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "host_intr0", "host_intr1",
+> +					  "host_intr2", "host_intr3",
+> +					  "host_intr4", "host_intr5",
+> +					  "host_intr6", "host_intr7";
+> +		};
+> +
+> +		pru0: pru@34000 {
+> +			compatible = "ti,am625-pru";
+> +			reg = <0x34000 0x3000>,
+> +			      <0x22000 0x100>,
+> +			      <0x22400 0x100>;
+> +			reg-names = "iram", "control", "debug";
+> +			firmware-name = "am62x-pru0-fw";
+> +			interrupt-parent = <&pruss_intc>;
+> +			interrupts = <16 2 2>;
+> +			interrupt-names = "vring";
+> +		};
+> +
+> +		pru1: pru@38000 {
+> +			compatible = "ti,am625-pru";
+> +			reg = <0x38000 0x3000>,
+> +			      <0x24000 0x100>,
+> +			      <0x24400 0x100>;
+> +			reg-names = "iram", "control", "debug";
+> +			firmware-name = "am62x-pru1-fw";
+> +			interrupt-parent = <&pruss_intc>;
+> +			interrupts = <18 3 3>;
+> +			interrupt-names = "vring";
+> +		};
+> +	};
+> +
+>  	gpmc0: memory-controller@3b000000 {
+>  		compatible = "ti,am64-gpmc";
+>  		power-domains = <&k3_pds 80 TI_SCI_PD_EXCLUSIVE>;
+> -- 
+> 2.49.0
+> 
+> 
 
 -- 
-
-Jocelyn
-> 
-> Link: https://lore.kernel.org/dri-devel/CANiq72ke45eOwckMhWHvmwxc03dxr4rnxxKvx+HvWdBLopZfrQ@mail.gmail.com/ [1]
-> Signed-off-by: Jocelyn Falempe <jfalempe@redhat.com>
-> ---
->   drivers/gpu/drm/drm_panic_qr.rs | 71 ++++++++++++++++++++++-----------
->   1 file changed, 48 insertions(+), 23 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/drm_panic_qr.rs b/drivers/gpu/drm/drm_panic_qr.rs
-> index 6025a705530e..dd55b1cb764d 100644
-> --- a/drivers/gpu/drm/drm_panic_qr.rs
-> +++ b/drivers/gpu/drm/drm_panic_qr.rs
-> @@ -366,8 +366,48 @@ fn iter(&self) -> SegmentIterator<'_> {
->           SegmentIterator {
->               segment: self,
->               offset: 0,
-> -            carry: 0,
-> -            carry_len: 0,
-> +            decfifo: Default::default(),
-> +        }
-> +    }
-> +}
-> +
-> +/// Max fifo size is 17 (max push) + 2 (max remaining)
-> +const MAX_FIFO_SIZE: usize = 19;
-> +
-> +/// A simple Decimal digit FIFO
-> +#[derive(Default)]
-> +struct DecFifo {
-> +    decimals: [u8; MAX_FIFO_SIZE],
-> +    len: usize,
-> +}
-> +
-> +impl DecFifo {
-> +    fn push(&mut self, data: u64, len: usize) {
-> +        let mut chunk = data;
-> +        for i in (0..self.len).rev() {
-> +            self.decimals[i + len] = self.decimals[i];
-> +        }
-> +        for i in 0..len {
-> +            self.decimals[i] = (chunk % 10) as u8;
-> +            chunk /= 10;
-> +        }
-> +        self.len += len;
-> +    }
-> +
-> +    /// Pop 3 decimal digits from the FIFO
-> +    fn pop3(&mut self) -> Option<(u16, usize)> {
-> +        if self.len == 0 {
-> +            None
-> +        } else {
-> +            let poplen = 3.min(self.len);
-> +            self.len -= poplen;
-> +            let mut out = 0;
-> +            let mut exp = 1;
-> +            for i in 0..poplen {
-> +                out += self.decimals[self.len + i] as u16 * exp;
-> +                exp *= 10;
-> +            }
-> +            Some((out, NUM_CHARS_BITS[poplen]))
->           }
->       }
->   }
-> @@ -375,8 +415,7 @@ fn iter(&self) -> SegmentIterator<'_> {
->   struct SegmentIterator<'a> {
->       segment: &'a Segment<'a>,
->       offset: usize,
-> -    carry: u64,
-> -    carry_len: usize,
-> +    decfifo: DecFifo,
->   }
->   
->   impl Iterator for SegmentIterator<'_> {
-> @@ -394,31 +433,17 @@ fn next(&mut self) -> Option<Self::Item> {
->                   }
->               }
->               Segment::Numeric(data) => {
-> -                if self.carry_len < 3 && self.offset < data.len() {
-> -                    // If there are less than 3 decimal digits in the carry,
-> -                    // take the next 7 bytes of input, and add them to the carry.
-> +                if self.decfifo.len < 3 && self.offset < data.len() {
-> +                    // If there are less than 3 decimal digits in the fifo,
-> +                    // take the next 7 bytes of input, and push them to the fifo.
->                       let mut buf = [0u8; 8];
->                       let len = 7.min(data.len() - self.offset);
->                       buf[..len].copy_from_slice(&data[self.offset..self.offset + len]);
->                       let chunk = u64::from_le_bytes(buf);
-> -                    let pow = u64::pow(10, BYTES_TO_DIGITS[len] as u32);
-> -                    self.carry = chunk + self.carry * pow;
-> +                    self.decfifo.push(chunk, BYTES_TO_DIGITS[len]);
->                       self.offset += len;
-> -                    self.carry_len += BYTES_TO_DIGITS[len];
-> -                }
-> -                match self.carry_len {
-> -                    0 => None,
-> -                    len => {
-> -                        // take the next 3 decimal digits of the carry
-> -                        // and return 10bits of numeric data.
-> -                        let out_len = 3.min(len);
-> -                        self.carry_len -= out_len;
-> -                        let pow = u64::pow(10, self.carry_len as u32);
-> -                        let out = (self.carry / pow) as u16;
-> -                        self.carry %= pow;
-> -                        Some((out, NUM_CHARS_BITS[out_len]))
-> -                    }
->                   }
-> +                self.decfifo.pop3()
->               }
->           }
->       }
-> 
-> base-commit: 74757ad1c105c8fc00b4cac0b7918fe3262cdb18
-
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
 
