@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98F11C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 00:59:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DC60C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 01:02:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xur8hs8BfN3yvBe6ZczBsztqT5EKjZoG4BgLL2OfChc=; b=BsXSQ7T414XXxCY+9Nf4vUMfqZ
-	y++yn/p1Pkj40RbRnlrLosBfLSnKcnkh8zU3CDDIhfT4hR6tKwgDUwhaH6KuIcibTITnACvHNcC5/
-	lXyOdvN8WKwHaAAmat9FsWr92X7/2rcOwnR6bfkZPIPRtNuPyG2kYqkTNQuDkhGp4MkgaXrXK7sz/
-	dIyOIQypA+NMn+mFPfGXK7RaQjTIRLf3A2TndU3TEPc5BcRO5aqcCoXkdagsTaYvqYVK2AilxR+QX
-	pY6N9lz4Bqe3tQPHBroFBROIb/5fzcTf7ehoedLL+mWU76T5o5n1cWEXRZqwWvb+qjuuuZ9gHl2lC
-	XQb3A0yg==;
+	bh=zWRLpd70Pw2Z1tGsUt/C4/LhwY9AF1goBXiQ5nt0vCw=; b=GGxwzG7y0c0Ya8Ngbg5HrY8Js+
+	qd+/LTDA6/9H9NsTTpCBD1rmVhaYRA2Icf0Po16UmJn+quN0DSHsgNWeiXrwfNivYXP9x9/iK438e
+	tlfrPvZov/uxhdnvgeHX0aCt1OHIUDyktebAVNMp7LOd+duMcrKN/YCe2YTEa5hvU3y0sTEazEoMB
+	6ej0NJ6/8lAro+v+vJwvksqkcDVXWNjiDD2xgzktJz8d8AHTk/GE0EDGnkqU9dtZ2Rnm6LOw2JpM9
+	6u3Yo/ZVr5hYwj+Fia96gseaE8ko+H0KPN1HiMk+/XXTJz238r1f1OfHk3Yodu57/qGwFJsRg/2Zi
+	t0HXNQVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAekF-00000000Rzz-1RmH;
-	Fri, 02 May 2025 00:59:15 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uAen6-00000000SJP-0dNT;
+	Fri, 02 May 2025 01:02:12 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAeiK-00000000RpP-2QqW
+	id 1uAelB-00000000S8L-1h2f
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 00:57:17 +0000
+	Fri, 02 May 2025 01:00:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 92F4B5C4763;
-	Fri,  2 May 2025 00:54:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79C32C4CEE3;
-	Fri,  2 May 2025 00:57:14 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0195DA4C327;
+	Fri,  2 May 2025 00:54:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63442C4CEED;
+	Fri,  2 May 2025 01:00:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746147435;
-	bh=MoqpqiYmYsjQ16yN73Y7SVxbPLWAuOZzKEnuNo+e/Lw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=KoKfvxiYkOFnahr34ekNz23PL+yeDdfBJIyL5MdW8IwgD0IxzGRGB6VjzXjXmh1aJ
-	 at5E4VYqg8hLg0DsqD41btJu+cgTTmJNJbd1+qVpO+4kMU5UKr72cev98KbpnZMQ5b
-	 +1LI5ukrFFsaiVwKcG+5V/1/p4aEGnSpzQiiuv4JlZfMLolyRq6Vg5Zka5FBjltgpQ
-	 MUgpUz5K9yhFMDyypTBEHbytEUITAt/a375ixRBuBqq3IkwcYzPju4XV6fNUb3uy0e
-	 hnJIGJYYxS+gPLYSfTCKwsOvOelO/wDOLQLT2QnTuJgcG3zgydww5cKZqmskvfJC2E
-	 2INRE/s0errdA==
-Date: Thu, 1 May 2025 17:57:13 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Lukasz Majewski <lukma@denx.de>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Richard Cochran
- <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
- <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>, Andrew Lunn
- <andrew@lunn.ch>
-Subject: Re: [net-next v9 4/7] net: mtip: The L2 switch driver for imx287
-Message-ID: <20250501175713.54aa656e@kernel.org>
-In-Reply-To: <20250430051756.574067-5-lukma@denx.de>
-References: <20250430051756.574067-1-lukma@denx.de>
-	<20250430051756.574067-5-lukma@denx.de>
+	s=k20201202; t=1746147611;
+	bh=HMPgr40VH5mX1QcwLj1gZeZsZHk8igfKOvu5EQAD8sU=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=KVmqGC3jBsRdqt844cN3DDUqVStk3m7giI8iDRrHZmF41qMsk2Z4hCdRCdFV8zriU
+	 nnu37wTENDZP57E2me7MprbRbFSVazZokTRdlDbR3xgi4JZ7sR8ieHCFP3TSSL7Wor
+	 qKh+KBapyx3Gb4gYrydpEnYy2RvCjnfoGSniPh/upBYOkZooPhY25j60oRWHebgMrt
+	 XbqO1n/cgXjWMxFGNUgx0gIbkNB85IiMo3c81nCdY+Sl7HvVSFnrirn51BXHPJxT7E
+	 BjWXMdM6WPlVFHyuZSVqpaX2um39kVVwPzSqgcpr36Rx578U4BtCD+Y+lyMhIM72gY
+	 5ttmDumUIy9gg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADE693822D59;
+	Fri,  2 May 2025 01:00:51 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v3 0/5] allwinner: Add EMAC0 support to A523 variant SoC
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <174614765024.3121766.5842492946410657006.git-patchwork-notify@kernel.org>
+Date: Fri, 02 May 2025 01:00:50 +0000
+References: <20250430-01-sun55i-emac0-v3-0-6fc000bbccbd@gentoo.org>
+In-Reply-To: <20250430-01-sun55i-emac0-v3-0-6fc000bbccbd@gentoo.org>
+To: Yixun Lan <dlan@gentoo.org>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, wens@csie.org,
+ jernej.skrabec@gmail.com, samuel@sholland.org, mripard@kernel.org,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, andre.przywara@arm.com,
+ clabbe.montjoie@gmail.com, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ krzysztof.kozlowski@linaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_175716_663913_258AA92A 
-X-CRM114-Status: UNSURE (   7.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250501_180013_508237_FC3B9AA8 
+X-CRM114-Status: GOOD (  11.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,19 +80,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 30 Apr 2025 07:17:53 +0200 Lukasz Majewski wrote:
-> +static int __init mtip_switch_dma_init(struct switch_enet_private *fep)
-> +{
-...
-> +}
+Hello:
 
-> +static int mtip_sw_probe(struct platform_device *pdev)
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-One more warning:
+On Wed, 30 Apr 2025 13:32:02 +0800 you wrote:
+> This patch series is trying to add EMAC0 ethernet MAC support
+> to the A523 variant SoCs, including A523, A527/T527 chips.
+> 
+> This MAC0 is compatible to previous A64 SoC, so introduce a new DT
+> compatible but make it as a fallback to A64's compatible.
+> 
+> In this version, the PHYRSTB pin which routed to external phy
+> has not been populated in DT. It's kind of optional for now,
+> but we probably should handle it well later.
+> 
+> [...]
 
-WARNING: modpost: drivers/net/ethernet/freescale/mtipsw/nxp-mtipl2sw: section mismatch in reference: mtip_sw_probe+0xa50 (section: .text) -> mtip_switch_dma_init (section: .init.text)
+Here is the summary with links:
+  - [v3,1/5] dt-bindings: sram: sunxi-sram: Add A523 compatible
+    (no matching commit)
+  - [v3,2/5] dt-bindings: net: sun8i-emac: Add A523 EMAC0 compatible
+    https://git.kernel.org/netdev/net-next/c/0454b9057e98
+  - [v3,3/5] arm64: dts: allwinner: a523: Add EMAC0 ethernet MAC
+    (no matching commit)
+  - [v3,4/5] arm64: dts: allwinner: a527: add EMAC0 to Radxa A5E board
+    (no matching commit)
+  - [v3,5/5] arm64: dts: allwinner: t527: add EMAC0 to Avaota-A1 board
+    (no matching commit)
 
-We only see it with clang, not sure why. The warning looks legit.
+You are awesome, thank you!
 -- 
-pw-bot: cr
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
