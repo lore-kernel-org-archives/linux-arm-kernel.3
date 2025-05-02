@@ -4,80 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B6FFC3ABA3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 11:33:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07E52C3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 11:35:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e+w5Qh2JRjlMFyhkZEHnj7ml/ugQxghiOlkLkqWDVzI=; b=x2S4DqBtp/m5vnvDm66UBCc+UT
-	+yyojHgCgnAImSKCzo+SgmnnqQdWX+oWlH0C6BqNqhRn8cUwvx9JXW0uCh/K9IR2pXofs3gc/UhS1
-	rvqQHeJy70FA5e4hT4i9JbNfQebMnoOQThhM3xjZr2raWUzkDFehqnGxMDcGkafygaYKwRdqgfHDf
-	ZMvp7INh/6gxMIVNm6eqpqSLt7eC093r4A8n4N0sRe4/uMmhe0NBcOS/oii3K9BF55sFv2+ECAWWO
-	lFyJ4yVv4HKeFnXmsjrBGUoulZajrMGKuYhHuwyvniX1ragUpGnZTZoXQ25LU9FcQ1G8542mMTopE
-	BWIz2grA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p5OL8nU942aSLT09UgHbmIML3ySj45uDmdMG5/wKvHc=; b=PEEAgfc3XebuzGdEYyaIvO6qzO
+	tzAkdGjhGwlEvgtMDvMKVRuKyI+wls6aEiBqc015EWaIY99t8YNqr0x4RjxP2p9Xi2XETEzJF+kpf
+	jZJDi086yBtj7izsh8ArCXyFrjVL21p7ZvJD6R408Y/EvkT9RkIHkISqwvDNZ5qrcQ7e5EYUwrmKx
+	pBkE6PjXImoqDyrksDIip3kuJCzbADV5c7MGZfxvMI1Tb/bFwXY35mo/xQvZsegARILb1FVT6TFbw
+	OOKlfP60bXwC6GfGsCTdvrmVpT8Yk0FiKTYDudqac3ZzILXPVPBowWcvsGUwyfpdn9Dkor8AvuPx/
+	nAQpf7sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAoeC-00000001n4x-163z;
-	Fri, 02 May 2025 11:33:40 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uAog8-00000001nJS-00R7;
+	Fri, 02 May 2025 11:35:40 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAoL3-00000001kf8-15gy
+	id 1uAoOT-00000001lDK-2DTQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 11:13:54 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 542BDiEq3848530
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 2 May 2025 06:13:44 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1746184424;
-	bh=e+w5Qh2JRjlMFyhkZEHnj7ml/ugQxghiOlkLkqWDVzI=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=W5idxvhyn32t6wedPrduYdssQK5QNiQNVACARTf5WAYDH/BhLh3dbVBMNj/NwP7KM
-	 EwoDxSKVEf4W8FnSoPItBAul40ymbqBUrCRleffoQB9aTk+9bU4/e/qDATBznFViSk
-	 04h4bDSQw6y5r2o4tbHNkK+NMUkf/DUYWNFmO4Dg=
-Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 542BDiT1019558
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 2 May 2025 06:13:44 -0500
-Received: from DFLE103.ent.ti.com (10.64.6.24) by DFLE110.ent.ti.com
- (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 2
- May 2025 06:13:43 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE103.ent.ti.com
- (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 2 May 2025 06:13:43 -0500
-Received: from [10.249.134.35] ([10.249.134.35])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 542BDb39062789;
-	Fri, 2 May 2025 06:13:38 -0500
-Message-ID: <87d38b3d-607d-45c3-8f29-70f6c01187db@ti.com>
-Date: Fri, 2 May 2025 16:43:37 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 4/4] arm64: dts: ti: k3-am62x: Add required voltage
- supplies for TEVI-OV5640
-To: Devarsh Thakkar <devarsht@ti.com>, <nm@ti.com>, <vigneshr@ti.com>
-CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <vaishnav.a@ti.com>, <y-abhilashchandra@ti.com>,
-        <s-jain1@ti.com>, <jai.luthra@linux.dev>,
-        <jai.luthra@ideasonboard.com>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <imx@lists.linux.dev>
-References: <20250429154133.3377962-1-r-donadkar@ti.com>
- <20250429154133.3377962-5-r-donadkar@ti.com>
- <f73d24a6-7da6-4bcc-95ba-9d84b865a7a7@ti.com>
-Content-Language: en-US
-From: "Donadkar, Rishikesh" <r-donadkar@ti.com>
-In-Reply-To: <f73d24a6-7da6-4bcc-95ba-9d84b865a7a7@ti.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+	Fri, 02 May 2025 11:17:26 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43e9b0fd00cso7962205e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 May 2025 04:17:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1746184643; x=1746789443; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=p5OL8nU942aSLT09UgHbmIML3ySj45uDmdMG5/wKvHc=;
+        b=lZOYktcCiHRuBmGPR3g0MAmtYTnqitLSQijF3TOKnh3AaX91wHWutdpIEfowekbw8A
+         TNjdC+djfZRkp7AVD8fhFX+tXQvcqAuJO0zB4e9cbqWHKgp0s1HbIo8bFs+bvUuBp5K4
+         FQwvo3UmmwiTnXaNT3lv2/khG+5SgxjfrBgVbFR6/S25topC9ThcH9mb21ZG7EOneRfG
+         c6bsLtx0/dlSjJ+TTPpfpRcD9fkn97Nacz6pPoKplWQfQwawg7bepsacyMu21Q/zjMWd
+         HjcNlR3RrbI5x/TJvfSrcCGi42kwrcaoai6ewuuI/hp22TadJ6JD6O2kjyphrZ5WhEo/
+         DaGQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746184643; x=1746789443;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=p5OL8nU942aSLT09UgHbmIML3ySj45uDmdMG5/wKvHc=;
+        b=eXrJxG0esAoqkvqlaeoxoAqgM1vAj7i0HBs4YaOeUdHNPbWItXihA/QCQlIliUURDA
+         /QWOxu9koiujCgBUPzVuiJPGpnVt3vLJFKISiazBxa3t7m3NFTwh9M1wc8rboLW7lS8u
+         YqfNqurKQInVWwuLtYlW0rF8FiK+ibs+0JeumaH5HiQFItncCVcpUVmx0uAYeJ+r3McY
+         MD10UrFjhLSqG5qUDjdUc5Y0tcw7GZrUTj0hnFsvYXOFQZDiuvCrWCDnUYF7U/QnS5yG
+         YZgeaqhpDl60/T/zCsos4+OPnpfLDsWA1kVYq4b45eDCB+Zly4GVQ7WXYWxeyy25TpYg
+         /gxA==
+X-Forwarded-Encrypted: i=1; AJvYcCXa8AuZP/6/lTfCUt2YCuRRX22Dp+dnTSfDM9z3JvijKqoYafuGGLEtByT/srbj2YSR3Hhsq5b6MkCVDyl39/Mf@lists.infradead.org
+X-Gm-Message-State: AOJu0YwQijmuh/gFLsR9FPdXTCzYF1ZCtImQH6MRi/oHoCIy6UVKpqgD
+	y0ze3lrwAPAG6nNRPKESgwJYsSUAvi22RTfFMZrN6ntg+fQHKCSFg0eZmLwINxgAoMNn2pYJ7MU
+	AoWaWCopj0grOiQ==
+X-Google-Smtp-Source: AGHT+IE72hvZ6mV4D/kXtlS6V50J8cDZa9GKooUY0w71JECu4b4Ctc5ADtyJqEQ5cdCjB5Oy5b/n+Jkyg9Gzn9c=
+X-Received: from wmbel14.prod.google.com ([2002:a05:600c:3e0e:b0:440:5f8a:667c])
+ (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:3acd:b0:435:edb0:5d27 with SMTP id 5b1f17b1804b1-441b72c0a66mr50048405e9.9.1746184643608;
+ Fri, 02 May 2025 04:17:23 -0700 (PDT)
+Date: Fri, 2 May 2025 11:17:21 +0000
+In-Reply-To: <20250502094537.231725-5-fujita.tomonori@gmail.com>
+Mime-Version: 1.0
+References: <20250502094537.231725-1-fujita.tomonori@gmail.com> <20250502094537.231725-5-fujita.tomonori@gmail.com>
+Message-ID: <aBSpwXh0GnuyXyST@google.com>
+Subject: Re: [PATCH v6 4/4] rust: Add warn_on macro
+From: Alice Ryhl <aliceryhl@google.com>
+To: FUJITA Tomonori <fujita.tomonori@gmail.com>
+Cc: linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+	x86@kernel.org, linux-riscv@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, 
+	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, 
+	dave.hansen@linux.intel.com, peterz@infradead.org, hpa@zytor.com, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org, 
+	kernel@xen0n.name, tangyouling@loongson.cn, hejinyang@loongson.cn, 
+	yangtiezhu@loongson.cn, ojeda@kernel.org, alex.gaynor@gmail.com, 
+	boqun.feng@gmail.com, gary@garyguo.net, bjorn3_gh@protonmail.com, 
+	benno.lossin@proton.me, a.hindborg@kernel.org, tmgross@umich.edu, 
+	dakr@kernel.org
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_041353_400174_07DFD21E 
-X-CRM114-Status: GOOD (  13.57  )
+X-CRM114-CacheID: sfid-20250502_041725_567908_3DB1AC8C 
+X-CRM114-Status: GOOD (  16.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,84 +98,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, May 02, 2025 at 06:45:36PM +0900, FUJITA Tomonori wrote:
+> Add warn_on macro, uses the BUG/WARN feature (lib/bug.c) via assembly
+> for x86_64/arm64/riscv.
+> 
+> The current Rust code simply wraps BUG() macro but doesn't provide the
+> proper debug information. The BUG/WARN feature can only be used from
+> assembly.
+> 
+> This uses the assembly code exported by the C side via ARCH_WARN_ASM
+> macro. To avoid duplicating the assembly code, this approach follows
+> the same strategy as the static branch code: it generates the assembly
+> code for Rust using the C preprocessor at compile time.
+> 
+> Similarly, ARCH_WARN_REACHABLE is also used at compile time to
+> generate the assembly code; objtool's reachable annotation code. It's
+> used for only architectures that use objtool.
+> 
+> For now, Loongarch and arm just use a wrapper for WARN macro.
+> 
+> UML doesn't use the assembly BUG/WARN feature; just wrapping generic
+> BUG/WARN functions implemented in C works.
+> 
+> Signed-off-by: FUJITA Tomonori <fujita.tomonori@gmail.com>
 
-On 02-05-2025 14:37, Devarsh Thakkar wrote:
->
-> On 29/04/25 21:11, Rishikesh Donadkar wrote:
->> The device tree overlay for TEVI-OV5640 requires following voltage
->> supplies:
->>
->> AVDD-supply: Analog voltage supply, 2.8 volts
->> DOVDD-supply: Digital I/O voltage supply, 1.8 volts
->> DVDD-supply: Digital core voltage supply, 1.5 volts
->>
-> I think this contradicts the voltage mentioned in TEVI-OV56540 doc [1]
-> which mention digital voltage as 3.3 volts ?
-
-
-Thank you for pointing out, I will fix it.
-
->
->> Add them in the DT overlay.
->>
-> [1]:
-> https://www.technexion.com/wp-content/uploads/2023/09/product-brief_tevi-ov5640.pdf
->
-> Regards
-> Devarsh
->> Signed-off-by: Rishikesh Donadkar <r-donadkar@ti.com>
->> ---
->>   .../dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso  | 32 +++++++++++++++++++
->>   1 file changed, 32 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso b/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso
->> index b6bfdfbbdd984..123ab0e5e8dfa 100644
->> --- a/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso
->> +++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso
->> @@ -15,6 +15,33 @@ clk_ov5640_fixed: ov5640-xclk {
->>   		#clock-cells = <0>;
->>   		clock-frequency = <24000000>;
->>   	};
->> +
->> +	reg_2p8v: regulator-2p8v {
->> +		compatible = "regulator-fixed";
->> +		regulator-name = "2P8V";
->> +		regulator-min-microvolt = <2800000>;
->> +		regulator-max-microvolt = <2800000>;
->> +		vin-supply = <&vcc_3v3_sys>;
->> +		regulator-always-on;
->> +	};
->> +
->> +	reg_1p8v: regulator-1p8v {
->> +		compatible = "regulator-fixed";
->> +		regulator-name = "1P8V";
->> +		regulator-min-microvolt = <1800000>;
->> +		regulator-max-microvolt = <1800000>;
->> +		vin-supply = <&vcc_3v3_sys>;
->> +		regulator-always-on;
->> +	};
->> +
->> +	reg_1p5v: regulator-1p5v {
->> +		compatible = "regulator-fixed";
->> +		regulator-name = "1P5V";
->> +		regulator-min-microvolt = <1500000>;
->> +		regulator-max-microvolt = <1500000>;
->> +		vin-supply = <&vcc_3v3_sys>;
->> +		regulator-always-on;
->> +	};
->>   };
->>   
->>   &main_i2c2 {
->> @@ -40,6 +67,11 @@ ov5640: camera@3c {
->>   
->>   				clocks = <&clk_ov5640_fixed>;
->>   				clock-names = "xclk";
->> +
->> +				AVDD-supply = <&reg_2p8v>;
->> +				DOVDD-supply = <&reg_1p8v>;
->> +				DVDD-supply = <&reg_1p5v>;
->> +
->>   				powerdown-gpios = <&exp1 13 GPIO_ACTIVE_LOW>;
->>   
->>   				port {
+Reviewed-by: Alice Ryhl <aliceryhl@google.com>
 
