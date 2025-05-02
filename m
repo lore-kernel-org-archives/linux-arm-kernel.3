@@ -4,79 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64384C3ABA3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 08:45:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EB7EC3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 08:48:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QIbwuWHHHeqMRU/dNBr5DksK+qZ8eID81KiYJHT3Y8E=; b=w86psvZZToI3qUB1JyhCEK+7Xm
-	3XNXrkwNlK9oQVFBEIkqv64noh0qqJlZ24llIMjvl95P7OxmoaEkJmasp8JeCHsxP8GYIh61refdt
-	WTfZ9DNdLbFJ05VsrkYw8UMXlf2MKPmIjpuczW9zawqYrl4cY9zgG5VRFM5EAN2AbO6rzVk/IXLw8
-	y+IYTM2VdDW3GyD5FM1JKGn+YX2r4mtyFocGDYGEXpwGSYv0vVEq3Mzzf6D2s8tYFiXH3S9wx/ju9
-	y6LvCPkOBsHAF1Z3meVwbHZbYzsKQvD+LNfRXiXIxhK84Nesjm58+8HS1qqDTuRlR3RBpIY2IDtT2
-	y0LZH3Xg==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xDy8bSLdgEwCg1LBSSBw86QXLomX57x8aF1LWmsm5p0=; b=aYl+yN3LahJHVlAQwFiBEAdMU2
+	2gThUXvvoY1qgrHpsNXOMjc7DZ/PUtgUpfdhT17r+bGSRJvQsx51PZ1lpI5hvsQs9rF0L4m0icQyD
+	MVbGrFyVvONE//T/I+1xVIOKNtTgNkhNDTWfqDBUn0vGEpyQeG4RqS8hRh35hiiJyjDnOB4fg00Y7
+	ljvZW9M7qy5y62Kx4e7TIAT8X2/iI2CeARGD/QQqx6QOTPpVjt8HYb7Mkj2jbn9038NqNPXBWrDs/
+	n6iALH/tdYX6mFHOSd3oojqlCp9OATcaCBpXqmzWJ2uNTO9A9TtI10jVL5HYJ3ikbQ2SOcOAvgK0H
+	s69alUow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAm1N-00000001Dn5-0skL;
-	Fri, 02 May 2025 08:45:25 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAlzR-00000001DaM-12Ka
+	id 1uAm3u-00000001EKf-3t0D;
+	Fri, 02 May 2025 08:48:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uAm1u-00000001Drj-1hRm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 08:43:26 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5428h9Xj3822345
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 2 May 2025 03:43:10 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1746175390;
-	bh=QIbwuWHHHeqMRU/dNBr5DksK+qZ8eID81KiYJHT3Y8E=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=RjWJ2wWCOn+K4s5nwxatqxd3dIJxYNljO5i+KMwNS2RVVlqNXAJ8pOX0S2ma15qNC
-	 VK33T914yJJRBoa5nLQz/I5IJHO16WlWyYYVy/uNWD72q6VYo+aycCOucIGPry2iG3
-	 FnnVpc2/UANQOSDb3aZNcAhJa/GsJ8gNiBP24w7M=
-Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5428h9rp059033
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 2 May 2025 03:43:09 -0500
-Received: from DFLE111.ent.ti.com (10.64.6.32) by DFLE105.ent.ti.com
- (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 2
- May 2025 03:43:09 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE111.ent.ti.com
- (10.64.6.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 2 May 2025 03:43:09 -0500
-Received: from [172.24.227.193] (devarsh-precision-tower-3620.dhcp.ti.com [172.24.227.193])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5428h4hM108589;
-	Fri, 2 May 2025 03:43:05 -0500
-Message-ID: <69f6c225-2841-494c-b555-61cbe6b23c02@ti.com>
-Date: Fri, 2 May 2025 14:13:04 +0530
+	Fri, 02 May 2025 08:46:03 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 854211688;
+	Fri,  2 May 2025 01:45:49 -0700 (PDT)
+Received: from [10.163.80.122] (unknown [10.163.80.122])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 093013F66E;
+	Fri,  2 May 2025 01:45:52 -0700 (PDT)
+Message-ID: <0ebbc509-9e17-4b93-9a72-b9e7cc03637e@arm.com>
+Date: Fri, 2 May 2025 14:15:49 +0530
 MIME-Version: 1.0
-User-Agent: Betterbird (Linux)
-Subject: Re: [PATCH v1 3/4] arm64: dts: ti: k3-am62x: Add required voltage
- supplies for OV5640
-To: Rishikesh Donadkar <r-donadkar@ti.com>, <nm@ti.com>, <vigneshr@ti.com>
-CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <vaishnav.a@ti.com>, <y-abhilashchandra@ti.com>,
-        <s-jain1@ti.com>, <jai.luthra@linux.dev>,
-        <jai.luthra@ideasonboard.com>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <imx@lists.linux.dev>
-References: <20250429154133.3377962-1-r-donadkar@ti.com>
- <20250429154133.3377962-4-r-donadkar@ti.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 9/9] coresight: Refactor runtime PM
+To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com
+References: <20250423151726.372561-1-leo.yan@arm.com>
+ <20250423151726.372561-10-leo.yan@arm.com>
 Content-Language: en-US
-From: Devarsh Thakkar <devarsht@ti.com>
-In-Reply-To: <20250429154133.3377962-4-r-donadkar@ti.com>
-Content-Type: text/plain; charset="UTF-8"
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250423151726.372561-10-leo.yan@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_014325_382877_35690E7B 
-X-CRM114-Status: GOOD (  13.33  )
+X-CRM114-CacheID: sfid-20250502_014558_591844_C602D393 
+X-CRM114-Status: GOOD (  18.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,83 +70,299 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 29/04/25 21:11, Rishikesh Donadkar wrote:
-> The device tree overlay for OV5640 requires following voltage
-> supplies
 
-As mentioned in ov5640 data-sheet table 8-3 [1]
+
+On 4/23/25 20:47, Leo Yan wrote:
+> The validation for driver data pointers and clock pointers are redundant
+> in the runtime PM callbacks.  After a driver's probing, its driver data
+> and clocks have been initialized successfully, this ensures it is safe
+> to access driver data and clocks in the runtime PM callbacks.  A corner
+> case is a clock pointer is NULL, in this case, the clock core layer can
+> handle it properly.  So remove these redundant checking.
 > 
-> AVDD-supply: Analog voltage supply, 2.8 volts
-> DOVDD-supply: Digital I/O voltage supply, 1.8 volts
-> DVDD-supply: Digital core voltage supply, 1.5 volts
+> In runtime resume, respect values returned from clock function and add
+> error handling.
+
+Although not checking drvdata and drvdata->apb_clk does make sense, but
+why change the semantics on the resume paths as well, which now returns
+stored error value from clk_prepare_enable().
+
 > 
-
-[1]:
-Link:
-https://cdn.sparkfun.com/datasheets/Sensors/LightImaging/OV5640_datasheet.pdf
-
-> Add them in the overlay.
-> 
-> Signed-off-by: Rishikesh Donadkar <r-donadkar@ti.com>
-
-With above changes,
-Reviewed-by: Devarsh Thakkar <devarsht@ti.com>
-
-Regards
-Devarsh
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
 > ---
->  .../boot/dts/ti/k3-am62x-sk-csi2-ov5640.dtso  | 32 +++++++++++++++++++
->  1 file changed, 32 insertions(+)
+>  drivers/hwtracing/coresight/coresight-cpu-debug.c  |  8 +++-----
+>  drivers/hwtracing/coresight/coresight-ctcu-core.c  |  8 ++------
+>  drivers/hwtracing/coresight/coresight-etb10.c      |  8 ++------
+>  drivers/hwtracing/coresight/coresight-etm3x-core.c |  8 ++------
+>  drivers/hwtracing/coresight/coresight-funnel.c     | 21 +++++++++++----------
+>  drivers/hwtracing/coresight/coresight-replicator.c | 20 +++++++++++---------
+>  drivers/hwtracing/coresight/coresight-stm.c        | 20 +++++++++++---------
+>  drivers/hwtracing/coresight/coresight-tpiu.c       | 20 +++++++++++---------
+>  8 files changed, 53 insertions(+), 60 deletions(-)
 > 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-ov5640.dtso b/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-ov5640.dtso
-> index 7fc7c95f5cd57..fc77fc77fe0b1 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-ov5640.dtso
-> +++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-ov5640.dtso
-> @@ -15,6 +15,33 @@ clk_ov5640_fixed: ov5640-xclk {
->  		#clock-cells = <0>;
->  		clock-frequency = <12000000>;
->  	};
-> +
-> +	reg_2p8v: regulator-2p8v {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "2P8V";
-> +		regulator-min-microvolt = <2800000>;
-> +		regulator-max-microvolt = <2800000>;
-> +		vin-supply = <&vcc_3v3_sys>;
-> +		regulator-always-on;
-> +	};
-> +
-> +	reg_1p8v: regulator-1p8v {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "1P8V";
-> +		regulator-min-microvolt = <1800000>;
-> +		regulator-max-microvolt = <1800000>;
-> +		vin-supply = <&vcc_3v3_sys>;
-> +		regulator-always-on;
-> +	};
-> +
-> +	reg_1p5v: regulator-1p5v {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "1P5V";
-> +		regulator-min-microvolt = <1500000>;
-> +		regulator-max-microvolt = <1500000>;
-> +		vin-supply = <&vcc_3v3_sys>;
-> +		regulator-always-on;
-> +	};
->  };
+> diff --git a/drivers/hwtracing/coresight/coresight-cpu-debug.c b/drivers/hwtracing/coresight/coresight-cpu-debug.c
+> index 481ffcbed534..dff663ac7805 100644
+> --- a/drivers/hwtracing/coresight/coresight-cpu-debug.c
+> +++ b/drivers/hwtracing/coresight/coresight-cpu-debug.c
+> @@ -731,8 +731,8 @@ static int debug_runtime_suspend(struct device *dev)
+>  {
+>  	struct debug_drvdata *drvdata = dev_get_drvdata(dev);
 >  
->  &main_i2c2 {
-> @@ -40,6 +67,11 @@ ov5640: camera@3c {
->  
->  				clocks = <&clk_ov5640_fixed>;
->  				clock-names = "xclk";
+> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_disable_unprepare(drvdata->pclk);
+> +	clk_disable_unprepare(drvdata->pclk);
 > +
-> +				AVDD-supply = <&reg_2p8v>;
-> +				DOVDD-supply = <&reg_1p8v>;
-> +				DVDD-supply = <&reg_1p5v>;
-> +
->  				powerdown-gpios = <&exp1 13 GPIO_ACTIVE_LOW>;
+>  	return 0;
+>  }
 >  
->  				port {
-
+> @@ -740,9 +740,7 @@ static int debug_runtime_resume(struct device *dev)
+>  {
+>  	struct debug_drvdata *drvdata = dev_get_drvdata(dev);
+>  
+> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_prepare_enable(drvdata->pclk);
+> -	return 0;
+> +	return clk_prepare_enable(drvdata->pclk);
+>  }
+>  #endif
+>  
+> diff --git a/drivers/hwtracing/coresight/coresight-ctcu-core.c b/drivers/hwtracing/coresight/coresight-ctcu-core.c
+> index 75b5114ef652..c586495e9a08 100644
+> --- a/drivers/hwtracing/coresight/coresight-ctcu-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-ctcu-core.c
+> @@ -278,8 +278,7 @@ static int ctcu_runtime_suspend(struct device *dev)
+>  {
+>  	struct ctcu_drvdata *drvdata = dev_get_drvdata(dev);
+>  
+> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->apb_clk))
+> -		clk_disable_unprepare(drvdata->apb_clk);
+> +	clk_disable_unprepare(drvdata->apb_clk);
+>  
+>  	return 0;
+>  }
+> @@ -288,10 +287,7 @@ static int ctcu_runtime_resume(struct device *dev)
+>  {
+>  	struct ctcu_drvdata *drvdata = dev_get_drvdata(dev);
+>  
+> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->apb_clk))
+> -		clk_prepare_enable(drvdata->apb_clk);
+> -
+> -	return 0;
+> +	return clk_prepare_enable(drvdata->apb_clk);
+>  }
+>  #endif
+>  
+> diff --git a/drivers/hwtracing/coresight/coresight-etb10.c b/drivers/hwtracing/coresight/coresight-etb10.c
+> index 45c2f8f50a3f..3f3b0eb48fdb 100644
+> --- a/drivers/hwtracing/coresight/coresight-etb10.c
+> +++ b/drivers/hwtracing/coresight/coresight-etb10.c
+> @@ -807,8 +807,7 @@ static int etb_runtime_suspend(struct device *dev)
+>  {
+>  	struct etb_drvdata *drvdata = dev_get_drvdata(dev);
+>  
+> -	if (drvdata && !IS_ERR(drvdata->atclk))
+> -		clk_disable_unprepare(drvdata->atclk);
+> +	clk_disable_unprepare(drvdata->atclk);
+>  
+>  	return 0;
+>  }
+> @@ -817,10 +816,7 @@ static int etb_runtime_resume(struct device *dev)
+>  {
+>  	struct etb_drvdata *drvdata = dev_get_drvdata(dev);
+>  
+> -	if (drvdata && !IS_ERR(drvdata->atclk))
+> -		clk_prepare_enable(drvdata->atclk);
+> -
+> -	return 0;
+> +	return clk_prepare_enable(drvdata->atclk);
+>  }
+>  #endif
+>  
+> diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
+> index adbb134f80e6..615ff743eef0 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
+> @@ -925,8 +925,7 @@ static int etm_runtime_suspend(struct device *dev)
+>  {
+>  	struct etm_drvdata *drvdata = dev_get_drvdata(dev);
+>  
+> -	if (drvdata && !IS_ERR(drvdata->atclk))
+> -		clk_disable_unprepare(drvdata->atclk);
+> +	clk_disable_unprepare(drvdata->atclk);
+>  
+>  	return 0;
+>  }
+> @@ -935,10 +934,7 @@ static int etm_runtime_resume(struct device *dev)
+>  {
+>  	struct etm_drvdata *drvdata = dev_get_drvdata(dev);
+>  
+> -	if (drvdata && !IS_ERR(drvdata->atclk))
+> -		clk_prepare_enable(drvdata->atclk);
+> -
+> -	return 0;
+> +	return clk_prepare_enable(drvdata->atclk);
+>  }
+>  #endif
+>  
+> diff --git a/drivers/hwtracing/coresight/coresight-funnel.c b/drivers/hwtracing/coresight/coresight-funnel.c
+> index 62e5125c37ad..6494a3b5d18e 100644
+> --- a/drivers/hwtracing/coresight/coresight-funnel.c
+> +++ b/drivers/hwtracing/coresight/coresight-funnel.c
+> @@ -283,11 +283,8 @@ static int funnel_runtime_suspend(struct device *dev)
+>  {
+>  	struct funnel_drvdata *drvdata = dev_get_drvdata(dev);
+>  
+> -	if (drvdata && !IS_ERR(drvdata->atclk))
+> -		clk_disable_unprepare(drvdata->atclk);
+> -
+> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_disable_unprepare(drvdata->pclk);
+> +	clk_disable_unprepare(drvdata->atclk);
+> +	clk_disable_unprepare(drvdata->pclk);
+>  
+>  	return 0;
+>  }
+> @@ -295,13 +292,17 @@ static int funnel_runtime_suspend(struct device *dev)
+>  static int funnel_runtime_resume(struct device *dev)
+>  {
+>  	struct funnel_drvdata *drvdata = dev_get_drvdata(dev);
+> +	int ret;
+> +
+> +	ret = clk_prepare_enable(drvdata->pclk);
+> +	if (ret)
+> +		return ret;
+>  
+> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_prepare_enable(drvdata->pclk);
+> +	ret = clk_prepare_enable(drvdata->atclk);
+> +	if (ret)
+> +		clk_disable_unprepare(drvdata->pclk);
+>  
+> -	if (drvdata && !IS_ERR(drvdata->atclk))
+> -		clk_prepare_enable(drvdata->atclk);
+> -	return 0;
+> +	return ret;
+>  }
+>  #endif
+>  
+> diff --git a/drivers/hwtracing/coresight/coresight-replicator.c b/drivers/hwtracing/coresight/coresight-replicator.c
+> index 56b03e6d8336..8595dc104795 100644
+> --- a/drivers/hwtracing/coresight/coresight-replicator.c
+> +++ b/drivers/hwtracing/coresight/coresight-replicator.c
+> @@ -322,24 +322,26 @@ static int replicator_runtime_suspend(struct device *dev)
+>  {
+>  	struct replicator_drvdata *drvdata = dev_get_drvdata(dev);
+>  
+> -	if (drvdata && !IS_ERR(drvdata->atclk))
+> -		clk_disable_unprepare(drvdata->atclk);
+> +	clk_disable_unprepare(drvdata->atclk);
+> +	clk_disable_unprepare(drvdata->pclk);
+>  
+> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_disable_unprepare(drvdata->pclk);
+>  	return 0;
+>  }
+>  
+>  static int replicator_runtime_resume(struct device *dev)
+>  {
+>  	struct replicator_drvdata *drvdata = dev_get_drvdata(dev);
+> +	int ret;
+>  
+> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_prepare_enable(drvdata->pclk);
+> +	ret = clk_prepare_enable(drvdata->pclk);
+> +	if (ret)
+> +		return ret;
+>  
+> -	if (drvdata && !IS_ERR(drvdata->atclk))
+> -		clk_prepare_enable(drvdata->atclk);
+> -	return 0;
+> +	ret = clk_prepare_enable(drvdata->atclk);
+> +	if (ret)
+> +		clk_disable_unprepare(drvdata->pclk);
+> +
+> +	return ret;
+>  }
+>  #endif
+>  
+> diff --git a/drivers/hwtracing/coresight/coresight-stm.c b/drivers/hwtracing/coresight/coresight-stm.c
+> index f17986edac00..f859ab932d22 100644
+> --- a/drivers/hwtracing/coresight/coresight-stm.c
+> +++ b/drivers/hwtracing/coresight/coresight-stm.c
+> @@ -957,24 +957,26 @@ static int stm_runtime_suspend(struct device *dev)
+>  {
+>  	struct stm_drvdata *drvdata = dev_get_drvdata(dev);
+>  
+> -	if (drvdata && !IS_ERR(drvdata->atclk))
+> -		clk_disable_unprepare(drvdata->atclk);
+> +	clk_disable_unprepare(drvdata->atclk);
+> +	clk_disable_unprepare(drvdata->pclk);
+>  
+> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_disable_unprepare(drvdata->pclk);
+>  	return 0;
+>  }
+>  
+>  static int stm_runtime_resume(struct device *dev)
+>  {
+>  	struct stm_drvdata *drvdata = dev_get_drvdata(dev);
+> +	int ret;
+>  
+> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_prepare_enable(drvdata->pclk);
+> +	ret = clk_prepare_enable(drvdata->pclk);
+> +	if (ret)
+> +		return ret;
+>  
+> -	if (drvdata && !IS_ERR(drvdata->atclk))
+> -		clk_prepare_enable(drvdata->atclk);
+> -	return 0;
+> +	ret = clk_prepare_enable(drvdata->atclk);
+> +	if (ret)
+> +		clk_disable_unprepare(drvdata->pclk);
+> +
+> +	return ret;
+>  }
+>  #endif
+>  
+> diff --git a/drivers/hwtracing/coresight/coresight-tpiu.c b/drivers/hwtracing/coresight/coresight-tpiu.c
+> index 4701b34778bd..a68ed6b97bf7 100644
+> --- a/drivers/hwtracing/coresight/coresight-tpiu.c
+> +++ b/drivers/hwtracing/coresight/coresight-tpiu.c
+> @@ -206,24 +206,26 @@ static int tpiu_runtime_suspend(struct device *dev)
+>  {
+>  	struct tpiu_drvdata *drvdata = dev_get_drvdata(dev);
+>  
+> -	if (drvdata && !IS_ERR(drvdata->atclk))
+> -		clk_disable_unprepare(drvdata->atclk);
+> +	clk_disable_unprepare(drvdata->atclk);
+> +	clk_disable_unprepare(drvdata->pclk);
+>  
+> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_disable_unprepare(drvdata->pclk);
+>  	return 0;
+>  }
+>  
+>  static int tpiu_runtime_resume(struct device *dev)
+>  {
+>  	struct tpiu_drvdata *drvdata = dev_get_drvdata(dev);
+> +	int ret;
+>  
+> -	if (drvdata && !IS_ERR_OR_NULL(drvdata->pclk))
+> -		clk_prepare_enable(drvdata->pclk);
+> +	ret = clk_prepare_enable(drvdata->pclk);
+> +	if (ret)
+> +		return ret;
+>  
+> -	if (drvdata && !IS_ERR(drvdata->atclk))
+> -		clk_prepare_enable(drvdata->atclk);
+> -	return 0;
+> +	ret = clk_prepare_enable(drvdata->atclk);
+> +	if (ret)
+> +		clk_disable_unprepare(drvdata->pclk);
+> +
+> +	return ret;
+>  }
+>  #endif
+>  
 
