@@ -4,74 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 707E0C3ABB0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 17:23:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AB60C3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 17:23:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=irvR2yIgRDjikn7nxCAVKIVnB91fuRCqyGpDvPb09Wk=; b=CaokJI33BxVnv8tHhZ+qTjqOWx
-	T+ijsSkWhFeI0HwbCDp2lR5/tiS7JaA0S34DX4m56BdQuRlEPT3qY1fvSH8vQhgLtl3nbPHrExksu
-	pcqFMmXpJHmzx0Gh0S6QCC2cXg8Vp2l0Kjyk/0N3BCIRYuBTOW8ENRhTJ4nZpornTqRdFUT66SFoO
-	T+wYcgXQ+fiEggQlA4OMAYZCoT9VwhgtSAEqjnNnZSkmK5LWKauKOuip34nDa7ryXI5Ia5HEunYhM
-	uQ+CtXQ5x2FK/SOqknyLt4yqhqjMBqjpmqpRh404yw53qGbUquNshgLp508xYbHAjnYADevOHyYhB
-	Hf+9NfpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3i4/8hB9ZUNUdDsq/JRsaRdSSjXpcATq5zvWh4Rsiyk=; b=q453OfPw9ASbrklVYD27bRGydV
+	q/VfdAaWrnOesXRFS0ylLBKY7dLNQG4zSxmkcYu8RhyyAK+ed//GqwSVzugIiWRJm2Ft7bXqEoT22
+	HHYT5KSn4+643NkYOohFgAmbkOeK4sJMcwxP/kbO+3PNnvMD3N8SckWlbTAIPw3vGN5CPbcOS8f1Y
+	KMmYlA0e5KC2ZTsd8B8SJw/J5ZIYTupN0YeLXrgI+Z2fLyUz5R97TJ9vUl+urwpIqPP/dDuLK4I6e
+	EuCgUECWzNh7Tkm1FoOEJ0MDkyUBiUopKDB3PKCqFT/9R6XS5CibF19wLiqxHbXLGCN/Ok8Klcyh5
+	uXkNteDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAu6Z-00000002eKx-0mq2;
-	Fri, 02 May 2025 17:23:19 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1uAu6c-00000002eS6-1n0u;
+	Fri, 02 May 2025 17:23:22 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAtg2-00000002aao-2HkY
+	id 1uAtrH-00000002bXt-1yaW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 16:55:55 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1uAtfk-0006vQ-DD; Fri, 02 May 2025 18:55:36 +0200
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1uAtfj-000mM7-2r;
-	Fri, 02 May 2025 18:55:35 +0200
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1uAtfj-00Gai4-2R;
-	Fri, 02 May 2025 18:55:35 +0200
-Date: Fri, 2 May 2025 18:55:35 +0200
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Adam Ford <aford173@gmail.com>
-Cc: nicolas.dufresne@collabora.com, benjamin.gaignard@collabora.com,
-	p.zabel@pengutronix.de, mchehab@kernel.org, shawnguo@kernel.org,
-	Sascha Hauer <s.hauer@pengutronix.de>, kernel@pengutronix.de,
-	festevam@gmail.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, paulk@sys-base.io, hverkuil@xs4all.nl,
-	laurent.pinchart@ideasonboard.com, sebastian.fricke@collabora.com,
-	ming.qian@nxp.com, linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: Re: [RFC PATCH 07/11] arm64: dts: imx8mp: fix VPU_BUS clock setting
-Message-ID: <20250502165535.aeb2osq2vnxsudmq@pengutronix.de>
-References: <20250502150513.4169098-1-m.felsch@pengutronix.de>
- <20250502150513.4169098-8-m.felsch@pengutronix.de>
- <CAHCN7x+Lu9momgX3Vwp+Yu+Tet5Q=k2vCL83SMLuad24SDchEg@mail.gmail.com>
+	Fri, 02 May 2025 17:07:32 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-736aa9d0f2aso3273695b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 May 2025 10:07:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746205650; x=1746810450; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3i4/8hB9ZUNUdDsq/JRsaRdSSjXpcATq5zvWh4Rsiyk=;
+        b=jkbh+Xjmet4KIaSpdPrOLnrZN0itcwLfl7px59IAmB3ERWpwITA1lBEBasMI3z8Lyi
+         3N9Ic9VbGlcPx2EwNQMPVef5OdoZkuD6HxlU0bmVVk++O6FFBwJnxVEMy9OSLXPmyTjD
+         QNi6QqNggB91Izhw3m60gYFeRXgLDZN+wz7dvZ46E4xlvrcFL4pgRqGg42887aN7xIcE
+         889NbLuyg1wAHs8Ivr6yFF9Lo7k+W/d/5rIJgHXLl1G8Hu5lTkU1GW9ZlZwzr9zsQiOP
+         fWM5JuASfgsmTpOyp7GXIbeFUVDujRt3fZQastTjSJOWlsCPT3+eNgAkXOTJfAMzH7Ri
+         SaCw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746205650; x=1746810450;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=3i4/8hB9ZUNUdDsq/JRsaRdSSjXpcATq5zvWh4Rsiyk=;
+        b=L/B7mMTxrFim5b7cmzCxSPSELqylhSz4TsOBajNCgILgDf1a3m0WkVxFe5wP5P6N8/
+         sIyPqAmeqPpGHwVYMkgj+qhUeSmnJzu6U+tmcdLXO+alA+APdGM9bLBXUng1SN+UFaI7
+         giigHBwdADGt7aWQBzN6pMRd7O8lsW2IpAxwTiA10RZwm6+Y2BNRhcDAMWQVWFhRVhHd
+         nmAd+oNwhDQU4zcfVc3c8KZmCb5TQNw4UtT1S99depUqWdBOBmKnF21zb2irEnvghb4g
+         v8Dgv8ErpuNloxEi+VL/E8YrL0UjbwroCGEQdB8hbVnQ7hclIluxuYKQVsI0JHNLJWpZ
+         lvEw==
+X-Forwarded-Encrypted: i=1; AJvYcCVXluxUM7Vw6knDyU/ZAToKEd15i+Ay3s3DzFfYyUxS6AQYkUjuwfIZwojpy5FHb41uBoH4e4YPxUe14gzlKAWw@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXSeSURGQqCAjZG0bEXfbfki6XlNKtr4ZvuZkxnVoluAg35bnO
+	+GNHPocAMTs/xicgpqL2bEaECaAyEh+6sh2vpw/uQ0KhnEMaM1wC
+X-Gm-Gg: ASbGnctV96aZFYsM6OEAPBX2QWCVOcFqb+fpFpvrRS4nWvGe0MHhUWJSenEHuxG4IGP
+	TmFGPA0/1mPxxL1mp8YbbfkXYzyA8tNCQxj4fiW8xfnuAaBk5dltJIIA94cZRi+V8HbMb4T6V9B
+	NAfmfMN8uw0+U6jneXp4pOovJzIFVorsN91GzgUQEfI/iOYpNIO/p00sa5dF/uHFMj8EkOHeNap
+	dh+VL2n/kR18yuBaYVNnn/Nz/tg1jVa259lT9h4CDsk+Z0/lCpsuZ3rU5x8r02uS6MoEfelSzAb
+	aOjabKi8djEGqDA92csbtqNntirCKdUUSQttNT/kchrRf4sA0oR+Zmvnwgsw8z457vnD3h/HnY5
+	RJWY3O56oB8tZeIY=
+X-Google-Smtp-Source: AGHT+IEUwhe6OOxxpEfNaCe738T3WyLHsdbg2eSe+3G4ctBrxQHhEeqFNHAxJs2mvqfoOjBLOVf4Qg==
+X-Received: by 2002:a05:6a00:2985:b0:736:3c2b:c38e with SMTP id d2e1a72fcca58-7406735b5a1mr68276b3a.13.1746205650438;
+        Fri, 02 May 2025 10:07:30 -0700 (PDT)
+Received: from localhost ([2a00:79e0:3e00:2601:3afc:446b:f0df:eadc])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74058dc45basm1890164b3a.69.2025.05.02.10.07.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 02 May 2025 10:07:29 -0700 (PDT)
+From: Rob Clark <robdclark@gmail.com>
+To: dri-devel@lists.freedesktop.org
+Cc: freedreno@lists.freedesktop.org,
+	linux-arm-msm@vger.kernel.org,
+	Connor Abbott <cwabbott0@gmail.com>,
+	Rob Clark <robdclark@chromium.org>,
+	Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Kevin Tian <kevin.tian@intel.com>,
+	Nicolin Chen <nicolinc@nvidia.com>,
+	Joao Martins <joao.m.martins@oracle.com>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM SMMU DRIVERS),
+	iommu@lists.linux.dev (open list:IOMMU SUBSYSTEM),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH v4 03/33] iommu/io-pgtable-arm: Add quirk to quiet WARN_ON()
+Date: Fri,  2 May 2025 09:56:30 -0700
+Message-ID: <20250502165831.44850-4-robdclark@gmail.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250502165831.44850-1-robdclark@gmail.com>
+References: <20250502165831.44850-1-robdclark@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAHCN7x+Lu9momgX3Vwp+Yu+Tet5Q=k2vCL83SMLuad24SDchEg@mail.gmail.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_095554_575127_AC5873FE 
-X-CRM114-Status: GOOD (  21.65  )
+X-CRM114-CacheID: sfid-20250502_100731_511050_C0C4AB69 
+X-CRM114-Status: GOOD (  21.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,40 +110,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-05-02, Adam Ford wrote:
-> On Fri, May 2, 2025 at 10:10 AM Marco Felsch <m.felsch@pengutronix.de> wrote:
-> >
-> > The VPU_PLL clock must be set before the VPU_BUS clock which is derived
-> > from the VPU_PLL clock else the VPU_BUS clock is 300MHz and not 600MHz.
-> >
-> > Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
-> > ---
-> >  arch/arm64/boot/dts/freescale/imx8mp.dtsi | 4 ++--
-> >  1 file changed, 2 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> > index 97b09b647ec7..7f4bdefb3480 100644
-> > --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> > +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> > @@ -2289,8 +2289,8 @@ vpumix_blk_ctrl: blk-ctrl@38330000 {
-> >                                  <&clk IMX8MP_CLK_VPU_G2_ROOT>,
-> >                                  <&clk IMX8MP_CLK_VPU_VC8KE_ROOT>;
-> >                         clock-names = "g1", "g2", "vc8000e";
-> > -                       assigned-clocks = <&clk IMX8MP_CLK_VPU_BUS>, <&clk IMX8MP_VPU_PLL>;
-> > -                       assigned-clock-parents = <&clk IMX8MP_VPU_PLL_OUT>;
-> > +                       assigned-clocks = <&clk IMX8MP_VPU_PLL>, <&clk IMX8MP_CLK_VPU_BUS>;
-> > +                       assigned-clock-parents = <0>, <&clk IMX8MP_VPU_PLL_OUT>;
-> >                         assigned-clock-rates = <600000000>, <600000000>;
-> 
-> I think there was a move to make the default be overdrive [1]  and [2]
-> and use a 'nominal' device tree for those who are not in overdrive
-> mode.  According to the TRM, the VPU_BUS_CLK_ROOT, the nominal is
-> 600MHz and the overdrive is 800MHz.  Based on that, I wonder if the
-> values here should be 800MHz and if we should add the nominal values
-> of 600MHz to the imx8m-nominal.dtsi file.
+From: Rob Clark <robdclark@chromium.org>
 
-You're right, Ahamd and Lucas did change this. I will adapt it later on.
+In situations where mapping/unmapping squence can be controlled by
+userspace, attempting to map over a region that has not yet been
+unmapped is an error.  But not something that should spam dmesg.
 
-Regards,
-  Marco
+Now that there is a quirk, we can also drop the selftest_running
+flag, and use the quirk instead for selftests.
+
+Signed-off-by: Rob Clark <robdclark@chromium.org>
+---
+ drivers/iommu/io-pgtable-arm.c | 27 ++++++++++++++-------------
+ include/linux/io-pgtable.h     |  8 ++++++++
+ 2 files changed, 22 insertions(+), 13 deletions(-)
+
+diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
+index f27965caf6a1..a535d88f8943 100644
+--- a/drivers/iommu/io-pgtable-arm.c
++++ b/drivers/iommu/io-pgtable-arm.c
+@@ -253,8 +253,6 @@ static inline bool arm_lpae_concat_mandatory(struct io_pgtable_cfg *cfg,
+ 	       (data->start_level == 1) && (oas == 40);
+ }
+ 
+-static bool selftest_running = false;
+-
+ static dma_addr_t __arm_lpae_dma_addr(void *pages)
+ {
+ 	return (dma_addr_t)virt_to_phys(pages);
+@@ -373,7 +371,7 @@ static int arm_lpae_init_pte(struct arm_lpae_io_pgtable *data,
+ 	for (i = 0; i < num_entries; i++)
+ 		if (iopte_leaf(ptep[i], lvl, data->iop.fmt)) {
+ 			/* We require an unmap first */
+-			WARN_ON(!selftest_running);
++			WARN_ON(!(data->iop.cfg.quirks & IO_PGTABLE_QUIRK_NO_WARN_ON));
+ 			return -EEXIST;
+ 		} else if (iopte_type(ptep[i]) == ARM_LPAE_PTE_TYPE_TABLE) {
+ 			/*
+@@ -475,7 +473,7 @@ static int __arm_lpae_map(struct arm_lpae_io_pgtable *data, unsigned long iova,
+ 		cptep = iopte_deref(pte, data);
+ 	} else if (pte) {
+ 		/* We require an unmap first */
+-		WARN_ON(!selftest_running);
++		WARN_ON(!(cfg->quirks & IO_PGTABLE_QUIRK_NO_WARN_ON));
+ 		return -EEXIST;
+ 	}
+ 
+@@ -649,8 +647,10 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pgtable *data,
+ 	unmap_idx_start = ARM_LPAE_LVL_IDX(iova, lvl, data);
+ 	ptep += unmap_idx_start;
+ 	pte = READ_ONCE(*ptep);
+-	if (WARN_ON(!pte))
+-		return 0;
++	if (!pte) {
++		WARN_ON(!(data->iop.cfg.quirks & IO_PGTABLE_QUIRK_NO_WARN_ON));
++		return -ENOENT;
++	}
+ 
+ 	/* If the size matches this level, we're in the right place */
+ 	if (size == ARM_LPAE_BLOCK_SIZE(lvl, data)) {
+@@ -660,8 +660,10 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pgtable *data,
+ 		/* Find and handle non-leaf entries */
+ 		for (i = 0; i < num_entries; i++) {
+ 			pte = READ_ONCE(ptep[i]);
+-			if (WARN_ON(!pte))
++			if (!pte) {
++				WARN_ON(!(data->iop.cfg.quirks & IO_PGTABLE_QUIRK_NO_WARN_ON));
+ 				break;
++			}
+ 
+ 			if (!iopte_leaf(pte, lvl, iop->fmt)) {
+ 				__arm_lpae_clear_pte(&ptep[i], &iop->cfg, 1);
+@@ -976,7 +978,8 @@ arm_64_lpae_alloc_pgtable_s1(struct io_pgtable_cfg *cfg, void *cookie)
+ 	if (cfg->quirks & ~(IO_PGTABLE_QUIRK_ARM_NS |
+ 			    IO_PGTABLE_QUIRK_ARM_TTBR1 |
+ 			    IO_PGTABLE_QUIRK_ARM_OUTER_WBWA |
+-			    IO_PGTABLE_QUIRK_ARM_HD))
++			    IO_PGTABLE_QUIRK_ARM_HD |
++			    IO_PGTABLE_QUIRK_NO_WARN_ON))
+ 		return NULL;
+ 
+ 	data = arm_lpae_alloc_pgtable(cfg);
+@@ -1079,7 +1082,8 @@ arm_64_lpae_alloc_pgtable_s2(struct io_pgtable_cfg *cfg, void *cookie)
+ 	struct arm_lpae_io_pgtable *data;
+ 	typeof(&cfg->arm_lpae_s2_cfg.vtcr) vtcr = &cfg->arm_lpae_s2_cfg.vtcr;
+ 
+-	if (cfg->quirks & ~(IO_PGTABLE_QUIRK_ARM_S2FWB))
++	if (cfg->quirks & ~(IO_PGTABLE_QUIRK_ARM_S2FWB |
++			    IO_PGTABLE_QUIRK_NO_WARN_ON))
+ 		return NULL;
+ 
+ 	data = arm_lpae_alloc_pgtable(cfg);
+@@ -1320,7 +1324,6 @@ static void __init arm_lpae_dump_ops(struct io_pgtable_ops *ops)
+ #define __FAIL(ops, i)	({						\
+ 		WARN(1, "selftest: test failed for fmt idx %d\n", (i));	\
+ 		arm_lpae_dump_ops(ops);					\
+-		selftest_running = false;				\
+ 		-EFAULT;						\
+ })
+ 
+@@ -1336,8 +1339,6 @@ static int __init arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
+ 	size_t size, mapped;
+ 	struct io_pgtable_ops *ops;
+ 
+-	selftest_running = true;
+-
+ 	for (i = 0; i < ARRAY_SIZE(fmts); ++i) {
+ 		cfg_cookie = cfg;
+ 		ops = alloc_io_pgtable_ops(fmts[i], cfg, cfg);
+@@ -1426,7 +1427,6 @@ static int __init arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
+ 		free_io_pgtable_ops(ops);
+ 	}
+ 
+-	selftest_running = false;
+ 	return 0;
+ }
+ 
+@@ -1448,6 +1448,7 @@ static int __init arm_lpae_do_selftests(void)
+ 		.tlb = &dummy_tlb_ops,
+ 		.coherent_walk = true,
+ 		.iommu_dev = &dev,
++		.quirks = IO_PGTABLE_QUIRK_NO_WARN_ON,
+ 	};
+ 
+ 	/* __arm_lpae_alloc_pages() merely needs dev_to_node() to work */
+diff --git a/include/linux/io-pgtable.h b/include/linux/io-pgtable.h
+index bba2a51c87d2..639b8f4fb87d 100644
+--- a/include/linux/io-pgtable.h
++++ b/include/linux/io-pgtable.h
+@@ -88,6 +88,13 @@ struct io_pgtable_cfg {
+ 	 *
+ 	 * IO_PGTABLE_QUIRK_ARM_HD: Enables dirty tracking in stage 1 pagetable.
+ 	 * IO_PGTABLE_QUIRK_ARM_S2FWB: Use the FWB format for the MemAttrs bits
++	 *
++	 * IO_PGTABLE_QUIRK_NO_WARN_ON: Do not WARN_ON() on conflicting
++	 *	mappings, but silently return -EEXISTS.  Normally an attempt
++	 *	to map over an existing mapping would indicate some sort of
++	 *	kernel bug, which would justify the WARN_ON().  But for GPU
++	 *	drivers, this could be under control of userspace.  Which
++	 *	deserves an error return, but not to spam dmesg.
+ 	 */
+ 	#define IO_PGTABLE_QUIRK_ARM_NS			BIT(0)
+ 	#define IO_PGTABLE_QUIRK_NO_PERMS		BIT(1)
+@@ -97,6 +104,7 @@ struct io_pgtable_cfg {
+ 	#define IO_PGTABLE_QUIRK_ARM_OUTER_WBWA		BIT(6)
+ 	#define IO_PGTABLE_QUIRK_ARM_HD			BIT(7)
+ 	#define IO_PGTABLE_QUIRK_ARM_S2FWB		BIT(8)
++	#define IO_PGTABLE_QUIRK_NO_WARN_ON		BIT(9)
+ 	unsigned long			quirks;
+ 	unsigned long			pgsize_bitmap;
+ 	unsigned int			ias;
+-- 
+2.49.0
+
 
