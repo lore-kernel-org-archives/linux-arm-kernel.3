@@ -4,95 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E79EDC3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 22:35:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D25DBC3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 22:37:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gsfY0lV9E4GQej2w/iz2H9P9kYpTOHKDKPixk3yXVII=; b=mPKbmAmZhMDV0AzfBvJ+0q6hgI
-	IZagLIAsRFkX+uy45qKA+SeIJr9l9g2uHPdE3O/WwNJP6qsrUGwYq72sYvah+EeaBdVdyWJ8M+Ukp
-	sdA8CIgGMKcyNs+lKYw4pYzCTNVDfrmlbYR0HfrD8ldJuOdp2u+xXIfZPGb/1Mev3D1+lAkDPyza/
-	p1XWicX83iEp83+gxgxHzxvFcnofr2srnqyRdAM6qjTLktPgQKTxfB1QJz9HZsP3xIir5W5V+tJ6I
-	QhfOsM9RTyAwlNCTZ4kheLe7WbKFAVDbIQSSlXuvoSRKovymggM201Uo1wRfJBwosbWsia1jQSABb
-	/HYYU3KQ==;
+	bh=B2tx2IQgvWh1TIXdh1vMR8Nn5FUkPRu5erhCKyVXc5g=; b=DbDqYip3WfE2DkaXuXMVYk1SUk
+	ivebGwRi/vf5GNJnTdufajfM/8Zhb5lcH/L1JwsaAs2V92mJ3fNNBUEZQGZOFZrqsCzESWdRUvA26
+	7NRiGcg6aNznFkg5iuhk7MKBbF5Hi5sq9WebZU5429pZ5pPVZBM8IQ/5DDKsgnIcS7DRAVpfvxoNK
+	TeBwRROo9XOAfCD9CJsKryywQp8JAOehvql8jhcYuUZCrr0ksQ7Utmsy6+w+xcA9qNUpXKQXknPjO
+	VVTGtp2kc15bcc6WOZhmKviVqhHKTF5Vtr81zRNgMJLOiyDd2vgxQSMBcPNdPHI+PKe7LZW9sudJY
+	tPyt6iiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAyyP-00000003AoH-1TTH;
-	Fri, 02 May 2025 22:35:13 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1uAz0K-00000003AzL-08Py;
+	Fri, 02 May 2025 22:37:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAyVD-0000000384s-1crH
+	id 1uAylG-000000039g3-2Bhj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 22:05:04 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-74068f95d9fso72558b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 May 2025 15:05:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746223503; x=1746828303; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=gsfY0lV9E4GQej2w/iz2H9P9kYpTOHKDKPixk3yXVII=;
-        b=j4VqNQnlhJbjsfNCwfNxcSQgUSGq19lrQC0vgvH5NZ+zFDTCHJyjpITCMCYVLCgY/Z
-         YVRu0t1jldb56NrPrujoVJo7idWIl8HX2LjWP4mpjDgGun+iIMOJsI/2Dr7ry+LFE5wl
-         8k/kY2HtmJWefHOrjUF3psZkXtbmSN/t4eWFDvywzxzE0ydnNHEvPxuU8/W0lUP3lzub
-         VVo0oGH8XAqU0w286k9qH/2b+6P70ef1FV9qskhCUL5pit3VeXCj6ZmahDid5wXdaaNd
-         cTW50JNVegL+Wzj903SBYIHNkMWa6JF7YsIJl0+9e0PoPAzg8kW3eRWTvBai9c75ja6G
-         ADSA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746223503; x=1746828303;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=gsfY0lV9E4GQej2w/iz2H9P9kYpTOHKDKPixk3yXVII=;
-        b=sTJXFa2iCWXSQVdYLXtjtvZzped7MPWf6V2NaycgxgGSe0e4r6MsMiw5RIUMYilZii
-         GombvBZpxJj0OQOGFqNQMMS40re4BHqIFO4dJzVAjbLGyQ2FsmFK2+EM83KTGmYCRTKV
-         s1NJFTqRvbg/ASGXa/M+4iQski30rjRfdWc1GjKwkrITGSvP+FP8b51QaEX646oeMD2e
-         G7bB5NjfKheya7fjB3eE68vsaLr28RvlHhZ59khxFTUXpaK59gzdjO31TF5ev671dHqn
-         /u5vVqhDwl/n+Eo/p12dxkvIch7YMd/iXIfyOkHYuHgKOaYkYwnpZS3e8iAiRAGMD1G5
-         +UZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUG7wiIVSYC2l+2WLkmvszuhiXv2RfF4KIL2MHmqZPK+UlyqjlJ8n/EAGK8IPZZVV3O0VPs51aXnwJZlLWmkPPz@lists.infradead.org
-X-Gm-Message-State: AOJu0YxrmDPzCtT8UsSFmftlV0IlnGpof99o3xldartQRZX+oxq8oqb9
-	wyTMFYANiQO0UeQ7TXdVL5+Otog+12JzVBDqWOShAJnypQhDYEvj
-X-Gm-Gg: ASbGncvkgnpdJYqOVUq2bCBFXTubSC1FpK6T+LBDOgy5OzP8La5NdyBc2Fx26L4qW1w
-	ADJIkVQzsmEgwR4ARHS7QQuMP3pfGl7NF2J3mXgq1rXiOTwuqeveWZ4ZbnUrUwao7lecSnBF/59
-	UXpVsAImrQ+fz55dJDZFWUhnnmSB2biSnXSmmafwpXHmgg1PtEzYa4NB9aIskj0OA6DOiei1rVg
-	YqxzMNiYVSX0x+xZrJ4qh0rPdZW+qbsLVGsvvD96gMBaeEJKY7JAlr9TPgaQhIKN1VBOHAwq3CM
-	Ph3Y9zaU/HXeJn4SkyHL0MH1GOO5gh+lpr7+/go+lajK3h+m0248YQrYX661Uy4=
-X-Google-Smtp-Source: AGHT+IEIHdpKHHp0Jwn7v/qswP5sSpR+7kBroeMagApShsPV6L42FJ5hXjpTpVflWJhXlFGCaYxMhw==
-X-Received: by 2002:a05:6a21:6b86:b0:1f5:8153:93fb with SMTP id adf61e73a8af0-20cde8575f6mr5246810637.10.1746223502909;
-        Fri, 02 May 2025 15:05:02 -0700 (PDT)
-Received: from NB-GIGA003.letovo.school ([5.194.95.139])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b1fb3c48ac4sm1301153a12.55.2025.05.02.15.04.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 May 2025 15:05:02 -0700 (PDT)
-From: Alexey Charkov <alchark@gmail.com>
-Date: Sat, 03 May 2025 02:04:25 +0400
-Subject: [PATCH v2 3/3] ARM: dts: vt8500: add DT nodes for the system
- config ID register
+	Fri, 02 May 2025 22:21:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D17496844F;
+	Fri,  2 May 2025 22:21:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 341B1C4CEE4;
+	Fri,  2 May 2025 22:21:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746224497;
+	bh=Wkl/xCbUI7do4AVTMYybZh5OgAcqp0zypayddyCDUA8=;
+	h=From:To:In-Reply-To:References:Subject:Date:From;
+	b=uePdJnZqFALHxuAlpLfwRmV4/KsfUtSVZ0inrPLOQKQfWgkhvLnfGXF520tJGwvk+
+	 o3RefBoOsJv8okJCeGSONP5zPaGRkN+FbwsmxQPjBw59eBUxDjIjVcUG3rg4Jd8uQ+
+	 TtuSLZ6RSLTPWyYMuvrnR8rWxFPwe0jXFf18RNhqkwnuaRtfdDhY4lebjCYBDQm6BX
+	 rvdamVo4MqvfWtWHTHvLelMLxu3rv+YgFTt1Yw4ZkrKLTpW535gxZ7tDOR+jr5uSTi
+	 OLLGc/dNzjaqQdVLmu6i3I4zUVL5FhUcJRrGl3aOwPaAuL8QNTKZYZ0+Yk22x3Wk49
+	 PfGPoqKUD8JtA==
+From: Mark Brown <broonie@kernel.org>
+To: shengjiu.wang@gmail.com, Xiubo.Lee@gmail.com, festevam@gmail.com, 
+ nicoleotsuka@gmail.com, lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com, 
+ shawnguo@kernel.org, s.hauer@pengutronix.de, linux-sound@vger.kernel.org, 
+ linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Chancel Liu <chancel.liu@nxp.com>
+In-Reply-To: <20250421105701.2273588-1-chancel.liu@nxp.com>
+References: <20250421105701.2273588-1-chancel.liu@nxp.com>
+Subject: Re: [PATCH 1/2] ASoC: fsl_rpmsg: Configure CPU DAI for card that
+ sits on rpmsg-micfil-channel
+Message-Id: <174622449321.4079618.327380910498912102.b4-ty@kernel.org>
+Date: Sat, 03 May 2025 07:21:33 +0900
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250503-wmt-soc-driver-v2-3-8c774ad84d47@gmail.com>
-References: <20250503-wmt-soc-driver-v2-0-8c774ad84d47@gmail.com>
-In-Reply-To: <20250503-wmt-soc-driver-v2-0-8c774ad84d47@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Alexey Charkov <alchark@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1746223484; l=3308;
- i=alchark@gmail.com; s=20250416; h=from:subject:message-id;
- bh=dWBUq8bBWa8P3YO4Zzb1jAw2fF/9zbTcQ/3MFoyjWSY=;
- b=CdXpquQvvaMvwd0gcmXPZLNq+z5O4wX4uzNPsvinL/S+zR46NynHev1DlfM1FVWwry826+djS
- lMlJuAeRroJBBILdR0gJkSvp7YJvYjQC6WVmUABZJYFkPQiz08/gdvd
-X-Developer-Key: i=alchark@gmail.com; a=ed25519;
- pk=ltKbQzKLTJPiDgPtcHxdo+dzFthCCMtC3V9qf7+0rkc=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_150503_435867_4AA56CC7 
-X-CRM114-Status: GOOD (  11.44  )
+X-Mailer: b4 0.15-dev-c25d1
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,102 +73,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Every VIA/WonderMedia SoC has a 32-bit chip ID register at the
-MMIO address 0xd8120000. Add respective device tree nodes to let
-the system code access it at runtime for the selection of appropriate
-hardware quirks where needed.
+On Mon, 21 Apr 2025 19:57:00 +0900, Chancel Liu wrote:
+> Sound card that sits on rpmsg-micfil-channel has different settings on
+> CPU DAI.
+> 
+> 
 
-Signed-off-by: Alexey Charkov <alchark@gmail.com>
----
- arch/arm/boot/dts/vt8500/vt8500.dtsi | 5 +++++
- arch/arm/boot/dts/vt8500/wm8505.dtsi | 5 +++++
- arch/arm/boot/dts/vt8500/wm8650.dtsi | 5 +++++
- arch/arm/boot/dts/vt8500/wm8750.dtsi | 5 +++++
- arch/arm/boot/dts/vt8500/wm8850.dtsi | 5 +++++
- 5 files changed, 25 insertions(+)
+Applied to
 
-diff --git a/arch/arm/boot/dts/vt8500/vt8500.dtsi b/arch/arm/boot/dts/vt8500/vt8500.dtsi
-index 09f5ed3e6821b72fc440f9de3df0ad484d2c4e17..2ba021585d4889f29777a12473964c29f999f3a0 100644
---- a/arch/arm/boot/dts/vt8500/vt8500.dtsi
-+++ b/arch/arm/boot/dts/vt8500/vt8500.dtsi
-@@ -55,6 +55,11 @@ pinctrl: pinctrl@d8110000 {
- 			#gpio-cells = <2>;
- 		};
- 
-+		chipid@d8120000 {
-+			compatible = "via,vt8500-scc-id";
-+			reg = <0xd8120000 0x4>;
-+		};
-+
- 		pmc@d8130000 {
- 			compatible = "via,vt8500-pmc";
- 			reg = <0xd8130000 0x1000>;
-diff --git a/arch/arm/boot/dts/vt8500/wm8505.dtsi b/arch/arm/boot/dts/vt8500/wm8505.dtsi
-index c81810b967bb349419a5ac7db4e788faec3695fb..99c064c916b2279797f71261ca9306e9dcd4bbd8 100644
---- a/arch/arm/boot/dts/vt8500/wm8505.dtsi
-+++ b/arch/arm/boot/dts/vt8500/wm8505.dtsi
-@@ -66,6 +66,11 @@ pinctrl: pinctrl@d8110000 {
- 			#gpio-cells = <2>;
- 		};
- 
-+		chipid@d8120000 {
-+			compatible = "via,vt8500-scc-id";
-+			reg = <0xd8120000 0x4>;
-+		};
-+
- 		pmc@d8130000 {
- 			compatible = "via,vt8500-pmc";
- 			reg = <0xd8130000 0x1000>;
-diff --git a/arch/arm/boot/dts/vt8500/wm8650.dtsi b/arch/arm/boot/dts/vt8500/wm8650.dtsi
-index 555008120a3e315591d2ca49a39d354925d570fd..0d6c7bd87f7dcce0eef056d04c38ab1de5d52639 100644
---- a/arch/arm/boot/dts/vt8500/wm8650.dtsi
-+++ b/arch/arm/boot/dts/vt8500/wm8650.dtsi
-@@ -62,6 +62,11 @@ pinctrl: pinctrl@d8110000 {
- 			#gpio-cells = <2>;
- 		};
- 
-+		chipid@d8120000 {
-+			compatible = "via,vt8500-scc-id";
-+			reg = <0xd8120000 0x4>;
-+		};
-+
- 		pmc@d8130000 {
- 			compatible = "via,vt8500-pmc";
- 			reg = <0xd8130000 0x1000>;
-diff --git a/arch/arm/boot/dts/vt8500/wm8750.dtsi b/arch/arm/boot/dts/vt8500/wm8750.dtsi
-index 309f6e5129fb817d343cd58a8d90340afd8d6eb9..0158c0ba5dd110957eac38775d3bf3ebd2ab4154 100644
---- a/arch/arm/boot/dts/vt8500/wm8750.dtsi
-+++ b/arch/arm/boot/dts/vt8500/wm8750.dtsi
-@@ -68,6 +68,11 @@ pinctrl: pinctrl@d8110000 {
- 			#gpio-cells = <2>;
- 		};
- 
-+		chipid@d8120000 {
-+			compatible = "via,vt8500-scc-id";
-+			reg = <0xd8120000 0x4>;
-+		};
-+
- 		pmc@d8130000 {
- 			compatible = "via,vt8500-pmc";
- 			reg = <0xd8130000 0x1000>;
-diff --git a/arch/arm/boot/dts/vt8500/wm8850.dtsi b/arch/arm/boot/dts/vt8500/wm8850.dtsi
-index 3f4a514d65e2ac7658b73cc9c4f3cae1407265bc..c4bfb4d30aad0358b39cbf30edf0c63e32167bbd 100644
---- a/arch/arm/boot/dts/vt8500/wm8850.dtsi
-+++ b/arch/arm/boot/dts/vt8500/wm8850.dtsi
-@@ -65,6 +65,11 @@ pinctrl: pinctrl@d8110000 {
- 			#gpio-cells = <2>;
- 		};
- 
-+		chipid@d8120000 {
-+			compatible = "via,vt8500-scc-id";
-+			reg = <0xd8120000 0x4>;
-+		};
-+
- 		pmc@d8130000 {
- 			compatible = "via,vt8500-pmc";
- 			reg = <0xd8130000 0x1000>;
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
 
--- 
-2.49.0
+Thanks!
+
+[1/2] ASoC: fsl_rpmsg: Configure CPU DAI for card that sits on rpmsg-micfil-channel
+      commit: 17fa55fe77d8234131ce0728a735da6dea19acd5
+[2/2] ASoC: fsl_rpmsg: Allocate a smaller buffer size for capture stream
+      commit: 2056d7a7df5d9a08144671afccb6970ccd595b89
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
