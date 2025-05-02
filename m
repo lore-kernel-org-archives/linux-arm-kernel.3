@@ -4,70 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 627DCC3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 21:18:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D485FC3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 21:38:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JbNhQBYnEdEg2Y4rui76TMJ+OL5KtDo/xEGr//biWf0=; b=nCcOfLAOmnFovMVtQOcXsTY/pW
-	8Gih7lT27OddEohOs0ZsNikqU6VNvqVBm7BAPtTGxFQrNSkP1akPIlB6RxZErg8xmkYGa02NaZ1JG
-	2qQykpiz1pgp6YVJjVGSXRzxSIMr7DpN2fucJ3cGK0x8bYyouhDA9uJ+gCPrck4WasqcR1X+xan1t
-	mZbOOq/9zEuKWeMMNncIdkTV9y7YoWtyeV8dheuJ+VzLHiV3rEIyhErsxQJsdIKAOret+MPcJiSqQ
-	THIl+3Orf5aXsRqWF7PfHECXvET8nkXVwmD2y6OxObl8gCQFgJRK1MPXO6/DX79R6myU5RWMP8l9I
-	fQ+AntqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f+O3P77Dqp9BgDVNcymDQyVbwMHsKZYmEmFhWL+CGe0=; b=CyETewK14zs1fCvfbn9h84ENpe
+	4Nkb4CoYlCQUpiBK0t4ciOZd7Pii62a1MIVbBZBQqLQcmXQ5Axis/tNuztHHFWPOi5NKm7XCQsao+
+	51qJm0ccLj5Qd/QHb71c/ouup/JUDyTUVbm3y8PRVnvYbZ1jXzJEf8RfX1KXb95+yuo5PjbBq+dM2
+	yOBNoZmnI8lP39TZZMDBokLjdDPhG2E5CdxybLwarAR9aKmneGyf7JDYcoMT8TjDuHeLLiaf6OVoP
+	hOaqEFYFCazTuO3zogt9HiVLXKeclKrfzCtWBL27Gma0TsM9jBwSlIovHrrSRJ1qFpiuXOE/fmny6
+	GwB4p41w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAxmI-000000033pM-1JRs;
-	Fri, 02 May 2025 21:18:38 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uAy5a-0000000355N-0TeK;
+	Fri, 02 May 2025 21:38:34 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAxkM-000000033ft-2O89;
-	Fri, 02 May 2025 21:16:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C16A16844F;
-	Fri,  2 May 2025 21:16:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78DFEC4CEE4;
-	Fri,  2 May 2025 21:16:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746220597;
-	bh=kzsN5X5daKdANNax1/r/iY9EohjZTKAy76Q08oyT2VE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GK65252choMKHsOuLDuV4K7qmKnN7fPQ6tHc/J83IS0AgNj5kQar2z31XQL1Hozvj
-	 VZap9E+kzyJhOEaLWv7W/dH0F3IDMpwfL8v75SFOq7GZbntAB2zUga29FgDz7jNkUy
-	 HJYg6XHrJPV5Q+PBuUwzmN8lDl6dPHm2M1KWxgTJV3jY1gmxUbmNL48CyPxNoXbxvZ
-	 mL4e6BLMHzI43/Fvxz6B/d2Ohkv5EFpwH63gQpqDrKE2aXHw16P7khFZPy/UZa7A/X
-	 iX+2EobXIhe0vYOQ8U6EcHv87lemL+O9yJbAa+R/CyquCcAu2DP0WopdD4W6LkR573
-	 H/unhCL4q+ijw==
-Date: Sat, 3 May 2025 00:16:21 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Dave Hansen <dave.hansen@intel.com>
+	id 1uAy3d-000000034vD-2V1X;
+	Fri, 02 May 2025 21:36:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1746221793; x=1777757793;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=yGXalRNqfxRtXQ2JtLbUw9sW9Gy9K1M0ILzwPvTQPqE=;
+  b=dgMRPlK6cDPLxRu4oCtu5zQNo4pz67yo11kXC22SAqKZ51KXg8lcoz20
+   Lu5ZEpvzFyAJe6DYD9kQxkTt9Zhaigpuru6dRmzmFeTZLofTOzKpZKsTW
+   QY6H+JAiL5mjQlW0kyztCGRyxT4Uq3JacVTiMcrBNbQRNCgCi7Dx664Gc
+   YNeAuaN57ClSLnXJKGqkS2XJetSuSRLun6yJPIi/MeMiDRNpLjG/A8y3R
+   QEZl/MVr2SyOeVStJWmRTUyH4CUvH4RQdSSzHEOpilnX/1cSKA2/VJ0RV
+   VN+Pt7qammEeGAZp6YMvF2EWGipNR6+8oyY/zlwHQXHX/DY1z2R+Weae7
+   A==;
+X-CSE-ConnectionGUID: ukTQkRMNTXyeficGIykacw==
+X-CSE-MsgGUID: bXKWs0R4TcytbsYK6iEp3w==
+X-IronPort-AV: E=McAfee;i="6700,10204,11421"; a="47628487"
+X-IronPort-AV: E=Sophos;i="6.15,257,1739865600"; 
+   d="scan'208";a="47628487"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 May 2025 14:36:30 -0700
+X-CSE-ConnectionGUID: 0tv1uZKCRtiDDNTIFxekOA==
+X-CSE-MsgGUID: k8wn7LtvTyWv46JNpypiLg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,257,1739865600"; 
+   d="scan'208";a="171986956"
+Received: from bjrankin-mobl3.amr.corp.intel.com (HELO [10.124.220.153]) ([10.124.220.153])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 May 2025 14:36:28 -0700
+Message-ID: <d6c09132-05bb-481a-93dd-8e9d664981ae@intel.com>
+Date: Fri, 2 May 2025 14:36:25 -0700
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 14/18] x86/boot: make sure KASLR does not step over KHO
+ preserved memory
+To: Mike Rapoport <rppt@kernel.org>
 Cc: Changyuan Lyu <changyuanl@google.com>, linux-kernel@vger.kernel.org,
-	akpm@linux-foundation.org, anthony.yznaga@oracle.com, arnd@arndb.de,
-	ashish.kalra@amd.com, benh@kernel.crashing.org, bp@alien8.de,
-	catalin.marinas@arm.com, corbet@lwn.net,
-	dave.hansen@linux.intel.com, devicetree@vger.kernel.org,
-	dwmw2@infradead.org, ebiederm@xmission.com, graf@amazon.com,
-	hpa@zytor.com, jgowans@amazon.com, kexec@lists.infradead.org,
-	krzk@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, luto@kernel.org,
-	mark.rutland@arm.com, mingo@redhat.com, pasha.tatashin@soleen.com,
-	pbonzini@redhat.com, peterz@infradead.org, ptyadav@amazon.de,
-	robh@kernel.org, rostedt@goodmis.org, saravanak@google.com,
-	skinsburskii@linux.microsoft.com, tglx@linutronix.de,
-	thomas.lendacky@amd.com, will@kernel.org, x86@kernel.org
-Subject: Re: [PATCH v7 14/18] x86/boot: make sure KASLR does not step over
- KHO preserved memory
-Message-ID: <aBU2JQRKXjqoFClQ@kernel.org>
+ akpm@linux-foundation.org, anthony.yznaga@oracle.com, arnd@arndb.de,
+ ashish.kalra@amd.com, benh@kernel.crashing.org, bp@alien8.de,
+ catalin.marinas@arm.com, corbet@lwn.net, dave.hansen@linux.intel.com,
+ devicetree@vger.kernel.org, dwmw2@infradead.org, ebiederm@xmission.com,
+ graf@amazon.com, hpa@zytor.com, jgowans@amazon.com,
+ kexec@lists.infradead.org, krzk@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-mm@kvack.org, luto@kernel.org, mark.rutland@arm.com, mingo@redhat.com,
+ pasha.tatashin@soleen.com, pbonzini@redhat.com, peterz@infradead.org,
+ ptyadav@amazon.de, robh@kernel.org, rostedt@goodmis.org,
+ saravanak@google.com, skinsburskii@linux.microsoft.com, tglx@linutronix.de,
+ thomas.lendacky@amd.com, will@kernel.org, x86@kernel.org
 References: <20250501225425.635167-1-changyuanl@google.com>
  <20250501225425.635167-15-changyuanl@google.com>
  <c348c507-c06b-4611-87f4-c498e144fa45@intel.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c348c507-c06b-4611-87f4-c498e144fa45@intel.com>
+ <aBU2JQRKXjqoFClQ@kernel.org>
+From: Dave Hansen <dave.hansen@intel.com>
+Content-Language: en-US
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <aBU2JQRKXjqoFClQ@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250502_143633_711825_6C6DA802 
+X-CRM114-Status: GOOD (  11.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,91 +142,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 02, 2025 at 11:48:54AM -0700, Dave Hansen wrote:
-> On 5/1/25 15:54, Changyuan Lyu wrote:
-> > +/*
-> > + * If KHO is active, only process its scratch areas to ensure we are not
-> > + * stepping onto preserved memory.
-> > + */
-> > +#ifdef CONFIG_KEXEC_HANDOVER
-> > +static bool process_kho_entries(unsigned long minimum, unsigned long image_size)
-> > +{
-> 
-> I thought we agreed to rework this to unconditionally define the
-> kho_scratch structures so the #ifdef can go away?
+On 5/2/25 14:16, Mike Rapoport wrote:
+>>> +/*
+>>> + * If KHO is active, only process its scratch areas to ensure we are not
+>>> + * stepping onto preserved memory.
+>>> + */
+>>> +#ifdef CONFIG_KEXEC_HANDOVER
+>>> +static bool process_kho_entries(unsigned long minimum, unsigned long image_size)
+>>> +{
+>> I thought we agreed to rework this to unconditionally define the
+>> kho_scratch structures so the #ifdef can go away?
+> It's either #ifdef or double casting and my understanding was that your
+> preference was to get rid of the double casting.
 
-It's either #ifdef or double casting and my understanding was that your
-preference was to get rid of the double casting.
- 
-> > +	struct kho_scratch *kho_scratch;
-> > +	struct setup_data *ptr;
-> > +	int i, nr_areas = 0;
-> > +
-> > +	ptr = (struct setup_data *)boot_params_ptr->hdr.setup_data;
-> > +	while (ptr) {
-> > +		if (ptr->type == SETUP_KEXEC_KHO) {
-> > +			struct kho_data *kho = (struct kho_data *)ptr->data;
-> > +
-> > +			kho_scratch = (void *)kho->scratch_addr;
-> > +			nr_areas = kho->scratch_size / sizeof(*kho_scratch);
-> > +
-> > +			break;
-> > +		}
-> > +
-> > +		ptr = (struct setup_data *)ptr->next;
-> > +	}
-> > +
-> > +	if (!nr_areas)
-> > +		return false;
-> > +
-> > +	for (i = 0; i < nr_areas; i++) {
-> > +		struct kho_scratch *area = &kho_scratch[i];
-> > +		struct mem_vector region = {
-> > +			.start = area->addr,
-> > +			.size = area->size,
-> > +		};
-> > +
-> > +		if (process_mem_region(&region, minimum, image_size))
-> > +			break;
-> > +	}
-> > +
-> > +	return true;
-> > +}
-> > +#else
-> > +static inline bool process_kho_entries(unsigned long minimum,
-> > +				       unsigned long image_size)
-> > +{
-> > +	return false;
-> > +}
-> > +#endif
-> > +
-> >  static unsigned long find_random_phys_addr(unsigned long minimum,
-> >  					   unsigned long image_size)
-> >  {
-> > @@ -775,7 +824,8 @@ static unsigned long find_random_phys_addr(unsigned long minimum,
-> >  		return 0;
-> >  	}
-> >  
-> > -	if (!process_efi_entries(minimum, image_size))
-> > +	if (!process_kho_entries(minimum, image_size) &&
-> > +	    !process_efi_entries(minimum, image_size))
-> >  		process_e820_entries(minimum, image_size);
-> >  
-> >  	phys_addr = slots_fetch_random();
-> 
-> I made a comment about this in the last round, making this the second
-> thing that I've noticed that was not addressed.
-> 
-> Could you please go back through the last round of comments before you
-> repost these?
+Looking back at the other message... Sorry, you did make it clear there
+and it just didn't penetrate my thick skull.
 
-I presumed that changelog covers it. We'll add a comment here for the next
-posting.
- 
-> Just to be clear: these are making progress, but they're not OK from the
-> x86 side yet.
+The double cast is goofy, but it does seem to be the normal way of doing
+things. There are lots of examples of it. So, grudgingly, I prefer the
+double cast over the #ifdef.
 
--- 
-Sincerely yours,
-Mike.
+BTW, _please_ changelog this stuff. It would have saved this round of
+back-and-forth. The changelog is the perfect place to say something like:
+
+	This looks goofy out of context, but it is unfortunately the way
+	that this is handled across the tree. There are at least a dozen
+	instances of casting like this.
+
+This series is generally a bit sparse in the changelog and comment
+departments.
 
