@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D25DBC3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 22:37:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBBEFC3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 23:29:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B2tx2IQgvWh1TIXdh1vMR8Nn5FUkPRu5erhCKyVXc5g=; b=DbDqYip3WfE2DkaXuXMVYk1SUk
-	ivebGwRi/vf5GNJnTdufajfM/8Zhb5lcH/L1JwsaAs2V92mJ3fNNBUEZQGZOFZrqsCzESWdRUvA26
-	7NRiGcg6aNznFkg5iuhk7MKBbF5Hi5sq9WebZU5429pZ5pPVZBM8IQ/5DDKsgnIcS7DRAVpfvxoNK
-	TeBwRROo9XOAfCD9CJsKryywQp8JAOehvql8jhcYuUZCrr0ksQ7Utmsy6+w+xcA9qNUpXKQXknPjO
-	VVTGtp2kc15bcc6WOZhmKviVqhHKTF5Vtr81zRNgMJLOiyDd2vgxQSMBcPNdPHI+PKe7LZW9sudJY
-	tPyt6iiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4VaA2EBR23Gg0uiDxj4kInUKcjTT6f0pzmHykuc41O8=; b=USK3BuTJpBCyVxillvoc2gU+tN
+	oSW0Ab2Cld9dcD0A9bqeQRY6mXMrX4sFDb7fby+UfEaYW1AdoMMMzVlvHoDi8QU3WOSThLnaGVdt3
+	53tc+jZUC/tWAmkW1E/hazXvQtNWymcgF+YT7YDLAA4yX5xMutFQbW8Qk/gCriJQKowZZegSfmaOZ
+	x0GiTe0ghsr96Xg/Tap1tFyd85/wcU6dxJyNESn7DwRkrp4HFpxn2netBP18hhvIEirMnZCjPF5Sa
+	OsxpZioKsWoBTTx4vDdambexFOOURQK2yUD6r2GlwqYoyXde4BPIqZM9Rd1QmmPVxrfkehiLgPB2X
+	1lY8dMwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAz0K-00000003AzL-08Py;
-	Fri, 02 May 2025 22:37:12 +0000
+	id 1uAzog-00000003E2O-18za;
+	Fri, 02 May 2025 23:29:14 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAylG-000000039g3-2Bhj
+	id 1uAzml-00000003DtT-2rgl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 22:21:38 +0000
+	Fri, 02 May 2025 23:27:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D17496844F;
-	Fri,  2 May 2025 22:21:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 341B1C4CEE4;
-	Fri,  2 May 2025 22:21:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 003946844F;
+	Fri,  2 May 2025 23:26:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07F84C4CEE4;
+	Fri,  2 May 2025 23:27:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746224497;
-	bh=Wkl/xCbUI7do4AVTMYybZh5OgAcqp0zypayddyCDUA8=;
-	h=From:To:In-Reply-To:References:Subject:Date:From;
-	b=uePdJnZqFALHxuAlpLfwRmV4/KsfUtSVZ0inrPLOQKQfWgkhvLnfGXF520tJGwvk+
-	 o3RefBoOsJv8okJCeGSONP5zPaGRkN+FbwsmxQPjBw59eBUxDjIjVcUG3rg4Jd8uQ+
-	 TtuSLZ6RSLTPWyYMuvrnR8rWxFPwe0jXFf18RNhqkwnuaRtfdDhY4lebjCYBDQm6BX
-	 rvdamVo4MqvfWtWHTHvLelMLxu3rv+YgFTt1Yw4ZkrKLTpW535gxZ7tDOR+jr5uSTi
-	 OLLGc/dNzjaqQdVLmu6i3I4zUVL5FhUcJRrGl3aOwPaAuL8QNTKZYZ0+Yk22x3Wk49
-	 PfGPoqKUD8JtA==
-From: Mark Brown <broonie@kernel.org>
-To: shengjiu.wang@gmail.com, Xiubo.Lee@gmail.com, festevam@gmail.com, 
- nicoleotsuka@gmail.com, lgirdwood@gmail.com, perex@perex.cz, tiwai@suse.com, 
- shawnguo@kernel.org, s.hauer@pengutronix.de, linux-sound@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Chancel Liu <chancel.liu@nxp.com>
-In-Reply-To: <20250421105701.2273588-1-chancel.liu@nxp.com>
-References: <20250421105701.2273588-1-chancel.liu@nxp.com>
-Subject: Re: [PATCH 1/2] ASoC: fsl_rpmsg: Configure CPU DAI for card that
- sits on rpmsg-micfil-channel
-Message-Id: <174622449321.4079618.327380910498912102.b4-ty@kernel.org>
-Date: Sat, 03 May 2025 07:21:33 +0900
-MIME-Version: 1.0
+	s=k20201202; t=1746228433;
+	bh=Hnnqy6HQL4YnWgXmdwGS2nXyeFF+0Q2siOEdENo0eRE=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=O5/hYGlwnpYBhK7zltWWNWHhyUeP4nWKOb1C/zslmwVclYQGqN7i9vRYueYPJhR6Z
+	 ehCV4KMCIeOFP9Mo/bg+rsW9biuZRwxeCKWW2S+jOU4w5sVLk/V7DfVi5EAWo8qvCw
+	 jqy/lMlsXljitEhZE1/VFuopq8tvskoO36k761OqopeQ6swptHOaIEvHuc71cLajiO
+	 QgQDkzJkFlJ7lv7YuQInJnfbN7VA3AkKMupfDwWfL8x0vAoZHqsSd1/M9lIQgSzrpA
+	 qgyDmokeEB7X1UqUOvlIIdZxbezW/WLVEd2bpe4b5R8g3UpWrzm5xWCwdER7zRUBp2
+	 RRpGSX7AlHVuQ==
+Date: Fri, 02 May 2025 18:27:11 -0500
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-c25d1
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+ linux-kernel@vger.kernel.org
+To: Alexey Charkov <alchark@gmail.com>
+In-Reply-To: <20250503-wmt-soc-driver-v2-1-8c774ad84d47@gmail.com>
+References: <20250503-wmt-soc-driver-v2-0-8c774ad84d47@gmail.com>
+ <20250503-wmt-soc-driver-v2-1-8c774ad84d47@gmail.com>
+Message-Id: <174622843145.3029685.15692022572710133575.robh@kernel.org>
+Subject: Re: [PATCH v2 1/3] dt-bindings: soc: Add VIA/WonderMedia SoC
+ identification
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,40 +72,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 21 Apr 2025 19:57:00 +0900, Chancel Liu wrote:
-> Sound card that sits on rpmsg-micfil-channel has different settings on
-> CPU DAI.
+
+On Sat, 03 May 2025 02:04:23 +0400, Alexey Charkov wrote:
+> VIA/WonderMedia SoC's have a chip ID register inside their system
+> configuration controller space, which can be used to identify
+> appropriate hardware quirks at runtime. Add binding for it.
 > 
+> Signed-off-by: Alexey Charkov <alchark@gmail.com>
+> ---
+>  .../bindings/hwinfo/via,vt8500-scc-id.yaml         | 37 ++++++++++++++++++++++
+>  1 file changed, 37 insertions(+)
 > 
 
-Applied to
+My bot found errors running 'make dt_binding_check' on your patch:
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+yamllint warnings/errors:
 
-Thanks!
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/hwinfo/via,vt8500-scc-id.yaml: $id: Cannot determine base path from $id, relative path/filename doesn't match actual path or filename
+ 	 $id: http://devicetree.org/schemas/soc/vt8500/via,vt8500-scc-id.yaml
+ 	file: /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/hwinfo/via,vt8500-scc-id.yaml
 
-[1/2] ASoC: fsl_rpmsg: Configure CPU DAI for card that sits on rpmsg-micfil-channel
-      commit: 17fa55fe77d8234131ce0728a735da6dea19acd5
-[2/2] ASoC: fsl_rpmsg: Allocate a smaller buffer size for capture stream
-      commit: 2056d7a7df5d9a08144671afccb6970ccd595b89
+doc reference errors (make refcheckdocs):
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250503-wmt-soc-driver-v2-1-8c774ad84d47@gmail.com
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+pip3 install dtschema --upgrade
 
-Thanks,
-Mark
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
