@@ -4,59 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAEF9C3ABA3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 06:41:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28181C3ABA9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 06:46:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e3mbucpkgZ2WSwKMpm4B16Ym8Ab1VlTN9p2Q5t/6Cx0=; b=oqO1yTWNr+P+El6SSC0rd5Myl1
-	t9urqvB6k4bO37TvC39dgdMK0wGEtKLKW+ZhkR4CDubcOStSLjhYcVt7P7F2ZuRS+BmAC4nnPnbug
-	syQBTvtd7DgFz5IRDsf1MZwk+MVgJ3MG+kNkEjBCNj49a6fk+cWcuqTbPICUoMnu6HGRDZe/y/tcC
-	x9qXHkDI4m7iDIExGJWpz6ojRPxKpwv4UigOFuqwaYplnjg+IeWB8D/ZJDd3LXlFJ3PM9mhbCx4wH
-	VYHf7Y8WkIGGnJ31CX4UJLMWWLlN8onceizqvbjGd+wPu3oLS95jPMGYiiUS7YQcNO7HHJkkHQIJa
-	mHxvrllA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e1XZzAelGg59OXYgUwWadumjNHVVLRvZFfU/XqwumSI=; b=TdJ75mA8hqSSh8yyxv8l7+sqRo
+	faf14e9zsJwoeWuj2kFX0DW3npjsaOpUYcmmO9/DVLCt6unCW5D2Y9hAMjM9ELs8fALlGHvYQvoc0
+	0vv84bv5l8Y7FipAXYhPcosF11YsNst4Pp7nQo8rfu17fHa4QraWOPrcHJk0hLHzy/rfNuhXkTR33
+	Prid1bNrUoVtoA4RGM/6o1E2xTN1iuAPJVg2K1aX2rSB4SpKIeRw2nE8tz2xBuc/CZRWsnvEbyLpz
+	a8pvl2nDXS16thYwWGVjeHgJPVCH8k8zXA5dGrTXKc+Gi8By1SXvao84PPI1+5baOkgNuU3siy3Sw
+	5AYx4rDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAk59-000000010Iv-3Egh;
-	Fri, 02 May 2025 06:41:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAk3D-000000010AE-0jA8
+	id 1uAk9f-000000010jZ-46GO;
+	Fri, 02 May 2025 06:45:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uAk7j-000000010Ws-0tFA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 06:39:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8CD9C106F;
-	Thu,  1 May 2025 23:38:55 -0700 (PDT)
-Received: from [10.163.80.122] (unknown [10.163.80.122])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 20E023F66E;
-	Thu,  1 May 2025 23:38:58 -0700 (PDT)
-Message-ID: <063577a4-1530-4658-9838-934b0606e8e0@arm.com>
-Date: Fri, 2 May 2025 12:08:55 +0530
+	Fri, 02 May 2025 06:43:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 08F3060007;
+	Fri,  2 May 2025 06:43:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74B57C4CEE4;
+	Fri,  2 May 2025 06:43:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746168228;
+	bh=BNeIriVD+Uk78B5K73mGwjQJ3XL7k7AuZMqD6Ps9t6E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=o+vtIvnAfYip84JAymD4Mblyrfer/CJjrWWSEtCM38NzLGkdsCsXWoTLXtYwt9vlx
+	 FfdZoVHxtUDjrXMvm6etjr0pMbqoiHnK6iW+RBfZP9Om0aB2zny/n1hu1U9xFUKcVG
+	 3taFqslrWueauTtmSNlqPEQOENTlIokoPiTtb23TXQ/peM2oi2lOgDeP26RSlIDJEG
+	 nFP1mqrGgEyoxpLqF1rlSB4lvVcWGJYtTWnycfawUv8fi9U5Bvr+rWICxCa9cPhbEN
+	 HWRL29bb/UuXooS+EN9PplCVfagwIZmoiYhIlxTQd0mguZdnzoyRWqiksW0H0Q7Hus
+	 R1GhC/EEbNSOw==
+Date: Fri, 2 May 2025 08:43:45 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Mao Jinlong <quic_jinlmao@quicinc.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] dt-bindings: arm: Add Qualcomm extended CTI
+Message-ID: <20250502-notorious-granite-gibbon-1abf15@kuoka>
+References: <20250429071841.1158315-1-quic_jinlmao@quicinc.com>
+ <20250429071841.1158315-2-quic_jinlmao@quicinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 6/9] coresight: Avoid enable programming clock
- duplicately
-To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com
-References: <20250423151726.372561-1-leo.yan@arm.com>
- <20250423151726.372561-7-leo.yan@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250423151726.372561-7-leo.yan@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_233911_261797_0457E661 
-X-CRM114-Status: GOOD (  20.24  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250429071841.1158315-2-quic_jinlmao@quicinc.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,52 +73,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/23/25 20:47, Leo Yan wrote:
-> The programming clock is enabled by AMBA bus driver before a dynamic
-> probe.  As a result, a CoreSight driver may redundantly enable the same
-> clock.
-
-Are you sure AMBA bus driver always enables such clocks in all scenarios ?
-Even if that is true - why cannot coresight_get_enable_apb_pclk() ensured
-to be called only for the platform drivers cases via code re-organization,
-rather than changing the coresight_get_enable_apb_pclk() helper itself.
-
+On Tue, Apr 29, 2025 at 12:18:40AM GMT, Mao Jinlong wrote:
+> Add Qualcomm extended CTI support in CTI binding file. Qualcomm
+> extended CTI supports up to 128 triggers.
 > 
-> To avoid this, add a check for device type and skip enabling the
-> programming clock for AMBA devices.  The returned NULL pointer will be
-> tolerated by the drivers.
-> 
-> Fixes: 73d779a03a76 ("coresight: etm4x: Change etm4_platform_driver driver for MMIO devices")
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> Signed-off-by: Mao Jinlong <quic_jinlmao@quicinc.com>
 > ---
->  include/linux/coresight.h | 11 +++++++----
->  1 file changed, 7 insertions(+), 4 deletions(-)
+>  Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
 > 
-> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-> index b888f6ed59b2..26eb4a61b992 100644
-> --- a/include/linux/coresight.h
-> +++ b/include/linux/coresight.h
-> @@ -476,15 +476,18 @@ static inline bool is_coresight_device(void __iomem *base)
->   * Returns:
->   *
->   * clk   - Clock is found and enabled
-> + * NULL  - Clock is not needed as it is managed by the AMBA bus driver
->   * ERROR - Clock is found but failed to enable
->   */
->  static inline struct clk *coresight_get_enable_apb_pclk(struct device *dev)
->  {
-> -	struct clk *pclk;
-> +	struct clk *pclk = NULL;
->  
-> -	pclk = devm_clk_get_enabled(dev, "apb_pclk");
-> -	if (IS_ERR(pclk))
-> -		pclk = devm_clk_get_enabled(dev, "apb");
-> +	if (!dev_is_amba(dev)) {
-> +		pclk = devm_clk_get_enabled(dev, "apb_pclk");
-> +		if (IS_ERR(pclk))
-> +			pclk = devm_clk_get_enabled(dev, "apb");
-> +	}
->  
->  	return pclk;
->  }
+> diff --git a/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml b/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
+> index 2d5545a2b49c..1aa27461f5bc 100644
+> --- a/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
+> +++ b/Documentation/devicetree/bindings/arm/arm,coresight-cti.yaml
+> @@ -84,7 +84,9 @@ properties:
+>            - const: arm,coresight-cti
+>            - const: arm,primecell
+>        - items:
+> -          - const: arm,coresight-cti-v8-arch
+> +          - enum:
+> +              - arm,coresight-cti-v8-arch
+> +              - qcom,coresight-cti-extended
+
+cpu phandle is not required? Or not even valid?
+
+Best regards,
+Krzysztof
+
 
