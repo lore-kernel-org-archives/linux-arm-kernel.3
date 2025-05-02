@@ -4,52 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F4DEC3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 14:03:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01C75C3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 14:14:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OMuKeAOMNy4Q2Uv0MN7VEZ0PYf+VndGh+tHrHky25XM=; b=hYCG0srBxEFI+MFcbYuKUsc42+
-	cbVvDn4dy86vc/u6ufeJJ+gNgurMqtc+xSU+DepphlKRdz7o2dJbbhUHQvS8+MHUsUVH+r/keoJWN
-	7FQvxA4NF/8xW7UqYo0F07Iwf4M4g7nBsGhPb5RB1kI6XUMuEt/shQXZ8mX6NxIZU8FzWy+xeOH2F
-	zpytNbz/gDsSV+PjJaHrNsI9MyQd6oGkDirGgXoM5BXeX4UmB3dqmlfdGCCpjq8ZgZ1hoNHrODvQi
-	UfGMzBsiUG49oK6E9H1f0247k+aG49s3PX7foxYqaZEQPW3WSB6sjWS2hJ4djihq2bVTdKJrmElIV
-	siqCbk5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JU+vLEzCOakbcsmDsPdUFYxLvGv6Cuo8GOdp8ADOnoE=; b=IduBKs7VT1B+4Ad5mVcN3i+gE1
+	9mhozRqzdJ87Ve8JZUSyYkz3SI15d7BiC3W8Y2lddtzUqxQvp1DYJh7PJVckVzly/CHMR2vNewmtl
+	dmgX1SL77o9ogR3JbJQ0AnyrMem5GspDPxc+Btgf7whtQerp4/sc2Z0Mse74impwIii6BSPjWDVHw
+	r1bZkdGRFaT+mnqxGIXxmBfkC2rcrGIpxDFalqd5mQZweX1kLLb2h6JFxZduvhmznvs8j2vXII5Xk
+	rJ/x/zx+23WqK4x930Bh9RNjptS7YfLpT8ekRinP4sRI9HMWFZBWPtkagjpWBvBapfUrDr/chYMdk
+	kTivA+nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAqzV-000000028Ik-0zC1;
-	Fri, 02 May 2025 14:03:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAqxE-000000027ub-0ebY
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 14:01:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C3FC61688;
-	Fri,  2 May 2025 07:01:17 -0700 (PDT)
-Received: from usa.arm.com (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 70D723F673;
-	Fri,  2 May 2025 07:01:24 -0700 (PDT)
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Jon Hunter <jonathanh@nvidia.com>
-Subject: [PATCH] cpuidle: psci: Avoid initializing faux device if no DT idle states are present
-Date: Fri,  2 May 2025 15:01:19 +0100
-Message-Id: <20250502140119.2578909-1-sudeep.holla@arm.com>
-X-Mailer: git-send-email 2.34.1
+	id 1uAr9C-000000029cT-12qa;
+	Fri, 02 May 2025 14:13:50 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uAr7E-000000029Ix-3Hwx;
+	Fri, 02 May 2025 14:11:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1746195109; x=1777731109;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=YX5K9W8SlvAErcT4KDiQHr82LNYtHxZsOutAoTNilCI=;
+  b=ZBVRzCkzXlDK/XxjSxBtpC2Sq9ganRW5vVhiCMva1b2JE2tDUiu3bD+A
+   Tr7gqkLsONFvJJbzxM5EWrtJEWLN3ZDrcD7HhjAonrXrFXleRxCvrTjeH
+   j/Q5S5IvDX0LTiT+kNv0zHFHcoLjs9T4jKBexwGO7llwI0mVJtmyIeaeV
+   bmZbrFARFOQsQ7IF7pWhaYcIryVEtYIJmCqFcl49bAUy+oJKpP0k//beL
+   Gah2Q/wyVHPA+JXDMh0kTBTnznTxRgM6GymKUC4LcbbYGVKyEM+v+dIZg
+   e+qZudpNmjKPyk2XMyNl41IRVI4ZGYnfxmvIxQlKOVzAc7ol30YbUGIVe
+   g==;
+X-CSE-ConnectionGUID: aSzLVeDRS0KDClRFNmc/AA==
+X-CSE-MsgGUID: 4GmGJxrsTFaRhP/I3pd4Fw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11421"; a="48019983"
+X-IronPort-AV: E=Sophos;i="6.15,256,1739865600"; 
+   d="scan'208";a="48019983"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 May 2025 07:11:48 -0700
+X-CSE-ConnectionGUID: O2cAMrm+RmStsBngfky0Cg==
+X-CSE-MsgGUID: S5bc+TXhSame8+YbhwCHSg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,256,1739865600"; 
+   d="scan'208";a="135608569"
+Received: from smile.fi.intel.com ([10.237.72.55])
+  by fmviesa009.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 May 2025 07:11:46 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1uAr79-00000002Did-0njo;
+	Fri, 02 May 2025 17:11:43 +0300
+Date: Fri, 2 May 2025 17:11:42 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Hans Verkuil <hverkuil@xs4all.nl>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	linux-media@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Subject: Re: [PATCH v1 1/1] media: raspberrypi: rp1-cfe: Remove (explicitly)
+ unused header
+Message-ID: <aBTSnv5buH7AZp1X@smile.fi.intel.com>
+References: <20250331072136.3987653-1-andriy.shevchenko@linux.intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250331072136.3987653-1-andriy.shevchenko@linux.intel.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_070128_284685_8FAFBE37 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20250502_071148_831924_8A69F053 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,66 +93,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit af5376a77e87 ("cpuidle: psci: Transition to the faux device interface")
-transitioned the PSCI cpuidle driver from using a platform device to the
-faux device framework. However, unlike platform devices, the faux device
-infrastructure logs an error when the probe function fails, even if the
-failure is intentional or expected.
+On Mon, Mar 31, 2025 at 10:21:36AM +0300, Andy Shevchenko wrote:
+> The fwnode.h is not supposed to be used by the drivers as it
+> has the definitions for the core parts for different device
+> property provider implementations. Drop it.
+> 
+> Note, that fwnode API for drivers is provided in property.h
+> which is included here.
 
-To prevent unnecessary error logs, we can skip creating the faux device
-entirely if there are no PSCI idle states defined in the device tree.
-Introduce a check for DT idle states during initialization and avoid
-setting up the device if none are found.
+Any comments? Can it be applied?
 
-This ensures cleaner logs and avoids misleading probe failure messages
-when PSCI idle support is intentionally not described in DT.
-
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>
-Fixes: af5376a77e87 ("cpuidle: psci: Transition to the faux device interface")
-Reported-by: Jon Hunter <jonathanh@nvidia.com>
-Closes: https://lore.kernel.org/r/cf4e70e4-9fe5-4697-8744-8c12c41b5ff9@nvidia.com
-Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
----
- drivers/cpuidle/cpuidle-psci.c | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
-
-diff --git a/drivers/cpuidle/cpuidle-psci.c b/drivers/cpuidle/cpuidle-psci.c
-index ee35ac816321..40f378c1dc9f 100644
---- a/drivers/cpuidle/cpuidle-psci.c
-+++ b/drivers/cpuidle/cpuidle-psci.c
-@@ -438,10 +438,29 @@ static struct faux_device_ops psci_cpuidle_ops = {
- 	.probe = psci_cpuidle_probe,
- };
- 
-+static bool __init dt_idle_state_present(void)
-+{
-+	struct device_node *cpu_node __free(device_node);
-+	struct device_node *state_node __free(device_node);
-+
-+	cpu_node = of_cpu_device_node_get(cpumask_first(cpu_possible_mask));
-+	if (!cpu_node)
-+		return false;
-+
-+	state_node = of_get_cpu_state_node(cpu_node, 0);
-+	if (!state_node)
-+		return false;
-+
-+	return !!of_match_node(psci_idle_state_match, state_node);
-+}
-+
- static int __init psci_idle_init(void)
- {
- 	struct faux_device *fdev;
- 
-+	if (!dt_idle_state_present())
-+		return 0;
-+
- 	fdev = faux_device_create("psci-cpuidle", NULL, &psci_cpuidle_ops);
- 	if (!fdev) {
- 		pr_err("Failed to create psci-cpuidle device\n");
 -- 
-2.34.1
+With Best Regards,
+Andy Shevchenko
+
 
 
