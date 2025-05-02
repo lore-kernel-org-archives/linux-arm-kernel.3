@@ -4,82 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD863C3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 15:37:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18960C3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 15:39:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VXQoocgfizkpU9Nm1Zjh50U6LWogcq7si/7CJqUeXKk=; b=Ec9rWZVzmPjxpgpeg2PPExD+tI
-	slmNZsVbpoOe0cSSc/i3+9fj4xaV0h2ABXEBzthaSTgp2xvgdY+PEoDb3kH5sqUWDJcKYBZyvKT/6
-	YPiUskVvw5ls8YNc+RBIZwuz+x8MfwfI4foPNn1TmhgZy18xwZpEEm4JJWp9L+awGhQewFvHXfZJq
-	rB0g/76GhLgh4bAkAnZMajoN+bNa/bWrZpVH07t8qaISsc2lR1jUL4zxW/D/iJzoaxq/KJHmyQegq
-	QygNatWLRkH85an1Y02fNsDeaPs4STTR69EI//1vOWOlWHA/nCVBXkbDI6UobS9fKcJhmMotbv5jo
-	pt7ZlXtQ==;
+	bh=JmPBFU9+95ZB88vG8J5Apu+ABDhyAXs6JJmFLCjh8ug=; b=we+G/O0/8+keJVdAUccQSojRmB
+	8kwh+ppobl2mXaT4xrSFRAr6gkjp3gCCU1VtjXS5v5dXAwPlGCwhrny8puSPM+zMQ7rY6Whgp3av8
+	kFEePVtm5KIeZCJ9cZhLCUxEHrC/GRru1Q2uNHZLeE4pUjsmyhxOLOTBL91JDEnqc5eQF5bYi3Cza
+	DuQgRykRRIQIG61GcUaBbPwvhqzm2BJmaCCx/Kiy2jNUS/0mFzPZM2a5zy0Qat/KsLc+RhLS7iio+
+	gjVECOQbAAlJiFpZ3e7jLh2k+RIlMu9t05ZtrB/zCoVDefFvJ18H0/a12WVrfVM33Am2DO5FLacX0
+	Mm3edlgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAsSK-00000002MCM-2LoX;
-	Fri, 02 May 2025 15:37:40 +0000
-Received: from mail-yb1-xb2b.google.com ([2607:f8b0:4864:20::b2b])
+	id 1uAsUE-00000002MWL-3asO;
+	Fri, 02 May 2025 15:39:38 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAs8l-00000002JGE-0S4F
+	id 1uAsGS-00000002KJF-04ol
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 15:17:28 +0000
-Received: by mail-yb1-xb2b.google.com with SMTP id 3f1490d57ef6-e730ea57804so2953206276.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 May 2025 08:17:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1746199045; x=1746803845; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=VXQoocgfizkpU9Nm1Zjh50U6LWogcq7si/7CJqUeXKk=;
-        b=UrY19CExYe9xGi96L6YQFy1n0MMXMR8HkvAbmYLwRcSk6GKl7RHX76lkuy1kYgICVP
-         K4pzxlOUffhYeH11aq7+Px55YWx3VQELLrrICyq89CXNWqOi6W6XjNmJW0wI/ITGCJRY
-         FxyREEz8ixQTRuaHaxttDKJpRrTNClfbeMwT84lb+DF9liiezsHwO41WgU3NF5yzl2TX
-         cJQAGOx/XNoJEsmpjnk//tPEaEinJGVoZYxwkolJRm2Q+DLXUDE72pSMCpIbcp4QITfP
-         jwLA8Pm7BOxd2p5PjwncNOSG2J3plWmAL2lnBRXfOpzD9pO2WqKPqv3CcplMZ/9+fXcR
-         eqMg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746199045; x=1746803845;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=VXQoocgfizkpU9Nm1Zjh50U6LWogcq7si/7CJqUeXKk=;
-        b=UpXXI6RCcyQqBKWK1DWEfCZR1oDWSVV07Gh7IXZPs+PWQBdA92pYgIqkBy9nemzEMi
-         zyjXJeDYZzBT7ySbHd9aHP0GvXVo434qMKj6uktfzIO1g4sPytN4jaURBnndf+4K4KoF
-         j2jHa0+aEpv1QRzuUykhKai5r6AaV/kgDSh7Wlj7XOjj1u8voxlmRJ818IJhHeBNUOYX
-         nFU6AtvNGSewm815tAaCkpN4yFgFiZ+s7gQLopHy/dX8/yYbMTTeDCxyvR5wwYsjvDCa
-         Xm+n1VKIgsADoYJPqgLGXk59EtrDZ+/GvInY3SXbHoYF7WqV1Xkr/61+z8X2OAWTi/Sn
-         sd8A==
-X-Forwarded-Encrypted: i=1; AJvYcCV2ksK3LI4QNEb3+ilteVtEp+qp9q9C9zC7qpwANiizwJ56GIb0fYg3hRLGQ4YQK6cEdPYlVIkYjYeMMyj0HCl2@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJ+AmJLREx/iOXnUtGbou8fqKzMIIObVrNhusTWyTspFWnNjgc
-	XDMlGiy/2w+LNVm5vUxpTHs0Zh9qlWqGU8VWJp0GktfJse2eK37yTq58kq37RPGNKJ8o+U6/gna
-	DkUnFU5po7s0bmTVyPNP8TemzXptNbd+Jt6fytQ==
-X-Gm-Gg: ASbGncvpN6PoxbNNt6hyBry9p8A1b6E6AJwYYBqtSV2obFrP1NJWrYn6YQ+NWO12h2f
-	/Xw1b1gWIN25kcel+SlItLHpOUTHAl7B90Xtr04ZQrFokB3zR5FOKqVqcLE3tXP93+X9DgnCcTT
-	Hp0/Pq/QyDUAbWYfy+t6FAd7U=
-X-Google-Smtp-Source: AGHT+IGOJ8Eir9GxuesZHcEuIu1ZjHJGGsWPS/EU0OhDLRhyf0gUO15gbaMUnY4Y3NvLRwmdo2aOggOJtMXJXT6u/NE=
-X-Received: by 2002:a05:6902:274a:b0:e73:1749:ed9c with SMTP id
- 3f1490d57ef6-e7564d4eae9mr5266817276.24.1746199045400; Fri, 02 May 2025
- 08:17:25 -0700 (PDT)
+	Fri, 02 May 2025 15:25:28 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 180D2353;
+	Fri,  2 May 2025 17:25:14 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1746199514;
+	bh=ekfNPCViNS+1/0EDUfNUraJaXJm+PrXPsKL2YYRrFVY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=U14dUhScriBzlj2ff//LAs2UIgBYiG853o5XoBV9vLcJvNXuOdTWiBBJ/0faqIJwq
+	 CTsbEY9N9sKVvjZu5P4KdegNUi5dFErckMqTMYjVC1x3tIDuND60ETFMe5GYR9rtzS
+	 nH5noXs2e3ifra95E/EjRcnU2HuMdACL9eVXyTUg=
+Date: Fri, 2 May 2025 18:25:13 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Robert Chiras <robert.chiras@nxp.com>,
+	"Guoniu.zhou" <guoniu.zhou@nxp.com>
+Subject: Re: [PATCH v4 03/13] media: nxp: imx8-isi: Remove unused offset in
+ mxc_isi_reg and use BIT() macro for mask
+Message-ID: <20250502152513.GG22453@pendragon.ideasonboard.com>
+References: <20250408-8qxp_camera-v4-0-ef695f1b47c4@nxp.com>
+ <20250408-8qxp_camera-v4-3-ef695f1b47c4@nxp.com>
+ <20250421210655.GM17813@pendragon.ideasonboard.com>
+ <aBQXfW6dzdyFI1GN@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-References: <20250502140119.2578909-1-sudeep.holla@arm.com>
-In-Reply-To: <20250502140119.2578909-1-sudeep.holla@arm.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Fri, 2 May 2025 17:16:48 +0200
-X-Gm-Features: ATxdqUGHsKjN1SkITjGe8n04FhBneRxtxXjAJhE7PE4nZsGHUusZ-4S_tfwcPqw
-Message-ID: <CAPDyKFobCehWO2jo2H2wMx40NLggoFOnhWKCuqcMURTLgiK1ug@mail.gmail.com>
-Subject: Re: [PATCH] cpuidle: psci: Avoid initializing faux device if no DT
- idle states are present
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Jon Hunter <jonathanh@nvidia.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <aBQXfW6dzdyFI1GN@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_081727_145825_055C9567 
-X-CRM114-Status: GOOD (  27.36  )
+X-CRM114-CacheID: sfid-20250502_082524_196064_526836B5 
+X-CRM114-Status: GOOD (  27.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,81 +82,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2 May 2025 at 16:01, Sudeep Holla <sudeep.holla@arm.com> wrote:
->
-> Commit af5376a77e87 ("cpuidle: psci: Transition to the faux device interface")
-> transitioned the PSCI cpuidle driver from using a platform device to the
-> faux device framework. However, unlike platform devices, the faux device
-> infrastructure logs an error when the probe function fails, even if the
-> failure is intentional or expected.
->
-> To prevent unnecessary error logs, we can skip creating the faux device
-> entirely if there are no PSCI idle states defined in the device tree.
-> Introduce a check for DT idle states during initialization and avoid
-> setting up the device if none are found.
->
-> This ensures cleaner logs and avoids misleading probe failure messages
-> when PSCI idle support is intentionally not described in DT.
->
-> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: Ulf Hansson <ulf.hansson@linaro.org>
-> Cc: "Rafael J. Wysocki" <rafael@kernel.org>
-> Fixes: af5376a77e87 ("cpuidle: psci: Transition to the faux device interface")
-> Reported-by: Jon Hunter <jonathanh@nvidia.com>
-> Closes: https://lore.kernel.org/r/cf4e70e4-9fe5-4697-8744-8c12c41b5ff9@nvidia.com
-> Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+On Thu, May 01, 2025 at 08:53:17PM -0400, Frank Li wrote:
+> On Tue, Apr 22, 2025 at 12:06:55AM +0300, Laurent Pinchart wrote:
+> > Hi Frank,
+> >
+> > Thank you for the patch.
+> >
+> > On Tue, Apr 08, 2025 at 05:53:01PM -0400, Frank Li wrote:
+> > > Preserve clarity by removing the unused 'offset' field in struct mxc_isi_reg,
+> > > as it duplicates information already indicated by the mask and remains unused.
+> >
+> > The commit message line length limit is normally 72 characters. I can
+> > reflow when applying if no other change to the series is needed.
+> 
+> I remember it is 75 chars. Any document show it is 72. I need correct for
+> the other patches also.
 
-Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
+You're absolutely right, I don't know where I got the 72 columns limit
+from. Please ignore my comment.
 
-Rafael, please pick this one.
+> > >
+> > > Improve readability by replacing hex value masks with the BIT() macro.
+> > >
+> > > No functional change.
+> > >
+> > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> >
+> > Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> >
+> > > ---
+> > >  .../media/platform/nxp/imx8-isi/imx8-isi-core.c    | 25 +++++++++++-----------
+> > >  .../media/platform/nxp/imx8-isi/imx8-isi-core.h    |  1 -
+> > >  2 files changed, 13 insertions(+), 13 deletions(-)
+> > >
+> > > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> > > index 1e79b1211b603..ecfc95882f903 100644
+> > > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> > > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.c
+> > > @@ -3,6 +3,7 @@
+> > >   * Copyright 2019-2020 NXP
+> > >   */
+> > >
+> > > +#include <linux/bits.h>
+> > >  #include <linux/clk.h>
+> > >  #include <linux/device.h>
+> > >  #include <linux/errno.h>
+> > > @@ -247,24 +248,24 @@ static void mxc_isi_v4l2_cleanup(struct mxc_isi_dev *isi)
+> > >
+> > >  /* For i.MX8QXP C0 and i.MX8MN ISI IER version */
+> > >  static const struct mxc_isi_ier_reg mxc_imx8_isi_ier_v1 = {
+> > > -	.oflw_y_buf_en = { .offset = 19, .mask = 0x80000  },
+> > > -	.oflw_u_buf_en = { .offset = 21, .mask = 0x200000 },
+> > > -	.oflw_v_buf_en = { .offset = 23, .mask = 0x800000 },
+> > > +	.oflw_y_buf_en = { .mask = BIT(19) },
+> > > +	.oflw_u_buf_en = { .mask = BIT(21) },
+> > > +	.oflw_v_buf_en = { .mask = BIT(23) },
+> > >
+> > > -	.panic_y_buf_en = {.offset = 20, .mask = 0x100000  },
+> > > -	.panic_u_buf_en = {.offset = 22, .mask = 0x400000  },
+> > > -	.panic_v_buf_en = {.offset = 24, .mask = 0x1000000 },
+> > > +	.panic_y_buf_en = { .mask = BIT(20) },
+> > > +	.panic_u_buf_en = { .mask = BIT(22) },
+> > > +	.panic_v_buf_en = { .mask = BIT(24) },
+> > >  };
+> > >
+> > >  /* For i.MX8MP ISI IER version */
+> > >  static const struct mxc_isi_ier_reg mxc_imx8_isi_ier_v2 = {
+> > > -	.oflw_y_buf_en = { .offset = 18, .mask = 0x40000  },
+> > > -	.oflw_u_buf_en = { .offset = 20, .mask = 0x100000 },
+> > > -	.oflw_v_buf_en = { .offset = 22, .mask = 0x400000 },
+> > > +	.oflw_y_buf_en = { .mask = BIT(18) },
+> > > +	.oflw_u_buf_en = { .mask = BIT(20) },
+> > > +	.oflw_v_buf_en = { .mask = BIT(22) },
+> > >
+> > > -	.panic_y_buf_en = {.offset = 19, .mask = 0x80000  },
+> > > -	.panic_u_buf_en = {.offset = 21, .mask = 0x200000 },
+> > > -	.panic_v_buf_en = {.offset = 23, .mask = 0x800000 },
+> > > +	.panic_y_buf_en = { .mask = BIT(19) },
+> > > +	.panic_u_buf_en = { .mask = BIT(21) },
+> > > +	.panic_v_buf_en = { .mask = BIT(23) },
+> > >  };
+> > >
+> > >  /* Panic will assert when the buffers are 50% full */
+> > > diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> > > index 9c7fe9e5f941f..e7534a80af7b4 100644
+> > > --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> > > +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-core.h
+> > > @@ -114,7 +114,6 @@ struct mxc_isi_buffer {
+> > >  };
+> > >
+> > >  struct mxc_isi_reg {
+> > > -	u32 offset;
+> > >  	u32 mask;
+> > >  };
+> > >
 
-BTW, I was not cced the original offending commit and it was funneld
-via Rafael's tree. No worries this time, but probably easier to stick
-with my pmdomain tree future wise, to avoid any churns. This is also
-reflected in MAINTAINERS.
+-- 
+Regards,
 
-Kind regards
-Uffe
-
-> ---
->  drivers/cpuidle/cpuidle-psci.c | 19 +++++++++++++++++++
->  1 file changed, 19 insertions(+)
->
-> diff --git a/drivers/cpuidle/cpuidle-psci.c b/drivers/cpuidle/cpuidle-psci.c
-> index ee35ac816321..40f378c1dc9f 100644
-> --- a/drivers/cpuidle/cpuidle-psci.c
-> +++ b/drivers/cpuidle/cpuidle-psci.c
-> @@ -438,10 +438,29 @@ static struct faux_device_ops psci_cpuidle_ops = {
->         .probe = psci_cpuidle_probe,
->  };
->
-> +static bool __init dt_idle_state_present(void)
-> +{
-> +       struct device_node *cpu_node __free(device_node);
-> +       struct device_node *state_node __free(device_node);
-> +
-> +       cpu_node = of_cpu_device_node_get(cpumask_first(cpu_possible_mask));
-> +       if (!cpu_node)
-> +               return false;
-> +
-> +       state_node = of_get_cpu_state_node(cpu_node, 0);
-> +       if (!state_node)
-> +               return false;
-> +
-> +       return !!of_match_node(psci_idle_state_match, state_node);
-> +}
-> +
->  static int __init psci_idle_init(void)
->  {
->         struct faux_device *fdev;
->
-> +       if (!dt_idle_state_present())
-> +               return 0;
-> +
->         fdev = faux_device_create("psci-cpuidle", NULL, &psci_cpuidle_ops);
->         if (!fdev) {
->                 pr_err("Failed to create psci-cpuidle device\n");
-> --
-> 2.34.1
->
+Laurent Pinchart
 
