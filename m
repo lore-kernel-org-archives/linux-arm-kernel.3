@@ -4,69 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 381BAC3ABA3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 13:13:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3D2AC3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 13:19:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=urhCQsQe8eTfkJp1UT0pMIiPPoJG2XRADwwlaxMzk0U=; b=oPgmptHPfpMfI/XCYB8cIAgCSY
-	zvzrRhLnHIKp8Zgm9IyDL+qCMR4/EgWhRkKTFmV/tE/WGuwHqZHGSpR9M9FMOSriIQQ1q0Mx6Wutm
-	GnTJFWhgBxbzaKn/mSbl88qqqGznLkz/G6Zkggrx0eo7BLJ26DnnCAQ6X+7DznD93civvXCym5Gw5
-	bof5JqVJofFjYYtXozB0EDenkfegfZgHZsJKWhqwuys/8RhSVklX40rvnlMp0DiCG14fxKcCD9d5F
-	hrcFUeDJmldMniZ/3nwafIuOm4hju3QACovDdumdfjQBqgePURTDxbIUbpUidCG/cBp0WwqgN+Pr9
-	DPk4+e8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rwAjIo5Lh5M2Q0rNiBTOLYKehD+GC52HGXX9wMhyRRA=; b=AGMedg/JdeuamhS5nJtGqzrBPL
+	IkCIl98guXj1MvhSWPhr71eozQ03NDgBAFfJFLBaSGYOumn9Tk8WTRbNG7Px0v7X5xbZUEw0faUC0
+	/c55zqiGbGqG/thA4bSwPhVK+O1ZXIK7lAV9KzMhcpsakZE/V47n2XKm8WI3JHtm8UWdaK53q/If2
+	N7tRCJi2IKhD+Jfysc5u8wVG5dfdS6msoBCnU43Pl/uMCcbAIDIzfvI4AEZrMkasWvQuVuCWK0cMZ
+	hv5kIUYDT8i5QrLjHkahi86XA1N/0iyC96ay5pX9dB26Rz/OBeKLWT8AliuxuPCdx1Ae6kvXJiAVJ
+	XJ5lXGcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAqCu-000000020hH-0Yh1;
-	Fri, 02 May 2025 13:13:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAqAw-000000020H9-1VF5
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 13:11:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 013131688;
-	Fri,  2 May 2025 06:11:22 -0700 (PDT)
-Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2A5333F66E;
-	Fri,  2 May 2025 06:11:25 -0700 (PDT)
-Message-ID: <43e85d6a-ef99-4d61-910e-1d62814fd9ed@arm.com>
-Date: Fri, 2 May 2025 14:11:02 +0100
+	id 1uAqIk-000000021dX-0afm;
+	Fri, 02 May 2025 13:19:38 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uAqGm-000000021Kx-1Q81;
+	Fri, 02 May 2025 13:17:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1746191854;
+	bh=Zz5tEQSp2nyOEYwbhv7kdI9iSPvJ55sNnhWZna4qC2w=;
+	h=From:Date:Subject:To:Cc:From;
+	b=hCDXlrcmQCqkshuy5FbnW+qRrOFZcVDu6heaJSZluW0SfEA6nVRnwRupgEfTwLdvR
+	 RiEMt3lZ6jBB2kN4j2PEuWn+FRBPmf7r/iGqbGWVn6/paZ2GGQDUo9jhzG/n4L9SCp
+	 CsVXjrI5qNc4EOWAAZoI1mRA1PXLD9r0TCiI2abgvunQte40Wr7+bYB5sco/REv2gR
+	 RkI3RGB0syVPa3SvjGVHiCZ3Oh50yjscHWJAoUDTnVFOtSw6Yj1YoCniYHeAFrj/zS
+	 CR19i3tuKEJragLwX3lH/eBEE4NNqSO4Of1J7PVIKJ+A0uKopB6ki28Lxx1YOc/dtI
+	 bOmSmt/IrjbMA==
+Received: from yukiji.home (amontpellier-657-1-116-247.w83-113.abo.wanadoo.fr [83.113.51.247])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4D16117E05D9;
+	Fri,  2 May 2025 15:17:33 +0200 (CEST)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Fri, 02 May 2025 15:17:19 +0200
+Subject: [PATCH v2] arm64: dts: mediatek: mt8390-genio-common: Set ssusb2
+ default dual role mode to host
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 10/14] dma-contiguous: export
- dma_contiguous_default_area
-To: Jens Wiklander <jens.wiklander@linaro.org>, linux-kernel@vger.kernel.org,
- linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linaro-mm-sig@lists.linaro.org, op-tee@lists.trustedfirmware.org,
- linux-arm-kernel@lists.infradead.org
-Cc: Olivier Masse <olivier.masse@nxp.com>,
- Thierry Reding <thierry.reding@gmail.com>, Yong Wu <yong.wu@mediatek.com>,
- Sumit Semwal <sumit.semwal@linaro.org>,
- Benjamin Gaignard <benjamin.gaignard@collabora.com>,
- Brian Starkey <Brian.Starkey@arm.com>, John Stultz <jstultz@google.com>,
- "T . J . Mercier" <tjmercier@google.com>,
- =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
- Sumit Garg <sumit.garg@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- azarrabi@qti.qualcomm.com, Simona Vetter <simona.vetter@ffwll.ch>,
- Daniel Stone <daniel@fooishbar.org>,
- Rouven Czerwinski <rouven.czerwinski@linaro.org>,
- Marek Szyprowski <m.szyprowski@samsung.com>, iommu@lists.linux.dev
-References: <20250502100049.1746335-1-jens.wiklander@linaro.org>
- <20250502100049.1746335-11-jens.wiklander@linaro.org>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20250502100049.1746335-11-jens.wiklander@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20250502-mtk-genio-510-700-fix-bt-detection-v2-1-870aa2145480@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAN7FFGgC/42OTQ6CMBCFr0Jm7Zj+QDCuvIdh0ZYBGoFqWwmGc
+ HdruYDLN5nvfW+DQN5SgGuxgafFBuvmFMSpADOouSe0bcogmKiYFBec4gN7mq3DijOsGcPOrqg
+ jthTJxISjqDk32mgtqIRU9PSUfrLk3hzZ0+udXPE4glaB0LhpsvFazLRGzL6KCfgBgw3R+U8eu
+ fBMHHsk/2fPwpGjLEkJ03FZd/Jm3Dgq7bw6Jyk0+75/AbbVXZsJAQAA
+X-Change-ID: 20250328-mtk-genio-510-700-fix-bt-detection-2711cbcbb2e4
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1746191853; l=3055;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=Zz5tEQSp2nyOEYwbhv7kdI9iSPvJ55sNnhWZna4qC2w=;
+ b=qvb9qzrAn2vsXJAvQj69b8+UXVaTVio8Hm708kWHhI+mQMfO873wEv5CANPz4boCtv+vMqzJe
+ NQj6VshybcQBcF7urOCeUk+8teXSTkam9xVVHVUA68fS/MkMnCa3y7e
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_061134_537139_1A0FF7AB 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20250502_061736_575069_7C13F993 
+X-CRM114-Status: GOOD (  21.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,34 +89,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/05/2025 10:59 am, Jens Wiklander wrote:
-> Export the global variable dma_contiguous_default_area so
-> dev_get_cma_area() can be called a module.
+On the Mediatek Genio 510-EVK and 700-EVK boards, ssusb2 controller is
+one but has two ports: one is routed to the M.2 slot, the other is on
+the RPi header who does support full OTG.
+Since Mediatek Genio 700-EVK USB support was added, dual role mode
+property is set to otg for ssusb2. This config prevents the M.2
+Wifi/Bluetooth module, present on those boards and exposing Bluetooth
+as an USB device to be properly detected at startup as the default role
+is device.
+To keep the OTG functionality and make the M.2 module be detected at
+the same time, add role-switch-default-mode property set to host and
+also fix the polarity of GPIO associated to the USB connector, so the
+ssusb2 controller role is properly set to host when the other port is
+unused.
 
-What dma_map_ops implementation is in a module? Without any other 
-context, I can't help thinking this smells of something sketchy.
+Fixes: 1afaeca17238 ("arm64: dts: mediatek: mt8390-genio-700: Add USB, TypeC Controller, MUX")
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+I've tested this patch on Mediatek Genio 510-EVK board with a kernel
+based on linux-next (tag: next-20250502).
+---
+Changes in v2:
+- Remove dr_mode property change and add role-switch-default-mode one
+  instead, as suggested by AngeloGioacchino Del Regno
+- Fix USB connector GPIO polarity
+- Reword comment in ssusb2 node to match v2 fix
+- Reword commit message and title
+- Rebase on linux-next (tag: next-20250502)
+- Link to v1: https://lore.kernel.org/r/20250331-mtk-genio-510-700-fix-bt-detection-v1-1-34ea2cf137f3@collabora.com
+---
+ arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
 
-Thanks,
-Robin.
+diff --git a/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi b/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
+index 127764c4d6be81767ef534a7cb228989f471b3bd..aa8dd12a84ea9d8e0e879067c45f59563455b077 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
+@@ -1333,8 +1333,18 @@ xhci_ss_ep: endpoint {
+ };
+ 
+ &ssusb2 {
++	/*
++	 * the ssusb2 controller is one but we got two ports : one is routed
++	 * to the M.2 slot, the other is on the RPi header who does support
++	 * full OTG.
++	 * As the controller is shared between them, the role switch default
++	 * mode is set to host to make any peripheral inserted in the M.2
++	 * slot (i.e BT/WIFI module) be detected when the other port is
++	 * unused.
++	 */
+ 	dr_mode = "otg";
+ 	maximum-speed = "high-speed";
++	role-switch-default-mode = "host";
+ 	usb-role-switch;
+ 	vusb33-supply = <&mt6359_vusb_ldo_reg>;
+ 	wakeup-source;
+@@ -1345,7 +1355,7 @@ &ssusb2 {
+ 	connector {
+ 		compatible = "gpio-usb-b-connector", "usb-b-connector";
+ 		type = "micro";
+-		id-gpios = <&pio 89 GPIO_ACTIVE_HIGH>;
++		id-gpios = <&pio 89 GPIO_ACTIVE_LOW>;
+ 		vbus-supply = <&usb_p2_vbus>;
+ 	};
+ };
 
-> Cc: Marek Szyprowski <m.szyprowski@samsung.com>
-> Cc: Robin Murphy <robin.murphy@arm.com>
-> Cc: iommu@lists.linux.dev
-> Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
-> ---
->   kernel/dma/contiguous.c | 1 +
->   1 file changed, 1 insertion(+)
-> 
-> diff --git a/kernel/dma/contiguous.c b/kernel/dma/contiguous.c
-> index 8df0dfaaca18..eb361794a9c5 100644
-> --- a/kernel/dma/contiguous.c
-> +++ b/kernel/dma/contiguous.c
-> @@ -53,6 +53,7 @@
->   #endif
->   
->   struct cma *dma_contiguous_default_area;
-> +EXPORT_SYMBOL(dma_contiguous_default_area);
->   
->   /*
->    * Default global CMA area size can be defined in kernel's .config.
+---
+base-commit: 1c51b1ba38c07e4f999802eb708bf798dd5f5d1b
+change-id: 20250328-mtk-genio-510-700-fix-bt-detection-2711cbcbb2e4
+
+Best regards,
+-- 
+Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+
 
