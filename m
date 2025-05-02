@@ -4,95 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD30AC3ABAC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0234C3ABAA
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 17:23:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:CC:To:From:Subject:Reply-To:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=26hkBOX6SosTAb5YFKXego/kgdS2SaV+sWyHWN5vTkY=; b=rm0uz0/HFRNg/ijf08HuoW6ekw
-	Yfzf+HKCNnEX3Hhq+LURAHYfwv5nU5tvyNlwxGVCXIJjp3Aym0/yiM/jYWj/zoQD4yRDSDMSWoHxd
-	cNb7zgn/PpyNXcvlZb/zNRiN2hv7xqUqAzagaz4nZj2T0veHotinO6k8a0GyRjbBKf2Vw7zBuJXYP
-	utRPNfFG49qrOaJrM/4fuxncsoQxnfeLU1YYlE7LUGtpqCyPpdcpJsyyMKTM/UmBp4F6/sVVjzZ+K
-	UjYVhqobtKt175Nt4zh7xYxGoRrcDV71a7vwNeELuDYCFQAATu3UmDk4UIxmGkUylgXkkBzNCDMuE
-	GhqertHQ==;
+	bh=nkN8UI9MTDoQPmfDG9QQthOuD0s0/NDLWl6EBndVAz4=; b=I4IvK4dtRJKt9kSungUjApF0pQ
+	m+87GuXGlLI+UXAb6/XADRXQNT3AHDWFPkN5QmNw5oUp7b4RGovg0Zi95/QpbUu6pjZLA1OUb+eGr
+	xvbBSUPMniYmnYE+/Wcy7+UjGTNTrPHjn1d9ofEjAWXVEwAUcPDz+G/Ewr1T8dYVXSOUJDhlsdvnx
+	ioP1ViUIvzN+JK87a9FqNxcM8zcs/qDJ6k55jfYpqOCjSfNIdeqRBajivdTy89hGDK956CVLvrk4a
+	4NtABbAymbttUzcDMk5f1G2TQrUMDyadL0jhN8NFrljNL/ZINxIiqvljJg99Sw+jJSx12iXxmgzFb
+	0n5bUsSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAu6T-00000002e6f-0Tfo;
-	Fri, 02 May 2025 17:23:13 +0000
-Received: from smtp-fw-80007.amazon.com ([99.78.197.218])
+	id 1uAu6D-00000002dl6-0iQc;
+	Fri, 02 May 2025 17:22:57 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAtcu-00000002Zya-36J7
+	id 1uAt3J-00000002TTC-0Dbk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 16:52:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
-  t=1746204761; x=1777740761;
-  h=from:to:cc:date:message-id:references:in-reply-to:
-   content-id:content-transfer-encoding:mime-version:subject;
-  bh=26hkBOX6SosTAb5YFKXego/kgdS2SaV+sWyHWN5vTkY=;
-  b=u5GuFUfpW9208nh4WyuXl3Qp6Q8hwwED5qnRTQ1P5qD/NLSnrwHd8AjJ
-   OK/X5Dq/gsZ4JmGlkLK5f0Dsk7im/wppomX6WpbZd8BPtxu1uuQstS3UY
-   W9Gn5ZbTrTf5a4LelnCxKK0rNrali7vNAxA05bt/BSbH3fncU1sbQyZs2
-   o=;
-X-IronPort-AV: E=Sophos;i="6.15,257,1739836800"; 
-   d="scan'208";a="401365857"
-Subject: Re: EEVDF regression still exists
-Thread-Topic: EEVDF regression still exists
-Received: from pdx4-co-svc-p1-lb2-vlan2.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.25.36.210])
-  by smtp-border-fw-80007.pdx80.corp.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 May 2025 16:52:40 +0000
-Received: from EX19MTAUWA001.ant.amazon.com [10.0.7.35:54137]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.11.224:2525] with esmtp (Farcaster)
- id 9bdfdfaf-bb97-4a6a-9618-f4a74663dc15; Fri, 2 May 2025 16:52:39 +0000 (UTC)
-X-Farcaster-Flow-ID: 9bdfdfaf-bb97-4a6a-9618-f4a74663dc15
-Received: from EX19D002UWA003.ant.amazon.com (10.13.138.235) by
- EX19MTAUWA001.ant.amazon.com (10.250.64.218) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
- Fri, 2 May 2025 16:52:39 +0000
-Received: from EX19D016UWA004.ant.amazon.com (10.13.139.119) by
- EX19D002UWA003.ant.amazon.com (10.13.138.235) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
- Fri, 2 May 2025 16:52:38 +0000
-Received: from EX19D016UWA004.ant.amazon.com ([fe80::92ec:e30c:889c:c2c0]) by
- EX19D016UWA004.ant.amazon.com ([fe80::92ec:e30c:889c:c2c0%5]) with mapi id
- 15.02.1544.014; Fri, 2 May 2025 16:52:38 +0000
-From: "Prundeanu, Cristian" <cpru@amazon.com>
-To: Peter Zijlstra <peterz@infradead.org>
-CC: K Prateek Nayak <kprateek.nayak@amd.com>, "Mohamed Abuelfotoh, Hazem"
-	<abuehaze@amazon.com>, "Saidi, Ali" <alisaidi@amazon.com>, "Benjamin
- Herrenschmidt" <benh@kernel.crashing.org>, "Blake, Geoff"
-	<blakgeof@amazon.com>, "Csoma, Csaba" <csabac@amazon.com>, "Doebel, Bjoern"
-	<doebel@amazon.de>, Gautham Shenoy <gautham.shenoy@amd.com>, Swapnil Sapkal
-	<swapnil.sapkal@amd.com>, Joseph Salisbury <joseph.salisbury@oracle.com>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-tip-commits@vger.kernel.org"
-	<linux-tip-commits@vger.kernel.org>, "x86@kernel.org" <x86@kernel.org>
-Thread-Index: AQHbuU8Zth8BPweWAUWz5H5EpP8DD7O7MGMA//+vIgCAAK8gAIACE5kAgAFpKQCAADNhAA==
-Date: Fri, 2 May 2025 16:52:38 +0000
-Message-ID: <935376C2-71B9-4E41-9738-99A4BCC55B48@amazon.com>
-References: <20250429213817.65651-1-cpru@amazon.com>
- <20250429215604.GE4439@noisy.programming.kicks-ass.net>
- <82DC7187-7CED-4285-85FC-7181688CD873@amazon.com>
- <f241b773-fca8-4be2-8a84-5d3a6903d837@amd.com>
- <CFA24C6D-8BC4-490D-A166-03BDF3C3E16C@amazon.com>
- <20250502084844.GT4198@noisy.programming.kicks-ass.net>
-In-Reply-To: <20250502084844.GT4198@noisy.programming.kicks-ass.net>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.13.138.181]
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <0D14B31FC3DA854E8AD8251CD7584CBE@amazon.com>
-Content-Transfer-Encoding: base64
+	Fri, 02 May 2025 16:15:55 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4ZpwrW6S1Mz6K9MY;
+	Sat,  3 May 2025 00:10:51 +0800 (CST)
+Received: from frapeml500003.china.huawei.com (unknown [7.182.85.28])
+	by mail.maildlp.com (Postfix) with ESMTPS id A3514140447;
+	Sat,  3 May 2025 00:15:51 +0800 (CST)
+Received: from a2303103017.china.huawei.com (10.47.77.180) by
+ frapeml500003.china.huawei.com (7.182.85.28) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Fri, 2 May 2025 18:15:51 +0200
+From: Alireza Sanaee <alireza.sanaee@huawei.com>
+To: <devicetree@vger.kernel.org>
+CC: <robh@kernel.org>, <jonathan.cameron@huawei.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linuxarm@huawei.com>, <mark.rutland@arm.com>,
+	<shameerali.kolothum.thodi@huawei.com>
+Subject: [PATCH v2 5/6] arm64: of: handle multiple threads in ARM cpu node
+Date: Fri, 2 May 2025 17:12:59 +0100
+Message-ID: <20250502161300.1411-6-alireza.sanaee@huawei.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250502161300.1411-1-alireza.sanaee@huawei.com>
+References: <20250502161300.1411-1-alireza.sanaee@huawei.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.47.77.180]
+X-ClientProxiedBy: lhrpeml100011.china.huawei.com (7.191.174.247) To
+ frapeml500003.china.huawei.com (7.182.85.28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_095240_863739_D795DFD3 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20250502_091553_372660_8B327945 
+X-CRM114-Status: GOOD (  16.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,29 +72,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gMjAyNS0wNS0wMiwgMDM6NTAsICJQZXRlciBaaWpsc3RyYSIgPHBldGVyekBpbmZyYWRlYWQu
-b3JnIDxtYWlsdG86cGV0ZXJ6QGluZnJhZGVhZC5vcmc+PiB3cm90ZToNCg0KPiBPbiBUaHUsIE1h
-eSAwMSwgMjAyNSBhdCAwNDoxNjowN1BNICswMDAwLCBQcnVuZGVhbnUsIENyaXN0aWFuIHdyb3Rl
-Og0KPiANCj4+IChQbGVhc2Uga2VlcCBpbiBtaW5kIHRoYXQgdGhlIHRhcmdldCBpc24ndCB0byBn
-ZXQgU0NIRURfQkFUQ0ggdG8gdGhlIHNhbWUNCj4+IGxldmVsIGFzIDYuNS1kZWZhdWx0OyBpdCdz
-IHRvIHJlc29sdmUgdGhlIHJlZ3Jlc3Npb24gZnJvbSA2LjUtZGVmYXVsdCB0bw0KPj4gNi42KyBk
-ZWZhdWx0LCBhbmQgZnJvbSA2LjUtU0NIRURfQkFUQ0ggdG8gNi42KyBTQ0hFRF9CQVRDSCkuDQo+
-DQo+IE5vLCB0aGUgdGFyZ2V0IGRlZmluaXRlbHkgaXMgbm90IHRvIG1ha2UgNi42KyBkZWZhdWx0
-IG1hdGNoIDYuNSBkZWZhdWx0Lg0KPg0KPiBUaGUgdGFyZ2V0IHZlcnkgbXVjaCBpcyBnZXR0aW5n
-IHlvdSBwZXJmb3JtYW5jZSBzaW1pbGFyIHRvIHRoZSA2LjUNCj4gZGVmYXVsdCB0aGF0IHlvdSB3
-ZXJlIGhhcHB5IHdpdGggd2l0aCBrbm9icyB3ZSBjYW4gbGl2ZSB3aXRoLg0KDQpJZiB3ZSdyZSB0
-YWxraW5nIGFib3V0IG5ldyBrbm9icyBpbiA2LjYrLCBhYnNvbHV0ZWx5Lg0KDQpGb3IgdGhpcyBw
-YXJ0aWN1bGFyIGNhc2UsIFNDSEVEX0JBVENIIGV4aXN0ZWQgYmVmb3JlIDYuNi4gVXNlcnMgd2hv
-IGFscmVhZHkNCmVuYWJsZSBTQ0hFRF9CQVRDSCBub3cgaGF2ZSBubyByZWNvdXJzZS4gV2UgY2Fu
-J3QsIHdpdGggYSBzdHJhaWdodCBmYWNlLA0KY2xhaW0gdGhhdCB0aGlzIGlzIGEgc3VmZmljaWVu
-dCBmaXgsIG9yIHRoYXQgdGhlcmUgaXMgbm8gcmVncmVzc2lvbi4NCg0KSSBhbSwgb2YgY291cnNl
-LCBpbnRlcmVzdGVkIHRvIGRpc2N1c3MgYW55IGtub2IgdHdlYWtzIGFzIGEgc3RvcC1nYXAgbWVh
-c3VyZS4NCihUaGF0IGlzIGFsc28gd2h5IEkgcHJvcG9zZWQgbW92aW5nIE5PX1BMQUNFX0xBRyBh
-bmQgTk9fUlVOX1RPX1BBUklUWSB0byBzeXNjdGwNCmEgZmV3IG1vbnRocyBiYWNrOiB0byBnaXZl
-IHVzZXJzLCBpbmNsdWRpbmcgZGlzdHJvIG1haW50YWluZXJzLCBhIHJlYXNvbmFibGUNCndheSB0
-byBwcmVjb25maWd1cmUgdGhlaXIgc3lzdGVtcyBpbiBhIHN0YW5kYXJkLCBwZXJzaXN0ZW50IHdh
-eSwgd2hpbGUgdGhpcyBpcw0KYmVpbmcgd29ya2VkIG9uKS4NCk5vbmUgb2YgdGhpcyBzaG91bGQg
-YmUgY29uc2lkZXJlZCBhIHBlcm1hbmVudCBzb2x1dGlvbiB0aG91Z2guIEl0J3Mgbm90IGEgZml4
-LA0KYW5kIHdhcyBuZXZlciBtZWFudCB0byBiZSBhbnl0aGluZyBidXQgYSBzaG9ydC10ZXJtIHJl
-bGllZiB3aGlsZSBkZWJ1Z2dpbmcgdGhlDQpyZWdyZXNzaW9uIGlzIG9uZ29pbmcuDQoNCg0K
+Update `of_parse_and_init_cpus` to parse reg property of CPU node as
+an array based as per spec for SMT threads.
+
+Spec v0.4 Section 3.8.1:
+The value of reg is a <prop-encoded-**array**> that defines a unique
+CPU/thread id for the CPU/threads represented by the CPU node.  **If a CPU
+supports more than one thread (i.e.  multiple streams of execution) the
+reg property is an array with 1 element per thread**.  The address-cells
+on the /cpus node specifies how many cells each element of the array
+takes. Software can determine the number of threads by dividing the size
+of reg by the parent node's address-cells.
+
+An accurate example of 1 core with 2 SMTs:
+
+	cpus {
+		#size-cells = <0x00>;
+		#address-cells = <0x01>;
+
+		cpu@0 {
+			phandle = <0x8000>;
+			**reg = <0x00 0x01>;**
+			enable-method = "psci";
+			compatible = "arm,cortex-a57";
+			device_type = "cpu";
+		};
+	};
+
+Instead of:
+
+	cpus {
+		#size-cells = <0x00>;
+		#address-cells = <0x01>;
+
+		cpu@0 {
+			phandle = <0x8000>;
+			reg = <0x00>;
+			enable-method = "psci";
+			compatible = "arm,cortex-a57";
+			device_type = "cpu";
+		};
+
+		cpu@1 {
+			phandle = <0x8001>;
+			reg = <0x01>;
+			enable-method = "psci";
+			compatible = "arm,cortex-a57";
+			device_type = "cpu";
+		};
+	};
+
+which is **NOT** accurate.
+
+Signed-off-by: Alireza Sanaee <alireza.sanaee@huawei.com>
+---
+ arch/arm64/kernel/smp.c | 74 +++++++++++++++++++++++------------------
+ 1 file changed, 41 insertions(+), 33 deletions(-)
+
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index 3b3f6b56e733..8dd3b3c82967 100644
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -689,53 +689,61 @@ static void __init acpi_parse_and_init_cpus(void)
+ static void __init of_parse_and_init_cpus(void)
+ {
+ 	struct device_node *dn;
++	u64 hwid;
++	u32 tid;
+ 
+ 	for_each_of_cpu_node(dn) {
+-		u64 hwid = of_get_cpu_hwid(dn, 0);
++		tid = 0;
+ 
+-		if (hwid & ~MPIDR_HWID_BITMASK)
+-			goto next;
++		while (1) {
++			hwid = of_get_cpu_hwid(dn, tid++);
++			if (hwid == ~0ULL)
++				break;
+ 
+-		if (is_mpidr_duplicate(cpu_count, hwid)) {
+-			pr_err("%pOF: duplicate cpu reg properties in the DT\n",
+-				dn);
+-			goto next;
+-		}
++			if (hwid & ~MPIDR_HWID_BITMASK)
++				goto next;
+ 
+-		/*
+-		 * The numbering scheme requires that the boot CPU
+-		 * must be assigned logical id 0. Record it so that
+-		 * the logical map built from DT is validated and can
+-		 * be used.
+-		 */
+-		if (hwid == cpu_logical_map(0)) {
+-			if (bootcpu_valid) {
+-				pr_err("%pOF: duplicate boot cpu reg property in DT\n",
+-					dn);
++			if (is_mpidr_duplicate(cpu_count, hwid)) {
++				pr_err("%pOF: duplicate cpu reg properties in the DT\n",
++				       dn);
+ 				goto next;
+ 			}
+ 
+-			bootcpu_valid = true;
+-			early_map_cpu_to_node(0, of_node_to_nid(dn));
+-
+ 			/*
+-			 * cpu_logical_map has already been
+-			 * initialized and the boot cpu doesn't need
+-			 * the enable-method so continue without
+-			 * incrementing cpu.
++			 * The numbering scheme requires that the boot CPU
++			 * must be assigned logical id 0. Record it so that
++			 * the logical map built from DT is validated and can
++			 * be used.
+ 			 */
+-			continue;
+-		}
++			if (hwid == cpu_logical_map(0)) {
++				if (bootcpu_valid) {
++					pr_err("%pOF: duplicate boot cpu reg property in DT\n",
++					       dn);
++					goto next;
++				}
++
++				bootcpu_valid = true;
++				early_map_cpu_to_node(0, of_node_to_nid(dn));
++
++				/*
++				 * cpu_logical_map has already been
++				 * initialized and the boot cpu doesn't need
++				 * the enable-method so continue without
++				 * incrementing cpu.
++				 */
++				continue;
++			}
+ 
+-		if (cpu_count >= NR_CPUS)
+-			goto next;
++			if (cpu_count >= NR_CPUS)
++				goto next;
+ 
+-		pr_debug("cpu logical map 0x%llx\n", hwid);
+-		set_cpu_logical_map(cpu_count, hwid);
++			pr_debug("cpu logical map 0x%llx\n", hwid);
++			set_cpu_logical_map(cpu_count, hwid);
+ 
+-		early_map_cpu_to_node(cpu_count, of_node_to_nid(dn));
++			early_map_cpu_to_node(cpu_count, of_node_to_nid(dn));
+ next:
+-		cpu_count++;
++			cpu_count++;
++		}
+ 	}
+ }
+ 
+-- 
+2.34.1
+
 
