@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DDBBC3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 15:41:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D43BBC3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 15:43:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UfHSthQhcUGUYPAqAokpW8M9XQiGqY8eZUIZb5WDYjI=; b=3w7qujp7G96SndhP1WnYO+xRy7
-	9FnlpsPw+RxMXdZGKo3CqVWwRqreb24vT26R4nrbcqORJyPy9nxVd2eHxbWsmEy60caaqRzYwFVq8
-	hpNDBTrwQBDqvq3pxo/uuZ/YMkf0cBc4mi+9eCkEhDzQR9sPWFx/Ph6OOL7goNa3fsqhQFZ/3IRiE
-	9RlDsITVSfMnd6WJX9gcVzTestRvXnj+2us339jF6PcK0p+Qmc+iAMB1W5auYQWTLZp89Esx6NWPN
-	bzNtMdz5vgFu0crP1wGdMpGG5UNYiCQyeVrgwFz6cqI/0oK77DyVfx6rsH1cbAtZ8j3Jf5Dt/f9hO
-	tm4vVrMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+hpk8cr126p7YYLv2U+Rh60U/JKvVKpYQL3YqdP60hg=; b=YkH1UOytFW8G11Mcr1JFIEl3lY
+	3iHFd3Ee6AuKc8zvkUtl8JiSvLkHcyjYcHzg96fOpqgtupamNisNaZa5Yr7a8SWw1Dq6fVLrtLMxe
+	DfVV5ZgkJ1Z1KvmOo85xVNQgLMPviMzlztYET5elzvEv095FuFNN1c2z43adY7TA3ab62m+1j7pnU
+	CIoMHMy5Vih9VwfmxJsZC6AQLwEN6tM0sS5GqsFS+a3rJeC1aKU6ZLicCTdkquhX5cY+BQR//eH9v
+	AiJdm+2Hq/jPk9jX4vtwLyWgIcXhTOomx56WKu8U3Ljj1YBYmL1aAKKxL2JnaUSezEvls22zOmtv5
+	yFyoTA6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAsWB-00000002MzB-1BWX;
-	Fri, 02 May 2025 15:41:39 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uAsY7-00000002NIT-1HGU;
+	Fri, 02 May 2025 15:43:39 +0000
+Received: from smtp-73.smtpout.orange.fr ([80.12.242.73] helo=smtp.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAsKS-00000002L9F-2n6x
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 15:29:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=UfHSthQhcUGUYPAqAokpW8M9XQiGqY8eZUIZb5WDYjI=; b=p6NGLdFPU5vD+ggKs/3gbgFczg
-	ARE+G6P1/RTbibIEYqrFuAo2kpWtO3AAaAJNjJ5B5RdEDv0EwyDiu4Lgtl7i/XKAYdMl0kmdedgNo
-	kIYuOx7CSgcrd0+WnS59vnplpO2Pg+zBkuc+wxx64SDmqpe4HvgRoxcqEBZZ8ZVwozG0=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uAsKH-00BQnu-1r; Fri, 02 May 2025 17:29:21 +0200
-Date: Fri, 2 May 2025 17:29:21 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, bpf@vger.kernel.org,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Jon Hunter <jonathanh@nvidia.com>,
+	id 1uAsNS-00000002Lb9-189D;
+	Fri, 02 May 2025 15:32:39 +0000
+Received: from localhost.localdomain ([90.11.132.44])
+	by smtp.orange.fr with ESMTPA
+	id AsNKucfiRU6wKAsNNuiUsf; Fri, 02 May 2025 17:32:35 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
+	s=t20230301; t=1746199955;
+	bh=+hpk8cr126p7YYLv2U+Rh60U/JKvVKpYQL3YqdP60hg=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=WyZhZN1R+jxM5SFehLWOWGPihwRkEGdeRNXJINrq5NSgjMWDa4P5UgurXfxgdi2z2
+	 Rtl18Y4xExXTUZgG8s4mr0S3wVmtyIvbQhz0btegHbAT17FGXRg0BhnHP+FtiFaREY
+	 +wFE5qLhC2AgUlhCp4VKPiv6MTu32slh7VCC6f3loQZ6kg5MWL0gxHNaYrhC4zwQOv
+	 3lqy0Ls5AfdLnovkX3c5YS/EjSzS4ywRpLZDMQOEGkjLPhruy30tCUJTRO+M1hnToF
+	 E8HirI7HQc8Q8pYcFnO/HC+ifTxnFUsBEwTBEKeXmp26lpyeQS1eBQPj96cj5W9fo+
+	 mbezbb54/O+jA==
+X-ME-Helo: localhost.localdomain
+X-ME-Auth: Y2hyaXN0b3BoZS5qYWlsbGV0QHdhbmFkb28uZnI=
+X-ME-Date: Fri, 02 May 2025 17:32:35 +0200
+X-ME-IP: 90.11.132.44
+From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+To: Ulf Hansson <ulf.hansson@linaro.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-kernel@vger.kernel.org,
+	kernel-janitors@vger.kernel.org,
+	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+	linux-pm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Thierry Reding <treding@nvidia.com>
-Subject: Re: [PATCH net-next v2 2/4] net: stmmac: call phylink_carrier_*() in
- XDP functions
-Message-ID: <ed54d4e5-ecc3-4327-8739-3d41ca41211e@lunn.ch>
-References: <aBTKOBKnhoz3rrlQ@shell.armlinux.org.uk>
- <E1uAqYC-002D3p-UO@rmk-PC.armlinux.org.uk>
+	linux-amlogic@lists.infradead.org
+Subject: [PATCH] pmdomain: amlogic: Constify some structures
+Date: Fri,  2 May 2025 17:32:19 +0200
+Message-ID: <edc560afe2a8763c93341d161daeb8b33ba606c6.1746199917.git.christophe.jaillet@wanadoo.fr>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <E1uAqYC-002D3p-UO@rmk-PC.armlinux.org.uk>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_082932_704564_8C12E757 
-X-CRM114-Status: GOOD (  25.35  )
+X-CRM114-CacheID: sfid-20250502_083238_577099_B04F16B5 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,85 +78,283 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 02, 2025 at 02:35:36PM +0100, Russell King (Oracle) wrote:
-> Phylink does not permit drivers to mess with the netif carrier, as
-> this will de-synchronise phylink with the MAC driver. Moreover,
-> setting and clearing the TE and RE bits via stmmac_mac_set() in this
-> path is also wrong as the link may not be up.
-> 
-> Replace the netif_carrier_on(), netif_carrier_off() and
-> stmmac_mac_set() calls with the appropriate phylink_carrier_block() and
-> phylink_carrier_unblock() calls, thereby allowing phylink to manage the
-> netif carrier and TE/RE bits through the .mac_link_up() and
-> .mac_link_down() methods.
-> 
-> This change will have the side effect of printing link messages to
-> the kernel log, even though the physical link hasn't changed state.
-> This matches the carrier state that userspace sees, which has always
-> "bounced".
-> 
-> Note that RE should only be set after the DMA is ready to avoid the
-> receive FIFO between the MAC and DMA blocks overflowing, so
-> phylink_start() needs to be placed after DMA has been started.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
->  .../net/ethernet/stmicro/stmmac/stmmac_main.c | 20 +++++++++++--------
->  1 file changed, 12 insertions(+), 8 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index f59a2363f150..ac27ea679b23 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -6922,6 +6922,11 @@ void stmmac_xdp_release(struct net_device *dev)
->  	/* Ensure tx function is not running */
->  	netif_tx_disable(dev);
->  
-> +	/* Take down the software link. stmmac_xdp_open() must be called after
-> +	 * this function to release this block.
-> +	 */
-> +	phylink_carrier_block(priv->phylink);
-> +
->  	/* Disable NAPI process */
->  	stmmac_disable_all_queues(priv);
->  
-> @@ -6937,14 +6942,10 @@ void stmmac_xdp_release(struct net_device *dev)
->  	/* Release and free the Rx/Tx resources */
->  	free_dma_desc_resources(priv, &priv->dma_conf);
->  
-> -	/* Disable the MAC Rx/Tx */
-> -	stmmac_mac_set(priv, priv->ioaddr, false);
-> -
->  	/* set trans_start so we don't get spurious
->  	 * watchdogs during reset
->  	 */
->  	netif_trans_update(dev);
-> -	netif_carrier_off(dev);
->  }
->  
+Most structures in this driver are not modified.
 
->  int stmmac_xdp_open(struct net_device *dev)
-> @@ -7026,25 +7027,28 @@ int stmmac_xdp_open(struct net_device *dev)
->  		hrtimer_setup(&tx_q->txtimer, stmmac_tx_timer, CLOCK_MONOTONIC, HRTIMER_MODE_REL);
->  	}
->  
-> -	/* Enable the MAC Rx/Tx */
-> -	stmmac_mac_set(priv, priv->ioaddr, true);
-> -
->  	/* Start Rx & Tx DMA Channels */
->  	stmmac_start_all_dma(priv);
->  
-> +	/* Allow phylink to bring the software link back up.
-> +	 * stmmac_xdp_release() must have been called prior to this.
-> +	 */
+Constifying these structures moves some data to a read-only section, so
+increase overall security, especially when the structure holds some
+function pointers. (This is the case for see meson_ee_pwrc_domain_desc)
 
-This is counter intuitive. Why is release called before open?
+On a x86_64, with allmodconfig, as an example:
+Before:
+======
+   text	   data	    bss	    dec	    hex	filename
+   8924	   3832	      0	  12756	   31d4	drivers/pmdomain/amlogic/meson-ee-pwrc.o
 
-Looking into stmmac_xdp_set_prog() i think i get it. Even if there is
-not a running XDP prog, stmmac_xdp_release() is called, and then
-stmmac_xdp_open().
+After:
+=====
+   text	   data	    bss	    dec	    hex	filename
+  12396	    336	      0	  12732	   31bc	drivers/pmdomain/amlogic/meson-ee-pwrc.o
 
-Maybe these two functions need better names? prepare and commit?
+Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+---
+Compile tested-only.
+---
+ drivers/pmdomain/amlogic/meson-ee-pwrc.c | 78 ++++++++++++------------
+ 1 file changed, 39 insertions(+), 39 deletions(-)
 
-      Andrew
+diff --git a/drivers/pmdomain/amlogic/meson-ee-pwrc.c b/drivers/pmdomain/amlogic/meson-ee-pwrc.c
+index fbb2b4103930..55c8c9f66a1b 100644
+--- a/drivers/pmdomain/amlogic/meson-ee-pwrc.c
++++ b/drivers/pmdomain/amlogic/meson-ee-pwrc.c
+@@ -69,27 +69,27 @@ struct meson_ee_pwrc_domain_desc {
+ 	char *name;
+ 	unsigned int reset_names_count;
+ 	unsigned int clk_names_count;
+-	struct meson_ee_pwrc_top_domain *top_pd;
++	const struct meson_ee_pwrc_top_domain *top_pd;
+ 	unsigned int mem_pd_count;
+-	struct meson_ee_pwrc_mem_domain *mem_pd;
++	const struct meson_ee_pwrc_mem_domain *mem_pd;
+ 	bool (*is_powered_off)(struct meson_ee_pwrc_domain *pwrc_domain);
+ };
+ 
+ struct meson_ee_pwrc_domain_data {
+ 	unsigned int count;
+-	struct meson_ee_pwrc_domain_desc *domains;
++	const struct meson_ee_pwrc_domain_desc *domains;
+ };
+ 
+ /* TOP Power Domains */
+ 
+-static struct meson_ee_pwrc_top_domain gx_pwrc_vpu = {
++static const struct meson_ee_pwrc_top_domain gx_pwrc_vpu = {
+ 	.sleep_reg = GX_AO_RTI_GEN_PWR_SLEEP0,
+ 	.sleep_mask = BIT(8),
+ 	.iso_reg = GX_AO_RTI_GEN_PWR_SLEEP0,
+ 	.iso_mask = BIT(9),
+ };
+ 
+-static struct meson_ee_pwrc_top_domain meson8_pwrc_vpu = {
++static const struct meson_ee_pwrc_top_domain meson8_pwrc_vpu = {
+ 	.sleep_reg = MESON8_AO_RTI_GEN_PWR_SLEEP0,
+ 	.sleep_mask = BIT(8),
+ 	.iso_reg = MESON8_AO_RTI_GEN_PWR_SLEEP0,
+@@ -104,20 +104,20 @@ static struct meson_ee_pwrc_top_domain meson8_pwrc_vpu = {
+ 		.iso_mask = BIT(__bit), 			\
+ 	}
+ 
+-static struct meson_ee_pwrc_top_domain sm1_pwrc_vpu = SM1_EE_PD(8);
+-static struct meson_ee_pwrc_top_domain sm1_pwrc_nna = SM1_EE_PD(16);
+-static struct meson_ee_pwrc_top_domain sm1_pwrc_usb = SM1_EE_PD(17);
+-static struct meson_ee_pwrc_top_domain sm1_pwrc_pci = SM1_EE_PD(18);
+-static struct meson_ee_pwrc_top_domain sm1_pwrc_ge2d = SM1_EE_PD(19);
++static const struct meson_ee_pwrc_top_domain sm1_pwrc_vpu = SM1_EE_PD(8);
++static const struct meson_ee_pwrc_top_domain sm1_pwrc_nna = SM1_EE_PD(16);
++static const struct meson_ee_pwrc_top_domain sm1_pwrc_usb = SM1_EE_PD(17);
++static const struct meson_ee_pwrc_top_domain sm1_pwrc_pci = SM1_EE_PD(18);
++static const struct meson_ee_pwrc_top_domain sm1_pwrc_ge2d = SM1_EE_PD(19);
+ 
+-static struct meson_ee_pwrc_top_domain g12a_pwrc_nna = {
++static const struct meson_ee_pwrc_top_domain g12a_pwrc_nna = {
+ 	.sleep_reg = GX_AO_RTI_GEN_PWR_SLEEP0,
+ 	.sleep_mask = BIT(16) | BIT(17),
+ 	.iso_reg = GX_AO_RTI_GEN_PWR_ISO0,
+ 	.iso_mask = BIT(16) | BIT(17),
+ };
+ 
+-static struct meson_ee_pwrc_top_domain g12a_pwrc_isp = {
++static const struct meson_ee_pwrc_top_domain g12a_pwrc_isp = {
+ 	.sleep_reg = GX_AO_RTI_GEN_PWR_SLEEP0,
+ 	.sleep_mask = BIT(18) | BIT(19),
+ 	.iso_reg = GX_AO_RTI_GEN_PWR_ISO0,
+@@ -154,39 +154,39 @@ static struct meson_ee_pwrc_top_domain g12a_pwrc_isp = {
+ 	{ __reg, BIT(14) },					\
+ 	{ __reg, BIT(15) }
+ 
+-static struct meson_ee_pwrc_mem_domain axg_pwrc_mem_vpu[] = {
++static const struct meson_ee_pwrc_mem_domain axg_pwrc_mem_vpu[] = {
+ 	VPU_MEMPD(HHI_VPU_MEM_PD_REG0),
+ 	VPU_HHI_MEMPD(HHI_MEM_PD_REG0),
+ };
+ 
+-static struct meson_ee_pwrc_mem_domain g12a_pwrc_mem_vpu[] = {
++static const struct meson_ee_pwrc_mem_domain g12a_pwrc_mem_vpu[] = {
+ 	VPU_MEMPD(HHI_VPU_MEM_PD_REG0),
+ 	VPU_MEMPD(HHI_VPU_MEM_PD_REG1),
+ 	VPU_MEMPD(HHI_VPU_MEM_PD_REG2),
+ 	VPU_HHI_MEMPD(HHI_MEM_PD_REG0),
+ };
+ 
+-static struct meson_ee_pwrc_mem_domain gxbb_pwrc_mem_vpu[] = {
++static const struct meson_ee_pwrc_mem_domain gxbb_pwrc_mem_vpu[] = {
+ 	VPU_MEMPD(HHI_VPU_MEM_PD_REG0),
+ 	VPU_MEMPD(HHI_VPU_MEM_PD_REG1),
+ 	VPU_HHI_MEMPD(HHI_MEM_PD_REG0),
+ };
+ 
+-static struct meson_ee_pwrc_mem_domain meson_pwrc_mem_eth[] = {
++static const struct meson_ee_pwrc_mem_domain meson_pwrc_mem_eth[] = {
+ 	{ HHI_MEM_PD_REG0, GENMASK(3, 2) },
+ };
+ 
+-static struct meson_ee_pwrc_mem_domain meson8_pwrc_audio_dsp_mem[] = {
++static const struct meson_ee_pwrc_mem_domain meson8_pwrc_audio_dsp_mem[] = {
+ 	{ HHI_MEM_PD_REG0, GENMASK(1, 0) },
+ };
+ 
+-static struct meson_ee_pwrc_mem_domain meson8_pwrc_mem_vpu[] = {
++static const struct meson_ee_pwrc_mem_domain meson8_pwrc_mem_vpu[] = {
+ 	VPU_MEMPD(HHI_VPU_MEM_PD_REG0),
+ 	VPU_MEMPD(HHI_VPU_MEM_PD_REG1),
+ 	VPU_HHI_MEMPD(HHI_MEM_PD_REG0),
+ };
+ 
+-static struct meson_ee_pwrc_mem_domain sm1_pwrc_mem_vpu[] = {
++static const struct meson_ee_pwrc_mem_domain sm1_pwrc_mem_vpu[] = {
+ 	VPU_MEMPD(HHI_VPU_MEM_PD_REG0),
+ 	VPU_MEMPD(HHI_VPU_MEM_PD_REG1),
+ 	VPU_MEMPD(HHI_VPU_MEM_PD_REG2),
+@@ -198,28 +198,28 @@ static struct meson_ee_pwrc_mem_domain sm1_pwrc_mem_vpu[] = {
+ 	VPU_HHI_MEMPD(HHI_MEM_PD_REG0),
+ };
+ 
+-static struct meson_ee_pwrc_mem_domain sm1_pwrc_mem_nna[] = {
++static const struct meson_ee_pwrc_mem_domain sm1_pwrc_mem_nna[] = {
+ 	{ HHI_NANOQ_MEM_PD_REG0, 0xff },
+ 	{ HHI_NANOQ_MEM_PD_REG1, 0xff },
+ };
+ 
+-static struct meson_ee_pwrc_mem_domain sm1_pwrc_mem_usb[] = {
++static const struct meson_ee_pwrc_mem_domain sm1_pwrc_mem_usb[] = {
+ 	{ HHI_MEM_PD_REG0, GENMASK(31, 30) },
+ };
+ 
+-static struct meson_ee_pwrc_mem_domain sm1_pwrc_mem_pcie[] = {
++static const struct meson_ee_pwrc_mem_domain sm1_pwrc_mem_pcie[] = {
+ 	{ HHI_MEM_PD_REG0, GENMASK(29, 26) },
+ };
+ 
+-static struct meson_ee_pwrc_mem_domain sm1_pwrc_mem_ge2d[] = {
++static const struct meson_ee_pwrc_mem_domain sm1_pwrc_mem_ge2d[] = {
+ 	{ HHI_MEM_PD_REG0, GENMASK(25, 18) },
+ };
+ 
+-static struct meson_ee_pwrc_mem_domain axg_pwrc_mem_audio[] = {
++static const struct meson_ee_pwrc_mem_domain axg_pwrc_mem_audio[] = {
+ 	{ HHI_MEM_PD_REG0, GENMASK(5, 4) },
+ };
+ 
+-static struct meson_ee_pwrc_mem_domain sm1_pwrc_mem_audio[] = {
++static const struct meson_ee_pwrc_mem_domain sm1_pwrc_mem_audio[] = {
+ 	{ HHI_MEM_PD_REG0, GENMASK(5, 4) },
+ 	{ HHI_AUDIO_MEM_PD_REG0, GENMASK(1, 0) },
+ 	{ HHI_AUDIO_MEM_PD_REG0, GENMASK(3, 2) },
+@@ -235,12 +235,12 @@ static struct meson_ee_pwrc_mem_domain sm1_pwrc_mem_audio[] = {
+ 	{ HHI_AUDIO_MEM_PD_REG0, GENMASK(27, 26) },
+ };
+ 
+-static struct meson_ee_pwrc_mem_domain g12a_pwrc_mem_nna[] = {
++static const struct meson_ee_pwrc_mem_domain g12a_pwrc_mem_nna[] = {
+ 	{ G12A_HHI_NANOQ_MEM_PD_REG0, GENMASK(31, 0) },
+ 	{ G12A_HHI_NANOQ_MEM_PD_REG1, GENMASK(31, 0) },
+ };
+ 
+-static struct meson_ee_pwrc_mem_domain g12a_pwrc_mem_isp[] = {
++static const struct meson_ee_pwrc_mem_domain g12a_pwrc_mem_isp[] = {
+ 	{ G12A_HHI_ISP_MEM_PD_REG0, GENMASK(31, 0) },
+ 	{ G12A_HHI_ISP_MEM_PD_REG1, GENMASK(31, 0) },
+ };
+@@ -270,14 +270,14 @@ static struct meson_ee_pwrc_mem_domain g12a_pwrc_mem_isp[] = {
+ 
+ static bool pwrc_ee_is_powered_off(struct meson_ee_pwrc_domain *pwrc_domain);
+ 
+-static struct meson_ee_pwrc_domain_desc axg_pwrc_domains[] = {
++static const struct meson_ee_pwrc_domain_desc axg_pwrc_domains[] = {
+ 	[PWRC_AXG_VPU_ID]  = VPU_PD("VPU", &gx_pwrc_vpu, axg_pwrc_mem_vpu,
+ 				     pwrc_ee_is_powered_off, 5, 2),
+ 	[PWRC_AXG_ETHERNET_MEM_ID] = MEM_PD("ETH", meson_pwrc_mem_eth),
+ 	[PWRC_AXG_AUDIO_ID] = MEM_PD("AUDIO", axg_pwrc_mem_audio),
+ };
+ 
+-static struct meson_ee_pwrc_domain_desc g12a_pwrc_domains[] = {
++static const struct meson_ee_pwrc_domain_desc g12a_pwrc_domains[] = {
+ 	[PWRC_G12A_VPU_ID]  = VPU_PD("VPU", &gx_pwrc_vpu, g12a_pwrc_mem_vpu,
+ 				     pwrc_ee_is_powered_off, 11, 2),
+ 	[PWRC_G12A_ETH_ID] = MEM_PD("ETH", meson_pwrc_mem_eth),
+@@ -287,13 +287,13 @@ static struct meson_ee_pwrc_domain_desc g12a_pwrc_domains[] = {
+ 				    pwrc_ee_is_powered_off),
+ };
+ 
+-static struct meson_ee_pwrc_domain_desc gxbb_pwrc_domains[] = {
++static const struct meson_ee_pwrc_domain_desc gxbb_pwrc_domains[] = {
+ 	[PWRC_GXBB_VPU_ID]  = VPU_PD("VPU", &gx_pwrc_vpu, gxbb_pwrc_mem_vpu,
+ 				     pwrc_ee_is_powered_off, 12, 2),
+ 	[PWRC_GXBB_ETHERNET_MEM_ID] = MEM_PD("ETH", meson_pwrc_mem_eth),
+ };
+ 
+-static struct meson_ee_pwrc_domain_desc meson8_pwrc_domains[] = {
++static const struct meson_ee_pwrc_domain_desc meson8_pwrc_domains[] = {
+ 	[PWRC_MESON8_VPU_ID]  = VPU_PD("VPU", &meson8_pwrc_vpu,
+ 				       meson8_pwrc_mem_vpu,
+ 				       pwrc_ee_is_powered_off, 0, 1),
+@@ -303,7 +303,7 @@ static struct meson_ee_pwrc_domain_desc meson8_pwrc_domains[] = {
+ 						meson8_pwrc_audio_dsp_mem),
+ };
+ 
+-static struct meson_ee_pwrc_domain_desc meson8b_pwrc_domains[] = {
++static const struct meson_ee_pwrc_domain_desc meson8b_pwrc_domains[] = {
+ 	[PWRC_MESON8_VPU_ID]  = VPU_PD("VPU", &meson8_pwrc_vpu,
+ 				       meson8_pwrc_mem_vpu,
+ 				       pwrc_ee_is_powered_off, 11, 1),
+@@ -313,7 +313,7 @@ static struct meson_ee_pwrc_domain_desc meson8b_pwrc_domains[] = {
+ 						meson8_pwrc_audio_dsp_mem),
+ };
+ 
+-static struct meson_ee_pwrc_domain_desc sm1_pwrc_domains[] = {
++static const struct meson_ee_pwrc_domain_desc sm1_pwrc_domains[] = {
+ 	[PWRC_SM1_VPU_ID]  = VPU_PD("VPU", &sm1_pwrc_vpu, sm1_pwrc_mem_vpu,
+ 				    pwrc_ee_is_powered_off, 11, 2),
+ 	[PWRC_SM1_NNA_ID]  = TOP_PD("NNA", &sm1_pwrc_nna, sm1_pwrc_mem_nna,
+@@ -576,32 +576,32 @@ static void meson_ee_pwrc_shutdown(struct platform_device *pdev)
+ 	}
+ }
+ 
+-static struct meson_ee_pwrc_domain_data meson_ee_g12a_pwrc_data = {
++static const struct meson_ee_pwrc_domain_data meson_ee_g12a_pwrc_data = {
+ 	.count = ARRAY_SIZE(g12a_pwrc_domains),
+ 	.domains = g12a_pwrc_domains,
+ };
+ 
+-static struct meson_ee_pwrc_domain_data meson_ee_axg_pwrc_data = {
++static const struct meson_ee_pwrc_domain_data meson_ee_axg_pwrc_data = {
+ 	.count = ARRAY_SIZE(axg_pwrc_domains),
+ 	.domains = axg_pwrc_domains,
+ };
+ 
+-static struct meson_ee_pwrc_domain_data meson_ee_gxbb_pwrc_data = {
++static const struct meson_ee_pwrc_domain_data meson_ee_gxbb_pwrc_data = {
+ 	.count = ARRAY_SIZE(gxbb_pwrc_domains),
+ 	.domains = gxbb_pwrc_domains,
+ };
+ 
+-static struct meson_ee_pwrc_domain_data meson_ee_m8_pwrc_data = {
++static const struct meson_ee_pwrc_domain_data meson_ee_m8_pwrc_data = {
+ 	.count = ARRAY_SIZE(meson8_pwrc_domains),
+ 	.domains = meson8_pwrc_domains,
+ };
+ 
+-static struct meson_ee_pwrc_domain_data meson_ee_m8b_pwrc_data = {
++static const struct meson_ee_pwrc_domain_data meson_ee_m8b_pwrc_data = {
+ 	.count = ARRAY_SIZE(meson8b_pwrc_domains),
+ 	.domains = meson8b_pwrc_domains,
+ };
+ 
+-static struct meson_ee_pwrc_domain_data meson_ee_sm1_pwrc_data = {
++static const struct meson_ee_pwrc_domain_data meson_ee_sm1_pwrc_data = {
+ 	.count = ARRAY_SIZE(sm1_pwrc_domains),
+ 	.domains = sm1_pwrc_domains,
+ };
+-- 
+2.49.0
+
 
