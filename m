@@ -4,60 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34D29C3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 21:54:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAEE0C3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 21:58:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V9SjiiEJ5CBwLN0Flq395P6nvTylfhJws1GFCWFkO+w=; b=nLbTTn2NYLiLd5gg72vaRotz9X
-	vp7TtN9OLt+kLI1QfMSSn+AvezYK7NuHqLXYOgvjTjJ2y6iu0lf+rLp1H0Jmc5ySqiFc3Lug5qUes
-	1nz3zhK6yUNCQw9Iwv9nxOOCGAhKwjpBfG+A6FVaa/b6jwR21UAVjQa7POKyB16vGUUlJX9GTA4vs
-	KkKIf6eYLSX8YupItDo1VLIYfnWgd9Qo4m7OgvV5gxQNN4FxhZhR8s4ZuOXYnmRxBQgzOh7hy5d4U
-	rTTDo/YS6XJPQO3ErxGN30PlbWQgcKFHz58Onh4KAP9V3eJ3xE6lzE2AEaXR9O163sWUC+h9h57I9
-	9tDBDDkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bIvPqFh1bSmMO8wWItITLD+unYaVgvsJbSEKAGTEleY=; b=zGsOJVB1cKl3Urhn0azSJzUDZj
+	4Z6QR0wRHrGJs1TLyO+jF/wHMViIb6YDjBVq59AKRoX1pQ4kqLjDOT3VTjjDgvfWATddlU5yvd8CF
+	lkVc/9U+5s/FmPyMZBFH27i2xlA+LuEeVotL006ZE/6CL1estwW2AFjNFWqNnH0OoO0oGMpHf1VKS
+	vSEST+MR7rxX4yqD4DAWPKn8gnl+pg5gwWdRcAv01dqFIEwOKmJnzZ0f5oKUJhNnTrwFuDcfChUIR
+	3qUJCsyzAhGJhq5h+Ssuuhgg0oVFpYOpLFuvh8waBRic7U1dt6HBI5lq5/sV0Wa2D7kWyVkIfDymJ
+	t43YpROA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAyKh-000000036cn-07xk;
-	Fri, 02 May 2025 21:54:11 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uAyOZ-000000037HF-0XX9;
+	Fri, 02 May 2025 21:58:11 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAyIj-000000036FE-2ydK;
-	Fri, 02 May 2025 21:52:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=V9SjiiEJ5CBwLN0Flq395P6nvTylfhJws1GFCWFkO+w=; b=2bHeTLMWmrEKsZTabi9IKqJnaq
-	5rTdIhkvQosr2AG6CUNGOchjzNLxWtTfUSeyet/qYES8qLELeboaz/c3+CU6/QbP7GRlXicop3JzL
-	R5cK6DoVo14nhbpju3mvydkOucbj4eQXDN7yTIMoAB2kbX5m8rhQYpV8EO1g4zTPlEt8=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uAyIZ-00BRxh-Ba; Fri, 02 May 2025 23:51:59 +0200
-Date: Fri, 2 May 2025 23:51:59 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: John Clark <inindev@gmail.com>
-Cc: heiko@sntech.de, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, nicolas.frattaroli@collabora.com,
-	detlev.casanova@collabora.com, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 3/3] arm64: dts: rockchip: Add Luckfox Omni3576
- Carrier Board with Core3576 Module
-Message-ID: <7c01712f-776d-4073-9829-f18a51df6d4c@lunn.ch>
-References: <20250502205533.51744-1-inindev@gmail.com>
- <20250502205533.51744-4-inindev@gmail.com>
+	id 1uAyMe-000000037Ax-1wCR
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 02 May 2025 21:56:13 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-39141ffa9fcso2592141f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 May 2025 14:56:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746222971; x=1746827771; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bIvPqFh1bSmMO8wWItITLD+unYaVgvsJbSEKAGTEleY=;
+        b=B/tvdECevy/Y/0KWStepfjXNSrcGKsvxCK0VRNUb9te6H1iB/pt7f1fZ9nT3M7UATm
+         BZQv2FgTauycTRFENpnLChQwis6Pirp/WnGQFpli+zZgT9nGs8pS6LpezSFV1HBzj/oE
+         AhLX1cJSEbXV5kCegnPTtR3yi0CmkGwb3dIhPjY1CyvfNomeBj+hPptUW7Zk593BhTAG
+         z+ZODhi0gnpUXF0cCU0/2oEgIlVhsrnqVqjBBugTKpAEcBPgP6qVme0yJ3xyis71LoCX
+         tJrabEDTE8nb4Oi6oW6LEunatGm3E0IrdpdDfflEKZdJ2Ud5AqAadUGjzbTCp6//w0eQ
+         UjrQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746222971; x=1746827771;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=bIvPqFh1bSmMO8wWItITLD+unYaVgvsJbSEKAGTEleY=;
+        b=IzlKGXlvrCoH/1Xt/VIcyJa3pOZKGl37Y1JLz4RnIYqkhGTWbAc+CJ7zu9vzGJzZLm
+         8/xeQS/cM4+MrfgLayF47Hhth+xwGnz1dQmD+IAzr0Bm0gYqJ+DJmVa2YjrLUak8kj8X
+         kJQ9I4zZBcly/rn3BsT3xChwIapj5myMJryI957tn9Y3972qfgOXVVEUpENqS5f/sPgv
+         JnHjptIFshB8A9kF8UM57uGtqSXVNHlRim2vlIUx5I72YIkFZF26kJInhsWVG8h7QkG1
+         0Crre+pw7tnTCkqtM+ot57s0WrWPsKGXk3tWRzj3BQyHvN7jM3/slMJcqrHaKz+sBfJP
+         r/tQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXKAfUv4l8EbQU+q3nmJxwvXUxxlJGqlXNFkF2x39eQ1qy4mAuz1WEfJdHE2ib6ADQMYBkIQrEXlbyL591Z0OGS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1r0CpEYlefW1viQRapmQYH6492qSQXQCuLFMpcRKuWfH68mgM
+	C98TMz1d/pxS9Ri0AMyWWXceQ+LGzsN64nQGtPcIhsd1L4bXNzFfflFdq+qoNaZqXgE1DYukrA0
+	KnceKB/2B3guP97GPQfX2qreq26k=
+X-Gm-Gg: ASbGncvLi0JlFICtHqAVRH+FHgXN8vMGhs3qpyZl0Cy97nAJI1lJ9Pt5GrZ88aw8CTf
+	7HI4ur2e9eIsx2RB1KfeeZ8s0nJFcmpg5FCekmspvIeagYmuBBzVTsBgQlZtFXwmki8BnAqgMH6
+	2FdxUEc65wgOOKx65e7uua2EY/o8yKrEvz6g==
+X-Google-Smtp-Source: AGHT+IFl+MRsV9J9nUptoXNbXZiIMrW6eP7y6f3wW7mfpaU2h2XmONvIp5/7UcNAkL9ozkcXMiTtg4dCMT3oBCA84EE=
+X-Received: by 2002:a5d:47a6:0:b0:39f:b604:4691 with SMTP id
+ ffacd0b85a97d-3a09cf6af9emr452963f8f.58.1746222970638; Fri, 02 May 2025
+ 14:56:10 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250502205533.51744-4-inindev@gmail.com>
+References: <20250502124627.69644-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <20250502124627.69644-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+ <CAMuHMdVXeBUah-r0YQsjhvxeja9oMZpLYZHTwxgdi=ezqY=iBw@mail.gmail.com>
+ <CA+V-a8v5HHZUfhKhy-jasC5vKdL6MYBCnnVZ71rdtQOv5Tn-Sw@mail.gmail.com> <CAMuHMdWJ+Qcmj3aCEsd5Ydr9qn4hsr013w_ffjzj=jhtS9YFtQ@mail.gmail.com>
+In-Reply-To: <CAMuHMdWJ+Qcmj3aCEsd5Ydr9qn4hsr013w_ffjzj=jhtS9YFtQ@mail.gmail.com>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Fri, 2 May 2025 22:55:44 +0100
+X-Gm-Features: ATxdqUE8T1Mu-5AOrIjt5lex4I3-3FPgX7a_P5_IZCEHoJrMGwqdxjz8WFgR-To
+Message-ID: <CA+V-a8tsjXVirSK8_Jnx6MQpkSPbxfiri_8b4-gU8hoKfVBZgw@mail.gmail.com>
+Subject: Re: [PATCH v2 2/2] clocksource/drivers/renesas-ostm: Enable reprobe
+ for all ARM64 SoCs
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+	Chris Brandt <chris.brandt@renesas.com>, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
+	Biju Das <biju.das.jz@bp.renesas.com>, 
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_145209_745117_E920F487 
-X-CRM114-Status: UNSURE (   8.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250502_145612_498601_C56F10E4 
+X-CRM114-Status: GOOD (  32.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,32 +106,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +&gmac1 {
-> +	clock_in_out = "output";
-> +	phy-handle = <&rgmii_phy1>;
-> +	phy-mode = "rgmii-rxid";
+Hi Geert,
 
-This is unlikely to be correct. It probably works, but that does not
-make it correct.
+On Fri, May 2, 2025 at 6:36=E2=80=AFPM Geert Uytterhoeven <geert@linux-m68k=
+.org> wrote:
+>
+> Hi Prabhakar,
+>
+> On Fri, 2 May 2025 at 18:10, Lad, Prabhakar <prabhakar.csengg@gmail.com> =
+wrote:
+> > On Fri, May 2, 2025 at 3:37=E2=80=AFPM Geert Uytterhoeven <geert@linux-=
+m68k.org> wrote:
+> > > On Fri, 2 May 2025 at 14:47, Prabhakar <prabhakar.csengg@gmail.com> w=
+rote:
+> > > > From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+> > > >
+> > > > Change the OSTM driver's probe condition to `CONFIG_ARM64` so that =
+the
+> > > > platform driver will defer and reprobe on any ARM64 Renesas SoC onc=
+e its
+> > > > reset controller is available. Previously, only RZ/G2L and RZ/V2H(P=
+)
+> > > > were covered.
+> > > >
+> > > > By matching on `CONFIG_ARM64`, this avoids adding a new config entr=
+y
+> > > > for each future ARM64 Renesas SoC with OSTM IP. RZ/A1 and RZ/A2 (AR=
+M32)
+> > > > are unaffected-they still use OSTM but do not define a resets prope=
+rty,
+> > > > so the deferred reprobe mechanism is unnecessary.
+> > > >
+> > > > Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.c=
+om>
+> > > > Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> > > > ---
+> > > > Hi Geert,
+> > > > I've restored the Reviewed-by tag from v1 with your suggestions app=
+lied.
+> > > > I hope you're okay with this.
+> > > > Cheers, Prabhakar
+> > > >
+> > > > v1->v2:
+> > > > - Instead of adding config for new SoC, changed the probe condition=
+ to
+> > > >   `CONFIG_ARM64`.
+> > > > - Updated commit message
+> > > > - Added a Reviewed-by tag from Geert.
+> > > > ---
+> > > >  drivers/clocksource/renesas-ostm.c | 2 +-
+> > > >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > > >
+> > > > diff --git a/drivers/clocksource/renesas-ostm.c b/drivers/clocksour=
+ce/renesas-ostm.c
+> > > > index 3fcbd02b2483..6a5785f9c9c1 100644
+> > > > --- a/drivers/clocksource/renesas-ostm.c
+> > > > +++ b/drivers/clocksource/renesas-ostm.c
+> > > > @@ -225,7 +225,7 @@ static int __init ostm_init(struct device_node =
+*np)
+> > > >
+> > > >  TIMER_OF_DECLARE(ostm, "renesas,ostm", ostm_init);
+> > > >
+> > > > -#if defined(CONFIG_ARCH_RZG2L) || defined(CONFIG_ARCH_R9A09G057)
+> > > > +#if defined(CONFIG_ARM64)
+> > >
+> > > Sorry, I've just realized RZ/Five also wants this.
+> > >
+> > Ouch, I missed that too.
+> >
+> > > "#ifndef CONFIG_ARM"?
+> > >
+> > Im wondering will it harm if we have it enabled for ARM too (I dont
+> > have RZ/Ax to test it)?
+>
+> ISTR it caused issues on RZ/Ax.
+>
+> Oh right, and those got fixed by commit 37385c0772a4fc6b
+> ("clocksource/drivers/renesas-ostm: Avoid reprobe after successful
+> early probe") in v6.10. So I think it is safe to drop the #ifdef
+> check instead of extending it.
+>
+Thanks for the confirmation. I'll drop the ifdef checks and send a v3 for t=
+his.
 
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&eth1m0_miim
-> +		     &eth1m0_tx_bus2
-> +		     &eth1m0_rx_bus2
-> +		     &eth1m0_rgmii_clk
-> +		     &eth1m0_rgmii_bus
-> +		     &ethm0_clk1_25m_out>;
-> +	snps,reset-gpio = <&gpio2 RK_PB4 GPIO_ACTIVE_LOW>;
-> +	snps,reset-active-low;
-> +	snps,reset-delays-us = <0 20000 100000>;
-> +	tx_delay = <0x20>;
-> +	status = "disabled";
-> +};
-
-Please see the discussion about rgmii delays with other rockchip
-boards from the last week, and
-
-https://patchwork.kernel.org/project/netdevbpf/patch/20250430-v6-15-rc3-net-rgmii-delays-v2-1-099ae651d5e5@lunn.ch/
-
-	Andrew
+> FTR, with the platform probe enabled, and 37385c0772a4fc6b reverted:
+>
+>     /soc/timer@e803b000: used for clock events
+>     genirq: Flags mismatch irq 16. 00215201 (timer@e803c000) vs.
+> 00215201 (timer@e803c000)
+>     Failed to request irq 16 for /soc/timer@e803c000
+>     renesas_ostm e803c000.timer: probe with driver renesas_ostm failed
+> with error -16
+>
+Cheers,
+Prabhakar
 
