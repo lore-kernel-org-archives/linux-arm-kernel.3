@@ -4,89 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F07E6C3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 18:27:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA75AC3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 18:40:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Emot1Htzetmhc9hYsA7C5Lev8H41HDZmzIfFRACzMi8=; b=fc1bezIdXGZBMKhyQgO2udtGsT
-	cJe+YkUKRZSN8gau2XVsqeykLNjn5b/f8qnQPSKLlT9fCOqrSSSw8xqgbM2K8KO6AO125Z+rgSzc3
-	okP3pJyk2idFcyOLKRhrouyZYmceAiYDZrFVAsR7yAq3CYOfPL0sg1na6Rr73yPSEt6nfazDaOnPd
-	6YDM5x8qjBsRzHbNblEMmnNTstAn3gJF3Jd7nSZcCIc6QCQKdjvyJi7YNb+EbMil4efmqr1COaJdi
-	nQLtr/aZb4PeqedUQIczDBm1UmTiiGIGcXndOkzZF59do0MBIOJkt8VoAab9kClp86xQy4B922AXQ
-	/aKyUZlg==;
+	bh=Szvh9FDiAeZV5KMXY9XpVOO+pU/TH0kKZBG6xbyHs1E=; b=Tx6b85EqrLQ8OkS/X4172ewcJK
+	DpqJh+RCqgAMSu5rXMP2Qy+1PVupuI+VgPREV0ondJ3FN2M0sWO2Xe6AxTv75JyPg2FwRnNTJc0YE
+	Of33cDo9mQOPPwdjydwD9NZpZa7gwSnhwgVqXT3YYMWyteo+WzbfTFkp0j46WjkRfIAgUrlh1tqil
+	HjsFv2JAq8DbhWfZOckh+zSHzJkeEZBoSZeNfCGJsws0OuQJz+rHg1PUS9AWKKUfHEaml9Du7rB3o
+	uHUkiphCe4bZrN5ltjzxg5f8ImXxVvC2GBT2l/kris5h2+g4Fs0IEqZ1fAsH7fYYVwVd3MpRw7uuV
+	rxM7Z82g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAv6S-00000002lZR-2OTj;
-	Fri, 02 May 2025 18:27:16 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1uAvIo-00000002maV-1nLB;
+	Fri, 02 May 2025 18:40:02 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAv4U-00000002lQj-3fAi
+	id 1uAvGq-00000002mCP-1cZ3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 18:25:17 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2263428c8baso14195ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 May 2025 11:25:14 -0700 (PDT)
+	Fri, 02 May 2025 18:38:02 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-5f6222c6c4cso3498567a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 May 2025 11:37:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1746210314; x=1746815114; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1746211078; x=1746815878; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Emot1Htzetmhc9hYsA7C5Lev8H41HDZmzIfFRACzMi8=;
-        b=gE+9OOx5hbUMP0YYa0EU3AgFanmxwv3Sh4nev5/YtmqAV+vhdl+u4dxzmLKzIgoSQa
-         3fP/FpXfYIvmoiEze0vpNZo39PtOF+cajvu5bU7Gok7urD524kK5FMS3PeW1+Im+cs6e
-         M97nbca8iZzVzyTLHEwl8t772OU1yOU42JZP/zWg9ZKxoZEDmh62ZCbNhpdkNGWBlFq6
-         EnAXibQqdh6QluWGcsH85YwGK3nbXIhtnWwGKOxl8Gx06dFa1Njb7xtrAwdX6HbqMfdE
-         pVy+7ybjV/gHdvtpOB8QMZu5WH1qmyRkKSMjhzwBIafoRqMmGgu2qs4bXCvbokztAj1Z
-         bVfQ==
+        bh=Szvh9FDiAeZV5KMXY9XpVOO+pU/TH0kKZBG6xbyHs1E=;
+        b=n0L7Yn2CMz5I85HEDRhu2W+/zxS50oyiG4VaegIu4qLoRoSmG166aaOrdQu0QauBgY
+         vT84jeKPpKfaFNB3foAxTGN2dG/pJbaTE6orBt2GwVP4ikM4cdeuUacuwDShG+uLU2+o
+         Z/IupgH2VNIei8LjlN1Bpc08EBH9gcf41Sym10pFpQU+egnqVN49Mrhz2Wh8aE7aZvo2
+         ZwkEOoSQ+f2plqfLWkpzz4qiNLfKEDqW5kmG9FaIAR0SXrhTWqB0sWltGt2yJ4VHmylj
+         KmPLXs6zAPH+xElKY1YeNmiY/YEk/EfUzU+ZX0Tzek0OLwFcApwDUqBfc2HAt/RRRSiX
+         TiUg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746210314; x=1746815114;
+        d=1e100.net; s=20230601; t=1746211078; x=1746815878;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Emot1Htzetmhc9hYsA7C5Lev8H41HDZmzIfFRACzMi8=;
-        b=ZSYNF83Gvi6SjwvTLpKM3ZyOng9dQUxDl64X9u5MytGApLe6Q7B9wLF/ROTcNNtxdu
-         eAkoFfNbjuhdjWU8yz1IM+mH/hDeOFtRAzkiqL4NeD3gJ+B5UL3xJWHU7q8hf6PYHFEP
-         YiYzwNytIUUawhn3XO3XA9BzfR31eHqOik7jYJeW6XleYMLPMVyxI3vPdCFYnR2qAYxH
-         keTjGGkFDKUxehVxKuhGzYdX/rqpUtfvLUOHLmd2es+BbqXInWQrWrdfow0OtM/TKTNM
-         wUHx6XKflLO41+Bd3FNAXz2ML4iilXFTtnLG8hInN8sIU+0vYT0fV37unPEZTcaa+Kb9
-         E73w==
-X-Forwarded-Encrypted: i=1; AJvYcCUAutViLj0JnKKUQMdcF7w4RxJcdNHpykwQp0ijiIw9+e4g/ro55IS+80vkLhYmUfoL2LH/Xkl7T0dzLj6LpTbA@lists.infradead.org
-X-Gm-Message-State: AOJu0YxR58IqexWs+f6+QrvMSdSzCyed8wUBl4Czr/s3TKFPGgaTagys
-	wD3CJO3mZEX3p6qRBKyHnUAQW40rOqYVzIpnWY/h7vDxEPnf25q1Wo86kIeQ+MVc8YKDTXAOmdv
-	0ukT2TcAbz4li9REGbwCYe1t4LDuRM10ncHsl
-X-Gm-Gg: ASbGncu/Ci2tSYHbWlnesdMKnqGSvmq/ZHa5plUpg8FUk8hgZjfCJz9JlO5/dcZl/aT
-	OoIgYO2jRwGgirB9mUO+am/2qtEpgkyx2+tkHYf4fQNbYjOtjeynOvwRpj8iBO9bNQ4TZ3Y5PcI
-	FWvDr38NnP+hSf2vBkbhwpEm0L1CW5ZJOQ/zv8d0ZJBO0K/j/bPNCv
-X-Google-Smtp-Source: AGHT+IEnS0W1NZg6BUaKBaLsmGLWSW5k5kMx7vCqjZJE1BvXZ91WD0nASnnl5YMQZHiCSuFVgwr9C6f8WFlXw0DbnC4=
-X-Received: by 2002:a17:903:1b68:b0:223:ff93:322f with SMTP id
- d9443c01a7336-22e18a3edc1mr240885ad.2.1746210313713; Fri, 02 May 2025
- 11:25:13 -0700 (PDT)
+        bh=Szvh9FDiAeZV5KMXY9XpVOO+pU/TH0kKZBG6xbyHs1E=;
+        b=w0879AsgQWitPeR0uxN8pHvuT/YBNKRX5F7TCzOmdMYsBY/veRmpmo2YJFHgm8V6wf
+         b1JwLHOL48uiKCN7+rD6o0DhmxJjP0H5wLhrZ307EDDSPzZZOkpSBtxf+N/yAGDjGiSP
+         TNFdaJxOx1Gnbfhzs8yFTV2arHi1Ub5wmSff2KF0rKeHScL6jtlvNDd15pdrvHcs7fuB
+         h7LgBuBY8inCavzDYAS6bJNrNFnwZ18YrgPbfmkcemWdBaBSV1V7s4KmMgDQgftdFnfz
+         hJQXxBE11hk1p+MLUdvTjQehuVlHP6zlhgv/BB7BhKHg4/qmxhuk8oEvMB5mbGMK5tU7
+         fq5g==
+X-Forwarded-Encrypted: i=1; AJvYcCXbBiKRxbGUJdtRh5EKVHmWGiKj6CbQNaZ16+xufqMZtojQ7WrsCibC1mUU/aTf1bsla4tjlnHqeYHiuWj9U4HC@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJ8myZAWtJs/MnpRv2gCL6BBGGfzJuG1NXBK9t9PjeijIk752u
+	xpELNJMfsVWtyAMRJXvMPcvCloYNYboxe5pkaVZs3OxYIirT9EFs7SbkWdXLbuRxNq0IV0qUaKo
+	vnAg9ZTqIeurhWQzXJbJfL4H9/3IbhpA1bQ8R
+X-Gm-Gg: ASbGncs2ScF2sBLKvyDA5LzmUr9oorahUir+oV94WNL/rc85g16sthrTDaV66Uy8Pts
+	z0cFu4fEuY9EuYRKV3CvbnUemjiuS0nJKR+JK0ay+DoMKwO2yO3c4eA+BScQPvg9pGzSvBDyD7/
+	46SbGbP1b3p0g88T/ceGiPYV+sMJAWy3+YxItHZr3KjFSCdpWjMA==
+X-Google-Smtp-Source: AGHT+IGwGEcGt7qt4y6UtHsVIeUZAmZUDbWtJ+Ey7gGLeSPt9gI0iA5XJZYC4rzHLcT2CmY4/egmqxuj7aqEk5l5ENE=
+X-Received: by 2002:a17:907:9812:b0:acb:94d6:a841 with SMTP id
+ a640c23a62f3a-ad17ad8096cmr430432366b.16.1746211077663; Fri, 02 May 2025
+ 11:37:57 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250410074721.947380-1-yeoreum.yun@arm.com> <20250410074721.947380-3-yeoreum.yun@arm.com>
- <aBT8BWqoljvcAU_w@arm.com>
-In-Reply-To: <aBT8BWqoljvcAU_w@arm.com>
-From: Peter Collingbourne <pcc@google.com>
-Date: Fri, 2 May 2025 11:25:01 -0700
-X-Gm-Features: ATxdqUEsIDCdc1MXwbGpU0vqEfxYt1UlHJ7H90sjFz9gZvQP6g4z1_zIOkLmOYo
-Message-ID: <CAMn1gO4Ft2R+_CN+XdTsO0YpUQZN7zShMSg-XT90U698Rnifjw@mail.gmail.com>
-Subject: Re: [PATCH v3 2/3] arm64/mm/fault: use original FAR_EL1 value when
- ARM64_MTE_FAR is supported
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Yeoreum Yun <yeoreum.yun@arm.com>, will@kernel.org, broonie@kernel.org, 
-	anshuman.khandual@arm.com, joey.gouly@arm.com, yury.khrustalev@arm.com, 
-	maz@kernel.org, oliver.upton@linux.dev, frederic@kernel.org, 
-	shmeerali.kolothum.thodi@huawei.com, james.morse@arm.com, 
-	mark.rutland@arm.com, huangxiaojia2@huawei.com, akpm@linux-foundation.org, 
-	surenb@google.com, robin.murphy@arm.com, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, nd@arm.com
+References: <20250501225425.635167-1-changyuanl@google.com>
+ <20250501225425.635167-7-changyuanl@google.com> <20250501173557.1880f3aa8694352e0eb153b4@linux-foundation.org>
+In-Reply-To: <20250501173557.1880f3aa8694352e0eb153b4@linux-foundation.org>
+From: Changyuan Lyu <changyuanl@google.com>
+Date: Fri, 2 May 2025 11:37:20 -0700
+X-Gm-Features: ATxdqUHZQf1uwj7X5bskxFA1vT8WH6Uhw3YyifuFYUsYAjHkndnVOqhZb4vCKaQ
+Message-ID: <CAGzOjspvbMkr8b4-xy3EfGLE4nmLC8B9EPx0QYCdpoFQD-FESA@mail.gmail.com>
+Subject: Re: [PATCH v7 06/18] kexec: include asm/early_ioremap.h
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-kernel@vger.kernel.org, anthony.yznaga@oracle.com, arnd@arndb.de, 
+	ashish.kalra@amd.com, benh@kernel.crashing.org, bp@alien8.de, 
+	catalin.marinas@arm.com, corbet@lwn.net, dave.hansen@linux.intel.com, 
+	devicetree@vger.kernel.org, dwmw2@infradead.org, ebiederm@xmission.com, 
+	graf@amazon.com, hpa@zytor.com, jgowans@amazon.com, kexec@lists.infradead.org, 
+	krzk@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-doc@vger.kernel.org, linux-mm@kvack.org, luto@kernel.org, 
+	mark.rutland@arm.com, mingo@redhat.com, pasha.tatashin@soleen.com, 
+	pbonzini@redhat.com, peterz@infradead.org, ptyadav@amazon.de, robh@kernel.org, 
+	rostedt@goodmis.org, rppt@kernel.org, saravanak@google.com, 
+	skinsburskii@linux.microsoft.com, tglx@linutronix.de, thomas.lendacky@amd.com, 
+	will@kernel.org, x86@kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_112514_917321_1920E5F3 
-X-CRM114-Status: GOOD (  29.46  )
+X-CRM114-CacheID: sfid-20250502_113800_427383_DCF1B164 
+X-CRM114-Status: GOOD (  16.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,72 +105,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 2, 2025 at 10:08=E2=80=AFAM Catalin Marinas <catalin.marinas@ar=
-m.com> wrote:
+On Thu, May 1, 2025 at 5:36=E2=80=AFPM Andrew Morton <akpm@linux-foundation=
+.org> wrote:
 >
-> + Peter Collingbourne as he added the SA_EXPOSE_TAGBITS flag.
+> On Thu,  1 May 2025 15:54:13 -0700 Changyuan Lyu <changyuanl@google.com> =
+wrote:
 >
-> On Thu, Apr 10, 2025 at 08:47:20AM +0100, Yeoreum Yun wrote:
-> > Use the original FAR_EL1 value when an MTE tag check fault occurs,
-> > if ARM64_MTE_FAR is supported.
-> > This allows reports to include not only the logical tag (memory tag)
-> > but also the address tag information.
+> > From: Arnd Bergmann <arnd@arndb.de>
 > >
-> > Applications that require this information should install a signal hand=
-ler with
-> > the SA_EXPOSE_TAGBITS flag.
-> > While this introduces a minor ABI change,
-> > most applications do not set this flag and therefore will not be affect=
-ed.
->
-> It is indeed a minor ABI in that a tag check fault resulting in a
-> signal will report the bits 63:60 as well, not just 59:56 of the address
-> (if the signal handler was registered with SA_EXPOSE_TAGBITS).
->
-> I don't think user-space would notice but asking Peter.
-
-On Android we don't set bits 63:60 on heap addresses when MTE is
-enabled (and userspace programs aren't allowed to modify them in
-addresses they get back from the heap allocator either) so the fault
-handler should continue to see them as 0. Of course, a userspace
-program could be breaking the rules and setting those bits anyway, but
-in that case it looks like the only consequence would be that the
-error reports from the heap allocator would sometimes be missing some
-information (and this could already happen if the access results in a
-non-MTE fault) which I think is acceptable.
-
-Peter
-
->
-> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> > ---
-> >  arch/arm64/mm/fault.c | 7 +++++--
-> >  1 file changed, 5 insertions(+), 2 deletions(-)
+> > The early_memremap() function is decleared in a header that is only ind=
+irectly
+> > included here:
 > >
-> > diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-> > index ec0a337891dd..f21d972f99b1 100644
-> > --- a/arch/arm64/mm/fault.c
-> > +++ b/arch/arm64/mm/fault.c
-> > @@ -837,9 +837,12 @@ static int do_tag_check_fault(unsigned long far, u=
-nsigned long esr,
-> >       /*
-> >        * The architecture specifies that bits 63:60 of FAR_EL1 are UNKN=
-OWN
-> >        * for tag check faults. Set them to corresponding bits in the un=
-tagged
-> > -      * address.
-> > +      * address if ARM64_MTE_FAR isn't supported.
-> > +      * Otherwise, bits 63:60 of FAR_EL1 are KNOWN.
-> >        */
-> > -     far =3D (__untagged_addr(far) & ~MTE_TAG_MASK) | (far & MTE_TAG_M=
-ASK);
-> > +     if (!cpus_have_cap(ARM64_MTE_FAR))
-> > +             far =3D (__untagged_addr(far) & ~MTE_TAG_MASK) | (far & M=
-TE_TAG_MASK);
+> > kernel/kexec_handover.c:1116:8: error: call to undeclared function 'ear=
+ly_memremap'; ISO C99 and later do not support implicit function declaratio=
+ns [-Wimplicit-function-declaration]
+> >  1116 |         fdt =3D early_memremap(fdt_phys, fdt_len);
+> >       |               ^
+> >
+> > ...
+> >
+> > --- a/kernel/kexec_handover.c
+> > +++ b/kernel/kexec_handover.c
+> > @@ -17,6 +17,9 @@
+> >  #include <linux/memblock.h>
+> >  #include <linux/notifier.h>
+> >  #include <linux/page-isolation.h>
 > > +
-> >       do_bad_area(far, esr, regs);
-> >       return 0;
-> >  }
-> > --
-> > LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+> > +#include <asm/early_ioremap.h>
+> > +
+> >  /*
+> >   * KHO is tightly coupled with mm init and needs access to some of mm
+> >   * internal APIs.
+>
+> When resending, it's best to fold little fixes like this into the base
+> patch, along with a little note and the author's signed-off-by.
+
+Thanks for the suggestion Andrew! I will follow it next time.
+
+> I shall queue this as a fix to be folded into "kexec: add KHO parsing
+> support", thanks.
+
+
+Best,
+Changyuan
 
