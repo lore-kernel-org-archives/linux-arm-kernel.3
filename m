@@ -4,84 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CB1EC3ABAD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 15:05:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86A50C3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 15:05:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:To:
-	From:Date:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=APu7gvDG+GWIH3CqaZfGtDjeCKACn6athf5zXmMCeek=; b=fMNJfEWJs7jUCT
-	FNQM4GTOLJ5zIC41UyvV5jtXkzGC+I6VX8eG5JxlGcDrUj4oTg/quQQvehkPZBKEagto/8DtM2WUi
-	lWrPTLxGlotiawkyfASri6H8KlOr8FkICQspzG+DEHUkgHBv/lTVbZ2JM7VsE7q5hZXJUfzcOBdgl
-	hQ2EbX9c0fOJj/TyfDyYYpXtPxJLA/6JtSsLraz/ELM7zPQk5ptBfH41Oa/o4EYW6p8jPCObPcnp6
-	9y5rKUB6ZatdQgWHMAHwlRRKFuwdzCMVMS3+V3uTtxabOG66G9xxdpWdYIMrSsvD/CnM26/OB1V3F
-	Zx+pn22LV6Pfcidg+UAQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0ims5xbWhYEq/+pQJDcGBO9Lb2xYL1GSJI+L4MIxVVg=; b=dKpOhF1cbij8C/hXlW7TTg/vcB
+	LabQwnV7LszfGCxemwaY8K7PCEtS4tN5MysQqYGo8umcE6+yWccUfND7QYzOBKvTY/O1rNbKfgFlt
+	3qxwY1Y5/JiN1SptG1TzK4P40qf+xUYaRgaVnaMgxXd8PNbFJUldxZLMxo50gtKFVZLJ2q0liXAWD
+	ZFv9jU/dO7CcwVeyEhqQR23sYgGFKpOGWT2QmskwVpR40HCBQXefveLSfGPMuK/xm9+MHT9Pdrfvw
+	YXoTh4EiYNFDW5jjrP0E2k8GwJxStRjJxIQdGyW4g1ufpNKIi+WEzNzAiF4RgkJxsFfBtpmO36bGz
+	AFFCImFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uArx3-00000002GrK-3yjK;
-	Fri, 02 May 2025 15:05:21 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uArm0-00000002Fgr-2323
+	id 1uArx4-00000002Grs-2wiM;
+	Fri, 02 May 2025 15:05:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uArq0-00000002GBn-1dJj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 14:53:57 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-22c33677183so24708965ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 May 2025 07:53:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746197635; x=1746802435; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:subject:to:from
-         :reply-to:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=APu7gvDG+GWIH3CqaZfGtDjeCKACn6athf5zXmMCeek=;
-        b=dZxT9OLXcvpscwyHSMqZz/jLWmfouIzMJMb2DW8yyA7SmI7sDWrLG9Ul1fkVE4vl1p
-         NvuSGIR+BY3K7WzIl/cdzgssNqD5Dd/d6Kpzm/eTXVaqMhoEtzVfpDpThod13lz3HTjO
-         vbOshNvl9gQGQYpM7k1xepegbb6C3PHOzGodkTFZTtYWCZOR4JfnRhP/YILcFOd7OeBn
-         Jv9P5/XSdZvj+shHmWepwY4NuqUOZG0ZTPsUrB0JHhQ6VaSxx6hKaThwhikvVGKM5ELw
-         VXYH6CzNPQFUZ0I1vAXOg3DyJE8BFDaNrTczzrGadJDmeDYnmdfzZP7BPvpYy4Jn2O/l
-         RbfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746197635; x=1746802435;
-        h=content-transfer-encoding:mime-version:message-id:subject:to:from
-         :reply-to:date:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=APu7gvDG+GWIH3CqaZfGtDjeCKACn6athf5zXmMCeek=;
-        b=GxMgnOS9v2x7GbaSx9YQ49krOeNYLuTDzo4ObgkVF94BpY27ywTyO6sKN2mrPXrpKl
-         cPNZdaMUfoV9Kn9lInm+u/FW1/7zOj5Qyd+EpOFWq2tq9oixrPCkz4hAJ9wePzI5Y8tZ
-         +Z7Uhf/nDPliKwzKSF617arCfp3buULICKCeu2Tz24NttzUfct3QABCPHKqZxYY6vrIy
-         2Cdlp0hqPQO/tDvaQTEcmP1IA6GWBQDX+AUSztJbIHa91acHmlFaJ/tWCTRxIkz0o0aJ
-         0geacsWEl5gqA/3VCgvJ2DY0WZKsjh/ypYSABqjtaZBdrwKYjRol4NG6efbLXo0TLkDp
-         KGcA==
-X-Gm-Message-State: AOJu0YyDN84nX0n17UPc3gqUnJW7O1iN78HDr8rkeL+ILpL3Vru41LnD
-	MHf2xxorYuAFOAHDedJj8yLqMfIYdSY1vP4VUdS951cRgaO9dE1Q9Wd5BBY7Zo8=
-X-Gm-Gg: ASbGncurmx1KD1H2CwbUu1y8Mm0y7io3yXn4WwlHT6MsUBg1mdFgmulcLC4KhYUWT0h
-	iSStbtRYZxcl6LHr0Mlr/LYIaFBeVAAucbOhu9FT0ApPVMEJgxHTEsSoDAvHT/Rt5uO6ID5zDM5
-	fNUQo6HvV1I0mRdNiorBMwKNcHb1802kteYESrKTAftFvGr0tmvgtfdiPx5uv9E+YzVKSmmfi0u
-	xnFrCsIjMX2iRX6QuXsur8o7F2PuSanLDD6Uj7yyIXkQesMWhD8gNywzJN3P3nVPQeTLUkXEWFM
-	HCIo93XFS5ydDrunCUEXEPBTWPDZaY3njtJe2hZ8hEOxpLirSE2LX+ZUNNb6Q3QpOIrwU3Uqfow
-	mOd073Q73dqqyaT9Hq3U68KQCaU4=
-X-Google-Smtp-Source: AGHT+IHT3O4Z/MsHWSD8Fu+DtY2sGD0/tiJM+uBDXdKv8HulkHyK1fY7aC6N38rzGcmvgAVJ2vTOvQ==
-X-Received: by 2002:a17:903:1a6b:b0:21f:61a9:be7d with SMTP id d9443c01a7336-22e103ecbd7mr50348795ad.49.1746197635009;
-        Fri, 02 May 2025 07:53:55 -0700 (PDT)
-Received: from 179-190-173-23.cable.cabotelecom.com.br ([179.190.173.23])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22e15228e57sm8100575ad.174.2025.05.02.07.53.52
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 May 2025 07:53:54 -0700 (PDT)
-Date: Fri, 02 May 2025 07:53:54 -0700 (PDT)
-X-Google-Original-Date: 2 May 2025 09:53:51 -0500
-From: Winston Taylor <sglvlinks@gmail.com>
-To: linux-arm-kernel@lists.infradead.org
-Subject: wts
-Message-ID: <20250502095350.DE2881FB82616B18@gmail.com>
+	Fri, 02 May 2025 14:58:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 66A701688;
+	Fri,  2 May 2025 07:57:52 -0700 (PDT)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 78B843F66E;
+	Fri,  2 May 2025 07:57:57 -0700 (PDT)
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	nathan@kernel.org,
+	nick.desaulniers+lkml@gmail.com,
+	morbo@google.com,
+	justinstitt@google.com,
+	broonie@kernel.org,
+	maz@kernel.org,
+	oliver.upton@linux.dev,
+	frederic@kernel.org,
+	joey.gouly@arm.com,
+	james.morse@arm.com,
+	hardevsinh.palaniya@siliconsignals.io,
+	shameerali.kolothum.thodi@huawei.com,
+	ardb@kernel.org,
+	ryan.roberts@arm.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] arm64/cpufeature: annotate arm64_use_ng_mappings with ro_after_init to prevent wrong idmap generation
+Date: Fri,  2 May 2025 15:57:55 +0100
+Message-Id: <20250502145755.3751405-1-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain;
-	charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_075356_519955_FE29C775 
-X-CRM114-Status: UNSURE (   4.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250502_075804_688393_01F1AB52 
+X-CRM114-Status: GOOD (  15.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,109 +75,110 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: sales1@theleadingone.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello ,
+create_init_idmap() could be called before .bss section initialization
+which is done in early_map_kernel() since data/test_prot could be set
+wrong for PTE_MAYBE_NG macro.
 
- These are available for sale. If you=E2=80=99re interested in purchasing=
-=20
-these, please email me
+PTE_MAYBE_NG macro is set according to value of "arm64_use_ng_mappings".
+and this variable is located in .bss section.
 
- 960GB SSD SATA 600 pcs/18 USD
+   # llvm-objdump-21 --syms vmlinux-gcc | grep arm64_use_ng_mappings
+     ffff800082f242a8 g O .bss    0000000000000001 arm64_use_ng_mappings
 
-S/N MTFDDAK960TDS-1AW1ZABDB
+If .bss section doesn't initialized, "arm64_use_ng_mappings" would be set
+with garbage value ant then the text_prot or data_prot could be set
+with garbgae value.
 
-Brand New C9200L-48T-4X-E  $1,200 EAC
-Brand New ST8000NM017B  $70 EA
+Here is what i saw with kernel compiled via llvm-21
 
-Brand New ST20000NM007D
-QTY 86  $100 EACH
-Brand New ST4000NM000A   $30 EA
-Brand New WD80EFPX   $60 EA
- Brand New WD101PURZ    $70 EA
+  // create_init_idmap()
+  ffff80008255c058: d10103ff     	sub	sp, sp, #0x40
+  ffff80008255c05c: a9017bfd     	stp	x29, x30, [sp, #0x10]
+  ffff80008255c060: a90257f6     	stp	x22, x21, [sp, #0x20]
+  ffff80008255c064: a9034ff4     	stp	x20, x19, [sp, #0x30]
+  ffff80008255c068: 910043fd     	add	x29, sp, #0x10
+  ffff80008255c06c: 90003fc8     	adrp	x8, 0xffff800082d54000
+  ffff80008255c070: d280e06a     	mov	x10, #0x703     // =1795
+  ffff80008255c074: 91400409     	add	x9, x0, #0x1, lsl #12 // =0x1000
+  ffff80008255c078: 394a4108     	ldrb	w8, [x8, #0x290] ------------- (1)
+  ffff80008255c07c: f2e00d0a     	movk	x10, #0x68, lsl #48
+  ffff80008255c080: f90007e9     	str	x9, [sp, #0x8]
+  ffff80008255c084: aa0103f3     	mov	x19, x1
+  ffff80008255c088: aa0003f4     	mov	x20, x0
+  ffff80008255c08c: 14000000     	b	0xffff80008255c08c <__pi_create_init_idmap+0x34>
+  ffff80008255c090: aa082d56     	orr	x22, x10, x8, lsl #11 -------- (2)
 
-Intel Xeon Gold 5418Y Processors
+Note (1) is load the arm64_use_ng_mappings value in w8.
+and (2) is set the text or data prot with the w8 value to set PTE_NG bit.
+If .bss section doesn't initialized, x8 can include garbage value
+-- In case of some platform, x8 loaded with 0xcf -- it could generate
+wrong mapping. (i.e) text_prot is expected with
+PAGE_KERNEL_ROX(0x0040000000000F83) but
+with garbage x8 -- 0xcf, it sets with (0x0040000000067F83)
+and This makes boot failure with translation fault.
 
-QTY $70 each
+This error cannot happen according to code generated by compiler.
+here is the case of gcc:
 
+   ffff80008260a940 <__pi_create_init_idmap>:
+   ffff80008260a940: d100c3ff      sub     sp, sp, #0x30
+   ffff80008260a944: aa0003ed      mov     x13, x0
+   ffff80008260a948: 91400400      add     x0, x0, #0x1, lsl #12 // =0x1000
+   ffff80008260a94c: a9017bfd      stp     x29, x30, [sp, #0x10]
+   ffff80008260a950: 910043fd      add     x29, sp, #0x10
+   ffff80008260a954: f90017e0      str     x0, [sp, #0x28]
+   ffff80008260a958: d00048c0      adrp    x0, 0xffff800082f24000 <reset_devices>
+   ffff80008260a95c: 394aa000      ldrb    w0, [x0, #0x2a8]
+   ffff80008260a960: 37000640      tbnz    w0, #0x0, 0xffff80008260aa28 <__pi_create_init_idmap+0xe8> ---(3)
+   ffff80008260a964: d280f060      mov     x0, #0x783      // =1923
+   ffff80008260a968: d280e062      mov     x2, #0x703      // =1795
+   ffff80008260a96c: f2e00800      movk    x0, #0x40, lsl #48
+   ffff80008260a970: f2e00d02      movk    x2, #0x68, lsl #48
+   ffff80008260a974: aa2103e4      mvn     x4, x1
+   ffff80008260a978: 8a210049      bic     x9, x2, x1
+   ...
+   ffff80008260aa28: d281f060      mov     x0, #0xf83      // =3971
+   ffff80008260aa2c: d281e062      mov     x2, #0xf03      // =3843
+   ffff80008260aa30: f2e00800      movk    x0, #0x40, lsl #48
 
+In case of gcc, according to value of arm64_use_ng_mappings (annoated as(3)),
+it branches to each prot settup code.
+However this is also problem since it branches according to garbage
+value too -- idmapping with wrong pgprot.
 
-CPU  4416+   200pcs/$500
+To resolve this, annotate arm64_use_ng_mappings as ro_after_init.
 
-CPU  5418Y    222pcs/$700
+Fixes: 84b04d3e6bdb ("arm64: kernel: Create initial ID map from C code")
+Cc: <stable@vger.kernel.org> # 6.9.x
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+---
+There is another way to solve this problem by setting
+test/data_prot with _PAGE_DEFAULT which doesn't include PTE_MAYBE_NG
+with constanst check in create_init_idmap() to be free from
+arm64_use_ng_mappings. but i think it would be better to change
+arm64_use_ng_mappings as ro_after_init because it doesn't change after
+init phase and solve this problem too.
+---
+ arch/arm64/kernel/cpufeature.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
- 
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index d2104a1e7843..967ffb1cbd52 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -114,7 +114,7 @@ static struct arm64_cpu_capabilities const __ro_after_init *cpucap_ptrs[ARM64_NC
 
-8TB 7.2K RPM SATA
-6Gbps 512   2500pcs/$70
+ DECLARE_BITMAP(boot_cpucaps, ARM64_NCAPS);
 
+-bool arm64_use_ng_mappings = false;
++bool arm64_use_ng_mappings __ro_after_init = false;
+ EXPORT_SYMBOL(arm64_use_ng_mappings);
 
-960GB SSD SATA   600pcs/$30
-serial number MTFDDAK960TDS-1AW1ZABDB
-
-
-SK Hynix 48GB 2RX8 PC5 56008 REO_1010-XT
-PH HMCGY8MG8RB227N AA
-QTY 239 $50 EACH
-
-
-SAMSUNG 64GB 4DRX4 PC4-2666V-LD2-12-MAO
-M386A8K40BM2-CTD60 S
-QTY 320 $42 each
-
-
-Ipad pro 129 2021 MI 5th Gen 256 WiFi + Cellular
-quantity 24 $200 EACH
-
-=20
-Ipad pro 12.9 2022 m2 6th Gen 128 WiFi + Cellular
-quantity - 44 $250 EAC
-
-Brand New NVIDIA GeForce RTX 4090 Founders
-Edition 24GB - QTY: 56 - $700 each
-
- Brand New ASUS TUF Gaming GeForce RTX 4090 OC
- 24GB GDDR6X Graphics Card
- QTY87 $1000 each
-=20
-Refurbished MacBook Pro with Touch Bar 13 inches
-MacBook Pro 2018 i5 8GB 256gb quantity $ 200 EACH
-MacBook Pro 2019 i5 8GB 256gb Quantity $ 200
-MacBook Pro 2020 i5 8gb 256gb Quantity $200
-MacBook Pro 2022 i5 m2 8gb 256gb quantity $250 EACH
-
- 
-
-Refurbished Apple iPhone 14 Pro Max - 256 GB
-quantity-10 $35O EACH
-
-Refurbished Apple iPhone 13 Pro Max has
-quantity-22 $300 EACH
-
-
-Apple MacBook Pro 14-inch with M3 Pro chip, 512GB SSD (Space=20
-Black)[2023
-QTY50
-USD 280
-
-
-Apple MacBook Air 15" (2023) MQKR3LL/A M2 8GB 256GB
-QTY25
-USD 300 EACH
-
-
-HP EliteBook 840 G7 i7-10610U 16GB RAM 512GB
-SSD Windows 11 Pro TOUCH Screen
-QTY 237 USD 100 each
-
-
- Best Regards,
-
-300 Laird St, Wilkes-Barre, PA 18702, USA
-Mobile: +1 570-890-5512
-Email: sales1@theleadingone.net
-www.theleadingone.net
+ DEFINE_PER_CPU_READ_MOSTLY(const char *, this_cpu_vector) = vectors;
+--
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
 
