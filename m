@@ -4,107 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9DE0C3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 17:30:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D861C3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 17:33:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:CC:To:From:Subject:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UtQh+/YSXXqkRAun9KktFMfLGSEdqy4gdJOL8UsStjU=; b=kmHfTx8p05azXjOA9HMY1dzBAe
-	a5BqPtDvYTff5GjT6jb3aPmrrbN7aiEsnwi4tI3Hr+FzmRtlOLdC9BLnbmkYcXHMY2s5coou8UI3E
-	dVjDqcShPu2c16UZVbVpdcg4jm4yuyIRPKLr+NGB2fr4htNHcF40FJNnKFIAvcIFQiNIgvtZor4Oi
-	Tzd5H8vipo0TSJUgYlYbTM1iZiWQigzVNJCoEN1Ulz1Y7epIz00UFHfyCtFcyvsXG1ISVGLiSr0kX
-	wsQLiJw1NVxLBtmfT9cYMRitgfWZGME7yQNnBlBAKofRK38K9EQNHwnDnNR+kFqSvKLJrfG1bJpDc
-	sSpc0Qlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bMCFjcDYKufJvMwFbFoS0kPacOFt/H1BGkqn/nrFgq0=; b=o6u5yV56zpZzHH8WYbn25foGhN
+	LEcIGXsMITpcaT9MMLicMc32g3f1Lv0IGVsVfXd16i4pNsvyjkghvAMg9mUoJ2JbARZPAYHTyxtud
+	J1FhihRzb7ph/gCAuhyA1z4sIRIgiY/vUEtvmzHWwO6cRxTh1QTH/LTmcl2vnE9ZXGhAFnl3VFGfr
+	ykqdVBLmY3zU/iUNzL3MsEoNqaIouBBzq2Gj4ba86MbVIX/U4zdpwJeRSuUuW2FuuOJhy1x2uhshJ
+	t+nMRS46XlNw5Mrj1poLK7BFemqBdpu+b80cgeDdapIzXE4EMqKeXEoFzxT9mOb9h8b+0i7oxD7xZ
+	9pQ4T+5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAuD8-00000002gfi-2ZMn;
-	Fri, 02 May 2025 17:30:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uAuG4-00000002grT-1kQJ;
+	Fri, 02 May 2025 17:33:08 +0000
+Received: from mail-qv1-xf29.google.com ([2607:f8b0:4864:20::f29])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAu8n-00000002gHd-0onH
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 02 May 2025 17:25:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:CC:To:From:
-	Subject:Sender:Reply-To:Content-Description;
-	bh=UtQh+/YSXXqkRAun9KktFMfLGSEdqy4gdJOL8UsStjU=; b=Ax5eexazxFcZ7XedEzkj73NWSW
-	YDIAiNC271/wiHXK98Q+foACx7kBGB8NieXwaS8P3rujOZl2ZZe8U/3rUSHy7V4/r3asAiHwjTiwQ
-	zPPSu6oARheJB+ect7tTICIeLq0TBGjrTXqRy12xI+l0fTt52wnf9X38mEVwjoGDwGGx3BFqnx5i3
-	YX3AFC0IR5mI0skIeFb30IYLHvXj5zRaJMaZj4LlUOeF+JeMrbQ/Xx/IT1uT9UvJ22sUf3aNPOl6Q
-	2Ck8zaufd+GB1AfaEw6hLxssZJh4ThDp9RcTHWsV+jF8+xTrfhXYJvi0ZHfx0k50cRHopXtCgoo2U
-	EyZBIaPg==;
-Received: from smtp-fw-80008.amazon.com ([99.78.197.219])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uAu8f-0000000F4tx-2wgi
+	id 1uAuE6-00000002gkg-0ogU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 17:25:35 +0000
+	Fri, 02 May 2025 17:31:08 +0000
+Received: by mail-qv1-xf29.google.com with SMTP id 6a1803df08f44-6f0c30a1ca3so26627866d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 May 2025 10:31:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazon201209;
-  t=1746206729; x=1777742729;
-  h=from:to:cc:date:message-id:references:in-reply-to:
-   content-id:content-transfer-encoding:mime-version:subject;
-  bh=UtQh+/YSXXqkRAun9KktFMfLGSEdqy4gdJOL8UsStjU=;
-  b=nRiSjnYSEbBFiLJWe59y1Cnq2l9JtQisWx+TjRwoPk981D0KEnAlzwod
-   wZCrbLsgp/RxoN44ydMD9l4ld+PHBQe/PYBGnSBtkbA0DA+/oTxHvCH6V
-   D3Bhy/Uav7xwt8CrtmrKsi940z3XcPzGsC8dfGNPf1HBrw6TTsIqJ1X/O
-   0=;
-X-IronPort-AV: E=Sophos;i="6.15,257,1739836800"; 
-   d="scan'208";a="192951124"
-Subject: Re: EEVDF regression still exists
-Thread-Topic: EEVDF regression still exists
-Received: from pdx4-co-svc-p1-lb2-vlan3.amazon.com (HELO smtpout.prod.us-east-1.prod.farcaster.email.amazon.dev) ([10.25.36.214])
-  by smtp-border-fw-80008.pdx80.corp.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 May 2025 17:25:16 +0000
-Received: from EX19MTAUWB002.ant.amazon.com [10.0.38.20:26814]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.11.224:2525] with esmtp (Farcaster)
- id 68d9cd7a-6a75-4597-83ee-277d0e2c4386; Fri, 2 May 2025 17:25:15 +0000 (UTC)
-X-Farcaster-Flow-ID: 68d9cd7a-6a75-4597-83ee-277d0e2c4386
-Received: from EX19D001UWB004.ant.amazon.com (10.13.138.4) by
- EX19MTAUWB002.ant.amazon.com (10.250.64.231) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
- Fri, 2 May 2025 17:25:15 +0000
-Received: from EX19D016UWA004.ant.amazon.com (10.13.139.119) by
- EX19D001UWB004.ant.amazon.com (10.13.138.4) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
- Fri, 2 May 2025 17:25:15 +0000
-Received: from EX19D016UWA004.ant.amazon.com ([fe80::92ec:e30c:889c:c2c0]) by
- EX19D016UWA004.ant.amazon.com ([fe80::92ec:e30c:889c:c2c0%5]) with mapi id
- 15.02.1544.014; Fri, 2 May 2025 17:25:15 +0000
-From: "Prundeanu, Cristian" <cpru@amazon.com>
-To: Peter Zijlstra <peterz@infradead.org>
-CC: K Prateek Nayak <kprateek.nayak@amd.com>, "Mohamed Abuelfotoh, Hazem"
-	<abuehaze@amazon.com>, "Saidi, Ali" <alisaidi@amazon.com>, "Benjamin
- Herrenschmidt" <benh@kernel.crashing.org>, "Blake, Geoff"
-	<blakgeof@amazon.com>, "Csoma, Csaba" <csabac@amazon.com>, "Doebel, Bjoern"
-	<doebel@amazon.de>, Gautham Shenoy <gautham.shenoy@amd.com>, Swapnil Sapkal
-	<swapnil.sapkal@amd.com>, Joseph Salisbury <joseph.salisbury@oracle.com>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>, Ingo Molnar <mingo@redhat.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>, Borislav Petkov
-	<bp@alien8.de>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-tip-commits@vger.kernel.org"
-	<linux-tip-commits@vger.kernel.org>, "x86@kernel.org" <x86@kernel.org>
-Thread-Index: AQHbuU8Zth8BPweWAUWz5H5EpP8DD7O7+3yAgANMZ4A=
-Date: Fri, 2 May 2025 17:25:14 +0000
-Message-ID: <B27ECDA1-632D-44CD-AB99-B7A9C27393E4@amazon.com>
-References: <20250429213817.65651-1-cpru@amazon.com>
- <20250430100259.GK4439@noisy.programming.kicks-ass.net>
-In-Reply-To: <20250430100259.GK4439@noisy.programming.kicks-ass.net>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.13.138.196]
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <65213DACC676A045A3614A07465F5362@amazon.com>
-Content-Transfer-Encoding: base64
+        d=google.com; s=20230601; t=1746207065; x=1746811865; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bMCFjcDYKufJvMwFbFoS0kPacOFt/H1BGkqn/nrFgq0=;
+        b=v3s287ZXlAnevvB1keTehtyIAy3872/EXyA+deHxii21ehJKuNlMjnVzoIdB1bZJ+y
+         UIqdfIEE8jrakPjFqhcN0mswQWAoJVBzA8xXBQHfncq7/99O31dyeE6OusuZDDUQOmXP
+         1izhj/61digY+CdXVAVrE0MzzUGcqIqgPSEgMX22EpEuFhGjqfrNTdG3iE79r4D4ixqj
+         lNpv8jIR6qDGK3n0+gPCw4xPsIvmOwWz5CT6VTsj+JAFh+ChwLG+afMMJX+KPnsoMlBu
+         GqS7od3LUQfm9vhiMAvaAUpCIzNIXIAj9T+j0RNQp5G7Aoyfb0hvwiu66zvnQMenNO7I
+         qd3Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746207065; x=1746811865;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=bMCFjcDYKufJvMwFbFoS0kPacOFt/H1BGkqn/nrFgq0=;
+        b=NUoJnP0fTOzfAaxqVeBE3zl/1EADG7cuSNsFV6v7Dt+ISztC7DRwPaqTIu8CUbxQnh
+         ZVigCrNADNuElz4fxHnULnSj87ACCl2YhluWrV/f5G1vnqEFhXfgeOS7DsPhgQBKNwSR
+         SEK0nLkB59zGWHSnoTIOBFewyyMaM6HFtxOiRGugD32Z0tWj+Bl0ppPErB20XdnlY5/B
+         DDqNBRorJlZEVMRu/OScy/AKAW7QkB2L5xH7zsAgL8sD0dTK68djrstz4QGuCjZabxob
+         DPmR/KKWz0u0Ofsy/kRfzUdpC2g9FWsA0n1Q5jtK0AqdVhqbU3r5aIfFp7/QnHqpjbFE
+         1QNQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVZfM744XCRcdpAX7J7uZx47nnUQ+/4JS/jlV5fsI06cAwg+EcpsrjY5UDLjryEkARVFSrP6k2d4eJ+69HoMVJD@lists.infradead.org
+X-Gm-Message-State: AOJu0YzsBU99KwCgvWvn2rZkP1LQJOJNOg6Ojw12V/hVTZM6TCnQC2E9
+	vnjMpGHxKvXdE9Mvyr6GrnvT/VTorXC98boUXENpu+YnHoj7seEC98ua56QPnUiEqLLKrVlb/gD
+	UFY54x2vxBuleZD6zKE0R7zt0bw60l2rZL8U=
+X-Gm-Gg: ASbGncuJBkh7IjUax3x7/qz/1T7c04GXGbefwTfkByCA2VUv5Xz8vC6HgZ36j/pdal5
+	OS+6OuUNVlNpEVTXsfKbL4yhTscM2gOR6NG3GNpxjH6EAp9BH7Gw9BbYiOVazZMwGD5XSkGz56O
+	tHhudV2byr+zFejBC3/OBEI9VI6n4Fa/3Kbygz69BfpkvkUHsV66vp1YM=
+X-Google-Smtp-Source: AGHT+IFketDgIAyIg1nzLpZwpgdnRMDBObLxDNHG1f3j9ZJ7VtHRnYWzb9gAuuD1s4QoK/s07tDlq6e1k6CDT2Gw9WA=
+X-Received: by 2002:ad4:5d63:0:b0:6e6:6c7f:1116 with SMTP id
+ 6a1803df08f44-6f51578445fmr53465476d6.24.1746207063804; Fri, 02 May 2025
+ 10:31:03 -0700 (PDT)
 MIME-Version: 1.0
+References: <20250501193556.23473-1-yabinc@google.com> <02c125c9-7a1f-4dfd-b058-02a38ed5b598@arm.com>
+In-Reply-To: <02c125c9-7a1f-4dfd-b058-02a38ed5b598@arm.com>
+From: Yabin Cui <yabinc@google.com>
+Date: Fri, 2 May 2025 10:30:52 -0700
+X-Gm-Features: ATxdqUFmx2hBUO3uk91d37roh8hs55lc6aLf5LBhD3FNcxdPEhGgyk4RnUvPDUU
+Message-ID: <CALJ9ZPMYj=+ZsbPDWHe80R_i3GiMmKBviZ+WBRaj3jm96ZH+VQ@mail.gmail.com>
+Subject: Re: [PATCH v3] perf: Allocate non-contiguous AUX pages by default
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@linaro.org>, 
+	James Clark <james.clark@linaro.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Liang Kan <kan.liang@linux.intel.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_182530_781190_3CAFEE16 
-X-CRM114-Status: GOOD (  14.74  )
+X-CRM114-CacheID: sfid-20250502_103106_228978_6BE90EAC 
+X-CRM114-Status: GOOD (  38.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,34 +103,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gMjAyNS0wNC0zMCwgMDU6MDMsICJQZXRlciBaaWpsc3RyYSIgPHBldGVyekBpbmZyYWRlYWQu
-b3JnIDxtYWlsdG86cGV0ZXJ6QGluZnJhZGVhZC5vcmc+PiB3cm90ZToNCg0KPiBBbnl3YXksIGxv
-b2tpbmcgYXQgdGhlIHR3byBpbmRpdmlkdWFsIHJlcG9ydHMgc2lkZSBieSBzaWRlOg0KPg0KPiAt
-IHNjaGVkdWxlKCkgbGVmdCB0aGUgcHJvY2Vzc29yIGlkbGUgLS0gaXMgdXANCj4NCj4gdnMuDQo+
-DQo+IC0gcHVsbF90YXNrKCkgY291bnQgb24gY3B1IG5ld2x5IGlkbGUgLS0gaXMgZG93bg0KPiAt
-IGxvYWRfYmFsYW5jZSgpIHN1Y2Nlc3MgY291bnQgb24gY3B1IG5ld2x5IGlkbGUgLS0gaXMgZG93
-bg0KPg0KPiBXaGljaCBzZWVtIHJlbGF0ZWQgYW5kIHdvdWxkIHN1Z2dlc3Qgd2UgbG9vayBhdCBu
-ZXdpZGxlIGJhbGFuY2UuIE9uZSBvZg0KPiB0aGUgdGhpbmdzIHdlJ3ZlIHNlZW4gYmVmb3JlIGlz
-IHRoYXQgbmV3aWRsZSB3YXMgYWZmZWN0ZWQgYnkgdGhlIHNob3J0ZXINCj4gc2xpY2Ugb2YgRUVW
-REYuIEJ1dCBpdCBpcyBhbHNvIHF1aXRlIHBvc3NpYmxlIHNvbWV0aGluZyBjaGFuZ2VkIGluIHRo
-ZQ0KPiBsb2FkLWJhbGFuY2VyIGhlcmUuDQo+DQo+IEFsc28gb2Ygbm90ZSBpcyB0aGF0IC4xNSBz
-ZWVtcyB0byBoYXZlIGEgbG93ZXIgbnVtYmVyIG9mICd0dHd1KCkgd2FzDQo+IGNhbGxlZCB0byB3
-YWtlIHVwIG9uIHRoZSBsb2NhbCBjcHUnIC0tIHdoaWNoIEknbSBub3QgcXVpdGUgc3VyZSBob3cg
-dG8NCj4gcmh5bWUgd2l0aCB0aGUgcHJldmlvdXMgb2JzZXJ2YXRpb24uIFRoZSBuZXdpZGxlIHRo
-aW5nIHNlZW1zIHRvIHN1Z2dlc3QNCj4gbm90IGVub3VnaCBtaWdyYXRpb25zLCB3aGlsZSB0aGlz
-IHdvdWxkIHN1Z2dlc3QgdG9vIG1hbnkgbWlncmF0aW9ucy4NCg0KQSAyeCBsb25nZXIgc2xpY2Ug
-b24gNi4xNSBkb2VzIGltcHJvdmUgcGVyZm9ybWFuY2Ugc29tZSwgYnV0IG5vdCBieSBhIGxvdC4N
-Ckkgd2VudCBiYWNrIHRvIGxvb2sgYXQgbXkgcHJldmlvdXMgdGVzdHMsIGFuZCBiYWNrIGluIFNl
-cHRlbWJlciBJIGRpZCB0cnkNCm11bHRpcGxlIHNsaWNlIHZhbHVlcyAoMS41bXMsIDNtcywgNm1z
-LCAxMm1zKSBvbiA2LjUgYW5kIDYuNi4gVGhlIHJlc3BvbnNlDQp3YXMgbm9pc3kgKG11Y2ggbGVz
-cyBvbiBDRlMgaG93ZXZlciksIGFuZCBub3QgbGluZWFyLCBwZWFraW5nIGF0IDNtcy4NCkRvZXMg
-dGhlIGxhY2sgb2YgbGluZWFyaXR5IG1hdGNoIHlvdXIgZXhwZWN0YXRpb25zPyBXb3VsZCBpdCBo
-YXZlIHJlYXNvbg0KdG8gY2hhbmdlIGluIG1vcmUgcmVjZW50IGtlcm5lbHM/DQoNCkFub3RoZXIs
-IG1vcmUgcmVjZW50IG9ic2VydmF0aW9uIGlzIHRoYXQgNi4xNS1yYzQgaGFzIHdvcnNlIHBlcmZv
-cm1hbmNlIHRoYW4NCnJjMyBhbmQgZWFybGllciBrZXJuZWxzLiBNYXliZSB0aGF0IGNhbiBoZWxw
-IG5hcnJvdyBkb3duIHRoZSBjYXVzZT8NCkkndmUgYWRkZWQgdGhlIHBlcmYgcmVwb3J0cyBmb3Ig
-cmMzIGFuZCByYzIgaW4gdGhlIHNhbWUgbG9jYXRpb24gYXMgYmVmb3JlLg0KDQpodHRwczovL2dp
-dGh1Yi5jb20vYXdzL3JlcHJvLWNvbGxlY3Rpb24vYmxvYi9tYWluL3JlcHJvcy9yZXByby1teXNx
-bC1FRVZERi1yZWdyZXNzaW9uL3Jlc3VsdHMvMjAyNTA0MjgvUkVBRE1FLm1kI3Jhdy1kYXRhDQoN
-Cg0K
+On Fri, May 2, 2025 at 3:51=E2=80=AFAM Anshuman Khandual
+<anshuman.khandual@arm.com> wrote:
+>
+> On 5/2/25 01:05, Yabin Cui wrote:
+> > perf always allocates contiguous AUX pages based on aux_watermark.
+> > However, this contiguous allocation doesn't benefit all PMUs. For
+> > instance, ARM SPE and TRBE operate with virtual pages, and Coresight
+> > ETR allocates a separate buffer. For these PMUs, allocating contiguous
+> > AUX pages unnecessarily exacerbates memory fragmentation. This
+> > fragmentation can prevent their use on long-running devices.
+> >
+> > This patch modifies the perf driver to be memory-friendly by default,
+> > by allocating non-contiguous AUX pages. For PMUs requiring contiguous
+> > pages (Intel BTS and some Intel PT), the existing
+> > PERF_PMU_CAP_AUX_NO_SG capability can be used. For PMUs that don't
+> > require but can benefit from contiguous pages (some Intel PT), a new
+> > capability, PERF_PMU_CAP_AUX_PREFER_LARGE, is added to maintain their
+> > existing behavior.
+> >
+> > Signed-off-by: Yabin Cui <yabinc@google.com>
+> > ---
+> > Changes since v2:
+> > Let NO_SG imply PREFER_LARGE. So PMUs don't need to set both flags.
+> > Then the only place needing PREFER_LARGE is intel/pt.c.
+> >
+> > Changes since v1:
+> > In v1, default is preferring contiguous pages, and add a flag to
+> > allocate non-contiguous pages. In v2, default is allocating
+> > non-contiguous pages, and add a flag to prefer contiguous pages.
+> >
+> > v1 patchset:
+> > perf,coresight: Reduce fragmentation with non-contiguous AUX pages for
+> > cs_etm
+> >
+> >  arch/x86/events/intel/pt.c  |  2 ++
+> >  include/linux/perf_event.h  |  1 +
+> >  kernel/events/ring_buffer.c | 20 +++++++++++++-------
+> >  3 files changed, 16 insertions(+), 7 deletions(-)
+> >
+> > diff --git a/arch/x86/events/intel/pt.c b/arch/x86/events/intel/pt.c
+> > index fa37565f6418..25ead919fc48 100644
+> > --- a/arch/x86/events/intel/pt.c
+> > +++ b/arch/x86/events/intel/pt.c
+> > @@ -1863,6 +1863,8 @@ static __init int pt_init(void)
+> >
+> >       if (!intel_pt_validate_hw_cap(PT_CAP_topa_multiple_entries))
+> >               pt_pmu.pmu.capabilities =3D PERF_PMU_CAP_AUX_NO_SG;
+> > +     else
+> > +             pt_pmu.pmu.capabilities =3D PERF_PMU_CAP_AUX_PREFER_LARGE=
+;
+> >
+> >       pt_pmu.pmu.capabilities         |=3D PERF_PMU_CAP_EXCLUSIVE |
+> >                                          PERF_PMU_CAP_ITRACE |
+>
+> Why this PMU has PERF_PMU_CAP_AUX_PREFER_LARGE fallback option but
+> not the other PMU in arch/x86/events/intel/bts.c even though both
+> had PERF_PMU_CAP_AUX_NO_SG ?
+
+Because Intel BTS always use NO_SG, while in some cases Intel PT
+doesn't use NO_SG.
+>
+> > diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+> > index 0069ba6866a4..56d77348c511 100644
+> > --- a/include/linux/perf_event.h
+> > +++ b/include/linux/perf_event.h
+> > @@ -301,6 +301,7 @@ struct perf_event_pmu_context;
+> >  #define PERF_PMU_CAP_AUX_OUTPUT                      0x0080
+> >  #define PERF_PMU_CAP_EXTENDED_HW_TYPE                0x0100
+> >  #define PERF_PMU_CAP_AUX_PAUSE                       0x0200
+> > +#define PERF_PMU_CAP_AUX_PREFER_LARGE                0x0400
+> >
+> >  /**
+> >   * pmu::scope
+> > diff --git a/kernel/events/ring_buffer.c b/kernel/events/ring_buffer.c
+> > index 5130b119d0ae..4d2f1c95673e 100644
+> > --- a/kernel/events/ring_buffer.c
+> > +++ b/kernel/events/ring_buffer.c
+> > @@ -679,7 +679,7 @@ int rb_alloc_aux(struct perf_buffer *rb, struct per=
+f_event *event,
+> >  {
+> >       bool overwrite =3D !(flags & RING_BUFFER_WRITABLE);
+> >       int node =3D (event->cpu =3D=3D -1) ? -1 : cpu_to_node(event->cpu=
+);
+> > -     int ret =3D -ENOMEM, max_order;
+> > +     int ret =3D -ENOMEM, max_order =3D 0;
+>
+> 0 order is now the default allocation granularity. This might benefit
+> from a comment above explaining that max_order could change only with
+> PERF_PMU_CAP_AUX_NO_SG or PERF_PMU_CAP_AUX_PREFER_LARGE PMU flags etc.
+>
+Will add the comment in the next respin.
+> >
+> >       if (!has_aux(event))
+> >               return -EOPNOTSUPP;
+> > @@ -689,8 +689,8 @@ int rb_alloc_aux(struct perf_buffer *rb, struct per=
+f_event *event,
+> >
+> >       if (!overwrite) {
+> >               /*
+> > -              * Watermark defaults to half the buffer, and so does the
+> > -              * max_order, to aid PMU drivers in double buffering.
+> > +              * Watermark defaults to half the buffer, to aid PMU driv=
+ers
+> > +              * in double buffering.
+> >                */
+> >               if (!watermark)
+> >                       watermark =3D min_t(unsigned long,
+> > @@ -698,16 +698,22 @@ int rb_alloc_aux(struct perf_buffer *rb, struct p=
+erf_event *event,
+> >                                         (unsigned long)nr_pages << (PAG=
+E_SHIFT - 1));
+> >
+> >               /*
+> > -              * Use aux_watermark as the basis for chunking to
+> > +              * For PMUs that need or prefer large contiguous buffers,
+> > +              * use aux_watermark as the basis for chunking to
+> >                * help PMU drivers honor the watermark.
+> >                */
+> > -             max_order =3D get_order(watermark);
+> > +             if (event->pmu->capabilities & (PERF_PMU_CAP_AUX_NO_SG |
+> > +                                             PERF_PMU_CAP_AUX_PREFER_L=
+ARGE))
+> > +                     max_order =3D get_order(watermark);
+> >       } else {
+> >               /*
+> > -              * We need to start with the max_order that fits in nr_pa=
+ges,
+> > +              * For PMUs that need or prefer large contiguous buffers,
+> > +              * we need to start with the max_order that fits in nr_pa=
+ges,
+> >                * not the other way around, hence ilog2() and not get_or=
+der.
+> >                */
+> > -             max_order =3D ilog2(nr_pages);
+> > +             if (event->pmu->capabilities & (PERF_PMU_CAP_AUX_NO_SG |
+> > +                                             PERF_PMU_CAP_AUX_PREFER_L=
+ARGE))
+> > +                     max_order =3D ilog2(nr_pages);
+> >               watermark =3D 0;
+> >       }
+> >
+>
+> Although not really sure, could event->pmu->capabilities check against th=
+e ORed
+> PMU flags PERF_PMU_CAP_AUX_NO_SG and PERF_PMU_CAP_AUX_PREFER_LARGE be con=
+tained
+> in a helper pmu_prefers_cont_alloc(struct *pmu ...) or something similar =
+?
+
+Sure, but I feel it's not very worthwhile. Maybe add a local variable
+use_contiguous_pages? It can also work as another comment near
+max_order.
 
