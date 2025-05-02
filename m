@@ -4,69 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07856C3ABA3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 11:31:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B6FFC3ABA3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 11:33:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=b4dRyLITD3ZNldMLbxccuIX06eutvWB/4F2iRfnhyvI=; b=ehF64CJuCunxVM5eCJKBLb0irZ
-	8+ujzwhf8g89H8Te60OgddQxTI52lgGTDCEKCLVvtMYRQ1sul+cODd5YBT/YAkFlskigNufHpd/D3
-	eguhTQ49z04FfiYtOd0ga6JTFD1SG0uxoGzm8F1bHKTKRdq2XTse5IEv3958NOk5hAI9JIYjR5kaO
-	DyuLDQC7xjUya8RglIIvYyOQMmZbPBtld69nRHpEUxExbtvq8lNEDFZ2Lrh6dClxLIbWgDNrc1ag+
-	V2Eyz7uafL4MCvyMZCR+ZSG4YUlf3Sf1HDTW5eaAQ5G1Xi0Kz1oCSPe6V9hWFPNdVJEzpkOHOc9f6
-	DbMdDguw==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e+w5Qh2JRjlMFyhkZEHnj7ml/ugQxghiOlkLkqWDVzI=; b=x2S4DqBtp/m5vnvDm66UBCc+UT
+	+yyojHgCgnAImSKCzo+SgmnnqQdWX+oWlH0C6BqNqhRn8cUwvx9JXW0uCh/K9IR2pXofs3gc/UhS1
+	rvqQHeJy70FA5e4hT4i9JbNfQebMnoOQThhM3xjZr2raWUzkDFehqnGxMDcGkafygaYKwRdqgfHDf
+	ZMvp7INh/6gxMIVNm6eqpqSLt7eC093r4A8n4N0sRe4/uMmhe0NBcOS/oii3K9BF55sFv2+ECAWWO
+	lFyJ4yVv4HKeFnXmsjrBGUoulZajrMGKuYhHuwyvniX1ragUpGnZTZoXQ25LU9FcQ1G8542mMTopE
+	BWIz2grA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAocH-00000001mut-2Tu8;
-	Fri, 02 May 2025 11:31:41 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uAoeC-00000001n4x-163z;
+	Fri, 02 May 2025 11:33:40 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAoIb-00000001k3n-2umu
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 02 May 2025 11:11:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=b4dRyLITD3ZNldMLbxccuIX06eutvWB/4F2iRfnhyvI=; b=mt3SsahqTL+DzKSMkc8f5em5ZO
-	WmMC2rEOQcSUH0KKhaFva6etVe0xttxEnXfdLxlT1rTxOkyYzu6b4gEWfo43Po27X+F7rnLwsEJY7
-	r28jHOhHzZl3wbaILojx9MNPHp6bSDffYjZG5TkzZmOC578ZqEqndzs/L5jBeV7RJnt7PgTZkoMVf
-	iGQ0H/aNLaITcNN79fzk3bDhHZ3tUYvmQa5gVs978GxSEeuxrDKifqeJhCXdUI4vUKx0zx0H8yGc6
-	z/ssscGEh5FMLOb1+1Xtd2JvWglw91iC7T+zL3uwlqytxrCIAlidzgq3wA3x1LctLm53dRPDziZ3Z
-	3D8sD8eQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uAoIY-0000000Ens5-0EqH
+	id 1uAoL3-00000001kf8-15gy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 11:11:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4E65E1688;
-	Fri,  2 May 2025 04:11:07 -0700 (PDT)
-Received: from e132581.cambridge.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id BA2913F66E;
-	Fri,  2 May 2025 04:11:13 -0700 (PDT)
-From: Leo Yan <leo.yan@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Leo Yan <leo.yan@arm.com>
-Subject: [PATCH] coresight: replicator: Fix panic for clearing claim tag
-Date: Fri,  2 May 2025 12:11:08 +0100
-Message-Id: <20250502111108.2726217-1-leo.yan@arm.com>
-X-Mailer: git-send-email 2.34.1
+	Fri, 02 May 2025 11:13:54 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 542BDiEq3848530
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 2 May 2025 06:13:44 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1746184424;
+	bh=e+w5Qh2JRjlMFyhkZEHnj7ml/ugQxghiOlkLkqWDVzI=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=W5idxvhyn32t6wedPrduYdssQK5QNiQNVACARTf5WAYDH/BhLh3dbVBMNj/NwP7KM
+	 EwoDxSKVEf4W8FnSoPItBAul40ymbqBUrCRleffoQB9aTk+9bU4/e/qDATBznFViSk
+	 04h4bDSQw6y5r2o4tbHNkK+NMUkf/DUYWNFmO4Dg=
+Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 542BDiT1019558
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 2 May 2025 06:13:44 -0500
+Received: from DFLE103.ent.ti.com (10.64.6.24) by DFLE110.ent.ti.com
+ (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 2
+ May 2025 06:13:43 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE103.ent.ti.com
+ (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 2 May 2025 06:13:43 -0500
+Received: from [10.249.134.35] ([10.249.134.35])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 542BDb39062789;
+	Fri, 2 May 2025 06:13:38 -0500
+Message-ID: <87d38b3d-607d-45c3-8f29-70f6c01187db@ti.com>
+Date: Fri, 2 May 2025 16:43:37 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 4/4] arm64: dts: ti: k3-am62x: Add required voltage
+ supplies for TEVI-OV5640
+To: Devarsh Thakkar <devarsht@ti.com>, <nm@ti.com>, <vigneshr@ti.com>
+CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <vaishnav.a@ti.com>, <y-abhilashchandra@ti.com>,
+        <s-jain1@ti.com>, <jai.luthra@linux.dev>,
+        <jai.luthra@ideasonboard.com>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <imx@lists.linux.dev>
+References: <20250429154133.3377962-1-r-donadkar@ti.com>
+ <20250429154133.3377962-5-r-donadkar@ti.com>
+ <f73d24a6-7da6-4bcc-95ba-9d84b865a7a7@ti.com>
+Content-Language: en-US
+From: "Donadkar, Rishikesh" <r-donadkar@ti.com>
+In-Reply-To: <f73d24a6-7da6-4bcc-95ba-9d84b865a7a7@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_121118_451059_B3A64BBD 
-X-CRM114-Status: GOOD (  10.83  )
+X-CRM114-CacheID: sfid-20250502_041353_400174_07DFD21E 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,59 +92,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On platforms with a static replicator, a kernel panic occurs during boot:
 
-  [    4.999406]  replicator_probe+0x1f8/0x360
-  [    5.003455]  replicator_platform_probe+0x64/0xd8
-  [    5.008115]  platform_probe+0x70/0xf0
-  [    5.011812]  really_probe+0xc4/0x2a8
-  [    5.015417]  __driver_probe_device+0x80/0x140
-  [    5.019813]  driver_probe_device+0xe4/0x170
-  [    5.024032]  __driver_attach+0x9c/0x1b0
-  [    5.027900]  bus_for_each_dev+0x7c/0xe8
-  [    5.031769]  driver_attach+0x2c/0x40
-  [    5.035373]  bus_add_driver+0xec/0x218
-  [    5.039154]  driver_register+0x68/0x138
-  [    5.043023]  __platform_driver_register+0x2c/0x40
-  [    5.047771]  coresight_init_driver+0x4c/0xe0
-  [    5.052079]  replicator_init+0x30/0x48
-  [    5.055865]  do_one_initcall+0x4c/0x280
-  [    5.059736]  kernel_init_freeable+0x1ec/0x3c8
-  [    5.064134]  kernel_init+0x28/0x1f0
-  [    5.067655]  ret_from_fork+0x10/0x20
+On 02-05-2025 14:37, Devarsh Thakkar wrote:
+>
+> On 29/04/25 21:11, Rishikesh Donadkar wrote:
+>> The device tree overlay for TEVI-OV5640 requires following voltage
+>> supplies:
+>>
+>> AVDD-supply: Analog voltage supply, 2.8 volts
+>> DOVDD-supply: Digital I/O voltage supply, 1.8 volts
+>> DVDD-supply: Digital core voltage supply, 1.5 volts
+>>
+> I think this contradicts the voltage mentioned in TEVI-OV56540 doc [1]
+> which mention digital voltage as 3.3 volts ?
 
-A static replicator doesn't have registers, so accessing the claim
-register results in a NULL pointer deference.  Fixes the issue by
-accessing the claim registers only after the I/O resource has been
-successfully mapped.
 
-Fixes: 6f4c6f70575f ("coresight: Clear self hosted claim tag on probe")
-Signed-off-by: Leo Yan <leo.yan@arm.com>
----
- drivers/hwtracing/coresight/coresight-replicator.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Thank you for pointing out, I will fix it.
 
-diff --git a/drivers/hwtracing/coresight/coresight-replicator.c b/drivers/hwtracing/coresight/coresight-replicator.c
-index f1d2f764e898..06efd2b01a0f 100644
---- a/drivers/hwtracing/coresight/coresight-replicator.c
-+++ b/drivers/hwtracing/coresight/coresight-replicator.c
-@@ -262,6 +262,7 @@ static int replicator_probe(struct device *dev, struct resource *res)
- 		drvdata->base = base;
- 		desc.groups = replicator_groups;
- 		desc.access = CSDEV_ACCESS_IOMEM(base);
-+		coresight_clear_self_claim_tag(&desc.access);
- 	}
- 
- 	if (fwnode_property_present(dev_fwnode(dev),
-@@ -284,7 +285,6 @@ static int replicator_probe(struct device *dev, struct resource *res)
- 	desc.pdata = dev->platform_data;
- 	desc.dev = dev;
- 
--	coresight_clear_self_claim_tag(&desc.access);
- 	drvdata->csdev = coresight_register(&desc);
- 	if (IS_ERR(drvdata->csdev)) {
- 		ret = PTR_ERR(drvdata->csdev);
--- 
-2.34.1
-
+>
+>> Add them in the DT overlay.
+>>
+> [1]:
+> https://www.technexion.com/wp-content/uploads/2023/09/product-brief_tevi-ov5640.pdf
+>
+> Regards
+> Devarsh
+>> Signed-off-by: Rishikesh Donadkar <r-donadkar@ti.com>
+>> ---
+>>   .../dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso  | 32 +++++++++++++++++++
+>>   1 file changed, 32 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso b/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso
+>> index b6bfdfbbdd984..123ab0e5e8dfa 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso
+>> +++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso
+>> @@ -15,6 +15,33 @@ clk_ov5640_fixed: ov5640-xclk {
+>>   		#clock-cells = <0>;
+>>   		clock-frequency = <24000000>;
+>>   	};
+>> +
+>> +	reg_2p8v: regulator-2p8v {
+>> +		compatible = "regulator-fixed";
+>> +		regulator-name = "2P8V";
+>> +		regulator-min-microvolt = <2800000>;
+>> +		regulator-max-microvolt = <2800000>;
+>> +		vin-supply = <&vcc_3v3_sys>;
+>> +		regulator-always-on;
+>> +	};
+>> +
+>> +	reg_1p8v: regulator-1p8v {
+>> +		compatible = "regulator-fixed";
+>> +		regulator-name = "1P8V";
+>> +		regulator-min-microvolt = <1800000>;
+>> +		regulator-max-microvolt = <1800000>;
+>> +		vin-supply = <&vcc_3v3_sys>;
+>> +		regulator-always-on;
+>> +	};
+>> +
+>> +	reg_1p5v: regulator-1p5v {
+>> +		compatible = "regulator-fixed";
+>> +		regulator-name = "1P5V";
+>> +		regulator-min-microvolt = <1500000>;
+>> +		regulator-max-microvolt = <1500000>;
+>> +		vin-supply = <&vcc_3v3_sys>;
+>> +		regulator-always-on;
+>> +	};
+>>   };
+>>   
+>>   &main_i2c2 {
+>> @@ -40,6 +67,11 @@ ov5640: camera@3c {
+>>   
+>>   				clocks = <&clk_ov5640_fixed>;
+>>   				clock-names = "xclk";
+>> +
+>> +				AVDD-supply = <&reg_2p8v>;
+>> +				DOVDD-supply = <&reg_1p8v>;
+>> +				DVDD-supply = <&reg_1p5v>;
+>> +
+>>   				powerdown-gpios = <&exp1 13 GPIO_ACTIVE_LOW>;
+>>   
+>>   				port {
 
