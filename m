@@ -4,61 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2895C3ABA3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 11:54:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7067FC3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 11:56:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Ak0nwvnF45fuukn5QWWLfCpTs7Sx5N6JNGl2mxEh0E=; b=fTU72FxJ5B2tntI2Rtyhwexb8/
-	GQLihabMkmK6leVRAz3Xp62PqQtW6krJj8HARLNzkWK8wLTWNjpBiKwDfPLhNi25GDyOslzH9o31w
-	bpDSLe+07UCSb8wzCN/D2pupsphho+FOQv1BR6SIqInTJtYsMCIlEnumvUQKWCLBuRBySH2X3BqHO
-	8rmTyqs6YfcvGB1wGM3xLMGXr/1+GnZbrm0A/srdfoMp1hTGURv0GFqnF7rrdYaKd9aHx1NP2xJnk
-	LuOo+H8cQ6OA2HBnolQjeulStwGJx2jmCQE1QZdA3phybrBbF51/ErWXvRp1AiH2s01x60rpW23mk
-	LUQpqCKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Dvv3aZc6ysvtM6PaScZm0AZ9BZs2r0w8R3h6Sq84JNU=; b=yfQGWTS9Tv+J2ySwgIpnk6+fXO
+	CV1mW6IOoP72Sqp5D0CseXMbi8l0DlvmLqwizI0bDZEO9w3j/8/rMHQ4IK8RJ6uUTUAM4D8K9yfBo
+	2JPnlV0FyB+4/8YqA4hM6Yx+1xtvTqJjbc+H6PotQH+tw43YpYWsDXYk+Sz7cOJcYZLsBsYzOgB4O
+	yhWVTwMw9EfiON5wSoaQx61wGfs1TYL3TxNA2pL0CXZymFERxccEgqV4g+f0tpJuzlPYN6dTtrCt6
+	G83aj5FuuR66Q6tBRz2byL7Ik/qX5ggGbCSN9QkkEIi7li3jg9//yrTeVIwxS3swBCmo+v569IH0p
+	HdfLm+ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAoxt-00000001pHy-1flr;
-	Fri, 02 May 2025 11:54:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAovw-00000001p5E-3Gzy
+	id 1uAozo-00000001pUh-0DO7;
+	Fri, 02 May 2025 11:56:00 +0000
+Received: from mail-ua1-f48.google.com ([209.85.222.48])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uAoxF-00000001pBZ-2XBp
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 11:52:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DCE7A1688;
-	Fri,  2 May 2025 04:51:48 -0700 (PDT)
-Received: from [10.57.93.118] (unknown [10.57.93.118])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 055023F673;
-	Fri,  2 May 2025 04:51:53 -0700 (PDT)
-Message-ID: <912c3126-8ba7-4c3a-b168-438f92e89217@arm.com>
-Date: Fri, 2 May 2025 12:51:50 +0100
+	Fri, 02 May 2025 11:53:22 +0000
+Received: by mail-ua1-f48.google.com with SMTP id a1e0cc1a2514c-86feb848764so479049241.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 May 2025 04:53:20 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746186798; x=1746791598;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Dvv3aZc6ysvtM6PaScZm0AZ9BZs2r0w8R3h6Sq84JNU=;
+        b=Bn8VlIiUsWdITitIn76PpAWdnl9lAW5CV0QnpeG3H/rHNfR/XupAB+8MZjXEbWlIGZ
+         jjcy0RaEdx6b0cSZALb1WkRRXquxo9ePKrP0N7QXD60+wNjU8BebBWCIG45Y3shQIvFP
+         0pUTlTsEikO/kOQaDGFnlMVHUV8xGVjMe930mgy3n9qKDIrI42vQeIn9v4mFmQAWyTMQ
+         znPFdGetFrEGmW19bc5YMTwcjOnWbY7LQCd/ph8q6MGwfBk43xVQFznmS3zsJWq50G2I
+         aZhrTEdLOKD2fDwS2qwhQYpTY+6zKFhbsZ0zHN+pckOQ2zewPhaposF/BNUKgas/onVg
+         Y0wg==
+X-Forwarded-Encrypted: i=1; AJvYcCXJnTJFGXrI2dBDFoEADjYqujusdpgfQp7s1E6MwW3Re7444Bqec/sz1H42maBCXm3rndkgGEBVQGTgdA2aueLH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+IUsKCD8DrtNBw6iljacYoHeB8g4txJYOTU0D9tYMSH65ar5P
+	2NqxxCVtGo3ciNfkiOZoS3OAyj3Zwt9dXYJ7mm8TEZp966RAZl2wsTxyHuiP
+X-Gm-Gg: ASbGncuqkYtALWnxIZR5Vlnodvj7YbZIhMpy4/S+jDYdonIgPLXv/+VA5w8EGOjm3XI
+	3Xe76/Y3fivQHQcFUGZM79QkHHtcfehmNQLwnN9AeyCwJbvJ1wr4GRRoElng295OcMZp2WRibpG
+	5BmdIeggI+xWKB90ov/HL12DX+wS3pD/89+3BZnpoEUC3p3x1ugrSgjPxrNgCec61hBrPrxyCTs
+	QqwKij/AifL3X4oDqfgbrPNQp3PqmH21EzYTSYUbHmCZRftjhE4wPoVztMTFh5NrUg5HRHWu7Ah
+	rBbEsLD4PkujutAwCRjpMyl1Nk1bb18dmfSWWw3Q4KgOb3sz53oUhjxq1sbiomVSA6S+5cZyi+z
+	4B6Y=
+X-Google-Smtp-Source: AGHT+IGYoiwjmQaL+fCxXcwtxqzwYOgNbgewf4uLI+ibpzAGny3Ap8kbLSLxVLQozfTTaNFCRkNGRA==
+X-Received: by 2002:a67:e98b:0:b0:4da:fd05:ab48 with SMTP id ada2fe7eead31-4dafd05ac68mr692239137.4.1746186798449;
+        Fri, 02 May 2025 04:53:18 -0700 (PDT)
+Received: from mail-vs1-f42.google.com (mail-vs1-f42.google.com. [209.85.217.42])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-4daf23177f0sm411664137.8.2025.05.02.04.53.17
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 02 May 2025 04:53:17 -0700 (PDT)
+Received: by mail-vs1-f42.google.com with SMTP id ada2fe7eead31-4c4e1f16833so544319137.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 May 2025 04:53:17 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWhq+N2jZ68sl1UzNb5QcfeWo+RpFvoWzL3wuiD1Cdu5mUhBWERK4SK4vYVhpCULxm/nC/pZcTiO+EHn6hjSvDu@lists.infradead.org
+X-Received: by 2002:a05:6102:5045:b0:4c2:ffc8:93d9 with SMTP id
+ ada2fe7eead31-4dafb50dd11mr1438920137.9.1746186797387; Fri, 02 May 2025
+ 04:53:17 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [v3 PATCH 0/6] arm64: support FEAT_BBM level 2 and large block
- mapping when rodata=full
-Content-Language: en-GB
-To: Yang Shi <yang@os.amperecomputing.com>, will@kernel.org,
- catalin.marinas@arm.com, Miko.Lenczewski@arm.com,
- scott@os.amperecomputing.com, cl@gentwo.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Dev Jain <dev.jain@arm.com>
-References: <20250304222018.615808-1-yang@os.amperecomputing.com>
- <3750d3f8-17c6-4bb8-8107-215d442e4ec3@os.amperecomputing.com>
- <2fb974bb-1470-4a5f-90d5-97456140c98f@arm.com>
- <22b53cff-00db-48f1-b1e8-b11a54ebb147@os.amperecomputing.com>
- <4794885d-2e17-4bd8-bdf3-8ac37047e8ee@os.amperecomputing.com>
- <5c6d9706-7684-4288-b630-c60b3766b13f@arm.com>
- <4d02978c-03c0-48fe-84eb-0f3fa0c54fea@os.amperecomputing.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <4d02978c-03c0-48fe-84eb-0f3fa0c54fea@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20250501123709.56513-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <20250501123709.56513-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+In-Reply-To: <20250501123709.56513-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 2 May 2025 13:53:05 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVjCE5-X3AmDy1=UHGPb7kmi_kpBX79s1t0g76-__sc6Q@mail.gmail.com>
+X-Gm-Features: ATxdqUHd8V0pQvGYSlvvIMPnGrAT00VG3I_OsFOHO0G8lVIaFANIhY-BWLZCXg0
+Message-ID: <CAMuHMdVjCE5-X3AmDy1=UHGPb7kmi_kpBX79s1t0g76-__sc6Q@mail.gmail.com>
+Subject: Re: [PATCH 1/2] dt-bindings: timer: renesas,ostm: Document RZ/V2N
+ (R9A09G056) support
+To: Prabhakar <prabhakar.csengg@gmail.com>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Magnus Damm <magnus.damm@gmail.com>, Chris Brandt <chris.brandt@renesas.com>, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
+	Biju Das <biju.das.jz@bp.renesas.com>, 
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_045201_058230_0E28D808 
-X-CRM114-Status: GOOD (  44.23  )
+X-CRM114-CacheID: sfid-20250502_045321_641224_98AB311A 
+X-CRM114-Status: GOOD (  23.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,299 +103,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/04/2025 22:24, Yang Shi wrote:
-> 
-> 
-> On 4/14/25 6:03 AM, Ryan Roberts wrote:
->> On 10/04/2025 23:00, Yang Shi wrote:
->>> Hi Ryan,
->>>
->>> I know you may have a lot of things to follow up after LSF/MM. Just gently ping,
->>> hopefully we can resume the review soon.
->> Hi, I'm out on holiday at the moment, returning on the 22nd April. But I'm very
->> keen to move this series forward so will come back to you next week. (although
->> TBH, I thought I was waiting for you to respond to me... :-| )
->>
->> FWIW, having thought about it a bit more, I think some of the suggestions I
->> previously made may not have been quite right, but I'll elaborate next week. I'm
->> keen to build a pgtable splitting primitive here that we can reuse with vmalloc
->> as well to enable huge mappings by default with vmalloc too.
-> 
-> Sounds good. I think the patches can support splitting vmalloc page table too.
-> Anyway we can discuss more after you are back. Enjoy your holiday.
+On Thu, 1 May 2025 at 14:37, Prabhakar <prabhakar.csengg@gmail.com> wrote:
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+>
+> Document support for the Renesas OS Timer (OSTM) found on the Renesas
+> RZ/V2N (R9A09G056) SoC. The OSTM IP on RZ/V2N is identical to that on
+> other RZ families, so no driver changes are required as `renesas,ostm`
+> will be used as fallback compatible.
+>
+> Also include RZ/V2N in the list of compatibles for which the `resets`
+> property is required.
+>
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Hi Yang,
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
-Sorry I've taken so long to get back to you. Here's what I'm currently thinking:
-I'd eventually like to get to the point where the linear map and most vmalloc
-memory is mapped using the largest possible mapping granularity (i.e. block
-mappings at PUD/PMD, and contiguous mappings at PMD/PTE level).
+> --- a/Documentation/devicetree/bindings/timer/renesas,ostm.yaml
+> +++ b/Documentation/devicetree/bindings/timer/renesas,ostm.yaml
+> @@ -26,6 +26,7 @@ properties:
+>            - renesas,r9a07g043-ostm # RZ/G2UL and RZ/Five
+>            - renesas,r9a07g044-ostm # RZ/G2{L,LC}
+>            - renesas,r9a07g054-ostm # RZ/V2L
+> +          - renesas,r9a09g056-ostm # RZ/V2N
+>            - renesas,r9a09g057-ostm # RZ/V2H(P)
+>        - const: renesas,ostm        # Generic
+>
+> @@ -59,6 +60,7 @@ if:
+>            - renesas,r9a07g043-ostm
+>            - renesas,r9a07g044-ostm
+>            - renesas,r9a07g054-ostm
+> +          - renesas,r9a09g056-ostm
+>            - renesas,r9a09g057-ostm
 
-vmalloc has history with trying to do huge mappings by default; it ended up
-having to be turned into an opt-in feature (instead of the original opt-out
-approach) because there were problems with some parts of the kernel expecting
-page mappings. I think we might be able to overcome those issues on arm64 with
-BBML2.
+Looks like we have reached critical mass to invert the logic?
 
-arm64 can already support vmalloc PUD and PMD block mappings, and I have a
-series (that should make v6.16) that enables contiguous PTE mappings in vmalloc
-too. But these are currently limited to when VM_ALLOW_HUGE is specified. To be
-able to use that by default, we need to be able to change permissions on
-sub-regions of an allocation, which is where BBML2 and your series come in.
-(there may be other things we need to solve as well; TBD).
+    not:
+      contains:
+        - renesas,r7s72100-ostm
+        - renesas,r7s9210-ostm
 
-I think the key thing we need is a function that can take a page-aligned kernel
-VA, will walk to the leaf entry for that VA and if the VA is in the middle of
-the leaf entry, it will split it so that the VA is now on a boundary. This will
-work for PUD/PMD block entries and contiguous-PMD/contiguous-PTE entries. The
-function can assume BBML2 is present. And it will return 0 on success, -EINVAL
-if the VA is not mapped or -ENOMEM if it couldn't allocate a pgtable to perform
-the split.
+?
 
-Then we can use that primitive on the start and end address of any range for
-which we need exact mapping boundaries (e.g. when changing permissions on part
-of linear map or vmalloc allocation, when freeing part of a vmalloc allocation,
-etc). This way we only split enough to ensure the boundaries are precise, and
-keep larger mappings inside the range.
+>  then:
+>    required:
 
-Next we need to reimplement __change_memory_common() to not use
-apply_to_page_range(), because that assumes page mappings only. Dev Jain has
-been working on a series that converts this to use walk_page_range_novma() so
-that we can change permissions on the block/contig entries too. That's not
-posted publicly yet, but it's not huge so I'll ask if he is comfortable with
-posting an RFC early next week.
+Gr{oetje,eeting}s,
 
-You'll still need to repaint the whole linear map with page mappings for the
-case !BBML2 case, but I'm hoping __create_pgd_mapping_locked() (potentially with
-minor modifications?) can do that repainting on the live mappings; similar to
-how you are doing it in v3.
+                        Geert
 
-Miko's BBML2 series should hopefully get imminently queued for v6.16.
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-So in summary, what I'm asking for your large block mapping the linear map
-series is:
-  - Paint linear map using blocks/contig if boot CPU supports BBML2
-  - Repaint linear map using page mappings if secondary CPUs don't support BBML2
-  - Integrate Dev's __change_memory_common() series
-  - Create primitive to ensure mapping entry boundary at a given page-aligned VA
-  - Use primitive when changing permissions on linear map region
-
-This will be mergable on its own, but will also provide a great starting base
-for adding huge-vmalloc-by-default.
-
-What do you think?
-
-Thanks,
-Ryan
-
-
-> 
-> Thanks,
-> Yang
-> 
->>
->> Thanks,
->> Ryan
->>
->>> Thanks,
->>> Yang
->>>
->>>
->>> On 3/13/25 10:40 AM, Yang Shi wrote:
->>>>
->>>> On 3/13/25 10:36 AM, Ryan Roberts wrote:
->>>>> On 13/03/2025 17:28, Yang Shi wrote:
->>>>>> Hi Ryan,
->>>>>>
->>>>>> I saw Miko posted a new spin of his patches. There are some slight changes
->>>>>> that
->>>>>> have impact to my patches (basically check the new boot parameter). Do you
->>>>>> prefer I rebase my patches on top of his new spin right now then restart
->>>>>> review
->>>>>> from the new spin or review the current patches then solve the new review
->>>>>> comments and rebase to Miko's new spin together?
->>>>> Hi Yang,
->>>>>
->>>>> Sorry I haven't got to reviewing this version yet, it's in my queue!
->>>>>
->>>>> I'm happy to review against v3 as it is. I'm familiar with Miko's series
->>>>> and am
->>>>> not too bothered about the integration with that; I think it's pretty straight
->>>>> forward. I'm more interested in how you are handling the splitting, which I
->>>>> think is the bulk of the effort.
->>>> Yeah, sure, thank you.
->>>>
->>>>> I'm hoping to get to this next week before heading out to LSF/MM the following
->>>>> week (might I see you there?)
->>>> Unfortunately I can't make it this year. Have a fun!
->>>>
->>>> Thanks,
->>>> Yang
->>>>
->>>>> Thanks,
->>>>> Ryan
->>>>>
->>>>>
->>>>>> Thanks,
->>>>>> Yang
->>>>>>
->>>>>>
->>>>>> On 3/4/25 2:19 PM, Yang Shi wrote:
->>>>>>> Changelog
->>>>>>> =========
->>>>>>> v3:
->>>>>>>      * Rebased to v6.14-rc4.
->>>>>>>      * Based on Miko's BBML2 cpufeature patch (https://lore.kernel.org/
->>>>>>> linux-
->>>>>>> arm-kernel/20250228182403.6269-3-miko.lenczewski@arm.com/).
->>>>>>>        Also included in this series in order to have the complete patchset.
->>>>>>>      * Enhanced __create_pgd_mapping() to handle split as well per Ryan.
->>>>>>>      * Supported CONT mappings per Ryan.
->>>>>>>      * Supported asymmetric system by splitting kernel linear mapping if
->>>>>>> such
->>>>>>>        system is detected per Ryan. I don't have such system to test, so the
->>>>>>>        testing is done by hacking kernel to call linear mapping repainting
->>>>>>>        unconditionally. The linear mapping doesn't have any block and cont
->>>>>>>        mappings after booting.
->>>>>>>
->>>>>>> RFC v2:
->>>>>>>      * Used allowlist to advertise BBM lv2 on the CPUs which can handle TLB
->>>>>>>        conflict gracefully per Will Deacon
->>>>>>>      * Rebased onto v6.13-rc5
->>>>>>>      * https://lore.kernel.org/linux-arm-kernel/20250103011822.1257189-1-
->>>>>>> yang@os.amperecomputing.com/
->>>>>>>
->>>>>>> RFC v1: https://lore.kernel.org/lkml/20241118181711.962576-1-
->>>>>>> yang@os.amperecomputing.com/
->>>>>>>
->>>>>>> Description
->>>>>>> ===========
->>>>>>> When rodata=full kernel linear mapping is mapped by PTE due to arm's
->>>>>>> break-before-make rule.
->>>>>>>
->>>>>>> A number of performance issues arise when the kernel linear map is using
->>>>>>> PTE entries due to arm's break-before-make rule:
->>>>>>>      - performance degradation
->>>>>>>      - more TLB pressure
->>>>>>>      - memory waste for kernel page table
->>>>>>>
->>>>>>> These issues can be avoided by specifying rodata=on the kernel command
->>>>>>> line but this disables the alias checks on page table permissions and
->>>>>>> therefore compromises security somewhat.
->>>>>>>
->>>>>>> With FEAT_BBM level 2 support it is no longer necessary to invalidate the
->>>>>>> page table entry when changing page sizes.  This allows the kernel to
->>>>>>> split large mappings after boot is complete.
->>>>>>>
->>>>>>> This patch adds support for splitting large mappings when FEAT_BBM level 2
->>>>>>> is available and rodata=full is used. This functionality will be used
->>>>>>> when modifying page permissions for individual page frames.
->>>>>>>
->>>>>>> Without FEAT_BBM level 2 we will keep the kernel linear map using PTEs
->>>>>>> only.
->>>>>>>
->>>>>>> If the system is asymmetric, the kernel linear mapping may be repainted once
->>>>>>> the BBML2 capability is finalized on all CPUs.  See patch #6 for more
->>>>>>> details.
->>>>>>>
->>>>>>> We saw significant performance increases in some benchmarks with
->>>>>>> rodata=full without compromising the security features of the kernel.
->>>>>>>
->>>>>>> Testing
->>>>>>> =======
->>>>>>> The test was done on AmpereOne machine (192 cores, 1P) with 256GB memory and
->>>>>>> 4K page size + 48 bit VA.
->>>>>>>
->>>>>>> Function test (4K/16K/64K page size)
->>>>>>>      - Kernel boot.  Kernel needs change kernel linear mapping permission at
->>>>>>>        boot stage, if the patch didn't work, kernel typically didn't boot.
->>>>>>>      - Module stress from stress-ng. Kernel module load change permission
->>>>>>> for
->>>>>>>        linear mapping.
->>>>>>>      - A test kernel module which allocates 80% of total memory via
->>>>>>> vmalloc(),
->>>>>>>        then change the vmalloc area permission to RO, this also change
->>>>>>> linear
->>>>>>>        mapping permission to RO, then change it back before vfree(). Then
->>>>>>> launch
->>>>>>>        a VM which consumes almost all physical memory.
->>>>>>>      - VM with the patchset applied in guest kernel too.
->>>>>>>      - Kernel build in VM with guest kernel which has this series applied.
->>>>>>>      - rodata=on. Make sure other rodata mode is not broken.
->>>>>>>      - Boot on the machine which doesn't support BBML2.
->>>>>>>
->>>>>>> Performance
->>>>>>> ===========
->>>>>>> Memory consumption
->>>>>>> Before:
->>>>>>> MemTotal:       258988984 kB
->>>>>>> MemFree:        254821700 kB
->>>>>>>
->>>>>>> After:
->>>>>>> MemTotal:       259505132 kB
->>>>>>> MemFree:        255410264 kB
->>>>>>>
->>>>>>> Around 500MB more memory are free to use.  The larger the machine, the
->>>>>>> more memory saved.
->>>>>>>
->>>>>>> Performance benchmarking
->>>>>>> * Memcached
->>>>>>> We saw performance degradation when running Memcached benchmark with
->>>>>>> rodata=full vs rodata=on.  Our profiling pointed to kernel TLB pressure.
->>>>>>> With this patchset we saw ops/sec is increased by around 3.5%, P99
->>>>>>> latency is reduced by around 9.6%.
->>>>>>> The gain mainly came from reduced kernel TLB misses.  The kernel TLB
->>>>>>> MPKI is reduced by 28.5%.
->>>>>>>
->>>>>>> The benchmark data is now on par with rodata=on too.
->>>>>>>
->>>>>>> * Disk encryption (dm-crypt) benchmark
->>>>>>> Ran fio benchmark with the below command on a 128G ramdisk (ext4) with disk
->>>>>>> encryption (by dm-crypt).
->>>>>>> fio --directory=/data --random_generator=lfsr --norandommap --randrepeat 1 \
->>>>>>>        --status-interval=999 --rw=write --bs=4k --loops=1 --ioengine=sync \
->>>>>>>        --iodepth=1 --numjobs=1 --fsync_on_close=1 --group_reporting --
->>>>>>> thread \
->>>>>>>        --name=iops-test-job --eta-newline=1 --size 100G
->>>>>>>
->>>>>>> The IOPS is increased by 90% - 150% (the variance is high, but the worst
->>>>>>> number of good case is around 90% more than the best number of bad case).
->>>>>>> The bandwidth is increased and the avg clat is reduced proportionally.
->>>>>>>
->>>>>>> * Sequential file read
->>>>>>> Read 100G file sequentially on XFS (xfs_io read with page cache populated).
->>>>>>> The bandwidth is increased by 150%.
->>>>>>>
->>>>>>>
->>>>>>> Mikołaj Lenczewski (1):
->>>>>>>          arm64: Add BBM Level 2 cpu feature
->>>>>>>
->>>>>>> Yang Shi (5):
->>>>>>>          arm64: cpufeature: add AmpereOne to BBML2 allow list
->>>>>>>          arm64: mm: make __create_pgd_mapping() and helpers non-void
->>>>>>>          arm64: mm: support large block mapping when rodata=full
->>>>>>>          arm64: mm: support split CONT mappings
->>>>>>>          arm64: mm: split linear mapping if BBML2 is not supported on
->>>>>>> secondary
->>>>>>> CPUs
->>>>>>>
->>>>>>>     arch/arm64/Kconfig                  |  11 +++++
->>>>>>>     arch/arm64/include/asm/cpucaps.h    |   2 +
->>>>>>>     arch/arm64/include/asm/cpufeature.h |  15 ++++++
->>>>>>>     arch/arm64/include/asm/mmu.h        |   4 ++
->>>>>>>     arch/arm64/include/asm/pgtable.h    |  12 ++++-
->>>>>>>     arch/arm64/kernel/cpufeature.c      |  95 ++++++++++++++++++++++++++++++
->>>>>>> +++++++
->>>>>>>     arch/arm64/mm/mmu.c                 | 397 ++++++++++++++++++++++++++++++
->>>>>>> ++++
->>>>>>> +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
->>>>>>> +++++
->>>>>>> ++++++++++++++++++++++-------------------
->>>>>>>     arch/arm64/mm/pageattr.c            |  37 ++++++++++++---
->>>>>>>     arch/arm64/tools/cpucaps            |   1 +
->>>>>>>     9 files changed, 518 insertions(+), 56 deletions(-)
->>>>>>>
->>>>>>>
-> 
-
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
