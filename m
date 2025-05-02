@@ -4,76 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98B70C3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 17:23:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7358C3ABB0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 17:23:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LXKeTl4krg0a5o3umNNyDFRYE6CagYQ9jy54yI6P1WE=; b=cgyB4C1YxExmnJTptt37dTrQhf
-	JgBKbMANEvTZaNUNeuwiB7LmDnxiUViQ45M9bCWw2ygHtnGJPz98864lRNCC4xtcqCRukJ+suPGM2
-	sAkun+rpCKoF2xjmPfexPAvwzs+3pIrx8Vb/kPYGkjYQe/BS6fiAKFM9D7j7jRtxU6R6nF+N2RbNC
-	w2rrzwAhbx6BGwQR6sm2hNBmjl82Xx7wfc34tU1WAzn5pgq4LXZmA/A7L37q3B6RRGZ+EdFFhIKHs
-	oW7+Og+Sh+5M+gJija0i12yMpuOshqPrgiy7IEGCYHlxEwn+/ATrI1qFZ9Dap45Oqb7GLynOP7UJy
-	EttXXJXg==;
+	bh=kAGdYdPyxK5uvH5j4LNdDeNPl26Am99THch1ObpP7X4=; b=A8n5OSL6knGu6gXv6o+knVCM8R
+	/TGwyxF+mTQBNEy58gzZLaWFHad5r/e1qnh7lnqGzNns5OXLdr9PvAG8DY5jMH/vhgIvJvucjre9A
+	dGIwG0pB7cxA5n4WIAKmRci+f0qayFaIg+WBsLs+NuOtQ6MBmcbXVJCLx8VbSLKyu2p5sEs45v3Dk
+	lR/qAvk9WvNlSDbeZQuir+5sywIZ3U39Swgav61a4EC1kpCoz0fNSrSzNIVs3hVGkJ6gAk7p0SDPS
+	U/HG5aTdLq3ygfIemFWOuf9aCSNNUu3xdCeZ4/j1J9dw+TtY4w+HiWbjYIU6yVbozbmJJZcvv2GS5
+	Avyj+R0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAu6G-00000002dmJ-11mT;
-	Fri, 02 May 2025 17:23:00 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1uAu6l-00000002eki-02uK;
+	Fri, 02 May 2025 17:23:31 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAtDF-00000002VM5-3N7t
+	id 1uAtzV-00000002d6y-3EC6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 16:26:11 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 542GQ1ux448886
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 2 May 2025 11:26:01 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1746203161;
-	bh=LXKeTl4krg0a5o3umNNyDFRYE6CagYQ9jy54yI6P1WE=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=iYTyRTGvnDrmnJ/A/XTAdjKpE40albTKCD1yQltU/X8pxdnveluBh4MgDJNx0rB96
-	 cPI/QiJtbeVl5XahpZDAsjOQ9l2JoSAqbf0CinWnTXXHTvQa670JERor1K3+i7bhEh
-	 d0M//L8k7I67WrcnP6z4ixms2Jb1hATHDo/pXyEc=
-Received: from DLEE101.ent.ti.com (dlee101.ent.ti.com [157.170.170.31])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 542GQ1BM119008
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 2 May 2025 11:26:01 -0500
-Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE101.ent.ti.com
- (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 2
- May 2025 11:26:00 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE105.ent.ti.com
- (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 2 May 2025 11:26:00 -0500
-Received: from ws.dhcp.ti.com (ws.dhcp.ti.com [10.24.69.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 542GPex9028994;
-	Fri, 2 May 2025 11:25:56 -0500
-From: Rishikesh Donadkar <r-donadkar@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>
-CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <vaishnav.a@ti.com>, <devarsht@ti.com>,
-        <y-abhilashchandra@ti.com>, <s-jain1@ti.com>, <jai.luthra@linux.dev>,
-        <jai.luthra@ideasonboard.com>, <linux-arm-kernel@lists.infradead.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <imx@lists.linux.dev>, <r-donadkar@ti.com>
-Subject: [PATCH v2 3/4] arm64: dts: ti: k3-am62x: Add required voltage supplies for OV5640
-Date: Fri, 2 May 2025 21:55:38 +0530
-Message-ID: <20250502162539.322091-4-r-donadkar@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250502162539.322091-1-r-donadkar@ti.com>
-References: <20250502162539.322091-1-r-donadkar@ti.com>
+	Fri, 02 May 2025 17:16:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 37A1AA4AF6F;
+	Fri,  2 May 2025 17:10:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28702C4CEEF;
+	Fri,  2 May 2025 17:15:57 +0000 (UTC)
+Date: Fri, 2 May 2025 18:15:54 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: will@kernel.org, broonie@kernel.org, anshuman.khandual@arm.com,
+	joey.gouly@arm.com, yury.khrustalev@arm.com, maz@kernel.org,
+	oliver.upton@linux.dev, frederic@kernel.org,
+	shmeerali.kolothum.thodi@huawei.com, james.morse@arm.com,
+	mark.rutland@arm.com, huangxiaojia2@huawei.com,
+	akpm@linux-foundation.org, surenb@google.com, robin.murphy@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, nd@arm.com
+Subject: Re: [PATCH v3 3/3] tools/kselftest: add MTE_FAR hwcap test
+Message-ID: <aBT9yiaLF9LisLR6@arm.com>
+References: <20250410074721.947380-1-yeoreum.yun@arm.com>
+ <20250410074721.947380-4-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250410074721.947380-4-yeoreum.yun@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_092609_930186_CC1D2AD3 
-X-CRM114-Status: GOOD (  10.17  )
+X-CRM114-CacheID: sfid-20250502_101601_869796_4DB6B863 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,73 +68,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The device tree overlay for OV5640 requires following voltage
-supplies as mentioned in the table 8-3 of the data-sheet [1].
+On Thu, Apr 10, 2025 at 08:47:21AM +0100, Yeoreum Yun wrote:
+> diff --git a/tools/testing/selftests/arm64/abi/hwcap.c b/tools/testing/selftests/arm64/abi/hwcap.c
+> index 35f521e5f41c..a539eeb0bfc0 100644
+> --- a/tools/testing/selftests/arm64/abi/hwcap.c
+> +++ b/tools/testing/selftests/arm64/abi/hwcap.c
+> @@ -1098,6 +1098,12 @@ static const struct hwcap_data {
+>  		.sigill_fn = hbc_sigill,
+>  		.sigill_reliable = true,
+>  	},
+> +	{
+> +		.name = "MTE_FAR",
+> +		.at_hwcap = AT_HWCAP3,
+> +		.hwcap_bit = HWCAP3_MTE_FAR,
+> +		.cpuinfo = "mte_far",
+> +	},
+>  };
 
-AVDD-supply: Analog voltage supply, 2.8 volts
-DOVDD-supply: Digital I/O voltage supply, 1.8 volts
-DVDD-supply: Digital core voltage supply, 1.5 volts
+This is all good but I'd also like to see a test to check the FAR_EL1
+bits are actually exposed to the signal handler when the hwcap is
+present.
 
-Add them in the overlay.
-
-Link: https://cdn.sparkfun.com/datasheets/Sensors/LightImaging/OV5640_datasheet.pdf
-Reviewed-by: Devarsh Thakkar <devarsht@ti.com>
-Signed-off-by: Rishikesh Donadkar <r-donadkar@ti.com>
----
- .../boot/dts/ti/k3-am62x-sk-csi2-ov5640.dtso  | 32 +++++++++++++++++++
- 1 file changed, 32 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-ov5640.dtso b/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-ov5640.dtso
-index 7fc7c95f5cd57..fc77fc77fe0b1 100644
---- a/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-ov5640.dtso
-+++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-ov5640.dtso
-@@ -15,6 +15,33 @@ clk_ov5640_fixed: ov5640-xclk {
- 		#clock-cells = <0>;
- 		clock-frequency = <12000000>;
- 	};
-+
-+	reg_2p8v: regulator-2p8v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "2P8V";
-+		regulator-min-microvolt = <2800000>;
-+		regulator-max-microvolt = <2800000>;
-+		vin-supply = <&vcc_3v3_sys>;
-+		regulator-always-on;
-+	};
-+
-+	reg_1p8v: regulator-1p8v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "1P8V";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		vin-supply = <&vcc_3v3_sys>;
-+		regulator-always-on;
-+	};
-+
-+	reg_1p5v: regulator-1p5v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "1P5V";
-+		regulator-min-microvolt = <1500000>;
-+		regulator-max-microvolt = <1500000>;
-+		vin-supply = <&vcc_3v3_sys>;
-+		regulator-always-on;
-+	};
- };
- 
- &main_i2c2 {
-@@ -40,6 +67,11 @@ ov5640: camera@3c {
- 
- 				clocks = <&clk_ov5640_fixed>;
- 				clock-names = "xclk";
-+
-+				AVDD-supply = <&reg_2p8v>;
-+				DOVDD-supply = <&reg_1p8v>;
-+				DVDD-supply = <&reg_1p5v>;
-+
- 				powerdown-gpios = <&exp1 13 GPIO_ACTIVE_LOW>;
- 
- 				port {
 -- 
-2.34.1
-
+Catalin
 
