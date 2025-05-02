@@ -4,69 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96D82C3ABA3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 07:01:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E3BEC3ABA3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 07:04:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xDAFPXKS82gTS92dWyyL8gD8KrfvGGRfui3h5/5pRJ0=; b=NQ9Av4uO/qXUblRZlInpvfBt4W
-	xpmhXsms/ZMg5RJnLUJ0a4kZuhgacf/wkeACu4voyL7F3IQCuUQyxxojpUgHUySKc3CjG2LW5KPSu
-	mH2nraLKVjTvHEbmuMLLkqYii/OFUSjEU9LzJiwVrZByo0e3t8yZqC674sijSnPWYbBV0dR36v4m8
-	v82QIWFMaFaXGfQtrxnLYnXfGcmvqjfrqoSs4phaTr/MJ+udgDgYGJWjiVxc7+zIA+NgniF81SoLz
-	1dFJFlAQjbO6Nk1KBYcNjq32ys4uJWfDMH98met/AficUYAnvHyHlkwygVbhQMVcEwn/pc89OnMqs
-	d6tXa3RQ==;
+	bh=cL9ry67avK5wUuwY5F0+hSYyw2J7HavbDREmpHF8mHQ=; b=Y+SXGT5VLb4ScXPzcSX6RxTIWR
+	bwmxHcCGwdrMRsS3DZl3xuh582CMVGnFFZ8EpLGKyOJIoYnxwWVxxxUCHZC3CAMHg49o65mNAfQMV
+	tjDSWEHkdp2U3dhKtIpwENZMsbUFKjJnV/PXoYPmxpLpH7B/fZOCr43jKAX1S7KxosLd0xnBHyjUs
+	ANklep6IQ+dqZhLT/V3GznrEX2UwXYzqeJHHFNX0gIxGh7kL7X06Bvaqp7Fifno347wZ7qX3AYlT1
+	AZx/gbD3QPFpRhTnbKcml6kolh8bSxbIqc3Uv8wMMqH1koAGCs084YFNJw+r8CEPXabHdIkGp0OwT
+	8tCdKGNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAkOR-000000012pp-2UfK;
-	Fri, 02 May 2025 07:01:07 +0000
+	id 1uAkRI-000000013JT-33Dd;
+	Fri, 02 May 2025 07:04:04 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAkMV-000000012XX-20Dd;
-	Fri, 02 May 2025 06:59:08 +0000
+	id 1uAkPL-0000000135W-1FJz
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 02 May 2025 07:02:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 82F09A4B4DC;
-	Fri,  2 May 2025 06:53:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E737C4CEE4;
-	Fri,  2 May 2025 06:59:02 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id D7DEEA4B84F;
+	Fri,  2 May 2025 06:56:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA19BC4CEE4;
+	Fri,  2 May 2025 07:02:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746169146;
-	bh=6sClcWYGukBbkpULYb0l3opl4yAyv99xyShFUXuykaE=;
+	s=k20201202; t=1746169322;
+	bh=PqKFG0JGTq4eNIheoo3AmOMJYkd1B6YTqiR8CVnXhYk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YZ+518aayrvUeQVuipI53moncuZzz4Ed/Dxji11skD7ZoU/b8gOmjfcFisHFnOejD
-	 2H5xYuuxFMt83VfJdsM7XgiERYCLpi+Vp7GPfHA9/+FVKOMljmLiY8ZpT6e/iKg7wJ
-	 nizYqciu1F9qXd4WqTODYU2hO5nO8p7Tr2SM3InYqL1ZXhj48gc2MHuwECjTbfWsSE
-	 nxl0K8UkWJ+BABy1L3v4uOSlh1iyZZ7HEgsGwd+N3IkkBZvgbSi8bl0oBeX9CNQqF/
-	 vE/ksOsT8chgpOzjxV3Qp8JItztaXuCleeQfhQHliip5rBU/ZMNjodJXuwNkE5CpKp
-	 dWtzAxdeOe4nw==
-Date: Fri, 2 May 2025 08:59:00 +0200
-From: Niklas Cassel <cassel@kernel.org>
-To: Wilfred Mallawa <wilfred.opensource@gmail.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Alistair Francis <alistair@alistair23.me>,
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Wilfred Mallawa <wilfred.mallawa@wdc.com>
-Subject: Re: [PATCH v2] PCI: dwc: Add support for slot reset on link down
- event
-Message-ID: <aBRtNOLQ6R-5iOB4@ryzen>
-References: <20250501-b4-pci_dwc_reset_support-v2-1-d6912ab174c4@wdc.com>
+	b=mVzAz7NOcx1ADL3FUVTSgq3yUEZzwYx7NJwUzsmRXywuZZfgaqRVVnbjTYnCBWn/+
+	 ozbIFqkDfjOl4d3Rl+/Pp3ome9P5BtNz48awS8Hj+qfRGFbCrGJ74DTNvSaNx1bZ2P
+	 t00t1/SwcM+Ir/whEIsspwLv4L0IolBjsDtpE/RIvY27YsVbbAzRkzcR6Nb5Bjub0k
+	 7ZVTqC2pJ+5WH2BD/BUAT4eKVKVMvUnrztaNJcMa3Azyezp5xJ69v5vl0bw93YrOZZ
+	 f6q0IPkxDDt0w2bQefK1iHmui6miOEE9S7u8wb739OslNMv4OgZDdNoEZIwPp/8ADm
+	 J4mmDCmDZ2d0Q==
+Date: Fri, 2 May 2025 09:01:59 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Ioana Ciornei <ioana.ciornei@nxp.com>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/6] dt-bindings: mfd: add bindings for QIXIS CPLD
+Message-ID: <20250502-meticulous-bulky-wildebeest-c1a8b6@kuoka>
+References: <20250430153634.2971736-1-ioana.ciornei@nxp.com>
+ <20250430153634.2971736-2-ioana.ciornei@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250501-b4-pci_dwc_reset_support-v2-1-d6912ab174c4@wdc.com>
+In-Reply-To: <20250430153634.2971736-2-ioana.ciornei@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_235907_576708_F818F8F3 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20250502_000203_464853_920F8188 
+X-CRM114-Status: GOOD (  16.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,38 +74,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Wilfred,
+On Wed, Apr 30, 2025 at 06:36:29PM GMT, Ioana Ciornei wrote:
+> This adds device tree bindings for the board management controller -
+> QIXIS CPLD - found on some Layerscape based boards such as LX2160A-RDB,
+> LX2160AQDS, LS1028AQDS etc.
+> 
+> Signed-off-by: Ioana Ciornei <ioana.ciornei@nxp.com>
+> ---
+>  .../bindings/mfd/fsl,qixis-i2c.yaml           | 65 +++++++++++++++++++
+>  1 file changed, 65 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/mfd/fsl,qixis-i2c.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/mfd/fsl,qixis-i2c.yaml b/Documentation/devicetree/bindings/mfd/fsl,qixis-i2c.yaml
+> new file mode 100644
+> index 000000000000..562878050916
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/mfd/fsl,qixis-i2c.yaml
 
-On Thu, May 01, 2025 at 11:57:39AM +1000, Wilfred Mallawa wrote:
-> @@ -688,6 +699,79 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
->  	return ret;
->  }
->  
-> +static int rockchip_pcie_rc_reset_slot(struct pci_host_bridge *bridge,
-> +				       struct pci_dev *pdev)
-> +{
-> +	struct pci_bus *bus = bridge->bus;
-> +	struct dw_pcie_rp *pp = bus->sysdata;
-> +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> +	struct rockchip_pcie *rockchip = to_rockchip_pcie(pci);
-> +	struct device *dev = rockchip->pci.dev;
-> +	u32 val;
-> +	int ret;
+Filename matching compatible.
+
+> @@ -0,0 +1,65 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/mfd/fsl,qixis-i2c.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +	dw_pcie_stop_link(pci);
-> +	rockchip_pcie_phy_deinit(rockchip);
-> +	clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
+> +title: NXP's QIXIS CPLD board management controller
+> +
+> +maintainers:
+> +  - Ioana Ciornei <ioana.ciornei@nxp.com>
+> +
+> +description: |
+> +  The board management controller found on some Layerscape boards contains
+> +  different IP blocks like GPIO controllers, interrupt controllers, reg-muxes
+> +  etc.
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - fsl,lx2160a-qds-qixis-i2c
+> +      - fsl,lx2162a-qds-qixis-i2c
+> +      - fsl,ls1028a-qds-qixis-i2c
 
-Sorry that I didn't see/mention this earlier, but the order which we deinit
-things should be the reversed order of how we initialized things.
+Keep alphabetical order.
 
-(i.e. it should match the ordering of the error path.)
+What is actual device name? I2C? Is this an I2C controller or device?
 
-In both the error path of this function, and the error path of
-rockchip_pcie_probe(), we do deinit_clk before deinit_phy, so I suggest we
-do the same here.
+> +
+> +  reg:
+> +    description:
+> +      I2C device address.
+
+This says device, so i2c in compatible is wrong.
+
+Anyway drop description, redundant.
 
 
-Kind regards,
-Niklas
+> +    maxItems: 1
+> +
+> +  "#address-cells":
+> +    const: 1
+
+Why?
+
+> +
+> +  "#size-cells":
+> +    const: 0
+
+Why? Drop cells.
+
+> +
+> +  mux-controller:
+> +    $ref: /schemas/mux/reg-mux.yaml#
+> +
+> +required:
+> +  - "#address-cells"
+> +  - "#size-cells"
+> +  - compatible
+> +  - reg
+
+Keep same order as in properties
+
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    i2c {
+> +        #address-cells = <1>;
+> +        #size-cells = <0>;
+> +
+> +        qixis@66 {
+
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+
+> +            compatible = "fsl,lx2160a-qds-qixis-i2c";
+> +            reg = <0x66>;
+> +            #address-cells = <1>;
+> +            #size-cells = <0>;
+
+So were do you use address/size cells?
+
+Best regards,
+Krzysztof
+
 
