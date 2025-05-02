@@ -4,146 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47C4FC3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 14:35:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61723C3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 14:37:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kTk7+Lxx0DFutSWzA4hI01BWCTfF4mu7j2qu2i4uALU=; b=s181dPdf7yFeJZRss/PuQher1T
-	qGTohxxPlYAeRJ8ygOGley9SrewqCoJcdpsH5ZVl8LHH3ccsa9swObglp7KPmW9yhMOctwIyFLi7K
-	klEdGMIhF8gXPMPG7QXzjMkkuw1Ii/0yjdhv81uv/2IfTQuhdjcAvdnjsFfpW4sIw4uRmaczdyxfQ
-	tEoCObHk0MnsigglMUffKVHOX+EJVc9KHAt2xpg1BAFHVFwtyfMT4S0nan+ZaBpyS7u2VanmGkGsK
-	dXn7eGEDlmG3ENUNJTEhY9JP4z4HQWZFEE249SOi90X0/Yt7IOoOaHCaL0dAt6lj4yXKH/vfqOH83
-	mqnbuZlA==;
+	bh=5KEJekbxcX/a2LIwuwKch0uSCUVH8H9gtoN30h0AC6U=; b=CmDCRfd8XfvgAyF7W2zz8cHdCD
+	4a4cFtd994kdGJ0fv/9Kg3CvmxfwPLHPAax/99eOjXZn/tJ6oRub/1OW/HjnuxmKlkTRO0864yH5I
+	fWVJcczQaQyYGQBmTnr8PeBdnXNScSvILKX64oWNtUhWkn1zcxgmCpW330FHd02OH3DGe0Gfhe7gf
+	sMuX3cqX8nshwT7CdzNDQEaEQeSdx9jm3qik3u0HiAF5EYiBxc4ySYm4al3iCXkOAGvND6v273En7
+	4b+FWjeugP2BN4parULXPpTk1iayBBouPpYRcalM0P3vh2Ds3HyXfPvuurA36TfJrklKv7UchW1gw
+	nEalCO9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uArUJ-00000002Cza-2pEf;
-	Fri, 02 May 2025 14:35:39 +0000
-Received: from mail-vi1eur05on20708.outbound.protection.outlook.com ([2a01:111:f403:2613::708] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1uArWE-00000002DFB-1UkV;
+	Fri, 02 May 2025 14:37:38 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uArLe-00000002Bk1-0BeA
+	id 1uArSg-00000002CfB-3vBm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 14:26:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HfkN2S7WwUxyFzzJXsCyWo4mhrjc4+y8QJQk0vPe9rEs79iLBc+SH6EwFGvXzQ30+wol8km1PWSVZNbJmJqZLNF+8ijyu/x2Y8sx2rmYK9iv2vwfMzO31+ay7k3H7WM4S1cdT/eBaKMLpcyKkaBo1u5XK72z8S4Ojwpv+AOvDgSrNg78SszjH23IlXCGj867rNhuBq4Ql9YzSrS9Acx1qWnkp5ztdj4fID4HW/YEtojt0ftc8Fxvh0Y/+waCP763dLISzmlY3U9M1Y/KY4pSs6+DZq8ixlJawJlZnxJahaFWXhtrKwNpTCPv8RyKwJhwwK1WrAyodnEq3T68T36gTw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kTk7+Lxx0DFutSWzA4hI01BWCTfF4mu7j2qu2i4uALU=;
- b=Ui99LksasLBDzeo5qWpuVG14XmLC5YhfU9Kz8Zvf4VFW8n7Uye0KGqaS3js1IKh1RPsq+WgG05dgAFy1xkYOywnZ5bJB097sq0rS9d8KMnCIKaKD6RbE0Ltv36gRNY7n3tDzuSQC7sU8P+picrwPgIDiElg9haMsr2V6EycWQ1lmsuB0UD3xGrwLgrF9iFcb42L9PbNOmsuQwfgnbd5sBhiinDitMfe2gD3paiCI6Spgyh28sEg1nczC2qNJpGbhYM/nNs3EFoYHGuYIOLmDPDDeBSW9Z6CYRpISAYdVtFF+6ubFIcMzP4zL1EXsWXquMA3IapBKpZHWvXuIcpbz9w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 91.26.50.189) smtp.rcpttodomain=ti.com smtp.mailfrom=phytec.de; dmarc=fail
- (p=quarantine sp=quarantine pct=100) action=quarantine header.from=phytec.de;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kTk7+Lxx0DFutSWzA4hI01BWCTfF4mu7j2qu2i4uALU=;
- b=LT805zBgDbc9rH366WhEyrdJ2Wk94tvRoT9beQ/wK+par2743rFupZWnT2bA4Jj0acgzbu7K+j8Gv+hweqFqC6PPJi6gCCiQMTwL65f/gLiza7RElGnKFZix/neenmaUvaiQsZwG1s4t7LZGs9LOR44+dYMnK0bMO+MSWn99PpO2njpQUETqPZNZVnOOnup9iTjlKPKUJChxQnxOsNOvNq9Sa/R7yfy11XoO9DIlD2i7LJdKYzn6/4bYTaijLCyXLXWOgPaq7bKlNfTebv0w5QzBN7eRidaJB9Ij7Whd6S+7a2IAnbby/KtfnktYc4J/shHTEGG7wYj2D8vDuaTuBw==
-Received: from DUZP191CA0055.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:4fa::19)
- by AS8P195MB1368.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:3c0::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.24; Fri, 2 May
- 2025 14:26:27 +0000
-Received: from DU6PEPF0000952A.eurprd02.prod.outlook.com
- (2603:10a6:10:4fa:cafe::b8) by DUZP191CA0055.outlook.office365.com
- (2603:10a6:10:4fa::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8655.42 via Frontend Transport; Fri,
- 2 May 2025 14:26:27 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
- smtp.mailfrom=phytec.de; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- phytec.de discourages use of 91.26.50.189 as permitted sender)
-Received: from Diagnostix.phytec.de (91.26.50.189) by
- DU6PEPF0000952A.mail.protection.outlook.com (10.167.8.11) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8699.20 via Frontend Transport; Fri, 2 May 2025 14:26:26 +0000
-Received: from Florix.phytec.de (172.25.0.13) by Diagnostix.phytec.de
- (172.25.0.14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Fri, 2 May
- 2025 16:26:25 +0200
-Received: from ls-radium.phytec (172.25.39.17) by Florix.phytec.de
- (172.25.0.13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Fri, 2 May
- 2025 16:26:23 +0200
-From: Daniel Schultz <d.schultz@phytec.de>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-CC: <upstream@lists.phytec.de>, Daniel Schultz <d.schultz@phytec.de>
-Subject: [PATCH 2/3] arm64: dts: ti: k3-am62a: Set Critical Temp. to 105C
-Date: Fri, 2 May 2025 07:26:05 -0700
-Message-ID: <20250502142606.2840508-2-d.schultz@phytec.de>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250502142606.2840508-1-d.schultz@phytec.de>
-References: <20250502142606.2840508-1-d.schultz@phytec.de>
+	Fri, 02 May 2025 14:34:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BD8165C570D;
+	Fri,  2 May 2025 14:31:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1E36C4CEE4;
+	Fri,  2 May 2025 14:33:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746196437;
+	bh=3OB+vCsY1Nf1uqDEFMD9tdzEcnzhPdE9qneBGjxivtM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ulU8ezpvMpMndR+a4tvGp+KoP+p+oCpffievS/+dJkj6xqVkxn0sCRAu2U8JnB4VV
+	 +zwWoXgxuLrV9cv0EDt0xNHIkG+KXRHMR5WAZ/4dBJnhIoDM85xoV8iBgO8DJ7uxCj
+	 2oC7Z/IcA1u7OWaKJfgCChQ3P/LDZOvQcJZy5qwVPnNmwxp7zJSgJljjqM0dmjw1lp
+	 k2acbxAw9vFUGDiW6zdz5DXGWudMhbnIQgIT9tPUPY6JmoM1KdQ+Vl3BQvZpSE1mYk
+	 HC6sYnOwpgT3nrsL/Kwv6o3Zgod6nYd0E/lL0GQ4fnV55cNu2aRjYZhIskcLbVV0Qp
+	 TvhLflrSQkDbA==
+Message-ID: <a01df80b-c1ee-4c36-b400-e3044a0156e2@kernel.org>
+Date: Fri, 2 May 2025 16:33:50 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [172.25.39.17]
-X-ClientProxiedBy: Diagnostix.phytec.de (172.25.0.14) To Florix.phytec.de
- (172.25.0.13)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU6PEPF0000952A:EE_|AS8P195MB1368:EE_
-X-MS-Office365-Filtering-Correlation-Id: c02ed374-dd81-4ed7-9c3e-08dd89855261
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?VXp1WThnTUo2ZVpmN0s0SjZKd0JLMVoxK0FCcWw4NVJEazFwK2ZtVmJsMklG?=
- =?utf-8?B?K3hYMUVYSy9YeWQ4bzR3MlBXcGN4ZlhmKzE1ZnNaODdUMlJWTkRlR3B5akZE?=
- =?utf-8?B?N3Zmem42d2ZTM1ByZHlBdjJvaDRlWDZaeGhDREF0NGlsZzB4WUdBaWZSMUtN?=
- =?utf-8?B?SFpuZ1Bad1U5ODMrUmpxTllLMFJBdU0wM1FXanVWUjhzaU5VZW00Z2ZDMVJW?=
- =?utf-8?B?Q2NuYi9GYkV4TzVCQ3A1dUlndVlyYTB4ckduUms4R0lGRlphcXpZQmlwUUww?=
- =?utf-8?B?TjVHNHhxZHBoajA5YlYvZ1o4Zzd3UEJ4L0NvdXcvN2hiRE1yaDBLM3pKa2wz?=
- =?utf-8?B?dVMvTWVVRFlqZzNrY3M5akRYeG9odXV1clVWNzFkRUdsVUZ6OEwrRHBHMWQy?=
- =?utf-8?B?WjBOZEszSC9sUmhseUwyTlVQWFM4Q3lRUkwvY3QyTGtPbDBKYkZOdHRKY2xB?=
- =?utf-8?B?TW1yNm5Fdjc0eW1vSTJnVWxObUNRRDZUaElkMzNGb05VajJ4NjJxYVBENlVC?=
- =?utf-8?B?S0RuV1Y2Y1R5RkZTVEhNVHkvcVFzZ2JyNzlWNnplWUdmSzU4Z1dnTlBWL2d4?=
- =?utf-8?B?eGVPMnZvZldyRUNyeVltd0tHc3ZmYlQvNDZaTUwzcitvcm1jcnFQQTVjRE9v?=
- =?utf-8?B?ZWhxcEdkaUxJcTlkYjV1enZJc2lXcEZUQmdMTkNMK1ZRNjlrVkdQTkVxeEp2?=
- =?utf-8?B?WmNoYXhOUW5HWTVRcGU1eGExWDNLM2tQU2xPWTBYN1FybDQwTjRoaWRSK01E?=
- =?utf-8?B?clRoYmFyd3p0R0MzMnI0Qzg3dXVBS1JBdWFhWXlwb2JtNFY5SWdFcmY5QlpH?=
- =?utf-8?B?ZTRDRzJNeVRpMEFuMUlrbXNFYjFLZ3FyNzNkZzhSeEtkRVVmYng3dXJaUk1y?=
- =?utf-8?B?NHlzMU1sck4vYXdtZHBpSlNxV3dTZ3VxeGs2UFhQditNbXVlY0JIVmtVSWRm?=
- =?utf-8?B?Ykt5WEVLcS83VVdtUmo0cFNzWEluU1VtdTRjM2lyanRZQnZadGRpWVJVQk5N?=
- =?utf-8?B?bkQ0UmRHVXpkSFFhTmV6b2VTU2phdGVMZEZUSU41VEczM2VDVGZVcFlDSGRr?=
- =?utf-8?B?RkN0WERRMSsxU0ltM1JRSkpJZi9qRWlWRzhaRkJJSm9BZFNKa0h1VEhrUllw?=
- =?utf-8?B?OERtQjlTV1lpYlI4N1J0N01wcEZCZjdwbFdNbld0a0ZBbUlSdjBtZHhxVS9r?=
- =?utf-8?B?UmJDUTIzMVhZMFBhZ3l1RzFhbldrSUlaVlRvMVdYcWxaN1I4R0taN3hScEVT?=
- =?utf-8?B?VXBaVzd3WThpQ0IvQndPcUsyU0xGN3VzVHFFU1EybnIyeVIvVExSUVhUZ0Rr?=
- =?utf-8?B?bnQvRC9BR01FQWhQUDdvL0V6eHFtOVI1NWkvcDFmckdzVXlXWlRQbUQwVzJE?=
- =?utf-8?B?NXlzL2JBY09vNktiZmVDTnE5Q0dRRW1zOTBQUG1Ra1pPWjNweFYvUmNyYVFY?=
- =?utf-8?B?YTZsaVBEWXZwZzhVbnV6VHR3MG1UMHNxU0ZvU2VkU2RYekdBSW4zWVZ4dEZK?=
- =?utf-8?B?M0FyNG42NG96LzRtSW1qNE5CRjQvYzkxQm1ENkhMWVhEWUk5S2hDcW9WTW9a?=
- =?utf-8?B?TWg5d2U4N09MMi9ZUXExb3VZS2E0R3RjRVlhYkljQ2lYS0VoSU1NcnphbTB4?=
- =?utf-8?B?ZkY4cnlLbEdnY2Q3dDRBRFg4QXVVK1RvZkNjdXIzS1dBNENSUlhvL0VBWXRI?=
- =?utf-8?B?YXZhN1pNSzBZQy84U1F1eDA4cDdNSmh4V0ZsOWV2ckNRRFZrWjlKclN0bFpj?=
- =?utf-8?B?c280cmg4bThYZVlZU3ZXZHMzSW5KWTEzcnNxWWFLVzBUWWNPS0ZwTGNDU013?=
- =?utf-8?B?MW9iSkhhanM0S2thTDc2YnkybENqRHdQdjVnb1pCMWZYVzJqVmhtcm1hK3lH?=
- =?utf-8?B?QkhzV2E5QlFPNENHSk5SdjZpTng5MlQyYkFVaG14SWJlZ3hycUw2WXV4bVRI?=
- =?utf-8?B?VlZ0VThTZDV6NWVyRS9SSlVNYWxZWGZNQ2JuUE9jMFl3NThaVngwWjJIMmpm?=
- =?utf-8?B?NEpjZE5WNFI1MFZtczdBcHpMbUNOYUxXWllPQ0ZWb0VtdkFSRnFYcDNRbFUw?=
- =?utf-8?Q?Q5gCdL?=
-X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700013)(1800799024);DIR:OUT;SFP:1102;
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 May 2025 14:26:26.1566
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c02ed374-dd81-4ed7-9c3e-08dd89855261
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Diagnostix.phytec.de]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000952A.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8P195MB1368
+User-Agent: Mozilla Thunderbird
+Subject: Re: [net-next v10 4/7] net: mtip: The L2 switch driver for imx287
+To: Lukasz Majewski <lukma@denx.de>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ davem@davemloft.net, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ Stefan Wahren <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>,
+ Andrew Lunn <andrew@lunn.ch>
+References: <20250502074447.2153837-1-lukma@denx.de>
+ <20250502074447.2153837-5-lukma@denx.de>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250502074447.2153837-5-lukma@denx.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_072642_087956_C731507E 
-X-CRM114-Status: GOOD (  12.31  )
+X-CRM114-CacheID: sfid-20250502_073359_069941_080B8A23 
+X-CRM114-Status: GOOD (  22.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,53 +127,274 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The AM62Ax SoC supports two temperature ranges:
-* A: -40 to 105C - Extended Industrial
-* I: -40 to 125C - Automotive
+On 02/05/2025 09:44, Lukasz Majewski wrote:
+> +
+> +static int mtip_parse_of(struct switch_enet_private *fep,
+> +			 struct device_node *np)
+> +{
+> +	struct device_node *p;
+> +	unsigned int port_num;
+> +	int ret = 0;
+> +
+> +	p = of_find_node_by_name(np, "ethernet-ports");
 
-By default, use the lower limit (105 °C) so that any AM62A running
-in Extended Industrial mode will shut down safely before overheating.
+This should be looking for children, not any nodes. Otherwise you will
+take the ethernet ports from a next device as well.
 
-If the bootloader detects an Automotive-grade device, it should
-override this and raise the critical trip point to 125 °C.
+> +
+> +	for_each_available_child_of_node_scoped(p, port) {
+> +		if (of_property_read_u32(port, "reg", &port_num))
+> +			continue;
+> +
+> +		if (port_num > SWITCH_EPORT_NUMBER) {
+> +			dev_err(&fep->pdev->dev,
+> +				"%s: The switch supports up to %d ports!\n",
+> +				__func__, SWITCH_EPORT_NUMBER);
+> +			goto of_get_err;
+> +		}
+> +
+> +		fep->n_ports = port_num;
+> +		ret = of_get_mac_address(port, &fep->mac[port_num - 1][0]);
+> +		if (ret)
+> +			dev_dbg(&fep->pdev->dev,
+> +				"of_get_mac_address(%pOF) failed (%d)!\n",
+> +				port, ret);
+> +
+> +		ret = of_property_read_string(port, "label",
+> +					      &fep->ndev_name[port_num - 1]);
+> +		if (ret < 0) {
+> +			dev_err(&fep->pdev->dev,
+> +				"%s: Cannot get ethernet port name (%d)!\n",
+> +				__func__, ret);
+> +			goto of_get_err;
+> +		}
+> +
+> +		ret = of_get_phy_mode(port, &fep->phy_interface[port_num - 1]);
+> +		if (ret < 0) {
+> +			dev_err(&fep->pdev->dev,
+> +				"%s: Cannot get PHY mode (%d)!\n", __func__,
+> +				ret);
+> +			goto of_get_err;
+> +		}
+> +
+> +		fep->phy_np[port_num - 1] = of_parse_phandle(port,
+> +							     "phy-handle", 0);
+> +	}
+> +
+> + of_get_err:
+> +	of_node_put(p);
+> +
+> +	return ret;
+> +}
+> +
+> +static int mtip_sw_learning(void *arg)
+> +{
+> +	struct switch_enet_private *fep = arg;
+> +
+> +	while (!kthread_should_stop()) {
+> +		set_current_state(TASK_INTERRUPTIBLE);
+> +		/* check learning record valid */
+> +		mtip_atable_dynamicms_learn_migration(fep, fep->curr_time,
+> +						      NULL, NULL);
+> +		schedule_timeout(HZ / 100);
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static void mtip_mii_unregister(struct switch_enet_private *fep)
+> +{
+> +	mdiobus_unregister(fep->mii_bus);
+> +	mdiobus_free(fep->mii_bus);
+> +}
+> +
+> +static const struct mtip_devinfo mtip_imx28_l2switch_info = {
+> +	.quirks = FEC_QUIRK_BUG_CAPTURE | FEC_QUIRK_SINGLE_MDIO |
+> +		  FEC_QUIRK_SWAP_FRAME,
+> +};
+> +
+> +static const struct of_device_id mtipl2_of_match[] = {
+> +	{ .compatible = "nxp,imx28-mtip-switch",
+> +	  .data = &mtip_imx28_l2switch_info},
+> +	{ /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, mtipl2_of_match);
+> +
+> +static int mtip_sw_probe(struct platform_device *pdev)
+> +{
+> +	struct device_node *np = pdev->dev.of_node;
+> +	const struct of_device_id *of_id;
+> +	struct switch_enet_private *fep;
+> +	struct mtip_devinfo *dev_info;
+> +	int ret;
+> +
+> +	fep = devm_kzalloc(&pdev->dev, sizeof(*fep), GFP_KERNEL);
+> +	if (!fep)
+> +		return -ENOMEM;
+> +
+> +	of_id = of_match_node(mtipl2_of_match, pdev->dev.of_node);
+> +	if (of_id) {
+> +		dev_info = (struct mtip_devinfo *)of_id->data;
 
-Signed-off-by: Daniel Schultz <d.schultz@phytec.de>
----
- arch/arm64/boot/dts/ti/k3-am62a-thermal.dtsi | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+Do not open-code of_device_get_match_data().
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62a-thermal.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-thermal.dtsi
-index 39ff9118b6c4..40dcb9bab965 100644
---- a/arch/arm64/boot/dts/ti/k3-am62a-thermal.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62a-thermal.dtsi
-@@ -19,7 +19,7 @@ main0_alert: main0-alert {
- 			};
- 
- 			main0_crit: main0-crit {
--				temperature = <125000>;	/* milliCelsius */
-+				temperature = <105000>;	/* milliCelsius */
- 				hysteresis = <2000>;	/* milliCelsius */
- 				type = "critical";
- 			};
-@@ -50,7 +50,7 @@ main1_alert: main1-alert {
- 			};
- 
- 			main1_crit: main1-crit {
--				temperature = <125000>;	/* milliCelsius */
-+				temperature = <105000>;	/* milliCelsius */
- 				hysteresis = <2000>;	/* milliCelsius */
- 				type = "critical";
- 			};
-@@ -81,7 +81,7 @@ main2_alert: main2-alert {
- 			};
- 
- 			main2_crit: main2-crit {
--				temperature = <125000>;	/* milliCelsius */
-+				temperature = <105000>;	/* milliCelsius */
- 				hysteresis = <2000>;	/* milliCelsius */
- 				type = "critical";
- 			};
--- 
-2.25.1
+> +		if (dev_info)
+> +			fep->quirks = dev_info->quirks;
+> +	}
+> +
+> +	fep->pdev = pdev;
+> +	platform_set_drvdata(pdev, fep);
+> +
+> +	fep->enet_addr = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(fep->enet_addr))
+> +		return PTR_ERR(fep->enet_addr);
+> +
+> +	fep->irq = platform_get_irq_byname(pdev, "enet_switch");
+> +	if (fep->irq < 0)
+> +		return fep->irq;
+> +
+> +	ret = mtip_parse_of(fep, np);
+> +	if (ret < 0) {
+> +		dev_err(&pdev->dev, "%s: OF parse error (%d)!\n", __func__,
+> +			ret);
 
+Syntax is:
+return dev_err_probe
+just like you have in other places
+
+> +		return ret;
+> +	}
+> +
+> +	/* Create an Ethernet device instance.
+> +	 * The switch lookup address memory starts at 0x800FC000
+> +	 */
+> +	fep->hwp_enet = fep->enet_addr;
+> +	fep->hwp = fep->enet_addr + ENET_SWI_PHYS_ADDR_OFFSET;
+> +	fep->hwentry = (struct mtip_addr_table __iomem *)
+> +		(fep->hwp + MCF_ESW_LOOKUP_MEM_OFFSET);
+> +
+> +	ret = devm_regulator_get_enable_optional(&pdev->dev, "phy");
+> +	if (ret)
+> +		return dev_err_probe(&pdev->dev, ret,
+> +				     "Unable to get and enable 'phy'\n");
+> +
+> +	fep->clk_ipg = devm_clk_get_enabled(&pdev->dev, "ipg");
+> +	if (IS_ERR(fep->clk_ipg))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(fep->clk_ipg),
+> +				     "Unable to acquire 'ipg' clock\n");
+> +
+> +	fep->clk_ahb = devm_clk_get_enabled(&pdev->dev, "ahb");
+> +	if (IS_ERR(fep->clk_ahb))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(fep->clk_ahb),
+> +				     "Unable to acquire 'ahb' clock\n");
+> +
+> +	fep->clk_enet_out = devm_clk_get_optional_enabled(&pdev->dev,
+> +							  "enet_out");
+> +	if (IS_ERR(fep->clk_enet_out))
+> +		return dev_err_probe(&pdev->dev, PTR_ERR(fep->clk_enet_out),
+> +				     "Unable to acquire 'enet_out' clock\n");
+> +
+> +	/* setup MII interface for external switch ports */
+> +	mtip_enet_init(fep, 1);
+> +	mtip_enet_init(fep, 2);
+> +
+> +	spin_lock_init(&fep->learn_lock);
+> +	spin_lock_init(&fep->hw_lock);
+> +	spin_lock_init(&fep->mii_lock);
+> +
+> +	ret = devm_request_irq(&pdev->dev, fep->irq, mtip_interrupt, 0,
+> +			       dev_name(&pdev->dev), fep);
+> +	if (ret)
+> +		return dev_err_probe(&pdev->dev, fep->irq,
+> +				     "Could not alloc IRQ\n");
+> +
+> +	ret = mtip_register_notifiers(fep);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = mtip_ndev_init(fep, pdev);
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "%s: Failed to create virtual ndev (%d)\n",
+> +			__func__, ret);
+> +		goto ndev_init_err;
+> +	}
+> +
+> +	ret = mtip_switch_dma_init(fep);
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "%s: ethernet switch init fail (%d)!\n",
+> +			__func__, ret);
+> +		goto dma_init_err;
+> +	}
+> +
+> +	ret = mtip_mii_init(fep, pdev);
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "%s: Cannot init phy bus (%d)!\n", __func__,
+> +			ret);
+> +		goto mii_init_err;
+> +	}
+> +	/* setup timer for learning aging function */
+> +	timer_setup(&fep->timer_aging, mtip_aging_timer, 0);
+> +	mod_timer(&fep->timer_aging,
+> +		  jiffies + msecs_to_jiffies(LEARNING_AGING_INTERVAL));
+> +
+> +	fep->task = kthread_run(mtip_sw_learning, fep, "mtip_l2sw_learning");
+> +	if (IS_ERR(fep->task)) {
+> +		ret = PTR_ERR(fep->task);
+> +		dev_err(&pdev->dev, "%s: learning kthread_run error (%d)!\n",
+> +			__func__, ret);
+
+ret = dev_err_probe
+
+> +		goto task_learning_err;
+> +	}
+> +
+> +	return 0;
+> +
+> + task_learning_err:
+> +	timer_delete_sync(&fep->timer_aging);
+> +	mtip_mii_unregister(fep);
+> + mii_init_err:
+> + dma_init_err:
+> +	mtip_ndev_cleanup(fep);
+> + ndev_init_err:
+> +	mtip_unregister_notifiers(fep);
+> +
+> +	return ret;
+> +}
+> +
+> +static void mtip_sw_remove(struct platform_device *pdev)
+> +{
+> +	struct switch_enet_private *fep = platform_get_drvdata(pdev);
+> +
+> +	mtip_unregister_notifiers(fep);
+> +	mtip_ndev_cleanup(fep);
+> +
+> +	mtip_mii_remove(fep);
+> +
+> +	kthread_stop(fep->task);
+> +	timer_delete_sync(&fep->timer_aging);
+> +	platform_set_drvdata(pdev, NULL);
+> +
+> +	kfree(fep);
+
+Jakub already pointed out that tools would find this bug but also
+testing. This was not ever tested. If it was, you would see nice clear
+double free.
+
+All last three versions had trivial issues which are pointed out by
+tooling, compilers, static analyzers. Before you post next version.
+please run standard kernel tools for static analysis, like coccinelle,
+smatch and sparse, and fix reported warnings. Also please check for
+warnings when building with W=1 with clang. Most of these commands
+(checks or W=1 build) can build specific targets, like some directory,
+to narrow the scope to only your code. The code here looks like it needs
+a fix. Feel free to get in touch if the warning is not clear.
+
+You do not nede the the top-level, one of the most busy maintainers to
+point out the issues which compilers find as well. Using reviewers
+instead of automated tools is the easiest way to get grumpy responses.
+
+
+Best regards,
+Krzysztof
 
