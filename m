@@ -4,71 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F8B2C3ABBA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2090C3ABB9
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 17:23:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LxPFVsUn/V2b9kR91YvOnca4jwf3B/adCvpO6BAOZY4=; b=my+D+vjRzWQa+RRhyBWJjY469p
-	0qi3RSAjPDhgZBH1cY0KT7Ms6lzT6n2KzAiFoh0fVI/8dCkI1il/16rbPW0sR9bT9VvibpLps81Rr
-	AghD4WVgp2Jq/91rzHmpeumTFHk9Uy2CeikBoUFynVNUALn9CYY/YaeriV7/L4ZzBnkxybiPKaTtC
-	6HXWhQjn9u/p8fR7R0wzebnHZyEK6VuCHwAeMDsbp+9yRvqHoTSIMJIZW0nFY+bmX8r9qQywcHfKl
-	VbWzT3M2zzcgwCxJwmIqoTZv8SWMrjGfNUs/8UmgNIno6/dVG8iibbMhdtjY+XUpjuGhiMQa5WBXz
-	X3sO743A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ysAEBRSwDyEXQZWyau7lTYH1QvtI2slNhlJvKDKIA3s=; b=n/6YJHQ+EEuhe5WFnAs4UIIbTi
+	2XPXgApXvZMrVq1qomeBevYvu73sAXM03ZFr+RjLQTSAcseU2XXjEYMuouu8VLrGUmepWvVo3L9vR
+	8r9EUryAUvTm0AqSkT281yaHVxzOjKVZv2VFkLMbqH6OFZ++x26IpxVwK2t9esYWVrmYLa6VTLWky
+	i3AFAItMU9EHC5YdKIwqwg+jc7xF0fzgI7Ua+FxA+QuP57JoK8eng44dMu8QPeSsofgb7N0BnhNSP
+	CijMVSR8slp7z1aB6WThSZvMWNSOKiS21OMhbyTB5ymh54CxGY4GEi6lFXYX3xp4ifRTgS7YbATrR
+	JFPAFCtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAu6K-00000002dqK-1jwV;
-	Fri, 02 May 2025 17:23:04 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uAu6D-00000002dlB-2oHk;
+	Fri, 02 May 2025 17:22:57 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAtP0-00000002XQ6-23w4;
-	Fri, 02 May 2025 16:38:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1746203895;
-	bh=StNCSoWqTHQVNnBSV3C33tQMvr1ACyrW1L37/XLZkWw=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=VtI0M86iGqKNtCI/YHmVpMgC6HBmTIfOrA4YY+0vvgofcTMarsQ8v2IXDHfd+7LN2
-	 T34mfNirbEGRJenY9I0GDGUhwqurv/+5uI6DwA1HgtTEmIKBBwe8NIvbomKHRU9j4M
-	 EsoT3AYwn5z1ay8+NSg7SdmxFAUIVi7dtBkq0zc/B0Kx9fg58aw/Ni1uG6PZv6GvEv
-	 G0iLOL4zMW+gs81SiTPTKABjdSW0VpAJD6E3OANANxmE0PaeUE+uY+rqlsiJE6V37/
-	 y+Kv5j/4cb6N0mEPzL4+G7uB2tL3KAZQOGGQsx6q+Z5IuH++z9L6tXPGSRRJj1tgox
-	 dYzpmcjweClWA==
-Received: from [IPv6:2606:6d00:15:ec4::5ac] (unknown [IPv6:2606:6d00:15:ec4::5ac])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 48F3F17E0657;
-	Fri,  2 May 2025 18:38:13 +0200 (CEST)
-Message-ID: <2d82e4e0aa4c244e8b2d3f1e46e92760cd6238d7.camel@collabora.com>
-Subject: Re: [RFC PATCH 03/11] media: uapi: add nal unit header fields to
- encode_params
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Marco Felsch <m.felsch@pengutronix.de>, benjamin.gaignard@collabora.com,
- 	p.zabel@pengutronix.de, mchehab@kernel.org, shawnguo@kernel.org, Sascha
- Hauer	 <s.hauer@pengutronix.de>, kernel@pengutronix.de, festevam@gmail.com,
- 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- paulk@sys-base.io, 	hverkuil@xs4all.nl, laurent.pinchart@ideasonboard.com, 
-	sebastian.fricke@collabora.com, ming.qian@nxp.com
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, Michael
- Tretter <m.tretter@pengutronix.de>
-Date: Fri, 02 May 2025 12:38:11 -0400
-In-Reply-To: <20250502150513.4169098-4-m.felsch@pengutronix.de>
-References: <20250502150513.4169098-1-m.felsch@pengutronix.de>
-	 <20250502150513.4169098-4-m.felsch@pengutronix.de>
-Organization: Collabora Canada
-Content-Type: text/plain; charset="UTF-8"
-User-Agent: Evolution 3.56.1 (3.56.1-1.fc42) 
+	id 1uAt3s-00000002TcS-2BzO
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 02 May 2025 16:16:32 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Zpwst4H8jz6M4Wn;
+	Sat,  3 May 2025 00:12:02 +0800 (CST)
+Received: from frapeml500003.china.huawei.com (unknown [7.182.85.28])
+	by mail.maildlp.com (Postfix) with ESMTPS id CB5CE140370;
+	Sat,  3 May 2025 00:16:25 +0800 (CST)
+Received: from a2303103017.china.huawei.com (10.47.77.180) by
+ frapeml500003.china.huawei.com (7.182.85.28) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.39; Fri, 2 May 2025 18:16:24 +0200
+From: Alireza Sanaee <alireza.sanaee@huawei.com>
+To: <devicetree@vger.kernel.org>
+CC: <robh@kernel.org>, <jonathan.cameron@huawei.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linuxarm@huawei.com>, <mark.rutland@arm.com>,
+	<shameerali.kolothum.thodi@huawei.com>
+Subject: [PATCH v2 6/6] of: of_cpu_phandle_to_id to support SMT threads
+Date: Fri, 2 May 2025 17:13:00 +0100
+Message-ID: <20250502161300.1411-7-alireza.sanaee@huawei.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250502161300.1411-1-alireza.sanaee@huawei.com>
+References: <20250502161300.1411-1-alireza.sanaee@huawei.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.47.77.180]
+X-ClientProxiedBy: lhrpeml100011.china.huawei.com (7.191.174.247) To
+ frapeml500003.china.huawei.com (7.182.85.28)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_093818_709729_6AA23027 
-X-CRM114-Status: GOOD (  21.47  )
+X-CRM114-CacheID: sfid-20250502_091630_996843_18229F9A 
+X-CRM114-Status: GOOD (  15.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,68 +72,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Enhance the API to support SMT threads, this will allow sharing resources among
+multiple SMT threads.
 
-Le vendredi 02 mai 2025 à 17:05 +0200, Marco Felsch a écrit :
-> From: Michael Tretter <m.tretter@pengutronix.de>
-> 
-> The VEPU540 and VEPU580 may prepare the NAL unit headers in the coded
-> params. These values have to be provided by user space and be written
-> into the hardware registers.
+Enabled the sharing of resources, such as L1 Cache and clocks, between SMT
+threads. It introduces a fix that uses thread IDs to match each CPU thread in
+the register array within the cpu-node. This ensures that the cpu-map or any
+driver relying on this API is fine even when SMT threads share resources.
 
-To be reworked in future version. This commit message refers to RK356x and
-RK3688 encoders block from Rockchip. Though, its possible this applies for
-Hantro IP too.
+Additionally, I have tested this for CPU based on the discussions in [1], I
+adopted the new cpu-map layout, where the first parameter is a phandle and the
+second is the local thread index, as shown below:
 
-Nicolas
+In the CPU map, there are two cases that only one occurs at at time.
+    1) "cpu" = <phandle>
+    2) "cpus" = <phandle> <index>
+
+The first case addresses non-SMTs and the second case addresses SMTs
+that the variable must be cpu(s) with an index where we later look up
+the reg array with that.
+
+    core0 {
+      thread0 {
+        cpus = <&cpu0 0>;
+      };
+      thread1 {
+        cpus = <&cpu0 1>;
+      };
+    };
+
+[1] https://lore.kernel.org/devicetree-spec/CAL_JsqK1yqRLD9B+G7UUp=D8K++mXHq0Rmv=1i6DL_jXyZwXAw@mail.gmail.com/
+
+Signed-off-by: Alireza Sanaee <alireza.sanaee@huawei.com>
+---
+ drivers/of/cpu.c | 33 ++++++++++++++++++++++++++++++---
+ 1 file changed, 30 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/of/cpu.c b/drivers/of/cpu.c
+index 1e8d1fa04d3c..fbd3f6d4a87f 100644
+--- a/drivers/of/cpu.c
++++ b/drivers/of/cpu.c
+@@ -186,14 +186,41 @@ EXPORT_SYMBOL(of_cpu_node_to_id);
+ int of_cpu_phandle_to_id(const struct device_node *node,
+ 			 struct device_node **cpu_np)
+ {
++	int cpu, ret;
++	bool found = false;
++	uint32_t local_thread, thread_index;
++	struct device_node *np;
++	struct of_phandle_args args;
++
+ 	if (!node)
+ 		return -1;
  
-> Furthermore, nal_ref_idc indicates if a picture will be used as
-> reference and is a hint to the driver, if it needs to keep the
-> reconstructed buffer or not.
-> 
-> Signed-off-by: Michael Tretter <m.tretter@pengutronix.de>
-> ---
->  include/uapi/linux/v4l2-controls.h | 15 +++++++++++++++
->  1 file changed, 15 insertions(+)
-> 
-> diff --git a/include/uapi/linux/v4l2-controls.h b/include/uapi/linux/v4l2-controls.h
-> index 670f822ee758..a8df393c9ead 100644
-> --- a/include/uapi/linux/v4l2-controls.h
-> +++ b/include/uapi/linux/v4l2-controls.h
-> @@ -1694,6 +1694,9 @@ struct v4l2_ctrl_h264_decode_params {
->  	__u32 flags;
->  };
->  
-> +#define V4L2_H264_NAL_CODED_SLICE_NON_IDR_PIC	1
-> +#define V4L2_H264_NAL_CODED_SLICE_IDR_PIC	5
-> +
->  #define V4L2_CID_STATELESS_H264_ENCODE_PARAMS	(V4L2_CID_CODEC_STATELESS_BASE + 8)
->  
->  /**
-> @@ -1719,6 +1722,8 @@ struct v4l2_ctrl_h264_decode_params {
->   * @pic_init_qp_minus26: initial value minus 26 of luma qp for each slice.
->   * @chroma_qp_index_offset: offset that shall be added to qp luma for addressing the
->   * table of qp chroma values for the Cb chroma component.
-> + * @nal_ref_idc: nal_ref_idc for the header of the generated NAL unit
-> + * @nal_unit_type: one of the V4L2_H264_NAL_CODED_SLICE_{} values
->   * @flags: combination of V4L2_H264_ENCODE_FLAG_{} flags.
->   * @reference_ts: timestamp of the V4L2 buffer to use as reference
->   */
-> @@ -1751,6 +1756,16 @@ struct v4l2_ctrl_h264_encode_params {
->  
->  	__u32 flags; /* V4L2_H264_ENCODE_FLAG_ */
->  
-> +	/*
-> +	 * If nal_ref_idc is 0, the NAL unit won't be used as reference by
-> +	 * later NAL units. Any other value indicates that the NAL unit may be
-> +	 * used as reference.
-> +	 */
-> +	__u8 nal_ref_idc;
-> +
-> +	/* TODO Can we infer the nal_unit_type from the slice_type? */
-> +	__u8 nal_unit_type;
-> +
->  	/* Reference */
->  
->  	__u64 reference_ts;
++	/*
++	 * Two cases which only one occurs at a time:
++	 * 1) cpu = <phandle>
++	 * 2) cpus = <phandle> <thread_index>
++	 */
+ 	*cpu_np = of_parse_phandle(node, "cpu", 0);
+-	if (!cpu_np)
+-		return -ENODEV;
++	if (!*cpu_np) {
++		ret = of_parse_phandle_with_fixed_args(node, "cpus", 1, 0,
++						       &args);
++		if (ret < 0)
++			return ret;
++
++		*cpu_np = args.np;
++		thread_index = args.args[0];
++		for_each_possible_cpu(cpu) {
++			np = of_get_cpu_node(cpu, &local_thread);
++			found = (*cpu_np == np) && (local_thread == thread_index);
++			of_node_put(np);
++			if (found)
++				return cpu;
++		}
+ 
+-	return of_cpu_node_to_id(*cpu_np);
++		return -ENODEV;
++	} else {
++		return of_cpu_node_to_id(*cpu_np);
++	}
+ }
+ EXPORT_SYMBOL(of_cpu_phandle_to_id);
+ 
+-- 
+2.34.1
+
 
