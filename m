@@ -4,83 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A05E0C3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 14:15:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50F59C3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 May 2025 14:18:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EqjoA6PH5k+n5iS3Bnxj5iNHBxQQiU7tceS8UyudLn0=; b=WGAW0BK0N9uZ66eKhypJDASrgz
-	elsAVKD7LNIiLHruV8do7VCPjricyM7oPRF2WYdYmeFD9xwJmeNbaA1UFHYqB3kDsB7ZP/7/wghHd
-	LenlmTyRbXUid59xQ3b3ldbPt4LvReAvRD1sjyXrQOeC5swcwRCpZC8Nr03V1rbaBMgwrC5+mcmdr
-	jLtDOxWjBh591PERyArN9SCVtIG59SyTEYU1TKtpY46Ty9/Dj0ZN2VLM+gpEmxTxyYcH22ZJIR0sA
-	8jcJCvz+Mg2L64vMkqc18J+ffV8CCGNU1fwY9yGsne3BWt9jTZgMZIO17fsOd8prb0Z/RaFsdo3y6
-	Oc/+RmSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hELQrWuXUM+aAj7DDR2P78YfqFJRmirAUm3QvQTWzQ0=; b=khAGNgIYZiWjF2arhZ4xupqcMO
+	OAyaXHhm0rhToeXzoWsdubGkiBVXK4yajshOnwWv6UcEDwb0Se6l5KhekpWaP8KbVRvXUW/w/nxp/
+	wu4lsAwMNlhNHN8B1puQsKuQY+AvgWQz1YX6ux2FkrPEDUWArbGvvhaINnYeGz+Iq4CNs+sCcLpGJ
+	8ED/BR5efplvnZxFjHgvjM9wJHKW493dZImIPN2y4c4w0QdKVugDkChFp0YlKPdZeKeQ+ggZgzZbv
+	P6UyIkAp95gTJWpgokLHnwQAU2R+Yv3N1mxzeAqS9mD4rIWJHLWHM6tDXRa849Gazw3Xl1nYFq6Lv
+	auO8juYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uArB7-00000002A5Y-0uJe;
-	Fri, 02 May 2025 14:15:49 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1uArD2-00000002AQ3-3yA4;
+	Fri, 02 May 2025 14:17:48 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAr7s-000000029PY-2E7F
+	id 1uAr8t-000000029ZA-0Gp0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 May 2025 14:12:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1746195148; x=1777731148;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=6IiN64pMdETTKuBoZ6KIahbYP1bxXL+nvOO7V81IoLA=;
-  b=HCyZCe12NylHTIJa6FFiNBCGNzul1kBoCsdCRZmYaymtVa7YEYutnjmK
-   lbRRiJtSjfvUBb5n1a4GzELMHW9OQC3h4Fma6lidgVs/XHLuuOEmmXGQC
-   ZhHma99qgFN5aYNVr22E4dGQ5vlhnS/JfzPSrFlinDf7V7f/ATvuGKMBz
-   bStAXlcAIBi0B4XQTqJWfe3fZfOBo+1HjDMd2GyjxsosZESOZwwGPJcYm
-   Q8A8hCHJ2ygJPJL4HVefaxZBrj6t+cVl8gOyBzIajs90cc97UHoHEwfn5
-   299PyQCFHz92t0pEE48uibrSZtCUY1j03Z/OeO3LtNJuhVuld0sYG29DD
-   Q==;
-X-CSE-ConnectionGUID: uR+8pgiXQdSBne7zf4NFZw==
-X-CSE-MsgGUID: eDRzSU6RQ0mIB8nucIFtRA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11421"; a="50533609"
-X-IronPort-AV: E=Sophos;i="6.15,256,1739865600"; 
-   d="scan'208";a="50533609"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 May 2025 07:12:28 -0700
-X-CSE-ConnectionGUID: dRbbnPvAS2qfiOETG/r39g==
-X-CSE-MsgGUID: TVhQzDj3TzWWANPp4OevBw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,256,1739865600"; 
-   d="scan'208";a="135161349"
-Received: from smile.fi.intel.com ([10.237.72.55])
-  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 May 2025 07:12:26 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1uAr7m-00000002DjA-3C1Q;
-	Fri, 02 May 2025 17:12:22 +0300
-Date: Fri, 2 May 2025 17:12:22 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 1/1] coresight: cti: Replace inclusion by struct
- fwnode_handle forward declaration
-Message-ID: <aBTSxhSoin-AOz44@smile.fi.intel.com>
-References: <20250331071453.3987013-1-andriy.shevchenko@linux.intel.com>
- <28dd049e-65b1-4111-8a24-ba9765bbb1f6@linaro.org>
- <Z_zeIdZMhF31DL4o@smile.fi.intel.com>
- <34488e3a-9d59-4774-94e3-6369ab3c235d@arm.com>
+	Fri, 02 May 2025 14:13:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B2A405C5BA9;
+	Fri,  2 May 2025 14:11:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D86FFC4CEE4;
+	Fri,  2 May 2025 14:13:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746195209;
+	bh=yx8MFH01X2N39XwTWzq6+ATHZglg/J+RztBenNzgst4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=HEJCUjNAg/oXF9wvqym9vnorYBbBg6HAk8rKG4heSNpO90IPRIhdrchKRHxuV5Yia
+	 FDObzWatACdFKKIjNTGgziRG8XDnlbX3tTHP5pumonsFOuTe5HXLxvUDbpg8QKr1eU
+	 u1S3Qb29+tkYAE5kDYb7itLzsZNPRnFmJGqErxsK2DkTO6Eeg/pafXwJG1eV2fwAUO
+	 p4jQdZPZrqfAIhQLrsD3cQvilI+D/ngIya0x+i95Ynr2jv646qdUHjywWLzec/8oPk
+	 7znjw5WTNKwzxZBjNxCbspkFRExq+NZ7bz5DVg39YkN7nV/01JHWgffaeRdIuI1Cii
+	 QDzMKHL1LUpDQ==
+Date: Fri, 2 May 2025 07:13:28 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Lukasz Majewski <lukma@denx.de>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
+ <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
+ <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Richard Cochran
+ <richardcochran@gmail.com>, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
+ <wahrenst@gmx.net>, Simon Horman <horms@kernel.org>, Andrew Lunn
+ <andrew@lunn.ch>
+Subject: Re: [net-next v10 4/7] net: mtip: The L2 switch driver for imx287
+Message-ID: <20250502071328.069d0933@kernel.org>
+In-Reply-To: <20250502074447.2153837-5-lukma@denx.de>
+References: <20250502074447.2153837-1-lukma@denx.de>
+	<20250502074447.2153837-5-lukma@denx.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <34488e3a-9d59-4774-94e3-6369ab3c235d@arm.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_071228_588913_EA25DC7A 
-X-CRM114-Status: GOOD (  11.12  )
+X-CRM114-CacheID: sfid-20250502_071331_146793_CD6A70B9 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,22 +81,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 14, 2025 at 12:00:49PM +0100, Suzuki K Poulose wrote:
-> On 14/04/2025 11:06, Andy Shevchenko wrote:
-> > On Mon, Mar 31, 2025 at 02:40:51PM +0100, James Clark wrote:
-> > > On 31/03/2025 8:14 am, Andy Shevchenko wrote:
-> > 
-> > > Reviewed-by: James Clark <james.clark@linaro.org>
-> > 
-> > Thank you! Can it be applied now?
+On Fri,  2 May 2025 09:44:44 +0200 Lukasz Majewski wrote:
+> This patch series provides support for More Than IP L2 switch embedded
+> in the imx287 SoC.
 > 
-> I will queue this via coresight tree, for v6.16
+> This is a two port switch (placed between uDMA[01] and MAC-NET[01]),
+> which can be used for offloading the network traffic.
+> 
+> It can be used interchangeably with current FEC driver - to be more
+> specific: one can use either of it, depending on the requirements.
+> 
+> The biggest difference is the usage of DMA - when FEC is used, separate
+> DMAs are available for each ENET-MAC block.
+> However, with switch enabled - only the DMA0 is used to send/receive data
+> to/form switch (and then switch sends them to respecitive ports).
+> 
+> Signed-off-by: Lukasz Majewski <lukma@denx.de>
+> Reviewed-by: Stefan Wahren <wahrenst@gmx.net>
+> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-I still don't see it in Linux Next, what did I miss?
+Now that basic build is green the series has advanced to full testing,
+where coccicheck says:
 
+drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c:1961:1-6: WARNING: invalid free of devm_ allocated data
+drivers/net/ethernet/freescale/mtipsw/mtipl2sw.c:1237:16-19: ERROR: bus is NULL but dereferenced.
 -- 
-With Best Regards,
-Andy Shevchenko
-
-
+pw-bot: cr
 
