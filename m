@@ -4,85 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15C63C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 May 2025 10:29:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B78C5C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 May 2025 10:31:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dJ5yxwzSd18ze9t6hVLldU0j6KOkUmoNge4T8HYqBS0=; b=nl7sEk48xNaxRtc9gRgSKfkcEz
-	htxc9ltXKDNhsE115stkVjhj93s5plMKENKAzMotww4AMQDZm3Cau4k8BW2pJAXJ4LuS150Dh9wfw
-	HjpiaEGNFK0as/mp/BFFtoxTGM93JGv2fNYplv1+gtjjWbgeeKh7XkQXyhdcXFqPB1VSrb+TgY9ad
-	mDLyGrjfVa2a0iut9wL3vOGOzwxIXaaqoMMe7FEX+zVb5gmYm5TgeA4JsW5ijlTUUq2PxeVEA1W+O
-	JLcKn3pmCQH4kuju5HpU6Q5iVWPBZR6BP7vLTkWNOgbOtDKt1y2p5yNzDLDW92m+BcKVPkIV7aY9m
-	eTMzCAeg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ilKX7Il+DunehSs0PgYZ+c0ZXQPXZ0OuFyKYyrPOm7c=; b=eZMkfCP67U9nC5buOoF/kC5rsh
+	FjnyW2YFLWD8uvR5Dt4ALMBLOEnumyE3zfyKIQujJMPYVifeX2xszT6pg2RrJOktUJl62MnJ6Oz+h
+	FVqd9NSlhb+2xyvi/xVLQE7w3hfV7x3Y0riH9/p1BTUi1gUp1SHcOrRPOnQ50MWzEUumo8fL237aG
+	XX84sqIvvLBdeCMb/qIIVpk4jk0w/8Pj7gt/DfZv90+B7kkAzJ1aNGZ6jVVuR0fxCxDFTJO6HiMWb
+	47MeU2l5L10y0voT3+k6656qtUTsaaea2cFyE+T6wAAkGXyHham0EzX8VztYpTnG33rEYd66QvLvm
+	t3CON4Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBA7w-00000003ksE-1H7A;
-	Sat, 03 May 2025 10:29:48 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1uBA9r-00000003lAt-2USF;
+	Sat, 03 May 2025 10:31:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uB9nK-00000003jBn-3jNE;
-	Sat, 03 May 2025 10:08:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=dJ5yxwzSd18ze9t6hVLldU0j6KOkUmoNge4T8HYqBS0=; b=GOB+MR3VxfN1j7WarrQhI/6dmH
-	vRfudx8ixVXXLahZ5Vh8j/YV+rz0bN0tn9bTArcTr1NsyR+0jGLwlNt8EYztmc0IUq0DpZL7Pe46D
-	mCGzoxK2teuDvnXJsCVUEUXwYXDC3wAee2RqoeN+fsJd+RzTI+mQwxdDIvggeLZlaiKAWFLqPRq0S
-	IuswIIPXKlfbEagBmwO0i3IGgARDudkxbUIeLTk+oovsy5LYtPuksQ4IQ+OneWlj/q6IJCz1xOC8h
-	XittOBymb3zchZdOthguklAKCk9nDEM6I2jsYEv83el4962flzGypwFgOz5frjIaNshHKTwaMi6+8
-	KWo6/NdQ==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uB9nB-00000002xfU-2zcZ;
-	Sat, 03 May 2025 10:08:22 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 09B7630114C; Sat,  3 May 2025 12:08:21 +0200 (CEST)
-Date: Sat, 3 May 2025 12:08:20 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Maxim Levitsky <mlevitsk@redhat.com>, kvm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Kunkun Jiang <jiangkunkun@huawei.com>,
-	Waiman Long <longman@redhat.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Borislav Petkov <bp@alien8.de>,
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Alexander Potapenko <glider@google.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Andre Przywara <andre.przywara@arm.com>, x86@kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>, kvm-riscv@lists.infradead.org,
-	Atish Patra <atishp@atishpatra.org>, Ingo Molnar <mingo@redhat.com>,
-	Jing Zhang <jingzhangos@google.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>, kvmarm@lists.linux.dev,
-	Will Deacon <will@kernel.org>,
-	Keisuke Nishimura <keisuke.nishimura@inria.fr>,
-	Sebastian Ott <sebott@redhat.com>, Shusen Li <lishusen2@huawei.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Randy Dunlap <rdunlap@infradead.org>, Marc Zyngier <maz@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v4 5/5] x86: KVM: SEV: implement kvm_lock_all_vcpus and
- use it
-Message-ID: <20250503100820.GF4198@noisy.programming.kicks-ass.net>
-References: <20250430203013.366479-1-mlevitsk@redhat.com>
- <20250430203013.366479-6-mlevitsk@redhat.com>
- <aBUxqZ6qgfYZLsye@google.com>
+	id 1uB9uv-00000003jyV-1fba
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 03 May 2025 10:16:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E49F44A047;
+	Sat,  3 May 2025 10:16:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDE61C4CEE3;
+	Sat,  3 May 2025 10:16:14 +0000 (UTC)
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: will@kernel.org,
+	nathan@kernel.org,
+	nick.desaulniers+lkml@gmail.com,
+	morbo@google.com,
+	justinstitt@google.com,
+	broonie@kernel.org,
+	maz@kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	shameerali.kolothum.thodi@huawei.com,
+	james.morse@arm.com,
+	hardevsinh.palaniya@siliconsignals.io,
+	ardb@kernel.org,
+	ryan.roberts@arm.com,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2] arm64/cpufeature: annotate arm64_use_ng_mappings with ro_after_init to prevent wrong idmap generation
+Date: Sat,  3 May 2025 11:16:12 +0100
+Message-Id: <174626735218.2189871.10298017577558632540.b4-ty@arm.com>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250502180412.3774883-1-yeoreum.yun@arm.com>
+References: <20250502180412.3774883-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aBUxqZ6qgfYZLsye@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250503_031621_466536_F8C5CD0A 
+X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,39 +79,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 02, 2025 at 01:57:13PM -0700, Sean Christopherson wrote:
-
-> int kvm_lock_all_vcpus(struct kvm *kvm)
-> {
-> 	struct kvm_vcpu *vcpu;
-> 	unsigned long i, j;
-> 	int r;
+On Fri, 02 May 2025 19:04:12 +0100, Yeoreum Yun wrote:
+> create_init_idmap() could be called before .bss section initialization
+> which is done in early_map_kernel().
+> Therefore, data/test_prot could be set incorrectly by PTE_MAYBE_NG macro.
 > 
-> 	lockdep_assert_held(&kvm->lock);
-
-So I agree that having this assertion here is probably good from a
-read-code pov, however, strictly speaking, it is redundant in that:
-
-> 	kvm_for_each_vcpu(i, vcpu, kvm) {
-> 		r = mutex_lock_killable_nest_lock(&vcpu->mutex, &kvm->lock);
-
-will implicitly assert kvm->lock is held. If you try to use an unheld
-lock as nest lock, it will complain loudly :-)
-
-(my inner pendant had to reply, ignore at will :-)
-
-> 		if (r)
-> 			goto out_unlock;
-> 	}
-> 	return 0;
+> PTE_MAYBE_NG macro set NG bit according to value of "arm64_use_ng_mappings".
+> and this variable places in .bss section.
 > 
-> out_unlock:
-> 	kvm_for_each_vcpu(j, vcpu, kvm) {
-> 		if (i == j)
-> 			break;
-> 		mutex_unlock(&vcpu->mutex);
-> 	}
-> 	return r;
-> }
-> EXPORT_SYMBOL_GPL(kvm_lock_all_vcpus);
+> [...]
+
+Applied to arm64 (for-next/fixes), with some slight tweaking of the
+comment, thanks!
+
+[1/1] arm64/cpufeature: annotate arm64_use_ng_mappings with ro_after_init to prevent wrong idmap generation
+      https://git.kernel.org/arm64/c/12657bcd1835
+
+-- 
+Catalin
+
 
