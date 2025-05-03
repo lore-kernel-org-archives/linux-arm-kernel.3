@@ -4,58 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC277C3ABB6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 May 2025 16:31:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC68CC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 May 2025 16:46:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iOWcPn2Xo15C6LDFsoztjz1ImKEofp8C5Y1+Vm62XvI=; b=AOjbjlzBOym5sa2QJ3Ci0SbG5f
-	+k0gTimNOM4PaWgc89ZpSSlNUDoJ3ILyAk8SppaGLwkyvJ6lNoIxz+P2JX0VjTWBFN2F0daELcozJ
-	PnJC5lLSiyZFkwrFACXJiQ53id9GTDfEunUzUVpMlBVzFF8dBMED2B4TgbIiVMy+eEVVwIb5fZrlz
-	zwW29yL9HiyvhIIDjwSb2oLPFBpvXATphY3rTDsf8dLlCDaYf26rXGK8YQOo09oW3ZugDAsQav9iv
-	i5wyWEmDfR9NI1aupGsc8waDQShEhuIbLUXTXnL2lv0PyLqpVVRF537L+A7eByA1IWmwQxr3cDM1Y
-	OCeTzp1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9kPzeNn/PbIKy+mZs6eCVZhmWhgjarI79NiBr0GcvpU=; b=sPmPEqoZ3Z+Ni1hRlpa/ENLyqO
+	24J26lPJe6+6ggQg1fC38ifwpeYUDx9mtT5DW0fqiC1c0oAvELXWH/gxmrPSPcG/QtB337W6B+JlF
+	vYKuUtRT7Ufg8PEakUw7vAq3PGOD1qjgCX4SPkOXMYp5eICQg3gwLUs9JBLq7gvV50+Nu/o1We/td
+	HbRPW6eyb43s+CqkzjFbl1c0ojszoxc3/kjelURzjbgbF8HVbsTHRIah1j16AlBhOAwHJFu47G97D
+	8kCN0MVORnfbr5EoFwKKYsiNznnAitbGDX/53l0h7plPOHlo1K3ChqLzJL7JtexIUXEh2dh2zm6B8
+	reIy58Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBFmH-00000004Bta-0dBR;
-	Sat, 03 May 2025 16:31:49 +0000
-Received: from pidgin.makrotopia.org ([185.142.180.65])
+	id 1uBG0m-00000004Ea2-3Oyq;
+	Sat, 03 May 2025 16:46:49 +0000
+Received: from out-179.mta0.migadu.com ([2001:41d0:1004:224b::b3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBEj6-0000000423y-4Av6;
-	Sat, 03 May 2025 15:24:30 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.98.2)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1uBEdI-000000005ht-3H7E;
-	Sat, 03 May 2025 15:24:24 +0000
-Date: Sat, 3 May 2025 16:24:21 +0100
-From: Daniel Golle <daniel@makrotopia.org>
-To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Elad Yifee <eladwf@gmail.com>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH net 2/2] net: mediatek: do not reset PSE when seting FE
- register
-Message-ID: <226fada6d179db1655751e689ab30a1cbd682f49.1746285649.git.daniel@makrotopia.org>
-References: <27713d0004ead6e57d070f9e19c0d13709ba2512.1746285649.git.daniel@makrotopia.org>
+	id 1uBEoL-000000042QX-1Jmy
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 03 May 2025 15:29:54 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1746286181;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=9kPzeNn/PbIKy+mZs6eCVZhmWhgjarI79NiBr0GcvpU=;
+	b=wXY4hZNJg+DgzROyV+eG7p9cXGL+S4Gfqqp6d9pOGEiLYD0DBCayxVy2KPWZvxvG4wc4x9
+	0F+eFo1atCuJNsvgomixVqGR98C8O20zHJY9MHWohsIAG6KFf1WpqOq3QwuLvXPEASMxVT
+	2o9HusfPenEp8r0iyemlUaeAfoZcigs/l60mrzsVrFknRMNfwABHgHmxplafBubiv1FWjw
+	Q96yfpJLOTtU0iCVz5NEuXkY6lu9SoCiLi5YuoLoomkGbb5Pg95QyMbc8lrhbAHqJoSDa1
+	Yj4NlcXk2/OjQx/H6WYjD+HbMUs2PBGPK+h1mXcs+Y8F5yDHzVZiLpC6ZbwQ8Q==
+From: Diederik de Haas <didi.debian@cknow.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Dragan Simic <dsimic@manjaro.org>,
+	Vasily Khoruzhick <anarsoul@gmail.com>,
+	Tianling Shen <cnsztl@gmail.com>,
+	Diederik de Haas <didi.debian@cknow.org>
+Subject: [PATCH 0/2] Add phy+vcc supply to NanoPi R5S and Q64-B
+Date: Sat,  3 May 2025 17:22:17 +0200
+Message-ID: <20250503152917.138648-1-didi.debian@cknow.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <27713d0004ead6e57d070f9e19c0d13709ba2512.1746285649.git.daniel@makrotopia.org>
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250503_082429_034829_15341E1C 
-X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-CacheID: sfid-20250503_082953_486505_8F5ADC32 
+X-CRM114-Status: UNSURE (   6.00  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,33 +76,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Wunderlich <frank-w@public-files.de>
+Testing on my NanoPi R5S and Quartz64 Model B brought some more issues
+with power supplies to light, so fix them as well.
 
-Remove redundant PSE reset.
-When setting FE register there is no need to reset PSE,
-doing so may cause FE to work abnormal.
+Diederik de Haas (2):
+  arm64: dts: rockchip: Add phy-supply to gmac0 on NanoPi R5S
+  arm64: dts: rockchip: Add vcc-supply to SPI flash on rk3566-quartz64-b
 
-Link: https://git01.mediatek.com/plugins/gitiles/openwrt/feeds/mtk-openwrt-feeds/+/3a5223473e086a4b54a2b9a44df7d9ddcc2bc75a
-Fixes: dee4dd10c79aa ("net: ethernet: mtk_eth_soc: ppe: add support for multiple PPEs")
-Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
----
- drivers/net/ethernet/mediatek/mtk_eth_soc.c | 3 ---
- 1 file changed, 3 deletions(-)
+ arch/arm64/boot/dts/rockchip/rk3566-quartz64-b.dts | 1 +
+ arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts | 1 +
+ 2 files changed, 2 insertions(+)
 
-diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-index d6d4c2daebab0..6b5f36ccb3fec 100644
---- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-+++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -3561,9 +3561,6 @@ static int mtk_open(struct net_device *dev)
- 			}
- 			mtk_gdm_config(eth, target_mac->id, gdm_config);
- 		}
--		/* Reset and enable PSE */
--		mtk_w32(eth, RST_GL_PSE, MTK_RST_GL);
--		mtk_w32(eth, 0, MTK_RST_GL);
- 
- 		napi_enable(&eth->tx_napi);
- 		napi_enable(&eth->rx_napi);
 -- 
 2.49.0
+
 
