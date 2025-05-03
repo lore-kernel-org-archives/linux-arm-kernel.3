@@ -4,70 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 626BCC369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 May 2025 11:48:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 170F6C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 May 2025 11:54:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Oy9Ap1teIHGD5UvBQYEg14w0X5ag0HWEWjZAfEIUEXs=; b=4FXaRQkxEnUBj0JgJ4eSjbT1E7
-	OTDLasi85DbORhbHjAzPuaOwaxhAIALJlJUhKz1Rf3xS5dj2WKbJ3e8IRim0XPV5NHRIcwvtZHpaE
-	atMmUc+z+QJLfT6xYA9jVM8t6fgCfY1XADDnuHn4T69WUGuZkDk6m+tHw5PMpFnlW8WrK0qptecyS
-	3D8rydU9R4e7nDm2wD98DNgrvk+Aw0XiOwW4BStFK1sOZI71o/OiGgmSWTparfLLnJBXzNuI/S/k3
-	G1wagwEAZa5uT6g1lsKYFjF0tve8vBW0ORiQJwY5ZejRTEoOPPkIqaiooPEIk7aTW+t86Ss+M7NQD
-	nqxKTNfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=EhZYQmX+r04EQqv1jdCLyWcxCvy5C9t7SJ8u+oq+lhE=; b=rM0aDphTb2nFq2
+	zzF3zK3K9CbziX29g/SLP021yEi9yzDtKBGsdfmdfn9ZMbuPBouaueWbeVksAP43ukrCypre6nmTf
+	veAWJimPPs2s/kOGEc16Tt/gFYpYyB3FBojWEcKXRiEPMxEd16PyFZ+YTFPf1QP6OYx+7acKF24+8
+	psIlN02Fuu2jI3f55y0gW8bgw0koK+SsE4aCaI9PjEJw043UYbY+4KyRe/uF8J5FMuoSeXCsVQVZU
+	MbIR5uwW/MtGuNErw/trn9c9/NqOc0bbxNW255jivcMDmEUNBjFnNzhmYg2U19Fd9X2QWuIdsEFUL
+	QOICeVaSWZYjcwgFld0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBBLm-00000003pQr-43Pw;
-	Sat, 03 May 2025 11:48:10 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uBBS5-00000003pyw-01b6;
+	Sat, 03 May 2025 11:54:41 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBBJs-00000003pLe-0EbU
+	id 1uBBQ8-00000003pdo-1ion
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 May 2025 11:46:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 179A1A4ACAA
-	for <linux-arm-kernel@lists.infradead.org>; Sat,  3 May 2025 11:40:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 779DBC4CEEE
-	for <linux-arm-kernel@lists.infradead.org>; Sat,  3 May 2025 11:46:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746272770;
-	bh=bfcQsv23MNVK857Y7WeF95vXbIfxrbp6fjPgXRHLwso=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=DB8EeP1/5ajPB+TG9sbnHIxvXaCSNb8CK3zwZMlPM/JT5jwkCC8D8ngU2xkd+ifKM
-	 MCK8jtC3OQUiFt//dnb4YN8gqpw+vPLoRcjRqg7M8iaKLGoXooA4ZVlqEAnjeWGKUZ
-	 XHL3JS1lJAdzAlZDo82DAt3oZDy+GCrxSW1EwlsQZ2nNqpsJx9p9U2iU8iIfT2sGaX
-	 u3GWBtTD/HLIT/Vk36orL4UyZ/fiPtuS9oIj8TBS837wBA3QDzLqoSYFk4RF2pQAvw
-	 gOCA2GRAkrfeQ1fcC7keafAe4wdl0F+b7/dQW6R2ifhYJfCUchvTYF5/79WerrkaTu
-	 mKSZNh3SpVN2g==
-Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-54d6f93316dso1175328e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 03 May 2025 04:46:10 -0700 (PDT)
-X-Gm-Message-State: AOJu0YwTZRmDfFBpwKLXJhFKtua8hThE5khr+zhTrrej1TZemxErgMXm
-	N+AZqGjwAnlVoP7Usk+dyM4M8YsoWa5PsQT7MgBqBAxzkWyJ3jpy7PakYQje+ANkF6fSTiXu1Ks
-	kQR2D6VucRAHvVjl1gk8XlQvrJzw=
-X-Google-Smtp-Source: AGHT+IHz/3ATFoh4wIgvBEGGR8MnAIK1VcwaWcaFPChLtV1tkN1Aox46uOYbOwGewUJIMMHq9O1xvp8JObSuRAjkcIk=
-X-Received: by 2002:a05:6512:3055:b0:545:2837:17d0 with SMTP id
- 2adb3069b0e04-54f9efadbe1mr305458e87.12.1746272768840; Sat, 03 May 2025
- 04:46:08 -0700 (PDT)
+	Sat, 03 May 2025 11:52:41 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-30332dfc820so3587331a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 03 May 2025 04:52:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746273159; x=1746877959; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=EhZYQmX+r04EQqv1jdCLyWcxCvy5C9t7SJ8u+oq+lhE=;
+        b=HdPDoTLgCwVIjkFUS7d/RVmqnFqfM/UbvW4UomiKTMGLsxuyRLjf4bPKlwBTRoTHzq
+         tFKv45ybaB8V45hCPZ0FvzZ9wJ7zJtwS8y4mcDvqTtYhG6pAl0Ww4apEAW2tGc/ptEmQ
+         +IAnaAbNyETfc7RlcYVE5pyOBp1V6SZrVL5oQVkTAYU0J+mEHJ10jgkxHvdKEHJ6zQTL
+         Zl3Y4L4i5f7MV8vpoPnXxLJtOMx9bdJ8g91ZoYw4aVjeFXmmQgvlt17NVA0ilaagFYyM
+         i9HsnOXy9FcIEXBMbTMWVh6vzEHO991z15V3lha8qqyePcN2E/dMe6ZDJArDjNqw5ohI
+         ZSyA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746273159; x=1746877959;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=EhZYQmX+r04EQqv1jdCLyWcxCvy5C9t7SJ8u+oq+lhE=;
+        b=JEEeFhmecaxRh5x+XMJc4btTWOAZdO1pBA0l4Og/naRJn+qqLSKycy8z6jJzD4KnVi
+         90/IdMRIYIM5MB4dQP9fnuAjjOyE8VwY5uQZiaOusri0poaSf1EWRdjOJmDJuaSypP2w
+         is7RR+N1lzBzaEOm4nnABLeNCZM03SV1P7PKhitJidv4O4w0HOnlwwXaZAUtPlbtk6tM
+         DnUogabqw5ZHnt98oR+Auzt+w8qYH5Dx1nok1c9td69+lUCAAtIlUVYV6sQlrR2P9bdm
+         9hhaugkDQs5E+l50qnjiMWVDDTvpTE66oYkvjxYwh6Okv2wjhw9zpGwFTKX3bp7vIOeI
+         GCyw==
+X-Forwarded-Encrypted: i=1; AJvYcCUHlR1C0ZmkZqaD8EpcX41OEVPh1LW1l239AqZqJshBUfd/ylzB5zVQJ+z5vZTTA9ftgHrmYWHT/uC1sTNfY39y@lists.infradead.org
+X-Gm-Message-State: AOJu0YywdorqS7Xi4m0TNokJoEVrSt/QSCIQMMJwvenne54S4aue9VNX
+	Ql8tN4v+CQ/z728nslXLVD8Kd+DxXnlWcLDVXnAh1JlR86ulkQya
+X-Gm-Gg: ASbGncsmE1hHdvGGs4x1w8yo+JucJ+rjp6YHMC2to8WURjX57rfh6Kd3CqgbhHvYknU
+	AIykWEOJwfMJW4y9VpOvOuhXpsQhJUUM6G3xG1bRv20QqAdta7Vvs13ApzD7zs4XtlxxXiAkO+u
+	GlJpZygVA0v5l1Nc0Y5WzZxNxXQO0r7ZpCkhOK2LzZfHsu4ngLNSZK5z+xHUzO9fo4ju0hXtbgl
+	9dDl8Ug5rpTcZSnD5FaRn8YBummaC+y4WQiklEMlAhAjsivAz9mUKQh4yJbdBVS3tuM/Z3/J+kb
+	AfopPqE6Goa5ZLe+JiusbVfIiGFlxuGH4sTydQuiI1mstmJuK+e6u1y1v+Sq22k=
+X-Google-Smtp-Source: AGHT+IHFHk8s6a5Cg3iIWh+D6msUX9GSdN/ACGW3B3fZ40cQA50LpyO0Tx+KlvYC3RLD5dJjv/eqrQ==
+X-Received: by 2002:a17:90b:2e10:b0:306:b65e:13a8 with SMTP id 98e67ed59e1d1-30a5ae10bd9mr3677751a91.8.1746273159442;
+        Sat, 03 May 2025 04:52:39 -0700 (PDT)
+Received: from NB-GIGA003.letovo.school ([5.194.95.139])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-30a4745f9a0sm4879878a91.5.2025.05.03.04.52.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 03 May 2025 04:52:39 -0700 (PDT)
+From: Alexey Charkov <alchark@gmail.com>
+Subject: [PATCH v3 0/3] ARM: vt8500: Add runtime SoC version identification
+Date: Sat, 03 May 2025 15:52:30 +0400
+Message-Id: <20250503-wmt-soc-driver-v3-0-2daa9056fa10@gmail.com>
 MIME-Version: 1.0
-References: <20250503112137.1962910-5-ardb+git@google.com> <20250503112137.1962910-7-ardb+git@google.com>
-In-Reply-To: <20250503112137.1962910-7-ardb+git@google.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Sat, 3 May 2025 13:45:57 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXHoiF_OZxVgrBXCQ=Uqa+TUCC=d33Ep4V9hB5kESs=ijg@mail.gmail.com>
-X-Gm-Features: ATxdqUF91cVbg03qRC4JmyCf5lDpGyiBRbnb3NFtY4j-bOnEBPKfshjHeztzKfY
-Message-ID: <CAMj1kXHoiF_OZxVgrBXCQ=Uqa+TUCC=d33Ep4V9hB5kESs=ijg@mail.gmail.com>
-Subject: Re: [PATCH 3/3] arm64/boot: Disallow BSS exports to startup code
-To: Ard Biesheuvel <ardb+git@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, 
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAH4DFmgC/3XMQQ6CMBCF4auQrq0pQ6HElfcwLqAzwCRCTUuqh
+ nB3CxtNjMv3ku9fRCDPFMQpW4SnyIHdlEZxyIQdmqknyZi2AAWl0lDIxzjL4KxEz5G8RIIKK9O
+ ipk4kdPfU8XMPXq5pDxxm5197P+bb+zcVc6lki3XbFVBCbuHcjw3fjtaNYktF+PBS/XJIvLbG6
+ AZrjdp883Vd31vJNk/rAAAA
+X-Change-ID: 20250423-wmt-soc-driver-de26d67bd4ef
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Alexey Charkov <alchark@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1746273161; l=2463;
+ i=alchark@gmail.com; s=20250416; h=from:subject:message-id;
+ bh=9N1YOzjWc2JYx9i3bv5RKM9YYgAkxPqGjPDJBcM4dMo=;
+ b=YJ365m45ZFzk/XRDnRbc5C3qDvVokAY0rKHB03vmDIFVdd/eLQDsuKvu+pnUAkYV2NFE1L4ZY
+ z9zwrqhp+bdA8wpGdeGSUnz0EcS1b4ESjVq8KEe31cOdybT9Shuq6+I
+X-Developer-Key: i=alchark@gmail.com; a=ed25519;
+ pk=ltKbQzKLTJPiDgPtcHxdo+dzFthCCMtC3V9qf7+0rkc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250503_044612_230780_A6C79C06 
-X-CRM114-Status: GOOD (  18.23  )
+X-CRM114-CacheID: sfid-20250503_045240_458503_1E8EDC99 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,135 +108,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 3 May 2025 at 13:22, Ard Biesheuvel <ardb+git@google.com> wrote:
->
-> From: Ard Biesheuvel <ardb@kernel.org>
->
-> BSS might be uninitialized when entering the startup code, so forbid the
-> use of any variables that live after __bss_start in the linker map.
->
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> ---
->  arch/arm64/kernel/image-vars.h  | 66 +++++++++++---------
->  arch/arm64/kernel/vmlinux.lds.S |  2 +
->  2 files changed, 37 insertions(+), 31 deletions(-)
->
-> diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
-> index a0977f7cd3ec..a70244d1aa2a 100644
-> --- a/arch/arm64/kernel/image-vars.h
-> +++ b/arch/arm64/kernel/image-vars.h
-> @@ -10,6 +10,12 @@
->  #error This file should only be included in vmlinux.lds.S
->  #endif
->
-> +#define PI_EXPORT_SYM(sym)             \
-> +       __PI_EXPORT_SYM(sym, __pi_ ## sym, Cannot export BSS symbol sym to startup code)
-> +#define __PI_EXPORT_SYM(sym, pisym, msg)\
-> +       PROVIDE(pisym = sym);           \
-> +       ASSERT(sym < __bss_start, #msg)
+VIA/WonderMedia SoCs have a chip ID register, which is helpful for
+selecting support for correct sets of hardware quirks at runtime, add
+code for it.
 
-LLD doesn't seem to love this. I'll replace this with
+This will enable the use of SOC bus match tables in individual drivers,
+allowing for finer grained feature selection where device trees might
+not provide full information about what the hardware expects (such as
+with non-user-visible SoC revisions having different behavior within
+the same user-visible SoC version).
 
-ASSERT((sym - KIMAGE_VADDR) < (__bss_start - KIMAGE_VADDR), #msg)
+This series intentionally omits the updates to MAINTAINERS, as there
+are multiple VT8500 related submissions this cycle which may go via
+different trees (and cause pain in sequencing the merges). It will be
+updated separately in a single pass to cover everything VT8500 related.
 
-which appears to work for both LLD and ld.bfd
+Signed-off-by: Alexey Charkov <alchark@gmail.com>
+---
+Changes in v3:
+- Now moved the binding under hwinfo for real. Sorry for the noise
+- Link to v2: https://lore.kernel.org/r/20250503-wmt-soc-driver-v2-0-8c774ad84d47@gmail.com
 
+Changes in v2:
+- Moved the DT binding under hwinfo directory
+- Changed the compatible string to be based on SoC version
+- Reworked the driver into a platform one, and switched to devm_ functions
+  (all of the above - thanks Krzysztof)
+- Link to v1: https://lore.kernel.org/r/20250423-wmt-soc-driver-v1-0-bd8bf32521c2@gmail.com
 
+---
+Alexey Charkov (3):
+      dt-bindings: hwinfo: Add VIA/WonderMedia SoC identification
+      soc: Add VIA/WonderMedia SoC identification driver
+      ARM: dts: vt8500: add DT nodes for the system config ID register
 
-> +
->  PROVIDE(__efistub_primary_entry                = primary_entry);
->
->  /*
-> @@ -36,39 +42,37 @@ PROVIDE(__pi___memcpy                       = __pi_memcpy);
->  PROVIDE(__pi___memmove                 = __pi_memmove);
->  PROVIDE(__pi___memset                  = __pi_memset);
->
-> -PROVIDE(__pi_id_aa64isar1_override     = id_aa64isar1_override);
-> -PROVIDE(__pi_id_aa64isar2_override     = id_aa64isar2_override);
-> -PROVIDE(__pi_id_aa64mmfr0_override     = id_aa64mmfr0_override);
-> -PROVIDE(__pi_id_aa64mmfr1_override     = id_aa64mmfr1_override);
-> -PROVIDE(__pi_id_aa64mmfr2_override     = id_aa64mmfr2_override);
-> -PROVIDE(__pi_id_aa64pfr0_override      = id_aa64pfr0_override);
-> -PROVIDE(__pi_id_aa64pfr1_override      = id_aa64pfr1_override);
-> -PROVIDE(__pi_id_aa64smfr0_override     = id_aa64smfr0_override);
-> -PROVIDE(__pi_id_aa64zfr0_override      = id_aa64zfr0_override);
-> -PROVIDE(__pi_arm64_sw_feature_override = arm64_sw_feature_override);
-> -PROVIDE(__pi_arm64_use_ng_mappings     = arm64_use_ng_mappings);
-> +PI_EXPORT_SYM(id_aa64isar1_override);
-> +PI_EXPORT_SYM(id_aa64isar2_override);
-> +PI_EXPORT_SYM(id_aa64mmfr0_override);
-> +PI_EXPORT_SYM(id_aa64mmfr1_override);
-> +PI_EXPORT_SYM(id_aa64mmfr2_override);
-> +PI_EXPORT_SYM(id_aa64pfr0_override);
-> +PI_EXPORT_SYM(id_aa64pfr1_override);
-> +PI_EXPORT_SYM(id_aa64smfr0_override);
-> +PI_EXPORT_SYM(id_aa64zfr0_override);
-> +PI_EXPORT_SYM(arm64_sw_feature_override);
-> +PI_EXPORT_SYM(arm64_use_ng_mappings);
->  #ifdef CONFIG_CAVIUM_ERRATUM_27456
-> -PROVIDE(__pi_cavium_erratum_27456_cpus = cavium_erratum_27456_cpus);
-> -PROVIDE(__pi_is_midr_in_range_list     = is_midr_in_range_list);
-> +PI_EXPORT_SYM(cavium_erratum_27456_cpus);
-> +PI_EXPORT_SYM(is_midr_in_range_list);
->  #endif
-> -PROVIDE(__pi__ctype                    = _ctype);
-> -PROVIDE(__pi_memstart_offset_seed      = memstart_offset_seed);
-> -
-> -PROVIDE(__pi_init_idmap_pg_dir         = init_idmap_pg_dir);
-> -PROVIDE(__pi_init_idmap_pg_end         = init_idmap_pg_end);
-> -PROVIDE(__pi_swapper_pg_dir            = swapper_pg_dir);
-> -
-> -PROVIDE(__pi__text                     = _text);
-> -PROVIDE(__pi__stext                    = _stext);
-> -PROVIDE(__pi__etext                    = _etext);
-> -PROVIDE(__pi___start_rodata            = __start_rodata);
-> -PROVIDE(__pi___inittext_begin          = __inittext_begin);
-> -PROVIDE(__pi___inittext_end            = __inittext_end);
-> -PROVIDE(__pi___initdata_begin          = __initdata_begin);
-> -PROVIDE(__pi___initdata_end            = __initdata_end);
-> -PROVIDE(__pi__data                     = _data);
-> -PROVIDE(__pi___bss_start               = __bss_start);
-> -PROVIDE(__pi__end                      = _end);
-> +PI_EXPORT_SYM(_ctype);
-> +PI_EXPORT_SYM(memstart_offset_seed);
-> +
-> +PI_EXPORT_SYM(init_idmap_pg_dir);
-> +PI_EXPORT_SYM(init_idmap_pg_end);
-> +PI_EXPORT_SYM(swapper_pg_dir);
-> +
-> +PI_EXPORT_SYM(_text);
-> +PI_EXPORT_SYM(_stext);
-> +PI_EXPORT_SYM(_etext);
-> +PI_EXPORT_SYM(__start_rodata);
-> +PI_EXPORT_SYM(__inittext_begin);
-> +PI_EXPORT_SYM(__inittext_end);
-> +PI_EXPORT_SYM(__initdata_begin);
-> +PI_EXPORT_SYM(__initdata_end);
-> +PI_EXPORT_SYM(_data);
->
->  #ifdef CONFIG_KVM
->
-> diff --git a/arch/arm64/kernel/vmlinux.lds.S b/arch/arm64/kernel/vmlinux.lds.S
-> index 73fa57f341b0..bd7626b8c7a3 100644
-> --- a/arch/arm64/kernel/vmlinux.lds.S
-> +++ b/arch/arm64/kernel/vmlinux.lds.S
-> @@ -319,6 +319,7 @@ SECTIONS
->
->         /* start of zero-init region */
->         BSS_SECTION(SBSS_ALIGN, 0, 0)
-> +       __pi___bss_start = __bss_start;
->
->         . = ALIGN(PAGE_SIZE);
->         __pi_init_pg_dir = .;
-> @@ -332,6 +333,7 @@ SECTIONS
->         . = ALIGN(SEGMENT_ALIGN);
->         __pecoff_data_size = ABSOLUTE(. - __initdata_begin);
->         _end = .;
-> +       __pi__end = .;
->
->         STABS_DEBUG
->         DWARF_DEBUG
-> --
-> 2.49.0.906.g1f30a19c02-goog
->
+ .../bindings/hwinfo/via,vt8500-scc-id.yaml         |  37 ++++++
+ arch/arm/boot/dts/vt8500/vt8500.dtsi               |   5 +
+ arch/arm/boot/dts/vt8500/wm8505.dtsi               |   5 +
+ arch/arm/boot/dts/vt8500/wm8650.dtsi               |   5 +
+ arch/arm/boot/dts/vt8500/wm8750.dtsi               |   5 +
+ arch/arm/boot/dts/vt8500/wm8850.dtsi               |   5 +
+ drivers/soc/Kconfig                                |   1 +
+ drivers/soc/Makefile                               |   1 +
+ drivers/soc/vt8500/Kconfig                         |  20 ++++
+ drivers/soc/vt8500/Makefile                        |   2 +
+ drivers/soc/vt8500/wmt-socinfo.c                   | 125 +++++++++++++++++++++
+ 11 files changed, 211 insertions(+)
+---
+base-commit: 37ff6e9a2ce321b7932d3987701757fb4d87b0e6
+change-id: 20250423-wmt-soc-driver-de26d67bd4ef
+
+Best regards,
+-- 
+Alexey Charkov <alchark@gmail.com>
+
 
