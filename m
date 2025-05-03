@@ -4,59 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51DC9C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 May 2025 23:04:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA2B4C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 May 2025 23:42:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7MDrgeUhJWbE7sp5fnz2b8a6FYagH+pP/VJzhmDRiyA=; b=GPDXDc3rI2HMksG/e/mt4TedWL
-	j0P6NWZ4xRtDQzTOmPs9KrRreuD0j9lgxLcUky+d0tItC+AHojCE/+RExzPOSf6BiKypKGLsi6ejP
-	I6mCJT6WD+Af5a/fh7xRC4igRBgJF8lGRHBeYOY6NszfbgaE1/7FUCVwcIJIQm4UYRnAWxtt7D+lH
-	4M4JYnKYYzW5Z4uN+YHga0NuSAmhMtLPJZA0L4lMu9VXnmTZbthgQro900aIllxxltD8MLWPtGQGL
-	xdMXmj+El+5NNZt0kzwfvl/kRgxmMI2SNEbXNayZU+WSgJY8l1ATDyi3qvexLs5g8iZaADVIb5oo0
-	VENP4RpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FC4UR7XY6OT5T5snA1Y0JUXPeWUT8yWLzkhZXauwCIQ=; b=mXLbNSt5lJ6JBufcn2lwecm037
+	clg0ICt7sq5gOs9fwmJuQXKBeK0ezc1H+An7vokocTv2urC4Lp6THnveSDj6tBFYcpaHQqW/8lyvh
+	eb4wf4IDKTu7Y9HSLQoeZpz4Fyk8PBFkvPfi129FEvxFGKoYRoHdrdvnxPFsSvUGNLHAv3uwhPTvN
+	+VojWky9NRgV2Um2QaA86f/Mnvenx0SmGx/3f21LPmdpl+9fympBa/IzeowYO2ewknIdk2D2kUClz
+	wmd8eYQk6Z0jMV1KFYx1r6VN5L1fR76nAGo9j1/T5LGvjGIlkK4EeEz/xSeFGOkno7jW32rV6+Apn
+	Dl6dL5xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBLth-00000004a6u-3e94;
-	Sat, 03 May 2025 23:03:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uBMUm-00000004cHf-0FvQ;
+	Sat, 03 May 2025 23:42:12 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBLrn-00000004Zxi-44Ty
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 May 2025 23:01:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1A46749EA4;
-	Sat,  3 May 2025 23:01:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7050FC4CEE3;
-	Sat,  3 May 2025 23:01:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746313314;
-	bh=D04544YY5YKWIz+eOOancW9M0tIDtWJNvQo1W+YhcT8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=U8H3Nx7fg8O4Zbd2BdnB5FwH/GXIQDayV/jEpHLxSpWW/FoKlMzI+RULL9IG9z1aX
-	 pPzavXXcQ5VrXBfCk7w9WiA1fF9Zk7zvcWlDJ0LbcBY1yBwuOuGPI+B8APhRgPgVzd
-	 RHCuk9O1Hsq379RzC10htGKnATBuscJmGtUGjbVoXkccZu32gh1IP5nMVRfSyo/zxg
-	 zVVHC8MfZT3tM2bDzccoHS7R7/ME6U107EZLHFDr8p22tUszWTEE7Hp0Q4IC0L9iQQ
-	 f3MPvIDzgH3EEujJn35QCrufmEzAytCftplRVaaMqAOcpOFFdK1FxAtNhBZRfG2VT/
-	 /MUBWitJD/Hng==
-From: Catalin Marinas <cmarinas@kernel.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [GIT PULL] arm64 fixes for 6.15-rc5
-Date: Sun,  4 May 2025 00:01:51 +0100
-Message-Id: <20250503230151.2578203-1-cmarinas@kernel.org>
-X-Mailer: git-send-email 2.39.5
+	id 1uBMSs-00000004c9z-2PeU;
+	Sat, 03 May 2025 23:40:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1746315604; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=h3oBEbQ4Tc0PcFmrW0gG3E/hrZdrTsdDgFj8Uj1xu4hzo+R0KOiLBcbU9aZFrHvMOh+1HTwkJ76tBf3ZzLAbkuNjlwwUgjJy4Qdvr+xw6oGLZPIkudfN2mwp2++Y7cznAI1YOSq0XBFxT1qtlhuOynAFfPvmEZBmeWr9vDxVI+o=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1746315604; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=FC4UR7XY6OT5T5snA1Y0JUXPeWUT8yWLzkhZXauwCIQ=; 
+	b=DjTtMgUEg8NSpNDsxEwM4k2xv1SEpWm7hiVzcctpTsgQeHpr4gTm3aMaNLwgNpcn2cD/R5onNbVl3UxLk236Osz6ntEfZukqwYAdADAebro0cLkAKZ0+4OxpMVXti+YrS9kSK+teOTYCDGxc7VcwpIIAhhD35EjG54kFioekf0g=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1746315604;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=FC4UR7XY6OT5T5snA1Y0JUXPeWUT8yWLzkhZXauwCIQ=;
+	b=DmLS6uuezndQrfFIj98tyWBnpryS4HCrbFmC86mqM6wze6bniA/+jbI3Bh9PxUIn
+	nBvozmjKtBipWAT7EYrTncxcF52HKoj4dypfOydSsL0h8BMpnyK9vpSvJY6Sjmscslk
+	es88CBpWuJIDeYiFparjMkUZuI4PtEte2LsoCPZI=
+Received: by mx.zohomail.com with SMTPS id 1746315601890223.16037950078783;
+	Sat, 3 May 2025 16:40:01 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: heiko@sntech.de, John Clark <inindev@gmail.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ detlev.casanova@collabora.com, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, John Clark <inindev@gmail.com>,
+ sebastian.reichel@collabora.com
+Subject: Re: [PATCH v1 0/3] Add Luckfox Omni3576 Carrier Board support for RK3576
+Date: Sun, 04 May 2025 01:39:56 +0200
+Message-ID: <7462454.lOV4Wx5bFT@workhorse>
+In-Reply-To: <20250502205533.51744-1-inindev@gmail.com>
+References: <20250502205533.51744-1-inindev@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250503_160156_032502_221D3E3E 
-X-CRM114-Status: UNSURE (   6.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250503_164014_693051_E04C6260 
+X-CRM114-Status: GOOD (  36.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,30 +78,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+On Friday, 2 May 2025 22:55:30 Central European Summer Time John Clark wrote:
+> This series adds device tree support for the Luckfox Omni3576 Carrier Board
+> with Core3576 Module, developed by Shenzhen Luckfox Technology Co., Ltd., based
+> on the Rockchip RK3576 SoC. The board supports various peripherals, with this
+> initial implementation enabling essential functionality for booting Linux and
+> basic connectivity.
+> 
+> Supported and tested features (on Linux 6.15-rc4):
+> - UART: Serial console operational.
+> - SD card: Mounts and reads/writes successfully.
+> - PCIe: NVMe SSD detected via lspci.
+> - Ethernet 0: Functional with RGMII PHY.
+> - USB: Host ports detect devices.
+> - RTC: Timekeeping and wake-up tested.
+> - LED: Heartbeat trigger works.
 
-Please pull the arm64 fix below. Thanks.
+Hi John,
 
-The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
+> 
+> Disabled features:
+> - eMMC: Not populated on the tested board; believed to be functional but disabled.
+> - HDMI: Disabled due to mainline driver maturity issues (basic 1080p output works; audio and 4K untested).
 
-  Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
+that's not a good reason to disable the node, in my eyes. HDMI 2.0 4K output 
+should work AFAIK, HDMI audio will land with the already posted SAI audio 
+controller patch set. Is there any specific issue like an SoC lock-up you ran 
+into that is keeping you from enabling it? If so, please do let the mailing list 
+know.
 
-are available in the Git repository at:
+> - Ethernet 1: Disabled as it does not come up, possibly due to PHY configuration or driver issues.
+> 
+> Patch 1: Add luckfox vendor prefix for Shenzhen Luckfox Technology Co., Ltd.
+> Patch 2: Add luckfox,omni3576 binding to rockchip.yaml
+> Patch 3: Add rk3576-luckfox-omni3576.dts and Makefile update
+> 
+> The new DTS is covered by the existing ROCKCHIP ARCHITECTURE entry in MAINTAINERS.
+> 
+> I am aware of ongoing RK3576 upstreaming efforts (e.g., by Collabora) and
+> welcome feedback or collaboration to align with mainline driver development.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
+I can't speak for the longer term outlook as that's neither my area of expertise
+nor my position to make statements about that, but I can give a general overview
+of what I myself am working on right now in relation to the RK3576. The general
+theme is that most of the low-hanging fruit has already been plucked, so the
+bigger drivers remain.
 
-for you to fetch changes up to fee4d171451c1ad9e8aaf65fc0ab7d143a33bd72:
+- RK3576 USB Type-C OTG stuff: the USB 2 PHY driver needed some changes to make
+  this work. I've yet to send out v2 that reworks the way we detect a type-C
+  port, but that part of the code is already done. I was basically just letting
+  it stew on my local machine for a bit longer to see if I can figure out why
+  superspeed only works in one cable orientation, and to give the mailing list
+  some room to breathe, as I've been sending quite a bit of stuff lately.
+- RK3576 HWRNG: has already been posted by me, and it's a small enough series
+  that I don't see many problems on the horizon with it.
+- RK3576 eMMC PD fix: this needed a few revisions but was merged just recently
+- RK3576 Thermal ADC: v5 is currently awaiting review, and it's quite a mature
+  series by now.
+- RK3576 SAI (Audio Output): driver + binding already merged, sent out a v3
+  recently to fix an issue with the clock driver part of that patch series.
+- RK3576 PWM: v1 of my MFPWM patch series needs some changes. I plan on getting
+  around to this in the coming week, bar any other more pressing things on my
+  table.
+- RK3576 SATA: I sent a tiny patch series to enable this, and it was already
+  merged in time for v6.16.
 
-  arm64: errata: Add missing sentinels to Spectre-BHB MIDR arrays (2025-05-01 17:44:18 +0100)
+If you do want a small driver to work on that should be easy to port to mainline
+and hasn't been done yet, I recommend SPDIFRX. You can find it in
+`sound/soc/rockchip/rockchip_spdifrx.c` in the vendor tree. It's around 400
+lines, and on your board you should be able to have a pin on the 40-pin header
+that can be set to pinmux to the SPDIFRX controller, namely pin 35, aka
+GPIO4_B2, aka the third-to-last pin on the side that ends with a GND. You will
+need some source of an SPDIF audio signal at the right voltage for that. The
+most humorous choice is either the board itself or another Rockchip SBC.
 
-----------------------------------------------------------------
-Add missing sentinels to the arm64 Spectre-BHB MIDR arrays, otherwise
-is_midr_in_range_list() reads beyond the end of these arrays.
+If the driver is a straight-forward port and minor cleanup, leaving the original
+author in place for the patch sent upstream is the courteous thing to do. If
+there's more work involved than just a few lines changed or downstream-specific
+parts deleted, I usually like to include the original author with their signoff
+in a `Co-developed-by:` tag, to give credit where credit is due.
 
-----------------------------------------------------------------
-Will Deacon (1):
-      arm64: errata: Add missing sentinels to Spectre-BHB MIDR arrays
+I should also mention that Collabora has a public issue tracker on our GitLab
+to keep track of Rockchip upstreaming matters. An issue being on it doesn't
+necessarily mean that we have any plans to work on it, it just means an engineer
+remembered this was a thing and noted it down. Things we actively are working
+on are usually assigned to a specific person, unless said person (me, usually)
+forgets to do so. You can find it here:
+https://gitlab.collabora.com/hardware-enablement/rockchip-3588/linux/-/issues
 
- arch/arm64/kernel/proton-pack.c | 2 ++
- 1 file changed, 2 insertions(+)
+> 
+> Signed-off-by: John Clark <inindev@gmail.com>
+> 
+
+Kind regards,
+Nicolas Frattaroli
+
+
 
