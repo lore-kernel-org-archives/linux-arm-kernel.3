@@ -4,80 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B0B5C3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 May 2025 01:32:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C4DAC3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 May 2025 03:36:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0uJASVDW8Oaub7VFdAcbuo6tXJf36uKIgji+ugPQnjU=; b=3Cbn/D2iIlGPWnOtSTP04ZYNjP
-	scY17jrsQ+GG0eJ/BnSj056iMg1ywanoPUxfB7GDVEQEkhVItjH3b30J9vPxo8O6LhER0n2alrrel
-	U2dxKR350ui/JEHHFjvnBcFOe85OLlU0R/ocIRDSo/Nip9gJUTHl3AqoWl3+bp61JarcYeZlKfdBC
-	qRWQzplvYlsmqBJiSQvSqwVXQQVuarKo4+kXbNaX4rE/ZbeUfJ+0wIECINvo7w3nMlCZ2Xwo0031N
-	OqCVYlPOxnfQXhJeblB6AQ/nd2XC242pkb//ghWzUiX8EDvtO0pqRnyUhtu+exx2zd3vrJwmsh2rD
-	m0xriwuA==;
+	bh=rPgNobfBTYOujqbLiEIdQ4nZqkuaEpAIqPG9ONJwXPA=; b=tkOxUXVVwL1xG5ongWjs/dTZ3c
+	JJfMgyR5dy/La3eVaAl9D06lhddvEjHThAFCphpEIMZDgzp9Ug7WsIQDFg2Egxr/m90/55RH3aE0k
+	NB1aoMrN5n+sLjqsJKkHgsg7w8iodgKDmM2TezbNnxBXTHLyaAu8BwS3qGKp0dRRNtk7JZrZJM6jr
+	yIIIl6sC5Ht3XegUQxinUslHw79Iekj+5ASJMPNIaHOZlKYJJ2dv3jSDoBMoYc5pMSi1pOLTa8aMd
+	k2t4w94BJpuQ7hpttIBLtKrkrLL2Jt9ZcM4bJoShJ/oftA8zp/2PYU+pPO+oJE+VY7xV03T2nGtfL
+	dlMcxZAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uB1jg-00000003Nbx-3djn;
-	Sat, 03 May 2025 01:32:12 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uB3g9-00000003S1l-3DEM;
+	Sat, 03 May 2025 03:36:41 +0000
+Received: from mail-dm6nam04on2061d.outbound.protection.outlook.com ([2a01:111:f403:2409::61d] helo=NAM04-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uB1hm-00000003NY0-0cTm
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sat, 03 May 2025 01:30:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:Content-Type:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=0uJASVDW8Oaub7VFdAcbuo6tXJf36uKIgji+ugPQnjU=; b=nb3UvdKpMcQts3WkAwnacKWr67
-	eW0CSmO4qXDHDiUEK3b4j2C+cysVBOW5Z75hqfJT1LrvEVKzswH/WrMDobotU6Scwx++OQfplwg2K
-	wto2UJSlUZVet2/kSkJ0SBky0ns2jFJ7vIGdkT51toNl6itq5r6UCauNLX1ZSs7A5uEY/aiEzXiFf
-	nyPBPcqPYbGAh+Bhx/gcRMYewoYV8pZN+8Hm8zuTzYV+iXMlrv58KI/3pa3CroSlmWiaSZgyIyCaj
-	QQhU6PtEFKIn85F1BgCLiGKlXoFWWhKZUe2RPHVgKr1LA6Kp8M1OzjHr/P+MO7D/7WjuFLZECpLRl
-	6RXcm4Og==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uB1he-0000000F9wE-3XIS
+	id 1uB3eF-00000003RvO-1RnT
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 May 2025 01:30:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CE5B749F1E;
-	Sat,  3 May 2025 01:29:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E6C7C4CEE4;
-	Sat,  3 May 2025 01:29:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746235797;
-	bh=ckSRd/Z1qnGR5wOXMVaoNwn10WAMsGKB1bQB2+988VI=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=dYBU9/NCWhZT9cEjrZ/wwIvulZvVimgDEDPtNxu5T/H7Gzd8/Z64POfrz+Bvgbs6f
-	 MB72dWx4d/9CklUKdQ0/rjWzddt9bhkzZMTrAYouMti9W0vwq+chHA8hilvNpJzTPG
-	 0ApbmwCIEr0wIoHxP3W+WZmoFN3lWJubLBpSdz5UXOvB7olLl4REF3b3UlIKlO993s
-	 j6Tn6Z58KboK8DCCdnVmKsIqGfhLihnTtvfGDL1R23dsZf4DijJSBlumm6M3R86z8E
-	 0vfPmCv1lHOaZoX5p0i9E0RcInCPYY5YzuaCsyBKWhI7njUoY6EPykgVxR5O9mHt2H
-	 Q4oDSB9UI4/cw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70C66380DBE9;
-	Sat,  3 May 2025 01:30:37 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Sat, 03 May 2025 03:34:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ey00R6so2Or0xJdfT0u7OIF+DGtlR2yBEtC4SoRzc4ZoQD5/NRBxS2pcQMrGZ45dUgcX42/8fEnEC2SaCm2vtnFutXqxD03AmmXoei+EMl2qzCk3hGAMhMNWCYuDuqeC8d52LBTtf0OR6EGBx20cqSnu7T6HmQdhGacR6zpa7PnigVJNV6sPx0WGb12ylrtpLX3VCLs7iyugUzRKHDiBabjStduob1xWzHb2u+HU5JuApFBBmzgUWM7MskoymQjmYpQr1o3INnsfWI9QF1YmGpajRMTV9xK84+k9oG+GQImAd+1Bo9QykgV6nMr6yDn+TGwQ5cQjBinnpgXcVnSqLw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rPgNobfBTYOujqbLiEIdQ4nZqkuaEpAIqPG9ONJwXPA=;
+ b=CCLVlBuznsfsdmjHuoOAvVljeL7aPgJeOomt8DgxnZju6fnni+5VDLQmwNHNvUsB1mJflS9pKl5tALfsjsUk90JbbTGKyJtlzgdYN4w7t0E+N//TvtXb1RICO59684Z95znWRi+K/9DBjqIK0RCXdwZ/T4w9bnJ001BwR2rT07bsSvY0B1bcISvs/8DQCm8OEWgFcZemCZC7FHF6RTi032de8G+5IBbrCd45gSNWENKll36mbE6eOO24V1JBCHr6NqGItzlL0yESVFgblPbTu+LdigRJxEPwvVsQVlxBxq2w9AtS4/mwaT42klehE9nrShejOTJCgyNtQ7uQxLpqOw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=linux-foundation.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rPgNobfBTYOujqbLiEIdQ4nZqkuaEpAIqPG9ONJwXPA=;
+ b=MWwqAF90QgAErPxaenDlmCba1yUi/lf6Z7tQZFJ1abDC+DQnwKjgRO7yC4+2bzVIU4CWQDVUD9qFOH4NJkH2od51MYZ5+mQwaYPaZL6HUT9AQyZoaprw8pTYPqgqEmZKp4I1oulnAV5AzmndO5lilOJnIRapZgubdiLxk0uFW5c=
+Received: from PH8P221CA0061.NAMP221.PROD.OUTLOOK.COM (2603:10b6:510:349::17)
+ by PH7PR12MB8828.namprd12.prod.outlook.com (2603:10b6:510:26b::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.20; Sat, 3 May
+ 2025 03:34:36 +0000
+Received: from SA2PEPF000015CD.namprd03.prod.outlook.com
+ (2603:10b6:510:349:cafe::3) by PH8P221CA0061.outlook.office365.com
+ (2603:10b6:510:349::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8699.24 via Frontend Transport; Sat,
+ 3 May 2025 03:34:36 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
+Received: from SATLEXMB04.amd.com (165.204.84.17) by
+ SA2PEPF000015CD.mail.protection.outlook.com (10.167.241.203) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.20.8699.20 via Frontend Transport; Sat, 3 May 2025 03:34:36 +0000
+Received: from [10.143.196.137] (10.180.168.240) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 2 May
+ 2025 22:34:30 -0500
+Message-ID: <6a83c7fb-dbfa-49df-be8b-f1257ad1a47a@amd.com>
+Date: Sat, 3 May 2025 09:04:28 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next 0/6] net: stmmac: replace speed_mode_2500() method
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <174623583625.3773265.4045311227752993763.git-patchwork-notify@kernel.org>
-Date: Sat, 03 May 2025 01:30:36 +0000
-References: <aBNe0Vt81vmqVCma@shell.armlinux.org.uk>
-In-Reply-To: <aBNe0Vt81vmqVCma@shell.armlinux.org.uk>
-To: Russell King (Oracle) <linux@armlinux.org.uk>
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, mcoquelin.stm32@gmail.com,
- netdev@vger.kernel.org, pabeni@redhat.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: EEVDF regression still exists
+To: Linus Torvalds <torvalds@linux-foundation.org>, "Prundeanu, Cristian"
+	<cpru@amazon.com>
+CC: Peter Zijlstra <peterz@infradead.org>, "Mohamed Abuelfotoh, Hazem"
+	<abuehaze@amazon.com>, "Saidi, Ali" <alisaidi@amazon.com>, "Benjamin
+ Herrenschmidt" <benh@kernel.crashing.org>, "Blake, Geoff"
+	<blakgeof@amazon.com>, "Csoma, Csaba" <csabac@amazon.com>, "Doebel, Bjoern"
+	<doebel@amazon.de>, Gautham Shenoy <gautham.shenoy@amd.com>, Swapnil Sapkal
+	<swapnil.sapkal@amd.com>, Joseph Salisbury <joseph.salisbury@oracle.com>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-tip-commits@vger.kernel.org"
+	<linux-tip-commits@vger.kernel.org>, "x86@kernel.org" <x86@kernel.org>
+References: <20250429213817.65651-1-cpru@amazon.com>
+ <20250430100259.GK4439@noisy.programming.kicks-ass.net>
+ <B27ECDA1-632D-44CD-AB99-B7A9C27393E4@amazon.com>
+ <CAHk-=wgb5WcfMEgsOQg4wzVWuYNgCL-e17YX33ZET_G3-ZCo7g@mail.gmail.com>
+Content-Language: en-US
+From: K Prateek Nayak <kprateek.nayak@amd.com>
+In-Reply-To: <CAHk-=wgb5WcfMEgsOQg4wzVWuYNgCL-e17YX33ZET_G3-ZCo7g@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.180.168.240]
+X-ClientProxiedBy: SATLEXMB03.amd.com (10.181.40.144) To SATLEXMB04.amd.com
+ (10.181.40.145)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PEPF000015CD:EE_|PH7PR12MB8828:EE_
+X-MS-Office365-Filtering-Correlation-Id: b938ea01-96e3-4e56-5716-08dd89f36d61
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|36860700013|82310400026;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?RUQvZndDQU14UWlZYnFxb3hsTnIyeFNmR0V0K0VXcTRTTTMwajVXbmxpK095?=
+ =?utf-8?B?WFEreFNVUTJVd2M5RkRNbml3S1gwRDdYZCttdkZ3NGp5Q29HeTYreWUvMElN?=
+ =?utf-8?B?N0RQWUwzMlpXT01IMTl1a0JEejEzNGxybDd3MlB4N0p4eDVlWHdTbThwTmpr?=
+ =?utf-8?B?VmZQbUt6K01nOEQyalpIeEVWVm56UWNlVXk1QkN5L3dlYzhIa1JzKzZReEtX?=
+ =?utf-8?B?SGFuc0w4MENObHdFUmcwbHBDbXJYQ2dIT3JPa2pYU0tMVGluZUI5ZWd0QmJF?=
+ =?utf-8?B?dWRlWHlWWTNqeGR5QXlqSUZZd2h3TTB1V0xYeG0vbkxSaG1NYVdOd3ZycHd4?=
+ =?utf-8?B?UDVwSm42TFJWR29ZYm40UncrTGhkN05TczZmRDJjckt1K2gzbkE2RUZscDNF?=
+ =?utf-8?B?MFdmNjJveGdLY1hPT3ZnMTFGam5DOXhVMHV6VXNrZkNrNGRIaTh6Vnc5V1ph?=
+ =?utf-8?B?bFZ0MnVhSlZrRGpmc2R1ZTF5WmFBN2dGSkJjVmE1YWdNQ3J0VmNEOWE5K0ds?=
+ =?utf-8?B?TFdOdGc3S3o0VWxEYXB3QjRoNXJyS1JwQi9hS0REdUp4YjhLZ1NIbVFIS0Rv?=
+ =?utf-8?B?cFY2MUhwaFo4M0kxTW1nU29hamE2R3lySlgwL1pSUUE2MXRNcm1hUFl4NXlI?=
+ =?utf-8?B?bnZvNGxYajRzTmI2bko3VXV6NWJENTkwVUJncVpwSXN1RWxyL3cyS2QyRmND?=
+ =?utf-8?B?aEJOUThucFU5bUhRVW5RYklyNTV3Qi8wVXVHcHdJd2tYaVNsU2RoSU8zamNE?=
+ =?utf-8?B?N0pJb3J3TkgvVmFueDUrVWVEeVliRTVURUtYQVRocXFadmxwY0pCamVKMFZx?=
+ =?utf-8?B?emppcFdSNDAyVG1hdlMyRzlMdDlqYkdRczhia05pTXgxZFlJdnB4Vi9pdE11?=
+ =?utf-8?B?LzFEc3IxbCtsU3llZGpITFdjbmNFWmpvaGtpeUdVMk9uZUErdm9WREVjTGd6?=
+ =?utf-8?B?NnpCREZGK1ZrblhiQzVyb2VudC9pUktFdW5kdGVNQVNhQWM1dm43c0NyQ1gw?=
+ =?utf-8?B?bS9DSmc0SjFucWtBdnE2RDNaN3cxTWFMTzhFY3I3dU9mb1ZHRnFuSXNxdEo2?=
+ =?utf-8?B?eEljNHFwcHhic0JaMy82SzM4dUlXWS8zQnFFSWxxc0I2SUk3ZHdtdkxBcWxO?=
+ =?utf-8?B?Nng2andQS0pBTXorUFBENGRHdDRnL1UyTW1hYjVUQjFjSCt3aUtrdS80NldS?=
+ =?utf-8?B?UEw2SmFVRFd6eFlCVUVkSE1iZ1BUZ3hxOWtPOXFxL2pJV2JwQU15K3FWUThu?=
+ =?utf-8?B?MEt0dnpCUWxyVWJ5ayt2aGR0UHV1VjBtcytEUFdZRkxVZGpQaHhJeXNyL3lO?=
+ =?utf-8?B?QU05U05CeUIzZi85RXltQ29xWlExYmRlcEJaTmF2NmpIZklKdDFSYkhMaEc0?=
+ =?utf-8?B?b2ROY3VZK01LZ0hyK0wyWjZBMldlOSttNDFVNFM4bWoyTnA2RE1CN1dsdVkx?=
+ =?utf-8?B?aFBQdnFxcHZjM1huVisxck93UFBIa3VSVUd1SlIxcDRGQXk0cXdodnorenFU?=
+ =?utf-8?B?ZE4vR0RlUnh6R0lxbEkvQ3hNTTRzd05CMXRBZ0ZoRGVMQXVlaHZMcXc0MnVX?=
+ =?utf-8?B?MnhZSTdDWGdXcm1HcWdjTVFUYWR1V201K29jcWxNTk1EbWsxSjEwNStLNkhC?=
+ =?utf-8?B?ZDRYSmdOWnIrMlcyeWY1OGNpejFYTXZIMVhzRUJwWWlDWE5rdWEzZmdyRkM2?=
+ =?utf-8?B?NVdKVkdkS1dWMWtDdkdWaDQ0ZnVUdGVZTlJpdXorZ1Z3V2tubDBNQzNuQUZm?=
+ =?utf-8?B?bisrU0JEb1NyN0hoSE9oTzZqeThJeGNFcXMvNHJhdTZDUXgvdzVNcWNBZWp1?=
+ =?utf-8?B?L1NXZGwyU2gzQTV4cjNyMkg5YWN1MCszQzN6SGR6bUd4NUJwRkdHMGx6YVVt?=
+ =?utf-8?B?V2kxREhBTGljUjNUd3g0a0ZKSkIwbUpaWHVJNTVHVDc1VG9yV1duVE5tb3Nm?=
+ =?utf-8?B?cEIvaHNyMHpMN0cxeWdEbm45bjNORjJhRHJIYTJDUGd2OXF6YkJLSVJHZVdw?=
+ =?utf-8?B?T2lVODFDemlGQmdIVTZmUnU3d0swVFBXbFBubVRzSzIzcERqajU5NlNCL0hS?=
+ =?utf-8?Q?8S5Zos?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(36860700013)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 May 2025 03:34:36.0969
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b938ea01-96e3-4e56-5716-08dd89f36d61
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF000015CD.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB8828
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250503_023008_844848_6BAD1CBF 
-X-CRM114-Status: GOOD (  11.66  )
+X-CRM114-CacheID: sfid-20250502_203443_533283_EF16CFC7 
+X-CRM114-Status: GOOD (  22.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,41 +166,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Hello Linus,
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Thu, 1 May 2025 12:45:21 +0100 you wrote:
-> Hi,
+On 5/2/2025 11:22 PM, Linus Torvalds wrote:
+> On Fri, 2 May 2025 at 10:25, Prundeanu, Cristian <cpru@amazon.com> wrote:
+>>
+>> Another, more recent observation is that 6.15-rc4 has worse performance than
+>> rc3 and earlier kernels. Maybe that can help narrow down the cause?
+>> I've added the perf reports for rc3 and rc2 in the same location as before.
 > 
-> This series replaces the speed_mode_2500() method with a new method
-> that is more flexible, allowing the platform glue driver to populate
-> phylink's supported_interfaces and set the PHY-side interface mode.
-> 
-> The only user of this method is currently dwmac-intel, which we
-> update to use this new method.
-> 
-> [...]
+> The only _scheduler_ change that looks relevant is commit bbce3de72be5
+> ("sched/eevdf: Fix se->slice being set to U64_MAX and resulting
+> crash"). Which does affect the slice calculation, although supposedly
+> only under special circumstances.> 
+> Of course, it could be something else.
 
-Here is the summary with links:
-  - [net-next,1/6] net: stmmac: use a local variable for priv->phylink_config
-    https://git.kernel.org/netdev/net-next/c/5ad39ceaea00
-  - [net-next,2/6] net: stmmac: use priv->plat->phy_interface directly
-    https://git.kernel.org/netdev/net-next/c/1966be55da5b
-  - [net-next,3/6] net: stmmac: add get_interfaces() platform method
-    https://git.kernel.org/netdev/net-next/c/ca732e990fc8
-  - [net-next,4/6] net: stmmac: intel: move phy_interface init to tgl_common_data()
-    https://git.kernel.org/netdev/net-next/c/0f455d2d1bbe
-  - [net-next,5/6] net: stmmac: intel: convert speed_mode_2500() to get_interfaces()
-    https://git.kernel.org/netdev/net-next/c/d3836052fe09
-  - [net-next,6/6] net: stmmac: remove speed_mode_2500() method
-    https://git.kernel.org/netdev/net-next/c/9d165dc58055
+Since it is the only !SCHED_EXT change in kernel/sched, Cristian can
+perhaps try reverting it on top of v6.15-rc4 and checking if the
+benchmark results jump back to v6.15-rc3 level to rule that single
+change out. Very likely it could be something else.
 
-You are awesome, thank you!
+> 
+> For example, we have a AMD performance regression in general due to
+> _another_ CPU leak mitigation issue, but that predates rc3 (happened
+> during the merge window), so that one isn't relevant, but maybe
+> something else is..
+> 
+> Although honestly, that slice calculation still looks just plain odd.
+> It defaults the slice to zero, so if none of the 'break' conditions in
+> the first loop happens, it will reset the slice to that zero value and
+
+I believe setting slice to U64_MAX was the actual problem. Previously,
+when the slice was initialized as:
+
+       cfs_rq = group_cfs_rq(se);
+       slice = cfs_rq_min_slice(cfs_rq);
+
+If the "se" was delayed, it basically means that the group_cfs_rq() had
+no tasks on it and cfs_rq_min_slice() would return "~0ULL" which will
+get propagated and can lead to bad math.
+
+> then the
+> 
+>          slice = cfs_rq_min_slice(cfs_rq);
+> 
+> ion that second loop looks like it might just pick up that zero value again.
+
+If the first loop does not break, even for "if (cfs_rq->load.weight)",
+it basically means that there are no tasks / delayed entities queued
+all the way until root cfs_rq so the slices shouldn't matter.
+
+Enqueue of the next task will correct the slices for the queued
+hierarchy.
+
+> 
+> I clearly don't understand the code.
+> 
+>               Linus
+
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+Thanks and Regards,
+Prateek
 
 
