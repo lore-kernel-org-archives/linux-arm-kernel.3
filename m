@@ -4,56 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 736DBC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 May 2025 15:26:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35C82C3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 May 2025 15:30:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=q3+ijAzJpiWAfgBL+5Wcti/Seqo+rIe3JjI9kcuB/GQ=; b=a2bvGZ9fLLEGQfCEBakZ3dxRL8
-	WUMaCljOW+hzfo3iR6Ls54xMSJsHTMkMHF6pzaQGFhudboGN+ycSFiyvyQGOW+5SVV/tM83KLkxNl
-	zAiMnSFcTEQyyfMXm2Z1phW3xn9VuAYSqelB8YYrNt0iTjSS5ZSw8dlUTZZn60MffhFwlWbmFk8z2
-	KwfYdtieO910c53PQTh/ctEbC64gxJYlW+N4KGEObDST8Fd0FUwEv7qBl4PdPdY4gJSjatkf4gSkT
-	OcMVgxh6RIK0OyOaSUe6b5BHQ/uxTQZVZRrJjDhIBaF5890f3jiejPGfryCgCLOZ9nzY13ydMHZNg
-	jxluaklA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X/VJuHpZmriQDG6Wjb+YX5WSz735IUlOm/KBT5XyhpU=; b=Xgm7ZRDI8XCX+V2U4pbvtUL8tL
+	vmIeblNXpOBtLEO3rbbdNc/ra7jKl0jk12dw709t2jouc8GjRh0O138X1t21JfapkosYn6PM6JiOk
+	fzzqSGO+W84/xZFnpuH/q26m8Z9fmTbaiHc5I7+6Q6/t+gQ6Mg3TXhY2rjbFMIr9sLqrOovwq72ND
+	qqZmK8J9bhlQp2iq/3GCcqyV9fj3E4NYD80lhLK6giUgQxNfh3wVxJdTneXdfYKpkqj8P77Bwbgyc
+	QuY+OsTfj2i964xAucmSr8ADY5pF4uKPK3L68Vduof5ENfQyMa/m4PBLBUt5pSRBI88r74WAExUz8
+	V5+tRa6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBEkz-000000042D4-2I2g;
-	Sat, 03 May 2025 15:26:25 +0000
-Received: from pidgin.makrotopia.org ([185.142.180.65])
+	id 1uBEos-000000042YA-322Z;
+	Sat, 03 May 2025 15:30:26 +0000
+Received: from fhigh-a2-smtp.messagingengine.com ([103.168.172.153])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBEj2-0000000423V-2WxU;
-	Sat, 03 May 2025 15:24:25 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.98.2)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1uBEd0-000000005hU-2PCp;
-	Sat, 03 May 2025 15:24:06 +0000
-Date: Sat, 3 May 2025 16:24:02 +0100
-From: Daniel Golle <daniel@makrotopia.org>
-To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Elad Yifee <eladwf@gmail.com>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH net 1/2] net: ethernet: mtk_eth_soc: reset all TX queues on
- DMA free
-Message-ID: <27713d0004ead6e57d070f9e19c0d13709ba2512.1746285649.git.daniel@makrotopia.org>
+	id 1uBEmv-000000042N1-0rpa
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 03 May 2025 15:28:27 +0000
+Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 6919B11401D4;
+	Sat,  3 May 2025 11:28:23 -0400 (EDT)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-05.internal (MEProxy); Sat, 03 May 2025 11:28:23 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1746286103;
+	 x=1746372503; bh=X/VJuHpZmriQDG6Wjb+YX5WSz735IUlOm/KBT5XyhpU=; b=
+	bK+McnfCBVJmyOli2mLWF/kTQ5b9v2WaRPbvTBXLFfehzBOjixrNNBK5/MJaC4Xk
+	aI+j150LvTB0vZHNMBVVyxxNsq/SsHrzrsnRKlOXhcfgiriuR+qjSXnXUbsd9JKP
+	tTOuoCemW1/bptdqGBspzcQTShiRr0J04LI60f7TCtf/bATwdV5Yw5yCCTIzaTpM
+	r5p/gZL6JPaMZTtgwRiGFs/OvcZtHSSoFtgsYkiEw+SiHSdcxTAOkgz9lWOc00F8
+	GIZRrhUXYyXGWUWfLws6/5ATMgpxwD1E/bVDjlRNBf2/qi612KGI68u9gGwH7+J7
+	2LvholexsTrbhhTQ3296sw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1746286103; x=
+	1746372503; bh=X/VJuHpZmriQDG6Wjb+YX5WSz735IUlOm/KBT5XyhpU=; b=w
+	SW01QNBaaW8pM6rwm4ZYtBszzwHM+iUzJwy8w+kJHmYxHM7g5B5DEJCCFHCQ7c+5
+	ufU97aME4WypAFLO8aI1EE/3l9/lf1Jta0ft9RuPe7NwWKNMHsGcK1Tr0y0LthCb
+	KroXA3s8jVdd/ZGFrXuDZcDAHBPw74SNc9OkDfujX8rtUJju4xEFSRuG4Pq6Joyd
+	aRnX/t9Ul/VjapL8mZ4pxxrJay22bhg/d07FjTDYqv63LiYYLdMZeOZ8C8vgxJxM
+	lL/yIpEdPzdmvjKSp/xyIeg8QU59ARYDIY1K+wbyHTczwoDVRMHXXV3vjKYegamX
+	EuACLas1gP6kVM+Jay9bw==
+X-ME-Sender: <xms:FjYWaAChXzHiD9bh78_JYddAsk96lGoQj6YYLDJ80fdq2vXRdc9N3w>
+    <xme:FjYWaCipU6QwWF_wvdolw5P0yTHLhR1cRvEychRh54JObdnufqmbkFKzGS8CT20px
+    D0Mm2u7-P92fxHFcZo>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvjeehieelucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
+    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
+    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
+    tddtnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnug
+    gsrdguvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeet
+    fefggfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrg
+    hmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohep
+    iedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinh
+    grshesrghrmhdrtghomhdprhgtphhtthhopehmrghrkhdrrhhuthhlrghnugesrghrmhdr
+    tghomhdprhgtphhtthhopegsrhhoohhnihgvsehkvghrnhgvlhdrohhrghdprhgtphhtth
+    hopehmrgiisehkvghrnhgvlhdrohhrghdprhgtphhtthhopeifihhllheskhgvrhhnvghl
+    rdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrd
+    hinhhfrhgruggvrggurdhorhhg
+X-ME-Proxy: <xmx:FjYWaDlO2bkC9T2tPVrBKTnqq5A6DW2cqjvTRu2j1bl2gySp94YjCQ>
+    <xmx:FjYWaGzwPC3kPXEbSHyE_MHI6oJ3swhlG9nAeybQkKz7fVtnh6rqtw>
+    <xmx:FjYWaFQqx4rBd0DrxxsQs-4J5rydDplz7BUKGX7K6aLPkw1W_crQrA>
+    <xmx:FjYWaBYaK2XLRl73r5FvfX9kmPvl305DO6nLLvvLRa2zAN75CIFVfg>
+    <xmx:FzYWaNckJLZqYQDkdggNnpC4bfuAPUk3cU30cQ3wKZk4wHGqQaSqXz25>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 92E7D2220073; Sat,  3 May 2025 11:28:22 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+X-ThreadId: Te0d92eb33a48e4f6
+Date: Sat, 03 May 2025 17:26:13 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Mark Rutland" <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, "Mark Brown" <broonie@kernel.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>, "Marc Zyngier" <maz@kernel.org>,
+ "Will Deacon" <will@kernel.org>
+Message-Id: <5dda6773-7a91-476b-bd0f-73eaa8f95ced@app.fastmail.com>
+In-Reply-To: <aBYtk_Azv84QA9C3@J2N7QTR9R3>
+References: <20250430173240.4023627-1-mark.rutland@arm.com>
+ <bb9783ec-126d-4938-a6f3-dd5930f1c3b6@app.fastmail.com>
+ <aBYtk_Azv84QA9C3@J2N7QTR9R3>
+Subject: Re: [PATCH] arm64/fpsimd: Avoid warning when sve_to_fpsimd() is unused
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250503_082424_642843_3030D025 
-X-CRM114-Status: GOOD (  12.30  )
+X-CRM114-CacheID: sfid-20250503_082826_131397_0B25C16A 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,55 +115,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The purpose of resetting the TX queue is to reset the
-byte and packet count as well as to clear the software
-flow control XOFF bit.
+On Sat, May 3, 2025, at 16:52, Mark Rutland wrote:
+> On Sat, May 03, 2025 at 04:10:43PM +0200, Arnd Bergmann wrote:
+>> On Wed, Apr 30, 2025, at 19:32, Mark Rutland wrote:
+>
+> Fair, though with W=1 there's an existing issue with sme_free() that no-one has
+> complained about:
+>
+> | [mark@lakrids:~/src/linux]% git clean -qfdx
+> | [mark@lakrids:~/src/linux]% usekorg-llvm 19.1.0 make ARCH=arm64 
+> LLVM=1 -s defconfig             
+> | [mark@lakrids:~/src/linux]% ./scripts/config -d ARM64_SVE             
+>              
+> | [mark@lakrids:~/src/linux]% usekorg-llvm 19.1.0 make ARCH=arm64 
+> LLVM=1 -s W=1 arch/arm64/kernel/fpsimd.o
+> | arch/arm64/kernel/fpsimd.c:208:20: warning: unused function 
+> 'sme_free' [-Wunused-function]
+> |   208 | static inline void sme_free(struct task_struct *t) { }
+> |       |                    ^~~~~~~~
+> | arch/arm64/kernel/fpsimd.c:676:20: warning: unused function 
+> 'sve_to_fpsimd' [-Wunused-function]
+> |   676 | static inline void sve_to_fpsimd(struct task_struct *task)
+> |       |                    ^~~~~~~~~~~~~
+> | 2 warnings generated.
+>
+> ... so we'd want to do something consistent there (and probably for a
+> few related functions).
+>
+> How important is fixing W=1? I note we have a *tonne* of warnings today;
+> so I assume we can punt that to a future cleanup?
 
-MediaTek developers pointed out that netdev_reset_queue would only
-resets queue 0 of the network device.
+There are usually new warnings coming in, while there are developers
+chipping away at the existing ones, either doing one warning throughout
+the tree, or fixing all warnings in a particular subsystem.
 
-Queues that are not reset may cause unexpected issues.
+I've spent some time on fixing the -Wunused-const-variable warnings,
+and others have done similar patches, so we can hopefully turn that
+on by default soon. I haven't looked at the unused inline functions
+in a while, so I don't know much there would be to do on this one. 
 
-Packets may stop being sent after reset and "transmit timeout" log may
-be displayed.
-
-Import fix from MediaTek's SDK to resolve this issue.
-
-Link: https://git01.mediatek.com/plugins/gitiles/openwrt/feeds/mtk-openwrt-feeds/+/319c0d9905579a46dc448579f892f364f1f84818
-Fixes: f63959c7eec31 ("net: ethernet: mtk_eth_soc: implement multi-queue support for per-port queues")
-Signed-off-by: Daniel Golle <daniel@makrotopia.org>
----
- drivers/net/ethernet/mediatek/mtk_eth_soc.c | 16 ++++++++++++----
- 1 file changed, 12 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-index 217355d79bbb7..d6d4c2daebab0 100644
---- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-+++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -3274,11 +3274,19 @@ static int mtk_dma_init(struct mtk_eth *eth)
- static void mtk_dma_free(struct mtk_eth *eth)
- {
- 	const struct mtk_soc_data *soc = eth->soc;
--	int i;
-+	int i, j, txqs = 1;
-+
-+	if (MTK_HAS_CAPS(eth->soc->caps, MTK_QDMA))
-+		txqs = MTK_QDMA_NUM_QUEUES;
-+
-+	for (i = 0; i < MTK_MAX_DEVS; i++) {
-+		if (!eth->netdev[i])
-+			continue;
-+
-+		for (j = 0; j < txqs; j++)
-+			netdev_tx_reset_queue(netdev_get_tx_queue(eth->netdev[i], j));
-+	}
- 
--	for (i = 0; i < MTK_MAX_DEVS; i++)
--		if (eth->netdev[i])
--			netdev_reset_queue(eth->netdev[i]);
- 	if (!MTK_HAS_CAPS(soc->caps, MTK_SRAM) && eth->scratch_ring) {
- 		dma_free_coherent(eth->dma_dev,
- 				  MTK_QDMA_RING_SIZE * soc->tx.desc_size,
--- 
-2.49.0
+     Arnd
 
