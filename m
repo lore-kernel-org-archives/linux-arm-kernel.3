@@ -4,64 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48EABC369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 May 2025 15:58:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC277C3ABB6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 May 2025 16:31:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3pdxIyWmwuDL50rxGKzi6rJDYaKtwnSK7YaPW/+Ab3M=; b=bFGQSAshcusaN5CbuTzf39fD7N
-	RZ02nkTIzySGJsI0Rhun7rJJvXUIuGosEXTvj6YVfcPmSJ0QRGQikY52gIqDEqesgxlBJCW2OfsVY
-	YZxIxhmPsa+0cXujHvrzHC2GyUjo4tSZU6XK8thCe60P62b0VSw6NXiph0qD6+4jOSY5huerD08vT
-	HB2tZouPei8Tkm9x/2osvbUjs9/dVINVPmhyX/IPnjIbxalXIA/VAOhKEt+4a6JFqDDkoCyHx5/7B
-	MPozwh1wXOIfFF+6jahKS4Y65cNwBBlmRAi/tWvjhMnU4S9EKC1Ey8fo/+CYeZIe6UmsAY7NyG1IJ
-	iH5Kp1Nw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iOWcPn2Xo15C6LDFsoztjz1ImKEofp8C5Y1+Vm62XvI=; b=AOjbjlzBOym5sa2QJ3Ci0SbG5f
+	+k0gTimNOM4PaWgc89ZpSSlNUDoJ3ILyAk8SppaGLwkyvJ6lNoIxz+P2JX0VjTWBFN2F0daELcozJ
+	PnJC5lLSiyZFkwrFACXJiQ53id9GTDfEunUzUVpMlBVzFF8dBMED2B4TgbIiVMy+eEVVwIb5fZrlz
+	zwW29yL9HiyvhIIDjwSb2oLPFBpvXATphY3rTDsf8dLlCDaYf26rXGK8YQOo09oW3ZugDAsQav9iv
+	i5wyWEmDfR9NI1aupGsc8waDQShEhuIbLUXTXnL2lv0PyLqpVVRF537L+A7eByA1IWmwQxr3cDM1Y
+	OCeTzp1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBFFn-000000045eI-2nnw;
-	Sat, 03 May 2025 15:58:15 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uBFmH-00000004Bta-0dBR;
+	Sat, 03 May 2025 16:31:49 +0000
+Received: from pidgin.makrotopia.org ([185.142.180.65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBFDo-000000045LV-1i1G
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 May 2025 15:56:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E25105C06A9;
-	Sat,  3 May 2025 15:53:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78FADC4CEE3;
-	Sat,  3 May 2025 15:56:08 +0000 (UTC)
-Received: from wens.tw (localhost [127.0.0.1])
-	by wens.tw (Postfix) with ESMTP id 822275F863;
-	Sat,  3 May 2025 23:56:05 +0800 (CST)
-From: Chen-Yu Tsai <wens@csie.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Maxime Ripard <mripard@kernel.org>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Yixun Lan <dlan@gentoo.org>
-Cc: Andre Przywara <andre.przywara@arm.com>, 
- Corentin Labbe <clabbe.montjoie@gmail.com>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20250430-01-sun55i-emac0-v3-0-6fc000bbccbd@gentoo.org>
-References: <20250430-01-sun55i-emac0-v3-0-6fc000bbccbd@gentoo.org>
-Subject: Re: (subset) [PATCH v3 0/5] allwinner: Add EMAC0 support to A523
- variant SoC
-Message-Id: <174628776539.3898418.13280613195656914749.b4-ty@csie.org>
-Date: Sat, 03 May 2025 23:56:05 +0800
+	id 1uBEj6-0000000423y-4Av6;
+	Sat, 03 May 2025 15:24:30 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.98.2)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1uBEdI-000000005ht-3H7E;
+	Sat, 03 May 2025 15:24:24 +0000
+Date: Sat, 3 May 2025 16:24:21 +0100
+From: Daniel Golle <daniel@makrotopia.org>
+To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Elad Yifee <eladwf@gmail.com>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH net 2/2] net: mediatek: do not reset PSE when seting FE
+ register
+Message-ID: <226fada6d179db1655751e689ab30a1cbd682f49.1746285649.git.daniel@makrotopia.org>
+References: <27713d0004ead6e57d070f9e19c0d13709ba2512.1746285649.git.daniel@makrotopia.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <27713d0004ead6e57d070f9e19c0d13709ba2512.1746285649.git.daniel@makrotopia.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250503_085612_493782_FD3E68B9 
-X-CRM114-Status: GOOD (  10.14  )
+X-CRM114-CacheID: sfid-20250503_082429_034829_15341E1C 
+X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,32 +71,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 30 Apr 2025 13:32:02 +0800, Yixun Lan wrote:
-> This patch series is trying to add EMAC0 ethernet MAC support
-> to the A523 variant SoCs, including A523, A527/T527 chips.
-> 
-> This MAC0 is compatible to previous A64 SoC, so introduce a new DT
-> compatible but make it as a fallback to A64's compatible.
-> 
-> In this version, the PHYRSTB pin which routed to external phy
-> has not been populated in DT. It's kind of optional for now,
-> but we probably should handle it well later.
-> 
-> [...]
+From: Frank Wunderlich <frank-w@public-files.de>
 
-Applied to sunxi/dt-for-6.16 in sunxi/linux.git, thanks!
+Remove redundant PSE reset.
+When setting FE register there is no need to reset PSE,
+doing so may cause FE to work abnormal.
 
-[1/5] dt-bindings: sram: sunxi-sram: Add A523 compatible
-      https://git.kernel.org/sunxi/linux/c/02f27ea7fa02
-[3/5] arm64: dts: allwinner: a523: Add EMAC0 ethernet MAC
-      https://git.kernel.org/sunxi/linux/c/56766ca6c4f6
-[4/5] arm64: dts: allwinner: a527: add EMAC0 to Radxa A5E board
-      https://git.kernel.org/sunxi/linux/c/acca163f3f51
-[5/5] arm64: dts: allwinner: t527: add EMAC0 to Avaota-A1 board
-      https://git.kernel.org/sunxi/linux/c/c6800f15998b
+Link: https://git01.mediatek.com/plugins/gitiles/openwrt/feeds/mtk-openwrt-feeds/+/3a5223473e086a4b54a2b9a44df7d9ddcc2bc75a
+Fixes: dee4dd10c79aa ("net: ethernet: mtk_eth_soc: ppe: add support for multiple PPEs")
+Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+---
+ drivers/net/ethernet/mediatek/mtk_eth_soc.c | 3 ---
+ 1 file changed, 3 deletions(-)
 
-Best regards,
+diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+index d6d4c2daebab0..6b5f36ccb3fec 100644
+--- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
++++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+@@ -3561,9 +3561,6 @@ static int mtk_open(struct net_device *dev)
+ 			}
+ 			mtk_gdm_config(eth, target_mac->id, gdm_config);
+ 		}
+-		/* Reset and enable PSE */
+-		mtk_w32(eth, RST_GL_PSE, MTK_RST_GL);
+-		mtk_w32(eth, 0, MTK_RST_GL);
+ 
+ 		napi_enable(&eth->tx_napi);
+ 		napi_enable(&eth->rx_napi);
 -- 
-Chen-Yu Tsai <wens@csie.org>
-
+2.49.0
 
