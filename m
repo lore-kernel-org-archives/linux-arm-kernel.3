@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80E15C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 May 2025 05:57:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70EF1C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 May 2025 07:11:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JwVtJGN2P3n7hu1QqjSz/+BfTucsQV0j4ZEfMEBE1eE=; b=fyGcOgPMEershn388nMfFonRe6
-	2PyJqWhLOgjJSiIi4yyyB+0sQjtB0K/8JgYkCHLiJ1Nh1Jh5TN8L90kMdIEKHYvL/13wu+KQjK02b
-	zaPyqo0MRWraTzpvKJh0tz2fKlRMuAhbLVmCcUD9iK5hm0D/mxvnaSKNkXhQPWqY5uA7py41uHYkR
-	vux+L7Z3iXJThz2jbVub+PTm838acnrbOhn0EXjmwrMLPHXZYuv4WtWRw8wTNrKuxg80Zip7cMKWB
-	OEiSg76bEPnDP7hk8uBRa8KQ2Kqw6q58EtvtrXVQgnKfqht3rn19/s/B9I13qI3/4RFZVXYEJVWc/
-	H61CHDNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4C9uWrdzZEQtSKzpMWCgzRsLbl9Gws62PCwkwfRtUSg=; b=kHvuKRw7B0AJkPzMSeF/X4Re82
+	rrtOkr1se0WFU1szyEztY0Kerp5NNE5b2nFfU9X2h1NkdMJ/EeX05xKTNEnDPborOgj/jmCJwfXoA
+	mPd1sSfot95IMY+GmwrUpkflQmmHUgTbuUVDE+wBXr0+5EbUh190WDbI3wE9shJTd54r03P4wJabz
+	+fyaENDfBePI50+nE4uN2+qvzvQVSsLI+QewwE2fR5rxuJHse4IPe1shPxvTZFp4A5swK5Pa4TRJz
+	VkKH9rUZoUxdQ47KJ8znZuNs6HITUxhakY6jxpQdsLhBrtZ5VfEREG5h+FkOV5hoh2Fk6hDbMJPmK
+	hoyZwYGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uB5s6-00000003Xfo-2Pu2;
-	Sat, 03 May 2025 05:57:10 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1uB71S-00000003aX8-3aWN;
+	Sat, 03 May 2025 07:10:54 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uB5qC-00000003XXZ-3Pgd
+	id 1uB6zW-00000003aQF-1pzJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 May 2025 05:55:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1746251713; x=1777787713;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=tSZgN38GyZ/t3oOtfszD05d8YL3guqdlHqC0NDAIMVw=;
-  b=AQyObn0Zrgp7JSYfFBRAfl52IV/Pj5278lADroGVpk4QJGlgJLGDC2E0
-   8VsJvHsV8DOUfsXEXWw1iN95k45exOg5JIyrfEWJH4RuceFFnr3zCQZEm
-   f///wRYCKhRUfbzVfRkfWpVgYmokOX6M//izpbJIGZBSIBC9QWKQcaWrv
-   C4cjrv0/+nSRbdg96HvPin+NKPE5GIrqylyHxvnNYDgvSUAJU00/oayez
-   OEz2iOCy37zFnjeCFQxP3VACMFPNGEngM6DNS/+Xfqg8CqOTi/x1nGYX0
-   e2u8XIMnVOSQhOdyg1BckzWKrZSUkQCP253c2cXl8kfSN3tPXy3LrYUgW
-   A==;
-X-CSE-ConnectionGUID: s4o0MOdSTt22Qs3CQ/DoRw==
-X-CSE-MsgGUID: zHKSNqHbQmqnZi1iIGsp/g==
-X-IronPort-AV: E=McAfee;i="6700,10204,11421"; a="70438295"
-X-IronPort-AV: E=Sophos;i="6.15,258,1739865600"; 
-   d="scan'208";a="70438295"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 May 2025 22:55:10 -0700
-X-CSE-ConnectionGUID: n/mMcwarR2SZ4r5/MN4qvg==
-X-CSE-MsgGUID: r2tKxmIVS4edHOFYga10Xg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,258,1739865600"; 
-   d="scan'208";a="139974074"
-Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
-  by orviesa005.jf.intel.com with ESMTP; 02 May 2025 22:55:05 -0700
-Received: from kbuild by 1992f890471c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uB5q2-0005DV-2i;
-	Sat, 03 May 2025 05:55:02 +0000
-Date: Sat, 3 May 2025 13:54:09 +0800
-From: kernel test robot <lkp@intel.com>
-To: Paresh Bhagat <p-bhagat@ti.com>, nm@ti.com, vigneshr@ti.com,
-	praneeth@ti.com
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev, kristo@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, khasim@ti.com, v-singh1@ti.com,
-	afd@ti.com
-Subject: Re: [PATCH v2 3/3] arm64: dts: ti: Add support for AM62D2-EVM
-Message-ID: <202505031327.h8w4ttsK-lkp@intel.com>
-References: <20250502153915.734932-4-p-bhagat@ti.com>
+	Sat, 03 May 2025 07:08:56 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 54378fCq561383
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sat, 3 May 2025 02:08:41 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1746256121;
+	bh=4C9uWrdzZEQtSKzpMWCgzRsLbl9Gws62PCwkwfRtUSg=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=OeCEDfAq+l7Buxl4bhC7UqUQ7PjSdT79zInnVDnlbgsmAT9uYbFCfOg6J2k5QUIxS
+	 sJVDiW4JPHbp7go+YTxb4qooWKMThHDJj691ntzYZ+OWyRmD33AJuIT+O8cIJwDZ4v
+	 zje4r7ywEBY3jkdNVQn4E0PaIIH7Y3SYqgsVtD8M=
+Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 54378fJn018399
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Sat, 3 May 2025 02:08:41 -0500
+Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE103.ent.ti.com
+ (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Sat, 3
+ May 2025 02:08:40 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Sat, 3 May 2025 02:08:40 -0500
+Received: from [10.249.136.145] ([10.249.136.145])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 54378X05032476;
+	Sat, 3 May 2025 02:08:34 -0500
+Message-ID: <02a84099-7dfa-4901-bef5-29a06f3c747a@ti.com>
+Date: Sat, 3 May 2025 12:38:32 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250502153915.734932-4-p-bhagat@ti.com>
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v2 4/4] arm64: dts: ti: k3-am62x: Add required voltage
+ supplies for TEVI-OV5640
+To: Rishikesh Donadkar <r-donadkar@ti.com>, <nm@ti.com>, <vigneshr@ti.com>
+CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <vaishnav.a@ti.com>, <y-abhilashchandra@ti.com>,
+        <s-jain1@ti.com>, <jai.luthra@linux.dev>,
+        <jai.luthra@ideasonboard.com>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <imx@lists.linux.dev>
+References: <20250502162539.322091-1-r-donadkar@ti.com>
+ <20250502162539.322091-5-r-donadkar@ti.com>
+Content-Language: en-US
+From: "Thakkar, Devarsh" <devarsht@ti.com>
+In-Reply-To: <20250502162539.322091-5-r-donadkar@ti.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_225512_924110_0406B070 
-X-CRM114-Status: GOOD (  11.68  )
+X-CRM114-CacheID: sfid-20250503_000854_615774_A883A00C 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,39 +91,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Paresh,
+On 5/2/2025 9:55 PM, Rishikesh Donadkar wrote:
+> The device tree overlay for TEVI-OV5640 requires following voltage
+> supplies as mentioned in the power section [1]
+> 
+> AVDD-supply: Analog voltage supply, 2.8 volts
+> DOVDD-supply: Digital I/O voltage supply, 1.8 volts
+> DVDD-supply: Digital core voltage supply, 3.3 volts
+> 
+> Add them in the DT overlay.
+> 
+> Link: https://www.technexion.com/wp-content/uploads/2023/09/product-brief_tevi-ov5640.pdf
+> Signed-off-by: Rishikesh Donadkar <r-donadkar@ti.com>
 
-kernel test robot noticed the following build errors:
+Reviewed-by: Devarsh Thakkar <devarsht@ti.com>
 
-[auto build test ERROR on robh/for-next]
-[also build test ERROR on linus/master v6.15-rc4 next-20250502]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Regards
+Devarsh
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Paresh-Bhagat/dt-bindings-arm-ti-Add-bindings-for-AM62D2-SoC/20250502-234223
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
-patch link:    https://lore.kernel.org/r/20250502153915.734932-4-p-bhagat%40ti.com
-patch subject: [PATCH v2 3/3] arm64: dts: ti: Add support for AM62D2-EVM
-config: arm64-randconfig-003-20250503 (https://download.01.org/0day-ci/archive/20250503/202505031327.h8w4ttsK-lkp@intel.com/config)
-compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project f819f46284f2a79790038e1f6649172789734ae8)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250503/202505031327.h8w4ttsK-lkp@intel.com/reproduce)
+> ---
+>  .../dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso  | 32 +++++++++++++++++++
+>  1 file changed, 32 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso b/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso
+> index b6bfdfbbdd984..fe3bc29632fa9 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso
+> +++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-csi2-tevi-ov5640.dtso
+> @@ -15,6 +15,33 @@ clk_ov5640_fixed: ov5640-xclk {
+>  		#clock-cells = <0>;
+>  		clock-frequency = <24000000>;
+>  	};
+> +
+> +	reg_2p8v: regulator-2p8v {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "2P8V";
+> +		regulator-min-microvolt = <2800000>;
+> +		regulator-max-microvolt = <2800000>;
+> +		vin-supply = <&vcc_3v3_sys>;
+> +		regulator-always-on;
+> +	};
+> +
+> +	reg_1p8v: regulator-1p8v {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "1P8V";
+> +		regulator-min-microvolt = <1800000>;
+> +		regulator-max-microvolt = <1800000>;
+> +		vin-supply = <&vcc_3v3_sys>;
+> +		regulator-always-on;
+> +	};
+> +
+> +	reg_3p3v: regulator-3p3v {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "3P3V";
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-max-microvolt = <3300000>;
+> +		vin-supply = <&vcc_3v3_sys>;
+> +		regulator-always-on;
+> +	};
+>  };
+>  
+>  &main_i2c2 {
+> @@ -40,6 +67,11 @@ ov5640: camera@3c {
+>  
+>  				clocks = <&clk_ov5640_fixed>;
+>  				clock-names = "xclk";
+> +
+> +				AVDD-supply = <&reg_2p8v>;
+> +				DOVDD-supply = <&reg_1p8v>;
+> +				DVDD-supply = <&reg_3p3v>;
+> +
+>  				powerdown-gpios = <&exp1 13 GPIO_ACTIVE_LOW>;
+>  
+>  				port {
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202505031327.h8w4ttsK-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> Error: arch/arm64/boot/dts/ti/k3-am62d2-evm.dts:409.1-13 Label or path wkup_r5fss0 not found
->> Error: arch/arm64/boot/dts/ti/k3-am62d2-evm.dts:413.1-19 Label or path wkup_r5fss0_core0 not found
->> Error: arch/arm64/boot/dts/ti/k3-am62d2-evm.dts:419.1-12 Label or path mcu_r5fss0 not found
->> Error: arch/arm64/boot/dts/ti/k3-am62d2-evm.dts:423.1-18 Label or path mcu_r5fss0_core0 not found
->> Error: arch/arm64/boot/dts/ti/k3-am62d2-evm.dts:429.1-7 Label or path c7x_0 not found
-   FATAL ERROR: Syntax error parsing input tree
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
