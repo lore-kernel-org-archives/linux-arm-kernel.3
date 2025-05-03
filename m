@@ -4,68 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 905C4C3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 May 2025 17:16:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5055AC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 May 2025 20:13:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AqLjDszkCs88e23lghcMuWdKdhG4ziY/zsyUntUvNR0=; b=vOxjCKG+YbQ+61B5sSTHpSySkS
-	HhKuGRnUtwMkuNfTNvoJEIbh4Tz2jVwFPEq20utj1eRguCPk/3oX9gUORSucfdaGLU+ZxCWYMjsTQ
-	M0OSm9eIVQKBrt8faSxBa3IJ+yiI+MXnF1jtGNdjhbighn108pmZx1pB0DcKPvddnQvve8W532j9T
-	sD/sULV/hFyk097dh9tYNhGxIIQNex3BCQ0JDA4bB56VgE2/ZvbVg63V6R2bg4i2ZWMgIQ1nR3J2S
-	euYgx7pEceA9u0pzB8DcgnXoQUztOC2rmpDoggZaT5SXpxpZpZnKIHDDwMlI2EomamECrFMioLBSK
-	NFYiBDZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UXmmAlErtFOsXEtXEzutgc2RcV/BROHq0bT3G0kg3i0=; b=AfDQurreu1PPC/QJMbpSBKQ1JJ
+	VssZn8bKxytX75fP/02xkETmsVSJ31ZT5slYoRrTFEEKjJktIPOxXt1OGV9XVkptjSPtnOTjexT0p
+	uEiP/TC3A7uwlSWM6bPcU0k8tlf5gn6sLMQXRqPvMiiHBFi/ScdNcBIn+qhHr5iccKS8G6KDohNzV
+	rKBZgMth+uc3pLZUy/D18wv8EAKxlYGszzRTu6sVTScGAR8hqKxlvKohALdDxVVoMzmAQWKVbL1LN
+	FbO2yNbzmSKpxiE/ITNKSlOZhFT98+o9wl8tZMlv5eDFgpz1P8DRlpjMAsZE3SMDiRYmo+H80FHoZ
+	3ixt9uMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBGTf-00000004IZt-1dfV;
-	Sat, 03 May 2025 17:16:39 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uBJEE-00000004Rwp-1Y0T;
+	Sat, 03 May 2025 20:12:54 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBGRi-00000004ISf-3e85;
-	Sat, 03 May 2025 17:14:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 18459A4B621;
-	Sat,  3 May 2025 17:09:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24DAEC4CEE3;
-	Sat,  3 May 2025 17:14:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746292477;
-	bh=TO0GFJ0GhL304hsOhpjSdH3o1D4SYQYquYsY9RZQ6fs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NVNRyeU/8qZCUHMRmqHsxd5g3wj3Um9s0fPqjmF5GJy0xnk6UdVnLE3sQFHlaeyhH
-	 zLZ2LMG7iSw1jV21YXZZIntyIOzxPIVxMPUBSeP6M4B3rWXGiRp2/RzgsSZ6GalLQ7
-	 Fy2CysyqQe2BR4bVNvFHxoL5QdtV9qWiXhaX8xaBdAI9IQDCffFWTb2HqsGh2ifmSN
-	 YG9NdFDUC93Y3SiJs32tmhMhEF826K6+hsMzufCcNKwJCfnPIUeSQFi22IGCQ90we1
-	 /jNiPrzHvFDLIANuISVIYQpEolSAIm3ZIV2cQ6pJDa0Wf06n1YYmOEUlgrK9Qg9E8A
-	 4jEBTpDVdslKA==
-Date: Sat, 3 May 2025 19:14:34 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Daniel Golle <daniel@makrotopia.org>
-Cc: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Elad Yifee <eladwf@gmail.com>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH net 1/2] net: ethernet: mtk_eth_soc: reset all TX queues
- on DMA free
-Message-ID: <aBZO-nmFoKLx5E5w@lore-desk>
-References: <27713d0004ead6e57d070f9e19c0d13709ba2512.1746285649.git.daniel@makrotopia.org>
+	id 1uBJCK-00000004Rnf-0BUn;
+	Sat, 03 May 2025 20:10:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
+	Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References;
+	bh=UXmmAlErtFOsXEtXEzutgc2RcV/BROHq0bT3G0kg3i0=; b=yPOrj21k2YRKQqJqEDNmNvBEsM
+	BsqHrb/Sx/v0fedPx9GURlrT4D8Gpsq6tLpvtWvEzhvZE5dWEsAsrfUB/3c6Fvbxg5/duav7uG1Ho
+	2KgvOMbBqeY3Iw9gEKM55ITPl9mJlu6bFz+UHAfDpf+kYuTnp28kMnseBejDB7L3K3PJAE4QELfqF
+	J4cmmfY1MbczlXvH89NYUYDNg0CRVl3mQ+t1Y9c4Qwp8Od/dVChScrNA9zZTLlhITCE/Zffatnfj1
+	ntwoxQvS4WrsYRY9nQ1AtNARMOM+anIibRCHfa18aeSIZmOgSb2/EPWJMJe8naeiPpgVpIiVEI5iD
+	/EwFI3RA==;
+Received: from i53875bbc.versanet.de ([83.135.91.188] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uBJCH-0001e6-R6; Sat, 03 May 2025 22:10:53 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: heiko@sntech.de
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/2] Some graphics enablement for the ancient rk3066 marsboard
+Date: Sat,  3 May 2025 22:10:41 +0200
+Message-ID: <20250503201043.990933-1-heiko@sntech.de>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Rv+qQaaENS0fon55"
-Content-Disposition: inline
-In-Reply-To: <27713d0004ead6e57d070f9e19c0d13709ba2512.1746285649.git.daniel@makrotopia.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250503_101439_035265_0F80B9E9 
-X-CRM114-Status: GOOD (  20.45  )
+X-CRM114-CacheID: sfid-20250503_131056_115737_BB3F4B7D 
+X-CRM114-Status: UNSURE (   9.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,83 +71,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Enable both the hdmi output as well as the Mali400-gpu.
 
---Rv+qQaaENS0fon55
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Did this to test a patch converting the rk3066-hdmi to a bridge driver,
+for future improvements, so it'll be nice to keep this around too.
 
-> The purpose of resetting the TX queue is to reset the
-> byte and packet count as well as to clear the software
-> flow control XOFF bit.
->=20
-> MediaTek developers pointed out that netdev_reset_queue would only
-> resets queue 0 of the network device.
->=20
-> Queues that are not reset may cause unexpected issues.
->=20
-> Packets may stop being sent after reset and "transmit timeout" log may
-> be displayed.
->=20
-> Import fix from MediaTek's SDK to resolve this issue.
->=20
-> Link: https://git01.mediatek.com/plugins/gitiles/openwrt/feeds/mtk-openwr=
-t-feeds/+/319c0d9905579a46dc448579f892f364f1f84818
-> Fixes: f63959c7eec31 ("net: ethernet: mtk_eth_soc: implement multi-queue =
-support for per-port queues")
-> Signed-off-by: Daniel Golle <daniel@makrotopia.org>
-> ---
->  drivers/net/ethernet/mediatek/mtk_eth_soc.c | 16 ++++++++++++----
->  1 file changed, 12 insertions(+), 4 deletions(-)
->=20
-> diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/et=
-hernet/mediatek/mtk_eth_soc.c
-> index 217355d79bbb7..d6d4c2daebab0 100644
-> --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-> +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-> @@ -3274,11 +3274,19 @@ static int mtk_dma_init(struct mtk_eth *eth)
->  static void mtk_dma_free(struct mtk_eth *eth)
->  {
->  	const struct mtk_soc_data *soc =3D eth->soc;
-> -	int i;
-> +	int i, j, txqs =3D 1;
-> +
-> +	if (MTK_HAS_CAPS(eth->soc->caps, MTK_QDMA))
-> +		txqs =3D MTK_QDMA_NUM_QUEUES;
-> +
-> +	for (i =3D 0; i < MTK_MAX_DEVS; i++) {
-> +		if (!eth->netdev[i])
-> +			continue;
-> +
-> +		for (j =3D 0; j < txqs; j++)
-> +			netdev_tx_reset_queue(netdev_get_tx_queue(eth->netdev[i], j));
+Heiko Stuebner (2):
+  ARM: dts: rockchip: enable hdmi on rk3066 marsboard
+  ARM: dts: rockchip: enable Mali gpu on rk3066 marsboard
 
-nit: you can use netdev_tx_reset_subqueue() here.
+ .../boot/dts/rockchip/rk3066a-marsboard.dts   | 37 +++++++++++++++++++
+ 1 file changed, 37 insertions(+)
 
-Regards,
-Lorenzo
+-- 
+2.47.2
 
-> +	}
-> =20
-> -	for (i =3D 0; i < MTK_MAX_DEVS; i++)
-> -		if (eth->netdev[i])
-> -			netdev_reset_queue(eth->netdev[i]);
->  	if (!MTK_HAS_CAPS(soc->caps, MTK_SRAM) && eth->scratch_ring) {
->  		dma_free_coherent(eth->dma_dev,
->  				  MTK_QDMA_RING_SIZE * soc->tx.desc_size,
-> --=20
-> 2.49.0
-
---Rv+qQaaENS0fon55
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCaBZO+gAKCRA6cBh0uS2t
-rE0aAQDxoKadhJgML6RMtuWFIuS6nXVqip1kMkzOx8SOecG8mAEAu48++YTfL3y+
-spXzcEGZDYYHs2oCuQXYweAp4NW2YAI=
-=Q4YT
------END PGP SIGNATURE-----
-
---Rv+qQaaENS0fon55--
 
