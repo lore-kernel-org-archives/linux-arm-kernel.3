@@ -4,217 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 757CCC369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 May 2025 09:34:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08C6CC369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 May 2025 10:08:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I5zyNe+MSjVjYFDF1660WyPY4hTEAuJ3aa8cRmLE9dc=; b=dhBnDHHNmIcaGINT8eXvoFITv+
-	kppp3lguwlx+qDw+ZlLz3ADV0dYtEv8toUnJkIKlls8QH+FPMNsaqq0qu1VY4ec1U88K+kTdbn0HS
-	QRsO1dVg3AEhRo9NoZ73SvrgG/yOS3lOjByzXZyWmy6q1mQBPF/l5mmTSr75eBU3AZ57akXdsAStb
-	I+WyAxbcN54PPlFSjMlYdY34kBIx3791b00AY5H+Re3Pu302fnmqyxFmD2JQphOSa2loz5X4Sm4EG
-	dxBTQPjE0hn8UJLSBDhTX8IC6so6XUSSztLCqKUKXezHfRHka75JchkhYpwO+UhgCcLdl7oi4buyP
-	1O0Bs7Kg==;
+	bh=S/p4B1ruUoEakEJncUszRQrQYQJjhiiaNfRr7PCdVKc=; b=i82WFozlYCKpWj8wxO9K7Sf81w
+	IFIoQIAAcmcpBFAEQzfzQlv5kYQxIktbOIFtAGyjXVCQa4CR3DmNRg1aa5Ua3bLJBkwJAgKnqiuS+
+	/3XRmyXXjuiu7+OLizWd/oHtDYx+O2S2KW2mhihgagEPIMKktn4q+w9ScF3ruP0mL5MsAL+du1PTc
+	NioeZCWgbYlE/Od5NnfMS9TR8O85SyynitN0vOuK5UlBlK6NF8DOzw8foIOXvb04F1PoL/izqAiER
+	AXVT3gAg0y2lkJ0W5bxZrK9Wg/L/w3d3+g6YhBSwiH/lGG8H4sOLim0qjaOH5feMAA4Vd45MG9hhz
+	b9O18+Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uB9G5-00000003hFJ-3Duz;
-	Sat, 03 May 2025 09:34:09 +0000
-Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
+	id 1uB9n0-00000003j4l-0dy3;
+	Sat, 03 May 2025 10:08:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uB9E9-00000003h8A-3466
+	id 1uB9l4-00000003isy-0t7m
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 May 2025 09:32:10 +0000
-Received: from pps.filterd (m0246631.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5437Y30G010456;
-	Sat, 3 May 2025 09:29:50 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	corp-2025-04-25; bh=I5zyNe+MSjVjYFDF1660WyPY4hTEAuJ3aa8cRmLE9dc=; b=
-	Ad5zhHfLLu11N5j272xXvy8DxtzKKWNX1huqm0P0oZf99YOp3jPMN83OgZZp58li
-	WjFCD4D1o2yK4CsVPgBg/g2qGKRGKoUnE//lM8Yc3rWOgXGD33AnGtzmT9SGbNnA
-	wRxJP/yNfzKQhkdf4lv0oE33V0H8uJ3lt82uDQ3j+tbfQCST8sQXeAhVb7uu/BIz
-	155XH7y0qRsiTbmLLuFDC07SaYaTikagm2WmSIsDtduK0Em+2DAq5KOGngPxGFBi
-	IvuvQyb5KWOO+R9CkxvnZe/WIBMkiZCs6MwGOFcnZ7rrn2gB7M8gpXv3VRML0IZs
-	njvlTz+1+KNJ8U1eAS3CBw==
-Received: from phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta03.appoci.oracle.com [138.1.37.129])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 46deu6g3d7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sat, 03 May 2025 09:29:50 +0000 (GMT)
-Received: from pps.filterd (phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 54374m1v035323;
-	Sat, 3 May 2025 09:29:49 GMT
-Received: from ch1pr05cu001.outbound.protection.outlook.com (mail-northcentralusazlp17010004.outbound.protection.outlook.com [40.93.20.4])
-	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 46d9k66exw-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sat, 03 May 2025 09:29:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SrMkDqPYOsc2UVm9kLTZ4WJd9aBirgbnZ9GEHvNa63g68zVVO9TkH9YjjTwen6FY+fSpStE3CsII5MKHZFpGpcrdgK40pQt5GECp7xysimljZgdb8IzUh2QlfXF1JD+I6VtW/+/2DYrxOEdJAX99Ze3NXs8z3qtP8tUlGjrT0jryBxzVNy0nunjC2ZQggKtpE06gkGhtIJFuV71y7Hl4iprSGIqkvZ/KktvjxuYiAIAy/rx+7Kw9uczvNX9S7Ew8wDJIvAoHA1JSV3f8Alu8dCpthsHZwOBdPPA9/4Qo9u7F2qFEEuVQeIgbLnqmW2beuEosMa0Yf29Rn1bGDZHjfg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=I5zyNe+MSjVjYFDF1660WyPY4hTEAuJ3aa8cRmLE9dc=;
- b=povNsXNN+u9CJ9ahV5l6vv30bgFxOfsRRXcnpHA/c1P3TpLvlmDN93fgE6o6j5SfHaAddEbEIsIWvrN2C8kBSPaBFXfDaqn/uAMAifYAwMxjhQ31TWI2FXjMmH4TG9DG4upi/9A9FKdutr5Fp/9aH0u9JFPonBjOOBc2c9BMZagPBpBTlFEKVZtbWfsFCXom2GeuNkJN6gnGCD4xBcLfQ3muGDsU2qNHNdAwfKH4RiomgzYPyIoHRbQHYwuRpK8/h4swpPFj5cYtI95Tf4aounx8Osbk5EgosT5l6UDTu7TOzZq3W5pA2YqcvQUq1X6sTS9PMaGfn/ZjM/BcAm5VgA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=I5zyNe+MSjVjYFDF1660WyPY4hTEAuJ3aa8cRmLE9dc=;
- b=n4oboeGOMolYFESBy9NuRrqKCT9ME19ynVC6PynsDpN2jsZ52q8IN4e7cKvLgFWGiZbbXYsQ3pLIGXSGwVAuvooYCJc31LyN8PmeQ0alKJZgwitPD4G3qEa0rr7oShDw29+kxguEDTNamyzFTE+9Z28puNmbfa+cOppCm5GM7rQ=
-Received: from DS7PR10MB5328.namprd10.prod.outlook.com (2603:10b6:5:3a6::12)
- by MN6PR10MB8191.namprd10.prod.outlook.com (2603:10b6:208:4f9::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.25; Sat, 3 May
- 2025 09:29:46 +0000
-Received: from DS7PR10MB5328.namprd10.prod.outlook.com
- ([fe80::ea13:c6c1:9956:b29c]) by DS7PR10MB5328.namprd10.prod.outlook.com
- ([fe80::ea13:c6c1:9956:b29c%2]) with mapi id 15.20.8699.022; Sat, 3 May 2025
- 09:29:46 +0000
-Message-ID: <868c8163-d776-4ff4-b516-3046c5db0fc0@oracle.com>
-Date: Sat, 3 May 2025 14:59:31 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v6 05/11] net: ti: prueth: Adds ethtool support
- for ICSSM PRUETH Driver
-To: Parvathi Pudi <parvathi@couthit.com>, danishanwar@ti.com,
-        rogerq@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-        edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-        robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, nm@ti.com,
-        ssantosh@kernel.org, tony@atomide.com, richardcochran@gmail.com,
-        glaroque@baylibre.com, schnelle@linux.ibm.com, m-karicheri2@ti.com,
-        s.hauer@pengutronix.de, rdunlap@infradead.org, diogo.ivo@siemens.com,
-        basharath@couthit.com, horms@kernel.org, jacob.e.keller@intel.com,
-        m-malladi@ti.com, javier.carrasco.cruz@gmail.com, afd@ti.com,
-        s-anna@ti.com
-Cc: linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        pratheesh@ti.com, prajith@ti.com, vigneshr@ti.com, praneeth@ti.com,
-        srk@ti.com, rogerq@ti.com, krishna@couthit.com, pmohan@couthit.com,
-        mohan@couthit.com
-References: <20250423060707.145166-1-parvathi@couthit.com>
- <20250423072356.146726-6-parvathi@couthit.com>
-Content-Language: en-US
-From: ALOK TIWARI <alok.a.tiwari@oracle.com>
-In-Reply-To: <20250423072356.146726-6-parvathi@couthit.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SG2PR03CA0102.apcprd03.prod.outlook.com
- (2603:1096:4:7c::30) To DS7PR10MB5328.namprd10.prod.outlook.com
- (2603:10b6:5:3a6::12)
+	Sat, 03 May 2025 10:06:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E3311434F4;
+	Sat,  3 May 2025 10:06:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 046B7C4CEE3;
+	Sat,  3 May 2025 10:06:05 +0000 (UTC)
+Date: Sat, 3 May 2025 11:06:03 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>, will@kernel.org, nathan@kernel.org,
+	nick.desaulniers+lkml@gmail.com, morbo@google.com,
+	justinstitt@google.com, broonie@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, frederic@kernel.org, joey.gouly@arm.com,
+	james.morse@arm.com, hardevsinh.palaniya@siliconsignals.io,
+	shameerali.kolothum.thodi@huawei.com, ryan.roberts@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev, stable@vger.kernel.org
+Subject: Re: [PATCH] arm64/cpufeature: annotate arm64_use_ng_mappings with
+ ro_after_init to prevent wrong idmap generation
+Message-ID: <aBXqi4XpCsN3otHe@arm.com>
+References: <20250502145755.3751405-1-yeoreum.yun@arm.com>
+ <CAMj1kXEoYcS6YPU0mBdvijDRK6ZVB7mPYZsCVpz7sYotabrxtQ@mail.gmail.com>
+ <aBUHlGvZuI2O0bbs@arm.com>
+ <aBULdGn+klwp8CEu@e129823.arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS7PR10MB5328:EE_|MN6PR10MB8191:EE_
-X-MS-Office365-Filtering-Correlation-Id: ab4d33fc-02c6-4f77-b9df-08dd8a250af6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?S2pXNUhPSEU4Ukp2eFoxUDFFa1R6RXhxL1QwK3dicktBNUlnT2tqc2xCUkZI?=
- =?utf-8?B?a2xnUGl2TUEwNXdzSTJHcXBiL0Q3VXpZYXFnK0x1bjExWDRYZ29ETWRZT01q?=
- =?utf-8?B?L3VLQ2tnZDhJbmJzakNiV2lTSGhqMmhmMnFWaVVaUnpUWUp6dWl6U0tGdk9r?=
- =?utf-8?B?UE1rbU9GOVRjcTJ3SWhwbzNtYlgya0tjRkxmUkFYRGE4NFQxT0JaWDBvUHk4?=
- =?utf-8?B?VlEvTzBFN01YODIxSFBHV2Q2dXM4R1I0T1BxalJmMHVtMFE1ZVlwRDVuMW03?=
- =?utf-8?B?aDRjMWJiMkpFeDVmc013cWd1QzFjV2NYc1crNWV4ekJoWjBlY3haQ0VFVjRR?=
- =?utf-8?B?NWY2c0hGL3FGUlluaW5xbjdhNk0xYmNvVGNjRnhvbjhtdmxRM1NaNmxveTRO?=
- =?utf-8?B?N0E3bXN3T0UzZFk4RU9xZG1jRVJpNnFUNWtMNnE1VmVWS1RIdHVnclpSUkQz?=
- =?utf-8?B?NWVLeWZ4Y3hlVlN6SHptNTdldlpIWXdha0JJZThSNmZoK3ZlZ0FLWnNCQ2F6?=
- =?utf-8?B?aGk2VHd3amh1THF2dDRGdXBLcE1SWlZuVHp5d0t3b0VXVkhCeGF6NGRCNHlZ?=
- =?utf-8?B?OXQxMk9Wbmt0U0g1MmIveGVZeklZVHFiVnh6cXcwSTNuYWYvL1M0WTNMaVBv?=
- =?utf-8?B?SzdmU3pqOFRwWkdjR1lhTWlIallqR1NCUGV5dExNMzdNOE5sMVlwRFVnalJo?=
- =?utf-8?B?Z2ZkblhOc0Zxa01TQzJNY1hIUzVCaGcwWmhyOE8vRTdmeDJpbytWa2Eyb0xz?=
- =?utf-8?B?bFMrbmxlbTVvSEExcjhjR1luaU55U0lhbGsyNlBjYWtSVWlWdit1UHdUZTBi?=
- =?utf-8?B?Uk9Rd0NvRWZabkhaY2tIdjYxbjc0WXVHNVV3c0JWSEtPVjdJYlR5S2djMHJN?=
- =?utf-8?B?NGRoWWlDZEI4K2V0RUJ3SHQ0ZHBCaGQvVlVTalAyNjRsTEQ0MjVBV2orMWpy?=
- =?utf-8?B?V1RIZ3NKdFpJa2ZJbUhWMUNjMTc0MzAzdVFFTHpZbDJuOU9xUUhlL2puOFJx?=
- =?utf-8?B?eVdNYzdhWEY2dEhkV2VOSjZNOWpaNit2NFhiNTJwN1huUzBzNTBNK21WTUxj?=
- =?utf-8?B?bVVaZFdzVnRmd3JzeGN0RncvNUlHMWlUbFVXU0JhdCs4U21MRTRVdmNYU0Vr?=
- =?utf-8?B?N0g0NG55YjdrbVM4ZHJMbWlTbHdwVU1NVU92MG04aHpKMW9aMEhDSEtzam9D?=
- =?utf-8?B?V0xFa0ozRnI0SnAvS3g0WlhZQVQrdUprcWEzb3d0dWEyQUgxZGlFZC9LWGdo?=
- =?utf-8?B?Y0RicGdSekh5U1c3Nm9ydnVDNnl3YktYa1BGcFhUNVloUHkzZDZ5ZkpXdTZK?=
- =?utf-8?B?NHFROTJRUmdZcnovWEhmUmtmNnZ0b0RocGZxNEEwS2ZzaHg4ZUFHblJKTTBt?=
- =?utf-8?B?N2tTa1hMQzFxYzlhZVlIeVdYbzR5ejJKNFJQMXplaW9wS3JXL1BlQjBuaTJs?=
- =?utf-8?B?T0pFNnRyWUtWUG9Tc0Z2b21mc01HMmVOK1hMOG9RL1BGYmFXRHFkWFlieUxk?=
- =?utf-8?B?czFUbEtOZEJUWTdCOGpvZ0FHaUNhK3N1QTVMS2NYNW4wYkFUMnlOWUtkeFRv?=
- =?utf-8?B?LzRFaFN5WDhSUDRFMUc3QUtwOVltWU5KYjN3dkZYam5kVjVGOXFpeU1rVFZO?=
- =?utf-8?B?WWk5UGxEYmkwbjZZSVgzNGJVeFhTV0FnRkd2ZjVZdk9CbCtCeHFMbGp3ZmtF?=
- =?utf-8?B?VXNqc1diTm82b2hTWExiYThSTGIvWFBEd1phOWRWNzMrb1RibkFPdzRoSHNo?=
- =?utf-8?B?WVlGNG1UbXFpREl5d2VPY0ZhRURwWjR4UmEvTGdSdW1iOFlIeXdVZEZ5UHNz?=
- =?utf-8?B?NGFiRUlOa2lnY1VXOU9PRTRHQWF3eW1TbzJJTFBINkV2Qm5TcWZWRktvRmhC?=
- =?utf-8?B?NzdYa2xKSE94REc2NWdRN0RrMTk1RzExQnhTYlZ5aGpTZEg4OFNBSmtkbVJm?=
- =?utf-8?B?WkhYZnJhenY4TUZORFExNlUrZFlRYmJzcUZNcnl5QlVuR2VzalpkVjVhRHBQ?=
- =?utf-8?B?SXVzZkNEU3hnPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR10MB5328.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VjMybC93QXdISWZsTVJEUW8vbVFGTWM5YWJraVNpYktFVGtldVJESWc2TXRT?=
- =?utf-8?B?K0pwdFFTZzlrY3pkUW9vMHp1VmVHdU90MmFNazFONUZteWVKaHhKa1JxbHJN?=
- =?utf-8?B?enlpemZZQ0NiMWM0eDh0MzFMVnlyVC9reEE2U1d2S0R3L1Q0NkdNdXpvUU5S?=
- =?utf-8?B?L3dJdGRkOG52MGxWdGJxZzdHalJkdHFkQnpzQzFsWUtia3FuRmtERTlhaVIz?=
- =?utf-8?B?TCtKNTRhS3YxR210VXduS2VtTm1uWnZ5TkZDK3gyR1k1ZXVxQmxrbDViT2VR?=
- =?utf-8?B?c0ptZ3JiS3VlM2JGbnQyZG52eWM5OU1LVnFSb0ZwL3p6QkdLWXBOZnkvRHVY?=
- =?utf-8?B?WFV3czdIOW5UaXN1Wmc4ZmQrd2dsTkdNV2RkMEVEaExiTGFqdDhzUC9wMHAz?=
- =?utf-8?B?M1hINkVSTzNNWW9mQ0lvWS85dmZSMWlCa1pYQnhDRGdIdGhXNTZ0YkRwbnhj?=
- =?utf-8?B?UUhQaEhnUXA3SGZyc1J3Z1BvMzhGVEVSd1ZpUlFrb3lVRXBFMFR4SWhSODBz?=
- =?utf-8?B?OU85YWh1TEtWR202UnkyVHJ3RW8vZENkY0JXS3U1ZEc5aFA3Unh2bmVQcFlE?=
- =?utf-8?B?YTZvOElJeUZZSi9oQnpsTnNKb3E1VkJyWEowT0cydnJSUUl1NWUvY2tPemd1?=
- =?utf-8?B?ZXVCeGpRblNScEhFNUM2MVVicnRZOSs2NkZkUVFzc2RaVWppWFlLY3ppVEdN?=
- =?utf-8?B?Q2pxYWhEcmgyWEdseFppZDNyNVNrQjFranl1ZTUwYzNpOXJXdnhXcXRqak1N?=
- =?utf-8?B?Q2RQT1hENXdEODQwNm50Q3RMNkkwZk85OXpGSGNBV0piQW9WeVhGZ2xGRkU5?=
- =?utf-8?B?TGtNRDFmaDVUeU12WmNoMWJHMHRpZE9LYm5PTG9OSGNaOWx2M0I3TFlIM2lE?=
- =?utf-8?B?ZEZvejZFOGpZZlpNbWd5N3IwSklockNnY1dtNkZ2UVl3eXlXWEI5c3I1T1pw?=
- =?utf-8?B?Z0p1SVNWMDJoK3h0MHpyOUdWWVd5UXpHUzBRdVVyUlVBLzY4cWZ6NjRIM2JM?=
- =?utf-8?B?RjZDUGo4SUhkR3pJbDFpQUt2dVROckNkM2xBQ1RPRi9QaEtQMVBoR0svc2NM?=
- =?utf-8?B?MlpCbnZMc0V4UWlNTXVRRnp5alJFRXBWWmxDdWNMcy9xb2ZHZ2RRYUpvUTZo?=
- =?utf-8?B?NFMxb1dHdUo5Q2JMbmxiNUQ4M3lGaUJmazRxeG8vN2ZsaE9taVY3UWxSUEl3?=
- =?utf-8?B?bmV3OGFzL2x2dC9MOHcybEw2SFovSW1JbDZuUDhiSjFod2F5TFRDVStPQmRQ?=
- =?utf-8?B?T2JtQzkyQi82TTY3cUdlelNsWU1pVk5reG1uUUlOOHU1T0lvVlpkUTJ2OXdu?=
- =?utf-8?B?RzN1TUM0YlpyZ3NvVGtINGZkRjhKTUJiRzkvdzVpbXp3RUJJYmd4MURNZ09p?=
- =?utf-8?B?MG5xQWJ6L0hRaEVUOVlHVHNRVmdsRFp3VStLcDZFZHZ1Ukx3RXREYnZ3ZXEr?=
- =?utf-8?B?U2lRM1BWMDdKR3NsUjhxa1VPRUxpa2pZblRNZlRuY3M5Tm1UcmhidXRCb2hk?=
- =?utf-8?B?QWxEZzRER2Z2T0dtZTNydThqVDR0MEgxWTJna1JuRWhWWC9rM1VNT29IV2N5?=
- =?utf-8?B?R05RU09lS1QwVjlZNzdFeTBsVjA2aFVMZnlOWHEwQzhyOU5nWDZHYzZQTDFR?=
- =?utf-8?B?RGNoczdQSTJpaG9ESzRhanRISU1XTk9YMGpHOXNnbk1tWklRZ2JnMXE1RzJj?=
- =?utf-8?B?eUtGaWZyREU5UW5UR2pBWUhTTnpwZFRvSWtpWVBsaEZFNkNXeXFNa09jMjRu?=
- =?utf-8?B?VC9XL0xxdWlCRXBwckkvRGJlL1FlaStmZjNUclFjWDlKYTZ1TER3SE5BZlpl?=
- =?utf-8?B?aTVTMjlYK3AxNXZJWXRYY09FUWhHcU5sTXdSMUlSdGIvemdBaWQxSEphUmh0?=
- =?utf-8?B?VDQ2SzVwdW5VK1V3eTVaQ25maDNWZUhUWisxaWNVcXdNN0pKL3JzL3RxOVVl?=
- =?utf-8?B?YSthS0pxdmdxTXphb0gvekZiSUxReHh6YWhZQXRHZXpRNlJTbXFsNzhiTlhQ?=
- =?utf-8?B?c3VzSnZvUXdIYkloMkVSLzNuZ3hlZWxFZmd0a2dadUFUNzVnT1o1ckp1MFB6?=
- =?utf-8?B?MUFxK2EvSkZuRVFHVml6QTl2dFprRGhsOHdOWi8rdmt4cWZMZ2EzeGxEeENL?=
- =?utf-8?B?S21ZSUREK0xWWk9PcmZpVUNDQ2k4MVhhTnBDdHhoWEV0dm5lQTRqdFNOZ2xv?=
- =?utf-8?B?WWc9PQ==?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: cQFECSl+i/URZ4Dk1tH/ThdFB1Iqz2a7Kakvo2EzmwyXWfFtApZEc+I69Cb7sZVpH9PMUov/espX2g5ahYvRo8HfRXKqhsE+a/zv19kkxsgwWqDnb9NYogiIYcRlK4ftCeDW9cqVCxWPgofjaJpYevBGHbAv7sTOPcAU/aNzojh0OEylT/9Lg+luvoXdfqXt707h9TT3LRGxjXkoTP3S+TR3PRmQOQ/2u/6cWta1coFehPvh2Klc50tOKsnjglUhMfi9vfAJgXcZJZGYwzynkNk2dmD8Afqn4/ewihHDsMVcl4+kUKAuZcKU24eGTYwEeD2yIakyVWcYsrIFEZITN+jo+TrWPeBEaKnD5wKXYGJThf8e9RjVwKv0BvV/C5h+ljmMjCL9GvD6qRSFdtuh/S/9/NkAeK0jpJlvi1iE5KZlaseB51xUpHKwLlgEtrpjVvergXJLEpLx4Io4SYZjlahQVYyfVH3HT+WjVxne4HArnlnhxWudSbF/OyoIYa4TFmKfMuYRbVr66QKcOd/6hBaTBDeASjB7W/IIUob1Jd064P+sgd4yX9T5OeLeGNyuuHNhz+WbGeqeVhuhJDFe6ieqm+aNPmNIBblRJC56NHA=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ab4d33fc-02c6-4f77-b9df-08dd8a250af6
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR10MB5328.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 May 2025 09:29:46.2408
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 9s6/r/yZYNa/QNotdJxjEraLza1CJDn4sgHN4F/C4Svl0ONndyVeEqSRQU/Yi0IF2IK1RM0w5qlYOesR+jHSitmGEg5E2TYMu+BhPRWcvJQ=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN6PR10MB8191
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-03_04,2025-04-30_01,2025-02-21_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0 phishscore=0
- malwarescore=0 spamscore=0 mlxlogscore=999 bulkscore=0 mlxscore=0
- suspectscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.12.0-2504070000 definitions=main-2505030083
-X-Proofpoint-GUID: OuZSFyYCoD6TJyKhoboZyVJrHY07BVmn
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTAzMDA4MiBTYWx0ZWRfX8vrOR6uIxLIc 5yUsAV7f2e8NcgBah7Fq+nRyP8dy7jcjgryo6JK+QSHOx4kzMqf1kcVuBHZUBtGkN6IQD1CmueW LeyhwFmAOx9+xvuveNkfqLBVgxIic0JHrzLdjxNYZOl5ETe24AZdt1r/Hg+tspaN9OwVazDiESv
- tvEKZmfH3gMrnu0/9Kk3QSiBRZqeU6scm53pmAvzzDwbexOxsoIGqRlFfCqjg8HzhrcuLzWbpwp msDdT40Ae5nVaze02iqF3SKJ+szwQ0TQgMSlSVttH/clzI4JOg6yxWBdgrU+2Q5aK7IGpnffLjo nZSbfvraAsLk7+6Yugha3G7wPEy6XDyjJjmH4we5uII/kzhUBJYYva7U8UxRTA1qfERpJAzo+zT
- KMgNWMFf3ZI8lYEHAJKDjKGvjn2MyLRoPRJyxNz4FZqCsEMI8LR79e8o+EAG5/2appxQHKtB
-X-Proofpoint-ORIG-GUID: OuZSFyYCoD6TJyKhoboZyVJrHY07BVmn
-X-Authority-Analysis: v=2.4 cv=CIcqXQrD c=1 sm=1 tr=0 ts=6815e20e b=1 cx=c_pps a=WeWmnZmh0fydH62SvGsd2A==:117 a=WeWmnZmh0fydH62SvGsd2A==:17 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19
- a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=GoEa3M9JfhUA:10 a=sozttTNsAAAA:8 a=EcxQipIutFa8zc1G2lcA:9 a=QEXdDO2ut3YA:10
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aBULdGn+klwp8CEu@e129823.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250503_023209_888780_C61F655C 
-X-CRM114-Status: GOOD (  15.24  )
+X-CRM114-CacheID: sfid-20250503_030610_268124_C438D579 
+X-CRM114-Status: GOOD (  16.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -229,206 +71,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 23-04-2025 12:53, Parvathi Pudi wrote:
-> From: Roger Quadros <rogerq@ti.com>
+On Fri, May 02, 2025 at 07:14:12PM +0100, Yeoreum Yun wrote:
+> > On Fri, May 02, 2025 at 06:41:33PM +0200, Ard Biesheuvel wrote:
+> > > Making arm64_use_ng_mappings __ro_after_init seems like a useful
+> > > change by itself, so I am not objecting to that. But we don't solve it
+> > > more fundamentally, please at least add a big fat comment why it is
+> > > important that the variable remains there.
+> >
+> > Maybe something like the section reference checker we use for __init -
+> > verify that the early C code does not refer anything in the BSS section.
 > 
-> Changes for enabling ethtool support for the newly added PRU Ethernet
-> interfaces. Extends the support for statistics collection from PRU internal
-> memory and displays it in the user space. Along with statistics,
-> enable/disable of features, configuring link speed etc.are now supported.
+> Maybe but it would be better to be checked at compile time (I don't
+> know it's possible) otherwise, early C code writer should check
+> mandatroy by calling is_kernel_bss_data() (not exist) for data it refers.
 
-etc.are -> etc. are
+This would be compile time (or rather final link time). See
+scripts/mod/modpost.c (the sectioncheck[] array) on how we check if, for
+example, a .text section references a .init one. We could move the whole
+pi code to its own section (e.g. .init.nommu.*) and add modpost checks
+for references to the bss or other sections.
 
-> 
-> The firmware running on PRU maintains statistics in internal data memory.
-> When requested ethtool collects all the statistics for the specified
-> interface and displays it in the user space.
-> 
-
-> --- a/drivers/net/ethernet/ti/Makefile
-> +++ b/drivers/net/ethernet/ti/Makefile
-> @@ -4,7 +4,7 @@
->   #
->   
-[clip]
-> +}
-> +
-> +static void icssm_emac_get_regs(struct net_device *ndev,
-> +				struct ethtool_regs *regs, void *p)
-> +{
-> +	struct prueth_emac *emac = netdev_priv(ndev);
-> +	struct prueth *prueth = emac->prueth;
-> +
-> +	regs->version = PRUETH_REG_DUMP_GET_VER(prueth);
-> +}
-> +
-> +static const struct ethtool_rmon_hist_range icssm_emac_rmon_ranges[] = {
-> +	{    0,   64},
-> +	{   65,  127},
-> +	{  128,  255},
-> +	{  256,  511},
-> +	{  512,  1023},
-> +	{ 1024,  EMAC_MAX_PKTLEN},
-> +	{}
-> +};
-> +
-> +static void
-> +icssm_emac_get_rmon_stats(struct net_device *ndev,
-> +			  struct ethtool_rmon_stats *rmon_stats,
-> +			  const struct ethtool_rmon_hist_range **ranges)
-> +{
-> +	struct prueth_emac *emac = netdev_priv(ndev);
-> +	struct port_statistics pstats;
-> +
-> +	*ranges = icssm_emac_rmon_ranges;
-> +	icssm_emac_get_stats(emac, &pstats);
-> +
-> +	rmon_stats->undersize_pkts = pstats.rx_undersized_frames;
-> +	rmon_stats->oversize_pkts  = pstats.rx_oversized_frames;
-
-remove extra ' ' before =
-
-> +
-> +	rmon_stats->hist[0] = pstats.tx64byte;
-> +	rmon_stats->hist[1] = pstats.tx65_127byte;
-> +	rmon_stats->hist[2] = pstats.tx128_255byte;
-> +	rmon_stats->hist[3] = pstats.tx256_511byte;
-> +	rmon_stats->hist[4] = pstats.tx512_1023byte;
-> +
-> +	rmon_stats->hist_tx[0] = pstats.rx64byte;
-> +	rmon_stats->hist_tx[1] = pstats.rx65_127byte;
-> +	rmon_stats->hist_tx[2] = pstats.rx128_255byte;
-> +	rmon_stats->hist_tx[3] = pstats.rx256_511byte;
-> +	rmon_stats->hist_tx[4] = pstats.rx1024byte;
-> +}
-> +
-> +static void
-> +icssm_emac_get_eth_mac_stats(struct net_device *ndev,
-> +			     struct ethtool_eth_mac_stats *mac_stats)
-> +{
-> +	struct prueth_emac *emac = netdev_priv(ndev);
-> +	struct port_statistics pstats;
-> +
-> +	icssm_emac_get_stats(emac, &pstats);
-> +
-> +	mac_stats->LateCollisions = pstats.late_coll;
-> +	mac_stats->SingleCollisionFrames = pstats.single_coll;
-> +	mac_stats->MultipleCollisionFrames = pstats.multi_coll;
-> +}
-> +
-> +/* Ethtool support for EMAC adapter */
-> +const struct ethtool_ops emac_ethtool_ops = {
-> +	.get_drvinfo = icssm_emac_get_drvinfo,
-> +	.get_link_ksettings = phy_ethtool_get_link_ksettings,
-> +	.set_link_ksettings = phy_ethtool_set_link_ksettings,
-> +	.get_link = ethtool_op_get_link,
-> +	.get_sset_count = icssm_emac_get_sset_count,
-> +	.get_strings = icssm_emac_get_strings,
-> +	.get_ethtool_stats = icssm_emac_get_ethtool_stats,
-> +	.get_regs = icssm_emac_get_regs,
-> +	.get_rmon_stats = icssm_emac_get_rmon_stats,
-> +	.get_eth_mac_stats = icssm_emac_get_eth_mac_stats,
-> +};
-> +EXPORT_SYMBOL_GPL(emac_ethtool_ops);
-> diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-> index 7aae12383ad3..b37991b04dd1 100644
-> --- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-> +++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-> @@ -901,6 +901,8 @@ static int icssm_emac_ndo_open(struct net_device *ndev)
->   
->   	icssm_prueth_emac_config(emac);
->   
-> +	icssm_emac_set_stats(emac, &emac->stats);
-> +
->   	ret = icssm_emac_set_boot_pru(emac, ndev);
->   	if (ret)
->   		return ret;
-> @@ -952,6 +954,8 @@ static int icssm_emac_ndo_stop(struct net_device *ndev)
->   	/* stop the PRU */
->   	rproc_shutdown(emac->pru);
->   
-> +	icssm_emac_get_stats(emac, &emac->stats);
-> +
->   	/* free rx interrupts */
->   	free_irq(emac->rx_irq, ndev);
->   
-> @@ -1045,10 +1049,39 @@ static enum netdev_tx icssm_emac_ndo_start_xmit(struct sk_buff *skb,
->   	return ret;
->   }
->   
-> +/**
-> + * icssm_emac_ndo_get_stats64 - EMAC get statistics function
-> + * @ndev: The EMAC network adapter
-> + * @stats: rtnl_link_stats structure
-> + *
-> + * Called when system wants to get statistics from the device.
-> + *
-> + */
-> +static void icssm_emac_ndo_get_stats64(struct net_device *ndev,
-> +				       struct rtnl_link_stats64 *stats)
-> +{
-> +	struct prueth_emac *emac = netdev_priv(ndev);
-> +	struct port_statistics pstats;
-> +
-> +	icssm_emac_get_stats(emac, &pstats);
-> +
-> +	stats->rx_packets = ndev->stats.rx_packets;
-> +	stats->rx_bytes   = ndev->stats.rx_bytes;
-> +	stats->tx_packets = ndev->stats.tx_packets;
-> +	stats->tx_bytes   = ndev->stats.tx_bytes;
-> +	stats->tx_errors  = ndev->stats.tx_errors;
-> +	stats->tx_dropped = ndev->stats.tx_dropped;
-> +	stats->multicast  = pstats.rx_mcast;
-> +
-> +	stats->rx_over_errors   = ndev->stats.rx_over_errors;
-> +	stats->rx_length_errors = ndev->stats.rx_length_errors;
-
-remove extra ' ' before =
-
-> +}
-> +
->   static const struct net_device_ops emac_netdev_ops = {
->   	.ndo_open = icssm_emac_ndo_open,
->   	.ndo_stop = icssm_emac_ndo_stop,
->   	.ndo_start_xmit = icssm_emac_ndo_start_xmit,
-> +	.ndo_get_stats64 = icssm_emac_ndo_get_stats64,
->   };
->   
->   /* get emac_port corresponding to eth_node name */
-> @@ -1177,6 +1210,7 @@ static int icssm_prueth_netdev_init(struct prueth *prueth,
->   	phy_remove_link_mode(emac->phydev, ETHTOOL_LINK_MODE_Asym_Pause_BIT);
->   
->   	ndev->netdev_ops = &emac_netdev_ops;
-> +	ndev->ethtool_ops = &emac_ethtool_ops;
->   
->   	return 0;
->   free:
-> diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.h b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-> index 3c70dc9c4be0..39ceed0e2d15 100644
-> --- a/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-> +++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-> @@ -27,6 +27,12 @@
->   #define EMAC_MAX_FRM_SUPPORT (ETH_HLEN + VLAN_HLEN + ETH_DATA_LEN + \
->   			      ICSSM_LRE_TAG_SIZE)
->   
-> +#define PRUETH_REG_DUMP_VER		1
-> +
-> +/* Encoding: 32-16: Reserved, 16-8: Reg dump version, 8-0: Ethertype  */
-
-remove extra ' ' after Ethertype
-
-> +#define PRUETH_REG_DUMP_GET_VER(x)	((PRUETH_REG_DUMP_VER << 8) | \
-> +					 ((x)->eth_type))
-> +
->   /* PRU Ethernet Type - Ethernet functionality (protocol
->    * implemented) provided by the PRU firmware being loaded.
->    */
-> @@ -108,6 +114,119 @@ struct prueth_packet_info {
->   	bool timestamp;
->   };
-
-Thanks,
-Alok
+-- 
+Catalin
 
