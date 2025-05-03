@@ -4,85 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB0F1C369D9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 May 2025 10:27:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15C63C369D9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 May 2025 10:29:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CWZQ6S2WoUlOgAnpRRadzKDIC+QrzwpQaikcARUr9A8=; b=dJ7Kw3P8Z3hDqM2PDpYyQ9aVzL
-	LFDii3+ggOUKgmaJAJb0XyeZx0VXRi/OsieZPC0QCYgl+qbV8EPbPnV6VVs0QjOIeNGmaGJpwMBr4
-	M+5ONOOP86a4knbvc0RN40R9LnlpAweBNByiDkC3ETpy6KIR9sWanBrI036dH6QTngzmPbn5mYwpM
-	2ydZPu/9wlL2deU5rqcIOgUVb41hVfoHRSS3GPrrO9vs5WkRB+wLRF+Zkl9AutlNYROInHAO2r9FT
-	lbjs9cUYwjUSZHdqSUdRU1AqCUewkyU8n11tiVFxE7/HVil821NQSWanj0bOcHlztRxfav876qfbH
-	MD1B9LtQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dJ5yxwzSd18ze9t6hVLldU0j6KOkUmoNge4T8HYqBS0=; b=nl7sEk48xNaxRtc9gRgSKfkcEz
+	htxc9ltXKDNhsE115stkVjhj93s5plMKENKAzMotww4AMQDZm3Cau4k8BW2pJAXJ4LuS150Dh9wfw
+	HjpiaEGNFK0as/mp/BFFtoxTGM93JGv2fNYplv1+gtjjWbgeeKh7XkQXyhdcXFqPB1VSrb+TgY9ad
+	mDLyGrjfVa2a0iut9wL3vOGOzwxIXaaqoMMe7FEX+zVb5gmYm5TgeA4JsW5ijlTUUq2PxeVEA1W+O
+	JLcKn3pmCQH4kuju5HpU6Q5iVWPBZR6BP7vLTkWNOgbOtDKt1y2p5yNzDLDW92m+BcKVPkIV7aY9m
+	eTMzCAeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBA62-00000003kjQ-19Vw;
-	Sat, 03 May 2025 10:27:50 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uBA7w-00000003ksE-1H7A;
+	Sat, 03 May 2025 10:29:48 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uB9m9-00000003iwY-1ufi
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 May 2025 10:07:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D02114A870;
-	Sat,  3 May 2025 10:07:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D1EF5C4CEF2;
-	Sat,  3 May 2025 10:07:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746266835;
-	bh=FCj41YuS83lubvQ4sTVq20svbkJeutFtiBUdO/qgxJc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=aYVtCN7W4K++duwoGczZfIvcv4H17huF7MKXqW1kDVi9fJnbFYZ8w4bljXz1YPxY1
-	 OTBwYeHV27gprbXlS0gQHZzBx0Pat35veBQG0tyzq1OlfQOnm+pmxpyMt0Q7jB2FSk
-	 NS1j+yp1QP3wTdm+s2tQgJFHfjboxb+SiJXHgoZzpXrOB/C9+01e/q08j6b5Dk3RPX
-	 HZIcNaRl9bL2oIhPybTCUkJzUxSteFZKAX2sz7QnJSnv8VZJF6zY4ffVlZ1iolH/2h
-	 hNs8ebMj4xwDLCPX7cuCwgmw0Kl7s5IVChTQZHulYQ3BJa1z1+5EVOUxM/AcvCMAII
-	 PLLFj3tA8EVTQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id C429BC3ABB8;
-	Sat,  3 May 2025 10:07:15 +0000 (UTC)
-From: Sven Peter via B4 Relay <devnull+sven.svenpeter.dev@kernel.org>
-Date: Sat, 03 May 2025 10:06:50 +0000
-Subject: [PATCH v4 3/9] dt-bindings: mfd: Add Apple Mac System Management
- Controller
+	id 1uB9nK-00000003jBn-3jNE;
+	Sat, 03 May 2025 10:08:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=dJ5yxwzSd18ze9t6hVLldU0j6KOkUmoNge4T8HYqBS0=; b=GOB+MR3VxfN1j7WarrQhI/6dmH
+	vRfudx8ixVXXLahZ5Vh8j/YV+rz0bN0tn9bTArcTr1NsyR+0jGLwlNt8EYztmc0IUq0DpZL7Pe46D
+	mCGzoxK2teuDvnXJsCVUEUXwYXDC3wAee2RqoeN+fsJd+RzTI+mQwxdDIvggeLZlaiKAWFLqPRq0S
+	IuswIIPXKlfbEagBmwO0i3IGgARDudkxbUIeLTk+oovsy5LYtPuksQ4IQ+OneWlj/q6IJCz1xOC8h
+	XittOBymb3zchZdOthguklAKCk9nDEM6I2jsYEv83el4962flzGypwFgOz5frjIaNshHKTwaMi6+8
+	KWo6/NdQ==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uB9nB-00000002xfU-2zcZ;
+	Sat, 03 May 2025 10:08:22 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 09B7630114C; Sat,  3 May 2025 12:08:21 +0200 (CEST)
+Date: Sat, 3 May 2025 12:08:20 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Maxim Levitsky <mlevitsk@redhat.com>, kvm@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Kunkun Jiang <jiangkunkun@huawei.com>,
+	Waiman Long <longman@redhat.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Borislav Petkov <bp@alien8.de>,
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Alexander Potapenko <glider@google.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Andre Przywara <andre.przywara@arm.com>, x86@kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Thomas Gleixner <tglx@linutronix.de>, kvm-riscv@lists.infradead.org,
+	Atish Patra <atishp@atishpatra.org>, Ingo Molnar <mingo@redhat.com>,
+	Jing Zhang <jingzhangos@google.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>, kvmarm@lists.linux.dev,
+	Will Deacon <will@kernel.org>,
+	Keisuke Nishimura <keisuke.nishimura@inria.fr>,
+	Sebastian Ott <sebott@redhat.com>, Shusen Li <lishusen2@huawei.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Randy Dunlap <rdunlap@infradead.org>, Marc Zyngier <maz@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v4 5/5] x86: KVM: SEV: implement kvm_lock_all_vcpus and
+ use it
+Message-ID: <20250503100820.GF4198@noisy.programming.kicks-ass.net>
+References: <20250430203013.366479-1-mlevitsk@redhat.com>
+ <20250430203013.366479-6-mlevitsk@redhat.com>
+ <aBUxqZ6qgfYZLsye@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250503-smc-6-15-v4-3-500b9b6546fc@svenpeter.dev>
-References: <20250503-smc-6-15-v4-0-500b9b6546fc@svenpeter.dev>
-In-Reply-To: <20250503-smc-6-15-v4-0-500b9b6546fc@svenpeter.dev>
-To: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
- Hector Martin <marcan@marcan.st>, Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Sebastian Reichel <sre@kernel.org>, 
- Lee Jones <lee@kernel.org>, Marc Zyngier <maz@kernel.org>, 
- "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3091; i=sven@svenpeter.dev;
- h=from:subject:message-id;
- bh=g5ICObcHrqmqje6IzUss8WgmYFLH5P7pKOHUdmrLAhA=;
- b=owGbwMvMwCHmIlirolUq95LxtFoSQ4boq+PztK3ON3yI529a18uZtTXwzw2+Mw6x5kFGX19Pe
- PFun+TLjlIWBjEOBlkxRZbt++1Nnzx8I7h006X3MHNYmUCGMHBxCsBElDQZGR5/+8p24hhjemWO
- 9ws5gxnaS5vnipilxe/ZwsBQ+Wz3z30M/5Pr9aU2bgx1WtEfdO5JwmOr+BN//y//pZK7LyBofea
- 1BRwA
-X-Developer-Key: i=sven@svenpeter.dev; a=openpgp;
- fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
-X-Endpoint-Received: by B4 Relay for sven@svenpeter.dev/default with
- auth_id=167
-X-Original-From: Sven Peter <sven@svenpeter.dev>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250503_030717_554882_EA010F70 
-X-CRM114-Status: GOOD (  12.96  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aBUxqZ6qgfYZLsye@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,115 +94,42 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: sven@svenpeter.dev
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+On Fri, May 02, 2025 at 01:57:13PM -0700, Sean Christopherson wrote:
 
-Add a DT binding for the Apple Mac System Management Controller.
+> int kvm_lock_all_vcpus(struct kvm *kvm)
+> {
+> 	struct kvm_vcpu *vcpu;
+> 	unsigned long i, j;
+> 	int r;
+> 
+> 	lockdep_assert_held(&kvm->lock);
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Sven Peter <sven@svenpeter.dev>
----
- .../devicetree/bindings/mfd/apple,smc.yaml         | 71 ++++++++++++++++++++++
- MAINTAINERS                                        |  1 +
- 2 files changed, 72 insertions(+)
+So I agree that having this assertion here is probably good from a
+read-code pov, however, strictly speaking, it is redundant in that:
 
-diff --git a/Documentation/devicetree/bindings/mfd/apple,smc.yaml b/Documentation/devicetree/bindings/mfd/apple,smc.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..9f1058c15bbf62d84f8a72fdaa354909b02e2801
---- /dev/null
-+++ b/Documentation/devicetree/bindings/mfd/apple,smc.yaml
-@@ -0,0 +1,71 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/mfd/apple,smc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Apple Mac System Management Controller
-+
-+maintainers:
-+  - Sven Peter <sven@svenpeter.dev>
-+
-+description:
-+  Apple Mac System Management Controller implements various functions
-+  such as GPIO, RTC, power, reboot.
-+
-+properties:
-+  compatible:
-+    items:
-+      - enum:
-+          - apple,t6000-smc
-+          - apple,t8103-smc
-+          - apple,t8112-smc
-+      - const: apple,smc
-+
-+  reg:
-+    items:
-+      - description: SMC area
-+      - description: SRAM area
-+
-+  reg-names:
-+    items:
-+      - const: smc
-+      - const: sram
-+
-+  mboxes:
-+    maxItems: 1
-+
-+  gpio:
-+    $ref: /schemas/gpio/apple,smc-gpio.yaml
-+
-+  reboot:
-+    $ref: /schemas/power/reset/apple,smc-reboot.yaml
-+
-+additionalProperties: false
-+
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - mboxes
-+
-+examples:
-+  - |
-+    soc {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+
-+      smc@23e400000 {
-+        compatible = "apple,t8103-smc", "apple,smc";
-+        reg = <0x2 0x3e400000 0x0 0x4000>,
-+               <0x2 0x3fe00000 0x0 0x100000>;
-+        reg-names = "smc", "sram";
-+        mboxes = <&smc_mbox>;
-+
-+        smc_gpio: gpio {
-+          compatible = "apple,smc-gpio";
-+          gpio-controller;
-+          #gpio-cells = <2>;
-+        };
-+      };
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index d85d9d9065db4dc5869788f8a81d9d9a425d7ce3..2c16b2fc3fec76104967530f487123485af1e777 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2275,6 +2275,7 @@ F:	Documentation/devicetree/bindings/iommu/apple,dart.yaml
- F:	Documentation/devicetree/bindings/iommu/apple,sart.yaml
- F:	Documentation/devicetree/bindings/leds/backlight/apple,dwi-bl.yaml
- F:	Documentation/devicetree/bindings/mailbox/apple,mailbox.yaml
-+F:	Documentation/devicetree/bindings/mfd/apple,smc.yaml
- F:	Documentation/devicetree/bindings/net/bluetooth/brcm,bcm4377-bluetooth.yaml
- F:	Documentation/devicetree/bindings/nvme/apple,nvme-ans.yaml
- F:	Documentation/devicetree/bindings/nvmem/apple,efuses.yaml
+> 	kvm_for_each_vcpu(i, vcpu, kvm) {
+> 		r = mutex_lock_killable_nest_lock(&vcpu->mutex, &kvm->lock);
 
--- 
-2.34.1
+will implicitly assert kvm->lock is held. If you try to use an unheld
+lock as nest lock, it will complain loudly :-)
 
+(my inner pendant had to reply, ignore at will :-)
 
+> 		if (r)
+> 			goto out_unlock;
+> 	}
+> 	return 0;
+> 
+> out_unlock:
+> 	kvm_for_each_vcpu(j, vcpu, kvm) {
+> 		if (i == j)
+> 			break;
+> 		mutex_unlock(&vcpu->mutex);
+> 	}
+> 	return r;
+> }
+> EXPORT_SYMBOL_GPL(kvm_lock_all_vcpus);
 
