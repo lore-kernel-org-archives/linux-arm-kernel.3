@@ -4,96 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7158C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 May 2025 23:08:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D601C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 May 2025 23:34:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WG5Q7M6LXC8ceUGjLsv7jt8ZOhJNoErjR02gyORXoXA=; b=NbYxRH+t8sKsaA3g/ICjmeaWgC
-	25MgUKOUlGLJuFGtn2zKIys/nG7sqe6KPUO+RCu7RakKVcyDfdhwT80CVGCz7Gzz2WEaGrFx//i5e
-	IOP+X2wD6mL8DMLnOAJawpWZeOtAnda/teJyRenVakwpsSBkIzakvqNNdvYbLiRYC3r1yqydoOBAE
-	E81HSgys2cr7k0SSNC4JNHNS1NnzKhHS/jS8UqrCXYmAmPXx8Rz+Hn8J4Vs5ntuf91C1Wna1eW450
-	5nRzs53uBi+i6UTdCd6rvIAHqBuJCNV5C5UxlFaePNEkPjU7uMqamsM6z7n12k1T5lomvb7BKvzBQ
-	kgZzRXnQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vPxXYTUhw0LxJegZOdaH0V/tWdS8rYpM0fqjupPPZww=; b=4K3dsbd/M3qzEm4KCbMIjYgAnS
+	nM8YX/nKL4KYh3vxj2D5tivIcDORd7/fxGq521GbIMP5RrzWajBNI3WGKR5sDDrjnvrb//7ITR0Xt
+	VPjFN/8RBfmQOzKkb4GeR1gKjIHWvNGIyF1R24RP7ClD3ZBA7OU12GQx1H8vhQIKNf0C3+oXGAskX
+	3D993LHWjiMEbs5Ix1FzsEuqOpffQUVjdr9puzWHRqlnm/tlEWkOxeTd293bhTjm+z8SP/80DWJ48
+	u7lL9K9YC9s0lEOnBGp+yIRicPQ/WWZq3UL+5AomKjhCMdQnKRYHJz6fUOz5PKlId/4XTM2h/9QPP
+	6oMIVTSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBiRS-000000066La-0Kaw;
-	Sun, 04 May 2025 23:08:14 +0000
-Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBiPY-000000066C9-0HFI;
-	Sun, 04 May 2025 23:06:17 +0000
-Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-7c54f67db99so572137085a.1;
-        Sun, 04 May 2025 16:06:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746399975; x=1747004775; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=WG5Q7M6LXC8ceUGjLsv7jt8ZOhJNoErjR02gyORXoXA=;
-        b=OqW1qw2bB0pvsHsqs/2h8LYN4MHQQ4hHyB7sWZ03KGxRGOrWXBseIQw3FHgqrjdpuc
-         td5zwZNXlujMuWoR3DbfG4vQwn0ub/Gp8In1gYTgnsCdxFneUfx8W6kAOsfv97cjZBHO
-         l9DxIu2Pq3MyAm/P1rrTA3LM9nBvXc4on8DLqXjslT93ysCeRYqCCqmGZitpCrkafnfL
-         hDwqeDJmRztLvJp+R6j2ERslMBQRPZ0rmH8ugqcOoURM16VsVvEiZiFy5RQ5G8+OcUtY
-         GGRojuOJi1jv9YrTZ1Fxw/wAKhKB1iVv47y8DHsnvKjxwTO3A6l0lPCO9NpHDqQmB9MU
-         jU3w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746399975; x=1747004775;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=WG5Q7M6LXC8ceUGjLsv7jt8ZOhJNoErjR02gyORXoXA=;
-        b=WRiacPQ426jKMOX+MaHOUAEt0zi5md4rCXPiz9AvRHWgH+bxW7dfvckbchyN91nkTD
-         Kkc33SyEb3ocH1JYFq6O/aUmpdZboav8u4XUtm8BPXt3U74wFqlVlEJ93tDf+H7pMLC8
-         +XBUgHsT2Qfzk/A3xR/Od/b9oa+fs9Y8nClQ1Gwq/CCtygmjyT1d9CSmhKV1Bv9qMxyd
-         6AzxzKSu0srwn4Srzul50hLp+mDyVYGw58wfOexKWwra1mP/DJ1QVB2NUzcAHklA1J+g
-         mQ3DCt3q8v32H45lo0iSXDtysCknV4DLGaAEC83A/iMSVmwPF/A4arwDH90mHrj5X/uR
-         zMpQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU2QyIF1r4YVWY26ejTimokpo0VRBNkztYogOTfMhJ/+BL+zhK2MR81O4kyaOAFl57sD8KHzkofQ448s6NkqpY=@lists.infradead.org, AJvYcCUpypKmqtKXfgkTJgxOxEd42jTJFE1SFc0RClFSD0T2K89YO5ZQcw+AcbTDFLF1RloiTs8MMs2em37llQrd88sP@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxbgzuxh2C4E8SB+Z11YZSsikyaN5Hrgz45RJZr3wzEgxExg5WN
-	regq+N1PXaTi35A48wMu4fJLo+kTmO5uEk7GOyADabUHi8LS8aYx
-X-Gm-Gg: ASbGnctWPHLG6Y3dP+YKbW1tD3/5HqjCxPnSVo6BY2Mlp/hh0lfYdfeFjIlr2uy98XR
-	xndW1QsNGnMLAblB18XLQ5vp4OFXw6BWBPy5F9vD5pD1YagmyYPSn6dRJv0T8RvCoWELLsxGoD2
-	SqRTn62YUc0LDs55PaYIXYMUtSgzNP7p1eFFIqt7XojhvHWMep8/Z9XnXUpiX9PghZ+LP00sjqD
-	S8RttvXtnXSWW6cF23FXtDdsgqzS4BV9F2p+ILzIBkBfxAmKmlRJAnI4BqnnsFWDHOCYoU7583z
-	PkIz6nwrHjYF0maMyH+/VRnK7eke159/mY92oa/GM3+8ubhpKGZMaOuxj/f/4A==
-X-Google-Smtp-Source: AGHT+IGXVOmqNZtnqI0MebY7SuNjt8ChHjXmPGL86trlt2xMX3O3Zn4OdIXuAF3VZCOaQ2cofukTSA==
-X-Received: by 2002:a05:620a:1995:b0:7b6:d273:9b4f with SMTP id af79cd13be357-7cad5745825mr1588016285a.11.1746399974646;
-        Sun, 04 May 2025 16:06:14 -0700 (PDT)
-Received: from [192.168.21.149] ([216.237.233.165])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7cad23b530bsm490164385a.6.2025.05.04.16.06.13
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 04 May 2025 16:06:14 -0700 (PDT)
-Message-ID: <547dab4c-a96d-4196-a092-ca409e2ca8c5@gmail.com>
-Date: Sun, 4 May 2025 19:06:13 -0400
+	id 1uBiqg-0000000686N-3Nn9;
+	Sun, 04 May 2025 23:34:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uBiok-000000067gH-10IO
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 04 May 2025 23:32:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 76B0B1007;
+	Sun,  4 May 2025 16:32:05 -0700 (PDT)
+Received: from u200865.usa.arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 28F6B3F58B;
+	Sun,  4 May 2025 16:32:14 -0700 (PDT)
+From: Jeremy Linton <jeremy.linton@arm.com>
+To: linux-trace-kernel@vger.kernel.org
+Cc: linux-perf-users@vger.kernel.org,
+	mhiramat@kernel.org,
+	oleg@redhat.com,
+	peterz@infradead.org,
+	acme@kernel.org,
+	namhyung@kernel.org,
+	mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org,
+	irogers@google.com,
+	adrian.hunter@intel.com,
+	kan.liang@linux.intel.com,
+	thiago.bauermann@linaro.org,
+	broonie@kernel.org,
+	yury.khrustalev@arm.com,
+	kristina.martsenko@arm.com,
+	liaochang1@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jeremy Linton <jeremy.linton@arm.com>
+Subject: [PATCH v3 0/7]  arm64: Enable UPROBES with GCS
+Date: Sun,  4 May 2025 18:31:56 -0500
+Message-ID: <20250504233203.616587-1-jeremy.linton@arm.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] arm64: dts: rockchip: Add Luckfox Omni3576 Board
- support
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Jonas Karlman <jonas@kwiboo.se>, heiko@sntech.de, robh@kernel.org,
- conor+dt@kernel.org, detlev.casanova@collabora.com,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- devicetree@vger.kernel.org, krzk+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20250502205533.51744-1-inindev@gmail.com>
- <20250504102447.153551-1-inindev@gmail.com>
- <20250504102447.153551-4-inindev@gmail.com>
- <bb171ae2-c495-49a3-a7eb-a4b865e54199@kwiboo.se>
- <87892840-bdbf-43d4-bd93-cb98f5e1c672@lunn.ch>
- <b603e92f-8c1a-4aea-8bab-82a1f035c7fa@gmail.com>
- <b50c68bd-9b15-412a-ac00-1df25601edd9@lunn.ch>
-Content-Language: en-US
-From: John Clark <inindev@gmail.com>
-In-Reply-To: <b50c68bd-9b15-412a-ac00-1df25601edd9@lunn.ch>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250504_160616_126113_BC7BBD90 
-X-CRM114-Status: GOOD (  16.25  )
+X-CRM114-CacheID: sfid-20250504_163218_324019_6F002EE4 
+X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,117 +81,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/4/25 7:01 PM, Andrew Lunn wrote:
-> On Sun, May 04, 2025 at 05:02:33PM -0400, John Clark wrote:
->> On 5/4/25 10:12 AM, Andrew Lunn wrote:
->>>>> +&gmac0 {
->>>>> +	clock_in_out = "output";
->>>>> +	phy-handle = <&rgmii_phy0>;
->>>>> +	phy-mode = "rgmii-rxid";
->>>>
->>>> See Andrew's remark on v1 of this patch.
->>>
->>> Hi John
->>>
->>> If you have questions, please ask. It is not a good idea to silently
->>> ignore reviewers comments. Either do something about it, ask
->>> questions, or politely argue why the reviewer is wrong, because
->>> sometimes we are.
->>>
->> Hi Andrew,
->> Thanks for your feedback and the link to the RGMII delays discussion. I
->> assumed you suggested switching to phy-mode = "rgmii-id" from rgmii-rxid.
->> The vendor’s downstream kernel uses rgmii-rxid with tx_delay = <0x20>, as
->> shown in my post. I tried rgmii-id and removed tx_delay, but the interface
->> failed to get a DHCP address. Reverting to rgmii-rxid with the delay
->> restored functionality. Any advice on correctly configuring rgmii-id or
->> adjusting delays for this board?
-> 
-> What PHY is it? Are you using the correct PHY driver for it, or
-> genphy?
- >
+Currently uprobes and the Arm Guarded Control Stack (GCS) feature are
+exclusive of each other. This restriction needs to be lifted in order
+to utilize GCS for generic Linux distro images where the expectation
+is that core debugging features like uprobes work.
 
-This fails:
+This series adds some user accessors to read/push/pop the userspace
+shadow stack. It then utilizes those functions in the uprobe paths
+as needed to synchronize GCS with the changes in control flow at
+probe locations. 
 
-&gmac0 {
-         clock_in_out = "output";
-         phy-handle = <&rgmii_phy0>;
-         phy-mode = "rgmii-id";
-         pinctrl-names = "default";
-         pinctrl-0 = <&eth0m0_miim
-                      &eth0m0_tx_bus2
-                      &eth0m0_rx_bus2
-                      &eth0m0_rgmii_clk
-                      &eth0m0_rgmii_bus
-                      &ethm0_clk0_25m_out>;
-         status = "okay";
-};
+The KCONFIG restriction is then dropped.
 
-&mdio0 {
-         rgmii_phy0: ethernet-phy@0 {
-                 compatible = "ethernet-phy-ieee802.3-c22";
-                 reg = <0x0>;
-                 clocks = <&cru REFCLKO25M_GMAC0_OUT>;
-                 pinctrl-names = "default";
-                 pinctrl-0 = <&gmac0_rst>;
-                 reset-assert-us = <20000>;
-                 reset-deassert-us = <100000>;
-                 reset-gpios = <&gpio2 RK_PB3 GPIO_ACTIVE_LOW>;
-         };
-};
+v2->v3: Cleanup RET logic to alwaays use LR, and not update IP if GCS aborts
+	Correct generic uprobe_warn bug even though we aren't using it
 
-&pinctrl {
-         gmac {
-                 gmac0_rst: gmac0-rst {
-                         rockchip,pins = <2 RK_PB3 RK_FUNC_GPIO 
-&pcfg_pull_none>;
-                 };
-         };
-};
+v1->v2:
+	Drop uprobe_warn() patch
+	Fix copy_thread_gcs() bug created by fixing task_gcs_el0_enabled()
+	Comments, now describe issues with reading userspace GCS pages
+	Rebased to 6.15
 
+Jeremy Linton (7):
+  arm64/gcs: task_gcs_el0_enable() should use passed task
+  arm64: probes: Break ret out from bl/blr
+  arm64: uaccess: Add additional userspace GCS accessors
+  arm64: probes: Add GCS support to bl/blr/ret
+  arm64: uprobes: Add GCS support to uretprobes
+  arm64: Kconfig: Remove GCS restrictions on UPROBES
+  uprobes: uprobe_warn should use passed task
 
-This works:
+ arch/arm64/Kconfig                       |  1 -
+ arch/arm64/include/asm/gcs.h             |  2 +-
+ arch/arm64/include/asm/uaccess.h         | 42 ++++++++++++++++++++++++
+ arch/arm64/kernel/probes/decode-insn.c   |  7 ++--
+ arch/arm64/kernel/probes/simulate-insn.c | 41 ++++++++++++++++++++---
+ arch/arm64/kernel/probes/simulate-insn.h |  3 +-
+ arch/arm64/kernel/probes/uprobes.c       | 30 +++++++++++++++++
+ arch/arm64/kernel/process.c              |  6 ++--
+ kernel/events/uprobes.c                  |  2 +-
+ 9 files changed, 119 insertions(+), 15 deletions(-)
 
-&gmac0 {
-         clock_in_out = "output";
-         phy-handle = <&rgmii_phy0>;
-         phy-mode = "rgmii-rxid";
-         pinctrl-names = "default";
-         pinctrl-0 = <&eth0m0_miim
-                      &eth0m0_tx_bus2
-                      &eth0m0_rx_bus2
-                      &eth0m0_rgmii_clk
-                      &eth0m0_rgmii_bus
-                      &ethm0_clk0_25m_out>;
-         tx_delay = <0x20>;
-         status = "okay";
-};
+-- 
+2.49.0
 
-&mdio0 {
-         rgmii_phy0: ethernet-phy@0 {
-                 compatible = "ethernet-phy-ieee802.3-c22";
-                 reg = <0x0>;
-                 clocks = <&cru REFCLKO25M_GMAC0_OUT>;
-                 pinctrl-names = "default";
-                 pinctrl-0 = <&gmac0_rst>;
-                 reset-assert-us = <20000>;
-                 reset-deassert-us = <100000>;
-                 reset-gpios = <&gpio2 RK_PB3 GPIO_ACTIVE_LOW>;
-         };
-};
-
-&pinctrl {
-         gmac {
-                 gmac0_rst: gmac0-rst {
-                         rockchip,pins = <2 RK_PB3 RK_FUNC_GPIO 
-&pcfg_pull_none>;
-                 };
-         };
-};
-
-> 
-> rk3576-rock-4d.dts and rk3576-armsom-sige5.dts show that it is
-> possible to use this SoC with the correct 'rgmii-id',
-> 
-> 	Andrew
 
