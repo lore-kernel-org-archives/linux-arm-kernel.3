@@ -4,114 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01BB9C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 May 2025 16:18:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 455ADC3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 May 2025 16:20:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VXhEj+fh/lv8lAax3CExJGm/OdSrS0qftTkNDE25VP8=; b=QdmJM2k5UwnGWK0NTqia8958fV
-	aSc3eh4hKnhfhJZCPvRVEEclEhAotuhQe+VTwJpk72npWosA1CH1eryYeRe/Zys3A4l27+GY2jmDg
-	J/RvFlQ8Lp41ZaCt3DtPzwyOhsj950MMWjAr1zGFvrAMNs50+WpnrfP+tSkUxNabq7dsdoDZTHzpW
-	Vh6vHSTbqponpw4igQHRVhpKD7WNtt5nAxtwVxnYnIFqsrZLMac3RE6a1sLiNyephPo61okN+3dnp
-	xGCRTMeJ6MD9Bu4q9qAobAjzmcUEAj9IjX9RKUdgmjLRSsJV5tj3zipikxLhtq2T05BXFeGaD9zrK
-	mVBeDnTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2EVC3je5HAhssIAnNfZ+XqOXLnIfrV/oZD5AQQ6xe/s=; b=2IcU1nFilhhlEJGX9brn6HID0t
+	TvvMEoDppNFTPYUs0R7+w7n0K0YjqfLkkqRvf0GLWP4kWiFUMqcdrVJp63c8IIdR192euKB5fdV+w
+	OvPjTHzpnFsGmPLSSnyuVGYQCRKkjsxVo9bULRo6jN7hMquZKWcwDtcmPgXia+8yLlNc194w21Pky
+	Xs4x61BbnzcCzyDhFSeu5XFPhVpBnqa5JMezvNw2sItnooqCIUiIKD2ugGDb7NkR6jBdhmFEa0MXq
+	7+w4yn3g6c7sn7FfH4zeAnhR7kvxNYPmnINA2HzuDuuT3nYR4v52rNXJ9P9F+cJOlGMmb/SXgeZ93
+	vdtSdAxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBc2t-00000005da5-3r3e;
-	Sun, 04 May 2025 16:18:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uBc4o-00000005dnW-2Ta3;
+	Sun, 04 May 2025 16:20:26 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBc0u-00000005d7B-27hb
+	id 1uBc1B-00000005dDE-3oLm
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 May 2025 16:16:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9BD4A4439D;
-	Sun,  4 May 2025 16:16:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0221C4CEE7;
-	Sun,  4 May 2025 16:16:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746375384;
-	bh=0x5yBbRnynrGipESD6GFE4idLm4RDPGnoBDDY0BtZEM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=sS6z8Gt9i7s0P5Kmpa4D5xTlt9KIQNeRxRLYtl0nYo4bIyJ0vGXKpwEQL5pG+bDLy
-	 6BYUzvwl1q/0Y5NigcVnEaovMvnP9OnsmVCX5EjHqxnNtBKBzBuVurKZJvQBByDeBu
-	 wLxECISvECmJ7nE1gzY4/2HBlrkLEJM9ZgLRKa9Y0n4jPVPfzOlvR6z61HKUukhbET
-	 PIQEB5gW0s+ugDcP64z1lM6frJUnJzlVZf5nMnAV+AnKGaYT88IenP/SqaCtxPqMkQ
-	 9QqLYn4wDXMtCNsm5osBrqEWSYeFgeENo9VzB8N+MwoeACFCMAU1JKxjU+Xx88zz1y
-	 WIfHp/RlX4nSQ==
-Message-ID: <ec294e4f-274a-45ae-ac10-464ae4ae6f66@kernel.org>
-Date: Sun, 4 May 2025 18:16:19 +0200
+	Sun, 04 May 2025 16:16:43 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 544EGxgH029287
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 4 May 2025 16:16:41 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	2EVC3je5HAhssIAnNfZ+XqOXLnIfrV/oZD5AQQ6xe/s=; b=jjIO5RsqjwOL8NcZ
+	Qifcx92SBgVIeZQ9Nc4Pg+OJtmB3KHtixWVrzFuxZaztvsMUbkQ/GS+L6ATcygWS
+	PYEgNHlYxtF1EcMtZZmS1rQ0GvxQ6yKUOAKsmSKqvZpXEjAwaGSgCP43qkU40OrF
+	xORvhu2q9vZsoXxbpUqtC8HV7YkH3RkU0dawPX8ANytBXxaVbZpZL7/0NP8fnkRR
+	LFAFhIzI3oElI+Ci8MBru8G/iCOOydwToIajdRl+I/Igiabr6clEnQdWYRp7kBJJ
+	dyFmOjv0ldDhNfzX/xJ6NuRirda0kuANJIEKA7X28iD1BJpTc1+E3QnFoRO/nImK
+	VfQCHw==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 46dbh7a5nv-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 04 May 2025 16:16:39 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-7c7c30d8986so412027085a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 May 2025 09:16:39 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746375398; x=1746980198;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=2EVC3je5HAhssIAnNfZ+XqOXLnIfrV/oZD5AQQ6xe/s=;
+        b=JLMKHCVB6ymSilIdh1tTB10rxgZopQI9xjGEg5viRM8lLhy53zusb7U9bPj0cVE8Sw
+         pMAHOsni/5IaFHtrofIlzqgfO0G/W2/qbzkNCbxJFZru1x8/uLhea6Hm7uVDnU7hzn0G
+         XnzQCnSxO3SNU2twKRrFRKYJB85jfC/j4qGEqXM+sy7eeDf39wQ8pFOFgPCsl5DEyvow
+         DLOVnc+69qGT13XZlxVsxvCKo+k92R5ukGU/8JbePZja622+kDzRzTAh3BnHn14fiBDg
+         /37ROQ5PChaD66oZC3ngAH9maAr/bB8rXx1H6SWw4iy/Myu4NUgcOcjHRNYdulEsUw7A
+         dT5w==
+X-Forwarded-Encrypted: i=1; AJvYcCXXjWZKtw4oOElIqU5nu6kZN8t9NXbu0BVAQwZBzwk8/Js6/Kd/d2OSQgDKeQYp6f3wniZa8Ea4YV4c5B3QtD09@lists.infradead.org
+X-Gm-Message-State: AOJu0YwX2H1mlwjzypJneS9TeMT9WEH52MIfanCYbchHmPbZTAkV9cFB
+	NvGAN0IpZ1ogKpbR0cmOMnVmw4rrk2h6W17B0qYDEOXUJKmQJupIWo8+tULQ4G+uc+SIS6Hrc+8
+	xQ3b+7zfrqdHcV/typYVpF30OpMpFPJFgrWnxqLqgf0/wW/UyD6Fgi+O3dZF8L38nTk5J8TQu5Q
+	==
+X-Gm-Gg: ASbGncvTwHi1Z3osSZGaT+ailXQ4CMwiuPWdo1f+UPJBZy8RUhrrGuodqb8fIozJBwG
+	IrV4jOkkM3xrq4fNeIBwMffIkMbYj9Ask+le/gSDVfwCSvsGeTnvJno2cM3N2bUv6cBWKiiBz8O
+	6s8CvrRcSDjkyJv5pJSuyEYT3TXoSX+Nf8kqIhelDO6IbW8P1LjVi6uxfv4jzKwuq2774dhAr9y
+	HKH4fUTE9pfd1AmHbOKIuTLQ6x1cAT9WStVph44esb3GhwquA36PKh4xmdLkl3qYVkXZd+euvXl
+	lPR/7xtfPULXAau62hFcVIfRPHcwF9SgHjevTNSMXtkCQWqDzjSt7LILSSScJMjG0feqyp+MZqI
+	=
+X-Received: by 2002:a05:620a:371e:b0:7c3:d5a4:3df3 with SMTP id af79cd13be357-7cae3aa64e3mr573862585a.34.1746375398515;
+        Sun, 04 May 2025 09:16:38 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEiT08Hu2FwqUiAAbt7TpcAAf+6cb8td1czl+K5aq9kRsZS87wnWvgBk2BX0BgUjYPWiwBvqg==
+X-Received: by 2002:a05:620a:371e:b0:7c3:d5a4:3df3 with SMTP id af79cd13be357-7cae3aa64e3mr573858585a.34.1746375398104;
+        Sun, 04 May 2025 09:16:38 -0700 (PDT)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54ea94edff7sm1299766e87.137.2025.05.04.09.16.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 04 May 2025 09:16:37 -0700 (PDT)
+Date: Sun, 4 May 2025 19:16:35 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>
+Cc: Andy Yan <andyshrk@163.com>, conor+dt@kernel.org, krzk+dt@kernel.org,
+        robh@kernel.org, hjc@rock-chips.com, mripard@kernel.org,
+        neil.armstrong@linaro.org, knaerzche@gmail.com,
+        devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-rockchip@lists.infradead.org, Andy Yan <andy.yan@rock-chips.com>
+Subject: Re: [PATCH v4 0/7] Convert inno hdmi to drm bridge
+Message-ID: <nco27hnwykffzgirhocskltrkcds32tefkix23nfknf3e5m3zd@mkrrbw6kogsi>
+References: <20250422070455.432666-1-andyshrk@163.com>
+ <9503607.rMLUfLXkoz@diego>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 0/3] Add STM32MP25 SPI NOR support
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Patrice Chotard <patrice.chotard@foss.st.com>
-Cc: christophe.kerello@foss.st.com, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20250428-upstream_ospi_v6-v11-0-1548736fd9d2@foss.st.com>
- <174636664232.45285.4829080141383638928.b4-ty@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <174636664232.45285.4829080141383638928.b4-ty@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <9503607.rMLUfLXkoz@diego>
+X-Authority-Analysis: v=2.4 cv=fMY53Yae c=1 sm=1 tr=0 ts=681792e7 cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=8nJEP1OIZ-IA:10
+ a=dt9VzEwgFbYA:10 a=s8YR1HE3AAAA:8 a=iQVnW9HZ8WsgGSc_yxwA:9 a=3ZKOabzyN94A:10
+ a=wPNLvfGTeEIA:10 a=bTQJ7kPSJx9SKPbeHEYW:22 a=jGH_LyMDp9YhSvY-UuyI:22
+X-Proofpoint-GUID: SBrkcgQVz5SGNZTKcGBte4a1KfYykAcu
+X-Proofpoint-ORIG-GUID: SBrkcgQVz5SGNZTKcGBte4a1KfYykAcu
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTA0MDE1MiBTYWx0ZWRfX0vtE6OqQg1dB
+ RZn/CyW7IuwETNh/6+VwnMkq1EXxwNJYJtIv51xSfvHirjqaewbN+YxACDTzTAScEmgxXdNJhOP
+ Z42F4daPgl1gAZMdC1041PO4MYKw0DeQs9+NPMIkrAZ9HmWGKTBGTJUO4BYKHYr6ZjPgEg1Mz24
+ cr47nEJpgvP/8MvQelNh87ufc6VriEr4l8llr1oMgSVwQWdrqNc0AIOao8HSnoUR7Pz7wRg3dn2
+ K6rYYwJ9wHcY1xuG5NMWCHo94ktI1lKEUQYW0qbwvUCt6o4saxIrNjBZwOGdqB5OgVWLVC46nPp
+ ovCt7o0BgtF8T2LdgqaKe1IsitybqdgKUllL1rImdC6OjkK21jVOS68Tpp5F5h/qRDQRflx3hNd
+ GTKF5WOEILZSrutLzh8Is6jCIIWQG8ZNsjB+FzzhNIvhhgd5Q4hvyehVMnT0d9PIa8qYSHiM
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-04_06,2025-04-30_01,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 impostorscore=0 lowpriorityscore=0 phishscore=0
+ suspectscore=0 mlxlogscore=999 malwarescore=0 spamscore=0 mlxscore=0
+ adultscore=0 bulkscore=0 clxscore=1015 classifier=spam authscore=0 authtc=n/a
+ authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2504070000 definitions=main-2505040152
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250504_091624_585721_5AFD8580 
-X-CRM114-Status: UNSURE (   8.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250504_091642_070195_9D3E74E7 
+X-CRM114-Status: GOOD (  29.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,29 +135,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/05/2025 15:50, Krzysztof Kozlowski wrote:
+On Sat, May 03, 2025 at 04:42:04PM +0200, Heiko Stübner wrote:
+> Am Dienstag, 22. April 2025, 09:04:39 Mitteleuropäische Sommerzeit schrieb Andy Yan:
+> > From: Andy Yan <andy.yan@rock-chips.com>
+> > 
+> > When preparing to convert the current inno hdmi driver into a
+> > bridge driver, I found that there are several issues currently
+> > existing with it:
+> > 
+> > 1. When the system starts up, the first time it reads the EDID, it
+> >    will fail. This is because RK3036 HDMI DDC bus requires it's PHY's
+> >    reference clock to be enabled first before normal DDC communication
+> >    can be carried out.
+> > 
+> > 2. The signal is unstable. When running the glmark2 test on the screen,
+> >    there is a small probability of seeing some screen flickering.
+> >    This is because The HSYNC/VSYNC polarity of rk3036 HDMI are controlled
+> >    by GRF. This part is missing in the current driver.
+> > 
+> > PATCH 1~6 are try to Fix Document in the dt-binding, then add the
+> > missing part in driver and dts.
+> > PATCH 7 converts the curren driver to drm bridge mode.
 > 
-> On Mon, 28 Apr 2025 10:58:29 +0200, Patrice Chotard wrote:
->> This series adds SPI NOR support for STM32MP25 SoCs from STMicroelectronics.
->>
->> On STM32MP25 SoCs family, an Octo Memory Manager block manages the muxing,
->> the memory area split, the chip select override and the time constraint
->> between its 2 Octo SPI children.
->>
->> Due to these depedencies, this series adds support for:
->>   - Octo Memory Manager driver.
->>   - Octo SPI driver.
->>   - yaml schema for Octo Memory Manager and Octo SPI drivers.
->>
->> [...]
+> After resurrecting my rk3036-kylin which hasn't sucessfully booted in a
+> while, I could veryify this series, so on a rk3036-kylin
 > 
-> Applied, thanks!
+> Tested-by: Heiko Stuebner <heiko@sntech.de>
 > 
-> [1/3] dt-bindings: memory-controllers: Add STM32 Octo Memory Manager controller
->       https://git.kernel.org/krzk/linux-mem-ctrl/c/43eb1b288072641b7de8f5d5c15bde69e6e8589a
+> 
+> I'll probably apply patches 1-4 to drm-misc later today, as that solely
+> touches the Rockchip (and only rk3036-)side and patches 5+6 to the
+> rockchip tree.
+> 
+> Patch 7 should probably get some attention by people more familiar with
+> drm-bridges, so I'll let that sit for a bit longer.
 
-And dropped everything - it is full of warnings.
+I will take a look later, but on the first glance it looks like there
+are too many things going on in that patch, including some unnecessary
+fnction movements and define movements, etc. I would kindly ask to split
+the non-functional refactorings and the functional ones (splitting to a
+library, etc).
 
-Best regards,
-Krzysztof
+> 
+> 
+> Thanks a lot for working on all this
+> Heiko
+> 
+> 
+
+-- 
+With best wishes
+Dmitry
 
