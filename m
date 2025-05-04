@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B007BC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 May 2025 23:44:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EBC1C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 May 2025 23:46:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MmJI79xOX++xDBcrvPihMsLbiYiuLuD+bYY7rFVQsyw=; b=MpFhVi///jSv8j9OSHcsjRFZCA
-	GqAB8a81lxC2Z0wVj6BGvGlLUNyxz2v5GZKUUFeKyooyE+SPfH3zSVy0KPo/rzVEFsko1XLyDtQ/o
-	BAZiltjUbj1Areg9H6Y4ceD2SqTMGz8gUy4PUtOH4nGvsieogI4aZZ+zs0OKDzQXXdgmdpSWLbbnw
-	Ri4obTbJyG7gZryi6VVsQpYrKGkL3CVtkZXZnFMBU8NxqJH+WDXY6BJB9vlC+zytJ3tzdkwPUlB88
-	wYYLWLKUb7DsGqyUGdaWXul71tygyUqhjXl/+PqK1t2y1Ptd3xLe7anvYKQi5rn6WzpuKD7HvVfrf
-	lqti458A==;
+	bh=A6ZCoBeH0fW0QPxmV5vmWVn1dC4/5hnvYV1OAX1MulU=; b=dFBnIkwl366mBgTp04m3OBv7Zy
+	H8JXiXX/fHw2av84+M+yioVZlZQRPnQTGcng0+fLoEKPX61vVk37grnFvpHiF8lIIld5t/JYrEqwl
+	FW/5nxHolK1s7hPxu2XKHCNH/Jim+jRmWH3JjKwYkDXG/eIuwlK9IIT9hcMg9ON9e4gbJFD8K36Lm
+	FV6PkWLoUIe1IzIF+8tHLbPlqkaOz5H7kBtgIn+2KFSW9O3PCjrbOaCS6KHakRkF+/JeaaRFA2jly
+	6Dj+8/sMWvhdc7nobS0nDMw0KIQzcFaqiR9MXPaNQ2/wUPXK+1MToToMg44mBzRxqbPuHjBbiyDHg
+	4u2mpVrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBj04-000000068qT-0nE1;
-	Sun, 04 May 2025 23:44:00 +0000
+	id 1uBj1w-000000068yD-3pmB;
+	Sun, 04 May 2025 23:45:56 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBion-000000067iw-1Drk
+	id 1uBioo-000000067jh-17o3
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 May 2025 23:32:22 +0000
+	Sun, 04 May 2025 23:32:23 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B86F51E5E;
-	Sun,  4 May 2025 16:32:11 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C420A1E8D;
+	Sun,  4 May 2025 16:32:12 -0700 (PDT)
 Received: from u200865.usa.arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 667AB3F58B;
-	Sun,  4 May 2025 16:32:20 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6D3CC3F58B;
+	Sun,  4 May 2025 16:32:21 -0700 (PDT)
 From: Jeremy Linton <jeremy.linton@arm.com>
 To: linux-trace-kernel@vger.kernel.org
 Cc: linux-perf-users@vger.kernel.org,
@@ -56,19 +56,19 @@ Cc: linux-perf-users@vger.kernel.org,
 	will@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Steve Capper <steve.capper@arm.com>
-Subject: [PATCH v3 5/7] arm64: uprobes: Add GCS support to uretprobes
-Date: Sun,  4 May 2025 18:32:01 -0500
-Message-ID: <20250504233203.616587-6-jeremy.linton@arm.com>
+	Jeremy Linton <jeremy.linton@arm.com>
+Subject: [PATCH v3 6/7] arm64: Kconfig: Remove GCS restrictions on UPROBES
+Date: Sun,  4 May 2025 18:32:02 -0500
+Message-ID: <20250504233203.616587-7-jeremy.linton@arm.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250504233203.616587-1-jeremy.linton@arm.com>
 References: <20250504233203.616587-1-jeremy.linton@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250504_163221_363951_0B1D4529 
-X-CRM114-Status: GOOD (  15.78  )
+X-CRM114-CacheID: sfid-20250504_163222_348247_8687CDFF 
+X-CRM114-Status: UNSURE (   8.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,69 +83,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Ret probes work by changing the value in the link register at
-the probe location to return to the probe rather than the calling
-routine. Thus the GCS needs to be updated with this address as well.
+Now that the uprobe paths have been made GCS compatible
+drop the Kconfig restriction.
 
-Since its possible to insert probes at locations where the
-current value of the LR doesn't match the GCS state this needs
-to be detected and handled in order to maintain the existing
-no-fault behavior.
-
-Co-developed-by: Steve Capper <steve.capper@arm.com>
-Signed-off-by: Steve Capper <steve.capper@arm.com>
-(updated to use new gcs accessors, and handle LR/GCS mismatches)
 Signed-off-by: Jeremy Linton <jeremy.linton@arm.com>
 ---
- arch/arm64/kernel/probes/uprobes.c | 30 ++++++++++++++++++++++++++++++
- 1 file changed, 30 insertions(+)
+ arch/arm64/Kconfig | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/arch/arm64/kernel/probes/uprobes.c b/arch/arm64/kernel/probes/uprobes.c
-index cb3d05af36e3..5e72409a255a 100644
---- a/arch/arm64/kernel/probes/uprobes.c
-+++ b/arch/arm64/kernel/probes/uprobes.c
-@@ -159,11 +159,41 @@ arch_uretprobe_hijack_return_addr(unsigned long trampoline_vaddr,
- 				  struct pt_regs *regs)
- {
- 	unsigned long orig_ret_vaddr;
-+	unsigned long gcs_ret_vaddr;
-+	int err = 0;
-+	u64 gcspr;
- 
- 	orig_ret_vaddr = procedure_link_pointer(regs);
-+
-+	if (task_gcs_el0_enabled(current)) {
-+		gcspr = read_sysreg_s(SYS_GCSPR_EL0);
-+		gcs_ret_vaddr = load_user_gcs((unsigned long __user *)gcspr, &err);
-+		if (err) {
-+			force_sig(SIGSEGV);
-+			goto out;
-+		}
-+		/*
-+		 * If the LR and GCS entry don't match, then some kind of PAC/control
-+		 * flow happened. Likely because the user is attempting to retprobe
-+		 * on something that isn't a function boundary or inside a leaf
-+		 * function. Explicitly abort this retprobe because it will generate
-+		 * a GCS exception.
-+		 */
-+		if (gcs_ret_vaddr != orig_ret_vaddr)	{
-+			orig_ret_vaddr = -1;
-+			goto out;
-+		}
-+		put_user_gcs(trampoline_vaddr, (unsigned long __user *) gcspr, &err);
-+		if (err) {
-+			force_sig(SIGSEGV);
-+			goto out;
-+		}
-+	}
-+
- 	/* Replace the return addr with trampoline addr */
- 	procedure_link_pointer_set(regs, trampoline_vaddr);
- 
-+out:
- 	return orig_ret_vaddr;
- }
- 
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index a182295e6f08..b962a1321ebf 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -2236,7 +2236,6 @@ config ARM64_GCS
+ 	default y
+ 	select ARCH_HAS_USER_SHADOW_STACK
+ 	select ARCH_USES_HIGH_VMA_FLAGS
+-	depends on !UPROBES
+ 	help
+ 	  Guarded Control Stack (GCS) provides support for a separate
+ 	  stack with restricted access which contains only return
 -- 
 2.49.0
 
