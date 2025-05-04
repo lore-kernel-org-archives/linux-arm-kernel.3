@@ -4,67 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75B4DC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 May 2025 10:51:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB8EC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 May 2025 11:02:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oyfspuUXsvtxwACFp2OjNa2e1i5qQ9TaWwXqk1eb8pI=; b=LM0ouZ3JEW/2rvO4nghohgAfuu
-	EpLPDw3z6t556lDo7hu9VZOEtfHTeCaqo+UEx+McCNEgX1wC3LsPymNl2xmYEVrECtJISlcW4TaLN
-	nTMmdkEXcolCQPaxmiNpRZ0rAgyD6mgsbSholBC9Noa4tsleTxAsy6MBCeq6DirNDfI9jnJd17eha
-	J0JrXoFg22qEZZzHC1A43lOwyNOFM1GChHwYYhr8hhzrDfpIaSSDOv/S6n0KYDksR/M8H45bsMrlZ
-	pUjAmsFfxMNChmEDScUFx75tcrvmbNAY3oZwiZVRwssqZAU7YLZrHpCgDBOrRlyc+QoVxXfoFoKK7
-	IUHhFivg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=64co1eXVWvwVQ0SXBQRdrG1hF0s6ABk2TT7nEdEkzcQ=; b=FCH8rcXlKNwjrUFOJ0wr4QWoPf
+	IXHMT3k/ZkZFGYXD4HNllHKdi6VNDhsxqzQgPi5TAfF2oEJn/lu/5xMSMi6j7fgdOJxyQr5JSwU2i
+	mmH3cQLA6zQszMZMkDARdv5/NHZ2qzx+zt2EDMLmDtwljWc0IylYBGyR8Z5MsmldvRpp6TN/+reD5
+	KjW0l9b+ruFXvsVSx4DdHjQRF8Si9a2ukLtRg+sgiZpeGlfwKbbtPqj4fL5FzaHokc6lNRaA5weWG
+	ljq0VJCXqgH6iAvCZCSqjtHHbvcyGmXbO95aMniYpTC193RWy9oBlZeP7NyxP8gO2MbgPnvqbLBV1
+	nlk0YRkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBWwb-00000005Cuz-0Azs;
-	Sun, 04 May 2025 10:51:37 +0000
-Received: from mx.denx.de ([89.58.32.78])
+	id 1uBX6d-00000005DbS-0QAi;
+	Sun, 04 May 2025 11:01:59 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBWte-00000005CiY-1Zvg
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 May 2025 10:48:37 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9F789102EBA58;
-	Sun,  4 May 2025 12:48:30 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=denx.de; s=mx-20241105;
-	t=1746355712; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=oyfspuUXsvtxwACFp2OjNa2e1i5qQ9TaWwXqk1eb8pI=;
-	b=bSHe0DDO0HmUzUv3nmn0yIx82Pqb+ItFmQHz+j+0ES347ylkqZfmv5jaG1li+ZwJeqeCvI
-	wbDv5wEkcWm8fn8Uczp/EQI2ok6MxarqXcFhzcaNtCDjbhBRHx80Wq0Pgxi4M9LbGkvo14
-	7Fdz3q2pFT6dUJ4ajBPgymZob7aamniu1ETu5GucgZEjEqABhSvhAYGynRyU5q0SFxNE9H
-	FbjuTg/HlHFZXtQiP0bcfJpz6w9OUE8lB/bS+MWt4qJNGI73QlE2Q/7DgW8MMCfjOZ/VBt
-	3NzAPiixMXGlvwKdLkHxchlhnc2+GaTj35fMn9ZMvi01cZU6XF1euYpK0OSyZg==
-Date: Sun, 4 May 2025 12:48:29 +0200
-From: Lukasz Majewski <lukma@denx.de>
-To: Simon Horman <horms@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
- <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- Richard Cochran <richardcochran@gmail.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Stefan Wahren
- <wahrenst@gmx.net>, Andrew Lunn <andrew@lunn.ch>
-Subject: Re: [net-next v10 4/7] net: mtip: The L2 switch driver for imx287
-Message-ID: <20250504124829.725a0248@wsk>
-In-Reply-To: <20250502170503.GN3339421@horms.kernel.org>
-References: <20250502074447.2153837-1-lukma@denx.de>
-	<20250502074447.2153837-5-lukma@denx.de>
-	<20250502170503.GN3339421@horms.kernel.org>
-Organization: denx.de
-X-Mailer: Claws Mail 3.19.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	id 1uBX4j-00000005DTB-3hAS;
+	Sun, 04 May 2025 11:00:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=64co1eXVWvwVQ0SXBQRdrG1hF0s6ABk2TT7nEdEkzcQ=; b=PLfJmqnpH7GgOAYizSRYexRD6q
+	7CTvTq02aWc+kWA0UNK0pYYcQC6uxpUEk9sPjKR/Zq4useSWVkpoYUC/bpMK5sMia9EPCmSytFlaL
+	TXpUDaYPjQyv6OZ/j0BzLD9kptZOrvc9S8JkeMp/zSJsJfy4gqJKvumM5Rx/1o56TsJomqA0daL7B
+	/dmnsknbeBYytwGz/ahGFaJjEipR8uFXzh/JM/T+ZD+LVC2oShnfE/xgC7ePr7TTbpUGYZ5XpZTwi
+	hHXAwGpsyotPRTh6rbixgvycQEWTYgl8ouGom8hZKFLNd3QmTXkbBj5dCsE5kkSt8ae2Ls1d4wIsG
+	BsObRYgg==;
+Received: from i53875bbc.versanet.de ([83.135.91.188] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uBX4X-0001M5-39; Sun, 04 May 2025 12:59:49 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: Andy Yan <andyshrk@163.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	mripard@kernel.org,
+	hjc@rock-chips.com,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: Re: [PATCH] drm/rockchip: rk3066_hdmi: switch to drm bridge
+Date: Sun,  4 May 2025 12:59:38 +0200
+Message-ID: <174635636711.1068615.11742267656925492318.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250428102309.1501986-1-andyshrk@163.com>
+References: <20250428102309.1501986-1-andyshrk@163.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/6FB_Di5S7gZ0Mh6S0HegD37";
- protocol="application/pgp-signature"; micalg=pgp-sha512
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250504_034834_553072_73A93CB2 
-X-CRM114-Status: GOOD (  16.88  )
+X-CRM114-CacheID: sfid-20250504_040001_942072_B0D6DC8D 
+X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,65 +78,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/6FB_Di5S7gZ0Mh6S0HegD37
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
 
-On Fri, 2 May 2025 18:05:03 +0100
-Simon Horman <horms@kernel.org> wrote:
+On Mon, 28 Apr 2025 18:23:07 +0800, Andy Yan wrote:
+> Convert it to drm bridge driver, it will be convenient for us to
+> migrate the connector part to the display driver later.
+> 
+> Note: I don't have the hardware to test this driver, so for now
+> I can only do the compilation test.
+> 
+> 
+> [...]
 
-> On Fri, May 02, 2025 at 09:44:44AM +0200, Lukasz Majewski wrote:
->=20
-> > +static int mtip_sw_probe(struct platform_device *pdev) =20
->=20
-> ...
->=20
-> > +	ret =3D devm_request_irq(&pdev->dev, fep->irq,
-> > mtip_interrupt, 0,
-> > +			       dev_name(&pdev->dev), fep);
-> > +	if (ret)
-> > +		return dev_err_probe(&pdev->dev, fep->irq, =20
->=20
-> It looks like the 2nd argument to dev_err_probe() should be ret
-> rather than fep->irq.
->=20
+Applied, thanks!
 
-+1
-
-> Flagged by Smatch.
->=20
-> > +				     "Could not alloc IRQ\n"); =20
->=20
-> ...
-
-
-
+[1/1] drm/rockchip: rk3066_hdmi: switch to drm bridge
+      commit: 57d6811e8a6d179aeadb7f102369d1ddefe5aae0
 
 Best regards,
-
-Lukasz Majewski
-
---
-
-DENX Software Engineering GmbH,      Managing Director: Erika Unter
-HRB 165235 Munich, Office: Kirchenstr.5, D-82194 Groebenzell, Germany
-Phone: (+49)-8142-66989-59 Fax: (+49)-8142-66989-80 Email: lukma@denx.de
-
---Sig_/6FB_Di5S7gZ0Mh6S0HegD37
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEgAyFJ+N6uu6+XupJAR8vZIA0zr0FAmgXRf0ACgkQAR8vZIA0
-zr2NTQf7Bp4wh7lNJIyD6OEZaoyV4crQkImvD0UYuNmerhQ7X1xXh99sWe45M4hr
-wUggoeicjfVNJFvjy6LJOfJQASUH/pkgZhUGoiLorpvjdlJ2qEmbDLNa48lEGDCB
-GHjvENE6teQt6Ug4gcmgpU0bSrjZRSeLXGTL6CWtHPiqPIaerIP7T4MD/J9SVM3J
-kPobZbf+5QfkzM+Tgwib8AZ5y52xCBSeCumXjD5slM9+w1AFrnpcZ8Uf5m/6dSKp
-IXuLWzGdDigdq8TUkyGg1Z5GkG3hNErAFdokY6qol6TRKxAVRqKjc+ADyfUVQL7Q
-1LvfWI79bwBZ4u5xcfiBHEhgHpGKvw==
-=m30w
------END PGP SIGNATURE-----
-
---Sig_/6FB_Di5S7gZ0Mh6S0HegD37--
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
