@@ -4,58 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 496BCC369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 May 2025 22:16:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEF48C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 May 2025 23:03:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=sLpW6jTBTWl6wB5elGwC1n2v3ZUSHcQl9rZfk83A14c=; b=yqRWon3lfrSrJSUyjL30PTLv6c
-	mVIP0UA1flJZUC1/gH+bNvP0K5ttmONoiBHpZKFVK+OVPu11BUJMgkr3BFNxi3vX5XMA+FWAr/fEx
-	ADo3naxRDzl7bBLDICEnQWZVj71pFsGnJ4PNPWi0d3JjqBEbEAHKuejy29T8uRS5A4OR01NWRWJFC
-	fjA1kSZsUsP6ogXvhlVSdPuPxQ1tK25d/NjI3yo+6jGN7La5M06YYo+/y0jMP6MBYAREY3zMeCCo9
-	vRAcriBx97HZFrEChiREbxGSkIf3CcpN2aCoIefECTzs+btmorqp8KzEE5miMAJlplsityH2s9Clg
-	ScI/jN7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5PJe2ch6Ms9zAWsGh5fiiCAopiENydoBhMUp03HMdLo=; b=4ilynStsBo3krnFmLXVYbNXoBt
+	MD0grlRRUQ1S7VR6eBbxjC+VeSSQcEBvNPqnebBs6SxJvgQ9CxHmhqFLXmGTFgWS0JFzeEvIaFpg/
+	h9KBzlmyOSdCh5G9spgW74VebeNyNe0EM8/Pyd8DIWVCWE+LDPGLi2B9lyVVV3I4Xcgd1J2IPTacJ
+	/l9Tmomk9DcPX8QHF4CXoKINYGIDSYECmoOLzG0cqPA6638CyB6XpbADscLB1YBg487lr9+Kew870
+	KG0Wk8u5O6nC9O+LkS0BVX+drrIxQzEQMj0yLYpZi/muBJmw0mLyhWVMQAfv1mHYeOAZG9BcJmFNA
+	dNW7FoBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBhdY-000000062gH-3Qeg;
-	Sun, 04 May 2025 22:16:40 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uBiN0-000000065yQ-0sbr;
+	Sun, 04 May 2025 23:03:38 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBhXJ-000000062Km-1l5M;
-	Sun, 04 May 2025 22:10:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References;
-	bh=sLpW6jTBTWl6wB5elGwC1n2v3ZUSHcQl9rZfk83A14c=; b=AKeciERUlG++PembkUMAJdd63H
-	3v1llWiYQP4DTT+yzeVR18isqNCTLiYN73K/RLwsG4gwH7VGxUbAeGBHTikmXrWXFaAfdhphARTI+
-	4vP4VxsE3YTbUKJxOhF1izBTda2CCbcgDStmw9sxeCvVyOnUIuotfNTm3OcP6jlw6pbi6yEjKrEdG
-	zcS+HVUibELouIA/ic+R3zVAW8V/JTWI6nEWmZQGntlw6Rt1E2B3Yk0/NWEbZAQPk221arAWeYrne
-	5uvqYzip67fbqn4o6MYsI6rhQe6RWDBQK0A/RzDqQ0juzeYsCS35km+qvq6kmPebeqXbocQyad5Im
-	J+h66POQ==;
-Received: from i53875bbc.versanet.de ([83.135.91.188] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uBhXI-0006CM-6R; Mon, 05 May 2025 00:10:12 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: arm@kernel.org
-Cc: soc@kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] Rockchip dts fixes for 6.15 #1
-Date: Mon, 05 May 2025 00:10:11 +0200
-Message-ID: <2923598.88bMQJbFj6@diego>
+	id 1uBiL5-000000065og-0u9l;
+	Sun, 04 May 2025 23:01:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
+	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
+	In-Reply-To:References; bh=5PJe2ch6Ms9zAWsGh5fiiCAopiENydoBhMUp03HMdLo=; b=Su
+	QSMudDNeSIFw4mG21Xq7Nd7Y6OEN3p/4e540kK6Sfexrcf2dcqu3LUJ71vvB9RDKuZmxAWfwJR69/
+	vAEjQDOGoaMvFx+g+/RzpEcBPS0no2ZY16Wuo3tdc2BZ/KoyANwn11ZM2UyGhL2XD47BfpHMeLNLo
+	CktRoO4lWndTV5k=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uBiKt-00BYej-Pv; Mon, 05 May 2025 01:01:27 +0200
+Date: Mon, 5 May 2025 01:01:27 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: John Clark <inindev@gmail.com>
+Cc: Jonas Karlman <jonas@kwiboo.se>, heiko@sntech.de, robh@kernel.org,
+	conor+dt@kernel.org, detlev.casanova@collabora.com,
+	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org, krzk+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 3/3] arm64: dts: rockchip: Add Luckfox Omni3576 Board
+ support
+Message-ID: <b50c68bd-9b15-412a-ac00-1df25601edd9@lunn.ch>
+References: <20250502205533.51744-1-inindev@gmail.com>
+ <20250504102447.153551-1-inindev@gmail.com>
+ <20250504102447.153551-4-inindev@gmail.com>
+ <bb171ae2-c495-49a3-a7eb-a4b865e54199@kwiboo.se>
+ <87892840-bdbf-43d4-bd93-cb98f5e1c672@lunn.ch>
+ <b603e92f-8c1a-4aea-8bab-82a1f035c7fa@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <b603e92f-8c1a-4aea-8bab-82a1f035c7fa@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250504_151013_459192_5027276B 
-X-CRM114-Status: UNSURE (   9.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250504_160139_291024_C6F25A79 
+X-CRM114-Status: GOOD (  18.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,73 +77,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd, Kevin, Olof,
+On Sun, May 04, 2025 at 05:02:33PM -0400, John Clark wrote:
+> On 5/4/25 10:12 AM, Andrew Lunn wrote:
+> > > > +&gmac0 {
+> > > > +	clock_in_out = "output";
+> > > > +	phy-handle = <&rgmii_phy0>;
+> > > > +	phy-mode = "rgmii-rxid";
+> > > 
+> > > See Andrew's remark on v1 of this patch.
+> > 
+> > Hi John
+> > 
+> > If you have questions, please ask. It is not a good idea to silently
+> > ignore reviewers comments. Either do something about it, ask
+> > questions, or politely argue why the reviewer is wrong, because
+> > sometimes we are.
+> > 
+> Hi Andrew,
+> Thanks for your feedback and the link to the RGMII delays discussion. I
+> assumed you suggested switching to phy-mode = "rgmii-id" from rgmii-rxid.
+> The vendor’s downstream kernel uses rgmii-rxid with tx_delay = <0x20>, as
+> shown in my post. I tried rgmii-id and removed tx_delay, but the interface
+> failed to get a DHCP address. Reverting to rgmii-rxid with the delay
+> restored functionality. Any advice on correctly configuring rgmii-id or
+> adjusting delays for this board?
 
-please find a below some fixes for the current 6.15 release-cycle.
+What PHY is it? Are you using the correct PHY driver for it, or
+genphy?
 
-Please pull
+rk3576-rock-4d.dts and rk3576-armsom-sige5.dts show that it is
+possible to use this SoC with the correct 'rgmii-id', 
 
-Thanks
-Heiko
-
-
-The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
-
-  Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git ta=
-gs/v6.15-rockchip-dtsfixes1
-
-for you to fetch changes up to 4bf593be2e462623c4c34c7e3b604eb3f8f9de45:
-
-  arm64: dts: rockchip: fix Sige5 RTC interrupt pin (2025-04-29 23:21:49 +0=
-200)
-
-=2D---------------------------------------------------------------
-Removal of operating-points above what the rk3588j soc is rated for, and
-a number of smaller fixes: Turing RK1 fan can spin down again, fixed pins,
-pinmuxing and clocks and some devicetree-correctnes improvements.
-
-=2D---------------------------------------------------------------
-Dragan Simic (1):
-      arm64: dts: rockchip: Remove overdrive-mode OPPs from RK3588J SoC dtsi
-
-Krzysztof Kozlowski (1):
-      arm64: dts: rockchip: Align wifi node name with bindings in CB2
-
-Nicolas Frattaroli (1):
-      arm64: dts: rockchip: fix Sige5 RTC interrupt pin
-
-Rob Herring (Arm) (2):
-      arm64: dts: rockchip: Use "regulator-fixed" for btreg on px30-engicam=
- for vcc3v3-btreg
-      arm64: dts: rockchip: Fix mmc-pwrseq clock name on rock-pi-4
-
-Sam Edwards (1):
-      arm64: dts: rockchip: Allow Turing RK1 cooling fan to spin down
-
-Tom Vincent (1):
-      arm64: dts: rockchip: Assign RT5616 MCLK rate on rk3588-friendlyelec-=
-cm3588
-
-Uwe Kleine-K=C3=B6nig (1):
-      arm64: dts: rockchip: Add pinmuxing for eMMC on QNAP TS433
-
- .../boot/dts/rockchip/px30-engicam-common.dtsi     |  3 +-
- .../boot/dts/rockchip/px30-engicam-ctouch2.dtsi    |  2 +-
- .../rockchip/px30-engicam-px30-core-edimm2.2.dts   |  2 +-
- arch/arm64/boot/dts/rockchip/rk3399-rock-pi-4.dtsi |  2 +-
- .../boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi  |  2 +-
- arch/arm64/boot/dts/rockchip/rk3568-qnap-ts433.dts |  2 +
- .../boot/dts/rockchip/rk3576-armsom-sige5.dts      |  2 +-
- .../dts/rockchip/rk3588-friendlyelec-cm3588.dtsi   |  4 ++
- .../arm64/boot/dts/rockchip/rk3588-turing-rk1.dtsi |  2 +
- arch/arm64/boot/dts/rockchip/rk3588j.dtsi          | 53 +++++++-----------=
-=2D---
- 10 files changed, 31 insertions(+), 43 deletions(-)
-
-
-
+	Andrew
 
