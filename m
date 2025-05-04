@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1094C369DC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 May 2025 10:27:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61ED1C3ABB0
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 May 2025 10:29:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1PQ7S6mvnJWIgkvAn2u3X6CatMHsWA3MJFpJ2pyOLwk=; b=A2vN7Hl3SYyx+1R5qyhMYnTspM
-	vgaXomAytj7pUz1XpQNWPFFh8XKeZqfza+gcxH/Rzu6zbQws41aAKq99zzH7tcaud3sp6FeG2t4I+
-	zjKWTVQj9oRfeo/UXSGYKSxiPrLzJAl1Qhzodrd7WjeR3KYiMckAw/69gi05lPUJGASv29MReUR9x
-	lo6YlWF8IViUM85JyYc/dczV34S4VQ9AxwpDtjwvPMZLNHVoS7r4lLb8bQlE20lo30p3TcTHJSvLj
-	tPBaNhMxd39nxCucApu6DRgV04QPmwj5nto2AJZhLnz7dBZaXaZgwAnS1l2W4Z4GWJg9NgC6RIorP
-	GQxJwtFA==;
+	bh=hIL4aNRUdWRX+MJw2hpcNbVT2cq828UqZbzjcrK230s=; b=wNLSgbNvUYyIwFOSCHjKP/Dv6T
+	Lwg9CtzaDWRB0kWwVMKlY6m451F5qjfFMAOWwZAYqx4l50tuFdrQDB/iAoSmUTuoOuZbrDcM+n63Z
+	r6rByiuAvBOHe/vRW9wKCPr56TNynjhfG2tLLJ2HoYBCXva+6qT09WYLtZ+3T2CzXrzBW74514O+x
+	K7W17M6rV76BSyaM0gQeHRhCVE6xH7irzPd+vcxaYcAWS6dp34qf1IYisyyzT3xrZdC26ZWVLvhj5
+	TETXgEKunZszeU1DorC55Om2wYJmLgLOw7+pP/39zm+UwINLX+5tk5g0S9qQHawMX2B/yEEFbFSBR
+	2JGNX3yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBWYj-00000005Ad5-3Ee6;
-	Sun, 04 May 2025 10:26:57 +0000
-Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
+	id 1uBWab-00000005AmK-4611;
+	Sun, 04 May 2025 10:28:53 +0000
+Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBWWq-00000005AKs-0ec3;
-	Sun, 04 May 2025 10:25:01 +0000
-Received: by mail-qk1-x731.google.com with SMTP id af79cd13be357-7cadd46eb07so177136885a.3;
-        Sun, 04 May 2025 03:24:59 -0700 (PDT)
+	id 1uBWWs-00000005ALX-0sfe;
+	Sun, 04 May 2025 10:25:03 +0000
+Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-7cad57f88eeso134264985a.2;
+        Sun, 04 May 2025 03:25:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746354298; x=1746959098; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1746354301; x=1746959101; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=1PQ7S6mvnJWIgkvAn2u3X6CatMHsWA3MJFpJ2pyOLwk=;
-        b=g8cO+nXc+6rVXzYOeyYol7jGYHfX0d/SoGj7cYA/g+b6B9tdG6U6oZp/7tk5bJ8jSt
-         Qhdz93wUKfOQUh//OnTrjIRIiqi4YU9yBRH+niZSX5o3uomF82Na0AU2NbvRBqDrYhnU
-         bt/sRDbmqtTjHKTxlt7SJrwOI2+nQKPFC+y203urxlAPHVJwoTEBgzvvJ6pziNTTXyJs
-         ESiqVTSryBwczNGpAQX+q8FRv+e9jFV79pdgtpbDz+NT+Tvro47d+dVhOO8Z7+x440wc
-         +W5Abx5aEIH7UEBKn3zNGZHHZkJj1QlfQxaRXmhdX49SIiSOUbg/jJccs0cd8RrUyoPw
-         t+iw==
+        bh=hIL4aNRUdWRX+MJw2hpcNbVT2cq828UqZbzjcrK230s=;
+        b=FjSQKZ/UIkAc5wtMIXmk3sjCbE7cFhbZlMY4iVd85RWlq9DAVUywUXE5UCpeZIXwlm
+         HZMaghSZw2dTyP6oCsSMO72Pjwxhst4fMnNxcv42FZFTnicDQeOkXVt4euq/NQ5t0aLw
+         9LnKev6bZQ2cWmERQpcO80i9oLYmdOz5Ef4x8LdEmdZyw//ynfCqaYvfpBL8o3kFIMFj
+         dlAfRyxjRcP2zDffvdFeL8RzU4/6cwkUerbL7yInJZPm343blHQIl85hRM0PJMsev5Xn
+         xJBGgdL6/BRqOvj5wiyS+l4/9pqtpBiDmcCM7Fimsp7ca/nMlwtOj1ErjLEfL+OAAYQD
+         5cEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746354298; x=1746959098;
+        d=1e100.net; s=20230601; t=1746354301; x=1746959101;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=1PQ7S6mvnJWIgkvAn2u3X6CatMHsWA3MJFpJ2pyOLwk=;
-        b=wfru7QDogZ7l87UAAMcEmBeaKwx+tgzuDxAmOtzWi/gcD1nG61o9ae/Yle1KgiIy1z
-         xmnRLYV89HweyNR3VIWgQDqQ6jhB0H/1w0kX9Q7YlWtIgWvOxNjP2P16MgN09Ka/3dnv
-         ZFVZWHiLHCCN+uRxH0H/3DSiPhUlu2cgFPBMHfb1nMZTxE3N7FVhfWaQw02z8s9HosZY
-         oDvLHtCV+9MJqW81Cbwf4s4h7I19LKMxtgkS13rFqhITlXDTM7x2jVSIL9RzkUzjJWIi
-         1KM3l2Bzl+HxzwsGIGNHTbsTfEzgyN47K1Y/ZH1fkPCu+AmjNQXnSVRfitQjM+GZW/YP
-         LmKQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUby0T4qAi8g6NK8RGLREwvNx5VsbsWl2WVSd89cQDgTScHkh4gj7QZCWwKbnIFMSMMCQFIko0QrM+EM8pNv5Bd@lists.infradead.org, AJvYcCXds4ns2P7pr0raO4DEWY8f3XSKWAe3k96yi+H8tFrh8Iv0wz+6Hz2/ZFZuI+rr+QBnaMaYUDo70bAPTf6z/MU=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzccordh79Z4C80uCfCmdBVTRSp+z/7JpWQIIxS/pabvjmvjSv8
-	kg1g88kwHxR5BiwpR0zyKtWyRtTqWQT3y/xvxm4JRAsZg8calHR2
-X-Gm-Gg: ASbGncstE48jf1ApPsFyjrrQa2vwgeQiX3onnn65LVHUX8/3DwXHXp4cxuWj8+CnIPE
-	HU4tYPV2YGOiBlgU6WhDrcr6fEI9GrsHy3suKbZ5p+rsgXKryf7Xxo5Cn4fIHENlCgOewp/sa5H
-	Zy7MMp89tkutgWiGlEYAdhqGI/Xk32+yIJ0iqtG3aYStsXy8Piu3DuKSEoJdtb8Xq56pom1pV2Z
-	BtKAh88MS9L4oJcV2C6En3m6noO5jIERXZw5qSypLPrsWrT6BhEcnC9FL4cNelY1Xro1bfVkn0J
-	b2iHnVNi61kq6VH0pL2VVQmoU+6bSb74/E96mAkvR9W5TE947Vtg
-X-Google-Smtp-Source: AGHT+IEKTdMWS+jgcgAMuh3WRdpxZw08Q315wtPX2pV7WRyc1kxWG/qYE8O2gr4jHmjNND3M/QRc1Q==
-X-Received: by 2002:a05:620a:4014:b0:7c9:4c25:9eb7 with SMTP id af79cd13be357-7cad5b3867amr1038889385a.23.1746354298396;
-        Sun, 04 May 2025 03:24:58 -0700 (PDT)
+        bh=hIL4aNRUdWRX+MJw2hpcNbVT2cq828UqZbzjcrK230s=;
+        b=jN7qqEm29r7yRL2LBu/TwKFxgnwR72rQjd4l9QPz3DzZlrPSukQCqq2rXpnw7P5ofu
+         vykDiR7R21SEQMRnSBivguWYDL4T6NiAtlBXxbHMrQUDIbwGueLfjtKR7B0bzcpwycOw
+         4HjvWqf7TRcnyoe0r4U006JKZF+HFRLE/GUxLOOO9r98tGmouUMB2obH0kHdFYHJarMC
+         +wSa2d+hRjjOywmIoiJU/L4Otwn/AZ4hRktVLFCxW2QnSgGGcHZQKN2TVb/zqWWYm5lZ
+         vOMMNfZgXWiIQm0aIYQgtbVqdWFpO4mHOxfZPSml+fbHrRccSyNb8gImZNG40ToYBXYo
+         WraQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV/V65CIAooZfK+lYuNUzobF39c/+FrR57AbhgXppT+FSdsscXF/LGDVwXlNyBQ/0KNS3KaOsoLcgbmvaGaesQ=@lists.infradead.org, AJvYcCWZ9yzqG27i2qrlOYKE7FgWR4XBccP0HKeOYs+7Zcn3l5TLdFTHZtC6ejI1QIAkuTghuNlPDI6h/UCPRyZwyt8p@lists.infradead.org
+X-Gm-Message-State: AOJu0YxTxfSZ8OFuIfnXUBhDQQG0U7k2X8/M6aLCIhOAq1JIs+E2Q5sf
+	NLque4L3/iALsbH+mvbO8pM9MPdciqqBkmtMxstQq1ZacCeXTNr8mJ+xcuQ9rIs=
+X-Gm-Gg: ASbGncsbw3Ct4pAaRXot6riFa/nxKfrrL9Hi2dytbC7dPky8POQ5FPR0pG5Q+gqElJl
+	tOPVg/C7LAHnaSBZuOVKLwtTeFPkkewrKSXXPKnnp0n6ffAZPpu+PdJLtb/xtVLuFnGzdemZ0cr
+	Gv9SB53IrZVsXQhG4HHoIhedYTVAse2Chr0NMo0XhhOd6gOMZM5XhmX6BrqvjtfowKBKsKJqyO2
+	fXOl9fZJu4ZSp/BZdyhAxgWprPgtyKazItD0AOfYY+cLuXof1sEFBx17Pt11NMk8beG0zsBHGr2
+	3og8wqShy2RguHhkvZ3ANzugTP2jIWCZGyhw+LLptVJMoubmvT0R
+X-Google-Smtp-Source: AGHT+IG1pLSmqs1TxI/sdiS6KwXQllq1uirYId4wzEbTV+gWXE5VbZZ64wBC5wE4MWD8ZRKMeuJDug==
+X-Received: by 2002:a05:620a:400c:b0:7c5:4278:d151 with SMTP id af79cd13be357-7cae3aeaaa7mr454274885a.43.1746354301080;
+        Sun, 04 May 2025 03:25:01 -0700 (PDT)
 Received: from localhost.localdomain ([216.237.233.165])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7cad23c48d6sm429222285a.32.2025.05.04.03.24.56
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7cad23c48d6sm429222285a.32.2025.05.04.03.24.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 04 May 2025 03:24:57 -0700 (PDT)
+        Sun, 04 May 2025 03:25:00 -0700 (PDT)
 From: John Clark <inindev@gmail.com>
 To: heiko@sntech.de
 Cc: robh@kernel.org,
@@ -79,17 +79,19 @@ Cc: robh@kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	inindev@gmail.com
-Subject: [PATCH v2 0/3] Add Luckfox Omni3576 Carrier Board support for RK3576
-Date: Sun,  4 May 2025 06:24:44 -0400
-Message-Id: <20250504102447.153551-1-inindev@gmail.com>
+Subject: [PATCH v2 1/3] dt-bindings: vendor-prefixes: Add luckfox prefix
+Date: Sun,  4 May 2025 06:24:45 -0400
+Message-Id: <20250504102447.153551-2-inindev@gmail.com>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250502205533.51744-1-inindev@gmail.com>
+In-Reply-To: <20250504102447.153551-1-inindev@gmail.com>
 References: <20250502205533.51744-1-inindev@gmail.com>
+ <20250504102447.153551-1-inindev@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250504_032500_209627_94BD51B5 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20250504_032502_242623_B83CE0A3 
+X-CRM114-Status: UNSURE (   8.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,52 +106,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds device tree support for the Luckfox Omni3576 Carrier Board
-with Core3576 Module, based on the Rockchip RK3576 SoC, enabling essential
-functionality for booting Linux and basic connectivity. v1 was posted at:
-https://lore.kernel.org/linux-rockchip/20250502205533.51744-1-inindev@gmail.com
-
-Tested features (on Linux 6.15-rc4):
- - UART: Serial console operational
- - SD card: Mounts and reads/writes successfully
- - PCIe: NVMe SSD detected, mounted, and fully functional
- - Ethernet 0: Functional with RGMII PHY
- - USB 2.0: Host ports
- - RTC: Timekeeping and wake-up tested
- - LED: Heartbeat trigger works
- - eMMC: Enabled, not populated on tested board
-
-The series includes the following patches:
- 1. dt-bindings: vendor-prefixes: Add Luckfox vendor prefix
- 2. dt-bindings: arm: rockchip: Add luckfox,omni3576 binding
- 3. arm64: dts: rockchip: Add Luckfox Omni3576 Board support
-
-The new DTS is covered by the existing ROCKCHIP ARCHITECTURE entry in MAINTAINERS.
-
-I am aware of ongoing RK3576 upstreaming efforts (e.g., by Collabora) and
-welcome feedback or collaboration to align with mainline driver development.
-
-Changes in v2:
- - Enabled HDMI node per feedback from Heiko and Nicolas; untested due to
-   upstream driver issues
- - Enabled Ethernet 1 node per Heiko's DT philosophy; untested due to
-   suspected PHY driver or configuration issues
- - Clarified eMMC remains enabled but unpopulated on tested board, per Heiko
+Add vendor prefix for Shenzhen Luckfox Technology Co., Ltd., which
+produces development boards like the Luckfox Omni3576.
 
 Signed-off-by: John Clark <inindev@gmail.com>
 ---
-John Clark (3):
-  dt-bindings: vendor-prefixes: Add luckfox prefix
-  dt-bindings: arm: rockchip: Add Luckfox Omni3576 board
-  arm64: dts: rockchip: Add Luckfox Omni3576 Board support
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
- .../devicetree/bindings/arm/rockchip.yaml     |   5 +
- .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
- arch/arm64/boot/dts/rockchip/Makefile         |   1 +
- .../dts/rockchip/rk3576-luckfox-omni3576.dts  | 779 ++++++++++++++++++
- 4 files changed, 787 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dts
-
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 86f6a19b28ae..9391e0c31bb8 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -892,6 +892,8 @@ patternProperties:
+     description: Liebherr-Werk Nenzing GmbH
+   "^lxa,.*":
+     description: Linux Automation GmbH
++  "^luckfox,.*":
++    description: Shenzhen Luckfox Technology Co., Ltd.
+   "^m5stack,.*":
+     description: M5Stack
+   "^macnica,.*":
 -- 
 2.39.5
 
