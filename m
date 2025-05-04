@@ -4,84 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED261C3ABB0
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 May 2025 21:34:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 496BCC369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 May 2025 22:16:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q7jhF8o/D6lmk3tfJaXQJC7Uck51GK/MCbYz8uYsAmw=; b=eGQgSGW7tyOG6TAwC8frnN//Hn
-	msEjvAWqMSmChWBY53fFKgz5vDEms2HvFoa+deUlfdDTvvUn/pFTFIy9JG8K9kq2mCzP45jKmuRyU
-	0nfOqyCAC7bTrbOMKD8QA2P44Bod7L4KLmeo2SnFm7CPx+yGDe4mJL9Up5LaACuzvJ+uCzETbiV5q
-	/jRkKBa8VVz8qEbMMIy7IEhHKQ03WjuDA6euppBcTBNvxVGPNCHBQ+Fo2GyfNxYYYrFcc74Teydmc
-	Q1OtJzY48B4eyDN+Dnjk7lHNmlsIciiQjHGLKIRVklaQDbdWgNfqqitL2ho6w9yiLxRPmKvJt22It
-	FeL7bkBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sLpW6jTBTWl6wB5elGwC1n2v3ZUSHcQl9rZfk83A14c=; b=yqRWon3lfrSrJSUyjL30PTLv6c
+	mVIP0UA1flJZUC1/gH+bNvP0K5ttmONoiBHpZKFVK+OVPu11BUJMgkr3BFNxi3vX5XMA+FWAr/fEx
+	ADo3naxRDzl7bBLDICEnQWZVj71pFsGnJ4PNPWi0d3JjqBEbEAHKuejy29T8uRS5A4OR01NWRWJFC
+	fjA1kSZsUsP6ogXvhlVSdPuPxQ1tK25d/NjI3yo+6jGN7La5M06YYo+/y0jMP6MBYAREY3zMeCCo9
+	vRAcriBx97HZFrEChiREbxGSkIf3CcpN2aCoIefECTzs+btmorqp8KzEE5miMAJlplsityH2s9Clg
+	ScI/jN7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBgyx-00000005zJK-2s5E;
-	Sun, 04 May 2025 21:34:43 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1uBhdY-000000062gH-3Qeg;
+	Sun, 04 May 2025 22:16:40 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBgx4-00000005zAx-0Nji;
-	Sun, 04 May 2025 21:32:47 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-224341bbc1dso47135365ad.3;
-        Sun, 04 May 2025 14:32:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1746394365; x=1746999165; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=q7jhF8o/D6lmk3tfJaXQJC7Uck51GK/MCbYz8uYsAmw=;
-        b=cE1lapuhHmwfmwmQ0PtX2z501Pta6sdBjhxe77mpGZKotgmOE94JkE5TaF9p862Drt
-         voDooTjmhLzBnX1w1JrelDJHeCpvyRZOmLnsioFJ+NOtGUp8h1CPDGxBfFDIPbaaulLo
-         W/D4hWFsFGn9UUpzr/NEa8drIooqZH1e04ksuA8nFI+2tYSUAcwQ1dWBH/TqgFcXzczU
-         +qiaLUvlZgkDzxGqLQZdb0KcSHEsxY9vKtGWZ7AKI13PVeIaw91vGwgQqfd00v5FvU3X
-         OUXFFYOyh4p5seXkLW0N4sT/ifSlolMwtoDJq+KVBO1/FNucju1RU0tBgfFIawJbQWWI
-         lWxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746394365; x=1746999165;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=q7jhF8o/D6lmk3tfJaXQJC7Uck51GK/MCbYz8uYsAmw=;
-        b=flDP1c6KsP8UukoAOg0DPtQQTX3kKqd2rIvmWqtMHOlayHwtD1U8DA16jvLxGbHyIk
-         O7/P6WLj7i0AZGiGUTpfB14ymc0/A+Tw3eRtWV6QKLPJXU64tDzaaQZYWdjXgkqz1HrC
-         cByuKKOuJ89gJ71zL6afPU0xTPjc3xuSqeItYcpwgRq26tJzmXlJ/2Gukgi/Zwc4AGWx
-         MEYH/3h1yxfatPRB0gVPW5qKTUY70Q/jBPNNmwZXeP+MiWb4IQzb+ASY0DMNfAevnOgq
-         /xL/Cb1V37zBJk4GwvhGwpesWz45oeRpu+v/f8aMAWgYPH/Zl1w3VcngOmF1O+FxG8iM
-         Tgwg==
-X-Forwarded-Encrypted: i=1; AJvYcCUbB5cI9oNvqdwFyCYKgyr3ADDRIQG5AKbzwZrxkgUByR2MDARaNFYMeixOxQEPbYZYuNewpjTRraIroYPS@lists.infradead.org, AJvYcCUvszr7WT/m9YDJQp4hjE/aX4wxVRSGGfP8eyzznN5C92rRHiL5wjdcxkyGRiskrFTno/xU/iLujJ/IlKCD/YLtKQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUuqSZiGv8vK/GyFVpbxyKXyelTindqh3PYvT+XseK6WpHQXNt
-	kqp/x8zj3b86qJbl0HO3lhkryGEP5kEiFrZF0cobw9LicrwjW1qj/dUwzUApCmHZfOEKTP7IPB1
-	QeisVCzdDJDpZTkMPZ7Dx5F7UqZkqnBz3
-X-Gm-Gg: ASbGncsvsGbLb+tWyM3bniExbKIvAv4W3HnI7zcxh+4NSlfVYBetVhHYErF+J5VwguO
-	GdwjCeF8udf27mxcbaIzuYjlqBoKPyIanSQoV1HdweqJDOHqDJflrsp9JlCWI7ZMiNKGjlVZgMT
-	D9kZsbgPkDVzJFl0IcxyNTA8O/ybJWFDk2AQnWHaQX/aivV84YnjNQahc=
-X-Google-Smtp-Source: AGHT+IHH/nfY7aawda+5dqP8fu9k5FCWHizevZPZQCYz7HUea62/Pz9JW8anHy4Qa9uOMj4WeQphD+IA9QE9XTMVDwQ=
-X-Received: by 2002:a17:902:d2c7:b0:220:ff3f:6cc0 with SMTP id
- d9443c01a7336-22e18c377c5mr110852105ad.38.1746394365180; Sun, 04 May 2025
- 14:32:45 -0700 (PDT)
+	id 1uBhXJ-000000062Km-1l5M;
+	Sun, 04 May 2025 22:10:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References;
+	bh=sLpW6jTBTWl6wB5elGwC1n2v3ZUSHcQl9rZfk83A14c=; b=AKeciERUlG++PembkUMAJdd63H
+	3v1llWiYQP4DTT+yzeVR18isqNCTLiYN73K/RLwsG4gwH7VGxUbAeGBHTikmXrWXFaAfdhphARTI+
+	4vP4VxsE3YTbUKJxOhF1izBTda2CCbcgDStmw9sxeCvVyOnUIuotfNTm3OcP6jlw6pbi6yEjKrEdG
+	zcS+HVUibELouIA/ic+R3zVAW8V/JTWI6nEWmZQGntlw6Rt1E2B3Yk0/NWEbZAQPk221arAWeYrne
+	5uvqYzip67fbqn4o6MYsI6rhQe6RWDBQK0A/RzDqQ0juzeYsCS35km+qvq6kmPebeqXbocQyad5Im
+	J+h66POQ==;
+Received: from i53875bbc.versanet.de ([83.135.91.188] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uBhXI-0006CM-6R; Mon, 05 May 2025 00:10:12 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: arm@kernel.org
+Cc: soc@kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] Rockchip dts fixes for 6.15 #1
+Date: Mon, 05 May 2025 00:10:11 +0200
+Message-ID: <2923598.88bMQJbFj6@diego>
 MIME-Version: 1.0
-References: <edc560afe2a8763c93341d161daeb8b33ba606c6.1746199917.git.christophe.jaillet@wanadoo.fr>
-In-Reply-To: <edc560afe2a8763c93341d161daeb8b33ba606c6.1746199917.git.christophe.jaillet@wanadoo.fr>
-From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Sun, 4 May 2025 23:32:34 +0200
-X-Gm-Features: ATxdqUHqROfRe8ULU08R_OGbVQNLhxSobV1JquQn41JtqjzAQCz4SzZnaHeJ7Fo
-Message-ID: <CAFBinCC04F0PVd_wn2NmaTBn3WTLYDQEoRShU0mhrTiL0MfPCg@mail.gmail.com>
-Subject: Re: [PATCH] pmdomain: amlogic: Constify some structures
-To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-amlogic@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250504_143246_131959_0AA9C583 
-X-CRM114-Status: GOOD (  10.37  )
+X-CRM114-CacheID: sfid-20250504_151013_459192_5027276B 
+X-CRM114-Status: UNSURE (   9.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,28 +70,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 2, 2025 at 5:32=E2=80=AFPM Christophe JAILLET
-<christophe.jaillet@wanadoo.fr> wrote:
->
-> Most structures in this driver are not modified.
->
-> Constifying these structures moves some data to a read-only section, so
-> increase overall security, especially when the structure holds some
-> function pointers. (This is the case for see meson_ee_pwrc_domain_desc)
->
-> On a x86_64, with allmodconfig, as an example:
-> Before:
-> =3D=3D=3D=3D=3D=3D
->    text    data     bss     dec     hex filename
->    8924    3832       0   12756    31d4 drivers/pmdomain/amlogic/meson-ee=
--pwrc.o
->
-> After:
-> =3D=3D=3D=3D=3D
->    text    data     bss     dec     hex filename
->   12396     336       0   12732    31bc drivers/pmdomain/amlogic/meson-ee=
--pwrc.o
->
-> Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Hi Arnd, Kevin, Olof,
+
+please find a below some fixes for the current 6.15 release-cycle.
+
+Please pull
+
+Thanks
+Heiko
+
+
+The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
+
+  Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git ta=
+gs/v6.15-rockchip-dtsfixes1
+
+for you to fetch changes up to 4bf593be2e462623c4c34c7e3b604eb3f8f9de45:
+
+  arm64: dts: rockchip: fix Sige5 RTC interrupt pin (2025-04-29 23:21:49 +0=
+200)
+
+=2D---------------------------------------------------------------
+Removal of operating-points above what the rk3588j soc is rated for, and
+a number of smaller fixes: Turing RK1 fan can spin down again, fixed pins,
+pinmuxing and clocks and some devicetree-correctnes improvements.
+
+=2D---------------------------------------------------------------
+Dragan Simic (1):
+      arm64: dts: rockchip: Remove overdrive-mode OPPs from RK3588J SoC dtsi
+
+Krzysztof Kozlowski (1):
+      arm64: dts: rockchip: Align wifi node name with bindings in CB2
+
+Nicolas Frattaroli (1):
+      arm64: dts: rockchip: fix Sige5 RTC interrupt pin
+
+Rob Herring (Arm) (2):
+      arm64: dts: rockchip: Use "regulator-fixed" for btreg on px30-engicam=
+ for vcc3v3-btreg
+      arm64: dts: rockchip: Fix mmc-pwrseq clock name on rock-pi-4
+
+Sam Edwards (1):
+      arm64: dts: rockchip: Allow Turing RK1 cooling fan to spin down
+
+Tom Vincent (1):
+      arm64: dts: rockchip: Assign RT5616 MCLK rate on rk3588-friendlyelec-=
+cm3588
+
+Uwe Kleine-K=C3=B6nig (1):
+      arm64: dts: rockchip: Add pinmuxing for eMMC on QNAP TS433
+
+ .../boot/dts/rockchip/px30-engicam-common.dtsi     |  3 +-
+ .../boot/dts/rockchip/px30-engicam-ctouch2.dtsi    |  2 +-
+ .../rockchip/px30-engicam-px30-core-edimm2.2.dts   |  2 +-
+ arch/arm64/boot/dts/rockchip/rk3399-rock-pi-4.dtsi |  2 +-
+ .../boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi  |  2 +-
+ arch/arm64/boot/dts/rockchip/rk3568-qnap-ts433.dts |  2 +
+ .../boot/dts/rockchip/rk3576-armsom-sige5.dts      |  2 +-
+ .../dts/rockchip/rk3588-friendlyelec-cm3588.dtsi   |  4 ++
+ .../arm64/boot/dts/rockchip/rk3588-turing-rk1.dtsi |  2 +
+ arch/arm64/boot/dts/rockchip/rk3588j.dtsi          | 53 +++++++-----------=
+=2D---
+ 10 files changed, 31 insertions(+), 43 deletions(-)
+
+
+
 
