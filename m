@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9062C3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 May 2025 14:59:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB4B4C369DC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 May 2025 15:01:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4mVbqwsxzgFPfZ9lDdnu8dfGQADmGRwdt2QEaF4tnGI=; b=CEcagPgVXO640c78sBBvQIZZcL
-	H0b8i47ZaElMap6anIDZgPggTPX4CiMBlIhafMCtp7FEGpJpsonVI9w5bt2xSXpDuJU0Z2uN5rntH
-	7WbL2pM7u3I6cTJv3CYcWQgK4652LqV1gYS3uDw39H3wMqz+5dqmzEEDGh/1xRnxl385Vrq6MUjpI
-	8hZxg5MnGGTQe2xjjvkAxNur1V9OZ2GotcI5zdoploKhgTe+Soga8oLYy1fAN6YXNsHMzBc23mVcj
-	XG3QcJKJNzyYj0pdv7TmLJHk/fvxioCvpewpELgXAAdB5zhIq7GXWP+QdscB+SdgaXUzeojVYJxTX
-	tblYlY8w==;
+	bh=RbJk9bz6EFQthks8Ev5pNh2F644o6dRNVZmRCAlT3D8=; b=czdFxnSbApWT7KK+EVOsgW78cJ
+	hp+f+gTAwW2ZKDWGr34JneSK9vtA06uSBxpQxzdWIJ0CpuTJNjSSxOkw6rDo0vpqfYzAuIxQ+yRzc
+	T5Nm5ofaEiK8Hm93PZFAtQyhMwJuCPgo/JrjvpJHblnIR8nZ/Pf0fYlBHMGLg09oWIf7713J406OK
+	q0oyls3BF9wAWKn38ON4IJ07YE1nX1CFd5UMwkKHCg3lpEYmiqjBH0F0rYSe+0L54xH+Nu0Rf2UzU
+	e+nDvo/66lSandsP4qiK/vW5PWz1jwt3tnuVhJLdh/B5k5zd4zJl7Nf8C7PIqSFqI0fxTUoXZd6YT
+	fpyv4DCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBaoL-00000005RTz-0cfs;
-	Sun, 04 May 2025 14:59:21 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1uBaqE-00000005RwS-3fI2;
+	Sun, 04 May 2025 15:01:18 +0000
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBabE-00000005PRa-1vb2;
-	Sun, 04 May 2025 14:45:49 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5e5bc066283so5247687a12.0;
-        Sun, 04 May 2025 07:45:48 -0700 (PDT)
+	id 1uBabF-00000005PSC-1fjV;
+	Sun, 04 May 2025 14:45:50 +0000
+Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5f728aeedacso5155382a12.2;
+        Sun, 04 May 2025 07:45:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746369947; x=1746974747; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1746369948; x=1746974748; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=4mVbqwsxzgFPfZ9lDdnu8dfGQADmGRwdt2QEaF4tnGI=;
-        b=NppcLZePDz5GdRw+C4Yh+33QwWZ6fNVGYfRo/QMgB6mbqC8qctgVuN2H00kcLp5AKm
-         /r5stPKKjmzDFhy4AJ4SJTChmXHHV+zTZRpMdvNSAmMoxWRTaZSI8szEZ+1VFH1vZacT
-         Yhqkj8Nw/uPkWw/dU2vEUCG+HNecqFEtAp7sgc+qizmtzOw5hhVfXn3VCrlLZSJUyzJk
-         vqr7mhfGG4vomT8XbsY4U6MqGo1CCwQU2xGf31NuKeEy5PUL1bVzGaZuOjyYQ+9jG1uz
-         a7Kh+6hXgKrmQFb7dub5cix4PM8D6KQ6KDqRp7K/boCh3Dy/IEwmITdZsTPJ0p/g32mz
-         jtmg==
+        bh=RbJk9bz6EFQthks8Ev5pNh2F644o6dRNVZmRCAlT3D8=;
+        b=FYLGJ3GnhAYdLc64GBOa2vZzhE2WNkNmVDAAr1GQGk3m1hgFFKusnJyaZCLwS9bYEX
+         4MpfrhK4piL9Bio2wVNbmWuhEJJR7TCZp0i2InaYr5YjdKMDpMG92dLt7JH1iAt5nFQU
+         voP3s7T4sk0x3nzZtUq9t9Fhhtw+oVP7fHsY46RxMDkK9tJkA5+vR3DcrW+QxwAXrIKv
+         YMdCU7PwR0ftp3b3Ne3TRiRTw3IxGsPYK41x2F50A0r3wZerOlEyz0kUYtDzP1YgSpI3
+         //1YiqxJPwcr2lSn9EfeBQ5O+nT55BaOD7dKwIUyngADo7JY+0HVd/pizB19731Cb4TK
+         lmhg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746369947; x=1746974747;
+        d=1e100.net; s=20230601; t=1746369948; x=1746974748;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=4mVbqwsxzgFPfZ9lDdnu8dfGQADmGRwdt2QEaF4tnGI=;
-        b=KL10pEv8VHlc6Bxs6uwrfUfItvG7bIzlMc0nKYUqtewBU/6oAvkxw0ABe6pbyF0DQC
-         rL0dq3Os96wMMZvQfDf4+4I7DCXTuJ19oQJsqDMjiO1cjx+IEGk8OHOLAYzRFVTMSCvc
-         vyZ7PDF3LEMecN+wUGcjT3iXfL+aM/btv4b1d7coYnas/H3TDLrKvj/Nq30lTQfiabGl
-         zUGouO6sG+c06JwgH48w/6hswzclRW6K0g7S+RFDGjgQc3SJbPtmCKjjcFGbM5H6bCOn
-         QN0hhnfz3bFCUGriXiyZg8aejET6yaMbgl8p7DSVophGhCEy/dyafoOOL418GnGa2DLA
-         jpqw==
-X-Forwarded-Encrypted: i=1; AJvYcCU6LLWnsCmiPiRnwjJe8Q3rpYvrHfWBYGaeoHaGsebTiDkFI+XasZir0UEU43ORMQ+tx6JX4q/u2K1Zv3XLBEQ8@lists.infradead.org
-X-Gm-Message-State: AOJu0YxupNpomKbPqxoF+ugdu1TJRzPOTlMSMoKr97M/Xd6UWuiBhPQe
-	RGt7H+0Qm5doPlXbLeUnh6B2n15fEk7RphqGQw6rOsOQllk/rT5M
-X-Gm-Gg: ASbGncvyZCNOzMpeibZBXW2UAgLOXnpRkqd+bwFQU0rbWhA+vUs2NDV0Ocyqd3Puxco
-	3lnMTStjCc2oebweXMzvWC1AeplwNIml3KKjZklmoloKnVJ24wuYU5D3y/bCyjNyNH1lip1+bYm
-	sOlS597BPxDzAkxEtMx0LmZvr0r9Ie8CkjrsAj2YSOV4HXGgN4durMZRIWIx0P4JtLjWaVALMmi
-	zGPmE0PUdw7QwcZqyJokchbIlt2Q/U+/bP4vY3dtKupjY1DuVH7fbx5oeGIBuXcO+WgzRX/C+X+
-	PfSVsWf7fXCPDoK7k+P37Om9GIChmYxAhUmI/RbNPXtZlD2KZjleu3Vzq+DAan9vfLE3rcK89Rc
-	APDegi5iRyrmi572E
-X-Google-Smtp-Source: AGHT+IHjuIKWNJgawIjtwOkw8F15EvBzNiKAf12L7CVkflrKlhADiuEJeb1zBKuZ3rg6km845Z0EJw==
-X-Received: by 2002:a05:6402:2707:b0:5e7:88d8:30a6 with SMTP id 4fb4d7f45d1cf-5fab057dce4mr3636267a12.20.1746369946576;
-        Sun, 04 May 2025 07:45:46 -0700 (PDT)
+        bh=RbJk9bz6EFQthks8Ev5pNh2F644o6dRNVZmRCAlT3D8=;
+        b=U4T+18kgUnO3BCIllVMPUe6L92DSQN58C01xwI6ioOdHSo6/nC5i2DHU/6NLyYEwho
+         e74nkSu0gyg3ZhrUtE6es6Hy9F2Wu09PN/+9q+5JCZhgLVHyadGgLMj1mHKrCRk65yEQ
+         6DFRCQifTJZ2pII4FxXSBnZtbsjM0CulQsqg2xy/Ofei82NSig2J3Ow0dPfQWxWvHRcG
+         1QTL0TIc1VwEr9al3vGpHXhvqKf8zh+sTkvsd97hk8O7wDJkoZXI9n1ynj4FjUdAJ3/y
+         OeTa4eq6TtjywmQFdRaFsAkJmlGGQTf5DS3zuI6qJb9SQdyGJBJ/EE+EnmMX3+AQaZZj
+         BEow==
+X-Forwarded-Encrypted: i=1; AJvYcCVPSwFEtvYH3Hg/RRH3QrhdB9JyVUTjqtMC9cOo75e2y6IZA3RGL0HzbUzrVOk5eQb3Sasf1PI/2SGcI6WSM7iG@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/FMecCQeXR9fnThJ0vN/jIx7bEBI06KBJlNoI1wSbUhkXY76r
+	+5hsnVlS+FHjP6Mg5WFp9YacJLNgD1dGPdnyrlNFJy9tHKylcPxD6L15NQ==
+X-Gm-Gg: ASbGncvCtdEpq7vogz2r7s9hZ0GC5Cru1axvloObrQxemSXXU+HK2GF3aUHcm8SY24I
+	WvKEOCp0OEjjKvPIKnbWLzEQfkH33GF9p/yMxwn9wLMo+K1PZ6xOSOvs5KdenvsRLaVmIxiPNWa
+	Ikh6c99IM+pccgkHNWZU7MPJjzh3dGAKytOLgYFkV75cKozStz7KJLV9GmIblM3J5Ca1Uq0iQvk
+	qn5evUlrCsNb5/xdiOSBQdV9P060pl21gx0MetQNkEridhcEeEiKxlZOLGr+G4P2Tgt4fLzmEZx
+	Fuebifq6BcTXxO6O5sfX1it3dzWlA7F8qMTLy+bmscFngMX+umAEZT3sFZ6wCGtJ87m/L4B+XnI
+	lhall7KfMOvWea+kH
+X-Google-Smtp-Source: AGHT+IE7vTq91Ziy5tdSjRautreu12/lKKGXLd23gtOnTMb42Z27SvBFllDzeWoPOC2edcZgczXudQ==
+X-Received: by 2002:a05:6402:5250:b0:5fa:afe9:848 with SMTP id 4fb4d7f45d1cf-5fab0576388mr3103899a12.9.1746369947837;
+        Sun, 04 May 2025 07:45:47 -0700 (PDT)
 Received: from ivaylo-T580.. (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5faecf59d31sm1147258a12.77.2025.05.04.07.45.45
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5faecf59d31sm1147258a12.77.2025.05.04.07.45.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 04 May 2025 07:45:46 -0700 (PDT)
+        Sun, 04 May 2025 07:45:47 -0700 (PDT)
 From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 To: Vinod Koul <vkoul@kernel.org>,
 	Kishon Vijay Abraham I <kishon@kernel.org>,
@@ -84,17 +84,17 @@ Cc: linux-phy@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-arm-msm@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v5 06/10] phy: phy-snps-eusb2: make repeater optional
-Date: Sun,  4 May 2025 17:45:23 +0300
-Message-ID: <20250504144527.1723980-7-ivo.ivanov.ivanov1@gmail.com>
+Subject: [PATCH v5 07/10] phy: phy-snps-eusb2: make reset control optional
+Date: Sun,  4 May 2025 17:45:24 +0300
+Message-ID: <20250504144527.1723980-8-ivo.ivanov.ivanov1@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250504144527.1723980-1-ivo.ivanov.ivanov1@gmail.com>
 References: <20250504144527.1723980-1-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250504_074548_494868_630CA945 
-X-CRM114-Status: GOOD (  14.79  )
+X-CRM114-CacheID: sfid-20250504_074549_433588_11C60BF0 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,36 +109,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As described in the device tree bindings, it's not necessary for the
-SNPS eUSB2 phy to be connected to a repeater. In configurations where
-there are such instances, the driver probing fails and the usb
-controller does not work.
-
-Make the repeater optional to avoid that, which also lets us use
-the eUSB2 phy when it's connected to a repeater that is not configurable
-by the kernel (for example it's missing a driver), as long as it has
-been configured beforehand (usually by the bootloader).
+Not all SoCs expose the reset line controls to the kernel, so make them
+optional.
 
 Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-Acked-by: Neil Armstrong <neil.armstrong@linaro.org>
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 ---
  drivers/phy/phy-snps-eusb2.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/phy/phy-snps-eusb2.c b/drivers/phy/phy-snps-eusb2.c
-index 1933e8440..4094786d2 100644
+index 4094786d2..f05333901 100644
 --- a/drivers/phy/phy-snps-eusb2.c
 +++ b/drivers/phy/phy-snps-eusb2.c
-@@ -426,7 +426,7 @@ static int snps_eusb2_hsphy_probe(struct platform_device *pdev)
- 		return dev_err_probe(dev, ret,
- 				     "failed to get regulator supplies\n");
+@@ -408,7 +408,7 @@ static int snps_eusb2_hsphy_probe(struct platform_device *pdev)
+ 	if (IS_ERR(phy->base))
+ 		return PTR_ERR(phy->base);
  
--	phy->repeater = devm_of_phy_get_by_index(dev, np, 0);
-+	phy->repeater = devm_of_phy_optional_get(dev, np, 0);
- 	if (IS_ERR(phy->repeater))
- 		return dev_err_probe(dev, PTR_ERR(phy->repeater),
- 				     "failed to get repeater\n");
+-	phy->phy_reset = devm_reset_control_get_exclusive(dev, NULL);
++	phy->phy_reset = devm_reset_control_get_optional_exclusive(dev, NULL);
+ 	if (IS_ERR(phy->phy_reset))
+ 		return PTR_ERR(phy->phy_reset);
+ 
 -- 
 2.43.0
 
