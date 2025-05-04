@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAD0BC3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 May 2025 14:47:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04850C3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 May 2025 14:49:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3GLMQvVURueTJUfJOlZy1bzDlyZjB6YxPVmLXhRiwUg=; b=NL8gtPb44UdypbOs/0iYqSGxbR
-	oYvhQzcto48m4fNLQdHlMsPMuAkm0/IZiKvxRIBXgEsd3JiEqFE7258OGjcv7F80TVodV2RCuQlDT
-	u2xoivSsBHE3wFOr/VPErby2zKoMAUYdsF02xfDWtl/tyDRFXkZliB722XV4himXkjf70bQlWXsvc
-	uywsg9gcWUy/Rc4JXk2IAAGagHu5p24JhR/5wJnNs/FIPhaZDLy5AQa4+HIFJYwHsycERcUm3E+Xu
-	zBJxBC1A7PWtTeOmyRu1VAVIuLtyQwcixxlNXqeWILoWAvjDvjeSOz8Fu6zd8rVBtHm/JoavE2FX8
-	xwcjXFXQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IEe2Pk/caZE9tuS2ToysVXZZ+Dp3w9K8dh4ddcOqsJA=; b=KzMVISfGMTq/y/lkBBb41nFNSK
+	O0dprPtK4OzFRw30lWIxL6szj6ex47c875ewK4oWPDeEyOCjXBxt1MFecto+BfDqqvOSisKW7z5q+
+	f+BM3YASGrGQ/rSrijFVQU1bSAvDU2/xkpG4Li8FL7LxNGjweOftB13VNtMkYUw/g0CNKbN7rTaKU
+	moQdV0BJgQo+019eUt9VIks5JVaqGQky3aV+YiSXFLinTz8QnT5pUd/ykro2qyX1MD/LJuK3+WLIj
+	/uP35dsnttu7RRqcRCom8EeUWDyTkhMW0MkCQWFpCJD8x0oF0DDfXGdftNlQqi2wzSA7rsnL2M0M3
+	dtcGhOHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBad1-00000005Pn9-0ElB;
-	Sun, 04 May 2025 14:47:39 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1uBaeu-00000005Q6d-0H0E;
+	Sun, 04 May 2025 14:49:36 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBab5-00000005POc-1cwr;
-	Sun, 04 May 2025 14:45:40 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5f62ef3c383so6582919a12.2;
-        Sun, 04 May 2025 07:45:38 -0700 (PDT)
+	id 1uBab6-00000005POu-3tOp;
+	Sun, 04 May 2025 14:45:42 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5f7ec0e4978so1714861a12.1;
+        Sun, 04 May 2025 07:45:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746369937; x=1746974737; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=3GLMQvVURueTJUfJOlZy1bzDlyZjB6YxPVmLXhRiwUg=;
-        b=i1vW8hgXCVk+4896WLgwZBlNOHGa6sQ0RAwR90UUnzvOJN1uZNFWeGNuEmUVBd9x80
-         iPS2lbqxtWZP3qu3M0RtAgqmhdYL/nzW95mwfnIr3hNNPIxLIFJiVh/Dh6vGUhl2OM5R
-         VA47sLqvvXaovjEfZFw9XLerooRPHjSHNtjmGNh0YLJs8+qhHjcCAbLJPqcj5pZar4QA
-         PR7SiZ5miZPXxMX6N8JDbuHFWha8TSWak8glv6Erl1+71WDSeJjGtH+FbY3S3yo2fQra
-         5bDW+0GEtomxkMkWn5UJDq3t1duh7vZJ4wIqozu44Q6kkbaVfGvfjdPFG2Z6v0Dje4bn
-         QKAg==
+        d=gmail.com; s=20230601; t=1746369939; x=1746974739; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IEe2Pk/caZE9tuS2ToysVXZZ+Dp3w9K8dh4ddcOqsJA=;
+        b=CIxYbLjPoy8mgUUK4Rk/uibYbwQylIBV5sNCdVRpmcin0DkzGLClCdW0BP2S+iY2XP
+         joAycsO5IjHR3Ndet6I1Yb3IBNLL+Uav0JyT9lFlafgFuwQFBVVuk190+n0tvzS/yPh1
+         neaZk44AMqk+jjZUOUrc1omzivbyO2+fkRQ1hOvUDEebUOPF9FNYxT3jTaet/xEOJhqj
+         IWriTnkUzo3LzHDgkNRhe7lCY/BwAKAzP4gqy47/97HEhnZvQvGcrAbA4GPjrupkAZdE
+         StDySGXdKB7W+O6VAaFQZgb/8IcXRP2VCBHLjyUTu7/CTDDGO8Nn+/0kUOXLdJKO4pCK
+         g9ZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746369937; x=1746974737;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=3GLMQvVURueTJUfJOlZy1bzDlyZjB6YxPVmLXhRiwUg=;
-        b=UY6kEti7F8RzwUYymwFViHzD2AatUS/z/W/PtAv+o+z8RCUnjJ8YxqVMlDuwMPdssZ
-         Ypdwjsuf3969LbNZ7WV/KhhFEZqclacK4kfDYfja0unQa/TUZZRsJSgobGFt4Ooio8+0
-         voJAfIQW0abPtC4Lee0fhMAnUnW7ltZjRGPCMVurOml1IV8I5H8kgNE3EkkWfTBsB8Of
-         kEAj4yYmECKyzq1mb8GveQdPnLcF8c1GNt1mIkuDFDQH8NVujUe957Uw3qV2GOkjDMho
-         V+pK0CHhEdYpzYORL02g38/x5bLL/v+jmeClOXDCuW9x8IO5NbexLd7c11x3D07atLHS
-         Xv6w==
-X-Forwarded-Encrypted: i=1; AJvYcCWC88xoiZ/67nQ/ajL9hBijIOBbjhtXekatXTz8AvvGBARnANUVX65Av7r93DCbuH0MvE50xIw+NwEtvpPJkjg1@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZIEZZRNxhnC/GtgWX5iOdaMYoi7AU+x+RYtd56c2Te+kXg+0Q
-	6z8+nrmo10nOobN/1FR9fJtkP7mtcfnpE4PLz+d9rk4NchEXTnM3
-X-Gm-Gg: ASbGncsP71XGNyNlJBoFLNIPXR+CO2r2YwYcMU+eEz3RxdoK3z3bO68dNgjYT865zFQ
-	70PdmIThMCSsV69YnmgmxQNIHloMEEjmTU82as8UIaR+X13LWR3+chvzHHkClI7geyQx14f0Iyn
-	EoOis21AbF19cUeCpSwTIINf6a5cjdGmss4PB1OTWGlRiGgSZe7ktRq/nmt4gGYjoVPzWnB4Bp+
-	9BUU66cOxvxBhDG8l+Q6EHX2IZ1PNpZJdkrSAmkcMyAsusxhMqsjilrEcyAa7biKpv0qoVUe2U6
-	7SFrK/9QSiaioheCjoSs9+n8SUmLATobtBwXCg7VgxRSdtdbndFnKVHyn4HPTXUVzdj7twOlcE+
-	eQEFe7NQvAF6A7m3G
-X-Google-Smtp-Source: AGHT+IEC43jOF2l9Y+pWj7JP3rs0bfznp+nHLXmOJyVYTaj2ERAtZaGGWdiC4aq9yrCcx89V7OTvYw==
-X-Received: by 2002:a05:6402:3494:b0:5f8:36b2:dc07 with SMTP id 4fb4d7f45d1cf-5fab057d79cmr3440722a12.16.1746369937074;
-        Sun, 04 May 2025 07:45:37 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1746369939; x=1746974739;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=IEe2Pk/caZE9tuS2ToysVXZZ+Dp3w9K8dh4ddcOqsJA=;
+        b=DADKOGItXa9ubyVxq7uDnUHGA9yYBXjFPIgjn45mQTBQ2YjJ28o/C/ydXsTx0MkLFJ
+         pdws/rqYZdxtsMm0VlsM/WF/N8EF8T9kqdUJ744qqS3goO1mMmDwmbma0KCmzOYTCz/O
+         JsG1uqMxMPZQNoqVukzuLU1p/5S2SGwxbLtE0jkLdlUoHGtaEt9zJAFLYj2vH/RSvDFW
+         aTUNIHHuH++zGzYnwYDCuMcYZW4N4ym8bAW5T6Lk0+D0ZfjZbyPRYqI+uUnaw66waMDv
+         Agv2jxIFgCeaW1DS1q04GHDUNO+beMCVI4fFrLCnpQk6GZOlSNvU7SaYtnhIJc1pn3at
+         yrTA==
+X-Forwarded-Encrypted: i=1; AJvYcCWwDpiQsBppxut/U2ygjEBoQFsen4YwdnPgXKZt3+3l5Y8FZgM0pLN4lhhKRYN4mk31XfATKHwW+7NkHHtz7piT@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZZ47yPB5sepy0xwfG+ZrAPfuXE2ELdXwmbqBM76KaeSrNbEuF
+	sbnPewowW7diF5fC4iaz1FP8jMNZeZRtzQHbrB777Xy0uIo7Ab2d
+X-Gm-Gg: ASbGnctBFSP0MiEbYy/Z/IyfKv3pCTn7WwvDSBqo22X2BF7WDqmwE8FX4zBvJ107C9P
+	xc4vA5lqZfHHOBbu6iBycPY8TH/25+8R1UIkORgJfRQKK6I0jy3jnpEsVPfsNWrR7KfqxcWlOvX
+	6NGKY1GOxH5EOguMxCkjeHB6TjRhoWAwgCCGL9KYRwdre6KlvwzxOHIktdXZ2zHsMZ2fiwyrNJ2
+	JwrWVRy6C+aL1uyu3pjQN62DVPT4X1f5Hic+C68RI3X8lEU6CqMu6bw2cGGSJzeeJxhcq21A2Sv
+	ivNXes6I1tuhNvzQth2vs1CLZY70rbwUHKC+Q5lbInZDQGihtEdpS/fydJp5qOMs2VHVOvqvcPn
+	qw99QSGRhe0y7POXN
+X-Google-Smtp-Source: AGHT+IHh3dzRLVQA3aqoCJ5MBNUWOlX9P7YffHdktJwcGumENYOkPRjsZ41k9Z0xC0aeBgpqQPMNSg==
+X-Received: by 2002:a05:6402:1ecb:b0:5e4:c119:7ff8 with SMTP id 4fb4d7f45d1cf-5faa7f3170bmr4343957a12.4.1746369938837;
+        Sun, 04 May 2025 07:45:38 -0700 (PDT)
 Received: from ivaylo-T580.. (91-139-201-119.stz.ddns.bulsat.com. [91.139.201.119])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5faecf59d31sm1147258a12.77.2025.05.04.07.45.35
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5faecf59d31sm1147258a12.77.2025.05.04.07.45.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 04 May 2025 07:45:36 -0700 (PDT)
+        Sun, 04 May 2025 07:45:38 -0700 (PDT)
 From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
 To: Vinod Koul <vkoul@kernel.org>,
 	Kishon Vijay Abraham I <kishon@kernel.org>,
@@ -83,15 +84,17 @@ Cc: linux-phy@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-arm-msm@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v5 00/10] phy: samsung: add Exynos2200 SNPS eUSB2 driver
-Date: Sun,  4 May 2025 17:45:17 +0300
-Message-ID: <20250504144527.1723980-1-ivo.ivanov.ivanov1@gmail.com>
+Subject: [PATCH v5 01/10] dt-bindings: phy: add exynos2200 eusb2 phy support
+Date: Sun,  4 May 2025 17:45:18 +0300
+Message-ID: <20250504144527.1723980-2-ivo.ivanov.ivanov1@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250504144527.1723980-1-ivo.ivanov.ivanov1@gmail.com>
+References: <20250504144527.1723980-1-ivo.ivanov.ivanov1@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250504_074539_434691_F857D661 
-X-CRM114-Status: GOOD (  21.59  )
+X-CRM114-CacheID: sfid-20250504_074540_966510_1308B928 
+X-CRM114-Status: GOOD (  11.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,133 +109,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey folks,
+Document the exynos2200 eUSB2 compatible. Unlike the currently documented
+Qualcomm SoCs, the driver doesn't make use of reset lines for reset
+control and uses more clocks.
 
-This patchset adds Exynos2200 support to the existing eUSB2 phy driver,
-as well as USBDRD support for that SoC.
-
-The SoC features the same (as far as I can tell from comparing code)
-USBDRD 3.2 4nm block that Exynos2400 has, hence the common denominator.
-It consists of a SEC USB link controller, Synopsys eUSB2 and Synopsys
-USBDP combophy, which are independent underlying hardware blocks of
-the USBDRD controller.
-
-In the vendor kernel, everything is handled in the usbdrd controller
-driver, with helpers for underlying hardware block functions outside it.
-Clocks and regulators are specified and enabled in one node, which makes
-it difficult to separate what clocks and regulators go where without
-access to schematics or TRMs. The following gates are defined for USB:
-
-CLK_BLK_HSI0_UID_USB32DRD_IPCLKPORT_I_USBSUBCTL_APB_PCLK
-CLK_BLK_HSI0_UID_USB32DRD_IPCLKPORT_I_USBDPPHY_CTRL_PCLK
-CLK_BLK_HSI0_UID_USB32DRD_IPCLKPORT_I_USBDPPHY_TCA_APB_CLK
-
-CLK_BLK_HSI0_UID_USB32DRD_IPCLKPORT_I_USBLINK_ACLK
-CLK_BLK_HSI0_UID_USB32DRD_IPCLKPORT_I_USB32DRD_REF_CLK_40
-
-CLK_BLK_HSI0_UID_USB32DRD_IPCLKPORT_I_EUSB_CTRL_PCLK
-CLK_BLK_HSI0_UID_USB32DRD_IPCLKPORT_I_EUSB_APB_CLK
-CLK_BLK_HSI0_UID_AS_APB_EUSBPHY_HSI0_IPCLKPORT_PCLKM
-CLK_BLK_HSI0_UID_RSTNSYNC_CLK_HSI0_EUSB_IPCLKPORT_CLK
-
-The vendor kernel specifies 4 regulators, 2 of which are for eUSB
-and the other 2 for the repeater. The rest of the PHYs and the dwc3
-controller are on a single power domain (hsi0), so they're most likely
-sharing power rails.
-
-As Qualcomm is also using the eUSB2 IP, the approach taken here is to
-rename the driver so that it can be used by other SoC vendors as well
-while keeping compatibles SoC-vendor prefixed (different vendors have
-different implementations of the IP with different register maps),
-add support for exynos2200 in it and implement support for exynos2200
-in the existing exynos5-usbdrd driver (with link controller init).
-
-A new USBDP driver will be added later on, so that super-speed can be
-configured.
-
-Bindings have been tested:
-
-$ make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j4 dt_binding_check DT_SCHEMA_FILES="Documentation/devicetree/bindings/phy/samsung,exynos2200-eusb2-phy.yaml"
-  CHKDT   ./Documentation/devicetree/bindings
-  LINT    ./Documentation/devicetree/bindings
-  DTEX    Documentation/devicetree/bindings/phy/samsung,exynos2200-eusb2-phy.example.dts
-  DTC [C] Documentation/devicetree/bindings/phy/samsung,exynos2200-eusb2-phy.example.dtb
-
-Best regards,
-Ivaylo
-
-Changes in v5:
-EUSB2 changes:
-- rename binding to match compatible
-- simplify binding name
-- indent binding example node properly
-- add r-b tag for binding
-USBDRD changes:
-- add r-b tag for binding
-
-Changes in v4:
-EUSB2 changes:
-- make a new separate binding for eusb2 ip found in samsung socs
-- fix order of tags in 03/10
-- change 'SNPS' to 'Synopsys' in the MODULE_DESCRIPTION in 04/10
-- simplify code around device_get_match_data in 05/10
-USBDRD changes:
-- drop double colons and 'phandle to' in binding
-
-Changes in v3:
-USBCON changes:
-- drop the driver and introduce it all in existing exynos5-usbdrd driver
-EUSB2 changes:
-- split changes into multiple commits with clear diff
-- add a commit to do table-based lookup for refclk
-- clean up here and there
-- correct the cover letter according to my new knowledge of how the
-  hardware functions
-- change commit message of the optional repeater patch
-
-Changes in v2:
-USBCON changes:
-- drop unused header includes
-- sanitize the binding
-- proper init and exit power management
-- shorten some variables
-- unrelax reads and writes
-- update commit description
-- remodel to take other phys
-- drop specified regulators as these are for the repeater
-- make the kconfig description better
-- general cleanup
-EUSB2 changes:
-- merge the previous separate driver into the qualcomm one
-- drop the previous model of taking usbcon phandle
-
-Ivaylo Ivanov (10):
-  dt-bindings: phy: add exynos2200 eusb2 phy support
-  dt-bindings: phy: samsung,usb3-drd-phy: add exynos2200 support
-  phy: move phy-qcom-snps-eusb2 out of its vendor sub-directory
-  phy: phy-snps-eusb2: refactor constructs names
-  phy: phy-snps-eusb2: split phy init code
-  phy: phy-snps-eusb2: make repeater optional
-  phy: phy-snps-eusb2: make reset control optional
-  phy: phy-snps-eusb2: refactor reference clock init
-  phy: phy-snps-eusb2: add support for exynos2200
-  phy: exynos5-usbdrd: support Exynos USBDRD 3.2 4nm controller
-
- .../phy/samsung,exynos2200-eusb2-phy.yaml     |  80 +++
- .../bindings/phy/samsung,usb3-drd-phy.yaml    |  38 +-
- drivers/phy/Kconfig                           |   8 +
- drivers/phy/Makefile                          |   1 +
- drivers/phy/phy-snps-eusb2.c                  | 627 ++++++++++++++++++
- drivers/phy/qualcomm/Kconfig                  |   9 -
- drivers/phy/qualcomm/Makefile                 |   1 -
- drivers/phy/qualcomm/phy-qcom-snps-eusb2.c    | 442 ------------
- drivers/phy/samsung/phy-exynos5-usbdrd.c      | 227 ++++++-
- include/linux/soc/samsung/exynos-regs-pmu.h   |   3 +
- 10 files changed, 965 insertions(+), 471 deletions(-)
+Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
+ .../phy/samsung,exynos2200-eusb2-phy.yaml     | 80 +++++++++++++++++++
+ 1 file changed, 80 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/phy/samsung,exynos2200-eusb2-phy.yaml
- create mode 100644 drivers/phy/phy-snps-eusb2.c
- delete mode 100644 drivers/phy/qualcomm/phy-qcom-snps-eusb2.c
 
+diff --git a/Documentation/devicetree/bindings/phy/samsung,exynos2200-eusb2-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,exynos2200-eusb2-phy.yaml
+new file mode 100644
+index 000000000..5e7e1bc2e
+--- /dev/null
++++ b/Documentation/devicetree/bindings/phy/samsung,exynos2200-eusb2-phy.yaml
+@@ -0,0 +1,80 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/phy/samsung,exynos2200-eusb2-phy.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Samsung Exynos2200 eUSB2 phy controller
++
++maintainers:
++  - Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
++
++description:
++  Samsung Exynos2200 eUSB2 phy, based on Synopsys eUSB2 IP block, supports
++  LS/FS/HS usb connectivity.
++
++properties:
++  compatible:
++    enum:
++      - samsung,exynos2200-eusb2-phy
++
++  reg:
++    maxItems: 1
++
++  "#phy-cells":
++    const: 0
++
++  clocks:
++    items:
++      - description: Reference clock
++      - description: Bus (APB) clock
++      - description: Control clock
++
++  clock-names:
++    items:
++      - const: ref
++      - const: bus
++      - const: ctrl
++
++  resets:
++    maxItems: 1
++
++  phys:
++    maxItems: 1
++    description:
++      Phandle to eUSB2 to USB 2.0 repeater
++
++  vdd-supply:
++    description:
++      Phandle to 0.88V regulator supply to PHY digital circuit.
++
++  vdda12-supply:
++    description:
++      Phandle to 1.2V regulator supply to PHY refclk pll block.
++
++required:
++  - compatible
++  - reg
++  - "#phy-cells"
++  - clocks
++  - clock-names
++  - vdd-supply
++  - vdda12-supply
++
++additionalProperties: false
++
++examples:
++  - |
++    usb_hsphy: phy@10ab0000 {
++        compatible = "samsung,exynos2200-eusb2-phy";
++        reg = <0x10ab0000 0x10000>;
++        #phy-cells = <0>;
++
++        clocks = <&cmu_hsi0 7>,
++                 <&cmu_hsi0 5>,
++                 <&cmu_hsi0 8>;
++        clock-names = "ref", "bus", "ctrl";
++
++        vdd-supply = <&vreg_0p88>;
++        vdda12-supply = <&vreg_1p2>;
++    };
 -- 
 2.43.0
 
