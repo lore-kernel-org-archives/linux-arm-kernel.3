@@ -4,97 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6BEFC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 17:46:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF4EDC3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 17:47:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qCRTPaLL/ddSZCO1i6dVdhSDdFDF5EjuW/HmAYg1Ry0=; b=qsErOxZE1FbqQE0g/OpByhcbzG
-	h3jjaJA9tuY6hsPP3uijBiWpRUdqVYEf6mtHiJOBCZ48dLmna1WjhNo6sRsHw0TYk2cQIt9+C/EPn
-	iibaXy0mazy265+12z/ifTbPxwUYolRV+0A7eCfVfM0JN3L0UVGcidF0dIfU8k7GUzXxZ6apIyc5e
-	USlSs/NFsvbjNj2z2ahoiyFFDnp842s0xQzczHJPndtVJ4s2jgvCBiGRwXUzheDYrEwHCmQPtR27X
-	Odc0rE3RK2x40FheE5jpPYbo44fAq2vgnEQFttn5o3zjfmMxp/MsaTtUgQvfShj4g4mTmFtL8ilZu
-	VX8QgqQw==;
+	bh=or5iQoO5JMPI95XmR12v3VXbmWEi3hiUGKIZXX9tCwM=; b=Dj3K0oMXSz9AdS7MVk8LcRZWol
+	skhQldDeDT0tzDtEK1z7k8b7n6lb5V6MsBiI69ud2ivpvrwJtHjLuid1VjH22BCOLzPjtdqrPQZwd
+	li5ahechNPLy61x0Vlb5yRdbOhMKaYLYHVpqGbL0vmM3uOkJO74gkVjYDprG9N8QHZI9DhuBo/W0n
+	a0oJ45cQOzE9J/Cbmn//TiVLMu1eS5gO+MFX8lOF4ei8+40xYBAeZzbRCatCgtQHbUYGDvuWrCKHg
+	AtgSms3anuzaqi/qGrcnd8+O3wjrt5U86IJfNXq7aYlvD8HO1JRvYcK6BuNGVlw8JjVXaHcrirXqe
+	6v80N7bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBztL-00000008CrP-3JLj;
-	Mon, 05 May 2025 17:46:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uBzup-00000008D9s-2Omn;
+	Mon, 05 May 2025 17:47:43 +0000
+Received: from mail-mw2nam10on20608.outbound.protection.outlook.com ([2a01:111:f403:2412::608] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBySd-00000007wNi-1Keb
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 05 May 2025 16:14:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=qCRTPaLL/ddSZCO1i6dVdhSDdFDF5EjuW/HmAYg1Ry0=; b=Wj/CGQu5591mr88UKcLSNCtQim
-	hnAx49nZrufYwlpaH+mBx0/wcmE47iBtZD5HKzNXI4RO4bccFhU9maRB65Y/kha5Q1+zNI4LCYbLr
-	zI+lEwsxFMq8ggufU5nPI4zOp52pD2ikObNgHi33XofemGBTOqir95H5VNX7t6IOX60gV3F+CqBka
-	a4mR6FXGaV79s8ICoRjD02rVooWmQGTpFPa7oKA4wqIsZbRePsWAtEsPkVAd5OZZZR3G7z+RGkwWH
-	XHHjeA0xo6UA40JYyBUom/IjELF2ePDoRAWxDFVKClUnldLMtSbktvkC5wn2LSZ5Ql0A13w7lSFey
-	F8TlErTg==;
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uBySZ-0000000FVjl-24wO
+	id 1uBzcA-000000089C3-3GpB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 16:14:29 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-736c7df9b6cso6338875b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 09:14:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1746461664; x=1747066464; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=qCRTPaLL/ddSZCO1i6dVdhSDdFDF5EjuW/HmAYg1Ry0=;
-        b=JAMiKlbADFLqY752gYiWQOF8glJgL/EMk3ZYgwSOSQ093JK71V7JehRzFv1nBwo8Vt
-         MSpJ9obnMCBVVK7l2stpOm7SjNwtOcaBc9up8lP4yGt3YqxQ9nRJJicOjejk6ZErGdeE
-         E6zI5qpSHZJCuqlfDcTPkyXZtx6ARDO3VsjsBKiFhJAixUAIAcx9YbFRjleMJyLitiGQ
-         wrAIeKvOtQWL9Z8/ICebuyCrXMJlQy1lyX/RrSQMvVKornaBd8+k4QQxw1FJY+/TBYZF
-         Vk4GwXYYq/wWugcnjzJ9cKskTAPeA4rr+oM6JMnGWwD38iRQhmh5dgEavdDw3yLoj2Xs
-         cUdQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746461664; x=1747066464;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=qCRTPaLL/ddSZCO1i6dVdhSDdFDF5EjuW/HmAYg1Ry0=;
-        b=lAHUhTr9WNEVN3vIPyxj5uI2C1nSbPiLAePMuxZQ0lcZ2tNHNB3gzjzX00vAgn5r94
-         ygKffAg12/tcycoY8gYxkiEG+OLHhwOFVeh5NH4nFxcd/VTEiQCZN556alo1fsm1cF5g
-         +S4RzqAE8DOq6GW7OzWMCfg9U/h70AFoqVSY4OZAeJROkljrcD53Ssgi/LZTEfARCxdn
-         7LykOsMtwm0ESqPafbTYRtlGMfii/Xm1xKypP+2QEg11+T1C6/igC3BPzs0UO+uWbbon
-         RjfmPE/WlAttsLLUWE1a9LWNly/l+jV2rzybiYKI1ODbg1cS3xyLZv0P/0hI1yElydVn
-         N3tw==
-X-Forwarded-Encrypted: i=1; AJvYcCXI/R14vKXy8jhB6Qqil/uqg+bGmM9r0iw6oHOBUgt2uE729H8wRd5JP0bT1Ft+pAmCBsmcCTHvlk+10zoNLlcc@lists.infradead.org
-X-Gm-Message-State: AOJu0YxMMWdHLQD2LHZ+8rzw/4kFT6BHvA/PO3Uh9ksTbST/vgh/lfMY
-	1A5mV1m3Bslv9otxbKWKa3v4uH9qndVBePDx5YZVtds/Vf3wKa0syrs2H4+jCXXAheYyQkA7A2t
-	nvV/hqEDoUw==
-X-Google-Smtp-Source: AGHT+IE1SVeU3n4ai6CrxrMJm0u9dBQoZvk8Si1b7xa5PwydPXT87LL3o3Oqy2HVQLl3IBAbqfHn31O9UmD3SA==
-X-Received: from pfbki23.prod.google.com ([2002:a05:6a00:9497:b0:73d:b1c4:5d7f])
- (user=jiaqiyan job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a00:2e9d:b0:740:6f7f:7645 with SMTP id d2e1a72fcca58-7406f7f7a1amr12841654b3a.8.1746461664178;
- Mon, 05 May 2025 09:14:24 -0700 (PDT)
-Date: Mon,  5 May 2025 16:14:12 +0000
-In-Reply-To: <20250505161412.1926643-1-jiaqiyan@google.com>
-Mime-Version: 1.0
-References: <20250505161412.1926643-1-jiaqiyan@google.com>
-X-Mailer: git-send-email 2.49.0.967.g6a0df3ecc3-goog
-Message-ID: <20250505161412.1926643-7-jiaqiyan@google.com>
-Subject: [PATCH v1 6/6] Documentation: kvm: new uAPI for handling SEA
-From: Jiaqi Yan <jiaqiyan@google.com>
-To: maz@kernel.org, oliver.upton@linux.dev
-Cc: joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com, corbet@lwn.net, 
-	shuah@kernel.org, kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	duenwen@google.com, rananta@google.com, jthoughton@google.com, 
-	Jiaqi Yan <jiaqiyan@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Mon, 05 May 2025 17:28:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mfyOdsPBau07/fR0q9P9s9jvSGbIBLOM7NmFwp0644YMZo+KksJ4RP01tR3YSIyZ3mRyEWkVbAOTctyL0MsMng+Z7Ct6SbSqgmFU5EvcaovCQr3H3L44i71iE7Z+hmo9GX/ap3doA6jAldq7+kCcE2IiX0OkL/7dXpj5u3AyMA6n8BrOBVEmfPyVmHFGDVOJ473gScqfG/BwQ8bQeCwv7Knu4qxDO7LY2zY6e7/v9N2ubtdcMWI4GHu5mCWDalog3Js0/TAg0vGvzUfzR8aGmS07DhOMLK1VUr91b+VRlwRFEDA2AxBj+juOlUpMkcTAe4SUph/Ed/Xgb0VdMS+8CQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=or5iQoO5JMPI95XmR12v3VXbmWEi3hiUGKIZXX9tCwM=;
+ b=C1rI0IU0YB9WiNqaJ6i8EQLEyFpRyxyANZ0cYAvoTcU8ee/+Sai4oxJ2X3xu2jckG3yvylnmvi5ynkHFTDC8fo3Aui9PcP6TTBSoZRNqaSDDt2u7sB7LU4N/NGIZpdRvclSKAc2JUeQ8bCFskEelbwqL6vPzUoPkvSl5hI/dGq1S7WiitqsRDuaZ/JkbnhZ+BGj+N6SJBMEe2CEZWUX0vKWVMsoHvm7Hsn1aUlzsUUt6eS6irosWrXkUvj5ieMv38tWTspF165re6GQFkZLEbas/vGqIzYJ0uts4rezLA2wBASCJNsK1oDCBkgnN9yEcu1Xiops1Lcuc7mnjhY/Peg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=or5iQoO5JMPI95XmR12v3VXbmWEi3hiUGKIZXX9tCwM=;
+ b=VwCjBXUpKrxwWVwxLn+SZGV4FXqYRvoi300crf5OWbZJOMyX60qpHKeClV3+9dfFqWI78GDXwy92mZ64OocPkZ/NtlMt9SU8f4QASxg4AaBE5HEu3WSsLRiap2Ol/R9g0+eKZPAdxqsZWH+b9njJupZ7nqleMKI4pO/rdY1gnJK5iglqDFBeintv7OGo8mWBFnsQx7O/83x2R+c/3+JLhyBCBGBGkoOj4DzelY7Dn9ggJ+mMYcpDiAxf7yuAzhO4WCovAopMuXpAzopAdm6v3Nd5mOd8+4CzoDOt2oG0zPjcrbpU9Q3BFmv1080YrEsp38ZC/6O7ephokLRSSi/EXQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by MW4PR12MB7430.namprd12.prod.outlook.com (2603:10b6:303:224::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.23; Mon, 5 May
+ 2025 17:28:15 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8699.026; Mon, 5 May 2025
+ 17:28:14 +0000
+Date: Mon, 5 May 2025 14:28:13 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: Baolu Lu <baolu.lu@linux.intel.com>, kevin.tian@intel.com,
+	corbet@lwn.net, will@kernel.org, bagasdotme@gmail.com,
+	robin.murphy@arm.com, joro@8bytes.org, thierry.reding@gmail.com,
+	vdumpa@nvidia.com, jonathanh@nvidia.com, shuah@kernel.org,
+	jsnitsel@redhat.com, nathan@kernel.org, peterz@infradead.org,
+	yi.l.liu@intel.com, mshavit@google.com, praan@google.com,
+	zhangzekun11@huawei.com, iommu@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
+	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com
+Subject: Re: [PATCH v2 13/22] iommufd: Add mmap interface
+Message-ID: <20250505172813.GS2260709@nvidia.com>
+References: <cover.1745646960.git.nicolinc@nvidia.com>
+ <7be26560c604b0cbc2fd218997b97a47e4ed11ff.1745646960.git.nicolinc@nvidia.com>
+ <c4d03b52-422e-41ab-845b-1d2eda7ca9e2@linux.intel.com>
+ <20250505165019.GM2260709@nvidia.com>
+ <aBjzf9PrYnwF5uZN@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aBjzf9PrYnwF5uZN@nvidia.com>
+X-ClientProxiedBy: BL0PR05CA0005.namprd05.prod.outlook.com
+ (2603:10b6:208:91::15) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|MW4PR12MB7430:EE_
+X-MS-Office365-Filtering-Correlation-Id: f74e475c-e004-4fe9-cf62-08dd8bfa3750
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?i1OQ4lZL1ALeSh3I1D7Zyil3SBGc5NnBr1wZD4c+Mir+NNMmwjZpupdj+Ifi?=
+ =?us-ascii?Q?9RzrG6L31TuTtdkAKJTzvhXOvVk0zWLs/feceuFSmdQVfMQBmhcpqIxpMdHc?=
+ =?us-ascii?Q?RAjegot7yb7G0zh56v+8WAYBax5KjebEdUq89Y3CVhIF5UF+rK87clXEmOqQ?=
+ =?us-ascii?Q?jL8CIwZCYDYjpmK7cFm4na9jct9ATkbTgIqPXJ3UhVebDHJpiuMb9uD7QiKL?=
+ =?us-ascii?Q?IGuqesjapwPxOwoAG8lerq2MCJG5rRG8fDigNPgGuV6hSJ2CXJnvR3Oyt9T0?=
+ =?us-ascii?Q?aZizRE6ygBfryG8k8s8ONo3sOC6E2+myr2dB4xCacyZ5ypRDOQpJ+d308Ku1?=
+ =?us-ascii?Q?1/2z0DZVfGPQisgS7IvclnfLgruuI3cvqp8yV+RXbYtgfTqa7i+ED5g8vAmC?=
+ =?us-ascii?Q?JjV96dJo3UQN+bXkLCSy3kmQSJhYEGHxUghbBbpTzxcuFpPw16fDcMLKgWya?=
+ =?us-ascii?Q?/WeFHdhZCdHH2bPASjCaNVpX9u2iHIOGniaI4nAKwq5O0qD+8GcfqzVYFDDN?=
+ =?us-ascii?Q?gu8un6JlxPEVnUQBWShXqlWr2Zrv59cIpdWE4SZ1CkWxTzlu7U7OiMlSs4fB?=
+ =?us-ascii?Q?wNvjdKH25oaw62qQNCHXEnYSRYN0FOPZexUa3eMYC8MZTiZXQqQ7jN+fLW6J?=
+ =?us-ascii?Q?WquD0WQJ6oUPuRl1zjVzdRG9WZXlD5FW7hJG/dq9TuwKFqnGUQbZAw0EBhMf?=
+ =?us-ascii?Q?+BDAAPb5e21dZPHhGtLJWa6fPgZzVlW8NdgS1dG1dLVX3pzZs/ZOFbVfglqW?=
+ =?us-ascii?Q?BoUCXq6FKuP8hnR+5+RW5y7h0dH8xOoSpyb9ddJ3VbsUrYBpB8/TMoKRnKEi?=
+ =?us-ascii?Q?mJyRllS8Pj9pOnZ7XohLlZE+9VsGkZA/9fJIWwknL8D/7zxv6a+v/2NcAvi4?=
+ =?us-ascii?Q?tNtga/c9XyMt5y+ByyzVSWbmpL0oemc6FE6xxS/V/AnmSng9HTOfHvK5wc9L?=
+ =?us-ascii?Q?3IHil8VYQu3GJszv6j06WiQqDCUZ2ZgOYiKFldHXnWEivOSEHpVwFIfmwGew?=
+ =?us-ascii?Q?t0ex6C/PDZlOTefh5AMXEVNe32HdCirRd5LtOyMT57BeDjGnX7icG1LC01wA?=
+ =?us-ascii?Q?jbbpsWPPAjE0sXbgCFTBVnpHzVT/EfDRZV+iWTvR31YG1mWfVjKXRZ7C5SOe?=
+ =?us-ascii?Q?VvT9vfXquCxnm4V7LokEEsszg42DXUA+VyA+wlQ9+NPXfd7j8Mgrld/9QmsE?=
+ =?us-ascii?Q?UGFKBXMwdsN00x2s0Wy0StSIO+L9mjK9MrIdSzddeMz6VsPRTxw3MbsZRRhY?=
+ =?us-ascii?Q?m4nSgjrLYkmIne+pkZv3D2MsdjOhrkKylgvtpzeziYxMusAYoA3gNDur6ZPJ?=
+ =?us-ascii?Q?aRchQZEMFxJYsuZrr9s8YJEHtDtHlcFoBmM0CGXJEI33ZTJF50CPymFXIgMD?=
+ =?us-ascii?Q?/B4bBwSnpGLcPA2dSqvaUOB/BZ9QF5PJxESMue6+Js6LEOqm8ziDpoN0SrF6?=
+ =?us-ascii?Q?WJazTgjQ//Y=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?H+CZIBCkXYVr+qaZE5tnho3OSeP3fw9jpVjZd81JFuN9wOnonLmcZxncEkDX?=
+ =?us-ascii?Q?ZVgtoFb42K+sviAayQijU24ZaM3YemYgQjCRVcLJYZ9JkC5Zp69QMunAbd8D?=
+ =?us-ascii?Q?BQZI8i0cwLfcqhNUzESb4Z+xdKvMAvLdF2ykaKI94NBqoU8Ve7qyX1WJf80z?=
+ =?us-ascii?Q?FM5rbkH846pc6JKeGMVReKp7lriIx2sHybQI8t/ihe059pJuDb9tsADx2j/Y?=
+ =?us-ascii?Q?nxWTtvQTXrmgRo9Bo04g3Vu+Z4tuPmzJo0wxeo7EVSndppwMrIzGybErYFpf?=
+ =?us-ascii?Q?47jGQgmIAHIykOhlB+S/slwxO8E0W2HRfYB1cmvyKDuOMIWHYNsfSAm0QUV9?=
+ =?us-ascii?Q?CfJxE1LIMHYsXTf+s2nbz+2smR0j70kfk0+2fGzfH5Ei+lLmnUPdHDPkkrbZ?=
+ =?us-ascii?Q?N5/l8KpauMDIeK3kPb/6ZO5a4jQj4LWF+3UMHt39BDfNLmuFKxLjs+24KNPm?=
+ =?us-ascii?Q?T52mA7fZRXHQ9HpqTd4ACPyniTCtDrDSr5XQsu/8ePLumpPFsNpUycuZ6mS8?=
+ =?us-ascii?Q?UaPhSagUyEaQOZG3Ukqn49rz6FD8Ibsbwfrie/QrunDXhtOCg0d5mHVh9SAF?=
+ =?us-ascii?Q?NxLQcnBb9UD0D8DUN0ysg5ADNQCHAZmBmRhPztlC5BhcNcOh+RYoIfxPgDeh?=
+ =?us-ascii?Q?MCqu8XqwTgtVDL9T5BQZ0TkBVDrvZn93LLKinJZlD1WRew4KBOt3us0kRSyJ?=
+ =?us-ascii?Q?eVnRwXcpj6kCTIvbRGEgy6DWJVyUkkoaaFQ9qwhNH4lNyJHkBtGHbeolCZbl?=
+ =?us-ascii?Q?TXgNGmGYoG0Mw5GuB/eXgDm5QolvJ8vwi8uX0G+AHEcGzDIJz2pcZTQVMLZK?=
+ =?us-ascii?Q?8MzOb7b6czgx+z/7JtPyG3hNvPJMlezMoKVzJi5H6qAq1uFslzxQF3XMSFEZ?=
+ =?us-ascii?Q?qSHCkTaFy0y8su7T2x7ZcA/psx/2uklyrLHe0t8+afNdIMTqbUlZ2UlHqvN1?=
+ =?us-ascii?Q?P0V5FXyObPHu8IGXo1SEl68QSr1dXQnQzCeNoBm3zyhXXxFG+obbFrDz/o+d?=
+ =?us-ascii?Q?xCiolA+N+cfNwMMq/7/PNSvdrr0JK6CjJlEJvFRlmzJSAn4tFtR/QkLN7xUF?=
+ =?us-ascii?Q?Ua6L6WWm9813mAwvKvs32ofThtKv+WE9lLgL3fbngqQNC/z96VEhEdQOKvDb?=
+ =?us-ascii?Q?5kYgHFbu7L8bRlMqAiTZS1PDEzDWc3rOfwZZns/WEOifVskcWbzcARVaFwYb?=
+ =?us-ascii?Q?M4flxQOnxdt+k/YBh+/7JxFD4mRm6WdSjSGvez9MU80Kzkp2QTWP4NghSB7T?=
+ =?us-ascii?Q?A7SRe0t1cywDKo7YkpqvnVN4izd/ZE0b6AoMS+aM7euIlqcjKxMmCXnEauxv?=
+ =?us-ascii?Q?3UhmA02SswpnkU7tleXU9udjshjrKAUVXqm0AV60uHbCxBfQ69S1O6XOr8xe?=
+ =?us-ascii?Q?iCRzGibVSAtsePRncL8rhLVng2ctWUU/bk/d3P9yG9zCpODxCcFcFdUZZ7NJ?=
+ =?us-ascii?Q?lz4YtL7BuwbubRYLsqduJY9EEcYUjp3yaAunYoy+wnsT99AD3dCc7vMVyFX3?=
+ =?us-ascii?Q?z3EB6W/SV+Q0b4hnshJ0SqWBhNQQXVxE4xpOAsqSFyJRTZMZokdbOHcXZ5D6?=
+ =?us-ascii?Q?2/8L+nb8HUtzNDIprr7rvRjnxjPoypd8CnekpZgV?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f74e475c-e004-4fe9-cf62-08dd8bfa3750
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2025 17:28:14.4901
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: g82bkFfnGTtAf1cK1eWOY2WYevpPn/WqqpdsoAkJQ+2ax0Kv+ixrt60KLDvZaeWY
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7430
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_171427_758168_0AA31CBB 
-X-CRM114-Status: GOOD (  26.31  )
+X-CRM114-CacheID: sfid-20250505_102826_818138_F0FB184E 
+X-CRM114-Status: GOOD (  13.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,183 +169,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document the new userspace-visible features and APIs for handling
-synchronous external abort (SEA)
-- KVM_CAP_ARM_SEA_TO_USER: How userspace enables the new feature.
-- KVM_EXIT_ARM_SEA: When userspace needs to handle SEA and what
-  userspace gets while taking the SEA.
-- KVM_CAP_ARM_INJECT_EXT_(D|I)ABT: How userspace injects SEA to
-  guest while taking the SEA.
+On Mon, May 05, 2025 at 10:21:03AM -0700, Nicolin Chen wrote:
+> > > > +void iommufd_ctx_free_mmap(struct iommufd_ctx *ictx, unsigned long immap_id)
+> > > > +{
+> > > > +	kfree(mtree_erase(&ictx->mt_mmap, immap_id >> PAGE_SHIFT));
+> > > 
+> > > MMIO lifecycle question: what happens if a region is removed from the
+> > > maple tree (and is therefore no longer mappable), but is still mapped
+> > > and in use by userspace?
+> > 
+> > I think we should probably zap it and make any existing VMAs
+> > SIGBUS... Otherwise it is hard to reason about from the kernel side
+> 
+> I added in v3 a pair of open/close op that would refcount the
+> vIOMMU object (owner of the mmap region). This would EBUSY the
+> vIOMMU destroy ioctl that would call this function.
 
-Signed-off-by: Jiaqi Yan <jiaqiyan@google.com>
----
- Documentation/virt/kvm/api.rst | 120 +++++++++++++++++++++++++++++----
- 1 file changed, 107 insertions(+), 13 deletions(-)
+That's no good, we can't have VMAs prevent cleaning up iommufd
+objects, the right thing is to zap it with invalidate_mapping_range()
 
-diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-index 47c7c3f92314e..fa91a123e1b88 100644
---- a/Documentation/virt/kvm/api.rst
-+++ b/Documentation/virt/kvm/api.rst
-@@ -1236,8 +1236,9 @@ directly to the virtual CPU).
- 		__u8 serror_pending;
- 		__u8 serror_has_esr;
- 		__u8 ext_dabt_pending;
-+		__u8 ext_iabt_pending;
- 		/* Align it to 8 bytes */
--		__u8 pad[5];
-+		__u8 pad[4];
- 		__u64 serror_esr;
- 	} exception;
- 	__u32 reserved[12];
-@@ -1292,20 +1293,52 @@ ARM64:
- 
- User space may need to inject several types of events to the guest.
- 
-+Inject SError
-+~~~~~~~~~~~~~
-+
- Set the pending SError exception state for this VCPU. It is not possible to
- 'cancel' an Serror that has been made pending.
- 
--If the guest performed an access to I/O memory which could not be handled by
--userspace, for example because of missing instruction syndrome decode
--information or because there is no device mapped at the accessed IPA, then
--userspace can ask the kernel to inject an external abort using the address
--from the exiting fault on the VCPU. It is a programming error to set
--ext_dabt_pending after an exit which was not either KVM_EXIT_MMIO or
--KVM_EXIT_ARM_NISV. This feature is only available if the system supports
--KVM_CAP_ARM_INJECT_EXT_DABT. This is a helper which provides commonality in
--how userspace reports accesses for the above cases to guests, across different
--userspace implementations. Nevertheless, userspace can still emulate all Arm
--exceptions by manipulating individual registers using the KVM_SET_ONE_REG API.
-+Inject SEA (synchronous external abort)
-+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-+
-+- If the guest performed an access to I/O memory which could not be handled by
-+  userspace, for example because of missing instruction syndrome decode
-+  information or because there is no device mapped at the accessed IPA.
-+
-+- If the guest consumed an uncorrected memory error, and RAS extension in the
-+  Trusted Firmware choose to notify PE with SEA, KVM has to handle it when
-+  host APEI is unable to claim the SEA. For the following types of faults,
-+  if userspace enabled KVM_CAP_ARM_SEA_TO_USER, KVM returns to userspace with
-+  KVM_EXIT_ARM_SEA:
-+
-+  - Synchronous external abort, not on translation table walk or hardware
-+    update of translation table.
-+
-+  - Synchronous external abort on translation table walk or hardware update of
-+    translation table, including all levels.
-+
-+  - Synchronous parity or ECC error on memory access, not on translation table
-+    walk.
-+
-+  - Synchronous parity or ECC error on memory access on translation table walk
-+    or hardware update of translation table, including all levels.
-+
-+For the cases above, userspace can ask the kernel to replay either an external
-+data abort (by setting ext_dabt_pending) or an external instruciton abort
-+(by setting ext_iabt_pending) into the faulting VCPU. KVM will use the address
-+from the exiting fault on the VCPU. Setting both ext_dabt_pending and
-+ext_iabt_pending at the same time will return -EINVAL.
-+
-+It is a programming error to set ext_dabt_pending or ext_iabt_pending after an
-+exit which was not KVM_EXIT_MMIO, KVM_EXIT_ARM_NISV or KVM_EXIT_ARM_SEA.
-+Injecting SEA for data and instruction abort is only available if KVM supports
-+KVM_CAP_ARM_INJECT_EXT_DABT and KVM_CAP_ARM_INJECT_EXT_IABT respectively.
-+
-+This is a helper which provides commonality in how userspace reports accesses
-+for the above cases to guests, across different userspace implementations.
-+Nevertheless, userspace can still emulate all Arm exceptions by manipulating
-+individual registers using the KVM_SET_ONE_REG API.
- 
- See KVM_GET_VCPU_EVENTS for the data structure.
- 
-@@ -7151,6 +7184,55 @@ The valid value for 'flags' is:
-   - KVM_NOTIFY_CONTEXT_INVALID -- the VM context is corrupted and not valid
-     in VMCS. It would run into unknown result if resume the target VM.
- 
-+::
-+
-+    /* KVM_EXIT_ARM_SEA */
-+    struct {
-+      __u64 esr;
-+  #define KVM_EXIT_ARM_SEA_FLAG_GVA_VALID   (1ULL << 0)
-+  #define KVM_EXIT_ARM_SEA_FLAG_GPA_VALID   (1ULL << 1)
-+      __u64 flags;
-+      __u64 gva;
-+	    __u64 gpa;
-+    } arm_sea;
-+
-+Used on arm64 systems. When the VM capability KVM_CAP_ARM_SEA_TO_USER is
-+enabled, a VM exit is generated if guest caused a synchronous external abort
-+(SEA) and the host APEI fails to handle the SEA.
-+
-+Historically KVM handles SEA by first delegating the SEA to host APEI as there
-+is high chance that the SEA is caused by consuming uncorrected memory error.
-+However, not all platforms support SEA handling in APEI, and KVM's fallback
-+handling is to inject an async SError into the guest, which usually panics
-+guest kernel unpleasantly. As an alternative, userspace can participate into
-+the SEA handling by enabling KVM_CAP_ARM_SEA_TO_USER at VM creation, after
-+querying the capability. Once enabled, when KVM has to handle the guest
-+caused SEA, it returns to userspace with KVM_EXIT_ARM_SEA, with details
-+about the SEA available in 'arm_sea'.
-+
-+The 'esr' filed holds the value of the exception syndrome register (ESR) while
-+KVM taking the SEA, which tells userspace the character of the current SEA,
-+such as its Exception Class, Synchronous Error Type, Fault Specific Code and
-+so on. For more details on ESR, check the Arm Architecture Registers
-+documentation.
-+
-+The 'flags' field indicates if the faulting addresses are available while
-+taking the SEA:
-+
-+  - KVM_EXIT_ARM_SEA_FLAG_GVA_VALID -- the faulting guest virtual address
-+    is valid and userspace can get its value in the 'gva' field.
-+  - KVM_EXIT_ARM_SEA_FLAG_GPA_VALID -- the faulting guest physical address
-+    is valid and userspace can get its value in the 'gpa' filed.
-+
-+Userspace needs to take actions to handle guest SEA synchronously, namely in
-+the same thread that runs KVM_RUN and receives KVM_EXIT_ARM_SEA. One of the
-+encouraged approaches is to utilize the KVM_SET_VCPU_EVENTS to inject the SEA
-+to the faulting VCPU. This way, the guest has the opportunity to keep running
-+and limit the blast radius of the SEA to the particular guest application that
-+caused the SEA. If the Exception Class indicated by 'esr' field in 'arm_sea'
-+is data abort, userspace should inject data abort. If the Exception Class is
-+instruction abort, userspace should inject instruction abort.
-+
- ::
- 
- 		/* Fix the size of the union. */
-@@ -8478,7 +8560,7 @@ ENOSYS for the others.
- When enabled, KVM will exit to userspace with KVM_EXIT_SYSTEM_EVENT of
- type KVM_SYSTEM_EVENT_SUSPEND to process the guest suspend request.
- 
--7.37 KVM_CAP_ARM_WRITABLE_IMP_ID_REGS
-+7.42 KVM_CAP_ARM_WRITABLE_IMP_ID_REGS
- -------------------------------------
- 
- :Architectures: arm64
-@@ -8496,6 +8578,18 @@ aforementioned registers before the first KVM_RUN. These registers are VM
- scoped, meaning that the same set of values are presented on all vCPUs in a
- given VM.
- 
-+7.43 KVM_CAP_ARM_SEA_TO_USER
-+----------------------------
-+
-+:Architecture: arm64
-+:Target: VM
-+:Parameters: none
-+:Returns: 0 on success, -EINVAL if unsupported.
-+
-+This capability, if KVM_CHECK_EXTENSION indicates that it is available, means
-+that KVM has an implementation that allows userspace to participate in handling
-+synchronous external abort caused by VM, by an exit of KVM_EXIT_ARM_SEA.
-+
- 8. Other capabilities.
- ======================
- 
--- 
-2.49.0.967.g6a0df3ecc3-goog
-
+Jason
 
