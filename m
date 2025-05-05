@@ -4,70 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B603C3ABB6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 13:39:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4127C3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 13:41:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mHBpd+yQr/AN2VB3y8DX5rAWM+mBq700bmXYmtqBgjc=; b=JRqTjR5TuYkThQi+YdHpxG7pob
-	Th1w8izIfmfyY02TYLLtgEaDSKWj5NawrfdSWR8LOaaxDOcAA6XNkHoGak14GVHM3vz97Yix6vmxs
-	YQv9GgGlS76s9tHAt2vsXPotxaFi7D9GbX42/TqDdtmCIqop8m+togIm1KOfEoNuXQRvDala/APWz
-	aKaezhYkSE3jrlgsbTLI3NbPeCaI/XVnc9g/p97me2xUMwpYU4R6XMGZR03WhewJSi5PHbdqykHbc
-	4FvgJfTafl2CXhv7KPC6uzX5Fx9QfPpzlM3kdrQ4Z1zQMamr32BGSNie0g9BM9SVmEZ1NOGbQLrbN
-	ogXnfCsw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:References:
+	In-Reply-To:Message-ID:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=lKakNgp+cMBljiW9bGBJgwi5m8R7UDNEA5lNfD/vC+E=; b=iplufrjqIQvgdE
+	bZopDNFYdETOOFRlw29gsyFRYFYD5XlBQ/XBDazW6uFyc17YhoFzsNQhfO3r7GwvUVJvSPV1ioVTj
+	51FAfQ6S29U5QBFZ6Ge/d+qomogVbGogLUwOM+F233t+/NhRNtQ3+RmeNEVthu+69P9JBHITICRzI
+	9Pl6iyi1dCn6TVRQ0X2iYwwS4VXPF26YMQI+G4hHiqg8krxGVztwC5bjtyfg8VIedepChDRvWKJV3
+	YHBsoTDLhxDO7rdARydXZ41Bx+x8eVCgFj7MfwxqfSygGm6vR514YmgFuIey+eWy3ljAjhU2c2ZwS
+	akI1eLNCah3Saensj8LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBw2Z-00000007WK2-2rkV;
-	Mon, 05 May 2025 13:39:27 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1uBw4W-00000007WZ3-3xIX;
+	Mon, 05 May 2025 13:41:28 +0000
+Received: from server.wki.vra.mybluehostin.me ([162.240.238.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBvsS-00000007Uqj-0XX7
+	id 1uBvym-00000007Vai-3Vhi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 13:29:01 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1uBvsK-0001cN-La; Mon, 05 May 2025 15:28:52 +0200
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1uBvsJ-001Em3-1x;
-	Mon, 05 May 2025 15:28:51 +0200
-Received: from pza by lupine with local (Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1uBvsJ-000Kk2-1h;
-	Mon, 05 May 2025 15:28:51 +0200
-Message-ID: <1431aa0cb021da0056b9de594c3332045b770d07.camel@pengutronix.de>
-Subject: Re: [PATCH v2 1/2] reset: Add
- devm_reset_control_array_get_exclusive_released()
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Patrice Chotard <patrice.chotard@foss.st.com>, Mark Brown
- <broonie@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-Date: Mon, 05 May 2025 15:28:51 +0200
-In-Reply-To: <20250411-b4-upstream_ospi_reset_update-v2-1-4de7f5dd2a91@foss.st.com>
-References: <20250411-b4-upstream_ospi_reset_update-v2-0-4de7f5dd2a91@foss.st.com>
-	 <20250411-b4-upstream_ospi_reset_update-v2-1-4de7f5dd2a91@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	Mon, 05 May 2025 13:35:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
+	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=lKakNgp+cMBljiW9bGBJgwi5m8R7UDNEA5lNfD/vC+E=; b=reak0VpmibtkEtPWw7a2b0Xnrd
+	j8P+PpUjy6BpPdk/IHzqwfcKQDBk83Da4NA3M1qq6ANdBvc2cfLY2dPZkcuOiw2+vGAe1cpByJhbd
+	739twC14lU37p+i+VGppTY7cHtncnTQnTaXPb5zrQPRavTCFqiJxioHPntdT2uMLtyf8xZ52w4nZs
+	Z9M47OgewB7voEY1M0zub/91+TUCQbOGnL55ACvzJ6Y5AmVQE7gLMovenP8Mp0Ap4pfCUsDYT6xx0
+	5UbF2afKB8+Vy4ChGFSBDPV1GPWUfWGf/uDrZEqCoLTnN5h5CVFkJaDYp93t/tHcn5ujW7QpzqtsZ
+	RvCDcc7Q==;
+Received: from [122.175.9.182] (port=5358 helo=zimbra.couthit.local)
+	by server.wki.vra.mybluehostin.me with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.1)
+	(envelope-from <parvathi@couthit.com>)
+	id 1uBvy2-000000003nv-3GhN;
+	Mon, 05 May 2025 19:04:47 +0530
+Received: from zimbra.couthit.local (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTPS id 17A5C1781C02;
+	Mon,  5 May 2025 19:04:39 +0530 (IST)
+Received: from localhost (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTP id ECB431783FF8;
+	Mon,  5 May 2025 19:04:38 +0530 (IST)
+Received: from zimbra.couthit.local ([127.0.0.1])
+	by localhost (zimbra.couthit.local [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id ZROrIBlTU3UA; Mon,  5 May 2025 19:04:38 +0530 (IST)
+Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
+	by zimbra.couthit.local (Postfix) with ESMTP id 8FE7317821E7;
+	Mon,  5 May 2025 19:04:38 +0530 (IST)
+Date: Mon, 5 May 2025 19:04:38 +0530 (IST)
+From: Parvathi Pudi <parvathi@couthit.com>
+To: ALOK TIWARI <alok.a.tiwari@oracle.com>
+Message-ID: <596171543.1212368.1746452078442.JavaMail.zimbra@couthit.local>
+In-Reply-To: <90a12a85-cf44-499d-bc1b-9413eea00954@oracle.com>
+References: <20250423060707.145166-1-parvathi@couthit.com> <20250423072356.146726-8-parvathi@couthit.com> <90a12a85-cf44-499d-bc1b-9413eea00954@oracle.com>
+Subject: Re: [PATCH net-next v6 07/11] net: ti: prueth: Adds support for
+ network filters for traffic control supported by PRU-ICSS
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.10.10.103]
+X-Mailer: Zimbra 8.8.15_GA_3968 (ZimbraWebClient - FF113 (Linux)/8.8.15_GA_3968)
+Thread-Topic: prueth: Adds support for network filters for traffic control supported by PRU-ICSS
+Thread-Index: +fyddl2CzkXGoiVxpswuiFN5y+v5FA==
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.wki.vra.mybluehostin.me
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.wki.vra.mybluehostin.me: authenticated_id: smtp@couthit.com
+X-Authenticated-Sender: server.wki.vra.mybluehostin.me: smtp@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_062900_167900_37CB2687 
-X-CRM114-Status: UNSURE (   7.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250505_063532_918619_69F92FE5 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,22 +96,334 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Vignesh Raghavendra <vigneshr@ti.com>, tony <tony@atomide.com>, edumazet <edumazet@google.com>, glaroque <glaroque@baylibre.com>, pmohan <pmohan@couthit.com>, diogo ivo <diogo.ivo@siemens.com>, robh <robh@kernel.org>, javier carrasco cruz <javier.carrasco.cruz@gmail.com>, praneeth <praneeth@ti.com>, m-karicheri2 <m-karicheri2@ti.com>, basharath <basharath@couthit.com>, kuba <kuba@kernel.org>, pabeni <pabeni@redhat.com>, richardcochran <richardcochran@gmail.com>, devicetree <devicetree@vger.kernel.org>, conor+dt <conor+dt@kernel.org>, schnelle <schnelle@linux.ibm.com>, mohan <mohan@couthit.com>, s hauer <s.hauer@pengutronix.de>, Prajith Jayarajan <prajith@ti.com>, rogerq <rogerq@kernel.org>, jacob e keller <jacob.e.keller@intel.com>, ssantosh <ssantosh@kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, rogerq <rogerq@ti.com>, srk <srk@ti.com>, pratheesh <pratheesh@ti.com>, m-malladi <m-malladi@ti.com>, netdev <netdev@vger.kernel.org>, rdunlap <rdunlap@infradead.org>, linux-kernel <linux-kernel@vger.kernel.org>, danishanwar <danishanwar@ti.com>, afd <afd@ti.com>, andrew+netdev <andrew+netdev@lunn.ch>, parvathi <parvathi@couthit.com>, horms <horms@kernel.org>, krishna <krishna@couthit.com>, krzk+dt <krzk+dt@kernel.org>, davem <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fr, 2025-04-11 at 14:41 +0200, Patrice Chotard wrote:
-> Add the released variant of devm_reset_control_array_get_exclusive().
-> Needed by spi-smt32-ospi driver as same reset line is ulso used by
-> stm32-omm driver.
->=20
-> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
-> Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
+Hi,
 
-Applied patch 1 to reset/next, thanks!
+>> +	/* for LRE, it is a shared table. So lock the access */
+>> +	spin_lock_irqsave(&emac->addr_lock, flags);
+>> +
+>> +	/* VLAN filter table is 512 bytes (4096 bit) bitmap.
+>> +	 * Each bit controls enabling or disabling corresponding
+>> +	 * VID. Therefore byte index that controls a given VID is
+>> +	 * can calculated as vid / 8 and the bit within that byte
+>> +	 * that controls VID is given by vid % 8. Allow untagged
+>> +	 * frames to host by default.
+>> +	 */
+>> +	byte_index = vid / BITS_PER_BYTE;
+>> +	bit_index = vid % BITS_PER_BYTE;
+>> +	val = readb(ram + vlan_filter_tbl + byte_index);
+>> +	if (add)
+>> +		val |= BIT(bit_index);
+>> +	else
+>> +		val &= ~BIT(bit_index);
+>> +	writeb(val, ram + vlan_filter_tbl + byte_index);
+>> +
+>> +	spin_unlock_irqrestore(&emac->addr_lock, flags);
+>> +
+>> +	netdev_dbg(emac->ndev, "%s VID bit at index %d and bit %d\n",
+>> +		   add ? "Setting" : "Clearing", byte_index, bit_index);
+> 
+> VID bit at byte index
+> 
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int icssm_emac_ndo_vlan_rx_add_vid(struct net_device *dev,
+>> +					  __be16 proto, u16 vid)
+>> +{
+>> +	struct prueth_emac *emac = netdev_priv(dev);
+>> +
+>> +	return icssm_emac_add_del_vid(emac, true, proto, vid);
+>> +}
+>> +
+>> +static int icssm_emac_ndo_vlan_rx_kill_vid(struct net_device *dev,
+>> +					   __be16 proto, u16 vid)
+>> +{
+>> +	struct prueth_emac *emac = netdev_priv(dev);
+>> +
+>> +	return icssm_emac_add_del_vid(emac, false, proto, vid);
+>> +}
+>> +
+>> +static int icssm_emac_get_port_parent_id(struct net_device *dev,
+>> +					 struct netdev_phys_item_id *ppid)
+>> +{
+>> +	struct prueth_emac *emac = netdev_priv(dev);
+>> +	struct prueth *prueth = emac->prueth;
+>> +
+>> +	ppid->id_len = sizeof(prueth->base_mac);
+>> +	memcpy(&ppid->id, &prueth->base_mac, ppid->id_len);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int icssm_emac_ndo_get_phys_port_name(struct net_device *ndev,
+>> +					     char *name, size_t len)
+>> +{
+>> +	struct prueth_emac *emac = netdev_priv(ndev);
+>> +	int err;
+>> +
+>> +	err = snprintf(name, len, "p%d", emac->port_id);
+>> +
+>> +	if (err >= len)
+>> +		return -EINVAL;
+>> +
+>> +	return 0;
+>> +}
+>> +
+>>   static const struct net_device_ops emac_netdev_ops = {
+>>   	.ndo_open = icssm_emac_ndo_open,
+>>   	.ndo_stop = icssm_emac_ndo_stop,
+>>   	.ndo_start_xmit = icssm_emac_ndo_start_xmit,
+>> +	.ndo_set_mac_address = eth_mac_addr,
+>> +	.ndo_validate_addr = eth_validate_addr,
+>>   	.ndo_tx_timeout = icssm_emac_ndo_tx_timeout,
+>>   	.ndo_get_stats64 = icssm_emac_ndo_get_stats64,
+>> +	.ndo_set_rx_mode = icssm_emac_ndo_set_rx_mode,
+>>   	.ndo_eth_ioctl = icssm_emac_ndo_ioctl,
+>> +	.ndo_vlan_rx_add_vid = icssm_emac_ndo_vlan_rx_add_vid,
+>> +	.ndo_vlan_rx_kill_vid = icssm_emac_ndo_vlan_rx_kill_vid,
+>> +	.ndo_setup_tc = icssm_emac_ndo_setup_tc,
+>> +	.ndo_get_port_parent_id = icssm_emac_get_port_parent_id,
+>> +	.ndo_get_phys_port_name = icssm_emac_ndo_get_phys_port_name,
+>>   };
+>>   
+>>   /* get emac_port corresponding to eth_node name */
+>> @@ -1567,6 +1865,7 @@ static int icssm_prueth_netdev_init(struct prueth *prueth,
+>>   	emac->prueth = prueth;
+>>   	emac->ndev = ndev;
+>>   	emac->port_id = port;
+>> +	memset(&emac->mc_filter_mask[0], 0xff, ETH_ALEN); /* default mask */
+>>   
+>>   	/* by default eth_type is EMAC */
+>>   	switch (port) {
+>> @@ -1608,7 +1907,9 @@ static int icssm_prueth_netdev_init(struct prueth *prueth,
+>>   		dev_err(prueth->dev, "could not get ptp tx irq. Skipping PTP support\n");
+>>   	}
+>>   
+>> +	spin_lock_init(&emac->lock);
+>>   	spin_lock_init(&emac->ptp_skb_lock);
+>> +	spin_lock_init(&emac->addr_lock);
+>>   
+>>   	/* get mac address from DT and set private and netdev addr */
+>>   	ret = of_get_ethdev_address(eth_node, ndev);
+>> @@ -1637,6 +1938,10 @@ static int icssm_prueth_netdev_init(struct prueth
+>> *prueth,
+>>   	phy_remove_link_mode(emac->phydev, ETHTOOL_LINK_MODE_Pause_BIT);
+>>   	phy_remove_link_mode(emac->phydev, ETHTOOL_LINK_MODE_Asym_Pause_BIT);
+>>   
+>> +	ndev->features |= NETIF_F_HW_VLAN_CTAG_FILTER | NETIF_F_HW_TC;
+>> +
+>> +	ndev->hw_features |= NETIF_F_HW_VLAN_CTAG_FILTER;
+>> +
+>>   	ndev->netdev_ops = &emac_netdev_ops;
+>>   	ndev->ethtool_ops = &emac_ethtool_ops;
+>>   
+>> @@ -1689,6 +1994,7 @@ static int icssm_prueth_probe(struct platform_device
+>> *pdev)
+>>   	platform_set_drvdata(pdev, prueth);
+>>   	prueth->dev = dev;
+>>   	prueth->fw_data = device_get_match_data(dev);
+>> +	prueth->fw_offsets = &fw_offsets_v2_1;
+>>   
+>>   	eth_ports_node = of_get_child_by_name(np, "ethernet-ports");
+>>   	if (!eth_ports_node)
+>> @@ -1875,6 +2181,8 @@ static int icssm_prueth_probe(struct platform_device
+>> *pdev)
+>>   			prueth->emac[PRUETH_MAC1]->ndev;
+>>   	}
+>>   
+>> +	eth_random_addr(prueth->base_mac);
+>> +
+>>   	dev_info(dev, "TI PRU ethernet driver initialized: %s EMAC mode\n",
+>>   		 (!eth0_node || !eth1_node) ? "single" : "dual");
+>>   
+>> diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.h
+>> b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
+>> index 1709b3b6c2be..8a5f1647466a 100644
+>> --- a/drivers/net/ethernet/ti/icssm/icssm_prueth.h
+>> +++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
+>> @@ -28,6 +28,9 @@
+>>   #define EMAC_MAX_FRM_SUPPORT (ETH_HLEN + VLAN_HLEN + ETH_DATA_LEN + \
+>>   			      ICSSM_LRE_TAG_SIZE)
+>>   
+>> +/* default timer for NSP and HSR/PRP */
+>> +#define PRUETH_NSP_TIMER_MS	(100) /* Refresh NSP counters every 100ms */
+>> +
+>>   #define PRUETH_REG_DUMP_VER		1
+>>   
+>>   /* Encoding: 32-16: Reserved, 16-8: Reg dump version, 8-0: Ethertype  */
+> 
+> remove extra ' ' after Ethertype
+> 
+>> @@ -293,6 +296,29 @@ enum prueth_mem {
+>>   	PRUETH_MEM_MAX,
+>>   };
+>>   
+>> +/* Firmware offsets/size information */
+>> +struct prueth_fw_offsets {
+>> +	u32 index_array_offset;
+>> +	u32 bin_array_offset;
+>> +	u32 nt_array_offset;
+>> +	u32 index_array_loc;
+>> +	u32 bin_array_loc;
+>> +	u32 nt_array_loc;
+>> +	u32 index_array_max_entries;
+>> +	u32 bin_array_max_entries;
+>> +	u32 nt_array_max_entries;
+>> +	u32 vlan_ctrl_byte;
+>> +	u32 vlan_filter_tbl;
+>> +	u32 mc_ctrl_byte;
+>> +	u32 mc_filter_mask;
+>> +	u32 mc_filter_tbl;
+>> +	/* IEP wrap is used in the rx packet ordering logic and
+>> +	 * is different for ICSSM v1.0 vs 2.1
+>> +	 */
+>> +	u32 iep_wrap;
+>> +	u16 hash_mask;
+>> +};
+>> +
+> [clip]
+>> @@ -0,0 +1,120 @@
+>> +/* SPDX-License-Identifier: GPL-2.0 */
+>> +
+>> +/* Copyright (C) 2015-2021 Texas Instruments Incorporated -
+>> https://urldefense.com/v3/__https://www.ti.com__;!!ACWV5N9M2RV99hQ!Pnt8LQPwsRI73TtUPzBpwVw_Cn90DbuNXinXJ5m2isPHfFxjNTp4JBlr6UedPapFerELKSzV4SFNoiUfE1xa8g$
+>> + *
+>> + * This file contains VLAN/Multicast filtering feature memory map
+>> + *
+>> + */
+>> +
+>> +#ifndef ICSS_VLAN_MULTICAST_FILTER_MM_H
+>> +#define ICSS_VLAN_MULTICAST_FILTER_MM_H
+>> +
+>> +/*  VLAN/Multicast filter defines & offsets,
+>> + *  present on both PRU0 and PRU1 DRAM
+> 
+> remove extra ' '
+> 
+>> + */
+>> +
+>> +/* Feature enable/disable values for multicast filtering */
+>> +#define ICSS_EMAC_FW_MULTICAST_FILTER_CTRL_DISABLED		0x00
+>> +#define ICSS_EMAC_FW_MULTICAST_FILTER_CTRL_ENABLED		0x01
+>> +
+>> +/* Feature enable/disable values  for VLAN filtering */
+> 
+> remove extra ' ' after values
+> 
+>> +#define ICSS_EMAC_FW_VLAN_FILTER_CTRL_DISABLED			0x00
+>> +#define ICSS_EMAC_FW_VLAN_FILTER_CTRL_ENABLED			0x01
+>> +
+>> +/* Add/remove multicast mac id for filtering bin */
+>> +#define ICSS_EMAC_FW_MULTICAST_FILTER_HOST_RCV_ALLOWED		0x01
+>> +#define ICSS_EMAC_FW_MULTICAST_FILTER_HOST_RCV_NOT_ALLOWED	0x00
+>> +
+>> +/* Default HASH value for the multicast filtering Mask */
+>> +#define ICSS_EMAC_FW_MULTICAST_FILTER_INIT_VAL			0xFF
+>> +
+>> +/* Size requirements for Multicast filtering feature */
+>> +#define ICSS_EMAC_FW_MULTICAST_TABLE_SIZE_BYTES			       256
+>> +#define ICSS_EMAC_FW_MULTICAST_FILTER_MASK_SIZE_BYTES			 6
+>> +#define ICSS_EMAC_FW_MULTICAST_FILTER_CTRL_SIZE_BYTES			 1
+>> +#define ICSS_EMAC_FW_MULTICAST_FILTER_MASK_OVERRIDE_STATUS_SIZE_BYTES	 1
+>> +#define ICSS_EMAC_FW_MULTICAST_FILTER_DROP_CNT_SIZE_BYTES		 4
+>> +
+>> +/* Size requirements for VLAN filtering feature : 4096 bits = 512 bytes */
+>> +#define ICSS_EMAC_FW_VLAN_FILTER_TABLE_SIZE_BYTES		       512
+>> +#define ICSS_EMAC_FW_VLAN_FILTER_CTRL_SIZE_BYTES			 1
+>> +#define ICSS_EMAC_FW_VLAN_FILTER_DROP_CNT_SIZE_BYTES			 4
+>> +
+>> +/* Mask override set status */
+>> +#define ICSS_EMAC_FW_MULTICAST_FILTER_MASK_OVERRIDE_SET			 1
+>> +/* Mask override not set status */
+>> +#define ICSS_EMAC_FW_MULTICAST_FILTER_MASK_OVERRIDE_NOT_SET		 0
+>> +/* 6 bytes HASH Mask for the MAC */
+>> +#define ICSS_EMAC_FW_MULTICAST_FILTER_MASK_OFFSET	  0xF4
+>> +/* 0 -> multicast filtering disabled | 1 -> multicast filtering enabled */
+>> +#define ICSS_EMAC_FW_MULTICAST_FILTER_CTRL_OFFSET	\
+>> +	(ICSS_EMAC_FW_MULTICAST_FILTER_MASK_OFFSET +	\
+>> +	 ICSS_EMAC_FW_MULTICAST_FILTER_MASK_SIZE_BYTES)
+>> +/* Status indicating if the HASH override is done or not: 0: no, 1: yes */
+>> +#define ICSS_EMAC_FW_MULTICAST_FILTER_OVERRIDE_STATUS	\
+>> +	(ICSS_EMAC_FW_MULTICAST_FILTER_CTRL_OFFSET +	\
+>> +	 ICSS_EMAC_FW_MULTICAST_FILTER_CTRL_SIZE_BYTES)
+>> +/* Multicast drop statistics */
+>> +#define ICSS_EMAC_FW_MULTICAST_FILTER_DROP_CNT_OFFSET	\
+>> +	(ICSS_EMAC_FW_MULTICAST_FILTER_OVERRIDE_STATUS +\
+>> +	 ICSS_EMAC_FW_MULTICAST_FILTER_MASK_OVERRIDE_STATUS_SIZE_BYTES)
+>> +/* Multicast table */
+>> +#define ICSS_EMAC_FW_MULTICAST_FILTER_TABLE		\
+>> +	(ICSS_EMAC_FW_MULTICAST_FILTER_DROP_CNT_OFFSET +\
+>> +	 ICSS_EMAC_FW_MULTICAST_FILTER_DROP_CNT_SIZE_BYTES)
+>> +
+>> +/* Multicast filter defines & offsets for LRE
+>> + */
+>> +#define ICSS_LRE_FW_MULTICAST_TABLE_SEARCH_OP_CONTROL_BIT	0xE0
+>> +/* one byte field :
+>> + * 0 -> multicast filtering disabled
+>> + * 1 -> multicast filtering enabled
+>> + */
+>> +#define ICSS_LRE_FW_MULTICAST_FILTER_MASK			 0xE4
+>> +#define ICSS_LRE_FW_MULTICAST_FILTER_TABLE			 0x100
+>> +
+>> +/* VLAN table Offsets */
+>> +#define ICSS_EMAC_FW_VLAN_FLTR_TBL_BASE_ADDR		 0x200
+>> +#define ICSS_EMAC_FW_VLAN_FILTER_CTRL_BITMAP_OFFSET	 0xEF
+>> +#define ICSS_EMAC_FW_VLAN_FILTER_DROP_CNT_OFFSET	\
+>> +	(ICSS_EMAC_FW_VLAN_FILTER_CTRL_BITMAP_OFFSET +	\
+>> +	 ICSS_EMAC_FW_VLAN_FILTER_CTRL_SIZE_BYTES)
+>> +
+>> +/* VLAN filter Control Bit maps */
+>> +/* one bit field, bit 0: | 0 : VLAN filter disabled (default),
+>> + * 1: VLAN filter enabled
+>> + */
+>> +#define ICSS_EMAC_FW_VLAN_FILTER_CTRL_ENABLE_BIT		       0
+>> +/* one bit field, bit 1: | 0 : untagged host rcv allowed (default),
+>> + * 1: untagged host rcv not allowed
+>> + */
+>> +#define ICSS_EMAC_FW_VLAN_FILTER_UNTAG_HOST_RCV_ALLOW_CTRL_BIT	       1
+>> +/* one bit field, bit 1: | 0 : priotag host rcv allowed (default),
+>> + * 1: priotag host rcv not allowed
+>> + */
+>> +#define ICSS_EMAC_FW_VLAN_FILTER_PRIOTAG_HOST_RCV_ALLOW_CTRL_BIT       2
+>> +/* one bit field, bit 1: | 0 : skip sv vlan flow
+>> + * :1 : take sv vlan flow  (not applicable for dual emac )
+>> + */
+>> +#define ICSS_EMAC_FW_VLAN_FILTER_SV_VLAN_FLOW_HOST_RCV_ALLOW_CTRL_BIT  3
+>> +
+>> +/* VLAN IDs */
+>> +#define ICSS_EMAC_FW_VLAN_FILTER_PRIOTAG_VID			       0
+>> +#define ICSS_EMAC_FW_VLAN_FILTER_VID_MIN			       0x0000
+>> +#define ICSS_EMAC_FW_VLAN_FILTER_VID_MAX			       0x0FFF
+>> +
+>> +/* VLAN Filtering Commands */
+>> +#define ICSS_EMAC_FW_VLAN_FILTER_ADD_VLAN_VID_CMD		       0x00
+>> +#define ICSS_EMAC_FW_VLAN_FILTER_REMOVE_VLAN_VID_CMD		       0x01
+>> +
+>> +/* Switch defines for VLAN/MC filtering */
+>> +/* SRAM
+>> + * VLAN filter defines & offsets
+>> + */
+>> +#define ICSS_LRE_FW_VLAN_FLTR_CTRL_BYTE				 0x1FE
+> 
+> lowercase hex please, all place.
+> 
 
-[1/2] reset: Add devm_reset_control_array_get_exclusive_released()
-      https://git.pengutronix.de/cgit/pza/linux/commit/?id=3D6b3754009f87
+Thank you for the feedback.
 
-regards
-Philipp
+We have addressed all the comments provided, except for the one regarding
+hexadecimal format, where we need some clarity.
+
+Is there any specific style guide or convention that mandates lowercase
+hexadecimal formatting? We've observed that other drivers in the code base
+consistently use uppercase hex values, and we've followed the same convention
+throughout in our implementation.
+
+
+Thanks and Regards,
+Parvathi.
 
