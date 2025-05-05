@@ -4,49 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 219EFC3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 22:23:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75296C3ABB6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 22:25:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oJbbJMJfNxvcBYgXphU1JALxHYZfKY3jLo/jdotBSMc=; b=yl5WiW+CtrV4KgSpC8TAIyryp2
-	LXS542uTOPZuGCVjP37ub3Ixn5BdF16oet2lXK4OE0mMWeqee8IXEpatsWD4FN98GmVQtnWUxIvuT
-	rggyNzG3cKbwhWPmMshJeqd+LNydwLPSrKUARpUcehHZ+cEnNfJKd0iqyT5ERQ/+iTW/Zfr+xV4a1
-	aAQyW3JgdVaVaPqcFEJ0EB+nafa6cZuSyCjzn2W0X65CsH7qRCzBAR7H8YRi/CTsLzfltoAS3q5/S
-	jrjskPi9Ub9AVa4E4S+iHHreX4oTO4xCC4bGBFTCu6dMXEcR8mzJhcPKVsea2L0H6BRye85+v99KL
-	mThLMENQ==;
+	bh=BSn9PSWy2SrSLqWDjm6YbrJUcmqXkbwi51MYVoJ6LVI=; b=vtYlkMndUqdQAW0+uZZgohR75R
+	Rt8AyQfpF1GKCc52nHgVn0I3GLWGCOug22ttf42VOr1d5QHw4N2lt7rnniTzRH8Qv5E/Kpk0ogN5N
+	I0GAwtcjbKPYjnJ4D/+d0BP17OTUmXBypIrUsOE5gRqABH88W12Az0vr809411HzdKLOSwh+3cf4j
+	uPpGx4OI1U8+Es4e9dKnKZJ73ReWnm/9zM2wfJ5bhM7twxaPBw9CrRZcSUd4ztYG7G6OrZFZu6/7c
+	m//bw9q88jvSGozCF5oKOxAsMapC8A1XA+tuz1yoUY4ngxK1PICcAOi68jQ4pV46iAaokAOICo4ta
+	mH3NmrKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4DO-00000008jpe-1zGs;
-	Mon, 05 May 2025 22:23:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uC4FL-00000008kU0-1xwN;
+	Mon, 05 May 2025 22:25:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC46A-00000008hoV-2Jk6;
-	Mon, 05 May 2025 22:15:42 +0000
+	id 1uC46B-00000008hog-2ek1;
+	Mon, 05 May 2025 22:15:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0880E629C0;
-	Mon,  5 May 2025 22:15:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B574C4CEE4;
+	by sea.source.kernel.org (Postfix) with ESMTP id 9747843D05;
 	Mon,  5 May 2025 22:15:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E45ECC4CEEF;
+	Mon,  5 May 2025 22:15:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746483341;
-	bh=46rfAidHetS8cBL29WXOKNNYtOLFJa/GrAJQc/Fxh7E=;
+	s=k20201202; t=1746483343;
+	bh=8Cl/GBsCTdLlv+kKPgDPHaXk+owKpFJLtSRPbqZ7ywI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=G0i+0pGloDIEGN49GFcOTBHbIJoYk8lTCwO4fH0iXZ0+lp7RXpJrEWc3kcmqhYfpD
-	 h/XI9BtStxjvLHmTWcXZy25b8FIDqhMxQImQVBTa8r/Wzpq0i5wbK8dlwBBwXOur3b
-	 soLOdA9M0tqHr+9lSrWe9pXXqceo9mEvHHscWxoMY8jzwcPTKhlNJEKUW0ZlGceRXt
-	 LGB/eGGftNIxassEbdc8rmRoyMLur87gRzJpwxOcF3MVvidFogxFH5oOeFgBF/IAaj
-	 iubY81ha5Oo9CceUBbxTJX68mkL2XGsZmtqqrkYrVmWZrWZBQGCO5rbSQPZlRIkTcx
-	 Z11OqKMaC2fyQ==
+	b=XJxdmRYvSaIFAX+wBRFjJih907Z/b0VONKPjcUyNp54+H4L+7lWv2MLsv/qrRwW4g
+	 s06RMwBbv6ZV+RT3MNGz3HORFufjnZ5BDbpl0Y/WobCN5OHXaO99rBgHpPThvUZAiH
+	 rrzRBHzxUstUskzxRB+agZU/pYUI7N/D+LAUsjLoUhnuk5Op+vb+2DgTM+D8Oqfv3v
+	 LAlWvKPCnApKts6CpVPMpkbqOzOznWOFc1P3OlgqrokBmMGFEAb3Xw5x3soaTkZeLX
+	 L9HiCvdUcXEaJjc9nYCytGgtuPZZA/atBH9XKPjcOu/1VYWxHlbAUdpTesjArKSKuE
+	 nNQ7cnnfmwBuA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Sean Wang <sean.wang@mediatek.com>,
-	Pedro Tsai <pedro.tsai@mediatek.com>,
-	Felix Freimann <felix.freimann@mediatek.com>,
+Cc: Hao Qin <hao.qin@mediatek.com>,
 	Luiz Augusto von Dentz <luiz.von.dentz@intel.com>,
 	Sasha Levin <sashal@kernel.org>,
 	marcel@holtmann.org,
@@ -56,9 +54,9 @@ Cc: Sean Wang <sean.wang@mediatek.com>,
 	linux-bluetooth@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.14 043/642] Bluetooth: btmtksdio: Prevent enabling interrupts after IRQ handler removal
-Date: Mon,  5 May 2025 18:04:19 -0400
-Message-Id: <20250505221419.2672473-43-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.14 044/642] Bluetooth: btmtk: Remove the resetting step before downloading the fw
+Date: Mon,  5 May 2025 18:04:20 -0400
+Message-Id: <20250505221419.2672473-44-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505221419.2672473-1-sashal@kernel.org>
 References: <20250505221419.2672473-1-sashal@kernel.org>
@@ -67,6 +65,10 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.14.5
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250505_151543_704004_14FDEB14 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,42 +83,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sean Wang <sean.wang@mediatek.com>
+From: Hao Qin <hao.qin@mediatek.com>
 
-[ Upstream commit 6ac4233afb9a389a7629b7f812395d1d1eca5a83 ]
+[ Upstream commit 33634e2ab7c6369391e0ca4b9b97dc861e33d20e ]
 
-Ensure interrupts are not re-enabled when the IRQ handler has already been
-removed. This prevents unexpected IRQ handler execution due to stale or
-unhandled interrupts.
+Remove the resetting step before downloading the fw, as it may cause
+other usb devices to fail to initialise when connected during boot
+on kernels 6.11 and newer.
 
-Modify btmtksdio_txrx_work to check if bdev->func->irq_handler exists
-before calling sdio_writel to enable interrupts.
-
-Co-developed-by: Pedro Tsai <pedro.tsai@mediatek.com>
-Signed-off-by: Pedro Tsai <pedro.tsai@mediatek.com>
-Co-developed-by: Felix Freimann <felix.freimann@mediatek.com>
-Signed-off-by: Felix Freimann <felix.freimann@mediatek.com>
-Signed-off-by: Sean Wang <sean.wang@mediatek.com>
+Signed-off-by: Hao Qin <hao.qin@mediatek.com>
 Signed-off-by: Luiz Augusto von Dentz <luiz.von.dentz@intel.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/bluetooth/btmtksdio.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/bluetooth/btmtk.c | 10 ----------
+ 1 file changed, 10 deletions(-)
 
-diff --git a/drivers/bluetooth/btmtksdio.c b/drivers/bluetooth/btmtksdio.c
-index bd5464bde174f..edd5eead1e93b 100644
---- a/drivers/bluetooth/btmtksdio.c
-+++ b/drivers/bluetooth/btmtksdio.c
-@@ -610,7 +610,8 @@ static void btmtksdio_txrx_work(struct work_struct *work)
- 	} while (int_status || time_is_before_jiffies(txrx_timeout));
+diff --git a/drivers/bluetooth/btmtk.c b/drivers/bluetooth/btmtk.c
+index 68846c5bd4f79..4390fd571dbd1 100644
+--- a/drivers/bluetooth/btmtk.c
++++ b/drivers/bluetooth/btmtk.c
+@@ -1330,13 +1330,6 @@ int btmtk_usb_setup(struct hci_dev *hdev)
+ 		break;
+ 	case 0x7922:
+ 	case 0x7925:
+-		/* Reset the device to ensure it's in the initial state before
+-		 * downloading the firmware to ensure.
+-		 */
+-
+-		if (!test_bit(BTMTK_FIRMWARE_LOADED, &btmtk_data->flags))
+-			btmtk_usb_subsys_reset(hdev, dev_id);
+-		fallthrough;
+ 	case 0x7961:
+ 		btmtk_fw_get_filename(fw_bin_name, sizeof(fw_bin_name), dev_id,
+ 				      fw_version, fw_flavor);
+@@ -1345,12 +1338,9 @@ int btmtk_usb_setup(struct hci_dev *hdev)
+ 						btmtk_usb_hci_wmt_sync);
+ 		if (err < 0) {
+ 			bt_dev_err(hdev, "Failed to set up firmware (%d)", err);
+-			clear_bit(BTMTK_FIRMWARE_LOADED, &btmtk_data->flags);
+ 			return err;
+ 		}
  
- 	/* Enable interrupt */
--	sdio_writel(bdev->func, C_INT_EN_SET, MTK_REG_CHLPCR, NULL);
-+	if (bdev->func->irq_handler)
-+		sdio_writel(bdev->func, C_INT_EN_SET, MTK_REG_CHLPCR, NULL);
- 
- 	sdio_release_host(bdev->func);
- 
+-		set_bit(BTMTK_FIRMWARE_LOADED, &btmtk_data->flags);
+-
+ 		/* It's Device EndPoint Reset Option Register */
+ 		err = btmtk_usb_uhw_reg_write(hdev, MTK_EP_RST_OPT,
+ 					      MTK_EP_RST_IN_OUT_OPT);
 -- 
 2.39.5
 
