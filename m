@@ -4,68 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0172C3ABB6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 23:00:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 409BDC3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 23:02:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aktDWx0bn3BfG/ZUW6oSjec+45zEP5PnS66mVmuuF2g=; b=iz8SDBr0HM1uNgTKrngLn8krFs
-	IQt+zsjhoN3MvcoNjz+EDycBF2JeS98HqG/Cy+mUwrUIpB7+2Bj1ZPSdM+D2OQujrcNX6N0/j5O1Q
-	wIJFdRF7yPb5xB1Nj0sOIgGToZgdS/nH1mimvscUrG6/hH8Abg3CLNWUxnS7sJvwA9gIIZ1D/0V/D
-	V1VfLPgdpwdmNo9VhWK+GlVwrHp0RTKq3CDvJvs6/3daRQ3A9671QQfsJESSxfIN3+7/rku4ruGv2
-	q5bz1SsRZIIcuqWplbdlf1ZNplQkIoSLHWOpPUNoICNXqUzR7ckSfjstTtTqZj6+qnJ+1lmW/euWA
-	r5Hfq35w==;
+	bh=WpSqzQ0AC3/f4JWIGhPZ7cXSPytAaGIrr77wSC3M1Vc=; b=Tz6snFDm8+VqfUvb0XgabHPtE1
+	h6Dv6547lq3OalNUzcu6QrILk2ApfTcxBkcrYlOup0LkjkHu0kwkzGDi4xmknEwrxBJGHm6nzX45z
+	TtGtKfqjnhVDreRwr6U6qeew1Dh1BYBkUUfkeqm3G2hfffGBZWEf1kmYAHz/ovNn1l+7+mRDV0ZRh
+	nm23z5Zq36sO8y2LKAEN7+lzsi1iDxcRFJKV/n9RGC5lVmfXoSOGaBFayNFhlC1GmWWU+AhlvutRn
+	klIn8EYwcYIZxed1/WzrMLkySt92joTOsO4xJQ1FR2c6dlqBiKROfxHWU7enuFl0oBpoje2BCXsQ4
+	0t3SCwzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4nB-00000008vUx-3EnJ;
-	Mon, 05 May 2025 23:00:09 +0000
+	id 1uC4p9-00000008w73-2Dsw;
+	Mon, 05 May 2025 23:02:11 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4BF-00000008jBm-3aRz
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 22:20:57 +0000
+	id 1uC4BS-00000008jFG-3yWO;
+	Mon, 05 May 2025 22:21:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2E801629CA;
-	Mon,  5 May 2025 22:20:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2807C4CEE4;
-	Mon,  5 May 2025 22:20:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8C7FF629C9;
+	Mon,  5 May 2025 22:20:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0130CC4CEEE;
+	Mon,  5 May 2025 22:21:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746483656;
-	bh=Xxz2tIz/4P+u+7QlDgItXN3a//ztEs89nkHyGmaAR98=;
+	s=k20201202; t=1746483670;
+	bh=w+0yhgJDlBBzuZ8yjWYvjjCncBszkOi+H26dRjKbkDU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=AOvtKib+beqExThN3Xy24dsOlQXrXMgzW0kuBmQGOsu3+2RnPUnkB4+pO8AuXXYG8
-	 lrkSRtB5O7BsjhNeU1LL7aRrN0djBtT7ceZ2jGkv6V1tFM4da3wTWgOO2G9nFXT7wm
-	 0/KM3Vo7uc8Zrhd/qmnbSm4bcar3gyo0szkIKojtvMGlBtxWGXinkmsYSRX9GHTaxs
-	 XfWbDT2bKqdNFBUXSSFP9mYCwIQ+NSxnoNYyXeSlhULSI6vRZJWbUbj7fvdUIJ2yrh
-	 Yc4QV31lUzQpJxZy1USNuAWkDuDQkQLWLY9+Bk3M2SMl/pQH0zcZdTthcTjFtObdmZ
-	 a/dJoohsiaSDQ==
+	b=O69ap78DZBYVxk6NTTPQH9HZ8VSKSX78yi2cZRmLOmkwnrlnwMsoNUdnY0UVJhTF7
+	 lat2IGomajvUA9uwbZ2n8uvUrVtM/v51akOe2vuBWVwBZI5gQLyO8VurHwr4LSAJ8h
+	 3HZFnDTIw0SykQI+PyA2MdBjqUN48JfRU3+W3J6/nUReCG9lPNMKIIgHzQd92tuD3n
+	 x0clxnugcA4hl1XSS/4JQqjIBhWG0aIm35rWsZSwB0ZKSks/NXrH6Pv/YmLR87dUMC
+	 elex+YgYwq5slNKubWb+2g+Rc5671vpL0JkJ7cUdGgAtpXOJfdypigJdcNf/28GI0i
+	 plpfJC6/KzJSA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Jonas Karlman <jonas@kwiboo.se>,
-	Simon Horman <horms@kernel.org>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Paolo Abeni <pabeni@redhat.com>,
+Cc: Andy Yan <andy.yan@rock-chips.com>,
+	Vinod Koul <vkoul@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk,
-	david.wu@rock-chips.com,
-	jan.petrous@oss.nxp.com,
-	detlev.casanova@collabora.com,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.14 164/642] net: stmmac: dwmac-rk: Validate GRF and peripheral GRF during probe
-Date: Mon,  5 May 2025 18:06:20 -0400
-Message-Id: <20250505221419.2672473-164-sashal@kernel.org>
+	kishon@kernel.org,
+	heiko@sntech.de,
+	linux-phy@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.14 171/642] phy: rockchip: usbdp: Only verify link rates/lanes/voltage when the corresponding set flags are set
+Date: Mon,  5 May 2025 18:06:27 -0400
+Message-Id: <20250505221419.2672473-171-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505221419.2672473-1-sashal@kernel.org>
 References: <20250505221419.2672473-1-sashal@kernel.org>
@@ -88,89 +77,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jonas Karlman <jonas@kwiboo.se>
+From: Andy Yan <andy.yan@rock-chips.com>
 
-[ Upstream commit 247e84f66a3d1946193d739fec5dc3d69833fd00 ]
+[ Upstream commit 969a38be437b68dc9e12e3c3f08911c9f9c8be73 ]
 
-All Rockchip GMAC variants typically write to GRF regs to control e.g.
-interface mode, speed and MAC rx/tx delay. Newer SoCs such as RK3576 and
-RK3588 use a mix of GRF and peripheral GRF regs. These syscon regmaps is
-located with help of a rockchip,grf and rockchip,php-grf phandle.
+According documentation of phy_configure_opts_dp, at the configure
+stage, link rates should only be verify/configure when set_rate
+flag is set, the same applies to lanes and voltage.
 
-However, validating the rockchip,grf and rockchip,php-grf syscon regmap
-is deferred until e.g. interface mode or speed is configured, inside the
-individual SoC specific operations.
+So do it as the documentation says.
+Because voltage setting depends on the lanes, link rates set
+previously, so record the link rates and lanes at it's verify stage.
 
-Change to validate the rockchip,grf and rockchip,php-grf syscon regmap
-at probe time to simplify all SoC specific operations.
-
-This should not introduce any backward compatibility issues as all
-GMAC nodes have been added together with a rockchip,grf phandle (and
-rockchip,php-grf where required) in their initial commit.
-
-Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-Reviewed-by: Simon Horman <horms@kernel.org>
-Link: https://patch.msgid.link/20250308213720.2517944-3-jonas@kwiboo.se
-Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-Signed-off-by: Paolo Abeni <pabeni@redhat.com>
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+Link: https://lore.kernel.org/r/20250312080041.524546-1-andyshrk@163.com
+Signed-off-by: Vinod Koul <vkoul@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 21 +++++++++++++++++--
- 1 file changed, 19 insertions(+), 2 deletions(-)
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 87 ++++++++++++++---------
+ 1 file changed, 53 insertions(+), 34 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-index a4dc89e23a68e..a33be23121b35 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-@@ -33,6 +33,7 @@ struct rk_gmac_ops {
- 	void (*set_clock_selection)(struct rk_priv_data *bsp_priv, bool input,
- 				    bool enable);
- 	void (*integrated_phy_powerup)(struct rk_priv_data *bsp_priv);
-+	bool php_grf_required;
- 	bool regs_valid;
- 	u32 regs[];
- };
-@@ -1254,6 +1255,7 @@ static const struct rk_gmac_ops rk3576_ops = {
- 	.set_rgmii_speed = rk3576_set_gmac_speed,
- 	.set_rmii_speed = rk3576_set_gmac_speed,
- 	.set_clock_selection = rk3576_set_clock_selection,
-+	.php_grf_required = true,
- 	.regs_valid = true,
- 	.regs = {
- 		0x2a220000, /* gmac0 */
-@@ -1401,6 +1403,7 @@ static const struct rk_gmac_ops rk3588_ops = {
- 	.set_rgmii_speed = rk3588_set_gmac_speed,
- 	.set_rmii_speed = rk3588_set_gmac_speed,
- 	.set_clock_selection = rk3588_set_clock_selection,
-+	.php_grf_required = true,
- 	.regs_valid = true,
- 	.regs = {
- 		0xfe1b0000, /* gmac0 */
-@@ -1812,8 +1815,22 @@ static struct rk_priv_data *rk_gmac_setup(struct platform_device *pdev,
+diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+index c04cf64f8a35d..fff04e0fbd800 100644
+--- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
++++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+@@ -187,6 +187,8 @@ struct rk_udphy {
+ 	u32 dp_aux_din_sel;
+ 	bool dp_sink_hpd_sel;
+ 	bool dp_sink_hpd_cfg;
++	unsigned int link_rate;
++	unsigned int lanes;
+ 	u8 bw;
+ 	int id;
  
- 	bsp_priv->grf = syscon_regmap_lookup_by_phandle(dev->of_node,
- 							"rockchip,grf");
--	bsp_priv->php_grf = syscon_regmap_lookup_by_phandle(dev->of_node,
--							    "rockchip,php-grf");
-+	if (IS_ERR(bsp_priv->grf)) {
-+		dev_err_probe(dev, PTR_ERR(bsp_priv->grf),
-+			      "failed to lookup rockchip,grf\n");
-+		return ERR_CAST(bsp_priv->grf);
+@@ -1102,15 +1104,19 @@ static int rk_udphy_dp_phy_power_off(struct phy *phy)
+ 	return 0;
+ }
+ 
+-static int rk_udphy_dp_phy_verify_link_rate(unsigned int link_rate)
++/*
++ * Verify link rate
++ */
++static int rk_udphy_dp_phy_verify_link_rate(struct rk_udphy *udphy,
++					    struct phy_configure_opts_dp *dp)
+ {
+-	switch (link_rate) {
++	switch (dp->link_rate) {
+ 	case 1620:
+ 	case 2700:
+ 	case 5400:
+ 	case 8100:
++		udphy->link_rate = dp->link_rate;
+ 		break;
+-
+ 	default:
+ 		return -EINVAL;
+ 	}
+@@ -1118,45 +1124,44 @@ static int rk_udphy_dp_phy_verify_link_rate(unsigned int link_rate)
+ 	return 0;
+ }
+ 
+-static int rk_udphy_dp_phy_verify_config(struct rk_udphy *udphy,
+-					 struct phy_configure_opts_dp *dp)
++static int rk_udphy_dp_phy_verify_lanes(struct rk_udphy *udphy,
++					struct phy_configure_opts_dp *dp)
+ {
+-	int i, ret;
+-
+-	/* If changing link rate was required, verify it's supported. */
+-	ret = rk_udphy_dp_phy_verify_link_rate(dp->link_rate);
+-	if (ret)
+-		return ret;
+-
+-	/* Verify lane count. */
+ 	switch (dp->lanes) {
+ 	case 1:
+ 	case 2:
+ 	case 4:
+ 		/* valid lane count. */
++		udphy->lanes = dp->lanes;
+ 		break;
+ 
+ 	default:
+ 		return -EINVAL;
+ 	}
+ 
+-	/*
+-	 * If changing voltages is required, check swing and pre-emphasis
+-	 * levels, per-lane.
+-	 */
+-	if (dp->set_voltages) {
+-		/* Lane count verified previously. */
+-		for (i = 0; i < dp->lanes; i++) {
+-			if (dp->voltage[i] > 3 || dp->pre[i] > 3)
+-				return -EINVAL;
++	return 0;
++}
+ 
+-			/*
+-			 * Sum of voltage swing and pre-emphasis levels cannot
+-			 * exceed 3.
+-			 */
+-			if (dp->voltage[i] + dp->pre[i] > 3)
+-				return -EINVAL;
+-		}
++/*
++ * If changing voltages is required, check swing and pre-emphasis
++ * levels, per-lane.
++ */
++static int rk_udphy_dp_phy_verify_voltages(struct rk_udphy *udphy,
++					   struct phy_configure_opts_dp *dp)
++{
++	int i;
++
++	/* Lane count verified previously. */
++	for (i = 0; i < udphy->lanes; i++) {
++		if (dp->voltage[i] > 3 || dp->pre[i] > 3)
++			return -EINVAL;
++
++		/*
++		 * Sum of voltage swing and pre-emphasis levels cannot
++		 * exceed 3.
++		 */
++		if (dp->voltage[i] + dp->pre[i] > 3)
++			return -EINVAL;
+ 	}
+ 
+ 	return 0;
+@@ -1196,9 +1201,23 @@ static int rk_udphy_dp_phy_configure(struct phy *phy,
+ 	u32 i, val, lane;
+ 	int ret;
+ 
+-	ret = rk_udphy_dp_phy_verify_config(udphy, dp);
+-	if (ret)
+-		return ret;
++	if (dp->set_rate) {
++		ret = rk_udphy_dp_phy_verify_link_rate(udphy, dp);
++		if (ret)
++			return ret;
 +	}
 +
-+	if (ops->php_grf_required) {
-+		bsp_priv->php_grf =
-+			syscon_regmap_lookup_by_phandle(dev->of_node,
-+							"rockchip,php-grf");
-+		if (IS_ERR(bsp_priv->php_grf)) {
-+			dev_err_probe(dev, PTR_ERR(bsp_priv->php_grf),
-+				      "failed to lookup rockchip,php-grf\n");
-+			return ERR_CAST(bsp_priv->php_grf);
-+		}
++	if (dp->set_lanes) {
++		ret = rk_udphy_dp_phy_verify_lanes(udphy, dp);
++		if (ret)
++			return ret;
++	}
++
++	if (dp->set_voltages) {
++		ret = rk_udphy_dp_phy_verify_voltages(udphy, dp);
++		if (ret)
++			return ret;
 +	}
  
- 	if (plat->phy_node) {
- 		bsp_priv->integrated_phy = of_property_read_bool(plat->phy_node,
+ 	if (dp->set_rate) {
+ 		regmap_update_bits(udphy->pma_regmap, CMN_DP_RSTN_OFFSET,
+@@ -1243,9 +1262,9 @@ static int rk_udphy_dp_phy_configure(struct phy *phy,
+ 	}
+ 
+ 	if (dp->set_voltages) {
+-		for (i = 0; i < dp->lanes; i++) {
++		for (i = 0; i < udphy->lanes; i++) {
+ 			lane = udphy->dp_lane_sel[i];
+-			switch (dp->link_rate) {
++			switch (udphy->link_rate) {
+ 			case 1620:
+ 			case 2700:
+ 				regmap_update_bits(udphy->pma_regmap,
 -- 
 2.39.5
 
