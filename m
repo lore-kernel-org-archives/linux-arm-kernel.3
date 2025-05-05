@@ -4,56 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3819BC3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 23:34:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81A4FC3ABB6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 23:36:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QbD6O4tUR9o9Qrmh7M0+lTeoprT4L6wOl6jUY50Tv4A=; b=WM27BJ8F+OH9iQvi3uETaPKgJd
-	DD2RYk5OUba39gTYS9UHy0pMea2Ij42y74TZbOd35AtYz31k86fgVv/5hjzH7bT/tE736agKvuT0V
-	KdaEiXzZb0T3KoUuZU8wpq059TbO+MhvwNoUiXpThg3clv3soW4cahOxZ0v+8CoXpQoOfwuWBr3Yt
-	x+0+yDf4jKJMRBheYXNclZ5+h07dDSQnsX8oBjwEl+AVazq8fWTzR3c4JwusKvn4gpmYk5OgT2s9P
-	wkaCIPORIKc9zSTqVQcMmQ4rBPu+7fLeNCK9+3nMgsBWdoOQFG2g9fTDh3DhMs/rZ3K6bLmHCOKuy
-	SlMyYylg==;
+	bh=V5i9pjyK+SZ5f2Seaijb8hbpR6KXLbhqZQ8PXcxY0fA=; b=unhZBtSLenexhOkWUErYyTpcRw
+	0QE7+wwW9nS2MKmPADkdi3huE6Yglrdm5zhZLfCdiaZ+QQHiPUZs5r222SUOGrPMG35B3xDUCKpdx
+	RUZrwjik1DTZo6PIjAtYnRkhEqIZH05yqU2373ECMUZE0rGExm4IsafJnfe0FVFpqleBJS4Y5TLWX
+	3MotcCQIGMnWH+ByAIqNn7te8j9PA0YVkJxDl0GnTxNXiPKQ9TqKjhqvGhmSAyUup/Xy9zpe9PaQs
+	2z1yRdeGFVKR4heb2xJceqDkU8t3D0L22It8DS7ZW2Qeb0Mx22Kj226/htMFrc2nQOf7z+rXrXKjO
+	eHHyaz0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC5Ki-000000095T2-19yR;
-	Mon, 05 May 2025 23:34:48 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uC5Mg-000000095yV-0Can;
+	Mon, 05 May 2025 23:36:50 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4G6-00000008ks4-1Bid
+	id 1uC4G4-00000008kqy-3u1t
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 05 May 2025 22:25:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BA6C3629C9;
-	Mon,  5 May 2025 22:25:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F675C4CEEF;
-	Mon,  5 May 2025 22:25:56 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 240D05C5ACC;
+	Mon,  5 May 2025 22:23:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAD45C4CEE4;
+	Mon,  5 May 2025 22:25:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746483957;
-	bh=ibdy/rtIaou04q3IrNpDo1noO5Avp/t2atPZu9N7z+M=;
+	s=k20201202; t=1746483956;
+	bh=lA11mi3pVZ3Zgt4Qb1dPLIWEf000WMWrP3zmD8x6dCk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qCTZsPnZyaI0TQDf4PpQ2rvAJg9+mcoz9ebK0KvYAkU7U0jlKlO7G7YZaPXpS/oxI
-	 FuMI7D0cIV4FeQPi8/x/rV92lyIVdnRAuOEv1ipU2MpJ/coOQxyCwx0oblRo4cNaft
-	 AHjbxnVQ+QePcWzbpw+Z5zocafGQiiBQQBoLzxIc7fbAQE6bswTSHL/FF5Sc0QsRz2
-	 QtPRQxqVvMlLSz03aU+7DB1uNpxcvUwGcDangHEudCEs7ImasE+3wLWzZfUaJKZ1ry
-	 HaW7b3kRWO3ZFxaBhXuBCiE1nefP2qEUEEhVqdfn6k7cJMsQZTYEbQAHiNgF+GuHET
-	 ygSBEHZZmH+Ng==
+	b=CSMkfTKeCL/Ym0f0lRDWsCDqgm+BVhWCqQqWabxDbrIW3FQpvXrqNfABh5BiN8Oaa
+	 C4pfI8uQGyyAxCQcqO4MzCrAJjIYARmmoNyZPRzQMEqBXt6fg0M1zw+kQ8g8GUAC8r
+	 wnm4HHsFTf1R8yKX/xQM3+H5h8uB1r+74wKABORXJvcO+4EwlqQzxD+cY/Kmht4nYm
+	 4ap05AtnbhCkWow4S1WjH5Glmeak6m9c9rr3wjlo2799plR8mg5A+e+y8T3VBq/Rjh
+	 CeuntQsGbywOXPkAwF6Ls28GRzrXVny9EbytwEJUug4X2W3PFGFUjimAynwIhKlkHi
+	 azzd1dS2kLQFg==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Janne Grunau <j@jannau.net>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Sven Peter <sven@svenpeter.dev>,
+Cc: "Rob Herring (Arm)" <robh@kernel.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Will Deacon <will@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.14 290/642] soc: apple: rtkit: Use high prio work queue
-Date: Mon,  5 May 2025 18:08:26 -0400
-Message-Id: <20250505221419.2672473-290-sashal@kernel.org>
+	mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.14 289/642] perf: arm_pmuv3: Call kvm_vcpu_pmu_resync_el0() before enabling counters
+Date: Mon,  5 May 2025 18:08:25 -0400
+Message-Id: <20250505221419.2672473-289-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505221419.2672473-1-sashal@kernel.org>
 References: <20250505221419.2672473-1-sashal@kernel.org>
@@ -62,6 +64,9 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.14.5
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250505_152557_037686_B1225F70 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,40 +81,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Janne Grunau <j@jannau.net>
+From: "Rob Herring (Arm)" <robh@kernel.org>
 
-[ Upstream commit 22af2fac88fa5dbc310bfe7d0b66d4de3ac47305 ]
+[ Upstream commit 04bd15c4cbc3f7bd2399d1baab958c5e738dbfc9 ]
 
-rtkit messages as communication with the DCP firmware for framebuffer
-swaps or input events are time critical so use WQ_HIGHPRI to prevent
-user space CPU load to increase latency.
-With kwin_wayland 6's explicit sync mode user space load was able to
-delay the IOMFB rtkit communication enough to miss vsync for surface
-swaps. Minimal test scenario is constantly resizing a glxgears
-Xwayland window.
+Counting events related to setup of the PMU is not desired, but
+kvm_vcpu_pmu_resync_el0() is called just after the PMU counters have
+been enabled. Move the call to before enabling the counters.
 
-Signed-off-by: Janne Grunau <j@jannau.net>
-Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-Link: https://lore.kernel.org/r/20250226-apple-soc-misc-v2-3-c3ec37f9021b@svenpeter.dev
-Signed-off-by: Sven Peter <sven@svenpeter.dev>
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Tested-by: James Clark <james.clark@linaro.org>
+Link: https://lore.kernel.org/r/20250218-arm-brbe-v19-v20-1-4e9922fc2e8e@kernel.org
+Signed-off-by: Will Deacon <will@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/soc/apple/rtkit.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/perf/arm_pmuv3.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/soc/apple/rtkit.c b/drivers/soc/apple/rtkit.c
-index e6d940292c9fb..00d59a81db88b 100644
---- a/drivers/soc/apple/rtkit.c
-+++ b/drivers/soc/apple/rtkit.c
-@@ -667,7 +667,7 @@ struct apple_rtkit *apple_rtkit_init(struct device *dev, void *cookie,
- 	rtk->mbox->rx = apple_rtkit_rx;
- 	rtk->mbox->cookie = rtk;
+diff --git a/drivers/perf/arm_pmuv3.c b/drivers/perf/arm_pmuv3.c
+index 0e360feb3432e..9ebc950559c0a 100644
+--- a/drivers/perf/arm_pmuv3.c
++++ b/drivers/perf/arm_pmuv3.c
+@@ -825,10 +825,10 @@ static void armv8pmu_start(struct arm_pmu *cpu_pmu)
+ 	else
+ 		armv8pmu_disable_user_access();
  
--	rtk->wq = alloc_ordered_workqueue("rtkit-%s", WQ_MEM_RECLAIM,
-+	rtk->wq = alloc_ordered_workqueue("rtkit-%s", WQ_HIGHPRI | WQ_MEM_RECLAIM,
- 					  dev_name(rtk->dev));
- 	if (!rtk->wq) {
- 		ret = -ENOMEM;
++	kvm_vcpu_pmu_resync_el0();
++
+ 	/* Enable all counters */
+ 	armv8pmu_pmcr_write(armv8pmu_pmcr_read() | ARMV8_PMU_PMCR_E);
+-
+-	kvm_vcpu_pmu_resync_el0();
+ }
+ 
+ static void armv8pmu_stop(struct arm_pmu *cpu_pmu)
 -- 
 2.39.5
 
