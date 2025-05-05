@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2CF2C3ABB9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 22:39:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 899C0C3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 22:41:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dktR7hzrYNh/x+tOOZgpc9/SDCQx1E3PWBz2MwtJth4=; b=sjDBVHNeYXeImb7SYzSMJ86Lh1
-	lyAEa5lVAFZm/2tdeFiURR0FQO1b+TMU6uGvj+Qha17LjDrGJLVYuoH5ETaUTypWixMVgRgml2UE6
-	QwqoyvdznCeHHEfJ2Q1mHZKjrdPrEzPRJqkdacjZ5nLx5+dtmk3EQvR0JPQ0aQ1AnnMUkIcEVu5X7
-	nYUU4as6wKCkKuWICPMSa789UMKbNoXvHvhUflLGZxcmklrdXGGj3uMn4pPXdGkIVFlBTB1gyhQ7M
-	kr8/SYqkcgy4KprtWzneKdYjOaJhmB0yT4TH13tfv6q1bb2nVGphmNqVWi92aZqTNSCrEarOMTKgZ
-	3lTjWV9Q==;
+	bh=KbV2nWe8P2p34Kclaz10E5nv87cU5PqwkUolzYNx1/w=; b=e0hRWJEKsjPAE+WjyFnYEZrsNI
+	jOTG5ikbZDSH2/N+iydykeSG4Et199aVYGm9lkqTln6b9HzNGalqIVmhAdIYlMOkGri3BKVV2yGLq
+	NPFJ2PQEmY1tigLVGdpW1N11vGVPxKGh0EEx7kpUFKFE8Iyg14iV7KQ8o9BLOVsGh+TMftdwJBuMI
+	hNm8IaboXX2CPce0nW0MvNwEYHprWxXlK6sgXWoC8a77JRxRr8+bQDr3p3IfDWdLCNfeWSWDLvykd
+	YRbBv0bDyPohkOvCDw9kPUWPmwiY50GTJ2Mi4fTEic/FVwDI3BDLQZidtRKDD8n3vVY2Nv1cWNXjC
+	E08Cqn2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4TH-00000008p6O-2n8v;
-	Mon, 05 May 2025 22:39:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uC4VH-00000008pit-38FQ;
+	Mon, 05 May 2025 22:41:39 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC47W-00000008iBa-2BPZ;
-	Mon, 05 May 2025 22:17:06 +0000
+	id 1uC47Y-00000008iC8-0gGa;
+	Mon, 05 May 2025 22:17:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 24C31629C2;
-	Mon,  5 May 2025 22:16:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14CF7C4CEED;
-	Mon,  5 May 2025 22:17:03 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C2410629C0;
+	Mon,  5 May 2025 22:16:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E0DDC4CEE4;
+	Mon,  5 May 2025 22:17:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746483425;
-	bh=6qaGOBfLQqjBlG7mlV7178I8mSUvnwgJ+5rXSWFfTWk=;
+	s=k20201202; t=1746483427;
+	bh=/b3J7JjYOwlDGnUX53TNs6feQxn0vwXryA22VULuaAo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=AW3cqLiOdmsJUn1UWa9LJFWHXTOxROTJqBMNdfmnoGqApv0hJK1tHEa7nmB0ApXw0
-	 tEJIbETLWTRCepZLtvRrsIHnyAb7U1f1V/UxSMmiDjTwwoVzXFCFd5AqPb7Eq0owRR
-	 dpYSQ+28Op3lQh8tEE9z0cq0nhBbr9rzQ+RrmrFqEejMSekDagc3HbcpeSXjJ9M8tu
-	 vm9GUIIHZ7RdM9vvhIWxU4kOg66tcH9p8yvyaEgdzsKUhgPJdAke6DV7lVbNbStatp
-	 Ksz+T1Ke6gqNB7u4NeyaZStasZVX1tPCXK9E/wLuehUAZulHlXVaAkP1e2oww3NwQG
-	 PidfmXbKgeE2w==
+	b=A+8LdaL0zlSrtyPxyWKO9f+UWS5oOvoccOqbb7m82jkVMfNc6rrJwVP0rf5Qzl0Rn
+	 QW6+mi0c43TdWGGQgoCUISeQXLlxl4nAKOW+q6V6/4pdAhbWo2OfSnCBvhF/sYyTge
+	 GM3ZT5udxDgpKj+ZcYDsXU6/KR86EKmNxNKye9UrN8/Rv8PA0s+PfL5mfVVZFOdWoA
+	 +d7ZEi7Wjz/f9KDIPbsDV6tGw41XVYISABjr5BtJE6+IRmMQbbGkPLTBbUT9uoKkgo
+	 AyK6PeZy3i+51czHoioaoNRd5g8/vm6VfLxnLWrmxwUsyTErrJtre3qNTnFopXSGjn
+	 grcIixCbve6JA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -50,16 +50,12 @@ Cc: Felix Fietkau <nbd@nbd.name>,
 	ryder.lee@mediatek.com,
 	matthias.bgg@gmail.com,
 	angelogioacchino.delregno@collabora.com,
-	shayne.chen@mediatek.com,
-	chui-hao.chiu@mediatek.com,
-	Bo.Jiao@mediatek.com,
-	benjamin-jw.lin@mediatek.com,
 	linux-wireless@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.14 076/642] wifi: mt76: mt7996: use the correct vif link for scanning/roc
-Date: Mon,  5 May 2025 18:04:52 -0400
-Message-Id: <20250505221419.2672473-76-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.14 077/642] wifi: mt76: scan: set vif offchannel link for scanning/roc
+Date: Mon,  5 May 2025 18:04:53 -0400
+Message-Id: <20250505221419.2672473-77-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505221419.2672473-1-sashal@kernel.org>
 References: <20250505221419.2672473-1-sashal@kernel.org>
@@ -84,104 +80,63 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Felix Fietkau <nbd@nbd.name>
 
-[ Upstream commit 13b4c81083cc4b59fb639a511c0a9a7c38efde7e ]
+[ Upstream commit 3ba20af886d1f604dceeb4d4c8ff872e2c4e885e ]
 
-Use the newly added offchannel_link pointer in vif data
+The driver needs to know what vif link to use
 
-Link: https://patch.msgid.link/20250311103646.43346-5-nbd@nbd.name
+Link: https://patch.msgid.link/20250311103646.43346-4-nbd@nbd.name
 Signed-off-by: Felix Fietkau <nbd@nbd.name>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- .../net/wireless/mediatek/mt76/mt7996/mac.c   | 40 +++++++++++++------
- .../net/wireless/mediatek/mt76/mt7996/main.c  |  1 +
- 2 files changed, 28 insertions(+), 13 deletions(-)
+ drivers/net/wireless/mediatek/mt76/channel.c | 3 +++
+ drivers/net/wireless/mediatek/mt76/mt76.h    | 2 ++
+ 2 files changed, 5 insertions(+)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-index 019c925ae600e..88f9d9059d5f2 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-@@ -832,7 +832,8 @@ void mt7996_mac_write_txwi(struct mt7996_dev *dev, __le32 *txwi,
- 	u8 band_idx = (info->hw_queue & MT_TX_HW_QUEUE_PHY) >> 2;
- 	u8 p_fmt, q_idx, omac_idx = 0, wmm_idx = 0;
- 	bool is_8023 = info->flags & IEEE80211_TX_CTL_HW_80211_ENCAP;
--	struct mt76_vif_link *mvif;
-+	struct mt76_vif_link *mlink = NULL;
-+	struct mt7996_vif *mvif;
- 	u16 tx_count = 15;
- 	u32 val;
- 	bool inband_disc = !!(changed & (BSS_CHANGED_UNSOL_BCAST_PROBE_RESP |
-@@ -840,11 +841,18 @@ void mt7996_mac_write_txwi(struct mt7996_dev *dev, __le32 *txwi,
- 	bool beacon = !!(changed & (BSS_CHANGED_BEACON |
- 				    BSS_CHANGED_BEACON_ENABLED)) && (!inband_disc);
- 
--	mvif = vif ? (struct mt76_vif_link *)vif->drv_priv : NULL;
--	if (mvif) {
--		omac_idx = mvif->omac_idx;
--		wmm_idx = mvif->wmm_idx;
--		band_idx = mvif->band_idx;
-+	if (vif) {
-+		mvif = (struct mt7996_vif *)vif->drv_priv;
-+		if (wcid->offchannel)
-+			mlink = rcu_dereference(mvif->mt76.offchannel_link);
-+		if (!mlink)
-+			mlink = &mvif->deflink.mt76;
-+	}
-+
-+	if (mlink) {
-+		omac_idx = mlink->omac_idx;
-+		wmm_idx = mlink->wmm_idx;
-+		band_idx = mlink->band_idx;
+diff --git a/drivers/net/wireless/mediatek/mt76/channel.c b/drivers/net/wireless/mediatek/mt76/channel.c
+index 6a35c6ebd823e..e7b839e742903 100644
+--- a/drivers/net/wireless/mediatek/mt76/channel.c
++++ b/drivers/net/wireless/mediatek/mt76/channel.c
+@@ -293,6 +293,7 @@ struct mt76_vif_link *mt76_get_vif_phy_link(struct mt76_phy *phy,
+ 		kfree(mlink);
+ 		return ERR_PTR(ret);
  	}
++	rcu_assign_pointer(mvif->offchannel_link, mlink);
  
- 	if (inband_disc) {
-@@ -910,13 +918,13 @@ void mt7996_mac_write_txwi(struct mt7996_dev *dev, __le32 *txwi,
- 			     is_multicast_ether_addr(hdr->addr1);
- 		u8 idx = MT7996_BASIC_RATES_TBL;
+ 	return mlink;
+ }
+@@ -301,10 +302,12 @@ void mt76_put_vif_phy_link(struct mt76_phy *phy, struct ieee80211_vif *vif,
+ 			   struct mt76_vif_link *mlink)
+ {
+ 	struct mt76_dev *dev = phy->dev;
++	struct mt76_vif_data *mvif = mlink->mvif;
  
--		if (mvif) {
--			if (mcast && mvif->mcast_rates_idx)
--				idx = mvif->mcast_rates_idx;
--			else if (beacon && mvif->beacon_rates_idx)
--				idx = mvif->beacon_rates_idx;
-+		if (mlink) {
-+			if (mcast && mlink->mcast_rates_idx)
-+				idx = mlink->mcast_rates_idx;
-+			else if (beacon && mlink->beacon_rates_idx)
-+				idx = mlink->beacon_rates_idx;
- 			else
--				idx = mvif->basic_rates_idx;
-+				idx = mlink->basic_rates_idx;
- 		}
+ 	if (IS_ERR_OR_NULL(mlink) || !mlink->offchannel)
+ 		return;
  
- 		val = FIELD_PREP(MT_TXD6_TX_RATE, idx) | MT_TXD6_FIXED_BW;
-@@ -984,8 +992,14 @@ int mt7996_tx_prepare_skb(struct mt76_dev *mdev, void *txwi_ptr,
++	rcu_assign_pointer(mvif->offchannel_link, NULL);
+ 	dev->drv->vif_link_remove(phy, vif, &vif->bss_conf, mlink);
+ 	kfree(mlink);
+ }
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76.h b/drivers/net/wireless/mediatek/mt76/mt76.h
+index 8714418f3906c..e4ecd9cde36dc 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76.h
++++ b/drivers/net/wireless/mediatek/mt76/mt76.h
+@@ -351,6 +351,7 @@ struct mt76_wcid {
+ 	u8 hw_key_idx;
+ 	u8 hw_key_idx2;
  
- 	if (vif) {
- 		struct mt7996_vif *mvif = (struct mt7996_vif *)vif->drv_priv;
-+		struct mt76_vif_link *mlink = NULL;
-+
-+		if (wcid->offchannel)
-+			mlink = rcu_dereference(mvif->mt76.offchannel_link);
-+		if (!mlink)
-+			mlink = &mvif->deflink.mt76;
++	u8 offchannel:1;
+ 	u8 sta:1;
+ 	u8 sta_disabled:1;
+ 	u8 amsdu:1;
+@@ -788,6 +789,7 @@ struct mt76_vif_link {
  
--		txp->fw.bss_idx = mvif->deflink.mt76.idx;
-+		txp->fw.bss_idx = mlink->idx;
- 	}
+ struct mt76_vif_data {
+ 	struct mt76_vif_link __rcu *link[IEEE80211_MLD_MAX_NUM_LINKS];
++	struct mt76_vif_link __rcu *offchannel_link;
  
- 	txp->fw.token = cpu_to_le16(id);
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-index 980a059b3b38f..b01cc7ef47999 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-@@ -249,6 +249,7 @@ int mt7996_vif_link_add(struct mt76_phy *mphy, struct ieee80211_vif *vif,
- 	mlink->band_idx = band_idx;
- 	mlink->wmm_idx = vif->type == NL80211_IFTYPE_AP ? 0 : 3;
- 	mlink->wcid = &link->sta.wcid;
-+	mlink->wcid->offchannel = mlink->offchannel;
- 
- 	ret = mt7996_mcu_add_dev_info(phy, vif, link_conf, mlink, true);
- 	if (ret)
+ 	struct mt76_phy *roc_phy;
+ 	u16 valid_links;
 -- 
 2.39.5
 
