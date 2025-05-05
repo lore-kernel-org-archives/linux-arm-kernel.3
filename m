@@ -4,77 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D869C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 05:03:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E297C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 05:05:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JB+EEoVcUKNfGd8y3321kIW+kxw//Y8BH7UJyrw9gVg=; b=pAreRP03AfmQ0tZmeRDt7yEPeH
-	M9U5Br531GJJoekHTdBLj0XM8t/6h/AeVKbjboC3ZE0xuORoppiFelGm/hBcaKKhYtnxLTyodhz37
-	k5pRpS8hOQdoL2GEPknszrWXG1qyrOar49nQLAKhbo6tdpMvasJyD5yNnbPyA1JUwV7iCfvD6LyQn
-	TgoAGKJUfNmEEVHFdwn3yXhKmDbKaJ+4xaFMkpRofE4YWYqilqjqDN+PLI/lT5zt445t245bY49LH
-	+OKNpAnWOqFAoXMV5kMzlEMeQmBRDaO5r36444CTg+orTrBKMNPSN59TEROMsEgBPAj5+fIRDgc6P
-	Wxlh8yZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AdwbDJZLWp/I8PkV1oHai1kolkfn00p4/WYZVh2nSSE=; b=tHqKFlJ1D7Q+wG4JoErR07Kb6C
+	0pR70j5+sqE9WVpz5N6GihR+rAllhjdAEfHvQ7k+2wJ6TfnU2R4Vzm3hiYDdTTML7TVf69XeAr1lp
+	3nJStC6AbwHwrYSuanCKYIadNqwpd+485GPdyX3ujgatnpmkqgIjtj95O+9S3kCnHCo9pfoHS71J/
+	b+ZoLHk9UH2pzHbHVzwdMVKVmrQewNvo8KlKLGjBWe624JFMCY39m37/djwzNWQv+cmf4FIM+pYGu
+	Auit1G89ESPbFYwdxpyj9gDRrLdBEBY8d/bF6lwUbBpav519N9hIrwfzLyEJh2qQjZyx3LXNS+rIa
+	qqfm61Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCASq-0000000ALaz-2sTT;
-	Tue, 06 May 2025 05:03:32 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1uCAUr-0000000AM19-23OD;
+	Tue, 06 May 2025 05:05:37 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC5aZ-0000000993b-0Uaa
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 23:51:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1746489071; x=1778025071;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=0DSF7dHmV17QwKXNCFzP0+mA7qcPG4gxTwIbAzLc++c=;
-  b=GdMGzUCTS2u5gWesR7ml3qSv74T9D+4Yiaze3ZcEBPXbkagqW1EnQO9Y
-   RlOgV1c3ZboJWoCgLcAEa56qdSh7kzq0N//aUnpamOFt2s1D9D0dO5LRF
-   +GXairk/zVK5oUE6pI33lLoV5Dt1yXTXxtwZj5ud1CYaNk1r3KpvHlyNA
-   bQkO8U2CrCROR9yiTkO78lkw49JYdbhGJAI1MlWfJkflOphQHgOKaofnW
-   kJqt2aIf98TYwCGdGy0bxaVUJ+lRukup8bbBC4RRpU36Kd1U3HdnitRey
-   6FbJWqhvP413OdO2bvJ0ec8N29IzI5Dhp99Zwt1+MfuQaoDoJklWY8R/0
-   Q==;
-X-CSE-ConnectionGUID: vmPA4kQEQ/yEaMnT4NUzpg==
-X-CSE-MsgGUID: a0ja0x77SYqrsyuQL/VYHg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11424"; a="51939051"
-X-IronPort-AV: E=Sophos;i="6.15,264,1739865600"; 
-   d="scan'208";a="51939051"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 May 2025 16:51:06 -0700
-X-CSE-ConnectionGUID: B9ereCXyRtKibr91GbHSFA==
-X-CSE-MsgGUID: nRDOwKmBSD+5Q8l7GbvmPQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,264,1739865600"; 
-   d="scan'208";a="172617724"
-Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
-  by orviesa001.jf.intel.com with ESMTP; 05 May 2025 16:51:04 -0700
-Received: from kbuild by 1992f890471c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uC5aO-00068L-2k;
-	Mon, 05 May 2025 23:51:00 +0000
-Date: Tue, 6 May 2025 07:50:59 +0800
-From: kernel test robot <lkp@intel.com>
-To: Ard Biesheuvel <ardb+git@google.com>,
-	linux-arm-kernel@lists.infradead.org
-Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
-	will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com,
-	Ard Biesheuvel <ardb@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: Re: [PATCH 1/3] arm64/boot: Move init_pgdir[] into __pi_ namespace
-Message-ID: <202505060740.OIkWGFVZ-lkp@intel.com>
-References: <20250503112137.1962910-6-ardb+git@google.com>
+	id 1uC4V0-00000008peL-0mlP;
+	Mon, 05 May 2025 22:41:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D39F8A41BF2;
+	Mon,  5 May 2025 22:35:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C05EC4CEE4;
+	Mon,  5 May 2025 22:41:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746484881;
+	bh=DK1NNzx9X/rE5G8Y1YDJEO+qp/3WCpguqAhtF85L4y0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=O/Go31eqv0I3f+rtjDq/etQxVVAybR2F1SZ+TTdlTTy0KbrI6h1WoUwgvbsLYmjf1
+	 H/yog4hDCBrduAiBFjwgqlW/SZRzbX8+tUxrOOIkueb8IDzrZGpWNQEmqbOprDjjoi
+	 9QH9ycOFJy4ETCgYNxu7fmfRZkJSY5/iCoAPykoQZWlXk0MGrqd5c5QCfteGbMyg+I
+	 lzQGd5UuCKPDvErDnTms0tCtFg/2uH/VGOM+FoTKV2RcCIuEUkWUO3tXeuZy6zmlwp
+	 cqMPgys6VC3dTdF+sX9I42eo8Xby5RR0h3ldpcut4Qw35g3dt1MdkjswcvLQwFO930
+	 7gCeoFpesuDlA==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Felix Fietkau <nbd@nbd.name>,
+	Sasha Levin <sashal@kernel.org>,
+	lorenzo@kernel.org,
+	ryder.lee@mediatek.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	miriam.rachel.korenblit@intel.com,
+	emmanuel.grumbach@intel.com,
+	kuba@kernel.org,
+	edumazet@google.com,
+	johannes.berg@intel.com,
+	uwu@icenowy.me,
+	linux-wireless@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.12 060/486] wifi: mt76: only mark tx-status-failed frames as ACKed on mt76x0/2
+Date: Mon,  5 May 2025 18:32:16 -0400
+Message-Id: <20250505223922.2682012-60-sashal@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250505223922.2682012-1-sashal@kernel.org>
+References: <20250505223922.2682012-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250503112137.1962910-6-ardb+git@google.com>
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.12.26
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_165111_232969_25466CFD 
-X-CRM114-Status: GOOD (  17.86  )
+X-CRM114-CacheID: sfid-20250505_154122_357179_8DD5A339 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,85 +87,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ard,
+From: Felix Fietkau <nbd@nbd.name>
 
-kernel test robot noticed the following build errors:
+[ Upstream commit 0c5a89ceddc1728a40cb3313948401dd70e3c649 ]
 
-[auto build test ERROR on soc/for-next]
-[also build test ERROR on arm/for-next arm/fixes linus/master v6.15-rc5 next-20250505]
-[cannot apply to arm64/for-next/core kvmarm/next]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+The interrupt status polling is unreliable, which can cause status events
+to get lost. On all newer chips, txs-timeout is an indication that the
+packet was either never sent, or never acked.
+Fixes issues with inactivity polling.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Ard-Biesheuvel/arm64-boot-Move-init_pgdir-into-__pi_-namespace/20250503-192534
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
-patch link:    https://lore.kernel.org/r/20250503112137.1962910-6-ardb%2Bgit%40google.com
-patch subject: [PATCH 1/3] arm64/boot: Move init_pgdir[] into __pi_ namespace
-config: arm64-allnoconfig (https://download.01.org/0day-ci/archive/20250506/202505060740.OIkWGFVZ-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250506/202505060740.OIkWGFVZ-lkp@intel.com/reproduce)
+Link: https://patch.msgid.link/20250311103646.43346-6-nbd@nbd.name
+Signed-off-by: Felix Fietkau <nbd@nbd.name>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ drivers/net/wireless/mediatek/mt76/mt76.h       | 1 +
+ drivers/net/wireless/mediatek/mt76/mt76x0/pci.c | 3 ++-
+ drivers/net/wireless/mediatek/mt76/mt76x0/usb.c | 3 ++-
+ drivers/net/wireless/mediatek/mt76/mt76x2/pci.c | 3 ++-
+ drivers/net/wireless/mediatek/mt76/mt76x2/usb.c | 3 ++-
+ drivers/net/wireless/mediatek/mt76/tx.c         | 3 ++-
+ 6 files changed, 11 insertions(+), 5 deletions(-)
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202505060740.OIkWGFVZ-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   arch/arm64/kernel/pi/map_kernel.c: In function 'remap_idmap_for_lpa2':
->> arch/arm64/kernel/pi/map_kernel.c:191:37: error: 'init_pg_end' undeclared (first use in this function); did you mean 'init_pg_dir'?
-     191 |         memset(init_pg_dir, 0, (u64)init_pg_end - (u64)init_pg_dir);
-         |                                     ^~~~~~~~~~~
-         |                                     init_pg_dir
-   arch/arm64/kernel/pi/map_kernel.c:191:37: note: each undeclared identifier is reported only once for each function it appears in
-   arch/arm64/kernel/pi/map_kernel.c: In function 'early_map_kernel':
-   arch/arm64/kernel/pi/map_kernel.c:222:37: error: 'init_pg_end' undeclared (first use in this function); did you mean 'init_pg_dir'?
-     222 |         memset(__bss_start, 0, (u64)init_pg_end - (u64)__bss_start);
-         |                                     ^~~~~~~~~~~
-         |                                     init_pg_dir
-
-
-vim +191 arch/arm64/kernel/pi/map_kernel.c
-
-9684ec186f8fad Ard Biesheuvel 2024-02-14  158  
-9684ec186f8fad Ard Biesheuvel 2024-02-14  159  static void __init remap_idmap_for_lpa2(void)
-9684ec186f8fad Ard Biesheuvel 2024-02-14  160  {
-9684ec186f8fad Ard Biesheuvel 2024-02-14  161  	/* clear the bits that change meaning once LPA2 is turned on */
-9684ec186f8fad Ard Biesheuvel 2024-02-14  162  	pteval_t mask = PTE_SHARED;
-9684ec186f8fad Ard Biesheuvel 2024-02-14  163  
-9684ec186f8fad Ard Biesheuvel 2024-02-14  164  	/*
-9684ec186f8fad Ard Biesheuvel 2024-02-14  165  	 * We have to clear bits [9:8] in all block or page descriptors in the
-9684ec186f8fad Ard Biesheuvel 2024-02-14  166  	 * initial ID map, as otherwise they will be (mis)interpreted as
-9684ec186f8fad Ard Biesheuvel 2024-02-14  167  	 * physical address bits once we flick the LPA2 switch (TCR.DS). Since
-9684ec186f8fad Ard Biesheuvel 2024-02-14  168  	 * we cannot manipulate live descriptors in that way without creating
-9684ec186f8fad Ard Biesheuvel 2024-02-14  169  	 * potential TLB conflicts, let's create another temporary ID map in a
-9684ec186f8fad Ard Biesheuvel 2024-02-14  170  	 * LPA2 compatible fashion, and update the initial ID map while running
-9684ec186f8fad Ard Biesheuvel 2024-02-14  171  	 * from that.
-9684ec186f8fad Ard Biesheuvel 2024-02-14  172  	 */
-9684ec186f8fad Ard Biesheuvel 2024-02-14  173  	create_init_idmap(init_pg_dir, mask);
-9684ec186f8fad Ard Biesheuvel 2024-02-14  174  	dsb(ishst);
-9684ec186f8fad Ard Biesheuvel 2024-02-14  175  	set_ttbr0_for_lpa2((u64)init_pg_dir);
-9684ec186f8fad Ard Biesheuvel 2024-02-14  176  
-9684ec186f8fad Ard Biesheuvel 2024-02-14  177  	/*
-9684ec186f8fad Ard Biesheuvel 2024-02-14  178  	 * Recreate the initial ID map with the same granularity as before.
-9684ec186f8fad Ard Biesheuvel 2024-02-14  179  	 * Don't bother with the FDT, we no longer need it after this.
-9684ec186f8fad Ard Biesheuvel 2024-02-14  180  	 */
-9684ec186f8fad Ard Biesheuvel 2024-02-14  181  	memset(init_idmap_pg_dir, 0,
-ecc54006f158ae Zenghui Yu     2024-06-21  182  	       (u64)init_idmap_pg_end - (u64)init_idmap_pg_dir);
-9684ec186f8fad Ard Biesheuvel 2024-02-14  183  
-9684ec186f8fad Ard Biesheuvel 2024-02-14  184  	create_init_idmap(init_idmap_pg_dir, mask);
-9684ec186f8fad Ard Biesheuvel 2024-02-14  185  	dsb(ishst);
-9684ec186f8fad Ard Biesheuvel 2024-02-14  186  
-9684ec186f8fad Ard Biesheuvel 2024-02-14  187  	/* switch back to the updated initial ID map */
-9684ec186f8fad Ard Biesheuvel 2024-02-14  188  	set_ttbr0_for_lpa2((u64)init_idmap_pg_dir);
-9684ec186f8fad Ard Biesheuvel 2024-02-14  189  
-9684ec186f8fad Ard Biesheuvel 2024-02-14  190  	/* wipe the temporary ID map from memory */
-9684ec186f8fad Ard Biesheuvel 2024-02-14 @191  	memset(init_pg_dir, 0, (u64)init_pg_end - (u64)init_pg_dir);
-9684ec186f8fad Ard Biesheuvel 2024-02-14  192  }
-9684ec186f8fad Ard Biesheuvel 2024-02-14  193  
-
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76.h b/drivers/net/wireless/mediatek/mt76/mt76.h
+index e2e9b5ece74e2..a6ac8e5512eba 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76.h
++++ b/drivers/net/wireless/mediatek/mt76/mt76.h
+@@ -489,6 +489,7 @@ struct mt76_hw_cap {
+ #define MT_DRV_RX_DMA_HDR		BIT(3)
+ #define MT_DRV_HW_MGMT_TXQ		BIT(4)
+ #define MT_DRV_AMSDU_OFFLOAD		BIT(5)
++#define MT_DRV_IGNORE_TXS_FAILED	BIT(6)
+ 
+ struct mt76_driver_ops {
+ 	u32 drv_flags;
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76x0/pci.c b/drivers/net/wireless/mediatek/mt76/mt76x0/pci.c
+index 1eb955f3ca130..911e162a45980 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76x0/pci.c
++++ b/drivers/net/wireless/mediatek/mt76/mt76x0/pci.c
+@@ -156,7 +156,8 @@ mt76x0e_probe(struct pci_dev *pdev, const struct pci_device_id *id)
+ 	static const struct mt76_driver_ops drv_ops = {
+ 		.txwi_size = sizeof(struct mt76x02_txwi),
+ 		.drv_flags = MT_DRV_TX_ALIGNED4_SKBS |
+-			     MT_DRV_SW_RX_AIRTIME,
++			     MT_DRV_SW_RX_AIRTIME |
++			     MT_DRV_IGNORE_TXS_FAILED,
+ 		.survey_flags = SURVEY_INFO_TIME_TX,
+ 		.update_survey = mt76x02_update_channel,
+ 		.set_channel = mt76x0_set_channel,
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76x0/usb.c b/drivers/net/wireless/mediatek/mt76/mt76x0/usb.c
+index b031c500b7415..90e5666c0857d 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76x0/usb.c
++++ b/drivers/net/wireless/mediatek/mt76/mt76x0/usb.c
+@@ -214,7 +214,8 @@ static int mt76x0u_probe(struct usb_interface *usb_intf,
+ 			 const struct usb_device_id *id)
+ {
+ 	static const struct mt76_driver_ops drv_ops = {
+-		.drv_flags = MT_DRV_SW_RX_AIRTIME,
++		.drv_flags = MT_DRV_SW_RX_AIRTIME |
++			     MT_DRV_IGNORE_TXS_FAILED,
+ 		.survey_flags = SURVEY_INFO_TIME_TX,
+ 		.update_survey = mt76x02_update_channel,
+ 		.set_channel = mt76x0_set_channel,
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76x2/pci.c b/drivers/net/wireless/mediatek/mt76/mt76x2/pci.c
+index 67c9d1caa0bd6..55f076231bdc5 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76x2/pci.c
++++ b/drivers/net/wireless/mediatek/mt76/mt76x2/pci.c
+@@ -22,7 +22,8 @@ mt76x2e_probe(struct pci_dev *pdev, const struct pci_device_id *id)
+ 	static const struct mt76_driver_ops drv_ops = {
+ 		.txwi_size = sizeof(struct mt76x02_txwi),
+ 		.drv_flags = MT_DRV_TX_ALIGNED4_SKBS |
+-			     MT_DRV_SW_RX_AIRTIME,
++			     MT_DRV_SW_RX_AIRTIME |
++			     MT_DRV_IGNORE_TXS_FAILED,
+ 		.survey_flags = SURVEY_INFO_TIME_TX,
+ 		.update_survey = mt76x02_update_channel,
+ 		.set_channel = mt76x2e_set_channel,
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76x2/usb.c b/drivers/net/wireless/mediatek/mt76/mt76x2/usb.c
+index a4f4d12f904e7..84ef80ab4afbf 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76x2/usb.c
++++ b/drivers/net/wireless/mediatek/mt76/mt76x2/usb.c
+@@ -30,7 +30,8 @@ static int mt76x2u_probe(struct usb_interface *intf,
+ 			 const struct usb_device_id *id)
+ {
+ 	static const struct mt76_driver_ops drv_ops = {
+-		.drv_flags = MT_DRV_SW_RX_AIRTIME,
++		.drv_flags = MT_DRV_SW_RX_AIRTIME |
++			     MT_DRV_IGNORE_TXS_FAILED,
+ 		.survey_flags = SURVEY_INFO_TIME_TX,
+ 		.update_survey = mt76x02_update_channel,
+ 		.set_channel = mt76x2u_set_channel,
+diff --git a/drivers/net/wireless/mediatek/mt76/tx.c b/drivers/net/wireless/mediatek/mt76/tx.c
+index ce193e625666b..065a1e4537457 100644
+--- a/drivers/net/wireless/mediatek/mt76/tx.c
++++ b/drivers/net/wireless/mediatek/mt76/tx.c
+@@ -100,7 +100,8 @@ __mt76_tx_status_skb_done(struct mt76_dev *dev, struct sk_buff *skb, u8 flags,
+ 		return;
+ 
+ 	/* Tx status can be unreliable. if it fails, mark the frame as ACKed */
+-	if (flags & MT_TX_CB_TXS_FAILED) {
++	if (flags & MT_TX_CB_TXS_FAILED &&
++	    (dev->drv->drv_flags & MT_DRV_IGNORE_TXS_FAILED)) {
+ 		info->status.rates[0].count = 0;
+ 		info->status.rates[0].idx = -1;
+ 		info->flags |= IEEE80211_TX_STAT_ACK;
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.39.5
+
 
