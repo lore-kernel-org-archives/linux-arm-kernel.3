@@ -4,93 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E95AC3ABB6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 10:54:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71AA1C3ABB0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 11:29:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rV1XgPNoXlxuVA1alm8N8QB10UHZNje3da5SMs3oTjs=; b=02jIPrt8Hy27BZGE1OURqGueeA
-	RQ+g5jGec60doYH2aHIghMliYCdyEeukp+TFZzS2REpoam/CwoVbMexfoighdRj5If5iyud0zix5B
-	7Dgv54VEj4iSaLiqS8CXM696wnk13uYGH8/2maW5pRnWFk2aOBffCXXefMCajVYK9mi+QLDe2feU7
-	BoalnXrdnh8wY6WFi2CN0zkgXWoUmprPwJ0OFdhZGAH+JhQ9DBT//I+EGMq75Z+igcA6aOoPiwU94
-	Aa+EoqjUJ53aPdQ2M26z/2rQep9fBhvl69Z8sI87X7a7UJvOjbfznQybu062qPrUsw+wzbtisx46L
-	ZfJUrdiw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HCvqM0r6z/uk3aGi4ylWlG5lxduJ69/W6EjVsgplTuc=; b=toZ+nWsD5oMFMqZURkwghSwSci
+	5fNdBfatAqm6hllW7MFDrX3HcCvpE8zS9DIL7hQM9PZxUhWxfqFDlzUxM9Do0sUgjXBOVtOiUZmSK
+	dEVOSi4DRLA7SY50khqNUJ/58kU3bzM2SrFD2hUuxZKrbOpTzBxTDWl9OkLvgcHLZjq+7EtnsLpSc
+	KAfe0a5cimYmOWnshCsQGhNLHBtkqR95e9uy9TWZS7zwxEVI8EdChx/52HhFr5T+nrf1VKv4f5skn
+	FKAxI5M3i+7NLUpN+8tfjU72MNB7nDRiNfaDBM4ujA1cmXrZPgyRmrclVjvXB2OERr/fOEFoufT2A
+	+EPpwKTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBtSc-000000075XR-1UCX;
-	Mon, 05 May 2025 10:54:10 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uBu0D-00000007AM4-2tJG;
+	Mon, 05 May 2025 11:28:53 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBtQd-000000075PN-3yIf
+	id 1uBtyD-000000079uH-0PLv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 10:52:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1746442325;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
-	bh=rV1XgPNoXlxuVA1alm8N8QB10UHZNje3da5SMs3oTjs=;
-	b=ELsZ6dZrkPxVuafkOE5TgGc5icr+GErCOgYFJsLpqtFR3dQl+6fA6fZoIGsX2pHzyHGNbx
-	EhmhzOenfNBY4WEf7GD6mpR5hQ39N0xN3CjoC8FKk5271JkdfE2NC5NSjNBYRNS5XLJ2q2
-	64wxAOGEt765FUZfCoeJD4RjtHifmHA=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-228-ePgzjM4pN-WGJEOU9XJAlA-1; Mon, 05 May 2025 06:52:04 -0400
-X-MC-Unique: ePgzjM4pN-WGJEOU9XJAlA-1
-X-Mimecast-MFC-AGG-ID: ePgzjM4pN-WGJEOU9XJAlA_1746442323
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-39c184b20a2so1188633f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 03:52:03 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746442323; x=1747047123;
-        h=mime-version:message-id:subject:cc:to:from:date:x-gm-message-state
+	Mon, 05 May 2025 11:26:50 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-acb2faa9f55so565013466b.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 04:26:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tuxon.dev; s=google; t=1746444407; x=1747049207; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=sq8oqpkEbt6VQZ1/grnXYkgovjqr9Z/hWjCihFBzl8g=;
-        b=V21+bWy2UkqVx1L2VJnyLAzvl0uG+Jxb+SAYOOmyTNMbvbMXgE1RfdCNyOC/QkhYvO
-         l9SZnSTzugzUf1nzSYERbEEfZWBbze+bq3Eb+74yDLJOgwq3Jq19SBYzqp9J8YWlrcPH
-         tP8PTMSFguK4JxuRZb3Soi9c99l8ugRMTBShQ8TKcSizxijcE+io+fi+lUQKD5OgLApD
-         E7Qy+5aP1t8JsFMwczHmtrbb63jeS+2FbEN0hAQ3Ke7aq1C2UetiEqq4atqa/d89ix89
-         2ulL1ZnCzAw2r/oLi/WoSG55CesKvORZz85Kh+PoHHaMc0M0aHslt/KbZssEPlTcJx2P
-         fsFg==
-X-Forwarded-Encrypted: i=1; AJvYcCU3H2c+a1O9EqRbdSfDZrGJh6ZLiLceCZm5gNnkXHvY3kvkTibz1Cz0H8OdfTOPFuRGxjO0J/f3DmeG/QFE2Sz3@lists.infradead.org
-X-Gm-Message-State: AOJu0YyCXP9CvSrzc9hl+ldZq+uA25Td4mXpUzR8oxZnCJNT3JF6UpNT
-	d+OtC8TB90VcxYhKrvOUa2/Vd4BPPwwUjQJgvBnWQGP3VpmIOzuzpDekq3vwaA5XXb3PS1TWuMr
-	6frDTlioJ+buGt3+tk1ZxDbuch/X/d2gtFtpp8iPF0GFvsWU/fEXkhKA/+WA3ViwJy02USqxs
-X-Gm-Gg: ASbGncuFgjEe/Tt7VxLN6O8QXu5simcuPOjUKwitge0PhlXVDnse237cek5pa9ZMCxP
-	MOCl9caoEtSKib6O0dEnDqLqYhFWJgP639Fbv371ZhWQwAJcjkOzQ3V+qgbm8LI9iUvI1uMz4kJ
-	19mE1Czg9gSn5GKs0/S/GmYlGRaUC06VBMGgDie3R7s9wwSZbCN3/pWFNJAxVwcjrYv2987NpH9
-	MYtir3HkilQCORjUwzG1qrOOwpJA8vocnOWuZfLLdc9Iaokp6ztxqipEFN+/xN0ZNomEufgobD/
-	GhpiEee7gsqULYDrLbpMYBikLrR7UsHvbFC8NApbXk0UB51rY9j2YqjlU9gi
-X-Received: by 2002:a5d:584a:0:b0:39c:1424:2827 with SMTP id ffacd0b85a97d-3a09fd72d2fmr5235995f8f.15.1746442322925;
-        Mon, 05 May 2025 03:52:02 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGavxMvTs7adVpf3ebEvODcNsebFSIFRc5x5LOjIYUhYTGyIAbpQGLg5qpK8yqHQ/F0lIAlRQ==
-X-Received: by 2002:a5d:584a:0:b0:39c:1424:2827 with SMTP id ffacd0b85a97d-3a09fd72d2fmr5235976f8f.15.1746442322542;
-        Mon, 05 May 2025 03:52:02 -0700 (PDT)
-Received: from rh (p200300f6af1bce00e6fe5f11c0a7f4a1.dip0.t-ipconnect.de. [2003:f6:af1b:ce00:e6fe:5f11:c0a7:f4a1])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a09a002899sm9624936f8f.0.2025.05.05.03.52.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 May 2025 03:52:02 -0700 (PDT)
-Date: Mon, 5 May 2025 12:52:00 +0200 (CEST)
-From: Sebastian Ott <sebott@redhat.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-    Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>
-cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-    Mark Brown <broonie@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-    linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-    linux-kernel@vger.kernel.org
-Subject: LM regression: fce886a60207 KVM: arm64: Plumb the pKVM MMU in KVM
-Message-ID: <3f5db4c7-ccce-fb95-595c-692fa7aad227@redhat.com>
+        bh=HCvqM0r6z/uk3aGi4ylWlG5lxduJ69/W6EjVsgplTuc=;
+        b=RVTXEGzNDtl1zvthUXLqPdWYEw1oc6lILVwpvbRPAOu1ybyKOjL5zJZ6xiK92eERWD
+         hOq5Ms6Ov9sxcZqkBxy211WDjXTYsIHMJgSRHcxMj3329s37YEUkE9kz4iYm2iAz1P1I
+         RQZ0e49iPDYtpxOT+qm14XXZOeryZ2hSys6DVEk06I/MWbMSZXjjQq79tGWezpy/Jwif
+         hauuyS6MhVaRzh4XU3i+YXzFSN24zbDsLL5PrtTnC3B1s2IgEPV7pgSZLUHQe2/ZtCXe
+         lJGxhiujAIe+1B87JUHaNrKpiinvtHcRaXt5sS+IOIMMD1IRxNEMTEhn/7XiScWuCXId
+         xJqA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746444407; x=1747049207;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=HCvqM0r6z/uk3aGi4ylWlG5lxduJ69/W6EjVsgplTuc=;
+        b=F6tPl9UJP54Vn5aQLwm0dROG9DemfrMK2nt11q86VXRusYMnnOJ7xq5GGNVQYh+G4l
+         GLlODcUnoPWw9oI8H0jqx3Gr5ynRaOpWLHuQBEQU5bMinzTl87YSCxNn5EAasakRXyWZ
+         iXqcegk4yxgQ5IpuZt3f6E772doG6x07Oa+6AI2p1GeN2GaHuYjVVnec1P1FYkr1JGdG
+         A4HKWj5W0TrxFFJsYyyJJ0gwz8UUn+Jt1YGbEsCbvQFjJuWSdV39mXsj+W+dXXlPKIOf
+         5T+THR8tSsvPcDkNgIO8Lf4okK0zhmkYtJxjyL6Ji0KCsc7JkqLVA8A5m+WQcik2TZy9
+         /KRg==
+X-Forwarded-Encrypted: i=1; AJvYcCVPp6mRtSiDWJMxN4UtS/BiwO65MNYbtJT+H5iuSBaEDX0sLXoWb91xgmOkc9bsbZAKZ/Vy9ypDapvd8yiv6FIk@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw0oUd2DZ1dQ6+GLdEJI32oYOLMwOWr7USv53heSsJ2PfLLJOh2
+	l5/Q4V7IDF04Zbe/cAN1WxIKIArtJZUi51dIWJSejmFdfTaitrMq8xLxX4GP2oQ=
+X-Gm-Gg: ASbGncsALV5BJzs70572UFOArckknIN2Q3AwzPLwo08ttLyWFI6qFYEopC16Wc8O7DR
+	wowiNw/IL64yUMpKPQyoE3ERkQjk7br/Mt9x15/2GRST2RAHahSc3hag5OIfDhLIBi6ce5SSFie
+	uu3/+QrDrTQIrvbnyGghyLCr3BNbtwSoHDXMWHkb4GvJhyUl2JcrXSWVhQnGQ85q+ajJ1nnM/TN
+	oiyeAwlhQES9UKd25ymWwb2NTOIYifd+zAL1bIunn22z/Fj2RXLRy7RDtbB2zGgXOb/t64pNz2f
+	BUj/+1smeUNR+oGhfB8UiUXkZTxGlnUIKrwFz86Hd3+21XIR5KAKRIT8cHzN
+X-Google-Smtp-Source: AGHT+IE/BbfbnYQze2kaqqgFxS+06OA8NFnbPS8TBkXLo8cERNYeU7a+LhmpysBXuNhwrmO3RWpezA==
+X-Received: by 2002:a17:907:86a1:b0:ac8:1126:ac15 with SMTP id a640c23a62f3a-ad1a4ad4ca6mr634522866b.41.1746444406393;
+        Mon, 05 May 2025 04:26:46 -0700 (PDT)
+Received: from [192.168.50.4] ([82.78.167.166])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad1891a7467sm481981866b.67.2025.05.05.04.26.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 05 May 2025 04:26:45 -0700 (PDT)
+Message-ID: <26bdfbd6-7bf5-4688-b793-5d0f613d340b@tuxon.dev>
+Date: Mon, 5 May 2025 14:26:43 +0300
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: yu98zLtpRmmZbe6x0iDDQKh52aURxAayJ6jlI0fWL-g_1746442323
-X-Mimecast-Originator: redhat.com
-Content-Type: multipart/mixed; boundary="-1463806286-1042922980-1746442321=:11509"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/8] PCI: rzg3s-host: Add Initial PCIe Host Driver for
+ Renesas RZ/G3S SoC
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: bhelgaas@google.com, lpieralisi@kernel.org, kw@linux.com,
+ manivannan.sadhasivam@linaro.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, geert+renesas@glider.be, magnus.damm@gmail.com,
+ mturquette@baylibre.com, sboyd@kernel.org, saravanak@google.com,
+ p.zabel@pengutronix.de, linux-pci@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+References: <20250501201211.GA768334@bhelgaas>
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Content-Language: en-US
+In-Reply-To: <20250501201211.GA768334@bhelgaas>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_035208_063974_D4B6D4D8 
-X-CRM114-Status: UNSURE (   8.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250505_042649_265181_209B3038 
+X-CRM114-Status: GOOD (  54.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,96 +106,486 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
----1463806286-1042922980-1746442321=:11509
-Content-Type: text/plain; format=flowed; charset=US-ASCII
+Hi, Bjorn,
 
-Hey,
+On 01.05.2025 23:12, Bjorn Helgaas wrote:
+> On Wed, Apr 30, 2025 at 01:32:33PM +0300, Claudiu wrote:
+>> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+>>
+>> The Renesas RZ/G3S features a PCIe IP that complies with the PCI Express
+>> Base Specification 4.0 and supports speeds of up to 5 GT/s. It functions
+>> only as a root complex, with a single-lane (x1) configuration. The
+>> controller includes Type 1 configuration registers, as well as IP
+>> specific registers (called AXI registers) required for various adjustments.
+>>
+>> Other Renesas RZ SoCs (e.g., RZ/G3E, RZ/V2H) share the same AXI registers
+>> but have both Root Complex and Endpoint capabilities. As a result, the PCIe
+>> host driver can be reused for these variants with minimal adjustments.
+> 
+> I guess this current driver only supports RZ/GS3 in Root Complex mode?
 
-Doing back and forth migrations currently fails on arm after a couple iterations.
-During the failing migration KVM_RUN exits via guest_abort and returns -ENOMEM.
-I can reliably reproduce this by migrating between 2 qemu instances on an ampere
-altra machine. This fails after < 5 iterations. In this case qemu would spit out
-smth like this (other than that - nothing in the logs):
+That's right.
 
-error: kvm run failed Cannot allocate memory
-  PC=0000aaaae7d48590 X00=0000aaaae80a2e00 X01=0000aaaae7ea2fc0
-X02=0000000001d3a5d0 X03=0000aaaae7eace8c X04=000000003b9aca00
-X05=000000000000004a X06=000000000000004a X07=0000000028000000
-X08=0000000000001d70 X09=0000000000000018 X10=000144b7d0000000
-X11=00ffffffffffffff X12=000000008378f367 X13=0000aaab1a202d70
-X14=0000000000000000 X15=0000000000000000 X16=0000ffffa2e2f7a8
-X17=0000ffffa2541f20 X18=000000000000a000 X19=84bfda6288cf2dd6
-X20=0000aaab1a1f1ce0 X21=000000007fffffff X22=0000ffffc5431788
-X23=0000aaab1a17db60 X24=0000ffffc5431770 X25=0000000100000000
-X26=0000004100000000 X27=0000000000000001 X28=0000aaab1a1f1c20
-X29=0000ffffc54316d0 X30=0000aaaae7f8cd24  SP=0000ffffc5431650
-PSTATE=20001000 --C- EL0t
+> If so, I don't think this paragraph is necessary or really relevant.
 
-Guest and host are otherwise idle, kvm is in normal VHE mode.
+OK, I'll drop it.
 
-Git bisect points to (fce886a60207 "KVM: arm64: Plumb the pKVM MMU in KVM")
-I also double checked that by reverting this commit on top of 6.14.
+> 
+>> +++ b/drivers/pci/controller/pcie-rzg3s-host.c
+>> @@ -0,0 +1,1561 @@
+> 
+> I can't figure out the line width you're using.  Generally code in
+> drivers/pci/ is formatted to fit in 80 columns.  Much of this file is
+> formatted for that, but there are many cases that seem to use 90 or
+> 100 columns.
 
-Sebastian
----1463806286-1042922980-1746442321=:11509
-Content-Type: text/plain; name=bisect.log
-Content-Transfer-Encoding: BASE64
-Content-ID: <7f7f94bd-ec02-d458-7ef4-4859ab216191@redhat.com>
-Content-Description: 
-Content-Disposition: attachment; filename=bisect.log
+I formated it at 100 columns where the lines were longer. I wasn't aware
+the PCI rule is to have line formated at 80 columns. I'll switch to it in
+the next version.
 
-Z2l0IGJpc2VjdCBsb2cNCiMgYmFkOiBbMzhmZWMxMGViNjBkNjg3ZTMwYzhjNmI1NDIwZDg2ZTgx
-NDlmNzU1N10gTGludXggNi4xNA0KIyBnb29kOiBbZmZkMjk0ZDM0NmQxODViNzBlMjhiMWEyOGFi
-ZTM2N2JiZmU1M2MwNF0gTGludXggNi4xMw0KZ2l0IGJpc2VjdCBzdGFydCAnYmFkJyAnZ29vZCcN
-CiMgZ29vZDogWzJjOGQyYTUxMGMxNWMwMDM3NDllNDNhYzJiOGUxYmM3OWE3YTAwZDZdIE1lcmdl
-IHRhZyAnc291bmQtNi4xNC1yYzEnIG9mIGdpdDovL2dpdC5rZXJuZWwub3JnL3B1Yi9zY20vbGlu
-dXgva2VybmVsL2dpdC90aXdhaS9zb3VuZA0KZ2l0IGJpc2VjdCBnb29kIDJjOGQyYTUxMGMxNWMw
-MDM3NDllNDNhYzJiOGUxYmM3OWE3YTAwZDYNCiMgZ29vZDogWzlmZjI4ZjJmYWQ2N2UxNzNlZDI1
-YjhjM2ExODNiMTVkYTU0NDVkMmRdIE1lcmdlIHRhZyAnbG9vbmdhcmNoLTYuMTQnIG9mIGdpdDov
-L2dpdC5rZXJuZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVsL2dpdC9jaGVuaHVhY2FpL2xpbnV4
-LWxvb25nc29uDQpnaXQgYmlzZWN0IGdvb2QgOWZmMjhmMmZhZDY3ZTE3M2VkMjViOGMzYTE4M2Ix
-NWRhNTQ0NWQyZA0KIyBiYWQ6IFsyNDM4OTkwNzZjM2VmZGY5OGQ4ZTkyMmE4MDI4OTY0MjRhNTk3
-NTgwXSBNZXJnZSB0YWcgJ3J1c3QtZml4ZXMtNi4xNC0yJyBvZiBnaXQ6Ly9naXQua2VybmVsLm9y
-Zy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvb2plZGEvbGludXgNCmdpdCBiaXNlY3QgYmFkIDI0
-Mzg5OTA3NmMzZWZkZjk4ZDhlOTIyYTgwMjg5NjQyNGE1OTc1ODANCiMgYmFkOiBbOTVkN2U4MjI2
-MTA2ZTM0NDViMGQ4NzcwMTVmNDE5MmM0N2QyMzYzN10gTWVyZ2UgdGFnICdhdGEtNi4xNC1yYzEt
-cGFydDInIG9mIGdpdDovL2dpdC5rZXJuZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVsL2dpdC9s
-aWJhdGEvbGludXgNCmdpdCBiaXNlY3QgYmFkIDk1ZDdlODIyNjEwNmUzNDQ1YjBkODc3MDE1ZjQx
-OTJjNDdkMjM2MzcNCiMgYmFkOiBbN2M3NzVjNjA1NmQwN2ViNzc3ZjM3YzdhYzEzNDAxMTViMjdk
-YzlmOF0gTWVyZ2UgdGFnICdkbWFlbmdpbmUtNi4xNC1yYzEnIG9mIGdpdDovL2dpdC5rZXJuZWwu
-b3JnL3B1Yi9zY20vbGludXgva2VybmVsL2dpdC92a291bC9kbWFlbmdpbmUNCmdpdCBiaXNlY3Qg
-YmFkIDdjNzc1YzYwNTZkMDdlYjc3N2YzN2M3YWMxMzQwMTE1YjI3ZGM5ZjgNCiMgYmFkOiBbN2M3
-NzVjNjA1NmQwN2ViNzc3ZjM3YzdhYzEzNDAxMTViMjdkYzlmOF0gTWVyZ2UgdGFnICdkbWFlbmdp
-bmUtNi4xNC1yYzEnIG9mIGdpdDovL2dpdC5rZXJuZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVs
-L2dpdC92a291bC9kbWFlbmdpbmUNCmdpdCBiaXNlY3QgYmFkIDdjNzc1YzYwNTZkMDdlYjc3N2Yz
-N2M3YWMxMzQwMTE1YjI3ZGM5ZjgNCiMgYmFkOiBbZjc4NTY5MmZmNTQ1YWVjYjUxN2QyNjA5ODY0
-ZTFjNmQ4MzgzMjllNl0gTWVyZ2UgdGFnICdzdG9wLW1hY2hpbmUuMjAyNS4wMS4yOGEnIG9mIGdp
-dDovL2dpdC5rZXJuZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVsL2dpdC9wYXVsbWNrL2xpbnV4
-LXJjdQ0KZ2l0IGJpc2VjdCBiYWQgZjc4NTY5MmZmNTQ1YWVjYjUxN2QyNjA5ODY0ZTFjNmQ4Mzgz
-MjllNg0KIyBiYWQ6IFswODA2MTJiMjk0MmFiNzk0NzMwMzAyOWUxZmEzMzExN2I1MjgwZWNlXSBN
-ZXJnZSBicmFuY2gga3ZtLWFybTY0L252LXRpbWVycyBpbnRvIGt2bWFybS1tYXN0ZXIvbmV4dA0K
-Z2l0IGJpc2VjdCBiYWQgMDgwNjEyYjI5NDJhYjc5NDczMDMwMjllMWZhMzMxMTdiNTI4MGVjZQ0K
-IyBiYWQ6IFtkMDY3MDEyOGQ0MmZhMTcwYmY4YmE4NzhjZDIzNTA0YzVjNWNjY2M3XSBNZXJnZSBi
-cmFuY2gga3ZtLWFybTY0L3Brdm0tbnAtZ3Vlc3QgaW50byBrdm1hcm0tbWFzdGVyL25leHQNCmdp
-dCBiaXNlY3QgYmFkIGQwNjcwMTI4ZDQyZmExNzBiZjhiYTg3OGNkMjM1MDRjNWM1Y2NjYzcNCiMg
-Z29vZDogW2M0YTZlZDg1NDU1OTc5ZWYzZmJhZGMyZjFiZGYxODczNGIwZWNlYTZdIEtWTTogYXJt
-NjQ6IFByb21vdGUgZ3Vlc3Qgb3duZXJzaGlwIGZvciBEQkd4VlIvREJHeENSIHJlYWRzDQpnaXQg
-YmlzZWN0IGdvb2QgYzRhNmVkODU0NTU5NzllZjNmYmFkYzJmMWJkZjE4NzM0YjBlY2VhNg0KIyBn
-b29kOiBbZDBiZDNlNjU3MGFlZTQyNzY2ZTdiZDg4NDczNGFlMDc4NjY3ZWExZV0gS1ZNOiBhcm02
-NDogSW50cm9kdWNlIF9fcGt2bV9ob3N0X3NoYXJlX2d1ZXN0KCkNCmdpdCBiaXNlY3QgZ29vZCBk
-MGJkM2U2NTcwYWVlNDI3NjZlN2JkODg0NzM0YWUwNzg2NjdlYTFlDQojIGdvb2Q6IFs3NmYwYjE4
-YjNkYjU3ODY4ZmIwY2FiZTY5MTIwMWFhZDMwODViNzEyXSBLVk06IGFybTY0OiBJbnRyb2R1Y2Ug
-X19wa3ZtX2hvc3RfbWt5b3VuZ19ndWVzdCgpDQpnaXQgYmlzZWN0IGdvb2QgNzZmMGIxOGIzZGI1
-Nzg2OGZiMGNhYmU2OTEyMDFhYWQzMDg1YjcxMg0KIyBnb29kOiBbZTkxMmVmZWQ0ODVhNGM1MGJk
-YzM5MzRhZTY0N2UyNTdlZjU2OGVmNl0gS1ZNOiBhcm02NDogSW50cm9kdWNlIHRoZSBFTDEgcEtW
-TSBNTVUNCmdpdCBiaXNlY3QgZ29vZCBlOTEyZWZlZDQ4NWE0YzUwYmRjMzkzNGFlNjQ3ZTI1N2Vm
-NTY4ZWY2DQojIGJhZDogW2ZjZTg4NmE2MDIwNzM0ZDYyNTNjMmM1YTNiYzI4NWUzODVjYzU0OTZd
-IEtWTTogYXJtNjQ6IFBsdW1iIHRoZSBwS1ZNIE1NVSBpbiBLVk0NCmdpdCBiaXNlY3QgYmFkIGZj
-ZTg4NmE2MDIwNzM0ZDYyNTNjMmM1YTNiYzI4NWUzODVjYzU0OTYNCiMgZmlyc3QgYmFkIGNvbW1p
-dDogW2ZjZTg4NmE2MDIwNzM0ZDYyNTNjMmM1YTNiYzI4NWUzODVjYzU0OTZdIEtWTTogYXJtNjQ6
-IFBsdW1iIHRoZSBwS1ZNIE1NVSBpbiBLVk0NCg==
----1463806286-1042922980-1746442321=:11509--
+> 
+> For single-line comments that are not a sentence or are a single
+> sentence, it's typical to omit the period at end.
 
+I'll follow this rule, too.
+
+> 
+>> +static void rzg3s_pcie_update_bits(void __iomem *base, u32 offset, u32 mask, u32 val)
+>> +{
+>> +	u32 tmp;
+>> +
+>> +	tmp = readl(base + offset);
+>> +	tmp &= ~mask;
+>> +	tmp |= val & mask;
+>> +	writel(tmp, base + offset);
+>> +}
+> 
+> Nothing rzg3s-specific here.
+> 
+> I think u32p_replace_bits() (include/linux/bitfield.h) is basically this.
+
+I wasn't aware of it. I'll use it in the next version. Thank for pointing it.
+
+> 
+>> +static int rzg3s_pcie_config_access(struct rzg3s_pcie_host *host, struct pci_bus *bus,
+>> +				    unsigned int devfn, int where, u32 *data,
+>> +				    enum rzg3s_pcie_cfg_access_type access_type)
+>> +{
+>> +	bool type0 = pci_is_root_bus(bus->parent) ? true : false;
+>> +	unsigned int dev, func, reg, tr_type;
+>> +	int ret;
+>> +
+>> +	dev = PCI_SLOT(devfn);
+>> +	func = PCI_FUNC(devfn);
+>> +	reg = where & ~0x3;
+> 
+> This obviously has to be serialized with other config accesses.  Can
+> you add a comment about what provides that serialization?  I assume
+> it's probably pci_lock via pci_lock_config()?
+
+Yes, it is the pci_lock via pci_{lock, unlock}_config(). I'll add a comment
+for it.
+
+> 
+>> +	/* Set the destination. */
+>> +	writel(FIELD_PREP(RZG3S_PCI_REQADR1_BUS, bus->number) |
+>> +	       FIELD_PREP(RZG3S_PCI_REQADR1_DEV, dev) |
+>> +	       FIELD_PREP(RZG3S_PCI_REQADR1_FUNC, func) |
+>> +	       FIELD_PREP(RZG3S_PCI_REQADR1_REG, reg),
+>> +	       host->axi + RZG3S_PCI_REQADR1);
+>> +
+>> +	/* Set byte enable. */
+>> +	writel(RZG3S_PCI_REQBE_BYTE_EN, host->axi + RZG3S_PCI_REQBE);
+>> +
+>> +	if (access_type == RZG3S_PCIE_CFG_ACCESS_RD) {
+>> +		tr_type = type0 ? RZG3S_PCI_REQISS_TR_TP0_RD : RZG3S_PCI_REQISS_TR_TP1_RD;
+>> +	} else {
+>> +		tr_type = type0 ? RZG3S_PCI_REQISS_TR_TP0_WR : RZG3S_PCI_REQISS_TR_TP1_WR;
+>> +
+>> +		/* Set the write data.  */
+>> +		writel(0, host->axi + RZG3S_PCI_REQDATA(0));
+>> +		writel(0, host->axi + RZG3S_PCI_REQDATA(1));
+>> +		writel(*data, host->axi + RZG3S_PCI_REQDATA(2));
+>> +	}
+>> +
+>> +	/* Set the type of request. */
+>> +	writel(tr_type, host->axi + RZG3S_PCI_REQISS);
+>> +
+>> +	/* Issue the request and wait to finish. */
+>> +	ret = rzg3s_pcie_issue_request(host);
+>> +	if (ret) {
+>> +		if (access_type == RZG3S_PCIE_CFG_ACCESS_RD)
+>> +			PCI_SET_ERROR_RESPONSE(data);
+>> +
+>> +		return PCIBIOS_SET_FAILED;
+>> +	}
+>> +
+>> +	/* Read the data. */
+>> +	if (access_type == RZG3S_PCIE_CFG_ACCESS_RD)
+>> +		*data = readl(host->axi + RZG3S_PCI_REQRCVDAT);
+>> +
+>> +	return PCIBIOS_SUCCESSFUL;
+>> +}
+> 
+>> +static int rzg3s_pcie_read_conf(struct pci_bus *bus, unsigned int devfn, int where, int size,
+>> +				u32 *val)
+>> +{
+>> +	struct rzg3s_pcie_host *host = bus->sysdata;
+>> +	int ret;
+>> +
+>> +	/*
+>> +	 * Bus number for root complex is set to zero. 
+> 
+> A root bus is not always bus number zero.  It sounds like the bus
+> number is configurable on this hardware?
+
+According to the documentation, yes, it is configurable. However, I haven't
+tried with anything other than zero.
+
+>  I don't see a dependency on
+> the bus number, so I'm wondering why this sentence is here.
+
+In probe, this function is called from
+https://elixir.bootlin.com/linux/v6.14.5/source/drivers/pci/probe.c#L2992
+with devfn in range [0, 256).
+I had issues with letting the code configuring the controller with these
+requests. Double checking it now, I think I've managed to make it work.
+Thank you for pointing it.
+
+> 
+>> +	   ... Skip other requests for
+>> +	 * vendor and device ID (where = 0x00).
+> 
+> Why do we need to avoid config reads for root bus devices other than
+> 00.0?  Does the hardware not fabricate ~0 read data when a PCI error
+> occurs?
+> 
+> It looks like you allow reads for other root bus devices at non-zero
+> offsets?  E.g., we could read the Device ID at offset 0x02?
+
+I had initially issues with the initialization sequence pointed above. But
+your question made me re-checking it and I've manage to make it work. I'll
+drop this limitation in the next version.
+
+> 
+>> +	 */
+>> +	if (pci_is_root_bus(bus) && PCI_SLOT(devfn) && !where)
+>> +		return PCIBIOS_DEVICE_NOT_FOUND;
+>> +
+>> +	ret = rzg3s_pcie_read_config_access(host, bus, devfn, where, val);
+>> +	if (ret != PCIBIOS_SUCCESSFUL)
+>> +		return ret;
+>> +
+>> +	if (size == 1)
+>> +		*val = (*val >> (BITS_PER_BYTE * (where & 3))) & 0xff;
+>> +	else if (size == 2)
+>> +		*val = (*val >> (BITS_PER_BYTE * (where & 2))) & 0xffff;
+>> +
+>> +	dev_dbg(&bus->dev, "%s(): bus=%3d devfn=0x%04x where=0x%04x size=%d val=0x%08x\n",
+>> +		__func__, bus->number, devfn, where, size, *val);
+>> +
+>> +	return PCIBIOS_SUCCESSFUL;
+>> +}
+> 
+>> +static int rzg3s_pcie_write_conf(struct pci_bus *bus, unsigned int devfn, int where, int size,
+>> +				 u32 val)
+>> +{
+>> +	struct rzg3s_pcie_host *host = bus->sysdata;
+>> +	u32 shift, data;
+>> +	int ret;
+>> +
+>> +	ret = rzg3s_pcie_read_config_access(host, bus, devfn, where, &data);
+>> +	if (ret != PCIBIOS_SUCCESSFUL)
+>> +		return ret;
+> 
+> I guess this controller can't do an atomic config write, so you have
+> to do a read/modify/write?
+
+That's true.
+
+>  That's broken in some corner cases, e.g.,
+> it can corrupt RW1C bits in adjacent registers.
+> 
+> We emit a warning about this in pci_generic_config_write32().  I don't
+> think we've been consistent about similar warnings in driver-specific
+> code like this, but I would like to have a dmesg hint so that if we
+> ever trip over this, it might be easier to debug.
+
+OK, I'll add a one time debug message for this.
+
+> 
+>> +	dev_dbg(&bus->dev, "%s(): bus=%3d devfn=0x%04x where=0x%04x size=%d val=0x%08x\n",
+>> +		__func__, bus->number, devfn, where, size, val);
+>> +
+>> +	if (size == 1) {
+>> +		shift = BITS_PER_BYTE * (where & 3);
+>> +		data &= ~(0xff << shift);
+>> +		data |= ((val & 0xff) << shift);
+>> +	} else if (size == 2) {
+>> +		shift = BITS_PER_BYTE * (where & 2);
+>> +		data &= ~(0xffff << shift);
+>> +		data |= ((val & 0xffff) << shift);
+>> +	} else {
+>> +		data = val;
+>> +	}
+>> +
+>> +	return rzg3s_pcie_write_config_access(host, bus, devfn, where, data);
+>> +}
+> 
+>> +static struct irq_chip rzg3s_pcie_msi_bottom_chip = {
+>> +	.name			= "rz-pcie-msi",
+>> +	.irq_ack		= rzg3s_pcie_msi_irq_ack,
+>> +	.irq_mask		= rzg3s_pcie_msi_irq_mask,
+>> +	.irq_unmask		= rzg3s_pcie_msi_irq_unmask,
+>> +	.irq_compose_msi_msg	= rzg3s_pcie_msi_compose_msg,
+> 
+> s/msi_compose_msg/compose_msi_msg/
+> to match .irq_compose_msi_msg, which doesn't quite match the others
+> but makes it easier to grep and compare .irq_compose_msi_msg
+> implementations.
+
+OK
+
+> 
+>> +	 * According to the RZ/G3S HW manual (section 34.4.5.2 Setting the MSI Window)
+>> +	 * the MSI window need to be within any AXI window. Find an AXI window to setup
+>> +	 * the MSI window.
+> 
+> There may be several revisions of the RZ/G3S spec and they might not
+> preserve section numbers, so it might be worth including "r1.0" or
+> whatever to make the citation unambiguous.
+
+OK
+
+> 
+>> +static struct irq_chip rzg3s_pcie_intx_irq_chip = {
+>> +	.name = "PCIe INTx",
+>> +	.irq_ack = rzg3s_pcie_intx_ack,
+>> +	.irq_mask = rzg3s_pcie_intx_mask,
+>> +	.irq_unmask = rzg3s_pcie_intx_unmask,
+> 
+> Would prefer *_irq_ack, *_irq_mask, *_irq_unmask similar to MSI ops
+> above.
+
+OK
+
+> 
+>> +static int rzg3s_pcie_intx_setup(struct rzg3s_pcie_host *host)
+>> +{
+>> +	struct device *dev = host->dev;
+>> +	struct device_node *np = dev->of_node;
+>> +	struct device_node *intc_np __free(device_node) = of_get_child_by_name(np,
+>> +								"legacy-interrupt-controller");
+>> +	int irq_count;
+>> +
+>> +	if (!intc_np) {
+>> +		dev_warn(dev, "legacy-interrupt-controller node is absent\n");
+>> +		return 0;
+>> +	}
+>> +
+>> +	irq_count = of_irq_count(intc_np);
+>> +	if (irq_count != PCI_NUM_INTX)
+>> +		return dev_err_probe(dev, -EINVAL,
+>> +				     "Invalid IRQ entries in legacy-interrupt-controller\n");
+> 
+> We now know the value of irq_count, so why not just use PCI_NUM_INTX
+> below?
+
+Will use PCI_NUM_INTX in the next version.
+
+> 
+>> +	for (int i = 0; i < irq_count; i++) {
+>> +		int irq = irq_of_parse_and_map(intc_np, i);
+>> +
+>> +		if (!irq)
+>> +			return dev_err_probe(dev, -EINVAL, "Failed to parse and map INTx IRQ\n");
+> 
+> Could say which one?
+
+Sure!
+
+> 
+>> +
+>> +		host->intx_irqs[i] = irq;
+>> +		irq_set_chained_handler_and_data(irq, rzg3s_pcie_intx_irq_handler, host);
+>> +	}
+>> +
+>> +	host->intx_domain = irq_domain_add_linear(intc_np, irq_count,
+>> +						  &rzg3s_pcie_intx_domain_ops, host);
+>> +	if (!host->intx_domain)
+>> +		return dev_err_probe(dev, -EINVAL, "Failed to add irq domain for INTX irqs\n");
+> 
+> s/INTX/INTx/ to match above.
+> s/irqs/IRQs/ to match above.
+
+OK
+
+> 
+>> +static int rzg3s_pcie_set_max_link_speed(struct rzg3s_pcie_host *host)
+>> +{
+>> +	u32 lcs, cs2, link_speed, remote_supported_link_speeds, tmp;
+>> +	u8 ltssm_state_l0 = 0xc;
+>> +	int ret;
+>> +
+>> +	/*
+>> +	 * According to the RZ/G3S HW manual (section 34.6.3 Caution when Changing
+>> +	 * the Speed Spontaneously) link speed change can be done only when the
+>> +	 * link training and status state machine in the PCIe Core Link is L0.
+>> +	 */
+>> +	ret = readl_poll_timeout(host->axi + RZG3S_PCI_PCSTAT1, tmp,
+>> +				 FIELD_GET(RZG3S_PCI_PCSTAT1_LTSSM_STATE, tmp) == ltssm_state_l0,
+>> +				 100, 1000);
+> 
+> Where do these timeout values come from?
+
+These were obtained from experimenting.
+
+>  Is there or should there be
+> a #define for them?
+
+I'll add defines in the next version.
+
+> 
+>> +static void rzg3s_pcie_cfg_init(struct rzg3s_pcie_host *host)
+>> +{
+>> +	/* Enable access control to the CFGU. */
+>> +	writel(RZG3S_PCI_PERM_CFG_HWINIT_EN, host->axi + RZG3S_PCI_PERM);
+>> +
+>> +	/* Update vendor ID and device ID. */
+>> +	writel(FIELD_PREP(RZG3S_PCI_CFG_VID_VENDOR, host->vendor_id) |
+>> +	       FIELD_PREP(RZG3S_PCI_CFG_VID_DEVICE, host->device_id),
+>> +	       host->pcie + RZG3S_PCI_CFG_VID);
+>> +
+>> +	/* HW manual recommends to write 0xffffffff on initialization. */
+>> +	writel(0xffffffff, host->pcie + RZG3S_PCI_CFG_BARMSK00L);
+>> +	writel(0xffffffff, host->pcie + RZG3S_PCI_CFG_BARMSK00U);
+>> +
+>> +	/* Primary bus = 0, secondary bus = 1, subordinate bus = 1. */
+>> +	writel(FIELD_PREP(RZG3S_PCI_CFG_BNR_SUBORDINATE_BUS, 1) |
+>> +	       FIELD_PREP(RZG3S_PCI_CFG_BNR_SECONDARY_BUS, 1),
+>> +	       host->pcie + RZG3S_PCI_CFG_BNR);
+> 
+> I assume this configures a Root Port.  Is the primary bus hardwired to
+> zero?
+
+The documentation doens't mentioned anything about limiting it to zero.
+
+>  There's no PCIe requirement that a root bus be bus 0.  This
+> looks like it limits the subordinate bus unnecessarily.  The PCI core
+> can program the secondary and subordinate bus numbers to accommodate
+> the attached hierarchy.
+
+I'll work on dropping this limitation in the next version.
+
+
+> 
+>> +static void rzg3s_pcie_irqs_init(struct rzg3s_pcie_host *host)
+> 
+> This and many of the following functions have names that don't
+> correspond to anything in other drivers, which makes it harder to
+> transfer knowledge between the drivers.  If you can find a pattern
+> somewhere to follow, it will make it easier for others to read the
+> driver.
+
+OK, I'll think about it. Do you have a recomentation?
+
+> 
+>> +static int rzg3s_pcie_hw_init(struct rzg3s_pcie_host *host, bool probe)
+>> +{
+>> +	u32 val;
+>> +	int ret;
+>> +
+>> +	/* Set the PCIe related registers. */
+>> +	rzg3s_pcie_cfg_init(host);
+>> +
+>> +	/* Set the interrupts. */
+>> +	rzg3s_pcie_irqs_init(host);
+>> +
+>> +	ret = rzg3s_pcie_resets_bulk_set(reset_control_bulk_deassert, host->cfg_resets,
+>> +					 host->num_cfg_resets);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	/* Wait for link up. */
+>> +	ret = readl_poll_timeout(host->axi + RZG3S_PCI_PCSTAT1, val,
+>> +				 !(val & RZG3S_PCI_PCSTAT1_DL_DOWN_STS), 5000, 500000);
+> 
+> Ditto (source of timeout values).
+> 
+>> +static int rzg3s_pcie_probe(struct platform_device *pdev)
+>> +{
+>> +	struct device *dev = &pdev->dev;
+>> +	void *devres_group_id;
+>> +	int ret;
+>> +
+>> +	devres_group_id = devres_open_group(dev, NULL, GFP_KERNEL);
+>> +	if (!devres_group_id)
+>> +		return -ENOMEM;
+> 
+> What's the benefit of using devres_open_group()?  No other PCI
+> controller drivers use it.
+
+This driver uses devm_add_action_or_reset() to keep the error path simpler.
+Some of the action or reset registered handlers access the controller
+registers. Because the driver is attached to the platform bus and the
+dev_pm_domain_detach() is called right after driver remove [1] having devm
+action or reset handlers accessing controller register will later lead to
+hangs when the device_unbind_cleanup() -> devres_release_all() will be
+called on remove path. Other issue described in [2] may arries when doing
+continuous unbind/bind if the driver has runtime PM API (not case for this
+driver at the moment) that access directly controller registers.
+
+This is because the dev_pm_domain_detach() drops the clocks from PM domain
+and any subsequent pm_runtime_resume() (or similar function) call will lead
+to no runtime resume of the device.
+
+There is a solution proposed to this here [2] but it slowly progresses.
+Until this will be solved I chosed the appraoch of having the devres group
+opened here. If you agree with it, I had the intention to drop this call if
+there will be an accepted solution for it. If you are OK with going forward
+like this, for the moment, would to prefer me to add a comment about the
+reason the devres_open_group() is used here?
+
+This is not PCIe specific but platform bus specific. There are other
+affected drivers on this side (e.g. rzg2l-adc [3], rzg3s-thermal [4]).
+
+A similar solution as [2] is already used by the i2c subsystem.
+
+[1]
+https://elixir.bootlin.com/linux/v6.14.5/source/drivers/base/platform.c#L1425
+[2]
+https://lore.kernel.org/all/20250215130849.227812-1-claudiu.beznea.uj@bp.renesas.com/
+[3] https://lore.kernel.org/all/20250330163627.152d76ef@jic23-huawei/
+[4]
+https://lore.kernel.org/all/20250324135701.179827-3-claudiu.beznea.uj@bp.renesas.com/
+
+> 
+>> +	ret = rzg3s_pcie_probe_helper(pdev, devres_group_id);
+> 
+> This is the only driver that uses a *_pcie_probe_helper() function.
+> 
+>> +static DEFINE_NOIRQ_DEV_PM_OPS(rzg3s_pcie_pm_ops, rzg3s_pcie_suspend, rzg3s_pcie_resume);
+> 
+> Adding "_noirq" to the function names would be a good hint.
+
+I missed it. I'll add it in the next version.
+
+> 
+> Only a dozen drivers in the whole tree use DEFINE_NOIRQ_DEV_PM_OPS(),
+> which makes me wonder why this one is different.  There are a dozen or
+> so PCI drivers that use NOIRQ_SYSTEM_SLEEP_PM_OPS().
+
+This is how I'm used to approach it when there are simple dev_pm_ops. I
+didn't know the:
+
+const struct dev_pm_ops name = {
+
+        NOIRQ_SYSTEM_SLEEP_PM_OPS(suspend_fn, resume_fn)
+
+};
+
+is prefered. I'll switch to it in the next version.
+
+Thank you for your review,
+Claudiu
 
