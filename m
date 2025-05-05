@@ -4,57 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34D25C3ABC0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 23:22:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 637F0C3ABB6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 23:24:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=itPZAH1kJAzQulrtw+aFR7P8i3T6Z1JydRbcxl2AKD4=; b=Rhhd8KESx9cB5WrZk06ZzqjDHM
-	IOpXrb558qArxPur3JFkMtjtSZB8JY213PDwbYq8IbVoEdnH0IbC5BZFKVX6JdptBvG5voh0ZasKB
-	9JxXj/4zAywIQaxR8rDLrqKcVRp9ddFHBc42f6ot+f6i/N9Qkw45Kprtut/BI3N9/EtMEJbqAkgp4
-	XV7S5qLgdGMxnUWVs2V4q4838ot9oQ6P+6VuiND5CYbEAQaNUoobNoRF0dQHApqJwYquISIq3YMuz
-	7pnpdCe0xm0c/HRnDBS1UzByksMYAzUMsfMVPO/LgxBXblucSb1W6f8EJdFg0S/C2oXehpu0klnB2
-	2dGo3dSQ==;
+	bh=zQK7my/uVRmtZo4bwrmWl8ViLGRMQloVOEhmjyHVRfM=; b=4XlTxLoJ4GPC/dvrmR/IqhIJCO
+	1TqZMi31s7Wp2giv8l6GdXXlLVLdYHcXUTn8mr9sszCjD5v6s98cshwrLFpiaYjar5Qrk8LjI91be
+	YhDLo/8tBfb5yKZ4cRr8XHvWX1hmVjggICqsFwg91FXSk/1SdFZ8VKDKxaWUKyykj0A3zJJMbrC0s
+	0uGBhgLJ5E6L68YNEpqkW88sAgxHBYB8OLttIaJHplN5fgnBuAFCoSbWvrDRS8PdJAdVAg0jicI5T
+	JI9xqqCkXsAgO9fMqQQPYTwjPLEpqTLuNuIUaFcWDsFqSp7ez7unLpUouPoH6P5QJGuxh1YcC1gSj
+	UMBWrwDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC58h-000000091sE-2jkR;
-	Mon, 05 May 2025 23:22:23 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uC5Af-000000092WO-20ch;
+	Mon, 05 May 2025 23:24:25 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4Dv-00000008k46-2krl
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 22:23:44 +0000
+	id 1uC4E1-00000008k5v-47OO;
+	Mon, 05 May 2025 22:23:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EF2915C55E8;
-	Mon,  5 May 2025 22:21:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDA57C4CEF2;
-	Mon,  5 May 2025 22:23:41 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 38DFF5C5AA9;
+	Mon,  5 May 2025 22:21:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4441BC4CEF1;
+	Mon,  5 May 2025 22:23:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746483822;
-	bh=qH/4V8g1hOBeR0gSsV5ofqM5SOOS8OTnIZ+lszszT/U=;
+	s=k20201202; t=1746483829;
+	bh=BGOI489bdY00iXxdONJ68NPbmk9zDk85Z0+dGBRltEM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=XyFhZJcHKi4Rzq0SqOnyhx3K91mFnhI2TNrWQXp92NdtonoK6X1fDaMSGVPn3SSGg
-	 NxGFZa86FdW9iE5K2BPTrgeO0Dc9r/k6YBUdTS20KfPCDATJb8jZq/cCsmVSSLiEAh
-	 /GPDDgp0t2zxkKDsCvCfdI0Osi8VkdFG1yPiKsFdcAbdsGw406+z/2mc9GK8FrmKbF
-	 +R8c7rbAS0eKSUsJajfxwd95nMiYha588MQtKYkaUInrpPJnNpygTlHFLjD0Ak7UEG
-	 0NQ51wVu0NSxxjpfPGjtcEjStSO4CJYKIdYQi1UyUL4D1/S1pxrYG1E9EcISWVuWED
-	 +pVonX0FuMt/g==
+	b=kw3jLYjiKCR1Vz/tgc3afWxpSSd5uOIQUUTeEYxToUfZo5RJQ67E/aMQ4s3DaN4OS
+	 G1FUEZPpVQL5FetzLuAAO/h3gVXyxt/qefU75qHXiKtQiMBFcefSBCQ/9gfRZ84MtO
+	 Hd7bNe2xA1F2z2ttf2tmSxa1eXdYgL/1SmXnAaDJyCqL/wbPQfih3HO6Vnr1oTsQ8V
+	 /0MEOeFcVF2tDZQ+KAhj81Q0mP1+Iuho6Rfg95nCwAEo0NGOL7N1fegwa8QpQpHRQY
+	 o+ZPb2fEVz0pZtCxKAJ2Q9bAHLsAJngMu+P3GvxCd+xtmUSrB2WAm25z4atIG2G/8u
+	 9ppqyazQKNsTw==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Markus Elfring <elfring@users.sourceforge.net>,
-	Hans Verkuil <hverkuil@xs4all.nl>,
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
 	Sasha Levin <sashal@kernel.org>,
-	patrice.chotard@foss.st.com,
-	mchehab@kernel.org,
+	matthias.bgg@gmail.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-media@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.14 235/642] media: c8sectpfe: Call of_node_put(i2c_bus) only once in c8sectpfe_probe()
-Date: Mon,  5 May 2025 18:07:31 -0400
-Message-Id: <20250505221419.2672473-235-sashal@kernel.org>
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.14 239/642] soc: mediatek: mtk-mutex: Add DPI1 SOF/EOF to MT8188 mutex tables
+Date: Mon,  5 May 2025 18:07:35 -0400
+Message-Id: <20250505221419.2672473-239-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505221419.2672473-1-sashal@kernel.org>
 References: <20250505221419.2672473-1-sashal@kernel.org>
@@ -64,8 +61,9 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.14.5
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_152343_738256_1A3F4457 
-X-CRM114-Status: GOOD (  12.27  )
+X-CRM114-CacheID: sfid-20250505_152350_129909_897B25F4 
+X-CRM114-Status: UNSURE (   9.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,42 +78,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Markus Elfring <elfring@users.sourceforge.net>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-[ Upstream commit b773530a34df0687020520015057075f8b7b4ac4 ]
+[ Upstream commit 694e0b7c1747603243da874de9cbbf8cb806ca44 ]
 
-An of_node_put(i2c_bus) call was immediately used after a pointer check
-for an of_find_i2c_adapter_by_node() call in this function implementation.
-Thus call such a function only once instead directly before the check.
+MT8188 uses DPI1 to output to the HDMI controller: add the
+Start of Frame and End of Frame configuration for the DPI1
+IP to the tables to unblock generation and sending of these
+signals to the GCE.
 
-This issue was transformed by using the Coccinelle software.
-
-Signed-off-by: Markus Elfring <elfring@users.sourceforge.net>
-Signed-off-by: Hans Verkuil <hverkuil@xs4all.nl>
+Link: https://lore.kernel.org/r/20250212100012.33001-2-angelogioacchino.delregno@collabora.com
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/media/platform/st/sti/c8sectpfe/c8sectpfe-core.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ drivers/soc/mediatek/mtk-mutex.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/drivers/media/platform/st/sti/c8sectpfe/c8sectpfe-core.c b/drivers/media/platform/st/sti/c8sectpfe/c8sectpfe-core.c
-index 7b3a37957e3ae..d151d2ed1f64b 100644
---- a/drivers/media/platform/st/sti/c8sectpfe/c8sectpfe-core.c
-+++ b/drivers/media/platform/st/sti/c8sectpfe/c8sectpfe-core.c
-@@ -797,13 +797,12 @@ static int c8sectpfe_probe(struct platform_device *pdev)
- 		}
- 		tsin->i2c_adapter =
- 			of_find_i2c_adapter_by_node(i2c_bus);
-+		of_node_put(i2c_bus);
- 		if (!tsin->i2c_adapter) {
- 			dev_err(&pdev->dev, "No i2c adapter found\n");
--			of_node_put(i2c_bus);
- 			ret = -ENODEV;
- 			goto err_node_put;
- 		}
--		of_node_put(i2c_bus);
+diff --git a/drivers/soc/mediatek/mtk-mutex.c b/drivers/soc/mediatek/mtk-mutex.c
+index 5250c1d702eb9..aaa965d4b050a 100644
+--- a/drivers/soc/mediatek/mtk-mutex.c
++++ b/drivers/soc/mediatek/mtk-mutex.c
+@@ -155,6 +155,7 @@
+ #define MT8188_MUTEX_MOD_DISP1_VPP_MERGE3	23
+ #define MT8188_MUTEX_MOD_DISP1_VPP_MERGE4	24
+ #define MT8188_MUTEX_MOD_DISP1_DISP_MIXER	30
++#define MT8188_MUTEX_MOD_DISP1_DPI1		38
+ #define MT8188_MUTEX_MOD_DISP1_DP_INTF1		39
  
- 		/* Acquire reset GPIO and activate it */
- 		tsin->rst_gpio = devm_fwnode_gpiod_get(dev,
+ #define MT8195_MUTEX_MOD_DISP_OVL0		0
+@@ -289,6 +290,7 @@
+ #define MT8188_MUTEX_SOF_DSI0			1
+ #define MT8188_MUTEX_SOF_DP_INTF0		3
+ #define MT8188_MUTEX_SOF_DP_INTF1		4
++#define MT8188_MUTEX_SOF_DPI1			5
+ #define MT8195_MUTEX_SOF_DSI0			1
+ #define MT8195_MUTEX_SOF_DSI1			2
+ #define MT8195_MUTEX_SOF_DP_INTF0		3
+@@ -301,6 +303,7 @@
+ #define MT8188_MUTEX_EOF_DSI0			(MT8188_MUTEX_SOF_DSI0 << 7)
+ #define MT8188_MUTEX_EOF_DP_INTF0		(MT8188_MUTEX_SOF_DP_INTF0 << 7)
+ #define MT8188_MUTEX_EOF_DP_INTF1		(MT8188_MUTEX_SOF_DP_INTF1 << 7)
++#define MT8188_MUTEX_EOF_DPI1			(MT8188_MUTEX_SOF_DPI1 << 7)
+ #define MT8195_MUTEX_EOF_DSI0			(MT8195_MUTEX_SOF_DSI0 << 7)
+ #define MT8195_MUTEX_EOF_DSI1			(MT8195_MUTEX_SOF_DSI1 << 7)
+ #define MT8195_MUTEX_EOF_DP_INTF0		(MT8195_MUTEX_SOF_DP_INTF0 << 7)
+@@ -472,6 +475,7 @@ static const u8 mt8188_mutex_mod[DDP_COMPONENT_ID_MAX] = {
+ 	[DDP_COMPONENT_PWM0] = MT8188_MUTEX_MOD2_DISP_PWM0,
+ 	[DDP_COMPONENT_DP_INTF0] = MT8188_MUTEX_MOD_DISP_DP_INTF0,
+ 	[DDP_COMPONENT_DP_INTF1] = MT8188_MUTEX_MOD_DISP1_DP_INTF1,
++	[DDP_COMPONENT_DPI1] = MT8188_MUTEX_MOD_DISP1_DPI1,
+ 	[DDP_COMPONENT_ETHDR_MIXER] = MT8188_MUTEX_MOD_DISP1_DISP_MIXER,
+ 	[DDP_COMPONENT_MDP_RDMA0] = MT8188_MUTEX_MOD_DISP1_MDP_RDMA0,
+ 	[DDP_COMPONENT_MDP_RDMA1] = MT8188_MUTEX_MOD_DISP1_MDP_RDMA1,
+@@ -686,6 +690,8 @@ static const u16 mt8188_mutex_sof[DDP_MUTEX_SOF_MAX] = {
+ 	[MUTEX_SOF_SINGLE_MODE] = MUTEX_SOF_SINGLE_MODE,
+ 	[MUTEX_SOF_DSI0] =
+ 		MT8188_MUTEX_SOF_DSI0 | MT8188_MUTEX_EOF_DSI0,
++	[MUTEX_SOF_DPI1] =
++		MT8188_MUTEX_SOF_DPI1 | MT8188_MUTEX_EOF_DPI1,
+ 	[MUTEX_SOF_DP_INTF0] =
+ 		MT8188_MUTEX_SOF_DP_INTF0 | MT8188_MUTEX_EOF_DP_INTF0,
+ 	[MUTEX_SOF_DP_INTF1] =
 -- 
 2.39.5
 
