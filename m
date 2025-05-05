@@ -4,161 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3FD5C3ABB0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 16:16:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5139CC3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 16:18:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+RxfuUEyilpvA1aiw1AHmhDx9PRRCPN5wkKDnNFLQ8E=; b=1X1CMKW3rHKnw51WeBFYDuTt9v
-	mbGY+NbcGdwy5oT8YBmsBh/TtngHkrjFaYouJtjY/jDiI9tQ0wihWKW1pTpVQ/XCSPl3ZLCx9utap
-	Y/78wnHnWGtu31HU90esiiREFPH2ADswUtIIdDAgN64qNO5HJfckC32VYnOrBzFOrLy9JYUAXGX5u
-	1Z7gwxuImwMQpjGWJII8LKiir+lmnbkZeY3OWhrMLM4NTk20+MyypUKRBAEJyIdD6SJMAXtOMm4R1
-	Ua6qp4hQfYrmsNnhj+gFySnEJGDuRgwrfTMo+eT9gEPQlYxhvm8z1L5UtJN5lq7fg8llsHxuHXwDE
-	GI3ftr7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wI/8jGZXg727JMJPSTtj5SOS5o5vXCkR///AC5IZQco=; b=2/wW07ZXfeCLOfY+BQKyRUOUrw
+	/Nx7v+gusB22PD8tKN/UNF+XDoipYaKIjNZIXGM3GgH6oPliqMaziHQ/5z1VXufxqh6ZWGmWrG1Fc
+	QCeGB6jx/b075T6wkK1TNyZXERFPz/jQHRZ7/TkmqueENuQeIdNMk7LdRoczdP9bazt53HzysvOeY
+	MXoAN80nTmJBZVHKTsxDvT1YClCe7QFGRewLyx67esRT0cs7JiBezWr+uV5sLgOfPZ0WEJJh4YUMA
+	BigWTTau7+Ce1+tqHssV8sg3Apnv0PgNZtVaJ/fOtBEC6dCe2JGGYEOapz+nPdL7STI9TL37QknYD
+	167tMUjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uByUF-00000007wmZ-2ZT0;
-	Mon, 05 May 2025 16:16:11 +0000
-Received: from mail-bn8nam11on20631.outbound.protection.outlook.com ([2a01:111:f403:2414::631] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
+	id 1uByWD-00000007xHL-1890;
+	Mon, 05 May 2025 16:18:13 +0000
+Received: from relay6-d.mail.gandi.net ([217.70.183.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uByKR-00000007vGe-2P05
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 16:06:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=d5T7FCIQ0SYMYQaKqFylAgj5YHEM2gqYnV7X9LUSTCtrJzC08Hqd5+uRl+3AoBDOtl51twizCuQ5ZIlTQ1W8qOij1vjnVqmk/AE8Bymvdd+El7YzSr61Fp3LRaSNO9wAFjgy1+1rVa5MMtfoNQbqDIwZ+Zh6hnvcoesDlyDF43he/gNeAN5XeUYnvtMU8BD0nKIBH0+A2dJuN9x8ii26U44okJnH2aqwAJg7gnUJSpA4RmfdhfTkWFMtJ2Ch5NMNb+lT/RIeuwINFfqG67TS2EUYYydQvquk5y3m9l3yzKeiwrhKLPI9mw2jq//wXLf2x/ILCxeRPupqcA8hVs9gng==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+RxfuUEyilpvA1aiw1AHmhDx9PRRCPN5wkKDnNFLQ8E=;
- b=n1IshCtepKhg9vB8QeJfhkPQ4Dhj4v9VL9Vv9A+dpMsrBo9RqnEoMLb2p99B3WGNUi8fpqxvcXF7P70ltNu4IszzjB0F5vuqU9FWBuIu6B9JA9SOhsglOKtyG97bzi56ySV+P7u2MEgVupWgTg8Isjy+qI7fTRGfqISfApsAs3UHb7D2jGMH/yQZVc5d2HDeKHyaxwHtI1nt0Gafv9zPray2DQk+EPwii2vSqX4gUrLKrZ3hxJGxyX853lBBaHLNqgw80CszopFyxeDWK0ugr2BvYy/h9qSEzx5c4rVsF9vBkcJyaPQL653lKgB1IDp7eb0J/39UYwNbWcmjpdOhtg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+RxfuUEyilpvA1aiw1AHmhDx9PRRCPN5wkKDnNFLQ8E=;
- b=hYcBjuwsMFuXWsn9A9EjAxvMeZ+cPKXTKzpDWe5XUm6bXC/8Q/2BWbohvcWtKCVO3/uIDzkwzJZRC/rkatWlUCT5U8qVPrrGO65NgDSXbIUvwufTKsSFqCtdcuvdG3+3pOrq+PHCnvCxr76maAO1YQKPlKO/YXUm86FRbfG0tgRU5KtMWsc/ptW+z65lcjqqLKNpPYGhTERcuG2sWpxuBlFIGpWDR76XG/VU9EkaVtNefFF6IKWnXKSqYjpv+H2a2T7Cc0niSi9+huFE9zqF2SrqYwO65/rk6eQ6RWxF7rDye4bfgttucGjXjGwD+aQLtulCHOhzDA2lGj0Vj6ShwA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by IA0PR12MB8863.namprd12.prod.outlook.com (2603:10b6:208:488::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.26; Mon, 5 May
- 2025 16:05:56 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8699.026; Mon, 5 May 2025
- 16:05:56 +0000
-Date: Mon, 5 May 2025 13:05:54 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: Baolu Lu <baolu.lu@linux.intel.com>, kevin.tian@intel.com,
-	corbet@lwn.net, will@kernel.org, bagasdotme@gmail.com,
-	robin.murphy@arm.com, joro@8bytes.org, thierry.reding@gmail.com,
-	vdumpa@nvidia.com, jonathanh@nvidia.com, shuah@kernel.org,
-	jsnitsel@redhat.com, nathan@kernel.org, peterz@infradead.org,
-	yi.l.liu@intel.com, mshavit@google.com, praan@google.com,
-	zhangzekun11@huawei.com, iommu@lists.linux.dev,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
-	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
-	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com
-Subject: Re: [PATCH v2 08/22] iommufd: Abstract iopt_pin_pages and
- iopt_unpin_pages helpers
-Message-ID: <20250505160554.GL2260709@nvidia.com>
-References: <cover.1745646960.git.nicolinc@nvidia.com>
- <d44272c153e7596c3cef716044de3dc6c2a8254a.1745646960.git.nicolinc@nvidia.com>
- <376566b4-6c13-45ad-b1e5-8cfe2de437bc@linux.intel.com>
- <aA+92fNNbDI3Qowk@Asurada-Nvidia>
- <20250505150109.GH2260709@nvidia.com>
- <aBjc1ny0Zs7K7gDX@nvidia.com>
- <20250505155505.GK2260709@nvidia.com>
- <aBjhUL5/n79cJ17f@nvidia.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aBjhUL5/n79cJ17f@nvidia.com>
-X-ClientProxiedBy: MN2PR20CA0053.namprd20.prod.outlook.com
- (2603:10b6:208:235::22) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1uByNG-00000007vfN-45U5;
+	Mon, 05 May 2025 16:09:01 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 385BD4397B;
+	Mon,  5 May 2025 16:08:50 +0000 (UTC)
+Message-ID: <84cb893a-46e3-408a-ba0e-2eff0b44d2a1@ghiti.fr>
+Date: Mon, 5 May 2025 18:08:50 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|IA0PR12MB8863:EE_
-X-MS-Office365-Filtering-Correlation-Id: 37bd920f-9f7a-4da1-4dd9-08dd8beeb7ae
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?29ZperVogAOcK1l63Jhic+/KVVJhG0UYtYNIAftJfgt6nXVt2u8V28fVPSAa?=
- =?us-ascii?Q?fD5XDfmFfTK9kbQKwl1CWRZseVX4ucu9ySxUaam6LDaxUiHktVOnQ+VwYzsm?=
- =?us-ascii?Q?ykj0MtbtN6qYPcAMJj7m32vZkMqihGXW6VfOLi+IYcmSXOaFLhAfAznxseeE?=
- =?us-ascii?Q?C2ASTz/21zU1jYVIhUpxgRKt/Lkid+BBFyIuz5xrKP5Dv4eKTPHP8lFDsWGW?=
- =?us-ascii?Q?BwiTAkYGD4N/J0QaN9S2TDxnoP71ff5nS2aYUi92mTNPj3TOq4rNVtNgpQ20?=
- =?us-ascii?Q?ed2YJoghwuETF0nxxUuhl96sAHjkOFOlTKCfFXYN0CFyWhLRgSPej9sa1CoU?=
- =?us-ascii?Q?+GcxA+FgPawSwPzfd6HQXjRA43Yh/L89tPUPpA7/V8vlim8B2KzN8v9H0D7q?=
- =?us-ascii?Q?Dzk+T7MqQSbpALxVUAz3eCFKJKa22a08g1XJG9PP9nGcpLFUMLWJjspikRJ6?=
- =?us-ascii?Q?ICuyNqs1yJp4zDFcDqqhWO3I8dGG3igg+j2v1PpCQDw1sFPrpTuGCW2VlihO?=
- =?us-ascii?Q?9A8TpYdcd+RtOzQQrMr4QhZnbGy+i/KYitWOpjHkHZnZhtVC20AiZqi3topG?=
- =?us-ascii?Q?jnkkl3+WwngXWpJzyf1JbiFQBlygf1zH0AtP5zFnxmoyI4oTvPsHIgqzfoUx?=
- =?us-ascii?Q?sUF1+YrvcZj5GFHh3ICAnyQvsLPk8Nkop+NN8eH3QSUqD7Y5mYW/En36rfgp?=
- =?us-ascii?Q?C3XEA68Qb4BeEiQtVMJd5C98Xvj6o1D5bRlHvEldHbCnsf1NxcOuzLH/lx7L?=
- =?us-ascii?Q?Np0BDeALXdtsO/aR/58xbBeD2HKZkDLU2i4wNJNwcWHcmOoJmyX6882Otdph?=
- =?us-ascii?Q?FUNMfFTUqwN9ITj/jQcPY1ixu8vRfzOvS0fg7ixucR/15kNyL01JCRU5/g5W?=
- =?us-ascii?Q?oCFb+K+ywwFbYqro/W4+9KV+P3H76/vwB69WbFQEq8BzRcK/Bk74QRlcK51r?=
- =?us-ascii?Q?oxwKuFolnzict3/qkhvhct7pdo/VourD9qb7ZVnE5LYux9bX7gIawLvh/8wU?=
- =?us-ascii?Q?keViCKtw82CDtBLNOt1UoSGMqEPNyCuuBqH0FkJ5gY+k5Sf/u8YuK3X5q1hv?=
- =?us-ascii?Q?5fEGvn0EOKYajrtoA6m4vyH5y4ks6bgI0a0eHEXX/NtP/Gt/kqFfcTj4WYzG?=
- =?us-ascii?Q?HeUfXdSa8acJJmGKV1JiqP0S7H5jZYcI6rfRjstkjHGytzUrbOhxZmGf+LNT?=
- =?us-ascii?Q?JCC8GSHsit42faaFFjJLJj2OsTuLZ8GI9FOvQ3CM5ImkkOu53AJaFw09fD4x?=
- =?us-ascii?Q?DBCQwoerTOVFbFlIxFCaS8hUlV9lOZcXIRYQ0cOFesBukalsgWlsvKOacMlh?=
- =?us-ascii?Q?mkPu7f5Sz4AhmzCZ3GB/WP/rRxV14tcHYydyUlqLJnNdBd3qzfEkMP3OqGG5?=
- =?us-ascii?Q?fJuwAspG02xrO2QoW2KNnaHq4MXxpWRVLHsvq7ama2rDZdftQz4CkUXXUlaf?=
- =?us-ascii?Q?yy+7eQrdmus=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?W2Uph3dM+p+VOPdtl/9Wic6fS55WgsFVTdzQXYagaMYoLijYqJSy5WIogjgN?=
- =?us-ascii?Q?R/bPPWbM53JhxssmPi4Gs1tFu/KlSb3j78W+hW8W8naVFB7iBPU/88ArXHiK?=
- =?us-ascii?Q?bXw/zwMTEzOfbNfvx2MMqgXpaSzfmWx5WKWbT5bez1TYY7UxTUsJTXfdfDd/?=
- =?us-ascii?Q?iKiEo1ewrjHj99VHrfAvD2fiFft7UtOa9BHsJ7hPJyW8xEj7PMy2bSsVEPL6?=
- =?us-ascii?Q?g1IjR9rB9tod3VIDic1SfD6p15g3Y2kTK3vjLDv0WNnMcsGKJrArcaIONt+y?=
- =?us-ascii?Q?IAdRsS+CFWE3IE95FdrqwNXprKe2z1mWvqib/WCSTxNorYkhKkxfzGrJgTpw?=
- =?us-ascii?Q?2OftmdwpfXf6L7oc5/M04QLDziWNUC7dK9kBFqQV3WBDcNkXIu+g2Rf4kzD6?=
- =?us-ascii?Q?8KsiyUxM2Ehk25yXDqS7H+1OgXJ439mT4Zradf72pMQ+eM2OtWzWL2s7Zjyh?=
- =?us-ascii?Q?O5G9gJzvaIFEoEcX69ppvgsc9lHCySkr4NFUU0GSos/ATnjzRPc24qtnsR72?=
- =?us-ascii?Q?EgMSPyU2lyKVtogjoIlDQ/5Iz0iylnuU97GpWktmAOBFKPr6/di6qx979XSu?=
- =?us-ascii?Q?EReea+zv5tfWaojk5pBMF6adui/os+Tm5BuMGMl1o9WfA7xCiY0sWRXASevu?=
- =?us-ascii?Q?gbDr1G8OtjgkttVnMoxpEOdy3aax1bZw4xdZHXgmGLMJkJs6xMbj0JFLmNE+?=
- =?us-ascii?Q?5rSEkxTZIfc8OlRSC8zQWjW+ZFOXvTZv+ztk/DS42KiBoLGoinzuXdstbP3f?=
- =?us-ascii?Q?IvLuCoeDByfS5qdVAiDvTcJZzTz/I6dbfS87MyIZ76CLOQT7FKT7FD/fnUT2?=
- =?us-ascii?Q?IUQdwrIJtO7QNr22quDNd3+BiDhMcVAWZtRgJUx5RbKJcwSmhf/5l3XB8XFo?=
- =?us-ascii?Q?2bzmxLd9Mi2xV3jJVrO7HF7HFYW2LJ3Ix5UBnxxJ22n9SZTNtd8iNJCultT1?=
- =?us-ascii?Q?Ssk6NrmP5sIZJ5T1HqN33jIcIzRBwQ2P4SXv7CkHDXKKc+1x3+t2ZOycqaHg?=
- =?us-ascii?Q?VEi5hs+o/2jwbDC7uvWy6Ad1WDo5dXbe0VEXyLzQPciZfORUzTFXTthvnRDs?=
- =?us-ascii?Q?OMPp7wqNTmQXK9cG7WsIbQdjzC5BoxJdo7Xwf5/CzDQ7XLUnovJtfRN0bRG3?=
- =?us-ascii?Q?9VuYlx1mmTKPlN/uTV0q++4DmJaMWZNM58wAu8xcqIJLySFhsJN9D9WmGz5Q?=
- =?us-ascii?Q?59zPZ0nugpu17KZRJDTc9nIRD/Ifw94wz6UsX3M1cu5PiiSkNn4UjDJYnq0D?=
- =?us-ascii?Q?pCeIAg5fuJU+6qz4gnFFXT5y8oRKli7WpV+EbbNZbjeCJ/2lhmz/askM/jai?=
- =?us-ascii?Q?b0Gl5slqh7mzn3Z5K2RKwHJUhIE/kWaB+vSDJBBSOAqgRaEhkIq3PIJE29yK?=
- =?us-ascii?Q?fLvURx4vM3+7TaCK+wgKbeB0mo5V0IMHA1fe3y/1PZXLU4w7RwiOZ5qYxU2P?=
- =?us-ascii?Q?FhqFplzu1tD2CahJBFo8WJI8zCWirV3SbcwOFWAGe9ojuIwnJMxki44Ysnqd?=
- =?us-ascii?Q?TcoBu6uKxnUXTE8JEvePnS0TXOZ8HO9kzAafiy6ex0GUE8m0tlZquKBEYzIR?=
- =?us-ascii?Q?sKkFpzf3qE0IUTKcom1owrJgkOcwtVKC5lsCkK8Y?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 37bd920f-9f7a-4da1-4dd9-08dd8beeb7ae
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2025 16:05:55.9521
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: WZloAT/4oMbMCj6QIcr10b+4AZNr//5IzArn0PPa1ZCzCdy+VjqWYD2CyyqYPl+o
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8863
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 0/9] Merge arm64/riscv hugetlbfs contpte support
+Content-Language: en-US
+To: Ryan Roberts <ryan.roberts@arm.com>,
+ Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Matthew Wilcox <willy@infradead.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Andrew Morton <akpm@linux-foundation.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-mm@kvack.org
+References: <20250321130635.227011-1-alexghiti@rivosinc.com>
+ <4dd5d187-f977-4f27-9937-8608991797b5@ghiti.fr>
+ <64409a13-1c07-42cd-b1ec-572042738f1b@arm.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <64409a13-1c07-42cd-b1ec-572042738f1b@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvkeduheegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfhfhfgjtgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepueehudfhudetfefhuedugfeileehlefggeffhfevgeehveegjedugeeggfeihfeknecuffhomhgrihhnpehkvghrnhgvlhdrohhrghdptghouggvrghurhhorhgrrdhorhhgpdhinhhfrhgruggvrggurdhorhhgpdhgrghnughirdhnvghtnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemgegvrgdvmegvhedvieemieehuddumeehfeegtgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemgegvrgdvmegvhedvieemieehuddumeehfeegtgdphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemgegvrgdvmegvhedvieemieehuddumeehfeegtggnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepudefpdhrtghpthhtoheprhihrghnrdhrohgsvghrthhssegrrhhmrdgtohhmp
+ dhrtghpthhtoheprghlvgigghhhihhtihesrhhivhhoshhinhgtrdgtohhmpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopeifihhllheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepmhgrrhhkrdhruhhtlhgrnhgusegrrhhmrdgtohhmpdhrtghpthhtohepfihilhhlhiesihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomh
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_090603_609007_79C89C3A 
-X-CRM114-Status: GOOD (  27.39  )
+X-CRM114-CacheID: sfid-20250505_090859_286589_0521DB57 
+X-CRM114-Status: GOOD (  33.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,51 +71,333 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 05, 2025 at 09:03:28AM -0700, Nicolin Chen wrote:
-> On Mon, May 05, 2025 at 12:55:05PM -0300, Jason Gunthorpe wrote:
-> > On Mon, May 05, 2025 at 08:44:22AM -0700, Nicolin Chen wrote:
-> > > On Mon, May 05, 2025 at 12:01:09PM -0300, Jason Gunthorpe wrote:
-> > > > On Mon, Apr 28, 2025 at 10:41:45AM -0700, Nicolin Chen wrote:
-> > > > > > I'm uncertain, but perhaps pr_warn_ratelimited() would be a better
-> > > > > > alternative to WARN_ON() here? WARN_ON_ONCE() generates warning messages
-> > > > > > with kernel call traces in the kernel messages, which might lead users
-> > > > > > to believe that something serious has happened in the kernel.
-> > > > > 
-> > > > > We already have similar practice, e.g. iommufd_hwpt_nested_alloc.
-> > > > > 
-> > > > > In my review, a WARN_ON/WARN_ON_ONCE means there is a kernel bug,
-> > > > > which shouldn't occur in the first place and isn't something that
-> > > > 
-> > > > Right, so it should never happen from any ioctl path and syzkaller
-> > > > should never trigger it based on system call randomization
-> > > > 
-> > > > Is that what this achieves?
-> > > 
-> > > The functions would be still used in the kernel path. So, I think
-> > > we need to retain these warnings for that. But given that an ioctl
-> > > could trigger a series of WARN_ONs, WARN_ON_ONCE is something that
-> > > wouldn't bother user space a lot while it provides the kernel path
-> > > enough info to debug.
-> > 
-> > No, it does bother userspace, we must not have ioctl triggerable
-> > WARN_ON at all.
-> 
-> You mean we have to eliminate any WARN_ON in a call path of an
-> ioctl?
+Hi Ryan,
 
-Yes, not one that derives from user information. You can WARN_ON if
-internal kernel structures are corrupted but not if user ioctl
-arguments are bad.
+On 29/04/2025 16:09, Ryan Roberts wrote:
+> Hi Alexandre,
+>
+> On 07/04/2025 13:04, Alexandre Ghiti wrote:
+>> Can someone from arm64 review this? I think it's preferable to share the same
+>> implementation between riscv and arm64.
+> I've been thinking about this for a while and had some conversations internally.
+> This patchset has both pros and cons.
+>
+> In the pros column, it increases code reuse in an area that has had quite of few
+> bugs popping up lately; so this would bring more eyes and hopefully higher
+> quality in the long run.
+>
+> But in the cons column, we have seen HW errata in similar areas in the past and
+> I'm nervous that by hoisting this code to mm, we make it harder to workaround
+> any future errata. Additionally I can imagine that this change could make it
+> harder to support future Arm architecture enhancements.
+>
+> I appreciate the cons are not strong *technical* arguments but nevertheless they
+> are winning out in this case; My opinion is that we should keep the arm64
+> implementations of huge_pte_ (and contpte_ too - I know you have a separate
+> series for this) private to arm64.
+>
+> Sorry about that.
+>
+>> The end goal is the support of mTHP using svnapot on riscv, which we want soon,
+>> so if that patchset does not gain any traction, I'll just copy/paste the arm64
+>> implementation into riscv.
+> This copy/paste approach would be my preference.
 
-> We can drop them, just that would mute any kernel bug.
 
-That maybe the right answer
+I have to admit that I disagree with this approach, the riscv and arm64 
+implementations are *exactly* the same so it sounds weird to duplicate 
+code, the pros you mention outweigh the cons.
 
-> Btw, IIRC, the destroy ioctl could trigger some WARN_ON in the
-> remove() when the object's refcount isn't correctly decreased.
-> Should that be a problem too?
+Unless I'm missing something about the erratas? To me, that's easily 
+fixed by providing arch specific overrides no? Can you describe what 
+sort of erratas would not fit then?
 
-That is kernel data structures being corrupted.
+Thanks,
 
-Jason
+Alex
+
+
+>
+> Thanks,
+> Ryan
+>
+>> Thanks,
+>>
+>> Alex
+>>
+>> On 21/03/2025 14:06, Alexandre Ghiti wrote:
+>>> This patchset intends to merge the contiguous ptes hugetlbfs implementation
+>>> of arm64 and riscv.
+>>>
+>>> Both arm64 and riscv support the use of contiguous ptes to map pages that
+>>> are larger than the default page table size, respectively called contpte
+>>> and svnapot.
+>>>
+>>> The riscv implementation differs from the arm64's in that the LSBs of the
+>>> pfn of a svnapot pte are used to store the size of the mapping, allowing
+>>> for future sizes to be added (for now only 64KB is supported). That's an
+>>> issue for the core mm code which expects to find the *real* pfn a pte points
+>>> to. Patch 1 fixes that by always returning svnapot ptes with the real pfn
+>>> and restores the size of the mapping when it is written to a page table.
+>>>
+>>> The following patches are just merges of the 2 different implementations
+>>> that currently exist in arm64 and riscv which are very similar. It paves
+>>> the way to the reuse of the recent contpte THP work by Ryan [1] to avoid
+>>> reimplementing the same in riscv.
+>>>
+>>> This patchset was tested by running the libhugetlbfs testsuite with 64KB
+>>> and 2MB pages on both architectures (on a 4KB base page size arm64 kernel).
+>>>
+>>> [1] https://lore.kernel.org/linux-arm-kernel/20240215103205.2607016-1-
+>>> ryan.roberts@arm.com/
+>>>
+>>> v4: https://lore.kernel.org/linux-riscv/20250127093530.19548-1-
+>>> alexghiti@rivosinc.com/
+>>> v3: https://lore.kernel.org/all/20240802151430.99114-1-alexghiti@rivosinc.com/
+>>> v2: https://lore.kernel.org/linux-riscv/20240508113419.18620-1-
+>>> alexghiti@rivosinc.com/
+>>> v1: https://lore.kernel.org/linux-riscv/20240301091455.246686-1-
+>>> alexghiti@rivosinc.com/
+>>>
+>>> Changes in v5:
+>>>     - Fix "int i" unused variable in patch 2 (as reported by PW)
+>>>     - Fix !svnapot build
+>>>     - Fix arch_make_huge_pte() which returned a real napot pte
+>>>     - Make __ptep_get(), ptep_get_and_clear() and __set_ptes() napot aware to
+>>>       avoid leaking real napot pfns to core mm
+>>>     - Fix arch_contpte_get_num_contig() that used to always try to get the
+>>>       mapping size from the ptep, which does not work if the ptep comes the
+>>> core mm
+>>>     - Rebase on top of 6.14-rc7 + fix for
+>>>       huge_ptep_get_and_clear()/huge_pte_clear()
+>>>       https://lore.kernel.org/linux-riscv/20250317072551.572169-1-
+>>> alexghiti@rivosinc.com/
+>>>
+>>> Changes in v4:
+>>>     - Rebase on top of 6.13
+>>>
+>>> Changes in v3:
+>>>     - Split set_ptes and ptep_get into internal and external API (Ryan)
+>>>     - Rename ARCH_HAS_CONTPTE into ARCH_WANT_GENERAL_HUGETLB_CONTPTE so that
+>>>       we split hugetlb functions from contpte functions (actually riscv contpte
+>>>       functions to support THP will come into another series) (Ryan)
+>>>     - Rebase on top of 6.11-rc1
+>>>
+>>> Changes in v2:
+>>>     - Rebase on top of 6.9-rc3
+>>>
+>>> Alexandre Ghiti (9):
+>>>     riscv: Safely remove huge_pte_offset() when manipulating NAPOT ptes
+>>>     riscv: Restore the pfn in a NAPOT pte when manipulated by core mm code
+>>>     mm: Use common huge_ptep_get() function for riscv/arm64
+>>>     mm: Use common set_huge_pte_at() function for riscv/arm64
+>>>     mm: Use common huge_pte_clear() function for riscv/arm64
+>>>     mm: Use common huge_ptep_get_and_clear() function for riscv/arm64
+>>>     mm: Use common huge_ptep_set_access_flags() function for riscv/arm64
+>>>     mm: Use common huge_ptep_set_wrprotect() function for riscv/arm64
+>>>     mm: Use common huge_ptep_clear_flush() function for riscv/arm64
+>>>
+>>>    arch/arm64/Kconfig                  |   1 +
+>>>    arch/arm64/include/asm/hugetlb.h    |  22 +--
+>>>    arch/arm64/include/asm/pgtable.h    |  68 ++++++-
+>>>    arch/arm64/mm/hugetlbpage.c         | 294 +---------------------------
+>>>    arch/riscv/Kconfig                  |   1 +
+>>>    arch/riscv/include/asm/hugetlb.h    |  36 +---
+>>>    arch/riscv/include/asm/pgtable-64.h |  11 ++
+>>>    arch/riscv/include/asm/pgtable.h    | 222 ++++++++++++++++++---
+>>>    arch/riscv/mm/hugetlbpage.c         | 243 +----------------------
+>>>    arch/riscv/mm/pgtable.c             |   6 +-
+>>>    include/linux/hugetlb_contpte.h     |  39 ++++
+>>>    mm/Kconfig                          |   3 +
+>>>    mm/Makefile                         |   1 +
+>>>    mm/hugetlb_contpte.c                | 258 ++++++++++++++++++++++++
+>>>    14 files changed, 583 insertions(+), 622 deletions(-)
+>>>    create mode 100644 include/linux/hugetlb_contpte.h
+>>>    create mode 100644 mm/hugetlb_contpte.c
+>>>
+>>  From mboxrd@z Thu Jan  1 00:00:00 1970
+>> Return-Path: <linux-riscv-bounces+linux-
+>> riscv=archiver.kernel.org@lists.infradead.org>
+>> X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
+>>      aws-us-west-2-korg-lkml-1.web.codeaurora.org
+>> Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
+>>      (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+>>      (No client certificate requested)
+>>      by smtp.lore.kernel.org (Postfix) with ESMTPS id A4D94C3601E
+>>      for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 12:35:59 +0000 (UTC)
+>> DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+>>      d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+>>      Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+>>      List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+>>      Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+>>      Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+>>      bh=QGtw44ZccGhXZHG0gus8jo8nditsIsPYxbfRUYIB+hU=; b=TuC4N8bBiqSCZqINAlCMfr1aa0
+>>      HKCtL5AM0VsHJ36rTV1TZCiAN0tKuI4mbGKMbrvNUcKXaa0IaZGgplHJXZPCwfiRmK51dvr1ndwc+
+>>      x4+UfoK5lEB2HNBzTjcA9nH164vMm8lu0bitMWB+QzfpYT0nprO+11bFlBPqZVI35bwer5bTytL/w
+>>      2PtmHktDSGJXgSCnDKefpnBo+yiIKU2uq7dhR713fLa1hzLYi5f0+2trqJXfZ5ADJSOBaZc6h2RQo
+>>      Hfb0DRyNJsiBjuBYn3H1+RCnv6lZwV1eVbltqj1BIjrb0C32Zmnb7FxqUYECyH4vEhWbmYgbwpAKI
+>>      8BYmZxbA==;
+>> Received: from localhost ([::1] helo=bombadil.infradead.org)
+>>      by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
+>>      id 1u1lhh-00000000H0X-3INP;
+>>      Mon, 07 Apr 2025 12:35:53 +0000
+>> Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
+>>      by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+>>      id 1u1lDQ-000000009MS-3LfF;
+>>      Mon, 07 Apr 2025 12:04:39 +0000
+>> Received: by mail.gandi.net (Postfix) with ESMTPSA id E350243163;
+>>      Mon,  7 Apr 2025 12:04:28 +0000 (UTC)
+>> Message-ID: <4dd5d187-f977-4f27-9937-8608991797b5@ghiti.fr>
+>> Date: Mon, 7 Apr 2025 14:04:27 +0200
+>> MIME-Version: 1.0
+>> User-Agent: Mozilla Thunderbird
+>> Subject: Re: [PATCH v5 0/9] Merge arm64/riscv hugetlbfs contpte support
+>> Content-Language: en-US
+>> To: Alexandre Ghiti <alexghiti@rivosinc.com>,
+>> Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+>> Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>,
+>> Matthew Wilcox <willy@infradead.org>,
+>> Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+>> <palmer@dabbelt.com>, Andrew Morton <akpm@linux-foundation.org>,
+>> linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+>> linux-riscv@lists.infradead.org, linux-mm@kvack.org
+>> References: <20250321130635.227011-1-alexghiti@rivosinc.com>
+>> From: Alexandre Ghiti <alex@ghiti.fr>
+>> In-Reply-To: <20250321130635.227011-1-alexghiti@rivosinc.com>
+>> X-GND-State: clean
+>> X-GND-Score: -100
+>> X-GND-Cause:
+>> gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddtudegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfhfhfgjtgfgsehtjeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepveetvdfhvdeuheekvdettdegheetgeejiefgjeetvedtfeeuvddvtefhjeffgeevnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmeeisgemvdefgeekmeduvgduheemvdgrgeehnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmeeisgemvdefgeekmeduvgduheemvdgrgeehpdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmeeisgemvdefgeekmeduvgduheemvdgrgeehngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopedufedprhgtphhtthhopegrlhgvgihghhhithhisehrihhvohhsihhntgdrtghomhdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohepfihilhhls
+>> ehkvghrnhgvlhdrohhrghdprhgtphhtthhopehrhigrnhdrrhhosggvrhhtshesrghrmhdrtghomhdprhgtphhtthhopehmrghrkhdrrhhuthhlrghnugesrghrmhdrtghomhdprhgtphhtthhopeifihhllhihsehinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepphgruhhlrdifrghlmhhslhgvhiesshhifhhivhgvrdgtohhmpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhm
+>> X-GND-Sasl: alex@ghiti.fr
+>> X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 X-
+>> CRM114-CacheID: sfid-20250407_050436_994014_8B16F654 X-CRM114-Status: GOOD (
+>> 23.24  )
+>> X-BeenThere: linux-riscv@lists.infradead.org
+>> X-Mailman-Version: 2.1.34
+>> Precedence: list
+>> List-Id: <linux-riscv.lists.infradead.org>
+>> List-Unsubscribe: <http://lists.infradead.org/mailman/options/linux-riscv>,
+>> <mailto:linux-riscv-request@lists.infradead.org?subject=unsubscribe>
+>> List-Archive: <http://lists.infradead.org/pipermail/linux-riscv/>
+>> List-Post: <mailto:linux-riscv@lists.infradead.org>
+>> List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
+>> List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
+>> <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+>> Content-Transfer-Encoding: 7bit
+>> Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+>> Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
+>> Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
+>>
+>> Can someone from arm64 review this? I think it's preferable to share the same
+>> implementation between riscv and arm64.
+>>
+>> The end goal is the support of mTHP using svnapot on riscv, which we want soon,
+>> so if that patchset does not gain any traction, I'll just copy/paste the arm64
+>> implementation into riscv.
+>>
+>> Thanks,
+>>
+>> Alex
+>>
+>> On 21/03/2025 14:06, Alexandre Ghiti wrote:
+>>> This patchset intends to merge the contiguous ptes hugetlbfs implementation
+>>> of arm64 and riscv.
+>>>
+>>> Both arm64 and riscv support the use of contiguous ptes to map pages that
+>>> are larger than the default page table size, respectively called contpte
+>>> and svnapot.
+>>>
+>>> The riscv implementation differs from the arm64's in that the LSBs of the
+>>> pfn of a svnapot pte are used to store the size of the mapping, allowing
+>>> for future sizes to be added (for now only 64KB is supported). That's an
+>>> issue for the core mm code which expects to find the *real* pfn a pte points
+>>> to. Patch 1 fixes that by always returning svnapot ptes with the real pfn
+>>> and restores the size of the mapping when it is written to a page table.
+>>>
+>>> The following patches are just merges of the 2 different implementations
+>>> that currently exist in arm64 and riscv which are very similar. It paves
+>>> the way to the reuse of the recent contpte THP work by Ryan [1] to avoid
+>>> reimplementing the same in riscv.
+>>>
+>>> This patchset was tested by running the libhugetlbfs testsuite with 64KB
+>>> and 2MB pages on both architectures (on a 4KB base page size arm64 kernel).
+>>>
+>>> [1] https://lore.kernel.org/linux-arm-kernel/20240215103205.2607016-1-
+>>> ryan.roberts@arm.com/
+>>>
+>>> v4: https://lore.kernel.org/linux-riscv/20250127093530.19548-1-
+>>> alexghiti@rivosinc.com/
+>>> v3: https://lore.kernel.org/all/20240802151430.99114-1-alexghiti@rivosinc.com/
+>>> v2: https://lore.kernel.org/linux-riscv/20240508113419.18620-1-
+>>> alexghiti@rivosinc.com/
+>>> v1: https://lore.kernel.org/linux-riscv/20240301091455.246686-1-
+>>> alexghiti@rivosinc.com/
+>>>
+>>> Changes in v5:
+>>>     - Fix "int i" unused variable in patch 2 (as reported by PW)
+>>>     - Fix !svnapot build
+>>>     - Fix arch_make_huge_pte() which returned a real napot pte
+>>>     - Make __ptep_get(), ptep_get_and_clear() and __set_ptes() napot aware to
+>>>       avoid leaking real napot pfns to core mm
+>>>     - Fix arch_contpte_get_num_contig() that used to always try to get the
+>>>       mapping size from the ptep, which does not work if the ptep comes the
+>>> core mm
+>>>     - Rebase on top of 6.14-rc7 + fix for
+>>>       huge_ptep_get_and_clear()/huge_pte_clear()
+>>>       https://lore.kernel.org/linux-riscv/20250317072551.572169-1-
+>>> alexghiti@rivosinc.com/
+>>>
+>>> Changes in v4:
+>>>     - Rebase on top of 6.13
+>>>
+>>> Changes in v3:
+>>>     - Split set_ptes and ptep_get into internal and external API (Ryan)
+>>>     - Rename ARCH_HAS_CONTPTE into ARCH_WANT_GENERAL_HUGETLB_CONTPTE so that
+>>>       we split hugetlb functions from contpte functions (actually riscv contpte
+>>>       functions to support THP will come into another series) (Ryan)
+>>>     - Rebase on top of 6.11-rc1
+>>>
+>>> Changes in v2:
+>>>     - Rebase on top of 6.9-rc3
+>>>
+>>> Alexandre Ghiti (9):
+>>>     riscv: Safely remove huge_pte_offset() when manipulating NAPOT ptes
+>>>     riscv: Restore the pfn in a NAPOT pte when manipulated by core mm code
+>>>     mm: Use common huge_ptep_get() function for riscv/arm64
+>>>     mm: Use common set_huge_pte_at() function for riscv/arm64
+>>>     mm: Use common huge_pte_clear() function for riscv/arm64
+>>>     mm: Use common huge_ptep_get_and_clear() function for riscv/arm64
+>>>     mm: Use common huge_ptep_set_access_flags() function for riscv/arm64
+>>>     mm: Use common huge_ptep_set_wrprotect() function for riscv/arm64
+>>>     mm: Use common huge_ptep_clear_flush() function for riscv/arm64
+>>>
+>>>    arch/arm64/Kconfig                  |   1 +
+>>>    arch/arm64/include/asm/hugetlb.h    |  22 +--
+>>>    arch/arm64/include/asm/pgtable.h    |  68 ++++++-
+>>>    arch/arm64/mm/hugetlbpage.c         | 294 +---------------------------
+>>>    arch/riscv/Kconfig                  |   1 +
+>>>    arch/riscv/include/asm/hugetlb.h    |  36 +---
+>>>    arch/riscv/include/asm/pgtable-64.h |  11 ++
+>>>    arch/riscv/include/asm/pgtable.h    | 222 ++++++++++++++++++---
+>>>    arch/riscv/mm/hugetlbpage.c         | 243 +----------------------
+>>>    arch/riscv/mm/pgtable.c             |   6 +-
+>>>    include/linux/hugetlb_contpte.h     |  39 ++++
+>>>    mm/Kconfig                          |   3 +
+>>>    mm/Makefile                         |   1 +
+>>>    mm/hugetlb_contpte.c                | 258 ++++++++++++++++++++++++
+>>>    14 files changed, 583 insertions(+), 622 deletions(-)
+>>>    create mode 100644 include/linux/hugetlb_contpte.h
+>>>    create mode 100644 mm/hugetlb_contpte.c
+>>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+>>
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
