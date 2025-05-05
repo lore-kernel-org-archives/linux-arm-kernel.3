@@ -4,66 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2B3EC3ABB6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 02:35:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30BEDC3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 02:37:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cIkoYusGaJp+Gbv97Cy0nDUAbB4OZulul9qcJAaOWQI=; b=aPV3AHw1ZjbVSRvAa76IKoGyQR
-	47AczKfCGB7vHcwjgxx+W+kGf94fQly4iWL8hoGKu/90dwiNatOIReg4E/0UILpFmpr+eR3WTUJR4
-	lq8Ghp4aFbbmW4B4jpirxNHa0dnb9EF1C4rISpwcTE86vdZmrcDvTdJH3KRUpsmvjV/Tc593pyIE1
-	NkXbskXzLWnlAHZdOanMQe96FGK1P+omsUEs2zolTfIskrh0aR5wllJwkQCrdPYiMcIaR8a4p0QhN
-	PWjwqNo/rJ78F4J07mJKKgU+eNjWGg6y7Ttfw/Sg4U+EbT40C9j1ldUuT/dUVGK8QlhJcJoGabBpM
-	KOya3n8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7fTVD9mhjVGVNu76WgrWlRxCFOQNPlvAmlBjEqJWVdA=; b=agVkhZ3Hzu5k6XdAabXbvugN2C
+	tF5JUHmmj+vSI1FBMiZ8urHp/LsE36tW92CQBHKnibIh41Vr8XHOfOplsxyrYfvHhJtZJmtMkO07u
+	4Pyz7Yl0ETguRh2QftYBAkFvt+1TG4rxoxkpm+eeZTuPnUqX0/Eyg4FBqDvhf76mqkZM0fTSPkMMB
+	eD88kCSQoo8LGA9/rL7KmvzIWY75MahYYy31s7sMgSPY5HBBlWzYaGwADcX6QDKEotOFH4xX7Bsnd
+	SG/0BS3LIWBbxNE5EQE2KLdIVSmLyFklG+jW7cK6HmijG+MXbAkWX8KjuVUSbAwkWTWxRbIYzO1u/
+	8HWJBZ8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC89K-00000009mlE-0B9n;
-	Tue, 06 May 2025 02:35:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uC8BI-00000009nDo-1kRe;
+	Tue, 06 May 2025 02:37:16 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4mO-00000008vKj-25FJ
+	id 1uC4mh-00000008vOT-3YdA
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 05 May 2025 22:59:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=7fTVD9mhjVGVNu76WgrWlRxCFOQNPlvAmlBjEqJWVdA=; b=CIoBG/LYifEncneo388KFPL0Mz
+	H0ERAaVaug7TP2pdc47Wzq563CTijwm+5pzXL3MHAsHofH7yg2YpHRAcCV/d5xOB1IEuyhAbCD+HB
+	ZfbFviTmWj5iLmyyDAuXdpLFBkf/A+yZ43n9SbODkhCb7ZIdyI/MLBs3JFqsMoQHwLc44AjiKVOc4
+	eI+BNpKchcYRNbkrAUbECYol5h01Cwuu8s98sddwlTIJMiivLjN65U0zF7R4q1WzBLeEL6Pr+Aj5/
+	Pxduia36mTEMvLmlB1myGcTm5/Kk5wbwVKsGI3ujCyioz/BGC9sLNeG7Scr2BO5DFVIjIvTVA8+PZ
+	+AUJKR9w==;
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uC4kW-0000000FZ2k-0OOK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 22:59:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1679A629CA;
-	Mon,  5 May 2025 22:58:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 819C1C4CEE4;
-	Mon,  5 May 2025 22:59:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746485959;
-	bh=snIzbJ+SkDklwk5xX4vjbVVtP5TDGkJskoq+YwM/AIA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KikEt+bXimPIlffz1n/loYvdgVhI+qohvCjV0pCmh7HhRigLAp8RbhBosbqo3Nvy5
-	 JmXKtfKZbAy4Ylwh4IuZJMdJ5xAYZlCp6Q9kv0uo+71Aisc92yP8sI+jm4emFsT1Wq
-	 LzwoOIt9hvqc/uhjdl7OaEqSjienqPIQe/6dX52dz1RHgKNs9MFmVxT1QBAUEiZyCI
-	 4M3ZSq1D7cuIITqIvxyw9E9qbTw2LEePVA7/Gn4ZV+SNOLaneygqCG8WZMsIElto9a
-	 dthFzBoXq3ou6HWp4cuUCO6C0SFADK5OPZTCfnxL9oEIrYzPP1qmO4tCTX1e4ms2Zr
-	 KCvyKmFpyzG4w==
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: Kaustabh Chakraborty <kauschluss@disroot.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Sasha Levin <sashal@kernel.org>,
-	jh80.chung@samsung.com,
-	krzk@kernel.org,
-	linux-mmc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.6 086/294] mmc: dw_mmc: add exynos7870 DW MMC support
-Date: Mon,  5 May 2025 18:53:06 -0400
-Message-Id: <20250505225634.2688578-86-sashal@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250505225634.2688578-1-sashal@kernel.org>
-References: <20250505225634.2688578-1-sashal@kernel.org>
-MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.6.89
-Content-Transfer-Encoding: 8bit
+	Mon, 05 May 2025 22:59:35 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2ff68033070so4539254a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 15:57:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1746485839; x=1747090639; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=7fTVD9mhjVGVNu76WgrWlRxCFOQNPlvAmlBjEqJWVdA=;
+        b=dDz35SQM4fpqTHluNK+ulHAytDceKyjq46SQH6zjWfInF5OV2/Z5XFNhL1lvELjZdw
+         xUlZKtnLMYPo8/r2cJrtLbP66tpb21nfjtiO0JYfiPo6QexCR5pmKK13k8gFAmDfJ8p6
+         zdGkaMKDhXZXIMvRhx8Y+Hs3HuZLMEgGHH96aFpEUCjZ+aGdV1OAUASnt5G0BNDZnc8a
+         ZmKWxIr/qM4XgyH7LDknrI8tIoeWADnwElP+svRnBgSzIKDLyuveB0/EVv9Z/4infx+9
+         mdxKvlzJMS8QP/11RFfe9AMx5cFvo9sC+BDK9FIfqJXg9SGSegejTXNF9+jRv/U84tiL
+         7pzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746485839; x=1747090639;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=7fTVD9mhjVGVNu76WgrWlRxCFOQNPlvAmlBjEqJWVdA=;
+        b=T8aSKfu7J8jHj1uO5QuzwnQOPCPN5C6T5SaVtEj7Jg2nSuf2ER1DN+zhuUiHfvRbI4
+         +iIQZf7Le3h2QYA6kNsMlHJ2/AVlRv0UZAwEs5oayB+ayyj+0ONJSr4UjTBsCuDJuhhz
+         l9PfgER68gNRN9HvP5PNMOJ+OL26A8CA85dcS3sPVMFrOH9nz/z53NIfwqfNb0qp3bl6
+         epHuCHD11VzDq+VdI3HQwIew8xBJQLSQc/u871FUZ+t6//tXj0VINIHQdlrLHe3c9F+t
+         1JtFHzswm/PSh9y4IxpJDQVtDNiU315HLEAi0wIhDdX9P4Tzxc6Tusuf9gElQsBh+fJG
+         7vLQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVxBvMLXwtJtdCXstapGAejmr5fEJ3hDBSCnSNLYGu4MFZgcOxe7+TiSMeYBz9HFq969/xlNekXMLWDaBFSO/ce@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDmSg8xm85Ol/PJlgxFl9qSHpnWeHVzCcKUCT0UH0uyksSV6gl
+	Gjrsz4+Hyeoypnb69T3nflgBdzvEJPCMYD2DugX5TRtUXr1f61USJjRYz9br46aV/f+lEyF16K/
+	y8A==
+X-Google-Smtp-Source: AGHT+IG+bLbnRwKacBdwKEqb+ZlVouYwYu6ROj9LxnI6DWLtn5iDtn6cjFYO/W3uF1RtCR2hFz2sG6ty2pQ=
+X-Received: from pjbqn16.prod.google.com ([2002:a17:90b:3d50:b0:2f9:dc36:b11])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2e4f:b0:2f9:c139:b61f
+ with SMTP id 98e67ed59e1d1-30a4e5a608cmr23836495a91.14.1746485839174; Mon, 05
+ May 2025 15:57:19 -0700 (PDT)
+Date: Mon, 5 May 2025 15:57:17 -0700
+In-Reply-To: <20250505190538.GA1168139.vipinsh@google.com>
+Mime-Version: 1.0
+References: <20250222005943.3348627-1-vipinsh@google.com> <20250222005943.3348627-2-vipinsh@google.com>
+ <aBJXabTuiJyRZb-O@google.com> <20250505190538.GA1168139.vipinsh@google.com>
+Message-ID: <aBlCTfAlKOWG5orI@google.com>
+Subject: Re: [PATCH 1/2] KVM: selftests: Add default testfiles for KVM
+ selftests runner
+From: Sean Christopherson <seanjc@google.com>
+To: Vipin Sharma <vipinsh@google.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, pbonzini@redhat.com, 
+	anup@brainfault.org, borntraeger@linux.ibm.com, frankja@linux.ibm.com, 
+	imbrenda@linux.ibm.com, maz@kernel.org, oliver.upton@linux.dev
+Content-Type: text/plain; charset="us-ascii"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250505_235735_056283_7B615D7A 
+X-CRM114-Status: GOOD (  25.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,173 +107,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Kaustabh Chakraborty <kauschluss@disroot.org>
+On Mon, May 05, 2025, Vipin Sharma wrote:
+> On 2025-04-30 10:01:29, Sean Christopherson wrote:
+> > But, I do think we should commit the default.test files to the repository.  If
+> > they're ephemeral, then several problems arise:
+> > 
+> >  1. For out-of-tree builds, the default.test files should arguably be placed in
+> >     the OUTPUT directory.  But if/when we add curated testcases/, then we'll either
+> >     end up with multiple testcases/ directories (source and output), or we'll have
+> >     to copy testcases/ from the source to the output on a normal build, which is
+> >     rather gross.  Or we'd need e.g. "make testcases", which is also gross, e.g.
+> >     I don't want to have to run yet more commands just to execute tests.
+> > 
+> >  2. Generating default.test could overwrite a user-defined file.  That's firmly
+> >     a user error, but at least if they default.test files are commited, the user
+> >     will get a hint or three that they're doing things wrong.
+> > 
+> >  3. If the files aren't committed, then they probably should removed on "clean",
+> >     which isn't the end of the world since they're trivially easy to generate,
+> >     but it's kinda funky. 
+> > 
+> > So, what if we add this to auto-generate the files?  It's obviously wasteful since
+> > the files will exist 99.9999999% of the time, but the overhead is completely
+> > negligible.  The only concern I have is if this will do the wrong thing for some
+> > build environments, i.e. shove the files in the wrong location.
+> 
+> We can get the current path of the Makefile.kvm by writing this at the top
+> of the Makefile.kvm:
+> 	MAKEFILE_DIR := $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
+> 
+> Then MAKEFILE_DIR will have the source directory of Makfile.kvm and
+> testcase will be in the same directory.
+> 
+> With this we can modify the below foreach you wrote by prefixing
+> MAKEFILE_DIR to "testcases".
+> 
+> Does this alleviate concern regaring build environment?
 
-[ Upstream commit 7cbe799ac10fd8be85af5e0615c4337f81e575f3 ]
-
-Add support for Exynos7870 DW MMC controllers, for both SMU and non-SMU
-variants. These controllers require a quirk to access 64-bit FIFO in 32-bit
-accesses (DW_MMC_QUIRK_FIFO64_32).
-
-Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
-Link: https://lore.kernel.org/r/20250219-exynos7870-mmc-v2-3-b4255a3e39ed@disroot.org
-Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- drivers/mmc/host/dw_mmc-exynos.c | 41 +++++++++++++++++++++++++++++++-
- 1 file changed, 40 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/mmc/host/dw_mmc-exynos.c b/drivers/mmc/host/dw_mmc-exynos.c
-index 698408e8bad03..381a61adf06ee 100644
---- a/drivers/mmc/host/dw_mmc-exynos.c
-+++ b/drivers/mmc/host/dw_mmc-exynos.c
-@@ -28,6 +28,8 @@ enum dw_mci_exynos_type {
- 	DW_MCI_TYPE_EXYNOS5420_SMU,
- 	DW_MCI_TYPE_EXYNOS7,
- 	DW_MCI_TYPE_EXYNOS7_SMU,
-+	DW_MCI_TYPE_EXYNOS7870,
-+	DW_MCI_TYPE_EXYNOS7870_SMU,
- 	DW_MCI_TYPE_ARTPEC8,
- };
- 
-@@ -70,6 +72,12 @@ static struct dw_mci_exynos_compatible {
- 	}, {
- 		.compatible	= "samsung,exynos7-dw-mshc-smu",
- 		.ctrl_type	= DW_MCI_TYPE_EXYNOS7_SMU,
-+	}, {
-+		.compatible	= "samsung,exynos7870-dw-mshc",
-+		.ctrl_type	= DW_MCI_TYPE_EXYNOS7870,
-+	}, {
-+		.compatible	= "samsung,exynos7870-dw-mshc-smu",
-+		.ctrl_type	= DW_MCI_TYPE_EXYNOS7870_SMU,
- 	}, {
- 		.compatible	= "axis,artpec8-dw-mshc",
- 		.ctrl_type	= DW_MCI_TYPE_ARTPEC8,
-@@ -86,6 +94,8 @@ static inline u8 dw_mci_exynos_get_ciu_div(struct dw_mci *host)
- 		return EXYNOS4210_FIXED_CIU_CLK_DIV;
- 	else if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 			priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+			priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+			priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 			priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 		return SDMMC_CLKSEL_GET_DIV(mci_readl(host, CLKSEL64)) + 1;
- 	else
-@@ -101,7 +111,8 @@ static void dw_mci_exynos_config_smu(struct dw_mci *host)
- 	 * set for non-ecryption mode at this time.
- 	 */
- 	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS5420_SMU ||
--		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU) {
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU) {
- 		mci_writel(host, MPSBEGIN0, 0);
- 		mci_writel(host, MPSEND0, SDMMC_ENDING_SEC_NR_MAX);
- 		mci_writel(host, MPSCTRL0, SDMMC_MPSCTRL_SECURE_WRITE_BIT |
-@@ -127,6 +138,12 @@ static int dw_mci_exynos_priv_init(struct dw_mci *host)
- 				DQS_CTRL_GET_RD_DELAY(priv->saved_strobe_ctrl);
- 	}
- 
-+	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU) {
-+		/* Quirk needed for certain Exynos SoCs */
-+		host->quirks |= DW_MMC_QUIRK_FIFO64_32;
-+	}
-+
- 	if (priv->ctrl_type == DW_MCI_TYPE_ARTPEC8) {
- 		/* Quirk needed for the ARTPEC-8 SoC */
- 		host->quirks |= DW_MMC_QUIRK_EXTENDED_TMOUT;
-@@ -144,6 +161,8 @@ static void dw_mci_exynos_set_clksel_timing(struct dw_mci *host, u32 timing)
- 
- 	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 		priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 		clksel = mci_readl(host, CLKSEL64);
- 	else
-@@ -153,6 +172,8 @@ static void dw_mci_exynos_set_clksel_timing(struct dw_mci *host, u32 timing)
- 
- 	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 		priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 		mci_writel(host, CLKSEL64, clksel);
- 	else
-@@ -223,6 +244,8 @@ static int dw_mci_exynos_resume_noirq(struct device *dev)
- 
- 	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 		priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 		clksel = mci_readl(host, CLKSEL64);
- 	else
-@@ -231,6 +254,8 @@ static int dw_mci_exynos_resume_noirq(struct device *dev)
- 	if (clksel & SDMMC_CLKSEL_WAKEUP_INT) {
- 		if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 			priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+			priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+			priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 			priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 			mci_writel(host, CLKSEL64, clksel);
- 		else
-@@ -410,6 +435,8 @@ static inline u8 dw_mci_exynos_get_clksmpl(struct dw_mci *host)
- 
- 	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 		priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 		return SDMMC_CLKSEL_CCLK_SAMPLE(mci_readl(host, CLKSEL64));
- 	else
-@@ -423,6 +450,8 @@ static inline void dw_mci_exynos_set_clksmpl(struct dw_mci *host, u8 sample)
- 
- 	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 		priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 		clksel = mci_readl(host, CLKSEL64);
- 	else
-@@ -430,6 +459,8 @@ static inline void dw_mci_exynos_set_clksmpl(struct dw_mci *host, u8 sample)
- 	clksel = SDMMC_CLKSEL_UP_SAMPLE(clksel, sample);
- 	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 		priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 		mci_writel(host, CLKSEL64, clksel);
- 	else
-@@ -444,6 +475,8 @@ static inline u8 dw_mci_exynos_move_next_clksmpl(struct dw_mci *host)
- 
- 	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 		priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 		clksel = mci_readl(host, CLKSEL64);
- 	else
-@@ -454,6 +487,8 @@ static inline u8 dw_mci_exynos_move_next_clksmpl(struct dw_mci *host)
- 
- 	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 		priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 		mci_writel(host, CLKSEL64, clksel);
- 	else
-@@ -633,6 +668,10 @@ static const struct of_device_id dw_mci_exynos_match[] = {
- 			.data = &exynos_drv_data, },
- 	{ .compatible = "samsung,exynos7-dw-mshc-smu",
- 			.data = &exynos_drv_data, },
-+	{ .compatible = "samsung,exynos7870-dw-mshc",
-+			.data = &exynos_drv_data, },
-+	{ .compatible = "samsung,exynos7870-dw-mshc-smu",
-+			.data = &exynos_drv_data, },
- 	{ .compatible = "axis,artpec8-dw-mshc",
- 			.data = &artpec_drv_data, },
- 	{},
--- 
-2.39.5
-
+Yeah, I think so.  FWIW, "concern" probably isn't the right word, more like "the
+only thing I haven't thought much about".
 
