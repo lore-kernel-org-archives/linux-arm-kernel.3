@@ -4,75 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33E6BC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 04:13:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACDD7C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 04:15:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TojGnUz3IwTZa9OIf+N0YDXWQvZUC26A0YuQsFHuLrw=; b=0lmTOMM5jZgbtbQj17fSUGLAWy
-	ZuqR8jvFtxeQQ1tbDCg4S6LvsY502wTa5qZYcsAAKxoNxU4EqMymYE6Plhy+IZJuI9FU9N3w5h2la
-	QF1Decx8Nb1SNjhOJvPencJDJ5yXrp+/cbGtZ3W6GDJRdGzhL5zljKm3hdFVEmUV7XgEWAKxNG32c
-	1yWWCoDc7iCv0AVwIM7QvFmbg8GVGu/TMAqIm6wJeXHkxIm7h+VWWoj9e4kVg9kYhnEUDiToZ2/GS
-	4MFnkiB9e7UQKK8gPfOZyquI83ZHzoDvGHIZgoWO93djOs+hG5FCvzkEvbUS07i6jpO9yTkIKbXcy
-	CdT+rwTQ==;
+	bh=Q696hS+vsZRkW0Vep7Qzgc3VE0/8wcIkbDDUiw2ga4M=; b=PvOayaOd5EilFWbIRO7cmWwAZ8
+	qp/tXa24hdINNSypMjxOvbtjYn0eSUcj0W9hHm6LVSl4sSE+qkTTH8D1wrHXGdnw01McZyeWBdabD
+	kHnzvy+8Uu+jtnGoW2Db48fIY8OvrWd6/YZXspUNAKA9rFcxeylPVXDOyUlqwnvKqDAuW1U+wfjCz
+	dE7vFznHIzqq4DXjycCjrpIHc2awa+loKdrsSgdb36omPfeYpadwEODmkxTvuXVqL4qLVL9gj+8Z3
+	FwvQb0yL4L+pAyBnra+L4rnHUIKrqZnhpzB7hOIe2k1FEOssMa7fT5rY+z2rTOhKewktoanZwQpEg
+	r5wF1sTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC9gY-0000000AA08-01s0;
-	Tue, 06 May 2025 04:13:38 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uC9iY-0000000AAYD-3l4S;
+	Tue, 06 May 2025 04:15:42 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC50j-00000008zPx-1WP3;
-	Mon, 05 May 2025 23:14:10 +0000
+	id 1uC51D-00000008zYe-3ymq;
+	Mon, 05 May 2025 23:14:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 144B4A4D3C5;
-	Mon,  5 May 2025 23:08:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A74B2C4CEE4;
-	Mon,  5 May 2025 23:14:06 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 44ED95C5BB6;
+	Mon,  5 May 2025 23:12:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2A6AC4CEE4;
+	Mon,  5 May 2025 23:14:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746486848;
-	bh=rH6Xn0SJcQS1MM/vS4ASPbuFDq59MeY/FWg+wOEC1RE=;
+	s=k20201202; t=1746486879;
+	bh=QZJg/qnDtIKPDm96Agh/Xj3Gqhe9xZPuYljzuQiAzTY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=EIk16YJswGjq1qMnjHdWrN2xOq2mqN9d7U2mcmuWcmxeWVwSiyCQEeozFhp12A1Fb
-	 5Amj0UBnimpgbzpgIh9Z5mP1Ww4jfGUnUn4f9gSycpuk1ED6LMlRbdvrb0AyF2Wdwu
-	 /9Un/9K0fskxMvrkJIztmRPKFUkWCXMhsphegKiFZ1CbdKMa1Bzt3wRN/BCybiWceO
-	 +CzPVkVlXEGtRrm04zAxFzF21fko7EUK5UTqqVeO0ii3nBzjwHolIxX029sa+OSrF/
-	 3wbzp9tbbzrgSpSbkbRRl6Ca6RVnqzpc/J7KwHlZXCynUAUmUbPjJhrs5VxCxbieCp
-	 ezcniWV/rJptQ==
+	b=XTjS61bKzOzOZc0qIsRfvQYbIxYEad2nraDRjtPSUY3v8IGjBfThUn5L1oLXgHskp
+	 mK1Gml7b4h4XdCWDwf0vSP5+PVQLVhwj6/H/rWjitqNMN/aFR2wKOStnOpbRiWv1XX
+	 4QgT+KwX6MrRybvFEltHo7NYyVfPB3srx57PvPJ/UHGLVgghD8Sp/wLMImCA8K2JDy
+	 4NUqtmd7rjwRgsN3uER9cKGpwmRlg+LKC3IxBvicjpaSTX5jnYbNOe4TbULj3fB4/K
+	 a/nSzvEa9Udd4SergIIpYNNrL1w7z5G48rTXXcNOT82c1xIOMpzqKXSMzeesDpW32v
+	 y0iojQu7hPW+g==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Felix Fietkau <nbd@nbd.name>,
+Cc: =?UTF-8?q?N=C3=ADcolas=20F=2E=20R=2E=20A=2E=20Prado?= <nfraprado@collabora.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Mark Brown <broonie@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
+	lgirdwood@gmail.com,
+	perex@perex.cz,
+	tiwai@suse.com,
 	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	edumazet@google.com,
-	kuba@kernel.org,
-	johannes.berg@intel.com,
-	emmanuel.grumbach@intel.com,
-	miriam.rachel.korenblit@intel.com,
-	uwu@icenowy.me,
-	linux-wireless@vger.kernel.org,
+	linux-sound@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.15 021/153] wifi: mt76: only mark tx-status-failed frames as ACKed on mt76x0/2
-Date: Mon,  5 May 2025 19:11:08 -0400
-Message-Id: <20250505231320.2695319-21-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.15 039/153] ASoC: mediatek: mt6359: Add stub for mt6359_accdet_enable_jack_detect
+Date: Mon,  5 May 2025 19:11:26 -0400
+Message-Id: <20250505231320.2695319-39-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505231320.2695319-1-sashal@kernel.org>
 References: <20250505231320.2695319-1-sashal@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 5.15.181
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_161409_527492_6654C5DE 
-X-CRM114-Status: GOOD (  13.42  )
+X-CRM114-CacheID: sfid-20250505_161440_019587_9D0D229C 
+X-CRM114-Status: UNSURE (   8.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,109 +85,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Felix Fietkau <nbd@nbd.name>
+From: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 
-[ Upstream commit 0c5a89ceddc1728a40cb3313948401dd70e3c649 ]
+[ Upstream commit 0116a7d84b32537a10d9bea1fd1bfc06577ef527 ]
 
-The interrupt status polling is unreliable, which can cause status events
-to get lost. On all newer chips, txs-timeout is an indication that the
-packet was either never sent, or never acked.
-Fixes issues with inactivity polling.
+Add a stub for mt6359_accdet_enable_jack_detect() to prevent linker
+failures in the machine sound drivers calling it when
+CONFIG_SND_SOC_MT6359_ACCDET is not enabled.
 
-Link: https://patch.msgid.link/20250311103646.43346-6-nbd@nbd.name
-Signed-off-by: Felix Fietkau <nbd@nbd.name>
+Suggested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+Link: https://patch.msgid.link/20250306-mt8188-accdet-v3-3-7828e835ff4b@collabora.com
+Signed-off-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/net/wireless/mediatek/mt76/mt76.h       | 1 +
- drivers/net/wireless/mediatek/mt76/mt76x0/pci.c | 3 ++-
- drivers/net/wireless/mediatek/mt76/mt76x0/usb.c | 3 ++-
- drivers/net/wireless/mediatek/mt76/mt76x2/pci.c | 3 ++-
- drivers/net/wireless/mediatek/mt76/mt76x2/usb.c | 3 ++-
- drivers/net/wireless/mediatek/mt76/tx.c         | 3 ++-
- 6 files changed, 11 insertions(+), 5 deletions(-)
+ sound/soc/codecs/mt6359-accdet.h | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt76.h b/drivers/net/wireless/mediatek/mt76/mt76.h
-index 27f04fb2796d7..5a90fa556203f 100644
---- a/drivers/net/wireless/mediatek/mt76/mt76.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt76.h
-@@ -345,6 +345,7 @@ struct mt76_hw_cap {
- #define MT_DRV_RX_DMA_HDR		BIT(3)
- #define MT_DRV_HW_MGMT_TXQ		BIT(4)
- #define MT_DRV_AMSDU_OFFLOAD		BIT(5)
-+#define MT_DRV_IGNORE_TXS_FAILED	BIT(6)
+diff --git a/sound/soc/codecs/mt6359-accdet.h b/sound/soc/codecs/mt6359-accdet.h
+index c234f2f4276a1..78ada3a5bfae5 100644
+--- a/sound/soc/codecs/mt6359-accdet.h
++++ b/sound/soc/codecs/mt6359-accdet.h
+@@ -123,6 +123,15 @@ struct mt6359_accdet {
+ 	struct workqueue_struct *jd_workqueue;
+ };
  
- struct mt76_driver_ops {
- 	u32 drv_flags;
-diff --git a/drivers/net/wireless/mediatek/mt76/mt76x0/pci.c b/drivers/net/wireless/mediatek/mt76/mt76x0/pci.c
-index b795e7245c075..3255f9c0ef71f 100644
---- a/drivers/net/wireless/mediatek/mt76/mt76x0/pci.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt76x0/pci.c
-@@ -151,7 +151,8 @@ mt76x0e_probe(struct pci_dev *pdev, const struct pci_device_id *id)
- 	static const struct mt76_driver_ops drv_ops = {
- 		.txwi_size = sizeof(struct mt76x02_txwi),
- 		.drv_flags = MT_DRV_TX_ALIGNED4_SKBS |
--			     MT_DRV_SW_RX_AIRTIME,
-+			     MT_DRV_SW_RX_AIRTIME |
-+			     MT_DRV_IGNORE_TXS_FAILED,
- 		.survey_flags = SURVEY_INFO_TIME_TX,
- 		.update_survey = mt76x02_update_channel,
- 		.tx_prepare_skb = mt76x02_tx_prepare_skb,
-diff --git a/drivers/net/wireless/mediatek/mt76/mt76x0/usb.c b/drivers/net/wireless/mediatek/mt76/mt76x0/usb.c
-index f2b2fa7338457..7a4d62bff28ff 100644
---- a/drivers/net/wireless/mediatek/mt76/mt76x0/usb.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt76x0/usb.c
-@@ -209,7 +209,8 @@ static int mt76x0u_probe(struct usb_interface *usb_intf,
- 			 const struct usb_device_id *id)
- {
- 	static const struct mt76_driver_ops drv_ops = {
--		.drv_flags = MT_DRV_SW_RX_AIRTIME,
-+		.drv_flags = MT_DRV_SW_RX_AIRTIME |
-+			     MT_DRV_IGNORE_TXS_FAILED,
- 		.survey_flags = SURVEY_INFO_TIME_TX,
- 		.update_survey = mt76x02_update_channel,
- 		.tx_prepare_skb = mt76x02u_tx_prepare_skb,
-diff --git a/drivers/net/wireless/mediatek/mt76/mt76x2/pci.c b/drivers/net/wireless/mediatek/mt76/mt76x2/pci.c
-index 5cd0379d86de8..4e369bd87c900 100644
---- a/drivers/net/wireless/mediatek/mt76/mt76x2/pci.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt76x2/pci.c
-@@ -22,7 +22,8 @@ mt76x2e_probe(struct pci_dev *pdev, const struct pci_device_id *id)
- 	static const struct mt76_driver_ops drv_ops = {
- 		.txwi_size = sizeof(struct mt76x02_txwi),
- 		.drv_flags = MT_DRV_TX_ALIGNED4_SKBS |
--			     MT_DRV_SW_RX_AIRTIME,
-+			     MT_DRV_SW_RX_AIRTIME |
-+			     MT_DRV_IGNORE_TXS_FAILED,
- 		.survey_flags = SURVEY_INFO_TIME_TX,
- 		.update_survey = mt76x02_update_channel,
- 		.tx_prepare_skb = mt76x02_tx_prepare_skb,
-diff --git a/drivers/net/wireless/mediatek/mt76/mt76x2/usb.c b/drivers/net/wireless/mediatek/mt76/mt76x2/usb.c
-index 9369515f36a3a..09b01e09bcfe0 100644
---- a/drivers/net/wireless/mediatek/mt76/mt76x2/usb.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt76x2/usb.c
-@@ -29,7 +29,8 @@ static int mt76x2u_probe(struct usb_interface *intf,
- 			 const struct usb_device_id *id)
- {
- 	static const struct mt76_driver_ops drv_ops = {
--		.drv_flags = MT_DRV_SW_RX_AIRTIME,
-+		.drv_flags = MT_DRV_SW_RX_AIRTIME |
-+			     MT_DRV_IGNORE_TXS_FAILED,
- 		.survey_flags = SURVEY_INFO_TIME_TX,
- 		.update_survey = mt76x02_update_channel,
- 		.tx_prepare_skb = mt76x02u_tx_prepare_skb,
-diff --git a/drivers/net/wireless/mediatek/mt76/tx.c b/drivers/net/wireless/mediatek/mt76/tx.c
-index 134a735a06329..3fbf0153d13ca 100644
---- a/drivers/net/wireless/mediatek/mt76/tx.c
-+++ b/drivers/net/wireless/mediatek/mt76/tx.c
-@@ -93,7 +93,8 @@ __mt76_tx_status_skb_done(struct mt76_dev *dev, struct sk_buff *skb, u8 flags,
- 	__skb_unlink(skb, &dev->status_list);
- 
- 	/* Tx status can be unreliable. if it fails, mark the frame as ACKed */
--	if (flags & MT_TX_CB_TXS_FAILED) {
-+	if (flags & MT_TX_CB_TXS_FAILED &&
-+	    (dev->drv->drv_flags & MT_DRV_IGNORE_TXS_FAILED)) {
- 		info->status.rates[0].count = 0;
- 		info->status.rates[0].idx = -1;
- 		info->flags |= IEEE80211_TX_STAT_ACK;
++#if IS_ENABLED(CONFIG_SND_SOC_MT6359_ACCDET)
+ int mt6359_accdet_enable_jack_detect(struct snd_soc_component *component,
+ 				     struct snd_soc_jack *jack);
++#else
++static inline int
++mt6359_accdet_enable_jack_detect(struct snd_soc_component *component,
++				 struct snd_soc_jack *jack)
++{
++	return -EOPNOTSUPP;
++}
++#endif
+ #endif
 -- 
 2.39.5
 
