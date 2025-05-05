@@ -4,74 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 462D7C3ABAA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FEA7C3ABBB
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 13:21:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WBYMe8AWciFRbGt/UH6lyqSHdnAGgD4jpjABIeG45Ss=; b=3jENQ7EKK7XfBjmCx2d8ol0hry
-	mcEgB4krLfW2lMVxJ2UJM9qcwcoyxc6vTOoP2sh/SOgdRKsh34uotPpXoOAqWPoRWx/V7Msb3oavs
-	xRJHpNGddPatoifsTGP6GVIacXy13l0TVbA9WSoORVjucVUE6WXlr0H1N4PKhr68j+cyKGWJnAvai
-	FUxgGVlIHTNm9UmrMCLEEFSWu4VZE3PMF+AeUa2Sl4rMuD0rGzuDOqebDLPGLiucFSUcyyZ8+OKHM
-	X90CQ/VZBGlqjUlKWzduBTsxSJScDYMlkJvkd3MAdI1xswqTFyIcR6YOS7T208r/9WJFZwFrAXTVs
-	9RtUkYng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bk2Fdh/LRuqCw+jHA02dwhIjxA4SW793iNQ+swnOfo0=; b=T0d9DRFcBjhGOviFBte8VhcgvT
+	H2VXO3pxN6VLalk0i2poVByyPEztbDDyfSfc7h0/0IkW2CgNdL5+uD2Ct3aHFw52LuO+sYws4FAdN
+	bFLC44eYoIDCWobpkBvi5i9qSDkEwsIx+CvXbhWu2AvygUx2MwGr806LIERXyG+166BuHr4weld6P
+	klLxgRKP6GQaF5XZM6PWCQ3U07FjzErH+gdlJXTl9aOKKOamay7OUzhJx9MuNDjNjwZ2pg48JNeTu
+	sXqUSeB1DhkLl5PkNfQvuJzoOTGJ5/aOoCeyXQywoov3/e0+N7D8nA9/mVlM0WovsoiWA14C2B9/Z
+	Ciafm/Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBvkk-00000007S2o-2U74;
-	Mon, 05 May 2025 13:21:02 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1uBvkn-00000007S7Q-3dKw;
+	Mon, 05 May 2025 13:21:05 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBvS7-00000007Pye-1W0Z;
-	Mon, 05 May 2025 13:01:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=WBYMe8AWciFRbGt/UH6lyqSHdnAGgD4jpjABIeG45Ss=; b=G/pbePtf629UUQemqdlgBwP/jR
-	MZV+7whYgmJ/tAJLSU+DLyqCxZ/wfKCgiDyKBYAfD1wpq88Eu8+7hPhfNwcNJcHvbYUTsRYld6gyi
-	Vzt9xbaQYFL6tKFKTRveu/knLvUBh+thg5wLRJpoEpgJadUBlIRLHtza6Kizff+5la/rQMNIFEiCO
-	GKL5qQMaJ75xsZpMB81aB0HsJoV6bL6kEpR5OC6723rGQezQeFzKGcqEL9COaPSx2ITSiX21OoIC0
-	Uc0vDch+cxHvVi5mbuRSPsEouddLoxf80+lxq6bWHL0wFwh0+9xub7lByQds7VRztvPVUAWJ3gn1c
-	K6hodFqg==;
-Received: from i53875a1d.versanet.de ([83.135.90.29] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1uBvRd-0006mT-UT; Mon, 05 May 2025 15:01:18 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Daniel Golle <daniel@makrotopia.org>,
-	Aurelien Jarno <aurelien@aurel32.net>,
-	Olivia Mackall <olivia@selenic.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	kernel@collabora.com,
-	linux-crypto@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
+	id 1uBvaM-00000007QuZ-17X1
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 May 2025 13:10:19 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-54e816aeca6so5535468e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 06:10:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746450616; x=1747055416; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Bk2Fdh/LRuqCw+jHA02dwhIjxA4SW793iNQ+swnOfo0=;
+        b=djHntaupA0bNjGp3/iPaQGlEjToTQLU3LcyS4xiWTz4SS5G7CMCWTHjqln1XGYTWyN
+         rZp4WYVPdlM74QdUbMmjsBAVXlHmIxMx662b5FHMXXLcV4/RU8MDSmCmpZuiDPmWReUB
+         rozIsPelfa6Vvb8GcNMfEBrHNn0jXP9yACn8SSX3GRLB9YdHGQ3i/yLPCfHCQFV4auSs
+         RboeelCbabdJMaB5JbimJ6RG6Qb+u8U+5G9OjLqIQl1+mtZxNgdVhj4bo8TE6L+iE6vn
+         WWql4/Nc5En6hz4ihlqLTbMEn/hdEk1AGW8CRo1d2AY/IDgxo8ysmFu5DMEfu2HQ7i8P
+         ofKg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746450616; x=1747055416;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Bk2Fdh/LRuqCw+jHA02dwhIjxA4SW793iNQ+swnOfo0=;
+        b=JHryExJbhvRpHBFNTZpf8HloGLojAsSn80TfpJ3qBTdiXeNpM2UgPwmBX7lTiNqo9C
+         S73w2ZOdymOzdpOm1CCwlPLJM3Ho+Clxo9utx9f6aMEd1cvnGx7PlATRTKDCLP9aC3qR
+         Ot5YU3bd0khESwO7hd8KHmomLt9xYfazdrL/GWGMRj3wDhwdFvV7XNIR6N7wjgDaaoiD
+         hLKymde0sszKWqZSwI8qZD0PSCqgR8bBpcO1ZWBUr226c3SGwAlAvxT0CjavCAqVn0X/
+         yB6G57ZQeJ8w5JoFgBlQoaqVmUfuiCNp05V94ZKBn3l9vz0pWI8G5196SSbitGqgrPvr
+         fkkg==
+X-Gm-Message-State: AOJu0Yw72WEbeoEOZhipCvkW3fS7APRbZJDksibi8aENdAqV4tExF+9b
+	ug+2QvQRnl7ZLLxoUyFPBcd/WbSthG0oVgrTSus8le7EDy9Zz1Af
+X-Gm-Gg: ASbGncup1KmlTWdy9jZE6U4oOFef6cANKO4xOjCBAypbUS6yu51MPSDVWXe9aHmgwL6
+	LURl+J3D1vAdxCN+iEOvCnJYINNN48XFQfkE5PABTz8EOGaQK+WUOrrnUrZBew7+12UWqq4R80F
+	xHSx13XQRzpsNhVEz4xkclCUCBamJk1cF5klUfe7JNnosTvsKv7dDeeDmYC0TSHb8Sz0+w2T9gz
+	+b8DlwiBmQIq3qPqSjlvixc4Sat+TARaJorX0lD156s97a3hl622nLViW3msagpWw1+2Ii4A6SC
+	jVvYFHHx+jVrCIjQGbFm0FEQKV5a7gsDlKlOsPmv0izcOAJOJo3pYL2OqON5fKH6kY0WXw1OGbc
+	rRw==
+X-Google-Smtp-Source: AGHT+IHr1P+DfBvNYTE1IUuk4mUjXsCsLwslNxXJENXtYrYYMvnH/fcJseObHYrApDHjE4l45mPtNg==
+X-Received: by 2002:a05:6512:1596:b0:545:3dd:aa69 with SMTP id 2adb3069b0e04-54eb2466eb8mr1961754e87.36.1746450615513;
+        Mon, 05 May 2025 06:10:15 -0700 (PDT)
+Received: from gmail.com (83-233-6-197.cust.bredband2.com. [83.233.6.197])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54ea94f6e0bsm1703046e87.252.2025.05.05.06.10.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 May 2025 06:10:13 -0700 (PDT)
+Date: Mon, 5 May 2025 15:10:12 +0200
+From: Marcus Folkesson <marcus.folkesson@gmail.com>
+To: Bartosz Golaszewski <brgl@bgdev.pl>, Andi Shyti <andi.shyti@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: (subset) [PATCH 0/3] RK3576 Hardware RNG
-Date: Mon,  5 May 2025 15:01:07 +0200
-Message-ID: <174645006215.1225797.3007982185133849135.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250430-rk3576-hwrng-v1-0-480c15b5843e@collabora.com>
-References: <20250430-rk3576-hwrng-v1-0-480c15b5843e@collabora.com>
+Subject: Re: [PATCH] i2c: davinci: add I2C_FUNC_PROTOCOL_MANGLING to feature
+ list
+Message-ID: <aBi4tE4IQxoh7jYL@gmail.com>
+References: <20250326-i2c-v1-1-82409ebe9f2b@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250326-i2c-v1-1-82409ebe9f2b@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_060147_421713_3A9448D3 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20250505_061018_306299_2C633EC8 
+X-CRM114-Status: GOOD (  10.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,27 +97,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello,
 
-On Wed, 30 Apr 2025 18:16:33 +0200, Nicolas Frattaroli wrote:
-> Gee Nicolas, how come your mom lets you write two Rockchip HWRNG drivers
-> in a year?
+On Wed, Mar 26, 2025 at 03:39:47PM +0100, Marcus Folkesson wrote:
+> The driver do support I2C_M_IGNORE_NAK, so add
+> I2C_FUNC_PROTOCOL_MANGLING to the feature list.
 > 
-> In short, RK3576 (and RK3562 and RK3528) introduce another HWRNG IP. It
-> actually has quite a few cool features, but I ignored the cool bits and
-> went straight for the true entropy. Some of the cool bits someone else
-> may wish to add in the future: AES-CTR PRNG that's regularly reseeded
-> from the entropy, adjustments for oscillator and oscillator ring lengths
-> to maximise entropy generation, automatic continuous quality checking of
-> the produced entropy by the hardware itself, etc.
-> 
-> [...]
+> Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
+> ---
 
-Applied, thanks!
+Is this patch picked up by any tree?
+No confirmation nor showing up in -next makes me wonder.
 
-[3/3] arm64: dts: rockchip: add RK3576 RNG node
-      commit: 5268f3b5d29887480011b44567bcbf0d422cda94
-
-Best regards,
--- 
-Heiko Stuebner <heiko@sntech.de>
+Thanks,
+Marcus Folkesson
 
