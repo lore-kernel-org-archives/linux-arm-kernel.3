@@ -4,89 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B407BC3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 17:33:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64E21C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 17:35:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eI4y/BuLlZr98QGdclamONyFaz80LpH9fGjQQShpoLM=; b=DOAPp0ExDnDI9LOv9VpAi12Q51
-	tesePS3rfp6m3EKdK6MWZsBBCzOVNwjrqtkhs0luYxDrgHw7bKWjZ8zSWYGIukUV9L72M1J11uBUK
-	EQMyamlbP6oXVoD9yBKNY5/sZN73TTVBB7bksNkvDCTd6IXucNC/XIYI2wzpFUCcCOhE5229tHngg
-	Uk4mze/n3MV13hwgfyk1l25mqsHIJXraQ7I0Wh5VJhURVdfTkieBtrhPMp3cjPhCnsPzLWEuuoF2a
-	Yv5a/CzItANqpR6KR00ie+95ofoI9nrU6dqX29b4uwbIMPrut9eqaDHE6nNDqFxrNtoaMyUq47HON
-	lRhy19QA==;
+	bh=MaDkGjhQDSPYsuzM9uRxkmARdK9P5jYEAGbm91UNP7U=; b=2CjY/UGe/dKoJzWBmRWEdjMqKy
+	7PYOxf7mI60ED9xWgcAMiY95B3prrKxS8U6Ysza0/X6ugwrYEfhh5cJ3tbXcNj61RjLQLdZ0NWxj6
+	1Gw25yD5MgoL9g31Ecr7m4MteCvmIjMP4A6uRytXEfpF39dSxAJ5TAz7+NxZul6EcY7JEs8D2G04c
+	ceOuQKaWgbCe3K8Xo31iMcGqp0SgP4KkRyVZIrnPC5hM5hWDMjmQRIe3voslCE60EAeNi3OpJhIyu
+	W/rGSRPDhQG+UGet82lAhx2XE1atqIoX6Zh0HhepHsLm0kSGyMNiifQVkEr0LFl3aN2UF2f4Oosir
+	W6pqRBJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBzh4-00000008ASZ-3XVC;
-	Mon, 05 May 2025 17:33:30 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1uBzj3-00000008B6D-0grt;
+	Mon, 05 May 2025 17:35:33 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBzXG-000000088MD-3u2i
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 17:23:24 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 545HNFZ3833317
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 5 May 2025 12:23:15 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1746465795;
-	bh=eI4y/BuLlZr98QGdclamONyFaz80LpH9fGjQQShpoLM=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=tuaULRW0ltUDsbZ6QncT2ZybY5Gt/MrkZZmLjIdtTU7jqb1nzbZKu0VL8ATKLxZto
-	 AzEhmlp70e+kFfQujYyDWcl/JEfOfZu5p5tUs/Nes7bI3t/5w2h7U5aPWJQrdkDz1A
-	 ukLBG/CcNa3SZk7I8kTa9di+80EizM9/+Gss7OJM=
-Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 545HNF0a091066
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 5 May 2025 12:23:15 -0500
-Received: from DFLE100.ent.ti.com (10.64.6.21) by DFLE104.ent.ti.com
- (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 5
- May 2025 12:23:14 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE100.ent.ti.com
- (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 5 May 2025 12:23:14 -0500
-Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 545HNEJu093720;
-	Mon, 5 May 2025 12:23:14 -0500
-Message-ID: <84e6413e-4a61-40a5-acc7-85da76e6d540@ti.com>
-Date: Mon, 5 May 2025 12:23:14 -0500
+	id 1uBzb2-000000088u1-0CD6;
+	Mon, 05 May 2025 17:27:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1746466020; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=ctbdMvRigOOohtiooqQ6ZJ3beXX0opnVdvw+za+SKdk6Ln+QPErm8WoFowNaoN0ck1s0OwVlbavgO6RdF2ps7z4I4bC3QSeETJ4ZnejXii6na5Kxaxbsik6+HBrnAEXK58YNbLtek4U3cu7Hp2JZsDXmYzA51IafS3kJjFvaS/M=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1746466020; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=MaDkGjhQDSPYsuzM9uRxkmARdK9P5jYEAGbm91UNP7U=; 
+	b=FPpsSBVnoyVacN2Q/j8+tNbgODhJkV0Es9X5N90dBeh4uCNhkiaYk0sE8YJ5TPNO6IzWjQKeDXmmrzoukOb0v3KwUZVSJWAAvuhHr4waoIyZNPYChnXT0Ot7Y0FlkBzhUKmBCywPw0aoFXEFZmbkGO7h49S7W6XNV5giWtQ0TCQ=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1746466020;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=MaDkGjhQDSPYsuzM9uRxkmARdK9P5jYEAGbm91UNP7U=;
+	b=Nc3e+E27YJsgWN81HBtqPNG1jzVBDMwxFL02NhDzhIO2MlE936BmwzwiuQgHKfdn
+	k1tlvzlCeH4sejWIXbmvHhNhqjEcKseHHZk0smHL9vn38wt67XBg+Vf3OirRGJJmfXS
+	XNaVZktLDAWZHDra1lklT6cpMTHSSbwN1Quhi6GE=
+Received: by mx.zohomail.com with SMTPS id 1746466018698847.2650646063497;
+	Mon, 5 May 2025 10:26:58 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Mon, 05 May 2025 19:26:36 +0200
+Subject: [PATCH v2 1/5] phy: rockchip: inno-usb2: add soft vbusvalid
+ control
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 03/11] arm64: dts: ti: k3-am62a-mcu: Add R5F remote
- proc node
-To: Daniel Schultz <d.schultz@phytec.de>, "Mendez, Judith" <jm@ti.com>,
-        Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>
-CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Hari
- Nagalla <hnagalla@ti.com>,
-        Beleswar Padhi <b-padhi@ti.com>,
-        Markus
- Schneider-Pargmann <msp@baylibre.com>,
-        Devarsh Thakkar <devarsht@ti.com>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-References: <20250502220325.3230653-1-jm@ti.com>
- <20250502220325.3230653-4-jm@ti.com>
- <50039c49-a6c5-4f29-a35a-53b9af117fd8@phytec.de>
- <6c5e786d-7581-492f-92fb-be92ecbecd87@ti.com>
- <31d32966-05fe-4369-afda-3278822d8cb5@ti.com>
- <646350fd-3dc5-47eb-ab1b-1a6a9acd69a8@phytec.de>
-Content-Language: en-US
-From: Andrew Davis <afd@ti.com>
-In-Reply-To: <646350fd-3dc5-47eb-ab1b-1a6a9acd69a8@phytec.de>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250505-rk3576-sige5-usb-v2-1-d5ba4305f3be@collabora.com>
+References: <20250505-rk3576-sige5-usb-v2-0-d5ba4305f3be@collabora.com>
+In-Reply-To: <20250505-rk3576-sige5-usb-v2-0-d5ba4305f3be@collabora.com>
+To: Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Kever Yang <kever.yang@rock-chips.com>, 
+ Frank Wang <frank.wang@rock-chips.com>
+Cc: Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ kernel@collabora.com, linux-phy@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_102323_337975_1EEC02BC 
-X-CRM114-Status: GOOD (  24.65  )
+X-CRM114-CacheID: sfid-20250505_102716_156873_054B603C 
+X-CRM114-Status: GOOD (  22.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,130 +85,235 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 5/5/25 11:00 AM, Daniel Schultz wrote:
-> Hey,
-> 
-> On 5/5/25 17:22, Andrew Davis wrote:
->> On 5/5/25 10:05 AM, Mendez, Judith wrote:
->>> Hi Daniel,
->>>
->>> On 5/5/2025 4:55 AM, Daniel Schultz wrote:
->>>> Hi,
->>>>
->>>> I'm unable to load the latest TI firmware (98efd20ec71f8c1c8f909d34ab656731) with this patch.
->>>>
->>>> [    7.012889] remoteproc remoteproc1: 79000000.r5f is available
->>>> [    7.032640] remoteproc remoteproc1: powering up 79000000.r5f
->>>> [    7.038626] remoteproc remoteproc1: Booting fw image am62a-mcu- r5f0_0-fw, size 53140
->>>> [    7.057209] remoteproc remoteproc1: bad phdr da 0x79100000 mem 0x47ea0
->>
->> So this looks like the firmware has sections in the SRAM region. That would be the
->> issue here.
->>
->>>> [    7.064716] remoteproc remoteproc1: Failed to load program segments: -22
->>>>
->>>> I figured out that the mcu sram node disappeared in v5. Apparently adding it back manually doesn't solve this problem. Any idea what's wrong?
->>>
->>> For am62ax, there should be several items changed with this v8
->>> series in order for remoteproc to work with the TI default firmware:
-> What firmware did you use? I was using the latest public default firmware from ti-linux-firmware.
->>>
->>> 1. memory carveouts were reduced to 15MB [0] & edge-ai memory
->>> carveouts are not included here
->>
->> This shouldn't be an issue, the default firmware doesn't
->> use the extended carveouts.
-> Yes, this is just the echo firmware.
->>
->>> 2. mcu_sram1 node removed [2]
->>>
->>
->> So when you say you added back the SRAM node, did you also add the
->> sram = <&mcu_ram>; in the core node?
-> 
-> With that property added, I can load the firmware again! So, what's the problem with adding this sram node and did you remove it?
-> 
+With USB type C connectors, the vbus detect pin of the OTG controller
+attached to it is pulled high by a USB Type C controller chip such as
+the fusb302. This means USB enumeration on Type-C ports never works, as
+the vbus is always seen as high.
 
-Good to hear that fixed it.
+Rockchip added some GRF register flags to deal with this situation. The
+RK3576 TRM calls these "soft_vbusvalid_bvalid" (con0 bit index 15) and
+"soft_vbusvalid_bvalid_sel" (con0 bit index 14).
 
-And we removed the SRAM node as I was unhappy with how we were handling reserving it.
-The firmware should declare usage of shared resources like this in its resource table,
-and the RProc driver should dynamically request the same from a normal SRAM pool.
-What we were doing before was to statically block out the whole SRAM node for use by
-the R5, and the driver would unconditionally map it, even if it was not used by the
-loaded firmware at all.
+Downstream introduces a new vendor property which tells the USB 2 PHY
+that it's connected to a type C port, but we can do better. Since in
+such an arrangement, we'll have an OF graph connection from the USB
+controller to the USB connector anyway, we can walk said OF graph and
+check the connector's compatible to determine this without adding any
+further vendor properties.
 
-I wanted us to fix the above before upstreaming it so we left it out of this
-series. Next cycle we should have the better solution ready and posted for
-upstream.
+Do keep in mind that the usbdp PHY driver seemingly fiddles with these
+register fields as well, but what it does doesn't appear to be enough
+for us to get working USB enumeration, presumably because the whole
+vbus_attach logic needs to be adjusted as well either way.
 
-Andrew
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+ drivers/phy/rockchip/phy-rockchip-inno-usb2.c | 113 +++++++++++++++++++++++++-
+ 1 file changed, 109 insertions(+), 4 deletions(-)
 
-> - Daniel
-> 
->>
->> Andrew
->>
->>> If you want to catch up on the general direction for this series,
->>> please refer to [3]. atm remoteproc can fail with the default FW,
->>> but we are trying to move away from that firmware and this is the
->>> first step in that direction.
->>>
->>> [0] https://lore.kernel.org/linux-devicetree/0ab5c5ec-cde3-41f1-8adf-2419b31497c1@ti.com/
->>> [1] https://lore.kernel.org/linux-devicetree/04e77daf-e775-44fa-82bf-8b6ebf73bcef@ti.com/
->>> [2] https://lore.kernel.org/linux-devicetree/32358aa1-0c02-4f4d-9782-2d8376c0d9fc@ti.com/
->>> [3] https://lore.kernel.org/linux-devicetree/e131298f-3713-482a-a740-ff89709270b4@ti.com/
->>>
->>> ~ Judith
->>>
->>>>
->>>> On 5/3/25 00:03, Judith Mendez wrote:
->>>>> From: Hari Nagalla <hnagalla@ti.com>
->>>>>
->>>>> AM62A SoCs have a single R5F core in the MCU voltage domain.
->>>>> Add the R5FSS node with the child node for core0 in MCU voltage
->>>>> domain .dtsi file.
->>>>>
->>>>> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
->>>>> Signed-off-by: Judith Mendez <jm@ti.com>
->>>>> Acked-by: Andrew Davis <afd@ti.com>
->>>>> ---
->>>>>   arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi | 25 ++++++++++++++++++++++++
->>>>>   1 file changed, 25 insertions(+)
->>>>>
->>>>> diff --git a/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi b/arch/arm64/ boot/dts/ti/k3-am62a-mcu.dtsi
->>>>> index 9ed9d703ff24..ee961ced7208 100644
->>>>> --- a/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
->>>>> +++ b/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
->>>>> @@ -174,4 +174,29 @@ mcu_mcan1: can@4e18000 {
->>>>>           bosch,mram-cfg = <0x0 128 64 64 64 64 32 32>;
->>>>>           status = "disabled";
->>>>>       };
->>>>> +
->>>>> +    mcu_r5fss0: r5fss@79000000 {
->>>>> +        compatible = "ti,am62-r5fss";
->>>>> +        #address-cells = <1>;
->>>>> +        #size-cells = <1>;
->>>>> +        ranges = <0x79000000 0x00 0x79000000 0x8000>,
->>>>> +             <0x79020000 0x00 0x79020000 0x8000>;
->>>>> +        power-domains = <&k3_pds 7 TI_SCI_PD_EXCLUSIVE>;
->>>>> +        status = "disabled";
->>>>> +
->>>>> +        mcu_r5fss0_core0: r5f@79000000 {
->>>>> +            compatible = "ti,am62-r5f";
->>>>> +            reg = <0x79000000 0x00008000>,
->>>>> +                  <0x79020000 0x00008000>;
->>>>> +            reg-names = "atcm", "btcm";
->>>>> +            resets = <&k3_reset 9 1>;
->>>>> +            firmware-name = "am62a-mcu-r5f0_0-fw";
->>>>> +            ti,atcm-enable = <0>;
->>>>> +            ti,btcm-enable = <1>;
->>>>> +            ti,loczrama = <0>;
->>>>> +            ti,sci = <&dmsc>;
->>>>> +            ti,sci-dev-id = <9>;
->>>>> +            ti,sci-proc-ids = <0x03 0xff>;
->>>>> +        };
->>>>> +    };
->>>>>   };
->>>
+diff --git a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
+index b5e6a864deebbcb33375001fc6ed67b2dfee6954..07be9c033c772d4157c7bf438fca9b9219a68c9d 100644
+--- a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
++++ b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
+@@ -17,6 +17,7 @@
+ #include <linux/module.h>
+ #include <linux/mutex.h>
+ #include <linux/of.h>
++#include <linux/of_graph.h>
+ #include <linux/of_irq.h>
+ #include <linux/phy/phy.h>
+ #include <linux/platform_device.h>
+@@ -114,6 +115,8 @@ struct rockchip_chg_det_reg {
+ /**
+  * struct rockchip_usb2phy_port_cfg - usb-phy port configuration.
+  * @phy_sus: phy suspend register.
++ * @svbus_en: soft vbus bvalid enable register.
++ * @svbus_sel: soft vbus bvalid selection register.
+  * @bvalid_det_en: vbus valid rise detection enable register.
+  * @bvalid_det_st: vbus valid rise detection status register.
+  * @bvalid_det_clr: vbus valid rise detection clear register.
+@@ -140,6 +143,8 @@ struct rockchip_chg_det_reg {
+  */
+ struct rockchip_usb2phy_port_cfg {
+ 	struct usb2phy_reg	phy_sus;
++	struct usb2phy_reg	svbus_en;
++	struct usb2phy_reg	svbus_sel;
+ 	struct usb2phy_reg	bvalid_det_en;
+ 	struct usb2phy_reg	bvalid_det_st;
+ 	struct usb2phy_reg	bvalid_det_clr;
+@@ -203,6 +208,7 @@ struct rockchip_usb2phy_cfg {
+  * @event_nb: hold event notification callback.
+  * @state: define OTG enumeration states before device reset.
+  * @mode: the dr_mode of the controller.
++ * @typec_vbus_det: whether to apply Type C logic to OTG vbus detection.
+  */
+ struct rockchip_usb2phy_port {
+ 	struct phy	*phy;
+@@ -222,6 +228,7 @@ struct rockchip_usb2phy_port {
+ 	struct notifier_block	event_nb;
+ 	enum usb_otg_state	state;
+ 	enum usb_dr_mode	mode;
++	bool typec_vbus_det;
+ };
+ 
+ /**
+@@ -495,6 +502,13 @@ static int rockchip_usb2phy_init(struct phy *phy)
+ 	mutex_lock(&rport->mutex);
+ 
+ 	if (rport->port_id == USB2PHY_PORT_OTG) {
++		if (rport->typec_vbus_det) {
++			if (rport->port_cfg->svbus_en.enable &&
++					rport->port_cfg->svbus_sel.enable) {
++				property_enable(rphy->grf, &rport->port_cfg->svbus_en, true);
++				property_enable(rphy->grf, &rport->port_cfg->svbus_sel, true);
++			}
++		}
+ 		if (rport->mode != USB_DR_MODE_HOST &&
+ 		    rport->mode != USB_DR_MODE_UNKNOWN) {
+ 			/* clear bvalid status and enable bvalid detect irq */
+@@ -535,8 +549,7 @@ static int rockchip_usb2phy_init(struct phy *phy)
+ 			if (ret)
+ 				goto out;
+ 
+-			schedule_delayed_work(&rport->otg_sm_work,
+-					      OTG_SCHEDULE_DELAY * 3);
++			schedule_delayed_work(&rport->otg_sm_work, 0);
+ 		} else {
+ 			/* If OTG works in host only mode, do nothing. */
+ 			dev_dbg(&rport->phy->dev, "mode %d\n", rport->mode);
+@@ -666,8 +679,17 @@ static void rockchip_usb2phy_otg_sm_work(struct work_struct *work)
+ 	unsigned long delay;
+ 	bool vbus_attach, sch_work, notify_charger;
+ 
+-	vbus_attach = property_enabled(rphy->grf,
+-				       &rport->port_cfg->utmi_bvalid);
++	if (rport->port_cfg->svbus_en.enable && rport->typec_vbus_det) {
++		if (property_enabled(rphy->grf, &rport->port_cfg->svbus_en) &&
++		    property_enabled(rphy->grf, &rport->port_cfg->svbus_sel)) {
++			vbus_attach = true;
++		} else {
++			vbus_attach = false;
++		}
++	} else {
++		vbus_attach = property_enabled(rphy->grf,
++					       &rport->port_cfg->utmi_bvalid);
++	}
+ 
+ 	sch_work = false;
+ 	notify_charger = false;
+@@ -1276,6 +1298,83 @@ static int rockchip_otg_event(struct notifier_block *nb,
+ 	return NOTIFY_DONE;
+ }
+ 
++static const char *const rockchip_usb2phy_typec_cons[] = {
++	"usb-c-connector",
++	NULL,
++};
++
++static struct device_node *rockchip_usb2phy_to_controller(struct rockchip_usb2phy *rphy)
++{
++	struct device_node *np;
++	struct device_node *parent;
++
++	for_each_node_with_property(np, "phys") {
++		struct of_phandle_iterator it;
++		int ret;
++
++		of_for_each_phandle(&it, ret, np, "phys", NULL, 0) {
++			parent = of_get_parent(it.node);
++			if (it.node != rphy->dev->of_node && rphy->dev->of_node != parent) {
++				if (parent)
++					of_node_put(parent);
++				continue;
++			}
++
++			/*
++			 * Either the PHY phandle we're iterating or its parent
++			 * matched, we don't care about which out of the two in
++			 * particular as we just need to know it's the right
++			 * USB controller for this PHY.
++			 */
++			of_node_put(it.node);
++			of_node_put(parent);
++			return np;
++		}
++	}
++
++	return NULL;
++}
++
++static bool rockchip_usb2phy_otg_is_type_c(struct rockchip_usb2phy *rphy)
++{
++	struct device_node *controller = rockchip_usb2phy_to_controller(rphy);
++	struct device_node *ports;
++	struct device_node *ep = NULL;
++	struct device_node *parent;
++
++	if (!controller)
++		return false;
++
++	ports = of_get_child_by_name(controller, "ports");
++	if (ports) {
++		of_node_put(controller);
++		controller = ports;
++	}
++
++	for_each_of_graph_port(controller, port) {
++		ep = of_get_child_by_name(port, "endpoint");
++		if (!ep)
++			continue;
++
++		parent = of_graph_get_remote_port_parent(ep);
++		of_node_put(ep);
++		if (!parent)
++			continue;
++
++		if (of_device_compatible_match(parent, rockchip_usb2phy_typec_cons)) {
++			of_node_put(parent);
++			of_node_put(controller);
++			return true;
++		}
++
++		of_node_put(parent);
++	}
++
++	of_node_put(controller);
++
++	return false;
++}
++
+ static int rockchip_usb2phy_otg_port_init(struct rockchip_usb2phy *rphy,
+ 					  struct rockchip_usb2phy_port *rport,
+ 					  struct device_node *child_np)
+@@ -1297,6 +1396,8 @@ static int rockchip_usb2phy_otg_port_init(struct rockchip_usb2phy *rphy,
+ 
+ 	mutex_init(&rport->mutex);
+ 
++	rport->typec_vbus_det = rockchip_usb2phy_otg_is_type_c(rphy);
++
+ 	rport->mode = of_usb_get_dr_mode_by_phy(child_np, -1);
+ 	if (rport->mode == USB_DR_MODE_HOST ||
+ 	    rport->mode == USB_DR_MODE_UNKNOWN) {
+@@ -1971,6 +2072,8 @@ static const struct rockchip_usb2phy_cfg rk3576_phy_cfgs[] = {
+ 		.port_cfgs	= {
+ 			[USB2PHY_PORT_OTG] = {
+ 				.phy_sus	= { 0x0000, 8, 0, 0, 0x1d1 },
++				.svbus_en	= { 0x0000, 15, 15, 0, 1 },
++				.svbus_sel	= { 0x0000, 14, 14, 0, 1 },
+ 				.bvalid_det_en	= { 0x00c0, 1, 1, 0, 1 },
+ 				.bvalid_det_st	= { 0x00c4, 1, 1, 0, 1 },
+ 				.bvalid_det_clr = { 0x00c8, 1, 1, 0, 1 },
+@@ -2008,6 +2111,8 @@ static const struct rockchip_usb2phy_cfg rk3576_phy_cfgs[] = {
+ 		.port_cfgs	= {
+ 			[USB2PHY_PORT_OTG] = {
+ 				.phy_sus	= { 0x2000, 8, 0, 0, 0x1d1 },
++				.svbus_en	= { 0x2000, 15, 15, 0, 1 },
++				.svbus_sel	= { 0x2000, 14, 14, 0, 1 },
+ 				.bvalid_det_en	= { 0x20c0, 1, 1, 0, 1 },
+ 				.bvalid_det_st	= { 0x20c4, 1, 1, 0, 1 },
+ 				.bvalid_det_clr = { 0x20c8, 1, 1, 0, 1 },
+
+-- 
+2.49.0
+
 
