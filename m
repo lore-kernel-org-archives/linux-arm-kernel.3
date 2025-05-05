@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03F51C3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 15:52:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E33FC3ABB0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 15:54:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TfSasfyNn2QOSv32qDVaYS8lEHvMrqjWB4CpFRqIp8o=; b=NEVsgnEu/MR8M19IV5vOHKnW13
-	2sZHHNrskPEKf8D08eHbv/1BcySbK7dueaY68I6i7Zu92wrZHQEtkGJDm3iFgMI4J16sRQpbWRejQ
-	kiSR4LszYAtM+Al6HAScCBt6a4wLqE5IuTShfGKXuu1aX89yE6nqCn8qhF3rUbdyktvIl/HkA9ywJ
-	MSuznGOPNgEwtt91sk+0z8bgz0DIMg+C9yx8YH09FSHYXvE8Ovu+GxJJK2YxMeLFugu+V48Le+k45
-	MfnmfXgFjLoKGVgdhS8YF2DNDWLXcyuceiF7bSipGqUUVnNo/yI7ynbj4xEPVGcf9l4H20PRSNG2q
-	N2/X8f9A==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jrh837RVy54Gg6Y+qeX+8goZwlDp8QNNPgp6OA+KrOY=; b=PSlUM4VyzOAIGbS8Fq/GX2tP+p
+	UDKU1rcn0FOdk5mg6XKaKgxnkoYudwO3hIQW2I6DAJcCBpTtAj8Ms+bAlSQLAk/WFU6n8YMGQOjou
+	mglivs25ZTtaqPPI8k4MD7rqnFoqVUv4A4TiSksvW2h/jo0bONlP3veI+axQMxJsDQojy/ph+e3nb
+	9ijc22Fs9juJfzlE+au6vLIQPliF6sdGK85jLLM2eLrnqQcHJGRPqBWuUnqq95uzR2gh67Sq8T1dH
+	l3rkvlsRBejc8XaMZ00l94og4DwKtTQL4kUoAoTTarhCeI+G6o0It4pBEtOR8F/PU01k9bbu7Y2xc
+	zaVnSaIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBy6i-00000007svN-3fwn;
-	Mon, 05 May 2025 15:51:52 +0000
-Received: from mail-oo1-xc2a.google.com ([2607:f8b0:4864:20::c2a])
+	id 1uBy8g-00000007tK8-2kXf;
+	Mon, 05 May 2025 15:53:54 +0000
+Received: from mail-oo1-xc2d.google.com ([2607:f8b0:4864:20::c2d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBy4k-00000007sSR-11go
+	id 1uBy4o-00000007sUX-3VeF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 15:49:51 +0000
-Received: by mail-oo1-xc2a.google.com with SMTP id 006d021491bc7-6062e41916dso2234156eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 08:49:49 -0700 (PDT)
+	Mon, 05 May 2025 15:49:55 +0000
+Received: by mail-oo1-xc2d.google.com with SMTP id 006d021491bc7-6064d4c14ebso1054553eaf.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 08:49:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746460189; x=1747064989; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=TfSasfyNn2QOSv32qDVaYS8lEHvMrqjWB4CpFRqIp8o=;
-        b=ON89Z6s5T7kSODUwb4f3K0LTatjoRQJPwQ2mYAJCIY2FdzAwrXFJj8aDw9NZG45nCQ
-         7Xn7lu/Q8hqsH6rDkdKtKECgth8P6La6QRIB5nNK1hUuGeoeojp3+43ABtZ9tnmKVn1f
-         5g16AP3QIPG//sj5EHjbZ9djH3sEibfYDSW94cS6TAyMOQEPzwJIHRcYM/aUY1d3Tlzk
-         3zMj4CGhAtHV7ksWUfgUX0SOtEcx8ip9DyTBnI2JvqecrcsJqeRugBPRbhfYWyz6lvkZ
-         aOewtvEdoaOrRDRuWKd/5STjRFwy+tAccEdLQYbDm+knzZWuDAgrO2atJDVTTlkBjUCq
-         H+dw==
+        d=gmail.com; s=20230601; t=1746460194; x=1747064994; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jrh837RVy54Gg6Y+qeX+8goZwlDp8QNNPgp6OA+KrOY=;
+        b=gL4epKZoDfwSiOqA1Q22I2y4LznShfCqBQbYyjGZ8AnaPF47VGjNpETLuU9gnl1yPx
+         SM9woHT2JwT/ifTCGtV+XAi8e9yRsypo7VVxVDoxATBj0ck98bDjdp5QswlOA2/BxONC
+         Q9p2BbKyrr+fouo8OOd8+lckxe2t+srcxpbdTLAL0Qt87YxKnlV8dI/i+hqOHy06cYE8
+         23a46EumdmXuwp1QMFmnztxisymVAgQDqlYXn3Jc/PoIgtb7qQtK64d5ipz0czesfmuI
+         5qpZ2ngQ0pQizVUWgsUp2zCgGwYrNM6e2F/EHennwhbv+Y5JTIW+iU5pvlA0QOWmrpXJ
+         Y06A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746460189; x=1747064989;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TfSasfyNn2QOSv32qDVaYS8lEHvMrqjWB4CpFRqIp8o=;
-        b=uyCLPCDrH0a6xtkixzb8hM6x4pB9OnrGeuKuU4SQE3BdV6nqpDwtRvlBLMeg5LuP7s
-         nouOCgMmnpAxwe4OAKSK051Tqm8sMHuccFEdxjzG2RbPd5po3nMiCTF728h1QeOgWZTw
-         HOXFHXHtCrLTal8et8C2pU8nW5yqEmYbnf00mYRWs6aAMaH6QGF1v48eVd9Zldy0YvJe
-         NQYP5N8J51gxW4h5UMBcbKnmu5ds0+QNmCtBQVqLbdd5vCweJhboKUcosbfsmydgDcxQ
-         zKASsnikqagfgh7IfguQYmgjyvJ2+6AHti+lMsZgxIDNQBt5h64S/sF/j5viMHQ1A2LU
-         76XQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW5o9hb0fCUSBW1qiQ0ZyxhbMCYIwO4bMpiL88i6NXL6hEJflaoMJYpPgHM6RUDqJ3DeMHsEyMwI5rDtB4Al73r@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZQj4Pp5lUOEShKwr5EzVrgb7kljv4X3MCFnVdPgEhZu65lLdQ
-	8TXHYdZ4lEXocgQ4gzTXtDjh5NmEp7YPoEfNMSf6mhWtYO3wQxoldnNy4jJ6fW8=
-X-Gm-Gg: ASbGncsNLMwPVDE33Tk98SeS5G9Ue445UQmrVNBDfN4Dy96v0NyQ1PtCcp+0+LfjG9W
-	7QwKImFVUB12eCws9S+3BBa65crplopFsl64sgb7xrXfwMwfSh1oeg4C78N0ikOoOaMzFGr7Uau
-	IGqr8DXXzSInwv0LVwitYaUHv6xeAOs7ndAKfrWnuNgwyJNHGteG3tvaDhwhWX+44R/7uZxhdNr
-	NapVOsOfb9h6txZmqDWR+w+t4P/Jsy08UWcvjlvhEMlmKwVuall42m7yL4VZqJtS1A1Fa1Ufzw5
-	ku8NQOzeLC7cbvt51JFA3BB42QD/xeXd59E0GXxZkkC2Oa+xZ+Gak/J/PHq6G0q26qftqYl9iw=
-	=
-X-Google-Smtp-Source: AGHT+IFxZaRAPndA18lDE7ChWtiEoMGY9mLpWkb2iP4H0PkM0TVxr3eZLsRh+qcaLAy4IFe3PQLjgA==
-X-Received: by 2002:a05:6820:c81:b0:606:8bce:32a0 with SMTP id 006d021491bc7-608002f986dmr5907169eaf.7.1746460188788;
-        Mon, 05 May 2025 08:49:48 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1746460194; x=1747064994;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=jrh837RVy54Gg6Y+qeX+8goZwlDp8QNNPgp6OA+KrOY=;
+        b=CiYRyHtQh7pMr+lgdKnIyY4l7NvL2DhqqCujJmET/Qj6I1OghBypfUj/pk9/XTyRE4
+         v4ocFmZ8n0Rr1ewdIbtl2WBSgi9mMUqg4SXNroG7AOihDRdD3peVRp3cfcdFwtNlwYMP
+         wViKFGse8xeAfqZwLNwE1XsBgmtiK4WnfHeVg24DYD0JM6Ecz47EJlbXy2OfqZFO3qh5
+         StSP4mWw5O+8PiP9bQf67/4VXtzefLITd5cr48LFJWfgKf+JrJLgN14uO4BXkbAwLSHX
+         uhSZgIKYlaz4Aq90n8f8gOxHSUefJRHSJWzpGl6Gc3x9/ufHUk73/es5ANmFffA0rWBH
+         g8hA==
+X-Forwarded-Encrypted: i=1; AJvYcCWyBJ0t95mmX9rkXV5Fx5ezLv1V9AnrxhkE5ZYB7ePgBtqpC2M3dkAf4uwhIgpx4EzogeG9SuJsfKH/PjDAe547@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJk+8y4od3U0WUzIEjuDE7QQZG0LEhtkZf/Bg3oGUh32icNKml
+	wBTjyfwemktrqh43l+kyMft/0ibKe08KwIcDldDKTNxqke54qr8L
+X-Gm-Gg: ASbGncvg2wEoBL5HSkqir3hKLXaHy/aKcGlC9Uo9QAsRac+enFywykQUXX1puuw0NcF
+	II9H4hTrNeDa3R8938EZR8hlZkyJ3YR5p1G0CgZYERCpX9zKpaBG63SoGmV3wLwsWjblk5dfUxE
+	kAJ7IRHRp+7PCuIDIOLGs06lar4IXt1AP7XmwLOHSSW2ohiRve7sMh34EIBuv6cccAtpt5P33q/
+	AISFpeVlbZmB/G0criP+edHoZNPWY6RXsnnXQiL5gWaBSnGmc2OrX1IfsWx6e4L6IcwtOl8D8co
+	4ARIXytQeN0gLX9Ojrxu5Yj/kVAGv5ysaTyRjeaCRDP8dK4ChKIDZ9xbRYP+oqk=
+X-Google-Smtp-Source: AGHT+IHzxBFSeMM74yjOto3P7ALY8hiN3bLZVvyyH/Nc6q5335Rn3C/QA8sNLRqmd/RLKdgG+WebEA==
+X-Received: by 2002:a05:6820:1391:b0:607:cc1a:572f with SMTP id 006d021491bc7-6080030f9b9mr4884601eaf.6.1746460193770;
+        Mon, 05 May 2025 08:49:53 -0700 (PDT)
 Received: from hiagof-nb.corp.toradex.com ([67.159.246.222])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-607e7fe84a8sm1606217eaf.36.2025.05.05.08.49.44
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-607e7fe84a8sm1606217eaf.36.2025.05.05.08.49.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 May 2025 08:49:48 -0700 (PDT)
+        Mon, 05 May 2025 08:49:52 -0700 (PDT)
 From: Hiago De Franco <hiagofranco@gmail.com>
 To: Mathieu Poirier <mathieu.poirier@linaro.org>,
 	Ulf Hansson <ulf.hansson@linaro.org>,
@@ -85,15 +85,17 @@ Cc: Shawn Guo <shawnguo@kernel.org>,
 	iuliana.prodan@oss.nxp.com,
 	Fabio Estevam <festevam@gmail.com>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: [PATCH 0/3] remoteproc: imx_rproc: allow attaching to running core kicked by the bootloader
-Date: Mon,  5 May 2025 12:48:46 -0300
-Message-Id: <20250505154849.64889-1-hiagofranco@gmail.com>
+Subject: [PATCH 1/3] remoteproc: imx_rproc: skip clock enable when M-core is managed by the SCU
+Date: Mon,  5 May 2025 12:48:47 -0300
+Message-Id: <20250505154849.64889-2-hiagofranco@gmail.com>
 X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250505154849.64889-1-hiagofranco@gmail.com>
+References: <20250505154849.64889-1-hiagofranco@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_084950_284551_846D3CDE 
-X-CRM114-Status: GOOD (  13.39  )
+X-CRM114-CacheID: sfid-20250505_084954_875242_58189595 
+X-CRM114-Status: GOOD (  17.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,39 +112,39 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Hiago De Franco <hiago.franco@toradex.com>
 
-For the i.MX8X and i.MX8 family SoCs, currently when the remotecore is
-started by the bootloader and the M core and A core are in the same
-partition, the driver is not capable to detect the remote core and
-report the correct state of it.
+For the i.MX8X and i.MX8 family SoCs, when the M-core is powered up
+before Linux starts (e.g., by the bootloader) and it is being managed by
+the SCU, the SCFW will not allow the kernel to enable the clock again.
+This currently causes an SCU fault reset when the M-core is up and
+running and the kernel boots, resetting the system.
 
-This series of patches implement an API call to the SCU which will
-return the power mode of a given resource (M core in this case) and if
-it is already powered on, the driver will attach to it. This SCU API was
-already being used inside pmdomain/imx/scu-pd.c driver, therefore it has
-been moved to firmware/imx/misc.c so it can be accessed by imx_rproc
-driver.
+Therefore, add a check in the clock enable function to not execute it if
+the M-core is being managed by the SCU.
 
-Finally, the imx_rproc_clk_enable() function was also changed to make it
-return before dev_clk_get() is called, as it currently generates an SCU
-fault reset if the remote core is already running and the kernel tries
-to enable the clock again. These changes are a follow up from a v1 sent
-to imx_rproc [1] and from a reported regression [2].
+This change affects only the i.MX8X and i.MX8 family SoCs, as this is
+under the IMX_RPROC_SCU_API method.
 
-[1] https://lore.kernel.org/lkml/20250423155131.101473-1-hiagofranco@gmail.com/
-[2] https://lore.kernel.org/lkml/20250404141713.ac2ntcsjsf7epdfa@hiago-nb/
+Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
+Suggested-by: Peng Fan <peng.fan@oss.nxp.com>
+---
+ drivers/remoteproc/imx_rproc.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Hiago De Franco (3):
-  remoteproc: imx_rproc: skip clock enable when M-core is managed by the
-    SCU
-  firmware: imx: move get power mode function from scu-pd.c to misc.c
-  remoteproc: imx_rproc: add power mode check for remote core attachment
-
- drivers/firmware/imx/misc.c           | 47 +++++++++++++++++++++++++++
- drivers/pmdomain/imx/scu-pd.c         | 29 ++++-------------
- drivers/remoteproc/imx_rproc.c        | 27 +++++++++++++--
- include/linux/firmware/imx/svc/misc.h |  8 +++++
- 4 files changed, 87 insertions(+), 24 deletions(-)
-
+diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+index 74299af1d7f1..627e57a88db2 100644
+--- a/drivers/remoteproc/imx_rproc.c
++++ b/drivers/remoteproc/imx_rproc.c
+@@ -1029,8 +1029,8 @@ static int imx_rproc_clk_enable(struct imx_rproc *priv)
+ 	struct device *dev = priv->dev;
+ 	int ret;
+ 
+-	/* Remote core is not under control of Linux */
+-	if (dcfg->method == IMX_RPROC_NONE)
++	/* Remote core is not under control of Linux or it is managed by SCU API */
++	if (dcfg->method == IMX_RPROC_NONE || dcfg->method == IMX_RPROC_SCU_API)
+ 		return 0;
+ 
+ 	priv->clk = devm_clk_get(dev, NULL);
 -- 
 2.39.5
 
