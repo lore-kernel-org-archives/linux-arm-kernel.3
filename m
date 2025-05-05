@@ -4,159 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCB93C3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 16:38:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E520BC3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 16:41:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HEkgr2WLus37bkgsE6QPbcXvCej8msqRGTM41rNeirE=; b=mgIBjQDZe7ZVfL73t8EmlWk6/U
-	S8QKuOlxc/VI/CwxlJr1QxzsmsuNDvxzZsEt9M6OP5SZE+S/NI10Rt5jQcYbcA+eAL5ESg2n1Utxk
-	wE8Dc5UTiFzx8wF5BUQgSbh5FVQMBzM9eq51hLEA6p3KYCHLsTakDEmsWU/xwvgIJhHuuDdD4pvzN
-	3iZJ/KEjgH+b4JZlQx3Z5XdtyVci8Kux5hdCqBpJ/VYb88ajxnJetv5BZN+SAqsD93xmHJjj5iO+B
-	l7rl4oYSLfk7xo7p8QdH49jnJIQ1/pUgAxszS6JK/5E/b8IY7CVC7+wuezfoovgjLQpzKai496AwS
-	Dk7kaCUQ==;
+	bh=t+N+Jr18Nkjz6V66QQZklPMK2+k0E9/5i0yF4s1/15A=; b=2R9ElnF1SBsrXxhY2QovjCJ3dK
+	W61nV8z4TSrabc8cONBKleARI3bsXmFDIFd5USnHOO17pXQQKclZtKn2Kjo07/Yz2XBG2PRMtHbmY
+	H2z3ehT5IPxSUdOYMXcKrw07vshHqaPWi6h6U9/C20+HLBrAqBltwPKO0xUznQF2V59yx9GZTFAc/
+	giaHC3YGg5ko520I5MWD7jrxuYadkK906G88tQ1tFrwkgi8++pig/hiYB3cuzNy5NhRKs3RTwBH7B
+	yKvHoegyi5kmqAP7kDoz7/wshgy7aP5/wemCRndQyAWfqYrACq1RJF1TWq9KvQe1gv+ECQC8aQ33I
+	7aunTcGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uByqA-000000081Ve-2svB;
-	Mon, 05 May 2025 16:38:50 +0000
-Received: from mail-mw2nam12on20627.outbound.protection.outlook.com ([2a01:111:f403:200a::627] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1uBys8-000000081w8-1iYK;
+	Mon, 05 May 2025 16:40:52 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uByYF-00000007xgd-0PWh
+	id 1uByeJ-00000007yje-0TFy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 16:20:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Rh1e+TIfz5pFqv3PTI3JqkMhGszrNsVXTIN+GwVjV0lnybMS7xPSShQYup59bSpt8veQsmVzJLFHhTEWsXIinNpPx9L/SmXVql0D9bzIcYCtPZg2pJWs4HW061rjUgjyzWdEe4Y1Y6P4c0Ls06+JJ1vCsJIDCW9gAkZhPetJ47scSDOvdRvnimKtvUNva9qivlzXEJK4S/arkoM9VU75fQlWTroUto52EtzOSsa6cu5q+YSvah/Hu+SuwmBMY2jo0NA3E4K2/ty4udQ/X6raTDCh2VnFMRMJzwmHiE74Lqa1svO57bBXIOj2bPF2J/UEuD6cL7Wd3yKbBx9BOnlFvw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HEkgr2WLus37bkgsE6QPbcXvCej8msqRGTM41rNeirE=;
- b=iPw1aeCFYBxVzPYyaBjchSWpYvACbS3QmLJk17DMYtOtQSPItwhLgf4lUZ0Yus3dhFDMweE4+2EAWHlyzlnunoSk80HAZnqY1oLtX6CpUb6n1D9pnwkvWzhnBPVgkvT704O98vpCPhm0pETlTHH5s2O90F+CjRf/y6CVd9l5KLCG+O61Leyc9cmhBpjxC1soDzcFRl7H+ev+Te3K3vc9gQKPxu/slBF4xbzRnZIbfFMGzS9uWtg76UzlhCUhRUjxL5eix4EF++suS1Foib4KEoF/TVLzWOr2cBpYCySzIOrmwxB94fMd09yMycPGKSQuyZde0Mfc5JRjZLWhDgVAng==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=linux.intel.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HEkgr2WLus37bkgsE6QPbcXvCej8msqRGTM41rNeirE=;
- b=sJuFbJEnrk+wO3Trt30QHgIiQs/pQHZJVwRISA9ewQd7QHPTvVYTgujLduETIQyQGTpHBlmt6FqA16DHd70oBkOZycxMWrzkf6ubMX95g5/fsI7HoceIGNl1R7/f7saylz05XYCkjhpqNnvr2gLi0u41F45dEXk7jqGdv/ppNhh7+bvMbdmM9GF5OE6YjlhaSKgF5k0v4No1m66w8xHrQfMXQLfCBqPZio+ODnCPTKOLalmyMd8XZWZkPb3X29mb8enxe3r79ybUFc+YRj88UuRlfeR/Ea5VTHD+Ho+4zb0bSYEJXZkETZex3DJA6U+8Y/Fy9XCqJVuHlfNh0bVU9w==
-Received: from SJ2PR07CA0012.namprd07.prod.outlook.com (2603:10b6:a03:505::13)
- by SA1PR12MB9248.namprd12.prod.outlook.com (2603:10b6:806:3a3::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.24; Mon, 5 May
- 2025 16:20:09 +0000
-Received: from SJ5PEPF000001F5.namprd05.prod.outlook.com
- (2603:10b6:a03:505:cafe::52) by SJ2PR07CA0012.outlook.office365.com
- (2603:10b6:a03:505::13) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8699.33 via Frontend Transport; Mon,
- 5 May 2025 16:20:09 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- SJ5PEPF000001F5.mail.protection.outlook.com (10.167.242.73) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8722.18 via Frontend Transport; Mon, 5 May 2025 16:20:09 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 5 May 2025
- 09:19:53 -0700
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by drhqmail201.nvidia.com
- (10.126.190.180) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 5 May
- 2025 09:19:53 -0700
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 5 May
- 2025 09:19:51 -0700
-Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.129.68.9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Mon, 5 May 2025 09:19:50 -0700
-Date: Mon, 5 May 2025 09:19:48 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Baolu Lu <baolu.lu@linux.intel.com>, <kevin.tian@intel.com>,
-	<corbet@lwn.net>, <will@kernel.org>, <bagasdotme@gmail.com>,
-	<robin.murphy@arm.com>, <joro@8bytes.org>, <thierry.reding@gmail.com>,
-	<vdumpa@nvidia.com>, <jonathanh@nvidia.com>, <shuah@kernel.org>,
-	<jsnitsel@redhat.com>, <nathan@kernel.org>, <peterz@infradead.org>,
-	<yi.l.liu@intel.com>, <mshavit@google.com>, <praan@google.com>,
-	<zhangzekun11@huawei.com>, <iommu@lists.linux.dev>,
-	<linux-doc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-tegra@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <patches@lists.linux.dev>,
-	<mochs@nvidia.com>, <alok.a.tiwari@oracle.com>, <vasant.hegde@amd.com>
-Subject: Re: [PATCH v2 08/22] iommufd: Abstract iopt_pin_pages and
- iopt_unpin_pages helpers
-Message-ID: <aBjlJA1ZClRHftdD@nvidia.com>
-References: <cover.1745646960.git.nicolinc@nvidia.com>
- <d44272c153e7596c3cef716044de3dc6c2a8254a.1745646960.git.nicolinc@nvidia.com>
- <376566b4-6c13-45ad-b1e5-8cfe2de437bc@linux.intel.com>
- <aA+92fNNbDI3Qowk@Asurada-Nvidia>
- <20250505150109.GH2260709@nvidia.com>
- <aBjc1ny0Zs7K7gDX@nvidia.com>
- <20250505155505.GK2260709@nvidia.com>
- <aBjhUL5/n79cJ17f@nvidia.com>
- <20250505160554.GL2260709@nvidia.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250505160554.GL2260709@nvidia.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001F5:EE_|SA1PR12MB9248:EE_
-X-MS-Office365-Filtering-Correlation-Id: 933fbcf9-d899-4488-6414-08dd8bf0b453
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|376014|82310400026|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?7n+Ewda8xvVijUV9ayu6gYwJojAZU58NR8X48dFm9lTLcJYxu05v9IaTfbqc?=
- =?us-ascii?Q?fheH9dgnmyL0XuyiEEG4sHnAd2U6g8ZM58F+T7iUAr468ivhWIv4BMBkGJWA?=
- =?us-ascii?Q?lDwpPd/6VIP3BRjF+EjENupIFTK35Dt8aUwzLNYnrNS4opIoiMAAvGjcey0h?=
- =?us-ascii?Q?eXfX18rHpi36M+F3QWOr1DXaoSFQcXQ+bCNiBe7tF+ZLxzPBdILyFhH2lPgH?=
- =?us-ascii?Q?g4TAhiXUsO8ZlwJpMX9PxL9iaoWZblreqi9BE99DAP98aipaFWj9hYxxh/rO?=
- =?us-ascii?Q?mD4BRNSr3KdPfJqpjuvjSczV85T2fb1C6E9V/KGTHYSKq4nLhb0q2JXKfZt6?=
- =?us-ascii?Q?ace/QxleeJ13jrCCOe91Baj4V8dl05ayo4WdY9/R1BX7CNrlfuprLE+IzU9Q?=
- =?us-ascii?Q?DgLTAuoHD1/DNx2KZ/+J4iG91Yof26naGarTIRyPc9poISSMPLXUB845VJ6L?=
- =?us-ascii?Q?olRdYWsnRcteHFKxNS8maoPuv61Aa+E6sFkg5Pooii1gdIWgBakoWFkk45Pd?=
- =?us-ascii?Q?9o2x9QBtow1M4KCKW6nlXaQfBraHhL+X43p3gjMuvKUiJjwJp5igm/Uc7Fm+?=
- =?us-ascii?Q?vvE5OwhQM5eKYmERLFm93m1osNEVAlf2BlzGp4BwkwSwcQhlC+nCoTBzKYA8?=
- =?us-ascii?Q?R0WRB6ZTIqUrZVx64RZZHPu7YAV8yVhW3zGFUJic47qVZReiPig5M9xPmlgt?=
- =?us-ascii?Q?BJ5QW6jM98+p2Z/c4CacSxVVPVH7ak4XnSOcxDZ8CYvL3uj390yVKdyMJVI+?=
- =?us-ascii?Q?RJ/QlP61QtdMCzKlX++2Lb1KrlCM7sgfIpWrxUlkH4/ugSfoag4d7FFMjVCv?=
- =?us-ascii?Q?jTH79ZGd2E1IJOn/VpGoms2RQSzQiML5YJY52xGTd92G4crum45+Uq/xtOW+?=
- =?us-ascii?Q?GvaBYwC/YxLmRFD+wkjPh7GjBOV9NfSMztVOKjRH1AM76exJSqixsHHeOCGi?=
- =?us-ascii?Q?AKC0wQoUGh2mg5RjrRUzY69hxb5Xzc6GNLrGSbcrHiGflijj2IrUWSpBL5fU?=
- =?us-ascii?Q?VyaGn6/wHRL/OhgiROXlHAsnJ6k7l3T6wN+RrXCSGalJvk04lUPYvDvqY6mv?=
- =?us-ascii?Q?Vt5a0y8BRBjaGTiRMlzUxl+XqCvhD6WkEbyLW7iRfdm1lSrvagaMsrCMonuL?=
- =?us-ascii?Q?xIKppl5mLqWePVvvkonloDFG30sm573d6cwefAyJ8vspUj4ZCW9Ayszu7OXg?=
- =?us-ascii?Q?BNPlJUT7LqgILYlqDLjLZlTPzzYYtRfA/vdspHzyxQhLGSKgJySuQfGlTC1R?=
- =?us-ascii?Q?ZZCh3qO3w00HZTp29CNcOkbq/rjZ3Ka74gJLmzGD7YSc/kNY1tvlTTE5bP5J?=
- =?us-ascii?Q?UYKQPmCxnGGDOZttRWX9HdnefbMcckUBhfCgGJKtC9sTiZsVh6cUmpiREyb8?=
- =?us-ascii?Q?SrnyJL21Qt09pjRs4bLp3SXY3aS+0AMl2FqqZR5vuD98vRHJ4OvOduQPRGoE?=
- =?us-ascii?Q?6T9JGbPuqAUKY8vXK76EUMRsyHdUSsPq15wZjNjjxHOFNsZ5HniZ2PCvhB80?=
- =?us-ascii?Q?XP8MMLUtjuYKW6iYkzZeov3FH0NTfEFZ1YDg?=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(376014)(82310400026)(7416014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2025 16:20:09.0043
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 933fbcf9-d899-4488-6414-08dd8bf0b453
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001F5.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB9248
+	Mon, 05 May 2025 16:26:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id B0A98A4C3B1;
+	Mon,  5 May 2025 16:21:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00960C4CEE4;
+	Mon,  5 May 2025 16:26:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746462394;
+	bh=GtIIzxDECq7kLae9jREw4F50qmrqIijGoHyorGzxYbw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=J9p6gnBkEFKu7t4zhvSfi4T0OXWty2q9dBQYJ/RXZhU0TPeDoaVsC4xsdpt5aSelq
+	 ELWVFNnyxXwb55qoWMwf5QdhhakNFQTmqJ0KQhLT8izzTFiwVGhDt9B+OC71K0auqg
+	 WmCdwkNeywxp4arN/C/tLjX3O47QwvRl6ytpgY6c25QPu4Yc4K45U7+WhOKWWs82OO
+	 qFrtfWGXSIS/xX5wCz9tzCshlvtEKdiSS31a6WBkgxg19+JNgYkWwUytZHWFV/fb0K
+	 8oYx/ZlFi4QbhHtq2LwepFh376O30+h42b1aHnhYad+wEBtyisJwnULsx3x+q/5DZo
+	 Eju87o1Mv+VrQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uByeF-00Bmmj-O3;
+	Mon, 05 May 2025 17:26:31 +0100
+Date: Mon, 05 May 2025 17:26:31 +0100
+Message-ID: <86jz6vgh1k.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sebastian Ott <sebott@redhat.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Quentin Perret <qperret@google.com>,
+	Fuad Tabba <tabba@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: LM regression: fce886a60207 KVM: arm64: Plumb the pKVM MMU in KVM
+In-Reply-To: <7863e387-0b91-fac5-9925-e461ae7b30cd@redhat.com>
+References: <3f5db4c7-ccce-fb95-595c-692fa7aad227@redhat.com>
+	<86msbrguka.wl-maz@kernel.org>
+	<e1117e68-ef05-9de2-d018-685bb7d86bb5@redhat.com>
+	<86ldrbgl2x.wl-maz@kernel.org>
+	<7863e387-0b91-fac5-9925-e461ae7b30cd@redhat.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: sebott@redhat.com, oliver.upton@linux.dev, qperret@google.com, tabba@google.com, catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_092019_145332_C1FF61EE 
-X-CRM114-Status: GOOD (  32.37  )
+X-CRM114-CacheID: sfid-20250505_092635_288562_254B19FB 
+X-CRM114-Status: GOOD (  45.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,60 +95,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 05, 2025 at 01:05:54PM -0300, Jason Gunthorpe wrote:
-> On Mon, May 05, 2025 at 09:03:28AM -0700, Nicolin Chen wrote:
-> > On Mon, May 05, 2025 at 12:55:05PM -0300, Jason Gunthorpe wrote:
-> > > On Mon, May 05, 2025 at 08:44:22AM -0700, Nicolin Chen wrote:
-> > > > On Mon, May 05, 2025 at 12:01:09PM -0300, Jason Gunthorpe wrote:
-> > > > > On Mon, Apr 28, 2025 at 10:41:45AM -0700, Nicolin Chen wrote:
-> > > > > > > I'm uncertain, but perhaps pr_warn_ratelimited() would be a better
-> > > > > > > alternative to WARN_ON() here? WARN_ON_ONCE() generates warning messages
-> > > > > > > with kernel call traces in the kernel messages, which might lead users
-> > > > > > > to believe that something serious has happened in the kernel.
-> > > > > > 
-> > > > > > We already have similar practice, e.g. iommufd_hwpt_nested_alloc.
-> > > > > > 
-> > > > > > In my review, a WARN_ON/WARN_ON_ONCE means there is a kernel bug,
-> > > > > > which shouldn't occur in the first place and isn't something that
-> > > > > 
-> > > > > Right, so it should never happen from any ioctl path and syzkaller
-> > > > > should never trigger it based on system call randomization
-> > > > > 
-> > > > > Is that what this achieves?
-> > > > 
-> > > > The functions would be still used in the kernel path. So, I think
-> > > > we need to retain these warnings for that. But given that an ioctl
-> > > > could trigger a series of WARN_ONs, WARN_ON_ONCE is something that
-> > > > wouldn't bother user space a lot while it provides the kernel path
-> > > > enough info to debug.
-> > > 
-> > > No, it does bother userspace, we must not have ioctl triggerable
-> > > WARN_ON at all.
+On Mon, 05 May 2025 17:05:08 +0100,
+Sebastian Ott <sebott@redhat.com> wrote:
+> 
+> On Mon, 5 May 2025, Marc Zyngier wrote:
+> > On Mon, 05 May 2025 15:01:24 +0100,
+> > Sebastian Ott <sebott@redhat.com> wrote:
+> >> 
+> >> On Mon, 5 May 2025, Marc Zyngier wrote:
+> >>> On Mon, 05 May 2025 11:52:00 +0100,
+> >>> Sebastian Ott <sebott@redhat.com> wrote:
+> >>>> Doing back and forth migrations currently fails on arm after a couple iterations.
+> >>>> During the failing migration KVM_RUN exits via guest_abort and returns -ENOMEM.
+> >>>> I can reliably reproduce this by migrating between 2 qemu instances on an ampere
+> >>>> altra machine. This fails after < 5 iterations. In this case qemu would spit out
+> >>>> smth like this (other than that - nothing in the logs):
+> >>>> 
+> >>>> error: kvm run failed Cannot allocate memory
+> >>>>  PC=0000aaaae7d48590 X00=0000aaaae80a2e00 X01=0000aaaae7ea2fc0
+> >>>> X02=0000000001d3a5d0 X03=0000aaaae7eace8c X04=000000003b9aca00
+> >>>> X05=000000000000004a X06=000000000000004a X07=0000000028000000
+> >>>> X08=0000000000001d70 X09=0000000000000018 X10=000144b7d0000000
+> >>>> X11=00ffffffffffffff X12=000000008378f367 X13=0000aaab1a202d70
+> >>>> X14=0000000000000000 X15=0000000000000000 X16=0000ffffa2e2f7a8
+> >>>> X17=0000ffffa2541f20 X18=000000000000a000 X19=84bfda6288cf2dd6
+> >>>> X20=0000aaab1a1f1ce0 X21=000000007fffffff X22=0000ffffc5431788
+> >>>> X23=0000aaab1a17db60 X24=0000ffffc5431770 X25=0000000100000000
+> >>>> X26=0000004100000000 X27=0000000000000001 X28=0000aaab1a1f1c20
+> >>>> X29=0000ffffc54316d0 X30=0000aaaae7f8cd24  SP=0000ffffc5431650
+> >>>> PSTATE=20001000 --C- EL0t
+> >>>> 
+> >>>> Guest and host are otherwise idle, kvm is in normal VHE mode.
+> >>>> 
+> >>>> Git bisect points to (fce886a60207 "KVM: arm64: Plumb the pKVM MMU in KVM")
+> >>>> I also double checked that by reverting this commit on top of 6.14.
+> >>> 
+> >>> Thanks for find the triggering commit. Can you further identify *what*
+> >>> causes the -ENOMEM? The only new -ENOMEM in that patch is the one
+> >>> added to topup_hyp_memcache(), which shouldn't be called.
+> >> 
+> >> The kvm_pgtable_stage2_map() call in user_mem_abort() returns -ENOMEM
+> >> because the memcache pointer was not initialized!
+> >> 
+> >> It looks like smth like this without other conditions could do the trick:
+> >> 
+> >> if (!is_protected_kvm_enabled())
+> >> 	memcache = &vcpu->arch.mmu_page_cache;
+> >> else
+> >> 	memcache = &vcpu->arch.pkvm_memcache;
+> >> 
+> >> (I'll try this now)
 > > 
-> > You mean we have to eliminate any WARN_ON in a call path of an
-> > ioctl?
+> > Right, we end-up with an uninitialised memcache variable. Why isn't
+> > the compiler screaming?
 > 
-> Yes, not one that derives from user information. You can WARN_ON if
-> internal kernel structures are corrupted but not if user ioctl
-> arguments are bad.
-> 
-> > We can drop them, just that would mute any kernel bug.
-> 
-> That maybe the right answer
-> 
-> > Btw, IIRC, the destroy ioctl could trigger some WARN_ON in the
-> > remove() when the object's refcount isn't correctly decreased.
-> > Should that be a problem too?
-> 
-> That is kernel data structures being corrupted.
+> Yea. Also I was under the impression that these kind of warnings tend to
+> over indicate..
 
-Oh, then these two WARN_ONs in the unpin() will be only triggered
-in the destroy path when the vcmdq kernel structure is corrupted,
-because the two inputs are not given directly by a destroy ioctl.
+Quite. The obvious conclusion is that compilers are crap. Oh well.
 
-In this case, I think it's similar, so we should retain them, as
-they were?
+> 
+> > I think you can indeed simply hoist the init of memcache very early
+> > on, which should solve hopefully solve the issue.
+> 
+> It solves the issue for me. Please note that in this case topup cache is
+> not called - I hope that this is not an issue (but it was also the case
+> before commit fce886a60207).
 
-Thanks
-Nicolin
+Indeed, and that's how I expect it to fail. We're also pretty lucky
+that we get a NULL instead of some random pointer...
+
+> From c594bbf9c3c4186594b798734ea9b1779be3b584 Mon Sep 17 00:00:00 2001
+> From: Sebastian Ott <sebott@redhat.com>
+> Date: Mon, 5 May 2025 11:09:58 -0400
+> Subject: [PATCH] KVM: arm64: Fix uninitialized memcache pointer in user_mem_abort()
+> 
+> Commit fce886a60207 ("KVM: arm64: Plumb the pKVM MMU in KVM") made the
+> initialization of the local memcache variable in user_mem_abort()
+> conditional, leaving a codepath where it is used uninitialized via
+> kvm_pgtable_stage2_map().
+> 
+> This can lead to migration failures where KVM_RUN exits with -ENOMEM.
+
+Not only. It can fail on any path that requires a stage-2 allocation
+without transition via a permission fault or logging. It is actually
+pretty amazing that it fails so rarely...
+
+> Fix this by making sure that memcache is always valid.
+> 
+> Fixes: fce886a60207 ("KVM: arm64: Plumb the pKVM MMU in KVM")
+> Signed-off-by: Sebastian Ott <sebott@redhat.com>
+
++ Cc: stable@vger.kernel.org
+
+> ---
+>  arch/arm64/kvm/mmu.c | 7 +++++--
+>  1 file changed, 5 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 754f2fe0cc67..6c3c658c5f29 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1501,6 +1501,11 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+>  		return -EFAULT;
+>  	}
+> 
+> +	if (!is_protected_kvm_enabled())
+> +		memcache = &vcpu->arch.mmu_page_cache;
+> +	else
+> +		memcache = &vcpu->arch.pkvm_memcache;
+> +
+>  	/*
+>  	 * Permission faults just need to update the existing leaf entry,
+>  	 * and so normally don't require allocations from the memcache. The
+> @@ -1511,10 +1516,8 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+>  		int min_pages = kvm_mmu_cache_min_pages(vcpu->arch.hw_mmu);
+> 
+>  		if (!is_protected_kvm_enabled()) {
+> -			memcache = &vcpu->arch.mmu_page_cache;
+>  			ret = kvm_mmu_topup_memory_cache(memcache, min_pages);
+>  		} else {
+> -			memcache = &vcpu->arch.pkvm_memcache;
+
+Feel free to drop the {}s that are now superfluous.
+
+>  			ret = topup_hyp_memcache(memcache, min_pages);
+>  		}
+>  		if (ret)
+> 
+
+With the above addressed:
+
+Reviewed-by: Marc Zyngier <maz@kernel.org>
+
+Please post it as a standalone patch so that Oliver can add it to the
+next batch of fixes for 6.15.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
