@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 287B3C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 02:20:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 282C9C3ABB6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 02:22:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lWbh1fSObxx2nMPznOEMsU+opPF21o9kh+lIU2E9LJM=; b=s9zLlL2Ar8PTNvx09PxFXT1b91
-	oEiS9+10OQqECHoPVgO8VTvTDZgP3r6FRr1M/A1H+PsNqbEzuXsLQRLw05FjjuyySqHUitC1UqXmy
-	josPgtJrvrZGt02tt208BnmVJO6yP4UqOSSK2pwRmMl6zqxqxklu0T00rxyvHTiKP4NGR6OTfEB4W
-	WqUdC6f7qNBfrpuKuVZ9JVik9YSZdv+P1ZTIKzGmQX4MxbQwe5UvXFyAu8mqggvkembM9/eP4n06n
-	A2yoHCDK+BSz1r/alPhtQ62hJylLnozOBJ8ilJKCUYrz6yAprulHRiHR1WNTTndh1ioSMMOwN6fI7
-	uoGuyeAQ==;
+	bh=yaWd0XQdUO45TxtLtZpVkd6XfPl/vHBXd92/DWu0+Lw=; b=PmOudrAv6AnebcuxR0zgsKjH0l
+	93y88HhQi/B4GKdcCaU8jZhbbG/JuedUGlfAolbh/Bx57CltRQ0U4HPomXTNj+XVlIqsbXOwBVXff
+	+pRBV8AV7Lslfqvv51rGy55E42igWzqKWfZAWKpguzxIqzlDZwbZ0uRGSsW+ZqQaAhQH/PTrrKEYl
+	U6/91fgOfuX97R7sxNLiIy5SmsPwXnLnDOSSxsgd66sjA6G7QvGzF19cps1vNm3fNuKcLHLZxR7Ba
+	3dChRHibtnsDN3OOcJuadHhDNvh58zoo/c7kUTfJ7Mi5RXNH20xhe6VwjEE30fN2dKkN5vWvhFbXm
+	ZmgcvyQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC7vL-00000009ilA-01pA;
-	Tue, 06 May 2025 02:20:47 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uC7xJ-00000009jBj-2uXI;
+	Tue, 06 May 2025 02:22:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4iv-00000008uJ9-36LH
+	id 1uC4j5-00000008uMD-042q
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 22:55:46 +0000
+	Mon, 05 May 2025 22:55:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 61769A4D250;
-	Mon,  5 May 2025 22:50:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0FB1C4CEF6;
-	Mon,  5 May 2025 22:55:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 98F9C629CB;
+	Mon,  5 May 2025 22:55:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45322C4CEE4;
+	Mon,  5 May 2025 22:55:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746485744;
-	bh=sUaV+0mF9QSZHbBwUlhMu7tbwCNhjG0BkmM8XCuZLaE=;
+	s=k20201202; t=1746485754;
+	bh=o4+uztkPQXenoWSyVjeVRZRqnUM8k5WafB0IE+JZD7I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=XcyZwmZy7/uINMucWNt7ZmsSZ63Xvi/wAt7qeOt4JplRPbvGFkKTKMPXin0yRzdk7
-	 C6dVhf5nVhD+G5zshJk28A3Di19KNTF1G5VsjovLtXAl505gz1hukhdNl21z3d6/AM
-	 SuzvGW2wTuzMJAFQMsyvKP+EHSFAZtw7AZjIpHo9A0jUFM2VteAJH0XgEvMSXbsPqd
-	 7/NA7dh6gQYQAyjHW9XlXG8k99tAHyJKjTibcAfM3hxxOb/XVz2eabXifDfaqUJM6J
-	 wJhEH5dIzgjzHKSUhI8fxDeGvvqSL7MQceilTea9PzFgR7Rw2p7ZMdeL17IXE3LEVi
-	 j4jClRro6F4hg==
+	b=mXHqAdUv03rDaifF5dY6Z2ABl76wuWQiaaIMeDn8n9bijGUuIHUeYaofZ7sV7GEsQ
+	 +nlS6lXmwk36d0du7nWIc2iIktCDgcZWubU8Dj1sY8ctnD+6dZ3NU59+QDWGXsX3No
+	 BJtZEkKdkcVF3+vAPq45q/QDoe5eF8VTAKSyuJUsxcgqukoI1XcGyt7Cz3JiXgWUwE
+	 hTwAlt9dWcezyNUI5wNQJU+sB+YaeFCC67nEYKG3xNNLVkWn0OFImtJt0usV0xKJ6m
+	 MSgWzSiwqpWZc61Y3DfwYzk+29700v4hoN7uyortY8NztlLz2nP3cPIyVbfClA0s+8
+	 BqPmuxSYcyiTQ==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Dhruva Gole <d-gole@ti.com>,
-	Peng Fan <peng.fan@nxp.com>,
+Cc: Sean Anderson <sean.anderson@linux.dev>,
+	Mark Brown <broonie@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	arm-scmi@vger.kernel.org,
+	michal.simek@amd.com,
+	linux-spi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.12 458/486] firmware: arm_scmi: Relax duplicate name constraint across protocol ids
-Date: Mon,  5 May 2025 18:38:54 -0400
-Message-Id: <20250505223922.2682012-458-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.12 465/486] spi: zynqmp-gqspi: Always acknowledge interrupts
+Date: Mon,  5 May 2025 18:39:01 -0400
+Message-Id: <20250505223922.2682012-465-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505223922.2682012-1-sashal@kernel.org>
 References: <20250505223922.2682012-1-sashal@kernel.org>
@@ -62,9 +62,6 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.12.26
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_155545_917308_CBF2B9B6 
-X-CRM114-Status: GOOD (  13.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,73 +76,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sudeep Holla <sudeep.holla@arm.com>
+From: Sean Anderson <sean.anderson@linux.dev>
 
-[ Upstream commit 21ee965267bcbdd733be0f35344fa0f0226d7861 ]
+[ Upstream commit 89785306453ce6d949e783f6936821a0b7649ee2 ]
 
-Currently in scmi_protocol_device_request(), no duplicate scmi device
-name is allowed across any protocol. However scmi_dev_match_id() first
-matches the protocol id and then the name. So, there is no strict
-requirement to keep this scmi device name unique across all the protocols.
+RXEMPTY can cause an IRQ, even though we may not do anything about it
+(such as if we are waiting for more received data). We must still handle
+these IRQs because we can tell they were caused by the device.
 
-Relax the constraint on the duplicate name across the protocols and
-inhibit only within the same protocol id.
-
-Message-Id: <20250131141822.514342-1-sudeep.holla@arm.com>
-Reviewed-by: Dhruva Gole <d-gole@ti.com>
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
-Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
+Link: https://patch.msgid.link/20250116224130.2684544-6-sean.anderson@linux.dev
+Signed-off-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/firmware/arm_scmi/bus.c | 19 ++++++-------------
- 1 file changed, 6 insertions(+), 13 deletions(-)
+ drivers/spi/spi-zynqmp-gqspi.c | 20 ++++++++------------
+ 1 file changed, 8 insertions(+), 12 deletions(-)
 
-diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
-index 157172a5f2b57..7e160fc9bf8cc 100644
---- a/drivers/firmware/arm_scmi/bus.c
-+++ b/drivers/firmware/arm_scmi/bus.c
-@@ -42,7 +42,7 @@ static atomic_t scmi_syspower_registered = ATOMIC_INIT(0);
-  * This helper let an SCMI driver request specific devices identified by the
-  * @id_table to be created for each active SCMI instance.
-  *
-- * The requested device name MUST NOT be already existent for any protocol;
-+ * The requested device name MUST NOT be already existent for this protocol;
-  * at first the freshly requested @id_table is annotated in the IDR table
-  * @scmi_requested_devices and then the requested device is advertised to any
-  * registered party via the @scmi_requested_devices_nh notification chain.
-@@ -52,7 +52,6 @@ static atomic_t scmi_syspower_registered = ATOMIC_INIT(0);
- static int scmi_protocol_device_request(const struct scmi_device_id *id_table)
+diff --git a/drivers/spi/spi-zynqmp-gqspi.c b/drivers/spi/spi-zynqmp-gqspi.c
+index b9df39e06e7cd..4b091b4d4ff37 100644
+--- a/drivers/spi/spi-zynqmp-gqspi.c
++++ b/drivers/spi/spi-zynqmp-gqspi.c
+@@ -799,7 +799,6 @@ static void zynqmp_process_dma_irq(struct zynqmp_qspi *xqspi)
+ static irqreturn_t zynqmp_qspi_irq(int irq, void *dev_id)
  {
- 	int ret = 0;
--	unsigned int id = 0;
- 	struct list_head *head, *phead = NULL;
- 	struct scmi_requested_dev *rdev;
+ 	struct zynqmp_qspi *xqspi = (struct zynqmp_qspi *)dev_id;
+-	irqreturn_t ret = IRQ_NONE;
+ 	u32 status, mask, dma_status = 0;
  
-@@ -67,19 +66,13 @@ static int scmi_protocol_device_request(const struct scmi_device_id *id_table)
+ 	status = zynqmp_gqspi_read(xqspi, GQSPI_ISR_OFST);
+@@ -814,27 +813,24 @@ static irqreturn_t zynqmp_qspi_irq(int irq, void *dev_id)
+ 				   dma_status);
  	}
  
- 	/*
--	 * Search for the matching protocol rdev list and then search
--	 * of any existent equally named device...fails if any duplicate found.
-+	 * Find the matching protocol rdev list and then search of any
-+	 * existent equally named device...fails if any duplicate found.
- 	 */
- 	mutex_lock(&scmi_requested_devices_mtx);
--	idr_for_each_entry(&scmi_requested_devices, head, id) {
--		if (!phead) {
--			/* A list found registered in the IDR is never empty */
--			rdev = list_first_entry(head, struct scmi_requested_dev,
--						node);
--			if (rdev->id_table->protocol_id ==
--			    id_table->protocol_id)
--				phead = head;
--		}
-+	phead = idr_find(&scmi_requested_devices, id_table->protocol_id);
-+	if (phead) {
-+		head = phead;
- 		list_for_each_entry(rdev, head, node) {
- 			if (!strcmp(rdev->id_table->name, id_table->name)) {
- 				pr_err("Ignoring duplicate request [%d] %s\n",
+-	if (mask & GQSPI_ISR_TXNOT_FULL_MASK) {
++	if (!mask && !dma_status)
++		return IRQ_NONE;
++
++	if (mask & GQSPI_ISR_TXNOT_FULL_MASK)
+ 		zynqmp_qspi_filltxfifo(xqspi, GQSPI_TX_FIFO_FILL);
+-		ret = IRQ_HANDLED;
+-	}
+ 
+-	if (dma_status & GQSPI_QSPIDMA_DST_I_STS_DONE_MASK) {
++	if (dma_status & GQSPI_QSPIDMA_DST_I_STS_DONE_MASK)
+ 		zynqmp_process_dma_irq(xqspi);
+-		ret = IRQ_HANDLED;
+-	} else if (!(mask & GQSPI_IER_RXEMPTY_MASK) &&
+-			(mask & GQSPI_IER_GENFIFOEMPTY_MASK)) {
++	else if (!(mask & GQSPI_IER_RXEMPTY_MASK) &&
++			(mask & GQSPI_IER_GENFIFOEMPTY_MASK))
+ 		zynqmp_qspi_readrxfifo(xqspi, GQSPI_RX_FIFO_FILL);
+-		ret = IRQ_HANDLED;
+-	}
+ 
+ 	if (xqspi->bytes_to_receive == 0 && xqspi->bytes_to_transfer == 0 &&
+ 	    ((status & GQSPI_IRQ_MASK) == GQSPI_IRQ_MASK)) {
+ 		zynqmp_gqspi_write(xqspi, GQSPI_IDR_OFST, GQSPI_ISR_IDR_MASK);
+ 		complete(&xqspi->data_completion);
+-		ret = IRQ_HANDLED;
+ 	}
+-	return ret;
++	return IRQ_HANDLED;
+ }
+ 
+ /**
 -- 
 2.39.5
 
