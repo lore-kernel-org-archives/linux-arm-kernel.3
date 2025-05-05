@@ -4,74 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FCECC3ABB6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 12:48:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D512DC3ABB0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 13:21:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U80q0hzQWb189zleA5rq0bDksV/4Kegvk1geyPQh0Ow=; b=YWZypk6sVo661zz2qOidFdW8R7
-	Du9F4r4+Q7KJmnJ7ju8MpJ38+6Eh6VpsXbfOtQduOVQvtJxYEfEc9cKrMfcFf6rePfYf2RJU/XhtP
-	I8NALoEfgpgA61xEidoOgKyPZcc+u0vjIhttu0pSpm3w1ZNG8eqlRKQ8IsDGzSaUad1f600LD7FDn
-	B4MIbY6o3ajTHZBNNb6jX6avqmCQkjeDj1WS9yQWdnxB9WgmVTcuAyJ7loSUbd3MHmjl5gyqkZjS9
-	EwZnV8UbDXE/wJjeqpNEqMmhTzTrQrVx5s7t87w00XljN3IGXLoFadIScnogTxftTTXu7btLigllh
-	dM1oPz+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AS5bNHpT+rSmobhoBuRRW2E9jvGZija9naUXrN6kyLQ=; b=t4W0UMBHLRSgauu1v1qP3G1g3j
+	VnhZZeLXLAE/KZ7sQamNO3QkzzjeimPmUNhLQ/2SOAkb2xzopCzsau878zFpXilapLbdIgoGGMjGw
+	b4he9i6r51cZGRg37NFBSFL0D5TnH0CVvQV/XXwBmNn/oIKvpGeW5e19k+n0fJ6QXIKuSGzStd/ag
+	ZlkuB9pCgOJUNJiOvZzKqO42648FQTDusSXrERu9o2wxdKPWIa31/7KIIbZn9OFU39LXoQtaDnFYf
+	Qa3ygU+gdIIhiIvdOPnIhW3MpQNZ51K/IiawYdYpa7vvbwTD1q6+WhkQoZgNLZ244YagsZts379ye
+	/o2lKfKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBvFN-00000007O7R-0PXk;
-	Mon, 05 May 2025 12:48:37 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBv3m-00000007Kyi-256i
+	id 1uBvkg-00000007RxQ-1xf8;
+	Mon, 05 May 2025 13:20:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uBvIb-00000007Obz-0Jlx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 12:36:45 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 545CaFTc245758
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 5 May 2025 07:36:15 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1746448575;
-	bh=U80q0hzQWb189zleA5rq0bDksV/4Kegvk1geyPQh0Ow=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=qvDbs6wjymtJHDViK9gI15el8zjzDwELIN6Xuwjay5RSoozV0BUWsUBowDqo7yKmX
-	 XA9lum/jaw+/uwdKdrmjxaXx4K75RTUE3fFH6zH6L+CMXaehwKey0PJhXfIeKpkM3k
-	 NU9eZu1UDi1Z9BVSP6zsw5yckNFq5Bt6AsHmd2q4=
-Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 545CaFGi029225
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 5 May 2025 07:36:15 -0500
-Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 5
- May 2025 07:36:15 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE107.ent.ti.com
- (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 5 May 2025 07:36:15 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 545CaFY1123903;
-	Mon, 5 May 2025 07:36:15 -0500
-Date: Mon, 5 May 2025 07:36:15 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Guillaume La Roque <glaroque@baylibre.com>
-CC: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
-        Andrew Davis <afd@ti.com>, <vishalm@ti.com>,
-        <linux-omap@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH] arm64: Kconfig.platforms: remove useless select for
- ARCH_K3
-Message-ID: <20250505123615.yqzdv7dlel7kyojf@degrease>
-References: <20250504-kconfig-v1-1-ab0216f4fa98@baylibre.com>
+	Mon, 05 May 2025 12:51:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A99A21007;
+	Mon,  5 May 2025 05:51:44 -0700 (PDT)
+Received: from [10.57.93.118] (unknown [10.57.93.118])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3CAD33F58B;
+	Mon,  5 May 2025 05:51:50 -0700 (PDT)
+Message-ID: <12a74640-753a-4116-90f9-42ec0337f751@arm.com>
+Date: Mon, 5 May 2025 13:51:48 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250504-kconfig-v1-1-ab0216f4fa98@baylibre.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v4 1/5] mm/readahead: Honour new_order in
+ page_cache_ra_order()
+Content-Language: en-GB
+To: David Hildenbrand <david@redhat.com>, Jan Kara <jack@suse.cz>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>,
+ Alexander Viro <viro@zeniv.linux.org.uk>,
+ Christian Brauner <brauner@kernel.org>, Dave Chinner <david@fromorbit.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Kalesh Singh <kaleshsingh@google.com>, Zi Yan <ziy@nvidia.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-fsdevel@vger.kernel.org, linux-mm@kvack.org
+References: <20250430145920.3748738-1-ryan.roberts@arm.com>
+ <20250430145920.3748738-2-ryan.roberts@arm.com>
+ <48b4aa79-943b-46bc-ac24-604fdf998566@redhat.com>
+ <mhayjykmkxhvnivthdrc2bb3cvqbdesa42puzimx75xfagcnqn@osy4qeiyfxvn>
+ <d4bfefdf-bd87-4d2e-b7bb-4a11e5d32242@redhat.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <d4bfefdf-bd87-4d2e-b7bb-4a11e5d32242@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_053638_620512_9D90ED6C 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20250505_055157_209651_BFCA93BE 
+X-CRM114-Status: GOOD (  16.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,40 +75,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13:24-20250504, Guillaume La Roque wrote:
-> After patch done on TI_MESSAGE_MANAGER[1] and TI_SCI_PROTOCOL[2] driver
-> select on ARCH_K3 are not needed anymore.
+On 05/05/2025 11:25, David Hildenbrand wrote:
+> On 05.05.25 12:09, Jan Kara wrote:
+>> On Mon 05-05-25 11:51:43, David Hildenbrand wrote:
+>>> On 30.04.25 16:59, Ryan Roberts wrote:
+>>>> page_cache_ra_order() takes a parameter called new_order, which is
+>>>> intended to express the preferred order of the folios that will be
+>>>> allocated for the readahead operation. Most callers indeed call this
+>>>> with their preferred new order. But page_cache_async_ra() calls it with
+>>>> the preferred order of the previous readahead request (actually the
+>>>> order of the folio that had the readahead marker, which may be smaller
+>>>> when alignment comes into play).
+>>>>
+>>>> And despite the parameter name, page_cache_ra_order() always treats it
+>>>> at the old order, adding 2 to it on entry. As a result, a cold readahead
+>>>> always starts with order-2 folios.
+>>>>
+>>>> Let's fix this behaviour by always passing in the *new* order.
+>>>>
+>>>> Worked example:
+>>>>
+>>>> Prior to the change, mmaping an 8MB file and touching each page
+>>>> sequentially, resulted in the following, where we start with order-2
+>>>> folios for the first 128K then ramp up to order-4 for the next 128K,
+>>>> then get clamped to order-5 for the rest of the file because pa_pages is
+>>>> limited to 128K:
+>>>>
+>>>> TYPE    STARTOFFS     ENDOFFS       SIZE  STARTPG    ENDPG   NRPG  ORDER
+>>>> -----  ----------  ----------  ---------  -------  -------  -----  -----
+>>>> FOLIO  0x00000000  0x00004000      16384        0        4      4      2
+>>>> FOLIO  0x00004000  0x00008000      16384        4        8      4      2
+>>>> FOLIO  0x00008000  0x0000c000      16384        8       12      4      2
+>>>> FOLIO  0x0000c000  0x00010000      16384       12       16      4      2
+>>>> FOLIO  0x00010000  0x00014000      16384       16       20      4      2
+>>>> FOLIO  0x00014000  0x00018000      16384       20       24      4      2
+>>>> FOLIO  0x00018000  0x0001c000      16384       24       28      4      2
+>>>> FOLIO  0x0001c000  0x00020000      16384       28       32      4      2
+>>>> FOLIO  0x00020000  0x00030000      65536       32       48     16      4
+>>>> FOLIO  0x00030000  0x00040000      65536       48       64     16      4
+>>>> FOLIO  0x00040000  0x00060000     131072       64       96     32      5
+>>>> FOLIO  0x00060000  0x00080000     131072       96      128     32      5
+>>>> FOLIO  0x00080000  0x000a0000     131072      128      160     32      5
+>>>> FOLIO  0x000a0000  0x000c0000     131072      160      192     32      5
+>>>
+>>> Interesting, I would have thought we'd ramp up earlier.
+>>>
+>>>> ...
+>>>>
+>>>> After the change, the same operation results in the first 128K being
+>>>> order-0, then we start ramping up to order-2, -4, and finally get
+>>>> clamped at order-5:
+>>>>
+>>>> TYPE    STARTOFFS     ENDOFFS       SIZE  STARTPG    ENDPG   NRPG  ORDER
+>>>> -----  ----------  ----------  ---------  -------  -------  -----  -----
+>>>> FOLIO  0x00000000  0x00001000       4096        0        1      1      0
+>>>> FOLIO  0x00001000  0x00002000       4096        1        2      1      0
+>>>> FOLIO  0x00002000  0x00003000       4096        2        3      1      0
+>>>> FOLIO  0x00003000  0x00004000       4096        3        4      1      0
+>>>> FOLIO  0x00004000  0x00005000       4096        4        5      1      0
+>>>> FOLIO  0x00005000  0x00006000       4096        5        6      1      0
+>>>> FOLIO  0x00006000  0x00007000       4096        6        7      1      0
+>>>> FOLIO  0x00007000  0x00008000       4096        7        8      1      0
+>>>> FOLIO  0x00008000  0x00009000       4096        8        9      1      0
+>>>> FOLIO  0x00009000  0x0000a000       4096        9       10      1      0
+>>>> FOLIO  0x0000a000  0x0000b000       4096       10       11      1      0
+>>>> FOLIO  0x0000b000  0x0000c000       4096       11       12      1      0
+>>>> FOLIO  0x0000c000  0x0000d000       4096       12       13      1      0
+>>>> FOLIO  0x0000d000  0x0000e000       4096       13       14      1      0
+>>>> FOLIO  0x0000e000  0x0000f000       4096       14       15      1      0
+>>>> FOLIO  0x0000f000  0x00010000       4096       15       16      1      0
+>>>> FOLIO  0x00010000  0x00011000       4096       16       17      1      0
+>>>> FOLIO  0x00011000  0x00012000       4096       17       18      1      0
+>>>> FOLIO  0x00012000  0x00013000       4096       18       19      1      0
+>>>> FOLIO  0x00013000  0x00014000       4096       19       20      1      0
+>>>> FOLIO  0x00014000  0x00015000       4096       20       21      1      0
+>>>> FOLIO  0x00015000  0x00016000       4096       21       22      1      0
+>>>> FOLIO  0x00016000  0x00017000       4096       22       23      1      0
+>>>> FOLIO  0x00017000  0x00018000       4096       23       24      1      0
+>>>> FOLIO  0x00018000  0x00019000       4096       24       25      1      0
+>>>> FOLIO  0x00019000  0x0001a000       4096       25       26      1      0
+>>>> FOLIO  0x0001a000  0x0001b000       4096       26       27      1      0
+>>>> FOLIO  0x0001b000  0x0001c000       4096       27       28      1      0
+>>>> FOLIO  0x0001c000  0x0001d000       4096       28       29      1      0
+>>>> FOLIO  0x0001d000  0x0001e000       4096       29       30      1      0
+>>>> FOLIO  0x0001e000  0x0001f000       4096       30       31      1      0
+>>>> FOLIO  0x0001f000  0x00020000       4096       31       32      1      0
+>>>> FOLIO  0x00020000  0x00024000      16384       32       36      4      2
+>>>> FOLIO  0x00024000  0x00028000      16384       36       40      4      2
+>>>> FOLIO  0x00028000  0x0002c000      16384       40       44      4      2
+>>>> FOLIO  0x0002c000  0x00030000      16384       44       48      4      2
+>>>> FOLIO  0x00030000  0x00034000      16384       48       52      4      2
+>>>> FOLIO  0x00034000  0x00038000      16384       52       56      4      2
+>>>> FOLIO  0x00038000  0x0003c000      16384       56       60      4      2
+>>>> FOLIO  0x0003c000  0x00040000      16384       60       64      4      2
+>>>> FOLIO  0x00040000  0x00050000      65536       64       80     16      4
+>>>> FOLIO  0x00050000  0x00060000      65536       80       96     16      4
+>>>> FOLIO  0x00060000  0x00080000     131072       96      128     32      5
+>>>> FOLIO  0x00080000  0x000a0000     131072      128      160     32      5
+>>>> FOLIO  0x000a0000  0x000c0000     131072      160      192     32      5
+>>>> FOLIO  0x000c0000  0x000e0000     131072      192      224     32      5
+>>>
+>>> Similar here, do you know why we don't ramp up earlier. Allocating that many
+>>> order-0 + order-2 pages looks a bit suboptimal to me for a sequential read.
+>>
+>> Note that this is reading through mmap using the mmap readahead code. If
+>> you use standard read(2), the readahead window starts small as well and
+>> ramps us along with the desired order so we don't allocate that many small
+>> order pages in that case.
+
+That does raise an interesting question though; why do we use a fixed size
+window for mmap? It feels like we could start with a smaller window and ramp it
+up as order ramps up too, capped to the end of the vma.
+
+Although perhaps that is an investigation for another day... My main motivation
+here was to be consistent about what page_cache_ra_order()'s new_order means,
+and to actually implement algorithm that was originally intended - start from 0
+and ramp up +2 on each readahead marker.
+
 > 
-> Remove it and give possibility to enable this driver in modules.
-> 
-> [1] https://lore.kernel.org/all/20180828005311.8529-1-nm@ti.com/
-> [2] https://lore.kernel.org/all/20250220-ti-firmware-v2-1-ff26883c6ce9@baylibre.com/
-> 
-> Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
-> ---
->  arch/arm64/Kconfig.platforms | 2 --
->  1 file changed, 2 deletions(-)
-> 
-> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
-> index 8b76821f190f..5b63a42c4dff 100644
-> --- a/arch/arm64/Kconfig.platforms
-> +++ b/arch/arm64/Kconfig.platforms
-> @@ -138,8 +138,6 @@ config ARCH_K3
->  	select PM_GENERIC_DOMAINS if PM
->  	select MAILBOX
->  	select SOC_TI
-> -	select TI_MESSAGE_MANAGER
-> -	select TI_SCI_PROTOCOL
->  	select TI_K3_SOCINFO
->  	help
->  	  This enables support for Texas Instruments' K3 multicore SoC
+> Ah, thanks for that information! :)
 > 
 
-While at this, is it possible to remove MAILBOX and PM_GENERIC_DOMAINS
-from select and make them as modules?
-
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
 
