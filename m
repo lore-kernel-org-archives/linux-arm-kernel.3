@@ -4,76 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68862C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 01:47:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7739FC3ABB6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 01:49:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DqopMbMOpcqyEZ9bK05F+Kn7G42hRo8AH5V8pmxkLR8=; b=28kZwBGrX9MFdn0cn6hcClArpZ
-	BKX5t5jfTYDA9fCh2DUayN324TFekuNmBKC7/pWyX+CiE8PykA73H9ao0FSp2FjxZX2y3bHBwQSeZ
-	b28CmctnoQIojYYbKMgA3Y4a4GlsjfuFjEOivxN11MI1M+qXSku9N8rplhWEtCviIjZVdywLxAyeA
-	SXas8eoqhanDEpzVht1AIQnjTr4ir4PnmV/SBOoan938zwle9RozygOwGTQPryv6dyl+odaqI7dx9
-	1DxVMRMpZxPvUm1qx3Q1MOUYUgFOpvETCeQiJRiv5oEWYrRTSqqVs+68bRPoY4ocQ+UIvgrjE0mH7
-	qETrOGUA==;
+	bh=juWjgZTnzEq1qvsZ25SNfHOkJGOQgynIPW+cNzIjWuc=; b=sywiZWiQCwXu6Q6abueA88tbn3
+	tIA1pPA9QXYSCDWWcu/WGkr0sbYH03UO8WDloQQyl2RG/P29v3PY4Ydm8sDo5lUgVKQbajQLF/61M
+	OqC8XsIUsVaAaooYZDUKrjIUvnB7Fswlqcsg/vItu89DtFtD13vIN8QCzORPjuq2Aj+6D5Ui5WAP1
+	jDaAHL2EcRMfNCPNGUj7nLdrQAIEfmw9at5Rq1W4HXLoRTrughyw2G42e1Qt9ibAq+GgkF0uzRm7+
+	xEsgKGe6Bi5H8Bp/O9H4aqKFBffaqWuwBuT1wyx1yOYEWUTwKYL7QsD0d6ilWQXZ6NgazILgd9vim
+	bmoq+v5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC7PD-00000009alK-0qcL;
-	Tue, 06 May 2025 01:47:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uC7RD-00000009b9O-1ilC;
+	Tue, 06 May 2025 01:49:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4at-00000008rY9-0ymQ;
-	Mon, 05 May 2025 22:47:28 +0000
+	id 1uC4aw-00000008rZK-0qWu
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 May 2025 22:47:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4675643EAF;
-	Mon,  5 May 2025 22:47:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B1D3C4CEF4;
-	Mon,  5 May 2025 22:47:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C7DBB629C1;
+	Mon,  5 May 2025 22:46:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2096C4CEED;
+	Mon,  5 May 2025 22:47:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746485246;
-	bh=aSd5hagqSaRt+Za6bQY+Lb0/Aw8Qrfh70/kF32BdePM=;
+	s=k20201202; t=1746485249;
+	bh=9elIbN0ee7YCS6XH2gjwAqOeBDXjnu76EVBthsCsdTA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=YYDHKV1+iyeW7h5bmUSbBe2x0o7rnFYH45MbfUjocYhOFjYsAOUxEa1Jn6WxnlW3b
-	 75PCcJ1B17ijpbZHQD/ZZ5J6IAaVCJP8T/1MitY6n12Hh1TUklnQjlRp3QGASA6Qq1
-	 i9LcAiuv4DWbZv25EqyP7/Qakt1UMORNyO/TunHFu5xqTffwGTxBI6Y2yJmlpciHRo
-	 gU0wUIpWPLvWufxAJQ9ZCon5NuPFpahkwQ0F2Wx24rAdjlzdlK61fJ1STgYNVxEecQ
-	 M2ZuZP6YAo8jczI2ZPMBhrg6VXVqDP6SpeHwWn0pKOX0of/bwDFXuqwZ/g9B4XH5+h
-	 uCJ8DWd99g2Nw==
+	b=s3qW7sRl877zQmGhgbQRaFT0Wj5zXKxcSLpjpNuazfM8SEKYtDTjahjsBRNlZD3S/
+	 HanT3nSVik1BD0K92+KJsgDstO6HS4DGXb1SBzWGpCWoHs0fkXNuc6l+Rl/PQ+jVdN
+	 IQa4FSuv1WeULGzvEivNFgFWaOlKHA0aJhZqN23ziV+2sQ++ROSjqhvubtMTUagazm
+	 RgHq7uwI/FvmROz/ev6nZMvVTYyqsGacjn14ExD3/dXGJKUmfP5N25mKMZkpWMv7PL
+	 IimEQZR4IahBgAc2fplOHgqnVMW8OaDnbMtLf4ct8wycIfIc7mhIgsqDbmVU/5h+Nj
+	 plUJ3damoa0mg==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Stanimir Varbanov <svarbanov@suse.de>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	"Ivan T . Ivanov" <iivanov@suse.de>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+Cc: Viresh Kumar <viresh.kumar@linaro.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
 	Sasha Levin <sashal@kernel.org>,
-	jim2101024@gmail.com,
-	nsaenz@kernel.org,
-	lpieralisi@kernel.org,
-	kw@linux.com,
-	manivannan.sadhasivam@linaro.org,
-	bhelgaas@google.com,
-	linux-pci@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.12 233/486] PCI: brcmstb: Add a softdep to MIP MSI-X driver
-Date: Mon,  5 May 2025 18:35:09 -0400
-Message-Id: <20250505223922.2682012-233-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.12 235/486] firmware: arm_ffa: Set dma_mask for ffa devices
+Date: Mon,  5 May 2025 18:35:11 -0400
+Message-Id: <20250505223922.2682012-235-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505223922.2682012-1-sashal@kernel.org>
 References: <20250505223922.2682012-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.12.26
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_154727_293844_E7F146F6 
-X-CRM114-Status: UNSURE (   8.41  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,36 +74,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stanimir Varbanov <svarbanov@suse.de>
+From: Viresh Kumar <viresh.kumar@linaro.org>
 
-[ Upstream commit 2294059118c550464dd8906286324d90c33b152b ]
+[ Upstream commit cc0aac7ca17e0ea3ca84b552fc79f3e86fd07f53 ]
 
-Then the brcmstb PCIe driver and MIP MSI-X interrupt controller
-drivers are built as modules there could be a race in probing.
+Set dma_mask for FFA devices, otherwise DMA allocation using the device pointer
+lead to following warning:
 
-To avoid this, add a softdep to MIP driver to guarantee that
-MIP driver will be load first.
+WARNING: CPU: 1 PID: 1 at kernel/dma/mapping.c:597 dma_alloc_attrs+0xe0/0x124
 
-Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
-Tested-by: Ivan T. Ivanov <iivanov@suse.de>
-Link: https://lore.kernel.org/r/20250224083559.47645-5-svarbanov@suse.de
-[kwilczynski: commit log]
-Signed-off-by: Krzysztof Wilczyński <kwilczynski@kernel.org>
+Signed-off-by: Viresh Kumar <viresh.kumar@linaro.org>
+Message-Id: <e3dd8042ac680bd74b6580c25df855d092079c18.1737107520.git.viresh.kumar@linaro.org>
+Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/pci/controller/pcie-brcmstb.c | 1 +
+ drivers/firmware/arm_ffa/bus.c | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
-index 32ffb0c14c3ca..81f085cebf627 100644
---- a/drivers/pci/controller/pcie-brcmstb.c
-+++ b/drivers/pci/controller/pcie-brcmstb.c
-@@ -1947,3 +1947,4 @@ module_platform_driver(brcm_pcie_driver);
- MODULE_LICENSE("GPL");
- MODULE_DESCRIPTION("Broadcom STB PCIe RC driver");
- MODULE_AUTHOR("Broadcom");
-+MODULE_SOFTDEP("pre: irq_bcm2712_mip");
+diff --git a/drivers/firmware/arm_ffa/bus.c b/drivers/firmware/arm_ffa/bus.c
+index dfda5ffc14db7..dea3eb741d95d 100644
+--- a/drivers/firmware/arm_ffa/bus.c
++++ b/drivers/firmware/arm_ffa/bus.c
+@@ -212,6 +212,7 @@ ffa_device_register(const struct ffa_partition_info *part_info,
+ 	dev = &ffa_dev->dev;
+ 	dev->bus = &ffa_bus_type;
+ 	dev->release = ffa_release_device;
++	dev->dma_mask = &dev->coherent_dma_mask;
+ 	dev_set_name(&ffa_dev->dev, "arm-ffa-%d", id);
+ 
+ 	ffa_dev->id = id;
 -- 
 2.39.5
 
