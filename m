@@ -4,90 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F00C6C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 19:51:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C976EC3ABB9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 19:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pAjw+RP1+6euq9Xnw3ss8KTaidRJzLLOan/6IZ94Dsc=; b=PZ4SXz128db2WAjQl9EvvApZ99
-	Cw11Ky/VxpfyXbvzW0n390ipX3B4mKdgC9j1IfNYxOIJh3ub/5GG7ccv943WXR5pIelp1vNqc/RQf
-	sXv462nr05+Nj0yG0tAHjXzbaxU+3LEcz/0gDqkW5qkbmONmX8DcIWAfD50YknWUL7bRUZlQlA1fa
-	iNAvmcnApaRP61vX4rKyhJKkr/JSMmEQbo/4odyI1zs5Fqmj1Zwlbz/afQqERDt0sulrsrUQ8aypq
-	82kDtCnV454arbGZav7xgFm+5RWh2OaKPhd+wyU1DSnmR9U18x4O34iJI6GXefbynaEplBxout2a8
-	LiBIDzhA==;
+	bh=lzYz1kQE776rppX2LjWBcEzYot/SUfNrKDUyz+RyId0=; b=1qhaoWIUOM0t44c+VbT/6qCfc/
+	hOMuYSe01c3SSr3AIZS1saRAexp6eG53iZ9/th/m917EljV3Ehti8qc7uMo/s3pWlTon6Jk7mKF4K
+	+VsE2UBiRtWv6PrUHtlGPMpXF2fDICjTsVG4tBHSAu5cEyfaWcS2XxJ+3lg4MOv+KSPaxQYc5ywtp
+	7OJ+V3wulStVwm2cpSio61RWV5tEaKogaaH+bgu66g+1IEgKuR0J5XA7rlEV4+gn10g1P9rkIth8o
+	jfG8K/I2JqCFdO7n8ULih1k5NKY0BbLhYQ/mbNX+dZIFejqcu5t2i3HWaBXdfLXFb0YYYHI0GQ7kZ
+	82njAKZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC1pw-00000008Rhz-3YSl;
-	Mon, 05 May 2025 19:50:48 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1uC1t8-00000008S15-2r2v;
+	Mon, 05 May 2025 19:54:06 +0000
+Received: from mail-sn1nam02on20619.outbound.protection.outlook.com ([2a01:111:f403:2406::619] helo=NAM02-SN1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC1nu-00000008RYf-2lgg
+	id 1uC1r8-00000008Rq4-46Ta
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 19:48:46 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2242ac37caeso1285ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 12:48:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1746474522; x=1747079322; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=pAjw+RP1+6euq9Xnw3ss8KTaidRJzLLOan/6IZ94Dsc=;
-        b=htyb1P8Spju9GAcrVaknGN4xd4f/+Lx+CSqyN/MuszFVUvcOPbhY+AEfs7q0mSNyOB
-         gfzxPgbaeA/srmpb3tfwFRtVUYW9qbGL+EdyK+yutrCWAUrl5doIpdFlcqXPL0cgXxgc
-         JT3Fh8CtEoG3JZXipAvmCYxBbz3dDffgxrHpbShj+IXifDe/nnU8Ptj07MAlvzHQ3IJ1
-         w6mBFjS3ps+rKhy8EfXsrmYazkOnqrYveGl75TRyrtyVVnRC7pdIBVnqOlKf6K6ju2wW
-         jWRZCmzqMEldSrmiiiaa1l3rwlQ7M5L17w0VYnO+nTDGiTCoqqwoPN5YNhJ3qrgOR7Yy
-         KGag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746474522; x=1747079322;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pAjw+RP1+6euq9Xnw3ss8KTaidRJzLLOan/6IZ94Dsc=;
-        b=Dg3gBmYz2ky0kgnW3S2ORUvtkzUJUZFgGdlSmvxTx3tSYOweNg8cS+kihFYI948Ib5
-         ISTUVDxe61I5nkWFCkXbK8FgWjGHWPeeB4dV9ppQkCrHWwO1YQ6JFeuzPKRTZJRtFAw2
-         CDDAGldSxV3wAQ4BcsPfXc5YwOzzMQNs+vjsHLkIKzYFDHMo6j1LfvsOgxleN1lFbT5P
-         yiywMRfDpXXgmTYgVCvd/xHsLAlViQhuuvxdNdF6O7ljV0fMe2aLe+yOG3tZuAcopoo8
-         p57/yZ+imEQU7ZC+DM6ad+xSJPqiimq2TSHFJR+qM0/jFXTPF46NsD+uLYTzYkkGa2eT
-         3sDw==
-X-Forwarded-Encrypted: i=1; AJvYcCUC4mKYpaT1KHrol8GDfj9+hFwqWueOohtqyq3HPsau0ooQgOgTrlvBzg+sruYNt+RmLAxD3Mx1lCJgJExL9PH8@lists.infradead.org
-X-Gm-Message-State: AOJu0YzvtG5FhOkIYwuB6zgH6foBPi1xiFAlzqJey9WL8PWVdLRiC7jw
-	284Q0GaVHtVt/+MuKOCErxlkqHHH/dQUgYtODMsdq1fKMwlZi6UdElX7rjJJ4w==
-X-Gm-Gg: ASbGncvY8M2pajfL99UttU7gUpVPIuhgLK3xYjZ1kZLhdd2knRrjCJBFREgW6CyYSwZ
-	5fLcUfm/0TE3HC8B3bgo+HWOUCBX4dNUlke7bupeSayO1oRQ6hH1sTjlYODiAzqWi5qKNwwkQA7
-	7FAxMmIrnuG9mJpnwxoBrU0Px8UK5sQYzmUd9R5PzIvMPi39LNPe4mN2iHaevOD1h3OA/hPl2UJ
-	hkKqAQ/zK90+AL+MptiKn6fSJpZK5kX2FZKuLGDkRImLQwl+2G4T/QONyHXvEL3pmg96VHzmRqE
-	0vARZlDzvCDzKNb83+gTC73NMmSndUHw2q7qh7rgIncKrrUMSCCmPjyVOcmb6BFw1kws0xidpFA
-	NeA==
-X-Google-Smtp-Source: AGHT+IFe81XCbK5uMeJoPJg1XV56xU76aNDTbL3/KYnGiZ31GOPdYKcEOgtVXzT/n5btxhacARrPsA==
-X-Received: by 2002:a17:903:17c7:b0:22e:1858:fc25 with SMTP id d9443c01a7336-22e3534e345mr376965ad.9.1746474521506;
-        Mon, 05 May 2025 12:48:41 -0700 (PDT)
-Received: from google.com (176.13.105.34.bc.googleusercontent.com. [34.105.13.176])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b1fb3c6a59bsm6010723a12.67.2025.05.05.12.48.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 May 2025 12:48:40 -0700 (PDT)
-Date: Mon, 5 May 2025 12:48:36 -0700
-From: Vipin Sharma <vipinsh@google.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-	kvm-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	pbonzini@redhat.com, anup@brainfault.org, borntraeger@linux.ibm.com,
-	frankja@linux.ibm.com, imbrenda@linux.ibm.com, maz@kernel.org,
-	oliver.upton@linux.dev
-Subject: Re: [PATCH 2/2] KVM: selftests: Create KVM selftest runner
-Message-ID: <20250505194836.GB1168139.vipinsh@google.com>
-References: <20250222005943.3348627-1-vipinsh@google.com>
- <20250222005943.3348627-3-vipinsh@google.com>
- <aBKWmRDBrjeZhAW0@google.com>
+	Mon, 05 May 2025 19:52:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ffQK/aqdXSmr4zZdoh2l6/UoOloYTCuEje3TQr1avStP7GRqUgKbBYhDMa4xhn1CJDfYoA4g3XuFYWeZ8XKhcHlsmGIp8XE2pmCsHhNy86iu5cFDuih7OOC/brg/V6lGau9T2NasZPK6M89sRdKi0XIZx3aXAkGRT1VKsoqLUkJkpTd9yLsiYJHNi6m8ITTPP9RmQ8xlPsbqHSF2H1dGfNBDnMUWlxy4QISkv0CR/IZ74gGSXTwsh91u0BCjlfju0c5E8ew5M+SOgdpMfuQXeBbUPoHrplxs8Nn5KJSZ9ZAiIGiaX5jCk6Bvz7um6aJIlI52ysfMzH9PqtAKtcCttg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lzYz1kQE776rppX2LjWBcEzYot/SUfNrKDUyz+RyId0=;
+ b=gI0RbNlQPDEhprL8fLU2+rE9+jvV//cfQcc6kASgf2dsYA5E4hbHiuEXaof2mwseGvU0iLee4AaT3mK7+LUjcFjRvSnOqGDq3P5+G+5smNZQ9jCm6mxRSiNeLWNd3oxErOiLP+XTJJx4rVI/9bfcwZKhP/xvZS70tli7QVPd2yZAeMZYkLHDvbftM8d7tjdNY9A5vljPq8jJ/n1rqeGKxCfPGIZa3SgWofBQaLJtzjnoOAWD1AjAzSg1Gw5jteX2nKgeWjNf4VsEM1Wmy9re4M9J596rRz/SU/BjJFANTOfW0fNPojwZBVTZcNvoJsIQHDLb/RjhCDHJGUc4o+RfCQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lzYz1kQE776rppX2LjWBcEzYot/SUfNrKDUyz+RyId0=;
+ b=BPTx2CmJpt2SZLOgPcsu3iGTTQKEHXkXmi2EWp9nC5eSc6AsWnmDVIB2Meh8H9VCw6ty8alTSQOCAF2we9FzvKd7RfNWdNZj/7fiC0Dwc5+k7hw9C4+4xH3vIY2Ah9q7HFVKP8UgCN+q033dE5whIxFMzHK2i7PY8dI8K6DQglX6lCM/m6XDDEx87wMpFw7K4rz0oKmUj5WBusw/2F8nAnbOq55wE32+sf4LpJxE9KYg/qFjlRHIaOimTHFByEnEgx3jd9uchbz4kbWZxLFibUcxiddOMqDKPJLEuugLMaKCJJopWOKX3TnctX6YTYgX6usVhdwLDJvZla/2bV6WGA==
+Received: from CH0PR03CA0016.namprd03.prod.outlook.com (2603:10b6:610:b0::21)
+ by SA1PR12MB8743.namprd12.prod.outlook.com (2603:10b6:806:37c::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.24; Mon, 5 May
+ 2025 19:51:55 +0000
+Received: from CH2PEPF00000141.namprd02.prod.outlook.com
+ (2603:10b6:610:b0:cafe::20) by CH0PR03CA0016.outlook.office365.com
+ (2603:10b6:610:b0::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8699.31 via Frontend Transport; Mon,
+ 5 May 2025 19:51:54 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ CH2PEPF00000141.mail.protection.outlook.com (10.167.244.74) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8722.18 via Frontend Transport; Mon, 5 May 2025 19:51:54 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 5 May 2025
+ 12:51:33 -0700
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 5 May
+ 2025 12:51:32 -0700
+Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.129.68.6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Mon, 5 May 2025 12:51:05 -0700
+Date: Mon, 5 May 2025 12:50:56 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: Pranjal Shrivastava <praan@google.com>, <kevin.tian@intel.com>,
+	<corbet@lwn.net>, <will@kernel.org>, <bagasdotme@gmail.com>,
+	<robin.murphy@arm.com>, <joro@8bytes.org>, <thierry.reding@gmail.com>,
+	<vdumpa@nvidia.com>, <jonathanh@nvidia.com>, <shuah@kernel.org>,
+	<jsnitsel@redhat.com>, <nathan@kernel.org>, <peterz@infradead.org>,
+	<yi.l.liu@intel.com>, <mshavit@google.com>, <zhangzekun11@huawei.com>,
+	<iommu@lists.linux.dev>, <linux-doc@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-tegra@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
+	<patches@lists.linux.dev>, <mochs@nvidia.com>, <alok.a.tiwari@oracle.com>,
+	<vasant.hegde@amd.com>
+Subject: Re: [PATCH v2 13/22] iommufd: Add mmap interface
+Message-ID: <aBkWoH23VysYake3@nvidia.com>
+References: <aBE1gUz9y415EuBQ@google.com>
+ <aBE38GwvGBnpRNLc@google.com>
+ <aBE47aySzDp2lsAz@Asurada-Nvidia>
+ <aBE800DsAOOZ4ybv@google.com>
+ <aBE/CD4Ilbydnmud@Asurada-Nvidia>
+ <aBFGCxcTh54pecsk@google.com>
+ <aBFIsYg+ITU8RvTT@Asurada-Nvidia>
+ <20250505165552.GN2260709@nvidia.com>
+ <aBj1Av6Xaj8flMN+@nvidia.com>
+ <20250505173101.GT2260709@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <aBKWmRDBrjeZhAW0@google.com>
+In-Reply-To: <20250505173101.GT2260709@nvidia.com>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF00000141:EE_|SA1PR12MB8743:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2d706f07-d75f-4763-2845-08dd8c0e4976
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|1800799024|376014|36860700013|13003099007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6wnDJg8TfHKTv54yOKMCTOAojk6lC2PwLFxItsGRTOjvAqR+q2DgtDh+nzwj?=
+ =?us-ascii?Q?73j2Ls1EBIEZcsgXP7WYkRWD4s63RwnABRhSgUo7p3v3RQqzy9jP0fNGJv0E?=
+ =?us-ascii?Q?2CQys5kC8fgsqOHqetIktkxz81EnFB/VH68GAtNXFgBUc9DAEa5isvCAXUte?=
+ =?us-ascii?Q?FtE7qAlqsLUVPXhoOQm4zDFK1va3p3s9yPAsgvSrlRmeRfizYGgw6UdGQ7xy?=
+ =?us-ascii?Q?tR317b1JRXwVBE8OB+T6ThxEK3O3dKwLp+byAzYclgHynSFWAxZqt4FdPu3J?=
+ =?us-ascii?Q?3fy/ss+ZgxYvEUGUod8OvFGgUFnrPtjd5cj3LmgeFojWF4qUWLpNcnTzBmcs?=
+ =?us-ascii?Q?oFEmRnzz4+Gjiag5tUjAHEqThvfFCvZAUD97pqC/ApRY+u95FaIiwZx840qQ?=
+ =?us-ascii?Q?CEEZhiuJxix7YIYe2MIpoMdHENShXRY99rS4AFM+8SXjEPE9sCby7IH2O6uS?=
+ =?us-ascii?Q?ji1XMxiBdwDsL8Bpyd1nIX2xIjkPynXKk8zqmQ93sw+0ecKkmiyohmU8MNXy?=
+ =?us-ascii?Q?mNOTqHAThesKyCNpao42YFnIXcHu5bCwFPypFUt1dT/2HJa7d0ffKT+3XPam?=
+ =?us-ascii?Q?8gexgI1xTQ40U6VouP4/wzYOQqUplrlQJYNrQ8QCUxf4oJEVnVIwKFRSNP7u?=
+ =?us-ascii?Q?0bLiJrAAGou/PnvRPlmBbuCGPOgRJexDhYaJM8HbfPkluZr6EDdW3aubsbP8?=
+ =?us-ascii?Q?oNoD1GeckP6AT2qgY1Giq3CsVhk9ttG98eBByNsolEEFLULqkrzYAdehxGab?=
+ =?us-ascii?Q?8hNSw/HpaYe/xRZB/zg9IMPX0TIKaOi/2o9f/mUV6H+cdQ2nAo5kw70udEJj?=
+ =?us-ascii?Q?QV/HEhpwISmyTXUMFHzyFfoobSrvrqmmhydirW1hgt8MejQzThv7YQHf7sZR?=
+ =?us-ascii?Q?3KGgOw4yMhndPVTGWE3nbgEgjHwqebEYZIqAF6Mck8YJjlaJWI1ketuAs8Ag?=
+ =?us-ascii?Q?t67kYhVHPZIkztokI+pRPfb6ouUDVdWyFlhBVFQZzaAZinIlDyfDN3TGhcn+?=
+ =?us-ascii?Q?IEvTU49qMBmt9DIsngCGmhp4LDvvO9uSDdF+V5ukPfriIRQEdnnfgnBLH7P/?=
+ =?us-ascii?Q?TujLdFQ/6yyTLLi+IkW71kYS1IN88ZfWQGkbkvx3Kd1T8WNaBIB/X74FFWzZ?=
+ =?us-ascii?Q?Sbz2tREnxkKPjbq0zYBey+SPbS3bp39NLUfW4DdYIyIZL1m5j+R3+9tu0uzu?=
+ =?us-ascii?Q?Df/0dTMucw01d9HhRdBLAKCU2UzaPqadCBXSsKxXvMsSphRTC1gFWxPBLzg7?=
+ =?us-ascii?Q?TR+tZWIFvwY8x538QlQPA5WfssIWFCYZM10pWmmN7pUhk2YZqcEVVJnxkaDP?=
+ =?us-ascii?Q?w6yiv7b5pCRhhhT1GzU2iFmt69t0/lpAyehRlGgnOojB6Ih1hiBZpyyN+Zf0?=
+ =?us-ascii?Q?kXGC/oWDUe+umz/LrYKzLZhuTs2Vp8YkOPjPjrbUe1NPkxk42i8bZwqOTxGu?=
+ =?us-ascii?Q?MANXCT0aI3RzHQUammuQtTIvE+39uoW+Q9GCisER1m8R9Mc4YPPQmZmSaYyy?=
+ =?us-ascii?Q?JZOnpJz8VmkI+AcxIq0rSbu6BKkLyGm9xKtIfk+jGPY4naYtHfjG06eS3Q?=
+ =?us-ascii?Q?=3D=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(1800799024)(376014)(36860700013)(13003099007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2025 19:51:54.4858
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2d706f07-d75f-4763-2845-08dd8c0e4976
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF00000141.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB8743
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_124842_693649_DC5329C2 
-X-CRM114-Status: GOOD (  52.30  )
+X-CRM114-CacheID: sfid-20250505_125203_012971_B0E050B5 
+X-CRM114-Status: GOOD (  22.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,245 +168,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-04-30 14:31:05, Sean Christopherson wrote:
-> This is awesome!
-> 
-> I have lots of idea, but not all of them need to be address for the initial
-> commit.  Some of them I would consider blockers, but I also don't want to end up
-> with massive scope creep that causes this to stall out for (more) months on end.
-> 
-> On Fri, Feb 21, 2025, Vipin Sharma wrote:
-> > Create KVM selftest runner to run selftests and provide various options
-> > for execution.
+On Mon, May 05, 2025 at 02:31:01PM -0300, Jason Gunthorpe wrote:
+> On Mon, May 05, 2025 at 10:27:30AM -0700, Nicolin Chen wrote:
+> > > So when calling mtree_alloc_range:
+> > > 
+> > > int mtree_alloc_range(struct maple_tree *mt, unsigned long *startp,
+> > > 		void *entry, unsigned long size, unsigned long min,
+> > > 		unsigned long max, gfp_t gfp)
+> > > 
+> > > size should be the number of PFNs this mmap is going to use, which is
+> > > not sizeof() anything
+> > > 
+> > > min should be 0 and max should be uh.. U32_MAX >> PAGE_SHIFT
+> > > IIRC.. There is a different limit for pgof fon 32 bit mmap()
 > > 
-> > Provide following features in the runner:
-> > 1. --timeout/-t: Max time each test should finish in before killing it.
+> > Should the startp (input) be the pfn_start (i.e. pgoff)?
 > 
-> The help for this needs to specify the units.  I assume it's seconds?
+> pfn_start/pgoff is the output of the allocation, it is not an input.
 
-Yup, it is in seconds. I will update the help text.
+Sorry, I got it wrong. Not "startp": it's an output that should
+be returned to user space, as pgoff of mmap.
 
-> > Runner needs testcase files which are provided in the previous patch.
-> > Following are the examples to start the runner (cwd is
-> > tools/testing/selftests/kvm)
-> 
-> The runner definitely needs a command line option to specify the path to the
-> test executables.  Defaulting to in-tree builds is totally fine, but we should
-> also support out-of-tree builds (or copying to a remote host, etc.).
-> 
-> The default testcases will have relative paths, e.g. $arch/$test, so the user
-> will still need to maintain the same directory structure as in-tree builds, but
-> IMO that's totally fine.
-> 
+I wanted to ask: what should we pass in to the "entry"? An mmap
+structure that hold the pfn range? Or just pfn_start?
 
-I didn't think about out-of-tree builds. Thanks for catching it.
+> > In this case, it would return startp as the ID, which will
+> > be further returned to the user space. So, basically user
+> > space know the pfn range, v.s being given an mmap cookie?
+> 
+> Userspace is given the pgoff to pass to mmap as a cookie, it doesn't
+> know anything about it beyond that passing that pgoff will get the
+> mmap it should get. Userspace must also know how big the mmap is.
 
-I will add a command line option to pass the path of kvm selftests
-executable, with the assumption of same directory structure as in-tree
-builds. Default will be assuming in-tree builds.
+Yes. I got this part.
 
-> > - Basic run:
-> >   python3 runner --test_dirs testcases
-> > 
-> > - Run specific test
-> >   python3 runner --tests ./testcases/dirty_log_perf_test/default.test
-> > 
-> > - Run tests parallel
-> >   python3 runner --test_dirs testcases -j 10
-> > 
-> > - Run 5 tests parallely at a time, with the timeout of 10 seconds and
-> >   dump output in "result" directory
-> >   python3 runner --test_dirs testcases -j 5 -t 10 --output result
-> > 
-> > Sample output from the above command:
-> > 
-> > python3_binary runner --test_dirs testcases -j 5 -t 10 --output result
-> > 
-> > 2025-02-21 16:45:46,774 | 16809 |     INFO | [Passed] testcases/guest_print_test/default.test
-> > 2025-02-21 16:45:47,040 | 16809 |     INFO | [Passed] testcases/kvm_create_max_vcpus/default.test
-> > 2025-02-21 16:45:49,244 | 16809 |     INFO | [Passed] testcases/dirty_log_perf_test/default.test
+> The pgoffs should all be allocated from non-overlapping ranges as
+> though they were bytes in a file so that the mmaps are all
+> disjoint. This makes debugging easier and the API saner.
 > 
-> 
-> Printing the timestamps to the console isn't terrible interesting, and IMO isn't
-> at all worth the noise.
-> 
-> The PID is nice, but it needs to be printed _before_ the test finishes, and it
-> needs to track the PID of the test.  If getting that working is non-trivial,
-> definitely punt it for the initial commit.
-> 
-> And presumably INFO is the level of logging.  That needs to go.
-> 
+> There is no "id" here..
 
-Instead of removing timestamp, I can just print HH:MM:SS, I think it
-provides value in seeing how fast runner and tests are executing.
+Ah, right. "ID" is more of the xarray term. Here it's "startp"
+right? And it would be used as the "index" for mtree_load().
 
-I will modify PID to print each test pid.
+With that being said, it seems that I have been misusing the
+mtree data structure, treating it as an xarray. In your very
+first email suggesting the mmap design, where you mentioned
+"xarray" first and "maple tree" following. So, I thought they
+can be used in the similar way, especially after reading this:
+https://lwn.net/Articles/846175/
 
-INFO will go away.
-
-> > ...
-> > 2025-02-21 16:46:07,225 | 16809 |     INFO | [Passed] testcases/x86_64/pmu_event_filter_test/default.test
-> > 2025-02-21 16:46:08,020 | 16809 |     INFO | [Passed] testcases/x86_64/vmx_preemption_timer_test/default.test
-> > 2025-02-21 16:46:09,734 | 16809 |     INFO | [Timed out] testcases/x86_64/pmu_counters_test/default.test
-> 
-> I would really like to have terminal colored+bolded output for tests that fail
-> (or timeout) or are skipped.
-> 
-
-I will add color+bold for test which fails, timeouts, or skips.
-
-> I think we should also provide controls for the verbosity of the output.  E.g. to
-> skip printing tests that pass entirely.  My vote would be for a collection of
-> boolean knobs, i.e. not a log_level or whatever, because inevitably we'll end up
-> with output that isn't strictly "increasing".
-> 
-> Adding a param to disable printing of passed tests is presumably trivial, so maybe
-> do that for the initial commit, and then we can work on the fancier stuff?
-
-You mean some command line options like:
-	testrunner --print-passed --print-failed
-	testrunner --print-skipped
-	testrunner --print-timeouts
-	testrunner --quiet
-
-I can provide few options in the first commit, and then later we can
-extend it based on usages.
-
-> 
-> > 2025-02-21 16:46:10,202 | 16809 |     INFO | [Passed] testcases/hardware_disable_test/default.test
-> > 2025-02-21 16:46:10,203 | 16809 |     INFO | Tests ran: 85 tests
-> 
-> It would be very nice to have a summary of things printed out periodically.  E.g.
-> if my normal run has a few failures, but the current run has already failed a
-> decent number of tests, then I'd probably kill the run and start debugging.
-
-I can add a sticky bottom line which prints the current state of the
-total, passed, failed, skipped and timeouts.
-
-> 
-> Alternatively, and maybe even better, would be to make the runner mildly interactive,
-> i.e. to accept rudimentary commands while tests are running.  Then the user can
-> query the state of things while the runner is still doing its thing.  E.g. bind
-> a few keys to print the various statuses.
-> 
-> > 2025-02-21 16:46:10,204 | 16809 |     INFO | Passed: 61
-> > 2025-02-21 16:46:10,204 | 16809 |     INFO | Failed: 4
-> > 2025-02-21 16:46:10,204 | 16809 |     INFO | Skipped: 17
-> > 2025-02-21 16:46:10,204 | 16809 |     INFO | Timed out: 3
-> > 2025-02-21 16:46:10,204 | 16809 |     INFO | No run: 0
-> 
-> A not-quite-mandatory, but very-nice-to-have feature would be the ability to
-> display which tests Passed/Failed/Skipped/Timed Out/Incomplete, with command line
-> knobs for each.  My vote is for everything but Passed on-by-default, though it's
-> easy enough to put a light wrapper around this (which I'll do no matter what), so
-> my preference for the default doesn't matter all that much.
-> 
-> That could tie into the above idea of grabbing keys to print such information on-demand.
-> 
-
-This will be very involved feature, lets punt it to a later versions, if
-needed.
-
-> Also CTRL-C handling needs much more graceful output.  Ideally, no stack traces
-> whatsover, and instead a summary like the above, but with information about which
-> tests didn't complete.
-> 
-
-Should be doable.
-
-> > Output dumped in result directory
-> > 
-> > $ tree result/
-> > result/
-> 
-> The runner should have an (on-by-default?) option to abort if the output directory
-> already exists, e.g. so that users don't clobber previous runs.  And/or an option
-> to append a timestamp, e.g. $result.yyyy.mm.dd.MM.SS, so that all users don't end
-> up writing the same wrapper to generate a timestamp.
-> 
-> Having a no-timestamp + overwrite mode is also useful, e.g. when I'm running in
-> a more "interactive" mode where I'm doing initial testing of something, and I
-> don't care about
-> 
-
-We can provide user an option like:
-	testrunner --output result_TIME
-
-then internally runner will replace TIME with the current time?
-
-If user doesn't provide _TIME then we can overwrite the directory
-provided.
-
-This sounds reasonable to me, what do you think?
-
-> > +++ b/tools/testing/selftests/kvm/.gitignore
-> > @@ -11,3 +11,4 @@
-> >  !Makefile
-> >  !Makefile.kvm
-> >  !*.test
-> > +!*.py
-> 
-> Sort this alphabetically as well.
-
-Okay.
-
-> 
-> > +def fetch_test_files(args):
-> > +    exclude_dirs = ["aarch64", "x86_64", "riscv", "s390x"]
-> 
-> These are now:
-> 
-> arm64, x86, riscv, s390
-> 
-
-Yeah, I will make the change.
-
-> > +    def __init__(self, test_path, output_dir=None, timeout=None,):
-> > +        test_command = pathlib.Path(test_path).read_text().strip()
-> > +        if not test_command:
-> > +            raise ValueError("Empty test command in " + test_path)
-> > +
-> > +        if output_dir is not None:
-> > +            output_dir = os.path.join(output_dir, test_path)
-> 
-> This doesn't do the right thing if test_path is absolute (or maybe it's if the
-> output_dir is in a completely different hierarchy?)
-> 
-> I was able to fudge around this with 
-> 
-> diff --git a/tools/testing/selftests/kvm/runner/selftest.py b/tools/testing/selftests/kvm/runner/selftest.py
-> index cdf5d1085c08..3bce023693cb 100644
-> --- a/tools/testing/selftests/kvm/runner/selftest.py
-> +++ b/tools/testing/selftests/kvm/runner/selftest.py
-> @@ -30,7 +30,8 @@ class Selftest:
->              raise ValueError("Empty test command in " + test_path)
->  
->          if output_dir is not None:
-> -            output_dir = os.path.join(output_dir, test_path)
-> +            dirpath, filename = os.path.split(test_path)
-> +            output_dir = os.path.join(output_dir, os.path.basename(dirpath), filename)
->          self.test_path = test_path
->          self.command = command.Command(test_command, timeout, output_dir)
->          self.status = SelftestStatus.NO_RUN
-> 
-
-I will fix it in next version. Thanks.
-
-> Lastly, please don't wrap agressively (off-list, you mentioned it was due to a
-> formatter?).  E.g.
-> 
-> diff --git a/tools/testing/selftests/kvm/runner/test_runner.py b/tools/testing/selftests/kvm/runner/test_runner.py
-> index b9d34c20bf88..5a568e155477 100644
-> --- a/tools/testing/selftests/kvm/runner/test_runner.py
-> +++ b/tools/testing/selftests/kvm/runner/test_runner.py
-> @@ -12,8 +12,7 @@ class TestRunner:
->          self.tests = []
->  
->          for test_file in test_files:
-> -            self.tests.append(selftest.Selftest(
-> -                test_file, output_dir, timeout))
-> +            self.tests.append(selftest.Selftest(test_file, output_dir, timeout))
->  
->      def _run(self, test):
->          test.run()
+Thanks
+Nicolin
 
