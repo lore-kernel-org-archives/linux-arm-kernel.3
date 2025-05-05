@@ -4,143 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06D00C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 13:21:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55285C3ABB6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 13:21:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ndsmfORnkICQk8jSCedUOIfsQUGdzXAUTeHyArpuUsw=; b=BiDbu6SvStVGTGa3f3H1B54xrC
-	S+iiQhXp6Tkz/LHLEPVf6yaQ9eCKwS6k0nZ+aj9ePajnmN9nuFVbGerdJAX86Hdqyn4P/Ii9JfTs/
-	uwqjiGi5pwexgb/AkjwqTTF3ZnqltpXuqty2jS/sjlLqEF/t4H4fQMvUJZXQhbCA7tzY6HSMLo633
-	lEvvwDZPvVHh4YbbloEaJoNb7z2NuIh5WHoYlXW+meQsMopSmSHAQZ7z4lOO8VdLtis76yXbpfzkF
-	LVtG6VTFLrZYgrzcwoQLJwVaLqRrPLEFuAgDcPGOKEDDQxESEt7jaQH5etPO5DXQr8C+i2dOQQUr1
-	1SZGpilg==;
+	bh=Rl6spdFCta6JXs9NjzJlT+z8o2YUBT0Kre+VTf+/vXs=; b=KN4DhUSRwq98jjiOq1YJ3Sdr73
+	kmmYVMoWpIRLD+uS3kfTvh0GshPv+T6aILFYiX+fEZg06ppScPoLVxJkP6gMjPo5MD62VVdZyfg1R
+	0qcQV7Y0kNBdm3lpoeBwRzJfGcy8HO/EEecxHWrJsME1clfvNLI2NTfT4MQ+sYcyyjy4UrGmdX6LA
+	c55CQZGOINsvVLPmxbuogo+/QdXTkcqE4G/rr1l4zGgh67CB1swffajItIiyrlZBruIz/E0EtThuM
+	RRPMRpQQmEPy61utLnOpLF0l3FiBmkT10Slb8O2qYbEvYw0hMU20pM0TJhdNtOaqXR5YL2K7h7Fk2
+	sMMOXIcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBvkf-00000007Rw5-3l5c;
-	Mon, 05 May 2025 13:20:57 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1uBvkb-00000007RuL-3ntR;
+	Mon, 05 May 2025 13:20:53 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBvI3-00000007OVO-44NJ
+	id 1uBv5j-00000007M5T-3jJG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 12:51:26 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-39123ad8a9fso258745f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 05:51:23 -0700 (PDT)
+	Mon, 05 May 2025 12:38:41 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-441ab63a415so43778855e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 05:38:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1746449482; x=1747054282; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=ndsmfORnkICQk8jSCedUOIfsQUGdzXAUTeHyArpuUsw=;
-        b=CkVmEK+QALJ6g4sEBG8DTL2GXNsQcI+SGprWj1srtmnjBGLNdSNRpu5xETwYdMGD/Z
-         J+n83Xz68KeHs5aG3MMLvq4Bq216LR4zqFYmPbBRNUMKFhjn7UyVveRQxN+vTS7X1OQz
-         I0/gTkmf7z8/mavoDE3rQYlUQDT8aIlxCJWUlpbDrVXIZEpmHQIyB9oqowkhpJEs4GJp
-         4qfi/uXsXFahoN62r9oWDMEJWrzu2soSNi0Gi4/AX952gjspxi6F92SrD+5JG3SZMH27
-         Xm5erG4R/rQ0krnlUT9I3+YDZnLwh9qiWJSJSVUYEA9I1iONNFFn5or+QW2VRr+GhUCO
-         mlHg==
+        d=linaro.org; s=google; t=1746448718; x=1747053518; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Rl6spdFCta6JXs9NjzJlT+z8o2YUBT0Kre+VTf+/vXs=;
+        b=famqxPv5yX/XHUOl89qwuYn6pcnjFxLQG1Ctr9J54VwPslaWjMZQD+TUo8te+NPM9l
+         m5FCSYKN2IxJSZcGEI8kr/mlJzuJkzfzv79+/JF9rwstdkAbluf5XAI8TsPAJfnBrYta
+         848fxKhfSJFljlwU9StWXpjU7qhyKS1SPjpUOrELk6yU60bSO5lPtDmvYRojWWTJH1Zu
+         CJUKWSn6y1O8FBtvo+Yx4FcNEZXtrWjq3dMKPC34wcaVoGMoYRfGL4iOB3qPIxcOqqv6
+         86RBrEmX5ipd+zPzDCERcnm8nnLZvLumTW3KE2F7pGLsdsMli3yBJiCg2TivE90jv5jP
+         YBXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746449482; x=1747054282;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ndsmfORnkICQk8jSCedUOIfsQUGdzXAUTeHyArpuUsw=;
-        b=Srx8q+b7viIvBA56mIzEEl7bhcBXRoDEuq5MbSMrj+QNsXpTce2tMHNHWiYtQIJEe2
-         5YgUBBx6BjIhoZNjPxx5MdNltAjQoeaX9Z8iO7FSHnZpHvT+FNTp9ACkupMaVL877eoR
-         smsqAaaZK4+Wa9DcTxMM2Y8Cff3uCO0TZIG7IFVTPxpDKK8V61gtZg6BQ7os5+2rlGXu
-         t9eLdbFFvUuqFoHTrl3pOLfMhUFOD02bUHYG5ZlNuzgkQ08Vkx14iADIBrAxN+qFrJ8d
-         pFWHzcCP+ktIGwZmkx0sh6TOh5qbY+idhtu2q5dWprUCdW1BdN+x08ElZS/cGMae9D2O
-         b/pg==
-X-Forwarded-Encrypted: i=1; AJvYcCW5TFiy8U27AfPKqX+vO6cgZ9c56dJv0EU5iVZWN4Jm5opZhDqd9VtVs88HWE4tbp0tPrTBnQDbPu58dtSB+bgz@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy89m4XY4DAnaSyBOaHLdQdBxcoGHb186TbVBvn8LitFFuTEGL8
-	ezO1CRR0aKh55ta5nt3MlDJ9n5ttF+FlmIxol183ejnRAxC+3Uod7tb3nJt+Hxs=
-X-Gm-Gg: ASbGncsQd8fDGDVFi6KYfj8LzgW/oUA1+tFC07maG+Q3x1E8VKZM7wVH5aCCAg1gUkY
-	1MfKFpG+Fll21pTRAWEPALpYR+jB0tyZGl2Y67VOA6WU8cybbT9P0oIqX6X107J/x/gR+AF4QTk
-	oTX+FhGk16cKbj7b4W6tJoVfRlmmRJPbvYdufX3/gkz+1Io05WIwjme6lNsNmd4gMUHGfPBfku9
-	K/n4TBzlafztofGZkAxOg0HG4FRJPdR4k7/qYOAiquhvA8TrUCrE6/Gcq6iWiwrggPTXm0T+VxH
-	DJDR2mw6SgW6E3RWeQMOphSI2REbuVQDEsC4F0ef35JF3galKOx/z7+ggNQ=
-X-Google-Smtp-Source: AGHT+IFh9MqrVoggZusz4VHj0uAdGrHI1bTqOdCSn/SPHpGaUlPhaICa/6fcOPCGmTg/zC8S7KfQeQ==
-X-Received: by 2002:a05:6000:1a88:b0:3a0:6c12:237e with SMTP id ffacd0b85a97d-3a099af3ac6mr3160293f8f.16.1746449481965;
-        Mon, 05 May 2025 05:51:21 -0700 (PDT)
-Received: from [192.168.1.29] ([178.197.207.88])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a099b0ffbfsm10134616f8f.80.2025.05.05.05.51.20
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 05 May 2025 05:51:21 -0700 (PDT)
-Message-ID: <a53149e6-2273-458f-9fa3-89fec112f4d4@linaro.org>
-Date: Mon, 5 May 2025 14:51:19 +0200
+        d=1e100.net; s=20230601; t=1746448718; x=1747053518;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Rl6spdFCta6JXs9NjzJlT+z8o2YUBT0Kre+VTf+/vXs=;
+        b=SCNOD78N/IaA+//t+H7GoZ5sxt8Xdz4z5jTCVE9kQqN4GUfwcg3JX+1jdiDuuG8y/S
+         7Kb4CGjROJvYTBDUjLvzfrM62f3jIRWVeXyu9SsCg3aEzLtRtIK2E6kPDlTbcjwlmWDx
+         BhygKs2/ccUnJjAiDtlPcJy7w9j/ap1pLp5U61dG8pGM2cpBE7bK7SR8BpRBKpLLJ4R2
+         xxjWZ4XMo1HaR5ENMHv28sbBEIV3KotgI7mqxRqOYAZgKBgMkyvgav6Ozssyq2TQoEcq
+         TH//5On2FWyLyoEtNfCWkWl0TMNwYp840WUOaGrjfpAmRIGAFFyy3oTaMHL6DHqGiRlo
+         kBLQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXuqAVkfgHvfPCBIN436Bgjv/Thqm/hbEuXC7g5tS/F5GvpC/sIY3J9EVkyHBkQ8PhMZF4XmUCr2n+5R8StTicJ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yztq02sNSJllxSF4TYSKzygT4VzYRiRv8QRMTDceBLQTWxgePmX
+	r2e78F1LmFDfMpZ8yUUG9accnntfA5CAoA7OOpXTIo+E0GtVZzbTDpGHqD8VJmMx5psfvUpXPu4
+	N
+X-Gm-Gg: ASbGncv8jy4c0ToUv4Y1WXFcJdw7UTYtbYSqigtwRY0rDEo1tyf+NSShLjjD+MI+BkL
+	oLdoENaLxBb27JD+KGmX1jEIYxrHEt+3fLMp+AJfHjZ++gRQ2mXO5mqEIcDC4yGhvVBEqUWhSx6
+	yv+9lkvo99F7yBLvBAJoMvmy38dKr8j4P62lI4koTsjyRlzZ3flL01abSvBnlCKd65+W6XVyH4F
+	JKfVFvULLPurMl24cr4NREBMD32cGr/YB094/hajUcfrUj/cB3sfiGhrsJJdi+lnta1yUzdzzVo
+	r5mowoVYLQy8cCrIIf8s1DhP04qdHNhcYmx2oX4blkH4Sgxaa8Ae3g9W3IqVww==
+X-Google-Smtp-Source: AGHT+IEPB1W6TKe5pDLjaw9rUkL1i4ZzERHI8wMQEDvQTkA9//qDganu2o1wcLoboBW4dB3iaby3zw==
+X-Received: by 2002:a05:6000:1869:b0:3a0:8c45:d41b with SMTP id ffacd0b85a97d-3a09ceafb06mr6167004f8f.20.1746448717806;
+        Mon, 05 May 2025 05:38:37 -0700 (PDT)
+Received: from arrakeen.starnux.net ([2a01:e0a:3d9:2080:8261:5fff:fe11:bdda])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a099ae0bf6sm10416625f8f.18.2025.05.05.05.38.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 May 2025 05:38:37 -0700 (PDT)
+From: Neil Armstrong <neil.armstrong@linaro.org>
+To: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
+ Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Kelvin Zhang <kelvin.zhang@amlogic.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Zelong Dong <zelong.dong@amlogic.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
+In-Reply-To: <20250320-a4-a5-reset-v5-0-296f83bf733d@amlogic.com>
+References: <20250320-a4-a5-reset-v5-0-296f83bf733d@amlogic.com>
+Subject: Re: [PATCH v5 0/3] Add support for Amlogic A4/A5 Reset
+Message-Id: <174644871707.1393229.7222540687542026901.b4-ty@linaro.org>
+Date: Mon, 05 May 2025 14:38:37 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v11 0/3] Add STM32MP25 SPI NOR support
-To: Patrice CHOTARD <patrice.chotard@foss.st.com>,
- Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: christophe.kerello@foss.st.com, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20250428-upstream_ospi_v6-v11-0-1548736fd9d2@foss.st.com>
- <174636664232.45285.4829080141383638928.b4-ty@linaro.org>
- <ec294e4f-274a-45ae-ac10-464ae4ae6f66@kernel.org>
- <6d697e1e-84da-4988-8564-91430e820fef@foss.st.com>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Content-Language: en-US
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzTRLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnp5c3p0b2Yua296bG93c2tpQGxpbmFyby5vcmc+wsGUBBMBCgA+AhsD
- BQsJCAcCBhUKCQgLAgQWAgMBAh4BAheAFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmgXUEoF
- CRaWdJoACgkQG5NDfTtBYpudig/+Inb3Kjx1B7w2IpPKmpCT20QQQstx14Wi+rh2FcnV6+/9
- tyHtYwdirraBGGerrNY1c14MX0Tsmzqu9NyZ43heQB2uJuQb35rmI4dn1G+ZH0BD7cwR+M9m
- lSV9YlF7z3Ycz2zHjxL1QXBVvwJRyE0sCIoe+0O9AW9Xj8L/dmvmRfDdtRhYVGyU7fze+lsH
- 1pXaq9fdef8QsAETCg5q0zxD+VS+OoZFx4ZtFqvzmhCs0eFvM7gNqiyczeVGUciVlO3+1ZUn
- eqQnxTXnqfJHptZTtK05uXGBwxjTHJrlSKnDslhZNkzv4JfTQhmERyx8BPHDkzpuPjfZ5Jp3
- INcYsxgttyeDS4prv+XWlT7DUjIzcKih0tFDoW5/k6OZeFPba5PATHO78rcWFcduN8xB23B4
- WFQAt5jpsP7/ngKQR9drMXfQGcEmqBq+aoVHobwOfEJTErdku05zjFmm1VnD55CzFJvG7Ll9
- OsRfZD/1MKbl0k39NiRuf8IYFOxVCKrMSgnqED1eacLgj3AWnmfPlyB3Xka0FimVu5Q7r1H/
- 9CCfHiOjjPsTAjE+Woh+/8Q0IyHzr+2sCe4g9w2tlsMQJhixykXC1KvzqMdUYKuE00CT+wdK
- nXj0hlNnThRfcA9VPYzKlx3W6GLlyB6umd6WBGGKyiOmOcPqUK3GIvnLzfTXR5DOwU0EVUNc
- NAEQAM2StBhJERQvgPcbCzjokShn0cRA4q2SvCOvOXD+0KapXMRFE+/PZeDyfv4dEKuCqeh0
- hihSHlaxTzg3TcqUu54w2xYskG8Fq5tg3gm4kh1Gvh1LijIXX99ABA8eHxOGmLPRIBkXHqJY
- oHtCvPc6sYKNM9xbp6I4yF56xVLmHGJ61KaWKf5KKWYgA9kfHufbja7qR0c6H79LIsiYqf92
- H1HNq1WlQpu/fh4/XAAaV1axHFt/dY/2kU05tLMj8GjeQDz1fHas7augL4argt4e+jum3Nwt
- yupodQBxncKAUbzwKcDrPqUFmfRbJ7ARw8491xQHZDsP82JRj4cOJX32sBg8nO2N5OsFJOcd
- 5IE9v6qfllkZDAh1Rb1h6DFYq9dcdPAHl4zOj9EHq99/CpyccOh7SrtWDNFFknCmLpowhct9
- 5ZnlavBrDbOV0W47gO33WkXMFI4il4y1+Bv89979rVYn8aBohEgET41SpyQz7fMkcaZU+ok/
- +HYjC/qfDxT7tjKXqBQEscVODaFicsUkjheOD4BfWEcVUqa+XdUEciwG/SgNyxBZepj41oVq
- FPSVE+Ni2tNrW/e16b8mgXNngHSnbsr6pAIXZH3qFW+4TKPMGZ2rZ6zITrMip+12jgw4mGjy
- 5y06JZvA02rZT2k9aa7i9dUUFggaanI09jNGbRA/ABEBAAHCwXwEGAEKACYCGwwWIQSb0H4O
- DFH41ZZ3t1Qbk0N9O0FimwUCaBdQXwUJFpZbKgAKCRAbk0N9O0Fim07TD/92Vcmzn/jaEBcq
- yT48ODfDIQVvg2nIDW+qbHtJ8DOT0d/qVbBTU7oBuo0xuHo+MTBp0pSTWbThLsSN1AuyP8wF
- KChC0JPcwOZZRS0dl3lFgg+c+rdZUHjsa247r+7fvm2zGG1/u+33lBJgnAIH5lSCjhP4VXiG
- q5ngCxGRuBq+0jNCKyAOC/vq2cS/dgdXwmf2aL8G7QVREX7mSl0x+CjWyrpFc1D/9NV/zIWB
- G1NR1fFb+oeOVhRGubYfiS62htUQjGLK7qbTmrd715kH9Noww1U5HH7WQzePt/SvC0RhQXNj
- XKBB+lwwM+XulFigmMF1KybRm7MNoLBrGDa3yGpAkHMkJ7NM4iSMdSxYAr60RtThnhKc2kLI
- zd8GqyBh0nGPIL+1ZVMBDXw1Eu0/Du0rWt1zAKXQYVAfBLCTmkOnPU0fjR7qVT41xdJ6KqQM
- NGQeV+0o9X91X6VBeK6Na3zt5y4eWkve65DRlk1aoeBmhAteioLZlXkqu0pZv+PKIVf+zFKu
- h0At/TN/618e/QVlZPbMeNSp3S3ieMP9Q6y4gw5CfgiDRJ2K9g99m6Rvlx1qwom6QbU06ltb
- vJE2K9oKd9nPp1NrBfBdEhX8oOwdCLJXEq83vdtOEqE42RxfYta4P3by0BHpcwzYbmi/Et7T
- 2+47PN9NZAOyb771QoVr8A==
-In-Reply-To: <6d697e1e-84da-4988-8564-91430e820fef@foss.st.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_055124_016693_289A1006 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20250505_053839_957893_14F2EA27 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,53 +106,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/05/2025 14:15, Patrice CHOTARD wrote:
-> 
-> 
-> On 5/4/25 18:16, Krzysztof Kozlowski wrote:
->> On 04/05/2025 15:50, Krzysztof Kozlowski wrote:
->>>
->>> On Mon, 28 Apr 2025 10:58:29 +0200, Patrice Chotard wrote:
->>>> This series adds SPI NOR support for STM32MP25 SoCs from STMicroelectronics.
->>>>
->>>> On STM32MP25 SoCs family, an Octo Memory Manager block manages the muxing,
->>>> the memory area split, the chip select override and the time constraint
->>>> between its 2 Octo SPI children.
->>>>
->>>> Due to these depedencies, this series adds support for:
->>>>   - Octo Memory Manager driver.
->>>>   - Octo SPI driver.
->>>>   - yaml schema for Octo Memory Manager and Octo SPI drivers.
->>>>
->>>> [...]
->>>
->>> Applied, thanks!
->>>
->>> [1/3] dt-bindings: memory-controllers: Add STM32 Octo Memory Manager controller
->>>       https://git.kernel.org/krzk/linux-mem-ctrl/c/43eb1b288072641b7de8f5d5c15bde69e6e8589a
->>
->> And dropped everything - it is full of warnings.
-> 
-> Hi Krzysztof,
-> 
-> What are the warnings you encountered ?
-> 
-> On my side, i double check and found nothing wrong neither on bindings side nor on source code side:
-> 
-> I previously checked that everything was up to date : 
+Hi,
 
-stm32_firewall_device.h:117:5: error: no previous prototype for
-‘stm32_firewall_get_firewall’ [-Werror=missing-prototypes]
-  117 | int stm32_firewall_get_firewall(struct device_node *np, struct
-stm32_firewall *firewall,
+On Thu, 20 Mar 2025 17:42:07 +0800, Kelvin Zhang wrote:
+> Add dt-binding compatibles and device nodes for Amlogic A4/A5 reset.
+> 
+> Imported from f20240918074211.8067-1-zelong.dong@amlogic.com
+> 
+> Changes in v5:
+> - Rebasing on top of the latest upstream changes.
+> - Link to v4: https://lore.kernel.org/r/20250313-a4-a5-reset-v4-0-8076f684d6cf@amlogic.com
+> 
+> [...]
 
-and several other like that.
+Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v6.16/arm64-dt)
 
-See:
-https://krzk.eu/#/builders/38/builds/915
-https://krzk.eu/#/builders/40/builds/900
+[1/3] dt-bindings: reset: Add compatible for Amlogic A4/A5 Reset Controller
+      (no commit info)
+[2/3] arm64: dts: amlogic: Add A4 Reset Controller
+      https://git.kernel.org/amlogic/c/946b51882b84f0cbec2acd203467866a7378abac
+[3/3] arm64: dts: amlogic: Add A5 Reset Controller
+      https://git.kernel.org/amlogic/c/f0911f29478992f37e91c208fe44c2ea5b378b61
 
+These changes has been applied on the intermediate git tree [1].
 
-Best regards,
-Krzysztof
+The v6.16/arm64-dt branch will then be sent via a formal Pull Request to the Linux SoC maintainers
+for inclusion in their intermediate git branches in order to be sent to Linus during
+the next merge window, or sooner if it's a set of fixes.
+
+In the cases of fixes, those will be merged in the current release candidate
+kernel and as soon they appear on the Linux master branch they will be
+backported to the previous Stable and Long-Stable kernels [2].
+
+The intermediate git branches are merged daily in the linux-next tree [3],
+people are encouraged testing these pre-release kernels and report issues on the
+relevant mailing-lists.
+
+If problems are discovered on those changes, please submit a signed-off-by revert
+patch followed by a corrective changeset.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git
+[2] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+[3] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+
+-- 
+Neil
+
 
