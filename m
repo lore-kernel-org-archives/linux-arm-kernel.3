@@ -4,61 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04D0FC3ABB6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 22:17:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D96BC3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 22:19:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KZMUmZgN98AMg1APK9EZIXhtS4AkynfiW9ldmbXdv2o=; b=uAILDs9h2Y5H4Ba8YRVCYRSq3V
-	NWFHvf6EitQ/HacVcVio7uD/ppHpoDEnmeG2LXWzPSedzbemH5djZ9MyMJnJi5E4CoORRzagVKtrj
-	8P0tb84AraS7AKTMrsKzVGCOGcFjv6HXbtGsfEKGYRV8uBfPNWhssHZ+nqXpgu0UeaHF9bYrSgt7C
-	BIU/FneiB3yeNRT3vu09bXbg+SWvE3+oeJykw4Hv4LUBSdCxlcPr7Rfo5rUVoEV7iRjWHYKlR9q0s
-	QNKtxWdf69SVUOk6UaSYfsZqcfsK2SoWVHFE/f7CTobjCpRfjfuLhZ9GvSPhcRgcXMmWA4npqs45F
-	YOjE52aw==;
+	bh=B37Vzg3u+nme2Kv84x0TiIzY4jnOCdUdlFcVbeJRI3A=; b=xtPsWaCjHrw79NH3X2Mxq4RtJX
+	bQ5zdvcF416HsTYI9fBss3vaQsHXa8Eu3tb9eabVL9GoQiYv8rvQR2LxeIlHDVFxEwB6849CpFr9s
+	BTrBxKYsRqqZwoTjuE5T2qkDAZ1CKAHgh+WCmqf+EmC1yLHu6Jxu2rQvnp6VmiE6Yu9HcfPhBJMeO
+	0Qh+cS6UY/ZeNHrp0xbfzcYOyD2cP7X6F1pODi16MGSOtkp3smeCJjJmwrvzN6q33yfsBbTdD99IO
+	rhFB+R5UKjFjS6P573whvFcu0Z2yBgk8Lcb3Za4VTyskcER6Uf/r0lWuTcDya3rBFofMd0oPicMsG
+	vHAUmK1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC47K-00000008i5k-2aYM;
-	Mon, 05 May 2025 22:16:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uC49K-00000008iey-3xC5;
+	Mon, 05 May 2025 22:19:00 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC45I-00000008hbH-1GEt
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 22:14:49 +0000
+	id 1uC45v-00000008hjz-3viV;
+	Mon, 05 May 2025 22:15:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0370649F4A;
-	Mon,  5 May 2025 22:14:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E1BAC4CEE4;
-	Mon,  5 May 2025 22:14:45 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 89767629C5;
+	Mon,  5 May 2025 22:14:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F82DC4CEED;
+	Mon,  5 May 2025 22:15:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746483286;
-	bh=B09meR/X/Vqey5C36kswuNEt+Ib5nl3MyFppu5LOHCk=;
+	s=k20201202; t=1746483327;
+	bh=lnta+hZMPY5VaUkaDF8fXZF2WkKJfxgBtucIMgpK6Sw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=s1adGG4XXkyAiYY9raXFFqSZp4gZi8P3z7RYBo4/5YK1soW8Df16CfzUDo1SaP6j2
-	 58sFCYMhMzWRG7eZwuYT0Psdi/7ZS28HHIpejB2S6R4fPBpwthhMFPSbNzq9sNzw30
-	 yf+Lw9GTSSKG9BIMBcTe1BfWyRxxh7o2/HBE3588MsUK9jHFmOcNcd9XVkiJxTRJKu
-	 IhJEYIOUpGwjFv8zU5oHdFZRBal8QhMDFhSj8xRdVVMDbNUiZyQB6+BnPIXZJOseMt
-	 XXchYgGsWumisfwa3xpHi4PmMF78eOaNcbbXPxUFZMMU8ku9GjM3aiH/iTOPwtKXFA
-	 Yv1Q9SKW07v0g==
+	b=kiQ0ATgxjroPDOnvO9zV771Z0Dw6rlgLXCGaZt7DbeGPHL4tDDjcJhOmYdl6pBRds
+	 m68vJGJi1C4AJleqG0Q9albUmimGK4VXKUsTVgh6IddLztdY+btV7znaSySOsZ1OOj
+	 32WVqhhi3wTiEyazzq71cpZfJ9pAjuWE0/dXRuqHv6mvpdD26vekLamaIrShjAzHtl
+	 oxpTAtgI7tkqd+/Xm8L3m13BAEVTOu3E9+jYgbutOx7tLUw8WmecF2r2aZ+YnA8Qnp
+	 C/qz2N1UARtrlZmskA4DuotM0cFASw5aoqVWnMCjdyixXMgqF/WGC6ZKU8WULbyYY8
+	 KQWgstagRsSpA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Jinqian Yang <yangjinqian1@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
+Cc: Luis de Arquer <luis.dearquer@inertim.com>,
+	Mark Brown <broonie@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	oliver.upton@linux.dev,
-	dianders@chromium.org,
-	shameerali.kolothum.thodi@huawei.com,
-	maz@kernel.org,
-	quic_tsoni@quicinc.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.14 015/642] arm64: Add support for HIP09 Spectre-BHB mitigation
-Date: Mon,  5 May 2025 18:03:51 -0400
-Message-Id: <20250505221419.2672473-15-sashal@kernel.org>
+	heiko@sntech.de,
+	linux-spi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.14 035/642] spi-rockchip: Fix register out of bounds access
+Date: Mon,  5 May 2025 18:04:11 -0400
+Message-Id: <20250505221419.2672473-35-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505221419.2672473-1-sashal@kernel.org>
 References: <20250505221419.2672473-1-sashal@kernel.org>
@@ -67,9 +62,6 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.14.5
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_151448_379795_CB5F99B3 
-X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,56 +76,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jinqian Yang <yangjinqian1@huawei.com>
+From: Luis de Arquer <luis.dearquer@inertim.com>
 
-[ Upstream commit e18c09b204e81702ea63b9f1a81ab003b72e3174 ]
+[ Upstream commit 7a874e8b54ea21094f7fd2d428b164394c6cb316 ]
 
-The HIP09 processor is vulnerable to the Spectre-BHB (Branch History
-Buffer) attack, which can be exploited to leak information through
-branch prediction side channels. This commit adds the MIDR of HIP09
-to the list for software mitigation.
+Do not write native chip select stuff for GPIO chip selects.
+GPIOs can be numbered much higher than native CS.
+Also, it makes no sense.
 
-Signed-off-by: Jinqian Yang <yangjinqian1@huawei.com>
-Link: https://lore.kernel.org/r/20250325141900.2057314-1-yangjinqian1@huawei.com
-Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Luis de Arquer <luis.dearquer@inertim.com>
+Link: https://patch.msgid.link/365ccddfba110549202b3520f4401a6a936e82a8.camel@gmail.com
+Signed-off-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- arch/arm64/include/asm/cputype.h | 2 ++
- arch/arm64/kernel/proton-pack.c  | 1 +
- 2 files changed, 3 insertions(+)
+ drivers/spi/spi-rockchip.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
-index 41c21feaef4ad..1c0b518d23745 100644
---- a/arch/arm64/include/asm/cputype.h
-+++ b/arch/arm64/include/asm/cputype.h
-@@ -132,6 +132,7 @@
- #define FUJITSU_CPU_PART_A64FX		0x001
+diff --git a/drivers/spi/spi-rockchip.c b/drivers/spi/spi-rockchip.c
+index 1bc012fce7cb8..1a6381de6f33d 100644
+--- a/drivers/spi/spi-rockchip.c
++++ b/drivers/spi/spi-rockchip.c
+@@ -547,7 +547,7 @@ static int rockchip_spi_config(struct rockchip_spi *rs,
+ 	cr0 |= (spi->mode & 0x3U) << CR0_SCPH_OFFSET;
+ 	if (spi->mode & SPI_LSB_FIRST)
+ 		cr0 |= CR0_FBM_LSB << CR0_FBM_OFFSET;
+-	if (spi->mode & SPI_CS_HIGH)
++	if ((spi->mode & SPI_CS_HIGH) && !(spi_get_csgpiod(spi, 0)))
+ 		cr0 |= BIT(spi_get_chipselect(spi, 0)) << CR0_SOI_OFFSET;
  
- #define HISI_CPU_PART_TSV110		0xD01
-+#define HISI_CPU_PART_HIP09			0xD02
- 
- #define APPLE_CPU_PART_M1_ICESTORM	0x022
- #define APPLE_CPU_PART_M1_FIRESTORM	0x023
-@@ -208,6 +209,7 @@
- #define MIDR_NVIDIA_CARMEL MIDR_CPU_MODEL(ARM_CPU_IMP_NVIDIA, NVIDIA_CPU_PART_CARMEL)
- #define MIDR_FUJITSU_A64FX MIDR_CPU_MODEL(ARM_CPU_IMP_FUJITSU, FUJITSU_CPU_PART_A64FX)
- #define MIDR_HISI_TSV110 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_TSV110)
-+#define MIDR_HISI_HIP09 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_HIP09)
- #define MIDR_APPLE_M1_ICESTORM MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_ICESTORM)
- #define MIDR_APPLE_M1_FIRESTORM MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_FIRESTORM)
- #define MIDR_APPLE_M1_ICESTORM_PRO MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_ICESTORM_PRO)
-diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
-index 0f51fd10b4b06..aaf6578c39ac4 100644
---- a/arch/arm64/kernel/proton-pack.c
-+++ b/arch/arm64/kernel/proton-pack.c
-@@ -901,6 +901,7 @@ static u8 spectre_bhb_loop_affected(void)
- 		MIDR_ALL_VERSIONS(MIDR_CORTEX_A77),
- 		MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N1),
- 		MIDR_ALL_VERSIONS(MIDR_QCOM_KRYO_4XX_GOLD),
-+		MIDR_ALL_VERSIONS(MIDR_HISI_HIP09),
- 		{},
- 	};
- 	static const struct midr_range spectre_bhb_k11_list[] = {
+ 	if (xfer->rx_buf && xfer->tx_buf)
 -- 
 2.39.5
 
