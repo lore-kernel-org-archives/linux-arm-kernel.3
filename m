@@ -4,67 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73D41C3ABB6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 03:25:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F948C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 03:28:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IcijW4osYf2HgmO7sQ0wRfLa5QhLVEUr70sQKVjoNs0=; b=SvSkVOSoYzazubaJCNo0TeTFw8
-	2psfT/weNioibccPg8abxphJuiBcLctWOA70djFLXIETpgvBd29DrTAU3rGsB7c7KDaja7kgv/Kw0
-	zn28XOTuXFrMT2Yav6D05NxL3UsY/ZaA0Vav0VhSPDbTX7tpXsoW9WtT57rboEQnqiLl7DZWoAerJ
-	Q5uDHGOTnOF7xBXii2DP3sukaqqydL2ySXgqrCUsOQQ4rGzKfcajz/KhifnRBgmU5uOBJF29jfUq4
-	c6BBa9eocLlImcN6s8BGZsmmyGTnQugNajlGBkoczHCn3RatbL2fgBXbPxQAJB02z6AffzRvXkyjg
-	NWFff3QA==;
+	bh=k6yQt167sO8Ok8qapi34yB5gtYTFbbFGYdb4c5srVvo=; b=22tL/ehFC0rIIXyJCfUB9H3ic/
+	WdgTL8/njTIpwZcoBepQHwvp757DWC+t9epyLF2UTW8sptM1QRBifavI60QOVqswKe2Q4XN/EoEua
+	ALg4Wl1LFwVRWuyOoBGFyo8mcUQR9jC+ZhTbYR1syThetngAtEAJGYb5sjGiyXVyel0SX9FwWCGsw
+	0jqQ1gto6qFkEkZFvrilXybl1AYij4cXQyaKEFQ4QKFTMbdnx0oN+qK3tLs0YPscBSsh82w54AZtu
+	YCuytSiqP8KlAQhCX8U88Z7wDvgwgO8XB/EKAyIJVp7UQZ/UlAU4dZR8z5S5HDkrZe/f3iXP+qIMK
+	uXw2MFdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC8wF-00000009yq1-2WgY;
-	Tue, 06 May 2025 03:25:47 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uC8yG-00000009zRD-27to;
+	Tue, 06 May 2025 03:27:52 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4sv-00000008xCV-3gUx
+	id 1uC4tY-00000008xQ3-1YLW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 23:06:07 +0000
+	Mon, 05 May 2025 23:06:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 32F225C5B16;
-	Mon,  5 May 2025 23:03:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BF5CC4CEEE;
-	Mon,  5 May 2025 23:06:04 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 14556A4C35A;
+	Mon,  5 May 2025 23:01:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9D19C4CEEE;
+	Mon,  5 May 2025 23:06:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746486365;
-	bh=y/59NUCT+emsbMk77W79CZDerhVRoMowu5usETn5qbM=;
+	s=k20201202; t=1746486403;
+	bh=ZkZQ/9nwclQTR3scMqCLO0o62FBh8uAOVK6Lf/oEBc4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=fGQJAx8m6coigvNBBgslF8/B8BFm6JEa9bz6M4NyxrAXVfa0+bbCdRhdg3Y/rapHk
-	 g1XjbqH8ZYeYkcVQ286TsvphYfKZw+f49H8RjbCohh6uJSnEUprzbP8UIjQ5mfVpSi
-	 JcYus8G1WIacYEUFNDujx3YrWEM6Cl6iW61S48Oc189OIe/sO7qCvjLrNHX1noupQ5
-	 KhLynoez8y64dV8hRXx8CkwWFFP/VNO3v5bUvBufwrIJBHCKN04MOcuZx58bKPF6na
-	 YHLc1maVGrYbSNE1Snq2DUrJOSdfXj+G76VJ+S6IYIhZUZQFkUdXuYLoaZ3t1qdhnG
-	 FpHDZQQ1XqYTA==
+	b=H+oMuNKH5nvY958d2IAIfjHseQ+GuPYXsez0Rcaa/Gnxmgs8vS3bVKuvegmTAcOWu
+	 bQ0faIG1gpyn1BjI24p00/Q+iAdzt17PTj77wAU0/2ldbpKLGEWWxWXpaU4KHdiBVQ
+	 VwVicKIs4uQs5nkmyGoW0KMbHp042zhVUUUebBnbPpiiusqKrv+VD1c3N9bWEIm/yW
+	 E25n2ltmzIng21OYVmR2S59bMHFTdvzr62ymQ7SwR9y4j+vJDjxo+QQMtjGLJ18h0U
+	 /UES939eAsUPqFe4+LQUZNeIlRpeLb0pzPLpl8p2hnrU6eCB6ZpH3fe7YGEuv3bjo+
+	 /WBKEwBIzCCgA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Sean Anderson <sean.anderson@linux.dev>,
-	Mark Brown <broonie@kernel.org>,
+Cc: Jinqian Yang <yangjinqian1@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
 	Sasha Levin <sashal@kernel.org>,
-	michal.simek@amd.com,
-	linux-spi@vger.kernel.org,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	oliver.upton@linux.dev,
+	shameerali.kolothum.thodi@huawei.com,
+	dianders@chromium.org,
+	maz@kernel.org,
+	scott@os.amperecomputing.com,
+	quic_tsoni@quicinc.com,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.6 284/294] spi: zynqmp-gqspi: Always acknowledge interrupts
-Date: Mon,  5 May 2025 18:56:24 -0400
-Message-Id: <20250505225634.2688578-284-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.1 010/212] arm64: Add support for HIP09 Spectre-BHB mitigation
+Date: Mon,  5 May 2025 19:03:02 -0400
+Message-Id: <20250505230624.2692522-10-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250505225634.2688578-1-sashal@kernel.org>
-References: <20250505225634.2688578-1-sashal@kernel.org>
+In-Reply-To: <20250505230624.2692522-1-sashal@kernel.org>
+References: <20250505230624.2692522-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.6.89
+X-stable-base: Linux 6.1.136
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_160605_964174_971430C1 
-X-CRM114-Status: GOOD (  14.90  )
+X-CRM114-CacheID: sfid-20250505_160644_535786_BE926A94 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,70 +85,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sean Anderson <sean.anderson@linux.dev>
+From: Jinqian Yang <yangjinqian1@huawei.com>
 
-[ Upstream commit 89785306453ce6d949e783f6936821a0b7649ee2 ]
+[ Upstream commit e18c09b204e81702ea63b9f1a81ab003b72e3174 ]
 
-RXEMPTY can cause an IRQ, even though we may not do anything about it
-(such as if we are waiting for more received data). We must still handle
-these IRQs because we can tell they were caused by the device.
+The HIP09 processor is vulnerable to the Spectre-BHB (Branch History
+Buffer) attack, which can be exploited to leak information through
+branch prediction side channels. This commit adds the MIDR of HIP09
+to the list for software mitigation.
 
-Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
-Link: https://patch.msgid.link/20250116224130.2684544-6-sean.anderson@linux.dev
-Signed-off-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Jinqian Yang <yangjinqian1@huawei.com>
+Link: https://lore.kernel.org/r/20250325141900.2057314-1-yangjinqian1@huawei.com
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/spi/spi-zynqmp-gqspi.c | 20 ++++++++------------
- 1 file changed, 8 insertions(+), 12 deletions(-)
+ arch/arm64/include/asm/cputype.h | 2 ++
+ arch/arm64/kernel/proton-pack.c  | 1 +
+ 2 files changed, 3 insertions(+)
 
-diff --git a/drivers/spi/spi-zynqmp-gqspi.c b/drivers/spi/spi-zynqmp-gqspi.c
-index 3503e6c0a5c98..b5deb4fe3b832 100644
---- a/drivers/spi/spi-zynqmp-gqspi.c
-+++ b/drivers/spi/spi-zynqmp-gqspi.c
-@@ -799,7 +799,6 @@ static void zynqmp_process_dma_irq(struct zynqmp_qspi *xqspi)
- static irqreturn_t zynqmp_qspi_irq(int irq, void *dev_id)
- {
- 	struct zynqmp_qspi *xqspi = (struct zynqmp_qspi *)dev_id;
--	irqreturn_t ret = IRQ_NONE;
- 	u32 status, mask, dma_status = 0;
+diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
+index cdb024dd33f5c..99c73f835731c 100644
+--- a/arch/arm64/include/asm/cputype.h
++++ b/arch/arm64/include/asm/cputype.h
+@@ -131,6 +131,7 @@
+ #define FUJITSU_CPU_PART_A64FX		0x001
  
- 	status = zynqmp_gqspi_read(xqspi, GQSPI_ISR_OFST);
-@@ -814,27 +813,24 @@ static irqreturn_t zynqmp_qspi_irq(int irq, void *dev_id)
- 				   dma_status);
- 	}
+ #define HISI_CPU_PART_TSV110		0xD01
++#define HISI_CPU_PART_HIP09			0xD02
  
--	if (mask & GQSPI_ISR_TXNOT_FULL_MASK) {
-+	if (!mask && !dma_status)
-+		return IRQ_NONE;
-+
-+	if (mask & GQSPI_ISR_TXNOT_FULL_MASK)
- 		zynqmp_qspi_filltxfifo(xqspi, GQSPI_TX_FIFO_FILL);
--		ret = IRQ_HANDLED;
--	}
- 
--	if (dma_status & GQSPI_QSPIDMA_DST_I_STS_DONE_MASK) {
-+	if (dma_status & GQSPI_QSPIDMA_DST_I_STS_DONE_MASK)
- 		zynqmp_process_dma_irq(xqspi);
--		ret = IRQ_HANDLED;
--	} else if (!(mask & GQSPI_IER_RXEMPTY_MASK) &&
--			(mask & GQSPI_IER_GENFIFOEMPTY_MASK)) {
-+	else if (!(mask & GQSPI_IER_RXEMPTY_MASK) &&
-+			(mask & GQSPI_IER_GENFIFOEMPTY_MASK))
- 		zynqmp_qspi_readrxfifo(xqspi, GQSPI_RX_FIFO_FILL);
--		ret = IRQ_HANDLED;
--	}
- 
- 	if (xqspi->bytes_to_receive == 0 && xqspi->bytes_to_transfer == 0 &&
- 	    ((status & GQSPI_IRQ_MASK) == GQSPI_IRQ_MASK)) {
- 		zynqmp_gqspi_write(xqspi, GQSPI_IDR_OFST, GQSPI_ISR_IDR_MASK);
- 		complete(&xqspi->data_completion);
--		ret = IRQ_HANDLED;
- 	}
--	return ret;
-+	return IRQ_HANDLED;
- }
- 
- /**
+ #define APPLE_CPU_PART_M1_ICESTORM	0x022
+ #define APPLE_CPU_PART_M1_FIRESTORM	0x023
+@@ -199,6 +200,7 @@
+ #define MIDR_NVIDIA_CARMEL MIDR_CPU_MODEL(ARM_CPU_IMP_NVIDIA, NVIDIA_CPU_PART_CARMEL)
+ #define MIDR_FUJITSU_A64FX MIDR_CPU_MODEL(ARM_CPU_IMP_FUJITSU, FUJITSU_CPU_PART_A64FX)
+ #define MIDR_HISI_TSV110 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_TSV110)
++#define MIDR_HISI_HIP09 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_HIP09)
+ #define MIDR_APPLE_M1_ICESTORM MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_ICESTORM)
+ #define MIDR_APPLE_M1_FIRESTORM MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_FIRESTORM)
+ #define MIDR_APPLE_M1_ICESTORM_PRO MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_ICESTORM_PRO)
+diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
+index 93a00cd42eddb..54b0364a4e2b0 100644
+--- a/arch/arm64/kernel/proton-pack.c
++++ b/arch/arm64/kernel/proton-pack.c
+@@ -913,6 +913,7 @@ static u8 spectre_bhb_loop_affected(void)
+ 		MIDR_ALL_VERSIONS(MIDR_CORTEX_A77),
+ 		MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N1),
+ 		MIDR_ALL_VERSIONS(MIDR_QCOM_KRYO_4XX_GOLD),
++		MIDR_ALL_VERSIONS(MIDR_HISI_HIP09),
+ 		{},
+ 	};
+ 	static const struct midr_range spectre_bhb_k11_list[] = {
 -- 
 2.39.5
 
