@@ -4,52 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB11BC3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 04:07:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93992C3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 04:09:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l4rp0/SxPnRxOKd8Baxv0WdngnSWxD3d0vtqD/ab/C8=; b=lLVzn+3fUVvCKvNpZpRdpJn/Wa
-	hG+vS4kSWQjh6NlCpFQp8SaSopQ8I+79iLbQY6udQHNFZz9uK/JEAZ07qJcXiyiME3sIZJ7dS9LjM
-	Pn84Vn15flt17JuXWKV9s4gUVDVRQOytQiLDPyi2MXZtUk9XmbId+4UgU93FhqZ28c84HGX3BwPJ/
-	A95T2knBz4dIx+yDgsKjeOkZMSniXry7wdF8do2EwihMOEpjhr+gbEV8+UxLAT1DVV17mQG8PDGsw
-	m5yOM2raFsKPNDDYgvcG+4wngJRAFSnD+UjmhuwTUYDx1gAUT3obuXz1ACEbq4XuOFCRQQRpzTFRi
-	Kc5cFoAg==;
+	bh=hreABS4yBfCC7+5bh2avmFHQCqO0LIR8soO0wntiKLc=; b=hRi1OKy1z+fgfoRbZTO53Mr03v
+	lA6yjBdqW+qxc1PrsT387evqyDaIa+rekmAa/zwFat8HsvBGiGm3/w8o/wdG/qm7oqQIJbN/ilLpP
+	BcpitenDbrGG3cD86RQcoaZC30VvdZxs+/BX2WsVRkUcC6uYyf5kTY7tqlbGwoT1ztmNzDPiMvDJu
+	fCSX6wnVrqZHN+rYcO5WIcVNduXmwmALcFOTkpVKRPoSI6CA1C7x/nEZ9yIhFqBwIPiAkVe9FFcuM
+	szLlN/5lbaDfdxaBt/CjEnimp0lgLohjxQi9ppTd5uIOg+fVMcTianm+04pUXruIdhaBVcdGOtW1m
+	6Ib6MM/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC9aY-0000000A8YK-3gQ5;
-	Tue, 06 May 2025 04:07:26 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1uC9cY-0000000A95k-2RBv;
+	Tue, 06 May 2025 04:09:30 +0000
+Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4zF-00000008z1g-0oBN
+	id 1uC4zd-00000008z8e-1KTI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 23:12:38 +0000
+	Mon, 05 May 2025 23:13:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
  h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
  Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1746486755;
- bh=l4rp0/SxPnRxOKd8Baxv0WdngnSWxD3d0vtqD/ab/C8=;
- b=wedhzYrzbkh70a/oFfoYjJT/BX04p4ojymoailevpYZa5n3y7cceqVssizi/9zHBTow6tPAbg
- pgYcGoTuv8LHY9nKxWKPmFLQHscSUI8/s9T0BjPkEzU7jXGNZG/6yICmrsLVekeGolgPgPguYlD
- NDT1WM6n+dT/K16kXwgaEBJgCzT3LxWLc/A5P9BFa9Im9G7PyZD+eIAIWY/+6SBlSEWcZatXgCd
- uM6xy9RcaQwLH3/iXUxNUA6N4v4SREPRLTnLKfz19jhEU6yYfZDdeHsEt7NXQ78nVIfwNmqDKnC
- t8QFdIkvbYVCIhzsGpXD3VDz0hACXf+2uac9KNUdWCsA==
-X-Forward-Email-ID: 681945da46c37f8647c22e2a
+ s=fe-e1b5cab7be; t=1746486779;
+ bh=hreABS4yBfCC7+5bh2avmFHQCqO0LIR8soO0wntiKLc=;
+ b=eknjcBrCMTWh2x/GwZ5l/CkINt0qbr33EoJIu0yXjApGR9hNoJbFJYMzNwP6X2bld8kmEys0p
+ mtm0WzTYo9DfalAgkMyUsZYAIdPcYMEZKiUhm9E6kgVO02DC9DV2HOdYoeSau09T8edT8OdJJkx
+ AUfKmimZAPBcvdz9eTZMhKjAekjjsJbjhY0s6dSYTMznhu0Yh01pkqQqZmBvBZkKgrySKTQ56Vo
+ 4+I1Omr3ljia7QsAzmYFlwCVJm5z+U2zai0GlxpiTPNVX1A+wN8ddtfD5uFcuSnyF3G6OhbwGzY
+ x93Zdhw36+GGDyElSxVIDTfBtsxP70Ys5d6yA+ky2qsw==
+X-Forward-Email-ID: 681945fa46c37f8647c22e46
 X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
+ 121.127.44.73
 X-Forward-Email-Version: 1.0.2
 X-Forward-Email-Website: https://forwardemail.net
 X-Complaints-To: abuse@forwardemail.net
 X-Report-Abuse: abuse@forwardemail.net
 X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <4e00a764-23df-4bd9-85d3-f32cb153a9b6@kwiboo.se>
-Date: Tue, 6 May 2025 01:12:21 +0200
+Message-ID: <621e33ff-f43f-48cc-a316-aa3e19d513d8@kwiboo.se>
+Date: Tue, 6 May 2025 01:12:54 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] arm64: dts: rockchip: Add pwm nodes for RK3528
+Subject: Re: [PATCH v3 2/2] arm64: dts: rockchip: Enable regulators for Radxa
+ E20C
 To: Chukun Pan <amadeus@jmu.edu.cn>, Heiko Stuebner <heiko@sntech.de>
 Cc: Yao Zi <ziyao@disroot.org>, Rob Herring <robh@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
@@ -57,15 +58,15 @@ Cc: Yao Zi <ziyao@disroot.org>, Rob Herring <robh@kernel.org>,
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org
 References: <20250401120020.976343-1-amadeus@jmu.edu.cn>
- <20250401120020.976343-2-amadeus@jmu.edu.cn>
+ <20250401120020.976343-3-amadeus@jmu.edu.cn>
 Content-Language: en-US
 From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20250401120020.976343-2-amadeus@jmu.edu.cn>
+In-Reply-To: <20250401120020.976343-3-amadeus@jmu.edu.cn>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_161237_594106_3AECDB7C 
-X-CRM114-Status: GOOD (  13.91  )
+X-CRM114-CacheID: sfid-20250505_161301_444201_0A72ACE5 
+X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,14 +82,35 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 2025-04-01 14:00, Chukun Pan wrote:
-> Add pwm nodes for RK3528. The PWM core on RK3528 is the same as
-> RK3328, but the driver does not support interrupts yet.
+> Enable pwm and fixed regulators for Radxa E20C. The pwm regulator is
+> used to power the CPU and GPU. Note that the LPDDR4 voltage is 1.1V.
 > 
 > Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
 
-pwm0-pwm2 has been verified working on my rk3528 boards and remaining
-seem to be correct, I have also dropped my prior attempt of looking into
-multi-channel handling as mentioned in v2, so this is:
+This seem to match the schematics of the E20C and the regulators work on
+my E20C:
+
+   regulator                      use open bypass  opmode voltage current     min     max
+  ---------------------------------------------------------------------------------------
+   regulator-dummy                  1    0      0 unknown     0mV     0mA     0mV     0mV
+   vcc5v0_sys                       7    6      0 unknown  5000mV     0mA  5000mV  5000mV
+      vdd_0v9                       1    0      0 unknown   900mV     0mA   900mV   900mV
+      vcc_ddr                       1    0      0 unknown  1100mV     0mA  1100mV  1100mV
+      vcc_3v3                       5    5      0 unknown  3300mV     0mA  3300mV  3300mV
+         ffbf0000.mmc-vmmc          1                                 0mA  3300mV  3400mV
+         ffc30000.mmc-vmmc          1                                 0mA  3300mV  3400mV
+         1-0050-vcc                 0                                 0mA     0mV     0mV
+         ffbe0000.ethernet-phy      1                                 0mA     0mV     0mV
+         vcc_1v8                    3    2      0 unknown  1800mV     0mA  1800mV  1800mV
+            ffbf0000.mmc-vqmmc      1                                 0mA     0mV     0mV
+            ffae0000.adc-vref       1                                 0mA     0mV     0mV
+      vccio_sd                      2    1      0 unknown  1800mV     0mA  1800mV  3300mV
+         ffc30000.mmc-vqmmc         1                                 0mA  1800mV  1950mV
+      vdd_arm                       1    0      0 unknown  1201mV     0mA   746mV  1201mV
+      vdd_logic                     1    0      0 unknown  1006mV     0mA   705mV  1006mV
+
+Without any opp table or the pwm-regulators not being initialized in
+U-Boot they seem to default to max voltage, should be fine so this is:
 
 Reviewed-by: Jonas Karlman <jonas@kwiboo.se>
 
@@ -96,99 +118,113 @@ Regards,
 Jonas
 
 > ---
->  arch/arm64/boot/dts/rockchip/rk3528.dtsi | 80 ++++++++++++++++++++++++
->  1 file changed, 80 insertions(+)
+>  .../boot/dts/rockchip/rk3528-radxa-e20c.dts   | 73 +++++++++++++++++++
+>  1 file changed, 73 insertions(+)
 > 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-> index 35704d0be37a..47d4f63f11d3 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-> @@ -465,6 +465,86 @@ uart7: serial@ffa28000 {
->  			status = "disabled";
->  		};
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
+> index 57a446b5cbd6..14770bd63ae7 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
+> @@ -9,6 +9,7 @@
 >  
-> +		pwm0: pwm@ffa90000 {
-> +			compatible = "rockchip,rk3528-pwm",
-> +				     "rockchip,rk3328-pwm";
-> +			reg = <0x0 0xffa90000 0x0 0x10>;
-> +			clocks = <&cru CLK_PWM0>, <&cru PCLK_PWM0>;
-> +			clock-names = "pwm", "pclk";
-> +			#pwm-cells = <3>;
-> +			status = "disabled";
-> +		};
+>  #include <dt-bindings/input/input.h>
+>  #include <dt-bindings/leds/common.h>
+> +#include <dt-bindings/pwm/pwm.h>
+>  #include "rk3528.dtsi"
+>  
+>  / {
+> @@ -80,6 +81,26 @@ led-wan {
+>  		};
+>  	};
+>  
+> +	vdd_0v9: regulator-0v9-vdd {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vdd_0v9";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt = <900000>;
+> +		regulator-max-microvolt = <900000>;
+> +		vin-supply = <&vcc5v0_sys>;
+> +	};
 > +
-> +		pwm1: pwm@ffa90010 {
-> +			compatible = "rockchip,rk3528-pwm",
-> +				     "rockchip,rk3328-pwm";
-> +			reg = <0x0 0xffa90010 0x0 0x10>;
-> +			clocks = <&cru CLK_PWM0>, <&cru PCLK_PWM0>;
-> +			clock-names = "pwm", "pclk";
-> +			#pwm-cells = <3>;
-> +			status = "disabled";
-> +		};
+> +	vcc_ddr: regulator-1v1-vcc-ddr {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vcc_ddr";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt = <1100000>;
+> +		regulator-max-microvolt = <1100000>;
+> +		vin-supply = <&vcc5v0_sys>;
+> +	};
 > +
-> +		pwm2: pwm@ffa90020 {
-> +			compatible = "rockchip,rk3528-pwm",
-> +				     "rockchip,rk3328-pwm";
-> +			reg = <0x0 0xffa90020 0x0 0x10>;
-> +			clocks = <&cru CLK_PWM0>, <&cru PCLK_PWM0>;
-> +			clock-names = "pwm", "pclk";
-> +			#pwm-cells = <3>;
-> +			status = "disabled";
-> +		};
+>  	vcc_1v8: regulator-1v8-vcc {
+>  		compatible = "regulator-fixed";
+>  		regulator-name = "vcc_1v8";
+> @@ -108,6 +129,46 @@ vcc5v0_sys: regulator-5v0-vcc-sys {
+>  		regulator-min-microvolt = <5000000>;
+>  		regulator-max-microvolt = <5000000>;
+>  	};
 > +
-> +		pwm3: pwm@ffa90030 {
-> +			compatible = "rockchip,rk3528-pwm",
-> +				     "rockchip,rk3328-pwm";
-> +			reg = <0x0 0xffa90030 0x0 0x10>;
-> +			clocks = <&cru CLK_PWM0>, <&cru PCLK_PWM0>;
-> +			clock-names = "pwm", "pclk";
-> +			#pwm-cells = <3>;
-> +			status = "disabled";
-> +		};
+> +	vdd_arm: regulator-vdd-arm {
+> +		compatible = "pwm-regulator";
+> +		pwms = <&pwm1 0 5000 PWM_POLARITY_INVERTED>;
+> +		pwm-supply = <&vcc5v0_sys>;
+> +		regulator-name = "vdd_arm";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt = <746000>;
+> +		regulator-max-microvolt = <1201000>;
+> +		regulator-settling-time-up-us = <250>;
+> +	};
 > +
-> +		pwm4: pwm@ffa98000 {
-> +			compatible = "rockchip,rk3528-pwm",
-> +				     "rockchip,rk3328-pwm";
-> +			reg = <0x0 0xffa98000 0x0 0x10>;
-> +			clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>;
-> +			clock-names = "pwm", "pclk";
-> +			#pwm-cells = <3>;
-> +			status = "disabled";
-> +		};
+> +	vdd_logic: regulator-vdd-logic {
+> +		compatible = "pwm-regulator";
+> +		pwms = <&pwm2 0 5000 PWM_POLARITY_INVERTED>;
+> +		pwm-supply = <&vcc5v0_sys>;
+> +		regulator-name = "vdd_logic";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt = <705000>;
+> +		regulator-max-microvolt = <1006000>;
+> +		regulator-settling-time-up-us = <250>;
+> +	};
+> +};
 > +
-> +		pwm5: pwm@ffa98010 {
-> +			compatible = "rockchip,rk3528-pwm",
-> +				     "rockchip,rk3328-pwm";
-> +			reg = <0x0 0xffa98010 0x0 0x10>;
-> +			clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>;
-> +			clock-names = "pwm", "pclk";
-> +			#pwm-cells = <3>;
-> +			status = "disabled";
-> +		};
+> +&cpu0 {
+> +	cpu-supply = <&vdd_arm>;
+> +};
 > +
-> +		pwm6: pwm@ffa98020 {
-> +			compatible = "rockchip,rk3528-pwm",
-> +				     "rockchip,rk3328-pwm";
-> +			reg = <0x0 0xffa98020 0x0 0x10>;
-> +			clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>;
-> +			clock-names = "pwm", "pclk";
-> +			#pwm-cells = <3>;
-> +			status = "disabled";
-> +		};
+> +&cpu1 {
+> +	cpu-supply = <&vdd_arm>;
+> +};
 > +
-> +		pwm7: pwm@ffa98030 {
-> +			compatible = "rockchip,rk3528-pwm",
-> +				     "rockchip,rk3328-pwm";
-> +			reg = <0x0 0xffa98030 0x0 0x10>;
-> +			clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>;
-> +			clock-names = "pwm", "pclk";
-> +			#pwm-cells = <3>;
-> +			status = "disabled";
-> +		};
+> +&cpu2 {
+> +	cpu-supply = <&vdd_arm>;
+> +};
 > +
->  		saradc: adc@ffae0000 {
->  			compatible = "rockchip,rk3528-saradc";
->  			reg = <0x0 0xffae0000 0x0 0x10000>;
+> +&cpu3 {
+> +	cpu-supply = <&vdd_arm>;
+>  };
+>  
+>  &pinctrl {
+> @@ -132,6 +193,18 @@ wan_led_g: wan-led-g {
+>  	};
+>  };
+>  
+> +&pwm1 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pwm1m0_pins>;
+> +	status = "okay";
+> +};
+> +
+> +&pwm2 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pwm2m0_pins>;
+> +	status = "okay";
+> +};
+> +
+>  &saradc {
+>  	vref-supply = <&vcc_1v8>;
+>  	status = "okay";
 
 
