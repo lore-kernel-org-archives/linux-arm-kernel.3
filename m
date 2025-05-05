@@ -4,90 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDC2FC3ABB0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 12:44:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68D43C3ABB6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 12:46:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hpeTr6Unq+CiFUgnvKuAHal9BTXc1yrzMKrqPlgz8m8=; b=JfgP13h8b1qg7PBUZEOp/TTC/X
-	yCBmsdcvDH94Q2oiAzaIcK0OSPZQMem1hlj1ngDPyHYKWCOthi/o2je6XxSIkeEuZmY1HHJhihusL
-	2KOihS+5Zw2cBux0+It4DkzyR6RjLL3hOA141yP2EGAgPjLq3BQ0zop8+zYLB8PgEOtIzqviLuCUu
-	SfjZNm1os47dRCNQ6peBybv8kGe+jq/6FHWV7L7zN+/LplTVivXPGDRF4ay+KoS6XA8TAYOxXJ59C
-	mAGqWLqmBUFiB3JTXOz6rS0LytGLehOTc4l3Sy4mEb4vZv76KJNZDodDjKbToPZMHlEw27HIeZjXk
-	GfYjtwJA==;
+	bh=iJalLmswOZQ1+I3caNB5vdR1vqtjSyhFatNldwOqsTo=; b=SqQhLEGopXUN0EyPzF6hHLgqvX
+	zC7lxaiqWWm/NQs7AQh5aCMg13eJKp7KvwspzcgSBhSoDXXMCGyOWH1N8mNtnzOMOkc7zwfjhRZLP
+	pkhk88fTU3upw+MS11chhnP5eecvJryJu4jnshnmevL6xzpmTgaLtuWoNiPlKc99J1eOiXuWlKwvo
+	ShDOKVlPTQIouAuvxrd71tUyla5QIPGhGS9YnVptCR+MydsbAvnBgaTy0XKqHUJB00XNmIvyYIsmN
+	yIc4ICroKswyamsQwCILOIyrdQp7Bhqr5CuHvAhSP2pWVgnmz7aI+BgXhhKgryMU1QJpb9brWt9Pe
+	+DAo8XHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBvBN-00000007NZ2-2O9i;
-	Mon, 05 May 2025 12:44:29 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1uBvDN-00000007NvS-3KMi;
+	Mon, 05 May 2025 12:46:33 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBv3l-00000007L21-2zj7
+	id 1uBv3m-00000007L3a-3nob
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 12:36:42 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-43cebe06e9eso26491665e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 05:36:37 -0700 (PDT)
+	Mon, 05 May 2025 12:36:43 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43d0618746bso28812825e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 05:36:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1746448596; x=1747053396; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1746448597; x=1747053397; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=hpeTr6Unq+CiFUgnvKuAHal9BTXc1yrzMKrqPlgz8m8=;
-        b=JmHa18lmDVVYa3WJC1I49xT74sVuhyv2K55RdgQ3EhC4FiEMWlfg2bIsQrrPOM3Ho4
-         4e7CZxbWN6KK1Qm8qd4ILgZp3aRDkP6NqGPfHeDj9FIOc2XtJDet0i9WFzxfsONXxcZd
-         d2H5XGIuh7okC6dFVIh8E8si1jAlbRt1qMeEL2RBU/i4aWndriLNFGwGbNmYnuPxevAD
-         ax1qG9bpU98VdOEltZl/53Bn/+IqhBl/ZXHOpxtzUL/TOl0ig0nwO/v49pht+Qe0Ql5q
-         +YFDTHoiJSO1qvrjMzrP56TuoPgwWeAwS6c20F8Si3iAWy115SIXWLW5IX+GwwF2q7xE
-         ZpMw==
+        bh=iJalLmswOZQ1+I3caNB5vdR1vqtjSyhFatNldwOqsTo=;
+        b=dOhvziZKRl2qiLMpQPpk8D5/EZRwi4VVhiUidqhtxAph2d5Mv3e8Mt1V+FFPuJ89MQ
+         S5m5oJ16AbKWSRW4Cz/9t7bskHf4guOhszxTQapzDG2ac/vZutjz2pQzAz11U5ULHWlC
+         3D3gqQK6sgVdZGlPulTSwDQKcGk90YlUHMzvU4yAm39skcJWT+a6GBt9aj5HQb704g60
+         YGwVGODl2bHBIdi5zyfs2UycHt24IXv8D1NwN8wbFkqJSrhHoRopihC6M4bI2LgQs1qd
+         KLA9d+S6SrDIeL+BL0lA7MeWJnNBg0OcXFgloJNKjbEHNTANniYB7ubnKZmUIc14qE3G
+         MJRQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746448596; x=1747053396;
+        d=1e100.net; s=20230601; t=1746448597; x=1747053397;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=hpeTr6Unq+CiFUgnvKuAHal9BTXc1yrzMKrqPlgz8m8=;
-        b=afuVppYtHjAOFK1TD58sWDrImCPi4OhrHHXICtJrlhpEvr6m3RXmGA0ifxSFBqwFPS
-         iR+uyUyaw5fnCEv5ptAv0zEgVaSqUmuhrFdUC7nTm49D0e41gxPZLbUS5WHowYk4Nnz6
-         QGUirCfA8JU4oP1ff10xvMKRasNt8FTn9yDWjAcVrZGyCxKVOmpCfg8AHoWCE+KfgwqR
-         toY4kvLgvfG4yGWE7trtnquVGZWLqyFgrZRtR0JEKulpA79KryeceUPk8k+M2rz4AI7w
-         wlfwGm1vip+3IDzb/w/iQB5EwvWsqK1AFqBOKAs+BrjcQ5B4ooLZYEcKgy4EWbaQ2dkN
-         t4uQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXk9OcRdC+Go6E0Xp6zPGzG/63yFMOAf0i0c2f7ZCMOQXXHKjNGt66KFJrP14X5tfDrcc1lQlE24Ow2yBFGPPsV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyz//dc0Bhs6dLbtzyMpXPX/BdjvN60KrJURRVgRN5faOJ4293p
-	L/+v1+x+mQ4ZpFj0ddvAWjqpp5cWt/PS03NiORdwUhdMppwujLwKhtSuTuWXHWM=
-X-Gm-Gg: ASbGnctK4aJt+T2bIDK3pq2tx0FpJXGLH9Ev68r/nL9rfAYgys+gSx9rhoWWrjnw3If
-	cwZJCZlct05ShppM873GErz4aqPPFA3AwAHMf15EiQniSJDuhcqScG/FSEwz8dEbJUJ8SJPCg0R
-	r09QVL2vPskEaJGunj5ToELpV1l3TB0KGAKVMQiOp48CZgF/chXHQYx7AgG9OuLkjoRCesTSicE
-	nysv+xD/Nl+rZFA5tZg87HIKVSYyCmPskC+W/yxSwomIsXp7F3FsDdBBp9eQSkRgiONVJrNeTDx
-	CXSM7MHbEU79jQgEY/d8vMVLnyb9WtQCBUeascgp1XNDevRFVDvSLaD4g8hCpVJgqhXVku3S
-X-Google-Smtp-Source: AGHT+IGd4vciO1iWM2MZ33WYuc9Z6cveleoL1KHOCLqmcEBnu/hEnCR2SmyiZj6jI/P6HFxT77OnRw==
-X-Received: by 2002:a05:600c:1ca4:b0:43d:db5:7b1a with SMTP id 5b1f17b1804b1-441c48be0c5mr57583835e9.12.1746448596076;
-        Mon, 05 May 2025 05:36:36 -0700 (PDT)
+        bh=iJalLmswOZQ1+I3caNB5vdR1vqtjSyhFatNldwOqsTo=;
+        b=gWNkPLu6sBzY7ix2G4BW1DJ8q+PiFmCMthK8x7Nioy1bmbgr4C9uL1ubt7pAzrD/M+
+         RiemZHVGQohIGiA84LyFx4Vp1cKCpTqN0HoDxuJ0abZFFQVwV/1VHMiR+ObZiL3iabAi
+         lmOh3CO1qqecvBPKcLJj1jf5/blbDTPlJ7bOkyhsshXjCqjsJBjxkBjgn2Oj44EwD1y+
+         AiIwI/bEhwdYT/MQdJtKvtdz0AiG2oqlJkfgM/CTanzWfBJej538n/1TDxWxwBORf4Hk
+         AcOB/2Cyn+nn1vtMjRBYf0rWu5xY3IHZ2+jzfkr+s4z35lMEgumOCOFCKStSD0KzEMVz
+         vu/A==
+X-Forwarded-Encrypted: i=1; AJvYcCVUHZ9fRrTCVWMaH2Iy07KIEw4m4DiHuu97pjiUcF+VpWt1xwnnUTKyKQTW2irwIDyn6YyZjBwRiOXaiQU8k0ph@lists.infradead.org
+X-Gm-Message-State: AOJu0YzX2q8cCj7KNl9uXGpTRF87LZ7uLTIZ4VMs1MU4k75Ovr65irXD
+	WOs7gGcRiVu/Gsk24GYYFGJAOSizHXryjehZr+/bqqWGE2wtEJ9oDzVVWgpRsMk=
+X-Gm-Gg: ASbGncvp6KFLjjoQxRsOClXMnWYNBt2SVuj2QZhnMaCoeU1qQxK+HSJC4GrVLgM55Rc
+	kW5Rfgk21sO7LF9xcnJPehTfS6RTYIQtI6bkDIuqMM7kvWptOzjZCe3EMqjOkUpuvF8LSvrJOd5
+	D1Nnj+63sytUDruJqRKMfkGiFizfWeaKbaNv1i3aaUJ1rtth0KaRvxD1ijprW8mnKcJrhLmvE9C
+	BcTc17reIBdPtt3GWyxUdLNmV53rx7IBDw5n4ISKByWoX9H5u998yUUQ2tU1KvILPKjQeJy4uZL
+	ZRsG45dMi9PST8784s6Ke29Sz+Up12p0R0QYpVertEAzKQA81BTVm0KjehWXo/TQ+mztb5k5
+X-Google-Smtp-Source: AGHT+IGrYbfIV/5LAwd8x3Ag4BU1h2NQrpJczDWD3n86c2dPS4oVyLjVkTxVfPE08xsZ/bSn/VTNWw==
+X-Received: by 2002:a05:600c:3545:b0:43d:9d5:474d with SMTP id 5b1f17b1804b1-441c47d3cbamr52857685e9.0.1746448597366;
+        Mon, 05 May 2025 05:36:37 -0700 (PDT)
 Received: from arrakeen.starnux.net ([2a01:e0a:3d9:2080:8261:5fff:fe11:bdda])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-441b8a286c4sm131072725e9.25.2025.05.05.05.36.35
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-441b8a286c4sm131072725e9.25.2025.05.05.05.36.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 May 2025 05:36:35 -0700 (PDT)
+        Mon, 05 May 2025 05:36:36 -0700 (PDT)
 From: Neil Armstrong <neil.armstrong@linaro.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
- Jerome Brunet <jbrunet@baylibre.com>, 
+ Conor Dooley <conor+dt@kernel.org>, 
  Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Da Xue <da@libre.computer>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20250425203118.1444481-1-da@libre.computer>
-References: <20250425203118.1444481-1-da@libre.computer>
-Subject: Re: [PATCH] arm64: dts: amlogic: gxl: set i2c bias to pull-up
-Message-Id: <174644859542.1377721.4181662111472881192.b4-ty@linaro.org>
-Date: Mon, 05 May 2025 14:36:35 +0200
+ Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>, 
+ Ferass El Hafidi <funderscore@postmarketos.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ ~postmarketos/upstreaming@lists.sr.ht, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20250502-aquaman-v6-0-f1af347d9709@postmarketos.org>
+References: <20250502-aquaman-v6-0-f1af347d9709@postmarketos.org>
+Subject: Re: [PATCH v6 0/2] Add support for Xiaomi Mi TV Stick
+Message-Id: <174644859616.1377721.12603834364011282059.b4-ty@linaro.org>
+Date: Mon, 05 May 2025 14:36:36 +0200
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_053637_758900_24459757 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20250505_053638_951350_DCB0B77E 
+X-CRM114-Status: GOOD (  15.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,18 +106,29 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi,
 
-On Fri, 25 Apr 2025 16:31:18 -0400, Da Xue wrote:
-> GXL I2C pins need internal pull-up enabled to operate if there
-> is no external resistor. The pull-up is 60kohms per the datasheet.
+On Fri, 02 May 2025 18:56:04 +0000, Ferass El Hafidi wrote:
+> This patch series aims to add initial support for the Xiaomi Mi TV
+> Stick.
 > 
-> We should set the bias when i2c pinmux is enabled.
+> Xiaomi Mi TV Stick is a small Amlogic-based Android TV stick released in
+> 2020, and known as `xiaomi-aquaman` internally (in the downstream kernel,
+> u-boot, ...)
+> Its specifications are as follows:
+>  * Amlogic S805Y SoC (believed to be mostly identical to S805X)
+>  * 8 GB eMMC
+>  * 1 GB of RAM
+>  * Wi-Fi + Bluetooth
+>  * Android TV 9, upgradable to Android TV 10
+>  * Google-certified
 > 
-> 
+> [...]
 
 Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v6.16/arm64-dt)
 
-[1/1] arm64: dts: amlogic: gxl: set i2c bias to pull-up
-      https://git.kernel.org/amlogic/c/16d4daa00ee69a43a4c79000d40f9271c85f7879
+[1/2] dt-bindings: arm: amlogic: add S805Y and Mi TV Stick
+      https://git.kernel.org/amlogic/c/4954ec9300cfe7ab6f1de1c93c56c236ac0a07e5
+[2/2] arm64: dts: amlogic: add support for xiaomi-aquaman/Mi TV Stick
+      https://git.kernel.org/amlogic/c/f5d4227c6dcab047579cca7b8e31a476ecdebf7b
 
 These changes has been applied on the intermediate git tree [1].
 
