@@ -4,65 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F33F7C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 03:07:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77162C3ABB6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 03:09:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EBk2yqe6V3bcJVeyOgBi49UnuINiPdTpi8WzdHYcHKQ=; b=bC7UTMKyykn2fHuNN10YazFwjv
-	iqG7vXbSWHlJpIVkDWPmTSBPk4dgM00L/YKhb4JDRfJkFfLhyDHXMTbrqc35ftXAnGk5rP6JPJ7f2
-	k0CUK5PhjbMzlgHy6Usu57W2HGGEi6qNIYMND/6M8HgghvdfTaHzZuytZhoz3b8inziwtppjR0Ajz
-	YE6zg9vJaW0NZQuL/Rb5mD6+KxZOAF8D96RS7nIjwHK3ET/pCToAQesiSbLWyifkV7J7cbR4bfPQx
-	+DN9YwZTlCIMfqczaXA7yjv/1l6+QMtaKydfJ3OxOmrbzQ+Ju3nWdaS4mWqK1OjQtcLuoqsGe9YRU
-	+phGbo1g==;
+	bh=icNe6abjerRg3FvuV9UnOlZkAe3exi+n5rE4+7GtIoc=; b=IsnfMW610dcAA2y4MWpRmEseeK
+	WlPX5vzNwCxoDEM1vgYFXIs4E6rNxoTkeZN42hZ3reuj7qsi1AFFZz4RvDtYg6WTiEnEqn7hW8fKd
+	4XLHpe1mU9AOw7NHkFIqCG75UoQ8EWO99knWpkVoO22LQcDH9nyAN1DuVNSKjtlID8cYaXyAsuvCu
+	Nfhjy+qnWrTIJa2rUrWhRI8XSbxzHv66zyU3BB2xT60vWIruxDAegpVmEW5j7AqU8eN/sZf1ZNpLt
+	YX4NL2bXSsQsOsBKuW1ZhZ7RCfBK2/UN6+kLmRLzVp7yuhmLntWCE95T4ElLgGliy82jsveVOEW4s
+	2Cmf9lJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC8eF-00000009uIq-34bz;
-	Tue, 06 May 2025 03:07:11 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uC8gE-00000009uhm-2ASI;
+	Tue, 06 May 2025 03:09:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4oY-00000008vwN-06Wz
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 23:01:35 +0000
+	id 1uC4ol-00000008w0x-3Nk8;
+	Mon, 05 May 2025 23:01:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4A4385C2458;
-	Mon,  5 May 2025 22:59:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 728F8C4CEEE;
-	Mon,  5 May 2025 23:01:32 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CAADD44E80;
+	Mon,  5 May 2025 23:01:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA375C4CEED;
+	Mon,  5 May 2025 23:01:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746486093;
-	bh=lOfCLognjnfviD9lunmu6frl76a7EqZweCWg3T5tj8A=;
+	s=k20201202; t=1746486107;
+	bh=iSlVQTHxznhyZriy9klA7JYkiL+Pny2monEMr8EZjXg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=GRq0sTvxbkxvy+3oePjm49AVw/8+xA8YaBSsrSdAGvKw5GZjWAMzE+LquoLmWxOUP
-	 DjRI5OEsDh9Vqis8hafiVh1TrYElH9gxNub+RDBt30EjdzNo7ZCwK0/+H1h84/+EbS
-	 p92WnQ92hhur2fOg9vns4EmDsygx5uTOX2ND+pvSpMxMr56bgqCADgjURPHcOPE9jw
-	 p1O0druKl6eHAQfTOetyyoiE1JuSwdIPKIRDvPWcC75Se2i9wanw70/aVK8+fc3UrL
-	 oM7LTlqy6IbheeQ2cY3qKZqLGUWY03RagOF2KFZzz1uHM4ngDgECTBFOyGkHFZFpgD
-	 RnndQgyP90fpQ==
+	b=jJow+52Fr5D1kVhwWjO3soJgKKVuuLhdy9DeJEiWY4u8/pqwzIWsvXU6g4pNJClel
+	 1fBCwM99LhpB/IE53NRH5rALTvnHiG+KPH8XfgmjidvWmoqfrEBKwfngihkJ0p3pcE
+	 oWW6aGSKsGBA55Mdx7UZoWD6sY6uEts1Gmi28/PIOv17tIqwyYvy9nvR5T3Y1KIIZO
+	 268a9Hsl0IOi4lRQCwraJD1EzC+GI2QhAcXX/1pWL3rrScKEfCG1SIPuW7ZTYhkoSQ
+	 4aH+/pDqpsy4JFwGYofIO2ZxM7aOWNTS85wZZmN/5fgQz9ZfPyPER6QkwLznPfBhRi
+	 SuhiblCY5sPEQ==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Andrew Davis <afd@ti.com>,
-	Nishanth Menon <nm@ti.com>,
+Cc: =?UTF-8?q?N=C3=ADcolas=20F=2E=20R=2E=20A=2E=20Prado?= <nfraprado@collabora.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Mark Brown <broonie@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.6 152/294] soc: ti: k3-socinfo: Do not use syscon helper to build regmap
-Date: Mon,  5 May 2025 18:54:12 -0400
-Message-Id: <20250505225634.2688578-152-sashal@kernel.org>
+	lgirdwood@gmail.com,
+	perex@perex.cz,
+	tiwai@suse.com,
+	matthias.bgg@gmail.com,
+	Parker.Yang@mediatek.com,
+	yr.yang@mediatek.com,
+	krzysztof.kozlowski@linaro.org,
+	linux-sound@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.6 157/294] ASoC: mediatek: mt8188: Treat DMIC_GAINx_CUR as non-volatile
+Date: Mon,  5 May 2025 18:54:17 -0400
+Message-Id: <20250505225634.2688578-157-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505225634.2688578-1-sashal@kernel.org>
 References: <20250505225634.2688578-1-sashal@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.6.89
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_160134_107681_E5CC42D2 
-X-CRM114-Status: GOOD (  16.09  )
+X-CRM114-CacheID: sfid-20250505_160147_869839_859EB69F 
+X-CRM114-Status: GOOD (  13.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,66 +87,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andrew Davis <afd@ti.com>
+From: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 
-[ Upstream commit a5caf03188e44388e8c618dcbe5fffad1a249385 ]
+[ Upstream commit 7d87bde21c73731ddaf15e572020f80999c38ee3 ]
 
-The syscon helper device_node_to_regmap() is used to fetch a regmap
-registered to a device node. It also currently creates this regmap
-if the node did not already have a regmap associated with it. This
-should only be used on "syscon" nodes. This driver is not such a
-device and instead uses device_node_to_regmap() on its own node as
-a hacky way to create a regmap for itself.
+The DMIC_GAINx_CUR registers contain the current (as in present) gain of
+each DMIC. During capture, this gain will ramp up until a target value
+is reached, and therefore the register is volatile since it is updated
+automatically by hardware.
 
-This will not work going forward and so we should create our regmap
-the normal way by defining our regmap_config, fetching our memory
-resource, then using the normal regmap_init_mmio() function.
+However, after capture the register's value returns to the value that
+was written to it. So reading these registers returns the current gain,
+and writing configures the initial gain for every capture.
 
-Signed-off-by: Andrew Davis <afd@ti.com>
-Link: https://lore.kernel.org/r/20250123181726.597144-1-afd@ti.com
-Signed-off-by: Nishanth Menon <nm@ti.com>
+>From an audio configuration perspective, reading the instantaneous gain
+is not really useful. Instead, reading back the initial gain that was
+configured is the desired behavior. For that reason, consider the
+DMIC_GAINx_CUR registers as non-volatile, so the regmap's cache can be
+used to retrieve the values, rather than requiring pm runtime resuming
+the device.
+
+Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Link: https://patch.msgid.link/20250225-genio700-dmic-v2-3-3076f5b50ef7@collabora.com
+Signed-off-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/soc/ti/k3-socinfo.c | 13 ++++++++++++-
- 1 file changed, 12 insertions(+), 1 deletion(-)
+ sound/soc/mediatek/mt8188/mt8188-afe-pcm.c | 4 ----
+ 1 file changed, 4 deletions(-)
 
-diff --git a/drivers/soc/ti/k3-socinfo.c b/drivers/soc/ti/k3-socinfo.c
-index 6ea9b8c7d335c..7a3bdef5a7c0d 100644
---- a/drivers/soc/ti/k3-socinfo.c
-+++ b/drivers/soc/ti/k3-socinfo.c
-@@ -63,6 +63,12 @@ k3_chipinfo_partno_to_names(unsigned int partno,
- 	return -EINVAL;
- }
- 
-+static const struct regmap_config k3_chipinfo_regmap_cfg = {
-+	.reg_bits = 32,
-+	.val_bits = 32,
-+	.reg_stride = 4,
-+};
-+
- static int k3_chipinfo_probe(struct platform_device *pdev)
- {
- 	struct device_node *node = pdev->dev.of_node;
-@@ -70,13 +76,18 @@ static int k3_chipinfo_probe(struct platform_device *pdev)
- 	struct device *dev = &pdev->dev;
- 	struct soc_device *soc_dev;
- 	struct regmap *regmap;
-+	void __iomem *base;
- 	u32 partno_id;
- 	u32 variant;
- 	u32 jtag_id;
- 	u32 mfg;
- 	int ret;
- 
--	regmap = device_node_to_regmap(node);
-+	base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(base))
-+		return PTR_ERR(base);
-+
-+	regmap = regmap_init_mmio(dev, base, &k3_chipinfo_regmap_cfg);
- 	if (IS_ERR(regmap))
- 		return PTR_ERR(regmap);
- 
+diff --git a/sound/soc/mediatek/mt8188/mt8188-afe-pcm.c b/sound/soc/mediatek/mt8188/mt8188-afe-pcm.c
+index 11f30b183520f..4a304bffef8ba 100644
+--- a/sound/soc/mediatek/mt8188/mt8188-afe-pcm.c
++++ b/sound/soc/mediatek/mt8188/mt8188-afe-pcm.c
+@@ -2855,10 +2855,6 @@ static bool mt8188_is_volatile_reg(struct device *dev, unsigned int reg)
+ 	case AFE_DMIC3_SRC_DEBUG_MON0:
+ 	case AFE_DMIC3_UL_SRC_MON0:
+ 	case AFE_DMIC3_UL_SRC_MON1:
+-	case DMIC_GAIN1_CUR:
+-	case DMIC_GAIN2_CUR:
+-	case DMIC_GAIN3_CUR:
+-	case DMIC_GAIN4_CUR:
+ 	case ETDM_IN1_MONITOR:
+ 	case ETDM_IN2_MONITOR:
+ 	case ETDM_OUT1_MONITOR:
 -- 
 2.39.5
 
