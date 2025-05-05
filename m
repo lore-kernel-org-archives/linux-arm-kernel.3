@@ -4,130 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43728C3ABB0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 09:56:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79CABC3ABB0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 09:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=utEcYmPzi75tBBr1KPTD9Ao4NpHZqIdSmjTjxwEplbw=; b=3mVskCtj7GTyxtKvuv6dqHERH0
-	OmLVFM9rple2IuigLewZe9BGIjtEoNhMIkSyx54oY9pGwtJcMQ90H72AKmGEPLQ7+HdEmo5o8mVmy
-	NSLQpga4d4v1LYIdgkrCSVCYnMEQNOxC4YXbZvjMgyhlPUQoZiwWIikgHY9p/2bBnzKdIDACIIhH2
-	jxuAclCbmw4O/YCCYkyCnBQ7xbiyfoIFhLzkbE8t9VlgW8eOIJ5HWUo+G21YxYHDs2XZ+R0XWrvzD
-	AGBCDseSfhg6z+jBW5lM6tWE++gkGYa8skd+WGPICtxTgEH46q6JFhjT1SV2sl/jG1axy59WsL9oY
-	ZcdWCrQQ==;
+	bh=ntYqqEfTZAXNYdCVf6T49eiHV/uWEzBD9nyQj5zrmkc=; b=jD+oaAhdDwhkEKLSzJM2W6Gvr1
+	zrucGmQoI9xpaORs82q1qRkvSPfi2LDbBsnm/AIW+5vwVRnGFxWWUigj+bBvTLtya93extXC+wIpx
+	4NiFMW+knCBA8ez50Oe/rXOSorJ17AW5mLsHRkgOzkOEXmjLB9k7rvdumAUDJbTVYAnqcrCOqv4pd
+	sSIEadymKAIWlPxLsZRZtLCnz39dasGNAdK+d/91zSJZQcqyFu/Grkcof7TpU3ROHxg0msiAWJ839
+	FseGDZt/mpy+pOToEC4u3xYbvpPsf+wlCCcGpwBNIMlJ9U+cbWzmGP/UhSWgM9OVf/IVruQN6k4K7
+	rPyrDdQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBsYJ-00000006zOB-2Tuw;
-	Mon, 05 May 2025 09:55:59 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	id 1uBsaH-00000006zoE-1V6q;
+	Mon, 05 May 2025 09:58:01 +0000
+Received: from mail-vi1eur05on2071f.outbound.protection.outlook.com ([2a01:111:f403:2613::71f] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBsVR-00000006yr3-1Xgv
+	id 1uBsYF-00000006zME-03JV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 09:53:03 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id A797921284;
-	Mon,  5 May 2025 09:52:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1746438779; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=utEcYmPzi75tBBr1KPTD9Ao4NpHZqIdSmjTjxwEplbw=;
-	b=o8okGg/+K3DCf5QTCTgixqzxYorI5hidAenUdxMQbnDCNtHUgy8r/ACuLvIGe1sb03HfZh
-	zC6Hw2zzPr4X9XIR328qCUUznNVDjD7O8hT7DYcmqR3lWoRvd0xuh6teQuLyIUgruYIJNJ
-	kA+bHdYTgLzzf2qVSDSodR20pNtGNNs=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1746438779;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=utEcYmPzi75tBBr1KPTD9Ao4NpHZqIdSmjTjxwEplbw=;
-	b=4S5rgwGKNxA3QOK7Vy+0cJvPP0kfdam9XhEFGYx3+SjKnw9GScOHiiVALf5mzxWRbLeSip
-	bU/JhR5mHqu/aJCw==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b="o8okGg/+";
-	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=4S5rgwGK
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1746438779; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=utEcYmPzi75tBBr1KPTD9Ao4NpHZqIdSmjTjxwEplbw=;
-	b=o8okGg/+K3DCf5QTCTgixqzxYorI5hidAenUdxMQbnDCNtHUgy8r/ACuLvIGe1sb03HfZh
-	zC6Hw2zzPr4X9XIR328qCUUznNVDjD7O8hT7DYcmqR3lWoRvd0xuh6teQuLyIUgruYIJNJ
-	kA+bHdYTgLzzf2qVSDSodR20pNtGNNs=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1746438779;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=utEcYmPzi75tBBr1KPTD9Ao4NpHZqIdSmjTjxwEplbw=;
-	b=4S5rgwGKNxA3QOK7Vy+0cJvPP0kfdam9XhEFGYx3+SjKnw9GScOHiiVALf5mzxWRbLeSip
-	bU/JhR5mHqu/aJCw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 92FDF13883;
-	Mon,  5 May 2025 09:52:59 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 9kzfI3uKGGjPcwAAD6G6ig
-	(envelope-from <jack@suse.cz>); Mon, 05 May 2025 09:52:59 +0000
-Received: by quack3.suse.cz (Postfix, from userid 1000)
-	id 5668AA0670; Mon,  5 May 2025 11:52:55 +0200 (CEST)
-Date: Mon, 5 May 2025 11:52:55 +0200
-From: Jan Kara <jack@suse.cz>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, 
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, David Hildenbrand <david@redhat.com>, 
-	Dave Chinner <david@fromorbit.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Kalesh Singh <kaleshsingh@google.com>, Zi Yan <ziy@nvidia.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
-	linux-mm@kvack.org
-Subject: Re: [RFC PATCH v4 4/5] mm/readahead: Store folio order in struct
- file_ra_state
-Message-ID: <hsh7gqrzzxmgihjnud6p6iqbysustua3rv7vkfgknz4vho4hhx@jvzfztjk4cc4>
-References: <20250430145920.3748738-1-ryan.roberts@arm.com>
- <20250430145920.3748738-5-ryan.roberts@arm.com>
+	Mon, 05 May 2025 09:55:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=m2j4qVa+TUHVQ2AQsEvHRVWj/KWYNxGsniI66lK2LB/9uaFxHgRC2AP1i+43XEv/a/HbzjIqb0SG3q1o63Xq6QBR9fU6ZNiObwIMSOe47HJIeGOtV4lxsa82WiRtibjKDqHliOZJbaOhiyM8fJn2fOpyY4VxZiwIjT2PQB9wdt5LyWjFQ1r5RgN8HmpEy7XkzUk52bp8TklH489U3Nxz8IIzDk+C4uAFCklEtlON2kqnLzwbfWmMa592vOmcO2EH2ksXVhcffakbTfdJ34jn/bJ3W/VMf2sksvOZXD3snufgKVb78EFih4tAMOOEU9mRwKxLpZapPk/pj9lH0p1+VA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ntYqqEfTZAXNYdCVf6T49eiHV/uWEzBD9nyQj5zrmkc=;
+ b=f51XyBuHClgvlqi8y1WVsszgodhEnlO4H3HJzvLjJ+ZkTrpb/6w6fqPkvD0Q7SiamnyqhW4nLEJZnwR58Qlt94KEzgyU+MkhFngISsAluXbmQuutvg+Wk63HByrVvjbCxteLdfu4YedxdalUv8W1raO2tp2nKvr8Bteoz8bWuruyXW/a+8Vclt4e4qo0LV5kgbKpAnD7SMJ3qrBd13uNU94ZBCZNA2WqdyoiPyUrc3JXHG6M4kqsbLzFGMSWtC3IkORf7EteuiLD2GakOHeq4ax2Ahc+xZbItWM3ij3/St3cCLX3BYuzrgb5XrS2AuouUfPwCK4nvrORcsNb7yXuRA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
+ dkim=pass header.d=phytec.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ntYqqEfTZAXNYdCVf6T49eiHV/uWEzBD9nyQj5zrmkc=;
+ b=EAmzTJxythzPXP//D+7NxRbs95QPMkos3g7EHkGTlutlV7C+cXMJktCMjsK8fMoaIskSHgixiRywuo740Xi0PrR09OpBs5+Rg1ueMEsax1a1TZFapaqssc18LMZ7YVfhOpCSXA55odKZF18sN4z+G7Ozhpw1ArtOcAkbYm4az9jF+v22WG02WgWM+43dfJGRKJumQXegeSPcvDTQhnd0tidEwqDtnsH8tUjnjinHmmwAzuCsaFOVyepCv0HJBmagPeiMbtVdMni57vSGWinBN5PvqcJfLS0C93q7P39sN+4o0AVcNrszzejzCkRt6/71/wklX2UA1X+4NNHZtLWBHQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=phytec.de;
+Received: from VI0P195MB2484.EURP195.PROD.OUTLOOK.COM (2603:10a6:800:248::6)
+ by DBAP195MB0843.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:1cf::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.26; Mon, 5 May
+ 2025 09:55:50 +0000
+Received: from VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
+ ([fe80::24f:8371:2871:5981]) by VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
+ ([fe80::24f:8371:2871:5981%4]) with mapi id 15.20.8699.019; Mon, 5 May 2025
+ 09:55:50 +0000
+Message-ID: <50039c49-a6c5-4f29-a35a-53b9af117fd8@phytec.de>
+Date: Mon, 5 May 2025 11:55:38 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 03/11] arm64: dts: ti: k3-am62a-mcu: Add R5F remote
+ proc node
+To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
+ Vignesh Raghavendra <vigneshr@ti.com>
+Cc: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Hari Nagalla <hnagalla@ti.com>,
+ Beleswar Padhi <b-padhi@ti.com>, Markus Schneider-Pargmann
+ <msp@baylibre.com>, Andrew Davis <afd@ti.com>,
+ Devarsh Thakkar <devarsht@ti.com>, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250502220325.3230653-1-jm@ti.com>
+ <20250502220325.3230653-4-jm@ti.com>
+Content-Language: en-US
+From: Daniel Schultz <d.schultz@phytec.de>
+In-Reply-To: <20250502220325.3230653-4-jm@ti.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MW4PR03CA0101.namprd03.prod.outlook.com
+ (2603:10b6:303:b7::16) To VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
+ (2603:10a6:800:248::6)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250430145920.3748738-5-ryan.roberts@arm.com>
-X-Rspamd-Queue-Id: A797921284
-X-Rspamd-Action: no action
-X-Spamd-Result: default: False [-4.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	ARC_NA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	MISSING_XM_UA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[16];
-	MIME_TRACE(0.00)[0:+];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.cz:dkim,suse.com:email];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCVD_COUNT_THREE(0.00)[3];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	RCVD_TLS_LAST(0.00)[];
-	DKIM_TRACE(0.00)[suse.cz:+]
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI0P195MB2484:EE_|DBAP195MB0843:EE_
+X-MS-Office365-Filtering-Correlation-Id: 638fb787-86c3-4204-e305-08dd8bbb03d6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|10070799003|7416014|376014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VTVacXphb1BTYUlwb2c5SjMvYXpkVHdiU3I0dGFnRDNsVG9BL2ZDalR0SHdU?=
+ =?utf-8?B?QjFOVDZ3dVh5a2JaNDA2Ym5Oei9WL014dGdqelAvckd2TGVIdEs5aEs3bkhr?=
+ =?utf-8?B?ZEVSdXpnaHp4c29EZnpHaEtZaHlZSlIwVGRDb1o4cmdOdVpVb3dwc2lGNnZQ?=
+ =?utf-8?B?MGo2V3NVVVdkVnN0dmprM0NxV0MwR1d5ZFJXUjFzRk4xcmE2Vm51UkNnelBp?=
+ =?utf-8?B?ZTNKNGl0UU1SK3MrSUp4NktQRjcyODBSYmlteWVieko1OGNpOUErMzJQUW4x?=
+ =?utf-8?B?N3B1U3VMbHFBeEc0by9Uc2taQnlLYlFWSXk2ejRqSlhNSzNsNmY0WkUvQmpn?=
+ =?utf-8?B?eFN2NklwcWJoM1FwTy9DQVZWcVkwR080dzRBUDNCdTFwZ2JiWVRqUWZBV0Y0?=
+ =?utf-8?B?K2IyT0RvaW9FZXZtVUdvY0dCc0ZjUXd6MUxJYWhyVDhEWW1yb3lvMU0ydWNm?=
+ =?utf-8?B?VkFUazhGaWJjZWFEcHlvMm5JOXZxN3NtdW5maUhXSWplU3p2WS9MdkVMbXFN?=
+ =?utf-8?B?aUxNTVN0a2dNODF5U0hOR3VSVzlnWFI2VitobGZrZlk1M05TUHhPTExyUXFF?=
+ =?utf-8?B?ZEdvMWZjQ2JBVG1uQ2kvcnNyMnkwSDdVUm9ydEhsY3UzYTlNWk9EbHpXU0dj?=
+ =?utf-8?B?REgrSGlvMktmVXJ6YjlreGRtYzl6RTNGdlJ4d1JIVWY0bWd4VUtSdnZ0dVBR?=
+ =?utf-8?B?cTJScldXalFPQTY4MjlVWndWdlh6bHo0MlRscHlPN1NMN1hVcENIcG1WWURZ?=
+ =?utf-8?B?RDEycWJ2TzVlSGU4U2pCK0pabHNDSWxzeEhZbXo0T3ZDZWNnVkVVKzZENVZF?=
+ =?utf-8?B?RWoxVTU2S2xVdHgxWDJ6bno1Q2xNdEdvajQwR0k0VnI4TUp4aGJLZzBVb3k5?=
+ =?utf-8?B?TzhpejRZRlV6U0FzMFRDMmxRNHFvbnJCN0I5WEpiQWowdUZqaStENU9vK01n?=
+ =?utf-8?B?ay9FUG93UnpkRThVb1JtbU51TzlhSm9wU0pWd0xoWmtodGJLSUEranRvSnZQ?=
+ =?utf-8?B?eS9QZTBid25wdjRUaGRLSVp1RWZBRjJkVVk1VWxGbTNNaUpnM0lKNldvbzQ5?=
+ =?utf-8?B?YjVzSjFXZ1lISkpFbktWcEtXZzc4SmNiMG5IdjM0emRJa1hyQXJIOEN4akt1?=
+ =?utf-8?B?ekZUSWhOeEtVd2FaaFJ0dFdhbG80VkFrYXhmcTRsSUtNbVRvKzkzY0F6Znkz?=
+ =?utf-8?B?MXdVYmxZZEZITmF4dFVyOHR4MWt5TzlwYkxNRjhmQ1poV0IvWE8ra0p4NnlF?=
+ =?utf-8?B?UEtodG4xYVdibm5WL0hSM0J0eWNHY2pjTzFueU9pcTNXVTBxc1l5emh5emg4?=
+ =?utf-8?B?czJHbUQrUGVnK3ZqUzZFR1dwSDlUZHRoNXRTMzM4L0ZHd3BjNkREeFFnVzJZ?=
+ =?utf-8?B?NWR2TkNXNllRZlpleGVwQlROMTdOYyt6QnpnUmR5SzZxbzh4bUJqTE13NWNx?=
+ =?utf-8?B?VGhIck1CeXhrN0V5eksyV1VhRFdndkhubWt2QmcxZ0NIRzVuc0FrejFHK3g0?=
+ =?utf-8?B?bUdPdG9TSUdCQVdLV1FUUVQxcWVSZVRid1lWb2FuaVR3a2xINEE4dnllMW1o?=
+ =?utf-8?B?T01SRGlNRTh3NVc4NjIzZnpHU3ZOY0krVm5NNFprRVlQby9acG5wQmh6OWIv?=
+ =?utf-8?B?VmpvWkVtUS9sYlNWQXJyL2hkWTJvUXByZjJ5a05XRlVNSGI4TEZJaXM1b09i?=
+ =?utf-8?B?VTVZR0dpY1p5QkhXQ2VKRyt0QTRYam5XVDFSS0xLZ0RMa2c0cUh0U3Y0U1J3?=
+ =?utf-8?B?dEV5bHFsSzlJa2c0UDl3S25kZXZ4UTZCVktWOUhGMk5tU2pURUVENDI5a3Zh?=
+ =?utf-8?B?OVJsYXhFMnV4R0NtV2FVSXA5UmF0bTB4Q0tYdElkSUZGemc5ZG0yQWVvaWRZ?=
+ =?utf-8?B?ZWlNTFZKL0h2UCtRZjlMcWtrUUtGTS9IamlHK3FXSnhjbkE9PQ==?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0P195MB2484.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(10070799003)(7416014)(376014)(7053199007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bG1FSGhNQ1owcGsxU1k5MUxVUnZ0R1BlQUFCVUdVdlhiUG1rQjBaaVlCSXcz?=
+ =?utf-8?B?cTViNjdobkR1ZStIOFFxdmkrMndMeUw5VWdMRTRHUmJFL3NlRlI3RzdKbWh3?=
+ =?utf-8?B?VDE0ZC9Ob0hNVko4WWFYamcvbUsxeTZRSUN1NFo0bnlnSDlVbUFaQ0ZKNVhU?=
+ =?utf-8?B?VFFxRStLWlBJa2lmZzY1c1lrbzN5TWFXWEpNUnlRZUo3MFQ4VDJ6WVRsWUNN?=
+ =?utf-8?B?M0JGM2IxbVBDdTlIYU91MU9raHNhZndDQldQbDJIZGt6ei9QN1FwZnZNOWxZ?=
+ =?utf-8?B?TEZKK2RHWEdoSjJIbzBNdjNSOXlYbUgvMGZwMVNYNWUyODBRZkNYV0RFanBY?=
+ =?utf-8?B?dmpJcHFRLzQyeEZJZHIveE1oZ3NzSVd4YkpDeWtmUVlQaFJFNTd1VFltbFB4?=
+ =?utf-8?B?YjdZckQ1L3JIK1NaMTVaSExLMDI5MG1LM1BIRnNaUkoxWmhWVDNPTG5BUHJB?=
+ =?utf-8?B?aUNBc0QxRVEwcTNua0dreDhldU5YWE5wVVhFQW03SjlPR1QyVzE2Q3NucHk4?=
+ =?utf-8?B?VUlrSDZDSFBZWEtEUDNYSzJXeG1XN3dGRmJmMGVCQVZSeXRSU3FNSG5zNmkx?=
+ =?utf-8?B?NGNJbjJhUFZHcjc3WC9ZWVJTVEptLzFRYXNuTkxrR1BHdGx0bG1PUzM1c0cr?=
+ =?utf-8?B?VmNJSVpwRDdscjZpTmZBOXZkdEJxUlVOYUkvV0N3N3FiQmIyNlQwVlhXSGpa?=
+ =?utf-8?B?aURWbnpYcHZsK2VKRDFRaTUwN2VlczJhN0NJYnJ0Nkw3VkxRYmV2Y250Rkds?=
+ =?utf-8?B?bGlGdWVaVTMvT2g2dkVxYkpLMjg3akdrQjBtQXp3dXJ6OXh3NUxNNG82Y1E3?=
+ =?utf-8?B?T1FkNmR6NkRlU2xUdStEWURGTkF4ZVJsLzBzSXNBNmxkelExRHhTU2JucGhV?=
+ =?utf-8?B?Tm9DZm1qTG1TdHU3RkRjc2REdG1SYzhBQk5ZSUpJUGlPL1dxMkx4Z05HY1dJ?=
+ =?utf-8?B?aTVJNzNRWFJhenFOeVllTU1hVi9FZCt4TmZWcVoxNnNyVWtBdlk2RjdPVUhj?=
+ =?utf-8?B?OGJtZ3dDMDdERHhxU2J2RnZERXpsM1hLWERaVGMvNXl0WkR1VXRZTUtBeG5O?=
+ =?utf-8?B?TEJrK3U4NjlQWWcrM2pnY0VvbVQvU3dNTW5yVUgrRGpOM3NabTl0QlgrRDBv?=
+ =?utf-8?B?M0RCQ0lheVJkaEVwVG02QmhsdkFXb2FDOFhUdkgwRDB3ZmhPajVCcFVKUWtN?=
+ =?utf-8?B?aklUUjcwdFpReU91RE9kMEVyVzdLR2VCTEJ4RDFHNjVKMmVDS3I0UlBkQUhL?=
+ =?utf-8?B?SW9CUGZSR2Y2ZUdwM1kvSHQ0NU9lUlduMzVQbU13enM1di81cUp3YmNvZjA1?=
+ =?utf-8?B?SFNVSzdiY2RJcmNoYkREaG9UVFVSY1dFUFRKaUpYeW8vUmVHOHYrdHAvZmlw?=
+ =?utf-8?B?U09vM2t2Wk9pcFZHRmdDRyswWDdiUW1ZNFhBTTVsYnhOTjhvWnYzeE5iN0Fk?=
+ =?utf-8?B?Y0UxbGxrSXZFaENOMmdXNUZ0RzdRTlJWWmhYejJkN1VhOW92VGJrVUpYN1dB?=
+ =?utf-8?B?QUZnN3RmN3ltM09xVU5ZRnNjR2NRQ25uRzlyT0s4WjhyejdZaGxzSEZ3SDNm?=
+ =?utf-8?B?aFpkVldDUFVXME5CSm9jQU1ZSTE4enB5bmNzSUQybGREdDZJMVdFUmFtTmMx?=
+ =?utf-8?B?U2ppMU8yMGs4amdCZUN4V3Jxc3ZDNkJYZy9pYmRabENFMFhsSkVJc1N5SXg2?=
+ =?utf-8?B?djZoUGpBWXkyWjl5OVhJdm5GYVNqZHdVVGpFMEtZTlJ1cW01TjNjckpFczcx?=
+ =?utf-8?B?MGpJWjBpZU1ObjBHTTc2NmRvRk1PUU9SRHFGQ0RPTExsZTliRGJ1VlFHR3gy?=
+ =?utf-8?B?Q1pDMnlBZDVOKzIxYkwvWFo4SmVKa3VzZUU2TE1TQ0podXJWNDFVSm8yMGpo?=
+ =?utf-8?B?YWdkUmlHL2JoNldGZjFqcHBQc0Vxc0NuL3MxVlE4bHdmY3dRV3lPQnpzZ1lv?=
+ =?utf-8?B?bzl5LzBWM2VUTzlZWkhsS1RrVEhrS013bWFDWlZkZWhTU1hXaDFmTnN3VjJY?=
+ =?utf-8?B?OTBIUTMzZ3VMaEtmU3BuajhCWEpiR3B2MllZNVgyZTZHRk80QXNCZjZObGQ0?=
+ =?utf-8?B?WnZBcVdhR3grbDlkMll2NTJaUzN0MEVSVDRsOFdVUWhRMHVYTXVUdC9CWk50?=
+ =?utf-8?B?dHF4L0p2OGZkRVVUN25YOXh1S0JpMlhOS0N6NFNpdTV4bkVlWlcvb2xrK0tl?=
+ =?utf-8?Q?wUbQDdSwhjdhrJRMZOlTyzD+yomZYqndANA1XOSGd2IM?=
+X-OriginatorOrg: phytec.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 638fb787-86c3-4204-e305-08dd8bbb03d6
+X-MS-Exchange-CrossTenant-AuthSource: VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2025 09:55:49.9628
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: jY+zSBQ8hEXgIaZzJaos5XtYqT/+27dsXrcykcSbXc34Oj/0cF2pwGqXwEWEWVRFdCt3AvA97jhbBnQQQ+3r9w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAP195MB0843
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_025301_569269_6E7EB620 
-X-CRM114-Status: GOOD (  26.11  )
+X-CRM114-CacheID: sfid-20250505_025555_052312_49CAB749 
+X-CRM114-Status: GOOD (  13.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,124 +183,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed 30-04-25 15:59:17, Ryan Roberts wrote:
-> Previously the folio order of the previous readahead request was
-> inferred from the folio who's readahead marker was hit. But due to the
-> way we have to round to non-natural boundaries sometimes, this first
-> folio in the readahead block is often smaller than the preferred order
-> for that request. This means that for cases where the initial sync
-> readahead is poorly aligned, the folio order will ramp up much more
-> slowly.
-> 
-> So instead, let's store the order in struct file_ra_state so we are not
-> affected by any required alignment. We previously made enough room in
-> the struct for a 16 order field. This should be plenty big enough since
-> we are limited to MAX_PAGECACHE_ORDER anyway, which is certainly never
-> larger than ~20.
-> 
-> Since we now pass order in struct file_ra_state, page_cache_ra_order()
-> no longer needs it's new_order parameter, so let's remove that.
-> 
-> Worked example:
-> 
-> Here we are touching pages 17-256 sequentially just as we did in the
-> previous commit, but now that we are remembering the preferred order
-> explicitly, we no longer have the slow ramp up problem. Note
-> specifically that we no longer have 2 rounds (2x ~128K) of order-2
-> folios:
-> 
-> TYPE    STARTOFFS     ENDOFFS        SIZE  STARTPG    ENDPG   NRPG  ORDER  RA
-> -----  ----------  ----------  ----------  -------  -------  -----  -----  --
-> HOLE   0x00000000  0x00001000        4096        0        1      1
-> FOLIO  0x00001000  0x00002000        4096        1        2      1      0
-> FOLIO  0x00002000  0x00003000        4096        2        3      1      0
-> FOLIO  0x00003000  0x00004000        4096        3        4      1      0
-> FOLIO  0x00004000  0x00005000        4096        4        5      1      0
-> FOLIO  0x00005000  0x00006000        4096        5        6      1      0
-> FOLIO  0x00006000  0x00007000        4096        6        7      1      0
-> FOLIO  0x00007000  0x00008000        4096        7        8      1      0
-> FOLIO  0x00008000  0x00009000        4096        8        9      1      0
-> FOLIO  0x00009000  0x0000a000        4096        9       10      1      0
-> FOLIO  0x0000a000  0x0000b000        4096       10       11      1      0
-> FOLIO  0x0000b000  0x0000c000        4096       11       12      1      0
-> FOLIO  0x0000c000  0x0000d000        4096       12       13      1      0
-> FOLIO  0x0000d000  0x0000e000        4096       13       14      1      0
-> FOLIO  0x0000e000  0x0000f000        4096       14       15      1      0
-> FOLIO  0x0000f000  0x00010000        4096       15       16      1      0
-> FOLIO  0x00010000  0x00011000        4096       16       17      1      0
-> FOLIO  0x00011000  0x00012000        4096       17       18      1      0
-> FOLIO  0x00012000  0x00013000        4096       18       19      1      0
-> FOLIO  0x00013000  0x00014000        4096       19       20      1      0
-> FOLIO  0x00014000  0x00015000        4096       20       21      1      0
-> FOLIO  0x00015000  0x00016000        4096       21       22      1      0
-> FOLIO  0x00016000  0x00017000        4096       22       23      1      0
-> FOLIO  0x00017000  0x00018000        4096       23       24      1      0
-> FOLIO  0x00018000  0x00019000        4096       24       25      1      0
-> FOLIO  0x00019000  0x0001a000        4096       25       26      1      0
-> FOLIO  0x0001a000  0x0001b000        4096       26       27      1      0
-> FOLIO  0x0001b000  0x0001c000        4096       27       28      1      0
-> FOLIO  0x0001c000  0x0001d000        4096       28       29      1      0
-> FOLIO  0x0001d000  0x0001e000        4096       29       30      1      0
-> FOLIO  0x0001e000  0x0001f000        4096       30       31      1      0
-> FOLIO  0x0001f000  0x00020000        4096       31       32      1      0
-> FOLIO  0x00020000  0x00021000        4096       32       33      1      0
-> FOLIO  0x00021000  0x00022000        4096       33       34      1      0
-> FOLIO  0x00022000  0x00024000        8192       34       36      2      1
-> FOLIO  0x00024000  0x00028000       16384       36       40      4      2
-> FOLIO  0x00028000  0x0002c000       16384       40       44      4      2
-> FOLIO  0x0002c000  0x00030000       16384       44       48      4      2
-> FOLIO  0x00030000  0x00034000       16384       48       52      4      2
-> FOLIO  0x00034000  0x00038000       16384       52       56      4      2
-> FOLIO  0x00038000  0x0003c000       16384       56       60      4      2
-> FOLIO  0x0003c000  0x00040000       16384       60       64      4      2
-> FOLIO  0x00040000  0x00050000       65536       64       80     16      4
-> FOLIO  0x00050000  0x00060000       65536       80       96     16      4
-> FOLIO  0x00060000  0x00080000      131072       96      128     32      5
-> FOLIO  0x00080000  0x000a0000      131072      128      160     32      5
-> FOLIO  0x000a0000  0x000c0000      131072      160      192     32      5
-> FOLIO  0x000c0000  0x000e0000      131072      192      224     32      5
-> FOLIO  0x000e0000  0x00100000      131072      224      256     32      5
-> FOLIO  0x00100000  0x00120000      131072      256      288     32      5
-> FOLIO  0x00120000  0x00140000      131072      288      320     32      5  Y
-> HOLE   0x00140000  0x00800000     7077888      320     2048   1728
-> 
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+Hi,
 
-...
+I'm unable to load the latest TI firmware 
+(98efd20ec71f8c1c8f909d34ab656731) with this patch.
 
-> @@ -469,6 +469,7 @@ void page_cache_ra_order(struct readahead_control *ractl,
->  	int err = 0;
->  	gfp_t gfp = readahead_gfp_mask(mapping);
->  	unsigned int min_ra_size = max(4, mapping_min_folio_nrpages(mapping));
-> +	unsigned int new_order = ra->order;
->  
->  	/*
->  	 * Fallback when size < min_nrpages as each folio should be
-> @@ -483,6 +484,8 @@ void page_cache_ra_order(struct readahead_control *ractl,
->  	new_order = min_t(unsigned int, new_order, ilog2(ra->size));
->  	new_order = max(new_order, min_order);
->  
-> +	ra->order = new_order;
+[    7.012889] remoteproc remoteproc1: 79000000.r5f is available
+[    7.032640] remoteproc remoteproc1: powering up 79000000.r5f
+[    7.038626] remoteproc remoteproc1: Booting fw image 
+am62a-mcu-r5f0_0-fw, size 53140
+[    7.057209] remoteproc remoteproc1: bad phdr da 0x79100000 mem 0x47ea0
+[    7.064716] remoteproc remoteproc1: Failed to load program segments: -22
+
+I figured out that the mcu sram node disappeared in v5. Apparently 
+adding it back manually doesn't solve this problem. Any idea what's wrong?
+
+- Daniel
+
+On 5/3/25 00:03, Judith Mendez wrote:
+> From: Hari Nagalla <hnagalla@ti.com>
+>
+> AM62A SoCs have a single R5F core in the MCU voltage domain.
+> Add the R5FSS node with the child node for core0 in MCU voltage
+> domain .dtsi file.
+>
+> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
+> Signed-off-by: Judith Mendez <jm@ti.com>
+> Acked-by: Andrew Davis <afd@ti.com>
+> ---
+>   arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi | 25 ++++++++++++++++++++++++
+>   1 file changed, 25 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
+> index 9ed9d703ff24..ee961ced7208 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
+> @@ -174,4 +174,29 @@ mcu_mcan1: can@4e18000 {
+>   		bosch,mram-cfg = <0x0 128 64 64 64 64 32 32>;
+>   		status = "disabled";
+>   	};
 > +
->  	/* See comment in page_cache_ra_unbounded() */
->  	nofs = memalloc_nofs_save();
->  	filemap_invalidate_lock_shared(mapping);
-> @@ -525,6 +528,7 @@ void page_cache_ra_order(struct readahead_control *ractl,
->  	 * ->readahead() may have updated readahead window size so we have to
->  	 * check there's still something to read.
->  	 */
-> +	ra->order = 0;
-
-Hum, so you reset desired folio order if readahead hit some pre-existing
-pages in the page cache. Is this really desirable? Why not leave the
-desired order as it was for the next request?
-
->  	if (ra->size > index - start)
->  		do_page_cache_ra(ractl, ra->size - (index - start),
->  				 ra->async_size);
-
-								Honza
--- 
-Jan Kara <jack@suse.com>
-SUSE Labs, CR
+> +	mcu_r5fss0: r5fss@79000000 {
+> +		compatible = "ti,am62-r5fss";
+> +		#address-cells = <1>;
+> +		#size-cells = <1>;
+> +		ranges = <0x79000000 0x00 0x79000000 0x8000>,
+> +			 <0x79020000 0x00 0x79020000 0x8000>;
+> +		power-domains = <&k3_pds 7 TI_SCI_PD_EXCLUSIVE>;
+> +		status = "disabled";
+> +
+> +		mcu_r5fss0_core0: r5f@79000000 {
+> +			compatible = "ti,am62-r5f";
+> +			reg = <0x79000000 0x00008000>,
+> +			      <0x79020000 0x00008000>;
+> +			reg-names = "atcm", "btcm";
+> +			resets = <&k3_reset 9 1>;
+> +			firmware-name = "am62a-mcu-r5f0_0-fw";
+> +			ti,atcm-enable = <0>;
+> +			ti,btcm-enable = <1>;
+> +			ti,loczrama = <0>;
+> +			ti,sci = <&dmsc>;
+> +			ti,sci-dev-id = <9>;
+> +			ti,sci-proc-ids = <0x03 0xff>;
+> +		};
+> +	};
+>   };
 
