@@ -4,111 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5576FC3ABB0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 14:20:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97723C3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 14:39:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2LqDT71OzKRQzSNElTERHTlBp0u3mqvgLaXWucc7FK4=; b=V80jUv6K1be4jzMIBkk9ySJvzM
-	Q6FczYm4yJ9ROSA//LmulzV4KE8dniOtfaH4aRwL34ld906wa8POwCcZqnJieLOxrPOPPmVerVB+u
-	2OPQ4JgP3nl9jFAPlp+OxdZidt6ZuxQtgIs+siUnIRPWGmU+1GpwiGAomq15TG/NdxnMvQCPPupmf
-	PMSC9sA7zBTsMs7690yRB7/9Jw9+0lCyqQODdkQjw0P7ZsGBFA9wRi2dINJazWptJJvG7tA7v6dT1
-	digy0lSQmMhCBjJgBibb30QZC1co3L9pfE4VqrQBoI2saHJLTCasuZxnfZ7Oi6kUMy/qtijBp0mMa
-	mi/qKPKg==;
+	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KsiYSQaqI5xt4hpo9n+HFHiwvaYjALuwKisRyJqehjk=; b=FnlbLcSZsO0ocxKm9UEOX9XCdV
+	j3Pvb/Mu6OvtVrpYwhAMxGPE+V1BzOylDcSy6MMJAo1lqIs876vyTypMtQXvWKxv8hPjIj0xcXBhu
+	BMLCBQqWQxWP1fn64DVxRkqLvUHgKmi08XgPS4r94uqvshMMBcwS2jC/LyVmeKxhYUzJkwcQiA0hG
+	5HNXPbjZvoqwv9vsFrAVbC15BjHjbByqUQOO9D1QQtG5iEtRP8RRiGv6bYeeoyBc8lF1rYe41M8Qe
+	026CrBY+hfPltbzh0rbVZqSId0Fi1Qz1pmJWiTBAl4wUgnkpT/HGRerLUKWi+DJ1RzdL3O6LYd0cL
+	roP7Xl7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBwfr-00000007bgM-0YFO;
-	Mon, 05 May 2025 14:20:03 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uBwyL-00000007epG-2h1Y;
+	Mon, 05 May 2025 14:39:09 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBwdr-00000007axy-0d3C
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 14:18:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 94F714A281;
-	Mon,  5 May 2025 14:17:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F5E4C4CEE4;
-	Mon,  5 May 2025 14:17:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746454678;
-	bh=gsc3JlKON4CygcCk73kQax7z0OnlE/CBQE7MvPAsB9c=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=c4VgYPngdyhq82fvAO+lJufmpZ8INcFqCV16xwu2s//YPjQ9mt0o+xRgTQYKXqSfp
-	 j8HAYG0mH8y7BXWVeIEknxPAGGKXcR6lQIeD8DX6tdLvmaTsXWL9VbMPnrWOaLswX7
-	 Urp+GzXyUw4q8EC8BmO7d8r5NARU88ayXOD+K05334ZGhELIeU1DfaL050JMxNofgN
-	 31XPfKdvknJ3DEkXj3MfoCCSpIy4MamWNFHV6lQ1z0dlNtItZM/NY0Wn2xEolztFzZ
-	 u2VNl4tsOeltpcW00ZIyjBqiTqi3wI0fgsoBmeSwojjbT2fEj49c+9YWBhx4KqdB5o
-	 +klrTLlNkxw9Q==
-Message-ID: <32d9f0c5-5648-4cc2-9db6-f5165d20d20c@kernel.org>
-Date: Mon, 5 May 2025 16:17:53 +0200
+	id 1uBwwM-00000007eYu-2YGa;
+	Mon, 05 May 2025 14:37:07 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-441c99459e9so9244765e9.3;
+        Mon, 05 May 2025 07:37:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746455825; x=1747060625; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=KsiYSQaqI5xt4hpo9n+HFHiwvaYjALuwKisRyJqehjk=;
+        b=GlsC+HTNd++4KDIpBnO120/LUuUwtjXvhZ5ehxHhXTzOJUE7PJTFJlXwovMRy3n9OM
+         OcAxeOmQbWVEuLqtWhc2roUBJLTs1t4A+Xc5RB9PRUDOV8HnzYD2zJNubQhHRRE0F5Yt
+         Ph9gOoeCmUpPGILFi401rE7ABR6E+SzDf5WNRbS299JkbBJp/AoUqWzY6F5tx/9tPeK0
+         D41yXFjShwfg0R2lbvtRnjT/ShTTCQK0Lk1n9MKvm+koO0FwN5WZhTbcA2sCJ4rbVbNt
+         A8QJH55tqYd7FLbHJwN4+PPxenUfB8pKLt1vxvXC5zu7GgWT7jdYlDsYXzpee+K4dtqH
+         VHlQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746455825; x=1747060625;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=KsiYSQaqI5xt4hpo9n+HFHiwvaYjALuwKisRyJqehjk=;
+        b=hXuxAMc20ow379hkgsm05posi8zOo4cBFc34judMaPedwg/YwourFC7Yib/tgO+bvQ
+         DLIfRlrjcomQ7C26HMahN43/hO4tHJ0RnFie1u3neuyeDnN30nZiAdsiv62HZnTffu4G
+         4mzKXhUgy9zTsc+dGAE/v6WW7NxnhF7lN5dtHYtqFhqFarTT0nY7h/GBmloHI+eYVxpy
+         E7a0nOPuTzWygdFYCOcQNJYbBJfRHLcBSGNuDzDMZERCVSv8qCX31hUhpqGTcEAfsdoI
+         jeaKDrLd2ACHfy5/JT6P/7KYrR8fUyTujM6bctHmUUflFxYN7ny3MTkqXSXwjOjvNK7y
+         UN4A==
+X-Forwarded-Encrypted: i=1; AJvYcCV/Rnn/R+kopC2pZ311AWf6Foacqtaz0DXOM6cWNOYtR9AX66/Soj+ppQTPXZVm3eANpZ+VWDJ0XqzC/whh9Kw13Q==@lists.infradead.org, AJvYcCVT6NuekcoMY/aXPYC2QD0Cc8W3DqW/lihynwB78I2j9PkqqCNfPIwOK3UzCnD2/cn1asY2/QsxdRwgO5CT@lists.infradead.org
+X-Gm-Message-State: AOJu0YyWFF9KnH0YEn6AIOVRP5x27SaycIoZQHAuiOVzzzZNahfGSZP0
+	DrVxSlDpOO96YardGMgUFvxgCELmTlTEIXHsUMhZMiETyNPPhJvz
+X-Gm-Gg: ASbGnctNRstgKVj43epEVcowvWSt9TDju8Sn7RPttyUuaqiP9wjOZ0I+PBwEmfVuhpU
+	9SfvJc8QimbSxKVAGpRsaa//74vVpRcU6N5AmMoRQK6BawyzddUYfMsoCOVrTBA3apGiMRej7lb
+	FzaI0brtBDYrRUom2HlRnLDN6yQEV1hujyN2eJE68Ri7a50pCDCVY5BVHmzCcZ8Bx59Fj65dt7S
+	UyR2vKcXSF12wktg3xdMcyF4Dc29I3g4qOZnlIdCNDxjFcbItSJ7SPCVsZqbeV1GzvMh1aOZjef
+	nsG5S4sypNGMvc3PNUTYDwYXn3wiSDkqAT2BEAaLcETtmg==
+X-Google-Smtp-Source: AGHT+IFTHVGI2vR6SnT1zPMrtW+l6TfoGzFy6CYCvq/IBo0x6vMnqBeTsKkgU/UY5Tffx9spt+ecAQ==
+X-Received: by 2002:a05:600c:3ca5:b0:43b:cc42:c54f with SMTP id 5b1f17b1804b1-441bbed4726mr115777665e9.14.1746455824548;
+        Mon, 05 May 2025 07:37:04 -0700 (PDT)
+Received: from toolbox.. ([87.200.95.144])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-441ad8149afsm116568875e9.0.2025.05.05.07.37.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 May 2025 07:37:04 -0700 (PDT)
+From: Christian Hewitt <christianshewitt@gmail.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: amlogic: sm1-bananapi: lower SD card speed for stability
+Date: Mon,  5 May 2025 14:37:00 +0000
+Message-Id: <20250505143700.4029484-1-christianshewitt@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: arm64: dts: blaize-blzp1600: Enable GPIO support
-To: Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, James Cowgill
- <james.cowgill@blaize.com>, Matt Redfearn <matthew.redfearn@blaize.com>,
- Neil Jones <neil.jones@blaize.com>, "soc@lists.linux.dev"
- <soc@lists.linux.dev>
-Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-References: <20250327-kernel-upstreaming-add_gpio_support-v2-0-2c45a1acdc0c@blaize.com>
- <20250327-kernel-upstreaming-add_gpio_support-v2-3-2c45a1acdc0c@blaize.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250327-kernel-upstreaming-add_gpio_support-v2-3-2c45a1acdc0c@blaize.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_071759_253601_42FA06E1 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20250505_073706_647699_F3CD53CF 
+X-CRM114-Status: GOOD (  14.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,40 +100,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/05/2025 16:14, Nikolaos Pasaloukos wrote:
-> Blaize BLZP1600 uses the custom silicon provided from
-> 
-> VeriSilicon to add GPIO support.
-> 
-> This interface is used to control signals on many other
-> 
-> peripherals, such as Ethernet, USB, SD and eMMC.
-> 
-> 
-> Signed-off-by: Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>
+Users report being able to boot (u-boot) from SD card but kernel
+init then fails to mount partitions on the card containing boot
+media resulting in first-boot failure. System logs show only the
+probe of the mmc devices: the SD card is seen, but no partitions
+are found so init fails to mount them and boot stalls.
 
-Entire patch is corrupted by your mail server. Please switch to b4 relay
-if your mail server is not capable of sending emails (like Microsoft
-Outlook).
+Reducing the speed of the SD card from 50MHz to 35MHz results in
+complete probing of the card and successful boot.
 
-Please use standard email subjects, so with the PATCH keyword in the
-title. `git format-patch -vX` helps here to create proper versioned
-patches. Another useful tool is b4. Skipping the PATCH keyword makes
-filtering of emails more difficult thus making the review process less
-convenient.
+Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
+---
+The same workaround of dropping to 35MHz is also done with the
+ac2xx dtsi; which has a comment about CRC errors being seen at
+50MHz. It's probable this is the same although I forget now how
+that diagnosis was done (or who did it, Martin perhaps?). I've
+removed the FIXUP comment and added one about boot failures
+being seen at 50Mhz but if you prefer to repeat the CRC comment
+from ac2xx feel free to fixup when applying or I can send a v2
+with that change. Links to original issue reports with user test
+results [0] [1] are below:
 
-> 
-> ---
-> 
-> I am re-sending the patch to include the soc list. The original patchset
-> 
-> has already been applied but not this patch.
-> 
-> Arnd, could you please apply or do I need someone to review?
+[0] https://github.com/LibreELEC/LibreELEC.tv/issues/10027
+[1] https://github.com/libretro/Lakka-LibreELEC/issues/2059
 
-Platform maintainers are responsible for the patches for their platform.
-Any reason why this is not working for blaize?
+ arch/arm64/boot/dts/amlogic/meson-sm1-bananapi.dtsi | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-Best regards,
-Krzysztof
+diff --git a/arch/arm64/boot/dts/amlogic/meson-sm1-bananapi.dtsi b/arch/arm64/boot/dts/amlogic/meson-sm1-bananapi.dtsi
+index 40db95f64636..03b4b414cd5f 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-sm1-bananapi.dtsi
++++ b/arch/arm64/boot/dts/amlogic/meson-sm1-bananapi.dtsi
+@@ -384,11 +384,10 @@ &sd_emmc_b {
+ 
+ 	bus-width = <4>;
+ 	cap-sd-highspeed;
+-	max-frequency = <50000000>;
++	/* Boot failures are observed at 50MHz */
++	max-frequency = <35000000>;
+ 	disable-wp;
+ 
+-	/* TOFIX: SD card is barely usable in SDR modes */
+-
+ 	cd-gpios = <&gpio GPIOC_6 GPIO_ACTIVE_LOW>;
+ 	vmmc-supply = <&tflash_vdd>;
+ 	vqmmc-supply = <&vddio_c>;
+-- 
+2.34.1
+
 
