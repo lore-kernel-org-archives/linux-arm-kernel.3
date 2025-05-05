@@ -4,88 +4,191 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97723C3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 14:39:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D1B5C3ABB0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 14:46:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KsiYSQaqI5xt4hpo9n+HFHiwvaYjALuwKisRyJqehjk=; b=FnlbLcSZsO0ocxKm9UEOX9XCdV
-	j3Pvb/Mu6OvtVrpYwhAMxGPE+V1BzOylDcSy6MMJAo1lqIs876vyTypMtQXvWKxv8hPjIj0xcXBhu
-	BMLCBQqWQxWP1fn64DVxRkqLvUHgKmi08XgPS4r94uqvshMMBcwS2jC/LyVmeKxhYUzJkwcQiA0hG
-	5HNXPbjZvoqwv9vsFrAVbC15BjHjbByqUQOO9D1QQtG5iEtRP8RRiGv6bYeeoyBc8lF1rYe41M8Qe
-	026CrBY+hfPltbzh0rbVZqSId0Fi1Qz1pmJWiTBAl4wUgnkpT/HGRerLUKWi+DJ1RzdL3O6LYd0cL
-	roP7Xl7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7nElclobKvqfN1Eissn5mcXYu9fuRFI1VaXi2NA9gOU=; b=b4cOsjEX3jcgat8cbd7xK2yw1i
+	bgmWM1wNm6kvKwdasD5I5+lpoConQ+/wAK2e+0r/RGnacNhheDMDBgjuBX/kRJhx9C1902h2XxB1D
+	otkt/VFkSjcgluAG83stfI+rJM9RlqUBlI8YlB/DvJfejkzIZw/a3+B6dum01HmoOcNl9pVqSnhx/
+	gTQ+mlER/M0GjOUBtV9Axzt2oRNKxJbBZ5q/WDvzknFajRMcduUR8Yg1kJujIOT13e8taEd2s/1/V
+	gTXwQ62IEXSE5AbjeSxY9daylD3cdHtOZGKpx38iH2WOECAFHBoS/hXy/XcOKYy8xFEYUtag/UFMu
+	pszdl9vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBwyL-00000007epG-2h1Y;
-	Mon, 05 May 2025 14:39:09 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1uBx53-00000007fnb-3Qkk;
+	Mon, 05 May 2025 14:46:05 +0000
+Received: from mx07-0063e101.pphosted.com ([205.220.184.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBwwM-00000007eYu-2YGa;
-	Mon, 05 May 2025 14:37:07 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-441c99459e9so9244765e9.3;
-        Mon, 05 May 2025 07:37:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746455825; x=1747060625; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=KsiYSQaqI5xt4hpo9n+HFHiwvaYjALuwKisRyJqehjk=;
-        b=GlsC+HTNd++4KDIpBnO120/LUuUwtjXvhZ5ehxHhXTzOJUE7PJTFJlXwovMRy3n9OM
-         OcAxeOmQbWVEuLqtWhc2roUBJLTs1t4A+Xc5RB9PRUDOV8HnzYD2zJNubQhHRRE0F5Yt
-         Ph9gOoeCmUpPGILFi401rE7ABR6E+SzDf5WNRbS299JkbBJp/AoUqWzY6F5tx/9tPeK0
-         D41yXFjShwfg0R2lbvtRnjT/ShTTCQK0Lk1n9MKvm+koO0FwN5WZhTbcA2sCJ4rbVbNt
-         A8QJH55tqYd7FLbHJwN4+PPxenUfB8pKLt1vxvXC5zu7GgWT7jdYlDsYXzpee+K4dtqH
-         VHlQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746455825; x=1747060625;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=KsiYSQaqI5xt4hpo9n+HFHiwvaYjALuwKisRyJqehjk=;
-        b=hXuxAMc20ow379hkgsm05posi8zOo4cBFc34judMaPedwg/YwourFC7Yib/tgO+bvQ
-         DLIfRlrjcomQ7C26HMahN43/hO4tHJ0RnFie1u3neuyeDnN30nZiAdsiv62HZnTffu4G
-         4mzKXhUgy9zTsc+dGAE/v6WW7NxnhF7lN5dtHYtqFhqFarTT0nY7h/GBmloHI+eYVxpy
-         E7a0nOPuTzWygdFYCOcQNJYbBJfRHLcBSGNuDzDMZERCVSv8qCX31hUhpqGTcEAfsdoI
-         jeaKDrLd2ACHfy5/JT6P/7KYrR8fUyTujM6bctHmUUflFxYN7ny3MTkqXSXwjOjvNK7y
-         UN4A==
-X-Forwarded-Encrypted: i=1; AJvYcCV/Rnn/R+kopC2pZ311AWf6Foacqtaz0DXOM6cWNOYtR9AX66/Soj+ppQTPXZVm3eANpZ+VWDJ0XqzC/whh9Kw13Q==@lists.infradead.org, AJvYcCVT6NuekcoMY/aXPYC2QD0Cc8W3DqW/lihynwB78I2j9PkqqCNfPIwOK3UzCnD2/cn1asY2/QsxdRwgO5CT@lists.infradead.org
-X-Gm-Message-State: AOJu0YyWFF9KnH0YEn6AIOVRP5x27SaycIoZQHAuiOVzzzZNahfGSZP0
-	DrVxSlDpOO96YardGMgUFvxgCELmTlTEIXHsUMhZMiETyNPPhJvz
-X-Gm-Gg: ASbGnctNRstgKVj43epEVcowvWSt9TDju8Sn7RPttyUuaqiP9wjOZ0I+PBwEmfVuhpU
-	9SfvJc8QimbSxKVAGpRsaa//74vVpRcU6N5AmMoRQK6BawyzddUYfMsoCOVrTBA3apGiMRej7lb
-	FzaI0brtBDYrRUom2HlRnLDN6yQEV1hujyN2eJE68Ri7a50pCDCVY5BVHmzCcZ8Bx59Fj65dt7S
-	UyR2vKcXSF12wktg3xdMcyF4Dc29I3g4qOZnlIdCNDxjFcbItSJ7SPCVsZqbeV1GzvMh1aOZjef
-	nsG5S4sypNGMvc3PNUTYDwYXn3wiSDkqAT2BEAaLcETtmg==
-X-Google-Smtp-Source: AGHT+IFTHVGI2vR6SnT1zPMrtW+l6TfoGzFy6CYCvq/IBo0x6vMnqBeTsKkgU/UY5Tffx9spt+ecAQ==
-X-Received: by 2002:a05:600c:3ca5:b0:43b:cc42:c54f with SMTP id 5b1f17b1804b1-441bbed4726mr115777665e9.14.1746455824548;
-        Mon, 05 May 2025 07:37:04 -0700 (PDT)
-Received: from toolbox.. ([87.200.95.144])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-441ad8149afsm116568875e9.0.2025.05.05.07.37.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 May 2025 07:37:04 -0700 (PDT)
-From: Christian Hewitt <christianshewitt@gmail.com>
-To: Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: amlogic: sm1-bananapi: lower SD card speed for stability
-Date: Mon,  5 May 2025 14:37:00 +0000
-Message-Id: <20250505143700.4029484-1-christianshewitt@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	id 1uBx34-00000007fNx-3gMj
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 May 2025 14:44:04 +0000
+Received: from pps.filterd (m0247495.ppops.net [127.0.0.1])
+	by mx08-0063e101.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 545EF1aT008045;
+	Mon, 5 May 2025 15:43:57 +0100
+Received: from ma0pr01cu009.outbound.protection.outlook.com (mail-southindiaazlp17010001.outbound.protection.outlook.com [40.93.131.1])
+	by mx08-0063e101.pphosted.com (PPS) with ESMTPS id 46d8cx95as-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 05 May 2025 15:43:57 +0100 (BST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OfYN3S7N8eTNZK8yDZFwq2WstFAQ4idyGNosS+EFY5NqHwt+yIspMZaahoDq73lKEM0ZvKiFX7h0VuYaWHU1KIgJk98PqjvSx/rrm/Ld5yF6H1A2YRBJVWisauBwJ0aQ1XoIToZtK+yXTn47QUcUOEsySdWI2yuHko1uZjknF10zdsIcqMv34z/HJyZDl6c1yg8uv7FqeluRc4bsDZ6ahhmrPHUGt3LnfRc6M4bqXYjnYlfs9X8nvf/YjKTGMFWnMGZwq16NBFZm3KcQPUofqJ2bQvpLzPIiZIC9UsDOamNM5/+3KNG3RwvZaM5PANPFq99ghnKgzAFMBwIlV4Byvw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7nElclobKvqfN1Eissn5mcXYu9fuRFI1VaXi2NA9gOU=;
+ b=AOJ63ec3UcNfKVE8d+i1XgjfmUEbPqecc+jyh/4aTsU9FyO4w0hkHR7bY8nyWz9RrpRR+Gclo0FbdXTNIFvxgilGc7tPF5EiyDpMj7yYtZnyuZp/CiWrguOa9kHq8kBCgId8QclL5/At4eBauKXxH6KnB5nzBNyQmDbRHb6OojmMTkj+uYmR/kWWcWenVEfHwnA1k2+qi34x0D2oCStaC23PP1wg7DTwTUi7jW6VjhyVtEtbyEghW57n70gw6dFGMSrD5iR1ia++ni1jXToh+zzz5fSsDZkUg1VeJUGzjzTo12qd62v3pwfa0MEgofFvhPbj/kBLIESLtIN6EwFecA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=blaize.com; dmarc=pass action=none header.from=blaize.com;
+ dkim=pass header.d=blaize.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=BLAIZE.COM;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7nElclobKvqfN1Eissn5mcXYu9fuRFI1VaXi2NA9gOU=;
+ b=Ys8/qwRFrOFBbqKXVEK1U9AYHGPWMmprquYbKW5RfneVwJ0TyrZiNbAnjj+w6R+Is3zCM7DF4QDHXyEj2GQ+5CrQ5cZOWwWc39Y4GeP1FoMoDHPmyfJnoxkNhKpBQX8Ky74e2YaogEyZmEK370DZ3/RwrGBinXKjJ4Q9qZuqhQo=
+Received: from MA0PR01MB10184.INDPRD01.PROD.OUTLOOK.COM (2603:1096:a01:12a::5)
+ by PN0PR01MB9073.INDPRD01.PROD.OUTLOOK.COM (2603:1096:c01:164::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.26; Mon, 5 May
+ 2025 14:43:52 +0000
+Received: from MA0PR01MB10184.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::309a:12cf:74a4:5655]) by MA0PR01MB10184.INDPRD01.PROD.OUTLOOK.COM
+ ([fe80::309a:12cf:74a4:5655%6]) with mapi id 15.20.8699.026; Mon, 5 May 2025
+ 14:43:52 +0000
+Message-ID: <b35c8727-f6bf-4024-9e83-dfe12ac4400f@blaize.com>
+Date: Mon, 5 May 2025 15:43:46 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: arm64: dts: blaize-blzp1600: Enable GPIO support
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        James Cowgill <james.cowgill@blaize.com>,
+        Matt Redfearn <matthew.redfearn@blaize.com>,
+        Neil Jones <neil.jones@blaize.com>,
+        "soc@lists.linux.dev"
+ <soc@lists.linux.dev>
+Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+References: <20250327-kernel-upstreaming-add_gpio_support-v2-0-2c45a1acdc0c@blaize.com>
+ <20250327-kernel-upstreaming-add_gpio_support-v2-3-2c45a1acdc0c@blaize.com>
+ <32d9f0c5-5648-4cc2-9db6-f5165d20d20c@kernel.org>
+Content-Language: en-US
+From: Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>
+In-Reply-To: <32d9f0c5-5648-4cc2-9db6-f5165d20d20c@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO4P123CA0392.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:18f::19) To MA0PR01MB10184.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:12a::5)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MA0PR01MB10184:EE_|PN0PR01MB9073:EE_
+X-MS-Office365-Filtering-Correlation-Id: fb5b4cd3-24a5-438b-b309-08dd8be3412f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?eEpubFJSQW9oTzhBbVB6aWFzQWJmcmtWTmh4dmtPV2dnZmxxWWlHWmV6YTJP?=
+ =?utf-8?B?ZE5Sa0g5dk9RdDBqTHg0SWVmZDdnN2pwL1Y3UkFYeFdHa0ZvQXVQaEZocWY2?=
+ =?utf-8?B?OC80QlYwdjVOdlZyMXIxRXF1d1d1KzV5dmJudk1ITTBabnl6ZXVyYVIxVHln?=
+ =?utf-8?B?WW9mQkhjaUsxNjBPTjd3RmhoaFJFbzJiVHh4eWhVaTlXeFFpTnoxWVJVWTl6?=
+ =?utf-8?B?dm1mMXcrZFBtVW9LV1JnWEdoeUNIV2RQc05yYlRPbGY4YzByRjB6TXV6OVo2?=
+ =?utf-8?B?dUhsb0tpKytjeWN1eWQxQWhRNGpjdEdjZHVZMzc5N1VOeC9jRmNiWmpHN3hT?=
+ =?utf-8?B?WHN1UlBMTHl1c2J1TVlibVREeFJYcy9oVjBwSDEvY3liWFIzbTRuM04xcWtD?=
+ =?utf-8?B?VW9ocjRFdWUwK3JDd2REMjdlQ1Bibi9yRGZ4OE1ZYVZ0bWhiR2dXMDFPaDBW?=
+ =?utf-8?B?cWQrSnoxVFh6RU9WZzljZUhvUG9HQVIyQzFZdlNIMjRXTnVBN3hQRktveDFr?=
+ =?utf-8?B?cmwwMWt1c0lycU9MK3NaRVBwVDRWTWpMc2xxWDRYM2EwcHU0Y25IaGdVQXRX?=
+ =?utf-8?B?ck1uSnV4anlBMll3M3lidkNwSFJBV1ZDSTZyNW9GaEhPSTQ4UDhhL2tpMmhn?=
+ =?utf-8?B?L3l1bUpNWlBiN0ErMWl2OTEzYStYekZoaVRoQzRpellyTE1idnA1cncyQXBs?=
+ =?utf-8?B?WFlCVE00UVRJUFc0RVVwSUZLYkJGays2M1FpeGxUVUt3OG9XVHRKa1doZG1B?=
+ =?utf-8?B?WkgrUEdLQXRHRGNVNU5UZXgxV2hMTHgwd0FVNkc2S1NDS1BoN2dFMVJHNkF4?=
+ =?utf-8?B?c2dDZ0VkVEtvU2d3akdMNHZPaDVFMTRXTVJzNW4ydHZ4TDJTbEgzZ2JlSi90?=
+ =?utf-8?B?aW9hMW9QUjk4blhJdU1YMmF1ZGlXdjJPVE4xamxyNVVEcEpzcE5oUkxmZG03?=
+ =?utf-8?B?MHBvV0dlc2ZKTXRGRHNFU0FMcEIzTEEwdzY0enJVamlLeFpHUUFQejNCSFBl?=
+ =?utf-8?B?MUM4ZWxjcVg2dzhQN3ZmS24xK3hyS2RrVG9PK1g3eGNyWVhLRldsMERwR0x6?=
+ =?utf-8?B?Y04rVEQxVlFiZUhMeHFVSDRQWElVWEkvbXVPVUlqMGFjZFhLRGdIRjNrK2Fa?=
+ =?utf-8?B?MzdoSWZTTGxWbFE3dmxqUVpZY1BidjZFOWV0cjJwWUZlVnJrbWZvT0hsblZE?=
+ =?utf-8?B?bU5LYzZPUjBjUDZoS2NpNXY1YjhLa1dNa1ZRRmJDQngxZzl0Rm9sOG9HTWtm?=
+ =?utf-8?B?YlBrdnhDUk1ad1l2ZU1TNXVLenhtdngwTVcrbk1DUUJvQkR0Y3hDNW1VVzl0?=
+ =?utf-8?B?VFRrREZ3VTYrT3JCOWNRRTdCQ3JHUTR4UDZqZnJ2WGVjQkV5YlNPK3lOL2Jo?=
+ =?utf-8?B?SEdmcnpwRUxwUElvbmhRbVd0anR1WTVPQmZIbmhmU2xpcElWYVRiSHpUdWJl?=
+ =?utf-8?B?dGV6OEFCUkpkNmFWbndNT3BzL2F5ZEVMb1lpVWR0KzJmaWt3SDFPdDNMSGph?=
+ =?utf-8?B?d3V1aXFySEk4VEI3RGNrczBPNXNsMHZtVUYrUU91L2VKLzdKelkrYTFMb3h2?=
+ =?utf-8?B?MFEzQytrTVNTZi94UGVsRXNUWjJubDMzZVlCUGg5TmxQTndMR0cwY1BGdzVJ?=
+ =?utf-8?B?cG5NUkQ5S3p0ZllEOUFwWHNuaGI2enFtd01DRWdvb0swWEN1d3UveVhwK0Ro?=
+ =?utf-8?B?QkFOdlFxK3Y2Y2Z1Zm5QMDBIQW5UOXNYY3d1UmViNTNmUitBNmZpTHg2dERk?=
+ =?utf-8?B?aUc1UlNsRHMvR2xUMW0wblhncGFqZkxNV1YvMUc2anVTMWc1N0lxT041V3RK?=
+ =?utf-8?B?ZzVQVlhQWWtvVFJiWW5YWW1rZ3NwRFQ4d2hiclRwYk1MdnhjdDBxS2J1OUhm?=
+ =?utf-8?B?QVVaTHNUcnNmVnBQZGFCbXk0N1VHMXNEVXR5SW9UeUZCWk8wNmxaUHlNVVNE?=
+ =?utf-8?Q?n1hYSL6waDs=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MA0PR01MB10184.INDPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NlZDUnBoQlcxUHM5RFg0ZkpjZ0tNOTNhbFJvR3ZPRjNEQ0lscDd6cDRoQzVP?=
+ =?utf-8?B?MThsOSs3Q2dsaS9SSERjbVR2UDZoMHlWRXVJNlBkVDJKSFhlT0VxbUN2NHNo?=
+ =?utf-8?B?UFlKY216WG5xOE5IbVYyZzdaalZvdWF0bmdlbXFQc3l2bjA5Z2xQWGJ5aENo?=
+ =?utf-8?B?QXRrSlY5QmxhSTNseTZIbWsvMjJPYUQyZCs4dTFXU1VpY1dSMDh6aTFMdXRl?=
+ =?utf-8?B?WHlLYVFVNTZXUDRDeUFCOCs0RDF4MGRHcTNLd3BCVEsxMUdFUEszeWxKSCtu?=
+ =?utf-8?B?bjNUNkNXZld4b1ZPSTY2RE5tWGhUYmpIdTBmaFBNM1ZQbGJ6Qy9TM21NWk9h?=
+ =?utf-8?B?dXlEenJSWTh6OXVncGVxS1YwOHZBcVFvUVNiWU1KOUkvVG11WGM3cUhsUmgz?=
+ =?utf-8?B?SER1b1NKSDY4WitmbWhEZ3ByczlIN2dFejFJNlY3R3I4UFR1a2dDcitRemt1?=
+ =?utf-8?B?bmFZOHNEcEFnQTNrRFczaFExZVp1U2tUSGFESGUzWEN3QUFpMWhKNXBvMG1s?=
+ =?utf-8?B?S0I5TW1XbzNsUTN1RCs2VU1BVVpzZzliMTRLUDB5V3V4WmdtRVRZZTdFb3ZC?=
+ =?utf-8?B?cjZaSXIzT2VQSEMzVEIzYUtlUzlSUmk2YkRvOGdQK01YaytGVnFuYmpvcHYx?=
+ =?utf-8?B?ZEZPaXlKT1ZCYmF4OWhBWTQzejJQeWFQRWhmRHIxVFk0amtQL0UzNjd3c1h2?=
+ =?utf-8?B?Q25MbHNraiszUDNySmtwREN6ellZTjl0enhQYVZzc3h6dUFsMFVwZVBFL3B1?=
+ =?utf-8?B?MFB5K3pweGVTc2ZJRnNLSG5NUHhTejJ2MGd3a2tBbUdiZHViTFBGeFcwcmlS?=
+ =?utf-8?B?Ukt2WUxDdUpwbk1yZVlXNGZzOGlvVVkweDNyUzdJRG0zWDFNeTJqY0hKMXdq?=
+ =?utf-8?B?ekdEWnRoeFdRc0JockE2OG1Pa2hpS1NBSDNTV0JmVkMreEsvOW9XYUljR2NS?=
+ =?utf-8?B?aFoxelRTa2wzVzczdENraldEcnFYekR3UndnZFpsMVhNV0Y2UG5hcXRIdXNo?=
+ =?utf-8?B?T0Z2V0ZHWndzMEF6b1lNdXB1NUhhRVArUFJsQXEwdm5MbHBWUGJOYTZ5OFBC?=
+ =?utf-8?B?cVgxVG5jeTVWSFE1VUJMVGkyYXlxaVRCYVI4N1pLVjhsRTV3NFJuV1hxZWo1?=
+ =?utf-8?B?aHRjYTRiUWlXSDVrY3R5WXM4Q2lndGduQm9INWprdVExZWFOUUgrN1V2M0NH?=
+ =?utf-8?B?bVpHUEF3VUlrOGlkdlp5UjNjakhxVlludHEvaTJYSXVDQVcyckIwdTRIUWpz?=
+ =?utf-8?B?US84eEhlbktqU1BLMTRpU0dvK1VFejRPY0tlOSs3d1ZsWVFxTTFLK3JrRksr?=
+ =?utf-8?B?cnBySkpVZlNxaTAxb241ZkxWZWFmeWVlS0QzZ2xsV09Qa1FJazU4Z20xdmY4?=
+ =?utf-8?B?bHF6NWVReElzVkhBY0s5VUpscmMvYmtJbDVNVVl2dU9RRGpIVHhKMExQUXA2?=
+ =?utf-8?B?ZWU1d1Fyb1R4bTY2TFdNdzA3UVZMbDZGcTB0TGEvZzBYdGRhazY0eTFIMXlw?=
+ =?utf-8?B?YkhlSGowczhQOHQ2M2pzVit6d05XU2FOdW5QWEpUTWJ5OU85QVRGaHBBem5s?=
+ =?utf-8?B?MmYrSlVOdTdabm1xcmRhbXA5dEQxazNSUy9oMGs3K2Y4MkRyRTVidThJSVYz?=
+ =?utf-8?B?d3JYeHhhMFo5M2QvZXhoUXQwT0Y0aGtQbmNTckVJeTlXNnBvTU9oZ2JOY1Mz?=
+ =?utf-8?B?T0l2bWxTVlVwWXVhSzBYZjBrSkxRZFQ0QWVsRUd3NHhCbHVOeDgvajZtQ2Rq?=
+ =?utf-8?B?b1RrV0xTNmlzaUJ6VU8vUGx0L00xR0hBZE5nSlROaCtzMWlqbUZqQWNJZ21F?=
+ =?utf-8?B?M0dEY0lqM2pkQW1qRGdGRUJFMFhjZU0xWEp5K1RidXpmWVZ0RGdrcm5lK2p5?=
+ =?utf-8?B?Qlk5SEhNUm5EWUJpc3lHbFlqT1JkWWcvdFhYbldWZ21WL3BDTXNhWUR2RENF?=
+ =?utf-8?B?M2NDY0pCeTd4dndkTmVsclF1K2UwZjREeXc1akRqN3lPSnlmNThtUDQ3UGpL?=
+ =?utf-8?B?aThvcVE5Ti9LdUdXaGxBcDZRcy8rNDByM05FaUpBWTJuRWEwa09uNmZ0Wmxz?=
+ =?utf-8?B?RjBCbXlFVTVQMmltQlBXU2JUOEZxaG1NQnJ3YkFOTVR2OTBoREhpVWhDK2dv?=
+ =?utf-8?B?ZDM2VWZNajVrdjFMMzBOaGIzOGthOGxlSW5Va0RlS1BTbEFJV1lEbzhocVBX?=
+ =?utf-8?Q?6Njinc8jVN6Q0sasf78svr0=3D?=
+X-OriginatorOrg: blaize.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fb5b4cd3-24a5-438b-b309-08dd8be3412f
+X-MS-Exchange-CrossTenant-AuthSource: MA0PR01MB10184.INDPRD01.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2025 14:43:52.7019
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 9d1c3c89-8615-4064-88a7-bb1a8537c779
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: lwI6qo4bKNVL6k7banqmcIzTVhYDrOrl1Nr8f1Bh4sw9C5u3He2NMIrF41AFzOHLNv6O97UOGZ+XxJa0/4vZjD03fxs/V8VTXQ/G82zXHJw=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN0PR01MB9073
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTA1MDE0MSBTYWx0ZWRfX8OgSVFdZQyu0 w96mHHh3A/3LyfdFXAvDKyUXkuvDeE70kG7eRl8JIBTmv0SjMIx+AvjUtQ8d+bKwuf68R9f2g9n Oj32xuRtSO6fZycP+FDJrZkflYmlqIqt/3z2UV/VkDuKW+1Ieq3ijMVu7OFRsLUHmT4gbXXYo4/
+ etEur+OOqbSOVc24PrOzioxIAwwVLa/sx1pJRfhYCn5sUq/iati5uBYXmeOJcDPalAs3LwkMkqn Lu5UwseSTYMwcwrEHVTngs0z/RUbfGa4SXDxdjLvTxhFWh9PZfoy1vIiUU5WeNpV1slD2H7coZD q4zWr4Pxo8tfWrUNBBQBCWVInRAZEnOsijb+jKqz1Tpg4ksS1WzsU5ldd0VV7XrEfl4LKzKLSq3
+ b4vv9enr4sDAawaEZ7ZmrCJcXf4urqiVxlA/RVY+HPZdRHXlZ8/0vwGVdQ6azWL6+uZZBd1o
+X-Proofpoint-GUID: S7v7v1KUarN5F5FoArjis387pfAth2ZN
+X-Proofpoint-ORIG-GUID: S7v7v1KUarN5F5FoArjis387pfAth2ZN
+X-Authority-Analysis: v=2.4 cv=PvCTbxM3 c=1 sm=1 tr=0 ts=6818cead cx=c_pps a=acs/d5E7+Aba6MfbJzuIpg==:117 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=dt9VzEwgFbYA:10 a=-5LYVjoNHPMA:10 a=SrsycIMJAAAA:8 a=VwQbUJbxAAAA:8 a=B1aPfOBTQV_d8-u9QvAA:9 a=QEXdDO2ut3YA:10 a=zapPnUM7SFj2ezx6rUw-:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-05_06,2025-05-05_01,2025-02-21_01
+X-Proofpoint-Spam-Reason: orgsafe
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_073706_647699_F3CD53CF 
-X-CRM114-Status: GOOD (  14.48  )
+X-CRM114-CacheID: sfid-20250505_074403_221270_E24C9B37 
+X-CRM114-Status: GOOD (  20.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,52 +203,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Users report being able to boot (u-boot) from SD card but kernel
-init then fails to mount partitions on the card containing boot
-media resulting in first-boot failure. System logs show only the
-probe of the mmc devices: the SD card is seen, but no partitions
-are found so init fails to mount them and boot stalls.
+On 05/05/2025 15:17, Krzysztof Kozlowski wrote:
 
-Reducing the speed of the SD card from 50MHz to 35MHz results in
-complete probing of the card and successful boot.
+> On 05/05/2025 16:14, Nikolaos Pasaloukos wrote:
+>> Blaize BLZP1600 uses the custom silicon provided from
+>>
+>> VeriSilicon to add GPIO support.
+>>
+>> This interface is used to control signals on many other
+>>
+>> peripherals, such as Ethernet, USB, SD and eMMC.
+>>
+>>
+>> Signed-off-by: Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>
+> Entire patch is corrupted by your mail server. Please switch to b4 relay
+> if your mail server is not capable of sending emails (like Microsoft
+> Outlook).
+>
+> Please use standard email subjects, so with the PATCH keyword in the
+> title. `git format-patch -vX` helps here to create proper versioned
+> patches. Another useful tool is b4. Skipping the PATCH keyword makes
+> filtering of emails more difficult thus making the review process less
+> convenient.
 
-Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
----
-The same workaround of dropping to 35MHz is also done with the
-ac2xx dtsi; which has a comment about CRC errors being seen at
-50MHz. It's probable this is the same although I forget now how
-that diagnosis was done (or who did it, Martin perhaps?). I've
-removed the FIXUP comment and added one about boot failures
-being seen at 50Mhz but if you prefer to repeat the CRC comment
-from ac2xx feel free to fixup when applying or I can send a v2
-with that change. Links to original issue reports with user test
-results [0] [1] are below:
+I was expecting b4 to be able to send a single patch without a cover
+letter but I couldn't find how to do it, so I decided to send the .eml
+file produced by b4 with git send-email which obviously didn't work.
+Apologies for that.
 
-[0] https://github.com/LibreELEC/LibreELEC.tv/issues/10027
-[1] https://github.com/libretro/Lakka-LibreELEC/issues/2059
+>
+>> ---
+>>
+>> I am re-sending the patch to include the soc list. The original patchset
+>>
+>> has already been applied but not this patch.
+>>
+>> Arnd, could you please apply or do I need someone to review?
+> Platform maintainers are responsible for the patches for their platform.
+> Any reason why this is not working for blaize?
+>
+> Best regards,
+> Krzysztof
 
- arch/arm64/boot/dts/amlogic/meson-sm1-bananapi.dtsi | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+I am the platform maintainer for blaize but I haven't created an account
+yet on the kernel.org and according to Arnd it should be OK to submit the
+patches for inclusion (until I get an account) by sending them to the
+soc@lists.linux.dev.
 
-diff --git a/arch/arm64/boot/dts/amlogic/meson-sm1-bananapi.dtsi b/arch/arm64/boot/dts/amlogic/meson-sm1-bananapi.dtsi
-index 40db95f64636..03b4b414cd5f 100644
---- a/arch/arm64/boot/dts/amlogic/meson-sm1-bananapi.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/meson-sm1-bananapi.dtsi
-@@ -384,11 +384,10 @@ &sd_emmc_b {
- 
- 	bus-width = <4>;
- 	cap-sd-highspeed;
--	max-frequency = <50000000>;
-+	/* Boot failures are observed at 50MHz */
-+	max-frequency = <35000000>;
- 	disable-wp;
- 
--	/* TOFIX: SD card is barely usable in SDR modes */
--
- 	cd-gpios = <&gpio GPIOC_6 GPIO_ACTIVE_LOW>;
- 	vmmc-supply = <&tflash_vdd>;
- 	vqmmc-supply = <&vddio_c>;
--- 
-2.34.1
+So, what would be preferable? To send only this patch with b4 or resend
+the v2 patchset which have been accepted and add the soc list?
+
+Kind regards,
+Nikolaos Pasaloukos
 
 
