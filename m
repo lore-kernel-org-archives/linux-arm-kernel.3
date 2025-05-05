@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1AC7C3ABB6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 01:04:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D946CC3ABB6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 01:06:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PlrMI/sPbcb0aMRZfX+loYK69CT/pkTiUgwpmnxvvDQ=; b=39prvOGgkKajjYc9zstQ1bTXsl
-	7HhwFxcKMWsbEiSqQduFnGKb2wFQVNURzz7EbqYz0or1Ykp9L5xCtNq2aWYzhhEBVyWc7EDgTQGqG
-	ioMR4aOnO6vDJ8RBAPYiRJZalLygYNaMf9Q84nOyGVUfevFfyb62ScA+2tpBZml/MIhiyOBDgZ0Zp
-	FlATQk+hmRtTwA3Ed/uGLu4N9ahkllQQN2NfnuJ1UvroUl4zNn+TtMEg8dA0ZjWXwJYSH+i27xzgR
-	CyBtxgBogk0VQMIIBbgqUy3842jrHxLwlb2f7rqe9Zknp4OzKAvIVRU23EPKKt2Ir2a6AkqgkKRtv
-	bKWF//xw==;
+	bh=2KdAkNonzNAU+ZAj6H8M4ILWtZx+BcRsG/q5TVfAPvk=; b=RMKoQtPGaWBiTKtZf3T6CBhQZU
+	na9RWFPvFADlbKqiReCb6QbEQjrtFS+BZoSAA0dwOoESE5ZNCsb5HoTO3JQkqmDmHo8RJMAaDEzHM
+	qfAgQmJul/jVLsZ1XZ0d49rBEy4TiCyagtWoJMcIlY9XLg2ZyPeV8jJJ2P6i8cPf8bg+xqVNG+CK+
+	LlwCZkjOGgTY/LEGLkF6AEIP5YzDAo4O2rAitfj6vkiB8CkOhAgECdWPNegmzBoQusWRFOnw9OOze
+	M2jN4UZcz+qMmWnMdOSWf9sGX6TgBcRs/WrBqTiMF++SBwNe1axKXNqIejmi71vc+sSfar0wsDnhO
+	GvtyCQUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC6jB-00000009QmA-1Q8O;
-	Tue, 06 May 2025 01:04:09 +0000
+	id 1uC6l8-00000009REJ-04tp;
+	Tue, 06 May 2025 01:06:10 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4XA-00000008qHb-0JWc
+	id 1uC4XN-00000008qMz-31E8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 22:43:36 +0000
+	Mon, 05 May 2025 22:43:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7CE0461F1E;
-	Mon,  5 May 2025 22:43:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E11CCC4CEED;
-	Mon,  5 May 2025 22:43:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5077C61F1E;
+	Mon,  5 May 2025 22:43:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF93AC4CEED;
+	Mon,  5 May 2025 22:43:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746485015;
-	bh=9nylInJVXm9TVFSZYpUXKz42kDfLqGneBtEXJdGEI/Y=;
+	s=k20201202; t=1746485028;
+	bh=3aAHfYkGn/uWA+36sIzIVJUpFsAi5/yTC//H7Q5td7A=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Pl1jHu0r2B9W+SX+SZeUsga/zOxgciePk6V4Vz6G9eWz11WzBJp58bKyLshm1WG6p
-	 2F8KcbP2Kbo7cEgVTU4GperkW/FIUB+W4nODrmHWr0mUgxK7I9W3Jyr+ccBOyj6TF1
-	 prCYoh3G6eK/7pKy248OmgCNMJUsWrrMO9q9a7LpPJrC1Xb7LcIm4cl/Unzw8TxkVr
-	 WQHmSUWTIkwHHUtXVEk4EB6kmhbLkofvrY50dBSHIvxCZE6Jd9Hub7bdr/KSthaikC
-	 pPVdPLoKdZM4GDuzJ+pbOs9PKRCwtwg7OwTfhiY9Ah9g6k6MPE6BVgWFlf72YDAHU3
-	 bWtdv3nZZ0PhQ==
+	b=eWdN+UBbQH/SeI8q6G25cA3c2v+6rxyhwNt/tIPcpvHoJZlssWTI4IG8ZECvsKl0x
+	 CgWhQbHntmYZ8wpBYee+1QviEbK3wlSBwnI1qb26eRGoRuWupvdxt7COnIf0TE5hPp
+	 /Zw5J0KENNDYGwnrZn2xniFwnPl05e2GPSzvs8e9npjjI9wrNtXuWWe7nBGYTA+ORd
+	 R7OAFu+xCa/L9U6iMYignMjFhJsf3dDO3NbaVYgmeNVk6r+kcW4zgkyiou/UN2xqc9
+	 6KGqX1bd73jpmGkfTmQVrtQ5tnS4PBLQilq5b2kBakRSu28nzPLKVLN8Tu6w7hxUnv
+	 mbo7PfQacXr0Q==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Ryan Walklin <ryan@testtoast.com>,
-	Chris Morgan <macromorgan@hotmail.com>,
-	Philippe Simons <simons.philippe@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
+Cc: Jonas Karlman <jonas@kwiboo.se>,
+	Simon Horman <horms@kernel.org>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Paolo Abeni <pabeni@redhat.com>,
 	Sasha Levin <sashal@kernel.org>,
-	lgirdwood@gmail.com,
-	perex@perex.cz,
-	tiwai@suse.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	rmk+kernel@armlinux.org.uk,
+	david.wu@rock-chips.com,
+	jan.petrous@oss.nxp.com,
 	wens@csie.org,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org,
-	csokas.bence@prolan.hu,
-	mesihkilinc@gmail.com,
-	andre.przywara@arm.com,
-	codekipper@gmail.com,
-	jbrunet@baylibre.com,
-	linux-sound@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev
-Subject: [PATCH AUTOSEL 6.12 123/486] ASoC: sun4i-codec: support hp-det-gpios property
-Date: Mon,  5 May 2025 18:33:19 -0400
-Message-Id: <20250505223922.2682012-123-sashal@kernel.org>
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.12 131/486] net: stmmac: dwmac-rk: Validate GRF and peripheral GRF during probe
+Date: Mon,  5 May 2025 18:33:27 -0400
+Message-Id: <20250505223922.2682012-131-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505223922.2682012-1-sashal@kernel.org>
 References: <20250505223922.2682012-1-sashal@kernel.org>
@@ -89,126 +88,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ryan Walklin <ryan@testtoast.com>
+From: Jonas Karlman <jonas@kwiboo.se>
 
-[ Upstream commit a149377c033afe6557c50892ebbfc0e8b7e2e253 ]
+[ Upstream commit 247e84f66a3d1946193d739fec5dc3d69833fd00 ]
 
-Add support for GPIO headphone detection with the hp-det-gpios
-property. In order for this to properly disable the path upon
-removal of headphones, the output must be labelled Headphone which
-is a common sink in the driver.
+All Rockchip GMAC variants typically write to GRF regs to control e.g.
+interface mode, speed and MAC rx/tx delay. Newer SoCs such as RK3576 and
+RK3588 use a mix of GRF and peripheral GRF regs. These syscon regmaps is
+located with help of a rockchip,grf and rockchip,php-grf phandle.
 
-Describe a headphone jack and detection GPIO in the driver, check for
-a corresponding device tree node, and enable jack detection in a new
-machine init function if described.
+However, validating the rockchip,grf and rockchip,php-grf syscon regmap
+is deferred until e.g. interface mode or speed is configured, inside the
+individual SoC specific operations.
 
-Signed-off-by: Chris Morgan <macromorgan@hotmail.com>
-Signed-off-by: Ryan Walklin <ryan@testtoast.com>
+Change to validate the rockchip,grf and rockchip,php-grf syscon regmap
+at probe time to simplify all SoC specific operations.
 
---
-Changelog v1..v2:
-- Separate DAPM changes into separate patch and add rationale.
+This should not introduce any backward compatibility issues as all
+GMAC nodes have been added together with a rockchip,grf phandle (and
+rockchip,php-grf where required) in their initial commit.
 
-Tested-by: Philippe Simons <simons.philippe@gmail.com>
-Link: https://patch.msgid.link/20250214220247.10810-4-ryan@testtoast.com
-Signed-off-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+Reviewed-by: Simon Horman <horms@kernel.org>
+Link: https://patch.msgid.link/20250308213720.2517944-3-jonas@kwiboo.se
+Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+Signed-off-by: Paolo Abeni <pabeni@redhat.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- sound/soc/sunxi/sun4i-codec.c | 53 +++++++++++++++++++++++++++++++++++
- 1 file changed, 53 insertions(+)
+ .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 21 +++++++++++++++++--
+ 1 file changed, 19 insertions(+), 2 deletions(-)
 
-diff --git a/sound/soc/sunxi/sun4i-codec.c b/sound/soc/sunxi/sun4i-codec.c
-index 330bc0c09f56b..93dd88fb805dd 100644
---- a/sound/soc/sunxi/sun4i-codec.c
-+++ b/sound/soc/sunxi/sun4i-codec.c
-@@ -21,6 +21,7 @@
- #include <linux/gpio/consumer.h>
- 
- #include <sound/core.h>
-+#include <sound/jack.h>
- #include <sound/pcm.h>
- #include <sound/pcm_params.h>
- #include <sound/soc.h>
-@@ -235,6 +236,7 @@ struct sun4i_codec {
- 	struct clk	*clk_module;
- 	struct reset_control *rst;
- 	struct gpio_desc *gpio_pa;
-+	struct gpio_desc *gpio_hp;
- 
- 	/* ADC_FIFOC register is at different offset on different SoCs */
- 	struct regmap_field *reg_adc_fifoc;
-@@ -1263,6 +1265,49 @@ static struct snd_soc_dai_driver dummy_cpu_dai = {
- 	.ops = &dummy_dai_ops,
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+index 50073bdade46e..8f90eae937741 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+@@ -33,6 +33,7 @@ struct rk_gmac_ops {
+ 	void (*set_clock_selection)(struct rk_priv_data *bsp_priv, bool input,
+ 				    bool enable);
+ 	void (*integrated_phy_powerup)(struct rk_priv_data *bsp_priv);
++	bool php_grf_required;
+ 	bool regs_valid;
+ 	u32 regs[];
  };
+@@ -1263,6 +1264,7 @@ static const struct rk_gmac_ops rk3576_ops = {
+ 	.set_rgmii_speed = rk3576_set_gmac_speed,
+ 	.set_rmii_speed = rk3576_set_gmac_speed,
+ 	.set_clock_selection = rk3576_set_clock_selection,
++	.php_grf_required = true,
+ 	.regs_valid = true,
+ 	.regs = {
+ 		0x2a220000, /* gmac0 */
+@@ -1410,6 +1412,7 @@ static const struct rk_gmac_ops rk3588_ops = {
+ 	.set_rgmii_speed = rk3588_set_gmac_speed,
+ 	.set_rmii_speed = rk3588_set_gmac_speed,
+ 	.set_clock_selection = rk3588_set_clock_selection,
++	.php_grf_required = true,
+ 	.regs_valid = true,
+ 	.regs = {
+ 		0xfe1b0000, /* gmac0 */
+@@ -1830,8 +1833,22 @@ static struct rk_priv_data *rk_gmac_setup(struct platform_device *pdev,
  
-+static struct snd_soc_jack sun4i_headphone_jack;
-+
-+static struct snd_soc_jack_pin sun4i_headphone_jack_pins[] = {
-+	{ .pin = "Headphone", .mask = SND_JACK_HEADPHONE },
-+};
-+
-+static struct snd_soc_jack_gpio sun4i_headphone_jack_gpio = {
-+	.name = "hp-det",
-+	.report = SND_JACK_HEADPHONE,
-+	.debounce_time = 150,
-+};
-+
-+static int sun4i_codec_machine_init(struct snd_soc_pcm_runtime *rtd)
-+{
-+	struct snd_soc_card *card = rtd->card;
-+	struct sun4i_codec *scodec = snd_soc_card_get_drvdata(card);
-+	int ret;
-+
-+	if (scodec->gpio_hp) {
-+		ret = snd_soc_card_jack_new_pins(card, "Headphone Jack",
-+						 SND_JACK_HEADPHONE,
-+						 &sun4i_headphone_jack,
-+						 sun4i_headphone_jack_pins,
-+						 ARRAY_SIZE(sun4i_headphone_jack_pins));
-+		if (ret) {
-+			dev_err(rtd->dev,
-+				"Headphone jack creation failed: %d\n", ret);
-+			return ret;
-+		}
-+
-+		sun4i_headphone_jack_gpio.desc = scodec->gpio_hp;
-+		ret = snd_soc_jack_add_gpios(&sun4i_headphone_jack, 1,
-+					     &sun4i_headphone_jack_gpio);
-+
-+		if (ret) {
-+			dev_err(rtd->dev, "Headphone GPIO not added: %d\n", ret);
-+			return ret;
-+		}
+ 	bsp_priv->grf = syscon_regmap_lookup_by_phandle(dev->of_node,
+ 							"rockchip,grf");
+-	bsp_priv->php_grf = syscon_regmap_lookup_by_phandle(dev->of_node,
+-							    "rockchip,php-grf");
++	if (IS_ERR(bsp_priv->grf)) {
++		dev_err_probe(dev, PTR_ERR(bsp_priv->grf),
++			      "failed to lookup rockchip,grf\n");
++		return ERR_CAST(bsp_priv->grf);
 +	}
 +
-+	return 0;
-+}
-+
- static struct snd_soc_dai_link *sun4i_codec_create_link(struct device *dev,
- 							int *num_links)
- {
-@@ -1288,6 +1333,7 @@ static struct snd_soc_dai_link *sun4i_codec_create_link(struct device *dev,
- 	link->codecs->name	= dev_name(dev);
- 	link->platforms->name	= dev_name(dev);
- 	link->dai_fmt		= SND_SOC_DAIFMT_I2S;
-+	link->init		= sun4i_codec_machine_init;
- 
- 	*num_links = 1;
- 
-@@ -1728,6 +1774,13 @@ static int sun4i_codec_probe(struct platform_device *pdev)
- 		return ret;
- 	}
- 
-+	scodec->gpio_hp = devm_gpiod_get_optional(&pdev->dev, "hp-det", GPIOD_IN);
-+	if (IS_ERR(scodec->gpio_hp)) {
-+		ret = PTR_ERR(scodec->gpio_hp);
-+		dev_err_probe(&pdev->dev, ret, "Failed to get hp-det gpio\n");
-+		return ret;
++	if (ops->php_grf_required) {
++		bsp_priv->php_grf =
++			syscon_regmap_lookup_by_phandle(dev->of_node,
++							"rockchip,php-grf");
++		if (IS_ERR(bsp_priv->php_grf)) {
++			dev_err_probe(dev, PTR_ERR(bsp_priv->php_grf),
++				      "failed to lookup rockchip,php-grf\n");
++			return ERR_CAST(bsp_priv->php_grf);
++		}
 +	}
-+
- 	/* reg_field setup */
- 	scodec->reg_adc_fifoc = devm_regmap_field_alloc(&pdev->dev,
- 							scodec->regmap,
+ 
+ 	if (plat->phy_node) {
+ 		bsp_priv->integrated_phy = of_property_read_bool(plat->phy_node,
 -- 
 2.39.5
 
