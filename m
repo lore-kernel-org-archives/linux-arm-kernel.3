@@ -4,60 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8095C3ABB6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 02:18:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 287B3C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 02:20:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fab+B6DpklLJbleoaQwJy6LvQvPCBOraz+yzqnQYGfQ=; b=jstT2ZECqvuryFVl9UXrwXCySf
-	/28q7XWgwrotMBacGtJiiOxywaY4XW+4HHWejYsTgyJk8ROVlqUl0hbyJv3f75LETTnGqiVgWIjGU
-	Teo1PIflzA9LhazUCWgR0k1Y1Rxoimbu0fbuTMMQKXSfvxM1LBVdGnOfr9pgCswH2+s0tQkh35kq6
-	pGTqYyqibRLI62x2IWaFcKEmY7s91bJUJpxu+h8dfVSTsYOdobc1nFazUDOfp5Er9GqLazZ7ory9X
-	O1GBxm74bTQsqtn5d2EtUkVtJX5j0nyZitlF1PioSawdNT3hA4U/0U/mfjpnbcjtQ8AWNMnzIUtQj
-	agiGl7cw==;
+	bh=lWbh1fSObxx2nMPznOEMsU+opPF21o9kh+lIU2E9LJM=; b=s9zLlL2Ar8PTNvx09PxFXT1b91
+	oEiS9+10OQqECHoPVgO8VTvTDZgP3r6FRr1M/A1H+PsNqbEzuXsLQRLw05FjjuyySqHUitC1UqXmy
+	josPgtJrvrZGt02tt208BnmVJO6yP4UqOSSK2pwRmMl6zqxqxklu0T00rxyvHTiKP4NGR6OTfEB4W
+	WqUdC6f7qNBfrpuKuVZ9JVik9YSZdv+P1ZTIKzGmQX4MxbQwe5UvXFyAu8mqggvkembM9/eP4n06n
+	A2yoHCDK+BSz1r/alPhtQ62hJylLnozOBJ8ilJKCUYrz6yAprulHRiHR1WNTTndh1ioSMMOwN6fI7
+	uoGuyeAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC7tK-00000009iEw-25nA;
-	Tue, 06 May 2025 02:18:42 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uC7vL-00000009ilA-01pA;
+	Tue, 06 May 2025 02:20:47 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4ie-00000008uEO-2qho
+	id 1uC4iv-00000008uJ9-36LH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 22:55:28 +0000
+	Mon, 05 May 2025 22:55:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4805A629CB;
-	Mon,  5 May 2025 22:54:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 900FCC4CEE4;
-	Mon,  5 May 2025 22:55:26 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 61769A4D250;
+	Mon,  5 May 2025 22:50:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0FB1C4CEF6;
+	Mon,  5 May 2025 22:55:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746485727;
-	bh=KCH91/zsYJ4aTUBVAhrrGbgMbywzpLFiEgK6TFB6SxE=;
+	s=k20201202; t=1746485744;
+	bh=sUaV+0mF9QSZHbBwUlhMu7tbwCNhjG0BkmM8XCuZLaE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gpeJ4SI9iXaSae5UtWgfzH30ggObgB5odAgcQCxPCCsIsCmq08KRRNfl9Ol78TABr
-	 Wl7VZUcRkLU90w8TdElWZG5mPp4jwv0hP8hzdK/H95uADvNHWuLkAT5h8jAnlp7kd/
-	 x7TjBu3MnJM/Wlrth1NBJsG4gYQ5sYZsg/5nxwWanRXXXv4iyTwlcdgAxJigCPl+p1
-	 YeJpGP/6THFm4meXh4ATf6tvUwo/1uL3VqPXuDQNRZ9oVJmCBL2UoV6aJcP19FFZ2D
-	 xQTGylI43UdNt7IkBj3Nqenqd/sPuJzCK5+K0DsLCP0Rp2bA6B/YL02I8KPGHfo8iS
-	 jgDgtLXiJ5pGA==
+	b=XcyZwmZy7/uINMucWNt7ZmsSZ63Xvi/wAt7qeOt4JplRPbvGFkKTKMPXin0yRzdk7
+	 C6dVhf5nVhD+G5zshJk28A3Di19KNTF1G5VsjovLtXAl505gz1hukhdNl21z3d6/AM
+	 SuzvGW2wTuzMJAFQMsyvKP+EHSFAZtw7AZjIpHo9A0jUFM2VteAJH0XgEvMSXbsPqd
+	 7/NA7dh6gQYQAyjHW9XlXG8k99tAHyJKjTibcAfM3hxxOb/XVz2eabXifDfaqUJM6J
+	 wJhEH5dIzgjzHKSUhI8fxDeGvvqSL7MQceilTea9PzFgR7Rw2p7ZMdeL17IXE3LEVi
+	 j4jClRro6F4hg==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Naman Trivedi <naman.trivedimanojbhai@amd.com>,
-	Senthil Nathan Thangaraj <senthilnathan.thangaraj@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Dhruva Gole <d-gole@ti.com>,
+	Peng Fan <peng.fan@nxp.com>,
 	Sasha Levin <sashal@kernel.org>,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	sean.anderson@linux.dev,
-	devicetree@vger.kernel.org,
+	arm-scmi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.12 447/486] arm64: zynqmp: add clock-output-names property in clock nodes
-Date: Mon,  5 May 2025 18:38:43 -0400
-Message-Id: <20250505223922.2682012-447-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.12 458/486] firmware: arm_scmi: Relax duplicate name constraint across protocol ids
+Date: Mon,  5 May 2025 18:38:54 -0400
+Message-Id: <20250505223922.2682012-458-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505223922.2682012-1-sashal@kernel.org>
 References: <20250505223922.2682012-1-sashal@kernel.org>
@@ -66,6 +62,9 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.12.26
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250505_155545_917308_CBF2B9B6 
+X-CRM114-Status: GOOD (  13.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,78 +79,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Naman Trivedi <naman.trivedimanojbhai@amd.com>
+From: Sudeep Holla <sudeep.holla@arm.com>
 
-[ Upstream commit 385a59e7f7fb3438466a0712cc14672c708bbd57 ]
+[ Upstream commit 21ee965267bcbdd733be0f35344fa0f0226d7861 ]
 
-Add clock-output-names property to clock nodes, so that the resulting
-clock name do not change when clock node name is changed.
-Also, replace underscores with hyphens in the clock node names as per
-dt-schema rule.
+Currently in scmi_protocol_device_request(), no duplicate scmi device
+name is allowed across any protocol. However scmi_dev_match_id() first
+matches the protocol id and then the name. So, there is no strict
+requirement to keep this scmi device name unique across all the protocols.
 
-Signed-off-by: Naman Trivedi <naman.trivedimanojbhai@amd.com>
-Acked-by: Senthil Nathan Thangaraj <senthilnathan.thangaraj@amd.com>
-Link: https://lore.kernel.org/r/20241122095712.1166883-1-naman.trivedimanojbhai@amd.com
-Signed-off-by: Michal Simek <michal.simek@amd.com>
+Relax the constraint on the duplicate name across the protocols and
+inhibit only within the same protocol id.
+
+Message-Id: <20250131141822.514342-1-sudeep.holla@arm.com>
+Reviewed-by: Dhruva Gole <d-gole@ti.com>
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
+Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- arch/arm64/boot/dts/xilinx/zynqmp-clk-ccf.dtsi | 15 ++++++++++-----
- 1 file changed, 10 insertions(+), 5 deletions(-)
+ drivers/firmware/arm_scmi/bus.c | 19 ++++++-------------
+ 1 file changed, 6 insertions(+), 13 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-clk-ccf.dtsi b/arch/arm64/boot/dts/xilinx/zynqmp-clk-ccf.dtsi
-index 60d1b1acf9a03..385fed8a852af 100644
---- a/arch/arm64/boot/dts/xilinx/zynqmp-clk-ccf.dtsi
-+++ b/arch/arm64/boot/dts/xilinx/zynqmp-clk-ccf.dtsi
-@@ -10,39 +10,44 @@
+diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
+index 157172a5f2b57..7e160fc9bf8cc 100644
+--- a/drivers/firmware/arm_scmi/bus.c
++++ b/drivers/firmware/arm_scmi/bus.c
+@@ -42,7 +42,7 @@ static atomic_t scmi_syspower_registered = ATOMIC_INIT(0);
+  * This helper let an SCMI driver request specific devices identified by the
+  * @id_table to be created for each active SCMI instance.
+  *
+- * The requested device name MUST NOT be already existent for any protocol;
++ * The requested device name MUST NOT be already existent for this protocol;
+  * at first the freshly requested @id_table is annotated in the IDR table
+  * @scmi_requested_devices and then the requested device is advertised to any
+  * registered party via the @scmi_requested_devices_nh notification chain.
+@@ -52,7 +52,6 @@ static atomic_t scmi_syspower_registered = ATOMIC_INIT(0);
+ static int scmi_protocol_device_request(const struct scmi_device_id *id_table)
+ {
+ 	int ret = 0;
+-	unsigned int id = 0;
+ 	struct list_head *head, *phead = NULL;
+ 	struct scmi_requested_dev *rdev;
  
- #include <dt-bindings/clock/xlnx-zynqmp-clk.h>
- / {
--	pss_ref_clk: pss_ref_clk {
-+	pss_ref_clk: pss-ref-clk {
- 		bootph-all;
- 		compatible = "fixed-clock";
- 		#clock-cells = <0>;
- 		clock-frequency = <33333333>;
-+		clock-output-names = "pss_ref_clk";
- 	};
+@@ -67,19 +66,13 @@ static int scmi_protocol_device_request(const struct scmi_device_id *id_table)
+ 	}
  
--	video_clk: video_clk {
-+	video_clk: video-clk {
- 		bootph-all;
- 		compatible = "fixed-clock";
- 		#clock-cells = <0>;
- 		clock-frequency = <27000000>;
-+		clock-output-names = "video_clk";
- 	};
- 
--	pss_alt_ref_clk: pss_alt_ref_clk {
-+	pss_alt_ref_clk: pss-alt-ref-clk {
- 		bootph-all;
- 		compatible = "fixed-clock";
- 		#clock-cells = <0>;
- 		clock-frequency = <0>;
-+		clock-output-names = "pss_alt_ref_clk";
- 	};
- 
--	gt_crx_ref_clk: gt_crx_ref_clk {
-+	gt_crx_ref_clk: gt-crx-ref-clk {
- 		bootph-all;
- 		compatible = "fixed-clock";
- 		#clock-cells = <0>;
- 		clock-frequency = <108000000>;
-+		clock-output-names = "gt_crx_ref_clk";
- 	};
- 
--	aux_ref_clk: aux_ref_clk {
-+	aux_ref_clk: aux-ref-clk {
- 		bootph-all;
- 		compatible = "fixed-clock";
- 		#clock-cells = <0>;
- 		clock-frequency = <27000000>;
-+		clock-output-names = "aux_ref_clk";
- 	};
- };
- 
+ 	/*
+-	 * Search for the matching protocol rdev list and then search
+-	 * of any existent equally named device...fails if any duplicate found.
++	 * Find the matching protocol rdev list and then search of any
++	 * existent equally named device...fails if any duplicate found.
+ 	 */
+ 	mutex_lock(&scmi_requested_devices_mtx);
+-	idr_for_each_entry(&scmi_requested_devices, head, id) {
+-		if (!phead) {
+-			/* A list found registered in the IDR is never empty */
+-			rdev = list_first_entry(head, struct scmi_requested_dev,
+-						node);
+-			if (rdev->id_table->protocol_id ==
+-			    id_table->protocol_id)
+-				phead = head;
+-		}
++	phead = idr_find(&scmi_requested_devices, id_table->protocol_id);
++	if (phead) {
++		head = phead;
+ 		list_for_each_entry(rdev, head, node) {
+ 			if (!strcmp(rdev->id_table->name, id_table->name)) {
+ 				pr_err("Ignoring duplicate request [%d] %s\n",
 -- 
 2.39.5
 
