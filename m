@@ -4,85 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FEA7C3ABBB
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 13:21:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D039C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 13:21:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bk2Fdh/LRuqCw+jHA02dwhIjxA4SW793iNQ+swnOfo0=; b=T0d9DRFcBjhGOviFBte8VhcgvT
-	H2VXO3pxN6VLalk0i2poVByyPEztbDDyfSfc7h0/0IkW2CgNdL5+uD2Ct3aHFw52LuO+sYws4FAdN
-	bFLC44eYoIDCWobpkBvi5i9qSDkEwsIx+CvXbhWu2AvygUx2MwGr806LIERXyG+166BuHr4weld6P
-	klLxgRKP6GQaF5XZM6PWCQ3U07FjzErH+gdlJXTl9aOKKOamay7OUzhJx9MuNDjNjwZ2pg48JNeTu
-	sXqUSeB1DhkLl5PkNfQvuJzoOTGJ5/aOoCeyXQywoov3/e0+N7D8nA9/mVlM0WovsoiWA14C2B9/Z
-	Ciafm/Vw==;
+	bh=dz6qpzr4bWrGe4AO4WpYeTnOtWSVnS+tyHsG4borA2s=; b=3K040PLBiTLeVAGFz3cvturodg
+	gffOGPNabk0t4SVRBVbBTi/SBTEWuIRFw8E7ern5y2BCqe9lGN3ITM5th9ZjbXiG5F/EnAlL5lfx/
+	WNbajABfSsLRSksyJKjjeD8AEGjQ1KdAVocWFjOLHYLP1nMI79zGQtLmmX9pM0dLgGtRDNma7hT6f
+	0pclofdrs+dCIo3VtdVjjju1ZvOr5Iv/f1y7aLizvWl5qT5s+rT0pBU0qzrRD/hqOTiyQD64uegRT
+	Ky7iW/58+F2mYZu8EXMa+CcZBPcnPIFyHB983yhHF5Brwx1Q/BIiDdrFcOhLJ/9SVZUFP2pEAOCzh
+	XMAfK0Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBvkn-00000007S7Q-3dKw;
-	Mon, 05 May 2025 13:21:05 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1uBvkb-00000007Rty-0CfB;
+	Mon, 05 May 2025 13:20:53 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBvaM-00000007QuZ-17X1
+	id 1uBv5g-00000007M0z-42uc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 13:10:19 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-54e816aeca6so5535468e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 06:10:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746450616; x=1747055416; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Bk2Fdh/LRuqCw+jHA02dwhIjxA4SW793iNQ+swnOfo0=;
-        b=djHntaupA0bNjGp3/iPaQGlEjToTQLU3LcyS4xiWTz4SS5G7CMCWTHjqln1XGYTWyN
-         rZp4WYVPdlM74QdUbMmjsBAVXlHmIxMx662b5FHMXXLcV4/RU8MDSmCmpZuiDPmWReUB
-         rozIsPelfa6Vvb8GcNMfEBrHNn0jXP9yACn8SSX3GRLB9YdHGQ3i/yLPCfHCQFV4auSs
-         RboeelCbabdJMaB5JbimJ6RG6Qb+u8U+5G9OjLqIQl1+mtZxNgdVhj4bo8TE6L+iE6vn
-         WWql4/Nc5En6hz4ihlqLTbMEn/hdEk1AGW8CRo1d2AY/IDgxo8ysmFu5DMEfu2HQ7i8P
-         ofKg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746450616; x=1747055416;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Bk2Fdh/LRuqCw+jHA02dwhIjxA4SW793iNQ+swnOfo0=;
-        b=JHryExJbhvRpHBFNTZpf8HloGLojAsSn80TfpJ3qBTdiXeNpM2UgPwmBX7lTiNqo9C
-         S73w2ZOdymOzdpOm1CCwlPLJM3Ho+Clxo9utx9f6aMEd1cvnGx7PlATRTKDCLP9aC3qR
-         Ot5YU3bd0khESwO7hd8KHmomLt9xYfazdrL/GWGMRj3wDhwdFvV7XNIR6N7wjgDaaoiD
-         hLKymde0sszKWqZSwI8qZD0PSCqgR8bBpcO1ZWBUr226c3SGwAlAvxT0CjavCAqVn0X/
-         yB6G57ZQeJ8w5JoFgBlQoaqVmUfuiCNp05V94ZKBn3l9vz0pWI8G5196SSbitGqgrPvr
-         fkkg==
-X-Gm-Message-State: AOJu0Yw72WEbeoEOZhipCvkW3fS7APRbZJDksibi8aENdAqV4tExF+9b
-	ug+2QvQRnl7ZLLxoUyFPBcd/WbSthG0oVgrTSus8le7EDy9Zz1Af
-X-Gm-Gg: ASbGncup1KmlTWdy9jZE6U4oOFef6cANKO4xOjCBAypbUS6yu51MPSDVWXe9aHmgwL6
-	LURl+J3D1vAdxCN+iEOvCnJYINNN48XFQfkE5PABTz8EOGaQK+WUOrrnUrZBew7+12UWqq4R80F
-	xHSx13XQRzpsNhVEz4xkclCUCBamJk1cF5klUfe7JNnosTvsKv7dDeeDmYC0TSHb8Sz0+w2T9gz
-	+b8DlwiBmQIq3qPqSjlvixc4Sat+TARaJorX0lD156s97a3hl622nLViW3msagpWw1+2Ii4A6SC
-	jVvYFHHx+jVrCIjQGbFm0FEQKV5a7gsDlKlOsPmv0izcOAJOJo3pYL2OqON5fKH6kY0WXw1OGbc
-	rRw==
-X-Google-Smtp-Source: AGHT+IHr1P+DfBvNYTE1IUuk4mUjXsCsLwslNxXJENXtYrYYMvnH/fcJseObHYrApDHjE4l45mPtNg==
-X-Received: by 2002:a05:6512:1596:b0:545:3dd:aa69 with SMTP id 2adb3069b0e04-54eb2466eb8mr1961754e87.36.1746450615513;
-        Mon, 05 May 2025 06:10:15 -0700 (PDT)
-Received: from gmail.com (83-233-6-197.cust.bredband2.com. [83.233.6.197])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-54ea94f6e0bsm1703046e87.252.2025.05.05.06.10.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 May 2025 06:10:13 -0700 (PDT)
-Date: Mon, 5 May 2025 15:10:12 +0200
-From: Marcus Folkesson <marcus.folkesson@gmail.com>
-To: Bartosz Golaszewski <brgl@bgdev.pl>, Andi Shyti <andi.shyti@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] i2c: davinci: add I2C_FUNC_PROTOCOL_MANGLING to feature
- list
-Message-ID: <aBi4tE4IQxoh7jYL@gmail.com>
-References: <20250326-i2c-v1-1-82409ebe9f2b@gmail.com>
+	Mon, 05 May 2025 12:38:38 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 545CcXeP762189
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 5 May 2025 07:38:33 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1746448713;
+	bh=dz6qpzr4bWrGe4AO4WpYeTnOtWSVnS+tyHsG4borA2s=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=Maj2dj09KHbCoTeBiPWG2KZsInEORj+RINL2szdtWGY1SFP59ODpTrNKBowwZ8XfW
+	 ZZWiyMLRDGnjC5eWRcU7uLBryOQLMIojhV1I7u7yxSbgElKKBDCADVe6Ha3FM7QLwA
+	 qNG7JL5Y0+rVw+OI1F+qs4WRwMaIMD8sPrEf1ACQ=
+Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 545CcX4X064815
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 5 May 2025 07:38:33 -0500
+Received: from DFLE106.ent.ti.com (10.64.6.27) by DFLE115.ent.ti.com
+ (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 5
+ May 2025 07:38:32 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE106.ent.ti.com
+ (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 5 May 2025 07:38:32 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 545CcWWX066547;
+	Mon, 5 May 2025 07:38:32 -0500
+Date: Mon, 5 May 2025 07:38:32 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Prasanth Babu Mantena <p-mantena@ti.com>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>
+Subject: Re: [PATCH] arm64: dts: ti: k3-j721e-common-proc-board: Enable OSPI1
+ on J721E
+Message-ID: <20250505123832.shukji5gfx3erjdq@lustiness>
+References: <20250505112731.2515734-1-p-mantena@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20250326-i2c-v1-1-82409ebe9f2b@gmail.com>
+In-Reply-To: <20250505112731.2515734-1-p-mantena@ti.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_061018_306299_2C633EC8 
-X-CRM114-Status: GOOD (  10.83  )
+X-CRM114-CacheID: sfid-20250505_053837_106389_4DF16817 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,18 +86,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
-
-On Wed, Mar 26, 2025 at 03:39:47PM +0100, Marcus Folkesson wrote:
-> The driver do support I2C_M_IGNORE_NAK, so add
-> I2C_FUNC_PROTOCOL_MANGLING to the feature list.
+On 16:57-20250505, Prasanth Babu Mantena wrote:
+> J721E SoM has MT25QU512AB Serial NOR flash connected to
+> OSPI1 controller. Enable ospi1 node in device tree.
 > 
-> Signed-off-by: Marcus Folkesson <marcus.folkesson@gmail.com>
+> Signed-off-by: Prasanth Babu Mantena <p-mantena@ti.com>
 > ---
+> Test log : https://gist.github.com/PrasanthBabuMantena/9dda540dce88282117de7e0e945e24ca
+>  arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts b/arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts
+> index e3d0ef6913b2..3112b351c052 100644
+> --- a/arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts
+> @@ -571,6 +571,7 @@ &usb1 {
+>  };
+>  
+>  &ospi1 {
+> +	status = "okay";
 
-Is this patch picked up by any tree?
-No confirmation nor showing up in -next makes me wonder.
+Follow Documentation/devicetree/bindings/dts-coding-style.rst
 
-Thanks,
-Marcus Folkesson
+>  	pinctrl-names = "default";
+>  	pinctrl-0 = <&mcu_fss0_ospi1_pins_default>;
+>  
+> -- 
+> 2.34.1
+> 
+
+-- 
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
 
