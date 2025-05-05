@@ -4,110 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 974C9C3ABB0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 15:06:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72B9BC3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 15:08:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=98K4LAFfyndXimhw6gG/4KJSQAo5mjgKaHlPEMjeNqA=; b=45fAzB79XFmBQydSYnDdwaMEkg
-	YkF7x2+gTl/W3M8zsqEsP2PmARBxnX1yH5SlB9BUAD6JAKGAvtaN3jYpg8w7CxiBtx4al6HzY6qQ5
-	YbSy4gOGjUbvyfQ+Iy/is1P6qpfuE2FyeEYH5ir4JzSkxdTnO/ooFvbkDAeBMMVVlc+0+of2eBtV8
-	34Zn627/zhXiev3dQ8DUMO6C2g5pPhNy2Ev2yYt4fb65otWBIFqlOTDdKtyeWpZB+6x29b6bO6SOp
-	J2A1IjdoswA7k2BBJqgTVfVvHdLHJeGG8MoE4gDH503Jr6poQ6GpaPo4HdceNckbUNP7P7zY5cgIi
-	RvMmnhHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rfUzj0gsaky+WA8i9llunOAgtJbGh1MYJZXtx+M6ZMY=; b=wPawbPFH2fupyfUvgCRdBDFZeg
+	TiWGzzXeVV5Puedf6rAeHJp1lh2zgzvx98eIYFu5CtCkbcnmSOLzw9MkvflizoZIQk5Ry6SgCdkYB
+	xezLpUaEnwKm8uLPTjvzUstJmz/wt5Bg9p4jIhRK8/3d+1kGQPli0Gz8S28vRzt5q1H4T4/QILO4J
+	N5y6qJCKAeR5lsWaN0DDUQMoICWYfR2loB9eOunultSbahRqsFz7L5t0xF9jKWzFAsu1eb8xrIOan
+	mh+MubcIZw3ldo55DF6PxJ4b4VaChLhea8PLOt8qImUiLiHudIjMbnvMdCuXSciilOkP2aaaLzvqz
+	QJvRpbNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBxOh-00000007knA-0LR9;
-	Mon, 05 May 2025 15:06:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uBxQd-00000007l9S-2S9W;
+	Mon, 05 May 2025 15:08:23 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBx76-00000007gJE-0eWM
+	id 1uBxHw-00000007j6u-09By
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 14:48:12 +0000
+	Mon, 05 May 2025 14:59:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E3CDE6115D;
-	Mon,  5 May 2025 14:47:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86A8EC4CEE4;
-	Mon,  5 May 2025 14:48:08 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 265EFA4BEBD;
+	Mon,  5 May 2025 14:53:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CE7DC4CEEE;
+	Mon,  5 May 2025 14:59:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746456491;
-	bh=V3sQjltkyNZEzYbWw38xZkGNV2RmOehd5wqn1mHCVeg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oEZNHBKS2kdcKuvOP36HaM5JVkD3LQobucCswZ0oADtWWPpdEbJxdV7ihIRDCw4Ro
-	 qKHjppZ1s2dI93oRghXtDzwI2gTziyaNd1tBT7SvwTEwXPBlYs9TK7lfo034vAX8fy
-	 juJSyb8OV/RAwM59LawNUA/4SKCZ0qNj29tSw6T//nfBRnLkeBFlrpsXG8xOAo9xOc
-	 R/lKQobtIzpmqFfpvam7wd/EMVnxCQg7WvShu6gx9QwVhWXbRr0XmlplLKGJEtiWCt
-	 g6wybEcVJ3ijiiwPHhqgnAlGqGeJOPgcpHFO2DnRjYoBxLgfKy92Qj6tO3iXPv3sNt
-	 AtHmg/pax1DDw==
-Message-ID: <997b40d5-c96c-4587-a9c2-88ac0e561870@kernel.org>
-Date: Mon, 5 May 2025 16:48:06 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: arm64: dts: blaize-blzp1600: Enable GPIO support
-To: Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, James Cowgill
- <james.cowgill@blaize.com>, Matt Redfearn <matthew.redfearn@blaize.com>,
- Neil Jones <neil.jones@blaize.com>, "soc@lists.linux.dev"
- <soc@lists.linux.dev>
-Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-References: <20250327-kernel-upstreaming-add_gpio_support-v2-0-2c45a1acdc0c@blaize.com>
- <20250327-kernel-upstreaming-add_gpio_support-v2-3-2c45a1acdc0c@blaize.com>
- <32d9f0c5-5648-4cc2-9db6-f5165d20d20c@kernel.org>
- <b35c8727-f6bf-4024-9e83-dfe12ac4400f@blaize.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <b35c8727-f6bf-4024-9e83-dfe12ac4400f@blaize.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	s=k20201202; t=1746457162;
+	bh=VEbBIXsH7MUvDCOAgVc1q8IYt1rAt9JLlwuSclW3l2A=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=kGGQgkRshNVHr212uas8eJKzVUU61A4BscFMeLplKLWhUMOx75BEjoYLmq5ng73d0
+	 aXgzT11o8Otm3aonbN8TvpjHf3jPWoYGW8GI5p+0iV/5kcvlQwvw7DWT8fjsUPacZ8
+	 nTkftVZBnWrzxmcMDyW+h2B0rC8V6tbmFHS6Ibxp7UsGBTKjYLJC5Rm2aIcH5I5eOW
+	 qodLFjLvWHx9aEkqA2HNQO0gcpFotJTQJndnY79MbKEq8OeuDHJ8SSm+0NXWNEwqHG
+	 ANcdrDcvpX1hGjuYnLY+YPurRrBqDha0/pIUZeJfZpgCv8GDaT7wwQYfey76IGfXrh
+	 1gAlPNrcMkaNQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uBxHr-00Bkz8-AA;
+	Mon, 05 May 2025 15:59:19 +0100
+Date: Mon, 05 May 2025 15:59:18 +0100
+Message-ID: <86ldrbgl2x.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sebastian Ott <sebott@redhat.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Quentin Perret <qperret@google.com>,
+	Fuad Tabba <tabba@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: LM regression: fce886a60207 KVM: arm64: Plumb the pKVM MMU in KVM
+In-Reply-To: <e1117e68-ef05-9de2-d018-685bb7d86bb5@redhat.com>
+References: <3f5db4c7-ccce-fb95-595c-692fa7aad227@redhat.com>
+	<86msbrguka.wl-maz@kernel.org>
+	<e1117e68-ef05-9de2-d018-685bb7d86bb5@redhat.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: sebott@redhat.com, oliver.upton@linux.dev, qperret@google.com, tabba@google.com, catalin.marinas@arm.com, will@kernel.org, broonie@kernel.org, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250505_075924_209156_5918AAFF 
+X-CRM114-Status: GOOD (  28.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,36 +93,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/05/2025 16:43, Nikolaos Pasaloukos wrote:
->>
->>> ---
->>>
->>> I am re-sending the patch to include the soc list. The original patchset
->>>
->>> has already been applied but not this patch.
->>>
->>> Arnd, could you please apply or do I need someone to review?
->> Platform maintainers are responsible for the patches for their platform.
->> Any reason why this is not working for blaize?
->>
->> Best regards,
->> Krzysztof
+On Mon, 05 May 2025 15:01:24 +0100,
+Sebastian Ott <sebott@redhat.com> wrote:
 > 
-> I am the platform maintainer for blaize but I haven't created an account
-> yet on the kernel.org and according to Arnd it should be OK to submit the
-> patches for inclusion (until I get an account) by sending them to the
-> soc@lists.linux.dev.
+> On Mon, 5 May 2025, Marc Zyngier wrote:
+> > On Mon, 05 May 2025 11:52:00 +0100,
+> > Sebastian Ott <sebott@redhat.com> wrote:
+> >> Doing back and forth migrations currently fails on arm after a couple iterations.
+> >> During the failing migration KVM_RUN exits via guest_abort and returns -ENOMEM.
+> >> I can reliably reproduce this by migrating between 2 qemu instances on an ampere
+> >> altra machine. This fails after < 5 iterations. In this case qemu would spit out
+> >> smth like this (other than that - nothing in the logs):
+> >> 
+> >> error: kvm run failed Cannot allocate memory
+> >>  PC=0000aaaae7d48590 X00=0000aaaae80a2e00 X01=0000aaaae7ea2fc0
+> >> X02=0000000001d3a5d0 X03=0000aaaae7eace8c X04=000000003b9aca00
+> >> X05=000000000000004a X06=000000000000004a X07=0000000028000000
+> >> X08=0000000000001d70 X09=0000000000000018 X10=000144b7d0000000
+> >> X11=00ffffffffffffff X12=000000008378f367 X13=0000aaab1a202d70
+> >> X14=0000000000000000 X15=0000000000000000 X16=0000ffffa2e2f7a8
+> >> X17=0000ffffa2541f20 X18=000000000000a000 X19=84bfda6288cf2dd6
+> >> X20=0000aaab1a1f1ce0 X21=000000007fffffff X22=0000ffffc5431788
+> >> X23=0000aaab1a17db60 X24=0000ffffc5431770 X25=0000000100000000
+> >> X26=0000004100000000 X27=0000000000000001 X28=0000aaab1a1f1c20
+> >> X29=0000ffffc54316d0 X30=0000aaaae7f8cd24  SP=0000ffffc5431650
+> >> PSTATE=20001000 --C- EL0t
+> >> 
+> >> Guest and host are otherwise idle, kvm is in normal VHE mode.
+> >> 
+> >> Git bisect points to (fce886a60207 "KVM: arm64: Plumb the pKVM MMU in KVM")
+> >> I also double checked that by reverting this commit on top of 6.14.
+> > 
+> > Thanks for find the triggering commit. Can you further identify *what*
+> > causes the -ENOMEM? The only new -ENOMEM in that patch is the one
+> > added to topup_hyp_memcache(), which shouldn't be called.
 > 
-> So, what would be preferable? To send only this patch with b4 or resend
-> the v2 patchset which have been accepted and add the soc list?
-soc@ is for applying patches, but your Cc list here suggest you send
-something for review. These are two different processes, see soc
-maintainer profile.
+> The kvm_pgtable_stage2_map() call in user_mem_abort() returns -ENOMEM
+> because the memcache pointer was not initialized!
+> 
+> It looks like smth like this without other conditions could do the trick:
+> 
+> if (!is_protected_kvm_enabled())
+> 	memcache = &vcpu->arch.mmu_page_cache;
+> else
+> 	memcache = &vcpu->arch.pkvm_memcache;
+> 
+> (I'll try this now)
 
-You need to handle the patches (collect them) after community review
-*and then* you send these to soc@, without ccing again entire community.
-See any other pull requests or patch-pull emails.
+Right, we end-up with an uninitialised memcache variable. Why isn't
+the compiler screaming?
 
-Best regards,
-Krzysztof
+I think you can indeed simply hoist the init of memcache very early
+on, which should solve hopefully solve the issue.
+
+> 
+> > Also, a failure to allocate would leave some nastygram in the kernel
+> > log, so it is unlikely to be an actual failure to allocate.
+> > 
+> > Is it the first KVM_RUN that fails after migration?
+> 
+> Nope, it happens on the side that triggers the migration.
+
+Probably because splitting pages requires allocating some memory, and
+all of a sudden you trigger the allocation from the memcache. Boo.
+
+Thanks for spotting this, I'm looking forward to the fix!
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
