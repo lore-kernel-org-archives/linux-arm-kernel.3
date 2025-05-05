@@ -4,54 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0B19C3ABB7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 08:42:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E521C3ABB6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 08:42:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3O1SCNLOQMpihKffStOSylkuYYBVg0ltdo4tvYHu9Dk=; b=O0jDGdJ99+EjNhf735kdYjIDRE
-	ceYZwGhofnao7bY1LVocaYZWbBMynEnK40LOAIlh6NmgrHpjr9WiepJLt6PmIc2AkGCgeKDUnUCnh
-	lHPibyLarizp0YhrHUikFMgNbjp+aNZOwSQuEaHxXnEO3w7DQArxZ1JRZnnS4ON2UxdFN5gmZkOp/
-	2mKP827Ne9O9WFQQrEuO1cZmUv2EKPuaLYFGaGCHLHZXaPbgoyuv427zSpZmCggdvt496KwToxHHe
-	ymlLzWgLUi7LZQPGCR0gNnQKg0b9P6UgSIj/KqMmZKO/2w7Rj2oV6q93MLzgJkCC/1cIprcRz8p/h
-	BMopPJxg==;
+	bh=/6DfAkqmatLxmLg8isSu9YmNjsXnPdrip922h5yy7h8=; b=GsVCAFEPlU/4E+YY1Lv/FrorWL
+	ea5s20Gq2JnKbiXarN6djBZ8MP+Pyt6OIuFAZsho19EBhtnbK2OMVJsHF61NCrXKa5B31EFD938Ji
+	X8KJ8m8D4V/STkbF6KL6a+JGnHhMoCiXhoyCXZaRnOaNgqp+agJZ0LQds4Lk236cbIt50sr+mPIja
+	19XBgfH4qAEB/Z5+rr+nUT6VCAtNINbOMQ+tYBPRhPOq6HISNTkh3nUiIrrDzPD5v3HICI2nrogWd
+	keZ6MIhOuV0fV4cHhCIzWqpMCsFwyav+R3vjmjNXZK3oGmrQZcOd1gh25sqgTqC7EjY48PiSRo9JN
+	vId49+AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBrPO-00000006oIn-0FBT;
-	Mon, 05 May 2025 08:42:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBrJ4-00000006nUV-3Sar
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 08:36:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C36431007;
-	Mon,  5 May 2025 01:36:00 -0700 (PDT)
-Received: from [10.163.53.144] (unknown [10.163.53.144])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 040D93F5A1;
-	Mon,  5 May 2025 01:36:06 -0700 (PDT)
-Message-ID: <1c285bc1-e345-4757-9803-b62624b3ed27@arm.com>
-Date: Mon, 5 May 2025 14:06:03 +0530
+	id 1uBrPJ-00000006oE1-0ZUx;
+	Mon, 05 May 2025 08:42:37 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uBr9i-00000006mR3-3f7v;
+	Mon, 05 May 2025 08:26:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=/6DfAkqmatLxmLg8isSu9YmNjsXnPdrip922h5yy7h8=; b=ZTcaDYH9sTVvm45ziriha1k+rA
+	wBsEWPTsPuSJimgaphgfhwWZqpmue5vWy54/gqZySe7j0wcvjWQ199ke48Yq7SRp1DuUDDKM2pQto
+	3N1gHXPG8su6J4j0dGis0+fbiexqw0kG5RVljdgMwR6vuAHd0FiN9iADTgUAPitoZCPWbIkCmj2rL
+	tA3yR6B0YgmtzDEJpO66yQ2t682R+xl8zhMTU17lYtS8mhr2zOjNxjOts2dyJ4+ocdbr1lreshSov
+	qBUS5tMOZsp/HygryeStXw0XbrI6yBZiDjnoPefBDKlf26DUgNmyZdjqpigPjOVbrt4AmJPMXwKMf
+	8Cd3NR7Q==;
+Received: from i53875a1d.versanet.de ([83.135.90.29] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uBr9h-0001Ho-Gt; Mon, 05 May 2025 10:26:29 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Heiko Stuebner <heiko@sntech.de>
+Subject: Re: [PATCH RESEND] arm64: dts: rockchip: Switch to undeprecated qcom,calibration-variant on RK3399
+Date: Mon,  5 May 2025 10:26:18 +0200
+Message-ID: <174643357079.1204535.2566293021923163121.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250501160208.96451-2-krzysztof.kozlowski@linaro.org>
+References: <20250501160208.96451-2-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V3] arm64/mm: Re-organise setting up FEAT_S1PIE registers
- PIRE0_EL1 and PIR_EL1
-To: linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, linux-kernel@vger.kernel.org
-References: <20250429050511.1663235-1-anshuman.khandual@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250429050511.1663235-1-anshuman.khandual@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_013610_959377_48127F60 
-X-CRM114-Status: GOOD (  20.24  )
+X-CRM114-CacheID: sfid-20250505_012630_907070_E3D8C78E 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,97 +79,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4/29/25 10:35, Anshuman Khandual wrote:
-> mov_q cannot really move PIE_E[0|1] macros into a general purpose register
-> as expected if those macro constants contain some 128 bit layout elements,
-> that are required for D128 page tables. The primary issue is that for D128,
-> PIE_E[0|1] are defined in terms of 128-bit types with shifting and masking,
-> which the assembler can't accommodate.
-> 
-> Instead pre-calculate these PIRE0_EL1/PIR_EL1 constants into asm-offsets.h
-> based PIE_E0_ASM/PIE_E1_ASM which can then be used in arch/arm64/mm/proc.S.
-> 
-> While here also drop PTE_MAYBE_NG/PTE_MAYBE_SHARED assembly overrides which
-> are not required any longer, as the compiler toolchains are smart enough to
-> compute both the PIE_[E0|E1]_ASM constants in all scenarios.
-> 
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Ard Biesheuvel <ardb@kernel.org>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> ---
-> This patch applies on v6.15-rc4
 
-Gentle ping, any updates on this.
+On Thu, 01 May 2025 18:02:09 +0200, Krzysztof Kozlowski wrote:
+> The property qcom,ath10k-calibration-variant was deprecated in favor of
+> recently introduced generic qcom,calibration-variant, common to all
+> Qualcomm Atheros WiFi bindings.
+> 
+> Change will affect out of tree users, like other projects, of this DTS.
+> 
+> 
+> [...]
 
-> 
-> Changes in V3:
-> 
-> - Dropped off macros PTE_MAYBE_NG and PTE_MAYBE_SHARED as per Ryan
-> 
-> Changes in V2:
-> 
-> https://lore.kernel.org/all/20250416035604.2717188-1-anshuman.khandual@arm.com/
-> 
-> - Added asm-offsets.c based PIE_E0_ASM and PIE_E1_ASM symbols as per Ard
-> - Moved PTE_MAYBE_NG and PTE_MAYBE_SHARED overrides inside asm-offsets.c
->   along with the corresponding comment as per Ard
-> 
-> Changes in V1:
-> 
-> https://lore.kernel.org/linux-arm-kernel/20250410074024.1545768-1-anshuman.khandual@arm.com/
-> 
->  arch/arm64/kernel/asm-offsets.c |  2 ++
->  arch/arm64/mm/proc.S            | 19 ++-----------------
->  2 files changed, 4 insertions(+), 17 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/asm-offsets.c b/arch/arm64/kernel/asm-offsets.c
-> index eb1a840e4110..30d4bbe68661 100644
-> --- a/arch/arm64/kernel/asm-offsets.c
-> +++ b/arch/arm64/kernel/asm-offsets.c
-> @@ -182,5 +182,7 @@ int main(void)
->  #ifdef CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
->    DEFINE(FTRACE_OPS_DIRECT_CALL,	offsetof(struct ftrace_ops, direct_call));
->  #endif
-> +  DEFINE(PIE_E0_ASM, PIE_E0);
-> +  DEFINE(PIE_E1_ASM, PIE_E1);
->    return 0;
->  }
-> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
-> index fb30c8804f87..80d470aa469d 100644
-> --- a/arch/arm64/mm/proc.S
-> +++ b/arch/arm64/mm/proc.S
-> @@ -512,26 +512,11 @@ alternative_else_nop_endif
->  	ubfx	x1, x1, #ID_AA64MMFR3_EL1_S1PIE_SHIFT, #4
->  	cbz	x1, .Lskip_indirection
->  
-> -	/*
-> -	 * The PROT_* macros describing the various memory types may resolve to
-> -	 * C expressions if they include the PTE_MAYBE_* macros, and so they
-> -	 * can only be used from C code. The PIE_E* constants below are also
-> -	 * defined in terms of those macros, but will mask out those
-> -	 * PTE_MAYBE_* constants, whether they are set or not. So #define them
-> -	 * as 0x0 here so we can evaluate the PIE_E* constants in asm context.
-> -	 */
-> -
-> -#define PTE_MAYBE_NG		0
-> -#define PTE_MAYBE_SHARED	0
-> -
-> -	mov_q	x0, PIE_E0
-> +	mov_q	x0, PIE_E0_ASM
->  	msr	REG_PIRE0_EL1, x0
-> -	mov_q	x0, PIE_E1
-> +	mov_q	x0, PIE_E1_ASM
->  	msr	REG_PIR_EL1, x0
->  
-> -#undef PTE_MAYBE_NG
-> -#undef PTE_MAYBE_SHARED
-> -
->  	orr	tcr2, tcr2, TCR2_EL1_PIE
->  	msr	REG_TCR2_EL1, x0
->  
+Applied, thanks!
+
+[1/1] arm64: dts: rockchip: Switch to undeprecated qcom,calibration-variant on RK3399
+      commit: ec169727bf7365f7475f335116e1bb5896dd3603
+
+Best regards,
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
