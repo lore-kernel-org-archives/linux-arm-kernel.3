@@ -4,87 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4127C3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 13:41:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 630F1C3ABB0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 13:43:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:References:
-	In-Reply-To:Message-ID:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lKakNgp+cMBljiW9bGBJgwi5m8R7UDNEA5lNfD/vC+E=; b=iplufrjqIQvgdE
-	bZopDNFYdETOOFRlw29gsyFRYFYD5XlBQ/XBDazW6uFyc17YhoFzsNQhfO3r7GwvUVJvSPV1ioVTj
-	51FAfQ6S29U5QBFZ6Ge/d+qomogVbGogLUwOM+F233t+/NhRNtQ3+RmeNEVthu+69P9JBHITICRzI
-	9Pl6iyi1dCn6TVRQ0X2iYwwS4VXPF26YMQI+G4hHiqg8krxGVztwC5bjtyfg8VIedepChDRvWKJV3
-	YHBsoTDLhxDO7rdARydXZ41Bx+x8eVCgFj7MfwxqfSygGm6vR514YmgFuIey+eWy3ljAjhU2c2ZwS
-	akI1eLNCah3Saensj8LQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5NxM+LyJKqBAPIaPlavfprGbQW3rIQysvbDXHZ8MTPw=; b=S0dwnWORyksnoSRBRoyeT1rbuj
+	AETnKhhIxFHm22DLA7EkR9lJ3afC8w25OjPgRK+S9IFb5Nk+MFldXsV0gwxAk+C8x0QU4LPO+55oy
+	8v0BTNmYT7+dFRcVrFM9FEUnq9qVBj45AetplTzeIzR/QhOftCF7X0dF8aL3HDtjEZ4a//QcpPu+3
+	Qg/8wY0UkA9hoOuP3lGv9BNtAjUoSmonqwG0tB8Y5tisujMJ8uDCRhc1BwT5dwUlIRT0fpWYWO4gc
+	ZRFBcAUO+mXJtp9tzV2VM+P1saFvghmg6xfxOhmzHlUWdZOfjN1TTZFEKvGIaCIprP65LG5X4cerh
+	tn/xSDQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBw4W-00000007WZ3-3xIX;
-	Mon, 05 May 2025 13:41:28 +0000
-Received: from server.wki.vra.mybluehostin.me ([162.240.238.73])
+	id 1uBw6S-00000007Wk7-2mt8;
+	Mon, 05 May 2025 13:43:28 +0000
+Received: from mail-vi1eur05on20716.outbound.protection.outlook.com ([2a01:111:f403:2613::716] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBvym-00000007Vai-3Vhi
+	id 1uBw0H-00000007Vw5-2bjx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 13:35:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
-	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=lKakNgp+cMBljiW9bGBJgwi5m8R7UDNEA5lNfD/vC+E=; b=reak0VpmibtkEtPWw7a2b0Xnrd
-	j8P+PpUjy6BpPdk/IHzqwfcKQDBk83Da4NA3M1qq6ANdBvc2cfLY2dPZkcuOiw2+vGAe1cpByJhbd
-	739twC14lU37p+i+VGppTY7cHtncnTQnTaXPb5zrQPRavTCFqiJxioHPntdT2uMLtyf8xZ52w4nZs
-	Z9M47OgewB7voEY1M0zub/91+TUCQbOGnL55ACvzJ6Y5AmVQE7gLMovenP8Mp0Ap4pfCUsDYT6xx0
-	5UbF2afKB8+Vy4ChGFSBDPV1GPWUfWGf/uDrZEqCoLTnN5h5CVFkJaDYp93t/tHcn5ujW7QpzqtsZ
-	RvCDcc7Q==;
-Received: from [122.175.9.182] (port=5358 helo=zimbra.couthit.local)
-	by server.wki.vra.mybluehostin.me with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.1)
-	(envelope-from <parvathi@couthit.com>)
-	id 1uBvy2-000000003nv-3GhN;
-	Mon, 05 May 2025 19:04:47 +0530
-Received: from zimbra.couthit.local (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTPS id 17A5C1781C02;
-	Mon,  5 May 2025 19:04:39 +0530 (IST)
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id ECB431783FF8;
-	Mon,  5 May 2025 19:04:38 +0530 (IST)
-Received: from zimbra.couthit.local ([127.0.0.1])
-	by localhost (zimbra.couthit.local [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id ZROrIBlTU3UA; Mon,  5 May 2025 19:04:38 +0530 (IST)
-Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
-	by zimbra.couthit.local (Postfix) with ESMTP id 8FE7317821E7;
-	Mon,  5 May 2025 19:04:38 +0530 (IST)
-Date: Mon, 5 May 2025 19:04:38 +0530 (IST)
-From: Parvathi Pudi <parvathi@couthit.com>
-To: ALOK TIWARI <alok.a.tiwari@oracle.com>
-Message-ID: <596171543.1212368.1746452078442.JavaMail.zimbra@couthit.local>
-In-Reply-To: <90a12a85-cf44-499d-bc1b-9413eea00954@oracle.com>
-References: <20250423060707.145166-1-parvathi@couthit.com> <20250423072356.146726-8-parvathi@couthit.com> <90a12a85-cf44-499d-bc1b-9413eea00954@oracle.com>
-Subject: Re: [PATCH net-next v6 07/11] net: ti: prueth: Adds support for
- network filters for traffic control supported by PRU-ICSS
+	Mon, 05 May 2025 13:37:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PGxUuJnxrRenw6FTqSXXBMh3P4dD/uLo0z7CJ3pSg4jp9HOZIRlivgROPs8emXiE46fTTqA3n9Dtv6QficN1R82MOJAyzBSpKyP0QdeAaFDD5BhYMg+FNz9/J71Zv0iw7xzeQ1I0oOPb1zxPT3DIzWPCCM6CFShZGJpWmcg+HfMBw3/sH+ipvroaXn6n2bS1q4ckEqsfokrtI3emlw3j1N20n2aZVwaA+feGhD0Rad1TRZR2VYeNAiws18F6wYkVmUHb5GTYu9w4DnkBfeCKC26F5Sxmhg2E69HLzTrYth2D/0rOmuwSHWXyq2zukdEYY5PO3ttFGQvjl6BoVBTyeA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5NxM+LyJKqBAPIaPlavfprGbQW3rIQysvbDXHZ8MTPw=;
+ b=OiiGsiY0BXSNTP/LnS4jCSjHrOMeA65uy+q/J+eAQSEKetPIW9bcY0eBo/enAZ8GhP0l8cQlN8JDY0LNVwAgaxWEyW8jcRTxYp0PANC+4IXq/HWP/yoaLS8u5N9CfXAObkrDg6vsRsqRm16bNlubZDgmd2mI7bGMFI8bhI59PWDC3iTV4MwZHaaZE8paz3OaBPv+WxZ9LAF+g1taKBJbdKejpyTnfvbGACXKrRR92Go1yQ2xmPdonE7InMM9NMafN6PWBRLHzhwGuvVQrmUEg7Vl7GNfW2awbLQjM65y/Z49bpzyJ1tyUe6Hh7N+WFodKj1NFgn39TwSWhF53i/Wyw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
+ dkim=pass header.d=phytec.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5NxM+LyJKqBAPIaPlavfprGbQW3rIQysvbDXHZ8MTPw=;
+ b=TW1yxDFOIPd/ARLmqbB1wnAPWyHZ3185YyjyqNFOuHsCI/uAN0M00NBy7gXjOcHnl/9HkVkIfBzfjti+gZxb9pXtlfesylBIczpFd7HHLNYhvxWG40Zkt/IPFtP6/9ZY6XmJXGdxGL3ym/C2HRB7E5wqEeQKuuEfTmZ4XK6mgcc0mh9ZIZlO1PuYw8qBlslZCSx4Hx4r1IHmk7nSb3Oj7cHwdwAIZNLR0C+K4n3UehLl1zONLyp/iiCdyelG+iK0iMbUIWL+r12CjcfqEI+XSbbz809hwpOFTC4QoZQKfYyegy78zPougiFHF6wvVVyhrTWvyfeys3rojinO/MfqXw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=phytec.de;
+Received: from VI0P195MB2484.EURP195.PROD.OUTLOOK.COM (2603:10a6:800:248::6)
+ by GV2P195MB1940.EURP195.PROD.OUTLOOK.COM (2603:10a6:150:a9::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.23; Mon, 5 May
+ 2025 13:36:58 +0000
+Received: from VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
+ ([fe80::24f:8371:2871:5981]) by VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
+ ([fe80::24f:8371:2871:5981%4]) with mapi id 15.20.8699.019; Mon, 5 May 2025
+ 13:36:57 +0000
+Message-ID: <5d1e8620-7bb5-42fc-8061-9a7c65eaa23b@phytec.de>
+Date: Mon, 5 May 2025 15:36:48 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] arm64: dts: ti: k3-am62a: Set Critical Temp. to 105C
+To: Nishanth Menon <nm@ti.com>
+Cc: vigneshr@ti.com, kristo@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ upstream@lists.phytec.de
+References: <20250502142606.2840508-1-d.schultz@phytec.de>
+ <20250502142606.2840508-2-d.schultz@phytec.de>
+ <20250502144934.t6hjiwp2f64ovb34@deeply>
+ <9964aeaa-0169-4596-a33d-c56bdb6edae3@phytec.de>
+ <20250505131230.3ydwgftnqbbmrt5u@opulently>
+Content-Language: en-US
+From: Daniel Schultz <d.schultz@phytec.de>
+In-Reply-To: <20250505131230.3ydwgftnqbbmrt5u@opulently>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MW4PR04CA0161.namprd04.prod.outlook.com
+ (2603:10b6:303:85::16) To VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
+ (2603:10a6:800:248::6)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.10.10.103]
-X-Mailer: Zimbra 8.8.15_GA_3968 (ZimbraWebClient - FF113 (Linux)/8.8.15_GA_3968)
-Thread-Topic: prueth: Adds support for network filters for traffic control supported by PRU-ICSS
-Thread-Index: +fyddl2CzkXGoiVxpswuiFN5y+v5FA==
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.wki.vra.mybluehostin.me
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.wki.vra.mybluehostin.me: authenticated_id: smtp@couthit.com
-X-Authenticated-Sender: server.wki.vra.mybluehostin.me: smtp@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI0P195MB2484:EE_|GV2P195MB1940:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8c171797-8c9d-4bf6-c58e-08dd8bd9e82e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|10070799003|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?RVBvM0tSWHF2MDUzbmNRenlya2ZSWWRsM0NuTjQwWFkxWHFWQTlqUk81K1FS?=
+ =?utf-8?B?UllMZGEzbEZYblJCVEs4YklTdU5mdE1iVzVUSWtHcGxPd0NIajVaS0FtZ2FR?=
+ =?utf-8?B?U3FZdUdyRk9lZEJzaW92Tm1GK3YrTzlJVElyWFVCUzRiWHJmRTNObUxwcHE4?=
+ =?utf-8?B?TGw0Mk5DM0dkQVBoWU9pT3JJQlg1a3lDQzFBSUdva3dMWTl3YnVpUTB5T1Jj?=
+ =?utf-8?B?RG1TcWpqNXZvMUI3akxJWEFQS0YyV25MWmZ6QnZyZ0tNNGNsMzEva08rQUNp?=
+ =?utf-8?B?ZzNOc1BJSTB0dzBiZ2h6TU5hMVc3MzZtd3FPbGRGV0ZFbEhnQUd5UUdIMzlQ?=
+ =?utf-8?B?RjZqMUJwSkMzcC82OVpSZyt0ZVVqN0dyakpKUWw0OHZFK09kT2pQRHlmclp0?=
+ =?utf-8?B?cklrK3JwUWhnOGZTWldyUFgxMktjN2s1elFrL01XZmpWN29XYk5ENVZ4NWcz?=
+ =?utf-8?B?ZlFkMjlQTnNXRDVOR1BMK3VNMHNlbmNOT0drQ2RjcGxqWFBMTVpvdlAvMDRM?=
+ =?utf-8?B?T0dnOVlHRmFscm9NaTU3WkhPbGVJWlFTNER1YnduMTdzQkliWU5zaGRTRkNh?=
+ =?utf-8?B?QjdXL2RIZzd5cWVubWtnU2ZQUlRNRzdwM1ZKd2JKSjVDYUcwUEFDQkZPN1M2?=
+ =?utf-8?B?ZFpXN0VKR2ZzZ0FKQjRHclF4Yks4Tm5BWVk1ZWJhSW5xM0JpOHpITHFkOU1V?=
+ =?utf-8?B?QXRKNWVEeG5JUGxoWEh1VUs2MTkvdWFia0p2eU9Xc0lOVkRORmJJaUhTSGtt?=
+ =?utf-8?B?UHUxSGlWL2I5N0pEbWtMVnYwcDhOeGhnRVlMUlcvOVdvY1M0UjhDRjQvdWt5?=
+ =?utf-8?B?aEhha1N2V0hoK3RYS2ovcG9YanNDUVpuRjFLWVRRYUJoeU9XOFgzN0x0UW0z?=
+ =?utf-8?B?eEJRWTdFenlXRk9UMTNzVGk0NlJXNVZuck1zdjJValN4VnR5N2Y5SDFCdG9L?=
+ =?utf-8?B?clBiN2dtMWExREF1OENqOUlqMVRNQ01RUTNaZEJ0YmxZb0NoVmE5Ry9JYjdW?=
+ =?utf-8?B?MFRYbGV5QlhUR3hSTDVOWnk0WFN2UW14RTVWSGc2RXBUWnFSSXZCdTFSRUVk?=
+ =?utf-8?B?aVEwLzVNMDRkRlVLNkQ4KzRZbW9xcFJUV0grV25TRmtQOHU2d21xTXBVR0xN?=
+ =?utf-8?B?R1g4ek40Qzl2QXA2OS9ESmplQTB4NFNnbVdkbEp1SS8zSWJHT0p1K0hmQ0hs?=
+ =?utf-8?B?N2Q2eHhpTERPaUpjRndjRC81OG83SElSMUFUeGpGWkNMT3JhSUNFYm9pQUd3?=
+ =?utf-8?B?UVN5VUpsdDJTQlJKbHFpZ3d4dXBjOXFkREZ5K3FhN1o0Q2l4NEFoNkI3bWZF?=
+ =?utf-8?B?MWFlVXhXNXFaRytOWGxqODhFVDA0VkZCQVFMWkZGM1VBU1VCNHI3NUZrcUsz?=
+ =?utf-8?B?MmxzS0VLWDFCWWVuZTg3T3YwbG5lVWtiR2FTd1ZZTjRYV3R4UDZHRng1OWRO?=
+ =?utf-8?B?Qzh6WUVnclp3ZUt5NWZoY0Z0WG5ZZU1aU2JDT0pRejZhTWlNWXBOUnM2bDc0?=
+ =?utf-8?B?QS9SSFNxdUVob09LVSt5VmhFMmVyT0Y4RysxOGQzZWZIMUNZZ1NyeGZDenZJ?=
+ =?utf-8?B?TXU3ME56cEk1ZzJtYy8vbzlVV21YcVZqRWt2VXltQmd0VkZiZnlMU2pBVHNt?=
+ =?utf-8?B?K082bzRXWHp1RDliblVHQTg0QjJhd3FVZm1nMUtrSUFkRHV4ZmVjbS9Sblo0?=
+ =?utf-8?B?QXF2WDFZOXM0VXhBTHhrcjlIRDVSa1FlREZRbGN1cUt1czR6UGd5Nlc5Y2F4?=
+ =?utf-8?B?MVdXbHlGRVdPYzgxcy92RGZjM1Q3SnpBSGVNdzNJQXNHNzlueFZWLzFOdFBw?=
+ =?utf-8?B?UjNZZktXcWp4eGpWbmdnK2hsajVUQU1GTmdQT3pEdlZBejlzNHFUcW5qRzZh?=
+ =?utf-8?B?TjA0VEpMdGNsdktZa3NRT24vNVpZbEdWM0t0Q0YzOEN5dm5KK3NTcXpSNlRR?=
+ =?utf-8?Q?KZxwxn6skJA=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0P195MB2484.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(10070799003)(376014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MWdWYnBGaHRoVGlrUmJhN09XYzZybkRUSXZtZFJFYWRoaWtibWxVTG43cUg2?=
+ =?utf-8?B?V3JGbWYyTTV1R1lRNTJuK1pycU8vMzVMa0VRc3VubUJ1UUd1ZHVRZXg5Ly9B?=
+ =?utf-8?B?dHN6YndQWFp5b1U1TGVaTTFSWEZLZjRoSStkRnEyaWFFMHhzZ25sTjR3a3Rl?=
+ =?utf-8?B?VnQ1Ulg5WkVpbUtzR2cxTCtQTC9kV0Jad0pEdHY2NkV5ZWcwRklXZ2ZwNktF?=
+ =?utf-8?B?TWl1ZjF3bk1SQzh5N1RIUmIzeEdoNjBQWTE1NVhaeTMwa1JySVZxNDUyTmRy?=
+ =?utf-8?B?c0x4SGpyVzNZNDFDZmxQamU0UFR4L1N0bnkxaUp0UkNRK1ZDNkpwWnhPc3hG?=
+ =?utf-8?B?bkxIaUJ1MUV4bitpdmRlTnY0RUQ1Lzg4SDY2RzZTZkNlWEZvK2dhTkt1bTdP?=
+ =?utf-8?B?K25kYkoxVTJ2ZGpyY3pRNzV1eUtzUTlSWG5QN3lnTkNxanF2Q2xYeFFuajVM?=
+ =?utf-8?B?NjNtQy9XcjJyQ1NPWExEdGI2d1pkNXloZzMrYU0wSW1xK0lPb1dvQ0pUdGI0?=
+ =?utf-8?B?U1dpSlhEcDVJaTNnRGRWUHF5cEl6N0dZaXQwcmdwN1BXTnViL1QrVk1RS0hN?=
+ =?utf-8?B?eE5JUmJoZVkyNG1YMTZvZFdvNERFR3hRRGVPL1NsK28xbE5xS21wRG1Leldt?=
+ =?utf-8?B?Z2RtRFE5dXJtQVNJNW01dVozM3d6NDZQZW44MmVaaXlHbkhZWnVJclIxWmNG?=
+ =?utf-8?B?aHNRVmxSNEdhZmZmUlg3WEM0NUx3d0NNaUZ3aHozTTllbnNHa2hHYVB0QlBH?=
+ =?utf-8?B?ZFlLSmJUMWRUbXQ0SHdBZU53TW1CV01ZMXJzczAxUHlDcWJDMjNNWm1vVWJi?=
+ =?utf-8?B?NUxXZU5qbW56bjJWZ0djRkZETm9BTUhaTTdqMU1wUHpiR3FaRW84ZTRVekZo?=
+ =?utf-8?B?UkVHdmpoSGVqb1FnMzVjWHRTS3F2clA2bm91REVBYWpleEM3WHFLY1Q3amF5?=
+ =?utf-8?B?aFlFZGFtNW1kTmRsQ0kvQXRVN3l6WU4zTlZ4RElKYVY5N0VZVTljcXkrUUJs?=
+ =?utf-8?B?TkNIaHZQVU0xZStGSUluSGVRT2Jya1R3K00xOHJqTXViWS94eURNekV3OUhw?=
+ =?utf-8?B?ODFOREw1UWlYc2NuTlVKR29IM2t5ck5YVFhSZlBiSG1aQk4xL1RCMXkrcExh?=
+ =?utf-8?B?NHVDZkpZNnhCaWw5NFp3TDB2K2ZMU013N3BQZW9uZlgwSEdtN1pLeFc0S1B5?=
+ =?utf-8?B?UjdqTUh2MXIzN2grcXNpZzJoVjU0Nk9pMnZGakdlUTlidm1YNWlnZXJJNFBy?=
+ =?utf-8?B?OGFrdS8rWUZ6eHJ6TFAvcVREV09UdHRrQk9PMGYvZGtDYzB3ZkdBVGU4ZFV4?=
+ =?utf-8?B?TElyMjJJaFRuRjE2cE1YYS9oSlQ5WXlXUFd0dnIzYmNKUHlRSVhsNHZpNHYz?=
+ =?utf-8?B?bkRPQUNCbWxyWFRFMTJUS2dmY2ZXVUJ2REQvYTdSZU45NXU0VlJCSndBaFJH?=
+ =?utf-8?B?TGs0VEFGUEhXTFY0ZGFFazhBTTIrRklvK3FyUnljaDQ0RDhTTExCR3lkYXBH?=
+ =?utf-8?B?ZGNEaXFmazZiM2g2b1JrcU1GbHowRVE5WjBhWjRVK3RyZUwzd0I1YkRhM2V4?=
+ =?utf-8?B?ckY3RXdlclZJdkNPdkpveExMcVpOQ2xGOVRMZVUxWGlvUVZEbUYwNUxmeURm?=
+ =?utf-8?B?WE44VjR0aHgzTE5vd0xzUFpvV2JCT0VVclZ1VW1tTTVZdGR5c2VPbWR4Wkpw?=
+ =?utf-8?B?VkVkQnoyYkl0MlhYbm83Z2VCcE9WSmFUcHh1aFUyUUVaWXJ4SHR6cU5UaDUw?=
+ =?utf-8?B?YWpKWlZqU0FnT2w0TmZYNTRrSGtIbmdnaGoxYTVtbUZZMHNQcEdUN1ZFUHNJ?=
+ =?utf-8?B?bVFHRE5nb0RiSjlLTVNHQXQ4M0UxYjVabWxWRUlJQnMxMFR2alZKdzJ6WkZo?=
+ =?utf-8?B?ZTdvdHN5QklaRS9jSnBLWnBZR1pVbVBEWlVsY3gwelFRUjNpcGhmREhUK09J?=
+ =?utf-8?B?b3dIV1NRMkFNUmkrSk01RUlCRG54dXZPRmJybEwyTDhaS1ZYS09PdXdlQity?=
+ =?utf-8?B?V0JMbWZZVHlmOWkrNjgvWVlBS0xEb3YxRmVEUnp5V2RTYzFVQzY1UkZURnBD?=
+ =?utf-8?B?bSt1MDU4WlFNYURVT3FIV0JwWlpQRkFVTXJlVGxVNkRwdmpvN2FWSkhhZVVk?=
+ =?utf-8?B?c2o5Q1o2K0pKamZReXNjc0dDTlRZZG5LTXEzMzJtdEptbGFPcEpKdmJZcWYy?=
+ =?utf-8?Q?+Nd6aQK3xZXF+stJsi5LcgQ2jccIgNjp6AecNQIfHQzC?=
+X-OriginatorOrg: phytec.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8c171797-8c9d-4bf6-c58e-08dd8bd9e82e
+X-MS-Exchange-CrossTenant-AuthSource: VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2025 13:36:57.8392
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: AyrPEwDKJzbRbJHBsDCI6GX0YbdxOqHwnHH0szSTY+PzY8qPpdYn9xzAVhWLtSSkeGoRkhN1MWtX285bUKpsyA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2P195MB1940
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_063532_918619_69F92FE5 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20250505_063705_964718_60DBD4DF 
+X-CRM114-Status: GOOD (  15.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,334 +179,51 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>, tony <tony@atomide.com>, edumazet <edumazet@google.com>, glaroque <glaroque@baylibre.com>, pmohan <pmohan@couthit.com>, diogo ivo <diogo.ivo@siemens.com>, robh <robh@kernel.org>, javier carrasco cruz <javier.carrasco.cruz@gmail.com>, praneeth <praneeth@ti.com>, m-karicheri2 <m-karicheri2@ti.com>, basharath <basharath@couthit.com>, kuba <kuba@kernel.org>, pabeni <pabeni@redhat.com>, richardcochran <richardcochran@gmail.com>, devicetree <devicetree@vger.kernel.org>, conor+dt <conor+dt@kernel.org>, schnelle <schnelle@linux.ibm.com>, mohan <mohan@couthit.com>, s hauer <s.hauer@pengutronix.de>, Prajith Jayarajan <prajith@ti.com>, rogerq <rogerq@kernel.org>, jacob e keller <jacob.e.keller@intel.com>, ssantosh <ssantosh@kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, rogerq <rogerq@ti.com>, srk <srk@ti.com>, pratheesh <pratheesh@ti.com>, m-malladi <m-malladi@ti.com>, netdev <netdev@vger.kernel.org>, rdunlap <rdunlap@infradead.org>, linux-kernel <linux-kernel@vger.kernel.org>, danishanwar <danishanwar@ti.com>, afd <afd@ti.com>, andrew+netdev <andrew+netdev@lunn.ch>, parvathi <parvathi@couthit.com>, horms <horms@kernel.org>, krishna <krishna@couthit.com>, krzk+dt <krzk+dt@kernel.org>, davem <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
->> +	/* for LRE, it is a shared table. So lock the access */
->> +	spin_lock_irqsave(&emac->addr_lock, flags);
->> +
->> +	/* VLAN filter table is 512 bytes (4096 bit) bitmap.
->> +	 * Each bit controls enabling or disabling corresponding
->> +	 * VID. Therefore byte index that controls a given VID is
->> +	 * can calculated as vid / 8 and the bit within that byte
->> +	 * that controls VID is given by vid % 8. Allow untagged
->> +	 * frames to host by default.
->> +	 */
->> +	byte_index = vid / BITS_PER_BYTE;
->> +	bit_index = vid % BITS_PER_BYTE;
->> +	val = readb(ram + vlan_filter_tbl + byte_index);
->> +	if (add)
->> +		val |= BIT(bit_index);
->> +	else
->> +		val &= ~BIT(bit_index);
->> +	writeb(val, ram + vlan_filter_tbl + byte_index);
->> +
->> +	spin_unlock_irqrestore(&emac->addr_lock, flags);
->> +
->> +	netdev_dbg(emac->ndev, "%s VID bit at index %d and bit %d\n",
->> +		   add ? "Setting" : "Clearing", byte_index, bit_index);
-> 
-> VID bit at byte index
-> 
->> +
->> +	return 0;
->> +}
->> +
->> +static int icssm_emac_ndo_vlan_rx_add_vid(struct net_device *dev,
->> +					  __be16 proto, u16 vid)
->> +{
->> +	struct prueth_emac *emac = netdev_priv(dev);
->> +
->> +	return icssm_emac_add_del_vid(emac, true, proto, vid);
->> +}
->> +
->> +static int icssm_emac_ndo_vlan_rx_kill_vid(struct net_device *dev,
->> +					   __be16 proto, u16 vid)
->> +{
->> +	struct prueth_emac *emac = netdev_priv(dev);
->> +
->> +	return icssm_emac_add_del_vid(emac, false, proto, vid);
->> +}
->> +
->> +static int icssm_emac_get_port_parent_id(struct net_device *dev,
->> +					 struct netdev_phys_item_id *ppid)
->> +{
->> +	struct prueth_emac *emac = netdev_priv(dev);
->> +	struct prueth *prueth = emac->prueth;
->> +
->> +	ppid->id_len = sizeof(prueth->base_mac);
->> +	memcpy(&ppid->id, &prueth->base_mac, ppid->id_len);
->> +
->> +	return 0;
->> +}
->> +
->> +static int icssm_emac_ndo_get_phys_port_name(struct net_device *ndev,
->> +					     char *name, size_t len)
->> +{
->> +	struct prueth_emac *emac = netdev_priv(ndev);
->> +	int err;
->> +
->> +	err = snprintf(name, len, "p%d", emac->port_id);
->> +
->> +	if (err >= len)
->> +		return -EINVAL;
->> +
->> +	return 0;
->> +}
->> +
->>   static const struct net_device_ops emac_netdev_ops = {
->>   	.ndo_open = icssm_emac_ndo_open,
->>   	.ndo_stop = icssm_emac_ndo_stop,
->>   	.ndo_start_xmit = icssm_emac_ndo_start_xmit,
->> +	.ndo_set_mac_address = eth_mac_addr,
->> +	.ndo_validate_addr = eth_validate_addr,
->>   	.ndo_tx_timeout = icssm_emac_ndo_tx_timeout,
->>   	.ndo_get_stats64 = icssm_emac_ndo_get_stats64,
->> +	.ndo_set_rx_mode = icssm_emac_ndo_set_rx_mode,
->>   	.ndo_eth_ioctl = icssm_emac_ndo_ioctl,
->> +	.ndo_vlan_rx_add_vid = icssm_emac_ndo_vlan_rx_add_vid,
->> +	.ndo_vlan_rx_kill_vid = icssm_emac_ndo_vlan_rx_kill_vid,
->> +	.ndo_setup_tc = icssm_emac_ndo_setup_tc,
->> +	.ndo_get_port_parent_id = icssm_emac_get_port_parent_id,
->> +	.ndo_get_phys_port_name = icssm_emac_ndo_get_phys_port_name,
->>   };
->>   
->>   /* get emac_port corresponding to eth_node name */
->> @@ -1567,6 +1865,7 @@ static int icssm_prueth_netdev_init(struct prueth *prueth,
->>   	emac->prueth = prueth;
->>   	emac->ndev = ndev;
->>   	emac->port_id = port;
->> +	memset(&emac->mc_filter_mask[0], 0xff, ETH_ALEN); /* default mask */
->>   
->>   	/* by default eth_type is EMAC */
->>   	switch (port) {
->> @@ -1608,7 +1907,9 @@ static int icssm_prueth_netdev_init(struct prueth *prueth,
->>   		dev_err(prueth->dev, "could not get ptp tx irq. Skipping PTP support\n");
->>   	}
->>   
->> +	spin_lock_init(&emac->lock);
->>   	spin_lock_init(&emac->ptp_skb_lock);
->> +	spin_lock_init(&emac->addr_lock);
->>   
->>   	/* get mac address from DT and set private and netdev addr */
->>   	ret = of_get_ethdev_address(eth_node, ndev);
->> @@ -1637,6 +1938,10 @@ static int icssm_prueth_netdev_init(struct prueth
->> *prueth,
->>   	phy_remove_link_mode(emac->phydev, ETHTOOL_LINK_MODE_Pause_BIT);
->>   	phy_remove_link_mode(emac->phydev, ETHTOOL_LINK_MODE_Asym_Pause_BIT);
->>   
->> +	ndev->features |= NETIF_F_HW_VLAN_CTAG_FILTER | NETIF_F_HW_TC;
->> +
->> +	ndev->hw_features |= NETIF_F_HW_VLAN_CTAG_FILTER;
->> +
->>   	ndev->netdev_ops = &emac_netdev_ops;
->>   	ndev->ethtool_ops = &emac_ethtool_ops;
->>   
->> @@ -1689,6 +1994,7 @@ static int icssm_prueth_probe(struct platform_device
->> *pdev)
->>   	platform_set_drvdata(pdev, prueth);
->>   	prueth->dev = dev;
->>   	prueth->fw_data = device_get_match_data(dev);
->> +	prueth->fw_offsets = &fw_offsets_v2_1;
->>   
->>   	eth_ports_node = of_get_child_by_name(np, "ethernet-ports");
->>   	if (!eth_ports_node)
->> @@ -1875,6 +2181,8 @@ static int icssm_prueth_probe(struct platform_device
->> *pdev)
->>   			prueth->emac[PRUETH_MAC1]->ndev;
->>   	}
->>   
->> +	eth_random_addr(prueth->base_mac);
->> +
->>   	dev_info(dev, "TI PRU ethernet driver initialized: %s EMAC mode\n",
->>   		 (!eth0_node || !eth1_node) ? "single" : "dual");
->>   
->> diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.h
->> b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
->> index 1709b3b6c2be..8a5f1647466a 100644
->> --- a/drivers/net/ethernet/ti/icssm/icssm_prueth.h
->> +++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
->> @@ -28,6 +28,9 @@
->>   #define EMAC_MAX_FRM_SUPPORT (ETH_HLEN + VLAN_HLEN + ETH_DATA_LEN + \
->>   			      ICSSM_LRE_TAG_SIZE)
->>   
->> +/* default timer for NSP and HSR/PRP */
->> +#define PRUETH_NSP_TIMER_MS	(100) /* Refresh NSP counters every 100ms */
->> +
->>   #define PRUETH_REG_DUMP_VER		1
->>   
->>   /* Encoding: 32-16: Reserved, 16-8: Reg dump version, 8-0: Ethertype  */
-> 
-> remove extra ' ' after Ethertype
-> 
->> @@ -293,6 +296,29 @@ enum prueth_mem {
->>   	PRUETH_MEM_MAX,
->>   };
->>   
->> +/* Firmware offsets/size information */
->> +struct prueth_fw_offsets {
->> +	u32 index_array_offset;
->> +	u32 bin_array_offset;
->> +	u32 nt_array_offset;
->> +	u32 index_array_loc;
->> +	u32 bin_array_loc;
->> +	u32 nt_array_loc;
->> +	u32 index_array_max_entries;
->> +	u32 bin_array_max_entries;
->> +	u32 nt_array_max_entries;
->> +	u32 vlan_ctrl_byte;
->> +	u32 vlan_filter_tbl;
->> +	u32 mc_ctrl_byte;
->> +	u32 mc_filter_mask;
->> +	u32 mc_filter_tbl;
->> +	/* IEP wrap is used in the rx packet ordering logic and
->> +	 * is different for ICSSM v1.0 vs 2.1
->> +	 */
->> +	u32 iep_wrap;
->> +	u16 hash_mask;
->> +};
->> +
-> [clip]
->> @@ -0,0 +1,120 @@
->> +/* SPDX-License-Identifier: GPL-2.0 */
->> +
->> +/* Copyright (C) 2015-2021 Texas Instruments Incorporated -
->> https://urldefense.com/v3/__https://www.ti.com__;!!ACWV5N9M2RV99hQ!Pnt8LQPwsRI73TtUPzBpwVw_Cn90DbuNXinXJ5m2isPHfFxjNTp4JBlr6UedPapFerELKSzV4SFNoiUfE1xa8g$
->> + *
->> + * This file contains VLAN/Multicast filtering feature memory map
->> + *
->> + */
->> +
->> +#ifndef ICSS_VLAN_MULTICAST_FILTER_MM_H
->> +#define ICSS_VLAN_MULTICAST_FILTER_MM_H
->> +
->> +/*  VLAN/Multicast filter defines & offsets,
->> + *  present on both PRU0 and PRU1 DRAM
-> 
-> remove extra ' '
-> 
->> + */
->> +
->> +/* Feature enable/disable values for multicast filtering */
->> +#define ICSS_EMAC_FW_MULTICAST_FILTER_CTRL_DISABLED		0x00
->> +#define ICSS_EMAC_FW_MULTICAST_FILTER_CTRL_ENABLED		0x01
->> +
->> +/* Feature enable/disable values  for VLAN filtering */
-> 
-> remove extra ' ' after values
-> 
->> +#define ICSS_EMAC_FW_VLAN_FILTER_CTRL_DISABLED			0x00
->> +#define ICSS_EMAC_FW_VLAN_FILTER_CTRL_ENABLED			0x01
->> +
->> +/* Add/remove multicast mac id for filtering bin */
->> +#define ICSS_EMAC_FW_MULTICAST_FILTER_HOST_RCV_ALLOWED		0x01
->> +#define ICSS_EMAC_FW_MULTICAST_FILTER_HOST_RCV_NOT_ALLOWED	0x00
->> +
->> +/* Default HASH value for the multicast filtering Mask */
->> +#define ICSS_EMAC_FW_MULTICAST_FILTER_INIT_VAL			0xFF
->> +
->> +/* Size requirements for Multicast filtering feature */
->> +#define ICSS_EMAC_FW_MULTICAST_TABLE_SIZE_BYTES			       256
->> +#define ICSS_EMAC_FW_MULTICAST_FILTER_MASK_SIZE_BYTES			 6
->> +#define ICSS_EMAC_FW_MULTICAST_FILTER_CTRL_SIZE_BYTES			 1
->> +#define ICSS_EMAC_FW_MULTICAST_FILTER_MASK_OVERRIDE_STATUS_SIZE_BYTES	 1
->> +#define ICSS_EMAC_FW_MULTICAST_FILTER_DROP_CNT_SIZE_BYTES		 4
->> +
->> +/* Size requirements for VLAN filtering feature : 4096 bits = 512 bytes */
->> +#define ICSS_EMAC_FW_VLAN_FILTER_TABLE_SIZE_BYTES		       512
->> +#define ICSS_EMAC_FW_VLAN_FILTER_CTRL_SIZE_BYTES			 1
->> +#define ICSS_EMAC_FW_VLAN_FILTER_DROP_CNT_SIZE_BYTES			 4
->> +
->> +/* Mask override set status */
->> +#define ICSS_EMAC_FW_MULTICAST_FILTER_MASK_OVERRIDE_SET			 1
->> +/* Mask override not set status */
->> +#define ICSS_EMAC_FW_MULTICAST_FILTER_MASK_OVERRIDE_NOT_SET		 0
->> +/* 6 bytes HASH Mask for the MAC */
->> +#define ICSS_EMAC_FW_MULTICAST_FILTER_MASK_OFFSET	  0xF4
->> +/* 0 -> multicast filtering disabled | 1 -> multicast filtering enabled */
->> +#define ICSS_EMAC_FW_MULTICAST_FILTER_CTRL_OFFSET	\
->> +	(ICSS_EMAC_FW_MULTICAST_FILTER_MASK_OFFSET +	\
->> +	 ICSS_EMAC_FW_MULTICAST_FILTER_MASK_SIZE_BYTES)
->> +/* Status indicating if the HASH override is done or not: 0: no, 1: yes */
->> +#define ICSS_EMAC_FW_MULTICAST_FILTER_OVERRIDE_STATUS	\
->> +	(ICSS_EMAC_FW_MULTICAST_FILTER_CTRL_OFFSET +	\
->> +	 ICSS_EMAC_FW_MULTICAST_FILTER_CTRL_SIZE_BYTES)
->> +/* Multicast drop statistics */
->> +#define ICSS_EMAC_FW_MULTICAST_FILTER_DROP_CNT_OFFSET	\
->> +	(ICSS_EMAC_FW_MULTICAST_FILTER_OVERRIDE_STATUS +\
->> +	 ICSS_EMAC_FW_MULTICAST_FILTER_MASK_OVERRIDE_STATUS_SIZE_BYTES)
->> +/* Multicast table */
->> +#define ICSS_EMAC_FW_MULTICAST_FILTER_TABLE		\
->> +	(ICSS_EMAC_FW_MULTICAST_FILTER_DROP_CNT_OFFSET +\
->> +	 ICSS_EMAC_FW_MULTICAST_FILTER_DROP_CNT_SIZE_BYTES)
->> +
->> +/* Multicast filter defines & offsets for LRE
->> + */
->> +#define ICSS_LRE_FW_MULTICAST_TABLE_SEARCH_OP_CONTROL_BIT	0xE0
->> +/* one byte field :
->> + * 0 -> multicast filtering disabled
->> + * 1 -> multicast filtering enabled
->> + */
->> +#define ICSS_LRE_FW_MULTICAST_FILTER_MASK			 0xE4
->> +#define ICSS_LRE_FW_MULTICAST_FILTER_TABLE			 0x100
->> +
->> +/* VLAN table Offsets */
->> +#define ICSS_EMAC_FW_VLAN_FLTR_TBL_BASE_ADDR		 0x200
->> +#define ICSS_EMAC_FW_VLAN_FILTER_CTRL_BITMAP_OFFSET	 0xEF
->> +#define ICSS_EMAC_FW_VLAN_FILTER_DROP_CNT_OFFSET	\
->> +	(ICSS_EMAC_FW_VLAN_FILTER_CTRL_BITMAP_OFFSET +	\
->> +	 ICSS_EMAC_FW_VLAN_FILTER_CTRL_SIZE_BYTES)
->> +
->> +/* VLAN filter Control Bit maps */
->> +/* one bit field, bit 0: | 0 : VLAN filter disabled (default),
->> + * 1: VLAN filter enabled
->> + */
->> +#define ICSS_EMAC_FW_VLAN_FILTER_CTRL_ENABLE_BIT		       0
->> +/* one bit field, bit 1: | 0 : untagged host rcv allowed (default),
->> + * 1: untagged host rcv not allowed
->> + */
->> +#define ICSS_EMAC_FW_VLAN_FILTER_UNTAG_HOST_RCV_ALLOW_CTRL_BIT	       1
->> +/* one bit field, bit 1: | 0 : priotag host rcv allowed (default),
->> + * 1: priotag host rcv not allowed
->> + */
->> +#define ICSS_EMAC_FW_VLAN_FILTER_PRIOTAG_HOST_RCV_ALLOW_CTRL_BIT       2
->> +/* one bit field, bit 1: | 0 : skip sv vlan flow
->> + * :1 : take sv vlan flow  (not applicable for dual emac )
->> + */
->> +#define ICSS_EMAC_FW_VLAN_FILTER_SV_VLAN_FLOW_HOST_RCV_ALLOW_CTRL_BIT  3
->> +
->> +/* VLAN IDs */
->> +#define ICSS_EMAC_FW_VLAN_FILTER_PRIOTAG_VID			       0
->> +#define ICSS_EMAC_FW_VLAN_FILTER_VID_MIN			       0x0000
->> +#define ICSS_EMAC_FW_VLAN_FILTER_VID_MAX			       0x0FFF
->> +
->> +/* VLAN Filtering Commands */
->> +#define ICSS_EMAC_FW_VLAN_FILTER_ADD_VLAN_VID_CMD		       0x00
->> +#define ICSS_EMAC_FW_VLAN_FILTER_REMOVE_VLAN_VID_CMD		       0x01
->> +
->> +/* Switch defines for VLAN/MC filtering */
->> +/* SRAM
->> + * VLAN filter defines & offsets
->> + */
->> +#define ICSS_LRE_FW_VLAN_FLTR_CTRL_BYTE				 0x1FE
-> 
-> lowercase hex please, all place.
-> 
+On 5/5/25 15:12, Nishanth Menon wrote:
+> On 21:11-20250502, Daniel Schultz wrote:
+>> On 5/2/25 16:49, Nishanth Menon wrote:
+>>> On 07:26-20250502, Daniel Schultz wrote:
+>>>> The AM62Ax SoC supports two temperature ranges:
+>>>> * A: -40 to 105C - Extended Industrial
+>>>> * I: -40 to 125C - Automotive
+>>>>
+>>>> By default, use the lower limit (105 °C) so that any AM62A running
+>>>> in Extended Industrial mode will shut down safely before overheating.
+>>>>
+>>>> If the bootloader detects an Automotive-grade device, it should
+>>>> override this and raise the critical trip point to 125 °C.
+>>>>
+>>>> Signed-off-by: Daniel Schultz <d.schultz@phytec.de>
+>>>> ---
+>>>>    arch/arm64/boot/dts/ti/k3-am62a-thermal.dtsi | 6 +++---
+>>>>    1 file changed, 3 insertions(+), 3 deletions(-)
+>>>>
+>>>> diff --git a/arch/arm64/boot/dts/ti/k3-am62a-thermal.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-thermal.dtsi
+>>>> index 39ff9118b6c4..40dcb9bab965 100644
+>>>> --- a/arch/arm64/boot/dts/ti/k3-am62a-thermal.dtsi
+>>>> +++ b/arch/arm64/boot/dts/ti/k3-am62a-thermal.dtsi
+>>> Why not create a separate header for industrial grade and rename this as
+>>> automotive grade and let the board file pick the right grade used on the
+>>> board?
+>> Mostly because I copied this from 10e7bfd8114c207ac and with the most recent
+>> temperature fixups in U-Boot, we also have the missing bootloader logic.
+>>
+>> I would also prefer an out-of-the-box solution for that.
+> Personally, I am not in favor of depending on U-boot (there are other
+> bootloaders as well in the ecosystem) monkeying with dt nodes.
+>
+> I suggest renaming the dtsi and introducing a industrial dtsi. And
+> depending on the samples used by the board, use the correct dtsi.
 
-Thank you for the feedback.
+Can you just drop this patch and continue with 1/3 and 3/3 or should I 
+re-send? I will update the am62x and am62ax both in a separate series 
+afterwards. I probably have to update quite a lot board and that might 
+take longer to get an ack by everyone.
 
-We have addressed all the comments provided, except for the one regarding
-hexadecimal format, where we need some clarity.
+- Daniel
 
-Is there any specific style guide or convention that mandates lowercase
-hexadecimal formatting? We've observed that other drivers in the code base
-consistently use uppercase hex values, and we've followed the same convention
-throughout in our implementation.
-
-
-Thanks and Regards,
-Parvathi.
 
