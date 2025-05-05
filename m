@@ -4,77 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61500C3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 13:21:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5905C3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 13:21:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yTfL/fvg5uCjNorELIHZpGNdVVCrNhFU0chckRh1dYo=; b=i1hBXVda6S5n5nLT7WK37kx/p5
-	yedW3ZWrO14Ar19ldcDGGGMHxJyPuGkVYqumXaELLE7nLFza5wXTtAyJQRH301ukCxzqh/JuNXlZO
-	J931DcTTaP2zlf98qk8A/Me5zDbog6fenqcpd5JKb7dOU34JxVElH4AtUxVxQNw94X8kjjufmh57m
-	qn5gJfc34VA4YCHdSzTNvMUMCPw4//CsEKQS9PXgMtw/0auK0Lmd7Rl5y9dL2bPBEZV2BjJd27FO4
-	YNNTW2fU8GpxNyPW12i9CwdfOOPZ5UVjyAyix3D8WLCWeC42og/0WNBSZ5NSONizCFznoJxpQFIMh
-	8QxfM5Hw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y+wXhdSDx+zuoZH6nHSo9n5TKzFsocoVJt1FeJpCcH4=; b=f7tVmyOgHd53Ya7cEJ9GxI+5c9
+	WRPNdzU3x9aqcmnjlT6NaE1BxAIOxvzYnmeeubsYOc8k1FFHoSy/R/4mBA9uCrgWgYau2BpoSK416
+	4nF3ksjHeCqo7ZnIu06Jg3ni1/vUv7MsF7lu/mkRawixl3uuKTpSw0dRGJUu1bUYukZU9m06LhSNa
+	r8ZmhyzOxFGHi/K0hZzUkkhhd58+qybpEjcU1/EsMtGHwdNcLJ0M+Ft3ezFOtXUCeE30JrA9GxiH4
+	ZoQe0U6hTts0l1pvnDjMAZejXjAgFwmmbLcjRjflK4CvAY5Y6FNls/N+AOwXOLMyoDXsmHTMx+EPY
+	BIIcqDmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBvko-00000007S9B-2jaF;
-	Mon, 05 May 2025 13:21:06 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1uBvkr-00000007SDk-04Wr;
+	Mon, 05 May 2025 13:21:09 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBvcd-00000007R7n-0dmb
+	id 1uBvfI-00000007RUJ-44Tm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 13:12:40 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 545DCU4O946261
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 5 May 2025 08:12:31 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1746450751;
-	bh=yTfL/fvg5uCjNorELIHZpGNdVVCrNhFU0chckRh1dYo=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=QD7GM8TYI+aQOACJZ30G/WxcP6GgDD7+w7/oPCOh86Zgy813HxmhMEYpqqBBzOb6m
-	 svK3oHoG4S8lKZvG8DOocDIryJidEhr5NUeVQ1EPv7/IB1YJUN0XOPuwO8/W36MQpU
-	 uOWVStRJzfsuj0j2yj8pVtkxk7gSu0+5rFD9Sjuk=
-Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 545DCUGs045176
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 5 May 2025 08:12:30 -0500
-Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE109.ent.ti.com
- (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 5
- May 2025 08:12:30 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 5 May 2025 08:12:30 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 545DCUnP108695;
-	Mon, 5 May 2025 08:12:30 -0500
-Date: Mon, 5 May 2025 08:12:30 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Daniel Schultz <d.schultz@phytec.de>
-CC: <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <upstream@lists.phytec.de>
-Subject: Re: [PATCH 2/3] arm64: dts: ti: k3-am62a: Set Critical Temp. to 105C
-Message-ID: <20250505131230.3ydwgftnqbbmrt5u@opulently>
-References: <20250502142606.2840508-1-d.schultz@phytec.de>
- <20250502142606.2840508-2-d.schultz@phytec.de>
- <20250502144934.t6hjiwp2f64ovb34@deeply>
- <9964aeaa-0169-4596-a33d-c56bdb6edae3@phytec.de>
+	Mon, 05 May 2025 13:15:27 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-7399838db7fso4443305b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 06:15:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1746450923; x=1747055723; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=y+wXhdSDx+zuoZH6nHSo9n5TKzFsocoVJt1FeJpCcH4=;
+        b=YRn9YNgVQYnTIunZobDytzLMCAloBeJ7qL9V3lY68Z8pUSMQci4ivXMfSWEZe/YN2j
+         85r3oQXvJujGTnvo76iHcR177h8GvYmZKddxWwCoNJe2IqWlKqnmGTVcYoG5+DxIlrRp
+         NBwPG3334jPq2SAuU1gbAkhGEriqY6VM1MzYT9HwWZF/z+S3eAq/JXeEKLvUgRFsgVDb
+         qfE4bEhErBt4HwaK4Y9pEnm2ucpXlIsAYof1R4elw6snKgmOQvXD4CynCMXTgkD6Czui
+         K7nW6KkuHyt5taLvwxXzMbnNAWCkhX/OHFOngQVDX/pwKK8VlTBsNsRXYt2zmV6Tng0v
+         dxEQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746450923; x=1747055723;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=y+wXhdSDx+zuoZH6nHSo9n5TKzFsocoVJt1FeJpCcH4=;
+        b=aa/vJHObdH3KeCdYQUe0c6eSk6a3Ug+MmhfDX0gH1tCMUfZIYpawQR9xmM/x7ENByT
+         SCZfsuTtI0QTfK+h91z7KyP5QkCZyC6pSE0bBW9Px64ou8nB3Ad/TQCeq6YcplAl+EUe
+         FXxOxQu1yz/QyFiX9O7xQiwXuUIzF1g8CLaS6l8Kn78JjK04OnBneAk4DBtnQr8DdXn5
+         loAQ6hNsINSgAhl4BByulE6THitwGkcMgiS3/j1pKhH+h1eGo/meqSzh9BJAsWgj+x6F
+         eagl9rwxAW81IgJcnhQT0PXUqrwU/Vsd3D6QLzqdaRWX0VZ22PS14pFehr846uEKzqLv
+         R56A==
+X-Forwarded-Encrypted: i=1; AJvYcCX42CocUW/y0ejnMsHqKFoihB9pNpAN/JxdQYZqrg7Q3RUkRPBxf7lNmPk5NojbxATzcZmZUaSyoqezpZqeW5Pd@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQx/YZ8h6Ezzgjkw7VSSAikzrjsLPfgpyiInE0kJSaSNMGJs6E
+	jN4D1UHySzQcSs9I29XYRma6wHTU7M0Lln9wVwkpRn0iMhTdxr57cwhztmF1NV8=
+X-Gm-Gg: ASbGncsfpn9EJJJICMeZb5Sw5vtZm3c+aDZz8fiZVMG+G/TINMae/G2xWqh0D5lQ0f6
+	lAa1j+QV+lUaTBw+otxWNZDfWsU8CkJ3fk08dy4iqOG4ypPO/JYveVjGvwGm0HAZHLssp1hu9gU
+	NzxrZYkNqXLm5MXTak1dFZVdk6ahezB+kqTnetw0VOxLwojAuYS7qHTwmi0UNHZ82GaBDCI9Yw0
+	/NNrbDzoVuDjuesuc3YTsVgfkTbRlPxhjSgRGMUpxlbZ3iOKFp2pqV0Lwv3AErsSGnI6CL4EYIo
+	h4QImjjpdJ427ECx9Lkijpsr92z+8iGYFeqbaIWq1me4ZwexrfaEGnDo66ut1DlCKlNS9vg5BsT
+	slXEt1NkBgYpY
+X-Google-Smtp-Source: AGHT+IGWr7oErzhQXzi3/npvL3HPlXx3q5Y4G/drXHId6r0SRlbJxSxCSrWFC6Hy+SgESOr57oqMaw==
+X-Received: by 2002:a05:6a00:3774:b0:732:56a7:a935 with SMTP id d2e1a72fcca58-74049265f69mr23753393b3a.12.1746450923390;
+        Mon, 05 May 2025 06:15:23 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:e50:3860:cc35:2777:db60:cc54? ([2a01:e0a:e50:3860:cc35:2777:db60:cc54])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74058dbbaa2sm6906018b3a.57.2025.05.05.06.15.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 05 May 2025 06:15:22 -0700 (PDT)
+Message-ID: <fa33b7d6-8e28-40bc-9219-41dab643e88f@baylibre.com>
+Date: Mon, 5 May 2025 15:15:16 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: Kconfig.platforms: remove useless select for
+ ARCH_K3
+To: Nishanth Menon <nm@ti.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Andrew Davis <afd@ti.com>, vishalm@ti.com, linux-omap@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250504-kconfig-v1-1-ab0216f4fa98@baylibre.com>
+ <20250505123615.yqzdv7dlel7kyojf@degrease>
+Content-Language: en-US, fr
+From: Guillaume La Roque <glaroque@baylibre.com>
+In-Reply-To: <20250505123615.yqzdv7dlel7kyojf@degrease>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <9964aeaa-0169-4596-a33d-c56bdb6edae3@phytec.de>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_061239_282766_FD98ADBE 
-X-CRM114-Status: GOOD (  20.32  )
+X-CRM114-CacheID: sfid-20250505_061525_153291_F0554C06 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,46 +103,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21:11-20250502, Daniel Schultz wrote:
-> 
-> On 5/2/25 16:49, Nishanth Menon wrote:
-> > On 07:26-20250502, Daniel Schultz wrote:
-> > > The AM62Ax SoC supports two temperature ranges:
-> > > * A: -40 to 105C - Extended Industrial
-> > > * I: -40 to 125C - Automotive
-> > > 
-> > > By default, use the lower limit (105 �C) so that any AM62A running
-> > > in Extended Industrial mode will shut down safely before overheating.
-> > > 
-> > > If the bootloader detects an Automotive-grade device, it should
-> > > override this and raise the critical trip point to 125 �C.
-> > > 
-> > > Signed-off-by: Daniel Schultz <d.schultz@phytec.de>
-> > > ---
-> > >   arch/arm64/boot/dts/ti/k3-am62a-thermal.dtsi | 6 +++---
-> > >   1 file changed, 3 insertions(+), 3 deletions(-)
-> > > 
-> > > diff --git a/arch/arm64/boot/dts/ti/k3-am62a-thermal.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-thermal.dtsi
-> > > index 39ff9118b6c4..40dcb9bab965 100644
-> > > --- a/arch/arm64/boot/dts/ti/k3-am62a-thermal.dtsi
-> > > +++ b/arch/arm64/boot/dts/ti/k3-am62a-thermal.dtsi
-> > Why not create a separate header for industrial grade and rename this as
-> > automotive grade and let the board file pick the right grade used on the
-> > board?
-> 
-> Mostly because I copied this from 10e7bfd8114c207ac and with the most recent
-> temperature fixups in U-Boot, we also have the missing bootloader logic.
-> 
-> I would also prefer an out-of-the-box solution for that.
+Hi,
 
-Personally, I am not in favor of depending on U-boot (there are other
-bootloaders as well in the ecosystem) monkeying with dt nodes.
-
-I suggest renaming the dtsi and introducing a industrial dtsi. And
-depending on the samples used by the board, use the correct dtsi.
-
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+Le 05/05/2025 à 14:36, Nishanth Menon a écrit :
+> On 13:24-20250504, Guillaume La Roque wrote:
+>> After patch done on TI_MESSAGE_MANAGER[1] and TI_SCI_PROTOCOL[2] driver
+>> select on ARCH_K3 are not needed anymore.
+>>
+>> Remove it and give possibility to enable this driver in modules.
+>>
+>> [1] https://lore.kernel.org/all/20180828005311.8529-1-nm@ti.com/
+>> [2] https://lore.kernel.org/all/20250220-ti-firmware-v2-1-ff26883c6ce9@baylibre.com/
+>>
+>> Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
+>> ---
+>>   arch/arm64/Kconfig.platforms | 2 --
+>>   1 file changed, 2 deletions(-)
+>>
+>> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+>> index 8b76821f190f..5b63a42c4dff 100644
+>> --- a/arch/arm64/Kconfig.platforms
+>> +++ b/arch/arm64/Kconfig.platforms
+>> @@ -138,8 +138,6 @@ config ARCH_K3
+>>   	select PM_GENERIC_DOMAINS if PM
+>>   	select MAILBOX
+>>   	select SOC_TI
+>> -	select TI_MESSAGE_MANAGER
+>> -	select TI_SCI_PROTOCOL
+>>   	select TI_K3_SOCINFO
+>>   	help
+>>   	  This enables support for Texas Instruments' K3 multicore SoC
+>>
+> While at this, is it possible to remove MAILBOX and PM_GENERIC_DOMAINS
+> from select and make them as modules?
+>
+good point i will confirm  and come back to you.
 
