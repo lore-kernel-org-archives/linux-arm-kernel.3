@@ -4,68 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCF1DC3ABB6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 01:43:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 542D9C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 01:45:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZCJHkSKvs9WkF0SCXF3/yTxme32TtLWPl/7JBYetjjQ=; b=vOy1LRBPOyoyRpBJBI/RBzsReR
-	9xU4mO4n8ZSAhTWyfZoVh+1GGPyZfsuP1B07N32uXRBbKfDQ+ht0MEL8HsFnO0of8UmTWP3mGNmk0
-	EhU3W1888ITBlzRiRHbGlOrZJqGpMYUEqWEUigR0GiHIdW6V2GRCbEfZIZWdzWn1DImKXB6vcTvq/
-	lXyFzdFEzMzXhbPKn1d0ymWMvnq+E9R5lhIVDEBya22ex1S8YiK7S+GviIaK87zvGBjlE3xXZQqtL
-	4E094Cog2r4pn2TEg9lamQWie5Z7PoAZtMYnj/Z1QWZHW5BJ4fLtei+z5F92dv9l9VBUo60IoKO9n
-	vUuDl9Hw==;
+	bh=M6G4/P189K/N62OtY9zMQYiuHCqzydWDP25xBBxbSXk=; b=38U0Qpe58F+HueFniyWXylQxjN
+	3Yn8vLOSoxlcGwu+WlNq48hjl7+466T1z9tdecTktIltgFUqg7opB4HUPDCRuRkAWS5Ed73BLgek7
+	zKkcOtfS9NHqGcUUGtuK3ra/8L1cx9SUSVHQWkMeO7kVQuXW/yuTIurjSF7pLBIa41K4wV2mb2fjo
+	5MtI9bOdAeBaMpclVPwEgva3KSCuuVmuN5OXfAIPT7GQX6nGkQN92VYObCPmiXz+4bmblP7nlgIuV
+	h5dBz2rO8twyZNDqF+AHZbrcofBBGYRVQvICxpWLpnCwnBDqo+t3vOAxTtGxhLEqtFqRW0XFfDxrD
+	HHbHX1Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC7LB-00000009Zk4-2RRi;
-	Tue, 06 May 2025 01:43:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uC7NA-00000009aFP-3vbp;
+	Tue, 06 May 2025 01:45:28 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4an-00000008rWV-2oeF
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 22:47:23 +0000
+	id 1uC4as-00000008rXi-0NEt;
+	Mon, 05 May 2025 22:47:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B49C44A254;
-	Mon,  5 May 2025 22:47:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E1CDC4CEED;
-	Mon,  5 May 2025 22:47:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A97BB629CC;
+	Mon,  5 May 2025 22:46:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2274CC4CEEF;
+	Mon,  5 May 2025 22:47:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746485241;
-	bh=1kVFBF5Km5WKizSO08Xy/7gQngJUmOZ7T0h0aO7IcfU=;
+	s=k20201202; t=1746485244;
+	bh=enAfUT/STELazeBDnsbKZdAHSgGQsc35imKgdRurVlg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=XwVPSBbrS5iHpSCgCBsWYBGWuOCDuV+WMKCO+RkG0fSXAn1Oi8yxAk29QdwlfcVW9
-	 bI1qfi876PJLfqLINrqaChkuBR2u5CgDeSF3UAmRItuJa5bzQX/PS8E5GFEHhGydCZ
-	 NCV0c5ZBmWM/h5dd56nI0+T78k7bcpCe96GzpIGCTqY7bYs8XE0uO4HifYpiYweMFf
-	 MMuIvB3sIHJKJbA8EyjgP+gUk2jj/Bfrg1Go9uypmFm8hGYFpkB5zw6ceNxCUD+LzJ
-	 t6vQ7K3AL0OCX+YpBPCTV2Ubm9YLw9X7MO53Lewa2bOAMSxgI+Zm4SSU2gulIirAc+
-	 wzwZKTSLKDzeg==
+	b=K9g/t7JBXv7foVm48xbOE1Jf76s4sjqXZXfWlk0+ZrtMTP1GSgZ7+qn/XpqD1NfZk
+	 LJ71MC69jjLGqHqrt7w9D0tjyNFrTGVe+AjPwFXKt7kE+xNIjQY6grFTOfQC8+llxl
+	 2xeMqyT42yQ7oHP0hx2WCRM5tqw1jwXv6q4wQBu1RpcR49eA/iBHKJCeG1KbZIFG1i
+	 ZkIpRh+U3wSygkIjZsB+c0/1wsEqey8GLvGuECkvOLnw8DV42r3pRMrS8Dt1kC4i5g
+	 FUW4dlh9IjKAMZd+dIEawfYySlh/hlcrlvJPwwuePhZ2LvNeNQ2ykn+UM5yiYsZQ7h
+	 6t2aNyTyCbkAg==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Hector Martin <marcan@marcan.st>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Sven Peter <sven@svenpeter.dev>,
+Cc: Stanimir Varbanov <svarbanov@suse.de>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Jim Quinlan <james.quinlan@broadcom.com>,
+	"Ivan T . Ivanov" <iivanov@suse.de>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	j@jannau.net,
-	asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.12 230/486] soc: apple: rtkit: Implement OSLog buffers properly
-Date: Mon,  5 May 2025 18:35:06 -0400
-Message-Id: <20250505223922.2682012-230-sashal@kernel.org>
+	jim2101024@gmail.com,
+	nsaenz@kernel.org,
+	lpieralisi@kernel.org,
+	kw@linux.com,
+	manivannan.sadhasivam@linaro.org,
+	bhelgaas@google.com,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pci@vger.kernel.org
+Subject: [PATCH AUTOSEL 6.12 232/486] PCI: brcmstb: Expand inbound window size up to 64GB
+Date: Mon,  5 May 2025 18:35:08 -0400
+Message-Id: <20250505223922.2682012-232-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505223922.2682012-1-sashal@kernel.org>
 References: <20250505223922.2682012-1-sashal@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.12.26
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_154721_742114_ED5A9396 
-X-CRM114-Status: GOOD (  15.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,154 +85,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hector Martin <marcan@marcan.st>
+From: Stanimir Varbanov <svarbanov@suse.de>
 
-[ Upstream commit a06398687065e0c334dc5fc4d2778b5b87292e43 ]
+[ Upstream commit 25a98c727015638baffcfa236e3f37b70cedcf87 ]
 
-Apparently nobody can figure out where the old logic came from, but it
-seems like it has never been actually used on any supported firmware to
-this day. OSLog buffers were apparently never requested.
+The BCM2712 memory map can support up to 64GB of system memory, thus
+expand the inbound window size in calculation helper function.
 
-But starting with 13.3, we actually need this implemented properly for
-MTP (and later AOP) to work, so let's actually do that.
+The change is safe for the currently supported SoCs that have smaller
+inbound window sizes.
 
-Signed-off-by: Hector Martin <marcan@marcan.st>
-Reviewed-by: Alyssa Rosenzweig <alyssa@rosenzweig.io>
-Link: https://lore.kernel.org/r/20250226-apple-soc-misc-v2-2-c3ec37f9021b@svenpeter.dev
-Signed-off-by: Sven Peter <sven@svenpeter.dev>
+Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+Reviewed-by: Jim Quinlan <james.quinlan@broadcom.com>
+Tested-by: Ivan T. Ivanov <iivanov@suse.de>
+Link: https://lore.kernel.org/r/20250224083559.47645-7-svarbanov@suse.de
+[kwilczynski: commit log]
+Signed-off-by: Krzysztof Wilczyński <kwilczynski@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/soc/apple/rtkit-internal.h |  1 +
- drivers/soc/apple/rtkit.c          | 56 ++++++++++++++++++------------
- 2 files changed, 35 insertions(+), 22 deletions(-)
+ drivers/pci/controller/pcie-brcmstb.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/soc/apple/rtkit-internal.h b/drivers/soc/apple/rtkit-internal.h
-index 27c9fa745fd52..b8d5244678f01 100644
---- a/drivers/soc/apple/rtkit-internal.h
-+++ b/drivers/soc/apple/rtkit-internal.h
-@@ -44,6 +44,7 @@ struct apple_rtkit {
- 
- 	struct apple_rtkit_shmem ioreport_buffer;
- 	struct apple_rtkit_shmem crashlog_buffer;
-+	struct apple_rtkit_shmem oslog_buffer;
- 
- 	struct apple_rtkit_shmem syslog_buffer;
- 	char *syslog_msg_buffer;
-diff --git a/drivers/soc/apple/rtkit.c b/drivers/soc/apple/rtkit.c
-index 00d59a81db88b..45ccbe2cbcd63 100644
---- a/drivers/soc/apple/rtkit.c
-+++ b/drivers/soc/apple/rtkit.c
-@@ -66,8 +66,9 @@ enum {
- #define APPLE_RTKIT_SYSLOG_MSG_SIZE  GENMASK_ULL(31, 24)
- 
- #define APPLE_RTKIT_OSLOG_TYPE GENMASK_ULL(63, 56)
--#define APPLE_RTKIT_OSLOG_INIT	1
--#define APPLE_RTKIT_OSLOG_ACK	3
-+#define APPLE_RTKIT_OSLOG_BUFFER_REQUEST 1
-+#define APPLE_RTKIT_OSLOG_SIZE GENMASK_ULL(55, 36)
-+#define APPLE_RTKIT_OSLOG_IOVA GENMASK_ULL(35, 0)
- 
- #define APPLE_RTKIT_MIN_SUPPORTED_VERSION 11
- #define APPLE_RTKIT_MAX_SUPPORTED_VERSION 12
-@@ -251,15 +252,21 @@ static int apple_rtkit_common_rx_get_buffer(struct apple_rtkit *rtk,
- 					    struct apple_rtkit_shmem *buffer,
- 					    u8 ep, u64 msg)
- {
--	size_t n_4kpages = FIELD_GET(APPLE_RTKIT_BUFFER_REQUEST_SIZE, msg);
- 	u64 reply;
- 	int err;
- 
-+	/* The different size vs. IOVA shifts look odd but are indeed correct this way */
-+	if (ep == APPLE_RTKIT_EP_OSLOG) {
-+		buffer->size = FIELD_GET(APPLE_RTKIT_OSLOG_SIZE, msg);
-+		buffer->iova = FIELD_GET(APPLE_RTKIT_OSLOG_IOVA, msg) << 12;
-+	} else {
-+		buffer->size = FIELD_GET(APPLE_RTKIT_BUFFER_REQUEST_SIZE, msg) << 12;
-+		buffer->iova = FIELD_GET(APPLE_RTKIT_BUFFER_REQUEST_IOVA, msg);
-+	}
-+
- 	buffer->buffer = NULL;
- 	buffer->iomem = NULL;
- 	buffer->is_mapped = false;
--	buffer->iova = FIELD_GET(APPLE_RTKIT_BUFFER_REQUEST_IOVA, msg);
--	buffer->size = n_4kpages << 12;
- 
- 	dev_dbg(rtk->dev, "RTKit: buffer request for 0x%zx bytes at %pad\n",
- 		buffer->size, &buffer->iova);
-@@ -284,11 +291,21 @@ static int apple_rtkit_common_rx_get_buffer(struct apple_rtkit *rtk,
- 	}
- 
- 	if (!buffer->is_mapped) {
--		reply = FIELD_PREP(APPLE_RTKIT_SYSLOG_TYPE,
--				   APPLE_RTKIT_BUFFER_REQUEST);
--		reply |= FIELD_PREP(APPLE_RTKIT_BUFFER_REQUEST_SIZE, n_4kpages);
--		reply |= FIELD_PREP(APPLE_RTKIT_BUFFER_REQUEST_IOVA,
--				    buffer->iova);
-+		/* oslog uses different fields and needs a shifted IOVA instead of size */
-+		if (ep == APPLE_RTKIT_EP_OSLOG) {
-+			reply = FIELD_PREP(APPLE_RTKIT_OSLOG_TYPE,
-+					   APPLE_RTKIT_OSLOG_BUFFER_REQUEST);
-+			reply |= FIELD_PREP(APPLE_RTKIT_OSLOG_SIZE, buffer->size);
-+			reply |= FIELD_PREP(APPLE_RTKIT_OSLOG_IOVA,
-+					    buffer->iova >> 12);
-+		} else {
-+			reply = FIELD_PREP(APPLE_RTKIT_SYSLOG_TYPE,
-+					   APPLE_RTKIT_BUFFER_REQUEST);
-+			reply |= FIELD_PREP(APPLE_RTKIT_BUFFER_REQUEST_SIZE,
-+					    buffer->size >> 12);
-+			reply |= FIELD_PREP(APPLE_RTKIT_BUFFER_REQUEST_IOVA,
-+					    buffer->iova);
-+		}
- 		apple_rtkit_send_message(rtk, ep, reply, NULL, false);
- 	}
- 
-@@ -482,25 +499,18 @@ static void apple_rtkit_syslog_rx(struct apple_rtkit *rtk, u64 msg)
- 	}
- }
- 
--static void apple_rtkit_oslog_rx_init(struct apple_rtkit *rtk, u64 msg)
--{
--	u64 ack;
--
--	dev_dbg(rtk->dev, "RTKit: oslog init: msg: 0x%llx\n", msg);
--	ack = FIELD_PREP(APPLE_RTKIT_OSLOG_TYPE, APPLE_RTKIT_OSLOG_ACK);
--	apple_rtkit_send_message(rtk, APPLE_RTKIT_EP_OSLOG, ack, NULL, false);
--}
--
- static void apple_rtkit_oslog_rx(struct apple_rtkit *rtk, u64 msg)
- {
- 	u8 type = FIELD_GET(APPLE_RTKIT_OSLOG_TYPE, msg);
- 
- 	switch (type) {
--	case APPLE_RTKIT_OSLOG_INIT:
--		apple_rtkit_oslog_rx_init(rtk, msg);
-+	case APPLE_RTKIT_OSLOG_BUFFER_REQUEST:
-+		apple_rtkit_common_rx_get_buffer(rtk, &rtk->oslog_buffer,
-+						 APPLE_RTKIT_EP_OSLOG, msg);
- 		break;
- 	default:
--		dev_warn(rtk->dev, "RTKit: Unknown oslog message: %llx\n", msg);
-+		dev_warn(rtk->dev, "RTKit: Unknown oslog message: %llx\n",
-+			 msg);
- 	}
- }
- 
-@@ -710,6 +720,7 @@ int apple_rtkit_reinit(struct apple_rtkit *rtk)
- 
- 	apple_rtkit_free_buffer(rtk, &rtk->ioreport_buffer);
- 	apple_rtkit_free_buffer(rtk, &rtk->crashlog_buffer);
-+	apple_rtkit_free_buffer(rtk, &rtk->oslog_buffer);
- 	apple_rtkit_free_buffer(rtk, &rtk->syslog_buffer);
- 
- 	kfree(rtk->syslog_msg_buffer);
-@@ -890,6 +901,7 @@ void apple_rtkit_free(struct apple_rtkit *rtk)
- 
- 	apple_rtkit_free_buffer(rtk, &rtk->ioreport_buffer);
- 	apple_rtkit_free_buffer(rtk, &rtk->crashlog_buffer);
-+	apple_rtkit_free_buffer(rtk, &rtk->oslog_buffer);
- 	apple_rtkit_free_buffer(rtk, &rtk->syslog_buffer);
- 
- 	kfree(rtk->syslog_msg_buffer);
+diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
+index 792d24cea5747..32ffb0c14c3ca 100644
+--- a/drivers/pci/controller/pcie-brcmstb.c
++++ b/drivers/pci/controller/pcie-brcmstb.c
+@@ -309,8 +309,8 @@ static int brcm_pcie_encode_ibar_size(u64 size)
+ 	if (log2_in >= 12 && log2_in <= 15)
+ 		/* Covers 4KB to 32KB (inclusive) */
+ 		return (log2_in - 12) + 0x1c;
+-	else if (log2_in >= 16 && log2_in <= 35)
+-		/* Covers 64KB to 32GB, (inclusive) */
++	else if (log2_in >= 16 && log2_in <= 36)
++		/* Covers 64KB to 64GB, (inclusive) */
+ 		return log2_in - 15;
+ 	/* Something is awry so disable */
+ 	return 0;
 -- 
 2.39.5
 
