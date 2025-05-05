@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0682FC3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 23:04:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A236DC3ABC0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 23:06:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d9jgJBsZvESTlfpwYJA5m690mJHYdlomkra6z8YGu9I=; b=QrC7GZvGn2NVeu/rm+gg+qGbsx
-	DE0bh77+0dtg5rkTHZ8mEphGJne3ntlvYOagwjwubGgEw8P7VsJ68s81rcAvPENa/mmwwQ5HN7BSr
-	MLbanL1Ik82o3Xg2O55v8Z7SyCaocG1H37/VlghuRZyM3kXd2RqN95iwAAzdU1toZhRVyhDyp3KNF
-	v8sgszYTtO8gohRciqBbTnEvExshPsS6CWDIKVaOL82YFNNwTvBi1XTARtj+DunlFKb/FxakOmabi
-	N4ZuxJQDCTlO6I1lbQ0TIiHXVrfNbmmmLucvenyPLJ9YR5rIu4AwkB/5+P3ZMhu+6/ns+jYdKnK5Y
-	xN5ChBaA==;
+	bh=1OMDkTGh+JlpV10E88Mzeuni0wmWwcanP+qS80xGfzY=; b=rUlujdI1gcZ+aUFQvCyhrDZQQN
+	NoybkDG+ypwEAEb4IPIv2CnJky+RwyvhEojFWJ9ClJKQkIoVrXw5q6qL7uxikRAJ1wqLXo/ZXQ9K5
+	bUBrG163xAM5vLoh2cJ24cq2dHKRy5GWJwyHThxExDNj21bsQ6E0YeIrnX9pi8jrUUyaSMvZjexxy
+	n6dfM158ORy7a8CyHCUetVN4/5R1HYw3hp9wUi6HodGNPiwOZyYH+sbyWjnL+yZYKab410GibynI7
+	71a74T8RevE7hwAqXD7ndjpYONT9Be9++PUAoatlcqB73QHRzvJCWzV0VJcMS31xeK8W3v9Xxc9mc
+	04Bx8RjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4r6-00000008wcA-3bMF;
-	Mon, 05 May 2025 23:04:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uC4t4-00000008xG3-2kce;
+	Mon, 05 May 2025 23:06:14 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4BV-00000008jGZ-0Wrt
+	id 1uC4BY-00000008jHj-0C4n
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 22:21:14 +0000
+	Mon, 05 May 2025 22:21:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 14BE54367B;
-	Mon,  5 May 2025 22:21:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26866C4CEE4;
-	Mon,  5 May 2025 22:21:11 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 53FF05C464A;
+	Mon,  5 May 2025 22:18:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2BE1C4CEED;
+	Mon,  5 May 2025 22:21:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746483672;
-	bh=siqNuZOnYr/OxqzZlTEEU7LPtOKhtSzbt8IEGSo8F0w=;
+	s=k20201202; t=1746483675;
+	bh=nMybSd9P73GOU9SQXR+ME8+KbTqZTewh6IKdLOvEF6I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pO1QNXlWiSFQ2FTxtxrKWiPjoqHvLGZ2GoUk4n2b5uhvU5BRbNWhUlqfak6WfRO9o
-	 FVKtBitE8u/CxQp2POtr6FulUqOiZXrXT+pJ30aRwEPm8KkJqhX3A3/4K68irRVSDP
-	 mF58zDV1Pc7isuAhIbv3SjYgqav1mDnVbnl0OBjYMKIxWFKUElZxPhTC3RmwA2agPe
-	 d6Y/0Dc+kA8FEFcGjdS7luydSGPqiyvruRIOKz6Wmye/J038GlJoL8qJOrsvHqzeCn
-	 aV/7Ly8/ACY++18BVg2RiLkEWwO16yky477kEbucqj67+Xn6BByOsZtmYDnjgG4RVZ
-	 L6sLnsYIAlhUQ==
+	b=rtoejkVaXOexgdrfxpiY0JRz6WtwRDYcneYKa88LaYu1u6y4/PkFJmDp2E5S3OLJ7
+	 n5K+dHm5Gps5TVeBwJnlch8/S2MT3pSQqLIUXk1x5MLBEONpFc1D58Ub2obWjvmrRD
+	 tDORZIuSxJmtKPpozWAQA8vpAdxKpj5Q8xUJqrVl/Q+qw6fLUM1kj1wMpfjBIvMh2G
+	 +XwlceUK1PfSP5A7MBjiERa8MfwZNur2tn6zYI8UuF2YmEmIq4LhgoMdNGcyDsSUuh
+	 y6W2+v+Bd9Didd/PTiXwEjPQkalKvrLY0BDsf/5wwifXCSyczMg2GSY5yHmrjjriTc
+	 SnXMVAr9wN8Ig==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -53,13 +53,14 @@ Cc: Ryan Roberts <ryan.roberts@arm.com>,
 	Anshuman Khandual <anshuman.khandual@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Sasha Levin <sashal@kernel.org>,
-	joey.gouly@arm.com,
+	akpm@linux-foundation.org,
 	peterx@redhat.com,
+	joey.gouly@arm.com,
 	yangyicong@hisilicon.com,
 	ioworker0@gmail.com
-Subject: [PATCH AUTOSEL 6.14 172/642] arm64/mm: Check pmd_table() in pmd_trans_huge()
-Date: Mon,  5 May 2025 18:06:28 -0400
-Message-Id: <20250505221419.2672473-172-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.14 173/642] arm64/mm: Check PUD_TYPE_TABLE in pud_bad()
+Date: Mon,  5 May 2025 18:06:29 -0400
+Message-Id: <20250505221419.2672473-173-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505221419.2672473-1-sashal@kernel.org>
 References: <20250505221419.2672473-1-sashal@kernel.org>
@@ -69,8 +70,8 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.14.5
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_152113_203877_A48DFEA1 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20250505_152116_133334_8A1EC645 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,11 +88,15 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ryan Roberts <ryan.roberts@arm.com>
 
-[ Upstream commit d1770e909898c108e8c7d30ca039053e8818a9c9 ]
+[ Upstream commit bfb1d2b9021c21891427acc86eb848ccedeb274e ]
 
-Check for pmd_table() in pmd_trans_huge() rather then just checking for the
-PMD_TABLE_BIT. But ensure all present-invalid entries are handled correctly
-by always setting PTE_VALID before checking with pmd_table().
+pud_bad() is currently defined in terms of pud_table(). Although for some
+configs, pud_table() is hard-coded to true i.e. when using 64K base pages
+or when page table levels are less than 3.
+
+pud_bad() is intended to check that the pud is configured correctly. Hence
+let's open-code the same check that the full version of pud_table() uses
+into pud_bad(). Then it always performs the check regardless of the config.
 
 Cc: Will Deacon <will@kernel.org>
 Cc: Ard Biesheuvel <ardb@kernel.org>
@@ -101,55 +106,27 @@ Cc: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org
 Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-Link: https://lore.kernel.org/r/20250221044227.1145393-8-anshuman.khandual@arm.com
+Link: https://lore.kernel.org/r/20250221044227.1145393-7-anshuman.khandual@arm.com
 Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- arch/arm64/include/asm/pgtable.h | 24 ++++++++++++------------
- 1 file changed, 12 insertions(+), 12 deletions(-)
+ arch/arm64/include/asm/pgtable.h | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index 0b2a2ad1b9e83..abf990ce175b1 100644
+index abf990ce175b1..665f90443f9e8 100644
 --- a/arch/arm64/include/asm/pgtable.h
 +++ b/arch/arm64/include/asm/pgtable.h
-@@ -548,18 +548,6 @@ static inline int pmd_protnone(pmd_t pmd)
- #endif
+@@ -805,7 +805,8 @@ static inline unsigned long pmd_page_vaddr(pmd_t pmd)
+ 	pr_err("%s:%d: bad pmd %016llx.\n", __FILE__, __LINE__, pmd_val(e))
  
- #define pmd_present(pmd)	pte_present(pmd_pte(pmd))
--
--/*
-- * THP definitions.
-- */
--
--#ifdef CONFIG_TRANSPARENT_HUGEPAGE
--static inline int pmd_trans_huge(pmd_t pmd)
--{
--	return pmd_val(pmd) && pmd_present(pmd) && !(pmd_val(pmd) & PMD_TABLE_BIT);
--}
--#endif /* CONFIG_TRANSPARENT_HUGEPAGE */
--
- #define pmd_dirty(pmd)		pte_dirty(pmd_pte(pmd))
- #define pmd_young(pmd)		pte_young(pmd_pte(pmd))
- #define pmd_valid(pmd)		pte_valid(pmd_pte(pmd))
-@@ -724,6 +712,18 @@ extern pgprot_t phys_mem_access_prot(struct file *file, unsigned long pfn,
- #define pmd_leaf_size(pmd)	(pmd_cont(pmd) ? CONT_PMD_SIZE : PMD_SIZE)
- #define pte_leaf_size(pte)	(pte_cont(pte) ? CONT_PTE_SIZE : PAGE_SIZE)
- 
-+#ifdef CONFIG_TRANSPARENT_HUGEPAGE
-+static inline int pmd_trans_huge(pmd_t pmd)
-+{
-+	/*
-+	 * If pmd is present-invalid, pmd_table() won't detect it
-+	 * as a table, so force the valid bit for the comparison.
-+	 */
-+	return pmd_val(pmd) && pmd_present(pmd) &&
-+	       !pmd_table(__pmd(pmd_val(pmd) | PTE_VALID));
-+}
-+#endif /* CONFIG_TRANSPARENT_HUGEPAGE */
-+
- #if defined(CONFIG_ARM64_64K_PAGES) || CONFIG_PGTABLE_LEVELS < 3
- static inline bool pud_sect(pud_t pud) { return false; }
- static inline bool pud_table(pud_t pud) { return true; }
+ #define pud_none(pud)		(!pud_val(pud))
+-#define pud_bad(pud)		(!pud_table(pud))
++#define pud_bad(pud)		((pud_val(pud) & PUD_TYPE_MASK) != \
++				 PUD_TYPE_TABLE)
+ #define pud_present(pud)	pte_present(pud_pte(pud))
+ #ifndef __PAGETABLE_PMD_FOLDED
+ #define pud_leaf(pud)		(pud_present(pud) && !pud_table(pud))
 -- 
 2.39.5
 
