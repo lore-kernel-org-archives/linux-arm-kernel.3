@@ -4,69 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93992C3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 04:09:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 987A2C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 04:11:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hreABS4yBfCC7+5bh2avmFHQCqO0LIR8soO0wntiKLc=; b=hRi1OKy1z+fgfoRbZTO53Mr03v
-	lA6yjBdqW+qxc1PrsT387evqyDaIa+rekmAa/zwFat8HsvBGiGm3/w8o/wdG/qm7oqQIJbN/ilLpP
-	BcpitenDbrGG3cD86RQcoaZC30VvdZxs+/BX2WsVRkUcC6uYyf5kTY7tqlbGwoT1ztmNzDPiMvDJu
-	fCSX6wnVrqZHN+rYcO5WIcVNduXmwmALcFOTkpVKRPoSI6CA1C7x/nEZ9yIhFqBwIPiAkVe9FFcuM
-	szLlN/5lbaDfdxaBt/CjEnimp0lgLohjxQi9ppTd5uIOg+fVMcTianm+04pUXruIdhaBVcdGOtW1m
-	6Ib6MM/g==;
+	bh=VEX0L9AIvrS0ssBiflNniKD+Dy6P57OXgqKvQJA4tkg=; b=M/vZMHPXA5rjU8aL5KEYDw8RRG
+	UkI8yyhBLNOkR5fhjQOA03cQQoAJyDFqGPq9h4AO2upF5ijpJwBYCDWBu7yimFyRHf6Lajq14D5br
+	c87lEO3oK1LtcHWXXp1MVW0UfaDqMZ/KusA8/77cc5remKsm76pozYRFJPZAl5tfXG5koiiBZZLao
+	LZpudRMJiKmip4eh53HJ8PZzg/vsON1eyJza9ahc2snxHmfW4C0+8Ho4ZETDkN7Lcemci5hwmYTN+
+	/F1kFfxFBy4ZckP7iOhzVFf7DE3DJOgmob0SCH11Z3sk8PsObRHoLMxTICSR5jUvLoF8QuHIAP+MD
+	A8KV35bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC9cY-0000000A95k-2RBv;
-	Tue, 06 May 2025 04:09:30 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1uC9eY-0000000A9Xz-1B7g;
+	Tue, 06 May 2025 04:11:34 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4zd-00000008z8e-1KTI
+	id 1uC4zn-00000008zD1-3Rcr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 23:13:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1746486779;
- bh=hreABS4yBfCC7+5bh2avmFHQCqO0LIR8soO0wntiKLc=;
- b=eknjcBrCMTWh2x/GwZ5l/CkINt0qbr33EoJIu0yXjApGR9hNoJbFJYMzNwP6X2bld8kmEys0p
- mtm0WzTYo9DfalAgkMyUsZYAIdPcYMEZKiUhm9E6kgVO02DC9DV2HOdYoeSau09T8edT8OdJJkx
- AUfKmimZAPBcvdz9eTZMhKjAekjjsJbjhY0s6dSYTMznhu0Yh01pkqQqZmBvBZkKgrySKTQ56Vo
- 4+I1Omr3ljia7QsAzmYFlwCVJm5z+U2zai0GlxpiTPNVX1A+wN8ddtfD5uFcuSnyF3G6OhbwGzY
- x93Zdhw36+GGDyElSxVIDTfBtsxP70Ys5d6yA+ky2qsw==
-X-Forward-Email-ID: 681945fa46c37f8647c22e46
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 1.0.2
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <621e33ff-f43f-48cc-a316-aa3e19d513d8@kwiboo.se>
-Date: Tue, 6 May 2025 01:12:54 +0200
+	Mon, 05 May 2025 23:13:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9E901439D2;
+	Mon,  5 May 2025 23:13:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F82BC4CEEF;
+	Mon,  5 May 2025 23:13:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746486791;
+	bh=YPrXTFG2lpUg6wiT2rhW35aIaDIxdm64SvVqNrB7gVs=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=lJYzoq0wiLpYppgTzKuMZ++5i+Qc7bY62tDIsLUqhjlBLBRs/QOrS7XcE5N9Q1mcM
+	 /lCEijdFBXhyyAu5SQ8msFFj3bBFVWPeq79GNSt+TdMBFanMAk5jcrnHq5SRWiI+Ne
+	 kSLftAw2v8WzXkyk2oo0BB0s16mHsYOtRrE700h8JiRzV6aTjxN/2E2Prb0No3lr42
+	 osGkgCfXF5ce0voXTqoWBGC/VuE6hrltoTYvleSspTQ753QrLtD3dq+RKwmseoXRIx
+	 vLXlI72hEE1g9iHuw1do0rmDFeR/3D/w1+/4bRpP1fwVmg7LJ4InFI1GgLMIVO12Ql
+	 2eZF8uUPp6/Jg==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Sean Anderson <sean.anderson@linux.dev>,
+	Mark Brown <broonie@kernel.org>,
+	Sasha Levin <sashal@kernel.org>,
+	michal.simek@amd.com,
+	linux-spi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.1 207/212] spi: zynqmp-gqspi: Always acknowledge interrupts
+Date: Mon,  5 May 2025 19:06:19 -0400
+Message-Id: <20250505230624.2692522-207-sashal@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250505230624.2692522-1-sashal@kernel.org>
+References: <20250505230624.2692522-1-sashal@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/2] arm64: dts: rockchip: Enable regulators for Radxa
- E20C
-To: Chukun Pan <amadeus@jmu.edu.cn>, Heiko Stuebner <heiko@sntech.de>
-Cc: Yao Zi <ziyao@disroot.org>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org
-References: <20250401120020.976343-1-amadeus@jmu.edu.cn>
- <20250401120020.976343-3-amadeus@jmu.edu.cn>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20250401120020.976343-3-amadeus@jmu.edu.cn>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.1.136
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_161301_444201_0A72ACE5 
-X-CRM114-Status: GOOD (  13.34  )
+X-CRM114-CacheID: sfid-20250505_161311_910436_644E5030 
+X-CRM114-Status: GOOD (  15.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,150 +79,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-04-01 14:00, Chukun Pan wrote:
-> Enable pwm and fixed regulators for Radxa E20C. The pwm regulator is
-> used to power the CPU and GPU. Note that the LPDDR4 voltage is 1.1V.
-> 
-> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+From: Sean Anderson <sean.anderson@linux.dev>
 
-This seem to match the schematics of the E20C and the regulators work on
-my E20C:
+[ Upstream commit 89785306453ce6d949e783f6936821a0b7649ee2 ]
 
-   regulator                      use open bypass  opmode voltage current     min     max
-  ---------------------------------------------------------------------------------------
-   regulator-dummy                  1    0      0 unknown     0mV     0mA     0mV     0mV
-   vcc5v0_sys                       7    6      0 unknown  5000mV     0mA  5000mV  5000mV
-      vdd_0v9                       1    0      0 unknown   900mV     0mA   900mV   900mV
-      vcc_ddr                       1    0      0 unknown  1100mV     0mA  1100mV  1100mV
-      vcc_3v3                       5    5      0 unknown  3300mV     0mA  3300mV  3300mV
-         ffbf0000.mmc-vmmc          1                                 0mA  3300mV  3400mV
-         ffc30000.mmc-vmmc          1                                 0mA  3300mV  3400mV
-         1-0050-vcc                 0                                 0mA     0mV     0mV
-         ffbe0000.ethernet-phy      1                                 0mA     0mV     0mV
-         vcc_1v8                    3    2      0 unknown  1800mV     0mA  1800mV  1800mV
-            ffbf0000.mmc-vqmmc      1                                 0mA     0mV     0mV
-            ffae0000.adc-vref       1                                 0mA     0mV     0mV
-      vccio_sd                      2    1      0 unknown  1800mV     0mA  1800mV  3300mV
-         ffc30000.mmc-vqmmc         1                                 0mA  1800mV  1950mV
-      vdd_arm                       1    0      0 unknown  1201mV     0mA   746mV  1201mV
-      vdd_logic                     1    0      0 unknown  1006mV     0mA   705mV  1006mV
+RXEMPTY can cause an IRQ, even though we may not do anything about it
+(such as if we are waiting for more received data). We must still handle
+these IRQs because we can tell they were caused by the device.
 
-Without any opp table or the pwm-regulators not being initialized in
-U-Boot they seem to default to max voltage, should be fine so this is:
+Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
+Link: https://patch.msgid.link/20250116224130.2684544-6-sean.anderson@linux.dev
+Signed-off-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ drivers/spi/spi-zynqmp-gqspi.c | 20 ++++++++------------
+ 1 file changed, 8 insertions(+), 12 deletions(-)
 
-Reviewed-by: Jonas Karlman <jonas@kwiboo.se>
-
-Regards,
-Jonas
-
-> ---
->  .../boot/dts/rockchip/rk3528-radxa-e20c.dts   | 73 +++++++++++++++++++
->  1 file changed, 73 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
-> index 57a446b5cbd6..14770bd63ae7 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
-> @@ -9,6 +9,7 @@
->  
->  #include <dt-bindings/input/input.h>
->  #include <dt-bindings/leds/common.h>
-> +#include <dt-bindings/pwm/pwm.h>
->  #include "rk3528.dtsi"
->  
->  / {
-> @@ -80,6 +81,26 @@ led-wan {
->  		};
->  	};
->  
-> +	vdd_0v9: regulator-0v9-vdd {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vdd_0v9";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-min-microvolt = <900000>;
-> +		regulator-max-microvolt = <900000>;
-> +		vin-supply = <&vcc5v0_sys>;
-> +	};
-> +
-> +	vcc_ddr: regulator-1v1-vcc-ddr {
-> +		compatible = "regulator-fixed";
-> +		regulator-name = "vcc_ddr";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-min-microvolt = <1100000>;
-> +		regulator-max-microvolt = <1100000>;
-> +		vin-supply = <&vcc5v0_sys>;
-> +	};
-> +
->  	vcc_1v8: regulator-1v8-vcc {
->  		compatible = "regulator-fixed";
->  		regulator-name = "vcc_1v8";
-> @@ -108,6 +129,46 @@ vcc5v0_sys: regulator-5v0-vcc-sys {
->  		regulator-min-microvolt = <5000000>;
->  		regulator-max-microvolt = <5000000>;
->  	};
-> +
-> +	vdd_arm: regulator-vdd-arm {
-> +		compatible = "pwm-regulator";
-> +		pwms = <&pwm1 0 5000 PWM_POLARITY_INVERTED>;
-> +		pwm-supply = <&vcc5v0_sys>;
-> +		regulator-name = "vdd_arm";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-min-microvolt = <746000>;
-> +		regulator-max-microvolt = <1201000>;
-> +		regulator-settling-time-up-us = <250>;
-> +	};
-> +
-> +	vdd_logic: regulator-vdd-logic {
-> +		compatible = "pwm-regulator";
-> +		pwms = <&pwm2 0 5000 PWM_POLARITY_INVERTED>;
-> +		pwm-supply = <&vcc5v0_sys>;
-> +		regulator-name = "vdd_logic";
-> +		regulator-always-on;
-> +		regulator-boot-on;
-> +		regulator-min-microvolt = <705000>;
-> +		regulator-max-microvolt = <1006000>;
-> +		regulator-settling-time-up-us = <250>;
-> +	};
-> +};
-> +
-> +&cpu0 {
-> +	cpu-supply = <&vdd_arm>;
-> +};
-> +
-> +&cpu1 {
-> +	cpu-supply = <&vdd_arm>;
-> +};
-> +
-> +&cpu2 {
-> +	cpu-supply = <&vdd_arm>;
-> +};
-> +
-> +&cpu3 {
-> +	cpu-supply = <&vdd_arm>;
->  };
->  
->  &pinctrl {
-> @@ -132,6 +193,18 @@ wan_led_g: wan-led-g {
->  	};
->  };
->  
-> +&pwm1 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pwm1m0_pins>;
-> +	status = "okay";
-> +};
-> +
-> +&pwm2 {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pwm2m0_pins>;
-> +	status = "okay";
-> +};
-> +
->  &saradc {
->  	vref-supply = <&vcc_1v8>;
->  	status = "okay";
+diff --git a/drivers/spi/spi-zynqmp-gqspi.c b/drivers/spi/spi-zynqmp-gqspi.c
+index c89544ae5ed91..fde7c38103596 100644
+--- a/drivers/spi/spi-zynqmp-gqspi.c
++++ b/drivers/spi/spi-zynqmp-gqspi.c
+@@ -698,7 +698,6 @@ static void zynqmp_process_dma_irq(struct zynqmp_qspi *xqspi)
+ static irqreturn_t zynqmp_qspi_irq(int irq, void *dev_id)
+ {
+ 	struct zynqmp_qspi *xqspi = (struct zynqmp_qspi *)dev_id;
+-	irqreturn_t ret = IRQ_NONE;
+ 	u32 status, mask, dma_status = 0;
+ 
+ 	status = zynqmp_gqspi_read(xqspi, GQSPI_ISR_OFST);
+@@ -713,27 +712,24 @@ static irqreturn_t zynqmp_qspi_irq(int irq, void *dev_id)
+ 				   dma_status);
+ 	}
+ 
+-	if (mask & GQSPI_ISR_TXNOT_FULL_MASK) {
++	if (!mask && !dma_status)
++		return IRQ_NONE;
++
++	if (mask & GQSPI_ISR_TXNOT_FULL_MASK)
+ 		zynqmp_qspi_filltxfifo(xqspi, GQSPI_TX_FIFO_FILL);
+-		ret = IRQ_HANDLED;
+-	}
+ 
+-	if (dma_status & GQSPI_QSPIDMA_DST_I_STS_DONE_MASK) {
++	if (dma_status & GQSPI_QSPIDMA_DST_I_STS_DONE_MASK)
+ 		zynqmp_process_dma_irq(xqspi);
+-		ret = IRQ_HANDLED;
+-	} else if (!(mask & GQSPI_IER_RXEMPTY_MASK) &&
+-			(mask & GQSPI_IER_GENFIFOEMPTY_MASK)) {
++	else if (!(mask & GQSPI_IER_RXEMPTY_MASK) &&
++			(mask & GQSPI_IER_GENFIFOEMPTY_MASK))
+ 		zynqmp_qspi_readrxfifo(xqspi, GQSPI_RX_FIFO_FILL);
+-		ret = IRQ_HANDLED;
+-	}
+ 
+ 	if (xqspi->bytes_to_receive == 0 && xqspi->bytes_to_transfer == 0 &&
+ 	    ((status & GQSPI_IRQ_MASK) == GQSPI_IRQ_MASK)) {
+ 		zynqmp_gqspi_write(xqspi, GQSPI_IDR_OFST, GQSPI_ISR_IDR_MASK);
+ 		complete(&xqspi->data_completion);
+-		ret = IRQ_HANDLED;
+ 	}
+-	return ret;
++	return IRQ_HANDLED;
+ }
+ 
+ /**
+-- 
+2.39.5
 
 
