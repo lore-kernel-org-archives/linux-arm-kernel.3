@@ -4,65 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A4E9C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 17:25:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCBC8C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 17:27:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=h84VH0lnrjAiEXqcjuAM3UIyMpIBbTLvejxTYcMFbYo=; b=cSy2OalRLQ14Sx4W6tMccE7arP
-	+ZurXpxb2mADEDZUBlPm/4yOlRPhNd0x+FqjCp6UpHD65oIFambn8SNIVJvqsRZDWftwGLeTevHQa
-	iaNjaSTnqshHbPauEfYY/vUHMhl2+PyGvz/SiTj7SwOvcIv4jgC6GEfFz6qi9fxuYqaNIPrJysaJq
-	XNhzLQLZjBgT1MXiL4aZ5qKWHArbIUA7xeOIM/Menl8BrSqFx39F8Ce4UPGi/MW9O7xxBOopBGlTv
-	5rgnyQU39mdZeGaGOM1jMr1dH/reQYmnpooK+AKiaZAHt0uHtpn6P0aeVO6GnEPt+bG825e8Tk0aS
-	3A9RyOKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oeTZHRXMBCLGTV32EXeNw/lBCJIEsbnPO23PBvcLozU=; b=IYoT/slX1WHBSSFiIFRHKUloVo
+	iG/D/rfNMcIz4iGGlQMOjAvAu6GSD5YFcHLLL7AV6+BntCbU+3CpcPLF2PQG+ppq6lfU92d7byNlb
+	dzKNMPh2+iOBQd8zTLBKPEqU5FpVuTomNWdbUyOjbqM3yF/e/ICseDs3OUkUBCaJwUSwPFUdeqcMO
+	wBd6hkjYRv7AauqBIUMwnS4pw/HkQOeqeRAYzjkCIo8tVk4aS7iZ92106B6dwlEqXcjiK3AZY7q18
+	Th+V7T+lRc6FAhwzcqAIBK2evbXJLFqZhyntsjiodpLaS2pp6RHDzOH7Tzdxdsxj8j0YBn28gwSph
+	81zHyfMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBzZD-000000088Xi-158e;
-	Mon, 05 May 2025 17:25:23 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.144.207])
+	id 1uBzbA-000000088xJ-3O0t;
+	Mon, 05 May 2025 17:27:24 +0000
+Received: from mail-dm6nam04on20603.outbound.protection.outlook.com ([2a01:111:f403:2409::603] helo=NAM04-DM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBz9O-000000084jb-3sTq
+	id 1uBzIg-000000086RM-00WK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 16:58:44 +0000
-Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 38806C0005C3;
-	Mon,  5 May 2025 09:58:42 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 38806C0005C3
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1746464322;
-	bh=VR/e5N/N0mAjQT36mtOi1fbFG72D0Pi7WWTtR1xdj24=;
-	h=From:To:Cc:Subject:Date:From;
-	b=IfVFu6PTJyocwWziFhE34742gK6Gil++QXKFqrSHNAVfnwTRkjegs30MwLXuaTQkB
-	 EN12U6MsPksytF2mp6Ziyp6roOAvMaBlhKFBzlFq2q5U5jQ49bibZERSkKmC5YbZFg
-	 O5KjRpEoqPyZnEMVt3wSYwFf4U5Pr3LjKAtkBZ5A=
-Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id D521B18000847;
-	Mon,  5 May 2025 09:58:11 -0700 (PDT)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: soc@kernel.org
-Cc: Stefan Wahren <wahrenst@gmx.net>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Rob Herring <robh@kernel.org>,
-	Artur Weber <aweber.kernel@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	arnd@arndb.de,
-	khilman@kernel.org,
-	bcm-kernel-feedback-list@broadcom.com
-Subject: [GIT PULL 1/3] Broadcom devicetree changes for 6.16
-Date: Mon,  5 May 2025 09:58:08 -0700
-Message-ID: <20250505165810.1948927-1-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.43.0
+	Mon, 05 May 2025 17:08:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KAXn1Mng0pD61UgJImhD6x97R1voRJGFfeGnG63smK6SmY4CZa/SkdXvv6eOZX8egXNyTzm5OEqlrND9Zq+UB1g06psGPLE49CYpqNMvcwExno+pQvMB4jMlcXnCft70rtXHZmjxTq4FsThCQJiQ5SrqG68tip81urCtZ6aVRDlYeT65YIAtsmVw01HzB0wT7jZyqddm924cjwl8ZOMahyyJULrLTqs4V/uWVXbNMctWNIA9a9lMq3iLSvCp7AF9InkgXxDLqZ2iMUM2PS4yInR5nO+MxIqchrf3M4lw/PBiY+xNt++7KSFHb4Kdmg07LUjgSAc1tMiBmSTCqzz3Qg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=oeTZHRXMBCLGTV32EXeNw/lBCJIEsbnPO23PBvcLozU=;
+ b=lEnSwZRwDKgwD/mKAoDqRSdB0/Cbog/+cDT+K2ZMHEMOnbvMPubxm5Wz2LCwpA4v+G4T5zuDKCMsWfhCZWeK6zef14J1SodF7I3py7IPjZeOwVs+32L4u/rNYBNGr6DieRAYXY/JMN/ZeSrGD/6CMgUu6kUFsQwzpwtBDL7dASlz9N9NRheutRqp0QsFrQdrmcQsu0194bNoTCKm8LreNkwqHjSDKuG5RZtWBCOXwC2HtyEsfEz75Ndi4Bh2kxWZjNXg9etnmym0lFFJ1YyE3z+QAJG8FZaok5yAlLPyAKZCzHe4+ORRgKFQj/FPA0uxvj9zeQSp3up0GPvZ/JMkhA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=oeTZHRXMBCLGTV32EXeNw/lBCJIEsbnPO23PBvcLozU=;
+ b=Jbx7q6/t7bKovx098xxappXjblGeC81CTymtA9/NaZEewuF0leW3ldav3TvpESagRytGnGahCOUYJpfJd+mytoWGPfR9f/CQWhgi9Z4wsy6tFbkpRMNug14945zBlNYUPppFYNyHganwmTOhC40iIBkgcNjNqFLFVhtww2juVo3j44C1f1TGEE+n3/lVzZgQKbfm6yKTyFyNy1rYHvLXWqDbt/RoknOWO3YBI84EQ13WmvOTuvYrR7RMTYmk84afVu9b0lt1xqSNvwcgFJaDaDCysUClXbwlnIuTaXqYmAUZyQPzPgAazPn3c6tkEXW+Iw1vNC/7Xfonm7302vymHw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by MN0PR12MB6246.namprd12.prod.outlook.com (2603:10b6:208:3c2::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.26; Mon, 5 May
+ 2025 17:08:11 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8699.026; Mon, 5 May 2025
+ 17:08:10 +0000
+Date: Mon, 5 May 2025 14:08:07 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: Alexey Kardashevskiy <aik@amd.com>, kevin.tian@intel.com,
+	will@kernel.org, joro@8bytes.org, suravee.suthikulpanit@amd.com,
+	robin.murphy@arm.com, dwmw2@infradead.org, baolu.lu@linux.intel.com,
+	shuah@kernel.org, linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org, eric.auger@redhat.com,
+	jean-philippe@linaro.org, mdf@kernel.org, mshavit@google.com,
+	shameerali.kolothum.thodi@huawei.com, smostafa@google.com,
+	yi.l.liu@intel.com
+Subject: Re: [PATCH v2 06/19] iommufd/viommu: Add
+ IOMMU_VIOMMU_SET/UNSET_VDEV_ID ioctl
+Message-ID: <20250505170807.GP2260709@nvidia.com>
+References: <cover.1724776335.git.nicolinc@nvidia.com>
+ <6348cc7a72ce9f2ac0e9caf9737e70177a01eb74.1724776335.git.nicolinc@nvidia.com>
+ <35701c5e-030a-4f52-b6f6-ed18368fb2cd@amd.com>
+ <20241004114147.GF1365916@nvidia.com>
+ <95ab62fa-bb1c-4e4a-a210-b0bdba0d4ad2@amd.com>
+ <aBHYN39FcH+NG5Ab@Asurada-Nvidia>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aBHYN39FcH+NG5Ab@Asurada-Nvidia>
+X-ClientProxiedBy: BL1PR13CA0204.namprd13.prod.outlook.com
+ (2603:10b6:208:2be::29) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|MN0PR12MB6246:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0b867192-3905-4517-5d49-08dd8bf769be
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?KBqZ49QBTJl2XQMLDDR/0OM87m7ZH13oSdZYCTFrLDrZreTW9P4Q4Ds9GfSt?=
+ =?us-ascii?Q?yH+HXtV40nP3/fXIlYFHlKyT4JXUT9EQwXVaICcmlASpN1RfavpMLy1HANYo?=
+ =?us-ascii?Q?35zjAEpaXXiG7csTrJZU+fv22ldBX1lLfjG7mJQ3ZBifrTpyx5GlmTy/hkZ2?=
+ =?us-ascii?Q?bkd+xJk/j1Rer25Ts+60jfHGZ4v8KeNhLaR3SXtQixDKyj41YmQQop+/shZ5?=
+ =?us-ascii?Q?ai7jJcL9oez5aO7+NN25MOHNQn6wTw+cQVvWGoEcxWkP7rQ2Wc4t6TmAxlS/?=
+ =?us-ascii?Q?4L8OrM0w0Tz2Dk/o5uP2fYcqz9PC1qwBEjyGiABzyPSvf45RSmJo93Gbgt/6?=
+ =?us-ascii?Q?0HAMLxZMBS/wgD9fcI49ceRakwpfuwMpfrmqj9LDjsfVV5NR0L0tefJY8JRo?=
+ =?us-ascii?Q?7STDYzfOrsCo4fcZqs84ZFfv5YB49nK7VV0jm5LGUU2yCu5dtMj1xmvLLo9f?=
+ =?us-ascii?Q?/yy21PQV7JaMw7YYlg4023fb+SGVlwnL3uRLCbTpyEj8PNYPU72bQ04N1Ay7?=
+ =?us-ascii?Q?gjj7nTkINGjh9fdg72fPrgb02knaXqDeMpj1BbEY+pdGSKtMs9ExwKFJiKSX?=
+ =?us-ascii?Q?+EdYabwFfKSQTkrNytTNxwPlmOQAdN+N+ChYMzrgoRBqsNYw9+jiksDebai8?=
+ =?us-ascii?Q?3prG3+R+S0ilC0g9eH4J+9pq74uNBN3jMVqQ2coRTYzqb+XbwHlx8/DrzcQO?=
+ =?us-ascii?Q?gzBOF3FapEiNyj+6IOXHYaZJUqov5O6yv8gSjrrxfQKaNuLrnHTsmHnBjEx4?=
+ =?us-ascii?Q?T9Aon8leFc1AaLGPIOkD6PjsW+/T1dVdYtm+KGiqOhABet+/TweNVU6Gel7T?=
+ =?us-ascii?Q?LTeFVm4fdFcxZtOZJ1zkE35BaaHpGQ8JY91YrWA4ytXxWzGsU8YZGWA591rR?=
+ =?us-ascii?Q?QPn577yRzeEjeYVQLVM9lnW5UwskJRooGZce49nqtICRipTWxrEe7A+2tyz8?=
+ =?us-ascii?Q?wdB+lYTyL3DO4Ay1JFRjJikl51BtgpDXr0GpAUBvfD5R4GzCXUienWR2liIR?=
+ =?us-ascii?Q?qYe4B/KJjT+HYzPP/dUyDUXtzA2yD4UNvCzxjHq8dXehAbN0pEbDNRolclT5?=
+ =?us-ascii?Q?bkrlqPJwpRrwz52oTma4Mnw7ZIL2xDMTR6ZZoVCimVFj06dGH22xo5zWvsZ5?=
+ =?us-ascii?Q?xv52RA63YoZnJaDXFm7NyRbG0HnoQ08R62dEvCeMFwOrnwWtM7izmZaF3dzM?=
+ =?us-ascii?Q?Ik45/vTfDXIn++tqqMsH8rEd7DxsE1/zLnoLfMzYPwdEVgDAG+e0htXFpgQG?=
+ =?us-ascii?Q?9sBNSfevptoMiRWvYRhY39gOthKQlz6AVii3ibzdJ6KfSyR+pQ3opT4DjsAX?=
+ =?us-ascii?Q?8mFSV2HyiKg6v9WUdhnVjyD/uNA3zjNqX93SZtHXfUBSFp/bb2sMhftoe10v?=
+ =?us-ascii?Q?92/x1shqc9Q7p8XTM/OLjX4q0DIIhsHGu5/70FbdkT2AwuXU16ptgxvgGIca?=
+ =?us-ascii?Q?QsgJ4DIuwLU=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YAk7H4e98Gw1JwdxEZ/HeCtGsbHb1H9QhTU9Fgvzf+MxavVd5R4oJcZ0A5uN?=
+ =?us-ascii?Q?9E/tF+P6HdbwpSqYwX78Wq1I78GtzlRytJYBSMP3NRatB0pfT/rchBTo7PZn?=
+ =?us-ascii?Q?3YdVfQBbpdKiJabBe+hTQSK7ne8voYfnA6Ck7IYNR8mCDyXuPGYSP9EhZyta?=
+ =?us-ascii?Q?r73Yt8CS/mN+uSGxoLg+NdcwvRqCb+zbI2geCjCUyTbn4bhki3CtFpv10Bs+?=
+ =?us-ascii?Q?SAN7hMf6aFYhsxFGAvqNKlgHsnUJWIV0R7aIwNRQdIMJmv47Kztxn+45RLDP?=
+ =?us-ascii?Q?Juud3sEl9+84HKs3IIYknfT7ycvcH5A76H2bqCaQ8dLthaU9ET1TNBF1psnl?=
+ =?us-ascii?Q?GJAHckB9Pj19Smify/Cdmf9NPiW/cGCg0la/r4FeUDrvOQy6hsMXcgQQ2biH?=
+ =?us-ascii?Q?GoLep5IhnpwMHyIRe7/wHsIAWKYZ6XKMefs+B35ouQKiLcfLOasZVRonOdT2?=
+ =?us-ascii?Q?fBCMQjuZsXe2ubP0eervb23dLZ00ZSbLbY80SfmrxmZ/xO1SRl7Y9k0ERyvN?=
+ =?us-ascii?Q?1bQ++hU48Ng5u+RwC7eiYHK9RE+Gi1l0MTyUlbvWgOcZp8UVpznCBHBhSAOl?=
+ =?us-ascii?Q?4YM9xAiBIR3wclW46pKyW75+EkzEL5v+swUpHgliMy5vBMRVS2QLc+AnqAeK?=
+ =?us-ascii?Q?CL/5UlU6CJDDEj3UDOjA1BApK9TPnUlngEuXizLDjboCjWmXBxQ52VpeVl0l?=
+ =?us-ascii?Q?bBFot/rbKLJsaSmG8y+yx+Nb3KtlZfPpyGLi1vvm2u7b+FOrg2bHHMxb/uSe?=
+ =?us-ascii?Q?FwaxMsEb55eltCgGHQH6K1wvl4JgqjvIDsShTZwVPRFMYBwu75GY53w6QV2L?=
+ =?us-ascii?Q?gGS4oxvfcfYtTXSQF+ukQygrnx4IVCH7M4A638ziAIvVjaHSMkgcqRYvzAAy?=
+ =?us-ascii?Q?Q6A+I3Ew7kycLLzAZLEH+DtijfrWHTwKW/g4POgBnrdJnOSkuzlYWO2Qu+H8?=
+ =?us-ascii?Q?9uSMUMYnIK9+EMgvdVreOBkWYhb7pJ8iFkbq/LQEWtYQkX2q9fsPvQAqRIKQ?=
+ =?us-ascii?Q?Oq/yfAI6FOGEsKlIv9so7jy6mujsZ6zxIoeAa70HGWYn9VrIoBaTthz2Tfm2?=
+ =?us-ascii?Q?jSxFOed+ZrmbMZnezqa96HiLl2FNvPdenOYV3oIGslTr2MFkWuVULwGlWBPa?=
+ =?us-ascii?Q?o2CmEZBbh8LtRhE/Pq6JsSQlA+Dnw/UX59132mxANLekFSp2gq5HBawAx4XH?=
+ =?us-ascii?Q?8q/tcIOpSXJ6SEbygVZ/fNlZRjR4JaZbKALT1ebUVkg5bx21xErUEB2/dI4k?=
+ =?us-ascii?Q?SeHynxGmmfXiqIQCdYDhCYA0nFYbZIGbAOIrvg0H98KLTWujw4tw5LNF91xk?=
+ =?us-ascii?Q?jQyrzhkdSh9MEi/m78j5Ohv5FYE5REJhg7O5uKSJsUU8kz4npHEQ0MP6Tn5R?=
+ =?us-ascii?Q?4NKwmDAEiHv7u/bAy+hqE2aTJHPIOCs7vWvpcK+bg40q0iu144feTk9yBwP3?=
+ =?us-ascii?Q?11GuCCNrWXarP+0rPcRWAnOPPKuoTN18FoJjKXkGPK4NTxMDyUd4Sp4oUiPd?=
+ =?us-ascii?Q?JxRKs9n7RIwbq2jI3Gv1vKWt71+TWWXnL4tLO+Dq0PwlJ1jAxPq+Vn4vr7cN?=
+ =?us-ascii?Q?w2wDbSphtuN9asi9PMAT9cXH2wGgk7sdwbOJ4yVn?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0b867192-3905-4517-5d49-08dd8bf769be
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2025 17:08:10.7005
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: mYtc+XXUBJcG1fcTl81/E/baRvJeE67yy3Wx8tVJ07lOYNfAmU0L4H5TzuMUcpCk
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6246
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_095843_027856_B8C21926 
-X-CRM114-Status: GOOD (  12.03  )
+X-CRM114-CacheID: sfid-20250505_100818_059455_01A4BD80 
+X-CRM114-Status: GOOD (  14.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,51 +169,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
+On Wed, Apr 30, 2025 at 12:58:47AM -0700, Nicolin Chen wrote:
 
-  Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
+> > ... and I just hit a problem with it - this is basically guest BDFn
+> > and it works as long as I'm hotplugging the TEE-IO VF into an SNP VM
+> > but does not when I pass through via the QEMU cmdline - bus numbers
+> > are not assigned yet. So I have to postpone the vdevice allocation
+> > till run time, did I miss something here? Thanks,
+> 
+> I have a similar case with QEMU ARM64's VM: so vDEVICE on ARM is
+> allocated at runtime as well because the BDF number isn't ready
+> at the boot time.
 
-are available in the Git repository at:
+Oh that's ugly then.. So you'll need to add some kind of 'modify
+sid/bdf' operation I think.
 
-  https://github.com/Broadcom/stblinux.git tags/arm-soc/for-6.16/devicetree
+The bus numbers can be reassigned at any time on the fly by the guest
+by reprogramming the PCI hierarchy.
 
-for you to fetch changes up to 959886105a40a3ba94fa396aca83e1083a2056ab:
-
-  arm64: dts: bcm: Add reference to RPi 2 (2nd rev) (2025-05-05 09:45:07 -0700)
-
-----------------------------------------------------------------
-This pull request contains Broadcom ARM-based SoC Device Tree changes
-for 6.16, please pull the following:
-
-- Arthur adds a pinctrl node for BCM21664 and updates BCM23550 to use
-  it, he also drops the DTS file for the BCM59056 PMU chip and leaving
-  that board level DTS files
-
-- Stefan documents and adds support for the Raspberry Pi 2 2nd revision.
-
-----------------------------------------------------------------
-Artur Weber (3):
-      ARM: dts: bcm2166x-common: Add pinctrl node
-      ARM: dts: bcm2166x: Add bcm2166x-pinctrl DTSI
-      ARM: dts: Drop DTS for BCM59056 PMU
-
-Stefan Wahren (3):
-      dt-bindings: arm: bcm2835: Add Raspberry Pi 2 (2nd rev)
-      ARM: dts: bcm: Add support for Raspberry Pi 2 (2nd rev)
-      arm64: dts: bcm: Add reference to RPi 2 (2nd rev)
-
- .../devicetree/bindings/arm/bcm/bcm2835.yaml       |   1 +
- arch/arm/boot/dts/broadcom/Makefile                |   2 +
- arch/arm/boot/dts/broadcom/bcm2166x-common.dtsi    |   7 +
- arch/arm/boot/dts/broadcom/bcm2166x-pinctrl.dtsi   | 297 +++++++++++++++++++++
- arch/arm/boot/dts/broadcom/bcm28155-ap.dts         |  68 +++--
- arch/arm/boot/dts/broadcom/bcm2837-rpi-2-b.dts     | 130 +++++++++
- arch/arm/boot/dts/broadcom/bcm59056.dtsi           |  91 -------
- arch/arm64/boot/dts/broadcom/Makefile              |   1 +
- arch/arm64/boot/dts/broadcom/bcm2837-rpi-2-b.dts   |   2 +
- 9 files changed, 472 insertions(+), 127 deletions(-)
- create mode 100644 arch/arm/boot/dts/broadcom/bcm2166x-pinctrl.dtsi
- create mode 100644 arch/arm/boot/dts/broadcom/bcm2837-rpi-2-b.dts
- delete mode 100644 arch/arm/boot/dts/broadcom/bcm59056.dtsi
- create mode 100644 arch/arm64/boot/dts/broadcom/bcm2837-rpi-2-b.dts
+Jason
 
