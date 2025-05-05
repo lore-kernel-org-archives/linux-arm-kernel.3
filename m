@@ -4,75 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6D97C3ABB0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 15:16:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23CFCC3ABB0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 15:18:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T+qXACh+orFstyMcko98tuRTzfxhHQyvvDnRU8Dpz2k=; b=mjmaA+w4Y8kAyJOaSD25DiHu2d
-	xcpvYSo0Py5dm6voLRgrLnqRAA6DCEthkwoxCTb1RBezt4sZIfF5Rl/kcuguNmNAwkWAkAoJnCZBO
-	OTO9/0TbGvOnDsT2PRZI3fT1xWAPE0uDtisRtj9OdOPt8iwjz77lDb/aIU79IcKgcaxVVkZsLO8Gt
-	OQlVq4Vi5g/Krs+WgDXaASO3f8lM+PGarhUVgyd9AwM1vaEg78bSLSdTabSHw5sKi+JQROKk0tPss
-	TymJXzH6qpwtO6UV8kEFDUBTDgiNazcV5e7YxGZByfymucL+htnukRfcJup4UemoWrnKq5X1RVqgQ
-	E3khhavA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CK4LuQymWo+MpxuNt4yUrkVbDp9M2LjuWFpwebt1sus=; b=4fLM60Ub6/Chowsr2odLTK/WYA
+	9J6gwvIKvPdU1jNOG2HW1FWY2C2vdrSRcokn6JCDNY2z8iwgzzNovDktJLvHtsqGXnvD3QNclfP3N
+	Rn+ETZwsjfS7usHMFYEraN8+vnl7278nEL/AFLmwM8siorhmx5J/aP9SvrkyVFhGqOLZWWIHIdpU2
+	g8oEtnifdLOoKODzZWG/6Jsc1wSqiX8rn7hNN0Rmm5H9vHse+IwrDKdOgcsq4/mXu6PlBijoa8+8R
+	WpZh/j61ITr3v3xXwRibMgAkEEsLaFlktAS5huKPpUZ6t1dIC9fVChAqyTN/5luRfgkiJPTPxaf9f
+	wPzZmAUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBxYc-00000007mbi-24OV;
-	Mon, 05 May 2025 15:16:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uBxaa-00000007nEQ-3mrH;
+	Mon, 05 May 2025 15:18:40 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBxNe-00000007kXx-20U3;
-	Mon, 05 May 2025 15:05:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 693C94A738;
-	Mon,  5 May 2025 15:05:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F76CC4CEE4;
-	Mon,  5 May 2025 15:05:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746457518;
-	bh=tVwY1GhHmqP4tNt6PF7NZ89nMFSpxg7uRS+j8Qo6g3I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GBSqCk/xbHGCM6+NNMlpLQtOhHa+ERjy2QkOGRQzAhDpyDdOUa/ne7UZQ4uiH2bGy
-	 utwN7dvaElYocZWWZ8zV+ilIOEUxgzRxIYWDmAyZwGFBzppVTztXR2ITc7/LUHeVaD
-	 l8t58dkIeX9CikCl4ZG3QKczALeaRoEermE6CuDbOzrQ4HKmDj1iZ0sm/egm+N6XFR
-	 2ZagUpMpX52vB/uJ/qVM5cSMENXexwQ60phGkPFo5OGKJ3RyTCmFWi3RjWqZ94j+u1
-	 8s48ANOuF7cnPTaPjlyFVTKMGhFYvV9JmRJLZ482FwgaxRJO6Qa/cJWEc4cH3jxkQq
-	 TN1/EnXSDIdkg==
-Date: Mon, 5 May 2025 17:05:10 +0200
-From: Niklas Cassel <cassel@kernel.org>
-To: manivannan.sadhasivam@linaro.org
-Cc: Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
-	Oliver O'Halloran <oohall@gmail.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Zhou Wang <wangzhou1@hisilicon.com>,
-	Will Deacon <will@kernel.org>, Robert Richter <rric@kernel.org>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Marc Zyngier <maz@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>, dingwei@marvell.com,
-	Lukas Wunner <lukas@wunner.de>,
-	Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
-	linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, wilfred.mallawa@wdc.com
-Subject: Re: [PATCH v3 5/5] PCI: qcom: Add support for resetting the slot due
- to link down event
-Message-ID: <aBjTpglI5_P2Q3Aa@ryzen>
-References: <20250417-pcie-reset-slot-v3-0-59a10811c962@linaro.org>
- <20250417-pcie-reset-slot-v3-5-59a10811c962@linaro.org>
+	id 1uBxOM-00000007ki8-1WRN
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 May 2025 15:06:04 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 545F5tIl276214
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 5 May 2025 10:05:55 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1746457555;
+	bh=CK4LuQymWo+MpxuNt4yUrkVbDp9M2LjuWFpwebt1sus=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=OoOGGlRos9EVeojPMSerNs/FBGQxjiDukyptWlTDzQXbigkcd0e7dZtabsr6vAKst
+	 arQd9K1A8vDxCYAnPPrMs1A7vM5SCugF9agDtc/4WGspwOcTQAd96zI7Az+6JrbhvP
+	 1fEnhwhWpJYpsbcmtSGuHvgz/WmWvwd5k77VjFUY=
+Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 545F5tow031923
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 5 May 2025 10:05:55 -0500
+Received: from DFLE105.ent.ti.com (10.64.6.26) by DFLE109.ent.ti.com
+ (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 5
+ May 2025 10:05:55 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 5 May 2025 10:05:55 -0500
+Received: from [10.250.32.125] ([10.250.32.125])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 545F5sJG122185;
+	Mon, 5 May 2025 10:05:54 -0500
+Message-ID: <6c5e786d-7581-492f-92fb-be92ecbecd87@ti.com>
+Date: Mon, 5 May 2025 10:05:54 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250417-pcie-reset-slot-v3-5-59a10811c962@linaro.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 03/11] arm64: dts: ti: k3-am62a-mcu: Add R5F remote
+ proc node
+To: Daniel Schultz <d.schultz@phytec.de>, Nishanth Menon <nm@ti.com>,
+        Vignesh
+ Raghavendra <vigneshr@ti.com>
+CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Hari
+ Nagalla <hnagalla@ti.com>,
+        Beleswar Padhi <b-padhi@ti.com>,
+        Markus
+ Schneider-Pargmann <msp@baylibre.com>,
+        Andrew Davis <afd@ti.com>, Devarsh
+ Thakkar <devarsht@ti.com>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+References: <20250502220325.3230653-1-jm@ti.com>
+ <20250502220325.3230653-4-jm@ti.com>
+ <50039c49-a6c5-4f29-a35a-53b9af117fd8@phytec.de>
+Content-Language: en-US
+From: "Mendez, Judith" <jm@ti.com>
+In-Reply-To: <50039c49-a6c5-4f29-a35a-53b9af117fd8@phytec.de>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_080518_541135_CC9FAB34 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20250505_080602_664332_5897F7A6 
+X-CRM114-Status: GOOD (  17.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,41 +100,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Mani,
+Hi Daniel,
 
-On Thu, Apr 17, 2025 at 10:46:31PM +0530, Manivannan Sadhasivam via B4 Relay wrote:
-> @@ -1571,6 +1652,9 @@ static irqreturn_t qcom_pcie_global_irq_thread(int irq, void *data)
->  		pci_unlock_rescan_remove();
->  
->  		qcom_pcie_icc_opp_update(pcie);
-> +	} else if (FIELD_GET(PARF_INT_ALL_LINK_DOWN, status)) {
-> +		dev_dbg(dev, "Received Link down event\n");
-> +		pci_host_handle_link_down(pp->bridge);
->  	} else {
->  		dev_WARN_ONCE(dev, 1, "Received unknown event. INT_STATUS: 0x%08x\n",
->  			      status);
+On 5/5/2025 4:55 AM, Daniel Schultz wrote:
+> Hi,
+> 
+> I'm unable to load the latest TI firmware 
+> (98efd20ec71f8c1c8f909d34ab656731) with this patch.
+> 
+> [    7.012889] remoteproc remoteproc1: 79000000.r5f is available
+> [    7.032640] remoteproc remoteproc1: powering up 79000000.r5f
+> [    7.038626] remoteproc remoteproc1: Booting fw image am62a-mcu- 
+> r5f0_0-fw, size 53140
+> [    7.057209] remoteproc remoteproc1: bad phdr da 0x79100000 mem 0x47ea0
+> [    7.064716] remoteproc remoteproc1: Failed to load program segments: -22
+> 
+> I figured out that the mcu sram node disappeared in v5. Apparently 
+> adding it back manually doesn't solve this problem. Any idea what's wrong?
 
-From debugging an unrelated problem, I noticed that dw-rockchip can
-sometimes have both "link up" bit and "hot reset or link down" bit set
-at the same time, when reading the status register.
+For am62ax, there should be several items changed with this v8
+series in order for remoteproc to work with the TI default firmware:
 
-Perhaps the link went down very quickly and then was established again
-by the time the threaded IRQ handler gets to run.
+1. memory carveouts were reduced to 15MB [0] & edge-ai memory
+carveouts are not included here
+2. mcu_sram1 node removed [2]
 
-Your code seems to do an if + else if.
+If you want to catch up on the general direction for this series,
+please refer to [3]. atm remoteproc can fail with the default FW,
+but we are trying to move away from that firmware and this is the
+first step in that direction.
 
-Without knowing how the events work for your platforms, I would guess
-that it should also be possible to have multiple events set.
+[0] 
+https://lore.kernel.org/linux-devicetree/0ab5c5ec-cde3-41f1-8adf-2419b31497c1@ti.com/
+[1] 
+https://lore.kernel.org/linux-devicetree/04e77daf-e775-44fa-82bf-8b6ebf73bcef@ti.com/
+[2] 
+https://lore.kernel.org/linux-devicetree/32358aa1-0c02-4f4d-9782-2d8376c0d9fc@ti.com/
+[3] 
+https://lore.kernel.org/linux-devicetree/e131298f-3713-482a-a740-ff89709270b4@ti.com/
 
+~ Judith
 
-In you code, if both LINK UP and hot reset/link down are set,
-I would assume that you driver will not do the right thing.
+> 
+> On 5/3/25 00:03, Judith Mendez wrote:
+>> From: Hari Nagalla <hnagalla@ti.com>
+>>
+>> AM62A SoCs have a single R5F core in the MCU voltage domain.
+>> Add the R5FSS node with the child node for core0 in MCU voltage
+>> domain .dtsi file.
+>>
+>> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
+>> Signed-off-by: Judith Mendez <jm@ti.com>
+>> Acked-by: Andrew Davis <afd@ti.com>
+>> ---
+>>   arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi | 25 ++++++++++++++++++++++++
+>>   1 file changed, 25 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi b/arch/arm64/ 
+>> boot/dts/ti/k3-am62a-mcu.dtsi
+>> index 9ed9d703ff24..ee961ced7208 100644
+>> --- a/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
+>> +++ b/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
+>> @@ -174,4 +174,29 @@ mcu_mcan1: can@4e18000 {
+>>           bosch,mram-cfg = <0x0 128 64 64 64 64 32 32>;
+>>           status = "disabled";
+>>       };
+>> +
+>> +    mcu_r5fss0: r5fss@79000000 {
+>> +        compatible = "ti,am62-r5fss";
+>> +        #address-cells = <1>;
+>> +        #size-cells = <1>;
+>> +        ranges = <0x79000000 0x00 0x79000000 0x8000>,
+>> +             <0x79020000 0x00 0x79020000 0x8000>;
+>> +        power-domains = <&k3_pds 7 TI_SCI_PD_EXCLUSIVE>;
+>> +        status = "disabled";
+>> +
+>> +        mcu_r5fss0_core0: r5f@79000000 {
+>> +            compatible = "ti,am62-r5f";
+>> +            reg = <0x79000000 0x00008000>,
+>> +                  <0x79020000 0x00008000>;
+>> +            reg-names = "atcm", "btcm";
+>> +            resets = <&k3_reset 9 1>;
+>> +            firmware-name = "am62a-mcu-r5f0_0-fw";
+>> +            ti,atcm-enable = <0>;
+>> +            ti,btcm-enable = <1>;
+>> +            ti,loczrama = <0>;
+>> +            ti,sci = <&dmsc>;
+>> +            ti,sci-dev-id = <9>;
+>> +            ti,sci-proc-ids = <0x03 0xff>;
+>> +        };
+>> +    };
+>>   };
 
-Perhaps you want to swap the order? So that link down is handled first,
-and then link up is handled. (If you convert to "if + if "instead of
-"if + else if" that is.)
-
-
-Kind regards,
-Niklas
 
