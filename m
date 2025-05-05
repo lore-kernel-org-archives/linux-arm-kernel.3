@@ -4,59 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5139CC3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 16:18:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EC8FC3ABB0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 16:20:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wI/8jGZXg727JMJPSTtj5SOS5o5vXCkR///AC5IZQco=; b=2/wW07ZXfeCLOfY+BQKyRUOUrw
-	/Nx7v+gusB22PD8tKN/UNF+XDoipYaKIjNZIXGM3GgH6oPliqMaziHQ/5z1VXufxqh6ZWGmWrG1Fc
-	QCeGB6jx/b075T6wkK1TNyZXERFPz/jQHRZ7/TkmqueENuQeIdNMk7LdRoczdP9bazt53HzysvOeY
-	MXoAN80nTmJBZVHKTsxDvT1YClCe7QFGRewLyx67esRT0cs7JiBezWr+uV5sLgOfPZ0WEJJh4YUMA
-	BigWTTau7+Ce1+tqHssV8sg3Apnv0PgNZtVaJ/fOtBEC6dCe2JGGYEOapz+nPdL7STI9TL37QknYD
-	167tMUjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OjHxQbu9HdAgaWrOliNNorCvOEEPBNiLd69xje/6Noc=; b=R6OwBi+XIH/8AfwUDdup+sM0Xs
+	k8qLXyE6mEwxwyHaVDSGSMTxwUlzITLz1CwEqBqTPUMjev9WAsF7owRWdA1UxIIbogr+ltcl2nZF4
+	0FN5dnqsaad/u6PuDsFrpapjOJLXmT7pyLqcIAivjg0x3CHku/qL/5U0KkytoLWAkfCy1+fI99vrN
+	Jz8iYkX09c0rlBabsTZD5PHYRAgtWOFzWSNjZ4W9B4SQ4GS8wyN6imjR1OVkt0XNMxa0OYgi1vNF2
+	Z9EkUwj8JKyHIYZW+EwBaga1zS0LN/AATaXmR3G2IlFHrJtFYRsaI0cNBj9kJypiEil4UIhOPAiRy
+	XdC7Yvrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uByWD-00000007xHL-1890;
-	Mon, 05 May 2025 16:18:13 +0000
-Received: from relay6-d.mail.gandi.net ([217.70.183.198])
+	id 1uByYB-00000007xf8-2Kdn;
+	Mon, 05 May 2025 16:20:15 +0000
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uByNG-00000007vfN-45U5;
-	Mon, 05 May 2025 16:09:01 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 385BD4397B;
-	Mon,  5 May 2025 16:08:50 +0000 (UTC)
-Message-ID: <84cb893a-46e3-408a-ba0e-2eff0b44d2a1@ghiti.fr>
-Date: Mon, 5 May 2025 18:08:50 +0200
+	id 1uBySG-00000007wG8-0yEx
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 May 2025 16:14:09 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 6464C21995;
+	Mon,  5 May 2025 16:14:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1746461646; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OjHxQbu9HdAgaWrOliNNorCvOEEPBNiLd69xje/6Noc=;
+	b=oKHuvvPgCfHd6aphoHyFtSKX5wL8YXjEQyJmjX4DBH/8Uj/Eb7mNCdyaXpyJeTE0AIZm9u
+	Ja39d3mxkzXe1VxmKljl7MhtDC7jRMLxf39OPsypfK8L3c42zcjXIa5ZeP3PGQKy1i5Zbp
+	eoERvZ9O+v9eZWuzfTl9dqbdnEsDcXU=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1746461646;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OjHxQbu9HdAgaWrOliNNorCvOEEPBNiLd69xje/6Noc=;
+	b=DtUluaRrH/+1PejaGWGLSaWkpIHyzVOaR40upM46+gr0w3nOWzPjgEhypyo74h/hRGjecQ
+	lstibh+yN+sP+qDw==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b=oKHuvvPg;
+	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=DtUluaRr
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1746461646; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OjHxQbu9HdAgaWrOliNNorCvOEEPBNiLd69xje/6Noc=;
+	b=oKHuvvPgCfHd6aphoHyFtSKX5wL8YXjEQyJmjX4DBH/8Uj/Eb7mNCdyaXpyJeTE0AIZm9u
+	Ja39d3mxkzXe1VxmKljl7MhtDC7jRMLxf39OPsypfK8L3c42zcjXIa5ZeP3PGQKy1i5Zbp
+	eoERvZ9O+v9eZWuzfTl9dqbdnEsDcXU=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1746461646;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OjHxQbu9HdAgaWrOliNNorCvOEEPBNiLd69xje/6Noc=;
+	b=DtUluaRrH/+1PejaGWGLSaWkpIHyzVOaR40upM46+gr0w3nOWzPjgEhypyo74h/hRGjecQ
+	lstibh+yN+sP+qDw==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 44B3E13883;
+	Mon,  5 May 2025 16:14:06 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id V7m+EM7jGGgqawAAD6G6ig
+	(envelope-from <jack@suse.cz>); Mon, 05 May 2025 16:14:06 +0000
+Received: by quack3.suse.cz (Postfix, from userid 1000)
+	id E34D5A0948; Mon,  5 May 2025 18:14:05 +0200 (CEST)
+Date: Mon, 5 May 2025 18:14:05 +0200
+From: Jan Kara <jack@suse.cz>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: David Hildenbrand <david@redhat.com>, Jan Kara <jack@suse.cz>, 
+	Andrew Morton <akpm@linux-foundation.org>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, 
+	Dave Chinner <david@fromorbit.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Kalesh Singh <kaleshsingh@google.com>, Zi Yan <ziy@nvidia.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	linux-mm@kvack.org
+Subject: Re: [RFC PATCH v4 1/5] mm/readahead: Honour new_order in
+ page_cache_ra_order()
+Message-ID: <dhn2icty267xinyxxhovnztj2pelcsterpwzodu3tippe55u42@iyz5ndffs2zh>
+References: <20250430145920.3748738-1-ryan.roberts@arm.com>
+ <20250430145920.3748738-2-ryan.roberts@arm.com>
+ <48b4aa79-943b-46bc-ac24-604fdf998566@redhat.com>
+ <mhayjykmkxhvnivthdrc2bb3cvqbdesa42puzimx75xfagcnqn@osy4qeiyfxvn>
+ <d4bfefdf-bd87-4d2e-b7bb-4a11e5d32242@redhat.com>
+ <12a74640-753a-4116-90f9-42ec0337f751@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/9] Merge arm64/riscv hugetlbfs contpte support
-Content-Language: en-US
-To: Ryan Roberts <ryan.roberts@arm.com>,
- Alexandre Ghiti <alexghiti@rivosinc.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Matthew Wilcox <willy@infradead.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Andrew Morton <akpm@linux-foundation.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-mm@kvack.org
-References: <20250321130635.227011-1-alexghiti@rivosinc.com>
- <4dd5d187-f977-4f27-9937-8608991797b5@ghiti.fr>
- <64409a13-1c07-42cd-b1ec-572042738f1b@arm.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <64409a13-1c07-42cd-b1ec-572042738f1b@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvkeduheegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfhfhfgjtgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepueehudfhudetfefhuedugfeileehlefggeffhfevgeehveegjedugeeggfeihfeknecuffhomhgrihhnpehkvghrnhgvlhdrohhrghdptghouggvrghurhhorhgrrdhorhhgpdhinhhfrhgruggvrggurdhorhhgpdhgrghnughirdhnvghtnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemgegvrgdvmegvhedvieemieehuddumeehfeegtgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemgegvrgdvmegvhedvieemieehuddumeehfeegtgdphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemgegvrgdvmegvhedvieemieehuddumeehfeegtggnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepudefpdhrtghpthhtoheprhihrghnrdhrohgsvghrthhssegrrhhmrdgtohhmp
- dhrtghpthhtoheprghlvgigghhhihhtihesrhhivhhoshhinhgtrdgtohhmpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopeifihhllheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepmhgrrhhkrdhruhhtlhgrnhgusegrrhhmrdgtohhmpdhrtghpthhtohepfihilhhlhiesihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomh
-X-GND-Sasl: alex@ghiti.fr
+In-Reply-To: <12a74640-753a-4116-90f9-42ec0337f751@arm.com>
+X-Rspamd-Queue-Id: 6464C21995
+X-Rspamd-Action: no action
+X-Spamd-Result: default: False [-4.01 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	ARC_NA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	MISSING_XM_UA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	RCPT_COUNT_TWELVE(0.00)[16];
+	URIBL_BLOCKED(0.00)[suse.cz:dkim,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.com:email];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.cz:dkim,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.com:email];
+	RCVD_COUNT_THREE(0.00)[3];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	RCVD_TLS_LAST(0.00)[];
+	TO_DN_SOME(0.00)[];
+	DKIM_TRACE(0.00)[suse.cz:+]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_090859_286589_0521DB57 
-X-CRM114-Status: GOOD (  33.14  )
+X-CRM114-CacheID: sfid-20250505_091408_454838_4C4C85A4 
+X-CRM114-Status: GOOD (  29.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,333 +153,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ryan,
+On Mon 05-05-25 13:51:48, Ryan Roberts wrote:
+> On 05/05/2025 11:25, David Hildenbrand wrote:
+> > On 05.05.25 12:09, Jan Kara wrote:
+> >> On Mon 05-05-25 11:51:43, David Hildenbrand wrote:
+> >>> On 30.04.25 16:59, Ryan Roberts wrote:
+> >>>> page_cache_ra_order() takes a parameter called new_order, which is
+> >>>> intended to express the preferred order of the folios that will be
+> >>>> allocated for the readahead operation. Most callers indeed call this
+> >>>> with their preferred new order. But page_cache_async_ra() calls it with
+> >>>> the preferred order of the previous readahead request (actually the
+> >>>> order of the folio that had the readahead marker, which may be smaller
+> >>>> when alignment comes into play).
+> >>>>
+> >>>> And despite the parameter name, page_cache_ra_order() always treats it
+> >>>> at the old order, adding 2 to it on entry. As a result, a cold readahead
+> >>>> always starts with order-2 folios.
+> >>>>
+> >>>> Let's fix this behaviour by always passing in the *new* order.
+> >>>>
+> >>>> Worked example:
+> >>>>
+> >>>> Prior to the change, mmaping an 8MB file and touching each page
+> >>>> sequentially, resulted in the following, where we start with order-2
+> >>>> folios for the first 128K then ramp up to order-4 for the next 128K,
+> >>>> then get clamped to order-5 for the rest of the file because pa_pages is
+> >>>> limited to 128K:
+> >>>>
+> >>>> TYPE    STARTOFFS     ENDOFFS       SIZE  STARTPG    ENDPG   NRPG  ORDER
+> >>>> -----  ----------  ----------  ---------  -------  -------  -----  -----
+> >>>> FOLIO  0x00000000  0x00004000      16384        0        4      4      2
+> >>>> FOLIO  0x00004000  0x00008000      16384        4        8      4      2
+> >>>> FOLIO  0x00008000  0x0000c000      16384        8       12      4      2
+> >>>> FOLIO  0x0000c000  0x00010000      16384       12       16      4      2
+> >>>> FOLIO  0x00010000  0x00014000      16384       16       20      4      2
+> >>>> FOLIO  0x00014000  0x00018000      16384       20       24      4      2
+> >>>> FOLIO  0x00018000  0x0001c000      16384       24       28      4      2
+> >>>> FOLIO  0x0001c000  0x00020000      16384       28       32      4      2
+> >>>> FOLIO  0x00020000  0x00030000      65536       32       48     16      4
+> >>>> FOLIO  0x00030000  0x00040000      65536       48       64     16      4
+> >>>> FOLIO  0x00040000  0x00060000     131072       64       96     32      5
+> >>>> FOLIO  0x00060000  0x00080000     131072       96      128     32      5
+> >>>> FOLIO  0x00080000  0x000a0000     131072      128      160     32      5
+> >>>> FOLIO  0x000a0000  0x000c0000     131072      160      192     32      5
+> >>>
+> >>> Interesting, I would have thought we'd ramp up earlier.
+> >>>
+> >>>> ...
+> >>>>
+> >>>> After the change, the same operation results in the first 128K being
+> >>>> order-0, then we start ramping up to order-2, -4, and finally get
+> >>>> clamped at order-5:
+> >>>>
+> >>>> TYPE    STARTOFFS     ENDOFFS       SIZE  STARTPG    ENDPG   NRPG  ORDER
+> >>>> -----  ----------  ----------  ---------  -------  -------  -----  -----
+> >>>> FOLIO  0x00000000  0x00001000       4096        0        1      1      0
+> >>>> FOLIO  0x00001000  0x00002000       4096        1        2      1      0
+> >>>> FOLIO  0x00002000  0x00003000       4096        2        3      1      0
+> >>>> FOLIO  0x00003000  0x00004000       4096        3        4      1      0
+> >>>> FOLIO  0x00004000  0x00005000       4096        4        5      1      0
+> >>>> FOLIO  0x00005000  0x00006000       4096        5        6      1      0
+> >>>> FOLIO  0x00006000  0x00007000       4096        6        7      1      0
+> >>>> FOLIO  0x00007000  0x00008000       4096        7        8      1      0
+> >>>> FOLIO  0x00008000  0x00009000       4096        8        9      1      0
+> >>>> FOLIO  0x00009000  0x0000a000       4096        9       10      1      0
+> >>>> FOLIO  0x0000a000  0x0000b000       4096       10       11      1      0
+> >>>> FOLIO  0x0000b000  0x0000c000       4096       11       12      1      0
+> >>>> FOLIO  0x0000c000  0x0000d000       4096       12       13      1      0
+> >>>> FOLIO  0x0000d000  0x0000e000       4096       13       14      1      0
+> >>>> FOLIO  0x0000e000  0x0000f000       4096       14       15      1      0
+> >>>> FOLIO  0x0000f000  0x00010000       4096       15       16      1      0
+> >>>> FOLIO  0x00010000  0x00011000       4096       16       17      1      0
+> >>>> FOLIO  0x00011000  0x00012000       4096       17       18      1      0
+> >>>> FOLIO  0x00012000  0x00013000       4096       18       19      1      0
+> >>>> FOLIO  0x00013000  0x00014000       4096       19       20      1      0
+> >>>> FOLIO  0x00014000  0x00015000       4096       20       21      1      0
+> >>>> FOLIO  0x00015000  0x00016000       4096       21       22      1      0
+> >>>> FOLIO  0x00016000  0x00017000       4096       22       23      1      0
+> >>>> FOLIO  0x00017000  0x00018000       4096       23       24      1      0
+> >>>> FOLIO  0x00018000  0x00019000       4096       24       25      1      0
+> >>>> FOLIO  0x00019000  0x0001a000       4096       25       26      1      0
+> >>>> FOLIO  0x0001a000  0x0001b000       4096       26       27      1      0
+> >>>> FOLIO  0x0001b000  0x0001c000       4096       27       28      1      0
+> >>>> FOLIO  0x0001c000  0x0001d000       4096       28       29      1      0
+> >>>> FOLIO  0x0001d000  0x0001e000       4096       29       30      1      0
+> >>>> FOLIO  0x0001e000  0x0001f000       4096       30       31      1      0
+> >>>> FOLIO  0x0001f000  0x00020000       4096       31       32      1      0
+> >>>> FOLIO  0x00020000  0x00024000      16384       32       36      4      2
+> >>>> FOLIO  0x00024000  0x00028000      16384       36       40      4      2
+> >>>> FOLIO  0x00028000  0x0002c000      16384       40       44      4      2
+> >>>> FOLIO  0x0002c000  0x00030000      16384       44       48      4      2
+> >>>> FOLIO  0x00030000  0x00034000      16384       48       52      4      2
+> >>>> FOLIO  0x00034000  0x00038000      16384       52       56      4      2
+> >>>> FOLIO  0x00038000  0x0003c000      16384       56       60      4      2
+> >>>> FOLIO  0x0003c000  0x00040000      16384       60       64      4      2
+> >>>> FOLIO  0x00040000  0x00050000      65536       64       80     16      4
+> >>>> FOLIO  0x00050000  0x00060000      65536       80       96     16      4
+> >>>> FOLIO  0x00060000  0x00080000     131072       96      128     32      5
+> >>>> FOLIO  0x00080000  0x000a0000     131072      128      160     32      5
+> >>>> FOLIO  0x000a0000  0x000c0000     131072      160      192     32      5
+> >>>> FOLIO  0x000c0000  0x000e0000     131072      192      224     32      5
+> >>>
+> >>> Similar here, do you know why we don't ramp up earlier. Allocating that many
+> >>> order-0 + order-2 pages looks a bit suboptimal to me for a sequential read.
+> >>
+> >> Note that this is reading through mmap using the mmap readahead code. If
+> >> you use standard read(2), the readahead window starts small as well and
+> >> ramps us along with the desired order so we don't allocate that many small
+> >> order pages in that case.
+> 
+> That does raise an interesting question though; why do we use a fixed size
+> window for mmap? It feels like we could start with a smaller window and ramp it
+> up as order ramps up too, capped to the end of the vma.
+> 
+> Although perhaps that is an investigation for another day... My main motivation
+> here was to be consistent about what page_cache_ra_order()'s new_order means,
+> and to actually implement algorithm that was originally intended - start from 0
+> and ramp up +2 on each readahead marker.
 
-On 29/04/2025 16:09, Ryan Roberts wrote:
-> Hi Alexandre,
->
-> On 07/04/2025 13:04, Alexandre Ghiti wrote:
->> Can someone from arm64 review this? I think it's preferable to share the same
->> implementation between riscv and arm64.
-> I've been thinking about this for a while and had some conversations internally.
-> This patchset has both pros and cons.
->
-> In the pros column, it increases code reuse in an area that has had quite of few
-> bugs popping up lately; so this would bring more eyes and hopefully higher
-> quality in the long run.
->
-> But in the cons column, we have seen HW errata in similar areas in the past and
-> I'm nervous that by hoisting this code to mm, we make it harder to workaround
-> any future errata. Additionally I can imagine that this change could make it
-> harder to support future Arm architecture enhancements.
->
-> I appreciate the cons are not strong *technical* arguments but nevertheless they
-> are winning out in this case; My opinion is that we should keep the arm64
-> implementations of huge_pte_ (and contpte_ too - I know you have a separate
-> series for this) private to arm64.
->
-> Sorry about that.
->
->> The end goal is the support of mTHP using svnapot on riscv, which we want soon,
->> so if that patchset does not gain any traction, I'll just copy/paste the arm64
->> implementation into riscv.
-> This copy/paste approach would be my preference.
+Well, in my opinion the whole mmap readahead logic would deserve some
+remodelling :) because a lot of decisions there are quite disputable for
+contemporary systems. But that's definitely for some other patchset...
 
-
-I have to admit that I disagree with this approach, the riscv and arm64 
-implementations are *exactly* the same so it sounds weird to duplicate 
-code, the pros you mention outweigh the cons.
-
-Unless I'm missing something about the erratas? To me, that's easily 
-fixed by providing arch specific overrides no? Can you describe what 
-sort of erratas would not fit then?
-
-Thanks,
-
-Alex
-
-
->
-> Thanks,
-> Ryan
->
->> Thanks,
->>
->> Alex
->>
->> On 21/03/2025 14:06, Alexandre Ghiti wrote:
->>> This patchset intends to merge the contiguous ptes hugetlbfs implementation
->>> of arm64 and riscv.
->>>
->>> Both arm64 and riscv support the use of contiguous ptes to map pages that
->>> are larger than the default page table size, respectively called contpte
->>> and svnapot.
->>>
->>> The riscv implementation differs from the arm64's in that the LSBs of the
->>> pfn of a svnapot pte are used to store the size of the mapping, allowing
->>> for future sizes to be added (for now only 64KB is supported). That's an
->>> issue for the core mm code which expects to find the *real* pfn a pte points
->>> to. Patch 1 fixes that by always returning svnapot ptes with the real pfn
->>> and restores the size of the mapping when it is written to a page table.
->>>
->>> The following patches are just merges of the 2 different implementations
->>> that currently exist in arm64 and riscv which are very similar. It paves
->>> the way to the reuse of the recent contpte THP work by Ryan [1] to avoid
->>> reimplementing the same in riscv.
->>>
->>> This patchset was tested by running the libhugetlbfs testsuite with 64KB
->>> and 2MB pages on both architectures (on a 4KB base page size arm64 kernel).
->>>
->>> [1] https://lore.kernel.org/linux-arm-kernel/20240215103205.2607016-1-
->>> ryan.roberts@arm.com/
->>>
->>> v4: https://lore.kernel.org/linux-riscv/20250127093530.19548-1-
->>> alexghiti@rivosinc.com/
->>> v3: https://lore.kernel.org/all/20240802151430.99114-1-alexghiti@rivosinc.com/
->>> v2: https://lore.kernel.org/linux-riscv/20240508113419.18620-1-
->>> alexghiti@rivosinc.com/
->>> v1: https://lore.kernel.org/linux-riscv/20240301091455.246686-1-
->>> alexghiti@rivosinc.com/
->>>
->>> Changes in v5:
->>>  Â Â  - Fix "int i" unused variable in patch 2 (as reported by PW)
->>>  Â Â  - Fix !svnapot build
->>>  Â Â  - Fix arch_make_huge_pte() which returned a real napot pte
->>>  Â Â  - Make __ptep_get(), ptep_get_and_clear() and __set_ptes() napot aware to
->>>  Â Â Â Â  avoid leaking real napot pfns to core mm
->>>  Â Â  - Fix arch_contpte_get_num_contig() that used to always try to get the
->>>  Â Â Â Â  mapping size from the ptep, which does not work if the ptep comes the
->>> core mm
->>>  Â Â  - Rebase on top of 6.14-rc7 + fix for
->>>  Â Â Â Â  huge_ptep_get_and_clear()/huge_pte_clear()
->>>  Â Â Â Â  https://lore.kernel.org/linux-riscv/20250317072551.572169-1-
->>> alexghiti@rivosinc.com/
->>>
->>> Changes in v4:
->>>  Â Â  - Rebase on top of 6.13
->>>
->>> Changes in v3:
->>>  Â Â  - Split set_ptes and ptep_get into internal and external API (Ryan)
->>>  Â Â  - Rename ARCH_HAS_CONTPTE into ARCH_WANT_GENERAL_HUGETLB_CONTPTE so that
->>>  Â Â Â Â  we split hugetlb functions from contpte functions (actually riscv contpte
->>>  Â Â Â Â  functions to support THP will come into another series) (Ryan)
->>>  Â Â  - Rebase on top of 6.11-rc1
->>>
->>> Changes in v2:
->>>  Â Â  - Rebase on top of 6.9-rc3
->>>
->>> Alexandre Ghiti (9):
->>>  Â Â  riscv: Safely remove huge_pte_offset() when manipulating NAPOT ptes
->>>  Â Â  riscv: Restore the pfn in a NAPOT pte when manipulated by core mm code
->>>  Â Â  mm: Use common huge_ptep_get() function for riscv/arm64
->>>  Â Â  mm: Use common set_huge_pte_at() function for riscv/arm64
->>>  Â Â  mm: Use common huge_pte_clear() function for riscv/arm64
->>>  Â Â  mm: Use common huge_ptep_get_and_clear() function for riscv/arm64
->>>  Â Â  mm: Use common huge_ptep_set_access_flags() function for riscv/arm64
->>>  Â Â  mm: Use common huge_ptep_set_wrprotect() function for riscv/arm64
->>>  Â Â  mm: Use common huge_ptep_clear_flush() function for riscv/arm64
->>>
->>>  Â  arch/arm64/KconfigÂ Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  |Â Â  1 +
->>>  Â  arch/arm64/include/asm/hugetlb.hÂ Â Â  |Â  22 +--
->>>  Â  arch/arm64/include/asm/pgtable.hÂ Â Â  |Â  68 ++++++-
->>>  Â  arch/arm64/mm/hugetlbpage.cÂ Â Â Â Â Â Â Â  | 294 +---------------------------
->>>  Â  arch/riscv/KconfigÂ Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  |Â Â  1 +
->>>  Â  arch/riscv/include/asm/hugetlb.hÂ Â Â  |Â  36 +---
->>>  Â  arch/riscv/include/asm/pgtable-64.h |Â  11 ++
->>>  Â  arch/riscv/include/asm/pgtable.hÂ Â Â  | 222 ++++++++++++++++++---
->>>  Â  arch/riscv/mm/hugetlbpage.cÂ Â Â Â Â Â Â Â  | 243 +----------------------
->>>  Â  arch/riscv/mm/pgtable.cÂ Â Â Â Â Â Â Â Â Â Â Â  |Â Â  6 +-
->>>  Â  include/linux/hugetlb_contpte.hÂ Â Â Â  |Â  39 ++++
->>>  Â  mm/KconfigÂ Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  |Â Â  3 +
->>>  Â  mm/MakefileÂ Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  |Â Â  1 +
->>>  Â  mm/hugetlb_contpte.cÂ Â Â Â Â Â Â Â Â Â Â Â Â Â Â  | 258 ++++++++++++++++++++++++
->>>  Â  14 files changed, 583 insertions(+), 622 deletions(-)
->>>  Â  create mode 100644 include/linux/hugetlb_contpte.h
->>>  Â  create mode 100644 mm/hugetlb_contpte.c
->>>
->>  From mboxrd@z Thu JanÂ  1 00:00:00 1970
->> Return-Path: <linux-riscv-bounces+linux-
->> riscv=archiver.kernel.org@lists.infradead.org>
->> X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
->>  Â Â Â Â aws-us-west-2-korg-lkml-1.web.codeaurora.org
->> Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
->>  Â Â Â Â (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
->>  Â Â Â Â (No client certificate requested)
->>  Â Â Â Â by smtp.lore.kernel.org (Postfix) with ESMTPS id A4D94C3601E
->>  Â Â Â Â for <linux-riscv@archiver.kernel.org>; Mon,Â  7 Apr 2025 12:35:59 +0000 (UTC)
->> DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
->>  Â Â Â Â d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
->>  Â Â Â Â Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
->>  Â Â Â Â List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
->>  Â Â Â Â Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
->>  Â Â Â Â Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
->>  Â Â Â Â bh=QGtw44ZccGhXZHG0gus8jo8nditsIsPYxbfRUYIB+hU=; b=TuC4N8bBiqSCZqINAlCMfr1aa0
->>  Â Â Â Â HKCtL5AM0VsHJ36rTV1TZCiAN0tKuI4mbGKMbrvNUcKXaa0IaZGgplHJXZPCwfiRmK51dvr1ndwc+
->>  Â Â Â Â x4+UfoK5lEB2HNBzTjcA9nH164vMm8lu0bitMWB+QzfpYT0nprO+11bFlBPqZVI35bwer5bTytL/w
->>  Â Â Â Â 2PtmHktDSGJXgSCnDKefpnBo+yiIKU2uq7dhR713fLa1hzLYi5f0+2trqJXfZ5ADJSOBaZc6h2RQo
->>  Â Â Â Â Hfb0DRyNJsiBjuBYn3H1+RCnv6lZwV1eVbltqj1BIjrb0C32Zmnb7FxqUYECyH4vEhWbmYgbwpAKI
->>  Â Â Â Â 8BYmZxbA==;
->> Received: from localhost ([::1] helo=bombadil.infradead.org)
->>  Â Â Â Â by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
->>  Â Â Â Â id 1u1lhh-00000000H0X-3INP;
->>  Â Â Â Â Mon, 07 Apr 2025 12:35:53 +0000
->> Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
->>  Â Â Â Â by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
->>  Â Â Â Â id 1u1lDQ-000000009MS-3LfF;
->>  Â Â Â Â Mon, 07 Apr 2025 12:04:39 +0000
->> Received: by mail.gandi.net (Postfix) with ESMTPSA id E350243163;
->>  Â Â Â Â Mon,Â  7 Apr 2025 12:04:28 +0000 (UTC)
->> Message-ID: <4dd5d187-f977-4f27-9937-8608991797b5@ghiti.fr>
->> Date: Mon, 7 Apr 2025 14:04:27 +0200
->> MIME-Version: 1.0
->> User-Agent: Mozilla Thunderbird
->> Subject: Re: [PATCH v5 0/9] Merge arm64/riscv hugetlbfs contpte support
->> Content-Language: en-US
->> To: Alexandre Ghiti <alexghiti@rivosinc.com>,
->> Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
->> Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>,
->> Matthew Wilcox <willy@infradead.org>,
->> Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
->> <palmer@dabbelt.com>, Andrew Morton <akpm@linux-foundation.org>,
->> linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
->> linux-riscv@lists.infradead.org, linux-mm@kvack.org
->> References: <20250321130635.227011-1-alexghiti@rivosinc.com>
->> From: Alexandre Ghiti <alex@ghiti.fr>
->> In-Reply-To: <20250321130635.227011-1-alexghiti@rivosinc.com>
->> X-GND-State: clean
->> X-GND-Score: -100
->> X-GND-Cause:
->> gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddtudegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfhfhfgjtgfgsehtjeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepveetvdfhvdeuheekvdettdegheetgeejiefgjeetvedtfeeuvddvtefhjeffgeevnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmeeisgemvdefgeekmeduvgduheemvdgrgeehnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmeeisgemvdefgeekmeduvgduheemvdgrgeehpdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmeeisgemvdefgeekmeduvgduheemvdgrgeehngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopedufedprhgtphhtthhopegrlhgvgihghhhithhisehrihhvohhsihhntgdrtghomhdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohepfihilhhls
->> ehkvghrnhgvlhdrohhrghdprhgtphhtthhopehrhigrnhdrrhhosggvrhhtshesrghrmhdrtghomhdprhgtphhtthhopehmrghrkhdrrhhuthhlrghnugesrghrmhdrtghomhdprhgtphhtthhopeifihhllhihsehinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepphgruhhlrdifrghlmhhslhgvhiesshhifhhivhgvrdgtohhmpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhm
->> X-GND-Sasl: alex@ghiti.fr
->> X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 X-
->> CRM114-CacheID: sfid-20250407_050436_994014_8B16F654 X-CRM114-Status: GOOD (
->> 23.24Â  )
->> X-BeenThere: linux-riscv@lists.infradead.org
->> X-Mailman-Version: 2.1.34
->> Precedence: list
->> List-Id: <linux-riscv.lists.infradead.org>
->> List-Unsubscribe: <http://lists.infradead.org/mailman/options/linux-riscv>,
->> <mailto:linux-riscv-request@lists.infradead.org?subject=unsubscribe>
->> List-Archive: <http://lists.infradead.org/pipermail/linux-riscv/>
->> List-Post: <mailto:linux-riscv@lists.infradead.org>
->> List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
->> List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
->> <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
->> Content-Transfer-Encoding: 7bit
->> Content-Type: text/plain; charset="us-ascii"; Format="flowed"
->> Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
->> Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
->>
->> Can someone from arm64 review this? I think it's preferable to share the same
->> implementation between riscv and arm64.
->>
->> The end goal is the support of mTHP using svnapot on riscv, which we want soon,
->> so if that patchset does not gain any traction, I'll just copy/paste the arm64
->> implementation into riscv.
->>
->> Thanks,
->>
->> Alex
->>
->> On 21/03/2025 14:06, Alexandre Ghiti wrote:
->>> This patchset intends to merge the contiguous ptes hugetlbfs implementation
->>> of arm64 and riscv.
->>>
->>> Both arm64 and riscv support the use of contiguous ptes to map pages that
->>> are larger than the default page table size, respectively called contpte
->>> and svnapot.
->>>
->>> The riscv implementation differs from the arm64's in that the LSBs of the
->>> pfn of a svnapot pte are used to store the size of the mapping, allowing
->>> for future sizes to be added (for now only 64KB is supported). That's an
->>> issue for the core mm code which expects to find the *real* pfn a pte points
->>> to. Patch 1 fixes that by always returning svnapot ptes with the real pfn
->>> and restores the size of the mapping when it is written to a page table.
->>>
->>> The following patches are just merges of the 2 different implementations
->>> that currently exist in arm64 and riscv which are very similar. It paves
->>> the way to the reuse of the recent contpte THP work by Ryan [1] to avoid
->>> reimplementing the same in riscv.
->>>
->>> This patchset was tested by running the libhugetlbfs testsuite with 64KB
->>> and 2MB pages on both architectures (on a 4KB base page size arm64 kernel).
->>>
->>> [1] https://lore.kernel.org/linux-arm-kernel/20240215103205.2607016-1-
->>> ryan.roberts@arm.com/
->>>
->>> v4: https://lore.kernel.org/linux-riscv/20250127093530.19548-1-
->>> alexghiti@rivosinc.com/
->>> v3: https://lore.kernel.org/all/20240802151430.99114-1-alexghiti@rivosinc.com/
->>> v2: https://lore.kernel.org/linux-riscv/20240508113419.18620-1-
->>> alexghiti@rivosinc.com/
->>> v1: https://lore.kernel.org/linux-riscv/20240301091455.246686-1-
->>> alexghiti@rivosinc.com/
->>>
->>> Changes in v5:
->>>  Â Â  - Fix "int i" unused variable in patch 2 (as reported by PW)
->>>  Â Â  - Fix !svnapot build
->>>  Â Â  - Fix arch_make_huge_pte() which returned a real napot pte
->>>  Â Â  - Make __ptep_get(), ptep_get_and_clear() and __set_ptes() napot aware to
->>>  Â Â Â Â  avoid leaking real napot pfns to core mm
->>>  Â Â  - Fix arch_contpte_get_num_contig() that used to always try to get the
->>>  Â Â Â Â  mapping size from the ptep, which does not work if the ptep comes the
->>> core mm
->>>  Â Â  - Rebase on top of 6.14-rc7 + fix for
->>>  Â Â Â Â  huge_ptep_get_and_clear()/huge_pte_clear()
->>>  Â Â Â Â  https://lore.kernel.org/linux-riscv/20250317072551.572169-1-
->>> alexghiti@rivosinc.com/
->>>
->>> Changes in v4:
->>>  Â Â  - Rebase on top of 6.13
->>>
->>> Changes in v3:
->>>  Â Â  - Split set_ptes and ptep_get into internal and external API (Ryan)
->>>  Â Â  - Rename ARCH_HAS_CONTPTE into ARCH_WANT_GENERAL_HUGETLB_CONTPTE so that
->>>  Â Â Â Â  we split hugetlb functions from contpte functions (actually riscv contpte
->>>  Â Â Â Â  functions to support THP will come into another series) (Ryan)
->>>  Â Â  - Rebase on top of 6.11-rc1
->>>
->>> Changes in v2:
->>>  Â Â  - Rebase on top of 6.9-rc3
->>>
->>> Alexandre Ghiti (9):
->>>  Â Â  riscv: Safely remove huge_pte_offset() when manipulating NAPOT ptes
->>>  Â Â  riscv: Restore the pfn in a NAPOT pte when manipulated by core mm code
->>>  Â Â  mm: Use common huge_ptep_get() function for riscv/arm64
->>>  Â Â  mm: Use common set_huge_pte_at() function for riscv/arm64
->>>  Â Â  mm: Use common huge_pte_clear() function for riscv/arm64
->>>  Â Â  mm: Use common huge_ptep_get_and_clear() function for riscv/arm64
->>>  Â Â  mm: Use common huge_ptep_set_access_flags() function for riscv/arm64
->>>  Â Â  mm: Use common huge_ptep_set_wrprotect() function for riscv/arm64
->>>  Â Â  mm: Use common huge_ptep_clear_flush() function for riscv/arm64
->>>
->>>  Â  arch/arm64/KconfigÂ Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  |Â Â  1 +
->>>  Â  arch/arm64/include/asm/hugetlb.hÂ Â Â  |Â  22 +--
->>>  Â  arch/arm64/include/asm/pgtable.hÂ Â Â  |Â  68 ++++++-
->>>  Â  arch/arm64/mm/hugetlbpage.cÂ Â Â Â Â Â Â Â  | 294 +---------------------------
->>>  Â  arch/riscv/KconfigÂ Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  |Â Â  1 +
->>>  Â  arch/riscv/include/asm/hugetlb.hÂ Â Â  |Â  36 +---
->>>  Â  arch/riscv/include/asm/pgtable-64.h |Â  11 ++
->>>  Â  arch/riscv/include/asm/pgtable.hÂ Â Â  | 222 ++++++++++++++++++---
->>>  Â  arch/riscv/mm/hugetlbpage.cÂ Â Â Â Â Â Â Â  | 243 +----------------------
->>>  Â  arch/riscv/mm/pgtable.cÂ Â Â Â Â Â Â Â Â Â Â Â  |Â Â  6 +-
->>>  Â  include/linux/hugetlb_contpte.hÂ Â Â Â  |Â  39 ++++
->>>  Â  mm/KconfigÂ Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  |Â Â  3 +
->>>  Â  mm/MakefileÂ Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  |Â Â  1 +
->>>  Â  mm/hugetlb_contpte.cÂ Â Â Â Â Â Â Â Â Â Â Â Â Â Â  | 258 ++++++++++++++++++++++++
->>>  Â  14 files changed, 583 insertions(+), 622 deletions(-)
->>>  Â  create mode 100644 include/linux/hugetlb_contpte.h
->>>  Â  create mode 100644 mm/hugetlb_contpte.c
->>>
->> _______________________________________________
->> linux-riscv mailing list
->> linux-riscv@lists.infradead.org
->> http://lists.infradead.org/mailman/listinfo/linux-riscv
->>
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+								Honza
+-- 
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
 
