@@ -4,79 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D962C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 16:45:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 221FAC3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 16:47:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rJgqOXHKtLEYu5Dc95e8O+Sgs8ALpz+j191fEgS8hIA=; b=ZLjFPNcelbBG5frf3TbGVTYgOR
-	e/aysi6VgCbVO22DqX3gV6Oz8nA5mJQXkZjBTLnGcPaJj6wKRfULxJ938nspLicTIMMX8sRRSq9z2
-	SAFHosv+JJ4py5GUZ0sARxVEk5lA/d1AcImrSi+Li36Gkl004634435xYoILaZH3HJy7Fj8Ag18fe
-	aqLevnbgSyZbAJqmRyKjQi0MPKIYtVUZze5+dRUi3THcg6qnGah+z+RUHz9lroKeVtNT6+QOL+kNV
-	jOBfGP1hvQWL9WRNcrvO5dqhl1gt5PQSDCZdajdXbHoQfh6DTDEdSoVGuWWoIPcs2/FdjAQZmEX5W
-	eWooA8fA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=D6QMJxSvYb+DoZksUxOYwXqaCXAwRl1Ug30Nn9yKcK4=; b=5ETBNkKSgnWI9X
+	uuRUhyWwmydQYHjy3AnX/EV+y8FY59R4nw/BiK9ExpuDr33y7kdh99b1BlEuBUK0l8CB8RtFDdSe/
+	PjZdBhSewLNGqr9reyyHYMDBOnqaAl+a5xn8/6vpZ63WwkozyDnaB0GvxRZWMni0gOlqTntgMz6+j
+	U95THyPp3h/3FNRy+kyPXGKBYMidtFCBmUBcMY701fLoAFkJ6DlfhXSoQ8OPBT4umAieJ5xtcDyhO
+	qa2x8rCqGd5VBsGjLbY9a8fQb4V7yDeFjV4O9fe3DWEBr50DgT6vNOpjD1g7SwNIMNZOVBvt0K8yk
+	y4uq/b7fyqJBkXizsHDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uByw2-000000082ba-3l04;
-	Mon, 05 May 2025 16:44:55 +0000
-Received: from mail-oi1-x22c.google.com ([2607:f8b0:4864:20::22c])
+	id 1uByxz-000000082s1-3LCS;
+	Mon, 05 May 2025 16:46:55 +0000
+Received: from mail-oi1-x230.google.com ([2607:f8b0:4864:20::230])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBykF-00000007zvh-1whU
+	id 1uBykF-00000007zvN-0vqP
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 05 May 2025 16:32:45 +0000
-Received: by mail-oi1-x22c.google.com with SMTP id 5614622812f47-400fa6b3012so3551393b6e.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 09:32:43 -0700 (PDT)
+Received: by mail-oi1-x230.google.com with SMTP id 5614622812f47-3f9832f798aso3348234b6e.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 09:32:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1746462762; x=1747067562; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=rJgqOXHKtLEYu5Dc95e8O+Sgs8ALpz+j191fEgS8hIA=;
-        b=uJsIoy1VwmcLjC4jytZl6yPSa4iAz/MkVS+JeMTeh+FE0bDHpy3PoMsytOMnSytRyI
-         o3aiYcWEVxagEdZNrwomKl3BjUdMydM04M/KZd2DBuCXDXoG3MACn3kM8nWlCHeLpaJY
-         ojjpVFqSf2fD+ugIxYLzSX5AekLu83ReqmUGXTQqCiiT/Z7x8MgQ2QV2wTsF1XmLVdUR
-         M1LvfqvNiXACCz/zk8fyDxnXstyLLGQER8TzRacnIhYMdoB+wq6/Gn6nOBnPx3MzaUVo
-         nidueJtCnJ+OQd/g6UU6Vr+xby1uvdM7SkFUDka3b58YkQ218W2HTzpBoojnL1u6zCnm
-         ngZw==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1746462761; x=1747067561; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=D6QMJxSvYb+DoZksUxOYwXqaCXAwRl1Ug30Nn9yKcK4=;
+        b=tmUxbtDkgTW+RqBxmKFZxcTNBUqC8MFNqWga5Uy9tfQKmlQlcf4LQhxqTomqvbWCty
+         sTJbGN9hPqxKvqx5lZH/6yUAsp0gq9ja3rQeLJDk5JUH3o57bKuV4fBcOErA4BzrOWxV
+         3u0Uph5SfurKmPyqfVX+T77ecdQO3n41aZV8YD7Bp8nwV8s3urJOvLvMoEjmB6xtOKgj
+         ffaT9VQuHZli3chRB1jRCcuM2UgNc6GZVbLvBbiyWH+HWrTBi5NJ2iQpaa2Y/2ktNAqJ
+         2TuD5BDIDppxPWqKGZoyd1Yu2/JNOV85CAvchhS+1Za680IjiaTSvNAVz5Twpb4dcphE
+         /4qA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746462762; x=1747067562;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=rJgqOXHKtLEYu5Dc95e8O+Sgs8ALpz+j191fEgS8hIA=;
-        b=UUvLtZOEGGLavnXn5m7PcZyJYv+S307CNWu/tM5EF5xKJdnwwO4YkyWbkt0zs36/pz
-         oKzIZFmx9SA660G/PGfrbnu2LD7atn2Y74lJh6P/bmCYjWlh9pIJzuisNE03LlKSsDc/
-         EwQ/zLwZKK/Mj3AzLklFiCqAKkn8evnuAfA2bJkE4Y8cXtN0/fdBvBLmk5Qvaw6wvlSH
-         CM+B5QyhOMWq1PCwP21hGEUpAon5d8xm6WFTxTxfRORrFLWs1muRwFktItQvdYaEdwYv
-         IpQ2Qc2EVVNAdfIjJTgCzUhwy89wf9vmROdoqsOKRWcxtdTdF233GkkqIJY+bTTjQuyv
-         hZnA==
-X-Forwarded-Encrypted: i=1; AJvYcCXoNCapiFV92RSdHC6KuRHcTa9ViKdRUZuGEMdnYl54o4hckzzyGQMvuV25OJ+r5hFU/bp2bygKCSeipM5j8WHE@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy35/APOztTDEdC5udnoUE0lfPLyDsdeDV+Vi5/a2FNhNchxQiM
-	28qTVLi38k3sL349dSpyOd2cI4gj5V/aMTLeXa+T1ePO9gBmKIAwmN8kdKsyd8Q=
-X-Gm-Gg: ASbGncth1JQAAULsDrXVUnAdDY+Qsrp8lp8oY8jn4RRfqGRIZOJJZRZ48y5pZtiaGb3
-	W6vL0bJ55YuQsJKeewbAemjGjHa2dQxxjcukpH6rUkMT2iCwKLO/1tF8UpgJVEvgAJhgBA1NNIJ
-	sIbtB9yAiyScw28jWCy5LPFCkI7p9T5tN/3zoirRudQ7/B9jgzysUssJ7NMtDEyWErGbLTDfukM
-	TrcPUDmWIzWJawKcntQGmK85kwY6UrqIjL4eYbqUKhQac912v2Xqvuv/irsK0GpCOKPSedYGdME
-	S79EUHz0AK1/P6sGXy+NDQrHMxp8HaE/P8yXzsLmdYDR1g==
-X-Google-Smtp-Source: AGHT+IGs/uio+N9GX6uoXBshi7EmIQjByvrsNNXX+NqolBl5ZTXdpZVjZB6aOujcazOYysdZc1C7fg==
-X-Received: by 2002:a05:6808:2e44:b0:3f3:d699:e1a8 with SMTP id 5614622812f47-4036889329dmr99556b6e.13.1746462762462;
-        Mon, 05 May 2025 09:32:42 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1746462761; x=1747067561;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=D6QMJxSvYb+DoZksUxOYwXqaCXAwRl1Ug30Nn9yKcK4=;
+        b=BIFectoQ/81fx7Etb4w1DghuMO/3LQu/jE8SQYahrkTNEFh18INmpey+6Xq5Z7x2cN
+         IbBLcZQRlWG/TihdXO03XhZL2vrrIYzTvDPa7p48EOucH/4fACvelI7sG5wEv4+Njs4y
+         RZ18jTa17MyjVzR4a1mhLnpvlNmbK7a0ka1mCLjyDD/OCdwDTydOEj4cVLzJKWWYnwb1
+         mUKZZpe/5AXVSi9Y9piH9VG42HdFzMDQWhWG4WdYED8itRm1lZchFoUxyV4vqDNkKC3b
+         AT5pgs+3Rrse3IA9BirpNk7xsrKeFuaRzua6AKAOpwGUD1/GPOgGi8GhWrfmO45H3cIA
+         En7A==
+X-Forwarded-Encrypted: i=1; AJvYcCURLZtweeQ/ItwTfAOsb+4LM2hM5ugLe9l6LOCPxxxsCcCwj9uF4jAvotwikuwHRp86CvR3r53E8N1lCZaT7K6K@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzxnnpXDOPW++xH11aL0MOtMJcJy0jRp5eSqiwOxBhrUdmDgOI
+	qvNy9uzrDqDkBve9RSTqZU9GFmzFmOBTHW9LilFHTE5yA92g8KxjS747zRYRq0s=
+X-Gm-Gg: ASbGncvgpwwZP3tnVJmXmVs3IzGxP2bN8RYNO4PKRLpMKKaKr5jH+c3oSYBW9eyK3wP
+	JQHFRKYloTjSNKspzdejVOcGQz9JWQYavzjH0lxmcMJ4dZXX82F/hfgkv8j51iB7CBwGYRKhR/F
+	krVn0F7N0CWg1vO6eu2O89clTnvfrqUp79ZKBJnyZXmYI2CdsrHyw5PP2D7BETQBswlQE08u6gt
+	bq5Ai9/rQiwQno6RFfPlDm478NeGQjq6v9GcdlylIijaOSQ5xX8a7jYAAZ9OgBYUxmIMOFX8wjs
+	hCRR3OJGJuzGbGZxZPRwf8oc4vAxEfZ47JlBKHPK8994cg==
+X-Google-Smtp-Source: AGHT+IEAb7wN6Xj4gTxhIaHaxaX2lbTLyAAaizSD3Tpvtgd3KpcAkDDkzsvRIGIEg/4Ozb6SlOjBug==
+X-Received: by 2002:a05:6808:2292:b0:401:e6f0:a8d4 with SMTP id 5614622812f47-403419aad82mr8804825b6e.5.1746462761622;
+        Mon, 05 May 2025 09:32:41 -0700 (PDT)
 Received: from [127.0.1.1] ([2600:8803:e7e4:1d00:2151:6806:9b7:545d])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-4033dae68f7sm1971854b6e.26.2025.05.05.09.32.41
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-4033dae68f7sm1971854b6e.26.2025.05.05.09.32.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 May 2025 09:32:42 -0700 (PDT)
+        Mon, 05 May 2025 09:32:41 -0700 (PDT)
 From: David Lechner <dlechner@baylibre.com>
-Date: Mon, 05 May 2025 11:31:42 -0500
-Subject: [PATCH v5 1/7] iio: make IIO_DMA_MINALIGN minimum of 8 bytes
+Subject: [PATCH v5 0/7] iio: introduce IIO_DECLARE_BUFFER_WITH_TS
+Date: Mon, 05 May 2025 11:31:41 -0500
+Message-Id: <20250505-iio-introduce-iio_declare_buffer_with_ts-v5-0-814b72b1cae3@baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250505-iio-introduce-iio_declare_buffer_with_ts-v5-1-814b72b1cae3@baylibre.com>
-References: <20250505-iio-introduce-iio_declare_buffer_with_ts-v5-0-814b72b1cae3@baylibre.com>
-In-Reply-To: <20250505-iio-introduce-iio_declare_buffer_with_ts-v5-0-814b72b1cae3@baylibre.com>
+X-B4-Tracking: v=1; b=H4sIAO3nGGgC/53QTWrDMBCG4asErasijWTJdNV7lGL0M1MPpHaRH
+ bch+O6VszIlG3f5zuL5YG5iwsI4iZfTTRRceOJxqNE8nUTqw/CBknNtAQoaZXUrmUfJw1zGfEm
+ 4VZcxnUPBLl6IsHTfPPfdPEmg1ntDPofsROW+ChL/3Kfe3mv3PM1jud6XF71d/zGyaKkkokoOg
+ jFB0WsM1zPHgs9p/BTbzgI7G+CADdU2lI2zvkleuQe22dvNAdtUmzRk0pEIbPvAtnv7yE9stR1
+ 5choc6RT/2Ou6/gIRNcyr9wEAAA==
+X-Change-ID: 20250418-iio-introduce-iio_declare_buffer_with_ts-2f8773f7dad6
 To: Jonathan Cameron <jic23@kernel.org>, 
  David Lechner <dlechner@baylibre.com>, 
  =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
@@ -87,22 +90,23 @@ To: Jonathan Cameron <jic23@kernel.org>,
  Alexandre Belloni <alexandre.belloni@bootlin.com>, 
  Claudiu Beznea <claudiu.beznea@tuxon.dev>
 Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org
+ linux-arm-kernel@lists.infradead.org, 
+ Trevor Gamblin <tgamblin@baylibre.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1648; i=dlechner@baylibre.com;
- h=from:subject:message-id; bh=46OSuZf2dhljZm7iLcR4nEvANejbGAzfctNVEsdQaN8=;
- b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBoGOf3wI8ZT4eFmRiGA5GwE6azCjTTRo1UWmFKt
- qQemRE5B6eJATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCaBjn9wAKCRDCzCAB/wGP
- wH0mB/0emTwkt4s59h+lwHQxEogmsxeNHdHGwpxtKif1U4oSd5BIhv04bnXgOEzZHho6ORDkML5
- T5Wx+rUcoPcfdZv4UINUOowft6FL8a2ZLzKxwV/cYf+93la/1Gj6fxP/tAmN4GRnTSQgtbKowYM
- KarS+EJX/y+GonOePKZqncyxqtKtoV4DX+VPCOJ8FqK1PYW/3e4GBut/zPaLq4I+X+mG+oZZ8Mx
- IVsCipaI9EJmcaP41FAXPSuw7BMqzbTfv6OPxBcNyWi+/5haxvZcJ75P8m7BHkrYJlZw9CFeO+Y
- XR+bpiOEfvYEZQlo3vHnK3lt8YXx5RKltXnVVjyN9KBxGTnw
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3565; i=dlechner@baylibre.com;
+ h=from:subject:message-id; bh=hYnwKldeyCYR/JIL/xowr6X7GeHBTR1A13sTV64gYGA=;
+ b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBoGOfw0KmlDYseVpAgaaAgy5RQ/GQPoLBAF23yB
+ m7Yv0pwF6mJATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCaBjn8AAKCRDCzCAB/wGP
+ wAirB/wO+qf8Ih7G7JqFC/x8axX3O9pv7JgHrlVRxYTW2iX82uIBHyaB+pyjKn8DAt3M3VGaXL4
+ 2vWJvZxdyWBKypNi834Cm1qOExB5ROp69bUOoy+DWrKscujGXl46Ehh3Jl19nyeNaIcnHv0XBHn
+ aQZHqWzPktGxHlfC2gkqo7rttCldK2Bu0dWg7fnTHCKDyMf8VuDoDSgZ+tS7f4rb1PlBe3iFD6K
+ UpYjfHcNb4jn3zLjGB+0Yv7mwiGp+OG+A8nGQU/OtVo+xvnqIy+5e3zPg+ydpFXpf6hJcmdypSQ
+ +1EZbXUQi+6l9n1s7j99XrLql9fs4vJVH2AqXBkF4MWQyOls
 X-Developer-Key: i=dlechner@baylibre.com; a=openpgp;
  fpr=8A73D82A6A1F509907F373881F8AF88C82F77C03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_093243_509665_4F9295BF 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20250505_093243_274058_E8F22B6D 
+X-CRM114-Status: GOOD (  19.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,43 +121,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a condition to ensure that IIO_DMA_MINALIGN is at least 8 bytes.
-On some 32-bit architectures, IIO_DMA_MINALIGN is 4. In many cases,
-drivers are using this alignment for buffers that include a 64-bit
-timestamp that is used with iio_push_to_buffers_with_ts(), which expects
-the timestamp to be aligned to 8 bytes. To handle this, we can just make
-IIO_DMA_MINALIGN at least 8 bytes.
+Creating a buffer of the proper size and correct alignment for use with
+iio_push_to_buffers_with_ts() is commonly used and not easy to get
+right (as seen by a number of recent fixes on the mailing list).
 
-Signed-off-by: David Lechner <dlechner@baylibre.com>
+In general, we prefer to use this pattern for creating such buffers:
+
+struct {
+    u16 data[2];
+    aligned_s64 timestamp;
+} buffer;
+
+However, there are many cases where a driver may have a large number of
+channels that can be optionally enabled or disabled in a scan or the
+driver might support a range of chips that have different numbers of
+channels or different storage sizes for the data. In these cases, the
+timestamp may not always be at the same place relative to the data. To
+handle these, we allocate a buffer large enough for the largest possible
+case and don't care exactly where the timestamp ends up in the buffer.
+
+For these cases, we propose to introduce new macros to make it easier
+it easier for both the authors to get it right and for readers of the
+code to not have to do all of the math to verify that it is correct.
+
+I have just included a few examples of drivers that can make use of this
+new macro, but there are dozens more.
+
 ---
- include/linux/iio/iio.h | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+Changes in v5:
+- Add new patch to set minimum alignment to 8 for IIO_DMA_MINALIGN.
+- Adjust IIO_DECLARE_DMA_BUFFER_WITH_TS() macro for above change.
+- Drop one ad4695 patch that was already applied.
+- Link to v4: https://lore.kernel.org/r/20250428-iio-introduce-iio_declare_buffer_with_ts-v4-0-6f7f6126f1cb@baylibre.com
 
-diff --git a/include/linux/iio/iio.h b/include/linux/iio/iio.h
-index 638cf2420fbd85cf2924d09d061df601d1d4bb2a..7e1e3739328d103262071bd34ba5f6631163c122 100644
---- a/include/linux/iio/iio.h
-+++ b/include/linux/iio/iio.h
-@@ -775,8 +775,18 @@ static inline void *iio_device_get_drvdata(const struct iio_dev *indio_dev)
-  * to in turn include IIO_DMA_MINALIGN'd elements such as buffers which
-  * must not share  cachelines with the rest of the structure, thus making
-  * them safe for use with non-coherent DMA.
-+ *
-+ * A number of drivers also use this on buffers that include a 64-bit timestamp
-+ * that is used with iio_push_to_buffer_with_ts(). Therefore, in the case where
-+ * DMA alignment is not sufficient for proper timestamp alignment, we align to
-+ * 8 bytes instead.
-  */
-+#if ARCH_DMA_MINALIGN < sizeof(s64)
-+#define IIO_DMA_MINALIGN sizeof(s64)
-+#else
- #define IIO_DMA_MINALIGN ARCH_DMA_MINALIGN
-+#endif
-+
- struct iio_dev *iio_device_alloc(struct device *parent, int sizeof_priv);
- 
- /* The information at the returned address is guaranteed to be cacheline aligned */
+Changes in v4:
+- Dropped static_assert()s from the first patch.
+- Handle case when IIO_DMA_MINALIGN < sizeof(timestamp).
+- Added one more patch for ad4695 to rename a confusing macro.
+- Link to v3: https://lore.kernel.org/r/20250425-iio-introduce-iio_declare_buffer_with_ts-v3-0-f12df1bff248@baylibre.com
 
+Changes in v3:
+- Fixed a few mistakes, style issues and incorporate other feedback (see
+  individual commit message changelogs for details).
+- Link to v2: https://lore.kernel.org/r/20250422-iio-introduce-iio_declare_buffer_with_ts-v2-0-3fd36475c706@baylibre.com
+
+Changes in v2:
+- Add 2nd macro for case where we need DMA alignment.
+- Add new patch for ad4695 to convert buffer from u8 to u16 before
+  making use of the new macro.
+- Drop the bmp280 patch since it was determined to have a better
+  alternative not using these macros.
+- Add a few more examples to show the non-DMA case, both in a struct and
+  stack allocated.
+- Link to v1: https://lore.kernel.org/r/20250418-iio-introduce-iio_declare_buffer_with_ts-v1-0-ee0c62a33a0f@baylibre.com
+
+---
+David Lechner (7):
+      iio: make IIO_DMA_MINALIGN minimum of 8 bytes
+      iio: introduce IIO_DECLARE_BUFFER_WITH_TS macros
+      iio: adc: ad4695: use IIO_DECLARE_DMA_BUFFER_WITH_TS
+      iio: adc: ad4695: rename AD4695_MAX_VIN_CHANNELS
+      iio: adc: ad7380: use IIO_DECLARE_DMA_BUFFER_WITH_TS
+      iio: accel: sca3300: use IIO_DECLARE_BUFFER_WITH_TS
+      iio: adc: at91-sama5d2: use IIO_DECLARE_BUFFER_WITH_TS
+
+ drivers/iio/accel/sca3300.c        | 18 ++--------------
+ drivers/iio/adc/ad4695.c           | 11 +++++-----
+ drivers/iio/adc/ad7380.c           |  3 +--
+ drivers/iio/adc/at91-sama5d2_adc.c | 13 ++----------
+ include/linux/iio/iio.h            | 42 ++++++++++++++++++++++++++++++++++++++
+ 5 files changed, 52 insertions(+), 35 deletions(-)
+---
+base-commit: 7e9a82ab5b861d3c33c99a22c1245a5b262ee502
+change-id: 20250418-iio-introduce-iio_declare_buffer_with_ts-2f8773f7dad6
+
+Best regards,
 -- 
-2.43.0
+David Lechner <dlechner@baylibre.com>
 
 
