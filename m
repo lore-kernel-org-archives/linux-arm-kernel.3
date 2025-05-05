@@ -4,87 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41D02C3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 00:31:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10A0AC3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 00:33:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7UG6GYoDYUvSTCJXNbhcTCy+rTclDma5rPa6bv6GcMw=; b=ADVNUt6dkeOQTdll2abc6cBcgF
-	aPcAuIyh04iIJ6yZoCYrcoobFnMZQPRRH5vWOo66jZtTYsJRGkeoJQWTG/ePKnFKI52z8a/1AUhBx
-	H4xNb/Ig8xK8rAgVdmOKPYL2Wfw/iNi1kITp8oqo3il6sCVBeAzwuyFBc+bFXt2kwUO1JZXaIqLqI
-	8FPx29EHhIHKJLHplr20mVSKgd+jLkYHpeYFjnIEm0uBrBptZTwLFezmFStnSDCz4RBYGnYRE4vMf
-	k8ZdtDkTVjSjp9O661liIP3JYXQTa/hWcsVH77fnZ0NZJEIvV7STdINDL1nUyY5AzAAzfQ/vHGSUg
-	SQelAavg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1UhRgOP3UHEQDNZff68z7OO8hUFpWtnsskSnLulOt5g=; b=WKp+qgbrNdTQkiI8EE3DkJuvL5
+	n6rcKNFbH7vzYJbxtpax2yFp9+CVezIgAte2BJKBNFSfb2HVPvF4ZLrKyhJCyK1OSK3VMskcY5r7i
+	454gZ2tA6Qaq+yzk2SiphmSz/4yl+J4KTdOprLeER1Uky/LfAQiwRDNDEF5nKce0j2OKXvi445e03
+	01CyrjD13q5C6shFIykcV5AL+sRxibxpnHGzHjeDLfEuknJ2ROKNph+XbbEwx+aOhalSHrvw16YTD
+	ShaWsVaV+d+ITdZ8FqtnewMAWxxNKjt7uortiZrpn1jYKsfZ7h36MDeLcbcw8aV6m2zZ13j7FXBDs
+	33R4UzEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC6Df-00000009IYG-0wW6;
-	Tue, 06 May 2025 00:31:35 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1uC6Fc-00000009J7W-1qyi;
+	Tue, 06 May 2025 00:33:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4Oc-00000008ne6-10hv
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 22:34:47 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-736b5f9279cso4096624b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 15:34:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1746484485; x=1747089285; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=7UG6GYoDYUvSTCJXNbhcTCy+rTclDma5rPa6bv6GcMw=;
-        b=WJITwWLVlJiWk1aQk21zNlsvOExmqF2Hml+amhr8hbb2xSkKXJZMG3f1cJ+PMQNYZI
-         3zS0cgxt/jPKpbRV4E1NpsApDTrDedQNiID8pSruQ0a+9SKaIrYjII7vYSxGTQdjw8BR
-         3xSvFnPvhCOqJjhGEdUYQFcJYm1As9gFUJDFkg+rECu1uBld91oirPzenHr2aNavlZEv
-         gkdEqsA5P/Ooj9O6VJ/niyadtKq0V5H6IVbF4rgWn9f/st4fmLooU0F7XdG+aAO0P1Fn
-         rZeVJDOjOiX4/pLsudUrCL0lUBQWycBXn74oSnfiuhFxvTKZnoqsMOC9P37K50Ys018k
-         v29w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746484485; x=1747089285;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=7UG6GYoDYUvSTCJXNbhcTCy+rTclDma5rPa6bv6GcMw=;
-        b=Dtv7MLKr/PyjP5pGkrPDmd2DuT/r0KIgw3ICYu1SNZsRBvFTbYBOUloofOnDGZWLxz
-         7rRwAQlawbHfLGwj2F8cXQaOfo/zN3F2UHdPsHiXTB4mTvqfAUAgYjXdQE61y7ksz7Sf
-         PafkgSDvKFweFePAQDtSCMdqAIKl20mP00+2APIsUCRq8K6QRgqvM2qbM1BEBrN3bI8O
-         Nch2FTpWQ66zApet0iTv+it/AGWsmXUO9oN8p6wjnhKTo84lzcpCrANt5avtPs8ope4v
-         38fcC0lr6ot0nc2Q35c3SijEgotbm24CNCEWBr+DZTDjCEX9dUvNNnq/Nh9cuh5eeRWl
-         rW+g==
-X-Forwarded-Encrypted: i=1; AJvYcCUfd9Zj5kOtkD1z19kGnofvOa60mxIsdFJdoMd2/EkHlGqJmQM2MB//AjmEQ9yCHuKiWpg9Jxj7emYQIPTlxBvE@lists.infradead.org
-X-Gm-Message-State: AOJu0YxTOO+/PExn5ls3caDtcm62yH/FYotDrSxRRYBeD+eo44il2E5X
-	EmOGni0Qki3H/3w94720uhD6NeuoVLMomaa9RjkQwSQR+qRRC6HXzOlDjvHUks3e4bhsKWdEgPp
-	71ij8u+PqqC24C9uKR/vVsE9wiw==
-X-Google-Smtp-Source: AGHT+IG9/bqquqZo0+5ekAmT9vTMi2AWIW4fPAq3lK8wl6/RiTTEb6BBW0o8BycH8+xREXoGfTl4Z8+v6d38vWKGCxA=
-X-Received: from pgar26.prod.google.com ([2002:a05:6a02:2e9a:b0:af0:e359:c50a])
- (user=samitolvanen job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a20:43a3:b0:1f5:6c7b:8920 with SMTP id adf61e73a8af0-2118076ae4dmr1028201637.9.1746484484997;
- Mon, 05 May 2025 15:34:44 -0700 (PDT)
-Date: Mon,  5 May 2025 22:34:40 +0000
-In-Reply-To: <20250505223437.3722164-4-samitolvanen@google.com>
-Mime-Version: 1.0
-References: <20250505223437.3722164-4-samitolvanen@google.com>
-X-Developer-Key: i=samitolvanen@google.com; a=openpgp; fpr=35CCFB63B283D6D3AEB783944CB5F6848BBC56EE
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5846; i=samitolvanen@google.com;
- h=from:subject; bh=7DbjnHH5VAkImXf9y6kWO2Cpd7OKLAKDbR8A6OUcpSo=;
- b=owGbwMvMwCEWxa662nLh8irG02pJDBmSNv+n70wW3Td999qDnluU1h/qaZRrv6XgbvBB9fe9j
- n2HrxUxdJSyMIhxMMiKKbK0fF29dfd3p9RXn4skYOawMoEMYeDiFICJ3PVg+Kcseq1CSHzW1a6c
- rZ4n9e4dPmdvfbpob7XIB/7NkjLOEkcZGdbeDuLtcTvWJBP+IZHFKOjdccWdfaFpL+7dCbLplng aygEA
-X-Mailer: git-send-email 2.49.0.967.g6a0df3ecc3-goog
-Message-ID: <20250505223437.3722164-6-samitolvanen@google.com>
-Subject: [PATCH bpf-next v9 2/2] arm64/cfi,bpf: Support kCFI + BPF on arm64
-From: Sami Tolvanen <samitolvanen@google.com>
-To: bpf@vger.kernel.org, Puranjay Mohan <puranjay@kernel.org>, 
-	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Andrii Nakryiko <andrii@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Maxwell Bland <mbland@motorola.com>, Puranjay Mohan <puranjay12@gmail.com>, 
-	Sami Tolvanen <samitolvanen@google.com>, Dao Huang <huangdao1@oppo.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_153446_282825_EE1F3B87 
-X-CRM114-Status: GOOD (  21.70  )
+	id 1uC4Px-00000008o33-21Vd;
+	Mon, 05 May 2025 22:36:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0C4C0629C8;
+	Mon,  5 May 2025 22:35:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0D0FC4CEF2;
+	Mon,  5 May 2025 22:36:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746484568;
+	bh=4WfFbFjcaanBR0u3Vi8013gCJwg8jWqxRkdGc3InMBw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=G85lwjPXfVnOpgt3/ioobduSENsASCyGRlYGe1vs615n7fQ8N+mW49i2NksKAImaB
+	 0EIPOA4j2ydGrcYjGsAnShWx2P6yk2AtCBEUnc8HbEKqx9nJi5HUTOYiRZexKMDN7A
+	 MMzQvRPO50px87Fcgc+HVx42lisRRn6W8zVdXVshmhN99862dsJR6JxVgn+unA+vzx
+	 QuhSnC/xQ6Z3H89rcMspTVRqGF1dke+eqKB/i6iY/qDyVtamfBVSIc7vDhvrTUMJOk
+	 Tgkt8HAgcHMQtUAh0QTSpKkreSJPSR4s0WNMs6mAgYzjUCRSVgWEvsbT70+U6QZG+O
+	 L49U/kIrFGflQ==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	FUKAUMI Naoki <naoki@radxa.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Sasha Levin <sashal@kernel.org>,
+	hjc@rock-chips.com,
+	andy.yan@rock-chips.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.14 542/642] drm/rockchip: vop2: Improve display modes handling on RK3588 HDMI0
+Date: Mon,  5 May 2025 18:12:38 -0400
+Message-Id: <20250505221419.2672473-542-sashal@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250505221419.2672473-1-sashal@kernel.org>
+References: <20250505221419.2672473-1-sashal@kernel.org>
+MIME-Version: 1.0
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.14.5
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,182 +83,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Puranjay Mohan <puranjay12@gmail.com>
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 
-Currently, bpf_dispatcher_*_func() is marked with `__nocfi` therefore
-calling BPF programs from this interface doesn't cause CFI warnings.
+[ Upstream commit 2c1268e7aad0819f38e56134bbc2095fd95fde1b ]
 
-When BPF programs are called directly from C: from BPF helpers or
-struct_ops, CFI warnings are generated.
+The RK3588 specific implementation is currently quite limited in terms
+of handling the full range of display modes supported by the connected
+screens, e.g. 2560x1440@75Hz, 2048x1152@60Hz, 1024x768@60Hz are just a
+few of them.
 
-Implement proper CFI prologues for the BPF programs and callbacks and
-drop __nocfi for arm64. Fix the trampoline generation code to emit kCFI
-prologue when a struct_ops trampoline is being prepared.
+Additionally, it doesn't cope well with non-integer refresh rates like
+59.94, 29.97, 23.98, etc.
 
-Signed-off-by: Puranjay Mohan <puranjay12@gmail.com>
-Co-developed-by: Maxwell Bland <mbland@motorola.com>
-Signed-off-by: Maxwell Bland <mbland@motorola.com>
-Co-developed-by: Sami Tolvanen <samitolvanen@google.com>
-Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
-Tested-by: Dao Huang <huangdao1@oppo.com>
+Make use of HDMI0 PHY PLL as a more accurate DCLK source to handle
+all display modes up to 4K@60Hz.
+
+Tested-by: FUKAUMI Naoki <naoki@radxa.com>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+Link: https://patchwork.freedesktop.org/patch/msgid/20250204-vop2-hdmi0-disp-modes-v3-3-d71c6a196e58@collabora.com
+Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- arch/arm64/include/asm/cfi.h    | 23 +++++++++++++++++++++++
- arch/arm64/kernel/alternative.c | 25 +++++++++++++++++++++++++
- arch/arm64/net/bpf_jit_comp.c   | 22 +++++++++++++++++++---
- 3 files changed, 67 insertions(+), 3 deletions(-)
- create mode 100644 arch/arm64/include/asm/cfi.h
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 34 ++++++++++++++++++++
+ 1 file changed, 34 insertions(+)
 
-diff --git a/arch/arm64/include/asm/cfi.h b/arch/arm64/include/asm/cfi.h
-new file mode 100644
-index 000000000000..670e191f8628
---- /dev/null
-+++ b/arch/arm64/include/asm/cfi.h
-@@ -0,0 +1,23 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASM_ARM64_CFI_H
-+#define _ASM_ARM64_CFI_H
-+
-+#ifdef CONFIG_CFI_CLANG
-+#define __bpfcall
-+static inline int cfi_get_offset(void)
-+{
-+	return 4;
-+}
-+#define cfi_get_offset cfi_get_offset
-+extern u32 cfi_bpf_hash;
-+extern u32 cfi_bpf_subprog_hash;
-+extern u32 cfi_get_func_hash(void *func);
-+#else
-+#define cfi_bpf_hash 0U
-+#define cfi_bpf_subprog_hash 0U
-+static inline u32 cfi_get_func_hash(void *func)
-+{
-+	return 0;
-+}
-+#endif /* CONFIG_CFI_CLANG */
-+#endif /* _ASM_ARM64_CFI_H */
-diff --git a/arch/arm64/kernel/alternative.c b/arch/arm64/kernel/alternative.c
-index 8ff6610af496..71c153488dad 100644
---- a/arch/arm64/kernel/alternative.c
-+++ b/arch/arm64/kernel/alternative.c
-@@ -8,11 +8,13 @@
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+index 64029237358d8..bcbd498823928 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+@@ -159,6 +159,7 @@ struct vop2_video_port {
+ 	struct drm_crtc crtc;
+ 	struct vop2 *vop2;
+ 	struct clk *dclk;
++	struct clk *dclk_src;
+ 	unsigned int id;
+ 	const struct vop2_video_port_data *data;
  
- #define pr_fmt(fmt) "alternatives: " fmt
+@@ -214,6 +215,7 @@ struct vop2 {
+ 	struct clk *hclk;
+ 	struct clk *aclk;
+ 	struct clk *pclk;
++	struct clk *pll_hdmiphy0;
  
-+#include <linux/cfi_types.h>
- #include <linux/init.h>
- #include <linux/cpu.h>
- #include <linux/elf.h>
- #include <asm/cacheflush.h>
- #include <asm/alternative.h>
-+#include <asm/cfi.h>
- #include <asm/cpufeature.h>
- #include <asm/insn.h>
- #include <asm/module.h>
-@@ -298,3 +300,26 @@ noinstr void alt_cb_patch_nops(struct alt_instr *alt, __le32 *origptr,
- 		updptr[i] = cpu_to_le32(aarch64_insn_gen_nop());
- }
- EXPORT_SYMBOL(alt_cb_patch_nops);
-+
-+#ifdef CONFIG_CFI_CLANG
-+struct bpf_insn;
-+
-+/* Must match bpf_func_t / DEFINE_BPF_PROG_RUN() */
-+extern unsigned int __bpf_prog_runX(const void *ctx,
-+				    const struct bpf_insn *insn);
-+DEFINE_CFI_TYPE(cfi_bpf_hash, __bpf_prog_runX);
-+
-+/* Must match bpf_callback_t */
-+extern u64 __bpf_callback_fn(u64, u64, u64, u64, u64);
-+DEFINE_CFI_TYPE(cfi_bpf_subprog_hash, __bpf_callback_fn);
-+
-+u32 cfi_get_func_hash(void *func)
-+{
-+	u32 hash;
-+
-+	if (get_kernel_nofault(hash, func - cfi_get_offset()))
-+		return 0;
-+
-+	return hash;
-+}
-+#endif /* CONFIG_CFI_CLANG */
-diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-index 70d7c89d3ac9..3b3691e88dd5 100644
---- a/arch/arm64/net/bpf_jit_comp.c
-+++ b/arch/arm64/net/bpf_jit_comp.c
-@@ -9,6 +9,7 @@
+ 	/* optional internal rgb encoder */
+ 	struct rockchip_rgb *rgb;
+@@ -222,6 +224,8 @@ struct vop2 {
+ 	struct vop2_win win[];
+ };
  
- #include <linux/bitfield.h>
- #include <linux/bpf.h>
-+#include <linux/cfi.h>
- #include <linux/filter.h>
- #include <linux/memory.h>
- #include <linux/printk.h>
-@@ -164,6 +165,12 @@ static inline void emit_bti(u32 insn, struct jit_ctx *ctx)
- 		emit(insn, ctx);
- }
- 
-+static inline void emit_kcfi(u32 hash, struct jit_ctx *ctx)
-+{
-+	if (IS_ENABLED(CONFIG_CFI_CLANG))
-+		emit(hash, ctx);
-+}
++#define VOP2_MAX_DCLK_RATE		600000000
 +
- /*
-  * Kernel addresses in the vmalloc space use at most 48 bits, and the
-  * remaining bits are guaranteed to be 0x1. So we can compose the address
-@@ -474,7 +481,6 @@ static int build_prologue(struct jit_ctx *ctx, bool ebpf_from_cbpf)
- 	const bool is_main_prog = !bpf_is_subprog(prog);
- 	const u8 fp = bpf2a64[BPF_REG_FP];
- 	const u8 arena_vm_base = bpf2a64[ARENA_VM_START];
--	const int idx0 = ctx->idx;
- 	int cur_offset;
+ #define vop2_output_if_is_hdmi(x)	((x) == ROCKCHIP_VOP2_EP_HDMI0 || \
+ 					 (x) == ROCKCHIP_VOP2_EP_HDMI1)
  
- 	/*
-@@ -500,6 +506,9 @@ static int build_prologue(struct jit_ctx *ctx, bool ebpf_from_cbpf)
- 	 *
- 	 */
+@@ -1155,6 +1159,9 @@ static void vop2_crtc_atomic_disable(struct drm_crtc *crtc,
  
-+	emit_kcfi(is_main_prog ? cfi_bpf_hash : cfi_bpf_subprog_hash, ctx);
-+	const int idx0 = ctx->idx;
+ 	vop2_crtc_disable_irq(vp, VP_INT_DSP_HOLD_VALID);
+ 
++	if (vp->dclk_src)
++		clk_set_parent(vp->dclk, vp->dclk_src);
 +
- 	/* bpf function may be invoked by 3 instruction types:
- 	 * 1. bl, attached via freplace to bpf prog via short jump
- 	 * 2. br, attached via freplace to bpf prog via long jump
-@@ -2009,9 +2018,9 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		jit_data->ro_header = ro_header;
+ 	clk_disable_unprepare(vp->dclk);
+ 
+ 	vop2->enable_count--;
+@@ -2257,6 +2264,27 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
+ 
+ 	vop2_vp_write(vp, RK3568_VP_MIPI_CTRL, 0);
+ 
++	/*
++	 * Switch to HDMI PHY PLL as DCLK source for display modes up
++	 * to 4K@60Hz, if available, otherwise keep using the system CRU.
++	 */
++	if (vop2->pll_hdmiphy0 && clock <= VOP2_MAX_DCLK_RATE) {
++		drm_for_each_encoder_mask(encoder, crtc->dev, crtc_state->encoder_mask) {
++			struct rockchip_encoder *rkencoder = to_rockchip_encoder(encoder);
++
++			if (rkencoder->crtc_endpoint_id == ROCKCHIP_VOP2_EP_HDMI0) {
++				if (!vp->dclk_src)
++					vp->dclk_src = clk_get_parent(vp->dclk);
++
++				ret = clk_set_parent(vp->dclk, vop2->pll_hdmiphy0);
++				if (ret < 0)
++					drm_warn(vop2->drm,
++						 "Could not switch to HDMI0 PHY PLL: %d\n", ret);
++				break;
++			}
++		}
++	}
++
+ 	clk_set_rate(vp->dclk, clock);
+ 
+ 	vop2_post_config(crtc);
+@@ -3697,6 +3725,12 @@ static int vop2_bind(struct device *dev, struct device *master, void *data)
+ 		return PTR_ERR(vop2->pclk);
  	}
  
--	prog->bpf_func = (void *)ctx.ro_image;
-+	prog->bpf_func = (void *)ctx.ro_image + cfi_get_offset();
- 	prog->jited = 1;
--	prog->jited_len = prog_size;
-+	prog->jited_len = prog_size - cfi_get_offset();
- 
- 	if (!prog->is_func || extra_pass) {
- 		int i;
-@@ -2271,6 +2280,12 @@ static int prepare_trampoline(struct jit_ctx *ctx, struct bpf_tramp_image *im,
- 	/* return address locates above FP */
- 	retaddr_off = stack_size + 8;
- 
-+	if (flags & BPF_TRAMP_F_INDIRECT) {
-+		/*
-+		 * Indirect call for bpf_struct_ops
-+		 */
-+		emit_kcfi(cfi_get_func_hash(func_addr), ctx);
++	vop2->pll_hdmiphy0 = devm_clk_get_optional(vop2->dev, "pll_hdmiphy0");
++	if (IS_ERR(vop2->pll_hdmiphy0)) {
++		drm_err(vop2->drm, "failed to get pll_hdmiphy0\n");
++		return PTR_ERR(vop2->pll_hdmiphy0);
 +	}
- 	/* bpf trampoline may be invoked by 3 instruction types:
- 	 * 1. bl, attached to bpf prog or kernel function via short jump
- 	 * 2. br, attached to bpf prog or kernel function via long jump
-@@ -2790,6 +2805,7 @@ void bpf_jit_free(struct bpf_prog *prog)
- 					   sizeof(jit_data->header->size));
- 			kfree(jit_data);
- 		}
-+		prog->bpf_func -= cfi_get_offset();
- 		hdr = bpf_jit_binary_pack_hdr(prog);
- 		bpf_jit_binary_pack_free(hdr, NULL);
- 		WARN_ON_ONCE(!bpf_prog_kallsyms_verify_off(prog));
++
+ 	vop2->irq = platform_get_irq(pdev, 0);
+ 	if (vop2->irq < 0) {
+ 		drm_err(vop2->drm, "cannot find irq for vop2\n");
 -- 
-2.49.0.967.g6a0df3ecc3-goog
+2.39.5
 
 
