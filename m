@@ -4,62 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F97FC3ABB6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 02:02:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9B00C3ABB6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 02:04:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wvt12wgFT9s8Sclfi5Btxj6tC72UvL0+SXqxbc8+i+8=; b=DMSOnqDDxpgjsfJgzzCtt8RJIl
-	xQ81KSzoanYzBG0sYc996vDL5DA7xavALDgWqgkMic7Y9sTGJfUJ8aVRcrYoxtT0ufJq29aFD6uGN
-	1TbMjjcBQziEwX1A4nN9SdVlS2VcPTT/KMu6RYE6A0YjCLEoPUHl1KuomMSIhFE3zAGRxu23Q/6/P
-	bUKI3TMDyb9TCzmRevnu0rn6+yvIqVUGd7jh6d0IcccNA5pjxUukiREt8Vpk4y1cXa+ITkyGGlKQ8
-	mbTnGfpwnWy6F0+eHZNawedqIpUK/3Di5CSwOINGa+sL4BzIeEG51a3wo+P6rN8317/oVieltE54L
-	99tVHEZQ==;
+	bh=0kVfSRKqT8SsnmSHCUnkWqFaLFIZgjfXs94LOx78i7c=; b=VvjbfuHBh9Dlkw39RIbtoOMgYn
+	+i+gTUrg7AK1xrSO3+XW3pVoNWOE55J8UIkcY0xlTVV1p8qP9BFd22SN1Gb+bk49wryFArwJpgIOZ
+	Og4+bVZUIbpgMlEDAF9rSPIO0eET8SNrsbDNn4n5AV2S+B38mpE1rl1Z0sFJ6Um5mmzf2Ib3byfXt
+	Rtu49ozTdrOWGoLA6gVhSRRPeG2YfSNgDlwrBqCn4wFTG88FkNdmXAlSFnn2fJfRkDo5mRiGGMngw
+	5c4BmST9DlCBUc/cEbrwUMJNQGHb6aIB5qJtsiZUy+rXigAvS9ZFKTkKh4DW5tpYN5RyYBva1ML8N
+	7Eg5ACyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC7dJ-00000009ePl-2MlT;
-	Tue, 06 May 2025 02:02:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uC7fJ-00000009ewg-41TM;
+	Tue, 06 May 2025 02:04:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4dt-00000008sWn-0sdm
+	id 1uC4eL-00000008sgo-2tYd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 22:50:34 +0000
+	Mon, 05 May 2025 22:51:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3F7C14374F;
-	Mon,  5 May 2025 22:50:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 580D3C4CEED;
-	Mon,  5 May 2025 22:50:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4A41F629C2;
+	Mon,  5 May 2025 22:50:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20982C4CEEF;
+	Mon,  5 May 2025 22:51:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746485432;
-	bh=x4IvsUEfzHlSC2LzP/8/YpTVrEUqXDFL+x1OF5RhMqU=;
+	s=k20201202; t=1746485460;
+	bh=Z9LX6s23ZuIXyzShDrnweBPy3s35tSG0fmfwXhPvyag=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=lse/RbgD4Ydb4c4WIcTxrSSg/aD5NqKt+xvYPVIRYPJjJMonf8vVUUL3qB6jiKuz0
-	 agvFIB3ZcIDkZ6bisfl3CJyUssrqozdiZgpLH0i4Mx6OjRYTbKQ8DNABqInatI9/HR
-	 EwK0m+MzuOfKHIJBlaIYZdwACAAozmnJcLvwL0Z1/9+Yxx59jmzolBvfjk83t99VG1
-	 44sTVo4griiEBkN8zWemFrxH/rEoHMBu4TZ5csJDD0K4smzwXx7vG1wOyGvGMj4C5T
-	 d6cyZlQuoUM14gOK8v+kNhV8NnON+ct5jcz7aGxdhdKYwIENUa6GkLKHS4YFns0bIh
-	 5sB3IYhCc/Zjg==
+	b=EKySiQYZxcB3offOww41/agfyooS+ED8J3qnkljU4ffY+u2WpZ5QZud+VuUr9QmwT
+	 ssal1PrBIG1EYx/WbswjJYDNeedm3iNUcZuPWinxBKxyEl22kDKLKyw5U1X/JSi3IO
+	 O5mIlvbZHMKCYSgRsJh0zI/xGRnqLGkc31cNif5Q4I/DPx9DbUBiBbCPlxynonzmxC
+	 UHmd/XDcqRnDg0Q09NUQ/L23tQQTYOUw+ohUdC1euHdvlBjFS3ujbClT2UGtsgJqf6
+	 RFpPDytPJ9bsK4qKAv8yhsDQXGmK3QFvg9x1f01jfDm0qJ9MetI0hmS9VJuqLU8ds2
+	 Jv6jkqxyMLP0g==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Ahmad Fatoum <a.fatoum@pengutronix.de>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
 	Sasha Levin <sashal@kernel.org>,
-	shawnguo@kernel.org,
-	shengjiu.wang@nxp.com,
-	peng.fan@nxp.com,
-	joe@pf.is.s.u-tokyo.ac.jp,
-	dario.binacchi@amarulasolutions.com,
-	krzysztof.kozlowski@linaro.org,
-	linux-pm@vger.kernel.org,
-	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.12 308/486] pmdomain: imx: gpcv2: use proper helper for property detection
-Date: Mon,  5 May 2025 18:36:24 -0400
-Message-Id: <20250505223922.2682012-308-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.12 324/486] firmware: arm_ffa: Handle the presence of host partition in the partition info
+Date: Mon,  5 May 2025 18:36:40 -0400
+Message-Id: <20250505223922.2682012-324-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505223922.2682012-1-sashal@kernel.org>
 References: <20250505223922.2682012-1-sashal@kernel.org>
@@ -68,9 +60,6 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.12.26
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_155033_290981_A80C63A6 
-X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,38 +74,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+From: Sudeep Holla <sudeep.holla@arm.com>
 
-[ Upstream commit 6568cb40e73163fa25e2779f7234b169b2e1a32e ]
+[ Upstream commit 2f622a8b0722d332a2a149794a3add47bc9bdcf3 ]
 
-Starting with commit c141ecc3cecd7 ("of: Warn when of_property_read_bool()
-is used on non-boolean properties"), probing the gpcv2 device on i.MX8M
-SoCs leads to warnings when LOCKDEP is enabled.
+Currently it is assumed that the firmware doesn't present the host
+partition in the list of partitions presented as part of the response
+to PARTITION_INFO_GET from the firmware. However, there are few
+platforms that prefer to present the same in the list of partitions.
+It is not manadatory but not restricted as well.
 
-Fix this by checking property presence with of_property_present as
-intended.
+So handle the same by making sure to check the presence of the host
+VM ID in the XArray partition information maintained/managed in the
+driver before attempting to add it.
 
-Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Link: https://lore.kernel.org/r/20250218-gpcv2-of-property-present-v1-1-3bb1a9789654@pengutronix.de
-Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+Tested-by: Viresh Kumar <viresh.kumar@linaro.org>
+Message-Id: <20250217-ffa_updates-v3-7-bd1d9de615e7@arm.com>
+Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/pmdomain/imx/gpcv2.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/firmware/arm_ffa/driver.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/drivers/pmdomain/imx/gpcv2.c b/drivers/pmdomain/imx/gpcv2.c
-index e03c2cb39a693..0dbf1893abfa3 100644
---- a/drivers/pmdomain/imx/gpcv2.c
-+++ b/drivers/pmdomain/imx/gpcv2.c
-@@ -1361,7 +1361,7 @@ static int imx_pgc_domain_probe(struct platform_device *pdev)
- 	}
+diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
+index e8efa6cfd58cd..52e1cbaab856d 100644
+--- a/drivers/firmware/arm_ffa/driver.c
++++ b/drivers/firmware/arm_ffa/driver.c
+@@ -1448,6 +1448,10 @@ static int ffa_setup_partitions(void)
  
- 	if (IS_ENABLED(CONFIG_LOCKDEP) &&
--	    of_property_read_bool(domain->dev->of_node, "power-domains"))
-+	    of_property_present(domain->dev->of_node, "power-domains"))
- 		lockdep_set_subclass(&domain->genpd.mlock, 1);
+ 	kfree(pbuf);
  
- 	ret = of_genpd_add_provider_simple(domain->dev->of_node,
++	/* Check if the host is already added as part of partition info */
++	if (xa_load(&drv_info->partition_info, drv_info->vm_id))
++		return 0;
++
+ 	/* Allocate for the host */
+ 	info = kzalloc(sizeof(*info), GFP_KERNEL);
+ 	if (!info) {
 -- 
 2.39.5
 
