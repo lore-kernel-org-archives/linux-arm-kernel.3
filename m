@@ -4,94 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12F11C369C2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 07:06:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFB56C369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 07:08:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FWcMhUUAD341x1j4p0TzxNBabdUQcp6F1O3NT2s7Z9I=; b=JA2iHPMYLJQUGtYPdiJM75wnaV
-	Sga1VAKlAoRyrMTxyvATHfFg/bXZnffVmOOADb1D73zD3Cv5kE/205MM8CHeEWWuPz6QpujiihmvA
-	xLUHrmjNgK0gON5OebHLWht8nKqyd2tNAMYP4/RihfpgybhrJ5z8FDA4QXDa98ixRq8l+5Zsov5/9
-	CxsPR+NW8o7GRK6X67bx9slnXPiryFk8cepY+A0QdIfgtIMRdOPN4Ior9o/SBkKwUbhwy6Q+DzhbN
-	+oAoRly+Ywc7jOa3t+W22FvzPeTykCnbXN8hrGAJjd9pCgvrw+a28Gzp8V0K3GwkGHWn2bdJtJXQs
-	4JYdidYQ==;
+	bh=uCAJ/1smKtAmYm+WKYPnozKlTBBJTpkCk5xD4ZLhIP8=; b=fCq2DjZEjNgvD8L4YHpeB7WbZl
+	WCzWTB55IBfer9ZJajk8bJFcOqrIDEtBrE9MKWTWYYIKmzOKNQqtBY6Jc5RAJmo8vWZBKkDXmuHY/
+	2PZzqPpZppG7a2iOsAYLk4eh4j1NROPtTwCrXtO2tYU/N0y1g8WfUDkjScutwvA8qbW+EM0bJaPlM
+	YLJmJ8Hqe6EilDja5f/WhPvmS+K69dygMVeek5xo+jx9O/J1wgIdxAQ3YFY3xWwm+7RPvlsSIQ/Bs
+	hM64D2JzqnaDKFKQbl8TBEfGVV9+a2C47uw3bkETpsyw3RAVsyMZoehx+JzdcYBKOoMxtDAOQ725N
+	8NsnZSCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBpuH-00000006bFG-0Hpg;
-	Mon, 05 May 2025 07:06:29 +0000
-Received: from cpanel.siel.si ([46.19.9.99])
+	id 1uBpwE-00000006bXE-1eRG;
+	Mon, 05 May 2025 07:08:30 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBpsF-00000006aZJ-1ctx
+	id 1uBpu7-00000006bCn-3BVT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 07:04:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
-	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=FWcMhUUAD341x1j4p0TzxNBabdUQcp6F1O3NT2s7Z9I=; b=cK9noqLnLdYH8B5aHwnOVCr3N8
-	aFx1PhEY/AeDmgx30074nqdwSaV2O3JlovBwN6qZ/ncicaMyCEmmS5VH5ez+VuFKd6PT0O1dadn2r
-	wSLeCT/LpfhW2+tGGAd1OHXe6ZHyqa/nGbiRAfRLHCReM+BqRN7kELFx9302k1TmN7zG74MGAjvQS
-	fTQElveeg8b8N6vHKjQVnWT6esJW1+jbbFhJiNuPJfxizo4WtlSeFARU7XnwbnNBrZ7HXJbQArCez
-	rVvQHu/zsoCp0KQ0De/EW7oY711Av6tuCj9lf5vm3d9s6HYfNWrpdq+WpN9MUeeC+mTEiWxp/EEzO
-	zNzibs3g==;
-Received: from [89.212.21.243] (port=58904 helo=[192.168.69.116])
-	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.96.2)
-	(envelope-from <primoz.fiser@norik.com>)
-	id 1uBpsB-00BenA-24;
-	Mon, 05 May 2025 09:04:18 +0200
-Message-ID: <282a7e41-97f8-4fd4-9f03-29f70acc4df2@norik.com>
-Date: Mon, 5 May 2025 09:04:17 +0200
+	Mon, 05 May 2025 07:06:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1746428777;
+ bh=uCAJ/1smKtAmYm+WKYPnozKlTBBJTpkCk5xD4ZLhIP8=;
+ b=eD42vXYe8PlU0LvFmhYw/6V2t/zy6sdCKmCQth9TxwdNxTNOoXhE3N8aQHtLdU92B/dq2zRcs
+ gg9yQiPqFzVHO3WlXsCQ44nCYgRbEl2L1AzgVagCo/gHl7cnXLRlQKyza6SwB1Pi/gXWQ3wWaRc
+ quy2xN4ypW4wbiIfiwwZeoC7YXDk7F1xIbpVJVAc/T3lBJzV3x1PadGsSrN5lDl3F6xsKzeHl3E
+ SMBc23tcha9zJLRW2sZzfUh9dTEeT/Om2PcwJPJu+8PeIq9ADShQ5PewwAgyBc6dQVlQD7dYI+Y
+ ahByMwnG6I1M030M+F8G/bI24LhX2y9WCtA1EBxVjn3Q==
+X-Forward-Email-ID: 6818635ebaed44ffca19f3f7
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 1.0.2
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <727f7797-3a0c-426a-8f74-6adfb3215dc7@kwiboo.se>
+Date: Mon, 5 May 2025 09:06:01 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [Upstream] [PATCH 2/2] arm64: dts: freescale: Add PHYTEC
- phyBOARD-Nash-i.MX93 support
-To: Wadim Egorov <w.egorov@phytec.de>, Rob Herring <robh@kernel.org>,
+Subject: Re: [PATCH v2 2/3] arm64: dts: rockchip: Add I2C controllers for
+ RK3528
+To: Yao Zi <ziyao@disroot.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- upstream@lists.phytec.de
-References: <20250425064107.174548-1-primoz.fiser@norik.com>
- <20250425064107.174548-2-primoz.fiser@norik.com>
- <000c1117-81d1-4a74-9d36-f83a2b0fedd3@phytec.de>
+ <conor+dt@kernel.org>, Chukun Pan <amadeus@jmu.edu.cn>,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20250417120118.17610-3-ziyao@disroot.org>
+ <20250417120118.17610-5-ziyao@disroot.org>
 Content-Language: en-US
-From: Primoz Fiser <primoz.fiser@norik.com>
-Autocrypt: addr=primoz.fiser@norik.com; keydata=
- xjMEZrROOxYJKwYBBAHaRw8BAQdAADVOb5tiLVTUAC9nu/FUl4gj/+4fDLqbc3mk0Vz8riTN
- JVByaW1veiBGaXNlciA8cHJpbW96LmZpc2VyQG5vcmlrLmNvbT7CiQQTFggAMRYhBK2YFSAH
- ExsBZLCwJGoLbQEHbnBPBQJmtE47AhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQagttAQducE+T
- gAD+K4fKlIuvH75fAFwGYG/HT3F9mN64majvqJqvp3gTB9YBAL12gu+cm11m9JMyOyN0l6Os
- jStsQFghPkzBSDWSDN0NzjgEZrROPBIKKwYBBAGXVQEFAQEHQP2xtEOhbgA+rfzvvcFkV1zK
- 6ym3/c/OUQObCp50BocdAwEIB8J4BBgWCAAgFiEErZgVIAcTGwFksLAkagttAQducE8FAma0
- TjwCGwwACgkQagttAQducE8ucAD9F1sXtQD4iA7Qu+SwNUAp/9x7Cqr37CSb2p6hbRmPJP8B
- AMYR91JYlFmOJ+ScPhQ8/MgFO+V6pa7K2ebk5xYqsCgA
-Organization: Norik systems d.o.o.
-In-Reply-To: <000c1117-81d1-4a74-9d36-f83a2b0fedd3@phytec.de>
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20250417120118.17610-5-ziyao@disroot.org>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - cpanel.siel.si
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - norik.com
-X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: primoz.fiser@norik.com
-X-Authenticated-Sender: cpanel.siel.si: primoz.fiser@norik.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_000423_895909_8D8BD06C 
-X-CRM114-Status: UNSURE (   7.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250505_000620_151727_BCD51C5D 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,73 +82,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Wadim,
-
-On 28. 04. 25 16:31, Wadim Egorov wrote:
-> Hi Primoz,
+On 2025-04-17 14:01, Yao Zi wrote:
+> Describe I2C controllers shipped by RK3528 in devicetree. For I2C-2,
+> I2C-4 and I2C-7 which come with only a set of possible pins, a default
+> pin configuration is included.
 > 
-> a few of the node references you are adding are out of alphabetical order.
+> Signed-off-by: Yao Zi <ziyao@disroot.org>
 
-Only &mdio node is out of alphabetical order.
+Reading from the i2c EEPROM on a E20C works with this, so this is:
 
-But this is done by choice to keep it together with &eqos node since
-both nodes are related to the 2nd Ethernet interface (&ethphy2) and thus
-kept logically with each other.
+Reviewed-by: Jonas Karlman <jonas@kwiboo.se>
 
-We did the same for phyBOARD-Segin-i.MX93.
+Regards,
+Jonas
 
+> ---
+>  arch/arm64/boot/dts/rockchip/rk3528.dtsi | 110 +++++++++++++++++++++++
+>  1 file changed, 110 insertions(+)
 > 
-> Am 25.04.25 um 09:41 schrieb Primoz Fiser:
->> Add initial support for PHYTEC phyBOARD-Nash-i.MX93 board [1] based on
->> the PHYTEC phyCORE-i.MX93 SoM (System-on-Module) [2].
->>
->> Supported board features:
->>   * ADC
->>   * CAN
->>   * Ethernet 2x
->>   * EEPROM
->>   * eMMC
->>   * Heartbeat LED
->>   * RTC
-> 
-> eMMC and Hearbeat LED are not board features but SoM features.
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> index 826f9be0be19..2c9780069af9 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> @@ -24,6 +24,14 @@ aliases {
+>  		gpio2 = &gpio2;
+>  		gpio3 = &gpio3;
+>  		gpio4 = &gpio4;
+> +		i2c0 = &i2c0;
+> +		i2c1 = &i2c1;
+> +		i2c2 = &i2c2;
+> +		i2c3 = &i2c3;
+> +		i2c4 = &i2c4;
+> +		i2c5 = &i2c5;
+> +		i2c6 = &i2c6;
+> +		i2c7 = &i2c7;
+>  		serial0 = &uart0;
+>  		serial1 = &uart1;
+>  		serial2 = &uart2;
+> @@ -465,6 +473,108 @@ uart7: serial@ffa28000 {
+>  			status = "disabled";
+>  		};
+>  
+> +		i2c0: i2c@ffa50000 {
+> +			compatible = "rockchip,rk3528-i2c",
+> +				     "rockchip,rk3399-i2c";
+> +			reg = <0x0 0xffa50000 0x0 0x1000>;
+> +			clocks = <&cru CLK_I2C0>, <&cru PCLK_I2C0>;
+> +			clock-names = "i2c", "pclk";
+> +			interrupts = <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			status = "disabled";
+> +		};
+> +
+> +		i2c1: i2c@ffa58000 {
+> +			compatible = "rockchip,rk3528-i2c",
+> +				     "rockchip,rk3399-i2c";
+> +			reg = <0x0 0xffa58000 0x0 0x1000>;
+> +			clocks = <&cru CLK_I2C1>, <&cru PCLK_I2C1>;
+> +			clock-names = "i2c", "pclk";
+> +			interrupts = <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			status = "disabled";
+> +		};
+> +
+> +		i2c2: i2c@ffa60000 {
+> +			compatible = "rockchip,rk3528-i2c",
+> +				     "rockchip,rk3399-i2c";
+> +			reg = <0x0 0xffa60000 0x0 0x1000>;
+> +			clocks = <&cru CLK_I2C2>, <&cru PCLK_I2C2>;
+> +			clock-names = "i2c", "pclk";
+> +			interrupts = <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>;
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&i2c2m1_xfer>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			status = "disabled";
+> +		};
+> +
+> +		i2c3: i2c@ffa68000 {
+> +			compatible = "rockchip,rk3528-i2c",
+> +				     "rockchip,rk3399-i2c";
+> +			reg = <0x0 0xffa68000 0x0 0x1000>;
+> +			clocks = <&cru CLK_I2C3>, <&cru PCLK_I2C3>;
+> +			clock-names = "i2c", "pclk";
+> +			interrupts = <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			status = "disabled";
+> +		};
+> +
+> +		i2c4: i2c@ffa70000 {
+> +			compatible = "rockchip,rk3528-i2c",
+> +				     "rockchip,rk3399-i2c";
+> +			reg = <0x0 0xffa70000 0x0 0x1000>;
+> +			clocks = <&cru CLK_I2C4>, <&cru PCLK_I2C4>;
+> +			clock-names = "i2c", "pclk";
+> +			interrupts = <GIC_SPI 65 IRQ_TYPE_LEVEL_HIGH>;
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&i2c4_xfer>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			status = "disabled";
+> +		};
+> +
+> +		i2c5: i2c@ffa78000 {
+> +			compatible = "rockchip,rk3528-i2c",
+> +				     "rockchip,rk3399-i2c";
+> +			reg = <0x0 0xffa78000 0x0 0x1000>;
+> +			clocks = <&cru CLK_I2C5>, <&cru PCLK_I2C5>;
+> +			clock-names = "i2c", "pclk";
+> +			interrupts = <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			status = "disabled";
+> +		};
+> +
+> +		i2c6: i2c@ffa80000 {
+> +			compatible = "rockchip,rk3528-i2c",
+> +				     "rockchip,rk3399-i2c";
+> +			reg = <0x0 0xffa80000 0x0 0x1000>;
+> +			clocks = <&cru CLK_I2C6>, <&cru PCLK_I2C6>;
+> +			clock-names = "i2c", "pclk";
+> +			interrupts = <GIC_SPI 67 IRQ_TYPE_LEVEL_HIGH>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			status = "disabled";
+> +		};
+> +
+> +		i2c7: i2c@ffa88000 {
+> +			compatible = "rockchip,rk3528-i2c",
+> +				     "rockchip,rk3399-i2c";
+> +			reg = <0x0 0xffa88000 0x0 0x1000>;
+> +			clocks = <&cru CLK_I2C7>, <&cru PCLK_I2C7>;
+> +			clock-names = "i2c", "pclk";
+> +			interrupts = <GIC_SPI 68 IRQ_TYPE_LEVEL_HIGH>;
+> +			pinctrl-names = "default";
+> +			pinctrl-0 = <&i2c7_xfer>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			status = "disabled";
+> +		};
+> +
+>  		saradc: adc@ffae0000 {
+>  			compatible = "rockchip,rk3528-saradc";
+>  			reg = <0x0 0xffae0000 0x0 0x10000>;
 
-That's true.
-
-I will remove those from the list in v2 and only list carrier-board
-features.
-
-BR,
-Primoz
-
-> 
->>   * RS-232/RS-485
->>   * SD-card
->>   * TPM 2.0
->>   * USB
->>
->> For more details see the product pages for the development kit and the
->> SoM:
->>
->> [1] https://www.phytec.eu/en/produkte/development-kits/phyboard-nash/
->> [2]
->> https://www.phytec.eu/en/produkte/system-on-modules/phycore-imx-91-93/
->>
->> Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
-> 
-> With that changed,
-> 
-> Reviewed-by: Wadim Egorov <w.egorov@phytec.de>
-> 
-
--- 
-Primoz Fiser
-phone: +386-41-390-545
-email: primoz.fiser@norik.com
---
-Norik systems d.o.o.
-Your embedded software partner
-Slovenia, EU
-phone: +386-41-540-545
-email: info@norik.com
 
