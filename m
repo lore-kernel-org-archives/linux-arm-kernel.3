@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B73C0C3ABB6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 22:29:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C305DC3ABB9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 22:31:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=17gov8UGLw19JO63i+8Tynj4+yH+shKjHULnMu5Ruz8=; b=jUT+ZANESnBQA1Pi8OK+JRXqvg
-	tNZIVUgL8YO1GtmIOSm3lnhUnQPirLdNRJvy518M8q0EMVmO3U2UCN0QLpaptXOouzB4a6KGQB26G
-	4g1xbYkFlVJA/3Lf1p0WVaWP+pHVXMBl7t7CUj7yHm/IcbNSs9kF/ZFxQu8K1IgVURwdsYim9DTXY
-	Y3qSZWh5J+Hgp1OrF+06KT1ouLjApA5gibQgrg0Xw4nDDrQoqkO7FMCJ/xXFYCSZ/knAY0WzL5Ypp
-	05F9V8OwyU9zGwcGABMXQf6xngkuiP00Nt/jVMSh34aHlftxO6xvTg0JxqF0q/Kwr1jqWvF1+5aUy
-	D4+stujA==;
+	bh=Ga66tI7ZBv/7mBhdJQc1HXQoEY3zEWmy/qJWiwMUdZA=; b=RLGUBnN5V73k+7TQURMNSNBqDI
+	rqL4aOImqDOht1GYtN/Vix5CHqP6DWgjvv6jSJK7GoRmesaxUbWy0BaamsGX7iiGGhylU6Fh6nD0U
+	ifJ9ucxfJAVpzidD4neVXekzEPpsXarK4E8OUuPys6RKtheM9l8IAfeXD4ZVdaSbELiT6M0AG/Ui1
+	zIRL5RctR1dp0v6U+zdFuuHO51pnq+vFxnkkrHDvUnB1KoOf35kK7fG+t0sjPcI+MJMW+RjOBdnar
+	mIUDYfovX3HK3XAfcB+rLBPRVDiUwdTybTUsXghzlbwcrh0mIxgLXEjmmMbob8yh/aZs3xomfZ8ma
+	9p1gbWuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4JK-00000008ltU-3v4V;
-	Mon, 05 May 2025 22:29:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uC4LL-00000008mZH-0IsH;
+	Mon, 05 May 2025 22:31:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC47A-00000008i3P-1bfL;
-	Mon, 05 May 2025 22:16:46 +0000
+	id 1uC47I-00000008i51-143Y;
+	Mon, 05 May 2025 22:16:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 40F7C43A5A;
-	Mon,  5 May 2025 22:16:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74826C4CEEE;
-	Mon,  5 May 2025 22:16:42 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D94BB629C3;
+	Mon,  5 May 2025 22:16:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9FF7C4CEEF;
+	Mon,  5 May 2025 22:16:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746483403;
-	bh=7mkq1wehpyT8zEaNclLrNl2PA/Y6QJyMqTDjuO215UE=;
+	s=k20201202; t=1746483411;
+	bh=immGtHOQNAjbPw7pNkpPl9yR0ILfPCW0XuJiUmFodqk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Qg23aQr4UqlMt9KKxM8zCmAjf2uLJX1A+AapTi0JMlXvL2p8qDRcxdTvsUvBYMkrB
-	 SziLTVCI65kFmsnoTQ4z32DouPAFyNCs2px5m31Rp+UR2q7R0Nthi7JUOd0ApbaqPd
-	 7RxCrAMksLcaTYliXsrRHpbBVEGmvvcwNaYS7s73UlLePvoMpaRpo0v02MU3My1+B6
-	 bR2NZ8rAIHJRFmlJjxbdbQnSH7HS67+SSYQg8y6tMAcStnbSyRRbPalKdlQS+oLABT
-	 YXZEn+6THRRU8Ntpe1Cl5Q4sO6kLSn1uUca+pifS089MOp5oTzPkvY4Frn8ub7g99O
-	 JflrVejDrwgiQ==
+	b=g3xKHW86fKdCJcarEJf8NkWmuldJEcWx277LGx2iE6v0tXJPjndNzCB4nUmN81dJQ
+	 BRHH80X+HldsSN2Z1AF6Cffxj3cr08ZmN2VligF3BxIirL+G/UITvwqXg1ikx5cGnl
+	 ua9D+KeUHevH2Mgv2Kf+jUbxgBk8kkiO6Qe4liMZNRsIu6kX+0kFbGgkf7x3/BCIPS
+	 BeZfoaDVyBvKYa/HXAD0KvBF4SnhYyVXsQULcuVI9AL8xmIeBxhU/Eh2vE3mNdBQfd
+	 2/caui0LOsB1iJIcfg3/BLtFr3FHPyYv2Jr2Uc+VeWEw3PkWYkXqAsMRqMmVcU/ju0
+	 J2Xwur5gGAn9g==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Stefan Wahren <wahrenst@gmx.net>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+Cc: Shayne Chen <shayne.chen@mediatek.com>,
+	Felix Fietkau <nbd@nbd.name>,
 	Sasha Levin <sashal@kernel.org>,
-	florian.fainelli@broadcom.com,
-	umang.jain@ideasonboard.com,
-	dan.carpenter@linaro.org,
-	laurent.pinchart@ideasonboard.com,
-	javier.carrasco.cruz@gmail.com,
-	linux-rpi-kernel@lists.infradead.org,
+	lorenzo@kernel.org,
+	ryder.lee@mediatek.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-wireless@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-staging@lists.linux.dev
-Subject: [PATCH AUTOSEL 6.14 068/642] staging: vchiq_arm: Create keep-alive thread during probe
-Date: Mon,  5 May 2025 18:04:44 -0400
-Message-Id: <20250505221419.2672473-68-sashal@kernel.org>
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.14 072/642] wifi: mt76: Check link_conf pointer in mt76_connac_mcu_sta_basic_tlv()
+Date: Mon,  5 May 2025 18:04:48 -0400
+Message-Id: <20250505221419.2672473-72-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505221419.2672473-1-sashal@kernel.org>
 References: <20250505221419.2672473-1-sashal@kernel.org>
@@ -66,9 +65,6 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.14.5
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_151644_818956_092D0028 
-X-CRM114-Status: GOOD (  11.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,127 +79,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefan Wahren <wahrenst@gmx.net>
+From: Shayne Chen <shayne.chen@mediatek.com>
 
-[ Upstream commit 86bc8821700665ad3962f3ef0d93667f59cf7031 ]
+[ Upstream commit 9890624c1b3948c1c7f1d0e19ef0bb7680b8c80d ]
 
-Creating the keep-alive thread in vchiq_platform_init_state have
-the following advantages:
-- abort driver probe if kthread_create fails (more consistent behavior)
-- make resource release process easier
+This is a preliminary patch to introduce MLO support for MT7996 driver.
 
-Since vchiq_keepalive_thread_func is defined below
-vchiq_platform_init_state, the latter must be moved.
-
-Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
-Link: https://lore.kernel.org/r/20250309125014.37166-5-wahrenst@gmx.net
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Signed-off-by: Shayne Chen <shayne.chen@mediatek.com>
+Link: https://patch.msgid.link/20250311-mt7996-mlo-v2-10-31df6972519b@kernel.org
+Signed-off-by: Felix Fietkau <nbd@nbd.name>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- .../interface/vchiq_arm/vchiq_arm.c           | 69 +++++++++----------
- 1 file changed, 34 insertions(+), 35 deletions(-)
+ drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
-index 0c7ea2d0ee85e..64f9536f12329 100644
---- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
-+++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
-@@ -280,29 +280,6 @@ static int vchiq_platform_init(struct platform_device *pdev, struct vchiq_state
- 	return 0;
- }
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c b/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c
+index d0e49d68c5dbf..bafcf5a279e23 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c
++++ b/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c
+@@ -391,7 +391,7 @@ void mt76_connac_mcu_sta_basic_tlv(struct mt76_dev *dev, struct sk_buff *skb,
+ 		basic->conn_type = cpu_to_le32(CONNECTION_INFRA_BC);
  
--int
--vchiq_platform_init_state(struct vchiq_state *state)
--{
--	struct vchiq_arm_state *platform_state;
--
--	platform_state = devm_kzalloc(state->dev, sizeof(*platform_state), GFP_KERNEL);
--	if (!platform_state)
--		return -ENOMEM;
--
--	rwlock_init(&platform_state->susp_res_lock);
--
--	init_completion(&platform_state->ka_evt);
--	atomic_set(&platform_state->ka_use_count, 0);
--	atomic_set(&platform_state->ka_use_ack_count, 0);
--	atomic_set(&platform_state->ka_release_count, 0);
--
--	platform_state->state = state;
--
--	state->platform_state = (struct opaque_platform_state *)platform_state;
--
--	return 0;
--}
--
- static struct vchiq_arm_state *vchiq_platform_get_arm_state(struct vchiq_state *state)
- {
- 	return (struct vchiq_arm_state *)state->platform_state;
-@@ -1011,6 +988,39 @@ vchiq_keepalive_thread_func(void *v)
- 	return 0;
- }
- 
-+int
-+vchiq_platform_init_state(struct vchiq_state *state)
-+{
-+	struct vchiq_arm_state *platform_state;
-+	char threadname[16];
-+
-+	platform_state = devm_kzalloc(state->dev, sizeof(*platform_state), GFP_KERNEL);
-+	if (!platform_state)
-+		return -ENOMEM;
-+
-+	snprintf(threadname, sizeof(threadname), "vchiq-keep/%d",
-+		 state->id);
-+	platform_state->ka_thread = kthread_create(&vchiq_keepalive_thread_func,
-+						   (void *)state, threadname);
-+	if (IS_ERR(platform_state->ka_thread)) {
-+		dev_err(state->dev, "couldn't create thread %s\n", threadname);
-+		return PTR_ERR(platform_state->ka_thread);
-+	}
-+
-+	rwlock_init(&platform_state->susp_res_lock);
-+
-+	init_completion(&platform_state->ka_evt);
-+	atomic_set(&platform_state->ka_use_count, 0);
-+	atomic_set(&platform_state->ka_use_ack_count, 0);
-+	atomic_set(&platform_state->ka_release_count, 0);
-+
-+	platform_state->state = state;
-+
-+	state->platform_state = (struct opaque_platform_state *)platform_state;
-+
-+	return 0;
-+}
-+
- int
- vchiq_use_internal(struct vchiq_state *state, struct vchiq_service *service,
- 		   enum USE_TYPE_E use_type)
-@@ -1331,7 +1341,6 @@ void vchiq_platform_conn_state_changed(struct vchiq_state *state,
- 				       enum vchiq_connstate newstate)
- {
- 	struct vchiq_arm_state *arm_state = vchiq_platform_get_arm_state(state);
--	char threadname[16];
- 
- 	dev_dbg(state->dev, "suspend: %d: %s->%s\n",
- 		state->id, get_conn_state_name(oldstate), get_conn_state_name(newstate));
-@@ -1346,17 +1355,7 @@ void vchiq_platform_conn_state_changed(struct vchiq_state *state,
- 
- 	arm_state->first_connect = 1;
- 	write_unlock_bh(&arm_state->susp_res_lock);
--	snprintf(threadname, sizeof(threadname), "vchiq-keep/%d",
--		 state->id);
--	arm_state->ka_thread = kthread_create(&vchiq_keepalive_thread_func,
--					      (void *)state,
--					      threadname);
--	if (IS_ERR(arm_state->ka_thread)) {
--		dev_err(state->dev, "suspend: Couldn't create thread %s\n",
--			threadname);
--	} else {
--		wake_up_process(arm_state->ka_thread);
--	}
-+	wake_up_process(arm_state->ka_thread);
- }
- 
- static const struct of_device_id vchiq_of_match[] = {
+ 		if (vif->type == NL80211_IFTYPE_STATION &&
+-		    !is_zero_ether_addr(link_conf->bssid)) {
++		    link_conf && !is_zero_ether_addr(link_conf->bssid)) {
+ 			memcpy(basic->peer_addr, link_conf->bssid, ETH_ALEN);
+ 			basic->aid = cpu_to_le16(vif->cfg.aid);
+ 		} else {
 -- 
 2.39.5
 
