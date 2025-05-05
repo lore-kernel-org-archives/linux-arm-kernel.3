@@ -4,56 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C7D1C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 02:27:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6D47C3ABB6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 02:29:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QrEtGi5abC1WLM2ZvnZwtCHhEKLW3HSUqhJ6mSB73+0=; b=MzxM3xkY//AIZFXTdnUv/nZ46w
-	nbRq7Zd1bT9afO5eDCv08trVR5UzFawijcAr+AYNkD+VWs+O5O7KBeI+D0rhGfO38yhwKkv0QnEiq
-	f44rGAhuN+YwbBGqQhS5Yc+Dha9XvTjeXmKI75msT218PoZcnivOERcifdN2Un5oDWtMgJFWwOV/b
-	h4BK6aX6ue7mDlLdoj/TT7+clBexFZbPiDqL+dUn7+8YuA4bJeBxSKczCNlXl2utnAFLSmjnyfctF
-	+MtL0H/mn2uSwS5tEApOUzJDBwTCgSJE32yZ5JjuOuMsvu1meRmeW/KHeD94q2lYjxnQ/hYoyR1aM
-	8ZKcaDaA==;
+	bh=IuQHtEa7q/NILkWN9zF2BYwBivRxQ28/ZkFh2lkCbRg=; b=NrGxDWsWNtrk0mkk8sVDqW0AuV
+	TYhX9Snlz4+NXBDnwMLCeVHHMWmHMiC8RWAOUu6AWWC86QmonROC6udjCXFN5poCY8SFDnsGREZao
+	WScYWVEtxJ+QPSoflTKW1nimPPoh3FfE+bN7lLcvLjYR6YpEXO65DMTkScaSEJ5TDtxSy/qZ/Erzt
+	so1mLt0vu5LsB9omJYBrvbUBR3UzPgsq0T9JhoLGoBTcAPmxeFuPkGSTjD/GoBMURGATKNbkQ1t6K
+	fBUY+EefCFTFsurs/NTTrv3QKgDFsF/BR1YRRM26kIFZLG/OU/BF83yu++XeSgEwcHtChQDk6DQdw
+	HJA/zgjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC81K-00000009kZv-0H9u;
-	Tue, 06 May 2025 02:26:58 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uC83J-00000009l5I-0gd6;
+	Tue, 06 May 2025 02:29:01 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4kY-00000008usz-1lGk;
-	Mon, 05 May 2025 22:57:27 +0000
+	id 1uC4l0-00000008uzS-28GK;
+	Mon, 05 May 2025 22:57:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E6EFAA4D035;
-	Mon,  5 May 2025 22:51:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35E17C4CEEF;
-	Mon,  5 May 2025 22:57:24 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 28F40A4D2A6;
+	Mon,  5 May 2025 22:52:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD437C4CEED;
+	Mon,  5 May 2025 22:57:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746485845;
-	bh=PE7Vp2EO7oix1ywNeZXCp3CTiaz6XzQCRZFHSUhhTFw=;
+	s=k20201202; t=1746485873;
+	bh=qZz2XKaHDkoWIJpIga3brULNK+YXlIUjkrF7iAjl0+4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qeYmz8uW3u4Imdnh0ZF8V9d6QToUHLbMY/Mw9K8zukZLJ4hI9LnYTsuRU5OpHy8/9
-	 E72vNwPseaBTK4ZmQL65w4D8UivpMDwULNMHaZ86pGYItgCbeBdfYybhX76yUG3Aw4
-	 bNYLnzCQf2Wn6a4tHuKZ/LYUIIcrbwZDip89Kak4p4hMqoYAClB51zZuktZMC4WrRQ
-	 YnFZdiP+7c5Hn4JC6VzcXxcJ2Tn4VshuAPqTsx1NQ5s2LU3IME+hLfb4PuOl8+r5PW
-	 msmeTyK3RcRNuEO6mfMqXkTHlx1rtFAGRTdl1V75+hQB4UKnxV5Xx/nNGCpd+qnxWD
-	 Z+Mt+eYBXXvOw==
+	b=nHQDQ0V1XaxNQCB2l39tNsOwZ6DRyXH02uePo9HYxhhjBTS9Tvg84vY3ifhmRug41
+	 G7AlxJdB2OjL+jmFmIqBkua0ygyoEQEtm6KWZXqEAX9AQKm0sWJWFagv3K9hFmB2Tk
+	 k6P9FVjnkVmEH2/iyOypWaW2w+Lf5BLaivFPbnGKFZBG/3+/bMVYG6FZ2YRhFVGviJ
+	 Jdca3jHLzRE0oShIRogjRZPmSjF2+YRJBvCGP00ZerjKzuacrtfWkdb76OgWD2G76U
+	 WT+4fVBM6/0vMIoyfyiGaF1JpFRAbTAzH0MY5/xb93xri7GJSBvRsVG2AaHOHwyI1M
+	 QDsC+5lupj62g==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Luis de Arquer <luis.dearquer@inertim.com>,
-	Mark Brown <broonie@kernel.org>,
+Cc: Benjamin Lin <benjamin-jw.lin@mediatek.com>,
+	Felix Fietkau <nbd@nbd.name>,
 	Sasha Levin <sashal@kernel.org>,
-	heiko@sntech.de,
-	linux-spi@vger.kernel.org,
+	lorenzo@kernel.org,
+	ryder.lee@mediatek.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	shayne.chen@mediatek.com,
+	chui-hao.chiu@mediatek.com,
+	Bo.Jiao@mediatek.com,
+	linux-wireless@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.6 025/294] spi-rockchip: Fix register out of bounds access
-Date: Mon,  5 May 2025 18:52:05 -0400
-Message-Id: <20250505225634.2688578-25-sashal@kernel.org>
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.6 039/294] wifi: mt76: mt7996: revise TXS size
+Date: Mon,  5 May 2025 18:52:19 -0400
+Message-Id: <20250505225634.2688578-39-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505225634.2688578-1-sashal@kernel.org>
 References: <20250505225634.2688578-1-sashal@kernel.org>
@@ -63,8 +69,8 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.6.89
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_155726_533369_7B054C20 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20250505_155754_672762_D2EBDB07 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,35 +85,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Luis de Arquer <luis.dearquer@inertim.com>
+From: Benjamin Lin <benjamin-jw.lin@mediatek.com>
 
-[ Upstream commit 7a874e8b54ea21094f7fd2d428b164394c6cb316 ]
+[ Upstream commit 593c829b4326f7b3b15a69e97c9044ecbad3c319 ]
 
-Do not write native chip select stuff for GPIO chip selects.
-GPIOs can be numbered much higher than native CS.
-Also, it makes no sense.
+Size of MPDU/PPDU TXS is 12 DWs.
+In mt7996/mt7992, last 4 DWs are reserved, so TXS size was mistakenly
+considered to be 8 DWs. However, in mt7990, 9th DW of TXS starts to be used.
 
-Signed-off-by: Luis de Arquer <luis.dearquer@inertim.com>
-Link: https://patch.msgid.link/365ccddfba110549202b3520f4401a6a936e82a8.camel@gmail.com
-Signed-off-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Benjamin Lin <benjamin-jw.lin@mediatek.com>
+Link: https://patch.msgid.link/20250311103646.43346-1-nbd@nbd.name
+Signed-off-by: Felix Fietkau <nbd@nbd.name>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/spi/spi-rockchip.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/net/wireless/mediatek/mt76/mt76_connac3_mac.h | 3 +++
+ drivers/net/wireless/mediatek/mt76/mt7996/mac.c       | 4 ++--
+ 2 files changed, 5 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/spi/spi-rockchip.c b/drivers/spi/spi-rockchip.c
-index 1f374cf4d6f65..1615f935c8f03 100644
---- a/drivers/spi/spi-rockchip.c
-+++ b/drivers/spi/spi-rockchip.c
-@@ -542,7 +542,7 @@ static int rockchip_spi_config(struct rockchip_spi *rs,
- 	cr0 |= (spi->mode & 0x3U) << CR0_SCPH_OFFSET;
- 	if (spi->mode & SPI_LSB_FIRST)
- 		cr0 |= CR0_FBM_LSB << CR0_FBM_OFFSET;
--	if (spi->mode & SPI_CS_HIGH)
-+	if ((spi->mode & SPI_CS_HIGH) && !(spi_get_csgpiod(spi, 0)))
- 		cr0 |= BIT(spi_get_chipselect(spi, 0)) << CR0_SOI_OFFSET;
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76_connac3_mac.h b/drivers/net/wireless/mediatek/mt76/mt76_connac3_mac.h
+index 87bfa441a9374..4979012d5abfa 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76_connac3_mac.h
++++ b/drivers/net/wireless/mediatek/mt76/mt76_connac3_mac.h
+@@ -280,6 +280,9 @@ enum tx_mgnt_type {
+ #define MT_TXFREE_INFO_COUNT		GENMASK(27, 24)
+ #define MT_TXFREE_INFO_STAT		GENMASK(29, 28)
  
- 	if (xfer->rx_buf && xfer->tx_buf)
++#define MT_TXS_HDR_SIZE			4 /* Unit: DW */
++#define MT_TXS_SIZE			12 /* Unit: DW */
++
+ #define MT_TXS0_BW			GENMASK(31, 29)
+ #define MT_TXS0_TID			GENMASK(28, 26)
+ #define MT_TXS0_AMPDU			BIT(25)
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+index 73d46ec1181ae..35d9673ec0d8f 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
+@@ -1354,7 +1354,7 @@ bool mt7996_rx_check(struct mt76_dev *mdev, void *data, int len)
+ 		mt7996_mac_tx_free(dev, data, len);
+ 		return false;
+ 	case PKT_TYPE_TXS:
+-		for (rxd += 4; rxd + 8 <= end; rxd += 8)
++		for (rxd += MT_TXS_HDR_SIZE; rxd + MT_TXS_SIZE <= end; rxd += MT_TXS_SIZE)
+ 			mt7996_mac_add_txs(dev, rxd);
+ 		return false;
+ 	case PKT_TYPE_RX_FW_MONITOR:
+@@ -1391,7 +1391,7 @@ void mt7996_queue_rx_skb(struct mt76_dev *mdev, enum mt76_rxq_id q,
+ 		mt7996_mcu_rx_event(dev, skb);
+ 		break;
+ 	case PKT_TYPE_TXS:
+-		for (rxd += 4; rxd + 8 <= end; rxd += 8)
++		for (rxd += MT_TXS_HDR_SIZE; rxd + MT_TXS_SIZE <= end; rxd += MT_TXS_SIZE)
+ 			mt7996_mac_add_txs(dev, rxd);
+ 		dev_kfree_skb(skb);
+ 		break;
 -- 
 2.39.5
 
