@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD744C3ABB6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 22:52:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC98BC3ABB6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 22:54:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DocqIlg2wfH9mf8TBCSklKGxzyigmIXWWl6M1HKzwwg=; b=nZgShXg6/K74HdRKC5/QV1Ohm1
-	1ulvViEvbAwGc/3oRWtNmrKbOX3aRLLW65PR4RQDpdo2CdROlfObzo/uuOGEL+HkpSnC4lkyFd5cO
-	5fXFiULqY+ibm9VWZmf1fSmMP6Pb3yaianp+dMnovA3pt8m+AhQvnjSTJ29uvvxRsJeRldgT5ep3r
-	iFT7Rp8+BpXKOzY+lT4BZSnNYODagBatofsRSf34MDSvX4b+/xZFcy95TMOPCUB8y2qOSGYiHUcJW
-	BatRBr/A90qEMOZYlIz9I/+Y9w0JVqBwj5zBhXftrYH9JcxtZhI0PFJ/6JOEqPEhzMw/I24QArB64
-	sm7CmaSg==;
+	bh=Q696hS+vsZRkW0Vep7Qzgc3VE0/8wcIkbDDUiw2ga4M=; b=NUbomJ0ueD3ww2eQ8FvT20ltCN
+	p2xlmtsrLnbyb+/wGe4rI3q9eif+YVPXp4vuEK1qSHWDcndiFXQhbpEPHAw3296izzOq8W5Qxoia1
+	7g+KLmhafiQg9zjicYmReihJ18F1nwingwdH82Gr83VIfsW7NXsqOhHdYhC3Ri9M0uXT0DukztZlj
+	I9thkSrPJSuCtmIS7aThvac5HIPpQFVJAKudOB9giLc4AkvJcqeRh0FgkN7JeQuSZK5Cj1DTrT4gX
+	gQ4wjhpn1mA3OmHw3ZQl1o7RdezBrNl/InHPsjPd8XaCOiim8ToMNNt//bcqsXxXVGja1iETnZAk9
+	+evedh8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4fF-00000008sxk-1xQX;
-	Mon, 05 May 2025 22:51:57 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uC4hF-00000008tn0-0J2C;
+	Mon, 05 May 2025 22:54:01 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC47p-00000008iJp-0pmn;
-	Mon, 05 May 2025 22:17:25 +0000
+	id 1uC4AP-00000008izA-09Fs;
+	Mon, 05 May 2025 22:20:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CB68C629C2;
-	Mon,  5 May 2025 22:16:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF3B7C4CEF9;
-	Mon,  5 May 2025 22:17:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A37A0629C3;
+	Mon,  5 May 2025 22:19:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE819C4CEE4;
+	Mon,  5 May 2025 22:20:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746483444;
-	bh=MzX9AmNrEMzOaOZaVzfQFEUOLYHVPhdROtRvsA3H9+k=;
+	s=k20201202; t=1746483604;
+	bh=QZJg/qnDtIKPDm96Agh/Xj3Gqhe9xZPuYljzuQiAzTY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CvH/6fF5SgBsBjf0T/4CZx+Fco7uL9bHWUimJHlM586/J50+4lalJb74PD9SZJ7bN
-	 8AA6TpylJ+RgKiRPfcJRocHwqgTUjW/1T+ayp3uJ7TrNaaa4MZkJaLmZJpJeexjbE2
-	 WNp4vyQOiffaeRyR921TRD7obHTvTAC4pGp2Eq1zXcwT6SR7IgWFE2VNGL3kFXQzU3
-	 hKqHerAWcxfktosKdALfl6IWIjaWIa5iiXv7WSA0TW1bZ+qzCFdJvHYtccfEgO6AZO
-	 1TAE1TxC+OxYNwxA5RpsdirnMXNyJdCdCEfFxD1YsztKDyxMdTnuEzXIVdRaFrILNK
-	 TsjLsvKyUd58w==
+	b=Juez1OAWh8vaP/C8NpUkIaYbrebxnfs172zifaQlEV9+yfgG9qcPsltnQhDdCQQCh
+	 SyjJoXVozuvR5IlB/lZ5FT8Vbx4HV3c28RC54gu8WVwRb8dkynuGyGaM8MQMznWWxk
+	 VJXuWl6iSTTM7I4AIK7VqNx4uyCJXc9BPJINjt5AbPgXC7QWRvgI1KW0XHFyelIjpD
+	 lz3Usf1ZtULbemnyp6ceLi/s37BJM8VW0mqqpuuC40ZgxGhtKmAaVOMACnsVtnYmU0
+	 zK6ajrpwS3tewSnvb6NrnNgod3Bn6pFWLxWrWQDuRF53u/iNEZhKZF1sgs9DBpMS35
+	 LE6hnzShXbcwg==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Quan Zhou <quan.zhou@mediatek.com>,
-	Felix Fietkau <nbd@nbd.name>,
+Cc: =?UTF-8?q?N=C3=ADcolas=20F=2E=20R=2E=20A=2E=20Prado?= <nfraprado@collabora.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Mark Brown <broonie@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
+	lgirdwood@gmail.com,
+	perex@perex.cz,
+	tiwai@suse.com,
 	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	sean.wang@mediatek.com,
-	mingyen.hsieh@mediatek.com,
-	deren.wu@mediatek.com,
-	linux-wireless@vger.kernel.org,
+	linux-sound@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.14 082/642] wifi: mt76: mt7925: fix fails to enter low power mode in suspend state
-Date: Mon,  5 May 2025 18:04:58 -0400
-Message-Id: <20250505221419.2672473-82-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.14 138/642] ASoC: mediatek: mt6359: Add stub for mt6359_accdet_enable_jack_detect
+Date: Mon,  5 May 2025 18:05:54 -0400
+Message-Id: <20250505221419.2672473-138-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505221419.2672473-1-sashal@kernel.org>
 References: <20250505221419.2672473-1-sashal@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.14.5
@@ -82,41 +81,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Quan Zhou <quan.zhou@mediatek.com>
+From: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 
-[ Upstream commit 2d5630b0c9466ac6549495828aa7dce7424a272a ]
+[ Upstream commit 0116a7d84b32537a10d9bea1fd1bfc06577ef527 ]
 
-The mt7925 sometimes fails to enter low power mode during suspend.
-This is caused by the chip firmware sending an additional ACK event
-to the host after processing the suspend command. Due to timing issues,
-this event may not reach the host, causing the chip to get stuck.
-To resolve this, the ACK flag in the suspend command is removed,
-as it is not needed in the MT7925 architecture. This prevents the
-firmware from sending the additional ACK event, ensuring the device
-can reliably enter low power mode during suspend.
+Add a stub for mt6359_accdet_enable_jack_detect() to prevent linker
+failures in the machine sound drivers calling it when
+CONFIG_SND_SOC_MT6359_ACCDET is not enabled.
 
-Signed-off-by: Quan Zhou <quan.zhou@mediatek.com>
-Link: https://patch.msgid.link/d056938144a3a0336c3a4e3cec6f271899f32bf7.1736775666.git.quan.zhou@mediatek.com
-Signed-off-by: Felix Fietkau <nbd@nbd.name>
+Suggested-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+Link: https://patch.msgid.link/20250306-mt8188-accdet-v3-3-7828e835ff4b@collabora.com
+Signed-off-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/net/wireless/mediatek/mt76/mt7925/mcu.c | 3 +++
- 1 file changed, 3 insertions(+)
+ sound/soc/codecs/mt6359-accdet.h | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
-index e6d053c0cdbd2..8dc5dc0af1b1b 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
-@@ -3294,6 +3294,9 @@ int mt7925_mcu_fill_message(struct mt76_dev *mdev, struct sk_buff *skb,
- 		else
- 			uni_txd->option = MCU_CMD_UNI_EXT_ACK;
+diff --git a/sound/soc/codecs/mt6359-accdet.h b/sound/soc/codecs/mt6359-accdet.h
+index c234f2f4276a1..78ada3a5bfae5 100644
+--- a/sound/soc/codecs/mt6359-accdet.h
++++ b/sound/soc/codecs/mt6359-accdet.h
+@@ -123,6 +123,15 @@ struct mt6359_accdet {
+ 	struct workqueue_struct *jd_workqueue;
+ };
  
-+		if (cmd == MCU_UNI_CMD(HIF_CTRL))
-+			uni_txd->option &= ~MCU_CMD_ACK;
-+
- 		goto exit;
- 	}
- 
++#if IS_ENABLED(CONFIG_SND_SOC_MT6359_ACCDET)
+ int mt6359_accdet_enable_jack_detect(struct snd_soc_component *component,
+ 				     struct snd_soc_jack *jack);
++#else
++static inline int
++mt6359_accdet_enable_jack_detect(struct snd_soc_component *component,
++				 struct snd_soc_jack *jack)
++{
++	return -EOPNOTSUPP;
++}
++#endif
+ #endif
 -- 
 2.39.5
 
