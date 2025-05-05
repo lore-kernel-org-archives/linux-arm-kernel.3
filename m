@@ -4,58 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2D85C3ABB9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 23:08:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9975C3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 23:10:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mur2kjm4vRfmO2JTDQYmT5ZlgOh7Mfbhyc/zSJxQinU=; b=RAiQY/wiKGOb1jw7UoaU+KkH4j
-	p2h60iySsteWseLitKRgVAYDfrzUvPd/wCEGNngGY4HaPTFHwbR6+2/7Tgy4/WpbHWDgoCyzWcDAD
-	VRzt1OxK4T9lwwlbzuBHs5TUuYXH2leGSd553ta3WGKnp1eOnvbv4noKGVw7s+85lHskJ7AU9vFAt
-	oONwG2fNXqRae90BMM3eG4n/XSeOZycWn3Pma1m5PnTPL3duAh7QvPn4PBV7Nbkqi9L0spTuJzwnj
-	EknJ3PH4mdbMhHiAXhNqNFkRrn5AjcS0wUiFvEZpCHxTNyywDYHsIYB665KM2iTYrJvBOIU0HRLkW
-	dA7mEuFQ==;
+	bh=uDXBVb9BBNCKEmO31LmXPfYkCJC04MYRHH1LW0RT4mg=; b=qoXVyolJ0lS4dp2HTJFDaWU+pv
+	Rk/Z0mY14uPlYy/TOsEntu7sMcRLcd6qXMflm4gTaw3JSOFI3CnPnRrevKhssv0D1hgBDl3Qsq0It
+	GaZgQyLZ0cP4HAoVIbeGvUqTH8rlb0f5o3H9m4DKyJ0rJLphr3Urhda+mFcg5qdEP+KsJ/L+ozUkl
+	3HU7uUeNlOPbqXQrTYSkdmrN1M5JflcaFdcqQuTywUFcsEU3+P242a772fI1qUx0po7MGeqPi4fnf
+	jWak0/83jKyY6pxfiB57LnBgF5JJWp4eoEIlwodw5vELL5658sCYIhsyYvAyx1nBA85DB6MjBjXQ0
+	vezx8rSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4v1-00000008xnX-1S4O;
-	Mon, 05 May 2025 23:08:15 +0000
+	id 1uC4wy-00000008yQ9-0uUL;
+	Mon, 05 May 2025 23:10:16 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4BZ-00000008jI8-30l5
+	id 1uC4Cv-00000008jhD-3H0D
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 22:21:19 +0000
+	Mon, 05 May 2025 22:22:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D1F6A5C5AB3;
-	Mon,  5 May 2025 22:18:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B08DC4CEEE;
-	Mon,  5 May 2025 22:21:15 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 195545C5AAF;
+	Mon,  5 May 2025 22:20:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78857C4CEE4;
+	Mon,  5 May 2025 22:22:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746483676;
-	bh=oNsrUzmhcU4awFKOANx2RutoLNLmj9Hg+0G6D9qSAvc=;
+	s=k20201202; t=1746483761;
+	bh=xwd+FOSex4tZ5yD+cUdGipy3vTxciixJWmjKX8Hs6aI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=FTQ6mWaN4/aPHZDL5BPyvr80NYQjd2o8pXJC0A5vjlE0aBjq6RUNbMuG3Vm6sFh/W
-	 T9Vr9GB6Nhe231JNAOA2vl5dcRtb5+xjleN3s1YReruVnbdSKsEPkYGWWZlFSnrl07
-	 treosn2nyVG/i51f8zBOfQlsB5rGWetwUuMzLbctl9OFOBfvNnbBpJjNNjDv5rzIZU
-	 pJYIyrdzd7uYPeNcBmRLAdc0MkMODVMJZRCQKzsnbAezCCHWDzwwhe2yE3HmXWBwWV
-	 ChYhh1fbAb9Fyt1R+DNU3/aoBMCitDm9w+qAGPEYhzrfh+SYDP8ZINux8iBnHQeKEO
-	 /fNikg1DT6ExA==
+	b=hVv/vaB1tRIQPIuK9Y6B8ZGIHNrHRO6USojDzu3uwv0+lfPKqlp1Q/iVtkoj8lIRD
+	 jnCmdlV2YRdJOdUsBcYxyRznrcwqqDTbp/I1RN+pVUu1TjdzFJiks57MQGS6tlWe/0
+	 QOz2XH7xEizfZnkzI0vz6CshnDwmrB5qnZHZd0QNt1DM9DZU8N4xoDhpZ4hGo5+TEd
+	 eK1zzJWBDgbGxz61yRW+UWgPkQiC1UmBY681Pv4GsBb5i020favzyxm6Y5pjgfjaft
+	 S4OdpCiiyzEueansPybeEqc05cRMPpi3yKPe2O5wNu+4wlhZl2c7eHIP+6RQMBb507
+	 I6s5ehMATv+iQ==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Kaustabh Chakraborty <kauschluss@disroot.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
+Cc: Yeoreum Yun <yeoreum.yun@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Sasha Levin <sashal@kernel.org>,
-	jh80.chung@samsung.com,
-	krzk@kernel.org,
-	linux-mmc@vger.kernel.org,
+	alexander.shishkin@linux.intel.com,
+	bigeasy@linutronix.de,
+	clrkwllms@kernel.org,
+	rostedt@goodmis.org,
+	coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.14 174/642] mmc: dw_mmc: add exynos7870 DW MMC support
-Date: Mon,  5 May 2025 18:06:30 -0400
-Message-Id: <20250505221419.2672473-174-sashal@kernel.org>
+	linux-rt-devel@lists.linux.dev
+Subject: [PATCH AUTOSEL 6.14 204/642] coresight-etb10: change etb_drvdata spinlock's type to raw_spinlock_t
+Date: Mon,  5 May 2025 18:07:00 -0400
+Message-Id: <20250505221419.2672473-204-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505221419.2672473-1-sashal@kernel.org>
 References: <20250505221419.2672473-1-sashal@kernel.org>
@@ -65,8 +69,8 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.14.5
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_152117_844537_2F66F7EE 
-X-CRM114-Status: GOOD (  15.19  )
+X-CRM114-CacheID: sfid-20250505_152241_904217_44036E3E 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,172 +85,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Kaustabh Chakraborty <kauschluss@disroot.org>
+From: Yeoreum Yun <yeoreum.yun@arm.com>
 
-[ Upstream commit 7cbe799ac10fd8be85af5e0615c4337f81e575f3 ]
+[ Upstream commit 6b80c0abe475ed1017c5e862636049aa1cc17a1a ]
 
-Add support for Exynos7870 DW MMC controllers, for both SMU and non-SMU
-variants. These controllers require a quirk to access 64-bit FIFO in 32-bit
-accesses (DW_MMC_QUIRK_FIFO64_32).
+In coresight-etb10 drivers, etb_drvdata->spinlock can be held
+during __schedule() by perf_event_task_sched_out()/in().
 
-Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
-Link: https://lore.kernel.org/r/20250219-exynos7870-mmc-v2-3-b4255a3e39ed@disroot.org
-Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+Since etb_drvdata->spinlock type is spinlock_t and
+perf_event_task_sched_out()/in() is called after acquiring rq_lock,
+which is raw_spinlock_t (an unsleepable lock),
+this poses an issue in PREEMPT_RT kernel where spinlock_t is sleepable.
+
+To address this, change type etb_drvdata->spinlock in coresight-etb10 drivers,
+which can be called by perf_event_task_sched_out()/in(),
+from spinlock_t to raw_spinlock_t.
+
+Reviewed-by: James Clark <james.clark@linaro.org>
+Reviewed-by: Mike Leach <mike.leach@linaro.org>
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Link: https://lore.kernel.org/r/20250306121110.1647948-6-yeoreum.yun@arm.com
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/mmc/host/dw_mmc-exynos.c | 41 +++++++++++++++++++++++++++++++-
- 1 file changed, 40 insertions(+), 1 deletion(-)
+ drivers/hwtracing/coresight/coresight-etb10.c | 26 +++++++++----------
+ 1 file changed, 13 insertions(+), 13 deletions(-)
 
-diff --git a/drivers/mmc/host/dw_mmc-exynos.c b/drivers/mmc/host/dw_mmc-exynos.c
-index 53d32d0f2709e..e3548408ca392 100644
---- a/drivers/mmc/host/dw_mmc-exynos.c
-+++ b/drivers/mmc/host/dw_mmc-exynos.c
-@@ -27,6 +27,8 @@ enum dw_mci_exynos_type {
- 	DW_MCI_TYPE_EXYNOS5420_SMU,
- 	DW_MCI_TYPE_EXYNOS7,
- 	DW_MCI_TYPE_EXYNOS7_SMU,
-+	DW_MCI_TYPE_EXYNOS7870,
-+	DW_MCI_TYPE_EXYNOS7870_SMU,
- 	DW_MCI_TYPE_ARTPEC8,
- };
+diff --git a/drivers/hwtracing/coresight/coresight-etb10.c b/drivers/hwtracing/coresight/coresight-etb10.c
+index aea9ac9c4bd06..7948597d483d2 100644
+--- a/drivers/hwtracing/coresight/coresight-etb10.c
++++ b/drivers/hwtracing/coresight/coresight-etb10.c
+@@ -84,7 +84,7 @@ struct etb_drvdata {
+ 	struct clk		*atclk;
+ 	struct coresight_device	*csdev;
+ 	struct miscdevice	miscdev;
+-	spinlock_t		spinlock;
++	raw_spinlock_t		spinlock;
+ 	local_t			reading;
+ 	pid_t			pid;
+ 	u8			*buf;
+@@ -145,7 +145,7 @@ static int etb_enable_sysfs(struct coresight_device *csdev)
+ 	unsigned long flags;
+ 	struct etb_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
  
-@@ -69,6 +71,12 @@ static struct dw_mci_exynos_compatible {
- 	}, {
- 		.compatible	= "samsung,exynos7-dw-mshc-smu",
- 		.ctrl_type	= DW_MCI_TYPE_EXYNOS7_SMU,
-+	}, {
-+		.compatible	= "samsung,exynos7870-dw-mshc",
-+		.ctrl_type	= DW_MCI_TYPE_EXYNOS7870,
-+	}, {
-+		.compatible	= "samsung,exynos7870-dw-mshc-smu",
-+		.ctrl_type	= DW_MCI_TYPE_EXYNOS7870_SMU,
- 	}, {
- 		.compatible	= "axis,artpec8-dw-mshc",
- 		.ctrl_type	= DW_MCI_TYPE_ARTPEC8,
-@@ -85,6 +93,8 @@ static inline u8 dw_mci_exynos_get_ciu_div(struct dw_mci *host)
- 		return EXYNOS4210_FIXED_CIU_CLK_DIV;
- 	else if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 			priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+			priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+			priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 			priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 		return SDMMC_CLKSEL_GET_DIV(mci_readl(host, CLKSEL64)) + 1;
- 	else
-@@ -100,7 +110,8 @@ static void dw_mci_exynos_config_smu(struct dw_mci *host)
- 	 * set for non-ecryption mode at this time.
- 	 */
- 	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS5420_SMU ||
--		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU) {
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU) {
- 		mci_writel(host, MPSBEGIN0, 0);
- 		mci_writel(host, MPSEND0, SDMMC_ENDING_SEC_NR_MAX);
- 		mci_writel(host, MPSCTRL0, SDMMC_MPSCTRL_SECURE_WRITE_BIT |
-@@ -126,6 +137,12 @@ static int dw_mci_exynos_priv_init(struct dw_mci *host)
- 				DQS_CTRL_GET_RD_DELAY(priv->saved_strobe_ctrl);
+-	spin_lock_irqsave(&drvdata->spinlock, flags);
++	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+ 
+ 	/* Don't messup with perf sessions. */
+ 	if (coresight_get_mode(csdev) == CS_MODE_PERF) {
+@@ -163,7 +163,7 @@ static int etb_enable_sysfs(struct coresight_device *csdev)
+ 
+ 	csdev->refcnt++;
+ out:
+-	spin_unlock_irqrestore(&drvdata->spinlock, flags);
++	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 	return ret;
+ }
+ 
+@@ -176,7 +176,7 @@ static int etb_enable_perf(struct coresight_device *csdev, void *data)
+ 	struct perf_output_handle *handle = data;
+ 	struct cs_buffers *buf = etm_perf_sink_config(handle);
+ 
+-	spin_lock_irqsave(&drvdata->spinlock, flags);
++	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+ 
+ 	/* No need to continue if the component is already in used by sysFS. */
+ 	if (coresight_get_mode(drvdata->csdev) == CS_MODE_SYSFS) {
+@@ -219,7 +219,7 @@ static int etb_enable_perf(struct coresight_device *csdev, void *data)
  	}
  
-+	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU) {
-+		/* Quirk needed for certain Exynos SoCs */
-+		host->quirks |= DW_MMC_QUIRK_FIFO64_32;
-+	}
-+
- 	if (priv->ctrl_type == DW_MCI_TYPE_ARTPEC8) {
- 		/* Quirk needed for the ARTPEC-8 SoC */
- 		host->quirks |= DW_MMC_QUIRK_EXTENDED_TMOUT;
-@@ -143,6 +160,8 @@ static void dw_mci_exynos_set_clksel_timing(struct dw_mci *host, u32 timing)
+ out:
+-	spin_unlock_irqrestore(&drvdata->spinlock, flags);
++	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 	return ret;
+ }
  
- 	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 		priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 		clksel = mci_readl(host, CLKSEL64);
- 	else
-@@ -152,6 +171,8 @@ static void dw_mci_exynos_set_clksel_timing(struct dw_mci *host, u32 timing)
+@@ -352,11 +352,11 @@ static int etb_disable(struct coresight_device *csdev)
+ 	struct etb_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 	unsigned long flags;
  
- 	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 		priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 		mci_writel(host, CLKSEL64, clksel);
- 	else
-@@ -222,6 +243,8 @@ static int dw_mci_exynos_resume_noirq(struct device *dev)
+-	spin_lock_irqsave(&drvdata->spinlock, flags);
++	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
  
- 	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 		priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 		clksel = mci_readl(host, CLKSEL64);
- 	else
-@@ -230,6 +253,8 @@ static int dw_mci_exynos_resume_noirq(struct device *dev)
- 	if (clksel & SDMMC_CLKSEL_WAKEUP_INT) {
- 		if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 			priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+			priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+			priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 			priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 			mci_writel(host, CLKSEL64, clksel);
- 		else
-@@ -409,6 +434,8 @@ static inline u8 dw_mci_exynos_get_clksmpl(struct dw_mci *host)
+ 	csdev->refcnt--;
+ 	if (csdev->refcnt) {
+-		spin_unlock_irqrestore(&drvdata->spinlock, flags);
++		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 		return -EBUSY;
+ 	}
  
- 	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 		priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 		return SDMMC_CLKSEL_CCLK_SAMPLE(mci_readl(host, CLKSEL64));
- 	else
-@@ -422,6 +449,8 @@ static inline void dw_mci_exynos_set_clksmpl(struct dw_mci *host, u8 sample)
+@@ -366,7 +366,7 @@ static int etb_disable(struct coresight_device *csdev)
+ 	/* Dissociate from monitored process. */
+ 	drvdata->pid = -1;
+ 	coresight_set_mode(csdev, CS_MODE_DISABLED);
+-	spin_unlock_irqrestore(&drvdata->spinlock, flags);
++	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
  
- 	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 		priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 		clksel = mci_readl(host, CLKSEL64);
- 	else
-@@ -429,6 +458,8 @@ static inline void dw_mci_exynos_set_clksmpl(struct dw_mci *host, u8 sample)
- 	clksel = SDMMC_CLKSEL_UP_SAMPLE(clksel, sample);
- 	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 		priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 		mci_writel(host, CLKSEL64, clksel);
- 	else
-@@ -443,6 +474,8 @@ static inline u8 dw_mci_exynos_move_next_clksmpl(struct dw_mci *host)
+ 	dev_dbg(&csdev->dev, "ETB disabled\n");
+ 	return 0;
+@@ -443,7 +443,7 @@ static unsigned long etb_update_buffer(struct coresight_device *csdev,
  
- 	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 		priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 		clksel = mci_readl(host, CLKSEL64);
- 	else
-@@ -453,6 +486,8 @@ static inline u8 dw_mci_exynos_move_next_clksmpl(struct dw_mci *host)
+ 	capacity = drvdata->buffer_depth * ETB_FRAME_SIZE_WORDS;
  
- 	if (priv->ctrl_type == DW_MCI_TYPE_EXYNOS7 ||
- 		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7_SMU ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870 ||
-+		priv->ctrl_type == DW_MCI_TYPE_EXYNOS7870_SMU ||
- 		priv->ctrl_type == DW_MCI_TYPE_ARTPEC8)
- 		mci_writel(host, CLKSEL64, clksel);
- 	else
-@@ -632,6 +667,10 @@ static const struct of_device_id dw_mci_exynos_match[] = {
- 			.data = &exynos_drv_data, },
- 	{ .compatible = "samsung,exynos7-dw-mshc-smu",
- 			.data = &exynos_drv_data, },
-+	{ .compatible = "samsung,exynos7870-dw-mshc",
-+			.data = &exynos_drv_data, },
-+	{ .compatible = "samsung,exynos7870-dw-mshc-smu",
-+			.data = &exynos_drv_data, },
- 	{ .compatible = "axis,artpec8-dw-mshc",
- 			.data = &artpec_drv_data, },
- 	{},
+-	spin_lock_irqsave(&drvdata->spinlock, flags);
++	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+ 
+ 	/* Don't do anything if another tracer is using this sink */
+ 	if (csdev->refcnt != 1)
+@@ -566,7 +566,7 @@ static unsigned long etb_update_buffer(struct coresight_device *csdev,
+ 	__etb_enable_hw(drvdata);
+ 	CS_LOCK(drvdata->base);
+ out:
+-	spin_unlock_irqrestore(&drvdata->spinlock, flags);
++	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 
+ 	return to_read;
+ }
+@@ -587,13 +587,13 @@ static void etb_dump(struct etb_drvdata *drvdata)
+ {
+ 	unsigned long flags;
+ 
+-	spin_lock_irqsave(&drvdata->spinlock, flags);
++	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+ 	if (coresight_get_mode(drvdata->csdev) == CS_MODE_SYSFS) {
+ 		__etb_disable_hw(drvdata);
+ 		etb_dump_hw(drvdata);
+ 		__etb_enable_hw(drvdata);
+ 	}
+-	spin_unlock_irqrestore(&drvdata->spinlock, flags);
++	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 
+ 	dev_dbg(&drvdata->csdev->dev, "ETB dumped\n");
+ }
+@@ -746,7 +746,7 @@ static int etb_probe(struct amba_device *adev, const struct amba_id *id)
+ 	drvdata->base = base;
+ 	desc.access = CSDEV_ACCESS_IOMEM(base);
+ 
+-	spin_lock_init(&drvdata->spinlock);
++	raw_spin_lock_init(&drvdata->spinlock);
+ 
+ 	drvdata->buffer_depth = etb_get_buffer_depth(drvdata);
+ 
 -- 
 2.39.5
 
