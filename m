@@ -4,95 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85D01C3ABB6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 12:07:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44E1BC3ABB0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 12:07:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zS8GP7tAyFx96vdZ9/xCHSVkyyfdDbFaiSakmVPCWYQ=; b=2pbeYxK5BNFojcTb6d2LpGnQza
-	JfyzhN1O/N6WReCQBLvb6BF5Bq4+OnFXTE9acc1Gn2sZmLoXk8qMDMumWUzM4l8uS6xrI5b6ab+M/
-	sxj6XM6QjGaRaiCAX/HfoqHlssxcOSHOJFK3kuKaALG2HmRxhuzyyaEv/euuIfDvA0U1DFFrEDCPq
-	9WMSaMsrMgLaf64U8PXFKbYnH6gM97XiGs3vHC3kNeugSBUQFyDwImbggG+/TmjOkP7651lqFdH/4
-	V7w3yLevRNa9Y+CIv39mOpreTkuoPXpWboXc5k9wyeEYcTsphJRVyakxI9vuK4Z8IwBk87E0ZNcZU
-	Q3E79kcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z+wNnU/PuatoctrrkJolXDOKqjFXdVgvTWSPqiC1sXk=; b=bqOJ1ysDEYr73QG98u52YeHM3/
+	bsOLbqVgf+vUsm5hy2nbJtW5tWt7aA6hiY8gK9saj+Qn3C9C6kEKzf+wPmCDM9WViE4450QCLWPqU
+	I24XMqQdjUkXwmhrrlsA2uMFxO3c4sqhrZMMPCGi4+qX09noHNHbhTftOw0mz5p0SyDw8g4zxEn/b
+	zId+6nIAXdPeGcfvf46GKPzuc2CeaMXWYePcOx7hW63IttyeIjCxXa0sdupHgsSQfm60UrhIxMW9Z
+	DhI8+vraZhMFK1OtIUa9bB96X/IGrxQYQod2CCsvwPAidlMpWIKnpxpiDlqa5vQ0A3idgI2pQCnoD
+	AVWRFyIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBubr-00000007Fi9-3axO;
-	Mon, 05 May 2025 12:07:47 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1uBubq-00000007FhY-2mWN;
+	Mon, 05 May 2025 12:07:46 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBuT2-00000007Ejx-0yJv
+	id 1uBuRq-00000007EPw-1dpC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 11:58:41 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-acb615228a4so1023156866b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 04:58:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746446318; x=1747051118; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zS8GP7tAyFx96vdZ9/xCHSVkyyfdDbFaiSakmVPCWYQ=;
-        b=O8sJb2bpaNZdi+CGRHUy1tvXWQXC5zvERK2T0wlDdthNZgAb7PdRuy6PeNAVQQQ8LP
-         8oM9zGS1FpQClMhYjV4cEom/TVZYdhSKWh2uwgrkvcFIZlQZU1Fg/8KvwG4jjnsXq5rE
-         80MqoXSqcbF4eXSzUfEJ91j6vLHiZwi3gdbCNbIv3XAOb8SB5nxnVDmEaECTkcgzvzcN
-         8LPnZc4xDH21WB3yoOOHINCUIHEoMl0lyxR5DtNGuyparfDCKnFqiVl7QpKSXzWgIYg1
-         ar6sS1kl1ctMx3rtL0HqVfGn59TThoNnHMnVYi+u13xE4qwuzGaNg/6quCUfEUo/OHGA
-         8b6Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746446318; x=1747051118;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zS8GP7tAyFx96vdZ9/xCHSVkyyfdDbFaiSakmVPCWYQ=;
-        b=oe1x0dRIIZ6E/S/K3O4wheraMP4MfAynkS4Zv/UDl+PzNxgI6c74SZ4G23h48SxRr4
-         MxEBuJ8DEmTMcy9xL/EwAYcsSpyKHbabH6wQvtcUAnjHfFZtJ4nQ8P7PecSZ2QvHIR9H
-         zPT/EZLbm+Tugza1nEpLSugALeUlNZ0xJVMxy4HfGmVbMI1va3DOZCZLfTp1CNSxuBgA
-         w/NKTvCdJbxYesbe3vqx3XgmTg3ja6FlT/EgRbnTE0Ow8RNwhZjZC3Ol+7GCxaipBFHm
-         vGtGyuceuQTm9/DbXOONuC/OdAv7UvZgF2fEhx8Td6aiDujLPLVpYc3vhqH4hQgWMZ/T
-         6LCw==
-X-Forwarded-Encrypted: i=1; AJvYcCUR7HtPomtd/wDXOLR5nGqllGZZm2A4v3ughLycYuYNkyJrL/0R/goefXYe/HanVuLlUyxwCQLckN1opx1IO6OA@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzg2rWaKcphm5Ibr76p9Uz+iZAKdHnXn2YCP75WuYyf4UAjsEXf
-	ojwsr6yzvswNGZu0z8MmLfNhpxG4WRPMKw1vVxDcLebmTI/E868A
-X-Gm-Gg: ASbGncsWalAGcl//Yx3pd9eLhnvYIND8wb6cZg+c6m78xh99gbIEBamjyfNipjSoYOX
-	O4WcQJw9Mt66Spp8V2AEjELgGjm491P9f3AQ8NUwV+ncnAOy/TVwjbIedsIne+L8iOECKMnrCEZ
-	gzlznXHQosagpO/BmhfxhtZ/9Q8Os5oEgbjBg/bjc9esBltJfKywENfUUoCkU9J1ZdJXcoIG9Vi
-	z59eDhyLn2Txc8pr4YYVmbXs7iw9TH0p+XzZLI9aGNzq8pH7Jif8ZnviZly7kMs+/hbXXkhFokD
-	riUnaXR1Yt/1Qi9q9WKqBMXfJPRDxoTcmgpE6ixyqzsO46wriKApmLJNIXaCmMzM3ZnH8CPSP6j
-	vVg==
-X-Google-Smtp-Source: AGHT+IHumqO2HEtVZQqU6y21OIhwqmx6WMl1zZofroVgIP8P5LdpNm2LFNH9OFJLdEBy/IULZh6H/A==
-X-Received: by 2002:a17:907:999a:b0:ace:51fa:be56 with SMTP id a640c23a62f3a-ad17af32ce4mr937803566b.19.1746446318015;
-        Mon, 05 May 2025 04:58:38 -0700 (PDT)
-Received: from wslxew242.ultratronik.de (mail.ultratronik.de. [82.100.224.114])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad1891a3c53sm489568566b.56.2025.05.05.04.58.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 May 2025 04:58:37 -0700 (PDT)
-From: =?UTF-8?q?Goran=20Ra=C4=91enovi=C4=87?= <goran.radni@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: =?UTF-8?q?Goran=20Ra=C4=91enovi=C4=87?= <goran.radni@gmail.com>,
-	devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v5 2/4] dt-bindings: arm: stm32: Document Ultratronik's Fly board DT binding
-Date: Mon,  5 May 2025 13:58:23 +0200
-Message-ID: <20250505115827.29593-3-goran.radni@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250505115827.29593-1-goran.radni@gmail.com>
-References: <20250505115827.29593-1-goran.radni@gmail.com>
+	Mon, 05 May 2025 11:57:29 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 545BvI8T933925
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 5 May 2025 06:57:18 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1746446238;
+	bh=Z+wNnU/PuatoctrrkJolXDOKqjFXdVgvTWSPqiC1sXk=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=w5EcoMY0AYFInreA2r64wrPzdKJ6M8J+HF/N7H74UOVh6XC9K1D90V1+F+K9zuE/j
+	 i449GBzIxfqGNQF8PFzOFOLtHyEeivgLt64KwB2nq27Cl401nHl0RgeLX7EWbC08pl
+	 d45z2JjGGahloOi7Oq+5Ef3+YQhzhEEVnsdTvlvU=
+Received: from DLEE106.ent.ti.com (dlee106.ent.ti.com [157.170.170.36])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 545BvIHf017916
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 5 May 2025 06:57:18 -0500
+Received: from DLEE100.ent.ti.com (157.170.170.30) by DLEE106.ent.ti.com
+ (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 5
+ May 2025 06:57:17 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 5 May 2025 06:57:17 -0500
+Received: from abhilash-HP.dhcp.ti.com (abhilash-hp.dhcp.ti.com [172.24.227.115])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 545Bv7A0004832;
+	Mon, 5 May 2025 06:57:13 -0500
+From: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <vaishnav.a@ti.com>, <u-kumar1@ti.com>, <r-donadkar@ti.com>,
+        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <jai.luthra@linux.dev>, <linux-kernel@vger.kernel.org>,
+        <y-abhilashchandra@ti.com>
+Subject: [PATCH 1/2] arm64: dts: ti: k3-j722s-evm: Add overlay for quad IMX219
+Date: Mon, 5 May 2025 17:26:59 +0530
+Message-ID: <20250505115700.500979-2-y-abhilashchandra@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250505115700.500979-1-y-abhilashchandra@ti.com>
+References: <20250505115700.500979-1-y-abhilashchandra@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_045840_271859_2BA77C07 
-X-CRM114-Status: UNSURE (   9.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250505_045726_636049_D0247A69 
+X-CRM114-Status: GOOD (  14.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,32 +87,402 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This commit documents ultra-fly-sbc devicetree binding based on
-STM32MP157 SoC.
+From: Vaishnav Achath <vaishnav.a@ti.com>
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Goran Rađenović <goran.radni@gmail.com>
+RPi v2 Camera (IMX219) is an 8MP camera that can be used with J722S EVM
+through the 22-pin CSI-RX connector. Add a reference overlay for quad
+IMX219 RPI camera v2 modules on J722S EVM
+
+Signed-off-by: Vaishnav Achath <vaishnav.a@ti.com>
+Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
 ---
- Documentation/devicetree/bindings/arm/stm32/stm32.yaml | 5 +++++
- 1 file changed, 5 insertions(+)
+ arch/arm64/boot/dts/ti/Makefile               |   5 +
+ ...k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtso | 339 ++++++++++++++++++
+ 2 files changed, 344 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtso
 
-diff --git a/Documentation/devicetree/bindings/arm/stm32/stm32.yaml b/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
-index 5fee2f38ff25..65c4dcdbdf1d 100644
---- a/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
-+++ b/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
-@@ -184,6 +184,11 @@ properties:
-           - const: phytec,phycore-stm32mp157c-som
-           - const: st,stm32mp157
+diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+index a48e7608de8b..829a3b028466 100644
+--- a/arch/arm64/boot/dts/ti/Makefile
++++ b/arch/arm64/boot/dts/ti/Makefile
+@@ -122,6 +122,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm-pcie1-ep.dtbo
+ # Boards with J722s SoC
+ dtb-$(CONFIG_ARCH_K3) += k3-am67a-beagley-ai.dtb
+ dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm.dtb
++dtb-$(CONFIG_ARCH_K3) += k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtbo
  
-+      - description: Ultratronik STM32MP1 SBC based Boards
-+        items:
-+          - const: ultratronik,stm32mp157c-ultra-fly-sbc
-+          - const: st,stm32mp157
+ # Boards with J784s4 SoC
+ dtb-$(CONFIG_ARCH_K3) += k3-am69-sk.dtb
+@@ -217,6 +218,8 @@ k3-j721s2-evm-pcie1-ep-dtbs := k3-j721s2-common-proc-board.dtb \
+ 	k3-j721s2-evm-pcie1-ep.dtbo
+ k3-j742s2-evm-usb0-type-a-dtbs := k3-j742s2-evm.dtb \
+ 	k3-j784s4-j742s2-evm-usb0-type-a.dtbo
++k3-j722s-evm-csi2-quad-rpi-cam-imx219-dtbs := k3-j722s-evm.dtb \
++	k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtbo
+ k3-j784s4-evm-pcie0-pcie1-ep-dtbs := k3-j784s4-evm.dtb \
+ 	k3-j784s4-evm-pcie0-pcie1-ep.dtbo
+ k3-j784s4-evm-quad-port-eth-exp1-dtbs := k3-j784s4-evm.dtb \
+@@ -254,6 +257,7 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
+ 	k3-j721e-sk-csi2-dual-imx219.dtb \
+ 	k3-j721s2-evm-pcie1-ep.dtb \
+ 	k3-j742s2-evm-usb0-type-a.dtb \
++	k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtb \
+ 	k3-j784s4-evm-pcie0-pcie1-ep.dtb \
+ 	k3-j784s4-evm-quad-port-eth-exp1.dtb \
+ 	k3-j784s4-evm-usb0-type-a.dtb \
+@@ -278,5 +282,6 @@ DTC_FLAGS_k3-j721e-common-proc-board += -@
+ DTC_FLAGS_k3-j721e-evm-pcie0-ep += -@
+ DTC_FLAGS_k3-j721e-sk += -@
+ DTC_FLAGS_k3-j721s2-common-proc-board += -@
++DTC_FLAGS_k3-j722s-evm += -@
+ DTC_FLAGS_k3-j784s4-evm += -@
+ DTC_FLAGS_k3-j742s2-evm += -@
+diff --git a/arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtso b/arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtso
+new file mode 100644
+index 000000000000..55daddf877e1
+--- /dev/null
++++ b/arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtso
+@@ -0,0 +1,339 @@
++// SPDX-License-Identifier: GPL-2.0-only OR MIT
++/*
++ * DT Overlay for RPi Camera V2.1 on J722S-EVM board.
++ *
++ * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
++ *
++ * Schematics: https://datasheets.raspberrypi.com/camera/camera-v2-schematics.pdf
++ */
 +
-       - description: ST STM32MP257 based Boards
-         items:
-           - enum:
++/dts-v1/;
++/plugin/;
++
++#include <dt-bindings/gpio/gpio.h>
++#include "k3-pinctrl.h"
++
++&main_pmx0 {
++	cam0_reset_pins_default: cam0-default-reset-pins {
++		pinctrl-single,pins = <
++			J722S_IOPAD(0x03c, PIN_OUTPUT, 7)
++		>;
++	};
++
++	cam1_reset_pins_default: cam1-default-reset-pins {
++		pinctrl-single,pins = <
++			J722S_IOPAD(0x044, PIN_OUTPUT, 7)
++		>;
++	};
++
++	cam2_reset_pins_default: cam2-default-reset-pins {
++		pinctrl-single,pins = <
++			J722S_IOPAD(0x04c, PIN_OUTPUT, 7)
++		>;
++	};
++
++	cam3_reset_pins_default: cam3-default-reset-pins {
++		pinctrl-single,pins = <
++			J722S_IOPAD(0x054, PIN_OUTPUT, 7)
++		>;
++	};
++};
++
++&{/} {
++	clk_imx219_fixed: clock-24000000 {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <24000000>;
++	};
++
++	reg_2p8v: regulator-2p8v {
++		compatible = "regulator-fixed";
++		regulator-name = "2P8V";
++		regulator-min-microvolt = <2800000>;
++		regulator-max-microvolt = <2800000>;
++		vin-supply = <&vdd_sd_dv>;
++		regulator-always-on;
++	};
++
++	reg_1p8v: regulator-1p8v {
++		compatible = "regulator-fixed";
++		regulator-name = "1P8V";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++		vin-supply = <&vdd_sd_dv>;
++		regulator-always-on;
++	};
++
++	reg_1p2v: regulator-1p2v {
++		compatible = "regulator-fixed";
++		regulator-name = "1P2V";
++		regulator-min-microvolt = <1200000>;
++		regulator-max-microvolt = <1200000>;
++		vin-supply = <&vdd_sd_dv>;
++		regulator-always-on;
++	};
++};
++
++&exp1 {
++	p06-hog{
++		/* P06 - CSI01_MUX_SEL_2 */
++		gpio-hog;
++		gpios = <6 GPIO_ACTIVE_HIGH>;
++		output-high;
++		line-name = "CSI01_MUX_SEL_2";
++	};
++
++	p07-hog{
++		/* P01 - CSI23_MUX_SEL_2 */
++		gpio-hog;
++		gpios = <7 GPIO_ACTIVE_HIGH>;
++		output-high;
++		line-name = "CSI23_MUX_SEL_2";
++	};
++};
++
++&pca9543_0 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	/* CAM0 I2C */
++	i2c@0 {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		reg = <0>;
++
++		imx219_0: sensor@10 {
++			compatible = "sony,imx219";
++			reg = <0x10>;
++
++			clocks = <&clk_imx219_fixed>;
++
++			VANA-supply = <&reg_2p8v>;
++			VDIG-supply = <&reg_1p8v>;
++			VDDL-supply = <&reg_1p2v>;
++
++			pinctrl-names = "default";
++			pinctrl-0 = <&cam0_reset_pins_default>;
++
++			reset-gpios = <&main_gpio0 15 GPIO_ACTIVE_HIGH>;
++
++			port {
++				csi2_cam0: endpoint {
++					remote-endpoint = <&csi2rx0_in_sensor>;
++					link-frequencies = /bits/ 64 <456000000>;
++					clock-lanes = <0>;
++					data-lanes = <1 2>;
++				};
++			};
++		};
++	};
++
++	/* CAM1 I2C */
++	i2c@1 {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		reg = <1>;
++
++		imx219_1: sensor@10 {
++			compatible = "sony,imx219";
++			reg = <0x10>;
++
++			clocks = <&clk_imx219_fixed>;
++
++			VANA-supply = <&reg_2p8v>;
++			VDIG-supply = <&reg_1p8v>;
++			VDDL-supply = <&reg_1p2v>;
++
++			pinctrl-names = "default";
++			pinctrl-0 = <&cam1_reset_pins_default>;
++
++			reset-gpios = <&main_gpio0 17 GPIO_ACTIVE_HIGH>;
++
++			port {
++				csi2_cam1: endpoint {
++					remote-endpoint = <&csi2rx1_in_sensor>;
++					link-frequencies = /bits/ 64 <456000000>;
++					clock-lanes = <0>;
++					data-lanes = <1 2>;
++				};
++			};
++		};
++	};
++};
++
++&pca9543_1 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	/* CAM0 I2C */
++	i2c@0 {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		reg = <0>;
++
++		imx219_2: sensor@10 {
++			compatible = "sony,imx219";
++			reg = <0x10>;
++
++			clocks = <&clk_imx219_fixed>;
++
++			VANA-supply = <&reg_2p8v>;
++			VDIG-supply = <&reg_1p8v>;
++			VDDL-supply = <&reg_1p2v>;
++
++			pinctrl-names = "default";
++			pinctrl-0 = <&cam2_reset_pins_default>;
++
++			reset-gpios = <&main_gpio0 19 GPIO_ACTIVE_HIGH>;
++
++			port {
++				csi2_cam2: endpoint {
++					remote-endpoint = <&csi2rx2_in_sensor>;
++					link-frequencies = /bits/ 64 <456000000>;
++					clock-lanes = <0>;
++					data-lanes = <1 2>;
++				};
++			};
++		};
++	};
++
++	/* CAM1 I2C */
++	i2c@1 {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		reg = <1>;
++
++		imx219_3: sensor@10 {
++			compatible = "sony,imx219";
++			reg = <0x10>;
++
++			clocks = <&clk_imx219_fixed>;
++
++			VANA-supply = <&reg_2p8v>;
++			VDIG-supply = <&reg_1p8v>;
++			VDDL-supply = <&reg_1p2v>;
++
++			pinctrl-names = "default";
++			pinctrl-0 = <&cam3_reset_pins_default>;
++
++			reset-gpios = <&main_gpio0 21 GPIO_ACTIVE_HIGH>;
++
++			port {
++				csi2_cam3: endpoint {
++					remote-endpoint = <&csi2rx3_in_sensor>;
++					link-frequencies = /bits/ 64 <456000000>;
++					clock-lanes = <0>;
++					data-lanes = <1 2>;
++				};
++			};
++		};
++	};
++};
++
++&cdns_csi2rx0 {
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		csi0_port0: port@0 {
++			reg = <0>;
++			status = "okay";
++
++			csi2rx0_in_sensor: endpoint {
++				remote-endpoint = <&csi2_cam0>;
++				bus-type = <4>; /* CSI2 DPHY */
++				clock-lanes = <0>;
++				data-lanes = <1 2>;
++			};
++		};
++	};
++};
++
++&cdns_csi2rx1 {
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		csi1_port0: port@0 {
++			reg = <0>;
++			status = "okay";
++
++			csi2rx1_in_sensor: endpoint {
++				remote-endpoint = <&csi2_cam1>;
++				bus-type = <4>; /* CSI2 DPHY */
++				clock-lanes = <0>;
++				data-lanes = <1 2>;
++			};
++		};
++	};
++};
++
++&cdns_csi2rx2 {
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		csi2_port0: port@0 {
++			reg = <0>;
++			status = "okay";
++
++			csi2rx2_in_sensor: endpoint {
++				remote-endpoint = <&csi2_cam2>;
++				bus-type = <4>; /* CSI2 DPHY */
++				clock-lanes = <0>;
++				data-lanes = <1 2>;
++			};
++		};
++	};
++};
++
++&cdns_csi2rx3 {
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		csi3_port0: port@0 {
++			reg = <0>;
++			status = "okay";
++
++			csi2rx3_in_sensor: endpoint {
++				remote-endpoint = <&csi2_cam3>;
++				bus-type = <4>; /* CSI2 DPHY */
++				clock-lanes = <0>;
++				data-lanes = <1 2>;
++			};
++		};
++	};
++};
++
++&ti_csi2rx0 {
++	status = "okay";
++};
++
++&dphy0 {
++	status = "okay";
++};
++
++&ti_csi2rx1 {
++	status = "okay";
++};
++
++&dphy1 {
++	status = "okay";
++};
++
++&ti_csi2rx2 {
++	status = "okay";
++};
++
++&dphy2 {
++	status = "okay";
++};
++
++&ti_csi2rx3 {
++	status = "okay";
++};
++
++&dphy3 {
++	status = "okay";
++};
 -- 
-2.43.0
+2.34.1
 
 
