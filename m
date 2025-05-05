@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D77E4C3ABB6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 23:14:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC55DC3ABB9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 23:16:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EIXYvXbRdQjpnbdZmoY2GZcWV85QyORWEs+SCKzN6Ac=; b=NpP2G6N+bqAOCSpK0oAxGxlh+5
-	pr0VrIs0uiba2FPX5xT4yo1oUY16gSIWLXf557wNcoe0bMD6dGKeYs2NhFItg/ewGZ3MzQfQ+WDDB
-	Tt/4vlfftBSgpZN6wEJFlPhuWC7SnsqaTltlIB6TfEKU2En8VpxJVowo3VDIOTCE7AT22mBRU+WQH
-	EJknn8wEoBfwdlTEi/QZ7pEETZ45BkUR/8Oczd2B0T5dQDefbPqGWW9Cpr5qg11eeDGMlqjoe7AYF
-	WD7AK6uiRCzqX99N0iKx+7tl2Ro1iJKNpuYz5zBuHDDqmE+uiY/P9cccG0DsdGR7b4e6XhQ5yeQGO
-	EH9U7Ihg==;
+	bh=K+fX/SlB7a7Xg9/muzQ76KUyDALcxWmQNgcMFQvMtMs=; b=0LJ+T98gcNja+BKOTCX/XNkqtE
+	/6WOPig78VJ33A28JlsrSTypZZ4bTh9pLUz4Lp4boze5FA/s8kit1Bjx4qBj7PLGndRXSDzfJGEeV
+	1b0nxaLBzRbGqtRH0iHIOOyvRfpjAxffZ4qC9kxiP/llEdblMpQ3+L2fiU5uNAItaGF8b74rJzcKG
+	O4QtsFfoXLtEsg8+kZnuzfbR0dIIFGwXdfmZnlhqt+Xa1rkIPYRmR/hs27BRvn2Ver3W7fWtw3idm
+	FFr5oab2wksE7fDwTqblK9mQrefJYaTBiO4dIvkmzX8MSCfQihSqKR4PnLLlpsk9njGjyxnmhjcTg
+	JJv9G9PA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC50s-00000008zS1-2xan;
-	Mon, 05 May 2025 23:14:18 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uC52q-0000000905x-1oJZ;
+	Mon, 05 May 2025 23:16:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4D6-00000008jke-4BCI
+	id 1uC4D8-00000008jlB-2fiU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 22:22:54 +0000
+	Mon, 05 May 2025 22:22:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0D73A449FB;
-	Mon,  5 May 2025 22:22:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BDB9C4CEEE;
+	by sea.source.kernel.org (Postfix) with ESMTP id AF1B2438DD;
 	Mon,  5 May 2025 22:22:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07B10C4CEE4;
+	Mon,  5 May 2025 22:22:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746483772;
-	bh=HKCS9/n2oZ0o3HcAQg9M4XIEx6PW+6r9txE6aEEV5Kk=;
+	s=k20201202; t=1746483774;
+	bh=Y8gOUr/d7B6ukn7cFkOC8T9Tsre9FJWWrtBN+lk4QgU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QOCe2L3uLr/WWdKSIaMnxeye5XNDyUj2nyLCJpxCQO+x8LMu78SnVnoRFm+8bMXpE
-	 Tcy4TznzdMWb7qbIqNIVkFPniiMOyK12Gj8E0FLyoxHbhQrgcdgrz2qtZhHiX4L3BT
-	 +jIuWQYgGDQDOHe2sYn4ojD3vmvZIldA8KyUf5OYII+mDqCIeZMaLzaeA9YMK1ap/L
-	 4HesI+CfQcFBv8YLoOUZiLIJ8lnpXU6rO3eiiJxHPTeBo1BaqXZRMK/PyiDtJ4IllV
-	 eN9uxjhd9XP/wrLfETjMLqIPs9XPWEN4w0iE16nTjB5rPvCxqvDEVwkTkENtPrtdIJ
-	 +h/ll52C6VWLA==
+	b=k8C+bxxD8va+Agkzxm32fnhGljfLPD5ducAKMQQ6QUzvdr6TOldtxDqoinGb/eKgg
+	 OwrKFJCmMJCWBC/HLbZbee9eOlhLrqqtTZtyikZ5JyUw2PbPA08QBPlJGow7Pu24yW
+	 UFCStqNVU9B1Aa7QphLrqpqWchJEPRaAIbrCdq2ZIko6EIDX3zInVgWkSFsWk76PEL
+	 gCAXHGAe7QgKKDsmGBnssoZ9W7TMUOmxayXqBz6fpCRy9r5TBqtUKR8iytJzyKTjvW
+	 TjyAfN8lmdfbt18tQhsujJ8nc5HWqvz900kRKkem536Q1c+07HBt6L8aQ6OhXmcEAD
+	 Pvlbz0g/0jOVg==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Kyunghwan Seo <khwan.seo@samsung.com>,
-	Sangwook Shin <sw617.shin@samsung.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
+Cc: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
 	Guenter Roeck <linux@roeck-us.net>,
 	Wim Van Sebroeck <wim@linux-watchdog.org>,
 	Sasha Levin <sashal@kernel.org>,
-	krzk@kernel.org,
+	joel@jms.id.au,
+	linux-watchdog@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-watchdog@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.14 211/642] watchdog: s3c2410_wdt: Fix PMU register bits for ExynosAutoV920 SoC
-Date: Mon,  5 May 2025 18:07:07 -0400
-Message-Id: <20250505221419.2672473-211-sashal@kernel.org>
+	linux-aspeed@lists.ozlabs.org
+Subject: [PATCH AUTOSEL 6.14 212/642] watchdog: aspeed: Update bootstatus handling
+Date: Mon,  5 May 2025 18:07:08 -0400
+Message-Id: <20250505221419.2672473-212-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505221419.2672473-1-sashal@kernel.org>
 References: <20250505221419.2672473-1-sashal@kernel.org>
@@ -67,9 +66,8 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.14.5
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_152253_075015_1CF08745 
-X-CRM114-Status: UNSURE (   9.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250505_152254_717790_CBA977A2 
+X-CRM114-Status: GOOD (  19.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,71 +82,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Kyunghwan Seo <khwan.seo@samsung.com>
+From: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
 
-[ Upstream commit 480ee8a260e6f87cbcdaff77ac2cbf6dc03f0f4f ]
+[ Upstream commit 5c03f9f4d36292150c14ebd90788c4d3273ed9dc ]
 
-Fix the PMU register bits for the ExynosAutoV920 SoC.
-This SoC has different bit information compared to its previous
-version, ExynosAutoV9, and we have made the necessary adjustments.
+The boot status in the watchdog device struct is updated during
+controller probe stage. Application layer can get the boot status
+through the command, cat /sys/class/watchdog/watchdogX/bootstatus.
+The bootstatus can be,
+WDIOF_CARDRESET => System is reset due to WDT timeout occurs.
+Others          => Other reset events, e.g., power on reset.
 
-rst_stat_bit:
-    - ExynosAutoV920 cl0 : 0
-    - ExynosAutoV920 cl1 : 1
+On ASPEED platforms, boot status is recorded in the SCU registers.
+- AST2400: Only a bit is used to represent system reset triggered by
+           any WDT controller.
+- AST2500/AST2600: System reset triggered by different WDT controllers
+                   can be distinguished by different SCU bits.
 
-cnt_en_bit:
-    - ExynosAutoV920 cl0 : 8
-    - ExynosAutoV920 cl1 : 8
+Besides, on AST2400 and AST2500, since alternating boot event is
+also triggered by using WDT timeout mechanism, it is classified
+as WDIOF_CARDRESET.
 
-Signed-off-by: Kyunghwan Seo <khwan.seo@samsung.com>
-Signed-off-by: Sangwook Shin <sw617.shin@samsung.com>
-Reviewed-by: Alim Akhtar <alim.akhtar@samsung.com>
+Signed-off-by: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
+Reviewed-by: Andrew Jeffery <andrew@codeconstruct.com.au>
 Reviewed-by: Guenter Roeck <linux@roeck-us.net>
-Link: https://lore.kernel.org/r/20250213004104.3881711-1-sw617.shin@samsung.com
+Link: https://lore.kernel.org/r/20250113093737.845097-2-chin-ting_kuo@aspeedtech.com
 Signed-off-by: Guenter Roeck <linux@roeck-us.net>
 Signed-off-by: Wim Van Sebroeck <wim@linux-watchdog.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/watchdog/s3c2410_wdt.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+ drivers/watchdog/aspeed_wdt.c | 81 ++++++++++++++++++++++++++++++++++-
+ 1 file changed, 79 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/watchdog/s3c2410_wdt.c b/drivers/watchdog/s3c2410_wdt.c
-index 30450e99e5e9d..bdd81d8074b24 100644
---- a/drivers/watchdog/s3c2410_wdt.c
-+++ b/drivers/watchdog/s3c2410_wdt.c
-@@ -72,6 +72,8 @@
- #define EXYNOS850_CLUSTER1_WDTRESET_BIT		23
- #define EXYNOSAUTOV9_CLUSTER0_WDTRESET_BIT	25
- #define EXYNOSAUTOV9_CLUSTER1_WDTRESET_BIT	24
-+#define EXYNOSAUTOV920_CLUSTER0_WDTRESET_BIT	0
-+#define EXYNOSAUTOV920_CLUSTER1_WDTRESET_BIT	1
+diff --git a/drivers/watchdog/aspeed_wdt.c b/drivers/watchdog/aspeed_wdt.c
+index b4773a6aaf8cc..369635b38ca0e 100644
+--- a/drivers/watchdog/aspeed_wdt.c
++++ b/drivers/watchdog/aspeed_wdt.c
+@@ -11,21 +11,30 @@
+ #include <linux/io.h>
+ #include <linux/kernel.h>
+ #include <linux/kstrtox.h>
++#include <linux/mfd/syscon.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
+ #include <linux/of_irq.h>
+ #include <linux/platform_device.h>
++#include <linux/regmap.h>
+ #include <linux/watchdog.h>
  
- #define GS_CLUSTER0_NONCPU_OUT			0x1220
- #define GS_CLUSTER1_NONCPU_OUT			0x1420
-@@ -312,9 +314,9 @@ static const struct s3c2410_wdt_variant drv_data_exynosautov920_cl0 = {
- 	.mask_bit = 2,
- 	.mask_reset_inv = true,
- 	.rst_stat_reg = EXYNOS5_RST_STAT_REG_OFFSET,
--	.rst_stat_bit = EXYNOSAUTOV9_CLUSTER0_WDTRESET_BIT,
-+	.rst_stat_bit = EXYNOSAUTOV920_CLUSTER0_WDTRESET_BIT,
- 	.cnt_en_reg = EXYNOSAUTOV920_CLUSTER0_NONCPU_OUT,
--	.cnt_en_bit = 7,
-+	.cnt_en_bit = 8,
- 	.quirks = QUIRK_HAS_WTCLRINT_REG | QUIRK_HAS_PMU_MASK_RESET |
- 		  QUIRK_HAS_PMU_RST_STAT | QUIRK_HAS_PMU_CNT_EN |
- 		  QUIRK_HAS_DBGACK_BIT,
-@@ -325,9 +327,9 @@ static const struct s3c2410_wdt_variant drv_data_exynosautov920_cl1 = {
- 	.mask_bit = 2,
- 	.mask_reset_inv = true,
- 	.rst_stat_reg = EXYNOS5_RST_STAT_REG_OFFSET,
--	.rst_stat_bit = EXYNOSAUTOV9_CLUSTER1_WDTRESET_BIT,
-+	.rst_stat_bit = EXYNOSAUTOV920_CLUSTER1_WDTRESET_BIT,
- 	.cnt_en_reg = EXYNOSAUTOV920_CLUSTER1_NONCPU_OUT,
--	.cnt_en_bit = 7,
-+	.cnt_en_bit = 8,
- 	.quirks = QUIRK_HAS_WTCLRINT_REG | QUIRK_HAS_PMU_MASK_RESET |
- 		  QUIRK_HAS_PMU_RST_STAT | QUIRK_HAS_PMU_CNT_EN |
- 		  QUIRK_HAS_DBGACK_BIT,
+ static bool nowayout = WATCHDOG_NOWAYOUT;
+ module_param(nowayout, bool, 0);
+ MODULE_PARM_DESC(nowayout, "Watchdog cannot be stopped once started (default="
+ 				__MODULE_STRING(WATCHDOG_NOWAYOUT) ")");
++struct aspeed_wdt_scu {
++	const char *compatible;
++	u32 reset_status_reg;
++	u32 wdt_reset_mask;
++	u32 wdt_reset_mask_shift;
++};
+ 
+ struct aspeed_wdt_config {
+ 	u32 ext_pulse_width_mask;
+ 	u32 irq_shift;
+ 	u32 irq_mask;
++	struct aspeed_wdt_scu scu;
+ };
+ 
+ struct aspeed_wdt {
+@@ -39,18 +48,36 @@ static const struct aspeed_wdt_config ast2400_config = {
+ 	.ext_pulse_width_mask = 0xff,
+ 	.irq_shift = 0,
+ 	.irq_mask = 0,
++	.scu = {
++		.compatible = "aspeed,ast2400-scu",
++		.reset_status_reg = 0x3c,
++		.wdt_reset_mask = 0x1,
++		.wdt_reset_mask_shift = 1,
++	},
+ };
+ 
+ static const struct aspeed_wdt_config ast2500_config = {
+ 	.ext_pulse_width_mask = 0xfffff,
+ 	.irq_shift = 12,
+ 	.irq_mask = GENMASK(31, 12),
++	.scu = {
++		.compatible = "aspeed,ast2500-scu",
++		.reset_status_reg = 0x3c,
++		.wdt_reset_mask = 0x1,
++		.wdt_reset_mask_shift = 2,
++	},
+ };
+ 
+ static const struct aspeed_wdt_config ast2600_config = {
+ 	.ext_pulse_width_mask = 0xfffff,
+ 	.irq_shift = 0,
+ 	.irq_mask = GENMASK(31, 10),
++	.scu = {
++		.compatible = "aspeed,ast2600-scu",
++		.reset_status_reg = 0x74,
++		.wdt_reset_mask = 0xf,
++		.wdt_reset_mask_shift = 16,
++	},
+ };
+ 
+ static const struct of_device_id aspeed_wdt_of_table[] = {
+@@ -213,6 +240,56 @@ static int aspeed_wdt_restart(struct watchdog_device *wdd,
+ 	return 0;
+ }
+ 
++static void aspeed_wdt_update_bootstatus(struct platform_device *pdev,
++					 struct aspeed_wdt *wdt)
++{
++	const struct resource *res;
++	struct aspeed_wdt_scu scu = wdt->cfg->scu;
++	struct regmap *scu_base;
++	u32 reset_mask_width;
++	u32 reset_mask_shift;
++	u32 idx = 0;
++	u32 status;
++	int ret;
++
++	if (!of_device_is_compatible(pdev->dev.of_node, "aspeed,ast2400-wdt")) {
++		res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
++		idx = ((intptr_t)wdt->base & 0x00000fff) / resource_size(res);
++	}
++
++	scu_base = syscon_regmap_lookup_by_compatible(scu.compatible);
++	if (IS_ERR(scu_base)) {
++		wdt->wdd.bootstatus = WDIOS_UNKNOWN;
++		return;
++	}
++
++	ret = regmap_read(scu_base, scu.reset_status_reg, &status);
++	if (ret) {
++		wdt->wdd.bootstatus = WDIOS_UNKNOWN;
++		return;
++	}
++
++	reset_mask_width = hweight32(scu.wdt_reset_mask);
++	reset_mask_shift = scu.wdt_reset_mask_shift +
++			   reset_mask_width * idx;
++
++	if (status & (scu.wdt_reset_mask << reset_mask_shift))
++		wdt->wdd.bootstatus = WDIOF_CARDRESET;
++
++	/* clear wdt reset event flag */
++	if (of_device_is_compatible(pdev->dev.of_node, "aspeed,ast2400-wdt") ||
++	    of_device_is_compatible(pdev->dev.of_node, "aspeed,ast2500-wdt")) {
++		ret = regmap_read(scu_base, scu.reset_status_reg, &status);
++		if (!ret) {
++			status &= ~(scu.wdt_reset_mask << reset_mask_shift);
++			regmap_write(scu_base, scu.reset_status_reg, status);
++		}
++	} else {
++		regmap_write(scu_base, scu.reset_status_reg,
++			     scu.wdt_reset_mask << reset_mask_shift);
++	}
++}
++
+ /* access_cs0 shows if cs0 is accessible, hence the reverted bit */
+ static ssize_t access_cs0_show(struct device *dev,
+ 			       struct device_attribute *attr, char *buf)
+@@ -458,10 +535,10 @@ static int aspeed_wdt_probe(struct platform_device *pdev)
+ 		writel(duration - 1, wdt->base + WDT_RESET_WIDTH);
+ 	}
+ 
++	aspeed_wdt_update_bootstatus(pdev, wdt);
++
+ 	status = readl(wdt->base + WDT_TIMEOUT_STATUS);
+ 	if (status & WDT_TIMEOUT_STATUS_BOOT_SECONDARY) {
+-		wdt->wdd.bootstatus = WDIOF_CARDRESET;
+-
+ 		if (of_device_is_compatible(np, "aspeed,ast2400-wdt") ||
+ 		    of_device_is_compatible(np, "aspeed,ast2500-wdt"))
+ 			wdt->wdd.groups = bswitch_groups;
 -- 
 2.39.5
 
