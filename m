@@ -4,58 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 899C0C3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 22:41:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD501C3ABB6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 22:43:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KbV2nWe8P2p34Kclaz10E5nv87cU5PqwkUolzYNx1/w=; b=e0hRWJEKsjPAE+WjyFnYEZrsNI
-	jOTG5ikbZDSH2/N+iydykeSG4Et199aVYGm9lkqTln6b9HzNGalqIVmhAdIYlMOkGri3BKVV2yGLq
-	NPFJ2PQEmY1tigLVGdpW1N11vGVPxKGh0EEx7kpUFKFE8Iyg14iV7KQ8o9BLOVsGh+TMftdwJBuMI
-	hNm8IaboXX2CPce0nW0MvNwEYHprWxXlK6sgXWoC8a77JRxRr8+bQDr3p3IfDWdLCNfeWSWDLvykd
-	YRbBv0bDyPohkOvCDw9kPUWPmwiY50GTJ2Mi4fTEic/FVwDI3BDLQZidtRKDD8n3vVY2Nv1cWNXjC
-	E08Cqn2g==;
+	bh=CFSrzpcz9SqjY9whX53myrmpK+nsdK70cZKH285cMwQ=; b=3veHFIr1DSpbhkcwMpnJvP1HH2
+	x6+RoGhq/U1E5vOFbPR0r5J3lGuNuW9sKAVBgGkOlM9OVgDM2hijempmLlKn2b5XPfSAcA6jL1C6E
+	Pr87xh5Kr3VBOcJ046hZUoSogiTsqShYxVZ0T7vo49Zn5BzoSqsSV32xoXChQVGoe6/CuMyGojCOZ
+	u/ibH1sV2HOPkt/ViOwA/0HLkOO9FueHmnJruF29RxV8Gf3EobPlhRy31S3cnyAlfdm9h3OASUC/+
+	pac50o/TLLWjHzFPVVp50FGHf0QE8AwQ2l57B+iOhlQKe8ur51WXaFUtyR5CSRjiRCwD5EjvbeCoF
+	qJWryyrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4VH-00000008pit-38FQ;
-	Mon, 05 May 2025 22:41:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uC4XG-00000008qIy-3MH1;
+	Mon, 05 May 2025 22:43:42 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC47Y-00000008iC8-0gGa;
-	Mon, 05 May 2025 22:17:08 +0000
+	id 1uC47b-00000008iDW-3fgT;
+	Mon, 05 May 2025 22:17:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C2410629C0;
-	Mon,  5 May 2025 22:16:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E0DDC4CEE4;
-	Mon,  5 May 2025 22:17:06 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D6DC744406;
+	Mon,  5 May 2025 22:17:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3840C4CEE4;
+	Mon,  5 May 2025 22:17:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746483427;
-	bh=/b3J7JjYOwlDGnUX53TNs6feQxn0vwXryA22VULuaAo=;
+	s=k20201202; t=1746483431;
+	bh=3qEf2fFv1ctCBQfhN3VdnszlaOGcMXZgdrvEJbs9jsI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=A+8LdaL0zlSrtyPxyWKO9f+UWS5oOvoccOqbb7m82jkVMfNc6rrJwVP0rf5Qzl0Rn
-	 QW6+mi0c43TdWGGQgoCUISeQXLlxl4nAKOW+q6V6/4pdAhbWo2OfSnCBvhF/sYyTge
-	 GM3ZT5udxDgpKj+ZcYDsXU6/KR86EKmNxNKye9UrN8/Rv8PA0s+PfL5mfVVZFOdWoA
-	 +d7ZEi7Wjz/f9KDIPbsDV6tGw41XVYISABjr5BtJE6+IRmMQbbGkPLTBbUT9uoKkgo
-	 AyK6PeZy3i+51czHoioaoNRd5g8/vm6VfLxnLWrmxwUsyTErrJtre3qNTnFopXSGjn
-	 grcIixCbve6JA==
+	b=K2SA2VFYka19dbhJEfE04bIzTGVVi/3q6n1KgMalb8BNldNrDzRV7ZXVBQDS0xT6G
+	 IG/P7yVWP1qLkDB7Vf5mAGIJgQSdbG6Z8LeB+jYZMnXhxhcRhSYjruOqfS2iIDAYVd
+	 jPpyomg29TvzPjRHHlrGjtSnOO8Fh/15rpn+xT1tIhoD+SnClS1/svmWOJUGDmsqva
+	 nxvjrpgf12P2uKTZFNMjZ6Twb6vR7Ga/92Mmsngi1TRjnsiwBIw1EkO5/+NEVHnJTA
+	 sOtbZ4vYipfUqx5MJi1SrkfyW3Kgd783M7M9GJzUQOx4CUGjVo4CvkJC/tCvRLf/2a
+	 ASrWzGYQ8zlSQ==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Felix Fietkau <nbd@nbd.name>,
+Cc: Rex Lu <rex.lu@mediatek.com>,
+	Felix Fietkau <nbd@nbd.name>,
 	Sasha Levin <sashal@kernel.org>,
 	lorenzo@kernel.org,
 	ryder.lee@mediatek.com,
 	matthias.bgg@gmail.com,
 	angelogioacchino.delregno@collabora.com,
+	chui-hao.chiu@mediatek.com,
+	razvan.grigore@vampirebyte.ro,
+	Bo.Jiao@mediatek.com,
+	shayne.chen@mediatek.com,
+	wiagn233@outlook.com,
 	linux-wireless@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.14 077/642] wifi: mt76: scan: set vif offchannel link for scanning/roc
-Date: Mon,  5 May 2025 18:04:53 -0400
-Message-Id: <20250505221419.2672473-77-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.14 078/642] wifi: mt76: mt7996: fix SER reset trigger on WED reset
+Date: Mon,  5 May 2025 18:04:54 -0400
+Message-Id: <20250505221419.2672473-78-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505221419.2672473-1-sashal@kernel.org>
 References: <20250505221419.2672473-1-sashal@kernel.org>
@@ -64,6 +70,9 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.14.5
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250505_151712_052344_A6734DB8 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,65 +87,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Felix Fietkau <nbd@nbd.name>
+From: Rex Lu <rex.lu@mediatek.com>
 
-[ Upstream commit 3ba20af886d1f604dceeb4d4c8ff872e2c4e885e ]
+[ Upstream commit 8d38abdf6c182225c5c0a81451fa51b7b36a635d ]
 
-The driver needs to know what vif link to use
+The firmware needs a specific trigger when WED is being reset due to an
+ethernet reset condition. This helps prevent further L1 SER failure.
 
-Link: https://patch.msgid.link/20250311103646.43346-4-nbd@nbd.name
+Signed-off-by: Rex Lu <rex.lu@mediatek.com>
+Link: https://patch.msgid.link/20250311103646.43346-2-nbd@nbd.name
 Signed-off-by: Felix Fietkau <nbd@nbd.name>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/net/wireless/mediatek/mt76/channel.c | 3 +++
- drivers/net/wireless/mediatek/mt76/mt76.h    | 2 ++
- 2 files changed, 5 insertions(+)
+ drivers/net/wireless/mediatek/mt76/mt7996/mcu.h  | 3 ++-
+ drivers/net/wireless/mediatek/mt76/mt7996/mmio.c | 2 +-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/channel.c b/drivers/net/wireless/mediatek/mt76/channel.c
-index 6a35c6ebd823e..e7b839e742903 100644
---- a/drivers/net/wireless/mediatek/mt76/channel.c
-+++ b/drivers/net/wireless/mediatek/mt76/channel.c
-@@ -293,6 +293,7 @@ struct mt76_vif_link *mt76_get_vif_phy_link(struct mt76_phy *phy,
- 		kfree(mlink);
- 		return ERR_PTR(ret);
- 	}
-+	rcu_assign_pointer(mvif->offchannel_link, mlink);
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.h b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.h
+index 43468bcaffc6d..a75e1c9435bb0 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.h
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.h
+@@ -908,7 +908,8 @@ enum {
+ 	UNI_CMD_SER_SET_RECOVER_L3_TX_DISABLE,
+ 	UNI_CMD_SER_SET_RECOVER_L3_BF,
+ 	UNI_CMD_SER_SET_RECOVER_L4_MDP,
+-	UNI_CMD_SER_SET_RECOVER_FULL,
++	UNI_CMD_SER_SET_RECOVER_FROM_ETH,
++	UNI_CMD_SER_SET_RECOVER_FULL = 8,
+ 	UNI_CMD_SER_SET_SYSTEM_ASSERT,
+ 	/* action */
+ 	UNI_CMD_SER_ENABLE = 1,
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c b/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
+index 7a8ee6c75cf2b..9d37f82387464 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mmio.c
+@@ -281,7 +281,7 @@ static int mt7996_mmio_wed_reset(struct mtk_wed_device *wed)
+ 	if (test_and_set_bit(MT76_STATE_WED_RESET, &mphy->state))
+ 		return -EBUSY;
  
- 	return mlink;
- }
-@@ -301,10 +302,12 @@ void mt76_put_vif_phy_link(struct mt76_phy *phy, struct ieee80211_vif *vif,
- 			   struct mt76_vif_link *mlink)
- {
- 	struct mt76_dev *dev = phy->dev;
-+	struct mt76_vif_data *mvif = mlink->mvif;
- 
- 	if (IS_ERR_OR_NULL(mlink) || !mlink->offchannel)
- 		return;
- 
-+	rcu_assign_pointer(mvif->offchannel_link, NULL);
- 	dev->drv->vif_link_remove(phy, vif, &vif->bss_conf, mlink);
- 	kfree(mlink);
- }
-diff --git a/drivers/net/wireless/mediatek/mt76/mt76.h b/drivers/net/wireless/mediatek/mt76/mt76.h
-index 8714418f3906c..e4ecd9cde36dc 100644
---- a/drivers/net/wireless/mediatek/mt76/mt76.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt76.h
-@@ -351,6 +351,7 @@ struct mt76_wcid {
- 	u8 hw_key_idx;
- 	u8 hw_key_idx2;
- 
-+	u8 offchannel:1;
- 	u8 sta:1;
- 	u8 sta_disabled:1;
- 	u8 amsdu:1;
-@@ -788,6 +789,7 @@ struct mt76_vif_link {
- 
- struct mt76_vif_data {
- 	struct mt76_vif_link __rcu *link[IEEE80211_MLD_MAX_NUM_LINKS];
-+	struct mt76_vif_link __rcu *offchannel_link;
- 
- 	struct mt76_phy *roc_phy;
- 	u16 valid_links;
+-	ret = mt7996_mcu_set_ser(dev, UNI_CMD_SER_TRIGGER, UNI_CMD_SER_SET_RECOVER_L1,
++	ret = mt7996_mcu_set_ser(dev, UNI_CMD_SER_TRIGGER, UNI_CMD_SER_SET_RECOVER_FROM_ETH,
+ 				 mphy->band_idx);
+ 	if (ret)
+ 		goto out;
 -- 
 2.39.5
 
