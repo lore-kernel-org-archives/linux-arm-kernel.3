@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52337C3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 15:00:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32B9EC3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 15:02:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iTBTgsz+Ilutml5RH24YXByNyxuquONZJQpFMgadR/c=; b=go+qK+ituc6K5LUorcBC5N3B3+
-	mdGs6coh5q9cnMKlNXmMAYxe7dDimw4WVJ20XQeeBXggcwetnwylQmk5UO30yMtIcX7APxIFOZcTy
-	BZcjiBPvhF9KXBtokHoekBjtfIU6nQwl8wZCDg3G1uQlzOCUAV0wLZgB7CYPfFAkPRPnfBM1mRJi9
-	2bmjnHK/VP91nhfu1lH21Y1uemTntDr8WBotRI6Q9gFFdouCR47KzL08JBEeK8c+bS3BVolsm/HtM
-	nkYb5HV/xKvRI56Vg5T34GjTOZtxggMA2sQTaSClYE3Uptv63CQgdxYiB+SvkPDyGuQ+eMcG/Db8r
-	vRZCcpRw==;
+	bh=BDayxc9U2D6s4uGDAa7rnP5WzSkG5GYyjpxRYZVhRUc=; b=PCI+3tvzbOecUuO2BSIAxM5dQu
+	CTDdiSRZn0uTbD6yH9SbNReXWVYsEvsiku6gX3C0UJWYHYKEFx6S2eykqyfGa9jKABj7v2M19U2o8
+	qvAJdopFY5aCeatvCDeFfFgyL7yIwLUQW/f0fERzLQlQJW5R0pCcIOWhrVdPOMiMFL6qM8q06S1Cl
+	B/mXkgDnNjVoH8v8fBBvJzPn240wvzJSh7nb4CwiI+hY+lfyzjqgkOZbfkm5NVIJwE5VO9+YdDche
+	PyllfiNOVd1Ri6HMDLMSG+rU0UrXg/AsZfw7qL/OdWjaBPaedhTSLVpx92GcgRyefUWZwfiTVqbTp
+	Mv3GcElA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBxIo-00000007jMp-3s98;
-	Mon, 05 May 2025 15:00:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uBxKl-00000007jsU-3Zhg;
+	Mon, 05 May 2025 15:02:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBx5F-00000007fr2-0zTl
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 14:46:17 +0000
+	id 1uBx5J-00000007fsK-07LW;
+	Mon, 05 May 2025 14:46:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2B8E66135E;
-	Mon,  5 May 2025 14:45:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35837C4CEEF;
-	Mon,  5 May 2025 14:46:16 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 189714A78B;
+	Mon,  5 May 2025 14:46:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7274CC4CEF1;
+	Mon,  5 May 2025 14:46:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746456376;
-	bh=4bDA+VU4HKiAdPSG7pDQ7lpUmXsZe5SALIM6IjFpDmY=;
+	s=k20201202; t=1746456380;
+	bh=Ldw7UKcT0C7blDCLSjkpdIbw5wZg9xKCoqc9D/XMdsY=;
 	h=From:To:Cc:Subject:Date:From;
-	b=BkWSzRYIoY22w53CdjXaPfov8jjMYYJQ3D3fok+SjanF80LxfaYknu7A5Rx9Q2/Nk
-	 FK+gSdYkE+3vbSUZlVf3fL5dYlfwjy8/3yrNgSNiPQS17geHLJtuiiUTUXMnM8JAi1
-	 3Ew71fC6N7Dt4K+6Y3aN/HuwKu81iwUfQjabkWU5/UwJOw3//EP24jA52XJOCNwztq
-	 l57OQvVoXXHmu1qmnTwdZ9EUACab6g28wKUCCjjes6f85zhK428gS6vaKe5s0tTrDC
-	 M71U+bbIWDyqBMZiOw666hfCM834ZaIhy2PZRy8HGbMQ6hmGFielO/zIMMOx9Ka4Na
-	 rhOBXLbs8M2LQ==
+	b=tgj2G7kQCY8pFY+s70jFMmxdfdZ8SDq5H/XoIyWLIHFkj4/jITqN2VI8MQ7TsjfU0
+	 MCfzWuneeZ04YRp3IO02L+GMupQgNLJ7WgDwR//DZT98wzlbj+6F7gtZ3/wW594KS1
+	 tspkyokeuMaRcjfwlWMFR0RCU7xrFwh3pObvNYzFdENgJM0GfNqa2nDHWWtAtRjWEk
+	 aBYdegIrGlasRc2uU8omPXdHXdL8AKRBCWZ5TpYHEKT23NbFJmfIkQETIvVzi1qw6Y
+	 5AMAR2BFXWsfOnQBKQgEDYwJgWwHjBJyWwci0ISgt2gY9Zk4XYKnU5pkaxg0+abgr8
+	 zwCmSwTFmD4UA==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Eddie James <eajames@linux.ibm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
+To: Thomas Gleixner <tglx@linutronix.de>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	Lee Jones <lee@kernel.org>
-Cc: Andrew Jeffery <andrew@aj.id.au>,
-	linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] dt-bindings: interrupt-controller: Convert aspeed,ast2xxx-scu-ic to DT schema
-Date: Mon,  5 May 2025 09:46:11 -0500
-Message-ID: <20250505144613.1287360-1-robh@kernel.org>
+Subject: [PATCH] dt-bindings: interrupt-controller: Convert brcm,bcm2835-armctrl-ic to DT schema
+Date: Mon,  5 May 2025 09:46:16 -0500
+Message-ID: <20250505144618.1287539-1-robh@kernel.org>
 X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250505_074621_111293_9CC4F075 
+X-CRM114-Status: GOOD (  17.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,136 +76,322 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the Aspeed SCU interrupt controller binding to schema format.
-It's a straight-forward conversion of the typical interrupt controller.
+Convert the Broadcom BCM2835 ARMCTRL interrupt controller binding to
+schema format. It's a straight-forward conversion of the typical
+interrupt controller.
 
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- .../aspeed,ast2500-scu-ic.yaml                | 48 +++++++++++++++++++
- .../aspeed,ast2xxx-scu-ic.txt                 | 23 ---------
- .../bindings/mfd/aspeed,ast2x00-scu.yaml      |  9 +++-
- MAINTAINERS                                   |  2 +-
- 4 files changed, 57 insertions(+), 25 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2500-scu-ic.yaml
- delete mode 100644 Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2xxx-scu-ic.txt
+ .../brcm,bcm2835-armctrl-ic.txt               | 131 --------------
+ .../brcm,bcm2835-armctrl-ic.yaml              | 161 ++++++++++++++++++
+ 2 files changed, 161 insertions(+), 131 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2835-armctrl-ic.txt
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2835-armctrl-ic.yaml
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2500-scu-ic.yaml b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2500-scu-ic.yaml
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2835-armctrl-ic.txt b/Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2835-armctrl-ic.txt
+deleted file mode 100644
+index bdd173056f72..000000000000
+--- a/Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2835-armctrl-ic.txt
++++ /dev/null
+@@ -1,131 +0,0 @@
+-BCM2835 Top-Level ("ARMCTRL") Interrupt Controller
+-
+-The BCM2835 contains a custom top-level interrupt controller, which supports
+-72 interrupt sources using a 2-level register scheme. The interrupt
+-controller, or the HW block containing it, is referred to occasionally
+-as "armctrl" in the SoC documentation, hence naming of this binding.
+-
+-The BCM2836 contains the same interrupt controller with the same
+-interrupts, but the per-CPU interrupt controller is the root, and an
+-interrupt there indicates that the ARMCTRL has an interrupt to handle.
+-
+-Required properties:
+-
+-- compatible : should be "brcm,bcm2835-armctrl-ic" or
+-                 "brcm,bcm2836-armctrl-ic"
+-- reg : Specifies base physical address and size of the registers.
+-- interrupt-controller : Identifies the node as an interrupt controller
+-- #interrupt-cells : Specifies the number of cells needed to encode an
+-  interrupt source. The value shall be 2.
+-
+-  The 1st cell is the interrupt bank; 0 for interrupts in the "IRQ basic
+-  pending" register, or 1/2 respectively for interrupts in the "IRQ pending
+-  1/2" register.
+-
+-  The 2nd cell contains the interrupt number within the bank. Valid values
+-  are 0..7 for bank 0, and 0..31 for bank 1.
+-
+-Additional required properties for brcm,bcm2836-armctrl-ic:
+-- interrupts : Specifies the interrupt on the parent for this interrupt
+-  controller to handle.
+-
+-The interrupt sources are as follows:
+-
+-Bank 0:
+-0: ARM_TIMER
+-1: ARM_MAILBOX
+-2: ARM_DOORBELL_0
+-3: ARM_DOORBELL_1
+-4: VPU0_HALTED
+-5: VPU1_HALTED
+-6: ILLEGAL_TYPE0
+-7: ILLEGAL_TYPE1
+-
+-Bank 1:
+-0: TIMER0
+-1: TIMER1
+-2: TIMER2
+-3: TIMER3
+-4: CODEC0
+-5: CODEC1
+-6: CODEC2
+-7: VC_JPEG
+-8: ISP
+-9: VC_USB
+-10: VC_3D
+-11: TRANSPOSER
+-12: MULTICORESYNC0
+-13: MULTICORESYNC1
+-14: MULTICORESYNC2
+-15: MULTICORESYNC3
+-16: DMA0
+-17: DMA1
+-18: VC_DMA2
+-19: VC_DMA3
+-20: DMA4
+-21: DMA5
+-22: DMA6
+-23: DMA7
+-24: DMA8
+-25: DMA9
+-26: DMA10
+-27: DMA11-14 - shared interrupt for DMA 11 to 14
+-28: DMAALL - triggers on all dma interrupts (including channel 15)
+-29: AUX
+-30: ARM
+-31: VPUDMA
+-
+-Bank 2:
+-0: HOSTPORT
+-1: VIDEOSCALER
+-2: CCP2TX
+-3: SDC
+-4: DSI0
+-5: AVE
+-6: CAM0
+-7: CAM1
+-8: HDMI0
+-9: HDMI1
+-10: PIXELVALVE1
+-11: I2CSPISLV
+-12: DSI1
+-13: PWA0
+-14: PWA1
+-15: CPR
+-16: SMI
+-17: GPIO0
+-18: GPIO1
+-19: GPIO2
+-20: GPIO3
+-21: VC_I2C
+-22: VC_SPI
+-23: VC_I2SPCM
+-24: VC_SDIO
+-25: VC_UART
+-26: SLIMBUS
+-27: VEC
+-28: CPG
+-29: RNG
+-30: VC_ARASANSDIO
+-31: AVSPMON
+-
+-Example:
+-
+-/* BCM2835, first level */
+-intc: interrupt-controller {
+-	compatible = "brcm,bcm2835-armctrl-ic";
+-	reg = <0x7e00b200 0x200>;
+-	interrupt-controller;
+-	#interrupt-cells = <2>;
+-};
+-
+-/* BCM2836, second level */
+-intc: interrupt-controller {
+-	compatible = "brcm,bcm2836-armctrl-ic";
+-	reg = <0x7e00b200 0x200>;
+-	interrupt-controller;
+-	#interrupt-cells = <2>;
+-
+-	interrupt-parent = <&local_intc>;
+-	interrupts = <8>;
+-};
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2835-armctrl-ic.yaml b/Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2835-armctrl-ic.yaml
 new file mode 100644
-index 000000000000..d5287a2bf866
+index 000000000000..4edc4c3ff6bd
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2500-scu-ic.yaml
-@@ -0,0 +1,48 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+# Copyright 2025 Eddie James
++++ b/Documentation/devicetree/bindings/interrupt-controller/brcm,bcm2835-armctrl-ic.yaml
+@@ -0,0 +1,161 @@
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/interrupt-controller/aspeed,ast2500-scu-ic.yaml#
++$id: http://devicetree.org/schemas/interrupt-controller/brcm,bcm2835-armctrl-ic.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: Aspeed AST25XX and AST26XX SCU Interrupt Controller
++title: BCM2835 ARMCTRL Interrupt Controller
 +
 +maintainers:
-+  - Eddie James <eajames@linux.ibm.com>
++  - Florian Fainelli <florian.fainelli@broadcom.com>
++
++description: >
++  The BCM2835 contains a custom top-level interrupt controller, which supports
++  72 interrupt sources using a 2-level register scheme. The interrupt
++  controller, or the HW block containing it, is referred to occasionally as
++  "armctrl" in the SoC documentation, hence naming of this binding.
++
++  The BCM2836 contains the same interrupt controller with the same interrupts,
++  but the per-CPU interrupt controller is the root, and an interrupt there
++  indicates that the ARMCTRL has an interrupt to handle.
++
++  The interrupt sources are as follows:
++
++  Bank 0:
++    0: ARM_TIMER
++    1: ARM_MAILBOX
++    2: ARM_DOORBELL_0
++    3: ARM_DOORBELL_1
++    4: VPU0_HALTED
++    5: VPU1_HALTED
++    6: ILLEGAL_TYPE0
++    7: ILLEGAL_TYPE1
++
++  Bank 1:
++    0: TIMER0
++    1: TIMER1
++    2: TIMER2
++    3: TIMER3
++    4: CODEC0
++    5: CODEC1
++    6: CODEC2
++    7: VC_JPEG
++    8: ISP
++    9: VC_USB
++    10: VC_3D
++    11: TRANSPOSER
++    12: MULTICORESYNC0
++    13: MULTICORESYNC1
++    14: MULTICORESYNC2
++    15: MULTICORESYNC3
++    16: DMA0
++    17: DMA1
++    18: VC_DMA2
++    19: VC_DMA3
++    20: DMA4
++    21: DMA5
++    22: DMA6
++    23: DMA7
++    24: DMA8
++    25: DMA9
++    26: DMA10
++    27: DMA11-14 - shared interrupt for DMA 11 to 14
++    28: DMAALL - triggers on all dma interrupts (including channel 15)
++    29: AUX
++    30: ARM
++    31: VPUDMA
++
++  Bank 2:
++    0: HOSTPORT
++    1: VIDEOSCALER
++    2: CCP2TX
++    3: SDC
++    4: DSI0
++    5: AVE
++    6: CAM0
++    7: CAM1
++    8: HDMI0
++    9: HDMI1
++    10: PIXELVALVE1
++    11: I2CSPISLV
++    12: DSI1
++    13: PWA0
++    14: PWA1
++    15: CPR
++    16: SMI
++    17: GPIO0
++    18: GPIO1
++    19: GPIO2
++    20: GPIO3
++    21: VC_I2C
++    22: VC_SPI
++    23: VC_I2SPCM
++    24: VC_SDIO
++    25: VC_UART
++    26: SLIMBUS
++    27: VEC
++    28: CPG
++    29: RNG
++    30: VC_ARASANSDIO
++    31: AVSPMON
 +
 +properties:
 +  compatible:
 +    enum:
-+      - aspeed,ast2500-scu-ic
-+      - aspeed,ast2600-scu-ic0
-+      - aspeed,ast2600-scu-ic1
++      - brcm,bcm2835-armctrl-ic
++      - brcm,bcm2836-armctrl-ic
 +
 +  reg:
 +    maxItems: 1
 +
++  interrupt-controller: true
++
 +  '#interrupt-cells':
-+    const: 1
++    const: 2
++    description: >
++      The 1st cell is the interrupt bank; 0 for interrupts in the "IRQ basic
++      pending" register, or 1/2 respectively for interrupts in the "IRQ pending
++      1/2" register.
++
++      The 2nd cell contains the interrupt number within the bank. Valid values
++      are 0..7 for bank 0, and 0..31 for bank 1.
 +
 +  interrupts:
 +    maxItems: 1
 +
-+  interrupt-controller: true
-+
 +required:
 +  - compatible
 +  - reg
-+  - '#interrupt-cells'
-+  - interrupts
 +  - interrupt-controller
++  - '#interrupt-cells'
++
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: brcm,bcm2836-armctrl-ic
++    then:
++      required:
++        - interrupts
++    else:
++      properties:
++        interrupts: false
 +
 +additionalProperties: false
 +
 +examples:
 +  - |
-+    interrupt-controller@18 {
-+        compatible = "aspeed,ast2500-scu-ic";
-+        reg = <0x18 0x4>;
-+        #interrupt-cells = <1>;
-+        interrupts = <21>;
++    interrupt-controller@7e00b200 {
++        compatible = "brcm,bcm2835-armctrl-ic";
++        reg = <0x7e00b200 0x200>;
 +        interrupt-controller;
++        #interrupt-cells = <2>;
 +    };
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2xxx-scu-ic.txt b/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2xxx-scu-ic.txt
-deleted file mode 100644
-index 251ed44171db..000000000000
---- a/Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2xxx-scu-ic.txt
-+++ /dev/null
-@@ -1,23 +0,0 @@
--Aspeed AST25XX and AST26XX SCU Interrupt Controller
--
--Required Properties:
-- - #interrupt-cells		: must be 1
-- - compatible			: must be "aspeed,ast2500-scu-ic",
--				  "aspeed,ast2600-scu-ic0" or
--				  "aspeed,ast2600-scu-ic1"
-- - interrupts			: interrupt from the parent controller
-- - interrupt-controller		: indicates that the controller receives and
--				  fires new interrupts for child busses
--
--Example:
--
--    syscon@1e6e2000 {
--        ranges = <0 0x1e6e2000 0x1a8>;
--
--        scu_ic: interrupt-controller@18 {
--            #interrupt-cells = <1>;
--            compatible = "aspeed,ast2500-scu-ic";
--            interrupts = <21>;
--            interrupt-controller;
--        };
--    };
-diff --git a/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml b/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml
-index c800d5e53b65..12986ebe7ec7 100644
---- a/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml
-+++ b/Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml
-@@ -48,8 +48,15 @@ properties:
- 
- patternProperties:
-   '^p2a-control@[0-9a-f]+$':
--    description: See Documentation/devicetree/bindings/misc/aspeed-p2a-ctrl.txt
-     type: object
-+    additionalProperties: true
-+    properties:
-+      compatible:
-+        contains:
-+          enum:
-+            - aspeed,ast2500-scu-ic
-+            - aspeed,ast2600-scu-ic0
-+            - aspeed,ast2600-scu-ic1
- 
-   '^pinctrl(@[0-9a-f]+)?$':
-     type: object
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 9e37f0c14496..a792c5495d15 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -3577,7 +3577,7 @@ ASPEED SCU INTERRUPT CONTROLLER DRIVER
- M:	Eddie James <eajames@linux.ibm.com>
- L:	linux-aspeed@lists.ozlabs.org (moderated for non-subscribers)
- S:	Maintained
--F:	Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2xxx-scu-ic.txt
-+F:	Documentation/devicetree/bindings/interrupt-controller/aspeed,ast2500-scu-ic.yaml
- F:	drivers/irqchip/irq-aspeed-scu-ic.c
- F:	include/dt-bindings/interrupt-controller/aspeed-scu-ic.h
- 
++  - |
++    interrupt-controller@7e00b200 {
++        compatible = "brcm,bcm2836-armctrl-ic";
++        reg = <0x7e00b200 0x200>;
++        interrupt-controller;
++        #interrupt-cells = <2>;
++        interrupts = <8>;
++    };
 -- 
 2.47.2
 
