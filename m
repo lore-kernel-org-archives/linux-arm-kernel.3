@@ -4,62 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6D47C3ABB6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 02:29:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39D55C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 02:31:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IuQHtEa7q/NILkWN9zF2BYwBivRxQ28/ZkFh2lkCbRg=; b=NrGxDWsWNtrk0mkk8sVDqW0AuV
-	TYhX9Snlz4+NXBDnwMLCeVHHMWmHMiC8RWAOUu6AWWC86QmonROC6udjCXFN5poCY8SFDnsGREZao
-	WScYWVEtxJ+QPSoflTKW1nimPPoh3FfE+bN7lLcvLjYR6YpEXO65DMTkScaSEJ5TDtxSy/qZ/Erzt
-	so1mLt0vu5LsB9omJYBrvbUBR3UzPgsq0T9JhoLGoBTcAPmxeFuPkGSTjD/GoBMURGATKNbkQ1t6K
-	fBUY+EefCFTFsurs/NTTrv3QKgDFsF/BR1YRRM26kIFZLG/OU/BF83yu++XeSgEwcHtChQDk6DQdw
-	HJA/zgjw==;
+	bh=FrOADk3KWtaV6UFpzYHZsb9Rg5iog+v8vSk2BmeOoU0=; b=JLYj/QUeM0t8VA80dglZcO7PCu
+	Pynuw6UHFToCL913NoaffgX+5Usmf7ZFKbYEEh1HH440/iCmHw4odDwrf3FNZyuv/FbFq4afGEK+c
+	4bgu5uUj43Cth8worsOXPhLIokLN/7XyrzYK2KhgVZN6GjPuxlPUMOWzalMUEFmSyCap+lTYU2sZc
+	7GwNTFnOPsBj+LbIHnCZTsYORiPxDbc9/4ZtX6ybU7bfm2BQIKNht/s+O3ZiDSMlXF7/UyrpuhTMw
+	MSYHmi4AoJ05TgtZFqHOWP1kEkkr6e27tkCJxLpoRRPnqwBXQyRwwXQUR8KnXlDQYga2fuvDTVBoH
+	vWB4ErpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC83J-00000009l5I-0gd6;
-	Tue, 06 May 2025 02:29:01 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uC85J-00000009leR-2Tvy;
+	Tue, 06 May 2025 02:31:05 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4l0-00000008uzS-28GK;
-	Mon, 05 May 2025 22:57:55 +0000
+	id 1uC4m9-00000008vGH-1CvS
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 May 2025 22:59:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 28F40A4D2A6;
-	Mon,  5 May 2025 22:52:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD437C4CEED;
-	Mon,  5 May 2025 22:57:51 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 512DA49EF8;
+	Mon,  5 May 2025 22:59:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7A5BC4CEE4;
+	Mon,  5 May 2025 22:59:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746485873;
-	bh=qZz2XKaHDkoWIJpIga3brULNK+YXlIUjkrF7iAjl0+4=;
+	s=k20201202; t=1746485944;
+	bh=mtaoxzu2wIT0jKOX7m7gen8ET0e4nSpgKqsSlV3NGZU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nHQDQ0V1XaxNQCB2l39tNsOwZ6DRyXH02uePo9HYxhhjBTS9Tvg84vY3ifhmRug41
-	 G7AlxJdB2OjL+jmFmIqBkua0ygyoEQEtm6KWZXqEAX9AQKm0sWJWFagv3K9hFmB2Tk
-	 k6P9FVjnkVmEH2/iyOypWaW2w+Lf5BLaivFPbnGKFZBG/3+/bMVYG6FZ2YRhFVGviJ
-	 Jdca3jHLzRE0oShIRogjRZPmSjF2+YRJBvCGP00ZerjKzuacrtfWkdb76OgWD2G76U
-	 WT+4fVBM6/0vMIoyfyiGaF1JpFRAbTAzH0MY5/xb93xri7GJSBvRsVG2AaHOHwyI1M
-	 QDsC+5lupj62g==
+	b=T8uu4lwPfF4CbujQeKi7/F3z4wC7B4zAiZBd6/rWF2Hk8zyXF15Duo4sXRc2wiugQ
+	 G6JuK1lMnHaU8AIDu4K7UIKSUnmDjUrT1xQwBH1Cb441tuIcex/LfXhNPZSQhIruYh
+	 lHEiOYrD53JtrrHe5zi0TKInqmsNd+KjXA3OavLYmMeXgvJEsE6lohb8nNLtX2moHE
+	 4+OCLGXekG3oefh9QqNHn74TCRrIjycpITypsD841lnb6pyaF8l6MXfZ25MBZTePu9
+	 AtzRmUyizLNsykPUMsKdpsBAkvaE/r66h4K/ITtvWk1LfdlgLBx73NLP5JPMBgdo5G
+	 /0cZTuCROGqWw==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Benjamin Lin <benjamin-jw.lin@mediatek.com>,
-	Felix Fietkau <nbd@nbd.name>,
+Cc: Ryan Walklin <ryan@testtoast.com>,
+	Chris Morgan <macromorgan@hotmail.com>,
+	Philippe Simons <simons.philippe@gmail.com>,
+	Mark Brown <broonie@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	lorenzo@kernel.org,
-	ryder.lee@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	shayne.chen@mediatek.com,
-	chui-hao.chiu@mediatek.com,
-	Bo.Jiao@mediatek.com,
-	linux-wireless@vger.kernel.org,
+	lgirdwood@gmail.com,
+	perex@perex.cz,
+	tiwai@suse.com,
+	wens@csie.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org,
+	csokas.bence@prolan.hu,
+	mesihkilinc@gmail.com,
+	andre.przywara@arm.com,
+	codekipper@gmail.com,
+	jbrunet@baylibre.com,
+	linux-sound@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.6 039/294] wifi: mt76: mt7996: revise TXS size
-Date: Mon,  5 May 2025 18:52:19 -0400
-Message-Id: <20250505225634.2688578-39-sashal@kernel.org>
+	linux-sunxi@lists.linux.dev
+Subject: [PATCH AUTOSEL 6.6 077/294] ASoC: sun4i-codec: support hp-det-gpios property
+Date: Mon,  5 May 2025 18:52:57 -0400
+Message-Id: <20250505225634.2688578-77-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505225634.2688578-1-sashal@kernel.org>
 References: <20250505225634.2688578-1-sashal@kernel.org>
@@ -69,8 +76,8 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.6.89
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_155754_672762_D2EBDB07 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20250505_155905_382617_E85B4523 
+X-CRM114-Status: GOOD (  18.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,59 +92,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Benjamin Lin <benjamin-jw.lin@mediatek.com>
+From: Ryan Walklin <ryan@testtoast.com>
 
-[ Upstream commit 593c829b4326f7b3b15a69e97c9044ecbad3c319 ]
+[ Upstream commit a149377c033afe6557c50892ebbfc0e8b7e2e253 ]
 
-Size of MPDU/PPDU TXS is 12 DWs.
-In mt7996/mt7992, last 4 DWs are reserved, so TXS size was mistakenly
-considered to be 8 DWs. However, in mt7990, 9th DW of TXS starts to be used.
+Add support for GPIO headphone detection with the hp-det-gpios
+property. In order for this to properly disable the path upon
+removal of headphones, the output must be labelled Headphone which
+is a common sink in the driver.
 
-Signed-off-by: Benjamin Lin <benjamin-jw.lin@mediatek.com>
-Link: https://patch.msgid.link/20250311103646.43346-1-nbd@nbd.name
-Signed-off-by: Felix Fietkau <nbd@nbd.name>
+Describe a headphone jack and detection GPIO in the driver, check for
+a corresponding device tree node, and enable jack detection in a new
+machine init function if described.
+
+Signed-off-by: Chris Morgan <macromorgan@hotmail.com>
+Signed-off-by: Ryan Walklin <ryan@testtoast.com>
+
+--
+Changelog v1..v2:
+- Separate DAPM changes into separate patch and add rationale.
+
+Tested-by: Philippe Simons <simons.philippe@gmail.com>
+Link: https://patch.msgid.link/20250214220247.10810-4-ryan@testtoast.com
+Signed-off-by: Mark Brown <broonie@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/net/wireless/mediatek/mt76/mt76_connac3_mac.h | 3 +++
- drivers/net/wireless/mediatek/mt76/mt7996/mac.c       | 4 ++--
- 2 files changed, 5 insertions(+), 2 deletions(-)
+ sound/soc/sunxi/sun4i-codec.c | 53 +++++++++++++++++++++++++++++++++++
+ 1 file changed, 53 insertions(+)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt76_connac3_mac.h b/drivers/net/wireless/mediatek/mt76/mt76_connac3_mac.h
-index 87bfa441a9374..4979012d5abfa 100644
---- a/drivers/net/wireless/mediatek/mt76/mt76_connac3_mac.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt76_connac3_mac.h
-@@ -280,6 +280,9 @@ enum tx_mgnt_type {
- #define MT_TXFREE_INFO_COUNT		GENMASK(27, 24)
- #define MT_TXFREE_INFO_STAT		GENMASK(29, 28)
+diff --git a/sound/soc/sunxi/sun4i-codec.c b/sound/soc/sunxi/sun4i-codec.c
+index f0a5fd9011018..0d7758cc84c63 100644
+--- a/sound/soc/sunxi/sun4i-codec.c
++++ b/sound/soc/sunxi/sun4i-codec.c
+@@ -25,6 +25,7 @@
+ #include <linux/gpio/consumer.h>
  
-+#define MT_TXS_HDR_SIZE			4 /* Unit: DW */
-+#define MT_TXS_SIZE			12 /* Unit: DW */
+ #include <sound/core.h>
++#include <sound/jack.h>
+ #include <sound/pcm.h>
+ #include <sound/pcm_params.h>
+ #include <sound/soc.h>
+@@ -239,6 +240,7 @@ struct sun4i_codec {
+ 	struct clk	*clk_module;
+ 	struct reset_control *rst;
+ 	struct gpio_desc *gpio_pa;
++	struct gpio_desc *gpio_hp;
+ 
+ 	/* ADC_FIFOC register is at different offset on different SoCs */
+ 	struct regmap_field *reg_adc_fifoc;
+@@ -1277,6 +1279,49 @@ static struct snd_soc_dai_driver dummy_cpu_dai = {
+ 	.ops = &dummy_dai_ops,
+ };
+ 
++static struct snd_soc_jack sun4i_headphone_jack;
 +
- #define MT_TXS0_BW			GENMASK(31, 29)
- #define MT_TXS0_TID			GENMASK(28, 26)
- #define MT_TXS0_AMPDU			BIT(25)
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-index 73d46ec1181ae..35d9673ec0d8f 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-@@ -1354,7 +1354,7 @@ bool mt7996_rx_check(struct mt76_dev *mdev, void *data, int len)
- 		mt7996_mac_tx_free(dev, data, len);
- 		return false;
- 	case PKT_TYPE_TXS:
--		for (rxd += 4; rxd + 8 <= end; rxd += 8)
-+		for (rxd += MT_TXS_HDR_SIZE; rxd + MT_TXS_SIZE <= end; rxd += MT_TXS_SIZE)
- 			mt7996_mac_add_txs(dev, rxd);
- 		return false;
- 	case PKT_TYPE_RX_FW_MONITOR:
-@@ -1391,7 +1391,7 @@ void mt7996_queue_rx_skb(struct mt76_dev *mdev, enum mt76_rxq_id q,
- 		mt7996_mcu_rx_event(dev, skb);
- 		break;
- 	case PKT_TYPE_TXS:
--		for (rxd += 4; rxd + 8 <= end; rxd += 8)
-+		for (rxd += MT_TXS_HDR_SIZE; rxd + MT_TXS_SIZE <= end; rxd += MT_TXS_SIZE)
- 			mt7996_mac_add_txs(dev, rxd);
- 		dev_kfree_skb(skb);
- 		break;
++static struct snd_soc_jack_pin sun4i_headphone_jack_pins[] = {
++	{ .pin = "Headphone", .mask = SND_JACK_HEADPHONE },
++};
++
++static struct snd_soc_jack_gpio sun4i_headphone_jack_gpio = {
++	.name = "hp-det",
++	.report = SND_JACK_HEADPHONE,
++	.debounce_time = 150,
++};
++
++static int sun4i_codec_machine_init(struct snd_soc_pcm_runtime *rtd)
++{
++	struct snd_soc_card *card = rtd->card;
++	struct sun4i_codec *scodec = snd_soc_card_get_drvdata(card);
++	int ret;
++
++	if (scodec->gpio_hp) {
++		ret = snd_soc_card_jack_new_pins(card, "Headphone Jack",
++						 SND_JACK_HEADPHONE,
++						 &sun4i_headphone_jack,
++						 sun4i_headphone_jack_pins,
++						 ARRAY_SIZE(sun4i_headphone_jack_pins));
++		if (ret) {
++			dev_err(rtd->dev,
++				"Headphone jack creation failed: %d\n", ret);
++			return ret;
++		}
++
++		sun4i_headphone_jack_gpio.desc = scodec->gpio_hp;
++		ret = snd_soc_jack_add_gpios(&sun4i_headphone_jack, 1,
++					     &sun4i_headphone_jack_gpio);
++
++		if (ret) {
++			dev_err(rtd->dev, "Headphone GPIO not added: %d\n", ret);
++			return ret;
++		}
++	}
++
++	return 0;
++}
++
+ static struct snd_soc_dai_link *sun4i_codec_create_link(struct device *dev,
+ 							int *num_links)
+ {
+@@ -1302,6 +1347,7 @@ static struct snd_soc_dai_link *sun4i_codec_create_link(struct device *dev,
+ 	link->codecs->name	= dev_name(dev);
+ 	link->platforms->name	= dev_name(dev);
+ 	link->dai_fmt		= SND_SOC_DAIFMT_I2S;
++	link->init		= sun4i_codec_machine_init;
+ 
+ 	*num_links = 1;
+ 
+@@ -1742,6 +1788,13 @@ static int sun4i_codec_probe(struct platform_device *pdev)
+ 		return ret;
+ 	}
+ 
++	scodec->gpio_hp = devm_gpiod_get_optional(&pdev->dev, "hp-det", GPIOD_IN);
++	if (IS_ERR(scodec->gpio_hp)) {
++		ret = PTR_ERR(scodec->gpio_hp);
++		dev_err_probe(&pdev->dev, ret, "Failed to get hp-det gpio\n");
++		return ret;
++	}
++
+ 	/* reg_field setup */
+ 	scodec->reg_adc_fifoc = devm_regmap_field_alloc(&pdev->dev,
+ 							scodec->regmap,
 -- 
 2.39.5
 
