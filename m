@@ -4,92 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37888C3ABB0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 13:21:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16AA7C3ABB6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 13:21:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=itsdfpxgqr9T28YDfLuBCV4kCGXrZvdi4BFAEN1n0j4=; b=UHllaGpNUe8dBHqiTq/gkwtYNV
-	1MqzP12HeLZ7HRIZEKvFKh5jMwkgAFeUrc0+0aCqW4vSmdeFBB3X2wZ5JxnjRq2Mz2xFu+4JWoFr1
-	S2PVni4UrdlvLFutZsysL/sHacIyiHDXv5u+HuxxWJf7yZFohnLqsNVXUhwyZyDqezLgM/RA8RPhg
-	BU+nhrnPE1Af7+DF/FdcOA+9IZozh7KBbHApkLAt39BZPYEPpMpNsdx0Iw6L6m67N49wAjXduZckn
-	thngIgUUcIX1dK+ZQWAfYnoZ9oaf/3mNTS/AzypegZoIOuCYntAjwcH6JAwbDvIsAeQKXRyPXuTUu
-	sl667D+A==;
+	bh=mbYSVVLiDJmYREd6jvmG7aLMbaPcR8znxbDKR4HQp1A=; b=Ze3KCO6fUMYyylv9E/hzXrP2JY
+	RWDU4ycFT0jzAnsdmGlxcp27znFFxznGq1e4m8HdeOoax2eQJ8OJ7d/088CBAc3GrZMALZxp7acNV
+	F4Bt6uDlXuTOj9/i12Bl7y0fUGmlohab4OBPlHgyvJGIF9Yl5C1L0uPKdr4kRFlRSq3pg3RW6G3RY
+	NzD9wD6i1o5WJ1MW05D0WfOkpOtHfMFJSDsxqB7/hM+r4k9zanKdTuMVMM3R9ZWiS1y1xeB/WTOW8
+	FoCz2h1k+bMOVSflUaegbU1FubaK7opfbWcjh0k7gFRzr+aMmanwRUFx94y9M67/5x2wf8QI4vARr
+	V68ITMPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBvkf-00000007Rvl-1Jx4;
-	Mon, 05 May 2025 13:20:57 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1uBvkq-00000007SBl-02D3;
+	Mon, 05 May 2025 13:21:08 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBvAA-00000007NRM-0Vli;
-	Mon, 05 May 2025 12:43:15 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-227c7e57da2so38285145ad.0;
-        Mon, 05 May 2025 05:43:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746448993; x=1747053793; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=itsdfpxgqr9T28YDfLuBCV4kCGXrZvdi4BFAEN1n0j4=;
-        b=lw+vf9yCgcFIEf33ia8RNdRtqSCpjgeZ9erAIz2Ow9/k5LMZIL2DxYU4BCzsgY5Pm/
-         AnWF+i1eRj6CGzPPYzTOr9tm0d8S0xIEQzQcY+0VCso3I+ijaLHDayQRm1CWpEMI5KFW
-         JmLwQC7xNNwWhuuHboqdpETxXhb+EVrfAV8GxXHEsFYyOGyHoRPeyCyY/oMtOa2s7etm
-         pAnEkyKVFfaAZCT40katRGQpE0gvr9SgpRpKjr2vCeZWmvhB67YdD1am5Adhv2FoPjXq
-         4GS8SFdjAUJl3i/pzDoL5izmLltsR7kU3ekD7En/ZH7iLJc8X8tcJbXNQXH3oSwJ/4u8
-         5T3g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746448993; x=1747053793;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=itsdfpxgqr9T28YDfLuBCV4kCGXrZvdi4BFAEN1n0j4=;
-        b=S1ixCrRT169yiO2ghAV3sDnCUWn5M3HxdOGnx61l5LwFq8BE0TGwD008x6311t6lPO
-         GSvnwHIBOoB6RsS3aNmssAummV7RptaSxNDrF3LPPTs3yoBKEqHgjLI58GtT12oc67qf
-         /b6jSzoOHHc9lWLrxcgvOlAyE2LLe7pbTlMBBKdTs7kF8b8ZlJM290cQHLZGPeK5j2CT
-         41Fsl/l4QfzAgGErxH7Ju4UAogD/bg2PAtBI5WwMqAP81hWSt5Y12ZYmUow0j21Da7Q9
-         T6wC9btBCXsEXcyv/hxFlAno78Uj2SFWhyWy9i+Dc641HJTOV5o+q6N88+BqL1FPYi/q
-         FWPQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVXkD4I7FoHaDipu1k/sXc4xyJ/f/6iMn9mjs+sIjYfFsX24MZdvDUXYp+IFXMCcSZren5mkOBiTmq69ghK@lists.infradead.org, AJvYcCXBrf2wdo50Ceoa2xCkd7d7amKoPSng2YRybOk5++J6tNnS2411qjORe6uHoOrT1Dj0y4ENseFJtwTtR4uUl6r3oA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxY59SI/wA8wRa8wK6sils6Y8AyO30VWnPykMYcQ1oizEmyXuih
-	/Ie+b4elzuVx8XxSWrqKAyJ7PiawW//foeHjYbW3Ml5bs0iE5Z+o
-X-Gm-Gg: ASbGnctV+UCPctBdSm3t0cVbss808diSI9g7TSObKR/h35bpqpYazfwSY3O+g/ovphh
-	U/HYrrwTbmr3SyQP48syCCnnKuP6EyQKPeYEkH3XrVs941I4MHhuUCaJ6LSvCEtNl7Jh9MKkwA2
-	9WhYPgEU05E67wB4BOgFbPL1opfMAwBSdtnjzulA5z5iiljSj+ZDI7XuUx5P66DTQSuCO8R7UzO
-	4vZlg4KQE+KnNJTT9UxDlwjOPFCubITxbAxYsGlzy4elCIJ3R+UGK4hrANF1zKzJwzZ8JgqgLSC
-	I6oEnSuQJUAsKEyHryc/N1HCdm1mKI0neihKWMIpd8Rw9ZFBqQfNAy018JVDL8ypzk8=
-X-Google-Smtp-Source: AGHT+IG2KkrrZuW4JZYAu2SgF1mIQ5x6uKuF20k8DiGK8/U7q4/P+FzZt88l6w+tkDWWksMwAnmVlg==
-X-Received: by 2002:a17:903:2f07:b0:21f:45d:21fb with SMTP id d9443c01a7336-22e1e8c1dcemr101041235ad.3.1746448992997;
-        Mon, 05 May 2025 05:43:12 -0700 (PDT)
-Received: from vaxr-BM6660-BM6360 ([2001:288:7001:2703:bd19:74c5:b39c:cda])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22e194aa391sm41645485ad.154.2025.05.05.05.43.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 May 2025 05:43:12 -0700 (PDT)
-Date: Mon, 5 May 2025 20:43:06 +0800
-From: I Hsin Cheng <richard120310@gmail.com>
-To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
-	neil.armstrong@linaro.org, maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
-	simona@ffwll.ch, khilman@baylibre.com, jbrunet@baylibre.com,
-	dri-devel@lists.freedesktop.org, linux-amlogic@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	skhan@linuxfoundation.org
-Subject: Re: [PATCH] drm/meson: Cast mode->clock to unsigned long long
-Message-ID: <aBiyWnKKGMpMYnJ1@vaxr-BM6660-BM6360>
-References: <20250429190724.330883-1-richard120310@gmail.com>
- <d5a8e781-6936-4c83-83d1-92daa2da8ca2@wanadoo.fr>
- <CAFBinCCL6OQrbQ_UY_nhnbodN2TquuKPk9unhp3YjpR5u=EXag@mail.gmail.com>
+	id 1uBvd0-00000007RAd-3tFf
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 May 2025 13:13:04 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1uBvcr-0006PX-1O; Mon, 05 May 2025 15:12:53 +0200
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1uBvcq-001EYf-0D;
+	Mon, 05 May 2025 15:12:52 +0200
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1uBvcp-000Jxu-3C;
+	Mon, 05 May 2025 15:12:52 +0200
+Message-ID: <3685c6351d8b940abe70ccf22d783e71ced6f6da.camel@pengutronix.de>
+Subject: Re: [PATCH v2 2/2] spi: stm32-ospi: Make usage of
+ reset_control_acquire/release() API
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Patrice Chotard <patrice.chotard@foss.st.com>, Mark Brown
+ <broonie@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+Date: Mon, 05 May 2025 15:12:51 +0200
+In-Reply-To: <20250411-b4-upstream_ospi_reset_update-v2-2-4de7f5dd2a91@foss.st.com>
+References: <20250411-b4-upstream_ospi_reset_update-v2-0-4de7f5dd2a91@foss.st.com>
+	 <20250411-b4-upstream_ospi_reset_update-v2-2-4de7f5dd2a91@foss.st.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAFBinCCL6OQrbQ_UY_nhnbodN2TquuKPk9unhp3YjpR5u=EXag@mail.gmail.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_054314_171154_B7282D52 
-X-CRM114-Status: GOOD (  18.97  )
+X-CRM114-CacheID: sfid-20250505_061302_964493_34C9F8B8 
+X-CRM114-Status: GOOD (  17.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,44 +81,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 04, 2025 at 11:06:06PM +0200, Martin Blumenstingl wrote:
-> On Tue, Apr 29, 2025 at 11:00 PM Christophe JAILLET
-> <christophe.jaillet@wanadoo.fr> wrote:
-> >
-> > Le 29/04/2025 à 21:07, I Hsin Cheng a écrit :
-> > > Coverity scan reported the usage of "mode->clock * 1000" may lead to
-> > > integer overflow. Cast the type of "mode->clock" to "unsigned long long"
-> > > when utilizing it to avoid potential integer overflow issue.
-> > >
-> > > Link: https://scan5.scan.coverity.com/#/project-view/10074/10063?selectedIssue=1646759
-> > > Signed-off-by: I Hsin Cheng <richard120310@gmail.com>
-> > > ---
-> > >   drivers/gpu/drm/meson/meson_encoder_hdmi.c | 4 ++--
-> > >   1 file changed, 2 insertions(+), 2 deletions(-)
-> > >
-> > > diff --git a/drivers/gpu/drm/meson/meson_encoder_hdmi.c b/drivers/gpu/drm/meson/meson_encoder_hdmi.c
-> > > index 7752d8ac85f0..fe3d3ff7c432 100644
-> > > --- a/drivers/gpu/drm/meson/meson_encoder_hdmi.c
-> > > +++ b/drivers/gpu/drm/meson/meson_encoder_hdmi.c
-> > > @@ -75,7 +75,7 @@ static void meson_encoder_hdmi_set_vclk(struct meson_encoder_hdmi *encoder_hdmi,
-> > >       unsigned long long venc_freq;
-> > >       unsigned long long hdmi_freq;
-> > >
-> > > -     vclk_freq = mode->clock * 1000;
-> > > +     vclk_freq = (unsigned long long) mode->clock * 1000;
-> >
-> > Hi,
-> >
-> > maybe, using 1000ULL instead would do the same, but would be less verbose?
-> Agreed, that would make the code more similar to drm_hdmi_compute_mode_clock().
-> The goal is to switch to drm_hdmi_compute_mode_clock() mid-term anyways.
+Hi Patrice,
 
-Hi,
+On Fr, 2025-04-11 at 14:41 +0200, Patrice Chotard wrote:
+> As ospi reset is consumed by both OMM and OSPI drivers, use the reset
+> acquire/release mechanism which ensure exclusive reset usage.
+>=20
+> This avoid to call reset_control_get/put() in OMM driver each time
+> we need to reset OSPI children and guarantee the reset line stays
+> deasserted.
+>=20
+> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+> ---
+>  drivers/spi/spi-stm32-ospi.c | 15 +++++++++------
+>  1 file changed, 9 insertions(+), 6 deletions(-)
+>=20
+> diff --git a/drivers/spi/spi-stm32-ospi.c b/drivers/spi/spi-stm32-ospi.c
+> index d002b9c16714684e4e4623f9255a7f2660c46fd1..ef840f377459891b559be6d6c=
+0435408fb58a1e9 100644
+> --- a/drivers/spi/spi-stm32-ospi.c
+> +++ b/drivers/spi/spi-stm32-ospi.c
+> @@ -804,7 +804,7 @@ static int stm32_ospi_get_resources(struct platform_d=
+evice *pdev)
+>  		return ret;
+>  	}
+> =20
+> -	ospi->rstc =3D devm_reset_control_array_get_exclusive(dev);
+> +	ospi->rstc =3D devm_reset_control_array_get_exclusive_released(dev);
+>  	if (IS_ERR(ospi->rstc))
+>  		return dev_err_probe(dev, PTR_ERR(ospi->rstc),
+>  				     "Can't get reset\n");
+> @@ -936,11 +936,14 @@ static int stm32_ospi_probe(struct platform_device =
+*pdev)
+>  	if (ret < 0)
+>  		goto err_pm_enable;
+> =20
+> -	if (ospi->rstc) {
+> -		reset_control_assert(ospi->rstc);
+> -		udelay(2);
+> -		reset_control_deassert(ospi->rstc);
+> -	}
+> +	ret =3D reset_control_acquire(ospi->rstc);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Can not acquire reset %d\n", ret);
+> +
+> +	reset_control_assert(ospi->rstc);
+> +	udelay(2);
+> +	reset_control_deassert(ospi->rstc);
+> +	reset_control_release(ospi->rstc);
 
-Thanks for your review and suggestions !
-I'll make the corresponding changes and send v2.
+Could you keep the reset control (mostly) acquired from probe() to
+remove()? The reset control would have to be released/acquired in OSPI
+suspend/resume so that OMM can temporarily acquire control during OMM
+resume.
 
-Best regards,
-I Hsin Cheng
-
+regards
+Philipp
 
