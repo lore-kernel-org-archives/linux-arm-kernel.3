@@ -4,85 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B00B6C3ABB6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 22:06:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04D0FC3ABB6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 22:17:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PpdmoR8nEkrIKtA42MWXyNQ6DvUv1NTQJUJQQ+3vaZI=; b=ODjVGONFaaw0a8dqSI2IzzKzX+
-	ov+CaiszuO0kmE1waTXTh1CU2n+VpLQYHXwmJjfLDYmWm2weYYj7FI6v/OFomNhaLIZjqJT+XL9BS
-	ZQuqUNsy0IwhIvJRrSkcqa7ujxQAinO3bgoKCm5mukkCcMM1mqSdSGYBQyMkn2pdUVqqdy/DeCMfS
-	tGV8pJ2gkuwc2E4hKrrwRLBl1dNScDBqvTjJJXEeTngfic/RaONff5+JHeWF5tw+LH0pK7n6AJncE
-	O6VWHiYqI82U/LgsgztPhOusEARLKPZHzj6vvcS5+5D8nwvYtASHlHSFJszlkYAhcWmOK2keIxd/r
-	1cMm8ffg==;
+	bh=KZMUmZgN98AMg1APK9EZIXhtS4AkynfiW9ldmbXdv2o=; b=uAILDs9h2Y5H4Ba8YRVCYRSq3V
+	NWFHvf6EitQ/HacVcVio7uD/ppHpoDEnmeG2LXWzPSedzbemH5djZ9MyMJnJi5E4CoORRzagVKtrj
+	8P0tb84AraS7AKTMrsKzVGCOGcFjv6HXbtGsfEKGYRV8uBfPNWhssHZ+nqXpgu0UeaHF9bYrSgt7C
+	BIU/FneiB3yeNRT3vu09bXbg+SWvE3+oeJykw4Hv4LUBSdCxlcPr7Rfo5rUVoEV7iRjWHYKlR9q0s
+	QNKtxWdf69SVUOk6UaSYfsZqcfsK2SoWVHFE/f7CTobjCpRfjfuLhZ9GvSPhcRgcXMmWA4npqs45F
+	YOjE52aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC3x2-00000008gzQ-1Lqk;
-	Mon, 05 May 2025 22:06:16 +0000
-Received: from mail-lj1-x230.google.com ([2a00:1450:4864:20::230])
+	id 1uC47K-00000008i5k-2aYM;
+	Mon, 05 May 2025 22:16:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC3v1-00000008gkS-3Olw
+	id 1uC45I-00000008hbH-1GEt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 22:04:14 +0000
-Received: by mail-lj1-x230.google.com with SMTP id 38308e7fff4ca-30bfed67e08so49112791fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 15:04:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1746482650; x=1747087450; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PpdmoR8nEkrIKtA42MWXyNQ6DvUv1NTQJUJQQ+3vaZI=;
-        b=F73gEruw6r68xRH2jJ31NA70eZELR6UVLZofGKnOjMCPzF9ZGiPTuJDvCNtzkqxzP0
-         vBvp8snhs7GOJ+0iMAGHZYq6KEsoXCpzKEvalUzg+fF+q65x7U1lhwRnqOcKI1Fs30be
-         NqbINqZ4baIWOlNWImTTi6Ntt8Is5HnwVcMApLfQBqSu4gJtiZ5zSJaEfA6SUR7320qQ
-         BZvo7YjxQzQSB0ShyDfcXFj19pzZxB9xJSJEaHSvkiSC+hRKyq5zMLQpAZTBSOFm2/KX
-         jd4vLcK8762q6vKX4NpJME1SlG9Wit8hKXu4v1zNWUC6yMoXrDY4uTa1ZNb3ReAwYIUp
-         VkxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746482650; x=1747087450;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=PpdmoR8nEkrIKtA42MWXyNQ6DvUv1NTQJUJQQ+3vaZI=;
-        b=TUrg1QRMpMCGElWaY0hTb4MMi6t4D4U5S10IGqON0uYocLh9Mw7DRAiTf9GsoqrF2n
-         iPEGHm0sPTEZCkWSsGfIOpdOZaTyz0OOVar2avG8tfV5RXXVFx0TQFY2L3Bi3bePJNG+
-         n960yNdr6xFLxRAoEnML4cOZuCCyzIh2ghBBonMbzQByhAZ3GLasAQS/FHa307zRocMR
-         0ob54V2vjfSELdue9u9F0IPIOL4UZkBSo21e8wcOngn5aSJf01l973Sz4/j7300u5hFE
-         VUe3W+wLYSVRii+0Ox6xFuFdsQ0gQ8+dsg9I6VGdrNr+JRNGib0duiGGGw7LhJ2OKMaP
-         9R0w==
-X-Forwarded-Encrypted: i=1; AJvYcCUC9DEU9umPQ9enHSGPTA/3JtTEkkE1FKOzQE8fiOiCBuO1KxgqqvZOLW2EqAqIqqRH7My8iPTC1DObEzFXasmM@lists.infradead.org
-X-Gm-Message-State: AOJu0YxbfloYT2G5sLVq0b6F7sskAHf0Z3H6cWZVOragErePObV+PT6w
-	PxkQ6IAEr14JeGlfX+V8HE8A5qWRsiN2TGONT/7lepvVlzfL0QiCFGBpv6rJysUfINlKIoUBYDJ
-	Pk0a6xTD7qK8P///yhx8r1T2P4CmeX0ANADad6w==
-X-Gm-Gg: ASbGnctkEpO6LfZS9soieasN8IrKzQE7w/D6FPzTerDFZ91hW1v37JX6yKTdw2/UEfO
-	LvxJaENQ6gC8oMERVJarC49MeaJ9mV7wYFr3H6yCKKMF5ty7PDe/JfvQILr1PjnUxklK3QGoPbD
-	j/1B9wV0Qj2T59917WIjvtvA==
-X-Google-Smtp-Source: AGHT+IEHFxriErzJ6KWZ4Dnlp4ZP5W2Iyy0QEY/BgIwj3zLpxQz0U2At8oBYxwGceOg9dDWjzWeX9nJUKs0U3r9gdWc=
-X-Received: by 2002:a2e:ab1a:0:b0:310:85ba:115f with SMTP id
- 38308e7fff4ca-32650ec80b8mr3872961fa.33.1746482649729; Mon, 05 May 2025
- 15:04:09 -0700 (PDT)
+	Mon, 05 May 2025 22:14:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0370649F4A;
+	Mon,  5 May 2025 22:14:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E1BAC4CEE4;
+	Mon,  5 May 2025 22:14:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746483286;
+	bh=B09meR/X/Vqey5C36kswuNEt+Ib5nl3MyFppu5LOHCk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=s1adGG4XXkyAiYY9raXFFqSZp4gZi8P3z7RYBo4/5YK1soW8Df16CfzUDo1SaP6j2
+	 58sFCYMhMzWRG7eZwuYT0Psdi/7ZS28HHIpejB2S6R4fPBpwthhMFPSbNzq9sNzw30
+	 yf+Lw9GTSSKG9BIMBcTe1BfWyRxxh7o2/HBE3588MsUK9jHFmOcNcd9XVkiJxTRJKu
+	 IhJEYIOUpGwjFv8zU5oHdFZRBal8QhMDFhSj8xRdVVMDbNUiZyQB6+BnPIXZJOseMt
+	 XXchYgGsWumisfwa3xpHi4PmMF78eOaNcbbXPxUFZMMU8ku9GjM3aiH/iTOPwtKXFA
+	 Yv1Q9SKW07v0g==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Jinqian Yang <yangjinqian1@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Sasha Levin <sashal@kernel.org>,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	oliver.upton@linux.dev,
+	dianders@chromium.org,
+	shameerali.kolothum.thodi@huawei.com,
+	maz@kernel.org,
+	quic_tsoni@quicinc.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.14 015/642] arm64: Add support for HIP09 Spectre-BHB mitigation
+Date: Mon,  5 May 2025 18:03:51 -0400
+Message-Id: <20250505221419.2672473-15-sashal@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250505221419.2672473-1-sashal@kernel.org>
+References: <20250505221419.2672473-1-sashal@kernel.org>
 MIME-Version: 1.0
-References: <20250505144558.1286889-1-robh@kernel.org>
-In-Reply-To: <20250505144558.1286889-1-robh@kernel.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 6 May 2025 00:03:58 +0200
-X-Gm-Features: ATxdqUE1cM-taJ4-SlbcCYbnOvbDEQV7s-gz28KDyeQW4mI3XtkOG49fIqlZFsM
-Message-ID: <CACRpkdZgB4sg1FtDK3QTzKKviPhoCZ8xwP92fV0WGhOBWyUMSQ@mail.gmail.com>
-Subject: Re: [PATCH] dt-bindings: interrupt-controller: Convert
- arm,versatile-fpga-irq to DT schema
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.14.5
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_150411_852891_932FD525 
-X-CRM114-Status: UNSURE (   9.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250505_151448_379795_CB5F99B3 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,17 +84,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 5, 2025 at 4:46=E2=80=AFPM Rob Herring (Arm) <robh@kernel.org> =
-wrote:
+From: Jinqian Yang <yangjinqian1@huawei.com>
 
-> Convert the Arm Versatile FPGA interrupt controller binding to schema
-> format. It's a straight-forward conversion of the typical interrupt
-> controller.
->
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+[ Upstream commit e18c09b204e81702ea63b9f1a81ab003b72e3174 ]
 
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+The HIP09 processor is vulnerable to the Spectre-BHB (Branch History
+Buffer) attack, which can be exploited to leak information through
+branch prediction side channels. This commit adds the MIDR of HIP09
+to the list for software mitigation.
 
-Yours,
-Linus Walleij
+Signed-off-by: Jinqian Yang <yangjinqian1@huawei.com>
+Link: https://lore.kernel.org/r/20250325141900.2057314-1-yangjinqian1@huawei.com
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ arch/arm64/include/asm/cputype.h | 2 ++
+ arch/arm64/kernel/proton-pack.c  | 1 +
+ 2 files changed, 3 insertions(+)
+
+diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
+index 41c21feaef4ad..1c0b518d23745 100644
+--- a/arch/arm64/include/asm/cputype.h
++++ b/arch/arm64/include/asm/cputype.h
+@@ -132,6 +132,7 @@
+ #define FUJITSU_CPU_PART_A64FX		0x001
+ 
+ #define HISI_CPU_PART_TSV110		0xD01
++#define HISI_CPU_PART_HIP09			0xD02
+ 
+ #define APPLE_CPU_PART_M1_ICESTORM	0x022
+ #define APPLE_CPU_PART_M1_FIRESTORM	0x023
+@@ -208,6 +209,7 @@
+ #define MIDR_NVIDIA_CARMEL MIDR_CPU_MODEL(ARM_CPU_IMP_NVIDIA, NVIDIA_CPU_PART_CARMEL)
+ #define MIDR_FUJITSU_A64FX MIDR_CPU_MODEL(ARM_CPU_IMP_FUJITSU, FUJITSU_CPU_PART_A64FX)
+ #define MIDR_HISI_TSV110 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_TSV110)
++#define MIDR_HISI_HIP09 MIDR_CPU_MODEL(ARM_CPU_IMP_HISI, HISI_CPU_PART_HIP09)
+ #define MIDR_APPLE_M1_ICESTORM MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_ICESTORM)
+ #define MIDR_APPLE_M1_FIRESTORM MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_FIRESTORM)
+ #define MIDR_APPLE_M1_ICESTORM_PRO MIDR_CPU_MODEL(ARM_CPU_IMP_APPLE, APPLE_CPU_PART_M1_ICESTORM_PRO)
+diff --git a/arch/arm64/kernel/proton-pack.c b/arch/arm64/kernel/proton-pack.c
+index 0f51fd10b4b06..aaf6578c39ac4 100644
+--- a/arch/arm64/kernel/proton-pack.c
++++ b/arch/arm64/kernel/proton-pack.c
+@@ -901,6 +901,7 @@ static u8 spectre_bhb_loop_affected(void)
+ 		MIDR_ALL_VERSIONS(MIDR_CORTEX_A77),
+ 		MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N1),
+ 		MIDR_ALL_VERSIONS(MIDR_QCOM_KRYO_4XX_GOLD),
++		MIDR_ALL_VERSIONS(MIDR_HISI_HIP09),
+ 		{},
+ 	};
+ 	static const struct midr_range spectre_bhb_k11_list[] = {
+-- 
+2.39.5
+
 
