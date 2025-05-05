@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F1ACC3ABB6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 03:17:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33C71C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 03:19:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=szY1qPR0mAMQS+/vIbCOlpL8qVb4nZJRPF+TkS3U+Is=; b=PwvYAiSSrdxCpquGVDRDs805+a
-	qoBfzAc1q0IPllrnefCKw5l+wXSL+vAmmPI4PRn5ci5OvIWeAyUghdmACPX44GKxf7/ZaYx6ta/To
-	8MITZwz3bZNKHLPZgxQBd294+T7C2nquiDNUU9W7dyyimAQrXv59mEMftRWNics/VuwPYNS6ZGqpJ
-	rB6Hw8aLfJaX6F6KBcSJ+0rToZLE62ou+eD3hze0CN5TO9H5SEcBfTuBLqmHhRlXj0q9xfpf2AISY
-	K9DRF04bEiw9WJLF+rVORYh+dIjCGXSFpvTAGOKp6vqswgyvaExuEizgoujRRHI0RvdeGObcZjyUw
-	iSZ5KnMA==;
+	bh=y4bzWxHlPU7MqJB48RCZkWi7VhwVSBi+YJBgcfpl30Q=; b=YpWF/354elytoB1v5xOT9yWkc0
+	MqNc+zqAM2qkyq9RBF3dTvCmcCs181jxgUJav3WjdKgf//Knt0ji6w/Cz4rkuqQ7FOwhUnw19jNzr
+	jVDubXeCeJ5G33g/ySkoR0pZwtTya6sq4s96/o58yNWS68dyYdK/TP4Y2M+s4Sd3I6lp3Hj6nijxb
+	NHkeXH1TqL8qHGWq9hVi5BUSmN6nAQoLyANlYwyPxB//xTaWc3dZUjj5dVvpsiV4dDp7Sl4KbHT2p
+	cwESsqiccvKrbw6KvPF7flBOcTEOpry0d/MnaHYE2M5J7PAbXqpPh/OuuL+3K5BaS+Sbi3yED9GFo
+	QVYRVJCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC8oE-00000009wir-2xem;
-	Tue, 06 May 2025 03:17:30 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uC8qE-00000009xHY-26El;
+	Tue, 06 May 2025 03:19:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4pv-00000008wJx-1sGw
+	id 1uC4qH-00000008wPa-41wb
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 05 May 2025 23:03:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=y4bzWxHlPU7MqJB48RCZkWi7VhwVSBi+YJBgcfpl30Q=; b=cQEDV7NUOqcS4m6EQPle4YB7BW
+	ZRviYg7Qr98zkOgE/AOs6rzzv7GgaaXNkMSq/TVIJx/rlinmJlY/dw3Non2C3nq9SNiNFV83/+DqJ
+	W11Wm5P+gY1C5wAfoxw+91bbbQJC8jm0iCHyRy/n8POfDVE/ONNV3PBv1Ni3GRP4Z+WxlP+6PCmI7
+	tecdex8W7ToZiGndPJ8ewxsw/19fPxOOosIHQZGryS1wAHMMM5xRYgs1w5KTW4kfa5/ZBwj+5SDUq
+	ic42NXnO3ka7pK2i2MWNkWCvbwaeuT9N5837sF5wKSrPV+8VasXz7z1Pp89gu3evzUhjOnph6S3uh
+	rZvDB9EA==;
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uC4qE-0000000FZBR-1KRi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 23:03:00 +0000
+	Mon, 05 May 2025 23:03:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0A2F9A4D2CF;
-	Mon,  5 May 2025 22:57:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3E69C4CEE4;
-	Mon,  5 May 2025 23:02:56 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2CA4EA4D2D7;
+	Mon,  5 May 2025 22:57:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1397C4CEF1;
+	Mon,  5 May 2025 23:03:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746486178;
-	bh=YF4sqYUsi/wUGYdPp1hwG53Z8+TWL3CmgslUzgxjWwc=;
+	s=k20201202; t=1746486195;
+	bh=GVVXTEw23c+3r68phwdy/OxA9lfvg13unNs7GMRjoTg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=h5EumBaVcd3F2WTnvQQ4G1OkjH3isWLmfXhAXk6rh1NE8UTxpifDY8D9EpFfdrv5o
-	 QZ1JuLgyKC5RbS6xeaxL+rDna2UZGhVMZFphryNc0uukLycmFxSy32Pidxa8TlWlZ7
-	 r4OnjJtR0DBWtlsvn+sBV3C+rL5mg8rY2EoXo4yGL70y4AJc7pYcD+0RjQ1H8pqXiO
-	 P9cMxktrpOpbnMurEVRKhk4DZKKaYvyCZ08R4Op69QVEdhg5ysLaupMSdg1nj9Jou6
-	 XyOSBG8xZ0DWOaeBYTUzBypmLzChdYAszDfYRTXcDa2+1HN+Df/BXMmOU+j2zWTNpY
-	 1c3w971Fthmrg==
+	b=SYkHosweXBv4PMyoIV24xN7hpTxBRCpFHiYCiq6lsvLxRR25nrUthAYv8nBPu8fuJ
+	 5D7rYHNE3OeGXEQxLKQ9COfczk3iyr40sW5Ekvco5Y04zWEbwpbs2vG0bMWQlQDzPx
+	 fvrUFBQIMcAgivEj8mjWSQa/dbOTNozM4B7WmYNx4XdQZoVW3kc78W4OtZRP9Xp3nv
+	 HAeJFpXnXKtNeOi578VePrGHCqJdxbsjWqB0TdyFtdo9+PPRPg7C9ymnzx7DxYGlIO
+	 AeWQFjuypwefnpiZUohJi6BvQJwaBNtHq0RxQ4SPYjT7+LrPkZZ/jNSlCPIugWLLHC
+	 0qUY20cgnc5/A==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Ahmad Fatoum <a.fatoum@pengutronix.de>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
 	Sasha Levin <sashal@kernel.org>,
-	shawnguo@kernel.org,
-	shengjiu.wang@nxp.com,
-	dario.binacchi@amarulasolutions.com,
-	peng.fan@nxp.com,
-	michael@amarulasolutions.com,
-	krzysztof.kozlowski@linaro.org,
-	joe@pf.is.s.u-tokyo.ac.jp,
-	linux-pm@vger.kernel.org,
-	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.6 188/294] pmdomain: imx: gpcv2: use proper helper for property detection
-Date: Mon,  5 May 2025 18:54:48 -0400
-Message-Id: <20250505225634.2688578-188-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.6 198/294] firmware: arm_ffa: Reject higher major version as incompatible
+Date: Mon,  5 May 2025 18:54:58 -0400
+Message-Id: <20250505225634.2688578-198-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505225634.2688578-1-sashal@kernel.org>
 References: <20250505225634.2688578-1-sashal@kernel.org>
@@ -70,8 +76,8 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.6.89
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_160259_560497_5F387F5A 
-X-CRM114-Status: GOOD (  11.99  )
+X-CRM114-CacheID: sfid-20250506_000318_993129_A696EB18 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,38 +92,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+From: Sudeep Holla <sudeep.holla@arm.com>
 
-[ Upstream commit 6568cb40e73163fa25e2779f7234b169b2e1a32e ]
+[ Upstream commit efff6a7f16b34fd902f342b58bd8bafc2d6f2fd1 ]
 
-Starting with commit c141ecc3cecd7 ("of: Warn when of_property_read_bool()
-is used on non-boolean properties"), probing the gpcv2 device on i.MX8M
-SoCs leads to warnings when LOCKDEP is enabled.
+When the firmware compatibility was handled previously in the commit
+8e3f9da608f1 ("firmware: arm_ffa: Handle compatibility with different firmware versions"),
+we only addressed firmware versions that have higher minor versions
+compared to the driver version which is should be considered compatible
+unless the firmware returns NOT_SUPPORTED.
 
-Fix this by checking property presence with of_property_present as
-intended.
+However, if the firmware reports higher major version than the driver
+supported, we need to reject it. If the firmware can work in a compatible
+mode with the driver requested version, it must return the same major
+version as requested.
 
-Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Link: https://lore.kernel.org/r/20250218-gpcv2-of-property-present-v1-1-3bb1a9789654@pengutronix.de
-Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+Tested-by: Viresh Kumar <viresh.kumar@linaro.org>
+Message-Id: <20250217-ffa_updates-v3-12-bd1d9de615e7@arm.com>
+Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/pmdomain/imx/gpcv2.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/firmware/arm_ffa/driver.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/drivers/pmdomain/imx/gpcv2.c b/drivers/pmdomain/imx/gpcv2.c
-index 13fce2b134f60..84d68c805cac8 100644
---- a/drivers/pmdomain/imx/gpcv2.c
-+++ b/drivers/pmdomain/imx/gpcv2.c
-@@ -1350,7 +1350,7 @@ static int imx_pgc_domain_probe(struct platform_device *pdev)
+diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
+index 7cd6b1564e801..906f0988bb557 100644
+--- a/drivers/firmware/arm_ffa/driver.c
++++ b/drivers/firmware/arm_ffa/driver.c
+@@ -121,6 +121,14 @@ static int ffa_version_check(u32 *version)
+ 		return -EOPNOTSUPP;
  	}
  
- 	if (IS_ENABLED(CONFIG_LOCKDEP) &&
--	    of_property_read_bool(domain->dev->of_node, "power-domains"))
-+	    of_property_present(domain->dev->of_node, "power-domains"))
- 		lockdep_set_subclass(&domain->genpd.mlock, 1);
- 
- 	ret = of_genpd_add_provider_simple(domain->dev->of_node,
++	if (FFA_MAJOR_VERSION(ver.a0) > FFA_MAJOR_VERSION(FFA_DRIVER_VERSION)) {
++		pr_err("Incompatible v%d.%d! Latest supported v%d.%d\n",
++		       FFA_MAJOR_VERSION(ver.a0), FFA_MINOR_VERSION(ver.a0),
++		       FFA_MAJOR_VERSION(FFA_DRIVER_VERSION),
++		       FFA_MINOR_VERSION(FFA_DRIVER_VERSION));
++		return -EINVAL;
++	}
++
+ 	if (ver.a0 < FFA_MIN_VERSION) {
+ 		pr_err("Incompatible v%d.%d! Earliest supported v%d.%d\n",
+ 		       FFA_MAJOR_VERSION(ver.a0), FFA_MINOR_VERSION(ver.a0),
 -- 
 2.39.5
 
