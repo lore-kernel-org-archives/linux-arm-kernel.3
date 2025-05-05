@@ -4,173 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6F82C3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 13:51:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3A8FC3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 13:57:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l4f4mxVI2QKqEjk2PEPf+TDvdXYGzxRS3IwhNm6SFug=; b=D984yzM/1bRei+NFgbXoHPAtfT
-	D1pvXIL+8T/cGZLeRUDNlfHc7pxTl6C4JIxzNVOQkKI7XzPzPGviKaGvLh+yGAB4FWHboi6SMJF7s
-	N/BD+e4Wkk8H8G11Ir4r93JvVIga4ockSiYhXxlTQjOzZHghCjFZDrqCkvuOQY85jFTn5rbW/W2F3
-	JOL9nvPp5AXmD8I+u1OGUbiE4b9XrFrlzbkijEsEbu24RKUk1Z3XP7ZiiPIw8V6Fo8oLoo7VB3LVB
-	LM+KMWs9LPWW96j8fZUUhjvQ86UhEIZjzjpUr9sZp/cmVfXkEOjyoSia0Xmwgqe54qFSb8l+Y3Mer
-	N85JDnUw==;
+	bh=75z4s+yFG9zaNAwF8I6jFr8NbChrBZAF9iQIhfXmDz0=; b=l/qLvcz4RPBcz5t/zLNJAGpFaE
+	YhWxMuOWe9YaOVUG25MooSlmZn9xC7bqKinHPYnIlJYDOsS2AmLtBffLli4FPxGnFmJA1S2rnkbue
+	dgzZl5m8Y/NkAIrLhC/kFmeBcKxCW36hIwl9IqChc8tYwu8qrDAT6j6UnJ3rKdBenTRy2SMvk66NB
+	nfdU+kWc4mQLkhszs6qbZPyxTlo/z3OdsFDAoQ1HWn3IGL1Mcm9uiQn02AIFYOWlgrJTO3vC7cEOd
+	0WKRnPKfFUiqpacO0wrLCcDTaA+/BW+isQVoD7x81hyv1yNBb2ghpwQjan0ucsn2ftXxkQN5YnTJM
+	XpBN2hYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBwEE-00000007Xbm-30pW;
-	Mon, 05 May 2025 13:51:30 +0000
-Received: from mail-am7eur03on20724.outbound.protection.outlook.com ([2a01:111:f403:260e::724] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
+	id 1uBwJb-00000007YF9-30Vl;
+	Mon, 05 May 2025 13:57:03 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBw4K-00000007WX4-1SRC
+	id 1uBwHZ-00000007Y4z-2TEi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 13:41:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UADnXQAdoI9M+GKoikPrX5Ys/n0jDSaR+VofH2TAcazSsQiSH738rnykG60cwIzkzjlgs/cIFa+nGuv6O4yq7rYfR4q11HBq0jbf6Z5Rb6GFItCod5Y39h/FWVQ1Fk3OnXqd/7VBoHlin0hOhtcPqba+TC49Gszm/qFwylnZ9JXMz2nToRzK8/LRsgEo5EAVU8JDdJEy+f5f18DEh4VFzwiR0IPUBwOgCtfUetOFZub6dUvEXXdEl2a8wZhc07fxyGoxltEpF3w482GtV43b52KvWsr99wqfvYnrzeysU3h9iBx2ngLSnPTzuRT34KqSqDkTsRD6VkQmUIJiYLx6AQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=l4f4mxVI2QKqEjk2PEPf+TDvdXYGzxRS3IwhNm6SFug=;
- b=d2C7MhgVVUztJs6BKRO7c/VbRfbULl3c0KqPX8FpUjOppjapWZsbrYsmyQ9lRJbPRBZ7saZEGbad0f1yYbnzAd/nFIh/hK3stYpS9iblSzNvjpvEiB8/CmbCx6v4pRieouK3vP4GUjdch1ThlPSw8gLLAuYvQWOGlPNUrIXHYclG9gypvXtOCLPEP/DH+TZjA3jb9/KyU3HYZjwANR9a1YBecDRyFMyzFZKTbY7DP/PyO9EDd1oPK6DusvFV0NSM2UKifwOmQl0xtlEztsJuAeZUdHqu55CE60sFtK905GuCspwmsfcdIZNi4uLchtKMTY9YJPeZ37QMDRyzjwvSyw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
- dkim=pass header.d=phytec.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=l4f4mxVI2QKqEjk2PEPf+TDvdXYGzxRS3IwhNm6SFug=;
- b=r9CRdDQyAvYfx4ytTtCvTf8+9z9+GtwUoUyp1Yb4XDCggpnG1nqZnC1oAtp3U0D8Epqrkn97crD6IEc7QmSWNZszknmgq58pb64c7ZOCLgBBq8YXQO5SimZP7reQxEUUakcjrW7Dv1jc8mUaafMZB6umf6ndLD3QTXVY9inO+tpLb2k3d/SHFe9eUSIwHckj9q3qEjFpiUrgQyf4uFvsapbZnLBEJn69XRmDJXiSExM/lxrnnpb4DyxnzhUrLk4eE9lkQH/E6AidA03IRC2AyQf2LWs3cJLZXiEbSXIV5tZCMYA5YA/3ipAidx5DWpys2qwMA6m/9xH9RPARfUw/BQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=phytec.de;
-Received: from VI0P195MB2484.EURP195.PROD.OUTLOOK.COM (2603:10a6:800:248::6)
- by DB3P195MB2229.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:437::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.31; Mon, 5 May
- 2025 13:41:11 +0000
-Received: from VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
- ([fe80::24f:8371:2871:5981]) by VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
- ([fe80::24f:8371:2871:5981%4]) with mapi id 15.20.8699.019; Mon, 5 May 2025
- 13:41:11 +0000
-Message-ID: <ac9ba45c-4545-46bf-a908-54133520e34d@phytec.de>
-Date: Mon, 5 May 2025 15:40:59 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [Upstream] [PATCH] arm64: defconfig: Enable BANG BANG Thermal
- Governor
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- Garrett Giordano <ggiordano@phytec.com>, catalin.marinas@arm.com,
- will@kernel.org, quic_bjorande@quicinc.com, geert+renesas@glider.be,
- dmitry.baryshkov@linaro.org, shawnguo@kernel.org, neil.armstrong@linaro.org,
- alexander.stein@ew.tq-group.com, biju.das.jz@bp.renesas.com,
- javier.carrasco@wolfvision.net, elinor.montmasson@savoirfairelinux.com,
- linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, upstream@lists.phytec.de
-References: <20250113185607.2210352-1-ggiordano@phytec.com>
- <f40e97a2-41f4-430b-b3f4-815587201191@phytec.de>
- <ab0ab264-4fd2-4826-8a89-eaa55c462183@linaro.org>
-Content-Language: en-US
-From: Daniel Schultz <d.schultz@phytec.de>
-In-Reply-To: <ab0ab264-4fd2-4826-8a89-eaa55c462183@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MW4P222CA0008.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:303:114::13) To VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:800:248::6)
+	Mon, 05 May 2025 13:55:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1746453298; x=1777989298;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=mT9cqDmKVvE5D+3NHWI+X4Bdzp3kYBbGRt9lXt3Jz/E=;
+  b=gfZxOW2vkLnGZYMY9/QGEH7jJvkfwBCaowlmgnLFkvXvMBfyb5paQlc5
+   HY+fcu8oFf3mScqoMOzYITBNM/CMX19JHyjyiCr2S7UR67jftOnaJWEyN
+   V1D2vOkewqeNxxXXLbe0mo4LKp2f/4EpKpsw2doaoMoldWaefbJ16I1Gq
+   XziVoVu5IhQs9Ufe2gF7pNgMQVsBqh2/nXoS9MD7yBSb9lI3tSYiILfuZ
+   +KjpeAfZPxYw2aC1ztAhlz907bX+GfYu/FrOdXB8lbNb8Kt4XPdZhT5T2
+   gIEAD2/8NeI+3lXOgFF4SHpr42hSXVO9rEkVvtH3tupj5P2iYieFu1/8v
+   A==;
+X-CSE-ConnectionGUID: qajEDUjhRaeGJQ1wHy3EGg==
+X-CSE-MsgGUID: ZQEaKrBNQrW9u1HVJPbVOQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11423"; a="51881702"
+X-IronPort-AV: E=Sophos;i="6.15,262,1739865600"; 
+   d="scan'208";a="51881702"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 May 2025 06:54:56 -0700
+X-CSE-ConnectionGUID: ED7z6mKXR3ymkA6cXhGR6w==
+X-CSE-MsgGUID: NwDLqtlJTHuYGEq/aEHKpA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,262,1739865600"; 
+   d="scan'208";a="166307889"
+Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
+  by fmviesa001.fm.intel.com with ESMTP; 05 May 2025 06:54:53 -0700
+Received: from kbuild by 1992f890471c with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uBwHS-0005mH-1C;
+	Mon, 05 May 2025 13:54:50 +0000
+Date: Mon, 5 May 2025 21:54:24 +0800
+From: kernel test robot <lkp@intel.com>
+To: Ard Biesheuvel <ardb+git@google.com>,
+	linux-arm-kernel@lists.infradead.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-kernel@vger.kernel.org, will@kernel.org,
+	catalin.marinas@arm.com, mark.rutland@arm.com,
+	Ard Biesheuvel <ardb@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: Re: [PATCH 1/3] arm64/boot: Move init_pgdir[] into __pi_ namespace
+Message-ID: <202505052102.U2NQHrS4-lkp@intel.com>
+References: <20250503112137.1962910-6-ardb+git@google.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI0P195MB2484:EE_|DB3P195MB2229:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4f3e0cc1-9490-4c8e-aa7b-08dd8bda7f3f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|1800799024|10070799003|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?VHFaVzBnQzJVRVhhT3Z5Q3dVZWN4YWRwU0R0UndjQ25DeHFpTTFOMlVKTEJP?=
- =?utf-8?B?Z1ErWGdMOWpTbVg2Rmovc2pIcnFTNXZTUmEzNUkrb0dIbUlDVEh3SkZrMEZD?=
- =?utf-8?B?aGFqTHd2UmZlVmFWaHdzdVBQVUN4QVVjUklMK0RaNi9RYzZhcUQzTGlEcE9S?=
- =?utf-8?B?ckVlKzRhbklDdjYvMkoyYlVINWpFQW83dFQ5WVppNXNrOUx5d0FpODFTQWlL?=
- =?utf-8?B?YngzMjcxRDJWM1FJTHJjaDgyYWVJOVJabFZkd3BoZ2N6MVhEc0VTMEZXUEJO?=
- =?utf-8?B?ZXVTZU56WEF4YjVHams0dndZb3VHWUk1Y3h6V1crQjVqL0RWajI2bGh0V1E0?=
- =?utf-8?B?eXhuRkh2QXN2bWJYN0t5M1htRi9vTFFxTkxYMXlnYVlzc012bmZJTmZSc29j?=
- =?utf-8?B?dDhLSXI2TlBaRC8wdTJTaTBOMFlzZkpGYVlXSDdIeDN1WldIWnVXVTJ0RHRY?=
- =?utf-8?B?dEhWS1VpK1gyMDdYelloVnY4NElNVUgwZDFlYmtYeTJ5dkxBOWpFcnhuRkY0?=
- =?utf-8?B?Mk85bk5OeUVXeGF3UDFrNXZtZUhsSmhWQmNCek50WllVWnRzWHAvK2FBT3FO?=
- =?utf-8?B?dzQ0Ky9uOTVjZk1NcVpiaVBNUld0QzRmU25BRjBpMVVSN2ozK1J4Y2FsNEJI?=
- =?utf-8?B?UXNGOE9Na1FEdG5HT1NSNDJFM1BXUEFTUGQwL1ZqYTZFeGx5MzRXemFtNXVV?=
- =?utf-8?B?VmRPbXN6MWNMUEZOOFRyWTUyNnlJbEFQMk03Nktmd1FHa0ZNL0pNS3I4ZWRW?=
- =?utf-8?B?R2poY0NNUjBYZ2JJeGVxdEZhaUVLNnJZNXp4YWQwRDZrTFExNjFUUDl2eHJM?=
- =?utf-8?B?aVFuM3JKWGFlTk9PQU5ZNTBzOXQ5ZlZFZktIUGY1OW1kcVVEMEdSdk16UDdy?=
- =?utf-8?B?QmhncERGYytNeW45YjdpZWxxdkJyd2tLcmVWcXhVeXExQnBURE1EWGc1dXc2?=
- =?utf-8?B?Y01HR2VsTWxyVFRtZ1NGdTlqOWovZ2FRcWswQjJUS1crMUNnc0Y5WVExaVpl?=
- =?utf-8?B?THBlVUZNUG0vQ1ZCOUhkTWdmTEZqZytsRGxYRXVXOEJSa2M0TGpPSlJDUXV1?=
- =?utf-8?B?SkE0UE12RC9KdkNOdlB0V092Z282YzRHcytZdnJMRk9rN0lmYXB6dFBTZGtx?=
- =?utf-8?B?dWlmcFhTdmMxOEtUd2laUmpiZW0zM3ozSjQwVDA3YnhORFV5MUVPK29RV1NJ?=
- =?utf-8?B?eWdNL3JjdCszY1paSWx0OTkrMWJtQmhFaVBCTmFlR0hrNElTZWE2czlhZU9q?=
- =?utf-8?B?by9GbFlGazRQN01ReXZhQVc3WGFPTk5MRmRVTUw5MG1pdDRxNVpCOUNvRkZS?=
- =?utf-8?B?eEdYZ2RLb0hCNnhHc3Y2dkxTbjlVWEZqdGVZSDEwMEw1V01HM0xGODE5OUJk?=
- =?utf-8?B?T0pkMTFzSDVab2FMM09KaTNiUnBHU3BZeTh5YzZWejlKaTlhUHhiQ3NTUkNy?=
- =?utf-8?B?RjdjeE5uTmo3L0pLSkNEN29ZRmNrZGk0bXFkUEMrODA4RjgzQko2blBjVStQ?=
- =?utf-8?B?a2tXdnNXbGlWZGcvZThrK0NiQ0FiZ0VuKzFGb2Q1aXJFcUE4aEdaOWJJRnNn?=
- =?utf-8?B?bUU5NEUzUm96eG9RK09qcmhDSWg3U2FPRW5GcjJHczZoNkdlM2s5OFhmbUlC?=
- =?utf-8?B?ZVJueWVpcWgxbEl0b01WQUVkbUd2NlRCVmw1bGVPZXJiVlNpc2t5ajgzMlgz?=
- =?utf-8?B?bGphbU02UFhQUk9Xc0w4Rm5mRzZCZy8vcmp3K0Iybmh5TXdORllJaFd6S1hl?=
- =?utf-8?B?VHoxUVpMWW1rQldXZ01mRDJxZkRkb2tteTV3cnRXQnZPZlVpRFV0eVlEaGlm?=
- =?utf-8?B?SUNTY2pCMFZkUXp3WlBoWXB2L1JyMWd0bjZMQ3I0WWYxZTJoTWlaWmU0ekpt?=
- =?utf-8?B?NjU3Y3JGaVNsWC9Gbm9WSEszalRoenBJNjlydzRDUGw0V01lZWhRT1d4Vlor?=
- =?utf-8?B?d0lnS2V1Y0Y2VG0yRW05Y2VyUmVacFZoWnBtSEU4YnhKQm1BYzVwRS9ZMTlJ?=
- =?utf-8?B?dFlxMWdndFNBPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0P195MB2484.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024)(10070799003)(921020);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VUNDN2xhTFhPS1JjNE12d0c0U0pKNk94Y3hLajJMMGhOWWN3Y212ck1CelU4?=
- =?utf-8?B?ZHhNeTJqWWRXYWRONzRlb3pOcVA1ZTJzK2lJY05TTEdQc1JSWk9mQWN3NUNp?=
- =?utf-8?B?cTZnN0UvT3MzUm95WXpENUpRc0lGd3BweStjSWFaUEJKNFoyYlNOS0pzWlpn?=
- =?utf-8?B?NUkzVzJ0cm9icjA5Vm9UV1RLeER2TUlEMEFOTGV3Q1VPajA2ekRvZzRvVTBR?=
- =?utf-8?B?VG04Y3A2VTRESnQzV1J1dXBSbnJUTG5rUnBDUFpnYU5QakcyNjVvMkxQS1ds?=
- =?utf-8?B?Uy9VaWZVdk1BUUQyS0dISzAyaktzeFQ2L0VPU2FFMmptZEdiM3BEWU5EcEh4?=
- =?utf-8?B?L25MWDN4dU1hdnlsdEphcVNIVDh5K1c4Wk1yYzVxYUgzOSthTWxSbVhFZDdT?=
- =?utf-8?B?ODlzS0xtbjBzSWRRZm5Jemd1Q0pvV2JGM2xhRUVkbVlaQWpzbG90dHhjMUx3?=
- =?utf-8?B?bGFYTDRGTEdqajFhdzY4UFpWVFkrQmdsQTZmaEZYc1F5UU9vNFR2WHJGUUR6?=
- =?utf-8?B?S3F4bzd1ZGFaeDVISXlFK3BoVDlVejVGT05STW9JVmNISERzT01YSFQ5eUpi?=
- =?utf-8?B?MEMrK2ovNUFTMjRoYWpjTXNKaVZPeE01R3ZYemQwazlvZnM2WUVudFBQcmlv?=
- =?utf-8?B?VVBOU3VwTkV3dEdUOGNCTDhqc1VGQjlkaW9Sc3FIMm8zdE9SS0U0N0hUYnkw?=
- =?utf-8?B?M0d6cTFOQzFvbGh6SmwxTDdtZXNjY1g2SGx4S0wxZm4xelpOZ09lUFBsWWhY?=
- =?utf-8?B?QnhDbXdSMkxHbDJwMlgrY05yUkJMYUlRMXNaNzUraWMyc2RsWWwvbHBBZ1pv?=
- =?utf-8?B?OUYzWm5VeWY2WCtJUlljNThkZHdnRU5FU04xWG1GMnBLRGNSaE5obXhrcWhC?=
- =?utf-8?B?MHo5THdwOEdWSVN4aDh5RCtsTk8wNVJVQTBuQzZja3FxendkRGFObGJlTG55?=
- =?utf-8?B?TW5ZVEJ3dW9YTzdzSXNYRERCWjkrSS9WOE9VanRCSzVpMHJUR1EyaXd2dVdk?=
- =?utf-8?B?V2RndVd1MkJyODBBTlJhVDNoMGtveEIwUWxQRmx5YmpmQkxzd2NzVHpYbFF3?=
- =?utf-8?B?SzRBMDlib2JxRStVY1JOb0VlTGl1d2FOVnJiYXRxaWlpeWEyT055NXdkM1JZ?=
- =?utf-8?B?V0JvZGhUTjN3WjlCNXB1bno2WUtaUUhzWDdIc2NOem5VL1dydjdWWmNpaEhl?=
- =?utf-8?B?NzhDaFU3RHJuazZKSHJoa2liUHlMUzA0U3NHZTIrOG1yNGNLOFZ1cE5MTk4y?=
- =?utf-8?B?eHl0UTBQZlZRQXpkVUlvTVZnQnVtWnhKNDhrQ2xwVnlBR2NVdWV4SEtyM1Zx?=
- =?utf-8?B?V1I3Vno1OFNqdTJlbG1iSzl1MW0xNnNqQ1hvdXQ3a2tZOVFKLzQzTWZqK3M0?=
- =?utf-8?B?UmZqcHdRNWJ4Nk1JUDk4ZVFwY21sZlZ5UlVzQUdKS1FDK2s4U3IyU0MrTzdr?=
- =?utf-8?B?MkQzRzZ1VlZoWDdQUHd1WWVnR2hSNC9EdkhFdEVISVRIUVRJd09DSzhRRDM3?=
- =?utf-8?B?blRGR1ZNYmdOSlFSLzVBOW5GZ2F4NzZpVkZFbWRETEdNWVJuUHBTTFIvOHZ1?=
- =?utf-8?B?d0JXV2MrUnRJd3QvdFhKRkNYU0ZqWW9hdG5hRmRVMktUMHJpbVNYK2xlVUR2?=
- =?utf-8?B?RWtkRmdITmVIRG5qbFphMjZOV1lsQm5BTmpHWDlkVVBlZ0lmNTBwbWVaSmdz?=
- =?utf-8?B?YkdQRW9mbnl6dGl3b2lVeG0rbkpDMjMvd3ptL2FoQTBRLzNuMnJSOGdNZHl1?=
- =?utf-8?B?cXNGSlFkOEl3a3hvbUVCU09TZHFhWk5wV2ZIem4ycXVEQVFpMHU2dnIrTnVY?=
- =?utf-8?B?bGFBTlp2L1R6c04zQlV2L2ZoQ0RiUHpBWTVpU284SDdmWmxSUmZudTZmTzJu?=
- =?utf-8?B?VkZ2bmVEQUpmeHNkSjJaWG5acVpjdTZUcndkYkRLNmVJYm5MQ1Blb29qOXZu?=
- =?utf-8?B?M1pyTWhUUHp3amxTU1IxZHdVczRPNVYyQVU4ellWeGY5K0IwNTBJQlcya0tX?=
- =?utf-8?B?RTMxUStsZGhyV0k1R1duRzN5bG9mSFZJbk5tT2hUOVZGaVV0UnJSbGlyeHVn?=
- =?utf-8?B?TmlIWnREVWdJeTlpc21jVDdDTUdKZFdLQVorVWpHZ1VxOHN4RlFIK29QcXVC?=
- =?utf-8?B?bG9oNkloK0J5TCtac2VzQUJJaVNBdzk2WnBxbHQ1cUduekpkQUdyTEVjQ2c0?=
- =?utf-8?Q?XpGhutFOlf93yu9itWfGMbnIh/GHuH38hXkmSXExF86o?=
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4f3e0cc1-9490-4c8e-aa7b-08dd8bda7f3f
-X-MS-Exchange-CrossTenant-AuthSource: VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2025 13:41:11.4327
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ltfopPV9mp6f1xYXfg+hWEUs6LnukYfgkGDSRG3eMHAsKzt59IoNIcW/oi4zGD9W5W8BTKzmkvZn3sX/uCySkQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB3P195MB2229
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250503112137.1962910-6-ardb+git@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_064116_397146_3154C156 
-X-CRM114-Status: GOOD (  11.99  )
+X-CRM114-CacheID: sfid-20250505_065457_664047_EA651CC9 
+X-CRM114-Status: GOOD (  14.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,28 +90,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Ard,
 
-On 5/5/25 10:33, Krzysztof Kozlowski wrote:
-> On 05/05/2025 10:18, Daniel Schultz wrote:
->> Hey,
->>
->> can someone please take a look at this patch? I can also re-send in case
->> it doesn't apply anymore. Thanks!
->
-> Sounds like a product thingy, so I do not see much need to enable it in
-> the defconfig.
-I'm okay with that. We can handle that downstream but wasn't sure if 
-this config would be accepted.
->
-> BTW, the more people you CC, the bigger chance no one will fell
-> responsible. You Cc-eed ~7 persons not related to your subsystem.
+kernel test robot noticed the following build errors:
 
-Ah, yes that makes sense. Thank you for the hint!
+[auto build test ERROR on soc/for-next]
+[also build test ERROR on linus/master v6.15-rc5 next-20250505]
+[cannot apply to arm64/for-next/core kvmarm/next]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-- Daniel
+url:    https://github.com/intel-lab-lkp/linux/commits/Ard-Biesheuvel/arm64-boot-Move-init_pgdir-into-__pi_-namespace/20250503-192534
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+patch link:    https://lore.kernel.org/r/20250503112137.1962910-6-ardb%2Bgit%40google.com
+patch subject: [PATCH 1/3] arm64/boot: Move init_pgdir[] into __pi_ namespace
+config: arm64-randconfig-001-20250505 (https://download.01.org/0day-ci/archive/20250505/202505052102.U2NQHrS4-lkp@intel.com/config)
+compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project f819f46284f2a79790038e1f6649172789734ae8)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250505/202505052102.U2NQHrS4-lkp@intel.com/reproduce)
 
->
->
-> Best regards,
-> Krzysztof
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202505052102.U2NQHrS4-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> arch/arm64/kernel/pi/map_kernel.c:191:30: error: use of undeclared identifier 'init_pg_end'
+     191 |         memset(init_pg_dir, 0, (u64)init_pg_end - (u64)init_pg_dir);
+         |                                     ^
+   arch/arm64/kernel/pi/map_kernel.c:222:30: error: use of undeclared identifier 'init_pg_end'
+     222 |         memset(__bss_start, 0, (u64)init_pg_end - (u64)__bss_start);
+         |                                     ^
+   2 errors generated.
+
+
+vim +/init_pg_end +191 arch/arm64/kernel/pi/map_kernel.c
+
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  158  
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  159  static void __init remap_idmap_for_lpa2(void)
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  160  {
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  161  	/* clear the bits that change meaning once LPA2 is turned on */
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  162  	pteval_t mask = PTE_SHARED;
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  163  
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  164  	/*
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  165  	 * We have to clear bits [9:8] in all block or page descriptors in the
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  166  	 * initial ID map, as otherwise they will be (mis)interpreted as
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  167  	 * physical address bits once we flick the LPA2 switch (TCR.DS). Since
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  168  	 * we cannot manipulate live descriptors in that way without creating
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  169  	 * potential TLB conflicts, let's create another temporary ID map in a
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  170  	 * LPA2 compatible fashion, and update the initial ID map while running
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  171  	 * from that.
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  172  	 */
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  173  	create_init_idmap(init_pg_dir, mask);
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  174  	dsb(ishst);
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  175  	set_ttbr0_for_lpa2((u64)init_pg_dir);
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  176  
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  177  	/*
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  178  	 * Recreate the initial ID map with the same granularity as before.
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  179  	 * Don't bother with the FDT, we no longer need it after this.
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  180  	 */
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  181  	memset(init_idmap_pg_dir, 0,
+ecc54006f158ae0 Zenghui Yu     2024-06-21  182  	       (u64)init_idmap_pg_end - (u64)init_idmap_pg_dir);
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  183  
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  184  	create_init_idmap(init_idmap_pg_dir, mask);
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  185  	dsb(ishst);
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  186  
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  187  	/* switch back to the updated initial ID map */
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  188  	set_ttbr0_for_lpa2((u64)init_idmap_pg_dir);
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  189  
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  190  	/* wipe the temporary ID map from memory */
+9684ec186f8fadd Ard Biesheuvel 2024-02-14 @191  	memset(init_pg_dir, 0, (u64)init_pg_end - (u64)init_pg_dir);
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  192  }
+9684ec186f8fadd Ard Biesheuvel 2024-02-14  193  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
