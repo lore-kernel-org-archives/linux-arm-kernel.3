@@ -4,175 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DDE4C3ABB0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 16:08:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4683AC3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 16:10:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6DLzkkxgbFThz1n9+itJZoSSjm9BbZ5p//bZHB2cTzo=; b=UziTJVVN6fYAR3jTSd+Aqo8SP8
-	6M5tWt0EhYhjMpBQj9tqFnWFMyYJmFqbQycMcVgjt8lMbFacXaS90NOwzqapwRihMCfqZXhMP1n3M
-	19RXnAX2RZaykQmTInCSOlNw79y+OkM0Cv2O4IvPVSnyQ4G+1QaWVXlkGy8Qb4CPxTRIvCYR/pB7s
-	xPLPqiQV6SeWyHRXP5wHwdifdh+9SsYE9kytkX8iPEKDj/uZM7im0ntcwhw2lnz2f4kXVSXWuvBBM
-	7VnFllOZMxbnkwqnrhNdS7jOHIWfHYtqVVGI3FGgNkRmVhzyhsGBkLxYZqxRPE7nBlzd0bh+o8Xni
-	26+2qhfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nspZRGz/i/6mnAvkbCpGKriDSYA1aqeM4ht5VL78W/g=; b=MXBO6tWV17i5DzpizGcuJmQRvT
+	/WtPOycCJDzT/RENApe6tEAUDo7JChuNnowqL7nDJz9GtcYyN4fVpbg+cGl/NPD4Sp00M3YL7kIaG
+	3Rbgc7JxVbQDz1Bci2hr1gFXvzTQoEEGnmm6IrcZVW8+kUnWQ25627+rMCJjumdytdpvqK7KduQsx
+	F6EzETb7NtbRSBEFLouwyeGC5aipmrkrKsYeuCdbTTMnSgnnazLV7F87oS5GXNzd1Atcqod2Gq3F1
+	bQgSghlfEl3PAFblPGFqERtNZX58BkoQm2iUJcKs/lf8xCAKxpLUlYrWdNKedUMCY6+ClgTiHtQB7
+	Umbj+o+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uByMO-00000007vWL-00Wx;
-	Mon, 05 May 2025 16:08:04 +0000
-Received: from mail-db8eur05on2071e.outbound.protection.outlook.com ([2a01:111:f403:2614::71e] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1uByON-00000007vq6-00SR;
+	Mon, 05 May 2025 16:10:07 +0000
+Received: from mout.gmx.net ([212.227.17.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uByFl-00000007uNe-2ssN
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 16:01:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=f1YhSjzwC5V9rCa637kA9PnUboXBiJ/093ZUErVmg3BDm6LxkBr59QYLxIf/zvM791SFtMcbSfVkcKPUrNunl/cuMSFh8ToTAQ6XiXT87QoyalLPl6+qtHvuLg5w24a1RZqVwPG0RzXA+yDXWcU8jBqvosOePpcZblVjHtEHwj2jd8nUmoGQ7A0b2UFEwx1dI8KJkBNIAtNY5gMecKVE3GwLWkDCBBRS+6dNzeyUBnop9XQgnTolMf21d15GZjg2D2/knekZxdYwyJ+mns1S5NUXeUWq/REbC3HcavYdw+TtVuoZNjsxXaYPVHsmzkHR5934uUj+M9UFRbyhULIkvw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6DLzkkxgbFThz1n9+itJZoSSjm9BbZ5p//bZHB2cTzo=;
- b=KQ7vXloY25Z/lYZAEKs7gbHeT8y8i9LXRgSKjU3m7IrmSf4kyz/Gud3vZXTvz3HHXlauSa9lxHrBX+ElDsaKwAMdtM8h9/WuxSPN4tmOyUOUstS6E+hvwUIW5Kn6iD2LHrl+n2OdDLUrTRlADVO1v48GtJFx9okOsjQHRBjeT6vhtNns9axF73nIDbHcZUoxeG/gli0OCWIOLt1xJ54yJ/wfdRYlX7XLlRyml7OFpbhDOBfXJrl5i6krESyu6nwGH7JH7l+vuNDiDXnI7lfufFSUiO9Dp1ipeU3GWxrn09R/fnkftC01jvYsbadjIje1KgL/iVEyg79ckpoDvP2YHQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
- dkim=pass header.d=phytec.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6DLzkkxgbFThz1n9+itJZoSSjm9BbZ5p//bZHB2cTzo=;
- b=aYMhkR1KndWO7llOwCLMPoVcVxWAMFvjKfoqkdB88jfZZEy3vT1oaNqhKZEMvxc8zCU8yXfFIaqU0R3oFU/W+pfFxY5XHIXreBDrKMviyTGusoF4TEXFpBxFgvHsUdKqtcppILn9Llf5zGciWEM8V9aDC2rUGOXNEeb9PQLMqKoVjH3TkYdomkXn6ABgxvBPzAuBPCuDajOYro88x0//CvgL77EtV0y2eaAqJmDyMmvExfELdE2CY6YItH8weWnjZMf3Y7T1/tETFEDZrsSKuBeSTws2TZnRS48rqrFE6mCvMpIfpNnwP4ldtbAqA45NoNJKAxWOWoe/hFfN8LIcjw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=phytec.de;
-Received: from VI0P195MB2484.EURP195.PROD.OUTLOOK.COM (2603:10a6:800:248::6)
- by VI1P195MB0703.EURP195.PROD.OUTLOOK.COM (2603:10a6:800:153::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.26; Mon, 5 May
- 2025 16:01:08 +0000
-Received: from VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
- ([fe80::24f:8371:2871:5981]) by VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
- ([fe80::24f:8371:2871:5981%4]) with mapi id 15.20.8699.019; Mon, 5 May 2025
- 16:01:07 +0000
-Message-ID: <646350fd-3dc5-47eb-ab1b-1a6a9acd69a8@phytec.de>
-Date: Mon, 5 May 2025 18:00:56 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 03/11] arm64: dts: ti: k3-am62a-mcu: Add R5F remote
- proc node
-To: Andrew Davis <afd@ti.com>, "Mendez, Judith" <jm@ti.com>,
- Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>
-Cc: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Hari Nagalla <hnagalla@ti.com>,
- Beleswar Padhi <b-padhi@ti.com>, Markus Schneider-Pargmann
- <msp@baylibre.com>, Devarsh Thakkar <devarsht@ti.com>,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20250502220325.3230653-1-jm@ti.com>
- <20250502220325.3230653-4-jm@ti.com>
- <50039c49-a6c5-4f29-a35a-53b9af117fd8@phytec.de>
- <6c5e786d-7581-492f-92fb-be92ecbecd87@ti.com>
- <31d32966-05fe-4369-afda-3278822d8cb5@ti.com>
-Content-Language: en-US
-From: Daniel Schultz <d.schultz@phytec.de>
-In-Reply-To: <31d32966-05fe-4369-afda-3278822d8cb5@ti.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MW4PR04CA0227.namprd04.prod.outlook.com
- (2603:10b6:303:87::22) To VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:800:248::6)
+	id 1uByI7-00000007uok-1uyE;
+	Mon, 05 May 2025 16:03:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1746461010; x=1747065810; i=wahrenst@gmx.net;
+	bh=nspZRGz/i/6mnAvkbCpGKriDSYA1aqeM4ht5VL78W/g=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=phy9QWlWuwq/tx6bwA0i1GMAYUNO2WZzQi7h0qAwSjfivZydcP0AVncAN0Io1cyB
+	 ix6MqmBZVF0oyBMw+B9qgmbakbEE5ileo8UiZDtnesw7D1mZsKPkWDEf4aZXluIkb
+	 GAnSeM/uoI/ebSn/u6C1HeUDoFNCcPbmK/x3MVMsNzamTD8SfzX5lk+N/tw7ROAxI
+	 AMjvNGdc9fhBuJcOGFF+iRCjoEjgWHTtsoEx9U8Wx2cOU5O5l0Pib+/1grT4dA02V
+	 R9Bnga2lCc597s1YKARgkekkm/wX62omX0/uEQZ5imMqtP7MRjLhF3sIp3arvlGBp
+	 z5M+jVGcalh0xjdFpQ==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.1.101] ([91.41.216.208]) by mail.gmx.net (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MRTNF-1uQUrf2bWH-00YXr7; Mon, 05
+ May 2025 18:03:30 +0200
+Message-ID: <ee082ba2-d452-43a1-bb94-3c04c407ea31@gmx.net>
+Date: Mon, 5 May 2025 18:03:29 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI0P195MB2484:EE_|VI1P195MB0703:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0530c9bf-3319-42da-3670-08dd8bee0bcf
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|10070799003|376014|7416014|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?U2tSOStyNk9pRXJpampiaks5U0lTQTJRY2xWSkxHVnA0ZFlsckxuMUp4bFdq?=
- =?utf-8?B?bDdLUmc3dUxlRGpaR1FIQmhWY1RFcFFHSUNZeGlVQmJVamFGcHcyZk4zSGgy?=
- =?utf-8?B?ZHNhcWl2ZGdZL1F6YVVaZnVHRGs0QTRGNnpuS2U5Ly85c1ZzNTZDeGlZUCtK?=
- =?utf-8?B?eGgzSko0cys0UXFCUGJjVDk4MVFnejhJRXg4a203Wm1DVmJRZ1JCY291R1pQ?=
- =?utf-8?B?eE51R3dXa0trWXg3MDkyMEwzcWhpTVJwOTJqbjhnUUF0cGY5NmNWeER6S3c4?=
- =?utf-8?B?VFZQeWhNSUZxeGhaTjA3QVBvcDNUQnlQUGhpUEFqa3ZyR3R0bE5mRDBVN0w1?=
- =?utf-8?B?V0lSdEJrODFZWDlxLytlUWM5Q2s3NklQR3o5NWlYS05BblEwbHl1TkJTUUlr?=
- =?utf-8?B?RVZqc0pKSE12V01HZEhJMDRXempGK2Z4UkNQZ0o2aXFncm9YWVlIbUV2cGov?=
- =?utf-8?B?M29CT3pDbFhFZUpKeGEvVFFwUTFBK29NZ1pWcUhFK09Ed0xGd3VCNUQ1NTVO?=
- =?utf-8?B?TG52WWpUQlpsZHIyQ2FaQm9hS01lNmFOYnY3KzF2Q3g5Nm1GUENITTVaTTBQ?=
- =?utf-8?B?WldpUXcyVUxNZnlDY2xxS3BFOWQ2TjZoRndubnpVazlMa3RlWlBGZXRxUEFC?=
- =?utf-8?B?azIraUNjdThQV0J0Wkd1NGFyalZkQm5mUXpERG1jcXhFM05udkxlTDc4am5T?=
- =?utf-8?B?OEhVS3V5V3VnTnljcmdmanJLRUNRNkxBUW1HUWVtMk5tTHVxMjNZY0ZmemQr?=
- =?utf-8?B?RW55ZGQvTjBadFpmNjg4Y1l0dHNZSHJiVzFrenhmQUVsRFdkanYwdTBRQzVr?=
- =?utf-8?B?M3pxWjh1Zlp0UHJqVFR1Y2s1a01CMUVLU1dTdk9Ia2NxUW1heXJuV2NIL21q?=
- =?utf-8?B?T2lUYktUcTc2eW5ib0w4Ung5SmZOWnBLN0tkbm42R1BFaDlMdXlJSERXWllD?=
- =?utf-8?B?bVJwUmdhSUtRWS9DZzlmOWl6VlZaOXRZM2FIcWk5bmlNam5VQkxKKzZGM0c0?=
- =?utf-8?B?ZHZTa2UwR1JaekdESGZoTGptVGtXeWlENkVXWWJ0TlFIU3VjTzVnMXhjNEtx?=
- =?utf-8?B?Q09nOGdyOUZjSm9BUWZKNzdnOFg4U25Fa0l3SXA4eUZqclBHS24zU2tRV0dm?=
- =?utf-8?B?TzA4ZHZwalowT2JNWWN1Y2p4Ry9WZFZMbVFObHdBS0E1bHJ5YzRKWWtjTVE1?=
- =?utf-8?B?VFc1ekVQRXhXODI5UUJYdGJ2Yi9HUkhrQ1VyY1BlSml1d2hDRUpyZFNDUkRW?=
- =?utf-8?B?dHJ0TktUSFVSU3dkb2E3RE9TL2lqdWU4bThRem93Njh6SWNoUklrWldQYTBW?=
- =?utf-8?B?K2l0SVVZVDFxQ0lBdVBYZEpwM0paTE1oY3BONEZsZUU4ZWZEak1aWldaVXJQ?=
- =?utf-8?B?YXBjQVRTWUJlcml6RGdxNUpwVVFqQ0NYeTdheGFFVkd5ditpdC9BalNDd01r?=
- =?utf-8?B?dkVmOXBnanJNVUpmRTBxUzV6UnA4bkNGUG9TQVVpOWhlZEp6ODZEcDhTbEpY?=
- =?utf-8?B?SDZHQUhSQ0FxRmV6WDNOVGJEek4xL1NuM0ZvR1REb3k2ajFQcE5OWEF2VVJL?=
- =?utf-8?B?Q3ZjSTZ4QmVDa2w3VWFLdExiUEdRV2hOVWJwTjJVNTlmbnpySDczTHRPM0No?=
- =?utf-8?B?NlA1NTZrUkJZV1gycnl1Z1hPSnU2NVZFL3dSekI5Y25ycFIvSzhyQk1Ec3M2?=
- =?utf-8?B?YTZFcXZ6NGJDQ21RTGJMM0NJTVREazVYdVJ6c1c4SlBLS25rUTh1VTRlcUhk?=
- =?utf-8?B?T2FYam0rM2VnQk95dURRZ0x0REt2eTBPR0NIQXVFZFk0eEt4d2hCVFE5QTl6?=
- =?utf-8?B?ZHcxYWhXQTAwaW94RkFoYmhxdTQ5UVgrb1Z1bkhaZDN1enRRMDdhbFA5U2FQ?=
- =?utf-8?B?QWlNZFV3Wmt3ZFZPSVNKRmt0MFdEQVdwcFZaTlJZYnBLS1BENmlkd2NzQkdN?=
- =?utf-8?Q?fTlabt6K69s=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0P195MB2484.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(10070799003)(376014)(7416014)(366016);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NU5hWmlrdUQySTljTENzQmwxUzZ1ampxMHQ5dUFPRGtuSkh6K0dobENKNWVP?=
- =?utf-8?B?Zjd5RDJIb0ZBc1VBeEhmZXF5Sm8rYmFaWndidHBpc3BoQk9NQmJaV3NrSysv?=
- =?utf-8?B?OUhYVURTSDdCRmVxSlVmcXREblJKcWlZcDEyRVM3ZEhLampoeFZpbVV6S3hj?=
- =?utf-8?B?aTVONlFtcXdaOSs4YW41MkxSNUwrM2hKdHpRc1VEcGRITDQ0WXhNL3VXd2Ur?=
- =?utf-8?B?Znk5OUhXQ1d2ampNSmlEYnJpSWtuVmxZTlZoUGlQSksrVmozd2x0WlZndnVQ?=
- =?utf-8?B?Tjd3djRvc29pM0orU2plVlNmRndCbCthekJEbE82SzdmRUs2ejhhaW5QL3BO?=
- =?utf-8?B?T01pSVF0WjQwUFFRWXNSZ0JiQjBNWCtROWR5MTQ2bVZaZDNJdUM1ampFeFFJ?=
- =?utf-8?B?QjVxajZJSmZNQW56dDJtWWptN0lvNmZIVGdVZmZEZ21VZlhUVGdZektVdXRQ?=
- =?utf-8?B?NVEybUNFUjNkcVhVdklnZUttaXNuUy9KeVFvYTBXTjFiOVczZGdaUVdtTTBq?=
- =?utf-8?B?RDMreldvU1ZUNklseUFkYTBHWVZOZVBickxXckRqcDhJdFl6YVhIOVQvRGtB?=
- =?utf-8?B?dEE1U1g2QWsvZUpvTXRXTGlQR1RZN3lmNHBQd0c5ZTMyWUw4Q1NhZWNrOHJ4?=
- =?utf-8?B?UFo4cVlyemg2VW5WT3VHOVdhU1JxVE13Y1FWNWNqdWNEcXQrMnQxTmZGWlp1?=
- =?utf-8?B?cFh4SVhkbEd2VkpvTnlSaHNQdnRWU0w2TE4zR1N0bWZSWHZSUXNMeWQ5TUl0?=
- =?utf-8?B?ZExQcFhJVEJ3K2J1UDNJOWludDQ2MFhpcG90VGxDSDQ4alZ3TzZPT1pIRTRz?=
- =?utf-8?B?Z0t6anA3azdFTDhuOWVxVlFqSWMweHJYQlRnU0RoSDdQeENGMXdRSFVWMi9u?=
- =?utf-8?B?d2NtY1NESHNKYWhicG16NS9WVDNJNkw2aFR3M1NGVHA3UytYQ09FR0ZKWkJS?=
- =?utf-8?B?T2IzR1picU5qRFh5WHBlZFpmeHdCd0NJczR1aytxV0lLL2RJWXVkTE51RGlo?=
- =?utf-8?B?ekxHeFNvMTAvdWs0TnYxZ2JYcDRhSzBqQTFObG9NVWwxZDRFWWhSRjhJRXRJ?=
- =?utf-8?B?ZVdUVlF3WEZ4SlVaTVo4ampCdFdpWCtEZEo4VGtMd3V6SFVsVVdNQTZjaTFB?=
- =?utf-8?B?VUZDVlBza2RMemxuVE9HL3liZyt1OTVPcExCemlMMVBhcmlLV3Y0U2hwYm1s?=
- =?utf-8?B?eHJxVHpneGcrUHIwaGV5S2VyR3RvQm1xbzViVURCUU1Fc3B5OTVGZWVqQ1p4?=
- =?utf-8?B?cnRzczhzZlBiV09rcTMxR1FQVUQ4TWdRUlVHVkVzeC9mTGRDdHFPNDBtZUUx?=
- =?utf-8?B?VlBTMTAxWkIvSDlKTm5qeWExYU91clk2R2pHUThqWXhCQXdjcmFnTTRVUTFk?=
- =?utf-8?B?Q1RDejV2NFRTWUQ4TFRNMEZFelM4c1IvbWVYZGExSmRKdHhFLzlSVXd4TXdt?=
- =?utf-8?B?d1hseUVwaDR2NE4rMkJGKytZN2lGYnVzMjJqL2MyL3JYTkcyVldhZEtwTDMv?=
- =?utf-8?B?MHZhN2VJWWhQSTdkRU1mQUZLZ0tsUzRKTHBoelF3MUdSbFZ6dDNldUxwN01P?=
- =?utf-8?B?TGRpOCt1YjhFK3ZKZUtObXlhNzlaRTFMR3BUazkvcE9ZNXNua3lmcU44WllY?=
- =?utf-8?B?NWNJcStnTTlFb01BSWYxVlloVnd4KzIvYm8yMG1VMU96czk0dDQrcStaTlhr?=
- =?utf-8?B?Y0IzSUtlQUdnbEpxQWRDTFJoOXljaHM4bkMrMmJ4Z1NRN21RQlNjOE5LMzhB?=
- =?utf-8?B?cDluTWNMTnE1ajBnZmJEZXRCMjdnYlVudnU1ZzI5dDVsajlnYVBBclNMVmI1?=
- =?utf-8?B?KzhxVTJmcWFMNHVleGpjSUhjV0k1UVFQK1RpVGR5ZktmZVpOTDA3OHdpdzdv?=
- =?utf-8?B?UUpUTUh1M3VaMjgwWDlQblo1TjJMNXJuSHVCaTBRSDZ5OFovZGJ0SjU3c095?=
- =?utf-8?B?MlZaMXZBdFJLbVJoOUVsTEtGN0I4bmNOdENzdFRlZTFIZ2RLYW13Tk1zYld2?=
- =?utf-8?B?YzFIWDQra0NIbTMzV0hYQXdGQUJERWhhYUZlTHVIelBRYS8yT3dGZHVpdVl3?=
- =?utf-8?B?c2hma2hyVGkrdGhtWkNPcExxS1JGaVIzVlVqdDg0QlpMaDBHMnZlNlJ4VzBp?=
- =?utf-8?B?U2FEbXhOZk0yeFNuSys1RGNEZUxrTHhtR094SkRZMFgvQldhdGU0R3B6SGZh?=
- =?utf-8?Q?e9EtSmOaygmjaeCfUHhS9QxZVicwKlwtjvEHw2jsbqXL?=
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0530c9bf-3319-42da-3670-08dd8bee0bcf
-X-MS-Exchange-CrossTenant-AuthSource: VI0P195MB2484.EURP195.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2025 16:01:07.6949
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hgHsaPqGVXXwlt9VtKfA0gNfWUy7qxGMX9KlpF58kGKFWJcjSAn2qRadm8nKMhU/gFDHSrmvVOgCk/wF1Vt+IA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1P195MB0703
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] dt-bindings: interrupt-controller: Convert
+ brcm,bcm2835-armctrl-ic to DT schema
+To: "Rob Herring (Arm)" <robh@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
+ Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ kernel-list@raspberrypi.com
+References: <20250505144618.1287539-1-robh@kernel.org>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+Autocrypt: addr=wahrenst@gmx.net; keydata=
+ xjMEZ1dOJBYJKwYBBAHaRw8BAQdA7H2MMG3q8FV7kAPko5vOAeaa4UA1I0hMgga1j5iYTTvN
+ IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+wo8EExYIADcWIQT3FXg+ApsOhPDN
+ NNFuwvLLwiAwigUCZ1dOJAUJB4TOAAIbAwQLCQgHBRUICQoLBRYCAwEAAAoJEG7C8svCIDCK
+ JQ4BAP4Y9uuHAxbAhHSQf6UZ+hl5BDznsZVBJvH8cZe2dSZ6AQCNgoc1Lxw1tvPscuC1Jd1C
+ TZomrGfQI47OiiJ3vGktBc44BGdXTiQSCisGAQQBl1UBBQEBB0B5M0B2E2XxySUQhU6emMYx
+ f5QR/BrEK0hs3bLT6Hb9WgMBCAfCfgQYFggAJhYhBPcVeD4Cmw6E8M000W7C8svCIDCKBQJn
+ V04kBQkHhM4AAhsMAAoJEG7C8svCIDCKJxoA/i+kqD5bphZEucrJHw77ujnOQbiKY2rLb0pE
+ aHMQoiECAQDVbj827W1Yai/0XEABIr8Ci6a+/qZ8Vz6MZzL5GJosAA==
+In-Reply-To: <20250505144618.1287539-1-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:2E1LYcmiqquUyR1NW/BV5KhqR1ABN0uS4PVerjkQBC3ed0wVt+z
+ W/C6vKZ47Z0rMYv116JM4B31zpfPoXJCHmezTReTWrw9ZLpdqYgMLjFGvPYcS6QjWvfabHv
+ 7b+jYQStS69QR8BzFUBuiCRLKX7tsCJgXzXzyR48ho5fP2Xk6rhUmYZc4+QtKTYt//DlBNu
+ bYEZB58UPFbzxLfws0Lhg==
+UI-OutboundReport: notjunk:1;M01:P0:nHgtIr0AuXk=;HlbIA1vMwXYDA+1g1WVupQ1f+hP
+ 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
+ MwAJTeEE5sz10=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_090114_173448_A6F7374D 
-X-CRM114-Status: GOOD (  21.80  )
+X-CRM114-CacheID: sfid-20250505_090339_798718_6F374A23 
+X-CRM114-Status: GOOD (  25.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,128 +140,358 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey,
+Hi Rob,
 
-On 5/5/25 17:22, Andrew Davis wrote:
-> On 5/5/25 10:05 AM, Mendez, Judith wrote:
->> Hi Daniel,
->>
->> On 5/5/2025 4:55 AM, Daniel Schultz wrote:
->>> Hi,
->>>
->>> I'm unable to load the latest TI firmware 
->>> (98efd20ec71f8c1c8f909d34ab656731) with this patch.
->>>
->>> [    7.012889] remoteproc remoteproc1: 79000000.r5f is available
->>> [    7.032640] remoteproc remoteproc1: powering up 79000000.r5f
->>> [    7.038626] remoteproc remoteproc1: Booting fw image am62a-mcu- 
->>> r5f0_0-fw, size 53140
->>> [    7.057209] remoteproc remoteproc1: bad phdr da 0x79100000 mem 
->>> 0x47ea0
->
-> So this looks like the firmware has sections in the SRAM region. That 
-> would be the
-> issue here.
->
->>> [    7.064716] remoteproc remoteproc1: Failed to load program 
->>> segments: -22
->>>
->>> I figured out that the mcu sram node disappeared in v5. Apparently 
->>> adding it back manually doesn't solve this problem. Any idea what's 
->>> wrong?
->>
->> For am62ax, there should be several items changed with this v8
->> series in order for remoteproc to work with the TI default firmware:
-What firmware did you use? I was using the latest public default 
-firmware from ti-linux-firmware.
->>
->> 1. memory carveouts were reduced to 15MB [0] & edge-ai memory
->> carveouts are not included here
->
-> This shouldn't be an issue, the default firmware doesn't
-> use the extended carveouts.
-Yes, this is just the echo firmware.
->
->> 2. mcu_sram1 node removed [2]
->>
->
-> So when you say you added back the SRAM node, did you also add the
-> sram = <&mcu_ram>; in the core node?
+Am 05.05.25 um 16:46 schrieb Rob Herring (Arm):
+> Convert the Broadcom BCM2835 ARMCTRL interrupt controller binding to
+> schema format. It's a straight-forward conversion of the typical
+> interrupt controller.
+i send a similiar patch on May 2nd:
+https://lore.kernel.org/linux-devicetree/20250502105213.39864-1-wahrenst@g=
+mx.net/
 
-With that property added, I can load the firmware again! So, what's the 
-problem with adding this sram node and did you remove it?
-
-- Daniel
-
+I would prefer your version, but ...
 >
-> Andrew
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+>   .../brcm,bcm2835-armctrl-ic.txt               | 131 --------------
+>   .../brcm,bcm2835-armctrl-ic.yaml              | 161 ++++++++++++++++++
+>   2 files changed, 161 insertions(+), 131 deletions(-)
+>   delete mode 100644 Documentation/devicetree/bindings/interrupt-control=
+ler/brcm,bcm2835-armctrl-ic.txt
+>   create mode 100644 Documentation/devicetree/bindings/interrupt-control=
+ler/brcm,bcm2835-armctrl-ic.yaml
 >
->> If you want to catch up on the general direction for this series,
->> please refer to [3]. atm remoteproc can fail with the default FW,
->> but we are trying to move away from that firmware and this is the
->> first step in that direction.
->>
->> [0] 
->> https://lore.kernel.org/linux-devicetree/0ab5c5ec-cde3-41f1-8adf-2419b31497c1@ti.com/
->> [1] 
->> https://lore.kernel.org/linux-devicetree/04e77daf-e775-44fa-82bf-8b6ebf73bcef@ti.com/
->> [2] 
->> https://lore.kernel.org/linux-devicetree/32358aa1-0c02-4f4d-9782-2d8376c0d9fc@ti.com/
->> [3] 
->> https://lore.kernel.org/linux-devicetree/e131298f-3713-482a-a740-ff89709270b4@ti.com/
->>
->> ~ Judith
->>
->>>
->>> On 5/3/25 00:03, Judith Mendez wrote:
->>>> From: Hari Nagalla <hnagalla@ti.com>
->>>>
->>>> AM62A SoCs have a single R5F core in the MCU voltage domain.
->>>> Add the R5FSS node with the child node for core0 in MCU voltage
->>>> domain .dtsi file.
->>>>
->>>> Signed-off-by: Hari Nagalla <hnagalla@ti.com>
->>>> Signed-off-by: Judith Mendez <jm@ti.com>
->>>> Acked-by: Andrew Davis <afd@ti.com>
->>>> ---
->>>>   arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi | 25 
->>>> ++++++++++++++++++++++++
->>>>   1 file changed, 25 insertions(+)
->>>>
->>>> diff --git a/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi b/arch/arm64/ 
->>>> boot/dts/ti/k3-am62a-mcu.dtsi
->>>> index 9ed9d703ff24..ee961ced7208 100644
->>>> --- a/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
->>>> +++ b/arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi
->>>> @@ -174,4 +174,29 @@ mcu_mcan1: can@4e18000 {
->>>>           bosch,mram-cfg = <0x0 128 64 64 64 64 32 32>;
->>>>           status = "disabled";
->>>>       };
->>>> +
->>>> +    mcu_r5fss0: r5fss@79000000 {
->>>> +        compatible = "ti,am62-r5fss";
->>>> +        #address-cells = <1>;
->>>> +        #size-cells = <1>;
->>>> +        ranges = <0x79000000 0x00 0x79000000 0x8000>,
->>>> +             <0x79020000 0x00 0x79020000 0x8000>;
->>>> +        power-domains = <&k3_pds 7 TI_SCI_PD_EXCLUSIVE>;
->>>> +        status = "disabled";
->>>> +
->>>> +        mcu_r5fss0_core0: r5f@79000000 {
->>>> +            compatible = "ti,am62-r5f";
->>>> +            reg = <0x79000000 0x00008000>,
->>>> +                  <0x79020000 0x00008000>;
->>>> +            reg-names = "atcm", "btcm";
->>>> +            resets = <&k3_reset 9 1>;
->>>> +            firmware-name = "am62a-mcu-r5f0_0-fw";
->>>> +            ti,atcm-enable = <0>;
->>>> +            ti,btcm-enable = <1>;
->>>> +            ti,loczrama = <0>;
->>>> +            ti,sci = <&dmsc>;
->>>> +            ti,sci-dev-id = <9>;
->>>> +            ti,sci-proc-ids = <0x03 0xff>;
->>>> +        };
->>>> +    };
->>>>   };
->>
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/brcm=
+,bcm2835-armctrl-ic.txt b/Documentation/devicetree/bindings/interrupt-cont=
+roller/brcm,bcm2835-armctrl-ic.txt
+> deleted file mode 100644
+> index bdd173056f72..000000000000
+> --- a/Documentation/devicetree/bindings/interrupt-controller/brcm,bcm283=
+5-armctrl-ic.txt
+> +++ /dev/null
+> @@ -1,131 +0,0 @@
+> -BCM2835 Top-Level ("ARMCTRL") Interrupt Controller
+> -
+> -The BCM2835 contains a custom top-level interrupt controller, which sup=
+ports
+> -72 interrupt sources using a 2-level register scheme. The interrupt
+> -controller, or the HW block containing it, is referred to occasionally
+> -as "armctrl" in the SoC documentation, hence naming of this binding.
+> -
+> -The BCM2836 contains the same interrupt controller with the same
+> -interrupts, but the per-CPU interrupt controller is the root, and an
+> -interrupt there indicates that the ARMCTRL has an interrupt to handle.
+> -
+> -Required properties:
+> -
+> -- compatible : should be "brcm,bcm2835-armctrl-ic" or
+> -                 "brcm,bcm2836-armctrl-ic"
+> -- reg : Specifies base physical address and size of the registers.
+> -- interrupt-controller : Identifies the node as an interrupt controller
+> -- #interrupt-cells : Specifies the number of cells needed to encode an
+> -  interrupt source. The value shall be 2.
+> -
+> -  The 1st cell is the interrupt bank; 0 for interrupts in the "IRQ basi=
+c
+> -  pending" register, or 1/2 respectively for interrupts in the "IRQ pen=
+ding
+> -  1/2" register.
+> -
+> -  The 2nd cell contains the interrupt number within the bank. Valid val=
+ues
+> -  are 0..7 for bank 0, and 0..31 for bank 1.
+> -
+> -Additional required properties for brcm,bcm2836-armctrl-ic:
+> -- interrupts : Specifies the interrupt on the parent for this interrupt
+> -  controller to handle.
+> -
+> -The interrupt sources are as follows:
+> -
+> -Bank 0:
+> -0: ARM_TIMER
+> -1: ARM_MAILBOX
+> -2: ARM_DOORBELL_0
+> -3: ARM_DOORBELL_1
+> -4: VPU0_HALTED
+> -5: VPU1_HALTED
+> -6: ILLEGAL_TYPE0
+> -7: ILLEGAL_TYPE1
+> -
+> -Bank 1:
+> -0: TIMER0
+> -1: TIMER1
+> -2: TIMER2
+> -3: TIMER3
+> -4: CODEC0
+> -5: CODEC1
+> -6: CODEC2
+> -7: VC_JPEG
+> -8: ISP
+> -9: VC_USB
+> -10: VC_3D
+> -11: TRANSPOSER
+> -12: MULTICORESYNC0
+> -13: MULTICORESYNC1
+> -14: MULTICORESYNC2
+> -15: MULTICORESYNC3
+> -16: DMA0
+> -17: DMA1
+> -18: VC_DMA2
+> -19: VC_DMA3
+> -20: DMA4
+> -21: DMA5
+> -22: DMA6
+> -23: DMA7
+> -24: DMA8
+> -25: DMA9
+> -26: DMA10
+> -27: DMA11-14 - shared interrupt for DMA 11 to 14
+> -28: DMAALL - triggers on all dma interrupts (including channel 15)
+> -29: AUX
+> -30: ARM
+> -31: VPUDMA
+> -
+> -Bank 2:
+> -0: HOSTPORT
+> -1: VIDEOSCALER
+> -2: CCP2TX
+> -3: SDC
+> -4: DSI0
+> -5: AVE
+> -6: CAM0
+> -7: CAM1
+> -8: HDMI0
+> -9: HDMI1
+> -10: PIXELVALVE1
+> -11: I2CSPISLV
+> -12: DSI1
+> -13: PWA0
+> -14: PWA1
+> -15: CPR
+> -16: SMI
+> -17: GPIO0
+> -18: GPIO1
+> -19: GPIO2
+> -20: GPIO3
+> -21: VC_I2C
+> -22: VC_SPI
+> -23: VC_I2SPCM
+> -24: VC_SDIO
+> -25: VC_UART
+> -26: SLIMBUS
+> -27: VEC
+> -28: CPG
+> -29: RNG
+> -30: VC_ARASANSDIO
+> -31: AVSPMON
+> -
+> -Example:
+> -
+> -/* BCM2835, first level */
+> -intc: interrupt-controller {
+> -	compatible =3D "brcm,bcm2835-armctrl-ic";
+> -	reg =3D <0x7e00b200 0x200>;
+> -	interrupt-controller;
+> -	#interrupt-cells =3D <2>;
+> -};
+> -
+> -/* BCM2836, second level */
+> -intc: interrupt-controller {
+> -	compatible =3D "brcm,bcm2836-armctrl-ic";
+> -	reg =3D <0x7e00b200 0x200>;
+> -	interrupt-controller;
+> -	#interrupt-cells =3D <2>;
+> -
+> -	interrupt-parent =3D <&local_intc>;
+> -	interrupts =3D <8>;
+> -};
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/brcm=
+,bcm2835-armctrl-ic.yaml b/Documentation/devicetree/bindings/interrupt-con=
+troller/brcm,bcm2835-armctrl-ic.yaml
+> new file mode 100644
+> index 000000000000..4edc4c3ff6bd
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/interrupt-controller/brcm,bcm283=
+5-armctrl-ic.yaml
+> @@ -0,0 +1,161 @@
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/interrupt-controller/brcm,bcm2835-ar=
+mctrl-ic.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: BCM2835 ARMCTRL Interrupt Controller
+> +
+> +maintainers:
+> +  - Florian Fainelli <florian.fainelli@broadcom.com>
+I would suggest to add
+
+- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+> +
+> +description: >
+> +  The BCM2835 contains a custom top-level interrupt controller, which s=
+upports
+> +  72 interrupt sources using a 2-level register scheme. The interrupt
+> +  controller, or the HW block containing it, is referred to occasionall=
+y as
+> +  "armctrl" in the SoC documentation, hence naming of this binding.
+> +
+> +  The BCM2836 contains the same interrupt controller with the same inte=
+rrupts,
+> +  but the per-CPU interrupt controller is the root, and an interrupt th=
+ere
+> +  indicates that the ARMCTRL has an interrupt to handle.
+> +
+> +  The interrupt sources are as follows:
+> +
+> +  Bank 0:
+> +    0: ARM_TIMER
+> +    1: ARM_MAILBOX
+> +    2: ARM_DOORBELL_0
+> +    3: ARM_DOORBELL_1
+> +    4: VPU0_HALTED
+> +    5: VPU1_HALTED
+> +    6: ILLEGAL_TYPE0
+> +    7: ILLEGAL_TYPE1
+> +
+> +  Bank 1:
+> +    0: TIMER0
+> +    1: TIMER1
+> +    2: TIMER2
+> +    3: TIMER3
+> +    4: CODEC0
+> +    5: CODEC1
+> +    6: CODEC2
+> +    7: VC_JPEG
+> +    8: ISP
+> +    9: VC_USB
+> +    10: VC_3D
+> +    11: TRANSPOSER
+> +    12: MULTICORESYNC0
+> +    13: MULTICORESYNC1
+> +    14: MULTICORESYNC2
+> +    15: MULTICORESYNC3
+> +    16: DMA0
+> +    17: DMA1
+> +    18: VC_DMA2
+> +    19: VC_DMA3
+> +    20: DMA4
+> +    21: DMA5
+> +    22: DMA6
+> +    23: DMA7
+> +    24: DMA8
+> +    25: DMA9
+> +    26: DMA10
+> +    27: DMA11-14 - shared interrupt for DMA 11 to 14
+> +    28: DMAALL - triggers on all dma interrupts (including channel 15)
+> +    29: AUX
+> +    30: ARM
+> +    31: VPUDMA
+> +
+> +  Bank 2:
+> +    0: HOSTPORT
+> +    1: VIDEOSCALER
+> +    2: CCP2TX
+> +    3: SDC
+> +    4: DSI0
+> +    5: AVE
+> +    6: CAM0
+> +    7: CAM1
+> +    8: HDMI0
+> +    9: HDMI1
+> +    10: PIXELVALVE1
+> +    11: I2CSPISLV
+> +    12: DSI1
+> +    13: PWA0
+> +    14: PWA1
+> +    15: CPR
+> +    16: SMI
+> +    17: GPIO0
+> +    18: GPIO1
+> +    19: GPIO2
+> +    20: GPIO3
+> +    21: VC_I2C
+> +    22: VC_SPI
+> +    23: VC_I2SPCM
+> +    24: VC_SDIO
+> +    25: VC_UART
+> +    26: SLIMBUS
+> +    27: VEC
+> +    28: CPG
+> +    29: RNG
+> +    30: VC_ARASANSDIO
+> +    31: AVSPMON
+> +
+Don't we need something like
+
+allOf:
+ =C2=A0 - $ref: /schemas/interrupt-controller.yaml#
+
+?
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - brcm,bcm2835-armctrl-ic
+> +      - brcm,bcm2836-armctrl-ic
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupt-controller: true
+> +
+> +  '#interrupt-cells':
+> +    const: 2
+> +    description: >
+> +      The 1st cell is the interrupt bank; 0 for interrupts in the "IRQ =
+basic
+> +      pending" register, or 1/2 respectively for interrupts in the "IRQ=
+ pending
+> +      1/2" register.
+> +
+> +      The 2nd cell contains the interrupt number within the bank. Valid=
+ values
+> +      are 0..7 for bank 0, and 0..31 for bank 1.
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupt-controller
+> +  - '#interrupt-cells'
+> +
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: brcm,bcm2836-armctrl-ic
+> +    then:
+> +      required:
+> +        - interrupts
+> +    else:
+> +      properties:
+> +        interrupts: false
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    interrupt-controller@7e00b200 {
+> +        compatible =3D "brcm,bcm2835-armctrl-ic";
+> +        reg =3D <0x7e00b200 0x200>;
+> +        interrupt-controller;
+> +        #interrupt-cells =3D <2>;
+> +    };
+> +  - |
+> +    interrupt-controller@7e00b200 {
+> +        compatible =3D "brcm,bcm2836-armctrl-ic";
+> +        reg =3D <0x7e00b200 0x200>;
+> +        interrupt-controller;
+> +        #interrupt-cells =3D <2>;
+> +        interrupts =3D <8>;
+> +    };
+
 
