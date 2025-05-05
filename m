@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5B90C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 17:41:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53688C3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 17:43:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JTB3v+x8w/FUL8jly8m0hmcJty/2pFiwNyr1NhvSBfc=; b=fUIgF9jrAMxePDufSs1bxtdd2T
-	xA4wMbVeMNzb5wiZ3h1FScDOG5CfPQ16L5Mhh86u+2EzKLbG7Aqz508K22h6nA6N7zFIHL8Uc2+QS
-	3TJPhKhnKvs5yozRhEkLvX8Hu7WnMZrW/mw6NVPwE+v0SMxdsw1VL7zMOi4r8yCWIc2k0N5SVNcRw
-	qkDRgmzGlKN5EkU+oG22on+LHOK+gBQMpPRTxq2BRIGtKYaIj6hjaqp4qI0CmJRW1cIv3eHxw5EP6
-	00YXitEsQ0YeDO1shUYT4sSLrjvMO/nD0OVpwT0EO0IV9B9Fv8F9n6aa1cRu+rY5LuVFhQQsbr4jH
-	q7ZmYYBQ==;
+	bh=UXMkSRINNwBaxu50t98o2g6F0hiutN+78b6vZXXpk4k=; b=geS11zUuJe/RoyXEqZCtoh3KUv
+	nAZ6xiPflM5vZMKVI3w71JYFDFi1P6Fv4JHVUuOg65vhaZRTr2RRDejP8tof9ky7TG0p35s25puqC
+	4SZyiQGiSdCQDz4ddjPY7E8ER7jEXAU35U5VvsBMYXPFYt+zot9gFYrNVbKSwyZlvVVXfj1yDH7bd
+	w598J4YMykcjHuZ6aT9Rs+WmKhs2me7OR4EfbIDynLDCm0KYIla+RX1pcmbLPh+dSigG6y5RJTsfT
+	tp2OcZZjwm16rcECa6+MGhJXiccU7a6zp75zluId01irwFRBYh1wdDbUQ5ci9eKKoXoeEWN9vh8Gr
+	fWj2r32w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBzow-00000008C4I-3bvZ;
-	Mon, 05 May 2025 17:41:38 +0000
+	id 1uBzqu-00000008CTa-2cTn;
+	Mon, 05 May 2025 17:43:40 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBzb5-000000088vo-25Jj;
-	Mon, 05 May 2025 17:27:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1746466026; cv=none; 
+	id 1uBzbA-000000088xG-2qSO;
+	Mon, 05 May 2025 17:27:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1746466030; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=Ol31He9KAL0nNR6mrsX3AZ2MxA+Wl9fmVjaFdtr2X6b3p9kZUUcUnli2/A3VKUwvOGnjajwEloSZlxLpNSbYrmC9QTczIDf/CG+MnFvle1K7VU/iRvTjwNtCqoDA+aUvSGCRceC14q6ralKJPTLFJTFFjK0MqtX/SKIwA9zjNAI=
+	b=WvaUuOHozLTxBreRVoRUZHIAEzPFGeRQMg4uBRsLda4UXmjGVA5cd0lSmJZVK1mmoHrEgX5EVsPj7yUqQ2VI+yFQJ1tlKUNSPbfuxsRYNx5hAN8LdngVVVcI2RbqUR5Avbw2x1279vvM49DbDT2Bx27InOsLU40h+muwSJDFVqQ=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1746466026; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=JTB3v+x8w/FUL8jly8m0hmcJty/2pFiwNyr1NhvSBfc=; 
-	b=SootE5B4uevjjwWtjMCOr4q0r9dxYEN9jcsG5xg7FmBNfA0T/b08f+gDKR4Zd5dCsLf/mgicaXxHu7oiTGeJo4ae/nYirpALLvNYjiLpFmrRXnsDaSGnz9bTwTrdCwp2BDoM9a/Fmr4ypERR+4oxoKCgD/YhzKJhHUtbp5jKv/8=
+	t=1746466030; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=UXMkSRINNwBaxu50t98o2g6F0hiutN+78b6vZXXpk4k=; 
+	b=i8/fed4EofhbKDyh8FRlPRZPRnvt/opLboTCojBOcJwnxBVvA6tVK2VzfmB34vzFJE+ILd8FSCRqfnGfnjW1jrSwhGEZT5XdMYHu+la1oK8Z8grseOlTVTEB9Y+x+P6k8rIyf7scxe3E/9orTlsgMiD3lhHfQkHpl4BKFaillzY=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1746466026;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1746466030;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=JTB3v+x8w/FUL8jly8m0hmcJty/2pFiwNyr1NhvSBfc=;
-	b=NVgBDJD4k+kVVdTnSKAaohwAkP3qAaSP3SplomwfKDGHL/giP/YqllFtRQlCk+95
-	M1cae3oN7CIMuPqtvKBjBWsl1/99RVIL1yHVaGNWPxRqX4dR9m3bFxeZAc2vmKIpI62
-	/NikEepQk1v2b+rq6pPeGRKWwT2sEtzF4758WSlw=
-Received: by mx.zohomail.com with SMTPS id 1746466025536483.6514707684531;
-	Mon, 5 May 2025 10:27:05 -0700 (PDT)
+	bh=UXMkSRINNwBaxu50t98o2g6F0hiutN+78b6vZXXpk4k=;
+	b=I8LC2PmuD2lmjAGTQ7BwExEaZ4rARrEE+97Y4X5x4ugO4oq9Hok6tyxmSEJWTbJC
+	otXtmma8ij4MUFJLrYWgzLT+5yHmOygsvCBUsBLO43pt7iUADP0hycYAmqDBL16uvam
+	ae9+iAgMsYJp9QGcOv2zU1HIk2FiV8YAhvFzDm/g=
+Received: by mx.zohomail.com with SMTPS id 1746466028949626.5537082120404;
+	Mon, 5 May 2025 10:27:08 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Mon, 05 May 2025 19:26:38 +0200
-Subject: [PATCH v2 3/5] phy: rockchip: usbdp: reset USB3 and reinit on
- orientation switch
+Date: Mon, 05 May 2025 19:26:39 +0200
+Subject: [PATCH v2 4/5] arm64: dts: rockchip: reference u2phy1 as clock on
+ RK3576
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250505-rk3576-sige5-usb-v2-3-d5ba4305f3be@collabora.com>
+Message-Id: <20250505-rk3576-sige5-usb-v2-4-d5ba4305f3be@collabora.com>
 References: <20250505-rk3576-sige5-usb-v2-0-d5ba4305f3be@collabora.com>
 In-Reply-To: <20250505-rk3576-sige5-usb-v2-0-d5ba4305f3be@collabora.com>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -69,8 +69,8 @@ Cc: Sebastian Reichel <sebastian.reichel@collabora.com>,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_102719_601048_9C977176 
-X-CRM114-Status: GOOD (  22.13  )
+X-CRM114-CacheID: sfid-20250505_102724_789238_59F78E50 
+X-CRM114-Status: GOOD (  13.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,156 +85,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Until now, super speed on Type-C only worked in one orientation. This is
-because on an orientation switch, the UDPHY was never reinitialised.
+The rockchip,dwc3 binding states that the utmi clock may be referenced
+by the controller. Until now, the u2phy1's clock output had no
+references to it in the SoC device tree. It's not known if this caused
+any real-world issues, but it may have allowed the USB controller to
+potentially do operations that depend on the utmi clock while it is not
+enabled, leading to hard-to-reproduce race conditions during bootup.
 
-Heiko presented a patch to do this[1], but there were concerns over the
-correctness of it[2]. Experimentally using Heiko's patch on RK3576 did
-make me run into issues, though they seemed to be related to the
-orientation switch actually happening while a clock driving a GRF
-register was disabled.
+Reference the u2phy1 output clock in its corresponding USB controller as
+an utmi clock. This effectively increases the enable count of the
+usb480m_phy1 clock in Linux on my system from a deviceless 1 to a 2 with
+the USB controller as a named user.
 
-The key issue is that the hardware wants the USB 3 controller to be held
-in reset while the PHY is being reconfigured, otherwise we may run into
-hard-to-catch race conditions.
-
-Either way, this patch implements the required ordering in a somewhat
-unpleasant way: we get the USB 3 controller from the DT, and use runtime
-power management to forcibly suspend it while the UDPHY is being
-reconfigured, and then forcibly resume it later. As an added pain in the
-rear, the suspend/resume of the USB 3 controller also tries fiddling
-with the USB 3 PHY part of the UDPHY, which means we introduce an atomic
-flag to skip suspending/resuming the UDPHY if we're resetting the USB 3
-controller. We may just need to skip trying to acquire the mutex again,
-but both ways work for me in practice.
-
-This solution may in fact be complete rubbish, but it works to get USB 3
-Super Speed working in both cable orientations on my board.
-
-Link: https://lore.kernel.org/all/20250226103810.3746018-3-heiko@sntech.de/ [1]
-Link: https://lore.kernel.org/linux-rockchip/h57ok2hw6os7bcafqkrqknfvm7hnu25m2oe54qmrsuzdwqlos3@m4och2fcdm7s/ [2]
+Fixes: 23ec57a32da4 ("arm64: dts: rockchip: add usb related nodes for rk3576")
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/phy/rockchip/phy-rockchip-usbdp.c | 54 +++++++++++++++++++++++++++++++
- 1 file changed, 54 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index fff54900feea601c8fe6bf4c7123dfebc5661a15..5cd6bbc367f69bca15c2a94a07e72f850b381ae3 100644
---- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
-+++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-@@ -200,6 +200,10 @@ struct rk_udphy {
- 	/* PHY devices */
- 	struct phy *phy_dp;
- 	struct phy *phy_u3;
-+
-+	/* USB 3 controller device */
-+	struct device *ctrl_u3;
-+	atomic_t ctrl_resetting;
- };
- 
- static const struct rk_udphy_dp_tx_drv_ctrl rk3588_dp_tx_drv_ctrl_rbr_hbr[4][4] = {
-@@ -1255,6 +1259,9 @@ static int rk_udphy_usb3_phy_init(struct phy *phy)
- 	struct rk_udphy *udphy = phy_get_drvdata(phy);
- 	int ret = 0;
- 
-+	if (atomic_read(&udphy->ctrl_resetting))
-+		return 0;
-+
- 	mutex_lock(&udphy->mutex);
- 	/* DP only or high-speed, disable U3 port */
- 	if (!(udphy->mode & UDPHY_MODE_USB) || udphy->hs) {
-@@ -1273,6 +1280,9 @@ static int rk_udphy_usb3_phy_exit(struct phy *phy)
- {
- 	struct rk_udphy *udphy = phy_get_drvdata(phy);
- 
-+	if (atomic_read(&udphy->ctrl_resetting))
-+		return 0;
-+
- 	mutex_lock(&udphy->mutex);
- 	/* DP only or high-speed */
- 	if (!(udphy->mode & UDPHY_MODE_USB) || udphy->hs)
-@@ -1401,10 +1411,31 @@ static struct phy *rk_udphy_phy_xlate(struct device *dev, const struct of_phandl
- 	return ERR_PTR(-EINVAL);
- }
- 
-+static struct device_node *rk_udphy_to_controller(struct rk_udphy *udphy)
-+{
-+	struct device_node *np;
-+
-+	for_each_node_with_property(np, "phys") {
-+		struct of_phandle_iterator it;
-+		int ret;
-+
-+		of_for_each_phandle(&it, ret, np, "phys", NULL, 0) {
-+			if (it.node != udphy->dev->of_node)
-+				continue;
-+
-+			of_node_put(it.node);
-+			return np;
-+		}
-+	}
-+
-+	return NULL;
-+}
-+
- static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,
- 				 enum typec_orientation orien)
- {
- 	struct rk_udphy *udphy = typec_switch_get_drvdata(sw);
-+	int ret;
- 
- 	mutex_lock(&udphy->mutex);
- 
-@@ -1420,6 +1451,18 @@ static int rk_udphy_orien_sw_set(struct typec_switch_dev *sw,
- 	rk_udphy_set_typec_default_mapping(udphy);
- 	rk_udphy_usb_bvalid_enable(udphy, true);
- 
-+	if (udphy->status != UDPHY_MODE_NONE && udphy->ctrl_u3) {
-+		atomic_set(&udphy->ctrl_resetting, 1);
-+		pm_runtime_force_suspend(udphy->ctrl_u3);
-+
-+		ret = rk_udphy_setup(udphy);
-+		if (!ret)
-+			clk_bulk_disable_unprepare(udphy->num_clks, udphy->clks);
-+
-+		pm_runtime_force_resume(udphy->ctrl_u3);
-+		atomic_set(&udphy->ctrl_resetting, 0);
-+	}
-+
- unlock_ret:
- 	mutex_unlock(&udphy->mutex);
- 	return 0;
-@@ -1430,12 +1473,22 @@ static void rk_udphy_orien_switch_unregister(void *data)
- 	struct rk_udphy *udphy = data;
- 
- 	typec_switch_unregister(udphy->sw);
-+	put_device(udphy->ctrl_u3);
- }
- 
- static int rk_udphy_setup_orien_switch(struct rk_udphy *udphy)
- {
-+	struct device_node *ctrl = rk_udphy_to_controller(udphy);
- 	struct typec_switch_desc sw_desc = { };
- 
-+	if (ctrl) {
-+		udphy->ctrl_u3 = bus_find_device_by_of_node(udphy->dev->bus, ctrl);
-+		of_node_put(ctrl);
-+	}
-+
-+	if (!udphy->ctrl_u3)
-+		dev_info(udphy->dev, "couldn't find this PHY's USB3 controller\n");
-+
- 	sw_desc.drvdata = udphy;
- 	sw_desc.fwnode = dev_fwnode(udphy->dev);
- 	sw_desc.set = rk_udphy_orien_sw_set;
-@@ -1499,6 +1552,7 @@ static int rk_udphy_probe(struct platform_device *pdev)
- 		return ret;
- 
- 	mutex_init(&udphy->mutex);
-+	atomic_set(&udphy->ctrl_resetting, 0);
- 	platform_set_drvdata(pdev, udphy);
- 
- 	if (device_property_present(dev, "orientation-switch")) {
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+index ddc92ccc530d6757660971f0a609b5127784bb04..fa4ff44ec48b4b8759b7d4d1c752afd3333fd43d 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+@@ -480,8 +480,9 @@ usb_drd1_dwc3: usb@23400000 {
+ 			reg = <0x0 0x23400000 0x0 0x400000>;
+ 			clocks = <&cru CLK_REF_USB3OTG1>,
+ 				 <&cru CLK_SUSPEND_USB3OTG1>,
+-				 <&cru ACLK_USB3OTG1>;
+-			clock-names = "ref_clk", "suspend_clk", "bus_clk";
++				 <&cru ACLK_USB3OTG1>,
++				 <&u2phy1>;
++			clock-names = "ref_clk", "suspend_clk", "bus_clk", "utmi";
+ 			interrupts = <GIC_SPI 260 IRQ_TYPE_LEVEL_HIGH>;
+ 			power-domains = <&power RK3576_PD_PHP>;
+ 			resets = <&cru SRST_A_USB3OTG1>;
 
 -- 
 2.49.0
