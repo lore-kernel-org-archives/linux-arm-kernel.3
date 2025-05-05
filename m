@@ -4,66 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0C51C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 17:23:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A4E9C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 17:25:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bwKVGluI6Z1XTNMcl7UtpPbNlQRuCgs7pkbLH/tjS8k=; b=iPCaTKNXwuylN/9Qp04p/ElPSd
-	8efoQNpK9fpDeps5tD/YyGWlIgMOt5Xo71f2JOuxIs16hFJHC1TKgcVRo7DCKOvtMQGnQBsTEglA4
-	rcwNoLnqio0gYEGz2msULISrTCxW2v1ATjePXltiiCY1vO0/MVkEEDg25cL9STf5P5JSEyVOywU6Y
-	UF38+PSETaSBZku7twA1ezHDDO0fgwSpyeIlitgq8NATaMexwUXy7NxLFjk4qlWT8pgWRm2R9M72/
-	odmjHZj0E8OJuz2mBjP7ylfG6tPNWkcTjcgXY5uhT4NqTN9t8YSZF1AYopXF+SibWG8ShHUtm0aqa
-	MQS9v0YQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=h84VH0lnrjAiEXqcjuAM3UIyMpIBbTLvejxTYcMFbYo=; b=cSy2OalRLQ14Sx4W6tMccE7arP
+	+ZurXpxb2mADEDZUBlPm/4yOlRPhNd0x+FqjCp6UpHD65oIFambn8SNIVJvqsRZDWftwGLeTevHQa
+	iaNjaSTnqshHbPauEfYY/vUHMhl2+PyGvz/SiTj7SwOvcIv4jgC6GEfFz6qi9fxuYqaNIPrJysaJq
+	XNhzLQLZjBgT1MXiL4aZ5qKWHArbIUA7xeOIM/Menl8BrSqFx39F8Ce4UPGi/MW9O7xxBOopBGlTv
+	5rgnyQU39mdZeGaGOM1jMr1dH/reQYmnpooK+AKiaZAHt0uHtpn6P0aeVO6GnEPt+bG825e8Tk0aS
+	3A9RyOKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBzXF-000000088Lx-2DVL;
-	Mon, 05 May 2025 17:23:21 +0000
+	id 1uBzZD-000000088Xi-158e;
+	Mon, 05 May 2025 17:25:23 +0000
 Received: from relay.smtp-ext.broadcom.com ([192.19.144.207])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBz8x-000000084fP-0C4r
+	id 1uBz9O-000000084jb-3sTq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 16:58:16 +0000
+	Mon, 05 May 2025 16:58:44 +0000
 Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 71380C0005DD;
-	Mon,  5 May 2025 09:58:12 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 71380C0005DD
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 38806C0005C3;
+	Mon,  5 May 2025 09:58:42 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 38806C0005C3
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1746464292;
-	bh=sTUeceWJnk252WaHsNSVB6NIhfPcsKmY74JxFMSgfD4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dnwi+q7pSrmquR+KOvetVtMzYCrQaZ+bO3Ux37FyOtQGLE7wXtJvSE2kIefAfSFMM
-	 1kfVBkNMMgQvZztKHUv5cPccoKL1kbqGYWk0do1On4DEWF9ugexgvtT4p05NLQrJqI
-	 mD0RIDfponG+qu1oF2IVwvYwzLz6pDxhdzCLcZuM=
+	s=dkimrelay; t=1746464322;
+	bh=VR/e5N/N0mAjQT36mtOi1fbFG72D0Pi7WWTtR1xdj24=;
+	h=From:To:Cc:Subject:Date:From;
+	b=IfVFu6PTJyocwWziFhE34742gK6Gil++QXKFqrSHNAVfnwTRkjegs30MwLXuaTQkB
+	 EN12U6MsPksytF2mp6Ziyp6roOAvMaBlhKFBzlFq2q5U5jQ49bibZERSkKmC5YbZFg
+	 O5KjRpEoqPyZnEMVt3wSYwFf4U5Pr3LjKAtkBZ5A=
 Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 257D318000A4A;
-	Mon,  5 May 2025 09:58:12 -0700 (PDT)
+	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id D521B18000847;
+	Mon,  5 May 2025 09:58:11 -0700 (PDT)
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 To: soc@kernel.org
-Cc: Ovidiu Panait <ovidiu.panait.oss@gmail.com>,
+Cc: Stefan Wahren <wahrenst@gmx.net>,
 	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Rob Herring <robh@kernel.org>,
+	Artur Weber <aweber.kernel@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	arnd@arndb.de,
 	khilman@kernel.org,
 	bcm-kernel-feedback-list@broadcom.com
-Subject: [GIT PULL 3/3] Broadcom drivers changes for 6.16
-Date: Mon,  5 May 2025 09:58:10 -0700
-Message-ID: <20250505165810.1948927-3-florian.fainelli@broadcom.com>
+Subject: [GIT PULL 1/3] Broadcom devicetree changes for 6.16
+Date: Mon,  5 May 2025 09:58:08 -0700
+Message-ID: <20250505165810.1948927-1-florian.fainelli@broadcom.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250505165810.1948927-1-florian.fainelli@broadcom.com>
-References: <20250505165810.1948927-1-florian.fainelli@broadcom.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_095815_174706_D29C6EA1 
-X-CRM114-Status: UNSURE (   9.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250505_095843_027856_B8C21926 
+X-CRM114-Status: GOOD (  12.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,23 +83,45 @@ The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
 
 are available in the Git repository at:
 
-  https://github.com/Broadcom/stblinux.git tags/arm-soc/for-6.16/drivers
+  https://github.com/Broadcom/stblinux.git tags/arm-soc/for-6.16/devicetree
 
-for you to fetch changes up to 29f526ed681551e20928169ecfde5a576e20b900:
+for you to fetch changes up to 959886105a40a3ba94fa396aca83e1083a2056ab:
 
-  bus: brcmstb_gisb: use dev_groups to register attribute groups (2025-04-07 10:35:43 -0700)
-
-----------------------------------------------------------------
-This pull request contains Broadcom SoC driver updates for 6.16, please
-pull the following:
-
-- Ovidiu updates the brcmstb_gisb driver to use the dev_groups instead
-  of manually adding those
+  arm64: dts: bcm: Add reference to RPi 2 (2nd rev) (2025-05-05 09:45:07 -0700)
 
 ----------------------------------------------------------------
-Ovidiu Panait (1):
-      bus: brcmstb_gisb: use dev_groups to register attribute groups
+This pull request contains Broadcom ARM-based SoC Device Tree changes
+for 6.16, please pull the following:
 
- drivers/bus/brcmstb_gisb.c | 10 ++--------
- 1 file changed, 2 insertions(+), 8 deletions(-)
+- Arthur adds a pinctrl node for BCM21664 and updates BCM23550 to use
+  it, he also drops the DTS file for the BCM59056 PMU chip and leaving
+  that board level DTS files
+
+- Stefan documents and adds support for the Raspberry Pi 2 2nd revision.
+
+----------------------------------------------------------------
+Artur Weber (3):
+      ARM: dts: bcm2166x-common: Add pinctrl node
+      ARM: dts: bcm2166x: Add bcm2166x-pinctrl DTSI
+      ARM: dts: Drop DTS for BCM59056 PMU
+
+Stefan Wahren (3):
+      dt-bindings: arm: bcm2835: Add Raspberry Pi 2 (2nd rev)
+      ARM: dts: bcm: Add support for Raspberry Pi 2 (2nd rev)
+      arm64: dts: bcm: Add reference to RPi 2 (2nd rev)
+
+ .../devicetree/bindings/arm/bcm/bcm2835.yaml       |   1 +
+ arch/arm/boot/dts/broadcom/Makefile                |   2 +
+ arch/arm/boot/dts/broadcom/bcm2166x-common.dtsi    |   7 +
+ arch/arm/boot/dts/broadcom/bcm2166x-pinctrl.dtsi   | 297 +++++++++++++++++++++
+ arch/arm/boot/dts/broadcom/bcm28155-ap.dts         |  68 +++--
+ arch/arm/boot/dts/broadcom/bcm2837-rpi-2-b.dts     | 130 +++++++++
+ arch/arm/boot/dts/broadcom/bcm59056.dtsi           |  91 -------
+ arch/arm64/boot/dts/broadcom/Makefile              |   1 +
+ arch/arm64/boot/dts/broadcom/bcm2837-rpi-2-b.dts   |   2 +
+ 9 files changed, 472 insertions(+), 127 deletions(-)
+ create mode 100644 arch/arm/boot/dts/broadcom/bcm2166x-pinctrl.dtsi
+ create mode 100644 arch/arm/boot/dts/broadcom/bcm2837-rpi-2-b.dts
+ delete mode 100644 arch/arm/boot/dts/broadcom/bcm59056.dtsi
+ create mode 100644 arch/arm64/boot/dts/broadcom/bcm2837-rpi-2-b.dts
 
