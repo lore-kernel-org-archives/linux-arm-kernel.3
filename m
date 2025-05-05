@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B7A5C3ABB8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 14:50:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D95CC3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 14:52:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LUlYEpCmHnw7/C90N4bgYwaq3+9eXUqFNW19LfTzOhU=; b=UIwuyqpmChuFq4XMCU4iiORoaV
-	atWmnu2+/0+Mi5sQBQydqYvMgY36div/tz+VvNy2SvAgE1mQhiF4pNpAV7dEKQhADSqR4O2XzyhQO
-	sff3fXFJsRw/NDr5Xdl8ePSuMdUSzffo5Z78a+a04CBXYQODpTw51FTUieLbOXuyPiQu3b/3X+mYR
-	GrMAQiR4hGl5MKzuMGcbWHbE6D9ryurXWouJkxL3mJJLMbgJP90gp/y/Uh2FjvzSttvAOFo43mxky
-	jGXXRKOmIiMqrxqDXsjfETobVAVfEmgTPt1bG0NqEF2rx1L/TQavZ0lPgRs4eE68MyrmK8J3EFeOI
-	Ivrk5hhg==;
+	bh=a2SUmOk2wcYG094HhwrGjwm8pDy5WOfF1RZik1Ao6jk=; b=X6n2ichFeSv3258xmGngJp8Mr3
+	j6K3RLRPPPPQzMR+pjB1XWakac/U+unOPiGoQiOmQ2L8jqzooWcSrrVGkPuelUviuJ4pB5Kq3J37p
+	DUH++hdy58jCyyluk7DtISHDUmlHjUa4NvayHWBfpFeyXN9l0FbdC0qSrnN2sD/wqQqcq2T+gJDHo
+	3z3Ae20OpMJ8ayakCwmWtDCalJSfPlXezF8oLB6TllAk2/Cn6WUyIdLuHChmBgDuOzsTv8YChF7KC
+	9VQ6JgIrd8X2Q6xdZINMFw/0nGjKH/hAYtBvdEseZdnMS+ng/gi0BmE4hxIzmYEiifkrD4kdUXXBY
+	Uw0U2YjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBx8z-00000007gn6-2DYT;
-	Mon, 05 May 2025 14:50:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uBxAx-00000007hKT-0TqS;
+	Mon, 05 May 2025 14:52:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBx3B-00000007fOr-1KeM;
-	Mon, 05 May 2025 14:44:10 +0000
+	id 1uBx3D-00000007fPO-1pQn
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 May 2025 14:44:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4F4784A84F;
-	Mon,  5 May 2025 14:44:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EE95C4CEE4;
-	Mon,  5 May 2025 14:44:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 11DDE61165;
+	Mon,  5 May 2025 14:43:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B871C4CEEE;
+	Mon,  5 May 2025 14:44:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746456248;
-	bh=UzAMomFyuhI5xvI4clydLab7kwq4ZLQzU3pP+AbldBQ=;
+	s=k20201202; t=1746456250;
+	bh=MHUgGt1nhsM9ZnWIPLv79iXt4OuzDKXXjKrP4H9Te88=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=cSu8Mt8por9ww8yacAcqvoxu8hG0uHsJGl//PCcFDGVwml06a5bylHtsq5TgsLu1j
-	 7rEPWAoSPRrht30xbBwv5+l2tQT/C8cT5rHfdY9lAl+7sdVmmz/9agz/eIq3JpPZKa
-	 H6FWHzmLpm8+OgL8JnRVmKbuIbzsmWMQp1YaFO5k/YwY0cpkVDcEKvYFBIY4di53NY
-	 eb/28aR4TYZNww+iDHcMdn12KdLpI0tL2P2mdvmyH0QvjoHdvcuaGAdB53kUXw/WHH
-	 zUyqAybpkSUNklLbNfbFT4BFbf3eQ0Y5/mcZAQpd4Mt8DICY37OL64C0+cUCoV37Jo
-	 +ggtVD89jEgew==
-Date: Mon, 05 May 2025 09:44:07 -0500
+	b=NsdTpeWjRmMQtp6tHqzYk+nT6BZS2qpPKZfhXnkTK5pX/64nAoXk1wCTO5HKltF6B
+	 wqjvQaWizl7Q/q39dmZHo7j2jPYCq5U/n48PQ5TgdicXhRUYvT9dJjJACDRm0obadp
+	 r09HrfuwbvNeJiXkW2dxgTbGwAZljUIBAcWxldJk+WlZiFl/hAui9M9+Dsd328RSEB
+	 AXmjfw76T38THEsx93IGTr0FNNHWR8wvkrXWcLPoaCK4BibMKd2o0omUINW83nJn82
+	 E7kVq8quo28Gokl6h/4ZkFg/YTiyhJVqoJWImPlSBRiI0Utn+/hAig+Gi4Gqd4yNHJ
+	 Bg3k2WLQVQWPQ==
+Date: Mon, 05 May 2025 09:44:09 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: krzk+dt@kernel.org, devicetree@vger.kernel.org, conor+dt@kernel.org, 
- detlev.casanova@collabora.com, nicolas.frattaroli@collabora.com, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- heiko@sntech.de, linux-kernel@vger.kernel.org
-To: John Clark <inindev@gmail.com>
-In-Reply-To: <20250504102447.153551-1-inindev@gmail.com>
-References: <20250502205533.51744-1-inindev@gmail.com>
- <20250504102447.153551-1-inindev@gmail.com>
-Message-Id: <174645594199.1246544.16804266826655176867.robh@kernel.org>
-Subject: Re: [PATCH v2 0/3] Add Luckfox Omni3576 Carrier Board support for
- RK3576
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_074409_397576_FFD5327B 
-X-CRM114-Status: GOOD (  21.70  )
+Cc: Vinod Koul <vkoul@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+In-Reply-To: <20250504145907.1728721-1-ivo.ivanov.ivanov1@gmail.com>
+References: <20250504145907.1728721-1-ivo.ivanov.ivanov1@gmail.com>
+Message-Id: <174645594263.1246703.7109407640870369437.robh@kernel.org>
+Subject: Re: [PATCH v4 0/4] arm64: dts: exynos: add initial support for
+ Samsung Galaxy S22+
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,55 +72,77 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sun, 04 May 2025 06:24:44 -0400, John Clark wrote:
-> This series adds device tree support for the Luckfox Omni3576 Carrier Board
-> with Core3576 Module, based on the Rockchip RK3576 SoC, enabling essential
-> functionality for booting Linux and basic connectivity. v1 was posted at:
-> https://lore.kernel.org/linux-rockchip/20250502205533.51744-1-inindev@gmail.com
+On Sun, 04 May 2025 17:59:03 +0300, Ivaylo Ivanov wrote:
+> Hey folks,
 > 
-> Tested features (on Linux 6.15-rc4):
->  - UART: Serial console operational
->  - SD card: Mounts and reads/writes successfully
->  - PCIe: NVMe SSD detected, mounted, and fully functional
->  - Ethernet 0: Functional with RGMII PHY
->  - USB 2.0: Host ports
->  - RTC: Timekeeping and wake-up tested
->  - LED: Heartbeat trigger works
->  - eMMC: Enabled, not populated on tested board
+> This patchset adds device tree files for Exynos 2200 and Samsung
+> Galaxy S22+.
 > 
-> The series includes the following patches:
->  1. dt-bindings: vendor-prefixes: Add Luckfox vendor prefix
->  2. dt-bindings: arm: rockchip: Add luckfox,omni3576 binding
->  3. arm64: dts: rockchip: Add Luckfox Omni3576 Board support
+> [1] is a dependancy on the aforementioned series for the usb phy drivers
+> and bindings.
 > 
-> The new DTS is covered by the existing ROCKCHIP ARCHITECTURE entry in MAINTAINERS.
+> Exynos 2200 SoC is an ARMv8 mobile SoC found in the Samsung Galaxy S22
+> (r0s), S22+ (g0s), S22 Ultra (b0s) Add minimal support for that SoC,
+> including psci, pmu, chipid, architecture timer and mct, pinctrl,
+> clocks and usb.
 > 
-> I am aware of ongoing RK3576 upstreaming efforts (e.g., by Collabora) and
-> welcome feedback or collaboration to align with mainline driver development.
+> The devices using this SoC suffer from an issue caused by the stock
+> Samsung bootloader, as it doesn't configure CNTFRQ_EL0. Hence it's
+> needed to hardcode the adequate frequency in the timer node,
+> otherwise the kernel panics.
+> 
+> Another issue is that cpu2 and cpu3 fail to come up consistently, which
+> leads to a hang later in the boot process. As A510 cores are clustered
+> by two, it makes sense for both of these cpus to fail if there is a
+> power issue. Disable them until the problem is figured out.
+> 
+> Samsung Galaxy S22+ (SM-S906B), codenamed g0s, is a mobile phone from
+> 2022. It features 8GB RAM, 128/256GB UFS 3.1, Exynos 2200 SoC and a
+> 1080x2340 Dynamic AMOLED display.
+> 
+> Further platform support will be added over time.
+> 
+> Best regards,
+> Ivaylo
+> 
+> Changes in v4:
+> - account for compatible changes in usb phy patches
+> - use status fail instead of deleting cpu nodes
+> - add a-b tag in the 1/4 patch
+> 
+> Changes in v3:
+> - account for the usbdrd changes in the exynos2200 soc dtsi
+> - drop usbcon driver from the MAINTAINERS patch
 > 
 > Changes in v2:
->  - Enabled HDMI node per feedback from Heiko and Nicolas; untested due to
->    upstream driver issues
->  - Enabled Ethernet 1 node per Heiko's DT philosophy; untested due to
->    suspected PHY driver or configuration issues
->  - Clarified eMMC remains enabled but unpopulated on tested board, per Heiko
+> - mention the board codename in the first patch's commit message
+> - make all reg values hex in device trees
+> - reorder usb_con above usb_dwc3
+> - drop regulators for usb_con
+> - remodel usb_con_phy to take usb_hsphy phandle
+> - include MAINTAINERS patch in this patchset
 > 
-> Signed-off-by: John Clark <inindev@gmail.com>
-> ---
-> John Clark (3):
->   dt-bindings: vendor-prefixes: Add luckfox prefix
->   dt-bindings: arm: rockchip: Add Luckfox Omni3576 board
->   arm64: dts: rockchip: Add Luckfox Omni3576 Board support
+> [1] https://lore.kernel.org/all/20250504144527.1723980-1-ivo.ivanov.ivanov1@gmail.com/
 > 
->  .../devicetree/bindings/arm/rockchip.yaml     |   5 +
->  .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
->  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
->  .../dts/rockchip/rk3576-luckfox-omni3576.dts  | 779 ++++++++++++++++++
->  4 files changed, 787 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dts
+> Ivaylo Ivanov (4):
+>   dt-bindings: arm: samsung: document g0s board binding
+>   arm64: dts: exynos: add initial support for exynos2200 SoC
+>   arm64: dts: exynos: add initial support for Samsung Galaxy S22+
+>   MAINTAINERS: add entry for Samsung Exynos2200 SoC
+> 
+>  .../bindings/arm/samsung/samsung-boards.yaml  |    6 +
+>  MAINTAINERS                                   |   10 +
+>  arch/arm64/boot/dts/exynos/Makefile           |    1 +
+>  arch/arm64/boot/dts/exynos/exynos2200-g0s.dts |  169 ++
+>  .../boot/dts/exynos/exynos2200-pinctrl.dtsi   | 1765 +++++++++++++++++
+>  arch/arm64/boot/dts/exynos/exynos2200.dtsi    |  561 ++++++
+>  6 files changed, 2512 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/exynos/exynos2200-g0s.dts
+>  create mode 100644 arch/arm64/boot/dts/exynos/exynos2200-pinctrl.dtsi
+>  create mode 100644 arch/arm64/boot/dts/exynos/exynos2200.dtsi
 > 
 > --
-> 2.39.5
+> 2.43.0
 > 
 > 
 > 
@@ -145,40 +164,16 @@ make sure dt-schema is up to date:
 
 This patch series was applied (using b4) to base:
  Base: attempting to guess base-commit...
- Base: tags/v6.15-rc1-32-g2acfe31a8ce5 (exact match)
+ Base: tags/v6.15-rc4-309-g2696c4a950d5 (best guess, 2/3 blobs matched)
 
 If this is not the correct base, please add 'base-commit' tag
 (or use b4 which does this automatically)
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for 20250504102447.153551-1-inindev@gmail.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/exynos/' for 20250504145907.1728721-1-ivo.ivanov.ivanov1@gmail.com:
 
-arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dtb: vop@27d00000 (rockchip,rk3576-vop): 'vop-supply' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/display/rockchip/rockchip-vop2.yaml#
-arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dtb: pcie@2a200000 (rockchip,rk3576-pcie): interrupt-names:5: 'dma0' was expected
-	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
-arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dtb: pcie@2a200000 (rockchip,rk3576-pcie): compatible: 'oneOf' conditional failed, one must be fixed:
-	['rockchip,rk3576-pcie', 'rockchip,rk3568-pcie'] is too long
-	'rockchip,rk3568-pcie' was expected
-	'rockchip,rk3576-pcie' is not one of ['rockchip,rk3588-pcie']
-	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
-arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dtb: pcie@2a200000 (rockchip,rk3576-pcie): 'msi-map' is a required property
-	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
-arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dtb: pcie@2a200000 (rockchip,rk3576-pcie): Unevaluated properties are not allowed ('compatible', 'power-domains' were unexpected)
-	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
-arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dtb: /soc/pcie@2a200000: failed to match any schema with compatible: ['rockchip,rk3576-pcie', 'rockchip,rk3568-pcie']
-arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dtb: pcie@2a210000 (rockchip,rk3576-pcie): interrupt-names:5: 'dma0' was expected
-	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
-arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dtb: pcie@2a210000 (rockchip,rk3576-pcie): compatible: 'oneOf' conditional failed, one must be fixed:
-	['rockchip,rk3576-pcie', 'rockchip,rk3568-pcie'] is too long
-	'rockchip,rk3568-pcie' was expected
-	'rockchip,rk3576-pcie' is not one of ['rockchip,rk3588-pcie']
-	from schema $id: http://devicetree.org/schemas/pci/rockchip-dw-pcie.yaml#
-arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dtb: /soc/pcie@2a210000: failed to match any schema with compatible: ['rockchip,rk3576-pcie', 'rockchip,rk3568-pcie']
-arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dtb: /soc/otp@2a580000: failed to match any schema with compatible: ['rockchip,rk3576-otp']
-arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dtb: pmic@23 (rockchip,rk806): Unevaluated properties are not allowed ('pwrkey' was unexpected)
-	from schema $id: http://devicetree.org/schemas/mfd/rockchip,rk806.yaml#
-arch/arm64/boot/dts/rockchip/rk3576-luckfox-omni3576.dtb: hdmiphy@2b000000 (rockchip,rk3576-hdptx-phy): 'phy-supply' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/phy/rockchip,rk3588-hdptx-phy.yaml#
+arch/arm64/boot/dts/exynos/exynos2200-g0s.dtb: /soc/phy@10aa0000: failed to match any schema with compatible: ['samsung,exynos2200-usb32drd-phy']
+arch/arm64/boot/dts/exynos/exynos2200-g0s.dtb: /soc/phy@10ab0000: failed to match any schema with compatible: ['samsung,exynos2200-eusb2-phy']
+arch/arm64/boot/dts/exynos/exynos2200-g0s.dtb: /soc/usb@10b00000: failed to match any schema with compatible: ['samsung,exynos2200-dwusb3']
 
 
 
