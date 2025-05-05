@@ -4,99 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1019C3ABB6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 02:00:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40629C3ABB6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 02:01:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mdo9XYHPy1Kk13BDsvCuvUh/RpvaxqRWh8f1ncSWS4s=; b=bJefxp0hcSRrtqrs5exziwF/oh
-	W4bfQhSHraPh9/5F8/gEbi9cbpZbngXhoxr/NqVlfUkHXUjiBGfx2rcfvbRj183/z5dpmMSOWLleg
-	3wwHayMgX5zrkwRSua2g6XM4LSwm5+1y1JeeSxrmX8TXgyZIYqYBfZ1X7W2ZNMUpwAKVw2lsr7Uxx
-	Qk+5eljJzKHyHkDTZpibtp3R8b8FDijAU4/oXIVECD2Q8Dhu3DFdYNMHz7r1ueTwafrW/c1ZmiD2I
-	ztYnlgvsmizu+No7Y/A0+rBYx7jDj/crUiQsVLxskgCCfYYAnPRaSDOIeF9bA21IW6KyIbS+DoN6J
-	x6LzBOAQ==;
+	bh=k4XxRWAN6GK6Fax7SJc+elPB8a5y9AgMJ8ypCAkVheY=; b=kVbsH5CkL0W58kzDwPk92IOjHL
+	dlLY6gIQsufWpqXVW1gxpLAGQ2pfwkWNK2yMrHoI8rmHmKtjc5q05487Wx6WiirRMZlNUPMfQij22
+	ubYeZUpP1TZpcCNh3IGx8d/Wn6CD3SLRJlEglyGOzKRFg1wGNflcOdNgM1w4s4e/2Nj2RfLztAAo5
+	ASRhMv7CC/LSfB9ZKkFCYzvhwdvhwoeES4FrfQ2UwU8ZPuza8/Lt9v0RxuMqvYvDx6xP4/uKfm63B
+	PGsdVFX7pkcvPDcE1k3ls/n+yRbkL60SwR0RUOCk15MJJ7s+Zi72uxLIv9FOXXd9BAYQaROzBbNIb
+	ztRgJG+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC7bH-00000009dpC-2laB;
-	Tue, 06 May 2025 02:00:03 +0000
+	id 1uC7cQ-00000009e89-1MHM;
+	Tue, 06 May 2025 02:01:14 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4dn-00000008sUH-0a5E
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 22:50:28 +0000
+	id 1uC4UH-00000008pS4-2aVz;
+	Mon, 05 May 2025 22:40:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1F13D43FC0;
-	Mon,  5 May 2025 22:50:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0792C4CEE4;
-	Mon,  5 May 2025 22:50:22 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A8CA24A1FD;
+	Mon,  5 May 2025 22:40:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0D41C4CEEF;
+	Mon,  5 May 2025 22:40:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746485426;
-	bh=NpDBFexPX1tuTzC6iZI8/MRik7F8bcHGbQyKLCQ0Zzk=;
+	s=k20201202; t=1746484837;
+	bh=bvXbAwZuQg22ns0JxMDE41OePW9+9SN2J/jJtCw8lVs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IryBRScnpqDktttqKChG+jkMr4MbAqBv31Msaet991/wgJhmS8T0wcWvdVVnxIZh1
-	 WltvSEdvdItfOxMk+kU9EIhq6rQ0XoqpeA09oy2VQjlFIypbq1UsugK8x+EVxXi1aT
-	 eKJq/QjJEjQUtqzyr6PIhPiMQuJlbfH2PlhrlxxWUPGG+zwahdGFIih+Mged+KcEtY
-	 /kdtKHusUQICZC7yjf8tQuKkePN2G/0KRauOqWNfGktmpT+BfO1BvCVhDi7reDruHO
-	 4t2JybCfUMLIo7onUsbyRgI4UvMuqHXobb5zT3rglivP5eWJ/JeDQu8Ikd1kx8XS11
-	 KMtypc4Y21k6g==
+	b=uK91PWci/810fdqb6BtneZ4X9u+2pcfR7RbRkbShgcJgjuKfkgaWwd4zMWbdD+TGL
+	 fy+G6KKfvh5zskXrWs+duS1c+pGSVcGqZKM6cVG59tVBynEHlwQpv5DyXycUdsG065
+	 tJP5UrpCvxBddtuIjyudAvsMwb6OzlKNF1O6r9wvf+UdHyUqbkduLAZHBaJyN6WGN7
+	 pSJCgnAoZSvvOv+BN/PjeCu3P8cYdb6YCsOn2DbCUFruvHIVDg9uUTGrBJ4ZPu1ek3
+	 mzI5MiNqpz/XZ3nLjSsH+HLROM5eq0d1WZzoGcQs8N5/BxBvp3aJk9y51dFPFH0IL3
+	 gnkjuN6QUZHiw==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: =?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	Richard Genoud <richard.genoud@bootlin.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+Cc: Sean Wang <sean.wang@mediatek.com>,
+	Pedro Tsai <pedro.tsai@mediatek.com>,
+	Felix Freimann <felix.freimann@mediatek.com>,
+	Luiz Augusto von Dentz <luiz.von.dentz@intel.com>,
 	Sasha Levin <sashal@kernel.org>,
-	corbet@lwn.net,
-	nicolas.ferre@microchip.com,
-	alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev,
-	shawnguo@kernel.org,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	john.ogness@linutronix.de,
-	pmladek@suse.com,
-	arnd@arndb.de,
-	andriy.shevchenko@linux.intel.com,
-	namcao@linutronix.de,
-	benjamin.larsson@genexis.eu,
-	schnelle@linux.ibm.com,
-	esben@geanix.com,
-	stefan.eichenberger@toradex.com,
-	tglx@linutronix.de,
-	linux@rasmusvillemoes.dk,
-	marex@denx.de,
-	jeff.johnson@oss.qualcomm.com,
-	linux@treblig.org,
-	geert+renesas@glider.be,
-	wsa+renesas@sang-engineering.com,
-	prabhakar.mahadev-lad.rj@bp.renesas.com,
-	cheick.traore@foss.st.com,
-	ben.wolsieffer@hefring.com,
-	u.kleine-koenig@baylibre.com,
-	linux-serial@vger.kernel.org,
-	linux-doc@vger.kernel.org,
+	marcel@holtmann.org,
+	luiz.dentz@gmail.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-bluetooth@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH AUTOSEL 6.12 306/486] serial: mctrl_gpio: split disable_ms into sync and no_sync APIs
-Date: Mon,  5 May 2025 18:36:22 -0400
-Message-Id: <20250505223922.2682012-306-sashal@kernel.org>
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.12 039/486] Bluetooth: btmtksdio: Prevent enabling interrupts after IRQ handler removal
+Date: Mon,  5 May 2025 18:31:55 -0400
+Message-Id: <20250505223922.2682012-39-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505223922.2682012-1-sashal@kernel.org>
 References: <20250505223922.2682012-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.12.26
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_155027_227176_F251C17E 
-X-CRM114-Status: GOOD (  18.00  )
+X-CRM114-CacheID: sfid-20250505_154037_676210_86CF9EAF 
+X-CRM114-Status: UNSURE (   9.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,242 +85,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alexis Lothoré <alexis.lothore@bootlin.com>
+From: Sean Wang <sean.wang@mediatek.com>
 
-[ Upstream commit 1bd2aad57da95f7f2d2bb52f7ad15c0f4993a685 ]
+[ Upstream commit 6ac4233afb9a389a7629b7f812395d1d1eca5a83 ]
 
-The following splat has been observed on a SAMA5D27 platform using
-atmel_serial:
+Ensure interrupts are not re-enabled when the IRQ handler has already been
+removed. This prevents unexpected IRQ handler execution due to stale or
+unhandled interrupts.
 
-BUG: sleeping function called from invalid context at kernel/irq/manage.c:738
-in_atomic(): 1, irqs_disabled(): 128, non_block: 0, pid: 27, name: kworker/u5:0
-preempt_count: 1, expected: 0
-INFO: lockdep is turned off.
-irq event stamp: 0
-hardirqs last  enabled at (0): [<00000000>] 0x0
-hardirqs last disabled at (0): [<c01588f0>] copy_process+0x1c4c/0x7bec
-softirqs last  enabled at (0): [<c0158944>] copy_process+0x1ca0/0x7bec
-softirqs last disabled at (0): [<00000000>] 0x0
-CPU: 0 UID: 0 PID: 27 Comm: kworker/u5:0 Not tainted 6.13.0-rc7+ #74
-Hardware name: Atmel SAMA5
-Workqueue: hci0 hci_power_on [bluetooth]
-Call trace:
-  unwind_backtrace from show_stack+0x18/0x1c
-  show_stack from dump_stack_lvl+0x44/0x70
-  dump_stack_lvl from __might_resched+0x38c/0x598
-  __might_resched from disable_irq+0x1c/0x48
-  disable_irq from mctrl_gpio_disable_ms+0x74/0xc0
-  mctrl_gpio_disable_ms from atmel_disable_ms.part.0+0x80/0x1f4
-  atmel_disable_ms.part.0 from atmel_set_termios+0x764/0x11e8
-  atmel_set_termios from uart_change_line_settings+0x15c/0x994
-  uart_change_line_settings from uart_set_termios+0x2b0/0x668
-  uart_set_termios from tty_set_termios+0x600/0x8ec
-  tty_set_termios from ttyport_set_flow_control+0x188/0x1e0
-  ttyport_set_flow_control from wilc_setup+0xd0/0x524 [hci_wilc]
-  wilc_setup [hci_wilc] from hci_dev_open_sync+0x330/0x203c [bluetooth]
-  hci_dev_open_sync [bluetooth] from hci_dev_do_open+0x40/0xb0 [bluetooth]
-  hci_dev_do_open [bluetooth] from hci_power_on+0x12c/0x664 [bluetooth]
-  hci_power_on [bluetooth] from process_one_work+0x998/0x1a38
-  process_one_work from worker_thread+0x6e0/0xfb4
-  worker_thread from kthread+0x3d4/0x484
-  kthread from ret_from_fork+0x14/0x28
+Modify btmtksdio_txrx_work to check if bdev->func->irq_handler exists
+before calling sdio_writel to enable interrupts.
 
-This warning is emitted when trying to toggle, at the highest level,
-some flow control (with serdev_device_set_flow_control) in a device
-driver. At the lowest level, the atmel_serial driver is using
-serial_mctrl_gpio lib to enable/disable the corresponding IRQs
-accordingly.  The warning emitted by CONFIG_DEBUG_ATOMIC_SLEEP is due to
-disable_irq (called in mctrl_gpio_disable_ms) being possibly called in
-some atomic context (some tty drivers perform modem lines configuration
-in regions protected by port lock).
-
-Split mctrl_gpio_disable_ms into two differents APIs, a non-blocking one
-and a blocking one. Replace mctrl_gpio_disable_ms calls with the
-relevant version depending on whether the call is protected by some port
-lock.
-
-Suggested-by: Jiri Slaby <jirislaby@kernel.org>
-Signed-off-by: Alexis Lothoré <alexis.lothore@bootlin.com>
-Acked-by: Richard Genoud <richard.genoud@bootlin.com>
-Link: https://lore.kernel.org/r/20250217-atomic_sleep_mctrl_serial_gpio-v3-1-59324b313eef@bootlin.com
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Co-developed-by: Pedro Tsai <pedro.tsai@mediatek.com>
+Signed-off-by: Pedro Tsai <pedro.tsai@mediatek.com>
+Co-developed-by: Felix Freimann <felix.freimann@mediatek.com>
+Signed-off-by: Felix Freimann <felix.freimann@mediatek.com>
+Signed-off-by: Sean Wang <sean.wang@mediatek.com>
+Signed-off-by: Luiz Augusto von Dentz <luiz.von.dentz@intel.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- Documentation/driver-api/serial/driver.rst |  2 +-
- drivers/tty/serial/8250/8250_port.c        |  2 +-
- drivers/tty/serial/atmel_serial.c          |  2 +-
- drivers/tty/serial/imx.c                   |  2 +-
- drivers/tty/serial/serial_mctrl_gpio.c     | 34 +++++++++++++++++-----
- drivers/tty/serial/serial_mctrl_gpio.h     | 17 +++++++++--
- drivers/tty/serial/sh-sci.c                |  2 +-
- drivers/tty/serial/stm32-usart.c           |  2 +-
- 8 files changed, 47 insertions(+), 16 deletions(-)
+ drivers/bluetooth/btmtksdio.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/driver-api/serial/driver.rst b/Documentation/driver-api/serial/driver.rst
-index 84b43061c11be..60434f2b02863 100644
---- a/Documentation/driver-api/serial/driver.rst
-+++ b/Documentation/driver-api/serial/driver.rst
-@@ -103,4 +103,4 @@ Some helpers are provided in order to set/get modem control lines via GPIO.
- .. kernel-doc:: drivers/tty/serial/serial_mctrl_gpio.c
-    :identifiers: mctrl_gpio_init mctrl_gpio_free mctrl_gpio_to_gpiod
-            mctrl_gpio_set mctrl_gpio_get mctrl_gpio_enable_ms
--           mctrl_gpio_disable_ms
-+           mctrl_gpio_disable_ms_sync mctrl_gpio_disable_ms_no_sync
-diff --git a/drivers/tty/serial/8250/8250_port.c b/drivers/tty/serial/8250/8250_port.c
-index c1376727642a7..0519679929652 100644
---- a/drivers/tty/serial/8250/8250_port.c
-+++ b/drivers/tty/serial/8250/8250_port.c
-@@ -1657,7 +1657,7 @@ static void serial8250_disable_ms(struct uart_port *port)
- 	if (up->bugs & UART_BUG_NOMSR)
- 		return;
+diff --git a/drivers/bluetooth/btmtksdio.c b/drivers/bluetooth/btmtksdio.c
+index 11d33cd7b08fc..d4ea1ff07b3e7 100644
+--- a/drivers/bluetooth/btmtksdio.c
++++ b/drivers/bluetooth/btmtksdio.c
+@@ -610,7 +610,8 @@ static void btmtksdio_txrx_work(struct work_struct *work)
+ 	} while (int_status || time_is_before_jiffies(txrx_timeout));
  
--	mctrl_gpio_disable_ms(up->gpios);
-+	mctrl_gpio_disable_ms_no_sync(up->gpios);
+ 	/* Enable interrupt */
+-	sdio_writel(bdev->func, C_INT_EN_SET, MTK_REG_CHLPCR, NULL);
++	if (bdev->func->irq_handler)
++		sdio_writel(bdev->func, C_INT_EN_SET, MTK_REG_CHLPCR, NULL);
  
- 	up->ier &= ~UART_IER_MSI;
- 	serial_port_out(port, UART_IER, up->ier);
-diff --git a/drivers/tty/serial/atmel_serial.c b/drivers/tty/serial/atmel_serial.c
-index 09b246c9e389e..8bd39586a49f7 100644
---- a/drivers/tty/serial/atmel_serial.c
-+++ b/drivers/tty/serial/atmel_serial.c
-@@ -700,7 +700,7 @@ static void atmel_disable_ms(struct uart_port *port)
+ 	sdio_release_host(bdev->func);
  
- 	atmel_port->ms_irq_enabled = false;
- 
--	mctrl_gpio_disable_ms(atmel_port->gpios);
-+	mctrl_gpio_disable_ms_no_sync(atmel_port->gpios);
- 
- 	if (!mctrl_gpio_to_gpiod(atmel_port->gpios, UART_GPIO_CTS))
- 		idr |= ATMEL_US_CTSIC;
-diff --git a/drivers/tty/serial/imx.c b/drivers/tty/serial/imx.c
-index 90974d338f3c0..8e3b15534bc72 100644
---- a/drivers/tty/serial/imx.c
-+++ b/drivers/tty/serial/imx.c
-@@ -1596,7 +1596,7 @@ static void imx_uart_shutdown(struct uart_port *port)
- 		imx_uart_dma_exit(sport);
- 	}
- 
--	mctrl_gpio_disable_ms(sport->gpios);
-+	mctrl_gpio_disable_ms_sync(sport->gpios);
- 
- 	uart_port_lock_irqsave(&sport->port, &flags);
- 	ucr2 = imx_uart_readl(sport, UCR2);
-diff --git a/drivers/tty/serial/serial_mctrl_gpio.c b/drivers/tty/serial/serial_mctrl_gpio.c
-index 8855688a5b6c0..ca55bcc0b6111 100644
---- a/drivers/tty/serial/serial_mctrl_gpio.c
-+++ b/drivers/tty/serial/serial_mctrl_gpio.c
-@@ -322,11 +322,7 @@ void mctrl_gpio_enable_ms(struct mctrl_gpios *gpios)
- }
- EXPORT_SYMBOL_GPL(mctrl_gpio_enable_ms);
- 
--/**
-- * mctrl_gpio_disable_ms - disable irqs and handling of changes to the ms lines
-- * @gpios: gpios to disable
-- */
--void mctrl_gpio_disable_ms(struct mctrl_gpios *gpios)
-+static void mctrl_gpio_disable_ms(struct mctrl_gpios *gpios, bool sync)
- {
- 	enum mctrl_gpio_idx i;
- 
-@@ -342,10 +338,34 @@ void mctrl_gpio_disable_ms(struct mctrl_gpios *gpios)
- 		if (!gpios->irq[i])
- 			continue;
- 
--		disable_irq(gpios->irq[i]);
-+		if (sync)
-+			disable_irq(gpios->irq[i]);
-+		else
-+			disable_irq_nosync(gpios->irq[i]);
- 	}
- }
--EXPORT_SYMBOL_GPL(mctrl_gpio_disable_ms);
-+
-+/**
-+ * mctrl_gpio_disable_ms_sync - disable irqs and handling of changes to the ms
-+ * lines, and wait for any pending IRQ to be processed
-+ * @gpios: gpios to disable
-+ */
-+void mctrl_gpio_disable_ms_sync(struct mctrl_gpios *gpios)
-+{
-+	mctrl_gpio_disable_ms(gpios, true);
-+}
-+EXPORT_SYMBOL_GPL(mctrl_gpio_disable_ms_sync);
-+
-+/**
-+ * mctrl_gpio_disable_ms_no_sync - disable irqs and handling of changes to the
-+ * ms lines, and return immediately
-+ * @gpios: gpios to disable
-+ */
-+void mctrl_gpio_disable_ms_no_sync(struct mctrl_gpios *gpios)
-+{
-+	mctrl_gpio_disable_ms(gpios, false);
-+}
-+EXPORT_SYMBOL_GPL(mctrl_gpio_disable_ms_no_sync);
- 
- void mctrl_gpio_enable_irq_wake(struct mctrl_gpios *gpios)
- {
-diff --git a/drivers/tty/serial/serial_mctrl_gpio.h b/drivers/tty/serial/serial_mctrl_gpio.h
-index fc76910fb105a..79e97838ebe56 100644
---- a/drivers/tty/serial/serial_mctrl_gpio.h
-+++ b/drivers/tty/serial/serial_mctrl_gpio.h
-@@ -87,9 +87,16 @@ void mctrl_gpio_free(struct device *dev, struct mctrl_gpios *gpios);
- void mctrl_gpio_enable_ms(struct mctrl_gpios *gpios);
- 
- /*
-- * Disable gpio interrupts to report status line changes.
-+ * Disable gpio interrupts to report status line changes, and block until
-+ * any corresponding IRQ is processed
-  */
--void mctrl_gpio_disable_ms(struct mctrl_gpios *gpios);
-+void mctrl_gpio_disable_ms_sync(struct mctrl_gpios *gpios);
-+
-+/*
-+ * Disable gpio interrupts to report status line changes, and return
-+ * immediately
-+ */
-+void mctrl_gpio_disable_ms_no_sync(struct mctrl_gpios *gpios);
- 
- /*
-  * Enable gpio wakeup interrupts to enable wake up source.
-@@ -148,7 +155,11 @@ static inline void mctrl_gpio_enable_ms(struct mctrl_gpios *gpios)
- {
- }
- 
--static inline void mctrl_gpio_disable_ms(struct mctrl_gpios *gpios)
-+static inline void mctrl_gpio_disable_ms_sync(struct mctrl_gpios *gpios)
-+{
-+}
-+
-+static inline void mctrl_gpio_disable_ms_no_sync(struct mctrl_gpios *gpios)
- {
- }
- 
-diff --git a/drivers/tty/serial/sh-sci.c b/drivers/tty/serial/sh-sci.c
-index f43059e1b5c28..80efe3b0ed0c3 100644
---- a/drivers/tty/serial/sh-sci.c
-+++ b/drivers/tty/serial/sh-sci.c
-@@ -2297,7 +2297,7 @@ static void sci_shutdown(struct uart_port *port)
- 	dev_dbg(port->dev, "%s(%d)\n", __func__, port->line);
- 
- 	s->autorts = false;
--	mctrl_gpio_disable_ms(to_sci_port(port)->gpios);
-+	mctrl_gpio_disable_ms_sync(to_sci_port(port)->gpios);
- 
- 	uart_port_lock_irqsave(port, &flags);
- 	sci_stop_rx(port);
-diff --git a/drivers/tty/serial/stm32-usart.c b/drivers/tty/serial/stm32-usart.c
-index 9b9981352b1e1..e685cace5c854 100644
---- a/drivers/tty/serial/stm32-usart.c
-+++ b/drivers/tty/serial/stm32-usart.c
-@@ -944,7 +944,7 @@ static void stm32_usart_enable_ms(struct uart_port *port)
- 
- static void stm32_usart_disable_ms(struct uart_port *port)
- {
--	mctrl_gpio_disable_ms(to_stm32_port(port)->gpios);
-+	mctrl_gpio_disable_ms_sync(to_stm32_port(port)->gpios);
- }
- 
- /* Transmit stop */
 -- 
 2.39.5
 
