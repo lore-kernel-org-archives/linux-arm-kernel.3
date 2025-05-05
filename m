@@ -4,73 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 194A4C3ABB0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 11:59:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85D01C3ABB6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 12:07:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LEgb0yk2iXz9tDNUVR6UA9scLwOsFWEtbAU0MsUUQeY=; b=yTnDQdM04qd5Ar+JYTUPVsWx7a
-	JV/1M+n2YrCIeKPkD6U9BxON73fp93VH52Olvwg60RWohqhWo3eUndfGKQI8gmD8YHzbpByCZIINH
-	8K1RkOyf+g91OCN/KuEUAu3VPlWWv/YznVinNMzdZhPpoy6sOLEo45FHua+5XhwtqfALnu8D1rdPo
-	95ANo8F2J2KEwY5CVa1vLaPyB0gA8CYrh7Yo8IpE9wPwM317kuydWocWBleGtfwlYK11TojIuGUG0
-	JqnKWqLUrz+IrSuFWTNyFrU8C4qwkNaWQgS34TDymU2o3ZoXI+y6NJ1sXX4R6kIoXYd7zW1+HsA9d
-	zGL2bx3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zS8GP7tAyFx96vdZ9/xCHSVkyyfdDbFaiSakmVPCWYQ=; b=2pbeYxK5BNFojcTb6d2LpGnQza
+	JfyzhN1O/N6WReCQBLvb6BF5Bq4+OnFXTE9acc1Gn2sZmLoXk8qMDMumWUzM4l8uS6xrI5b6ab+M/
+	sxj6XM6QjGaRaiCAX/HfoqHlssxcOSHOJFK3kuKaALG2HmRxhuzyyaEv/euuIfDvA0U1DFFrEDCPq
+	9WMSaMsrMgLaf64U8PXFKbYnH6gM97XiGs3vHC3kNeugSBUQFyDwImbggG+/TmjOkP7651lqFdH/4
+	V7w3yLevRNa9Y+CIv39mOpreTkuoPXpWboXc5k9wyeEYcTsphJRVyakxI9vuK4Z8IwBk87E0ZNcZU
+	Q3E79kcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBuTr-00000007EvI-1Mym;
-	Mon, 05 May 2025 11:59:31 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1uBubr-00000007Fi9-3axO;
+	Mon, 05 May 2025 12:07:47 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBuRp-00000007EPX-2NlP
+	id 1uBuT2-00000007Ejx-0yJv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 11:57:27 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 545BvCE8239928
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 5 May 2025 06:57:12 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1746446232;
-	bh=LEgb0yk2iXz9tDNUVR6UA9scLwOsFWEtbAU0MsUUQeY=;
-	h=From:To:CC:Subject:Date;
-	b=QgxPXOhOSBpu+eCCv7vc2TdnMvCwbM9b9EOLlkSN/K0BfbV3271Z5GOZSp33M+5z2
-	 hYTrH46IsH+/8qdL0HzQKigGjE39oxHA3RwvjkZ0TunHh6+LJSbGjDOOTJkCNK8Bc0
-	 +msQJwOwZB80NcqIf7qM+JUUfOpou2+6I7/xqni8=
-Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 545BvCVs004349
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Mon, 5 May 2025 06:57:12 -0500
-Received: from DLEE112.ent.ti.com (157.170.170.23) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 5
- May 2025 06:57:11 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Mon, 5 May 2025 06:57:11 -0500
-Received: from abhilash-HP.dhcp.ti.com (abhilash-hp.dhcp.ti.com [172.24.227.115])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 545Bv79x004832;
-	Mon, 5 May 2025 06:57:08 -0500
-From: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <vaishnav.a@ti.com>, <u-kumar1@ti.com>, <r-donadkar@ti.com>,
-        <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <jai.luthra@linux.dev>, <linux-kernel@vger.kernel.org>,
-        <y-abhilashchandra@ti.com>
-Subject: [PATCH 0/2] Add overlays for IMX219 and OV5640 on J722S
-Date: Mon, 5 May 2025 17:26:58 +0530
-Message-ID: <20250505115700.500979-1-y-abhilashchandra@ti.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 05 May 2025 11:58:41 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-acb615228a4so1023156866b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 04:58:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746446318; x=1747051118; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zS8GP7tAyFx96vdZ9/xCHSVkyyfdDbFaiSakmVPCWYQ=;
+        b=O8sJb2bpaNZdi+CGRHUy1tvXWQXC5zvERK2T0wlDdthNZgAb7PdRuy6PeNAVQQQ8LP
+         8oM9zGS1FpQClMhYjV4cEom/TVZYdhSKWh2uwgrkvcFIZlQZU1Fg/8KvwG4jjnsXq5rE
+         80MqoXSqcbF4eXSzUfEJ91j6vLHiZwi3gdbCNbIv3XAOb8SB5nxnVDmEaECTkcgzvzcN
+         8LPnZc4xDH21WB3yoOOHINCUIHEoMl0lyxR5DtNGuyparfDCKnFqiVl7QpKSXzWgIYg1
+         ar6sS1kl1ctMx3rtL0HqVfGn59TThoNnHMnVYi+u13xE4qwuzGaNg/6quCUfEUo/OHGA
+         8b6Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746446318; x=1747051118;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=zS8GP7tAyFx96vdZ9/xCHSVkyyfdDbFaiSakmVPCWYQ=;
+        b=oe1x0dRIIZ6E/S/K3O4wheraMP4MfAynkS4Zv/UDl+PzNxgI6c74SZ4G23h48SxRr4
+         MxEBuJ8DEmTMcy9xL/EwAYcsSpyKHbabH6wQvtcUAnjHfFZtJ4nQ8P7PecSZ2QvHIR9H
+         zPT/EZLbm+Tugza1nEpLSugALeUlNZ0xJVMxy4HfGmVbMI1va3DOZCZLfTp1CNSxuBgA
+         w/NKTvCdJbxYesbe3vqx3XgmTg3ja6FlT/EgRbnTE0Ow8RNwhZjZC3Ol+7GCxaipBFHm
+         vGtGyuceuQTm9/DbXOONuC/OdAv7UvZgF2fEhx8Td6aiDujLPLVpYc3vhqH4hQgWMZ/T
+         6LCw==
+X-Forwarded-Encrypted: i=1; AJvYcCUR7HtPomtd/wDXOLR5nGqllGZZm2A4v3ughLycYuYNkyJrL/0R/goefXYe/HanVuLlUyxwCQLckN1opx1IO6OA@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzg2rWaKcphm5Ibr76p9Uz+iZAKdHnXn2YCP75WuYyf4UAjsEXf
+	ojwsr6yzvswNGZu0z8MmLfNhpxG4WRPMKw1vVxDcLebmTI/E868A
+X-Gm-Gg: ASbGncsWalAGcl//Yx3pd9eLhnvYIND8wb6cZg+c6m78xh99gbIEBamjyfNipjSoYOX
+	O4WcQJw9Mt66Spp8V2AEjELgGjm491P9f3AQ8NUwV+ncnAOy/TVwjbIedsIne+L8iOECKMnrCEZ
+	gzlznXHQosagpO/BmhfxhtZ/9Q8Os5oEgbjBg/bjc9esBltJfKywENfUUoCkU9J1ZdJXcoIG9Vi
+	z59eDhyLn2Txc8pr4YYVmbXs7iw9TH0p+XzZLI9aGNzq8pH7Jif8ZnviZly7kMs+/hbXXkhFokD
+	riUnaXR1Yt/1Qi9q9WKqBMXfJPRDxoTcmgpE6ixyqzsO46wriKApmLJNIXaCmMzM3ZnH8CPSP6j
+	vVg==
+X-Google-Smtp-Source: AGHT+IHumqO2HEtVZQqU6y21OIhwqmx6WMl1zZofroVgIP8P5LdpNm2LFNH9OFJLdEBy/IULZh6H/A==
+X-Received: by 2002:a17:907:999a:b0:ace:51fa:be56 with SMTP id a640c23a62f3a-ad17af32ce4mr937803566b.19.1746446318015;
+        Mon, 05 May 2025 04:58:38 -0700 (PDT)
+Received: from wslxew242.ultratronik.de (mail.ultratronik.de. [82.100.224.114])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad1891a3c53sm489568566b.56.2025.05.05.04.58.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 May 2025 04:58:37 -0700 (PDT)
+From: =?UTF-8?q?Goran=20Ra=C4=91enovi=C4=87?= <goran.radni@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: =?UTF-8?q?Goran=20Ra=C4=91enovi=C4=87?= <goran.radni@gmail.com>,
+	devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v5 2/4] dt-bindings: arm: stm32: Document Ultratronik's Fly board DT binding
+Date: Mon,  5 May 2025 13:58:23 +0200
+Message-ID: <20250505115827.29593-3-goran.radni@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250505115827.29593-1-goran.radni@gmail.com>
+References: <20250505115827.29593-1-goran.radni@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_045725_661123_E7491A99 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20250505_045840_271859_2BA77C07 
+X-CRM114-Status: UNSURE (   9.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,32 +107,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds IMX219 and OV5640 overlays to enable support
-for 4 sensors on J722S. This provides a reference for a user to
-enable a different sensor on any of the ports.
+This commit documents ultra-fly-sbc devicetree binding based on
+STM32MP157 SoC.
 
-These two patches were initially part of [1], but were dropped
-due to a few warnings reported by Rob. Hence, they are now sent
-as a separate patch series with all warnings fixed.
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Goran Rađenović <goran.radni@gmail.com>
+---
+ Documentation/devicetree/bindings/arm/stm32/stm32.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-[1]: https://lore.kernel.org/all/20250218185452.600797-1-vaishnav.a@ti.com/
-
-Test logs:
-IMX219: https://gist.github.com/Yemike-Abhilash-Chandra/a797689069bf60dcbcba9612094f9b53
-OV5640: https://gist.github.com/Yemike-Abhilash-Chandra/84b9d8f9b93025b4348e31c95efd261f
-
-Vaishnav Achath (2):
-  arm64: dts: ti: k3-j722s-evm: Add overlay for quad IMX219
-  arm64: dts: ti: k3-j722s-evm: Add overlay for TEVI OV5640
-
- arch/arm64/boot/dts/ti/Makefile               |   9 +
- ...k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtso | 339 +++++++++++++++++
- .../k3-j722s-evm-csi2-quad-tevi-ov5640.dtso   | 358 ++++++++++++++++++
- 3 files changed, 706 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtso
- create mode 100644 arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-tevi-ov5640.dtso
-
+diff --git a/Documentation/devicetree/bindings/arm/stm32/stm32.yaml b/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
+index 5fee2f38ff25..65c4dcdbdf1d 100644
+--- a/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
++++ b/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
+@@ -184,6 +184,11 @@ properties:
+           - const: phytec,phycore-stm32mp157c-som
+           - const: st,stm32mp157
+ 
++      - description: Ultratronik STM32MP1 SBC based Boards
++        items:
++          - const: ultratronik,stm32mp157c-ultra-fly-sbc
++          - const: st,stm32mp157
++
+       - description: ST STM32MP257 based Boards
+         items:
+           - enum:
 -- 
-2.34.1
+2.43.0
 
 
