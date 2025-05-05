@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C5E5C3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 17:21:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0C51C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 17:23:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EIMKXq0A8VI54WdAzc8G/zM+C2hDegunhDYIm9E31n4=; b=T2rhp6dXURDCD621NKX/x7Ur6O
-	evb4ZLH/3NOrweAhWqkoGqTxqznVbIoEsmSWcBMrAhVA4wGFdh6/A4jsocolvx/FCadN1Lo2lg1Za
-	KW3U++V/n6FjH94eBYw5hcM+sz6ZZL0Fyz04H7HUiZX+hlxMjMSBH9TXTCLRTngkdhnZ2RE+OcCpP
-	9NQWIchxZsGuWZf465TV6JzeiQ8WPKTR1crNqbCPfgcaqEMvT2PNy0euRqftibuegXyH8PmN4c0dm
-	yJEuaRYxXCMKuT/P4PzFZ1vtAzmpZ+g4n9ImQ/kvCF3oDNOOlWeduBg2xdy7T2g23CXfmyfE/cDKS
-	LWq9us6g==;
+	bh=bwKVGluI6Z1XTNMcl7UtpPbNlQRuCgs7pkbLH/tjS8k=; b=iPCaTKNXwuylN/9Qp04p/ElPSd
+	8efoQNpK9fpDeps5tD/YyGWlIgMOt5Xo71f2JOuxIs16hFJHC1TKgcVRo7DCKOvtMQGnQBsTEglA4
+	rcwNoLnqio0gYEGz2msULISrTCxW2v1ATjePXltiiCY1vO0/MVkEEDg25cL9STf5P5JSEyVOywU6Y
+	UF38+PSETaSBZku7twA1ezHDDO0fgwSpyeIlitgq8NATaMexwUXy7NxLFjk4qlWT8pgWRm2R9M72/
+	odmjHZj0E8OJuz2mBjP7ylfG6tPNWkcTjcgXY5uhT4NqTN9t8YSZF1AYopXF+SibWG8ShHUtm0aqa
+	MQS9v0YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBzVI-0000000886l-3Lrx;
-	Mon, 05 May 2025 17:21:20 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.144.205])
+	id 1uBzXF-000000088Lx-2DVL;
+	Mon, 05 May 2025 17:23:21 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.144.207])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBz8x-000000084fQ-0C0C
+	id 1uBz8x-000000084fP-0C4r
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 05 May 2025 16:58:16 +0000
 Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 52E53C0042FD;
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 71380C0005DD;
 	Mon,  5 May 2025 09:58:12 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 52E53C0042FD
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 71380C0005DD
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
 	s=dkimrelay; t=1746464292;
-	bh=r8I8dxX64lKddPXDq8tyZRhDh3NOo88oDYad4mGy5sw=;
+	bh=sTUeceWJnk252WaHsNSVB6NIhfPcsKmY74JxFMSgfD4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Fw76ZqY30z3N9stYbx9mRU7xlNZJB0drVVyLGKcw0GO79eZ4foGBynWajay/5+m4O
-	 u1bbf0fQ81d8iX+/F6W59T86PZbgEMVBjsxXT4VLdfuA/CScKTNcTzrPrYSrWhWRcE
-	 tunXL4oZjfWQqACUr1oLYkwV1xySs/WHeK+Ig3FM=
+	b=dnwi+q7pSrmquR+KOvetVtMzYCrQaZ+bO3Ux37FyOtQGLE7wXtJvSE2kIefAfSFMM
+	 1kfVBkNMMgQvZztKHUv5cPccoKL1kbqGYWk0do1On4DEWF9ugexgvtT4p05NLQrJqI
+	 mD0RIDfponG+qu1oF2IVwvYwzLz6pDxhdzCLcZuM=
 Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 040A4180008FB;
+	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 257D318000A4A;
 	Mon,  5 May 2025 09:58:12 -0700 (PDT)
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 To: soc@kernel.org
-Cc: Rob Herring <robh@kernel.org>,
-	=?UTF-8?q?Philippe=20Mathieu-Daud=C3=A9?= <philmd@linaro.org>,
+Cc: Ovidiu Panait <ovidiu.panait.oss@gmail.com>,
 	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Stanimir Varbanov <svarbanov@suse.de>,
 	linux-arm-kernel@lists.infradead.org,
 	arnd@arndb.de,
 	khilman@kernel.org,
 	bcm-kernel-feedback-list@broadcom.com
-Subject: [GIT PULL 2/3] Broadcom devicetree-arm64 changes for 6.16
-Date: Mon,  5 May 2025 09:58:09 -0700
-Message-ID: <20250505165810.1948927-2-florian.fainelli@broadcom.com>
+Subject: [GIT PULL 3/3] Broadcom drivers changes for 6.16
+Date: Mon,  5 May 2025 09:58:10 -0700
+Message-ID: <20250505165810.1948927-3-florian.fainelli@broadcom.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250505165810.1948927-1-florian.fainelli@broadcom.com>
 References: <20250505165810.1948927-1-florian.fainelli@broadcom.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_095815_174637_23EB195D 
-X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-CacheID: sfid-20250505_095815_174706_D29C6EA1 
+X-CRM114-Status: UNSURE (   9.06  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,31 +84,23 @@ The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
 
 are available in the Git repository at:
 
-  https://github.com/Broadcom/stblinux.git tags/arm-soc/for-6.16/devicetree-arm64
+  https://github.com/Broadcom/stblinux.git tags/arm-soc/for-6.16/drivers
 
-for you to fetch changes up to c9e81198a750870fcd806b853177108e982a1db6:
+for you to fetch changes up to 29f526ed681551e20928169ecfde5a576e20b900:
 
-  arm64: dts: broadcom: bcm2712: Use "l2-cache" for L2 cache node names (2025-04-11 16:35:45 -0700)
-
-----------------------------------------------------------------
-This pull request contains Broadcom ARM64-based SoCs Device Tree updates
-for 6.16, please pull the following:
-
-- Stanimir adds and enables the PCIe root complex Device Tree nodes present on the
-  Raspberry Pi 5
-
-- Rob updates the BCM2712 L2 cache node names to use a more comforming
-  name
+  bus: brcmstb_gisb: use dev_groups to register attribute groups (2025-04-07 10:35:43 -0700)
 
 ----------------------------------------------------------------
-Rob Herring (Arm) (1):
-      arm64: dts: broadcom: bcm2712: Use "l2-cache" for L2 cache node names
+This pull request contains Broadcom SoC driver updates for 6.16, please
+pull the following:
 
-Stanimir Varbanov (2):
-      arm64: dts: broadcom: bcm2712: Add PCIe DT nodes
-      arm64: dts: broadcom: bcm2712-rpi-5-b: Enable PCIe DT nodes
+- Ovidiu updates the brcmstb_gisb driver to use the dev_groups instead
+  of manually adding those
 
- arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts |   8 ++
- arch/arm64/boot/dts/broadcom/bcm2712.dtsi        | 155 ++++++++++++++++++++++-
- 2 files changed, 159 insertions(+), 4 deletions(-)
+----------------------------------------------------------------
+Ovidiu Panait (1):
+      bus: brcmstb_gisb: use dev_groups to register attribute groups
+
+ drivers/bus/brcmstb_gisb.c | 10 ++--------
+ 1 file changed, 2 insertions(+), 8 deletions(-)
 
