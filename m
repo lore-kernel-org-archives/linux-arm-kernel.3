@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D6A2C3ABB0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 08:42:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0B19C3ABB7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 08:42:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LMpibSWVQMG3AJAhm6+DKh4jK3EG6LFszxflxyKDM6g=; b=clKOYlvOJqNnknJA69MObLakcX
-	byE0Jp+9eKSwBIrg70En6N8k2gb0jWOYNUEu6k16UyytxZzQmVOva/lDgUMEBAQrUJ1XcEliB4k2W
-	ivCFGuLL1z8wmoYHGNyy5XIKxSMHIy9yua9etXHD9mlIxlziTAdiALdY85kAttFTY/17+eH+1E5wv
-	LYPPzISOYyPkEVdZUhgPMdpb0trBahhyPIhTT7wK8ox4FzZ5xYijX+3tGn2N+NF/q5zAwVIs0vmyf
-	o28VhSZLjdBUgTpENXMAE2SuqCoth49ERr4R8aF3kgSnhd0WE6qyADtxmpwBhl4cTKziFGXNqx80u
-	npGt0fFA==;
+	bh=3O1SCNLOQMpihKffStOSylkuYYBVg0ltdo4tvYHu9Dk=; b=O0jDGdJ99+EjNhf735kdYjIDRE
+	ceYZwGhofnao7bY1LVocaYZWbBMynEnK40LOAIlh6NmgrHpjr9WiepJLt6PmIc2AkGCgeKDUnUCnh
+	lHPibyLarizp0YhrHUikFMgNbjp+aNZOwSQuEaHxXnEO3w7DQArxZ1JRZnnS4ON2UxdFN5gmZkOp/
+	2mKP827Ne9O9WFQQrEuO1cZmUv2EKPuaLYFGaGCHLHZXaPbgoyuv427zSpZmCggdvt496KwToxHHe
+	ymlLzWgLUi7LZQPGCR0gNnQKg0b9P6UgSIj/KqMmZKO/2w7Rj2oV6q93MLzgJkCC/1cIprcRz8p/h
+	BMopPJxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBrPM-00000006oGj-26Q4;
-	Mon, 05 May 2025 08:42:40 +0000
+	id 1uBrPO-00000006oIn-0FBT;
+	Mon, 05 May 2025 08:42:42 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBrG7-00000006nF2-20mE
+	id 1uBrJ4-00000006nUV-3Sar
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 08:33:08 +0000
+	Mon, 05 May 2025 08:36:12 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AB1461007;
-	Mon,  5 May 2025 01:32:57 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C36431007;
+	Mon,  5 May 2025 01:36:00 -0700 (PDT)
 Received: from [10.163.53.144] (unknown [10.163.53.144])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 85F263F5A1;
-	Mon,  5 May 2025 01:33:04 -0700 (PDT)
-Message-ID: <a76b6bb7-f6ac-4e0c-abd0-b2af9fde8691@arm.com>
-Date: Mon, 5 May 2025 14:02:59 +0530
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 040D93F5A1;
+	Mon,  5 May 2025 01:36:06 -0700 (PDT)
+Message-ID: <1c285bc1-e345-4757-9803-b62624b3ed27@arm.com>
+Date: Mon, 5 May 2025 14:06:03 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/ptrace: Make user_hwdebug_state.dbg_regs[] array
- size as ARM_MAX_BRP
+Subject: Re: [PATCH V3] arm64/mm: Re-organise setting up FEAT_S1PIE registers
+ PIRE0_EL1 and PIR_EL1
 To: linux-arm-kernel@lists.infradead.org
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20250421055212.123774-1-anshuman.khandual@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, linux-kernel@vger.kernel.org
+References: <20250429050511.1663235-1-anshuman.khandual@arm.com>
 Content-Language: en-US
 From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250421055212.123774-1-anshuman.khandual@arm.com>
+In-Reply-To: <20250429050511.1663235-1-anshuman.khandual@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_013307_610133_FF9BA7FC 
-X-CRM114-Status: GOOD (  25.98  )
+X-CRM114-CacheID: sfid-20250505_013610_959377_48127F60 
+X-CRM114-Status: GOOD (  20.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,105 +66,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 4/21/25 11:22, Anshuman Khandual wrote:
-> Array elements inside 'struct user_hwdebug_state.dbg_regs[]' are inherently
-> coupled with maximum breakpoints or watchpoints which could be present on a
-> platform and which are defined with macros ARM_MAX_[BRP|WRP].
+On 4/29/25 10:35, Anshuman Khandual wrote:
+> mov_q cannot really move PIE_E[0|1] macros into a general purpose register
+> as expected if those macro constants contain some 128 bit layout elements,
+> that are required for D128 page tables. The primary issue is that for D128,
+> PIE_E[0|1] are defined in terms of 128-bit types with shifting and masking,
+> which the assembler can't accommodate.
 > 
-> Rather than explicitly trying to keep the array elements in sync with these
-> macros and then adding a BUILD_BUG_ON() just to ensure continued compliance
-> , move these two macros into the uapi ptrace header itself thus making them
-> available both for user space and kernel.
+> Instead pre-calculate these PIRE0_EL1/PIR_EL1 constants into asm-offsets.h
+> based PIE_E0_ASM/PIE_E1_ASM which can then be used in arch/arm64/mm/proc.S.
 > 
-> While here also ensure that ARM_MAX_BRP and ARM_MAX_WRP are always the same
-> via a new BUILD_BUG_ON(). This helps in making sure that user_hwdebug_state
-> structure remains usable both for breakpoint and watchpoint registers set
-> via ptrace() system call interface.
+> While here also drop PTE_MAYBE_NG/PTE_MAYBE_SHARED assembly overrides which
+> are not required any longer, as the compiler toolchains are smart enough to
+> compute both the PIE_[E0|E1]_ASM constants in all scenarios.
 > 
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
 > Cc: Will Deacon <will@kernel.org>
 > Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
 > Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-perf-users@vger.kernel.org
 > Cc: linux-kernel@vger.kernel.org
 > Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 > ---
-> This patch applies on v6.15-rc3
+> This patch applies on v6.15-rc4
 
 Gentle ping, any updates on this.
 
 > 
->  arch/arm64/include/asm/hw_breakpoint.h |  7 -------
->  arch/arm64/include/uapi/asm/ptrace.h   | 10 +++++++++-
->  arch/arm64/kernel/hw_breakpoint.c      |  9 +++++++++
->  3 files changed, 18 insertions(+), 8 deletions(-)
+> Changes in V3:
 > 
-> diff --git a/arch/arm64/include/asm/hw_breakpoint.h b/arch/arm64/include/asm/hw_breakpoint.h
-> index bd81cf17744a..63c21b515647 100644
-> --- a/arch/arm64/include/asm/hw_breakpoint.h
-> +++ b/arch/arm64/include/asm/hw_breakpoint.h
-> @@ -75,13 +75,6 @@ static inline void decode_ctrl_reg(u32 reg,
->  #define ARM_KERNEL_STEP_ACTIVE	1
->  #define ARM_KERNEL_STEP_SUSPEND	2
+> - Dropped off macros PTE_MAYBE_NG and PTE_MAYBE_SHARED as per Ryan
+> 
+> Changes in V2:
+> 
+> https://lore.kernel.org/all/20250416035604.2717188-1-anshuman.khandual@arm.com/
+> 
+> - Added asm-offsets.c based PIE_E0_ASM and PIE_E1_ASM symbols as per Ard
+> - Moved PTE_MAYBE_NG and PTE_MAYBE_SHARED overrides inside asm-offsets.c
+>   along with the corresponding comment as per Ard
+> 
+> Changes in V1:
+> 
+> https://lore.kernel.org/linux-arm-kernel/20250410074024.1545768-1-anshuman.khandual@arm.com/
+> 
+>  arch/arm64/kernel/asm-offsets.c |  2 ++
+>  arch/arm64/mm/proc.S            | 19 ++-----------------
+>  2 files changed, 4 insertions(+), 17 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/asm-offsets.c b/arch/arm64/kernel/asm-offsets.c
+> index eb1a840e4110..30d4bbe68661 100644
+> --- a/arch/arm64/kernel/asm-offsets.c
+> +++ b/arch/arm64/kernel/asm-offsets.c
+> @@ -182,5 +182,7 @@ int main(void)
+>  #ifdef CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
+>    DEFINE(FTRACE_OPS_DIRECT_CALL,	offsetof(struct ftrace_ops, direct_call));
+>  #endif
+> +  DEFINE(PIE_E0_ASM, PIE_E0);
+> +  DEFINE(PIE_E1_ASM, PIE_E1);
+>    return 0;
+>  }
+> diff --git a/arch/arm64/mm/proc.S b/arch/arm64/mm/proc.S
+> index fb30c8804f87..80d470aa469d 100644
+> --- a/arch/arm64/mm/proc.S
+> +++ b/arch/arm64/mm/proc.S
+> @@ -512,26 +512,11 @@ alternative_else_nop_endif
+>  	ubfx	x1, x1, #ID_AA64MMFR3_EL1_S1PIE_SHIFT, #4
+>  	cbz	x1, .Lskip_indirection
 >  
-> -/*
-> - * Limits.
-> - * Changing these will require modifications to the register accessors.
-> - */
-> -#define ARM_MAX_BRP		16
-> -#define ARM_MAX_WRP		16
+> -	/*
+> -	 * The PROT_* macros describing the various memory types may resolve to
+> -	 * C expressions if they include the PTE_MAYBE_* macros, and so they
+> -	 * can only be used from C code. The PIE_E* constants below are also
+> -	 * defined in terms of those macros, but will mask out those
+> -	 * PTE_MAYBE_* constants, whether they are set or not. So #define them
+> -	 * as 0x0 here so we can evaluate the PIE_E* constants in asm context.
+> -	 */
 > -
->  /* Virtual debug register bases. */
->  #define AARCH64_DBG_REG_BVR	0
->  #define AARCH64_DBG_REG_BCR	(AARCH64_DBG_REG_BVR + ARM_MAX_BRP)
-> diff --git a/arch/arm64/include/uapi/asm/ptrace.h b/arch/arm64/include/uapi/asm/ptrace.h
-> index 0f39ba4f3efd..8683f541a467 100644
-> --- a/arch/arm64/include/uapi/asm/ptrace.h
-> +++ b/arch/arm64/include/uapi/asm/ptrace.h
-> @@ -99,6 +99,14 @@ struct user_fpsimd_state {
->  	__u32		__reserved[2];
->  };
+> -#define PTE_MAYBE_NG		0
+> -#define PTE_MAYBE_SHARED	0
+> -
+> -	mov_q	x0, PIE_E0
+> +	mov_q	x0, PIE_E0_ASM
+>  	msr	REG_PIRE0_EL1, x0
+> -	mov_q	x0, PIE_E1
+> +	mov_q	x0, PIE_E1_ASM
+>  	msr	REG_PIR_EL1, x0
 >  
-> +/*
-> + * Maximum number of breakpoint and watchpoint registers
-> + * on the platform. These macros get used both in kernel
-> + * and user space as well.
-> + */
-> +#define ARM_MAX_BRP		16
-> +#define ARM_MAX_WRP		16
-> +
->  struct user_hwdebug_state {
->  	__u32		dbg_info;
->  	__u32		pad;
-> @@ -106,7 +114,7 @@ struct user_hwdebug_state {
->  		__u64	addr;
->  		__u32	ctrl;
->  		__u32	pad;
-> -	}		dbg_regs[16];
-> +	}		dbg_regs[ARM_MAX_BRP];	/* Or ARM_MAX_WRP */
->  };
->  
->  /* SVE/FP/SIMD state (NT_ARM_SVE & NT_ARM_SSVE) */
-> diff --git a/arch/arm64/kernel/hw_breakpoint.c b/arch/arm64/kernel/hw_breakpoint.c
-> index 722ac45f9f7b..9bc51682713d 100644
-> --- a/arch/arm64/kernel/hw_breakpoint.c
-> +++ b/arch/arm64/kernel/hw_breakpoint.c
-> @@ -981,6 +981,15 @@ static int __init arch_hw_breakpoint_init(void)
->  {
->  	int ret;
->  
-> +	/*
-> +	 * Maximum supported breakpoint and watchpoint registers must
-> +	 * always be the same - regardless of actual register numbers
-> +	 * found on a given platform. This is because the user facing
-> +	 * ptrace structure 'user_hwdebug_state' actually depends on
-> +	 * these macros to be the same.
-> +	 */
-> +	BUILD_BUG_ON(ARM_MAX_BRP != ARM_MAX_WRP);
-> +
->  	core_num_brps = get_num_brps();
->  	core_num_wrps = get_num_wrps();
+> -#undef PTE_MAYBE_NG
+> -#undef PTE_MAYBE_SHARED
+> -
+>  	orr	tcr2, tcr2, TCR2_EL1_PIE
+>  	msr	REG_TCR2_EL1, x0
 >  
 
