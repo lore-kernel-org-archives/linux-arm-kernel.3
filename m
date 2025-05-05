@@ -4,58 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1FE5C3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 17:13:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02E62C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 17:15:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lAoWBXJ0xR4GfuRow16663wvskQIQfdwNMl2ANGijOc=; b=iyl+2oaBHXbMPnqxEJmlq+eutK
-	Mo06GI3lyUQZU7lhk76AkGYZYvwfL1R5QI/CaHfzmgxlgFRMYd5C8NSenM2HF1QyEtSREzq0oek2V
-	P7gpLeHXf+xb2DzC5k+uO+PGBU1ij/5H46DFbWef2O2j+5AB+nClmZleerBrZQIfznCIE0abphAaC
-	xjh1EK3udcsO/eNRxRKpR5R9nC0s/IwK7kXPOqvq3t1kzmOUo+hZC8HH5j/1GRpLivogQpICh3Cke
-	YOsBvSeKSSoNLTPYpRWB2bR5tM4nJ1YiFkeV5MABHZQiQrqo6qPvjPA8NJfyKNvE/zjvLnWTktVgb
-	g0xEtd3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z0n7Tspj8ibG8yEA3X3plcQ+ki3JQkq0ljbXWOv2hSc=; b=KsNQixiXJagKhocGzNzbiRm2RO
+	U6VzKSgarE+y0w0YHixUmw+QQvQaRxaJZ+M3NHNGCiKwP+vhzQbw6QfBkBEbTI80Bcqy1YJ1BAuIc
+	AP0KHGbMlUXXIs+hFierKgdyd+scvV0q0wvTFrqXX61xmu2SDMLV4/+FTtJToQTyqUSiEqlRi5aI4
+	ZjBGpy5Owj7Jc6tjpXrPyF6FAbbt6peZxzWQ+cG3UNnCbOzNUfLjaMS/DkqkPnA1MHlzMlpKfRspD
+	EBE5MzW7nDaqNBclZnbUjcWHxKQ2JfHNGblJOmyirz4F2+ahkXn0cOSNpSdkNXQyDb0p5IoR0jaCj
+	GUKrCsHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBzNT-0000000876O-3xNr;
-	Mon, 05 May 2025 17:13:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uByzB-0000000832I-1Trk
+	id 1uBzPR-000000087LK-2iZN;
+	Mon, 05 May 2025 17:15:17 +0000
+Received: from mail-mw2nam12on20601.outbound.protection.outlook.com ([2a01:111:f403:200a::601] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uBz1U-000000083Lc-3reo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 16:48:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7C9601CDD;
-	Mon,  5 May 2025 09:47:55 -0700 (PDT)
-Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5E09D3F673;
-	Mon,  5 May 2025 09:48:03 -0700 (PDT)
-From: Andre Przywara <andre.przywara@arm.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Cc: Cody Eksal <masterr3c0rd@epochal.quest>,
-	Philippe Simons <simons.philippe@gmail.com>,
-	devicetree@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 3/3] arm64: dts: allwinner: a100: add Liontron H-A133L board support
-Date: Mon,  5 May 2025 17:47:29 +0100
-Message-ID: <20250505164729.18175-4-andre.przywara@arm.com>
-X-Mailer: git-send-email 2.46.3
-In-Reply-To: <20250505164729.18175-1-andre.przywara@arm.com>
-References: <20250505164729.18175-1-andre.przywara@arm.com>
+	Mon, 05 May 2025 16:50:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZRd6Z0GZOJ4Nyw7sAwWwbEaEWgptAGJNP2tzmNdR9fr2GyKYkqU9wjDUv9nE3Bq1waXoFZg4Q+N1RCc5EhpU+xhXErNf4Ad1rIIfEK2brJFSeIwbWbOgseWYOtntsB4ZzcXetB5Q6QFArfdb3aeWskegMqnrJ1QuYcAXIQ0NLn2ZqdyPMCE2woJGi+tD6PHjMUmJEZU7aTQoFlNwd4JF5rF26bxFMcXeDAF9IDO8PtA3pToEmfezgI0a7CaYQki8U01yFdfFtYA7+aNF0DSYrACoMed4JPrRa5uh2ZvQ2eAxGnfOURkKFBV9WeE8aDoLJm9CBfGrZW//a9/8GiktJA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Z0n7Tspj8ibG8yEA3X3plcQ+ki3JQkq0ljbXWOv2hSc=;
+ b=IE3V/Ghft0LvpIIaqhkRxTxNscbThuEnztFcfMTr+VAoxXiifBGavkX3sPqNXeRPjDO80kycjpcSUdhb8dGG5JF/xmcnJgQgDsXg0fYNPIFlBqjV+2XZOXf0g+aLu5tVlL6G2Ik9Fl79NY7f51vp/Y8F27YYmErDj7eRU+oogC02Cpe2uF4Qf0/1ASCuGAy7fwWhJzaVZRuwYpUK90PDd5EULx0N0nJzd9GwRu2NyoX5IJXOu7RNilWMUGWfw3VxLl4XJLm2soo/jcVH0kr7/h/vQCjTVZFPJP6i9Xl0Q/qqjwctnmtzkZcvP3XUOkKGym2hLqg7oAU/ehTOn6WN2g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Z0n7Tspj8ibG8yEA3X3plcQ+ki3JQkq0ljbXWOv2hSc=;
+ b=p0Sc24cVoJVdofwY+i7ONbbSv7RD0uSqI5e6nWZwHo6niAsJwMmOwM95+fdz8RCewfPU3pHBDivLqwdEdDe/9NC9L5BbTlVCPMRiBX6QYHPLoljgCMOuWZdh4Ghnfiau013bOTTfZevJoRa66fKCCv+YPyN18BIbhdcQNPTxphWEwUt+EpU4CKOxCjHgBsZVLFiv248OJ1/f8eI9PCgt9VZWA9nhH+X8NP/CRZv1RSpUA/Z5uyFpFPfhF2Np2t3SSGLKunhLem+oabmVcN8VOwTffOLT2GWmw9b4SxpDKxPMEgywHLuylxfkIiXtzYHSqk9Q6qY+LGW7qE8Xeo8KGA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by CH3PR12MB7740.namprd12.prod.outlook.com (2603:10b6:610:145::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.24; Mon, 5 May
+ 2025 16:50:20 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8699.026; Mon, 5 May 2025
+ 16:50:20 +0000
+Date: Mon, 5 May 2025 13:50:19 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Baolu Lu <baolu.lu@linux.intel.com>
+Cc: Nicolin Chen <nicolinc@nvidia.com>, kevin.tian@intel.com,
+	corbet@lwn.net, will@kernel.org, bagasdotme@gmail.com,
+	robin.murphy@arm.com, joro@8bytes.org, thierry.reding@gmail.com,
+	vdumpa@nvidia.com, jonathanh@nvidia.com, shuah@kernel.org,
+	jsnitsel@redhat.com, nathan@kernel.org, peterz@infradead.org,
+	yi.l.liu@intel.com, mshavit@google.com, praan@google.com,
+	zhangzekun11@huawei.com, iommu@lists.linux.dev,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-tegra@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, patches@lists.linux.dev,
+	mochs@nvidia.com, alok.a.tiwari@oracle.com, vasant.hegde@amd.com
+Subject: Re: [PATCH v2 13/22] iommufd: Add mmap interface
+Message-ID: <20250505165019.GM2260709@nvidia.com>
+References: <cover.1745646960.git.nicolinc@nvidia.com>
+ <7be26560c604b0cbc2fd218997b97a47e4ed11ff.1745646960.git.nicolinc@nvidia.com>
+ <c4d03b52-422e-41ab-845b-1d2eda7ca9e2@linux.intel.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c4d03b52-422e-41ab-845b-1d2eda7ca9e2@linux.intel.com>
+X-ClientProxiedBy: BN8PR04CA0031.namprd04.prod.outlook.com
+ (2603:10b6:408:70::44) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CH3PR12MB7740:EE_
+X-MS-Office365-Filtering-Correlation-Id: f1edbe3d-cb35-47fc-53bb-08dd8bf4ebd8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?btgUnlYba+pFJN6VNLlMHquA9nwx8vICp52kiymDtNN46WggwE+dQ9WSvRPN?=
+ =?us-ascii?Q?kCH/RHVP2sYbXrVmotA/5uqGkdRliDbfWqMDU99PbpBrtYzBUL700NHLDogc?=
+ =?us-ascii?Q?y1zJDtTk6RbK7Nddksk+w2FKEOC5HwyYZB+5BfGXYMl3M0fGnMjdiMArfvEF?=
+ =?us-ascii?Q?GXP261dQYfp+9y9Oddz2snwe+UdIxGUDG4dm/xwyX2tl6R4792fBo+qKPZrp?=
+ =?us-ascii?Q?hXezxg7O260sds+c69YAD6GNUv0iRigp1Gh/iTORyQBoh8+uD9kfQW85UA4q?=
+ =?us-ascii?Q?XJzIDEEPTnhYXqSl5d6SqYJWxFw2adEJQKmJm+wUbvMMPU7BolUOE8ZmJfph?=
+ =?us-ascii?Q?SkGGzYQIv+7P52XTWQj96Mc9TqVQ3M8IUdavTlMqOi4CzbkRjo5TWiVyMQAc?=
+ =?us-ascii?Q?Y+DVAms3kbWi6cU1eG3uDea7IyYEq6h+kce8L3GuFdwXj30YdZybP2p6GVRi?=
+ =?us-ascii?Q?jkmM7cpEDuq6oh2cusLIDqaMiJeCu3dHB9DsVdu0GnINWtmEbyjCAMLxamGG?=
+ =?us-ascii?Q?5KmeFCSrzqcUIK+8ikQ1HJKcGcGAmWhBqxgXvX7tdnRtg5X+Wq40PCAKglWq?=
+ =?us-ascii?Q?7VdsKdTd7ghBoJB4iWPheOe9xcsTyERFdoheJu7MPHFLOUs6ruuOqG7b7z5d?=
+ =?us-ascii?Q?n8vzowmQUMFfbdC1mUiyS/2aZYYfKnHh30KnSw9blKQL6gP9FbLV8ekRl6uX?=
+ =?us-ascii?Q?87CTNkLw+EJsRrRNrfhxNoDSETtDmiWkC3VW4N0ge/e+ZtYReYPv+URkz6BS?=
+ =?us-ascii?Q?/WomqT7B/JcfjfUBWgjT/TRE+p0ojcdcPwNd8QvjmoCPbSyzNTwvbdv1VqYd?=
+ =?us-ascii?Q?pM7j6ltowJKCOt3gIxmbV/4jK2oKTNiKOg6BKN8o6/hnUK/GbsqD3l0BZGzo?=
+ =?us-ascii?Q?b3XA+0IhTF4s9Ka0sQQLr2U/DZTqHpCVtDvNuQo72DXyL+K+Oz/pHfjeX+PG?=
+ =?us-ascii?Q?oUVHrpUe2t1Rac+Ad5Pk7fRlAzMipIT6ITUNcLrKu25jzaSXzPCiduD1YqVd?=
+ =?us-ascii?Q?83574FJwlJhoshn9qYt+MctxHuAxbGxSlWPu97uS+UoQ/ISE6JV/h1csMJW1?=
+ =?us-ascii?Q?RfOko7dnvNfgo7bH7R3nIDUvtBB3MVL+AUybOAEU1llFHlsuz1iksfwJj5Hu?=
+ =?us-ascii?Q?9oXIhuwvT19HhWwzN5tisXaKtBz5hEUrOEz52M+RMzZr8loaCq114s1OTou8?=
+ =?us-ascii?Q?uYRnaGFpQyFl6J9+fSunsAPfx+D7INd6JZbgThvcPJKWic2MpPuxuHA9mDP4?=
+ =?us-ascii?Q?7LfkGRBDJ2WQ3LGk3W2z4HF4gIWVnv53hO+egROxn6Sy6rrgneP1vw1ltKzk?=
+ =?us-ascii?Q?u+Oz/5f0qk829Pv4m/lKA1a3naMKfH0JTxK6Ojj2rZxXkTcCTsWkjsu2wNkl?=
+ =?us-ascii?Q?l+y2BnPiIUvU61zgL7ejNxZc+XewkuiL4V/sDvLnIxQNVOEwkImVe8M3zO6U?=
+ =?us-ascii?Q?p7fM78F9taM=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?a8N5+VaGFOL7ZVYDMlcq4FuGhYKEyf1adxVzVMhAKqDqlRV7J433plBR6DU0?=
+ =?us-ascii?Q?ninBp0m/u6EKa5S+amT3U9D2XF2nwzhN6uNMn5EYCwF6rtCbatQSXP8Y5KOV?=
+ =?us-ascii?Q?ovWQQQgyNi2MnxjFQs7sEnc8jT2rzL5ki+Uy6mQT20P1avMXmHKkdGW1fX2x?=
+ =?us-ascii?Q?eOjJ9ak31f6slpll0MZjOysENNFcBBANrJ+DTevQ4q2A2CzBYo4XrzO8pu/V?=
+ =?us-ascii?Q?stgEvLRh4UVGVU4I2MSa0IxhVC1bKhA5+dtcEiaMVT/a76owD1n34tHtdDAS?=
+ =?us-ascii?Q?ti4+SWSnloRnYaDbP9UXu8vRr/3ux4RQXBdPK812HvJ4lOJdPwDr23hvDAn7?=
+ =?us-ascii?Q?Akn6Hn8g6nlkoyYkjMkXUQRteNCwCh27bXmsmmVbokQUpsvPX8s+HWN6Xbi9?=
+ =?us-ascii?Q?3+YfMaGx/++s7qOQK2CGajDRs21cLn4tVFr36prhwmGhf7mob3UeZKEXEAko?=
+ =?us-ascii?Q?Caf+YOo75nbgXImABF7DkQNeZDO2S6Gxths1l1lA6Xf0yOqTWxIQKJhMNUdu?=
+ =?us-ascii?Q?nZlCNlROt+Q5jAb31FBxI4Q3P5wbDobCnXU12LBYWEuwiBiThqVREqoh1bi4?=
+ =?us-ascii?Q?w+K/qYlxqN6YrjlnV5ujJ1XRmyoKFmbpUt6P6OAVroYNdCgcsCnHSC1np3gx?=
+ =?us-ascii?Q?XaOblVENPTpT2bDoDSK443fk64pdXvKgMkXlSsZaJyJnE8QbLaaJwT/BHI+e?=
+ =?us-ascii?Q?y/MfzM75La0slwTaiC+8L+OcNoxTxtfSRFCk6FV0qTt7TbJutSigIGVT8IbN?=
+ =?us-ascii?Q?Otw8S15nSvvOlmjoxsU+Vsh43moQuuAkmgXxHPr3D7jBUqZ2IBDFaQx7Bs11?=
+ =?us-ascii?Q?2/K3KSlG/wZ3XZ+sggZdnHX++ElSV9q6SoZ1+UPb/M4woJwbgNyumMZw6Qnf?=
+ =?us-ascii?Q?a324VpV/XNFj+h02Hdn05fblW1D2uOYDUtegHIuxJY9ecJP2YPrpCJlNBIu1?=
+ =?us-ascii?Q?DTwHeCKXuHZUkK7lUS3e5awMONF20VK5VExbZBhIGWQ+J6Gg6nAvjnLrchJ4?=
+ =?us-ascii?Q?izdNmQEu/Hkag/fC7GrVUXHvBqBnt5WNZDwLXYVJzEQY/0IYRmP0ywQ6ikcY?=
+ =?us-ascii?Q?qblYEmUGnHItE0olktBKlAqmDRQXPcXl5BSEiCp8s7nSLEUbTmjg2cmLtlUC?=
+ =?us-ascii?Q?szdGnlzxdstzqLw+bYNLvQBAbziJ9Tgjg73WOdeJqDVi4Mtcj39yOk74QC4H?=
+ =?us-ascii?Q?AQ0PUznf7OXR7PYdV/pdAE2gg5WfG4zZmfd798+0xaX5QwXQcXJ333A3bfMa?=
+ =?us-ascii?Q?nhydRZxUMrNZW79q+aCps4yak6De3xPKS7c6PnvMUeSFgDx1bM+AuqXoE35D?=
+ =?us-ascii?Q?v6ulKqOp791tWbN6zd8ujeYGXP5W/2z0RNeUmipdH3UXnhrLK6IBP40V6YCk?=
+ =?us-ascii?Q?2+YmrTqO4MQC/gO4SeyUV7oJ9m4gA4wdpMA6XWpvL/s2MpjtlRSKOIyT5oIk?=
+ =?us-ascii?Q?o4/vpK71fNu66l7QvOQ0RPf1O6sg82NkTT2T7TwnjDOUgOqfRd5JDn2GhC4b?=
+ =?us-ascii?Q?/Ri9ONBqlXrbNU9l8yMBMamess1cRTk6vdWoWyhV1YAi6V/Xy8ErnwM05jcy?=
+ =?us-ascii?Q?Se/fC+Zf7uEPbLqjPJYpiUu0k8ZwlFfAeGhB1bxJ?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f1edbe3d-cb35-47fc-53bb-08dd8bf4ebd8
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2025 16:50:20.5227
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: nGuZn0E9fw+nWb+8Es/XBoWUjgh9tdSr6sIY7P6QfxIF1vM126Kkx2rOy9x3rhnx
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB7740
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_094809_478615_C40CA404 
-X-CRM114-Status: GOOD (  17.89  )
+X-CRM114-CacheID: sfid-20250505_095032_966645_4A3705BD 
+X-CRM114-Status: GOOD (  18.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,269 +167,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The H-A133L board is an industrial development board made by Liontron.
-It contains a number of dedicated JST connectors, to connect external
-peripherals. It features:
+On Mon, Apr 28, 2025 at 10:50:32AM +0800, Baolu Lu wrote:
+> On 4/26/25 13:58, Nicolin Chen wrote:
+> > For vIOMMU passing through HW resources to user space (VMs), add an mmap
+> > infrastructure to map a region of hardware MMIO pages.
+> > 
+> > Maintain an mt_mmap per ictx for validations. To allow IOMMU drivers to
+> > add and delete mmappable regions to/from the mt_mmap, add a pair of new
+> > helpers: iommufd_ctx_alloc_mmap() and iommufd_ctx_free_mmap().
+> 
+> I am wondering why the dma_buf mechanism isn't used here, considering
+> that this also involves an export and import pattern.
 
-- Allwinner A133 SoC (4 * Arm Cortex-A53 cores at up to 1.6 GHz)
-- 1 GiB, 2 GiB or 4 GiB of LPDDR4 DRAM
-- between 16 and 128 GiB eMMC flash
-- AXP707 PMIC (compatible to AXP803)
-- 100 Mbit/s RJ45 Ethernet socket, using an JLSemi JL1101 PHY
-- XR829 WIFI+Bluetooth chip
-- 2 * USB 2.0 USB-A ports, plus three sets of USB pins on connectors
-  (connected via a USB hub connected to USB1 on the SoC)
-- microSD card slot
-- 3.5mm A/V port
-- 12V power supply
-- connectors for an LVDS or MIPI-DSI panel
+The provider will be a memfd or something, that isn't where we want to
+put dmabuf..
 
-Add the devicetree describing the board's peripherals and their
-connections.
+> > +/* Entry for iommufd_ctx::mt_mmap */
+> > +struct iommufd_mmap {
+> > +	unsigned long pfn_start;
+> > +	unsigned long pfn_end;
+> > +};
+> 
+> This structure is introduced to represent a mappable/mapped region,
+> right? It would be better to add comments specifying whether the start
+> and end are inclusive or exclusive.
 
-Despite being a devboard, the manufacturer does not publish a schematic
-(I asked), so the PMIC rail assignments were bases on BSP dumps,
-educated guesses and some experimentation. Dropping the always-on
-property from any of the rails carrying it will make the board hang as
-soon as the kernel turns off unused regulators.
+start/end are supposed to be non-inclusive range in iommufd
+land. start/last for inclusive.
 
-Signed-off-by: Andre Przywara <andre.przywara@arm.com>
----
- arch/arm64/boot/dts/allwinner/Makefile        |   1 +
- .../sun50i-a133-liontron-h-a133l.dts          | 214 ++++++++++++++++++
- 2 files changed, 215 insertions(+)
- create mode 100644 arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a133l.dts
+This should be a u64 too
 
-diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/dts/allwinner/Makefile
-index 790aad3a91e86..773cc02a13d04 100644
---- a/arch/arm64/boot/dts/allwinner/Makefile
-+++ b/arch/arm64/boot/dts/allwinner/Makefile
-@@ -18,6 +18,7 @@ dtb-$(CONFIG_ARCH_SUNXI) += sun50i-a64-sopine-baseboard.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun50i-a64-teres-i.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h64-remix-mini-pc.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun50i-a100-allwinner-perf1.dtb
-+dtb-$(CONFIG_ARCH_SUNXI) += sun50i-a133-liontron-h-a133l.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h5-bananapi-m2-plus.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h5-bananapi-m2-plus-v1.2.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h5-emlid-neutis-n5-devboard.dtb
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a133l.dts b/arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a133l.dts
-new file mode 100644
-index 0000000000000..682ed15d84854
---- /dev/null
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-a133-liontron-h-a133l.dts
-@@ -0,0 +1,211 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (c) 2025 Arm Ltd.
-+ */
-+
-+/dts-v1/;
-+
-+#include "sun50i-a100.dtsi"
-+#include "sun50i-a100-cpu-opp.dtsi"
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/leds/common.h>
-+
-+/{
-+	model = "Liontron H-A133L";
-+	compatible = "liontron,h-a133l", "allwinner,sun50i-a100";
-+
-+	aliases {
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		led {
-+			function = LED_FUNCTION_POWER;
-+			color = <LED_COLOR_ID_BLUE>;
-+			gpios = <&pio 7 16 GPIO_ACTIVE_LOW>; /* PH16 */
-+		};
-+	};
-+
-+	reg_vcc5v: vcc5v {
-+		/* board wide 5V supply from a 12V->5V regulator */
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc-5v";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-always-on;
-+	};
-+
-+	reg_usb1_vbus: regulator-usb1-vbus {
-+		compatible = "regulator-fixed";
-+		regulator-name = "usb1-vbus";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&reg_vcc5v>;
-+		enable-active-high;
-+		gpio = <&r_pio 0 8 GPIO_ACTIVE_HIGH>; /* PL8 */
-+	};
-+};
-+
-+&cpu0 {
-+	cpu-supply = <&reg_dcdc2>;
-+};
-+
-+&ehci0 {
-+	status = "okay";
-+};
-+
-+&ehci1 {
-+	status = "okay";
-+};
-+
-+&mmc0 {
-+	vmmc-supply = <&reg_dcdc1>;
-+	cd-gpios = <&pio 5 6 GPIO_ACTIVE_LOW>; /* PF6 */
-+	bus-width = <4>;
-+	status = "okay";
-+};
-+
-+&mmc2 {
-+	vmmc-supply = <&reg_dcdc1>;
-+	vqmmc-supply = <&reg_eldo1>;
-+	cap-mmc-hw-reset;
-+	non-removable;
-+	bus-width = <8>;
-+	mmc-ddr-1_8v;
-+	mmc-hs200-1_8v;
-+	status = "okay";
-+};
-+
-+&ohci0 {
-+	status = "okay";
-+};
-+
-+&ohci1 {
-+	status = "okay";
-+};
-+
-+&pio {
-+	vcc-pb-supply = <&reg_dcdc1>;
-+	vcc-pc-supply = <&reg_eldo1>;
-+	vcc-pf-supply = <&reg_dcdc1>;
-+	vcc-ph-supply = <&reg_dcdc1>;
-+};
-+
-+&r_i2c0 {
-+	status = "okay";
-+
-+	axp803: pmic@34 {
-+		compatible = "x-powers,axp803";
-+		reg = <0x34>;
-+		interrupt-parent = <&r_intc>;
-+		interrupts = <0 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+};
-+
-+#include "axp803.dtsi"
-+
-+&ac_power_supply {
-+	status = "okay";
-+};
-+
-+&reg_aldo1 {
-+	regulator-always-on;
-+	regulator-min-microvolt = <1800000>;
-+	regulator-max-microvolt = <1800000>;
-+	regulator-name = "vcc-codec-avcc";
-+};
-+
-+&reg_aldo2 {
-+	regulator-always-on;
-+	regulator-min-microvolt = <1800000>;
-+	regulator-max-microvolt = <1800000>;
-+	regulator-name = "vcc-dram-1";
-+};
-+
-+&reg_aldo3 {
-+	regulator-always-on;
-+	regulator-min-microvolt = <3300000>;
-+	regulator-max-microvolt = <3300000>;
-+	regulator-name = "vcc-usb-pl";
-+};
-+
-+&reg_dcdc1 {
-+	regulator-always-on;
-+	regulator-min-microvolt = <3300000>;
-+	regulator-max-microvolt = <3300000>;
-+	regulator-name = "vcc-io-usb-pd-emmc";
-+};
-+
-+&reg_dcdc2 {
-+	regulator-always-on;
-+	regulator-min-microvolt = <810000>;
-+	regulator-max-microvolt = <1200000>;
-+	regulator-name = "vdd-cpux";
-+};
-+
-+&reg_dcdc3 {
-+	regulator-always-on;
-+	regulator-min-microvolt = <900000>;
-+	regulator-max-microvolt = <900000>;
-+	regulator-name = "vdd-usb-cpus";
-+};
-+
-+&reg_dcdc4 {
-+	regulator-always-on;
-+	regulator-min-microvolt = <950000>;
-+	regulator-max-microvolt = <950000>;
-+	regulator-name = "vdd-sys";
-+};
-+
-+&reg_dcdc5 {
-+	regulator-always-on;
-+	regulator-min-microvolt = <1100000>;
-+	regulator-max-microvolt = <1100000>;
-+	regulator-name = "vcc-dram";
-+};
-+
-+/* DCDC6 unused */
-+/* DLDO3 unused */
-+/* DLDO4 unused */
-+
-+&reg_eldo1 {
-+	regulator-min-microvolt = <1800000>;
-+	regulator-max-microvolt = <1800000>;
-+	regulator-name = "vcc-pc-emmc";
-+};
-+
-+/* ELDO2 unused */
-+/* ELDO3 unused */
-+
-+&reg_fldo1 {
-+	regulator-always-on;
-+	regulator-min-microvolt = <900000>;
-+	regulator-max-microvolt = <900000>;
-+	regulator-name = "vdd-cpus-usb";
-+};
-+
-+/* reg_drivevbus unused */
-+/* dc1sw unused */
-+
-+&uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0_pb_pins>;
-+	status = "okay";
-+};
-+
-+&usb_otg {
-+	dr_mode = "host";       /* USB A type receptable, always powered */
-+	status = "okay";
-+};
-+
-+&usbphy {
-+	status = "okay";
-+	usb1_vbus-supply = <&reg_usb1_vbus>;
-+};
--- 
-2.46.3
+> > +void iommufd_ctx_free_mmap(struct iommufd_ctx *ictx, unsigned long immap_id)
+> > +{
+> > +	kfree(mtree_erase(&ictx->mt_mmap, immap_id >> PAGE_SHIFT));
+> 
+> MMIO lifecycle question: what happens if a region is removed from the
+> maple tree (and is therefore no longer mappable), but is still mapped
+> and in use by userspace?
 
+I think we should probably zap it and make any existing VMAs
+SIGBUS... Otherwise it is hard to reason about from the kernel side
+
+Jason
 
