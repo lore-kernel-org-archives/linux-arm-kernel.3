@@ -4,70 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 204EEC3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 03:32:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A33FDC3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 03:34:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OLOOLF5QOfZq0Iw/fli3jAwq40wjCn2gJOGSuzOpF3E=; b=ymlMIzL8OmQZNU0r6ByNXsziAQ
-	Yk2OU3tn7JExyzSMXyVAJfhGIUfc5UFjR/59zIJjoB5hW3meYFGzTvdIUK32ZJOlEBcqhcn9KM1JP
-	MuH5GZTXi1VvjYnLKNqRDDcqCnLESJFFIcJNqZ6xmAz8jnDAcUADBj0LBVbHO0PKIcL1esdpLO3IO
-	aioeiTY3gzqXtow5TR4+/cFa+YW1MrYr89AGlikMcY7jp+DEPN5/DN0aOjTGEDQsWgPLPQd0ZJqeP
-	1AqA9H2MUWIDJ+RavfvOF4BeT3KQ7R7uBLmyQQodnBiFS1Mufi2yZg+JTgSCSzqYYOMwFgADKJu/6
-	sb7m5hNw==;
+	bh=GiXsY6i3CU4I0qkujJNdjQUh6frATBliU+6G2LaWlFE=; b=2HX4LiXDjCK/K91ZhHK3BPpFbI
+	Ov7peUYZN7r5DzhruVJwLOf1h6gq+1fVu8HY7Sp6PujmU/gI4dYWOTufp74jBfgPFeriy+smLFmYL
+	LcKf8dWjtxYXKs58U/+avz/nzZe3RdFsqExtZ+hCYPU7/OX0osGetsWbh13P5T+U+DZO/a7DnIX64
+	EMw/IjQhNDYnIzA2lewu27cApFiYPSxXymfXQdRoUbx9VmQJwr68SUvsi2R/Q9Ho2IZKvYlyRsuEq
+	l1Fo4zEoTSyQFnzegIa0Ma5lwYyoVO3WML68+pS3VFmUHJNMmyOIkpFOJwkSyfKGJutNN5+isuLpm
+	ubqFG6TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC92F-0000000A0YD-3BWb;
-	Tue, 06 May 2025 03:31:59 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uC94F-0000000A11p-3KU0;
+	Tue, 06 May 2025 03:34:03 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4v6-00000008xpL-2urM
+	id 1uC4vI-00000008xs1-3B1y
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 23:08:22 +0000
+	Mon, 05 May 2025 23:08:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D5D335C5B6E;
-	Mon,  5 May 2025 23:06:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D478C4CEE4;
-	Mon,  5 May 2025 23:08:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 56E6D629C6;
+	Mon,  5 May 2025 23:08:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FEA4C4CEE4;
+	Mon,  5 May 2025 23:08:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746486499;
-	bh=IMQsZNnSoos3LS/xGl0JoZsqKtcxr4vlcrcNwEZ+Hmc=;
+	s=k20201202; t=1746486511;
+	bh=lPog47QGvgV+ETJkQFbNqdqrBnE3MM2NASVff6hG8Ko=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Rn6UEz/y07r6TFrku5AYJWO8aLZyC6sADmHhZej8fNtOetGme9JY6NczrEn1XeRwS
-	 5/b7AzxQOHxR3k+4ycn1i8DG7oNzgv8otaqOITmXxME9y06XwcyShz3Wt1yzrj/SC0
-	 9rbjPkUe9GTwOcba4hNoXhgEHGisLKAFv0+j7Wa4Kcjfeq37XLhUdKNEDZkyeD5oI3
-	 Y+vD3q7M491OtRu9F0pFX8W2aRbOOowH3uoruiDf3MCdQp4D616GdPbfZHiYsPXta1
-	 ATVNJl7IS9lygRZoAhAxDo6x2+RT4uri2NTEow5rh/zF6p93a09x/dS2nadRXf6tEo
-	 wNeR8uTAA5yDQ==
+	b=VrK3DVQVFm5OGzkyQ31CGXU2GH4sqm9c9QohQumZm4U03zHOCsISUb76wxHnZBrM6
+	 2azIpkwlccAlKz1gHo94HDjst0HkeKsPE9mFh8xj9e145YOIDH2ePLcH4JVX8iYib7
+	 775tm4L2qnQ0d/8QCPgFW8nWf3d5n1oQIsWaSWU+478x6e6yDSDqNwiVYIx8by4x42
+	 +/V6zPV9ru8FuR8VvmW8Zrc6cZGmEkGfGCGcqFgLk5wIuIYxIA1HcGzJX/wL0Aw+yV
+	 gE0xjDtBglflH/YG/JqlAeCYHMrw3j6lUGa3Dkg7xM21nVlVqAQp9gwC/7vQcmkqU/
+	 +C5+md690PyYA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Ryan Walklin <ryan@testtoast.com>,
-	Chris Morgan <macromorgan@hotmail.com>,
-	Philippe Simons <simons.philippe@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Sasha Levin <sashal@kernel.org>,
-	lgirdwood@gmail.com,
-	perex@perex.cz,
-	tiwai@suse.com,
-	wens@csie.org,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org,
-	csokas.bence@prolan.hu,
-	andre.przywara@arm.com,
-	codekipper@gmail.com,
-	mesihkilinc@gmail.com,
-	jbrunet@baylibre.com,
-	u.kleine-koenig@baylibre.com,
-	linux-sound@vger.kernel.org,
+Cc: Ryan Roberts <ryan.roberts@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev
-Subject: [PATCH AUTOSEL 6.1 061/212] ASoC: sun4i-codec: support hp-det-gpios property
-Date: Mon,  5 May 2025 19:03:53 -0400
-Message-Id: <20250505230624.2692522-61-sashal@kernel.org>
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Sasha Levin <sashal@kernel.org>,
+	peterx@redhat.com,
+	joey.gouly@arm.com,
+	yangyicong@hisilicon.com,
+	ioworker0@gmail.com
+Subject: [PATCH AUTOSEL 6.1 068/212] arm64/mm: Check PUD_TYPE_TABLE in pud_bad()
+Date: Mon,  5 May 2025 19:04:00 -0400
+Message-Id: <20250505230624.2692522-68-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505230624.2692522-1-sashal@kernel.org>
 References: <20250505230624.2692522-1-sashal@kernel.org>
@@ -76,9 +68,6 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.1.136
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_160820_851072_1BA472A8 
-X-CRM114-Status: GOOD (  18.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,126 +82,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ryan Walklin <ryan@testtoast.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
 
-[ Upstream commit a149377c033afe6557c50892ebbfc0e8b7e2e253 ]
+[ Upstream commit bfb1d2b9021c21891427acc86eb848ccedeb274e ]
 
-Add support for GPIO headphone detection with the hp-det-gpios
-property. In order for this to properly disable the path upon
-removal of headphones, the output must be labelled Headphone which
-is a common sink in the driver.
+pud_bad() is currently defined in terms of pud_table(). Although for some
+configs, pud_table() is hard-coded to true i.e. when using 64K base pages
+or when page table levels are less than 3.
 
-Describe a headphone jack and detection GPIO in the driver, check for
-a corresponding device tree node, and enable jack detection in a new
-machine init function if described.
+pud_bad() is intended to check that the pud is configured correctly. Hence
+let's open-code the same check that the full version of pud_table() uses
+into pud_bad(). Then it always performs the check regardless of the config.
 
-Signed-off-by: Chris Morgan <macromorgan@hotmail.com>
-Signed-off-by: Ryan Walklin <ryan@testtoast.com>
-
---
-Changelog v1..v2:
-- Separate DAPM changes into separate patch and add rationale.
-
-Tested-by: Philippe Simons <simons.philippe@gmail.com>
-Link: https://patch.msgid.link/20250214220247.10810-4-ryan@testtoast.com
-Signed-off-by: Mark Brown <broonie@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-kernel@vger.kernel.org
+Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Link: https://lore.kernel.org/r/20250221044227.1145393-7-anshuman.khandual@arm.com
+Signed-off-by: Catalin Marinas <catalin.marinas@arm.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- sound/soc/sunxi/sun4i-codec.c | 53 +++++++++++++++++++++++++++++++++++
- 1 file changed, 53 insertions(+)
+ arch/arm64/include/asm/pgtable.h | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/sound/soc/sunxi/sun4i-codec.c b/sound/soc/sunxi/sun4i-codec.c
-index 835dc34043670..1e310958f8c08 100644
---- a/sound/soc/sunxi/sun4i-codec.c
-+++ b/sound/soc/sunxi/sun4i-codec.c
-@@ -25,6 +25,7 @@
- #include <linux/gpio/consumer.h>
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index 1d713cfb0af16..426c3cb3e3bb1 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -677,7 +677,8 @@ static inline unsigned long pmd_page_vaddr(pmd_t pmd)
+ 	pr_err("%s:%d: bad pmd %016llx.\n", __FILE__, __LINE__, pmd_val(e))
  
- #include <sound/core.h>
-+#include <sound/jack.h>
- #include <sound/pcm.h>
- #include <sound/pcm_params.h>
- #include <sound/soc.h>
-@@ -239,6 +240,7 @@ struct sun4i_codec {
- 	struct clk	*clk_module;
- 	struct reset_control *rst;
- 	struct gpio_desc *gpio_pa;
-+	struct gpio_desc *gpio_hp;
- 
- 	/* ADC_FIFOC register is at different offset on different SoCs */
- 	struct regmap_field *reg_adc_fifoc;
-@@ -1273,6 +1275,49 @@ static struct snd_soc_dai_driver dummy_cpu_dai = {
- 	 },
- };
- 
-+static struct snd_soc_jack sun4i_headphone_jack;
-+
-+static struct snd_soc_jack_pin sun4i_headphone_jack_pins[] = {
-+	{ .pin = "Headphone", .mask = SND_JACK_HEADPHONE },
-+};
-+
-+static struct snd_soc_jack_gpio sun4i_headphone_jack_gpio = {
-+	.name = "hp-det",
-+	.report = SND_JACK_HEADPHONE,
-+	.debounce_time = 150,
-+};
-+
-+static int sun4i_codec_machine_init(struct snd_soc_pcm_runtime *rtd)
-+{
-+	struct snd_soc_card *card = rtd->card;
-+	struct sun4i_codec *scodec = snd_soc_card_get_drvdata(card);
-+	int ret;
-+
-+	if (scodec->gpio_hp) {
-+		ret = snd_soc_card_jack_new_pins(card, "Headphone Jack",
-+						 SND_JACK_HEADPHONE,
-+						 &sun4i_headphone_jack,
-+						 sun4i_headphone_jack_pins,
-+						 ARRAY_SIZE(sun4i_headphone_jack_pins));
-+		if (ret) {
-+			dev_err(rtd->dev,
-+				"Headphone jack creation failed: %d\n", ret);
-+			return ret;
-+		}
-+
-+		sun4i_headphone_jack_gpio.desc = scodec->gpio_hp;
-+		ret = snd_soc_jack_add_gpios(&sun4i_headphone_jack, 1,
-+					     &sun4i_headphone_jack_gpio);
-+
-+		if (ret) {
-+			dev_err(rtd->dev, "Headphone GPIO not added: %d\n", ret);
-+			return ret;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
- static struct snd_soc_dai_link *sun4i_codec_create_link(struct device *dev,
- 							int *num_links)
- {
-@@ -1298,6 +1343,7 @@ static struct snd_soc_dai_link *sun4i_codec_create_link(struct device *dev,
- 	link->codecs->name	= dev_name(dev);
- 	link->platforms->name	= dev_name(dev);
- 	link->dai_fmt		= SND_SOC_DAIFMT_I2S;
-+	link->init		= sun4i_codec_machine_init;
- 
- 	*num_links = 1;
- 
-@@ -1738,6 +1784,13 @@ static int sun4i_codec_probe(struct platform_device *pdev)
- 		return ret;
- 	}
- 
-+	scodec->gpio_hp = devm_gpiod_get_optional(&pdev->dev, "hp-det", GPIOD_IN);
-+	if (IS_ERR(scodec->gpio_hp)) {
-+		ret = PTR_ERR(scodec->gpio_hp);
-+		dev_err_probe(&pdev->dev, ret, "Failed to get hp-det gpio\n");
-+		return ret;
-+	}
-+
- 	/* reg_field setup */
- 	scodec->reg_adc_fifoc = devm_regmap_field_alloc(&pdev->dev,
- 							scodec->regmap,
+ #define pud_none(pud)		(!pud_val(pud))
+-#define pud_bad(pud)		(!pud_table(pud))
++#define pud_bad(pud)		((pud_val(pud) & PUD_TYPE_MASK) != \
++				 PUD_TYPE_TABLE)
+ #define pud_present(pud)	pte_present(pud_pte(pud))
+ #define pud_leaf(pud)		(pud_present(pud) && !pud_table(pud))
+ #define pud_valid(pud)		pte_valid(pud_pte(pud))
 -- 
 2.39.5
 
