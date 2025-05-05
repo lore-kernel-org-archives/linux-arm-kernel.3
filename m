@@ -4,95 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30BEDC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 02:37:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3477C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 02:39:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7fTVD9mhjVGVNu76WgrWlRxCFOQNPlvAmlBjEqJWVdA=; b=agVkhZ3Hzu5k6XdAabXbvugN2C
-	tF5JUHmmj+vSI1FBMiZ8urHp/LsE36tW92CQBHKnibIh41Vr8XHOfOplsxyrYfvHhJtZJmtMkO07u
-	4Pyz7Yl0ETguRh2QftYBAkFvt+1TG4rxoxkpm+eeZTuPnUqX0/Eyg4FBqDvhf76mqkZM0fTSPkMMB
-	eD88kCSQoo8LGA9/rL7KmvzIWY75MahYYy31s7sMgSPY5HBBlWzYaGwADcX6QDKEotOFH4xX7Bsnd
-	SG/0BS3LIWBbxNE5EQE2KLdIVSmLyFklG+jW7cK6HmijG+MXbAkWX8KjuVUSbAwkWTWxRbIYzO1u/
-	8HWJBZ8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bBOdXyXS4xPz3SkZDj6+qaGSQH/hm/6mLzfAVljRnQI=; b=wZy3fWF0aqmt6YHTGFU118J9/T
+	iL1k0JzD7qXBxzLRcHmxuW/14oLvhGVMgnDsArqMF104aIECGYGHAhTVp7rw7v9aB5SJyHlt8fSrz
+	6xqy2zOYPNkCcp+EouOxhoYuXM+480R6RXoUOkRl8MZeNflQcpFvCePH2vTMsK6GCSQaxVX8pFvHH
+	Hvz9HQVRhFkU89x1GigwBBqiVDVGwCPuao+/Xa0/FHjlOHQ22I4MH5UGLNR9CydomeIZDJ1uFD4De
+	i0cZpyEdrE1ZWpwwS2S6bGYoC5NpBxPN8H6XpqlOv77uLe4B/HQSbL2d9j2ysEENtZZkOWpCi3rCT
+	95mUNS3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC8BI-00000009nDo-1kRe;
-	Tue, 06 May 2025 02:37:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uC8DI-00000009njc-0Zu0;
+	Tue, 06 May 2025 02:39:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4mh-00000008vOT-3YdA
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 05 May 2025 22:59:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=7fTVD9mhjVGVNu76WgrWlRxCFOQNPlvAmlBjEqJWVdA=; b=CIoBG/LYifEncneo388KFPL0Mz
-	H0ERAaVaug7TP2pdc47Wzq563CTijwm+5pzXL3MHAsHofH7yg2YpHRAcCV/d5xOB1IEuyhAbCD+HB
-	ZfbFviTmWj5iLmyyDAuXdpLFBkf/A+yZ43n9SbODkhCb7ZIdyI/MLBs3JFqsMoQHwLc44AjiKVOc4
-	eI+BNpKchcYRNbkrAUbECYol5h01Cwuu8s98sddwlTIJMiivLjN65U0zF7R4q1WzBLeEL6Pr+Aj5/
-	Pxduia36mTEMvLmlB1myGcTm5/Kk5wbwVKsGI3ujCyioz/BGC9sLNeG7Scr2BO5DFVIjIvTVA8+PZ
-	+AUJKR9w==;
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uC4kW-0000000FZ2k-0OOK
+	id 1uC4mu-00000008vRy-3cfJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 22:59:35 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2ff68033070so4539254a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 15:57:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1746485839; x=1747090639; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=7fTVD9mhjVGVNu76WgrWlRxCFOQNPlvAmlBjEqJWVdA=;
-        b=dDz35SQM4fpqTHluNK+ulHAytDceKyjq46SQH6zjWfInF5OV2/Z5XFNhL1lvELjZdw
-         xUlZKtnLMYPo8/r2cJrtLbP66tpb21nfjtiO0JYfiPo6QexCR5pmKK13k8gFAmDfJ8p6
-         zdGkaMKDhXZXIMvRhx8Y+Hs3HuZLMEgGHH96aFpEUCjZ+aGdV1OAUASnt5G0BNDZnc8a
-         ZmKWxIr/qM4XgyH7LDknrI8tIoeWADnwElP+svRnBgSzIKDLyuveB0/EVv9Z/4infx+9
-         mdxKvlzJMS8QP/11RFfe9AMx5cFvo9sC+BDK9FIfqJXg9SGSegejTXNF9+jRv/U84tiL
-         7pzw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746485839; x=1747090639;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=7fTVD9mhjVGVNu76WgrWlRxCFOQNPlvAmlBjEqJWVdA=;
-        b=T8aSKfu7J8jHj1uO5QuzwnQOPCPN5C6T5SaVtEj7Jg2nSuf2ER1DN+zhuUiHfvRbI4
-         +iIQZf7Le3h2QYA6kNsMlHJ2/AVlRv0UZAwEs5oayB+ayyj+0ONJSr4UjTBsCuDJuhhz
-         l9PfgER68gNRN9HvP5PNMOJ+OL26A8CA85dcS3sPVMFrOH9nz/z53NIfwqfNb0qp3bl6
-         epHuCHD11VzDq+VdI3HQwIew8xBJQLSQc/u871FUZ+t6//tXj0VINIHQdlrLHe3c9F+t
-         1JtFHzswm/PSh9y4IxpJDQVtDNiU315HLEAi0wIhDdX9P4Tzxc6Tusuf9gElQsBh+fJG
-         7vLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVxBvMLXwtJtdCXstapGAejmr5fEJ3hDBSCnSNLYGu4MFZgcOxe7+TiSMeYBz9HFq969/xlNekXMLWDaBFSO/ce@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDmSg8xm85Ol/PJlgxFl9qSHpnWeHVzCcKUCT0UH0uyksSV6gl
-	Gjrsz4+Hyeoypnb69T3nflgBdzvEJPCMYD2DugX5TRtUXr1f61USJjRYz9br46aV/f+lEyF16K/
-	y8A==
-X-Google-Smtp-Source: AGHT+IG+bLbnRwKacBdwKEqb+ZlVouYwYu6ROj9LxnI6DWLtn5iDtn6cjFYO/W3uF1RtCR2hFz2sG6ty2pQ=
-X-Received: from pjbqn16.prod.google.com ([2002:a17:90b:3d50:b0:2f9:dc36:b11])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2e4f:b0:2f9:c139:b61f
- with SMTP id 98e67ed59e1d1-30a4e5a608cmr23836495a91.14.1746485839174; Mon, 05
- May 2025 15:57:19 -0700 (PDT)
-Date: Mon, 5 May 2025 15:57:17 -0700
-In-Reply-To: <20250505190538.GA1168139.vipinsh@google.com>
-Mime-Version: 1.0
-References: <20250222005943.3348627-1-vipinsh@google.com> <20250222005943.3348627-2-vipinsh@google.com>
- <aBJXabTuiJyRZb-O@google.com> <20250505190538.GA1168139.vipinsh@google.com>
-Message-ID: <aBlCTfAlKOWG5orI@google.com>
-Subject: Re: [PATCH 1/2] KVM: selftests: Add default testfiles for KVM
- selftests runner
-From: Sean Christopherson <seanjc@google.com>
-To: Vipin Sharma <vipinsh@google.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, kvm-riscv@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, pbonzini@redhat.com, 
-	anup@brainfault.org, borntraeger@linux.ibm.com, frankja@linux.ibm.com, 
-	imbrenda@linux.ibm.com, maz@kernel.org, oliver.upton@linux.dev
-Content-Type: text/plain; charset="us-ascii"
+	Mon, 05 May 2025 22:59:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D60C8439B6;
+	Mon,  5 May 2025 22:59:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FCFBC4CEED;
+	Mon,  5 May 2025 22:59:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746485992;
+	bh=2M8uPCt36C3of6ENKMaaIlkGVz65Qcmxt5L5qeA9Jus=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=PEctCCj3OgCddDU4ao2KrwEcYmJsZhR6DIGOu36l6q7ZsRCbvyT8hcJLOaZC5zTj3
+	 g/+YqQXKZu60oLPydbzvD/cmCuZqUzUgKJGkdLxxRd1KzjXiSPbnvvcfqIuBbIj7kS
+	 41tgl5Oku6MYOw+aBYJemXeKrTTHVYdN2qsrFlnOzre8oXBRmrbZxS0Flqd/sxd78A
+	 lRAPZCX0FmjJ0N8kJi8rfXPbmG6wiThSJzyEh6UxKm9epvilzaXT3XYbVkXBBeRNnO
+	 XEVhn7pHXED+uV14/6yocN169MblBcZjA7dtqmHzvdvlebM+1YzPNOagGEikm6kIGs
+	 JTBvZE8C5i0FA==
+From: Sasha Levin <sashal@kernel.org>
+To: linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Cc: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Sasha Levin <sashal@kernel.org>,
+	joel@jms.id.au,
+	linux-watchdog@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org
+Subject: [PATCH AUTOSEL 6.6 101/294] watchdog: aspeed: Update bootstatus handling
+Date: Mon,  5 May 2025 18:53:21 -0400
+Message-Id: <20250505225634.2688578-101-sashal@kernel.org>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250505225634.2688578-1-sashal@kernel.org>
+References: <20250505225634.2688578-1-sashal@kernel.org>
+MIME-Version: 1.0
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.6.89
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_235735_056283_7B615D7A 
-X-CRM114-Status: GOOD (  25.53  )
+X-CRM114-CacheID: sfid-20250505_155952_943190_455F1A9A 
+X-CRM114-Status: GOOD (  19.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,43 +82,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 05, 2025, Vipin Sharma wrote:
-> On 2025-04-30 10:01:29, Sean Christopherson wrote:
-> > But, I do think we should commit the default.test files to the repository.  If
-> > they're ephemeral, then several problems arise:
-> > 
-> >  1. For out-of-tree builds, the default.test files should arguably be placed in
-> >     the OUTPUT directory.  But if/when we add curated testcases/, then we'll either
-> >     end up with multiple testcases/ directories (source and output), or we'll have
-> >     to copy testcases/ from the source to the output on a normal build, which is
-> >     rather gross.  Or we'd need e.g. "make testcases", which is also gross, e.g.
-> >     I don't want to have to run yet more commands just to execute tests.
-> > 
-> >  2. Generating default.test could overwrite a user-defined file.  That's firmly
-> >     a user error, but at least if they default.test files are commited, the user
-> >     will get a hint or three that they're doing things wrong.
-> > 
-> >  3. If the files aren't committed, then they probably should removed on "clean",
-> >     which isn't the end of the world since they're trivially easy to generate,
-> >     but it's kinda funky. 
-> > 
-> > So, what if we add this to auto-generate the files?  It's obviously wasteful since
-> > the files will exist 99.9999999% of the time, but the overhead is completely
-> > negligible.  The only concern I have is if this will do the wrong thing for some
-> > build environments, i.e. shove the files in the wrong location.
-> 
-> We can get the current path of the Makefile.kvm by writing this at the top
-> of the Makefile.kvm:
-> 	MAKEFILE_DIR := $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
-> 
-> Then MAKEFILE_DIR will have the source directory of Makfile.kvm and
-> testcase will be in the same directory.
-> 
-> With this we can modify the below foreach you wrote by prefixing
-> MAKEFILE_DIR to "testcases".
-> 
-> Does this alleviate concern regaring build environment?
+From: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
 
-Yeah, I think so.  FWIW, "concern" probably isn't the right word, more like "the
-only thing I haven't thought much about".
+[ Upstream commit 5c03f9f4d36292150c14ebd90788c4d3273ed9dc ]
+
+The boot status in the watchdog device struct is updated during
+controller probe stage. Application layer can get the boot status
+through the command, cat /sys/class/watchdog/watchdogX/bootstatus.
+The bootstatus can be,
+WDIOF_CARDRESET => System is reset due to WDT timeout occurs.
+Others          => Other reset events, e.g., power on reset.
+
+On ASPEED platforms, boot status is recorded in the SCU registers.
+- AST2400: Only a bit is used to represent system reset triggered by
+           any WDT controller.
+- AST2500/AST2600: System reset triggered by different WDT controllers
+                   can be distinguished by different SCU bits.
+
+Besides, on AST2400 and AST2500, since alternating boot event is
+also triggered by using WDT timeout mechanism, it is classified
+as WDIOF_CARDRESET.
+
+Signed-off-by: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
+Reviewed-by: Andrew Jeffery <andrew@codeconstruct.com.au>
+Reviewed-by: Guenter Roeck <linux@roeck-us.net>
+Link: https://lore.kernel.org/r/20250113093737.845097-2-chin-ting_kuo@aspeedtech.com
+Signed-off-by: Guenter Roeck <linux@roeck-us.net>
+Signed-off-by: Wim Van Sebroeck <wim@linux-watchdog.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ drivers/watchdog/aspeed_wdt.c | 81 ++++++++++++++++++++++++++++++++++-
+ 1 file changed, 79 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/watchdog/aspeed_wdt.c b/drivers/watchdog/aspeed_wdt.c
+index b72a858bbac70..7bc0fb1df1e00 100644
+--- a/drivers/watchdog/aspeed_wdt.c
++++ b/drivers/watchdog/aspeed_wdt.c
+@@ -11,21 +11,30 @@
+ #include <linux/io.h>
+ #include <linux/kernel.h>
+ #include <linux/kstrtox.h>
++#include <linux/mfd/syscon.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
+ #include <linux/of_irq.h>
+ #include <linux/platform_device.h>
++#include <linux/regmap.h>
+ #include <linux/watchdog.h>
+ 
+ static bool nowayout = WATCHDOG_NOWAYOUT;
+ module_param(nowayout, bool, 0);
+ MODULE_PARM_DESC(nowayout, "Watchdog cannot be stopped once started (default="
+ 				__MODULE_STRING(WATCHDOG_NOWAYOUT) ")");
++struct aspeed_wdt_scu {
++	const char *compatible;
++	u32 reset_status_reg;
++	u32 wdt_reset_mask;
++	u32 wdt_reset_mask_shift;
++};
+ 
+ struct aspeed_wdt_config {
+ 	u32 ext_pulse_width_mask;
+ 	u32 irq_shift;
+ 	u32 irq_mask;
++	struct aspeed_wdt_scu scu;
+ };
+ 
+ struct aspeed_wdt {
+@@ -39,18 +48,36 @@ static const struct aspeed_wdt_config ast2400_config = {
+ 	.ext_pulse_width_mask = 0xff,
+ 	.irq_shift = 0,
+ 	.irq_mask = 0,
++	.scu = {
++		.compatible = "aspeed,ast2400-scu",
++		.reset_status_reg = 0x3c,
++		.wdt_reset_mask = 0x1,
++		.wdt_reset_mask_shift = 1,
++	},
+ };
+ 
+ static const struct aspeed_wdt_config ast2500_config = {
+ 	.ext_pulse_width_mask = 0xfffff,
+ 	.irq_shift = 12,
+ 	.irq_mask = GENMASK(31, 12),
++	.scu = {
++		.compatible = "aspeed,ast2500-scu",
++		.reset_status_reg = 0x3c,
++		.wdt_reset_mask = 0x1,
++		.wdt_reset_mask_shift = 2,
++	},
+ };
+ 
+ static const struct aspeed_wdt_config ast2600_config = {
+ 	.ext_pulse_width_mask = 0xfffff,
+ 	.irq_shift = 0,
+ 	.irq_mask = GENMASK(31, 10),
++	.scu = {
++		.compatible = "aspeed,ast2600-scu",
++		.reset_status_reg = 0x74,
++		.wdt_reset_mask = 0xf,
++		.wdt_reset_mask_shift = 16,
++	},
+ };
+ 
+ static const struct of_device_id aspeed_wdt_of_table[] = {
+@@ -211,6 +238,56 @@ static int aspeed_wdt_restart(struct watchdog_device *wdd,
+ 	return 0;
+ }
+ 
++static void aspeed_wdt_update_bootstatus(struct platform_device *pdev,
++					 struct aspeed_wdt *wdt)
++{
++	const struct resource *res;
++	struct aspeed_wdt_scu scu = wdt->cfg->scu;
++	struct regmap *scu_base;
++	u32 reset_mask_width;
++	u32 reset_mask_shift;
++	u32 idx = 0;
++	u32 status;
++	int ret;
++
++	if (!of_device_is_compatible(pdev->dev.of_node, "aspeed,ast2400-wdt")) {
++		res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
++		idx = ((intptr_t)wdt->base & 0x00000fff) / resource_size(res);
++	}
++
++	scu_base = syscon_regmap_lookup_by_compatible(scu.compatible);
++	if (IS_ERR(scu_base)) {
++		wdt->wdd.bootstatus = WDIOS_UNKNOWN;
++		return;
++	}
++
++	ret = regmap_read(scu_base, scu.reset_status_reg, &status);
++	if (ret) {
++		wdt->wdd.bootstatus = WDIOS_UNKNOWN;
++		return;
++	}
++
++	reset_mask_width = hweight32(scu.wdt_reset_mask);
++	reset_mask_shift = scu.wdt_reset_mask_shift +
++			   reset_mask_width * idx;
++
++	if (status & (scu.wdt_reset_mask << reset_mask_shift))
++		wdt->wdd.bootstatus = WDIOF_CARDRESET;
++
++	/* clear wdt reset event flag */
++	if (of_device_is_compatible(pdev->dev.of_node, "aspeed,ast2400-wdt") ||
++	    of_device_is_compatible(pdev->dev.of_node, "aspeed,ast2500-wdt")) {
++		ret = regmap_read(scu_base, scu.reset_status_reg, &status);
++		if (!ret) {
++			status &= ~(scu.wdt_reset_mask << reset_mask_shift);
++			regmap_write(scu_base, scu.reset_status_reg, status);
++		}
++	} else {
++		regmap_write(scu_base, scu.reset_status_reg,
++			     scu.wdt_reset_mask << reset_mask_shift);
++	}
++}
++
+ /* access_cs0 shows if cs0 is accessible, hence the reverted bit */
+ static ssize_t access_cs0_show(struct device *dev,
+ 			       struct device_attribute *attr, char *buf)
+@@ -447,10 +524,10 @@ static int aspeed_wdt_probe(struct platform_device *pdev)
+ 		writel(duration - 1, wdt->base + WDT_RESET_WIDTH);
+ 	}
+ 
++	aspeed_wdt_update_bootstatus(pdev, wdt);
++
+ 	status = readl(wdt->base + WDT_TIMEOUT_STATUS);
+ 	if (status & WDT_TIMEOUT_STATUS_BOOT_SECONDARY) {
+-		wdt->wdd.bootstatus = WDIOF_CARDRESET;
+-
+ 		if (of_device_is_compatible(np, "aspeed,ast2400-wdt") ||
+ 		    of_device_is_compatible(np, "aspeed,ast2500-wdt"))
+ 			wdt->wdd.groups = bswitch_groups;
+-- 
+2.39.5
+
 
