@@ -4,54 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EB1AC3ABB7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 08:04:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FC6BC3ABB6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 08:06:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lA009qM0j4YRzFUfPgrXk13BGm3QuXjamWZpOmZ+a7M=; b=10VtwZ2vaiqLNh5cr6dSFN2P9B
-	0OL3S9gzcZcWnn4+wUN82uQxitJiMmhEOZEOHDIZe/EbEYDVB6cEgjULRZjHlntcOWAwZMM4k77t3
-	AslxAOCSraobzmOvlQ7mDNVN+vkhHJOFDpK+DPzwx80cfhNkpAOjI5yMpjj1p6UbUg8LhV+DWazdm
-	70uDdATyVQbygTbKuAap+/2M5inp8yPKYeouG6SIwJGo8smFAifmamhZe6IbmI9jfBopbP992CP0j
-	xLOTSlW/LjmN0ft00ws32w74T9Iv8XrVAnCksHbYWyVkfC2NAoViSIBIRQCzBJG9XANL7C742FUb0
-	Rhn2aA1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:Cc:To:From:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y1D14DESXgEJssAmCS0DlckceNK8D0Dq2lVptoRgrgc=; b=F9UNZDh0zScw8+655OMjCW9htw
+	mZQiSKJbxglPGtexQxM0RmXnnXO61yEo7hE7J79P3YBRsA75gfzn2xdHhY6XQT14FHKgUy+Z7a3TI
+	AY/Vd2XHDkdFNStN2ImjRKCC6/Ya8a+JL55qrWFfqq+7Sa3MUUoG78tPhvQWIRwa5BG7RkLJR6njz
+	lTIEO7TLbtT6zu9oikf2HLaTb8fv3Q+6HIll1m95dSu1r9bRvrmcQAWTA7jg4it2V6Fg9dztYg/S5
+	jWexC+FdTOCgyn9ldqwBHiVlO0Pyz0CGcqf1S4YEVs1pjP2AsOHBNVsYssmf0AnBUkK+YO8l/hiIP
+	MflC/Exw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBqns-00000006jOZ-1zxO;
-	Mon, 05 May 2025 08:03:56 +0000
-Received: from mail.bizotrix.pl ([217.61.97.166])
+	id 1uBqpp-00000006jpX-1OMj;
+	Mon, 05 May 2025 08:05:57 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBqkJ-00000006ifr-2mSn
+	id 1uBqlZ-00000006iqy-11Ju
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 08:00:16 +0000
-Received: by mail.bizotrix.pl (Postfix, from userid 1002)
-	id 30A9E83BDF; Mon,  5 May 2025 09:55:55 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=bizotrix.pl; s=mail;
-	t=1746431761; bh=lA009qM0j4YRzFUfPgrXk13BGm3QuXjamWZpOmZ+a7M=;
-	h=Date:From:To:Subject:From;
-	b=YpftJUPbnJ4LRCMrk7gkMFIMDI82EEb3f8iAjbm+gAkIAaNBZ98nwhI9vFpRuO9nV
-	 etzvKC+lwnbKb+iYjfgKI+sPGxfvYhl4CXFpbXsV9hgiwpcHmmJt0OP98G/SrtCMcU
-	 nnUsznOMiSSraVgatLxEnA2o2Z8j0NapYmk5T9bfLUKeVXSBlHHjaSOljjnnI4D1e0
-	 sNvu0J7jLRBZljt47mGpZ1VU88IpQHo509ytUKoiEXa5GTiQgs6vxqWF/oTLjkZVxU
-	 1MkaTdl9eBDWcEr5PLb/QL+4KbqDLHUukDRlMW8577+FcD01st3lzH4hsPlPLMohRJ
-	 YtJj1ASoOEGEg==
-Received: by mail.bizotrix.pl for <linux-arm-kernel@lists.infradead.org>; Mon,  5 May 2025 07:55:44 GMT
-Message-ID: <20250505084500-0.1.9x.k20o.0.bk3swr1aa8@bizotrix.pl>
-Date: Mon,  5 May 2025 07:55:44 GMT
-From: "Filip Gerlowski" <filip.gerlowski@bizotrix.pl>
-To: <linux-arm-kernel@lists.infradead.org>
-Subject: =?UTF-8?Q?S=C5=82owa_kluczowe_do_wypozycjonowania_?=
-X-Mailer: mail.bizotrix.pl
-MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Mon, 05 May 2025 08:01:34 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-ad1b94382b8so168418266b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 01:01:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1746432091; x=1747036891; darn=lists.infradead.org;
+        h=in-reply-to:references:subject:cc:to:from:message-id:date
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=y1D14DESXgEJssAmCS0DlckceNK8D0Dq2lVptoRgrgc=;
+        b=b4ZvP6D2lWiqAP4z1cZNZp3FYPgeGEhRhxsZQwyoiB8GpzKHtXDGB9TmQkbOfN5lZe
+         PQSZzDWgldAyNz2XyP4gaeZow3lcnDvR6Esfzw5Fdq2TbEZf5hxhrcQ5nCY67wNCSdbq
+         neHtE0fstKZHuX/lJM6BFgcI+u0JY2R0jDx/AlHhEq5oN1MQ6AjnfKHsw1QawjBCWY6F
+         W8kgwZnkrbTVSdHOVPfscZ8isP7tU5FzDT8Xt1hE6QLl/qx6mxdjzPsPKPOnTV2bW0QW
+         1iP07sD2Jj3l1lAs9X/B09/BxZj2OKrBgdk98S+eZiP23dDbdMFGL1fU7j2A9szWtVad
+         lwVQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746432091; x=1747036891;
+        h=in-reply-to:references:subject:cc:to:from:message-id:date
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=y1D14DESXgEJssAmCS0DlckceNK8D0Dq2lVptoRgrgc=;
+        b=NT7iZ0Qqz2HLPLCrZysu1W2eTCL8IcGtADLrQOEmE9FTPrI7qhq2ScJc0g+MeN0+9q
+         EkTEH1pOpc8PQW0XlEuP6YC0WLuv77I0WnW5392J6SCItubrgf7jtCZewXqCc5WOtVsO
+         rzYFFqC0L9fIt4H3P3l7zHesGKepOPUlqjLR13uKvgBcnAXcNdeOoeoqyJP+GkTOz/tD
+         egH3NXffxHYJ1EOQlutpLY22tGY090St0CaYHxpwqzXeWe16eRrDqtjzFJh75eAChh8p
+         5a+GwxEguIvkmiTprPMdGWHsDpA7ZRYuCokd9MnYSryb0rgvbzHVbdAvBVB1GAuUhoqo
+         wLQA==
+X-Forwarded-Encrypted: i=1; AJvYcCXHNlcXO2U7LHYAWGRt24DTTo6+luU//r5wNwJ11ra54hlY1GSdw/kdY7gV7wCTNA717B5rgZxf282O/W4k7qKx@lists.infradead.org
+X-Gm-Message-State: AOJu0YxqcGZ9E82QV7gVF33en8FMkPotq1b2SnACKGY5yXcXmx0rBF1D
+	ZqP1HkCRKPuvFNH/HTtmYfDPSEOOYoMOEBZ+Lx7mqxSDe6alaX4YCx40jmuFSIA=
+X-Gm-Gg: ASbGncv4Y5bvjeHgDXtW5ufvzZuuEQGekCvOzsAXuL7r2FIiXWxknqAaEnJU89GJX5K
+	ty/RRvlM8gKUm0ynTKWCjmbOkpctcTiCvXy8+gl89abxQ0Z+IX/tT5W4ZE8NgjkQnSLNQ4skPcC
+	wGGmc2UbdO3koJEdWmqMYegoxOhGbC9iHAf6blbdq7URig4BX5nn6NNBI0XClFBlCiQMiS77fwV
+	rYnCgDC7msEfSCIySCDxtY9kqyQhaJCAmqK8hsesOS82SUaAQIATNxgxaIsM5IYd5RAWu0mIzTI
+	3k4KMnuQUN7vYpD/B5Yf305VC+zM3hNv9x+O22kDaK9Jm3ikKWKXwcpmXtLn/XdqMMRVRbHR/ee
+	8K1uTS26X5xo5NJ2G+zKc
+X-Google-Smtp-Source: AGHT+IGp4PfYHD/YxcY0Mn7oA5l0dQ/O7fQeMsiDfpR5dpQOL/r9zkCVIrRqDBHZGZeydZuEK+PkNQ==
+X-Received: by 2002:a17:906:7f99:b0:acb:b0f4:bc77 with SMTP id a640c23a62f3a-ad190858b7amr637113766b.57.1746432091180;
+        Mon, 05 May 2025 01:01:31 -0700 (PDT)
+Received: from localhost (dynamic-176-003-040-035.176.3.pool.telefonica.de. [176.3.40.35])
+        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-ad18914736asm449923366b.7.2025.05.05.01.01.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 May 2025 01:01:30 -0700 (PDT)
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=64453a89ddc6afb76b4932a46c59c202600130e560186a7d832de92cee9b;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Mon, 05 May 2025 10:01:22 +0200
+Message-Id: <D9O2I6OT6RSA.JDWMLFP77KSX@baylibre.com>
+From: "Markus Schneider-Pargmann" <msp@baylibre.com>
+To: "Marc Kleine-Budde" <mkl@pengutronix.de>, "Manivannan Sadhasivam"
+ <manivannan.sadhasivam@linaro.org>, "Thomas Kopp"
+ <thomas.kopp@microchip.com>, "Vincent Mailhol"
+ <mailhol.vincent@wanadoo.fr>, <kernel@pengutronix.de>, "Heiko Stuebner"
+ <heiko@sntech.de>, "Chandrasekar Ramakrishnan" <rcsekar@samsung.com>
+Cc: <linux-can@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <stable@vger.kernel.org>
+Subject: Re: [PATCH 3/3] can: mcan: m_can_class_unregister: fix order of
+ unregistration calls
+X-Mailer: aerc 0.20.1
+References: <20250502-can-rx-offload-del-v1-0-59a9b131589d@pengutronix.de>
+ <20250502-can-rx-offload-del-v1-3-59a9b131589d@pengutronix.de>
+In-Reply-To: <20250502-can-rx-offload-del-v1-3-59a9b131589d@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_010015_835629_61063901 
-X-CRM114-Status: UNSURE (   1.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250505_010133_284032_8C74ABB8 
+X-CRM114-Status: GOOD (  22.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,20 +106,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dzie=C5=84 dobry,
+--64453a89ddc6afb76b4932a46c59c202600130e560186a7d832de92cee9b
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-zapozna=C5=82em si=C4=99 z Pa=C5=84stwa stron=C4=85 i z przyjemno=C5=9Bci=
-=C4=85 przyznaj=C4=99, =C5=BCe przyci=C4=85ga uwag=C4=99 i zach=C4=99ca d=
-o dalszych rozm=C3=B3w.=20
+On Fri May 2, 2025 at 4:13 PM CEST, Marc Kleine-Budde wrote:
+> If a driver is removed, the driver framework invokes the driver's
+> remove callback. A CAN driver's remove function calls
+> unregister_candev(), which calls net_device_ops::ndo_stop further down
+> in the call stack for interfaces which are in the "up" state.
+>
+> The removal of the module causes the a warning, as
+> can_rx_offload_del() deletes the NAPI, while it is still active,
+> because the interface is still up.
+>
+> To fix the warning, first unregister the network interface, which
+> calls net_device_ops::ndo_stop, which disables the NAPI, and then call
+> can_rx_offload_del().
+>
+> Fixes: 1be37d3b0414 ("can: m_can: fix periph RX path: use rx-offload to e=
+nsure skbs are sent from softirq context")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
 
-Pomy=C5=9Bla=C5=82em, =C5=BCe mo=C5=BCe m=C3=B3g=C5=82bym mie=C4=87 sw=C3=
-=B3j wk=C5=82ad w Pa=C5=84stwa rozw=C3=B3j i pom=C3=B3c dotrze=C4=87 z t=C4=
-=85 ofert=C4=85 do wi=C4=99kszego grona odbiorc=C3=B3w. Pozycjonuj=C4=99 =
-strony www, dzi=C4=99ki czemu generuj=C4=85 =C5=9Bwietny ruch w sieci.
+Reviewed-by: Markus Schneider-Pargmann <msp@baylibre.com>
 
-Mo=C5=BCemy porozmawia=C4=87 w najbli=C5=BCszym czasie?
+> ---
+>  drivers/net/can/m_can/m_can.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/net/can/m_can/m_can.c b/drivers/net/can/m_can/m_can.=
+c
+> index 884a6352c42b..7c430eaff5dd 100644
+> --- a/drivers/net/can/m_can/m_can.c
+> +++ b/drivers/net/can/m_can/m_can.c
+> @@ -2462,9 +2462,9 @@ EXPORT_SYMBOL_GPL(m_can_class_register);
+> =20
+>  void m_can_class_unregister(struct m_can_classdev *cdev)
+>  {
+> +	unregister_candev(cdev->net);
+>  	if (cdev->is_peripheral)
+>  		can_rx_offload_del(&cdev->offload);
+> -	unregister_candev(cdev->net);
+>  }
+>  EXPORT_SYMBOL_GPL(m_can_class_unregister);
+> =20
 
 
-Pozdrawiam
-Filip Gerlowski
+--64453a89ddc6afb76b4932a46c59c202600130e560186a7d832de92cee9b
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iIcEABYKAC8WIQSJYVVm/x+5xmOiprOFwVZpkBVKUwUCaBhwUhEcbXNwQGJheWxp
+YnJlLmNvbQAKCRCFwVZpkBVKU3urAQCJ69IFypvaFtVZN9A3KA4EhHPYFZnLhKhP
+Pk2HK1dA9AEAlZm7/1uU/TAuxXN+0/6NZUVxbJO2yOQNMI6MhbuvGwY=
+=/3qK
+-----END PGP SIGNATURE-----
+
+--64453a89ddc6afb76b4932a46c59c202600130e560186a7d832de92cee9b--
 
