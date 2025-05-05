@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 206F1C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 02:16:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8095C3ABB6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 02:18:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eUHvXUZ92yZ8lM8AvvlYM9WZK8nkUw9v8c38R6URduE=; b=LUwpYSUX4lzuHIhx9yTQ/aL76O
-	shkxukS28FZ04YLwu4NwodEh7J2cnuT4IKmsd2zwrZlYt4CpvBdUCB2Oerj8yz56JPqHSXdptsgTD
-	/dRflFT+4DdSC4hBuXwOmNGgNnO3wCPnVPoMN4egHQYm1qLBihjnPZfranhhbk1r90TKIinc4NH2e
-	dUXpt4FhBn2TOLjazIMyZcMPvko3frkfLxqNpqUolwKmIAJfje3Fq44wAtlUcRc1j75DUr21LTnvs
-	bbDSwKRHJV6oSU3kOqeJ7+QWWD6mnqX53aX02uC2mwv7QUV+GBqoHIGFU0oY4PgHtNEps2HF6FM6a
-	9nLsy7kg==;
+	bh=fab+B6DpklLJbleoaQwJy6LvQvPCBOraz+yzqnQYGfQ=; b=jstT2ZECqvuryFVl9UXrwXCySf
+	/28q7XWgwrotMBacGtJiiOxywaY4XW+4HHWejYsTgyJk8ROVlqUl0hbyJv3f75LETTnGqiVgWIjGU
+	Teo1PIflzA9LhazUCWgR0k1Y1Rxoimbu0fbuTMMQKXSfvxM1LBVdGnOfr9pgCswH2+s0tQkh35kq6
+	pGTqYyqibRLI62x2IWaFcKEmY7s91bJUJpxu+h8dfVSTsYOdobc1nFazUDOfp5Er9GqLazZ7ory9X
+	O1GBxm74bTQsqtn5d2EtUkVtJX5j0nyZitlF1PioSawdNT3hA4U/0U/mfjpnbcjtQ8AWNMnzIUtQj
+	agiGl7cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC7rK-00000009hgp-41y7;
-	Tue, 06 May 2025 02:16:38 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uC7tK-00000009iEw-25nA;
+	Tue, 06 May 2025 02:18:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4hj-00000008txT-0tLz;
-	Mon, 05 May 2025 22:54:32 +0000
+	id 1uC4ie-00000008uEO-2qho
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 May 2025 22:55:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D1057A4D253;
-	Mon,  5 May 2025 22:49:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 832E7C4CEED;
-	Mon,  5 May 2025 22:54:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4805A629CB;
+	Mon,  5 May 2025 22:54:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 900FCC4CEE4;
+	Mon,  5 May 2025 22:55:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746485670;
-	bh=QllDEA0wxQmEYPCZ0PctIfoSoTB7ZtFb1wtsfCkJV1M=;
+	s=k20201202; t=1746485727;
+	bh=KCH91/zsYJ4aTUBVAhrrGbgMbywzpLFiEgK6TFB6SxE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=S/GQ9JMA1p7QAaoATRRL95OCm36Om6+rrFCDqOF9zunbgDpO7rHBKdoosx4A5WaQh
-	 OvEIG3G3A3qDt2noZ853SVOdCLdzwApKwLng/QEp6izSAdLnECjFxcgwscp6Xvwd3R
-	 cYTHjprwV2ZaYJyOIrXCsZx5APkc0jYUmefpmaihKYqGTOrH2LlvaKSjUdZ7ffX/OF
-	 v9ul/Yd7TtFaqmed52qspx3dH/hxG0CnXIXym/jsC0XzYvQBD0oM0+N+EIY3H4jYZU
-	 oDdp3EUkQptU3oyonfB12kDpCkXNiUhzn+tzVbOna1xuuJyjbkEgMlwRfKJUukHbR7
-	 wZdmFof92E+WQ==
+	b=gpeJ4SI9iXaSae5UtWgfzH30ggObgB5odAgcQCxPCCsIsCmq08KRRNfl9Ol78TABr
+	 Wl7VZUcRkLU90w8TdElWZG5mPp4jwv0hP8hzdK/H95uADvNHWuLkAT5h8jAnlp7kd/
+	 x7TjBu3MnJM/Wlrth1NBJsG4gYQ5sYZsg/5nxwWanRXXXv4iyTwlcdgAxJigCPl+p1
+	 YeJpGP/6THFm4meXh4ATf6tvUwo/1uL3VqPXuDQNRZ9oVJmCBL2UoV6aJcP19FFZ2D
+	 xQTGylI43UdNt7IkBj3Nqenqd/sPuJzCK5+K0DsLCP0Rp2bA6B/YL02I8KPGHfo8iS
+	 jgDgtLXiJ5pGA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	FUKAUMI Naoki <naoki@radxa.com>,
-	Heiko Stuebner <heiko@sntech.de>,
+Cc: Naman Trivedi <naman.trivedimanojbhai@amd.com>,
+	Senthil Nathan Thangaraj <senthilnathan.thangaraj@amd.com>,
+	Michal Simek <michal.simek@amd.com>,
 	Sasha Levin <sashal@kernel.org>,
-	hjc@rock-chips.com,
-	andy.yan@rock-chips.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.12 419/486] drm/rockchip: vop2: Improve display modes handling on RK3588 HDMI0
-Date: Mon,  5 May 2025 18:38:15 -0400
-Message-Id: <20250505223922.2682012-419-sashal@kernel.org>
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	sean.anderson@linux.dev,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.12 447/486] arm64: zynqmp: add clock-output-names property in clock nodes
+Date: Mon,  5 May 2025 18:38:43 -0400
+Message-Id: <20250505223922.2682012-447-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505223922.2682012-1-sashal@kernel.org>
 References: <20250505223922.2682012-1-sashal@kernel.org>
@@ -69,9 +66,6 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.12.26
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_155431_391752_85D254C8 
-X-CRM114-Status: GOOD (  15.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,110 +80,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+From: Naman Trivedi <naman.trivedimanojbhai@amd.com>
 
-[ Upstream commit 2c1268e7aad0819f38e56134bbc2095fd95fde1b ]
+[ Upstream commit 385a59e7f7fb3438466a0712cc14672c708bbd57 ]
 
-The RK3588 specific implementation is currently quite limited in terms
-of handling the full range of display modes supported by the connected
-screens, e.g. 2560x1440@75Hz, 2048x1152@60Hz, 1024x768@60Hz are just a
-few of them.
+Add clock-output-names property to clock nodes, so that the resulting
+clock name do not change when clock node name is changed.
+Also, replace underscores with hyphens in the clock node names as per
+dt-schema rule.
 
-Additionally, it doesn't cope well with non-integer refresh rates like
-59.94, 29.97, 23.98, etc.
-
-Make use of HDMI0 PHY PLL as a more accurate DCLK source to handle
-all display modes up to 4K@60Hz.
-
-Tested-by: FUKAUMI Naoki <naoki@radxa.com>
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-Link: https://patchwork.freedesktop.org/patch/msgid/20250204-vop2-hdmi0-disp-modes-v3-3-d71c6a196e58@collabora.com
+Signed-off-by: Naman Trivedi <naman.trivedimanojbhai@amd.com>
+Acked-by: Senthil Nathan Thangaraj <senthilnathan.thangaraj@amd.com>
+Link: https://lore.kernel.org/r/20241122095712.1166883-1-naman.trivedimanojbhai@amd.com
+Signed-off-by: Michal Simek <michal.simek@amd.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 34 ++++++++++++++++++++
- 1 file changed, 34 insertions(+)
+ arch/arm64/boot/dts/xilinx/zynqmp-clk-ccf.dtsi | 15 ++++++++++-----
+ 1 file changed, 10 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 2aab2a0956788..5d7df4c3b08c4 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -157,6 +157,7 @@ struct vop2_video_port {
- 	struct drm_crtc crtc;
- 	struct vop2 *vop2;
- 	struct clk *dclk;
-+	struct clk *dclk_src;
- 	unsigned int id;
- 	const struct vop2_video_port_data *data;
+diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-clk-ccf.dtsi b/arch/arm64/boot/dts/xilinx/zynqmp-clk-ccf.dtsi
+index 60d1b1acf9a03..385fed8a852af 100644
+--- a/arch/arm64/boot/dts/xilinx/zynqmp-clk-ccf.dtsi
++++ b/arch/arm64/boot/dts/xilinx/zynqmp-clk-ccf.dtsi
+@@ -10,39 +10,44 @@
  
-@@ -211,6 +212,7 @@ struct vop2 {
- 	struct clk *hclk;
- 	struct clk *aclk;
- 	struct clk *pclk;
-+	struct clk *pll_hdmiphy0;
+ #include <dt-bindings/clock/xlnx-zynqmp-clk.h>
+ / {
+-	pss_ref_clk: pss_ref_clk {
++	pss_ref_clk: pss-ref-clk {
+ 		bootph-all;
+ 		compatible = "fixed-clock";
+ 		#clock-cells = <0>;
+ 		clock-frequency = <33333333>;
++		clock-output-names = "pss_ref_clk";
+ 	};
  
- 	/* optional internal rgb encoder */
- 	struct rockchip_rgb *rgb;
-@@ -219,6 +221,8 @@ struct vop2 {
- 	struct vop2_win win[];
+-	video_clk: video_clk {
++	video_clk: video-clk {
+ 		bootph-all;
+ 		compatible = "fixed-clock";
+ 		#clock-cells = <0>;
+ 		clock-frequency = <27000000>;
++		clock-output-names = "video_clk";
+ 	};
+ 
+-	pss_alt_ref_clk: pss_alt_ref_clk {
++	pss_alt_ref_clk: pss-alt-ref-clk {
+ 		bootph-all;
+ 		compatible = "fixed-clock";
+ 		#clock-cells = <0>;
+ 		clock-frequency = <0>;
++		clock-output-names = "pss_alt_ref_clk";
+ 	};
+ 
+-	gt_crx_ref_clk: gt_crx_ref_clk {
++	gt_crx_ref_clk: gt-crx-ref-clk {
+ 		bootph-all;
+ 		compatible = "fixed-clock";
+ 		#clock-cells = <0>;
+ 		clock-frequency = <108000000>;
++		clock-output-names = "gt_crx_ref_clk";
+ 	};
+ 
+-	aux_ref_clk: aux_ref_clk {
++	aux_ref_clk: aux-ref-clk {
+ 		bootph-all;
+ 		compatible = "fixed-clock";
+ 		#clock-cells = <0>;
+ 		clock-frequency = <27000000>;
++		clock-output-names = "aux_ref_clk";
+ 	};
  };
  
-+#define VOP2_MAX_DCLK_RATE		600000000
-+
- #define vop2_output_if_is_hdmi(x)	((x) == ROCKCHIP_VOP2_EP_HDMI0 || \
- 					 (x) == ROCKCHIP_VOP2_EP_HDMI1)
- 
-@@ -1051,6 +1055,9 @@ static void vop2_crtc_atomic_disable(struct drm_crtc *crtc,
- 
- 	vop2_crtc_disable_irq(vp, VP_INT_DSP_HOLD_VALID);
- 
-+	if (vp->dclk_src)
-+		clk_set_parent(vp->dclk, vp->dclk_src);
-+
- 	clk_disable_unprepare(vp->dclk);
- 
- 	vop2->enable_count--;
-@@ -2071,6 +2078,27 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
- 
- 	vop2_vp_write(vp, RK3568_VP_MIPI_CTRL, 0);
- 
-+	/*
-+	 * Switch to HDMI PHY PLL as DCLK source for display modes up
-+	 * to 4K@60Hz, if available, otherwise keep using the system CRU.
-+	 */
-+	if (vop2->pll_hdmiphy0 && clock <= VOP2_MAX_DCLK_RATE) {
-+		drm_for_each_encoder_mask(encoder, crtc->dev, crtc_state->encoder_mask) {
-+			struct rockchip_encoder *rkencoder = to_rockchip_encoder(encoder);
-+
-+			if (rkencoder->crtc_endpoint_id == ROCKCHIP_VOP2_EP_HDMI0) {
-+				if (!vp->dclk_src)
-+					vp->dclk_src = clk_get_parent(vp->dclk);
-+
-+				ret = clk_set_parent(vp->dclk, vop2->pll_hdmiphy0);
-+				if (ret < 0)
-+					drm_warn(vop2->drm,
-+						 "Could not switch to HDMI0 PHY PLL: %d\n", ret);
-+				break;
-+			}
-+		}
-+	}
-+
- 	clk_set_rate(vp->dclk, clock);
- 
- 	vop2_post_config(crtc);
-@@ -3242,6 +3270,12 @@ static int vop2_bind(struct device *dev, struct device *master, void *data)
- 		return PTR_ERR(vop2->pclk);
- 	}
- 
-+	vop2->pll_hdmiphy0 = devm_clk_get_optional(vop2->dev, "pll_hdmiphy0");
-+	if (IS_ERR(vop2->pll_hdmiphy0)) {
-+		drm_err(vop2->drm, "failed to get pll_hdmiphy0\n");
-+		return PTR_ERR(vop2->pll_hdmiphy0);
-+	}
-+
- 	vop2->irq = platform_get_irq(pdev, 0);
- 	if (vop2->irq < 0) {
- 		drm_err(vop2->drm, "cannot find irq for vop2\n");
 -- 
 2.39.5
 
