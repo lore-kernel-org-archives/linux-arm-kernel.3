@@ -4,98 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 317E4C3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 15:58:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C0E1C3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 16:00:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QzxoNjX13i4eG31sNq5COpLdWdwplkA/ut9vzb6w+YA=; b=u+tsd2G/0E7NCgsOtYXN0OZ+So
-	L2HvpYNYnPrjmDvdA3SMNFSdbcZ24SQvt40fyNi0HrNo3xhZ/3u4eVV3MNxbdH4Q3wd2Jva1/ox7k
-	/8Ttf5tuL0X6yS/+HeJoV4sDFl6ZITnrhUeH5NNLOGIl1yIxEEQwa1PiNTGFDeabY8KFkIaEGkiMW
-	IiiZ+Rm8/Q2rQyCB3sdQJaZZ9CCfebtNJXSMSUl4eNH/tApoX02+49byJtNSzwzy6VW5gWPpztZkD
-	amrSNlvY84M+u1d9Skak3cSYf0cQuqTl00bV5oUkyvJ5KqpksNFqWNW81Bcasa7g965ogJbnEabjQ
-	hHGMoxjA==;
+	bh=2+3PIdJC3Ht+VlEO5rW2bxgqfN/WfvLUVhrpIT2zCns=; b=glWds43J56U5Nhk8st9E++KUx2
+	5h8fSA1leKRKyBtxv+jBB4aOdJKzgjN3KXvXiF+CP9QzaV0iMgR8TUH0PocldDu0U1bWec3FYSUAs
+	ToQBoeK9xLrQfg02aW+D5FPsRf3EOH3NSICjP0DqdPfJJQtZW39/gj3rc6D03d79cw1Cvgsz9j0ZL
+	+4CQVbsPK5Fc3CRO9kGuPfDrpOuFbl73Ry8f25BEyEtcAs+jtr5H/HPkAO3r+4ngQc1KAmEuICSR8
+	0yI11wkslNuITG0zdvYuiMKQce/gq9CR/Qy7UkB9uy4/I6bnWs0UDHRdVuESB4vgYQz0Ob5W+StKs
+	eeKRMnUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uByCa-00000007tr8-09FU;
-	Mon, 05 May 2025 15:57:56 +0000
-Received: from mail-oo1-xc30.google.com ([2607:f8b0:4864:20::c30])
+	id 1uByEX-00000007uCX-3KMY;
+	Mon, 05 May 2025 15:59:57 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBy4y-00000007sYA-1Whb
+	id 1uBy6F-00000007sqF-0uYl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 15:50:06 +0000
-Received: by mail-oo1-xc30.google.com with SMTP id 006d021491bc7-605f7d3216bso1047671eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 08:50:04 -0700 (PDT)
+	Mon, 05 May 2025 15:51:24 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5eb92df4fcbso8797703a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 08:51:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746460203; x=1747065003; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QzxoNjX13i4eG31sNq5COpLdWdwplkA/ut9vzb6w+YA=;
-        b=S39lIKDQePbeCu6B7cf4M3v/6HQR98gx7YO+gX6KPaxDDaHoXI998E0vfSe809204W
-         uNMVJ6IhWoPjg9CmoMuXqe4Pl2CajQn+SRYbcCK60tlga1nI3GSErkhuSz9ccntdCsLG
-         IrCnGW4EiPbGgNcRuoDwCjHrhheFx4IExsu7wC/YQq6ZnDMm5wqYLnPwA8T6VK8RZaGM
-         3GMEVufoFDyMqwoRTMeqeNmNI0f08vJD7aQcucI5NdUOkAcVIN/vY90kqh356EryUnHu
-         Ih3CNCzUTPgWmXN8dvAFqoqVFkVgZX6wl3uhS15hXOnDG5d/K7ioJd68A6IL2FQwDEV4
-         wMaA==
+        d=linaro.org; s=google; t=1746460281; x=1747065081; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=2+3PIdJC3Ht+VlEO5rW2bxgqfN/WfvLUVhrpIT2zCns=;
+        b=kYUFe7lgJo2Dc0qqHM6cdAag8G3GF6GTHuhlWG6824Vx+pTKBIGxKpOq3q4UFQ5KsZ
+         j4VWS0PSVdDqjP/VjjVpvt7/x6X85xdeealQ5A+pFCXONUo4JHS3p27hXVqkLlYMN1AO
+         guhGNTwJr/oyUm/usyqI+L1nkbl+eQiFHyPyLIAH1aW/kmtzH9Ri21k50f/VdVwBPnBz
+         LBHB/Gi8tHwPJ9PJM5U07W9tSG4gSkSFovfuPQyw+QlGRT0i/MhretWd6APn3bfn6oB8
+         fl+UDLCtbm3g4aSgexf6YZP2aMc6Q4kq/3fTdgNnp4PK671C83ynDB+BZbPElwAte0oT
+         fkjw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746460203; x=1747065003;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=QzxoNjX13i4eG31sNq5COpLdWdwplkA/ut9vzb6w+YA=;
-        b=WrLLOXbxIPuogYjnaQSJh7HQ/dwks6938geuJkTHoPEQXFcLhpO2iVyY/5whh+X1Vx
-         q24A+m+TkSxFHsY28mYhxppm5c+hCQtbmotYEeOn3s3pxCGe5kAe+OHW0EIMUe/c0XAi
-         RfXujhG0zE/k7yytpKvysfJsAYL8ng6t4IezsexlULU/RBzU/Ht3XAtb8shG4ULSrxrn
-         zTrhR0DOqrv3vIARJ5RAtP2KQVZ/YKSAJ/isfiRQR34789zKaGKNaeLxKNcdW2K97UgJ
-         6LxFk2lSV9WjuMh/z5lYXWYLfWn+VoiF8Ni8M77WY4AVaBtbvrsBkGRJfL03gRMRwTPF
-         g1sQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWLabuWbvZvHhDr44qERd0NrzvJkZ78HyDnO2d8HPjhnjOqu/w1ghyztMIWyhxD7FfbHZBz1rTb96QfYVWnNJkH@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxr5HepRhMey2plGxD9MNgu9rHuseCr8QucB+jlIrVbEZ6ZZgRB
-	GOFfLvLvUGYYAKzict6vi3zPRkv5g4hrCYVhf8ohMBwFLRTotMK8
-X-Gm-Gg: ASbGncvJi0yk2IlzR2qQOO0VMI1d9Uw2w3cQSRwZolFR43ZNrZwC8vB4vTaIDmum79Z
-	JBuveaO5VIPJ38RZKbOSPxgWV+T/RYSeyg69O4NIlSLfS9GXSlMXLqTqfOjhp1Xvqe1wV0iaVHM
-	UslQ7eAoXtvqbqQOyRZQupAZyKB6EdotTQ/Y4GNEDWckQ9sk8q3i+kalQuIDM+zfZ5lFEZ8akOg
-	wax39kVWWnCPDA13tbgvR5amrU47a46ox7uaYQN0y9TaF4iumwiVoynbFEsA/QJD4kKnniTp6lW
-	PQDGbtaMl8j6vku3H7wYrVa51swCAm0NXgL+7yiW+XKiKea02xK31LDNwpiIOtM=
-X-Google-Smtp-Source: AGHT+IFmXHRAfXFJOCHFZobnyaZvTqkwxSNtmF5ex7yON9mHi0l4M2n37VTw9ZY8eHmQoifZiTSQ/g==
-X-Received: by 2002:a4a:ec44:0:b0:607:e293:95b2 with SMTP id 006d021491bc7-607fab26b1emr5755194eaf.8.1746460203351;
-        Mon, 05 May 2025 08:50:03 -0700 (PDT)
-Received: from hiagof-nb.corp.toradex.com ([67.159.246.222])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-607e7fe84a8sm1606217eaf.36.2025.05.05.08.49.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 May 2025 08:50:02 -0700 (PDT)
-From: Hiago De Franco <hiagofranco@gmail.com>
-To: Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	linux-pm@vger.kernel.org,
-	linux-remoteproc@vger.kernel.org
-Cc: Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Hiago De Franco <hiago.franco@toradex.com>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@oss.nxp.com>,
-	daniel.baluta@nxp.com,
-	iuliana.prodan@oss.nxp.com,
-	Fabio Estevam <festevam@gmail.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: [PATCH 3/3] remoteproc: imx_rproc: add power mode check for remote core attachment
-Date: Mon,  5 May 2025 12:48:49 -0300
-Message-Id: <20250505154849.64889-4-hiagofranco@gmail.com>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250505154849.64889-1-hiagofranco@gmail.com>
-References: <20250505154849.64889-1-hiagofranco@gmail.com>
+        d=1e100.net; s=20230601; t=1746460281; x=1747065081;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=2+3PIdJC3Ht+VlEO5rW2bxgqfN/WfvLUVhrpIT2zCns=;
+        b=HThHkJF/Vt9G0tkBA1zzEGyFn72LICFGr2V1OlfBaTsZ+KgrANT50bL3IgTYEyIdFk
+         g57huI/IGpeHKXLavRkAxmckEViEmKt7ohGjgqO91b/1j4SoLbaPQ7xHK+VgpE0fKZMM
+         dSZhWqiUAyJKx+F9l9m1lshF+mUSwOVDmOpCrNh2Ac15Ug1TTfrxeD0EhCPgukZPjtJj
+         mLUhZhdbidqNpb5ZDtoCSGsLxW+cn1ygOIICKINxOlU9LqIdrG0whNOtwSgD9U+ilZ/m
+         xDirZ+AcnEGMB2EWuAa0VMInx7peu4z4/bu0QCrbTaI9BDeb/jyeNiCk9LGQOU1I2zhB
+         14og==
+X-Forwarded-Encrypted: i=1; AJvYcCW9XAk5yaex1y1/63YT/2SlLe9Q1HuKNlq6pn2cFH3yEla59BC2kw3uNgW2Gt0CR6LJH1SyUJiF2sdXlfXAq78O@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy79STmReHTOHb1P6yEBnt9tDQDgBUku7cwPsU+sERfNEzOf91Y
+	krYpzvh1do01A33FmYpobcYxRoKKlRzz8ijXkwIHlyT7jzXUZhGpi/3LmEiUTKo=
+X-Gm-Gg: ASbGncv6Un6j3lKiIhJ6hEmGe6HhrJzYCpxH21RWHUt9RF+w2lZx9Zg4thb/6Lp58U2
+	nkQn1WgbkpSpiY5iPOLWfZBTk20bON0R+EtkQKbpS1MO7/N25e0FwdT3askamh8mIuW7m6BRn5L
+	enoGksvkqKSfim9S+1vIp21N5VOTksKM4cXzUusYxiy4j5MFm4Lbu0KUWpQ4RJ7iQnGJHQ4VRx0
+	PVT69ADxwTHfMjyl5yWVIZi2J3JxFUPfKU365OsKc3pi1eNa8pzGOeLwxxl01cpyz2T3E+4dCfK
+	6Qgeyutjgmnaz9s55Rg7NePmnNcG6xfkH4FjRpkhYauegJZ+
+X-Google-Smtp-Source: AGHT+IFeHXSBcW5a6cMPyYFCWSmdfc0Kw0YJs6QfCUivNSYazQwUq3W3k9Emuwo7XD2iieH/6V66Yw==
+X-Received: by 2002:a17:907:8dcb:b0:ac1:f5a4:6da5 with SMTP id a640c23a62f3a-ad1a4a8d95cmr752485666b.37.1746460281158;
+        Mon, 05 May 2025 08:51:21 -0700 (PDT)
+Received: from [192.168.0.32] ([82.76.24.202])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad1894c01c9sm516621766b.105.2025.05.05.08.51.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 05 May 2025 08:51:20 -0700 (PDT)
+Message-ID: <6ce50077-2c64-40b2-82b3-c63c16fa1898@linaro.org>
+Date: Mon, 5 May 2025 18:51:19 +0300
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC][PATCH 07/14] printk: add kmsg_kmemdump_register
+To: Petr Mladek <pmladek@suse.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ andersson@kernel.org, linux-doc@vger.kernel.org, corbet@lwn.net,
+ tglx@linutronix.de, mingo@redhat.com, rostedt@goodmis.org,
+ john.ogness@linutronix.de, senozhatsky@chromium.org, peterz@infradead.org,
+ mojha@qti.qualcomm.com, linux-arm-kernel@lists.infradead.org,
+ vincent.guittot@linaro.org, konradybcio@kernel.org,
+ dietmar.eggemann@arm.com, juri.lelli@redhat.com
+References: <20250422113156.575971-1-eugen.hristev@linaro.org>
+ <20250422113156.575971-8-eugen.hristev@linaro.org>
+ <aBjYbXJL-GJe4Mh8@localhost.localdomain>
+From: Eugen Hristev <eugen.hristev@linaro.org>
+Content-Language: en-US
+In-Reply-To: <aBjYbXJL-GJe4Mh8@localhost.localdomain>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_085004_406278_EE35A635 
-X-CRM114-Status: GOOD (  16.89  )
+X-CRM114-CacheID: sfid-20250505_085123_272762_D79593E0 
+X-CRM114-Status: GOOD (  25.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,73 +106,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hiago De Franco <hiago.franco@toradex.com>
+Hello Petr,
 
-When the remote core is started before Linux boots (e.g., by the
-bootloader), the driver currently is not able to attach because it only
-checks for cores running in different partitions. If the core was kicked
-by the bootloader, it is in the same partition as Linux and it is
-already up and running.
+Thank you for your review.
 
-This adds power mode verification through the SCU interface, enabling
-the driver to detect when the remote core is already running and
-properly attach to it.
+On 5/5/25 18:25, Petr Mladek wrote:
+> On Tue 2025-04-22 14:31:49, Eugen Hristev wrote:
+>> Add kmsg_kmemdump_register, which registers prb, log_buf and infos/descs
+>> to kmemdump.
+>> This will allow kmemdump to be able to dump specific log buffer areas on
+>> demand.
+>>
+>> --- a/kernel/printk/printk.c
+>> +++ b/kernel/printk/printk.c
+>> @@ -4650,6 +4651,18 @@ int kmsg_dump_register(struct kmsg_dumper *dumper)
+>>  }
+>>  EXPORT_SYMBOL_GPL(kmsg_dump_register);
+>>  
+>> +void kmsg_kmemdump_register(void)
+>> +{
+>> +	kmemdump_register("log_buf", (void *)log_buf_addr_get(), log_buf_len_get());
+>> +	kmemdump_register("prb", (void *)&prb, sizeof(prb));
+>> +	kmemdump_register("prb", (void *)prb, sizeof(*prb));
+> 
+> This looks strange. "prb" is a pointer to "struct printk_ringbuffer".
+> It should be enough to register the memory with the structure.
 
-Signed-off-by: Hiago De Franco <hiago.franco@toradex.com>
-Suggested-by: Peng Fan <peng.fan@oss.nxp.com>
----
- drivers/remoteproc/imx_rproc.c | 23 +++++++++++++++++++++++
- 1 file changed, 23 insertions(+)
+Yes, from my perspective this should be also enough. However, when
+loading the generated core dump into crash tool , the tool first looks
+for the prb pointer itself, and then stops if the pointer is not readable.
+After the prb pointer is being found, the crash tool dereferences it ,
+and looks at the indicated address for the actual memory.
+That is why the pointer is also saved as a kmemdump region in my proof
+of concept.
 
-diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-index 627e57a88db2..86541d9d8640 100644
---- a/drivers/remoteproc/imx_rproc.c
-+++ b/drivers/remoteproc/imx_rproc.c
-@@ -8,6 +8,7 @@
- #include <linux/clk.h>
- #include <linux/err.h>
- #include <linux/firmware/imx/sci.h>
-+#include <linux/firmware/imx/svc/misc.h>
- #include <linux/interrupt.h>
- #include <linux/kernel.h>
- #include <linux/mailbox_client.h>
-@@ -906,6 +907,21 @@ static int imx_rproc_attach_pd(struct imx_rproc *priv)
- 	return ret < 0 ? ret : 0;
- }
- 
-+static bool imx_rproc_is_on(struct device *dev, struct imx_sc_ipc *ipc,
-+			    u32 resource)
-+{
-+	int ret;
-+
-+	ret = imx_sc_pm_get_resource_power_mode(ipc, resource);
-+	if (ret < 0) {
-+		dev_err(dev, "failed to get power resource %d mode, ret %d\n",
-+			resource, ret);
-+		return false;
-+	}
-+
-+	return ret == IMX_SC_PM_PW_MODE_ON;
-+}
-+
- static int imx_rproc_detect_mode(struct imx_rproc *priv)
- {
- 	struct regmap_config config = { .name = "imx-rproc" };
-@@ -949,6 +965,13 @@ static int imx_rproc_detect_mode(struct imx_rproc *priv)
- 			if (of_property_read_u32(dev->of_node, "fsl,entry-address", &priv->entry))
- 				return -EINVAL;
- 
-+			/*
-+			 * If remote core is already running (e.g. kicked by
-+			 * the bootloader), attach to it.
-+			 */
-+			if (imx_rproc_is_on(dev, priv->ipc_handle, priv->rsrc_id))
-+				priv->rproc->state = RPROC_DETACHED;
-+
- 			return imx_rproc_attach_pd(priv);
- 		}
- 
--- 
-2.39.5
+> 
+>> +	kmemdump_register("prb_descs", (void *)_printk_rb_static_descs,
+>> +			  sizeof(_printk_rb_static_descs));
+>> +	kmemdump_register("prb_infos", (void *)_printk_rb_static_infos,
+>> +			  sizeof(_printk_rb_static_infos));
+> 
+> Also this looks wrong. These are static buffers which are used during
+> early boot. They might later be replaced by dynamically allocated
+> buffers when a bigger buffer is requested by "log_buf_len" command
+> line parameter.
+> 
+
+I will double check whether the crash tool looks for these symbols or
+only the memory, and come back with an answer
+
+> I think that we need to register the memory of the structure
+> and 3 more buffers. See how the bigger buffer is allocated in
+> setup_log_buf().
+> 
+> I would expect something like:
+> 
+> 	unsigned int descs_count;
+> 	unsigned long data_size;
+> 
+> 	descs_count = 2 << prb->desc_ring.count_bits;
+> 	data_size = 2 << prb->data_ring.size_bits;
+> 
+> 	kmemdump_register("prb", (void *)prb, sizeof(*prb));
+> 	kmemdump_register("prb_descs", (void *)prb->desc_ring->descs,
+> 			  descs_count * sizeof(struct prb_desc));
+> 	kmemdump_register("prb_infos", (void *)prb->desc_ring->infos,
+> 			  descs_count * sizeof(struct printk_info));
+> 	kmemdump_register("prb_data", (void *)prb->data_ring->data, data_size);
+> 
+> 
+Thank you. It may be that in my test case, the buffer was not
+extended/reallocated with a bigger one.
+
+> But I wonder if this is enough. The current crash dump code also needs
+> to export the format of the used structures, see
+> log_buf_vmcoreinfo_setup().
+
+It appears that crash tool looks for the structures into vmlinux
+symbols. It can be that this information is not available to some tools,
+or vmlinux not available, in which case all the used structures format
+and sizes need to be exported. But right now, the crash tool does not
+work without vmlinux.
+
+> 
+> Is the CONFIG_VMCORE_INFO code shared with the kmemdump, please?
+
+I believe CONFIG_KMEMDUMP_COREIMAGE should select CONFIG_VMCORE_INFO
+indeed, which is not done in my patches. Or I have not fully understood
+your question ?
+
+
+Eugen
+> 
+>> +}
+>> +EXPORT_SYMBOL_GPL(kmsg_kmemdump_register);
+>> +
+> 
+> Best Regards,
+> Petr
 
 
