@@ -4,62 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31D7AC3ABB9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 21:48:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A8FDC3ABB6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 21:55:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/+s1iPc26YCmSpvShRrXdax3x1rFHs/iyPOXRBhDmYY=; b=SOrYxNZZ/eyJRRcKCd2xzuijAS
-	w1xDtE1a1ixHk75X4P5SKpPFVW/uAplAneEZ0pJTcWPcFN1afpmPKof3RghR+mmKEtZGjz9BTZ7CV
-	mbvhLrP03OpUv5vkRemsEHk9hffMTkCP9h+z5y6U9XyWVZUx31FWKHYPGvHPeYgwOoDwQsfUrSMLI
-	qcK+z0lPP+u3gyCLFb4utd+xcwxzraEfAlmEI0fP46xfmsW2JLl8wQpnm9apbk1VIhjI+J5QjoWFw
-	nAx6nWYpm5D2y7PEFouoDmqw+0Ov6yEWAaeY9Gpu1PKW3qp74dlXSJ5WXhOcsMVvmre5V1xufsdvb
-	d/1Jbo8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ky2FY8wQi0hoWGwOjDyfpng6BVXAqJP2zLIjZqhEWZA=; b=HybzVAUntTbyjviqtrc3w+G3MA
+	h0UptnnEBc5K7QC4E5KNGTmzLYxD4T8c5RH6HYjMHY5nAMHWfHrj1lL/BKMNGSbiVNupWxUDJA1Qp
+	HUYLFMPXJDBPl2dChLKQWxSyALtpQS5n5a8vYp1dCnkdwd3oHxupKW35bG4I/2NQxVzKaVQJJGhti
+	XsL9N4PBIjo1Cy3S3SPYA8bYFlDf83XOe0ZWyY1HYuY559+5LdV3vIa6H0QnaRicaRq3q/XC/VtnD
+	YCxGij/M5fAfEiE0WjQUedjtE8t+FwCK+L4Wg1Sybi1vh/1X5OjBMefmbRdxv11M0wYr880EQwZh+
+	iJRRAyHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC3fF-00000008f4i-0zjq;
-	Mon, 05 May 2025 21:47:53 +0000
-Received: from gandalf.ozlabs.org ([150.107.74.76] helo=mail.ozlabs.org)
+	id 1uC3mc-00000008fpc-2anD;
+	Mon, 05 May 2025 21:55:30 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC3cQ-00000008elu-0dze
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 21:44:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canb.auug.org.au;
-	s=202503; t=1746481493;
-	bh=/+s1iPc26YCmSpvShRrXdax3x1rFHs/iyPOXRBhDmYY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=GHuMv1rtBvksDbCJuFZxN5ToompGNH0vaiIaGpadcwgN6ZEuSgLUQMt27bEYyjhvj
-	 UK0++hvoB4xoJY1MgF1X1yNOnHYR7ymEUf/V0wWeBCKgdviWoY9eQp1H3Vfgx9VrsA
-	 OKychBZJDNQTmkE8FFOmEfCJofxzy8Bhifj8uMrFmGWSN9gy6fV0g20Jw65ECZS+RJ
-	 EM3YOkZpFEhQOyJ3wjl7usRRvY6Y8vasnFQOCfaEtm1/2DkEy49kohqyLkTbEMwIal
-	 Sp8u0XUZ6QvCBDeTKeetIHnlVS7/mC0raQHDlPPq9evDsflIyHE3tYd2TDbG36j+Q+
-	 /RjGa5XBRkOng==
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by mail.ozlabs.org (Postfix) with ESMTPSA id 4Zrw6Y16cmz4wbr;
-	Tue,  6 May 2025 07:44:53 +1000 (AEST)
-Date: Tue, 6 May 2025 07:44:52 +1000
-From: Stephen Rothwell <sfr@canb.auug.org.au>
-To: Alexandre Torgue <alexandre.torgue@st.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, ARM
- <linux-arm-kernel@lists.infradead.org>, Linux Kernel Mailing List
- <linux-kernel@vger.kernel.org>, Linux Next Mailing List
- <linux-next@vger.kernel.org>
-Subject: Re: linux-next: duplicate patches in the stm32 tree
-Message-ID: <20250506074452.65f4e0af@canb.auug.org.au>
-In-Reply-To: <20250501113753.53f6fc88@canb.auug.org.au>
-References: <20250501113753.53f6fc88@canb.auug.org.au>
+	id 1uC3kd-00000008fet-0bTh;
+	Mon, 05 May 2025 21:53:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=ky2FY8wQi0hoWGwOjDyfpng6BVXAqJP2zLIjZqhEWZA=; b=DdC3AwJ7cAtgun0b6u5kgbdY5+
+	MYldwYok5u4hquFQNeMD6gHgOoDzmnS6HmEoYWikdz5TTtdpWkxyuxqbnf0+974VNsQkyPyRI3MHC
+	mgmpcwVl9gL2hAM8qKL3nGifuLykHuNPDmKRhDbgKPfR+PCYAh65SMOPqk7KxYDM/Aba3XLKVo3K/
+	2thz9Nm6ua3t++DMLO5DdMOiJxUxU4sWfysIHA57NwHEdJLfn6/olIf0jGes5ZOnnXz4jh/qGsa5q
+	LQoJsKmRVOCf68Bk+Uymma2vKbF40Rgr4zKXwb5QGx7nshJkyBC464hQySo9EiSxpuLXKMK1g/+7B
+	av8er3RA==;
+Received: from i53875a1d.versanet.de ([83.135.90.29] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1uC3kW-0000QT-94; Mon, 05 May 2025 23:53:20 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: Andi Shyti <andi.shyti@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Chukun Pan <amadeus@jmu.edu.cn>,
+	Yao Zi <ziyao@disroot.org>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-i2c@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: (subset) [PATCH v2 0/3] Support I2C controllers in RK3528
+Date: Mon,  5 May 2025 23:53:09 +0200
+Message-ID: <174648198304.1334687.5769287856260852986.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250417120118.17610-3-ziyao@disroot.org>
+References: <20250417120118.17610-3-ziyao@disroot.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/zMy.MsZf4ijzjRR=.y.Gt/_";
- protocol="application/pgp-signature"; micalg=pgp-sha256
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_144458_334540_95EC221D 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20250505_145327_203976_FB30F189 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,69 +82,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/zMy.MsZf4ijzjRR=.y.Gt/_
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
 
-Hi all,
+On Thu, 17 Apr 2025 12:01:16 +0000, Yao Zi wrote:
+> RK3528 integrates eight I2C controllers which are compatible with the
+> RK3399 variant of i2c-rk3x. This series documents the controllers in
+> dt-bindings, describe them in SoC devicetree and enable the onboard
+> EEPROM of Radxa E20C which is connected to I2C-2.
+> 
+> Changed from v1
+> - rebase on top of linux-rockchip/for-next
+> - dt-binding: collect review tags
+> - SoC devicetree
+>   - sort i2c and gpio in /aliases
+>   - provide default pinctrl for controllers with only one set of
+>     possible pins
+> - Radxa E20C devicetree: mark eeprom as read-only
+> 
+> [...]
 
-On Thu, 1 May 2025 11:37:53 +1000 Stephen Rothwell <sfr@canb.auug.org.au> w=
-rote:
->
-> The following commits are also in the arm-soc-fixes tree as different
-> commits (but the same patches):
->=20
->   0530a74f3f43 ("arm64: dts: st: Use 128kB size for aliased GIC400 regist=
-er access on stm32mp23 SoCs")
->   6485975d7832 ("arm64: dts: st: Adjust interrupt-controller for stm32mp2=
-3 SoCs")
->   635ff238ff7b ("arm64: dts: st: Use 128kB size for aliased GIC400 regist=
-er access on stm32mp21 SoCs")
->   2ae67a2e7e4f ("arm64: dts: st: Adjust interrupt-controller for stm32mp2=
-1 SoCs")
->   97d0a619e248 ("arm64: dts: st: Use 128kB size for aliased GIC400 regist=
-er access on stm32mp25 SoCs")
->   e5694384b07d ("arm64: dts: st: Adjust interrupt-controller for stm32mp2=
-5 SoCs")
->=20
-> These are commits
->=20
->   2ef5c66cba61 ("arm64: dts: st: Use 128kB size for aliased GIC400 regist=
-er access on stm32mp23 SoCs")
->   3a1e1082097b ("arm64: dts: st: Adjust interrupt-controller for stm32mp2=
-3 SoCs")
->   1bc229e9bb9c ("arm64: dts: st: Use 128kB size for aliased GIC400 regist=
-er access on stm32mp21 SoCs")
->   02dc83f09c72 ("arm64: dts: st: Adjust interrupt-controller for stm32mp2=
-1 SoCs")
->   06c231fe953a ("arm64: dts: st: Use 128kB size for aliased GIC400 regist=
-er access on stm32mp25 SoCs")
->   de2b2107d5a4 ("arm64: dts: st: Adjust interrupt-controller for stm32mp2=
-5 SoCs")
->=20
-> in the arm-soc-fixes tree.
+Applied, thanks!
 
-These letter commits are now in Linus' tree.
+[2/3] arm64: dts: rockchip: Add I2C controllers for RK3528
+      commit: d3a05f490d048808968df1e0d3240ab01fe82211
+[3/3] arm64: dts: rockchip: Add onboard EEPROM for Radxa E20C
+      commit: 101fe8b5627c68b3f2f941266e26ac355131e2fe
 
---=20
-Cheers,
-Stephen Rothwell
-
---Sig_/zMy.MsZf4ijzjRR=.y.Gt/_
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAmgZMVQACgkQAVBC80lX
-0GzyJwf/dlMQPP5xQckkJraDiIWaxvaUG5t0WidE1Zo8gsr4U+0BtV5HWeycgSe7
-tKbO4AwXoLf+ACJ83EbpuLOah4oF+Gbn9Dp5DIMvS7ilx2+s5VsMnggdGP5dZtxr
-h7KeByL73xlaZZQdcUZvxe0aDE+Yra9Dq+LfDKryzMkt7y0SCQtEghIx6hA4DLm7
-E15Rrai23FvmHhQxx4ftWk3razwkR5IG0IFBg83Nh2aa6SnGn7rvGAif9Lcny6en
-gYhZPEvcXbgfDxTHqYNNNnVSf9X4uQ0Oa9LOdJ7UDdOojmNaE85QIH8NjU43ixCs
-Fwhlybs/VCx+x7u4R7RIibBZwlBvfw==
-=4q8H
------END PGP SIGNATURE-----
-
---Sig_/zMy.MsZf4ijzjRR=.y.Gt/_--
+Best regards,
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
