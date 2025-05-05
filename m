@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98735C3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 14:05:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A385C3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 14:11:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zqZZf0ESF3/NtNqr6Zi2o+5PrzNELj5whdZBZp1/fVA=; b=00JLujx9Vp1PPP2cvXwCyoKIQf
-	IvEW0f8O/XsWF3rsLvo5g74LjNYlvHjHPqj0MSibnZp63Emh3ogMv1V28724qbSBk7HETZpEYmxYT
-	4i7X8xX8ybKe3jiDhF47fu7gsBsTsVdND0roqSNZI1ptjCTSUr9OIQXwyugjwRoPhRq19mRTHufiC
-	k/TMeUFRdtbhDHJuDGTHGrlLxLFHPw3BaAdvUs2ehLV79XZRoWKDb7tnG6ReDaytWiI2SkW5ex4g6
-	KqeT7Z5dPmxeVJDeL4kr9R7vXwZgTPUnMvzUDIED65muXbcHu6bPqiX/byFHeiVZMujiXbcV1C7em
-	GDEgHDnA==;
+	bh=pwA0WLcLtACFqX6eLCfsfhyEKhLsqI7Nz0KQvPtcVVI=; b=dvjtMbI1jGq8j9OIkSHgVICkK6
+	Pbq5hHbttYGbMhNYM7APzaj7zkFLvlNtuWWiCBarfOrSk22x4XS/wq9cTNNqrNaXZozTDxWFI1mLk
+	gw6HpdCKCPC5shgs60Ww0mNVUfaNKGnlD/mpXM5PzExK4EgZrsFi8PbdjgVmpUCR+kBXKEZYqMm4g
+	VdTE/jDcCOBCijz/DV16i1GnBvXSR/NR4hAr+/L8HllIaBZqsam5M5+n0iW0xg8l2UKD7mb3yqjm0
+	rjvDwRI9yCA8gxVBcOI17OgsY8ZrS3w3xCheOGlgkj5yX1ul98dVskZ1Rxkgzrbtq1excQsTPRGAC
+	hxc1Qp7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBwRr-00000007Z9S-2AAf;
-	Mon, 05 May 2025 14:05:35 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uBwXI-00000007ZwB-1ipu;
+	Mon, 05 May 2025 14:11:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBwOT-00000007Yoh-1WuG;
-	Mon, 05 May 2025 14:02:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=zqZZf0ESF3/NtNqr6Zi2o+5PrzNELj5whdZBZp1/fVA=; b=grdYu32zN2Y6PI0stGQDgMrsZV
-	ATOKUXvyjKaNcyXeCTQQCZg5IJay6vMsQTMUkiR1cW7dBuAQEmhe9FRkbDJYnbck85piHmxKYorcO
-	hfa8aPPbXzNiy1Ss1gkRGfy9mEzPRtU+ZFJKaQvHBctF7ka4uIsE3JDexYhHBafXwEIE=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uBwOE-00BbKS-6i; Mon, 05 May 2025 16:01:50 +0200
-Date: Mon, 5 May 2025 16:01:50 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Diederik de Haas <didi.debian@cknow.org>
-Cc: John Clark <inindev@gmail.com>, Jonas Karlman <jonas@kwiboo.se>,
-	heiko@sntech.de, robh@kernel.org, conor+dt@kernel.org,
-	detlev.casanova@collabora.com, linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
-	krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
-	Peter Geis <pgwipeout@gmail.com>
-Subject: Re: [PATCH v2 3/3] arm64: dts: rockchip: Add Luckfox Omni3576 Board
- support
-Message-ID: <57654be9-aa8c-4819-bac0-bb23c8884a6b@lunn.ch>
-References: <20250504102447.153551-1-inindev@gmail.com>
- <20250504102447.153551-4-inindev@gmail.com>
- <bb171ae2-c495-49a3-a7eb-a4b865e54199@kwiboo.se>
- <87892840-bdbf-43d4-bd93-cb98f5e1c672@lunn.ch>
- <b603e92f-8c1a-4aea-8bab-82a1f035c7fa@gmail.com>
- <b50c68bd-9b15-412a-ac00-1df25601edd9@lunn.ch>
- <46cbdabd-b0ed-4c9b-9f01-4d2d8eceac24@gmail.com>
- <13407dae-4c73-48a9-846e-92f08449bc4d@lunn.ch>
- <44a4aef7-9d23-4a6e-a228-39bfd3e2a308@gmail.com>
- <D9O9CD8Y6QEE.1CVYGL8TZEWI0@cknow.org>
+	id 1uBwVK-00000007ZnF-0MP1;
+	Mon, 05 May 2025 14:09:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id ADF3C61135;
+	Mon,  5 May 2025 14:08:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13493C4CEE4;
+	Mon,  5 May 2025 14:09:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746454148;
+	bh=YRqrqVzFrmTsTKtBwgPOzHahPm+oOSbLg9my9ROL07Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ck58iJmJrtnaf30+tBuDoR3naDrSQu+nMQiA1XTUGaFs7cGWxy8L7IsOyru0sQIXM
+	 5HtkX3HKqm/omXrQ1PKtJcwz0mW6ZqNPM78l5VMQ5vIqfubolwoParG4qQ4I5DeDk4
+	 jTgmlU9v/afSPLRLpyp78X3xKDdvgUB3K+Dm6AaMnAek99av7jFxhK1J0jcJP814B+
+	 /HCsph8wDGk//DT1o+mze2+FTtQPeIKqYd/mSh07oM+Kj8HQp0AU/u7pG3ccMpmtpz
+	 ZkiwUEBe7sIjVc9YOFGCNtCuFLrJhklam+oSJ4O/OaPPZlFhVQCoj5oOnlwnC8SpgW
+	 VOYRp7CAbXUdg==
+Date: Mon, 5 May 2025 16:09:03 +0200
+From: Niklas Cassel <cassel@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: Wilfred Mallawa <wilfred.mallawa@wdc.com>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Hans Zhang <18255117159@163.com>,
+	Laszlo Fiat <laszlo.fiat@proton.me>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 1/4] PCI: dw-rockchip: Do not enumerate bus before
+ endpoint devices are ready
+Message-ID: <aBjGf8-mDrqOrm5-@ryzen>
+References: <20250505092603.286623-6-cassel@kernel.org>
+ <20250505092603.286623-7-cassel@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <D9O9CD8Y6QEE.1CVYGL8TZEWI0@cknow.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_070205_402236_9513F1B8 
-X-CRM114-Status: GOOD (  10.08  )
+In-Reply-To: <20250505092603.286623-7-cassel@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,21 +78,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> I have a NanoPi R5S and I want(ed) to look at its gmac node as well,
-> because it (also) has some deprecated properties ... and
-> ``phy-mode = "rgmii"`` which was done deliberately in commit
-> 31425b1fadb2 ("arm64: dts: rockchip: fix gmac support for NanoPi R5S")
-> and the change was away from "rgmii-id" ... and it has a RTL8211F-CG.
-> Unfortunately the commit message doesn't say *why* it changed.
+On Mon, May 05, 2025 at 11:26:05AM +0200, Niklas Cassel wrote:
+> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> index 7a6a95dc877a..ed8e3dfe80e0 100644
+> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> @@ -471,6 +471,7 @@ static irqreturn_t rockchip_pcie_rc_sys_irq_thread(int irq, void *arg)
+>  	if (reg & PCIE_RDLH_LINK_UP_CHGED) {
+>  		if (rockchip_pcie_link_up(pci)) {
+>  			dev_dbg(dev, "Received Link up event. Starting enumeration!\n");
+> +			msleep(PCIE_T_RRS_READY_MS);
+>  			/* Rescan the bus to enumerate endpoint devices */
+>  			pci_lock_rescan_remove();
+>  			pci_rescan_bus(pp->bridge->bus);
+> -- 
+> 2.49.0
+> 
 
-Often the developer does not actually understand RGMII delays. They
-simply try things at random until it works, and then call it done.
+Bah.. this patch is missing
++#include "../../pci.h"
 
-Over the last year or more i've been much more strict at this, looking
-at more patches for .dts files and pointing out errors. Hopefully with
-time the errors will become less frequent as developers start to
-learn, and there are more good examples top copy/paste. But it also
-require some vendors to fix their broken MAC drivers.
+missed during rebase.
 
-	Andrew
+(pcie-qcom.c already includes this.)
+
+Will send a V2.
+
+
+Kind regards,
+Niklas
 
