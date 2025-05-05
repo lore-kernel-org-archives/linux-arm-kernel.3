@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49635C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 18:23:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2DC1C3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 18:25:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z8UiWoK8LfZ3z/+az3mRrsX/3bsrRFwN44fs5f5Dyyo=; b=4ZuZp9VwkC98/mJVYxCLKF7cqp
-	xrbNqHOZl7I0fdrInuNVw6ClAZ80ZAKiMcnfJDj3YawW4V3MT+jCgsSU/Aoh+eOrYYnU8mOg5eRnF
-	hgXEmz/XpqcUv6PAbpa14P0n3woMI4uSYzm/Z3CVnQ9FTdlQvHAtEI5KCNUPZkOj9aSy2ESilWMcz
-	a72CWdLSDSOvGreW+ozcb83Hdb9jmb4wecHYrLNa+rnKAQeFxYioEJyaLgE5MKSzRFPMyZbfPblj4
-	Tg1qpqg45jelBZELMzBm3ZB8+dl+Xm5Icki8sM2jogtGnIbSmoZ7kh+FcibTDFRlkBfUNmTJrlFi4
-	0+KsxCUw==;
+	bh=bLWzYHJAk50wdK7QsuKNf/p9q8iQZIAmv2QoqW7u/BM=; b=cCOzKz8hQXI/CS/yaIXLFOpC5B
+	ZjSnBsFXgQxY/sxAxBKrT0/r3/a3FvqTvnImsit8dbTi/r4zuKwI0dmj0G++JyOBE547THwXUMYhb
+	IBCFMG3/z//Qxsin8k8UoH+0lWCsksMt57Bu1zy0Tr0MMOlGeVRJerGmKtsT6UiNmM75HerlXfoSt
+	snVdqumRqaC0U8KYSlqcDQ3BurIRhMxTezDhb/WHCtoN1RVfcAkycI6YMe91TL4iN4BHHEtb69e3C
+	9Ajlz4StGsywP7/GHzCVH/y9Ih030bYj1389LyP1Uyy7v84YxsebQ5f9n2upGwX61HJMGbv39njs7
+	ULxMC+OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC0TR-00000008Grj-2YMq;
-	Mon, 05 May 2025 18:23:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uC0VP-00000008HDl-3t5P;
+	Mon, 05 May 2025 18:25:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC0PU-00000008GDR-3ysL;
-	Mon, 05 May 2025 18:19:26 +0000
+	id 1uC0PX-00000008GEc-0DX2;
+	Mon, 05 May 2025 18:19:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A89D444DA6;
-	Mon,  5 May 2025 18:19:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA062C4CEF2;
+	by tor.source.kernel.org (Postfix) with ESMTP id 6D93261F1D;
+	Mon,  5 May 2025 18:18:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E8EEC4CEEE;
 	Mon,  5 May 2025 18:19:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746469164;
-	bh=mMc5BO3KaWzzAhqaUs9saVNrK9FbauW+oehe6PKy+Aw=;
+	s=k20201202; t=1746469163;
+	bh=b/9JYhuN7J7zBR7ary1s1WvggcmHZ7V9W2w6tJgLRtw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IdccGkzZQnmV4j3zL0qW2HEPMFQO7Lbww2PjWdjgi17/TjJjHo3Rabs0jOB2pLBFR
-	 BNystxBX4qdoUELqjrc8NRgh4C6DjNKebmGQQv4FS+8mziYF0YiD5rENIf9z+kTYQo
-	 d/5anHb8+6JLhMlascA+6GaHteo22tUvh09FwyEJKqzORMaKb3DgTTSNzhVmuXmmE0
-	 Jr1NQbeZonSiGvqI9p9VDbFjLVPnTv/FDbVSc+/MEpQj9N6o9vOdldAqt/tkvpP1fX
-	 RlHYn2sj2qI+hhlBZdf50Md2DXuONGO0ckmyZ6fIjPKP/cDcPY76pUPCDIqrLnfjvV
-	 E3yOy0SyJb5hA==
+	b=pDa53t6DCjWYM/LmZqGF9bnJJ573ftIBSUQsp8IeHuT5N7tEcbBprRacM6EAolgWa
+	 KnM4f1Ecr4wsjUKSjvQrsrEOI61Z1Nenrn/tYHyD0VxpliwIloUv60+380sygQKeFn
+	 FxwIMuAGqXJ/SCu+mhdkAvNtZ/VV+Hpcs9PRhT0j3hKSDgORzS83PV0rP1IGISbSpL
+	 aTZfyBqlR/WkgLr3KGW3DlBmln+QJkH1npbWh+vtLcej0hH78R6O4qdEbRHUlUrbSw
+	 ke0NPkusn8yL0Rp2/trfxhRJ3n8yZzmTAV2C0r7cHVP5MRtIDrFszeZGaEVvf/LP32
+	 dPGvxobHLcyGg==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -52,17 +52,14 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-bcachefs@vger.kernel.org,
 	"Jason A . Donenfeld " <Jason@zx2c4.com>,
 	Theodore Ts'o <tytso@mit.edu>
-Subject: [PATCH 3/4] crypto: lib/chacha - add strongly-typed state zeroization
-Date: Mon,  5 May 2025 11:18:23 -0700
-Message-ID: <20250505181824.647138-4-ebiggers@kernel.org>
+Subject: [PATCH 2/4] crypto: lib/chacha - use struct assignment to copy state
+Date: Mon,  5 May 2025 11:18:22 -0700
+Message-ID: <20250505181824.647138-3-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250505181824.647138-1-ebiggers@kernel.org>
 References: <20250505181824.647138-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_111925_028474_EFD92F4E 
-X-CRM114-Status: GOOD (  12.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,154 +76,50 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Eric Biggers <ebiggers@google.com>
 
-Now that the ChaCha state matrix is strongly-typed, add a helper
-function chacha_zeroize_state() which zeroizes it.  Then convert all
-applicable callers to use it instead of direct memzero_explicit.  No
-functional changes.
+Use struct assignment instead of memcpy() in lib/crypto/chacha.c where
+appropriate.  No functional change.
 
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- drivers/char/random.c         | 4 ++--
- fs/bcachefs/checksum.c        | 4 ++--
- include/crypto/chacha.h       | 6 ++++++
- lib/crypto/chacha20poly1305.c | 6 +++---
- 4 files changed, 13 insertions(+), 7 deletions(-)
+ lib/crypto/chacha.c | 8 ++------
+ 1 file changed, 2 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/char/random.c b/drivers/char/random.c
-index 9f876ed2655b..5f22a08101f6 100644
---- a/drivers/char/random.c
-+++ b/drivers/char/random.c
-@@ -420,11 +420,11 @@ static void _get_random_bytes(void *buf, size_t len)
- 			++chacha_state.x[13];
- 		len -= CHACHA_BLOCK_SIZE;
- 		buf += CHACHA_BLOCK_SIZE;
- 	}
- 
--	memzero_explicit(&chacha_state, sizeof(chacha_state));
-+	chacha_zeroize_state(&chacha_state);
- }
- 
- /*
-  * This returns random bytes in arbitrary quantities. The quality of the
-  * random bytes is good as /dev/urandom. In order to ensure that the
-@@ -483,11 +483,11 @@ static ssize_t get_random_bytes_user(struct iov_iter *iter)
- 		}
- 	}
- 
- 	memzero_explicit(block, sizeof(block));
- out_zero_chacha:
--	memzero_explicit(&chacha_state, sizeof(chacha_state));
-+	chacha_zeroize_state(&chacha_state);
- 	return ret ? ret : -EFAULT;
- }
- 
- /*
-  * Batched entropy returns random integers. The quality of the random
-diff --git a/fs/bcachefs/checksum.c b/fs/bcachefs/checksum.c
-index 312fda4bb1b5..a4df8eba75f3 100644
---- a/fs/bcachefs/checksum.c
-+++ b/fs/bcachefs/checksum.c
-@@ -111,11 +111,11 @@ static void bch2_chacha20(const struct bch_key *key, struct nonce nonce,
+diff --git a/lib/crypto/chacha.c b/lib/crypto/chacha.c
+index a7f5eb091839..ae50e441f9fb 100644
+--- a/lib/crypto/chacha.c
++++ b/lib/crypto/chacha.c
+@@ -74,15 +74,13 @@ static void chacha_permute(struct chacha_state *state, int nrounds)
+  * The caller has already converted the endianness of the input.  This function
+  * also handles incrementing the block counter in the input matrix.
+  */
+ void chacha_block_generic(struct chacha_state *state, u8 *stream, int nrounds)
  {
- 	struct chacha_state state;
+-	struct chacha_state permuted_state;
++	struct chacha_state permuted_state = *state;
+ 	int i;
  
- 	bch2_chacha20_init(&state, key, nonce);
- 	chacha20_crypt(&state, data, data, len);
--	memzero_explicit(&state, sizeof(state));
-+	chacha_zeroize_state(&state);
- }
+-	memcpy(permuted_state.x, state->x, 64);
+-
+ 	chacha_permute(&permuted_state, nrounds);
  
- static void bch2_poly1305_init(struct poly1305_desc_ctx *desc,
- 			       struct bch_fs *c, struct nonce nonce)
+ 	for (i = 0; i < ARRAY_SIZE(state->x); i++)
+ 		put_unaligned_le32(permuted_state.x[i] + state->x[i],
+ 				   &stream[i * sizeof(u32)]);
+@@ -103,13 +101,11 @@ EXPORT_SYMBOL(chacha_block_generic);
+  * of the state.  It should not be used for streaming directly.
+  */
+ void hchacha_block_generic(const struct chacha_state *state,
+ 			   u32 *stream, int nrounds)
  {
-@@ -281,11 +281,11 @@ int __bch2_encrypt_bio(struct bch_fs *c, unsigned type,
+-	struct chacha_state permuted_state;
+-
+-	memcpy(permuted_state.x, state->x, 64);
++	struct chacha_state permuted_state = *state;
  
- 		p = bvec_kmap_local(&bv);
- 		chacha20_crypt(&chacha_state, p, p, bv.bv_len);
- 		kunmap_local(p);
- 	}
--	memzero_explicit(&chacha_state, sizeof(chacha_state));
-+	chacha_zeroize_state(&chacha_state);
- 	return ret;
- }
+ 	chacha_permute(&permuted_state, nrounds);
  
- struct bch_csum bch2_checksum_merge(unsigned type, struct bch_csum a,
- 				    struct bch_csum b, size_t b_len)
-diff --git a/include/crypto/chacha.h b/include/crypto/chacha.h
-index 64fb270f2bfc..7c2e6c68919b 100644
---- a/include/crypto/chacha.h
-+++ b/include/crypto/chacha.h
-@@ -14,10 +14,11 @@
- 
- #ifndef _CRYPTO_CHACHA_H
- #define _CRYPTO_CHACHA_H
- 
- #include <linux/unaligned.h>
-+#include <linux/string.h>
- #include <linux/types.h>
- 
- /* 32-bit stream position, then 96-bit nonce (RFC7539 convention) */
- #define CHACHA_IV_SIZE		16
- 
-@@ -106,10 +107,15 @@ static inline void chacha20_crypt(struct chacha_state *state,
- 				  u8 *dst, const u8 *src, unsigned int bytes)
- {
- 	chacha_crypt(state, dst, src, bytes, 20);
- }
- 
-+static inline void chacha_zeroize_state(struct chacha_state *state)
-+{
-+	memzero_explicit(state, sizeof(*state));
-+}
-+
- #if IS_ENABLED(CONFIG_CRYPTO_ARCH_HAVE_LIB_CHACHA)
- bool chacha_is_arch_optimized(void);
- #else
- static inline bool chacha_is_arch_optimized(void)
- {
-diff --git a/lib/crypto/chacha20poly1305.c b/lib/crypto/chacha20poly1305.c
-index ed81f0658956..2e7bbc1a67ea 100644
---- a/lib/crypto/chacha20poly1305.c
-+++ b/lib/crypto/chacha20poly1305.c
-@@ -82,11 +82,11 @@ __chacha20poly1305_encrypt(u8 *dst, const u8 *src, const size_t src_len,
- 	b.lens[1] = cpu_to_le64(src_len);
- 	poly1305_update(&poly1305_state, (u8 *)b.lens, sizeof(b.lens));
- 
- 	poly1305_final(&poly1305_state, dst + src_len);
- 
--	memzero_explicit(chacha_state, sizeof(*chacha_state));
-+	chacha_zeroize_state(chacha_state);
- 	memzero_explicit(&b, sizeof(b));
- }
- 
- void chacha20poly1305_encrypt(u8 *dst, const u8 *src, const size_t src_len,
- 			      const u8 *ad, const size_t ad_len,
-@@ -186,11 +186,11 @@ bool chacha20poly1305_decrypt(u8 *dst, const u8 *src, const size_t src_len,
- 
- 	chacha_init(&chacha_state, k, (u8 *)iv);
- 	ret = __chacha20poly1305_decrypt(dst, src, src_len, ad, ad_len,
- 					 &chacha_state);
- 
--	memzero_explicit(&chacha_state, sizeof(chacha_state));
-+	chacha_zeroize_state(&chacha_state);
- 	memzero_explicit(iv, sizeof(iv));
- 	memzero_explicit(k, sizeof(k));
- 	return ret;
- }
- EXPORT_SYMBOL(chacha20poly1305_decrypt);
-@@ -326,11 +326,11 @@ bool chacha20poly1305_crypt_sg_inplace(struct scatterlist *src,
- 			       sizeof(b.mac[1]), src_len, !encrypt);
- 		ret = encrypt ||
- 		      !crypto_memneq(b.mac[0], b.mac[1], POLY1305_DIGEST_SIZE);
- 	}
- 
--	memzero_explicit(&chacha_state, sizeof(chacha_state));
-+	chacha_zeroize_state(&chacha_state);
- 	memzero_explicit(&b, sizeof(b));
- 
- 	return ret;
- }
- 
+ 	memcpy(&stream[0], &permuted_state.x[0], 16);
+ 	memcpy(&stream[4], &permuted_state.x[12], 16);
 -- 
 2.49.0
 
