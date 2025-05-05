@@ -4,94 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B2D3C3ABB6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 12:12:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 512D1C3ABB9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 12:14:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xf1P+9z9XiJdCaUpuTBjGVfwsl02CsdlqTVjlTuR+ug=; b=da2kYCFybal2K8TUjkcJuexF2w
-	GMaiVA1xs5q9xA6Gx4e3Zb/mRdmvUcH3IqlgsgcH5w52xoAPYaZuOI7whTiAB9EH9gojR5jRG8lfV
-	zTbhl0JYuAaWzlXTmmatG5v4cMM96vZQ49XgZGF13N7ZFfw90AUhQuTxPdfyMGfZcxOXZoZe126ou
-	IUpRzOb+pjt+Q9zt3PmBtL5xfvQYhE/JIHho6r1XfdJkC8Lu49lz8hHks8YpwoK6UKRq6KkDWkBLS
-	n658bgQnU8iRrsdWLYOS9yYMNUNVMOgJp0zyGk1tJy2BOLkOItD936/4pMbBOrcp3B7O9TfkenZR6
-	Ja/kXiag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Lnc+kGu7r29OB/AqIPiWysigYLPsjmOO5EXVwM9NSUQ=; b=c6KUHyUuyxZrfkDW/Jd2wHQwCg
+	Le1/IeOigrp8Ee1XzgTWpxPAr1RAGb6OZtGTGUwZNEVgf3ckGIvZoLATemUDopMl7ANuedO8n0pl2
+	iPd7Uo1RyJ3FyOQf83IU0U1N530zIe1S7CQGoWxfiJ+XVzF8cLgHWsZOB1tBton0ytS0EbFh0jrz6
+	QiqNh4m4jKbuB5wB8JNteh2K2h5dzrdx0/yLkTb3b8Vjsi9WOiT8Ia5xCC0v+jQyN8ogpBjTrTveO
+	yxDYD770SZxAyTPE261MTe+EQTHmLn5p/7/f4hNQoOkrDUCGsgRSnSWIY7MPrfHxrUeb06CvsnmLb
+	XShTN04w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBugQ-00000007Gvo-1sgk;
-	Mon, 05 May 2025 12:12:30 +0000
-Received: from mail-oa1-x32.google.com ([2001:4860:4864:20::32])
+	id 1uBuiP-00000007HAl-188J;
+	Mon, 05 May 2025 12:14:33 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBueO-00000007Ghp-40KI
+	id 1uBugD-00000007Gus-30QC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 12:10:26 +0000
-Received: by mail-oa1-x32.google.com with SMTP id 586e51a60fabf-2d5e5e21b92so2952191fac.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 05:10:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1746447024; x=1747051824; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xf1P+9z9XiJdCaUpuTBjGVfwsl02CsdlqTVjlTuR+ug=;
-        b=QbE6A+TIMqIDfE5m2TcCBTqkRETvP+pdd3Vew+oRfB7M5SqyvhjSkO7TuEc2qxnHr4
-         as1a2xVOEdHoZp4s65Hzip5QFXj1+pLJoAi9/8+8B3AEftpf1YzQQ4jZbYXxMCfMKdmV
-         seGq8vbfQB9VHsj/5RBUgKdmwottwGhbD8bj5qqohgz+RuitA3NM5fxC+NIBnCgmes+3
-         Srp8lMSht9gRN4H1Og3R5eVNXP+A9HeFU+vzSZlw4uhTM5vic2G7UE5DLeioY0yEH1+C
-         yWQ4lVbH3oV9Id/MQJ4b8lSiy5rj2Ed9rkG1NVTVRTiXlnhzjRDhT+b+mCfClcSe1r+r
-         azog==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746447024; x=1747051824;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xf1P+9z9XiJdCaUpuTBjGVfwsl02CsdlqTVjlTuR+ug=;
-        b=ETv4fCrMtYCjif5TMtjmi1qcmVrgvmglZ9IMmE8bojkXMrg52LBsv0g/ydd29g8iaj
-         StSif7ixCIJzvAoEGK65G8z9yN9BAa7XC72FI0xEXIDCwaROSpNmpLaaiadT6/W5WHBW
-         2ODfFW0wGuPqNnKCeCadPwbvgVzobSrXsp7Wgw4cp/eEdqWZtOyZJAOOYvYGV6/zxUj9
-         I1I/XNuVu1r5mUJw43HY7PtBrbb/BGwdHeAFtLAmFQ7bwdqjurgQ32oqBik6xkMwWD4x
-         Ak6QDvVbosp0jHQ3CwZsdiF5oQIHD4lSQT70sJHRGiyYdm0csql5OiZpuuh7L3vXPW4n
-         Y+jw==
-X-Forwarded-Encrypted: i=1; AJvYcCXUQn/j0c1+Qv/zNKKjZNiIQSt+dWCgQOKAZWtQhxvY2sWQmLWLRApZuO/eEVU30uXSKroqCHi0LwuVWvNGV3/I@lists.infradead.org
-X-Gm-Message-State: AOJu0YzW86EDoOHvl4fLxY1AmcyJaPQV3y2iTBra4yk6/GJs56NzGYsg
-	tg4jgXI6ZVmFFWUBEhXlAqjDojPvx6aA78PqeMgVIb38cf4Lu+JVX74u1ioNgImTmTFTd9iLMoe
-	if+0LZ+allUKQhc6uoeG/86xhoDB1w9a6cVtmCg==
-X-Gm-Gg: ASbGnctlM5TNeAZv9FDueH/PageDJsdz0bBdPA5H7bKp0Eo6dhhWPlDL/GURhdQ2A6q
-	eGZNtiz/gEUdOKKvUpz4tEzMS4gB3Uw5+U0GCNCmK57aeRcmrBQr/w0ARIPv6xeIBhRqxEBrUla
-	2+oWmLKv7rQft4uCtP4CUCKKE=
-X-Google-Smtp-Source: AGHT+IGrfUH9MPAdQwNS2twFxhlagwaLPCfCXznz+rgBdFwPjZ3ioiuEo3A9Gk0YdclatuJ1Za+bseaIMHaboEvs7gU=
-X-Received: by 2002:a05:6870:7196:b0:2d5:230f:b352 with SMTP id
- 586e51a60fabf-2dae8619680mr3755206fac.27.1746447023762; Mon, 05 May 2025
- 05:10:23 -0700 (PDT)
+	Mon, 05 May 2025 12:12:19 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 545CCBLe935916
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 5 May 2025 07:12:11 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1746447131;
+	bh=Lnc+kGu7r29OB/AqIPiWysigYLPsjmOO5EXVwM9NSUQ=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=BiWfFRrNg7bI9ElYnYWafLKSH0AI3/iKPYsErdjFQ44gFmW4p26FIlEsI5JJyB5rv
+	 2sD7jbzynYVVjISRnjiX7+cEmeLtQ6Q/GdgUZEc2WTwfh21rcrGWHeqab0PGGt/wj6
+	 6ufrfC/aogAWwSc061ozMN7veuVGm0Ctd01Zoa2k=
+Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 545CCBlF008051
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 5 May 2025 07:12:11 -0500
+Received: from DFLE114.ent.ti.com (10.64.6.35) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 5
+ May 2025 07:12:11 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 5 May 2025 07:12:11 -0500
+Received: from localhost (bb.dhcp.ti.com [128.247.81.12])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 545CCBZn035893;
+	Mon, 5 May 2025 07:12:11 -0500
+Date: Mon, 5 May 2025 07:12:11 -0500
+From: Bryan Brattlof <bb@ti.com>
+To: Paresh Bhagat <p-bhagat@ti.com>
+CC: <nm@ti.com>, <vigneshr@ti.com>, <praneeth@ti.com>, <kristo@kernel.org>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <khasim@ti.com>, <v-singh1@ti.com>,
+        <afd@ti.com>
+Subject: Re: [PATCH v2 3/3] arm64: dts: ti: Add support for AM62D2-EVM
+Message-ID: <20250505121211.vli54ibkimvcneci@bryanbrattlof.com>
+X-PGP-Fingerprint: D3D1 77E4 0A38 DF4D 1853 FEEF 41B9 0D5D 71D5 6CE0
+References: <20250502153915.734932-1-p-bhagat@ti.com>
+ <20250502153915.734932-4-p-bhagat@ti.com>
+ <20250502200728.s6zyx2lgchftacno@bryanbrattlof.com>
+ <f2350ce9-f836-4ca4-ba76-a9358e30d754@ti.com>
 MIME-Version: 1.0
-References: <20250502100049.1746335-1-jens.wiklander@linaro.org>
- <20250502100049.1746335-2-jens.wiklander@linaro.org> <6236d3cb-fbf2-4a41-a84a-276aa8079b9a@arm.com>
-In-Reply-To: <6236d3cb-fbf2-4a41-a84a-276aa8079b9a@arm.com>
-From: Jens Wiklander <jens.wiklander@linaro.org>
-Date: Mon, 5 May 2025 14:10:11 +0200
-X-Gm-Features: ATxdqUFEAD2cD1D5jQOZdhIhdxiPr-7TKi7md7xZJRysmAHd6QQOFGSu_VWfcD0
-Message-ID: <CAHUa44EhdHZofZHRWQ8SJUn4OcAuMwzxxdfjhLQuXQXx4KEaUA@mail.gmail.com>
-Subject: Re: [PATCH v8 01/14] tee: tee_device_alloc(): copy dma_mask from
- parent device
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
-	op-tee@lists.trustedfirmware.org, linux-arm-kernel@lists.infradead.org, 
-	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
-	Yong Wu <yong.wu@mediatek.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
-	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
-	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	Sumit Garg <sumit.garg@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
-	Simona Vetter <simona.vetter@ffwll.ch>, Daniel Stone <daniel@fooishbar.org>, 
-	Rouven Czerwinski <rouven.czerwinski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <f2350ce9-f836-4ca4-ba76-a9358e30d754@ti.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_051025_014034_1C211DE6 
-X-CRM114-Status: GOOD (  24.99  )
+X-CRM114-CacheID: sfid-20250505_051217_863571_7007D4EC 
+X-CRM114-Status: GOOD (  26.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,68 +91,523 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On May  5, 2025 thus sayeth Paresh Bhagat:
+> Hi Bryan,
+> 
+> 
+> On 03/05/25 01:37, Bryan Brattlof wrote:
+> > On May  2, 2025 thus sayeth Paresh Bhagat:
+> > > AM62D-EVM evaluation module (EVM) is a low-cost expandable platform board
+> > > designed for TI’s AM62D2 SoC. It supports the following interfaces:
+> > > 
+> > > * 4 GB LPDDR4 RAM
+> > > * x2 Gigabit Ethernet expansion connectors
+> > > * x4 3.5mm TRS Audio Jack Line In
+> > > * x4 3.5mm TRS Audio Jack Line Out
+> > > * x2 Audio expansion connectors
+> > > * x1 Type-A USB 2.0, x1 Type-C dual-role device (DRD) USB 2.0
+> > > * x1 UHS-1 capable µSD card slot
+> > > * 32 GB eMMC Flash
+> > > * 512 Mb OSPI NOR flash
+> > > * x4 UARTs via USB 2.0-B
+> > > * XDS110 for onboard JTAG debug using USB
+> > > * Temperature sensors, user push buttons and LEDs
+> > > 
+> > > Add basic support for AM62D2-EVM.
+> > > 
+> > > Schematics Link - https://www.ti.com/lit/zip/sprcal5
+> > > 
+> > > Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
+> > > ---
+> > >   arch/arm64/boot/dts/ti/Makefile          |   3 +
+> > >   arch/arm64/boot/dts/ti/k3-am62d2-evm.dts | 445 +++++++++++++++++++++++
+> > >   2 files changed, 448 insertions(+)
+> > >   create mode 100644 arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+> > > 
+> > > diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+> > > index a48e7608de8b..1971f30879c9 100644
+> > > --- a/arch/arm64/boot/dts/ti/Makefile
+> > > +++ b/arch/arm64/boot/dts/ti/Makefile
+> > > @@ -33,6 +33,9 @@ dtb-$(CONFIG_ARCH_K3) += k3-am62-pocketbeagle2.dtb
+> > >   dtb-$(CONFIG_ARCH_K3) += k3-am62a7-sk.dtb
+> > >   dtb-$(CONFIG_ARCH_K3) += k3-am62a7-phyboard-lyra-rdk.dtb
+> > > +# Boards with AM62Dx SoC
+> > > +dtb-$(CONFIG_ARCH_K3) += k3-am62d2-evm.dtb
+> > > +
+> > >   # Boards with AM62Px SoC
+> > >   dtb-$(CONFIG_ARCH_K3) += k3-am62p5-sk.dtb
+> > > diff --git a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+> > > new file mode 100644
+> > > index 000000000000..03c13b065143
+> > > --- /dev/null
+> > > +++ b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+> > > @@ -0,0 +1,445 @@
+> > > +// SPDX-License-Identifier: GPL-2.0-only OR MIT
+> > > +/*
+> > > + * AM62D2 EVM: https://www.ti.com/lit/zip/sprcal5
+> > > + *
+> > > + * Copyright (C) 2025 Texas Instruments Incorporated - https://www.ti.com/
+> > > + */
+> > > +
+> > > +/dts-v1/;
+> > > +
+> > > +#include <dt-bindings/leds/common.h>
+> > > +#include <dt-bindings/gpio/gpio.h>
+> > > +#include <dt-bindings/net/ti-dp83867.h>
+> > > +#include "k3-am62a7.dtsi"
+> > > +
+> > > +/ {
+> > > +	compatible = "ti,am62d2-evm", "ti,am62d2";
+> > > +	model = "Texas Instruments AM62D2 EVM";
+> > > +
+> > > +	aliases {
+> > > +		serial0 = &wkup_uart0;
+> > > +		serial1 = &mcu_uart0;
+> > > +		serial2 = &main_uart0;
+> > > +		mmc1 = &sdhci1;
+> > > +		rtc0 = &wkup_rtc0;
+> > > +	};
+> > > +
+> > > +	chosen {
+> > > +		stdout-path = "serial2:115200n8";
+> > > +	};
+> > > +
+> > > +	memory@80000000 {
+> > > +		device_type = "memory";
+> > > +		/* 4G RAM */
+> > > +		reg = <0x00000000 0x80000000 0x00000000 0x80000000>,
+> > > +		      <0x00000008 0x80000000 0x00000000 0x80000000>;
+> > > +	};
+> > > +
+> > > +	reserved-memory {
+> > > +		#address-cells = <2>;
+> > > +		#size-cells = <2>;
+> > > +		ranges;
+> > > +
+> > > +		/* global cma region */
+> > > +		linux,cma {
+> > > +			compatible = "shared-dma-pool";
+> > > +			reusable;
+> > > +			size = <0x00 0x2000000>;
+> > > +			alloc-ranges = <0x00 0xc0000000 0x00 0x2000000>;
+> > > +			linux,cma-default;
+> > > +		};
+> > > +
+> > > +		c7x_0_dma_memory_region: c7x-dma-memory@99800000 {
+> > > +			compatible = "shared-dma-pool";
+> > > +			reg = <0x00 0x99800000 0x00 0x100000>;
+> > > +			no-map;
+> > > +		};
+> > > +
+> > > +		c7x_0_memory_region: c7x-memory@99900000 {
+> > > +			compatible = "shared-dma-pool";
+> > > +			reg = <0x00 0x99900000 0x00 0xf00000>;
+> > > +			no-map;
+> > > +		};
+> > > +
+> > > +		mcu_r5fss0_core0_dma_memory_region: r5f-dma-memory@9b800000 {
+> > > +			compatible = "shared-dma-pool";
+> > > +			reg = <0x00 0x9b800000 0x00 0x100000>;
+> > > +			no-map;
+> > > +		};
+> > > +
+> > > +		mcu_r5fss0_core0_memory_region: r5f-dma-memory@9b900000 {
+> > > +			compatible = "shared-dma-pool";
+> > > +			reg = <0x00 0x9b900000 0x00 0xf00000>;
+> > > +			no-map;
+> > > +		};
+> > > +
+> > > +		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
+> > > +			compatible = "shared-dma-pool";
+> > > +			reg = <0x00 0x9c800000 0x00 0x100000>;
+> > > +			no-map;
+> > > +		};
+> > > +
+> > > +		wkup_r5fss0_core0_memory_region: r5f-dma-memory@9c900000 {
+> > > +			compatible = "shared-dma-pool";
+> > > +			reg = <0x00 0x9c900000 0x00 0xf00000>;
+> > > +			no-map;
+> > > +		};
+> > > +
+> > > +		secure_tfa_ddr: tfa@9e780000 {
+> > > +			reg = <0x00 0x9e780000 0x00 0x80000>;
+> > I don't think this is where TF-A actually is.
+> The addresses are same as what is being pushed upstream for AM62a. https://patchew.org/linux/20250415153147.1844076-1-jm@ti.com/20250415153147.1844076-7-jm@ti.com/
+> > 
 
-On Fri, May 2, 2025 at 3:36=E2=80=AFPM Robin Murphy <robin.murphy@arm.com> =
-wrote:
->
-> On 02/05/2025 10:59 am, Jens Wiklander wrote:
-> > If a parent device is supplied to tee_device_alloc(), copy the dma_mask
-> > field into the new device. This avoids future warnings when mapping a
-> > DMA-buf for the device.
->
-> That also sounds dodgy. If the parent device is the hardware device
-> physically performing the DMA, then that is the device which should be
-> passed to the DMA API. Trying to copy random bits of one device's
-> configuration to another device and hoping it will work is not robust -
-> not only is DMA-relevant information all over the place, including in
-> archdata and/or bus/IOMMU driver-private data, but it can also opens up
-> a whole can of subtle lifecycle issues...
+According to your boot log it's at 0x80000000. TF-A is position 
+independent so the bootloaders can load it wherever. Most of these 
+boards have this carveout defined in the wrong spot.
 
-We have a reference to the parent device until the teedev goes away.
-The dma_maks needed by tee_shm_register_fd() in
-https://lore.kernel.org/lkml/20250502100049.1746335-9-jens.wiklander@linaro=
-.org/
-to be able to extract the PA from a DMA-buf allocated from another DMA
-heap. We can drop this patch and support for unrelated DMA heaps in
-tee_shm_register_fd() without losing critical features from the patch
-set if we can't handle dma_mask in this way.
+> > > +			alignment = <0x1000>;
+> > > +			no-map;
+> > > +		};
+> > > +
+> > > +		secure_ddr: optee@9e800000 {
+> > > +			reg = <0x00 0x9e800000 0x00 0x01800000>; /* for OP-TEE */
+> > > +			alignment = <0x1000>;
+> > > +			no-map;
+> > > +		};
+> > > +	};
+> > > +
+> > > +	opp-table {
+> > > +		/* Requires VDD_CORE at 0v85 */
+> > > +		opp-1400000000 {
+> > > +			opp-hz = /bits/ 64 <1400000000>;
+> > > +			opp-supported-hw = <0x01 0x0004>;
+> > > +			clock-latency-ns = <6000000>;
+> > > +		};
+> > > +	};
+> > > +
+> > > +	vout_pd: regulator-1 {
+> > > +		/* TPS65988 PD CONTROLLER OUTPUT */
+> > > +		compatible = "regulator-fixed";
+> > > +		regulator-name = "vout_pd";
+> > > +		regulator-min-microvolt = <5000000>;
+> > > +		regulator-max-microvolt = <5000000>;
+> > > +		regulator-always-on;
+> > > +		regulator-boot-on;
+> > > +	};
+> > > +
+> > > +	vmain_pd: load-switch {
+> > > +		/* Output of TPS22811 */
+> > > +		compatible = "regulator-fixed";
+> > > +		regulator-name = "vmain_pd";
+> > > +		regulator-min-microvolt = <5000000>;
+> > > +		regulator-max-microvolt = <5000000>;
+> > > +		vin-supply = <&vout_pd>;
+> > > +		regulator-always-on;
+> > > +		regulator-boot-on;
+> > > +	};
+> > > +
+> > > +	vcc_5v0: regulator-2 {
+> > > +		/* Output of TPS630702RNMR */
+> > > +		compatible = "regulator-fixed";
+> > > +		regulator-name = "vcc_5v0";
+> > > +		regulator-min-microvolt = <5000000>;
+> > > +		regulator-max-microvolt = <5000000>;
+> > > +		vin-supply = <&vmain_pd>;
+> > > +		regulator-always-on;
+> > > +		regulator-boot-on;
+> > > +	};
+> > > +
+> > > +	vdd_mmc1: regulator-3 {
+> > > +		/* TPS22918DBVR */
+> > > +		compatible = "regulator-fixed";
+> > > +		regulator-name = "vdd_mmc1";
+> > > +		regulator-min-microvolt = <3300000>;
+> > > +		regulator-max-microvolt = <3300000>;
+> > > +		regulator-boot-on;
+> > > +		enable-active-high;
+> > > +		gpio = <&exp1 3 GPIO_ACTIVE_HIGH>;
+> > > +	};
+> > > +
+> > > +	vddshv_sdio: regulator-4 {
+> > > +		compatible = "regulator-gpio";
+> > > +		regulator-name = "vddshv_sdio";
+> > > +		pinctrl-names = "default";
+> > > +		pinctrl-0 = <&vddshv_sdio_pins_default>;
+> > > +		regulator-min-microvolt = <1800000>;
+> > > +		regulator-max-microvolt = <3300000>;
+> > > +		regulator-boot-on;
+> > > +		gpios = <&main_gpio1 31 GPIO_ACTIVE_HIGH>;
+> > > +		states = <1800000 0x0>,
+> > > +			 <3300000 0x1>;
+> > > +	};
+> > > +};
+> > > +
+> > > +&mcu_pmx0 {
+> > > +	wkup_uart0_pins_default: wkup-uart0-default-pins {
+> > > +		pinctrl-single,pins = <
+> > > +			AM62DX_MCU_IOPAD(0x0024, PIN_INPUT, 0) /* (C9) WKUP_UART0_RXD */
+> > > +			AM62DX_MCU_IOPAD(0x0028, PIN_OUTPUT, 0) /* (E9) WKUP_UART0_TXD */
+> > > +			AM62DX_MCU_IOPAD(0x002c, PIN_INPUT, 0) /* (C10) WKUP_UART0_CTSn */
+> > > +			AM62DX_MCU_IOPAD(0x0030, PIN_OUTPUT, 0) /* (C8) WKUP_UART0_RTSn */
+> > > +		>;
+> > > +	};
+> > > +};
+> > > +
+> > > +/* WKUP UART0 is used for DM firmware logs */
+> > > +&wkup_uart0 {
+> > > +	pinctrl-names = "default";
+> > > +	pinctrl-0 = <&wkup_uart0_pins_default>;
+> > > +	status = "reserved";
+> > > +};
+> > > +
+> > > +&main_pmx0 {
+> > > +	main_uart0_pins_default: main-uart0-default-pins {
+> > > +		pinctrl-single,pins = <
+> > > +			AM62DX_IOPAD(0x01c8, PIN_INPUT, 0) /* (E14) UART0_RXD */
+> > > +			AM62DX_IOPAD(0x01cc, PIN_OUTPUT, 0) /* (D15) UART0_TXD */
+> > > +		>;
+> > > +	};
+> > > +
+> > > +	main_i2c0_pins_default: main-i2c0-default-pins {
+> > > +		pinctrl-single,pins = <
+> > > +			AM62DX_IOPAD(0x01e0, PIN_INPUT_PULLUP, 0) /* (D17) I2C0_SCL */
+> > > +			AM62DX_IOPAD(0x01e4, PIN_INPUT_PULLUP, 0) /* (E16) I2C0_SDA */
+> > > +		>;
+> > > +	};
+> > > +
+> > > +	main_i2c1_pins_default: main-i2c1-default-pins {
+> > > +		pinctrl-single,pins = <
+> > > +			AM62DX_IOPAD(0x01e8, PIN_INPUT_PULLUP, 0) /* (C17) I2C1_SCL */
+> > > +			AM62DX_IOPAD(0x01ec, PIN_INPUT_PULLUP, 0) /* (E17) I2C1_SDA */
+> > > +		>;
+> > > +	};
+> > > +
+> > > +	main_i2c2_pins_default: main-i2c2-default-pins {
+> > > +		pinctrl-single,pins = <
+> > > +			AM62DX_IOPAD(0x00b0, PIN_INPUT_PULLUP, 1) /* (M22) GPMC0_CSn2.I2C2_SCL */
+> > > +			AM62DX_IOPAD(0x00b4, PIN_INPUT_PULLUP, 1) /* (M20) GPMC0_CSn3.I2C2_SDA */
+> > > +		>;
+> > > +	};
+> > > +
+> > > +	main_mmc1_pins_default: main-mmc1-default-pins {
+> > > +		pinctrl-single,pins = <
+> > > +			AM62DX_IOPAD(0x023c, PIN_INPUT, 0) /* (C21) MMC1_CMD */
+> > > +			AM62DX_IOPAD(0x0234, PIN_OUTPUT, 0) /* (E22) MMC1_CLK */
+> > > +			AM62DX_IOPAD(0x0230, PIN_INPUT, 0) /* (B22) MMC1_DAT0 */
+> > > +			AM62DX_IOPAD(0x022c, PIN_INPUT_PULLUP, 0) /* (D21) MMC1_DAT1 */
+> > > +			AM62DX_IOPAD(0x0228, PIN_INPUT_PULLUP, 0) /* (C22) MMC1_DAT2 */
+> > > +			AM62DX_IOPAD(0x0224, PIN_INPUT_PULLUP, 0) /* (D22) MMC1_DAT3 */
+> > > +			AM62DX_IOPAD(0x0240, PIN_INPUT, 0) /* (E18) MMC1_SDCD */
+> > > +			AM62DX_IOPAD(0x0244, PIN_INPUT, 0) /* (D18) MMC1_SDWP */
+> > > +		>;
+> > > +	};
+> > > +
+> > > +	main_mdio1_pins_default: main-mdio1-default-pins {
+> > > +		pinctrl-single,pins = <
+> > > +			AM62DX_IOPAD(0x160, PIN_OUTPUT, 0) /* (V12) MDIO0_MDC */
+> > > +			AM62DX_IOPAD(0x15c, PIN_INPUT, 0) /* (V13) MDIO0_MDIO */
+> > > +		>;
+> > > +	};
+> > > +
+> > > +	main_gpio1_ioexp_intr_pins_default: main-gpio1-ioexp-intr-default-pins {
+> > > +		pinctrl-single,pins = <
+> > > +			AM62DX_IOPAD(0x01d4, PIN_INPUT, 7) /* (C15) UART0_RTSn.GPIO1_23 */
+> > > +		>;
+> > > +	};
+> > > +
+> > > +	vddshv_sdio_pins_default: vddshv-sdio-default-pins {
+> > > +		pinctrl-single,pins = <
+> > > +			AM62DX_IOPAD(0x1F4, PIN_OUTPUT, 7) /* (M19) GPMC0_CLK.GPIO1_31 */
+> > > +		>;
+> > > +	};
+> > > +};
+> > > +
+> > > +&mcu_pmx0 {
+> > > +	status = "okay";
+> > > +
+> > > +	pmic_irq_pins_default: pmic-irq-default-pins {
+> > > +		pinctrl-single,pins = <
+> > > +			AM62DX_MCU_IOPAD(0x000, PIN_INPUT, 7) /* (E11) MCU_GPIO0_0 */
+> > > +		>;
+> > > +	};
+> > > +};
+> > > +
+> > > +&mcu_gpio0 {
+> > > +	status = "okay";
+> > > +};
+> > > +
+> > > +&main_i2c0 {
+> > > +	status = "okay";
+> > > +	pinctrl-names = "default";
+> > > +	pinctrl-0 = <&main_i2c0_pins_default>;
+> > > +	clock-frequency = <400000>;
+> > > +
+> > > +	typec_pd0: usb-power-controller@3f {
+> > > +		compatible = "ti,tps6598x";
+> > > +		reg = <0x3f>;
+> > > +
+> > > +		connector {
+> > > +			compatible = "usb-c-connector";
+> > > +			label = "USB-C";
+> > > +			self-powered;
+> > > +			data-role = "dual";
+> > > +			power-role = "sink";
+> > > +			port {
+> > > +				usb_con_hs: endpoint {
+> > > +					remote-endpoint = <&usb0_hs_ep>;
+> > > +				};
+> > > +			};
+> > > +		};
+> > > +	};
+> > > +
+> > > +	exp1: gpio@22 {
+> > > +		compatible = "ti,tca6424";
+> > > +		reg = <0x22>;
+> > > +		gpio-controller;
+> > > +		#gpio-cells = <2>;
+> > > +		interrupt-parent = <&main_gpio1>;
+> > > +		interrupts = <23 IRQ_TYPE_EDGE_FALLING>;
+> > > +		interrupt-controller;
+> > > +		#interrupt-cells = <2>;
+> > > +		pinctrl-names = "default";
+> > > +		pinctrl-0 = <&main_gpio1_ioexp_intr_pins_default>;
+> > > +
+> > > +		gpio-line-names = "GPIO_CPSW2_RST", "GPIO_CPSW1_RST",
+> > > +			"MMC1_SD_EN", "VPP_EN",
+> > > +			"GPIO_DIX_RST", "IO_EXP_OPT_EN",
+> > > +			"DIX_INT", "GPIO_eMMC_RSTn",
+> > > +			"CPLD2_DONE", "CPLD2_INTN",
+> > > +			"CPLD1_DONE", "CPLD1_INTN",
+> > > +			"USB_TYPEA_OC_INDICATION", "PCM1_INT",
+> > > +			"PCM2_INT", "GPIO_PCM1_RST",
+> > > +			"TEST_GPIO2", "GPIO_PCM2_RST",
+> > > +			"IO_MCAN0_STB", "IO_MCAN1_STB",
+> > > +			"PD_I2C_IRQ", "IO_EXP_TEST_LED";
+> > > +	};
+> > > +
+> > > +	exp2: gpio@23 {
+> > > +		compatible = "ti,tca6424";
+> > > +		reg = <0x23>;
+> > > +		gpio-controller;
+> > > +		#gpio-cells = <2>;
+> > > +
+> > > +		gpio-line-names = "", "DAC_LAT_CTRL",
+> > > +			"CPLD1_JTAGENB", "CPLD1_PROGRAMN",
+> > > +			"CPLD2_JTAGENB", "CPLD2_PROGRAMN",
+> > > +			"", "",
+> > > +			"", "",
+> > > +			"", "",
+> > > +			"", "",
+> > > +			"", "",
+> > > +			"", "",
+> > > +			"SoC_I2C0_SCL", "SoC_I2C0_SDA";
+> > > +	};
+> > > +};
+> > > +
+> > > +&main_i2c1 {
+> > > +	status = "okay";
+> > > +	pinctrl-names = "default";
+> > > +	pinctrl-0 = <&main_i2c1_pins_default>;
+> > > +	clock-frequency = <100000>;
+> > > +	bootph-all;
+> > I'm not seeing other any other boot phase flags? What are you using to
+> > boot this board?
+> > 
+> > ~Bryan
+> It is a mistake and bootph-all is not required for this node. I will remove
+> it in the next version.
 
->
-> > Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
-> > Reviewed-by: Sumit Garg <sumit.garg@kernel.org>
-> > ---
-> >   drivers/tee/tee_core.c | 2 ++
-> >   1 file changed, 2 insertions(+)
-> >
-> > diff --git a/drivers/tee/tee_core.c b/drivers/tee/tee_core.c
-> > index d113679b1e2d..685afcaa3ea1 100644
-> > --- a/drivers/tee/tee_core.c
-> > +++ b/drivers/tee/tee_core.c
-> > @@ -922,6 +922,8 @@ struct tee_device *tee_device_alloc(const struct te=
-e_desc *teedesc,
-> >       teedev->dev.class =3D &tee_class;
-> >       teedev->dev.release =3D tee_release_device;
-> >       teedev->dev.parent =3D dev;
-> > +     if (dev)
-> > +             teedev->dev.dma_mask =3D dev->dma_mask;
->
-> ...for instance, I don't see any obvious guarantee that "dev" can't go
-> away during the lifetime of "teedev" and leave this pointer dangling.
+I would go the other way around with this. bootph-* is the correct 
+property to use to describe which nodes need to exist to boot the board 
+pre DDR init. There is no reason to leave them out.
 
-A successful call to tee_device_alloc() must be followed by a call to
-tee_device_register() or tee_device_unregister(). The former calls
-cdev_device_add(), which results in a call to device_add() and an
-increased reference to teedev->dev.parent, "dev" in question.
-
-Thanks,
-Jens
-
->
-> Thanks,
-> Robin.
->
-> >
-> >       teedev->dev.devt =3D MKDEV(MAJOR(tee_devt), teedev->id);
-> >
+> > 
+> > > +};
+> > > +
+> > > +&main_i2c2 {
+> > > +	status = "okay";
+> > > +	pinctrl-names = "default";
+> > > +	pinctrl-0 = <&main_i2c2_pins_default>;
+> > > +	clock-frequency = <400000>;
+> > > +};
+> > > +
+> > > +&sdhci1 {
+> > > +	/* SD/MMC */
+> > > +	status = "okay";
+> > > +	vmmc-supply = <&vdd_mmc1>;
+> > > +	vqmmc-supply = <&vddshv_sdio>;
+> > > +	pinctrl-names = "default";
+> > > +	pinctrl-0 = <&main_mmc1_pins_default>;
+> > > +	disable-wp;
+> > > +};
+> > > +
+> > > +&main_gpio0 {
+> > > +	status = "okay";
+> > > +};
+> > > +
+> > > +&main_gpio1 {
+> > > +	status = "okay";
+> > > +};
+> > > +
+> > > +&main_gpio_intr {
+> > > +	status = "okay";
+> > > +};
+> > > +
+> > > +&main_uart0 {
+> > > +	status = "okay";
+> > > +	pinctrl-names = "default";
+> > > +	pinctrl-0 = <&main_uart0_pins_default>;
+> > > +};
+> > > +
+> > > +&usb0 {
+> > > +	usb-role-switch;
+> > > +
+> > > +	port {
+> > > +		usb0_hs_ep: endpoint {
+> > > +			remote-endpoint = <&usb_con_hs>;
+> > > +		};
+> > > +	};
+> > > +};
+> > > +
+> > > +&mailbox0_cluster0 {
+> > > +	status = "okay";
+> > > +
+> > > +	mbox_r5_0: mbox-r5-0 {
+> > > +		ti,mbox-rx = <0 0 0>;
+> > > +		ti,mbox-tx = <1 0 0>;
+> > > +	};
+> > > +};
+> > > +
+> > > +&mailbox0_cluster1 {
+> > > +	status = "okay";
+> > > +
+> > > +	mbox_c7x_0: mbox-c7x-0 {
+> > > +		ti,mbox-rx = <0 0 0>;
+> > > +		ti,mbox-tx = <1 0 0>;
+> > > +	};
+> > > +};
+> > > +
+> > > +&mailbox0_cluster2 {
+> > > +	status = "okay";
+> > > +
+> > > +	mbox_mcu_r5_0: mbox-mcu-r5-0 {
+> > > +		ti,mbox-rx = <0 0 0>;
+> > > +		ti,mbox-tx = <1 0 0>;
+> > > +	};
+> > > +};
+> > > +
+> > > +&wkup_r5fss0 {
+> > > +	status = "okay";
+> > > +};
+> > > +
+> > > +&wkup_r5fss0_core0 {
+> > > +	mboxes = <&mailbox0_cluster0>, <&mbox_r5_0>;
+> > > +	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
+> > > +			<&wkup_r5fss0_core0_memory_region>;
+> > > +};
+> > > +
+> > > +&mcu_r5fss0 {
+> > > +	status = "okay";
+> > > +};
+> > > +
+> > > +&mcu_r5fss0_core0 {
+> > > +	mboxes = <&mailbox0_cluster2>, <&mbox_mcu_r5_0>;
+> > > +	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
+> > > +			<&mcu_r5fss0_core0_memory_region>;
+> > > +};
+> > > +
+> > > +&c7x_0 {
+> > > +	status = "okay";
+> > > +
+> > > +	mboxes = <&mailbox0_cluster1>, <&mbox_c7x_0>;
+> > > +	memory-region = <&c7x_0_dma_memory_region>,
+> > > +			<&c7x_0_memory_region>;
+> > > +};
+> > > +
+> > > +/* main_rti4 is used by C7x DSP */
+> > > +&main_rti4 {
+> > > +	status = "reserved";
+> > > +};
+> > > +
+> > > +/* main_timer2 is used by C7x DSP */
+> > > +&main_timer2 {
+> > > +	status = "reserved";
+> > > +};
+> > > -- 
+> > > 2.34.1
+> > > 
 
