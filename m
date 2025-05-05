@@ -4,94 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F17AC3ABB0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 10:04:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2206C3ABB9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 10:09:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qUO+n2qCCkVBKkF0xc34yA7zFKP1PRXVjAuF6gNjM7w=; b=njOE8jjbdcDvnOfUpSFex8kepb
-	g6+EvaLwHcYvrP24q9yCDXcUX/Rg8WB7UTCFhZL3Q5ImffiCF0IGCvbyzH5GL1HcKv50a9+X437HD
-	sKyKQe6KEQnMycEiVoGtRhxw7ilvCnGnr8JddRyZ06TUmjmpoYK9bIhccUVzpT41HXIodWAAZsp+K
-	0/zQwVSQzkjJ5Xfqyk5gp+DJpbc9q9+P8cJz1Rdrak+wLxTott7dMhgpcETW0PjkLnGwsJqSibvHv
-	egMsEn67aoEpuZOb1sLMtqJInQ1x8bz4s34JoKaaPjNb9DZQvk6yFTsOr4xge+T7h3iaWIsgXWF4y
-	1hivDwRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1uHrYEe/BCPIKsghK9cJ2gEqy5Nqd9eQ4C+mGF/QN4A=; b=BhZDgf/RdHHiOlO/HKIYo0fqbT
+	P7BT9tH2G/r0/PiksXubFDRhGtJ3XjFTs6jA224rj6quHOW0daj7di4Y732o2vefP/+n+2A5Rf9qz
+	UJuFEHeknpxCI6iygQpEhVArAev/OwKZb4ACeYQJa4ChopLEhE00NiDAsWpa1+NYJxayxifOYNHxv
+	ufUOgpNX4Wp3TilT/7M+FSPxuCZlaHdvEm7U890kYmw1WMaQmHL/gOxAyNw+E/jT8uQUOF5OJ8hoP
+	It4RsmeASIGF7FI7jGalDxmfWDStyUgibOVB/6nag6yF6NOxMKFaOd0MdwBwOVLp0vNwuJxGVSFFG
+	lJB20Yzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBsg9-000000070kD-2Ngf;
-	Mon, 05 May 2025 10:04:05 +0000
-Received: from mail-ot1-x331.google.com ([2607:f8b0:4864:20::331])
+	id 1uBskm-000000071HE-3pO3;
+	Mon, 05 May 2025 10:08:52 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBscd-000000070Fk-1MYB
+	id 1uBsim-0000000716V-1Tbh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 10:00:28 +0000
-Received: by mail-ot1-x331.google.com with SMTP id 46e09a7af769-72bb9725de1so822838a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 03:00:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1746439226; x=1747044026; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qUO+n2qCCkVBKkF0xc34yA7zFKP1PRXVjAuF6gNjM7w=;
-        b=AW5kXvFyk+9oYFPWaC5x+grtNFzv+2LbK4aZAPOH8IpsGIiIrht4RH4nnq8pRocXVW
-         Mri7rQxBN3j859i3BeDMR9FFN7s31Sqc/StINkxYkkFJI5ux94lQyybxfphFRLXe9CFU
-         0szVLXCdeGKVCoYJRkxK3cNFG4wUhhhcv/MNqHSDIFShsr+xqBRqUEH6dMn7h8beLfm/
-         YwsCKgufm8VeG59F+nKFXHMXrNUqc38i+zS+SYNKjVmp1sq2L5f1FxLoYN5EIC06Uidc
-         6GWPTKriAz2zBrSU45DvUb0x8xC4jIzFhYYZEco4q7S91XdrbnjhWdt1EjtGJcgQAh9i
-         hldQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746439226; x=1747044026;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=qUO+n2qCCkVBKkF0xc34yA7zFKP1PRXVjAuF6gNjM7w=;
-        b=mse4TCS9fzXlWXQooKP13XtvmqpVxxQNsVPvphaEEfhEpkltNPflgTf2shBTPJukif
-         9HICaxg4vDlaSlCMzp3i3UeIhF9cTvZ+DOoTu381GKmp8PRHgDkm8GUO7Li3UWVRwtna
-         K2GMfpwiWZlh42ZG06z7DFnTS4hWCCjvPPIbMh3SxmCau1c1Y16871GDtOc156jYU8cn
-         pdAVg5krAQ1az3SxwLGWTOtmpasRpHQs874qZQuRloEqsCYi0WEWCdhrO+8Gm7aOKXzR
-         4WeH1Kjh0MbqgE6t68hpMXzKJR7khiYm6yfCBWjC90r9PcPYrgGOgV4Fymp/WOQW0T0i
-         IovA==
-X-Forwarded-Encrypted: i=1; AJvYcCURvq3zlqgCEv7y6nsWmOGtkx7LjzvUWvHKy5yBSnTnMP1fKjQKfv/S08ed02zSFObez2gDmv7uoQ9Lv/1PfHy0@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFM2CyFzEvujs/xnlAJscKnKCx4/x8yAsQ6/2Vwv5EOckchLuO
-	wAhkj71ZQZ8qhPWzIyyfVyzCV5uVez33vSx/b5B4sPjnEUr1qCLZVL8TJ1NZvJPU3UEJi3cbvkT
-	zP1niTWyJEW3vvL7TMehtCBgXsQns00/g7m7Xlg==
-X-Gm-Gg: ASbGncs0WvYpvY4q9c/TLC3RYZaP7wEn3N16E1S8PWP044v+KMFnpbUu3o9wMeWIHmD
-	6M2PxUaGNQCijvVuL1yELZwoBDw8X4xgx03G85iKh8jeZG42RCbxyFeMHfFMeFgJUP34HGKyICy
-	6j8+KS2OKtVLklkCR0y+KDI6o=
-X-Google-Smtp-Source: AGHT+IEfTkbjK5JWEDIXSUVf0w92h26obU5oYSgxTn7TbvfY+I0Zkozng+KfK0iBSmGp52i/r+Q8MQct9dxWARB5Up4=
-X-Received: by 2002:a05:6870:972c:b0:2d5:230f:b34d with SMTP id
- 586e51a60fabf-2dae82cc070mr3868126fac.1.1746439225695; Mon, 05 May 2025
- 03:00:25 -0700 (PDT)
+	Mon, 05 May 2025 10:06:51 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id A616421282;
+	Mon,  5 May 2025 10:06:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1746439606; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=1uHrYEe/BCPIKsghK9cJ2gEqy5Nqd9eQ4C+mGF/QN4A=;
+	b=CFY+Bo+DtYwUuRgBGl5AmLhRSuPGKPQIAQynukOPOCqzVtgYDAeQ4gsGHvWB40vrQLZ1zS
+	joSg0B0ocmFM0tyX8U1z6G8YuN2iuO5RqPn4OkxGMEtzpTGFrp83K5mKDPCS9w3OLyFkIV
+	OokPgUlPg9wkcdAbSF+agNyYk1v1aNY=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1746439606;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=1uHrYEe/BCPIKsghK9cJ2gEqy5Nqd9eQ4C+mGF/QN4A=;
+	b=NyrGr7IMNGQ01PenLUsQ9R4tyXomoJxqrWT7MBSfOe2jqiijjmBvmsTisSeLYQYmw4WEr7
+	UX+/PSAfcFLja/DA==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b=CFY+Bo+D;
+	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=NyrGr7IM
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1746439606; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=1uHrYEe/BCPIKsghK9cJ2gEqy5Nqd9eQ4C+mGF/QN4A=;
+	b=CFY+Bo+DtYwUuRgBGl5AmLhRSuPGKPQIAQynukOPOCqzVtgYDAeQ4gsGHvWB40vrQLZ1zS
+	joSg0B0ocmFM0tyX8U1z6G8YuN2iuO5RqPn4OkxGMEtzpTGFrp83K5mKDPCS9w3OLyFkIV
+	OokPgUlPg9wkcdAbSF+agNyYk1v1aNY=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1746439606;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=1uHrYEe/BCPIKsghK9cJ2gEqy5Nqd9eQ4C+mGF/QN4A=;
+	b=NyrGr7IMNGQ01PenLUsQ9R4tyXomoJxqrWT7MBSfOe2jqiijjmBvmsTisSeLYQYmw4WEr7
+	UX+/PSAfcFLja/DA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 92F1713883;
+	Mon,  5 May 2025 10:06:46 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id YyWGI7aNGGi4dwAAD6G6ig
+	(envelope-from <jack@suse.cz>); Mon, 05 May 2025 10:06:46 +0000
+Received: by quack3.suse.cz (Postfix, from userid 1000)
+	id 3F95DA0670; Mon,  5 May 2025 12:06:46 +0200 (CEST)
+Date: Mon, 5 May 2025 12:06:46 +0200
+From: Jan Kara <jack@suse.cz>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, 
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, David Hildenbrand <david@redhat.com>, 
+	Dave Chinner <david@fromorbit.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Kalesh Singh <kaleshsingh@google.com>, Zi Yan <ziy@nvidia.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	linux-mm@kvack.org
+Subject: Re: [RFC PATCH v4 5/5] mm/filemap: Allow arch to request folio size
+ for exec memory
+Message-ID: <b2xibk62rakzb3ln7i4evdtqrkd75xboj5y4vfqf2fyt3y7g5a@5x7qqsjpanxd>
+References: <20250430145920.3748738-1-ryan.roberts@arm.com>
+ <20250430145920.3748738-6-ryan.roberts@arm.com>
 MIME-Version: 1.0
-References: <20250502100049.1746335-1-jens.wiklander@linaro.org>
- <20250502100049.1746335-11-jens.wiklander@linaro.org> <43e85d6a-ef99-4d61-910e-1d62814fd9ed@arm.com>
-In-Reply-To: <43e85d6a-ef99-4d61-910e-1d62814fd9ed@arm.com>
-From: Jens Wiklander <jens.wiklander@linaro.org>
-Date: Mon, 5 May 2025 12:00:12 +0200
-X-Gm-Features: ATxdqUFPin2MFa6t0S3tPjOQfIF3WcjTWu_QNb2z1h_FFrZyFMNu2bu0GEdtH9Y
-Message-ID: <CAHUa44GC-HRUNGkta-EfMD00VzPBvqcVqU4Zj7kvW8CPnahdMg@mail.gmail.com>
-Subject: Re: [PATCH v8 10/14] dma-contiguous: export dma_contiguous_default_area
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, 
-	op-tee@lists.trustedfirmware.org, linux-arm-kernel@lists.infradead.org, 
-	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
-	Yong Wu <yong.wu@mediatek.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
-	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
-	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	Sumit Garg <sumit.garg@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
-	Simona Vetter <simona.vetter@ffwll.ch>, Daniel Stone <daniel@fooishbar.org>, 
-	Rouven Czerwinski <rouven.czerwinski@linaro.org>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	iommu@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250430145920.3748738-6-ryan.roberts@arm.com>
+X-Rspamd-Queue-Id: A616421282
+X-Spamd-Result: default: False [-4.01 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	ARC_NA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	MISSING_XM_UA(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[16];
+	MIME_TRACE(0.00)[0:+];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.cz:dkim,suse.cz:email,suse.com:email];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RCVD_COUNT_THREE(0.00)[3];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	RCVD_TLS_LAST(0.00)[];
+	DKIM_TRACE(0.00)[suse.cz:+]
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Action: no action
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_030027_372236_6DC63E0F 
-X-CRM114-Status: GOOD (  15.91  )
+X-CRM114-CacheID: sfid-20250505_030648_532314_0CBFE8BB 
+X-CRM114-Status: GOOD (  42.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,48 +142,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed 30-04-25 15:59:18, Ryan Roberts wrote:
+> Change the readahead config so that if it is being requested for an
+> executable mapping, do a synchronous read into a set of folios with an
+> arch-specified order and in a naturally aligned manner. We no longer
+> center the read on the faulting page but simply align it down to the
+> previous natural boundary. Additionally, we don't bother with an
+> asynchronous part.
+> 
+> On arm64 if memory is physically contiguous and naturally aligned to the
+> "contpte" size, we can use contpte mappings, which improves utilization
+> of the TLB. When paired with the "multi-size THP" feature, this works
+> well to reduce dTLB pressure. However iTLB pressure is still high due to
+> executable mappings having a low likelihood of being in the required
+> folio size and mapping alignment, even when the filesystem supports
+> readahead into large folios (e.g. XFS).
+> 
+> The reason for the low likelihood is that the current readahead
+> algorithm starts with an order-0 folio and increases the folio order by
+> 2 every time the readahead mark is hit. But most executable memory tends
+> to be accessed randomly and so the readahead mark is rarely hit and most
+> executable folios remain order-0.
+> 
+> So let's special-case the read(ahead) logic for executable mappings. The
+> trade-off is performance improvement (due to more efficient storage of
+> the translations in iTLB) vs potential for making reclaim more difficult
+> (due to the folios being larger so if a part of the folio is hot the
+> whole thing is considered hot). But executable memory is a small portion
+> of the overall system memory so I doubt this will even register from a
+> reclaim perspective.
+> 
+> I've chosen 64K folio size for arm64 which benefits both the 4K and 16K
+> base page size configs. Crucially the same amount of data is still read
+> (usually 128K) so I'm not expecting any read amplification issues. I
+> don't anticipate any write amplification because text is always RO.
+> 
+> Note that the text region of an ELF file could be populated into the
+> page cache for other reasons than taking a fault in a mmapped area. The
+> most common case is due to the loader read()ing the header which can be
+> shared with the beginning of text. So some text will still remain in
+> small folios, but this simple, best effort change provides good
+> performance improvements as is.
+> 
+> Confine this special-case approach to the bounds of the VMA. This
+> prevents wasting memory for any padding that might exist in the file
+> between sections. Previously the padding would have been contained in
+> order-0 folios and would be easy to reclaim. But now it would be part of
+> a larger folio so more difficult to reclaim. Solve this by simply not
+> reading it into memory in the first place.
+> 
+> Benchmarking
+> ============
+> TODO: NUMBERS ARE FOR V3 OF SERIES. NEED TO RERUN FOR THIS VERSION.
+> 
+> The below shows nginx and redis benchmarks on Ampere Altra arm64 system.
+> 
+> First, confirmation that this patch causes more text to be contained in
+> 64K folios:
+> 
+> | File-backed folios     |   system boot   |      nginx      |      redis      |
+> | by size as percentage  |-----------------|-----------------|-----------------|
+> | of all mapped text mem | before |  after | before |  after | before |  after |
+> |========================|========|========|========|========|========|========|
+> | base-page-4kB          |    26% |     9% |    27% |     6% |    21% |     5% |
+> | thp-aligned-8kB        |     4% |     2% |     3% |     0% |     4% |     1% |
+> | thp-aligned-16kB       |    57% |    21% |    57% |     6% |    54% |    10% |
+> | thp-aligned-32kB       |     4% |     1% |     4% |     1% |     3% |     1% |
+> | thp-aligned-64kB       |     7% |    65% |     8% |    85% |     9% |    72% |
+> | thp-aligned-2048kB     |     0% |     0% |     0% |     0% |     7% |     8% |
+> | thp-unaligned-16kB     |     1% |     1% |     1% |     1% |     1% |     1% |
+> | thp-unaligned-32kB     |     0% |     0% |     0% |     0% |     0% |     0% |
+> | thp-unaligned-64kB     |     0% |     0% |     0% |     1% |     0% |     1% |
+> | thp-partial            |     1% |     1% |     0% |     0% |     1% |     1% |
+> |------------------------|--------|--------|--------|--------|--------|--------|
+> | cont-aligned-64kB      |     7% |    65% |     8% |    85% |    16% |    80% |
+> 
+> The above shows that for both workloads (each isolated with cgroups) as
+> well as the general system state after boot, the amount of text backed
+> by 4K and 16K folios reduces and the amount backed by 64K folios
+> increases significantly. And the amount of text that is contpte-mapped
+> significantly increases (see last row).
+> 
+> And this is reflected in performance improvement:
+> 
+> | Benchmark                                     |          Improvement |
+> +===============================================+======================+
+> | pts/nginx (200 connections)                   |                8.96% |
+> | pts/nginx (1000 connections)                  |                6.80% |
+> +-----------------------------------------------+----------------------+
+> | pts/redis (LPOP, 50 connections)              |                5.07% |
+> | pts/redis (LPUSH, 50 connections)             |                3.68% |
+> 
+> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 
-On Fri, May 2, 2025 at 3:11=E2=80=AFPM Robin Murphy <robin.murphy@arm.com> =
-wrote:
->
-> On 02/05/2025 10:59 am, Jens Wiklander wrote:
-> > Export the global variable dma_contiguous_default_area so
-> > dev_get_cma_area() can be called a module.
->
-> What dma_map_ops implementation is in a module? Without any other
-> context, I can't help thinking this smells of something sketchy.
+Looks good to me. Feel free to add:
 
-I see that you found the rest of the patch set
-https://lore.kernel.org/lkml/20250502100049.1746335-1-jens.wiklander@linaro=
-.org/
+Reviewed-by: Jan Kara <jack@suse.cz>
 
-Thanks,
-Jens
+								Honza
 
-
->
-> Thanks,
-> Robin.
->
-> > Cc: Marek Szyprowski <m.szyprowski@samsung.com>
-> > Cc: Robin Murphy <robin.murphy@arm.com>
-> > Cc: iommu@lists.linux.dev
-> > Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
-> > ---
-> >   kernel/dma/contiguous.c | 1 +
-> >   1 file changed, 1 insertion(+)
-> >
-> > diff --git a/kernel/dma/contiguous.c b/kernel/dma/contiguous.c
-> > index 8df0dfaaca18..eb361794a9c5 100644
-> > --- a/kernel/dma/contiguous.c
-> > +++ b/kernel/dma/contiguous.c
-> > @@ -53,6 +53,7 @@
-> >   #endif
-> >
-> >   struct cma *dma_contiguous_default_area;
-> > +EXPORT_SYMBOL(dma_contiguous_default_area);
-> >
-> >   /*
-> >    * Default global CMA area size can be defined in kernel's .config.
+> diff --git a/mm/filemap.c b/mm/filemap.c
+> index e61f374068d4..37fe4a55c00d 100644
+> --- a/mm/filemap.c
+> +++ b/mm/filemap.c
+> @@ -3252,14 +3252,40 @@ static struct file *do_sync_mmap_readahead(struct vm_fault *vmf)
+>  	if (mmap_miss > MMAP_LOTSAMISS)
+>  		return fpin;
+>  
+> -	/*
+> -	 * mmap read-around
+> -	 */
+>  	fpin = maybe_unlock_mmap_for_io(vmf, fpin);
+> -	ra->start = max_t(long, 0, vmf->pgoff - ra->ra_pages / 2);
+> -	ra->size = ra->ra_pages;
+> -	ra->async_size = ra->ra_pages / 4;
+> -	ra->order = 0;
+> +	if (vm_flags & VM_EXEC) {
+> +		/*
+> +		 * Allow arch to request a preferred minimum folio order for
+> +		 * executable memory. This can often be beneficial to
+> +		 * performance if (e.g.) arm64 can contpte-map the folio.
+> +		 * Executable memory rarely benefits from readahead, due to its
+> +		 * random access nature, so set async_size to 0.
+> +		 *
+> +		 * Limit to the boundaries of the VMA to avoid reading in any
+> +		 * pad that might exist between sections, which would be a waste
+> +		 * of memory.
+> +		 */
+> +		struct vm_area_struct *vma = vmf->vma;
+> +		unsigned long start = vma->vm_pgoff;
+> +		unsigned long end = start + ((vma->vm_end - vma->vm_start) >> PAGE_SHIFT);
+> +		unsigned long ra_end;
+> +
+> +		ra->order = exec_folio_order();
+> +		ra->start = round_down(vmf->pgoff, 1UL << ra->order);
+> +		ra->start = max(ra->start, start);
+> +		ra_end = round_up(ra->start + ra->ra_pages, 1UL << ra->order);
+> +		ra_end = min(ra_end, end);
+> +		ra->size = ra_end - ra->start;
+> +		ra->async_size = 0;
+> +	} else {
+> +		/*
+> +		 * mmap read-around
+> +		 */
+> +		ra->start = max_t(long, 0, vmf->pgoff - ra->ra_pages / 2);
+> +		ra->size = ra->ra_pages;
+> +		ra->async_size = ra->ra_pages / 4;
+> +		ra->order = 0;
+> +	}
+>  	ractl._index = ra->start;
+>  	page_cache_ra_order(&ractl, ra);
+>  	return fpin;
+> -- 
+> 2.43.0
+> 
+-- 
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
 
