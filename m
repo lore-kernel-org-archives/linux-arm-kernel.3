@@ -4,60 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D94DCC3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 00:17:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4616DC3ABB6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 00:19:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3r837BHKTOfX71htIqYe1SqYT8Pc+1jmeqmKw4V61uM=; b=L38bsRMHEreBP4brA55mnM02Tq
-	9DzVFXONB3XlrV+xCN29SvU881exdm0Mv2OYP8bKuWkyfXlV167GQolPQjUdTZDDfxsLQJm8Fk3Zn
-	svEFtnkrVREEtetftfwHfB00MRavUjWWN7J9pGczgK/xX8+uKnP3ZCQzCZQMYZEJ4RnbdOQfy4IBC
-	Zdjc7BiBVT/EtBrCGYYdRnA2O0vLcdVspzDCml1WKTTQUXReQZHJ+51oYuN+LYngwYmYtGYnqaEWZ
-	QeMxd4HgOSBSndEcbeeakCc/Y6pro+BN/GZzUpyNx1sgdIb3GTxmZfmmOK6hLleO/m2xtJjUPNBRC
-	yPRhgsMg==;
+	bh=DgzHiXqVCPvkjv01gr/QTbzunxVFAhzGRMzU+v6oQyk=; b=FCRIo6WacN5P5VW/DzkwSbgszV
+	JQW1WOBb1tFvS1yP7k1hUF8Tee68YA03VYa6iXh8d8paE60YRVVt/LYBXd69TT7yjSCloT0MA2bJP
+	RBzziW05eeHLZ3jYoXTvu8neaibfgr/15bw5CK+JmDOutJEWmoETAUzCI35aJh4p5bvQIqBNUekzz
+	QzER9eOUtEld7I4K9ASspoysVvsLmzjvrebgwKxQ4YjArBeQho5RcBjvuHgRTLDpiYp5wU1Q56szN
+	3f4HYrmqxD9ETRpTJzHeN1XJX5Z5CScRTRHfXpLMiYQrQEkMj/GMWIrbO9AhrvU7tzIlq0Hh92KCm
+	f1mOi7oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC5zv-00000009FIB-1qTx;
-	Tue, 06 May 2025 00:17:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uC61t-00000009FgW-0xMA;
+	Tue, 06 May 2025 00:19:25 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4LI-00000008mYE-2p1N
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 22:31:20 +0000
+	id 1uC4Lt-00000008mqE-2s3r;
+	Mon, 05 May 2025 22:31:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 40059629C2;
-	Mon,  5 May 2025 22:30:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7ECAEC4CEEE;
-	Mon,  5 May 2025 22:31:18 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 02F9B5C5523;
+	Mon,  5 May 2025 22:29:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC534C4CEEF;
+	Mon,  5 May 2025 22:31:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746484279;
-	bh=v/ju6zynRUJtqKH6u2Ic/XOrJDA6okuwg9/FkbE2tGk=;
+	s=k20201202; t=1746484316;
+	bh=RJzjm2jlMUB/SBLIUQp0a59U9HrB8VfoOl2O1qsQVxw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=A+9TDjsH975qB90gOtGzj6E8AYAO6D6H6gh72hzEOFkisAEf5JYKmoWKPAeZxcdY/
-	 AjlMjaSZ2a4nx1t7J/oNri/SagdMybVPD5L9ot6Vl9CzwLHqBUXAeajdjVjTzzrxm0
-	 cmu8xP+oTskjPSYxivCQaPu3PVq7iHtJ+V0eyu9HlWvBHHVAQ35gH8XMi2oi4z0xvf
-	 0lAznC+zZ7JD9W7Za+OYgO4MdN9WbroaDzZeA1qdmZYWo3iIqNm3dtOAATpT7y4mVm
-	 DyaMOKAGiLSQ6wlYp9XGagytxZWxlrYJ6uCKmFXeOOEzDo6TRyMZTXolysCoq3o+CH
-	 h7wNrylfx7iIQ==
+	b=YegHN7jeXMIZqecNqCrivsJDs/1cIdvz88SUTdgrXCDqmfL3mHLzlqLp35CnVc8Fb
+	 /fzvAC1rIl89Fd7YAdxmOFvICkIOx3/134ZX8VF0WopIN9Kt82/RKrljtc3w+Cu2xB
+	 vRUII7hnltIM2BDDwRFEFhaVBO7T3MZh05uGQT7gBXSzRiirXj5iIv/wx77+eDhaG9
+	 pss6RocPnwOPaP5ecQkRcBNxjBRbD0hgZm6r14psga34JFcpgtUoiwyjpvLrw962iK
+	 OgR5p4CeyMCDU4t3nagkpNK2ky/gG57aet+ZpDQHqe5h2nwKx9YqQARPAKI5SXSkSr
+	 WfCgFg96cXiTg==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Alain Volmat <alain.volmat@foss.st.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>,
+Cc: Damon Ding <damon.ding@rock-chips.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	Vinod Koul <vkoul@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	mchehab@kernel.org,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	linux-media@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.14 431/642] media: stm32: csi: add missing pm_runtime_put on error
-Date: Mon,  5 May 2025 18:10:47 -0400
-Message-Id: <20250505221419.2672473-431-sashal@kernel.org>
+	kishon@kernel.org,
+	heiko@sntech.de,
+	linux-phy@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.14 450/642] phy: phy-rockchip-samsung-hdptx: Swap the definitions of LCPLL_REF and ROPLL_REF
+Date: Mon,  5 May 2025 18:11:06 -0400
+Message-Id: <20250505221419.2672473-450-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505221419.2672473-1-sashal@kernel.org>
 References: <20250505221419.2672473-1-sashal@kernel.org>
@@ -66,6 +64,10 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.14.5
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250505_153157_765926_E5B150D7 
+X-CRM114-Status: UNSURE (   9.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,66 +82,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alain Volmat <alain.volmat@foss.st.com>
+From: Damon Ding <damon.ding@rock-chips.com>
 
-[ Upstream commit f7cd9c94959e7a5b8c4eca33e20bd6ba1b048a64 ]
+[ Upstream commit 2947c8065e9efdd3b6434d2817dc8896234a3fc0 ]
 
-Within the stm32_csi_start function, pm_runtime_put should
-be called upon error following pm_runtime_get_sync.
-Rework the function error handling by putting a label in
-order to have common error handling for all calls requiring
-pm_runtime_put.
+According to the datasheet, setting the dig_clk_sel bit of CMN_REG(0097)
+to 1'b1 selects LCPLL as the reference clock, while setting it to 1'b0
+selects the ROPLL.
 
-Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
-Signed-off-by: Sakari Ailus <sakari.ailus@linux.intel.com>
-Signed-off-by: Hans Verkuil <hverkuil@xs4all.nl>
+Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Link: https://lore.kernel.org/r/20250205105157.580060-2-damon.ding@rock-chips.com
+Signed-off-by: Vinod Koul <vkoul@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/media/platform/st/stm32/stm32-csi.c | 16 +++++++++-------
- 1 file changed, 9 insertions(+), 7 deletions(-)
+ drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/media/platform/st/stm32/stm32-csi.c b/drivers/media/platform/st/stm32/stm32-csi.c
-index a4f8db608cedd..0c776e4a7ce83 100644
---- a/drivers/media/platform/st/stm32/stm32-csi.c
-+++ b/drivers/media/platform/st/stm32/stm32-csi.c
-@@ -499,21 +499,19 @@ static int stm32_csi_start(struct stm32_csi_dev *csidev,
- 
- 	ret = pm_runtime_get_sync(csidev->dev);
- 	if (ret < 0)
--		return ret;
-+		goto error_put;
- 
- 	/* Retrieve CSI2PHY clock rate to compute CCFR value */
- 	phy_clk_frate = clk_get_rate(csidev->clks[STM32_CSI_CLK_CSI2PHY].clk);
- 	if (!phy_clk_frate) {
--		pm_runtime_put(csidev->dev);
- 		dev_err(csidev->dev, "CSI2PHY clock rate invalid (0)\n");
--		return ret;
-+		ret = -EINVAL;
-+		goto error_put;
- 	}
- 
- 	ret = stm32_csi_setup_lane_merger(csidev);
--	if (ret) {
--		pm_runtime_put(csidev->dev);
--		return ret;
--	}
-+	if (ret)
-+		goto error_put;
- 
- 	/* Enable the CSI */
- 	writel_relaxed(STM32_CSI_CR_CSIEN, csidev->base + STM32_CSI_CR);
-@@ -569,6 +567,10 @@ static int stm32_csi_start(struct stm32_csi_dev *csidev,
- 	writel_relaxed(0, csidev->base + STM32_CSI_PMCR);
- 
- 	return ret;
-+
-+error_put:
-+	pm_runtime_put(csidev->dev);
-+	return ret;
- }
- 
- static void stm32_csi_stop(struct stm32_csi_dev *csidev)
+diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+index 2fb4f297fda3d..920abf6fa9bdd 100644
+--- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
++++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+@@ -94,8 +94,8 @@
+ #define LCPLL_ALONE_MODE		BIT(1)
+ /* CMN_REG(0097) */
+ #define DIG_CLK_SEL			BIT(1)
+-#define ROPLL_REF			BIT(1)
+-#define LCPLL_REF			0
++#define LCPLL_REF			BIT(1)
++#define ROPLL_REF			0
+ /* CMN_REG(0099) */
+ #define CMN_ROPLL_ALONE_MODE		BIT(2)
+ #define ROPLL_ALONE_MODE		BIT(2)
 -- 
 2.39.5
 
