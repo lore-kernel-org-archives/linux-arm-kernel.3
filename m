@@ -4,75 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9408CC3ABB0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 12:23:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02104C3ABB6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 12:25:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PDrjQLrgCOGlD1G5NZ3v24S+BslDmlzYRM05njM6UbE=; b=jXq37yqgZvtxeiu63ErjnNLudM
-	i4ROnZCfuDkOqiX/7e19JLoV6pAgMFFRTXtr576ioh3FqYf/MiuAJ6jLsZtTcYa5qbO1RGl68C44U
-	VpeoqaF0gahtI+Iir9zJDRMhbdL3IUj2jz9vpk0v4o/87BWd3xg4QRNXLq/PGyCLPHDq4e0vGLyUA
-	u3t5K7UpNFaJ5Psd3faf1rpOkpXLJFTbSzAYcHcXC6VMZiFpEY98IXu23+YU46Wf9rvK9ub5isfQx
-	pDOjrTAcKiaOd4uhuIJ1YfgpkGYS8Kmyy31bhaoXSNWdBXUzalW6PnnJxt6YQvybNxk4mfTQuIJEV
-	/0fCzpmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gQ6gmPL5iKLg1+0Zkeo/dLhugc+HO3kcupvLJaT12dI=; b=UhZHm9uYT35HgVHvdtC+Px0HXU
+	554W1iuqZsOR4T2ey8xm4enX9fNdFyEIED3OLL5XU02HuZLLjMoHVaYgDNlMdcrC+LB74/WqJMo1X
+	7xM8HNXcWzHQbuDk9dw5z66+5XXO8I0NGsst2ieVEFysIQTaYS0SkJcPps4SH9yw94N5UKswJXt1o
+	9eeNv2TQWGza2pys3dJL8Ub0aJYznRwrtHmQRtY3+xtYQJ1j+rLian7hjof9yBSFeZDoU3w/BY3s5
+	L3AwfNe8i+FjHZyYjQzPRKS46+veHdF1swq0ll/8rsn3GZR74kSw1aiertk1Phj9m86N6ROsxenbz
+	fQNeMQ6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBuqx-00000007Ii9-1JY2;
-	Mon, 05 May 2025 12:23:23 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1uBusz-00000007J1d-04VY;
+	Mon, 05 May 2025 12:25:29 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBukq-00000007HYI-3ON1;
-	Mon, 05 May 2025 12:17:05 +0000
-X-UUID: d71bfc7229aa11f0bed96b30c12bc3d6-20250505
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=PDrjQLrgCOGlD1G5NZ3v24S+BslDmlzYRM05njM6UbE=;
-	b=HzfDfvDMhSFcJ8UhfRKgd4Wzi2xlqBivigDdLwOnXZVPF4q5rxS2Cuiqer9kw88I7BBGWix6so2s2dyQdKUEcRutAwa5SrjTaSDJ1IrY9bmv0Niwg4jpeOCa6cPIDNzW9vcmt+yP5/F3QROWwhExuMwY/CNSHa6MN5FcOxXp2Yw=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:234c1134-18e3-423d-8a91-606872a8e7fd,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:be12ec7f-99e0-42db-8543-075f2c30d73f,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
-	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: d71bfc7229aa11f0bed96b30c12bc3d6-20250505
-Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
-	(envelope-from <sirius.wang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1766431854; Mon, 05 May 2025 05:16:57 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.39; Mon, 5 May 2025 20:16:55 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.39 via Frontend Transport; Mon, 5 May 2025 20:16:55 +0800
-From: Sirius Wang <sirius.wang@mediatek.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Sean Wang <sean.wang@mediatek.com>
-CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<wenst@chromium.org>, Sirius Wang <sirius.wang@mediatek.com>
-Subject: [PATCH 2/2] WIP: arm64: dts: mt8189: Add mt8189 dts evaluation board and Mafefile
-Date: Mon, 5 May 2025 20:15:46 +0800
-Message-ID: <20250505121627.3944728-3-sirius.wang@mediatek.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20250505121627.3944728-1-sirius.wang@mediatek.com>
-References: <20250505121627.3944728-1-sirius.wang@mediatek.com>
+	id 1uBunT-00000007IBL-15r7
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 May 2025 12:19:49 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5458Bxb4012447;
+	Mon, 5 May 2025 14:19:37 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	gQ6gmPL5iKLg1+0Zkeo/dLhugc+HO3kcupvLJaT12dI=; b=Nfl17y9Z1jpnKAPG
+	2x01UVnZx1dB6+5vfCYnZpwYsP1rf8W4i6qqZZ6t3nK1nWBByep/ORElkVEykbCm
+	GmpQtKnOfc7C53/yZEFALCiamuOV19OmEkVCZrvcYkbsvFd0oF5s2OJaisey/VUL
+	W0j0vl9sgRYoDDGQ6uHDfYfKGUEfSrgVczW8XSLqBKHuay5fVZib6bVwcFbCwkS7
+	FMnE2h9CiY8vMm9FuxyYTUwtmrkHHiLp3YCH3K6xLkB7Dh3YkJXQ7uptghFNRTCs
+	YZ76XZv5AUVRPG6Vz5uHrQvGlD0FwbHzKxU2uoCzaDhdpdOcbytS8soFyYddWnI4
+	LE/EDw==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 46dbf36902-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 05 May 2025 14:19:36 +0200 (MEST)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 888B640058;
+	Mon,  5 May 2025 14:18:28 +0200 (CEST)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 07C5DB19791;
+	Mon,  5 May 2025 14:15:28 +0200 (CEST)
+Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 5 May
+ 2025 14:15:27 +0200
+Message-ID: <6d697e1e-84da-4988-8564-91430e820fef@foss.st.com>
+Date: Mon, 5 May 2025 14:15:26 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 0/3] Add STM32MP25 SPI NOR support
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+        Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>,
+        Rob Herring <robh@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre
+ Torgue <alexandre.torgue@foss.st.com>,
+        Philipp Zabel
+	<p.zabel@pengutronix.de>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Catalin
+ Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>
+CC: <christophe.kerello@foss.st.com>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20250428-upstream_ospi_v6-v11-0-1548736fd9d2@foss.st.com>
+ <174636664232.45285.4829080141383638928.b4-ty@linaro.org>
+ <ec294e4f-274a-45ae-ac10-464ae4ae6f66@kernel.org>
+Content-Language: en-US
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+In-Reply-To: <ec294e4f-274a-45ae-ac10-464ae4ae6f66@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: SHFCAS1NODE1.st.com (10.75.129.72) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-05_05,2025-05-05_01,2025-02-21_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_051704_856267_ED5C1983 
-X-CRM114-Status: GOOD (  14.89  )
+X-CRM114-CacheID: sfid-20250505_051947_799995_F51C3305 
+X-CRM114-Status: GOOD (  11.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,509 +108,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MT8189 is a SoC based on 64bit ARMv8 architecture. It contains 6 CA55
-and 2 CA78 cores. MT8189 share many HW IP with MT8188 series.
 
-We add basic chip support for MediaTek MT8189 on evaluation board.
 
-BUG=b:387230785
-TEST=emerge-skywalker chromeos-kernel-6_6
+On 5/4/25 18:16, Krzysztof Kozlowski wrote:
+> On 04/05/2025 15:50, Krzysztof Kozlowski wrote:
+>>
+>> On Mon, 28 Apr 2025 10:58:29 +0200, Patrice Chotard wrote:
+>>> This series adds SPI NOR support for STM32MP25 SoCs from STMicroelectronics.
+>>>
+>>> On STM32MP25 SoCs family, an Octo Memory Manager block manages the muxing,
+>>> the memory area split, the chip select override and the time constraint
+>>> between its 2 Octo SPI children.
+>>>
+>>> Due to these depedencies, this series adds support for:
+>>>   - Octo Memory Manager driver.
+>>>   - Octo SPI driver.
+>>>   - yaml schema for Octo Memory Manager and Octo SPI drivers.
+>>>
+>>> [...]
+>>
+>> Applied, thanks!
+>>
+>> [1/3] dt-bindings: memory-controllers: Add STM32 Octo Memory Manager controller
+>>       https://git.kernel.org/krzk/linux-mem-ctrl/c/43eb1b288072641b7de8f5d5c15bde69e6e8589a
+> 
+> And dropped everything - it is full of warnings.
 
-Signed-off-by: Sirius Wang <sirius.wang@mediatek.com>
----
- arch/arm64/boot/dts/mediatek/Makefile       |   1 +
- arch/arm64/boot/dts/mediatek/mt8189-evb.dts |  20 +
- arch/arm64/boot/dts/mediatek/mt8189.dtsi    | 441 ++++++++++++++++++++
- 3 files changed, 462 insertions(+)
- create mode 100644 arch/arm64/boot/dts/mediatek/mt8189-evb.dts
- create mode 100644 arch/arm64/boot/dts/mediatek/mt8189.dtsi
+Hi Krzysztof,
 
-diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/mediatek/Makefile
-index 3aa06476c6c0..ad2ac9e1bb79 100644
---- a/arch/arm64/boot/dts/mediatek/Makefile
-+++ b/arch/arm64/boot/dts/mediatek/Makefile
-@@ -87,6 +87,7 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8188-geralt-ciri-sku4.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8188-geralt-ciri-sku5.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8188-geralt-ciri-sku6.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8188-geralt-ciri-sku7.dtb
-+dtb-$(CONFIG_ARCH_MEDIATEK) += mt8189-evb.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8192-asurada-hayato-r1.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8192-asurada-spherion-r0.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8192-evb.dtb
-diff --git a/arch/arm64/boot/dts/mediatek/mt8189-evb.dts b/arch/arm64/boot/dts/mediatek/mt8189-evb.dts
-new file mode 100644
-index 000000000000..e5d9ce1b8e61
---- /dev/null
-+++ b/arch/arm64/boot/dts/mediatek/mt8189-evb.dts
-@@ -0,0 +1,20 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright (C) 2025 MediaTek Inc.
-+ * Author: Sirius Wang <sirius.wang@mediatek.com>
-+ */
-+/dts-v1/;
-+#include "mt8189.dtsi"
-+
-+/ {
-+	model = "MediaTek MT8189 evaluation board";
-+	compatible = "mediatek,mt8189-evb", "mediatek,mt8189";
-+
-+	chosen: chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+};
-+
-+&uart0 {
-+	status = "okay";
-+};
-diff --git a/arch/arm64/boot/dts/mediatek/mt8189.dtsi b/arch/arm64/boot/dts/mediatek/mt8189.dtsi
-new file mode 100644
-index 000000000000..de59d858bcf3
---- /dev/null
-+++ b/arch/arm64/boot/dts/mediatek/mt8189.dtsi
-@@ -0,0 +1,441 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright (c) 2025 MediaTek Inc.
-+ */
-+
-+#include <dt-bindings/interrupt-controller/arm-gic.h>
-+#include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/phy/phy.h>
-+#include <dt-bindings/reset/ti-syscon.h>
-+
-+/ {
-+	compatible = "mediatek,mt8189";
-+	interrupt-parent = <&gic>;
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+
-+	aliases {
-+		serial0 = &uart0;
-+	};
-+
-+	cpus {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		cpu0: cpu@0 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a55";
-+			reg = <0x000>;
-+			enable-method = "psci";
-+			clock-frequency = <2000000000>;
-+			capacity-dmips-mhz = <742>;
-+			cpu-idle-states = <&cpuoff_l &clusteroff_l &mcusysoff_l &system_vcore &s2idle>;
-+			i-cache-size = <32768>;
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <128>;
-+			d-cache-size = <32768>;
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <128>;
-+			next-level-cache = <&l2_0>;
-+			performance-domains = <&performance 0>;
-+			#cooling-cells = <2>;
-+		};
-+
-+		cpu1: cpu@100 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a55";
-+			reg = <0x100>;
-+			enable-method = "psci";
-+			clock-frequency = <2000000000>;
-+			capacity-dmips-mhz = <742>;
-+			cpu-idle-states = <&cpuoff_l &clusteroff_l &mcusysoff_l &system_vcore &s2idle>;
-+			i-cache-size = <32768>;
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <128>;
-+			d-cache-size = <32768>;
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <128>;
-+			next-level-cache = <&l2_0>;
-+			performance-domains = <&performance 0>;
-+			#cooling-cells = <2>;
-+		};
-+
-+		cpu2: cpu@200 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a55";
-+			reg = <0x200>;
-+			enable-method = "psci";
-+			clock-frequency = <2000000000>;
-+			capacity-dmips-mhz = <742>;
-+			cpu-idle-states = <&cpuoff_l &clusteroff_l &mcusysoff_l &system_vcore &s2idle>;
-+			i-cache-size = <32768>;
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <128>;
-+			d-cache-size = <32768>;
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <128>;
-+			next-level-cache = <&l2_0>;
-+			performance-domains = <&performance 0>;
-+			#cooling-cells = <2>;
-+		};
-+
-+		cpu3: cpu@300 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a55";
-+			reg = <0x300>;
-+			enable-method = "psci";
-+			clock-frequency = <2000000000>;
-+			capacity-dmips-mhz = <742>;
-+			cpu-idle-states = <&cpuoff_l &clusteroff_l &mcusysoff_l &system_vcore &s2idle>;
-+			i-cache-size = <32768>;
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <128>;
-+			d-cache-size = <32768>;
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <128>;
-+			next-level-cache = <&l2_0>;
-+			performance-domains = <&performance 0>;
-+			#cooling-cells = <2>;
-+		};
-+
-+		cpu4: cpu@400 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a55";
-+			reg = <0x400>;
-+			enable-method = "psci";
-+			clock-frequency = <2000000000>;
-+			capacity-dmips-mhz = <742>;
-+			cpu-idle-states = <&cpuoff_l &clusteroff_l &mcusysoff_l &system_vcore &s2idle>;
-+			i-cache-size = <32768>;
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <128>;
-+			d-cache-size = <32768>;
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <128>;
-+			next-level-cache = <&l2_0>;
-+			performance-domains = <&performance 0>;
-+			#cooling-cells = <2>;
-+		};
-+
-+		cpu5: cpu@500 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a55";
-+			reg = <0x500>;
-+			enable-method = "psci";
-+			clock-frequency = <2000000000>;
-+			capacity-dmips-mhz = <742>;
-+			cpu-idle-states = <&cpuoff_l &clusteroff_l &mcusysoff_l &system_vcore &s2idle>;
-+			i-cache-size = <32768>;
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <128>;
-+			d-cache-size = <32768>;
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <128>;
-+			next-level-cache = <&l2_0>;
-+			performance-domains = <&performance 0>;
-+			#cooling-cells = <2>;
-+		};
-+
-+		cpu6: cpu@600 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a78";
-+			reg = <0x600>;
-+			enable-method = "psci";
-+			clock-frequency = <3000000000>;
-+			capacity-dmips-mhz = <958>;
-+			cpu-idle-states = <&cpuoff_m &clusteroff_m &mcusysoff_m &system_vcore &s2idle>;
-+			i-cache-size = <65536>;
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			d-cache-size = <65536>;
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <256>;
-+			next-level-cache = <&l2_1>;
-+			performance-domains = <&performance 1>;
-+			#cooling-cells = <2>;
-+		};
-+
-+		cpu7: cpu@700 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a78";
-+			reg = <0x700>;
-+			enable-method = "psci";
-+			clock-frequency = <3000000000>;
-+			capacity-dmips-mhz = <958>;
-+			cpu-idle-states = <&cpuoff_m &clusteroff_m &mcusysoff_m &system_vcore &s2idle>;
-+			i-cache-size = <65536>;
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			d-cache-size = <65536>;
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <256>;
-+			next-level-cache = <&l2_1>;
-+			performance-domains = <&performance 1>;
-+			#cooling-cells = <2>;
-+		};
-+
-+		cpu-map {
-+			cluster0 {
-+				core0 {
-+					cpu = <&cpu0>;
-+				};
-+				core1 {
-+					cpu = <&cpu1>;
-+				};
-+				core2 {
-+					cpu = <&cpu2>;
-+				};
-+				core3 {
-+					cpu = <&cpu3>;
-+				};
-+				core4 {
-+					cpu = <&cpu4>;
-+				};
-+				core5 {
-+					cpu = <&cpu5>;
-+				};
-+			};
-+
-+			cluster1 {
-+				core0 {
-+					cpu = <&cpu6>;
-+				};
-+				core1 {
-+					cpu = <&cpu7>;
-+				};
-+			};
-+		};
-+
-+		idle-states {
-+			entry-method = "arm,psci";
-+
-+			cpuoff_l: cpuoff-l {
-+				compatible = "arm,idle-state";
-+				arm,psci-suspend-param = <0x00010000>;
-+				local-timer-stop;
-+				entry-latency-us = <97>;
-+				exit-latency-us = <252>;
-+				min-residency-us = <6710>;
-+			};
-+
-+			cpuoff_m: cpuoff-m {
-+				compatible = "arm,idle-state";
-+				arm,psci-suspend-param = <0x00010000>;
-+				local-timer-stop;
-+				entry-latency-us = <53>;
-+				exit-latency-us = <143>;
-+				min-residency-us = <2120>;
-+			};
-+
-+			cpuoff_b: cpuoff-b {
-+				compatible = "arm,idle-state";
-+				arm,psci-suspend-param = <0x00010000>;
-+				local-timer-stop;
-+				entry-latency-us = <40>;
-+				exit-latency-us = <107>;
-+				min-residency-us = <2580>;
-+			};
-+
-+			clusteroff_l: clusteroff-l {
-+				compatible = "arm,idle-state";
-+				arm,psci-suspend-param = <0x01010001>;
-+				local-timer-stop;
-+				entry-latency-us = <109>;
-+				exit-latency-us = <325>;
-+				min-residency-us = <6710>;
-+			};
-+
-+			clusteroff_m: clusteroff-m {
-+				compatible = "arm,idle-state";
-+				arm,psci-suspend-param = <0x01010001>;
-+				local-timer-stop;
-+				entry-latency-us = <59>;
-+				exit-latency-us = <188>;
-+				min-residency-us = <2120>;
-+			};
-+
-+			clusteroff_b: clusteroff-b {
-+				compatible = "arm,idle-state";
-+				arm,psci-suspend-param = <0x01010001>;
-+				local-timer-stop;
-+				entry-latency-us = <43>;
-+				exit-latency-us = <138>;
-+				min-residency-us = <2580>;
-+			};
-+
-+			mcusysoff_l: mcusysoff-l {
-+				compatible = "arm,idle-state";
-+				arm,psci-suspend-param = <0x02010007>;
-+				local-timer-stop;
-+				entry-latency-us = <1357>;
-+				exit-latency-us = <835>;
-+				min-residency-us = <6710>;
-+			};
-+
-+			mcusysoff_m: mcusysoff-m {
-+				compatible = "arm,idle-state";
-+				arm,psci-suspend-param = <0x02010007>;
-+				local-timer-stop;
-+				entry-latency-us = <1202>;
-+				exit-latency-us = <679>;
-+				min-residency-us = <2120>;
-+			};
-+
-+			mcusysoff_b: mcusysoff-b {
-+				compatible = "arm,idle-state";
-+				arm,psci-suspend-param = <0x02010007>;
-+				local-timer-stop;
-+				entry-latency-us = <1143>;
-+				exit-latency-us = <611>;
-+				min-residency-us = <2580>;
-+			};
-+
-+			system_vcore: system-vcore {
-+				compatible = "arm,idle-state";
-+				arm,psci-suspend-param = <0x020100ff>;
-+				local-timer-stop;
-+				entry-latency-us = <940>;
-+				exit-latency-us = <3500>;
-+				min-residency-us = <35200>;
-+			};
-+
-+			s2idle: s2idle {
-+				compatible = "arm,idle-state";
-+				arm,psci-suspend-param = <0x020180ff>;
-+				local-timer-stop;
-+				entry-latency-us = <10000>;
-+				exit-latency-us = <10000>;
-+				min-residency-us = <4294967295>;
-+			};
-+		};
-+
-+		l2_0: l2-cache0 {
-+			compatible = "cache";
-+			cache-level = <2>;
-+			cache-size = <131072>;
-+			cache-line-size = <64>;
-+			cache-sets = <512>;
-+			next-level-cache = <&l3_0>;
-+			cache-unified;
-+		};
-+
-+		l2_1: l2-cache1 {
-+			compatible = "cache";
-+			cache-level = <2>;
-+			cache-size = <262144>;
-+			cache-line-size = <64>;
-+			cache-sets = <512>;
-+			next-level-cache = <&l3_0>;
-+			cache-unified;
-+		};
-+
-+		l3_0: l3-cache {
-+			compatible = "cache";
-+			cache-level = <3>;
-+			cache-size = <1048576>;
-+			cache-line-size = <64>;
-+			cache-sets = <2048>;
-+			cache-unified;
-+		};
-+	};
-+
-+	psci {
-+		compatible = "arm,psci-1.0";
-+		method = "smc";
-+	};
-+
-+	clocks {
-+		clk_null: clk-null {
-+			compatible = "fixed-clock";
-+			#clock-cells = <0>;
-+			clock-frequency = <0>;
-+		};
-+
-+		clk32k: clk32k {
-+			compatible = "fixed-clock";
-+			#clock-cells = <0>;
-+			clock-frequency = <32000>;
-+		};
-+
-+		clk26m: clk26m {
-+			compatible = "fixed-clock";
-+			#clock-cells = <0>;
-+			clock-frequency = <26000000>;
-+		};
-+
-+		clk13m: clk13m {
-+			compatible = "fixed-clock";
-+			#clock-cells = <0>;
-+			clock-frequency = <13000000>;
-+		};
-+
-+		ulposc: ulposc {
-+			compatible = "fixed-clock";
-+			#clock-cells = <0>;
-+			clock-frequency = <520000000>;
-+		};
-+
-+		ulposc3: ulposc3 {
-+			compatible = "fixed-clock";
-+			#clock-cells = <0>;
-+			clock-frequency = <26000000>;
-+		};
-+
-+		clk104m: clk104m {
-+			compatible = "fixed-clock";
-+			#clock-cells = <0>;
-+			clock-frequency = <104000000>;
-+		};
-+	};
-+
-+	memory: memory {
-+		device_type = "memory";
-+		reg = <0 0x40000000 0 0xC0000000>;
-+	};
-+
-+	timer: timer {
-+		compatible = "arm,armv8-timer";
-+		interrupt-parent = <&gic>;
-+		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH 0>,
-+				<GIC_PPI 14 IRQ_TYPE_LEVEL_HIGH 0>,
-+				<GIC_PPI 11 IRQ_TYPE_LEVEL_HIGH 0>,
-+				<GIC_PPI 10 IRQ_TYPE_LEVEL_HIGH 0>;
-+		clock-frequency = <13000000>;
-+	};
-+
-+	soc {
-+		compatible = "simple-bus";
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+		dma-ranges = <0x0 0x0 0x0 0x0 0x10 0x0>;
-+
-+		performance: performance-controller@11bc10 {
-+			compatible = "mediatek,cpufreq-hw";
-+			reg = <0 0x0011bc10 0 0x120>, <0 0x0011bd30 0 0x120>;
-+			#performance-domain-cells = <1>;
-+		};
-+
-+		gic: interrupt-controller@c000000 {
-+			compatible = "arm,gic-v3";
-+			#interrupt-cells = <4>;
-+			#address-cells = <2>;
-+			#size-cells = <2>;
-+			#redistributor-regions = <1>;
-+			interrupt-parent = <&gic>;
-+			interrupt-controller;
-+			reg = <0 0xc000000 0 0x40000>, /* distributor */
-+			      <0 0xc040000 0 0x200000>; /* redistributor */
-+			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH 0>;
-+		};
-+
-+		uart0: serial@11001000 {
-+			compatible = "mediatek,mt6577-uart";
-+			reg = <0 0x11001000 0 0x1000>;
-+			interrupts = <GIC_SPI 397 IRQ_TYPE_LEVEL_HIGH 0>;
-+			clocks = <&clk26m>;
-+			clock-names = "baud", "bus";
-+			uart-line = <0>;
-+		};
-+	};
-+};
--- 
-2.45.2
+What are the warnings you encountered ?
 
+On my side, i double check and found nothing wrong neither on bindings side nor on source code side:
+
+I previously checked that everything was up to date : 
+
+pip3 install dtschema --upgrade
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: dtschema in /local/home/nxp11987/.local/lib/python3.8/site-packages (2025.2)
+Requirement already satisfied: ruamel.yaml>0.15.69 in /local/home/nxp11987/.local/lib/python3.8/site-packages (from dtschema) (0.17.21)
+Requirement already satisfied: jsonschema<4.18,>=4.1.2 in /local/home/nxp11987/.local/lib/python3.8/site-packages (from dtschema) (4.17.3)
+Requirement already satisfied: rfc3987 in /local/home/nxp11987/.local/lib/python3.8/site-packages (from dtschema) (1.3.8)
+Requirement already satisfied: pylibfdt in /local/home/nxp11987/.local/lib/python3.8/site-packages (from dtschema) (1.6.1)
+Requirement already satisfied: attrs>=17.4.0 in /local/home/nxp11987/.local/lib/python3.8/site-packages (from jsonschema<4.18,>=4.1.2->dtschema) (19.3.0)
+Requirement already satisfied: importlib-resources>=1.4.0 in /local/home/nxp11987/.local/lib/python3.8/site-packages (from jsonschema<4.18,>=4.1.2->dtschema) (5.7.1)
+Requirement already satisfied: pkgutil-resolve-name>=1.3.10 in /local/home/nxp11987/.local/lib/python3.8/site-packages (from jsonschema<4.18,>=4.1.2->dtschema) (1.3.10)
+Requirement already satisfied: pyrsistent!=0.17.0,!=0.17.1,!=0.17.2,>=0.14.0 in /local/home/nxp11987/.local/lib/python3.8/site-packages (from jsonschema<4.18,>=4.1.2->dtschema) (0.18.1)
+Requirement already satisfied: ruamel.yaml.clib>=0.2.6 in /local/home/nxp11987/.local/lib/python3.8/site-packages (from ruamel.yaml>0.15.69->dtschema) (0.2.6)
+Requirement already satisfied: zipp>=3.1.0 in /local/home/nxp11987/.local/lib/python3.8/site-packages (from importlib-resources>=1.4.0->jsonschema<4.18,>=4.1.2->dtschema) (3.20.2)
+
+
+export CROSS_COMPILE=aarch64-linux- ARCH=arm64 KBUILD_OUTPUT=out/
+make defconfig
+make[1]: Entering directory '/local/home/nxp11987/projects/community/kernel.org/linux/out'
+  GEN     Makefile
+  HOSTCC  scripts/basic/fixdep
+  HOSTCC  scripts/kconfig/conf.o
+  HOSTCC  scripts/kconfig/confdata.o
+
+  HOSTCC  scripts/kconfig/expr.o
+  LEX     scripts/kconfig/lexer.lex.c
+  YACC    scripts/kconfig/parser.tab.[ch]
+  HOSTCC  scripts/kconfig/lexer.lex.o
+  HOSTCC  scripts/kconfig/menu.o
+  HOSTCC  scripts/kconfig/parser.tab.o
+  HOSTCC  scripts/kconfig/preprocess.o
+  HOSTCC  scripts/kconfig/symbol.o
+  HOSTCC  scripts/kconfig/util.o
+  HOSTLD  scripts/kconfig/conf
+*** Default configuration is based on 'defconfig'
+#
+# configuration written to .config
+#
+make[1]: Leaving directory '/local/home/nxp11987/projects/community/kernel.org/linux/out'
+
+Then i applied this series https://patchwork.kernel.org/project/linux-arm-kernel/list/?series=957628 
+above the current series to check DTB against bindings: 
+
+make CHECK_DTBS=y st/stm32mp257f-ev1.dtb
+
+make[1]: Entering directory '/local/home/nxp11987/projects/community/kernel.org/linux/out'
+  HOSTCC  scripts/dtc/dtc.o
+  HOSTCC  scripts/dtc/flattree.o
+  HOSTCC  scripts/dtc/fstree.o
+  HOSTCC  scripts/dtc/data.o
+  HOSTCC  scripts/dtc/livetree.o
+  HOSTCC  scripts/dtc/treesource.o
+  HOSTCC  scripts/dtc/srcpos.o
+  HOSTCC  scripts/dtc/checks.o
+  HOSTCC  scripts/dtc/util.o
+  LEX     scripts/dtc/dtc-lexer.lex.c
+  YACC    scripts/dtc/dtc-parser.tab.[ch]
+  HOSTCC  scripts/dtc/dtc-lexer.lex.o
+  HOSTCC  scripts/dtc/dtc-parser.tab.o
+  HOSTLD  scripts/dtc/dtc
+  HOSTCC  scripts/dtc/libfdt/fdt.o
+  HOSTCC  scripts/dtc/libfdt/fdt_ro.o
+  HOSTCC  scripts/dtc/libfdt/fdt_wip.o
+  HOSTCC  scripts/dtc/libfdt/fdt_sw.o
+  HOSTCC  scripts/dtc/libfdt/fdt_rw.o
+  HOSTCC  scripts/dtc/libfdt/fdt_strerror.o
+  HOSTCC  scripts/dtc/libfdt/fdt_empty_tree.o
+  HOSTCC  scripts/dtc/libfdt/fdt_addresses.o
+  HOSTCC  scripts/dtc/libfdt/fdt_overlay.o
+  HOSTCC  scripts/dtc/fdtoverlay.o
+  HOSTLD  scripts/dtc/fdtoverlay
+  SCHEMA  Documentation/devicetree/bindings/processed-schema.json
+/local/home/nxp11987/projects/community/kernel.org/linux/Documentation/devicetree/bindings/net/snps,dwmac.yaml: mac-mode: missing type definition
+  UPD     include/config/kernel.release
+  DTC [C] arch/arm64/boot/dts/st/stm32mp257f-ev1.dtb
+make[1]: Leaving directory '/local/home/nxp11987/projects/community/kernel.org/linux/out'
+
+and finally :
+
+make CHECK_DTBS=y DT_SCHEMA_FILES=st,stm32mp25-omm.yaml st/stm32mp257f-ev1.dtb
+make[1]: Entering directory '/local/home/nxp11987/projects/community/kernel.org/linux/out'
+  DTC [C] arch/arm64/boot/dts/st/stm32mp257f-ev1.dtb
+make[1]: Leaving directory '/local/home/nxp11987/projects/community/kernel.org/linux/out'
+
+Thanks
+Patrice
+
+> 
+> Best regards,
+> Krzysztof
 
