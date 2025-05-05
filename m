@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6323EC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 04:05:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB11BC3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 04:07:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kuh/yBsybWoOF1NhxfFmA6tgTOCf++Nm+y+ido/Xxwc=; b=FOX8fKl6VzodjQNYGL7tNIujCD
-	VtS1cZkM8p2J+KcTLALMzlrUfCfm/FcEeV3pie2iQUiB3EroTolo58ljJdvouHYGwOlfd1gyGwIYg
-	EOEwSgySquIopkbTezG6S5aLA7e/RwaaouyvetcAV+WgXG17LxFHml7zPr7nWi4QBFBtUk7AnFKVN
-	+0vAllkUluuagG8sWMjiPJIKKJv3gdVUvfKSEcBMZoJZV3Ic18i2lqxYz1PDuZHe37S6kZe/0YrJ/
-	j2AZjVEKSAEok6PqLBjYKuSZWDIdQYFVnGmbFtS6JPXMVRTAPRdNXSfxCedRvjBHSD31mw4jrfx+V
-	U7+yeG1w==;
+	bh=l4rp0/SxPnRxOKd8Baxv0WdngnSWxD3d0vtqD/ab/C8=; b=lLVzn+3fUVvCKvNpZpRdpJn/Wa
+	hG+vS4kSWQjh6NlCpFQp8SaSopQ8I+79iLbQY6udQHNFZz9uK/JEAZ07qJcXiyiME3sIZJ7dS9LjM
+	Pn84Vn15flt17JuXWKV9s4gUVDVRQOytQiLDPyi2MXZtUk9XmbId+4UgU93FhqZ28c84HGX3BwPJ/
+	A95T2knBz4dIx+yDgsKjeOkZMSniXry7wdF8do2EwihMOEpjhr+gbEV8+UxLAT1DVV17mQG8PDGsw
+	m5yOM2raFsKPNDDYgvcG+4wngJRAFSnD+UjmhuwTUYDx1gAUT3obuXz1ACEbq4XuOFCRQQRpzTFRi
+	Kc5cFoAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC9YZ-0000000A84E-3lAA;
-	Tue, 06 May 2025 04:05:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uC9aY-0000000A8YK-3gQ5;
+	Tue, 06 May 2025 04:07:26 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4xy-00000008yhg-0xva
+	id 1uC4zF-00000008z1g-0oBN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 23:11:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 458C44A6C0;
-	Mon,  5 May 2025 23:11:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E059BC4CEE4;
-	Mon,  5 May 2025 23:11:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746486677;
-	bh=oxeGttg3SoJ505VY3yrwYPkfynDRPeZkZ0HzLDrc7gU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=YuT933/d+uf/GcHdrR1Pwpc5KfGSR3a8hySKOStKrPhiO5BW2ewV3WMAcahXoV8NJ
-	 bWza/D/qKu9VArNoL7vrx67ScJQyFKD9DjcBXw4H+eL/7J8IlwqPfzaKttel7NVJPw
-	 E5z897aIfIiL70Nk+y4H/rhzhXNwwFgF5hyzkTue4EYfJgPr65AHR2M50sxQhrZp7Z
-	 GhHcaWthDOSHaqbTqYD9cETz/5gSs2XlR+WVeDp68r+IohzbJO3iFklC43Ql/6pgKN
-	 t3bGfU5WITnPppR2Ps7GBjuyy3RrNN/Hm7lKJ9A0937ReMp2RY2rUM7SvaAeR5Ql6z
-	 rfZcnp5P1JB4A==
-From: Sasha Levin <sashal@kernel.org>
-To: linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Cc: Ahmad Fatoum <a.fatoum@pengutronix.de>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Sasha Levin <sashal@kernel.org>,
-	shawnguo@kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.1 146/212] pmdomain: imx: gpcv2: use proper helper for property detection
-Date: Mon,  5 May 2025 19:05:18 -0400
-Message-Id: <20250505230624.2692522-146-sashal@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250505230624.2692522-1-sashal@kernel.org>
-References: <20250505230624.2692522-1-sashal@kernel.org>
+	Mon, 05 May 2025 23:12:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1746486755;
+ bh=l4rp0/SxPnRxOKd8Baxv0WdngnSWxD3d0vtqD/ab/C8=;
+ b=wedhzYrzbkh70a/oFfoYjJT/BX04p4ojymoailevpYZa5n3y7cceqVssizi/9zHBTow6tPAbg
+ pgYcGoTuv8LHY9nKxWKPmFLQHscSUI8/s9T0BjPkEzU7jXGNZG/6yICmrsLVekeGolgPgPguYlD
+ NDT1WM6n+dT/K16kXwgaEBJgCzT3LxWLc/A5P9BFa9Im9G7PyZD+eIAIWY/+6SBlSEWcZatXgCd
+ uM6xy9RcaQwLH3/iXUxNUA6N4v4SREPRLTnLKfz19jhEU6yYfZDdeHsEt7NXQ78nVIfwNmqDKnC
+ t8QFdIkvbYVCIhzsGpXD3VDz0hACXf+2uac9KNUdWCsA==
+X-Forward-Email-ID: 681945da46c37f8647c22e2a
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 1.0.2
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <4e00a764-23df-4bd9-85d3-f32cb153a9b6@kwiboo.se>
+Date: Tue, 6 May 2025 01:12:21 +0200
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.1.136
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/2] arm64: dts: rockchip: Add pwm nodes for RK3528
+To: Chukun Pan <amadeus@jmu.edu.cn>, Heiko Stuebner <heiko@sntech.de>
+Cc: Yao Zi <ziyao@disroot.org>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20250401120020.976343-1-amadeus@jmu.edu.cn>
+ <20250401120020.976343-2-amadeus@jmu.edu.cn>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20250401120020.976343-2-amadeus@jmu.edu.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_161118_287059_66D6AF15 
-X-CRM114-Status: GOOD (  11.99  )
+X-CRM114-CacheID: sfid-20250505_161237_594106_3AECDB7C 
+X-CRM114-Status: GOOD (  13.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,39 +80,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+On 2025-04-01 14:00, Chukun Pan wrote:
+> Add pwm nodes for RK3528. The PWM core on RK3528 is the same as
+> RK3328, but the driver does not support interrupts yet.
+> 
+> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
 
-[ Upstream commit 6568cb40e73163fa25e2779f7234b169b2e1a32e ]
+pwm0-pwm2 has been verified working on my rk3528 boards and remaining
+seem to be correct, I have also dropped my prior attempt of looking into
+multi-channel handling as mentioned in v2, so this is:
 
-Starting with commit c141ecc3cecd7 ("of: Warn when of_property_read_bool()
-is used on non-boolean properties"), probing the gpcv2 device on i.MX8M
-SoCs leads to warnings when LOCKDEP is enabled.
+Reviewed-by: Jonas Karlman <jonas@kwiboo.se>
 
-Fix this by checking property presence with of_property_present as
-intended.
+Regards,
+Jonas
 
-Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Link: https://lore.kernel.org/r/20250218-gpcv2-of-property-present-v1-1-3bb1a9789654@pengutronix.de
-Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- drivers/soc/imx/gpcv2.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/soc/imx/gpcv2.c b/drivers/soc/imx/gpcv2.c
-index 88aee59730e39..6d5b6ed36169f 100644
---- a/drivers/soc/imx/gpcv2.c
-+++ b/drivers/soc/imx/gpcv2.c
-@@ -1347,7 +1347,7 @@ static int imx_pgc_domain_probe(struct platform_device *pdev)
- 	}
- 
- 	if (IS_ENABLED(CONFIG_LOCKDEP) &&
--	    of_property_read_bool(domain->dev->of_node, "power-domains"))
-+	    of_property_present(domain->dev->of_node, "power-domains"))
- 		lockdep_set_subclass(&domain->genpd.mlock, 1);
- 
- 	ret = of_genpd_add_provider_simple(domain->dev->of_node,
--- 
-2.39.5
+> ---
+>  arch/arm64/boot/dts/rockchip/rk3528.dtsi | 80 ++++++++++++++++++++++++
+>  1 file changed, 80 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> index 35704d0be37a..47d4f63f11d3 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> @@ -465,6 +465,86 @@ uart7: serial@ffa28000 {
+>  			status = "disabled";
+>  		};
+>  
+> +		pwm0: pwm@ffa90000 {
+> +			compatible = "rockchip,rk3528-pwm",
+> +				     "rockchip,rk3328-pwm";
+> +			reg = <0x0 0xffa90000 0x0 0x10>;
+> +			clocks = <&cru CLK_PWM0>, <&cru PCLK_PWM0>;
+> +			clock-names = "pwm", "pclk";
+> +			#pwm-cells = <3>;
+> +			status = "disabled";
+> +		};
+> +
+> +		pwm1: pwm@ffa90010 {
+> +			compatible = "rockchip,rk3528-pwm",
+> +				     "rockchip,rk3328-pwm";
+> +			reg = <0x0 0xffa90010 0x0 0x10>;
+> +			clocks = <&cru CLK_PWM0>, <&cru PCLK_PWM0>;
+> +			clock-names = "pwm", "pclk";
+> +			#pwm-cells = <3>;
+> +			status = "disabled";
+> +		};
+> +
+> +		pwm2: pwm@ffa90020 {
+> +			compatible = "rockchip,rk3528-pwm",
+> +				     "rockchip,rk3328-pwm";
+> +			reg = <0x0 0xffa90020 0x0 0x10>;
+> +			clocks = <&cru CLK_PWM0>, <&cru PCLK_PWM0>;
+> +			clock-names = "pwm", "pclk";
+> +			#pwm-cells = <3>;
+> +			status = "disabled";
+> +		};
+> +
+> +		pwm3: pwm@ffa90030 {
+> +			compatible = "rockchip,rk3528-pwm",
+> +				     "rockchip,rk3328-pwm";
+> +			reg = <0x0 0xffa90030 0x0 0x10>;
+> +			clocks = <&cru CLK_PWM0>, <&cru PCLK_PWM0>;
+> +			clock-names = "pwm", "pclk";
+> +			#pwm-cells = <3>;
+> +			status = "disabled";
+> +		};
+> +
+> +		pwm4: pwm@ffa98000 {
+> +			compatible = "rockchip,rk3528-pwm",
+> +				     "rockchip,rk3328-pwm";
+> +			reg = <0x0 0xffa98000 0x0 0x10>;
+> +			clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>;
+> +			clock-names = "pwm", "pclk";
+> +			#pwm-cells = <3>;
+> +			status = "disabled";
+> +		};
+> +
+> +		pwm5: pwm@ffa98010 {
+> +			compatible = "rockchip,rk3528-pwm",
+> +				     "rockchip,rk3328-pwm";
+> +			reg = <0x0 0xffa98010 0x0 0x10>;
+> +			clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>;
+> +			clock-names = "pwm", "pclk";
+> +			#pwm-cells = <3>;
+> +			status = "disabled";
+> +		};
+> +
+> +		pwm6: pwm@ffa98020 {
+> +			compatible = "rockchip,rk3528-pwm",
+> +				     "rockchip,rk3328-pwm";
+> +			reg = <0x0 0xffa98020 0x0 0x10>;
+> +			clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>;
+> +			clock-names = "pwm", "pclk";
+> +			#pwm-cells = <3>;
+> +			status = "disabled";
+> +		};
+> +
+> +		pwm7: pwm@ffa98030 {
+> +			compatible = "rockchip,rk3528-pwm",
+> +				     "rockchip,rk3328-pwm";
+> +			reg = <0x0 0xffa98030 0x0 0x10>;
+> +			clocks = <&cru CLK_PWM1>, <&cru PCLK_PWM1>;
+> +			clock-names = "pwm", "pclk";
+> +			#pwm-cells = <3>;
+> +			status = "disabled";
+> +		};
+> +
+>  		saradc: adc@ffae0000 {
+>  			compatible = "rockchip,rk3528-saradc";
+>  			reg = <0x0 0xffae0000 0x0 0x10000>;
 
 
