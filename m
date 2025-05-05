@@ -4,101 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE0D5C3ABB0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 08:00:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC00FC3ABB6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 08:02:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aMDm0qfjOuYWTzr0Xo2QLnRNDzdiZPn1MuFHomJVvBY=; b=yPkQNPpibABhjHZInQtRfn/cVB
-	YcwWt02MlbkUo4tHSrDuUAAZdLwB10SDhMdYjqqLfMGDNm//DZ2F0KDMVnhv+dUb6f8404VxKScyA
-	2uxt2qBiAQ4KYpZm1Dvvm0+CcrDaNkx3cUW6gXSivuET/VYh/iFvZufto3QQXA6ISGIy7I033Alnd
-	DlplJP3mk9PzfU/tYA9wmdZao++3uNjrJWprnm7OujKOee7o9J9gijDF5mGFlSLyzwvLjzvTX/Be8
-	4n2OEuCWyH1B0Lr9aNhDaMawoMG6uDveZvU21mMilnJRGgpNRSTlYLXwrkzxTgTYpBcaPgwYcNxVM
-	DrchO+xQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c8qy8x2VM4E33zP+Ul3MQgzUGob/DpDmmEpO6CEf26s=; b=YeXk12tfKmOaY/0Oy4lD/X2kDy
+	s3M/ozWHCRIQZGOdrpK3VGnAFxHsjbXJS6pke1zJrsjZzietpVUxlmC/POXGAUHtc/o47PCxUkQf7
+	ZnlBMzKCXdIEa+pAZK4CUao3QvFgwTQGNMaa/nnE4+5wp6pvgvHXFJfxXiMQmyOb5Y4xW35m0FX01
+	XYWzjsHbcC9YY6WCXMZ+Vcd7JP9ODBh9z/ljclNC6u2AOj2S5NWH9jy3wa57zNJSEmX6xq9FxHSsT
+	ujEdCUyI7CI5lXkncO1CMG4wSqXTZviW2k2EVQFaqsLDIidHGGv8itzuWLW5uPpZJlsM9MlRavsXB
+	99hx93Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBqjx-00000006iYh-2cSd;
-	Mon, 05 May 2025 07:59:53 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1uBqlv-00000006ivU-1etl;
+	Mon, 05 May 2025 08:01:55 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBqd5-00000006gyX-3cgQ
+	id 1uBqil-00000006iPS-1LTv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 07:52:49 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-ace98258d4dso569628466b.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 00:52:46 -0700 (PDT)
+	Mon, 05 May 2025 07:58:41 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5f4ca707e31so6353097a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 00:58:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1746431566; x=1747036366; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=aMDm0qfjOuYWTzr0Xo2QLnRNDzdiZPn1MuFHomJVvBY=;
-        b=JA6pqdZ462HTCmZZTsrkk3fV3Mk6Fg9mY8sa7RzR/nURSyZR9x0KU8iQzm4o8Y+tq+
-         bUqXQIVGVB+OACX/s2GB6eHCqXUT4arxcmt2+tTSt63B44q2NOIADBTbS1wMxZdQ/MIa
-         tshL17o8v4aeBAL+X+EC6Ft4l8MkfucyYO9ciHDWa9FWKM3KHbrywqIKMxJGo87GzSVS
-         qfm8D3SOyFgoDcU8aepBfk59BQkvixFbsOKX+rO83+ACW48T7KMdjcM36+ReKrB3mihy
-         0jRyXRw5pubJaIjhkUq0KHIjIbCgvfxeDdgtZ2lgJSbWmOZmyjx+mINERhS5AM2lh5et
-         7Yhw==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1746431917; x=1747036717; darn=lists.infradead.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=c8qy8x2VM4E33zP+Ul3MQgzUGob/DpDmmEpO6CEf26s=;
+        b=zQSJxRaz5L5T5JpvWe9VzZzX71rFC/Rl5SLbjq2eRx6ki8r4ulVnxn9YCbfgOrbx2I
+         odAhzDIdR9fdVF4FUT1lfJCVETLxy03DFnVHMCUfe3og0/5Y+oxmkUR3U1286ui9iLAM
+         NRxhd5RRkFpu1MskuDiFsKG27x8pnTqJGCzIcw8pn8x+aVquRXYpO8JTLrZhd5eoY4v2
+         7m/dWVYJpFU4jk+mgalelO4ZmJ4iwzQU9+wN0sclMweV6w7Me0YVSadmgcYgoagiZwph
+         7Xkvm/OPCNnk5fAUPYg3eSC/Stj2BTVzuYO6qnKvLmrN1gqF3PHf0qhzfuUU+iERfWYB
+         HjKQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746431566; x=1747036366;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=aMDm0qfjOuYWTzr0Xo2QLnRNDzdiZPn1MuFHomJVvBY=;
-        b=MjvOCLoXysG/e6QauF0llnQIsHlwKVRCtB2IE2XgxW5n6w0kyYMeMS57dAQJ9gHRzK
-         ElY56M9QOuwV4Aa2S25BRw15C4hYz78hi4EJzC3cHkfDxP3cdx++HHoKsfux70U5GPD9
-         uzXoaXud9hcleNB2ZrnlT7qAtFoKWDIxp9c1qg3tt4SDpyw2S1YqUmshKvZvkLW+VwjO
-         k202HGWjJ88tzNK6g4bgPRjxJ7RER+NpftBYl2zXL5MfLCDzdpcF4d6DgtqnLfbVlpzJ
-         KiMSz0bAeY/i4AUBh8ikNVkel/KTCT6PyOeY9Hb7G7FFJWjJSJpH13Kckm9k/vo03U2i
-         96ag==
-X-Forwarded-Encrypted: i=1; AJvYcCXlCmKok4J76RoRAKkqT5tD+oUmeqRgwLnKx+KWdHP+57F/BGDwHcH0UQrBLxrjxUReNrHST1PNUqG7upKpTiRI@lists.infradead.org
-X-Gm-Message-State: AOJu0YyYrh3WsJKN4LEVb2lsnrKs+uQjgGp/y7FOmRmCr5u2ZNO73nHn
-	JRhLVQa7EmWc1wxWI/Plgu2XFBOoQKN93cjjuebiYONVnIXXGixxoakh5PkG9og=
-X-Gm-Gg: ASbGncuHpsuRjJDk9drk7rZScna77PX3wzRteaYDG6fmCr6KItTHR9E/Imem307Qtit
-	7O44KCxbWzyc8YtTaOybIfK6ouwgYtbcif6pUeW+XCbJVtoYIYHMZHpRTq8xXnugXvGgvGuvMH8
-	Gas2gw2vPEWxJi3kBAjJ4jWU/M2AuSYNRUSbB536omM3Y+tq1JksIXkjuDsi4mVGvoTqU7N7Rmc
-	dVOZHLAFEQM5RwvorUhQD0AhJKxml1R5P8v8HCxZ8aWrJE3T7Vo2QGaeAsPj4kR6NYGTsP6sgRt
-	qtCsJIz3BCzYw1wqxxXGJWqqV9BUaMeSshZ8WfLaibU2Lrs9dQ==
-X-Google-Smtp-Source: AGHT+IFKn1amEuiEsrKWv/SJZ/kZTwDtb/a8ekD/9m9gKUzOyHca4mZtzNEFzhzpC/nVZriKwygVQQ==
-X-Received: by 2002:a17:906:c08e:b0:aca:db46:f9a6 with SMTP id a640c23a62f3a-ad190858be1mr564437066b.59.1746431565639;
-        Mon, 05 May 2025 00:52:45 -0700 (PDT)
-Received: from hackbox.lan ([62.231.96.41])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad189540d94sm446544666b.182.2025.05.05.00.52.43
+        d=1e100.net; s=20230601; t=1746431917; x=1747036717;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=c8qy8x2VM4E33zP+Ul3MQgzUGob/DpDmmEpO6CEf26s=;
+        b=Rgg0W9uSefOmdIHeUKeG0CPNYMbUifmO44ARZ3EU+MPlCOBxUhAT+tdMTXYmzc1XhO
+         5sanf8F4NYFz8brRpj1bRL00QSDjb+5CyjsaLS+raISINLR2fV32J7tklKSKHZ7IE0OS
+         ckqkyud/urUIg+n4kMLseCrEtP/0FpVcsCEifSlfRPnwktJZKwqdEWg5M0HGV058YmGR
+         +i+o3UBC62mXcTYoqJA7tEa9F7Htrju86f0KkP3LTy6nUQ+auguvjaS0TNAuwdkkzs5i
+         i5f5NHjJ7x82lJ1/Z4Jdmf7ybyzsZDbkKGFvexzfcR9ulh5sXW47OFXwZ6LAHEyje85M
+         EuZw==
+X-Forwarded-Encrypted: i=1; AJvYcCXfXUA7UpxFWw5n5EvjHnauu8XbFQdHDVBZ9OwMLfMoPC1N0QiBGAtPQBCfpEhEQT2XdQF6ThUezWJevVqXKatq@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywu+YAaapd3q0AzC5TP1d+JBF00giPLZmYEls/837MvQEhyy2Ux
+	yucxUaaEyM/ynupyj7tFbC50WCquiCoySe+ATB8H8dPy902voHw38uNaXjk9oWU=
+X-Gm-Gg: ASbGnctc6NvUmiBxd05sx439M/i1/N8TgxlsDXLBgN3e2VEqkqmmGZ90dK7aYORZSBH
+	sP6oWJY20wOXuZG0+l5g4A54eYGAmSzl9fiYUUmmxcq88dru+cZ3RxmJgX7Q0y5ocdd4UYFcd0L
+	Ec8UaeDgfPqedapb1T357/bEUHwrF8gT5RmyFr+evSDbosZs5Tqmnv+A8DoiAWQ9DD0FpfX9dJw
+	KpQDLeFW7Jp75TzXfqHuVPX/Cz25KZbyjoBSW+Az0Y9/kNa1Br5/5QbbVqMveLHJEX41f7vEZG/
+	qde0UBDqJtB7XJD1GHo7GHarSyIFqrMt4KRFAfMPtfubDaccCfHKWk2+1KcTf1Yx6rflTDbTiVn
+	mAS7RdwwCzQ==
+X-Google-Smtp-Source: AGHT+IFZHl2dy4J+tovJB10LLReM42ovfZPhO257ZgiPrn9c3pUOWsbvfuKWtuAGkwm+2riUzR0qbw==
+X-Received: by 2002:a05:6402:35c8:b0:5f8:e07c:7746 with SMTP id 4fb4d7f45d1cf-5fab04bfa83mr4760665a12.0.1746431917138;
+        Mon, 05 May 2025 00:58:37 -0700 (PDT)
+Received: from localhost (dynamic-176-003-040-035.176.3.pool.telefonica.de. [176.3.40.35])
+        by smtp.gmail.com with UTF8SMTPSA id 4fb4d7f45d1cf-5fa77b8fbadsm5148712a12.50.2025.05.05.00.58.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 May 2025 00:52:44 -0700 (PDT)
-From: Abel Vesa <abel.vesa@linaro.org>
-To: linux-kernel@vger.kernel.org,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Cc: Peng Fan <peng.fan@nxp.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	linux-amarula@amarulasolutions.com,
-	Abel Vesa <abelvesa@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org
-Subject: Re: (subset) [PATCH v12 00/19] Support spread spectrum clocking for i.MX8M PLLs
-Date: Mon,  5 May 2025 10:52:35 +0300
-Message-Id: <174643143452.2950397.16722215892279685541.b4-ty@linaro.org>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250424062154.2999219-1-dario.binacchi@amarulasolutions.com>
-References: <20250424062154.2999219-1-dario.binacchi@amarulasolutions.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+        Mon, 05 May 2025 00:58:36 -0700 (PDT)
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=8941660c9a8c947b1652ed122688064937432aafddb64f2deaaf508477a9;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Mon, 05 May 2025 09:58:23 +0200
+Message-Id: <D9O2FWGG83V6.L6IQOPRGZL68@baylibre.com>
+Cc: <linux-can@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <stable@vger.kernel.org>
+Subject: Re: [PATCH 2/3] can: rockchip_canfd: m_can_class_unregister: fix
+ order of unregistration calls
+From: "Markus Schneider-Pargmann" <msp@baylibre.com>
+To: "Marc Kleine-Budde" <mkl@pengutronix.de>, "Manivannan Sadhasivam"
+ <manivannan.sadhasivam@linaro.org>, "Thomas Kopp"
+ <thomas.kopp@microchip.com>, "Vincent Mailhol"
+ <mailhol.vincent@wanadoo.fr>, <kernel@pengutronix.de>, "Heiko Stuebner"
+ <heiko@sntech.de>, "Chandrasekar Ramakrishnan" <rcsekar@samsung.com>
+X-Mailer: aerc 0.20.1
+References: <20250502-can-rx-offload-del-v1-0-59a9b131589d@pengutronix.de>
+ <20250502-can-rx-offload-del-v1-2-59a9b131589d@pengutronix.de>
+In-Reply-To: <20250502-can-rx-offload-del-v1-2-59a9b131589d@pengutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_005247_902192_70F30533 
-X-CRM114-Status: GOOD (  13.93  )
+X-CRM114-CacheID: sfid-20250505_005839_397215_F85C802E 
+X-CRM114-Status: GOOD (  22.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,45 +106,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+--8941660c9a8c947b1652ed122688064937432aafddb64f2deaaf508477a9
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-On Thu, 24 Apr 2025 08:21:30 +0200, Dario Binacchi wrote:
-> This version keeps the version v9 patches that can be merged and
-> removes the patches that will need to be modified in case Peng's
-> PR https://github.com/devicetree-org/dt-schema/pull/154 is accepted.
-> The idea is to speed up the merging of the patches in the series
-> that have already been reviewed and are not dependent on the
-> introduction of the assigned-clocks-sscs property, and postpone
-> the patches for spread spectrum to a future series once it becomes
-> clear what needs to be done.
-> 
-> [...]
+On Fri May 2, 2025 at 4:13 PM CEST, Marc Kleine-Budde wrote:
+> If a driver is removed, the driver framework invokes the driver's
+> remove callback. A CAN driver's remove function calls
+> unregister_candev(), which calls net_device_ops::ndo_stop further down
+> in the call stack for interfaces which are in the "up" state.
+>
+> The removal of the module causes the a warning, as
+                                   ^^^
+Minor typo here.
 
-Applied, thanks!
+Otherwise this looks good to me.
 
-[01/19] dt-bindings: clock: imx8mm: add VIDEO_PLL clocks
-        commit: 20e5d201b5d8f830e702d7d183f6b1b246b78d8a
-[02/19] clk: imx8mm: rename video_pll1 to video_pll
-        commit: 26a33196b5b68cf199b6c4283a254aa92d2aaf4b
-[03/19] dt-bindings: clock: imx8mp: add VIDEO_PLL clocks
-        commit: 2d50415e2457c6f6621c2faa3b01b11150fb9c67
-[04/19] clk: imx8mp: rename video_pll1 to video_pll
-        commit: 21bb969f608cefd8d847cf6eb50a193d9f1fbb87
-[05/19] dt-bindings: clock: imx8m-anatop: add oscillators and PLLs
-        commit: 2ba124053687c933031a6dc5b2e16ceaca250934
-[10/19] clk: imx: add hw API imx_anatop_get_clk_hw
-        commit: 17e3c1a272d97e49b4f3fbfe1f1b889e120d2be8
-[11/19] clk: imx: add support for i.MX8MM anatop clock driver
-        commit: 3cbc38cf42ca42d2dc9a93c949e0381ff919df71
-[12/19] clk: imx: add support for i.MX8MN anatop clock driver
-        commit: 80badb1d7264e83b512475898e7459f464a009c9
-[13/19] clk: imx: add support for i.MX8MP anatop clock driver
-        commit: 4c82bbe8b5437c7f16b2891ce33210c0f1410597
-[14/19] clk: imx8mp: rename ccm_base to base
-        commit: 1a77907dbbecfbe5e6a1aec28afd49a1dc184b7a
-[16/19] dt-bindings: clock: imx8m-clock: add PLLs
-        commit: 6a55647af3334f1d935ece67de4a838a864b53fc
+Reviewed-by: Markus Schneider-Pargmann
 
-Best regards,
--- 
-Abel Vesa <abel.vesa@linaro.org>
+> can_rx_offload_del() deletes the NAPI, while it is still active,
+> because the interface is still up.
+>
+> To fix the warning, first unregister the network interface, which
+> calls net_device_ops::ndo_stop, which disables the NAPI, and then call
+> can_rx_offload_del().
+>
+> Fixes: ff60bfbaf67f ("can: rockchip_canfd: add driver for Rockchip CAN-FD=
+ controller")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
+> ---
+>  drivers/net/can/rockchip/rockchip_canfd-core.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/net/can/rockchip/rockchip_canfd-core.c b/drivers/net=
+/can/rockchip/rockchip_canfd-core.c
+> index 7107a37da36c..c3fb3176ce42 100644
+> --- a/drivers/net/can/rockchip/rockchip_canfd-core.c
+> +++ b/drivers/net/can/rockchip/rockchip_canfd-core.c
+> @@ -937,8 +937,8 @@ static void rkcanfd_remove(struct platform_device *pd=
+ev)
+>  	struct rkcanfd_priv *priv =3D platform_get_drvdata(pdev);
+>  	struct net_device *ndev =3D priv->ndev;
+> =20
+> -	can_rx_offload_del(&priv->offload);
+>  	rkcanfd_unregister(priv);
+> +	can_rx_offload_del(&priv->offload);
+>  	free_candev(ndev);
+>  }
+> =20
+
+
+--8941660c9a8c947b1652ed122688064937432aafddb64f2deaaf508477a9
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iIcEABYKAC8WIQSJYVVm/x+5xmOiprOFwVZpkBVKUwUCaBhvoREcbXNwQGJheWxp
+YnJlLmNvbQAKCRCFwVZpkBVKU4zTAP0Yer+WBSFojQ6DiWBCD/1wd9ENW9dsLm7J
+ZLeShRvCOAEAgIm8MmcoLnCEO11f0Kg+X9mgAKtZb7OpE86RubTnags=
+=jybR
+-----END PGP SIGNATURE-----
+
+--8941660c9a8c947b1652ed122688064937432aafddb64f2deaaf508477a9--
 
