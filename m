@@ -4,67 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 987A2C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 04:11:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33E6BC3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 04:13:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VEX0L9AIvrS0ssBiflNniKD+Dy6P57OXgqKvQJA4tkg=; b=M/vZMHPXA5rjU8aL5KEYDw8RRG
-	UkI8yyhBLNOkR5fhjQOA03cQQoAJyDFqGPq9h4AO2upF5ijpJwBYCDWBu7yimFyRHf6Lajq14D5br
-	c87lEO3oK1LtcHWXXp1MVW0UfaDqMZ/KusA8/77cc5remKsm76pozYRFJPZAl5tfXG5koiiBZZLao
-	LZpudRMJiKmip4eh53HJ8PZzg/vsON1eyJza9ahc2snxHmfW4C0+8Ho4ZETDkN7Lcemci5hwmYTN+
-	/F1kFfxFBy4ZckP7iOhzVFf7DE3DJOgmob0SCH11Z3sk8PsObRHoLMxTICSR5jUvLoF8QuHIAP+MD
-	A8KV35bQ==;
+	bh=TojGnUz3IwTZa9OIf+N0YDXWQvZUC26A0YuQsFHuLrw=; b=0lmTOMM5jZgbtbQj17fSUGLAWy
+	ZuqR8jvFtxeQQ1tbDCg4S6LvsY502wTa5qZYcsAAKxoNxU4EqMymYE6Plhy+IZJuI9FU9N3w5h2la
+	QF1Decx8Nb1SNjhOJvPencJDJ5yXrp+/cbGtZ3W6GDJRdGzhL5zljKm3hdFVEmUV7XgEWAKxNG32c
+	1yWWCoDc7iCv0AVwIM7QvFmbg8GVGu/TMAqIm6wJeXHkxIm7h+VWWoj9e4kVg9kYhnEUDiToZ2/GS
+	4MFnkiB9e7UQKK8gPfOZyquI83ZHzoDvGHIZgoWO93djOs+hG5FCvzkEvbUS07i6jpO9yTkIKbXcy
+	CdT+rwTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC9eY-0000000A9Xz-1B7g;
-	Tue, 06 May 2025 04:11:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uC9gY-0000000AA08-01s0;
+	Tue, 06 May 2025 04:13:38 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4zn-00000008zD1-3Rcr
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 23:13:13 +0000
+	id 1uC50j-00000008zPx-1WP3;
+	Mon, 05 May 2025 23:14:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9E901439D2;
-	Mon,  5 May 2025 23:13:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F82BC4CEEF;
-	Mon,  5 May 2025 23:13:09 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 144B4A4D3C5;
+	Mon,  5 May 2025 23:08:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A74B2C4CEE4;
+	Mon,  5 May 2025 23:14:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746486791;
-	bh=YPrXTFG2lpUg6wiT2rhW35aIaDIxdm64SvVqNrB7gVs=;
+	s=k20201202; t=1746486848;
+	bh=rH6Xn0SJcQS1MM/vS4ASPbuFDq59MeY/FWg+wOEC1RE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=lJYzoq0wiLpYppgTzKuMZ++5i+Qc7bY62tDIsLUqhjlBLBRs/QOrS7XcE5N9Q1mcM
-	 /lCEijdFBXhyyAu5SQ8msFFj3bBFVWPeq79GNSt+TdMBFanMAk5jcrnHq5SRWiI+Ne
-	 kSLftAw2v8WzXkyk2oo0BB0s16mHsYOtRrE700h8JiRzV6aTjxN/2E2Prb0No3lr42
-	 osGkgCfXF5ce0voXTqoWBGC/VuE6hrltoTYvleSspTQ753QrLtD3dq+RKwmseoXRIx
-	 vLXlI72hEE1g9iHuw1do0rmDFeR/3D/w1+/4bRpP1fwVmg7LJ4InFI1GgLMIVO12Ql
-	 2eZF8uUPp6/Jg==
+	b=EIk16YJswGjq1qMnjHdWrN2xOq2mqN9d7U2mcmuWcmxeWVwSiyCQEeozFhp12A1Fb
+	 5Amj0UBnimpgbzpgIh9Z5mP1Ww4jfGUnUn4f9gSycpuk1ED6LMlRbdvrb0AyF2Wdwu
+	 /9Un/9K0fskxMvrkJIztmRPKFUkWCXMhsphegKiFZ1CbdKMa1Bzt3wRN/BCybiWceO
+	 +CzPVkVlXEGtRrm04zAxFzF21fko7EUK5UTqqVeO0ii3nBzjwHolIxX029sa+OSrF/
+	 3wbzp9tbbzrgSpSbkbRRl6Ca6RVnqzpc/J7KwHlZXCynUAUmUbPjJhrs5VxCxbieCp
+	 ezcniWV/rJptQ==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Sean Anderson <sean.anderson@linux.dev>,
-	Mark Brown <broonie@kernel.org>,
+Cc: Felix Fietkau <nbd@nbd.name>,
 	Sasha Levin <sashal@kernel.org>,
-	michal.simek@amd.com,
-	linux-spi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.1 207/212] spi: zynqmp-gqspi: Always acknowledge interrupts
-Date: Mon,  5 May 2025 19:06:19 -0400
-Message-Id: <20250505230624.2692522-207-sashal@kernel.org>
+	lorenzo@kernel.org,
+	ryder.lee@mediatek.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	edumazet@google.com,
+	kuba@kernel.org,
+	johannes.berg@intel.com,
+	emmanuel.grumbach@intel.com,
+	miriam.rachel.korenblit@intel.com,
+	uwu@icenowy.me,
+	linux-wireless@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH AUTOSEL 5.15 021/153] wifi: mt76: only mark tx-status-failed frames as ACKed on mt76x0/2
+Date: Mon,  5 May 2025 19:11:08 -0400
+Message-Id: <20250505231320.2695319-21-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250505230624.2692522-1-sashal@kernel.org>
-References: <20250505230624.2692522-1-sashal@kernel.org>
+In-Reply-To: <20250505231320.2695319-1-sashal@kernel.org>
+References: <20250505231320.2695319-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.1.136
+X-stable-base: Linux 5.15.181
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_161311_910436_644E5030 
-X-CRM114-Status: GOOD (  15.01  )
+X-CRM114-CacheID: sfid-20250505_161409_527492_6654C5DE 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,70 +87,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sean Anderson <sean.anderson@linux.dev>
+From: Felix Fietkau <nbd@nbd.name>
 
-[ Upstream commit 89785306453ce6d949e783f6936821a0b7649ee2 ]
+[ Upstream commit 0c5a89ceddc1728a40cb3313948401dd70e3c649 ]
 
-RXEMPTY can cause an IRQ, even though we may not do anything about it
-(such as if we are waiting for more received data). We must still handle
-these IRQs because we can tell they were caused by the device.
+The interrupt status polling is unreliable, which can cause status events
+to get lost. On all newer chips, txs-timeout is an indication that the
+packet was either never sent, or never acked.
+Fixes issues with inactivity polling.
 
-Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
-Link: https://patch.msgid.link/20250116224130.2684544-6-sean.anderson@linux.dev
-Signed-off-by: Mark Brown <broonie@kernel.org>
+Link: https://patch.msgid.link/20250311103646.43346-6-nbd@nbd.name
+Signed-off-by: Felix Fietkau <nbd@nbd.name>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/spi/spi-zynqmp-gqspi.c | 20 ++++++++------------
- 1 file changed, 8 insertions(+), 12 deletions(-)
+ drivers/net/wireless/mediatek/mt76/mt76.h       | 1 +
+ drivers/net/wireless/mediatek/mt76/mt76x0/pci.c | 3 ++-
+ drivers/net/wireless/mediatek/mt76/mt76x0/usb.c | 3 ++-
+ drivers/net/wireless/mediatek/mt76/mt76x2/pci.c | 3 ++-
+ drivers/net/wireless/mediatek/mt76/mt76x2/usb.c | 3 ++-
+ drivers/net/wireless/mediatek/mt76/tx.c         | 3 ++-
+ 6 files changed, 11 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/spi/spi-zynqmp-gqspi.c b/drivers/spi/spi-zynqmp-gqspi.c
-index c89544ae5ed91..fde7c38103596 100644
---- a/drivers/spi/spi-zynqmp-gqspi.c
-+++ b/drivers/spi/spi-zynqmp-gqspi.c
-@@ -698,7 +698,6 @@ static void zynqmp_process_dma_irq(struct zynqmp_qspi *xqspi)
- static irqreturn_t zynqmp_qspi_irq(int irq, void *dev_id)
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76.h b/drivers/net/wireless/mediatek/mt76/mt76.h
+index 27f04fb2796d7..5a90fa556203f 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76.h
++++ b/drivers/net/wireless/mediatek/mt76/mt76.h
+@@ -345,6 +345,7 @@ struct mt76_hw_cap {
+ #define MT_DRV_RX_DMA_HDR		BIT(3)
+ #define MT_DRV_HW_MGMT_TXQ		BIT(4)
+ #define MT_DRV_AMSDU_OFFLOAD		BIT(5)
++#define MT_DRV_IGNORE_TXS_FAILED	BIT(6)
+ 
+ struct mt76_driver_ops {
+ 	u32 drv_flags;
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76x0/pci.c b/drivers/net/wireless/mediatek/mt76/mt76x0/pci.c
+index b795e7245c075..3255f9c0ef71f 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76x0/pci.c
++++ b/drivers/net/wireless/mediatek/mt76/mt76x0/pci.c
+@@ -151,7 +151,8 @@ mt76x0e_probe(struct pci_dev *pdev, const struct pci_device_id *id)
+ 	static const struct mt76_driver_ops drv_ops = {
+ 		.txwi_size = sizeof(struct mt76x02_txwi),
+ 		.drv_flags = MT_DRV_TX_ALIGNED4_SKBS |
+-			     MT_DRV_SW_RX_AIRTIME,
++			     MT_DRV_SW_RX_AIRTIME |
++			     MT_DRV_IGNORE_TXS_FAILED,
+ 		.survey_flags = SURVEY_INFO_TIME_TX,
+ 		.update_survey = mt76x02_update_channel,
+ 		.tx_prepare_skb = mt76x02_tx_prepare_skb,
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76x0/usb.c b/drivers/net/wireless/mediatek/mt76/mt76x0/usb.c
+index f2b2fa7338457..7a4d62bff28ff 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76x0/usb.c
++++ b/drivers/net/wireless/mediatek/mt76/mt76x0/usb.c
+@@ -209,7 +209,8 @@ static int mt76x0u_probe(struct usb_interface *usb_intf,
+ 			 const struct usb_device_id *id)
  {
- 	struct zynqmp_qspi *xqspi = (struct zynqmp_qspi *)dev_id;
--	irqreturn_t ret = IRQ_NONE;
- 	u32 status, mask, dma_status = 0;
+ 	static const struct mt76_driver_ops drv_ops = {
+-		.drv_flags = MT_DRV_SW_RX_AIRTIME,
++		.drv_flags = MT_DRV_SW_RX_AIRTIME |
++			     MT_DRV_IGNORE_TXS_FAILED,
+ 		.survey_flags = SURVEY_INFO_TIME_TX,
+ 		.update_survey = mt76x02_update_channel,
+ 		.tx_prepare_skb = mt76x02u_tx_prepare_skb,
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76x2/pci.c b/drivers/net/wireless/mediatek/mt76/mt76x2/pci.c
+index 5cd0379d86de8..4e369bd87c900 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76x2/pci.c
++++ b/drivers/net/wireless/mediatek/mt76/mt76x2/pci.c
+@@ -22,7 +22,8 @@ mt76x2e_probe(struct pci_dev *pdev, const struct pci_device_id *id)
+ 	static const struct mt76_driver_ops drv_ops = {
+ 		.txwi_size = sizeof(struct mt76x02_txwi),
+ 		.drv_flags = MT_DRV_TX_ALIGNED4_SKBS |
+-			     MT_DRV_SW_RX_AIRTIME,
++			     MT_DRV_SW_RX_AIRTIME |
++			     MT_DRV_IGNORE_TXS_FAILED,
+ 		.survey_flags = SURVEY_INFO_TIME_TX,
+ 		.update_survey = mt76x02_update_channel,
+ 		.tx_prepare_skb = mt76x02_tx_prepare_skb,
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76x2/usb.c b/drivers/net/wireless/mediatek/mt76/mt76x2/usb.c
+index 9369515f36a3a..09b01e09bcfe0 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76x2/usb.c
++++ b/drivers/net/wireless/mediatek/mt76/mt76x2/usb.c
+@@ -29,7 +29,8 @@ static int mt76x2u_probe(struct usb_interface *intf,
+ 			 const struct usb_device_id *id)
+ {
+ 	static const struct mt76_driver_ops drv_ops = {
+-		.drv_flags = MT_DRV_SW_RX_AIRTIME,
++		.drv_flags = MT_DRV_SW_RX_AIRTIME |
++			     MT_DRV_IGNORE_TXS_FAILED,
+ 		.survey_flags = SURVEY_INFO_TIME_TX,
+ 		.update_survey = mt76x02_update_channel,
+ 		.tx_prepare_skb = mt76x02u_tx_prepare_skb,
+diff --git a/drivers/net/wireless/mediatek/mt76/tx.c b/drivers/net/wireless/mediatek/mt76/tx.c
+index 134a735a06329..3fbf0153d13ca 100644
+--- a/drivers/net/wireless/mediatek/mt76/tx.c
++++ b/drivers/net/wireless/mediatek/mt76/tx.c
+@@ -93,7 +93,8 @@ __mt76_tx_status_skb_done(struct mt76_dev *dev, struct sk_buff *skb, u8 flags,
+ 	__skb_unlink(skb, &dev->status_list);
  
- 	status = zynqmp_gqspi_read(xqspi, GQSPI_ISR_OFST);
-@@ -713,27 +712,24 @@ static irqreturn_t zynqmp_qspi_irq(int irq, void *dev_id)
- 				   dma_status);
- 	}
- 
--	if (mask & GQSPI_ISR_TXNOT_FULL_MASK) {
-+	if (!mask && !dma_status)
-+		return IRQ_NONE;
-+
-+	if (mask & GQSPI_ISR_TXNOT_FULL_MASK)
- 		zynqmp_qspi_filltxfifo(xqspi, GQSPI_TX_FIFO_FILL);
--		ret = IRQ_HANDLED;
--	}
- 
--	if (dma_status & GQSPI_QSPIDMA_DST_I_STS_DONE_MASK) {
-+	if (dma_status & GQSPI_QSPIDMA_DST_I_STS_DONE_MASK)
- 		zynqmp_process_dma_irq(xqspi);
--		ret = IRQ_HANDLED;
--	} else if (!(mask & GQSPI_IER_RXEMPTY_MASK) &&
--			(mask & GQSPI_IER_GENFIFOEMPTY_MASK)) {
-+	else if (!(mask & GQSPI_IER_RXEMPTY_MASK) &&
-+			(mask & GQSPI_IER_GENFIFOEMPTY_MASK))
- 		zynqmp_qspi_readrxfifo(xqspi, GQSPI_RX_FIFO_FILL);
--		ret = IRQ_HANDLED;
--	}
- 
- 	if (xqspi->bytes_to_receive == 0 && xqspi->bytes_to_transfer == 0 &&
- 	    ((status & GQSPI_IRQ_MASK) == GQSPI_IRQ_MASK)) {
- 		zynqmp_gqspi_write(xqspi, GQSPI_IDR_OFST, GQSPI_ISR_IDR_MASK);
- 		complete(&xqspi->data_completion);
--		ret = IRQ_HANDLED;
- 	}
--	return ret;
-+	return IRQ_HANDLED;
- }
- 
- /**
+ 	/* Tx status can be unreliable. if it fails, mark the frame as ACKed */
+-	if (flags & MT_TX_CB_TXS_FAILED) {
++	if (flags & MT_TX_CB_TXS_FAILED &&
++	    (dev->drv->drv_flags & MT_DRV_IGNORE_TXS_FAILED)) {
+ 		info->status.rates[0].count = 0;
+ 		info->status.rates[0].idx = -1;
+ 		info->flags |= IEEE80211_TX_STAT_ACK;
 -- 
 2.39.5
 
