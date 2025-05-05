@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AD0BC3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 04:32:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB409C3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 04:34:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f7WYJG3fbndzJxqM+0OtygT3aFs/YNjP+azoDJMKJeo=; b=qNnuAP7eZbHTQxDaZwUL+K+aA7
-	GfO/1HubOeQnDVr3a0WhKZxYaZoxbkfmzqULgl5kMCkhydoDu50GRQiExZ2/h3/cFoyxR32SudU1q
-	Xoddvtp0sinsxc7k00cooZsdrhlU99SH1oBZetAtlsIGVHSvD8pjxeFOnyO8Zojvx0hc5Rusrtm6a
-	e2SNUol/qHTTDvD9zBXeUwWV7g1njeiCJ4mMzF3uBOxv3/ZnBMuy6qbJyuPRj51x0JhzYc/YYHd9N
-	bxdvqUsEBytf/B5ApDR/vOS/a/kJO3Lkj2Plr6h3yxgpx4CLzFVditv+F9LRmpBECQ7IrP8BMlZ8f
-	0c9yVLFQ==;
+	bh=E59ebMef6E+7lxcLiImFnOXo4veWRT+KLRZVIg2BERQ=; b=TNOtbtnFi4y4bBriitTh4EQWph
+	U2Ns+E4QzZ3RH29D96j1YM/gwThH8i/3kubPTgUF24n7iJGsuST0t4SFXz0/0C777FF73Rkf8WYXM
+	U/Qg5iEa7202Y2bqi8fbjIDuwEYLXwgJXPKS0QfNRmeyg20fNZpbd2hnCSv+yCoKVWsg916w4kqQP
+	/Lzp7J/k4eJvgxrF9zneAXUUbKczgEdEBXY7n3fT+79kq03ClY5+1w+dbZljNEaLXRNFH85JKK1w6
+	8dBVFuqRHuCFjJfvDXpS/N45OMiDi17EgynNVAwqTXAiaHuAQ1MkuigtEEoMhdDUnQRC7w0nG1M6N
+	c+WVGokA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC9yo-0000000AEYI-2GH4;
-	Tue, 06 May 2025 04:32:30 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uCA0p-0000000AF2S-1uKL;
+	Tue, 06 May 2025 04:34:35 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC52Y-0000000900j-2v9p
+	id 1uC52i-0000000903w-19NR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 23:16:03 +0000
+	Mon, 05 May 2025 23:16:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E2F8F5C5529;
-	Mon,  5 May 2025 23:13:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11DB9C4CEF5;
-	Mon,  5 May 2025 23:16:00 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id E8322A4B452;
+	Mon,  5 May 2025 23:10:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 900F4C4CEEE;
+	Mon,  5 May 2025 23:16:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746486961;
-	bh=ObOcuQ7uehgIs7wkMXNdM1MgdTP7bxAc1+4SriNNzwo=;
+	s=k20201202; t=1746486971;
+	bh=pmbQVqxqI4yMufVZhpjQMPIHb8g9Euc5udta/x9FAew=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=VeJvgyXQkTiajGMPSbj3AcmnY4iYsgWxfd8kFW+5jzCOZ6p659d+rek9Aszy6bMx4
-	 mdSkWGIQSuigMFYqjVt6S+xbPoWr74Xt4pKccjrwT/hWQMs7uon7W8jD4D6pNTniS0
-	 cx4W6ERbtqcZKT8q2fo6TI4hqLxaJUY4frfdXoOIuNcaWMyZXiYNu3od8jmj8v3zEW
-	 pS/VCKLt/NuT5q4TXfBtVtg79thbsiPE/Mr5Mg4CQUlvMUBAV0rHnIqz3x5QBdXE7a
-	 pxoapd/ehA/cLsyhf3Gd7kV7O6hnijEB90RC38wQHmdlMUqlCSX3Aw5IZSrjpVD3+G
-	 XtVxp7C5JG7MQ==
+	b=f8W7eTMRfJ5A/pCkTvZhOBw9n1abJLHg/UeYo80JgFnZcazYpKViNQ3NVA+3s97GZ
+	 gKylV6ixUIe0fmmZZOwqUumWSSFNq6oW8fMppyLILCAjHbbKRYeH24r3heOIaSHmR7
+	 SSa9YVIRKMO6f2rQ4JloIWwXgNvtwKde8qYWSGZWfjGCS4yrCG5qgYZusb96NOMn4f
+	 HDag+7XzrKT2GLftZWE191bCeKv11D32HpUYqOV8ApwOr9ePbqsWOrMzM6rNX4NxS9
+	 r7KjxmtgAcV2gYCilDjtyeQ3ap4PtKcsiPOLoYy627flaekk4HuXa6WyAwJCEuQXlK
+	 ybnijSWcBpQMQ==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Viresh Kumar <viresh.kumar@linaro.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
+Cc: Andrew Davis <afd@ti.com>,
+	Nishanth Menon <nm@ti.com>,
 	Sasha Levin <sashal@kernel.org>,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.15 081/153] firmware: arm_ffa: Set dma_mask for ffa devices
-Date: Mon,  5 May 2025 19:12:08 -0400
-Message-Id: <20250505231320.2695319-81-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.15 087/153] soc: ti: k3-socinfo: Do not use syscon helper to build regmap
+Date: Mon,  5 May 2025 19:12:14 -0400
+Message-Id: <20250505231320.2695319-87-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505231320.2695319-1-sashal@kernel.org>
 References: <20250505231320.2695319-1-sashal@kernel.org>
@@ -61,9 +61,8 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 5.15.181
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_161602_777176_2A5A311C 
-X-CRM114-Status: UNSURE (   8.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250505_161612_379583_2ED71DC4 
+X-CRM114-Status: GOOD (  16.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,35 +77,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Viresh Kumar <viresh.kumar@linaro.org>
+From: Andrew Davis <afd@ti.com>
 
-[ Upstream commit cc0aac7ca17e0ea3ca84b552fc79f3e86fd07f53 ]
+[ Upstream commit a5caf03188e44388e8c618dcbe5fffad1a249385 ]
 
-Set dma_mask for FFA devices, otherwise DMA allocation using the device pointer
-lead to following warning:
+The syscon helper device_node_to_regmap() is used to fetch a regmap
+registered to a device node. It also currently creates this regmap
+if the node did not already have a regmap associated with it. This
+should only be used on "syscon" nodes. This driver is not such a
+device and instead uses device_node_to_regmap() on its own node as
+a hacky way to create a regmap for itself.
 
-WARNING: CPU: 1 PID: 1 at kernel/dma/mapping.c:597 dma_alloc_attrs+0xe0/0x124
+This will not work going forward and so we should create our regmap
+the normal way by defining our regmap_config, fetching our memory
+resource, then using the normal regmap_init_mmio() function.
 
-Signed-off-by: Viresh Kumar <viresh.kumar@linaro.org>
-Message-Id: <e3dd8042ac680bd74b6580c25df855d092079c18.1737107520.git.viresh.kumar@linaro.org>
-Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
+Signed-off-by: Andrew Davis <afd@ti.com>
+Link: https://lore.kernel.org/r/20250123181726.597144-1-afd@ti.com
+Signed-off-by: Nishanth Menon <nm@ti.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/firmware/arm_ffa/bus.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/soc/ti/k3-socinfo.c | 13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/firmware/arm_ffa/bus.c b/drivers/firmware/arm_ffa/bus.c
-index f79ba6f733ba4..27820a59ce25e 100644
---- a/drivers/firmware/arm_ffa/bus.c
-+++ b/drivers/firmware/arm_ffa/bus.c
-@@ -190,6 +190,7 @@ struct ffa_device *ffa_device_register(const uuid_t *uuid, int vm_id)
- 	dev = &ffa_dev->dev;
- 	dev->bus = &ffa_bus_type;
- 	dev->release = ffa_release_device;
-+	dev->dma_mask = &dev->coherent_dma_mask;
- 	dev_set_name(&ffa_dev->dev, "arm-ffa-%d", id);
+diff --git a/drivers/soc/ti/k3-socinfo.c b/drivers/soc/ti/k3-socinfo.c
+index fd91129de6e5b..76a4e6eac8b53 100644
+--- a/drivers/soc/ti/k3-socinfo.c
++++ b/drivers/soc/ti/k3-socinfo.c
+@@ -58,6 +58,12 @@ k3_chipinfo_partno_to_names(unsigned int partno,
+ 	return -EINVAL;
+ }
  
- 	ffa_dev->id = id;
++static const struct regmap_config k3_chipinfo_regmap_cfg = {
++	.reg_bits = 32,
++	.val_bits = 32,
++	.reg_stride = 4,
++};
++
+ static int k3_chipinfo_probe(struct platform_device *pdev)
+ {
+ 	struct device_node *node = pdev->dev.of_node;
+@@ -65,13 +71,18 @@ static int k3_chipinfo_probe(struct platform_device *pdev)
+ 	struct device *dev = &pdev->dev;
+ 	struct soc_device *soc_dev;
+ 	struct regmap *regmap;
++	void __iomem *base;
+ 	u32 partno_id;
+ 	u32 variant;
+ 	u32 jtag_id;
+ 	u32 mfg;
+ 	int ret;
+ 
+-	regmap = device_node_to_regmap(node);
++	base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(base))
++		return PTR_ERR(base);
++
++	regmap = regmap_init_mmio(dev, base, &k3_chipinfo_regmap_cfg);
+ 	if (IS_ERR(regmap))
+ 		return PTR_ERR(regmap);
+ 
 -- 
 2.39.5
 
