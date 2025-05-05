@@ -4,156 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C976EC3ABB9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 19:54:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E1FDC3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 20:10:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lzYz1kQE776rppX2LjWBcEzYot/SUfNrKDUyz+RyId0=; b=1qhaoWIUOM0t44c+VbT/6qCfc/
-	hOMuYSe01c3SSr3AIZS1saRAexp6eG53iZ9/th/m917EljV3Ehti8qc7uMo/s3pWlTon6Jk7mKF4K
-	+VsE2UBiRtWv6PrUHtlGPMpXF2fDICjTsVG4tBHSAu5cEyfaWcS2XxJ+3lg4MOv+KSPaxQYc5ywtp
-	7OJ+V3wulStVwm2cpSio61RWV5tEaKogaaH+bgu66g+1IEgKuR0J5XA7rlEV4+gn10g1P9rkIth8o
-	jfG8K/I2JqCFdO7n8ULih1k5NKY0BbLhYQ/mbNX+dZIFejqcu5t2i3HWaBXdfLXFb0YYYHI0GQ7kZ
-	82njAKZQ==;
+	bh=oOuRgIeoWvJ+xJkqB+IUVGx6fHLCdoleXxRua1kYdv4=; b=Rgx0g+7rzxR3Thg038C/nyPFq6
+	pu9UmHJGJeqVvjaGE6dExUqJZfbkQzPQiTH1G0q+7sXbO4mUnKqL984Lv6eyRxC8rkaLI84uL5KK5
+	a7vUhYDPe2Za0c3Lboqcdq24dtevgF0a7T73oc0Ke4DCOIfgsINipkvG++B6Bg8caEM1XfyN/qQL0
+	1fg6lwb2MDG6XkhuB5KV6z7+I0/sFZwoFSwJ7LC/sifMvfgTkcGf2wncblpSKpeyEdl9lcNGaC6yC
+	/egmcljyUPkxbFiqcsf2XEeHesL4U2N6uSRhin7YlVViMDX0R3NeElU7xCqtMVK3nSgZ7aEaDIYD8
+	5bTsi2kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC1t8-00000008S15-2r2v;
-	Mon, 05 May 2025 19:54:06 +0000
-Received: from mail-sn1nam02on20619.outbound.protection.outlook.com ([2a01:111:f403:2406::619] helo=NAM02-SN1-obe.outbound.protection.outlook.com)
+	id 1uC298-00000008TWR-3Jru;
+	Mon, 05 May 2025 20:10:38 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC1r8-00000008Rq4-46Ta
+	id 1uC278-00000008TD4-46NU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 19:52:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ffQK/aqdXSmr4zZdoh2l6/UoOloYTCuEje3TQr1avStP7GRqUgKbBYhDMa4xhn1CJDfYoA4g3XuFYWeZ8XKhcHlsmGIp8XE2pmCsHhNy86iu5cFDuih7OOC/brg/V6lGau9T2NasZPK6M89sRdKi0XIZx3aXAkGRT1VKsoqLUkJkpTd9yLsiYJHNi6m8ITTPP9RmQ8xlPsbqHSF2H1dGfNBDnMUWlxy4QISkv0CR/IZ74gGSXTwsh91u0BCjlfju0c5E8ew5M+SOgdpMfuQXeBbUPoHrplxs8Nn5KJSZ9ZAiIGiaX5jCk6Bvz7um6aJIlI52ysfMzH9PqtAKtcCttg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lzYz1kQE776rppX2LjWBcEzYot/SUfNrKDUyz+RyId0=;
- b=gI0RbNlQPDEhprL8fLU2+rE9+jvV//cfQcc6kASgf2dsYA5E4hbHiuEXaof2mwseGvU0iLee4AaT3mK7+LUjcFjRvSnOqGDq3P5+G+5smNZQ9jCm6mxRSiNeLWNd3oxErOiLP+XTJJx4rVI/9bfcwZKhP/xvZS70tli7QVPd2yZAeMZYkLHDvbftM8d7tjdNY9A5vljPq8jJ/n1rqeGKxCfPGIZa3SgWofBQaLJtzjnoOAWD1AjAzSg1Gw5jteX2nKgeWjNf4VsEM1Wmy9re4M9J596rRz/SU/BjJFANTOfW0fNPojwZBVTZcNvoJsIQHDLb/RjhCDHJGUc4o+RfCQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lzYz1kQE776rppX2LjWBcEzYot/SUfNrKDUyz+RyId0=;
- b=BPTx2CmJpt2SZLOgPcsu3iGTTQKEHXkXmi2EWp9nC5eSc6AsWnmDVIB2Meh8H9VCw6ty8alTSQOCAF2we9FzvKd7RfNWdNZj/7fiC0Dwc5+k7hw9C4+4xH3vIY2Ah9q7HFVKP8UgCN+q033dE5whIxFMzHK2i7PY8dI8K6DQglX6lCM/m6XDDEx87wMpFw7K4rz0oKmUj5WBusw/2F8nAnbOq55wE32+sf4LpJxE9KYg/qFjlRHIaOimTHFByEnEgx3jd9uchbz4kbWZxLFibUcxiddOMqDKPJLEuugLMaKCJJopWOKX3TnctX6YTYgX6usVhdwLDJvZla/2bV6WGA==
-Received: from CH0PR03CA0016.namprd03.prod.outlook.com (2603:10b6:610:b0::21)
- by SA1PR12MB8743.namprd12.prod.outlook.com (2603:10b6:806:37c::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.24; Mon, 5 May
- 2025 19:51:55 +0000
-Received: from CH2PEPF00000141.namprd02.prod.outlook.com
- (2603:10b6:610:b0:cafe::20) by CH0PR03CA0016.outlook.office365.com
- (2603:10b6:610:b0::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8699.31 via Frontend Transport; Mon,
- 5 May 2025 19:51:54 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- CH2PEPF00000141.mail.protection.outlook.com (10.167.244.74) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8722.18 via Frontend Transport; Mon, 5 May 2025 19:51:54 +0000
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 5 May 2025
- 12:51:33 -0700
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail203.nvidia.com
- (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 5 May
- 2025 12:51:32 -0700
-Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.129.68.6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Mon, 5 May 2025 12:51:05 -0700
-Date: Mon, 5 May 2025 12:50:56 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Pranjal Shrivastava <praan@google.com>, <kevin.tian@intel.com>,
-	<corbet@lwn.net>, <will@kernel.org>, <bagasdotme@gmail.com>,
-	<robin.murphy@arm.com>, <joro@8bytes.org>, <thierry.reding@gmail.com>,
-	<vdumpa@nvidia.com>, <jonathanh@nvidia.com>, <shuah@kernel.org>,
-	<jsnitsel@redhat.com>, <nathan@kernel.org>, <peterz@infradead.org>,
-	<yi.l.liu@intel.com>, <mshavit@google.com>, <zhangzekun11@huawei.com>,
-	<iommu@lists.linux.dev>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-tegra@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
-	<patches@lists.linux.dev>, <mochs@nvidia.com>, <alok.a.tiwari@oracle.com>,
-	<vasant.hegde@amd.com>
-Subject: Re: [PATCH v2 13/22] iommufd: Add mmap interface
-Message-ID: <aBkWoH23VysYake3@nvidia.com>
-References: <aBE1gUz9y415EuBQ@google.com>
- <aBE38GwvGBnpRNLc@google.com>
- <aBE47aySzDp2lsAz@Asurada-Nvidia>
- <aBE800DsAOOZ4ybv@google.com>
- <aBE/CD4Ilbydnmud@Asurada-Nvidia>
- <aBFGCxcTh54pecsk@google.com>
- <aBFIsYg+ITU8RvTT@Asurada-Nvidia>
- <20250505165552.GN2260709@nvidia.com>
- <aBj1Av6Xaj8flMN+@nvidia.com>
- <20250505173101.GT2260709@nvidia.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20250505173101.GT2260709@nvidia.com>
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF00000141:EE_|SA1PR12MB8743:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2d706f07-d75f-4763-2845-08dd8c0e4976
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|1800799024|376014|36860700013|13003099007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6wnDJg8TfHKTv54yOKMCTOAojk6lC2PwLFxItsGRTOjvAqR+q2DgtDh+nzwj?=
- =?us-ascii?Q?73j2Ls1EBIEZcsgXP7WYkRWD4s63RwnABRhSgUo7p3v3RQqzy9jP0fNGJv0E?=
- =?us-ascii?Q?2CQys5kC8fgsqOHqetIktkxz81EnFB/VH68GAtNXFgBUc9DAEa5isvCAXUte?=
- =?us-ascii?Q?FtE7qAlqsLUVPXhoOQm4zDFK1va3p3s9yPAsgvSrlRmeRfizYGgw6UdGQ7xy?=
- =?us-ascii?Q?tR317b1JRXwVBE8OB+T6ThxEK3O3dKwLp+byAzYclgHynSFWAxZqt4FdPu3J?=
- =?us-ascii?Q?3fy/ss+ZgxYvEUGUod8OvFGgUFnrPtjd5cj3LmgeFojWF4qUWLpNcnTzBmcs?=
- =?us-ascii?Q?oFEmRnzz4+Gjiag5tUjAHEqThvfFCvZAUD97pqC/ApRY+u95FaIiwZx840qQ?=
- =?us-ascii?Q?CEEZhiuJxix7YIYe2MIpoMdHENShXRY99rS4AFM+8SXjEPE9sCby7IH2O6uS?=
- =?us-ascii?Q?ji1XMxiBdwDsL8Bpyd1nIX2xIjkPynXKk8zqmQ93sw+0ecKkmiyohmU8MNXy?=
- =?us-ascii?Q?mNOTqHAThesKyCNpao42YFnIXcHu5bCwFPypFUt1dT/2HJa7d0ffKT+3XPam?=
- =?us-ascii?Q?8gexgI1xTQ40U6VouP4/wzYOQqUplrlQJYNrQ8QCUxf4oJEVnVIwKFRSNP7u?=
- =?us-ascii?Q?0bLiJrAAGou/PnvRPlmBbuCGPOgRJexDhYaJM8HbfPkluZr6EDdW3aubsbP8?=
- =?us-ascii?Q?oNoD1GeckP6AT2qgY1Giq3CsVhk9ttG98eBByNsolEEFLULqkrzYAdehxGab?=
- =?us-ascii?Q?8hNSw/HpaYe/xRZB/zg9IMPX0TIKaOi/2o9f/mUV6H+cdQ2nAo5kw70udEJj?=
- =?us-ascii?Q?QV/HEhpwISmyTXUMFHzyFfoobSrvrqmmhydirW1hgt8MejQzThv7YQHf7sZR?=
- =?us-ascii?Q?3KGgOw4yMhndPVTGWE3nbgEgjHwqebEYZIqAF6Mck8YJjlaJWI1ketuAs8Ag?=
- =?us-ascii?Q?t67kYhVHPZIkztokI+pRPfb6ouUDVdWyFlhBVFQZzaAZinIlDyfDN3TGhcn+?=
- =?us-ascii?Q?IEvTU49qMBmt9DIsngCGmhp4LDvvO9uSDdF+V5ukPfriIRQEdnnfgnBLH7P/?=
- =?us-ascii?Q?TujLdFQ/6yyTLLi+IkW71kYS1IN88ZfWQGkbkvx3Kd1T8WNaBIB/X74FFWzZ?=
- =?us-ascii?Q?Sbz2tREnxkKPjbq0zYBey+SPbS3bp39NLUfW4DdYIyIZL1m5j+R3+9tu0uzu?=
- =?us-ascii?Q?Df/0dTMucw01d9HhRdBLAKCU2UzaPqadCBXSsKxXvMsSphRTC1gFWxPBLzg7?=
- =?us-ascii?Q?TR+tZWIFvwY8x538QlQPA5WfssIWFCYZM10pWmmN7pUhk2YZqcEVVJnxkaDP?=
- =?us-ascii?Q?w6yiv7b5pCRhhhT1GzU2iFmt69t0/lpAyehRlGgnOojB6Ih1hiBZpyyN+Zf0?=
- =?us-ascii?Q?kXGC/oWDUe+umz/LrYKzLZhuTs2Vp8YkOPjPjrbUe1NPkxk42i8bZwqOTxGu?=
- =?us-ascii?Q?MANXCT0aI3RzHQUammuQtTIvE+39uoW+Q9GCisER1m8R9Mc4YPPQmZmSaYyy?=
- =?us-ascii?Q?JZOnpJz8VmkI+AcxIq0rSbu6BKkLyGm9xKtIfk+jGPY4naYtHfjG06eS3Q?=
- =?us-ascii?Q?=3D=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(1800799024)(376014)(36860700013)(13003099007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 May 2025 19:51:54.4858
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2d706f07-d75f-4763-2845-08dd8c0e4976
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF00000141.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB8743
+	Mon, 05 May 2025 20:08:36 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-224364f2492so44482655ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 13:08:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1746475713; x=1747080513; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=oOuRgIeoWvJ+xJkqB+IUVGx6fHLCdoleXxRua1kYdv4=;
+        b=OXY9e+XoCKiMc6TTwGhOIEVNNgaecGg4D2qZKlJ8GZO42DWzCM+ub6dki0CDOUSLIs
+         NCrK9bl7TRrhwOKqnsMpVIm3bv/82/fOu6e02kgvFh3t/WpnBKmIZ//UxLVI8QMpZZ9P
+         3lrvXT4rgRLlHqUFW9KvcIn43a6rh3Q7BX3WDrIcss9WQheV4AP9lZrObGrvHc+PP6s1
+         o4+Q5Wj1MVZWo9Smg0JZoA383fBYMWs/LD3rlIAD4wavdyfSPehot/ZAyIE86h3xvhQw
+         PGk90d7iYS5lhu1DbuevQSzqrqvu/derS409dNiU0dn1oebrtUJ4C7zZ2CEc03QU23eV
+         kbOw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746475713; x=1747080513;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=oOuRgIeoWvJ+xJkqB+IUVGx6fHLCdoleXxRua1kYdv4=;
+        b=jn/cDucGtSYF8WXq/KKYmK0Wch2HY/roTAnJ2XCDNkllcbEc8Q7qovfz9xXIBe7vcX
+         KpT0B0SlSAhuQsJh/2tsACCdFeSJmm+OaTaxbZpsGFwGyxfs+BV1ZJ9X7Pft6aiRSPvo
+         AyL+i0JBXmuZLIBiypYt/olY+2IvIiiL9W6HDP+Zff0HcwuV3t6TMKt8DHyIgPISTAd5
+         2icygcuvdTksSGstbGHTwJpB6HUmVBgRYD8zi4xncOTuY8X/pxkPi3MivEbqVQIfydwz
+         dBWhvrqIXNbwZLRhzJtO+uQB0BFHpk+jRZ+8XMxP92vpirGTdirZMZ8f0F5w//+1WE3o
+         Sl1A==
+X-Forwarded-Encrypted: i=1; AJvYcCXupglbUlHBULU0lNlj/LGeFVrL02pMvX4yVBFb1ZnwzkEogK/EM1MBtTxfk2KUReX9CztIV3p3haUwsQgL+Hdh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw0UBHVFvaNPMMgrhBBm4oRCXrrBbyTPYXE3vt7klp8Ht1T+SvK
+	ihGwSiNa2QSSges2CQOb9Gx5QKUfZda2h0/yqh8eRrk6a7VCmlkrEK9oqYWR+V+F4tayY6Oqo3N
+	o37YH6/w563mWSNRfoQ==
+X-Google-Smtp-Source: AGHT+IGAxfh3fReuw49sEBnCIqEgZnEB4d1Kz9/LHzQ3CYJt6UkvcZ+t0jrC2mykwUxbQTB6d5Dqd6LW9byg1ZNs
+X-Received: from plkp1.prod.google.com ([2002:a17:902:6b81:b0:220:ea57:34e3])
+ (user=changyuanl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:902:f648:b0:224:93e:b5d7 with SMTP id d9443c01a7336-22e32eff19bmr9877065ad.34.1746475713621;
+ Mon, 05 May 2025 13:08:33 -0700 (PDT)
+Date: Mon,  5 May 2025 13:07:45 -0700
+In-Reply-To: <20250501225425.635167-15-changyuanl@google.com>
+Mime-Version: 1.0
+References: <20250501225425.635167-15-changyuanl@google.com>
+X-Mailer: git-send-email 2.49.0.967.g6a0df3ecc3-goog
+Message-ID: <20250505200745.1975264-1-changyuanl@google.com>
+Subject: Re: [PATCH v7 14/18] x86/boot: make sure KASLR does not step over KHO
+ preserved memory
+From: Changyuan Lyu <changyuanl@google.com>
+To: changyuanl@google.com
+Cc: akpm@linux-foundation.org, anthony.yznaga@oracle.com, arnd@arndb.de, 
+	ashish.kalra@amd.com, benh@kernel.crashing.org, bp@alien8.de, 
+	catalin.marinas@arm.com, corbet@lwn.net, dave.hansen@linux.intel.com, 
+	devicetree@vger.kernel.org, dwmw2@infradead.org, ebiederm@xmission.com, 
+	graf@amazon.com, hpa@zytor.com, jgowans@amazon.com, kexec@lists.infradead.org, 
+	krzk@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
+	luto@kernel.org, mark.rutland@arm.com, mingo@redhat.com, 
+	pasha.tatashin@soleen.com, pbonzini@redhat.com, peterz@infradead.org, 
+	ptyadav@amazon.de, robh@kernel.org, rostedt@goodmis.org, rppt@kernel.org, 
+	saravanak@google.com, skinsburskii@linux.microsoft.com, tglx@linutronix.de, 
+	thomas.lendacky@amd.com, will@kernel.org, x86@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_125203_012971_B0E050B5 
-X-CRM114-Status: GOOD (  22.58  )
+X-CRM114-CacheID: sfid-20250505_130835_019090_B78313DC 
+X-CRM114-Status: GOOD (  20.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,56 +100,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 05, 2025 at 02:31:01PM -0300, Jason Gunthorpe wrote:
-> On Mon, May 05, 2025 at 10:27:30AM -0700, Nicolin Chen wrote:
-> > > So when calling mtree_alloc_range:
-> > > 
-> > > int mtree_alloc_range(struct maple_tree *mt, unsigned long *startp,
-> > > 		void *entry, unsigned long size, unsigned long min,
-> > > 		unsigned long max, gfp_t gfp)
-> > > 
-> > > size should be the number of PFNs this mmap is going to use, which is
-> > > not sizeof() anything
-> > > 
-> > > min should be 0 and max should be uh.. U32_MAX >> PAGE_SHIFT
-> > > IIRC.. There is a different limit for pgof fon 32 bit mmap()
-> > 
-> > Should the startp (input) be the pfn_start (i.e. pgoff)?
-> 
-> pfn_start/pgoff is the output of the allocation, it is not an input.
+Hi Andrew,
 
-Sorry, I got it wrong. Not "startp": it's an output that should
-be returned to user space, as pgoff of mmap.
+Based on Dave's feedback above, could you please take the following
+fix and squash it with "x86/boot: make sure KASLR does not step over
+KHO preserved memory" with the updated commit message in mm-unstable?
 
-I wanted to ask: what should we pass in to the "entry"? An mmap
-structure that hold the pfn range? Or just pfn_start?
+Thank you very much!
 
-> > In this case, it would return startp as the ID, which will
-> > be further returned to the user space. So, basically user
-> > space know the pfn range, v.s being given an mmap cookie?
-> 
-> Userspace is given the pgoff to pass to mmap as a cookie, it doesn't
-> know anything about it beyond that passing that pgoff will get the
-> mmap it should get. Userspace must also know how big the mmap is.
+Best,
+Changyuan
 
-Yes. I got this part.
+---- 8< ----
 
-> The pgoffs should all be allocated from non-overlapping ranges as
-> though they were bytes in a file so that the mmaps are all
-> disjoint. This makes debugging easier and the API saner.
-> 
-> There is no "id" here..
+From 464b5750c55f978b47da242f50ec7dbcbac1948c Mon Sep 17 00:00:00 2001
+From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Date: Mon, 5 May 2025 11:29:23 -0700
+Subject: [PATCH] fixup! x86/boot: make sure KASLR does not step over KHO
+ preserved memory
 
-Ah, right. "ID" is more of the xarray term. Here it's "startp"
-right? And it would be used as the "index" for mtree_load().
+During kexec handover (KHO) memory contains data that should be
+preserved and this data would be consumed by kexec'ed kernel.
 
-With that being said, it seems that I have been misusing the
-mtree data structure, treating it as an xarray. In your very
-first email suggesting the mmap design, where you mentioned
-"xarray" first and "maple tree" following. So, I thought they
-can be used in the similar way, especially after reading this:
-https://lwn.net/Articles/846175/
+To make sure that the preserved memory is not overwritten, KHO uses
+"scratch regions" to bootstrap kexec'ed kernel. These regions are
+guaranteed to not have any memory that KHO would preserve and are used as
+the only memory the kernel sees during the early boot.
 
-Thanks
-Nicolin
+The scratch regions are passed in the setup_data by the first kernel with
+other KHO parameters. If the setup_data contains the KHO parameters, limit
+randomization to scratch areas only to make sure preserved memory won't get
+overwritten.
+
+Since all the pointers in setup_data are represented by u64, they require
+double casting (first to unsigned long and then to the actual pointer type)
+to compile on 32-bits. This looks goofy out of context, but it is
+unfortunately the way that this is handled across the tree. There are at
+least a dozen instances of casting like this.
+
+Signed-off-by: Alexander Graf <graf@amazon.com>
+Co-developed-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+Co-developed-by: Changyuan Lyu <changyuanl@google.com>
+Signed-off-by: Changyuan Lyu <changyuanl@google.com>
+---
+ arch/x86/boot/compressed/kaslr.c | 26 ++++++++++++--------------
+ 1 file changed, 12 insertions(+), 14 deletions(-)
+
+diff --git a/arch/x86/boot/compressed/kaslr.c b/arch/x86/boot/compressed/kaslr.c
+index 25de8c3e17cdb..3b0948ad449f9 100644
+--- a/arch/x86/boot/compressed/kaslr.c
++++ b/arch/x86/boot/compressed/kaslr.c
+@@ -764,25 +764,26 @@ static void process_e820_entries(unsigned long minimum,
+  * If KHO is active, only process its scratch areas to ensure we are not
+  * stepping onto preserved memory.
+  */
+-#ifdef CONFIG_KEXEC_HANDOVER
+ static bool process_kho_entries(unsigned long minimum, unsigned long image_size)
+ {
+ 	struct kho_scratch *kho_scratch;
+ 	struct setup_data *ptr;
++	struct kho_data *kho;
+ 	int i, nr_areas = 0;
+
+-	ptr = (struct setup_data *)boot_params_ptr->hdr.setup_data;
++	if (!IS_ENABLED(CONFIG_KEXEC_HANDOVER))
++		return false;
++
++	ptr = (struct setup_data *)(unsigned long)boot_params_ptr->hdr.setup_data;
+ 	while (ptr) {
+ 		if (ptr->type == SETUP_KEXEC_KHO) {
+-			struct kho_data *kho = (struct kho_data *)ptr->data;
+-
+-			kho_scratch = (void *)kho->scratch_addr;
++			kho = (struct kho_data *)(unsigned long)ptr->data;
++			kho_scratch = (void *)(unsigned long)kho->scratch_addr;
+ 			nr_areas = kho->scratch_size / sizeof(*kho_scratch);
+-
+ 			break;
+ 		}
+
+-		ptr = (struct setup_data *)ptr->next;
++		ptr = (struct setup_data *)(unsigned long)ptr->next;
+ 	}
+
+ 	if (!nr_areas)
+@@ -801,13 +802,6 @@ static bool process_kho_entries(unsigned long minimum, unsigned long image_size)
+
+ 	return true;
+ }
+-#else
+-static inline bool process_kho_entries(unsigned long minimum,
+-				       unsigned long image_size)
+-{
+-	return false;
+-}
+-#endif
+
+ static unsigned long find_random_phys_addr(unsigned long minimum,
+ 					   unsigned long image_size)
+@@ -824,6 +818,10 @@ static unsigned long find_random_phys_addr(unsigned long minimum,
+ 		return 0;
+ 	}
+
++	/*
++	 * During kexec handover only process KHO scratch areas that are known
++	 * not to contain any data that must be preserved.
++	 */
+ 	if (!process_kho_entries(minimum, image_size) &&
+ 	    !process_efi_entries(minimum, image_size))
+ 		process_e820_entries(minimum, image_size);
+--
+2.49.0.967.g6a0df3ecc3-goog
 
