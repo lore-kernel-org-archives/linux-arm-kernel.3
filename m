@@ -4,54 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 637F0C3ABB6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 23:24:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C46FAC3ABBF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 23:26:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zQK7my/uVRmtZo4bwrmWl8ViLGRMQloVOEhmjyHVRfM=; b=4XlTxLoJ4GPC/dvrmR/IqhIJCO
-	1TqZMi31s7Wp2giv8l6GdXXlLVLdYHcXUTn8mr9sszCjD5v6s98cshwrLFpiaYjar5Qrk8LjI91be
-	YhDLo/8tBfb5yKZ4cRr8XHvWX1hmVjggICqsFwg91FXSk/1SdFZ8VKDKxaWUKyykj0A3zJJMbrC0s
-	0uGBhgLJ5E6L68YNEpqkW88sAgxHBYB8OLttIaJHplN5fgnBuAFCoSbWvrDRS8PdJAdVAg0jicI5T
-	JI9xqqCkXsAgO9fMqQQPYTwjPLEpqTLuNuIUaFcWDsFqSp7ez7unLpUouPoH6P5QJGuxh1YcC1gSj
-	UMBWrwDA==;
+	bh=uXWvkWiiu0ctmWFuVutZI99jHe5yuNNBluqY7C5epJ8=; b=BCqW9raPwoxViaSRguimgyqyzn
+	CWshXQvsxHhq+U5bCev/1zThpvEHNSQE5T08o6roznSn79e+5PS29tFt8CA1NB0rpDfhrti3Lhg8f
+	Rtgtn4MlF5iIwk4EOrdXyVSlRfIX5jRtvTm4NELxr6pYxgdJNz5Erl1W57vZ9jZ6Oyl3/sK2RkhOg
+	MojFqYwnm251SsgFmTQJjAkGtKa7fSypJLP2WjM/2bE3ZUFVCcnaoPj/gwC4XyXkIlJ8Nih/h1fri
+	RN2ReJIjiDzhWoJf8XIt6VS5NULbOF4InclIv7d5oWyqwCdIeqi3cD2te5NJOAJtmsWZChNO9VZxs
+	vrT0uJzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC5Af-000000092WO-20ch;
-	Mon, 05 May 2025 23:24:25 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uC5Ct-0000000938v-0K4e;
+	Mon, 05 May 2025 23:26:43 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4E1-00000008k5v-47OO;
-	Mon, 05 May 2025 22:23:51 +0000
+	id 1uC4Fg-00000008kde-1hYf;
+	Mon, 05 May 2025 22:25:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 38DFF5C5AA9;
-	Mon,  5 May 2025 22:21:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4441BC4CEF1;
-	Mon,  5 May 2025 22:23:48 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id ADA1E5C5AC5;
+	Mon,  5 May 2025 22:23:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B94DC4CEEE;
+	Mon,  5 May 2025 22:25:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746483829;
-	bh=BGOI489bdY00iXxdONJ68NPbmk9zDk85Z0+dGBRltEM=;
+	s=k20201202; t=1746483931;
+	bh=J/ZfUGAWSxYgnt+Ej+Rch9WEZL26/ShHVQWe9Nd3TWw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kw3jLYjiKCR1Vz/tgc3afWxpSSd5uOIQUUTeEYxToUfZo5RJQ67E/aMQ4s3DaN4OS
-	 G1FUEZPpVQL5FetzLuAAO/h3gVXyxt/qefU75qHXiKtQiMBFcefSBCQ/9gfRZ84MtO
-	 Hd7bNe2xA1F2z2ttf2tmSxa1eXdYgL/1SmXnAaDJyCqL/wbPQfih3HO6Vnr1oTsQ8V
-	 /0MEOeFcVF2tDZQ+KAhj81Q0mP1+Iuho6Rfg95nCwAEo0NGOL7N1fegwa8QpQpHRQY
-	 o+ZPb2fEVz0pZtCxKAJ2Q9bAHLsAJngMu+P3GvxCd+xtmUSrB2WAm25z4atIG2G/8u
-	 9ppqyazQKNsTw==
+	b=avGwnBK1tfDUrRSMlomB03YEQTQ2GHzNpztGWXPjsNGV3WNUroBxyZgL2LjEF9bCI
+	 lvaDKFDo1ucBIICpe1KFNK6x14gKmEmxgfSuBzLTJ1J0O/J5bZLr0WQRnKwpV57SV5
+	 9nWWS0eZ5hE+UOzJworEAGX/LmvZIhy7MghmHsa+qhZZ1k+XZWgSg3bTvUAl1uwjjx
+	 HieVsqRasjDb6V/zN4rtIQGUDlLykVBEmtKlhxEb4HTM7MlZ+FKRHDMCOvH6W57QFp
+	 C45C0d9ZAXlI9duPyFP1y6GEvQX/S41rZgJxZUeTk199cQcX+UVjfV1Fsgt/5s3Km6
+	 ulaMWbVirctJQ==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+Cc: Andy Yan <andy.yan@rock-chips.com>,
+	Michael Riesch <michael.riesch@wolfvision.net>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Heiko Stuebner <heiko@sntech.de>,
 	Sasha Levin <sashal@kernel.org>,
-	matthias.bgg@gmail.com,
+	hjc@rock-chips.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.14 239/642] soc: mediatek: mtk-mutex: Add DPI1 SOF/EOF to MT8188 mutex tables
-Date: Mon,  5 May 2025 18:07:35 -0400
-Message-Id: <20250505221419.2672473-239-sashal@kernel.org>
+	linux-rockchip@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.14 275/642] drm/rockchip: vop2: Add uv swap for cluster window
+Date: Mon,  5 May 2025 18:08:11 -0400
+Message-Id: <20250505221419.2672473-275-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505221419.2672473-1-sashal@kernel.org>
 References: <20250505221419.2672473-1-sashal@kernel.org>
@@ -61,9 +70,8 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.14.5
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_152350_129909_897B25F4 
-X-CRM114-Status: UNSURE (   9.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250505_152532_493127_8E1778DC 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,67 +86,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+From: Andy Yan <andy.yan@rock-chips.com>
 
-[ Upstream commit 694e0b7c1747603243da874de9cbbf8cb806ca44 ]
+[ Upstream commit e7aae9f6d762139f8d2b86db03793ae0ab3dd802 ]
 
-MT8188 uses DPI1 to output to the HDMI controller: add the
-Start of Frame and End of Frame configuration for the DPI1
-IP to the tables to unblock generation and sending of these
-signals to the GCE.
+The Cluster windows of upcoming VOP on rk3576 also support
+linear YUV support, we need to set uv swap bit for it.
 
-Link: https://lore.kernel.org/r/20250212100012.33001-2-angelogioacchino.delregno@collabora.com
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+As the VOP2_WIN_UV_SWA register defined on rk3568/rk3588 is
+0xffffffff, so this register will not be touched on these
+two platforms.
+
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+Tested-by: Michael Riesch <michael.riesch@wolfvision.net> # on RK3568
+Tested-by: Detlev Casanova <detlev.casanova@collabora.com>
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+Link: https://patchwork.freedesktop.org/patch/msgid/20250303034436.192400-4-andyshrk@163.com
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/soc/mediatek/mtk-mutex.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/soc/mediatek/mtk-mutex.c b/drivers/soc/mediatek/mtk-mutex.c
-index 5250c1d702eb9..aaa965d4b050a 100644
---- a/drivers/soc/mediatek/mtk-mutex.c
-+++ b/drivers/soc/mediatek/mtk-mutex.c
-@@ -155,6 +155,7 @@
- #define MT8188_MUTEX_MOD_DISP1_VPP_MERGE3	23
- #define MT8188_MUTEX_MOD_DISP1_VPP_MERGE4	24
- #define MT8188_MUTEX_MOD_DISP1_DISP_MIXER	30
-+#define MT8188_MUTEX_MOD_DISP1_DPI1		38
- #define MT8188_MUTEX_MOD_DISP1_DP_INTF1		39
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+index 17a98845fd31b..64029237358d8 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+@@ -1547,10 +1547,8 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,
  
- #define MT8195_MUTEX_MOD_DISP_OVL0		0
-@@ -289,6 +290,7 @@
- #define MT8188_MUTEX_SOF_DSI0			1
- #define MT8188_MUTEX_SOF_DP_INTF0		3
- #define MT8188_MUTEX_SOF_DP_INTF1		4
-+#define MT8188_MUTEX_SOF_DPI1			5
- #define MT8195_MUTEX_SOF_DSI0			1
- #define MT8195_MUTEX_SOF_DSI1			2
- #define MT8195_MUTEX_SOF_DP_INTF0		3
-@@ -301,6 +303,7 @@
- #define MT8188_MUTEX_EOF_DSI0			(MT8188_MUTEX_SOF_DSI0 << 7)
- #define MT8188_MUTEX_EOF_DP_INTF0		(MT8188_MUTEX_SOF_DP_INTF0 << 7)
- #define MT8188_MUTEX_EOF_DP_INTF1		(MT8188_MUTEX_SOF_DP_INTF1 << 7)
-+#define MT8188_MUTEX_EOF_DPI1			(MT8188_MUTEX_SOF_DPI1 << 7)
- #define MT8195_MUTEX_EOF_DSI0			(MT8195_MUTEX_SOF_DSI0 << 7)
- #define MT8195_MUTEX_EOF_DSI1			(MT8195_MUTEX_SOF_DSI1 << 7)
- #define MT8195_MUTEX_EOF_DP_INTF0		(MT8195_MUTEX_SOF_DP_INTF0 << 7)
-@@ -472,6 +475,7 @@ static const u8 mt8188_mutex_mod[DDP_COMPONENT_ID_MAX] = {
- 	[DDP_COMPONENT_PWM0] = MT8188_MUTEX_MOD2_DISP_PWM0,
- 	[DDP_COMPONENT_DP_INTF0] = MT8188_MUTEX_MOD_DISP_DP_INTF0,
- 	[DDP_COMPONENT_DP_INTF1] = MT8188_MUTEX_MOD_DISP1_DP_INTF1,
-+	[DDP_COMPONENT_DPI1] = MT8188_MUTEX_MOD_DISP1_DPI1,
- 	[DDP_COMPONENT_ETHDR_MIXER] = MT8188_MUTEX_MOD_DISP1_DISP_MIXER,
- 	[DDP_COMPONENT_MDP_RDMA0] = MT8188_MUTEX_MOD_DISP1_MDP_RDMA0,
- 	[DDP_COMPONENT_MDP_RDMA1] = MT8188_MUTEX_MOD_DISP1_MDP_RDMA1,
-@@ -686,6 +690,8 @@ static const u16 mt8188_mutex_sof[DDP_MUTEX_SOF_MAX] = {
- 	[MUTEX_SOF_SINGLE_MODE] = MUTEX_SOF_SINGLE_MODE,
- 	[MUTEX_SOF_DSI0] =
- 		MT8188_MUTEX_SOF_DSI0 | MT8188_MUTEX_EOF_DSI0,
-+	[MUTEX_SOF_DPI1] =
-+		MT8188_MUTEX_SOF_DPI1 | MT8188_MUTEX_EOF_DPI1,
- 	[MUTEX_SOF_DP_INTF0] =
- 		MT8188_MUTEX_SOF_DP_INTF0 | MT8188_MUTEX_EOF_DP_INTF0,
- 	[MUTEX_SOF_DP_INTF1] =
+ 	rb_swap = vop2_win_rb_swap(fb->format->format);
+ 	vop2_win_write(win, VOP2_WIN_RB_SWAP, rb_swap);
+-	if (!vop2_cluster_window(win)) {
+-		uv_swap = vop2_win_uv_swap(fb->format->format);
+-		vop2_win_write(win, VOP2_WIN_UV_SWAP, uv_swap);
+-	}
++	uv_swap = vop2_win_uv_swap(fb->format->format);
++	vop2_win_write(win, VOP2_WIN_UV_SWAP, uv_swap);
+ 
+ 	if (fb->format->is_yuv) {
+ 		vop2_win_write(win, VOP2_WIN_UV_VIR, DIV_ROUND_UP(fb->pitches[1], 4));
 -- 
 2.39.5
 
