@@ -4,59 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05F9AC3ABB0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 01:12:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05C3BC369C2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 04:03:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ISfmgL0pGPDsruyGgJ3iPh5wWjp5R0YXLtpcNoGLwTA=; b=wUTtVD1gJnyIXisiXMwHJWrKBb
-	zwD4MN1ShyV4Xxk9JPw3fRXFUBQnLtCVC3SCx4IRLbv9QWu9lyBU2Wv+tomZUwtVv5xbhksqsyyKg
-	josyf7tr6q9fLfUVRt629b5U+Lpnzht7AhvOJIV3KxkmBejT13v/felzaMaTexNPe1mOUjHV9rE3n
-	aQG97uOStF6R2Zzt/XZzjchhRmppuDQZvKLRpysQlzIiirMmpvKTYKDC090IMOG0bYdfa7PlTvtya
-	fDi77qDXz2ogHAmqR8WG1ysHVBXNJaFJxXCZQc9hPRBsTDZGtzAex0gibsRm1pYgYDIXIWxE1s3nW
-	wBfqPKgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2tG/hP70MpeKfFLue11e+68DdSS5RzRgjC80Ey3Fa/c=; b=fgHJdGuGlU6XM+vlmdAZDHB4c2
+	By8362HnX8I+QkgqsyQC0uSkKgSMrIbCCs7ob1v1Mv96OLwHGXc7jktHp24hdGPrwrJjzvvKa0fyj
+	9dzw0jNVJqefps3WvPuculzjB1D2jP6cso8XK59aoM1pDyjOxfvRxTwpMSgBWzOJWfvKzC/mGod9N
+	tiCKhTo7YEpdW3BaUN7MXkLMPZrlppeRS61uzb7lyjyqye4NeM5ygJ1DKvw+9ZVj2VqgyrdajX0+d
+	E0cYR6GBjEMRDgBIPeNNx3ci4L4tP8kYG1def9EO7D9G3yeQY1NbnUUO0tfkM4lsJCu6A+cARzxx7
+	VAQ3u4iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBkN5-00000006E7q-31hI;
-	Mon, 05 May 2025 01:11:52 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1uBn34-00000006MbS-1856;
+	Mon, 05 May 2025 04:03:22 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBkJU-00000006Dfy-3J1a;
-	Mon, 05 May 2025 01:08:10 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.98.2)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1uBkDd-000000004Zc-3m28;
-	Mon, 05 May 2025 01:08:01 +0000
-Date: Mon, 5 May 2025 02:07:58 +0100
-From: Daniel Golle <daniel@makrotopia.org>
-To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Elad Yifee <eladwf@gmail.com>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH net v2 2/2] net: ethernet: mtk_eth_soc: do not reset PSE when
- setting FE
-Message-ID: <18f0ac7d83f82defa3342c11ef0d1362f6b81e88.1746406763.git.daniel@makrotopia.org>
-References: <c9ff9adceac4f152239a0f65c397f13547639175.1746406763.git.daniel@makrotopia.org>
+	id 1uBn13-00000006MRQ-1uC0
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 May 2025 04:01:19 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 545415Dr123988
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sun, 4 May 2025 23:01:05 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1746417665;
+	bh=2tG/hP70MpeKfFLue11e+68DdSS5RzRgjC80Ey3Fa/c=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=jaYlpGPAuOxR8C/9rEOiTi1QbHdb9FJUUFhjMLX8nJbUjh/MSva5WABvqHVTlf5Hf
+	 mNRP9A0Rx4GMHFpuO7kIXlLikv20NtMoNIW6hQeyznFSABaGn+UEBm4m0PovrMQMbK
+	 YtCc7yaP/d8B9Oiaj7mEcGOXc4EHawb8qX5iQ7UY=
+Received: from DLEE103.ent.ti.com (dlee103.ent.ti.com [157.170.170.33])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 545415or017932
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Sun, 4 May 2025 23:01:05 -0500
+Received: from DLEE107.ent.ti.com (157.170.170.37) by DLEE103.ent.ti.com
+ (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Sun, 4
+ May 2025 23:01:04 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE107.ent.ti.com
+ (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Sun, 4 May 2025 23:01:04 -0500
+Received: from [10.249.140.90] ([10.249.140.90])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 545410RA127426;
+	Sun, 4 May 2025 23:01:01 -0500
+Message-ID: <4bddfa36-7cdb-4e74-b356-8ec4d7fb55aa@ti.com>
+Date: Mon, 5 May 2025 09:30:59 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c9ff9adceac4f152239a0f65c397f13547639175.1746406763.git.daniel@makrotopia.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: dts: ti: k3-am62-main: Add PRUSS-M node
+To: Judith Mendez <jm@ti.com>, Nishanth Menon <nm@ti.com>,
+        Vignesh Raghavendra
+	<vigneshr@ti.com>
+CC: Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof
+ Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Hari Nagalla <hnagalla@ti.com>
+References: <20250430144343.972234-1-jm@ti.com>
+Content-Language: en-US
+From: Beleswar Prasad Padhi <b-padhi@ti.com>
+In-Reply-To: <20250430144343.972234-1-jm@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250504_180808_927412_1B9863A1 
-X-CRM114-Status: UNSURE (   9.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250504_210117_743114_9A569624 
+X-CRM114-Status: GOOD (  16.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,35 +91,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Wunderlich <frank-w@public-files.de>
+Hi Judith,
 
-Remove redundant PSE reset.
-When setting FE register there is no need to reset PSE,
-doing so may cause FE to work abnormal.
+On 4/30/2025 8:13 PM, Judith Mendez wrote:
+> From: Kishon Vijay Abraham I <kishon@ti.com>
+>
+> Add the DT node for the PRUSS-M processor subsystem that is present
+> on the K3 AM62x SoCs. The K3 AM62x family of SoC has one PRUSS-M
+> instance and it has two Programmable Real-Time Units (PRU0 and PRU1).
+>
+> Signed-off-by: Kishon Vijay Abraham I <kishon@ti.com>
+> [ Judith: Fix pruss_iclk id for pruss_coreclk_mux ]
+> Signed-off-by: Judith Mendez <jm@ti.com>
+> ---
+> Changelog:
+> - drop internal tags
+> - rebase against ti-k3-dts-next
+> - fix header
 
-Link: https://git01.mediatek.com/plugins/gitiles/openwrt/feeds/mtk-openwrt-feeds/+/3a5223473e086a4b54a2b9a44df7d9ddcc2bc75a
-Fixes: dee4dd10c79aa ("net: ethernet: mtk_eth_soc: ppe: add support for multiple PPEs")
-Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
----
-v2: fix commit title
 
- drivers/net/ethernet/mediatek/mtk_eth_soc.c | 3 ---
- 1 file changed, 3 deletions(-)
+Reviewed-by: Beleswar Padhi <b-padhi@ti.com>
 
-diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-index 53c39561b6d9a..22a532695fb0d 100644
---- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-+++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -3473,9 +3473,6 @@ static int mtk_open(struct net_device *dev)
- 			}
- 			mtk_gdm_config(eth, target_mac->id, gdm_config);
- 		}
--		/* Reset and enable PSE */
--		mtk_w32(eth, RST_GL_PSE, MTK_RST_GL);
--		mtk_w32(eth, 0, MTK_RST_GL);
- 
- 		napi_enable(&eth->tx_napi);
- 		napi_enable(&eth->rx_napi);
--- 
-2.49.0
+Thanks,
+Beleswar
+
+>
+> Link to v1:
+> https://lore.kernel.org/linux-devicetree/20250108222048.818835-1-jm@ti.com/
+> ---
+>   arch/arm64/boot/dts/ti/k3-am62-main.dtsi | 90 ++++++++++++++++++++++++
+>   1 file changed, 90 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
+> index 7d355aa73ea2..ee53e663b5bd 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
+> +++ b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
+> @@ -1079,6 +1079,96 @@ dphy0: phy@30110000 {
+>   		status = "disabled";
+>   	};
+>   
+> +	pruss: pruss@30040000 {
+> +		compatible = "ti,am625-pruss";
+> +		reg = <0x00 0x30040000 0x00 0x80000>;
+> +		power-domains = <&k3_pds 81 TI_SCI_PD_EXCLUSIVE>;
+> +		#address-cells = <1>;
+> +		#size-cells = <1>;
+> +		ranges = <0x0 0x00 0x30040000 0x80000>;
+> +
+> +		pruss_mem: memories@0 {
+> +			reg = <0x0 0x2000>,
+> +			      <0x2000 0x2000>,
+> +			      <0x10000 0x10000>;
+> +			reg-names = "dram0", "dram1", "shrdram2";
+> +		};
+> +
+> +		pruss_cfg: cfg@26000 {
+> +			compatible = "ti,pruss-cfg", "syscon";
+> +			reg = <0x26000 0x200>;
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +			ranges = <0x0 0x26000 0x2000>;
+> +
+> +			clocks {
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +
+> +				pruss_coreclk_mux: coreclk-mux@3c {
+> +					reg = <0x3c>;
+> +					#clock-cells = <0>;
+> +					clocks = <&k3_clks 81 0>,  /* pruss_core_clk */
+> +						 <&k3_clks 81 14>; /* pruss_iclk */
+> +					assigned-clocks = <&pruss_coreclk_mux>;
+> +					assigned-clock-parents = <&k3_clks 81 14>;
+> +				};
+> +
+> +				pruss_iepclk_mux: iepclk-mux@30 {
+> +					reg = <0x30>;
+> +					#clock-cells = <0>;
+> +					clocks = <&k3_clks 81 3>,	/* pruss_iep_clk */
+> +						 <&pruss_coreclk_mux>;	/* pruss_coreclk_mux */
+> +					assigned-clocks = <&pruss_iepclk_mux>;
+> +					assigned-clock-parents = <&pruss_coreclk_mux>;
+> +				};
+> +			};
+> +		};
+> +
+> +		pruss_intc: interrupt-controller@20000 {
+> +			compatible = "ti,pruss-intc";
+> +			reg = <0x20000 0x2000>;
+> +			interrupt-controller;
+> +			#interrupt-cells = <3>;
+> +			interrupts = <GIC_SPI 88 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 89 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 90 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 91 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 92 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 93 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 94 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 95 IRQ_TYPE_LEVEL_HIGH>;
+> +			interrupt-names = "host_intr0", "host_intr1",
+> +					  "host_intr2", "host_intr3",
+> +					  "host_intr4", "host_intr5",
+> +					  "host_intr6", "host_intr7";
+> +		};
+> +
+> +		pru0: pru@34000 {
+> +			compatible = "ti,am625-pru";
+> +			reg = <0x34000 0x3000>,
+> +			      <0x22000 0x100>,
+> +			      <0x22400 0x100>;
+> +			reg-names = "iram", "control", "debug";
+> +			firmware-name = "am62x-pru0-fw";
+> +			interrupt-parent = <&pruss_intc>;
+> +			interrupts = <16 2 2>;
+> +			interrupt-names = "vring";
+> +		};
+> +
+> +		pru1: pru@38000 {
+> +			compatible = "ti,am625-pru";
+> +			reg = <0x38000 0x3000>,
+> +			      <0x24000 0x100>,
+> +			      <0x24400 0x100>;
+> +			reg-names = "iram", "control", "debug";
+> +			firmware-name = "am62x-pru1-fw";
+> +			interrupt-parent = <&pruss_intc>;
+> +			interrupts = <18 3 3>;
+> +			interrupt-names = "vring";
+> +		};
+> +	};
+> +
+>   	gpmc0: memory-controller@3b000000 {
+>   		compatible = "ti,am64-gpmc";
+>   		power-domains = <&k3_pds 80 TI_SCI_PD_EXCLUSIVE>;
 
