@@ -4,94 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C0E1C3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 16:00:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 140C3C3ABB0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 16:02:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2+3PIdJC3Ht+VlEO5rW2bxgqfN/WfvLUVhrpIT2zCns=; b=glWds43J56U5Nhk8st9E++KUx2
-	5h8fSA1leKRKyBtxv+jBB4aOdJKzgjN3KXvXiF+CP9QzaV0iMgR8TUH0PocldDu0U1bWec3FYSUAs
-	ToQBoeK9xLrQfg02aW+D5FPsRf3EOH3NSICjP0DqdPfJJQtZW39/gj3rc6D03d79cw1Cvgsz9j0ZL
-	+4CQVbsPK5Fc3CRO9kGuPfDrpOuFbl73Ry8f25BEyEtcAs+jtr5H/HPkAO3r+4ngQc1KAmEuICSR8
-	0yI11wkslNuITG0zdvYuiMKQce/gq9CR/Qy7UkB9uy4/I6bnWs0UDHRdVuESB4vgYQz0Ob5W+StKs
-	eeKRMnUQ==;
+	bh=Hh5F8QqIoh1tv8W+yL1mlBMUabJi6clTyP8jCbexJGw=; b=smCto+lSUmhGgc2GXKsGDk2N8m
+	Y0h8lr227hSD3pID2tLoO9UbXzE9xmMaJTQdL9sXHd1S40e9+n9uC7ihdfu1nWOroH+TnrUVym85z
+	8ovcezhI22RqV+r2qRqVaIQAkOM9u8zWrbVNKjrn84AYlQ4lhj2hmoR3exqYHBMfV8SuOj548Eu1G
+	82mijZdOC7pU8I67n3jkjiFmGRqrv79oXd6AAWAe0vxz9XmPfSVJ8CBLpGvCfoFiSBcyfDcz870R1
+	JPsW8Z7xIVrEsvYnLZZoQqeS4j9Wy5mITKMFAN8s2ewvRPGSAKtzaPk0Ocn483swg+SBpkCsA5TyR
+	qVZVNcrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uByEX-00000007uCX-3KMY;
-	Mon, 05 May 2025 15:59:57 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1uByGV-00000007uUL-2350;
+	Mon, 05 May 2025 16:01:59 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBy6F-00000007sqF-0uYl
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 15:51:24 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-5eb92df4fcbso8797703a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 08:51:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1746460281; x=1747065081; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=2+3PIdJC3Ht+VlEO5rW2bxgqfN/WfvLUVhrpIT2zCns=;
-        b=kYUFe7lgJo2Dc0qqHM6cdAag8G3GF6GTHuhlWG6824Vx+pTKBIGxKpOq3q4UFQ5KsZ
-         j4VWS0PSVdDqjP/VjjVpvt7/x6X85xdeealQ5A+pFCXONUo4JHS3p27hXVqkLlYMN1AO
-         guhGNTwJr/oyUm/usyqI+L1nkbl+eQiFHyPyLIAH1aW/kmtzH9Ri21k50f/VdVwBPnBz
-         LBHB/Gi8tHwPJ9PJM5U07W9tSG4gSkSFovfuPQyw+QlGRT0i/MhretWd6APn3bfn6oB8
-         fl+UDLCtbm3g4aSgexf6YZP2aMc6Q4kq/3fTdgNnp4PK671C83ynDB+BZbPElwAte0oT
-         fkjw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746460281; x=1747065081;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=2+3PIdJC3Ht+VlEO5rW2bxgqfN/WfvLUVhrpIT2zCns=;
-        b=HThHkJF/Vt9G0tkBA1zzEGyFn72LICFGr2V1OlfBaTsZ+KgrANT50bL3IgTYEyIdFk
-         g57huI/IGpeHKXLavRkAxmckEViEmKt7ohGjgqO91b/1j4SoLbaPQ7xHK+VgpE0fKZMM
-         dSZhWqiUAyJKx+F9l9m1lshF+mUSwOVDmOpCrNh2Ac15Ug1TTfrxeD0EhCPgukZPjtJj
-         mLUhZhdbidqNpb5ZDtoCSGsLxW+cn1ygOIICKINxOlU9LqIdrG0whNOtwSgD9U+ilZ/m
-         xDirZ+AcnEGMB2EWuAa0VMInx7peu4z4/bu0QCrbTaI9BDeb/jyeNiCk9LGQOU1I2zhB
-         14og==
-X-Forwarded-Encrypted: i=1; AJvYcCW9XAk5yaex1y1/63YT/2SlLe9Q1HuKNlq6pn2cFH3yEla59BC2kw3uNgW2Gt0CR6LJH1SyUJiF2sdXlfXAq78O@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy79STmReHTOHb1P6yEBnt9tDQDgBUku7cwPsU+sERfNEzOf91Y
-	krYpzvh1do01A33FmYpobcYxRoKKlRzz8ijXkwIHlyT7jzXUZhGpi/3LmEiUTKo=
-X-Gm-Gg: ASbGncv6Un6j3lKiIhJ6hEmGe6HhrJzYCpxH21RWHUt9RF+w2lZx9Zg4thb/6Lp58U2
-	nkQn1WgbkpSpiY5iPOLWfZBTk20bON0R+EtkQKbpS1MO7/N25e0FwdT3askamh8mIuW7m6BRn5L
-	enoGksvkqKSfim9S+1vIp21N5VOTksKM4cXzUusYxiy4j5MFm4Lbu0KUWpQ4RJ7iQnGJHQ4VRx0
-	PVT69ADxwTHfMjyl5yWVIZi2J3JxFUPfKU365OsKc3pi1eNa8pzGOeLwxxl01cpyz2T3E+4dCfK
-	6Qgeyutjgmnaz9s55Rg7NePmnNcG6xfkH4FjRpkhYauegJZ+
-X-Google-Smtp-Source: AGHT+IFeHXSBcW5a6cMPyYFCWSmdfc0Kw0YJs6QfCUivNSYazQwUq3W3k9Emuwo7XD2iieH/6V66Yw==
-X-Received: by 2002:a17:907:8dcb:b0:ac1:f5a4:6da5 with SMTP id a640c23a62f3a-ad1a4a8d95cmr752485666b.37.1746460281158;
-        Mon, 05 May 2025 08:51:21 -0700 (PDT)
-Received: from [192.168.0.32] ([82.76.24.202])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad1894c01c9sm516621766b.105.2025.05.05.08.51.20
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 05 May 2025 08:51:20 -0700 (PDT)
-Message-ID: <6ce50077-2c64-40b2-82b3-c63c16fa1898@linaro.org>
-Date: Mon, 5 May 2025 18:51:19 +0300
+	id 1uBy82-00000007tBm-1tRC;
+	Mon, 05 May 2025 15:53:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 473955C28D8;
+	Mon,  5 May 2025 15:50:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07089C4CEE4;
+	Mon,  5 May 2025 15:53:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746460393;
+	bh=OuzGpT0oKOvoEQ+Ry+KiXcMfRilwXnlfW13N7w/2E20=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=rIyDE5pTCRMWKq4dq3ozIFoUKl8n7pkzKK/h92pKynmDDKXc3SVdOCzfl9ez9MyaZ
+	 /4hOSGsSq/1b4N7d/eAhUlab8dz3ITQjSpuz3aw8C4NdgQLePaufHvzv9jURQBbsdZ
+	 vzdqaLElyzO+m7zd8VHnq2LUSVmLUZbTuKZ+ob3c6EkwPRptNiRn9lfit+PNVQeBMl
+	 zkKcvrONMC7acMkrdJLtwZ642wb4fg0TZcDhnyvuYQPO9DOL2IBTV5Hb7048VU6oeA
+	 bu0bPxHvhH/Xcshm2kIj37BO86qYGEs5QLajU11AJwLKJqKt5x6+T0I2V81jA+5Mn7
+	 wANRNavSkxz/A==
+Message-ID: <2fd10aed-a103-4c65-9193-17a9bc9fd41e@kernel.org>
+Date: Mon, 5 May 2025 17:53:06 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC][PATCH 07/14] printk: add kmsg_kmemdump_register
-To: Petr Mladek <pmladek@suse.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- andersson@kernel.org, linux-doc@vger.kernel.org, corbet@lwn.net,
- tglx@linutronix.de, mingo@redhat.com, rostedt@goodmis.org,
- john.ogness@linutronix.de, senozhatsky@chromium.org, peterz@infradead.org,
- mojha@qti.qualcomm.com, linux-arm-kernel@lists.infradead.org,
- vincent.guittot@linaro.org, konradybcio@kernel.org,
- dietmar.eggemann@arm.com, juri.lelli@redhat.com
-References: <20250422113156.575971-1-eugen.hristev@linaro.org>
- <20250422113156.575971-8-eugen.hristev@linaro.org>
- <aBjYbXJL-GJe4Mh8@localhost.localdomain>
-From: Eugen Hristev <eugen.hristev@linaro.org>
+Subject: Re: [PATCH v3 10/10] arm64: defconfig: enable ES8328 and ES8328_I2C
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Sugar Zhang <sugar.zhang@rock-chips.com>
+Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>, kernel@collabora.com,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org
+References: <20250502-rk3576-sai-v3-0-376cef19dd7c@collabora.com>
+ <20250502-rk3576-sai-v3-10-376cef19dd7c@collabora.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-In-Reply-To: <aBjYbXJL-GJe4Mh8@localhost.localdomain>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250502-rk3576-sai-v3-10-376cef19dd7c@collabora.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_085123_272762_D79593E0 
-X-CRM114-Status: GOOD (  25.55  )
+X-CRM114-CacheID: sfid-20250505_085314_577531_C7BE9E4A 
+X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,103 +129,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Petr,
-
-Thank you for your review.
-
-On 5/5/25 18:25, Petr Mladek wrote:
-> On Tue 2025-04-22 14:31:49, Eugen Hristev wrote:
->> Add kmsg_kmemdump_register, which registers prb, log_buf and infos/descs
->> to kmemdump.
->> This will allow kmemdump to be able to dump specific log buffer areas on
->> demand.
->>
->> --- a/kernel/printk/printk.c
->> +++ b/kernel/printk/printk.c
->> @@ -4650,6 +4651,18 @@ int kmsg_dump_register(struct kmsg_dumper *dumper)
->>  }
->>  EXPORT_SYMBOL_GPL(kmsg_dump_register);
->>  
->> +void kmsg_kmemdump_register(void)
->> +{
->> +	kmemdump_register("log_buf", (void *)log_buf_addr_get(), log_buf_len_get());
->> +	kmemdump_register("prb", (void *)&prb, sizeof(prb));
->> +	kmemdump_register("prb", (void *)prb, sizeof(*prb));
+On 02/05/2025 13:03, Nicolas Frattaroli wrote:
+> The ArmSoM Sige5 board, which is supported in mainline, uses the ES8328
+> audio driver for audio output on its ES8388 codec controlled through I2C.
 > 
-> This looks strange. "prb" is a pointer to "struct printk_ringbuffer".
-> It should be enough to register the memory with the structure.
+> Enable them as a module.
+Squash these patches. It is one defconfig update, not one commit per one
+symbol.
 
-Yes, from my perspective this should be also enough. However, when
-loading the generated core dump into crash tool , the tool first looks
-for the prb pointer itself, and then stops if the pointer is not readable.
-After the prb pointer is being found, the crash tool dereferences it ,
-and looks at the indicated address for the actual memory.
-That is why the pointer is also saved as a kmemdump region in my proof
-of concept.
-
-> 
->> +	kmemdump_register("prb_descs", (void *)_printk_rb_static_descs,
->> +			  sizeof(_printk_rb_static_descs));
->> +	kmemdump_register("prb_infos", (void *)_printk_rb_static_infos,
->> +			  sizeof(_printk_rb_static_infos));
-> 
-> Also this looks wrong. These are static buffers which are used during
-> early boot. They might later be replaced by dynamically allocated
-> buffers when a bigger buffer is requested by "log_buf_len" command
-> line parameter.
-> 
-
-I will double check whether the crash tool looks for these symbols or
-only the memory, and come back with an answer
-
-> I think that we need to register the memory of the structure
-> and 3 more buffers. See how the bigger buffer is allocated in
-> setup_log_buf().
-> 
-> I would expect something like:
-> 
-> 	unsigned int descs_count;
-> 	unsigned long data_size;
-> 
-> 	descs_count = 2 << prb->desc_ring.count_bits;
-> 	data_size = 2 << prb->data_ring.size_bits;
-> 
-> 	kmemdump_register("prb", (void *)prb, sizeof(*prb));
-> 	kmemdump_register("prb_descs", (void *)prb->desc_ring->descs,
-> 			  descs_count * sizeof(struct prb_desc));
-> 	kmemdump_register("prb_infos", (void *)prb->desc_ring->infos,
-> 			  descs_count * sizeof(struct printk_info));
-> 	kmemdump_register("prb_data", (void *)prb->data_ring->data, data_size);
-> 
-> 
-Thank you. It may be that in my test case, the buffer was not
-extended/reallocated with a bigger one.
-
-> But I wonder if this is enough. The current crash dump code also needs
-> to export the format of the used structures, see
-> log_buf_vmcoreinfo_setup().
-
-It appears that crash tool looks for the structures into vmlinux
-symbols. It can be that this information is not available to some tools,
-or vmlinux not available, in which case all the used structures format
-and sizes need to be exported. But right now, the crash tool does not
-work without vmlinux.
-
-> 
-> Is the CONFIG_VMCORE_INFO code shared with the kmemdump, please?
-
-I believe CONFIG_KMEMDUMP_COREIMAGE should select CONFIG_VMCORE_INFO
-indeed, which is not done in my patches. Or I have not fully understood
-your question ?
-
-
-Eugen
-> 
->> +}
->> +EXPORT_SYMBOL_GPL(kmsg_kmemdump_register);
->> +
-> 
-> Best Regards,
-> Petr
-
+Best regards,
+Krzysztof
 
