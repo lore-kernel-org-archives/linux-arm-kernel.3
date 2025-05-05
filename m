@@ -4,94 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC00FC3ABB6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 08:02:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EB1AC3ABB7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 08:04:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c8qy8x2VM4E33zP+Ul3MQgzUGob/DpDmmEpO6CEf26s=; b=YeXk12tfKmOaY/0Oy4lD/X2kDy
-	s3M/ozWHCRIQZGOdrpK3VGnAFxHsjbXJS6pke1zJrsjZzietpVUxlmC/POXGAUHtc/o47PCxUkQf7
-	ZnlBMzKCXdIEa+pAZK4CUao3QvFgwTQGNMaa/nnE4+5wp6pvgvHXFJfxXiMQmyOb5Y4xW35m0FX01
-	XYWzjsHbcC9YY6WCXMZ+Vcd7JP9ODBh9z/ljclNC6u2AOj2S5NWH9jy3wa57zNJSEmX6xq9FxHSsT
-	ujEdCUyI7CI5lXkncO1CMG4wSqXTZviW2k2EVQFaqsLDIidHGGv8itzuWLW5uPpZJlsM9MlRavsXB
-	99hx93Yw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lA009qM0j4YRzFUfPgrXk13BGm3QuXjamWZpOmZ+a7M=; b=10VtwZ2vaiqLNh5cr6dSFN2P9B
+	0OL3S9gzcZcWnn4+wUN82uQxitJiMmhEOZEOHDIZe/EbEYDVB6cEgjULRZjHlntcOWAwZMM4k77t3
+	AslxAOCSraobzmOvlQ7mDNVN+vkhHJOFDpK+DPzwx80cfhNkpAOjI5yMpjj1p6UbUg8LhV+DWazdm
+	70uDdATyVQbygTbKuAap+/2M5inp8yPKYeouG6SIwJGo8smFAifmamhZe6IbmI9jfBopbP992CP0j
+	xLOTSlW/LjmN0ft00ws32w74T9Iv8XrVAnCksHbYWyVkfC2NAoViSIBIRQCzBJG9XANL7C742FUb0
+	Rhn2aA1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBqlv-00000006ivU-1etl;
-	Mon, 05 May 2025 08:01:55 +0000
-Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
+	id 1uBqns-00000006jOZ-1zxO;
+	Mon, 05 May 2025 08:03:56 +0000
+Received: from mail.bizotrix.pl ([217.61.97.166])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBqil-00000006iPS-1LTv
+	id 1uBqkJ-00000006ifr-2mSn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 07:58:41 +0000
-Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5f4ca707e31so6353097a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 00:58:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1746431917; x=1747036717; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=c8qy8x2VM4E33zP+Ul3MQgzUGob/DpDmmEpO6CEf26s=;
-        b=zQSJxRaz5L5T5JpvWe9VzZzX71rFC/Rl5SLbjq2eRx6ki8r4ulVnxn9YCbfgOrbx2I
-         odAhzDIdR9fdVF4FUT1lfJCVETLxy03DFnVHMCUfe3og0/5Y+oxmkUR3U1286ui9iLAM
-         NRxhd5RRkFpu1MskuDiFsKG27x8pnTqJGCzIcw8pn8x+aVquRXYpO8JTLrZhd5eoY4v2
-         7m/dWVYJpFU4jk+mgalelO4ZmJ4iwzQU9+wN0sclMweV6w7Me0YVSadmgcYgoagiZwph
-         7Xkvm/OPCNnk5fAUPYg3eSC/Stj2BTVzuYO6qnKvLmrN1gqF3PHf0qhzfuUU+iERfWYB
-         HjKQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746431917; x=1747036717;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=c8qy8x2VM4E33zP+Ul3MQgzUGob/DpDmmEpO6CEf26s=;
-        b=Rgg0W9uSefOmdIHeUKeG0CPNYMbUifmO44ARZ3EU+MPlCOBxUhAT+tdMTXYmzc1XhO
-         5sanf8F4NYFz8brRpj1bRL00QSDjb+5CyjsaLS+raISINLR2fV32J7tklKSKHZ7IE0OS
-         ckqkyud/urUIg+n4kMLseCrEtP/0FpVcsCEifSlfRPnwktJZKwqdEWg5M0HGV058YmGR
-         +i+o3UBC62mXcTYoqJA7tEa9F7Htrju86f0KkP3LTy6nUQ+auguvjaS0TNAuwdkkzs5i
-         i5f5NHjJ7x82lJ1/Z4Jdmf7ybyzsZDbkKGFvexzfcR9ulh5sXW47OFXwZ6LAHEyje85M
-         EuZw==
-X-Forwarded-Encrypted: i=1; AJvYcCXfXUA7UpxFWw5n5EvjHnauu8XbFQdHDVBZ9OwMLfMoPC1N0QiBGAtPQBCfpEhEQT2XdQF6ThUezWJevVqXKatq@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywu+YAaapd3q0AzC5TP1d+JBF00giPLZmYEls/837MvQEhyy2Ux
-	yucxUaaEyM/ynupyj7tFbC50WCquiCoySe+ATB8H8dPy902voHw38uNaXjk9oWU=
-X-Gm-Gg: ASbGnctc6NvUmiBxd05sx439M/i1/N8TgxlsDXLBgN3e2VEqkqmmGZ90dK7aYORZSBH
-	sP6oWJY20wOXuZG0+l5g4A54eYGAmSzl9fiYUUmmxcq88dru+cZ3RxmJgX7Q0y5ocdd4UYFcd0L
-	Ec8UaeDgfPqedapb1T357/bEUHwrF8gT5RmyFr+evSDbosZs5Tqmnv+A8DoiAWQ9DD0FpfX9dJw
-	KpQDLeFW7Jp75TzXfqHuVPX/Cz25KZbyjoBSW+Az0Y9/kNa1Br5/5QbbVqMveLHJEX41f7vEZG/
-	qde0UBDqJtB7XJD1GHo7GHarSyIFqrMt4KRFAfMPtfubDaccCfHKWk2+1KcTf1Yx6rflTDbTiVn
-	mAS7RdwwCzQ==
-X-Google-Smtp-Source: AGHT+IFZHl2dy4J+tovJB10LLReM42ovfZPhO257ZgiPrn9c3pUOWsbvfuKWtuAGkwm+2riUzR0qbw==
-X-Received: by 2002:a05:6402:35c8:b0:5f8:e07c:7746 with SMTP id 4fb4d7f45d1cf-5fab04bfa83mr4760665a12.0.1746431917138;
-        Mon, 05 May 2025 00:58:37 -0700 (PDT)
-Received: from localhost (dynamic-176-003-040-035.176.3.pool.telefonica.de. [176.3.40.35])
-        by smtp.gmail.com with UTF8SMTPSA id 4fb4d7f45d1cf-5fa77b8fbadsm5148712a12.50.2025.05.05.00.58.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 May 2025 00:58:36 -0700 (PDT)
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=8941660c9a8c947b1652ed122688064937432aafddb64f2deaaf508477a9;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Mon, 05 May 2025 09:58:23 +0200
-Message-Id: <D9O2FWGG83V6.L6IQOPRGZL68@baylibre.com>
-Cc: <linux-can@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <stable@vger.kernel.org>
-Subject: Re: [PATCH 2/3] can: rockchip_canfd: m_can_class_unregister: fix
- order of unregistration calls
-From: "Markus Schneider-Pargmann" <msp@baylibre.com>
-To: "Marc Kleine-Budde" <mkl@pengutronix.de>, "Manivannan Sadhasivam"
- <manivannan.sadhasivam@linaro.org>, "Thomas Kopp"
- <thomas.kopp@microchip.com>, "Vincent Mailhol"
- <mailhol.vincent@wanadoo.fr>, <kernel@pengutronix.de>, "Heiko Stuebner"
- <heiko@sntech.de>, "Chandrasekar Ramakrishnan" <rcsekar@samsung.com>
-X-Mailer: aerc 0.20.1
-References: <20250502-can-rx-offload-del-v1-0-59a9b131589d@pengutronix.de>
- <20250502-can-rx-offload-del-v1-2-59a9b131589d@pengutronix.de>
-In-Reply-To: <20250502-can-rx-offload-del-v1-2-59a9b131589d@pengutronix.de>
+	Mon, 05 May 2025 08:00:16 +0000
+Received: by mail.bizotrix.pl (Postfix, from userid 1002)
+	id 30A9E83BDF; Mon,  5 May 2025 09:55:55 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=bizotrix.pl; s=mail;
+	t=1746431761; bh=lA009qM0j4YRzFUfPgrXk13BGm3QuXjamWZpOmZ+a7M=;
+	h=Date:From:To:Subject:From;
+	b=YpftJUPbnJ4LRCMrk7gkMFIMDI82EEb3f8iAjbm+gAkIAaNBZ98nwhI9vFpRuO9nV
+	 etzvKC+lwnbKb+iYjfgKI+sPGxfvYhl4CXFpbXsV9hgiwpcHmmJt0OP98G/SrtCMcU
+	 nnUsznOMiSSraVgatLxEnA2o2Z8j0NapYmk5T9bfLUKeVXSBlHHjaSOljjnnI4D1e0
+	 sNvu0J7jLRBZljt47mGpZ1VU88IpQHo509ytUKoiEXa5GTiQgs6vxqWF/oTLjkZVxU
+	 1MkaTdl9eBDWcEr5PLb/QL+4KbqDLHUukDRlMW8577+FcD01st3lzH4hsPlPLMohRJ
+	 YtJj1ASoOEGEg==
+Received: by mail.bizotrix.pl for <linux-arm-kernel@lists.infradead.org>; Mon,  5 May 2025 07:55:44 GMT
+Message-ID: <20250505084500-0.1.9x.k20o.0.bk3swr1aa8@bizotrix.pl>
+Date: Mon,  5 May 2025 07:55:44 GMT
+From: "Filip Gerlowski" <filip.gerlowski@bizotrix.pl>
+To: <linux-arm-kernel@lists.infradead.org>
+Subject: =?UTF-8?Q?S=C5=82owa_kluczowe_do_wypozycjonowania_?=
+X-Mailer: mail.bizotrix.pl
+MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_005839_397215_F85C802E 
-X-CRM114-Status: GOOD (  22.41  )
+X-CRM114-CacheID: sfid-20250505_010015_835629_61063901 
+X-CRM114-Status: UNSURE (   1.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,67 +66,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---8941660c9a8c947b1652ed122688064937432aafddb64f2deaaf508477a9
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+Dzie=C5=84 dobry,
 
-On Fri May 2, 2025 at 4:13 PM CEST, Marc Kleine-Budde wrote:
-> If a driver is removed, the driver framework invokes the driver's
-> remove callback. A CAN driver's remove function calls
-> unregister_candev(), which calls net_device_ops::ndo_stop further down
-> in the call stack for interfaces which are in the "up" state.
->
-> The removal of the module causes the a warning, as
-                                   ^^^
-Minor typo here.
+zapozna=C5=82em si=C4=99 z Pa=C5=84stwa stron=C4=85 i z przyjemno=C5=9Bci=
+=C4=85 przyznaj=C4=99, =C5=BCe przyci=C4=85ga uwag=C4=99 i zach=C4=99ca d=
+o dalszych rozm=C3=B3w.=20
 
-Otherwise this looks good to me.
+Pomy=C5=9Bla=C5=82em, =C5=BCe mo=C5=BCe m=C3=B3g=C5=82bym mie=C4=87 sw=C3=
+=B3j wk=C5=82ad w Pa=C5=84stwa rozw=C3=B3j i pom=C3=B3c dotrze=C4=87 z t=C4=
+=85 ofert=C4=85 do wi=C4=99kszego grona odbiorc=C3=B3w. Pozycjonuj=C4=99 =
+strony www, dzi=C4=99ki czemu generuj=C4=85 =C5=9Bwietny ruch w sieci.
 
-Reviewed-by: Markus Schneider-Pargmann
-
-> can_rx_offload_del() deletes the NAPI, while it is still active,
-> because the interface is still up.
->
-> To fix the warning, first unregister the network interface, which
-> calls net_device_ops::ndo_stop, which disables the NAPI, and then call
-> can_rx_offload_del().
->
-> Fixes: ff60bfbaf67f ("can: rockchip_canfd: add driver for Rockchip CAN-FD=
- controller")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
-> ---
->  drivers/net/can/rockchip/rockchip_canfd-core.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/net/can/rockchip/rockchip_canfd-core.c b/drivers/net=
-/can/rockchip/rockchip_canfd-core.c
-> index 7107a37da36c..c3fb3176ce42 100644
-> --- a/drivers/net/can/rockchip/rockchip_canfd-core.c
-> +++ b/drivers/net/can/rockchip/rockchip_canfd-core.c
-> @@ -937,8 +937,8 @@ static void rkcanfd_remove(struct platform_device *pd=
-ev)
->  	struct rkcanfd_priv *priv =3D platform_get_drvdata(pdev);
->  	struct net_device *ndev =3D priv->ndev;
-> =20
-> -	can_rx_offload_del(&priv->offload);
->  	rkcanfd_unregister(priv);
-> +	can_rx_offload_del(&priv->offload);
->  	free_candev(ndev);
->  }
-> =20
+Mo=C5=BCemy porozmawia=C4=87 w najbli=C5=BCszym czasie?
 
 
---8941660c9a8c947b1652ed122688064937432aafddb64f2deaaf508477a9
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iIcEABYKAC8WIQSJYVVm/x+5xmOiprOFwVZpkBVKUwUCaBhvoREcbXNwQGJheWxp
-YnJlLmNvbQAKCRCFwVZpkBVKU4zTAP0Yer+WBSFojQ6DiWBCD/1wd9ENW9dsLm7J
-ZLeShRvCOAEAgIm8MmcoLnCEO11f0Kg+X9mgAKtZb7OpE86RubTnags=
-=jybR
------END PGP SIGNATURE-----
-
---8941660c9a8c947b1652ed122688064937432aafddb64f2deaaf508477a9--
+Pozdrawiam
+Filip Gerlowski
 
