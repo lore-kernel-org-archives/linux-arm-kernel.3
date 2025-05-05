@@ -4,91 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5905C3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 13:21:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32A63C3ABAA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 13:21:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y+wXhdSDx+zuoZH6nHSo9n5TKzFsocoVJt1FeJpCcH4=; b=f7tVmyOgHd53Ya7cEJ9GxI+5c9
-	WRPNdzU3x9aqcmnjlT6NaE1BxAIOxvzYnmeeubsYOc8k1FFHoSy/R/4mBA9uCrgWgYau2BpoSK416
-	4nF3ksjHeCqo7ZnIu06Jg3ni1/vUv7MsF7lu/mkRawixl3uuKTpSw0dRGJUu1bUYukZU9m06LhSNa
-	r8ZmhyzOxFGHi/K0hZzUkkhhd58+qybpEjcU1/EsMtGHwdNcLJ0M+Ft3ezFOtXUCeE30JrA9GxiH4
-	ZoQe0U6hTts0l1pvnDjMAZejXjAgFwmmbLcjRjflK4CvAY5Y6FNls/N+AOwXOLMyoDXsmHTMx+EPY
-	BIIcqDmw==;
+	bh=yJ00OPYdqSJ+4uv8ctKPBsBBA32+QMJJaxQcYWfzOmY=; b=mSJ7NvfUmsJe1KQFYZqDV+I2NB
+	+z0kj6V3Kg8O9HOhDSngQKtwlwbh4LpSK8GNM6Ql1aUZTBWxeBFzOKY1NRkvbUdKdrlb4dk/ceOlB
+	D3wH6VLjua4GL5sumDsFQgC37YY61r3Fv93xcwHA35eheWLJTtaVt0KkfL9460gfvLD31c01U3D66
+	Nwb0ZVAdK4LRvru05V2dY765kkBk1zT/Ez91gmq/ANig3ApASWnFan85u978rul1Or4uB3wQT1Q5p
+	w7a8IiPmvoVzk0pfwF1GLZCGtz1QnSxnn/SXAje2Ld2pOF1Ye/7iL6otEZkU+UVlR3A764QB4I9o1
+	ASmf4YMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBvkr-00000007SDk-04Wr;
-	Mon, 05 May 2025 13:21:09 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1uBvkc-00000007Rud-3TEQ;
+	Mon, 05 May 2025 13:20:54 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBvfI-00000007RUJ-44Tm
+	id 1uBv5k-00000007M6d-3Kw6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 13:15:27 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-7399838db7fso4443305b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 06:15:24 -0700 (PDT)
+	Mon, 05 May 2025 12:38:43 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-39ac8e7688aso3031395f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 05:38:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1746450923; x=1747055723; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=y+wXhdSDx+zuoZH6nHSo9n5TKzFsocoVJt1FeJpCcH4=;
-        b=YRn9YNgVQYnTIunZobDytzLMCAloBeJ7qL9V3lY68Z8pUSMQci4ivXMfSWEZe/YN2j
-         85r3oQXvJujGTnvo76iHcR177h8GvYmZKddxWwCoNJe2IqWlKqnmGTVcYoG5+DxIlrRp
-         NBwPG3334jPq2SAuU1gbAkhGEriqY6VM1MzYT9HwWZF/z+S3eAq/JXeEKLvUgRFsgVDb
-         qfE4bEhErBt4HwaK4Y9pEnm2ucpXlIsAYof1R4elw6snKgmOQvXD4CynCMXTgkD6Czui
-         K7nW6KkuHyt5taLvwxXzMbnNAWCkhX/OHFOngQVDX/pwKK8VlTBsNsRXYt2zmV6Tng0v
-         dxEQ==
+        d=linaro.org; s=google; t=1746448719; x=1747053519; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yJ00OPYdqSJ+4uv8ctKPBsBBA32+QMJJaxQcYWfzOmY=;
+        b=aUhw+970idHl2P/kEVzKSvK6wCx5AoHqpn78RwAtHe0o7nVP05mbpB5eitGRuW8c6v
+         Wuux7rAOhxrBEUAdnGbapPgQUdkCg461CkJ4ZOZ2OfOSikNCFIoQS4fGkdecHkk/9zSe
+         hbY+vDXlxO4PajLxqE0UNeCFA10d1KkoWlW3KPuc3woomFMrxwVIC/PMf1Kq84PK8F92
+         qL/v5dmhgdo0N7LWeHcu6SW1Bx3tVBuTKWRzzEdqk2NeQYJKgmZyzXeM6uVQejcwmofS
+         o5/YOlrYTm55Wh2aAOylBZ6RjUjtlPasHSpJwrdFxV/4+t5w7RULH9xsU0zr5c56N7On
+         EoSA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746450923; x=1747055723;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=y+wXhdSDx+zuoZH6nHSo9n5TKzFsocoVJt1FeJpCcH4=;
-        b=aa/vJHObdH3KeCdYQUe0c6eSk6a3Ug+MmhfDX0gH1tCMUfZIYpawQR9xmM/x7ENByT
-         SCZfsuTtI0QTfK+h91z7KyP5QkCZyC6pSE0bBW9Px64ou8nB3Ad/TQCeq6YcplAl+EUe
-         FXxOxQu1yz/QyFiX9O7xQiwXuUIzF1g8CLaS6l8Kn78JjK04OnBneAk4DBtnQr8DdXn5
-         loAQ6hNsINSgAhl4BByulE6THitwGkcMgiS3/j1pKhH+h1eGo/meqSzh9BJAsWgj+x6F
-         eagl9rwxAW81IgJcnhQT0PXUqrwU/Vsd3D6QLzqdaRWX0VZ22PS14pFehr846uEKzqLv
-         R56A==
-X-Forwarded-Encrypted: i=1; AJvYcCX42CocUW/y0ejnMsHqKFoihB9pNpAN/JxdQYZqrg7Q3RUkRPBxf7lNmPk5NojbxATzcZmZUaSyoqezpZqeW5Pd@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQx/YZ8h6Ezzgjkw7VSSAikzrjsLPfgpyiInE0kJSaSNMGJs6E
-	jN4D1UHySzQcSs9I29XYRma6wHTU7M0Lln9wVwkpRn0iMhTdxr57cwhztmF1NV8=
-X-Gm-Gg: ASbGncsfpn9EJJJICMeZb5Sw5vtZm3c+aDZz8fiZVMG+G/TINMae/G2xWqh0D5lQ0f6
-	lAa1j+QV+lUaTBw+otxWNZDfWsU8CkJ3fk08dy4iqOG4ypPO/JYveVjGvwGm0HAZHLssp1hu9gU
-	NzxrZYkNqXLm5MXTak1dFZVdk6ahezB+kqTnetw0VOxLwojAuYS7qHTwmi0UNHZ82GaBDCI9Yw0
-	/NNrbDzoVuDjuesuc3YTsVgfkTbRlPxhjSgRGMUpxlbZ3iOKFp2pqV0Lwv3AErsSGnI6CL4EYIo
-	h4QImjjpdJ427ECx9Lkijpsr92z+8iGYFeqbaIWq1me4ZwexrfaEGnDo66ut1DlCKlNS9vg5BsT
-	slXEt1NkBgYpY
-X-Google-Smtp-Source: AGHT+IGWr7oErzhQXzi3/npvL3HPlXx3q5Y4G/drXHId6r0SRlbJxSxCSrWFC6Hy+SgESOr57oqMaw==
-X-Received: by 2002:a05:6a00:3774:b0:732:56a7:a935 with SMTP id d2e1a72fcca58-74049265f69mr23753393b3a.12.1746450923390;
-        Mon, 05 May 2025 06:15:23 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:e50:3860:cc35:2777:db60:cc54? ([2a01:e0a:e50:3860:cc35:2777:db60:cc54])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74058dbbaa2sm6906018b3a.57.2025.05.05.06.15.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 05 May 2025 06:15:22 -0700 (PDT)
-Message-ID: <fa33b7d6-8e28-40bc-9219-41dab643e88f@baylibre.com>
-Date: Mon, 5 May 2025 15:15:16 +0200
+        d=1e100.net; s=20230601; t=1746448719; x=1747053519;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=yJ00OPYdqSJ+4uv8ctKPBsBBA32+QMJJaxQcYWfzOmY=;
+        b=UxxBFxZhPGbCfuKuoJSRdzhH7WKNFPyansC5NVm1S6kHAPbLvS4Vo00AAiKT5Xn55x
+         nwK/SN1UCIxH7+TSfB8XMt8LbpJ5EVjAegtRindfeWhkVRQR7rOV3P3ubo/ueshR4Eap
+         cf4HNvtSM70v1yXW8oVeFq6K2tzX3YPsuw+AKVGYuyBvNpwSjBoQnBxqRNoOfMyS/60Q
+         CUCP0YPwt44+UPAx00l8btATP3aIhfzsbxF8+k6HOByPWS0oHU/GYlJwluUUk++rUSQ5
+         lfIA4qnOrDVPz/tLLyjzE/4AbZ6WRdsK/J57cGEmTapkccjyGMjznFW/U3vlc4ZaIRyB
+         0+Cg==
+X-Forwarded-Encrypted: i=1; AJvYcCWqpiZPMD/m3HDTv7kabXt5NUgqWqZD+jLJfHYm6tqydGptWoexWPrzPaVWWPx1yJMJ2Vh7EBF/t4rzd/rMJOkk@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw2bxG4jhDaFzL2DYnXdKhtVuSk1k0bfjT5qhpIaqwr1mJpKEuP
+	j9wtq/qYi0w8iW3+R0I93svWX1ET/e8TC4xUoojiaYIxTlkWIRHhhruWv9Ikk8Vnqc9n4uqFsjy
+	c
+X-Gm-Gg: ASbGnct4WwOrDYz4QrDC6kifpQ+D2UHF4BGKyIU6+0x9ctnHUnnEvZMxCThisVJYyAA
+	TlCEF4QJamF5m9OIpmSR5332iaV2YyBerLQvKwu1RPbSHjFPZ+LdEgOR7UHtTsjTC8zypX6LboR
+	9zzKxBkUCDlTt9/jZhnPTNldX6zusgICOVHoN27V4gCNo6W3XOBCy/KaCTWy0HKaJ+hjIcXV5GN
+	PgXbSehwIwt1150pjYBthojIOWJeCV7bDKPODlIHPpeSqV1g+CXMyWVwl+tqPPNiXrWvyoeVrK1
+	6Y4Z3CuUys7VBPxyepYd6RnhhO4tU7y5ANQJ3xz1cNMeim3Aj1AWT08xLUCR1A==
+X-Google-Smtp-Source: AGHT+IFy0/5CsAjAmtPJtG69bk3HYaRizPcxz8kBiV82Sd4ZPLYii45oNaazucMgx7OuBmnSByg2GA==
+X-Received: by 2002:a5d:5c84:0:b0:39c:3107:c503 with SMTP id ffacd0b85a97d-3a09ceba798mr6003167f8f.31.1746448718752;
+        Mon, 05 May 2025 05:38:38 -0700 (PDT)
+Received: from arrakeen.starnux.net ([2a01:e0a:3d9:2080:8261:5fff:fe11:bdda])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a099ae0bf6sm10416625f8f.18.2025.05.05.05.38.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 May 2025 05:38:38 -0700 (PDT)
+From: Neil Armstrong <neil.armstrong@linaro.org>
+To: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
+ Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Kelvin Zhang <kelvin.zhang@amlogic.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Zelong Dong <zelong.dong@amlogic.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
+In-Reply-To: <20250411-a4-a5-reset-v6-0-89963278c686@amlogic.com>
+References: <20250411-a4-a5-reset-v6-0-89963278c686@amlogic.com>
+Subject: Re: (subset) [PATCH v6 0/3] Add support for Amlogic A4/A5 Reset
+Message-Id: <174644871803.1393229.3140979499225174795.b4-ty@linaro.org>
+Date: Mon, 05 May 2025 14:38:38 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: Kconfig.platforms: remove useless select for
- ARCH_K3
-To: Nishanth Menon <nm@ti.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Andrew Davis <afd@ti.com>, vishalm@ti.com, linux-omap@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250504-kconfig-v1-1-ab0216f4fa98@baylibre.com>
- <20250505123615.yqzdv7dlel7kyojf@degrease>
-Content-Language: en-US, fr
-From: Guillaume La Roque <glaroque@baylibre.com>
-In-Reply-To: <20250505123615.yqzdv7dlel7kyojf@degrease>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_061525_153291_F0554C06 
-X-CRM114-Status: GOOD (  12.09  )
+X-CRM114-CacheID: sfid-20250505_053840_947761_53EB40D0 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,37 +108,46 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi,
 
-Le 05/05/2025 à 14:36, Nishanth Menon a écrit :
-> On 13:24-20250504, Guillaume La Roque wrote:
->> After patch done on TI_MESSAGE_MANAGER[1] and TI_SCI_PROTOCOL[2] driver
->> select on ARCH_K3 are not needed anymore.
->>
->> Remove it and give possibility to enable this driver in modules.
->>
->> [1] https://lore.kernel.org/all/20180828005311.8529-1-nm@ti.com/
->> [2] https://lore.kernel.org/all/20250220-ti-firmware-v2-1-ff26883c6ce9@baylibre.com/
->>
->> Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
->> ---
->>   arch/arm64/Kconfig.platforms | 2 --
->>   1 file changed, 2 deletions(-)
->>
->> diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
->> index 8b76821f190f..5b63a42c4dff 100644
->> --- a/arch/arm64/Kconfig.platforms
->> +++ b/arch/arm64/Kconfig.platforms
->> @@ -138,8 +138,6 @@ config ARCH_K3
->>   	select PM_GENERIC_DOMAINS if PM
->>   	select MAILBOX
->>   	select SOC_TI
->> -	select TI_MESSAGE_MANAGER
->> -	select TI_SCI_PROTOCOL
->>   	select TI_K3_SOCINFO
->>   	help
->>   	  This enables support for Texas Instruments' K3 multicore SoC
->>
-> While at this, is it possible to remove MAILBOX and PM_GENERIC_DOMAINS
-> from select and make them as modules?
->
-good point i will confirm  and come back to you.
+On Fri, 11 Apr 2025 19:38:14 +0800, Kelvin Zhang wrote:
+> Add dt-binding compatibles and device nodes for Amlogic A4/A5 reset.
+> 
+> Imported from f20240918074211.8067-1-zelong.dong@amlogic.com
+> 
+> Changes in v6:
+> - Rebased onto the latest v6.16/arm64-dt.
+> - Link to v5: https://lore.kernel.org/r/20250320-a4-a5-reset-v5-0-296f83bf733d@amlogic.com
+> 
+> [...]
+
+Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v6.16/arm64-dt)
+
+[2/3] arm64: dts: amlogic: Add A4 Reset Controller
+      https://git.kernel.org/amlogic/c/946b51882b84f0cbec2acd203467866a7378abac
+[3/3] arm64: dts: amlogic: Add A5 Reset Controller
+      https://git.kernel.org/amlogic/c/f0911f29478992f37e91c208fe44c2ea5b378b61
+
+These changes has been applied on the intermediate git tree [1].
+
+The v6.16/arm64-dt branch will then be sent via a formal Pull Request to the Linux SoC maintainers
+for inclusion in their intermediate git branches in order to be sent to Linus during
+the next merge window, or sooner if it's a set of fixes.
+
+In the cases of fixes, those will be merged in the current release candidate
+kernel and as soon they appear on the Linux master branch they will be
+backported to the previous Stable and Long-Stable kernels [2].
+
+The intermediate git branches are merged daily in the linux-next tree [3],
+people are encouraged testing these pre-release kernels and report issues on the
+relevant mailing-lists.
+
+If problems are discovered on those changes, please submit a signed-off-by revert
+patch followed by a corrective changeset.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git
+[2] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+[3] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+
+-- 
+Neil
+
 
