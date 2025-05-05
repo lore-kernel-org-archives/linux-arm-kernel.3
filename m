@@ -4,103 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFB02C3ABAA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 18:50:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AAABC3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 May 2025 18:52:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L+ZVcMDj6eiAq+w7fHgu0Ionz2mUULkjJy07tfVzR30=; b=FM1WEX6uXE28VBFIsoLixmFuLC
-	UBvCGookH0tMZLAMi63U97q3PVGQh3ySnU7Ojz89WT6K71QckXf6j+0yY4GDxLVLOg2kMD+XY6upt
-	tJx/o+2RWGIYViqV6Lb6+GNyMaFuPum4vo0/Nd2/k7JPboVdUrPHwy3v6in53maDJlYHI20DcoUCm
-	bVWJLsjFlu6FN81mkj4Nsj9CqhXJhojhCEYhtbNR0OG8Sh/mf8Rh96hDeDZAYsPuzR3bbSVBmpPbS
-	9La69X9MpgVE/E2Qie9q2Tc0KWkdkwGl3p3H+XJLGiekbYqQdhrvn7JsKMFymRThu3jv91cGaH64Z
-	vMIMXPsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A8eEJvFMu/G8fSNsQRyZ7m8pQKvtChPB4Eaz2stzIqQ=; b=0MnNvN8vhzfwILxOiuhKOwJWGE
+	JLLExaDrodPJAlR86nj0EhOHuCSTSvw9tvQ4LeJTnuMdBFZBaI3kwHNEMKj0Q4HhDN4oGLQyAqlXE
+	Tvawq1jHejc2W6cOyMXwp/8lVlA8pWBoOen/eECnPsH8wQLzHpJpiDuE7b2RlpqQ9Av1bpdWlsFRv
+	YujUyTltEq8z878CmJaQ8k4jO3P0/Hy1sIy6uR3J6yunzLU5X083DFvlGBRGjgVce9iKyg3LrPL2b
+	jt1qITdE4ukUOiUK8SETgsw68OvwjMyk3v5hcm/hQ8qCFkwyT8HgWZUzkWYCoLeyO6YAmoP5fzAw0
+	aXyMO3ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC0sz-00000008KgZ-2RZB;
-	Mon, 05 May 2025 18:49:53 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1uC0ux-00000008L5L-1S9V;
+	Mon, 05 May 2025 18:51:55 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC0qP-00000008KHr-47D1
+	id 1uC0sq-00000008Keu-2G6f
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 18:47:15 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2263428c8baso19435ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 May 2025 11:47:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1746470832; x=1747075632; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=L+ZVcMDj6eiAq+w7fHgu0Ionz2mUULkjJy07tfVzR30=;
-        b=qNzqudP5xM5aIrsZe9yr8wkMzzxfAclpajOnWYv6bJXDkyRZBS46y05eFnfxKQv463
-         xUQ1wvyk/p/elwoGAv4Ax5U7foQC7moXURiUKSIHDehN1QyVqT0mPLyEDcW1UW/MO4kg
-         wT0qgIH1SO7keXIVi1yue0ENOzo5YTJV2duY/F2Na0Eg62QCXK5WmLK1WLiJUybBA+wh
-         02wGXKsGO3PZPg2tRvQ8nfW7KzBkWXCTQMjrJoGbM5itSZaXn2k0gY+b+JjZBZu72zRm
-         JMP7wBFJU/Zij+lctNLl6XsXrRIVwlItm+g0xwzZ0G5PvVEg+87+Ebq6HRQsRL1Rf7V3
-         U9Bg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746470832; x=1747075632;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=L+ZVcMDj6eiAq+w7fHgu0Ionz2mUULkjJy07tfVzR30=;
-        b=nHHt+q/zQ2QgvsOXA2dJjw4pBYsyV8DWIScUqahFSyMiS8oLUPaZ5oZ3jjMz81Nl3H
-         UalnieVIGN0zsUN7yCXWtShIl8nPv90s01R8XaDajSXoZso86le4uxEnjBxgkOu6yUYW
-         7YYoIDHn/mpt6rALe8TQ1Tu8ZHkZB6n0iwEtujhpcibkivUd89+z44T7znFp5rVVCGDD
-         fiQgEaDAZ8ClzTBjsK9RSmWYMA8wrIm8FzoIHudxuZJh33l8jfn68SfDxH5tVcEKfQZX
-         xEs4gPAQkrGjbp3JzJpKdEv8mtUIuXvIvGHAUuOIvjqTzekkWrMRqa8T3Pqk+EnEiJMN
-         eHmA==
-X-Forwarded-Encrypted: i=1; AJvYcCUPvIzAFivHV5zkidEvy4s64NG/QYnh62Kg+fdb9/rtMjUfl4uLFbJJssbHrL3h3LOYek/2cyo4qGa5Itex76j4@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHRx32jfGtTyG4hLQzupP8hOVLkin4RXnz+XVPJlX9pQqvnJBu
-	YbY9RF2QvKBaXFOVvmLEWu5FLdNPN7169q+7JPeNUOHILIARNLdrzXjIosHIlA==
-X-Gm-Gg: ASbGnctWuJ9r4gZzXUBsIjl2CEJSGXf6qjFVGY9XuajaF7HNjOvbnlCKKkHzoYxr5wf
-	8zc2mkb72lpkaMPFVsXqFkjlEStRKAM+N0K7wMvSN8qDuGIOqjpW5SVjVtoT0PYbSb1MWjWPIgq
-	toCqM7SChUt9Jkw/7W0QMWqxq19BuwqhzW6s2FTbd7alP9z2W0rAryCZVZfPTI7dseRqvvpllzV
-	xyTdmZvDXtsEOqhBhCuMO3s2JJ777HpHzL7aB9BJBS/n82Z+tX4WKebe65XeNalmbTs1ddLzs+5
-	PmfXUChvSpQcw47MgnsbbbQFADGRdzu+2DikUBvZ10V4jYySf+VUzgHL1zdenithRQ25DYT5MTq
-	tszG3YlE=
-X-Google-Smtp-Source: AGHT+IF+yI+Dgd32z62Vz4IkzG0Ih79IcbEYi6NeCGDCJdKqEO9PIlfWJBKMKIGX6EtzZ1WS3NzDOg==
-X-Received: by 2002:a17:902:da2d:b0:21f:2ded:bfc5 with SMTP id d9443c01a7336-22e3508e4d0mr352355ad.28.1746470831803;
-        Mon, 05 May 2025 11:47:11 -0700 (PDT)
-Received: from google.com (2.210.143.34.bc.googleusercontent.com. [34.143.210.2])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22e1522054esm58673755ad.118.2025.05.05.11.47.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 May 2025 11:47:11 -0700 (PDT)
-Date: Mon, 5 May 2025 18:47:00 +0000
-From: Pranjal Shrivastava <praan@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, kevin.tian@intel.com,
-	corbet@lwn.net, will@kernel.org, bagasdotme@gmail.com,
-	robin.murphy@arm.com, joro@8bytes.org, thierry.reding@gmail.com,
-	vdumpa@nvidia.com, jonathanh@nvidia.com, shuah@kernel.org,
-	jsnitsel@redhat.com, nathan@kernel.org, peterz@infradead.org,
-	yi.l.liu@intel.com, mshavit@google.com, zhangzekun11@huawei.com,
-	iommu@lists.linux.dev, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-tegra@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	patches@lists.linux.dev, mochs@nvidia.com, alok.a.tiwari@oracle.com,
-	vasant.hegde@amd.com
-Subject: Re: [PATCH v2 13/22] iommufd: Add mmap interface
-Message-ID: <aBkHpJIeDxJJSxeS@google.com>
-References: <cover.1745646960.git.nicolinc@nvidia.com>
- <7be26560c604b0cbc2fd218997b97a47e4ed11ff.1745646960.git.nicolinc@nvidia.com>
- <aBE1gUz9y415EuBQ@google.com>
- <aBE38GwvGBnpRNLc@google.com>
- <aBE47aySzDp2lsAz@Asurada-Nvidia>
- <aBE800DsAOOZ4ybv@google.com>
- <aBE/CD4Ilbydnmud@Asurada-Nvidia>
- <aBFGCxcTh54pecsk@google.com>
- <aBFIsYg+ITU8RvTT@Asurada-Nvidia>
- <20250505165552.GN2260709@nvidia.com>
+	Mon, 05 May 2025 18:49:46 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 7FD0BA0ACD;
+	Mon,  5 May 2025 20:49:41 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=mail; bh=A8eEJvFMu/G8fSNsQRyZ
+	7m8pQKvtChPB4Eaz2stzIqQ=; b=Etsucjkcd5P/kAVx7Ys7kErnTcIn23B0EUE0
+	4CRXWX0ZQgdUaE2KbyFQh2Dsk5ldPEcXVFRsFd4+lS2SOHDIQjTu5+kiMMqF6PNQ
+	6bSE+SE6WoKH2IdgB9zadLjJlfC3TvcW5SCrFYdDn4/gyEJrFiT0ErQw2Hsznuvr
+	6E46cG/WTITq9UcD3qNcf+yHdoocAKHMVZNXTaHuOqPDXNeY0kRzPdFB3qiFmcMy
+	c1sfg0RUxllma9YfAHwf12b8JcxE4RrgPzWYMgAAc2dK7vHwzW4dK7xCc5LalBdg
+	7yKWxWFSpH2Mt4jsVgszd42OVoHFWrVNSPmYXewRqq/rOAfya6r2R95C8AM6b4JH
+	nke/uLp0wiI3tWjRuZlURZ3R5ZLt8Em6ffWmfqAy8N7/ML6UHgX04sowG4rdvJb+
+	k7iOTGZ6mKsiUkAbB9GlDcq8SpZYfx3LgkkU5M52wKv0loDfi/uCqtUAcC1BWVPc
+	rcBy/zvGQGMRd5IYgXZUeAe1o2LC1akG6eO3Q4nLKdovVmCcUwxoxtVIv8l9x5HP
+	W3B/SIv6hqFzaruHVCOTBbd2HvhGFAeYvAJmdUR4WS00+OZvDE+nusuV+Z38lXln
+	1Ha0JIZQ4BOhOgN1qu8PIs627gTT+wypnZGG/Rq+7mslNcYWBSBM8BIyT+0leRj7
+	xDPVDuU=
+From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+To: <linux-spi@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, Mark Brown
+	<broonie@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>, "Alexandre
+ Belloni" <alexandre.belloni@bootlin.com>, Claudiu Beznea
+	<claudiu.beznea@tuxon.dev>
+Subject: [PATCH v5 2/2] spi: atmel-quadspi: Use `devm_dma_request_chan()`
+Date: Mon, 5 May 2025 20:49:34 +0200
+Message-ID: <20250505184936.312274-3-csokas.bence@prolan.hu>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250505184936.312274-1-csokas.bence@prolan.hu>
+References: <20250505184936.312274-1-csokas.bence@prolan.hu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250505165552.GN2260709@nvidia.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1746470980;VERSION=7990;MC=561884614;ID=217953;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D94853667166
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_114714_039665_DE4BC12C 
-X-CRM114-Status: GOOD (  33.38  )
+X-CRM114-CacheID: sfid-20250505_114945_039695_69541DCC 
+X-CRM114-Status: GOOD (  13.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,66 +83,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 05, 2025 at 01:55:52PM -0300, Jason Gunthorpe wrote:
-> On Tue, Apr 29, 2025 at 02:46:25PM -0700, Nicolin Chen wrote:
-> > > > > > > > > +	immap = kzalloc(sizeof(*immap), GFP_KERNEL);
-> > > > > > > > > +	if (!immap)
-> > > > > > > > > +		return -ENOMEM;
-> > > > > > > > > +	immap->pfn_start = base >> PAGE_SHIFT;
-> > > > > > > > > +	immap->pfn_end = immap->pfn_start + (size >> PAGE_SHIFT) - 1;
-> > > > > > > > > +
-> > > > > > > > > +	rc = mtree_alloc_range(&ictx->mt_mmap, immap_id, immap, sizeof(immap),
-> > > > > > > > 
-> > > > > > > > I believe this should be sizeof(*immap) ?
-> > > > > > > 
-> > > > > > > Ugh, Sorry, shouldn't this be size >> PAGE_SHIFT (num_indices to alloc) ?
-> > > > > > 
-> > > > > > mtree_load() returns a "struct iommufd_map *" pointer.
-> > > > > 
-> > > > > I'm not talking about mtree_load. I meant mtree_alloc_range takes in a
-> > > > > "size" parameter, which is being passed as sizeof(imap) in this patch.
-> > > > > IIUC, the mtree_alloc_range, via mas_empty_area, gets a range that is
-> > > > > sufficient for the given "size". 
-> > > > > 
-> > > > > Now in this case, "size" would be the no. of pfns which are mmap-able.
-> > > > > By passing sizeof(immap), we're simply reserving sizeof(ptr) i.e. 8 pfns
-> > > > > for a 64-bit machine. Whereas we really, just want to reserve a range
-> > > > > for size >> PAGE_SHIFT pfns.
-> > > > 
-> > > > But we are not storing pfns but the immap pointer..
-> 
-> That doesn't seem right, the entire point of using a maple tree is to
-> manage the pfn number space, ie the pgoff argument to mmap.
-> 
-> So when calling mtree_alloc_range:
-> 
-> int mtree_alloc_range(struct maple_tree *mt, unsigned long *startp,
-> 		void *entry, unsigned long size, unsigned long min,
-> 		unsigned long max, gfp_t gfp)
-> 
-> size should be the number of PFNs this mmap is going to use, which is
-> not sizeof() anything
-> 
-> min should be 0 and max should be uh.. U32_MAX >> PAGE_SHIFT
-> IIRC.. There is a different limit for pgof fon 32 bit mmap()
-> 
+Leave releasing of DMA channels up to the devm facilities. This way we can
+eliminate the rest of the "goto ladder".
 
-This is what I was thinking as well.. why use a maple tree if we aren't
-allocating a range to manage pfns.. I was still thinking about this in
-v3 which made me hold back from acking this. I'm glad we clarified this!
+Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+---
+ drivers/spi/atmel-quadspi.c | 44 ++++++++++---------------------------
+ 1 file changed, 11 insertions(+), 33 deletions(-)
 
-> > > Ohh... so we are storing the raw pointer in the mtree.. I got confused
-> > > with the `LONG_MAX >> PAGE_SHIFT`.. Sorry about the confusion!
-> > 
-> > Yes. We want the pointer at mtree_load(). The pfn range is for
-> > validation after mtree_load(). And we are likely to stuff more
-> > bits into the immap structure for other verifications.
-> 
-> Validation is fine, but you still have to reserve the whole pfn number
-> space to get sensible non-overlapping pgoffs out of the allocator.
-> 
-> Jason
+diff --git a/drivers/spi/atmel-quadspi.c b/drivers/spi/atmel-quadspi.c
+index e7b61dc4ce67..ef1416bbdf89 100644
+--- a/drivers/spi/atmel-quadspi.c
++++ b/drivers/spi/atmel-quadspi.c
+@@ -1285,18 +1285,20 @@ static int atmel_qspi_dma_init(struct spi_controller *ctrl)
+ 	struct atmel_qspi *aq = spi_controller_get_devdata(ctrl);
+ 	int ret;
+ 
+-	aq->rx_chan = dma_request_chan(&aq->pdev->dev, "rx");
++	aq->rx_chan = devm_dma_request_chan(&aq->pdev->dev, "rx");
+ 	if (IS_ERR(aq->rx_chan)) {
+ 		aq->rx_chan = NULL;
+ 		return dev_err_probe(&aq->pdev->dev, PTR_ERR(aq->rx_chan),
+ 				     "RX DMA channel is not available\n");
+ 	}
+ 
+-	aq->tx_chan = dma_request_chan(&aq->pdev->dev, "tx");
++	aq->tx_chan = devm_dma_request_chan(&aq->pdev->dev, "tx");
+ 	if (IS_ERR(aq->tx_chan)) {
+ 		ret = dev_err_probe(&aq->pdev->dev, PTR_ERR(aq->tx_chan),
+ 				    "TX DMA channel is not available\n");
+-		goto release_rx_chan;
++		aq->rx_chan = NULL;
++		aq->tx_chan = NULL;
++		return ret;
+ 	}
+ 
+ 	ctrl->dma_rx = aq->rx_chan;
+@@ -1307,20 +1309,6 @@ static int atmel_qspi_dma_init(struct spi_controller *ctrl)
+ 		 dma_chan_name(aq->tx_chan), dma_chan_name(aq->rx_chan));
+ 
+ 	return 0;
+-
+-release_rx_chan:
+-	dma_release_channel(aq->rx_chan);
+-	aq->rx_chan = NULL;
+-	aq->tx_chan = NULL;
+-	return ret;
+-}
+-
+-static void atmel_qspi_dma_release(struct atmel_qspi *aq)
+-{
+-	if (aq->rx_chan)
+-		dma_release_channel(aq->rx_chan);
+-	if (aq->tx_chan)
+-		dma_release_channel(aq->tx_chan);
+ }
+ 
+ static const struct atmel_qspi_ops atmel_qspi_ops = {
+@@ -1425,14 +1413,13 @@ static int atmel_qspi_probe(struct platform_device *pdev)
+ 
+ 	/* Request the IRQ */
+ 	irq = platform_get_irq(pdev, 0);
+-	if (irq < 0) {
+-		err = irq;
+-		goto dma_release;
+-	}
++	if (irq < 0)
++		return irq;
++
+ 	err = devm_request_irq(&pdev->dev, irq, atmel_qspi_interrupt,
+ 			       0, dev_name(&pdev->dev), aq);
+ 	if (err)
+-		goto dma_release;
++		return err;
+ 
+ 	pm_runtime_set_autosuspend_delay(&pdev->dev, 500);
+ 	pm_runtime_use_autosuspend(&pdev->dev);
+@@ -1441,22 +1428,16 @@ static int atmel_qspi_probe(struct platform_device *pdev)
+ 
+ 	err = atmel_qspi_init(aq);
+ 	if (err)
+-		goto dma_release;
++		return err;
+ 
+ 	err = spi_register_controller(ctrl);
+ 	if (err)
+-		goto dma_release;
++		return err;
+ 
+ 	pm_runtime_mark_last_busy(&pdev->dev);
+ 	pm_runtime_put_autosuspend(&pdev->dev);
+ 
+ 	return 0;
+-
+-dma_release:
+-	if (aq->caps->has_dma)
+-		atmel_qspi_dma_release(aq);
+-
+-	return err;
+ }
+ 
+ static int atmel_qspi_sama7g5_suspend(struct atmel_qspi *aq)
+@@ -1506,9 +1487,6 @@ static void atmel_qspi_remove(struct platform_device *pdev)
+ 
+ 	ret = pm_runtime_get_sync(&pdev->dev);
+ 	if (ret >= 0) {
+-		if (aq->caps->has_dma)
+-			atmel_qspi_dma_release(aq);
+-
+ 		if (aq->caps->has_gclk) {
+ 			ret = atmel_qspi_sama7g5_suspend(aq);
+ 			if (ret)
+-- 
+2.49.0
 
-Thanks
-Praan
+
 
