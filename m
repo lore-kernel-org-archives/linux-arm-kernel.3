@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F689C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 04:53:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CAEAC3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 04:55:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JrboCo6s1RSQFGV/W9fYlUbed94g4GTYL4wX9e8gilk=; b=jofq5miXTUjGeaB4zW5fek9voG
-	WyjR2uB90E+cFrK4VyTYmNJv+WknjxGTwUF0YjKQRNF4/0wT6HF48o92rVCnKcacOt11+ua6dGlkP
-	IEYABiCc5bzRh1ZXT2rC7Sha1RKz8xmYmOW7cjAn4eADY1Fuwrx01tFQDYSqtSfyZ3KdPrYi245Bj
-	EiwGVRCXBc+LGfyu+ZiPaTfrKHYJNhQpMtmJue6WGtBw8JMQU4mVYp43uW9Txm2g6TFA32c8Z9tb6
-	4ConJiHaR0Bi+d8w2qIh+U96qRv9zMFK0XQRmts3QI60HAZ1AF1w8RDs7gETYpGEXohG990qOKx5d
-	tlu3OFdg==;
+	bh=OWF0G0g1Bjx4fEtsaZkQHipuJiKfrx3wbDhfXiycrAg=; b=qwrKNNysTH7Zh6Kro7sc0cP7zS
+	CY5N8Ffhh/0QI+Ag500RgJeCL+YY/2SQ0UBEIiEPKdBqfOOyYpdCI6lfv4hXHFGpjHHsS+XG3S5IK
+	dGIpgOhb0QR5etM58CEUCZQGNP1viMcz4jQPzOUg9vfZksVZNkrFIlw4cKI4xogSuon8Ca8xLJX0A
+	BNn6TM7mZlqLjB45NcskzcLIFLuARhhzVics9n1TSloS75wAPF1ARfsM0ABd5s9ftJ3Z70SeZoBTZ
+	E32i5uLbFFfjD3fkuBLSurPxewSLOgj+1XloqlRuxQsWHUOEFJClzlIfrfGtM6RoOLFQAh86UUMXE
+	F9jZ3q+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCAIs-0000000AJ4e-1ws8;
-	Tue, 06 May 2025 04:53:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uCAKs-0000000AJam-3QLP;
+	Tue, 06 May 2025 04:55:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC585-000000091hj-40CG
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 May 2025 23:21:47 +0000
+	id 1uC59B-0000000924w-1nNz;
+	Mon, 05 May 2025 23:22:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F27AA43E6F;
-	Mon,  5 May 2025 23:21:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96D08C4CEE4;
-	Mon,  5 May 2025 23:21:44 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B9594629CB;
+	Mon,  5 May 2025 23:22:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BBA7C4CEED;
+	Mon,  5 May 2025 23:22:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746487305;
-	bh=YL/6gS3ufwCvufLSwSN11e8t9tnMrA7loUadZRkixVo=;
+	s=k20201202; t=1746487372;
+	bh=Wmcu4pkngqk3RBxPw+NFXKg6MgapnlPVjySJwH8I2ic=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qLZqf+49WS7Zlq3uWCmT8Qb2nkp2O83zwCqeLumnTiKf2LjdczwBUudFD90d9hE76
-	 gqtj3pdPIv5aVM6XPgUd1WQC1QEAaTa5rOzbuq+XhKq0Ckl033UkirzYRT7LiVNhfz
-	 eU2852jmclF8yzvMePoFsmIT4e5knC+fuRuNnurGVBvm5hh44ByHiK9IT3AkbTHvoD
-	 hduUaAdZiZdUzEvCN6/CcB02OtuMIcTglN1bl/Hy9SuXBEDF7IQiqFtLTnj+aYml5P
-	 zJTu6npFQAU2eLDAuYK7Q3CdQczCyrM5ccQHnCSkZaWPN9GEvqu3x2MXoFbGSc6gkd
-	 S10T83+Ms04Jg==
+	b=upU0G1ePQNJAffq3wQSppaKIEKfIIJvw+sAZazYuyzvyYCnodgK6gM8iiilz6Gcjn
+	 +wOGVwqsunb8IPPo9GYAvO6JHULMZkfgW1XOnHFgE52n3wL2kLuGbnmXh7Y85BmCkb
+	 ZPSw3l79Uf/Oxisfhm6nEBTr6z59e58A2xzy2ETFfHqCoZg24lk7ACcNa1GWPpIhZA
+	 cIrISdSiknYS0QEJtGB1E5Xmrly7kblbRxvvBLliEVfS2POwhbwU24R19o1QGtnX6p
+	 My0VcucA7+hprsskdAss5/S25yMV06MwZMdct1/77616llFJ8e4Bs+Nww4MYBCkSp7
+	 5ACZiL794eXew==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Sean Anderson <sean.anderson@linux.dev>,
-	Mark Brown <broonie@kernel.org>,
+Cc: Artur Weber <aweber.kernel@gmail.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
 	Sasha Levin <sashal@kernel.org>,
-	michal.simek@amd.com,
-	linux-spi@vger.kernel.org,
+	florian.fainelli@broadcom.com,
+	rjui@broadcom.com,
+	sbranden@broadcom.com,
+	dan.carpenter@linaro.org,
+	linux-gpio@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.10 111/114] spi: zynqmp-gqspi: Always acknowledge interrupts
-Date: Mon,  5 May 2025 19:18:14 -0400
-Message-Id: <20250505231817.2697367-111-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.4 35/79] pinctrl: bcm281xx: Use "unsigned int" instead of bare "unsigned"
+Date: Mon,  5 May 2025 19:21:07 -0400
+Message-Id: <20250505232151.2698893-35-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250505231817.2697367-1-sashal@kernel.org>
-References: <20250505231817.2697367-1-sashal@kernel.org>
+In-Reply-To: <20250505232151.2698893-1-sashal@kernel.org>
+References: <20250505232151.2698893-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 5.10.237
+X-stable-base: Linux 5.4.293
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_162146_009744_E5E26FD0 
-X-CRM114-Status: GOOD (  14.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,70 +79,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sean Anderson <sean.anderson@linux.dev>
+From: Artur Weber <aweber.kernel@gmail.com>
 
-[ Upstream commit 89785306453ce6d949e783f6936821a0b7649ee2 ]
+[ Upstream commit 07b5a2a13f4704c5eae3be7277ec54ffdba45f72 ]
 
-RXEMPTY can cause an IRQ, even though we may not do anything about it
-(such as if we are waiting for more received data). We must still handle
-these IRQs because we can tell they were caused by the device.
+Replace uses of bare "unsigned" with "unsigned int" to fix checkpatch
+warnings. No functional change.
 
-Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
-Link: https://patch.msgid.link/20250116224130.2684544-6-sean.anderson@linux.dev
-Signed-off-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Artur Weber <aweber.kernel@gmail.com>
+Link: https://lore.kernel.org/20250303-bcm21664-pinctrl-v3-2-5f8b80e4ab51@gmail.com
+Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/spi/spi-zynqmp-gqspi.c | 20 ++++++++------------
- 1 file changed, 8 insertions(+), 12 deletions(-)
+ drivers/pinctrl/bcm/pinctrl-bcm281xx.c | 44 +++++++++++++-------------
+ 1 file changed, 22 insertions(+), 22 deletions(-)
 
-diff --git a/drivers/spi/spi-zynqmp-gqspi.c b/drivers/spi/spi-zynqmp-gqspi.c
-index 3d3ac48243ebd..408b83882dae2 100644
---- a/drivers/spi/spi-zynqmp-gqspi.c
-+++ b/drivers/spi/spi-zynqmp-gqspi.c
-@@ -689,7 +689,6 @@ static void zynqmp_process_dma_irq(struct zynqmp_qspi *xqspi)
- static irqreturn_t zynqmp_qspi_irq(int irq, void *dev_id)
- {
- 	struct zynqmp_qspi *xqspi = (struct zynqmp_qspi *)dev_id;
--	irqreturn_t ret = IRQ_NONE;
- 	u32 status, mask, dma_status = 0;
- 
- 	status = zynqmp_gqspi_read(xqspi, GQSPI_ISR_OFST);
-@@ -704,27 +703,24 @@ static irqreturn_t zynqmp_qspi_irq(int irq, void *dev_id)
- 				   dma_status);
- 	}
- 
--	if (mask & GQSPI_ISR_TXNOT_FULL_MASK) {
-+	if (!mask && !dma_status)
-+		return IRQ_NONE;
-+
-+	if (mask & GQSPI_ISR_TXNOT_FULL_MASK)
- 		zynqmp_qspi_filltxfifo(xqspi, GQSPI_TX_FIFO_FILL);
--		ret = IRQ_HANDLED;
--	}
- 
--	if (dma_status & GQSPI_QSPIDMA_DST_I_STS_DONE_MASK) {
-+	if (dma_status & GQSPI_QSPIDMA_DST_I_STS_DONE_MASK)
- 		zynqmp_process_dma_irq(xqspi);
--		ret = IRQ_HANDLED;
--	} else if (!(mask & GQSPI_IER_RXEMPTY_MASK) &&
--			(mask & GQSPI_IER_GENFIFOEMPTY_MASK)) {
-+	else if (!(mask & GQSPI_IER_RXEMPTY_MASK) &&
-+			(mask & GQSPI_IER_GENFIFOEMPTY_MASK))
- 		zynqmp_qspi_readrxfifo(xqspi, GQSPI_RX_FIFO_FILL);
--		ret = IRQ_HANDLED;
--	}
- 
- 	if (xqspi->bytes_to_receive == 0 && xqspi->bytes_to_transfer == 0 &&
- 	    ((status & GQSPI_IRQ_MASK) == GQSPI_IRQ_MASK)) {
- 		zynqmp_gqspi_write(xqspi, GQSPI_IDR_OFST, GQSPI_ISR_IDR_MASK);
- 		complete(&xqspi->data_completion);
--		ret = IRQ_HANDLED;
- 	}
--	return ret;
-+	return IRQ_HANDLED;
- }
+diff --git a/drivers/pinctrl/bcm/pinctrl-bcm281xx.c b/drivers/pinctrl/bcm/pinctrl-bcm281xx.c
+index 3452005342ad6..69e8d7856fff7 100644
+--- a/drivers/pinctrl/bcm/pinctrl-bcm281xx.c
++++ b/drivers/pinctrl/bcm/pinctrl-bcm281xx.c
+@@ -79,7 +79,7 @@ static enum bcm281xx_pin_type hdmi_pin = BCM281XX_PIN_TYPE_HDMI;
+ struct bcm281xx_pin_function {
+ 	const char *name;
+ 	const char * const *groups;
+-	const unsigned ngroups;
++	const unsigned int ngroups;
+ };
  
  /**
+@@ -91,10 +91,10 @@ struct bcm281xx_pinctrl_data {
+ 
+ 	/* List of all pins */
+ 	const struct pinctrl_pin_desc *pins;
+-	const unsigned npins;
++	const unsigned int npins;
+ 
+ 	const struct bcm281xx_pin_function *functions;
+-	const unsigned nfunctions;
++	const unsigned int nfunctions;
+ 
+ 	struct regmap *regmap;
+ };
+@@ -948,7 +948,7 @@ static struct bcm281xx_pinctrl_data bcm281xx_pinctrl = {
+ };
+ 
+ static inline enum bcm281xx_pin_type pin_type_get(struct pinctrl_dev *pctldev,
+-						  unsigned pin)
++						  unsigned int pin)
+ {
+ 	struct bcm281xx_pinctrl_data *pdata = pinctrl_dev_get_drvdata(pctldev);
+ 
+@@ -992,7 +992,7 @@ static int bcm281xx_pinctrl_get_groups_count(struct pinctrl_dev *pctldev)
+ }
+ 
+ static const char *bcm281xx_pinctrl_get_group_name(struct pinctrl_dev *pctldev,
+-						   unsigned group)
++						   unsigned int group)
+ {
+ 	struct bcm281xx_pinctrl_data *pdata = pinctrl_dev_get_drvdata(pctldev);
+ 
+@@ -1000,9 +1000,9 @@ static const char *bcm281xx_pinctrl_get_group_name(struct pinctrl_dev *pctldev,
+ }
+ 
+ static int bcm281xx_pinctrl_get_group_pins(struct pinctrl_dev *pctldev,
+-					   unsigned group,
++					   unsigned int group,
+ 					   const unsigned **pins,
+-					   unsigned *num_pins)
++					   unsigned int *num_pins)
+ {
+ 	struct bcm281xx_pinctrl_data *pdata = pinctrl_dev_get_drvdata(pctldev);
+ 
+@@ -1014,7 +1014,7 @@ static int bcm281xx_pinctrl_get_group_pins(struct pinctrl_dev *pctldev,
+ 
+ static void bcm281xx_pinctrl_pin_dbg_show(struct pinctrl_dev *pctldev,
+ 					  struct seq_file *s,
+-					  unsigned offset)
++					  unsigned int offset)
+ {
+ 	seq_printf(s, " %s", dev_name(pctldev->dev));
+ }
+@@ -1036,7 +1036,7 @@ static int bcm281xx_pinctrl_get_fcns_count(struct pinctrl_dev *pctldev)
+ }
+ 
+ static const char *bcm281xx_pinctrl_get_fcn_name(struct pinctrl_dev *pctldev,
+-						 unsigned function)
++						 unsigned int function)
+ {
+ 	struct bcm281xx_pinctrl_data *pdata = pinctrl_dev_get_drvdata(pctldev);
+ 
+@@ -1044,9 +1044,9 @@ static const char *bcm281xx_pinctrl_get_fcn_name(struct pinctrl_dev *pctldev,
+ }
+ 
+ static int bcm281xx_pinctrl_get_fcn_groups(struct pinctrl_dev *pctldev,
+-					   unsigned function,
++					   unsigned int function,
+ 					   const char * const **groups,
+-					   unsigned * const num_groups)
++					   unsigned int * const num_groups)
+ {
+ 	struct bcm281xx_pinctrl_data *pdata = pinctrl_dev_get_drvdata(pctldev);
+ 
+@@ -1057,8 +1057,8 @@ static int bcm281xx_pinctrl_get_fcn_groups(struct pinctrl_dev *pctldev,
+ }
+ 
+ static int bcm281xx_pinmux_set(struct pinctrl_dev *pctldev,
+-			       unsigned function,
+-			       unsigned group)
++			       unsigned int function,
++			       unsigned int group)
+ {
+ 	struct bcm281xx_pinctrl_data *pdata = pinctrl_dev_get_drvdata(pctldev);
+ 	const struct bcm281xx_pin_function *f = &pdata->functions[function];
+@@ -1089,7 +1089,7 @@ static const struct pinmux_ops bcm281xx_pinctrl_pinmux_ops = {
+ };
+ 
+ static int bcm281xx_pinctrl_pin_config_get(struct pinctrl_dev *pctldev,
+-					   unsigned pin,
++					   unsigned int pin,
+ 					   unsigned long *config)
+ {
+ 	return -ENOTSUPP;
+@@ -1098,9 +1098,9 @@ static int bcm281xx_pinctrl_pin_config_get(struct pinctrl_dev *pctldev,
+ 
+ /* Goes through the configs and update register val/mask */
+ static int bcm281xx_std_pin_update(struct pinctrl_dev *pctldev,
+-				   unsigned pin,
++				   unsigned int pin,
+ 				   unsigned long *configs,
+-				   unsigned num_configs,
++				   unsigned int num_configs,
+ 				   u32 *val,
+ 				   u32 *mask)
+ {
+@@ -1214,9 +1214,9 @@ static const u16 bcm281xx_pullup_map[] = {
+ 
+ /* Goes through the configs and update register val/mask */
+ static int bcm281xx_i2c_pin_update(struct pinctrl_dev *pctldev,
+-				   unsigned pin,
++				   unsigned int pin,
+ 				   unsigned long *configs,
+-				   unsigned num_configs,
++				   unsigned int num_configs,
+ 				   u32 *val,
+ 				   u32 *mask)
+ {
+@@ -1284,9 +1284,9 @@ static int bcm281xx_i2c_pin_update(struct pinctrl_dev *pctldev,
+ 
+ /* Goes through the configs and update register val/mask */
+ static int bcm281xx_hdmi_pin_update(struct pinctrl_dev *pctldev,
+-				    unsigned pin,
++				    unsigned int pin,
+ 				    unsigned long *configs,
+-				    unsigned num_configs,
++				    unsigned int num_configs,
+ 				    u32 *val,
+ 				    u32 *mask)
+ {
+@@ -1328,9 +1328,9 @@ static int bcm281xx_hdmi_pin_update(struct pinctrl_dev *pctldev,
+ }
+ 
+ static int bcm281xx_pinctrl_pin_config_set(struct pinctrl_dev *pctldev,
+-					   unsigned pin,
++					   unsigned int pin,
+ 					   unsigned long *configs,
+-					   unsigned num_configs)
++					   unsigned int num_configs)
+ {
+ 	struct bcm281xx_pinctrl_data *pdata = pinctrl_dev_get_drvdata(pctldev);
+ 	enum bcm281xx_pin_type pin_type;
 -- 
 2.39.5
 
