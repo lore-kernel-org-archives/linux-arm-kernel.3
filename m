@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80BD8C3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 05:24:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54304C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 05:26:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TKkIVq0b/1tTt8YAQcU0dqkKugDarEKYNFwGGMZbSJo=; b=WxJRUqmF0MPU1Z8xvjNhA76kbX
-	FngOSyMuxNH0BW7pOWw2pOKfhUAmtSi6os+vLKvhhCaZju/Zs9uR3di0500rXU7I9KUQyQatMCK25
-	rbu00q6UvooK/Fe/eXU5g9hI4b3zOtyEBl3dsJArN+mRowZ+mdxe/CluJxH8d+jSiSs3jilLBShVE
-	4F9nOILCIdTDV21rXzwoH77vMNc4tmxJJwWJ6m991xDrxcgd+CUb0UOEf9KxaRj0WYYmbmUn5Rfn7
-	IdxbVWSPbLbZ0Fs4hvCgryBSCXJt83MI/f2dpFaFXsvFoLzsbUZ4WyyOFF1o4oT4l6Z8AtbC59J43
-	f5QvNUqw==;
+	bh=cvs8LAS7Huj3bMJpCAxAacy2DIEjuJcgg/WN2oc764E=; b=4UHsBCe9QDAhl4khWs9vToKqrT
+	qLZkbRl092wgxY+VQQdjJQoF66oQln5ki0VZnMijTwdDKmpcOa7bCP5E3xRPC8NVEPc3hkMLljGQR
+	Pl6Nu4Uun18ZKFiitv3GjJQTVtZNsrF3IpFX4qjdBlevJe0Sbtl0CaxPg0dmHppiXKiL6M8NPzwIX
+	sgpvQ2BWgIPjgK8jz29YQtvB+Q3BX9KQYNk0/PlosfFKzprIArtji5zfcKN3vgjkGiGPVt09eOk57
+	7Vo3rHIj11Xd8DRo+q9Mp/V2Nv7F8LEgdDQ0qHsQdxuWOC5oZfLauy2ZPLCdrI/iobPQDFBDNFvTR
+	P6xKjKrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCAmy-0000000AQMj-1N79;
-	Tue, 06 May 2025 05:24:20 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uCAoy-0000000AQtb-0AWG;
+	Tue, 06 May 2025 05:26:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC7x6-00000009j8T-0gtA
+	id 1uC7xt-00000009jXF-1XsD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 02:22:37 +0000
+	Tue, 06 May 2025 02:23:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B02D449DFF;
-	Tue,  6 May 2025 02:22:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02DB0C4CEE9;
-	Tue,  6 May 2025 02:22:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 12BAE44807;
+	Tue,  6 May 2025 02:23:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77979C4CEE4;
+	Tue,  6 May 2025 02:23:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746498155;
-	bh=EMvHJm6AlZw7vnabYT6ymwxOGXfXeVxYv1w37tTq9J0=;
+	s=k20201202; t=1746498204;
+	bh=VYqt9DWjk14rZvscK0rSZmyFfhPRc7UasEOv2asQgE0=;
 	h=From:To:Cc:Subject:Date:From;
-	b=EUcpS5c6eg3gU0f+X9VzsnwVt0utXOzG5yD7Cap00EXM+Bl7sgzcXdaAxiPdtjiDJ
-	 WVUfEAntQSmaylLM/ydMklMceDgX2n/kYSHdsNoNYJrkAGrlSeqpm/A5Pqgm3x2xY6
-	 WA+lGR15Psucq5Ucf6MnGDUkE98Gd9rmEWqXUU+ozJ5TlKA//rPVbCYo3T0T2jVeB4
-	 T1ztMsvZY5NSPWaSiRHV2lbxodLevHHZbD/G4wcSkBuK54ColdVVxVJKA+rAuaBn2G
-	 LU7rlIleXIY+ru3cGZJd6cLlarT18QNina/fReoRucIXHEch0o07LSYscC4kWmE9IK
-	 JrhgrsJdV2AoA==
+	b=IX2absoElCxa0lrfcxKxpXMMm3r/7y7tKfSFFK+snkogVDpKeTPLx0uOG8fX7tHza
+	 dNjDvkkLGHieTF0LV3Nv+NUmuKCnZMwt0r30RqaAzWgJaYyXn/uKlE5GYiphePB/b7
+	 gtbKoZf6hFem3dv5EXFyPa8iUczbdlRujZVa8zNcWUNNR+gwiVack78/xnwk3r6UMV
+	 90CrheoiBjqwdFlk4etxy0vb2VwrUqqc6pHO6Qw0GqAfXrbyfP6EB7zRKwuIFRfnKT
+	 eyxPJldC34Tyrmugk8gDAmL9ZaFYUMOmEHMBekac9EY+dB3ZxCZybZebNpwVPP5U+B
+	 UdXBwaXo5LsDA==
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Daniel Lezcano <daniel.lezcano@linaro.org>,
 	Thomas Gleixner <tglx@linutronix.de>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Baruch Siach <baruch@tkos.co.il>
+	Taichi Sugaya <sugaya.taichi@socionext.com>,
+	Takao Orito <orito.takao@socionext.com>
 Cc: linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] dt-bindings: timer: Convert cnxt,cx92755-timer to DT schema
-Date: Mon,  5 May 2025 21:22:31 -0500
-Message-ID: <20250506022232.2587186-1-robh@kernel.org>
+Subject: [PATCH] dt-bindings: timer: Convert socionext,milbeaut-timer to DT schema
+Date: Mon,  5 May 2025 21:23:20 -0500
+Message-ID: <20250506022322.2589193-1-robh@kernel.org>
 X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_192236_244558_D31D1ACD 
-X-CRM114-Status: GOOD (  13.69  )
+X-CRM114-CacheID: sfid-20250505_192325_426859_58517F57 
+X-CRM114-Status: GOOD (  13.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,52 +75,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the Conexant Digicolor SoCs Timer binding to DT schema format.
+Convert the Socionext Milbeaut Timer binding to DT schema format.
 It's a straight-forward conversion.
 
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- .../bindings/timer/cnxt,cx92755-timer.yaml    | 49 +++++++++++++++++++
- .../bindings/timer/digicolor-timer.txt        | 18 -------
- 2 files changed, 49 insertions(+), 18 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/timer/cnxt,cx92755-timer.yaml
- delete mode 100644 Documentation/devicetree/bindings/timer/digicolor-timer.txt
+ .../timer/socionext,milbeaut-timer.txt        | 17 --------
+ .../timer/socionext,milbeaut-timer.yaml       | 40 +++++++++++++++++++
+ 2 files changed, 40 insertions(+), 17 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/timer/socionext,milbeaut-timer.txt
+ create mode 100644 Documentation/devicetree/bindings/timer/socionext,milbeaut-timer.yaml
 
-diff --git a/Documentation/devicetree/bindings/timer/cnxt,cx92755-timer.yaml b/Documentation/devicetree/bindings/timer/cnxt,cx92755-timer.yaml
+diff --git a/Documentation/devicetree/bindings/timer/socionext,milbeaut-timer.txt b/Documentation/devicetree/bindings/timer/socionext,milbeaut-timer.txt
+deleted file mode 100644
+index ac44c4b67530..000000000000
+--- a/Documentation/devicetree/bindings/timer/socionext,milbeaut-timer.txt
++++ /dev/null
+@@ -1,17 +0,0 @@
+-Milbeaut SoCs Timer Controller
+-
+-Required properties:
+-
+-- compatible : should be "socionext,milbeaut-timer".
+-- reg : Specifies base physical address and size of the registers.
+-- interrupts : The interrupt of the first timer.
+-- clocks: phandle to the input clk.
+-
+-Example:
+-
+-timer {
+-	compatible = "socionext,milbeaut-timer";
+-	reg = <0x1e000050 0x20>
+-	interrupts = <0 91 4>;
+-	clocks = <&clk 4>;
+-};
+diff --git a/Documentation/devicetree/bindings/timer/socionext,milbeaut-timer.yaml b/Documentation/devicetree/bindings/timer/socionext,milbeaut-timer.yaml
 new file mode 100644
-index 000000000000..8f1a5af32a36
+index 000000000000..9ab72b762314
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/timer/cnxt,cx92755-timer.yaml
-@@ -0,0 +1,49 @@
++++ b/Documentation/devicetree/bindings/timer/socionext,milbeaut-timer.yaml
+@@ -0,0 +1,40 @@
 +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/cnxt,cx92755-timer.yaml#
++$id: http://devicetree.org/schemas/socionext,milbeaut-timer.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: Conexant Digicolor SoCs Timer Controller
++title: Milbeaut SoCs Timer Controller
 +
 +maintainers:
-+  - Baruch Siach <baruch@tkos.co.il>
++  - Sugaya Taichi <sugaya.taichi@socionext.com>
 +
 +properties:
 +  compatible:
-+    const: cnxt,cx92755-timer
++    const: socionext,milbeaut-timer
 +
 +  reg:
 +    maxItems: 1
 +
 +  interrupts:
-+    description: Contains 8 interrupts, one for each timer
-+    items:
-+      - description: interrupt for timer 0
-+      - description: interrupt for timer 1
-+      - description: interrupt for timer 2
-+      - description: interrupt for timer 3
-+      - description: interrupt for timer 4
-+      - description: interrupt for timer 5
-+      - description: interrupt for timer 6
-+      - description: interrupt for timer 7
++    maxItems: 1
 +
 +  clocks:
 +    maxItems: 1
@@ -134,36 +149,12 @@ index 000000000000..8f1a5af32a36
 +
 +examples:
 +  - |
-+    timer@f0000fc0 {
-+      compatible = "cnxt,cx92755-timer";
-+      reg = <0xf0000fc0 0x40>;
-+      interrupts = <19>, <31>, <34>, <35>, <52>, <53>, <54>, <55>;
-+      clocks = <&main_clk>;
++    timer@1e000050 {
++        compatible = "socionext,milbeaut-timer";
++        reg = <0x1e000050 0x20>;
++        interrupts = <0 91 4>;
++        clocks = <&clk 4>;
 +    };
-diff --git a/Documentation/devicetree/bindings/timer/digicolor-timer.txt b/Documentation/devicetree/bindings/timer/digicolor-timer.txt
-deleted file mode 100644
-index d1b659bbc29f..000000000000
---- a/Documentation/devicetree/bindings/timer/digicolor-timer.txt
-+++ /dev/null
-@@ -1,18 +0,0 @@
--Conexant Digicolor SoCs Timer Controller
--
--Required properties:
--
--- compatible : should be "cnxt,cx92755-timer"
--- reg : Specifies base physical address and size of the "Agent Communication"
--  timer registers
--- interrupts : Contains 8 interrupts, one for each timer
--- clocks: phandle to the main clock
--
--Example:
--
--	timer@f0000fc0 {
--		compatible = "cnxt,cx92755-timer";
--		reg = <0xf0000fc0 0x40>;
--		interrupts = <19>, <31>, <34>, <35>, <52>, <53>, <54>, <55>;
--		clocks = <&main_clk>;
--	};
 -- 
 2.47.2
 
