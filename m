@@ -4,66 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DB8AC3ABAC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 09:08:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65163C3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 09:10:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1jGf/plY2ONRRVKTYDDcgKLdEiw4nVM7PFUY28QLdD4=; b=MWDtZEBKOBEwIKbiqH3PA4twge
-	Rrj+S+3G9G8n7bbf3pHge1qIDcXx9p0CUaUTjo4DtpPYAHfp9U/ehU8e/nMTn3jQWhkGqtCstStoS
-	CwiEUOdHM9GqZDsCrBQLEXqvDpm7Qwhsccv6uiI8MOTzzPV0AxhoLxBnRUsgpZkTG2HcRySxq6qI/
-	+eSjNUwCvZ9lbfOhNc4ZRMSgKi10Ij91SzRBt+V7tRihRTjuCzUEQW6pGlo82Wcw2JvJklVpBBbs0
-	eBikoC7fpqihEl9yvGv5DvFgXxqWoV8hOGMvqM53GI7uZhyKujdhLumXfyKWI+cyQh1J3nw4ZPDMZ
-	685EaI4Q==;
+	bh=BFD92AR0Y1VLqV44xiN3ErUBbtc4PokGh/PPfeg/c/w=; b=Vg8uOYym5Wa26BC85lpnetBud5
+	wl7m+FAcCS2fKtDOpxhwKYA6Rz8vlL2AkZHLeLpu0u7vkkQRQbagB+z4XU87JRaHw2fTHc/gmOBdk
+	T+eDvam3kkPCNYKsVujSQ72hd77XyYIYcK+skCHeZGXCJ/WpU1f1bjFztU3pCcof3bG9snlq8aofo
+	/6HjcY4+OvMBq/QCJMBlsrDHY0s3Br/R2hD5+R9qgd7Nb1VLVT4vxAXiAhN8usD6DWhFtp3edCNoQ
+	1KdN0j2fBmVat53gbnDvIsnEMMYqseigvmey8ryoSqXrT6xptoQDdbenv1d9kxSyyYVf2BSmPM9C7
+	qxjqW8lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCEHe-0000000BHXF-070r;
-	Tue, 06 May 2025 09:08:14 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1uCEJY-0000000BIHM-2qgd;
+	Tue, 06 May 2025 09:10:12 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCDjr-0000000BB7T-46JJ;
-	Tue, 06 May 2025 08:33:21 +0000
+	id 1uCDl7-0000000BBGP-02Fx;
+	Tue, 06 May 2025 08:34:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1746520398;
-	bh=Xz/XZoWdLK9sjxD5LgW3w0A+B+hpmKHOEi8obS3nq38=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=j9Z2yEthJUOpZhCQGy8ad6UVLa5tE+PmU25AQXWomdrypN9ePQmxewE3PfoVuDkJH
-	 x8LMGp6bm/c0H5lSmZ4dEHNd3M4Uu5tkhNlaLLZHBJY8fVAtoO+7mheqa0/fWq24WY
-	 JMW+FSRIMKyxlZ+CNCCiPxg4qUaPhU/UZ/D4w1+7PEHdjVy2nyGjWJVUlypqwt0WdT
-	 AxwUWEGWTOlBMCAq9k77tkUr9+dv2dkbehKgKaC5wooLsH4+hpA+FS6owyAYhQGOci
-	 5n5cBP5saJDzr7N020b95TWO8dVLfLAeA1bAvcCqg8bOl6Rjrspr//+3Ar86KYeW8r
-	 qNN6okFAWJICw==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	s=mail; t=1746520475;
+	bh=DXcqPBwQKvNKiwIbf3ykHJXzbpclDBX7r/K84ILDxNU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=FwumzGi+5gntUjl9VTLHeo9YpRhrQFuDo/7N9XUl4Ji4ZlM+R0JP8i7XEhW9nNc98
+	 LMf9g+I2IpNLAdGHe4CnfphAHfZg/6G1OkdKxGEfgnQT0p0ygBU9XisvB3ol6dwizW
+	 DJgcDM5ptXRua2KjQyEIYMtMNtbdhRmHjaXkWBHdXgg2oJvf7tT/RwKjoE4qC6jF0O
+	 RnnjAqdPvduITh0qLz1dpzWBTrAf+MVqhVwf/BKg3NwgQetgE8JLomv4QmDk0tAl/2
+	 FjY6s3d8o8McbGb/ir81Qbj8p9Z773VrcCXIPpMQ8CdIFurN8Jzfn36VfTKCo2ncSP
+	 dVMgaJqW7eipw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id EF62217E049F;
-	Tue,  6 May 2025 10:33:17 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- "Rob Herring (Arm)" <robh@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-In-Reply-To: <20250409205001.1522009-1-robh@kernel.org>
-References: <20250409205001.1522009-1-robh@kernel.org>
-Subject: Re: [PATCH] arm/arm64: dts: mediatek: Add missing
- "#sound-dai-cells" to linux,bt-sco
-Message-Id: <174652039790.26427.3827996167340215423.b4-ty@collabora.com>
-Date: Tue, 06 May 2025 10:33:17 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 48EB817E049F;
+	Tue,  6 May 2025 10:34:34 +0200 (CEST)
+Message-ID: <cb715936-3a44-4002-8d64-565f8d31820c@collabora.com>
+Date: Tue, 6 May 2025 10:34:33 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/4] dt-bindings: iommu: mediatek: mt8195 Accept up to 5
+ interrupts
+To: Julien Massot <julien.massot@collabora.com>, kernel@collabora.com,
+ Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
+ Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?=
+ <nfraprado@collabora.com>, Hui Liu <hui.liu@mediatek.com>,
+ Yong Wu <yong.wu@mediatek.com>, Joerg Roedel <joro@8bytes.org>,
+ Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+ Tinghan Shen <tinghan.shen@mediatek.com>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, iommu@lists.linux.dev
+References: <20250505-mt8395-dtb-errors-v1-0-9c4714dcdcdb@collabora.com>
+ <20250505-mt8395-dtb-errors-v1-2-9c4714dcdcdb@collabora.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250505-mt8395-dtb-errors-v1-2-9c4714dcdcdb@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_013320_163020_F2799343 
-X-CRM114-Status: UNSURE (   5.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250506_013437_193061_3C32C4D3 
+X-CRM114-Status: GOOD (  13.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,19 +86,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 09 Apr 2025 15:50:00 -0500, Rob Herring (Arm) wrote:
-> Add missing "#sound-dai-cells" which is required by the linux,bt-sco
-> binding.
+Il 05/05/25 15:23, Julien Massot ha scritto:
+> Some Mediatek IOMMU can have up to five interrupts so increase
+> the 'maxItems' to 5.
 > 
+> Fix the following dtb-check error:
 > 
+> mediatek/mt8395-radxa-nio-12l.dtb: infra-iommu@10315000: interrupts:
+> [[0, 795, 4, 0], [0, 796, 4, 0], [0, 797, 4, 0], [0, 798, 4, 0], [0, 799, 4, 0]] is too long
+> 
+> Fixes: 3b5838d1d82e3 ("arm64: dts: mt8195: Add iommu and smi nodes")
+> Signed-off-by: Julien Massot <julien.massot@collabora.com>
+> ---
+>   Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml | 3 ++-
+>   1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml b/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml
+> index 75750c64157c868725c087500ac81be4e282c829..035941c2db32170e9a69a5363d8c05ef767bb251 100644
+> --- a/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml
+> +++ b/Documentation/devicetree/bindings/iommu/mediatek,iommu.yaml
+> @@ -97,7 +97,8 @@ properties:
+>       maxItems: 1
+>   
+>     interrupts:
+> -    maxItems: 1
+> +    minItems: 1
 
-Applied to v6.15-next/dts64, thanks!
-
-[1/1] arm/arm64: dts: mediatek: Add missing "#sound-dai-cells" to linux,bt-sco
-      commit: b8202a12cdd771b55a9565814022ea8c69572cd7
+Isn't minItems already implicitly 1? :-)
 
 Cheers,
 Angelo
 
+> +    maxItems: 5
+>   
+>     clocks:
+>       items:
+> 
 
 
