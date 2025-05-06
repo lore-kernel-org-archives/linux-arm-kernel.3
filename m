@@ -4,62 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2FDFC3ABBF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 13:19:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93C34C3ABAC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 13:21:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pj+4rGMWt5M08jBHt81VWeF3C+rCyj8Gl62Xf+vq6t8=; b=t8xKv8aZRvTP4eqbBthYemKTT4
-	LHsV5y4dDbvZIIYWhYcB3GVYXjDtKbOXobvCMcMU4Ag3FOqI2KohaopEpbO0deJo61gmLTQiHGb0A
-	i9aiacZcFKpizzWxrX1LJT4hqQ1DmdC9C/CcGM9gIJw1/0cJ4hLUL6JiGy1ChZy4IF8zwg6Fl0Xsx
-	ns+AoYJVq1WTNVDi9diI71YQh1fXENml3b0xQHvlO9j5JzH7brZ7ZZS6sj3EaHwnSCnEiOaf+RzcQ
-	VmpvhJOGyB7lyajQnft3mzgPZRBMgok6WTKpCzID6WdsrI+YzfIPbiguubH8CRkMjdvuBAv4V5984
-	l09cQ2PA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DCQGBPsfO5vWFkl0A0zD/MgOqOEpO+/052K/NE4TDl0=; b=OEKZutu+Y/bkIDHmcrdxnW+Pmj
+	RqPI5pLw9d7UyLIztW8RAaHika1VGfiTZemoFmnhxqQHF2GA+oKvXPwQlMtV0+B+x+MuaXaeWoLcm
+	CbsSvxN8a3GTVmzWshx4vi/2IjX8UpwXAU+ZnWzbFF3+eGLw2QMAFm87FgX3Mt6q2iyxOzFClMk2n
+	+yK4sJW45UqsFnQ0G12WmTNeinfSxTfAlpn5h8bzaU5oQS6JxAfp0QhLwry+psYgVp6bZSPNmo3gw
+	c+b+Y8VaLZ6uWenG5wdjujOtfrl8Se5bwiUf5/CJH/CgDFua7DfQXjbIN14Ea0NOGfsjxGjIngh2k
+	raKdVKCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCID7-0000000C4gV-1EBi;
-	Tue, 06 May 2025 13:19:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uCIF1-0000000C5LV-48ie;
+	Tue, 06 May 2025 13:21:47 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCFsA-0000000Bcsm-3va9
+	id 1uCFuK-0000000BdBa-1HGx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 10:50:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CFB7861154;
-	Tue,  6 May 2025 10:49:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71191C4CEF0;
-	Tue,  6 May 2025 10:49:56 +0000 (UTC)
-Date: Tue, 6 May 2025 11:49:54 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>, Ard Biesheuvel <ardb@kernel.org>,
-	will@kernel.org, nathan@kernel.org, nick.desaulniers+lkml@gmail.com,
-	morbo@google.com, justinstitt@google.com, broonie@kernel.org,
-	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
-	shameerali.kolothum.thodi@huawei.com, james.morse@arm.com,
-	hardevsinh.palaniya@siliconsignals.io,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, stable@vger.kernel.org
-Subject: Re: [PATCH v2] arm64/cpufeature: annotate arm64_use_ng_mappings with
- ro_after_init to prevent wrong idmap generation
-Message-ID: <aBnpUqapTghz6E1R@arm.com>
-References: <20250502180412.3774883-1-yeoreum.yun@arm.com>
- <174626735218.2189871.10298017577558632540.b4-ty@arm.com>
- <aBYkGJmfWDZHBEzp@arm.com>
- <aBZ7P3/dUfSjB0oV@e129823.arm.com>
- <aBkL-zUpbg7_gCEp@arm.com>
- <aBnDqvY5c6a3qQ4H@e129823.arm.com>
- <fbfded61-cfe2-4416-9098-ef39ef3e2b62@arm.com>
- <CAMj1kXFAYDeCgtPspQubkY688tcqwCMzCD+jEXb6Ea=9mBcdcQ@mail.gmail.com>
- <aa4241ce-02ea-4931-b60c-5ad0deba202d@arm.com>
- <aBno0C2RPQ2x8DG1@e129823.arm.com>
+	Tue, 06 May 2025 10:52:17 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3a0b0dd3b5bso27219f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 03:52:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1746528735; x=1747133535; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=DCQGBPsfO5vWFkl0A0zD/MgOqOEpO+/052K/NE4TDl0=;
+        b=Ex7dnWyAYRP7mRiilIH4/bHmRk5V1nN2dc4mddhvCCoSpqRMMkHNSm8mwDfyJYLVye
+         chrpXwYNqJQe3PcAahTey8NTCGG9S/HWe8Q0Vz0105G38ts2O1LdQhV2ZsFr7IwRfrpm
+         y9w6BK+abjgFWOD64QCW2frdWypuFeaxjDneMBlQB38ChGEJFRwAOoOc7/JxeAZVYscb
+         9ZmJmpo9qIHigbckk059et0apsMhHUCws2vs/oM2aNzzlbh7kmBO9uqpBAZN4g8dzgKw
+         ixdWg6xaTJHLhYbsnKLkulwhmhS5QsLeloBIGT438RMrxaigStc1ZA3Xo90zPbv90cX0
+         NfJg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746528735; x=1747133535;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=DCQGBPsfO5vWFkl0A0zD/MgOqOEpO+/052K/NE4TDl0=;
+        b=KgM42+vvEKF/FZ6rjhka6jzNjneOc7uJrs1Jgd7MccwgxVHI+kQ85URKxg45kHFzJd
+         CGB2YPIg/SV04fkImblQdoueuvIACgn/Yn8iytNVkh2XkvNNl0yD0aFTgfJIkjkpdYul
+         yGWUVCCjxnlmeaYLNDLvg3abl2BLO6E5fUx1e/ScerFjHUyqVBHG0iz2AlPBNd8ZnIa7
+         897+tfgEiGT/HpFexwVs8IWQE0dXmGdSENGuhPYvi98xKXuKz95HGb9NcaEg9vYNQdAy
+         z88iWRvwDeo+tIYCTl3rIM/daqTlfGpmyvfeNllvjxhG++Bju7wd/wT0rB6KdX4PEqqD
+         jmxQ==
+X-Gm-Message-State: AOJu0Yxjo5lNdx4I+ah6rxjduTBMtc+BBna1NEb7lGwYGKc65ulHp9HG
+	7yfcuffqV3Qq85uV8jEUtSdjuXCD6JPXkYB+V+hbzqye3BaC546+HQvxB6pTrjo=
+X-Gm-Gg: ASbGnctjehO6EZ4BGoLxjF8BAoiSEXMX49urjjOe+gDhjmy3im3wTzdp3XMKYQX8xbv
+	RJT52wCZ8B//lJamqdEIP3K9KxUlDT96Qizwx9tPaTcbX7nNop1fSOx34/jGh2HnocJFrYKTwKB
+	NbPqskOrWxI0iqgo5W+RnbPQUoMAaWJmuGxJ/JUg7zB6gPsJB7pT8oNCmKbQKSxo9XvHxzcgrOl
+	LhGNu/QJrVH331WVbeIYDuaQC/nBMrxZP5nr+VmMtsuqFKF/RqRqw21y1q1VwYumsgnpC5Dh/R9
+	dUzwhqWrJ4f8qdzzB1zG3uJkRWQOH7PCCBU0nxRYPbvAUktHNP6y7IOowEo=
+X-Google-Smtp-Source: AGHT+IG+AWKFdW1c3BWzDe6zKGQh1cg2/RqGRVWCUYPzqFEaMQKAz07sa0MgSDalD2L/4cnUy4wIWA==
+X-Received: by 2002:a5d:5f87:0:b0:39c:2663:6c23 with SMTP id ffacd0b85a97d-3a099adf5e6mr4448569f8f.9.1746528734779;
+        Tue, 06 May 2025 03:52:14 -0700 (PDT)
+Received: from [192.168.1.28] ([178.197.207.88])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a099b170b8sm12995727f8f.82.2025.05.06.03.52.13
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 06 May 2025 03:52:14 -0700 (PDT)
+Message-ID: <3a11ba8a-a9f4-4829-8bcd-56f1702bee8f@linaro.org>
+Date: Tue, 6 May 2025 12:52:12 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aBno0C2RPQ2x8DG1@e129823.arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: defconfig: Build STMMAC Ethernet driver into the
+ kernel for NFS boot
+To: Prabhakar <prabhakar.csengg@gmail.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, Biju Das <biju.das.jz@bp.renesas.com>,
+ Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20250506104731.111876-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Language: en-US
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ 2+47PN9NZAOyb771QoVr8A==
+In-Reply-To: <20250506104731.111876-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250506_035216_361131_F3208DEB 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,90 +149,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 06, 2025 at 11:47:44AM +0100, Yeoreum Yun wrote:
-> > On 06/05/2025 10:41, Ard Biesheuvel wrote:
-> > > On Tue, 6 May 2025 at 10:16, Ryan Roberts <ryan.roberts@arm.com> wrote:
-> > >>
-> > >> On 06/05/2025 09:09, Yeoreum Yun wrote:
-> > >>> Hi Catalin,
-> > >>>
-> > >>>> On Sat, May 03, 2025 at 09:23:27PM +0100, Yeoreum Yun wrote:
-> > >>>>> Hi Catalin,
-> > >>>>>
-> > >>>>>> On Sat, May 03, 2025 at 11:16:12AM +0100, Catalin Marinas wrote:
-> > >>>>>>> On Fri, 02 May 2025 19:04:12 +0100, Yeoreum Yun wrote:
-> > >>>>>>>> create_init_idmap() could be called before .bss section initialization
-> > >>>>>>>> which is done in early_map_kernel().
-> > >>>>>>>> Therefore, data/test_prot could be set incorrectly by PTE_MAYBE_NG macro.
-> > >>>>>>>>
-> > >>>>>>>> PTE_MAYBE_NG macro set NG bit according to value of "arm64_use_ng_mappings".
-> > >>>>>>>> and this variable places in .bss section.
-> > >>>>>>>>
-> > >>>>>>>> [...]
-> > >>>>>>>
-> > >>>>>>> Applied to arm64 (for-next/fixes), with some slight tweaking of the
-> > >>>>>>> comment, thanks!
-> > >>>>>>>
-> > >>>>>>> [1/1] arm64/cpufeature: annotate arm64_use_ng_mappings with ro_after_init to prevent wrong idmap generation
-> > >>>>>>>       https://git.kernel.org/arm64/c/12657bcd1835
-> > >>>>>>
-> > >>>>>> I'm going to drop this for now. The kernel compiled with a clang 19.1.5
-> > >>>>>> version I have around (Debian sid) fails to boot, gets stuck early on:
-> > >>>>>>
-> > >>>>>> $ clang --version
-> > >>>>>> Debian clang version 19.1.5 (1)
-> > >>>>>> Target: aarch64-unknown-linux-gnu
-> > >>>>>> Thread model: posix
-> > >>>>>> InstalledDir: /usr/lib/llvm-19/bin
-> > >>>>>>
-> > >>>>>> I didn't have time to investigate, disassemble etc. I'll have a look
-> > >>>>>> next week.
-> > >>>>>
-> > >>>>> Just for your information.
-> > >>>>> When I see the debian package, clang 19.1.5-1 doesn't supply anymore:
-> > >>>>>  - https://ftp.debian.org/debian/pool/main/l/llvm-toolchain-19/
-> > >>>>>
-> > >>>>> and the default version for sid is below:
-> > >>>>>
-> > >>>>> $ clang-19 --version
-> > >>>>> Debian clang version 19.1.7 (3)
-> > >>>>> Target: aarch64-unknown-linux-gnu
-> > >>>>> Thread model: posix
-> > >>>>> InstalledDir: /usr/lib/llvm-19/bin
-> > >>>>>
-> > >>>>> When I tested with above version with arm64-linux's for-next/fixes
-> > >>>>> including this patch. it works well.
-> > >>>>
-> > >>>> It doesn't seem to be toolchain related. It fails with gcc as well from
-> > >>>> Debian stable but you'd need some older CPU (even if emulated, e.g.
-> > >>>> qemu). It fails with Cortex-A72 (guest on Raspberry Pi 4) but not
-> > >>>> Neoverse-N2. Also changing the annotation from __ro_after_init to
-> > >>>> __read_mostly also works.
-> > >>
-> > >> I think this is likely because __ro_after_init is also "ro before init" - i.e.
-> > >> if you try to write to it in the PI code an exception is generated due to it
-> > >> being mapped RO. Looks like early_map_kernel() is writiing to it.
-> > >>
-> > >
-> > > Indeed.
-> > >
-> > >> I've noticed a similar problem in the past and it would be nice to fix it so
-> > >> that PI code maps __ro_after_init RW.
-> > >>
-> > >
-> > > The issue is that the store occurs via the ID map, which only consists
-> > > of one R-X and one RW- section. I'm not convinced that it's worth the
-> > > hassle to relax this.
-> > >
-> > > If moving the variable to .data works, then let's just do that.
-> >
-> > Yeah, fair enough.
+On 06/05/2025 12:47, Prabhakar wrote:
+> From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 > 
-> Thanks.
-> I've success to reproduce. and after check, Sending with this fix.
+> Enable `CONFIG_STMMAC_ETH` as built-in (`y`) instead of a module (`m`) to
+> ensure the Ethernet driver is available early in the boot process. This
+> is necessary for platforms mounting the root filesystem via NFS, as the
+> driver must be available before the root filesystem is accessed.
+> 
+> Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-No need to resend, I modified it locally. Thanks.
+Same comments as for previous patches like this (even the same?): you
+are supposed to use initramfs for your arm74 boards. Even armv7 boards
+use initramfs, so network driver does not have to be built in.
 
--- 
-Catalin
+For example all of our setups use it thus we do not have to populate all
+other vendors with our own drivers.
+
+Sorry, but I am strongly against such change. Kernel is already way too
+big and with KASAN it does not fit to boot partitions in some of the
+devices (and I cannot change the boot partition size, at least not
+without big effort).
+
+
+Nacked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+Best regards,
+Krzysztof
 
