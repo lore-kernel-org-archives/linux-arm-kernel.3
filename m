@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8507C3ABBE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 19:58:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68A70C3ABBE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 20:00:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pWPvPltkUp3dklnzVWF0Zv1zTf1qDhEI2ezNa1+Nh4M=; b=Gp8wn3FE7nebBaq3R1/87Th/k+
-	0KohpENLAkG8x/HZDZdutKuJd+kvYnVeT+LhRcYFR58rBFWOFc0WsFd9b6wNQWEJfhoLO2sPOecLF
-	GdPwZPpZqDXDknAoHiWJPuut/8YVnarOoGZmaig5P4JBGhd5rXEwDoAhBMxN4Y9ZDgWyYtfoAjQQ0
-	wnTEUi6rRjGaOgUkuor47lwFXTynN6mAAf/K+lqxThjZu/5/XPfB//eFtOVJJBGMVs8S103ymKbzn
-	CErG/cAmtbldW4HyPlbbwN3EL5DsFaQ0xAUVLe9BB7mWuX5seyDThAWi17HhlxwUc8e+RHaoQkPxU
-	x2H4LN0w==;
+	bh=P3oC9L/V7wY2qcuWyTte91buVEvN7VIAf+IqqHVzafQ=; b=Z51RkNo+AV2EMBJY81psBM/G5m
+	I4pgkUnWLY3W2/P/ZRJ4RpuPp2k1tHGAQxAnZ7c/PTpdWiFMoUidjXTIYivqJNI5AjAgWXrz9AcqY
+	/dBlwRx/WsP2XaqwOYv4fZLBoGyZJ/dTQlro4btZvotU6TeFgH0gwCvyFb9OjJX1LQcMnGiRyu+6k
+	yZdFdKF9moIVr4fr3lm95iqRksXDGWa1HQjJATJF7fmoGkBTTjoHsKT3zRjJaowBY65wzFjadTt8u
+	khiQevZ2qXXfzB19y9lSx3j1G7TuoA/jkrzeF0DxqOlGP8xV4AoP30/SFdXSNC3XJhd08E8l14AqL
+	gaHilFQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCOQf-0000000DIMs-3Mfg;
-	Tue, 06 May 2025 19:58:13 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uCOSb-0000000DIZY-3mWg;
+	Tue, 06 May 2025 20:00:13 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCKTX-0000000CXFN-1vgK;
-	Tue, 06 May 2025 15:44:56 +0000
+	id 1uCKU4-0000000CXIm-2xNo;
+	Tue, 06 May 2025 15:45:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7C38BA4D60E;
-	Tue,  6 May 2025 15:44:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03B9FC4CEE4;
-	Tue,  6 May 2025 15:44:51 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id DCDA05C4756;
+	Tue,  6 May 2025 15:43:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DB54C4CEE4;
+	Tue,  6 May 2025 15:45:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746546294;
-	bh=WdalwAYyOdFnT6F6/VtNfBFmY7xcp4A2sZZoLMVgcmU=;
+	s=k20201202; t=1746546327;
+	bh=P3oC9L/V7wY2qcuWyTte91buVEvN7VIAf+IqqHVzafQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KQcq/68nTJwaMizQN0l8vr8X+LHw7GXqh0r0awClUcrhNistvP4OydRyEgk3l0InK
-	 zw6ALhTQbWNipebmdzpQmps8C3Rs5P8jyx11Hr82Ab248hdjXnHwOxVHdJpH8QYwMq
-	 UmJiHBVJ+s5fdxLnNj2Ut0QRAUVjB5EZykfsN+fGn4JweZ+niAvzahpoYBvCV9Wwkk
-	 l6JfawGA5ye7zy9x5eKU5RdFfTngTJG56Mqhd6jm4hOmgOx+44OIl/xGQvLRtj54Zf
-	 J8BgghwlVtG7pYsRlCtuiviaUbiw8zIc1puKmKW59Yqe9iuDP72sVtynBLwRjoKDv2
-	 RIAIutCYU7GAA==
-Date: Tue, 6 May 2025 16:44:49 +0100
+	b=ifD+jmjKve8EpiVakQZWDkuJGL5Crak0Y63C2Iuz+zYMzZHC8m0hh0MInTre4zlF+
+	 0g7VrwD71C8qc9+zZW53eHQBh4eHRrAzXLbq0ij3DXWKIHaA4HrwmZKt9LWHwGZta7
+	 h9lfLl/wIvrKPJ3/oYX+ZDMEJE8u7umwkqs+kaDHbaJ9a9LkKhgcw6aMFxuMjwYxYR
+	 Vlbb+GHAbvyO9pW72+kEiH46uBipgtTaOdlmwLZMrnJsfeHXL3wt/hY4urhdQTVAhg
+	 c/FDg5cnPiqbRg8ikYfRD/a3YIpuct3i+KZMF1SIALXZWYPqZcEAogvB/0JwYPq5rb
+	 WII64nfbxoRrQ==
+Date: Tue, 6 May 2025 16:45:23 +0100
 From: Conor Dooley <conor@kernel.org>
 To: John Clark <inindev@gmail.com>
 Cc: heiko@sntech.de, linux-arm-kernel@lists.infradead.org,
@@ -49,19 +49,19 @@ Cc: heiko@sntech.de, linux-arm-kernel@lists.infradead.org,
 	robh@kernel.org, krzysztof.kozlowski@linaro.org,
 	conor+dt@kernel.org, jonas@kwiboo.se, frattaroli.nicolas@gmail.com,
 	andrew@lunn.ch
-Subject: Re: [PATCH v3 2/3] dt-bindings: arm: rockchip: Add Luckfox Omni3576
- and Core3576 bindings
-Message-ID: <20250506-almighty-uncork-f7a0bc42d763@spud>
+Subject: Re: [PATCH v3 1/3] dt-bindings: vendor-prefixes: Add luckfox prefix
+Message-ID: <20250506-snitch-entitle-25cbf145619a@spud>
 References: <20250506114115.613616-1-inindev@gmail.com>
- <20250506114115.613616-3-inindev@gmail.com>
+ <20250506114115.613616-2-inindev@gmail.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="9x2/RhAmDqLYb1/P"
+	protocol="application/pgp-signature"; boundary="TLZaWWfPrZXx6LHI"
 Content-Disposition: inline
-In-Reply-To: <20250506114115.613616-3-inindev@gmail.com>
+In-Reply-To: <20250506114115.613616-2-inindev@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_084455_561281_68C51CF5 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20250506_084528_785970_A555C917 
+X-CRM114-Status: UNSURE (   7.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,60 +77,26 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---9x2/RhAmDqLYb1/P
+--TLZaWWfPrZXx6LHI
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Tue, May 06, 2025 at 07:41:14AM -0400, John Clark wrote:
-> Add device tree binding for the Luckfox Omni3576 Carrier Board with
-> Core3576 Module, based on the Rockchip RK3576 SoC.
->=20
-> Signed-off-by: John Clark <inindev@gmail.com>
-> ---
->  Documentation/devicetree/bindings/arm/rockchip.yaml | 10 ++++++++++
->  1 file changed, 10 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Docume=
-ntation/devicetree/bindings/arm/rockchip.yaml
-> index 455fbb290b77..826dede32145 100644
-> --- a/Documentation/devicetree/bindings/arm/rockchip.yaml
-> +++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
-> @@ -715,6 +715,16 @@ properties:
->            - const: lckfb,tspi-rk3566
->            - const: rockchip,rk3566
-> =20
-> +      - description: Luckfox Core3576 Module
-> +        items:
-> +          - const: luckfox,core3576
-> +          - const: rockchip,rk3576
-> +
-> +      - description: Luckfox Omni3576 Carrier Board
-> +        items:
-> +          - const: luckfox,omni3576
-> +          - const: rockchip,rk3576
+On Tue, May 06, 2025 at 07:41:13AM -0400, John Clark wrote:
+> Add vendor prefix for Shenzhen Luckfox Technology Co., Ltd., which
+> produces development boards like the Luckfox Omni3576.
 
-Not sure this is correct, does the module not have to be attached to
-this particular carrier to be used?
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-> +
->        - description: Lunzn FastRhino R66S / R68S
->          items:
->            - enum:
-> --=20
-> 2.39.5
->=20
-
---9x2/RhAmDqLYb1/P
+--TLZaWWfPrZXx6LHI
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaBoucQAKCRB4tDGHoIJi
-0iJcAP0aeskjOu/xrVMFMflVV16ukhNjSpo2tYNFY/pRnnzgvQEAqkb3TqJYOZR4
-nrsDlRLQcH7Qtjo21/qxLcmF7Z0OEwE=
-=pT+F
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaBoukwAKCRB4tDGHoIJi
+0q/SAQDnCCu02bLPOAnaomZrDXAhPsG2xZdCE7XnKQqYMekDNwD/eG2b6EcefmUL
+uThxnlzlq0vIpzbu+DWhSuzwcbJEtQU=
+=lucH
 -----END PGP SIGNATURE-----
 
---9x2/RhAmDqLYb1/P--
+--TLZaWWfPrZXx6LHI--
 
