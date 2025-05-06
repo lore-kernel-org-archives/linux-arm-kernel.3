@@ -4,68 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1C37C3ABBC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 18:04:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2A93C3ABBC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  6 May 2025 18:06:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9VyA6iq1CHRXFz5NxsEQm0ctABLwg5Ejy4g615kyOZU=; b=MnMLoRR7FZqTq2kfwGDa13kDNw
-	/FNpoN91vai2t63s80Lvio9aXg36ccepafDDygSVsTXSC6ugSK1NKTNs2m6R48RZnbMj2f5cTYN7m
-	m5DkRoZDG9JkiAowkide2gi/YmiS2FQuxJL390ipH8B75H4o8Vv7fqNj7kBbq4ppgRIuW2FgeghPp
-	MHlebGJi3/gKgF4LlGy2TnMADIsH56BVANkcWey1KhLDVzt/KNeBxGr7T32qgstXa/2Q4x7Fe2I57
-	Wi30m6WcFywHgly+bd4o9gVo8H03K0qLa1D8NV7fS1BveBzqwPBm2vKqi+ft3EP0/0oS5rSF/KLau
-	PtkQPjLw==;
+	bh=JseNVTS5cyJQpI/Mfz9vsdQjjHZ+PMPgo17Lr4qAjrY=; b=uQbp8+ifBjA2gQLLZafvLDCXX9
+	n1/Qy3fg3daKF2tEvjLIiF3zui/fgrWCmcvzpR75Y+BgSWM824KvdrKNKfoL1sNDT/BQd4Oif2t+g
+	VAzQueYEkH+3xDsGaPmbiY/1Hg2UTYozGMQkiV/nrbzQsuyO0OxQLR4C6XfqXP5WFcm1nE2en9CKd
+	00h2Z0HPVEi3TFHlwd+hf5CVFGgdcTRgHVig+Cc5EwYpe9b9hLtMUF/PBKgYD4SFfmsWB5fPnf9TJ
+	8pkGemwmx72ZEUP1Gztds0FUiXL5oMZUJTEIM3L0XViiFF5YXdzyYrv52M1S0U/OF2e9pVZPdIlaz
+	/pF6LTtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCMev-0000000Cvpm-3c4Q;
-	Tue, 06 May 2025 18:04:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uCMgr-0000000Cw8b-2EKP;
+	Tue, 06 May 2025 18:06:49 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCHMk-0000000Btl9-2Lnz
+	id 1uCIZ1-0000000CB58-3nNy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 06 May 2025 12:25:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 492BF49FC3;
-	Tue,  6 May 2025 12:25:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FB8DC4CEED;
-	Tue,  6 May 2025 12:25:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746534342;
-	bh=b8y2q8GE/lpW2dmJu8iJNqqJM/E6ZKtJ8GNGL4ORKrs=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=GTotnHgz0xV0+fZFbBSLclZVcfl8kWyHkrVqMu97R65oT2ipe0dN3rHDZeffn0DMt
-	 6wWpOEz+VoEQI5rWjcPkA+jJd1DJYOUSesDb13IYDEM7B9Pc99GNQLQjxITAk10nNO
-	 L6WbykgH1CpFAYO3on+umZjvLWRYKctheMP7NF/oX9gn4KgLDXEw76uA6pBJa319c8
-	 UnRBy0ToAVgtwUE72y5ZqaJcsKVv/NgZ8aulLFHQH/pjmZttqDLVtt1mW+t4qZPR8Q
-	 pfUz/zplG4ADW4UxoqjBCFvW+imtpsezXnZHgkqWQbOFyqyu1wTfJhvREi0imJ/pdP
-	 iAl2SwnsrfB+Q==
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Date: Tue, 06 May 2025 14:23:52 +0200
-Subject: [PATCH v3 23/25] irqchip/gic-v5: Enable GICv5 SMP booting
+	Tue, 06 May 2025 13:42:29 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-3081f72c271so5618829a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 06 May 2025 06:42:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=lessconfused.com; s=lessconfused; t=1746538946; x=1747143746; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JseNVTS5cyJQpI/Mfz9vsdQjjHZ+PMPgo17Lr4qAjrY=;
+        b=gT1XTUKtCD1u2fraT6Gih46YWYlwgz+RxCrEWH56OJbnbyw2snNN3tDBiEVdmIbFxA
+         U8RULXTPiVAnL0ny3VTCCgfPoPlxeAS+gNIjdgfdA/qqJJhWhQFLIIyzI5JsWIt7Qn1Z
+         vQ8N2trQ4MnvXsrNoZaAjIBem0rdM6RgowZpQ=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746538946; x=1747143746;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=JseNVTS5cyJQpI/Mfz9vsdQjjHZ+PMPgo17Lr4qAjrY=;
+        b=PnVd8D1FoOWY/XMLghS0M4+2XwwVY728Lr6fgIMWzEEDEQrluL9iiDsiibZc30GkGh
+         yzbE8L1wHOwO1rz3hDuNH82PanoVEUjNq1SbM4Nb8xWr8k7V9tw20IuPctQ4bAq+HqHC
+         vjMv8slQ3QGuUn4NiV8ue+fAh9DNKVTEp1+CgDjdVx5FheHlARbRwJnFEgere5VRoJV9
+         54N/ntDXyXvA0FBpDKyYMjTMbP3jcU0sB1mP1L1AKPBV2mYKq3wZCW0b3cJ3iT+2F7oa
+         J5nTS8vnYaR7IE5Gcb/tQqdSjRKqgfmJrBHEU/acEQVS2ZS1UcBNfvBxncYMMh6XWiKV
+         NcMg==
+X-Forwarded-Encrypted: i=1; AJvYcCWfy1vEEbdfinJfol32sNsFFwtBot+/d0dOUnqxBc/uAGlanrad60T3cICjj7bEGCsCIjSW+eXuMH6cluAfl3qh@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHrdRdVE6ts/aJHcmOzpPH/00Gh23CEUjvw8LtpTFDeKZAc1fa
+	6j82F6UTA8A8IHRiuy9jqzV/3c+i6aby83tWqVxMYpKUYfwOP4Y4C3cOJ7WIQ3gp0cY75+pytnn
+	rL6smS6lqezQUzii36/PrYPfn31v/ExJMwpaZBg==
+X-Gm-Gg: ASbGncs0HPYafiUz8BYu+DPOivLVE3CDgDlQrnsXe2xMMgnRO4M8aDkxqtnSBNsJcL+
+	QJoCRf9syOpnGAcsIeoWfFTVEjTtXxd9I2SeaabrUg9wcrbyt2ohpEZlxGTVmPc46pq/Lfz6/6A
+	YPZE2GccKdgOldFN4WKUgmy2GEX3WzOpCdTRpLYkADSNt745tw9qJjgMw=
+X-Google-Smtp-Source: AGHT+IFMb+lrclQ4OPHCAh1lzSkIMnskyJOofZ7Kk/Nmt7sTAKcOTEwR67sDgAeExPy9dKzAQGA9Dqsm1s06dVSJZYE=
+X-Received: by 2002:a17:90b:5446:b0:301:a0e9:66f with SMTP id
+ 98e67ed59e1d1-30a6198e12emr19037686a91.14.1746538946445; Tue, 06 May 2025
+ 06:42:26 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250506-gicv5-host-v3-23-6edd5a92fd09@kernel.org>
-References: <20250506-gicv5-host-v3-0-6edd5a92fd09@kernel.org>
-In-Reply-To: <20250506-gicv5-host-v3-0-6edd5a92fd09@kernel.org>
-To: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, 
- Sascha Bischoff <sascha.bischoff@arm.com>, 
- Timothy Hayes <timothy.hayes@arm.com>, 
- "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
- Mark Rutland <mark.rutland@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, Lorenzo Pieralisi <lpieralisi@kernel.org>
-X-Mailer: b4 0.14.2
+References: <20250505143700.4029484-1-christianshewitt@gmail.com> <CAFBinCBmBotJL=wC2=oV-o7piGckoBvN3S6ofYh20fEP9sn4XA@mail.gmail.com>
+In-Reply-To: <CAFBinCBmBotJL=wC2=oV-o7piGckoBvN3S6ofYh20fEP9sn4XA@mail.gmail.com>
+From: Da Xue <da@lessconfused.com>
+Date: Tue, 6 May 2025 09:42:13 -0400
+X-Gm-Features: ATxdqUHU86InfKfq52zvNkEmca8096lqpeIdB0VVbLy3DnspBF4H2KEICm4USso
+Message-ID: <CACdvmAi3JbdLstkudF=Fb_O_P1GGADuubKVS6s22hvC93qz3tg@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: amlogic: sm1-bananapi: lower SD card speed
+ for stability
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: Christian Hewitt <christianshewitt@gmail.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_052542_639600_AFADF09F 
-X-CRM114-Status: GOOD (  13.16  )
+X-CRM114-CacheID: sfid-20250506_064227_933319_388BB0C9 
+X-CRM114-Status: GOOD (  20.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,79 +95,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Set up IPIs by allocating IPI IRQs for all cpus and call into
-arm64 core code to initialise IPIs IRQ descriptors and
-request the related IRQ.
+On Tue, May 6, 2025 at 2:26=E2=80=AFAM Martin Blumenstingl
+<martin.blumenstingl@googlemail.com> wrote:
+>
+> On Mon, May 5, 2025 at 4:37=E2=80=AFPM Christian Hewitt
+> <christianshewitt@gmail.com> wrote:
+> >
+> > Users report being able to boot (u-boot) from SD card but kernel
+> > init then fails to mount partitions on the card containing boot
+> > media resulting in first-boot failure. System logs show only the
+> > probe of the mmc devices: the SD card is seen, but no partitions
+> > are found so init fails to mount them and boot stalls.
+> >
+> > Reducing the speed of the SD card from 50MHz to 35MHz results in
+> > complete probing of the card and successful boot.
+> >
+> > Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
+> Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+>
+> > ---
+> > The same workaround of dropping to 35MHz is also done with the
+> > ac2xx dtsi; which has a comment about CRC errors being seen at
+> > 50MHz. It's probable this is the same although I forget now how
+> > that diagnosis was done (or who did it, Martin perhaps?).
+> Maybe Jerome helped investigate/debug? I can't recall and at the same
+> time: if it fixes the end user experience it's a win.
 
-Implement hotplug callback to enable interrupts on a cpu
-and register the cpu with an IRS.
+We had an issue too and ended up disabling MMC_MODE_HS_52MHz | MMC_MODE_HS;
 
-Co-developed-by: Sascha Bischoff <sascha.bischoff@arm.com>
-Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-Co-developed-by: Timothy Hayes <timothy.hayes@arm.com>
-Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
-Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Marc Zyngier <maz@kernel.org>
----
- drivers/irqchip/irq-gic-v5.c | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
-
-diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
-index c2c05f4411197365079c7d997665c81e3a0f4b74..e4bb02a1988b01a23db61288ff1b1fe3db02e0e4 100644
---- a/drivers/irqchip/irq-gic-v5.c
-+++ b/drivers/irqchip/irq-gic-v5.c
-@@ -5,6 +5,7 @@
- 
- #define pr_fmt(fmt)	"GICv5: " fmt
- 
-+#include <linux/cpuhotplug.h>
- #include <linux/idr.h>
- #include <linux/irqdomain.h>
- #include <linux/slab.h>
-@@ -875,6 +876,8 @@ static void gicv5_cpu_enable_interrupts(void)
- 	write_sysreg_s(cr0, SYS_ICC_CR0_EL1);
- }
- 
-+static int base_ipi_virq;
-+
- static int gicv5_starting_cpu(unsigned int cpu)
- {
- 	if (WARN(!gicv5_cpuif_has_gcie(),
-@@ -886,6 +889,22 @@ static int gicv5_starting_cpu(unsigned int cpu)
- 	return gicv5_irs_register_cpu(cpu);
- }
- 
-+static void __init gicv5_smp_init(void)
-+{
-+	unsigned int num_ipis = GICV5_IPIS_PER_CPU * nr_cpu_ids;
-+
-+	cpuhp_setup_state_nocalls(CPUHP_AP_IRQ_GIC_STARTING,
-+				  "irqchip/arm/gicv5:starting",
-+				  gicv5_starting_cpu, NULL);
-+
-+	base_ipi_virq = irq_domain_alloc_irqs(gicv5_global_data.ipi_domain,
-+					      num_ipis, NUMA_NO_NODE, NULL);
-+	if (WARN(base_ipi_virq <= 0, "IPI IRQ allocation was not successful"))
-+		return;
-+
-+	set_smp_ipi_range_percpu(base_ipi_virq, GICV5_IPIS_PER_CPU, nr_cpu_ids);
-+}
-+
- static void __init gicv5_free_domains(void)
- {
- 	if (gicv5_global_data.ppi_domain)
-@@ -1010,6 +1029,8 @@ static int __init gicv5_of_init(struct device_node *node, struct device_node *pa
- 	if (ret)
- 		goto out_int;
- 
-+	gicv5_smp_init();
-+
- 	return 0;
- out_int:
- 	gicv5_cpu_disable_interrupts();
-
--- 
-2.48.0
-
+>
+> _______________________________________________
+> linux-amlogic mailing list
+> linux-amlogic@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-amlogic
 
